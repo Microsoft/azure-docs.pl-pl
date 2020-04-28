@@ -1,7 +1,7 @@
 ---
 title: Poświadczenia certyfikatu platformy tożsamości firmy Microsoft
 titleSuffix: Microsoft identity platform
-description: W tym artykule omówiono rejestrację i używanie poświadczeń certyfikatu do uwierzytelniania aplikacji.
+description: W tym artykule omówiono rejestrację i użycie poświadczeń certyfikatu na potrzeby uwierzytelniania aplikacji.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,45 +14,45 @@ ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: d834d37f686279facf0052e3c8f4da3c8d259e0b
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81309678"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Poświadczenia certyfikatu uwierzytelniania aplikacji platformy tożsamości firmy Microsoft
 
-Platforma tożsamości firmy Microsoft umożliwia aplikacji używanie własnych poświadczeń do uwierzytelniania, na przykład w programie [OAuth 2.0 Client Credentials Grant flowv2.0](v2-oauth2-client-creds-grant-flow.md) i [przepływie w imieniu).](v2-oauth2-on-behalf-of-flow.md)
+Platforma tożsamości firmy Microsoft umożliwia aplikacji używanie własnych poświadczeń na potrzeby uwierzytelniania, na przykład w przypadku [poświadczeń klienta OAuth 2,0 Udziel flowv 2.0](v2-oauth2-client-creds-grant-flow.md) i [przepływu w imieniu użytkownika](v2-oauth2-on-behalf-of-flow.md)).
 
-Jedną z form poświadczeń, których aplikacja może używać do uwierzytelniania, jest asercja JSON Web Token(JWT) podpisana certyfikatem, który jest właścicielem aplikacji.
+Jedną z poświadczeń, których może używać aplikacja do uwierzytelniania, jest potwierdzenie tokenu sieci Web JSON (JWT) podpisane przy użyciu certyfikatu, którego właścicielem jest aplikacja.
 
 ## <a name="assertion-format"></a>Format potwierdzenia
-Platforma tożsamości firmy Microsoft Aby obliczyć twierdzenie, można użyć jednej z wielu bibliotek [tokenów sieci Web JSON](https://jwt.ms/) w wybranym języku. Informacje przenoszone przez token są następujące:
+Platforma tożsamości firmy Microsoft w celu obliczenia potwierdzenia można użyć jednej z wielu bibliotek [tokenów sieci Web JSON](https://jwt.ms/) w wybranym języku. Informacje przekazane przez token są następujące:
 
 ### <a name="header"></a>Nagłówek
 
-| Parametr |  Uwaga |
+| Parametr |  Dyskusji |
 | --- | --- |
 | `alg` | Powinien być **RS256** |
 | `typ` | Powinien być **JWT** |
-| `x5t` | Powinien być odcisk palca X.509 Certificate SHA-1 |
+| `x5t` | Powinien być odciskiem palca SHA-1 certyfikatu X. 509 |
 
-### <a name="claims-payload"></a>Roszczenia (ładunek)
+### <a name="claims-payload"></a>Oświadczenia (ładunek)
 
 | Parametr |  Uwagi |
 | --- | --- |
-| `aud` | Publiczność: Powinna być ** https://login.microsoftonline.com/ *tenant_Id*/oauth2/token** |
-| `exp` | Data wygaśnięcia: data wygaśnięcia tokenu. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0:0Z) UTC do czasu wygaśnięcia ważności tokenu.|
-| `iss` | Wystawca: powinien być client_id (Identyfikator aplikacji usługi klienta) |
-| `jti` | Identyfikator GUID: identyfikator JWT |
-| `nbf` | Nie wcześniej: data, przed którą nie można użyć tokenu. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0:0Z) UTC do czasu wystawienia tokenu. |
-| `sub` | Temat: Co `iss`do , powinien być client_id (Identyfikator aplikacji usługi klienta) |
+| `aud` | Odbiorcy: powinien być ** https://login.microsoftonline.com/ *tenant_Id*/OAuth2/token** |
+| `exp` | Data wygaśnięcia: Data wygaśnięcia tokenu. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0: 0Z) UTC do momentu wygaśnięcia ważności tokenu.|
+| `iss` | Wystawca: powinien być client_id (Identyfikator aplikacji usługi klienta). |
+| `jti` | GUID: Identyfikator JWT |
+| `nbf` | Nie przed: Data, przed upływem którego nie można użyć tokenu. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0: 0Z) UTC do momentu wystawienia tokenu. |
+| `sub` | Podmiot: jako dla `iss`, powinien być CLIENT_ID (Identyfikator aplikacji usługi klienta) |
 
 ### <a name="signature"></a>Sygnatura
 
-Podpis jest obliczany przy zastosowaniu certyfikatu zgodnie z opisem w [specyfikacji JSON Web Token RFC7519](https://tools.ietf.org/html/rfc7519)
+Sygnatura jest obliczana przy zastosowaniu certyfikatu zgodnie z opisem w [specyfikacji RFC7519 tokenu internetowego JSON](https://tools.ietf.org/html/rfc7519)
 
-## <a name="example-of-a-decoded-jwt-assertion"></a>Przykład zdekodowanego potwierdzenia JWT
+## <a name="example-of-a-decoded-jwt-assertion"></a>Przykład dekodowanego potwierdzenia JWT
 
 ```JSON
 {
@@ -73,42 +73,42 @@ Podpis jest obliczany przy zastosowaniu certyfikatu zgodnie z opisem w [specyfik
 "Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
-## <a name="example-of-an-encoded-jwt-assertion"></a>Przykład zakodowanego potwierdzenia JWT
+## <a name="example-of-an-encoded-jwt-assertion"></a>Przykład zaszyfrowanego potwierdzenia JWT
 
-Poniższy ciąg jest przykładem zakodowanej asercji. Jeśli przyjrzysz się uważnie, zauważysz trzy sekcje oddzielone kropkami (.):
+Następujący ciąg jest przykładem zaszyfrowanego potwierdzenia. Jeśli zauważysz uważnie, zobaczysz trzy sekcje oddzielone kropkami (.):
 * Pierwsza sekcja koduje nagłówek
 * Druga sekcja koduje ładunek
-* Ostatnia sekcja to podpis obliczony z certyfikatami z zawartości pierwszych dwóch sekcji
+* Ostatnia sekcja jest sygnaturą obliczaną przy użyciu certyfikatów z zawartości pierwszych dwóch sekcji
 
 ```
 "eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ubWljcm9zb2Z0b25saW5lLmNvbVwvam1wcmlldXJob3RtYWlsLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQ4NDU5MzM0MSwiaXNzIjoiOTdlMGE1YjctZDc0NS00MGI2LTk0ZmUtNWY3N2QzNWM2ZTA1IiwianRpIjoiMjJiM2JiMjYtZTA0Ni00MmRmLTljOTYtNjVkYmQ3MmMxYzgxIiwibmJmIjoxNDg0NTkyNzQxLCJzdWIiOiI5N2UwYTViNy1kNzQ1LTQwYjYtOTRmZS01Zjc3ZDM1YzZlMDUifQ.
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
-## <a name="register-your-certificate-with-microsoft-identity-platform"></a>Rejestrowanie certyfikatu na platformie tożsamości firmy Microsoft
+## <a name="register-your-certificate-with-microsoft-identity-platform"></a>Rejestrowanie certyfikatu przy użyciu platformy tożsamości firmy Microsoft
 
-Poświadczenia certyfikatu można skojarzyć z aplikacją kliencką na platformie tożsamości firmy Microsoft za pośrednictwem witryny Azure portal przy użyciu dowolnej z następujących metod:
+Poświadczenie certyfikatu można skojarzyć z aplikacją kliencką na platformie tożsamości firmy Microsoft za pośrednictwem Azure Portal przy użyciu dowolnej z następujących metod:
 
 ### <a name="uploading-the-certificate-file"></a>Przekazywanie pliku certyfikatu
 
-W rejestracji aplikacji platformy Azure dla aplikacji klienckiej:
-1. Wybierz **pozycję Certyfikaty & wpisy tajne**.
-2. Kliknij **przycisk Przekaż certyfikat** i wybierz plik certyfikatu do przekazania.
+W usłudze Azure App Registration dla aplikacji klienckiej:
+1. Wybierz pozycję **certyfikaty & wpisy tajne**.
+2. Kliknij pozycję **Przekaż certyfikat** i wybierz plik certyfikatu do przekazania.
 3. Kliknij pozycję **Add** (Dodaj).
-  Po przekazaniu certyfikatu są wyświetlane odcisk palca, data rozpoczęcia i wartości wygaśnięcia.
+  Po przekazaniu certyfikatu zostaną wyświetlone wartości odcisku palca, Data rozpoczęcia i wygaśnięcie.
 
 ### <a name="updating-the-application-manifest"></a>Aktualizowanie manifestu aplikacji
 
-Po posiadaniu certyfikatu należy obliczyć:
+Mając certyfikat, należy obliczyć:
 
-- `$base64Thumbprint`, który jest kodowaniem base64 skrótu certyfikatu
-- `$base64Value`, który jest kodowaniem base64 nieprzetworzonych danych certyfikatu
+- `$base64Thumbprint`, czyli kodowanie Base64 skrótu certyfikatu
+- `$base64Value`, czyli kodowanie Base64 danych pierwotnych certyfikatu
 
-Należy również podać identyfikator GUID, aby zidentyfikować klucz`$keyId`w manifeście aplikacji ( ).
+Należy również podać identyfikator GUID, aby zidentyfikować klucz w manifeście aplikacji (`$keyId`).
 
-W rejestracji aplikacji platformy Azure dla aplikacji klienckiej:
-1. Wybierz **manifest,** aby otworzyć manifest aplikacji.
-2. Zastąp właściwość *keyCredentials* nowymi informacjami o certyfikacie przy użyciu następującego schematu.
+W usłudze Azure App Registration dla aplikacji klienckiej:
+1. Wybierz pozycję **manifest** , aby otworzyć manifest aplikacji.
+2. Zastąp Właściwość *poświadczeniami* , podając nowe informacje o certyfikacie, korzystając z poniższego schematu.
 
    ```JSON
    "keyCredentials": [
@@ -121,13 +121,13 @@ W rejestracji aplikacji platformy Azure dla aplikacji klienckiej:
        }
    ]
    ```
-3. Zapisz zmiany w manifeście aplikacji, a następnie przekaż manifest do platformy tożsamości firmy Microsoft.
+3. Zapisz zmiany w manifeście aplikacji, a następnie Przekaż manifest do platformy tożsamości firmy Microsoft.
 
-   Właściwość `keyCredentials` jest wielowartościowa, więc można przekazać wiele certyfikatów dla bogatsze zarządzanie kluczami.
+   `keyCredentials` Właściwość jest wielowartościowa, więc można przekazać wiele certyfikatów do rozbudowanego zarządzania kluczami.
 
 ## <a name="code-sample"></a>Przykład kodu
 
 > [!NOTE]
-> Nagłówek X5T należy obliczyć, konwertując go na podstawowy ciąg 64 przy użyciu skrótu certyfikatu. Kod do wykonania tego w `System.Convert.ToBase64String(cert.GetCertHash());`języku C# jest .
+> Należy obliczyć nagłówek X5T, konwertując go na podstawowy ciąg 64 przy użyciu skrótu certyfikatu. Kod, który ma być wykonywany w języku `System.Convert.ToBase64String(cert.GetCertHash());`C#, to.
 
-Przykładowy kod [.NET Core demona aplikacji konsoli przy użyciu platformy tożsamości firmy Microsoft](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) pokazuje, jak aplikacja używa własnych poświadczeń do uwierzytelniania. Pokazano również, jak można [utworzyć certyfikat z podpisem własnym](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) za pomocą polecenia `New-SelfSignedCertificate` programu Powershell. Można również skorzystać i używać [skryptów tworzenia aplikacji](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) do tworzenia certyfikatów, obliczania odcisku palca i tak dalej.
+Przykład kodu [Aplikacja konsolowa demona .NET Core przy użyciu platformy tożsamości firmy Microsoft](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) pokazuje, jak aplikacja korzysta z własnych poświadczeń do uwierzytelniania. Przedstawiono w `New-SelfSignedCertificate` nim również, jak [utworzyć certyfikat z](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) podpisem własnym za pomocą polecenia programu PowerShell. Możesz również wykorzystać [Skrypty tworzenia aplikacji](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) do tworzenia certyfikatów, obliczania odcisku palca i tak dalej.

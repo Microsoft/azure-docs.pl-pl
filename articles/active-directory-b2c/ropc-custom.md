@@ -1,7 +1,7 @@
 ---
 title: Konfigurowanie przepływu poświadczeń hasła właściciela zasobu przy użyciu zasad niestandardowych
 titleSuffix: Azure AD B2C
-description: Dowiedz się, jak skonfigurować przepływ poświadczeń haseł właściciela zasobu (ROPC) przy użyciu zasad niestandardowych w usłudze Azure Active Directory B2C.
+description: Informacje o konfigurowaniu przepływu poświadczeń hasła właściciela zasobu (ROPC) przy użyciu zasad niestandardowych w programie Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,32 +12,32 @@ ms.date: 04/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 207f4aecfb57480293c138c95ed6e8f6562bbc7b
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529162"
 ---
-# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurowanie przepływu poświadczeń haseł właściciela zasobu w usłudze Azure Active Directory B2C przy użyciu zasad niestandardowych
+# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurowanie przepływu poświadczeń hasła właściciela zasobu w Azure Active Directory B2C przy użyciu zasad niestandardowych
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-W usłudze Azure Active Directory B2C (Azure AD B2C) przepływ poświadczeń hasła właściciela zasobu (ROPC) jest przepływem uwierzytelniania standardowego OAuth. W tym przepływie aplikacja, znany również jako jednostki uzależniającej, wymienia prawidłowe poświadczenia tokenów. Poświadczenia zawierają identyfikator użytkownika i hasło. Tokeny zwrócone są token identyfikator, token dostępu i token odświeżania.
+W Azure Active Directory B2C (Azure AD B2C) przepływ poświadczeń hasła właściciela zasobu (ROPC) jest standardowym przepływem uwierzytelniania OAuth. W tym przepływie aplikacja, nazywana również jednostką uzależnioną, wymienia prawidłowe poświadczenia dla tokenów. Poświadczenia zawierają identyfikator użytkownika i hasło. Zwracane tokeny są tokenem identyfikatora, tokenem dostępu i tokenem odświeżania.
 
 [!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Wykonaj kroki opisane w [wprowadzenie do niestandardowych zasad w usłudze Azure Active Directory B2C](custom-policy-get-started.md).
+Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure Active Directory B2C](custom-policy-get-started.md).
 
 ## <a name="register-an-application"></a>Rejestrowanie aplikacji
 
 [!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
-##  <a name="create-a-resource-owner-policy"></a>Tworzenie zasad właściciela zasobów
+##  <a name="create-a-resource-owner-policy"></a>Tworzenie zasad właściciela zasobu
 
-1. Otwórz plik *TrustFrameworkExtensions.xml.*
-2. Jeśli jeszcze nie istnieje, dodaj **element ClaimsSchema** i jego elementy podrzędne jako pierwszy element w obszarze **BuildingBlocks** element:
+1. Otwórz plik *TrustFrameworkExtensions. XML* .
+2. Jeśli jeszcze nie istnieje, Dodaj element **ClaimsSchema** i jego elementy podrzędne jako pierwszy element w elemencie **BuildingBlocks** :
 
     ```XML
     <ClaimsSchema>
@@ -60,7 +60,7 @@ Wykonaj kroki opisane w [wprowadzenie do niestandardowych zasad w usłudze Azure
     </ClaimsSchema>
     ```
 
-3. Po **ClaimsSchema**, dodaj **ClaimsTransformations** element i jego elementy podrzędne do **BuildingBlocks** elementu:
+3. Po **ClaimsSchema**Dodaj element **ClaimsTransformations** i jego elementy podrzędne do elementu **BuildingBlocks** :
 
     ```XML
     <ClaimsTransformations>
@@ -86,7 +86,7 @@ Wykonaj kroki opisane w [wprowadzenie do niestandardowych zasad w usłudze Azure
     </ClaimsTransformations>
     ```
 
-4. Znajdź **ClaimsProvider** element, który ma `Local Account SignIn` **DisplayName** i dodać następujący profil techniczny:
+4. Znajdź element **ClaimsProvider** , który ma wartość **DisplayName** `Local Account SignIn` i Dodaj następujący profil techniczny:
 
     ```XML
     <TechnicalProfile Id="ResourceOwnerPasswordCredentials-OAUTH2">
@@ -124,9 +124,9 @@ Wykonaj kroki opisane w [wprowadzenie do niestandardowych zasad w usłudze Azure
     </TechnicalProfile>
     ```
 
-    Zastąp **DefaultValue** **client_id** identyfikatorem aplikacji ProxyIdentityExperienceFramework, który został utworzony w samouczku warunek wstępny. Następnie zastąp **DefaultValue** **resource_id** identyfikatorem aplikacji IdentityExperienceFramework, który został również utworzony w samouczku warunek wstępny.
+    Zastąp wartość **DefaultValue** dla **Client_id** identyfikatorem aplikacji aplikacji ProxyIdentityExperienceFramework utworzonej w samouczku dotyczącym wymagań wstępnych. Następnie Zastąp wartość **DefaultValue** dla **Resource_id** identyfikatorem aplikacji aplikacji IdentityExperienceFramework, która została również utworzona w samouczku wymagań wstępnych.
 
-5. Dodaj następujące **ClaimsProvider** elementów z ich profili technicznych do **ClaimsProviders** elementu:
+5. Dodaj następujące elementy **ClaimsProvider** z ich profilami technicznymi do elementu **ClaimsProviders** :
 
     ```XML
     <ClaimsProvider>
@@ -180,7 +180,7 @@ Wykonaj kroki opisane w [wprowadzenie do niestandardowych zasad w usłudze Azure
     </ClaimsProvider>
     ```
 
-6. Dodaj **userJourneys** element i jego elementy podrzędne do **TrustFrameworkPolicy** element:
+6. Dodaj element **UserJourneys** i jego elementy podrzędne do elementu **TrustFrameworkPolicy** :
 
     ```XML
     <UserJourney Id="ResourceOwnerPasswordCredentials">
@@ -217,18 +217,18 @@ Wykonaj kroki opisane w [wprowadzenie do niestandardowych zasad w usłudze Azure
     </UserJourney>
     ```
 
-7. Na stronie **Zasady niestandardowe** w dzierżawie usługi Azure AD B2C wybierz pozycję **Przekaż zasady**.
-8. Włącz **zastępowanie zasad, jeśli istnieje**, a następnie przejdź do pliku *TrustFrameworkExtensions.xml.*
+7. Na stronie **zasady niestandardowe** w dzierżawie Azure AD B2C wybierz pozycję **Przekaż zasady**.
+8. Włącz **Zastępowanie zasad, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustFrameworkExtensions. XML* .
 9. Kliknij pozycję **Przekaż**.
 
-## <a name="create-a-relying-party-file"></a>Tworzenie pliku jednostki uzależniającej
+## <a name="create-a-relying-party-file"></a>Utwórz plik jednostki uzależnionej
 
-Następnie zaktualizuj plik jednostki uzależniającej, który inicjuje proces użytkownika, który został utworzony:
+Następnie zaktualizuj plik jednostki uzależnionej inicjujący utworzoną przez Ciebie podróż użytkownika:
 
-1. Zrób kopię pliku *SignUpOrSignin.xml* w katalogu roboczym i zmień jego nazwę na *ROPC_Auth.xml*.
+1. Utwórz kopię pliku *SignUpOrSignin. XML* w katalogu roboczym i zmień jego nazwę na *ROPC_Auth. XML*.
 2. Otwórz nowy plik i zmień wartość atrybutu **PolicyId** dla **TrustFrameworkPolicy** na unikatową wartość. Identyfikator zasad to nazwa zasad. Na przykład **B2C_1A_ROPC_Auth**.
-3. Zmień wartość atrybutu **ReferenceId** w **defaultuserJourney** na `ResourceOwnerPasswordCredentials`.
-4. Zmień **OutputClaims** element zawierać tylko następujące oświadczenia:
+3. Zmień wartość atrybutu **ReferenceId** w **DefaultUserJourney** na `ResourceOwnerPasswordCredentials`.
+4. Zmień element **OutputClaims** tak, aby zawierał tylko następujące oświadczenia:
 
     ```XML
     <OutputClaim ClaimTypeReferenceId="sub" />
@@ -238,34 +238,34 @@ Następnie zaktualizuj plik jednostki uzależniającej, który inicjuje proces u
     <OutputClaim ClaimTypeReferenceId="surname" DefaultValue="" />
     ```
 
-5. Na stronie **Zasady niestandardowe** w dzierżawie usługi Azure AD B2C wybierz pozycję **Przekaż zasady**.
-6. Włącz **zastępowanie zasad, jeśli istnieje,** a następnie przejdź do pliku *ROPC_Auth.xml.*
+5. Na stronie **zasady niestandardowe** w dzierżawie Azure AD B2C wybierz pozycję **Przekaż zasady**.
+6. Włącz **Zastępowanie zasad, jeśli istnieje**, a następnie wyszukaj i wybierz plik *ROPC_Auth. XML* .
 7. Kliknij pozycję **Przekaż**.
 
 ## <a name="test-the-policy"></a>Testowanie zasad
 
-Użyj aplikacji programowania interfejsu API do generowania wywołania interfejsu API i przejrzenia odpowiedzi do debugowania zasad. Skonstruuj wywołanie, takie jak w tym przykładzie, z następującymi informacjami jako treścią żądania POST:
+Użyj ulubionej aplikacji do programowania interfejsów API do wygenerowania wywołania interfejsu API i przejrzyj odpowiedź na Debugowanie zasad. Utwórz wywołanie podobne do tego przykładu, używając następujących informacji jako treści żądania POST:
 
 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-- Zamień `your-tenant-name` na nazwę dzierżawy usługi Azure AD B2C.
-- Zastąp `B2C_1A_ROPC_Auth` pełną nazwą zasad poświadczeń haseł właściciela zasobu.
+- Zamień `your-tenant-name` na nazwę dzierżawy Azure AD B2C.
+- Zastąp `B2C_1A_ROPC_Auth` pełną nazwą zasad poświadczeń hasła właściciela zasobu.
 
-| Klucz | Wartość |
+| Key | Wartość |
 | --- | ----- |
 | nazwa użytkownika | `user-account` |
 | hasło | `password1` |
 | grant_type | hasło |
-| scope | offline_access `application-id` openid |
+| scope | OpenID Connect `application-id` offline_access |
 | client_id | `application-id` |
-| response_type | id_token tokenów |
+| response_type | id_token tokenu |
 
 - Zamień `user-account` na nazwę konta użytkownika w dzierżawie.
 - Zamień `password1` na hasło konta użytkownika.
-- Zastąp `application-id` identyfikator aplikacji z *ROPC_Auth_app* rejestracji.
-- *Offline_access* jest opcjonalne, jeśli chcesz otrzymać token odświeżania.
+- Zamień `application-id` na identyfikator aplikacji z rejestracji *ROPC_Auth_app* .
+- *Offline_access* jest opcjonalne, jeśli chcesz otrzymać token odświeżenia.
 
-Rzeczywiste żądanie POST wygląda następująco:
+Rzeczywiste żądanie POST wygląda podobnie do poniższego przykładu:
 
 ```HTTPS
 POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
@@ -275,7 +275,7 @@ Content-Type: application/x-www-form-urlencoded
 username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
 ```
 
-Pomyślna odpowiedź z dostępem w trybie offline wygląda następująco:
+Pomyślna odpowiedź z dostępem w trybie offline wygląda podobnie do poniższego przykładu:
 
 ```JSON
 {
@@ -287,16 +287,16 @@ Pomyślna odpowiedź z dostępem w trybie offline wygląda następująco:
 }
 ```
 
-## <a name="redeem-a-refresh-token"></a>Realizacja tokenu odświeżania
+## <a name="redeem-a-refresh-token"></a>Zrealizuj token odświeżania
 
-Skonstruuj wywołanie POST, takie jak pokazane tutaj. Użyj informacji w poniższej tabeli jako treść żądania:
+Utwórz wywołanie POST podobne do pokazanego tutaj. Użyj informacji w poniższej tabeli jako treści żądania:
 
 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-- Zamień `your-tenant-name` na nazwę dzierżawy usługi Azure AD B2C.
-- Zastąp `B2C_1A_ROPC_Auth` pełną nazwą zasad poświadczeń haseł właściciela zasobu.
+- Zamień `your-tenant-name` na nazwę dzierżawy Azure AD B2C.
+- Zastąp `B2C_1A_ROPC_Auth` pełną nazwą zasad poświadczeń hasła właściciela zasobu.
 
-| Klucz | Wartość |
+| Key | Wartość |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
@@ -304,10 +304,10 @@ Skonstruuj wywołanie POST, takie jak pokazane tutaj. Użyj informacji w poniżs
 | zasób | `application-id` |
 | refresh_token | `refresh-token` |
 
-- Zastąp `application-id` identyfikator aplikacji z *ROPC_Auth_app* rejestracji.
-- Zamień `refresh-token` **na refresh_token,** który został odesłany w poprzedniej odpowiedzi.
+- Zamień `application-id` na identyfikator aplikacji z rejestracji *ROPC_Auth_app* .
+- Zamień `refresh-token` na **refresh_token** , który został wysłany z powrotem w poprzedniej odpowiedzi.
 
-Pomyślna odpowiedź wygląda następująco:
+Pomyślna odpowiedź wygląda podobnie do poniższego przykładu:
 
 ```JSON
 {
@@ -325,11 +325,11 @@ Pomyślna odpowiedź wygląda następująco:
 }
 ```
 
-## <a name="use-a-native-sdk-or-app-auth"></a>Korzystanie z natywnego sdk lub app-auth
+## <a name="use-a-native-sdk-or-app-auth"></a>Korzystanie z natywnego zestawu SDK lub aplikacji — uwierzytelnianie
 
-Usługa Azure AD B2C spełnia standardy OAuth 2.0 dla poświadczeń haseł właściciela zasobów klienta publicznego i powinna być zgodna z większością zestawów SDK klienta. Aby uzyskać najnowsze informacje, zobacz [Native App SDK dla OAuth 2.0 i OpenID Connect implementując nowoczesne najlepsze rozwiązania](https://appauth.io/).
+Azure AD B2C są zgodne ze standardami OAuth 2,0 dla poświadczeń hasła właściciela publicznego zasobu klienta i powinny być kompatybilne z większością zestawów SDK klienta. Najnowsze informacje znajdują się w temacie [Native App SDK for OAuth 2,0 i OpenID Connect Connect implementujące nowoczesne najlepsze rozwiązania](https://appauth.io/).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz pełny przykład tego scenariusza w [pakiecie startowym zasad niestandardowych usługi Azure Active Directory B2C](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
-- Dowiedz się więcej o tokenach używanych przez usługę Azure Active Directory B2C w [odwołaniu do tokenu.](tokens-overview.md)
+- Zapoznaj się z pełnym przykładem w tym scenariuszu w [pakiecie startowym zasad niestandardowych Azure Active Directory B2C](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
+- Dowiedz się więcej o tokenach, które są używane przez Azure Active Directory B2C w [odwołaniu do tokenu](tokens-overview.md).

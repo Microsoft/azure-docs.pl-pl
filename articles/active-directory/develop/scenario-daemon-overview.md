@@ -1,6 +1,6 @@
 ---
-title: Tworzenie aplikacji demona, która wywołuje internetowe interfejsy API - platforma tożsamości firmy Microsoft | Azure
-description: Dowiedz się, jak utworzyć aplikację demona, która wywołuje internetowe interfejsy API
+title: Tworzenie aplikacji demona, która wywołuje interfejsy API sieci Web — Microsoft Identity platform | Azure
+description: Dowiedz się, jak utworzyć aplikację demona, która wywołuje interfejsy API sieci Web
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,15 +12,15 @@ ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: df06c4c55941f4424d6b90d2846af17bf055b2e4
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885467"
 ---
-# <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenariusz: Aplikacja demona, która wywołuje internetowe interfejsy API
+# <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenariusz: aplikacja demona, która wywołuje interfejsy API sieci Web
 
-Dowiedz się wszystkiego, czego potrzebujesz, aby utworzyć aplikację demona, która wywołuje internetowe interfejsy API.
+Dowiedz się, co należy zrobić, aby utworzyć aplikację demona, która wywołuje interfejsy API sieci Web.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -28,38 +28,38 @@ Dowiedz się wszystkiego, czego potrzebujesz, aby utworzyć aplikację demona, k
 
 ## <a name="overview"></a>Omówienie
 
-Aplikacja może uzyskać token do wywoływania internetowego interfejsu API w imieniu samym (nie w imieniu użytkownika). Ten scenariusz jest przydatny w aplikacjach demonów. Używa standardowej dotacji [poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md) OAuth 2.0.
+Aplikacja może uzyskać token wywołujący internetowy interfejs API w imieniu samego siebie (nie w imieniu użytkownika). Ten scenariusz jest przydatny w przypadku aplikacji demona. Używa on standardowego udzielenia [poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md) OAuth 2,0.
 
 ![Aplikacje demona](./media/scenario-daemon-app/daemon-app.svg)
 
-Oto kilka przykładów przypadków użycia aplikacji demonów:
+Oto przykładowe przypadki użycia dla aplikacji demonów:
 
-- Aplikacje sieci Web używane do inicjowania obsługi administracyjnej lub administrowania użytkownikami lub wykonywania procesów wsadowych w katalogu
-- Aplikacje klasyczne (takie jak usługi Windows w systemie Windows lub procesy demonów w systemie Linux), które wykonują zadania wsadowe lub usługa systemu operacyjnego działająca w tle
-- Interfejsy API sieci Web, które muszą manipulować katalogami, a nie określonymi użytkownikami
+- Aplikacje sieci Web, które są używane do aprowizacji lub administrowania użytkownikami lub wykonywania procesów wsadowych w katalogu
+- Aplikacje klasyczne (takie jak usługi systemu Windows w ramach procesów systemu Windows lub demonów w systemie Linux) wykonujące zadania wsadowe lub usługę systemu operacyjnego działającą w tle
+- Interfejsy API sieci Web, które wymagają manipulowania katalogami, a nie określonymi użytkownikami
 
-Istnieje inny typowy przypadek, w którym aplikacje niebędące demonami używają poświadczeń klienta: nawet jeśli działają w imieniu użytkowników, muszą uzyskać dostęp do internetowego interfejsu API lub zasobu pod własną tożsamością ze względów technicznych. Przykładem jest dostęp do wpisów tajnych w usłudze Azure Key Vault lub bazy danych SQL platformy Azure dla pamięci podręcznej.
+Istnieje inny typowy przypadek, w którym aplikacje niedemonowe korzystają z poświadczeń klienta: nawet jeśli działają w imieniu użytkowników, muszą uzyskać dostęp do internetowego interfejsu API lub zasobu w ramach swojej tożsamości ze względów technicznych. Przykładem jest dostęp do wpisów tajnych w Azure Key Vault lub bazy danych Azure SQL Database dla pamięci podręcznej.
 
-Aplikacje, które nabywają token dla własnych tożsamości:
+Aplikacje, które uzyskują token dla własnych tożsamości:
 
-- Są poufne aplikacje klienckie. Te aplikacje, biorąc pod uwagę, że uzyskują dostęp do zasobów niezależnie od użytkowników, muszą udowodnić swoją tożsamość. Są to również dość poufne aplikacje. Muszą one zostać zatwierdzone przez administratorów dzierżawy usługi Azure Active Directory (Azure AD).
-- Zarejestrowałeś klucz tajny (hasło aplikacji lub certyfikat) w usłudze Azure AD. Ten klucz tajny jest przekazywany podczas wywołania usługi Azure AD, aby uzyskać token.
+- Są poufnymi aplikacjami klienckimi. Te aplikacje, z uwzględnieniem, że uzyskują dostęp do zasobów niezależnie od użytkowników, muszą udowodnić swoją tożsamość. Są one również raczej poufnymi aplikacjami. Muszą zostać zatwierdzone przez administratorów dzierżawy usługi Azure Active Directory (Azure AD).
+- Zarejestrowano wpis tajny (hasło aplikacji lub certyfikat) w usłudze Azure AD. Ten wpis tajny jest przesyłany podczas wywołania usługi Azure AD w celu uzyskania tokenu.
 
-## <a name="specifics"></a>Specyfiki
+## <a name="specifics"></a>Szczegółowych informacji
 
 > [!IMPORTANT]
 >
-> - Użytkownicy nie mogą wchodzić w interakcje z aplikacją demona. Aplikacja demona wymaga własnej tożsamości. Ten typ aplikacji żąda tokenu dostępu przy użyciu jego tożsamości aplikacji i prezentacji jego identyfikator aplikacji, poświadczenia (hasło lub certyfikat) i identyfikatora aplikacji identyfikator URI do usługi Azure AD. Po pomyślnym uwierzytelnieniu demon odbiera token dostępu (i token odświeżania) z punktu końcowego platformy tożsamości firmy Microsoft. Ten token jest następnie używany do wywoływania internetowego interfejsu API (i jest odświeżany w razie potrzeby).
-> - Ponieważ użytkownicy nie mogą wchodzić w interakcje z aplikacjami demonów, przyrostowa zgoda nie jest możliwa. Wszystkie wymagane uprawnienia interfejsu API muszą być skonfigurowane podczas rejestracji aplikacji. Kod aplikacji po prostu żąda statycznie zdefiniowanych uprawnień. Oznacza to również, że aplikacje demonów nie będą obsługiwać przyrostowej zgody.
+> - Użytkownicy nie mogą korzystać z aplikacji demona. Aplikacja demona wymaga własnej tożsamości. Ten typ aplikacji żąda tokenu dostępu przy użyciu tożsamości aplikacji i prezentuje identyfikator aplikacji, poświadczenia (hasło lub certyfikat) i identyfikator URI aplikacji do usługi Azure AD. Po pomyślnym uwierzytelnieniu demon otrzymuje token dostępu (i token odświeżania) z punktu końcowego platformy tożsamości firmy Microsoft. Token ten jest następnie używany do wywoływania internetowego interfejsu API (i jest odświeżany w razie potrzeby).
+> - Ze względu na to, że użytkownicy nie mogą korzystać z aplikacji demona, nie jest możliwe przeprowadzenie zgody Przed zarejestrowaniem aplikacji należy skonfigurować wszystkie wymagane uprawnienia interfejsu API. Kod aplikacji po prostu żąda uprawnień zdefiniowanych statycznie. Oznacza to również, że aplikacje demona nie obsługują przyrostowej zgody.
 
 Dla deweloperów kompleksowe środowisko dla tego scenariusza ma następujące aspekty:
 
-- Aplikacje demonów mogą działać tylko w dzierżawach usługi Azure AD. Nie ma sensu tworzyć aplikacji demona, która próbuje manipulować kontami osobistymi Microsoft. Jeśli jesteś deweloperem aplikacji biznesowej (LOB), utworzysz aplikację demona w dzierżawie. Jeśli jesteś niezależną instytucją życiorysową, możesz utworzyć wielodożliwą aplikację demona. Każdy administrator dzierżawy będzie musiał wyrazić zgodę.
-- Podczas [rejestracji aplikacji](./scenario-daemon-app-registration.md)identyfikator URI odpowiedzi nie jest potrzebny. Musisz udostępnić wpisy tajne lub certyfikaty lub podpisane potwierdzenia z usługą Azure AD. Należy również poprosić o uprawnienia aplikacji i udzielić zgody administratora na korzystanie z tych uprawnień aplikacji.
-- [Konfiguracja aplikacji](./scenario-daemon-app-configuration.md) musi dostarczyć poświadczenia klienta udostępnione za pomocą usługi Azure AD podczas rejestracji aplikacji.
+- Aplikacje demonów mogą funkcjonować tylko w dzierżawach usługi Azure AD. Nie ma sensu Tworzenie aplikacji demona próbującej manipulować kontami osobistymi firmy Microsoft. Jeśli jesteś deweloperem aplikacji biznesowych (LOB), utworzysz aplikację demona w dzierżawie. Jeśli jesteś niezależnym dostawcą oprogramowania, możesz chcieć utworzyć aplikację demona wielodostępna. Każdy administrator dzierżawy będzie musiał wyrazić zgodę.
+- Podczas [rejestracji aplikacji](./scenario-daemon-app-registration.md)identyfikator URI odpowiedzi nie jest wymagany. Musisz udostępnić wpisy tajne lub certyfikaty lub potwierdzenia z usługą Azure AD. Musisz również zażądać uprawnień aplikacji i udzielić zgody administratorowi na korzystanie z tych uprawnień aplikacji.
+- [Konfiguracja aplikacji](./scenario-daemon-app-configuration.md) wymaga podania poświadczeń klienta jako współużytkowanych z usługą Azure AD podczas rejestracji aplikacji.
 - [Zakres](scenario-daemon-acquire-token.md#scopes-to-request) używany do uzyskiwania tokenu z przepływem poświadczeń klienta musi być zakresem statycznym.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Aplikacja Daemon - rejestracja aplikacji](./scenario-daemon-app-registration.md)
+> [Aplikacja demona — Rejestracja aplikacji](./scenario-daemon-app-registration.md)

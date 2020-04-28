@@ -1,6 +1,6 @@
 ---
-title: Dowiedz się, jak działa inicjowanie obsługi administracyjnej usługi Azure AD | Dokumenty firmy Microsoft
-description: Dowiedz się, jak działa inicjowanie obsługi administracyjnej usługi Azure AD
+title: Informacje o sposobie działania aprowizacji usługi Azure AD | Microsoft Docs
+description: Informacje o działaniu aprowizacji usługi Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,179 +16,179 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 241d90981ed9ba54d253e6c22c00f9e5a9197863
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884889"
 ---
 # <a name="how-provisioning-works"></a>Jak działa aprowizacja
 
-Automatyczne inicjowanie obsługi administracyjnej odnosi się do tworzenia tożsamości użytkowników i ról w aplikacjach w chmurze, do których użytkownicy potrzebują dostępu. Oprócz tworzenia tożsamości użytkowników automatyczne inicjowanie obsługi administracyjnej obejmuje obsługę i usuwanie tożsamości użytkowników w miarę zmiany stanu lub ról. Przed rozpoczęciem wdrażania można przejrzeć ten artykuł, aby dowiedzieć się, jak działa aprowisja usługi Azure AD i uzyskać zalecenia dotyczące konfiguracji. 
+Automatyczne Inicjowanie obsługi odnosi się do tworzenia tożsamości i ról użytkowników w aplikacjach w chmurze, do których użytkownicy potrzebują dostępu. Oprócz tworzenia tożsamości użytkowników automatyczne Inicjowanie obsługi obejmuje konserwację i usuwanie tożsamości użytkowników jako zmiany stanu lub ról. Przed rozpoczęciem wdrażania możesz przejrzeć ten artykuł, aby dowiedzieć się, jak działa usługa Azure AD i uzyskać zalecenia dotyczące konfiguracji. 
 
-**Usługa inicjowania obsługi administracyjnej usługi Azure AD** udostępnia użytkownikom aplikacje SaaS i inne systemy, łącząc się z punktem końcowym interfejsu API zarządzania tożsamościami między domenami (SCIM) 2.0 dostarczonym przez dostawcę aplikacji. Ten punkt końcowy scim umożliwia usługi Azure AD programowo tworzyć, aktualizować i usuwać użytkowników. W przypadku wybranych aplikacji usługa inicjowania obsługi administracyjnej może również tworzyć, aktualizować i usuwać dodatkowe obiekty związane z tożsamością, takie jak grupy i role. Kanał używany do inicjowania obsługi administracyjnej między usługą Azure AD a aplikacją jest szyfrowany przy użyciu szyfrowania PROTOKOŁU TLS HTTPS.
+**Usługa Azure AD Provisioning** udostępnia użytkownikom SaaS aplikacje i inne systemy, łącząc się z systemem dla punktu końcowego interfejsu API zarządzania tożsamościami w wielu domenach (standard scim) 2,0 przez dostawcę aplikacji. Ten punkt końcowy Standard scim umożliwia usłudze Azure AD Programistyczne tworzenie, aktualizowanie i usuwanie użytkowników. W przypadku wybranych aplikacji usługa aprowizacji może również tworzyć, aktualizować i usuwać dodatkowe obiekty powiązane z tożsamościami, takie jak grupy i role. Kanał używany do aprowizacji między usługą Azure AD a aplikacją jest szyfrowany przy użyciu szyfrowania HTTPS TLS.
 
 
-![Usługa inicjowania obsługi administracyjnej usługi](./media/how-provisioning-works/provisioning0.PNG)
-Azure AD*Rysunek 1: Usługa inicjowania obsługi administracyjnej usługi Azure AD*
+![Azure AD Provisioning Service](./media/how-provisioning-works/provisioning0.PNG)
+ *— rysunek 1: usługa Azure AD Provisioning*
 
-![Przepływ](./media/how-provisioning-works/provisioning1.PNG)
-pracy inicjowania obsługi administracyjnej użytkowników wychodzących*Rysunek 2: przepływ pracy inicjowania obsługi administracyjnej użytkownika "wychodzący" z usługi Azure AD do popularnych aplikacji SaaS*
+![Przepływ pracy](./media/how-provisioning-works/provisioning1.PNG)
+aprowizacji użytkowników wychodzących*rysunek 2: "wychodzące" przepływ pracy aprowizacji użytkowników z usługi Azure AD do popularnych aplikacji SaaS*
 
-![Przepływ](./media/how-provisioning-works/provisioning2.PNG)
-pracy inicjowania obsługi administracyjnej użytkowników przychodzących*Rysunek 3: Przepływ pracy inicjowania obsługi administracyjnej użytkowników przychodzących z popularnych aplikacji zarządzania kapitałem ludzkim (HCM) do usługi Azure Active Directory i usługi Windows Server Active Directory*
+![Przepływ pracy](./media/how-provisioning-works/provisioning2.PNG)
+aprowizacji przychodzących użytkowników *— rysunek 3: "przychodzący" przepływ pracy aprowizacji użytkowników z popularnych aplikacji do zarządzania stolicą Kadr (HCM) do Azure Active Directory i systemu Windows Server Active Directory*
 
-## <a name="provisioning-using-scim-20"></a>Inicjowanie obsługi administracyjnej przy użyciu języka SCIM 2.0
+## <a name="provisioning-using-scim-20"></a>Inicjowanie obsługi przy użyciu Standard scim 2,0
 
-Usługa inicjowania obsługi administracyjnej usługi Azure AD używa [protokołu SCIM 2.0](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) do automatycznego inicjowania obsługi administracyjnej. Usługa łączy się z punktem końcowym SCIM dla aplikacji i używa schematu obiektu użytkownika SCIM i interfejsów API REST do automatyzacji inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej użytkowników i grup. Łącznik inicjowania obsługi administracyjnej oparty na mechanizmie SCIM jest dostępna dla większości aplikacji w galerii usługi Azure AD. Podczas tworzenia aplikacji dla usługi Azure AD deweloperzy mogą używać interfejsu API zarządzania użytkownikami SCIM 2.0 do tworzenia punktu końcowego scim, który integruje usługę Azure AD do inicjowania obsługi administracyjnej. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie punktu końcowego SCIM i konfigurowanie inicjowania obsługi administracyjnej użytkowników](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+Usługa Azure AD Provisioning używa [protokołu standard scim 2,0](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) do automatycznej aprowizacji. Usługa nawiązuje połączenie z punktem końcowym usługi Standard scim dla aplikacji, a następnie używa schematu obiektów użytkownika Standard scim i interfejsów API REST w celu zautomatyzowania aprowizacji i anulowania aprowizacji użytkowników i grup. Łącznik aprowizacji oparty na Standard scim jest dostępny dla większości aplikacji w galerii usługi Azure AD. Podczas kompilowania aplikacji dla usługi Azure AD deweloperzy mogą używać interfejsu API zarządzania użytkownikami Standard scim 2,0 do kompilowania punktu końcowego Standard scim, który integruje usługę Azure AD na potrzeby aprowizacji. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
-Aby zażądać automatycznego łącznika inicjowania obsługi administracyjnej usługi Azure AD dla aplikacji, która obecnie go nie ma, wypełnij [żądanie aplikacji usługi Azure Active Directory](https://aka.ms/aadapprequest).
+Aby zażądać automatycznego łącznika aprowizacji usługi Azure AD dla aplikacji, która aktualnie nie ma, Wypełnij [Azure Active Directory żądanie aplikacji](https://aka.ms/aadapprequest).
 
 ## <a name="authorization"></a>Autoryzacja
 
-Poświadczenia są wymagane dla usługi Azure AD, aby połączyć się z interfejsem API zarządzania użytkownikami aplikacji. Podczas konfigurowania automatycznego inicjowania obsługi administracyjnej dla aplikacji, należy wprowadzić prawidłowe poświadczenia. Można znaleźć typy poświadczeń i wymagania dla aplikacji, odwołując się do samouczka aplikacji. W witrynie Azure portal można przetestować poświadczenia, korzystając z próby połączenia usługi Azure AD z aplikacją inicjującą inicjowanie obsługi administracyjnej aplikacji przy użyciu podanych poświadczeń.
+Poświadczenia są wymagane do nawiązania połączenia z interfejsem API zarządzania użytkownikami aplikacji za pomocą usługi Azure AD. Podczas konfigurowania automatycznej aprowizacji użytkowników dla aplikacji należy wprowadzić prawidłowe poświadczenia. Typy poświadczeń i wymagania dotyczące aplikacji można znaleźć, odwołując się do samouczka dotyczącego aplikacji. W Azure Portal będziesz mieć możliwość przetestowania poświadczeń, ponieważ usługa Azure AD podejmie próbę nawiązania połączenia z aplikacją aprowizacji aplikacji przy użyciu podanych poświadczeń.
 
-Jeśli samol oparte logowanie jednokrotne jest również skonfigurowany dla aplikacji, wewnętrzny limit magazynu usługi Azure AD dla aplikacji jest 1024 bajtów. Ten limit obejmuje wszystkie certyfikaty, tajne tokeny, poświadczenia i powiązane dane konfiguracyjne skojarzone z pojedynczym wystąpieniem aplikacji (znany również jako rekord jednostki usługi w usłudze Azure AD). Po skonfigurowaniu logowania jednokrotnego opartego na saml certyfikat używany do podpisywania tokenów SAML często zużywa ponad 50% procent miejsca. Wszelkie dodatkowe elementy (tajne tokeny, identyfikatory URI, adresy e-mail powiadomień, nazwy użytkowników i hasła), które są wprowadzane podczas konfigurowania inicjowania obsługi administracyjnej użytkownika, mogą przekroczyć limit miejsca. Aby uzyskać więcej informacji, zobacz [Problem z zapisywaniem poświadczeń administratora podczas konfigurowania inicjowania obsługi administracyjnej przez użytkowników](../manage-apps/application-provisioning-config-problem-storage-limit.md).
+W przypadku skonfigurowania logowania jednokrotnego opartego na protokole SAML dla aplikacji w usłudze Azure AD obowiązuje limit magazynu dla każdej aplikacji — 1024 bajtów. Ten limit obejmuje wszystkie certyfikaty, tokeny tajne, poświadczenia i powiązane dane konfiguracji skojarzone z pojedynczym wystąpieniem aplikacji (nazywanego również rekordem głównym usługi w usłudze Azure AD). W przypadku skonfigurowania logowania jednokrotnego opartego na protokole SAML certyfikat używany do podpisywania tokenów SAML często zużywa ponad 50% procent miejsca. Wszelkie dodatkowe elementy (tokeny tajne, identyfikatory URI, adresy e-mail powiadomień, nazwy użytkowników i hasła) wprowadzane podczas konfigurowania aprowizacji użytkownika mogą przekroczyć limit magazynu. Aby uzyskać więcej informacji, zobacz [problem podczas zapisywania poświadczeń administratora podczas konfigurowania aprowizacji użytkowników](../manage-apps/application-provisioning-config-problem-storage-limit.md).
 
-## <a name="mapping-attributes"></a>Atrybuty mapowania
+## <a name="mapping-attributes"></a>Mapowanie atrybutów
 
-Po włączeniu inicjowania obsługi administracyjnej dla aplikacji SaaS innej firmy portal Azure kontroluje swoje wartości atrybutów za pomocą mapowań atrybutów. Mapowania określają atrybuty użytkownika, które przepływają między usługą Azure AD i aplikacji docelowej, gdy konta użytkowników są aprowied lub zaktualizowane.
+Po włączeniu aprowizacji użytkowników dla aplikacji SaaS innej firmy Azure Portal kontroluje wartości atrybutów przy użyciu mapowań atrybutów. Mapowania określają atrybuty użytkownika, które przepływają między usługą Azure AD a aplikacją docelową, gdy konta użytkowników są inicjowane lub aktualizowane.
 
-Istnieje wstępnie skonfigurowany zestaw atrybutów i mapowań atrybutów między obiektami użytkowników usługi Azure AD a obiektami użytkownika każdej aplikacji SaaS. Niektóre aplikacje zarządzają innymi typami obiektów wraz z użytkownikami, takimi jak Grupy.
+Istnieje wstępnie skonfigurowany zestaw atrybutów i mapowań atrybutów między obiektami użytkowników usługi Azure AD i obiektami użytkownika aplikacji SaaS. Niektóre aplikacje zarządzają innymi typami obiektów razem z użytkownikami, takimi jak grupy.
 
-Podczas konfigurowania inicjowania obsługi administracyjnej, ważne jest, aby przejrzeć i skonfigurować mapowania atrybutów i przepływów pracy, które definiują, które właściwości użytkownika (lub grupy) przepływu z usługi Azure AD do aplikacji. Przejrzyj i skonfiguruj pasującą właściwość **(Dopasuj obiekty przy użyciu tego atrybutu),** która jest używana do jednoznacznej identyfikacji i dopasowania użytkowników/grup między dwoma systemami.
+Podczas konfigurowania aprowizacji należy przejrzeć i skonfigurować mapowania atrybutów i przepływy pracy, które definiują, które właściwości użytkownika (lub grupy) będą przepływać z usługi Azure AD do aplikacji. Przejrzyj i skonfiguruj pasującą Właściwość (**Dopasuj obiekty korzystające z tego atrybutu**), która jest używana do unikatowego identyfikowania i dopasowywania użytkowników/grup między tymi dwoma systemami.
 
-Domyślne mapowania atrybutów można dostosować do potrzeb firmy. Można więc zmienić lub usunąć istniejące mapowania atrybutów lub utworzyć nowe mapowania atrybutów. Aby uzyskać szczegółowe informacje, zobacz [Dostosowywanie mapowania atrybutów inicjowania obsługi administracyjnej dla aplikacji SaaS](../manage-apps/customize-application-attributes.md).
+Domyślne mapowania atrybutów można dostosować zgodnie z potrzebami biznesowymi. W związku z tym można zmienić lub usunąć istniejące mapowania atrybutów lub utworzyć nowe mapowania atrybutów. Aby uzyskać szczegółowe informacje, zobacz [Dostosowywanie mapowania atrybutu aprowizacji użytkowników dla aplikacji SaaS](../manage-apps/customize-application-attributes.md).
 
-Podczas konfigurowania inicjowania obsługi administracyjnej do aplikacji SaaS, jednym z typów mapowań atrybutów, które można określić jest mapowanie wyrażeń. W przypadku tych mapowań należy napisać wyrażenie podobne do skryptu, które umożliwia przekształcenie danych użytkowników w formaty, które są bardziej akceptowalne dla aplikacji SaaS. Aby uzyskać szczegółowe informacje, zobacz [Pisanie wyrażeń dla mapowań atrybutów](functions-for-customizing-application-data.md).
+Podczas konfigurowania aprowizacji do aplikacji SaaS, jeden z typów mapowań atrybutów, które można określić, jest mapowanie wyrażenia. Dla tych mapowań należy napisać wyrażenie podobne do skryptu, które pozwala na Przekształcanie danych użytkowników w formaty, które są bardziej akceptowalne dla aplikacji SaaS. Aby uzyskać szczegółowe informacje, zobacz [Pisanie wyrażeń do mapowania atrybutów](functions-for-customizing-application-data.md).
 
-## <a name="scoping"></a>Zakresu 
-### <a name="assignment-based-scoping"></a>Zakres oparty na przydziałach
+## <a name="scoping"></a>Zakresów 
+### <a name="assignment-based-scoping"></a>Określanie zakresu przydziału
 
-W przypadku inicjowania obsługi administracyjnej ruchu wychodzącego z usługi Azure AD do aplikacji SaaS poleganie na [przypisaniach użytkowników lub grup](../manage-apps/assign-user-or-group-access-portal.md) jest najczęstszym sposobem określenia, którzy użytkownicy są w zakresie inicjowania obsługi administracyjnej. Ponieważ przypisania użytkowników są również używane do włączania logowania jednokrotnego, tej samej metody można użyć do zarządzania dostępem i inicjowania obsługi administracyjnej. Zakres oparty na przypisaniu nie ma zastosowania do scenariuszy inicjowania obsługi administracyjnej ruchu przychodzącego, takich jak Workday i Successfactors.
+W przypadku inicjowania obsługi ruchu wychodzącego z usługi Azure AD do aplikacji SaaS poleganie na [przypisaniach użytkowników lub grup](../manage-apps/assign-user-or-group-access-portal.md) jest najczęstszym sposobem ustalenia, którzy użytkownicy znajdują się w zakresie aprowizacji. Ponieważ przypisania użytkownika są również używane do włączania logowania jednokrotnego, ta sama metoda może służyć do zarządzania dostępem i aprowizacji. Określanie zakresu opartego na przypisaniach nie ma zastosowania do scenariuszy inicjowania obsługi ruchu przychodzącego, takich jak Workday i SuccessFactors.
 
-* **Grupy.** Dzięki planowi licencji usługi Azure AD Premium można użyć grup, aby przypisać dostęp do aplikacji SaaS. Następnie, gdy zakres inicjowania obsługi administracyjnej jest ustawiony na **Synchronizacja tylko przypisanych użytkowników i grup,** usługa inicjowania obsługi administracyjnej usługi Azure AD będzie aprowizować lub de-aprowizowaniu użytkowników na podstawie tego, czy są członkami grupy, która jest przypisana do aplikacji. Sam obiekt grupy nie jest aprowizowana, chyba że aplikacja obsługuje obiekty grupy. Upewnij się, że grupy przypisane do aplikacji mają właściwość "SecurityEnabled" ustawiona na "False".
+* **Grupowania.** Za pomocą planu licencjonowania Azure AD — wersja Premium można używać grup do przypisywania dostępu do aplikacji SaaS. Następnie, gdy zakres aprowizacji jest ustawiony do **synchronizowania tylko przypisanych użytkowników i grup**, usługa aprowizacji usługi Azure AD będzie inicjować lub cofać obsługę administracyjną użytkowników w zależności od tego, czy są członkami grupy przypisanej do aplikacji. Sam obiekt grupy nie jest inicjowany, chyba że aplikacja obsługuje obiekty grup. Upewnij się, że grupy przypisane do aplikacji mają ustawioną właściwość "SecurityEnabled" na wartość "false".
 
-* **Grupy dynamiczne.** Usługa inicjowania obsługi administracyjnej użytkowników usługi Azure AD może odczytywać i aprowizować użytkowników w [grupach dynamicznych.](../users-groups-roles/groups-create-rule.md) Należy pamiętać o następujących zastrzeżeniach i zaleceniach:
+* **Grupy dynamiczne.** Usługa aprowizacji użytkowników w usłudze Azure AD może odczytywać i inicjować użytkowników w [grupach dynamicznych](../users-groups-roles/groups-create-rule.md). Pamiętaj o następujących zastrzeżeniach i zaleceniach:
 
-  * Grupy dynamiczne mogą mieć wpływ na wydajność kompleksowej inicjowania obsługi administracyjnej z usługi Azure AD do aplikacji SaaS.
+  * Dynamiczne grupy mogą mieć wpływ na wydajność kompleksowego udostępniania z usługi Azure AD do aplikacji SaaS.
 
-  * Szybkość, jak użytkownik w grupie dynamicznej jest aprowizowana lub de-aprowizowana w aplikacji SaaS zależy od tego, jak szybko grupa dynamiczna może oceniać zmiany członkostwa. Aby uzyskać informacje dotyczące sprawdzania stanu przetwarzania grupy dynamicznej, zobacz [Sprawdzanie stanu przetwarzania reguły członkostwa](../users-groups-roles/groups-create-rule.md).
+  * Jak szybki dostęp użytkownika do grupy dynamicznej jest inicjowany lub dezaktywowany w aplikacji SaaS, zależy od tego, jak szybko Grupa dynamiczna może oszacować zmiany członkostwa. Aby uzyskać informacje na temat sprawdzania stanu przetwarzania grupy dynamicznej, zobacz [Sprawdzanie stanu przetwarzania dla reguły członkostwa](../users-groups-roles/groups-create-rule.md).
 
-  * Gdy użytkownik traci członkostwo w grupie dynamicznej, jest uważany za zdarzenie usuwania obsługi administracyjnej. Należy wziąć pod uwagę ten scenariusz podczas tworzenia reguł dla grup dynamicznych.
+  * Gdy użytkownik utraci członkostwo w grupie dynamicznej, jest traktowany jako zdarzenie anulowania aprowizacji. Ten scenariusz należy wziąć pod uwagę podczas tworzenia reguł dla grup dynamicznych.
 
-* **Grupy zagnieżdżone.** Usługa inicjowania obsługi administracyjnej użytkowników usługi Azure AD nie może odczytywać ani aprowizować użytkowników w grupach zagnieżdżonych. Usługa może odczytywać i aprowizować tylko użytkowników, którzy są bezpośrednimi członkami jawnie przypisanej grupy. To ograniczenie "przypisania grupowe do aplikacji" dotyczy również logowania jednokrotnego (zobacz [Zarządzanie dostępem do aplikacji SaaS za pomocą grupy](../users-groups-roles/groups-saasapps.md)). Zamiast tego bezpośrednio przypisać lub w inny [zakres w](define-conditional-rules-for-provisioning-user-accounts.md) grupach, które zawierają użytkowników, którzy muszą być aprowizować.
+* **Grupy zagnieżdżone.** Usługa aprowizacji użytkowników w usłudze Azure AD nie może odczytać ani zainicjować obsługi użytkowników w grupach zagnieżdżonych. Usługa może odczytywać i inicjować tylko użytkowników, którzy są bezpośrednimi członkami jawnie przypisanej grupy. To ograniczenie "przypisań opartych na grupach do aplikacji" wpływa również na logowanie jednokrotne (zobacz [używanie grupy do zarządzania dostępem do aplikacji SaaS](../users-groups-roles/groups-saasapps.md)). Zamiast tego należy bezpośrednio przypisywać lub w inny sposób określić [zakres w](define-conditional-rules-for-provisioning-user-accounts.md) grupach, które zawierają użytkowników, którzy muszą zostać zaobsługiwani.
 
-### <a name="attribute-based-scoping"></a>Zakres oparty na atrybutach 
+### <a name="attribute-based-scoping"></a>Określanie zakresu na podstawie atrybutów 
 
-Filtry zakresu służą do definiowania reguł opartych na atrybutach, które określają, którzy użytkownicy są aprowizowani aplikacji. Ta metoda jest często używana do inicjowania obsługi administracyjnej ruchu przychodzącego z aplikacji HCM do usługi Azure AD i usługi Active Directory. Filtry zakresu są konfigurowane jako część mapowań atrybutów dla każdego łącznika inicjowania obsługi administracyjnej użytkownika usługi Azure AD. Aby uzyskać szczegółowe informacje na temat konfigurowania filtrów zakresu opartych na atrybutach, zobacz [Inicjowanie obsługi administracyjnej aplikacji oparte na atrybutach za pomocą filtrów zakresu](define-conditional-rules-for-provisioning-user-accounts.md).
+Filtry zakresu umożliwiają definiowanie reguł opartych na atrybutach, które określają, którzy użytkownicy są obsługiwani do aplikacji. Ta metoda jest często używana do inicjowania obsługi ruchu przychodzącego z aplikacji HCM w usłudze Azure AD i Active Directory. Filtry zakresu są konfigurowane jako część mapowań atrybutów dla każdego łącznika aprowizacji użytkowników usługi Azure AD. Aby uzyskać szczegółowe informacje na temat konfigurowania filtrów określania zakresu atrybutów, zobacz Tworzenie [aplikacji opartych na atrybutach przy użyciu filtrów zakresu](define-conditional-rules-for-provisioning-user-accounts.md).
 
-### <a name="b2b-guest-users"></a>B2B (gość) użytkownicy
+### <a name="b2b-guest-users"></a>Użytkownicy B2B (gość)
 
-Usługa inicjowania obsługi administracyjnej użytkowników usługi Azure AD umożliwia aprowizacji użytkowników B2B (lub gościa) w usłudze Azure AD do aplikacji SaaS. Jednak dla użytkowników B2B, aby zalogować się do aplikacji SaaS przy użyciu usługi Azure AD, aplikacja SaaS musi mieć jego saml oparte na logowania jednokrotnego skonfigurowane w określony sposób. Aby uzyskać więcej informacji na temat konfigurowania aplikacji SaaS do obsługi logów od użytkowników B2B, zobacz [Konfigurowanie aplikacji SaaS do współpracy B2B](../b2b/configure-saas-apps.md).
+Możliwe jest użycie usługi aprowizacji użytkowników w usłudze Azure AD w celu udostępnienia użytkownikom B2B (lub gościa) w usłudze Azure AD w celu SaaS aplikacji. Jednak aby użytkownicy B2B mogli logować się do aplikacji SaaS przy użyciu usługi Azure AD, aplikacja SaaS musi mieć skonfigurowaną funkcję logowania jednokrotnego opartego na protokole SAML. Aby uzyskać więcej informacji na temat sposobu konfigurowania aplikacji SaaS do obsługi logowań użytkowników B2B, zobacz [Konfigurowanie aplikacji SaaS na potrzeby współpracy B2B](../b2b/configure-saas-apps.md).
 
-Należy zauważyć, że userPrincipalName dla użytkownika-gościa jest często@domain.comprzechowywane jako "alias#EXT# ". gdy userPrincipalName znajduje się w mapowania atrybutów jako atrybut źródłowy, #EXT# jest usuwany z userPrincipalName. Jeśli potrzebujesz #EXT# być obecny, zastąp userPrincipalName originalUserPrincipalName jako atrybut źródła. 
+Należy pamiętać, że element userPrincipalName dla użytkownika-gościa jest często przechowywany jako "alias@domain.com# ext #". gdy element userPrincipalName zostanie uwzględniony w mapowaniu atrybutów jako atrybut źródłowy, #EXT # jest usuwany z elementu userPrincipalName. Jeśli potrzebujesz #EXT #, Zamień element userPrincipalName na originalUserPrincipalName jako atrybut source. 
 
-## <a name="provisioning-cycles-initial-and-incremental"></a>Cykle inicjowania obsługi administracyjnej: początkowe i przyrostowe
+## <a name="provisioning-cycles-initial-and-incremental"></a>Cykle aprowizacji: początkowe i przyrostowe
 
-Gdy usługa Azure AD jest systemem źródłowym, usługa inicjowania obsługi administracyjnej używa [kwerendy delta do śledzenia zmian w danych programu Microsoft Graph w](https://docs.microsoft.com/graph/delta-query-overview) celu monitorowania użytkowników i grup. Usługa inicjowania obsługi administracyjnej uruchamia początkowy cykl względem systemu źródłowego i systemu docelowego, a następnie okresowych cykli przyrostowych.
+Gdy usługa Azure AD jest systemem źródłowym, w usłudze aprowizacji są używane [zapytania różnicowe do śledzenia zmian w Microsoft Graph danych](https://docs.microsoft.com/graph/delta-query-overview) w celu monitorowania użytkowników i grup. Usługa aprowizacji uruchamia cykl początkowy względem systemu źródłowego i systemu docelowego, a następnie okresowe cykle przyrostowe.
 
 ### <a name="initial-cycle"></a>Cykl początkowy
 
-Po uruchomieniu usługi inicjowania obsługi administracyjnej pierwszy cykl:
+Po uruchomieniu usługi aprowizacji Pierwszy cykl będzie:
 
-1. Wysyłaj zapytania do wszystkich użytkowników i grup z systemu źródłowego, pobierając wszystkie atrybuty zdefiniowane w [mapowaniach atrybutów](customize-application-attributes.md).
+1. Wykonaj zapytania dla wszystkich użytkowników i grup z systemu źródłowego, pobierając wszystkie atrybuty zdefiniowane w [mapowaniu atrybutów](customize-application-attributes.md).
 
-2. Filtruj zwracanych użytkowników i grupy przy użyciu skonfigurowanych [przypisań](../manage-apps/assign-user-or-group-access-portal.md) lub [filtrów zakresu opartych na atrybutach](define-conditional-rules-for-provisioning-user-accounts.md).
+2. Filtrowanie zwracanych użytkowników i grup przy użyciu dowolnych skonfigurowanych [przypisań](../manage-apps/assign-user-or-group-access-portal.md) lub [filtrów określania zakresów opartych na atrybutach](define-conditional-rules-for-provisioning-user-accounts.md).
 
-3. Gdy użytkownik jest przypisany lub w zakresie inicjowania obsługi administracyjnej, usługa wysyła zapytanie do systemu docelowego dla pasującego użytkownika przy użyciu określonych [pasujących atrybutów](customize-application-attributes.md#understanding-attribute-mapping-properties). Przykład: Jeśli nazwa userPrincipal w systemie źródłowym jest pasującym atrybutem i mapuje do userName w systemie docelowym, usługa inicjowania obsługi administracyjnej wysyła zapytanie do systemu docelowego dla nazw użytkowników, które pasują do wartości nazw userPrincipal w systemie źródłowym.
+3. Gdy użytkownik jest przypisany lub w zakresie aprowizacji, usługa wysyła zapytanie do systemu docelowego dla pasującego użytkownika przy użyciu określonych [pasujących atrybutów](customize-application-attributes.md#understanding-attribute-mapping-properties). Przykład: Jeśli nazwa userPrincipal w systemie źródłowym ma pasujący atrybut i jest mapowana na nazwę użytkownika w systemie docelowym, usługa aprowizacji wysyła zapytanie do systemu docelowego o nazwy użytkowników, które pasują do wartości nazw userPrincipal w systemie źródłowym.
 
-4. Jeśli pasujący użytkownik nie zostanie znaleziony w systemie docelowym, jest tworzony przy użyciu atrybutów zwróconych z systemu źródłowego. Po utworzeniu konta użytkownika usługa inicjowania obsługi administracyjnej wykrywa i buforuje identyfikator systemu docelowego dla nowego użytkownika. Ten identyfikator jest używany do uruchamiania wszystkich przyszłych operacji na tym użytkowniku.
+4. Jeśli w systemie docelowym nie znaleziono pasującego użytkownika, jest on tworzony przy użyciu atrybutów zwróconych z systemu źródłowego. Po utworzeniu konta użytkownika usługa aprowizacji wykrywa i buforuje identyfikator systemu docelowego dla nowego użytkownika. Ten identyfikator służy do uruchamiania wszystkich przyszłych operacji na tym użytkowniku.
 
-5. Jeśli zostanie znaleziony pasujący użytkownik, jest aktualizowany przy użyciu atrybutów dostarczonych przez system źródłowy. Po dopasowaniu konta użytkownika usługa inicjowania obsługi administracyjnej wykrywa i buforuje identyfikator systemu docelowego dla nowego użytkownika. Ten identyfikator jest używany do uruchamiania wszystkich przyszłych operacji na tym użytkowniku.
+5. Jeśli zostanie znaleziony pasujący użytkownik, jest on aktualizowany przy użyciu atrybutów dostarczonych przez system źródłowy. Po dopasowaniu konta użytkownika usługa aprowizacji wykrywa i buforuje identyfikator systemu docelowego dla nowego użytkownika. Ten identyfikator służy do uruchamiania wszystkich przyszłych operacji na tym użytkowniku.
 
-6. Jeśli mapowania atrybutów zawierają atrybuty "odwołanie", usługa wykonuje dodatkowe aktualizacje w systemie docelowym w celu utworzenia i połączenia obiektów, do których istnieje odwołanie. Na przykład użytkownik może mieć atrybut "Manager" w systemie docelowym, który jest połączony z innym użytkownikiem utworzonym w systemie docelowym.
+6. Jeśli mapowania atrybutu zawierają atrybuty "Reference", usługa wykonuje dodatkowe aktualizacje w systemie docelowym w celu utworzenia i połączenia obiektów, do których się odwołuje. Na przykład użytkownik może mieć atrybut "Manager" w systemie docelowym, który jest połączony z innym użytkownikiem utworzonym w systemie docelowym.
 
-7. Utrwalić znak wodny na końcu początkowego cyklu, który zapewnia punkt wyjścia dla późniejszych cykli przyrostowych.
+7. Utrwalanie znaku wodnego na końcu początkowego cyklu, który zapewnia punkt początkowy dla późniejszych cykli przyrostowych.
 
-Niektóre aplikacje, takie jak ServiceNow, G Suite i Box, obsługują nie tylko inicjowanie obsługi administracyjnej użytkowników, ale także inicjowanie obsługi administracyjnej grup i ich członków. W takich przypadkach, jeśli inicjowanie obsługi administracyjnej grupy jest włączone w [mapowaniach,](customize-application-attributes.md)usługa inicjowania obsługi administracyjnej synchronizuje użytkowników i grupy, a następnie synchronizuje członkostwa w grupie.
+Niektóre aplikacje, takie jak usługi ServiceNow, G Suite i Box, obsługują nie tylko użytkowników aprowizacji, ale również aprowizacji grup i ich członków. W takich przypadkach, jeśli w [mapowaniu](customize-application-attributes.md)włączono obsługę grupy, usługa aprowizacji zsynchronizuje użytkowników i grupy, a następnie zsynchronizuje członkostwo w grupie.
 
 ### <a name="incremental-cycles"></a>Cykle przyrostowe
 
-Po początkowym cyklu, wszystkie inne cykle będą:
+Po początkowym cyklu wszystkie pozostałe cykle będą:
 
-1. Kwerenda systemu źródłowego dla wszystkich użytkowników i grup, które zostały zaktualizowane od ostatniego znaku wodnego był przechowywany.
+1. Zbadaj system źródłowy dla wszystkich użytkowników i grup, które zostały zaktualizowane od momentu zapisania ostatniego znaku wodnego.
 
-2. Filtruj zwracanych użytkowników i grupy przy użyciu skonfigurowanych [przypisań](../manage-apps/assign-user-or-group-access-portal.md) lub [filtrów zakresu opartych na atrybutach](define-conditional-rules-for-provisioning-user-accounts.md).
+2. Filtrowanie zwracanych użytkowników i grup przy użyciu dowolnych skonfigurowanych [przypisań](../manage-apps/assign-user-or-group-access-portal.md) lub [filtrów określania zakresów opartych na atrybutach](define-conditional-rules-for-provisioning-user-accounts.md).
 
-3. Gdy użytkownik jest przypisany lub w zakresie inicjowania obsługi administracyjnej, usługa wysyła zapytanie do systemu docelowego dla pasującego użytkownika przy użyciu określonych [pasujących atrybutów](customize-application-attributes.md#understanding-attribute-mapping-properties).
+3. Gdy użytkownik jest przypisany lub w zakresie aprowizacji, usługa wysyła zapytanie do systemu docelowego dla pasującego użytkownika przy użyciu określonych [pasujących atrybutów](customize-application-attributes.md#understanding-attribute-mapping-properties).
 
-4. Jeśli pasujący użytkownik nie zostanie znaleziony w systemie docelowym, jest tworzony przy użyciu atrybutów zwróconych z systemu źródłowego. Po utworzeniu konta użytkownika usługa inicjowania obsługi administracyjnej wykrywa i buforuje identyfikator systemu docelowego dla nowego użytkownika. Ten identyfikator jest używany do uruchamiania wszystkich przyszłych operacji na tym użytkowniku.
+4. Jeśli w systemie docelowym nie znaleziono pasującego użytkownika, jest on tworzony przy użyciu atrybutów zwróconych z systemu źródłowego. Po utworzeniu konta użytkownika usługa aprowizacji wykrywa i buforuje identyfikator systemu docelowego dla nowego użytkownika. Ten identyfikator służy do uruchamiania wszystkich przyszłych operacji na tym użytkowniku.
 
-5. Jeśli zostanie znaleziony pasujący użytkownik, jest aktualizowany przy użyciu atrybutów dostarczonych przez system źródłowy. Jeśli jest to nowo przypisane konto, które jest dopasowane, usługa inicjowania obsługi administracyjnej wykrywa i buforuje identyfikator systemu docelowego dla nowego użytkownika. Ten identyfikator jest używany do uruchamiania wszystkich przyszłych operacji na tym użytkowniku.
+5. Jeśli zostanie znaleziony pasujący użytkownik, jest on aktualizowany przy użyciu atrybutów dostarczonych przez system źródłowy. Jeśli jest to nowo przypisane konto, które jest dopasowane, usługa aprowizacji wykrywa i buforuje identyfikator systemu docelowego dla nowego użytkownika. Ten identyfikator służy do uruchamiania wszystkich przyszłych operacji na tym użytkowniku.
 
-6. Jeśli mapowania atrybutów zawierają atrybuty "odwołanie", usługa wykonuje dodatkowe aktualizacje w systemie docelowym w celu utworzenia i połączenia obiektów, do których istnieje odwołanie. Na przykład użytkownik może mieć atrybut "Manager" w systemie docelowym, który jest połączony z innym użytkownikiem utworzonym w systemie docelowym.
+6. Jeśli mapowania atrybutu zawierają atrybuty "Reference", usługa wykonuje dodatkowe aktualizacje w systemie docelowym w celu utworzenia i połączenia obiektów, do których się odwołuje. Na przykład użytkownik może mieć atrybut "Manager" w systemie docelowym, który jest połączony z innym użytkownikiem utworzonym w systemie docelowym.
 
-7. Jeśli użytkownik, który był wcześniej w zakresie inicjowania obsługi administracyjnej jest usuwany z zakresu, w tym jest nieprzypisany, usługa wyłącza użytkownika w systemie docelowym za pośrednictwem aktualizacji.
+7. Jeśli użytkownik, który był wcześniej objęty zakresem aprowizacji, zostanie usunięty z zakresu, łącznie z cofniętym przypisaniem, usługa wyłącza użytkownika w systemie docelowym za pośrednictwem aktualizacji.
 
-8. Jeśli użytkownik, który był wcześniej w zakresie inicjowania obsługi administracyjnej jest wyłączony lub nietrwałe usunięte w systemie źródłowym, usługa wyłącza użytkownika w systemie docelowym za pośrednictwem aktualizacji.
+8. Jeśli użytkownik, który był wcześniej objęty zakresem aprowizacji, jest wyłączony lub nietrwały usunięty w systemie źródłowym, usługa wyłącza użytkownika w systemie docelowym za pośrednictwem aktualizacji.
 
-9. Jeśli użytkownik, który był wcześniej w zakresie inicjowania obsługi administracyjnej jest na stałe usunięte w systemie źródłowym, usługa usuwa użytkownika w systemie docelowym. W usłudze Azure AD użytkownicy są na czas usunięty 30 dni po ich nietrwale usunięte.
+9. Jeśli użytkownik, który był wcześniej objęty zakresem aprowizacji, został trwale usunięty w systemie źródłowym, usługa usunie użytkownika w systemie docelowym. W usłudze Azure AD użytkownicy są trwale usunięci przez 30 dni po ich usunięciu nietrwałego.
 
-10. Utrwalić nowy znak wodny na końcu cyklu przyrostowego, który zapewnia punkt wyjścia dla późniejszych cykli przyrostowych.
+10. Utrwalaj nowy znak wodny na końcu przyrostowego cyklu, który zapewnia punkt początkowy dla późniejszych cykli przyrostowych.
 
 > [!NOTE]
-> Opcjonalnie można wyłączyć operacje **Tworzenia,** **Aktualizacji**lub **Usuwania** przy użyciu pól wyboru **Akcje obiektu docelowego** w sekcji [Mapowania.](customize-application-attributes.md) Logika wyłączania użytkownika podczas aktualizacji jest również kontrolowana za pomocą mapowania atrybutów z pola takiego jak "accountEnabled".
+> Opcjonalnie można wyłączyć operacje **tworzenia**, **aktualizowania**lub **usuwania** przy użyciu pól wyboru **Akcje obiektu docelowego** w sekcji [mapowania](customize-application-attributes.md) . Logika, w której należy wyłączyć użytkownika podczas aktualizacji, jest również kontrolowana za pośrednictwem mapowania atrybutów z pola, takiego jak "accountEnabled".
 
-Usługa inicjowania obsługi administracyjnej kontynuuje uruchamianie cykli przyrostowych back-to-back przez czas nieokreślony, w odstępach czasu zdefiniowanych w [samouczku specyficznym dla każdej aplikacji.](../saas-apps/tutorial-list.md) Cykle przyrostowe są kontynuowane do momentu wystąpienia jednego z następujących zdarzeń:
+Usługa aprowizacji nadal uruchamia cykliczne cykle przyrostowe, w odstępach czasu zdefiniowanych w [samouczku specyficznym dla każdej aplikacji](../saas-apps/tutorial-list.md). Cykle przyrostowe są kontynuowane do momentu wystąpienia jednego z następujących zdarzeń:
 
-- Usługa jest ręcznie zatrzymywany przy użyciu witryny Azure portal lub przy użyciu odpowiedniego polecenia interfejsu API programu Microsoft Graph.
-- Nowy cykl początkowy jest wyzwalany przy użyciu opcji **Wyczyść stan i uruchom ponownie** w witrynie Azure portal lub przy użyciu odpowiedniego polecenia interfejsu API programu Microsoft Graph. Ta akcja czyści wszystkie przechowywane znak wodny i powoduje, że wszystkie obiekty źródłowe mają być oceniane ponownie.
-- Nowy cykl początkowy jest wyzwalany z powodu zmiany mapowań atrybutów lub filtrów zakresu. Ta akcja również czyści wszystkie przechowywane znak wodny i powoduje, że wszystkie obiekty źródłowe mają być oceniane ponownie.
-- Proces inicjowania obsługi administracyjnej przechodzi do kwarantanny (patrz poniżej) z powodu wysokiego poziomu błędu i pozostaje w kwarantannie przez ponad cztery tygodnie. W takim przypadku usługa zostanie automatycznie wyłączona.
+- Usługa została zatrzymana ręcznie przy użyciu Azure Portal lub przy użyciu odpowiedniego polecenia API Microsoft Graph.
+- Nowy cykl początkowy jest wyzwalany przy użyciu opcji **Wyczyść stan i uruchom ponownie** w Azure Portal lub przy użyciu odpowiedniego polecenia API Microsoft Graph. Ta akcja Czyści wszystkie przechowywane znaki wodne i powoduje ponowną ocenę wszystkich obiektów źródłowych.
+- Nowy początkowy cykl jest wyzwalany ze względu na zmianę mapowań atrybutów lub filtrów określania zakresu. Ta akcja Czyści również wszystkie przechowywane znaki wodne i powoduje ponowne obliczenie wszystkich obiektów źródłowych.
+- Proces aprowizacji jest kierowany do kwarantanny (patrz poniżej) z powodu wysokiego współczynnika błędów i pozostaje w kwarantannie przez ponad cztery tygodnie. W tym zdarzeniu usługa zostanie automatycznie wyłączona.
 
-### <a name="errors-and-retries"></a>Błędy i ponownych prób
+### <a name="errors-and-retries"></a>Błędy i ponowne próby
 
-Jeśli błąd w systemie docelowym uniemożliwia indywidualnemu użytkownikowi dodawania, aktualizowania lub usuwania w systemie docelowym, operacja jest ponawiana w następnym cyklu synchronizacji. Jeśli użytkownik nadal zakończy się niepowodzeniem, następnie ponownych prób rozpocznie się z mniejszą częstotliwością, stopniowo skalowanie z powrotem do tylko jednej próby dziennie. Aby rozwiązać ten błąd, administratorzy muszą sprawdzić [dzienniki inicjowania obsługi administracyjnej,](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) aby ustalić główną przyczynę i podjąć odpowiednie działania. Typowe błędy mogą obejmować:
+Jeśli błąd w systemie docelowym uniemożliwia dodanie, zaktualizowanie lub usunięcie poszczególnych użytkowników w systemie docelowym, operacja zostanie ponowiona w następnym cyklu synchronizacji. Jeśli użytkownik będzie nadal kończyć się niepowodzeniem, ponowne próby rozpoczną się z ograniczoną częstotliwością, stopniowo skalowanie z powrotem do zaledwie jednej próby dziennie. Aby rozwiązać ten problem, Administratorzy muszą sprawdzić [dzienniki aprowizacji](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) , aby określić główną przyczynę i podjąć odpowiednie działania. Typowe błędy mogą obejmować:
 
-- Użytkownicy, którzy nie mają atrybutu wypełnionego w systemie źródłowym, który jest wymagany w systemie docelowym
-- Użytkownicy posiadający wartość atrybutu w systemie źródłowym, dla których istnieje unikatowe ograniczenie w systemie docelowym, a ta sama wartość jest obecna w innym rekordzie użytkownika
+- Użytkownicy nie mający atrybutu wypełnionego w systemie źródłowym, który jest wymagany w systemie docelowym
+- Użytkownicy mający wartość atrybutu w systemie źródłowym, dla którego istnieje ograniczenie UNIQUE w systemie docelowym, a ta sama wartość jest obecna w innym rekordzie użytkownika.
 
-Rozwiąż te błędy, dostosowując wartości atrybutów dla danego użytkownika w systemie źródłowym lub dostosowując mapowania atrybutów, aby nie powodować konfliktów.
+Usuń te błędy, dostosowując wartości atrybutów dla danego użytkownika w systemie źródłowym lub modyfikując mapowania atrybutów, aby nie powodowały konfliktów.
 
 ### <a name="quarantine"></a>Kwarantanna
 
-Jeśli większość lub wszystkie wywołania, które są wykonane przeciwko systemowi docelowemu konsekwentnie zakończyć się niepowodzeniem z powodu błędu (na przykład nieprawidłowe poświadczenia administratora) zadanie inicjowania obsługi administracyjnej przechodzi do stanu "kwarantanny". Ten stan jest wskazany w [raporcie podsumowania inicjowania obsługi administracyjnej](../manage-apps/check-status-user-account-provisioning.md) i za pośrednictwem poczty e-mail, jeśli powiadomienia e-mail zostały skonfigurowane w witrynie Azure portal.
+Jeśli większość lub wszystkie wywołania, które są wykonywane względem systemu docelowego, są spójne niepowodzeniem z powodu błędu (na przykład nieprawidłowe poświadczenia administratora) zadanie aprowizacji przejdzie do stanu "Kwarantanna". Ten stan jest wskazany w raporcie dotyczącym [podsumowania aprowizacji](../manage-apps/check-status-user-account-provisioning.md) i za pośrednictwem poczty e-mail, jeśli powiadomienia e-mail zostały skonfigurowane w Azure Portal.
 
-W kwarantannie częstotliwość cykli przyrostowych jest stopniowo zmniejszana do raz dziennie.
+W przypadku kwarantanny Częstotliwość cykli przyrostowych jest stopniowo zmniejszana do raz dziennie.
 
-Zadanie inicjowania obsługi administracyjnej kończy kwarantannę po naprawieniu wszystkich błędów naruszających przepisy i uruchomieniu następnego cyklu synchronizacji. Jeśli zadanie inicjowania obsługi administracyjnej pozostaje w kwarantannie przez więcej niż cztery tygodnie, zadanie inicjowania obsługi administracyjnej jest wyłączone. Dowiedz się więcej tutaj o stanie kwarantanny [tutaj](../manage-apps/application-provisioning-quarantine-status.md).
+Zadanie aprowizacji kończy kwarantannę po usunięciu wszystkich błędów powodujących problemy, gdy zostanie rozpoczęty następny cykl synchronizacji. Jeśli zadanie aprowizacji pozostaje w kwarantannie przez ponad cztery tygodnie, zadanie aprowizacji jest wyłączone. [Tutaj](../manage-apps/application-provisioning-quarantine-status.md)znajdziesz więcej informacji na temat stanu kwarantanny.
 
 ### <a name="how-long-provisioning-takes"></a>Jak długo trwa aprowizacja
 
-Wydajność zależy od tego, czy zadanie inicjowania obsługi administracyjnej jest uruchomione początkowego cyklu inicjowania obsługi administracyjnej lub cyklu przyrostowego. Aby uzyskać szczegółowe informacje o tym, jak długo trwa inicjowanie obsługi administracyjnej i jak monitorować stan usługi inicjowania obsługi administracyjnej, zobacz [Sprawdzanie stanu inicjowania obsługi administracyjnej przez użytkowników](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md).
+Wydajność zależy od tego, czy zadanie aprowizacji ma uruchomiony początkowy cykl aprowizacji czy cykl przyrostowy. Aby uzyskać szczegółowe informacje o tym, jak długo trwa inicjowanie obsługi i jak monitorować stan usługi aprowizacji, zobacz [Sprawdzanie stanu aprowizacji użytkowników](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md).
 
-### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Jak sprawdzić, czy użytkownicy są prawidłowo aprowizacji
+### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Jak stwierdzić, czy użytkownicy są prawidłowo aprowizacji
 
-Wszystkie operacje uruchamiane przez usługę inicjowania obsługi administracyjnej użytkowników są rejestrowane w [dziennikach inicjowania obsługi administracyjnej](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)usługi Azure AD (w wersji zapoznawczej). Dzienniki obejmują wszystkie operacje odczytu i zapisu wykonane w systemach źródłowych i docelowych oraz dane użytkownika, które zostały odczytane lub zapisane podczas każdej operacji. Aby uzyskać informacje na temat sposobu zapoznania się z dziennikami inicjowania obsługi administracyjnej w witrynie Azure portal, zobacz [przewodnik raportowania inicjowania obsługi administracyjnej.](../manage-apps/check-status-user-account-provisioning.md)
+Wszystkie operacje wykonywane przez usługę aprowizacji użytkowników są rejestrowane w dziennikach aprowizacji usługi Azure AD [(wersja zapoznawcza)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Dzienniki obejmują wszystkie operacje odczytu i zapisu dokonane w systemach źródłowych i docelowych oraz dane użytkownika, które zostały odczytane lub zapisane podczas każdej operacji. Aby uzyskać informacje na temat sposobu odczytywania dzienników aprowizacji w Azure Portal, zobacz [Przewodnik po raportowaniu obsługi administracyjnej](../manage-apps/check-status-user-account-provisioning.md).
 
-## <a name="de-provisioning"></a>Usuwanie obsługi administracyjnej
+## <a name="de-provisioning"></a>Cofnięcie aprowizacji
 
-Usługa inicjowania obsługi administracyjnej usługi Azure AD utrzymuje systemy źródłowe i docelowe zsynchronizowane przez usuwanie obsługi administracyjnej kont, gdy użytkownicy nie powinni mieć już dostępu. 
+Usługa Azure AD Provisioning przechowuje systemy źródłowe i docelowe w synchronizacji przy użyciu kont anulowania aprowizacji, gdy użytkownicy nie mają już dostępu. 
 
-Usługa inicjowania obsługi administracyjnej usługi Azure AD będzie nietrwałe usunąć użytkownika w aplikacji, gdy aplikacja suupports nietrwałe usuwa (żądanie aktualizacji z active = false) i wystąpi dowolne z następujących zdarzeń:
+Usługa Azure AD Provisioning spowoduje nietrwałe usunięcie użytkownika w aplikacji w przypadku usunięcia nietrwałej aplikacji (żądanie aktualizacji z aktywnym = false) i wystąpienia dowolnego z następujących zdarzeń:
 
-* Konto użytkownika zostanie usunięte w usłudze Azure AD
-*   Użytkownik nie jest przypisany z aplikacji
-*   Użytkownik nie spełnia już filtru zakresu i wykracza poza zakres
-    * Domyślnie usługa inicjowania obsługi administracyjnej usługi Azure AD nietrwałe usuwa lub wyłącza użytkowników, którzy wychodzą poza zakres. Jeśli chcesz zastąpić to zachowanie domyślne, możesz ustawić flagę, aby [pominąć usunięcia poza zakresem](../app-provisioning/skip-out-of-scope-deletions.md).
-*   Właściwość AccountEnabled jest ustawiona na
+* Konto użytkownika zostało usunięte w usłudze Azure AD
+*   Użytkownik nie jest przypisany do aplikacji
+*   Użytkownik nie spełnia już filtru określania zakresu i wykracza poza zakres
+    * Domyślnie usługa aprowizacji usługi Azure AD nie usuwa lub wyłącza użytkowników, którzy wykraczają poza zakres. Jeśli chcesz zastąpić to zachowanie domyślne, możesz ustawić flagę, aby [pominąć usuwanie poza zakresem](../app-provisioning/skip-out-of-scope-deletions.md).
+*   Właściwość AccountEnabled jest ustawiona na wartość false.
 
-Jeśli wystąpi jedno z powyższych czterech zdarzeń, a aplikacja docelowa nie obsługuje usuwania nietrwałego, usługa inicjowania obsługi administracyjnej wyśle żądanie DELETE, aby trwale usunąć użytkownika z aplikacji. 
+Jeśli wystąpi jedno z powyższych czterech zdarzeń i aplikacja docelowa nie obsługuje usuwania nietrwałego, usługa aprowizacji wyśle żądanie usunięcia, aby trwale usunąć użytkownika z aplikacji. 
 
-30 dni po usunięciu użytkownika w usłudze Azure AD zostaną one trwale usunięte z dzierżawy. W tym momencie usługa inicjowania obsługi administracyjnej wyśle żądanie DELETE, aby trwale usunąć użytkownika w aplikacji. W dowolnym momencie okna 30-dniowego można [ręcznie usunąć użytkownika na stałe,](../fundamentals/active-directory-users-restore.md)co wysyła żądanie usunięcia do aplikacji.
+po upływie 30 dni od usunięcia użytkownika w usłudze Azure AD zostaną one trwale usunięte z dzierżawy. W tym momencie usługa aprowizacji wyśle żądanie usunięcia, aby trwale usunąć użytkownika w aplikacji. W dowolnym momencie w oknie 30-dniowym można [trwale usunąć użytkownika](../fundamentals/active-directory-users-restore.md), co spowoduje wysłanie żądania usunięcia do aplikacji.
 
-Jeśli widzisz atrybut IsSoftDeleted w mapowania atrybutów, jest on używany do określenia stanu użytkownika i czy wysłać żądanie aktualizacji z active = false do usuwania nietrwałego użytkownika. 
+Jeśli w mapowaniu atrybutów zostanie wyświetlony atrybut IsSoftDeleted, jest on używany do określenia stanu użytkownika oraz tego, czy do usuwania nietrwałego ma być wysyłany żądanie aktualizacji z aktywnym = false. 
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -196,6 +196,6 @@ Jeśli widzisz atrybut IsSoftDeleted w mapowania atrybutów, jest on używany do
 
 [Konfigurowanie aprowizacji dla aplikacji z galerii](../manage-apps/configure-automatic-user-provisioning-portal.md)
 
-[Tworzenie punktu końcowego SCIM i konfigurowanie inicjowania obsługi administracyjnej podczas tworzenia własnej aplikacji](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+[Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji podczas tworzenia własnej aplikacji](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-[Rozwiązywanie problemów z konfigurowaniem i inicjowania obsługi administracyjnej użytkowników do aplikacji](../manage-apps/application-provisioning-config-problem.md).
+[Rozwiązywanie problemów z konfigurowaniem użytkowników i inicjowanie ich obsługi w aplikacji](../manage-apps/application-provisioning-config-problem.md).

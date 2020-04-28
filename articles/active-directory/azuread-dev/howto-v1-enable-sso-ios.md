@@ -1,6 +1,6 @@
 ---
-title: Jak włączyć wielokomonika SSO w uos przy użyciu ADAL | Dokumenty firmy Microsoft
-description: Jak korzystać z funkcji SDK ADAL, aby włączyć logowanie jednokrotne w aplikacjach.
+title: Jak włączyć logowanie jednokrotne dla wielu aplikacji w systemie iOS przy użyciu biblioteki ADAL | Microsoft Docs
+description: Jak korzystać z funkcji zestawu ADAL SDK, aby umożliwić Logowanie jednokrotne w aplikacjach.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -16,68 +16,68 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 082cbb931c9dae60b39f9ee5323337bf051fb56d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154784"
 ---
-# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Jak: Włączanie wieloznakowego identyfikatora SSO w uos przy użyciu usługi ADAL
+# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Instrukcje: Włączanie logowania jednokrotnego dla aplikacji w systemie iOS przy użyciu biblioteki ADAL
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-Logowanie jednokrotne (Logowanie jednokrotne) umożliwia użytkownikom wprowadzanie poświadczeń tylko raz i automatyczne uruchamianie tych poświadczeń między aplikacjami i na różnych platformach, z których mogą korzystać inne aplikacje (takie jak konta Microsoft lub konto służbowe z usługi Microsoft 365) nie wydawcy.
+Logowanie jednokrotne (SSO) umożliwia użytkownikom wprowadzanie poświadczeń tylko raz i ich automatyczne działanie w aplikacjach i na różnych platformach, które mogą być używane przez inne aplikacje (takie jak konta Microsoft lub konta służbowego Microsoft 365) bez względu na wydawcę.
 
-Platforma tożsamości firmy Microsoft wraz z zestawami SDK ułatwia włączenie usługi SSO w ramach własnego pakietu aplikacji lub z możliwością brokera i aplikacjami Authenticator na całym urządzeniu.
+Platforma tożsamości firmy Microsoft wraz z zestawami SDK ułatwia włączenie logowania jednokrotnego w ramach własnego pakietu aplikacji lub z możliwościami brokera i aplikacjami uwierzytelniania na całym urządzeniu.
 
-W tym instrukcje dowiesz się, jak skonfigurować SDK w aplikacji, aby zapewnić klientom, aby zapewnić klientom.
+W tym instruktażu dowiesz się, jak skonfigurować zestaw SDK w aplikacji w celu zapewnienia logowania jednokrotnego dla klientów.
 
-Ten sposób dotyczy:
+Ten sposób zastosowania:
 
-* Usługa Azure Active Directory (usługa Azure Active Directory)
+* Azure Active Directory (Azure Active Directory)
 * Azure Active Directory B2C
 * Azure Active Directory B2B
 * Azure Active Directory dostępu warunkowego
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym sposób założono, że wiesz, jak:
+Ta procedura polega na założeniu, że wiesz, jak:
 
-* Aprowizuj aplikację przy użyciu starszego portalu dla usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Rejestrowanie aplikacji](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
-* Zintegruj aplikację z zestawem [SDK usługi Azure AD iOS.](https://github.com/AzureAD/azure-activedirectory-library-for-objc)
+* Inicjowanie obsługi administracyjnej aplikacji przy użyciu starszej wersji portalu usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Rejestrowanie aplikacji](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
+* Zintegruj swoją aplikację z [zestawem SDK usługi Azure AD systemu iOS](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
-## <a name="single-sign-on-concepts"></a>Pojęcia logowania jednokrotnego
+## <a name="single-sign-on-concepts"></a>Pojęcia dotyczące logowania jednokrotnego
 
 ### <a name="identity-brokers"></a>Brokerzy tożsamości
 
-Firma Microsoft udostępnia aplikacje dla każdej platformy mobilnej, które umożliwiają łączenie poświadczeń między aplikacjami od różnych dostawców i rozszerzone funkcje, które wymagają jednego bezpiecznego miejsca, z którego można sprawdzić poprawność poświadczeń. Są to tak zwane **brokerzy**.
+Firma Microsoft udostępnia aplikacje dla każdej platformy mobilnej, która umożliwia mostkowanie poświadczeń między aplikacjami od różnych dostawców i ulepszonych funkcji, które wymagają jednego bezpiecznego miejsca, z którego można weryfikować poświadczenia. Są one nazywane **brokerami**.
 
-W systemach iOS i Android brokerzy są udostępniani za pośrednictwem aplikacji do pobrania, które klienci instalują niezależnie lub są wypychani do urządzenia przez firmę, która zarządza niektórymi lub wszystkimi urządzeniami dla swoich pracowników. Brokerzy obsługują zarządzanie zabezpieczeniami tylko dla niektórych aplikacji lub całego urządzenia na podstawie konfiguracji administratora IT. W systemie Windows ta funkcja jest dostarczana przez wybieracz kont wbudowany w system operacyjny, znany technicznie jako Broker uwierzytelniania sieci Web.
+W systemach iOS i Android brokerzy są dostarczani za pomocą aplikacji do pobrania, które klienci instalują niezależnie lub wypychani do urządzenia przez firmę, która zarządza niektórymi lub wszystkimi urządzeniami dla swoich pracowników. Brokerzy obsługują zarządzanie zabezpieczeniami tylko dla niektórych aplikacji lub całego urządzenia w oparciu o konfigurację administratora IT. W systemie Windows ta funkcja jest zapewniana przez selektor konta wbudowany w system operacyjny, który jest dobrze znany jako Broker uwierzytelniania w sieci Web.
 
-### <a name="patterns-for-logging-in-on-mobile-devices"></a>Wzorce logowania na urządzeniach mobilnych
+### <a name="patterns-for-logging-in-on-mobile-devices"></a>Wzorce logowania na urządzeniach przenośnych
 
-Dostęp do poświadczeń na urządzeniach przebiega według dwóch podstawowych wzorców:
+Dostęp do poświadczeń na urządzeniach jest zgodny z dwoma podstawowymi wzorcami:
 
-* Logowania ze wspomaganym pomocą non-broker
-* Logowania wspomagane brokerem
+* Nieobsługiwane nazwy logowania z obsługą brokera
+* Obsługiwane nazwy logowania obsługiwane przez brokera
 
-#### <a name="non-broker-assisted-logins"></a>Logowania ze wspomaganym pomocą non-broker
+#### <a name="non-broker-assisted-logins"></a>Nieobsługiwane nazwy logowania z obsługą brokera
 
-Nie-broker wspomagane logowania są środowiska logowania, które zdarzają się w linii z aplikacją i używać magazynu lokalnego na urządzeniu dla tej aplikacji. Ten magazyn może być współużytkowane przez aplikacje, ale poświadczenia są ściśle powiązane z aplikacją lub pakietem aplikacji przy użyciu tego poświadczenia. Najprawdopodobniej doświadczyłeś tego w wielu aplikacjach mobilnych po wprowadzeniu nazwy użytkownika i hasła w samej aplikacji.
+Logowania nieobsługiwane przez brokera to środowiska logowania, które są używane w połączeniu z aplikacją i używają lokalnego magazynu na urządzeniu dla tej aplikacji. Ten magazyn może być współużytkowany przez aplikacje, ale poświadczenia są ściśle powiązane z aplikacją lub pakietem aplikacji przy użyciu tego poświadczenia. Najprawdopodobniej wystąpił to w wielu aplikacjach mobilnych po wprowadzeniu nazwy użytkownika i hasła w samej aplikacji.
 
-Te logowania mają następujące zalety:
+Te identyfikatory logowania mają następujące zalety:
 
-* Środowisko użytkownika istnieje całkowicie w aplikacji.
-* Poświadczenia mogą być współużytkowane przez aplikacje, które są podpisane przez ten sam certyfikat, zapewniając środowisko logowania jednokrotnego do pakietu aplikacji.
-* Kontrola wokół doświadczenia logowania jest dostarczana do aplikacji przed i po zalogowaniu.
+* Środowisko użytkownika istnieje w całości w aplikacji.
+* Poświadczenia mogą być współużytkowane przez aplikacje, które są podpisane za pomocą tego samego certyfikatu, zapewniając Logowanie jednokrotne do Twojego zestawu aplikacji.
+* Przed zalogowaniem i po zalogowaniu do aplikacji należy określić, czy jest ona dostępna.
 
-Te logowania mają następujące wady:
+Te identyfikatory logowania mają następujące wady:
 
-* Użytkownicy nie mogą wystąpić logowanie jednokrotne we wszystkich aplikacjach, które używają tożsamości firmy Microsoft, tylko w tych tożsamościach firmy Microsoft, które aplikacja skonfigurowała.
-* Aplikacji nie można używać z bardziej zaawansowanymi funkcjami biznesowymi, takimi jak dostęp warunkowy, ani z pakietem produktów usługi Intune.
-* Aplikacja nie obsługuje uwierzytelniania opartego na certyfikatach dla użytkowników biznesowych.
+* Użytkownicy nie mogą korzystać z logowania jednokrotnego we wszystkich aplikacjach korzystających z tożsamości firmy Microsoft, które zostały skonfigurowane przez aplikację.
+* Aplikacja nie może być używana z bardziej zaawansowanymi funkcjami biznesowymi, takimi jak dostęp warunkowy, lub korzystać z pakietu produktów usługi Intune.
+* Aplikacja nie może obsługiwać uwierzytelniania opartego na certyfikatach dla użytkowników firmowych.
 
-Oto reprezentacja sposobu pracy sdków z udostępnionym magazynem aplikacji w celu włączenia współużytkowania:
+Poniżej przedstawiono reprezentację sposobu, w jaki zestawy SDK współpracują z udostępnionym magazynem aplikacji, aby umożliwić Logowanie jednokrotne:
 
 ```
 +------------+ +------------+  +-------------+
@@ -93,39 +93,39 @@ Oto reprezentacja sposobu pracy sdków z udostępnionym magazynem aplikacji w ce
 +--------------------------------------------+
 ```
 
-#### <a name="broker-assisted-logins"></a>Logowania wspomagane brokerem
+#### <a name="broker-assisted-logins"></a>Obsługiwane nazwy logowania obsługiwane przez brokera
 
-Logowania wspomagane przez brokera są środowiska logowania, które występują w aplikacji brokera i używać magazynu i zabezpieczeń brokera do udostępniania poświadczeń we wszystkich aplikacjach na urządzeniu, które stosują platformę tożsamości. Oznacza to, że aplikacje polegają na brokerze, aby zalogować się do użytkownika. W systemach iOS i Android brokerzy ci są dostarczane za pośrednictwem aplikacji do pobrania, które klienci instalują niezależnie lub wypychani do urządzenia przez firmę, która zarządza urządzeniem dla swojego użytkownika. Przykładem tego typu aplikacji jest aplikacja Microsoft Authenticator w systemie iOS. W systemie Windows ta funkcja jest dostarczana przez wybór konta wbudowany w system operacyjny, znany technicznie jako Broker uwierzytelniania sieci Web.
+Obsługiwane przez brokera identyfikatory logowania to środowiska logowania, które występują w aplikacji brokera i używają magazynu i zabezpieczeń brokera do udostępniania poświadczeń dla wszystkich aplikacji na urządzeniu, które stosują platformę tożsamości. Oznacza to, że aplikacje korzystają z brokera w celu podpisywania użytkowników w programie. W systemach iOS i Android te brokery są udostępniane za pomocą aplikacji do pobrania, które klienci instalują niezależnie lub wypychani do urządzenia przez firmę zarządzającą urządzeniem dla użytkownika. Przykładem tego typu aplikacji jest aplikacja Microsoft Authenticator w systemie iOS. W systemie Windows ta funkcja jest udostępniana przez funkcję wyboru konta wbudowaną w system operacyjny, znaną technicznie jako brokera uwierzytelniania w sieci Web.
 
-Środowisko różni się w zależności od platformy i czasami może być uciążliwe dla użytkowników, jeśli nie jest poprawnie zarządzane. Prawdopodobnie najbardziej znasz ten wzorzec, jeśli masz zainstalowaną aplikację Facebook i korzystasz z Facebook Connect z innej aplikacji. Platforma tożsamości używa tego samego wzorca.
+Środowisko to zależy od platformy i czasami może być zakłócone użytkownikom, jeśli nie są prawidłowo zarządzane. Najprawdopodobniej znasz ten wzorzec, jeśli masz zainstalowaną aplikację Facebook i używasz połączenia Facebook z innej aplikacji. Platforma tożsamości używa tego samego wzorca.
 
-W przypadku systemu iOS prowadzi to do animacji "przejścia", w której aplikacja jest wysyłana w tle, podczas gdy aplikacje Microsoft Authenticator są dostępne na pierwszym planie dla użytkownika, aby wybrać konto, za pomocą którego chcesz się zalogować.
+W przypadku systemu iOS to prowadzi do animacji "Transition", w której aplikacja jest wysyłana do tła, podczas gdy Microsoft Authenticator aplikacje pojawiają się na pierwszym planie, aby użytkownik mógł wybrać konto, za pomocą którego chcesz się zalogować.
 
-W systemie Android i Windows wybieracz kont jest wyświetlany na górze aplikacji, co jest mniej uciążliwe dla użytkownika.
+W przypadku systemu Android i Windows wybór konta jest wyświetlany na górze aplikacji, co jest mniej uciążliwe dla użytkownika.
 
-#### <a name="how-the-broker-gets-invoked"></a>Jak broker jest wywoływany
+#### <a name="how-the-broker-gets-invoked"></a>Jak zostanie wywołana Broker
 
-Jeśli na urządzeniu jest zainstalowany zgodny broker, taki jak aplikacja Microsoft Authenticator, pakiety SDK automatycznie wykonają pracę wywoływania brokera, gdy użytkownik wskaże, że chce zalogować się przy użyciu dowolnego konta z platformy tożsamości. To konto może być osobistym kontem Microsoft, kontem służbowym lub kontem, które udostępniasz i hostujesz na platformie Azure przy użyciu naszych produktów B2C i B2B.
+Jeśli na urządzeniu jest zainstalowany zgodny Broker, taki jak aplikacja Microsoft Authenticator, zestawy SDK automatycznie wykonują zadania wywołania brokera, gdy użytkownik wskaże zalogowanie się przy użyciu dowolnego konta z platformy tożsamości. To konto może należeć do osobistego konta Microsoft, konta służbowego lub konta, które można udostępnić i hostować na platformie Azure przy użyciu naszych produktów B2C i B2B.
 
-#### <a name="how-we-ensure-the-application-is-valid"></a>W jaki sposób zapewniamy prawidłowe stosowanie wniosku
+#### <a name="how-we-ensure-the-application-is-valid"></a>Jak upewnić się, że aplikacja jest prawidłowa
 
-Konieczność zapewnienia tożsamości aplikacji, która wywołuje brokera ma kluczowe znaczenie dla bezpieczeństwa, które zapewniamy w brokera wspomaganych logowania. Ani system iOS, ani Android wymusza unikatowe identyfikatory, które są prawidłowe tylko dla danej aplikacji, więc złośliwe aplikacje mogą "sfałszować" identyfikator legalnej aplikacji i odbierać tokeny przeznaczone dla legalnej aplikacji. Aby upewnić się, że zawsze komunikujemy się z właściwą aplikacją w czasie wykonywania, prosimy dewelopera o podanie niestandardowego identyfikatora redirectURI podczas rejestrowania aplikacji w firmie Microsoft. Jak deweloperzy powinni spreparować ten identyfikator URI przekierowania jest szczegółowo omówione poniżej. Ten niestandardowy redirectURI zawiera identyfikator pakietu aplikacji i jest gwarantowane, aby być unikatowe dla aplikacji przez Apple App Store. Gdy aplikacja wywołuje brokera, broker prosi system operacyjny iOS, aby zapewnić go z identyfikatorem pakietu, który zadzwonił do brokera. Broker udostępnia ten identyfikator pakietu do firmy Microsoft w wywołaniu do naszego systemu tożsamości. Jeśli identyfikator pakietu aplikacji nie jest zgodny z identyfikatorem pakietu dostarczonym nam przez dewelopera podczas rejestracji, odmówimy dostępu do tokenów dla zasobu, o który żąda aplikacja. Ten czek gwarantuje, że tylko aplikacja zarejestrowana przez dewelopera odbiera tokeny.
+Konieczność zapewnienia tożsamości aplikacji, która wywołuje brokera, ma kluczowe znaczenie dla zabezpieczeń zapewnianych przez dane logowania obsługiwane przez brokera. Żadne z systemów iOS i Android wymuszają unikatowe identyfikatory, które są prawidłowe tylko dla danej aplikacji, więc złośliwe aplikacje mogą "fałszować" Identyfikator legalnej aplikacji i otrzymać tokeny przeznaczone dla legalnej aplikacji. Aby upewnić się, że zawsze komunikujemy się z właściwą aplikacją w środowisku uruchomieniowym, poprosimy o udostępnienie niestandardowego redirectURI podczas rejestrowania aplikacji w firmie Microsoft. Jak deweloperzy powinni skierować ten identyfikator URI przekierowania jest szczegółowo opisany poniżej. Ten niestandardowy redirectURI zawiera identyfikator pakietu aplikacji i jest niepowtarzalny dla aplikacji w sklepie Apple App Store. Gdy aplikacja wywołuje brokera, Broker prosi system operacyjny iOS o podanie identyfikatora pakietu, który wywołał brokera. Broker dostarcza ten identyfikator pakietu firmie Microsoft w wywołaniu naszego systemu tożsamości. Jeśli identyfikator pakietu aplikacji nie jest zgodny z IDENTYFIKATORem pakietu dostarczonym przez dewelopera podczas rejestracji, odmówimy dostępu do tokenów dla zasobu, którego żąda aplikacja. Ta kontrola zapewnia, że tylko aplikacja zarejestrowana przez dewelopera otrzymuje tokeny.
 
-**Deweloper ma wybór, czy zestaw SDK wywołuje brokera lub używa przepływu wspomaganego non-broker.** Jeśli jednak deweloper zdecyduje się nie korzystać z przepływu wspomaganego przez brokera, traci korzyści wynikające z używania poświadczeń logowania przyuczajania, które użytkownik mógł już dodać na urządzeniu i uniemożliwia korzystanie z aplikacji z funkcjami biznesowymi firmy Microsoft zapewnia jej klientów, takich jak dostęp warunkowy, funkcje zarządzania usługą Intune i uwierzytelnianie oparte na certyfikatach.
+**Deweloper ma możliwość wyboru, czy zestaw SDK wywołuje brokera, czy używa nieobsługiwanego przez brokera przepływu.** Jeśli jednak deweloper zdecyduje się nie używać przepływu z obsługą brokera, utraci korzyści wynikające z używania poświadczeń logowania jednokrotnego, które użytkownik mógł już dodać na urządzeniu, i uniemożliwia ich używanie z funkcjami biznesowymi firmy Microsoft zapewnia swoim klientom, takie jak dostęp warunkowy, możliwości zarządzania usługą Intune i uwierzytelnianie oparte na certyfikatach.
 
-Te logowania mają następujące zalety:
+Te identyfikatory logowania mają następujące zalety:
 
-* Użytkownik ma doświadczenie SSO we wszystkich swoich aplikacjach, niezależnie od dostawcy.
-* Aplikacja może korzystać z bardziej zaawansowanych funkcji biznesowych, takich jak dostęp warunkowy, lub korzystać z pakietu produktów usługi Intune.
-* Aplikacja może obsługiwać uwierzytelnianie oparte na certyfikatach dla użytkowników biznesowych.
-* Znacznie bezpieczniejsze środowisko logowania jako tożsamość aplikacji i użytkownika są weryfikowane przez aplikację brokera z dodatkowych algorytmów zabezpieczeń i szyfrowania.
+* Środowisko logowania jednokrotnego dla wszystkich swoich aplikacji niezależnie od dostawcy.
+* Aplikacja może korzystać z bardziej zaawansowanych funkcji, takich jak dostęp warunkowy lub korzystać z pakietu usługi Intune.
+* Aplikacja może obsługiwać uwierzytelnianie oparte na certyfikatach dla użytkowników firmowych.
+* Znacznie bezpieczniejsze środowisko logowania jako tożsamość aplikacji i użytkownik jest weryfikowany przez aplikację brokera z dodatkowymi algorytmami i szyfrowaniem zabezpieczeń.
 
-Te logowania mają następujące wady:
+Te identyfikatory logowania mają następujące wady:
 
-* W iOS użytkownik jest przesunięty z doświadczenia aplikacji, gdy poświadczenia są wybierane.
-* Utrata możliwości zarządzania środowiskiem logowania dla klientów w aplikacji.
+* W systemie iOS użytkownik zostanie przechodzący ze środowiska aplikacji, podczas gdy wybrane są poświadczenia.
+* Utrata możliwości zarządzania logowaniem dla klientów w aplikacji.
 
-Oto reprezentacja sposobu pracy SDK z aplikacjami brokera, aby włączyć sygosk SSO:
+Poniżej przedstawiono reprezentację sposobu, w jaki zestawy SDK współpracują z aplikacjami brokera, aby włączyć logowanie jednokrotne:
 
 ```
 +------------+ +------------+   +-------------+
@@ -151,39 +151,39 @@ Oto reprezentacja sposobu pracy SDK z aplikacjami brokera, aby włączyć sygosk
               +-------------+
 ```
 
-## <a name="enabling-cross-app-sso-using-adal"></a>Włączanie przystawki SSO między aplikacjami przy użyciu usługi ADAL
+## <a name="enabling-cross-app-sso-using-adal"></a>Włączanie logowania jednokrotnego dla wielu aplikacji przy użyciu biblioteki ADAL
 
-W tym miejscu używamy SDK ADAL iOS do:
+Tutaj korzystamy z zestawu ADAL iOS SDK, aby:
 
-* Włączanie asystenta SSO ze wspomaganiem nie-brokera dla pakietu aplikacji
-* Włącz obsługę sytego syfonu obsługującego brokera
+* Włącz logowanie jednokrotne z użyciem nieobsługiwanego brokera dla pakietu aplikacji
+* Włącz obsługę logowania jednokrotnego dla brokera
 
-### <a name="turning-on-sso-for-non-broker-assisted-sso"></a>Włączanie sytografii SSO dla asystenta SSO bez brokera
+### <a name="turning-on-sso-for-non-broker-assisted-sso"></a>Włączanie logowania jednokrotnego na potrzeby logowania jednokrotnego za pomocą usługi non-Broker
 
-W przypadku asystentów SSO typu "nie-brokera" w różnych aplikacjach skomuniętnie SDK zarządzają dużą złożonością aplikacji SSO. Obejmuje to znalezienie odpowiedniego użytkownika w pamięci podręcznej i utrzymywanie listy zalogowanych użytkowników, aby można było dowiedzieć się więcej.
+W przypadku nieobsługiwanego przez brokera logowania jednokrotnego w aplikacjach zestaw SDK zarządza znaczną złożonością logowania jednokrotnego. Obejmuje to znalezienie odpowiedniego użytkownika w pamięci podręcznej i utrzymywanie listy zalogowanych użytkowników do wykonywania zapytań.
 
-Aby włączyć funkcję SSO w aplikacjach, które posiadasz, należy wykonać następujące czynności:
+Aby włączyć logowanie jednokrotne dla aplikacji, musisz wykonać następujące czynności:
 
 1. Upewnij się, że wszystkie aplikacje używają tego samego identyfikatora klienta lub identyfikatora aplikacji.
-2. Upewnij się, że wszystkie aplikacje mają ten sam certyfikat podpisywania firmy Apple, dzięki czemu można udostępniać breloki kluczy.
-3. Poproś o te same uprawnienie do pęku kluczy dla każdej aplikacji.
-4. Poinformuj sdk o udostępnionym pęku kluczy, którego chcesz używać.
+2. Upewnij się, że wszystkie aplikacje mają ten sam certyfikat podpisywania od firmy Apple, aby można było udostępnić łańcuchy kluczy.
+3. Zażądaj tego samego uprawnienia łańcucha kluczy dla każdej aplikacji.
+4. Poinformuj zestawy SDK dotyczące udostępnionego łańcucha kluczy, którego chcesz używać.
 
-#### <a name="using-the-same-client-id--application-id-for-all-the-applications-in-your-suite-of-apps"></a>Używanie tego samego identyfikatora klienta / identyfikatora aplikacji dla wszystkich aplikacji w pakiecie aplikacji
+#### <a name="using-the-same-client-id--application-id-for-all-the-applications-in-your-suite-of-apps"></a>Używanie tego samego identyfikatora klienta/identyfikatora aplikacji dla wszystkich aplikacji w twoim zestawie aplikacji
 
-Aby platforma tożsamości wiedziała, że może udostępniać tokeny w aplikacjach, każda z aplikacji będzie musiała współużytkować ten sam identyfikator klienta lub identyfikator aplikacji. Jest to unikatowy identyfikator, który został podany podczas rejestracji pierwszej aplikacji w portalu.
+Aby platforma tożsamości mogła mieć pewność, że może udostępniać tokeny w aplikacjach, każda aplikacja będzie musiała mieć ten sam identyfikator klienta lub identyfikator aplikacji. Jest to unikatowy identyfikator, który został dostarczony podczas rejestracji pierwszej aplikacji w portalu.
 
-Przekierowanie identyfikatorów URI umożliwia identyfikowanie różnych aplikacji do usługi tożsamości firmy Microsoft, jeśli używa tego samego identyfikatora aplikacji. Każda aplikacja może mieć wiele identyfikatorów URI przekierowania zarejestrowanych w portalu dołączania. Każda aplikacja w pakiecie będzie miała inny identyfikator URI przekierowania. Poniżej znajduje się przykład tego wyglądu:
+Identyfikatory URI przekierowania pozwalają identyfikować różne aplikacje do usługi tożsamości firmy Microsoft, jeśli używają tego samego identyfikatora aplikacji. Każda aplikacja może mieć wiele identyfikatorów URI przekierowania zarejestrowanych w portalu dołączania. Każda aplikacja w Twoim pakiecie będzie miała inny identyfikator URI przekierowania. Przykład wyglądu poniżej:
 
-Przekierowanie identyfikatora URI aplikacji1:`x-msauth-mytestiosapp://com.myapp.mytestapp`
+Identyfikator URI przekierowania APP1:`x-msauth-mytestiosapp://com.myapp.mytestapp`
 
-Przekierowanie URI aplikacji2:`x-msauth-mytestiosapp://com.myapp.mytestapp2`
+Identyfikator URI przekierowania APP2:`x-msauth-mytestiosapp://com.myapp.mytestapp2`
 
-Przekierowanie identyfikatora URI aplikacji3:`x-msauth-mytestiosapp://com.myapp.mytestapp3`
+Identyfikator URI przekierowania APP3:`x-msauth-mytestiosapp://com.myapp.mytestapp3`
 
 ....
 
-Są one zagnieżdżone pod tym samym identyfikatorem klienta / identyfikatorem aplikacji i wyszukane na podstawie identyfikatora URI przekierowania, który zwracasz do nas w konfiguracji SDK.
+Są one zagnieżdżane w ramach tego samego identyfikatora klienta/identyfikatora aplikacji i zostały wyszukane w oparciu o identyfikator URI przekierowania w konfiguracji zestawu SDK.
 
 ```
 +-------------------+
@@ -208,13 +208,13 @@ Są one zagnieżdżone pod tym samym identyfikatorem klienta / identyfikatorem a
 
 ```
 
-Format tych przekierowań identyfikatorów URI wyjaśniono poniżej. Możesz użyć dowolnego identyfikatora URI przekierowania, chyba że chcesz wesprzeć brokera, w którym to przypadku musi wyglądać mniej więcej tak jak powyżej*
+Poniżej wyjaśniono format tych identyfikatorów URI przekierowania. Możesz użyć dowolnego identyfikatora URI przekierowania, chyba że chcesz obsługiwać brokera. w takim przypadku muszą one wyglądać podobnie jak powyżej.
 
-#### <a name="create-keychain-sharing-between-applications"></a>Tworzenie współużytkowania pęku kluczy między aplikacjami
+#### <a name="create-keychain-sharing-between-applications"></a>Tworzenie udostępniania łańcucha kluczy między aplikacjami
 
-Włączenie udostępniania pęku kluczy wykracza poza zakres tego dokumentu i jest objęte dokumentem Firmy Apple [Dodawanie możliwości.](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html) Ważne jest, aby zdecydować, co ma być wywoływane pęku kluczy i dodać tę funkcję we wszystkich aplikacjach.
+Włączenie udostępniania łańcucha kluczy wykracza poza zakres tego dokumentu i jest objęte przez firmę Apple przy [dodawaniu funkcji](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html). Ważne jest, aby zdecydować, jak ma być wywoływana łańcucha kluczy, i dodać tę możliwość do wszystkich aplikacji.
 
-Po prawidłowym skonfigurowaniu uprawnień powinien zostać wyświetlony plik w `entitlements.plist` katalogu projektu, który zawiera coś, co wygląda następująco:
+Po poprawnym skonfigurowaniu uprawnień powinien zostać wyświetlony plik w katalogu projektu zatytułowany `entitlements.plist` , który wygląda następująco:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -230,46 +230,46 @@ Po prawidłowym skonfigurowaniu uprawnień powinien zostać wyświetlony plik w 
 </plist>
 ```
 
-Po włączeniu uprawnienia do pęku kluczy w każdej z aplikacji i gotowości do użycia funkcji SSO należy poinformować sdk tożsamości o pęku kluczy, używając następującego ustawienia w następującym `ADAuthenticationSettings` ustawieniu:
+Po włączeniu uprawnień łańcucha kluczy w każdej aplikacji i przygotowaniu do korzystania z logowania jednokrotnego poinformuj zestaw SDK o tożsamości dla łańcucha kluczy, używając następującego ustawienia w ustawieniach `ADAuthenticationSettings` :
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
 ```
 
 > [!WARNING]
-> Po udostępnieniu pęku kluczy w aplikacjach każda aplikacja może usunąć użytkowników lub co gorsza usunąć wszystkie tokeny w aplikacji. Jest to szczególnie katastrofalne, jeśli masz aplikacje, które opierają się na tokeny do pracy w tle. Udostępnianie pęku kluczy oznacza, że należy być bardzo ostrożnym w każdej operacji usuwania za pośrednictwem skomuny sdk tożsamości.
+> Po udostępnieniu łańcucha kluczy w aplikacjach każda aplikacja może usuwać użytkowników lub gorszyć usuwanie wszystkich tokenów w aplikacji. Jest to szczególnie katastrofalne, jeśli masz aplikacje, które opierają się na tokenach do wykonywania zadań w tle. Udostępnianie łańcucha kluczy oznacza, że należy zachować ostrożność w każdej operacji usuwania za pośrednictwem zestawów SDK tożsamości.
 
-Gotowe. SDK będzie teraz udostępniać poświadczenia we wszystkich aplikacjach. Lista użytkowników będzie również współużytkowana przez wystąpienia aplikacji.
+Gotowe. Zestaw SDK będzie teraz udostępniać poświadczenia dla wszystkich aplikacji. Lista użytkowników będzie również współużytkowana przez wystąpienia aplikacji.
 
-### <a name="turning-on-sso-for-broker-assisted-sso"></a>Włączanie syto dla brokera wspomaganego sytemiewu
+### <a name="turning-on-sso-for-broker-assisted-sso"></a>Włączanie logowania jednokrotnego dla brokera z pomocą usługi logowania jednokrotnego
 
-Możliwość korzystania przez aplikację z dowolnego brokera zainstalowanego na urządzeniu jest **domyślnie wyłączona.** Aby korzystać z aplikacji z brokerem, należy wykonać dodatkową konfigurację i dodać kod do aplikacji.
+Możliwość używania dowolnego brokera zainstalowanego na urządzeniu przez aplikację jest **domyślnie wyłączona**. Aby można było używać aplikacji z brokerem, należy wykonać dodatkową konfigurację i dodać do aplikacji kod.
 
-Kroki, które należy wykonać, to:
+Poniżej przedstawiono kroki, które należy wykonać:
 
-1. Włącz tryb brokera w wywołaniu kodu aplikacji do ms SDK.
-2. Ustal nowy identyfikator URI przekierowania i podaj go zarówno do aplikacji, jak i do rejestracji aplikacji.
-3. Rejestrowanie schematu adresów URL.
-4. Dodaj uprawnienie do pliku info.plist.
+1. Włącz tryb brokera w wywołaniu kodu aplikacji MS SDK.
+2. Ustanów nowy identyfikator URI przekierowania i zapewnij zarówno rejestrację aplikacji, jak i aplikacji.
+3. Rejestrowanie schematu adresu URL.
+4. Dodaj uprawnienie do pliku info. plist.
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>Krok 1: Włącz tryb brokera w aplikacji
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>Krok 1. Włączanie trybu brokera w aplikacji
 
-Możliwość korzystania z brokera przez aplikację jest włączona podczas tworzenia "kontekstu" lub początkowej konfiguracji obiektu uwierzytelniania. Można to zrobić, ustawiając typ poświadczeń w kodzie:
+Możliwość korzystania z brokera przez aplikację jest włączana podczas tworzenia "kontekstu" lub początkowej konfiguracji obiektu uwierzytelniania. W tym celu należy ustawić typ poświadczeń w kodzie:
 
 ```
 /*! See the ADCredentialsType enumeration definition for details */
 @propertyADCredentialsType credentialsType;
 ```
-Ustawienie `AD_CREDENTIALS_AUTO` pozwoli SDK, aby spróbować wywołać brokera, `AD_CREDENTIALS_EMBEDDED` uniemożliwi SDK wywołanie do brokera.
+`AD_CREDENTIALS_AUTO` Ustawienie umożliwi zestawowi SDK próba wywołania do brokera, `AD_CREDENTIALS_EMBEDDED` uniemożliwiając wywołanie zestawu SDK do brokera.
 
-#### <a name="step-2-registering-a-url-scheme"></a>Krok 2: Rejestrowanie schematu adresu URL
+#### <a name="step-2-registering-a-url-scheme"></a>Krok 2. rejestrowanie schematu adresu URL
 
-Platforma tożsamości używa adresów URL do wywoływania brokera, a następnie zwracania kontroli z powrotem do aplikacji. Aby zakończyć tę podróż w obie strony, potrzebujesz schematu adresu URL zarejestrowanego dla aplikacji, o której będzie wiedział platforma tożsamości. Może to być dodatek do innych schematów aplikacji, które zostały wcześniej zarejestrowane w aplikacji.
+Platforma tożsamości używa adresów URL do wywołania brokera, a następnie powrotu kontroli z powrotem do aplikacji. Aby zakończyć tę rundę, potrzebujesz schematu adresu URL zarejestrowanego dla aplikacji, o której będzie wiadomo platforma tożsamości. Może to być oprócz innych schematów aplikacji, które zostały wcześniej zarejestrowane w aplikacji.
 
 > [!WARNING]
-> Zalecamy, aby schemat adresu URL był dość unikalny, aby zminimalizować szanse innej aplikacji przy użyciu tego samego schematu adresu URL. Firma Apple nie wymusza unikatowości schematów adresów URL zarejestrowanych w sklepie z aplikacjami.
+> Zalecamy, aby schemat adresu URL był dość unikatowy, aby zminimalizować prawdopodobieństwo użycia innej aplikacji przy użyciu tego samego schematu adresu URL. Firma Apple nie wymusza unikatowości schematów adresów URL zarejestrowanych w sklepie App Store.
 
-Poniżej znajduje się przykład, jak to pojawia się w konfiguracji projektu. Można to również zrobić w XCode, jak również:
+Poniżej przedstawiono przykład sposobu wyświetlania w konfiguracji projektu. Można to także zrobić również w XCode:
 
 ```
 <key>CFBundleURLTypes</key>
@@ -287,29 +287,29 @@ Poniżej znajduje się przykład, jak to pojawia się w konfiguracji projektu. M
 </array>
 ```
 
-#### <a name="step-3-establish-a-new-redirect-uri-with-your-url-scheme"></a>Krok 3: Ustanowienie nowego identyfikatora URI przekierowania za pomocą schematu adresu URL
+#### <a name="step-3-establish-a-new-redirect-uri-with-your-url-scheme"></a>Krok 3. nawiązanie nowego identyfikatora URI przekierowania ze schematem adresu URL
 
-Aby upewnić się, że zawsze zwracamy tokeny poświadczeń do poprawnej aplikacji, musimy upewnić się, że oddzwonimy do aplikacji w sposób, który system operacyjny iOS może zweryfikować. System operacyjny iOS zgłasza do aplikacji brokera firmy Microsoft identyfikator pakietu aplikacji wywołującej go. Nie może to być sfałszowane przez fałszywą aplikację. W związku z tym możemy wykorzystać to wraz z identyfikatorem URI naszej aplikacji brokera, aby upewnić się, że tokeny są zwracane do poprawnej aplikacji. Wymagamy, aby ustanowić ten unikatowy identyfikator URI przekierowania zarówno w aplikacji i ustawić jako identyfikator URI przekierowania w naszym portalu dla deweloperów.
+Aby upewnić się, że zawsze zwracamy tokeny poświadczeń do poprawnej aplikacji, musimy upewnić się, że dzwonimy z powrotem do aplikacji w taki sposób, aby można było zweryfikować system operacyjny iOS. System operacyjny iOS zgłasza do aplikacji Microsoft Broker identyfikator pakietu aplikacji, który je wywołuje. Nie może to być sfałszowane przez nieautoryzowaną aplikację. W związku z tym korzystamy z niego wraz z identyfikatorem URI naszej aplikacji brokera, aby upewnić się, że tokeny są zwracane do odpowiedniej aplikacji. Wymagamy ustanowienia tego unikatowego identyfikatora URI przekierowania zarówno w aplikacji, jak i jako identyfikatora URI przekierowania w naszym portalu dla deweloperów.
 
-Identyfikator URI przekierowania musi mieć właściwą formę:
+Identyfikator URI przekierowania musi mieć poprawną formę:
 
 `<app-scheme>://<your.bundle.id>`
 
-przykład: *x-msauth-mytestiosapp://com.myapp.mytestapp*
+przykład: *x-msauth-mytestiosapp://com.MyApp.mytestapp*
 
-Ten identyfikator URI przekierowania musi być określony w rejestracji aplikacji przy użyciu [witryny Azure portal](https://portal.azure.com/). Aby uzyskać więcej informacji na temat rejestracji aplikacji usługi Azure AD, zobacz [Integrowanie z usługą Azure Active Directory](../develop/active-directory-how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+Ten identyfikator URI przekierowania musi być określony w rejestracji aplikacji przy użyciu [Azure Portal](https://portal.azure.com/). Aby uzyskać więcej informacji na temat rejestracji aplikacji w usłudze Azure AD, zobacz [Integrowanie z Azure Active Directory](../develop/active-directory-how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>Krok 3a: Dodawanie identyfikatora URI przekierowania w aplikacji i portalu deweloperów w celu obsługi uwierzytelniania opartego na certyfikatach
+##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>Krok 3a: Dodawanie identyfikatora URI przekierowania w aplikacji i portalu deweloperów do obsługi uwierzytelniania opartego na certyfikatach
 
-Aby obsługiwać uwierzytelnianie oparte na cert, należy zarejestrować w aplikacji i [witrynie Azure portal](https://portal.azure.com/) drugi "msauth", aby obsłużyć uwierzytelnianie certyfikatów, jeśli chcesz dodać tę obsługę w aplikacji.
+Aby można było obsługiwać uwierzytelnianie oparte na certyfikatach, należy zarejestrować drugi "msauth" w aplikacji, a [Azure Portal](https://portal.azure.com/) do obsługi uwierzytelniania certyfikatu, jeśli chcesz dodać tę obsługę w aplikacji.
 
 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 
-przykład: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
+np.: *msauth://Code/x-msauth-mytestiosapp%3A%2F%2Fcom.MyApp.mytestapp*
 
-#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Krok 4: Dodawanie parametru konfiguracji do aplikacji
+#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Krok 4. Dodawanie parametru konfiguracji do aplikacji
 
-ADAL używa –canOpenURL: aby sprawdzić, czy broker jest zainstalowany na urządzeniu. W systemie iOS 9 włączone apple zablokował, jakie schematy aplikacja może wysyłać zapytania. Musisz dodać "msauth" do sekcji LSApplicationQueriesSchemes `info.plist file`w sekcji .
+Użycie biblioteki ADAL — canOpenURL: Aby sprawdzić, czy na urządzeniu zainstalowano brokera. W systemie iOS 9 na platformie Apple zablokowano, które schematy mogą wykonywać zapytania dotyczące aplikacji. Musisz dodać "msauth" do sekcji LSApplicationQueriesSchemes `info.plist file`.
 
 ```
     <key>LSApplicationQueriesSchemes</key>
@@ -319,10 +319,10 @@ ADAL używa –canOpenURL: aby sprawdzić, czy broker jest zainstalowany na urz�
 
 ```
 
-### <a name="youve-configured-sso"></a>Skonfigurowano sytą konfigurację!
+### <a name="youve-configured-sso"></a>Skonfigurowano Logowanie jednokrotne.
 
-Teraz sdk tożsamości automatycznie będzie udostępniać poświadczenia w aplikacjach i wywołać brokera, jeśli jest obecny na ich urządzeniu.
+Teraz zestaw SDK tożsamości automatycznie będzie udostępniać poświadczenia w aplikacjach i wywoływać brokera, jeśli jest obecny na urządzeniu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [pojedynczym loguchajniu SAML](../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
+* Informacje o [protokole SAML logowania](../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) jednokrotnego

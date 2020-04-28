@@ -12,91 +12,91 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 55ce0233fdefb8360376e94c0baafabe4c62ced7
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81309212"
 ---
-# <a name="blocking-legacy-authentication"></a>Blokowanie uwierzytelniania starszego
+# <a name="blocking-legacy-authentication"></a>Blokowanie starszego uwierzytelniania
  
-Aby zapewnić użytkownikom łatwy dostęp do aplikacji w chmurze, usługa Azure Active Directory (Azure AD) obsługuje szeroką gamę protokołów uwierzytelniania, w tym uwierzytelnianie starsze. Uwierzytelnianie starsze to termin, który odnosi się do żądania uwierzytelnienia złożonego przez:
+Aby zapewnić użytkownikom łatwy dostęp do aplikacji w chmurze, usługa Azure Active Directory (Azure AD) obsługuje szeroką gamę protokołów uwierzytelniania, w tym starsze uwierzytelnianie. Starsza wersja uwierzytelniania to termin, który odwołuje się do żądania uwierzytelnienia wykonanego przez:
 
 - Starsi klienci pakietu Office, którzy nie korzystają z nowoczesnego uwierzytelniania (na przykład klient pakietu Office 2010)
 - Każdy klient korzystający ze starszych protokołów poczty, takich jak IMAP/SMTP/POP3
 
-Obecnie większość wszystkich prób logowania kompromitujących pochodzi ze starszego uwierzytelniania. Uwierzytelnianie starsze nie obsługuje uwierzytelniania wieloskładnikowego (MFA). Nawet jeśli masz włączone zasady usługi MFA w katalogu, zły aktor może uwierzytelniać się przy użyciu starszego protokołu i pominąć uwierzytelnianie usługi MFA. Najlepszym sposobem ochrony konta przed złośliwymi żądaniami uwierzytelniania złożonymi przez starsze protokoły jest całkowite zablokowanie tych prób.
+Dzisiaj większość wszelkich niezwiązanych z logowaniem nie pochodzi ze starszej wersji uwierzytelniania. Starsza wersja uwierzytelniania nie obsługuje uwierzytelniania wieloskładnikowego (MFA). Nawet jeśli w Twoim katalogu włączono zasady MFA, nieprawidłowy aktor może być uwierzytelniany przy użyciu starszego protokołu i pomijania usługi MFA. Najlepszym sposobem na ochronę konta przed złośliwymi żądaniami uwierzytelniania podejmowanymi przez starsze protokoły jest zablokowanie tych prób w ogóle.
 
-## <a name="identify-legacy-authentication-use"></a>Identyfikowanie użycia uwierzytelniania starszego
+## <a name="identify-legacy-authentication-use"></a>Identyfikuj użycie starszego uwierzytelniania
 
-Aby zablokować starsze uwierzytelnianie w katalogu, należy najpierw zrozumieć, czy użytkownicy mają aplikacje korzystające ze starszego uwierzytelniania i jak wpływa na ogólny katalog. Dzienniki logowania usługi Azure AD mogą służyć do zrozumienia, jeśli używasz uwierzytelniania starszego.
+Przed zablokowaniem starszego uwierzytelniania w katalogu należy najpierw zrozumieć, czy użytkownicy mają aplikacje korzystające ze starszego uwierzytelniania i jak mają wpływ na ogólny katalog. Korzystając z dzienników logowania usługi Azure AD, można zrozumieć, czy używane jest starsze uwierzytelnianie.
 
-1. Przejdź do witryny **Azure portal** > **Azure Active Directory.** > **Sign-ins**
-1. Dodaj kolumnę **Aplikacja klienta,** jeśli nie jest ona wyświetlana, klikając **aplikację kliencką Kolumny** > **Client App**.
-1. Filtruj według **aplikacji**   klienta> sprawdź wszystkie prezentowane opcje **Starszych Klientów uwierzytelniania.**
-1. **Filtruj** > według**sukcesu**stanu . 
-1. W razie potrzeby rozszerz zakres dat za pomocą filtru **Data.**
+1. Przejdź do **Azure Portal** > **Azure Active Directory** Azure Active Directory> **logowania**.
+1. Dodaj kolumnę **aplikacji klienckiej** , jeśli nie jest ona wyświetlana po kliknięciu pozycji **kolumny** > **aplikacja kliencka**.
+1. Filtruj według **aplikacji**   klienckich> Sprawdź wszystkie dostępne opcje **starszych klientów uwierzytelniania** .
+1. Filtrowanie według **stanu** > **sukcesu**. 
+1. W razie potrzeby rozwiń zakres dat, używając filtru **daty** .
 
-Filtrowanie będzie wyświetlać tylko pomyślne próby logowania, które zostały wykonane przez wybrane starsze protokoły uwierzytelniania. Kliknięcie każdej indywidualnej próby logowania spowoduje wyświetlenie dodatkowych informacji. Kolumna Aplikacja kliencka lub pole Aplikacja kliencka na karcie Informacje podstawowe po wybraniu pojedynczego wiersza danych wskaże, który starszy protokół uwierzytelniania został użyty. Te dzienniki wskażą, którzy użytkownicy są nadal zależni od starszego uwierzytelniania i które aplikacje używają starszych protokołów do żądania uwierzytelniania. W przypadku użytkowników, którzy nie są wyświetlane w tych dziennikach i są potwierdzone, że nie używają uwierzytelniania starszego, należy zaimplementować zasady dostępu warunkowego lub włączyć zasady planu bazowego: blokuj starsze uwierzytelnianie tylko dla tych użytkowników.
+Filtrowanie będzie zawierać tylko pomyślne próby logowania, które zostały wprowadzone przez wybrane starsze protokoły uwierzytelniania. Kliknięcie każdej próby logowania spowoduje wyświetlenie dodatkowych szczegółów. Kolumna aplikacji klienta lub pole aplikacji klienta na karcie Informacje podstawowe po wybraniu pojedynczego wiersza danych wskazuje, który z starszych wersji protokołu uwierzytelniania był używany. Te dzienniki wskazują, którzy użytkownicy nadal są w stanie w zależności od starszego uwierzytelniania i które aplikacje używają starszych protokołów do przesyłania żądań uwierzytelniania. W przypadku użytkowników, którzy nie znajdują się w tych dziennikach i potwierdzają, że nie używają starszego uwierzytelniania, zaimplementuj zasady dostępu warunkowego lub Włącz zasady linii bazowej: Blokuj starsze uwierzytelnianie dla tych użytkowników.
 
-## <a name="moving-away-from-legacy-authentication"></a>Odejście od uwierzytelniania starszego 
+## <a name="moving-away-from-legacy-authentication"></a>Przejście z starszego uwierzytelniania 
 
-Gdy masz lepsze pojęcie o tym, kto używa starszego uwierzytelniania w katalogu i które aplikacje od niego zależą, następnym krokiem jest uaktualnienie użytkowników do korzystania z nowoczesnego uwierzytelniania. Nowoczesne uwierzytelnianie to metoda zarządzania tożsamościami, która oferuje bezpieczniejsze uwierzytelnianie i autoryzację użytkowników. Jeśli masz zasady usługi MFA w miejscu w katalogu, nowoczesne uwierzytelnianie zapewnia, że użytkownik jest monitowany o uwierzytelnianie wieloskładnikowe, gdy jest to wymagane. Jest to bezpieczniejsza alternatywa dla starszych protokołów uwierzytelniania.
+Po lepszym założeniu, kto korzysta z starszego uwierzytelniania w katalogu i które aplikacje są od niego zależne, następnym krokiem jest uaktualnienie użytkowników w celu korzystania z nowoczesnego uwierzytelniania. Nowoczesne uwierzytelnianie to metoda zarządzania tożsamościami, która oferuje bezpieczniejsze uwierzytelnianie i autoryzację użytkowników. Jeśli w katalogu znajdują się zasady MFA, nowoczesne uwierzytelnianie zapewnia, że użytkownik jest monitowany o MFA w razie potrzeby. Jest to bezpieczniejszy alternatywa dla starszych protokołów uwierzytelniania.
 
-W tej sekcji przedstawiono omówienie krok po kroku dotyczące aktualizowania środowiska do nowoczesnego uwierzytelniania. Zapoznaj się z poniższymi krokami przed włączeniem starszych zasad blokowania uwierzytelniania w organizacji.
+Ta sekcja zawiera omówienie krok po kroku dotyczące aktualizowania środowiska do nowoczesnego uwierzytelniania. Zapoznaj się z poniższymi krokami przed włączeniem zasad blokowania uwierzytelniania w organizacji.
 
-### <a name="step-1-enable-modern-authentication-in-your-directory"></a>Krok 1: Włącz nowoczesne uwierzytelnianie w katalogu
+### <a name="step-1-enable-modern-authentication-in-your-directory"></a>Krok 1. włączenie nowoczesnego uwierzytelniania w katalogu
 
-Pierwszym krokiem w włączaniu nowoczesnego uwierzytelniania jest upewnienie się, że katalog obsługuje nowoczesne uwierzytelnianie. Nowoczesne uwierzytelnianie jest domyślnie włączone dla katalogów utworzonych 1 sierpnia 2017 r. lub później. Jeśli katalog został utworzony przed tą datą, musisz ręcznie włączyć nowoczesne uwierzytelnianie dla katalogu, wykonując następujące czynności:
+Pierwszym krokiem w celu włączenia nowoczesnego uwierzytelniania jest upewnienie się, że katalog obsługuje nowoczesne uwierzytelnianie. Nowoczesne uwierzytelnianie jest domyślnie włączone dla katalogów utworzonych w dniu lub po 1 sierpnia 2017. Jeśli katalog został utworzony przed tą datą, musisz ręcznie włączyć nowoczesne uwierzytelnianie dla katalogu, wykonując następujące czynności:
 
-1. Sprawdź, czy katalog obsługuje już nowoczesne `Get-CsOAuthConfiguration` uwierzytelnianie, uruchamiając [moduł programu Skype dla firm Online PowerShell](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
-1. Jeśli polecenie zwraca `OAuthServers` pustą właściwość, nowoczesne uwierzytelnianie jest wyłączone. Zaktualizuj to `Set-CsOAuthConfiguration`ustawienie, aby włączyć nowoczesne uwierzytelnianie przy użyciu programu . Jeśli `OAuthServers` twoja nieruchomość zawiera wpis, jesteś dobry, aby przejść.
+1. Sprawdź, czy katalog już obsługuje nowoczesne uwierzytelnianie, uruchamiając `Get-CsOAuthConfiguration` go z poziomu [modułu programu PowerShell w usłudze Skype dla firm Online](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Jeśli polecenie zwróci pustą `OAuthServers` właściwość, nowoczesne uwierzytelnianie jest wyłączone. Zaktualizuj ustawienie, aby umożliwić nowoczesne uwierzytelnianie przy `Set-CsOAuthConfiguration`użyciu programu. Jeśli Twoja `OAuthServers` Właściwość zawiera wpis, możesz go wybrać.
 
-Pamiętaj, aby wykonać ten krok przed przejściem do przodu. Bardzo ważne jest, aby najpierw zmienić konfiguracje katalogów, ponieważ określają one, który protokół będzie używany przez wszystkich klientów pakietu Office. Nawet jeśli używasz klientów pakietu Office, które obsługują nowoczesne uwierzytelnianie, będą one domyślnie przy użyciu starszych protokołów, jeśli nowoczesne uwierzytelnianie jest wyłączone w katalogu.
+Pamiętaj, aby ukończyć ten krok przed przejściem do przodu. Ważne jest, aby konfiguracje katalogów były najpierw zmieniane, ponieważ określają, który protokół będzie używany przez wszystkich klientów pakietu Office. Nawet jeśli używasz klientów pakietu Office obsługujących nowoczesne uwierzytelnianie, domyślnie będą używać starszych protokołów, jeśli nowoczesne uwierzytelnianie jest wyłączone w Twoim katalogu.
 
-### <a name="step-2-office-applications"></a>Krok 2: Aplikacje pakietu Office
+### <a name="step-2-office-applications"></a>Krok 2. aplikacje pakietu Office
 
-Po włączeniu nowoczesnego uwierzytelniania w katalogu można rozpocząć aktualizowanie aplikacji, włączając nowoczesne uwierzytelnianie dla klientów pakietu Office. Klienci pakietu Office 2016 lub nowszego domyślnie obsługują nowoczesne uwierzytelnianie. Nie są wymagane żadne dodatkowe kroki.
+Po włączeniu nowoczesnego uwierzytelniania w katalogu można rozpocząć aktualizowanie aplikacji, włączając nowoczesne uwierzytelnianie dla klientów pakietu Office. Klienci z pakietem Office 2016 lub nowszym domyślnie obsługują nowoczesne uwierzytelnianie. Nie są wymagane żadne dodatkowe czynności.
 
-Jeśli korzystasz z klientów pakietu Office 2013 dla systemu Windows lub starszych, zalecamy uaktualnienie do pakietu Office 2016 lub nowszego. Nawet po wykonaniu poprzedniego kroku włączania nowoczesnego uwierzytelniania w katalogu starsze aplikacje pakietu Office będą nadal używać starszych protokołów uwierzytelniania. Jeśli korzystasz z klientów pakietu Office 2013 i nie możesz natychmiast uaktualnić do pakietu Office 2016 lub nowszego, wykonaj czynności opisane w poniższym artykule, aby [włączyć nowoczesne uwierzytelnianie dla pakietu Office 2013 na urządzeniach z systemem Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Aby chronić swoje konto podczas korzystania ze starszego uwierzytelniania, zalecamy używanie silnych haseł w katalogu. Zapoznaj się z [ochroną hasłem](../authentication/concept-password-ban-bad.md) usługi Azure AD, aby zablokować słabe hasła w katalogu.
+Jeśli używasz klientów systemu Windows z pakietem Office 2013 lub starszej wersji, zalecamy uaktualnienie do pakietu Office 2016 lub nowszego. Nawet po zakończeniu poprzedniego kroku włączania nowoczesnego uwierzytelniania w katalogu starsze aplikacje pakietu Office będą nadal używać starszych protokołów uwierzytelniania. Jeśli używasz klientów pakietu Office 2013 i nie możesz natychmiast przeprowadzić uaktualnienia do pakietu Office 2016 lub nowszego, wykonaj kroki opisane w następującym artykule, aby [włączyć nowoczesne uwierzytelnianie dla pakietu office 2013 na urządzeniach z systemem Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Aby chronić Twoje konto podczas korzystania ze starszego uwierzytelniania, zalecamy używanie silnych haseł w katalogu. Sprawdź  [ochronę hasłem usługi Azure AD](../authentication/concept-password-ban-bad.md), aby zablokować słabe hasła w katalogu.
 
-Pakiet Office 2010 nie obsługuje nowoczesnego uwierzytelniania. Należy uaktualnić wszystkich użytkowników korzystających z pakietu Office 2010 do nowszej wersji pakietu Office. Zalecamy uaktualnienie do pakietu Office 2016 lub nowszego, ponieważ domyślnie blokuje on starsze uwierzytelnianie.
+Pakiet Office 2010 nie obsługuje nowoczesnego uwierzytelniania. Należy uaktualnić wszystkich użytkowników z pakietem Office 2010 do nowszej wersji pakietu Office. Zalecamy uaktualnienie do pakietu Office 2016 lub nowszego, ponieważ domyślnie blokuje ono starsze uwierzytelnianie.
 
-Jeśli używasz systemu macOS, zalecamy uaktualnienie do pakietu Office 2016 lub nowszego. Jeśli używasz natywnego klienta poczty, musisz mieć system macOS w wersji 10.14 lub nowszej na wszystkich urządzeniach.
+Jeśli używasz macOS, zalecamy uaktualnienie do pakietu Office dla komputerów Mac 2016 lub nowszego. Jeśli używasz natywnego klienta poczty, na wszystkich urządzeniach musi być zainstalowany program macOS w wersji 10,14 lub nowszej.
 
-### <a name="step-3-exchange-and-sharepoint"></a>Krok 3: Program Exchange i sharepoint
+### <a name="step-3-exchange-and-sharepoint"></a>Krok 3. Exchange i SharePoint
 
-Aby klienci programu Outlook z systemem Windows mogli korzystać z nowoczesnego uwierzytelniania, usługa Exchange Online musi być również nowoczesna. Jeśli nowoczesne uwierzytelnianie jest wyłączone w usłudze Exchange Online, klienci programu Outlook z systemem Windows obsługującym nowoczesne uwierzytelnianie (Outlook 2013 lub nowsze) będą używać uwierzytelniania podstawowego do łączenia się ze skrzynkami pocztowymi usługi Exchange Online.
+W przypadku korzystania z nowoczesnego uwierzytelniania przez klientów programu Outlook opartych na systemie Windows Usługa Exchange Online musi być również włączona. Jeśli nowoczesne uwierzytelnianie jest wyłączone dla usługi Exchange Online, klienci programu Outlook korzystający z systemu Windows, którzy obsługują nowoczesne uwierzytelnianie (Outlook 2013 lub nowsza), będą używać uwierzytelniania podstawowego do nawiązywania połączenia z skrzynkami pocztowymi usługi Exchange Online.
 
-Program SharePoint Online jest włączony dla nowoczesnego uwierzytelniania domyślnego. W przypadku katalogów utworzonych po 1 sierpnia 2017 r. nowoczesne uwierzytelnianie jest domyślnie włączone w usłudze Exchange Online. Jeśli jednak wcześniej wyłączono nowoczesne uwierzytelnianie lub katalog utworzony przed tą datą, wykonaj kroki opisane w poniższym artykule, aby [włączyć nowoczesne uwierzytelnianie w usłudze Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+Program SharePoint Online jest domyślnie włączony dla nowoczesnego uwierzytelniania. W przypadku katalogów utworzonych po 1 sierpnia 2017, nowoczesne uwierzytelnianie jest domyślnie włączone w usłudze Exchange Online. Jeśli jednak wcześniej wyłączono nowoczesne uwierzytelnianie lub jeśli korzystasz z katalogu utworzonego przed tą datą, wykonaj kroki opisane w następującym artykule, aby [włączyć nowoczesne uwierzytelnianie w usłudze Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
-### <a name="step-4-skype-for-business"></a>Krok 4: Skype dla firm
+### <a name="step-4-skype-for-business"></a>Krok 4. Skype dla firm
 
-Aby zapobiec starszym żądaniom uwierzytelniania składanych przez program Skype dla firm, konieczne jest włączenie nowoczesnego uwierzytelniania dla usługi Skype dla firm Online. W przypadku katalogów utworzonych po 1 sierpnia 2017 r. nowoczesne uwierzytelnianie dla programu Skype dla firm jest domyślnie włączone.
+Aby uniemożliwić starsze żądania uwierzytelniania wykonywane przez usługę Skype dla firm, należy włączyć nowoczesne uwierzytelnianie dla usługi Skype dla firm Online. W przypadku katalogów utworzonych po 1 sierpnia 2017, nowoczesne uwierzytelnianie dla usługi Skype dla firm jest domyślnie włączone.
 
-Sugerujemy przejście do usługi Microsoft Teams, która domyślnie obsługuje nowoczesne uwierzytelnianie. Jeśli jednak obecnie nie można przeprowadzić migracji, musisz włączyć nowoczesne uwierzytelnianie dla usługi Skype dla firm Online, aby klienci programu Skype dla firm zaczęli korzystać z nowoczesnego uwierzytelniania. Wykonaj kroki opisane w tym artykule [Topologie programu Skype dla firm obsługiwane za pomocą nowoczesnego uwierzytelniania](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), aby włączyć nowoczesne uwierzytelnianie dla programu Skype dla firm.
+Zalecamy przechodzenie do programu Microsoft Teams, który domyślnie obsługuje nowoczesne uwierzytelnianie. Jeśli jednak w tej chwili nie można przeprowadzić migracji, należy włączyć nowoczesne uwierzytelnianie dla usługi Skype dla firm Online, aby klienci programu Skype dla firm mogli zacząć korzystać z nowoczesnego uwierzytelniania. Wykonaj kroki opisane w tym artykule [dotyczące topologii programu Skype dla firm obsługiwanych przy użyciu nowoczesnego uwierzytelniania](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), aby włączyć nowoczesne uwierzytelnianie dla programu Skype dla firm.
 
-Oprócz włączania nowoczesnego uwierzytelniania w usłudze Skype dla firm Online zalecamy włączenie nowoczesnego uwierzytelniania dla usługi Exchange Online podczas włączania nowoczesnego uwierzytelniania dla programu Skype dla firm. Ten proces pomoże zsynchronizować stan nowoczesnego uwierzytelniania w usłudze Exchange Online i w usłudze Skype dla firm online i uniemożliwi wiele monitów logowania dla klientów programu Skype dla firm.
+Oprócz włączenia nowoczesnego uwierzytelniania dla usługi Skype dla firm Online zaleca się włączenie nowoczesnego uwierzytelniania w usłudze Exchange Online w przypadku włączenia nowoczesnego uwierzytelniania dla programu Skype dla firm. Ten proces pomoże zsynchronizować stan nowoczesnego uwierzytelniania w usłudze Exchange Online i usłudze Skype dla firm Online, co uniemożliwi wielokrotne logowanie klientów programu Skype dla firm.
 
-### <a name="step-5-using-mobile-devices"></a>Krok 5: Korzystanie z urządzeń mobilnych
+### <a name="step-5-using-mobile-devices"></a>Krok 5. Korzystanie z urządzeń przenośnych
 
-Aplikacje na urządzeniu przenośnym muszą również blokować starsze uwierzytelnianie. Zalecamy korzystanie z programu Outlook dla urządzeń przenośnych. Program Outlook dla urządzeń przenośnych domyślnie obsługuje nowoczesne uwierzytelnianie i spełnia inne zasady ochrony bazowej usługi MFA.
+Aplikacje na urządzeniu przenośnym muszą blokować również starsze uwierzytelnianie. Zalecamy korzystanie z programu Outlook dla urządzeń przenośnych. Program Outlook dla urządzeń przenośnych domyślnie obsługuje nowoczesne uwierzytelnianie i będzie spełniać inne zasady ochrony linii bazowej usługi MFA.
 
-Aby korzystać z natywnego klienta poczty systemu iOS, musisz mieć uruchomiony system iOS w wersji 11.0 lub nowszej, aby upewnić się, że klient poczty został zaktualizowany w celu zablokowania uwierzytelniania starszego.
+Aby można było korzystać z natywnego klienta poczty systemu iOS, należy uruchomić system iOS w wersji 11,0 lub nowszej, aby upewnić się, że klient poczty został zaktualizowany w celu blokowania starszego uwierzytelniania.
 
-### <a name="step-6-on-premises-clients"></a>Krok 6: Klienci lokalni
+### <a name="step-6-on-premises-clients"></a>Krok 6. klienci lokalni
 
-Jeśli jesteś klientem hybrydowym korzystającym z lokalnego programu Exchange Server i programu Skype dla firm lokalnie, obie usługi będą musiały zostać zaktualizowane, aby umożliwić nowoczesne uwierzytelnianie. Podczas korzystania z nowoczesnego uwierzytelniania w środowisku hybrydowym, nadal uwierzytelniasz użytkowników lokalnie. Zmienia się historia autoryzowania ich dostępu do zasobów (plików lub wiadomości e-mail).
+Jeśli jesteś hybrydowym klientem korzystającym lokalnie z lokalnego programu Exchange Server i lokalnego programu Skype dla firm, należy zaktualizować obie usługi, aby umożliwić nowoczesne uwierzytelnianie. W przypadku korzystania z nowoczesnego uwierzytelniania w środowisku hybrydowym nadal są uwierzytelniani użytkownicy lokalnie. Historię autoryzacji dostępu do zasobów (plików lub wiadomości e-mail).
 
-Zanim zaczniesz włączać nowoczesne uwierzytelnianie lokalnie, upewnij się, że spełniasz wymagania wstępne. Teraz możesz przystąpić do włączania nowoczesnego uwierzytelniania lokalnie.
+Przed rozpoczęciem włączania nowoczesnego uwierzytelniania lokalnego upewnij się, że spełniono wymagania wstępne. Teraz można przystąpić do włączania nowoczesnego uwierzytelniania w środowisku lokalnym.
 
-Kroki włączania nowoczesnego uwierzytelniania można znaleźć w następujących artykułach:
+Kroki umożliwiające włączenie nowoczesnego uwierzytelniania można znaleźć w następujących artykułach:
 
-* [Jak skonfigurować program Exchange Server lokalnie do używania nowoczesnego uwierzytelniania hybrydowego](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-* [Jak korzystać z nowoczesnego uwierzytelniania (ADAL) w programie Skype dla firm](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+* [Jak skonfigurować lokalny serwer Exchange Server do korzystania z nowoczesnego uwierzytelniania hybrydowego](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+* [Jak używać nowoczesnego uwierzytelniania (ADAL) w usłudze Skype dla firm](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Jak skonfigurować program Exchange Server lokalnie do używania nowoczesnego uwierzytelniania hybrydowego](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-- [Jak korzystać z nowoczesnego uwierzytelniania (ADAL) w programie Skype dla firm](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+- [Jak skonfigurować lokalny serwer Exchange Server do korzystania z nowoczesnego uwierzytelniania hybrydowego](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+- [Jak używać nowoczesnego uwierzytelniania (ADAL) w usłudze Skype dla firm](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
 - [Blokowanie starszego uwierzytelniania](../conditional-access/block-legacy-authentication.md)

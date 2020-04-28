@@ -1,7 +1,7 @@
 ---
-title: Definiowanie profilu technicznego czynnika telefonu w zasadach niestandardowych
+title: Definiowanie profilu technicznego w ramach niestandardowych zasad
 titleSuffix: Azure AD B2C
-description: Zdefiniuj profil techniczny czynnika telefonu w zasadach niestandardowych w usłudze Azure Active Directory B2C.
+description: Zdefiniuj profil techniczny w zasadach niestandardowych w Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,29 +12,29 @@ ms.date: 03/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e2b30e8f6bcbe7c0e739455f4942712f68ff8404
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80437450"
 ---
-# <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiowanie profilu technicznego współczynnika telefonu w zasadach niestandardowych usługi Azure Active Directory B2C
+# <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiowanie profilu technicznego w Azure Active Directory B2C zasad niestandardowych
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Usługa Azure Active Directory B2C (Azure AD B2C) zapewnia obsługę rejestrowania i weryfikowania numerów telefonów. Ten profil techniczny:
+Azure Active Directory B2C (Azure AD B2C) zapewnia obsługę rejestrowania i weryfikowania numerów telefonów. Ten profil techniczny:
 
-- Udostępnia interfejs użytkownika do interakcji z użytkownikiem, aby zweryfikować lub zarejestrować numer telefonu.
-- Obsługuje połączenia telefoniczne i wiadomości tekstowe w celu zweryfikowannia numeru telefonu.
-- Obsługuje wiele numerów telefonów. Użytkownik może wybrać jeden z numerów telefonów do zweryfikowania.  
-- Zwraca oświadczenie wskazujące, czy użytkownik podał nowy numer telefonu. Można użyć tego oświadczenia, aby zdecydować, czy numer telefonu powinny być zachowywane do profilu użytkownika usługi Azure AD B2C.  
-- Używa [definicji zawartości](contentdefinitions.md) do kontrolowania wyglądu i działania.
+- Udostępnia interfejs użytkownika, który umożliwia współpracę z użytkownikiem w celu sprawdzenia lub zarejestrowania numeru telefonu.
+- Obsługuje rozmowy telefoniczne i wiadomości SMS w celu zweryfikowania numeru telefonu.
+- Obsługuje wiele numerów telefonów. Użytkownik może wybrać jeden z numerów telefonu do zweryfikowania.  
+- Zwraca wartość określającą, czy użytkownik podał nowy numer telefonu. Możesz użyć tego żądania, aby określić, czy numer telefonu ma zostać utrwalony w Azure AD B2C profilu użytkownika.  
+- Używa [definicji zawartości](contentdefinitions.md) w celu kontrolowania wyglądu i działania.
 
 ## <a name="protocol"></a>Protocol (Protokół)
 
-Atrybut **Nazwa** elementu **Protokołu** musi być ustawiony `Proprietary`na . Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu obsługi protokołu, który jest używany przez usługę Azure AD B2C dla czynnika telefonu:`Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary`. Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C dla współczynnika telefonu:`Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
-W poniższym przykładzie przedstawiono profil techniczny współczynnika telefonu do rejestracji i sprawdzania poprawności:
+Poniższy przykład przedstawia profil techniczny procesu rejestracji i weryfikacji:
 
 ```XML
 <TechnicalProfile Id="PhoneFactor-InputOrVerify">
@@ -45,7 +45,7 @@ W poniższym przykładzie przedstawiono profil techniczny współczynnika telefo
 
 ## <a name="input-claims-transformations"></a>Przekształcenia oświadczeń wejściowych
 
-InputClaimsTransformations element może zawierać kolekcję przekształceń oświadczeń wejściowych, które są używane do modyfikowania oświadczeń wejściowych lub generowania nowych. Następujące wejściowe oświadczenia transformacji `UserId` generuje oświadczenie, które jest używane później w kolekcji oświadczeń wejściowych.
+Element InputClaimsTransformations może zawierać kolekcję przekształceń oświadczeń wejściowych, które są używane do modyfikowania oświadczeń wejściowych, lub generować nowe. Następująca transformacja oświadczeń wejściowych generuje `UserId` oświadczenie, które jest używane później w kolekcji oświadczeń wejściowych.
 
 ```xml
 <InputClaimsTransformations>
@@ -55,14 +55,14 @@ InputClaimsTransformations element może zawierać kolekcję przekształceń oś
 
 ## <a name="input-claims"></a>Oświadczenia wejściowe
 
-InputClaims element musi zawierać następujące oświadczenia. Nazwę oświadczenia można również mapować na nazwę zdefiniowaną w profilu technicznym współczynnika telefonu. 
+Element InputClaims musi zawierać następujące oświadczenia. Możesz również zmapować nazwę swojego zgłoszenia na nazwę zdefiniowaną w profilu technicznym w ramach technicznego telefonu. 
 
 |  Typ danych| Wymagany | Opis |
 | --------- | -------- | ----------- | 
-| ciąg| Tak | Unikatowy identyfikator użytkownika. Nazwa oświadczenia lub PartnerClaimType musi `UserId`być ustawiona na . Twierdzenie to nie powinno zawierać danych osobowych.|
-| ciąg| Tak | Lista typów oświadczeń. Każde oświadczenie zawiera jeden numer telefonu. Jeśli którekolwiek z oświadczeń wejściowych nie zawiera numeru telefonu, użytkownik zostanie poproszony o zarejestrowanie i zweryfikowanie nowego numeru telefonu. Zweryfikowany numer telefonu jest zwracany jako oświadczenie wyjściowe. Jeśli jedno z oświadczeń wejściowych zawiera numer telefonu, użytkownik jest proszony o jego zweryfikowanie. Jeśli wiele oświadczeń wejściowych zawiera numer telefonu, użytkownik jest proszony o wybranie i zweryfikowanie jednego z numerów telefonów. |
+| ciąg| Tak | Unikatowy identyfikator użytkownika. Nazwa lub PartnerClaimType musi być ustawiona na `UserId`. To zgłoszenie nie powinno zawierać informacji osobistych.|
+| ciąg| Tak | Lista typów zgłoszeń. Każde z tych roszczeń zawiera jeden numer telefonu. Jeśli którekolwiek z oświadczeń wejściowych nie zawierają numeru telefonu, użytkownik zostanie poproszony o zarejestrowanie i zweryfikowanie nowego numeru telefonu. Sprawdzony numer telefonu jest zwracany jako zgłoszenie wyjściowe. Jeśli jedno z oświadczeń wejściowych zawiera numer telefonu, użytkownik zostanie poproszony o jego zweryfikowanie. Jeśli wiele oświadczeń wejściowych zawiera numer telefonu, użytkownik zostanie poproszony o wybranie i zweryfikowanie jednego z numerów telefonów. |
 
-Poniższy przykład pokazuje przy użyciu wielu numerów telefonów. Aby uzyskać więcej informacji, zobacz [przykładowe zasady](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
+Poniższy przykład ilustruje użycie wielu numerów telefonów. Aby uzyskać więcej informacji, zobacz temat [przykładowe zasady](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
 
 ```XML
 <InputClaims>
@@ -74,33 +74,33 @@ Poniższy przykład pokazuje przy użyciu wielu numerów telefonów. Aby uzyska�
 
 ## <a name="output-claims"></a>Oświadczenia wyjściowe
 
-OutputClaims element zawiera listę oświadczeń zwróconych przez profil techniczny czynnika telefonu.
+Element OutputClaims zawiera listę oświadczeń zwracanych przez profil techniczny czynnika telefonu.
 
 |  Typ danych| Wymagany | Opis |
 |  -------- | ----------- |----------- |
-| wartość logiczna | Tak | Wskazuje, czy nowy numer telefonu został wprowadzony przez użytkownika. Nazwę oświadczenia lub PartnerClaimType należy ustawić na`newPhoneNumberEntered`|
-| ciąg| Tak | Zweryfikowany numer telefonu. Nazwa oświadczenia lub PartnerClaimType musi `Verified.OfficePhone`być ustawiona na .|
+| wartość logiczna | Tak | Wskazuje, czy nowy numer telefonu został wprowadzony przez użytkownika. Nazwa lub PartnerClaimType musi być ustawiona na`newPhoneNumberEntered`|
+| ciąg| Tak | Zweryfikowany numer telefonu. Nazwa lub PartnerClaimType musi być ustawiona na `Verified.OfficePhone`.|
 
-OutputClaimsTransformations element może zawierać kolekcję OutputClaimsTransformation elementów, które są używane do modyfikowania oświadczeń danych wyjściowych lub generowania nowych.
+Element OutputClaimsTransformations może zawierać kolekcję elementów OutputClaimsTransformation, które są używane do modyfikowania oświadczeń wyjściowych, lub generować nowe.
 
 ## <a name="cryptographic-keys"></a>Klucze kryptograficzne
 
-**CryptographicKey element** nie jest używany.
+Element **CryptographicKeys** nie jest używany.
 
 
 ## <a name="metadata"></a>Metadane
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| ContentDefinitionReferenceId (ida) | Tak | Identyfikator [definicji zawartości](contentdefinitions.md) skojarzonej z tym profilem technicznym. |
-| Ręczna numer NumerEntry Dozwolone| Nie | Określ, czy użytkownik może ręcznie wprowadzić numer telefonu. Możliwe wartości: `true` `false` , lub (domyślnie).|
-| setting.authenticationMode | Nie | Metoda sprawdzania poprawności numeru telefonu. Możliwe `sms`wartości: `phone`, `mixed` , lub (domyślnie).|
-| ustawienie.autodial| Nie| Określ, czy profil techniczny powinien automatycznie wybierać lub automatycznie wysyłać SMS-a. Możliwe wartości: `true` `false` , lub (domyślnie). Automatyczne wybieranie `setting.authenticationMode` numeru wymaga `sms`ustawionego `phone`metadanych na , lub . Kolekcja oświadczeń wejściowych musi mieć jeden numer telefonu. |
+| ContentDefinitionReferenceId | Tak | Identyfikator [definicji zawartości](contentdefinitions.md) skojarzonej z tym profilem technicznym. |
+| ManualPhoneNumberEntryAllowed| Nie | Określ, czy użytkownik może ręcznie wprowadzić numer telefonu. Możliwe wartości: `true`, lub `false` (wartość domyślna).|
+| Ustawianie. AuthenticationMode | Nie | Metoda weryfikacji numeru telefonu. Możliwe wartości: `sms`, `phone`, lub `mixed` (wartość domyślna).|
+| ustawienie. autowybieranie| Nie| Określ, czy profil techniczny ma wybierać autowybieranie, czy wysyłać wiadomości SMS. Możliwe wartości: `true`, lub `false` (wartość domyślna). Funkcja autowybierania `setting.authenticationMode` wymaga, aby metadane `sms`były ustawione `phone`na lub. Kolekcja oświadczeń wejściowych musi mieć pojedynczy numer telefonu. |
 
 ### <a name="ui-elements"></a>Elementy interfejsu użytkownika
 
-Elementy interfejsu użytkownika strony uwierzytelniania szesnaskowego telefonu mogą być [zlokalizowane.](localization-string-ids.md#azure-mfa-error-messages)
+Elementy interfejsu użytkownika na stronie uwierzytelnianie w ramach wskaźnika telefonu mogą być [lokalizowane](localization-string-ids.md#azure-mfa-error-messages).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Sprawdź konta społecznościowe i lokalne za pomocą pakietu startowego [usługi MFA.](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa)
+- Sprawdź [konta społecznościowe i lokalne za pomocą pakietu MFA](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) Starter Pack.

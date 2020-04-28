@@ -1,7 +1,7 @@
 ---
 title: Profile techniczne usługi Azure MFA w zasadach niestandardowych
 titleSuffix: Azure AD B2C
-description: Odwołanie do zasad niestandardowych dla profilów technicznych usługi Azure Multi-Factor Authentication (MFA) w usłudze Azure AD B2C.
+description: Niestandardowe informacje dotyczące zasad dla profilów technicznych usługi Azure Multi-Factor Authentication (MFA) w Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,35 +12,35 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c9ed0e329b498112feafaf21c34e85ea436cbb77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80332817"
 ---
-# <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiowanie profilu technicznego usługi Azure MFA w zasadach niestandardowych usługi Azure AD B2C
+# <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Zdefiniuj profil techniczny usługi Azure MFA w zasadach niestandardowych Azure AD B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Usługa Azure Active Directory B2C (Azure AD B2C) zapewnia obsługę weryfikacji numeru telefonu przy użyciu usługi Azure Multi-Factor Authentication (MFA). Ten profil techniczny służy do generowania i wysyłania kodu na numer telefonu, a następnie weryfikowania kodu. Profil techniczny usługi Azure MFA może również zwrócić komunikat o błędzie.  Profil techniczny sprawdzania poprawności sprawdza poprawność danych dostarczonych przez użytkownika przed kontynuowaniem podróży użytkownika. W profilu technicznym sprawdzania poprawności na stronie z własnym potwierdzeniem jest wyświetlany komunikat o błędzie.
+Azure Active Directory B2C (Azure AD B2C) zapewnia obsługę weryfikowania numeru telefonu przy użyciu usługi Azure Multi-Factor Authentication (MFA). Ten profil techniczny służy do generowania i wysyłania kodu do numeru telefonu, a następnie sprawdzania kodu. Profil techniczny usługi Azure MFA może również zwrócić komunikat o błędzie.  Profil techniczny weryfikacji weryfikuje dane dostarczone przez użytkownika przed kontynuowaniem podróży użytkownika. Po sprawdzeniu profilu technicznego na stronie z potwierdzeniem zostanie wyświetlony komunikat o błędzie.
 
 Ten profil techniczny:
 
-- Nie zapewnia interfejsu do interakcji z użytkownikiem. Zamiast tego interfejs użytkownika jest wywoływany z [samodzielnie potwierdzonego](self-asserted-technical-profile.md) profilu technicznego lub [formantu wyświetlania](display-controls.md) jako [profil techniczny sprawdzania poprawności.](validation-technical-profile.md)
-- Używa usługi Azure MFA do generowania i wysyłania kodu na numer telefonu, a następnie weryfikuje kod.  
-- Sprawdza poprawność numeru telefonu za pomocą wiadomości tekstowych.
+- Nie zapewnia interfejsu do współdziałania z użytkownikiem. Zamiast tego interfejs użytkownika jest wywoływany z profilu technicznego z [własnym potwierdzeniem](self-asserted-technical-profile.md) lub [kontrolki wyświetlania](display-controls.md) jako [profil techniczny weryfikacji](validation-technical-profile.md).
+- Program używa usługi Azure MFA do generowania i wysyłania kodu do numeru telefonu, a następnie weryfikuje kod.  
+- Sprawdza poprawność numeru telefonu za pośrednictwem wiadomości SMS.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="protocol"></a>Protocol (Protokół)
 
-Atrybut **Nazwa** elementu **Protokołu** musi być ustawiony `Proprietary`na . Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu obsługi protokołu, który jest używany przez usługę Azure AD B2C:
+Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary`. Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C:
 
 ```
 Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
-W poniższym przykładzie pokazano profil techniczny usługi Azure MFA:
+Poniższy przykład przedstawia profil techniczny usługi Azure MFA:
 
 ```XML
 <TechnicalProfile Id="AzureMfa-SendSms">
@@ -49,28 +49,28 @@ W poniższym przykładzie pokazano profil techniczny usługi Azure MFA:
     ...
 ```
 
-## <a name="send-sms"></a>Wyślij SMS
+## <a name="send-sms"></a>Wyślij wiadomość SMS
 
-Pierwszym trybem tego profilu technicznego jest wygenerowanie kodu i wysłanie go. Dla tego trybu można skonfigurować następujące opcje.
+Pierwszy tryb tego profilu technicznego polega na wygenerowaniu kodu i wysłaniu go. Dla tego trybu można skonfigurować następujące opcje.
 
 ### <a name="input-claims"></a>Oświadczenia wejściowe
 
-**InputClaims** element zawiera listę oświadczeń do wysłania do usługi Azure MFA. Można również mapować nazwę oświadczenia na nazwę zdefiniowaną w profilu technicznym usługi MFA.
+Element **InputClaims** zawiera listę oświadczeń do wysłania do usługi Azure MFA. Możesz również zmapować nazwę swojego zgłoszenia na nazwę zdefiniowaną w profilu technicznym usługi MFA.
 
-| ClaimReferenceId (ida) | Wymagany | Opis |
+| ClaimReferenceId | Wymagany | Opis |
 | --------- | -------- | ----------- |
 | userPrincipalName | Tak | Identyfikator użytkownika, który jest właścicielem numeru telefonu. |
-| phoneNumber | Tak | Numer telefonu, na który chcesz wysłać kod SMS. |
-| Companyname | Nie |Nazwa firmy w sms. Jeśli nie podano, używana jest nazwa aplikacji. |
-| locale | Nie | Ustawienia regionalne wiadomości SMS. Jeśli nie podano, używane są ustawienia regionalne przeglądarki użytkownika. |
+| phoneNumber | Tak | Numer telefonu, na który ma zostać wysłany kod SMS. |
+| companyName | Nie |Nazwa firmy w wiadomości SMS. Jeśli nie zostanie podany, zostanie użyta nazwa aplikacji. |
+| locale | Nie | Ustawienia regionalne wiadomości SMS. Jeśli nie zostanie podany, używane są ustawienia regionalne użytkownika w przeglądarce. |
 
-**InputClaimsTransformations** element może zawierać kolekcję **InputClaimsTransformation** elementów, które są używane do modyfikowania oświadczeń wejściowych lub generowania nowych przed wysłaniem do usługi Azure MFA.
+Element **InputClaimsTransformations** może zawierać kolekcję elementów **InputClaimsTransformation** , które są używane do modyfikowania oświadczeń wejściowych lub generować nowe przed wysłaniem do usługi Azure MFA.
 
 ### <a name="output-claims"></a>Oświadczenia wyjściowe
 
-Dostawca protokołu usługi Azure MFA nie zwraca żadnych **OutputClaims**, w związku z tym nie ma potrzeby określania oświadczeń danych wyjściowych. Można jednak dołączyć oświadczenia, które nie są zwracane przez dostawcę tożsamości `DefaultValue` usługi Azure MFA, o ile ustawisz atrybut.
+Dostawca protokołu usługi Azure MFA nie zwraca żadnych **OutputClaims**, więc nie ma potrzeby określania oświadczeń wyjściowych. Można jednak uwzględnić oświadczenia, które nie są zwracane przez dostawcę tożsamości usługi Azure MFA, tak długo, jak ustawisz `DefaultValue` atrybut.
 
-**OutputClaimsTransformations** element może zawierać kolekcję **OutputClaimsTransformation** elementów, które są używane do modyfikowania oświadczeń danych wyjściowych lub generowania nowych.
+Element **OutputClaimsTransformations** może zawierać kolekcję elementów **OutputClaimsTransformation** , które są używane do modyfikowania oświadczeń wyjściowych lub generowania nowych.
 
 ### <a name="metadata"></a>Metadane
 
@@ -80,18 +80,18 @@ Dostawca protokołu usługi Azure MFA nie zwraca żadnych **OutputClaims**, w zw
 
 #### <a name="ui-elements"></a>Elementy interfejsu użytkownika
 
-Następujące metadane mogą służyć do konfigurowania komunikatów o błędach wyświetlanych po wysłaniu błędu programu SMS. Metadane powinny być skonfigurowane w [samodzielnie potwierdzonym](self-asserted-technical-profile.md) profilu technicznym. Komunikaty o błędach mogą być [zlokalizowane](localization-string-ids.md#azure-mfa-error-messages).
+Poniższe metadane mogą służyć do konfigurowania komunikatów o błędach wyświetlanych podczas wysyłania błędu SMS. Metadane należy skonfigurować w profilu technicznym z [własnym potwierdzeniem](self-asserted-technical-profile.md) . Komunikaty o błędach można [lokalizować](localization-string-ids.md#azure-mfa-error-messages).
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| UżytkownikMessageIfCouldntSendSms | Nie | Komunikat o błędzie użytkownika, jeśli podany numer telefonu nie akceptuje wiadomości SMS. |
+| UserMessageIfCouldntSendSms | Nie | Komunikat o błędzie użytkownika, jeśli podany numer telefonu nie akceptuje wiadomości SMS. |
 | UserMessageIfInvalidFormat | Nie | Komunikat o błędzie użytkownika, jeśli podany numer telefonu nie jest prawidłowym numerem telefonu. |
-| UżytkownikMessageIfServerError | Nie | Komunikat o błędzie użytkownika, jeśli serwer napotkał błąd wewnętrzny. |
+| UserMessageIfServerError | Nie | Komunikat o błędzie użytkownika, jeśli serwer napotkał błąd wewnętrzny. |
 | UserMessageIfThrottled| Nie | Komunikat o błędzie użytkownika, jeśli żądanie zostało ograniczone.|
 
-### <a name="example-send-an-sms"></a>Przykład: wysyłanie wiadomości SMS
+### <a name="example-send-an-sms"></a>Przykład: Wyślij wiadomość SMS
 
-W poniższym przykładzie przedstawiono profil techniczny usługi Azure MFA, który jest używany do wysyłania kodu za pośrednictwem wiadomości SMS.
+Poniższy przykład przedstawia profil techniczny usługi Azure MFA, który jest używany do wysyłania kodu za pośrednictwem wiadomości SMS.
 
 ```XML
 <TechnicalProfile Id="AzureMfa-SendSms">
@@ -111,47 +111,47 @@ W poniższym przykładzie przedstawiono profil techniczny usługi Azure MFA, kt�
 </TechnicalProfile>
 ```
 
-## <a name="verify-code"></a>Weryfikowanie kodu
+## <a name="verify-code"></a>Weryfikuj kod
 
-Drugim trybem tego profilu technicznego jest zweryfikowanie kodu. Dla tego trybu można skonfigurować następujące opcje.
+Drugi tryb tego profilu technicznego polega na sprawdzeniu kodu. Dla tego trybu można skonfigurować następujące opcje.
 
 ### <a name="input-claims"></a>Oświadczenia wejściowe
 
-**InputClaims** element zawiera listę oświadczeń do wysłania do usługi Azure MFA. Można również mapować nazwę oświadczenia na nazwę zdefiniowaną w profilu technicznym usługi MFA.
+Element **InputClaims** zawiera listę oświadczeń do wysłania do usługi Azure MFA. Możesz również zmapować nazwę swojego zgłoszenia na nazwę zdefiniowaną w profilu technicznym usługi MFA.
 
-| ClaimReferenceId (ida) | Wymagany | Opis |
+| ClaimReferenceId | Wymagany | Opis |
 | --------- | -------- | ----------- | ----------- |
-| phoneNumber| Tak | Ten sam numer telefonu, który był wcześniej używany do wysyłania kodu. Służy również do lokalizowania sesji weryfikacji telefonicznej. |
-| verificationCode  | Tak | Kod weryfikacyjny podany przez użytkownika, który ma zostać zweryfikowany |
+| phoneNumber| Tak | Ten sam numer telefonu, który został wcześniej użyty do wysłania kodu. Służy również do lokalizowania sesji weryfikacyjnej telefonu. |
+| verificationCode  | Tak | Kod weryfikacyjny dostarczony przez użytkownika do zweryfikowania |
 
-**InputClaimsTransformations** element może zawierać kolekcję **InputClaimsTransformation** elementów, które są używane do modyfikowania oświadczeń wejściowych lub generowania nowych przed wywołaniem usługi Azure MFA.
+Element **InputClaimsTransformations** może zawierać kolekcję elementów **InputClaimsTransformation** , które są używane do modyfikowania oświadczeń wejściowych lub generować nowe przed wywołaniem usługi Azure MFA.
 
 ### <a name="output-claims"></a>Oświadczenia wyjściowe
 
-Dostawca protokołu usługi Azure MFA nie zwraca żadnych **OutputClaims**, w związku z tym nie ma potrzeby określania oświadczeń danych wyjściowych. Można jednak dołączyć oświadczenia, które nie są zwracane przez dostawcę tożsamości `DefaultValue` usługi Azure MFA, o ile ustawisz atrybut.
+Dostawca protokołu usługi Azure MFA nie zwraca żadnych **OutputClaims**, więc nie ma potrzeby określania oświadczeń wyjściowych. Można jednak uwzględnić oświadczenia, które nie są zwracane przez dostawcę tożsamości usługi Azure MFA, tak długo, jak ustawisz `DefaultValue` atrybut.
 
-**OutputClaimsTransformations** element może zawierać kolekcję **OutputClaimsTransformation** elementów, które są używane do modyfikowania oświadczeń danych wyjściowych lub generowania nowych.
+Element **OutputClaimsTransformations** może zawierać kolekcję elementów **OutputClaimsTransformation** , które są używane do modyfikowania oświadczeń wyjściowych lub generowania nowych.
 
 ### <a name="metadata"></a>Metadane
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Operacja | Tak | Musi być **weryfikuj** |
+| Operacja | Tak | Musi być **zweryfikowana** |
 
 #### <a name="ui-elements"></a>Elementy interfejsu użytkownika
 
-Następujące metadane mogą służyć do konfigurowania komunikatów o błędach wyświetlanych po niepowodzeniu weryfikacji kodu. Metadane powinny być skonfigurowane w [samodzielnie potwierdzonym](self-asserted-technical-profile.md) profilu technicznym. Komunikaty o błędach mogą być [zlokalizowane](localization-string-ids.md#azure-mfa-error-messages).
+Poniższe metadane mogą służyć do konfigurowania komunikatów o błędach wyświetlanych podczas sprawdzania kodu. Metadane należy skonfigurować w profilu technicznym z [własnym potwierdzeniem](self-asserted-technical-profile.md) . Komunikaty o błędach można [lokalizować](localization-string-ids.md#azure-mfa-error-messages).
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| UżytkownikMessageIfMaxAllowedCodeRetryReached| Nie | Komunikat o błędzie użytkownika, jeśli użytkownik próbował kod weryfikacyjny zbyt wiele razy. |
-| UżytkownikMessageIfServerError | Nie | Komunikat o błędzie użytkownika, jeśli serwer napotkał błąd wewnętrzny. |
+| UserMessageIfMaxAllowedCodeRetryReached| Nie | Komunikat o błędzie użytkownika, jeśli użytkownik próbuje wykonać kod weryfikacyjny zbyt wiele razy. |
+| UserMessageIfServerError | Nie | Komunikat o błędzie użytkownika, jeśli serwer napotkał błąd wewnętrzny. |
 | UserMessageIfThrottled| Nie | Komunikat o błędzie użytkownika, jeśli żądanie jest ograniczone.|
-| UżytkownikMessageIfWrongCodeEntered| Nie| Komunikat o błędzie użytkownika, jeśli kod wprowadzony do weryfikacji jest nieprawidłowy.|
+| UserMessageIfWrongCodeEntered| Nie| Komunikat o błędzie użytkownika, jeśli kod wprowadzony do weryfikacji jest nieprawidłowy.|
 
-### <a name="example-verify-a-code"></a>Przykład: sprawdź kod
+### <a name="example-verify-a-code"></a>Przykład: Weryfikowanie kodu
 
-W poniższym przykładzie przedstawiono profil techniczny usługi Azure MFA używany do weryfikacji kodu.
+W poniższym przykładzie przedstawiono profil techniczny usługi Azure MFA służący do sprawdzania kodu.
 
 ```XML
 <TechnicalProfile Id="AzureMfa-VerifySms">

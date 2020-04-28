@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure Service Bus jako źródło siatki zdarzeń
-description: W tym artykule opisano właściwości, które są dostarczane dla zdarzeń usługi Service Bus z usługą Azure Event Grid
+title: Azure Service Bus jako źródło Event Grid
+description: Opisuje właściwości, które są dostępne dla zdarzeń Service Bus z Azure Event Grid
 services: event-grid
 author: banisadr
 ms.service: event-grid
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: babanisa
 ms.openlocfilehash: 141a0e96071014dc3705d30f72b1a9257737298a
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393239"
 ---
-# <a name="azure-service-bus-as-an-event-grid-source"></a>Usługa Azure Service Bus jako źródło siatki zdarzeń
+# <a name="azure-service-bus-as-an-event-grid-source"></a>Azure Service Bus jako źródło Event Grid
 
-Ten artykuł zawiera właściwości i schemat zdarzeń usługi Service Bus.Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](event-schema.md).
+Ten artykuł zawiera właściwości i schemat zdarzeń Service Bus.Aby zapoznać się z wprowadzeniem do schematów zdarzeń, zobacz [Azure Event Grid schemacie zdarzeń](event-schema.md).
 
-## <a name="event-grid-event-schema"></a>Schemat zdarzenia w siatce zdarzeń
+## <a name="event-grid-event-schema"></a>Schemat zdarzeń usługi Event Grid
 
 ### <a name="available-event-types"></a>Dostępne typy zdarzeń
 
-Usługa Service Bus emituje następujące typy zdarzeń:
+Service Bus emituje następujące typy zdarzeń:
 
 | Typ zdarzenia | Opis |
 | ---------- | ----------- |
-| Microsoft.ServiceBus.ActiveMessagesDostępneDołącza Nielisteners | Wywoływane, gdy istnieją aktywne wiadomości w kolejce lub subskrypcji i nie odbiorników nasłuchuje. |
-| Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Wywoływane, gdy istnieją aktywne wiadomości w kolejce utraconych list i nie aktywnych odbiorników. |
+| Microsoft. ServiceBus. ActiveMessagesAvailableWithNoListeners | Uruchamiany, gdy istnieją aktywne komunikaty w kolejce lub subskrypcji i nie ma nasłuchujących odbiorników. |
+| Microsoft. ServiceBus. DeadletterMessagesAvailableWithNoListener | Uruchamiany, gdy istnieją aktywne komunikaty w kolejce utraconych wiadomości i brak aktywnych odbiorników. |
 
 ### <a name="example-event"></a>Przykładowe zdarzenie
 
-W poniższym przykładzie przedstawiono schemat aktywnych komunikatów bez zdarzenia odbiorników:
+W poniższym przykładzie przedstawiono schemat aktywnych komunikatów bez zdarzenia odbiornika:
 
 ```json
 [{
@@ -81,12 +81,12 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie jest zapisywalne. Ta wartość jest podawana przez usługę Event Grid. |
+| temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
 | Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
-| Eventtype | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
-| eventTime | ciąg | Czas, w której zdarzenie jest generowane na podstawie czasu UTC dostawcy. |
+| Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
+| eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | id | ciąg | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Dane zdarzenia magazynu obiektów blob. |
+| dane | obiekt | Dane zdarzenia magazynu obiektów BLOB. |
 | dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 
@@ -94,22 +94,22 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| Namespacename | ciąg | Obszar nazw usługi Service Bus, w istnieje. |
-| Requesturi | ciąg | Identyfikator URI do określonej kolejki lub subskrypcji emitujących zdarzenie. |
-| Entitytype | ciąg | Typ jednostki usługi Service Bus emitującej zdarzenia (kolejka lub subskrypcja). |
-| Queuename | ciąg | Kolejka z aktywnymi wiadomościami, jeśli subskrybuje kolejkę. Wartość null w przypadku używania tematów / subskrypcji. |
-| topicName | ciąg | Temat, do którego należy subskrypcja usługi Service Bus z aktywnymi wiadomościami. Wartość null, jeśli używasz kolejki. |
-| subscriptionName | ciąg | Subskrypcja usługi Service Bus z aktywnymi wiadomościami. Wartość null, jeśli używasz kolejki. |
+| namespaceName | ciąg | Przestrzeń nazw Service Bus, w której znajduje się zasób. |
+| requestUri | ciąg | Identyfikator URI konkretnej kolejki lub subskrypcji emitującej zdarzenie. |
+| Elementy | ciąg | Typ jednostki Service Bus emitującej zdarzenia (kolejkę lub subskrypcję). |
+| Zmienną QueueName | ciąg | Kolejka z aktywnymi komunikatami w przypadku subskrybowania kolejki. Wartość null w przypadku korzystania z tematów/subskrypcji. |
+| temat | ciąg | Temat, do którego należy subskrypcja Service Bus z aktywnymi wiadomościami. Wartość null w przypadku używania kolejki. |
+| subscriptionName | ciąg | Subskrypcja Service Bus z aktywnymi wiadomościami. Wartość null w przypadku używania kolejki. |
 
 ## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
 |Tytuł  |Opis  |
 |---------|---------|
-| [Samouczek: przykłady integracji usługi Azure Service Bus to Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Usługa Event Grid wysyła wiadomości z tematu usługi Service Bus do aplikacji funkcji i aplikacji logiki. |
-| [Integracja usługi Azure Service Bus to Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Omówienie integrowania usługi Service Bus z siatką zdarzeń. |
+| [Samouczek: przykłady dotyczące Azure Event Grid integracji Azure Service Bus](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid wysyła wiadomości z tematu Service Bus do aplikacji funkcji i aplikacji logiki. |
+| [Azure Service Bus Event Grid integrację](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Omówienie integrowania Service Bus z Event Grid. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać wprowadzenie do usługi Azure Event Grid, zobacz [Co to jest siatka zdarzeń?](overview.md)
-* Aby uzyskać więcej informacji na temat tworzenia subskrypcji usługi Azure Event Grid, zobacz [schemat subskrypcji usługi Event Grid](subscription-creation-schema.md).
-* Aby uzyskać szczegółowe informacje na temat korzystania z usługi Azure Event Grid z usługą Service Bus, zobacz [omówienie integracji usługi Service Bus to Event Grid.](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md)
-* Spróbuj [odbierać zdarzenia usługi Service Bus za pomocą funkcji lub aplikacji logiki](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json).
+* Aby zapoznać się z wprowadzeniem do Azure Event Grid, zobacz [co to jest Event Grid?](overview.md)
+* Aby uzyskać więcej informacji na temat tworzenia subskrypcji Azure Event Grid, zobacz [Event Grid schematu subskrypcji](subscription-creation-schema.md).
+* Aby uzyskać szczegółowe informacje na temat korzystania z Azure Event Grid z Service Bus, zobacz [Omówienie integracji Service Bus z Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md).
+* Spróbuj [odebrać zdarzenia Service Bus za pomocą funkcji lub Logic Apps](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json).

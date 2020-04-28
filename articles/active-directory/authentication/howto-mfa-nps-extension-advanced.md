@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie rozszerzenia serwera NPS usługi Azure MFA — usługa Azure Active Directory
-description: Po zainstalowaniu rozszerzenia NPS wykonaj następujące kroki w przypadku zaawansowanej konfiguracji, takiej jak umieszczanie na białej liście adresów IP i zastępowanie siecią UPN.
+title: Konfigurowanie rozszerzenia serwera NPS usługi Azure MFA — Azure Active Directory
+description: Po zainstalowaniu rozszerzenia serwera NPS wykonaj następujące kroki, aby uzyskać konfigurację zaawansowaną, taką jak listy dozwolonych IP i zastąpienie nazwy UPN.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,46 +12,46 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34d92af88106151e7efba679c53c5b5bd1c07dcd
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80653785"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Zaawansowane opcje konfiguracji rozszerzenia serwera NPS dla uwierzytelniania wieloskładnikowego
 
-Rozszerzenie serwera zasad sieciowych (NPS) rozszerza funkcje uwierzytelniania wieloskładnikowego platformy Azure w chmurze na infrastrukturę lokalną. W tym artykule założono, że masz już zainstalowane rozszerzenie, a teraz chcesz wiedzieć, jak dostosować rozszerzenie do potrzeb. 
+Rozszerzenie serwera zasad sieciowych (NPS) rozszerza funkcje Multi-Factor Authentication platformy Azure oparte na chmurze do infrastruktury lokalnej. W tym artykule przyjęto założenie, że już masz zainstalowane rozszerzenie, a teraz chcesz dowiedzieć się, jak dostosować rozszerzenie dla potrzeb. 
 
 ## <a name="alternate-login-id"></a>Alternatywny identyfikator logowania
 
-Ponieważ rozszerzenie NPS łączy się zarówno z katalogami lokalnymi, jak i w chmurze, może wystąpić problem polegający na tym, że lokalne nazwy główne użytkowników (UPN) nie są zgodne z nazwami w chmurze. Aby rozwiązać ten problem, użyj alternatywnych identyfikatorów logowania. 
+Ponieważ rozszerzenie zasad sieciowych nawiązuje połączenie zarówno z katalogami lokalnymi, jak i w chmurze, może wystąpić problem polegający na tym, że lokalne nazwy głównych użytkowników (UPN) nie są zgodne z nazwami w chmurze. Aby rozwiązać ten problem, użyj alternatywnych identyfikatorów logowania. 
 
-W ramach rozszerzenia NPS można wyznaczyć atrybut usługi Active Directory, który ma być używany zamiast nazwy UPN dla uwierzytelniania wieloskładnikowego platformy Azure. Dzięki temu można chronić zasoby lokalne za pomocą weryfikacji dwuetapowej bez modyfikowania lokalnych sieci UPN. 
+W ramach rozszerzenia serwera NPS można wyznaczyć atrybut Active Directory, który będzie używany zamiast nazwy UPN dla Multi-Factor Authentication platformy Azure. Pozwala to chronić zasoby lokalne przy użyciu weryfikacji dwuetapowej bez modyfikowania lokalnych nazw UPN. 
 
-Aby skonfigurować alternatywne identyfikatory `HKLM\SOFTWARE\Microsoft\AzureMfa` logowania, przejdź do następujących wartości rejestru i edytuj:
-
-| Nazwa | Typ | Wartość domyślna | Opis |
-| ---- | ---- | ------------- | ----------- |
-| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | ciąg | Pusty | Wyznacz nazwę atrybutu usługi Active Directory, którego chcesz użyć, zamiast nazwy UPN. Ten atrybut jest używany jako atrybut AlternateLoginId. Jeśli ta wartość rejestru jest ustawiona na [prawidłowy atrybut usługi Active Directory](https://msdn.microsoft.com/library/ms675090.aspx) (na przykład mail lub displayName), wartość atrybutu jest używana zamiast nazwy UPN użytkownika do uwierzytelniania. Jeśli ta wartość rejestru jest pusta lub nie skonfigurowana, funkcja AlternateLoginId jest wyłączona, a nazwa UPN użytkownika jest używana do uwierzytelniania. |
-| LDAP_FORCE_GLOBAL_CATALOG | wartość logiczna | False | Ta flaga służy do wymuszania użycia wykazu globalnego do wyszukiwania LDAP podczas wyszukiwania AlternateLoginId. Skonfiguruj kontroler domeny jako wykaz globalny, dodaj atrybut AlternateLoginId do wykazu globalnego, a następnie włącz tę flagę. <br><br> Jeśli LDAP_LOOKUP_FORESTS jest skonfigurowany (nie pusty), **ta flaga jest wymuszana jako true**, niezależnie od wartości ustawienia rejestru. W takim przypadku rozszerzenie NPS wymaga wykazu globalnego, który ma być skonfigurowany z atrybutem AlternateLoginId dla każdego lasu. |
-| LDAP_LOOKUP_FORESTS | ciąg | Pusty | Podaj oddzieloną od średnika listę lasów do przeszukania. Na przykład *contoso.com;foobar.com*. Jeśli ta wartość rejestru jest skonfigurowana, rozszerzenie NPS iteracyjne przeszukuje wszystkie lasy w kolejności, w jakiej zostały wymienione, i zwraca pierwszą pomyślną wartość AlternateLoginId. Jeśli ta wartość rejestru nie jest skonfigurowana, wyszukiwanie AlternateLoginId jest ograniczone do bieżącej domeny.|
-
-Aby rozwiązać problemy z alternatywnymi identyfikatorami logowania, należy wykonać zalecane kroki dotyczące [błędów alternatywnego identyfikatora logowania](howto-mfa-nps-extension-errors.md#alternate-login-id-errors).
-
-## <a name="ip-exceptions"></a>Wyjątki ip
-
-Jeśli musisz monitorować dostępność serwera, na przykład jeśli moduły równoważenia obciążenia weryfikują, które serwery są uruchomione przed wysłaniem obciążeń, nie chcesz, aby te kontrole były blokowane przez żądania weryfikacji. Zamiast tego utwórz listę adresów IP, o których wiesz, że są używane przez konta usług, i wyłącz wymagania uwierzytelniania wieloskładnikowego dla tej listy.
-
-Aby skonfigurować listę dozwolonych adresów IP, przejdź do `HKLM\SOFTWARE\Microsoft\AzureMfa` następującej wartości rejestru i skonfiguruj:
+Aby skonfigurować Alternatywne identyfikatory logowania, przejdź do `HKLM\SOFTWARE\Microsoft\AzureMfa` i edytuj następujące wartości rejestru:
 
 | Nazwa | Typ | Wartość domyślna | Opis |
 | ---- | ---- | ------------- | ----------- |
-| IP_WHITELIST | ciąg | Pusty | Podaj oddzieloną listę adresów IP o średniku. Uwzględnij adresy IP komputerów, na których pochodzą żądania usług, takie jak serwer NAS/VPN. Zakresy ip i podsieci nie są obsługiwane. <br><br> Na przykład *10,0,0,1;10,0,0,2;10,0,0,3*.
+| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | ciąg | Pusty | Określ nazwę atrybutu Active Directory, który ma być używany zamiast nazwy UPN. Ten atrybut jest używany jako atrybut AlternateLoginId. Jeśli dla tej wartości rejestru jest ustawiony [prawidłowy atrybut Active Directory](https://msdn.microsoft.com/library/ms675090.aspx) (na przykład mail lub DisplayName), wartość atrybutu jest używana zamiast nazwy UPN użytkownika w celu uwierzytelnienia. Jeśli ta wartość rejestru jest pusta lub nie została skonfigurowana, AlternateLoginId jest wyłączona, a nazwa UPN użytkownika jest używana do uwierzytelniania. |
+| LDAP_FORCE_GLOBAL_CATALOG | wartość logiczna | Fałsz | Użyj tej flagi, aby wymusić użycie wykazu globalnego na potrzeby wyszukiwania LDAP podczas wyszukiwania AlternateLoginId. Skonfiguruj kontroler domeny jako wykaz globalny, Dodaj atrybut AlternateLoginId do wykazu globalnego, a następnie Włącz tę flagę. <br><br> Jeśli LDAP_LOOKUP_FORESTS jest skonfigurowany (Niepuste), **Ta flaga jest wymuszana jako true**, niezależnie od wartości ustawienia rejestru. W takim przypadku rozszerzenie serwera NPS wymaga skonfigurowania wykazu globalnego z atrybutem AlternateLoginId dla każdego lasu. |
+| LDAP_LOOKUP_FORESTS | ciąg | Pusty | Podaj rozdzieloną średnikami listę lasów do przeszukania. Na przykład *contoso. com; Foobar. com*. W przypadku skonfigurowania tej wartości rejestru rozszerzenie serwera zasad sieciowych iteracyjnie przeszukuje wszystkie lasy w kolejności, w której zostały wymienione, i zwraca pierwszą pomyślną wartość AlternateLoginId. Jeśli ta wartość rejestru nie jest skonfigurowana, wyszukiwanie AlternateLoginId jest ograniczone do bieżącej domeny.|
+
+Aby rozwiązać problemy z alternatywnymi identyfikatorami logowania, należy użyć zalecanych kroków dla [alternatywnych błędów identyfikatorów logowania](howto-mfa-nps-extension-errors.md#alternate-login-id-errors).
+
+## <a name="ip-exceptions"></a>Wyjątki adresów IP
+
+Jeśli potrzebujesz monitorować dostępność serwera, na przykład jeśli usługi równoważenia obciążenia weryfikują, które serwery działają przed wysłaniem obciążeń, nie chcesz, aby te testy były blokowane przez żądania weryfikacji. Zamiast tego należy utworzyć listę adresów IP, które są używane przez konta usług, i wyłączyć Multi-Factor Authentication wymagania dla tej listy.
+
+Aby skonfigurować listę dozwolonych adresów IP, przejdź `HKLM\SOFTWARE\Microsoft\AzureMfa` do i skonfiguruj następującą wartość rejestru:
+
+| Nazwa | Typ | Wartość domyślna | Opis |
+| ---- | ---- | ------------- | ----------- |
+| IP_WHITELIST | ciąg | Pusty | Podaj rozdzieloną średnikami listę adresów IP. Uwzględnij adresy IP maszyn, na których pochodzą żądania obsługi, takie jak serwer NAS/VPN. Zakresy adresów IP i podsieci nie są obsługiwane. <br><br> Na przykład *: 10.0.0.1; 10.0.0.2; 10.0.0.3*.
 
 > [!NOTE]
-> Ten klucz rejestru nie jest tworzony domyślnie przez instalatora i błąd pojawia się w dzienniku AuthZOptCh po ponownym uruchomieniu usługi. Ten błąd w dzienniku może być ignorowany, ale jeśli ten klucz rejestru jest tworzony i pozostawiony pusty, jeśli nie jest potrzebny, komunikat o błędzie nie zwraca.
+> Ten klucz rejestru nie jest tworzony domyślnie przez Instalatora i w dzienniku AuthZOptCh pojawia się błąd, gdy usługa zostanie ponownie uruchomiona. Ten błąd może zostać zignorowany, ale jeśli ten klucz rejestru zostanie utworzony i pozostawiony pusty, jeśli nie jest wymagany, komunikat o błędzie nie zostanie zwrócony.
 
-Gdy żądanie pochodzi z adresu IP, który `IP_WHITELIST`istnieje w , weryfikacji dwuetapowej jest pomijany. Lista adresów IP jest porównywana z adresem IP podanym w atrybucie *ratNASIPAddress* żądania RADIUS. Jeśli żądanie RADIUS jest dostarczane bez atrybutu ratNASIPAddress, rejestrowane jest następujące ostrzeżenie: "P_WHITE_LIST_WARNING::IP Whitelist jest ignorowana, ponieważ w żądaniu RADIUS brakuje źródłowego adresu IP w atrybucie NasIpAddress."
+Gdy żądanie pochodzi z adresu IP, który istnieje w `IP_WHITELIST`, weryfikacja dwuetapowa jest pomijana. Lista adresów IP jest porównywana z adresem IP podanym w atrybucie *ratNASIPAddress* żądania RADIUS. Jeśli żądanie usługi RADIUS występuje bez atrybutu ratNASIPAddress, rejestrowane jest następujące ostrzeżenie: "P_WHITE_LIST_WARNING:: IP dozwolonych jest ignorowane jako źródłowy adres IP w żądaniu usługi RADIUS w atrybucie NasIpAddress".
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
-title: Wyeksportuj konfigurację inicjowania obsługi administracyjnej i przywdrowuj do znanego stanu dobrego do odzyskiwania po awarii.| Dokumenty firmy Microsoft
-description: Dowiedz się, jak wyeksportować konfigurację inicjowania obsługi administracyjnej i przywrócić do znanego dobrego stanu odzyskiwania po awarii.
+title: Wyeksportuj konfigurację aprowizacji i wróć do znanego dobrego stanu na potrzeby odzyskiwania po awarii. | Microsoft Docs
+description: Dowiedz się, jak wyeksportować konfigurację aprowizacji i wrócić do znanego dobrego stanu na potrzeby odzyskiwania po awarii.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -16,87 +16,87 @@ ms.date: 03/19/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a92a40a5fe3067cf96d3c742102c9ca66078cd5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80051312"
 ---
-# <a name="export-your-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Eksportowanie konfiguracji inicjowania obsługi administracyjnej i przywracanie do znanego dobrego stanu
+# <a name="export-your-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Eksportuj konfigurację aprowizacji i przywracaj do znanego dobrego stanu
 
-## <a name="export-and-import-your-provisioning-configuration-from-the-azure-portal"></a>Eksportowanie i importowanie konfiguracji inicjowania obsługi administracyjnej z witryny Azure Portal
+## <a name="export-and-import-your-provisioning-configuration-from-the-azure-portal"></a>Wyeksportuj i zaimportuj konfigurację aprowizacji z Azure Portal
 
-### <a name="how-can-i-export-my-provisioning-configuration"></a>Jak mogę wyeksportować konfigurację inicjowania obsługi administracyjnej?
+### <a name="how-can-i-export-my-provisioning-configuration"></a>Jak mogę wyeksportować moją konfigurację aprowizacji?
 Aby wyeksportować konfigurację:
-1. W [witrynie Azure portal](https://portal.azure.com/)po lewej stronie panelu nawigacji wybierz pozycję **Azure Active Directory**.
-2. W okienku **usługi Azure Active Directory** wybierz **aplikacje enterprise** i wybierz aplikację.
-3. W lewym okienku nawigacji wybierz pozycję **Inicjując inicjowanie obsługi administracyjnej**. Na stronie konfiguracji inicjowania obsługi administracyjnej kliknij **mapowania atrybutów,** a następnie **pokaż opcje zaawansowane**i na koniec **przejrzyj schemat.** Spowoduje to, że przejdziesz do edytora schematów. 
-5. Kliknij pobierz na pasku poleceń w górnej części strony, aby pobrać schemat.
+1. W [Azure Portal](https://portal.azure.com/)w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
+2. W okienku **Azure Active Directory** wybierz pozycję **aplikacje dla przedsiębiorstw** i wybierz aplikację.
+3. W okienku nawigacji po lewej stronie wybierz opcję **Inicjowanie obsługi**. Na stronie Konfiguracja aprowizacji kliknij pozycję **mapowania atrybutów**, a następnie **Wyświetl opcje zaawansowane**i **na koniec Przejrzyj schemat**. Spowoduje to przejście do Edytora schematu. 
+5. Kliknij pozycję Pobierz na pasku poleceń w górnej części strony, aby pobrać schemat.
 
-### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>Odzyskiwanie po awarii - powrót do znanego dobrego stanu
-Eksportowanie i zapisywanie konfiguracji umożliwia przywrócenie poprzedniej wersji konfiguracji. Zaleca się eksportowanie konfiguracji inicjowania obsługi administracyjnej i zapisywanie jej do późniejszego użycia w dowolnym momencie zmiany mapowań atrybutów lub filtrów zakresu. Wszystko, co musisz zrobić, to otworzyć plik JSON, który został pobrany w powyższych krokach, skopiować całą zawartość pliku JSON, zastąpić całą zawartość ładunku JSON w edytorze schematów, a następnie zapisać. Jeśli istnieje aktywny cykl inicjowania obsługi administracyjnej, zostanie ukończony, a następny cykl użyje zaktualizowanego schematu. Następny cykl będzie również początkowym cyklem, który ponownie oceni każdego użytkownika i grupę na podstawie nowej konfiguracji. Podczas wycofywania poprzedniej konfiguracji należy wziąć pod uwagę następujące kwestie:
-* Użytkownicy zostaną ponownie ocenione, aby ustalić, czy powinny one być w zakresie. Jeśli filtry zakresu zostały zmienione, użytkownik nie jest już w zakresie, zostaną one wyłączone. Chociaż jest to pożądane zachowanie w większości przypadków, istnieją czasy, w których można zapobiec i można użyć [funkcji pomijania usuwania zakresu.](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) 
-* Zmiana konfiguracji inicjowania obsługi administracyjnej powoduje ponowne uruchomienie usługi i wyzwala [początkowy cykl](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
+### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>Odzyskiwanie po awarii — przywracanie do znanego dobrego stanu
+Eksportowanie i Zapisywanie konfiguracji pozwala przywrócić poprzednią wersję konfiguracji. Zalecamy eksportowanie konfiguracji aprowizacji i zapisanie jej w celu późniejszego użycia w dowolnym momencie, gdy wprowadzisz zmiany do mapowań atrybutów lub filtrów zakresu. Wystarczy otworzyć plik JSON, który został pobrany w powyższych krokach, skopiować całą zawartość pliku JSON, zastąpić całą zawartość ładunku JSON w edytorze schematu, a następnie zapisać. Jeśli istnieje aktywny cykl aprowizacji, zostanie ukończony, a następny cykl będzie korzystał ze zaktualizowanego schematu. Następny cykl będzie również cyklem wstępnym, który ponownie oblicza każdy użytkownik i grupę w oparciu o nową konfigurację. Podczas wycofywania do poprzedniej konfiguracji należy wziąć pod uwagę następujące kwestie:
+* Użytkownicy będą ponownie oceniani, aby określić, czy powinny znajdować się w zakresie. Jeśli filtry zakresu zostały zmienione, użytkownik nie znajduje się w zakresie, co spowoduje, że nie zostaną one wyłączone. Chociaż jest to odpowiednie zachowanie w większości przypadków, istnieją przypadki, w których może być konieczne ich uniemożliwienie i użycie funkcji [pomijania usunięć poza zakresem](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) . 
+* Zmiana konfiguracji aprowizacji powoduje ponowne uruchomienie usługi i wyzwala [cykl początkowy](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
 
 
-## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Eksportowanie i importowanie konfiguracji inicjowania obsługi administracyjnej przy użyciu interfejsu API programu Microsoft Graph
-Za pomocą interfejsu API programu Microsoft Graph i Eksploratora programu Microsoft Graph można wyeksportować mapowania atrybutów i schematu inicjowania obsługi administracyjnej użytkownika do pliku JSON i zaimportować go z powrotem do usługi Azure AD. Można również użyć kroki przechwycone w tym miejscu, aby utworzyć kopię zapasową konfiguracji inicjowania obsługi administracyjnej. 
+## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Eksportowanie i Importowanie konfiguracji aprowizacji za pomocą interfejsu API Microsoft Graph
+Możesz użyć interfejsu API Microsoft Graph i Eksploratora Microsoft Graph, aby wyeksportować mapowania atrybutów aprowizacji użytkowników i schemat do pliku JSON, a następnie zaimportować go z powrotem do usługi Azure AD. Możesz również użyć tutaj przechwyconych kroków, aby utworzyć kopię zapasową konfiguracji aprowizacji. 
 
-### <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Krok 1: Pobieranie identyfikatora głównego usługi aplikacji inicjowania obsługi administracyjnej (identyfikator obiektu)
+### <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Krok 1. Pobieranie inicjowania obsługi App Service Identyfikator podmiotu zabezpieczeń (identyfikator obiektu)
 
-1. Uruchom [witrynę Azure portal](https://portal.azure.com)i przejdź do sekcji Właściwości aplikacji inicjującej inicjowanie obsługi administracyjnej. Na przykład, jeśli chcesz wyeksportować program Workday do mapowania *aplikacji inicjowania obsługi administracyjnej użytkowników usługi AD,* przejdź do sekcji Właściwości tej aplikacji. 
-1. W sekcji Właściwości aplikacji do inicjowania obsługi administracyjnej skopiuj wartość guid skojarzoną z *polem Identyfikator obiektu.* Ta wartość jest również nazywana **ServicePrincipalId** aplikacji i będzie używana w operacjach Eksploratora wykresu firmy Microsoft.
+1. Uruchom [Azure Portal](https://portal.azure.com)i przejdź do sekcji właściwości aplikacji aprowizacji. Na przykład jeśli chcesz wyeksportować swój *dzień roboczy do usługi AD mapowanie aplikacji* , przejdź do sekcji Właściwości tej aplikacji. 
+1. W sekcji właściwości aplikacji aprowizacji skopiuj wartość identyfikatora GUID skojarzoną z polem *Identyfikator obiektu* . Ta wartość jest również nazywana **ServicePrincipalId** aplikacji i będzie używana w operacjach Microsoft Graph Explorer.
 
-   ![Identyfikator jednostki usługi aplikacji workday](./media/export-import-provisioning-configuration/wd_export_01.png)
+   ![Identyfikator podmiotu zabezpieczeń App Service Workday](./media/export-import-provisioning-configuration/wd_export_01.png)
 
-### <a name="step-2-sign-into-microsoft-graph-explorer"></a>Krok 2: Zaloguj się do Eksploratora wykresów firmy Microsoft
+### <a name="step-2-sign-into-microsoft-graph-explorer"></a>Krok 2. Logowanie do Microsoft Graph Explorer
 
-1. Uruchamianie [Eksploratora wykresów firmy Microsoft](https://developer.microsoft.com/graph/graph-explorer)
+1. Uruchom [eksploratora Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)
 1. Kliknij przycisk "Zaloguj się za pomocą firmy Microsoft" i zaloguj się przy użyciu poświadczeń administratora globalnego usługi Azure AD lub administratora aplikacji.
 
-    ![Logowanie do programu Microsoft Graph](./media/export-import-provisioning-configuration/wd_export_02.png)
+    ![Logowanie Microsoft Graph](./media/export-import-provisioning-configuration/wd_export_02.png)
 
-1. Po pomyślnym zalogowaniu zobaczysz szczegóły konta użytkownika w lewym okienku.
+1. Po pomyślnym zalogowaniu zobaczysz szczegóły konta użytkownika w okienku po lewej stronie.
 
-### <a name="step-3-retrieve-the-provisioning-job-id-of-the-provisioning-app"></a>Krok 3: Pobieranie identyfikatora zadania inicjowania obsługi administracyjnej aplikacji inicjowania obsługi administracyjnej
+### <a name="step-3-retrieve-the-provisioning-job-id-of-the-provisioning-app"></a>Krok 3. Pobieranie identyfikatora zadania aprowizacji dla aplikacji aprowizacji
 
-W Eksploratorze wykresu firmy Microsoft uruchom następującą kwerendę GET zastępującą [servicePrincipalId] **z servicePrincipalId** wyodrębniony z [kroku 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
+W Eksploratorze Microsoft Graph Uruchom następujące polecenie GET Query zastępujące [servicePrincipalId] z **servicePrincipalId** wyodrębnionym z [kroku 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
 
 ```http
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs
 ```
 
-Otrzymasz odpowiedź, jak pokazano poniżej. Skopiuj "atrybut id" obecny w odpowiedzi. Ta wartość jest **ProvisioningJobId** i będzie używany do pobierania podstawowych metadanych schematu.
+Otrzymasz odpowiedź, jak pokazano poniżej. Skopiuj "identyfikator atrybutu" obecny w odpowiedzi. Ta wartość jest **ProvisioningJobId** i zostanie użyta do pobrania metadanych bazowego schematu.
 
-   [![Identyfikator zadania inicjowania obsługi administracyjnej](./media/export-import-provisioning-configuration/wd_export_03.png)](./media/export-import-provisioning-configuration/wd_export_03.png#lightbox)
+   [![Identyfikator zadania aprowizacji](./media/export-import-provisioning-configuration/wd_export_03.png)](./media/export-import-provisioning-configuration/wd_export_03.png#lightbox)
 
-### <a name="step-4-download-the-provisioning-schema"></a>Krok 4: Pobierz schemat inicjowania obsługi administracyjnej
+### <a name="step-4-download-the-provisioning-schema"></a>Krok 4. Pobieranie schematu aprowizacji
 
-W Eksploratorze wykresu firmy Microsoft uruchom następującą kwerendę GET, zastępując [servicePrincipalId] i [ProvisioningJobId] z ServicePrincipalId i ProvisioningJobId pobrane w poprzednich krokach.
+W Eksploratorze Microsoft Graph Uruchom następujące zapytanie GET, zastępując [servicePrincipalId] i [ProvisioningJobId] ServicePrincipalId i ProvisioningJobId pobrane w poprzednich krokach.
 
 ```http
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs/[ProvisioningJobId]/schema
 ```
 
-Skopiuj obiekt JSON z odpowiedzi i zapisz go w pliku, aby utworzyć kopię zapasową schematu.
+Skopiuj obiekt JSON z odpowiedzi i Zapisz go w pliku, aby utworzyć kopię zapasową schematu.
 
-### <a name="step-5-import-the-provisioning-schema"></a>Krok 5: Importowanie schematu inicjowania obsługi administracyjnej
+### <a name="step-5-import-the-provisioning-schema"></a>Krok 5. Importowanie schematu aprowizacji
 
 > [!CAUTION]
-> Ten krok należy wykonać tylko wtedy, gdy trzeba zmodyfikować schemat dla konfiguracji, której nie można zmienić za pomocą witryny Azure Portal lub jeśli trzeba przywrócić konfigurację z wcześniej kopii zapasowej pliku z prawidłowym i działającym schematem.
+> Wykonaj ten krok tylko wtedy, gdy musisz zmodyfikować schemat konfiguracji, którego nie można zmienić przy użyciu Azure Portal lub jeśli musisz przywrócić konfigurację z wcześniej wykonanej kopii zapasowej, używając prawidłowego i roboczego schematu.
 
-W Eksploratorze wykresu firmy Microsoft skonfiguruj następującą kwerendę PUT, zastępując [servicePrincipalId] i [ProvisioningJobId] z ServicePrincipalId i ProvisioningJobId pobrane w poprzednich krokach.
+W Eksploratorze Microsoft Graph skonfiguruj następujące zapytanie PUT, zastępując [servicePrincipalId] i [ProvisioningJobId] ServicePrincipalId i ProvisioningJobId pobrane w poprzednich krokach.
 
 ```http
     PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs/[ProvisioningJobId]/schema
 ```
 
-Na karcie "Treść żądania" skopiuj zawartość pliku schematu JSON.
+Na karcie "treść żądania" Skopiuj zawartość pliku schematu JSON.
 
    [![Treść żądania](./media/export-import-provisioning-configuration/wd_export_04.png)](./media/export-import-provisioning-configuration/wd_export_04.png#lightbox)
 
-Na karcie "Nagłówki żądań" dodaj atrybut nagłówka typu zawartości o wartości "application/json"
+Na karcie "nagłówki żądań" Dodaj atrybut nagłówka Content-Type z wartością "Application/JSON"
 
    [![Nagłówki żądań](./media/export-import-provisioning-configuration/wd_export_05.png)](./media/export-import-provisioning-configuration/wd_export_05.png#lightbox)
 
-Kliknij przycisk "Uruchom kwerendę", aby zaimportować nowy schemat.
+Kliknij przycisk "uruchom zapytanie", aby zaimportować nowy schemat.

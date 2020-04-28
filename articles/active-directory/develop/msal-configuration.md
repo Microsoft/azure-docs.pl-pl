@@ -1,7 +1,7 @@
 ---
-title: Plik konfiguracyjny Android MSAL | Azure
+title: Plik konfiguracji MSAL systemu Android | Azure
 titleSuffix: Microsoft identity platform
-description: Omówienie pliku konfiguracji biblioteki uwierzytelniania firmy Android Microsoft (MSAL), który reprezentuje konfigurację aplikacji w usłudze Azure Active Directory.
+description: Omówienie pliku konfiguracji biblioteki uwierzytelniania firmy Microsoft (MSAL) systemu Android, który reprezentuje konfigurację aplikacji w Azure Active Directory.
 services: active-directory
 author: shoatman
 manager: CelesteDG
@@ -14,17 +14,17 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: 9e35ba5a3f3705a52e80262da9bbfbfda489bf83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050377"
 ---
-# <a name="android-microsoft-authentication-library-configuration-file"></a>Plik konfiguracji Biblioteki uwierzytelniania Microsoft systemu Android
+# <a name="android-microsoft-authentication-library-configuration-file"></a>Plik konfiguracji biblioteki uwierzytelniania firmy Microsoft dla systemu Android
 
-Biblioteka uwierzytelniania Microsoft systemu Android (MSAL) jest dostarczana z [domyślnym plikiem JSON konfiguracji,](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) który można dostosować do definiowania zachowania publicznej aplikacji klienckiej dla rzeczy, takich jak domyślny urząd, które będą używane i tak dalej.
+Biblioteka Microsoft Authentication Library (MSAL) jest dostarczana z [domyślnym plikiem JSON konfiguracji](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) , który można dostosować w celu zdefiniowania zachowania publicznej aplikacji klienckiej dla takich elementów jak urząd domyślny, które urzędy będą używane i tak dalej.
 
-Ten artykuł pomoże Ci zrozumieć różne ustawienia w pliku konfiguracyjnym i jak określić plik konfiguracyjny do użycia w aplikacji opartej na msal.
+Ten artykuł pomoże zrozumieć różne ustawienia w pliku konfiguracji oraz sposób określania pliku konfiguracji, który ma być używany w aplikacji opartej na MSAL.
 
 ## <a name="configuration-settings"></a>Ustawienia konfiguracji
 
@@ -32,24 +32,24 @@ Ten artykuł pomoże Ci zrozumieć różne ustawienia w pliku konfiguracyjnym i 
 
 | Właściwość | Typ danych | Wymagany | Uwagi |
 |-----------|------------|-------------|-------|
-| `client_id` | Ciąg | Tak | Identyfikator klienta aplikacji ze [strony Rejestracja aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | Ciąg | Tak | Identyfikator URI przekierowania aplikacji ze [strony Rejestracja aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `authorities` | >\<urzędu listy | Nie | Lista urzędów, które aplikacja potrzebuje |
-| `authorization_user_agent` | Agent Autoryzacji (wyliczenia) | Nie | Możliwe `DEFAULT`wartości: `BROWSER`, ,`WEBVIEW` |
-| `http` | Konfiguracja http | Nie | Konfigurowanie `HttpUrlConnection` `connect_timeout` i`read_timeout` |
-| `logging` | Konfiguracja rejestrowania | Nie | Określa poziom szczegółowości rejestrowania. Opcjonalne konfiguracje `pii_enabled`obejmują: , który ma `log_level`wartość `ERROR`logiczną, i , który trwa , `WARNING`, `INFO`, lub `VERBOSE`. |
+| `client_id` | Ciąg | Tak | Identyfikator klienta aplikacji na [stronie rejestracji aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | Ciąg | Tak | Identyfikator URI przekierowania aplikacji ze [strony rejestracji aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `authorities` | Lista\<> urzędu | Nie | Lista urzędów, których potrzebuje aplikacja |
+| `authorization_user_agent` | AuthorizationAgent (enum) | Nie | Możliwe wartości: `DEFAULT`, `BROWSER`,`WEBVIEW` |
+| `http` | HttpConfiguration | Nie | Skonfiguruj `HttpUrlConnection` `connect_timeout` i`read_timeout` |
+| `logging` | LoggingConfiguration | Nie | Określa poziom szczegółowości rejestrowania. Konfiguracje opcjonalne obejmują: `pii_enabled`, która przyjmuje wartość logiczną `log_level`, i, która przyjmuje `ERROR`, `WARNING`, `INFO`lub. `VERBOSE` |
 
 ### <a name="client_id"></a>client_id
 
-Identyfikator klienta lub identyfikator aplikacji, który został utworzony podczas rejestracji aplikacji.
+Identyfikator klienta lub identyfikator aplikacji, który został utworzony podczas rejestrowania aplikacji.
 
 ### <a name="redirect_uri"></a>redirect_uri
 
-Identyfikator URI przekierowania zarejestrowany podczas rejestracji aplikacji. Jeśli identyfikator URI przekierowania jest do aplikacji brokera, zapoznaj się z [przekierowanie identyfikatora URI dla publicznych aplikacji klienckich,](msal-client-application-configuration.md#redirect-uri-for-public-client-apps) aby upewnić się, że używasz poprawnego formatu URI przekierowania dla aplikacji brokera.
+Identyfikator URI przekierowania zarejestrowany podczas rejestrowania aplikacji. Jeśli identyfikator URI przekierowania dotyczy aplikacji brokera, zapoznaj się z tematem [Identyfikator URI przekierowania dla publicznych aplikacji klienckich](msal-client-application-configuration.md#redirect-uri-for-public-client-apps) , aby upewnić się, że używasz poprawnego formatu identyfikatora URI przekierowania dla aplikacji brokera.
 
-### <a name="authorities"></a>Władze
+### <a name="authorities"></a>wykazu
 
-Lista organów, które są znane i zaufane przez Ciebie. Oprócz wymienionych tutaj władz MSAL wysyła również zapytania firmy Microsoft, aby uzyskać listę chmur i urzędów znanych firmie Microsoft. Na tej liście urzędów określ typ urzędu i wszelkie `"audience"`dodatkowe parametry opcjonalne, takie jak , które powinny być zgodne z odbiorcami aplikacji na podstawie rejestracji aplikacji. Poniżej znajduje się przykładowa lista organów:
+Lista znanych i zaufanych urzędów. Oprócz urzędów wymienionych w tym miejscu MSAL również wysyła zapytanie do firmy Microsoft w celu uzyskania listy chmur i urzędów znanych firmie Microsoft. Na tej liście urzędów Określ typ urzędu i wszelkie dodatkowe parametry opcjonalne, takie jak `"audience"`, które powinny być wyrównane z odbiorcami aplikacji w oparciu o rejestrację aplikacji. Poniżej przedstawiono przykładową listę urzędów:
 
 ```javascript
 // Example AzureAD and Personal Microsoft Account
@@ -84,59 +84,59 @@ Lista organów, które są znane i zaufane przez Ciebie. Oprócz wymienionych tu
 }
 ```
 
-#### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Mapuj uprawnienia AAD & odbiorców do punktów końcowych platformy tożsamości firmy Microsoft
+#### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Zamapuj urząd usługi AAD & odbiorców na punkty końcowe platformy tożsamości firmy Microsoft
 
-| Typ | Grupy odbiorców | Identyfikator dzierżawy | Authority_Url | Wynikowy punkt końcowy | Uwagi |
+| Typ | Grupy odbiorców | Identyfikator dzierżawy | Authority_Url | Wynikający punkt końcowy | Uwagi |
 |------|------------|------------|----------------|----------------------|---------|
-| AAD | AzureADandPersonalMicrosoftaccount | | | `https://login.microsoftonline.com/common` | `common`jest aliasem dzierżawy dla tego, gdzie znajduje się konto. Takie jak określona dzierżawa usługi Azure Active Directory lub system kont Microsoft. |
-| AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Tylko konta obecne w contoso.com mogą uzyskać token. Każda zweryfikowana domena lub identyfikator GUID dzierżawy może służyć jako identyfikator dzierżawy. |
-| AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Tylko konta usługi Azure Active Directory mogą być używane z tym punktem końcowym. Konta Microsoft mogą być członkami organizacji. Aby uzyskać token przy użyciu konta Microsoft dla zasobu w organizacji, należy określić dzierżawę organizacyjną, z której chcesz token. |
-| AAD | Konto PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Tylko konta Microsoft mogą używać tego punktu końcowego. |
-| B2C | | | Zobacz Wynikowy punkt końcowy | `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/` | Tylko konta obecne w contoso.onmicrosoft.com dzierżawcy mogą uzyskać token. W tym przykładzie zasady B2C jest częścią ścieżki adresu URL urzędu. |
+| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common`jest aliasem dzierżawy, w którym znajduje się konto. Takie jak określona dzierżawa Azure Active Directory lub system konto Microsoft. |
+| AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Tylko konta obecne w contoso.com mogą uzyskać token. Każda zweryfikowana domena lub identyfikator GUID dzierżawy może być używany jako identyfikator dzierżawy. |
+| AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Tylko konta Azure Active Directory mogą być używane z tym punktem końcowym. Konta Microsoft mogą należeć do organizacji. Aby uzyskać token przy użyciu konto Microsoft dla zasobu w organizacji, określ dzierżawę organizacyjną, z której ma być używany token. |
+| AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Tylko konta Microsoft mogą korzystać z tego punktu końcowego. |
+| B2C | | | Zobacz otrzymany punkt końcowy | `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/` | Tylko konta znajdujące się w dzierżawie contoso.onmicrosoft.com mogą uzyskać token. W tym przykładzie zasady B2C są częścią ścieżki adresu URL urzędu certyfikacji. |
 
 > [!NOTE]
-> Nie można włączyć i wyłączyć sprawdzania poprawności urzędu w urzędzie.
-> Urzędy są znane jako deweloper, jak określono w konfiguracji lub znane firmie Microsoft za pośrednictwem metadanych.
-> Jeśli MSAL odbiera żądanie tokenu do nieznanego urzędu, wyniki `MsalClientException` typu. `UnknownAuthority`
+> Nie można włączyć i wyłączyć walidacji urzędu w MSAL.
+> Urzędy są znane jako deweloper określony przez konfigurację lub znany firmie Microsoft za pośrednictwem metadanych.
+> Jeśli MSAL odbiera żądanie tokenu do nieznanego urzędu, `MsalClientException` typu `UnknownAuthority` wyników.
 
 #### <a name="authority-properties"></a>Właściwości urzędu
 
 | Właściwość | Typ danych  | Wymagany | Uwagi |
 |-----------|-------------|-----------|--------|
-| `type` | Ciąg | Tak | Odzwierciedla grupę odbiorców lub konto, aby wpisać cele aplikacji. Możliwe wartości: `AAD`,`B2C` |
-| `audience` | Obiekt | Nie | Dotyczy tylko wpisywać/ .`AAD` Określa tożsamość obiektów docelowych aplikacji. Użyj wartości z rejestracji aplikacji |
-| `authority_url` | Ciąg | Tak | Wymagane tylko przy`B2C`type= . Określa adres URL urzędu lub zasady, których aplikacja powinna używać  |
-| `default` | wartość logiczna | Tak | Jeden `"default":true` jest wymagany, gdy określony jest jeden lub więcej organów. |
+| `type` | Ciąg | Tak | Odzwierciedla grupę odbiorców lub konto, do którego należy aplikacja. Możliwe wartości: `AAD`,`B2C` |
+| `audience` | Obiekt | Nie | Stosuje się tylko wtedy,`AAD`gdy typ =. Określa tożsamość, która jest przeznaczona dla aplikacji. Użyj wartości z rejestracji aplikacji |
+| `authority_url` | Ciąg | Tak | Wymagane tylko wtedy, gdy`B2C`typ =. Określa adres URL urzędu lub zasady, które powinny być używane przez aplikację  |
+| `default` | wartość logiczna | Tak | Jeden `"default":true` jest wymagany w przypadku określenia co najmniej jednego urzędu. |
 
 #### <a name="audience-properties"></a>Właściwości odbiorców
 
 | Właściwość | Typ danych  | Wymagany | Uwagi |
 |-----------|-------------|------------|-------|
-| `type` | Ciąg | Tak | Określa odbiorców, na które aplikacja chce kierować reklamy. Możliwe `AzureADandPersonalMicrosoftAccount`wartości: `PersonalMicrosoftAccount` `AzureADMultipleOrgs`, , ,`AzureADMyOrg` |
-| `tenant_id` | Ciąg | Tak | Wymagane tylko `"type":"AzureADMyOrg"`wtedy, gdy . Opcjonalnie `type` dla innych wartości. Może to być domena `contoso.com`dzierżawy, taka jak `72f988bf-86f1-41af-91ab-2d7cd011db46`identyfikator dzierżawy, taki jak ) |
+| `type` | Ciąg | Tak | Określa odbiorców, do których aplikacja chce kierować. Możliwe wartości: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`,`AzureADMyOrg` |
+| `tenant_id` | Ciąg | Tak | Wymagane tylko wtedy `"type":"AzureADMyOrg"`, gdy. Opcjonalne dla innych `type` wartości. Może to być domena dzierżawy, taka `contoso.com`jak lub identyfikator dzierżawy, taki `72f988bf-86f1-41af-91ab-2d7cd011db46`jak). |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
-Wskazuje, czy podczas logowania konta lub autoryzowania dostępu do zasobu ma być używany osadzony widok internetowy, czy domyślna przeglądarka na urządzeniu.
+Wskazuje, czy podczas podpisywania konta lub autoryzowania dostępu do zasobu ma być używany osadzony widok WebView, czy domyślna przeglądarka na urządzeniu.
 
 Możliwe wartości:
-- `DEFAULT`: Preferuje przeglądarkę system. Używa osadzonego widoku sieci Web, jeśli przeglądarka nie jest dostępna na urządzeniu.
+- `DEFAULT`: Preferuje przeglądarkę systemową. Program używa osadzonego widoku sieci Web, jeśli przeglądarka nie jest dostępna na urządzeniu.
 - `WEBVIEW`: Użyj osadzonego widoku sieci Web.
 - `BROWSER`: Używa domyślnej przeglądarki na urządzeniu.
 
 ### <a name="multiple_clouds_supported"></a>multiple_clouds_supported
 
-W przypadku klientów obsługujących `true`wiele chmur krajowych należy określić opcję . Platforma tożsamości firmy Microsoft automatycznie przekieruje do właściwej chmury krajowej podczas autoryzacji i realizacji tokenów. Chmurę krajową zalogowanego konta można określić, badając organ `AuthenticationResult`skojarzony z programem . Należy zauważyć, że `AuthenticationResult` nie zapewnia adres końcowy specyficzne dla chmury krajowej zasobu, dla którego żądasz tokenu.
+W przypadku klientów, którzy obsługują wiele chmur narodowych, określ `true`. Platforma tożsamości firmy Microsoft będzie następnie automatycznie przekierowywać do właściwej chmury krajowej podczas autoryzacji i wykupu. Aby określić chmurę krajową konta zalogowanego, można sprawdzić urząd skojarzony z `AuthenticationResult`. Należy pamiętać, `AuthenticationResult` że program nie udostępnia krajowego adresu punktu końcowego dla zasobu, dla którego zażądano tokenu.
 
 ### <a name="broker_redirect_uri_registered"></a>broker_redirect_uri_registered
 
-Wartość logiczna wskazująca, czy używasz brokera microsoft identity zgodne w brokera przekierowania identyfikatora URI. Ustaw, `false` jeśli nie chcesz korzystać z brokera w aplikacji.
+Wartość logiczna wskazująca, czy używasz usługi Microsoft Identity Broker zgodnej z identyfikatorem URI przekierowania brokera. Ustaw na `false` , jeśli nie chcesz używać brokera w aplikacji.
 
-Jeśli korzystasz z urzędu AAD z `"MicrosoftPersonalAccount"`ustawioną na Grupę odbiorców, broker nie będzie używany.
+Jeśli używasz urzędu usługi AAD z zestawem odbiorców ustawionym `"MicrosoftPersonalAccount"`na, Broker nie będzie używany.
 
 ### <a name="http"></a>http
 
-Konfigurowanie ustawień globalnych dla limitów czasu HTTP, takich jak:
+Skonfiguruj ustawienia globalne limitów czasu HTTP, takie jak:
 
 | Właściwość | Typ danych | Wymagany | Uwagi |
 | ---------|-----------|------------|--------|
@@ -145,34 +145,34 @@ Konfigurowanie ustawień globalnych dla limitów czasu HTTP, takich jak:
 
 ### <a name="logging"></a>rejestrowanie
 
-Następujące ustawienia globalne są do rejestrowania:
+Następujące ustawienia globalne dotyczą rejestrowania:
 
 | Właściwość | Typ danych  | Wymagany | Uwagi |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | wartość logiczna | Nie | Czy emitować dane osobowe |
-| `log_level`   | wartość logiczna | Nie | Które komunikaty dziennika do wyjścia |
-| `logcat_enabled` | wartość logiczna | Nie | Czy do wyjścia do logowania cat oprócz interfejsu rejestrowania |
+| `log_level`   | wartość logiczna | Nie | Które komunikaty dziennika do danych wyjściowych |
+| `logcat_enabled` | wartość logiczna | Nie | Określa, czy oprócz interfejsu rejestrowania ma być wyprowadzane wyjście do dziennika Cat |
 
 ### <a name="account_mode"></a>account_mode
 
-Określa, ile kont może być używanych w aplikacji naraz. Możliwe wartości są następujące:
+Określa liczbę kont, które mogą być używane w aplikacji w danym momencie. Możliwe wartości są następujące:
 
-- `MULTIPLE`(Domyślnie)
+- `MULTIPLE`Wartooć
 - `SINGLE`
 
-Skonstruowanie `PublicClientApplication` przy użyciu trybu konta, który nie pasuje do tego ustawienia spowoduje wyjątek.
+Konstruowanie `PublicClientApplication` przy użyciu trybu konta, który nie jest zgodny z tym ustawieniem, spowoduje wyjątek.
 
-Aby uzyskać więcej informacji na temat różnic między pojedynczymi i wieloma kontami, zobacz [Aplikacje jedno i wiele kont](single-multi-account.md).
+Aby uzyskać więcej informacji o różnicach między pojedynczym i wieloma kontami, zobacz [pojedyncze i wiele aplikacji konta](single-multi-account.md).
 
 ### <a name="browser_safelist"></a>browser_safelist
 
-Lista przeglądarek zgodnych z msal. Te przeglądarki poprawnie obsługują przekierowania do intencji niestandardowych. Możesz dodać do tej listy. Wartość domyślna jest dostępna w konfiguracji domyślnej pokazanej poniżej.
+Lista dozwolonych przeglądarek, które są zgodne z MSAL. Te przeglądarki poprawnie obsługują przekierowania do niestandardowych intencji. Możesz dodać do tej listy. Domyślna konfiguracja jest pokazana poniżej.
 ``
-## <a name="the-default-msal-configuration-file"></a>Domyślny plik konfiguracyjny MSAL
+## <a name="the-default-msal-configuration-file"></a>Domyślny plik konfiguracji MSAL
 
-Domyślna konfiguracja MSAL, która jest dostarczana z MSAL jest pokazana poniżej. Możesz zobaczyć najnowszą wersję na [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json).
+Poniżej przedstawiono domyślną konfigurację MSAL, która jest dostarczana z MSAL. Najnowszą wersję można zobaczyć w witrynie [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json).
 
-Ta konfiguracja jest uzupełniona o podane wartości. Podane wartości zastępują wartości domyślne.
+Ta konfiguracja jest uzupełniona o wartości, które zapewniasz. Wartości, które zapewniasz, zastąpią ustawienia domyślne.
 
 ```javascript
 {
@@ -319,7 +319,7 @@ Ta konfiguracja jest uzupełniona o podane wartości. Podane wartości zastępuj
 ```
 ## <a name="example-basic-configuration"></a>Przykładowa konfiguracja podstawowa
 
-Poniższy przykład ilustruje podstawową konfigurację, która określa identyfikator klienta, przekierowanie identyfikatora URI, czy przekierowanie brokera jest zarejestrowany i listę urzędów.
+Poniższy przykład ilustruje podstawową konfigurację, która określa identyfikator klienta, identyfikator URI przekierowania, to czy przekierowanie brokera jest zarejestrowane oraz listę urzędów.
 
 ```javascript
 {
@@ -338,10 +338,10 @@ Poniższy przykład ilustruje podstawową konfigurację, która określa identyf
 }
 ```
 
-## <a name="how-to-use-a-configuration-file"></a>Jak korzystać z pliku konfiguracyjnego
+## <a name="how-to-use-a-configuration-file"></a>Jak używać pliku konfiguracji
 
-1. Utwórz plik konfiguracyjny. Zaleca się utworzenie niestandardowego pliku `res/raw/auth_config.json`konfiguracyjnego w programie . Ale można umieścić go w dowolnym miejscu, że chcesz.
-2. Powiedz msal, gdzie szukać konfiguracji podczas `PublicClientApplication`konstruowania . Przykład:
+1. Utwórz plik konfiguracji. Zalecamy utworzenie niestandardowego pliku konfiguracji w programie `res/raw/auth_config.json`. Ale możesz ją umieścić w dowolnym miejscu.
+2. Poinformuj MSAL o tym, gdzie należy wyszukać konfigurację `PublicClientApplication`podczas konstruowania. Przykład:
 
    ```java
    //On Worker Thread

@@ -1,7 +1,7 @@
 ---
-title: Dodawanie ról aplikacji i wyładowywanych z tokenu | Azure
+title: Dodaj role aplikacji i uzyskaj je z tokenu | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak dodać role aplikacji w aplikacji zarejestrowanej w usłudze Azure Active `roles` Directory, przypisać użytkowników i grupy do tych ról i otrzymać je w żądaniu w tokenie.
+description: Dowiedz się, jak dodawać role aplikacji w aplikacji zarejestrowanej w Azure Active Directory, przypisywać użytkownikom i grupom te role i `roles` odbierać je w ramach roszczeń w tokenie.
 services: active-directory
 author: kkrishna
 manager: CelesteDG
@@ -14,47 +14,47 @@ ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 144fad249011d547ac6a8cf2d404cb3f8fe74f96
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884260"
 ---
-# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Jak: Dodawanie ról aplikacji w aplikacji i odbieranie ich w tokenie
+# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Instrukcje: Dodawanie ról aplikacji do aplikacji i odbieranie ich w tokenie
 
-Kontrola dostępu oparta na rolach (RBAC) to popularny mechanizm wymuszania autoryzacji w aplikacjach. Podczas korzystania z funkcji RBAC administrator udziela uprawnień do ról, a nie do poszczególnych użytkowników lub grup. Administrator może następnie przypisać role do różnych użytkowników i grup, aby kontrolować, kto ma dostęp do jakiej zawartości i funkcji.
+Kontrola dostępu oparta na rolach (RBAC) to popularny mechanizm wymuszania autoryzacji w aplikacjach. W przypadku korzystania z RBAC administrator przyznaje uprawnienia do ról, a nie do poszczególnych użytkowników lub grup. Administrator może następnie przypisać role do różnych użytkowników i grup w celu kontrolowania, kto ma dostęp do zawartości i funkcjonalności.
 
-Za pomocą RBAC z ról aplikacji i oświadczeń ról, deweloperzy mogą bezpiecznie wymusić autoryzacji w swoich aplikacjach przy niewielkim wysiłku z ich strony.
+Korzystając z funkcji RBAC z rolami aplikacji i oświadczeniami ról, deweloperzy mogą bezpiecznie wymuszać autoryzację w swoich aplikacjach, niewielkim nakładem pracy z ich częścią.
 
-Innym podejściem jest użycie grup usługi Azure AD i oświadczeń grup, jak pokazano w [WebApp-GroupClaims-DotNet](https://github.com/Azure-Samples/WebApp-GroupClaims-DotNet). Grupy usługi Azure AD i role aplikacji w żadnym wypadku nie wykluczają się wzajemnie; mogą być używane w tandemie, aby zapewnić jeszcze lepszą kontrolę dostępu.
+Innym podejściem jest użycie grup i oświadczeń grup usługi Azure AD, jak pokazano w [webapp-GroupClaims-dotnet](https://github.com/Azure-Samples/WebApp-GroupClaims-DotNet). Grupy i role aplikacji usługi Azure AD nie wykluczają się wzajemnie. mogą one być używane wspólnie w celu zapewnienia jeszcze bardziej precyzyjnej kontroli dostępu.
 
 ## <a name="declare-roles-for-an-application"></a>Deklarowanie ról dla aplikacji
 
-Te role aplikacji są zdefiniowane w [witrynie Azure portal](https://portal.azure.com) w manifeście rejestracji aplikacji.  Gdy użytkownik loguje się do aplikacji, `roles` usługa Azure AD emituje oświadczenie dla każdej roli, która została przyznana użytkownikowi indywidualnie użytkownikowi i z członkostwa w grupie.  Przypisywanie użytkowników i grup do ról można wykonać za pośrednictwem interfejsu użytkownika portalu lub programowo przy użyciu [programu Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview).
+Te role aplikacji są zdefiniowane w [Azure Portal](https://portal.azure.com) w manifeście rejestracji aplikacji.  Gdy użytkownik loguje się do aplikacji, usługa Azure AD emituje `roles` rolę dla każdej roli, która została udzielona indywidualnie użytkownikowi i od ich przynależności do grupy.  Przypisywanie użytkowników i grup do ról może odbywać się za pośrednictwem interfejsu użytkownika portalu lub programowo przy użyciu [Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview).
 
-### <a name="declare-app-roles-using-azure-portal"></a>Deklarowanie ról aplikacji przy użyciu witryny Azure portal
+### <a name="declare-app-roles-using-azure-portal"></a>Deklarowanie ról aplikacji przy użyciu Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Wybierz ikonę **Katalog + Subskrypcja** na pasku narzędzi portalu.
-1. Na liście **Ulubione** lub **Wszystkie katalogi** wybierz dzierżawę usługi Active Directory, w której chcesz zarejestrować aplikację.
-1. W witrynie Azure portal wyszukaj i wybierz pozycję **Azure Active Directory**.
-1. W okienku **usługi Azure Active Directory** wybierz **pozycję Rejestracje aplikacji,** aby wyświetlić listę wszystkich aplikacji.
-1. Wybierz aplikację, w której chcesz zdefiniować role aplikacji. Następnie wybierz **pozycję Manifest**.
-1. Edytuj manifest aplikacji, lokalizując `appRoles` to ustawienie i dodając wszystkie role aplikacji.
+1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** .
+1. Z listy **Ulubione** lub **wszystkie katalogi** wybierz Active Directory dzierżawy, w której chcesz zarejestrować aplikację.
+1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. W okienku **Azure Active Directory** wybierz pozycję **rejestracje aplikacji** , aby wyświetlić listę wszystkich aplikacji.
+1. Wybierz aplikację, w której chcesz zdefiniować role aplikacji. Następnie wybierz pozycję **manifest**.
+1. Edytuj manifest aplikacji, lokalizując `appRoles` ustawienie i dodając wszystkie role aplikacji.
 
      > [!NOTE]
-     > Każda definicja roli aplikacji w tym manifeście musi mieć inny `id` prawidłowy identyfikator GUID w kontekście manifestu dla właściwości.
+     > Każda definicja roli aplikacji w tym manifeście musi mieć inny prawidłowy identyfikator GUID w kontekście manifestu `id` właściwości.
      >
-     > Właściwość `value` każdej definicji roli aplikacji powinna dokładnie odpowiadać ciągom, które są używane w kodzie w aplikacji. Właściwość `value` nie może zawierać spacji. Jeśli tak, podczas zapisywania manifestu zostanie wyświetlony błąd.
+     > `value` Właściwość każdej definicji roli aplikacji powinna dokładnie pasować do ciągów, które są używane w kodzie w aplikacji. `value` Właściwość nie może zawierać spacji. Jeśli tak się stanie, podczas zapisywania manifestu zostanie wyświetlony komunikat o błędzie.
 
 1. Zapisz manifest.
 
 ### <a name="examples"></a>Przykłady
 
-W poniższym `appRoles` przykładzie przedstawiono, do `users`którego można przypisać program .
+Poniższy przykład pokazuje `appRoles` , że można przypisać do `users`.
 
 > [!NOTE]
->Musi `id` być unikatowy identyfikator GUID.
+>`id` Musi być UNIKATOWYm identyfikatorem GUID.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -74,9 +74,9 @@ W poniższym `appRoles` przykładzie przedstawiono, do `users`którego można pr
 ```
 
 > [!NOTE]
->Nie `displayName` może zawierać spacji.
+>`displayName` Nie może zawierać spacji.
 
-Można zdefiniować role `users`aplikacji `applications`do docelowego , lub obu. Jeśli są `applications`dostępne, role aplikacji są wyświetlane jako uprawnienia aplikacji w bloku **Wymagane uprawnienia.** W poniższym przykładzie przedstawiono `Application`rolę aplikacji ukierunkowaną na plik .
+Można zdefiniować role aplikacji, które mają `users`być `applications`docelowe, lub obie. Gdy jest to `applications`możliwe, role aplikacji są wyświetlane jako uprawnienia aplikacji w bloku **wymagane uprawnienia** . Poniższy przykład przedstawia rolę aplikacji ukierunkowaną na `Application`.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -95,35 +95,35 @@ Można zdefiniować role `users`aplikacji `applications`do docelowego , lub obu.
 "availableToOtherTenants": false,
 ```
 
-Liczba zdefiniowanych ról wpływa na limity, które ma manifest aplikacji. Zostały one szczegółowo omówione na stronie [limitów manifestu.](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits)
+Liczba zdefiniowanych ról wpływa na limity, które ma manifest aplikacji. Zostały one szczegółowo omówione na stronie [limitów manifestu](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) .
 
 ### <a name="assign-users-and-groups-to-roles"></a>Przypisywanie użytkowników i grup do ról
 
 Po dodaniu ról aplikacji w aplikacji można przypisać użytkowników i grupy do tych ról.
 
-1. W okienku **usługi Azure Active Directory** wybierz **aplikacje enterprise** z menu nawigacji po lewej stronie usługi Azure Active **Directory.**
-1. Wybierz **pozycję Wszystkie aplikacje,** aby wyświetlić listę wszystkich aplikacji.
+1. W okienku **Azure Active Directory** wybierz pozycję **aplikacje dla przedsiębiorstw** z menu nawigacji po lewej stronie **Azure Active Directory** .
+1. Wybierz pozycję **wszystkie aplikacje** , aby wyświetlić listę wszystkich aplikacji.
 
-     Jeśli nie widzisz aplikacji, która ma być pokazana w tym miejscu, użyj różnych filtrów u góry listy **Wszystkie aplikacje,** aby ograniczyć listę lub przewiń listę w dół, aby zlokalizować aplikację.
+     Jeśli nie widzisz aplikacji, która ma być wyświetlana w tym miejscu, Użyj różnych filtrów w górnej części listy **wszystkie aplikacje** , aby ograniczyć listę, lub przewiń w dół listy, aby zlokalizować aplikację.
 
-1. Wybierz aplikację, w której chcesz przypisać użytkowników lub grupę zabezpieczeń do ról.
+1. Wybierz aplikację, do której chcesz przypisać użytkowników lub grupę zabezpieczeń do ról.
 1. Wybierz okienko **Użytkownicy i grupy** w menu nawigacji po lewej stronie aplikacji.
-1. U góry listy **Użytkownicy i grupy** wybierz przycisk Dodaj **użytkownika,** aby otworzyć okienko **Dodaj przypisanie.**
-1. Wybierz selektor **Użytkownicy i grupy** z okienka **Dodaj przypisanie.**
+1. W górnej części listy **Użytkownicy i grupy** wybierz przycisk **Dodaj użytkownika** , aby otworzyć okienko **Dodaj przypisanie** .
+1. Wybierz selektor **Użytkownicy i grupy** w okienku **Dodaj przypisanie** .
 
-     Zostanie wyświetlona lista użytkowników i grup zabezpieczeń wraz z polem tekstowym do wyszukiwania i lokalizowania określonego użytkownika lub grupy. Ten ekran umożliwia wybranie wielu użytkowników i grup za jednym zamachem.
+     Zostanie wyświetlona lista użytkowników i grup zabezpieczeń wraz z polem tekstowym umożliwiającym wyszukiwanie i lokalizowanie określonego użytkownika lub grupy. Ten ekran umożliwia wybranie wielu użytkowników i grup w jednym przejściu.
 
-1. Po wybraniu użytkowników i grup naciśnij przycisk **Wybierz** na dole, aby przejść do następnej części.
-1. Wybierz selektor **wybierz rolę** z okienka **Dodaj przypisanie.** Wszystkie role zadeklarowane wcześniej w manifeście aplikacji zostaną wyświetlene.
-1. Wybierz rolę i naciśnij przycisk **Wybierz.**
-1. Naciśnij przycisk **Przypisz** u dołu, aby zakończyć przypisania użytkowników i grup do aplikacji.
-1. Upewnij się, że dodawani użytkownicy i grupy są wyświetlane na zaktualizowanej liście **Użytkownicy i grupy.**
+1. Po wybraniu opcji użytkownicy i grupy naciśnij przycisk **Wybierz** na dole, aby przejść do następnej części.
+1. Wybierz selektor **roli wybierz** z okienka **Dodaj przypisanie** . Zostaną wyświetlone wszystkie role zadeklarowane wcześniej w manifeście aplikacji.
+1. Wybierz rolę i naciśnij przycisk **Wybierz** .
+1. Naciśnij przycisk **Assign (Przypisz** ) u dołu, aby zakończyć przydziały użytkowników i grup do aplikacji.
+1. Upewnij się, że dodani Użytkownicy i grupy znajdują się na liście zaktualizowanych **użytkowników i grup** .
 
 ## <a name="more-information"></a>Więcej informacji
 
-- [Dodawanie autoryzacji przy użyciu ról aplikacji & oświadczeń ról do aplikacji sieci web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Korzystanie z grup zabezpieczeń i ról aplikacji w aplikacjach (wideo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
-- [Usługa Azure Active Directory z oświadczeń grupowych i ról aplikacji](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Manifest aplikacji usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
-- [Tokeny dostępu AAD](access-tokens.md)
-- [Aad`id_tokens`](id-tokens.md)
+- [Dodawanie autoryzacji przy użyciu ról aplikacji & oświadczenia ról do aplikacji sieci Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
+- [Używanie grup zabezpieczeń i ról aplikacji w aplikacjach (wideo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Azure Active Directory, teraz z oświadczeniami grupy i rolami aplikacji](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
+- [Azure Active Directory manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Tokeny dostępu usługi AAD](access-tokens.md)
+- [AAD`id_tokens`](id-tokens.md)

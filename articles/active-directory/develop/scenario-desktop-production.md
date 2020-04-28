@@ -1,6 +1,6 @@
 ---
-title: Przenoszenie interfejsów API wywoływania aplikacji komputerowych do środowiska produkcyjnego — platforma tożsamości firmy Microsoft | Azure
-description: Dowiedz się, jak przenieść aplikację klasyczną, która wywołuje internetowe interfejsy API do środowiska produkcyjnego
+title: Przenoszenie aplikacji klasycznych interfejsy API sieci Web do produkcji — platforma tożsamości firmy Microsoft | Azure
+description: Dowiedz się, jak przenieść aplikację klasyczną, która wywołuje interfejsy API sieci Web w środowisku produkcyjnym
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,37 +12,37 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: ea564eb69f102d8e548bf8ae9a626598fa264cd4
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80882883"
 ---
-# <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplikacja klasyczna, która wywołuje internetowe interfejsy API: przejście do środowiska produkcyjnego
+# <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: Przenieś do środowiska produkcyjnego
 
-W tym artykule dowiesz się, jak przenieść aplikację klasyczną, która wywołuje internetowe interfejsy API do środowiska produkcyjnego.
+Ten artykuł zawiera informacje na temat przenoszenia aplikacji klasycznej, która wywołuje interfejsy API sieci Web w środowisku produkcyjnym.
 
 ## <a name="handle-errors-in-desktop-applications"></a>Obsługa błędów w aplikacjach klasycznych
 
-W różnych przepływów, zostały dowiesz się, jak obsługiwać błędy przepływów dyskretnych, jak pokazano w fragmentach kodu. Zaobserwowano również, że istnieją przypadki, w których interakcja jest potrzebna, jak w przyrostowej zgody i dostępu warunkowego.
+W różnych przepływach wiesz, jak obsłużyć błędy dla przepływów dyskretnych, jak pokazano w fragmentach kodu. Pojawiły się także sytuacje, w których jest wymagana interakcja, jak w przypadku przyrostowej zgody i dostępu warunkowego.
 
-## <a name="have-the-user-consent-upfront-for-several-resources"></a>Wyrażanie zgody użytkownika z góry na kilka zasobów
+## <a name="have-the-user-consent-upfront-for-several-resources"></a>Przyznaj użytkownikowi zgodę na dostęp do kilku zasobów
 
 > [!NOTE]
-> Uzyskiwanie zgody na kilka zasobów działa na platformie tożsamości firmy Microsoft, ale nie dla usługi Azure Active Directory (Azure AD) B2C. Usługa Azure AD B2C obsługuje tylko zgodę administratora, a nie zgodę użytkownika.
+> Uzyskanie zgody na kilka zasobów działa w przypadku platformy tożsamości firmy Microsoft, ale nie dla Azure Active Directory (Azure AD) B2C. Azure AD B2C obsługuje tylko zgodę z uprawnieniami administratora, a nie za zgodą użytkownika.
 
-Nie można uzyskać tokenu dla kilku zasobów jednocześnie z punktem końcowym platformy tożsamości firmy Microsoft (wersja 2.0). Parametr `scopes` może zawierać zakresy tylko dla jednego zasobu. Można upewnić się, że użytkownik wstępnie wyraża `extraScopesToConsent` zgodę na kilka zasobów przy użyciu parametru.
+Nie można uzyskać tokenu dla kilku zasobów jednocześnie z punktem końcowym Microsoft Identity platform (v 2.0). `scopes` Parametr może zawierać zakresy tylko dla pojedynczego zasobu. Można upewnić się, że użytkownik wstępnie wysłał kilka zasobów przy użyciu `extraScopesToConsent` parametru.
 
-Na przykład może mieć dwa zasoby, które mają dwa zakresy każdy:
+Przykładowo mogą istnieć dwa zasoby, które mają dwa zakresy:
 
 - `https://mytenant.onmicrosoft.com/customerapi`z zakresami `customer.read` i`customer.write`
 - `https://mytenant.onmicrosoft.com/vendorapi`z zakresami `vendor.read` i`vendor.write`
 
-W tym przykładzie `.WithAdditionalPromptToConsent` należy użyć `extraScopesToConsent` modyfikatora, który ma parametr.
+W tym przykładzie Użyj `.WithAdditionalPromptToConsent` modyfikatora, który ma `extraScopesToConsent` parametr.
 
 Przykład:
 
-### <a name="in-msalnet"></a>w MSAL.NET
+### <a name="in-msalnet"></a>W MSAL.NET
 
 ```csharp
 string[] scopesForCustomerApi = new string[]
@@ -63,9 +63,9 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-### <a name="in-msal-for-ios-and-macos"></a>W systemie MSAL dla systemu iOS i macOS
+### <a name="in-msal-for-ios-and-macos"></a>W MSAL dla systemów iOS i macOS
 
-Cel C:
+Cel-C:
 
 ```objc
 NSArray *scopesForCustomerApi = @[@"https://mytenant.onmicrosoft.com/customerapi/customer.read",
@@ -79,7 +79,7 @@ interactiveParams.extraScopesToConsent = scopesForVendorApi;
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) { /* handle result */ }];
 ```
 
-Swift:
+Adres
 
 ```swift
 let scopesForCustomerApi = ["https://mytenant.onmicrosoft.com/customerapi/customer.read",
@@ -93,17 +93,17 @@ interactiveParameters.extraScopesToConsent = scopesForVendorApi
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
 ```
 
-To wywołanie pobiera token dostępu dla pierwszego interfejsu API sieci web.
+To wywołanie uzyskuje token dostępu dla pierwszego internetowego interfejsu API.
 
-Jeśli musisz wywołać drugi internetowy interfejs `AcquireTokenSilent` API, zadzwoń do interfejsu API.
+Jeśli musisz wywołać drugi internetowy interfejs API, wywołaj `AcquireTokenSilent` interfejs API.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 
-### <a name="microsoft-personal-account-requires-reconsent-each-time-the-app-runs"></a>Konto osobiste Microsoft wymaga ponownej śwegosci przy każdym uruchomieniu aplikacji
+### <a name="microsoft-personal-account-requires-reconsent-each-time-the-app-runs"></a>Konto osobiste firmy Microsoft wymaga zgody przy każdym uruchomieniu aplikacji
 
-W przypadku użytkowników kont osobistych firmy Microsoft zalecane przetwarzanie zgody na każde wywołanie klienta macierzystego (komputera lub aplikacji mobilnej) w celu autoryzacji jest zamierzonym zachowaniem. Tożsamość klienta macierzystego jest z natury niebezpieczna, co jest sprzeczne z tożsamością aplikacji klienta poufnego. Poufne aplikacje klienckie wymieniają klucz tajny z platformą Microsoft Identity, aby udowodnić swoją tożsamość. Platforma tożsamości firmy Microsoft postanowiła ograniczyć tę niepewność dla usług konsumenckich, monitując użytkownika o zgodę za każdym razem, gdy aplikacja jest autoryzowana.
+W przypadku użytkowników z kontami osobistymi firmy Microsoft monit o zgodę na każde wywołanie natywnego klienta (aplikacji klasycznej lub mobilnej) do autoryzacji jest zamierzonym zachowaniem. Natywna tożsamość klienta jest z natury niezabezpieczona, która jest w przeciwieństwie do poufnej tożsamości aplikacji klienckiej. Poufne aplikacje klienckie wymieniają tajne dane za pomocą platformy tożsamości firmy Microsoft w celu potwierdzenia ich tożsamości. Platforma tożsamości firmy Microsoft zdecydowała się wyeliminować to niebezpieczeństwo dla usług konsumenckich, monitując użytkownika o zgodę za każdym razem, gdy aplikacja jest autoryzowana.
 
 ## <a name="next-steps"></a>Następne kroki
 

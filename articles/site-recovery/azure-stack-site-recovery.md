@@ -83,7 +83,7 @@ Upewnij się, że maszyny wirtualne są uruchomione jeden z systemów operacyjny
 **System operacyjny** | **Szczegóły**
 --- | ---
 **64-bitowy system Windows** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (z dodatku SP1)
-**Centos** | 5,2 do 5,11, 6,1 do 6,9, od 7,0 do 7,3
+**CentOS** | 5,2 do 5,11, 6,1 do 6,9, od 7,0 do 7,3
 **Ubuntu** | 14.04 Serwer LTS, serwer 16.04 LTS. Przeglądanie [obsługiwanych jąder](vmware-physical-azure-support-matrix.md#ubuntu-kernel-versions)
 
 ### <a name="prepare-for-mobility-service-installation"></a>Przygotowanie do instalacji usługi mobilności

@@ -268,7 +268,7 @@ Rozpocznij pracę w czasie wykonywania za pomocą rozwiązań:
 
 * [Zestaw aplikacji hostowanych usługami IIS dla maszyn wirtualnych platformy Azure i platformy Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [Serwer usług IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Aplikacje azure web](../../azure-monitor/app/azure-web-apps.md)
+* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 
 Rozpocznij pracę w czasie programowania za pomocą rozwiązań:
 

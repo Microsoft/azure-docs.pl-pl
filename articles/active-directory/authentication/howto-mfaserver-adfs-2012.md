@@ -1,5 +1,5 @@
 ---
-title: Serwer usługi Azure MFA z usługami AD FS w systemie Windows Server — usługa Azure Active Directory
+title: Serwer usługi Azure MFA z AD FS w systemie Windows Server — Azure Active Directory
 description: Ten artykuł zawiera wprowadzenie do usługi Azure Multi-Factor Authentication i usług AD FS w systemie Windows Server 2012 R2 i 2016.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2777675d915d99b8c0e3c2a123b24ab60d41f672
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80653365"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurowanie serwera usługi Azure Multi-Factor Authentication do współdziałania z usługami AD FS w systemie Windows Server
@@ -25,7 +25,7 @@ Jeśli korzystasz z usług federacyjnych Active Directory (AD FS) i chcesz zabez
 W tym artykule omawiane jest korzystanie z serwera usługi Azure Multi-Factor Authentication oraz usług AD FS w systemie Windows Server 2012 R2 lub Windows Server 2016. Aby uzyskać dodatkowe informacje, przeczytaj o sposobie [zabezpieczania zasobów w chmurze i zasobów lokalnych przy użyciu serwera Azure Multi-Factor Authentication z usługami AD FS 2.0](howto-mfaserver-adfs-2.md).
 
 > [!IMPORTANT]
-> Od 1 lipca 2019 r. firma Microsoft nie będzie już oferować serwera usługi MFA dla nowych wdrożeń. Nowi klienci, którzy chcieliby wymagać uwierzytelniania wieloskładnikowego od swoich użytkowników, powinni korzystać z uwierzytelniania wieloskładnikowego platformy Azure w chmurze. Obecni klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i wygenerować poświadczenia aktywacji w zwykły sposób.
+> Od 1 lipca 2019 firma Microsoft nie będzie już oferować serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego od użytkowników, powinni korzystać z usługi Azure Multi-Factor Authentication opartej na chmurze. Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i generować poświadczenia aktywacji w zwykły sposób.
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Zabezpieczanie usług AD FS systemu Windows Server za pomocą serwera usługi Azure Multi-Factor Authentication
 
@@ -49,7 +49,7 @@ Przed rozpoczęciem należy uwzględnić następujące informacje:
 3. Wybierz wszystkie dodatkowe opcje, które chcesz określić dla Twojej organizacji.
 4. Kliknij pozycję **Zainstaluj adapter ADFS**.
 
-   ![Instalowanie karty ADFS z konsoli serwera usługi MFA](./media/howto-mfaserver-adfs-2012/server.png)
+   ![Instalowanie adaptera ADFS z poziomu konsoli serwera usługi MFA](./media/howto-mfaserver-adfs-2012/server.png)
 
 5. Jeśli zostanie wyświetlone okno usługi Active Directory, oznacza to dwie rzeczy. Komputer jest przyłączony do domeny, a konfiguracja usługi Active Directory pod kątem zabezpieczenia komunikacji między adapterem AD FS a usługą Multi-Factor Authentication nie została ukończona. Kliknij przycisk **Dalej**, aby przeprowadzić tę konfigurację automatycznie, lub zaznacz pole wyboru **Pomiń automatyczną konfigurację usługi Active Directory i skonfiguruj ustawienia ręcznie**. Kliknij przycisk **Dalej**.
 6. Jeśli zostanie wyświetlone okno grupy lokalnej, oznacza to dwie rzeczy. Komputer nie jest przyłączony do domeny, a konfiguracja grupy lokalnej pod kątem zabezpieczenia komunikacji między adapterem AD FS a usługą Multi-Factor Authentication nie została ukończona. Kliknij przycisk **Dalej**, aby przeprowadzić tę konfigurację automatycznie, lub zaznacz pole wyboru **Pomiń automatyczną konfigurację grupy lokalnej i skonfiguruj ustawienia ręcznie**. Kliknij przycisk **Dalej**.
@@ -63,7 +63,7 @@ Przed rozpoczęciem należy uwzględnić następujące informacje:
 
 12. Aby używać nowo zarejestrowanego adaptera, edytuj globalne zasady uwierzytelniania w usługach AD FS. W konsoli zarządzania usług AD FS przejdź do węzła **Zasady uwierzytelniania**. W sekcji **Uwierzytelnianie wieloskładnikowe** kliknij link **Edytuj** obok sekcji **Ustawienia globalne**. W oknie **Edytowanie globalnych zasad uwierzytelniania** wybierz pozycję **Uwierzytelnianie wieloskładnikowe** jako dodatkową metodę uwierzytelniania, a następnie kliknij przycisk **OK**. Adapter zostanie zarejestrowany jako element WindowsAzureMultiFactorAuthentication. Uruchom ponownie usługę AD FS, aby zmiany wprowadzone w ramach rejestracji zaczęły obowiązywać.
 
-![Edytowanie zasad uwierzytelniania globalnego](./media/howto-mfaserver-adfs-2012/global.png)
+![Edytuj globalne zasady uwierzytelniania](./media/howto-mfaserver-adfs-2012/global.png)
 
 Serwer usługi Multi-Factor Authentication jest teraz skonfigurowany jako dodatkowy dostawca uwierzytelniania do używania z usługami AD FS.
 
@@ -84,14 +84,14 @@ Serwer usługi Multi-Factor Authentication jest teraz skonfigurowany jako dodatk
 Edytuj plik MultiFactorAuthenticationAdfsAdapter.config, wykonując następujące czynności:
 
 1. Dla węzła **UseWebServiceSdk** ustaw wartość **true**.  
-2. Dla węzła **WebServiceSdkUrl** ustaw adres URL zestawu SDK usługi sieci Web usługi Multi-Factor Authentication. Na przykład: *https:\/\/contoso.com/\<certificatename>/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, Gdzie * \<nazwa certyfikatu>* jest nazwą certyfikatu.  
-3. Edytuj skrypt Register-MultiFactorAuthenticationAdfsAdapter.ps1, `-ConfigurationFilePath &lt;path&gt;` dodając na `Register-AdfsAuthenticationProvider` końcu polecenia, gdzie * &lt;ścieżka&gt; * jest pełną ścieżką do pliku MultiFactorAuthenticationAdfsAdapter.config.
+2. Dla węzła **WebServiceSdkUrl** ustaw adres URL zestawu SDK usługi sieci Web usługi Multi-Factor Authentication. Na przykład: *https:\/\/contoso.com/\<certificateName>/multifactorauthwebservicesdk/pfwssdk.asmx*, gdzie * \<certificateName>* jest nazwą certyfikatu.  
+3. Edytuj skrypt Register-MultiFactorAuthenticationAdfsAdapter. ps1 przez dodanie `-ConfigurationFilePath &lt;path&gt;` do końca `Register-AdfsAuthenticationProvider` polecenia, gdzie * &lt;Path&gt; * to pełna ścieżka do pliku pliku MultiFactorAuthenticationAdfsAdapter. config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Konfigurowanie zestawu SDK usługi sieci Web przy użyciu nazwy użytkownika i hasła
 
 Istnieją dwie opcje konfigurowania zestawu SDK usługi sieci Web. Pierwsza opcja to konfiguracja przy użyciu nazwy użytkownika i hasła, a druga — przy użyciu certyfikatu klienta. Wykonaj następujące kroki, aby skorzystać z pierwszej opcji, lub przejdź dalej, aby skorzystać z drugiej opcji.  
 
-1. Ustaw wartość **WebServiceSdkUsername** na konto, które jest członkiem grupy zabezpieczeń Administratorzy phonefactor. Użyj formatu &lt;domena&gt;&#92;&lt;nazwa_użytkownika&gt;.  
+1. Ustaw wartość **węzła webservicesdkusername** na konto, które jest członkiem grupy zabezpieczeń Administratorzy PhoneFactor. Użyj formatu &lt;domena&gt;&#92;&lt;nazwa_użytkownika&gt;.  
 2. Jako wartość węzła **WebServiceSdkPassword** ustaw odpowiednie hasło do konta.
 
 ### <a name="configure-the-web-service-sdk-with-a-client-certificate"></a>Konfigurowanie zestawu SDK usługi sieci Web przy użyciu certyfikatu klienta
@@ -107,7 +107,7 @@ Jeśli nie chcesz używać nazwy użytkownika i hasła, wykonaj następujące cz
 7. Przejdź do sekcji **system.webServer/security/authentication/iisClientCertificateMappingAuthentication**.  
 8. Ustaw węzeł enabled na wartość **true**.  
 9. Ustaw węzeł oneToOneCertificateMappingsEnabled na wartość **true**.  
-10. Kliknij przycisk **...** obok jednegoToOneMappings, a następnie kliknij łącze **Dodaj.**  
+10. Kliknij przycisk **...** obok pozycji obok onetoonemappings, a następnie kliknij link **Dodaj** .  
 11. Otwórz wyeksportowany wcześniej plik cer w formacie Base64. Usuń wiersze *-----BEGIN CERTIFICATE-----* i *-----END CERTIFICATE-----* oraz wszystkie podziały wierszy. Skopiuj ciąg wynikowy.  
 12. Jako wartość węzła certificate ustaw ciąg skopiowany w poprzednim kroku.  
 13. Ustaw węzeł enabled na wartość **true**.  
@@ -121,7 +121,7 @@ Jeśli nie chcesz używać nazwy użytkownika i hasła, wykonaj następujące cz
 21. Skopiuj wyeksportowany wcześniej plik pfx na serwer, na którym uruchomiony jest adapter AD FS.  
 22. Zaimportuj plik pfx do osobistego magazynu certyfikatów komputera lokalnego.  
 23. Kliknij prawym przyciskiem myszy i wybierz pozycję **Zarządzaj kluczami prywatnymi**, a następnie przyznaj dostęp do odczytu do konta użytego do zalogowania się do usług AD FS.  
-24. Otwórz certyfikat klienta i skopiuj odcisk palca na karcie **Szczegóły.**  
+24. Otwórz certyfikat klienta i Skopiuj odcisk palca z karty **szczegóły** .  
 25. W pliku MultiFactorAuthenticationAdfsAdapter.config jako wartość węzła **WebServiceSdkCertificateThumbprint** ustaw ciąg skopiowany w poprzednim kroku.  
 
 Następnie, aby zarejestrować adapter, uruchom skrypt \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 w programie PowerShell. Adapter zostanie zarejestrowany jako element WindowsAzureMultiFactorAuthentication. Uruchom ponownie usługę AD FS, aby zmiany wprowadzone w ramach rejestracji zaczęły obowiązywać.
@@ -131,18 +131,18 @@ Następnie, aby zarejestrować adapter, uruchom skrypt \Program Files\Multi-Fact
 Aby zabezpieczyć zasób w chmurze, skonfiguruj regułę oświadczeń, tak aby usługi Active Directory Federation Services emitowały oświadczenie multipleauthn, gdy użytkownik pomyślnie przeprowadzi weryfikację dwuetapową. To oświadczenie jest przekazywane do usługi Azure AD. Wykonaj tę procedurę w celu przejścia przez poszczególne kroki:
 
 1. Otwórz przystawkę zarządzania usługami AD FS.
-2. Po lewej stronie wybierz pozycję **Zaufania jednostki uzależniającej**.
-3. Kliknij prawym przyciskiem myszy **platformę tożsamości usługi Microsoft Office 365** i wybierz pozycję **Edytuj reguły oświadczeń...**
+2. Po lewej stronie wybierz pozycję **relacje zaufania jednostek uzależnionych**.
+3. Kliknij prawym przyciskiem myszy **Microsoft Office platformę tożsamości 365** i wybierz pozycję **Edytuj reguły dotyczące roszczeń...**
 
-   ![Edytowanie reguł oświadczeń w konsoli usługi ADFS](./media/howto-mfaserver-adfs-2012/trustedip1.png)
+   ![Edytowanie reguł dotyczących roszczeń w konsoli usług AD FS](./media/howto-mfaserver-adfs-2012/trustedip1.png)
 
 4. Na karcie Reguły przekształcania wystawiania kliknij pozycję **Dodaj regułę**.
 
-   ![Edytowanie reguł przekształcania w konsoli usługi ADFS](./media/howto-mfaserver-adfs-2012/trustedip2.png)
+   ![Edytowanie reguł przekształcania w konsoli usług AD FS](./media/howto-mfaserver-adfs-2012/trustedip2.png)
 
 5. W Kreatorze dodawania reguły przekształcania oświadczeń wybierz z listy rozwijanej pozycję **Przekazywanie lub filtrowanie oświadczenia przychodzącego**, a następnie kliknij przycisk **Dalej**.
 
-   ![Kreator dodawania reguł oświadczeń o przekształceniu](./media/howto-mfaserver-adfs-2012/trustedip3.png)
+   ![Kreator dodawania reguły przekształcania roszczeń](./media/howto-mfaserver-adfs-2012/trustedip3.png)
 
 6. Nadaj regule nazwę.
 7. Wybierz wartość **Odwołania metod uwierzytelniania** jako typ oświadczenia przychodzącego.

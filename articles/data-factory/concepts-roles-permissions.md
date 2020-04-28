@@ -1,6 +1,6 @@
 ---
 title: Roles and permissions for Azure Data Factory (Role i uprawnienia w usłudze Data Factory)
-description: W tym artykule opisano role i uprawnienia wymagane do tworzenia fabryk danych i pracy z zasobami podrzędnymi.
+description: Opisuje role i uprawnienia wymagane do tworzenia fabryk danych i pracy z zasobami podrzędnymi.
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 8b7791c5c04e986b30959d2fcae17142fdd8b7ec
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418324"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles and permissions for Azure Data Factory (Role i uprawnienia w usłudze Data Factory)
@@ -22,7 +22,7 @@ ms.locfileid: "81418324"
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 
-W tym artykule opisano role wymagane do tworzenia zasobów usługi Azure Data Factory i zarządzanie nimi oraz uprawnienia przyznane przez te role.
+W tym artykule opisano role wymagane do tworzenia zasobów Azure Data Factory i zarządzania nimi oraz uprawnienia przyznane przez te role.
 
 ## <a name="roles-and-requirements"></a>Role i wymagania
 
@@ -36,62 +36,62 @@ Aby uzyskać przykładowe instrukcje dotyczące dodawania użytkownika do roli, 
 
 ## <a name="set-up-permissions"></a>Konfigurowanie uprawnień
 
-Po utworzeniu fabryki danych można umożliwić innym użytkownikom pracę z fabryką danych. Aby nadać ten dostęp innym użytkownikom, należy dodać je do wbudowanej roli **współautora fabryki danych** w grupie zasobów zawierającej fabrykę danych.
+Po utworzeniu Data Factory można zezwolić innym użytkownikom na współpracę z fabryką danych. Aby zapewnić ten dostęp innym użytkownikom, należy dodać je do wbudowanej roli **współautor Data Factory** w grupie zasobów zawierającej fabrykę danych.
 
-### <a name="scope-of-the-data-factory-contributor-role"></a>Zakres roli współautora fabryki danych
+### <a name="scope-of-the-data-factory-contributor-role"></a>Zakres roli współautor Data Factory
 
-Członkostwo w roli **współautora fabryki danych** umożliwia użytkownikom wykonać następujące czynności:
-- Tworzenie, edytowanie i usuwanie fabryk danych i zasobów podrzędnych, w tym zestawów danych, połączonych usług, potoków, wyzwalaczy i środowiskach uruchomieniowych integracji.
-- Wdrażanie szablonów Menedżera zasobów. Wdrożenie menedżera zasobów to metoda wdrażania używana przez usługę Data Factory w witrynie Azure portal.
+Członkostwo w roli **współautor Data Factory** umożliwia użytkownikom wykonywanie następujących czynności:
+- Twórz, Edytuj i usuwaj fabryki danych i zasoby podrzędne, w tym zestawy, połączone usługi, potoki, wyzwalacze i środowiska Integration Runtime.
+- Wdróż szablony Menedżer zasobów. Wdrożenie Menedżer zasobów to metoda wdrażania używana przez Data Factory w Azure Portal.
 - Zarządzanie alertami usługi App Insights dla fabryki danych.
-- Tworzenie biletów pomocy technicznej.
+- Utwórz bilety pomocy technicznej.
 
-Aby uzyskać więcej informacji na temat tej roli, zobacz [Rola współautora fabryki danych](../role-based-access-control/built-in-roles.md#data-factory-contributor).
+Aby uzyskać więcej informacji na temat tej roli, zobacz [Data Factory roli współautor](../role-based-access-control/built-in-roles.md#data-factory-contributor).
 
-### <a name="resource-manager-template-deployment"></a>Wdrażanie szablonu Menedżera zasobów
+### <a name="resource-manager-template-deployment"></a>Wdrożenie szablonu Menedżer zasobów
 
-Rola **Współautora fabryki danych** na poziomie grupy zasobów lub wyższej umożliwia użytkownikom wdrażanie szablonów Menedżera zasobów. W rezultacie członkowie roli mogą używać szablonów Menedżera zasobów do wdrażania zarówno fabryk danych, jak i ich zasobów podrzędnych, w tym zestawów danych, połączonych usług, potoków, wyzwalaczy i środowiskach uruchomień integracji. Członkostwo w tej roli nie pozwala użytkownikowi tworzyć inne zasoby, jednak.
+Rola **współautor Data Factory** , na poziomie grupy zasobów lub nowszej, umożliwia użytkownikom wdrażanie szablonów Menedżer zasobów. W związku z tym członkowie roli mogą używać szablonów Menedżer zasobów do wdrożenia zarówno fabryk danych, jak i ich zasobów podrzędnych, takich jak zestawy, połączone usługi, potoki, wyzwalacze i środowiska Integration Runtime. Członkostwo w tej roli nie zezwala użytkownikowi na tworzenie innych zasobów.
 
-Uprawnienia do repozytoriów platformy Azure i usługi GitHub są niezależne od uprawnień usługi Data Factory. W rezultacie użytkownik z uprawnieniami repozytorium, który jest tylko członkiem roli Czytnik, może edytować zasoby podrzędne fabryki danych i zatwierdzać zmiany w repozytorium, ale nie może publikować tych zmian.
+Uprawnienia do Azure Repos i GitHub są niezależne od uprawnień Data Factory. W związku z tym użytkownik z uprawnieniami repozytorium, które jest członkiem roli czytelnik, może edytować Data Factory zasoby podrzędne i zatwierdzić zmiany w repozytorium, ale nie może opublikować tych zmian.
 
 > [!IMPORTANT]
-> Wdrożenie szablonu Menedżera zasobów z rolą **Współautor fabryki danych** nie podnosi uprawnień. Na przykład jeśli wdrożysz szablon, który tworzy maszynę wirtualną platformy Azure i nie masz uprawnień do tworzenia maszyn wirtualnych, wdrożenie zakończy się niepowodzeniem z błędem autoryzacji.
+> Wdrożenie szablonu Menedżer zasobów z rolą **współautor Data Factory** nie podwyższa poziomu uprawnień. Na przykład jeśli wdrażasz szablon, który tworzy maszynę wirtualną platformy Azure, a nie masz uprawnień do tworzenia maszyn wirtualnych, wdrożenie zakończy się niepowodzeniem z powodu błędu autoryzacji.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Scenariusze niestandardowe i role niestandardowe
 
-Czasami może być konieczne przyznanie różnych poziomów dostępu dla różnych użytkowników fabryki danych. Przykład:
-- Może być potrzebna grupa, w której użytkownicy mają uprawnienia tylko do określonej fabryki danych.
-- Możesz też potrzebować grupy, w której użytkownicy mogą monitorować tylko fabrykę danych (lub fabryki), ale nie można jej zmodyfikować.
+Czasami może być konieczne przyznanie różnych poziomów dostępu dla różnych użytkowników usługi Data Factory. Przykład:
+- Może być potrzebna Grupa, w której użytkownicy mają uprawnienia tylko do określonej fabryki danych.
+- Lub może być potrzebna Grupa, w której użytkownicy mogą monitorować tylko fabrykę danych (lub fabryki), ale nie mogą jej modyfikować.
 
-Te scenariusze niestandardowe można osiągnąć, tworząc role niestandardowe i przypisując użytkowników do tych ról. Aby uzyskać więcej informacji na temat ról niestandardowych, zobacz [Role niestandardowe na platformie Azure](..//role-based-access-control/custom-roles.md).
+Te scenariusze niestandardowe można osiągnąć, tworząc role niestandardowe i przypisując użytkownikom te role. Aby uzyskać więcej informacji na temat ról niestandardowych, zobacz [role niestandardowe na platformie Azure](..//role-based-access-control/custom-roles.md).
 
-Oto kilka przykładów, które pokazują, co można osiągnąć za pomocą ról niestandardowych:
+Poniżej przedstawiono kilka przykładów demonstrujących to, co można osiągnąć za pomocą ról niestandardowych:
 
-- Pozwól użytkownikowi tworzyć, edytować lub usuwać dowolną fabrykę danych w grupie zasobów z witryny Azure Portal.
+- Zezwól użytkownikowi na tworzenie, edytowanie lub usuwanie wszystkich fabryk danych w grupie zasobów z Azure Portal.
 
-  Przypisz wbudowaną rolę **współautora usługi Data Factory** na poziomie grupy zasobów dla użytkownika. Jeśli chcesz zezwolić na dostęp do dowolnej fabryki danych w ramach subskrypcji, przypisz rolę na poziomie subskrypcji.
+  Przypisz wbudowaną rolę **współautor Data Factory** na poziomie grupy zasobów dla użytkownika. Jeśli chcesz zezwolić na dostęp do wszystkich fabryk danych w ramach subskrypcji, przypisz rolę na poziomie subskrypcji.
 
-- Pozwól użytkownikowi przeglądać (czytać) i monitorować fabrykę danych, ale nie edytuj ani nie zmieniaj jej.
+- Zezwól użytkownikom na wyświetlanie i monitorowanie fabryki danych, ale nie należy jej edytować ani zmieniać.
 
   Przypisz wbudowaną rolę **czytnika** do zasobu fabryki danych dla użytkownika.
 
-- Pozwól użytkownikowi edytować pojedynczą fabrykę danych w witrynie Azure portal.
+- Zezwól użytkownikowi na edytowanie jednej fabryki danych w Azure Portal.
 
   Ten scenariusz wymaga dwóch przypisań ról.
 
-  1. Przypisz wbudowaną rolę **współautora** na poziomie fabryki danych.
-  2. Utwórz rolę niestandardową z uprawnieniem **Microsoft.Resources/deployments/**. Przypisz tę rolę niestandardową do użytkownika na poziomie grupy zasobów.
+  1. Przypisz wbudowaną rolę **współautor** na poziomie fabryki danych.
+  2. Utwórz rolę niestandardową z uprawnieniem **Microsoft. resources/Deployments/**. Przypisz tę rolę niestandardową do użytkownika na poziomie grupy zasobów.
 
-- Zezwalanie użytkownikowi na testowanie połączenia tylko w połączonej usłudze
+- Pozwól użytkownikowi na testowanie połączenia w połączonej usłudze
 
-    Utwórz rolę roli niestandardowej z uprawnieniami dla następujących akcji: **Microsoft.DataFactory/factorys/getFeatureValue/read** i **Microsoft.DataFactory/factorys/getDataPlaneAccess/read**. Przypisz tę rolę niestandardową do zasobu fabryki danych dla użytkownika.
+    Utwórz niestandardową rolę roli z uprawnieniami dla następujących akcji: **Microsoft. DataFactory/Factors/getFeatureValue/Read** i **Microsoft. DataFactory/Factors/getDataPlaneAccess/Read**. Przypisz tę rolę niestandardową do zasobu fabryki danych dla użytkownika.
 
-- Pozwól użytkownikowi zaktualizować fabrykę danych z programu PowerShell lub SDK, ale nie w witrynie Azure portal.
+- Zezwól użytkownikowi na aktualizację fabryki danych przy użyciu programu PowerShell lub zestawu SDK, ale nie w Azure Portal.
 
-  Przypisz wbudowaną rolę **współautora** do zasobu fabryki danych dla użytkownika. Ta rola umożliwia użytkownikowi wyświetlanie zasobów w witrynie Azure portal, ale użytkownik nie może uzyskać dostępu do **przycisków Publikuj** i **Publikuj wszystkie.**
+  Przypisz wbudowaną rolę **współautor** do zasobu fabryki danych dla użytkownika. Ta rola umożliwia użytkownikowi wyświetlanie zasobów w Azure Portal, ale użytkownik nie może uzyskać dostępu do przycisków **Publikuj** i **Opublikuj wszystkie** .
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o rolach na platformie Azure — [poznaj definicje ról](../role-based-access-control/role-definitions.md)
+- Dowiedz się więcej o rolach na platformie Azure — [Omówienie definicji ról](../role-based-access-control/role-definitions.md)
 
-- Dowiedz się więcej o roli **współautora fabryki danych** — [rola współautora fabryki danych](../role-based-access-control/built-in-roles.md#data-factory-contributor).
+- Dowiedz się więcej o [roli współautor](../role-based-access-control/built-in-roles.md#data-factory-contributor) **Data Factory rola współautor** Data Factory.

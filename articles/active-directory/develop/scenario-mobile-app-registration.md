@@ -1,7 +1,7 @@
 ---
-title: Rejestrowanie aplikacji mobilnych, które dzwonią do internetowych interfejsów API | Azure
+title: Rejestrowanie aplikacji mobilnych, które wywołują interfejsy API sieci Web | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak utworzyć aplikację mobilną, która wywołuje internetowe interfejsy API (konfiguracja kodu aplikacji)
+description: Dowiedz się, jak utworzyć aplikację mobilną wywołującą interfejsy API sieci Web (konfigurację kodu aplikacji)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -15,80 +15,80 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a5b65bbdc790a27a06298a77aac2721e071adec8
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80882713"
 ---
-# <a name="register-mobile-apps-that-call-web-apis"></a>Rejestrowanie aplikacji mobilnych, które dzwonią do internetowych interfejsów API
+# <a name="register-mobile-apps-that-call-web-apis"></a>Rejestrowanie aplikacji mobilnych, które wywołują interfejsy API sieci Web
 
-Ten artykuł zawiera instrukcje ułatwiające rejestrację aplikacji mobilnej, którą tworzysz.
+Ten artykuł zawiera instrukcje ułatwiające zarejestrowanie tworzonej aplikacji mobilnej.
 
 ## <a name="supported-account-types"></a>Obsługiwane typy konta
 
-Typy kont, które obsługują aplikacje mobilne, zależą od środowiska, które chcesz włączyć i przepływów, których chcesz użyć.
+Typy kont, które są obsługiwane przez aplikacje mobilne, zależą od środowiska, które chcesz włączyć, oraz przepływów, których chcesz użyć.
 
-### <a name="audience-for-interactive-token-acquisition"></a>Publiczność do interaktywnego pozyskiwania tokenów
+### <a name="audience-for-interactive-token-acquisition"></a>Odbiorcy na potrzeby pozyskiwania tokenów interaktywnych
 
-Większość aplikacji mobilnych korzysta z uwierzytelniania interaktywnego. Jeśli aplikacja korzysta z tej formy uwierzytelniania, możesz zalogować użytkowników z dowolnego [typu konta](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+Większość aplikacji mobilnych korzysta z uwierzytelniania interakcyjnego. Jeśli aplikacja korzysta z tej formy uwierzytelniania, użytkownicy mogą logować się z dowolnego [typu konta](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
 
-### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Odbiorcy zintegrowanego uwierzytelniania systemu Windows, hasła nazwy użytkownika i B2C
+### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Odbiorcy zintegrowanego uwierzytelniania systemu Windows, nazwy użytkownika i hasła oraz B2C
 
-Jeśli masz aplikację platformy uniwersalnej systemu Windows (UWP), możesz użyć zintegrowanego uwierzytelniania systemu Windows, aby zalogować się do użytkowników. Aby używać zintegrowanego uwierzytelniania systemu Windows lub uwierzytelniania hasłem użytkownika, aplikacja musi zalogować się do użytkowników w dzierżawie deweloperów linii biznesowej (LOB). W scenariuszu niezależnego dostawcy oprogramowania (ISV) aplikacja może logować się do użytkowników w organizacjach usługi Azure Active Directory. Te przepływy uwierzytelniania nie są obsługiwane dla kont osobistych firmy Microsoft.
+Jeśli masz aplikację platforma uniwersalna systemu Windows (platformy UWP), możesz zalogować się przy użyciu zintegrowanego uwierzytelniania systemu Windows. Aby można było korzystać ze zintegrowanego uwierzytelniania systemu Windows lub uwierzytelniania przy użyciu hasła użytkownika, aplikacja musi zalogować użytkowników we własnej dzierżawie dewelopera firmy LOB. W scenariuszu niezależny dostawca oprogramowania aplikacja może logować użytkowników w Azure Active Directory organizacji. Te przepływy uwierzytelniania nie są obsługiwane w przypadku kont osobistych firmy Microsoft.
 
-Można również zalogować użytkowników przy użyciu tożsamości społecznościowych, które przechodzą urząd B2C i zasady. Aby użyć tej metody, można użyć tylko uwierzytelniania interaktywnego i uwierzytelniania hasła nazwy użytkownika. Uwierzytelnianie za pomocą hasła nazwy użytkownika jest obecnie obsługiwane tylko w systemach Xamarin.iOS, Xamarin.Android i UWP.
+Użytkowników można także zalogować, korzystając z tożsamości społecznościowych, które przekażą B2C Urząd i zasady. Aby użyć tej metody, można użyć tylko uwierzytelniania interakcyjnego i hasła użytkownika. Nazwa użytkownika — uwierzytelnianie hasła jest obecnie obsługiwane tylko w rozszerzeniach Xamarin. iOS, Xamarin. Android i platformy UWP.
 
-Aby uzyskać więcej informacji, zobacz [Scenariusze i obsługiwane przepływy uwierzytelniania](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) i [scenariusze oraz obsługiwane platformy i języki](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages).
+Aby uzyskać więcej informacji, zobacz [scenariusze i obsługiwane przepływy uwierzytelniania](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) oraz [scenariusze i obsługiwane platformy i języki](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages).
 
-## <a name="platform-configuration-and-redirect-uris"></a>Konfiguracja platformy i przekierowywanie identyfikatorów URI  
+## <a name="platform-configuration-and-redirect-uris"></a>Konfiguracja platformy i identyfikatory URI przekierowania  
 
 ### <a name="interactive-authentication"></a>Uwierzytelnianie interakcyjne
 
-Podczas tworzenia aplikacji mobilnej, która używa uwierzytelniania interaktywnego, najważniejszym krokiem rejestracji jest identyfikator URI przekierowania. Uwierzytelnianie interaktywne można ustawić za pomocą [konfiguracji platformy w bloku **Uwierzytelnianie** ](https://aka.ms/MobileAppReg).
+Podczas kompilowania aplikacji mobilnej, która korzysta z uwierzytelniania interaktywnego, najważniejszym krokiem rejestracji jest identyfikator URI przekierowania. Uwierzytelnianie interaktywne można ustawić za pomocą [konfiguracji platformy w bloku **uwierzytelnianie** ](https://aka.ms/MobileAppReg).
 
-To środowisko umożliwi aplikacji uzyskanie logowania jednokrotnego za pośrednictwem usługi Microsoft Authenticator (i portalu firmy usługi Intune w systemie Android). Będzie również obsługiwać zasady zarządzania urządzeniami.
+To środowisko umożliwi aplikacji uzyskanie rejestracji jednokrotnej (SSO) za pomocą Microsoft Authenticator (i Intune — Portal firmy w systemie Android). Obsługuje również zasady zarządzania urządzeniami.
 
-Portal rejestracji aplikacji zapewnia środowisko w wersji zapoznawczej, aby ułatwić obliczanie brokera uri odpowiedzi dla aplikacji dla systemów iOS i Android:
+Portal rejestracji aplikacji zawiera środowisko w wersji zapoznawczej, które ułatwia Obliczanie identyfikatora URI odpowiedzi obsługiwanej przez brokera dla aplikacji dla systemów iOS i Android:
 
-1. W portalu rejestracji aplikacji wybierz pozycję **Uwierzytelnianie** > **Wypróbuj nowe środowisko**.
+1. W portalu rejestracji aplikacji wybierz pozycję **uwierzytelnianie** > **Wypróbuj nowe środowisko**.
 
-   ![Łaz uwierzytelniania, w którym wybierasz nowe środowisko](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+   ![Blok uwierzytelniania, w którym można wybrać nowe środowisko](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-2. Wybierz **pozycję Dodaj platformę**.
+2. Wybierz pozycję **Dodaj platformę**.
 
-   ![Dodawanie platformy](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+   ![Dodaj platformę](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-3. Gdy lista platform jest obsługiwana, wybierz **iOS**.
+3. Jeśli lista platform jest obsługiwana, wybierz pozycję **iOS**.
 
    ![Wybieranie aplikacji mobilnej](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. Wprowadź identyfikator pakietu, a następnie wybierz pozycję **Zarejestruj**.
+4. Wprowadź identyfikator pakietu, a następnie wybierz pozycję **zarejestruj**.
 
    ![Wprowadź identyfikator pakietu](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
-Po wykonaniu kroków identyfikator URI przekierowania jest obliczany dla Ciebie, jak na poniższej ilustracji.
+Po wykonaniu tych kroków identyfikator URI przekierowania zostanie obliczony dla Ciebie, jak na poniższej ilustracji.
 
-![Wynikowy przekierowanie identyfikatora URI](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+![Otrzymany identyfikator URI przekierowania](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
-Jeśli wolisz ręcznie skonfigurować identyfikator URI przekierowania, można to zrobić za pomocą manifestu aplikacji. Oto zalecany format manifestu:
+Jeśli wolisz ręcznie skonfigurować identyfikator URI przekierowania, możesz to zrobić za pomocą manifestu aplikacji. Oto zalecany format manifestu:
 
-- **iOS**:`msauth.<BUNDLE_ID>://auth` 
-  - Na przykład, wprowadź`msauth.com.yourcompany.appName://auth`
-- **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
-  - Skrót podpisu systemu Android można wygenerować za pomocą klucza wydania lub klucza debugowania za pomocą polecenia KeyTool.
+- System **iOS**:`msauth.<BUNDLE_ID>://auth` 
+  - Na przykład wprowadź`msauth.com.yourcompany.appName://auth`
+- System **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+  - Można wygenerować skrót sygnatury systemu Android przy użyciu klucza wydania lub klucza debugowania za pomocą polecenia narzędzia.
 
-### <a name="username-password-authentication"></a>Uwierzytelnianie za pomocą hasła nazwy użytkownika
+### <a name="username-password-authentication"></a>Nazwa użytkownika — uwierzytelnianie hasła
 
-Jeśli aplikacja używa tylko uwierzytelniania hasła nazwy użytkownika, nie trzeba rejestrować identyfikatora URI przekierowania dla aplikacji. Ten przepływ odbywa się w obie strony do punktu końcowego platformy tożsamości firmy Microsoft w wersji 2.0. Aplikacja nie zostanie wywołana z powrotem na żadnym określonym identyfikatorze URI. 
+Jeśli Twoja aplikacja używa tylko uwierzytelniania przy użyciu hasła użytkownika, nie musisz rejestrować identyfikatora URI przekierowania dla aplikacji. Ten przepływ wykonuje rundy do punktu końcowego Microsoft Identity platform w wersji 2,0. Aplikacja nie zostanie wywołana ponownie na żadnym konkretnym identyfikatorze URI. 
 
-Jednak należy zidentyfikować aplikację jako publiczną aplikację kliencką. Aby to zrobić, uruchom w sekcji **Uwierzytelnianie** aplikacji. W podsekcji **Ustawienia zaawansowane** w akapicie **Domyślny typ klienta** dla pytania **Traktuj aplikację jako klienta publicznego**wybierz opcję **Tak**.
+Należy jednak zidentyfikować aplikację jako publiczną aplikację kliencką. Aby to zrobić, Zacznij od sekcji **uwierzytelnianie** w aplikacji. W podsekcji **Ustawienia zaawansowane** w obszarze **domyślny typ klienta** dla pytania **Traktuj aplikację jako klienta publicznego**wybierz pozycję **tak**.
 
 ## <a name="api-permissions"></a>Uprawnienia aplikacji
 
-Aplikacje mobilne dzwonią do interfejsów API w imieniu zalogowanego użytkownika. Aplikacja musi zażądać uprawnień delegowanych. Te uprawnienia są również nazywane zakresami. W zależności od odpowiedniego środowiska można zażądać uprawnień delegowanych statycznie za pośrednictwem witryny Azure portal. Lub można zażądać ich dynamicznie w czasie wykonywania. 
+Interfejsy API wywołania aplikacji mobilnych w imieniu zalogowanego użytkownika. Aplikacja musi zażądać delegowania uprawnień. Te uprawnienia są również nazywane zakresami. W zależności od wybranego środowiska można zażądać delegowania uprawnień statycznie przez Azure Portal. Można też zażądać ich dynamicznie w czasie wykonywania. 
 
-Statycznie rejestrując uprawnienia, możesz umożliwić administratorom łatwe zatwierdzanie aplikacji. Zalecana jest rejestracja statyczna.
+Statycznie rejestrowanie uprawnień pozwala administratorom łatwo zatwierdzać aplikację. Zalecana jest rejestracja statyczna.
 
 ## <a name="next-steps"></a>Następne kroki
 

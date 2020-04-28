@@ -1,6 +1,6 @@
 ---
-title: Tworzenie i używanie zasad haseł w usługach domenowych usługi Azure AD | Dokumenty firmy Microsoft
-description: Dowiedz się, jak i dlaczego używać zasad haseł ziarnistych do zabezpieczania i kontrolowania haseł kont w domenie zarządzanej usług Azure AD DS.
+title: Tworzenie i Używanie zasad haseł w Azure AD Domain Services | Microsoft Docs
+description: Dowiedz się, jak i dlaczego należy używać szczegółowych zasad haseł do zabezpieczania i kontrolowania haseł kont w domenie zarządzanej AD DS platformy Azure.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,127 +12,127 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
 ms.openlocfilehash: b14fed07c9bd9b5fcb6a5489719481902351fc0d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80654870"
 ---
-# <a name="password-and-account-lockout-policies-on-managed-domains"></a>Zasady blokady haseł i kont w domenach zarządzanych
+# <a name="password-and-account-lockout-policies-on-managed-domains"></a>Zasady blokowania haseł i kont w domenach zarządzanych
 
-Aby zarządzać zabezpieczeniami użytkowników w usługach domenowych Active Directory platformy Azure (Usługi Azure AD DS), można zdefiniować szczegółowe zasady haseł, które kontrolują ustawienia blokady konta lub minimalną długość i złożoność hasła. Domyślna zasada haseł drobnoziarnistych jest tworzona i stosowana do wszystkich użytkowników w domenie zarządzanej usług Azure AD DS. Aby zapewnić szczegółową kontrolę i spełnić określone potrzeby biznesowe lub związane z przepisami, można tworzyć i stosować dodatkowe zasady do określonych grup użytkowników.
+Aby zarządzać zabezpieczeniami użytkowników w Azure Active Directory Domain Services (Azure AD DS), można zdefiniować szczegółowe zasady haseł kontrolujące ustawienia blokady konta lub minimalną długość i złożoność hasła. Domyślne szczegółowe zasady haseł są tworzone i stosowane dla wszystkich użytkowników w domenie zarządzanej AD DS platformy Azure. Aby zapewnić szczegółową kontrolę i spełnić określone potrzeby biznesowe lub dotyczące zgodności, można utworzyć dodatkowe zasady i zastosować je do określonych grup użytkowników.
 
-W tym artykule pokazano, jak utworzyć i skonfigurować szczegółowe zasady haseł w usługach Azure AD DS przy użyciu Centrum administracyjnego usługi Active Directory.
+W tym artykule opisano sposób tworzenia i konfigurowania szczegółowych zasad haseł na platformie Azure AD DS przy użyciu Centrum administracyjne usługi Active Directory.
 
 > [!NOTE]
-> Zasady haseł są dostępne tylko dla domen zarządzanych usług Azure AD DS utworzonych przy użyciu modelu wdrażania Menedżera zasobów. W przypadku starszych domen zarządzanych utworzonych przy użyciu [klasycznego modelu sieci wirtualnej należy przeprowadzić migrację z klasycznego modelu sieci wirtualnej do Menedżera zasobów][migrate-from-classic].
+> Zasady dotyczące haseł są dostępne tylko dla domen zarządzanych platformy Azure AD DS utworzonych przy użyciu modelu wdrażania Menedżer zasobów. W przypadku starszych domen zarządzanych utworzonych przy użyciu klasycznego, należy [przeprowadzić migrację z klasycznego modelu sieci wirtualnej do Menedżer zasobów][migrate-from-classic].
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Aby ukończyć ten artykuł, potrzebne są następujące zasoby i uprawnienia:
+Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
 * Aktywna subskrypcja platformy Azure.
-  * Jeśli nie masz subskrypcji platformy Azure, [utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem tylko w chmurze.
-  * W razie potrzeby [utwórz dzierżawę usługi Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z kontem.][associate-azure-ad-tenant]
-* Domena zarządzana usługami domenowymi Usługi Active Directory platformy Azure włączona i skonfigurowana w dzierżawie usługi Azure AD.
-  * W razie potrzeby wykonaj samouczek, aby [utworzyć i skonfigurować wystąpienie usług domenowych Usługi domenowe Active Directory][create-azure-ad-ds-instance]platformy Azure .
-  * Wystąpienie usługi Azure AD DS musi zostać utworzone przy użyciu modelu wdrażania Usługi Resource Manager. W razie potrzeby [należy przeprowadzić migrację z klasycznego modelu sieci wirtualnej do Menedżera zasobów][migrate-from-classic].
-* Maszyna wirtualna z zarządzaniem systemem Windows Server, która jest przyłączona do domeny zarządzanej usług Azure AD DS.
-  * W razie potrzeby wykonaj samouczek, aby [utworzyć maszynę wirtualną do zarządzania][tutorial-create-management-vm].
-* Konto użytkownika, które jest członkiem grupy *administratorów usługi Azure AD DC* w dzierżawie usługi Azure AD.
+  * Jeśli nie masz subskrypcji platformy Azure, [Utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem w chmurze.
+  * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
+* Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
+  * W razie potrzeby Uzupełnij samouczek, aby [utworzyć i skonfigurować wystąpienie Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+  * Wystąpienie usługi Azure AD DS musi zostać utworzone przy użyciu Menedżer zasobów modelu wdrażania. W razie potrzeby [Przeprowadź migrację z klasycznego modelu sieci wirtualnej do Menedżer zasobów][migrate-from-classic].
+* Maszyna wirtualna zarządzania systemem Windows Server, która jest dołączona do domeny zarządzanej AD DS platformy Azure.
+  * W razie potrzeby Ukończ samouczek, aby [utworzyć maszynę wirtualną zarządzania][tutorial-create-management-vm].
+* Konto użytkownika, które jest członkiem grupy *administratorów DC usługi Azure AD* w dzierżawie usługi Azure AD.
 
 ## <a name="default-password-policy-settings"></a>Domyślne ustawienia zasad haseł
 
-Szczegółowe zasady haseł (FGPPs) umożliwiają stosowanie określonych ograniczeń dla zasad blokowania haseł i kont do różnych użytkowników w domenie. Na przykład w celu zabezpieczenia kont uprzywilejowanych można zastosować bardziej rygorystyczne ustawienia blokady konta niż zwykłe konta nieuprzywilejowane. Można utworzyć wiele kontrolerów FGP w domenie zarządzanej usług Azure AD DS i określić kolejność priorytetów, aby zastosować je do użytkowników.
+Szczegółowe zasady haseł (FGPPs) pozwalają stosować określone ograniczenia dotyczące zasad blokowania haseł i kont dla różnych użytkowników w domenie. Na przykład aby zabezpieczyć konta uprzywilejowane, można zastosować bardziej rygorystyczne ustawienia blokady konta niż regularne konta bez uprawnień. Można utworzyć wiele FGPPs w domenie zarządzanej platformy Azure AD DS i określić kolejność ich stosowania dla użytkowników.
 
-Aby uzyskać więcej informacji na temat zasad haseł i korzystania z Centrum administracyjnego usługi Active Directory, zobacz następujące artykuły:
+Aby uzyskać więcej informacji na temat zasad haseł i korzystania z centrum administracyjnego Active Directory, zobacz następujące artykuły:
 
-* [Dowiedz się więcej o zasadach dotyczących haseł precyzyjnych](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
-* [Konfigurowanie zasad haseł ziarnistych przy użyciu Centrum administracyjnego usługi AD](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
+* [Więcej informacji na temat szczegółowych zasad haseł](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
+* [Konfigurowanie szczegółowych zasad haseł przy użyciu Centrum administracyjne usługi AD](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
-Zasady są dystrybuowane za pośrednictwem skojarzenia grupy w domenie zarządzanej usługi Azure AD DS, a wszelkie wprowadzone zmiany są stosowane przy następnym logowanie użytkownika. Zmiana zasad nie odblokowuje konta użytkownika, które jest już zablokowane.
+Zasady są dystrybuowane za pomocą skojarzenia grupy w domenie zarządzanej AD DS platformy Azure, a wszelkie wprowadzone zmiany są stosowane podczas następnego logowania użytkownika. Zmiana zasad nie powoduje odblokowania konta użytkownika, które jest już zablokowane.
 
-Zasady haseł zachowują się nieco inaczej w zależności od sposobu utworzenia konta użytkownika, do które zostały zastosowane. Istnieją dwa sposoby tworzenia konta użytkownika w usługach Azure AD DS:
+Zasady haseł działają nieco inaczej w zależności od tego, jak konto użytkownika, do którego są stosowane, zostało utworzone. Istnieją dwa sposoby tworzenia konta użytkownika w usłudze Azure AD DS:
 
-* Konto użytkownika można zsynchronizować z usługi Azure AD. Obejmuje to konta użytkowników tylko w chmurze utworzone bezpośrednio na platformie Azure i konta użytkowników hybrydowych zsynchronizowane z lokalnego środowiska usług AD DS przy użyciu usługi Azure AD Connect.
-    * Większość kont użytkowników w usługach Azure AD DS są tworzone za pomocą procesu synchronizacji z usługi Azure AD.
-* Konto użytkownika można ręcznie utworzyć w domenie zarządzanej usług Azure AD DS i nie istnieje w usłudze Azure AD.
+* Konto użytkownika można synchronizować z poziomu usługi Azure AD. Dotyczy to również kont użytkowników tylko w chmurze utworzonych bezpośrednio na platformie Azure i hybrydowych kont użytkowników synchronizowanych z lokalnego środowiska AD DS przy użyciu Azure AD Connect.
+    * Większość kont użytkowników w usłudze Azure AD DS jest tworzona za pośrednictwem procesu synchronizacji w usłudze Azure AD.
+* Konto użytkownika można utworzyć ręcznie w domenie zarządzanej AD DS platformy Azure i nie istnieje w usłudze Azure AD.
 
-Wszyscy użytkownicy, niezależnie od sposobu ich tworzenia, mają następujące zasady blokady konta stosowane przez domyślne zasady haseł w usługach Azure AD DS:
+Wszyscy użytkownicy, niezależnie od sposobu ich tworzenia, mają następujące zasady blokady konta stosowane w ramach domyślnych zasad haseł w usłudze Azure AD DS:
 
 * **Czas trwania blokady konta:** 30
-* **Dozwolona liczba nieudanych prób logowania:** 5
-* **Resetowanie nieudanych prób logowania liczy się po:** 30 minutach
-* **Maksymalny wiek hasła (okres istnienia):** 90 dni
+* **Liczba dozwolonych nieudanych prób logowania:** 5
+* **Resetowanie liczby nieudanych prób logowania nie powiodło się po:** 30 minut
+* **Maksymalny wiek hasła (Lifetime):** 90 dni
 
-W przypadku tych ustawień domyślnych konta użytkowników są blokowane na 30 minut, jeśli w ciągu 2 minut zostanie użytych pięć nieprawidłowych haseł. Konta są automatycznie odblokowywane po 30 minutach.
+W przypadku tych domyślnych ustawień konta użytkowników są blokowane przez 30 minut, jeśli pięć nieprawidłowych haseł zostało użytych w ciągu 2 minut. Konta są automatycznie odblokowywane po 30 minutach.
 
-Blokady kont występują tylko w domenie zarządzanej. Konta użytkowników są zablokowane tylko w usługach Azure AD DS i tylko z powodu nieudanych prób logowania względem domeny zarządzanej. Konta użytkowników, które zostały zsynchronizowane z usługi Azure AD lub lokalnie nie są zablokowane w ich katalogach źródłowych, tylko w usługach Azure AD DS.
+Blokada konta występuje tylko w domenie zarządzanej. Konta użytkowników są blokowane tylko na platformie Azure AD DS i tylko z powodu nieudanych prób logowania do domeny zarządzanej. Konta użytkowników, które zostały zsynchronizowane z usługą Azure AD lub lokalnie, nie są blokowane w katalogach źródłowych tylko w usłudze Azure AD DS.
 
-Jeśli masz zasady haseł usługi Azure AD, która określa maksymalny wiek haseł większy niż 90 dni, ten wiek hasła jest stosowany do zasad domyślnych w usługach Azure AD DS. Można skonfigurować niestandardowe zasady haseł, aby zdefiniować inny maksymalny wiek haseł w usługach Azure AD DS. Należy uważać, jeśli masz krótszy maksymalny wiek haseł skonfigurowany w zasadach haseł usług AD DS usługi Azure niż w usłudze Azure AD lub lokalnym środowisku usług AD DS. W tym scenariuszu hasło użytkownika może wygasnąć w usługach Azure AD DS, zanim zostanie wyświetlony monit o zmianę w usłudze Azure AD lub lokalnym środowisku usług AD DS.
+Jeśli masz zasady haseł usługi Azure AD, które określają maksymalny wiek hasła większy niż 90 dni, ten wiek hasła zostanie zastosowany do domyślnych zasad na platformie Azure AD DS. Można skonfigurować niestandardowe zasady haseł w celu zdefiniowania innego maksymalnego wieku hasła w usłudze Azure AD DS. Weź pod uwagę, że masz krótszy maksymalny wiek hasła skonfigurowany w zasadach haseł usługi Azure AD DS niż w przypadku usługi Azure AD lub lokalnego środowiska AD DS. W tym scenariuszu hasło użytkownika może wygasnąć na platformie Azure AD DS zanim zostanie wyświetlony monit o zmianę w usłudze Azure AD lub w środowisku lokalnym AD DS.
 
-W przypadku kont użytkowników utworzonych ręcznie w domenie zarządzanej usług Azure AD DS z zasad domyślnych są również stosowane następujące dodatkowe ustawienia hasła. Te ustawienia nie mają zastosowania do kont użytkowników zsynchronizowanych z usługi Azure AD, ponieważ użytkownik nie może zaktualizować hasła bezpośrednio w usługach Azure AD DS.
+W przypadku kont użytkowników utworzonych ręcznie w domenie zarządzanej AD DS platformy Azure są również stosowane następujące dodatkowe ustawienia hasła. Te ustawienia nie dotyczą kont użytkowników synchronizowanych z usługą Azure AD, ponieważ użytkownik nie może zaktualizować hasła bezpośrednio w usłudze Azure AD DS.
 
-* **Minimalna długość hasła (znaki):** 7
+* **Minimalna długość hasła (w znakach):** 7
 * **Hasła muszą spełniać wymagania dotyczące złożoności**
 
-Nie można zmodyfikować ustawień blokady konta ani hasła w domyślnych zasadach haseł. Zamiast tego członkowie grupy *Administratorzy kontrolera domeny usługi AAD* mogą tworzyć niestandardowe zasady haseł i konfigurować je w taki sposób, aby zastępować domyślne wbudowane zasady (mają pierwszeństwo), jak pokazano w następnej sekcji.
+Nie można zmodyfikować ustawień blokady konta lub hasła w domyślnych zasadach haseł. Zamiast tego, członkowie grupy *Administratorzy domeny usługi AAD* mogą tworzyć niestandardowe zasady haseł i konfigurować je w celu przesłonięcia (pierwszeństwo) domyślnych zasad, jak pokazano w następnej sekcji.
 
 ## <a name="create-a-custom-password-policy"></a>Tworzenie niestandardowych zasad haseł
 
-Podczas tworzenia i uruchamiania aplikacji na platformie Azure można skonfigurować niestandardowe zasady haseł. Na przykład można utworzyć zasadę, aby ustawić różne ustawienia zasad blokady konta.
+Podczas kompilowania i uruchamiania aplikacji na platformie Azure można skonfigurować niestandardowe zasady haseł. Można na przykład utworzyć zasady, aby ustawić inne ustawienia zasad blokady konta.
 
-Niestandardowe zasady haseł są stosowane do grup w domenie zarządzanej usług Azure AD DS. Ta konfiguracja skutecznie zastępuje zasady domyślne.
+Niestandardowe zasady haseł są stosowane do grup w domenie zarządzanej AD DS platformy Azure. Ta konfiguracja skutecznie zastępuje zasady domyślne.
 
-Aby utworzyć niestandardowe zasady haseł, należy użyć narzędzi administracyjnych usługi Active Directory z maszyny wirtualnej przyłączone do domeny. Centrum administracyjne usługi Active Directory umożliwia wyświetlanie, edytowanie i tworzenie zasobów w domenie zarządzanej usług Azure AD DS, w tym w jednostkach organizacyjnych.
+Aby utworzyć niestandardowe zasady haseł, użyj Active Directory narzędzi administracyjnych z maszyny wirtualnej przyłączonej do domeny. Centrum administracyjne usługi Active Directory umożliwia wyświetlanie, edytowanie i tworzenie zasobów w domenie zarządzanej AD DS platformy Azure, w tym jednostek organizacyjnych.
 
 > [!NOTE]
-> Aby utworzyć niestandardowe zasady haseł w domenie zarządzanej usług Azure AD DS, musisz zalogować się do konta użytkownika, które jest członkiem grupy *Administratorzy kontrolera domeny usługi AAD.*
+> Aby utworzyć niestandardowe zasady haseł w domenie zarządzanej AD DS platformy Azure, musisz zalogować się na konto użytkownika, które jest członkiem grupy *administratorów domeny usługi AAD* .
 
-1. Na ekranie startowym wybierz pozycję **Narzędzia administracyjne**. Zostanie wyświetlona lista dostępnych narzędzi do zarządzania, które zostały zainstalowane w samouczku w celu [utworzenia maszyny wirtualnej do zarządzania][tutorial-create-management-vm].
-1. Aby utworzyć procesory organizacyjne i zarządzać nimi, wybierz pozycję **Centrum administracyjne usługi Active Directory** z listy narzędzi administracyjnych.
-1. W lewym okienku wybierz domenę zarządzana usługą Azure AD DS, taką jak *aaddscontoso.com*.
-1. Otwórz kontener **systemowy,** a następnie **kontener ustawień haseł**.
+1. Na ekranie startowym wybierz pozycję **Narzędzia administracyjne**. Zostanie wyświetlona lista dostępnych narzędzi do zarządzania, które zostały zainstalowane w samouczku, aby [utworzyć maszynę wirtualną zarządzania][tutorial-create-management-vm].
+1. Aby utworzyć jednostki organizacyjne i zarządzać nimi, wybierz **Centrum administracyjne usługi Active Directory** z listy narzędzi administracyjnych.
+1. W lewym okienku wybierz domenę zarządzaną platformy Azure AD DS, na przykład *aaddscontoso.com*.
+1. Otwórz kontener **system** , a następnie **Kontener ustawień haseł**.
 
-    Zostanie wyświetlona wbudowana zasada haseł dla domeny zarządzanej usług Azure AD DS. Nie można zmodyfikować tej wbudowanej zasady. Zamiast tego należy utworzyć niestandardowe zasady haseł, aby zastąpić domyślną zasadę.
+    Zostanie wyświetlona wbudowana zasada haseł dla domeny zarządzanej usługi Azure AD DS. Nie można modyfikować tych wbudowanych zasad. Zamiast tego Utwórz niestandardowe zasady haseł, aby zastąpić zasady domyślne.
 
-    ![Tworzenie zasad haseł w Centrum administracyjnym usługi Active Directory](./media/password-policy/create-password-policy-adac.png)
+    ![Utwórz zasady dotyczące haseł w Centrum administracyjne usługi Active Directory](./media/password-policy/create-password-policy-adac.png)
 
-1. W panelu **Zadania** po prawej stronie wybierz pozycję **Nowe > Ustawienia hasła**.
+1. W panelu **zadania** po prawej stronie wybierz pozycję **nowe ustawienia hasła >**.
 1. W oknie dialogowym **Tworzenie ustawień hasła** wprowadź nazwę zasad, na przykład *MyCustomFGPP*.
-1. Jeśli istnieje wiele zasad haseł, zasady o najwyższym priorytecie lub priorytecie są stosowane do użytkownika. Im mniejsza liczba, tym wyższy priorytet. Domyślna zasada haseł ma priorytet *200*.
+1. W przypadku istnienia wielu zasad haseł zasady o najwyższym priorytecie lub priorytecie są stosowane do użytkownika. Im niższa wartość, tym wyższy priorytet. Domyślne zasady haseł mają priorytet *200*.
 
-    Ustaw pierwszeństwo dla niestandardowych zasad haseł, aby zastąpić domyślne, takie jak *1*.
+    Ustaw pierwszeństwo dla niestandardowych zasad haseł, aby zastąpić wartości domyślne, takie jak *1*.
 
-1. Edytuj inne ustawienia zasad haseł zgodnie z potrzebami. Zapamiętaj następujące kluczowe punkty:
+1. Edytuj inne ustawienia zasad haseł zgodnie z potrzebami. Należy pamiętać o następujących najważniejszych punktach:
 
-    * Ustawienia, takie jak złożoność hasła, wiek lub czas wygaśnięcia tylko dla użytkowników ręcznie utworzonych w domenie zarządzanej usług Azure AD DS.
-    * Ustawienia blokady konta dotyczą wszystkich użytkowników, ale są obowiązywać tylko w domenie zarządzanej, a nie w samej usłudze Azure AD.
+    * Ustawienia, takie jak złożoność hasła, wiek lub czas wygaśnięcia, są tworzone ręcznie tylko dla użytkowników w domenie zarządzanej AD DS platformy Azure.
+    * Ustawienia blokady konta mają zastosowanie do wszystkich użytkowników, ale zaczną obowiązywać tylko w domenie zarządzanej, a nie w samej usłudze Azure AD.
 
-    ![Tworzenie niestandardowych zasad haseł precyzyjnych](./media/password-policy/custom-fgpp.png)
+    ![Tworzenie niestandardowych zasad haseł szczegółowych](./media/password-policy/custom-fgpp.png)
 
-1. Odznacz pola wyboru **Chroń przed przypadkowym usunięciem**. Jeśli ta opcja jest zaznaczona, nie można zapisać FGPP.
-1. W sekcji **Bezpośrednio dotyczy** przycisku **Dodaj.** W oknie dialogowym **Wybieranie użytkowników lub grup** wybierz przycisk **Lokalizacje.**
+1. Usuń zaznaczenie pola **Chroń przed przypadkowym usunięciem**. W przypadku wybrania tej opcji nie można zapisać szczegółowych zasad haseł.
+1. W sekcji **bezpośrednio stosuje się do** wybierz przycisk **Dodaj** . W oknie dialogowym **Wybieranie użytkowników lub grup** wybierz przycisk **lokalizacje** .
 
-    ![Wybierz użytkowników i grupy, aby zastosować zasady haseł do](./media/password-policy/fgpp-applies-to.png)
+    ![Wybierz użytkowników i grupy, do których mają zostać zastosowane zasady haseł](./media/password-policy/fgpp-applies-to.png)
 
-1. Zasady haseł można stosować tylko do grup. W oknie dialogowym **Lokalizacje** rozwiń nazwę domeny, taką jak *aaddscontoso.com*, a następnie wybierz o.o., na przykład **Użytkownicy usługi AADDC**. Jeśli masz niestandardową instalację organizacyjną, która zawiera grupę użytkowników, których chcesz zastosować, wybierz tę ojówę.
+1. Zasady dotyczące haseł mogą być stosowane tylko do grup. W oknie dialogowym **lokalizacje** rozwiń nazwę domeny, na przykład *aaddscontoso.com*, a następnie wybierz jednostkę organizacyjną, taką jak **AADDC users**. Jeśli masz niestandardową jednostkę organizacyjną zawierającą grupę użytkowników, których chcesz użyć, wybierz tę jednostkę organizacyjną.
 
-    ![Wybierz ou, do którego należy grupa](./media/password-policy/fgpp-container.png)
+    ![Wybierz jednostkę organizacyjną, do której należy Grupa](./media/password-policy/fgpp-container.png)
 
-1. Wpisz nazwę grupy, do której chcesz zastosować zasady, a następnie wybierz pozycję **Sprawdź nazwy,** aby sprawdzić, czy grupa istnieje.
+1. Wpisz nazwę grupy, do której chcesz zastosować zasady, a następnie wybierz pozycję **Sprawdź nazwy** , aby sprawdzić, czy grupa istnieje.
 
-    ![Wyszukaj i wybierz grupę, aby zastosować FGPP](./media/password-policy/fgpp-apply-group.png)
+    ![Wyszukaj i wybierz grupę, która ma zostać zastosowana szczegółowych zasad haseł](./media/password-policy/fgpp-apply-group.png)
 
-1. Po nazwie wybranej grupy wyświetlanej teraz w sekcji **Bezpośrednie dotyczy,** wybierz przycisk **OK,** aby zapisać niestandardowe zasady haseł.
+1. Po wybraniu nazwy grupy, która została **zastosowana bezpośrednio, ma zastosowanie do** sekcji, wybierz **przycisk OK** , aby zapisać niestandardowe zasady haseł.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat zasad haseł i korzystania z Centrum administracyjnego usługi Active Directory, zobacz następujące artykuły:
+Aby uzyskać więcej informacji na temat zasad haseł i korzystania z centrum administracyjnego Active Directory, zobacz następujące artykuły:
 
-* [Dowiedz się więcej o zasadach dotyczących haseł precyzyjnych](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
-* [Konfigurowanie zasad haseł ziarnistych przy użyciu Centrum administracyjnego usługi AD](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
+* [Więcej informacji na temat szczegółowych zasad haseł](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
+* [Konfigurowanie szczegółowych zasad haseł przy użyciu Centrum administracyjne usługi AD](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

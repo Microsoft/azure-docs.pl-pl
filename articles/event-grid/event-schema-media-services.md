@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure Media Services jako źródło siatki zdarzeń
-description: W tym artykule opisano właściwości, które są dostarczane dla zdarzeń usługi Media Services za pomocą usługi Azure Event Grid
+title: Azure Media Services jako źródło Event Grid
+description: Opisuje właściwości, które są dostępne dla zdarzeń Media Services z Azure Event Grid
 services: media-services
 documentationcenter: ''
 author: spelluru
@@ -11,105 +11,105 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: spelluru
 ms.openlocfilehash: d5d50bbde927efd4aee0cedd69486a52ab8c328b
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81394334"
 ---
-# <a name="azure-media-services-as-an-event-grid-source"></a>Usługa Azure Media Services jako źródło siatki zdarzeń
+# <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services jako źródło Event Grid
 
-Ten artykuł zawiera schematy i właściwości zdarzeń usługi Media Services.
+Ten artykuł zawiera informacje o schematach i właściwościach zdarzeń Media Services.
 
 ## <a name="job-related-event-types"></a>Typy zdarzeń związanych z zadaniami
 
-Usługa Media Services emituje typy zdarzeń związanych z **zadaniami** opisane poniżej. Istnieją dwie kategorie zdarzeń związanych z **zadaniami:** "Monitorowanie zmian stanu zadania" i "Monitorowanie zmian stanu wyjściowego zadania". 
+Media Services emituje typy zdarzeń powiązane z **zadaniami** opisane poniżej. Istnieją dwie kategorie zdarzeń związanych z **zadaniami** : "monitorowanie zmian stanu zadania" i "monitorowanie zmian stanu danych wyjściowych". 
 
-Można zarejestrować dla wszystkich zdarzeń, subskrybując jobstatechange zdarzenia. Lub można subskrybować tylko określone zdarzenia (na przykład stanach końcowych, takich jak JobErrored, JobFinished i JobCanceled).   
+Wszystkie zdarzenia można zarejestrować, subskrybując zdarzenie JobStateChange. Lub można subskrybować tylko określone zdarzenia (na przykład Stany końcowe, takie jak JobErrored, JobFinished i JobCanceled).   
 
 ### <a name="monitoring-job-state-changes"></a>Monitorowanie zmian stanu zadania
 
 | Typ zdarzenia | Opis |
 | ---------- | ----------- |
-| Microsoft.Media.JobStateZmiejeć| Pobierz zdarzenie dla wszystkich zmian stanu zadania. |
-| Microsoft.Media.JobScheduled| Pobierz zdarzenie, gdy zadanie przechodzi do stanu zaplanowanego. |
-| Microsoft.Media.JobProcessing| Pobierz zdarzenie, gdy zadanie przechodzi do stanu przetwarzania. |
-| Microsoft.Media.JobCanceling| Pobierz zdarzenie, gdy przejście zadania do stanu anulowania. |
-| Microsoft.Media.JobFinished| Pobierz zdarzenie, gdy zadanie przechodzi do stanu zakończonego. Jest to stan końcowy, który zawiera wyjścia zadania.|
-| Microsoft.Media.JobCanceled| Pobierz zdarzenie, gdy przejście zadania do stanu anulowanego. Jest to stan końcowy, który zawiera wyjścia zadania.|
-| Microsoft.Media.JobErrored| Pobierz zdarzenie, gdy zadanie przechodzi do stanu błędu. Jest to stan końcowy, który zawiera wyjścia zadania.|
+| Microsoft. Media. JobStateChange| Pobierz zdarzenie dla wszystkich zmian stanu zadania. |
+| Microsoft. Media. JobScheduled| Pobierz zdarzenie, gdy zadanie przechodzi do stanu zaplanowanego. |
+| Microsoft. Media. JobProcessing| Pobierz zdarzenie, gdy zadanie przechodzi do stanu przetwarzania. |
+| Microsoft. Media. JobCanceling| Pobierz zdarzenie, gdy zadanie przechodzi do stanu anulowania. |
+| Microsoft. Media. JobFinished| Pobierz zdarzenie, gdy zadanie przechodzi do stanu Gotowe. Jest to stan końcowy, który zawiera dane wyjściowe zadania.|
+| Microsoft. Media. JobCanceled| Pobierz zdarzenie, gdy zadanie przechodzi do stanu anulowane. Jest to stan końcowy, który zawiera dane wyjściowe zadania.|
+| Microsoft. Media. JobErrored| Pobierz zdarzenie, gdy zadanie przechodzi do stanu błędu. Jest to stan końcowy, który zawiera dane wyjściowe zadania.|
 
-Zobacz [przykłady schematu,](#event-schema-examples) które następują.
+Zobacz poniższe [przykłady schematu](#event-schema-examples) .
 
-### <a name="monitoring-job-output-state-changes"></a>Monitorowanie zmian stanu wyjściowego zadania
+### <a name="monitoring-job-output-state-changes"></a>Zmiany stanu danych wyjściowych zadania monitorowania
 
-Zadanie może zawierać wiele wyjść zadania (jeśli skonfigurowano transformację, aby mieć wiele wyjść zadania).) Jeśli chcesz śledzić szczegóły poszczególnych danych wyjściowych zadania, nasłuchuj zdarzenia zmiany danych wyjściowych zadania.
+Zadanie może zawierać wiele danych wyjściowych zadania (jeśli przekształcenie zostało skonfigurowane tak, aby miało wiele danych wyjściowych zadania). Jeśli chcesz śledzić szczegóły poszczególnych danych wyjściowych zadania, nasłuchiwanie zdarzenia zmiany danych wyjściowych zadania.
 
-Każde **zadanie** będzie na wyższym poziomie niż **JobOutput**, w związku z tym zdarzenia wyjściowe zadania są uruchamiane wewnątrz odpowiedniego zadania. 
+Każde **zadanie** ma być na wyższym poziomie niż **JobOutput**, dzięki czemu zdarzenia wyjściowe zadania są wywoływane w ramach odpowiedniego zadania. 
 
-Komunikaty o `JobFinished` `JobCanceled`błędach w , , `JobError` dane wyjściowe zagregowane wyniki dla każdego zadania wyjściowego — po zakończeniu wszystkich z nich. Podczas gdy zdarzenia wyjściowe zadania są uruchamiane po zakończeniu każdego zadania. Na przykład jeśli masz dane wyjściowe kodowania, a następnie dane wyjściowe analizy wideo, można uzyskać dwa zdarzenia wypalania jako zdarzenia wyjściowe zadania przed ostatecznym JobFinished zdarzenia pożarów z zagregowanych danych.
-
-| Typ zdarzenia | Opis |
-| ---------- | ----------- |
-| Microsoft.Media.JobOutputStateZdaniezmienia| Pobierz zdarzenie dla wszystkich zmian stanu wyjścia zadania. |
-| Witryna Microsoft.Media.JobOutputscheduled| Pobierz zdarzenie, gdy wyjście zadania przechodzi do stanu zaplanowanego. |
-| Microsoft.Media.JobOutputProcessing| Pobierz zdarzenie, gdy wyjście zadania przechodzi do stanu przetwarzania. |
-| Microsoft.Media.JobOutputCanceling| Pobierz zdarzenie, gdy przejście wyjściowe zadania do stanu anulowania.|
-| Microsoft.Media.JobOutputKońkończone| Pobierz zdarzenie, gdy przejście wyjściowe zadania do stanu gotowego.|
-| Microsoft.Media.JobOutputCanceled| Pobierz zdarzenie, gdy przejście wyjściowe zadania do stanu anulowanego.|
-| Microsoft.Media.JobOutputErrored| Pobierz zdarzenie, gdy wyjście zadania przechodzi do stanu błędu.|
-
-Zobacz [przykłady schematu,](#event-schema-examples) które następują.
-
-### <a name="monitoring-job-output-progress"></a>Monitorowanie postępu produkcji zadania
+Komunikaty o błędach `JobFinished`w `JobCanceled`programie `JobError` ,, wyprowadza zagregowane wyniki dla każdego wyjścia zadania — po zakończeniu wszystkich z nich. W związku z tym zdarzenia wyjściowe zadania są wyzwalane po zakończeniu każdego zadania. Na przykład, jeśli masz dane wyjściowe kodowania, a następnie dane wyjściowe analizy wideo, otrzymasz dwa zdarzenia wyzwalane jako zdarzenia wyjściowe zadania przed wystąpieniem ostatecznego zdarzenia JobFinished z zagregowanymi danymi.
 
 | Typ zdarzenia | Opis |
 | ---------- | ----------- |
-| Microsoft.Media.JobOutputProgress| To zdarzenie odzwierciedla postęp przetwarzania zadań, od 0% do 100%. Usługa próbuje wysłać zdarzenie, jeśli nastąpił 5% lub większy wzrost wartości postępu lub było więcej niż 30 sekund od ostatniego zdarzenia (pulsu). Wartość postępu nie jest gwarantowana, aby rozpocząć od 0%, lub osiągnąć 100%, ani nie jest gwarantowana do wzrostu w stałym tempie w czasie. To zdarzenie nie powinno być używane do określenia, że przetwarzanie zostało zakończone — zamiast tego należy użyć zdarzeń zmiany stanu.|
+| Microsoft. Media. JobOutputStateChange| Pobierz zdarzenie dla wszystkich zmian stanu danych wyjściowych zadania. |
+| Microsoft. Media. JobOutputScheduled| Pobierz zdarzenie, gdy dane wyjściowe zadania przejścia do stanu zaplanowano. |
+| Microsoft. Media. JobOutputProcessing| Pobierz zdarzenie, gdy dane wyjściowe zadania są przejściami do stanu przetwarzania. |
+| Microsoft. Media. JobOutputCanceling| Pobierz zdarzenie, gdy dane wyjściowe zadania zostaną przejścia w stan anulowania.|
+| Microsoft. Media. JobOutputFinished| Pobierz zdarzenie, gdy dane wyjściowe zadania przejścia do stanu Gotowe.|
+| Microsoft. Media. JobOutputCanceled| Pobierz zdarzenie, gdy dane wyjściowe zadania przejścia do stanu anulowane.|
+| Microsoft. Media. JobOutputErrored| Pobierz zdarzenie, gdy dane wyjściowe zadania przejścia do stanu błędu.|
 
-Zobacz [przykłady schematu,](#event-schema-examples) które następują.
+Zobacz poniższe [przykłady schematu](#event-schema-examples) .
 
-## <a name="live-event-types"></a>Typy wydarzeń na żywo
+### <a name="monitoring-job-output-progress"></a>Postęp danych wyjściowych zadania monitorowania
 
-Usługa Media Services emituje również typy zdarzeń **na żywo** opisane poniżej. Istnieją dwie kategorie dla wydarzeń **na żywo:** zdarzenia na poziomie strumienia i zdarzenia na poziomie ścieżki. 
+| Typ zdarzenia | Opis |
+| ---------- | ----------- |
+| Microsoft. Media. JobOutputProgress| To zdarzenie odzwierciedla postęp przetwarzania zadania, od 0% do 100%. Usługa podejmuje próbę wysłania zdarzenia, jeśli osiągnięto 5% lub większą podwyżkę wartości postępu lub została ona przekroczyć 30 sekund od ostatniego zdarzenia (pulsu). Wartość postępu nie gwarantuje, że zaczyna się o 0%, lub do osiągnięcia 100%, ani nie będzie można zwiększyć stałej stawki z upływem czasu. Tego zdarzenia nie należy używać do ustalenia, czy przetwarzanie zostało zakończone — zamiast tego należy użyć zdarzeń zmiany stanu.|
+
+Zobacz poniższe [przykłady schematu](#event-schema-examples) .
+
+## <a name="live-event-types"></a>Typy zdarzeń na żywo
+
+Media Services również emituje typy zdarzeń na **żywo** opisane poniżej. Istnieją dwie kategorie zdarzeń na **żywo** : zdarzenia na poziomie strumienia i zdarzenia na poziomie śledzenia. 
 
 ### <a name="stream-level-events"></a>Zdarzenia na poziomie strumienia
 
-Zdarzenia na poziomie strumienia są wywoływane na strumień lub połączenie. Każde zdarzenie `StreamId` ma parametr, który identyfikuje połączenie lub strumień. Każdy strumień lub połączenie ma jedną lub więcej ścieżek różnych typów. Na przykład jedno połączenie z kodera może mieć jedną ścieżkę audio i cztery ścieżki wideo. Typy zdarzeń strumienia to:
+Zdarzenia na poziomie strumienia są wywoływane na strumień lub połączenie. Każde zdarzenie ma `StreamId` parametr, który identyfikuje połączenie lub strumień. Każdy strumień lub połączenie ma jedną lub więcej ścieżek różnych typów. Na przykład jedno połączenie z kodera może mieć jedną ścieżkę audio i cztery ścieżki wideo. Typy zdarzeń strumienia to:
 
 | Typ zdarzenia | Opis |
 | ---------- | ----------- |
-| Plik Microsoft.Media.LiveEventConnectionZłożony | Próba połączenia kodera została odrzucona. |
-| Microsoft.Media.LiveEventEncoderPołączone | Koder nawiązuje połączenie z wydarzeniem na żywo. |
-| Microsoft.Media.LiveEventEncoderRozłączenie | Koder rozłącza się. |
+| Microsoft. Media. LiveEventConnectionRejected | Próba połączenia z koderem została odrzucona. |
+| Microsoft. Media. LiveEventEncoderConnected | Koder nawiązuje połączenie z wydarzeniem na żywo. |
+| Microsoft. Media. LiveEventEncoderDisconnected | Koder rozłącza się. |
 
-Zobacz [przykłady schematu,](#event-schema-examples) które następują.
+Zobacz poniższe [przykłady schematu](#event-schema-examples) .
 
-### <a name="track-level-events"></a>Zdarzenia na poziomie toru
+### <a name="track-level-events"></a>Zdarzenia na poziomie śledzenia
 
-Zdarzenia na poziomie toru są wywoływane na torze. 
+Zdarzenia na poziomie śledzenia są wywoływane na śledzenie. 
 
 > [!NOTE]
-> Wszystkie zdarzenia na poziomie ścieżki są wywoływane po połączeniu kodera na żywo.
+> Wszystkie zdarzenia na poziomie śledzenia są wywoływane po podłączeniu kodera na żywo.
 
-Typy zdarzeń na poziomie ścieżki to:
+Typy zdarzeń na poziomie śledzenia są następujące:
 
 | Typ zdarzenia | Opis |
 | ---------- | ----------- |
-| Program Microsoft.Media.LiveEventIncomingDataChunkDropped | Serwer multimediów porzuca fragment danych, ponieważ jest za późno lub ma nakładający się sygnatura czasowa (sygnatura czasowa nowego fragmentu danych jest mniejsza niż czas zakończenia poprzedniego fragmentu danych). |
-| Microsoft.Media.LiveEventIncomingStreamReceived | Serwer multimediów odbiera pierwszy fragment danych dla każdej ścieżki w strumieniu lub połączeniu. |
-| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Serwer multimediów wykrywa, że strumienie audio i wideo są niezsynchronizowane. Użyj jako ostrzeżenie, ponieważ środowisko użytkownika może nie mieć wpływu. |
-| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Serwer multimediów wykrywa, że którykolwiek z dwóch strumieni wideo pochodzących z zewnętrznego kodera jest niezsynchronizowany. Użyj jako ostrzeżenie, ponieważ środowisko użytkownika może nie mieć wpływu. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Publikowane co 20 sekund dla każdej ścieżki, gdy wydarzenie na żywo jest uruchomione. Zawiera podsumowanie kondycji pozyskiwania.<br/><br/>Po łączeniu kodera zdarzenie pulsu nadal emituje co 20 sekund, czy koder jest nadal podłączony, czy nie. |
-| Microsoft.Media.LiveEventTrackDiscontinuityDetected | Serwer multimediów wykrywa nieciągłość na ścieżce przychodzącej. |
+| Microsoft. Media. LiveEventIncomingDataChunkDropped | Serwer multimediów odrzuca fragment danych, ponieważ jest zbyt późny lub ma nakładające się sygnaturę czasową (Sygnatura czasowa nowego fragmentu danych jest mniejsza niż godzina zakończenia poprzedniego fragmentu danych). |
+| Microsoft. Media. LiveEventIncomingStreamReceived | Serwer multimediów otrzymuje pierwszy fragment danych dla każdej ścieżki w strumieniu lub połączeniu. |
+| Microsoft. Media. LiveEventIncomingStreamsOutOfSync | Serwer multimediów wykrywa strumienie audio i wideo nie są zsynchronizowane. Użyj jako ostrzeżenia, ponieważ może to nie wpływać na środowisko użytkownika. |
+| Microsoft. Media. LiveEventIncomingVideoStreamsOutOfSync | Serwer multimediów wykrywa wszystkie dwa strumienie wideo pochodzące z kodera zewnętrznego nie są zsynchronizowane. Użyj jako ostrzeżenia, ponieważ może to nie wpływać na środowisko użytkownika. |
+| Microsoft. Media. LiveEventIngestHeartbeat | Opublikowano co 20 sekund dla każdej ścieżki, gdy działa zdarzenie na żywo. Zapewnia podsumowanie kondycji pozyskiwania.<br/><br/>Gdy koder został po raz pierwszy połączony, zdarzenie pulsu będzie nadal emitowane co 20 sekund, niezależnie od tego, czy koder jest nadal połączony, czy nie. |
+| Microsoft. Media. LiveEventTrackDiscontinuityDetected | Serwer multimediów wykrywa nieciągłość w ścieżce przychodzącej. |
 
-Zobacz [przykłady schematu,](#event-schema-examples) które następują.
+Zobacz poniższe [przykłady schematu](#event-schema-examples) .
 
 ## <a name="event-schema-examples"></a>Przykłady schematów zdarzeń
 
-### <a name="jobstatechange"></a>Zmiany w stanowisku pracy
+### <a name="jobstatechange"></a>JobStateChange
 
-W poniższym przykładzie przedstawiono schemat zdarzenia **JobStateChange:** 
+W poniższym przykładzie przedstawiono schemat zdarzenia **JobStateChange** : 
 
 ```json
 [
@@ -133,17 +133,17 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| poprzedniPaństwo | ciąg | Stan zadania przed zdarzeniem. |
-| state | ciąg | Nowy stan zadania, które jest powiadamiany w tym przypadku. Na przykład "Zaplanowane: zadanie jest gotowe do uruchomienia" lub "Zakończone: Zadanie jest gotowe" .|
+| previousState | ciąg | Stan zadania przed zdarzeniem. |
+| state | ciąg | Nowy stan zadania, które jest zgłaszane w tym zdarzeniu. Na przykład "zaplanowane: zadanie jest gotowe do rozpoczęcia" lub "zakończone: zadanie zostało zakończone".|
 
-Gdzie stan zadania może być jedną z wartości: *Kolejkowane*, *Zaplanowane,* *Przetwarzanie,* *Zakończone,* *Błąd*, *Anulowano*, *Anulowanie*
+Gdzie stan zadania może być jedną z wartości: *kolejkowane*, *zaplanowane*, *przetwarzane*, *zakończone*, *błąd*, *anulowano*, *Anulowanie*
 
 > [!NOTE]
-> *W kolejce* będzie tylko w **previousState właściwości,** ale nie w **state** właściwości.
+> W *kolejce* jest obecna tylko we właściwości **previousState** , ale nie we właściwości **State** .
 
 ### <a name="jobscheduled-jobprocessing-jobcanceling"></a>JobScheduled, JobProcessing, JobCanceling
 
-Dla każdej zmiany stanu zadania niekonktowego (na przykład JobScheduled, JobProcessing, JobCanceling), schemat przykładowy wygląda podobnie do następującego:
+Dla każdej zmiany stanu zadania poza ostateczną (na przykład JobScheduled, JobProcessing, JobCanceling), przykładowy schemat wygląda podobnie do poniższego:
 
 ```json
 [{
@@ -167,7 +167,7 @@ Dla każdej zmiany stanu zadania niekonktowego (na przykład JobScheduled, JobPr
 
 ### <a name="jobfinished-jobcanceled-joberrored"></a>JobFinished, JobCanceled, JobErrored
 
-Dla każdej ostatecznej zmiany stanu zadania (takich jak JobFinished, JobCanceled, JobErrored), schemat przykładowy wygląda podobnie do następującego:
+Dla każdej ostatecznej zmiany stanu zadania (na przykład JobFinished, JobCanceled, JobErrored), przykładowy schemat wygląda podobnie do poniższego:
 
 ```json
 [{
@@ -203,11 +203,11 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| Wyjść | Tablica | Pobiera wyjścia zadania.|
+| wydajności | Tablica | Pobiera dane wyjściowe zadania.|
 
-### <a name="joboutputstatechange"></a>JobOutputStateZdanie
+### <a name="joboutputstatechange"></a>JobOutputStateChange
 
-W poniższym przykładzie przedstawiono schemat **zdarzenia JobOutputStateChange:**
+W poniższym przykładzie przedstawiono schemat zdarzenia **JobOutputStateChange** :
 
 ```json
 [{
@@ -238,7 +238,7 @@ W poniższym przykładzie przedstawiono schemat **zdarzenia JobOutputStateChange
 
 ### <a name="joboutputscheduled-joboutputprocessing-joboutputfinished-joboutputcanceling-joboutputcanceled-joboutputerrored"></a>JobOutputScheduled, JobOutputProcessing, JobOutputFinished, JobOutputCanceling, JobOutputCanceled, JobOutputErrored
 
-Dla każdej zmiany stanu JobOutput schemat przykładowy wygląda podobnie do następującego:
+Dla każdej zmiany stanu JobOutput Przykładowy schemat wygląda podobnie do poniższego:
 
 ```json
 [{
@@ -266,9 +266,9 @@ Dla każdej zmiany stanu JobOutput schemat przykładowy wygląda podobnie do nas
   "metadataVersion": "1"
 }]
 ```
-### <a name="joboutputprogress"></a>JobOutputProgress (Ruch przychodzący na wynos)
+### <a name="joboutputprogress"></a>JobOutputProgress
 
-Przykładowy schemat wygląda podobnie do następującego:
+Przykładowy schemat wygląda podobnie do poniższego:
 
  ```json
 [{
@@ -290,9 +290,9 @@ Przykładowy schemat wygląda podobnie do następującego:
 }]
 ```
 
-### <a name="liveeventconnectionrejected"></a>LiveEventConnectionWysunięty
+### <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
-W poniższym przykładzie przedstawiono schemat **zdarzenia LiveEventConnectionSymected:** 
+W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventConnectionRejected** : 
 
 ```json
 [
@@ -319,17 +319,17 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| streamId | ciąg | Identyfikator strumienia lub połączenia. Koder lub klient jest odpowiedzialny za dodanie tego identyfikatora w adresie URL pozyskiwania. |  
-| połknieniaUrl | ciąg | Połknąc adres URL podany przez wydarzenie na żywo. |  
-| koderIp | ciąg | adres IP kodera. |
-| port embardy | ciąg | Port kodera, z którego nadchodzi ten strumień. |
-| kod wynikowy | ciąg | Powód, dla którego połączenie zostało odrzucone. Kody wyników są wymienione w poniższej tabeli. |
+| Obecny streamid | ciąg | Identyfikator strumienia lub połączenia. Koder lub klient jest odpowiedzialny za dodanie tego identyfikatora w adresie URL pozyskiwania. |  
+| ingestUrl | ciąg | Adres URL pozyskiwania podany przez wydarzenie na żywo. |  
+| encoderIp | ciąg | Adres IP kodera. |
+| encoderPort | ciąg | Port kodera, z którego pochodzi ten strumień. |
+| resultCode | ciąg | Przyczyna odrzucenia połączenia. Kody wyników są wymienione w poniższej tabeli. |
 
-Kody wyników błędu można znaleźć w [kodach błędów zdarzeń na żywo](../media-services/latest/live-event-error-codes.md).
+Kody wyników błędów można znaleźć w [kodach błędów zdarzeń na żywo](../media-services/latest/live-event-error-codes.md).
 
-### <a name="liveeventencoderconnected"></a>LiveEventEncoderPołączone
+### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
-W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventEncoderConnected:** 
+W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventEncoderConnected** : 
 
 ```json
 [
@@ -355,14 +355,14 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| streamId | ciąg | Identyfikator strumienia lub połączenia. Koder lub klient jest odpowiedzialny za podanie tego identyfikatora w adresie URL pozyskiwania. |
-| połknieniaUrl | ciąg | Połknąc adres URL podany przez wydarzenie na żywo. |
-| koderIp | ciąg | adres IP kodera. |
-| port embardy | ciąg | Port kodera, z którego nadchodzi ten strumień. |
+| Obecny streamid | ciąg | Identyfikator strumienia lub połączenia. Koder lub klient jest odpowiedzialny za podanie tego identyfikatora w adresie URL pozyskiwania. |
+| ingestUrl | ciąg | Adres URL pozyskiwania podany przez wydarzenie na żywo. |
+| encoderIp | ciąg | Adres IP kodera. |
+| encoderPort | ciąg | Port kodera, z którego pochodzi ten strumień. |
 
-### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderRozłączne
+### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
-Poniższy przykład przedstawia schemat **zdarzenia LiveEventEncoderDisconnected:** 
+W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventEncoderDisconnected** : 
 
 ```json
 [
@@ -389,29 +389,29 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| streamId | ciąg | Identyfikator strumienia lub połączenia. Koder lub klient jest odpowiedzialny za dodanie tego identyfikatora w adresie URL pozyskiwania. |  
-| połknieniaUrl | ciąg | Połknąc adres URL podany przez wydarzenie na żywo. |  
-| koderIp | ciąg | adres IP kodera. |
-| port embardy | ciąg | Port kodera, z którego nadchodzi ten strumień. |
-| kod wynikowy | ciąg | Przyczyną rozłączania kodera. Może to być wdzięczne rozłączenie lub błąd. Kody wyników są wymienione w poniższej tabeli. |
+| Obecny streamid | ciąg | Identyfikator strumienia lub połączenia. Koder lub klient jest odpowiedzialny za dodanie tego identyfikatora w adresie URL pozyskiwania. |  
+| ingestUrl | ciąg | Adres URL pozyskiwania podany przez wydarzenie na żywo. |  
+| encoderIp | ciąg | Adres IP kodera. |
+| encoderPort | ciąg | Port kodera, z którego pochodzi ten strumień. |
+| resultCode | ciąg | Przyczyna odłączenia kodera. Może to być bezpieczne rozłączenie lub błąd. Kody wyników są wymienione w poniższej tabeli. |
 
-Kody wyników błędu można znaleźć w [kodach błędów zdarzeń na żywo](../media-services/latest/live-event-error-codes.md).
+Kody wyników błędów można znaleźć w [kodach błędów zdarzeń na żywo](../media-services/latest/live-event-error-codes.md).
 
-Wdzięczne kody wyników rozłączenia są następujące:
+Kody wyniku bezpiecznego rozłączenia to:
 
 | Kod wyniku | Opis |
 | ----------- | ----------- |
-| S_OK | Koder rozłączony został pomyślnie odłączony. |
-| MPE_CLIENT_TERMINATED_SESSION | Edykder odłączony (RTMP). |
-| MPE_CLIENT_DISCONNECTED | Edykder odłączony (FMP4). |
+| S_OK | Koder został rozłączony pomyślnie. |
+| MPE_CLIENT_TERMINATED_SESSION | Koder odłączony (RTMP). |
+| MPE_CLIENT_DISCONNECTED | Koder odłączony (FMP4). |
 | MPI_REST_API_CHANNEL_RESET | Odebrano polecenie resetowania kanału. |
 | MPI_REST_API_CHANNEL_STOP | Odebrano polecenie zatrzymania kanału. |
-| MPI_REST_API_CHANNEL_STOP | Kanał poddawany konserwacji. |
+| MPI_REST_API_CHANNEL_STOP | Kanał jest w trakcie konserwacji. |
 | MPI_STREAM_HIT_EOF | Strumień EOF jest wysyłany przez koder. |
 
 ### <a name="liveeventincomingdatachunkdropped"></a>LiveEventIncomingDataChunkDropped
 
-W poniższym przykładzie przedstawiono schemat **zdarzenia LiveEventIncomingDataChunkDropped:** 
+W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIncomingDataChunkDropped** : 
 
 ```json
 [
@@ -439,16 +439,16 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| TrackType | ciąg | Typ utworu (Audio / Video). |
-| nazwa utworu | ciąg | Nazwa utworu. |
-| Bitrate | liczba całkowita | Szybkość transmisji bitów toru. |
-| sygnatura czasowa | ciąg | Sygnatura czasowa fragmentu danych porzucona. |
-| skala czasu | ciąg | Skala czasu sygnatury czasowej. |
-| kod wynikowy | ciąg | Przyczyna spadku fragmentu danych. **FragmentDrop_OverlapTimestamp** lub **FragmentDrop_NonIncreasingTimestamp**. |
+| ścieżka śledzenia | ciąg | Typ ścieżki (audio/wideo). |
+| ścieżka śledzenia | ciąg | Nazwa ścieżki. |
+| Multimedia | liczba całkowita | Szybkość transmisji bitów ścieżki. |
+| sygnatura czasowa | ciąg | Sygnatura czasowa fragmentu danych została porzucona. |
+| Dział | ciąg | Skala czasu dla sygnatury czasowej. |
+| resultCode | ciąg | Przyczyna usunięcia fragmentu danych. **FragmentDrop_OverlapTimestamp** lub **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
-Poniższy przykład przedstawia schemat **LiveEventIncomingStreamReceived** zdarzenia: 
+W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIncomingStreamReceived** : 
 
 ```json
 [
@@ -479,18 +479,18 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| TrackType | ciąg | Typ utworu (Audio / Video). |
-| nazwa utworu | ciąg | Nazwa ścieżki (dostarczona przez koder lub, w przypadku RTMP, serwer generuje w *formacie TrackType_Bitrate).* |
-| Bitrate | liczba całkowita | Szybkość transmisji bitów toru. |
-| połknieniaUrl | ciąg | Połknąc adres URL podany przez wydarzenie na żywo. |
-| koderIp | ciąg  | adres IP kodera. |
-| port embardy | ciąg | Port kodera, z którego nadchodzi ten strumień. |
-| sygnatura czasowa | ciąg | Pierwszy sygnatura czasowa odebranego fragmentu danych. |
-| skala czasu | ciąg | Skala czasu, w której sygnatura czasowa jest reprezentowana. |
+| ścieżka śledzenia | ciąg | Typ ścieżki (audio/wideo). |
+| ścieżka śledzenia | ciąg | Nazwa ścieżki (dostarczonej przez koder lub, w przypadku protokołu RTMP, serwer generuje w formacie *TrackType_Bitrate* ). |
+| Multimedia | liczba całkowita | Szybkość transmisji bitów ścieżki. |
+| ingestUrl | ciąg | Adres URL pozyskiwania podany przez wydarzenie na żywo. |
+| encoderIp | ciąg  | Adres IP kodera. |
+| encoderPort | ciąg | Port kodera, z którego pochodzi ten strumień. |
+| sygnatura czasowa | ciąg | Odebrano pierwszą sygnaturę czasową fragmentu danych. |
+| Dział | ciąg | Skala czasu, w której jest reprezentowana sygnatura czasowa. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
-W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIncomingStreamsOutOfSync:** 
+W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIncomingStreamsOutOfSync** : 
 
 ```json
 [
@@ -518,16 +518,16 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| minLastTimestamp (MinLastTimestamp) | ciąg | Minimum ostatniej sygnatury czasowej wśród wszystkich utworów (audio lub wideo). |
-| typOfTrackWithMinLastTimestamp | ciąg | Typ ścieżki (audio lub wideo) z minimalną ostatnią sygnaturą czasowej. |
-| maxLastTimestamp ( maxLastTimestamp ) | ciąg | Maksymalnie wszystkie sygnatury czasowe wśród wszystkich utworów (audio lub wideo). |
-| typOfTrackWithMaxLastTimestamp | ciąg | Typ ścieżki (audio lub wideo) z maksymalną ostatnią sygnaturą czas. |
-| sygnatura czasowaOfMinLastTimestamp| ciąg | Pobiera skalę czasu, w którym jest reprezentowana "MinLastTimestamp".|
-| timescaleOfMaxLastTimestamp| ciąg | Pobiera skalę czasu, w którym jest reprezentowana "MaxLastTimestamp".|
+| minLastTimestamp | ciąg | Minimum ostatnich sygnatur czasowych między wszystkimi ścieżkami (audio lub wideo). |
+| typeOfTrackWithMinLastTimestamp | ciąg | Typ ścieżki (audio lub wideo) z minimalną ostatnią sygnaturą czasową. |
+| maxLastTimestamp | ciąg | Maksymalna liczba sygnatur czasowych między wszystkimi ścieżkami (audio lub wideo). |
+| typeOfTrackWithMaxLastTimestamp | ciąg | Typ ścieżki (audio lub wideo) z maksymalną ostatnią sygnaturą czasową. |
+| timescaleOfMinLastTimestamp| ciąg | Pobiera skalę czasu, w której reprezentowana jest wartość "MinLastTimestamp".|
+| timescaleOfMaxLastTimestamp| ciąg | Pobiera skalę czasu, w której reprezentowana jest wartość "MaxLastTimestamp".|
 
 ### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
-W poniższym przykładzie przedstawiono schemat **zdarzenia LiveEventIncomingVideoStreamsOutOfSync:** 
+W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIncomingVideoStreamsOutOfSync** : 
 
 ```json
 [
@@ -554,15 +554,15 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| pierwszyStamp czasu | ciąg | Sygnatura czasowa odebrana dla jednego z utworów / poziomów jakości typu wideo. |
-| po pierwszeDuration | ciąg | Czas trwania fragmentu danych z pierwszą sygnaturą czasą. |
-| secondTimestamp (sygnatura czasowy) | ciąg  | Sygnatura czasowa odebrana dla innego poziomu ścieżki/jakości typu wideo. |
-| secondDuration | ciąg | Czas trwania fragmentu danych z drugim sygnaturą czasowej. |
-| skala czasu | ciąg | Skala czasu sygnatur czasowych i czas trwania.|
+| firstTimestamp | ciąg | Odebrano sygnaturę czasową dla jednego z poziomów śledzenia/jakości typu wideo. |
+| firstDuration | ciąg | Czas trwania fragmentu danych z pierwszym znacznikiem czasu. |
+| secondTimestamp | ciąg  | Odebrano sygnaturę czasową dla innego poziomu śledzenia/jakości filmu wideo typu. |
+| secondDuration | ciąg | Czas trwania fragmentu danych z drugim znacznikiem czasu. |
+| Dział | ciąg | Skala czasu dla sygnatur czasowych i czasu trwania.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
-W poniższym przykładzie przedstawiono schemat **zdarzenia LiveEventIngestHeartbeat:** 
+W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIngestHeartbeat** : 
 
 ```json
 [
@@ -596,22 +596,22 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| TrackType | ciąg | Typ utworu (Audio / Video). |
-| nazwa utworu | ciąg | Nazwa ścieżki (dostarczona przez koder lub, w przypadku RTMP, serwer generuje w *formacie TrackType_Bitrate).* |
-| Bitrate | liczba całkowita | Szybkość transmisji bitów toru. |
-| przychodząceBitrate | liczba całkowita | Obliczona szybkość transmisji bitów na podstawie fragmentów danych pochodzących z kodera. |
-| LastTimestamp (sygnatura czas-ostatni) | ciąg | Ostatni sygnatura czasowa odebrana dla toru w ciągu ostatnich 20 sekund. |
-| skala czasu | ciąg | Skala czasu, w której są wyrażane sygnatury czasowe. |
-| pokrywanie sięliczą | liczba całkowita | Liczba fragmentów danych miała nakładające się sygnatury czasowe w ciągu ostatnich 20 sekund. |
-| nieciągłośćCount | liczba całkowita | Liczba nieciągłości zaobserwowanych w ciągu ostatnich 20 sekund. |
-| inne niż IncreasingCount | liczba całkowita | Liczba fragmentów danych z sygnaturami czasowymi w przeszłości zostały odebrane w ciągu ostatnich 20 sekund. |
-| unexpectedBitrate | bool | Jeśli oczekiwane i rzeczywiste szybkości transmisji bitów różnią się o więcej niż dozwolony limit w ciągu ostatnich 20 sekund. To prawda, jeśli i tylko wtedy, przychodząceBitrate >= 2* bitrate lub incomingBitrate <= bitrate/2 LUB IncomingBitrate = 0. |
-| state | ciąg | Stan wydarzenia na żywo. |
-| Zdrowe | bool | Wskazuje, czy połkowanie jest w dobrej kondycji na podstawie liczby i flagi. Zdrowy jest true if overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
+| ścieżka śledzenia | ciąg | Typ ścieżki (audio/wideo). |
+| ścieżka śledzenia | ciąg | Nazwa ścieżki (dostarczonej przez koder lub, w przypadku protokołu RTMP, serwer generuje w formacie *TrackType_Bitrate* ). |
+| Multimedia | liczba całkowita | Szybkość transmisji bitów ścieżki. |
+| incomingBitrate | liczba całkowita | Obliczona szybkość transmisji bitów na podstawie fragmentów danych pochodzących z kodera. |
+| lastTimestamp | ciąg | Odebrano ostatnią sygnaturę czasową dla ścieżki w ciągu ostatnich 20 sekund. |
+| Dział | ciąg | Skala czasu, w której są wyrażane sygnatury czasowe. |
+| overlapCount | liczba całkowita | Liczba fragmentów danych ma nakładające się sygnatury czasowe w ciągu ostatnich 20 sekund. |
+| discontinuityCount | liczba całkowita | Liczba nietrzymań zaobserwowanych w ciągu ostatnich 20 sekund. |
+| nonIncreasingCount | liczba całkowita | Liczba fragmentów danych z sygnaturami czasowymi w przeszłości została odebrana w ciągu ostatnich 20 sekund. |
+| unexpectedBitrate | bool | Jeśli oczekiwane i rzeczywiste szybkości transmisji bitów różnią się o więcej niż dozwolony limit w ciągu ostatnich 20 sekund. Prawda, jeśli i tylko wtedy, gdy, incomingBitrate >= 2 * szybkość transmisji bitów lub incomingBitrate <= szybkość transmisji bitów/2 lub IncomingBitrate = 0. |
+| state | ciąg | Stan zdarzenia na żywo. |
+| dobrej kondycji | bool | Wskazuje, czy pozyskiwanie jest w dobrej kondycji na podstawie liczby i flag. Dobra kondycja ma wartość true, jeśli overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
-W poniższym przykładzie przedstawiono schemat **zdarzenia LiveEventTrackDiscontinuityDetected:** 
+W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventTrackDiscontinuityDetected** : 
 
 ```json
 [
@@ -640,35 +640,35 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| TrackType | ciąg | Typ utworu (Audio / Video). |
-| nazwa utworu | ciąg | Nazwa ścieżki (dostarczona przez koder lub, w przypadku RTMP, serwer generuje w *formacie TrackType_Bitrate).* |
-| Bitrate | liczba całkowita | Szybkość transmisji bitów toru. |
-| poprzednistamp czasu | ciąg | Sygnatura czasowa poprzedniego fragmentu. |
-| newTimestamp (sygnatura czasowego) | ciąg | Sygnatura czasowa bieżącego fragmentu. |
-| nieciągłośćGap | ciąg | Odstęp między powyżej dwóch sygnatur czasowych. |
-| skala czasu | ciąg | Skala czasu, w której są reprezentowane zarówno sygnatury czasowe, jak i nieciągłości. |
+| ścieżka śledzenia | ciąg | Typ ścieżki (audio/wideo). |
+| ścieżka śledzenia | ciąg | Nazwa ścieżki (dostarczonej przez koder lub, w przypadku protokołu RTMP, serwer generuje w formacie *TrackType_Bitrate* ). |
+| Multimedia | liczba całkowita | Szybkość transmisji bitów ścieżki. |
+| previousTimestamp | ciąg | Sygnatura czasowa poprzedniego fragmentu. |
+| newTimestamp | ciąg | Sygnatura czasowa bieżącego fragmentu. |
+| discontinuityGap | ciąg | Przerwa między powyżej dwóch sygnatur czasowych. |
+| Dział | ciąg | Skala czasu, w której reprezentowane są obie sygnatury czasowe i przerwy w działaniu. |
 
-### <a name="common-event-properties"></a>Typowe właściwości zdarzenia
+### <a name="common-event-properties"></a>Właściwości typowego zdarzenia
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| temat | ciąg | Temat EventGrid. Ta właściwość ma identyfikator zasobu dla konta usługi Media Services. |
-| Temat | ciąg | Ścieżka zasobu kanału usługi Media Services na koncie usługi Media Services. Łączenie tematu i tematu daje identyfikator zasobu dla zadania. |
-| Eventtype | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. Na przykład "Microsoft.Media.JobStateChange". |
-| eventTime | ciąg | Czas, w której zdarzenie jest generowane na podstawie czasu UTC dostawcy. |
+| temat | ciąg | Temat EventGrid. Ta właściwość ma identyfikator zasobu dla konta Media Services. |
+| Temat | ciąg | Ścieżka zasobu dla Media Services kanału w ramach konta Media Services. Łączenie tematu i tematu zapewnia identyfikator zasobu dla zadania. |
+| Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. Na przykład "Microsoft. Media. JobStateChange". |
+| eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | id | ciąg | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Dane zdarzeń usługi Media Services. |
+| dane | obiekt | Media Services dane zdarzenia. |
 | dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zarejestruj się, aby zdarzenia zmiany stanu zadania](../media-services/latest/job-state-events-cli-how-to.md)
+[Rejestrowanie zdarzeń zmiany stanu zadania](../media-services/latest/job-state-events-cli-how-to.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-- [Zestaw SDK EventGrid .NET zawierający zdarzenia usługi Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
-- [Definicje zdarzeń usługi Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+- [EventGrid .NET SDK zawierający zdarzenia usługi Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Definicje zdarzeń Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
 - [Kody błędów zdarzeń na żywo](../media-services/latest/live-event-error-codes.md)

@@ -1,6 +1,6 @@
 ---
-title: Wysoka dostępność usługi Azure MFA Server — usługa Azure Active Directory
-description: Wdrażanie wielu wystąpień serwera uwierzytelniania wieloskładnikowego platformy Azure w konfiguracjach zapewniających wysoką dostępność.
+title: Wysoka dostępność dla serwera usługi Azure MFA — Azure Active Directory
+description: Wdróż wiele wystąpień Serwer Multi-Factor Authentication platformy Azure w konfiguracjach, które zapewniają wysoką dostępność.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,66 +12,66 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e7b5f6bef5358acf0709f994b85215e505fa4db
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80653385"
 ---
-# <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Konfigurowanie serwera uwierzytelniania wieloskładnikowego platformy Azure w celu zapewnienia wysokiej dostępności
+# <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Konfigurowanie usługi Azure Serwer Multi-Factor Authentication w celu zapewnienia wysokiej dostępności
 
-Aby osiągnąć wysoką dostępność dzięki wdrożeniu usługi Azure Server MFA, należy wdrożyć wiele serwerów usługi MFA. Ta sekcja zawiera informacje na temat projektu z równoważeniem obciążenia, aby osiągnąć cele wysokiej dostępności we wdrożeniu usługi Azure MFS Server.
+Aby uzyskać wysoką dostępność przy użyciu wdrożenia usługi Azure Server MFA, należy wdrożyć wiele serwerów MFA. Ta sekcja zawiera informacje na temat układu o zrównoważonym obciążeniu w celu osiągnięcia celów wysokiej dostępności w ramach wdrożenia serwera Azure MFS.
 
 > [!IMPORTANT]
-> Od 1 lipca 2019 r. firma Microsoft nie będzie już oferować serwera usługi MFA dla nowych wdrożeń. Nowi klienci, którzy chcieliby wymagać uwierzytelniania wieloskładnikowego od swoich użytkowników, powinni korzystać z uwierzytelniania wieloskładnikowego platformy Azure w chmurze. Obecni klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i wygenerować poświadczenia aktywacji w zwykły sposób.
+> Od 1 lipca 2019 firma Microsoft nie będzie już oferować serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego od użytkowników, powinni korzystać z usługi Azure Multi-Factor Authentication opartej na chmurze. Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i generować poświadczenia aktywacji w zwykły sposób.
 
 ## <a name="mfa-server-overview"></a>Omówienie serwera usługi MFA
 
-Architektura usługi usługi usługi Usługi Usługi Azure MFA zawiera kilka składników, jak pokazano na poniższym diagramie:
+Architektura usługi serwera usługi Azure MFA obejmuje kilka składników, jak pokazano na poniższym diagramie:
 
- ![Składniki architektury serwera usługi MFA](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
+ ![Składniki architektury serwera MFA](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
 
-Serwer usługi MFA to serwer windowsowy z zainstalowanym oprogramowaniem uwierzytelniania wieloskładnikowego azure. Wystąpienie serwera usługi MFA musi być aktywowane przez usługę usługi MFA na platformie Azure, aby działało. W środowisku lokalnym można zainstalować więcej niż jeden serwer usługi MFA.
+Serwer MFA to serwer z systemem Windows, na którym jest zainstalowane oprogramowanie Multi-Factor Authentication platformy Azure. Wystąpienie serwera usługi MFA musi być aktywowane przez usługę MFA na platformie Azure do działania. W środowisku lokalnym można zainstalować więcej niż jeden serwer usługi MFA.
 
-Pierwszy serwer usługi MFA, który jest zainstalowany jest serwerem zbiorczym zbiorczym po aktywacji przez usługę Azure MFA domyślnie. Główny serwer usługi MFA ma zapisywalną kopię bazy danych PhoneFactor.pfdata. Kolejne instalacje wystąpień serwera usługi MFA są nazywane podwładnymi. Podwładni usługi MFA mają replikowaną kopię bazy danych PhoneFactor.pfdata tylko do odczytu. Serwery usługi MFA replikują informacje przy użyciu zdalnego wywołania procedury (RPC). Wszystkie usługi MFA Severs muszą być łącznie przyłączone do domeny lub autonomiczne w celu replikowania informacji.
+Pierwszy zainstalowany serwer usługi MFA jest serwerem głównym usługi MFA z domyślną aktywacją przez usługę Azure MFA. Serwer główny MFA ma zapisywalną kopię bazy danych PhoneFactor. pfdata. Kolejne instalacje wystąpień serwera usługi MFA są znane jako elementy podrzędne. Podwładny usługi MFA mają zreplikowaną kopię bazy danych PhoneFactor. pfdata, która jest tylko do odczytu. Serwery MFA replikujeją informacje przy użyciu zdalnego wywołania procedury (RPC). Wszystkie serwery usługi MFA muszą być przyłączone do domeny lub autonomiczne w celu replikowania informacji.
 
-Serwery główne i podrzędne usługi MFA komunikują się z usługą usługi MFA, gdy wymagane jest uwierzytelnianie dwuskładnikowe. Na przykład gdy użytkownik próbuje uzyskać dostęp do aplikacji, która wymaga uwierzytelniania dwuskładnikowego, użytkownik zostanie najpierw uwierzytelniony przez dostawcę tożsamości, takiego jak usługa Active Directory (AD).
+Serwery główne i podrzędne usługi MFA komunikują się z usługą MFA, gdy wymagane jest uwierzytelnianie dwuskładnikowe. Na przykład gdy użytkownik próbuje uzyskać dostęp do aplikacji, która wymaga uwierzytelniania dwuskładnikowego, użytkownik zostanie najpierw uwierzytelniony przez dostawcę tożsamości, na przykład Active Directory (AD).
 
-Po pomyślnym uwierzytelnieniu za pomocą usługi AD serwer usługi MFA będzie komunikować się z usługą usługi MFA. Serwer usługi MFA czeka na powiadomienie z usługi MFA, aby zezwolić lub odmówić użytkownikowi dostępu do aplikacji.
+Po pomyślnym uwierzytelnieniu w usłudze AD serwer usługi MFA komunikuje się z usługą MFA. Serwer usługi MFA czeka na powiadomienie z usługi MFA, aby zezwalać na dostęp użytkownika do aplikacji lub go odmawiać.
 
-Jeśli serwer główny usługi MFA przejdzie w tryb offline, uwierzytelnianie nadal mogą być przetwarzane, ale operacje, które wymagają zmian w bazie danych usługi MFA, nie mogą być przetwarzane. (Przykłady obejmują: dodanie użytkowników, samoobsługowe zmiany numeru PIN, zmianę informacji o użytkowniku lub dostęp do portalu użytkownika)
+Jeśli serwer główny usługi MFA przejdzie w tryb offline, uwierzytelnienia nadal mogą być przetwarzane, ale nie można przetworzyć operacji wymagających zmian w bazie danych MFA. (Przykłady: dodanie użytkowników, samoobsługowe zmiany kodu PIN, zmiana informacji o użytkowniku lub dostęp do portalu użytkowników)
 
 ## <a name="deployment"></a>Wdrożenie
 
-Należy wziąć pod uwagę następujące ważne punkty równoważenia obciążenia usługi Azure MFA Server i jego powiązanych składników.
+Należy wziąć pod uwagę następujące ważne kwestie dotyczące równoważenia obciążenia serwera usługi Azure MFA i powiązanych składników.
 
-* **Używanie standardu RADIUS do uzyskania wysokiej dostępności**. Jeśli serwery usługi Azure MFA są serwerami USŁUGI RADIUS, można potencjalnie skonfigurować jeden serwer usługi MFA jako podstawowy obiekt docelowy uwierzytelniania USŁUGI RADIUS i inne serwery usługi Azure MFA jako pomocnicze obiekty docelowe uwierzytelniania. Jednak ta metoda osiągnięcia wysokiej dostępności może nie być praktyczne, ponieważ należy poczekać na upływ czasu występuje, gdy uwierzytelnianie nie powiedzie się w podstawowym docelowym uwierzytelniania, zanim można uwierzytelnić się względem pomocniczego obiektu docelowego uwierzytelniania. Bardziej wydajne jest równoważenie obciążenia ruchu RADIUS między klientem RADIUS a serwerami RADIUS (w tym przypadku serwerami usługi Azure MFA działającymi jako serwery RADIUS), dzięki czemu można skonfigurować klientów RADIUS za pomocą jednego adresu URL, na który mogą wskazać.
-* **Trzeba ręcznie promować podwładnych usługi MFA**. Jeśli główny serwer usługi Azure MFA przejdzie w tryb offline, pomocnicze serwery usługi Azure MFA nadal przetwarzają żądania usługi MFA. Jednak dopóki główny serwer usługi MFA nie będzie dostępny, administratorzy nie mogą dodawać użytkowników ani modyfikować ustawień usługi MFA, a użytkownicy nie mogą wprowadzać zmian za pomocą portalu użytkownika. Promowanie funkcji mfa podrzędnych do roli wzorca jest zawsze procesem ręcznym.
-* **Rozdzielność komponentów**. Serwer usługi Azure MFA zawiera kilka składników, które można zainstalować w tym samym wystąpieniu systemu Windows Server lub w różnych wystąpieniach. Składniki te obejmują portal użytkownika, usługę sieci Web aplikacji mobilnych i kartę ADFS (agent). Ta rozdzielność umożliwia korzystanie z serwera proxy aplikacji sieci Web do publikowania portalu użytkownika i serwera sieci Web aplikacji mobilnych z sieci obwodowej. Taka konfiguracja zwiększa ogólne bezpieczeństwo projektu, jak pokazano na poniższym diagramie. Portal użytkownika usługi MFA i serwer sieci Web aplikacji mobilnych można również wdrożyć w konfiguracjach z równoważenia obciążenia usługi ha.
+* **Użycie usługi RADIUS standard w celu zapewnienia wysokiej dostępności**. Jeśli serwery usługi Azure MFA są używane jako serwery RADIUS, można skonfigurować jeden serwer MFA jako cel uwierzytelniania podstawowego usługi RADIUS i inne serwery usługi Azure MFA jako cele uwierzytelniania pomocniczego. Jednak ta metoda zapewniania wysokiej dostępności może nie być praktyczna, ponieważ należy poczekać na przekroczenie limitu czasu, gdy uwierzytelnianie nie powiedzie się w podstawowym celu uwierzytelniania, zanim będzie można uwierzytelnić się na serwerze docelowym uwierzytelniania pomocniczego. Równoważenie obciążenia ruchu usługi RADIUS między klientem RADIUS a serwerami RADIUS (w tym przypadku serwerów usługi Azure MFA działających jako serwery RADIUS) jest bardziej wydajne, aby można było skonfigurować klientów usługi RADIUS za pomocą pojedynczego adresu URL, na który mogą oni wskazywać.
+* **Należy ręcznie promować podwładnych usługi MFA**. Jeśli główny serwer usługi Azure MFA przejdzie w tryb offline, pomocnicze serwery usługi Azure MFA kontynuują przetwarzanie żądań MFA. Jednak do momentu udostępnienia serwera głównego MFA Administratorzy nie mogą dodawać użytkowników ani modyfikować ustawień usługi MFA, a użytkownicy nie mogą wprowadzać zmian przy użyciu portalu użytkowników. Podwyższanie poziomu usługi MFA do roli głównej zawsze jest procesem ręcznym.
+* **Separability składników**. Serwer usługi Azure MFA zawiera kilka składników, które można zainstalować w tym samym wystąpieniu systemu Windows Server lub w różnych wystąpieniach. Te składniki obejmują Portal użytkowników, usługę sieci Web aplikacji mobilnej oraz adapter usług ADFS (Agent). Ta separability umożliwia użycie serwera proxy aplikacji sieci Web w celu opublikowania portalu użytkowników i serwera sieci Web aplikacji mobilnej z sieci obwodowej. Taka konfiguracja zwiększa bezpieczeństwo projektu, jak pokazano na poniższym diagramie. Portal użytkowników usługi MFA i serwer sieci Web aplikacji mobilnej można również wdrożyć w konfiguracjach o zrównoważonym obciążeniu.
 
    ![Serwer usługi MFA z siecią obwodową](./media/howto-mfaserver-deploy-ha/mfasecurity.png)
 
-* **Jednorazowe hasło (OTP) przez SMS (aka jednokierunkowe SMS) wymaga użycia lepkich sesji, jeśli ruch jest równoważące obciążenie**. Jednokierunkowy program SMS jest opcją uwierzytelniania, która powoduje, że serwer usługi MFA wysyła użytkownikom wiadomość tekstową zawierającą protokół OTP. Użytkownik wprowadza OTP w oknie monitu, aby zakończyć wyzwanie usługi MFA. Jeśli obciążenie równoważenia serwerów usługi Azure MFA, ten sam serwer, który obsługiwał żądanie początkowego uwierzytelniania musi być serwer, który odbiera komunikat OTP od użytkownika; jeśli inny serwer usługi MFA otrzyma odpowiedź OTP, wyzwanie uwierzytelniania nie powiedzie się. Aby uzyskać więcej informacji, zobacz [Hasło jednorazowe za pośrednictwem programu SMS dodane do serwera usługi Azure MFA Server](https://blogs.technet.microsoft.com/enterprisemobility/2015/03/02/one-time-password-over-sms-added-to-azure-mfa-server).
-* Wdrożenia portalu **użytkownika i usługi sieci Web aplikacji mobilnych z równoważeniem obciążenia wymagają sesji przyklejonych.** Jeśli równoważenie obciążenia portalu użytkownika usługi MFA i usługi sieci Web aplikacji mobilnych musi pozostać na tym samym serwerze.
+* **Hasło jednorazowe (OTP) za pośrednictwem wiadomości SMS (jeden-Way SMS) wymaga użycia sesji programu Sticky, jeśli ruch jest zrównoważony obciążenia**. Jednokierunkowa wiadomość SMS to opcja uwierzytelniania, która powoduje, że serwer MFA wysyła użytkownikom wiadomość tekstową zawierającą uwierzytelnianie OTP. Użytkownik wprowadza uwierzytelnianie OTP w oknie monitu, aby zakończyć wyzwanie usługi MFA. W przypadku równoważenia obciążenia serwerów usługi Azure MFA ten sam serwer, który obsłużył początkowe żądanie uwierzytelniania, musi być serwerem, który odbiera komunikat OTP od użytkownika. Jeśli inny serwer MFA odbiera odpowiedź OTP, żądanie uwierzytelnienia nie powiedzie się. Aby uzyskać więcej informacji, zobacz [hasło jednorazowe za pośrednictwem wiadomości SMS dodanej do serwera usługi Azure MFA](https://blogs.technet.microsoft.com/enterprisemobility/2015/03/02/one-time-password-over-sms-added-to-azure-mfa-server).
+* **Wdrożenia ze zrównoważonym obciążeniem portalu użytkowników i usługi sieci Web aplikacji mobilnej wymagają sesji programu Sticky Notes**. W przypadku równoważenia obciążenia w portalu użytkowników usługi MFA i usłudze sieci Web aplikacji mobilnej każda sesja musi pozostać na tym samym serwerze.
 
-## <a name="high-availability-deployment"></a>Wdrażanie o wysokiej dostępności
+## <a name="high-availability-deployment"></a>Wdrożenie wysokiej dostępności
 
-Na poniższym diagramie przedstawiono pełną implementację usługi ha równoważenia obciążenia usługi Azure MFA i jej składników, wraz z usługą ADFS w celach informacyjnych.
+Na poniższym diagramie przedstawiono kompletną implementację usługi Azure MFA, a także jej składniki oraz spis usług AD FS.
 
- ![Implementacja usługi Azure MFA Server](./media/howto-mfaserver-deploy-ha/mfa-ha-deployment.png)
+ ![Implementacja wysokiej dostępności serwera usługi Azure MFA](./media/howto-mfaserver-deploy-ha/mfa-ha-deployment.png)
 
-Zwróć uwagę na następujące elementy odpowiednio numerowanego obszaru poprzedniego diagramu.
+Zwróć uwagę na następujące elementy dla odpowiadającego im obszaru podanego powyżej.
 
-1. Dwa serwery usługi Azure MFA (MFA1 i MFA2) są równoważone obciążeniem (mfaapp.contoso.com) i są skonfigurowane do używania portu statycznego (4443) do replikowania bazy danych PhoneFactor.pfdata. SDK usługi sieci Web jest zainstalowany na każdym serwerze usługi MFA, aby umożliwić komunikację za pośrednictwem portu TCP 443 z serwerami ADFS. Serwery usługi MFA są wdrażane w konfiguracji bezstanowej z równoważenia obciążenia. Jeśli jednak chcesz używać protokołu OTP za pośrednictwem programu SMS, należy użyć równoważenia obciążenia stanowego.
-   ![Usługa Azure MFA Server — narzędzie wielofunkcyjne serwera aplikacji](./media/howto-mfaserver-deploy-ha/mfaapp.png)
+1. Dwa serwery usługi Azure MFA (MFA1 i MFA2) mają zrównoważone obciążenie (mfaapp.contoso.com) i są skonfigurowane do używania portu statycznego (4443) do replikowania bazy danych PhoneFactor. pfdata. Zestaw SDK usługi sieci Web jest instalowany na każdym serwerze MFA, aby umożliwić komunikację przez port TCP 443 z serwerami usług AD FS. Serwery usługi MFA są wdrażane w konfiguracji bezstanowej równoważenia obciążenia. Jeśli jednak chcesz używać uwierzytelniania OTP za pośrednictwem programu SMS, musisz użyć równoważenia obciążenia stanowego.
+   ![Serwer Azure MFA — App Server HA](./media/howto-mfaserver-deploy-ha/mfaapp.png)
 
    > [!NOTE]
-   > Ponieważ RPC używa portów dynamicznych, nie zaleca się otwierania zapór do zakresu portów dynamicznych, które potencjalnie mogą korzystać z usługi RPC. Jeśli masz zaporę **między serwerami** aplikacji usługi MFA, należy skonfigurować serwer usługi MFA do komunikowania się na porcie statycznym dla ruchu replikacji między serwerami podrzędnymi i głównymi i otworzyć ten port na zaporze. Można wymusić port statyczny, tworząc wartość rejestru ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` ```Pfsvc_ncan_ip_tcp_port``` DWORD na wywołanej i ustawiając wartość na dostępny port statyczny. Połączenia są zawsze inicjowane przez podrzędne serwery usługi MFA do wzorca, port statyczny jest wymagany tylko na wzorcu, ale ponieważ można podwyższyć podrzędny jako wzorca w dowolnym momencie, należy ustawić port statyczny na wszystkich serwerach usługi MFA.
+   > Ponieważ usługa RPC korzysta z portów dynamicznych, nie zaleca się otwierania zapór do zakresu portów dynamicznych, które mogą być używane przez usługę RPC. W przypadku zapory **między** serwerami aplikacji MFA należy skonfigurować serwer usługi MFA do komunikowania się z portem statycznym dla ruchu związanego z replikacją między serwerami podrzędnymi i głównymi, a następnie otworzyć ten port w zaporze. Aby wymusić port statyczny, można utworzyć wartość rejestru DWORD ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` o ```Pfsvc_ncan_ip_tcp_port``` nazwie i ustawić wartość dostępnego portu statycznego. Połączenia są zawsze inicjowane przez podrzędne serwery usługi MFA do serwera głównego. port statyczny jest wymagany tylko w przypadku serwera głównego, ale ponieważ w dowolnym momencie można podwyższyć poziom podwładnego jako główny, należy ustawić port statyczny na wszystkich serwerach usługi MFA.
 
-2. Dwa serwery aplikacji mobilnych portalu użytkownika/usługi MFA (MFA-UP-MAS1 i MFA-UP-MAS2) są równoważone z obciążeniem w konfiguracji **stanowej** (mfa.contoso.com). Przypomnijmy, że sesje przyklejone są wymagane do równoważenia obciążenia portalu użytkownika usługi MFA i usługi aplikacji mobilnych.
-   ![Serwer usługi Azure MFA — portal użytkowników i usługa aplikacji mobilnych](./media/howto-mfaserver-deploy-ha/mfaportal.png)
-3. Farma serwera ADFS jest równoważona z obciążeniem i publikowana w Internecie za pośrednictwem serwerów proxy ADFS ze zrównoważonym obciążeniem w sieci obwodowej. Każdy serwer usługi ADFS używa agenta usługi ADFS do komunikowania się z serwerami usługi Azure MFA przy użyciu pojedynczego adresu URL z równoważenia obciążenia (mfaapp.contoso.com) za pośrednictwem portu TCP 443.
+2. Dwa serwery aplikacji mobilnej Portal użytkowników/MFA (MFA-UP-MAS1 i MFA-UP-MAS2) są zrównoważone obciążenie w konfiguracji **stanowej** (MFA.contoso.com). Odwołaj te sesje, które są wymagane do równoważenia obciążenia aplikacji Portal użytkowników usługi MFA i App Service Mobile.
+   ![Serwer usługi Azure MFA — Portal użytkowników i urządzenia przenośne App Service HA](./media/howto-mfaserver-deploy-ha/mfaportal.png)
+3. Farma serwerów usług ADFS jest równoważna i publikowana w Internecie za pomocą serwerów proxy usług AD równoważenia obciążenia w sieci obwodowej. Każdy serwer usług ADFS korzysta z agenta usług AD FS do komunikowania się z serwerami usługi Azure MFA przy użyciu jednego adresu URL ze zrównoważonym obciążeniem (mfaapp.contoso.com) za pośrednictwem portu TCP 443.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Instalowanie i konfigurowanie serwera usługi Azure MFA](howto-mfaserver-deploy.md)
+* [Instalowanie i Konfigurowanie serwera usługi Azure MFA](howto-mfaserver-deploy.md)

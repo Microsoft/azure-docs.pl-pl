@@ -1,6 +1,6 @@
 ---
 title: Adresy IP usługi Azure Integration Runtime
-description: Dowiedz się, z jakich adresów IP należy zezwolić na ruch przychodzący, aby prawidłowo skonfigurować zapory do zabezpieczania dostępu sieciowego do magazynów danych.
+description: Dowiedz się, które adresy IP należy zezwolić na ruch przychodzący z programu, w celu poprawnego skonfigurowania zapór do zabezpieczania dostępu sieciowego do magazynów danych.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -12,26 +12,26 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
 ms.openlocfilehash: b0ba47ff28208bce1a6fa6ec300a261d788167de
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415593"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Adresy IP usługi Azure Integration Runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Adresy IP używane przez środowisko uruchomieniowe integracji platformy Azure zależą od regionu, w którym znajduje się środowisko uruchomieniowe integracji platformy Azure. *Wszystkie* Środowiska wykonawcze integracji platformy Azure, które znajdują się w tym samym regionie, używają tych samych zakresów adresów IP.
+Adresy IP używane przez Azure Integration Runtime są zależne od regionu, w którym znajduje się środowisko Azure Integration Runtime. *Wszystkie* Środowiska Azure Integration Runtime, które znajdują się w tym samym regionie, używają tych samych zakresów adresów IP.
 
 > [!IMPORTANT]  
 > Przepływy danych nie korzystają obecnie z tych adresów IP. 
 >
-> Tych zakresów adresów IP można używać do przenoszenia danych, potoku i wykonywania działań zewnętrznych. Te zakresy adresów IP mogą służyć do umieszczania na białej liście w magazynach danych/ sieciowej grupie zabezpieczeń (NSG)/ zapory dostępu przychodzącego ze środowiska wykonawczego integracji platformy Azure. 
+> Możesz użyć tych zakresów adresów IP na potrzeby przenoszenia danych, wykonywania potoku i działań zewnętrznych. Te zakresy adresów IP mogą być używane dla listy dozwolonych w magazynach danych/sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)/zaporach na potrzeby dostępu przychodzącego z platformy Azure Integration Runtime. 
 
-## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Adresy IP środowiska wykonawczego integracji platformy Azure: określone regiony
+## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Azure Integration Runtime adresy IP: określone regiony
 
-Zezwalaj na ruch z adresów IP wymienionych dla środowiska wykonawczego integracji platformy Azure w określonym regionie platformy Azure, w którym znajdują się zasoby:
+Zezwalaj na ruch z adresów IP wymienionych dla środowiska Azure Integration Runtime w określonym regionie platformy Azure, w którym znajdują się zasoby:
 
 |                | Region              | Adresy IP                                                 |
 | -------------- | ------------------- | ------------------------------------------------------------ |
@@ -48,12 +48,12 @@ Zezwalaj na ruch z adresów IP wymienionych dla środowiska wykonawczego integra
 | Indie          | Indie Środkowe       | 52.140.104.128/25,</br>52.140.105.0/26,</br>20.43.121.48/28  |
 | Japonia          | Japonia Wschodnia          | 20.43.64.128/25,</br>20.43.65.0/26,</br>13.78.109.192/28     |
 | Korea          | Korea Środkowa       | 20.41.64.128/25,</br>20.41.65.0/26,</br>52.231.20.64/28      |
-| Republika Południowej Afryki   | Republika Południowej Afryki Północ  | 102.133.124.104/29,</br>102.133.216.128/25,</br>102.133.217.0/26 |
+| Republika Południowej Afryki   | Północna Republika Południowej Afryki  | 102.133.124.104/29,</br>102.133.216.128/25,</br>102.133.217.0/26 |
 | Wielka Brytania | Południowe Zjednoczone Królestwo            | 51.104.24.128/25,</br>51.104.25.0/26,</br>51.104.9.32/28     |
 | Stany Zjednoczone  | Środkowe stany USA          | 20.37.154.0/23,</br>20.37.156.0/26,</br>20.44.10.64/28       |
 |                | Wschodnie stany USA             | 20.42.2.0/23,</br>20.42.4.0/26,</br>40.71.14.32/28           |
 |                | Wschodnie stany USA 2            | 20.41.2.0/23,</br>20.41.4.0/26,</br>20.44.17.80/28           |
-|                | Wschodnie Stany Zjednoczone 2 EUAP      | 20.39.8.128/26,</br>20.39.8.96/27,</br>40.75.35.144/28       |
+|                | Wschodnie stany USA 2 — EUAP      | 20.39.8.128/26,</br>20.39.8.96/27,</br>40.75.35.144/28       |
 |                | Północno-środkowe stany USA    | 40.80.185.0/24,</br>40.80.186.0/25,</br>52.162.111.48/28      |
 |                | Południowo-środkowe stany USA    | 40.119.9.0/25,</br>40.119.9.128/26,</br>13.73.244.32/28      |
 |                | Zachodnio-środkowe stany USA     | 52.150.137.128/25,</br>52.150.136.192/26,</br>13.71.199.0/28 |
@@ -63,10 +63,10 @@ Zezwalaj na ruch z adresów IP wymienionych dla środowiska wykonawczego integra
 
 ## <a name="known-issue-with-azure-storage"></a>Znany problem z usługą Azure Storage
 
-* Podczas łączenia się z kontem usługi Azure Storage reguły sieci IP nie mają wpływu na żądania pochodzące ze środowiska wykonawczego integracji platformy Azure w tym samym regionie co konto magazynu. Aby uzyskać więcej informacji, [zapoznaj się z tym artykułem](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range). 
+* W przypadku nawiązywania połączenia z kontem usługi Azure Storage reguły sieci IP nie mają wpływu na żądania pochodzące z platformy Azure Integration Runtime w tym samym regionie, w którym znajduje się konto magazynu. Aby uzyskać więcej informacji, [zapoznaj się z tym artykułem](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range). 
 
-  Zamiast tego zalecamy korzystanie z [zaufanych usług podczas łączenia się z usługą Azure Storage](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993). 
+  Zamiast tego sugerujemy używanie [zaufanych usług podczas nawiązywania połączenia z usługą Azure Storage](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993). 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zagadnienia dotyczące zabezpieczeń dotyczące przenoszenia danych w usłudze Azure Data Factory](data-movement-security-considerations.md)
+* [Zagadnienia dotyczące zabezpieczeń dotyczące przenoszenia danych w Azure Data Factory](data-movement-security-considerations.md)

@@ -1,6 +1,6 @@
 ---
-title: Rozszerzanie usługi Azure IoT Central o analizę niestandardową | Dokumenty firmy Microsoft
-description: Jako deweloper rozwiązania skonfiguruj aplikację IoT Central, aby wykonywać niestandardowe analizy i wizualizacje. To rozwiązanie używa usługi Azure Databricks.
+title: Zwiększanie IoT Central platformy Azure przy użyciu analizy niestandardowej | Microsoft Docs
+description: Jako deweloper rozwiązań Skonfiguruj aplikację IoT Central, aby wykonywać niestandardowe analizy i wizualizacje. To rozwiązanie używa Azure Databricks.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/02/2019
@@ -10,107 +10,107 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 7c2c14a937b4ef55d0e5f71e7b20214428ecd68c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80158201"
 ---
-# <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Rozszerzanie usługi Azure IoT Central o niestandardowe analizy przy użyciu usługi Azure Databricks
+# <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Rozszerzając IoT Central platformy Azure z analizą niestandardową przy użyciu Azure Databricks
 
-W tym przewodniku przedstawiono, jako deweloper rozwiązania, jak rozszerzyć aplikację IoT Central o niestandardowe analizy i wizualizacje. W przykładzie użyto obszaru roboczego [usługi Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) do analizowania strumienia telemetrii Centralnej IoT i generowania wizualizacji, takich jak [wykresy pól.](https://wikipedia.org/wiki/Box_plot)
+Ten przewodnik zawiera informacje o sposobie rozbudowywania aplikacji IoT Central przy użyciu niestandardowych analiz i wizualizacji. W przykładzie przedstawiono użycie [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) obszaru roboczego do analizowania IoT Central strumienia telemetrii i generowania wizualizacji, takich jak [pola](https://wikipedia.org/wiki/Box_plot).
 
-Ten poradnik pokazuje, jak rozszerzyć IoT Central poza to, co może już zrobić z [wbudowanymi narzędziami analitycznymi.](./howto-create-custom-analytics.md)
+W tym przewodniku opisano sposób, w jaki można rozbudować IoT Central wykraczające poza to, co można już zrobić przy użyciu [wbudowanych narzędzi analitycznych](./howto-create-custom-analytics.md).
 
-W tym przewodniku instrukcja, dowiedzieć się, jak:
+W tym przewodniku krok po kroku dowiesz się, jak:
 
-* Przesyłaj dane telemetryczne z aplikacji IoT Central przy użyciu *ciągłego eksportowania danych*.
-* Tworzenie środowiska usługi Azure Databricks do analizowania i drukowania danych telemetrycznych urządzenia.
+* Przesyłaj dane telemetryczne z aplikacji IoT Central przy użyciu *ciągłego eksportu danych*.
+* Utwórz środowisko Azure Databricks, aby przeanalizować i wykreolić dane telemetryczne urządzenia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym przewodniku, potrzebujesz aktywnej subskrypcji platformy Azure.
+Aby wykonać kroki opisane w tym przewodniku, musisz mieć aktywną subskrypcję platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ### <a name="iot-central-application"></a>Aplikacja IoT Central
 
-Utwórz aplikację IoT Central w witrynie sieci Web [menedżera aplikacji Usługi Azure IoT Central](https://aka.ms/iotcentral) z następującymi ustawieniami:
+Utwórz aplikację IoT Central w witrynie programu [Azure IoT Central Application Manager](https://aka.ms/iotcentral) przy użyciu następujących ustawień:
 
 | Ustawienie | Wartość |
 | ------- | ----- |
 | Plan cenowy | Standardowa |
-| Szablon aplikacji | Analityka w sklepie – monitorowanie stanu |
+| Szablon aplikacji | Analiza warunków w sklepie — monitorowanie |
 | Nazwa aplikacji | Zaakceptuj wartość domyślną lub wybierz własną nazwę |
 | Adres URL | Zaakceptuj domyślny lub wybierz własny unikatowy prefiks adresu URL |
-| Katalog | Dzierżawa usługi Azure Active Directory |
+| Katalog | Dzierżawa Azure Active Directory |
 | Subskrypcja platformy Azure | Twoja subskrypcja platformy Azure |
-| Region | Twój najbliższy region |
+| Region | Najbliższy region |
 
-Przykłady i zrzuty ekranu w tym artykule używają regionu **Stany Zjednoczone.** Wybierz lokalizację blisko siebie i upewnij się, że wszystkie zasoby są tworzęne w tym samym regionie.
+Przykłady i zrzuty ekranu w tym artykule używają regionu **Stany Zjednoczone** . Wybierz lokalizację blisko siebie i upewnij się, że wszystkie zasoby zostały utworzone w tym samym regionie.
 
-Ten szablon aplikacji zawiera dwa symulowane urządzenia termostatu, które wysyłają dane telemetryczne.
+Ten szablon aplikacji zawiera dwa symulowane urządzenia z termostatem, które wysyłają dane telemetryczne.
 
 ### <a name="resource-group"></a>Grupa zasobów
 
-Użyj [witryny Azure Portal, aby utworzyć grupę zasobów](https://portal.azure.com/#create/Microsoft.ResourceGroup) o nazwie **IoTCentralAnalysis,** aby zawierać inne zasoby, które tworzysz. Utwórz zasoby platformy Azure w tej samej lokalizacji co aplikacja IoT Central.
+Użyj [Azure Portal, aby utworzyć grupę zasobów](https://portal.azure.com/#create/Microsoft.ResourceGroup) o nazwie **IoTCentralAnalysis** , aby zawierała inne utworzone zasoby. Utwórz zasoby platformy Azure w tej samej lokalizacji, w której znajduje się aplikacja IoT Central.
 
 ### <a name="event-hubs-namespace"></a>Przestrzeń nazw usługi Event Hubs
 
-Użyj [witryny Azure Portal, aby utworzyć obszar nazw Centrum zdarzeń](https://portal.azure.com/#create/Microsoft.EventHub) z następującymi ustawieniami:
+Użyj [Azure Portal, aby utworzyć przestrzeń nazw Event Hubs](https://portal.azure.com/#create/Microsoft.EventHub) z następującymi ustawieniami:
 
 | Ustawienie | Wartość |
 | ------- | ----- |
-| Nazwa    | Wybierz nazwę obszaru nazw |
-| Warstwa cenowa | Podstawowa (Basic) |
+| Nazwa    | Wybierz nazwę przestrzeni nazw |
+| Warstwa cenowa | Podstawowy |
 | Subskrypcja | Twoja subskrypcja |
-| Grupa zasobów | IoTCentralAnaliza |
+| Grupa zasobów | IoTCentralAnalysis |
 | Lokalizacja | Wschodnie stany USA |
 | Jednostki przepływności | 1 |
 
-### <a name="azure-databricks-workspace"></a>Obszar roboczy usługi Azure Databricks
+### <a name="azure-databricks-workspace"></a>Azure Databricks obszar roboczy
 
-Użyj [witryny Azure portal, aby utworzyć usługę Azure Databricks](https://portal.azure.com/#create/Microsoft.Databricks) z następującymi ustawieniami:
+Użyj [Azure Portal, aby utworzyć usługę Azure Databricks](https://portal.azure.com/#create/Microsoft.Databricks) z następującymi ustawieniami:
 
 | Ustawienie | Wartość |
 | ------- | ----- |
 | Nazwa obszaru roboczego    | Wybierz nazwę obszaru roboczego |
 | Subskrypcja | Twoja subskrypcja |
-| Grupa zasobów | IoTCentralAnaliza |
+| Grupa zasobów | IoTCentralAnalysis |
 | Lokalizacja | Wschodnie stany USA |
 | Warstwa cenowa | Standardowa |
 
-Po utworzeniu wymaganych zasobów grupa zasobów **IoTCentralAnalysis** wygląda następująco:
+Po utworzeniu wymaganych zasobów Grupa zasobów **IoTCentralAnalysis** wygląda podobnie do poniższego zrzutu ekranu:
 
-![Grupa zasobów analizy Centralnej IoT](media/howto-create-custom-analytics/resource-group.png)
+![Grupa zasobów analizy IoT Central](media/howto-create-custom-analytics/resource-group.png)
 
 ## <a name="create-an-event-hub"></a>Tworzenie centrum zdarzeń
 
-Aplikację IoT Central można skonfigurować do ciągłego eksportowania danych telemetrycznych do centrum zdarzeń. W tej sekcji utworzysz Centrum zdarzeń, aby odbierać dane telemetryczne z aplikacji IoT Central. Centrum zdarzeń dostarcza dane telemetryczne do zadania usługi Stream Analytics do przetwarzania.
+Można skonfigurować aplikację IoT Central, aby ciągle eksportować dane telemetryczne do centrum zdarzeń. W tej sekcji utworzysz centrum zdarzeń, aby odbierać dane telemetryczne z aplikacji IoT Central. Centrum zdarzeń dostarcza dane telemetryczne do zadania Stream Analytics do przetworzenia.
 
-1. W witrynie Azure portal przejdź do obszaru nazw Centrum zdarzeń i wybierz **+ Centrum zdarzeń**.
-1. Nazwij centrum zdarzeń **centralexport**i wybierz pozycję **Utwórz**.
-1. Na liście centrów zdarzeń w obszarze nazw wybierz **opcję centralexport**. Następnie wybierz pozycję **Zasady dostępu współdzielonego**.
-1. Wybierz pozycję **+ Dodaj**. Utwórz zasadę o nazwie **Nasłuchiwanie** za pomocą oświadczenia **nasłuchiwanie.**
-1. Gdy zasada jest gotowa, zaznacz ją na liście, a następnie skopiuj wartość **klucza podstawowego ciągu połączenia.**
-1. Zanotuj ten ciąg połączenia, użyj go później podczas konfigurowania notesu Databricks do odczytu z centrum zdarzeń.
+1. W Azure Portal przejdź do przestrzeni nazw Event Hubs i wybierz pozycję **+ centrum zdarzeń**.
+1. Nazwij **centralexport**centrum zdarzeń, a następnie wybierz pozycję **Utwórz**.
+1. Na liście centrów zdarzeń w przestrzeni nazw wybierz pozycję **centralexport**. Następnie wybierz pozycję **zasady dostępu współdzielonego**.
+1. Wybierz pozycję **+ Dodaj**. Utwórz zasady o nazwie **Nasłuchuj** przy użyciu roszczeń **nasłuchujących** .
+1. Gdy zasady są gotowe, wybierz je z listy, a następnie skopiuj **Parametry połączenia — wartość klucza podstawowego** .
+1. Zanotuj te parametry połączenia, które są używane później podczas konfigurowania notesu datakostki do odczytu z centrum zdarzeń.
 
-Obszar nazw centrum zdarzeń wygląda następująco:
+Przestrzeń nazw Event Hubs wygląda następująco:
 
 ![Przestrzeń nazw usługi Event Hubs](media/howto-create-custom-analytics/event-hubs-namespace.png)
 
-## <a name="configure-export-in-iot-central"></a>Konfigurowanie eksportu w centrum IoT
+## <a name="configure-export-in-iot-central"></a>Konfigurowanie eksportu w IoT Central
 
-W witrynie sieci Web [menedżera aplikacji usługi Azure IoT Central](https://aka.ms/iotcentral) przejdź do aplikacji IoT Central utworzonej na podstawie szablonu Contoso. W tej sekcji można skonfigurować aplikację do przesyłania strumieniowego danych telemetrycznych z symulowanych urządzeń do centrum zdarzeń. Aby skonfigurować eksport:
+W witrynie sieci Web programu [Azure IoT Central Application Manager](https://aka.ms/iotcentral) przejdź do aplikacji IoT Central utworzonej na podstawie szablonu contoso. W tej sekcji skonfigurujesz aplikację do przesyłania strumieniowego danych telemetrycznych z symulowanych urządzeń do centrum zdarzeń. Aby skonfigurować eksport:
 
-1. Przejdź do strony **Eksportowanie danych,** wybierz pozycję **+ Nowy**, a następnie **centrum zdarzeń platformy Azure**.
-1. Użyj następujących ustawień, aby skonfigurować eksport, a następnie wybierz pozycję **Zapisz:**
+1. Przejdź do strony **eksport danych** , wybierz pozycję **+ Nowy**, a następnie opcję **Azure Event Hubs**.
+1. Aby skonfigurować eksport, użyj następujących ustawień, a następnie wybierz pozycję **Zapisz**:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    | Nazwa wyświetlana | Eksportowanie do centrów zdarzeń |
+    | Nazwa wyświetlana | Eksportuj do Event Hubs |
     | Enabled (Włączony) | Włączone |
-    | Przestrzeń nazw usługi Event Hubs | Nazwa obszaru nazw Centrów zdarzeń |
+    | Przestrzeń nazw usługi Event Hubs | Nazwa przestrzeni nazw Event Hubs |
     | Centrum zdarzeń | centralexport |
     | Miary | Włączone |
     | Urządzenia | Wyłączone |
@@ -118,69 +118,69 @@ W witrynie sieci Web [menedżera aplikacji usługi Azure IoT Central](https://ak
 
 ![Konfiguracja eksportu danych](media/howto-create-custom-analytics/cde-configuration.png)
 
-Przed kontynuowaniem poczekaj, aż stan eksportu **zostanie uruchomiony.**
+Przed kontynuowaniem Zaczekaj, aż stan eksportu zostanie **uruchomiony** .
 
-## <a name="configure-databricks-workspace"></a>Konfigurowanie obszaru roboczego Databricks
+## <a name="configure-databricks-workspace"></a>Skonfiguruj obszar roboczy datakosteks
 
-W witrynie Azure portal przejdź do usługi Azure Databricks i wybierz pozycję **Uruchom obszar roboczy**. W przeglądarce zostanie otwarta nowa karta, która zaloguje Cię do obszaru roboczego.
+W Azure Portal przejdź do usługi Azure Databricks i wybierz pozycję **Uruchom obszar roboczy**. Zostanie otwarta nowa karta w przeglądarce i zalogowanie do obszaru roboczego.
 
 ### <a name="create-a-cluster"></a>Tworzenie klastra
 
-Na stronie **Azure Databricks,** na liście typowych zadań, wybierz pozycję **Nowy klaster**.
+Na stronie **Azure Databricks** w obszarze listy typowych zadań wybierz pozycję **nowy klaster**.
 
-Aby utworzyć klaster, użyj informacji z poniższej tabeli:
+Skorzystaj z informacji w poniższej tabeli, aby utworzyć klaster:
 
 | Ustawienie | Wartość |
 | ------- | ----- |
-| Nazwa klastra | centralanaliza |
+| Nazwa klastra | centralanalysis |
 | Tryb klastra | Standardowa |
-| Databricks Wersja środowiska wykonawczego | 5,5 LTS (Scala 2.11, Iskra 2.4.3) |
-| Wersja Pythona | 3 |
-| Włączanie skalowania automatycznego | Nie |
-| Zakończenie po kilku minutach bezczynności | 30 |
-| Typ pracownika | Standardowa_DS3_v2 |
-| Pracowników | 1 |
-| Typ sterownika | Tak samo jak pracownik |
+| Wersja Databricks Runtime | 5,5 LTS (Scala 2,11, Spark 2.4.3) |
+| Wersja języka Python | 3 |
+| Włącz Skalowanie automatyczne | Nie |
+| Przerwij po minutach braku aktywności | 30 |
+| Typ procesu roboczego | Standardowa_DS3_v2 |
+| Ochotnik | 1 |
+| Typ sterownika | Taki sam jak proces roboczy |
 
-Tworzenie klastra może potrwać kilka minut, poczekaj na ukończenie tworzenia klastra przed kontynuowaniem.
+Utworzenie klastra może potrwać kilka minut. przed kontynuowaniem Zaczekaj na ukończenie tworzenia klastra.
 
-### <a name="install-libraries"></a>Instalowanie bibliotek
+### <a name="install-libraries"></a>Zainstaluj biblioteki
 
-Na stronie **Klastry** poczekaj, aż stan klastra zostanie **uruchomiony**.
+Na stronie **klastry** poczekaj, aż stan klastra zostanie **uruchomiony**.
 
-W poniższych krokach pokazano, jak zaimportować bibliotekę, której przykładowe potrzeby potrzebuje do klastra:
+W poniższych krokach pokazano, jak zaimportować bibliotekę potrzebną w ramach przykładu do klastra:
 
-1. Na stronie **Klastry** poczekaj, aż stan klastra interaktywnego **centralanalizy** zostanie **uruchomiony**.
+1. Na stronie **klastry** poczekaj, aż zostanie **uruchomiony**stan **centralanalysis** Interactive.
 
-1. Wybierz klaster, a następnie wybierz kartę **Biblioteki.**
+1. Wybierz klaster, a następnie wybierz kartę **biblioteki** .
 
-1. Na karcie **Biblioteki** wybierz pozycję **Zainstaluj nowy**.
+1. Na karcie **biblioteki** wybierz pozycję **Zainstaluj nowe**.
 
-1. Na stronie **Zainstaluj bibliotekę** wybierz pozycję **Maven** jako źródło biblioteki.
+1. Na stronie **Instalowanie biblioteki** wybierz **Maven** jako źródło biblioteki.
 
-1. W polu **tekstowym Współrzędne** wprowadź następującą wartość:`com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+1. W polu tekstowym **współrzędne** Wprowadź następującą wartość:`com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
 
-1. Wybierz **pozycję Zainstaluj,** aby zainstalować bibliotekę w klastrze.
+1. Wybierz pozycję **Zainstaluj** , aby zainstalować bibliotekę w klastrze.
 
-1. Stan biblioteki jest teraz **zainstalowany:**
+1. Stan biblioteki jest teraz **zainstalowany**:
 
-    ![Zainstalowana biblioteka](media/howto-create-custom-analytics/cluster-libraries.png)
+    ![Zainstalowana Biblioteka](media/howto-create-custom-analytics/cluster-libraries.png)
 
-### <a name="import-a-databricks-notebook"></a>Importowanie notesu databricks
+### <a name="import-a-databricks-notebook"></a>Importowanie notesu datacegły
 
-Aby zaimportować notes Databricks zawierający kod języka Python, należy wykonać następujące kroki w celu przeanalizowania i wizualizacji danych telemetrycznych i wizualizowanych centrum IoT:
+Wykonaj następujące kroki, aby zaimportować Notes datacegły zawierający kod języka Python, aby analizować i wizualizować dane telemetryczne IoT Central:
 
-1. Przejdź do strony **Obszar roboczy** w środowisku Databricks. Wybierz pozycję rozwijanej obok nazwy konta, a następnie wybierz pozycję **Importuj**.
+1. Przejdź do strony **obszaru roboczego** w środowisku datakostks. Wybierz listę rozwijaną obok swojej nazwy konta, a następnie wybierz pozycję **Importuj**.
 
-1. Wybierz, aby zaimportować z adresu URL i wprowadź następujący adres:[https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
+1. Wybierz opcję importowania z adresu URL i wprowadź następujący adres:[https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
 
-1. Aby zaimportować notes, wybierz polecenie **Importuj**.
+1. Aby zaimportować Notes, wybierz pozycję **Importuj**.
 
-1. Wybierz **obszar roboczy,** aby wyświetlić zaimportowany notes:
+1. Wybierz **obszar roboczy** , aby wyświetlić zaimportowany Notes:
 
-    ![Zaimportowany notes](media/howto-create-custom-analytics/import-notebook.png)
+    ![Zaimportowany Notes](media/howto-create-custom-analytics/import-notebook.png)
 
-1. Edytuj kod w pierwszej komórce języka Python, aby dodać wcześniej zapisany ciąg połączenia Usługi event hubów:
+1. Edytuj kod w pierwszej komórce w języku Python, aby dodać Event Hubs parametry połączenia, które zostały zapisane wcześniej:
 
     ```python
     from pyspark.sql.functions import *
@@ -194,41 +194,41 @@ Aby zaimportować notes Databricks zawierający kod języka Python, należy wyko
 
 ## <a name="run-analysis"></a>Uruchom analizę
 
-Aby uruchomić analizę, należy dołączyć notes do klastra:
+Aby uruchomić analizę, należy dołączyć Notes do klastra:
 
-1. Wybierz **pozycję Odłączony,** a następnie wybierz klaster **centralanalizy.**
-1. Jeśli klaster nie jest uruchomiony, uruchom go.
-1. Aby uruchomić notes, wybierz przycisk uruchom.
+1. Wybierz opcję **odłączane** , a następnie wybierz klaster **centralanalysis** .
+1. Jeśli klaster nie jest uruchomiony, należy go uruchomić.
+1. Aby rozpocząć pracę z notesem, wybierz przycisk Uruchom.
 
-W ostatniej komórce może pojawić się błąd. Jeśli tak, sprawdź, czy poprzednie komórki są uruchomione, poczekaj minutę, aż niektóre dane mają zostać zapisane w magazynie, a następnie uruchom ponownie ostatnią komórkę.
+W ostatniej komórce może zostać wyświetlony błąd. Jeśli tak jest, sprawdź, czy poprzednie komórki są uruchomione, Zaczekaj chwilę na zapisanie niektórych danych w magazynie, a następnie ponownie uruchom ostatnią komórkę.
 
-### <a name="view-smoothed-data"></a>Wyświetlanie wygładzonych danych
+### <a name="view-smoothed-data"></a>Wyświetl dane gładkie
 
-W notesie przewiń w dół do komórki 14, aby wyświetlić wykres średniej wilgotności stopniowej według typu urządzenia. Ten wykres jest stale aktualizowany w miarę nadejścia danych telemetrycznych przesyłania strumieniowego:
+W notesie przewiń w dół do komórki 14, aby wyświetlić wykres średniej wartości wilgotnej według typu urządzenia. Ten wykres ciągle aktualizuje się w miarę nadejścia danych telemetrycznych przesyłania strumieniowego:
 
-![Wygładzony wykres telemetryczny](media/howto-create-custom-analytics/telemetry-plot.png)
+![Wygładzony wykres telemetrii](media/howto-create-custom-analytics/telemetry-plot.png)
 
-Rozmiar wykresu można zmienić w notesie.
+Można zmienić rozmiar wykresu w notesie.
 
-### <a name="view-box-plots"></a>Wyświetlanie wykresów pól
+### <a name="view-box-plots"></a>Wyświetl wykresy
 
-W notesie przewiń w dół do komórki 20, aby wyświetlić [wykresy pól](https://en.wikipedia.org/wiki/Box_plot). Wykresy pól są oparte na danych statycznych, więc aby je zaktualizować, należy ponownie uruchomić komórkę:
+W notesie przewiń w dół do komórki 20, aby zobaczyć [pola wykresów](https://en.wikipedia.org/wiki/Box_plot). Wykresy skrzynkowe są oparte na danych statycznych, więc aby je zaktualizować, należy ponownie uruchomić komórkę:
 
 ![Wykresy skrzynkowe](media/howto-create-custom-analytics/box-plots.png)
 
 Można zmienić rozmiar wykresów w notesie.
 
-## <a name="tidy-up"></a>Posprząt
+## <a name="tidy-up"></a>Uporządkowanego
 
-Aby uporządkować po tym instrukcje i uniknąć niepotrzebnych kosztów, usuń **IoTCentralAnalysis** grupy zasobów w witrynie Azure portal.
+Aby uporządkowanego się po tym, jak to zrobić, i uniknąć niepotrzebnych kosztów, Usuń grupę zasobów **IoTCentralAnalysis** w Azure Portal.
 
-Aplikację IoT Central można usunąć ze strony **Zarządzanie** w aplikacji.
+Aplikację IoT Central można usunąć ze strony **zarządzania** w ramach aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku instrukcja, dowiedziałeś się, jak:
+W tym przewodniku krok po kroku przedstawiono następujące informacje:
 
-* Przesyłaj dane telemetryczne z aplikacji IoT Central przy użyciu *ciągłego eksportowania danych*.
-* Tworzenie środowiska usługi Azure Databricks do analizowania i drukowania danych telemetrycznych.
+* Przesyłaj dane telemetryczne z aplikacji IoT Central przy użyciu *ciągłego eksportu danych*.
+* Utwórz środowisko Azure Databricks, aby analizować i wykreślić dane telemetryczne.
 
-Teraz, gdy wiesz, jak tworzyć niestandardowe analizy, sugerowanym następnym krokiem jest nauczenie się [zarządzania aplikacją](howto-administer.md).
+Teraz, gdy wiesz już, jak utworzyć analizę niestandardową, sugerowanym następnym krokiem jest zapoznanie się z tematem [zarządzania aplikacją](howto-administer.md).

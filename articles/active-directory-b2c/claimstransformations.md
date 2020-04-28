@@ -1,6 +1,6 @@
 ---
-title: ClaimsTransformations — usługa Azure Active Directory B2C | Dokumenty firmy Microsoft
-description: Definicja claimsTransformations elementu w schematu struktury środowiska tożsamości usługi Azure Active Directory B2C.
+title: ClaimsTransformations — Azure Active Directory B2C | Microsoft Docs
+description: Definicja elementu ClaimsTransformations w schemacie struktury programu Identity Experience Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,19 +11,19 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2a919996d00f8ef3fa00109944b60d53b63d95ff
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529127"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**Element ClaimsTransformations** zawiera listę funkcji przekształcania oświadczeń, które mogą być używane w procesach pozyskiwania użytkowników jako część [zasad niestandardowych.](custom-policy-overview.md) Transformacja oświadczeń konwertuje danego oświadczenia na inny. W transformacji oświadczeń określić metodę przekształcania, na przykład dodanie elementu do kolekcji ciągów lub zmiana przypadku ciągu.
+Element **ClaimsTransformations** zawiera listę funkcji transformacji oświadczeń, które mogą być używane w podróży użytkowników w ramach [zasad niestandardowych](custom-policy-overview.md). Transformacja oświadczeń konwertuje określone oświadczenie na inne. W transformacji oświadczeń należy określić metodę przekształcenia, na przykład dodając element do kolekcji ciągów lub zmieniając wielkość liter w ciągu.
 
-Aby uwzględnić listę funkcji przekształcania oświadczeń, które mogą być używane w procesach pozyskiwania użytkowników, element XML claimstransformations musi być zadeklarowany w sekcji BuildingBlocks zasad.
+Aby dołączyć listę funkcji przekształcania oświadczeń, które mogą być używane w podróży użytkowników, element XML ClaimsTransformations musi być zadeklarowany w sekcji BuildingBlocks zasad.
 
 ```xml
 <ClaimsTransformations>
@@ -33,16 +33,16 @@ Aby uwzględnić listę funkcji przekształcania oświadczeń, które mogą być
 </ClaimsTransformations>
 ```
 
-**Element ClaimsTransformation** zawiera następujące atrybuty:
+Element **ClaimsTransformation** zawiera następujące atrybuty:
 
 | Atrybut |Wymagany | Opis |
 | --------- |-------- | ----------- |
-| Identyfikator |Tak | Identyfikator, który jest używany do jednoznacznej identyfikacji transformacji oświadczeń. Identyfikator odwołuje się z innych elementów XML w zasadach. |
-| TransformationMethod (Metodyka transformacji) | Tak | Metoda przekształcania do użycia w transformacji oświadczeń. Każda transformacja oświadczeń ma swoje własne wartości. Zobacz [odwołanie do przekształcenia oświadczeń](#claims-transformations-reference) dla pełnej listy dostępnych wartości. |
+| Identyfikator |Tak | Identyfikator, który jest używany do jednoznacznego identyfikowania transformacji roszczeń. Identyfikator jest przywoływany z innych elementów XML w zasadach. |
+| TransformationMethod | Tak | Metoda transformacji do użycia w transformacji oświadczeń. Każda transformacja roszczeń ma swoje własne wartości. Aby uzyskać pełną listę dostępnych wartości, zobacz [Dokumentacja transformacji oświadczeń](#claims-transformations-reference) . |
 
-## <a name="claimstransformation"></a>ReklamacjeTransformacja roszczeń
+## <a name="claimstransformation"></a>ClaimsTransformation
 
-**Element ClaimsTransformation** zawiera następujące elementy:
+Element **ClaimsTransformation** zawiera następujące elementy:
 
 ```xml
 <ClaimsTransformation Id="<identifier>" TransformationMethod="<method>">
@@ -61,65 +61,65 @@ Aby uwzględnić listę funkcji przekształcania oświadczeń, które mogą być
 
 | Element | Wystąpień | Opis |
 | ------- | -------- | ----------- |
-| WejściaClaims | 0:1 | Lista **InputClaim** elementów, które określają typy oświadczeń, które są traktowane jako dane wejściowe do przekształcenia oświadczeń. Każdy z tych elementów zawiera odwołanie do ClaimType już zdefiniowane w ClaimsSchema sekcji w zasadach. |
-| Inputparameters | 0:1 | Lista **InputParameter** elementów, które są dostarczane jako dane wejściowe do transformacji oświadczeń.
-| OutputClaims (Roszczenia wyjściowe) | 0:1 | Lista **OutputClaim** elementów, które określają typy oświadczeń, które są tworzone po ClaimsTransformation został wywołany. Każdy z tych elementów zawiera odwołanie do ClaimType już zdefiniowane w ClaimsSchema sekcji. |
+| InputClaims | 0:1 | Lista elementów **oświadczenie inputclaim** , które określają typy oświadczeń, które są pobierane jako dane wejściowe do transformacji oświadczeń. Każdy z tych elementów zawiera odwołanie do elementu ClaimType zdefiniowanego już w sekcji ClaimsSchema w zasadach. |
+| InputParameters | 0:1 | Lista elementów **InputParameter** , które są dostarczane jako dane wejściowe do przekształcania oświadczeń.
+| OutputClaims | 0:1 | Lista elementów **oświadczenie outputclaim** , które określają typy roszczeń, które są tworzone po wywołaniu ClaimsTransformation. Każdy z tych elementów zawiera odwołanie do elementu ClaimType zdefiniowanego już w sekcji ClaimsSchema. |
 
-### <a name="inputclaims"></a>WejściaClaims
+### <a name="inputclaims"></a>InputClaims
 
 Element **InputClaims** zawiera następujący element:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| InputClaim (własnach wejściowych) | 1:n | Typ oczekiwanego oświadczenia wejściowego. |
+| Oświadczenie inputclaim | 1: n | Oczekiwany typ zgłoszenia wejściowego. |
 
-#### <a name="inputclaim"></a>InputClaim (własnach wejściowych)
+#### <a name="inputclaim"></a>Oświadczenie inputclaim
 
-**InputClaim** Element zawiera następujące atrybuty:
+Element **oświadczenie inputclaim** zawiera następujące atrybuty:
 
 | Atrybut |Wymagany | Opis |
 | --------- | ----------- | ----------- |
-| Zastrzeżenie rodzaju żądań |Tak | Odwołanie do claimtype już zdefiniowane w ClaimsSchema sekcji w zasadach. |
-| TransformClaimType (Typ transformacji) |Tak | Identyfikator do odwoływania się do typu oświadczenia transformacji. Każda transformacja oświadczeń ma swoje własne wartości. Zobacz [odwołanie do przekształcenia oświadczeń](#claims-transformations-reference) dla pełnej listy dostępnych wartości. |
+| ClaimTypeReferenceId |Tak | Odwołanie do elementu ClaimType zdefiniowanego już w sekcji ClaimsSchema w zasadach. |
+| TransformationClaimType |Tak | Identyfikator, który odwołuje się do typu przywoływanego elementu transformacji. Każda transformacja roszczeń ma swoje własne wartości. Aby uzyskać pełną listę dostępnych wartości, zobacz [Dokumentacja transformacji oświadczeń](#claims-transformations-reference) . |
 
-### <a name="inputparameters"></a>Inputparameters
+### <a name="inputparameters"></a>InputParameters
 
-**InputParameters** Element zawiera następujący element:
+Element **InputParameters** zawiera następujący element:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| Inputparameter | 1:n | Oczekiwany parametr wejściowy. |
+| InputParameter | 1: n | Oczekiwano parametru wejściowego. |
 
-#### <a name="inputparameter"></a>Inputparameter
+#### <a name="inputparameter"></a>InputParameter
 
 | Atrybut | Wymagany |Opis |
 | --------- | ----------- |----------- |
-| Identyfikator | Tak | Identyfikator, który jest odwołaniem do parametru metody przekształcania oświadczeń. Każda metoda przekształcania oświadczeń ma swoje własne wartości. Zobacz tabelę przekształcania oświadczeń, aby uzyskać pełną listę dostępnych wartości. |
-| typ_danych | Tak | Typ danych parametru, takich jak String, Boolean, Int lub DateTime zgodnie z wyliczeniem DataType w schemacie XML zasad niestandardowych. Ten typ jest używany do wykonywania operacji arytmetycznych poprawnie. Każda transformacja oświadczeń ma swoje własne wartości. Zobacz [odwołanie do przekształcenia oświadczeń](#claims-transformations-reference) dla pełnej listy dostępnych wartości. |
-| Wartość | Tak | Wartość, która jest przekazywana dosłownie do transformacji. Niektóre wartości są dowolne, niektóre z nich można wybrać z metody przekształcania oświadczeń. |
+| Identyfikator | Tak | Identyfikator, który jest odwołaniem do parametru metody przekształcania oświadczeń. Każda metoda transformacji oświadczeń ma swoje własne wartości. Zobacz tabelę transformacji oświadczeń, aby uzyskać pełną listę dostępnych wartości. |
+| typ_danych | Tak | Typ danych parametru, taki jak String, Boolean, int lub DateTime jako na Wyliczenie typu danych w schemacie XML zasad niestandardowych. Ten typ jest używany do poprawnego wykonywania operacji arytmetycznych. Każda transformacja roszczeń ma swoje własne wartości. Aby uzyskać pełną listę dostępnych wartości, zobacz [Dokumentacja transformacji oświadczeń](#claims-transformations-reference) . |
+| Wartość | Tak | Wartość, która jest przenoszona Verbatim do transformacji. Niektóre wartości są dowolne, ale niektóre z nich wybiera się z metody przekształcania oświadczeń. |
 
-### <a name="outputclaims"></a>OutputClaims (Roszczenia wyjściowe)
+### <a name="outputclaims"></a>OutputClaims
 
-**OutputClaims** element zawiera następujący element:
+Element **OutputClaims** zawiera następujący element:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| WynikClaim | 0:n | Typ oczekiwanego oświadczenia wyjściowego. |
+| Oświadczenie outputclaim | 0: n | Oczekiwany typ zgłoszenia wyjściowego. |
 
-#### <a name="outputclaim"></a>WynikClaim
+#### <a name="outputclaim"></a>Oświadczenie outputclaim
 
-**OutputClaim** element zawiera następujące atrybuty:
+Element **oświadczenie outputclaim** zawiera następujące atrybuty:
 
 | Atrybut |Wymagany | Opis |
 | --------- | ----------- |----------- |
-| Zastrzeżenie rodzaju żądań | Tak | Odwołanie do claimtype już zdefiniowane w ClaimsSchema sekcji w zasadach.
-| TransformClaimType (Typ transformacji) | Tak | Identyfikator do odwoływania się do typu oświadczenia transformacji. Każda transformacja oświadczeń ma swoje własne wartości. Zobacz [odwołanie do przekształcenia oświadczeń](#claims-transformations-reference) dla pełnej listy dostępnych wartości. |
+| ClaimTypeReferenceId | Tak | Odwołanie do elementu ClaimType zdefiniowanego już w sekcji ClaimsSchema w zasadach.
+| TransformationClaimType | Tak | Identyfikator, który odwołuje się do typu przywoływanego elementu transformacji. Każda transformacja roszczeń ma swoje własne wartości. Aby uzyskać pełną listę dostępnych wartości, zobacz [Dokumentacja transformacji oświadczeń](#claims-transformations-reference) . |
 
-Jeśli oświadczenie wejściowe i oświadczenie wyjściowe są tego samego typu (ciąg lub wartość logiczna), można użyć tego samego oświadczenia wejściowego jako oświadczenia wyjściowego. W takim przypadku transformacja oświadczeń zmienia oświadczenie wejściowe z wartością danych wyjściowych.
+Jeśli dane wejściowe i dane wyjściowe są tego samego typu (ciąg lub wartość logiczna), można użyć tego samego żądania wejściowego jako żądania danych wyjściowych. W takim przypadku transformacja oświadczeń zmienia oświadczenie wejściowe na wartość wyjściową.
 
 ## <a name="example"></a>Przykład
 
-Na przykład możesz przechowywać ostatnią wersję swoich warunków świadczenia usług, którą użytkownik zaakceptował. Po zaktualizowaniu warunków świadczenia usług można poprosić użytkownika o zaakceptowanie nowej wersji. W poniższym przykładzie **HasTOSVersionChanged** roszczeń transformacji porównuje wartość **oświadczenia TOSVersion** z wartością **LastTOSAcceptedVersion** oświadczenia, a następnie zwraca wartość logiczną **TOSVersionChanged** oświadczenia.
+Można na przykład przechowywać w ostatniej wersji usługi, która zaakceptowała użytkownika. Po zaktualizowaniu warunków użytkowania można polecić użytkownikowi zaakceptowanie nowej wersji. W poniższym przykładzie transformacja oświadczeń **HasTOSVersionChanged** porównuje wartość oświadczenia **TOSVersion** z wartością oświadczenia **LastTOSAcceptedVersion** , a następnie zwraca oświadczenie **TOSVersionChanged** logicznego.
 
 ```XML
 <BuildingBlocks>
@@ -155,12 +155,12 @@ Na przykład możesz przechowywać ostatnią wersję swoich warunków świadczen
 </BuildingBlocks>
 ```
 
-## <a name="claims-transformations-reference"></a>Odwołanie do przekształceń oświadczeń
+## <a name="claims-transformations-reference"></a>Dokumentacja transformacji oświadczeń
 
-Przykłady przekształceń oświadczeń można znaleźć na następujących stronach odwołania:
+Przykłady przekształceń oświadczeń można znaleźć na następujących stronach odniesienia:
 
 - [Wartość logiczna](boolean-transformations.md)
-- [Data](date-transformations.md)
+- [Date](date-transformations.md)
 - [Liczba całkowita](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [Numer telefonu](phone-number-claims-transformations.md)

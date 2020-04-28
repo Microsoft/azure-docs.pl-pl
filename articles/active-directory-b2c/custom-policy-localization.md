@@ -1,6 +1,6 @@
 ---
-title: Lokalizowanie interfejsu użytkownika aplikacji za pomocą zasad niestandardowych
-description: Dowiedz się więcej o lokalizacji interfejsu użytkownika przy użyciu zasad niestandardowych w usłudze Azure Active Directory B2C.
+title: Lokalizowanie interfejsu użytkownika aplikacji przy użyciu zasad niestandardowych
+description: Dowiedz się więcej o lokalizacji interfejsu użytkownika przy użyciu zasad niestandardowych w programie Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,26 +11,26 @@ ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: be12bce8fa29076621bec35228838a4ebdd97433
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80545866"
 ---
-# <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Lokalizowanie interfejsu użytkownika aplikacji przy użyciu zasad niestandardowych w usłudze Azure Active Directory B2C
+# <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Lokalizowanie interfejsu użytkownika aplikacji przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Dostosowywanie języka w usłudze Azure Active Directory B2C (Azure AD B2C) umożliwia dostosowanie różnych języków do potrzeb klienta. Firma Microsoft udostępnia tłumaczenia na [36 języków,](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages)ale można również dostarczyć własne tłumaczenia dla dowolnego języka. Nawet jeśli środowisko jest dostępne tylko dla jednego języka, możesz dostosować dowolny tekst na stronach. 
+Dostosowanie języka w programie Azure Active Directory B2C (Azure AD B2C) pozwala dostosowywać różne języki do potrzeb klientów. Firma Microsoft udostępnia tłumaczenia dla [języków 36](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages), ale można również udostępniać własne tłumaczenia w dowolnym języku. Nawet jeśli środowisko użytkownika jest dostarczane tylko dla jednego języka, można dostosować dowolny tekst na stronach. 
 
-W tym artykule pokazano, jak obsługiwać wiele ustawień regionalnych lub języków w zasadach dotyczących podróży użytkowników. Lokalizacja wymaga trzech kroków: skonfigurować jawną listę obsługiwanych języków, podać ciągi i kolekcje specyficzne dla języka i edytować [definicję zawartości](contentdefinitions.md) strony. 
+W tym artykule przedstawiono sposób obsługi wielu ustawień regionalnych lub języków w zasadach dla podróży użytkownika. Lokalizacja wymaga trzech kroków: Skonfiguruj jawną listę obsługiwanych języków, podaj odpowiednie dla języka ciągi i kolekcje, a następnie Edytuj [definicję zawartości](contentdefinitions.md) strony. 
 
-## <a name="set-up-the-list-of-supported-languages"></a>Konfigurowanie listy obsługiwanych języków
+## <a name="set-up-the-list-of-supported-languages"></a>Skonfiguruj listę obsługiwanych języków
 
 Otwórz plik rozszerzeń zasad. Na przykład <em> `SocialAndLocalAccounts/` </em>.
 
-1. Wyszukaj [element BuildingBlocks.](buildingblocks.md) Jeśli element nie istnieje, dodaj go.
-1. Dodaj `Localization` element z obsługiwanymi językami: angielski (domyślnie) i hiszpański.  
+1. Wyszukaj element [BuildingBlocks](buildingblocks.md) . Jeśli element nie istnieje, Dodaj go.
+1. Dodaj `Localization` element z obsługiwanymi językami: angielski (domyślny) i hiszpański.  
 
 
 ```XML
@@ -44,12 +44,12 @@ Otwórz plik rozszerzeń zasad. Na przykład <em> `SocialAndLocalAccounts/` </em
 
 ## <a name="provide-language-specific-labels"></a>Podaj etykiety specyficzne dla języka
 
-[LocalizedResources](localization.md#localizedresources) `Localization` elementu zawiera listę zlokalizowanych ciągów. Element zlokalizowanych zasobów ma identyfikator, który jest używany do jednoznacznej identyfikacji zlokalizowanych zasobów. Ten identyfikator jest używany w dalszej części elementu [definicji zawartości.](contentdefinitions.md)
+[LocalizedResources](localization.md#localizedresources) `Localization` elementu zawiera listę zlokalizowanych ciągów. Element zlokalizowane zasoby ma identyfikator, który służy do jednoznacznego identyfikowania zlokalizowanych zasobów. Ta identyfikator jest używana w dalszej części elementu [definicji zawartości](contentdefinitions.md) .
 
-Skonfiguruj zlokalizowane elementy zasobów dla definicji zawartości i dowolnego języka, który ma być obsługiwany. Aby dostosować ujednolicone strony rejestracji lub logowania dla języka `LocalizedResources` angielskiego i hiszpańskiego, należy dodać następujące elementy po zamknięciu `</SupportedLanguages>` elementu.
+Można skonfigurować zlokalizowane elementy zasobów dla definicji zawartości i dowolny język, który ma być obsługiwany. Aby dostosować ujednolicone strony rejestracji lub logowania w języku angielskim i hiszpańskim, należy dodać następujące `LocalizedResources` elementy po zamknięciu `</SupportedLanguages>` elementu.
 
 > [!NOTE]
-> W poniższej próbce `#` dodaliśmy symbol funta na żebraniu każdej linii, dzięki czemu można łatwo znaleźć zlokalizowane etykiety na ekranie.
+> W poniższym przykładzie dodaliśmy symbol funta `#` w BEGGING każdego wiersza, dzięki czemu można easly znaleźć zlokalizowane etykiety na ekranie.
 
 ```XML
 <!--Local account sign-up or sign-in page English-->
@@ -212,11 +212,11 @@ Skonfiguruj zlokalizowane elementy zasobów dla definicji zawartości i dowolneg
 </LocalizedResources>
 ```
 
-## <a name="edit-the-content-definition-with-the-localization"></a>Edytowanie definicji zawartości za pomocą lokalizacji
+## <a name="edit-the-content-definition-with-the-localization"></a>Edytowanie definicji zawartości z lokalizacją
 
-Wklej całą zawartość ContentDefinitions element, który został skopiowany jako element podrzędny BuildingBlocks elementu.
+Wklej całą zawartość elementu ContentDefinitions, który został skopiowany jako element podrzędny elementu BuildingBlocks.
 
-W poniższym przykładzie ciągi niestandardowe w języku angielskim (en) i hiszpańskim (es) są dodawane do strony rejestracji lub logowania oraz do strony rejestracji konta lokalnego. **LocalizedResourcesReferenceId** dla każdego **LocalizedResourcesReference** jest taka sama jak ich ustawienia regionalne, ale można użyć dowolnego ciągu jako identyfikatora. Dla każdej kombinacji języka i strony należy wskazać odpowiednie **zlokalizowane źródła zasobów,** które zostały wcześniej utworzone.
+W poniższym przykładzie w języku angielskim (EN) i hiszpańskim (ES) ciągi niestandardowe są dodawane do strony rejestracji lub logowania oraz na stronie rejestracji konta lokalnego. **LocalizedResourcesReferenceId** dla każdego **LocalizedResourcesReferenceu** jest taka sama jak ich ustawienia regionalne, ale można użyć dowolnego ciągu jako identyfikatora. Dla każdej kombinacji języka i strony należy wskazać odpowiednie **LocalizedResources** wcześniej utworzone.
 
 ```XML
 <ContentDefinitions>
@@ -236,23 +236,23 @@ W poniższym przykładzie ciągi niestandardowe w języku angielskim (en) i hisz
 </ContentDefinitions>
 ```
 
-##  <a name="upload-and-test-your-updated-custom-policy"></a>Przesyłanie i testowanie zaktualizowanych zasad niestandardowych
+##  <a name="upload-and-test-your-updated-custom-policy"></a>Przekazywanie i testowanie zaktualizowanych zasad niestandardowych
 
 ### <a name="upload-the-custom-policy"></a>Przekazywanie zasad niestandardowych
 
 1. Zapisz plik rozszerzeń.
-1. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD B2C, wybierając filtr **subskrypcja katalog +** w górnym menu i wybierając katalog zawierający dzierżawę.
-1. Wyszukaj i wybierz **pozycję Azure AD B2C**.
-1. W obszarze **Zasady**wybierz pozycję **Identity Experience Framework**.
-1. Wybierz **pozycję Przekaż zasady niestandardowe**.
-1. Przekaż plik rozszerzeń, który został wcześniej zmieniony.
+1. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając pozycję **katalog i subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawcę.
+1. Wyszukaj i wybierz **Azure AD B2C**.
+1. W obszarze **zasady**wybierz pozycję **platforma obsługi tożsamości**.
+1. Wybierz pozycję **Przekaż zasady niestandardowe**.
+1. Przekaż wcześniej zmieniony plik rozszerzeń.
 
-### <a name="test-the-custom-policy-by-using-run-now"></a>Testowanie zasad niestandardowych przy użyciu **funkcji Uruchom teraz**
+### <a name="test-the-custom-policy-by-using-run-now"></a>Testowanie zasad niestandardowych za pomocą polecenia **Uruchom teraz**
 
 1. Wybierz przekazane zasady, a następnie wybierz pozycję **Uruchom teraz**.
-1. Powinna być widoczna zlokalizowana strona rejestracji lub logowania.
-1. Kliknij link do rejestracji, aby zobaczyć zlokalizowaną stronę rejestracji.
-1. Przełącz domyślny język przeglądarki na hiszpański. Lub można dodać parametr ciągu `ui_locales` kwerendy, do żądania autoryzacji. Przykład: 
+1. Powinno być możliwe wyświetlenie zlokalizowanej strony rejestracji lub logowania.
+1. Kliknij link do rejestracji, aby wyświetlić zlokalizowaną stronę rejestracji w usłudze.
+1. Zmień język domyślny przeglądarki na hiszpański. Można też dodać parametr ciągu zapytania `ui_locales` do żądania autoryzacji. Przykład: 
 
 ```http
 https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
@@ -260,6 +260,6 @@ https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o elemencie [lokalizacji](localization.md) w odwołaniu do IEF.
-- Zobacz listę [identyfikatorów ciągów lokalizacji](localization-string-ids.md) dostępnych w usłudze Azure AD B2C.
+- Dowiedz się więcej o elemencie [lokalizacyjnym](localization.md) w IEF Reference.
+- Zobacz listę [identyfikatorów ciągów lokalizacji](localization-string-ids.md) dostępnych w Azure AD B2C.
 

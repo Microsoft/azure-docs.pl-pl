@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
 ms.openlocfilehash: 9d74ea2b967112a794cda204cbbfcac707e1d7c4
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80879466"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Mapa gotowości usługi Azure Security Center
@@ -73,7 +73,7 @@ Film wideo
 * [Zmniejszenie zagrożeń dla bezpieczeństwa przy użyciu usługi Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
 ### <a name="security-center-for-incident-response"></a>Korzystanie z usługi Security Center w celu reagowania na zdarzenia
-Aby zmniejszyć koszty i uszkodzenia, przed atakiem należy wprowadzić plan reagowania na incydenty. Usługi Azure Security Center można używać na różnych etapach reagowania na zdarzenia.
+Aby zmniejszyć koszty i szkody, ważne jest, aby przed atakiem uzyskać plan reagowania na zdarzenia. Usługi Azure Security Center można używać na różnych etapach reagowania na zdarzenia.
 
 Użyj następujących zasobów, aby zrozumieć sposób dołączenia usługi Security Center do procesu reagowania na zdarzenia.
 
@@ -83,20 +83,20 @@ Filmy wideo
 
 Artykuły    
 * [Używanie usługi Azure Security Center do reagowania na zdarzenia](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
-* [Automatyzacja reakcji za pomocą automatyzacji przepływu pracy](workflow-automation.md)
+* [Automatyzowanie odpowiedzi z automatyzacją przepływu pracy](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>Zaawansowana ochrona w chmurze
 
-Maszyny wirtualne platformy Azure mogą wykorzystywać zaawansowane możliwości ochrony w chmurze w usłudze Security Center. Te możliwości obejmują dostęp do maszyny wirtualnej just-in-time (VM) i kontrolki aplikacji adaptacyjnych.
+Maszyny wirtualne platformy Azure mogą wykorzystywać zaawansowane możliwości ochrony w chmurze w usłudze Security Center. Te możliwości obejmują dostęp do maszyn wirtualnych just-in-Time i adaptacyjnych kontroli aplikacji.
 
 Użyj następujących zasobów, aby dowiedzieć się, jak korzystać z tych możliwości w usłudze Security Center.
 
 Filmy wideo    
-* [Usługa Azure Security Center — dostęp do maszyny wirtualnej just-in-time](https://youtu.be/UOQb2FcdQnU)
+* [Azure Security Center — dostęp just in Time do maszyny wirtualnej](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center — funkcje adaptacyjnego sterowania aplikacjami](https://youtu.be/wWWekI1Y9ck)
 
 Artykuły    
-* [Zarządzanie dostępem do maszyn wirtualnych przy użyciu dostępu just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Zarządzanie dostępem do maszyny wirtualnej przy użyciu funkcji just in Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Funkcje adaptacyjnego sterowania aplikacjami w usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
 ## <a name="hands-on-activities"></a>Praktyczne działania
@@ -114,7 +114,7 @@ Artykuły
 * [Najlepsze rozwiązania z zakresu zabezpieczeń sieci](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [Zalecenia PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Zgodność](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
-* [Klienci korzystający z analizy dzienników mogą teraz używać usługi Azure Security Center do ochrony swoich obciążeń w chmurze hybrydowej](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Klienci usługi log Analytics mogą teraz używać Azure Security Center do ochrony obciążeń chmury hybrydowej](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Zasoby społeczności
 

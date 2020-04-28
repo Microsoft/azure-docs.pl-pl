@@ -361,7 +361,7 @@ Poznaj następujące informacje dotyczące rozmiaru SAP:
 
 W usłudze Azure Resource Manager można używać grup zasobów do zarządzania wszystkimi zasobami aplikacji w ramach subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager][resource-group-overview].
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 ### <a name="sap-resources"></a><a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Zasoby SAP
 
@@ -416,7 +416,7 @@ Najprostszym sposobem utworzenia nowej maszyny wirtualnej z obrazem z portalu Az
 1.  Wybierz **pozycję Oblicz**, a następnie wybierz typ systemu operacyjnego, który chcesz wdrożyć. Na przykład Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7.2 (RHEL 7.2) lub Oracle Linux 7.2. Domyślny widok listy nie pokazuje wszystkich obsługiwanych systemów operacyjnych. Wybierz **pozycję Zobacz wszystkie,** aby uzyskać pełną listę. Aby uzyskać więcej informacji na temat obsługiwanych systemów operacyjnych do wdrażania oprogramowania SAP, zobacz UWAGA SAP [1928533].
 1.  Na następnej stronie zapoznaj się z regulaminem.
 1.  W polu **Wybierz model wdrożenia** wybierz pozycję Menedżer **zasobów**.
-1.  Wybierz **pozycję Utwórz**.
+1.  Wybierz pozycję **Utwórz**.
 
 Kreator prowadzi użytkownika przez ustawienie wymaganych parametrów do utworzenia maszyny wirtualnej, oprócz wszystkich wymaganych zasobów, takich jak interfejsy sieciowe i konta magazynu. Niektóre z tych parametrów to:
 
@@ -432,7 +432,7 @@ Kreator prowadzi użytkownika przez ustawienie wymaganych parametrów do utworze
      Aby uzyskać listę obsługiwanych typów maszyn wirtualnych, zobacz UWAGA SAP [1928533]. Upewnij się, że wybierzesz poprawny typ maszyny Wirtualnej, jeśli chcesz korzystać z usługi Azure Premium Storage. Nie wszystkie typy maszyn wirtualnych obsługują magazyn w wersji Premium. Aby uzyskać więcej informacji, zobacz [Magazyn: Magazyn Microsoft Azure i dyski danych][planning-guide-storage-microsoft-azure-storage-and-data-disks] oraz [usługa Azure Premium Storage][planning-guide-azure-premium-storage] w [usłudze Azure Virtual Machines planowania i implementacji sap NetWeaver][planning-guide].
 
 1. **Ustawienia**:
-   * **Magazyn**
+   * **Storage**
      * **Typ dysku**: Wybierz typ dysku systemu operacyjnego. Jeśli chcesz używać magazynu w wersji Premium dla dysków z danymi, zalecamy użycie magazynu w wersji Premium również dla dysku systemu operacyjnego.
      * **Użyj dysków zarządzanych:** Jeśli chcesz używać dysków zarządzanych, wybierz pozycję Tak. Aby uzyskać więcej informacji na temat dysków zarządzanych, zobacz rozdział [Dyski zarządzane][planning-guide-managed-disks] w przewodniku planowania.
      * **Konto magazynu:** Wybierz istniejące konto magazynu lub utwórz nowe. Nie wszystkie typy magazynu działają w przypadku uruchamiania aplikacji SAP. Aby uzyskać więcej informacji na temat typów magazynu, zobacz Struktura magazynu maszyny [Wirtualnej dla wdrożeń RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
@@ -442,7 +442,7 @@ Kreator prowadzi użytkownika przez ustawienie wymaganych parametrów do utworze
      * **Grupa zabezpieczeń sieci:** Aby uzyskać więcej informacji, zobacz [Kontrolowanie przepływu ruchu sieciowego za pomocą sieciowych grup zabezpieczeń][virtual-networks-nsg].
    * **Rozszerzenia:** Rozszerzenia: Rozszerzenia maszyny wirtualnej można zainstalować, dodając je do wdrożenia. W tym kroku nie trzeba dodawać rozszerzeń. Rozszerzenia wymagane dla obsługi SAP są instalowane później. Zobacz rozdział [Konfigurowanie rozszerzenia platformy Azure dla sap][deployment-guide-4.5] w tym przewodniku.
    * **Wysoka dostępność:** Wybierz zestaw dostępności lub wprowadź parametry, aby utworzyć nowy zestaw dostępności. Aby uzyskać więcej informacji, zobacz [Zestawy dostępności platformy Azure][planning-guide-3.2.3].
-   * **Monitorowania**
+   * **Monitorowanie**
      * **Diagnostyka rozruchu:** Można wybrać **opcję Wyłącz** dla diagnostyki rozruchu.
      * **Diagnostyka systemu operacyjnego gościa**: Można wybrać **opcję Wyłącz** do monitorowania diagnostyki.
 
@@ -508,7 +508,7 @@ Agent maszyny wirtualnej platformy Azure jest wdrażany domyślnie podczas korzy
 
 #### <a name="configure-proxy-settings"></a>Konfigurowanie ustawień serwera proxy
 
-W zależności od konfiguracji sieci lokalnej może być konieczne skonfigurowanie serwera proxy na maszynie wirtualnej. Jeśli maszyna wirtualna jest połączona z siecią lokalną za pośrednictwem sieci VPN lub usługi ExpressRoute, maszyna wirtualna może nie mieć dostępu do Internetu i nie będzie mogła pobrać wymaganych rozszerzeń maszyn wirtualnych ani zebrać informacji o infrastrukturze platformy Azure dla agenta hosta SAP za pośrednictwem rozszerzenia SAP na platformę Azure. Aby uzyskać więcej informacji, zobacz [Konfigurowanie serwera proxy][deployment-guide-configure-proxy].
+W zależności od konfiguracji sieci lokalnej może być konieczne skonfigurowanie serwera proxy na maszynie wirtualnej. Jeśli maszyna wirtualna jest połączona z siecią lokalną za pośrednictwem sieci VPN lub usługi ExpressRoute, maszyna wirtualna może nie być w stanie uzyskać dostępu do Internetu i nie będzie mogła pobrać wymaganych rozszerzeń maszyn wirtualnych ani zebrać informacji o infrastrukturze platformy Azure dla agenta hosta SAP za pośrednictwem rozszerzenia SAP dla platformy Azure. Aby uzyskać więcej informacji, zobacz [Konfigurowanie serwera proxy][deployment-guide-configure-proxy].
 
 #### <a name="join-a-domain-windows-only"></a>Dołączanie do domeny (tylko system Windows)
 
@@ -545,7 +545,7 @@ Aby utworzyć obraz prywatny dla systemu Linux, można użyć różnych kroków 
 >
 
 ---
-Można przygotować i utworzyć obraz niestandardowy, a następnie użyć go do utworzenia wielu nowych maszyn wirtualnych. Jest to opisane w [platformie Azure Virtual Machines planowania i implementacji dla SAP NetWeaver][planning-guide]. Skonfiguruj zawartość bazy danych za pomocą Menedżera aprowizacji oprogramowania SAP w celu zainstalowania nowego systemu SAP (przywraca kopię zapasową bazy danych z dysku podłączonego do maszyny wirtualnej) lub bezpośrednio przywracając kopię zapasową bazy danych z magazynu platformy Azure, jeśli system dbms go obsługuje. Aby uzyskać więcej informacji, zobacz [Wdrażanie usługi DBMS maszyn wirtualnych platformy Azure dla sap NetWeaver][dbms-guide]. Jeśli system SAP został już zainstalowany na lokalnej maszynie wirtualnej (szczególnie w przypadku systemów dwuwarstwowych), można dostosować ustawienia systemu SAP po wdrożeniu maszyny Wirtualnej platformy Azure przy użyciu procedury zmiany nazwy systemu obsługiwanej przez menedżera aprowizacji oprogramowania SAP (UWAGA SAP [1619720]). W przeciwnym razie można zainstalować oprogramowanie SAP po wdrożeniu maszyny Wirtualnej platformy Azure.
+Można przygotować i utworzyć obraz niestandardowy, a następnie użyć go do utworzenia wielu nowych maszyn wirtualnych. Jest to opisane w [platformie Azure Virtual Machines planowania i implementacji dla SAP NetWeaver][planning-guide]. Skonfiguruj zawartość bazy danych za pomocą menedżera aprowizacji oprogramowania SAP w celu zainstalowania nowego systemu SAP (przywraca kopię zapasową bazy danych z dysku podłączonego do maszyny wirtualnej) lub bezpośrednio przywracając kopię zapasową bazy danych z magazynu platformy Azure, jeśli usługa dbms ją obsługuje. Aby uzyskać więcej informacji, zobacz [Wdrażanie usługi DBMS maszyn wirtualnych platformy Azure dla sap NetWeaver][dbms-guide]. Jeśli system SAP został już zainstalowany na lokalnej maszynie wirtualnej (szczególnie w przypadku systemów dwuwarstwowych), można dostosować ustawienia systemu SAP po wdrożeniu maszyny Wirtualnej platformy Azure przy użyciu procedury zmiany nazwy systemu obsługiwanej przez menedżera aprowizacji oprogramowania SAP (UWAGA SAP [1619720]). W przeciwnym razie można zainstalować oprogramowanie SAP po wdrożeniu maszyny Wirtualnej platformy Azure.
 
 Poniższy schemat blokowy przedstawia sekwencję kroków specyficznych dla systemu SAP w celu wdrożenia maszyny Wirtualnej z obrazu niestandardowego:
 
@@ -572,7 +572,7 @@ Kreator prowadzi użytkownika przez ustawienie wymaganych parametrów do utworze
      Aby uzyskać listę obsługiwanych typów maszyn wirtualnych, zobacz UWAGA SAP [1928533]. Upewnij się, że wybierzesz poprawny typ maszyny Wirtualnej, jeśli chcesz korzystać z usługi Azure Premium Storage. Nie wszystkie typy maszyn wirtualnych obsługują magazyn w wersji Premium. Aby uzyskać więcej informacji, zobacz [Magazyn: Magazyn Microsoft Azure i dyski danych][planning-guide-storage-microsoft-azure-storage-and-data-disks] oraz [usługa Azure Premium Storage][planning-guide-azure-premium-storage] w [usłudze Azure Virtual Machines planowania i implementacji sap NetWeaver][planning-guide].
 
 1. **Ustawienia**:
-   * **Magazyn**
+   * **Storage**
      * **Typ dysku**: Wybierz typ dysku systemu operacyjnego. Jeśli chcesz używać magazynu w wersji Premium dla dysków z danymi, zalecamy użycie magazynu w wersji Premium również dla dysku systemu operacyjnego.
      * **Użyj dysków zarządzanych:** Jeśli chcesz używać dysków zarządzanych, wybierz pozycję Tak. Aby uzyskać więcej informacji na temat dysków zarządzanych, zobacz rozdział [Dyski zarządzane][planning-guide-managed-disks] w przewodniku planowania.
    * **Sieć**
@@ -581,7 +581,7 @@ Kreator prowadzi użytkownika przez ustawienie wymaganych parametrów do utworze
      * **Grupa zabezpieczeń sieci:** Aby uzyskać więcej informacji, zobacz [Kontrolowanie przepływu ruchu sieciowego za pomocą sieciowych grup zabezpieczeń][virtual-networks-nsg].
    * **Rozszerzenia:** Rozszerzenia: Rozszerzenia maszyny wirtualnej można zainstalować, dodając je do wdrożenia. W tym kroku nie trzeba dodawać rozszerzenia. Rozszerzenia wymagane dla obsługi SAP są instalowane później. Zobacz rozdział [Konfigurowanie rozszerzenia platformy Azure dla sap][deployment-guide-4.5] w tym przewodniku.
    * **Wysoka dostępność:** Wybierz zestaw dostępności lub wprowadź parametry, aby utworzyć nowy zestaw dostępności. Aby uzyskać więcej informacji, zobacz [Zestawy dostępności platformy Azure][planning-guide-3.2.3].
-   * **Monitorowania**
+   * **Monitorowanie**
      * **Diagnostyka rozruchu:** Można wybrać **opcję Wyłącz** dla diagnostyki rozruchu.
      * **Diagnostyka systemu operacyjnego gościa**: Można wybrać **opcję Wyłącz** do monitorowania diagnostyki.
 

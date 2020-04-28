@@ -1,6 +1,6 @@
 ---
-title: Często zadawane pytania ( CZĘSTO ZADAWANE PYTANIA) — Usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Typowe pytania i odpowiedzi dotyczące platformy Azure i usługi Azure Active Directory, zarządzania hasłami i dostępu do aplikacji.
+title: Często zadawane pytania — Azure Active Directory | Microsoft Docs
+description: Często zadawane pytania i odpowiedzi dotyczące platformy Azure i Azure Active Directory, zarządzania hasłami i dostępu do aplikacji.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -14,22 +14,22 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f4a961e601949689db89f8819f0a1fe1c5a7b3a
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80875796"
 ---
-# <a name="frequently-asked-questions-about-azure-active-directory"></a>Często zadawane pytania dotyczące usługi Azure Active Directory
+# <a name="frequently-asked-questions-about-azure-active-directory"></a>Często zadawane pytania dotyczące Azure Active Directory
 Azure Active Directory (Azure AD) jest kompleksowym rozwiązaniem typu tożsamość jako usługa (IDaaS, Identity as a Service), które obejmuje wszystkie aspekty tożsamości, zarządzania dostępem i bezpieczeństwa.
 
 Aby uzyskać więcej informacji, zobacz [Co to jest usługa Azure Active Directory?](active-directory-whatis.md).
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Uzyskiwanie dostępu do platformy Azure i usługi Azure Active Directory
-**Pyt.: Dlaczego podczas próby uzyskania dostępu do usługi Azure AD w witrynie Azure portal otrzymuję "Nie znaleziono żadnych subskrypcji"?**
+**P: Dlaczego otrzymuję pytanie "nie znaleziono żadnych subskrypcji" podczas próby dostępu do usługi Azure AD w Azure Portal?**
 
-**Odpowiedź:** aby uzyskać dostęp do witryny Azure Portal, każdy użytkownik musi mieć uprawnienia w ramach subskrypcji platformy Azure. Jeśli nie masz płatnej subskrypcji usługi Office 365 lub usługi Azure AD, musisz aktywować bezpłatne [konto platformy Azure](https://azure.microsoft.com/free/
+**Odpowiedź:** aby uzyskać dostęp do witryny Azure Portal, każdy użytkownik musi mieć uprawnienia w ramach subskrypcji platformy Azure. Jeśli nie masz płatnej subskrypcji pakietu Office 365 lub usługi Azure AD, musisz aktywować bezpłatne [konto platformy Azure](https://azure.microsoft.com/free/
 ) lub płatną subskrypcję.
 
 Aby uzyskać więcej informacji, zobacz:
@@ -37,7 +37,7 @@ Aby uzyskać więcej informacji, zobacz:
 * [Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 ---
-**Pyt.: Jaka jest relacja między usługą Azure AD, Office 365 i platformą Azure?**
+**P: Jaka jest relacja między usługą Azure AD, pakietem Office 365 i platformą Azure?**
 
 **Odpowiedź:** usługa Azure AD zawiera typowe funkcje związane z tożsamością i dostępem do wszystkich usług sieci Web. Niezależnie od tego, czy używasz usługi Office 365, Microsoft Azure, Intune lub innych, już używasz usługi Azure AD w celu umożliwienia logowania i zarządzania dostępem do tych wszystkich usług.
 
@@ -49,11 +49,11 @@ Usługi płatne Azure AD, takie jak Enterprise Mobility + Security, uzupełniaj�
 
 **P: Jakie są różnice między właścicielem a administratorem globalnym?**
 
-**Odp.:** Domyślnie osobie, która zarejestruje się w ramach subskrypcji platformy Azure, jest przypisana rola właściciela zasobów platformy Azure. Właściciel może używać konta Microsoft lub konta służbowego z katalogu, z którego jest skojarzona subskrypcja platformy Azure.  Ta rola jest autoryzowana do zarządzania usługami w witrynie Azure Portal.
+Odp **.:** Domyślnie osoba, która zarejestruje się w celu uzyskania subskrypcji platformy Azure, ma przypisaną rolę właściciela dla zasobów platformy Azure. Właściciel może korzystać z konto Microsoft lub konta służbowego z katalogu, z którym skojarzona jest subskrypcja platformy Azure.  Ta rola jest autoryzowana do zarządzania usługami w witrynie Azure Portal.
 
-Jeśli inni muszą się zalogować i uzyskać dostęp do usług przy użyciu tej samej subskrypcji, można przypisać im odpowiednią [wbudowaną rolę](../../role-based-access-control/built-in-roles.md). Aby uzyskać dodatkowe informacje, zobacz [Zarządzanie dostępem przy użyciu funkcji RBAC i portalu Azure](../../role-based-access-control/role-assignments-portal.md).
+Jeśli inne osoby muszą logować się i uzyskiwać dostęp do usług za pomocą tej samej subskrypcji, możesz przypisać im odpowiednią [rolę wbudowaną](../../role-based-access-control/built-in-roles.md). Aby uzyskać dodatkowe informacje, zobacz [Zarządzanie dostępem przy użyciu RBAC i Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
-Domyślnie osobie, która zarejestruje się w ramach subskrypcji platformy Azure, jest przypisana rola administratora globalnego dla katalogu. Administrator globalny ma dostęp do wszystkich funkcji katalogu usługi Azure AD. Usługa Azure AD ma inny zestaw ról administratora do zarządzania funkcjami katalogu i tożsamości. Administratorzy ci będą mieli dostęp do różnych funkcji w witrynie Azure portal. Rola administratora określa, co mogą zrobić, na przykład tworzyć lub edytować użytkowników, przypisywać role administracyjne innym osobom, resetować hasła użytkowników, zarządzać licencjami użytkowników lub zarządzać domenami.  Aby uzyskać dodatkowe informacje na temat administratorów katalogów usługi Azure AD i ich ról, zobacz [Przypisywanie ról administratora w usłudze Azure Active Directory](active-directory-users-assign-role-azure-portal.md) i [przypisywanie ról administratora w usłudze Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Domyślnie osoba, która zarejestruje się w celu uzyskania subskrypcji platformy Azure, ma przypisaną rolę administratora globalnego dla katalogu. Administrator globalny ma dostęp do wszystkich funkcji katalogów usługi Azure AD. Usługa Azure AD ma inny zestaw ról administratora do zarządzania katalogiem i funkcjami związanymi z tożsamościami. Ci administratorzy będą mieli dostęp do różnych funkcji w Azure Portal. Rola administratora określa, co można zrobić, jak tworzyć lub edytować użytkowników, przypisywać role administracyjne do innych, resetować hasła użytkowników, zarządzać licencjami użytkowników lub zarządzać domenami.  Aby uzyskać dodatkowe informacje na temat administratorów katalogów usługi Azure AD i ich ról, zobacz [Przypisywanie użytkownika do ról administratorów w Azure Active Directory](active-directory-users-assign-role-azure-portal.md) i [Przypisywanie ról administratorów w programie Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
 Ponadto usługi płatne Azure AD, takie jak Enterprise Mobility + Security, uzupełniają inne usługi sieci Web, np. Office 365 i Microsoft Azure, zapewniając kompleksowe rozwiązania z zakresu skalowalnego zarządzania dla przedsiębiorstw i bezpieczeństwa.
 
@@ -83,14 +83,14 @@ Aby uzyskać więcej informacji, zobacz [Integrowanie tożsamości lokalnych z u
 
 **Odpowiedź:** wystarczy skonfigurować logowanie jednokrotne (SSO) między katalogiem lokalnym i usługą Azure AD. Jeśli tylko uzyskujesz dostęp do aplikacji w chmurze poprzez usługę Azure AD, usługa automatycznie wymusza od użytkowników odpowiednie uwierzytelnianie przy użyciu ich lokalnych poświadczeń.
 
-Implementowanie logowania jednokrotnego z lokalnego rozwiązania można łatwo osiągnąć za pomocą rozwiązań federacyjnych, takich jak Usługi federacyjne Active Directory (AD FS), lub przez skonfigurowanie synchronizacji skrótów haseł. Obie opcje można łatwo wdrożyć za pomocą kreatora konfiguracji usługi Azure AD Connect.
+Zaimplementowanie logowania jednokrotnego z lokalnego programu może być łatwo osiągnięte przy użyciu rozwiązań federacyjnych, takich jak Active Directory Federation Services (AD FS) lub przez skonfigurowanie synchronizacji skrótów haseł. Możesz łatwo wdrożyć obie opcje, korzystając z Kreatora konfiguracji Azure AD Connect.
 
 Aby uzyskać więcej informacji, zobacz [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 ---
 **Pytanie: czy usługa Azure AD zawiera samoobsługowy portal dla użytkowników w organizacji?**
 
-**Odpowiedź:** tak, usługa Azure AD zapewnia [Panel dostępu usługi Azure AD](https://myapps.microsoft.com) do samoobsługi użytkowników i dostępu do aplikacji. Jeśli jesteś klientem usługi Office 365, możesz znaleźć wiele takich samych możliwości w [portalu usługi Office 365](https://portal.office.com).
+**Odpowiedź:** tak, usługa Azure AD zapewnia [Panel dostępu usługi Azure AD](https://myapps.microsoft.com) do samoobsługi użytkowników i dostępu do aplikacji. Jeśli jesteś klientem z pakietem Office 365, możesz znaleźć wiele tych samych funkcji w [portalu pakietu Office 365](https://portal.office.com).
 
 Aby uzyskać więcej informacji, zobacz [Wprowadzenie do panelu dostępu](../user-help/active-directory-saas-access-panel-introduction.md).
 
@@ -103,7 +103,7 @@ Aby uzyskać więcej informacji, zobacz [Monitorowanie lokalnej infrastruktury d
 
 ---
 ## <a name="password-management"></a>Zarządzanie hasłami
-**Pyt.: Czy mogę użyć hasła usługi Azure AD do tyłu bez synchronizacji hasła? (W tym scenariuszu, czy można użyć samoobsługowego resetowania haseł usługi Azure AD (SSPR) z odpisem hasła i nie przechowywać haseł w chmurze?)**
+**P: Czy można użyć funkcji zapisywania zwrotnego haseł usługi Azure AD bez synchronizacji haseł? (W tym scenariuszu można korzystać z funkcji samoobsługowego resetowania haseł w usłudze Azure AD (SSPR) z funkcją zapisywania zwrotnego haseł i nie przechowywać haseł w chmurze?**
 
 **Odpowiedź:** nie musisz synchronizować haseł usługi Active Directory z usługą Azure AD, aby korzystać z funkcji zapisywania zwrotnego. W środowisku federacyjnym logowanie jednokrotne usługi Azure AD opiera się na katalogu lokalnym w celu uwierzytelniania użytkownika. Ten scenariusz nie wymaga śledzenia lokalnego hasła w usłudze Azure AD.
 
@@ -139,9 +139,9 @@ W przypadku kont usługi Azure AD administratorzy mogą zresetować hasło w jed
 
 Korzystamy z bardziej zaawansowanej strategii blokowania kont.  Jest ona oparta na adresie IP żądania i wprowadzonym haśle. Czas trwania blokady wydłuża się też w zależności od stopnia prawdopodobieństwa ataku.  
 
-**Pyt.: Niektóre (wspólne) hasła są odrzucane z wiadomościami "to hasło było używane wiele razy", czy odnosi się to do haseł używanych w bieżącym usłudze Active Directory?**
+**P: niektóre (typowe) hasła są odrzucane z komunikatami "to hasło zostało użyte do wielu razy", czy dotyczy to haseł używanych w bieżącej usłudze Active Directory?**
 
-Odnosi się to do haseł, które są powszechnie spotykane na całym świecie, takich jak wszelkie warianty "Hasło" i "123456".
+Odnosi się to do haseł standardowych, takich jak wszystkie warianty "hasła" i "123456".
 
 **Pytanie: czy żądanie logowania z podejrzanych źródeł (botnety, punkt końcowy sieci Tor) zostanie zablokowane w dzierżawie B2C, czy wymaga to dzierżawy w warstwie Podstawowa lub Premium?**
 
@@ -158,7 +158,7 @@ Aby uzyskać pełną listę wstępnie zintegrowanych aplikacji, zobacz [Active D
 ---
 **Pytanie: co w przypadku, jeśli aplikacja, której potrzebuję, nie znajduje się w witrynie Azure AD Marketplace?**
 
-**Odpowiedź:** przy użyciu usługi Azure AD Premium możesz dodać i skonfigurować dowolną aplikację. W zależności od możliwości aplikacji i preferencji można skonfigurować funkcję SSO i automatyczne inicjowanie obsługi administracyjnej.  
+**Odpowiedź:** przy użyciu usługi Azure AD Premium możesz dodać i skonfigurować dowolną aplikację. W zależności od możliwości aplikacji i preferencji możesz skonfigurować rejestrację jednokrotną i automatyczne Inicjowanie obsługi.  
 
 Aby uzyskać więcej informacji, zobacz:
 
@@ -175,7 +175,7 @@ Aby uzyskać więcej informacji, zobacz:
 * Bezpośrednie logowanie do aplikacji federacyjnych
 * Linki bezpośrednie do federacyjnych, opartych na hasłach lub istniejących aplikacjach
 
-Aby uzyskać więcej informacji, zobacz [Środowisko użytkowników końcowych dla aplikacji](../manage-apps/end-user-experiences.md).
+Aby uzyskać więcej informacji, zobacz [środowisko użytkownika końcowego dla aplikacji](../manage-apps/end-user-experiences.md).
 
 ---
 **Pytanie: jakie są różne sposoby włączania uwierzytelniania i logowania jednokrotnego do aplikacji przez usługę Azure AD?**
@@ -185,11 +185,11 @@ Aby uzyskać więcej informacji, zobacz [Środowisko użytkowników końcowych d
 Aby uzyskać więcej informacji, zobacz:
 
 * [Scenariusze uwierzytelniania dla usługi Azure AD](../develop/authentication-scenarios.md)
-* [Protokoły uwierzytelniania usługi Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+* [Active Directory protokoły uwierzytelniania](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 * [Logowanie jednokrotne dla aplikacji w usłudze Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 ---
-**Pyt.: Czy mogę dodać aplikacje, które uruchamiam lokalnie?**
+**P: Czy mogę dodać aplikacje uruchamiane lokalnie?**
 
 **Odpowiedź:** serwer proxy aplikacji usługi Azure AD zapewnia prosty i bezpieczny dostęp do wybranych lokalnych aplikacji internetowych. Dostęp do tych aplikacji można uzyskiwać w taki sam sposób jak w przypadku aplikacji typu oprogramowanie jako usługa (SaaS) w usłudze Azure AD. Nie ma potrzeby stosowania sieci VPN ani zmiany infrastruktury sieciowej.  
 
@@ -198,12 +198,12 @@ Aby uzyskać więcej informacji, zobacz [How to provide secure remote access to 
 ---
 **Pytanie: jak wymagać uwierzytelniania wieloskładnikowego dla użytkowników uzyskujących dostęp do określonej aplikacji?**
 
-**Odp.:** Za pomocą usługi Azure AD Dostęp warunkowy, można przypisać unikatowe zasady dostępu dla każdej aplikacji. W zasadach możesz wymagać korzystania z uwierzytelniania wieloskładnikowego w każdym przypadku lub wtedy, gdy użytkownicy nie są połączeni z siecią lokalną.  
+Odp **.:** Dostęp warunkowy do usługi Azure AD umożliwia przypisywanie unikatowych zasad dostępu dla każdej aplikacji. W zasadach możesz wymagać korzystania z uwierzytelniania wieloskładnikowego w każdym przypadku lub wtedy, gdy użytkownicy nie są połączeni z siecią lokalną.  
 
 Aby uzyskać więcej informacji, zobacz [Zabezpieczanie dostępu do usługi Office 365 i innych aplikacji podłączonych do usługi Azure Active Directory](../conditional-access/overview.md).
 
 ---
-**Pyt.: Co to jest automatyczne inicjowanie obsługi administracyjnej dla aplikacji SaaS?**
+**P: co to jest zautomatyzowana funkcja aprowizacji użytkowników dla aplikacji SaaS?**
 
 **Odpowiedź:** usługa Azure AD umożliwia automatyzację tworzenia, obsługi i usuwania tożsamości użytkowników w wielu popularnych aplikacjach SaaS w chmurze.
 
@@ -212,4 +212,4 @@ Aby uzyskać więcej informacji, zobacz [Automate User Provisioning and Deprovis
 ---
 **Pytanie: czy mogę skonfigurować bezpieczne połączenie LDAP z usługą Azure AD?**
 
-**Odp.:**  №. Usługa Azure AD nie obsługuje bezpośrednio protokołu LDAP (Lightweight Directory Access Protocol) ani secure LDAP. Jednak jest możliwe, aby włączyć usługi azure ad usługi domenowe (Usługi Azure AD DS) wystąpienie w dzierżawie usługi Azure AD z prawidłowo skonfigurowanych grup zabezpieczeń sieci za pośrednictwem usługi Azure Networking do osiągnięcia łączności LDAP. Aby uzyskać więcej informacji, zobacz [Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej usług domenowych usługi active directory platformy Azure](../../active-directory-domain-services/tutorial-configure-ldaps.md)
+Odp **.:**  Znaleziono. Usługa Azure AD nie obsługuje protokołu Lightweight Directory Access Protocol (LDAP) ani Secure LDAP bezpośrednio. Możliwe jest jednak włączenie wystąpienia Azure AD Domain Services (Azure AD DS) w dzierżawie usługi Azure AD z odpowiednio skonfigurowanymi grupami zabezpieczeń sieci za pośrednictwem sieci platformy Azure, aby zapewnić łączność z protokołem LDAP. Aby uzyskać więcej informacji, zobacz [Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej Azure Active Directory Domain Services](../../active-directory-domain-services/tutorial-configure-ldaps.md)

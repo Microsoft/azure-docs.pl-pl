@@ -1,7 +1,7 @@
 ---
 title: Wtyczka logowania jednokrotnego Microsoft Enterprise dla urządzeń firmy Apple
 titleSuffix: Microsoft identity platform | Azure
-description: Dowiedz się więcej o usłudze SSO usługi Azure Active Directory firmy Microsoft dla urządzeń z systemem iOS i macOS.
+description: Dowiedz się więcej na temat wtyczki Microsoft Azure Active Directory SSO dla urządzeń z systemem iOS i macOS.
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -14,49 +14,49 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: a6af1a78582ebf62aed82bad8fa06cac37f511ea
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982586"
 ---
-# <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Wtyczka SSO firmy Microsoft Enterprise dla urządzeń Apple (wersja zapoznawcza)
+# <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Wtyczka Microsoft Enterprise SSO dla urządzeń firmy Apple (wersja zapoznawcza)
 
 > [!NOTE]
 > Ta funkcja jest dostępna w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-*Wtyczka logowania jednokrotnego* dla przedsiębiorstwa firmy Microsoft dla urządzeń Firmy Apple udostępnia konta logowania jednokrotnego (SSO) dla usługi Azure Active Directory (Azure AD) we wszystkich aplikacjach obsługujących funkcję rejestracji [jednokrotnej firmy](https://developer.apple.com/documentation/authenticationservices) Apple Enterprise. Firma Microsoft ściśle współpracowała z firmą Apple w celu opracowania tej wtyczki w celu zwiększenia użyteczności aplikacji, zapewniając jednocześnie najlepszą ochronę, jaką mogą zapewnić Apple i Microsoft.
+*Wtyczka Logowanie jednokrotne w przedsiębiorstwie firmy Microsoft dla urządzeń firmy Apple* zapewnia Logowanie jednokrotne (SSO) dla kont usługi Azure Active Directory (Azure AD) we wszystkich aplikacjach, które obsługują funkcję logowania jednokrotnego [w przedsiębiorstwie](https://developer.apple.com/documentation/authenticationservices) firmy Apple. Firma Microsoft pracowała ściśle z firmą Apple, aby opracować Tę wtyczkę w celu zwiększenia użyteczności aplikacji przy jednoczesnym zapewnieniu najlepszej ochrony zapewnianej przez firmę Apple i firmę Microsoft.
 
-W tej wersji publicznej wersji zapoznawczej wtyczka SSO przedsiębiorstwa jest dostępna tylko dla urządzeń z systemem iOS i jest rozpowszechniana w niektórych aplikacjach firmy Microsoft.
+W tej publicznej wersji zapoznawczej wtyczka logowania jednokrotnego w przedsiębiorstwie jest dostępna tylko dla urządzeń z systemem iOS i jest dystrybuowana w określonych aplikacjach firmy Microsoft.
 
-Pierwsze zastosowanie wtyczki SSO enterprise odbywa się za pomocą naszej nowej funkcji [trybu współdzielonego urządzenia.](msal-ios-shared-devices.md)
+Pierwsze korzystanie z wtyczki logowania jednokrotnego w przedsiębiorstwie odbywa się przy użyciu naszej nowej funkcji [trybu udostępnionego urządzenia](msal-ios-shared-devices.md) .
 
 ## <a name="features"></a>Funkcje
 
-Wtyczka SSO firmy Microsoft Enterprise dla urządzeń Apple oferuje następujące korzyści:
+Wtyczka logowania jednokrotnego w przedsiębiorstwie firmy Microsoft dla urządzeń firmy Apple oferuje następujące korzyści:
 
-- Zapewnia logowanie jednokrotne dla kont usługi Azure AD we wszystkich aplikacjach obsługujących funkcję rejestracji jednokrotnej firmy Apple Enterprise.
-- Dostarczane automatycznie w programie Microsoft Authenticator i mogą być włączane przez dowolne rozwiązanie do zarządzania urządzeniami przenośnymi (MDM).
+- Zapewnia Logowanie jednokrotne dla kont usługi Azure AD we wszystkich aplikacjach, które obsługują funkcję logowania jednokrotnego w przedsiębiorstwie firmy Apple.
+- Dostarczane automatycznie w Microsoft Authenticator i mogą być włączane przez dowolne rozwiązanie do zarządzania urządzeniami przenośnymi (MDM).
 
 ## <a name="requirements"></a>Wymagania
 
-Aby użyć wtyczki SSO firmy Microsoft Enterprise dla urządzeń Apple:
+Aby skorzystać z wtyczki Microsoft Enterprise SSO dla urządzeń firmy Apple:
 
-- System iOS 13.0 lub nowszy musi być zainstalowany na urządzeniu.
-- Aplikacja firmy Microsoft, która udostępnia wtyczkę SSO firmy Microsoft Enterprise dla urządzeń Apple, musi być zainstalowana na urządzeniu. W przypadku publicznej wersji zapoznawczej aplikacje te obejmują [aplikację Microsoft Authenticator](../user-help/user-help-auth-app-overview.md).
-- Urządzenie musi być zarejestrowane w usłudze MDM (na przykład w usłudze Microsoft Intune).
-- Konfiguracja musi zostać wypchnięta do urządzenia, aby włączyć wtyczkę SSO firmy Microsoft Enterprise dla urządzeń Apple na urządzeniu. To ograniczenie zabezpieczeń jest wymagane przez apple.
+- na urządzeniu musi być zainstalowany system iOS w wersji 13,0 lub nowszej.
+- Na urządzeniu musi być zainstalowana aplikacja firmy Microsoft udostępniająca dodatek logowania jednokrotnego dla przedsiębiorstwa firmy Microsoft dla urządzeń firmy Apple. W publicznej wersji zapoznawczej te aplikacje zawierają [Microsoft Authenticator aplikację](../user-help/user-help-auth-app-overview.md).
+- Urządzenie musi być zarejestrowane w systemie zarządzania urządzeniami przenośnymi (na przykład z Microsoft Intune).
+- Aby włączyć wtyczkę logowania jednokrotnego w przedsiębiorstwie dla urządzeń firmy Microsoft na urządzeniu, należy przeprowadzić konfigurację wypychaną na urządzenie. To ograniczenie zabezpieczeń jest wymagane przez firmę Apple.
 
-## <a name="enable-the-sso-extension-with-mobile-device-management-mdm"></a>Włącz rozszerzenie rejestracji rejestracji w tym celu za pomocą zarządzania urządzeniami przenośnymi (MDM)
+## <a name="enable-the-sso-extension-with-mobile-device-management-mdm"></a>Włączanie rozszerzenia SSO przy użyciu funkcji zarządzania urządzeniami przenośnymi (MDM)
 
-Aby włączyć wtyczkę SSO firmy Microsoft Enterprise dla urządzeń Apple, urządzenia muszą być wysyłane sygnał za pośrednictwem usługi MDM. Ponieważ firma Microsoft zawiera wtyczkę SSO przedsiębiorstwa w [aplikacji Microsoft Authenticator,](..//user-help/user-help-auth-app-overview.md)użyj urządzenia MDM, aby skonfigurować aplikację, aby włączyć wtyczkę microsoft enterprise sso.
+Aby włączyć wtyczkę logowania jednokrotnego w przedsiębiorstwie firmy Microsoft dla urządzeń firmy Apple, urządzenia muszą wysyłać sygnały za pomocą usługi MDM. Ponieważ firma Microsoft obejmuje wtyczkę logowania jednokrotnego dla przedsiębiorstw w [aplikacji Microsoft Authenticator](..//user-help/user-help-auth-app-overview.md), Użyj urządzenia MDM do skonfigurowania aplikacji w celu włączenia wtyczki Microsoft Enterprise SSO.
 
-Użyj następujących parametrów, aby skonfigurować wtyczkę SSO firmy Microsoft Enterprise dla urządzeń Apple:
+Użyj następujących parametrów, aby skonfigurować wtyczkę logowania jednokrotnego w przedsiębiorstwie firmy Microsoft dla urządzeń firmy Apple:
 
-- **Typ**: Przekierowanie
-- **Identyfikator rozszerzenia:**`com.microsoft.azureauthenticator.ssoextension`
+- **Typ**: redirect
+- **Identyfikator rozszerzenia**:`com.microsoft.azureauthenticator.ssoextension`
 - **Identyfikator zespołu**:`SGGM6D27TK`
 - **Adresy URL**:
   - `https://login.microsoftonline.com`
@@ -70,14 +70,14 @@ Użyj następujących parametrów, aby skonfigurować wtyczkę SSO firmy Microso
   - `https://login.usgovcloudapi.net`
   - `https://login-us.microsoftonline.com`
 
-Usługi Microsoft Intune można używać jako usługi MDM w celu ułatwienia konfiguracji wtyczki SSO firmy Microsoft Enterprise. Aby uzyskać więcej informacji, zobacz [dokumentację konfiguracji usługi Intune](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
+Microsoft Intune jako usługi MDM można użyć, aby ułatwić konfigurację wtyczki logowania jednokrotnego w przedsiębiorstwie firmy Microsoft. Aby uzyskać więcej informacji, zobacz [dokumentację konfiguracyjną usługi Intune](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
 
 ## <a name="using-the-sso-extension-in-your-application"></a>Korzystanie z rozszerzenia SSO w aplikacji
 
-[Biblioteka uwierzytelniania firmy Microsoft (MSAL) dla urządzeń Apple](https://github.com/AzureAD/microsoft-authentication-library-for-objc) w wersji 1.1.0 lub nowszej obsługuje wtyczkę SSO firmy Microsoft Enterprise dla urządzeń Apple.
+[Biblioteka Microsoft Authentication Library (MSAL) dla urządzeń firmy Apple](https://github.com/AzureAD/microsoft-authentication-library-for-objc) w wersji 1.1.0 lub nowszej obsługuje wtyczkę logowania jednokrotnego w przedsiębiorstwie firmy Microsoft dla urządzeń firmy Apple.
 
-Jeśli chcesz obsługiwać tryb urządzenia udostępnionego dostarczony przez wtyczkę SSO firmy Microsoft Enterprise dla urządzeń Apple, upewnij się, że aplikacje używają określonej minimalnej wymaganej wersji usługi MSAL.
+Jeśli chcesz obsługiwać tryb udostępnionego urządzenia udostępniony przez wtyczkę logowania jednokrotnego w przedsiębiorstwie firmy Microsoft dla urządzeń firmy Apple, upewnij się, że aplikacje używają określonej minimalnej wymaganej wersji programu MSAL.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat trybu udostępnionego urządzenia w systemach iOS, zobacz [Tryb urządzenia udostępnionego dla urządzeń z systemem iOS](msal-ios-shared-devices.md).
+Aby uzyskać więcej informacji na temat trybu udostępnionego urządzenia w systemie iOS, zobacz [tryb udostępnionego urządzenia dla urządzeń z systemem iOS](msal-ios-shared-devices.md).

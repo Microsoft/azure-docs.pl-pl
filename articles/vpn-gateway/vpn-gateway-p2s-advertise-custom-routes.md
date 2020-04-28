@@ -1,6 +1,6 @@
 ---
-title: 'Brama sieci VPN platformy Azure: anonsowanie tras niestandardowych dla klientów sieci VPN p2S'
-description: Kroki reklamowania tras niestandardowych do klientów typu punkt-lokacja
+title: 'Azure VPN Gateway: anonsowanie tras niestandardowych dla klientów sieci VPN P2S'
+description: Procedura anonsowania tras niestandardowych na klientach punkt-lokacja
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: cherylmc
 ms.openlocfilehash: 3588755e2aab1c84d443e917eca8c7fca280b49a
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80756884"
 ---
-# <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Anonsowanie tras niestandardowych dla klientów sieci VPN p2S
+# <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Anonsowanie tras niestandardowych dla klientów sieci VPN P2S
 
-Możesz anonsować niestandardowe trasy do wszystkich klientów sieci VPN typu punkt-lokacja. Na przykład po włączeniu punktów końcowych magazynu w sieci wirtualnej i chcesz, aby użytkownicy zdalni mogli uzyskiwać dostęp do tych kont magazynu za pośrednictwem połączenia sieci VPN. Adres IP punktu końcowego magazynu można anonsować wszystkim użytkownikom zdalnym, aby ruch na koncie magazynu przechodził przez tunel sieci VPN, a nie publiczny Internet.
+Możesz chcieć anonsować trasy niestandardowe wszystkim klientom sieci VPN typu punkt-lokacja. Na przykład jeśli włączono punkty końcowe magazynu w sieci wirtualnej i chcesz, aby użytkownicy zdalni mieli dostęp do tych kont magazynu za pośrednictwem połączenia sieci VPN. Adres IP punktu końcowego magazynu można anonsować wszystkim użytkownikom zdalnym w taki sposób, aby ruch do konta magazynu przeszedł przez tunel VPN, a nie publiczny Internet.
 
 ![Przykład połączenia obejmującego wiele lokacji w usłudze Azure VPN Gateway](./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png)
 
-## <a name="to-advertise-custom-routes"></a>Aby reklamować trasy niestandardowe
+## <a name="to-advertise-custom-routes"></a>Aby anonsować trasy niestandardowe
 
-Aby reklamować trasy `Set-AzVirtualNetworkGateway cmdlet`niestandardowe, użyj pliku . W poniższym przykładzie pokazano, jak anonsować adres IP [dla tabel kont magazynu Contoso](https://contoso.table.core.windows.net).
+Aby anonsować trasy niestandardowe, użyj `Set-AzVirtualNetworkGateway cmdlet`. Poniższy przykład pokazuje, jak anonsować adres IP dla [tabel kont magazynu contoso](https://contoso.table.core.windows.net).
 
-1. Ping *contoso.table.core.windows.net* i zanotuj adres IP. Przykład:
+1. Wyślij polecenie ping do *contoso.Table.Core.Windows.NET* i Zanotuj adres IP. Przykład:
 
     ```cmd
     C:\>ping contoso.table.core.windows.net
@@ -38,14 +38,14 @@ Aby reklamować trasy `Set-AzVirtualNetworkGateway cmdlet`niestandardowe, użyj 
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 13.88.144.250/32
     ```
 
-3. Aby dodać wiele tras niestandardowych, użyj przecinka i spacji, aby oddzielić adresy. Przykład:
+3. Aby dodać wiele tras niestandardowych, użyj przecinka i spacji w celu rozdzielenia adresów. Przykład:
 
     ```azurepowershell-interactive
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute x.x.x.x/xx , y.y.y.y/yy
     ```
 ## <a name="to-view-custom-routes"></a>Aby wyświetlić trasy niestandardowe
 
-Aby wyświetlić trasy niestandardowe, użyj następującego przykładu:
+Użyj poniższego przykładu, aby wyświetlić trasy niestandardowe:
 
   ```azurepowershell-interactive
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
@@ -53,7 +53,7 @@ Aby wyświetlić trasy niestandardowe, użyj następującego przykładu:
   ```
 ## <a name="to-delete-custom-routes"></a>Aby usunąć trasy niestandardowe
 
-Użyj następującego przykładu, aby usunąć trasy niestandardowe:
+Użyj poniższego przykładu, aby usunąć trasy niestandardowe:
 
   ```azurepowershell-interactive
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
@@ -61,4 +61,4 @@ Użyj następującego przykładu, aby usunąć trasy niestandardowe:
   ```
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać dodatkowe informacje o routingu P2S, zobacz [Informacje o routingu typu "punkt-lokacja".](vpn-gateway-about-point-to-site-routing.md)
+Aby uzyskać dodatkowe informacje dotyczące routingu P2S, zobacz [Informacje o routingu punkt-lokacja](vpn-gateway-about-point-to-site-routing.md).

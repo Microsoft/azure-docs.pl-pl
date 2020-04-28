@@ -1,6 +1,6 @@
 ---
-title: Wyświetlanie listy aplikacji w galerii aplikacji usługi Azure AD | Dokumenty firmy Microsoft
-description: Dowiedz się, jak wyświetlić listę aplikacji obsługujących logowanie jednokrotne w galerii aplikacji usługi Azure Active Directory
+title: Wyświetlanie listy aplikacji w galerii aplikacji usługi Azure AD | Microsoft Docs
+description: Dowiedz się, jak wyświetlić listę aplikacji, która obsługuje logowanie jednokrotne w galerii aplikacji Azure Active Directory
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,131 +14,131 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: fbdae8b8506731f13ff08e877ea8eedb6d57fa78
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80666941"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Wyświetlanie listy aplikacji w galerii aplikacji usługi Azure Active Directory
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-W tym artykule pokazano, jak wyświetlić listę aplikacji w galerii aplikacji usługi Azure Active Directory (Azure AD), zaimplementować logowanie jednokrotne (SSO) i zarządzać listą.
+W tym artykule pokazano, jak wyświetlić listę aplikacji w galerii aplikacji Azure Active Directory (Azure AD), zaimplementować Logowanie jednokrotne (SSO) i zarządzać listą.
 
-## <a name="what-is-the-azure-ad-application-gallery"></a>Co to jest galeria aplikacji usługi Azure AD?
+## <a name="what-is-the-azure-ad-application-gallery"></a>Co to jest Galeria aplikacji usługi Azure AD?
 
-- Klienci znajdują najlepsze możliwe środowisko logowania jednokrotnego.
+- Klienci szukają najlepszego możliwego środowiska logowania jednokrotnego.
 - Konfiguracja aplikacji jest prosta i minimalna.
-- Szybkie wyszukiwanie znajduje aplikację w galerii.
-- Klienci bezpłatnej, podstawowej i premium usługi Azure AD mogą korzystać z tej integracji.
-- Klienci wzajemni otrzymują samouczek konfiguracji krok po kroku.
-- Klienci korzystający z systemu zarządzania tożsamościami między domenami[(SCIM)](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)mogą używać inicjowania obsługi administracyjnej dla tej samej aplikacji.
+- Szybkie wyszukiwanie umożliwia znalezienie aplikacji w galerii.
+- Wszyscy klienci usługi Azure AD w wersji bezpłatna, podstawowa i Premium mogą korzystać z tej integracji.
+- Podzielni klienci mogą uzyskać samouczek konfigurowania krok po kroku.
+- Klienci korzystający z systemu do zarządzania tożsamościami w różnych domenach ([Standard scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)) mogą korzystać z aprowizacji dla tej samej aplikacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- W przypadku aplikacji federacyjnych (Open ID i SAML/WS-Fed) aplikacja musi obsługiwać model oprogramowania jako usługi (SaaS) do uzyskania listy w galerii aplikacji usługi Azure AD. Aplikacje galerii przedsiębiorstwa muszą obsługiwać wiele konfiguracji klientów, a nie żadnych konkretnych klientów.
-- W przypadku open id connect aplikacja musi być wielodostępna, a [struktura zgody usługi Azure AD](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) musi być poprawnie zaimplementowana dla aplikacji. Użytkownik może wysłać żądanie logowania do wspólnego punktu końcowego, dzięki czemu każdy klient może udzielić zgody na aplikację. Można kontrolować dostęp użytkownika na podstawie identyfikatora dzierżawy i nazwy UPN użytkownika odebrane w tokenie.
-- W przypadku SAML 2.0/WS-Fed aplikacja musi mieć możliwość integracji SSO SAML/WS-Fed w trybie SP lub IDP. Upewnij się, że ta funkcja działa poprawnie przed przesłaniem żądania.
-- W przypadku logowania jednokrotnego hasła upewnij się, że aplikacja obsługuje uwierzytelnianie formularzy, dzięki czemu można wykonać przechowanie haseł, aby uzyskać logowanie jednokrotne do pracy zgodnie z oczekiwaniami.
+- W przypadku aplikacji federacyjnych (otwartych IDENTYFIKATORami i protokołu SAML/WS-The-karmione) aplikacja musi obsługiwać model oprogramowanie jako usługa (SaaS) w celu uzyskania listy w galerii aplikacji usługi Azure AD. Aplikacje w galerii Enterprise Gallery muszą obsługiwać wiele konfiguracji klientów, a nie klientów.
+- W przypadku połączenia z programem Open ID aplikacja musi być wielodostępna, a [Struktura zgody na usługę Azure AD](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) musi być poprawnie zaimplementowana dla aplikacji. Użytkownik może wysłać żądanie logowania do wspólnego punktu końcowego, aby klient mógł wyrazić zgodę na dostęp do aplikacji. Możesz kontrolować dostęp użytkowników na podstawie identyfikatora dzierżawy oraz nazwy UPN użytkownika otrzymanej w tokenie.
+- W przypadku protokołu SAML 2.0/WS-The---------------------------------- Przed przesłaniem żądania upewnij się, że ta funkcja działa prawidłowo.
+- W przypadku logowania jednokrotnego za pomocą hasła upewnij się, że aplikacja obsługuje uwierzytelnianie formularzy, tak aby można było uruchomić Logowanie jednokrotne w oczekiwany sposób.
 - Potrzebujesz stałego konta do testowania z co najmniej dwoma zarejestrowanymi użytkownikami.
 
-**Jak uzyskać usługę Azure AD dla deweloperów?**
+**Jak uzyskać dostęp do usługi Azure AD dla deweloperów?**
 
-Możesz uzyskać bezpłatne konto testowe ze wszystkimi funkcjami usługi Azure AD premium — 90 dni za darmo i możesz zostać przedłużony, o ile pracujesz z deweloperami:https://docs.microsoft.com/office/developer-program/office-365-developer-program
+Możesz skorzystać z bezpłatnego konta testowego ze wszystkimi funkcjami usługi Azure AD w warstwie Premium — 90 dni wolnychhttps://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="submit-the-request-in-the-portal"></a>Prześlij żądanie w portalu
 
-Po przetestowaniu, czy integracja aplikacji współpracuje z usługą Azure AD, prześlij żądanie aplikacji w [portalu sieci Microsoft Application Network](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
+Po przetestowaniu współpracy aplikacji z usługą Azure AD Prześlij żądanie aplikacji w [portalu sieci aplikacji firmy Microsoft](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
-Jeśli po zalogowaniu się pojawi się następująca strona, skontaktuj się z [zespołem integracji logowania sytuane usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Podaj konto e-mail, którego chcesz użyć do przesłania żądania. Preferowany [name@yourbusiness.com](mailto:name@yourbusiness.com) jest biznesowy adres e-mail. Zespół usługi Azure AD doda konto w portalu sieci Microsoft Application Network.
+Jeśli po zalogowaniu zostanie wyświetlona następująca strona, skontaktuj się z [zespołem ds. integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Podaj konto e-mail, którego chcesz użyć do przesłania żądania. Służbowy adres e-mail, taki [name@yourbusiness.com](mailto:name@yourbusiness.com) jak jest preferowany. Zespół usługi Azure AD doda konto w portalu sieci aplikacji firmy Microsoft.
 
 ![Komunikat żądania dostępu w portalu programu SharePoint](./media/howto-app-gallery-listing/errorimage.png)
 
-Po dodaniu konta można zalogować się do portalu sieci Microsoft Application Network.
+Po dodaniu konta możesz zalogować się do portalu sieci aplikacji firmy Microsoft.
 
-Jeśli po zalogowaniu się pojawi się następująca strona, podaj uzasadnienie biznesowe potrzeby dostępu w polu tekstowym. Następnie wybierz pozycję **Poproś o dostęp**.
+Jeśli po zalogowaniu zostanie wyświetlona następująca strona, podaj uzasadnienie biznesowe dla potrzeb dostępu w polu tekstowym. Następnie wybierz pozycję **Żądaj dostępu**.
 
-  ![Pole Uzasadnienie biznesowe w portalu programu SharePoint](./media/howto-app-gallery-listing/accessrequest.png)
+  ![Pole uzasadnienia biznesowe w portalu programu SharePoint](./media/howto-app-gallery-listing/accessrequest.png)
 
-Nasz zespół sprawdza szczegóły i daje ci dostęp. Po zatwierdzeniu żądania można zalogować się do portalu i przesłać żądanie, wybierając kafelek **Wyślij żądanie (ISV)** na stronie głównej.
+Nasz zespół przegląda szczegóły i zapewnia odpowiednie uzyskanie dostępu. Po zatwierdzeniu żądania możesz zalogować się do portalu i przesłać żądanie, wybierając kafelek **Prześlij żądanie (ISV)** na stronie głównej.
 
-![Kafelek Wyślij żądanie (ISV) na stronie głównej](./media/howto-app-gallery-listing/homepage.png)
+![Kafelek przesyłania żądania (ISV) na stronie głównej](./media/howto-app-gallery-listing/homepage.png)
 
 ## <a name="issues-on-logging-into-portal"></a>Problemy z logowaniem do portalu
 
-Jeśli widzisz ten błąd podczas logowania, oto szczegóły dotyczące problemu i w ten sposób możesz go naprawić.
+Jeśli ten błąd występuje podczas logowania, poniżej przedstawiono szczegółowe informacje o tym problemie, co pozwala na jego rozwiązanie.
 
 * Jeśli logowanie zostało zablokowane, jak pokazano poniżej:
 
-  ![rozwiązywanie problemów z aplikacją w galerii](./media/howto-app-gallery-listing/blocked.png)
+  ![Rozwiązywanie problemów z aplikacją w galerii](./media/howto-app-gallery-listing/blocked.png)
 
 **Co się dzieje:**
 
-Użytkownik-gość jest sfederowany do dzierżawy domowej, która jest również usługą Azure AD. Użytkownik-gość jest na wysokie ryzyko. Firma Microsoft nie zezwala użytkownikom wysokiego ryzyka na dostęp do swoich zasobów. Wszyscy użytkownicy wysokiego ryzyka (pracownicy lub goście / dostawcy) muszą skorygować / zamknąć swoje ryzyko dostępu do zasobów firmy Microsoft. Dla użytkowników-gościa to ryzyko użytkownika pochodzi z dzierżawy domowej i zasady pochodzi z dzierżawy zasobów (Microsoft w tym przypadku).
+Użytkownik-Gość jest federacyjny dla dzierżawy głównej, która jest również usługą Azure AD. Użytkownik-Gość jest w wysokim ryzyku. Firma Microsoft nie zezwala użytkownikom wysokiego ryzyka na dostęp do zasobów. Wszyscy użytkownicy o wysokim ryzyku (pracownicy lub Goście/dostawcy) muszą skorygować/zamknąć ryzyko uzyskania dostępu do zasobów firmy Microsoft. Dla użytkowników-Gości ten czynnik ryzyka pochodzi z dzierżawy głównej, a zasady pochodzą z dzierżawy zasobów (w tym przypadku firmy Microsoft).
  
 **Bezpieczne rozwiązania:**
 
-* Zarejestrowani użytkownicy-goście zarejestrowanych usługi MFA korygują własne ryzyko użytkownika. Może to zrobić użytkownik-gość wykonujący zabezpieczoną zmianę hasła lub resethttps://aka.ms/sspr) (w ich dzierżawie domowej (wymaga to uwierzytelniania WIELOWŁADNEGO i spr w dzierżawie domowej). Zabezpieczona zmiana hasła lub resetowanie musi być zainicjowana w usłudze Azure AD, a nie w przedpremie.
+* Zarejestrowani użytkownicy-Goście zarejestrowany przez usługę MFA korygują własne ryzyko użytkownika. Może to zostać zrobione przez użytkownika-gościa wykonującego bezpieczną zmianę lub zresetowaniehttps://aka.ms/sspr) hasła (w swojej dzierżawie domowej (wymaga to usługi MFA i SSPR w dzierżawie głównej). Bezpieczne Zmienianie lub Resetowanie hasła musi być inicjowane w usłudze Azure AD, a nie w Premium.
 
-* Użytkownicy-goście mają swoich administratorów skorygować swoje ryzyko. W takim przypadku administrator wykona resetowanie hasła (tymczasowe generowanie hasła). Nie wymaga to ochrony tożsamości. Administrator użytkownika gościa może https://aka.ms/RiskyUsers przejść do i kliknąć na "Reset hasło".
+* Użytkownicy-Goście mają swoje administratorów korygują ryzyko. W takim przypadku administrator wykona Resetowanie hasła (tymczasowe generowanie hasła). Nie wymaga to ochrony tożsamości. Administrator użytkownika-gościa może przejść do https://aka.ms/RiskyUsers i kliknąć pozycję "Resetuj hasło".
 
-* Użytkownicy-goście mają swoich administratorów blisko / odrzucić swoje ryzyko. Ponownie, to nie wymaga ochrony tożsamości. Administrator może przejść https://aka.ms/RiskyUsers do i kliknąć na "Odrzuć ryzyko użytkownika". Jednak administrator musi dołożyć należytej staranności, aby upewnić się, że była to fałszywie dodatnia ocena ryzyka przed zamknięciem ryzyka użytkownika. W przeciwnym razie narażają swoje zasoby i microsoftu na ryzyko, tłumiąc ocenę ryzyka bez badania.
+* Użytkownicy-Goście mają swoich administratorów blisko lub odrzucają ryzyko. Nie wymaga to ochrony tożsamości. Administrator może przejść do https://aka.ms/RiskyUsers i kliknąć pozycję "Odrzuć ryzyko związane z użytkownikiem". Jednak administrator musi wykonać należytą staranność, aby upewnić się, że było to fałszywe pozytywne oceny ryzyka przed zamknięciem ryzyka użytkownika. W przeciwnym razie, narażamy zasoby firmy Microsoft na ryzyko, pomijając ocenę ryzyka bez badania.
 
 > [!NOTE]
-> Jeśli masz jakiekolwiek problemy z dostępem, skontaktuj się z [zespołem integracji sytuaj usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+> Jeśli masz problemy z dostępem, skontaktuj się z [zespołem ds. integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## <a name="implement-sso-by-using-the-federation-protocol"></a>Implementowanie sytuowania przy użyciu protokołu federacyjnego
+## <a name="implement-sso-by-using-the-federation-protocol"></a>Zaimplementuj Logowanie jednokrotne przy użyciu protokołu federacyjnego
 
-Aby wyświetlić listę aplikacji w galerii aplikacji usługi Azure AD, należy najpierw zaimplementować jeden z następujących protokołów federacyjnej obsługiwanych przez usługę Azure AD. Należy również wyrazić zgodę na warunki i warunki galerii aplikacji usługi Azure AD. Przeczytaj warunki galerii aplikacji usługi Azure AD w [tej witrynie sieci Web.](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)
+Aby wyświetlić listę aplikacji w galerii aplikacji usługi Azure AD, należy najpierw zaimplementować jeden z następujących protokołów federacyjnych obsługiwanych przez usługę Azure AD. Musisz również wyrazić zgodę na warunki i postanowienia galerii aplikacji usługi Azure AD. Przeczytaj warunki i postanowienia galerii aplikacji usługi Azure AD w [tej witrynie sieci Web](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 
-- **OpenID Connect:** Aby zintegrować aplikację z usługą Azure AD przy użyciu protokołu Open ID Connect, postępuj zgodnie z [instrukcjami deweloperów.](v1-authentication-scenarios.md)
+- **OpenID Connect Connect**: aby zintegrować aplikację z usługą Azure AD przy użyciu protokołu połączenia Open ID Connect, postępuj zgodnie z [instrukcjami dla deweloperów](v1-authentication-scenarios.md).
 
-    ![Wyświetlanie w galerii aplikacji OpenID Connect](./media/howto-app-gallery-listing/openid.png)
+    ![Wyświetlanie aplikacji OpenID Connect Connect w galerii](./media/howto-app-gallery-listing/openid.png)
 
-    * Jeśli chcesz dodać aplikację do listy w galerii za pomocą OpenID Connect, wybierz **OpenID Connect & OAuth 2.0,** jak pokazano na rysunku.
-    * Jeśli masz jakiekolwiek problemy z dostępem, skontaktuj się z [zespołem integracji sytuaj usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+    * Jeśli chcesz dodać aplikację do listy w galerii za pomocą OpenID Connect Connect, wybierz pozycję **OpenID Connect connect & OAuth 2,0** jak pokazano.
+    * Jeśli masz problemy z dostępem, skontaktuj się z [zespołem ds. integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-- **SAML 2.0** lub **WS-Fed:** Jeśli aplikacja obsługuje SAML 2.0, można zintegrować ją bezpośrednio z dzierżawą usługi Azure AD, postępując zgodnie z [instrukcjami, aby dodać aplikację niestandardową](../active-directory-saas-custom-apps.md).
+- **Saml 2,0** lub **WS-karmione**: Jeśli aplikacja obsługuje protokół SAML 2,0, można zintegrować ją bezpośrednio z DZIERŻAWą usługi Azure AD, postępując zgodnie z [instrukcjami, aby dodać aplikację niestandardową](../active-directory-saas-custom-apps.md).
 
-  ![Wyświetlanie w galerii aplikacji SAML 2.0 lub WS-Fed](./media/howto-app-gallery-listing/saml.png)
+  ![Wyświetlanie listy aplikacji SAML 2,0 lub WS-karmione w galerii](./media/howto-app-gallery-listing/saml.png)
 
-  * Jeśli chcesz dodać aplikację do listy w galerii za pomocą **SAML 2.0** lub **WS-Fed**, wybierz **SAML 2.0/WS-Fed,** jak pokazano.
+  * Jeśli chcesz dodać aplikację do listy w galerii za pomocą **saml 2,0** lub **WS-karmione**, wybierz pozycję **SAML 2.0/WS-karmione** , jak pokazano.
 
-  * Jeśli masz jakiekolwiek problemy z dostępem, skontaktuj się z [zespołem integracji sytuaj usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+  * Jeśli masz problemy z dostępem, skontaktuj się z [zespołem ds. integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## <a name="implement-sso-by-using-the-password-sso"></a>Zaimplementuj logowanie sytuane przy użyciu hasła logowania przy logowania przy logowania przed logiem
+## <a name="implement-sso-by-using-the-password-sso"></a>Zaimplementuj Logowanie jednokrotne przy użyciu hasła logowania jednokrotnego
 
-Utwórz aplikację sieci Web, która ma stronę logowania HTML, aby skonfigurować [logowanie jednookie](../manage-apps/what-is-single-sign-on.md). Logowanie logowania opartego na hasłach, nazywane również magazynowanie haseł, umożliwia zarządzanie dostępem użytkowników i hasłami do aplikacji sieci web, które nie obsługują federacji tożsamości. Jest to również przydatne w scenariuszach, w których kilku użytkowników musi udostępniać jedno konto, na przykład na kontach aplikacji mediów społecznościowych w organizacji.
+Utwórz aplikację sieci Web, która zawiera stronę logowania w formacie HTML, aby skonfigurować Logowanie jednokrotne [oparte na haśle](../manage-apps/what-is-single-sign-on.md). Logowanie jednokrotne oparte na hasłach, nazywane również magazynem haseł, umożliwia zarządzanie dostępem użytkowników i hasłami do aplikacji sieci Web, które nie obsługują federacji tożsamości. Jest to również przydatne w scenariuszach, w których kilku użytkowników musi udostępniać pojedyncze konto, na przykład na kontach aplikacji Media społecznościowych w organizacji.
 
-![Wyświetlanie hasła aplikacji SSO w galerii](./media/howto-app-gallery-listing/passwordsso.png)
+![Wyświetlanie listy aplikacji Logowanie jednokrotne w galerii](./media/howto-app-gallery-listing/passwordsso.png)
 
-* Jeśli chcesz dodać aplikację do listy w galerii przy użyciu hasła logować doonich, wybierz **opcję Loguchuj hasło,** jak pokazano.
-* Jeśli masz jakiekolwiek problemy z dostępem, skontaktuj się z [zespołem integracji sytuaj usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+* Jeśli chcesz dodać aplikację do listy w galerii przy użyciu hasła SSO logowania jednokrotnego, wybierz pozycję **Logowanie jednokrotne hasła** , jak pokazano.
+* Jeśli masz problemy z dostępem, skontaktuj się z [zespołem ds. integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## <a name="request-for-user-provisioning"></a>Żądanie inicjowania obsługi administracyjnej użytkowników
+## <a name="request-for-user-provisioning"></a>Żądanie aprowizacji użytkownika
 
-Postępuj zgodnie z procesem pokazanym na poniższej ilustracji, aby zażądać inicjowania obsługi administracyjnej przez użytkowników.
+Postępuj zgodnie z procesem przedstawionym na poniższej ilustracji, aby zażądać aprowizacji użytkowników.
 
-   ![Żądanie inicjowania obsługi administracyjnej użytkowników](./media/howto-app-gallery-listing/user-provisioning.png)
+   ![Żądanie aprowizacji użytkownika](./media/howto-app-gallery-listing/user-provisioning.png)
 
-## <a name="update-or-remove-an-existing-listing"></a>Aktualizowanie lub usuwanie istniejącej listy
+## <a name="update-or-remove-an-existing-listing"></a>Zaktualizuj lub Usuń istniejącą listę
 
-Aby zaktualizować lub usunąć istniejącą aplikację w galerii aplikacji usługi Azure AD, należy najpierw przesłać żądanie w [portalu sieci aplikacji](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Jeśli masz konto usługi Office 365, użyj go, aby zalogować się do tego portalu. Jeśli nie, zaloguj się za pomocą konta Microsoft, takiego jak Outlook lub Hotmail.
+Aby zaktualizować lub usunąć istniejącą aplikację w galerii aplikacji usługi Azure AD, należy najpierw przesłać żądanie w [portalu sieci aplikacji](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Jeśli masz konto Office 365, użyj go do zalogowania się do tego portalu. Jeśli tak nie jest, użyj konto Microsoft, takich jak Outlook lub Hotmail, aby się zalogować.
 
 - Wybierz odpowiednią opcję, jak pokazano na poniższej ilustracji.
 
-    ![Wyświetlanie aplikacji SAML w galerii](./media/howto-app-gallery-listing/updateorremove.png)
+    ![Wyświetlanie listy aplikacji SAML w galerii](./media/howto-app-gallery-listing/updateorremove.png)
 
     * Aby zaktualizować istniejącą aplikację, wybierz odpowiednią opcję zgodnie z wymaganiami.
-    * Aby usunąć istniejącą aplikację z galerii aplikacji usługi Azure AD, wybierz pozycję **Usuń moją listę aplikacji z galerii**.
-    * Jeśli masz jakiekolwiek problemy z dostępem, skontaktuj się z [zespołem integracji sytuaj usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+    * Aby usunąć istniejącą aplikację z galerii aplikacji usługi Azure AD, wybierz pozycję **Usuń moją aplikację z galerii**.
+    * Jeśli masz problemy z dostępem, skontaktuj się z [zespołem ds. integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## <a name="list-requests-by-customers"></a>Lista żądań klientów
+## <a name="list-requests-by-customers"></a>Wyświetlanie listy żądań według klientów
 
-Klienci mogą przesłać żądanie do listy aplikacji, wybierając **żądania aplikacji przez klientów** > **Prześlij nowe żądanie**.
+Klienci mogą przesłać żądanie, aby wyświetlić listę aplikacji, wybierając pozycję **żądania aplikacji przez klientów** > **przesyłając nowe żądanie**.
 
-![Pokazuje kafelek aplikacji żądanych przez klienta](./media/howto-app-gallery-listing/customer-submit-request.png)
+![Pokazuje kafelek aplikacje żądane przez klienta](./media/howto-app-gallery-listing/customer-submit-request.png)
 
 Oto przepływ aplikacji żądanych przez klienta.
 
@@ -146,14 +146,14 @@ Oto przepływ aplikacji żądanych przez klienta.
 
 ## <a name="timelines"></a>Osie czasu
 
-Harmonogram procesu wyświetlania w galerii aplikacji SAML 2.0 lub WS-Fed wynosi od 7 do 10 dni roboczych.
+Oś czasu procesu tworzenia listy aplikacji SAML 2,0 lub WS-karmione w galerii wynosi od 7 do 10 dni roboczych.
 
-  ![Oś czasu umieszczenia aplikacji SAML w galerii](./media/howto-app-gallery-listing/timeline.png)
+  ![Oś czasu do wyświetlania aplikacji SAML w galerii](./media/howto-app-gallery-listing/timeline.png)
 
-Oś czasu procesu wyświetlania aplikacji OpenID Connect w galerii wynosi od 2 do 5 dni roboczych.
+Oś czasu procesu tworzenia listy aplikacji OpenID Connect Connect w galerii to od 2 do 5 dni roboczych.
 
-  ![Oś czasu wyświetlania aplikacji OpenID Connect w galerii](./media/howto-app-gallery-listing/timeline2.png)
+  ![Oś czasu do wyświetlania aplikacji OpenID Connect Connect w galerii](./media/howto-app-gallery-listing/timeline2.png)
 
-## <a name="escalations"></a>Eskalacji
+## <a name="escalations"></a>Ich eskalacji
 
-W przypadku eskalacji wyślij wiadomość e-mail do [zespołu integracji jednosojowej usługi Azure AD](mailto:SaaSApplicationIntegrations@service.microsoft.com) pod adresem SaaSApplicationIntegrations@service.microsoft.com, a my odpowiemy tak szybko, jak to możliwe.
+W przypadku wszelkich eskalacji Wyślij wiadomość e-mail do [zespołu integracji rejestracji jednokrotnej usługi Azure AD](mailto:SaaSApplicationIntegrations@service.microsoft.com) w SaaSApplicationIntegrations@service.microsoft.comsystemie i będziemy reagować tak szybko, jak to możliwe.

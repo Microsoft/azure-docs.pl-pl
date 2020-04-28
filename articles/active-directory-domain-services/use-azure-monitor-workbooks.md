@@ -1,6 +1,6 @@
 ---
-title: Używanie skoroszytów usługi Azure Monitor w usługach domenowych usługi Azure AD | Dokumenty firmy Microsoft
-description: Dowiedz się, jak używać skoroszytów usługi Azure Monitor do przeglądania inspekcji zabezpieczeń i zrozumienia problemów w domenie zarządzanej usług domenowych Usługi active directory platformy Azure.
+title: Użyj Azure Monitor skoroszytów z Azure AD Domain Services | Microsoft Docs
+description: Dowiedz się, jak za pomocą skoroszytów Azure Monitor przejrzeć inspekcje zabezpieczeń i poznać problemy w Azure Active Directory Domain Servicesej domenie zarządzanej.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -10,103 +10,103 @@ ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: iainfou
 ms.openlocfilehash: bdfc7d37d99dc5511f47e33d1848c3f142a9693e
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80654469"
 ---
-# <a name="review-security-audit-events-in-azure-ad-domain-services-using-azure-monitor-workbooks"></a>Przeglądanie zdarzeń inspekcji zabezpieczeń w usługach domenowych usługi Azure AD przy użyciu skoroszytów usługi Azure Monitor
+# <a name="review-security-audit-events-in-azure-ad-domain-services-using-azure-monitor-workbooks"></a>Przeglądanie zdarzeń inspekcji zabezpieczeń w Azure AD Domain Services przy użyciu skoroszytów Azure Monitor
 
-Aby ułatwić zrozumienie stanu domeny zarządzanej usług domenowych Usługi active directory platformy Azure (Usługi Azure AD DS), można włączyć zdarzenia inspekcji zabezpieczeń. Te zdarzenia inspekcji zabezpieczeń można następnie przeglądać przy użyciu skoroszytów usługi Azure Monitor, które łączą tekst, zapytania analityczne i parametry w zaawansowane raporty interaktywne. Usługa Azure AD DS zawiera szablony skoroszytów do przeglądu zabezpieczeń i aktywności konta, które umożliwiają wykopianie zdarzeń inspekcji i zarządzanie środowiskiem.
+Aby ułatwić zrozumienie stanu domeny zarządzanej Azure Active Directory Domain Services (Azure AD DS), możesz włączyć zdarzenia inspekcji zabezpieczeń. Te zdarzenia inspekcji zabezpieczeń można następnie przejrzeć przy użyciu Azure Monitor skoroszytów, które łączą tekst, zapytania analityczne i parametry w rozbudowanych raportach interaktywnych. Usługa Azure AD DS zawiera szablony skoroszytów do przeglądu zabezpieczeń i działania związane z kontem, które pozwalają Dig zdarzenia inspekcji i zarządzać środowiskiem.
 
-W tym artykule pokazano, jak używać skoroszytów usługi Azure Monitor do przeglądania zdarzeń inspekcji zabezpieczeń w usługach Azure AD DS.
+W tym artykule pokazano, jak używać skoroszytów Azure Monitor do przeglądania zdarzeń inspekcji zabezpieczeń w usłudze Azure AD DS.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Aby ukończyć ten artykuł, potrzebne są następujące zasoby i uprawnienia:
+Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
 * Aktywna subskrypcja platformy Azure.
-    * Jeśli nie masz subskrypcji platformy Azure, [utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem tylko w chmurze.
-    * W razie potrzeby [utwórz dzierżawę usługi Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z kontem.][associate-azure-ad-tenant]
-* Domena zarządzana usługami domenowymi Usługi Active Directory platformy Azure włączona i skonfigurowana w dzierżawie usługi Azure AD.
-    * W razie potrzeby wykonaj samouczek, aby [utworzyć i skonfigurować wystąpienie usług domenowych Usługi domenowe Active Directory][create-azure-ad-ds-instance]platformy Azure .
-* Zdarzenia inspekcji zabezpieczeń włączone dla domeny zarządzanej usług domenowych Usługi active directory platformy Azure, które przesyłają strumieniowo dane do obszaru roboczego usługi Log Analytics.
-    * W razie potrzeby [włącz inspekcje zabezpieczeń usług domenowych Active Directory platformy Azure][enable-security-audits].
+    * Jeśli nie masz subskrypcji platformy Azure, [Utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem w chmurze.
+    * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
+* Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
+    * W razie potrzeby Uzupełnij samouczek, aby [utworzyć i skonfigurować wystąpienie Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+* Zdarzenia inspekcji zabezpieczeń włączone dla Azure Active Directory Domain Servicesej domeny zarządzanej, która przesyła strumieniowo dane do Log Analytics obszaru roboczego.
+    * W razie potrzeby [Włącz inspekcje zabezpieczeń dla Azure Active Directory Domain Services][enable-security-audits].
 
-## <a name="azure-monitor-workbooks-overview"></a>Omówienie skoroszytów monitora platformy Azure
+## <a name="azure-monitor-workbooks-overview"></a>Przegląd Azure Monitor skoroszytów
 
-Gdy zdarzenia inspekcji zabezpieczeń są włączone w usługach Azure AD DS, może być trudne do przeanalizowania i zidentyfikowania problemów w domenie zarządzanej. Usługa Azure Monitor umożliwia agregowanie tych zdarzeń inspekcji zabezpieczeń i wykonywanie zapytań o dane. Dzięki skoroszytom usługi Azure Monitor można wizualizować te dane, aby ułatwić ich identyfikowanie.
+Po włączeniu zdarzeń inspekcji zabezpieczeń w usłudze Azure AD DS może być trudno analizować i identyfikować problemy w domenie zarządzanej. Azure Monitor umożliwia agregowanie tych zdarzeń inspekcji zabezpieczeń i wykonywanie zapytań dotyczących danych. Za pomocą Azure Monitor skoroszytów można wizualizować te dane, aby szybciej i łatwiej identyfikować problemy.
 
-Szablony skoroszytów są wyselekcjonowanymi raportami, które są przeznaczone do elastycznego ponownego użycia przez wielu użytkowników i zespoły. Po otwarciu szablonu skoroszytu dane ze środowiska usługi Azure Monitor są ładowane. Szablonów można używać bez wpływu na innych użytkowników w organizacji i zapisywać własne skoroszyty na podstawie szablonu.
+Szablony skoroszytów są raportami nadzorowanymi, które są przeznaczone do elastycznego ponownego wykorzystania przez wielu użytkowników i zespoły. Po otwarciu szablonu skoroszytu są ładowane dane ze środowiska Azure Monitor. Można używać szablonów bez wpływu na innych użytkowników w organizacji i mogą zapisywać własne skoroszyty na podstawie szablonu.
 
-Usługi Azure AD DS obejmują następujące dwa szablony skoroszytu:
+Usługa Azure AD DS obejmuje dwa następujące szablony skoroszytu:
 
-* Raport przeglądu zabezpieczeń
+* Raport przegląd zabezpieczeń
 * Raport aktywności konta
 
-Aby uzyskać więcej informacji na temat edytowania skoroszytów i zarządzania nimi, zobacz [Omówienie skoroszytów monitora Platformy Azure](../azure-monitor/platform/workbooks-overview.md).
+Aby uzyskać więcej informacji na temat edytowania skoroszytów i zarządzania nimi, zobacz [Azure monitor skoroszyty — Omówienie](../azure-monitor/platform/workbooks-overview.md).
 
-## <a name="use-the-security-overview-report-workbook"></a>Korzystanie ze skoroszytu raportu przeglądu zabezpieczeń
+## <a name="use-the-security-overview-report-workbook"></a>Korzystanie z skoroszytu raportu Omówienie zabezpieczeń
 
-Aby lepiej zrozumieć użycie i zidentyfikować potencjalne zagrożenia bezpieczeństwa, raport przeglądowy zabezpieczeń podsumowuje dane logowania i identyfikuje konta, które można sprawdzić. Zdarzenia w określonym zakresie dat można wyświetlić i przejść do szczegółów określonych zdarzeń logowania, takich jak próby nieprawidłowego hasła lub wyłączenie konta.
+W celu lepszego zrozumienia użycia i zidentyfikowania potencjalnych zagrożeń bezpieczeństwa raport Przegląd zabezpieczeń podsumowuje dane logowania i identyfikuje konta, które można chcieć sprawdzić. Można wyświetlać zdarzenia w określonym zakresie dat, a także przechodzić do określonych zdarzeń logowania, takich jak błędne hasła lub w przypadku, gdy konto zostało wyłączone.
 
-Aby uzyskać dostęp do szablonu skoroszytu raportu przeglądu zabezpieczeń, wykonaj następujące czynności:
+Aby uzyskać dostęp do szablonu skoroszytu dla raportu Przegląd zabezpieczeń, wykonaj następujące czynności:
 
-1. Wyszukaj i wybierz **usługi domenowe Usługi domenowe Active Directory** platformy Azure w witrynie Azure portal.
-1. Wybierz domenę zarządzana, na przykład *aaddscontoso.com*
-1. Z menu po lewej stronie wybierz pozycję **Monitorowanie > skoroszyty**
+1. Wyszukaj i wybierz **Azure Active Directory Domain Services** w Azure Portal.
+1. Wybierz domenę zarządzaną, taką jak *aaddscontoso.com*
+1. Z menu po lewej stronie wybierz pozycję **monitorowanie > skoroszyty**
 
-    ![Wybierz opcję menu Skoroszyty w witrynie Azure portal](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
+    ![Wybierz opcję menu skoroszyty w Azure Portal](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Wybierz **raport Przegląd zabezpieczeń**.
-1. Z menu rozwijanych u góry skoroszytu wybierz subskrypcję platformy Azure, a następnie obszar roboczy usługi Azure Monitor. Wybierz **zakres czasu**, na przykład *Ostatnie 7 dni*.
+1. Z menu rozwijanego w górnej części skoroszytu wybierz subskrypcję platformy Azure, a następnie Azure Monitor obszarze roboczym. Wybierz **zakres czasu**, na przykład *ostatnie 7 dni*.
 
-    ![Wybierz opcję menu Skoroszyty w witrynie Azure portal](./media/use-azure-monitor-workbooks/select-query-filters.png)
+    ![Wybierz opcję menu skoroszyty w Azure Portal](./media/use-azure-monitor-workbooks/select-query-filters.png)
 
-    Opcje **widoku kafelków** i **widoku wykresu** można również zmienić w celu analizowania i wizualizowania danych zgodnie z potrzebami
+    Opcje **widoku kafelków** i **widoku wykresu** można także zmienić, aby analizować i wizualizować dane zgodnie z potrzebami
 
-1. Aby przejść do określonego typu zdarzenia, wybierz jedną z kart **wyników logowania,** takich jak *Konto zablokowane,* jak pokazano w poniższym przykładzie:
+1. Aby przejść do szczegółów określonego typu zdarzenia, wybierz jedną z kart **wyników logowania** , takich jak *Konto zablokowane*, jak pokazano w następującym przykładzie:
 
-    ![Przykładowe dane raportu przeglądu zabezpieczeń wizualizowane w skoroszytach monitora Platformy Azure](./media/use-azure-monitor-workbooks/example-security-overview-report.png)
+    ![Przykładowe dane raportu Omówienie zabezpieczeń wizualizacja w Azure Monitor skoroszytach](./media/use-azure-monitor-workbooks/example-security-overview-report.png)
 
-1. Dolna część raportu przeglądu zabezpieczeń poniżej wykresu następnie rozkłada wybrany typ działania. Możesz filtrować według nazw użytkowników zaangażowanych po prawej stronie, jak pokazano w poniższym przykładowym raporcie:
+1. Dolna część raportu Omówienie zabezpieczeń poniżej wykresu powoduje przerwanie działania wybranego typu. Można filtrować według nazw użytkowników związanych z prawą stroną, jak pokazano w poniższym przykładzie raportu:
 
     [![](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png "Details of account lockouts in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
 
-## <a name="use-the-account-activity-report-workbook"></a>Korzystanie ze skoroszytu raportu aktywności konta
+## <a name="use-the-account-activity-report-workbook"></a>Użyj skoroszytu raportu aktywności konta
 
-Aby ułatwić rozwiązywanie problemów z określonym kontem użytkownika, raport aktywności konta dzieli szczegółowe informacje dziennika zdarzeń inspekcji. Możesz przejrzeć, kiedy podczas logowania została podana nieprawidłowa nazwa użytkownika lub hasło, oraz źródło próby logowania.
+Aby ułatwić rozwiązywanie problemów dotyczących określonego konta użytkownika, raport aktywności konta powoduje przerwanie szczegółowych informacji dziennika zdarzeń inspekcji. Możesz sprawdzić, czy podczas logowania podano nieprawidłową nazwę użytkownika lub hasło, oraz Źródło próby logowania.
 
-Aby uzyskać dostęp do szablonu skoroszytu raportu aktywności konta, wykonaj następujące czynności:
+Aby uzyskać dostęp do szablonu skoroszytu dla raportu aktywność konta, wykonaj następujące czynności:
 
-1. Wyszukaj i wybierz **usługi domenowe Usługi domenowe Active Directory** platformy Azure w witrynie Azure portal.
-1. Wybierz domenę zarządzana, na przykład *aaddscontoso.com*
-1. Z menu po lewej stronie wybierz pozycję **Monitorowanie > skoroszyty**
-1. Wybierz **raport aktywności konta**.
-1. Z menu rozwijanych u góry skoroszytu wybierz subskrypcję platformy Azure, a następnie obszar roboczy usługi Azure Monitor. Wybierz **zakres czasu**, na przykład *Ostatnie 30 dni,* a następnie sposób reprezentowania danych **w widoku kafelka.** Możesz filtrować według **nazwy użytkownika konta,** na przykład *felix,* jak pokazano w poniższym przykładowym raporcie:
+1. Wyszukaj i wybierz **Azure Active Directory Domain Services** w Azure Portal.
+1. Wybierz domenę zarządzaną, taką jak *aaddscontoso.com*
+1. Z menu po lewej stronie wybierz pozycję **monitorowanie > skoroszyty**
+1. Wybierz **raport aktywność konta**.
+1. Z menu rozwijanego w górnej części skoroszytu wybierz subskrypcję platformy Azure, a następnie Azure Monitor obszarze roboczym. Wybierz **zakres czasu**, taki jak *ostatnie 30 dni*, a następnie sposób, w jaki **Widok kafelka** ma reprezentować dane. Można filtrować według **nazwy użytkownika konta**, takiej jak *Felix*, jak pokazano w poniższym przykładowym raporcie:
 
     [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 
-    Obszar poniżej wykresu zawiera poszczególne zdarzenia logowania wraz z informacjami, takimi jak wynik działania i źródłowsza stacja robocza. Te informacje mogą pomóc w określeniu powtarzających się źródeł zdarzeń logowania, które mogą powodować blokady konta lub wskazywać na potencjalny atak.
+    Obszar poniżej wykresu pokazuje poszczególne zdarzenia logowania wraz z informacjami, takimi jak wynik działania i źródłowa stacja robocza. Te informacje mogą pomóc w ustaleniu powtarzających się źródeł zdarzeń logowania, które mogą powodować blokowanie kont lub wskazywać potencjalny atak.
 
-Podobnie jak w raporcie przeglądu zabezpieczeń, można przejść do szczegółów różnych kafelków w górnej części raportu, aby wizualizować i analizować dane w razie potrzeby.
+Podobnie jak w przypadku raportu Omówienie zabezpieczeń, można przejść do szczegółów różnych kafelków w górnej części raportu, aby wizualizować i analizować dane zgodnie z wymaganiami.
 
-## <a name="save-and-edit-workbooks"></a>Zapisywanie i edytowanie skoroszytów
+## <a name="save-and-edit-workbooks"></a>Zapisz i edytuj skoroszyty
 
-Dwa skoroszyty szablonów dostarczone przez usługi Azure AD DS są dobrym miejscem do rozpoczęcia od własnej analizy danych. Jeśli chcesz uzyskać bardziej szczegółowe w kwerendach danych i dochodzeniach, możesz zapisać własne skoroszyty i edytować zapytania.
+Dwa skoroszyty szablonów udostępniane przez usługę Azure AD DS są dobrym miejscem do rozpoczęcia pracy z własną analizą danych. Jeśli potrzebujesz bardziej szczegółowych informacji na temat zapytań i badań danych, możesz zapisać własne skoroszyty i edytować zapytania.
 
-1. Aby zapisać kopię jednego z szablonów skoroszytu, wybierz pozycję **Edytuj > Zapisz jako > udostępnione raporty,** a następnie podaj nazwę i zapisz ją.
-1. Z własnej kopii szablonu wybierz pozycję **Edytuj,** aby przejść do trybu edycji. Możesz wybrać niebieski przycisk **Edytuj** obok dowolnej części raportu i zmienić go.
+1. Aby zapisać kopię jednego z szablonów skoroszytów, wybierz opcję **edytuj > Zapisz jako > raporty udostępnione**, a następnie podaj nazwę i Zapisz ją.
+1. Z własnej kopii szablonu wybierz pozycję **Edytuj** , aby przejść do trybu edycji. Możesz wybrać niebieski przycisk **Edytuj** obok dowolnej części raportu i zmienić go.
 
-Wszystkie wykresy i tabele w skoroszytach usługi Azure Monitor są generowane przy użyciu zapytań Kusto. Aby uzyskać więcej informacji na temat tworzenia własnych zapytań, zobacz [Kwerendy dziennika usługi Azure Monitor][azure-monitor-queries] i [samouczek zapytań Kusto][kusto-queries].
+Wszystkie wykresy i tabele w Azure Monitor skoroszytach są generowane przy użyciu zapytań Kusto. Aby uzyskać więcej informacji na temat tworzenia własnych zapytań, zobacz [Azure monitor zapytań dzienników][azure-monitor-queries] i [zapytań Kusto][kusto-queries].
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz dostosować zasady haseł i blokady, zobacz [Zasady blokowania haseł i kont w domenach zarządzanych][password-policy].
+Jeśli musisz dostosować zasady dotyczące haseł i blokad, zobacz [zasady blokowania haseł i kont w domenach zarządzanych][password-policy].
 
-Aby uzyskać problemy z użytkownikami, dowiedz się, jak rozwiązać problemy z [logowaniem][troubleshoot-sign-in] do konta lub [problemy z blokadą konta][troubleshoot-account-lockout].
+Aby uzyskać informacje o problemach z użytkownikami, Dowiedz się, jak rozwiązywać problemy z [logowaniem do konta][troubleshoot-sign-in] lub [problemy z blokadą konta][troubleshoot-account-lockout].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -9,201 +9,201 @@ ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
 ms.openlocfilehash: 7fd716be397d9ef6b9d6132cd4470f653f3cea0f
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80655935"
 ---
 ## <a name="for-users-in-your-directory"></a>Dla użytkowników w katalogu
 
-Wykonaj następujące kroki, jeśli chcesz zezwolić użytkownikom w katalogu, aby mogli zażądać tego pakietu dostępu. Podczas definiowania zasad żądania można określić poszczególnych użytkowników lub częściej grupy użytkowników. Na przykład organizacja może mieć już grupę, taką jak **Wszyscy pracownicy.**  Jeśli ta grupa zostanie dodana do zasad dla użytkowników, którzy mogą żądać dostępu, każdy członek tej grupy może zażądać dostępu.
+Wykonaj te kroki, jeśli chcesz zezwolić użytkownikom w katalogu na żądanie tego pakietu dostępu. Podczas definiowania zasad żądań można określić poszczególnych użytkowników lub bardziej często grup użytkowników. Na przykład organizacja może mieć już grupę, taką jak **Wszyscy pracownicy**.  Jeśli ta grupa zostanie dodana w zasadach dla użytkowników, którzy mogą żądać dostępu, wówczas każdy członek tej grupy może następnie zażądać dostępu.
 
-1. W sekcji **Użytkownicy, którzy mogą zażądać dostępu,** kliknij pozycję **Dla użytkowników w katalogu**.
+1. W sekcji **Użytkownicy, którzy mogą zażądać dostępu** , kliknij pozycję **dla użytkowników w katalogu**.
 
-    Po wybraniu tej opcji pojawią się nowe opcje, aby dodatkowo uściślić, kto w katalogu może zażądać tego pakietu dostępu.
+    Po wybraniu tej opcji pojawią się nowe opcje, które umożliwią dokładniejsze określenie, kto w katalogu może zażądać tego pakietu dostępu.
 
-    ![Pakiet dostępu — żądania — dla użytkowników w katalogu](./media/active-directory-entitlement-management-request-policy/for-users-in-your-directory.png)
+    ![Dostęp do pakietów — dla użytkowników w katalogu](./media/active-directory-entitlement-management-request-policy/for-users-in-your-directory.png)
 
 1. Wybierz jedną z następujących opcji:
 
     |  |  |
     | --- | --- |
-    | **Konkretni użytkownicy i grupy** | Wybierz tę opcję, jeśli chcesz, aby tylko użytkownicy i grupy w katalogu, które określisz, mogły żądać tego pakietu dostępu. |
-    | **Wszyscy członkowie (z wyłączeniem gości)** | Wybierz tę opcję, jeśli chcesz, aby wszyscy użytkownicy elementów członkowskich w katalogu mogli zażądać tego pakietu dostępu. Ta opcja nie obejmuje żadnych użytkowników-gości, których zaproszono do katalogu. |
-    | **Wszyscy użytkownicy (w tym goście)** | Wybierz tę opcję, jeśli chcesz, aby wszyscy użytkownicy członkowskie i użytkownicy-goście w katalogu mogli zażądać tego pakietu dostępu. |
+    | **Konkretni użytkownicy i grupy** | Wybierz tę opcję, jeśli chcesz, aby tylko użytkownicy i grupy w Twoim katalogu mogli żądać tego pakietu dostępu. |
+    | **Wszyscy członkowie (z wyłączeniem Gości)** | Wybierz tę opcję, jeśli chcesz, aby wszyscy użytkownicy należący do katalogu mogli żądać tego pakietu dostępu. Ta opcja nie obejmuje żadnych użytkowników-Gości, którzy zostali zaproszeni do katalogu. |
+    | **Wszyscy użytkownicy (w tym Goście)** | Wybierz tę opcję, jeśli chcesz, aby wszyscy użytkownicy i Goście w katalogu mogli żądać tego pakietu dostępu. |
 
-    Użytkownicy-goście odnoszą się do użytkowników zewnętrznych, którzy zostali zaproszeni do katalogu za pomocą [usługi Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). Aby uzyskać więcej informacji na temat różnic między użytkownikami członkowskimi a użytkownikami-gośćmi, zobacz [Jakie są domyślne uprawnienia użytkowników w usłudze Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
+    Użytkownicy-Goście odwołują się do użytkowników zewnętrznych, którzy zostali zaproszeni do katalogu za pomocą [usługi Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). Aby uzyskać więcej informacji o różnicach między użytkownikami należącymi do członków i użytkownikami-Gośćmi, zobacz [co to są domyślne uprawnienia użytkownika w Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
 
-1. Jeśli wybrano **określonych użytkowników i grupy,** kliknij pozycję **Dodaj użytkowników i grupy**.
+1. W przypadku wybrania **określonych użytkowników i grup**kliknij pozycję **Dodaj użytkowników i grupy**.
 
-1. W okienku Wybierz użytkowników i grupy wybierz użytkowników i grupy, które chcesz dodać.
+1. W okienku wybierz użytkowników i grupy wybierz użytkowników i grupy, które chcesz dodać.
 
-    ![Pakiet dostępu — żądania — wybieranie użytkowników i grup](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
+    ![Dostęp do pakietu-żądania — Wybieranie użytkowników i grup](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
 
-1. Kliknij **przycisk Wybierz,** aby dodać użytkowników i grupy.
+1. Kliknij pozycję **Wybierz** , aby dodać użytkowników i grupy.
 
-1. Przejdź w dół do sekcji [Zatwierdzanie.](#approval)
+1. Przejdź do sekcji [zatwierdzenie](#approval) .
 
-## <a name="for-users-not-in-your-directory"></a>Dla użytkowników, którzy nie mają w katalogu
+## <a name="for-users-not-in-your-directory"></a>Dla użytkowników nieznajdujących się w katalogu
 
- **Użytkownicy niew katalogu** odnosi się do użytkowników, którzy znajdują się w innym katalogu usługi Azure AD lub domeny. Ci użytkownicy mogą nie zostać jeszcze zaproszeni do katalogu. Katalogi usługi Azure AD muszą być skonfigurowane tak, aby zezwalały na zaproszenia w **ograniczeniach współpracy.** Aby uzyskać więcej informacji, zobacz [Włączanie współpracy zewnętrznej B2B i zarządzanie osobami, które mogą zapraszać gości.](../articles/active-directory/b2b/delegate-invitations.md)
+ Użytkownicy, którzy nie znajdują się **w katalogu** , odwołują użytkowników znajdujących się w innym katalogu lub domenie usługi Azure AD. Ci użytkownicy mogą nie zostać zaproszeni do katalogu. Katalogi usługi Azure AD muszą być skonfigurowane tak, aby zezwalać na zaproszenia w **ograniczeniach współpracy**. Aby uzyskać więcej informacji, zobacz [Włączanie współpracy zewnętrznej B2B i zarządzanie osobami, które mogą zapraszać Gości](../articles/active-directory/b2b/delegate-invitations.md).
 
 > [!NOTE]
-> Konto użytkownika-gościa zostanie utworzone dla użytkownika, który nie znajduje się jeszcze w katalogu, którego żądanie jest zatwierdzone lub automatycznie zatwierdzone. Gość zostanie zaproszony, ale nie otrzyma e-maila z zaproszeniem. Zamiast tego otrzymają wiadomość e-mail po dostarczeniu przypisania pakietu dostępu. Domyślnie później, gdy ten użytkownik-gość nie ma już żadnych przypisań pakietów dostępu, ponieważ ich ostatnie przypisanie wygasło lub zostało anulowane, to konto użytkownika gościa zostanie zablokowane przed logowaniem, a następnie usunięte. Jeśli chcesz, aby użytkownicy-goście pozostali w katalogu przez czas nieokreślony, nawet jeśli nie mają przypisania pakietów dostępu, możesz zmienić ustawienia konfiguracji zarządzania uprawnieniami. Aby uzyskać więcej informacji na temat obiektu użytkownika-gościa, zobacz [Właściwości użytkownika współpracy usługi Azure Active Directory B2B](../articles/active-directory/b2b/user-properties.md).
+> Konto użytkownika-gościa zostanie utworzone dla użytkownika, który jeszcze nie znajduje się w katalogu, którego żądanie jest zatwierdzone lub zaakceptowane. Gość zostanie zaproszony, ale nie otrzyma wiadomości e-mail z zaproszeniem. Zamiast tego otrzymają wiadomość e-mail, gdy zostanie dostarczone przypisanie pakietu dostępu. Domyślnie, gdy użytkownik tego gościa nie ma już żadnych przypisań pakietów dostępu, ponieważ ostatnie przypisanie wygasło lub zostało anulowane, konto użytkownika Gość zostanie zablokowane przed zalogowaniem się i usunięciem. Jeśli chcesz, aby użytkownicy-Goście pozostali w Twoim katalogu przez czas nieokreślony, nawet jeśli nie mają przypisanych pakietów dostępu, możesz zmienić ustawienia konfiguracji zarządzania uprawnieniami. Aby uzyskać więcej informacji na temat obiektu użytkownika-gościa, zobacz [właściwości Azure Active Directory użytkownika współpracy B2B](../articles/active-directory/b2b/user-properties.md).
 
-Wykonaj następujące kroki, aby zezwolić użytkownikom, którzy nie mają w katalogu, na żądanie tego pakietu dostępu:
+Wykonaj następujące kroki, aby zezwolić użytkownikom, którzy nie należą do katalogu, na żądanie tego pakietu dostępu:
 
-1. W sekcji **Użytkownicy, którzy mogą zażądać dostępu,** kliknij pozycję **Dla użytkowników, którzy nie mają w katalogu**.
+1. W sekcji **Użytkownicy, którzy mogą zażądać dostępu** , kliknij pozycję **dla użytkowników, którzy nie są w Twoim katalogu**.
 
-    Po wybraniu tej opcji pojawią się nowe opcje.
+    Po wybraniu tej opcji pojawiają się nowe opcje.
 
-    ![Pakiet dostępu — żądania — dla użytkowników niew katalogu](./media/active-directory-entitlement-management-request-policy/for-users-not-in-your-directory.png)
+    ![Dostęp do pakietów — dla użytkowników spoza katalogu](./media/active-directory-entitlement-management-request-policy/for-users-not-in-your-directory.png)
 
 1. Wybierz jedną z następujących opcji:
 
     |  |  |
     | --- | --- |
-    | **Konkretne połączone organizacje** | Wybierz tę opcję, jeśli chcesz wybrać z listy organizacji, które administrator wcześniej dodał. Wszyscy użytkownicy z wybranych organizacji mogą zażądać tego pakietu dostępu. |
+    | **Określone organizacje połączone** | Wybierz tę opcję, jeśli chcesz wybrać z listy organizacji, które wcześniej dodaliśmy do administratora. Wszyscy użytkownicy wybranych organizacji mogą zażądać tego pakietu dostępu. |
     | **Wszystkie połączone organizacje** | Wybierz tę opcję, jeśli wszyscy użytkownicy ze wszystkich połączonych organizacji mogą zażądać tego pakietu dostępu. |
-    | **Wszyscy użytkownicy (wszystkie połączone organizacje + nowi użytkownicy zewnętrzni)** | Wybierz tę opcję, jeśli wszyscy użytkownicy ze wszystkich połączonych organizacji mogą zażądać tego pakietu dostępu i że ustawienia listy zezwalają lub odrzucaj b2B powinny mieć pierwszeństwo dla każdego nowego użytkownika zewnętrznego. |
+    | **Wszyscy użytkownicy (wszystkie połączone organizacje + Wszyscy nowi użytkownicy zewnętrzni)** | Wybierz tę opcję, jeśli wszyscy użytkownicy ze wszystkich połączonych organizacji mogą zażądać tego pakietu dostępu, a ustawienia listy dozwolonych lub zablokowanych B2B powinny mieć pierwszeństwo dla każdego nowego użytkownika zewnętrznego. |
 
-    Połączona organizacja to zewnętrzny katalog lub domena usługi Azure AD, z którą masz relację.
+    Połączona organizacja to zewnętrzny katalog usługi Azure AD lub domena, z którą istnieje relacja.
 
-1. Jeśli wybrano **opcję Określone połączone organizacje,** kliknij pozycję **Dodaj katalogi,** aby wybrać z listy połączonych organizacji, które administrator wcześniej dodał.
+1. W przypadku wybrania opcji **określone połączone organizacje**kliknij pozycję **Dodaj katalogi** , aby wybrać z listy połączonych organizacji, które zostały wcześniej dodane przez administratora.
 
-1. Wpisz nazwę lub nazwę domeny, aby wyszukać wcześniej połączoną organizację.
+1. Wpisz nazwę lub nazwę domeny, aby wyszukać połączoną wcześniej organizację.
 
-    ![Pakiet dostępu — żądania — wybieranie katalogów](./media/active-directory-entitlement-management-request-policy/select-directories.png)
+    ![Dostęp do pakietu-żądania — wybierz katalogi](./media/active-directory-entitlement-management-request-policy/select-directories.png)
 
-    Jeśli organizacji, z którą chcesz współpracować, nie ma na liście, możesz poprosić administratora o dodanie jej jako połączonej organizacji. Aby uzyskać więcej informacji, zobacz [Dodawanie połączonej organizacji](../articles/active-directory/governance/entitlement-management-organization.md).
+    Jeśli organizacja, z którą chcesz współpracować, nie znajduje się na liście, możesz poprosił administratora, aby dodał ją jako połączoną organizację. Aby uzyskać więcej informacji, zobacz [Dodawanie połączonej organizacji](../articles/active-directory/governance/entitlement-management-organization.md).
 
 1. Po wybraniu wszystkich połączonych organizacji kliknij pozycję **Wybierz**.
 
     > [!NOTE]
-    > Wszyscy użytkownicy z wybranych połączonych organizacji będą mogli zażądać tego pakietu dostępu. Obejmuje to użytkowników w usłudze Azure AD ze wszystkich poddomen skojarzonych z organizacją, chyba że te domeny są blokowane przez listę zezwalania lub odrzucania platformy Azure B2B. Aby uzyskać więcej informacji, zobacz [Zezwalanie lub blokowanie zaproszeń do użytkowników B2B z określonych organizacji](../articles/active-directory/b2b/allow-deny-list.md).
+    > Wszyscy użytkownicy z wybranych połączonych organizacji będą mogli zażądać tego pakietu dostępu. Obejmuje to użytkowników w usłudze Azure AD ze wszystkich poddomen skojarzonych z organizacją, chyba że te domeny są blokowane przez listę dozwolonych lub zablokowanych warunków B2B platformy Azure. Aby uzyskać więcej informacji, zobacz [Zezwalanie lub blokowanie zaproszeń użytkownikom B2B z określonych organizacji](../articles/active-directory/b2b/allow-deny-list.md).
 
-1. Przejdź w dół do sekcji [Zatwierdzanie.](#approval)
+1. Przejdź do sekcji [zatwierdzenie](#approval) .
 
-## <a name="none-administrator-direct-assignments-only"></a>Brak (tylko przypisania bezpośrednie administratora)
+## <a name="none-administrator-direct-assignments-only"></a>Brak (tylko przypisania bezpośrednie do administratorów)
 
-Wykonaj następujące kroki, jeśli chcesz pominąć żądania dostępu i zezwolić administratorom na bezpośrednie przypisywanie określonych użytkowników do tego pakietu dostępu. Użytkownicy nie będą musieli żądać pakietu dostępu. Nadal można ustawić ustawienia cyklu życia, ale nie ma żadnych ustawień żądania.
+Wykonaj następujące kroki, aby obejść żądania dostępu i umożliwić administratorom bezpośrednie przypisanie określonych użytkowników do tego pakietu dostępu. Użytkownicy nie będą musieli żądać pakietu dostępu. Nadal można ustawiać ustawienia cyklu życia, ale nie ma żadnych ustawień żądania.
 
-1. W sekcji **Użytkownicy, którzy mogą żądać dostępu,** kliknij pozycję **Brak (tylko przypisania bezpośrednie administratora**.
+1. W sekcji **Użytkownicy, którzy mogą zażądać dostępu** , kliknij pozycję **Brak (tylko przypisania bezpośrednie administratora**).
 
-    ![Pakiet dostępu — żądania — brak bezpośrednich przypisań administratora](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
+    ![Dostęp do pakietów — brak przypisań tylko administrator](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
-    Po utworzeniu pakietu dostępu można bezpośrednio przypisać określonych użytkowników wewnętrznych i zewnętrznych do pakietu dostępu. Jeśli określisz użytkownika zewnętrznego, w katalogu zostanie utworzone konto użytkownika-gościa. Aby uzyskać informacje dotyczące bezpośredniego przypisywania użytkownika, zobacz [Wyświetlanie, dodawanie i usuwanie przypisań dla pakietu dostępu](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
+    Po utworzeniu pakietu dostępu można bezpośrednio przypisać określonych użytkowników wewnętrznych i zewnętrznych do pakietu dostępu. W przypadku określenia użytkownika zewnętrznego w katalogu zostanie utworzone konto użytkownika-gościa. Aby uzyskać informacje na temat bezpośredniego przypisywania użytkownika, zobacz [Wyświetlanie, Dodawanie i usuwanie przypisań dla pakietu dostępu](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
 
-1. Przejdź w dół do sekcji [Włącz żądania.](#enable-requests)
+1. Przejdź do sekcji [Włączanie żądań](#enable-requests) .
 
 ## <a name="approval"></a>Zatwierdzenie
 
-W sekcji Zatwierdzanie można określić, czy zatwierdzenie jest wymagane, gdy użytkownicy żądają tego pakietu dostępu. Ustawienia zatwierdzenia działają w następujący sposób:
+W sekcji zatwierdzenie należy określić, czy zatwierdzenie ma być wymagane, jeśli użytkownicy zażądają tego pakietu dostępu. Ustawienia zatwierdzania działają w następujący sposób:
 
-- Tylko jeden z wybranych osób zatwierdzających lub rezerwowych osób zatwierdzających musi zatwierdzić wniosek o zatwierdzenie jednoetapowe. 
-- Tylko jeden z wybranych osób zatwierdzających z każdego etapu musi zatwierdzić wniosek o zatwierdzenie dwuetapowe.
-- Osoba zatwierdzająca może być menedżerem, sponsorem wewnętrznym lub zewnętrznym w zależności od tego, kto zarządza dostępem.
-- Zatwierdzenie przez każdą wybraną osobę zatwierdzającej nie jest wymagane do zatwierdzania jedno- lub dwuetapowego.
-- Decyzja zatwierdzająca opiera się na tym, który zatwierdzający najpierw rozpatrzy wniosek.
+- Tylko jeden z wybranych osób zatwierdzających lub zatwierdzeń powrotu musi zatwierdzić żądanie zatwierdzenia pojedynczego etapu. 
+- Tylko jedna z wybranych osób zatwierdzających z poszczególnych etapów musi zatwierdzić żądanie zatwierdzenia 2-etapowe.
+- Osoba zatwierdzająca może być kierownikiem, wewnętrznym sponsorem lub zewnętrznym sponsorem w zależności od tego, kto ma dostęp do zasad.
+- Zatwierdzenie od każdej wybranej osoby zatwierdzającej nie jest wymagane w przypadku zatwierdzania jednego lub 2-etapowego.
+- Decyzja o zatwierdzeniu zależy od osoby zatwierdzającej, która najpierw przegląda żądanie.
 
-Aby zademonstrować sposób dodawania osób zatwierdzających do zasad żądania, obejrzyj następujący film:
+Aby zapoznać się z pokazem dodawania osób zatwierdzających do zasad żądań, Obejrzyj następujące wideo:
 
 >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4cZfg]
 
-Aby zademonstrować sposób dodawania wieloetapowej zgody na zatwierdzanie do zasad żądania, obejrzyj następujący film:
+Aby zapoznać się z przykładem dodawania wieloetapowego zatwierdzania do zasad żądania, Obejrzyj następujące wideo:
 
 >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4d1Jw]
 
-Wykonaj następujące kroki, aby określić ustawienia zatwierdzania żądań dla pakietu dostępu:
+Wykonaj następujące kroki, aby określić ustawienia zatwierdzania dla żądań pakietu dostępu:
 
-1. Aby wymagać zatwierdzenia żądań od wybranych użytkowników, należy ustawić przełącznik **Wymagaj zatwierdzenia** na **Tak**. Aby żądania były automatycznie zatwierdzane, ustaw przełącznik na **Nie**.
+1. Aby wymagać zatwierdzenia dla żądań od wybranych użytkowników, ustaw przełącznik **Wymagaj zatwierdzenia** na **wartość tak**. Lub, aby żądania były automatycznie zatwierdzane, ustaw przełącznik na wartość **nie**.
 
-1. Aby wymagać od użytkowników podania uzasadnienia żądania pakietu dostępu, należy ustawić przełącznik **Wymagaj żądania lub uzasadnienia** na **Tak**.
+1. Aby wymagać od użytkowników podania uzasadnienia żądania pakietu dostępu, ustaw przełącznik Żądaj **uzasadnienia żądającego** na **wartość tak**.
     
-1. Teraz określ, czy żądania będą wymagały jedno- czy dwuetapowego zatwierdzenia. Ustaw przełącznik **Ile etapów** na **1** dla zatwierdzania jednostopniowego lub ustaw przełącznik na **2** dla zatwierdzenia dwuetapowego.
+1. Teraz Ustal, czy żądania będą wymagały zatwierdzenia pojedynczego lub 2-etapowego. Ustaw liczbę przełączeń między **etapami** na **1** w celu zatwierdzenia pojedynczego etapu lub ustaw przełącznik na **2** na potrzeby zatwierdzania dwuetapowego.
 
-    ![Pakiet dostępu — żądania — ustawienia zatwierdzania](./media/active-directory-entitlement-management-request-policy/approval.png)
+    ![Dostęp do pakietów — ustawienia zatwierdzenia](./media/active-directory-entitlement-management-request-policy/approval.png)
 
-Aby dodać osoby zatwierdzające, należy wykonać następujące czynności po wybraniu liczby wymaganych etapów: 
+Aby dodać osoby zatwierdzające, należy wykonać następujące czynności: 
 
-### <a name="single-stage-approval"></a>Zatwierdzenie jednoetapowe
+### <a name="single-stage-approval"></a>Zatwierdzenie na jednym etapie
 
-1. Dodaj **pierwszą osobę zatwierdzającej:**
+1. Dodaj **pierwszą osobę zatwierdzającą**:
     
-    Jeśli zasada jest ustawiona tak, aby regulować dostęp dla użytkowników w katalogu, można wybrać **Menedżera jako osobę zatwierdzaącą**. Możesz też dodać określonego użytkownika, klikając pozycję **Dodaj osoby zatwierdzające** po wybraniu z menu rozwijanego Wybierz określone osoby zatwierdzające.
+    Jeśli zasady są skonfigurowane do zarządzania dostępem dla użytkowników w katalogu, można wybrać pozycję **Menedżer jako osoba zatwierdzająca**. Lub Dodaj określonego użytkownika, klikając przycisk **Dodaj osoby zatwierdzające** po wybraniu opcji wybierz określonych osoby zatwierdzające z menu rozwijanego.
     
-    ![Pakiet dostępu — żądania — dla użytkowników w katalogu — pierwsza osoba zatwierdzająca](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
+    ![Dostęp do pakietów — dla użytkowników w katalogu — w pierwszej kolejności](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
 
-    Jeśli ta zasada jest ustawiona tak, aby regulować dostęp dla użytkowników, którzy nie mają w katalogu, można wybrać **sponsora zewnętrznego** lub **sponsora wewnętrznego**. Możesz też dodać określonego użytkownika, klikając pozycję **Dodaj osoby zatwierdzające** lub grupy w obszarze Wybierz określone osoby zatwierdzające.
+    Jeśli te zasady mają ustawiony dostęp do zarządzania użytkownikami spoza katalogu, możesz wybrać **zewnętrznego sponsora** lub **wewnętrznego sponsora**. Lub Dodaj określonego użytkownika, klikając pozycję **Dodaj osoby zatwierdzające** lub grupy w obszarze Wybierz określone osoby zatwierdzające.
     
-    ![Pakiet dostępu — żądania — dla użytkowników z katalogu — pierwsza osoba zatwierdzająca](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
+    ![Dostęp do pakietów żądań — dla użytkowników poza katalogiem — pierwszej osoby zatwierdzającej](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
     
-1. Jeśli jako pierwszą osobę zatwierdzającej wybrano **Menedżera,** kliknij przycisk **Dodaj rezerwowe,** aby wybrać jednego lub więcej użytkowników lub grup w katalogu jako osobę zatwierdzaącą rezerwową. Osoby zatwierdzające rezerwowe otrzymują żądanie, jeśli zarządzanie uprawnieniami nie może znaleźć menedżera dla użytkownika żądającego dostępu.
+1. W przypadku wybrania opcji **Menedżer** jako pierwszej osoby zatwierdzającej kliknij pozycję **Dodaj rezerwę** , aby wybrać co najmniej jednego użytkownika lub grupę w katalogu jako osobę zatwierdzającą. Osoby zatwierdzające rezerwy otrzymują żądanie, jeśli Zarządzanie uprawnieniami nie może znaleźć Menedżera dla użytkownika żądającego dostępu.
 
-    Menedżer jest odnaleziony przez zarządzanie uprawnieniami przy użyciu atrybutu **Manager.** Atrybut znajduje się w profilu użytkownika w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Dodawanie lub aktualizowanie informacji o profilu użytkownika przy użyciu usługi Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+    Menedżer został znaleziony przez Zarządzanie uprawnieniami przy użyciu atrybutu **Menedżera** . Ten atrybut znajduje się w profilu użytkownika w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Dodawanie lub aktualizowanie informacji o profilu użytkownika przy użyciu Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
-1. Jeśli wybrano **opcję Wybierz określone osoby zatwierdzające,** kliknij pozycję Dodaj osoby **zatwierdzające,** aby wybrać jednego lub więcej użytkowników lub grup w katalogu, które mają być osobami zatwierdzających.
+1. W przypadku wybrania **opcji wybierz określone osoby zatwierdzające**kliknij przycisk **Dodaj osoby zatwierdzające** , aby wybrać co najmniej jednego użytkownika lub grupę w katalogu, który ma zostać zatwierdzony.
 
-1. W polu w obszarze **Decyzja musi być podjęta w ilu dniach?**, określić liczbę dni, przez które osoba zatwierdzająca musi przejrzeć wniosek o ten pakiet dostępu.
+1. W polu w obszarze **decyzja musi być podejmowana w ciągu kilku dni?** Określ liczbę dni, przez które osoba zatwierdzająca musi przejrzeć żądanie tego pakietu dostępu.
 
-    Jeśli żądanie nie zostanie zatwierdzone w tym okresie, zostanie automatycznie odrzucone. Użytkownik będzie musiał przesłać kolejne żądanie pakietu dostępu.
+    Jeśli żądanie nie zostanie zatwierdzone w tym okresie, zostanie automatycznie odrzucone. Użytkownik będzie musiał przesłać kolejne żądanie dotyczące pakietu dostępu.
 
-1. Aby wymagać od osób zatwierdzających przedstawienia uzasadnienia swojej decyzji, ustaw polecenie Wymagaj uzasadnienia osoby zatwierdzającej na **Tak**.
+1. Aby wymagać, aby osoby zatwierdzające zapewnią uzasadnienie swojej decyzji, należy ustawić opcję Wymagaj uzasadnienia osoby zatwierdzającej na **wartość tak**.
 
-    Uzasadnienie jest widoczne dla innych osób zatwierdzających i osoby wnioskującej.
+    Uzasadnienie jest widoczne dla innych osób zatwierdzających i osoby zgłaszającej żądanie.
 
-### <a name="2-stage-approval"></a>Homologacja dwustopniowa
+### <a name="2-stage-approval"></a>2 — zatwierdzenie na etapie
 
-Jeśli wybrano zatwierdzenie dwuetapowe, musisz dodać drugą osobę zatwierdzającej.
+W przypadku wybrania 2-etapowego zatwierdzania należy dodać drugą osobę zatwierdzającą.
 
-1. Dodaj **drugą osobę zatwierdzającej:** 
+1. Dodaj **drugą osobę zatwierdzającą**: 
     
-    Jeśli użytkownicy znajdują się w katalogu, dodaj określonego użytkownika jako drugiego osobę zatwierdzającą, klikając **pozycję Dodaj osoby zatwierdzające** w obszarze Wybierz konkretne osoby zatwierdzające.
+    Jeśli użytkownicy znajdują się w katalogu, należy dodać określonego użytkownika jako drugiej osoby zatwierdzającej, klikając przycisk **Dodaj osoby zatwierdzające** w obszarze Wybieranie określonych osób zatwierdzających.
 
-    ![Pakiet dostępu — żądania — dla użytkowników w katalogu — druga osoba zatwierdzająca](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
+    ![Dostęp do pakietu-żądania — dla użytkowników w katalogu sekundy osoby zatwierdzającej](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
 
-    Jeśli użytkownicy nie są w katalogu, wybierz **sponsora wewnętrznego** lub **sponsora zewnętrznego** jako drugą osobę zatwierdzającej. Po wybraniu osoby zatwierdzającej dodaj osoby zatwierdzające rezerwowe.
+    Jeśli użytkownicy nie znajdują się w katalogu, wybierz **wewnętrznej sponsora** lub **zewnętrzny sponsor** jako drugą osobę zatwierdzającą. Po wybraniu osoby zatwierdzającej Dodaj osoby zatwierdzające rezerw.
 
-    ![Pakiet dostępu — żądania — dla użytkowników z katalogu — druga osoba zatwierdzająca](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
+    ![Dostęp do pakietu-żądania — dla użytkowników poza katalogiem w drugiej osoby zatwierdzającej](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
 
-1. Określ liczbę dni, przez które druga osoba zatwierdzająca musi zatwierdzić żądanie w polu w obszarze **Decyzja musi zostać podjęta w ciągu kilku dni?**. 
+1. Określ liczbę dni, przez którą druga osoba zatwierdzająca musi zatwierdzić żądanie w polu objętym **decyzją musi być podjęta w ciągu kilku dni?**. 
 
-1. Ustaw opcję Wymagaj, aby uzasadnienie osoby zatwierdzającej było ustawione na **Tak** lub **Nie**.
+1. Ustaw opcję Wymagaj uzasadnienia osoby zatwierdzającej na **wartość tak** lub **nie**.
 
-### <a name="alternate-approvers"></a>Osoby zatwierdzające alternatywne
+### <a name="alternate-approvers"></a>Alternatywne osoby zatwierdzające
 
-Można określić alternatywne osoby zatwierdzające, podobnie jak określanie pierwszej i drugiej osoby zatwierdzającej, które mogą zatwierdzać żądania. Posiadanie alternatywnych osób zatwierdzających pomoże zapewnić, że żądania są zatwierdzane lub odrzucane przed ich wygaśnięciem (limit czasu). Do zatwierdzenia dwuetapowego można wyświetlić listę osób zatwierdzających na liście osób zatwierdzających, które mają być wystawiane jako osoby zatwierdzające. 
+Można określić alternatywne osoby zatwierdzające podobne do określenia pierwszego i drugiego zatwierdzenia, które mogą zatwierdzać żądania. Posiadanie zastępców osób zatwierdzających zagwarantuje, że żądania są zatwierdzane lub odrzucane przed wygaśnięciem (limit czasu). Można wyświetlić listę zastępczych osób zatwierdzających pierwszej osoby zatwierdzającej i drugiej osoby zatwierdzającej na potrzeby zatwierdzania dwuetapowego. 
 
-Określając alternatywne osoby zatwierdzające, w przypadku, gdy pierwsza lub druga osoba zatwierdzająca nie może zatwierdzić lub odrzucić żądania, oczekujące żądanie zostanie przekazane do alternatywnych osób zatwierdzających zgodnie z harmonogramem przekazywania określonym podczas konfigurowania zasad. Otrzymują wiadomość e-mail, aby zatwierdzić lub odrzucić oczekujące żądanie.
+Określając alternatywne osoby zatwierdzające, w przypadku, gdy pierwszej lub drugiej osoby zatwierdzającej nie mogły zatwierdzić lub odrzucić żądania, oczekujące żądanie zostanie przekazane do alternatywnej osoby zatwierdzającej zgodnie z harmonogramem przekazywania określonym podczas konfigurowania zasad. Otrzymają wiadomość e-mail z prośbą o zatwierdzenie lub odrzucenie oczekującego żądania.
 
-Po przesuniętym żądania do innych osób zatwierdzających pierwsza lub druga osoba zatwierdzająca może nadal zatwierdzać lub odrzucać żądanie. Osoby zatwierdzające alternatywne używają tej samej witryny Mój dostęp do zatwierdzania lub odrzucania oczekującego żądania.
+Po przejściu żądania do zastępców osoby zatwierdzające mogą nadal zatwierdzać lub odrzucać żądania. Alternatywne osoby zatwierdzające używają tej samej witryny z dostępem w celu zatwierdzenia lub odrzucenia oczekującego żądania.
 
-Możemy wymienić osoby lub grupy osób, które mają być osobami zatwierdzające i alternatywnymi osobami zatwierdzających. Upewnij się, że lista różnych zestawów osób, które mają być pierwszym, drugim i alternatywnym osobami zatwierdzających.
-Jeśli na przykład alicja i Robert są wymieniane jako osoby zatwierdzające jako osoby zatwierdzające, jako osoby zatwierdzające jako osoby zatwierdzające jako osoby zatwierdzające. Aby dodać alternatywne osoby zatwierdzające do pakietu dostępu, należy wykonać następujące czynności:
+Możemy wyświetlić listę osób lub grup osób, które mają być osobami zatwierdzającymi i alternatywnymi osobami zatwierdzającymi. Upewnij się, że podajesz listę różnych zestawów osób jako pierwszej, drugiej i alternatywnej osoby zatwierdzającej.
+Na przykład, jeśli w pierwszej osoby zatwierdzającej wystawiłeś Alicja i Robert, lista Karoliny i Dave jako alternatywne osoby zatwierdzające. Wykonaj następujące kroki, aby dodać alternatywne osoby zatwierdzające do pakietu dostępu:
 
-1. W obszarze Pierwsza osoba zatwierdzająca, druga osoba zatwierdzająca lub obie te opcje kliknij pozycję **Pokaż ustawienia żądań zaawansowanych**.
+1. W obszarze pierwszej osoby zatwierdzającej, drugiej osoby zatwierdzającej lub obu, kliknij przycisk **Pokaż zaawansowane ustawienia żądania**.
 
-    ![Pakiet dostępu — zasady — wyświetlanie zaawansowanych ustawień żądań](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
+    ![Dostęp do pakietu-zasady-Pokaż zaawansowane ustawienia żądania](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
 
-1. Ustaw, **jeśli nie podjęto żadnych działań, prześlij do alternatywnych osób zatwierdzających?** **Yes**
+1. Ustaw **, jeśli nie wykonano żadnej akcji, przechodź do innej osoby zatwierdzającej?** Przełącz na **wartość tak**.
 
-1. Kliknij **pozycję Dodaj alternatywne osoby zatwierdzające** i wybierz z listy alternatywną osobę zatwierdzających.
+1. Kliknij przycisk **Dodaj alternatywne osoby zatwierdzające** i wybierz z listy alternatywne osoby zatwierdzające.
 
-    ![Pakiet dostępu — zasady — dodawanie alternatywnych osób zatwierdzających](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+    ![Dostęp do pakietu — zasady Dodaj alternatywne osoby zatwierdzające](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
 
-1. W polu **Przekaż do alternatywnych osób zatwierdzających po liczbie dni** umieść w polu liczba dni, przez które osoby zatwierdzające muszą zatwierdzić lub odrzucić żądanie. Jeśli żadna osoba zatwierdzająca nie zatwierdziła lub nie odrzuciła żądania przed czasem trwania żądania, żądanie wygasa (limit czasu), a użytkownik będzie musiał przesłać inne żądanie dla pakietu dostępu. 
+1. W polu **Przekaż do alternatywnych osób zatwierdzających po** liczbie dni wprowadź liczbę dni, przez które osoby zatwierdzające muszą zatwierdzić lub odrzucić żądanie. Jeśli żadna osoba zatwierdzająca nie zatwierdziła lub nie odrzuciła żądania przed upływem czasu żądania, żądanie wygasa (timeout), a użytkownik będzie musiał przesłać kolejne żądanie dotyczące pakietu dostępu. 
 
-    Żądania mogą być przekazywane tylko do alternatywnych osób zatwierdzających dzień po upływie okresu półtrwania żądania. W tym przykładzie czas trwania żądania wynosi 14 dni. Tak więc czas trwania żądania osiąga okres półtrwania w dniu 7. Dlatego nie można przesłać dalej żądania wcześniej niż dzień 8. Ponadto żądania nie mogą być przekazywane w ostatnim dniu trwania żądania. Tak więc w przykładzie najnowsze żądanie może być przekazane jest dzień 13.
+    Żądania mogą być przekazywane do alternatywnych osób zatwierdzających dziennie po upływie czasu trwania żądania. W tym przykładzie czas trwania żądania wynosi 14 dni. W związku z tym czas trwania żądania osiągnie połowę okresu ważności w dniu 7. Dlatego nie można przesłać dalej żądania przed dniem 8. Ponadto żądania nie mogą być przekazywane w ostatnim dniu czasu trwania żądania. W tym przykładzie najnowsze żądanie może być przekazywane z dniem 13.
 
-## <a name="enable-requests"></a>Włączanie żądań
+## <a name="enable-requests"></a>Włącz żądania
 
-1. Jeśli chcesz, aby pakiet dostępu był natychmiast udostępniany użytkownikom w zasadach żądań, przesuń przełącznik Włącz na **Tak**.
+1. Jeśli chcesz, aby pakiet dostępu był natychmiast dostępny dla użytkowników w zasadach żądania, przesuń przełącznik Enable na **wartość tak**.
 
-    Zawsze można włączyć go w przyszłości po zakończeniu tworzenia pakietu dostępu.
+    Zawsze możesz włączyć ją w przyszłości po zakończeniu tworzenia pakietu dostępu.
 
-    Jeśli wybrano **opcję Brak (tylko przypisania bezpośrednie administratora)** i ustawiono opcję **Nie,** administratorzy nie będą mogli bezpośrednio przypisać tego pakietu dostępu.
+    W przypadku wybrania opcji **Brak (tylko przypisania bezpośrednie do administratorów)** i skonfigurowania opcji Włącz na **nie**Administratorzy nie mogą bezpośrednio przypisywać tego pakietu dostępu.
 
-    ![Pakiet dostępu — zasady — włączanie ustawień zasad](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
+    ![Dostęp do pakietu — ustawienie zasad włączania zasad](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. Kliknij przycisk **Dalej**.

@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie danych usługi Azure Cosmos DB przy użyciu ustawień diagnostyki platformy Azure
-description: Dowiedz się, jak używać ustawień diagnostyki platformy Azure do monitorowania wydajności i dostępności danych przechowywanych w usłudze Azure Cosmos DB
+title: Monitorowanie danych Azure Cosmos DB przy użyciu ustawień diagnostycznych platformy Azure
+description: Dowiedz się, jak używać ustawień diagnostycznych platformy Azure do monitorowania wydajności i dostępności danych przechowywanych w Azure Cosmos DB
 author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
@@ -8,72 +8,72 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: sngun
 ms.openlocfilehash: f5a0b0f71a72ea76940450f73354fda230e09c5c
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521048"
 ---
-# <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorowanie danych usługi Azure Cosmos DB przy użyciu ustawień diagnostycznych na platformie Azure
+# <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorowanie danych Azure Cosmos DB przy użyciu ustawień diagnostycznych na platformie Azure
 
-Ustawienia diagnostyczne na platformie Azure są używane do zbierania dzienników zasobów. Dzienniki zasobów platformy Azure są emitowane przez zasób i dostarczają bogatych, częstych danych dotyczących działania tego zasobu. Te dzienniki są przechwytywane na żądanie i są również określane jako "dzienniki płaszczyzny danych". Niektóre przykłady operacji na płaszczyźnie danych obejmują usuwanie, wstawianie i odczyt. Zawartość tych dzienników różni się w zależności od typu zasobu.
+Ustawienia diagnostyczne na platformie Azure służą do zbierania dzienników zasobów. Dzienniki zasobów platformy Azure są emitowane przez zasób i zapewniają rozbudowane, częste dane dotyczące operacji tego zasobu. Te dzienniki są przechwytywane na żądanie i są również określane jako "dzienniki płaszczyzny danych". Niektóre przykłady operacji płaszczyzny danych obejmują Delete, INSERT i readFeed. Zawartość tych dzienników różni się w zależności od typu zasobu.
 
-Metryki platformy i dzienniki aktywności są zbierane automatycznie, podczas gdy należy utworzyć ustawienie diagnostyczne do zbierania dzienników zasobów lub przesyłania dalej ich poza usługą Azure Monitor. Ustawienie diagnostyczne dla kont usługi Azure Cosmos można włączyć, wykonując następujące czynności:
+Metryki platformy i dzienniki aktywności są zbierane automatycznie. w związku z tym należy utworzyć ustawienie diagnostyczne w celu zbierania dzienników zasobów lub przesyłania ich dalej poza Azure Monitor. Ustawienie diagnostyczne dla kont usługi Azure Cosmos można włączyć, wykonując następujące czynności:
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 
-1. Przejdź do konta usługi Azure Cosmos. Otwórz **okienko Ustawienia diagnostyczne,** a następnie wybierz pozycję Dodaj ustawienie **diagnostyczne.**
+1. Przejdź do swojego konta usługi Azure Cosmos. Otwórz okienko **Ustawienia diagnostyczne** , a następnie wybierz opcję **Dodaj ustawienie diagnostyczne** .
 
-1. W okienku **Ustawienia diagnostyczne** wypełnij formularz następującymi szczegółami: 
+1. W okienku **Ustawienia diagnostyczne** Wypełnij formularz następującymi szczegółami: 
 
     * **Nazwa**: Wprowadź nazwę dzienników do utworzenia.
 
-    * Dzienniki do archiwum można **przechowywać na koncie magazynu**, **Przesyłaj strumieniowo do centrum zdarzeń** lub Wyślij do usługi Log **Analytics**
+    * Dzienniki mogą być przechowywane na **koncie magazynu**, **przesyłane strumieniowo do centrum zdarzeń** lub **wysyłane do log Analytics**
 
-1. Podczas tworzenia ustawienia diagnostycznego, należy określić, które kategorie dzienników do zbierania. Kategorie dzienników obsługiwanych przez usługę Azure Cosmos DB są wymienione poniżej wraz z dziennikiem przykładowym zebranym przez nich:
+1. Podczas tworzenia ustawień diagnostycznych należy określić, którą kategorię dzienników należy zebrać. Kategorie dzienników obsługiwane przez Azure Cosmos DB są wymienione poniżej wraz z przykładowym dziennikiem zebranym przez nich:
 
- * **DataPlaneRequests:** Wybierz tę opcję, aby rejestrować żądania zaplecza do wszystkich interfejsów API, które obejmują konta SQL, Graph, MongoDB, Cassandra i Table API w usłudze Azure Cosmos DB. Kluczowe właściwości, które `Requestcharge`należy `statusCode` `clientIPaddress`zwrócić `partitionID`na uwagę, to: , , i .
+ * **DataPlaneRequests**: Wybierz tę opcję, aby rejestrować żądania wewnętrznej bazy danych do wszystkich interfejsów API, takich jak SQL, Graph, MongoDB, Cassandra i interfejs API tabel, w Azure Cosmos DB. Właściwości klucza do uwagi `Requestcharge`:, `statusCode`, `clientIPaddress`, i. `partitionID`
 
     ```json
     { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
     ```
 
-* **MongoRequests**: Wybierz tę opcję, aby rejestrować żądania inicjowane przez użytkownika z frontu, aby obsługiwać żądania do interfejsu API usługi Azure Cosmos DB dla mongodb. Ten typ dziennika nie jest dostępny dla innych kont interfejsu API. Kluczowe właściwości, na `Requestcharge`które `opCode`należy zwrócić uwagę to: , . Po włączeniu MongoRequests w dziennikach diagnostycznych, upewnij się, aby wyłączyć DataPlaneRequests. Zostanie wyświetlony jeden dziennik dla każdego żądania w interfejsie API.
+* **MongoRequests**: Wybierz tę opcję, aby rejestrować żądania inicjowane przez użytkownika z frontonu, aby obsłużyć żądania do interfejsu API Azure Cosmos DB dla MongoDB. Ten typ dziennika nie jest dostępny dla innych kont interfejsu API. Właściwości klucza do uwagi: `Requestcharge`,. `opCode` Po włączeniu MongoRequests w dziennikach diagnostycznych należy wyłączyć DataPlaneRequests. Zostanie wyświetlony jeden dziennik dla każdego żądania wykonanego w interfejsie API.
 
     ```json
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
     ```
 
-* **CassandraRequests:** Wybierz tę opcję, aby rejestrować żądania inicjowane przez użytkownika z frontu, aby obsługiwać żądania do interfejsu API usługi Azure Cosmos DB dla Kasandry. Ten typ dziennika nie jest dostępny dla innych kont interfejsu API. Kluczowe właściwości, które `operationName`należy `requestCharge` `piiCommandText`zwrócić na uwagę, to , . Po włączeniu CassandraRequests w dziennikach diagnostycznych, upewnij się, aby wyłączyć DataPlaneRequests. Zostanie wyświetlony jeden dziennik dla każdego żądania w interfejsie API.
+* **CassandraRequests**: Wybierz tę opcję, aby rejestrować żądania inicjowane przez użytkownika z frontonu, aby obsłużyć żądania do interfejsu API Azure Cosmos DB dla Cassandra. Ten typ dziennika nie jest dostępny dla innych kont interfejsu API. Właściwości klucza, które należy zwrócić `operationName`uwagę `requestCharge`, `piiCommandText`są,,. Po włączeniu CassandraRequests w dziennikach diagnostycznych należy wyłączyć DataPlaneRequests. Zostanie wyświetlony jeden dziennik dla każdego żądania wykonanego w interfejsie API.
 
    ```json
    { "time": "2020-03-30T23:55:10.9579593Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "CassandraRequests", "operationName": "QuerySelect", "properties": {"activityId": "6b33771c-baec-408a-b305-3127c17465b6","opCode": "<empty>","errorCode": "-1","duration": "0.311900","requestCharge": "1.589237","databaseName": "system","collectionName": "local","retryCount": "<empty>","authorizationTokenType": "PrimaryMasterKey","address": "104.42.195.92","piiCommandText": "{"request":"SELECT key from system.local"}","userAgent": """"}}
    ```
 
-* **QueryRuntimeStatistics**: Wybierz tę opcję, aby rejestrować tekst kwerendy, który został wykonany. Ten typ dziennika jest dostępny tylko dla kont interfejsu API SQL.
+* **QueryRuntimeStatistics**: Wybierz tę opcję, aby zarejestrować tekst zapytania, który został wykonany. Ten typ dziennika jest dostępny tylko dla kont interfejsu API SQL.
 
     ```json
     { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
     ```
 
-* **PartitionKeyStatistics**: Wybierz tę opcję, aby rejestrować statystyki kluczy partycji. Jest to obecnie reprezentowane z rozmiarem magazynu (KB) kluczy partycji. Zobacz [rozwiązywanie problemów przy użyciu zapytań usługi Azure Diagnostic](#diagnostic-queries) sekcji tego artykułu. Na przykład kwerendy, które używają "PartitionKeyStatistics". Dziennik jest emitowany względem pierwszych trzech kluczy partycji, które zajmują większość magazynu danych. Ten dziennik zawiera dane, takie jak identyfikator subskrypcji, nazwa regionu, nazwa bazy danych, nazwa kolekcji, klucz partycji i rozmiar magazynu w KB.
+* **PartitionKeyStatistics**: Wybierz tę opcję, aby rejestrować statystyki kluczy partycji. Jest to obecnie reprezentowane z rozmiarem magazynu (KB) kluczy partycji. Zapoznaj się z sekcją [Rozwiązywanie problemów przy użyciu zapytań diagnostycznych platformy Azure](#diagnostic-queries) w tym artykule. Na przykład zapytania, które używają "PartitionKeyStatistics". Dziennik jest emitowany w oparciu o trzy pierwsze klucze partycji, które zajmują większość magazynu danych. Ten dziennik zawiera dane takie jak identyfikator subskrypcji, nazwa regionu, nazwa bazy danych, nazwa kolekcji, klucz partycji i rozmiar magazynu w KILOBAJTach.
 
     ```json
     { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
     ```
 
-* **PartitionKeyRUConsumption**: Ten dziennik raportuje zagregowane zużycie kluczy partycji przez sekundę RU/s. Obecnie usługa Azure Cosmos DB raportuje klucze partycji tylko dla kont interfejsu API SQL oraz operacji odczytu/zapisu punktowego i procedur składowanych. inne interfejsy API i typy operacji nie są obsługiwane. W przypadku innych interfejsów API kolumna klucza partycji w tabeli dziennika diagnostycznego będzie pusta. Ten dziennik zawiera dane, takie jak identyfikator subskrypcji, nazwa regionu, nazwa bazy danych, nazwa kolekcji, klucz partycji, typ operacji i opłata za żądanie. Zobacz [rozwiązywanie problemów przy użyciu zapytań usługi Azure Diagnostic](#diagnostic-queries) sekcji tego artykułu. Na przykład kwerendy, które używają "PartitionKeyRUConsumption". 
+* **PartitionKeyRUConsumption**: ten dziennik raportuje zagregowane użycie jednostek ru na sekundę z kluczy partycji. Obecnie Azure Cosmos DB raporty kluczy partycji tylko dla kont interfejsu API SQL i dla operacji odczytu/zapisu i procedury składowanej. inne interfejsy API i typy operacji nie są obsługiwane. W przypadku innych interfejsów API kolumna klucza partycji w tabeli dzienników diagnostycznych będzie pusta. Ten dziennik zawiera dane takie jak identyfikator subskrypcji, nazwa regionu, nazwa bazy danych, nazwa kolekcji, klucz partycji, typ operacji oraz opłata za żądanie. Zapoznaj się z sekcją [Rozwiązywanie problemów przy użyciu zapytań diagnostycznych platformy Azure](#diagnostic-queries) w tym artykule. Na przykład zapytania, które używają "PartitionKeyRUConsumption". 
 
-* **ControlPlaneRequests**: Ten dziennik zawiera szczegóły dotyczące operacji na płaszczyźnie sterowania, takich jak tworzenie konta, dodawanie lub usuwanie regionu, aktualizowanie ustawień replikacji konta itp. Ten typ dziennika jest dostępny dla wszystkich typów interfejsu API, które obejmują SQL (Core), MongoDB, Gremlin, Cassandra, Table API.
+* **ControlPlaneRequests**: ten dziennik zawiera szczegółowe informacje o operacjach płaszczyzny kontroli, takich jak tworzenie konta, Dodawanie lub usuwanie regionu, aktualizowanie ustawień replikacji konta itd. Ten typ dziennika jest dostępny dla wszystkich typów interfejsów API, które zawierają SQL (rdzeń), MongoDB, Gremlin, Cassandra, interfejs API tabel.
 
-* **Żądania:** Wybierz tę opcję, aby zbierać dane metryki z usługi Azure Cosmos DB do miejsc docelowych w ustawieniu diagnostycznym. Są to te same dane zbierane automatycznie w metryki platformy Azure. Zbieranie danych metryk za pomocą dzienników zasobów do analizowania obu rodzajów danych razem i do wysyłania danych metryk poza usługą Azure Monitor.
+* **Żądania**: zaznacz tę opcję, aby zbierać dane metryk z Azure Cosmos DB do miejsc docelowych w ustawieniu diagnostyki. Są to te same dane, które są zbierane automatycznie w ramach metryk platformy Azure. Zbieraj dane metryk z dziennikami zasobów, aby analizować jednocześnie oba rodzaje danych i wysyłać dane metryk poza Azure Monitor.
 
-Aby uzyskać szczegółowe informacje dotyczące tworzenia ustawień diagnostycznych przy użyciu witryny Azure portal, interfejsu wiersza polecenia lub programu PowerShell, zobacz [Tworzenie ustawień diagnostycznych do zbierania dzienników platformy i metryk w artykule platformy Azure.](../azure-monitor/platform/diagnostic-settings.md)
+Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników i metryk platformy w artykule platformy Azure](../azure-monitor/platform/diagnostic-settings.md) .
 
 
-## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a>Rozwiązywanie problemów z kwerendami diagnostycznymi
+## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a>Rozwiązywanie problemów z zapytaniami diagnostycznymi
 
-1. Jak uzyskać opłaty za żądania za drogie zapytania?
+1. Jak uzyskać opłaty za żądania dla kosztownych zapytań?
 
    ```Kusto
    AzureDiagnostics
@@ -88,7 +88,7 @@ Aby uzyskać szczegółowe informacje dotyczące tworzenia ustawień diagnostycz
    | limit 100
    ```
 
-1. Jak znaleźć, które operacje są biorąc większość RU / s?
+1. Jak znaleźć operacje, które są wykonywane większością RU/s?
 
     ```Kusto
    AzureDiagnostics
@@ -105,7 +105,7 @@ Aby uzyskać szczegółowe informacje dotyczące tworzenia ustawień diagnostycz
    | summarize count = count()  by OperationName, requestResourceType_s, bin(TimeGenerated, 1h) 
    ```
 
-1. Jaka jest maksymalna przepływność, która została wykorzystana przez partycję?
+1. Jaka jest maksymalna przepływność używana przez partycję?
 
    ```Kusto
    AzureDiagnostics
@@ -114,7 +114,7 @@ Aby uzyskać szczegółowe informacje dotyczące tworzenia ustawień diagnostycz
    | summarize max(requestCharge_s) by bin(TimeGenerated, 1h), partitionId_g
    ```
 
-1. Jak uzyskać informacje o zużyciu kluczy partycji RU/s na sekundę?
+1. Jak uzyskać informacje o użyciu kluczy partycji RU/s na sekundę?
 
    ```Kusto
    AzureDiagnostics 
@@ -123,7 +123,7 @@ Aby uzyskać szczegółowe informacje dotyczące tworzenia ustawień diagnostycz
    | order by TimeGenerated asc 
    ```
 
-1. Jak uzyskać opłatę za żądanie dla określonego klucza partycji
+1. Jak uzyskać koszt żądania dla określonego klucza partycji
 
    ```Kusto
    AzureDiagnostics 
@@ -131,7 +131,7 @@ Aby uzyskać szczegółowe informacje dotyczące tworzenia ustawień diagnostycz
    | where parse_json(partitionKey_s)[0] == "2" 
    ```
 
-1. Jak uzyskać najlepsze klucze partycji z większością RU / s zużyte w określonym okresie? 
+1. Jak uzyskać najważniejsze klucze partycji z większością jednostek RU/s używanych w określonym przedziale czasu? 
 
    ```Kusto
    AzureDiagnostics 
@@ -141,7 +141,7 @@ Aby uzyskać szczegółowe informacje dotyczące tworzenia ustawień diagnostycz
    | order by total desc
     ```
 
-1. Jak uzyskać dzienniki dla kluczy partycji, których rozmiar magazynu jest większy niż 8 GB?
+1. Jak pobrać dzienniki dla kluczy partycji, których rozmiar magazynu przekracza 8 GB?
 
    ```Kusto
    AzureDiagnostics
@@ -149,7 +149,7 @@ Aby uzyskać szczegółowe informacje dotyczące tworzenia ustawień diagnostycz
    | where todouble(sizeKb_d) > 800000
    ```
 
-1. Jak uzyskać partycji Kluczowe statystyki do oceny pochylenie w górę trzy partycje dla konta bazy danych?
+1. Jak uzyskać statystykę klucza partycji, aby oszacować pochylenie na trzy pierwsze partycje dla konta bazy danych?
 
     ```Kusto
     AzureDiagnostics 
@@ -159,5 +159,5 @@ Aby uzyskać szczegółowe informacje dotyczące tworzenia ustawień diagnostycz
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Usługa Azure Monitor dla usługi Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json)
-* [Monitorowanie i debugowanie za pomocą metryk w usłudze Azure Cosmos DB](use-metrics.md)
+* [Azure Monitor Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json)
+* [Monitoruj i Debuguj przy użyciu metryk w Azure Cosmos DB](use-metrics.md)

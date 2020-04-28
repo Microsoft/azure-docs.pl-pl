@@ -1,6 +1,6 @@
 ---
-title: 'Uwierzytelnianie przekazywane usługi Azure AD: historia wersji | Dokumenty firmy Microsoft'
-description: Ten artykuł zawiera listę wszystkich wersji agenta uwierzytelniania przekazywania usługi Azure AD
+title: 'Uwierzytelnianie przekazywane przez usługę Azure AD: historia wersji | Microsoft Docs'
+description: W tym artykule wymieniono wszystkie wersje agenta uwierzytelniania przekazywanego przez usługę Azure AD
 services: active-directory
 author: billmath
 manager: daveba
@@ -13,76 +13,76 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75b127f8429650d46af9f171ed7ff03692f1499e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81379906"
 ---
-# <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Agent uwierzytelniania przekazywania usługi Azure AD: historia wydania wersji wersji 
+# <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Agent uwierzytelniania Pass-through usługi Azure AD: historia wersji 
  
-Agenci zainstalowane lokalnie, które umożliwiają uwierzytelnianie przekazywane są regularnie aktualizowane w celu zapewnienia nowych możliwości. W tym artykule wymieniono wersje i funkcje, które są dodawane po wprowadzeniu nowych funkcji. Agenci uwierzytelniania przekazywania są aktualizowane automatycznie po wydaniu nowej wersji. 
+Agenci zainstalowani lokalnie, które włączają uwierzytelnianie przekazywane, są regularnie aktualizowane, aby zapewnić nowe możliwości. W tym artykule wymieniono wersje i funkcje, które są dodawane po wprowadzeniu nowych funkcji. Agenci uwierzytelniania przekazywanego są automatycznie aktualizowani po wydaniu nowej wersji. 
 
-Oto powiązane tematy: 
+Poniżej przedstawiono tematy pokrewne: 
 
-- [Logowanie użytkownika za pomocą uwierzytelniania przekazywania usługi Azure AD](how-to-connect-pta.md) 
-- [Instalacja agenta uwierzytelniania przekazywanego usługi Azure AD](how-to-connect-pta-quick-start.md) 
+- [Logowanie użytkownika przy użyciu uwierzytelniania przekazywanego za pomocą usługi Azure AD](how-to-connect-pta.md) 
+- [Instalacja agenta uwierzytelniania przekazywanego przez usługę Azure AD](how-to-connect-pta-quick-start.md) 
 
 ## <a name="1517420"></a>1.5.1742.0
 ### <a name="release-status"></a>Stan wydania: 
-04/09/2020: Wydany do pobrania
+04/09/2020: wydano do pobrania
 
 ### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia
 
-- Dodano obsługę kierowania na środowiska w chmurze po instalacji. Pakiet można przypiąć do danego środowiska chmury.
+- Dodano obsługę określania docelowych środowisk w chmurze podczas instalacji. Pakiet może być przypięty do danego środowiska chmury.
 
 
 
 ## <a name="1510070"></a>1.5.1007.0 
 ### <a name="release-status"></a>Stan wydania 
-22.01.2019: Premiera do pobrania  
+1/22/2019: wydano do pobrania  
 ### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia 
-- Dodano obsługę niezawodnych kanałów usługi Service Bus w celu dodania kolejnej warstwy odporności połączenia dla połączeń wychodzących 
-- Wymuszanie protokołu TLS 1.2 podczas rejestracji agenta 
+- Dodano obsługę Service Bus niezawodnych kanałów, aby dodać kolejną warstwę odporności połączeń dla połączeń wychodzących 
+- Wymuś protokół TLS 1,2 podczas rejestracji agenta 
 
 ## <a name="156430"></a>1.5.643.0 
 ### <a name="release-status"></a>Stan wydania 
-4/10/2018: Wydany do pobrania  
+4/10/2018: wydano do pobrania  
 ### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia 
 - Obsługa połączenia z gniazdem internetowym 
-- Ustawianie protokołu TLS 1.2 jako domyślnego protokołu dla agenta 
+- Ustaw protokół TLS 1,2 jako domyślny dla agenta 
  
 ## <a name="154050"></a>1.5.405.0 
 ### <a name="release-status"></a>Stan wydania 
-31.01.2018: Wydany do pobrania  
+1/31/2018: wydano do pobrania  
 ### <a name="fixed-issues"></a>Rozwiązane problemy 
 
-- Naprawiono błąd, który powodował pewne przecieki pamięci w agencie. 
-- Zaktualizowano wersję usługi Azure Service Bus, która zawiera poprawkę błędu w przypadku problemów z limitem czasu łącznika. 
+- Naprawiono usterkę, która spowodowała wystąpienie przecieków pamięci w agencie. 
+- Zaktualizowano wersję Azure Service Bus, która obejmuje rozwiązywanie problemów z przekroczeniem limitu czasu łącznika. 
  
 ## <a name="154050"></a>1.5.405.0 
 ### <a name="release-status"></a>Stan wydania 
-26.11.2017: Wydany do pobrania  
+11/26/2017: wydano do pobrania  
 ### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia 
-- Dodano obsługę połączeń opartych na websocket między agentem a usługami Azure AD w celu zwiększenia odporności połączeń 
+- Dodano obsługę połączeń opartych na protokole WebSocket między agentem a usługami Azure AD w celu zwiększenia odporności połączenia 
 
 ## <a name="154020"></a>1.5.402.0 
 ### <a name="release-status"></a>Stan wydania 
-25.11.2017: Wydany do pobrania  
+11/25/2017: wydano do pobrania  
 ### <a name="fixed-issues"></a>Rozwiązane problemy 
-- Naprawiono błędy związane z pamięcią podręczną DNS dla domyślnych scenariuszy proxy 
+- Naprawione usterki związane z pamięcią podręczną DNS dla domyślnych scenariuszy serwera proxy 
  
 ## <a name="153890"></a>1.5.389.0 
 ### <a name="release-status"></a>Stan wydania 
-10/17/2017: Wydany do pobrania  
+10/17/2017: wydano do pobrania  
 ### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia 
-- Dodano funkcję pamięci podręcznej DNS dla połączeń wychodzących w celu zwiększenia odporności na błędy DNS 
+- Dodano funkcję pamięci podręcznej DNS dla połączeń wychodzących w celu dodania odporności z błędów DNS 
  
 ## <a name="152610"></a>1.5.261.0 
 ### <a name="release-status"></a>Stan wydania 
-31.08.2017: Wydany do pobrania  
+08/31/2017: wydano do pobrania  
 ### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia 
-- Wersja ga agenta uwierzytelniania przekazywania usługi Azure AD 
+- Wersja GA agenta uwierzytelniania przekazującego usługi Azure AD 
 
 ## <a name="next-steps"></a>Następne kroki
 

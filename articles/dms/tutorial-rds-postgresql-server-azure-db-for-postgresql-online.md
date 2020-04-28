@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: Migrowanie usługi RDS PostgreSQL w trybie online do bazy danych platformy Azure dla postgreSQL'
+title: 'Samouczek: Migrowanie usług RDS PostgreSQL online do Azure Database for PostgreSQL'
 titleSuffix: Azure Database Migration Service
-description: Dowiedz się, jak przeprowadzić migrację online z usługi RDS PostgreSQL do bazy danych Platformy Azure dla postgreSQL przy użyciu usługi migracji bazy danych azure.
+description: Dowiedz się, jak przeprowadzić migrację online z usług RDS PostgreSQL do Azure Database for PostgreSQL przy użyciu Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -13,25 +13,25 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
 ms.openlocfilehash: be6f0cd734d31f43557b49f8e9314e925b383899
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81113946"
 ---
-# <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Samouczek: Migrowanie usługi RDS PostgreSQL do bazy danych platformy Azure dla postgreSQL w trybie online przy użyciu usługi DMS
+# <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Samouczek: Migrowanie usług RDS PostgreSQL do usługi Azure DB for PostgreSQL online przy użyciu systemu DMS
 
-Usługi migracji usługi Azure Database można użyć do migracji baz danych z wystąpienia postgreSQL usługi RDS do [bazy danych Azure Database dla postgreSQL,](https://docs.microsoft.com/azure/postgresql/) podczas gdy źródłowa baza danych pozostaje w trybie online podczas migracji. Innymi słowy migracji można osiągnąć przy minimalnym przestoju do aplikacji. W tym samouczku należy przeprowadzić migrację przykładowej bazy danych **usługi DVD Rental** z wystąpienia usługi RDS PostgreSQL 9.6 do bazy danych Azure database for PostgreSQL przy użyciu działania migracji online w usłudze migracji bazy danych platformy Azure.
+Za pomocą Azure Database Migration Service można migrować bazy danych z wystąpienia RDS PostgreSQL do [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) , gdy źródłowa baza danych pozostanie w trybie online podczas migracji. Innymi słowy, migracja może zostać osiągnięta przy minimalnym przestoju aplikacji. W tym samouczku przeprowadzisz migrację przykładowej bazy danych **najmu dysku DVD** z wystąpienia usług RDS PostgreSQL 9,6 do Azure Database for PostgreSQL przy użyciu działania migracji w trybie online w programie Azure Database Migration Service.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 >
-> * Migrowanie przykładowego schematu przy użyciu narzędzia pg_dump.
+> * Przeprowadź migrację przykładowego schematu przy użyciu narzędzia pg_dump.
 > * Utwórz wystąpienie usługi Azure Database Migration Service.
-> * Utwórz projekt migracji przy użyciu usługi migracji bazy danych platformy Azure.
+> * Utwórz projekt migracji przy użyciu Azure Database Migration Service.
 > * Uruchamianie migracji.
 > * Monitorowanie migracji.
-> * Wykonaj cutover migracji.
+> * Przeprowadź migrację uruchomienie produkcyjne.
 
 > [!NOTE]
 > Przeprowadzenie migracji online przy użyciu usługi Azure Database Migration Service wymaga utworzenia wystąpienia opartego na warstwie cenowej Premium. Więcej informacji znajduje się na stronie [cennika](https://azure.microsoft.com/pricing/details/database-migration/) usługi Azure Database Migration Service. Szyfrujemy dysk, aby zapobiec kradzieży danych podczas procesu migracji.
@@ -41,7 +41,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-W tym artykule opisano sposób przeprowadzania migracji online z lokalnego wystąpienia PostgreSQL do usługi Azure Database for PostgreSQL.
+W tym artykule opisano sposób przeprowadzania migracji w trybie online z wystąpienia lokalnego PostgreSQL do Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -49,52 +49,52 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 * Pobierz i zainstaluj program [PostgreSQL Community Edition](https://www.postgresql.org/download/) w wersji 9.5, 9.6 lub 10. Źródłowy serwer PostgreSQL Server musi być w wersji 9.5.11, 9.6.7, 10 lub nowszej. Aby uzyskać więcej informacji, zobacz artykuł [Obsługiwane wersje bazy danych PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 
-   Należy również zauważyć, że docelowa usługa Azure Database dla wersji PostgreSQL musi być równa lub późniejsza niż wersja RDS PostgreSQL. Na przykład rds PostgreSQL 9.6 można migrować tylko do usługi Azure Database dla PostgreSQL 9.6, 10 lub 11, ale nie do bazy danych Azure dla PostgreSQL 9.5.
+   Należy również pamiętać, że wersja Azure Database for PostgreSQL docelowej musi być równa lub późniejsza niż wersja PostgreSQL usług pulpitu zdalnego. Na przykład RDS PostgreSQL 9,6 można migrować tylko do Azure Database for PostgreSQL 9,6, 10 lub 11, ale nie do Azure Database for PostgreSQL 9,5.
 
-* Tworzenie wystąpienia [usługi Azure Database dla postgreSql](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) lub [usługi Azure Database dla postgreSQL — hiperskala (Citus)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal). Szczegółowe informacje na temat łączenia się z serwerem PostgreSQL przy użyciu programu pgAdmin można znaleźć w tej [sekcji](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin) dokumentu.
-* Utwórz usługę migracji bazy danych usługi Azure Database dla platformy Azure przy użyciu modelu wdrażania usługi Azure Resource Manager, który zapewnia łączność między lokacjami lokalnymi serwerami źródłowymi przy użyciu usługi [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnej, zobacz [dokumentację sieci wirtualnej,](https://docs.microsoft.com/azure/virtual-network/)a zwłaszcza artykuły przewodnika Szybki start ze szczegółami krok po kroku.
-* Upewnij się, że reguły sieciowej grupy zabezpieczeń sieciowej sieci nie blokują następujących portów komunikacji przychodzącej do usługi migracji bazy danych Azure: 443, 53, 9354, 445 i 12000. Aby uzyskać więcej informacji na temat filtrowania ruchu sieciowej sieciowej sieciowej w sieci wirtualnej, zobacz artykuł [Filtrowanie ruchu sieciowego z sieciowymi grupami zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Utwórz wystąpienie [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) lub [Azure Database for PostgreSQL-Citus)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal). Zapoznaj się z tą [sekcją](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin) dokumentu, aby uzyskać szczegółowe informacje na temat nawiązywania połączenia z serwerem PostgreSQL za pomocą usługi pgAdmin.
+* Utwórz Microsoft Azure Virtual Network dla Azure Database Migration Service przy użyciu modelu wdrażania Azure Resource Manager, który zapewnia łączność między lokacjami z lokalnymi serwerami źródłowymi przy użyciu usługi [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnej, zapoznaj się z [dokumentacją Virtual Network](https://docs.microsoft.com/azure/virtual-network/), a w szczególności artykuły szybkiego startu z szczegółowymi szczegółami.
+* Upewnij się, że reguły grupy zabezpieczeń sieci wirtualnej nie blokują następujących portów komunikacji przychodzącej do Azure Database Migration Service: 443, 53, 9354, 445 i 12000. Aby uzyskać więcej szczegółów na temat filtrowania ruchu sieciowej grupy zabezpieczeń w sieci wirtualnej, zobacz artykuł [Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * [Zapora sytemu Windows skonfigurowana pod kątem dostępu do aparatu bazy danych](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Otwórz zaporę systemu Windows, aby zezwolić usłudze migracji bazy danych platformy Azure na dostęp do źródłowego serwera PostgreSQL, który domyślnie jest portem TCP 5432.
+* Otwórz Zaporę systemu Windows, aby umożliwić Azure Database Migration Service dostęp do źródłowego serwera PostgreSQL, który domyślnie jest portem TCP 5432.
 * W przypadku korzystania z urządzenia zapory przed źródłową bazą danych konieczne może być dodanie reguł zapory, aby zezwolić usłudze Azure Database Migration Service na dostęp do źródłowej bazy danych podczas migracji.
-* Utwórz [regułę zapory](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) na poziomie serwera dla serwera Usługi Azure Database for PostgreSQL, aby umożliwić dostęp usługi migracji do docelowych baz danych usługi Azure Database. Podaj zakres podsieci sieci wirtualnej używanej dla usługi migracji bazy danych Azure.
+* Utwórz [regułę zapory](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) na poziomie serwera dla serwera Azure Database for PostgreSQL, aby umożliwić Azure Database Migration Service dostęp do docelowych baz danych. Podaj zakres podsieci sieci wirtualnej używanej na potrzeby Azure Database Migration Service.
 
-### <a name="set-up-aws-rds-postgresql-for-replication"></a>Konfigurowanie usługi AWS RDS PostgreSQL dla replikacji
+### <a name="set-up-aws-rds-postgresql-for-replication"></a>Konfigurowanie usługi AWS RDS PostgreSQL na potrzeby replikacji
 
 1. Aby utworzyć nową grupę parametrów, postępuj zgodnie z instrukcjami dostarczonymi przez AWS w artykule [Praca z grupami parametrów bazy danych](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html).
-2. Główna nazwa użytkownika służy do łączenia się ze źródłem usługi migracji bazy danych Azure. Jeśli używasz konta innego niż główne konto użytkownika, konto musi mieć rolę rds_superuser i rds_replication rolę. Rola rds_replication udziela uprawnień do zarządzania logicznymi szczelinami i przesyłania strumieniowego danych przy użyciu gniazd logicznych.
+2. Użyj głównej nazwy użytkownika, aby nawiązać połączenie ze źródłem z Azure Database Migration Service. Jeśli używasz konta innego niż konto użytkownika głównego, konto musi mieć rolę rds_superuser i rolę rds_replication. Rola rds_replication przyznaje uprawnienia do zarządzania gniazdami logicznymi i przesyłania strumieniowego danych przy użyciu gniazd logicznych.
 3. Utwórz nową grupę parametrów z następującą konfiguracją:
 
-    a. Ustaw parametr rds.logical_replication w grupie parametrów bazy danych na 1.
+    a. Ustaw parametr RDS. logical_replication w grupie parametrów bazy danych na 1.
 
-    b. max_wal_senders =[liczba równoczesnych zadań] — parametr max_wal_senders określa liczbę równoczesnych zadań, które można uruchamiać, zaleca 10 zadań.
+    b. max_wal_senders = [liczba zadań współbieżnych] — parametr max_wal_senders ustawia liczbę współbieżnych zadań, które można uruchomić, zaleca 10 zadań.
 
-    d. max_replication_slots – = [liczba slotów], polecam ustawić pięć slotów.
+    c. max_replication_slots – = [liczba gniazd], zalecamy ustawienie pięciu gniazd.
 
-4. Skojarzyć utworzoną grupę parametrów z wystąpieniem RDS PostgreSQL.
+4. Skojarz utworzoną grupę parametrów z wystąpieniem usług RDS PostgreSQL.
 
 ## <a name="migrate-the-schema"></a>Migrowanie schematu
 
-1. Wyodrębnij schemat ze źródłowej bazy danych i zastosuj do docelowej bazy danych, aby zakończyć migrację wszystkich obiektów bazy danych, takich jak schematy tabeli, indeksy i procedury przechowywane.
+1. Wyodrębnij schemat ze źródłowej bazy danych i zastosuj go do docelowej bazy danych, aby ukończyć migrację wszystkich obiektów bazy danych, takich jak schematy tabel, indeksy i procedury składowane.
 
-    Najprostszym sposobem migracji tylko schematu jest użycie pg_dump z opcją -s. Aby uzyskać więcej informacji, zobacz [przykłady](https://www.postgresql.org/docs/9.6/app-pgdump.html#PG-DUMP-EXAMPLES) w postgres pg_dump samouczek.
+    Najprostszym sposobem migrowania tylko schematu jest użycie pg_dump z opcją-s. Aby uzyskać więcej informacji, zobacz [przykłady](https://www.postgresql.org/docs/9.6/app-pgdump.html#PG-DUMP-EXAMPLES) w samouczku pg_dump Postgres.
 
     ```
     pg_dump -o -h hostname -U db_username -d db_name -s > your_schema.sql
     ```
 
-    Na przykład, aby zrzucić plik schematu dla bazy danych **dvdrental,** należy użyć następującego polecenia:
+    Na przykład, aby zrzucić plik schematu dla bazy danych **dvdrental** , użyj następującego polecenia:
 
     ```
     pg_dump -o -h localhost -U postgres -d dvdrental -s  > dvdrentalSchema.sql
     ```
 
-2. Utwórz pustą bazę danych w usłudze docelowej, która jest usługą Azure Database for PostgreSQL. Aby połączyć się i utworzyć bazę danych, zapoznaj się z jednym z następujących artykułów:
+2. Utwórz pustą bazę danych w usłudze docelowej, która jest Azure Database for PostgreSQL. Aby nawiązać połączenie i utworzyć bazę danych, zapoznaj się z jednym z następujących artykułów:
 
-    * [Tworzenie usługi Azure Database dla serwera PostgreSQL przy użyciu witryny Azure portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal)
-    * [Tworzenie usługi Azure Database dla serwera PostgreSQL — hiperskali (Citus) przy użyciu witryny Azure portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)
+    * [Utwórz serwer Azure Database for PostgreSQL przy użyciu Azure Portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal)
+    * [Utwórz serwer Azure Database for PostgreSQL-Citus) przy użyciu Azure Portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)
 
-3. Zaimportuj schemat do usługi docelowej, która jest usługą Azure Database for PostgreSQL. Aby przywrócić plik zrzutu schematu, uruchom następujące polecenie:
+3. Zaimportuj schemat do usługi docelowej, który jest Azure Database for PostgreSQL. Aby przywrócić plik zrzutu schematu, uruchom następujące polecenie:
 
     ```
     psql -h hostname -U db_username -d db_name < your_schema.sql
@@ -106,7 +106,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
     ```
 
-4. Jeśli w schemacie znajdują się klucze obce, ładowanie początkowe i ciągła synchronizacja migracji zakończą się niepowodzeniem. Aby wyodrębnić skrypt klucza obcego upuszczenia i dodać skrypt klucza obcego w miejscu docelowym (Usługa Azure Database for PostgreSQL), uruchom następujący skrypt w PgAdmin lub psql:
+4. Jeśli w schemacie znajdują się klucze obce, ładowanie początkowe i ciągła synchronizacja migracji zakończą się niepowodzeniem. Aby wyodrębnić skrypt klucza obcego i dodać skrypt klucza obcego w miejscu docelowym (Azure Database for PostgreSQL), uruchom następujący skrypt w PgAdmin lub PSQL:
   
     ```
     SELECT Queries.tablename
@@ -134,11 +134,11 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
       GROUP BY Queries.tablename;
     ```
 
-5. Uruchom klucz obcy drop (który jest drugą kolumną) w wyniku kwerendy, aby usunąć klucz obcy.
+5. Uruchom klucz obcy (który jest drugą kolumną) w wyniku zapytania, aby porzucić klucz obcy.
 
-6. Jeśli masz wyzwalacze (wstawić lub zaktualizować wyzwalacz) w danych, będzie wymusić integralność danych w miejscu docelowym przed replikowaniem danych ze źródła. Zalecenie jest, aby wyłączyć wyzwalacze we wszystkich tabelach *na miejsce docelowe* podczas migracji, a następnie włączyć wyzwalacze po zakończeniu migracji.
+6. Jeśli w danych są Wyzwalacze (INSERT lub Update Trigger), spowoduje to wymuszenie integralności danych w miejscu docelowym przed replikowaniem danych ze źródła. Zalecane jest, aby wyłączyć wyzwalacze we wszystkich tabelach w *miejscu docelowym* podczas migracji, a następnie włączyć Wyzwalacze po zakończeniu migracji.
 
-    Aby wyłączyć wyzwalacze w docelowej bazie danych:
+    Aby wyłączyć Wyzwalacze w docelowej bazie danych:
 
     ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
@@ -150,15 +150,15 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
    ![Wyświetlanie subskrypcji w portalu](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-select-subscription1.png)
 
-2. Wybierz subskrypcję, w której chcesz utworzyć wystąpienie usługi migracji bazy danych platformy Azure, a następnie wybierz pozycję **Dostawcy zasobów**.
+2. Wybierz subskrypcję, w której chcesz utworzyć wystąpienie Azure Database Migration Service, a następnie wybierz pozycję **dostawcy zasobów**.
 
     ![Wyświetlanie dostawców zasobów](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-select-resource-provider.png)
 
-3. Wyszukaj migrację, a następnie po prawej stronie **microsoft.DataMigration**, wybierz pozycję **Zarejestruj**.
+3. Wyszukaj pozycję migracja, a następnie po prawej stronie **programu Microsoft. datamigration**wybierz pozycję **zarejestruj**.
 
     ![Rejestrowanie dostawcy zasobów](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-register-resource-provider.png)
 
-## <a name="create-an-instance-of-azure-database-migration-service"></a>Tworzenie wystąpienia usługi migracji bazy danych platformy Azure
+## <a name="create-an-instance-of-azure-database-migration-service"></a>Utwórz wystąpienie Azure Database Migration Service
 
 1. W witrynie Azure Portal wybierz pozycję + **Utwórz zasób**, wyszukaj usługę Azure Database Migration Service, a następnie wybierz usługę **Azure Database Migration Service** na liście rozwijanej.
 
@@ -170,15 +170,15 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
   
 3. Na ekranie **Tworzenie usługi migracji** określ nazwę usługi, subskrypcję oraz nową lub istniejącą grupę zasobów.
 
-4. Wybierz lokalizację, w której chcesz utworzyć wystąpienie usługi migracji bazy danych platformy Azure.
+4. Wybierz lokalizację, w której chcesz utworzyć wystąpienie Azure Database Migration Service.
 
-5. Wybierz istniejącą sieć wirtualną lub utwórz nową.
+5. Wybierz istniejącą sieć wirtualną lub Utwórz nową.
 
-    Sieć wirtualna zapewnia usługę migracji bazy danych platformy Azure z dostępem do źródłowego wystąpienia PostgreSQL i docelowej bazy danych platformy Azure dla wystąpienia PostgreSQL.
+    Sieć wirtualna zapewnia Azure Database Migration Service z dostępem do źródłowego wystąpienia PostgreSQL i docelowego wystąpienia Azure Database for PostgreSQL.
 
-    Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnej w witrynie Azure portal, zobacz artykuł [Tworzenie sieci wirtualnej przy użyciu portalu Azure](https://aka.ms/DMSVnet).
+    Aby uzyskać więcej informacji na temat sposobu tworzenia sieci wirtualnej w Azure Portal, zobacz artykuł [Tworzenie sieci wirtualnej przy użyciu Azure Portal](https://aka.ms/DMSVnet).
 
-6. Wybierz warstwę cenową; Dla tej migracji online, należy wybrać warstwę cenową Premium: 4vCores.
+6. Wybierz warstwę cenową; w przypadku migracji w trybie online należy wybrać warstwę cenową Premium: 4vCores.
 
     ![Konfigurowanie ustawień wystąpienia usługi Azure Database Migration Service](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-settings5.png)
 
@@ -192,40 +192,40 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
       ![Znajdowanie wszystkich wystąpień usługi Azure Database Migration Service](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-search.png)
 
-2. Na ekranie **Usługi migracji bazy danych Platformy Azure** wyszukaj nazwę utworzonego wystąpienia usługi migracji bazy danych Azure, wybierz wystąpienie, a następnie wybierz pozycję + Nowy projekt **migracji**.
-3. Na ekranie **Nowy projekt migracji** określ nazwę projektu w polu **tekstowym Typ serwera źródłowego** wybierz pozycję **AWS RDS for PostgreSQL**, a następnie w polu **tekstowym Typ serwera docelowego** wybierz pozycję **Azure Database for PostgreSQL**.
-4. W sekcji **Wybierz typ działania** wybierz pozycję **Migracja danych online**.
+2. Na ekranie **usługi Azure Database Migration Services** Wyszukaj nazwę utworzonego wystąpienia Azure Database Migration Service, wybierz wystąpienie, a następnie wybierz pozycję + **Nowy projekt migracji**.
+3. Na ekranie **Nowy projekt migracji** Określ nazwę projektu, w polu tekstowym **Typ serwera źródłowego** wybierz pozycję **AWS RDS dla PostgreSQL**, a następnie w polu tekstowym **Typ serwera docelowego** wybierz pozycję **Azure Database for PostgreSQL**.
+4. W sekcji **Wybierz typ działania** wybierz pozycję **migracja danych w trybie online**.
 
     > [!IMPORTANT]
-    > Pamiętaj, aby wybrać **migrację danych online;** Migracje w trybie offline nie są obsługiwane w tym scenariuszu.
+    > Upewnij się, że wybrano opcję **migracja danych w trybie online**; migracje w trybie offline nie są obsługiwane w tym scenariuszu.
 
     ![Tworzenie projektu usługi Database Migration Service](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-create-project5.png)
 
     > [!NOTE]
-    > Alternatywnie można wybrać **utwórz projekt tylko** do utworzenia projektu migracji teraz i wykonać migrację później.
+    > Alternatywnie możesz wybrać opcję **Utwórz projekt tylko** w celu utworzenia projektu migracji, a następnie wykonać migrację później.
 
-5. Wybierz **pozycję Zapisz**.
+5. Wybierz pozycję **Zapisz**.
 
 6. Wybierz polecenie **Utwórz i uruchom działanie**, aby utworzyć projekt i uruchomić działanie migracji.
 
     > [!NOTE]
-    > Proszę zanotować wymagania wstępne potrzebne do skonfigurowania migracji online w bloku tworzenia projektu.
+    > Zanotuj wymagania wstępne wymagane do skonfigurowania migracji online w bloku tworzenia projektu.
 
 ## <a name="specify-source-details"></a>Określanie szczegółów źródła
 
-* Na ekranie **Dodawanie szczegółów źródła** określ szczegóły połączenia dla źródłowego wystąpienia PostgreSQL.
+* Na ekranie **Dodaj szczegóły źródła** Określ szczegóły połączenia dla wystąpienia źródła PostgreSQL.
 
    ![Szczegóły źródła](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-source-details5.png)
 
 ## <a name="specify-target-details"></a>Określanie szczegółów elementu docelowego
 
-1. Wybierz **pozycję Zapisz**, a następnie na ekranie Szczegóły **docelowe** określ szczegóły połączenia dla docelowej bazy danych platformy Azure dla serwera PostgreSQL, który jest wstępnie aprowizowany i ma schemat **wypożyczeń dysków DVD wdrożony** przy użyciu pg_dump.
+1. Wybierz pozycję **Zapisz**, a następnie na ekranie **szczegóły elementu docelowego** Określ szczegóły połączenia dla docelowego serwera Azure Database for PostgreSQL, który jest wstępnie zainicjowany i ma wdrożony schemat **wynajmu dysku DVD** przy użyciu pg_dump.
 
-    ![Szczegóły celu](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-target-details.png)
+    ![Szczegóły elementu docelowego](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-target-details.png)
 
 2. Wybierz polecenie **Zapisz**, a następnie na ekranie **Mapuj do docelowych baz danych**, określ mapowanie źródłowej i docelowej bazy danych na potrzeby migracji.
 
-    Jeśli docelowa baza danych zawiera taką samą nazwę bazy danych jak źródłowa baza danych, usługa migracji bazy danych Azure Database domyślnie wybiera docelową bazę danych.
+    Jeśli docelowa baza danych zawiera tę samą nazwę bazy danych co źródłowa baza danych, Azure Database Migration Service domyślnie wybiera docelową bazę danych.
 
     ![Mapowanie do docelowych baz danych](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-map-target-databases.png)
 
@@ -243,32 +243,32 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
 1. Na ekranie działania migracji wybieraj polecenie **Odśwież**, aby zaktualizować ekran, aż do momentu, gdy **Stan** migracji zmieni się na **Uruchomiono**.
 
-    ![Stan działania — bieganie](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-activity-status3.png)
+    ![Stan działania — uruchomiony](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-activity-status3.png)
 
-2. W obszarze **NAZWA BAZY DANYCH**wybierz określoną bazę danych, aby uzyskać dostęp do stanu migracji dla operacji pełnego ładowania **danych** i **przyrostowej synchronizacji danych.**
+2. W obszarze **Nazwa bazy danych**wybierz określoną bazę danych, aby przejść do stanu migracji **pełnych operacji ładowania danych** i **przyrostowej synchronizacji danych** .
 
-    **Pełne obciążenie danych** pokazuje stan migracji obciążenia początkowego, podczas gdy **przyrostowa synchronizacja danych** pokazuje stan przechwytywania danych zmian (CDC).
+    **Pełne ładowanie danych** pokazuje stan początkowej migracji ładowania, podczas gdy **Synchronizacja danych przyrostowych** pokazuje stan funkcji przechwytywania zmian danych.
 
-    ![Ekran zapasów — pełne obciążenie danych](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-inventory-full-load.png)
+    ![Ekran spisu — pełne ładowanie danych](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-inventory-full-load.png)
 
-    ![Ekran zapasów — przyrostowa synchronizacja danych](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-inventory-incremental.png)
+    ![Ekran spisu — synchronizacja danych przyrostowych](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-inventory-incremental.png)
 
 ## <a name="perform-migration-cutover"></a>Przeprowadzanie migracji jednorazowej
 
-Po zakończeniu początkowego pełnego obciążenia bazy danych są oznaczone **jako Gotowe do przecięcia.**
+Po zakończeniu początkowego pełnego ładowania bazy danych są oznaczane jako **gotowe do uruchomienie produkcyjne**.
 
 1. Gdy wszystko jest gotowe do zakończenia migracji bazy danych, wybierz pozycję **Rozpocznij migrację jednorazową**.
 
-2. Poczekaj, aż licznik **Oczekujące zmiany** pojawi się **0,** aby upewnić się, że wszystkie transakcje przychodzące do źródłowej bazy danych zostaną zatrzymane, zaznacz pole wyboru **Potwierdź,** a następnie wybierz pozycję **Zastosuj**.
+2. Poczekaj, aż licznik **oczekujące zmiany** wyświetli **wartość 0** , aby upewnić się, że wszystkie przychodzące transakcje do źródłowej bazy danych zostaną zatrzymane, zaznacz pole wyboru **Potwierdź** , a następnie wybierz pozycję **Zastosuj**.
 
-    ![Kompletny ekran cutover](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-complete-cutover.png)
+    ![Pełny ekran uruchomienie produkcyjne](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-complete-cutover.png)
 
-3. Gdy stan migracji bazy danych pokazuje **zakończone,** połącz aplikacje z nową docelową bazą danych platformy Azure dla bazy danych PostgreSQL.
+3. Po **zakończeniu**wyświetlania stanu migracji bazy danych Połącz swoje aplikacje z nową docelową bazą danych Azure Database for PostgreSQL.
 
-Migracja online lokalnego wystąpienia usługi RDS PostgreSQL do usługi Azure Database for PostgreSQL została zakończona.
+Migracja online lokalnego wystąpienia usług RDS PostgreSQL do Azure Database for PostgreSQL została już zakończona.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać informacje o usłudze Azure Database Migration Service, zobacz artykuł [Czym jest usługa Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
-* Aby uzyskać informacje na temat usługi Azure Database for PostgreSQL, zobacz artykuł [Co to jest usługa Azure Database for PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).
-* W przypadku innych pytań wyślij wiadomość e-mail [z aliasem Zapytaj o migracje bazy danych platformy Azure.](mailto:AskAzureDatabaseMigrations@service.microsoft.com)
+* Aby uzyskać informacje na temat Azure Database for PostgreSQL, zobacz artykuł [co to jest Azure Database for PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).
+* W przypadku innych pytań Wyślij wiadomość e-mail do aliasu [zadawaj migracje bazy danych Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com) .

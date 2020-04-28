@@ -1,6 +1,6 @@
 ---
-title: Grupa zasobów platformy Azure jako źródło siatki zdarzeń
-description: Zawiera opis właściwości udostępnianych dla zdarzeń grupy zasobów za pomocą usługi Azure Event Grid
+title: Grupa zasobów platformy Azure jako źródło Event Grid
+description: Opisuje właściwości, które są dostępne dla zdarzeń grupy zasobów z Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,48 +8,48 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fb52b54eb32a119a463b59e4d4f2ab30096886fa
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393263"
 ---
-# <a name="azure-resource-group-as-an-event-grid-source"></a>Grupa zasobów platformy Azure jako źródło siatki zdarzeń
+# <a name="azure-resource-group-as-an-event-grid-source"></a>Grupa zasobów platformy Azure jako źródło Event Grid
 
-Ten artykuł zawiera właściwości i schemat zdarzeń grupy zasobów.Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](event-schema.md).
+Ten artykuł zawiera właściwości i schemat zdarzeń grup zasobów.Aby zapoznać się z wprowadzeniem do schematów zdarzeń, zobacz [Azure Event Grid schemacie zdarzeń](event-schema.md).
 
-Subskrypcje platformy Azure i grupy zasobów emitują te same typy zdarzeń. Typy zdarzeń są związane ze zmianami zasobów lub akcjami. Podstawowa różnica polega na tym, że grupy zasobów emitują zdarzenia dla zasobów w ramach grupy zasobów, a subskrypcje platformy Azure emitują zdarzenia dla zasobów w ramach subskrypcji.
+Subskrypcje i grupy zasobów platformy Azure emitują te same typy zdarzeń. Typy zdarzeń są powiązane z zmianami lub akcjami zasobów. Podstawowa różnica polega na tym, że grupy zasobów emitują zdarzenia dla zasobów w grupie zasobów, a subskrypcje platformy Azure emitują zdarzenia dotyczące zasobów w ramach subskrypcji.
 
-Zdarzenia zasobów są tworzone dla operacji PUT, PATCH, `management.azure.com`POST i DELETE, które są wysyłane do programu . Operacje GET nie tworzą zdarzeń. Operacje wysyłane do płaszczyzny `myaccount.blob.core.windows.net`danych (np. ) nie tworzą zdarzeń. Zdarzenia akcji zapewniają dane zdarzeń dla operacji, takich jak wyświetlanie listy kluczy dla zasobu.
+Zdarzenia zasobów są tworzone dla operacji PUT, PATCH, POST i DELETE, które są wysyłane do `management.azure.com`programu. Operacje GET nie tworzą zdarzeń. Operacje wysyłane do płaszczyzny danych (np `myaccount.blob.core.windows.net`.) nie tworzą zdarzeń. Zdarzenia akcji udostępniają dane zdarzeń dla operacji, takich jak Wyświetlanie kluczy dla zasobu.
 
-Podczas subskrybowania zdarzeń dla grupy zasobów, punkt końcowy odbiera wszystkie zdarzenia dla tej grupy zasobów. Zdarzenia mogą obejmować zdarzenie, które chcesz zobaczyć, takie jak aktualizowanie maszyny wirtualnej, ale także zdarzenia, które mogą nie być dla Ciebie ważne, takie jak pisanie nowego wpisu w historii wdrażania. Można odbierać wszystkie zdarzenia w punkcie końcowym i napisać kod, który przetwarza zdarzenia, które mają być obsługiwane. Lub można ustawić filtr podczas tworzenia subskrypcji zdarzenia.
+Gdy subskrybujesz zdarzenia dla grupy zasobów, punkt końcowy odbiera wszystkie zdarzenia dla tej grupy zasobów. Zdarzenia mogą obejmować zdarzenie, które ma zostać wyświetlone, takie jak aktualizacja maszyny wirtualnej, ale także zdarzenia, które mogą nie być ważne, takie jak zapisanie nowego wpisu w historii wdrożenia. Można odbierać wszystkie zdarzenia w punkcie końcowym i pisać kod, który przetwarza zdarzenia, które mają być obsługiwane. Lub można ustawić filtr podczas tworzenia subskrypcji zdarzeń.
 
-Aby programowo obsługiwać zdarzenia, można sortować `operationName` zdarzenia, patrząc na wartość. Na przykład punkt końcowy zdarzenia może przetwarzać zdarzenia `Microsoft.Compute/virtualMachines/write` tylko `Microsoft.Storage/storageAccounts/write`dla operacji, które są równe lub .
+Aby programowo obsługiwać zdarzenia, Możesz sortować zdarzenia, sprawdzając `operationName` wartość. Na przykład punkt końcowy zdarzenia może przetwarzać tylko zdarzenia dla operacji, które są `Microsoft.Compute/virtualMachines/write` równe `Microsoft.Storage/storageAccounts/write`lub.
 
-Temat zdarzenia jest identyfikatorem zasobu, który jest celem operacji. Aby filtrować zdarzenia dla zasobu, podaj identyfikator zasobu podczas tworzenia subskrypcji zdarzenia.  Aby filtrować według typu zasobu, użyj wartości w następującym formacie:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+Podmiot zdarzenia jest IDENTYFIKATORem zasobu zasobu, który jest elementem docelowym operacji. Aby filtrować zdarzenia dla zasobu, podaj ten identyfikator zasobu podczas tworzenia subskrypcji zdarzeń.  Aby filtrować według typu zasobu, użyj wartości w następującym formacie:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 
-## <a name="event-grid-event-schema"></a>Schemat zdarzenia w siatce zdarzeń
+## <a name="event-grid-event-schema"></a>Schemat zdarzeń usługi Event Grid
 
 ### <a name="available-event-types"></a>Dostępne typy zdarzeń
 
-Grupy zasobów emitują zdarzenia zarządzania z usługi Azure Resource Manager, takie jak podczas tworzenia maszyny wirtualnej lub usuwania konta magazynu.
+Grupy zasobów emitują zdarzenia zarządzania od Azure Resource Manager, na przykład podczas tworzenia maszyny wirtualnej lub usuwania konta magazynu.
 
 | Typ zdarzenia | Opis |
 | ---------- | ----------- |
-| Zasoby firmy Microsoft.ResourceActionCancel | Wywoływane, gdy akcja na zasób jest anulowana. |
-| Microsoft.Resources.ResourceActionFailure | Wywoływane, gdy akcja na zasób nie powiedzie się. |
-| Microsoft.Resources.ResourceActionSuccess | Wywoływane, gdy akcja na zasób powiedzie się. |
-| Witryna Microsoft.Resources.ResourceDeleteCancel | Wywoływane po anulowaniu operacji usuwania. To zdarzenie ma miejsce, gdy wdrożenie szablonu zostanie anulowane. |
-| Microsoft.Resources.ResourceDeleteFailure | Wywoływane, gdy operacja usuwania nie powiedzie się. |
-| Microsoft.Resources.ResourceDeleteSuccess | Wywoływane po pomyślnym zakończeniu operacji usuwania. |
-| Zasoby firmy Microsoft.ResourceWriteCancel | Wywoływane podczas tworzenia lub aktualizowania operacji jest anulowana. |
-| Microsoft.Resources.ResourceWriteFailure | Wywoływane, gdy operacja tworzenia lub aktualizacji kończy się niepowodzeniem. |
-| Microsoft.Resources.ResourceWriteSuccess | Wywoływane po pomyślnym utworzeniu lub aktualizacji operacji. |
+| Microsoft. resources. ResourceActionCancel | Uruchamiany, gdy akcja dla zasobu zostanie anulowana. |
+| Microsoft. resources. ResourceActionFailure | Uruchamiany, gdy akcja dla zasobu nie powiedzie się. |
+| Microsoft. resources. ResourceActionSuccess | Uruchamiany, gdy akcja dla zasobu zostanie zakończona pomyślnie. |
+| Microsoft. resources. ResourceDeleteCancel | Uruchamiany, gdy operacja usuwania została anulowana. To zdarzenie występuje, gdy wdrożenie szablonu zostało anulowane. |
+| Microsoft. resources. ResourceDeleteFailure | Uruchamiany, gdy operacja usuwania nie powiedzie się. |
+| Microsoft. resources. ResourceDeleteSuccess | Uruchamiany, gdy operacja usuwania zostanie zakończona pomyślnie. |
+| Microsoft. resources. ResourceWriteCancel | Uruchamiany, gdy operacja tworzenia lub aktualizowania została anulowana. |
+| Microsoft. resources. ResourceWriteFailure | Uruchamiany, gdy operacja tworzenia lub aktualizacji nie powiedzie się. |
+| Microsoft. resources. ResourceWriteSuccess | Uruchamiany, gdy operacja tworzenia lub aktualizacji zakończy się pomyślnie. |
 
 ### <a name="example-event"></a>Przykładowe zdarzenie
 
-W poniższym przykładzie przedstawiono schemat zdarzenia **ResourceWriteSuccess.** Ten sam schemat jest używany dla **zdarzeń ResourceWriteFailure** i **ResourceWriteCancel** o różnych wartościach dla `eventType`.
+Poniższy przykład przedstawia schemat zdarzenia **ResourceWriteSuccess** . Ten sam schemat jest używany dla zdarzeń **ResourceWriteFailure** i **ResourceWriteCancel** z różnymi wartościami dla `eventType`.
 
 ```json
 [{
@@ -109,7 +109,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **ResourceWriteSuccess
 }]
 ```
 
-W poniższym przykładzie przedstawiono schemat zdarzenia **ResourceDeleteSuccess.** Ten sam schemat jest używany dla **resourcedeletefailure** i **ResourceDeleteCancel** zdarzeń z różnymi wartościami dla `eventType`.
+Poniższy przykład przedstawia schemat zdarzenia **ResourceDeleteSuccess** . Ten sam schemat jest używany dla zdarzeń **ResourceDeleteFailure** i **ResourceDeleteCancel** z różnymi wartościami dla `eventType`.
 
 ```json
 [{
@@ -175,7 +175,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **ResourceDeleteSucces
 }]
 ```
 
-W poniższym przykładzie przedstawiono schemat zdarzenia **ResourceActionSuccess.** Ten sam schemat jest używany dla **ResourceActionFailure** i **ResourceActionCancel** zdarzeń o różnych wartościach dla `eventType`.
+Poniższy przykład przedstawia schemat zdarzenia **ResourceActionSuccess** . Ten sam schemat jest używany dla zdarzeń **ResourceActionFailure** i **ResourceActionCancel** z różnymi wartościami dla `eventType`.
 
 ```json
 [{   
@@ -237,12 +237,12 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie jest zapisywalne. Ta wartość jest podawana przez usługę Event Grid. |
+| temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
 | Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
-| Eventtype | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
-| eventTime | ciąg | Czas, w której zdarzenie jest generowane na podstawie czasu UTC dostawcy. |
+| Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
+| eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | id | ciąg | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Dane zdarzeń grupy zasobów. |
+| dane | obiekt | Dane zdarzenia grupy zasobów. |
 | dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 
@@ -252,26 +252,26 @@ Obiekt danych ma następujące właściwości:
 | -------- | ---- | ----------- |
 | autoryzacja | obiekt | Żądana autoryzacja dla operacji. |
 | oświadczenia | obiekt | Właściwości oświadczeń. Aby uzyskać więcej informacji, zobacz [specyfikację JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | ciąg | Identyfikator operacji do rozwiązywania problemów. |
-| HttpRequest (Prośba o | obiekt | Szczegóły operacji. Ten obiekt jest uwzględniany tylko podczas aktualizowania istniejącego zasobu lub usuwania zasobu. |
+| correlationId | ciąg | Identyfikator operacji na potrzeby rozwiązywania problemów. |
+| httpRequest | obiekt | Szczegóły operacji. Ten obiekt jest uwzględniany tylko w przypadku aktualizowania istniejącego zasobu lub usuwania zasobu. |
 | resourceProvider | ciąg | Dostawca zasobów dla operacji. |
 | resourceUri | ciąg | Identyfikator URI zasobu w operacji. |
-| operationName | ciąg | Operacja, która została podjęta. |
+| operationName | ciąg | Operacja, która została wykonana. |
 | status | ciąg | Stan operacji. |
 | subscriptionId | ciąg | Identyfikator subskrypcji zasobu. |
-| identyfikator dzierżawy | ciąg | Identyfikator dzierżawy zasobu. |
+| tenantId | ciąg | Identyfikator dzierżawy zasobu. |
 
 ## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
 |Tytuł  |Opis  |
 |---------|---------|
-| [Samouczek: monitorowanie zmian na maszynach wirtualnych za pomocą usługi Azure Event Grid i aplikacji logiki](monitor-virtual-machine-changes-event-grid-logic-app.md) | Aplikacja logiki monitoruje zmiany na maszynie wirtualnej i wysyła wiadomości e-mail o tych zmianach. |
-| [Interfejsu wiersza polecenia platformy Azure: subskrybowanie zdarzeń dla grupy zasobów](./scripts/event-grid-cli-resource-group.md)| Przykładowy skrypt, który subskrybuje zdarzenia dla grupy zasobów. Wysyła zdarzenia do elementu WebHook. |
-| [Interfejsu wiersza polecenia platformy Azure: subskrybowanie zdarzeń dla grupy zasobów i filtrowanie zasobu](./scripts/event-grid-cli-resource-group-filter.md) | Przykładowy skrypt, który subskrybuje zdarzenia dla grupy zasobów i filtruje zdarzenia dla jednego zasobu. |
-| [Program PowerShell: subskrybowanie zdarzeń dla grupy zasobów](./scripts/event-grid-powershell-resource-group.md) | Przykładowy skrypt, który subskrybuje zdarzenia dla grupy zasobów. Wysyła zdarzenia do elementu WebHook. |
-| [Program PowerShell: subskrybowanie zdarzeń dla grupy zasobów i filtrowanie zasobu](./scripts/event-grid-powershell-resource-group-filter.md) | Przykładowy skrypt, który subskrybuje zdarzenia dla grupy zasobów i filtruje zdarzenia dla jednego zasobu. |
-| [Szablon Menedżera zasobów: subskrypcja zasobów](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Subskrybuje zdarzenia dla subskrypcji platformy Azure lub grupy zasobów. Wysyła zdarzenia do elementu WebHook. |
+| [Samouczek: monitorowanie zmian maszyny wirtualnej przy użyciu Azure Event Grid i Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Aplikacja logiki monitoruje zmiany w maszynie wirtualnej i wysyła wiadomości e-mail o tych zmianach. |
+| [Interfejs wiersza polecenia platformy Azure: subskrybowanie zdarzeń dla grupy zasobów](./scripts/event-grid-cli-resource-group.md)| Przykładowy skrypt, który subskrybuje zdarzenia dla grupy zasobów. Wysyła zdarzenia do elementu webhook. |
+| [Interfejs wiersza polecenia platformy Azure: subskrybowanie zdarzeń dla grupy zasobów i filtrowanie zasobów](./scripts/event-grid-cli-resource-group-filter.md) | Przykładowy skrypt, który subskrybuje zdarzenia dla grupy zasobów i filtruje zdarzenia dla jednego zasobu. |
+| [PowerShell: subskrybowanie zdarzeń dla grupy zasobów](./scripts/event-grid-powershell-resource-group.md) | Przykładowy skrypt, który subskrybuje zdarzenia dla grupy zasobów. Wysyła zdarzenia do elementu webhook. |
+| [PowerShell: subskrybowanie zdarzeń dla grupy zasobów i filtrowanie zasobów](./scripts/event-grid-powershell-resource-group-filter.md) | Przykładowy skrypt, który subskrybuje zdarzenia dla grupy zasobów i filtruje zdarzenia dla jednego zasobu. |
+| [Szablon Menedżer zasobów: subskrypcja zasobów](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Subskrybuje zdarzenia dla subskrypcji lub grupy zasobów platformy Azure. Wysyła zdarzenia do elementu webhook. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać wprowadzenie do usługi Azure Event Grid, zobacz [Co to jest siatka zdarzeń?](overview.md)
-* Aby uzyskać więcej informacji na temat tworzenia subskrypcji usługi Azure Event Grid, zobacz [schemat subskrypcji usługi Event Grid](subscription-creation-schema.md).
+* Aby zapoznać się z wprowadzeniem do Azure Event Grid, zobacz [co to jest Event Grid?](overview.md)
+* Aby uzyskać więcej informacji na temat tworzenia subskrypcji Azure Event Grid, zobacz [Event Grid schematu subskrypcji](subscription-creation-schema.md).

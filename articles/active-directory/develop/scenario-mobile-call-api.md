@@ -1,7 +1,7 @@
 ---
-title: Wywoływanie internetowego interfejsu API z aplikacji mobilnej | Azure
+title: Wywoływanie interfejsu API sieci Web z aplikacji mobilnej | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak utworzyć aplikację mobilną, która wywołuje internetowe interfejsy API. (Wywołanie internetowego interfejsu API).
+description: Dowiedz się, jak utworzyć aplikację mobilną, która wywołuje interfejsy API sieci Web. (Wywoływanie interfejsu API sieci Web).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -14,36 +14,36 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 28f57c5657ce2f8537a654a7f67ed4481fab2c91
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80882696"
 ---
-# <a name="call-a-web-api-from-a-mobile-app"></a>Wywoływanie internetowego interfejsu API z aplikacji mobilnej
+# <a name="call-a-web-api-from-a-mobile-app"></a>Wywoływanie interfejsu API sieci Web z aplikacji mobilnej
 
-Po aplikacji loguje się do użytkownika i odbiera tokeny, Biblioteka uwierzytelniania firmy Microsoft (MSAL) udostępnia informacje o użytkowniku, środowisku użytkownika i wystawionych tokenów. Aplikacja może używać tych wartości do wywoływania internetowego interfejsu API lub wyświetlania wiadomości powitalnej dla użytkownika.
+Gdy aplikacja zaloguje się do użytkownika i odbierze tokeny, Biblioteka Microsoft Authentication Library (MSAL) ujawnia informacje o użytkowniku, środowisku użytkownika i wystawionych tokenach. Twoja aplikacja może używać tych wartości do wywoływania internetowego interfejsu API lub wyświetlania użytkownikowi komunikatu powitalnego.
 
-W tym artykule przyjrzymy się najpierw wynikowi MSAL. Następnie przyjrzymy się, jak używać `AuthenticationResult` `result` tokenu dostępu z lub wywołać chroniony interfejs API sieci web.
+W tym artykule najpierw Przyjrzyjmy się wynikowi MSAL. Następnie dowiesz się, jak używać tokenu dostępu z `AuthenticationResult` programu lub `result` do wywoływania chronionego internetowego interfejsu API.
 
 ## <a name="msal-result"></a>Wynik MSAL
-MSAL zawiera następujące wartości: 
+MSAL udostępnia następujące wartości: 
 
-- `AccessToken`wywołuje chronione interfejsy API sieci web w żądaniu okaziciela HTTP.
-- `IdToken`zawiera przydatne informacje o zalogowanych użytkownikach. Informacje te obejmują nazwę użytkownika, dzierżawy domowej i unikatowy identyfikator magazynu.
+- `AccessToken`wywołuje chronione interfejsy API sieci Web w żądaniu HTTP okaziciela.
+- `IdToken`zawiera użyteczne informacje dotyczące zalogowanego użytkownika. Te informacje obejmują nazwę użytkownika, dzierżawę domową i unikatowy identyfikator magazynu.
 - `ExpiresOn`to czas wygaśnięcia tokenu. MSAL obsługuje automatyczne odświeżanie aplikacji.
-- `TenantId`jest identyfikatorem dzierżawy, w którym użytkownik się zalogował. W przypadku użytkowników-gości w usłudze Azure Active Directory (Azure AD) B2B ta wartość identyfikuje dzierżawę, w której użytkownik się zalogował. Wartość nie identyfikuje dzierżawy domowej użytkownika.  
-- `Scopes`wskazuje zakresy, które zostały przyznane za pomocą tokenu. Przyznane zakresy mogą być podzbiorem żądanych zakresów.
+- `TenantId`jest identyfikatorem dzierżawy, w której zalogowany jest użytkownik. Dla użytkowników-Gości w usłudze Azure Active Directory (Azure AD) B2B ta wartość identyfikuje dzierżawcę, w którym użytkownik zalogował się. Wartość nie identyfikuje dzierżawy głównej użytkownika.  
+- `Scopes`wskazuje zakresy, które zostały przyznane z tokenem. Przyznane zakresy mogą być podzbiorem żądanych zakresów.
 
-MSAL zapewnia również abstrakcję dla `Account` wartości. Wartość `Account` reprezentuje konto zalogowane bieżącego użytkownika:
+MSAL udostępnia również streszczenie dla `Account` wartości. `Account` Wartość reprezentuje konto zalogowanego bieżącego użytkownika:
 
-- `HomeAccountIdentifier`identyfikuje dzierżawę domową użytkownika.
-- `UserName`jest preferowaną nazwą użytkownika. Ta wartość może być pusta dla użytkowników usługi Azure AD B2C.
-- `AccountIdentifier`identyfikuje zalogowany użytkownik. W większości przypadków ta wartość jest `HomeAccountIdentifier` taka sama jak wartość, chyba że użytkownik jest gościem w innej dzierżawie.
+- `HomeAccountIdentifier`Identyfikuje dzierżawcę w domu użytkownika.
+- `UserName`jest preferowaną nazwą użytkownika. Ta wartość może być pusta dla Azure AD B2C użytkowników.
+- `AccountIdentifier`Identyfikuje zalogowanego użytkownika. W większości przypadków ta wartość jest taka sama jak `HomeAccountIdentifier` wartość, chyba że użytkownik jest gościem w innej dzierżawie.
 
 ## <a name="call-an-api"></a>Wywoływanie interfejsu API
 
-Po tokenie dostępu można wywołać internetowy interfejs API. Aplikacja użyje tokenu do utworzenia żądania HTTP, a następnie uruchom żądanie.
+Po uzyskaniu tokenu dostępu można wywołać internetowy interfejs API. Aplikacja użyje tokenu do skompilowania żądania HTTP, a następnie uruchomienia żądania.
 
 ### <a name="android"></a>Android
 
@@ -87,7 +87,7 @@ Po tokenie dostępu można wywołać internetowy interfejs API. Aplikacja użyje
 
 ### <a name="msal-for-ios-and-macos"></a>Biblioteka MSAL dla systemów iOS i macOS
 
-Metody uzyskiwania tokenów `MSALResult` zwracają obiekt. `MSALResult`udostępnia właściwość. `accessToken` Można użyć `accessToken` do wywołania internetowego interfejsu API. Dodaj tę właściwość do nagłówka autoryzacji HTTP przed wywołaniem dostępu do chronionego interfejsu API sieci web.
+Metody uzyskiwania tokenów zwracają `MSALResult` obiekt. `MSALResult`uwidacznia `accessToken` właściwość. Możesz użyć `accessToken` , aby wywołać internetowy interfejs API. Dodaj tę właściwość do nagłówka autoryzacji HTTP przed wywołaniem dostępu do chronionego internetowego interfejsu API.
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
@@ -115,17 +115,17 @@ task.resume()
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
-## <a name="make-several-api-requests"></a>Składanie kilku żądań interfejsu API
+## <a name="make-several-api-requests"></a>Wykonaj kilka żądań interfejsu API
 
-Jeśli chcesz wywołać ten sam interfejs API kilka razy lub jeśli chcesz wywołać wiele interfejsów API, podczas tworzenia aplikacji należy wziąć pod uwagę następujące tematy:
+Jeśli konieczne jest wywołanie tego samego interfejsu API kilka razy lub jeśli musisz wywołać wiele interfejsów API, weź pod uwagę następujące kwestie podczas kompilowania aplikacji:
 
-- **Zgoda przyrostowa:** Platforma tożsamości firmy Microsoft umożliwia aplikacjom uzyskanie zgody użytkownika, gdy wymagane są uprawnienia, a nie wszystkie na początku. Za każdym razem, gdy aplikacja jest gotowa do wywołania interfejsu API, powinna zażądać tylko zakresów, których potrzebuje.
+- Powiększanie **zgody**: platforma tożsamości firmy Microsoft umożliwia aplikacjom uzyskanie zgody użytkownika, gdy wymagane są uprawnienia, a nie wszystkie na początku. Za każdym razem, gdy aplikacja jest gotowa do wywołania interfejsu API, powinna zażądać tylko wymaganych zakresów.
 
-- **Dostęp warunkowy:** Podczas tworzenia kilku żądań interfejsu API, w niektórych scenariuszach może być konieczne spełnienie dodatkowych wymagań dotyczących dostępu warunkowego. Wymagania mogą wzrosnąć w ten sposób, jeśli pierwsze żądanie nie ma zasad dostępu warunkowego, a aplikacja próbuje dyskretnie uzyskać dostęp do nowego interfejsu API, który wymaga dostępu warunkowego. Aby poradzić sobie z tym problemem, należy złapać błędy z cichych żądań i być przygotowanym do złożenia interaktywnego żądania.  Aby uzyskać więcej informacji, zobacz [Wskazówki dotyczące dostępu warunkowego](../azuread-dev/conditional-access-dev-guide.md).
+- **Dostęp warunkowy**: po wprowadzeniu kilku żądań interfejsu API w niektórych scenariuszach może być konieczne spełnienie dodatkowych wymagań dostępu warunkowego. Wymagania mogą wzrosnąć w ten sposób, jeśli pierwsze żądanie nie ma zasad dostępu warunkowego, a aplikacja próbuje uzyskać dostęp do nowego interfejsu API, który wymaga dostępu warunkowego. Aby obsłużyć ten problem, należy zwrócić uwagę na błędy żądań dyskretnych i przygotować się do przeprowadzenia interakcyjnego żądania.  Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące dostępu warunkowego](../azuread-dev/conditional-access-dev-guide.md).
 
-## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Wywoływanie kilku interfejsów API przy użyciu zgody przyrostowej i dostępu warunkowego
+## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Wywoływanie kilku interfejsów API przy użyciu funkcji przyrostowej zgody i dostępu warunkowego
 
-Jeśli musisz wywołać kilka interfejsów API dla tego samego użytkownika, po pozyskaniu tokenu dla użytkownika, można `AcquireTokenSilent` uniknąć wielokrotnego proszenia użytkownika o poświadczenia, następnie wywołując token:
+Jeśli konieczne jest wywołanie kilku interfejsów API dla tego samego użytkownika, po uzyskaniu tokenu dla użytkownika można uniknąć wielokrotnego monitowania użytkownika o poświadczenia, wywołując `AcquireTokenSilent` do uzyskania tokenu:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -135,10 +135,10 @@ result = await app.AcquireTokenSilent("scopeApi2")
                   .ExecuteAsync();
 ```
 
-Interakcja jest wymagana, gdy:
+Interakcja jest wymagana w przypadku:
 
-- Użytkownik wyraził zgodę na pierwszy interfejs API, ale teraz musi wyrazić zgodę na więcej zakresów. W takim przypadku użytkownik korzysta z przyrostowej zgody.
-- Pierwszy interfejs API nie wymaga uwierzytelniania wieloskładnikowego, ale następny interfejs API nie.
+- Użytkownik wyraził zgodę na pierwszy interfejs API, ale teraz musi powyrazić zgody na więcej zakresów. W takim przypadku używana jest wyrażanie zgody.
+- Pierwszy interfejs API nie wymaga uwierzytelniania wieloskładnikowego, ale następny interfejs API wykonuje.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

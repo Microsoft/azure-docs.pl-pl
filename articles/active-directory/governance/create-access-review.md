@@ -1,6 +1,6 @@
 ---
-title: Tworzenie przeglądu dostępu grup & aplikacji — Azure AD
-description: Dowiedz się, jak utworzyć przegląd dostępu członków grupy lub dostępu do aplikacji w przeglądach dostępu usługi Azure Active Directory.
+title: Tworzenie przeglądu dostępu do grup & aplikacji — Azure AD
+description: Dowiedz się, jak utworzyć przegląd dostępu dla członków grupy lub dostępu do aplikacji w Azure Active Directory przeglądy dostępu.
 services: active-directory
 author: barclayn
 manager: daveba
@@ -16,138 +16,138 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9e01951b6147cfc39fe6c46035db822071bda3aa
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80984078"
 ---
-# <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Tworzenie przeglądu dostępu grup i aplikacji w przeglądach dostępu usługi Azure AD
+# <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Tworzenie przeglądu dostępu do grup i aplikacji w przeglądach dostępu usługi Azure AD
 
-Dostęp do grup i aplikacji dla pracowników i gości zmienia się w czasie. Aby zmniejszyć ryzyko związane ze starszymi przydziałami dostępu, administratorzy mogą używać usługi Azure Active Directory (Azure AD) do tworzenia przeglądów dostępu dla członków grupy lub dostępu do aplikacji. Jeśli chcesz rutynowo przeglądać dostęp, możesz również tworzyć cykliczne przeglądy dostępu. Aby uzyskać więcej informacji na temat tych scenariuszy, zobacz [Zarządzanie dostępem użytkowników](manage-user-access-with-access-reviews.md) i [zarządzanie dostępem gościa](manage-guest-access-with-access-reviews.md).
+Dostęp do grup i aplikacji dla pracowników i Gości zmienia się wraz z upływem czasu. Aby zmniejszyć ryzyko związane ze starymi przypisaniami dostępu, Administratorzy mogą używać Azure Active Directory (Azure AD) do tworzenia przeglądów dostępu dla członków grupy lub dostępu do aplikacji. Jeśli musisz rutynowo przeglądać dostęp, możesz również utworzyć cykliczne przeglądy dostępu. Aby uzyskać więcej informacji na temat tych scenariuszy, zobacz [Zarządzanie dostępem użytkowników](manage-user-access-with-access-reviews.md) i [Zarządzanie dostępem gościa](manage-guest-access-with-access-reviews.md).
 
-W tym artykule opisano sposób tworzenia co najmniej jednej recenzje dostępu dla członków grupy lub dostępu do aplikacji.
+W tym artykule opisano sposób tworzenia jednej lub kilku przeglądów dostępu dla członków grupy lub dostępu do aplikacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Usługa Azure AD — warstwa Premium P2
-- Administrator globalny lub administrator użytkownika
+- Administrator globalny lub administrator użytkowników
 
-Aby uzyskać więcej informacji, zobacz [Wymagania licencyjne](access-reviews-overview.md#license-requirements).
+Aby uzyskać więcej informacji, zobacz [wymagania dotyczące licencji](access-reviews-overview.md#license-requirements).
 
-## <a name="create-one-or-more-access-reviews"></a>Tworzenie co najmniej jednej recenzji dostępu
+## <a name="create-one-or-more-access-reviews"></a>Utwórz co najmniej jedną weryfikację dostępu
 
-1. Zaloguj się do witryny Azure portal i otwórz [stronę zarządzania tożsamościami](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Zaloguj się do Azure Portal i Otwórz [stronę zarządzania tożsamościami](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. W menu po lewej stronie kliknij pozycję **Przeglądy programu Access**.
+1. W menu po lewej stronie kliknij pozycję **przeglądy dostępu**.
 
-1. Kliknij **pozycję Nowa recenzja dostępu,** aby utworzyć nową recenzję dostępu.
+1. Kliknij kolejno pozycje **nowy przegląd dostępu** , aby utworzyć nowy przegląd dostępu.
 
-    ![Okienko Przeglądy dostępu w zarządzania tożsamościami](./media/create-access-review/access-reviews.png)
+    ![Okienko przeglądy dostępu w programie Zarządzanie tożsamościami](./media/create-access-review/access-reviews.png)
 
-1. Nazwij recenzję dostępu. Opcjonalnie podaj opis recenzji. Nazwa i opis są wyświetlane recenzentom.
+1. Nadaj nazwę przeglądowi dostępu. Opcjonalnie nadaj przeglądowi opis. Nazwa i opis są widoczne dla recenzentów.
 
-    ![Tworzenie recenzji dostępu — recenzja nazwy i opisu](./media/create-access-review/name-description.png)
+    ![Tworzenie przeglądu dostępu — nazwa i opis przeglądu](./media/create-access-review/name-description.png)
 
-1. Ustaw **datę rozpoczęcia**. Domyślnie przegląd dostępu występuje raz, rozpoczyna się w tym samym czasie, w której został utworzony, a kończy się za miesiąc. Możesz zmienić daty rozpoczęcia i zakończenia, aby w przyszłości rozpocząć przegląd dostępu i trwać przez wiele dni.
+1. Ustaw **datę początkową**. Domyślnie przegląd dostępu odbywa się raz, uruchamia się w tym samym czasie, który jest tworzony i upływa w ciągu miesiąca. Można zmienić datę początkową i końcową w taki sposób, aby przegląd dostępu został uruchomiony w przyszłości, a ostatni w ciągu kilku dni.
 
     ![Tworzenie przeglądu dostępu — daty rozpoczęcia i zakończenia](./media/create-access-review/start-end-dates.png)
 
-1. Aby przegląd dostępu był powtarzany, zmień ustawienie **Częstotliwość** z **Jeden raz** na **tygodniowy,** **Miesięczny,** **Kwartalny,** **Półroczny**lub **Roczny.** Użyj suwaka **czas trwania** lub pola tekstowego, aby określić, ile dni każdy przegląd serii cyklicznej będzie otwarty dla danych wejściowych od recenzentów. Na przykład maksymalny czas trwania, który można ustawić dla miesięcznego przeglądu wynosi 27 dni, aby uniknąć nakładania się opinii.
+1. Aby umożliwić cykliczne przeglądy dostępu, Zmień **ustawienie częstotliwości** z **jednego czasu** na **co tydzień**, **co miesiąc**, co **kwartał**, co **pół roku**lub **co rok**. Za pomocą suwaka **czas trwania** lub pola tekstowego Zdefiniuj, ile dni każdy przegląd cyklicznej serii będzie otwarty do wprowadzania danych od recenzentów. Na przykład maksymalny czas, który można ustawić dla comiesięcznego przeglądu wynosi 27 dni, aby uniknąć nakładających się przeglądów.
 
-1. Użyj **end ustawienie,** aby określić, jak zakończyć cyklicznych serii przeglądu dostępu. Seria może zakończyć się na trzy sposoby: działa w sposób ciągły, aby rozpocząć przeglądy przez czas nieokreślony, aż do określonej daty lub po zakończeniu określonej liczby wystąpień. Użytkownik, inny administrator użytkownika lub inny administrator globalny może zatrzymać serię po utworzeniu, zmieniając datę w **Ustawieniach,** tak aby kończyła się w tym dniu.
+1. Użyj ustawienia **End** , aby określić, jak zakończyć cykliczne serie przeglądu dostępu. Seria może kończyć się na trzy sposoby: działa stale, aby rozpocząć przeglądy w nieskończoność, aż do określonej daty lub po zakończeniu zdefiniowanej liczby wystąpień. Po utworzeniu seria może zostać zatrzymana przez innego administratora lub innego administratora globalnego, zmieniając datę w **ustawieniach**, aby zakończyć działanie.
 
-1. W sekcji **Użytkownicy** określ użytkowników, których dotyczy przegląd dostępu. Przeglądy dostępu mogą być dla członków grupy lub dla użytkowników, którzy zostali przypisani do aplikacji. Można dalej zakres przeglądu dostępu do przeglądu tylko użytkowników-gości, którzy są członkami (lub przypisane do aplikacji), a nie przeglądowi wszystkich użytkowników, którzy są członkami lub którzy mają dostęp do aplikacji.
+1. W sekcji **Użytkownicy** Określ użytkowników, których dotyczy przegląd dostępu. Przeglądy dostępu mogą dotyczyć członków grupy lub użytkowników, którzy zostali przypisani do aplikacji. Można dodatkowo określić zakres przeglądu dostępu, aby przeglądać tylko użytkowników-Gości, którzy są członkami (lub przypisani do aplikacji), a nie przeglądać wszystkich użytkowników, którzy są członkami lub którzy mają dostęp do aplikacji.
 
-    ![Tworzenie recenzji dostępu — użytkownicy](./media/create-access-review/users.png)
+    ![Tworzenie przeglądu dostępu — użytkownicy](./media/create-access-review/users.png)
 
-1. W sekcji **Grupa** wybierz jedną lub więcej grup, w których chcesz przejrzeć członkostwo.
-
-    > [!NOTE]
-    > Wybranie więcej niż jednej grupy spowoduje utworzenie wielu recenzji dostępu. Na przykład wybranie pięciu grup spowoduje utworzenie pięciu oddzielnych przeglądów dostępu.
-    
-    ![Tworzenie recenzji dostępu — wybierz grupę](./media/create-access-review/select-group.png)
-
-1. W sekcji **Aplikacje** (jeśli w kroku 8 wybrano opcję **Przypisano do aplikacji)** wybierz aplikacje, do których chcesz przejrzeć dostęp.
+1. W sekcji **Grupa** wybierz co najmniej jedną grupę, do której chcesz przejrzeć członkostwo.
 
     > [!NOTE]
-    > Wybranie więcej niż jednej aplikacji spowoduje utworzenie wielu przeglądów dostępu. Na przykład wybranie pięciu aplikacji spowoduje utworzenie pięciu oddzielnych przeglądów dostępu.
+    > Wybranie więcej niż jednej grupy spowoduje utworzenie wielu przeglądów dostępu. Na przykład wybranie pięciu grup spowoduje utworzenie pięciu odrębnych przeglądów dostępu.
     
-    ![Tworzenie przeglądu dostępu — wybierz aplikację](./media/create-access-review/select-application.png)
+    ![Tworzenie przeglądu dostępu — Wybieranie grupy](./media/create-access-review/select-group.png)
 
-1. W **recenzenci** sekcji wybierz jedną lub więcej osób, aby przejrzeć wszystkich użytkowników w zakresie. Możesz też wybrać, aby członkowie przeglądali własny dostęp. Jeśli zasób jest grupą, możesz poprosić właścicieli grupy o sprawdzenie. Można również wymagać, aby recenzenci podać przyczynę podczas zatwierdzania dostępu.
+1. W sekcji **aplikacje** (w przypadku wybrania opcji **przypisane do aplikacji** w kroku 8) wybierz aplikacje, do których chcesz przejrzeć dostęp.
 
-    ![Tworzenie recenzji dostępu — recenzenci](./media/create-access-review/reviewers.png)
+    > [!NOTE]
+    > Wybranie więcej niż jednej aplikacji spowoduje utworzenie wielu przeglądów dostępu. Na przykład wybranie pięciu aplikacji spowoduje utworzenie pięciu odrębnych przeglądów dostępu.
+    
+    ![Tworzenie przeglądu dostępu — Wybieranie aplikacji](./media/create-access-review/select-application.png)
 
-1. W sekcji **Programy** wybierz program, którego chcesz użyć. **Domyślny program** jest zawsze obecny.
+1. W sekcji **recenzenci** wybierz co najmniej jedną osobę, aby przejrzeć wszystkich użytkowników w zakresie. Możesz również wybrać, aby członkowie mogli przeglądać swój własny dostęp. Jeśli zasób jest grupą, możesz poproszony właściciele grupy o przeglądanie. Można również wymagać od recenzentów podania przyczyny zatwierdzenia dostępu.
 
-    ![Tworzenie recenzji dostępu — programy](./media/create-access-review/programs.png)
+    ![Tworzenie przeglądu dostępu — recenzenci](./media/create-access-review/reviewers.png)
 
-    Można uprościć sposób śledzenia i zbierania opinii o dostępie do różnych celów, organizując je w programy. Każdy przegląd dostępu może być połączony z programem. Następnie podczas przygotowywania raportów dla audytora można skupić się na przeglądach dostępu w zakresie konkretnej inicjatywy. Programy i wyniki przeglądu dostępu są widoczne dla użytkowników w roli administratora globalnego, administratora użytkownika, administratora zabezpieczeń lub czytnika zabezpieczeń.
+1. W sekcji **programy** wybierz program, którego chcesz użyć. **Program domyślny** jest zawsze obecny.
 
-    Aby wyświetlić listę programów, przejdź do strony przeglądy dostępu i wybierz pozycję **Programy**. Jeśli jesteś administratorem globalnym lub administratorem użytkownika, możesz utworzyć dodatkowe programy. Na przykład można wybrać jeden program dla każdej inicjatywy zgodności lub celu biznesowego. Jeśli program nie jest już potrzebny i nie ma z nim żadnych elementów sterujących, możesz go usunąć.
+    ![Tworzenie przeglądu dostępu — programy](./media/create-access-review/programs.png)
+
+    Można uprościć śledzenie i zbieranie przeglądów dostępu do różnych celów, organizując je w programy. Poszczególne przeglądy dostępu mogą być połączone z programem. Następnie podczas przygotowywania raportów dla audytora można skupić się na przeglądach dostępu w zakresie dla konkretnej inicjatywy. Wyniki przeglądu programów i dostępu są widoczne dla użytkowników w roli administratora globalnego, administratora użytkowników, administratora zabezpieczeń lub czytelnika zabezpieczeń.
+
+    Aby wyświetlić listę programów, przejdź do strony przeglądy dostępu i wybierz pozycję **programy**. Jeśli jesteś administratorem globalnym lub rolą administratora użytkownika, możesz utworzyć dodatkowe programy. Na przykład można wybrać opcję posiadania jednego programu dla każdej inicjatywy zgodności lub celu prowadzenia działalności biznesowej. Jeśli program nie jest już potrzebny i nie ma żadnych kontrolek, można go usunąć.
 
 ### <a name="upon-completion-settings"></a>Po zakończeniu ustawień
 
-1. Aby określić, co się stanie po zakończeniu przeglądu, rozwiń sekcję **Po zakończeniu ustawień.**
+1. Aby określić, co się stanie po zakończeniu przeglądu, rozwiń sekcję **po zakończeniu ustawień** .
 
-    ![Tworzenie recenzji dostępu — po zakończeniu ustawień](./media/create-access-review/upon-completion-settings.png)
+    ![Tworzenie przeglądu dostępu — po zakończeniu ustawień](./media/create-access-review/upon-completion-settings.png)
 
-1. Jeśli chcesz automatycznie usunąć, dostęp dla użytkowników, którym odmówiono, ustaw **automatyczne stosowanie wyników do zasobu,** aby **włączyć**. Jeśli chcesz ręcznie zastosować wyniki po zakończeniu przeglądu, ustaw przełącznik na **Wyłącz**.
+1. Jeśli chcesz automatycznie usunąć, dostęp dla użytkowników, którym odmówiono, ustaw **Automatyczne stosowanie wyników do zasobu** do **włączenia**. Jeśli chcesz ręcznie zastosować wyniki po zakończeniu przeglądu, ustaw przełącznik do **wyłączenia**.
 
-1. Użyj listy **Czy recenzent nie odpowiada,** aby określić, co się stanie dla użytkowników, którzy nie są przeglądani przez recenzenta w okresie przeglądu. To ustawienie nie ma wpływu na użytkowników, którzy zostali przejrzeni ręcznie przez recenzentów. Jeśli ostateczną decyzją recenzenta jest Odmów, dostęp użytkownika zostanie usunięty.
+1. Użyj listy **powinien nie odpowiadać** , aby określić, co się dzieje w przypadku użytkowników, którzy nie są recenzowani przez recenzenta w okresie przeglądu. To ustawienie nie ma wpływu na użytkowników, którzy zostali ręcznie przejrzał przez recenzentów. Jeśli ostateczna decyzja recenzenta jest odmowa, dostęp użytkownika zostanie usunięty.
 
-    - **Bez zmian** - Pozostaw dostęp użytkownika bez zmian
-    - **Usuwanie dostępu** — usuwanie dostępu użytkownika
+    - **Bez zmian — nie** zmieniaj dostępu użytkownika
+    - **Usuwanie dostępu** — Usuwanie dostępu użytkownika
     - **Zatwierdzanie dostępu** — zatwierdzanie dostępu użytkownika
-    - **Podejmij zalecenia** — przyjmuj zalecenia systemu dotyczące odmowy lub zatwierdzenia ciągłego dostępu użytkownika
+    - Zapoznaj się z **zaleceniami** — zapoznaj się z zaleceniami systemu dotyczącymi odmowy lub zatwierdzenia ciągłego dostępu użytkownika
 
 ### <a name="advanced-settings"></a>Ustawienia zaawansowane
 
-1. Aby określić dodatkowe ustawienia, rozwiń sekcję **Ustawienia zaawansowane.**
+1. Aby określić dodatkowe ustawienia, rozwiń sekcję **Ustawienia zaawansowane** .
 
-    ![Tworzenie recenzji dostępu — ustawienia zaawansowane](./media/create-access-review/advanced-settings.png)
+    ![Tworzenie przeglądu dostępu — Ustawienia zaawansowane](./media/create-access-review/advanced-settings.png)
 
-1. Ustaw **pokaż zalecenia,** aby **włączyć,** aby wyświetlić recenzentów zalecenia systemowe na podstawie informacji o dostępie użytkownika.
+1. Ustaw opcję **Pokaż zalecenia** do **włączenia** , aby wyświetlić recenzentów zalecenia systemowe na podstawie informacji o dostępie użytkownika.
 
-1. Ustaw **wymagaj przyczyny przy zatwierdzeniu,** aby **włączyć** wymagać od recenzenta podania przyczyny zatwierdzenia.
+1. Ustaw **przyczynę Wymagaj przy zatwierdzeniu** , aby **umożliwić** recenzentowi podanie przyczyny zatwierdzenia.
 
-1. Ustaw **powiadomienia poczty,** aby **włączyć,** aby usługa Azure AD wysyłała powiadomienia e-mail do recenzentów po rozpoczęciu przeglądu dostępu i do administratorów po zakończeniu przeglądu.
+1. Ustaw **powiadomienia pocztą** , aby **umożliwić** usłudze Azure AD wysyłanie powiadomień e-mail do recenzentów po rozpoczęciu przeglądu dostępu oraz do administratorów po zakończeniu przeglądu.
 
-1. Ustaw **przypomnienia,** aby **włączyć,** aby usługa Azure AD wysyłała przypomnienia o przeglądach dostępu w toku do recenzentów, którzy nie ukończyli przeglądu.
+1. Ustaw **przypomnienia** , aby **umożliwić** usłudze Azure AD wysyłanie przypomnień o przeglądach dostępu w toku do recenzentów, którzy nie ukończyli swojego przeglądu.
 
     Domyślnie usługa Azure AD automatycznie wysyła przypomnienia recenzentom, którzy jeszcze nie odpowiedzieli, po upływie połowy czasu przeznaczonego na przekazanie opinii.
 
-## <a name="start-the-access-review"></a>Rozpoczynanie przeglądu dostępu
+## <a name="start-the-access-review"></a>Rozpocznij przegląd dostępu
 
-Po określeniu ustawień przeglądu dostępu kliknij przycisk **Start**. Przegląd dostępu pojawi się na liście ze wskaźnikiem jego stanu.
+Po określeniu ustawień przeglądu dostępu kliknij przycisk **Uruchom**. Przegląd dostępu zostanie wyświetlony na liście ze wskaźnikiem jego stanu.
 
-![Lista przeglądów dostępu i ich status](./media/create-access-review/access-reviews-list.png)
+![Lista przeglądów dostępu i ich stan](./media/create-access-review/access-reviews-list.png)
 
-Domyślnie usługa Azure AD wysyła wiadomość e-mail do recenzentów wkrótce po rozpoczęciu przeglądu. Jeśli nie chcesz, aby usługa Azure AD wysyłała wiadomość e-mail, należy poinformować recenzentów, że przegląd dostępu czeka na ich ukończenie. Możesz pokazać im instrukcje dotyczące [przeglądania dostępu do grup lub aplikacji](perform-access-review.md). Jeśli twoja recenzja jest dla gości, aby przejrzeć swój własny dostęp, pokaż im instrukcje, jak [sprawdzić dostęp dla siebie do grup lub aplikacji](review-your-access.md).
+Domyślnie usługa Azure AD wysyła wiadomość e-mail do recenzentów wkrótce po rozpoczęciu przeglądu. Jeśli nie chcesz, aby usługa Azure AD wysłała wiadomość e-mail, pamiętaj, aby poinformować recenzentów, że przegląd dostępu oczekuje na jego zakończenie. Można wyświetlić instrukcje dotyczące sposobu [przeglądania dostępu do grup lub aplikacji](perform-access-review.md). Jeśli Twoje przeglądy są przeznaczone dla Gości, aby zapoznać się z własnym dostępem, Pokaż im instrukcje dotyczące sposobu [przeglądania dostępu do grup lub aplikacji](review-your-access.md).
 
-Jeśli przydzielisz gości jako recenzentów i nie przyjęli zaproszenia, nie otrzymają oni wiadomości e-mail z opinii o dostępie, ponieważ muszą najpierw zaakceptować zaproszenie przed sprawdzeniem.
+Jeśli przypisano Gości jako recenzentów, którzy nie zaakceptowali zaproszenia, nie otrzymają wiadomości e-mail od przeglądów dostępu, ponieważ najpierw muszą zaakceptować zaproszenie przed rozpoczęciem przeglądu.
 
-## <a name="access-review-status-table"></a>Tabela stanu przeglądu programu Access
+## <a name="access-review-status-table"></a>Tabela stanu przeglądu dostępu
 
 | Stan | Definicja |
 |--------|------------|
-|NotStarted (Nierozpoczęcie) | Recenzja została utworzona, odnajdowanie użytkowników czeka na rozpoczęcie. |
-|Inicjowanie   | Odnajdowanie użytkowników jest w toku, aby zidentyfikować wszystkich użytkowników, którzy są częścią przeglądu. |
-|Uruchamianie | Rozpoczyna się przegląd. Jeśli powiadomienia e-mail są włączone, wiadomości e-mail są wysyłane do recenzentów. |
-|InProgress (Ruch przychodzący) | Rozpoczął się przegląd. Jeśli powiadomienia e-mail są włączone, do recenzentów zostały wysłane wiadomości e-mail. Recenzenci mogą składać decyzje do terminu płatności. |
-|Zakończeniu | Weryfikacja jest zakończona, a wiadomości e-mail są wysyłane do właściciela recenzji. |
-|Autowyświetlanie | Recenzja jest na etapie przeglądu systemu. System rejestruje decyzje dla użytkowników, którzy nie zostali przejrzeni na podstawie zaleceń lub wstępnie skonfigurowanych decyzji. |
-|Autoocesło | Decyzje zostały zarejestrowane przez system dla wszystkich użytkowników, którzy nie zostali poddani przeglądowi. Recenzja jest gotowa do przejścia do **Stosowania,** jeśli funkcja automatycznego stosowania jest włączona. |
-|Stosowania | Nie będzie żadnych zmian w dostępie dla użytkowników, którzy zostali zatwierdzeni. |
-|Zastosowano | Odmówiono użytkownikom, jeśli istnieją, zostały usunięte z zasobu lub katalogu. |
+|NotStarted | Przegląd został utworzony, odnajdywanie użytkowników oczekuje na uruchomienie. |
+|Inicjowanie   | Odnajdywanie użytkowników jest w toku, aby zidentyfikować wszystkich użytkowników, którzy są częścią przeglądu. |
+|Uruchamianie | Przegląd rozpoczyna się. Jeśli powiadomienia e-mail są włączone, wiadomości e-mail są wysyłane do recenzentów. |
+|Toku | Przegląd został rozpoczęty. Powiadomienia e-mail, które zostały włączone, są wysyłane do recenzentów. Recenzenci mogą przesyłać decyzje do daty ukończenia. |
+|Podając | Przegląd jest wykonywany i wiadomości e-mail są wysyłane do właściciela przeglądu. |
+|Autoprzegląd | Przegląd znajduje się na etapie recenzowania systemu. System rejestruje decyzje dla użytkowników, którzy nie zostali zrecenzowani w oparciu o zalecenia lub wstępnie skonfigurowane decyzje. |
+|Przejrzane ponownie | Decyzje zostały zarejestrowane przez system dla wszystkich użytkowników, którzy nie zostali zrecenzowani. Przegląd jest gotowy do **dalszego zastosowania, jeśli włączono** funkcję autoapply. |
+|Stosuje | Dostęp do użytkowników, którzy zostali zatwierdzeni, nie zmieni się. |
+|Zastosowano | Odmowa dostępu użytkowników, jeśli istnieją, zostały usunięte z zasobu lub katalogu. |
 
-## <a name="create-reviews-via-apis"></a>Tworzenie recenzji za pośrednictwem interfejsów API
+## <a name="create-reviews-via-apis"></a>Tworzenie przeglądów za pośrednictwem interfejsów API
 
-Można również tworzyć przeglądy dostępu za pomocą interfejsów API. Co można zrobić, aby zarządzać przeglądy dostępu grup i użytkowników aplikacji w witrynie Azure portal można również zrobić za pomocą interfejsów API programu Microsoft Graph. Aby uzyskać więcej informacji, zobacz [odwołanie do interfejsu API dostępu usługi Azure AD](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Przykładowy kod można znaleźć na [przykładzie pobierania przeglądów dostępu usługi Azure AD za pośrednictwem programu Microsoft Graph.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096)
+Możesz również tworzyć przeglądy dostępu za pomocą interfejsów API. Aby zarządzać przeglądami dostępu dla grup i użytkowników aplikacji w Azure Portal, można również wykonać Microsoft Graph interfejsów API. Aby uzyskać więcej informacji, zobacz [Dokumentacja interfejsu API przeglądów dostępu usługi Azure AD](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Aby uzyskać przykład kodu, zobacz [przykład pobierania przeglądów dostępu do usługi Azure AD za pośrednictwem Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przeglądanie dostępu do grup lub aplikacji](perform-access-review.md)
-- [Przeglądanie dostępu do grup lub aplikacji](review-your-access.md)
-- [Ukończ przegląd dostępu grup lub aplikacji](complete-access-review.md)
+- [Przejrzyj dostęp dla siebie do grup lub aplikacji](review-your-access.md)
+- [Ukończ przegląd dostępu do grup lub aplikacji](complete-access-review.md)

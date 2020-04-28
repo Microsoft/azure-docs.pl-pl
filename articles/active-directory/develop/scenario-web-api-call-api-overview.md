@@ -1,5 +1,5 @@
 ---
-title: Tworzenie internetowego interfejsu API, który wywołuje internetowe interfejsy API — platforma tożsamości firmy Microsoft | Azure
+title: Tworzenie interfejsu API sieci Web, który wywołuje interfejsy API sieci Web — Microsoft Identity platform | Azure
 description: Dowiedz się, jak utworzyć internetowy interfejs API, który wywołuje podrzędne interfejsy API sieci Web (omówienie).
 services: active-directory
 author: jmprieur
@@ -12,31 +12,31 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 88a0177755fbd913bdaaf0ecf3e12c62dee294c1
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885076"
 ---
-# <a name="scenario-a-web-api-that-calls-web-apis"></a>Scenariusz: internetowy interfejs API, który wywołuje internetowe interfejsy API
+# <a name="scenario-a-web-api-that-calls-web-apis"></a>Scenariusz: internetowy interfejs API, który wywołuje interfejsy API sieci Web
 
-Dowiedz się, co musisz wiedzieć, aby utworzyć internetowy interfejs API, który wywołuje internetowe interfejsy API.
+Dowiedz się, co musisz wiedzieć, aby utworzyć interfejs API sieci Web, który wywołuje interfejsy API sieci Web.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym scenariuszu, w którym chroniony interfejs API sieci web wywołuje interfejsy API sieci web, opiera się na scenariuszu "Chroń internetowy interfejs API". Aby dowiedzieć się więcej o tym podstawowym scenariuszu, zobacz [Scenariusz: Chroniony internetowy interfejs API](scenario-protected-web-api-overview.md).
+W tym scenariuszu, w którym chroniony interfejs API sieci Web wywołuje interfejsy API sieci Web, kompiluje się w scenariuszu "Ochrona internetowego interfejsu API". Aby dowiedzieć się więcej na temat tego scenariusza, zobacz temat [Scenariusz: chroniony internetowy interfejs API](scenario-protected-web-api-overview.md).
 
 ## <a name="overview"></a>Omówienie
 
-- Klient aplikacji sieci Web, pulpitu, urządzenia przenośnego lub jednostronicowego (nieprezentowany na towarzyszącym diagramie) wywołuje chroniony interfejs API sieci Web i udostępnia token nośny tokenu JSON Web Token (JWT) w nagłówku HTTP "Autoryzacja".
-- Chroniony interfejs API sieci Web sprawdza poprawność tokenu i `AcquireTokenOnBehalfOf` używa metody Biblioteki uwierzytelniania firmy Microsoft (MSAL) do żądania innego tokenu z usługi Azure Active Directory (Azure AD), dzięki czemu chroniony internetowy interfejs API może wywołać drugi internetowy interfejs API lub podrzędny interfejs API sieci web w imieniu użytkownika.
-- Chroniony interfejs API sieci `AcquireTokenSilent`web można również wywołać później, aby zażądać tokenów dla innych interfejsów API podrzędnego w imieniu tego samego użytkownika. `AcquireTokenSilent`odświeża token w razie potrzeby.
+- Klient sieci Web, pulpitu, aplikacji mobilnej lub jednostronicowej (niereprezentowanej na towarzyszącym diagramie) wywołuje chroniony internetowy interfejs API i udostępnia token okaziciela sieci Web w formacie JSON (JWT) w nagłówku HTTP "Authorization".
+- Chroniony internetowy interfejs API sprawdza token i używa metody Microsoft Authentication Library (MSAL) `AcquireTokenOnBehalfOf` w celu zażądania innego tokenu z Azure Active Directory (Azure AD), aby chroniony internetowy interfejs API mógł wywołać drugi internetowy interfejs API lub podrzędny interfejs API sieci Web w imieniu użytkownika.
+- Chroniony internetowy interfejs API może również wywołać `AcquireTokenSilent`później, aby zażądać tokenów innych podrzędnych interfejsów API w imieniu tego samego użytkownika. `AcquireTokenSilent`Odświeża token w razie konieczności.
 
-![Diagram internetowego interfejsu API wywołującego internetowy interfejs API](media/scenarios/web-api.svg)
+![Diagram interfejsu API sieci Web wywołującego interfejs API sieci Web](media/scenarios/web-api.svg)
 
-## <a name="specifics"></a>Specyfiki
+## <a name="specifics"></a>Szczegółowych informacji
 
-Część rejestracji aplikacji, która jest związana z uprawnieniami interfejsu API jest klasyczna. Konfiguracja aplikacji obejmuje przy użyciu przepływu W imieniu klienta OAuth 2.0 do wymiany tokenu nośnika JWT względem tokenu dla interfejsu API podrzędnego. Ten token jest dodawany do pamięci podręcznej tokenu, gdzie jest dostępny w kontrolerach interfejsu API sieci web, a następnie można uzyskać token dyskretnie do wywołania interfejsów API niższego rzędu.
+Część rejestracji aplikacji, która jest powiązana z uprawnieniami interfejsu API, jest klasyczna. Konfiguracja aplikacji obejmuje używanie przepływu OAuth 2,0 w imieniu użytkownika do wymiany tokenu okaziciela JWT z tokenem dla podrzędnego interfejsu API. Token ten jest dodawany do pamięci podręcznej tokenów, gdzie jest dostępny w kontrolerach internetowego interfejsu API, a następnie może uzyskać token dyskretnie wywołujący podrzędne interfejsy API.
 
 ## <a name="next-steps"></a>Następne kroki
 

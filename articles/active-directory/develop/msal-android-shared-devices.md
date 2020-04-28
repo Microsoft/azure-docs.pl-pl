@@ -1,7 +1,7 @@
 ---
 title: Tryb udostępnionego urządzenia dla urządzeń z systemem Android
 titleSuffix: Microsoft identity platform | Azure
-description: Dowiedz się, jak włączyć tryb urządzenia udostępnionego, aby umożliwić pracownikom pierwszej linii udostępnianie urządzenia z Systemem Android
+description: Dowiedz się, jak włączyć tryb udostępnionego urządzenia, aby umożliwić pracownikom Firstline współużytkowanie urządzenia z systemem Android
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
 ms.openlocfilehash: d9874e27c21906512c2f6c841767b4d6591dbeaf
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80550268"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Tryb udostępnionego urządzenia dla urządzeń z systemem Android
@@ -27,43 +27,43 @@ ms.locfileid: "80550268"
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Pracownicy pierwszej linii, tacy jak pracownicy handlu detalicznego, członkowie załogi lotniczej i pracownicy obsługi terenowej, często korzystają ze współdzielonego urządzenia mobilnego do wykonywania swojej pracy. Staje się to problematyczne, gdy zaczynają udostępniać hasła lub numery PIN, aby uzyskać dostęp do danych klienta i firmy na udostępnionym urządzeniu.
+Procesy robocze Firstline, takie jak detaliczne jednostki sprzedaży, członkowie załóg lotów i pracownicy usług polowych, często wykorzystują udostępnione urządzenie przenośne do pracy. Sprawia to problemy po rozpoczęciu udostępniania haseł lub numerów PIN w celu uzyskania dostępu do danych klienta i firmowych na udostępnionym urządzeniu.
 
-Tryb urządzenia współdzielonego umożliwia skonfigurowanie urządzenia z systemem Android, tak aby można je było łatwo udostępnić wielu pracownikom. Pracownicy mogą szybko logować się i uzyskiwać dostęp do informacji o klientach. Po zakończeniu zmiany lub zadania mogą wylogować się z urządzenia i będzie ono natychmiast gotowe do użycia przez następnego pracownika.
+Tryb udostępnionego urządzenia umożliwia skonfigurowanie urządzenia z systemem Android w taki sposób, aby można je było łatwo udostępnić wielu pracownikom. Pracownicy mogą szybko logować się i uzyskiwać dostęp do informacji o klientach. Po zakończeniu przesunięcia lub przeprowadzenia zadania mogą się wylogować z urządzenia, a następnie być natychmiast gotowe do użycia przez następnego pracownika.
 
-Tryb urządzenia udostępnionego zapewnia również zarządzanie urządzeniem z tożsamością firmy Microsoft.
+Tryb udostępnionego urządzenia udostępnia również zarządzanie tożsamością utworzoną przez firmę Microsoft.
 
-Aby utworzyć aplikację trybu urządzenia udostępnionego, deweloperzy i administratorzy urządzeń w chmurze współpracują ze sobą:
+Aby utworzyć aplikację trybu udostępnionego urządzenia, deweloperzy i Administratorzy urządzeń w chmurze współpracują ze sobą:
 
-- Deweloperzy piszą aplikację z jednym kontem (aplikacje z wieloma `"shared_device_mode_supported": true` kontami nie są obsługiwane w trybie urządzenia udostępnionego), dodają do konfiguracji aplikacji i zapisują kod do obsługi rzeczy, takich jak wylogowywanie się z urządzenia udostępnionego.
-- Administratorzy urządzeń przygotowują urządzenie do udostępnienia, instalując aplikację uwierzytelniającą i ustawiając urządzenie w trybie udostępnionym przy użyciu aplikacji uwierzytelniającego. Tylko użytkownicy, którzy są w roli Administrator urządzeń w [chmurze,](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator-permissions) mogą umieścić urządzenie w trybie udostępnionym za pomocą [aplikacji Authenticator](../user-help/user-help-auth-app-overview.md). Członkostwo ról organizacyjnych w witrynie Azure portal można skonfigurować za pomocą: **ról usługi Azure Active Directory** > i**administratorów** > **urządzeń w chmurze administratora urządzeń w chmurze.**
+- Deweloperzy piszą aplikację jednokontową (aplikacje z wieloma kontami nie są obsługiwane w trybie udostępnionego urządzenia), dodają `"shared_device_mode_supported": true` do konfiguracji aplikacji i zapisują kod do obsługi takich elementów jak udostępnione urządzenie do wylogowania.
+- Administratorzy urządzeń przygotowuje urządzenie do udostępnienia przez zainstalowanie aplikacji Authenticator i ustawienie trybu udostępniania urządzenia przy użyciu aplikacji Authenticator. Tylko użytkownicy znajdujący się w roli [administratora urządzenia w chmurze](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator-permissions) mogą umieścić urządzenie w trybie udostępniania przy użyciu [aplikacji Authenticator](../user-help/user-help-auth-app-overview.md). Członkostwo w rolach organizacyjnych można skonfigurować w Azure Portal za pośrednictwem: **Azure Active Directory** > **role i Administratorzy** > **administrator urządzeń w chmurze**.
 
- W tym artykule skupiono się przede wszystkim na tym, o czym powinni myśleć deweloperzy.
+ Ten artykuł koncentruje się głównie na tym, co deweloperzy powinni wziąć pod uwagę.
 
-## <a name="single-vs-multiple-account-applications"></a>Aplikacje jedno- i wielokondycjowe
+## <a name="single-vs-multiple-account-applications"></a>Pojedyncze aplikacje vs z wieloma kontami
 
-Aplikacje napisane przy użyciu biblioteki uwierzytelniania Microsoft SDK (MSAL) mogą zarządzać jednym kontem lub wieloma kontami. Aby uzyskać szczegółowe informacje, zobacz [tryb jednego konta lub tryb wielu kont](single-multi-account.md). Funkcje platformy tożsamości firmy Microsoft dostępne dla aplikacji różnią się w zależności od tego, czy aplikacja działa w trybie jednego konta, czy w trybie wielu kont.
+Aplikacje opracowane przy użyciu zestawu SDK Microsoft Authentication Library (MSAL) mogą zarządzać pojedynczym kontem lub wieloma kontami. Aby uzyskać szczegółowe informacje, zobacz [tryb pojedynczego konta lub tryb wielu kont](single-multi-account.md). Funkcje platformy tożsamości firmy Microsoft dostępne dla aplikacji różnią się w zależności od tego, czy aplikacja działa w trybie pojedynczego konta, czy też w trybie wielu kont.
 
-**Udostępnione aplikacje w trybie urządzenia działają tylko w trybie jednego konta**.
+**Aplikacje trybu udostępnionego urządzenia działają tylko w trybie jednego konta**.
 
 > [!IMPORTANT]
-> Aplikacje obsługujące tylko tryb wielu kont nie mogą być uruchamiane na urządzeniu udostępnionym. Jeśli pracownik ładuje aplikację, która nie obsługuje trybu pojedynczego konta, nie będzie działać na urządzeniu udostępnionym.
+> Aplikacje obsługujące tryb wielu kont nie mogą być uruchamiane na urządzeniu udostępnionym. Jeśli pracownik załaduje aplikację, która nie obsługuje trybu pojedynczego konta, nie zostanie uruchomiona na urządzeniu udostępnionym.
 >
-> Aplikacje napisane przed wydaniem pliku MSAL SDK są uruchamiane w trybie wielu kont i muszą zostać zaktualizowane w celu obsługi trybu pojedynczego konta, zanim będą mogły działać na urządzeniu w trybie współużytkowym.
+> Aplikacje utworzone przed zestawem SDK MSAL zostały uruchomione w trybie wielu kont i należy je zaktualizować w celu obsługi trybu pojedynczego konta, zanim będą mogły być uruchamiane na urządzeniu trybu współużytkowanego.
 
-**Obsługa zarówno kont jedno- jak i wielokondycjowych**
+**Obsługa zarówno jednego konta, jak i wielu kont**
 
-Aplikację można sbudować w celu obsługi urządzeń osobistych i urządzeń udostępnionych. Jeśli aplikacja obsługuje obecnie wiele kont i chcesz obsługiwać tryb urządzenia udostępnionego, dodaj obsługę trybu pojedynczego konta.
+Aplikację można skompilować do obsługi uruchamiania na urządzeniach osobistych i na urządzeniach udostępnionych. Jeśli aplikacja obsługuje obecnie wiele kont i chcesz obsługiwać tryb udostępnionego urządzenia, Dodaj obsługę trybu pojedynczego konta.
 
-Możesz też chcieć, aby aplikacja zmieniła swoje zachowanie w zależności od typu urządzenia, na które jest uruchomiona. Służy `ISingleAccountPublicClientApplication.isSharedDevice()` do określania, kiedy ma być uruchamiany w trybie jednego konta.
+Możesz również zmienić zachowanie aplikacji, w zależności od typu urządzenia, na którym działa. Użyj `ISingleAccountPublicClientApplication.isSharedDevice()` , aby określić, kiedy program ma być uruchamiany w trybie jednego konta.
 
-Istnieją dwa różne interfejsy, które reprezentują typ urządzenia, na które jest na ma być aplikacja. Gdy żądasz wystąpienia aplikacji z fabryki aplikacji MSAL, prawidłowy obiekt aplikacji jest dostarczany automatycznie.
+Istnieją dwa różne interfejsy reprezentujące typ urządzenia, na którym aplikacja jest włączona. Po zażądaniu wystąpienia aplikacji z fabryki aplikacji MSAL, poprawny obiekt aplikacji jest dostarczany automatycznie.
 
-Następujący model obiektu ilustruje typ obiektu, który może zostać wyświetlony i co to oznacza w kontekście urządzenia udostępnionego:
+Poniższy model obiektów ilustruje typ obiektu, który może zostać wyświetlony i co oznacza w kontekście urządzenia udostępnionego:
 
 ![model dziedziczenia aplikacji klienta publicznego](media/v2-shared-device-mode/ipublic-client-app-inheritance.png)
 
-Musisz sprawdzić typ i rzutować do odpowiedniego interfejsu po `PublicClientApplication` otrzymaniu obiektu. Następujący kod sprawdza tryb wielu kont lub tryb pojedynczego konta i odpowiednio rzuca obiekt aplikacji:
+Należy wykonać sprawdzanie typu i rzutować do odpowiedniego interfejsu podczas pobierania `PublicClientApplication` obiektu. Poniższy kod sprawdza tryb wielu kont lub pojedynczy tryb konta i rzutuje odpowiednio obiekt aplikacji:
 
 ```java
 private IPublicClientApplication mApplication;
@@ -79,33 +79,33 @@ private IPublicClientApplication mApplication;
         }
 ```
 
-Następujące różnice mają zastosowanie w zależności od tego, czy aplikacja jest uruchomiona na urządzeniu udostępnionym, czy osobistym:
+Poniższe różnice mają zastosowanie w zależności od tego, czy aplikacja jest uruchomiona na urządzeniu udostępnionym lub osobistym:
 
-|  | Urządzenie trybu współdzielonego  | Urządzenie osobiste |
+|  | Urządzenie trybu udostępnionego  | Urządzenie osobiste |
 |---------|---------|---------|
 | **Konta**     | Pojedyncze konto | Wiele kont |
 | **Logowanie** | Globalny | Globalny |
-| **Wyrejestrowywania** | Globalny | Każda aplikacja może kontrolować, czy wylogowywanie jest lokalne dla aplikacji lub dla rodziny aplikacji. |
-| **Obsługiwane typy konta** | Tylko konta robocze | Obsługiwane konta osobiste i służbowe  |
+| **Wylogowywanie** | Globalny | Każda aplikacja może kontrolować, czy wylogowywanie jest lokalne dla aplikacji, czy dla rodziny aplikacji. |
+| **Obsługiwane typy konta** | Tylko konta służbowe | Obsługiwane konta osobiste i służbowe  |
 
-## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Dlaczego możesz obsługiwać tylko tryb jednego konta
+## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Dlaczego warto obsługiwać tylko tryb pojedynczego konta
 
-Jeśli piszesz aplikację, która będzie używana tylko dla pracowników pierwszej linii przy użyciu urządzenia udostępnionego, zaleca się, aby napisać aplikację do obsługi tylko tryb jednego konta. Obejmuje to większość aplikacji, które koncentrują się na zadaniach, takich jak aplikacje dokumentacji medycznej, aplikacje do faktur i większość aplikacji biznesowych. Tylko obsługa trybu pojedynczego konta upraszcza rozwój, ponieważ nie trzeba implementować dodatkowych funkcji, które są częścią aplikacji z wieloma kontami.
+Jeśli piszesz aplikację, która będzie używana tylko dla procesów roboczych Firstline przy użyciu urządzenia udostępnionego, zalecamy zapisanie aplikacji w celu zapewnienia obsługi tylko trybu pojedynczego konta. Obejmuje to większość aplikacji, które są zadaniami, takimi jak aplikacje do rekordów medycznych, aplikacje fakturowania i większość aplikacji biznesowych. Tryb tylko do obsługi jednego konta upraszcza programowanie, ponieważ nie trzeba implementować dodatkowych funkcji, które są częścią aplikacji z wieloma kontami.
 
-## <a name="what-happens-when-the-device-mode-changes"></a>Co się stanie, gdy zmienia się tryb urządzenia
+## <a name="what-happens-when-the-device-mode-changes"></a>Co się stanie, gdy zmieni się tryb urządzenia
 
-Jeśli aplikacja jest uruchomiona w trybie wielu kont, a administrator przełącza urządzenie w trybie urządzenia udostępnionego, wszystkie konta na urządzeniu są czyszczone z aplikacji, a aplikacja przechodzi do trybu pojedynczego konta.
+Jeśli aplikacja jest uruchomiona w trybie wielu kont, a administrator umieści urządzenie w trybie udostępnionego urządzenia, wszystkie konta na urządzeniu zostaną wyczyszczone z aplikacji i przejścia aplikacji do trybu pojedynczego konta.
 
-## <a name="shared-device-sign-out-and-the-overall-app-lifecycle"></a>Wylogowywanie się z urządzenia udostępnionego i cały cykl życia aplikacji
+## <a name="shared-device-sign-out-and-the-overall-app-lifecycle"></a>Logowanie do udostępnionego urządzenia i ogólny cykl życia aplikacji
 
-Gdy użytkownik się wyloguje, musisz podjąć działania w celu ochrony prywatności i danych użytkownika. Jeśli na przykład budujesz aplikację dokumentacji medycznej, upewnij się, że gdy użytkownik wyloguje się wcześniej z wyświetlanych rekordów pacjentów, zostaną wyczyszczone. Wniosek musi być przygotowany na to i sprawdzić za każdym razem, gdy wchodzi na pierwszy plan.
+Po wylogowaniu się użytkownika należy podjąć działania w celu ochrony prywatności i danych użytkownika. Jeśli na przykład tworzysz aplikację do rejestrowania medycznego, upewnij się, że gdy użytkownik wyloguje wcześniej wyświetlone rekordy pacjenta są usuwane. Aplikacja musi być przygotowana do tego celu i sprawdzać przy każdym uruchomieniu pierwszego planu.
 
-Gdy aplikacja używa msal do wylogowania użytkownika w aplikacji uruchomionej na urządzeniu, które jest w trybie udostępnionym, zalogowane konto i tokeny buforowane są usuwane zarówno z aplikacji, jak i z urządzenia.
+Gdy aplikacja korzysta z usługi MSAL do wylogowania użytkownika w aplikacji uruchomionej na urządzeniu w trybie udostępnionym, konto zalogowane i tokeny w pamięci podręcznej zostaną usunięte zarówno z aplikacji, jak i urządzenia.
 
-Na poniższym diagramie przedstawiono ogólny cykl życia aplikacji i typowe zdarzenia, które mogą wystąpić podczas pracy aplikacji. Diagram obejmuje od czasu uruchomienia działania, logowania i wylogowywania konta oraz sposobu, w jaki zdarzenia, takie jak wstrzymywanie, wznawianie i zatrzymywanie działania, pasują.
+Na poniższym diagramie przedstawiono ogólny cykl życia aplikacji oraz typowe zdarzenia, które mogą wystąpić podczas działania aplikacji. Diagram obejmuje od momentu uruchomienia działania, logowania się i wylogowywania konta oraz sposobu, w jaki zdarzenia takie jak Wstrzymywanie, wznawianie i zatrzymywanie działania mieszczą się w programie.
 
-![Cykl życia aplikacji urządzenia udostępnionego](media/v2-shared-device-mode/lifecycle.png)
+![Cykl życia aplikacji dla urządzenia udostępnionego](media/v2-shared-device-mode/lifecycle.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wypróbuj [tryb Używania udostępnionego urządzenia w](tutorial-v2-shared-device-mode.md) samouczku aplikacji systemu Android, który pokazuje, jak uruchomić aplikację pracownika pierwszej linii na urządzeniu z systemem Android w trybie współdzielonym.
+Wypróbuj [tryb użytkowania urządzeń udostępnionych w aplikacji dla systemu Android](tutorial-v2-shared-device-mode.md) , który pokazuje, jak uruchomić aplikację Firstline Worker na urządzeniu z systemem Android w trybie współdzielonym.

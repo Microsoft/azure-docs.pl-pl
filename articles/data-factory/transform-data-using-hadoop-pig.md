@@ -1,6 +1,6 @@
 ---
-title: Przekształcanie danych przy użyciu aktywności świni Hadoop
-description: Dowiedz się, jak za pomocą działania świni w fabryce danych platformy Azure do uruchamiania skryptów Świnia na żądanie/własnego klastra HDInsight.
+title: Przekształcanie danych za pomocą działania usługi Hadoop
+description: Dowiedz się, jak za pomocą działania świni w usłudze Azure Data Factory uruchamiać skrypty wieprzowe na żądanie/własny klaster usługi HDInsight.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -12,23 +12,23 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
 ms.openlocfilehash: 73ce8c670940a31af6a88f98bfd5880ede259e01
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418902"
 ---
-# <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu aktywności świni Hadoop w fabryce danych platformy Azure
+# <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania w ramach programu Hadoop w Azure Data Factory
 
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-pig-activity.md)
 > * [Bieżąca wersja](transform-data-using-hadoop-pig.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Działania HDInsight Pig w [potoku](concepts-pipelines-activities.md) fabryki danych wykonuje zapytania Pig na [własną](compute-linked-services.md#azure-hdinsight-linked-service) lub [na żądanie](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) klastra HDInsight. W tym artykule opiera się na [działaniach transformacji danych,](transform-data.md) który przedstawia ogólny przegląd transformacji danych i obsługiwanych działań transformacji.
+Działanie świni w [usłudze](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight w [potoku](concepts-pipelines-activities.md) Data Factory wykonuje zapytania dotyczące trzody chlewnej we [własnym lub lokalnym klastrze usługi](compute-linked-services.md#azure-hdinsight-linked-service) HDInsight. W tym artykule przedstawiono artykuł [działania przekształcania danych](transform-data.md) , który zawiera ogólne omówienie transformacji danych i obsługiwanych działań transformacji.
 
-Jeśli jesteś nowy w usłudze Azure Data Factory, przeczytaj [wprowadzenie do usługi Azure Data Factory](introduction.md) i wykonaj [samouczek: przekształć dane](tutorial-transform-data-spark-powershell.md) przed przeczytaniem tego artykułu. 
+Jeśli jesteś nowym do Azure Data Factory, przeczytaj artykuł [wprowadzenie do Azure Data Factory](introduction.md) i wykonaj [Samouczek: Przekształcanie danych](tutorial-transform-data-spark-powershell.md) przed przeczytaniem tego artykułu. 
 
 ## <a name="syntax"></a>Składnia
 
@@ -62,23 +62,23 @@ Jeśli jesteś nowy w usłudze Azure Data Factory, przeczytaj [wprowadzenie do u
 | Właściwość            | Opis                              | Wymagany |
 | ------------------- | ---------------------------------------- | -------- |
 | name                | Nazwa działania                     | Tak      |
-| description         | Tekst opisujący, do czego jest używane działanie | Nie       |
-| type                | W przypadku aktywności hive typem działania jest HDinsightPig | Tak      |
-| linkedServiceName   | Odwołanie do klastra HDInsight zarejestrowanego jako usługa połączona w fabryce danych. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz Artykuł [dotyczący powiązanych usług obliczeń.](compute-linked-services.md) | Tak      |
-| scriptLinkedService | Odwołanie do usługi Azure Storage Linked Service używane do przechowywania skryptu Świcie do wykonania. Jeśli nie określisz tej usługi połączonej, używana jest usługa linked service usługi Azure Storage zdefiniowana w usłudze połączonej usługi HDInsight. | Nie       |
-| scriptPath          | Podaj ścieżkę do pliku skryptu przechowywanego w usłudze Azure Storage, o której mowa w scriptLinkedService. W nazwie pliku rozróżniana jest wielkość liter. | Nie       |
-| getDebugInfo        | Określa, kiedy pliki dziennika są kopiowane do usługi Azure Storage używane przez klaster HDInsight (lub) określone przez scriptLinkedService. Dozwolone wartości: Brak, Zawsze lub Błąd. Wartość domyślna: None. | Nie       |
-| Argumenty           | Określa tablicę argumentów dla zadania Hadoop. Argumenty są przekazywane jako argumenty wiersza polecenia do każdego zadania. | Nie       |
-| Definiuje             | Określ parametry jako pary klucz/wartość do odwoływania się w skrypcie Świni. | Nie       |
+| description         | Tekst opisujący działanie używanego działania | Nie       |
+| type                | W przypadku działania programu Hive typem działania jest HDinsightPig | Tak      |
+| linkedServiceName   | Odwołanie do klastra usługi HDInsight zarejestrowanego jako połączona usługa w Data Factory. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Tak      |
+| Elementu scriptlinkedservice | Odwołanie do połączonej usługi Azure Storage użytej do przechowania skryptu wieprzowego do wykonania. Jeśli nie określisz tej połączonej usługi, zostanie użyta połączona usługa Azure Storage zdefiniowana w połączonej usłudze HDInsight. | Nie       |
+| scriptPath          | Podaj ścieżkę do pliku skryptu przechowywanego w usłudze Azure Storage, która jest określona przez elementu scriptlinkedservice. W nazwie pliku rozróżniana jest wielkość liter. | Nie       |
+| GetDebugInfo —        | Określa, kiedy pliki dziennika są kopiowane do usługi Azure Storage używanej przez klaster HDInsight (lub) określonej przez elementu scriptlinkedservice. Dozwolone wartości: brak, zawsze lub niepowodzenie. Wartość domyślna: None. | Nie       |
+| argumentu           | Określa tablicę argumentów zadania usługi Hadoop. Argumenty są przesyłane jako argumenty wiersza polecenia do każdego zadania. | Nie       |
+| definiuje             | Określ parametry jako pary klucz/wartość do odwołania w skrypcie trzody chlewnej. | Nie       |
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz następujące artykuły, które wyjaśniają, jak przekształcać dane w inny sposób: 
+Zapoznaj się z następującymi artykułami, które wyjaśniają sposób przekształcania danych w inny sposób: 
 
 * [Działanie U-SQL](transform-data-using-data-lake-analytics.md)
-* [Aktywność gałęzi](transform-data-using-hadoop-hive.md)
-* [Działanie mapreduce](transform-data-using-hadoop-map-reduce.md)
-* [Aktywność w serwisie Hadoop Streaming](transform-data-using-hadoop-streaming.md)
-* [Aktywność iskierki](transform-data-using-spark.md)
+* [Działanie Hive](transform-data-using-hadoop-hive.md)
+* [Działanie MapReduce](transform-data-using-hadoop-map-reduce.md)
+* [Działanie przesyłania strumieniowego Hadoop](transform-data-using-hadoop-streaming.md)
+* [Działanie platformy Spark](transform-data-using-spark.md)
 * [Niestandardowe działanie platformy .NET](transform-data-using-dotnet-custom-activity.md)
-* [Działanie wsadowe uczenia maszynowego](transform-data-using-machine-learning.md)
+* [Działanie wykonywania wsadowego Machine Learning](transform-data-using-machine-learning.md)
 * [Działanie procedury składowanej](transform-data-using-stored-procedure.md)

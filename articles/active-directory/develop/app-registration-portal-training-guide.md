@@ -1,7 +1,7 @@
 ---
 title: Nowe środowisko rejestracji aplikacji w witrynie Azure Portal
 titleSuffix: Microsoft identity platform
-description: Wprowadzenie do nowego środowiska rejestracji aplikacji w witrynie Azure portal
+description: Wprowadzenie do nowego środowiska rejestracji aplikacji w Azure Portal
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,114 +14,114 @@ ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.openlocfilehash: 50c88dd1785bd9177219054fed3800ca725a5274
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154597"
 ---
-# <a name="the-new-azure-portal-app-registration-experience"></a>Nowe środowisko rejestracji aplikacji portalu Azure
+# <a name="the-new-azure-portal-app-registration-experience"></a>Nowe środowisko rejestracji aplikacji Azure Portal
 
-Istnieje wiele ulepszeń w nowym środowiska [rejestracji aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) w witrynie Azure portal. Jeśli jesteś bardziej zaznajomiony z portalem rejestracji aplikacji (apps.dev.microsoft.com) do rejestrowania lub zarządzania aplikacjami konwergentnymi, określanym jako stare środowisko, ten przewodnik szkoleniowy rozpocznie cię przy użyciu nowego środowiska.
+Istnieje wiele ulepszeń w nowych [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) środowiska Azure Portal. Jeśli masz więcej informacji na temat korzystania z portalu rejestracji aplikacji (apps.dev.microsoft.com) do rejestrowania aplikacji i zarządzania nimi, nazywanego starym doświadczeniem, ten przewodnik szkoleniowy umożliwi rozpoczęcie pracy przy użyciu nowego środowiska.
 
-## <a name="whats-not-changing"></a>Co się nie zmienia?
+## <a name="whats-not-changing"></a>Co nie jest zmieniane?
 
-- Aplikacje i powiązane konfiguracje można znaleźć w stanie — w nowym doświadczeniu. Nie trzeba ponownie rejestrować aplikacji, a użytkownicy aplikacji nie będą musieli ponownie się logować.
+- Aplikacje i powiązane konfiguracje można znaleźć w temacie w nowym środowisku. Nie trzeba ponownie rejestrować aplikacji, a użytkownicy aplikacji nie będą musieli zalogować się ponownie.
 
     > [!NOTE]
-    > Musisz zalogować się przy użyciu konta używanego do rejestrowania aplikacji, aby znaleźć je w witrynie Azure portal. Zalecamy sprawdzenie zalogowanego użytkownika w witrynie Azure portal pasuje do użytkownika, który został zalogowany do portalu rejestracji aplikacji, porównując adres e-mail z profilu.
+    > Musisz zalogować się przy użyciu konta użytego do zarejestrowania aplikacji, aby znaleźć je w Azure Portal. Zalecamy sprawdzenie, czy zalogowany użytkownik w Azure Portal jest zgodny z użytkownikiem, który został zalogowany do portalu rejestracji aplikacji, porównując adres e-mail z Twojego profilu.
     >
-    > W niektórych przypadkach, zwłaszcza gdy logujesz się przy użyciu osobistych kont Microsoft (np. wiadomości e-mail w dzierżawie usługi Azure AD. Jeśli nadal uważasz, że brakuje aplikacji, wyloguj się i zaloguj się przy odpowiednim koncie.
+    > W niektórych przypadkach, zwłaszcza gdy logujesz się za pomocą osobistych kont Microsoft (np. Outlook, Live, Xbox itp.) przy użyciu adresu e-mail usługi Azure AD, stwierdzamy, że po przejściu do Azure Portal ze starego środowiska użytkownik zostanie zalogowany do innego konta z tą samą wiadomością e-mail w dzierżawie usługi Azure AD. Jeśli nadal sądzisz, że brakuje aplikacji, Wyloguj się i zaloguj się przy użyciu odpowiedniego konta.
 
-- Aplikacje SDK na żywo utworzone przy użyciu osobistych kont Microsoft nie są jeszcze obsługiwane w witrynie Azure portal i pozostaną w starej pracy w najbliższej przyszłości.
+- Aplikacje na żywo SDK utworzone przy użyciu osobistych kont Microsoft nie są jeszcze obsługiwane w Azure Portal i nadal pozostają w starym środowisku w najbliższej przyszłości.
 
-## <a name="key-changes"></a>Kluczowe zmiany
+## <a name="key-changes"></a>Zmiany kluczy
 
--   W starym doświadczeniu aplikacje były domyślnie rejestrowane jako aplikacje konwergentne obsługujące wszystkie konta organizacyjne (wielodostępne) oraz osobiste konta Microsoft. Nie można tego zmodyfikować za pomocą starego środowiska, co utrudnia tworzenie aplikacji, które obsługiwały tylko konta organizacyjne (wielodostępne lub pojedyncza dzierżawa).
-    Nowe środowisko umożliwia rejestrowanie aplikacji obsługujących wszystkie te opcje. [Dowiedz się więcej o typach aplikacji](active-directory-v2-registration-portal.md).
+-   W starym środowisku aplikacje były domyślnie zarejestrowane jako aplikacje zbieżne obsługujące wszystkie konta organizacji (wielodostępne) oraz osobiste konta Microsoft. Nie można jej zmodyfikować przy użyciu starego środowiska, co utrudnia Tworzenie aplikacji obsługujących tylko konta organizacji (z wieloma dzierżawami lub pojedynczym dzierżawcą).
+    Nowe środowisko pozwala zarejestrować aplikacje obsługujące wszystkie te opcje. [Dowiedz się więcej o typach aplikacji](active-directory-v2-registration-portal.md).
 
--   W nowym środowiskach, jeśli osobiste konto Microsoft jest również w dzierżawie usługi Azure AD, zobaczysz trzy karty — wszystkie aplikacje w dzierżawie, posiadanych aplikacji w dzierżawie, a także aplikacje z konta osobistego. Jeśli więc uważasz, że brakuje aplikacji zarejestrowanych na Twoim osobistym koncie Microsoft, sprawdź kartę **Aplikacje na koncie osobistym.**
+-   W nowym środowisku, jeśli Twoje osobiste konto Microsoft znajdują się również w dzierżawie usługi Azure AD, zobaczysz trzy karty — wszystkie aplikacje w dzierżawie, należące do nich aplikacje w dzierżawie oraz aplikacje z konta osobistego. Tak więc, jeśli uważasz, że aplikacje zarejestrowane przy użyciu Twojego osobistego konto Microsoft są niedostępne, sprawdź **aplikacje na karcie konto osobiste** .
 
--   W nowym środowiskach można łatwo przełączać się między dzierżawcami, przechodząc do profilu i wybierając katalog przełącznika.
+-   W nowym środowisku można łatwo przełączać się między dzierżawcami, przechodząc do swojego profilu, a następnie wybierając pozycję Przełącz katalog.
 
-## <a name="list-of-applications"></a>Lista wniosków
+## <a name="list-of-applications"></a>Lista aplikacji
 
--   Nowa lista aplikacji zawiera aplikacje, które zostały zarejestrowane za pośrednictwem środowiska rejestracji starszych aplikacji w witrynie Azure portal (aplikacje, które logują się tylko na kontach usługi Azure AD), a także aplikacje zarejestrowane przez [portal rejestracji aplikacji](https://apps.dev.microsoft.com/) (aplikacje, które logują się zarówno na usługi Azure AD, jak i osobiste konta Microsoft).
+-   Nowa lista aplikacji zawiera aplikacje, które zostały zarejestrowane za pośrednictwem środowiska rejestracji starszej aplikacji w Azure Portal (aplikacje, które logują się tylko na kontach usługi Azure AD), a także aplikacje zarejestrowane przy użyciu [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/) (aplikacje, które logują się zarówno do usługi Azure AD, jak i osobiste konta Microsoft).
 
--   Nowa lista aplikacji zawiera dwie dodatkowe kolumny: **utworzone w kolumnie** i **kolumnie & wpisów tajnych,** która pokazuje stan (bieżący, wygasający wkrótce lub wygasł) poświadczeń, które zostały zarejestrowane w aplikacji.
+-   Nowa lista aplikacji ma dwie dodatkowe kolumny: **utworzono w** kolumnie i **certyfikatach &** Secret, która przedstawia stan (bieżące, wygasa wkrótce lub wygasłe) poświadczeń zarejestrowanych w aplikacji.
 
 ## <a name="new-app-registration"></a>Rejestrowanie nowej aplikacji
 
-W starym doświadczeniu, aby zarejestrować zbieżną aplikację, musisz tylko podać nazwę. Utworzone aplikacje zostały zarejestrowane jako aplikacje konwergentne obsługujące wszystkie katalogi organizacyjne (wielodostępne) oraz osobiste konta Microsoft.  Nie można tego zmodyfikować za pomocą starego środowiska, co utrudnia tworzenie aplikacji, które obsługiwały tylko konta organizacyjne (wielodostępne lub pojedyncza dzierżawa). [Dowiedz się więcej o obsługiwanych typach kont](v2-supported-account-types.md)
+Aby zarejestrować zbieżną aplikację w starym środowisku, musisz podać nazwę. Utworzone aplikacje zostały zarejestrowane jako aplikacje zbieżne obsługujące wszystkie katalogi organizacyjne (wielodostępne) oraz osobiste konta Microsoft.  Nie można jej zmodyfikować przy użyciu starego środowiska, co utrudnia Tworzenie aplikacji obsługujących tylko konta organizacji (z wieloma dzierżawami lub pojedynczym dzierżawcą). [Dowiedz się więcej o obsługiwanych typach kont](v2-supported-account-types.md)
 
-W nowym środowiskau należy podać nazwę aplikacji i wybrać typy obsługiwanych kont. Opcjonalnie można podać identyfikator URI przekierowania.
-Jeśli podasz identyfikator URI przekierowania, musisz określić, czy jest on a także w internecie/w internecie(natywnym/mobilnym i stacjonarnym). Aby uzyskać więcej informacji na temat rejestrowania aplikacji przy użyciu nowego środowiska rejestracji aplikacji, zobacz [ten szybki start](quickstart-register-app.md).
+W nowym środowisku należy podać nazwę aplikacji i wybrać obsługiwane typy kont. Opcjonalnie możesz podać identyfikator URI przekierowania.
+W przypadku podania identyfikatora URI przekierowania należy określić, czy jest on w sieci Web, czy publiczny (natywny/mobilny i pulpit). Aby uzyskać więcej informacji na temat sposobu rejestrowania aplikacji przy użyciu nowego środowiska rejestracji aplikacji, zobacz [ten przewodnik Szybki Start](quickstart-register-app.md).
 
 ## <a name="app-management-page"></a>Strona zarządzania aplikacjami
 
-Stare środowisko miało jedną stronę zarządzania aplikacjami dla aplikacji konwergentnych z następującymi sekcjami: Właściwości, Wpisy tajne aplikacji, Platformy, Właściciele, Uprawnienia programu Microsoft Graph, Profil i Opcje zaawansowane.
+Stare środowisko miało jedną stronę zarządzania aplikacjami dla zbieżnych aplikacji z następującymi sekcjami: właściwości, wpisy tajne aplikacji, platformy, właściciele, uprawnienia Microsoft Graph, profil i opcje zaawansowane.
 
-Nowe środowisko w witrynie Azure portal reprezentuje te funkcje na oddzielnych stronach. Oto, gdzie można znaleźć równoważne funkcje:
+Nowe środowisko Azure Portal reprezentuje te funkcje na oddzielnych stronach. Tutaj można znaleźć funkcje równoważne:
 
--   Właściwości — nazwa i identyfikator aplikacji znajduje się na stronie Przegląd.
+-   Właściwości-Name i ID aplikacji znajduje się na stronie Przegląd.
 
--   Wpisy tajne aplikacji znajduje się na stronie Certyfikaty & wpisy tajne
+-   Wpisy tajne aplikacji są na stronie certyfikatów & Secret
 
--   Konfiguracja platform znajduje się na stronie Uwierzytelnianie
+-   Konfiguracja platform znajduje się na stronie uwierzytelnianie
 
--   Uprawnienia programu Microsoft Graph są dostępne na stronie uprawnień interfejsu API wraz z innymi uprawnieniami
+-   Uprawnienia Microsoft Graph są na stronie uprawnień interfejsu API wraz z innymi uprawnieniami
 
--   Profil znajduje się na stronie Znakowanie
+-   Profil jest na stronie znakowania
 
--   Opcja zaawansowana — obsługa live SDK znajduje się na stronie Uwierzytelnianie.
+-   Opcja zaawansowana — obsługa zestawu SDK na żywo znajduje się na stronie uwierzytelnianie.
 
 ## <a name="application-secretscertificates--secrets"></a>Wpisy tajne/certyfikaty aplikacji & wpisy tajne
 
-W nowym środowiskau **wpisy tajne aplikacji** zostały zmienione na **Certyfikaty & wpisy tajne**. Ponadto **klucze publiczne** są określane jako **certyfikaty,** a hasła są określane jako **wpisy** **tajne klienta.** Zdecydowaliśmy się nie wprowadzać tej funkcji w nowe środowisko ze względów bezpieczeństwa, dlatego nie można już wygenerować nowej pary kluczy.
+W nowym środowisku **klucze tajne aplikacji** zostały zmienione na **Certyfikaty & wpisy tajne**. Ponadto **klucze publiczne** nazywa się **certyfikatami** i **hasłami** są określane jako wpisy **tajne klienta**. Wybrano, aby nie dopełnić tej funkcji w nowym środowisku ze względów bezpieczeństwa, dlatego nie można już wygenerować nowej pary kluczy.
 
-## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Platformy/uwierzytelnianie: adresy URL odpowiedzi/przekierowanie identyfikatorów URI
-W starym środowisku aplikacja miała sekcję Platformy dla sieci Web, natywnego i interfejsu API sieci Web, aby skonfigurować adresy URL przekierowania, adres URL wylogowania i przepływ niejawny.
+## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Platformy/uwierzytelnianie: adresy URL odpowiedzi/identyfikatory URI przekierowania
+W starym doświadczeniu aplikacja zawierała sekcję platforms dla sieci Web, natywnej i internetowego interfejsu API w celu skonfigurowania adresów URL przekierowania, adresu URL wylogowywania i przepływu niejawnego.
 
-W nowym środowiskau adresy URL odpowiedzi\'można znaleźć w sekcji Uwierzytelnianie s aplikacji. Ponadto są one określane jako przekierowanie identyfikatorów URI i format przekierowania identyfikatorów URI uległ zmianie. Muszą być skojarzone z typem aplikacji (klient internetowy lub publiczny — mobilny i stacjonarny). [Dowiedz się więcej](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+W nowym środowisku adresy URL odpowiedzi można znaleźć w sekcji uwierzytelnianie aplikacji\'. Ponadto są one określane jako identyfikatory URI przekierowania, a format identyfikatorów URI przekierowania został zmieniony. Muszą być skojarzone z typem aplikacji (Klient internetowy lub publiczny — Mobile i Desktop). [Dowiedz się więcej](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
-Interfejsy API sieci Web są konfigurowane w uwidaczniać stronę interfejsu API.
+Interfejsy API sieci Web są konfigurowane na stronie Uwidacznianie interfejsu API.
 
 > [!NOTE]
-> Wypróbuj nowe środowisko ustawień uwierzytelniania, w którym możesz skonfigurować ustawienia aplikacji na podstawie platformy lub urządzenia, na które chcesz kierować reklamy. [Dowiedz się więcej](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
+> Wypróbuj nowe ustawienia uwierzytelniania, w którym można skonfigurować ustawienia dla aplikacji na podstawie platformy lub urządzenia, które mają być docelowe. [Dowiedz się więcej](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
 
-## <a name="microsoft-graph-permissionsapi-permissions"></a>Uprawnienia programu Microsoft Graph/uprawnienia interfejsu API
+## <a name="microsoft-graph-permissionsapi-permissions"></a>Uprawnienia Microsoft Graph/uprawnienia interfejsu API
 
--   Wybierając interfejs API w starym środowiska, można wybrać tylko interfejsy API programu Microsoft Graph. W nowym środowiskach można wybierać spośród wielu interfejsów API firmy Microsoft, w tym programu Microsoft Graph, interfejsów API z organizacji i interfejsów API, co jest prezentowane na trzech kartach: Interfejsy API firmy Microsoft, interfejsy API używane przez moją organizację lub interfejsy API. Pasek wyszukiwania w interfejsach API mojej organizacji używa tabulatorów przeszukuje jednostki usługi w dzierżawie.
+-   W przypadku wybrania interfejsu API w starym środowisku można wybrać tylko Microsoft Graph interfejsów API. W nowym środowisku można wybierać spośród wielu interfejsów API firmy Microsoft, w tym Microsoft Graph, interfejsów API z organizacji i interfejsów API, co jest prezentowane na trzech kartach: Microsoft API, interfejsy API używane przez moją organizację lub moje interfejsy API. Pasek wyszukiwania w obszarze interfejsy API Moja organizacja używa wyszukiwania na kartach za pośrednictwem jednostek usługi w dzierżawie.
 
     > [!NOTE]
-    > Ta karta nie zostanie wyświetlona, jeśli aplikacja nie jest skojarzona z dzierżawą. Aby uzyskać więcej informacji na temat żądania uprawnień przy użyciu nowego środowiska, zobacz [ten przewodnik Szybki start](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/develop/quickstart-configure-app-access-web-apis.md).
+    > Ta karta nie zostanie wyświetlona, jeśli aplikacja nie jest skojarzona z dzierżawcą. Aby uzyskać więcej informacji na temat żądania uprawnień przy użyciu nowego środowiska, zobacz [ten przewodnik Szybki Start](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/develop/quickstart-configure-app-access-web-apis.md).
 
--   Stare środowisko nie ma przycisku **Uprawnienia udzielić.** W nowym środowiskach istnieje sekcja Zgoda grantu z przyciskiem **Zgody administratora grantu** w sekcji uprawnień interfejsu API aplikacji. Tylko administrator może udzielić zgody, a ten przycisk jest włączony tylko dla administratorów. Gdy administrator wybierze przycisk **Zgoda administratora,** zgoda administratora jest udzielana wszystkim żądanym uprawnieniom.
+-   Stare środowisko nie miało przycisku **Udziel uprawnień** . W nowym doświadczeniu znajduje się sekcja zgody na przyznanie uprawnień **administratora** w sekcji uprawnienia do interfejsu API aplikacji. Tylko administrator może udzielić zgody i ten przycisk jest dostępny tylko dla administratorów. Gdy administrator wybierze przycisk **Udziel zgody administratora** , zgoda administratora zostanie udzielona na wszystkie żądane uprawnienia.
 
 ## <a name="profile"></a>Profil
-W starym doświadczeniu profil miał logo, adres URL strony głównej, adres URL warunków korzystania z usługi i konfigurację adresu URL zasad zachowania poufności informacji. W nowym doświadczeniu można je znaleźć na stronie Znakowanie.
+W starym środowisku profil zawiera logo, adres URL strony głównej, adres URL warunków użytkowania i konfigurację adresu URL zasad zachowania poufności informacji. Nowe środowisko można znaleźć na stronie znakowania.
 
 ## <a name="application-manifest"></a>Manifest aplikacji
-W nowym środowiskau Manifest strona umożliwia edytowanie i aktualizowanie atrybutów aplikacji. Aby uzyskać więcej informacji, zobacz [Manifest aplikacji](reference-app-manifest.md).
+Na stronie nowe środowisko Strona manifestu umożliwia edytowanie i aktualizowanie atrybutów aplikacji. Aby uzyskać więcej informacji, zobacz [manifest aplikacji](reference-app-manifest.md).
 
 ## <a name="new-ui"></a>Nowy interfejs użytkownika
-Istnieje nowy interfejs użytkownika dla właściwości, które wcześniej można było ustawić tylko przy użyciu edytora manifestów lub interfejsu API lub nie istniały.
+Istnieje nowy interfejs użytkownika dla właściwości, które wcześniej mogły być ustawiane tylko przy użyciu edytora manifestu lub interfejsu API lub nie istnieją.
 
--   Niejawny przepływ dotacji (oauth2AllowImplicitFlow) można znaleźć na stronie Uwierzytelnianie. W przeciwieństwie do starego środowiska, można włączyć tokeny dostępu lub tokeny identyfikatora lub obu.
+-   Niejawny przepływ grantu (oauth2AllowImplicitFlow) można znaleźć na stronie uwierzytelniania. W przeciwieństwie do starego środowiska, można włączyć tokeny dostępu lub tokeny identyfikatora lub oba te elementy.
 
--   Zakresy zdefiniowane przez ten interfejs API (oauth2Permissions) i autoryzowane aplikacje klienckie (preAuthorizedApplications) można skonfigurować za pośrednictwem strony Uwidacznianie interfejsu API. Aby uzyskać więcej informacji na temat konfigurowania aplikacji jako internetowego interfejsu API i ujawniania uprawnień/zakresów, zobacz [ten szybki start](quickstart-configure-app-expose-web-apis.md).
+-   Zakresy zdefiniowane przez ten interfejs API (oauth2Permissions) i autoryzowane aplikacje klienckie (preAuthorizedApplications) można skonfigurować za pomocą strony Uwidacznianie interfejsu API. Aby uzyskać więcej informacji na temat konfigurowania aplikacji jako interfejsu API sieci Web i uwidaczniania uprawnień/zakresów, zobacz [ten przewodnik Szybki Start](quickstart-configure-app-expose-web-apis.md).
 
--   Domena programu Publisher (która jest wyświetlana użytkownikom w [wierszu zgody\'aplikacji)](application-consent-experience.md)można znaleźć na stronie bloku znakowanie. Aby uzyskać więcej informacji na temat konfigurowania domeny wydawcy, zobacz [ten sposób .](howto-configure-publisher-domain.md)
+-   Domenę wydawcy (wyświetlaną dla użytkowników w [monicie o zgodę\'aplikacji s](application-consent-experience.md)) można znaleźć na stronie bloku znakowania. Aby uzyskać więcej informacji na temat konfigurowania domeny wydawcy, zobacz [ten sposób](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Ograniczenia
 
 Nowe środowisko ma następujące ograniczenia:
 
--   Nowe środowisko nie obsługuje jeszcze rejestracji aplikacji dla dzierżaw usługi Azure AD B2C.
+-   Nowe środowisko nie obsługuje jeszcze Rejestracje aplikacji dla dzierżawców Azure AD B2C.
 
--   Nowe środowisko nie obsługuje jeszcze aplikacji Live SDK utworzonych za pomocą osobistych kont Microsoft.
+-   Nowe środowisko nie obsługuje jeszcze aplikacji Live SDK utworzonych przy użyciu osobistych kont Microsoft.
 
--   Zmiana wartości obsługiwanych kont nie jest obsługiwana w interfejsie użytkownika. Należy użyć manifestu aplikacji,\'chyba że ponownie przełączania między usługi Azure AD jednej dzierżawy i wielu dzierżawców.
+-   Zmiana wartości obsługiwanych kont nie jest obsługiwana w interfejsie użytkownika. Musisz użyć manifestu aplikacji, chyba że będziesz\'ponownie przełączać się między dzierżawą i wieloma dzierżawcami usługi Azure AD.
 
    > [!NOTE]
-   > Jeśli jesteś osobistym użytkownikiem konta Microsoft w dzierżawie usługi Azure AD, a administrator dzierżawy ma ograniczony dostęp do witryny Azure portal, możesz uzyskać odmowę dostępu. Jeśli jednak przejdziesz przez skrót, wpisując rejestracje aplikacji na pasku wyszukiwania lub przypinając go, będziesz mieć dostęp do nowego środowiska.
+   > Jeśli jesteś użytkownikiem konto Microsoft osobistym w dzierżawie usługi Azure AD, a Administrator dzierżawy ograniczył dostęp do Azure Portal, nastąpi odmowa dostępu. Jeśli jednak przejdziesz przez skrót, wpisując Rejestracje aplikacji na pasku wyszukiwania lub przypinając go, będziesz mieć dostęp do nowego środowiska.

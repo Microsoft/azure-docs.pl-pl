@@ -1,6 +1,6 @@
 ---
-title: Przekształcanie danych przy użyciu działania Procedura składowana
-description: W tym artykule wyjaśniono, jak używać działania procedury składowanej programu SQL Server do wywoływania procedury składowanej w magazynie danych sql sql z potoku fabryki danych.
+title: Przekształcanie danych za pomocą działania procedury składowanej
+description: Wyjaśnia, jak za pomocą działania procedury składowanej SQL Server wywołać procedurę składowaną w magazynie Azure SQL Database/danych z potoku Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -12,39 +12,39 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
 ms.openlocfilehash: 57bf653aa3f421ae8897c4be661ceef589fcdc06
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418817"
 ---
-# <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania procedury przechowywanej programu SQL Server w usłudze Azure Data Factory
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+# <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Przekształcanie danych za pomocą działania procedury składowanej SQL Server w Azure Data Factory
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-stored-proc-activity.md)
 > * [Bieżąca wersja](transform-data-using-stored-procedure.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Działania przekształcania danych w [potoku](concepts-pipelines-activities.md) fabryki danych służy do przekształcania i przetwarzania nieprzetworzonych danych do prognoz i szczegółowych informacji. Działanie procedury składowanej jest jednym z działań transformacji, które obsługuje usługa Data Factory. W tym artykule opiera się na artykule [transform danych,](transform-data.md) który przedstawia ogólne omówienie transformacji danych i obsługiwanych działań transformacji w fabryce danych.
+Korzystając z działań przekształcania danych w [potoku](concepts-pipelines-activities.md) Data Factory, można przekształcać i przetwarzać dane pierwotne w przewidywania i szczegółowe informacje. Działanie procedury składowanej jest jedną z działań transformacji obsługiwanych przez Data Factory. Ten artykuł jest oparty na artykule [Przekształcanie danych](transform-data.md) , który przedstawia ogólne omówienie transformacji danych i obsługiwanych działań transformacji w Data Factory.
 
 > [!NOTE]
-> Jeśli jesteś nowy w usłudze Azure Data Factory, przeczytaj [wprowadzenie do usługi Azure Data Factory](introduction.md) i wykonaj samouczek: [Samouczek: przekształć dane](tutorial-transform-data-spark-powershell.md) przed przeczytaniem tego artykułu. 
+> Jeśli jesteś nowym do Azure Data Factory, przeczytaj artykuł [wprowadzenie do Azure Data Factory](introduction.md) i wykonaj samouczek: [Samouczek: Przekształcanie danych](tutorial-transform-data-spark-powershell.md) przed przeczytaniem tego artykułu. 
 
-Działanie procedury składowanej służy do wywoływania procedury składowanej w jednym z następujących magazynów danych w przedsiębiorstwie lub na maszynie wirtualnej platformy Azure(VM): 
+Możesz użyć działania procedury składowanej, aby wywołać procedurę składowaną w jednym z następujących magazynów danych w przedsiębiorstwie lub na maszynie wirtualnej platformy Azure: 
 
 - Azure SQL Database
 - Azure SQL Data Warehouse
-- Baza danych programu SQL Server.  Jeśli używasz programu SQL Server, zainstaluj środowisko uruchomieniowe integracji hostowanego samodzielnie na tym samym komputerze, na którym znajduje się baza danych, lub na oddzielnym komputerze, który ma dostęp do bazy danych. Środowisko uruchomieniowe integracji hostowanego samodzielnie jest składnikiem łączącym źródła danych lokalnie/na maszynie Wirtualnej platformy Azure z usługami w chmurze w bezpieczny i zarządzany sposób. Zobacz [artykuł środowiska uruchomieniowego integracji hostowanego samodzielnie,](create-self-hosted-integration-runtime.md) aby uzyskać szczegółowe informacje.
+- Baza danych SQL Server.  Jeśli używasz SQL Server, zainstaluj własne środowisko Integration Runtime na tym samym komputerze, na którym znajduje się baza danych programu, lub na oddzielnym komputerze, który ma dostęp do bazy danych programu. Własne środowisko Integration Runtime to składnik, który łączy źródła danych lokalnie/na maszynie wirtualnej platformy Azure z usługami w chmurze w bezpieczny i zarządzany sposób. Szczegółowe informacje można znaleźć w artykule [samodzielne środowisko Integration Runtime](create-self-hosted-integration-runtime.md) .
 
 > [!IMPORTANT]
-> Podczas kopiowania danych do bazy danych SQL Sql Database lub programu SQL Server można skonfigurować **sqlsink** w copy activity do wywołania procedury składowanej przy użyciu właściwości **sqlWriterStoredProcedureName.** Aby uzyskać szczegółowe informacje na temat właściwości, zobacz następujące artykuły łącznika: [Usługa Azure SQL Database](connector-azure-sql-database.md), SQL [Server](connector-sql-server.md). Wywoływanie procedury składowanej podczas kopiowania danych do usługi Azure SQL Data Warehouse przy użyciu działania kopiowania nie jest obsługiwane. Ale można użyć działania procedury składowanej do wywołania procedury składowanej w magazynie danych SQL. 
+> Podczas kopiowania danych do Azure SQL Database lub SQL Server, można skonfigurować działanie **sqlsink** w działaniu Copy, aby wywołać procedurę składowaną za pomocą właściwości **sqlWriterStoredProcedureName** . Aby uzyskać szczegółowe informacje na temat właściwości, zobacz następujące artykuły dotyczące łącznika: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Wywoływanie procedury składowanej podczas kopiowania danych do Azure SQL Data Warehouse za pomocą działania kopiowania nie jest obsługiwane. Można jednak użyć działania procedury składowanej do wywołania procedury składowanej w SQL Data Warehouse. 
 >
-> Podczas kopiowania danych z bazy danych SQL Azure lub programu SQL Server lub usługi Azure SQL Data Warehouse można skonfigurować **sqlsource** w działaniu kopiowania, aby wywołać procedurę składowaną w celu odczytu danych ze źródłowej bazy danych przy użyciu właściwości **sqlReaderStoredProcedureName.** Aby uzyskać więcej informacji, zobacz następujące artykuły łącznika: [Usługa Azure SQL Database](connector-azure-sql-database.md), SQL [Server](connector-sql-server.md), usługa Azure SQL [Data Warehouse](connector-azure-sql-data-warehouse.md)          
+> Podczas kopiowania danych z Azure SQL Database lub SQL Server lub Azure SQL Data Warehouse można skonfigurować element **sqlsource** w działaniu Copy, aby wywołać procedurę składowaną w celu odczytania danych ze źródłowej bazy danych przy użyciu właściwości **sqlReaderStoredProcedureName** . Aby uzyskać więcej informacji, zobacz następujące artykuły dotyczące łącznika: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)          
 
  
 
 ## <a name="syntax-details"></a>Szczegóły składni
-Oto format JSON do definiowania działania procedury składowanej:
+Oto format JSON służący do definiowania działania procedury składowanej:
 
 ```json
 {
@@ -71,14 +71,14 @@ W poniższej tabeli opisano te właściwości JSON:
 | Właściwość                  | Opis                              | Wymagany |
 | ------------------------- | ---------------------------------------- | -------- |
 | name                      | Nazwa działania                     | Tak      |
-| description               | Tekst opisujący, do czego jest używane działanie | Nie       |
+| description               | Tekst opisujący działanie używanego działania | Nie       |
 | type                      | W przypadku działania procedury składowanej typem działania jest **SqlServerStoredProcedure** | Tak      |
-| linkedServiceName         | Odwołanie do **usługi Azure SQL Database** lub usługi Azure SQL Data **Warehouse** lub SQL **Server** zarejestrowanej jako usługa połączona w fabryce danych. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz Artykuł [dotyczący powiązanych usług obliczeń.](compute-linked-services.md) | Tak      |
-| przechowywaneProcedureName       | Określ nazwę procedury składowanej do wywołania. | Tak      |
-| przechowywaneParametryprocedure | Określ wartości parametrów procedury składowanej. Służy `"param1": { "value": "param1Value","type":"param1Type" }` do przekazywania wartości parametrów i ich typu obsługiwanych przez źródło danych. Jeśli chcesz przekazać null dla parametru, użyj `"param1": { "value": null }` (wszystkie małe litery). | Nie       |
+| linkedServiceName         | Odwołanie do **Azure SQL Database** lub **Azure SQL Data Warehouse** lub **SQL Server** zarejestrowanych jako połączona usługa w Data Factory. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Tak      |
+| storedProcedureName       | Określ nazwę procedury składowanej do wywołania. | Tak      |
+| storedProcedureParameters | Określ wartości parametrów procedury składowanej. Służy `"param1": { "value": "param1Value","type":"param1Type" }` do przekazywania wartości parametrów i ich typów obsługiwanych przez źródło danych. Jeśli chcesz przekazać wartość null dla parametru, użyj `"param1": { "value": null }` (w przypadku małych liter). | Nie       |
 
-## <a name="parameter-data-type-mapping"></a>Mapowanie typów danych parametrów
-Typ danych określony dla parametru to typ usługi Azure Data Factory, który jest mapowyny na typ danych w używanym źródle danych. Mapowania typów danych dla źródła danych można znaleźć w obszarze łączników. Niektóre przykłady są
+## <a name="parameter-data-type-mapping"></a>Mapowanie typu danych parametru
+Typ danych określony dla parametru to typ Azure Data Factory, który jest mapowany na typ danych w używanym źródle danych. Mapowania typu danych dla źródła danych można znaleźć w obszarze łączniki. Przykłady są
 
 | Źródło danych          | Mapowanie typu danych |
 | ---------------------|-------------------|
@@ -90,17 +90,17 @@ Typ danych określony dla parametru to typ usługi Azure Data Factory, który je
 
 ## <a name="error-info"></a>Informacje o błędzie
 
-Gdy procedura składowana nie powiedzie się i zwraca szczegóły błędu, nie można przechwycić informacje o błędzie bezpośrednio w danych wyjściowych działania. Jednak usługa Data Factory pompuje wszystkie zdarzenia uruchamiania działania do usługi Azure Monitor. Wśród zdarzeń, które usługa Data Factory pompuje do usługi Azure Monitor, wypycha tam szczegóły błędu. Można na przykład skonfigurować alerty e-mail z tych zdarzeń. Aby uzyskać więcej informacji, zobacz [Fabryki danych alertów i monitorów przy użyciu usługi Azure Monitor](monitor-using-azure-monitor.md).
+Gdy procedura składowana zakończy się niepowodzeniem i zwróci szczegóły błędu, nie można przechwycić informacji o błędzie bezpośrednio w danych wyjściowych działania. Jednakże Data Factory wszystkie zdarzenia uruchamiania działania, aby Azure Monitor. Wśród zdarzeń, które Data Factoryą pompy Azure Monitor, wypychają tam szczegóły błędu. Możesz na przykład skonfigurować alerty e-mail z tych zdarzeń. Aby uzyskać więcej informacji, zobacz temat [alerty i monitorowanie fabryk danych przy użyciu Azure monitor](monitor-using-azure-monitor.md).
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz następujące artykuły, które wyjaśniają, jak przekształcać dane w inny sposób: 
+Zapoznaj się z następującymi artykułami, które wyjaśniają sposób przekształcania danych w inny sposób: 
 
 * [Działanie U-SQL](transform-data-using-data-lake-analytics.md)
-* [Aktywność gałęzi](transform-data-using-hadoop-hive.md)
-* [Aktywność świń](transform-data-using-hadoop-pig.md)
-* [Działanie mapreduce](transform-data-using-hadoop-map-reduce.md)
-* [Aktywność strumieniowania Hadoop](transform-data-using-hadoop-streaming.md)
-* [Aktywność iskra](transform-data-using-spark.md)
+* [Działanie Hive](transform-data-using-hadoop-hive.md)
+* [Aktywność trzody chlewnej](transform-data-using-hadoop-pig.md)
+* [Działanie MapReduce](transform-data-using-hadoop-map-reduce.md)
+* [Działanie przesyłania strumieniowego Hadoop](transform-data-using-hadoop-streaming.md)
+* [Działanie platformy Spark](transform-data-using-spark.md)
 * [Niestandardowe działanie platformy .NET](transform-data-using-dotnet-custom-activity.md)
-* [Działanie wykonawcze Bacha w uczeniu maszynowym](transform-data-using-machine-learning.md)
+* [Machine Learning działanie wykonywania Bach](transform-data-using-machine-learning.md)
 * [Działanie procedury składowanej](transform-data-using-stored-procedure.md)

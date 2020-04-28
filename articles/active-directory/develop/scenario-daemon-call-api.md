@@ -1,6 +1,6 @@
 ---
-title: Wywoływanie internetowego interfejsu API z aplikacji demona — platforma tożsamości firmy Microsoft | Azure
-description: Dowiedz się, jak utworzyć aplikację demona, która wywołuje internetowe interfejsy API
+title: Wywoływanie internetowego interfejsu API z poziomu aplikacji demona — platforma tożsamości firmy Microsoft | Azure
+description: Dowiedz się, jak utworzyć aplikację demona, która wywołuje interfejsy API sieci Web
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,19 +12,19 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: e440628526dada7655cc71f63fc9fff006cc5ef5
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885450"
 ---
-# <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Aplikacja Demon, która wywołuje internetowe interfejsy API - wywołaj internetowy interfejs API z aplikacji
+# <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — wywołuje interfejs API sieci Web z aplikacji
 
-Aplikacje demonów platformy .NET mogą wywoływać internetowy interfejs API. Aplikacje demonów .NET mogą również wywoływać kilka wstępnie zatwierdzonych interfejsów API sieci Web.
+Aplikacje demona .NET mogą wywoływać interfejs API sieci Web. Aplikacje demona .NET mogą również wywołać kilka wstępnie zatwierdzonych interfejsów API sieci Web.
 
-## <a name="calling-a-web-api-from-a-daemon-application"></a>Wywoływanie internetowego interfejsu API z aplikacji demona
+## <a name="calling-a-web-api-from-a-daemon-application"></a>Wywoływanie interfejsu API sieci Web z aplikacji demona
 
-Oto jak używać tokenu do wywoływania interfejsu API:
+Poniżej przedstawiono sposób użycia tokenu do wywołania interfejsu API:
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -63,23 +63,23 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="calling-several-apis"></a>Wywoływanie kilku interfejsów API
 
-W przypadku aplikacji demonów interfejsy API sieci Web, które dzwonisz, muszą być wstępnie zatwierdzone. Nie ma przyrostowej zgody na aplikacje demonów. (Nie ma interakcji z użytkownikiem). Administrator dzierżawy musi wcześniej udzielić zgody na aplikację i wszystkie uprawnienia interfejsu API. Jeśli chcesz wywołać kilka interfejsów API, musisz uzyskać token dla `AcquireTokenForClient`każdego zasobu, za każdym razem wywołując . MSAL użyje pamięci podręcznej tokenu aplikacji, aby uniknąć niepotrzebnych wywołań usługi.
+W przypadku aplikacji demonów interfejsy API sieci Web, które są wywoływane, muszą być wstępnie zatwierdzone. Nie istnieje przyrostowa zgoda z aplikacjami demona. (Nie ma interakcji ze strony użytkownika). Administrator dzierżawy musi wyrazić zgodę na zaawansowaną aplikację i wszystkie uprawnienia interfejsu API. Jeśli chcesz wywołać kilka interfejsów API, musisz uzyskać token dla każdego zasobu, przy każdym wywołaniu `AcquireTokenForClient`. MSAL użyje pamięci podręcznej tokenów aplikacji, aby uniknąć niepotrzebnych wywołań usługi.
 
 ## <a name="next-steps"></a>Następne kroki
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
 > [!div class="nextstepaction"]
-> [Aplikacja Daemon - przejście do produkcji](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=dotnet)
+> [Aplikacja demona — Przenieś do środowiska produkcyjnego](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=dotnet)
 
 # <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Aplikacja Daemon - przejście do produkcji](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=python)
+> [Aplikacja demona — Przenieś do środowiska produkcyjnego](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=python)
 
 # <a name="java"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Aplikacja Daemon - przejście do produkcji](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=java)
+> [Aplikacja demona — Przenieś do środowiska produkcyjnego](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=java)
 
 ---

@@ -1,6 +1,6 @@
 ---
-title: Lokalne często zadawane pytania dotyczące ochrony hasłem usługi Azure AD
-description: Przeglądanie często zadawanych pytań dotyczących ochrony hasłem usługi Azure AD w lokalnym środowisku usług domenowych Active Directory
+title: Lokalna Ochrona hasłem usługi Azure AD — często zadawane pytania
+description: Zapoznaj się z często zadawanymi pytaniami dotyczącymi ochrony hasłem w usłudze Azure AD w środowisku lokalnym Active Directory Domain Services
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,153 +12,153 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 16537ba72eb9f11abd8de47256150818c121a140
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80652640"
 ---
-# <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Często zadawane pytania dotyczące ochrony haseł usługi Azure AD w środowisku lokalnym
+# <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Ochrona hasłem w usłudze Azure AD — często zadawane pytania
 
-Ta sekcja zawiera odpowiedzi na wiele często zadawanych pytań dotyczących ochrony hasłem usługi Azure AD.
+Ta sekcja zawiera odpowiedzi na wiele często zadawanych pytań dotyczących ochrony hasłem w usłudze Azure AD.
 
 ## <a name="general-questions"></a>Pytania ogólne
 
-**Pyt.: Jakie wskazówki powinni być podane przez użytkowników, jak wybrać bezpieczne hasło?**
+**P: jakie wskazówki powinny być podane dla użytkowników w celu wybrania bezpiecznego hasła?**
 
-Aktualne wskazówki firmy Microsoft dotyczące tego tematu można znaleźć pod następującym linkiem:
+Bieżące wskazówki dotyczące tego tematu firmy Microsoft można znaleźć w następującym łączu:
 
 [Wskazówki dotyczące haseł firmy Microsoft](https://www.microsoft.com/research/publication/password-guidance)
 
-**Pyt.: Czy lokalna ochrona hasłem usługi Azure AD jest obsługiwana w chmurach niepublicznych?**
+**P: czy lokalna Ochrona hasłem usługi Azure AD jest obsługiwana w chmurach niepublicznych?**
 
-Nie — lokalna ochrona hasłem usługi Azure AD jest obsługiwana tylko w chmurze publicznej. Nie ogłoszono daty dostępności chmury niepublicznej.
+Żadna lokalna Ochrona hasłem usługi Azure AD jest obsługiwana tylko w chmurze publicznej. Nie ogłoszono żadnych dat dla niepublicznej dostępności w chmurze.
 
-Portal usługi Azure AD zezwala na modyfikację konfiguracji "Ochrona hasłem dla usługi Active Directory systemu Windows Server" w lokalnej usłudze Windows Server nawet w chmurach niepublicznych; takie zmiany będą kontynuowane, ale w przeciwnym razie nigdy nie wejdą w życie. Rejestracja lokalnych agentów proxy lub lasów nie jest przechwycona, gdy używane są poświadczenia w chmurze niepublicznej, a wszelkie takie próby rejestracji zawsze zakończy się niepowodzeniem.
+Portal usługi Azure AD umożliwia modyfikację konfiguracji specyficznej dla lokalnego "ochrony hasłem dla systemu Windows Server Active Directory", nawet w chmurach niepublicznych; takie zmiany zostaną utrwalone, ale w przeciwnym razie nie zostaną zastosowane. Rejestracja lokalnych agentów proxy lub lasów nie jest obsługiwana, gdy są używane poświadczenia chmury niepublicznej, a wszystkie takie próby rejestracji będą zawsze kończyć się niepowodzeniem.
 
-**Pyt.: Jak można zastosować korzyści usługi Azure AD Password Protection do podzbioru moich użytkowników lokalnych?**
+**P: Jak mogę zastosować korzyści z ochrony hasłem w usłudze Azure AD do podzbioru użytkowników lokalnych?**
 
-Bez pomocy technicznej. Po wdrożeniu i włączeniu usługa Azure AD Password Protection nie dyskryminuje — wszyscy użytkownicy otrzymują równe korzyści z zabezpieczeń.
+Nieobsługiwane. Po wdrożeniu i włączeniu ochrony hasłem usługi Azure AD nie należy odróżniać — wszyscy użytkownicy otrzymują równe korzyści z zabezpieczeń.
 
-**P: Jaka jest różnica między zmianą hasła a zestawem haseł (lub resetowaniem)?**
+**P: Jaka jest różnica między zmianą hasła i ustawieniem hasła (lub resetowania)?**
 
-Zmiana hasła jest wtedy, gdy użytkownik wybiera nowe hasło po udowodnieniu, że ma wiedzę na temat starego hasła. Na przykład zmiana hasła jest to, co się dzieje, gdy użytkownik loguje się do systemu Windows, a następnie jest monitowany o wybranie nowego hasła.
+Zmiana hasła jest konieczna, gdy użytkownik wybierze nowe hasło po udowodnieniu, że ma wiedzę o starym haśle. Na przykład zmiana hasła ma miejsce, gdy użytkownik loguje się do systemu Windows i zostanie wyświetlony monit o wybranie nowego hasła.
 
-Zestaw haseł (czasami nazywany resetowaniem hasła) jest wtedy, gdy administrator zastępuje hasło na koncie nowym hasłem, na przykład za pomocą narzędzia do zarządzania użytkownikami i komputerami usługi Active Directory. Ta operacja wymaga wysokiego poziomu uprawnień (zwykle administrator domeny), a osoba wykonująca operację zwykle nie ma wiedzy o starym haśle. Scenariusze pomocy technicznej często wykonują zestawy haseł, na przykład podczas udzielania pomocy użytkownikowi, który zapomniał hasła. Zdarzenia zestawu haseł będą również widoczne, gdy po raz pierwszy tworzone jest zupełnie nowe konto użytkownika za pomocą hasła.
+Ustawienie hasła (nazywane czasem resetowaniem hasła) polega na tym, że administrator zastępuje hasło na koncie z nowym hasłem, na przykład za pomocą narzędzia do zarządzania użytkownikami i komputerami Active Directory. Ta operacja wymaga wysokiego poziomu uprawnień (zazwyczaj administratora domeny), a osoba wykonująca operację zwykle nie ma informacji o starym haśle. Scenariusze pomocy technicznej często wykonują zbiory haseł, na przykład podczas wspomagania użytkownika, który zapomniał hasło. W przypadku tworzenia nowego konta użytkownika po raz pierwszy przy użyciu hasła będą widoczne także zdarzenia ustawiania hasła.
 
-Zasady sprawdzania poprawności hasła zachowują się tak samo niezależnie od tego, czy zmiana hasła lub zestaw jest wykonywana. Usługa agenta kontrolera kontrolera ochrony hasłem usługi Azure AD rejestruje różne zdarzenia, aby poinformować, czy operacja zmiany hasła lub zestawu została wykonana.  Zobacz [monitorowanie i rejestrowanie ochrony hasłem usługi Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+Zasady walidacji hasła działają tak samo, niezależnie od tego, czy są wykonywane zmiany lub ustawienia hasła. Usługa agenta DC ochrony hasłem w usłudze Azure AD rejestruje różne zdarzenia w celu powiadomienia użytkownika o tym, czy operacja zmiany lub ustawienia hasła została ukończona.  Zobacz [monitorowanie i rejestrowanie w usłudze Azure AD Password Protection](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
-**Pyt.: Dlaczego zdarzenia odrzucenia zduplikowanego hasła są rejestrowane podczas próby ustawienia słabego hasła przy użyciu przystawki Zarządzanie użytkownikami i komputerami usługi Active Directory?**
+**P: Dlaczego są zduplikowane zdarzenia odrzucania hasła zarejestrowane podczas próby ustawienia słabego hasła przy użyciu przystawki Zarządzanie użytkownikami i komputerami Active Directory?**
 
-Przystawka Zarządzanie użytkownikami i komputerami usługi Active Directory najpierw spróbuje ustawić nowe hasło przy użyciu protokołu Kerberos. Po niepowodzeniu przystawka podejmie drugą próbę ustawienia hasła przy użyciu starszego protokołu (SAM RPC) (określone protokoły nie są ważne). Jeśli nowe hasło zostanie uznane za słabe przez usługę Azure AD Password Protection, to zachowanie przystawki spowoduje, że dwa zestawy zdarzeń odrzucenia resetowania hasła są rejestrowane.
+Przystawka Zarządzanie użytkownikami i komputerami Active Directory najpierw podejmie próbę ustawienia nowego hasła przy użyciu protokołu Kerberos. Gdy wystąpi awaria, przystawka wykona kolejną próbę ustawienia hasła przy użyciu starszego protokołu (SAM protokół RPC) (używane protokoły nie są ważne). Jeśli nowe hasło jest uznawane za słabe przez ochronę hasłem usługi Azure AD, to zachowanie przystawce spowoduje zarejestrowanie dwóch zestawów zdarzeń odrzucenia resetowania hasła.
 
-**Pyt.: Dlaczego zdarzenia sprawdzania poprawności hasła usługi Azure AD Protection są rejestrowane przy przynajdytu pustej nazwy użytkownika?**
+**P: Dlaczego są rejestrowane zdarzenia walidacji hasła ochrony haseł usługi Azure AD za pomocą pustej nazwy użytkownika?**
 
-Usługa Active Directory obsługuje możliwość testowania hasła, aby sprawdzić, czy przekazuje bieżące wymagania dotyczące złożoności hasła domeny, na przykład za pomocą interfejsu API [NetValidatePasswordPolicy.](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) Gdy hasło jest sprawdzane w ten sposób, testowanie obejmuje również sprawdzanie poprawności przez produkty oparte na filtrze haseł, takie jak ochrona hasłem usługi Azure AD — ale nazwy użytkowników przekazane do danej biblioteki dll filtru haseł będą puste. W tym scenariuszu usługa Azure AD Password Protection będzie nadal sprawdzać poprawność hasła przy użyciu aktualnie obowiązujących zasad haseł i wyda komunikat dziennika zdarzeń w celu przechwycenia wyniku, jednak komunikat dziennika zdarzeń będzie miał puste pola nazwy użytkownika.
+Active Directory obsługuje możliwość przetestowania hasła w celu sprawdzenia, czy przeszło bieżące wymagania dotyczące złożoności hasła domeny, na przykład za pomocą interfejsu API [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) . Po sprawdzeniu poprawności hasła w ten sposób testowanie obejmuje również sprawdzanie poprawności przez produkty oparte na bibliotece Password-Filter-dll, takie jak ochrona hasłem usługi Azure AD, ale nazwy użytkowników przekazane do danej biblioteki DLL filtru haseł będą puste. W tym scenariuszu Ochrona hasłem usługi Azure AD będzie nadal weryfikować hasło przy użyciu obecnie obowiązujących zasad haseł i wystawia komunikat dziennika zdarzeń w celu przechwycenia wyniku, ale komunikat dziennika zdarzeń będzie miał puste pola nazwy użytkownika.
 
-**Pyt.: Czy jest obsługiwana instalacja usługi Azure AD Password Protection obok innych produktów opartych na filtrze haseł?**
+**P: czy jest obsługiwana, aby zainstalować ochronę hasłem usługi Azure AD obok innych produktów opartych na filtrze haseł?**
 
-Tak. Obsługa wielu zarejestrowanych bibliotek DLL filtru haseł jest podstawową funkcją systemu Windows i nie jest specyficzna dla ochrony hasłem usługi Azure AD. Wszystkie zarejestrowane biblioteki dll filtru haseł muszą wyrazić zgodę przed zaakceptowaniem hasła.
+Tak. Obsługa wielu zarejestrowanych bibliotek DLL filtru haseł jest podstawową funkcją systemu Windows i nie jest specyficzna dla ochrony hasłem usługi Azure AD. Przed zaakceptowaniem hasła wszystkie zarejestrowane biblioteki DLL filtru haseł muszą być zgodne.
 
-**Pyt.: Jak wdrożyć i skonfigurować usługę Azure AD Password Protection w moim środowisku usługi Active Directory bez korzystania z platformy Azure?**
+**P: jak można wdrożyć i skonfigurować ochronę hasłem usługi Azure AD w środowisku Active Directory bez korzystania z platformy Azure?**
 
-Bez pomocy technicznej. Usługa Azure AD Password Protection to funkcja platformy Azure, która obsługuje rozszerzenie na lokalne środowisko usługi Active Directory.
+Nieobsługiwane. Ochrona hasłem w usłudze Azure AD to funkcja platformy Azure, która obsługuje rozszerzanie do lokalnego środowiska Active Directory.
 
-**Pyt.: Jak mogę zmodyfikować zawartość zasad na poziomie usługi Active Directory?**
+**P: Jak mogę zmodyfikować zawartość zasad na poziomie Active Directory?**
 
-Bez pomocy technicznej. Zasady można administrować tylko za pomocą portalu usługi Azure AD. Zobacz także poprzednie pytanie.
+Nieobsługiwane. Zasady można administrować tylko za pomocą portalu usługi Azure AD. Zobacz również poprzednie pytanie.
 
-**Py: Dlaczego dfsr jest wymagany do replikacji sysvol?**
+**P: Dlaczego Usługa DFSR jest wymagana na potrzeby replikacji folderu SYSVOL?**
 
-Usługa FRS (poprzednia technologia DFSR) ma wiele znanych problemów i jest całkowicie nieobsługiwana w nowszych wersjach usługi Windows Server Active Directory. Zero testowania ochrony hasłem usługi Azure AD zostanie wykonane w domenach skonfigurowanych przez usługę FRS.
+Usługa FRS (technologia poprzednika do DFSR) ma wiele znanych problemów i jest całkowicie nieobsługiwana w nowszych wersjach systemu Windows Server Active Directory. W domenach skonfigurowanych przez usługę FRS nie będzie przeprowadzane testowanie ochrony hasłem w usłudze Azure AD.
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
-[Przypadek migracji replikacji sysvol do DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
+[Przypadek migrowania replikacji folderu SYSVOL do usługi DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
 
-[Koniec jest Nigh dla FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
+[Koniec to Nigh dla usługi FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
 
-Jeśli twoja domena nie jest jeszcze używana jako DFSR, musisz ją przeprowadzić do migracji, aby użyć dfsr przed zainstalowaniem usługi Azure AD Password Protection. Aby uzyskać więcej informacji, zobacz następujące łącze:
+Jeśli domena nie korzysta już z usługi DFSR, przed zainstalowaniem ochrony przy użyciu usługi Azure AD Password należy przeprowadzić migrację do niej. Aby uzyskać więcej informacji, zobacz następujący link:
 
-[Przewodnik migracji replikacji SYSVOL: Replikacja usługi FRS do systemu plików DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+[Przewodnik migracji replikacji folderu SYSVOL: usługa FRS do Replikacja systemu plików DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
 > [!WARNING]
-> Oprogramowanie agenta kontrolera kontrolera domeny usługi Azure AD Protection zostanie obecnie zainstalowane na kontrolerach domeny w domenach, które nadal używają usługi FRS do replikacji sysvol, ale oprogramowanie NIE będzie działać poprawnie w tym środowisku. Dodatkowe negatywne skutki uboczne obejmują poszczególne pliki, które nie są replikowane, oraz procedury przywracania sysvol, które wydają się zakończyć się pomyślnie, ale po cichu nie replikują wszystkich plików. Należy przeprowadzić migrację domeny, aby jak najszybciej użyć usługi DFSR, zarówno w celu uzyskania nieodłącznych korzyści z usługi DFSR, jak i odblokowania wdrożenia usługi Azure AD Password Protection. Przyszłe wersje oprogramowania zostaną automatycznie wyłączone podczas uruchamiania w domenie, która nadal korzysta z usługi FRS.
+> Oprogramowanie agenta DC ochrony hasłem w usłudze Azure AD będzie obecnie instalowane na kontrolerach domeny w domenach, które nadal używają usługi FRS do replikacji folderu SYSVOL, ale oprogramowanie nie będzie działało prawidłowo w tym środowisku. Dodatkowe negatywne efekty uboczne obejmują pojedyncze pliki, których replikacja nie powiodła się, a procedury przywracania folderu SYSVOL pojawiają się po awarii, ale w trybie dyskretnym nie można zreplikować wszystkich plików. Należy przeprowadzić migrację domeny tak szybko, jak to możliwe, zarówno w przypadku związanych z nią korzyści, jak i do odblokowania wdrożenia ochrony hasłem usługi Azure AD. Przyszłe wersje oprogramowania zostaną automatycznie wyłączone po uruchomieniu w domenie, która nadal korzysta z usługi FRS.
 
-**Py: Ile miejsca na dysku wymaga tej funkcji w udziale sysvol domeny?**
+**P: jaka ilość miejsca na dysku jest wymagana przez funkcję w udziale Sysvol domeny?**
 
-Dokładne użycie miejsca różni się, ponieważ zależy od czynników, takich jak liczba i długość zakazanych tokenów na globalnej liście zablokowanych firmy Microsoft i listy niestandardowej dla dzierżawy, a także obciążenie szyfrowania. Zawartość tych list prawdopodobnie wzrośnie w przyszłości. Mając to na uwadze, uzasadnione oczekiwania jest to, że funkcja będzie potrzebować co najmniej pięć (5) megabajtów miejsca w sysvol domeny udziału.
+Precyzyjne użycie miejsca zależy od tego, czy jest to zależne od czynników, takich jak liczba i długość zabronionych tokenów na liście globalnie zabronionych firmy Microsoft i na liście niestandardowej dla dzierżawy oraz narzuty szyfrowania. Zawartość tych list może się zwiększać w przyszłości. Z tego względu uzasadnione jest, że funkcja będzie potrzebować co najmniej pięciu (5) megabajtów miejsca w udziale Sysvol domeny.
 
-**P: Dlaczego do zainstalowania lub uaktualnienia oprogramowania agenta kontrolera domeny wymagany jest ponowny rozruch?**
+**P: Dlaczego jest wymagane ponowne uruchomienie w celu zainstalowania lub uaktualnienia oprogramowania agenta kontrolera domeny?**
 
-To wymaganie jest spowodowane przez podstawowe zachowanie systemu Windows.
+Ten wymóg jest spowodowany przez podstawowe zachowanie systemu Windows.
 
-**Pyt.: Czy istnieje sposób skonfigurowania agenta kontrolera domeny do używania określonego serwera proxy?**
+**P: czy istnieje możliwość skonfigurowania agenta DC do korzystania z określonego serwera proxy?**
 
-Nie. Ponieważ serwer proxy jest bezstanowy, nie jest ważne, który konkretny serwer proxy jest używany.
+Nie. Ponieważ serwer proxy jest bezstanowy, nie ma znaczenia, który z nich jest używany.
 
-**Pyt.: Czy można wdrożyć usługę serwera proxy ochrony haseł usługi Azure AD obok innych usług, takich jak Usługa Azure AD Connect?**
+**P: Czy można wdrożyć usługę proxy ochrony hasłem usługi Azure AD obok innych usług, takich jak Azure AD Connect?**
 
-Tak. Usługa serwera proxy ochrony hasłem usługi Azure AD i usługi Azure AD Connect nigdy nie powinny kolidować bezpośrednio ze sobą.
+Tak. Usługa serwera proxy ochrony hasłem usługi Azure AD i Azure AD Connect nigdy nie powinna powodować konfliktu bezpośrednio ze sobą.
 
-Niestety stwierdzono niezgodność między wersją usługi Microsoft Azure AD Connect Agent Updater, która jest zainstalowana przez oprogramowanie proxy ochrony haseł usługi Azure AD, a wersją usługi zainstalowaną przez oprogramowanie [proxy aplikacji usługi Azure Active Directory Application Proxy.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) Ta niezgodność może spowodować, że usługa Agent Updater nie może skontaktować się z platformą Azure w celu uzyskania aktualizacji oprogramowania. Nie zaleca się instalowania serwera proxy usługi Azure AD Password Protection i serwera proxy aplikacji usługi Azure Active Directory na tym samym komputerze.
+Niestety, znaleziono niezgodność między wersją usługi Microsoft Azure AD Connect Agent Aktualizator, która jest instalowana przez oprogramowanie serwera proxy ochrony hasłem w usłudze Azure AD i wersję usługi zainstalowanej przez oprogramowanie [serwer proxy aplikacji usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) . Niezgodność może spowodować, że usługa Aktualizator agenta nie będzie mogła skontaktować się z platformą Azure w celu uzyskania aktualizacji oprogramowania. Nie zaleca się instalowania serwera proxy ochrony hasłem usługi Azure AD i serwer proxy aplikacji usługi Azure Active Directory na tym samym komputerze.
 
-**Pyt.: W jakiej kolejności należy zainstalować i zarejestrować agentów kontrolera domeny i serwerów proxy?**
+**P: w jakiej kolejności mają być zainstalowane i zarejestrowane agenci i serwery proxy kontrolera domeny?**
 
-Obsługiwane jest uporządkowanie instalacji agenta proxy, instalacji agenta kontrolera domeny, rejestracji lasu i rejestracji serwera proxy.
+Obsługiwane jest dowolna kolejność instalacji agenta proxy, instalacji agenta kontrolera domeny, rejestracji lasów oraz rejestracji serwera proxy.
 
-**Pyt.: Czy powinienem się martwić o wydajność trafienia na moich kontrolerach domeny z wdrażania tej funkcji?**
+**P: czy należy wiedzieć o osiągnięciu wydajności na kontrolerach domeny od wdrożenia tej funkcji?**
 
-Usługa agenta kontrolera kontrolera domeny ochrony haseł usługi Azure AD nie powinna znacząco wpływać na wydajność kontrolera domeny w istniejącym wdrożeniu dobrej usługi Active Directory.
+Usługa agenta DC ochrony hasłem w usłudze Azure AD nie powinna znacząco wpływać na wydajność kontrolera domeny w istniejącym wdrożeniu Active Directory w dobrej kondycji.
 
-W przypadku większości wdrożeń usługi Active Directory operacje zmiany hasła stanowią niewielką część ogólnego obciążenia na danym kontrolerze domeny. Na przykład wyobraź sobie domenę usługi Active Directory z 10000 kont użytkowników i zasadą MaxPasswordAge ustawioną na 30 dni. Średnio ta domena będzie widzieć 10000/30 = ~ 333 operacji zmiany hasła każdego dnia, co jest niewielką liczbą operacji dla nawet jednego kontrolera domeny. Rozważmy potencjalny najgorszy scenariusz: załóżmy, że te ~333 zmiany hasła na jednym kontrolerze domeny zostały wykonane w ciągu jednej godziny. Na przykład ten scenariusz może wystąpić, gdy wielu pracowników przychodzi do pracy w poniedziałek rano. Nawet w takim przypadku nadal patrzymy na ~ 333/60 minut = sześć zmian hasła na minutę, co ponownie nie jest znaczącym obciążeniem.
+W przypadku większości Active Directory operacje zmiany hasła są niewielką częścią ogólnego obciążenia na dowolnym kontrolerze domeny. Załóżmy na przykład, że Active Directory domeny z kontami użytkowników 10000 i zasadami MaxPasswordAge ustawionymi na 30 dni. Średnio w tej domenie zobaczysz w każdym dniu 10000/30 = ~ 333 operacji zmiany hasła, co stanowi niewielką liczbę operacji dla nawet jednego kontrolera domeny. Rozważmy potencjalny scenariusz najgorszego przypadku: Załóżmy, że te ~ 333 zmiany hasła na jednym kontrolerze domeny zostały wykonane w ciągu jednej godziny. Na przykład ten scenariusz może wystąpić, gdy wielu pracowników ma działać w poniedziałek rano. Nawet w takim przypadku nadal trwają około 333/60 minut = sześć zmian haseł na minutę, co nie jest znaczącym obciążeniem.
 
-Jeśli jednak bieżące kontrolery domeny są już uruchomione na poziomie o ograniczonej wydajności (na przykład maksymażu w odniesieniu do procesora CPU, miejsca na dysku, we/wy dysku itp.), przed wdrożeniem tej funkcji zaleca się dodanie dodatkowych kontrolerów domeny lub rozszerzenie dostępnego miejsca na dysku. Zobacz także pytanie powyżej o sysvol użycie miejsca na dysku powyżej.
+Jeśli jednak bieżące kontrolery domeny są już uruchomione na ograniczonych poziomach wydajności (na przykład maxed się w odniesieniu do procesora CPU, miejsca na dysku, we/wy dysku itp.), zaleca się dodanie kolejnych kontrolerów domeny lub rozwinięcie dostępnego miejsca na dysku przed wdrożeniem tej funkcji. Należy również zapoznać się z powyższymi pytaniami dotyczącymi użycia miejsca na dysku SYSVOL.
 
-**Pyt.: Chcę przetestować ochronę hasłem usługi Azure AD na kilku kontrolerach domeny w mojej domenie. Czy można wymusić zmiany hasła użytkownika do korzystania z tych określonych kontrolerów domeny?**
+**P: Chcę przetestować ochronę hasłem usługi Azure AD tylko w kilku domenach w domenie. Czy istnieje możliwość wymuszenia zmiany hasła użytkownika na korzystanie z tych konkretnych kontrolerów domeny?**
 
-Nie. System operacyjny klienta systemu Windows kontroluje, który kontroler domeny jest używany, gdy użytkownik zmienia swoje hasło. Kontroler domeny jest wybierany na podstawie takich czynników, jak przypisania lokacji i podsieci usługi Active Directory, konfiguracja sieci specyficzne dla środowiska itp. Usługa Azure AD Password Protection nie kontroluje tych czynników i nie może mieć wpływu na to, który kontroler domeny jest wybrany do zmiany hasła użytkownika.
+Nie. System operacyjny klienta systemu Windows kontroluje, który kontroler domeny jest używany, gdy użytkownik zmienia swoje hasło. Kontroler domeny jest wybierany w oparciu o takie czynniki jak Active Directory przypisań lokacji i podsieci, konfiguracji sieci specyficznej dla środowiska itp. Ochrona hasłem w usłudze Azure AD nie kontroluje tych czynników i nie ma wpływu na kontroler domeny wybrany do zmiany hasła użytkownika.
 
-Jednym ze sposobów częściowego osiągnięcia tego celu byłoby wdrożenie usługi Azure AD Password Protection na wszystkich kontrolerach domeny w danej lokacji usługi Active Directory. Takie podejście zapewni rozsądne pokrycie dla klientów systemu Windows, które są przypisane do tej witryny, a zatem również dla użytkowników, którzy logują się do tych klientów i zmiany ich haseł.
+Jednym ze sposobów na częściowe osiągnięcie tego celu jest wdrożenie ochrony hasłem usługi Azure AD na wszystkich kontrolerach domeny w danej lokacji Active Directory. Takie podejście zapewni rozsądne pokrycie dla klientów systemu Windows przypisanych do tej lokacji, w związku z tym również dla użytkowników logujących się na tych klientach i zmieniających ich hasła.
 
-**Pyt.: Jeśli zainstaluję usługę agenta kontrolera domeny ochrony haseł usługi Azure AD tylko na podstawowym kontrolerze domeny (PDC), czy wszystkie inne kontrolery domeny w domenie również będą chronione?**
+**P: Jeśli zainstaluję usługę agenta DC ochrony hasłem usługi Azure AD tylko na podstawowym kontrolerze domeny (PDC), wszystkie inne kontrolery domeny w domenie będą również chronione?**
 
-Nie. Gdy hasło użytkownika zostanie zmienione na danym kontrolerze domeny nieobjętym kontrolerem domeny, hasło w postaci zwykłego tekstu nigdy nie jest wysyłane do kontrolera PDC (ten pomysł jest częstym błędem w postrzeganiu). Gdy nowe hasło zostanie zaakceptowane na danym kontrolerze domeny, ten kontroler domeny używa tego hasła do tworzenia różnych skrótów specyficznych dla protokołu uwierzytelniania tego hasła, a następnie utrzymuje te skróty w katalogu. Hasło w postaci zwykłego tekstu nie jest zachowywane. Zaktualizowane skróty są następnie replikowane do kontrolera PDC. Hasła użytkowników mogą w niektórych przypadkach być zmieniane bezpośrednio w kontrolerze PDC, ponownie w zależności od różnych czynników, takich jak topologia sieci i projektowanie witryny usługi Active Directory. (Zobacz poprzednie pytanie).
+Nie. Gdy hasło użytkownika jest zmieniane na danym kontrolerze domeny innego niż kontroler PDC, hasło w postaci zwykłego tekstu nigdy nie jest wysyłane do kontrolera PDC (ten pomysł jest typowym niepercepcjem). Po zaakceptowaniu nowego hasła dla danego kontrolera domeny kontroler ten używa tego hasła do utworzenia różnych wartości skrótu właściwych dla protokołu uwierzytelniania danego hasła, a następnie utrwala te skróty w katalogu. Hasło w postaci zwykłego tekstu nie jest utrwalone. Zaktualizowane skróty są następnie replikowane do podstawowego kontrolera domeny. W niektórych przypadkach hasła użytkowników mogą być zmieniane bezpośrednio na podstawowym kontrolerze domeny, w zależności od różnych czynników, takich jak topologia sieci i Active Directory projektowanie lokacji. (Zobacz poprzednie pytanie).
 
-Podsumowując, wdrożenie usługi Agent kontrolera domeny ochrony haseł usługi Azure AD w kontrolerze domeny kontrolera domeny jest wymagane do osiągnięcia 100% pokrycia zabezpieczeń tej funkcji w całej domenie. Wdrażanie tej funkcji tylko w kontrolerze PDC nie zapewnia korzyści zabezpieczeń usługi Azure AD dla innych kontrolerów domeny w domenie.
+Podsumowując, wdrożenie usługi agenta DC ochrony hasła usługi Azure AD na podstawowym kontrolerze domeny jest wymagane do uzyskania dostępu do 100% tej funkcji w całej domenie. Wdrożenie funkcji na podstawowym kontrolerze PDC nie zapewnia korzyści związanych z bezpieczeństwem ochrony hasłem usługi Azure AD dla innych kontrolerów domeny w domenie.
 
-**Pyt.: Dlaczego niestandardowa inteligentna blokada nie działa nawet po zainstalowaniu agentów w lokalnym środowisku usługi Active Directory?**
+**P: Dlaczego niestandardowa inteligentna blokada nie działa nawet po zainstalowaniu agentów w środowisku lokalnym Active Directory?**
 
-Niestandardowa blokada inteligentna jest obsługiwana tylko w usłudze Azure AD. Zmiany w niestandardowych ustawieniach blokady inteligentnej w portalu usługi Azure AD nie mają wpływu na lokalne środowisko usługi Active Directory, nawet przy zainstalowanych agentach.
+Niestandardowa blokada inteligentna jest obsługiwana tylko w usłudze Azure AD. Zmiany niestandardowych ustawień inteligentnego blokowania w portalu usługi Azure AD nie mają wpływu na lokalne środowisko Active Directory, nawet z zainstalowanymi agentami.
 
-**Pyt.: Czy pakiet administracyjny programu Operations Manager systemu System Center jest dostępny dla ochrony hasłem usługi Azure AD?**
+**P: czy dla ochrony haseł usługi Azure AD jest dostępny System Center Operations Manager pakiet administracyjny?**
 
 Nie.
 
-**Pyt.: Dlaczego usługa Azure AD nadal odrzuca słabe hasła, mimo że skonfigurowano zasady w trybie inspekcji?**
+**P: Dlaczego usługa Azure AD nadal odrzuca słabe hasła, mimo że skonfigurowano zasady tak, aby były w trybie inspekcji?**
 
-Tryb inspekcji jest obsługiwany tylko w lokalnym środowisku usługi Active Directory. Usługa Azure AD jest niejawnie zawsze w trybie "enforce", gdy ocenia hasła.
+Tryb inspekcji jest obsługiwany tylko w środowisku lokalnym Active Directory. Usługa Azure AD jest niejawnie zawsze w trybie "Wymuś" podczas obliczania haseł.
 
-**P: Moi użytkownicy widzą tradycyjny komunikat o błędzie systemu Windows, gdy hasło zostanie odrzucone przez usługę Azure AD Password Protection. Czy można dostosować ten komunikat o błędzie, aby użytkownicy wiedzieli, co naprawdę się stało?**
+**P: w przypadku odrzucenia hasła przez ochronę hasłem usługi Azure AD użytkownicy widzą tradycyjny komunikat o błędzie systemu Windows. Czy można dostosować ten komunikat o błędzie, aby użytkownicy wiedzieli, co naprawdę się stało?**
 
-Nie. Komunikat o błędzie wyświetlany przez użytkowników, gdy hasło jest odrzucane przez kontroler domeny, jest kontrolowany przez komputer kliencki, a nie przez kontroler domeny. Takie zachowanie ma miejsce, niezależnie od tego, czy hasło zostanie odrzucone przez domyślne zasady haseł usługi Active Directory, czy przez rozwiązanie oparte na filtrze haseł, takie jak ochrona hasłem usługi Azure AD.
+Nie. Komunikat o błędzie wyświetlany przez użytkowników w przypadku odrzucenia hasła przez kontroler domeny jest kontrolowany przez komputer kliencki, a nie przez kontroler domeny. To zachowanie występuje niezależnie od tego, czy hasło jest odrzucane przez domyślne zasady haseł Active Directory, czy przez rozwiązanie oparte na filtrze hasła, takie jak ochrona hasłem usługi Azure AD.
 
 ## <a name="additional-content"></a>Dodatkowa zawartość
 
-Poniższe łącza nie są częścią podstawowej dokumentacji usługi Azure AD Password Protection, ale mogą być użytecznym źródłem dodatkowych informacji na temat tej funkcji.
+Następujące linki nie są częścią podstawowej dokumentacji ochrony hasłem usługi Azure AD, ale mogą być użytecznym źródłem dodatkowych informacji na temat tej funkcji.
 
-[Ochrona hasłem usługi Azure AD jest teraz ogólnie dostępna!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
+[Ochrona hasłem w usłudze Azure AD jest teraz ogólnie dostępna!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
-[Przewodnik po ochronie przed wyłudzaniem informacji pocztą e-mail — część 15: Implementowanie usługi ochrony hasłem usługi Microsoft Azure AD (także w środowisku lokalnym!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
+[Przewodnik dotyczący ochrony przed wyłudzaniem wiadomości e-mail — część 15: implementacja usługi ochrony hasłem Microsoft Azure AD (w przypadku miejsca lokalnego!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 
-[Ochrona hasłem usługi Azure AD i inteligentna blokada są teraz w publicznej wersji zapoznawczej!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
+[Usługa Azure AD Password Protection i inteligentna blokada są teraz dostępne w publicznej wersji zapoznawczej.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
 
-## <a name="microsoft-premierunified-support-training-available"></a>Dostępne szkolenia pomocy technicznej microsoft premier\Unified dostępne
+## <a name="microsoft-premierunified-support-training-available"></a>Dostępne szkolenia Microsoft Premier\Unified support
 
-Jeśli chcesz dowiedzieć się więcej na temat ochrony hasłem usługi Azure AD i wdrażania go w swoim środowisku, możesz skorzystać z proaktywnej usługi firmy Microsoft dostępnej dla tych klientów z umową pomocy technicznej Premier lub Unified. Usługa nosi nazwę usługi Azure Active Directory: Password Protection. Aby uzyskać więcej informacji, skontaktuj się z menedżerem konta technicznego.
+Jeśli chcesz dowiedzieć się więcej o ochronie haseł usługi Azure AD i wdrażaniu jej w środowisku, możesz skorzystać z usługi Microsoft proaktywnie dostępnej dla tych klientów z umową Premier lub Unified support. Usługa jest nazywana Azure Active Directory: Ochrona hasłem. Aby uzyskać więcej informacji, skontaktuj się z kierownikiem ds. klientów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli masz lokalne pytanie dotyczące ochrony hasłem usługi Azure AD, na które nie ma odpowiedzi, prześlij poniżej element opinii poniżej — dziękuję!
+Jeśli masz lokalne pytanie ochrony hasła usługi Azure AD, na które nie udzielono odpowiedzi, Prześlij element opinii poniżej — Dziękujemy!
 
 [Wdrażanie ochrony haseł w usłudze Azure AD](howto-password-ban-bad-on-premises-deploy.md)

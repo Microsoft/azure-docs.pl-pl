@@ -1,5 +1,5 @@
 ---
-title: Bezpieczne zasoby dzięki usłudze Azure MFA i usługom ADFS — usługa Azure Active Directory
+title: Zabezpieczanie zasobów za pomocą usługi Azure MFA i usług AD FS — Azure Active Directory
 description: Ta strona dotyczy usługi Azure Multi-Factor Authentication i zawiera informacje umożliwiające rozpoczęcie korzystania z usługi Azure MFA i usług AD FS w chmurze.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5949fdce9d591a9c02c5c6c4fb2f1dde94c45d2
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80654020"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Zabezpieczanie zasobów w chmurze przy użyciu usługi Azure Multi-Factor Authentication i usług AD FS
@@ -27,14 +27,14 @@ Jeśli Twoja organizacja jest sfederowana z użyciem usługi Azure Active Direct
 Aby zabezpieczyć zasób w chmurze, skonfiguruj regułę oświadczeń, tak aby usługi Active Directory Federation Services emitowały oświadczenie multipleauthn, gdy użytkownik pomyślnie przeprowadzi weryfikację dwuetapową. To oświadczenie jest przekazywane do usługi Azure AD. Wykonaj tę procedurę w celu przejścia przez poszczególne kroki:
 
 1. Otwórz przystawkę zarządzania usługami AD FS.
-2. Po lewej stronie wybierz pozycję **Zaufania jednostki uzależniającej**.
+2. Po lewej stronie wybierz pozycję **relacje zaufania jednostek uzależnionych**.
 3. Kliknij prawym przyciskiem myszy pozycję **Platforma tożsamości usługi Microsoft Office 365** i wybierz pozycję **Edytuj reguły oświadczeń**.
 
-   ![Konsola ADFS — relacje zaufania jednostki uzależnień](./media/howto-mfa-adfs/trustedip1.png)
+   ![Relacje zaufania jednostek uzależnionych od konsoli usług ADFS](./media/howto-mfa-adfs/trustedip1.png)
 
-4. W liczeby Reguły przekształcania wystawczych kliknij pozycję **Dodaj regułę**.
+4. W obszarze reguły przekształcania wystawiania kliknij pozycję **Dodaj regułę**.
 
-   ![Edytowanie reguł przekształcania emisji](./media/howto-mfa-adfs/trustedip2.png)
+   ![Edytowanie reguł przekształcania wystawiania](./media/howto-mfa-adfs/trustedip2.png)
 
 5. W Kreatorze dodawania reguły przekształcania oświadczeń wybierz z listy rozwijanej pozycję **Przekazywanie lub filtrowanie oświadczenia przychodzącego**, a następnie kliknij przycisk **Dalej**.
 
@@ -57,25 +57,25 @@ W tym przykładzie użyto usługi Office 365 w celu pokazania obsługi relacji z
 W pierwszej kolejności należy skonfigurować oświadczenia usług AD FS. Utwórz dwie reguły oświadczeń — jedną dla typu oświadczenia wewnętrznej sieci firmowej, a drugą na potrzeby umożliwienia stałego zalogowania użytkowników.
 
 1. Otwórz przystawkę zarządzania usługami AD FS.
-2. Po lewej stronie wybierz pozycję **Zaufania jednostki uzależniającej**.
-3. Kliknij prawym przyciskiem myszy **platformę tożsamości usługi Microsoft Office 365** i wybierz pozycję **Edytuj reguły oświadczeń...** 
-   Konsola ADFS — edytowanie reguł ![oświadczeń](./media/howto-mfa-adfs/trustedip1.png)
-4. W yjaszanie reguł przekształcania emisji kliknij pozycję **Dodaj regułę.** 
-    ![oświadczeń](./media/howto-mfa-adfs/trustedip2.png)
+2. Po lewej stronie wybierz pozycję **relacje zaufania jednostek uzależnionych**.
+3. Kliknij prawym przyciskiem myszy **Microsoft Office platformę tożsamości 365** i wybierz pozycję **Edytuj reguły dotyczące roszczeń...** 
+   Konsola usług ADFS — edytowanie reguł ![dotyczących roszczeń](./media/howto-mfa-adfs/trustedip1.png)
+4. W obszarze reguły przekształcania wystawiania kliknij pozycję **Dodaj regułę.** 
+    ![](./media/howto-mfa-adfs/trustedip2.png)
 5. W Kreatorze dodawania reguły przekształcania oświadczeń wybierz z listy rozwijanej pozycję **Przekazywanie lub filtrowanie oświadczenia przychodzącego**, a następnie kliknij przycisk **Dalej**.
    ![Kreator dodawania reguły przekształcania dotyczącej oświadczeń](./media/howto-mfa-adfs/trustedip3.png)
 6. W polu Nazwa reguły oświadczenia wpisz nazwę reguły, np. WewnSiećFirm.
 7. Dla pola Typ oświadczenia przychodzącego wybierz z listy rozwijanej pozycję **Wewnątrz sieci firmowej**.
-   ![Dodawanie oświadczenia wewnątrz sieci firmowej](./media/howto-mfa-adfs/trustedip4.png)
+   ![Dodawanie wewnątrz roszczeń sieci firmowej](./media/howto-mfa-adfs/trustedip4.png)
 8. Kliknij przycisk **Zakończ**.
-9. W liczeby Reguły przekształcania wystawczych kliknij pozycję **Dodaj regułę**.
+9. W obszarze reguły przekształcania wystawiania kliknij pozycję **Dodaj regułę**.
 10. W Kreatorze dodawania reguły przekształcania oświadczeń wybierz z listy rozwijanej pozycję **Wysyłanie oświadczeń przy użyciu reguły niestandardowej**, a następnie kliknij przycisk **Dalej**.
 11. W polu Nazwa reguły oświadczenia wprowadź tekst *Nie wylogowuj użytkowników*.
 12. W polu Reguła niestandardowa wprowadź kod:
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Tworzenie oświadczenia niestandardowego w celu utrzymania zalogowania użytkowników](./media/howto-mfa-adfs/trustedip5.png)
+    ![Utwórz niestandardową, aby uniemożliwić Logowanie użytkowników](./media/howto-mfa-adfs/trustedip5.png)
 13. Kliknij przycisk **Zakończ**.
 14. Kliknij przycisk **Zastosuj**.
 15. Kliknij przycisk **OK**.
@@ -85,13 +85,13 @@ W pierwszej kolejności należy skonfigurować oświadczenia usług AD FS. Utwó
 
 Po skonfigurowaniu oświadczeń można przystąpić do konfigurowania zaufanych adresów IP.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-2. Wybierz **lokalizacje nazwanych nazwanych** > **dostępu** > warunkowego usługi Azure**Active** > Directory **.**
-3. W bloku **Dostęp warunkowy — nazwane lokalizacje** wybierz pozycję **Konfiguruj zaufane usługi IP usługi MFA**
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Wybierz pozycję **Azure Active Directory** > **Security** > **dostęp warunkowy do** > zabezpieczeń**nazwanych lokalizacji**.
+3. W bloku **dostęp warunkowy — lokalizacje z nazwą** wybierz opcję **Konfiguruj Zaufane adresy IP usługi MFA**
 
-   ![Usługi Azure AD Usługi Dostęp warunkowy o nazwie lokalizacje Konfigurowanie zaufanych obiektów IP usługi MFA](./media/howto-mfa-adfs/trustedip6.png)
+   ![Dostęp warunkowy usługi Azure AD nazwane lokalizacje Konfigurowanie zaufanych adresów IP MFA](./media/howto-mfa-adfs/trustedip6.png)
 
 4. Na stronie Ustawienia usługi w obszarze **zaufanych adresów IP** wybierz pozycję **Pomiń uwierzytelnianie wieloskładnikowe w przypadku żądań od użytkowników federacyjnych w moim intranecie**.  
-5. Kliknij **przycisk Zapisz**.
+5. Kliknij przycisk **Zapisz**.
 
 Gotowe. Od tej pory federacyjni użytkownicy usługi Office 365 muszą używać usługi MFA, tylko jeśli ich oświadczenia pochodzą spoza firmowego intranetu.

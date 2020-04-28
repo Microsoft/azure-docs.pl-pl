@@ -1,7 +1,7 @@
 ---
 title: ContentDefinitions
 titleSuffix: Azure AD B2C
-description: Określ element ContentDefinitions zasad niestandardowych w usłudze Azure Active Directory B2C.
+description: Określ element ContentDefinitions zasad niestandardowych w Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,23 +12,23 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 074a0a39090e22a29f778fc1c99060848c6bfd99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80051489"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Możesz dostosować wygląd każdego samodzielnie [potwierdzonego profilu technicznego.](self-asserted-technical-profile.md) Usługa Azure Active Directory B2C (Azure AD B2C) uruchamia kod w przeglądarce klienta i używa nowoczesnego podejścia o nazwie Udostępnianie zasobów cross-origin (CORS).
+Możesz dostosować wygląd i działanie dowolnego [profilu technicznego](self-asserted-technical-profile.md), który został potwierdzony. Azure Active Directory B2C (Azure AD B2C) uruchamia kod w przeglądarce klienta i korzysta z nowoczesnego podejścia zwanego współużytkowaniem zasobów między źródłami (CORS).
 
-Aby dostosować interfejs użytkownika, należy określić adres URL w **elemencie ContentDefinition** z dostosowaną zawartością HTML. W samodzielnie potwierdzonym profilu technicznym lub **aranżacjiStep**wskazujesz ten identyfikator definicji zawartości. Definicja zawartości może zawierać **LocalizedResourcesReferences** element, który określa listę zlokalizowanych zasobów do załadowania. Usługa Azure AD B2C scala elementy interfejsu użytkownika z zawartością HTML ładowaną z adresu URL, a następnie wyświetla stronę użytkownikowi.
+Aby dostosować interfejs użytkownika, należy określić adres URL w elemencie **ContentDefinition** z dostosowaną zawartością HTML. W profilu technicznym z własnym potwierdzeń lub **OrchestrationStep**należy wskazać ten identyfikator definicji zawartości. Definicja zawartości może zawierać element **LocalizedResourcesReferences** , który określa listę zlokalizowanych zasobów do załadowania. Usługa Azure AD B2C scala elementy interfejsu użytkownika z zawartością HTML ładowaną z adresu URL, a następnie wyświetla stronę użytkownikowi.
 
-**Element ContentDefinitions** zawiera adresy URL do szablonów HTML5, które mogą być używane w podróży użytkownika. Identyfikator URI strony HTML5 jest używany dla określonego kroku interfejsu użytkownika. Na przykład strony logowania lub rejestracji, resetowania hasła lub strony błędów. Wygląd i działanie można zmodyfikować, zastępując loaduri dla pliku HTML5. Możesz tworzyć nowe definicje zawartości zgodnie z potrzebami. Ten element może zawierać odwołanie zlokalizowanych zasobów do identyfikatora lokalizacji określonego w [localization](localization.md) elementu.
+Element **ContentDefinitions** zawiera adresy URL do szablonów HTML5, które mogą być używane w podróży użytkownika. Identyfikator URI strony HTML5 jest używany przez określony krok interfejsu użytkownika. Na przykład strony logowania lub rejestracji, resetowania haseł lub błędów. Możesz zmodyfikować wygląd i działanie, zastępując LoadUri pliku HTML5. Można tworzyć nowe definicje zawartości zgodnie z potrzebami. Ten element może zawierać odwołanie do zlokalizowanych zasobów w identyfikatorze lokalizacji określonym w elemencie [lokalizacji](localization.md) .
 
-W poniższym przykładzie przedstawiono identyfikator definicji zawartości i definicję zlokalizowanych zasobów:
+Poniższy przykład pokazuje identyfikator definicji zawartości i definicję zlokalizowanych zasobów:
 
 ```XML
 <ContentDefinition Id="api.localaccountsignup">
@@ -44,7 +44,7 @@ W poniższym przykładzie przedstawiono identyfikator definicji zawartości i de
     ...
 ```
 
-Metadane **localaccountSignUpWithLogonEmail** samodzielnie potwierdzone profil techniczny zawiera identyfikator definicji zawartości **ContentDefinitionReferenceId** ustawiony na`api.localaccountsignup`
+Metadane **LocalAccountSignUpWithLogonEmail** z własnym profilem technicznym zawiera identyfikator definicji zawartości **ContentDefinitionReferenceId** ustawiony na`api.localaccountsignup`
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -57,46 +57,46 @@ Metadane **localaccountSignUpWithLogonEmail** samodzielnie potwierdzone profil t
   ...
 ```
 
-## <a name="contentdefinition"></a>Definicja zawartości
+## <a name="contentdefinition"></a>ContentDefinition
 
-**Element ContentDefinition** zawiera następujący atrybut:
+Element **ContentDefinition** zawiera następujący atrybut:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Identyfikator | Tak | Identyfikator definicji zawartości. Wartość jest określona w sekcji **Identyfikatory definicji zawartości** w dalszej części tej strony. |
+| Identyfikator | Tak | Identyfikator definicji zawartości. Wartość jest określona w sekcji **identyfikatorów definicji zawartości** w dalszej części tej strony. |
 
-**Element ContentDefinition** zawiera następujące elementy:
+Element **ContentDefinition** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| LoadUri ( LoadUri ) | 1:1 | Ciąg zawierający adres URL strony HTML5 dla definicji zawartości. |
-| RecoveryUri (OdzyskiwanieUri) | 1:1 | Ciąg zawierający adres URL strony HTML do wyświetlania błędu związanego z definicją zawartości. Nie jest obecnie używana, `~/common/default_page_error.html`wartość musi być . |
-| DataUri ( DataUri ) | 1:1 | Ciąg zawierający względny adres URL pliku HTML, który zapewnia użytkownikowi środowisko do wywołania dla kroku. |
-| Metadane | 0:1 | Kolekcja par klucz/wartość, która zawiera metadane używane przez definicję zawartości. |
-| ZlokalizowaneResourcesReferences | 0:1 | Kolekcja zlokalizowanych odwołań do zasobów. Ten element służy do dostosowywania lokalizacji interfejsu użytkownika i atrybutu oświadczeń. |
+| LoadUri | 1:1 | Ciąg, który zawiera adres URL strony HTML5 dla definicji zawartości. |
+| RecoveryUri | 1:1 | Ciąg, który zawiera adres URL strony HTML służącej do wyświetlania błędu związanego z definicją zawartości. Nie jest obecnie używany, wartość musi być `~/common/default_page_error.html`. |
+| DataUri | 1:1 | Ciąg zawierający względny adres URL pliku HTML, który udostępnia środowisko użytkownika do wywołania dla kroku. |
+| Metadane | 0:1 | Kolekcja par klucz/wartość, które zawierają metadane wykorzystane w definicji zawartości. |
+| LocalizedResourcesReferences | 0:1 | Kolekcja zlokalizowanych zasobów. Użyj tego elementu, aby dostosować lokalizację interfejsu użytkownika i atrybutu oświadczeń. |
 
-### <a name="datauri"></a>DataUri ( DataUri )
+### <a name="datauri"></a>DataUri
 
-Element **DataUri** służy do określania identyfikatora strony. Usługa Azure AD B2C używa identyfikatora strony do ładowania i inicjowania elementów interfejsu użytkownika i javascript po stronie klienta. Formatem wartości jest `urn:com:microsoft:aad:b2c:elements:page-name:version`. W poniższej tabeli wymieniono identyfikatory stron, których można użyć.
+Element **DataUri** jest używany do określania identyfikatora strony. Azure AD B2C używa identyfikatora strony do ładowania i inicjowania elementów interfejsu użytkownika oraz języka JavaScript po stronie klienta. Format wartości to `urn:com:microsoft:aad:b2c:elements:page-name:version`. Poniższa tabela zawiera listę identyfikatorów stron, których można użyć.
 
 | Identyfikator strony | Opis |
 | ----- | ----------- |
-| `globalexception` | Wyświetla stronę błędu po napotkaniu wyjątku lub błędu. |
-| `providerselection`, `idpselection` | Wyświetla listę dostawców tożsamości, z których użytkownicy mogą wybierać podczas logowania.  |
-| `unifiedssp` | Wyświetla formularz do logowania się przy za pomocą konta lokalnego, który jest oparty na adresie e-mail lub nazwie użytkownika. Ta wartość zapewnia również "zachowaj mi funkcję logowania" i "Zapomniałeś hasła?" Link. |
-| `unifiedssd` | Wyświetla formularz do logowania się przy za pomocą konta lokalnego, który jest oparty na adresie e-mail lub nazwie użytkownika. |
-| `multifactor` | Weryfikuje numery telefonów za pomocą tekstu lub głosu podczas rejestracji lub logowania. |
-| `selfasserted` | Wyświetla formularz do zbierania danych od użytkownika. Na przykład umożliwia użytkownikom tworzenie lub aktualizowanie ich profilu. |
+| `globalexception` | Wyświetla stronę błędu w przypadku napotkania wyjątku lub błędu. |
+| `providerselection`, `idpselection` | Wyświetla listę dostawców tożsamości, spośród których użytkownicy mogą wybierać podczas logowania.  |
+| `unifiedssp` | Wyświetla formularz służący do logowania się przy użyciu konta lokalnego, które jest oparte na adresie e-mail lub nazwie użytkownika. Ta wartość udostępnia również funkcję "Przechowuj mnie" i "nie pamiętasz hasła?". powiązań. |
+| `unifiedssd` | Wyświetla formularz służący do logowania się przy użyciu konta lokalnego, które jest oparte na adresie e-mail lub nazwie użytkownika. |
+| `multifactor` | Weryfikuje numery telefonów przy użyciu tekstu lub głosu podczas rejestracji lub logowania. |
+| `selfasserted` | Wyświetla formularz służący do zbierania danych od użytkownika. Na przykład umożliwia użytkownikom tworzenie lub aktualizowanie profilu. |
 
-### <a name="select-a-page-layout"></a>Wybieranie układu strony
+### <a name="select-a-page-layout"></a>Wybierz układ strony
 
-[Kod po stronie klienta JavaScript](javascript-samples.md) można `contract` `elements` włączyć, wstawiając między i typem strony. Na przykład `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+[Kod po stronie klienta JavaScript](javascript-samples.md) można włączyć, wstawiając `contract` między `elements` i typ strony. Na przykład `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Część [wersji](page-layout.md) `DataUri` określa pakiet zawartości zawierającej HTML, CSS i JavaScript dla elementów interfejsu użytkownika w zasadach. Jeśli zamierzasz włączyć kod po stronie klienta JavaScript, elementy, na których opierasz javascript, muszą być niezmienne. Jeśli nie są one niezmienne, wszelkie zmiany mogą spowodować nieoczekiwane zachowanie na stronach użytkownika. Aby zapobiec tym problemom, wymuś użycie układu strony i określ wersję układu strony. Dzięki temu wszystkie definicje zawartości, na których opierasz javascript, są niezmienne. Nawet jeśli nie zamierzasz włączać języka JavaScript, nadal musisz określić wersję układu strony dla stron.
+Część [wersji](page-layout.md) programu `DataUri` określa pakiet zawartości zawierający kod HTML, CSS i JavaScript dla elementów interfejsu użytkownika w ramach zasad. Jeśli zamierzasz włączyć kod po stronie klienta JavaScript, elementy, które opierają się na języku JavaScript, muszą być niezmienne. Jeśli nie są one niezmienne, wszelkie zmiany mogą spowodować nieoczekiwane zachowanie na stronach użytkownika. Aby uniknąć tych problemów, Wymuś korzystanie z układu strony i określ wersję układu strony. Dzięki temu wszystkie definicje zawartości oparte na języku JavaScript są niezmienne. Nawet jeśli nie zamierzasz włączać języka JavaScript, nadal musisz określić wersję układu strony dla stron.
 
-W poniższym przykładzie `selfasserted` przedstawiono **DataUri** wersji: `1.2.0`
+W poniższym przykładzie przedstawiono **DataUri** `selfasserted` wersji `1.2.0`:
 
 ```xml
 <ContentDefinition Id="api.localaccountpasswordreset">
@@ -111,7 +111,7 @@ W poniższym przykładzie `selfasserted` przedstawiono **DataUri** wersji: `1.2.
 
 #### <a name="migrating-to-page-layout"></a>Migrowanie do układu strony
 
-Format wartości musi zawierać słowo `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. Aby określić układ strony w zasadach niestandardowych, które używają starej wartości **DataUri,** użyj poniższej tabeli, aby przeprowadzić migrację do nowego formatu.
+Format wartości musi zawierać słowo `contract`: _urn: com: Microsoft: AAD: B2C: elementy:**Contract**:p Age-Name: Version_. Aby określić układ strony w niestandardowych zasadach, które używają starej wartości **DataUri** , użyj poniższej tabeli do przeprowadzenia migracji do nowego formatu.
 
 | Stara wartość DataUri | Nowa wartość DataUri |
 | ----------------- | ----------------- |
@@ -129,42 +129,42 @@ Format wartości musi zawierać słowo `contract`: _urn:com:microsoft:aad:b2c:el
 
 ### <a name="metadata"></a>Metadane
 
-A **Metadata** element zawiera następujące elementy:
+Element **Metadata** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| Element | 0:n | Metadane, które odnoszą się do definicji zawartości. |
+| Element | 0: n | Metadane odnoszące się do definicji zawartości. |
 
-**Element elementu** **metadata** element zawiera następujące atrybuty:
+Element **Item** elementu **Metadata** zawiera następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Klucz | Tak | Klucz metadanych.  |
+| Key | Tak | Klucz metadanych.  |
 
 #### <a name="metadata-keys"></a>Klucze metadanych
 
 Definicja zawartości obsługuje następujące elementy metadanych:
 
-| Klucz | Wymagany | Opis |
+| Key | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| DisplayName | Nie | Ciąg zawierający nazwę definicji zawartości. |
+| Nazwa wyświetlana | Nie | Ciąg, który zawiera nazwę definicji zawartości. |
 
-### <a name="localizedresourcesreferences"></a>ZlokalizowaneResourcesReferences
+### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 
 Element **LocalizedResourcesReferences** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| ZlokalizowaneResourcesReference | 1:n | Lista zlokalizowanych odwołań do zasobów dla definicji zawartości. |
+| LocalizedResourcesReference | 1: n | Lista zlokalizowanych odwołań do zasobów dla definicji zawartości. |
 
 Element **LocalizedResourcesReference** zawiera następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Język | Tak | Ciąg, który zawiera obsługiwany język dla zasad na RFC 5646 — tagi dla języków identyfikujących. |
-| ZlokalizowaneResourcesReferenceId | Tak | Identyfikator **localizedResources** elementu. |
+| Język | Tak | Ciąg, który zawiera obsługiwany język dla zasad zgodnie ze specyfikacją RFC 5646-Tagi dla identyfikacji języków. |
+| LocalizedResourcesReferenceId | Tak | Identyfikator elementu **LocalizedResources** . |
 
-W poniższym przykładzie przedstawiono definicję zawartości rejestracji lub logowania z odwołaniem do lokalizacji w języku angielskim, francuskim i hiszpańskim:
+W poniższym przykładzie przedstawiono definicję rejestracji lub zawartości logowania z odwołaniem do lokalizacji w języku angielskim, francuskim i hiszpańskim:
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -186,23 +186,23 @@ Aby dowiedzieć się, jak dodać obsługę lokalizacji do definicji zawartości,
 
 ## <a name="content-definition-ids"></a>Identyfikatory definicji zawartości
 
-Atrybut ID elementu **ContentDefinition** określa typ strony, która odnosi się do definicji zawartości. Element definiuje kontekst, który ma być stosowany niestandardowy szablon HTML5/CSS. W poniższej tabeli opisano zestaw identyfikatorów definicji zawartości, który jest rozpoznawany przez platformę środowiska tożsamości i typy stron, które się do nich odnoszą. Można utworzyć własne definicje zawartości z dowolnym identyfikatorem.
+Atrybut ID elementu **ContentDefinition** określa typ strony, która odnosi się do definicji zawartości. Element definiuje kontekst, który ma zostać zastosowany do niestandardowego szablonu HTML5/CSS. W poniższej tabeli opisano zbiór identyfikatorów definicji zawartości rozpoznawanych przez platformę obsługi tożsamości oraz typy stron, które odnoszą się do nich. Możesz tworzyć własne definicje zawartości przy użyciu dowolnego identyfikatora.
 
 | ID | Szablon domyślny | Opis |
 | -- | ---------------- | ----------- |
-| **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Strona błędu** — wyświetla stronę błędu po napotkaniu wyjątku lub błędu. |
-| **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Strona wyboru dostawcy tożsamości** — wyświetla listę dostawców tożsamości, z których użytkownicy mogą wybierać podczas logowania. Dostępne są zazwyczaj dostawcy tożsamości przedsiębiorstwa, dostawcy tożsamości społecznościowych, tacy jak Facebook i Google+, lub konta lokalne. |
-| **api.idpselections.signup** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Wybór dostawcy tożsamości do rejestracji** — wyświetla listę dostawców tożsamości, z których użytkownicy mogą wybierać podczas rejestracji. Dostępne są zazwyczaj dostawcy tożsamości przedsiębiorstwa, dostawcy tożsamości społecznościowych, tacy jak Facebook i Google+, lub konta lokalne. |
-| **api.localaccountpasswordreset** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Strona Nie pamiętasz hasła** — wyświetla formularz, który użytkownicy muszą wypełnić, aby zainicjować resetowanie hasła. |
-| **api.localaccountsignin** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Strona logowania do konta lokalnego** — wyświetla formularz do logowania się przy za pomocą konta lokalnego opartego na adresie e-mail lub nazwie użytkownika. Formularz może zawierać pole wprowadzania tekstu i pole wprowadzania hasła. |
-| **api.localaccountsignup** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Strona rejestracji konta lokalnego** — wyświetla formularz do skonfigurowania konta lokalnego na podstawie adresu e-mail lub nazwy użytkownika. Formularz może zawierać różne kontrolki wejściowe, takie jak: pole wprowadzania tekstu, pole wprowadzania hasła, przycisk opcji, pola rozwijane z pojedynczym zaznaczeniem i pola wyboru z wieloma zaznaczeniami. |
-| **api.phonefactor** | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Strona uwierzytelniania wieloskładnikowego** — weryfikuje numery telefonów za pomocą tekstu lub głosu podczas rejestracji lub logowania. |
-| **api.selfasserted** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Strona rejestracji konta społecznościowego** — wyświetla formularz, który użytkownicy muszą wypełnić podczas rejestracji przy użyciu istniejącego konta od dostawcy tożsamości społecznościowej. Ta strona jest podobna do poprzedniej strony rejestracji konta społecznościowego, z wyjątkiem pól wprowadzania hasła. |
-| **api.selfasserted.profileupdate** | [updateprofile.cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Strona aktualizacji profilu** — wyświetla formularz, do który użytkownicy mogą uzyskać dostęp do aktualizacji swojego profilu. Ta strona jest podobna do strony rejestracji konta społecznościowego, z wyjątkiem pól wprowadzania hasła. |
-| **api.signuporsignin** | [unified.cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Ujednolicona strona rejestracji lub logowania** — obsługuje proces rejestracji i logowania użytkownika. Użytkownicy mogą korzystać z dostawców tożsamości przedsiębiorstwa, dostawców tożsamości społecznościowych, takich jak Facebook, Google+, lub kont lokalnych. |
+| **Interfejs API. błąd** | [Exception. cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Strona błędu** — wyświetla stronę błędu w przypadku napotkania wyjątku lub błędu. |
+| **API. idpselections** | [idpSelector. cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Strona wyboru dostawcy tożsamości** — wyświetla listę dostawców tożsamości, spośród których użytkownicy mogą wybierać podczas logowania. Te opcje są zwykle dostawcami tożsamości przedsiębiorstwa, dostawcami tożsamości społecznościowych, takimi jak Facebook, Google + lub kontami lokalnymi. |
+| **API. idpselections. signup** | [idpSelector. cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Wybór dostawcy tożsamości dla tworzenia konta** — wyświetla listę dostawców tożsamości, z których użytkownicy mogą wybierać podczas rejestracji. Te opcje są zwykle dostawcami tożsamości przedsiębiorstwa, dostawcami tożsamości społecznościowych, takimi jak Facebook, Google + lub kontami lokalnymi. |
+| **API. localaccountpasswordreset** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Strona zapomnianego hasła** — wyświetla formularz, który użytkownicy muszą ukończyć, aby zainicjować Resetowanie hasła. |
+| **API. localaccountsignin** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Strona logowania do konta lokalnego** — wyświetla formularz służący do logowania się przy użyciu konta lokalnego, na podstawie adresu e-mail lub nazwy użytkownika. Formularz może zawierać pole wprowadzania tekstu i pole wprowadzania hasła. |
+| **API. localaccountsignup** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Strona tworzenia nowego konta lokalnego** — wyświetla formularz służący do tworzenia konta lokalnego na podstawie adresu e-mail lub nazwy użytkownika. Formularz może zawierać różne kontrolki danych wejściowych, na przykład: pole wprowadzania tekstu, pole wprowadzania hasła, przycisk radiowy, pola rozwijane z pojedynczym wybieraniem i pola wyboru z wieloma zaznaczeniami. |
+| **API. PhoneFactor** | [wieloskładnikowe — 1.0.0. cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Strona uwierzytelniania wieloskładnikowego** — weryfikuje numery telefonów przy użyciu tekstu lub głosu podczas rejestracji lub logowania. |
+| **API. selfasserted** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Strona tworzenia konta społecznościowego** — wyświetla formularz, który użytkownicy muszą ukończyć podczas rejestrowania się przy użyciu istniejącego konta u dostawcy tożsamości społecznościowej. Ta strona jest podobna do poprzedniej strony rejestracji konta społecznościowego, z wyjątkiem pól wprowadzania hasła. |
+| **API. selfasserted. profileupdate** | [updateprofile. cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Strona aktualizacji profilu** — wyświetla formularz, do którego użytkownicy mogą uzyskać dostęp w celu zaktualizowania swojego profilu. Ta strona jest podobna do strony rejestracji konta społecznościowego, z wyjątkiem pól wprowadzania hasła. |
+| **API. signuporsignin** | [Unified. cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Zunifikowana Rejestracja lub strona logowania** — obsługuje proces tworzenia konta i logowania użytkownika. Użytkownicy mogą korzystać z dostawców tożsamości przedsiębiorstwa, dostawców tożsamości społecznościowych, takich jak Facebook, Google + lub konta lokalnego. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Na przykład dostosowywania interfejsu użytkownika przy użyciu definicji zawartości zobacz:
+Aby zapoznać się z przykładem dostosowywania interfejsu użytkownika przy użyciu definicji zawartości, zobacz:
 
 [Dostosowywanie interfejsu użytkownika aplikacji przy użyciu zasad niestandardowych](custom-policy-ui-customization.md)

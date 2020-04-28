@@ -328,7 +328,7 @@ Nie. Dostępna jest usługa Azure Site Recovery Azure Azure to Azure protection 
 
 **Czy mogę migrować maszyny wirtualne z dyskami niezarządzanymi, które znajdują się na kontach magazynu, które są lub były wcześniej szyfrowane na dyskach zarządzanych?**
 
-Tak
+Yes
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Szyfrowanie dysków zarządzanych i usługi magazynowania
 
@@ -369,7 +369,7 @@ Tak. Wszystkie zarządzane migawki i obrazy utworzone po 9 czerwca 2017 r. są a
 
 **Czy można konwertować maszyny wirtualne z dyskami niezarządzanymi, które znajdują się na kontach magazynu, które są lub były wcześniej szyfrowane na dyski zarządzane?**
 
-Tak
+Yes
 
 **Czy wyeksportowany dysk VHD z dysku zarządzanego lub migawka również będzie szyfrowany?**
 

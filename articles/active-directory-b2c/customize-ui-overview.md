@@ -1,7 +1,7 @@
 ---
 title: Dostosowywanie interfejsu użytkownika
 titleSuffix: Azure AD B2C
-description: Dowiedz się, jak dostosować interfejs użytkownika dla aplikacji korzystających z usługi Azure Active Directory B2C.
+description: Dowiedz się, jak dostosować interfejs użytkownika dla aplikacji korzystających z Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,95 +12,95 @@ ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37ddf57057b736cd76a74276e5593a865e7df8cc
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80666865"
 ---
-# <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Dostosowywanie interfejsu użytkownika w usłudze Azure Active Directory B2C
+# <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Dostosowywanie interfejsu użytkownika w Azure Active Directory B2C
 
-Znakowanie i dostosowywanie interfejsu użytkownika, który usługa Azure Active Directory B2C (Azure AD B2C) wyświetla klientom, pomaga zapewnić bezproblemowe środowisko użytkownika w aplikacji. Te środowiska obejmują rejestrację, logowanie się, edycję profilu i resetowanie hasła. W tym artykule przedstawiono metody dostosowywania interfejsu użytkownika dla przepływów użytkownika i zasad niestandardowych.
+Oznakowanie i dostosowanie interfejsu użytkownika, który jest wyświetlany Azure Active Directory B2C (Azure AD B2C) dla klientów, zapewnia bezproblemowe środowisko użytkownika w aplikacji. Do tych środowisk należą: rejestrowanie, logowanie, edytowanie profilów i resetowanie hasła. W tym artykule przedstawiono metody dostosowywania interfejsu użytkownika dla przepływów użytkowników i zasad niestandardowych.
 
-## <a name="ui-customization-in-different-scenarios"></a>Dostosowywanie interfejsu użytkownika w różnych scenariuszach
+## <a name="ui-customization-in-different-scenarios"></a>Dostosowanie interfejsu użytkownika w różnych scenariuszach
 
-Istnieje kilka sposobów, aby dostosować interfejs użytkownika środowiska aplikacji, każdy odpowiedni dla różnych scenariuszy.
+Istnieje kilka sposobów na dostosowanie interfejsu użytkownika aplikacji, z których każdy jest odpowiedni dla różnych scenariuszy.
 
 ### <a name="user-flows"></a>Przepływy użytkowników
 
-W przypadku korzystania z [przepływów użytkownika](user-flow-overview.md)można zmienić wygląd stron przepływu użytkownika za pomocą *wbudowanych szablonów układu stron*lub przy użyciu własnych formatów HTML i CSS. Obie metody są omówione w dalszej części tego artykułu.
+Jeśli używasz [przepływów użytkownika](user-flow-overview.md), możesz zmienić wygląd stron przepływu użytkownika przy użyciu wbudowanych *szablonów układów stron*lub przy użyciu własnego kodu HTML i CSS. Obie metody zostały omówione w dalszej części tego artykułu.
 
-Za pomocą [witryny Azure Portal](tutorial-customize-ui.md) można skonfigurować dostosowanie interfejsu użytkownika dla przepływów użytkowników.
+Użyj [Azure Portal](tutorial-customize-ui.md) , aby skonfigurować Dostosowywanie interfejsu użytkownika dla przepływów użytkowników.
 
 > [!TIP]
-> Jeśli chcesz zmodyfikować tylko logo baneru, obraz tła i kolor tła stron przepływu użytkownika, możesz wypróbować funkcję [znakowania firmy (podgląd)](#company-branding-preview) opisaną w dalszej części tego artykułu.
+> Jeśli chcesz zmodyfikować tylko logo transparentu, obraz tła i kolor tła stron przepływu użytkownika, możesz wypróbować funkcję [znakowania firmowego (wersja zapoznawcza)](#company-branding-preview) opisaną w dalszej części tego artykułu.
 
 ### <a name="custom-policies"></a>Zasady niestandardowe
 
-Jeśli używasz [zasad niestandardowych](custom-policy-overview.md) do rejestrowania się lub logowania, resetowania hasła lub edycji profilu w aplikacji, użyj [plików zasad, aby dostosować interfejs użytkownika](custom-policy-ui-customization.md).
+Jeśli używasz [zasad niestandardowych](custom-policy-overview.md) w celu zapewnienia rejestracji lub logowania, resetowania haseł lub edytowania profilu w aplikacji, użyj [plików zasad, aby dostosować interfejs użytkownika](custom-policy-ui-customization.md).
 
-Jeśli musisz udostępnić zawartość dynamiczną na podstawie decyzji klienta, użyj zasad niestandardowych, które mogą [dynamicznie zmieniać zawartość strony](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri) w zależności od parametru wysyłanego w ciągu zapytania. Na przykład można zmienić obraz tła na stronie rejestracji usługi Azure AD B2C lub logowania na podstawie parametru, który przechodzisz z aplikacji sieci web lub aplikacji mobilnej.
+Jeśli musisz dostarczyć zawartość dynamiczną na podstawie decyzji klienta, użyj zasad niestandardowych, które mogą [dynamicznie zmieniać zawartość strony](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri) w zależności od parametru, który jest wysyłany w ciągu zapytania. Na przykład można zmienić obraz tła na stronie rejestracji lub logowania na Azure AD B2C na podstawie parametru przekazanego z aplikacji sieci Web lub mobilnej.
 
 ### <a name="javascript"></a>JavaScript
 
-Kod JavaScript po stronie klienta można włączyć zarówno w [przepływach użytkownika,](user-flow-javascript-overview.md) jak i [w zasadach niestandardowych.](page-layout.md)
+Kod JavaScript po stronie klienta można włączyć zarówno w przypadku [przepływów użytkownika](user-flow-javascript-overview.md) , jak i [zasad niestandardowych](page-layout.md).
 
-### <a name="sign-in-only-ui-customization"></a>Dostosowywanie tylko do logowania się do interfejsu użytkownika
+### <a name="sign-in-only-ui-customization"></a>Dostosowanie interfejsu użytkownika tylko do logowania
 
-Jeśli udostępniasz tylko logowanie, wraz z towarzyszącą mu stroną resetowania hasła i weryfikacyjnymi wiadomościami e-mail, użyj tych samych kroków dostosowywania, które są używane dla [strony logowania usługi Azure AD.](../active-directory/fundamentals/customize-branding.md)
+Jeśli udostępniasz tylko logowanie, wraz z towarzyszącą stroną resetowania hasła i weryfikacyjnymi wiadomościami e-mail, Użyj tych samych kroków dostosowania, które są używane dla [strony logowania usługi Azure AD](../active-directory/fundamentals/customize-branding.md).
 
-Jeśli klienci próbują edytować swój profil przed zalogowaniem się, są przekierowywani do strony, którą dostosowujesz, wykonując te same kroki, które są używane do dostosowywania strony logowania usługi Azure AD.
+Jeśli klienci próbują edytować swój profil przed zalogowaniem się, nastąpi przekierowanie do strony, która została dostosowana, przy użyciu tych samych kroków, które są używane do dostosowywania strony logowania usługi Azure AD.
 
-## <a name="page-layout-templates"></a>Szablony układu strony
+## <a name="page-layout-templates"></a>Szablony układów stron
 
-Przepływy użytkowników zapewniają kilka wbudowanych szablonów, z których można wybierać, aby nadać stronom doświadczenia użytkownika profesjonalny wygląd. Te szablony układu mogą również służyć i służyć jako punkt wyjścia dla własnego dostosowania.
+Przepływy użytkownika udostępniają kilka wbudowanych szablonów, z których można skorzystać, aby umożliwić użytkownikom korzystanie ze stron o profesjonalnym wyglądzie. Te szablony układów mogą również działać jako punkt wyjścia dla własnych dostosowań.
 
-W obszarze **Dostosuj** w menu po lewej stronie wybierz pozycję **Układy stron,** a następnie wybierz pozycję **Szablon**.
+W obszarze **Dostosuj** w menu po lewej stronie wybierz pozycję **układy stron** , a następnie wybierz pozycję **szablon**.
 
-![Z listy rozwijanej wyboru szablonu na stronie przepływu użytkownika witryny Azure portal](media/customize-ui-overview/template-selection.png)
+![Lista rozwijana wybierania szablonu na stronie przepływu użytkownika Azure Portal](media/customize-ui-overview/template-selection.png)
 
-Następnie wybierz szablon z listy. Oto przykłady stron logowania dla każdego szablonu:
+Następnie wybierz szablon z listy. Poniżej przedstawiono przykłady stron logowania dla każdego szablonu:
 
-| Błękitny Ocean | Szary łupek | Wdrożenie klasyczne |
+| Ocean niebieski | Szare | Wdrożenie klasyczne |
 |:-:|:-:|:-:|
-|![Przykład szablonu Ocean Blue renderowanego na stronie logowania do rejestracji](media/customize-ui-overview/template-ocean-blue.png)|![Przykład szablonu Szary łupek renderowany na stronie logowania do rejestracji](media/customize-ui-overview/template-slate-gray.png)|![Przykład szablonu klasycznego renderowanego na stronie logowania do rejestracji](media/customize-ui-overview/template-classic.png)|
+|![Przykład niebieskiego szablonu oceanu renderowany podczas rejestracji na stronie logowania](media/customize-ui-overview/template-ocean-blue.png)|![Przykład szarego szablonu renderowanego na stronie logowania](media/customize-ui-overview/template-slate-gray.png)|![Przykładowy szablon klasyczny renderowany podczas rejestracji na stronie logowania](media/customize-ui-overview/template-classic.png)|
 
-Po wybraniu szablonu wybrany układ jest stosowany do wszystkich stron w przepływie użytkownika, a identyfikator URI dla każdej strony jest widoczny w polu **URI strony niestandardowej.**
+Po wybraniu szablonu wybrany układ zostanie zastosowany do wszystkich stron w przepływie użytkownika, a identyfikator URI dla każdej strony jest widoczny w polu **niestandardowy identyfikator URI strony** .
 
-## <a name="custom-html-and-css"></a>Niestandardowy kod HTML i CSS
+## <a name="custom-html-and-css"></a>Niestandardowe HTML i CSS
 
-Jeśli chcesz zaprojektować własny układ zasad za pomocą dostosowanego kodu HTML i CSS, możesz to zrobić, przełączając przełącznik "Użyj niestandardowej zawartości strony" dla każdej nazwy układu obecnej w zasadach. Postępuj zgodnie z poniższymi instrukcjami dotyczącymi konfiguracji układu niestandardowego:
+Jeśli chcesz zaprojektować własny układ zasad przy użyciu dostosowanego kodu HTML i CSS, możesz to zrobić, przełączając przełącznik "Użyj niestandardowej zawartości strony" dla każdej nazwy układu w ramach zasad. Postępuj zgodnie z poniższymi instrukcjami dotyczącymi konfiguracji układu niestandardowego:
 
-Usługa Azure AD B2C uruchamia kod w przeglądarce klienta przy użyciu podejścia o nazwie [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/).
+Azure AD B2C uruchamia kod w przeglądarce klienta przy użyciu metody zwanej [współużytkowaniem zasobów między źródłami (CORS)](https://www.w3.org/TR/cors/).
 
-W czasie wykonywania zawartość jest ładowana z adresu URL określonego w przepływie użytkownika lub zasadach niestandardowych. Każda strona w środowiska użytkownika ładuje swoją zawartość z adresu URL, który określisz dla tej strony. Po załadowaniu zawartości z adresu URL jest scalana z fragmentem HTML wstawionym przez usługę Azure AD B2C, a następnie strona jest wyświetlana klientowi.
+W czasie wykonywania zawartość jest ładowana z adresu URL określonego w przepływie użytkownika lub w zasadach niestandardowych. Każda Strona w środowisku użytkownika ładuje swoją zawartość z adresu URL określonego dla tej strony. Po załadowaniu zawartości z adresu URL zostanie on scalony z fragmentem kodu HTML wstawionym przez Azure AD B2C, a następnie zostanie wyświetlona strona klienta.
 
-Przed użyciem własnych plików HTML i CSS do dostosowania interfejsu użytkownika należy zapoznać się z następującymi wskazówkami:
+Zapoznaj się z poniższymi wskazówkami przed użyciem własnych plików HTML i CSS, aby dostosować interfejs użytkownika:
 
-- Usługa Azure AD B2C **scala** zawartość HTML ze stronami. Nie kopiuj i nie próbuj zmieniać domyślnej zawartości dostarczanej przez usługę Azure AD B2C. Najlepiej jest tworzyć zawartość HTML od podstaw i używać domyślnej zawartości jako odniesienia.
-- **JavaScript** może być zawarty w zawartości niestandardowej zarówno dla [przepływów użytkownika,](user-flow-javascript-overview.md) jak i [zasad niestandardowych.](javascript-samples.md)
-- Obsługiwane **wersje przeglądarki** to:
+- Azure AD B2C **Scala** zawartość HTML na stronach. Nie Kopiuj ani nie próbuj zmienić domyślnej zawartości dostarczanej przez Azure AD B2C. Najlepszym rozwiązaniem jest skompilowanie zawartości HTML od podstaw i użycie domyślnej zawartości jako odwołania.
+- **Kod JavaScript** można uwzględnić w zawartości niestandardowej zarówno dla [przepływów użytkownika](user-flow-javascript-overview.md) , jak i [zasad niestandardowych](javascript-samples.md).
+- Obsługiwane **wersje przeglądarek** :
   - Internet Explorer 11, 10 i Microsoft Edge
   - Ograniczona obsługa programu Internet Explorer 9 i 8
-  - Google Chrome 42.0 lub nowsze
-  - Mozilla Firefox 38.0 i powyżej
-  - Safari dla iOS i macOS w wersji 12 i wyższej
-- Nie dołączaj **tagów formularzy** do kodu HTML. Znaczniki formularzy zakłócają operacje POST generowane przez kod HTML wstrzyknięty przez usługę Azure AD B2C.
+  - Google Chrome 42,0 i nowsze
+  - Mozilla Firefox 38,0 i nowsze
+  - Safari dla systemów iOS i macOS, wersja 12 i nowsze
+- Nie dołączaj **tagów formularza** w kodzie HTML. Tagi formularzy zakłócają operacje POST generowane przez kod HTML wprowadzony przez Azure AD B2C.
 
-### <a name="where-do-i-store-ui-content"></a>Gdzie przechowywać zawartość interfejsu użytkownika?
+### <a name="where-do-i-store-ui-content"></a>Gdzie mogę przechowywać zawartość interfejsu użytkownika?
 
-Korzystając z własnych plików HTML i CSS, aby dostosować interfejs użytkownika, można hostować zawartość interfejsu użytkownika w dowolnym publicznie dostępnym punkcie końcowym HTTPS obsługującym cors. Na przykład [magazyn obiektów Blob platformy Azure](../storage/blobs/storage-blobs-introduction.md), serwery sieci web, sieci CDN, AWS S3 lub systemy udostępniania plików.
+Korzystając z własnych plików HTML i CSS, aby dostosować interfejs użytkownika, można hostować zawartość interfejsu użytkownika w dowolnym publicznie dostępnym punkcie końcowym HTTPS, który obsługuje mechanizm CORS. Na przykład [usługa Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), serwery sieci Web, sieci CDN, AWS S3 lub systemy udostępniania plików.
 
-Ważne jest to, że zawartość jest hostowana w publicznie dostępnym punkcie końcowym HTTPS z [włączoną funkcją CORS](https://enable-cors.org/server.html). Podczas określania go w treści należy użyć bezwzględnego adresu URL.
+Ważnym punktem jest hostowanie zawartości w publicznie dostępnym punkcie końcowym HTTPS z [włączonym](https://enable-cors.org/server.html)mechanizmem CORS. Musisz użyć bezwzględnego adresu URL, gdy określisz go w zawartości.
 
 > [!NOTE]
-> Aby uzyskać szczegółowe informacje na temat tworzenia zawartości HTML, przekazywania zawartości do magazynu obiektów Blob platformy Azure i konfigurowania usługi CORS, zobacz [sekcję instruktażową zawartości strony niestandardowej](custom-policy-ui-customization.md#custom-page-content-walkthrough) w artykule dostosowywania interfejsu użytkownika.
+> Aby uzyskać szczegółowe informacje na temat tworzenia zawartości HTML, przekazywania zawartości do usługi Azure Blob Storage i konfigurowania mechanizmu CORS, zobacz sekcję niestandardowe wskazówki dotyczące [zawartości strony](custom-policy-ui-customization.md#custom-page-content-walkthrough) w artykule dotyczącym dostosowywania interfejsu użytkownika.
 
 ## <a name="get-started-with-custom-html-and-css"></a>Wprowadzenie do niestandardowego kodu HTML i CSS
 
-Zacznij używać własnych html i CSS na stronach środowiska użytkownika, postępować zgodnie z tymi wskazówkami.
+Zacznij korzystać z własnego kodu HTML i CSS na stronach środowiska użytkownika, postępując zgodnie z tymi wskazówkami.
 
-- Tworzenie dobrze ukształtowanej zawartości HTML z pustym `<div id="api"></div>` elementem znajdującym się gdzieś w pliku `<body>`. Ten element oznacza, gdzie jest wstawiana zawartość usługi Azure AD B2C. W poniższym przykładzie przedstawiono minimalną stronę:
+- Utwórz poprawnie sformułowaną zawartość HTML z pustym `<div id="api"></div>` elementem znajdującym się w `<body>`miejscu. Ten element oznacza miejsce wstawienia zawartości Azure AD B2C. W poniższym przykładzie przedstawiono minimalną stronę:
 
     ```html
     <!DOCTYPE html>
@@ -116,7 +116,7 @@ Zacznij używać własnych html i CSS na stronach środowiska użytkownika, post
     </html>
     ```
 
-- Użyj CSS do stylu elementów interfejsu użytkownika, które usługa Azure AD B2C wstawia do strony. W poniższym przykładzie pokazano prosty plik CSS, który zawiera również ustawienia elementów HTML wstrzykniętych w trybie rejestracji:
+- Użyj CSS do stylu elementów interfejsu użytkownika, które Azure AD B2C wstawia do strony. Poniższy przykład pokazuje prosty plik CSS, który zawiera również ustawienia dla elementów z wprowadzonym kodem HTML:
 
     ```css
     h1 {
@@ -141,81 +141,81 @@ Zacznij używać własnych html i CSS na stronach środowiska użytkownika, post
     }
     ```
 
-- Hostuj zawartość w punkcie końcowym HTTPS (z dozwolonym mechanizmem CORS). Metody żądania GET i OPTIONS muszą być włączone podczas konfigurowania mechanizmu CORS.
-- Utwórz lub edytuj przepływ użytkownika lub zasady niestandardowe, aby użyć utworzonej zawartości.
+- Hostowanie zawartości w punkcie końcowym HTTPS (z dozwolonym mechanizmem CORS). Podczas konfigurowania mechanizmu CORS należy włączyć obie metody żądania GET i OPTIONS.
+- Utwórz lub Edytuj przepływ użytkownika lub zasady niestandardowe, aby użyć utworzonej zawartości.
 
-### <a name="html-fragments-from-azure-ad-b2c"></a>Fragmenty HTML z usługi Azure AD B2C
+### <a name="html-fragments-from-azure-ad-b2c"></a>Fragmenty kodu HTML z Azure AD B2C
 
-W poniższej tabeli wymieniono fragmenty HTML, które `<div id="api"></div>` usługa Azure AD B2C scala z elementem znajdującym się w zawartości.
+W poniższej tabeli wymieniono fragmenty kodu HTML, które Azure AD B2C scalane `<div id="api"></div>` do elementu znajdującego się w zawartości.
 
-| Wstawiona strona | Opis kodu HTML |
+| Wstawiona Strona | Opis HTML |
 | ------------- | ------------------- |
-| Wybór dostawcy tożsamości | Zawiera listę przycisków dla dostawców tożsamości, które klient może wybrać podczas rejestracji lub logowania. Przyciski te obejmują dostawców tożsamości społecznościowych, takich jak Facebook, Google lub konta lokalne (na podstawie adresu e-mail lub nazwy użytkownika). |
-| Rejestracja konta lokalnego | Zawiera formularz do tworzenia konta lokalnego na podstawie adresu e-mail lub nazwy użytkownika. Formularz może zawierać różne kontrolki wprowadzania, takie jak pole wprowadzania tekstu, pole wprowadzania hasła, przycisk opcji, pola rozwijane z pojedynczym zaznaczeniem i pola wyboru z wieloma zaznaczeniami. |
-| Rejestracja konta społecznościowego | Może pojawić się podczas rejestracji przy użyciu istniejącego konta od dostawcy tożsamości społecznościowych, takiego jak Facebook lub Google. Jest on używany, gdy dodatkowe informacje muszą być zbierane od klienta za pomocą formularza rejestracji. |
-| Ujednolicona rejestracja lub logowanie | Obsługuje zarówno rejestrację, jak i logowanie klientów, którzy mogą korzystać z dostawców tożsamości społecznościowych, takich jak Facebook, Google lub konta lokalne. |
-| Uwierzytelnianie wieloskładnikowe | Podczas rejestracji lub logowania klienci mogą weryfikować swoje numery telefonów (za pomocą tekstu lub głosu). |
-| Błąd | Zawiera informacje o błędzie dla klienta. |
+| Wybór dostawcy tożsamości | Zawiera listę przycisków dostawców tożsamości, z których może skorzystać klient podczas rejestracji lub logowania. Te przyciski obejmują dostawców tożsamości społecznościowych, takich jak Facebook, Google lub konta lokalne (na podstawie adresu e-mail lub nazwy użytkownika). |
+| Rejestracja konta lokalnego | Zawiera formularz rejestracji konta lokalnego na podstawie adresu e-mail lub nazwy użytkownika. Formularz może zawierać różne kontrolki wejściowe, takie jak pole wprowadzania tekstu, pole wprowadzania hasła, przycisk radiowy, pola rozwijane z pojedynczym wybieraniem i pola wyboru z zaznaczeniem wielu. |
+| Konto społecznościowe — Rejestracja | Może pojawić się podczas rejestracji przy użyciu istniejącego konta od dostawcy tożsamości społecznościowej, takiego jak Facebook lub Google. Jest on używany, gdy dodatkowe informacje muszą być zbierane z klienta przy użyciu formularza tworzenia konta. |
+| Ujednolicone rejestrowanie lub logowanie | Obsługuje zarówno rejestrowanie, jak i logowanie klientów, którzy mogą korzystać z dostawców tożsamości społecznościowych, takich jak Facebook, Google lub konta lokalnego. |
+| Uwierzytelnianie wieloskładnikowe | Klienci mogą weryfikować numery telefonów (przy użyciu tekstu lub głosu) podczas rejestracji lub logowania. |
+| Error | Zawiera informacje o błędach dla klienta. |
 
-## <a name="company-branding-preview"></a>Branding firmowy (wersja zapoznawcza)
+## <a name="company-branding-preview"></a>Znakowanie firmowe (wersja zapoznawcza)
 
-Strony przepływu użytkownika można dostosować za pomocą logo banera, obrazu tła i koloru tła za pomocą [znakowania firmy](../active-directory/fundamentals/customize-branding.md)Usługi Azure Active Directory Company .
+Możesz dostosować strony przepływu użytkownika za pomocą logo transparentu, obrazu tła i koloru tła, używając Azure Active Directory [znakowania firmowego](../active-directory/fundamentals/customize-branding.md).
 
-Aby dostosować strony przepływu użytkownika, należy najpierw skonfigurować znakowanie firmy w usłudze Azure Active Directory, a następnie włączyć go w układach stron przepływów użytkownika w usłudze Azure AD B2C.
+Aby dostosować strony przepływu użytkownika, należy najpierw skonfigurować znakowanie firmowe w Azure Active Directory, a następnie włączyć je w układach stron przepływów użytkownika w Azure AD B2C.
 
 [!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
 
 ### <a name="configure-company-branding"></a>Konfigurowanie oznaczenia marką firmy
 
-Zacznij od ustawienia logo banera, obrazu tła i koloru tła w **obszarze znakowanie firmy**.
+Zacznij od ustawienia logo transparentu, obrazu tła i koloru tła w obszarze **znakowania firmowego**.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-1. Wybierz filtr **subskrypcja katalog +** w górnym menu, a następnie wybierz katalog zawierający dzierżawę usługi Azure AD B2C.
-1. W witrynie Azure portal wyszukaj i wybierz **pozycję Azure AD B2C**.
-1. W obszarze **Zarządzaj**wybierz pozycję **Znakowanie firmy**.
-1. Wykonaj kroki opisane w obszarze [Dodawanie znakowania do strony logowania usługi Azure Active Directory w organizacji](../active-directory/fundamentals/customize-branding.md).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
+1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
+1. W obszarze **Zarządzaj**wybierz opcję **znakowanie firmowe**.
+1. Wykonaj kroki opisane w sekcji [Dodawanie znakowania do Azure Active Directory stronie logowania w organizacji](../active-directory/fundamentals/customize-branding.md).
 
-Należy pamiętać o tych rzeczach podczas konfigurowania znakowania firmy w usłudze Azure AD B2C:
+Podczas konfigurowania znakowania firmowego w Azure AD B2C należy pamiętać o następujących kwestiach:
 
-* Znakowanie firmy w usłudze Azure AD B2C jest obecnie ograniczone do **obrazu tła,** **logo banera**i dostosowywania **kolorów tła.** Inne właściwości w okienku znakowania firmy, na przykład te w **ustawieniach zaawansowanych,** nie są *obsługiwane*.
-* Na stronach przepływu użytkownika kolor tła jest wyświetlany przed załadowaniem obrazu tła. Zalecamy wybranie koloru tła, który będzie ściśle pasować do kolorów obrazu tła, aby uzyskać płynniejsze ładowanie.
-* Logo baneru pojawia się w wiadomościach e-mail weryfikacyjnych wysyłanych do użytkowników po zainicjowaniu przepływu użytkownika rejestracji.
+* Znakowanie firmowe w Azure AD B2C jest obecnie ograniczone do **obrazu tła**, **logo transparentu**i dostosowania **koloru tła** . Inne właściwości w okienku znakowania firmowego, na przykład **Ustawienia zaawansowane**, *nie są obsługiwane*.
+* Na stronach przepływu użytkownika kolor tła jest wyświetlany przed załadowaniem obrazu tła. Zalecamy wybranie koloru tła, który ściśle dopasowuje kolory w obrazie tła w celu wygładzenia środowiska ładowania.
+* Logo transparentu pojawia się w wiadomościach e-mail weryfikacyjnych wysyłanych do użytkowników po zainicjowaniu przepływu użytkownika podczas rejestracji.
 
-### <a name="enable-branding-in-user-flow-pages"></a>Włączanie znakowania na stronach przepływu użytkownika
+### <a name="enable-branding-in-user-flow-pages"></a>Włącz znakowanie na stronach przepływu użytkownika
 
-Po skonfigurowaniu marki firmowych włącz ją w przepływach użytkowników.
+Po skonfigurowaniu znakowania firmowego włącz je w przepływach użytkownika.
 
-1. W menu po lewej stronie witryny Azure portal wybierz pozycję **Azure AD B2C**.
-1. W obszarze **Zasady**wybierz **pozycję Przepływy użytkownika (zasady)**.
-1. Wybierz przepływ użytkownika, dla którego chcesz włączyć znakowanie firmy. Znakowanie firmy nie jest **obsługiwane** dla typów przepływu użytkowników logowania w *wersji 1* i profilu *edycji w wersji 1.*
-1. W obszarze **Dostosuj**wybierz pozycję **Układy stron**, a następnie wybierz układ, który chcesz oznaczyć. Na przykład wybierz pozycję **Unified zarejestruj się lub zaloguj się na stronie**.
-1. W przypadku **wersji układu strony (wersja zapoznawcza)** wybierz wersję **1.2.0** lub więcej.
-1. Wybierz **pozycję Zapisz**.
+1. W menu po lewej stronie Azure Portal wybierz pozycję **Azure AD B2C**.
+1. W obszarze **zasady**wybierz pozycję **przepływy użytkownika (zasady)**.
+1. Wybierz przepływ użytkownika, dla którego chcesz włączyć znakowanie firmowe. Znakowanie firmowe **nie jest obsługiwane** w przypadku *logowania w wersji 1* i profilu Edytowanie typów przepływów użytkownika w *wersji 1* .
+1. W obszarze **Dostosowywanie**wybierz pozycję **układy stron**, a następnie wybierz układ, który chcesz oznaczyć marką. Na przykład wybierz pozycję **ujednolicone rejestrowanie lub strona logowania**.
+1. W polu **wersja układu strony (wersja zapoznawcza)** wybierz pozycję wersja **1.2.0** lub nowsza.
+1. Wybierz pozycję **Zapisz**.
 
 Jeśli chcesz oznaczyć wszystkie strony w przepływie użytkownika, ustaw wersję układu strony dla każdego układu strony w przepływie użytkownika.
 
-![Wybór układu strony w usłudze Azure AD B2C w witrynie Azure portal](media/customize-ui-overview/portal-02-page-layout-select.png)
+![Wybór układu strony w Azure AD B2C Azure Portal](media/customize-ui-overview/portal-02-page-layout-select.png)
 
-W tym przykładzie z adnotacjami pokazano niestandardowe logo baneru i obraz tła na stronie *Zarejestruj się i zaloguj* się na stronie przepływu użytkownika, która używa szablonu Ocean Blue:
+Ten przykład adnotacji przedstawia niestandardowe logo transparentu i obraz tła na stronie *rejestracja i logowanie w* przepływie użytkownika, który korzysta z niebieskiego szablonu oceanu:
 
-![Strona rejestracji/logowania pod znakiem markasów obsługiwana przez usługę Azure AD B2C](media/customize-ui-overview/template-ocean-blue-branded.png)
+![Markowe strony rejestracji/logowania obsługiwane przez Azure AD B2C](media/customize-ui-overview/template-ocean-blue-branded.png)
 
-### <a name="use-company-branding-assets-in-custom-html"></a>Używanie zasobów marki firmowych w niestandardowym formacie HTML
+### <a name="use-company-branding-assets-in-custom-html"></a>Używanie zasobów znakowania firmowego w niestandardowym kodzie HTML
 
-Aby użyć zasobów marki firmowej w niestandardowym kodzie `<div id="api">` HTML, dodaj następujące tagi poza tagiem:
+Aby korzystać z firmowych zasobów znakowania w niestandardowym kodzie HTML, Dodaj następujące `<div id="api">` znaczniki poza tagiem:
 
 ```HTML
 <img data-tenant-branding-background="true" />
 <img data-tenant-branding-logo="true" alt="Company Logo" />
 ```
 
-Źródło obrazu zostanie zastąpione obrazem tła i logo banera. Jak opisano w sekcji [Wprowadzenie do niestandardowego kodu HTML i CSS,](#get-started-with-custom-html-and-css) użyj klas CSS, aby stylizować i pozycjonować zasoby na stronie .
+Źródło obrazu jest zastępowane obrazem tła i logo transparentu. Zgodnie z opisem w sekcji wprowadzenie [do NIESTANDARDOWEGO HTML i CSS](#get-started-with-custom-html-and-css) , użyj klas CSS do stylu i położenia zasobów na stronie.
 
 ## <a name="localize-content"></a>Lokalizowanie zawartości
 
-Lokalizuj zawartość HTML, włączając [dostosowywanie języka](user-flow-language-customization.md) w dzierżawie usługi Azure AD B2C. Włączenie tej funkcji umożliwia usłudze Azure AD B2C przekazywanie parametru `ui-locales` OpenID Connect do punktu końcowego. Serwer zawartości może używać tego parametru do dostarczania stron HTML specyficznych dla języka.
+Zawartość HTML można zlokalizować, włączając [Dostosowywanie języka](user-flow-language-customization.md) w dzierżawie Azure AD B2C. Włączenie tej funkcji umożliwia Azure AD B2C przekazanie parametru `ui-locales` OpenID Connect Connect do punktu końcowego. Twój serwer zawartości może użyć tego parametru, aby udostępnić strony HTML specyficzne dla języka.
 
-Zawartość można pobierać z różnych miejsc na podstawie ustawień regionalnych, które są używane. W punkcie końcowym obsługującym mechanizm CORS skonfigurowano strukturę folderów do hosta zawartości dla określonych języków. Jeśli użyjesz wartości `{Culture:RFC5646}`symboli wieloznacznych, zadzwonisz do właściwego.
+Zawartość można ściągnąć z różnych miejsc w oparciu o używane ustawienia regionalne. W punkcie końcowym z obsługą mechanizmu CORS można skonfigurować strukturę folderów, aby hostować zawartość dla określonych języków. Jeśli używasz wartości `{Culture:RFC5646}`wieloznacznej, nastąpi wywołanie odpowiedniej metody.
 
 Na przykład identyfikator URI strony niestandardowej może wyglądać następująco:
 
@@ -231,15 +231,15 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 
 ## <a name="examples"></a>Przykłady
 
-Kilka przykładowych plików szablonów można znaleźć w repozytorium [B2C-AzureBlobStorage-Client](https://github.com/azureadquickstarts/b2c-azureblobstorage-client) w usłudze GitHub.
+Kilka przykładowych plików szablonów można znaleźć w repozytorium [B2C-AzureBlobStorage-Client](https://github.com/azureadquickstarts/b2c-azureblobstorage-client) w witrynie GitHub.
 
-Przykładowe pliki HTML i CSS w szablonach znajdują się w katalogu [/sample_templates.](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates)
+Przykładowe pliki HTML i CSS w szablonach znajdują się w katalogu [/sample_templates](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Jeśli używasz **przepływów użytkownika,** możesz rozpocząć dostosowywanie interfejsu użytkownika za pomocą samouczka:
+- Jeśli używasz **przepływów użytkowników**, możesz rozpocząć Dostosowywanie interfejsu użytkownika przy użyciu samouczka:
 
-    [Dostosuj interfejs użytkownika aplikacji w usłudze Azure Active Directory B2C](tutorial-customize-ui.md).
-- Jeśli używasz **zasad niestandardowych,** możesz rozpocząć dostosowywanie interfejsu użytkownika za pomocą tego artykułu:
+    [Dostosuj interfejs użytkownika aplikacji w Azure Active Directory B2C](tutorial-customize-ui.md).
+- Jeśli używasz **zasad niestandardowych**, możesz rozpocząć Dostosowywanie interfejsu użytkownika przy użyciu artykułu:
 
-    [Dostosuj interfejs użytkownika aplikacji przy użyciu zasad niestandardowych w usłudze Azure Active Directory B2C](custom-policy-ui-customization.md).
+    [Dostosuj interfejs użytkownika aplikacji przy użyciu zasad niestandardowych w Azure Active Directory B2C](custom-policy-ui-customization.md).

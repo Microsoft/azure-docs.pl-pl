@@ -1,52 +1,52 @@
 ---
 title: Zarządzanie zasobami delegowanymi na platformie Azure
-description: Oferty usług zarządzanych umożliwiają dostawcom usług sprzedawanie ofert zarządzania zasobami klientom w portalu Azure Marketplace.
+description: Dzięki usługom zarządzanym dostawcy usług mogą sprzedawać oferty zarządzania zasobami klientom w portalu Azure Marketplace.
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: db9f562ca4f42d1c1d85eeac44495a8ec7e01beb
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548420"
 ---
 # <a name="azure-delegated-resource-management"></a>Zarządzanie zasobami delegowanymi na platformie Azure
 
-Zarządzanie zasobami delegowanymi platformy Azure jest jednym z kluczowych składników latarni morskiej platformy Azure. Dzięki zarządzania zasobami delegowanymi platformy Azure dostawcy usług mogą uprościć zaangażowanie klientów i środowisko dołączania, jednocześnie zarządzając delegowanymi zasobami na dużą skalę z elastycznością i precyzją.
+Zarządzanie zasobami delegowanymi przez platformę Azure to jeden z najważniejszych składników usługi Azure Lighthouse. Dzięki funkcji zarządzania zasobami delegowanymi na platformie Azure dostawcy usług mogą uprościć zaangażowanie klientów i dołączanie, a jednocześnie zarządzać zasobami delegowanymi na dużą skalę z elastycznością i dokładnością.
 
-## <a name="what-is-azure-delegated-resource-management"></a>Co to jest zarządzanie zasobami delegowanymi platformy Azure?
+## <a name="what-is-azure-delegated-resource-management"></a>Co to jest zarządzanie zasobami delegowanymi przez platformę Azure?
 
-Zarządzanie zasobami delegowanymi platformy Azure umożliwia logiczne projekcji zasobów z jednej dzierżawy do innej dzierżawy. Dzięki temu autoryzowani użytkownicy w jednej dzierżawie usługi Azure Active Directory (Azure AD) mogą wykonywać operacje zarządzania w różnych dzierżawach usługi Azure AD należących do ich klientów. Dostawcy usług mogą logować się do własnej dzierżawy usługi Azure AD i mieć uprawnienia do pracy w delegowanych subskrypcji klientów i grup zasobów. Dzięki temu mogą wykonywać operacje zarządzania w imieniu swoich klientów, bez konieczności logowania się do poszczególnych dzierżawców klienta.
-
-> [!NOTE]
-> Zarządzanie zasobami delegowanymi platformy Azure może być również używane [w przedsiębiorstwie, które ma wielu dzierżaw usługi Azure AD,](enterprise.md) aby uprościć zarządzanie między dzierżawcami.
-
-Dzięki zarządzania zasobami delegowanymi platformy Azure autoryzowani użytkownicy mogą pracować bezpośrednio w kontekście subskrypcji klienta bez posiadania konta w dzierżawie tego klienta lub bycia współwłaścicielem dzierżawy klienta. Mogą również [wyświetlać i zarządzać wszystkimi delegowanymi subskrypcjami klientów na nowej stronie **Moi klienci** ](../how-to/view-manage-customers.md) w witrynie Azure portal.
-
-[Środowisko zarządzania między dzierżawcami](cross-tenant-management-experience.md) ułatwia wydajniejszą pracę z usługami zarządzania platformy Azure, takimi jak Azure Policy, Azure Security Center i inne. Wszystkie działania dostawcy usług są śledzone w dzienniku działań, który jest przechowywany w dzierżawie klienta (i mogą być wyświetlane przez użytkowników w dzierżawie zarządzającej). Oznacza to, że zarówno klient, jak i dostawca usług mogą łatwo zidentyfikować użytkownika skojarzonego z wszelkimi zmianami.
-
-Po pokładzie klienta do usługi Azure zarządzania zasobami delegowanymi, będą mieli dostęp do nowej strony **dostawców usług** w witrynie Azure portal, gdzie mogą [potwierdzić i zarządzać swoimi ofertami, dostawcami usług i delegowanymi zasobami](../how-to/view-manage-service-providers.md). Jeśli klient kiedykolwiek chce odwołać dostęp dla usługodawcy, może to zrobić tutaj w dowolnym momencie.
-
-Nowy [typ oferty usługi zarządzanej można opublikować w portalu Azure Marketplace,](../how-to/publish-managed-services-offers.md) aby łatwo dołączać klientów do zarządzania zasobami delegowanymi platformy Azure. Alternatywnie można [ukończyć proces dołączania, wdrażając szablony usługi Azure Resource Manager](../how-to/onboard-customer.md).
-
-## <a name="how-azure-delegated-resource-management-works"></a>Jak działa zarządzanie delegowanymi zasobami platformy Azure
-
-Na wysokim poziomie, oto jak działa zarządzanie zasobami delegowanymi platformy Azure:
-
-1. Jako dostawca usług można zidentyfikować dostęp (role), które grupy, podmioty usługi lub użytkownicy będą musieli zarządzać zasobami platformy Azure klienta. Definicja dostępu zawiera identyfikator dzierżawy dostawcy usług wraz z wymaganym dostępem dla oferty, zdefiniowanym przy użyciu tożsamości **principalId** z dzierżawy mapowanych do [wbudowanych wartości **funkcjiDefinacja** ](../../role-based-access-control/built-in-roles.md) (współautor, współautor maszyn wirtualnych, czytnik itp.).
-2. Określisz ten dostęp i dołączanie klienta do zarządzania zasobami delegowanymi platformy Azure na jeden z dwóch sposobów:
-   - [Publikowanie oferty usług zarządzanych w portalu Azure Marketplace](../how-to/publish-managed-services-offers.md) (prywatnej lub publicznej), którą klient zaakceptuje
-   - [Wdrażanie szablonu usługi Azure Resource Manager w dzierżawie klienta](../how-to/onboard-customer.md) dla jednej lub większej liczby określonych subskrypcji lub grup zasobów
-3. Po uruchomieniu klienta autoryzowani użytkownicy mogą logować się do dzierżawy dostawcy usług i wykonywać zadania zarządzania w danym zakresie klienta, na podstawie zdefiniowanego dostępu.
+Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia logiczne rzutowanie zasobów z jednej dzierżawy na inną dzierżawcę. Umożliwia to autoryzowanym użytkownikom w jednej Azure Active Directory (Azure AD) wykonywanie operacji zarządzania w różnych dzierżawach usługi Azure AD należących do klientów. Dostawcy usług mogą zalogować się do swojej dzierżawy usługi Azure AD i mieć autoryzację do pracy w delegowanych subskrypcjach klientów i grupach zasobów. Pozwala to na wykonywanie operacji zarządzania w imieniu swoich klientów, bez konieczności logowania się do poszczególnych dzierżaw klientów.
 
 > [!NOTE]
-> Delegowanie subskrypcji między dwoma dzierżawami w oddzielnych chmurach nie jest obsługiwane.
+> Zarządzanie zasobami delegowanymi przez platformę Azure może być również używane [w przedsiębiorstwie, które ma wiele dzierżawców usługi Azure AD](enterprise.md) , aby uprościć zarządzanie między dzierżawcami.
 
-## <a name="support-for-azure-delegated-resource-management"></a>Obsługa zarządzania zasobami delegowanymi platformy Azure
+Dzięki funkcji zarządzania zasobami delegowanymi na platformie Azure autoryzowani użytkownicy mogą współpracować bezpośrednio w kontekście subskrypcji klienta bez konieczności używania konta w dzierżawie klienta lub współwłaścicielem dzierżawy klienta. Mogą także [wyświetlać wszystkie delegowane subskrypcje klientów i zarządzać nimi na stronie nowe **moi klienci** ](../how-to/view-manage-customers.md) w Azure Portal.
 
-Jeśli potrzebujesz pomocy związanej z zarządzaniem zasobami delegowanymi platformy Azure, możesz otworzyć żądanie pomocy technicznej w witrynie Azure portal. W przypadku **typu problem**wybierz pozycję **Techniczne**. Wybierz subskrypcję, a następnie wybierz **latarnię morską** (w obszarze **Monitorowanie & Zarządzanie).**
+[Środowisko zarządzania przez wiele dzierżawców](cross-tenant-management-experience.md) pomaga wydajniej współpracować z usługami zarządzania platformy Azure, takimi jak Azure Policy, Azure Security Center i nie tylko. Wszystkie działania dostawcy usług są śledzone w dzienniku aktywności, który jest przechowywany w dzierżawie klienta (i może być przeglądany przez użytkowników w dzierżawie zarządzającej). Oznacza to, że zarówno klient, jak i dostawca usług mogą łatwo identyfikować użytkownika skojarzonego ze wszystkimi zmianami.
+
+Po dołączeniu klienta do zarządzania zasobami delegowanymi przez platformę Azure użytkownicy będą mieli dostęp do nowej strony **dostawcy usług** w Azure Portal, w której będą mogli [potwierdzić swoje oferty, dostawców usług i zasoby delegowane oraz zarządzać nimi](../how-to/view-manage-service-providers.md). Jeśli klient kiedykolwiek chce odwołać dostęp dla dostawcy usług, może to zrobić w dowolnym momencie.
+
+[Nowy typ oferty usługi zarządzanej można opublikować w witrynie Azure Marketplace](../how-to/publish-managed-services-offers.md) , aby w łatwy sposób dołączać klientów do zarządzania zasobami delegowanymi przez platformę Azure. Możesz również [ukończyć proces dołączania, wdrażając szablony Azure Resource Manager](../how-to/onboard-customer.md).
+
+## <a name="how-azure-delegated-resource-management-works"></a>Jak działa zarządzanie zasobami delegowanymi przez platformę Azure
+
+Na wysokim poziomie poniżej przedstawiono sposób działania zarządzania zasobami delegowanymi przez platformę Azure:
+
+1. Jako dostawca usług identyfikujesz dostęp (role), których grupy, nazwy główne usług lub użytkownicy będą musieli zarządzać zasobami platformy Azure klienta. Definicja dostępu zawiera identyfikator dzierżawy dostawcy usług wraz z wymaganym dostępem do oferty, zdefiniowanym przy użyciu tożsamości **principalId** z dzierżawy zamapowanej do [wbudowanych wartości **definicji** ](../../role-based-access-control/built-in-roles.md) (współautor, współautor maszyny wirtualnej, czytelnik itp.).
+2. Należy określić ten dostęp i dołączyć klienta do zarządzania zasobami delegowanymi przez platformę Azure na jeden z dwóch sposobów:
+   - [Publikowanie oferty usługi zarządzanej w portalu Azure Marketplace](../how-to/publish-managed-services-offers.md) (prywatnej lub publicznej), która zostanie zaakceptowana przez klienta
+   - [Wdrażanie szablonu Azure Resource Manager w dzierżawie klienta](../how-to/onboard-customer.md) dla jednej lub wielu określonych subskrypcji lub grup zasobów
+3. Po dołączeniu klienta autoryzowani użytkownicy mogą zalogować się do dzierżawy dostawcy usługi i wykonywać zadania zarządzania w danym zakresie klienta na podstawie zdefiniowanego dostępu.
+
+> [!NOTE]
+> Delegowanie subskrypcji między dwiema dzierżawcami w osobnych chmurach nie jest obsługiwane.
+
+## <a name="support-for-azure-delegated-resource-management"></a>Obsługa zarządzania zasobami delegowanymi przez platformę Azure
+
+Jeśli potrzebujesz pomocy związanej z zarządzaniem zasobami delegowanymi przez platformę Azure, możesz otworzyć żądanie pomocy technicznej w Azure Portal. W obszarze **typ problemu**wybierz pozycję **techniczne**. Wybierz subskrypcję, a następnie wybierz pozycję **Lighthouse** (w obszarze **monitorowanie & zarządzanie**).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [środowiskach zarządzania między dzierżawcami](cross-tenant-management-experience.md).
-- Dowiedz się więcej o [ofertach usług zarządzanych w portalu Azure Marketplace.](managed-services-offers.md)
+- Dowiedz się więcej na temat [środowisk zarządzania między dzierżawcami](cross-tenant-management-experience.md).
+- Dowiedz się więcej o [ofertach usług zarządzanych w witrynie Azure Marketplace](managed-services-offers.md).

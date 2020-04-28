@@ -1,5 +1,5 @@
 ---
-title: Filmy wideo dotyczące platformy tożsamości firmy Microsoft | Azure
+title: Filmy dotyczące platformy tożsamości firmy Microsoft | Azure
 description: Lista filmów wideo dotyczących nowoczesnego uwierzytelniania i platformy tożsamości firmy Microsoft
 services: active-directory
 author: mmacy
@@ -13,30 +13,30 @@ ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
 ms.openlocfilehash: e8c7ec6cf1d15e414a6db54d5bc2ad7e4994cd82
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80991300"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Wideo poświęcone platformie tożsamości firmy Microsoft
 
-Poznaj podstawy nowoczesnego uwierzytelniania, platformę tożsamości firmy Microsoft i biblioteki uwierzytelniania firmy Microsoft (MSAL).
+Poznaj podstawy nowoczesnego uwierzytelniania, platformy tożsamości firmy Microsoft i bibliotek uwierzytelniania firmy Microsoft (MSAL).
 
-## <a name="authentication-fundamentals"></a>Podstawowe zasady uwierzytelniania
+## <a name="authentication-fundamentals"></a>Podstawowe informacje uwierzytelniania
 
-Jeśli dopiero zaczynasz pracę nad pojęciami, takimi jak dostawcy tożsamości, tokeny zabezpieczające, oświadczenia i odbiorcy, ta seria filmów jest dobrym miejscem do rozpoczęcia.
+W przypadku nowych koncepcji, takich jak dostawcy tożsamości, tokeny zabezpieczające, oświadczenia i odbiorcy, ta seria wideo jest dobrym miejscem do uruchomienia.
 ___
 
 :::row:::
     :::column:::
-        1 - Podstawy: Koncepcje nowoczesnego uwierzytelniania (4:33)
+        1 — podstawy: pojęcia nowoczesnego uwierzytelniania (4:33)
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
      :::column:::
-        2 - Nowoczesne uwierzytelnianie dla aplikacji internetowych (6:02)
+        2 — uwierzytelnianie nowoczesne dla aplikacji sieci Web (6:02)
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
@@ -44,13 +44,13 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        3 - Logowanie jednokrotne w sieci Web (4:13)
+        3 — Logowanie jednokrotne w sieci Web (4:13)
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/51B-jSOBF8U?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
     :::column:::
-        4 - Uwierzytelnianie sieciowe (6:19)
+        4 — federacyjne Uwierzytelnianie sieci Web (6:19)
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
@@ -58,27 +58,27 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        5 - Natywne aplikacje klienckie - Część 1 (8:12)
+        5 — natywne aplikacje klienckie — część 1 (8:12)
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/OGMDnuDrAcQ?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
     :::column:::
-        6 - Natywne aplikacje klienckie - Część 2 (5:33)
+        6 — natywne aplikacje klienckie — część 2 (5:33)
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/2RE6IhXfmHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
 :::row-end:::
 
-## <a name="microsoft-identity-platform-basics"></a>Podstawy platformy tożsamości firmy Microsoft
+## <a name="microsoft-identity-platform-basics"></a>Podstawowe informacje dotyczące platformy tożsamości firmy Microsoft
 
-Dowiedz się więcej o składnikach platformy tożsamości firmy Microsoft, bibliotekach uwierzytelniania firmy Microsoft (MSAL) i o tym, jak te składniki współdziałają z usługą Azure Active Directory. Filmy z pytaniem deweloperskim mają długość od 1 do 2 minut.
+Dowiedz się więcej na temat składników platformy tożsamości firmy Microsoft, bibliotek uwierzytelniania firmy Microsoft (MSAL) i sposobu, w jaki te składniki współdziałają z Azure Active Directory. Jedno wideo z pytaniem dev ma długość 1-2 minut.
 ___
 
 :::row:::
     :::column:::
-        Omówienie platformy tożsamości firmy Microsoft
+        Microsoft Identity platform — Omówienie
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
@@ -96,7 +96,7 @@ ___
         > [!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
     :::column-end:::
     :::column:::
-        Jak ułatwienie uwierzytelniania msal
+        Jak MSAL ułatwia uwierzytelnianie
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
@@ -104,7 +104,7 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        Wyjaśniono zakresy
+        Wyjaśnione zakresy
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/eiPHOoLmGJs]
@@ -118,13 +118,13 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        Co robią przekierowania identyfikatorów URI
+        Jakie identyfikatory URI przekierowania
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
     :::column-end:::
     :::column:::
-        Najemców wyjaśnione
+        Wyjaśnienie dzierżawców
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
@@ -146,13 +146,13 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        Organizacyjne i osobiste różnice w koncie Microsoft
+        Różnice konto Microsoft organizacyjnych i prywatnych
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
     :::column-end:::
     :::column:::
-        Różnice w spa i aplikacjach internetowych
+        Różnice dotyczące SPA i aplikacji sieci Web
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=5]
@@ -161,18 +161,18 @@ ___
 
 ## <a name="migrate-from-v10-to-v20"></a>Migrowanie z wersji 1.0 do wersji 2.0
 
-Dowiedz się więcej o migracji do najnowszej wersji platformy tożsamości firmy Microsoft, w tym o przejściu z biblioteki uwierzytelniania usługi Active Directory (ADAL) do usługi MSAL.
+Dowiedz się więcej na temat migracji do najnowszej wersji platformy tożsamości firmy Microsoft, w tym przechodzenia z Active Directory Authentication Library (ADAL) do MSAL.
 ___
 
 :::row:::
     :::column:::
-        Punkty końcowe i korzyści wynikające z przejścia do wersji 2.0
+        Punkty końcowe i zalety przejścia do wersji 2.0
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
      :::column:::
-        Migrowanie bazy kodu ADAL do usługi MSAL
+        Migrowanie bazy kodu ADAL do MSAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
@@ -180,13 +180,13 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        Dlaczego warto migrować z usługi ADAL do msal
+        Dlaczego należy przeprowadzić migrację z biblioteki ADAL do MSAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
     :::column:::
-        Zalety MSAL w stosunku do ADAL
+        Zalety MSAL za pośrednictwem biblioteki ADAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]

@@ -1,6 +1,6 @@
 ---
-title: 'Podłączanie komputera do sieci wirtualnej przy użyciu uwierzytelniania typu punkt-lokacja i radius: PowerShell | Azure'
-description: Bezpieczne łączenie klientów systemów Windows i Mac OS X z siecią wirtualną przy użyciu uwierzytelniania P2S i RADIUS.
+title: 'Łączenie komputera z siecią wirtualną przy użyciu połączenia typu punkt-lokacja i usługi RADIUS: PowerShell | Azure'
+description: Bezpieczne łączenie klientów systemu Windows i Mac OS X z siecią wirtualną przy użyciu uwierzytelniania P2S i usługi RADIUS.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,53 +8,53 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: cb9a02532c3651aca544ed946f40bdcff9e9be83
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411768"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurowanie połączenia typu "punkt-lokacja" z siecią wirtualną przy użyciu uwierzytelniania RADIUS: Program PowerShell
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu uwierzytelniania usługi RADIUS: PowerShell
 
-W tym artykule pokazano, jak utworzyć sieć wirtualną z połączeniem punkt-lokacja, które używa uwierzytelniania RADIUS. Ta konfiguracja jest dostępna tylko dla modelu wdrażania Menedżera zasobów.
+W tym artykule opisano sposób tworzenia sieci wirtualnej z połączeniem typu punkt-lokacja korzystającego z uwierzytelniania usługi RADIUS. Ta konfiguracja jest dostępna tylko dla Menedżer zasobówgo modelu wdrażania.
 
-Brama sieci VPN typu punkt-lokacja (P2S, Point-to-Site) pozwala utworzyć bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Połączenia sieci VPN typu punkt-lokacja są przydatne, gdy chcesz połączyć się z siecią wirtualną z lokalizacji zdalnej, na przykład podczas pracy zdalnej z domu lub konferencji. Połączenie sieci VPN typu punkt-lokacja jest również przydatne zamiast połączenia sieci VPN typu lokacja-lokacja w przypadku niewielkiej liczby klientów, którzy muszą się łączyć z siecią wirtualną.
+Brama sieci VPN typu punkt-lokacja (P2S, Point-to-Site) pozwala utworzyć bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Połączenia sieci VPN typu punkt-lokacja są przydatne, gdy chcesz nawiązać połączenie z siecią wirtualną z lokalizacji zdalnej, na przykład podczas komunikacji z domu lub z konferencji. Połączenie sieci VPN typu punkt-lokacja jest również przydatne zamiast połączenia sieci VPN typu lokacja-lokacja w przypadku niewielkiej liczby klientów, którzy muszą się łączyć z siecią wirtualną.
 
 Połączenie sieci VPN typu punkt-lokacja jest uruchamiane z urządzeń z systemem Windows i urządzeń Mac. Przy łączeniu klientów mogą być używane następujące metody uwierzytelniania: 
 
 * Serwer RADIUS
-* Uwierzytelnianie certyfikatów natywnych bramy sieci VPN
+* VPN Gateway natywne uwierzytelnianie certyfikatu
 
-Ten artykuł ułatwia konfigurowanie konfiguracji P2S z uwierzytelnianiem przy użyciu serwera RADIUS. Jeśli chcesz uwierzytelnić się przy użyciu wygenerowanych certyfikatów i uwierzytelniania natywnego bramy sieci VPN, zobacz [Konfigurowanie połączenia typu punkt-lokacja do sieci wirtualnej przy użyciu uwierzytelniania natywnego certyfikatu bramy sieci VPN](vpn-gateway-howto-point-to-site-rm-ps.md).
+Ten artykuł ułatwia skonfigurowanie konfiguracji P2S z uwierzytelnianiem przy użyciu serwera RADIUS. Jeśli zamiast tego chcesz uwierzytelniać się przy użyciu wygenerowanych certyfikatów i natywnego uwierzytelniania certyfikatu bramy sieci VPN, zobacz [Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu bramy sieci VPN](vpn-gateway-howto-point-to-site-rm-ps.md).
 
-![Diagram połączeń - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
+![Diagram połączenia — promień](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
-Połączenia typu punkt-lokacja nie wymagają urządzenia sieci VPN ani publicznego adresu IP. P2S tworzy połączenie VPN za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol), OpenVPN lub IKEv2.
+Połączenia typu punkt-lokacja nie wymagają urządzenia sieci VPN ani publicznego adresu IP. P2S tworzy połączenie sieci VPN za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol), OpenVPN lub IKEv2.
 
-* SSTP to tunel sieci VPN oparty na TLS, który jest obsługiwany tylko na platformach klienckich systemu Windows. Może przechodzić przez zapory, co czyni go idealnym do nawiązywania połączenia z platformą Azure z dowolnego miejsca. Po stronie serwera obsługiwany jest protokół SSTP w wersji 1.0, 1.1 i 1.2. Klient decyduje o wyborze wersji do użycia. W przypadku systemu Windows 8.1 i nowszych protokół SSTP domyślnie używa wersji 1.2.
+* SSTP to tunel VPN oparty na protokole TLS, który jest obsługiwany tylko na platformach klienckich z systemem Windows. Może przechodzić przez zapory, co czyni go idealnym do nawiązywania połączenia z platformą Azure z dowolnego miejsca. Po stronie serwera obsługiwany jest protokół SSTP w wersji 1.0, 1.1 i 1.2. Klient decyduje o wyborze wersji do użycia. W przypadku systemu Windows 8.1 i nowszych protokół SSTP domyślnie używa wersji 1.2.
 
-* OpenVPN® Protocol, protokół VPN oparty na SSL/TLS. Rozwiązanie sieci VPN TLS może przenikać przez zapory, ponieważ większość zapór otwiera port TCP 443 wychodzący, którego używa TLS. OpenVPN może być używany do łączenia się z Androidem, iOS (wersje 11.0 i nowszych), Windows, Linux i Mac (wersje OSX 10.13 i nowsze).
+* OpenVPN® protokół sieci VPN oparty na protokole SSL/TLS. Rozwiązanie sieci VPN TLS może przeniknąć zapory, ponieważ większość zapór otwiera port TCP 443 wychodzący, który jest używany przez protokół TLS. OpenVPN można użyć do nawiązania połączenia z urządzeń z systemami Android, iOS (wersja 11,0 i nowsze), Windows, Linux i Mac (OSX wersje 10,13 i nowsze).
 
 * Sieć VPN z protokołem IKEv2 to oparte na standardach rozwiązanie sieci VPN korzystające z protokołu IPsec. Sieci VPN z protokołem IKEv2 można używać do łączenia z urządzeniami Mac (z systemem OSX 10.11 lub nowszym).
 
 Dla połączeń punkt-lokacja wymagane są następujące elementy:
 
 * Brama sieci VPN oparta na trasie. 
-* Serwer RADIUS do obsługi uwierzytelniania użytkowników. Serwer RADIUS można wdrożyć lokalnie lub w sieci wirtualnej platformy Azure.
-* Pakiet konfiguracji klienta sieci VPN dla urządzeń z systemem Windows, które będą łączyć się z siecią wirtualną. Pakiet konfiguracyjny klienta sieci VPN zawiera ustawienia wymagane dla klienta sieci VPN do łączenia się za pośrednictwem P2S.
+* Serwer RADIUS obsługujący uwierzytelnianie użytkowników. Serwer RADIUS można wdrożyć lokalnie lub w sieci wirtualnej platformy Azure.
+* Pakiet konfiguracji klienta sieci VPN dla urządzeń z systemem Windows, które będą łączyć się z siecią wirtualną. Pakiet konfiguracji klienta sieci VPN udostępnia ustawienia wymagane przez klienta VPN do łączenia się za pośrednictwem usługi P2S.
 
-## <a name="about-active-directory-ad-domain-authentication-for-p2s-vpns"></a><a name="aboutad"></a>Uwierzytelnianie domeny usługi Active Directory (AD) dla sieci VPN P2S — informacje
+## <a name="about-active-directory-ad-domain-authentication-for-p2s-vpns"></a><a name="aboutad"></a>Informacje o uwierzytelnianiu domeny Active Directory (AD) dla sieci VPN P2S
 
 Uwierzytelnianie domeny usługi AD umożliwia użytkownikom logowanie się na platformie Azure przy użyciu poświadczeń domeny organizacji. Wymaga serwera RADIUS, który integruje się z serwerem usługi AD. Organizacje mogą również korzystać z istniejącego wdrożenia usługi RADIUS.
  
-Serwer RADIUS może przebywać lokalnie lub w sieci wirtualnej platformy Azure. Podczas uwierzytelniania brama sieci VPN działa jako komunikaty uwierzytelniania przekazywane i przesyłane dalej między serwerem RADIUS a urządzeniem łączącym. Ważne jest, aby brama sieci VPN mogła dotrzeć do serwera RADIUS. Jeśli serwer RADIUS znajduje się lokalnie, wymagane jest połączenie lokacja-lokacja sieci VPN z platformy Azure z lokacją lokalną.
+Serwer RADIUS może znajdować się lokalnie lub w sieci wirtualnej platformy Azure. Podczas uwierzytelniania Brama sieci VPN działa jako przekazujący i przesyła dalej komunikaty uwierzytelniania między serwerem RADIUS a urządzeniem łączącym. Ważne jest, aby Brama sieci VPN mogła dotrzeć do serwera RADIUS. Jeśli serwer usługi RADIUS znajduje się w środowisku lokalnym, wymagane jest połączenie sieci VPN typu lokacja-lokacja z platformy Azure z lokacją lokalną.
 
-Oprócz usługi Active Directory serwer RADIUS może również integrować się z innymi zewnętrznymi systemami tożsamości. Spowoduje to otwarcie wielu opcji uwierzytelniania dla sieci VPN typu punkt-lokacja, w tym opcji usługi MFA. Sprawdź dokumentację dostawcy serwera RADIUS, aby uzyskać listę systemów tożsamości, z które integruje się.
+Oprócz Active Directory serwer RADIUS można także zintegrować z innymi zewnętrznymi systemami tożsamości. Spowoduje to otwarcie dużej liczby opcji uwierzytelniania dla sieci VPN typu punkt-lokacja, w tym opcji MFA. Zapoznaj się z dokumentacją dostawcy serwera RADIUS, aby uzyskać listę systemów tożsamości, z którymi integruje się.
 
-![Diagram połączeń - RADIUS](./media/point-to-site-how-to-radius-ps/radiusimage.png)
+![Diagram połączenia — promień](./media/point-to-site-how-to-radius-ps/radiusimage.png)
 
 > [!IMPORTANT]
->Do łączenia się z serwerem RADIUS lokalnie można używać tylko połączenia lokacja-lokacja sieci VPN. Nie można użyć połączenia usługi ExpressRoute.
+>Tylko połączenie sieci VPN typu lokacja-lokacja może służyć do łączenia się z lokalnym serwerem RADIUS. Nie można użyć połączenia ExpressRoute.
 >
 >
 
@@ -62,7 +62,7 @@ Oprócz usługi Active Directory serwer RADIUS może również integrować się 
 
 Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial).
 
-### <a name="working-with-azure-powershell"></a>Praca z programem Azure PowerShell
+### <a name="working-with-azure-powershell"></a>Praca z Azure PowerShell
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
@@ -78,18 +78,18 @@ Wartości przykładowych możesz użyć do tworzenia środowiska testowego lub o
   * **Zakres adresów podsieci: 10.254.1.0/24**
 * **Nazwa podsieci: GatewaySubnet**<br>Nazwa podsieci *GatewaySubnet* jest obowiązkowa, aby brama VPN mogła działać.
   * **Zakres adresów podsieci bramy: 192.168.200.0/24** 
-* **Pula adresów klientów VPN: 172.16.201.0/24**<br>Klienci sieci VPN łączący się z siecią wirtualną, którzy korzystają z tego połączenia punkt-lokacja, otrzymują adresy IP z puli adresów klientów sieci VPN.
+* **Pula adresów klienta sieci VPN: 172.16.201.0/24**<br>Klienci sieci VPN łączący się z siecią wirtualną, którzy korzystają z tego połączenia punkt-lokacja, otrzymują adresy IP z puli adresów klientów sieci VPN.
 * **Subskrypcja:** jeśli masz więcej niż jedną subskrypcję, sprawdź, czy korzystasz z właściwej.
 * **Grupa zasobów: TestRG**
 * **Lokalizacja: Wschodnie stany USA**
-* **Serwer DNS: adres IP** serwera DNS, którego chcesz użyć do rozpoznawania nazw sieci wirtualnej. (opcjonalnie)
+* **Serwer DNS: adres IP** serwera DNS, który ma być używany do rozpoznawania nazw dla sieci wirtualnej. (opcjonalnie)
 * **Nazwa bramy: Vnet1GW**
 * **Nazwa publicznego adresu IP: VNet1GWPIP**
-* **Typ vpn: RouteBased**
+* **VpnType: RouteBased**
 
 ## <a name="1-set-the-variables"></a><a name="signin"></a>1. Ustaw zmienne
 
-Zadeklaruj zmienne, których chcesz użyć. Użyj poniższego przykładu, podstawiając własne wartości tam, gdzie to konieczne. Jeśli zamkniesz sesję programu PowerShell/Cloud Shell w dowolnym momencie podczas ćwiczenia, po prostu skopiuj i wklej wartości ponownie, aby ponownie zadeklarować zmienne.
+Zadeklaruj zmienne, których chcesz użyć. Użyj poniższego przykładu, podstawiając własne wartości tam, gdzie to konieczne. Jeśli zamkniesz sesję programu PowerShell/Cloud Shell w dowolnym momencie podczas wykonywania, po prostu skopiuj i wklej ponownie wartości, aby ponownie zadeklarować zmienne.
 
   ```azurepowershell-interactive
   $VNetName  = "VNet1"
@@ -111,7 +111,7 @@ Zadeklaruj zmienne, których chcesz użyć. Użyj poniższego przykładu, podsta
 
 ## <a name="2-create-the-resource-group-vnet-and-public-ip-address"></a>2. <a name="vnet"> </a>Tworzenie grupy zasobów, sieci wirtualnej i publicznego adresu IP
 
-Poniższe kroki tworzą grupę zasobów i sieć wirtualną w grupie zasobów z trzema podsieciami. Podczas zastępowania wartości ważne jest, aby zawsze nadawać nazwę podsieci bramy w szczególności "GatewaySubnet". Jeśli nazwa to coś innego, tworzenie bramy nie powiedzie się;
+Poniższe kroki tworzą grupę zasobów i sieć wirtualną w grupie zasobów z trzema podsieciami. Podczas podstawiania wartości ważne jest, aby nazwa podsieci bramy była zawsze określana jako "GatewaySubnet". Jeśli nastąpi inna nazwa, tworzenie bramy nie powiedzie się.
 
 1. Utwórz grupę zasobów.
 
@@ -134,7 +134,7 @@ Poniższe kroki tworzą grupę zasobów i sieć wirtualną w grupie zasobów z t
    ```
 4. Brama sieci VPN musi mieć publiczny adres IP. Najpierw żąda się zasobu adresu IP, a następnie odwołuje do niego podczas tworzenia bramy sieci wirtualnej. Adres IP jest dynamicznie przypisywany do zasobu podczas tworzenia bramy sieci VPN. Brama sieci VPN aktualnie obsługuje tylko *dynamiczne* przypisywanie publicznych adresów IP. Nie można zażądać przypisania statycznego publicznego adresu IP. Nie oznacza to jednak, że adres IP zmienia się po przypisaniu go do bramy sieci VPN. Jedyną sytuacją, w której ma miejsce zmiana publicznego adresu IP, jest usunięcie bramy i jej ponowne utworzenie. Nie zmienia się on w przypadku zmiany rozmiaru, zresetowania ani przeprowadzania innych wewnętrznych czynności konserwacyjnych bądź uaktualnień bramy sieci VPN.
 
-   Określ zmienne, które mają żądać dynamicznie przypisywanego publicznego adresu IP.
+   Określ zmienne, aby zażądać dynamicznie przypisanego publicznego adresu IP.
 
    ```azurepowershell-interactive
    $vnet = Get-AzVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG"  
@@ -143,22 +143,22 @@ Poniższe kroki tworzą grupę zasobów i sieć wirtualną w grupie zasobów z t
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
    ```
 
-## <a name="3-set-up-your-radius-server"></a>3. <a name="radius"> </a>Konfigurowanie serwera RADIUS
+## <a name="3-set-up-your-radius-server"></a>3. <a name="radius"> </a>Skonfiguruj serwer RADIUS
 
-Przed utworzeniem i skonfigurowaniem bramy sieci wirtualnej serwer RADIUS powinien być poprawnie skonfigurowany do uwierzytelniania.
+Przed utworzeniem i skonfigurowaniem bramy sieci wirtualnej należy prawidłowo skonfigurować serwer RADIUS na potrzeby uwierzytelniania.
 
-1. Jeśli nie masz wdrożonego serwera RADIUS, wdrożyć jeden. Aby uzyskać instrukcje wdrażania, zapoznaj się z przewodnikiem konfiguracji dostarczonym przez dostawcę usługi RADIUS.  
-2. Skonfiguruj bramę sieci VPN jako klienta RADIUS w radius. Podczas dodawania tego klienta usługi RADIUS określ utworzoną sieć wirtualną GatewaySubnet. 
-3. Po skonfigurowaniu serwera RADIUS pobierz adres IP serwera RADIUS i udostępniony klucz tajny, którego klienci RADIUS powinni używać do rozmów z serwerem RADIUS. Jeśli serwer RADIUS znajduje się w sieci wirtualnej platformy Azure, użyj adresu IP urzędu certyfikacji maszyny Wirtualnej serwera RADIUS.
+1. Jeśli nie masz wdrożonego serwera usługi RADIUS, wdróż go. Procedurę wdrażania można znaleźć w przewodniku instalacji dostarczonym przez dostawcę usługi RADIUS.  
+2. Skonfiguruj bramę sieci VPN jako klienta RADIUS na serwerze RADIUS. Podczas dodawania tego klienta usługi RADIUS należy określić utworzoną sieć wirtualną GatewaySubnet. 
+3. Po skonfigurowaniu serwera RADIUS Pobierz adres IP serwera RADIUS i wspólny klucz tajny, który powinni używać klienci usługi RADIUS do komunikowania się z serwerem RADIUS. Jeśli serwer RADIUS należy do sieci wirtualnej platformy Azure, użyj adresu IP urzędu certyfikacji serwera usługi RADIUS.
 
-Artykuł [dotyczący serwera zasad sieciowych (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) zawiera wskazówki dotyczące konfigurowania serwera RADIUS systemu Windows (NPS) do uwierzytelniania domeny usługi AD.
+Artykuł [serwera zasad sieciowych (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) zawiera wskazówki dotyczące konfigurowania serwera usługi Windows RADIUS (NPS) na potrzeby uwierzytelniania domeny usługi AD.
 
-## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"> </a>Tworzenie bramy sieci VPN
+## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"> </a>tworzenie bramy sieci VPN
 
-Skonfiguruj i utwórz bramę sieci VPN dla sieci wirtualnej.
+Skonfiguruj i Utwórz bramę sieci VPN dla sieci wirtualnej.
 
-* -GatewayType musi być "Vpn", a -VpnType musi być "RouteBased".
-* Brama sieci VPN może potrwać do 45 minut, w zależności od wybranej [jednostki SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) bramy.
+* -Gatewaytype musi mieć wartość "VPN", a-VpnType musi mieć wartość "RouteBased".
+* Ukończenie bramy sieci VPN może potrwać do 45 minut, w zależności od wybranej [jednostki SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) bramy.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -166,26 +166,26 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1
 ```
 
-## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"> </a>Dodaj pulę adresów serwera i klienta RADIUS
+## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"> </a>Dodaj serwer RADIUS i pulę adresów klienta
  
-* Serwer -RadiusServer można określić za pomocą nazwy lub adresu IP. Jeśli określisz nazwę, a serwer znajduje się lokalnie, brama sieci VPN może nie być w stanie rozpoznać tej nazwy. Jeśli tak jest, to lepiej określić adres IP serwera. 
-* -RadiusSecret powinien odpowiadać temu, co jest skonfigurowane na serwerze RADIUS.
-* -VpnClientAddressPool to zakres, z którego łączący klienci sieci VPN otrzymują adres IP.Używaj zakresu prywatnych adresów IP nienakładającego się na lokalizację lokalną, z której będziesz się łączyć, ani na sieć wirtualną, z którą chcesz się łączyć. Upewnij się, że masz wystarczająco dużą pulę adresów skonfigurowaną.  
+* Wartość parametru-RadiusServer można określić według nazwy lub adresu IP. Jeśli określisz, że nazwa i serwer znajdują się lokalnie, Brama sieci VPN może nie być w stanie rozpoznać nazwy. W takim przypadku lepiej jest określić adres IP serwera programu. 
+* Parametr-RadiusSecret powinien być zgodny z konfiguracją na serwerze RADIUS.
+* -VpnClientAddressPool jest zakresem, z którego łączący się klienci sieci VPN otrzymują adres IP.Używaj zakresu prywatnych adresów IP nienakładającego się na lokalizację lokalną, z której będziesz się łączyć, ani na sieć wirtualną, z którą chcesz się łączyć. Upewnij się, że skonfigurowano wystarczającą dla siebie pulę adresów.  
 
-1. Utwórz bezpieczny ciąg dla klucza tajnego radius.
+1. Utwórz bezpieczny ciąg dla wpisu tajnego usługi RADIUS.
 
    ```azurepowershell-interactive
    $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
    ```
 
-2. Zostanie wyświetlony monit o wprowadzenie klucza tajnego radius. Wprowadzone znaki nie będą wyświetlane, a zamiast tego zostaną zastąpione znakiem "*".
+2. Zostanie wyświetlony monit o wprowadzenie klucza tajnego usługi RADIUS. Wprowadzone znaki nie będą wyświetlane, a zamiast tego zostaną zastąpione znakiem "*".
 
    ```azurepowershell-interactive
    RadiusSecret:***
    ```
 3. Dodaj pulę adresów klienta sieci VPN i informacje o serwerze RADIUS.
 
-   W przypadku konfiguracji SSTP:
+   W przypadku konfiguracji protokołu SSTP:
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -194,7 +194,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-   W przypadku konfiguracji OpenVPN®:
+   W przypadku konfiguracji® OpenVPN:
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -205,7 +205,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     ```
 
 
-   W przypadku konfiguracji IKEv2:
+   W przypadku konfiguracji protokołu IKEv2:
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -214,7 +214,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-   Dla SSTP + IKEv2
+   W przypadku protokołu SSTP + IKEv2
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -223,22 +223,22 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"> </a>Pobierz pakiet konfiguracyjny klienta sieci VPN i skonfiguruj klienta sieci VPN
+## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"> </a>Pobierz pakiet konfiguracji klienta sieci VPN i Skonfiguruj klienta sieci VPN
 
-Konfiguracja klienta sieci VPN umożliwia urządzeniom łączenie się z siecią wirtualną za pośrednictwem połączenia P2S.Aby wygenerować pakiet konfiguracji klienta sieci VPN i skonfigurować klienta sieci VPN, zobacz [Tworzenie konfiguracji klienta sieci VPN w celu uwierzytelnienia usługi RADIUS](point-to-site-vpn-client-configuration-radius.md).
+Konfiguracja klienta sieci VPN umożliwia urządzeniom łączenie się z siecią wirtualną za pośrednictwem połączenia P2S.Aby wygenerować pakiet konfiguracji klienta sieci VPN i skonfigurować klienta sieci VPN, zobacz [Tworzenie konfiguracji klienta sieci VPN na potrzeby uwierzytelniania usługi RADIUS](point-to-site-vpn-client-configuration-radius.md).
 
-## <a name="7-connect-to-azure"></a><a name="connect"></a>7. Połącz się z platformą Azure
+## <a name="7-connect-to-azure"></a><a name="connect"></a>7. Nawiązywanie połączenia z platformą Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Aby połączyć się z klienta sieci VPN w systemie Windows
 
-1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Wprowadź poświadczenia domeny i kliknij przycisk "Połącz". Zostanie wyświetlony komunikat wyskakujący z żądaniem podniesienia uprawnień. Zaakceptuj go i wprowadź poświadczenia.
+1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Wprowadź poświadczenia domeny i kliknij przycisk "Połącz". Zostanie wyświetlony komunikat podręczny z żądaniem podwyższonego poziomu uprawnień. Zaakceptuj ją i wprowadź poświadczenia.
 
    ![Łączenie klienta sieci VPN z platformą Azure](./media/point-to-site-how-to-radius-ps/client.png)
 2. Połączenie zostało ustanowione.
 
    ![Ustanowiono połączenie](./media/point-to-site-how-to-radius-ps/connected.png)
 
-### <a name="connect-from-a-mac-vpn-client"></a>Łączenie się z klientem sieci VPN na komputerze Mac
+### <a name="connect-from-a-mac-vpn-client"></a>Nawiązywanie połączenia z klienta sieci VPN dla komputerów Mac
 
 W oknie dialogowym Sieć znajdź profil klienta, którego chcesz użyć, a następnie kliknij polecenie **Połącz**.
 
@@ -270,7 +270,7 @@ Aby rozwiązać problem z połączeniem P2S, zobacz [Rozwiązywanie problemów z
 
 ## <a name="faq"></a><a name="faq"></a>Często zadawane pytania
 
-To często zadawane pytania dotyczy P2S przy użyciu uwierzytelniania RADIUS
+Często zadawane pytania dotyczą P2S przy użyciu uwierzytelniania usługi RADIUS
 
 [!INCLUDE [Point-to-Site RADIUS FAQ](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 

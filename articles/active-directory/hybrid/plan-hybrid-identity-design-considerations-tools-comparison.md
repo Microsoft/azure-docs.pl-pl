@@ -16,21 +16,21 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 052d99a819aee415d5e7ad6dc00b8c786af0f636
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811098"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Tożsamość hybrydowa: porównanie narzędzi do integracji katalogów
 Narzędzia do integracji katalogów były rozbudowywane i rozwijane przez wiele lat.  
 
 
-- [FIM](https://docs.microsoft.com/previous-versions/windows/desktop/forefront-2010/ff182370%28v%3dvs.100%29) i [MIM](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) są nadal obsługiwane i przede wszystkim umożliwiają synchronizację między systemami lokalnymi.   [Łącznik USŁUGI FIM Windows Azure AD Connector](https://docs.microsoft.com/previous-versions/mim/dn511001(v=ws.10)?redirectedfrom=MSDN) jest obsługiwany zarówno w programie FIM, jak i MIM, ale nie jest zalecany w przypadku nowych wdrożeń — klienci korzystający ze źródeł lokalnych, takich jak Uwagi lub SAP HCM, powinni używać programu MIM do wypełniania usług domenowych Active Directory (AD DS), a następnie używać synchronizacji usługi Azure AD Connect lub inicjowania obsługi administracyjnej usługi Azure AD Connect w celu synchronizacji z usług AD DS na platformie Azure AD.
-- [Synchronizacja usługi Azure AD Connect](how-to-connect-sync-whatis.md) zawiera składniki i funkcje wcześniej wydane w DirSync i usłudze Azure AD Sync do synchronizacji między lasami usług AD DS a usługą Azure AD.  
-- [Inicjowanie obsługi administracyjnej w chmurze usługi Azure AD Connect](../cloud-provisioning/what-is-cloud-provisioning.md) to nowy agent firmy Microsoft do synchronizowania z usług AD DO usługi Azure AD, przydatny w scenariuszach, takich jak fuzja i przejęcie, w których lasy usługi AD przejętej firmy są izolowane od lasów usługi AD firmy nadrzędnej.
+- Usługi [FIM](https://docs.microsoft.com/previous-versions/windows/desktop/forefront-2010/ff182370%28v%3dvs.100%29) i [MIM](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) są nadal obsługiwane i przede wszystkim umożliwiają synchronizację między systemami lokalnymi.   [Łącznik usługi Windows Azure AD programu FIM](https://docs.microsoft.com/previous-versions/mim/dn511001(v=ws.10)?redirectedfrom=MSDN) jest obsługiwany zarówno w programie FIM, jak i w programie MIM, ale nie jest to zalecane w przypadku nowych wdrożeń — klienci ze źródłami lokalnymi, takimi jak uwagi i SAP HCM, powinni użyć programu MIM do wypełniania Active Directory Domain Services (AD DS), a następnie do synchronizacji z AD DS do usługi Azure AD także użyć Azure AD Connect synchronizacji lub Azure AD Connect aprowizacji w chmurze.
+- [Azure AD Connect Sync](how-to-connect-sync-whatis.md) obejmuje składniki i funkcje, które zostały wcześniej wydane w narzędziu DirSync i Azure AD Sync, do synchronizowania między AD DS lasami a usługą Azure AD.  
+- [Azure AD Connect aprowizacji w chmurze](../cloud-provisioning/what-is-cloud-provisioning.md) to nowy Agent firmy Microsoft służący do synchronizowania danych z AD DS do usługi Azure AD, przydatny w scenariuszach takich jak fuzja i pozyskiwanie, w przypadku których odizolowane lasy usługi AD uzyskanych w firmie
 
-Aby dowiedzieć się więcej na temat różnic między synchronizacją usługi Azure AD Connect a aprowewaniem w chmurze usługi Azure AD Connect, zobacz artykuł [Co to jest inicjowanie obsługi administracyjnej w chmurze usługi Azure AD Connect?](../cloud-provisioning/what-is-cloud-provisioning.md)
+Aby dowiedzieć się więcej o różnicach między Azure AD Connect synchronizacji i Azure AD Connect aprowizacji w chmurze, zobacz artykuł [co to jest Azure AD Connect aprowizacji w chmurze?](../cloud-provisioning/what-is-cloud-provisioning.md)
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md).
