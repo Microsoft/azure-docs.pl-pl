@@ -1,27 +1,27 @@
 ---
-title: Pozyskiwania danych usługi Azure HPC Cache — skrypt kopiowania równoległego
-description: Jak używać skryptu kopiowania równoległego do przenoszenia danych do miejsca docelowego magazynu obiektów Blob w pamięci podręcznej HPC usługi Azure
+title: Azure HPC — skrypt do kopiowania danych w pamięci podręcznej
+description: Jak używać skryptu kopiowania równoległego do przenoszenia danych do docelowego magazynu obiektów BLOB w pamięci podręcznej Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: 90e05ad3d42b1009b631630fe476669a9f418d33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74166900"
 ---
-# <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Pozyskiwania danych usługi Azure HPC Cache — metoda skryptu kopiowania równoległego
+# <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Pobieranie danych z pamięci podręcznej platformy Azure HPC — Metoda skryptu kopiowania równoległego
 
-Ten artykuł zawiera instrukcje ``parallelcp`` dotyczące tworzenia skryptu i używania go do przenoszenia danych do kontenera magazynu obiektów Blob do użycia z pamięcią podręczną HPC usługi Azure.
+Ten artykuł zawiera instrukcje dotyczące tworzenia ``parallelcp`` skryptu i używania go do przenoszenia danych do kontenera magazynu obiektów BLOB do użycia z pamięcią podręczną platformy Azure HPC.
 
-Aby dowiedzieć się więcej o przenoszeniu danych do magazynu obiektów Blob dla pamięci podręcznej HPC platformy Azure, przeczytaj artykuł [Przenoszenie danych do magazynu obiektów Blob platformy Azure.](hpc-cache-ingest.md)
+Aby dowiedzieć się więcej na temat przenoszenia danych do magazynu obiektów BLOB w pamięci podręcznej platformy Azure HPC, przeczytaj temat [przenoszenie danych do usługi Azure Blob Storage](hpc-cache-ingest.md).
 
 ## <a name="create-the-parallelcp-script"></a>Tworzenie skryptu parallelcp
 
-Poniższy skrypt doda plik `parallelcp`wykonywalny . (Ten skrypt jest przeznaczony dla Ubuntu; jeśli ``parallel`` używasz innej dystrybucji, należy zainstalować oddzielnie.)
+Poniższy skrypt doda plik wykonywalny `parallelcp`. (Ten skrypt jest przeznaczony dla Ubuntu; w przypadku korzystania z innej dystrybucji należy zainstalować ``parallel`` osobno).
 
 ```bash
 sudo touch /usr/bin/parallelcp && sudo chmod 755 /usr/bin/parallelcp && sudo sh -c "/bin/cat >/usr/bin/parallelcp" <<EOM
@@ -75,11 +75,11 @@ EOM
 
 ## <a name="parallel-copy-example"></a>Przykład kopiowania równoległego
 
-W tym przykładzie użyto skryptu kopiowania równoległego do skompilowania ``glibc`` przy użyciu plików źródłowych w pamięci podręcznej HPC platformy Azure.
+W tym przykładzie użyto skryptu kopiowania równoległego do ``glibc`` kompilowania przy użyciu plików źródłowych w pamięci podręcznej platformy Azure HPC.
 
-Pliki źródłowe są buforowane w punkcie instalacji pamięci podręcznej HPC platformy Azure, a pliki obiektów są przechowywane na lokalnym dysku twardym.
+Pliki źródłowe są buforowane w punkcie instalacji pamięci podręcznej platformy Azure HPC, a pliki obiektów są przechowywane na lokalnym dysku twardym.
 
-W tym przykładzie używa skryptu ``-j`` ``make`` kopiowania równoległego z opcją i uzyskać równoległość.
+Ten przykład używa skryptu kopiowania równoległego z opcją ``-j`` i ``make`` do uzyskania przetwarzanie równoległe.
 
 ```bash
 sudo apt-get update

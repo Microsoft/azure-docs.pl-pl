@@ -1,6 +1,6 @@
 ---
-title: Obsługa websocket w usłudze Azure Application Gateway
-description: Usługa Application Gateway zapewnia natywną obsługę protokołu WebSocket w bramach każdego rozmiaru. Nie ma ustawień konfigurowanych przez użytkownika.
+title: Obsługa protokołu WebSocket na platformie Azure Application Gateway
+description: Usługa Application Gateway zapewnia natywną obsługę protokołu WebSocket w bramach każdego rozmiaru. Nie ma ustawień konfigurowalnych przez użytkownika.
 author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
@@ -8,31 +8,31 @@ services: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.openlocfilehash: baa02c4d946a121f26f421af99835ae2bea18847
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74130333"
 ---
-# <a name="overview-of-websocket-support-in-application-gateway"></a>Omówienie obsługi websocket w bramie aplikacji
+# <a name="overview-of-websocket-support-in-application-gateway"></a>Omówienie obsługi protokołu WebSocket w Application Gateway
 
 Usługa Application Gateway zapewnia natywną obsługę protokołu WebSocket w bramach każdego rozmiaru. Nie ma żadnych ustawień konfigurowanych przez użytkownika umożliwiających selektywne włączenie lub wyłączenie obsługi protokołu WebSocket. 
 
-Protokół WebSocket znormalizowany w [specyfikacji RFC6455](https://tools.ietf.org/html/rfc6455) umożliwia pełną komunikację dwustronną między serwerem a klientem za pośrednictwem długotrwałego połączenia TCP. Ta funkcja umożliwia bardziej interaktywną komunikację między serwerem sieci web a klientem, która może być dwukierunkowa bez konieczności sondowania zgodnie z wymaganiami implementacji opartych na protokreliach HTTP. WebSocket ma niskie obciążenie w przeciwieństwie do PROTOKOŁU HTTP i może ponownie użyć tego samego połączenia TCP dla wielu żądań/odpowiedzi, co powoduje bardziej efektywne wykorzystanie zasobów. Protokoły WebSocket są przeznaczone do pracy nad tradycyjnymi portami HTTP 80 i 443.
+Protokół WebSocket w standardzie [RFC6455](https://tools.ietf.org/html/rfc6455) umożliwia pełną komunikację dwukierunkową między serwerem a klientem przez długotrwałe połączenie TCP. Ta funkcja pozwala na bardziej interaktywną komunikację między serwerem sieci Web i klientem, który może być dwukierunkowy bez potrzeby sondowania w przypadku implementacji opartych na protokole HTTP. Protokół WebSocket ma niskie obciążenie, w przeciwieństwie do protokołu HTTP i może ponownie użyć tego samego połączenia TCP dla wielu żądań/odpowiedzi, co zwiększa efektywność użycia zasobów. Protokoły WebSocket są przeznaczone do pracy nad tradycyjnymi portami HTTP z 80 i 443.
 
-Możesz nadal używać standardowego odbiornika HTTP na porcie 80 lub 443, aby odbierać ruch WebSocket. Ruch WebSocket jest następnie kierowany do serwera wewnętrznej bazy danych z włączoną funkcją WebSocket przy użyciu odpowiedniej puli wewnętrznej bazy danych określonej w regułach bramy aplikacji. Serwer wewnętrznej bazy danych musi odpowiadać na sondy bramy aplikacji, które są opisane w sekcji [przegląd sondy kondycji.](application-gateway-probe-overview.md) Sondy kondycji bramy aplikacji są tylko HTTP/HTTPS. Każdy serwer wewnętrznej bazy danych musi odpowiadać na sondy HTTP dla bramy aplikacji, aby kierować ruch WebSocket do serwera.
+Aby odbierać ruch z użyciem protokołu WebSocket, można nadal używać standardowego odbiornika HTTP na porcie 80 lub 443. Ruch z użyciem protokołu WebSocket jest następnie kierowany do serwera zaplecza z włączoną obsługą protokołu WebSocket przy użyciu odpowiedniej puli zaplecza, jak określono w regułach usługi Application Gateway. Serwer wewnętrznej bazy danych musi odpowiadać sondom bramy aplikacji, które są opisane w sekcji [Przegląd sondy kondycji](application-gateway-probe-overview.md) . Sondy kondycji bramy aplikacji są tylko HTTP/HTTPS. Każdy serwer zaplecza musi odpowiadać na sondy protokołu HTTP dla usługi Application Gateway, aby kierować ruch protokołu WebSocket do serwera.
 
-Jest używany w aplikacjach, które korzystają z szybkiej komunikacji w czasie rzeczywistym, takich jak czat, pulpit nawigacyjny i aplikacje do gier.
+Jest on używany w aplikacjach, które korzystają z szybkiej komunikacji w czasie rzeczywistym, takiej jak czat, pulpit nawigacyjny i aplikacje do gier.
 
-## <a name="how-does-websocket-work"></a>Jak działa WebSocket
+## <a name="how-does-websocket-work"></a>Jak działa protokół WebSocket
 
-Aby ustanowić połączenie WebSocket, między klientem a serwerem wymieniane jest określone uzgadnianie oparte na protokonasie HTTP. W przypadku powodzenia protokół warstwy aplikacji jest "uaktualniany" z protokołu HTTP do websockets przy użyciu wcześniej ustanowionego połączenia TCP. Gdy to nastąpi, HTTP jest całkowicie poza obrazem; dane mogą być wysyłane lub odbierane za pomocą protokołu WebSocket przez oba punkty końcowe, dopóki połączenie WebSocket nie zostanie zamknięte. 
+Do nawiązania połączenia z protokołem WebSocket jest wymieniana określona uzgadnianie oparte na protokole HTTP między klientem a serwerem. Jeśli to się powiedzie, protokół warstwy aplikacji jest "uaktualniony" z protokołu HTTP do usługi WebSockets przy użyciu wcześniej ustanowionego połączenia TCP. Gdy to nastąpi, protokół HTTP zostanie całkowicie wyprowadzony z obrazu; dane można wysyłać lub odbierać przy użyciu protokołu WebSocket przez oba punkty końcowe, aż do zamknięcia połączenia z protokołem WebSocket. 
 
-![Websocket](./media/application-gateway-websocket/websocket.png)
+![akceptowan](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>Element konfiguracji odbiornika
 
-Istniejący odbiornik HTTP może służyć do obsługi ruchu WebSocket. Poniżej znajduje się fragment elementu httpListeners z przykładowego pliku szablonu. Do obsługi websocket i bezpiecznego ruchu WebSocket potrzebne są zarówno odbiorniki HTTP, jak i HTTPS. Podobnie można użyć portalu lub programu Azure PowerShell do utworzenia bramy aplikacji z odbiornikami na porcie 80/443 do obsługi ruchu WebSocket.
+Istniejący odbiornik HTTP może służyć do obsługi ruchu protokołu WebSocket. Poniżej znajduje się fragment elementu httpListeners z przykładowego pliku szablonu. Do obsługi protokołu WebSocket i bezpiecznego ruchu WebSocket wymagane są odbiorniki HTTP i HTTPS. Podobnie można użyć portalu lub Azure PowerShell, aby utworzyć bramę aplikacji z odbiornikami na porcie 80/443 do obsługi ruchu protokołu WebSocket.
 
 ```json
 "httpListeners": [
@@ -66,9 +66,9 @@ Istniejący odbiornik HTTP może służyć do obsługi ruchu WebSocket. Poniżej
     ],
 ```
 
-## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>Konfiguracja zaplecza Usługi BackendAddressPool, BackendHttpSetting i Konfiguracja reguł routingu
+## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>Konfiguracja reguły BackendAddressPool, BackendHttpSetting i routingu
 
-BackendAddressPool służy do definiowania puli wewnętrznej bazy danych z serwerami obsługującymi websocket. Wewnętrznej bazy danychHttpSetting jest zdefiniowany za pomocą portu wewnętrznej bazy danych 80 i 443. Wartość limitu czasu żądania w ustawieniach HTTP dotyczy również sesji WebSocket. Nie ma żadnych zmian wymaganych w reguły routingu, który jest używany do powiązania odpowiedniego odbiornika do odpowiedniej puli adresów wewnętrznej bazy danych. 
+BackendAddressPool jest używany do definiowania puli zaplecza z serwerami z obsługą protokołu WebSocket. BackendHttpSetting jest definiowana z portem zaplecza 80 i 443. Wartość limitu czasu żądania w ustawieniach protokołu HTTP dotyczy również sesji protokołu WebSocket. W regule routingu nie jest wymagana żadna zmiana, która jest używana do powiązania odpowiedniego odbiornika z odpowiednią pulą adresów zaplecza. 
 
 ```json
 "requestRoutingRules": [{
@@ -104,9 +104,9 @@ BackendAddressPool służy do definiowania puli wewnętrznej bazy danych z serwe
 }]
 ```
 
-## <a name="websocket-enabled-backend"></a>WebSocket włączone zaplecze
+## <a name="websocket-enabled-backend"></a>Zaplecze z obsługą protokołu WebSocket
 
-Zaplecze musi mieć serwer sieci Web HTTP/HTTPS uruchomiony na skonfigurowanym porcie (zwykle 80/443), aby websocket działał. To wymaganie jest, ponieważ protokół WebSocket wymaga początkowego uzgadniania być HTTP z uaktualnieniem do protokołu WebSocket jako pole nagłówka. Oto przykład nagłówka:
+Zaplecze musi mieć serwer sieci Web HTTP/HTTPS uruchomiony na skonfigurowanym porcie (zwykle 80/443), aby protokół WebSocket działał. Ten wymóg jest spowodowany tym, że protokół WebSocket wymaga, aby uzgadnianie początkowe było HTTP z uaktualnieniem do protokołu WebSocket jako pola nagłówka. Poniżej znajduje się przykład nagłówka:
 
 ```
     GET /chat HTTP/1.1
@@ -119,8 +119,8 @@ Zaplecze musi mieć serwer sieci Web HTTP/HTTPS uruchomiony na skonfigurowanym p
     Sec-WebSocket-Version: 13
 ```
 
-Innym powodem jest to, że sonda kondycji wewnętrznej bazy danych bramy aplikacji obsługuje tylko protokoły HTTP i HTTPS. Jeśli serwer wewnętrznej bazy danych nie odpowiada na sondy HTTP lub HTTPS, zostanie on wyjęty z puli wewnętrznej bazy danych.
+Kolejną przyczyną jest to, że sonda kondycji zaplecza usługi Application Gateway obsługuje tylko protokoły HTTP i HTTPS. Jeśli serwer wewnętrznej bazy danych nie odpowiada na sondy HTTP lub HTTPS, jest wyłączany z puli zaplecza.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zapoznaniu się z obsługą WebSocket, przejdź do [tworzenia bramy aplikacji,](quick-create-powershell.md) aby rozpocząć pracę z aplikacją sieci web z włączoną funkcją WebSocket.
+Po zapoznaniu się z obsługą protokołu WebSocket przejdź do [pozycji tworzenie bramy aplikacji](quick-create-powershell.md) , aby rozpocząć pracę z aplikacją sieci Web z obsługą protokołu WebSocket.

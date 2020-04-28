@@ -1,6 +1,6 @@
 ---
-title: Dodawanie narzędzi oceny w obszarze Migracji platformy Azure
-description: Dowiedz się, jak dodać narzędzia oceny w usłudze Azure Migrate.
+title: Dodawanie narzędzi do oceny w Azure Migrate
+description: Dowiedz się, jak dodać narzędzia do oceny w Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
@@ -8,66 +8,66 @@ ms.manager: carmonm
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 64af78abd8f82b41d4a03fbb56c96e3038cef5a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74185908"
 ---
 # <a name="add-assessment-tools"></a>Dodawanie narzędzi oceny
 
-W tym artykule opisano sposób dodawania narzędzi oceny w [usłudze Azure Migrate](migrate-overview.md).
+W tym artykule opisano sposób dodawania narzędzi do oceny w [Azure Migrate](migrate-overview.md).
 
-Usługa Azure Migrate udostępnia centrum narzędzi do oceny i migracji na platformę Azure. Zawiera narzędzia migracji platformy Azure, a także inne narzędzia i oferty niezależnego dostawcy oprogramowania (ISV).
+Azure Migrate oferuje centrum narzędzi do oceny i migracji na platformę Azure. Zawiera narzędzia Azure Migrate, a także inne narzędzia i oferty niezależnych dostawców oprogramowania (ISV).
 
-Jeśli chcesz dodać narzędzie do oceny i nie masz jeszcze projektu migracji platformy Azure, postępuj zgodnie z tym [artykułem](how-to-add-tool-first-time.md).
+Jeśli chcesz dodać narzędzie do oceny i nie masz jeszcze projektu Azure Migrate, postępuj zgodnie z tym [artykułem](how-to-add-tool-first-time.md).
 
-## <a name="select-a-tool"></a>Wybieranie narzędzia
+## <a name="select-a-tool"></a>Wybierz narzędzie
 
-Jeśli wybierzesz narzędzie migracji nienawiązane do platformy Azure do oceny, zacznij od uzyskania licencji lub zarejestrowania się w celu uzyskania bezpłatnej wersji próbnej, zgodnie z zasadami narzędzi. Narzędzia mają możliwość łączenia się z usługą Azure Migrate. Postępuj zgodnie z instrukcjami i dokumentacją, aby połączyć narzędzie z usługą Azure Migrate. [Dowiedz się więcej](migrate-services-overview.md) o narzędziach.
+W przypadku wybrania narzędzia innego niż Azure Migrate do oceny Zacznij od uzyskania licencji lub zarejestrowania się w celu skorzystania z bezpłatnej wersji próbnej zgodnie z zasadami dotyczącymi narzędzi. Narzędzia mają opcję nawiązywania połączenia z Azure Migrate. Postępuj zgodnie z instrukcjami i dokumentacją, aby podłączyć narzędzie do Azure Migrate. [Dowiedz się więcej](migrate-services-overview.md) o narzędziach.
 
 
-## <a name="select-an-assessment-scenario"></a>Wybieranie scenariusza oceny
+## <a name="select-an-assessment-scenario"></a>Wybierz scenariusz oceny
 
-1. W projekcie migracji platformy Azure kliknij pozycję **Przegląd**.
+1. W projekcie Azure Migrate kliknij pozycję **Przegląd**.
 2. Wybierz scenariusz oceny, którego chcesz użyć:
 
-    - Aby odnajdować i ocenić maszyny i obciążenia do migracji na platformę Azure, wybierz pozycję **Oceń i migruj serwery**.
-    - Aby ocenić lokalne maszyny SQL, wybierz pozycję **Oceń i migruj bazy danych**.
-    - Aby ocenić lokalne aplikacje internetowe, wybierz pozycję **Oceń i migruj aplikacje internetowe**.
+    - Aby odnajdywać i oceniać maszyny i obciążenia do migracji na platformę Azure, wybierz pozycję **Oceń i Przeprowadź migrację serwerów**.
+    - Aby ocenić lokalne maszyny SQL, wybierz pozycję **Oceń i Przeprowadź migrację baz danych**.
+    - Aby ocenić lokalne aplikacje sieci Web, wybierz pozycję **Oceń i Migruj aplikacje sieci Web**.
 
     ![Scenariusz oceny](./media/how-to-assess/assess-scenario.png)
 
-## <a name="select-a-server-assessment-tool"></a>Wybieranie narzędzia do oceny serwera 
+## <a name="select-a-server-assessment-tool"></a>Wybierz narzędzie do oceny serwera 
 
-1. Kliknij **pozycję Oceń i migruj serwery**.
-2. W **obszarze Migracja platformy Azure — serwery**, jeśli nie dodano narzędzia do oceny, w obszarze **Narzędzia oceny**wybierz pozycję Kliknij **tutaj, aby dodać narzędzie do oceny**. Jeśli dodano już narzędzia oceny, w obszarze **Dodaj więcej narzędzi oceny**wybierz pozycję **Zmień**.
+1. Kliknij pozycję **Oceń i Przeprowadź migrację serwerów**.
+2. W obszarze **serwery Azure Migrate**, jeśli nie dodano narzędzia do oceny, w obszarze **Narzędzia do oceny**wybierz **pozycję kliknij tutaj, aby dodać narzędzie do oceny**. Jeśli dodano już narzędzia do oceny, w obszarze **Dodaj więcej narzędzi do oceny**wybierz pozycję **Zmień**.
 
     > [!NOTE]
-    > Jeśli chcesz przejść do innego projektu, w **usłudze Azure Migrate - Servers**, obok **pozycji Zobacz szczegóły dotyczące innego projektu migracji,** kliknij przycisk **Kliknij tutaj**.
+    > Jeśli chcesz przejść do innego projektu, w obszarze **serwery Azure Migrate**, kliknij **przycisk kliknij tutaj**, aby **wyświetlić szczegóły dotyczące innego projektu migracji**.
 
-3. W **obszarze Migracja platformy Azure**wybierz narzędzie oceny, którego chcesz użyć.
+3. W **Azure Migrate**wybierz narzędzie do oceny, którego chcesz użyć.
 
-    - Jeśli używasz oceny serwera migracji platformy Azure, możesz skonfigurować, uruchomić i wyświetlić oceny bezpośrednio w projekcie migracji platformy Azure.
-    - Jeśli korzystasz z innego narzędzia do oceny, przejdź do łącza dostarczonego dla ich witryny i uruchom ocenę zgodnie z instrukcjami, które zapewniają.
+    - W przypadku korzystania z oceny serwera Azure Migrate można konfigurować, uruchamiać i przeglądać oceny bezpośrednio w projekcie Azure Migrate.
+    - Jeśli używasz innego narzędzia do oceny, przejdź do linku dostępnego dla swojej lokacji i uruchom ocenę zgodnie z instrukcjami, które zapewnia.
 
 
-## <a name="select-a-database-assessment-tool"></a>Wybieranie narzędzia do oceny bazy danych
+## <a name="select-a-database-assessment-tool"></a>Wybierz narzędzie do oceny bazy danych
 
-1. Kliknij **pozycję Oceniaj i migruj bazy danych**
-2. W **pozycji Bazy danych**kliknij pozycję Dodaj **narzędzia**.
-3. W obszarze Dodaj narzędzie > **Wybierz narzędzie oceny**wybierz narzędzie, którego chcesz użyć do oceny bazy danych.
+1. Kliknij pozycję **Oceń i Przeprowadź migrację baz danych**
+2. W obszarze **bazy danych**kliknij pozycję **Dodaj narzędzia**.
+3. W obszarze Dodawanie narzędzia > **Wybieranie**narzędzia do oceny wybierz narzędzie, którego chcesz użyć do oceny bazy danych.
 
-## <a name="select-a-web-app-assessment-tool"></a>Wybieranie narzędzia do oceny aplikacji sieci Web
+## <a name="select-a-web-app-assessment-tool"></a>Wybierz narzędzie do oceny aplikacji sieci Web
 
-1. Kliknij **pozycję Oceń i migruj aplikacje internetowe**.
-2. Kliknij łącze do narzędzia migracji dla usługi Azure App Service. Użyj narzędzia migracji, aby:
+1. Kliknij pozycję **Oceń i Migruj aplikacje sieci Web**.
+2. Użyj linku do narzędzia migracji dla Azure App Service. Użyj narzędzia migracji, aby:
 
-    - **Oceniaj aplikacje online:** możesz oceniać aplikacje za pomocą publicznego adresu URL w trybie online, korzystając z Asystenta migracji usługi Azure App Service.
-    - **.NET/PHP**: W przypadku wewnętrznych aplikacji .NET i PHP można pobrać i uruchomić Asystenta migracji.
+    - **Oceń aplikacje online**: możesz ocenić aplikacje za pomocą publicznego adresu URL w trybie online, używając Asystent migracji Azure App Service.
+    - **.NET/php**: w przypadku wewnętrznych aplikacji platformy .NET i php można pobrać i uruchomić Asystent migracji.
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wypróbuj ocenę przy użyciu oceny serwera migracji platformy Azure dla maszyn wirtualnych [VMware,](tutorial-prepare-vmware.md) [funkcji Hyper-V](tutorial-prepare-hyper-v.md)lub [serwerów fizycznych](tutorial-prepare-physical.md)
+Wypróbuj ocenę przy użyciu Azure Migrate oceny serwera dla maszyn wirtualnych [VMware](tutorial-prepare-vmware.md) , [funkcji Hyper-V](tutorial-prepare-hyper-v.md)lub [serwerów fizycznych](tutorial-prepare-physical.md)

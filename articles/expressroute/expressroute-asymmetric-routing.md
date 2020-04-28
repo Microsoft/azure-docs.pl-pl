@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: osamam
 ms.openlocfilehash: 8adfcc6559e3e2d48aabd3cfeec4fe20541917c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74072143"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routing asymetryczny z wieloma ścieżkami sieciowymi
@@ -48,7 +48,7 @@ Aby poznać efekt wywoływany przez te dwie zmiany w sieci, rozważmy niektóre 
 
 Załóżmy teraz, że usługa ExpressRoute została włączona i korzystasz z usług oferowanych przez firmę Microsoft za jej pośrednictwem. Wszystkie inne usługi firmy Microsoft są używane za pośrednictwem Internetu. Wdrożono oddzielną zaporę na krawędzi sieci łączącej się z usługą ExpressRoute. Firma Microsoft anonsuje bardziej specyficzne prefiksy sieci za pośrednictwem usługi ExpressRoute dla określonych usług. Infrastruktura routingu wybiera usługę ExpressRoute jako preferowaną ścieżkę dla tych prefiksów. Jeśli nie anonsujesz swoich publicznych adresów IP firmie Microsoft za pośrednictwem usługi ExpressRoute, firma Microsoft komunikuje się z tymi publicznymi adresami IP za pośrednictwem Internetu. Ruch wychodzący z sieci do firmy Microsoft korzysta z usługi ExpressRoute, a ruch powrotny z firmy Microsoft przechodzi przez Internet. Gdy zapora na krawędzi wykryje pakiet odpowiedzi dla przepływu, który nie jest zapisany w tabeli stanów, odrzuci ruch powrotny.
 
-Jeśli zdecydujesz się anonsować tę samą pulę tłumaczeń adresów sieciowych (NAT) dla usługi ExpressRoute i Internetu, podobne problemy z klientami w sieci będą widoczne na prywatnych adresach IP. Żądania dla usług takich jak Windows Update przechodzą za pośrednictwem Internetu, ponieważ adresy IP dla tych usług nie są anonsowane przez usługę ExpressRoute. Jednak ruch powrotny przechodzi przez usługę ExpressRoute. Jeśli firma Microsoft odbierze adres IP o tej samej masce podsieci z Internetu i usługi ExpressRoute, preferuje usługę ExpressRoute. Jeśli zapora lub inne urządzenie stanowe znajdujące się na krawędzi sieci i korzystające z usługi ExpressRoute nie posiadają wcześniejszych informacji o przepływie, pakiety należące do tego przepływu zostaną odrzucone.
+Jeśli zdecydujesz się na anonsowanie tej samej puli translatora adresów sieciowych (NAT) dla usługi ExpressRoute i dla Internetu, zobaczysz podobne problemy z klientami w sieci przy użyciu prywatnych adresów IP. Żądania dla usług takich jak Windows Update przechodzą za pośrednictwem Internetu, ponieważ adresy IP dla tych usług nie są anonsowane przez usługę ExpressRoute. Jednak ruch powrotny przechodzi przez usługę ExpressRoute. Jeśli firma Microsoft odbierze adres IP o tej samej masce podsieci z Internetu i usługi ExpressRoute, preferuje usługę ExpressRoute. Jeśli zapora lub inne urządzenie stanowe znajdujące się na krawędzi sieci i korzystające z usługi ExpressRoute nie posiadają wcześniejszych informacji o przepływie, pakiety należące do tego przepływu zostaną odrzucone.
 
 ## <a name="asymmetric-routing-solutions"></a>Rozwiązania w zakresie routingu asymetrycznego
 Dostępne są dwie główne opcje rozwiązania problemu związanego z routingiem asymetrycznym. Jeden polega na wykorzystaniu routingu, a drugi na użyciu translatora adresów sieciowych opartego na źródle (SNAT).

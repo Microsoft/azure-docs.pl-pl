@@ -1,6 +1,6 @@
 ---
-title: Kojarzenie zasad zapory aplikacji sieci Web z istniejącą bramą aplikacji platformy Azure
-description: Dowiedz się, jak skojarzyć zasady zapory aplikacji sieci Web z istniejącą bramą aplikacji platformy Azure.
+title: Kojarzenie zasad zapory aplikacji sieci Web z istniejącym Application Gateway platformy Azure
+description: Dowiedz się, jak skojarzyć zasady zapory aplikacji sieci Web z istniejącym Application Gateway platformy Azure.
 services: web-application-firewall
 ms.topic: article
 author: vhorne
@@ -8,17 +8,17 @@ ms.service: web-application-firewall
 ms.date: 10/25/2019
 ms.author: victorh
 ms.openlocfilehash: 1ed2e0cf8cc8cd841d8779462d62ba4852774a3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74083903"
 ---
-# <a name="associate-a-waf-policy-with-an-existing-application-gateway"></a>Kojarzenie zasad WAF z istniejącą bramą aplikacji
+# <a name="associate-a-waf-policy-with-an-existing-application-gateway"></a>Skojarz zasady WAF z istniejącym Application Gateway
 
-Za pomocą programu Azure PowerShell można [utworzyć zasady WAF](create-waf-policy-ag.md), ale może już mieć bramę aplikacji i po prostu chcesz skojarzyć zasady WAF z nim. W tym artykule, to zrobić tylko to; tworzysz zasady WAF i kojarzysz ją z już istniejącą bramą aplikacji. 
+Azure PowerShell można użyć do [utworzenia zasad WAFymi](create-waf-policy-ag.md), ale być może masz już Application Gateway i chcesz skojarzyć z nim zasady WAF. W tym artykule opisano, jak to zrobić. Utwórz zasady WAF i skojarz je z już istniejącym Application Gateway. 
 
-1. Pobierz bramę aplikacji i zasady zapory. Jeśli nie masz istniejących zasad zapory, zobacz krok 2. 
+1. Pobierz zasady Application Gateway i zapory. Jeśli nie masz istniejących zasad zapory, zobacz krok 2. 
 
    ```azurepowershell-interactive
       Connect-AzAccount
@@ -29,17 +29,17 @@ Za pomocą programu Azure PowerShell można [utworzyć zasady WAF](create-waf-po
       $policy = Get-AzApplicationGatewayFirewallPolicy -Name <policy name> -ResourceGroupName <RG name>`
    ```
 
-2. (Opcjonalnie) Tworzenie zasad zapory.
+2. Obowiązkowe Utwórz zasady zapory.
 
    ```azurepowershell-interactive
       New-AzApplicationGatewayFirewallPolicy -Name <policy name> -ResourceGroupName <RG name>'
       $policy = Get-AzApplicationGatewayFirewallPolicy -Name <policy name> -ResourceGroupName <RG name>`
    ```
    > [!NOTE]
-   > Jeśli tworzysz tę Politykę WAF, aby przejść z konfigura waf do zasad WAF, polityka musi być dokładną kopią starego configu. Oznacza to, że każde wykluczenie, reguła niestandardowa, wyłączona grupa reguł itp.
-3. (Opcjonalnie) Zasady WAF można skonfigurować zgodnie z potrzebami. Obejmuje to reguły niestandardowe, wyłączenie reguł/grup reguł, wykluczeń, ustawianie limitów przekazywania plików itp. Jeśli pominiesz ten krok, zostaną wybrane wszystkie wartości domyślne. 
+   > Jeśli tworzysz zasady WAF w celu przejścia z konfiguracji WAF do zasad WAF, zasady muszą być dokładną kopią starej konfiguracji. Oznacza to, że każda wykluczenie, reguła niestandardowa, wyłączona Grupa reguł itd., musi być dokładnie taka sama jak w konfiguracji WAF.
+3. Obowiązkowe Zasady WAF można skonfigurować zgodnie z potrzebami. Obejmuje to reguły niestandardowe, wyłączanie reguł/grup reguł, wykluczeń, Ustawianie limitów przekazywania plików itp. W przypadku pominięcia tego kroku zostaną zaznaczone wszystkie wartości domyślne. 
    
-4. Zapisz zasady i dołącz ją do bramy aplikacji. 
+4. Zapisz zasady i Dołącz je do Application Gateway. 
    
    ```azurepowershell-interactive
       #Save the policy itself
@@ -53,4 +53,4 @@ Za pomocą programu Azure PowerShell można [utworzyć zasady WAF](create-waf-po
    ```
 
 ## <a name="next-steps"></a>Następne kroki
-[Dowiedz się więcej o regułach niestandardowych.](configure-waf-custom-rules.md)
+[Dowiedz się więcej na temat reguł niestandardowych.](configure-waf-custom-rules.md)

@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z błędami rozszerzenia maszyny Wirtualnej systemu Windows
-description: Dowiedz się więcej o rozwiązywaniu problemów z błędami rozszerzenia maszyny Wirtualnej systemu Windows platformy Azure
+title: Rozwiązywanie problemów z błędami rozszerzenia maszyny wirtualnej systemu Windows
+description: Dowiedz się więcej na temat rozwiązywania problemów z błędami rozszerzenia maszyny wirtualnej
 services: virtual-machines-windows
 documentationcenter: ''
 author: kundanap
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
 ms.openlocfilehash: bc99a9c9e9ff985730ec97dbacd1d7c1de06a45e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74073650"
 ---
-# <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Rozwiązywanie problemów z błędami rozszerzenia maszyny Wirtualnej systemu Windows platformy Azure
+# <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Rozwiązywanie problemów z błędami rozszerzenia maszyny wirtualnej systemu Windows Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
 ## <a name="viewing-extension-status"></a>Wyświetlanie stanu rozszerzenia
-Szablony usługi Azure Resource Manager można wykonać z usługi Azure PowerShell. Po wykonaniu szablonu stan rozszerzenia można wyświetlić za pomocą Eksploratora zasobów platformy Azure lub narzędzi wiersza polecenia.
+Szablony Azure Resource Manager mogą być wykonywane z Azure PowerShell. Po wykonaniu szablonu stan rozszerzenia może być wyświetlany z poziomu Azure Resource Explorer lub narzędzi wiersza polecenia.
 
 Oto przykład:
 
@@ -60,11 +60,11 @@ Oto przykładowe dane wyjściowe:
 
 ## <a name="troubleshooting-extension-failures"></a>Rozwiązywanie problemów z błędami rozszerzeń
 ### <a name="rerun-the-extension-on-the-vm"></a>Uruchom ponownie rozszerzenie na maszynie wirtualnej
-Jeśli używasz skryptów na maszynie wirtualnej przy użyciu niestandardowego rozszerzenia skryptu, czasami można napotkać błąd, w którym maszyna wirtualna została utworzona pomyślnie, ale skrypt nie powiódł się. W tych warunkach zalecanym sposobem odzyskania danych z tego błędu jest usunięcie rozszerzenia i ponowne uruchomienie szablonu.
-Uwaga: W przyszłości ta funkcja zostanie ulepszona, aby usunąć konieczność odinstalowania rozszerzenia.
+W przypadku uruchamiania skryptów na maszynie wirtualnej przy użyciu rozszerzenia niestandardowego skryptu można czasami uruchomić polecenie w przypadku, gdy maszyna wirtualna została utworzona pomyślnie, ale skrypt nie powiódł się. W tych warunkach zalecany sposób odzyskania po tym błędzie polega na usunięciu rozszerzenia i ponownym uruchomieniu szablonu.
+Uwaga: w przyszłości ta funkcja zostanie rozszerzona w celu usunięcia konieczności odinstalowania rozszerzenia.
 
-#### <a name="remove-the-extension-from-azure-powershell"></a>Usuwanie rozszerzenia z programu Azure PowerShell
+#### <a name="remove-the-extension-from-azure-powershell"></a>Usuń rozszerzenie z Azure PowerShell
     Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
-Po usunięciu rozszerzenia szablon może zostać ponownie wykonany w celu uruchomienia skryptów na maszynie Wirtualnej.
+Po usunięciu rozszerzenia można ponownie wykonać szablon w celu uruchomienia skryptów na maszynie wirtualnej.
 

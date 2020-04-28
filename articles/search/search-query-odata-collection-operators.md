@@ -1,7 +1,7 @@
 ---
-title: Odwołanie do operatora kolekcji OData
+title: Odwołanie operatora zbierania danych OData
 titleSuffix: Azure Cognitive Search
-description: Podczas tworzenia wyrażeń filtru w zapytaniach usługi Azure Cognitive Search należy używać operatorów "dowolne" i "wszystkie" w wyrażeniach lambda, gdy filtr znajduje się w polu kolekcji lub złożonej kolekcji.
+description: Podczas tworzenia wyrażeń filtru w usłudze Azure Wyszukiwanie poznawcze zapytania należy używać operatorów "any" i "All" w wyrażeniach lambda, gdy filtr znajduje się w kolekcji lub polu kolekcji złożonej.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,19 +20,19 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74113238"
 ---
-# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operatory zbierania OData `any` w usłudze Azure Cognitive Search — i`all`
+# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operatory kolekcji OData na platformie Azure Wyszukiwanie poznawcze `any` — i`all`
 
-Podczas pisania [wyrażenia filtru OData](query-odata-filter-orderby-syntax.md) do użycia z usługi Azure Cognitive Search, często jest przydatne do filtrowania pól kolekcji. Można to osiągnąć `any` za `all` pomocą operatorów i.
+Podczas pisania [wyrażenia filtru OData](query-odata-filter-orderby-syntax.md) do użycia z usługą Azure wyszukiwanie poznawcze często warto odfiltrować pola kolekcji. Można to osiągnąć przy użyciu operatorów `any` i `all` .
 
 ## <a name="syntax"></a>Składnia
 
-Następujący EBNF[(Rozszerzony formularz Backus-Naur)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)definiuje gramatykę wyrażenia OData, które używa `any` lub `all`.
+Następujący EBNF ([Extended back-Naura form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę wyrażenia OData, które używa `any` lub. `all`
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -45,56 +45,56 @@ collection_filter_expression ::=
 lambda_expression ::= identifier ':' boolean_expression
 ```
 
-Dostępny jest również interaktywny diagram składniowy:
+Dostępny jest również interaktywny diagram składni:
 
 > [!div class="nextstepaction"]
-> [Diagram składni OData dla usługi Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
+> [Diagram składni OData dla Wyszukiwanie poznawcze platformy Azure](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
 
 > [!NOTE]
-> Zobacz [odwołanie do składni wyrażenia OData dla usługi Azure Cognitive Search](search-query-odata-syntax-reference.md) dla pełnego EBNF.
+> Zapoznaj się z informacjami o [składni wyrażenia OData dla usługi Azure wyszukiwanie poznawcze](search-query-odata-syntax-reference.md) , aby uzyskać pełną EBNF.
 
-Istnieją trzy formy wyrażenia, które filtrują kolekcje.
+Istnieją trzy formy wyrażeń, które filtrują kolekcje.
 
-- Pierwsze dwa iteracji nad pole kolekcji, stosując predykatu podane w postaci wyrażenia lambda do każdego elementu kolekcji.
-  - Wyrażenie przy `all` `true` użyciu zwraca, jeśli predykat jest true dla każdego elementu kolekcji.
-  - Wyrażenie przy `any` `true` użyciu zwraca, jeśli predykat jest true dla co najmniej jeden element kolekcji.
-- Trzecia forma filtru kolekcji używa `any` bez wyrażenia lambda, aby sprawdzić, czy pole kolekcji jest puste. Jeśli kolekcja ma jakieś elementy, zwraca `true`. Jeśli kolekcja jest pusta, zwraca `false`.
+- Pierwsze dwie iteracje w polu kolekcji, stosując predykat określony w formie wyrażenia lambda do każdego elementu kolekcji.
+  - Wyrażenie używające `all` zwraca `true` , jeśli predykat ma wartość true dla każdego elementu kolekcji.
+  - Wyrażenie używające `any` zwraca `true` , jeśli predykat ma wartość true dla co najmniej jednego elementu kolekcji.
+- Trzecia forma filtru kolekcji używa `any` bez wyrażenia lambda, aby sprawdzić, czy pole kolekcji jest puste. Jeśli kolekcja zawiera jakiekolwiek elementy, zwraca `true`. Jeśli kolekcja jest pusta, zwraca wartość `false`.
 
-Wyrażenie **lambda** w filtrze kolekcji jest jak treść pętli w języku programowania. Definiuje zmienną, zwaną **zmienną zakresu**, która przechowuje bieżący element kolekcji podczas iteracji. Definiuje również inne wyrażenie logiczne, które jest kryteria filtrowania, które mają zastosowanie do zmiennej zakresu dla każdego elementu kolekcji.
+**Wyrażenie lambda** w filtrze kolekcji jest takie jak treść pętli w języku programowania. Definiuje zmienną, nazywaną **zmienną zakresu**, która przechowuje bieżący element kolekcji podczas iteracji. Definiuje również inne wyrażenie logiczne, które jest kryteria filtru, które mają być zastosowane do zmiennej zakresu dla każdego elementu kolekcji.
 
 ## <a name="examples"></a>Przykłady
 
-Dopasuj dokumenty, których `tags` pole zawiera dokładnie ciąg "wifi":
+Dopasowuje dokumenty `tags` , których pole zawiera dokładnie ciąg "Wi-Fi":
 
     tags/any(t: t eq 'wifi')
 
-Dopasuj dokumenty, `ratings` w których każdy element pola mieści się między 3 a 5, włącznie:
+Dopasowuje dokumenty, w których każdy `ratings` element pola mieści się w zakresie od 3 do 5 włącznie:
 
     ratings/all(r: r ge 3 and r le 5)
 
-Dopasuj dokumenty, w których `locations` którykolwiek z współrzędnych geograficznych w polu znajduje się w obrębie danego wielokąta:
+Dopasuj dokumenty, w których każda ze współrzędnych `locations` geograficznych w polu znajduje się w obrębie danego wielokątu:
 
     locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
 
-Dopasuj `rooms` dokumenty, w których pole jest puste:
+Dopasuj dokumenty, w `rooms` których pole jest puste:
 
     not rooms/any()
 
-Dopasuj dokumenty, `rooms/amenities` w których dla `rooms/baseRate` wszystkich pokoi pole zawiera "tv" i jest mniejsze niż 100:
+Dopasuj dokumenty, `rooms/amenities` w przypadku których wszystkie pokoje zawierają wartość "TV" i `rooms/baseRate` jest mniejsza niż 100:
 
     rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
 
 ## <a name="limitations"></a>Ograniczenia
 
-Nie każda funkcja wyrażeń filtru jest dostępna wewnątrz treści wyrażenia lambda. Ograniczenia różnią się w zależności od typu danych pola kolekcji, które chcesz filtrować. W poniższej tabeli podsumowano ograniczenia.
+Nie każda funkcja wyrażeń filtru jest dostępna wewnątrz treści wyrażenia lambda. Ograniczenia różnią się w zależności od typu danych pola kolekcji, które chcesz filtrować. Poniższa tabela zawiera podsumowanie ograniczeń.
 
 [!INCLUDE [Limitations on OData lambda expressions in Azure Cognitive Search](../../includes/search-query-odata-lambda-limitations.md)]
 
-Aby uzyskać więcej informacji na temat tych ograniczeń, a także przykładów, zobacz [Rozwiązywanie problemów z filtrami kolekcji w usłudze Azure Cognitive Search.](search-query-troubleshoot-collection-filters.md) Aby uzyskać bardziej szczegółowe informacje na temat przyczyn istnienia tych ograniczeń, zobacz [Opis filtrów kolekcji w usłudze Azure Cognitive Search.](search-query-understand-collection-filters.md)
+Aby uzyskać więcej informacji o tych ograniczeniach oraz przykładach, zobacz [Rozwiązywanie problemów z filtrami kolekcji na platformie Azure wyszukiwanie poznawcze](search-query-troubleshoot-collection-filters.md). Aby uzyskać bardziej szczegółowe informacje o tym, dlaczego istnieją te ograniczenia, zobacz [Omówienie filtrów kolekcji na platformie Azure wyszukiwanie poznawcze](search-query-understand-collection-filters.md).
 
 ## <a name="next-steps"></a>Następne kroki  
 
-- [Filtry w usłudze Azure Cognitive Search](search-filters.md)
-- [Omówienie języka wyrażenia OData dla usługi Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [Odwołanie do składni wyrażenia OData dla usługi Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [&#41;interfejsu API usługi Azure Cognitive Search REST &#40;dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
+- [Omówienie języka wyrażeń OData dla platformy Azure Wyszukiwanie poznawcze](query-odata-filter-orderby-syntax.md)
+- [Dokumentacja składni wyrażenia OData dla usługi Azure Wyszukiwanie poznawcze](search-query-odata-syntax-reference.md)
+- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

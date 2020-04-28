@@ -1,6 +1,6 @@
 ---
-title: Tworzenie ról niestandardowych w kontroli dostępu opartej na rolach usługi Azure AD | Dokumenty firmy Microsoft
-description: Tworzenie i przypisywanie niestandardowych ról usługi Azure AD z zakresem zasobów usługi Azure w zasobach usługi Azure Active Directory.
+title: Tworzenie ról niestandardowych w kontroli dostępu opartej na rolach usługi Azure AD | Microsoft Docs
+description: Utwórz i przypisz niestandardowe role usługi Azure AD z zakresem zasobów dla zasobów Azure Active Directory.
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,48 +14,48 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2cb19c82f8c19bf87eeef755adb5756b2452512
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74025272"
 ---
-# <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Tworzenie i przypisywanie roli niestandardowej w usłudze Azure Active Directory
+# <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Tworzenie i przypisywanie roli niestandardowej w Azure Active Directory
 
-W tym artykule opisano sposób tworzenia nowych ról niestandardowych w usłudze Azure Active Directory (Azure AD). Aby zapoznać się z podstawami ról niestandardowych, zobacz [omówienie ról niestandardowych](roles-custom-overview.md). Rolę można przypisać tylko w zakresie na poziomie katalogu lub w zakresie zasobu rejestracji aplikacji.
+W tym artykule opisano sposób tworzenia nowych ról niestandardowych w usłudze Azure Active Directory (Azure AD). Podstawowe informacje na temat ról niestandardowych można znaleźć w temacie [role niestandardowe — Omówienie](roles-custom-overview.md). Rolę można przypisać zarówno w zakresie poziomu katalogu, jak i w zakresie zasobów rejestracji aplikacji.
 
-Role niestandardowe można tworzyć na karcie [Role i administratorzy](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) na stronie przegląd usługi Azure AD.
+Role niestandardowe można tworzyć na karcie [role i Administratorzy](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) na stronie Przegląd usługi Azure AD.
 
-## <a name="create-a-role-in-the-azure-portal"></a>Tworzenie roli w witrynie Azure portal
+## <a name="create-a-role-in-the-azure-portal"></a>Tworzenie roli w Azure Portal
 
-### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Tworzenie nowej roli niestandardowej w celu przyznania dostępu do zarządzania rejestracjami aplikacji
+### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Utwórz nową rolę niestandardową, aby udzielić dostępu do zarządzania rejestracjami aplikacji
 
-1. Zaloguj się do [centrum](https://aad.portal.azure.com) administracyjnego usługi Azure AD przy za pomocą uprawnień administratora ról uprzywilejowanych lub administratora globalnego w organizacji usługi Azure AD.
-1. Wybierz **role usługi Azure Active Directory** > i**administratorów** > **Nowa rola niestandardowa**.
+1. Zaloguj się do  [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com)przy użyciu uprawnień administrator ról uprzywilejowanych lub Administrator globalny w organizacji usługi Azure AD.
+1. Wybierz pozycję **Azure Active Directory** > **role i Administratorzy** > **Nowa rola niestandardowa**.
 
-   ![Tworzenie lub edytowanie ról na stronie Role i administratorzy](./media/roles-create-custom/new-custom-role.png)
+   ![Tworzenie lub edytowanie ról na stronie role i Administratorzy](./media/roles-create-custom/new-custom-role.png)
 
-1. Na karcie **Podstawy** podaj nazwę i opis roli, a następnie kliknij przycisk **Dalej**.
+1. Na karcie **podstawowe** Podaj nazwę i opis roli, a następnie kliknij przycisk **dalej**.
 
-   ![podaj nazwę i opis roli niestandardowej na karcie Podstawy](./media/roles-create-custom/basics-tab.png)
+   ![Podaj nazwę i opis roli niestandardowej na karcie podstawowe](./media/roles-create-custom/basics-tab.png)
 
-1. Na karcie **Uprawnienia** wybierz uprawnienia niezbędne do zarządzania podstawowymi właściwościami i właściwościami poświadczeń rejestracji aplikacji. Aby uzyskać szczegółowy opis każdego uprawnienia, zobacz [Podtypy i uprawnienia rejestracji aplikacji w usłudze Azure Active Directory](./roles-custom-available-permissions.md).
-   1. Najpierw wprowadź "poświadczenia" na pasku wyszukiwania `microsoft.directory/applications/credentials/update` i wybierz uprawnienie.
+1. Na karcie **uprawnienia** wybierz uprawnienia wymagane do zarządzania podstawowymi właściwościami i właściwościami poświadczeń rejestracji aplikacji. Aby uzyskać szczegółowy opis każdego z tych uprawnień, zobacz [podtypy rejestracji aplikacji i uprawnienia w Azure Active Directory](./roles-custom-available-permissions.md).
+   1. Najpierw wprowadź wartość "poświadczenia" na pasku wyszukiwania i wybierz `microsoft.directory/applications/credentials/update` uprawnienie.
 
-      ![Wybieranie uprawnień do roli niestandardowej na karcie Uprawnienia](./media/roles-create-custom/permissions-tab.png)
+      ![Wybierz uprawnienia roli niestandardowej na karcie uprawnienia](./media/roles-create-custom/permissions-tab.png)
 
-   1. Następnie wprowadź "podstawowe" na pasku `microsoft.directory/applications/basic/update` wyszukiwania, wybierz uprawnienie, a następnie kliknij przycisk **Dalej**.
-1. Na karcie **Recenzja + tworzenie** przejrzyj uprawnienia i wybierz pozycję **Utwórz**.
+   1. Następnie wprowadź wartość "podstawowa" na pasku wyszukiwania, wybierz `microsoft.directory/applications/basic/update` uprawnienie, a następnie kliknij przycisk **dalej**.
+1. Na karcie **Recenzja + tworzenie** Przejrzyj uprawnienia i wybierz pozycję **Utwórz**.
 
-Twoja rola niestandardowa pojawi się na liście dostępnych ról do przypisania.
+Rola niestandardowa zostanie wyświetlona na liście dostępnych ról do przypisania.
 
 ## <a name="create-a-role-using-powershell"></a>Tworzenie roli przy użyciu programu PowerShell
 
-### <a name="prepare-powershell"></a>Przygotowanie programu PowerShell
+### <a name="prepare-powershell"></a>Przygotowywanie programu PowerShell
 
 Najpierw należy [pobrać moduł programu PowerShell usługi Azure AD Preview](https://www.powershellgallery.com/packages/AzureADPreview).
 
-Aby zainstalować moduł programu Azure AD PowerShell, należy użyć następujących poleceń:
+Aby zainstalować moduł Azure AD PowerShell, użyj następujących poleceń:
 
 ``` PowerShell
 install-module azureadpreview
@@ -71,7 +71,7 @@ get-module azureadpreview
   Binary     2.0.2.31     azuread                      {Add-AzureADAdministrati...}
 ```
 
-### <a name="create-the-custom-role"></a>Tworzenie roli niestandardowej
+### <a name="create-the-custom-role"></a>Utwórz rolę niestandardową
 
 Utwórz nową rolę przy użyciu następującego skryptu programu PowerShell:
 
@@ -110,7 +110,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-## <a name="create-a-role-with-graph-api"></a>Tworzenie roli za pomocą interfejsu API wykresu
+## <a name="create-a-role-with-graph-api"></a>Tworzenie roli przy użyciu interfejs API programu Graph
 
 1. Utwórz definicję roli.
 
@@ -161,23 +161,23 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
    }
     ```
 
-## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Przypisywanie roli niestandardowej o zakresie do zasobu
+## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Przypisywanie roli niestandardowej do zasobu
 
-Podobnie jak role wbudowane, role niestandardowe są domyślnie przypisywane w domyślnym zakresie dla całej organizacji w celu przyznania uprawnień dostępu do wszystkich rejestracji aplikacji w organizacji. Jednak w przeciwieństwie do ról wbudowanych role niestandardowe można również przypisać w zakresie pojedynczego zasobu usługi Azure AD. Dzięki temu można udzielić użytkownikowi uprawnienia do aktualizowania poświadczeń i podstawowych właściwości pojedynczej aplikacji bez konieczności tworzenia drugiej roli niestandardowej.
+Podobnie jak wbudowane role, role niestandardowe są domyślnie przypisywane do zakresu całego całej organizacji, aby przyznać uprawnienia dostępu do wszystkich rejestracji aplikacji w organizacji. Jednak w przeciwieństwie do wbudowanych ról role niestandardowe można także przypisać do zakresu pojedynczego zasobu usługi Azure AD. Dzięki temu użytkownik może przyznać użytkownikowi uprawnienia do aktualizowania poświadczeń i podstawowych właściwości pojedynczej aplikacji bez konieczności tworzenia drugiej roli niestandardowej.
 
-1. Zaloguj się do [centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy przy tym przyuczuje uprawnienia dewelopera aplikacji w organizacji usługi Azure AD.
+1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu uprawnień dewelopera aplikacji w organizacji usługi Azure AD.
 1. Wybierz pozycję **Rejestracje aplikacji**.
-1. Wybierz rejestrację aplikacji, do której udzielasz dostępu do zarządzania. Może być trzeba wybrać **wszystkie aplikacje,** aby wyświetlić pełną listę rejestracji aplikacji w organizacji usługi Azure AD.
+1. Wybierz rejestrację aplikacji, do której chcesz udzielić dostępu do zarządzania. Może być konieczne wybranie opcji **wszystkie aplikacje** , aby wyświetlić pełną listę rejestracji aplikacji w organizacji usługi Azure AD.
 
-    ![Wybieranie rejestracji aplikacji jako zakresu zasobu dla przypisania roli](./media/roles-create-custom/appreg-all-apps.png)
+    ![Wybierz rejestrację aplikacji jako zakres zasobów dla przypisania roli](./media/roles-create-custom/appreg-all-apps.png)
 
-1. W rejestracji aplikacji wybierz pozycję **Role i administratorzy**. Jeśli nie został jeszcze utworzony, instrukcje znajdują się w [poprzedniej procedurze](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
+1. W obszarze Rejestracja aplikacji wybierz pozycję **role i Administratorzy**. Jeśli jeszcze tego nie zrobiono, instrukcje znajdują się w [poprzedniej procedurze](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
 
-1. Wybierz rolę, aby otworzyć stronę **Przydziały.**
-1. Wybierz **pozycję Dodaj przypisanie,** aby dodać użytkownika. Użytkownik otrzyma wszelkie uprawnienia tylko do wybranej rejestracji aplikacji.
+1. Wybierz rolę, aby otworzyć stronę **przypisania** .
+1. Wybierz pozycję **Dodaj przypisanie** , aby dodać użytkownika. Użytkownikowi zostaną przydzielone wszystkie uprawnienia tylko do wybranej rejestracji aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapraszam do dzielenia się z nami na [forum ról administracyjnych usługi Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-- Aby uzyskać więcej informacji o rolach i przypisywaniu ról administratora, zobacz [Przypisywanie ról administratora](directory-assign-admin-roles.md).
-- Aby uzyskać domyślne uprawnienia użytkownika, zobacz [porównanie domyślnych uprawnień gościa i użytkownika.](../fundamentals/users-default-permissions.md)
+- Podziel się z nami na [forum ról administracyjnych usługi Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+- Aby uzyskać więcej informacji o rolach i przypisaniu roli administratora, zobacz [Przypisywanie ról administratorów](directory-assign-admin-roles.md).
+- Domyślne uprawnienia użytkownika można znaleźć w [porównaniu z domyślnymi uprawnieniami gościa i użytkownika](../fundamentals/users-default-permissions.md).

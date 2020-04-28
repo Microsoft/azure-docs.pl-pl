@@ -1,7 +1,7 @@
 ---
-title: Analiza transmisji na żywo przy użyciu indeksatora wideo
+title: Analiza strumienia na żywo przy użyciu Video Indexer
 titleSuffix: Azure Media Services
-description: W tym artykule pokazano, jak przeprowadzić analizę strumienia na żywo przy użyciu indeksatora wideo.
+description: W tym artykule pokazano, jak przeprowadzić analizę strumienia na żywo przy użyciu Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,35 +11,35 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
 ms.openlocfilehash: 89d0254fc758834c437f347e6ecb7bcafc1fe467
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74186000"
 ---
-# <a name="live-stream-analysis-with-video-indexer"></a>Analiza transmisji na żywo za pomocą indeksatora wideo
+# <a name="live-stream-analysis-with-video-indexer"></a>Analiza strumienia na żywo za pomocą Video Indexer
 
-Indeksator wideo usługi Azure Media Services to usługa platformy Azure zaprojektowana w celu wyodrębniania szczegółowych informacji z plików wideo i audio w trybie offline. Ma to na celu przeanalizowanie danego pliku multimedialnego już utworzonego z wyprzedzeniem. Jednak w niektórych przypadkach użycia ważne jest, aby uzyskać wgląd w media z kanału na żywo tak szybko, jak to możliwe, aby odblokować operacyjne i inne przypadki użycia wciśnięty w czasie. Na przykład takie bogate metadane w strumieniu na żywo mogą być używane przez producentów treści do automatyzacji produkcji telewizyjnej.
+Azure Media Services Video Indexer to usługa platformy Azure zaprojektowana w celu wyodrębnienia szczegółowych informacji z plików wideo i audio w trybie offline. Jest to analiza danego pliku multimedialnego, który został już utworzony z wyprzedzeniem. Jednak w przypadku niektórych przypadków użycia ważne jest, aby uzyskać informacje o multimediach z kanału informacyjnego na żywo tak szybko, jak to możliwe, aby odblokować działania i inne przypadki użycia naciśnięto w czasie. Na przykład takie bogate metadane w strumieniu na żywo mogą być używane przez producentów zawartości do automatyzowania produkcji w TELEWIZORze.
 
-Rozwiązanie opisane w tym artykule umożliwia klientom korzystanie z indeksatora wideo w niemal rozdzielczościach w czasie rzeczywistym w kanałach na żywo. Opóźnienie w indeksowaniu może być tak niskie, jak cztery minuty przy użyciu tego rozwiązania, w zależności od fragmentów indeksowanych danych, rozdzielczość danych wejściowych, typ zawartości i oparte na obliczeniach używane dla tego procesu.
+Rozwiązanie opisane w tym artykule pozwala klientom używać Video Indexer niemal w czasie rzeczywistym w ramach rozwiązań na żywo. Opóźnienie w indeksie może wynosić co najmniej cztery minuty przy użyciu tego rozwiązania, w zależności od fragmentów indeksowanych danych, rozdzielczości wejścia, typu zawartości i obliczeń używanych dla tego procesu.
 
-![Metadane indeksatora wideo w strumieniu na żywo](./media/live-stream-analysis/live-stream-analysis01.png)
+![Metadane Video Indexer w strumieniu na żywo](./media/live-stream-analysis/live-stream-analysis01.png)
 
-*Rysunek 1 — przykładowy odtwarzacz wyświetlający metadane indeksatora wideo w strumieniu na żywo*
+*Rysunek 1 — przykładowy odtwarzacz wyświetlający metadane Video Indexer w strumieniu na żywo*
 
-[Rozwiązanie do analizy strumienia](https://aka.ms/livestreamanalysis) pod ręką, używa usługi Azure Functions i dwie aplikacje logiki do przetwarzania programu na żywo z kanału na żywo w usłudze Azure Media Services za pomocą indeksatora wideo i wyświetla wynik z usługi Azure Media Player pokazujący strumień w czasie zbliżonym do rzeczywistego.
+[Rozwiązanie do analizy strumienia](https://aka.ms/livestreamanalysis) w tej chwili używa Azure Functions i dwóch Logic Apps do przetwarzania programu na żywo z kanału na żywo w Azure Media Services z video Indexer i wyświetla wynik z Azure Media Player pokazującego strumień wynikowy niemal w czasie rzeczywistym.
 
-Na wysokim poziomie składa się z dwóch głównych etapów. Pierwszy krok jest uruchamiany co 60 sekund i wykonuje podpoślizg z ostatnich 60 sekund odtwarzania, tworzy z niego zasób i indeksuje go za pośrednictwem indeksatora wideo. Następnie drugi krok jest wywoływana po zakończeniu indeksowania. Przechwycone szczegółowe informacje są przetwarzane, wysyłane do usługi Azure Cosmos DB, a indeksowany subclip jest usuwany.
+Na wysokim poziomie składa się z dwóch głównych kroków. Pierwszy krok jest uruchamiany co 60 sekund i pobiera podklip z ostatnich 60 sekund, a następnie tworzy element zawartości z niego i indeksuje go za pośrednictwem Video Indexer. Następnie drugi krok jest wywoływany po zakończeniu indeksowania. Przechwycone informacje są przetwarzane, wysyłane do Azure Cosmos DB, a podcinanie jest usuwane.
 
-Przykładowy odtwarzacz odtwarza strumień na żywo i pobiera szczegółowe informacje z usługi Azure Cosmos DB przy użyciu dedykowanej funkcji platformy Azure. Wyświetla metadane i miniatury zsynchronizowane z wideo na żywo.
+Przykładowy odtwarzacz odtwarza strumień na żywo i pobiera szczegółowe informacje z Azure Cosmos DB przy użyciu dedykowanej funkcji platformy Azure. Wyświetla metadane i miniatury zsynchronizowane z wideo na żywo.
 
-![Dwie aplikacje logiczne przetwarzają transmisję na żywo co minutę w chmurze](./media/live-stream-analysis/live-stream-analysis02.png)
+![Dwie aplikacje logiki przetwarzają strumień na żywo co minutę w chmurze](./media/live-stream-analysis/live-stream-analysis02.png)
 
-*Rysunek 2 — dwie aplikacje logiki przetwarzania transmisji na żywo co minutę w chmurze.*
+*Rysunek 2 — dwie aplikacje logiki przetwarzają strumień na żywo co minutę w chmurze.*
 
 ## <a name="step-by-step-guide"></a>Przewodnik krok po kroku 
 
-Pełny kod i przewodnik krok po kroku, aby wdrożyć wyniki można znaleźć w [projekcie GitHub dla analizy multimediów na żywo z Video Indexer](https://aka.ms/livestreamanalysis). 
+Pełny kod i przewodnik krok po kroku służący do wdrażania wyników można znaleźć w projekcie usługi GitHub w [celu analizy multimediów na żywo za pomocą Video Indexer](https://aka.ms/livestreamanalysis). 
 
 ## <a name="next-steps"></a>Następne kroki
 

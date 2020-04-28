@@ -1,6 +1,6 @@
 ---
 title: Składniki wysokiej dostępności w usłudze Azure HDInsight
-description: Omówienie różnych składników wysokiej dostępności używanych przez klastry HDInsight.
+description: Omówienie różnych składników wysokiej dostępności używanych przez klastry usługi HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,130 +8,130 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.openlocfilehash: 38fb45fd339b5e2c7cab6f66a1ed6c0df73fb29e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74069628"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Usługi wysokiej dostępności obsługiwane przez usługę Azure HDInsight
 
- Aby zapewnić optymalny poziom dostępności składników analitycznych, firma HDInsight została opracowana z unikalną architekturą zapewniającą wysoką dostępność krytycznych usług.In, for provide you with optimal levels of availability for your analytics components, HDInsight was developed with a unique architecture for ensuring high availability (HA) of critical services. Niektóre składniki tej architektury zostały opracowane przez firmę Microsoft w celu zapewnienia automatycznego trybu failover. Inne składniki są standardowe składniki Apache, które są wdrażane do obsługi określonych usług. W tym artykule opisano architekturę modelu usługi wysokiej jakości w usłudze HDInsight, jak usługa HDInsight obsługuje tryb failover dla usług wysokiej jakości oraz najlepsze rozwiązania w celu odzyskania danych po przerwach w działaniu innych usług.
+ W celu zapewnienia optymalnego poziomu dostępności dla składników analitycznych Usługa HDInsight została opracowana przy użyciu unikatowej architektury zapewniającej wysoką dostępność (HA) krytycznych usług. Niektóre składniki tej architektury zostały opracowane przez firmę Microsoft w celu zapewnienia automatycznego przejścia w tryb failover. Inne składniki to standardowe składniki Apache wdrożone w celu obsługi określonych usług. W tym artykule wyjaśniono architekturę modelu usług HA w usłudze HDInsight, jak Usługa HDInsight obsługuje tryb failover dla usług HA oraz najlepsze rozwiązania w zakresie odzyskiwania z innych przerw w działaniu usługi.
 
-## <a name="high-availability-infrastructure"></a>Infrastruktura o wysokiej dostępności
+## <a name="high-availability-infrastructure"></a>Infrastruktura wysokiej dostępności
 
-Usługa HDInsight zapewnia dostosowaną infrastrukturę, aby zapewnić wysoką dostępność czterech podstawowych usług dzięki funkcjom automatycznego trybu failover:
+Usługa HDInsight zapewnia dostosowaną infrastrukturę w celu zapewnienia wysokiej dostępności czterech podstawowych usług dzięki automatycznym funkcjom pracy awaryjnej:
 
 - Serwer Apache Ambari
-- Serwer osi czasu aplikacji dla Apache YARN
-- Serwer historii zadań dla Hadoop MapReduce
+- Serwer Oś czasu aplikacji dla PRZĘDZy Apache
+- Serwer historii zadań dla usługi Hadoop MapReduce
 - Apache Livy
 
-Infrastruktura ta składa się z wielu usług i składników oprogramowania, z których niektóre są zaprojektowane przez firmę Microsoft. Następujące składniki są unikatowe dla platformy HDInsight:
+Ta infrastruktura składa się z wielu usług i składników oprogramowania, z których niektóre zostały zaprojektowane przez firmę Microsoft. Następujące składniki są unikatowe dla platformy usługi HDInsight:
 
-- Podrzędny kontroler pracy awaryjnej
+- Podrzędny kontroler trybu failover
 - Główny kontroler trybu failover
-- Usługa wysokiej dostępności urządzenia Slave
-- Master usługa wysokiej dostępności
+- Usługa podrzędna wysokiej dostępności
+- Główna usługa wysokiej dostępności
 
-![infrastruktura o wysokiej dostępności](./media/hdinsight-high-availability-components/high-availability-architecture.png)
+![Infrastruktura wysokiej dostępności](./media/hdinsight-high-availability-components/high-availability-architecture.png)
 
-Istnieją również inne usługi o wysokiej dostępności, które są obsługiwane przez składniki niezawodności apache open source. Te składniki są również obecne w klastrach HDInsight:
+Istnieją również inne usługi o wysokiej dostępności, które są obsługiwane przez składniki Apache niezawodności programu "open source". Te składniki są również obecne w klastrach usługi HDInsight:
 
-- Nazwa systemu plików Hadoop (HDFS)Node
-- Menedżer zasobów przędzy
-- Wzorzec bazy HBase
+- System plików Hadoop (HDFS) NameNode
+- Datasourcemanager
+- HBase Master
 
-W poniższych sekcjach zostaną bardziej szczegółowe informacje na temat współpracy tych usług.
+Poniższe sekcje zawierają szczegółowe informacje o tym, jak te usługi współpracują ze sobą.
 
-## <a name="hdinsight-high-availability-services"></a>Usługi wysokiej dostępności HDInsight
+## <a name="hdinsight-high-availability-services"></a>Usługi HDInsight wysokiej dostępności
 
-Firma Microsoft zapewnia obsługę czterech usług Apache w poniższej tabeli w klastrach HDInsight. Aby odróżnić je od usług o wysokiej dostępności obsługiwanych przez składniki z Apache, są one nazywane *usługami HDInsight HA*.
+Firma Microsoft zapewnia pomoc techniczną dla czterech usług Apache w poniższej tabeli w klastrach usługi HDInsight. Aby odróżnić je od usług wysokiej dostępności obsługiwanych przez składniki z platformy Apache, są one nazywane *usługami HDINSIGHT ha*.
 
 | Usługa | Węzły klastra | Typy klastrów | Przeznaczenie |
 |---|---|---|---|
-| Serwer Apache Ambari| Aktywny headnode | Wszystkie | Monitoruje klaster i zarządza nim.|
-| Serwer osi czasu aplikacji dla Apache YARN | Aktywny headnode | Wszystkie z wyjątkiem Kafki | Utrzymuje informacje debugowania o zadaniach YARN uruchomionych w klastrze.|
-| Serwer historii zadań dla Hadoop MapReduce | Aktywny headnode | Wszystkie z wyjątkiem Kafki | Utrzymuje debugowanie danych dla mapReduce zadań.|
-| Apache Livy | Aktywny headnode | platforma Spark | Umożliwia łatwą interakcję z klastrem Spark za pomocą interfejsu REST |
+| Serwer Apache Ambari| Aktywne węzła głównego | Wszystkie | Monitoruje klaster i zarządza nim.|
+| Serwer Oś czasu aplikacji dla PRZĘDZy Apache | Aktywne węzła głównego | Wszystkie z wyjątkiem Kafka | Utrzymuje informacje debugowania dotyczące zadań PRZĘDZy uruchomionych w klastrze.|
+| Serwer historii zadań dla usługi Hadoop MapReduce | Aktywne węzła głównego | Wszystkie z wyjątkiem Kafka | Utrzymuje dane debugowania dla zadań MapReduce.|
+| Apache Livy | Aktywne węzła głównego | platforma Spark | Umożliwia łatwą interakcję z klastrem Spark za pośrednictwem interfejsu REST |
 
 >[!Note]
-> Klastry pakietu zabezpieczeń HDInsight Enterprise Security Package (ESP) zapewniają obecnie tylko wysoką dostępność serwera Ambari.
+> Klastry usługi HDInsight pakiet Enterprise Security (ESP) obecnie zapewniają wysoką dostępność serwera Ambari.
 
 ### <a name="architecture"></a>Architektura
 
-Każdy klaster HDInsight ma dwa węzły głowy w trybach aktywnych i czuwania, odpowiednio. Usługi HDInsight HA działają tylko na headnodes. Usługi te powinny być zawsze uruchomione na aktywnym pliku headnode i zatrzymane i umieszczone w trybie konserwacji na headnode w trybie czuwania.
+Każdy klaster usługi HDInsight ma odpowiednio dwa węzłów głównych w trybie aktywnym i w stanie gotowości. Usługi HDInsight HA działają tylko na węzłów głównych. Te usługi powinny być zawsze uruchamiane w ramach aktywnego węzła głównego i zatrzymane i włączone w trybie konserwacji w węzła głównego w stanie wstrzymania.
 
-Aby utrzymać prawidłowe stany usług wysokiej jakości i zapewnić szybką przerwę w pracy awaryjnej, HDInsight wykorzystuje Apache ZooKeeper, która jest usługą koordynacyjną dla aplikacji rozproszonych, do przeprowadzania aktywnych wyborów headnode. HDInsight udostępnia również kilka procesów Java w tle, które koordynują procedurę pracy awaryjnej dla usług HDInsight HA. Usługi te są następujące: główny kontroler pracy awaryjnej, kontroler trybu failover slave, *master-ha-service*i *slave-ha-service*.
+Aby zachować poprawne Stany usług HA i zapewnić szybką pracę w trybie failover, Usługa HDInsight wykorzystuje Apache ZooKeeper, która jest usługą koordynacyjną dla aplikacji rozproszonych, do przeprowadzania aktywnych węzła głównego wyborów. Usługa HDInsight udostępnia również kilka procesów Java w tle, które koordynują procedurę przełączania do trybu failover usług HDInsight HA. Te usługi są następujące: główny kontroler trybu failover, podrzędny kontroler trybu failover, *Master-ha-Service*i *slave-ha-Service*.
 
 ### <a name="apache-zookeeper"></a>Apache ZooKeeper
 
-Apache ZooKeeper to wysokowydajna usługa koordynacji dla aplikacji rozproszonych. W produkcji ZooKeeper zwykle działa w trybie replikacji, w którym zreplikowana grupa serwerów ZooKeeper tworzy kworum. Każdy klaster HDInsight ma trzy węzły ZooKeeper, które umożliwiają trzem serwerom ZooKeeper utworzenie kworum. HDInsight ma dwa kwora ZooKeeper działające równolegle ze sobą. Jedno kworum decyduje o aktywnym należeć do głowy w klastrze, na którym powinny być uruchamiane usługi HDInsight. Inne kworum jest używane do koordynowania usług wysokiej haw świadczonych przez Apache, jak opisano w kolejnych sekcjach.
+Apache ZooKeeper to usługa koordynacji o wysokiej wydajności dla aplikacji rozproszonych. W środowisku produkcyjnym dozorcy zazwyczaj działa w trybie replikowanym, w którym replikowana Grupa serwerów dozorcy tworzy kworum. Każdy klaster usługi HDInsight ma trzy węzły dozorcy, które umożliwiają trzy serwery dozorcy do tworzenia kworum. Usługa HDInsight ma dwa kworum dozorcy uruchomione równolegle ze sobą. Jeden kworum decyduje o aktywnym węzła głównego w klastrze, w którym powinny być uruchamiane usługi HDInsight HA. Inny kworum służy do koordynowania usług HA dostarczonych przez Apache, jak opisano w dalszych sekcjach.
 
-### <a name="slave-failover-controller"></a>Podrzędny kontroler pracy awaryjnej
+### <a name="slave-failover-controller"></a>Podrzędny kontroler trybu failover
 
-Kontroler trybu failover urządzenia podrzędnego działa w każdym węźle w klastrze HDInsight. Ten kontroler jest odpowiedzialny za uruchomienie agenta Ambari i *slave-ha-service* w każdym węźle. Okresowo wysyła zapytanie do pierwszego kworum ZooKeeper o aktywnym pliku headnode. Gdy aktywne i czuwania headnodes zmiany, slave kontroler pracy awaryjnej wykonuje następujące czynności:
+Podrzędny kontroler trybu failover działa na każdym węźle klastra usługi HDInsight. Ten kontroler jest odpowiedzialny za uruchamianie agenta Ambari oraz *usługi slave-ha-Service* w każdym węźle. Okresowo wysyła zapytanie do pierwszego kworum dozorcy o aktywnej węzła głównego. Po zmianie węzłów głównych aktywnego i wstrzymania kontroler trybu failover podrzędny wykonuje następujące czynności:
 
 1. Aktualizuje plik konfiguracji hosta.
-1. Uruchamia ponownie agenta Ambari.
+1. Ponownie uruchamia agenta Ambari.
 
-Usługa *slave-ha* jest odpowiedzialna za zatrzymanie usług HDInsight HA (z wyjątkiem serwera Ambari) w trybie headnode.
+*Usługa slave-ha* jest odpowiedzialna za zatrzymywanie usług HDInsight ha (z wyjątkiem serwera Ambari) w węzła głównego w stanie wstrzymania.
 
 ### <a name="master-failover-controller"></a>Główny kontroler trybu failover
 
-Główny kontroler trybu failover działa na obu głównych plikach głównych. Oba główne kontrolery trybu failover komunikują się z pierwszym kworum ZooKeeper, aby wyznaczyć headnode, na który są uruchomione jako aktywny headnode.
+Główny kontroler trybu failover działa na obu węzłów głównychach. Oba kontrolery główne trybu failover komunikują się z pierwszym kworum dozorcy, aby wyznaczyć węzła głównego, na którym są uruchamiane jako aktywne węzła głównego.
 
-Na przykład jeśli główny kontroler trybu failover na headnode 0 wygrywa wybory, zachodą następujące zmiany:
+Na przykład jeśli główny kontroler trybu failover na węzła głównego 0 WINS wybierze następujące zmiany:
 
-1. Headnode 0 staje się aktywny.
-1. Główny kontroler trybu failover uruchamia serwer Ambari i *master-ha-service* na headnode 0.
-1. Drugi główny kontroler trybu failover zatrzymuje serwer Ambari i *master-ha-service* na headnode 1.
+1. Węzła głównego 0 zostanie uaktywniona.
+1. Główny kontroler trybu failover uruchamia serwer Ambari oraz *wzorzec-ha-Service* w węzła głównego 0.
+1. Inny główny kontroler trybu failover zatrzyma serwer Ambari oraz *wzorzec-ha-Service* w węzła głównego 1.
 
-Master-ha-service działa tylko na aktywnym headnode, zatrzymuje usługi HDInsight HA (z wyjątkiem serwera Ambari) na headnode w trybie gotowości i uruchamia je na aktywnym headnode.
+Master-ha-Service jest uruchamiany tylko na aktywnych węzła głównegoach, a usługi HDInsight HA (z wyjątkiem serwera Ambari) w węzła głównego w stanie wstrzymania i uruchamiają je na aktywnych węzła głównego.
 
-### <a name="the-failover-process"></a>Proces pracy awaryjnej
+### <a name="the-failover-process"></a>Proces trybu failover
 
-![proces pracy awaryjnej](./media/hdinsight-high-availability-components/failover-steps.png)
+![proces trybu failover](./media/hdinsight-high-availability-components/failover-steps.png)
 
-Monitor kondycji działa na każdym headnode wraz z głównym kontrolerem pracy awaryjnej, aby wysłać powiadomienia hearbeat do kworum Zookeeper. W tym scenariuszu główny plik jest uważany za usługę wysokiej analizy. Monitor kondycji sprawdza, czy każda usługa wysokiej dostępności jest zdrowa i czy jest gotowa do udziału w wyborach przywódczych. Jeśli tak, to headnode będzie konkurować w wyborach. Jeśli nie, to zrezygnuje z wyborów, dopóki nie stanie się gotowy ponownie.
+Monitor kondycji jest uruchamiany na każdym węzła głównego wraz z głównym kontrolerem trybu failover w celu wysyłania powiadomień hearbeat do kworum dozorcy. Węzła głównego jest uznawana za usługę HA w tym scenariuszu. Monitor kondycji sprawdza, czy każda usługa wysokiej dostępności jest w dobrej kondycji i czy jest gotowa do przyłączenia do wyboru lidera. Jeśli tak, ten węzła głównego będzie konkurować w wyborze. Jeśli nie, zostanie zamknięty wybór, dopóki nie zostanie ponownie przygotowana.
 
-Jeśli headnode czuwania kiedykolwiek osiągnie przywództwo i staje się aktywny (na przykład w przypadku awarii z poprzedniego węzła aktywnego), jego główny kontroler trybu failover uruchomi wszystkie usługi HDInsight HA na nim. Główny kontroler trybu failover spowoduje również zatrzymanie tych usług na drugim głównym.
+Jeśli stan gotowości węzła głównego kiedykolwiek osiągnie lidera i stanie się aktywny (na przykład w przypadku awarii w poprzednim aktywnym węźle), jego główny kontroler trybu failover rozpocznie uruchamianie wszystkich usług HDInsight HA na tym komputerze. Główny kontroler trybu failover również zatrzymuje te usługi na innych węzła głównego.
 
-W przypadku awarii usługi HDInsight HA, takich jak awaria usługi lub nieprawidłowa kondycja, główny kontroler trybu failover powinien automatycznie ponownie uruchomić lub zatrzymać usługi zgodnie ze stanem headnode. Użytkownicy nie powinni ręcznie uruchamiać usług HDInsight WYSOKIEJ jakości w obu węzłach głównym. Zamiast tego należy zezwolić na automatyczne lub ręczne przewijanie w tryb failover, aby pomóc w odzyskaniu usługi.
+W przypadku błędów usługi HDInsight HA, takich jak usługa jest wyłączona lub zła kondycja, główny kontroler trybu failover powinien automatycznie ponownie uruchomić lub zatrzymać usługi zgodnie ze stanem węzła głównego. Użytkownicy nie powinni ręcznie uruchamiać usług HDInsight HA na obu węzłach głównych. Zamiast tego Zezwól na automatyczne lub ręczne przełączenie w tryb failover, aby ułatwić odzyskanie usługi.
 
-### <a name="inadvertent-manual-intervention"></a>Nieumyślna interwencja ręczna
+### <a name="inadvertent-manual-intervention"></a>Przypadkowa interwencja ręczna
 
-Usługi HDInsight HA powinny być uruchamiane tylko na aktywnym pliku headnode i zostaną automatycznie ponownie uruchomione w razie potrzeby. Ponieważ poszczególne usługi wysokiej klasy nie mają własnego monitora kondycji, nie można wyzwolić pracy awaryjnej na poziomie poszczególnych usług. Przewijenie awaryjne jest zapewnione na poziomie węzła, a nie na poziomie usługi.
+Usługi HDInsight HA powinny działać tylko na aktywnych węzła głównegoach i zostaną automatycznie uruchomione ponownie w razie potrzeby. Ponieważ pojedyncze usługi HA nie mają własnego monitora kondycji, nie można wyzwolić trybu failover na poziomie poszczególnych usług. Przełączenie w tryb failover jest zapewnione na poziomie węzła, a nie na poziomie usługi.
 
-### <a name="some-known-issues"></a>Niektóre znane problemy
+### <a name="some-known-issues"></a>Znane problemy
 
-- Podczas ręcznego uruchamiania usługi wysokiej dostawcy usług w trybie czuwania nie zostanie ona zatrzymana, dopóki nie nastąpi następna praca awaryjna. Gdy usługi wysokiej dostępności są uruchomione na obu headnodes, niektóre potencjalne problemy obejmują: Ambari UI jest niedostępny, Ambari rzuca błędy, YARN, Spark i Oozie zadania mogą utknąć.
+- Po ręcznym uruchomieniu usługi HA w węzła głównego w stanie wstrzymania nie zostanie ona zatrzymana do momentu następnego przejścia w tryb failover. Gdy usługi HA są uruchomione na obu węzłów głównychach, niektóre potencjalne problemy obejmują: Ambari interfejs użytkownika jest niedostępny, Ambari zgłasza błędy, PRZĘDZę, Spark i Oozie mogą zostać zablokowane.
 
-- Po zatrzymaniu usługi wysokiej klasy na aktywnym nalocie nie zostanie ona ponownie uruchomiona, dopóki nie nastąpi następna praca awaryjna lub główny kontroler trybu failover/master-ha-service zostanie ponownie uruchomiony. Gdy jedna lub więcej usług wysokiej dostępności zatrzymuje się na aktywnym pliku headnode, zwłaszcza gdy serwer Ambari zatrzymuje się, interfejs użytkownika Ambari jest niedostępny, inne potencjalne problemy obejmują awarie zadań YARN, Spark i Oozie.
+- Gdy usługa HA w aktywnym węzła głównego zostaje zatrzymana, nie zostanie uruchomiona ponownie do czasu następnego przejścia w tryb failover lub główny kontroler trybu failover/główny — ha. Gdy co najmniej jedna z usług HA zostanie zatrzymana na aktywnym węzła głównego, zwłaszcza w przypadku zatrzymywania serwera Ambari, interfejs użytkownika Ambari jest niedostępny, inne potencjalne problemy obejmują niepowodzenia zadań PRZĘDZy, Spark i Oozie.
 
-## <a name="apache-high-availability-services"></a>Apache usługi o wysokiej dostępności
+## <a name="apache-high-availability-services"></a>Usługi Apache High Availability
 
-Apache zapewnia wysoką dostępność dla plików HDFS NameNode, YARN ResourceManager i HBase Master, które są również dostępne w klastrach HDInsight. W przeciwieństwie do usług HDInsight HA są one obsługiwane w klastrach ESP. Usługi Apache HA komunikują się z drugim kworum ZooKeeper (opisane w powyższej sekcji), aby wybrać stany aktywne/rezerwowe i przeprowadzić automatyczne tryb failover. W poniższych sekcjach szczegółowo opisano, jak działają te usługi.
+Usługa Apache zapewnia wysoką dostępność dla systemu HDFS NameNode, ResourceManager i HBase Master, które są również dostępne w klastrach usługi HDInsight. W przeciwieństwie do usług HDInsight HA, są one obsługiwane w klastrach ESP. Usługi Apache HA komunikują się z drugim kworum dozorcy (opisanym w powyższej sekcji) w celu wybrania Stanów aktywny/wstrzymanie i przeprowadzenie automatycznej pracy awaryjnej. W poniższych sekcjach szczegółowo opisano działanie tych usług.
 
-### <a name="hadoop-distributed-file-system-hdfs-namenode"></a>Nazwa rozproszonego systemu plików Hadoop (HDFS)Node
+### <a name="hadoop-distributed-file-system-hdfs-namenode"></a>Rozproszony system plików usługi Hadoop (HDFS) NameNode
 
-Klastry HDInsight oparte na apache Hadoop 2.0 lub nowszym zapewniają wysoką dostępność NameNode. Istnieją dwa NameNodes uruchomione na headnodes, które są skonfigurowane do automatycznego trybu failover. NameNodes używać *ZKFailoverController* do komunikowania się z Zookeeper do wyboru stanu aktywny/w trybie gotowości. *Kontroler ZKFailoverController* działa na obu headnodes i działa w taki sam sposób, jak główny kontroler trybu failover powyżej.
+Klastry usługi HDInsight oparte na Apache Hadoop 2,0 lub wyższej zapewniają wysoką dostępność NameNode. Istnieją dwa NameNodes uruchomione na węzłów głównych, które są skonfigurowane do automatycznego przełączania do trybu failover. NameNodes używają *ZKFailoverController* do komunikowania się z dozorcy, aby wybrać stan aktywny/gotowość. *ZKFailoverController* działa na obu węzłów głównychach i działa w taki sam sposób jak w przypadku głównego kontrolera trybu failover.
 
-Drugie kworum Zookeeper jest niezależne od pierwszego kworum, więc aktywne NameNode nie może działać na aktywnym headnode. Gdy aktywne NameNode jest martwy lub niezdrowe, nazwa gotowościCzyzwyć wybory i staje się aktywny.
+Drugi kworum dozorcy jest niezależny od pierwszego kworum, więc aktywne NameNode może nie działać w aktywnym węzła głównego. Gdy aktywny NameNode jest martwy lub w złej kondycji, NameNode usługi WINS i stanie się aktywny.
 
-### <a name="yarn-resourcemanager"></a>Menedżer zasobów przędzy
+### <a name="yarn-resourcemanager"></a>Datasourcemanager
 
-Klastry HDInsight oparte na apache Hadoop 2.4 lub nowszym obsługują wysoką dostępność YARN ResourceManager. Istnieją dwa ResourceManagers, rm1 i rm2, uruchomione na headnode 0 i headnode 1, odpowiednio. Podobnie jak NameNode, YARN ResourceManager jest również skonfigurowany do automatycznego trybu failover. Inny ResourceManager jest automatycznie wybierany jako aktywny, gdy bieżący aktywny ResourceManager ustępuje lub nie odpowiada.
+Klastry usługi HDInsight oparte na Apache Hadoop 2,4 lub wyższej obsługują wysoką dostępność dla ResourceManager. Istnieją dwa ResourceManagers, RM1 i RM2, które działają odpowiednio na węzła głównego 0 i węzła głównego 1. Podobnie jak w przypadku NameNode, jest również skonfigurowany do automatycznego przełączania do trybu failover. Inny datasourcemanager jest automatycznie wybierany jako aktywny, gdy bieżące aktywne datasourcemanager wyjdzie lub nie odpowiada.
 
-YARN ResourceManager używa wbudowanego *programu ActiveStandbyElector* jako detektora awarii i elektoratu lidera. W przeciwieństwie do nazwy HDFS, YARN ResourceManager nie potrzebuje oddzielnego demona ZKFC. Aktywny ResourceManager zapisuje swoje stany w Apache Zookeeper.
+Obiekt ResourceManager używa swojego osadzonego *ActiveStandbyElector* jako detektora błędów i wyborczyości lidera. W przeciwieństwie do NameNode HDFS, obiekt ResourceManager nie wymaga oddzielnego demona ZKFC. Aktywne datasourcemanager zapisuje swoje Stany w usłudze Apache dozorcy.
 
-Wysoka dostępność menedżera zasobów YARN jest niezależna od NameNode i innych usług WYSOKIEJ DOSTĘPNOŚCI HDInsight. Aktywny ResourceManager nie może działać na aktywnym headnode lub headnode, gdzie aktywny NameNode jest uruchomiony. Aby uzyskać więcej informacji na temat wysokiej dostępności menedżera zasobów YARN, zobacz [Wysoka dostępność menedżera zasobów](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
+Wysoka dostępność elementu ResourceManager jest niezależna od NameNode i innych usług HDInsight HA. Aktywna usługa ResourceManager może nie działać w aktywnym węzła głównego lub węzła głównego, gdzie działa aktywna usługa NameNode. Aby uzyskać więcej informacji o wysokiej dostępności usługi PRZĘDZy, zobacz temat [ResourceManager wysoka dostępność](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
 
-### <a name="hbase-master"></a>Wzorzec bazy HBase
+### <a name="hbase-master"></a>HBase Master
 
-Klastry HDInsight HBase obsługują wysoką dostępność usługi HBase Master. W przeciwieństwie do innych usług wysokiej bazy danych, które są uruchamiane na headnodes, HBase Masters działają na trzech węzłach Zookeeper, gdzie jeden z nich jest aktywnym wzorcem, a pozostałe dwa są w trybie gotowości. Podobnie jak NameNode, HBase Master współrzędne z Apache Zookeeper dla wyboru lidera i wykonuje automatyczne tryb failover, gdy bieżący aktywny wzorzec ma problemy. W każdej chwili istnieje tylko jeden aktywny wzorzec HBase.
+Klastry usługi HDInsight HBase obsługują wysoką dostępność HBase Master. W przeciwieństwie do innych usług HA, które działają w węzłów głównych, HBase wzorców działają w trzech węzłach dozorcy, gdzie jeden z nich jest aktywnym wzorcem, a pozostałe dwa są w stanie gotowości. Podobnie jak NameNode, HBase Master współrzędnych z Apache dozorcy dla wyboru lidera i automatycznie przełączenia w tryb failover, gdy bieżący aktywny serwer główny ma problemy. W każdej chwili istnieje tylko jeden aktywny HBase Master.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dostępność i niezawodność klastrów Apache Hadoop w systemie HDInsight](hdinsight-high-availability-linux.md)
+- [Dostępność i niezawodność klastrów Apache Hadoop w usłudze HDInsight](hdinsight-high-availability-linux.md)
 - [Architektura sieci wirtualnej usługi Azure HDInsight](hdinsight-virtual-network-architecture.md)

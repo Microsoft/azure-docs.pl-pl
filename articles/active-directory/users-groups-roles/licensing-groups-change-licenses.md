@@ -1,6 +1,6 @@
 ---
-title: Zmienianie planów licencji dla użytkowników i grup — Usługa Azure AD | Dokumenty firmy Microsoft
-description: Jak migrować użytkowników w grupie do różnych planów usług przy użyciu licencjonowania grup w usłudze Azure Active Directory
+title: Zmiana planów licencji dla użytkowników i grup — Azure AD | Microsoft Docs
+description: Jak migrować użytkowników w grupie do różnych planów usług przy użyciu licencjonowania grupowego w Azure Active Directory
 services: active-directory
 keywords: Zarządzanie licencjonowaniem w usłudze Azure AD
 documentationcenter: ''
@@ -17,68 +17,68 @@ ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf2f04e1728f94c89bddcc31c287cc017a79020f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74025905"
 ---
-# <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Zmienianie przypisań licencji dla użytkownika lub grupy w usłudze Azure Active Directory
+# <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Zmień przypisania licencji dla użytkownika lub grupy w Azure Active Directory
 
-W tym artykule opisano sposób przenoszenia użytkowników i grup między planami licencji usługi w usłudze Azure Active Directory (Azure AD). Celem podejścia usługi Azure AD jest zapewnienie, że nie ma utraty usługi lub danych podczas zmiany licencji. Użytkownicy powinni bezproblemowo przełączać się między usługami. Kroki przypisywania planu licencji opisane w tym artykule opisują zmianę użytkownika lub grupy w usłudze Office 365 E1 na Office 365 E3, ale te kroki dotyczą wszystkich planów licencji. Podczas aktualizowania przypisań licencji dla użytkownika lub grupy, usunięcia przypisania licencji i nowe przypisania są dokonywane jednocześnie, tak aby użytkownicy nie utracili dostępu do swoich usług podczas zmian licencji lub zobaczyli konflikty licencji między planami.
+W tym artykule opisano sposób przenoszenia użytkowników i grup między planami licencji usługi w Azure Active Directory (Azure AD). Podejście do usługi Azure AD ma na celu upewnienie się, że podczas zmiany licencji nie utracisz usługi ani danych. Użytkownicy powinni bezproblemowo przełączać się między usługami. W krokach przydziału planu licencji w tym artykule opisano zmianę użytkownika lub grupy w pakiecie Office 365 E1 na pakiet Office 365 E3, ale kroki dotyczą wszystkich planów licencji. Podczas aktualizowania przypisań licencji dla użytkownika lub grupy, usuwanie przypisania licencji i nowe przypisania są wprowadzane jednocześnie, aby użytkownicy nie utracili dostępu do swoich usług podczas zmian licencji lub zobaczą konflikty licencji między planami.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Przed zaktualizowaniem przypisań licencji należy sprawdzić, czy niektóre założenia są spełnione, aby wszyscy użytkownicy lub grupy zostały zaktualizowane. Jeśli założenia nie są prawdziwe dla wszystkich użytkowników w grupie, migracja może zakończyć się niepowodzeniem dla niektórych. W rezultacie niektórzy użytkownicy mogą utracić dostęp do usług lub danych. Upewnij się, że:
+Przed zaktualizowaniem przypisań licencji należy sprawdzić, czy pewne założenia są spełnione dla wszystkich użytkowników lub grup, które mają zostać zaktualizowane. Jeśli założenia nie są spełnione dla wszystkich użytkowników w grupie, migracja może zakończyć się niepowodzeniem. W związku z tym niektórzy użytkownicy mogą utracić dostęp do usług lub danych. Upewnij się, że:
 
-- Użytkownicy mają bieżący plan licencji (w tym przypadku usługi Office 365 E1), który jest przypisany do grupy i dziedziczone przez użytkownika i nie przypisane bezpośrednio.
+- Użytkownicy mają bieżący plan licencji (w tym przypadku pakiet Office 365 E1), który jest przypisany do grupy i dziedziczony przez użytkownika i nie został przypisany bezpośrednio.
 
-- Masz wystarczająco dużo dostępnych licencji dla przypisywany plan licencji. Jeśli nie masz wystarczającej liczby licencji, niektórzy użytkownicy mogą nie być przypisani do nowego planu licencji. Można sprawdzić liczbę dostępnych licencji.
+- Masz wystarczającą liczbę dostępnych licencji na przypisywany plan licencji. Jeśli nie masz wystarczającej liczby licencji, niektórzy użytkownicy mogą nie mieć przypisanego nowego planu licencjonowania. Możesz sprawdzić liczbę dostępnych licencji.
 
-- Użytkownicy nie mają innych przypisanych licencji na usługi, które mogą kolidować z żądaną licencją lub uniemożliwiać usunięcie bieżącej licencji. Na przykład licencja z usługi, takiej jak Workplace Analytics lub Project Online, która ma zależność od innych usług.
+- Użytkownicy nie mają innych przypisanych licencji usługi, które mogą powodować konflikt z żądaną licencją lub uniemożliwiają usunięcie bieżącej licencji. Na przykład Licencja z usługi, np. Analiza w miejscu pracy lub Usługa Project Online, która jest zależna od innych usług.
 
-- Jeśli zarządzasz grupami lokalnie i synchronizujesz je z usługą Azure AD za pośrednictwem usługi Azure AD Connect, dodajesz lub usuwasz użytkowników przy użyciu systemu lokalnego. Synchronizacja zmian z usługą Azure AD może zająć trochę czasu, aby je uzyskać w ramach licencjonowania grupowego.
+- W przypadku zarządzania grupami lokalnymi i synchronizowania ich w usłudze Azure AD za pośrednictwem Azure AD Connect, należy dodać lub usunąć użytkowników przy użyciu systemu lokalnego. Synchronizacja zmian z usługą Azure AD w celu pobrania ich przez Licencjonowanie grup może zająć trochę czasu.
 
-- Jeśli używasz członkostwa w grupach dynamicznych usługi Azure AD, możesz dodać lub usunąć użytkowników, zmieniając ich atrybuty, ale proces aktualizacji przypisań licencji pozostaje taki sam.
+- Jeśli używasz członkostwa w grupie dynamicznej usługi Azure AD, możesz dodawać i usuwać użytkowników, zmieniając ich atrybuty, ale proces aktualizacji dla przypisań licencji pozostaje taki sam.
 
-## <a name="change-user-license-assignments"></a>Zmienianie przypisań licencji użytkowników
+## <a name="change-user-license-assignments"></a>Zmień przypisania licencji użytkownika
 
-Na stronie **Aktualizowanie przypisań licencji,** jeśli widzisz, że niektóre pola wyboru są niedostępne, wskazuje usługi, których nie można zmienić, ponieważ są dziedziczone z licencji grupy.
+Na stronie **Aktualizowanie przypisań licencji** , Jeśli zobaczysz, że niektóre pola wyboru są niedostępne, wskazuje usługi, których nie można zmienić, ponieważ są dziedziczone z licencji grupy.
 
-1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com/) przy użyciu konta administratora licencji w organizacji usługi Azure AD.
-1. Wybierz **pozycję Użytkownicy usługi Azure Active Directory** > **Users**, a następnie otwórz stronę **profilu** dla użytkownika.
-1. Wybierz **licencje**.
-1. Wybierz **pozycję Przydziały,** aby edytować przypisanie licencji dla użytkownika lub grupy. Na stronie Przydziały można rozwiązywać **konflikty** przypisania licencji.
-1. Zaznacz pole wyboru dla usługi Office 366 E3 i upewnij się, że są zaznaczone co najmniej wszystkie usługi E1 przypisane do użytkownika.
-1. Wyczyść pole wyboru dla usługi Office 365 E1.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta administratora licencji w organizacji usługi Azure AD.
+1. Wybierz pozycję **Azure Active Directory** > **Użytkownicy**, a następnie otwórz stronę **profilu** dla użytkownika.
+1. Wybierz pozycję **licencje**.
+1. Wybierz pozycję **przypisania** , aby edytować przypisanie licencji dla użytkownika lub grupy. Na stronie **przypisania** można rozwiązać konflikty przypisywania licencji.
+1. Zaznacz pole wyboru dla pakietu Office 366 E3 i upewnij się, że wybrano co najmniej wszystkie usługi E1 przypisane do użytkownika.
+1. Wyczyść pole wyboru dla pakietu Office 365 E1.
 
-    ![strona przypisań licencji dla użytkownika z wyczyszczoną pocztą Office 365 E1 i wybraną wybraną pozycją Office 365 E3](media/licensing-groups-change-licenses/update-user-license-assignments.png)
+    ![Strona przypisania licencji dla użytkownika pokazującego wyczyszczone pakiet Office 365 E1 i zaznaczona opcja pakiet Office 365 E3](media/licensing-groups-change-licenses/update-user-license-assignments.png)
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
-Usługa Azure AD stosuje nowe licencje i usuwa stare licencje jednocześnie w celu zapewnienia ciągłości usług.
+Usługa Azure AD stosuje nowe licencje i usuwa stare licencje jednocześnie w celu zapewnienia ciągłości usługi.
 
-## <a name="change-group-license-assignments"></a>Zmienianie przypisań licencji grupowych
+## <a name="change-group-license-assignments"></a>Zmień przypisania licencji grupy
 
-1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com/) przy użyciu konta administratora licencji w organizacji usługi Azure AD.
-1. Wybierz **pozycję Grupy usługi Azure Active Directory** > **Groups**, a następnie otwórz stronę **Przegląd** dla grupy.
-1. Wybierz **licencje**.
-1. Wybierz polecenie **Przydziały,** aby edytować przypisanie licencji dla użytkownika lub grupy.
-1. Zaznacz pole wyboru dla usługi Office 366 E3. Aby zachować ciągłość usługi, upewnij się, że wybierzesz wszystkie usługi E1, które są już przypisane do użytkownika.
-1. Wyczyść pole wyboru dla usługi Office 365 E1.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta administratora licencji w organizacji usługi Azure AD.
+1. Wybierz pozycję **Azure Active Directory** > **grupy**, a następnie otwórz stronę **Przegląd** dla grupy.
+1. Wybierz pozycję **licencje**.
+1. Wybierz polecenie **przypisania** , aby edytować przypisanie licencji dla użytkownika lub grupy.
+1. Zaznacz pole wyboru dla pakietu Office 366 E3. Aby zachować ciągłość działania usługi, upewnij się, że wybrano wszystkie usługi E1, które są już przypisane do użytkownika.
+1. Wyczyść pole wyboru dla pakietu Office 365 E1.
 
-    ![Wybieranie polecenia Przydziały na stronie Licencje użytkownika lub grupy](media/licensing-groups-change-licenses/update-group-license-assignments.png)
+    ![Wybierz polecenie przypisania na stronie licencji użytkownika lub grupy](media/licensing-groups-change-licenses/update-group-license-assignments.png)
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
-Aby zapewnić ciągłość usług, usługa Azure AD stosuje nowe licencje i usuwa stare licencje jednocześnie dla wszystkich użytkowników w grupie.
+Aby zapewnić ciągłość usługi, usługa Azure AD stosuje nowe licencje i usuwa stare licencje jednocześnie dla wszystkich użytkowników w grupie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o innych scenariuszach zarządzania licencjami za pośrednictwem grup w następujących artykułach:
+Zapoznaj się z innymi scenariuszami zarządzania licencjami za pomocą grup w następujących artykułach:
 
 - [Przypisywanie licencji do grupy w usłudze Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
 - [Identyfikowanie i rozwiązywanie problemów z licencją dla grupy w usłudze Azure Active Directory](../users-groups-roles/licensing-groups-resolve-problems.md)
-- [Jak przeprowadzić migrację poszczególnych licencjonowanych użytkowników do grupowania licencjonowania w usłudze Azure Active Directory](../users-groups-roles/licensing-groups-migrate-users.md)
-- [Licencjonowanie grup usługi Azure Active Directory dodatkowe scenariusze](../users-groups-roles/licensing-group-advanced.md)
-- [Przykłady programu PowerShell dotyczące licencjonowania grup w usłudze Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)
+- [Jak migrować pojedynczych licencjonowanych użytkowników do licencjonowania grupowego w Azure Active Directory](../users-groups-roles/licensing-groups-migrate-users.md)
+- [Dodatkowe scenariusze licencjonowania grup Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+- [Przykłady programu PowerShell do licencjonowania grupowego w Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

@@ -1,7 +1,7 @@
 ---
 title: Dostosowywanie reguł przy użyciu programu PowerShell
 titleSuffix: Azure Web Application Firewall
-description: Ten artykuł zawiera informacje dotyczące dostosowywania reguł zapory aplikacji sieci Web w bramie aplikacji za pomocą programu PowerShell.
+description: Ten artykuł zawiera informacje dotyczące sposobu dostosowywania reguł zapory aplikacji sieci Web w Application Gateway przy użyciu programu PowerShell.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -9,29 +9,29 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: 55eea15da8c3a10b0421ff1576082d6b42fc7c56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74048504"
 ---
 # <a name="customize-web-application-firewall-rules-using-powershell"></a>Dostosowywanie reguł zapory aplikacji sieci Web przy użyciu programu PowerShell
 
-Zapora aplikacji bramy aplikacji azure (WAF) zapewnia ochronę aplikacji sieci web. Zabezpieczenia te są dostarczane przez podstawowy zestaw reguł projektu OWASP (Open Web Application Security Project). Niektóre reguły mogą powodować fałszywe alarmy i blokować rzeczywisty ruch. Z tego powodu brama aplikacji umożliwia dostosowanie grup reguł i reguł. Aby uzyskać więcej informacji na temat określonych grup i reguł reguł, zobacz [Lista grup i reguł reguł zapory zapory aplikacji sieci Web](application-gateway-crs-rulegroups-rules.md).
+Zapora aplikacji sieci Web Application Gateway Azure (WAF) zapewnia ochronę aplikacji sieci Web. Te zabezpieczenia są udostępniane przez zestaw reguł programu Open Web Application Security (OWASP) Core (KSR). Niektóre reguły mogą spowodować fałszywie dodatnie i blokować rzeczywisty ruch. Z tego powodu Application Gateway oferuje możliwość dostosowywania grup reguł i reguł. Aby uzyskać więcej informacji na temat określonych grup reguł i reguł, zobacz [Lista zasad i reguł reguł KSR aplikacji sieci Web](application-gateway-crs-rulegroups-rules.md).
 
-## <a name="view-rule-groups-and-rules"></a>Wyświetlanie grup reguł i reguł
+## <a name="view-rule-groups-and-rules"></a>Wyświetlanie zasad i grup reguł
 
-Poniższe przykłady kodu pokazują, jak wyświetlić reguły i grupy reguł, które można konfigurować na bramie aplikacji z włączoną funkcją WAF.
+Poniższy przykład kodu pokazuje, jak wyświetlać reguły i grupy reguł, które można skonfigurować dla bramy aplikacji z obsługą WAF.
 
-### <a name="view-rule-groups"></a>Wyświetlanie grup reguł
+### <a name="view-rule-groups"></a>Wyświetl grupy reguł
 
-W poniższym przykładzie pokazano, jak wyświetlić grupy reguł:
+Poniższy przykład pokazuje, jak wyświetlić grupy reguł:
 
 ```powershell
 Get-AzApplicationGatewayAvailableWafRuleSets
 ```
 
-Następujące dane wyjściowe są obciętą odpowiedzią z poprzedniego przykładu:
+Następujące dane wyjściowe to obcięta odpowiedź z powyższego przykładu:
 
 ```
 OWASP (Ver. 3.0):
@@ -83,9 +83,9 @@ OWASP (Ver. 3.0):
             ...        ...
 ```
 
-## <a name="disable-rules"></a>Wyłącz reguły
+## <a name="disable-rules"></a>Wyłączanie reguł
 
-Poniższy przykład wyłącza reguły `911011` i `911012` na bramie aplikacji:
+Poniższy przykład wyłącza reguły `911011` i `911012` bramę aplikacji:
 
 ```powershell
 $disabledrules=New-AzApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-911-METHOD-ENFORCEMENT -Rules 911011,911012
@@ -93,22 +93,22 @@ Set-AzApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway 
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
-## <a name="mandatory-rules"></a>Przepisy obowiązkowe
+## <a name="mandatory-rules"></a>Reguły obowiązkowe
 
-Poniższa lista zawiera warunki, które powodują, że WAF zablokować żądanie w trybie zapobiegania (w trybie wykrywania są rejestrowane jako wyjątki). Tych nie można skonfigurować ani wyłączyć:
+Poniższa lista zawiera warunki, które powodują, że WAF zablokują żądanie w trybie zapobiegania (w trybie wykrywania są rejestrowane jako wyjątki). Nie można ich skonfigurować ani wyłączyć:
 
-* Niesprzejęcie analizy treści żądania powoduje zablokowanie żądania, chyba że inspekcja ciała jest wyłączona (XML, JSON, dane formularza)
+* Nie można przeanalizować treści żądania w wyniku zablokowania żądania, chyba że inspekcja treści jest wyłączona (XML, JSON, dane formularza)
 * Długość danych treści żądania (bez plików) jest większa niż skonfigurowany limit
-* Treść żądania (łącznie z plikami) jest większa niż limit
-* Wystąpił błąd wewnętrzny w silniku WAF
+* Treść żądania (w tym pliki) jest większa niż limit
+* Wystąpił błąd wewnętrzny w aparacie WAF
 
-CRS 3.x specyficzne:
+Specyficzne dla KSR 3. x:
 
-* Wynik anomalii ruchu przychodzącego przekroczył próg
+* Próg limitu przychodzącego wyniku anomalii
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu wyłączonych reguł możesz dowiedzieć się, jak wyświetlać dzienniki WAF. Aby uzyskać więcej informacji, zobacz [Diagnostyka bramy aplikacji](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+Po skonfigurowaniu wyłączonych reguł można dowiedzieć się, jak wyświetlić dzienniki WAF. Aby uzyskać więcej informacji, zobacz [Application Gateway Diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png

@@ -1,6 +1,6 @@
 ---
-title: Funkcja szyfrowania danych usługi Azure Site Recovery | Dokumenty firmy Microsoft
-description: Szczegóły funkcji szyfrowania danych usługi Azure Site Recovery
+title: Przestarzałe funkcje szyfrowania danych Azure Site Recovery | Microsoft Docs
+description: Details Azure Site Recovery regarig — funkcja szyfrowania danych
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -9,39 +9,39 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: rajanaki
 ms.openlocfilehash: 5e74466891a5926d8ae8feb3c1c48348ecf3cfe6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74134998"
 ---
-# <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Wycofanie funkcji szyfrowania danych odzyskiwania witryny
+# <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Przestarzałe funkcje szyfrowania danych Site Recovery
 
-W tym dokumencie opisano szczegóły wycofania i akcję korygującą, którą należy wykonać, jeśli używasz funkcji szyfrowania danych odzyskiwania witryny podczas konfigurowania odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V na platformie Azure. 
+W tym dokumencie opisano szczegóły dotyczące wycofania i akcji korygowania, które należy wykonać w przypadku korzystania z funkcji szyfrowania danych Site Recovery podczas konfigurowania odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V na platformie Azure. 
 
-## <a name="deprecation-information"></a>Informacje o deprecjacji
-
-
-Funkcja szyfrowania danych odzyskiwania witryny była dostępna dla klientów chroniących maszyny wirtualne funkcji Hyper-V, aby zapewnić, że replikowane dane są chronione przed zagrożeniami bezpieczeństwa. ta funkcja zostanie przestarzała do **30 grudnia 2019 r.** Jest on zastępowany przez bardziej zaawansowaną funkcję [Szyfrowanie w spoczynku,](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) która używa [szyfrowania usługi storage service](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE). Za pomocą usługi SSE dane są szyfrowane przed utrwalaniem do magazynu i odszyfrowywane podczas pobierania, a po przejściu w błąd na platformie Azure maszyny wirtualne będą uruchamiane z zaszyfrowanych kont magazynu, co pozwala na lepszy cel czasu odzyskiwania (RTO).
-
-Należy pamiętać, że jeśli jesteś istniejącym klientem korzystającym z tej funkcji, otrzymałbyś komunikację ze szczegółami wycofania i krokami korygowania. 
+## <a name="deprecation-information"></a>Informacje o zaniechaniu
 
 
-## <a name="what-are-the-implications"></a>Jakie są tego konsekwencje?
+Funkcja szyfrowanie danych Site Recovery była dostępna dla klientów chroniących maszyny wirtualne funkcji Hyper-V w celu zapewnienia ochrony replikowanych danych przed zagrożeniami bezpieczeństwa. Ta funkcja zostanie zaniechana **30 grudnia 2019**. Jest ona zastępowana przez bardziej zaawansowane [szyfrowanie w funkcji REST](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) , która używa [szyfrowanie usługi Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE). W przypadku używania instrukcji SSE dane są szyfrowane przed utrwalaniem magazynu i odszyfrowywane podczas pobierania, a po przejściu do trybu failover na platformie Azure maszyny wirtualne będą uruchamiane z zaszyfrowanego konta magazynu, co pozwala na udoskonalony cel czasu odzyskiwania (RTO).
 
-Po **30 grudnia 2019**r. wszystkie maszyny wirtualne, które nadal korzystają z funkcji szyfrowania wycofane, nie będą mogły wykonywać pracy awaryjnej. 
+Zwróć uwagę na to, że jeśli jesteś istniejącym klientem korzystającym z tej funkcji, otrzymasz komunikat z informacjami o wycofaniu i procedurami naprawczymi. 
+
+
+## <a name="what-are-the-implications"></a>Jakie są implikacje?
+
+Po **30 grudnia 2019**wszystkie maszyny wirtualne, które nadal korzystają z wycofywanej funkcji szyfrowania, nie będą mogły wykonywać trybu failover. 
 
 ## <a name="required-action"></a>Wymagana akcja
-Aby kontynuować pomyślne operacje pracy awaryjnej i replikacji, wykonaj kroki opisane poniżej:
+Aby kontynuować pomyślne operacje przełączania do trybu failover, wykonaj czynności opisane poniżej:
 
-Wykonaj następujące kroki dla każdej maszyny Wirtualnej: 
+Wykonaj następujące kroki dla każdej maszyny wirtualnej: 
 1.  [Wyłącz replikację](https://docs.microsoft.com/azure/site-recovery/site-recovery-manage-registration-and-protection#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
-2.  [Utwórz nową zasadę replikacji](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-tutorial#set-up-a-replication-policy).
-3.  [Włącz replikację](https://docs.microsoft.com/azure/site-recovery/hyper-v-vmm-azure-tutorial#enable-replication) i wybierz konto magazynu z włączoną funkcją SSE.
+2.  [Utwórz nowe zasady replikacji](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-tutorial#set-up-a-replication-policy).
+3.  [Włącz replikację](https://docs.microsoft.com/azure/site-recovery/hyper-v-vmm-azure-tutorial#enable-replication) i wybierz konto magazynu z WŁĄCZONĄ funkcją SSE.
 
-Po zakończeniu replikacji początkowej do kont magazynu z włączoną SSE maszyny wirtualne będą używać szyfrowania w spoczynku z usługą Azure Site Recovery.
+Po zakończeniu replikacji początkowej na konta magazynu z włączoną obsługą funkcji SSE maszyny wirtualne będą używać szyfrowania przechowywanego w Azure Site Recovery.
 
 
 ## <a name="next-steps"></a>Następne kroki
-Zaplanuj wykonanie kroków korygowania i wykonaj je najwcześniej. W przypadku jakichkolwiek pytań dotyczących tego wycofania, skontaktuj się z pomocą techniczną firmy Microsoft. Aby dowiedzieć się więcej o scenariuszu funkcji Hyper-V na platformie Azure, zapoznaj się [z tym polem.](hyper-v-vmm-architecture.md)
+Zaplanuj wykonywanie kroków zaradczych i wykonaj je najwcześniej. Jeśli masz jakieś zapytania dotyczące tego wycofania, skontaktuj się z pomoc techniczna firmy Microsoft. Aby dowiedzieć się więcej na temat scenariusza funkcji Hyper-V do platformy Azure, zobacz [tutaj](hyper-v-vmm-architecture.md).
 

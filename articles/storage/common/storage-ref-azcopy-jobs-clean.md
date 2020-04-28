@@ -1,6 +1,6 @@
 ---
-title: azcopy praca czyste | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera informacje referencyjne dla zadania azcopy clean polecenia.
+title: czyszczenie zadań AzCopy | Microsoft Docs
+description: Ten artykuł zawiera informacje referencyjne dla polecenia AzCopy Jobs Clean.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,26 +9,26 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 7ae14c3606dfe6bffa8481682843f3f2e85c2131
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74033718"
 ---
 # <a name="azcopy-jobs-clean"></a>azcopy jobs clean
 
-Usuwanie wszystkich plików dziennika i planowania dla wszystkich zadań
+Usuń wszystkie pliki dziennika i planu dla wszystkich zadań
 
 ```
 azcopy jobs clean [flags]
 ```
 
-## <a name="related-conceptual-articles"></a>Powiązane artykuły koncepcyjne
+## <a name="related-conceptual-articles"></a>Pokrewne artykuły koncepcyjne
 
 - [Wprowadzenie do narzędzia AzCopy](storage-use-azcopy-v10.md)
-- [Przesyłanie danych za pomocą pamięci masowej AzCopy i Blob](storage-use-azcopy-blobs.md)
-- [Przesyłanie danych za pomocą AzCopy i przechowywania plików](storage-use-azcopy-files.md)
-- [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z programem AzCopy](storage-use-azcopy-configure.md)
+- [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](storage-use-azcopy-blobs.md)
+- [Transferowanie danych za pomocą AzCopy i magazynu plików](storage-use-azcopy-files.md)
+- [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Przykłady
 
@@ -38,16 +38,16 @@ azcopy jobs clean [flags]
 
 ## <a name="options"></a>Opcje
 
-**-h, --pomoc**                Pomoc dla czystego.
+**-h,--pomoc**                Pomoc dla czyszczenia.
 
-**--z-status** string Tylko usunąć zadania o tym stanie, dostępne wartości: Anulowane, Zakończone, Nie powiodło się, InProgress, Wszystkie (domyślnie "Wszystkie")
+parametr **--with-status** usuwa tylko zadania z tym stanem, dostępne wartości: anulowane, zakończone, zakończone niepowodzeniem, w toku, wszystkie (domyślnie "wszystkie")
 
 ## <a name="options-inherited-from-parent-commands"></a>Opcje dziedziczone z poleceń nadrzędnych
 
-**--cap-mbps uint32**      Limity szybkości transferu w megabitach na sekundę. Przepływność moment po chwili może się nieznacznie różnić od limitu. Jeśli ta opcja jest ustawiona na zero lub jest pomijana, przepływność nie jest ograniczona.
+**--Cap-MB/s UInt32**      Szybkość transferu w megabitach na sekundę. Przepływność czasu na chwilę może się nieco różnić od końca. Jeśli ta opcja jest ustawiona na zero lub zostanie pominięta, przepływność nie zostanie ograniczona.
 
-**--output-type** string Format wyjścia polecenia. Do wyboru są: tekst, json. Wartością domyślną jest "text". (domyślny "tekst")
+**--** format ciągu typu danych wyjściowych polecenia. Dostępne opcje to: text, JSON. Wartość domyślna to "text". (domyślny "tekst")
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [azcopy jobs](storage-ref-azcopy-jobs.md)

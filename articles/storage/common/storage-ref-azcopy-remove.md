@@ -1,6 +1,6 @@
 ---
-title: azcopy usunąć | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera informacje referencyjne dla polecenia azcopy remove.
+title: AzCopy Usuń | Microsoft Docs
+description: Ten artykuł zawiera informacje referencyjne dotyczące polecenia AzCopy Remove.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,15 +9,15 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: abce1acb88e920c0de7bbb6447ec9d838f10486c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74034000"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
-Usuwanie obiektów blob lub plików z konta magazynu platformy Azure.
+Usuwanie obiektów blob lub plików z konta usługi Azure Storage.
 
 ## <a name="synopsis"></a>Streszczenie
 
@@ -25,46 +25,46 @@ Usuwanie obiektów blob lub plików z konta magazynu platformy Azure.
 azcopy remove [resourceURL] [flags]
 ```
 
-## <a name="related-conceptual-articles"></a>Powiązane artykuły koncepcyjne
+## <a name="related-conceptual-articles"></a>Pokrewne artykuły koncepcyjne
 
 - [Wprowadzenie do narzędzia AzCopy](storage-use-azcopy-v10.md)
-- [Przesyłanie danych za pomocą pamięci masowej AzCopy i Blob](storage-use-azcopy-blobs.md)
-- [Przesyłanie danych za pomocą AzCopy i przechowywania plików](storage-use-azcopy-files.md)
-- [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z programem AzCopy](storage-use-azcopy-configure.md)
+- [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](storage-use-azcopy-blobs.md)
+- [Transferowanie danych za pomocą AzCopy i magazynu plików](storage-use-azcopy-files.md)
+- [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Przykłady
 
-Usuń pojedynczy obiekt blob z sygnaturą dostępu Współdzielonego:
+Usuń pojedynczy obiekt BLOB z sygnaturą dostępu współdzielonego:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
-Usuń cały katalog wirtualny z sygnaturą dostępu Współdzielonego:
+Usuń cały katalog wirtualny z sygnaturą dostępu współdzielonego:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
 ```
 
-Usuń tylko górne obiekty blob wewnątrz katalogu wirtualnego, ale nie jego podkatarzy:
+Usuń tylko najpopularniejsze obiekty blob znajdujące się w katalogu wirtualnym, ale nie jego podkatalogach:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=false
 ```
 
-Usuń podzbiór obiektów blob w katalogu wirtualnym (na przykład: tylko pliki jpg i pdf lub jeśli nazwa obiektu blob to "exactName"):
+Usuń podzestaw obiektów BLOB w katalogu wirtualnym (na przykład: tylko pliki jpg i PDF lub nazwa obiektu BLOB to "exactname"):
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --include="*.jpg;*.pdf;exactName"
 ```
 
-Usuń cały katalog wirtualny, ale wyklucz niektóre obiekty BLOB z zakresu (na przykład: każdy obiekt blob, który zaczyna się od foo lub kończy się na pasku):
+Usuń cały katalog wirtualny, ale Wyklucz określone obiekty blob z zakresu (na przykład: każdy obiekt BLOB, który rozpoczyna się od foo lub kończąc z paskiem):
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude="foo*;*bar"
 ```
 
-Usuń określone obiekty BLOB i katalogi wirtualne, umieszczając w pliku ich ścieżki względne (NIE zakodowane w adresie URL):
+Usuń określone obiekty blob i katalogi wirtualne, umieszczając ich ścieżki względne (nie kodowane w adresie URL) w pliku:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/dir]" --recursive=true --list-of-files=/usr/bar/list.txt
@@ -75,13 +75,13 @@ file content:
 
 ```
 
-Usuń pojedynczy plik z konta magazynu obiektów blob, który ma hierarchiczny obszar nazw (dołącz/wyklucz nie jest obsługiwany).
+Usuń pojedynczy plik z konta Blob Storage, które ma hierarchiczną przestrzeń nazw (dołączanie/wykluczanie nie jest obsługiwane).
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/file]?[SAS]"
 ```
 
-Usuń pojedynczy katalog konta magazynu obiektów Blob, który ma hierarchiczny obszar nazw (uwzględnij/wyklucz nie jest obsługiwany):
+Usuń pojedynczy katalog a Blob Storage konto, które ma hierarchiczną przestrzeń nazw (nie obsługiwane/wykluczone):
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory]?[SAS]"
@@ -89,29 +89,29 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Opcje
 
-**Ciąg --exclude-path**      Wyklucz te ścieżki podczas usuwania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza względny prefiks ścieżki. Na przykład: myFolder;myFolder/subDirName/file.pdf.
+**--exclude-Path — ciąg**      Wyklucz te ścieżki podczas usuwania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej. Na przykład: folder. webfolders/subDirName/plik. PDF.
 
-**Ciąg --exclude-pattern** Wyklucz pliki, w których nazwa jest zgodna z listą wzorców. Na przykład: *.jpg;*. pdf;exactName
+**--exclude-String wykluczanie** plików, w których nazwa jest zgodna z listą wzorców. Na przykład: *. jpg;*. PDF; exactname
 
-**-h, --pomoc** w usuwaniu
+**-h,--** Pomoc dotycząca usuwania
 
-**--include-path** string Uwzględnij tylko te ścieżki podczas usuwania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza względny prefiks ścieżki. Na przykład: mójFolder;mójFolder/subDirName/file.pdf
+**--include-Path** ciąg Uwzględnij tylko te ścieżki podczas usuwania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej. Na przykład: Moja folder; folder/subDirName/plik. PDF
 
-**--include-pattern** string Uwzględnij tylko pliki, w których nazwa jest zgodna z listą wzorców. Na przykład: *.jpg;*. pdf;exactName
+**--dołączany** ciąg do wzorca zawiera tylko pliki, w których nazwa jest zgodna z listą wzorców. Na przykład: *. jpg;*. PDF; exactname
 
-**Ciąg --list-of-files** Definiuje lokalizację pliku, który zawiera listę plików i katalogów do usunięcia. Ścieżki względne powinny być rozdzielane podziałami wierszy, a ścieżki NIE powinny być zakodowane w adresie URL.
+**--ciąg listy plików** definiuje lokalizację pliku, który zawiera listę plików i katalogów do usunięcia. Ścieżki względne powinny być rozdzielane przez podziały wierszy, a ścieżki nie powinny być kodowane przy użyciu adresu URL.
 
-**Ciąg --log-level** Zdefiniuj szczegółowość dziennika dla pliku dziennika. Dostępne poziomy obejmują: INFO (wszystkie żądania/odpowiedzi), OSTRZEŻENIE (powolne odpowiedzi), BŁĄD (tylko nieudane żądania) i BRAK (brak dzienników danych wyjściowych). (domyślnie 'INFO') (domyślnie "INFO")
+**--ciąg poziomu dziennika** definiuje szczegółowość dziennika dla pliku dziennika. Dostępne poziomy obejmują: informacje (wszystkie żądania/odpowiedzi), ostrzeżenie (wolne odpowiedzi), błąd (tylko Nieudane żądania) i brak (bez dzienników wyjściowych). (wartość domyślna to "INFO") (wartość domyślna: "INFO")
 
-**--rekursywny**                Przyjrzyj się cyklicznie podkatarzy podczas synchronizacji między katalogami.
+**--rekursywnie**                Poszukaj podkatalogów cyklicznie podczas synchronizacji między katalogami.
 
 ## <a name="options-inherited-from-parent-commands"></a>Opcje dziedziczone z poleceń nadrzędnych
 
 |Opcja|Opis|
 |---|---|
-|--cap-mbps uint32|Limity szybkości transferu w megabitach na sekundę. Przepływność moment po chwili może się nieznacznie różnić od limitu. Jeśli ta opcja jest ustawiona na zero lub jest pomijana, przepływność nie jest ograniczona.|
-|Ciąg typu --output|Format danych wyjściowych polecenia. Do wyboru są: tekst, json. Wartością domyślną jest "tekst".|
+|--Cap-MB/s UInt32|Szybkość transferu w megabitach na sekundę. Przepływność czasu na chwilę może się nieco różnić od końca. Jeśli ta opcja jest ustawiona na zero lub zostanie pominięta, przepływność nie zostanie ograniczona.|
+|--ciąg typu wyjściowego|Format danych wyjściowych polecenia. Dostępne opcje to: text, JSON. Wartość domyślna to "text".|
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [azcopy](storage-ref-azcopy.md)

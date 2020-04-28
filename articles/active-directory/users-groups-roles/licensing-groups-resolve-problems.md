@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z przypisywaniem licencji grupowych — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Jak identyfikować i rozwiązywać problemy z przypisywaniem licencji podczas korzystania z licencjonowania opartego na grupach usługi Azure Active Directory
+title: Rozwiązywanie problemów z przypisaniem licencji grupy — Azure Active Directory | Microsoft Docs
+description: Jak identyfikować i rozwiązywać problemy z przypisaniem licencji podczas korzystania z licencjonowania opartego na grupach Azure Active Directory
 services: active-directory
 keywords: Zarządzanie licencjonowaniem w usłudze Azure AD
 documentationcenter: ''
@@ -16,170 +16,170 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ddfc4bf7ed3bdf214a44a5dfe03259d32b2f3f94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74025693"
 ---
-# <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identyfikowanie i rozwiązywanie problemów z przypisaniem licencji dla grupy w usłudze Azure Active Directory
+# <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identyfikowanie i rozwiązywanie problemów z przypisaniem licencji dla grupy w Azure Active Directory
 
-Licencjonowanie oparte na grupach w usłudze Azure Active Directory (Azure AD) wprowadza koncepcję użytkowników w stanie błędu licencjonowania. W tym artykule wyjaśniamy powody, dla których użytkownicy mogą skończyć w tym stanie.
+Licencjonowanie oparte na grupach w Azure Active Directory (Azure AD) wprowadza koncepcję użytkowników w stanie błąd licencjonowania. W tym artykule wyjaśniono przyczyny, dla których użytkownicy mogą zakończyć w tym stanie.
 
-W przypadku przypisywania licencji bezpośrednio do poszczególnych użytkowników bez korzystania z licencjonowania opartego na grupach operacja przypisania może zakończyć się niepowodzeniem. Na przykład podczas wykonywania polecenia cmdlet `Set-MsolUserLicense` programu PowerShell w systemie użytkownika, polecenie cmdlet może zakończyć się niepowodzeniem z wielu powodów, które są związane z logiką biznesową. Na przykład może istnieć niewystarczająca liczba licencji lub konflikt między dwoma planami usług, których nie można przypisać w tym samym czasie. Problem jest natychmiast zgłaszany z powrotem do Ciebie.
+Po przypisaniu licencji bezpośrednio do poszczególnych użytkowników bez korzystania z licencjonowania opartego na grupach operacja przypisania może zakończyć się niepowodzeniem. Na przykład po wykonaniu polecenia cmdlet `Set-MsolUserLicense` programu PowerShell w systemie użytkownika polecenie cmdlet może zakończyć się niepowodzeniem z wielu powodów związanych z logiką biznesową. Na przykład może być niewystarczająca liczba licencji lub występuje konflikt między dwoma planami usług, których nie można przypisać w tym samym czasie. Problem jest natychmiast raportowany do Ciebie.
 
-Podczas korzystania z licencjonowania opartego na grupach mogą wystąpić te same błędy, ale występują one w tle, gdy usługa Azure AD przypisuje licencje. Z tego powodu błędy nie mogą być natychmiast przekazane. Zamiast tego są one rejestrowane w obiekcie użytkownika, a następnie zgłaszane za pośrednictwem portalu administracyjnego. Oryginalny zamiar licencjonowanie użytkownika nigdy nie zostanie utracony, ale jest rejestrowany w stanie błędu dla przyszłych badań i rozwiązania.
+W przypadku korzystania z licencjonowania opartego na grupach te same błędy mogą wystąpić, ale występują w tle, podczas gdy usługa Azure AD przypisuje licencje. Z tego powodu błędy nie mogą być od razu przekazane. Zamiast tego są one rejestrowane w obiekcie użytkownika, a następnie raportowane za pośrednictwem portalu administracyjnego. Oryginalny cel licencji użytkownika nigdy nie jest tracony, ale jest rejestrowany w stanie błędu w celu przyszłego zbadania i rozwiązania problemu.
 
-## <a name="find-license-assignment-errors"></a>Znajdowanie błędów przypisania licencji
+## <a name="find-license-assignment-errors"></a>Znajdowanie błędów przypisywania licencji
 
 ### <a name="to-find-users-in-an-error-state-in-a-group"></a>Aby znaleźć użytkowników w stanie błędu w grupie
 
-1. Otwórz grupę na jej stronie przeglądu i wybierz pozycję **Licencje**. Powiadomienie pojawia się, jeśli są użytkownicy w stanie błędu.
+1. Otwórz grupę na stronie Przegląd i wybierz pozycję **licencje**. Zostanie wyświetlone powiadomienie, jeśli wystąpią jakieś użytkownicy w stanie błędu.
 
-   ![Wiadomość z powiadomieniami o grupach i błędach](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Komunikat dotyczący grup i powiadomień o błędzie](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
-1. Wybierz powiadomienie, aby otworzyć listę wszystkich użytkowników, których dotyczy problem. Możesz wybrać każdego użytkownika indywidualnie, aby wyświetlić więcej szczegółów.
+1. Wybierz powiadomienie, aby otworzyć listę wszystkich użytkowników, których to dotyczy. Możesz wybrać każdego użytkownika osobno, aby zobaczyć więcej szczegółów.
 
-   ![lista użytkowników w stanie błędu licencjonowania grupowego](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![Lista użytkowników w stanie błędu licencjonowania grupy](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-1. Aby znaleźć wszystkie grupy zawierające co najmniej jeden błąd, w bloku **usługi Azure Active Directory** wybierz pozycję **Licencje**, a następnie wybierz **pozycję Przegląd**. Okno informacyjne jest wyświetlane, gdy grupy wymagają uwagi.
+1. Aby znaleźć wszystkie grupy zawierające co najmniej jeden błąd, w bloku **Azure Active Directory** wybierz pozycję **licencje**, a następnie wybierz pozycję **Przegląd**. Pole informacji jest wyświetlane, gdy grupy wymagają Twojej uwagi.
 
-   ![Omówienie i informacje o grupach w stanie błędu](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Omówienie i informacje o grupach w stanie błąd](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
-1. Zaznacz to pole, aby wyświetlić listę wszystkich grup z błędami. Aby uzyskać więcej informacji, można wybrać każdą grupę.
+1. Zaznacz pole, aby wyświetlić listę wszystkich grup z błędami. Aby uzyskać więcej informacji, możesz wybrać każdą grupę.
 
-   ![Przegląd i lista grup z błędami](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Omówienie i lista grup z błędami](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
-W poniższych sekcjach przedstawiono opis każdego potencjalnego problemu i sposób jego rozwiązania.
+Poniższe sekcje zawierają opis każdego potencjalnego problemu i sposobu jego rozwiązania.
 
 ## <a name="not-enough-licenses"></a>Za mało licencji
 
-**Problem:** Nie ma wystarczającej liczby dostępnych licencji dla jednego z produktów określonych w grupie. Musisz kupić więcej licencji na produkt lub zwolnić nieużywane licencje od innych użytkowników lub grup.
+**Problem:** Za mało dostępnych licencji dla jednego z produktów określonych w grupie. Musisz zakupić więcej licencji dla produktu lub zwolnić niewykorzystane licencje od innych użytkowników lub grup.
 
-Aby zobaczyć, ile licencji jest dostępnych, przejdź do usługi**Licencje** >  **usługi Azure Active Directory** > Wszystkie**produkty**.
+Aby sprawdzić, ile licencji jest dostępnych, przejdź do pozycji **Azure Active Directory** > **licencje** > **wszystkie produkty**.
 
-Aby zobaczyć, którzy użytkownicy i grupy korzystają z licencji, wybierz produkt. W obszarze **Licencjonowani użytkownicy**zobaczysz listę wszystkich użytkowników, którzy mieli licencje przypisane bezpośrednio lub za pośrednictwem jednej lub większej liczby grup. W **obszarze Grupy licencjonowane**są widoczne wszystkie grupy, do których przypisano te produkty.
+Aby sprawdzić, którzy użytkownicy i które grupy korzystają z licencji, wybierz produkt. W obszarze **Licencjonowani użytkownicy**zobaczysz listę wszystkich użytkowników, którzy mają przypisane licencje bezpośrednio lub za pośrednictwem co najmniej jednej grupy. W obszarze **grupy licencjonowane**zostaną wyświetlone wszystkie grupy, które mają przypisane te produkty.
 
-**Program PowerShell:** Polecenia cmdlet programu PowerShell zgłaszają ten błąd jako _CountViolation_.
+Program **PowerShell:** Polecenia cmdlet programu PowerShell zgłaszają ten błąd jako _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Sprzeczne plany usług
+## <a name="conflicting-service-plans"></a>Sprzeczne plany usługi
 
-**Problem:** Jeden z produktów, który jest określony w grupie zawiera plan usług, który jest w konflikcie z innym planem usług, który jest już przypisany do użytkownika za pośrednictwem innego produktu. Niektóre plany usług są skonfigurowane w taki sposób, że nie można ich przypisać do tego samego użytkownika co inny, powiązany plan usług.
+**Problem:** Jeden z produktów określonych w grupie zawiera plan usługi, który powoduje konflikt z innym planem usługi, który został już przypisany do użytkownika za pośrednictwem innego produktu. Niektóre plany usług są konfigurowane w taki sposób, że nie mogą być przypisane do tego samego użytkownika, który jest powiązany z innym planem usługi.
 
-Rozważmy następujący przykład. Użytkownik ma licencję na usługi Office 365 Enterprise *E1* przypisaną bezpośrednio, z włączoną obsługą wszystkich planów. Użytkownik został dodany do grupy z przypisanym produktem Office 365 Enterprise *E3.* Produkt E3 zawiera plany usług, które nie mogą pokrywać się z planami zawartymi w E1, więc przypisanie licencji grupy kończy się niepowodzeniem z błędem "Sprzeczne plany usług". W tym przykładzie sprzeczne plany usług są:
+Rozważmy następujący przykład. Użytkownik ma licencję na pakiet Office 365 Enterprise *E1* przypisaną bezpośrednio, ze wszystkimi włączonymi planami. Użytkownik został dodany do grupy, która ma przypisany pakiet Office 365 Enterprise *E3* . Produkt E3 zawiera plany usług, które nie mogą nakładać się na plany, które są uwzględnione w E1, więc przypisanie licencji grupy kończy się niepowodzeniem z powodu błędu "plany usługi w konflikcie". W tym przykładzie plany usługi powodujące konflikt są następujące:
 
-- SharePoint Online (Plan 2) powoduje konflikt z usługą SharePoint Online (plan 1).
+- SharePoint Online (plan 2) powoduje konflikt z usługą SharePoint Online (plan 1).
 - Usługa Exchange Online (plan 2) powoduje konflikt z usługą Exchange Online (plan 1).
 
-Aby rozwiązać ten konflikt, należy wyłączyć dwa plany. Można wyłączyć licencję E1, która jest bezpośrednio przypisana do użytkownika. Należy też zmodyfikować całe przypisanie licencji grupy i wyłączyć plany w licencji E3. Alternatywnie można podjąć decyzję o usunięciu licencji E1 od użytkownika, jeśli jest zbędna w kontekście licencji E3.
+Aby rozwiązać ten konflikt, należy wyłączyć dwa plany. Można wyłączyć licencję E1, która jest bezpośrednio przypisana do użytkownika. Lub należy zmodyfikować całe przypisanie licencji grupy i wyłączyć plany w licencji E3. Alternatywnie, możesz zdecydować o usunięciu licencji E1 od użytkownika, jeśli jest nadmiarowy w kontekście licencji E3.
 
-Decyzja dotycząca sposobu rozwiązywania sprzecznych licencji produktów zawsze należy do administratora. Usługa Azure AD nie rozwiązuje automatycznie konfliktów licencji.
+Decyzja o sposobie rozwiązania sprzecznych licencji produktu zawsze należy do administratora. Usługa Azure AD nie rozwiązuje automatycznie konfliktów licencji.
 
-**Program PowerShell:** Polecenia cmdlet programu PowerShell zgłaszają ten błąd jako _WzajemniewyłączneWizolacja_.
+Program **PowerShell:** Polecenia cmdlet programu PowerShell zgłaszają ten błąd jako _MutuallyExclusiveViolation_.
 
-## <a name="other-products-depend-on-this-license"></a>Inne produkty zależą od tej licencji
+## <a name="other-products-depend-on-this-license"></a>Inne produkty są zależne od tej licencji
 
-**Problem:** Jeden z produktów, który jest określony w grupie zawiera plan usług, który musi być włączony dla innego planu usług, w innym produkcie, do działania. Ten błąd występuje, gdy usługa Azure AD próbuje usunąć podstawowy plan usługi. Na przykład może się to zdarzyć po usunięciu użytkownika z grupy.
+**Problem:** Jeden z produktów określonych w grupie zawiera plan usługi, który musi być włączony dla innego planu usługi, w innym produkcie. Ten błąd występuje, gdy usługa Azure AD próbuje usunąć bazowy plan usługi. Na przykład może się to zdarzyć po usunięciu użytkownika z grupy.
 
-Aby rozwiązać ten problem, należy upewnić się, że wymagany plan jest nadal przypisany do użytkowników za pomocą innej metody lub że usługi zależne są wyłączone dla tych użytkowników. Po wykonaniu tej tej pracy można poprawnie usunąć licencję grupy z tych użytkowników.
+Aby rozwiązać ten problem, należy się upewnić, że wymagany plan jest nadal przypisany do użytkowników za pomocą innej metody lub że usługi zależne są wyłączone dla tych użytkowników. Po wykonaniu tej czynności można prawidłowo usunąć licencję grupy z tych użytkowników.
 
-**Program PowerShell:** Polecenia cmdlet programu PowerShell zgłaszają ten błąd jako _dependencyViolation_.
+Program **PowerShell:** Polecenia cmdlet programu PowerShell zgłaszają ten błąd jako _DependencyViolation_.
 
-## <a name="usage-location-isnt-allowed"></a>Lokalizacja użycia jest niedozwolona
+## <a name="usage-location-isnt-allowed"></a>Lokalizacja użycia nie jest dozwolona
 
-**Problem:** Niektóre usługi firmy Microsoft nie są dostępne we wszystkich lokalizacjach ze względu na lokalne przepisy i regulacje. Przed przypisaniem licencji do użytkownika należy określić właściwość **Lokalizacja użycia** dla użytkownika. Lokalizację można określić w sekcji**Ustawienia** **profilu** >  **użytkownika** > w witrynie Azure portal.
+**Problem:** Niektóre usługi firmy Microsoft nie są dostępne we wszystkich lokalizacjach ze względu na lokalne przepisy i przepisy. Aby można było przypisać licencję do użytkownika, należy określić właściwość **Lokalizacja użycia** dla użytkownika. Lokalizację można określić w sekcji > **Ustawienia** profilu **użytkownika** > **Profile**w Azure Portal.
 
-Gdy usługa Azure AD próbuje przypisać licencję grupy do użytkownika, którego lokalizacja użycia nie jest obsługiwana, kończy się niepowodzeniem i rejestruje błąd użytkownika.
+Gdy usługa Azure AD podejmie próbę przypisania licencji grupy do użytkownika, którego lokalizacja użycia nie jest obsługiwana, kończy się niepowodzeniem i rejestruje błąd użytkownika.
 
-Aby rozwiązać ten problem, usuń użytkowników z nieobsługiconych lokalizacji z licencjonowanej grupy. Alternatywnie, jeśli bieżące wartości lokalizacji użycia nie reprezentują rzeczywistej lokalizacji użytkownika, można je zmodyfikować, tak aby licencje były poprawnie przypisane następnym razem (jeśli nowa lokalizacja jest obsługiwana).
+Aby rozwiązać ten problem, Usuń użytkowników z nieobsługiwanych lokalizacji z grupy licencjonowanej. Alternatywnie, jeśli bieżące wartości lokalizacji użycia nie reprezentują rzeczywistej lokalizacji użytkownika, można je zmodyfikować w taki sposób, aby licencje były prawidłowo przypisane po następnym (jeśli jest obsługiwana Nowa lokalizacja).
 
-**Program PowerShell:** Polecenia cmdlet programu PowerShell zgłaszają ten błąd jako _ProhibitedInUsageLocationViolation_.
+Program **PowerShell:** Polecenia cmdlet programu PowerShell zgłaszają ten błąd jako _ProhibitedInUsageLocationViolation_.
 
 > [!NOTE]
-> Gdy usługa Azure AD przypisuje licencje grupowe, użytkownicy bez określonej lokalizacji użycia dziedziczą lokalizację katalogu. Zaleca się, aby administratorzy ustawiali poprawne wartości lokalizacji użycia użytkowników przed użyciem licencjonowania opartego na grupach w celu zapewnienia zgodności z lokalnymi przepisami i regulacjami.
+> Gdy usługa Azure AD przypisuje licencje grupowe, wszyscy użytkownicy bez określonej lokalizacji użycia dziedziczą lokalizację katalogu. Zaleca się, aby administratorzy ustawili odpowiednie wartości lokalizacji użycia na użytkownikach przed użyciem licencjonowania opartego na grupach, aby zapewnić zgodność z lokalnymi przepisami i przepisami.
 
-## <a name="duplicate-proxy-addresses"></a>Zduplikowane adresy proxy
+## <a name="duplicate-proxy-addresses"></a>Zduplikowane adresy serwerów proxy
 
-Jeśli używasz usługi Exchange Online, niektórzy użytkownicy w dzierżawie mogą być niepoprawnie skonfigurowane z tej samej wartości adresu serwera proxy. Gdy licencjonowanie oparte na grupach próbuje przypisać licencję do takiego użytkownika, kończy się niepowodzeniem i pokazuje "Adres serwera proxy jest już używany".
+Jeśli używasz usługi Exchange Online, niektórzy użytkownicy w dzierżawie mogą być niepoprawnie skonfigurowani z tą samą wartością adresu serwera proxy. Gdy Licencjonowanie oparte na grupach próbuje przypisać licencję do takiego użytkownika, nie powiedzie się i pokaże "adres serwera proxy jest już używany".
 
 > [!TIP]
-> Aby sprawdzić, czy istnieje zduplikowany adres serwera proxy, wykonaj następujące polecenie cmdlet programu PowerShell względem usługi Exchange Online:
+> Aby sprawdzić, czy istnieje zduplikowany adres serwera proxy, wykonaj następujące polecenie cmdlet programu PowerShell dla usługi Exchange Online:
 > ```
 > Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Aby uzyskać więcej informacji na temat tego problemu, zobacz [komunikat o błędzie "Adres serwera proxy jest już używany" w usłudze Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Artykuł zawiera również informacje na temat [łączenia się z usługą Exchange Online przy użyciu zdalnego programu PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
+> Aby uzyskać więcej informacji o tym problemie, zobacz ["adres serwera proxy jest już używany" w usłudze Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Artykuł zawiera również informacje dotyczące [sposobu nawiązywania połączenia z usługą Exchange Online przy użyciu zdalnego programu PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
 
-Po rozwiązaniu problemów związanych z adresem serwera proxy dla użytkowników, których dotyczy problem, należy wymusić przetwarzanie licencji w grupie, aby upewnić się, że licencje mogą być teraz stosowane.
+Po rozwiązaniu problemów z adresem serwera proxy dla użytkowników, których dotyczy problem, należy wymusić przeprowadzenie przetwarzania licencji w grupie, aby upewnić się, że licencje można teraz zastosować.
 
-## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Zmiana atrybutu Poczta usługi Azure AD i ProxyAddresses
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Zmiana atrybutów poczty i ProxyAddresses usługi Azure AD
 
-**Problem:** Podczas aktualizowania przypisania licencji dla użytkownika lub grupy, może się okazać, że poczta usługi Azure AD i proxyAddresses atrybut niektórych użytkowników są zmieniane.
+**Problem:** Podczas aktualizowania przypisania licencji dla użytkownika lub grupy, może się okazać, że atrybut poczta i ProxyAddresses usługi Azure AD niektórych użytkowników jest zmieniany.
 
-Aktualizowanie przypisania licencji dla użytkownika powoduje wyzwolenie obliczania adresu serwera proxy, co może zmienić atrybuty użytkownika. Aby zrozumieć dokładną przyczynę zmiany i rozwiązać problem, zobacz ten artykuł dotyczący [sposobu wypełniania atrybutu proxyAddresses w usłudze Azure AD.](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad)
+Aktualizacja przypisania licencji dla użytkownika powoduje, że Obliczanie adresu serwera proxy jest wyzwalane, co może spowodować zmianę atrybutów użytkownika. Aby zrozumieć dokładną przyczynę zmiany i rozwiązać problem, zobacz ten artykuł dotyczący [sposobu wypełnienia atrybutu proxyAddresses w usłudze Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 ## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException w dziennikach inspekcji
 
 **Problem:** Użytkownik ma LicenseAssignmentAttributeConcurrencyException do przypisania licencji w dziennikach inspekcji.
-Podczas licencjonowania opartego na grupach próbuje przetwarzać równoczesne przypisanie licencji tej samej licencji do użytkownika, ten wyjątek jest rejestrowany na użytkownika. Zwykle dzieje się tak, gdy użytkownik jest członkiem więcej niż jednej grupy z tą samą przypisaną licencją. AZure AD ponowi próbę przetworzenia licencji użytkownika i rozwiąże problem. Nie ma żadnych działań wymaganych od klienta, aby rozwiązać ten problem.
+Gdy Licencjonowanie oparte na grupach próbuje przetworzyć współbieżne przypisanie licencji tej samej licencji do użytkownika, ten wyjątek jest rejestrowany na użytkowniku. Zwykle dzieje się tak, gdy użytkownik jest członkiem więcej niż jednej grupy z tą samą przypisaną licencją. Usługa AZure AD podejmie ponowną próbę przetworzenia licencji użytkownika i rozwiąże ten problem. Klient nie wymaga żadnych działań w celu rozwiązania tego problemu.
 
-## <a name="more-than-one-product-license-assigned-to-a-group"></a>Więcej niż jedna licencja na produkt przypisana do grupy
+## <a name="more-than-one-product-license-assigned-to-a-group"></a>Do grupy przypisano więcej niż jedną licencję produktu
 
-Do grupy można przypisać więcej niż jedną licencję produktu. Na przykład można przypisać usługi Office 365 Enterprise E3 i Enterprise Mobility + Security do grupy, aby łatwo włączyć wszystkie dołączone usługi dla użytkowników.
+Do grupy można przypisać więcej niż jedną licencję produktu. Na przykład możesz przypisać do grupy pakiet Office 365 Enterprise E3 i Enterprise Mobility + Security, aby łatwo włączyć wszystkie dołączone usługi dla użytkowników.
 
-Usługa Azure AD próbuje przypisać do każdego użytkownika wszystkie licencje określone w grupie. Jeśli usługa Azure AD nie może przypisać jednego z produktów z powodu problemów z logiką biznesową, nie przypisze również innych licencji w grupie. Przykładem jest, jeśli nie ma wystarczającej liczby licencji dla wszystkich lub jeśli istnieją konflikty z innymi usługami, które są włączone na użytkownika.
+Usługa Azure AD próbuje przypisać wszystkie licencje, które są określone w grupie dla każdego użytkownika. Jeśli usługa Azure AD nie może przypisać jednego z produktów ze względu na problemy z logiką biznesową, nie przypisze innych licencji w grupie. Przykładem jest brak wystarczającej liczby licencji lub w przypadku konfliktów z innymi usługami, które są włączone dla użytkownika.
 
-Możesz zobaczyć użytkowników, którym nie udało się uzyskać przypisania i sprawdzić, które produkty są dotknięte tym problemem.
+Zobaczysz użytkowników, którzy nie mogli uzyskać przypisanej i sprawdź, które produkty mają wpływ na ten problem.
 
-## <a name="when-a-licensed-group-is-deleted"></a>Po usunięciu grupy licencjonowanej
+## <a name="when-a-licensed-group-is-deleted"></a>Po usunięciu licencjonowanej grupy
 
-Przed usunięciem grupy należy usunąć wszystkie licencje przypisane do grupy. Jednak usunięcie licencji od wszystkich użytkowników w grupie może zająć trochę czasu. Podczas usuwania przypisań licencji z grupy mogą wystąpić błędy, jeśli użytkownik ma przypisaną licencję zależną lub jeśli występuje problem z konfliktem adresu serwera proxy, który zabrania usuwania licencji. Jeśli użytkownik ma licencję zależną od licencji, która jest usuwana z powodu usunięcia grupy, przypisanie licencji do użytkownika jest konwertowane z dziedziczonego na bezpośrednie.
+Przed usunięciem grupy należy usunąć wszystkie przypisane do niej licencje. Jednak usunięcie licencji ze wszystkich użytkowników w grupie może zająć trochę czasu. Podczas usuwania przypisań licencji z grupy mogą wystąpić błędy, jeśli użytkownik ma przypisaną licencję zależną lub występuje problem z konfliktem adresu serwera proxy, który uniemożliwia usunięcie licencji. Jeśli użytkownik ma licencję zależną od licencji, która jest usuwana ze względu na usunięcie grupy, przypisanie licencji do użytkownika jest konwertowane z dziedziczone do bezpośredniego.
 
-Rozważmy na przykład grupę z włączoną usługą Skype 365 E3/E5 z włączonym planem usług programu Skype dla firm. Wyobraź sobie również, że kilku członków grupy ma licencje audiokonferencji przypisane bezpośrednio. Po usunięciu grupy licencjonowanie oparte na grupach spróbuje usunąć usługi Office 365 E3/E5 ze wszystkich użytkowników. Ponieważ konferencje audio są zależne od programu Skype dla firm, dla wszystkich użytkowników z przypisanymi konferencjami audio licencjonowanie oparte na grupach konwertuje licencje usługi Office 365 E3/E5 na bezpośrednie przypisanie licencji.
+Rozważmy na przykład grupę, która ma pakiet Office 365 E3/E5 przypisany z włączonym planem usługi Skype dla firm. Załóżmy również, że kilku członków grupy ma przypisane bezpośrednio licencje na konferencje audio. Po usunięciu grupy Licencjonowanie oparte na grupach będzie podejmować próby usunięcia pakietu Office 365 E3/E5 ze wszystkich użytkowników. Ponieważ konferencje audio są zależne od programu Skype dla firm, dla wszystkich użytkowników z przypisaną konferencją audio, Licencjonowanie oparte na grupach konwertuje Licencje pakietu Office 365 E3/E5 na bezpośrednie przypisanie licencji.
 
 ## <a name="manage-licenses-for-products-with-prerequisites"></a>Zarządzanie licencjami na produkty z wymaganiami wstępnymi
 
-Niektóre produkty firmy Microsoft Online, które możesz *posiadać,* to dodatki . Dodatki wymagają włączenia planu usługi wstępnego dla użytkownika lub grupy, zanim będzie można przypisać im licencję. W przypadku licencjonowania opartego na grupach system wymaga obecności w tej samej grupie zarówno planów usług wymaganych, jak i dodatkowych. Odbywa się to w celu zapewnienia, że każdy użytkownik, którzy są dodawane do grupy mogą otrzymać w pełni działający produkt. Rozważmy następujący przykład:
+Niektóre z dostępnych produktów online firmy Microsoft to *Dodatki*. Dodatki wymagają włączenia planu usługi wymaganego wstępnie dla użytkownika lub grupy, zanim będzie można przypisać licencję. W przypadku licencjonowania opartego na grupach system wymaga, aby w tej samej grupie były obecne zarówno warunki wstępne, jak i dodatkowe. Jest to wykonywane w celu zapewnienia, że wszyscy użytkownicy, którzy są dodawani do grupy, mogą uzyskać w pełni pracujący produkt. Rozważmy następujący przykład:
 
-Microsoft Workplace Analytics to produkt dodatkowy. Zawiera pojedynczy plan usługi o tej samej nazwie. Możemy przypisać ten plan usługi tylko do użytkownika lub grupy, gdy przypisany jest również jeden z następujących wymagań wstępnych:
+Analiza w miejscu pracy firmy Microsoft jest produktem dodatkowym. Zawiera jeden plan usługi o tej samej nazwie. Ten plan usługi można przypisać tylko do użytkownika lub grupy, tylko po przypisaniu jednego z następujących warunków wstępnych:
 
-- Usługa Exchange Online (plan 1)
-- Usługa Exchange Online (plan 2)
+- Exchange Online (plan 1)
+- Exchange Online (plan 2)
 
-Jeśli spróbujemy przypisać ten produkt samodzielnie do grupy, portal zwróci komunikat z powiadomieniem. Jeśli wybierzemy szczegóły elementu, zostanie wyświetlony następujący komunikat o błędzie:
+Jeśli spróbujesz przypisać ten produkt do grupy, Portal zwróci komunikat z powiadomieniem. W przypadku wybrania szczegółów elementu zostanie wyświetlony następujący komunikat o błędzie:
 
-  "Operacja licencji nie powiodła się. Upewnij się, że grupa ma niezbędne usługi przed dodaniem lub usunięciem usługi zależnej. Usługa Microsoft Workplace Analytics wymaga również **włączenia usługi Exchange Online (Plan 2).**
+  "Operacja licencji nie powiodła się. Przed dodaniem lub usunięciem usługi zależnej upewnij się, że grupa ma wymagane usługi. **Aby można było włączyć usługę Exchange Online (plan 2), usługa Microsoft miejsce w miejscu pracy.**
 
-Aby przypisać tę licencję dodatku do grupy, musimy upewnić się, że grupa zawiera również plan usługi wymaganego. Na przykład możemy zaktualizować istniejącą grupę, która już zawiera pełny produkt office 365 E3, a następnie dodać do niej produkt dodatkowy.
+Aby przypisać tę licencję dodatku do grupy, musimy upewnić się, że grupa zawiera również plan usługi wymaganie wstępne. Na przykład firma Microsoft może zaktualizować istniejącą grupę, która zawiera już pełny produkt pakietu Office 365 E3, a następnie dodać do niego produkt dodatkowy.
 
-Istnieje również możliwość utworzenia autonomicznej grupy, która zawiera tylko minimalne wymagane produkty, aby dodatek działał. Może służyć do licencjonowannia tylko wybranych użytkowników dla produktu dodatkowego. Na podstawie poprzedniego przykładu należy przypisać następujące produkty do tej samej grupy:
+Istnieje również możliwość utworzenia grupy autonomicznej zawierającej tylko minimalne wymagane produkty, aby można było korzystać z dodatku. Może służyć do licencjonowania tylko wybranych użytkowników dodatku. Na podstawie poprzedniego przykładu do tej samej grupy należy przypisać następujące produkty:
 
-- Usługa Office 365 Enterprise E3 z włączonym tylko planem usługi Exchange Online (Plan 2)
+- Pakiet Office 365 Enterprise E3 z włączonym planem usługi Exchange Online (plan 2)
 - Microsoft Workplace Analytics
 
-Od tej pory wszyscy użytkownicy dodana do tej grupy korzystają z jednej licencji produktu E3 i jednej licencji produktu Workplace Analytics. W tym samym czasie ci użytkownicy mogą być członkami innej grupy, która daje im pełny produkt E3 i nadal zużywają tylko jedną licencję dla tego produktu.
+Od teraz wszyscy użytkownicy dodani do tej grupy wykorzystują jedną licencję produktu E3 i jedną licencję produktu do analizy w miejscu pracy. W tym samym czasie Ci użytkownicy mogą należeć do innej grupy, która daje im pełny produkt E3 i nadal używa tylko jednej licencji dla tego produktu.
 
 > [!TIP]
-> Można utworzyć wiele grup dla każdego planu usługi wymaganego. Jeśli na przykład użytkownikom używasz zarówno usługi Office 365 Enterprise E1, jak i usługi Office 365 Enterprise E3 dla użytkowników, możesz utworzyć dwie grupy, które licencjonują usługę Microsoft Workplace Analytics: jedną, która używa E1 jako wymagania wstępnego, a drugą używam E3. Dzięki temu można rozpowszechniać dodatek do użytkowników E1 i E3 bez korzystania z dodatkowych licencji.
+> Dla każdego wymaganego planu usługi można utworzyć wiele grup. Jeśli na przykład w przypadku użytkowników korzystasz z pakietu Office 365 Enterprise E1 i pakietu Office 365 Enterprise E3, możesz utworzyć dwie grupy, aby uzyskać licencję na analizę w miejscu pracy firmy Microsoft: jedną, która korzysta z E1 jako warunek wstępny, a druga, która używa E3. Pozwala to na dystrybucję dodatku do użytkowników E1 i E3 bez używania dodatkowych licencji.
 
-## <a name="force-group-license-processing-to-resolve-errors"></a>Wymuszanie przetwarzania licencji grupowej w celu rozwiązania problemów
+## <a name="force-group-license-processing-to-resolve-errors"></a>Wymuś przetwarzanie licencji grupy w celu rozwiązania błędów
 
-W zależności od kroków podjętych w celu rozwiązania błędów może być konieczne ręczne wyzwolenie przetwarzania grupy w celu zaktualizowania stanu użytkownika.
+W zależności od tego, jakie czynności zostały podjęte w celu rozwiązania błędów, może być konieczne ręczne Wyzwól przetwarzanie grupy w celu zaktualizowania stanu użytkownika.
 
-Jeśli na przykład niektóre licencje są zwalniane przez usunięcie bezpośrednich przypisań licencji od użytkowników, należy wyzwolić przetwarzanie grup, których wcześniej nie udało się w pełni licencjonować wszystkim członkom użytkownika. Aby ponownie przetworzyć grupę, przejdź do okienka grupy, otwórz **pole licencjonujące**, a następnie wybierz przycisk **Ponownietwórz** na pasku narzędzi.
+Jeśli na przykład zwolnisz Niektóre licencje, usuwając bezpośrednie przypisania licencji od użytkowników, musisz wyzwolić przetwarzanie grup, które wcześniej nie powiodło się w pełni licencjonować wszystkich członków. Aby ponownie przetworzyć grupę, przejdź do okienka Grupa, Otwórz pozycję **licencje**, a następnie wybierz przycisk **przetwórz** ponownie na pasku narzędzi.
 
-## <a name="force-user-license-processing-to-resolve-errors"></a>Wymuszanie przetwarzania licencji użytkownika w celu rozwiązania problemów
+## <a name="force-user-license-processing-to-resolve-errors"></a>Wymuś przetwarzanie licencji użytkownika w celu rozwiązania błędów
 
-W zależności od kroków podjętych w celu rozwiązania błędów może być konieczne ręczne wyzwolenie przetwarzania użytkownika w celu zaktualizowania stanu użytkowników.
+W zależności od tego, jakie czynności zostały podjęte w celu rozwiązania błędów, może być konieczne ręczne Wyzwól przetwarzanie użytkownika w celu zaktualizowania stanu użytkowników.
 
-Na przykład po rozwiązaniu problemu zduplikowanym adresem serwera proxy dla danego użytkownika należy wyzwolić przetwarzanie użytkownika. Aby ponownie przetworzyć użytkownika, przejdź do okienka użytkownika, otwórz **pole licencjonujące**, a następnie wybierz przycisk **Ponownietwórz** na pasku narzędzi.
+Na przykład po rozwiązaniu problemu ze zduplikowanym adresem serwera proxy dla użytkownika, którego dotyczy problem, należy wyzwolić przetwarzanie użytkownika. Aby ponownie przetworzyć użytkownika, przejdź do okienka użytkownika, Otwórz pozycję **licencje**, a następnie wybierz przycisk **przetwórz** ponownie na pasku narzędzi.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o innych scenariuszach zarządzania licencjami za pośrednictwem grup, zobacz następujące elementy:
+Aby dowiedzieć się więcej o innych scenariuszach związanych z zarządzaniem licencjami za pomocą grup, zobacz następujące tematy:
 
-* [Co to jest licencjonowanie oparte na grupach w usłudze Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Co to jest Licencjonowanie oparte na grupach w Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Przypisywanie licencji do grupy w usłudze Azure Active Directory](licensing-groups-assign.md)
 * [Jak migrować użytkowników z licencjami indywidualnymi do licencji opartych na grupach w usłudze Azure Active Directory](licensing-groups-migrate-users.md)
-* [Jak migrować użytkowników między licencjami produktów przy użyciu licencjonowania opartego na grupach w usłudze Azure Active Directory](licensing-groups-change-licenses.md)
+* [Jak migrować użytkowników między licencjami produktu przy użyciu licencjonowania opartego na grupach w programie Azure Active Directory](licensing-groups-change-licenses.md)
 * [Dodatkowe scenariusze licencjonowania opartego na grupach w usłudze Azure Active Directory](licensing-group-advanced.md)
-* [Przykłady programu PowerShell dotyczące licencjonowania opartego na grupach w usłudze Azure Active Directory](licensing-ps-examples.md)
+* [Przykłady programu PowerShell dla licencjonowania opartego na grupach w Azure Active Directory](licensing-ps-examples.md)

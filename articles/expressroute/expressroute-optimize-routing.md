@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Optymalizuj routing'
+title: 'Azure ExpressRoute: Optymalizowanie routingu'
 description: Ta strona zawiera szczegółowe informacje dotyczące optymalizacji routingu w przypadku, gdy występują co najmniej dwa obwody usługi ExpressRoute łączące firmę Microsoft z siecią firmową.
 services: expressroute
 author: charwen
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: charwen
 ms.openlocfilehash: dcbae103933167c583bf0f73dc2fa09178c38bd5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74080134"
 ---
 # <a name="optimize-expressroute-routing"></a>Optymalizacja routingu usługi ExpressRoute
 Jeśli masz wiele obwodów usługi ExpressRoute, masz więcej niż jedną ścieżkę łączenia z firmą Microsoft. W związku z tym może wystąpić routing nieoptymalny, tzn. ruch może użyć dłuższej ścieżki w celu dotarcia do firmy Microsoft lub z firmy Microsoft do sieci użytkownika. Im dłuższa ścieżka sieciowa, tym większe opóźnienie. Opóźnienie ma bezpośredni wpływ na wydajność aplikacji i środowisko użytkownika. W tym artykule przedstawiono ten problem i wyjaśniono, jak zoptymalizować routing przy użyciu standardowych technologii routingu.
 
-## <a name="path-selection-on-microsoft-and-public-peerings"></a>Wybór ścieżki w programach Microsoft i publicznych elementach równorzędnych
-Ważne jest, aby upewnić się, że podczas korzystania z komunikacji równorzędnej firmy Microsoft lub public ruch przepływa przez żądaną ścieżkę, jeśli masz jeden lub więcej obwodów usługi ExpressRoute, a także ścieżki do Internetu za pośrednictwem programu Internet Exchange (IX) lub dostawcy usług internetowych (ISP). BGP wykorzystuje algorytm wyboru najlepszej ścieżki na podstawie wielu czynników, w tym najdłuższego dopasowania prefiksu (LPM). Aby upewnić się, że ruch przeznaczony dla platformy Azure za pośrednictwem firmy Microsoft lub komunikacji równorzędnej publicznej przechodzi przez ścieżkę usługi ExpressRoute, klienci muszą zaimplementować atrybut *Preferencji lokalnych,* aby upewnić się, że ścieżka jest zawsze preferowana w usłudze ExpressRoute. 
+## <a name="path-selection-on-microsoft-and-public-peerings"></a>Wybór ścieżki dla firmy Microsoft i publicznych komunikacji równorzędnych
+Ważne jest, aby zapewnić, że podczas używania usługi Microsoft lub publicznej komunikacji równorzędnej ruch przepływający nad żądaną ścieżką, jeśli istnieje co najmniej jeden obwody usługi ExpressRoute, a także ścieżki do Internetu za pośrednictwem Internetu (9) lub usługodawcy internetowego (ISP). Protokół BGP wykorzystuje najlepszy algorytm wyboru ścieżki na podstawie różnych czynników, takich jak najdłuższy odpowiednik prefiksu (LPM). Aby zapewnić, że ruch przeznaczony dla platformy Azure za pośrednictwem firmy Microsoft lub publicznej komunikacji równorzędnej przechodzi przez ścieżkę ExpressRoute, klienci muszą zaimplementować *lokalny atrybut preferencji* , aby upewnić się, że ścieżka jest zawsze preferowana w ExpressRoute. 
 
 > [!NOTE]
-> Domyślną preferencją lokalną jest zazwyczaj 100. Bardziej preferowane są wyższe preferencje lokalne. 
+> Domyślna preferencja lokalna to zwykle 100. Wyższe preferencje lokalne są bardziej preferowane. 
 >
 >
 
@@ -29,9 +29,9 @@ Rozważmy następujący przykładowy scenariusz:
 
 ![Przypadek 1 dotyczący usługi ExpressRoute — suboptymalny routing od klienta do firmy Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
 
-W powyższym przykładzie, aby preferować ścieżki usługi ExpressRoute skonfigurować preferencje lokalne w następujący sposób. 
+W powyższym przykładzie, aby preferować ExpressRoute ścieżki skonfigurować preferencję lokalną w następujący sposób. 
 
-**Konfiguracja Cisco IOS-XE z perspektywy R1:**
+**Cisco IOS — konfiguracja XE z perspektywy R1:**
 
     R1(config)#route-map prefer-ExR permit 10
     R1(config-route-map)#set local-preference 150
@@ -41,7 +41,7 @@ W powyższym przykładzie, aby preferować ścieżki usługi ExpressRoute skonfi
     R1(config-router)#neighbor 1.1.1.2 activate
     R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
 
-**Konfiguracja Junos z perspektywy R1:**
+**Junos konfigurację z perspektywy R1:**
 
     user@R1# set protocols bgp group ibgp type internal
     user@R1# set protocols bgp group ibgp local-preference 150
@@ -54,7 +54,7 @@ Przyjrzyjmy się problemowi z routingiem, korzystając z przykładu. Załóżmy,
 ![Przypadek 1 dotyczący usługi ExpressRoute — suboptymalny routing od klienta do firmy Microsoft](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
 ### <a name="solution-use-bgp-communities"></a>Rozwiązanie: użyj społeczności BGP
-Aby zoptymalizować routing dla użytkowników obu biur, trzeba wiedzieć, który prefiks odpowiada zachodnim, a który wschodnim stanom USA. Kodujemy te informacje przy użyciu [wartości społeczności BGP](expressroute-routing.md). Przydzieliliśmy unikatową wartość społeczności BGP do każdego regionu platformy Azure, na przykład "12076:51004" dla wschodniego stanu USA, "12076:51006" dla zachodniego stanu USA. Skoro już wiesz, który prefiks odpowiada któremu regionowi świadczenia usługi Azure, możesz skonfigurować preferowany obwód usługi ExpressRoute. Ponieważ do wymiany informacji o routingu używamy protokołu BGP, w celu wpłynięcia na routing możesz użyć preferencji lokalnej BGP. W naszym przykładzie można przypisać wyższą wartość preferencji lokalnej na 13.100.0.0/16 w zachodnich niż we wschodnich stanach USA i podobnie wyższą wartość preferencji lokalnej na 23.100.0.0/16 we wschodnich niż w zachodnich stanach USA. Ta konfiguracja pozwoli zagwarantować, że gdy obie ścieżki do firmy Microsoft będą dostępne, użytkownicy w Los Angeles będą korzystać z obwodu usługi ExpressRoute w zachodnich stanach USA do połączenia ze stanami zachodnimi, natomiast użytkownicy z Nowego Jorku będą korzystać z usługi ExpressRoute we wschodnich stanach USA w celu połączenia ze stanami wschodnimi. Routing jest zoptymalizowany po obu stronach. 
+Aby zoptymalizować routing dla użytkowników obu biur, trzeba wiedzieć, który prefiks odpowiada zachodnim, a który wschodnim stanom USA. Kodujemy te informacje przy użyciu [wartości społeczności BGP](expressroute-routing.md). Do każdego regionu platformy Azure przypisano unikatową wartość wspólnotową BGP, np. "12076:51004" dla Wschodnie stany USA, "12076:51006" dla zachodnich Stanów Zjednoczonych. Skoro już wiesz, który prefiks odpowiada któremu regionowi świadczenia usługi Azure, możesz skonfigurować preferowany obwód usługi ExpressRoute. Ponieważ do wymiany informacji o routingu używamy protokołu BGP, w celu wpłynięcia na routing możesz użyć preferencji lokalnej BGP. W naszym przykładzie można przypisać wyższą wartość preferencji lokalnej na 13.100.0.0/16 w zachodnich niż we wschodnich stanach USA i podobnie wyższą wartość preferencji lokalnej na 23.100.0.0/16 we wschodnich niż w zachodnich stanach USA. Ta konfiguracja pozwoli zagwarantować, że gdy obie ścieżki do firmy Microsoft będą dostępne, użytkownicy w Los Angeles będą korzystać z obwodu usługi ExpressRoute w zachodnich stanach USA do połączenia ze stanami zachodnimi, natomiast użytkownicy z Nowego Jorku będą korzystać z usługi ExpressRoute we wschodnich stanach USA w celu połączenia ze stanami wschodnimi. Routing jest zoptymalizowany po obu stronach. 
 
 ![Rozwiązanie przypadku 1 dotyczącego usługi ExpressRoute — używanie społeczności BGP](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
 
@@ -74,7 +74,7 @@ Istnieją dwa rozwiązania tego problemu. Pierwsze z nich polega na tym, by po p
 Drugim rozwiązaniem jest dalsze anonsowanie obu prefiksów w obu obwodach usługi ExpressRoute i dodatkowo podawanie wskazówki z informacją, który prefiks jest blisko którego biura. Ponieważ firma Microsoft obsługuje ścieżkę AS BGP do wywołania, można skonfigurować ścieżkę AS dla prefiksu, aby wpłynąć na routing. W tym przykładzie można wydłużyć ścieżkę AS dla 172.2.0.0/31 we wschodnich stanach USA, aby firma Microsoft preferowała obwód usługi ExpressRoute w stanach zachodnich dla ruchu przeznaczonego dla tego prefiksu (dla naszej sieci ścieżka do tego prefiksu jest krótsza na zachodzie). Podobnie można wydłużyć ścieżkę AS dla 172.2.0.2/31 w zachodnich stanach USA, by firma Microsoft preferowała obwód usługi ExpressRoute w stanach wschodnich. Routing zostaje zoptymalizowany dla obu biur. W tym projekcie jeśli jeden obwód usługi ExpressRoute zostanie uszkodzony, usługa Exchange Online może nadal uzyskać dostęp do użytkownika za pośrednictwem innego obwodu usługi ExpressRoute i sieci WAN. 
 
 > [!IMPORTANT]
-> Usuwamy prywatne numery AS w as path dla prefiksów otrzymanych w programie Microsoft Peering podczas komunikacji równorzędnej przy użyciu prywatnego numeru AS. Musisz równorzędnie z publicznym as i dołączyć publiczne numery AS w AS PATH, aby wpłynąć na routing dla komunikacji równorzędnej firmy Microsoft.
+> Firma Microsoft usuwa prywatne numery AS w ścieżce AS dla prefiksów odebranych w przypadku komunikacji równorzędnej między komputerami, gdy Komunikacja równorzędna jest używana jako numer prywatny. Musisz być elementem równorzędnym z publiczną usługą i dołączać publiczne jako cyfry w ścieżce AS, aby mieć wpływ na Routing komunikacji równorzędnej firmy Microsoft.
 > 
 > 
 

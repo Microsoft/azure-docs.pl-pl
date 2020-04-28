@@ -1,7 +1,7 @@
 ---
-title: OData wybierz odwołanie
+title: Odwołanie do wyboru protokołu OData
 titleSuffix: Azure Cognitive Search
-description: Odwołanie do składni i języka dla jawnego wyboru pól do zwrócenia w wynikach wyszukiwania zapytań usługi Azure Cognitive Search.
+description: Składnia i Dokumentacja języka dla jawnego wyboru pól, które mają zostać zwrócone w wynikach wyszukiwania zapytań Wyszukiwanie poznawcze platformy Azure.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,19 +20,19 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74113102"
 ---
-# <a name="odata-select-syntax-in-azure-cognitive-search"></a>Składnia $select OData w usłudze Azure Cognitive Search
+# <a name="odata-select-syntax-in-azure-cognitive-search"></a>Składnia $select OData na platformie Azure Wyszukiwanie poznawcze
 
- [ParametrU OData **$select** ](query-odata-filter-orderby-syntax.md) można wybrać pola, które mają być uwzględniane w wynikach wyszukiwania z usługi Azure Cognitive Search. W tym artykule opisano szczegółowo **składnię $select.** Aby uzyskać bardziej ogólne informacje dotyczące **używania $select** podczas prezentowania wyników wyszukiwania, zobacz [Jak pracować z wynikami wyszukiwania w usłudze Azure Cognitive Search](search-pagination-page-layout.md).
+ Można użyć [parametru **$SELECT** OData](query-odata-filter-orderby-syntax.md) , aby wybrać pola do uwzględnienia w wynikach wyszukiwania z usługi Azure wyszukiwanie poznawcze. W tym artykule opisano szczegółowo składnię **$SELECT** . Aby uzyskać ogólne informacje na temat używania **$SELECT** podczas prezentowania wyników wyszukiwania, zobacz jak korzystać [z wyników wyszukiwania w usłudze Azure wyszukiwanie poznawcze](search-pagination-page-layout.md).
 
 ## <a name="syntax"></a>Składnia
 
-Parametr **$select** określa, które pola dla każdego dokumentu są zwracane w zestawie wyników kwerendy. Następujący EBNF[(Rozszerzony formularz Backus-Naur)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)definiuje gramatykę **dla** $select parametru:
+**$SELECT** parametr określa, które pola dla każdego dokumentu są zwracane w zestawie wyników zapytania. Następujący EBNF ([Extended back-Naura form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę dla parametru **$SELECT** :
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -42,26 +42,26 @@ select_expression ::= '*' | field_path(',' field_path)*
 field_path ::= identifier('/'identifier)*
 ```
 
-Dostępny jest również interaktywny diagram składniowy:
+Dostępny jest również interaktywny diagram składni:
 
 > [!div class="nextstepaction"]
-> [Diagram składni OData dla usługi Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
+> [Diagram składni OData dla Wyszukiwanie poznawcze platformy Azure](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
 
 > [!NOTE]
-> Zobacz [odwołanie do składni wyrażenia OData dla usługi Azure Cognitive Search](search-query-odata-syntax-reference.md) dla pełnego EBNF.
+> Zapoznaj się z informacjami o [składni wyrażenia OData dla usługi Azure wyszukiwanie poznawcze](search-query-odata-syntax-reference.md) , aby uzyskać pełną EBNF.
 
-Parametr **$select** występuje w dwóch formach:
+**$SELECT** parametr znajduje się w dwóch formach:
 
-1. Pojedyncza gwiazda`*`( ), wskazująca, że wszystkie pola do odzyskania powinny zostać zwrócone, lub
-1. Oddzielona przecinkami lista ścieżek pól, określająca, które pola powinny być zwracane.
+1. Pojedyncza gwiazdka`*`(), wskazująca, że wszystkie pola do pobierania powinny być zwracane.
+1. Rozdzielana przecinkami lista ścieżek pól, które identyfikują pola, które powinny być zwracane.
 
-Korzystając z drugiego formularza, można określić tylko pola, które można pobrać na liście.
+W przypadku korzystania z drugiego formularza można określić tylko na liście pola do pobierania.
 
-Jeśli pole złożone zostanie wyświetlone bez jawnego określenia jego pól podrzędnych, wszystkie pola podrzędne, które można pobrać, zostaną uwzględnione w zestawie wyników kwerendy. Załóżmy na przykład, `Address` że `Street` `City`indeks `Country` ma pole z , i pod-pola, które są możliwe do pobrania. Jeśli określisz `Address` w **$select,** wyniki kwerendy będą zawierać wszystkie trzy podobasy.
+Jeśli lista zawiera pole złożone bez określania jego pól podrzędnych, wszystkie możliwe do pobierania pola podrzędne zostaną uwzględnione w zestawie wyników zapytania. Załóżmy na przykład, że indeks `Address` zawiera pola `Street`, `City`i `Country` pola podrzędne, które są do pobierania. W przypadku określenia `Address` w **$SELECT**wyniki zapytania będą zawierać wszystkie trzy pola podrzędne.
 
 ## <a name="examples"></a>Przykłady
 
-Uwzględnij `HotelId` `HotelName`pola `Rating` , i najwyższego poziomu w wynikach, a także `City` podobsąże: `Address`
+Uwzględnij `HotelId`pola `HotelName`, i `Rating` najwyższego poziomu w wynikach, a także pola `City` podrzędne `Address`:
 
     $select=HotelId, HotelName, Rating, Address/City
 
@@ -78,7 +78,7 @@ Przykładowy wynik może wyglądać następująco:
 }
 ```
 
-Uwzględnij `HotelName` pole najwyższego poziomu w wynikach, a `Address`także wszystkie `Type` `BaseRate` poda fields , i `Rooms` pod-pola każdego obiektu w kolekcji:
+Uwzględnij `HotelName` `Address`pole najwyższego poziomu w wynikach, a także wszystkie pola podrzędne i `Type` i `BaseRate` podrzędne pola dla każdego obiektu w `Rooms` kolekcji:
 
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
 
@@ -110,7 +110,7 @@ Przykładowy wynik może wyglądać następująco:
 
 ## <a name="next-steps"></a>Następne kroki  
 
-- [Jak pracować z wynikami wyszukiwania w usłudze Azure Cognitive Search](search-pagination-page-layout.md)
-- [Omówienie języka wyrażenia OData dla usługi Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [Odwołanie do składni wyrażenia OData dla usługi Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [&#41;interfejsu API usługi Azure Cognitive Search REST &#40;dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Jak korzystać z wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze](search-pagination-page-layout.md)
+- [Omówienie języka wyrażeń OData dla platformy Azure Wyszukiwanie poznawcze](query-odata-filter-orderby-syntax.md)
+- [Dokumentacja składni wyrażenia OData dla usługi Azure Wyszukiwanie poznawcze](search-query-odata-syntax-reference.md)
+- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

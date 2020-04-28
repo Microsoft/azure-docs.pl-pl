@@ -9,26 +9,26 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 7d37e36a4cdfed462904e2d02871345ad89d7ac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74074552"
 ---
-# <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Tworzenie bramy aplikacji z przekierowaniem wewnętrznym przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Tworzenie bramy aplikacji z przekierowaniami wewnętrznymi przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Za pomocą interfejsu wiersza polecenia platformy Azure można skonfigurować [przekierowanie ruchu internetowego](multiple-site-overview.md) podczas tworzenia [bramy aplikacji](overview.md). W tym samouczku można zdefiniować pulę wewnętrznej bazy danych przy użyciu zestawu skalowania maszyn wirtualnych. Następnie należy skonfigurować odbiorniki i reguły na podstawie domen, które są własnością, aby upewnić się, że ruch internetowy dociera do odpowiedniej puli. W tym samouczku założono, że jesteś właścicielem wielu domen i używa przykładów *www\.contoso.com* i *www\.contoso.org*.
+Przy użyciu interfejsu wiersza polecenia platformy Azure można skonfigurować [przekierowywanie ruchu internetowego](multiple-site-overview.md) podczas tworzenia [bramy aplikacji](overview.md). W tym samouczku zdefiniujesz pulę zaplecza przy użyciu zestawu skalowania maszyn wirtualnych. Następnie należy skonfigurować detektory i reguły oparte na domenach, aby upewnić się, że ruch internetowy dociera do odpowiedniej puli. W tym samouczku przyjęto założenie, że posiadasz wiele domen i używasz przykładowych *contoso.com www\.* i *www\.contoso.org*.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
 > * Konfigurowanie sieci
 > * Tworzenie bramy aplikacji
-> * Dodawanie odbiorników i reguły przekierowania
-> * Tworzenie zestawu skalowania maszyny wirtualnej z pulą wewnętrznej bazy danych
+> * Dodaj odbiorniki i regułę przekierowania
+> * Tworzenie zestawu skalowania maszyn wirtualnych z pulą zaplecza
 > * Tworzenie rekordu CNAME w domenie
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Tworzenie zasobów sieciowych 
 
-Utwórz sieć wirtualną o nazwie *myVNet* i podsieć o nazwie *myAGSubnet* przy użyciu polecenia [az network vnet create](/cli/azure/network/vnet). Następnie można dodać podsieć o nazwie *myBackendSubnet,* która jest potrzebna w puli wewnętrznej bazy serwerów przy użyciu [podsieci sieci AZ network create](/cli/azure/network/vnet/subnet). Utwórz publiczny adres IP o nazwie *myAGPublicIPAddress* przy użyciu polecenia [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
+Utwórz sieć wirtualną o nazwie *myVNet* i podsieć o nazwie *myAGSubnet* przy użyciu polecenia [az network vnet create](/cli/azure/network/vnet). Następnie można dodać podsieć o nazwie *myBackendSubnet* , która jest wymagana przez pulę zaplecza serwerów za pomocą polecenia [AZ Network VNET Subnet Create](/cli/azure/network/vnet/subnet). Utwórz publiczny adres IP o nazwie *myAGPublicIPAddress* przy użyciu polecenia [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -97,7 +97,7 @@ Tworzenie bramy aplikacji może potrwać kilka minut. Po utworzeniu bramy aplika
 
 ## <a name="add-listeners-and-rules"></a>Dodawanie odbiorników i reguł 
 
-Odbiornik jest wymagany, aby brama aplikacji mogła właściwie kierować ruch do puli zaplecza. W tym samouczku utworzysz dwa odbiorniki dla swoich dwóch domen. W tym przykładzie odbiorniki są tworzone dla domen *www\.contoso.com* i *www\.contoso.org*.
+Odbiornik jest wymagany, aby brama aplikacji mogła właściwie kierować ruch do puli zaplecza. W tym samouczku utworzysz dwa odbiorniki dla swoich dwóch domen. W tym przykładzie są tworzone odbiorniki dla domen *contoso.com www\.* i *www\.contoso.org*.
 
 Dodaj odbiorniki zaplecza, które są wymagane do kierowania ruchu, używając polecenia [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
 
@@ -120,7 +120,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Dodawanie konfiguracji przekierowania
 
-Dodaj konfigurację przekierowania, która wysyła ruch z *consoto.org\.www* do odbiornika dla www *\.contoso.com* w bramie aplikacji za pomocą [az sieci aplikacji bramy przekierowania-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
+Dodaj konfigurację przekierowania, która wysyła ruch *z\.consoto.org www* do odbiornika dla *sieci\.Web contoso.com* w bramie aplikacji za pomocą polecenia [AZ Network Application-Gateway redirect-config Create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -135,9 +135,9 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-routing-rules"></a>Dodawanie reguł routingu
 
-Reguły są przetwarzane w kolejności, w jakiej są tworzone, a ruch jest kierowany przy użyciu pierwszej reguły, która pasuje do adresu URL wysyłanego do bramy aplikacji. Na przykład jeśli na tym samym porcie utworzono dwie reguły: jedną przy użyciu odbiornika podstawowego, a drugą przy użyciu odbiornika obejmującego wiele witryn, reguła z odbiornikiem obejmującym wiele witryn musi znajdować się przed regułą z odbiornikiem podstawowym, aby funkcja reguły obejmującej wiele witryn działała zgodnie z oczekiwaniami. 
+Reguły są przetwarzane w kolejności, w której zostały utworzone, a ruch jest kierowany przy użyciu pierwszej reguły, która pasuje do adresu URL wysyłanego do bramy aplikacji. Na przykład jeśli na tym samym porcie utworzono dwie reguły: jedną przy użyciu odbiornika podstawowego, a drugą przy użyciu odbiornika obejmującego wiele witryn, reguła z odbiornikiem obejmującym wiele witryn musi znajdować się przed regułą z odbiornikiem podstawowym, aby funkcja reguły obejmującej wiele witryn działała zgodnie z oczekiwaniami. 
 
-W tym przykładzie utworzysz dwie nowe reguły i usuniesz regułę domyślną, która została utworzona.  Regułę możesz dodać przy użyciu polecenia [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
+W tym przykładzie utworzysz dwie nowe reguły i usuniesz utworzoną regułę domyślną.  Regułę możesz dodać przy użyciu polecenia [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -162,7 +162,7 @@ az network application-gateway rule delete \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Tworzenie zestawów skalowania maszyn wirtualnych
 
-W tym przykładzie utworzysz zestaw skalowania maszyny wirtualnej, który obsługuje utworzoną pulę wewnętrznej bazy danych. Utworzony zestaw skalowania nosi nazwę *myvmss* i zawiera dwa wystąpienia maszyny wirtualnej, na których instalujesz NGINX.
+W tym przykładzie utworzysz zestaw skalowania maszyn wirtualnych obsługujący utworzoną pulę zaplecza. Utworzony zestaw skalowania ma nazwę *myvmss* i zawiera dwa wystąpienia maszyn wirtualnych, na których jest instalowany program Nginx.
 
 ```azurecli-interactive
 az vmss create \
@@ -209,11 +209,11 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Wpisz nazwę swojej domeny na pasku adresu przeglądarki. Takie jak http:\//www.contoso.com.
+Wpisz nazwę swojej domeny na pasku adresu przeglądarki. Na przykład http:\//www.contoso.com.
 
 ![Testowanie witryny contoso w bramie aplikacji](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-Zmień adres do innej domeny, na\/przykład http: /www.contoso.org i powinieneś zobaczyć, że ruch został\.przekierowany z powrotem do odbiornika dla www contoso.com.
+Zmień adres na inną domenę, na przykład http:\//www.contoso.org, i sprawdź, czy ruch został przekierowany z powrotem do odbiornika dla sieci Web\.contoso.com.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -221,6 +221,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 > * Konfigurowanie sieci
 > * Tworzenie bramy aplikacji
-> * Dodawanie odbiorników i reguły przekierowania
-> * Tworzenie zestawu skalowania maszyny wirtualnej z pulą wewnętrznej bazy danych
+> * Dodaj odbiorniki i regułę przekierowania
+> * Tworzenie zestawu skalowania maszyn wirtualnych z pulą zaplecza
 > * Tworzenie rekordu CNAME w domenie

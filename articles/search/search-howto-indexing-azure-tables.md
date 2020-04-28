@@ -1,7 +1,7 @@
 ---
-title: Wyszukiwanie zawartości magazynu tabel platformy Azure
+title: Wyszukiwanie w usłudze Azure Table Storage
 titleSuffix: Azure Cognitive Search
-description: Dowiedz się, jak indeksować dane przechowywane w magazynie tabel platformy Azure za pomocą indeksatora usługi Azure Cognitive Search.
+description: Dowiedz się, jak indeksować dane przechowywane w usłudze Azure Table Storage za pomocą indeksatora usługi Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -10,41 +10,41 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e8f6c0454497b1cb1d62417e566e9662469c56d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74113002"
 ---
-# <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Jak indeksować tabele z magazynu tabel platformy Azure za pomocą usługi Azure Cognitive Search
+# <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Jak indeksować tabele z usługi Azure Table Storage za pomocą usługi Azure Wyszukiwanie poznawcze
 
-W tym artykule pokazano, jak używać usługi Azure Cognitive Search do indeksowania danych przechowywanych w magazynie tabel platformy Azure.
+W tym artykule pokazano, jak używać usługi Azure Wyszukiwanie poznawcze do indeksowania danych przechowywanych w usłudze Azure Table Storage.
 
-## <a name="set-up-azure-table-storage-indexing"></a>Konfigurowanie indeksowania magazynu tabel platformy Azure
+## <a name="set-up-azure-table-storage-indexing"></a>Konfigurowanie indeksowania usługi Azure Table Storage
 
-Indeksatora usługi Azure Table Storage można skonfigurować przy użyciu następujących zasobów:
+Indeksator usługi Azure Table Storage można skonfigurować przy użyciu następujących zasobów:
 
-* [Portal Azure](https://ms.portal.azure.com)
-* [Interfejs API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) usługi Azure Cognitive Search
-* Zestaw [SDK](https://aka.ms/search-sdk) usługi Azure Cognitive Search .NET
+* [Azure Portal](https://ms.portal.azure.com)
+* [Interfejs API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) usługi Azure wyszukiwanie poznawcze
+* Azure Wyszukiwanie poznawcze [.NET SDK](https://aka.ms/search-sdk)
 
-W tym miejscu możemy zademonstrować przepływ przy użyciu interfejsu API REST. 
+W tym miejscu zademonstrowano przepływ przy użyciu interfejsu API REST. 
 
-### <a name="step-1-create-a-datasource"></a>Krok 1: Tworzenie źródła danych
+### <a name="step-1-create-a-datasource"></a>Krok 1. Tworzenie źródła danych
 
-Źródło danych określa, które dane mają być indeksowane, poświadczenia potrzebne do uzyskania dostępu do danych i zasady, które umożliwiają usługi Azure Cognitive Search efektywne identyfikowanie zmian w danych.
+Źródło danych określa dane do indeksowania, poświadczenia potrzebne do uzyskania dostępu do danych oraz zasady, które umożliwiają usłudze Azure Wyszukiwanie poznawcze wydajne identyfikowanie zmian w danych.
 
-W przypadku indeksowania tabel źródło danych musi mieć następujące właściwości:
+W przypadku indeksowania tabeli źródło danych musi mieć następujące właściwości:
 
-- **nazwa** jest unikatową nazwą źródła danych w usłudze wyszukiwania.
-- **musi** być `azuretable`.
-- parametr **credentials** zawiera parametry połączenia konta magazynu. Zobacz [określ poświadczenia](#Credentials) sekcji, aby uzyskać szczegółowe informacje.
-- **kontener** ustawia nazwę tabeli i kwerendę opcjonalną.
-    - Określ nazwę tabeli `name` przy użyciu parametru.
-    - Opcjonalnie należy określić kwerendę przy użyciu parametru. `query` 
+- **Nazwa** jest unikatową nazwą źródła danych w ramach usługi wyszukiwania.
+- **Typ** musi być `azuretable`.
+- parametr **Credentials** zawiera parametry połączenia konta magazynu. Aby uzyskać szczegółowe informacje, zobacz sekcję [Określanie poświadczeń](#Credentials) .
+- **kontener** ustawia nazwę tabeli i opcjonalne zapytanie.
+    - Określ nazwę tabeli przy użyciu `name` parametru.
+    - Opcjonalnie można określić zapytanie przy użyciu `query` parametru. 
 
 > [!IMPORTANT] 
-> Jeśli to możliwe, użyj filtru na PartitionKey, aby uzyskać lepszą wydajność. Każde inne zapytanie wykonuje skanowanie pełnej tabeli, co powoduje niską wydajność dużych tabel. Zobacz [zagadnienia dotyczące wydajności](#Performance) sekcji.
+> Jeśli to możliwe, Użyj filtru na PartitionKey w celu uzyskania lepszej wydajności. Każde inne zapytanie wykonuje pełne skanowanie tabeli, co skutkuje niską wydajnością dużych tabel. Zobacz sekcję [zagadnienia dotyczące wydajności](#Performance) .
 
 
 Aby utworzyć źródło danych:
@@ -60,21 +60,21 @@ Aby utworzyć źródło danych:
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
 
-Aby uzyskać więcej informacji na temat interfejsu API tworzenia źródła danych, zobacz [Tworzenie źródła danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+Aby uzyskać więcej informacji na temat interfejsu API tworzenia źródła danych, zobacz [Create DataSource](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 #### <a name="ways-to-specify-credentials"></a>Sposoby określania poświadczeń ####
 
 Poświadczenia dla tabeli można podać w jeden z następujących sposobów: 
 
-- **Parametry połączenia konta magazynu pełnego dostępu:** `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` ciąg połączenia można uzyskać z witryny Azure Portal, przechodząc do**kluczy** **ustawień** >  **bloku** > konta magazynu (dla klasycznych kont magazynu) lub**kluczy dostępu do** **ustawień** > (dla kont magazynu usługi Azure Resource Manager).
-- **Parametry połączenia sygnatury dostępu współdzielonego konta magazynu:** `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` Sygnatura dostępu współdzielonego powinna mieć uprawnienia do listy i odczytu w kontenerach (tabele w tym przypadku) i obiektach (wiersze tabeli).
--  **Podpis dostępu współdzielonego tabeli:** `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` W tabeli powinny znajdować się uprawnienia kwerendy (odczytu) kwerendy.
+- **Pełny dostęp do parametrów połączenia konta magazynu** `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` : parametry połączenia można uzyskać z Azure Portal, przechodząc do**kluczy** **ustawień** >  **bloku** > konta magazynu (dla klasycznych kont magazynu) lub**kluczy dostępu** **ustawień** > (dla Azure Resource Manager kont magazynu).
+- **Parametry połączenia sygnatury dostępu współdzielonego konta magazynu**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` sygnatura dostępu współdzielonego powinna mieć uprawnienia listy i odczytu w kontenerach (w tym przypadku tabel w tym przypadku) i obiektach (wiersze tabeli).
+-  **Sygnatura dostępu współdzielonego tabeli**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` sygnatura dostępu współdzielonego powinna mieć uprawnienia zapytania (odczyt) w tabeli.
 
-Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego magazynu, zobacz [Korzystanie z podpisów dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego magazynu, zobacz [Używanie sygnatur dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Jeśli używasz poświadczeń podpisu dostępu współdzielonego, należy okresowo aktualizować poświadczenia źródła danych za pomocą odnowionych podpisów, aby zapobiec ich wygaśnięciu. Jeśli poświadczenia podpisu dostępu udostępnionego wygasną, indeksator kończy się niepowodzeniem z komunikatem o błędzie podobnym do "Poświadczenia podane w ciągu połączenia są nieprawidłowe lub wygasły."  
+> W przypadku korzystania z poświadczeń sygnatury dostępu współdzielonego należy okresowo zaktualizować poświadczenia źródła danych za pomocą odnowionych podpisów, aby zapobiec ich wygaśnięciu. Jeśli poświadczenia sygnatury dostępu współdzielonego wygasną, indeksator kończy się niepowodzeniem z komunikatem o błędzie podobnym do "poświadczenia podane w parametrach połączenia są nieprawidłowe lub wygasły".  
 
 ### <a name="step-2-create-an-index"></a>Krok 2. Tworzenie indeksu
 Indeks określa pola w dokumencie, atrybuty i inne konstrukcje, które kształtują środowisko wyszukiwania.
@@ -93,12 +93,12 @@ Aby utworzyć indeks:
           ]
     }
 
-Aby uzyskać więcej informacji na temat tworzenia indeksów, zobacz [Tworzenie indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Aby uzyskać więcej informacji na temat tworzenia indeksów, zobacz [create index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### <a name="step-3-create-an-indexer"></a>Krok 3: Tworzenie indeksatora
-Indeksator łączy źródło danych z docelowym indeksem wyszukiwania i udostępnia harmonogram automatyzacji odświeżania danych. 
+### <a name="step-3-create-an-indexer"></a>Krok 3. Tworzenie indeksatora
+Indeksator łączy źródło danych z docelowym indeksem wyszukiwania i zawiera harmonogram służący do automatyzowania odświeżania danych. 
 
-Po utworzeniu indeksu i źródła danych można przystąpić do tworzenia indeksatora:
+Po utworzeniu indeksu i źródła danych możesz utworzyć indeksator:
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -111,29 +111,29 @@ Po utworzeniu indeksu i źródła danych można przystąpić do tworzenia indeks
       "schedule" : { "interval" : "PT2H" }
     }
 
-Ten indeksator działa co dwie godziny. (Interwał harmonogramu jest ustawiony na "PT2H".) Aby uruchomić indeksator co 30 minut, należy ustawić interwał na "PT30M". Najkrótszy obsługiwany interwał wynosi pięć minut. Harmonogram jest opcjonalny; jeśli pominięto, indeksator uruchamia się tylko raz podczas jego tworzenia. Jednak można uruchomić indeksatora na żądanie w dowolnym momencie.   
+Ten indeksator działa co dwie godziny. (Interwał harmonogramu jest ustawiony na wartość "PT2H"). Aby uruchomić indeksator co 30 minut, ustaw interwał na wartość "PT30M". Najkrótszy obsługiwany interwał wynosi pięć minut. Harmonogram jest opcjonalny; w przypadku pominięcia indeksator jest uruchamiany tylko raz, gdy zostanie utworzony. Można jednak uruchomić indeksator na żądanie w dowolnym momencie.   
 
 Aby uzyskać więcej informacji na temat interfejsu API tworzenia indeksatora, zobacz [Tworzenie indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Aby uzyskać więcej informacji na temat definiowania harmonogramów indeksatora, zobacz [Jak zaplanować indeksatory dla usługi Azure Cognitive Search](search-howto-schedule-indexers.md).
+Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w temacie [jak zaplanować indeksatory dla platformy Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
 
-## <a name="deal-with-different-field-names"></a>Radzić sobie z różnymi nazwami pól
-Czasami nazwy pól w istniejącym indeksie różnią się od nazw właściwości w tabeli. Mapowania pól można używać do mapowania nazw właściwości z tabeli na nazwy pól w indeksie wyszukiwania. Aby dowiedzieć się więcej o mapowaniach pól, zobacz [Mapowania pól usługi Azure Cognitive Search wypełniają różnice między źródłami danych a indeksami wyszukiwania.](search-indexer-field-mappings.md)
+## <a name="deal-with-different-field-names"></a>Postępowanie z różnymi nazwami pól
+Czasami nazwy pól w istniejącym indeksie różnią się od nazw właściwości w tabeli. Mapowania pól można użyć do mapowania nazw właściwości z tabeli do nazw pól w indeksie wyszukiwania. Aby dowiedzieć się więcej na temat mapowania pól, zobacz [mapowania pól usługi Azure wyszukiwanie poznawcze Indexer — różnice między źródłami danych i indeksami wyszukiwania](search-indexer-field-mappings.md).
 
-## <a name="handle-document-keys"></a>Obsługa kluczy dokumentu
-W usłudze Azure Cognitive Search klucz dokumentu jednoznacznie identyfikuje dokument. Każdy indeks wyszukiwania musi mieć dokładnie `Edm.String`jedno kluczowe pole typu . Pole klucza jest wymagane dla każdego dokumentu, który jest dodawany do indeksu. (W rzeczywistości jest to jedyne wymagane pole.)
+## <a name="handle-document-keys"></a>Obsługuj klucze dokumentów
+W usłudze Azure Wyszukiwanie poznawcze klucz dokumentu jednoznacznie identyfikuje dokument. Każdy indeks wyszukiwania musi mieć dokładnie jedno pole klucza typu `Edm.String`. Pole klucza jest wymagane dla każdego dokumentu, który jest dodawany do indeksu. (W rzeczywistości jest to jedyne pole wymagane).
 
-Ponieważ wiersze tabeli mają klucz złożony, usługa Azure `Key` Cognitive Search generuje syntetyczne pole o nazwie, które jest łączenia wartości klucza partycji i klucza wiersza. Na przykład, jeśli wiersz PartitionKey `PK1` jest i `RK1`RowKey `Key` jest , `PK1RK1`a następnie wartość pola jest .
+Ponieważ wiersze tabeli mają klucz złożony, usługa Azure Wyszukiwanie poznawcze generuje pole syntetyczne o `Key` nazwie, które jest połączeniem klucza partycji i wartości klucza wiersza. Na przykład, jeśli `PK1` PartitionKey wiersza to i RowKey is `RK1`, wartość `Key` pola to. `PK1RK1`
 
 > [!NOTE]
-> Wartość `Key` może zawierać znaki, które są nieprawidłowe w kluczach dokumentu, takie jak kreski. Nieprawidłowe znaki można mieć `base64Encode` za pomocą [funkcji mapowania pól](search-indexer-field-mappings.md#base64EncodeFunction). Wykonując tę czynność, pamiętaj również, aby użyć kodowania Base64 bezpiecznego dla adresu URL podczas przekazywania kluczy dokumentów w wywołaniach interfejsu API, na przykład podczas wyszukiwania.
+> `Key` Wartość może zawierać znaki, które są nieprawidłowe w kluczach dokumentów, takich jak łączniki. Za pomocą `base64Encode` [funkcji mapowania pól](search-indexer-field-mappings.md#base64EncodeFunction)można poradzić sobie z nieprawidłowymi znakami. Wykonując tę czynność, pamiętaj również, aby użyć kodowania Base64 bezpiecznego dla adresu URL podczas przekazywania kluczy dokumentów w wywołaniach interfejsu API, na przykład podczas wyszukiwania.
 >
 >
 
-## <a name="incremental-indexing-and-deletion-detection"></a>Wykrywanie indeksowania przyrostowego i usuwania
-Po skonfigurowaniu indeksatora tabel do uruchamiania zgodnie z harmonogramem ponownie indeksuje tylko nowe lub `Timestamp` zaktualizowane wiersze, zgodnie z wartością wiersza. Nie trzeba określać zasady wykrywania zmian. Indeksowanie przyrostowe jest włączone automatycznie.
+## <a name="incremental-indexing-and-deletion-detection"></a>Wykrywanie przyrostowe i usuwanie
+Po skonfigurowaniu indeksatora tabeli do uruchamiania zgodnie z harmonogramem program ponownie indeksuje tylko nowe lub zaktualizowane wiersze, zgodnie z `Timestamp` wartością wiersza. Nie musisz określać zasad wykrywania zmian. Indeksowanie przyrostowe jest automatycznie włączone.
 
-Aby wskazać, że niektóre dokumenty muszą zostać usunięte z indeksu, można użyć strategii usuwania nietrwałego. Zamiast usuwać wiersz, dodaj właściwość, aby wskazać, że jest ona usunięta, i skonfiguruj zasady wykrywania usuwania nietrwale w źródle danych. Na przykład następująca zasada uwzględnia, że wiersz jest usuwany, jeśli wiersz ma właściwość `IsDeleted` o wartości: `"true"`
+Aby wskazać, że niektóre dokumenty muszą zostać usunięte z indeksu, można użyć strategii usuwania nietrwałego. Zamiast usuwać wiersz, Dodaj właściwość, aby wskazać, że została usunięta, i skonfiguruj zasady wykrywania usuwania nietrwałego dla źródła danych. Na przykład następujące zasady uważają, że wiersz jest usuwany, jeśli wiersz ma właściwość `IsDeleted` o wartości: `"true"`
 
     PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
@@ -150,21 +150,21 @@ Aby wskazać, że niektóre dokumenty muszą zostać usunięte z indeksu, można
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>Zagadnienia dotyczące wydajności
 
-Domyślnie usługa Azure Cognitive Search używa `Timestamp >= HighWaterMarkValue`następującego filtru zapytań: . Ponieważ tabele platformy Azure nie mają `Timestamp` indeksu pomocniczego w polu, ten typ kwerendy wymaga pełnego skanowania tabeli i dlatego jest powolny dla dużych tabel.
+Domyślnie usługa Azure Wyszukiwanie poznawcze używa następującego filtra zapytania: `Timestamp >= HighWaterMarkValue`. Ponieważ tabele platformy Azure nie mają pomocniczego indeksu dla `Timestamp` tego pola, ten typ zapytania wymaga pełnego skanowania tabeli i dlatego jest wolny dla dużych tabel.
 
 
-Oto dwa możliwe podejścia do poprawy wydajności indeksowania tabel. Oba te podejścia opierają się na użyciu partycji tabeli: 
+Poniżej przedstawiono dwie możliwe podejścia do usprawnienia działania indeksowania tabeli. Oba te podejścia polegają na użyciu partycji tabel: 
 
-- Jeśli dane mogą być naturalnie podzielone na kilka zakresów partycji, należy utworzyć źródło danych i odpowiadający mu indeksator dla każdego zakresu partycji. Każdy indeksator musi teraz przetwarzać tylko określony zakres partycji, co powoduje lepszą wydajność kwerendy. Jeśli dane, które muszą być indeksowane ma niewielką liczbę stałych partycji, nawet lepiej: każdy indeksator tylko nie skanowania partycji. Na przykład, aby utworzyć źródło danych do przetwarzania `000` `100`zakresu partycji z kluczami od do , użyj kwerendy w ten sposób: 
+- Jeśli dane można w naturalny sposób podzielić na kilka zakresów partycji, Utwórz źródło danych i odpowiedni indeksator dla każdego zakresu partycji. Każdy indeksator musi teraz przetwarzać tylko określony zakres partycji, co zwiększa wydajność zapytań. Jeśli dane, które muszą być indeksowane, mają niewielką liczbę stałych partycji, jeszcze lepszy: każdy indeksator wykonuje tylko skanowanie partycji. Na przykład, aby utworzyć źródło danych do przetwarzania zakresu partycji z kluczami z `000` do `100`, należy użyć zapytania w następujący sposób: 
     ```
     "container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
     ```
 
-- Jeśli dane są podzielone na partycje według czasu (na przykład tworzysz nową partycję codziennie lub tydzień), należy wziąć pod uwagę następujące podejście: 
-    - Użyj kwerendy formularza: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
-    - Monitoruj postęp indeksatora przy użyciu interfejsu API `<TimeStamp>` stanu [indeksatora](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)i okresowo aktualizuj stan kwerendy na podstawie najnowszej pomyślnej wartości znaku wysokiej wody. 
-    - Dzięki takiemu podejściu, jeśli trzeba wyzwolić pełną reindexing, należy zresetować kwerendę źródła danych oprócz resetowania indeksatora. 
+- Jeśli dane są partycjonowane według czasu (na przykład można utworzyć nową partycję każdego dnia lub tygodnia), należy wziąć pod uwagę następujące podejście: 
+    - Użyj zapytania dotyczącego formularza: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
+    - Monitoruj postęp indeksatora przy użyciu [interfejsu Get indeksatora](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status), a następnie okresowo Aktualizuj `<TimeStamp>` warunek zapytania w oparciu o ostatnią pomyślną wartość ze znakiem końca wody. 
+    - W przypadku konieczności wyzwolenia kompletnego ponownego indeksowania należy zresetować zapytanie DataSource oprócz resetowania indeksatora. 
 
 
-## <a name="help-us-make-azure-cognitive-search-better"></a>Pomóż nam poprawić usługę Azure Cognitive Search
-Jeśli masz prośby o ulepszenia lub pomysły dotyczące ulepszeń, prześlij je na naszej [stronie UserVoice.](https://feedback.azure.com/forums/263029-azure-search/)
+## <a name="help-us-make-azure-cognitive-search-better"></a>Pomóż nam ulepszyć platformę Azure Wyszukiwanie poznawcze
+Jeśli masz żądania funkcji lub pomysły dotyczące ulepszeń, prześlij je w naszej [witrynie UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

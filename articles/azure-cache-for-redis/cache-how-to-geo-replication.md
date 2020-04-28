@@ -1,127 +1,127 @@
 ---
-title: Jak skonfigurować replikację geograficzną dla usługi Azure Cache for Redis | Dokumenty firmy Microsoft
-description: Dowiedz się, jak replikować pamięć podręczną platformy Azure dla wystąpień Redis w regionach geograficznych.
+title: Jak skonfigurować replikację geograficzną dla usługi Azure cache for Redis | Microsoft Docs
+description: Dowiedz się, jak replikować pamięć podręczną platformy Azure dla wystąpień Redis w różnych regionach geograficznych.
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
 ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74129417"
 ---
-# <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Jak skonfigurować replikację geograficzną dla usługi Azure Cache for Redis
+# <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Jak skonfigurować replikację geograficzną dla usługi Azure cache for Redis
 
-Replikacja geograficzna zapewnia mechanizm łączenia dwóch warstwy Premium azure cache dla wystąpień Redis. Jedna pamięć podręczna jest wybierana jako podstawowa połączona pamięć podręczna, a druga jako pomocnicza połączona pamięć podręczna. Pomocnicza połączona pamięć podręczna staje się tylko do odczytu, a dane zapisane w podstawowej pamięci podręcznej są replikowane do pomocniczej połączonej pamięci podręcznej. Ta funkcja może służyć do replikowania pamięci podręcznej w regionach platformy Azure. Ten artykuł zawiera przewodnik dotyczący konfigurowania replikacji geograficznej dla warstwy Premium w pamięci podręcznej platformy Azure dla wystąpień Redis.
+Replikacja geograficzna zapewnia mechanizm łączenia dwóch pamięci podręcznej platformy Azure w warstwie Premium dla wystąpień Redis. Jedna pamięć podręczna jest wybierana jako podstawowa połączona pamięć podręczna, a druga jako pomocnicza połączonej pamięci podręcznej. Pomocnicza połączonej pamięci podręcznej jest tylko do odczytu, a dane zapisywane w podstawowej pamięci podręcznej są replikowane do pomocniczej połączonej pamięci podręcznej. Tej funkcji można użyć do replikowania pamięci podręcznej w regionach platformy Azure. Ten artykuł zawiera Przewodnik konfigurowania replikacji geograficznej dla usługi Azure cache w warstwie Premium dla wystąpień Redis.
 
-## <a name="geo-replication-prerequisites"></a>Wymagania wstępne replikacji geograficznej
+## <a name="geo-replication-prerequisites"></a>Wymagania wstępne dotyczące replikacji geograficznej
 
-Aby skonfigurować replikację geograficzną między dwiema pamięciami podręcznymi, muszą być spełnione następujące wymagania wstępne:
+Aby skonfigurować replikację geograficzną między dwiema pamięciami podręcznymi, należy spełnić następujące wymagania wstępne:
 
-- Obie pamięci podręczne są pamięciami podręcznymi [warstwy Premium.](cache-premium-tier-intro.md)
+- Obie pamięci podręczne są pamięcią podręczną [warstwy Premium](cache-premium-tier-intro.md) .
 - Obie pamięci podręczne są w tej samej subskrypcji platformy Azure.
-- Pomocnicza połączona pamięć podręczna ma ten sam rozmiar pamięci podręcznej lub większy rozmiar pamięci podręcznej niż podstawowa połączona pamięć podręczna.
-- Obie pamięci podręczne są tworzone i w stanie uruchomionym.
+- Pomocnicza połączony bufor ma ten sam rozmiar pamięci podręcznej lub większy rozmiar pamięci podręcznej niż w przypadku podstawowej połączonej pamięci podręcznej.
+- Obie pamięci podręczne są tworzone i w stanie uruchomienia.
 
 Niektóre funkcje nie są obsługiwane w przypadku replikacji geograficznej:
 
 - Trwałość nie jest obsługiwana w przypadku replikacji geograficznej.
-- Klastrowanie jest obsługiwane, jeśli obie pamięci podręczne mają włączone klastrowanie i mają taką samą liczbę fragmentów.
-- Obsługiwane są bufory w tej samej sieci wirtualnej.
-- Pamięci podręczne w różnych sieciach wirtualnych są obsługiwane z zastrzeżeniami. Aby uzyskać więcej [informacji, zobacz Czy mogę używać replikacji geograficznej z pamięciami podręcznymi w sieci wirtualnej?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
+- Klastrowanie jest obsługiwane, jeśli obie pamięci podręczne mają włączoną funkcję klastrowania i mają tę samą liczbę fragmentów.
+- Obsługiwane są pamięci podręczne w tej samej sieci wirtualnej.
+- Pamięć podręczna w różnych sieci wirtualnychach jest obsługiwana z zastrzeżeniem. Zobacz [, czy można użyć replikacji geograficznej z moją pamięcią podręczną w sieci wirtualnej?](#can-i-use-geo-replication-with-my-caches-in-a-vnet) Aby uzyskać więcej informacji.
 
-Po skonfigurowaniu replikacji geograficznej do połączonej pary pamięci podręcznej obowiązują następujące ograniczenia:
+Po skonfigurowaniu replikacji geograficznej, następujące ograniczenia mają zastosowanie do pary połączonej pamięci podręcznej:
 
-- Pomocnicza połączona pamięć podręczna jest tylko do odczytu; można z niego odczytać, ale nie możesz zapisać na nim żadnych danych. 
-- Wszystkie dane, które znajdowały się w pomocniczej połączonej pamięci podręcznej przed dodaniem łącza, zostaną usunięte. Jeśli jednak replikacja geograficzna zostanie później usunięta, zreplikowane dane pozostaną w pomocniczej połączonej pamięci podręcznej.
-- Nie można [skalować](cache-how-to-scale.md) żadnej pamięci podręcznej, gdy bufory są połączone.
-- Nie można [zmienić liczby fragmentów,](cache-how-to-premium-clustering.md) jeśli pamięć podręczna ma włączone klastrowanie.
-- Nie można włączyć trwałości w żadnej z pamięci podręcznej.
-- Można [eksportować](cache-how-to-import-export-data.md#export) z każdej pamięci podręcznej.
+- Pomocnicza połączonej pamięci podręcznej jest tylko do odczytu; można z niego odczytywać, ale nie można zapisać w nim żadnych danych. 
+- Wszystkie dane znajdujące się w pomocniczej połączonej pamięci podręcznej przed dodaniem linku zostaną usunięte. W przypadku późniejszego usunięcia replikacji geograficznej zreplikowane dane pozostają w pomocniczej połączonej pamięci podręcznej.
+- Nie można [skalować](cache-how-to-scale.md) żadnej pamięci podręcznej podczas łączenia pamięci podręcznych.
+- Nie można [zmienić liczby fragmentów](cache-how-to-premium-clustering.md) , jeśli pamięć podręczna ma włączone klastrowanie.
+- Nie można włączyć trwałości w żadnej pamięci podręcznej.
+- Możesz [wyeksportować](cache-how-to-import-export-data.md#export) z jednej pamięci podręcznej.
 - Nie można [zaimportować](cache-how-to-import-export-data.md#import) do pomocniczej połączonej pamięci podręcznej.
-- Nie można usunąć połączonej pamięci podręcznej ani grupy zasobów, która je zawiera, dopóki nie odłączysz pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [Dlaczego operacja nie powiodła się podczas próby usunięcia połączonej pamięci podręcznej?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
-- Jeśli pamięci podręczne znajdują się w różnych regionach, koszty transferu danych wychodzących sieci mają zastosowanie do danych przeniesionych między regionami. Aby uzyskać więcej informacji, zobacz [Ile kosztuje replikowanie moich danych w regionach platformy Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- Automatyczna funkcja trybu failover nie występuje między podstawową i pomocniczą połączonyą pamięcią podręczną. Aby uzyskać więcej informacji i informacji na temat pracy awaryjnej aplikacji klienckiej, zobacz [Jak działa niepowodzenie w stosunku do pomocniczej połączonej pamięci podręcznej?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- Nie można usunąć połączonej pamięci podręcznej lub grupy zasobów, która je zawiera, do momentu odłączenia pamięci podręcznych. Aby uzyskać więcej informacji, zobacz [dlaczego operacja kończy się niepowodzeniem podczas próby usunięcia połączonej pamięci podręcznej?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
+- Jeśli pamięć podręczna znajduje się w różnych regionach, koszty ruchu wychodzącego w sieci są stosowane do danych przenoszonych między regionami. Aby uzyskać więcej informacji, zobacz, [jak wiele kosztów może replikować dane w regionach platformy Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- Automatyczne przełączanie do trybu failover nie występuje między podstawową i pomocniczą połączoną pamięcią podręczną. Aby uzyskać więcej informacji i dowiedzieć się, jak przełączyć się do trybu failover w aplikacji klienckiej, zobacz Jak działa przechodzenie awaryjne [do pomocniczej połączonej pamięci podręcznej?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
-## <a name="add-a-geo-replication-link"></a>Dodawanie łącza replikacji geograficznej
+## <a name="add-a-geo-replication-link"></a>Dodawanie linku replikacji geograficznej
 
-1. Aby połączyć dwie pamięci podręczne w celu replikacji geograficznej, kliknij z pięścią opcję **Replikacja geograficzna** z menu Zasób pamięci podręcznej, która ma być podstawową połączonyą pamięcią podręczną. Następnie kliknij pozycję **Dodaj łącze replikacji pamięci podręcznej** z bloku **Replikacja geograficzna.**
+1. Aby połączyć dwie pamięci podręczne na potrzeby replikacji geograficznej, Fist kliknij pozycję **replikacja geograficzna** z menu zasób pamięci podręcznej, która ma być podstawową, połączoną pamięcią podręczną. Następnie kliknij **link Dodaj replikację pamięci podręcznej** z bloku **replikacja geograficzna** .
 
-    ![Dodaj link](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
+    ![Dodaj łącze](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-2. Kliknij nazwę zamierzonej dodatkowej pamięci podręcznej z listy **Zgodne pamięci podręczne.** Jeśli pomocnicza pamięć podręczna nie jest wyświetlana na liście, sprawdź, czy są spełnione [wymagania wstępne replikacji](#geo-replication-prerequisites) geograficznej dla pomocniczej pamięci podręcznej. Aby filtrować pamięci podręczne według regionu, kliknij region na mapie, aby wyświetlić tylko te pamięci podręczne na liście **Zgodne pamięci podręczne.**
+2. Kliknij nazwę zamierzonej pomocniczej pamięci podręcznej z listy **zgodnych pamięci podręcznych** . Jeśli pomocnicza pamięć podręczna nie jest wyświetlana na liście, sprawdź, czy zostały spełnione [wymagania wstępne dotyczące replikacji geograficznej](#geo-replication-prerequisites) dla pomocniczej pamięci podręcznej. Aby filtrować pamięci podręczne według regionów, kliknij region na mapie, aby wyświetlić tylko te pamięci podręczne na liście **zgodnych pamięci podręcznych** .
 
     ![Pamięci podręczne zgodne z replikacją geograficzną](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
     
-    Można również rozpocząć proces łączenia lub wyświetlić szczegóły dotyczące pomocniczej pamięci podręcznej przy użyciu menu kontekstowego.
+    Możesz również uruchomić proces łączenia lub wyświetlić szczegóły pomocniczej pamięci podręcznej za pomocą menu kontekstowego.
 
     ![Menu kontekstowe replikacji geograficznej](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
 
-3. Kliknij **przycisk Łącze,** aby połączyć dwie pamięci podręczne i rozpocząć proces replikacji.
+3. Kliknij **link** , aby połączyć dwie pamięci podręczne i rozpocząć proces replikacji.
 
-    ![Bufory łączy](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
+    ![Buforuj linki](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. Postęp procesu replikacji można wyświetlić w bloku **Replikacja geograficzna.**
+4. Postęp procesu replikacji można wyświetlić w bloku **replikacji geograficznej** .
 
-    ![Stan łączenia](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
+    ![Stan konsolidacji](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
-    Można również wyświetlić stan łączenia w **bloku Przegląd** dla pamięci podręcznej podstawowej i pomocniczej.
+    Możesz również wyświetlić stan połączenia w bloku **Przegląd** dla podstawowych i pomocniczych pamięci podręcznych.
 
     ![Stan pamięci podręcznej](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    Po zakończeniu procesu replikacji **stan łącza** zmienia się na **Zakończony pomyślnie**.
+    Po zakończeniu procesu replikacji **Stan łącza** zmieni się na **powodzenie**.
 
     ![Stan pamięci podręcznej](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
-    Podstawowa połączona pamięć podręczna pozostaje dostępna do użycia podczas procesu łączenia. Pomocnicza połączona pamięć podręczna nie jest dostępna, dopóki proces łączenia nie zostanie zakończony.
+    Podstawowa połączona pamięć podręczna pozostaje dostępna do użycia podczas procesu łączenia. Pomocnicza połączona pamięć podręczna jest niedostępna, dopóki proces łączenia nie zostanie ukończony.
 
-## <a name="remove-a-geo-replication-link"></a>Usuwanie łącza replikacji geograficznej
+## <a name="remove-a-geo-replication-link"></a>Usuwanie linku replikacji geograficznej
 
-1. Aby usunąć łącze między dwiema pamięciami podręcznymi i zatrzymać replikację geograficzną, kliknij pozycję **Odłącz pamięć podręczną** od bloku **Replikacja geograficzna.**
+1. Aby usunąć łącze między dwiema pamięciami podręcznymi i zatrzymać replikację geograficzną, kliknij opcję **Odłącz pamięć podręczną** od bloku **replikacji geograficznej** .
     
-    ![Odłączanie pamięci podręcznych](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
+    ![Odłącz pamięć podręczną](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
-    Po zakończeniu procesu odłączania pomocnicza pamięć podręczna jest dostępna zarówno dla odczytów, jak i zapisów.
+    Po zakończeniu procesu odłączania pomocnicza pamięć podręczna jest dostępna zarówno do odczytu, jak i zapisu.
 
 >[!NOTE]
 >Po usunięciu łącza replikacji geograficznej zreplikowane dane z podstawowej połączonej pamięci podręcznej pozostają w pomocniczej pamięci podręcznej.
 >
 >
 
-## <a name="geo-replication-faq"></a>Często zadawane pytania dotyczące replikacji geograficznej
+## <a name="geo-replication-faq"></a>Replikacja geograficzna — często zadawane pytania
 
-- [Czy można używać replikacji geograficznej z pamięcią podręczną warstwy Standardowa lub Podstawowa?](#can-i-use-geo-replication-with-a-standard-or-basic-tier-cache)
-- [Czy moja pamięć podręczna jest dostępna do użycia podczas procesu łączenia lub odłączania?](#is-my-cache-available-for-use-during-the-linking-or-unlinking-process)
-- [Czy mogę połączyć ze sobą więcej niż dwie pamięci podręczne?](#can-i-link-more-than-two-caches-together)
+- [Czy można używać replikacji geograficznej z pamięcią podręczną warstwy Standardowa lub podstawowa?](#can-i-use-geo-replication-with-a-standard-or-basic-tier-cache)
+- [Czy moja pamięć podręczna jest dostępna do użycia podczas procesu łączenia lub rozłączania?](#is-my-cache-available-for-use-during-the-linking-or-unlinking-process)
+- [Czy mogę połączyć więcej niż dwie pamięć podręczną?](#can-i-link-more-than-two-caches-together)
 - [Czy mogę połączyć dwie pamięci podręczne z różnych subskrypcji platformy Azure?](#can-i-link-two-caches-from-different-azure-subscriptions)
 - [Czy mogę połączyć dwie pamięci podręczne o różnych rozmiarach?](#can-i-link-two-caches-with-different-sizes)
-- [Czy można używać replikacji geograficznej z włączonym klastrem?](#can-i-use-geo-replication-with-clustering-enabled)
-- [Czy mogę używać replikacji geograficznej z pamięciami podręcznymi w sieci wirtualnej?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
-- [Jaki jest harmonogram replikacji dla replikacji geograficznej Redis?](#what-is-the-replication-schedule-for-redis-geo-replication)
+- [Czy można używać replikacji geograficznej z włączoną obsługą klastrowania?](#can-i-use-geo-replication-with-clustering-enabled)
+- [Czy można używać replikacji geograficznej z moją pamięcią podręczną w sieci wirtualnej?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
+- [Jaki jest harmonogram replikacji Redis georeplikacji?](#what-is-the-replication-schedule-for-redis-geo-replication)
 - [Jak długo trwa replikacja geograficzna?](#how-long-does-geo-replication-replication-take)
-- [Czy gwarantowany jest punkt odzyskiwania replikacji?](#is-the-replication-recovery-point-guaranteed)
-- [Czy mogę zarządzać replikacją geograficzną za pomocą programu PowerShell lub interfejsu wiersza polecenia platformy Azure?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
-- [Ile kosztuje replikowanie moich danych w regionach platformy Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- [Dlaczego operacja nie powiodła się podczas próby usunięcia połączonej pamięci podręcznej?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
-- [Jakiego regionu należy używać w pomocniczej połączonej pamięci podręcznej?](#what-region-should-i-use-for-my-secondary-linked-cache)
-- [Jak działa niepowodzenie w przypadku pomocniczej połączonej pamięci podręcznej?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- [Czy punkt odzyskiwania replikacji jest gwarantowany?](#is-the-replication-recovery-point-guaranteed)
+- [Czy można użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure do zarządzania replikacją geograficzną?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
+- [Ile kosztuje, aby replikować dane w regionach platformy Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- [Dlaczego operacja kończy się niepowodzeniem podczas próby usunięcia połączonej pamięci podręcznej?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
+- [Jakiego regionu należy używać dla mojej pomocniczej połączonej pamięci podręcznej?](#what-region-should-i-use-for-my-secondary-linked-cache)
+- [Jak działa przechodzenie w tryb failover do pomocniczej połączonej pamięci podręcznej?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
-### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>Czy można używać replikacji geograficznej z pamięcią podręczną warstwy Standardowa lub Podstawowa?
+### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>Czy można używać replikacji geograficznej z pamięcią podręczną warstwy Standardowa lub podstawowa?
 
-Nie, replikacja geograficzna jest dostępna tylko w pamięci podręcznej warstwy Premium.
+Nie, replikacja geograficzna jest dostępna tylko w przypadku pamięci podręcznych warstwy Premium.
 
-### <a name="is-my-cache-available-for-use-during-the-linking-or-unlinking-process"></a>Czy moja pamięć podręczna jest dostępna do użycia podczas procesu łączenia lub odłączania?
+### <a name="is-my-cache-available-for-use-during-the-linking-or-unlinking-process"></a>Czy moja pamięć podręczna jest dostępna do użycia podczas procesu łączenia lub rozłączania?
 
-- Podczas łączenia podstawowa połączona pamięć podręczna pozostaje dostępna po zakończeniu procesu łączenia.
-- Podczas łączenia pomocnicza połączona pamięć podręczna nie jest dostępna, dopóki proces łączenia nie zostanie zakończony.
-- Po odłączeniu, obie pamięci podręczne pozostają dostępne po zakończeniu procesu odłączania.
+- Podczas łączenia, podstawowa połączona pamięć podręczna pozostaje dostępna podczas kończenia procesu łączenia.
+- Podczas łączenia pomocnicza połączonej pamięci podręcznej nie jest dostępna do momentu zakończenia procesu łączenia.
+- Podczas odłączania obie pamięci podręczne pozostają dostępne po zakończeniu procesu odłączania.
 
-### <a name="can-i-link-more-than-two-caches-together"></a>Czy mogę połączyć ze sobą więcej niż dwie pamięci podręczne?
+### <a name="can-i-link-more-than-two-caches-together"></a>Czy mogę połączyć więcej niż dwie pamięć podręczną?
 
-Nie, można połączyć ze sobą tylko dwie pamięci podręczne.
+Nie, można połączyć tylko dwie pamięci podręczne.
 
 ### <a name="can-i-link-two-caches-from-different-azure-subscriptions"></a>Czy mogę połączyć dwie pamięci podręczne z różnych subskrypcji platformy Azure?
 
@@ -129,59 +129,59 @@ Nie, obie pamięci podręczne muszą znajdować się w tej samej subskrypcji pla
 
 ### <a name="can-i-link-two-caches-with-different-sizes"></a>Czy mogę połączyć dwie pamięci podręczne o różnych rozmiarach?
 
-Tak, o ile pomocnicza połączona pamięć podręczna jest większa niż podstawowa połączona pamięć podręczna.
+Tak, pod warunkiem, że pomocnicza połączonej pamięci podręcznej jest większa niż podstawowa połączona pamięć podręczna.
 
-### <a name="can-i-use-geo-replication-with-clustering-enabled"></a>Czy można używać replikacji geograficznej z włączonym klastrem?
+### <a name="can-i-use-geo-replication-with-clustering-enabled"></a>Czy można używać replikacji geograficznej z włączoną obsługą klastrowania?
 
-Tak, tak długo, jak obie pamięci podręczne mają taką samą liczbę fragmentów.
+Tak, o ile obie pamięci podręczne mają tę samą liczbę fragmentów.
 
-### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>Czy mogę używać replikacji geograficznej z pamięciami podręcznymi w sieci wirtualnej?
+### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>Czy można używać replikacji geograficznej z moją pamięcią podręczną w sieci wirtualnej?
 
-Tak, replikacja geograficzna pamięci podręcznej w sieciach wirtualnych jest obsługiwana z zastrzeżeniami:
+Tak, replikacja geograficzna pamięci podręcznych w sieci wirtualnych jest obsługiwana z zastrzeżeniem:
 
 - Replikacja geograficzna między pamięciami podręcznymi w tej samej sieci wirtualnej jest obsługiwana.
-- Obsługiwana jest również replikacja geograficzna między pamięciami podręcznymi w różnych sieciach wirtualnych.
-  - Jeśli sieci wirtualne znajdują się w tym samym regionie, można je połączyć za pomocą [komunikacji równorzędnej sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) lub [połączenia sieci wirtualnej](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V)bramy sieci VPN.
-  - Jeśli sieci wirtualne znajdują się w różnych regionach, replikacja geograficzna przy użyciu komunikacji równorzędnej sieci wirtualnej nie jest obsługiwana z powodu ograniczenia z podstawowymi wewnętrznymi modułami równoważenia obciążenia. Aby uzyskać więcej informacji na temat ograniczeń komunikacji równorzędnej sieci wirtualnej, zobacz [Sieć wirtualna — komunikacja równorzędna — wymagania i ograniczenia](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). Zalecanym rozwiązaniem jest użycie połączenia sieci wirtualnej bramy sieci VPN z siecią wirtualną.
+- Obsługiwane są również replikacje geograficzne między pamięciami podręcznymi w różnych sieci wirtualnych.
+  - Jeśli sieci wirtualnych znajdują się w tym samym regionie, można połączyć je za pomocą [komunikacji równorzędnej sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) lub [VPN Gateway połączenia](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V)między siećmi wirtualnymi.
+  - Jeśli sieci wirtualnych znajdują się w różnych regionach, replikacja geograficzna przy użyciu komunikacji równorzędnej sieci wirtualnych nie jest obsługiwana z powodu ograniczenia w przypadku podstawowych wewnętrznych modułów równoważenia obciążenia. Aby uzyskać więcej informacji na temat ograniczeń wirtualnych sieci równorzędnych, zobacz [Virtual Network-Komunikacja równorzędna — wymagania i ograniczenia](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). Zalecanym rozwiązaniem jest użycie VPN Gateway połączenia między sieciami WIRTUALNYmi.
 
-Za pomocą [tego szablonu platformy Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/)można szybko wdrożyć dwie replikowane geograficznie pamięci podręczne w sieci wirtualnej połączonej z połączeniem sieci wirtualnej sieci wirtualnej bramy sieci VPN.
+Korzystając z [tego szablonu platformy Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/), można szybko wdrożyć dwie buforowane geograficznie podsieci w sieci wirtualnej połączonej z VPN Gateway połączeniem między sieciami wirtualnymi.
 
-### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Jaki jest harmonogram replikacji dla replikacji geograficznej Redis?
+### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Jaki jest harmonogram replikacji Redis georeplikacji?
 
-Replikacja jest ciągła i asynchroniczna i nie odbywa się zgodnie z określonym harmonogramem. Wszystkie zapisy wykonane do podstawowego są natychmiast i asynchronicznie replikowane na pomocniczej.
+Replikacja jest ciągła i asynchroniczna i nie odbywa się zgodnie z określonym harmonogramem. Wszystkie zapisy wykonywane do podstawowego są natychmiast i asynchroniczne zreplikowane na pomocniczej.
 
 ### <a name="how-long-does-geo-replication-replication-take"></a>Jak długo trwa replikacja geograficzna?
 
-Replikacja jest przyrostowa, asynchronicznego i ciągłego i czas zajęty nie różni się znacznie od opóźnienia w różnych regionach. W pewnych okolicznościach pomocniczej pamięci podręcznej może być wymagane do pełnej synchronizacji danych z podstawowego. Czas replikacji w tym przypadku zależy od liczby czynników, takich jak: obciążenie podstawowej pamięci podręcznej, dostępna przepustowość sieci i opóźnienie między regionami. Odkryliśmy, że czas replikacji dla pełnej pary replikowanej geograficznie 53 GB może wynosić od 5 do 10 minut.
+Replikacja jest przyrostowa, asynchroniczna i ciągła, a czas trwania nie jest znacznie różny od opóźnienia w różnych regionach. W pewnych okolicznościach pomocnicza pamięć podręczna może być wymagana do wykonania pełnej synchronizacji danych z podstawowego. Czas replikacji w tym przypadku zależy od liczby takich czynników, jak: obciążenia podstawowej pamięci podręcznej, dostępnej przepustowości sieci i opóźnienia między regionami. Znaleźliśmy czas replikacji dla pełnej pary replikowanych geograficznie 53 GB, która może znajdować się w dowolnym miejscu w zakresie od 5 do 10 minut.
 
-### <a name="is-the-replication-recovery-point-guaranteed"></a>Czy gwarantowany jest punkt odzyskiwania replikacji?
+### <a name="is-the-replication-recovery-point-guaranteed"></a>Czy punkt odzyskiwania replikacji jest gwarantowany?
 
-W przypadku pamięci podręcznej w trybie replikacji geograficznej trwałość jest wyłączona. Jeśli para replikowana geograficznie jest odłączona, na przykład zainicjowana przez klienta usługa failover, pomocnicza połączona pamięć podręczna przechowuje zsynchronizowane dane do tego momentu. W takich sytuacjach nie jest gwarantowany żaden punkt odzyskiwania.
+W przypadku pamięci podręcznej w trybie replikowanym geograficznie trwałość jest wyłączona. Jeśli para z replikacją geograficzną jest odłączona, na przykład w trybie failover inicjowanym przez klienta, pomocnicza połączonej pamięci podręcznej utrzymuje zsynchronizowane dane do tego momentu. W takich sytuacjach nie jest gwarantowany żaden punkt odzyskiwania.
 
-Aby uzyskać punkt odzyskiwania, [Eksportuj](cache-how-to-import-export-data.md#export) z obu pamięci podręcznej. Później można [zaimportować](cache-how-to-import-export-data.md#import) do podstawowej połączonej pamięci podręcznej.
+Aby uzyskać punkt odzyskiwania, należy [wyeksportować](cache-how-to-import-export-data.md#export) z jednej pamięci podręcznej. Później można [zaimportować](cache-how-to-import-export-data.md#import) do podstawowej połączonej pamięci podręcznej.
 
-### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Czy mogę zarządzać replikacją geograficzną za pomocą programu PowerShell lub interfejsu wiersza polecenia platformy Azure?
+### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Czy można użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure do zarządzania replikacją geograficzną?
 
-Tak, replikacją geograficzną można zarządzać za pomocą portalu Azure, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [dokumenty programu PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) lub [dokumenty interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
+Tak. replikację geograficzną można zarządzać przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz Dokumentacja programu [PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) lub [Dokumentacja interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
 
-### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Ile kosztuje replikowanie moich danych w regionach platformy Azure?
+### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Ile kosztuje, aby replikować dane w regionach platformy Azure?
 
-Podczas korzystania z replikacji geograficznej dane z podstawowej połączonej pamięci podręcznej są replikowane do pomocniczej połączonej pamięci podręcznej. Transfer danych nie jest pobierany, jeśli dwie połączone pamięci podręczne znajdują się w tym samym regionie. Jeśli dwie połączone pamięci podręczne znajdują się w różnych regionach, opłata za transfer danych jest kosztem transferu danych wychodzących z sieci danych przemieszczających się po każdym regionie. Aby uzyskać więcej informacji, zobacz [Szczegóły cen przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/).
+W przypadku korzystania z replikacji geograficznej dane z podstawowej połączonej pamięci podręcznej są replikowane do pomocniczej połączonej pamięci podręcznej. Nie jest naliczana opłata za transfer danych, jeśli dwie połączone pamięci podręczne znajdują się w tym samym regionie. Jeśli dwie połączone pamięci podręczne znajdują się w różnych regionach, opłata za transfer danych jest kosztem wychodzącym przez sieć danych przenoszonych w dowolnym regionie. Aby uzyskać więcej informacji, zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/bandwidth/)dotyczącego przepustowości.
 
-### <a name="why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache"></a>Dlaczego operacja nie powiodła się podczas próby usunięcia połączonej pamięci podręcznej?
+### <a name="why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache"></a>Dlaczego operacja kończy się niepowodzeniem podczas próby usunięcia połączonej pamięci podręcznej?
 
-Nie można usunąć pamięci podręcznych replikowanych geograficznie i ich grup zasobów podczas połączenia, dopóki nie usuniesz łącza replikacji geograficznej. Jeśli spróbujesz usunąć grupę zasobów, która zawiera jedną lub obie połączone pamięci podręczne, inne zasoby w `deleting` grupie zasobów zostaną usunięte, ale grupa `running` zasobów pozostanie w stanie, a wszystkie połączone pamięci podręczne w grupie zasobów pozostaną w stanie. Aby całkowicie usunąć grupę zasobów i połączone w niej pamięci podręczne, odłącz pamięć podręczną zgodnie z opisem w [obszarze Usuń łącze replikacji geograficznej](#remove-a-geo-replication-link).
+Nie można usunąć pamięci podręcznej replikowanych geograficznie i ich grup zasobów, dopóki nie zostanie usunięte łącze replikacji geograficznej. Jeśli spróbujesz usunąć grupę zasobów zawierającą jedną lub obie połączone pamięci podręczne, inne zasoby w grupie zasobów zostaną usunięte, ale Grupa zasobów pozostanie w `deleting` stanie i wszystkie połączone pamięci podręczne w grupie zasobów pozostaną w `running` stanie. Aby całkowicie usunąć grupę zasobów i połączone pamięci podręczne, należy odłączyć pamięci podręczne zgodnie z opisem w temacie [Usuwanie łącza replikacji geograficznej](#remove-a-geo-replication-link).
 
-### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>Jakiego regionu należy używać w pomocniczej połączonej pamięci podręcznej?
+### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>Jakiego regionu należy używać dla mojej pomocniczej połączonej pamięci podręcznej?
 
-Ogólnie rzecz biorąc zaleca się, aby pamięć podręczna istniała w tym samym regionie platformy Azure, co aplikacja, która uzyskuje do niej dostęp. W przypadku aplikacji z oddzielnymi regionami podstawowymi i rezerwowymi zaleca się, aby podstawowe i pomocnicze pamięci podręczne istniały w tych samych regionach. Aby uzyskać więcej informacji na temat sparowanych regionów, zobacz [Najważniejsze wskazówki — sparowane regiony platformy Azure](../best-practices-availability-paired-regions.md).
+Ogólnie rzecz biorąc, zaleca się, aby pamięć podręczna istniała w tym samym regionie świadczenia usługi Azure co aplikacja, która uzyskuje do niej dostęp. W przypadku aplikacji z oddzielnymi regionami podstawowymi i rezerwowymi zaleca się używanie podstawowych i pomocniczych pamięci podręcznych w tych samych regionach. Aby uzyskać więcej informacji na temat par regionów, zobacz [najlepsze rozwiązania — regiony sparowane na platformie Azure](../best-practices-availability-paired-regions.md).
 
-### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>Jak działa niepowodzenie w przypadku pomocniczej połączonej pamięci podręcznej?
+### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>Jak działa przechodzenie w tryb failover do pomocniczej połączonej pamięci podręcznej?
 
-Automatyczna praca awaryjna w regionach platformy Azure nie jest obsługiwana w przypadku pamięci podręcznych replikowanych geograficznie. W scenariuszu odzyskiwania po awarii klienci powinni wywołać cały stos aplikacji w skoordynowany sposób w ich regionie kopii zapasowej. Umożliwienie poszczególnym składnikom aplikacji decydowania o tym, kiedy samodzielnie przełączyć się na kopie zapasowe, może negatywnie wpłynąć na wydajność. Jedną z kluczowych zalet redis jest to, że jest to magazyn o bardzo małych opóźnieniach. Jeśli główna aplikacja klienta znajduje się w innym regionie niż jego pamięć podręczna, dodatkowy czas podróży w obie strony będzie miał zauważalny wpływ na wydajność. Z tego powodu możemy uniknąć awarii automatycznie z powodu przejściowych problemów z dostępnością.
+Automatyczne przełączanie w tryb failover w regionach platformy Azure nie jest obsługiwane w przypadku pamięci podręcznych replikowanych geograficznie. W scenariuszu odzyskiwania po awarii klienci powinni utworzyć cały stos aplikacji w skoordynowany sposób w ich regionie tworzenia kopii zapasowych. Umożliwienie pojedynczym składnikom aplikacji decydowanie o tym, kiedy przełączyć się na ich kopie zapasowe, może mieć negatywny wpływ na wydajność. Jedną z najważniejszych zalet Redis jest to, że jest to bardzo niski czas przechowywania. Jeśli główna aplikacja klienta znajduje się w innym regionie niż jej pamięć podręczna, dodanie czasu rundy mogą mieć zauważalny wpływ na wydajność. Z tego powodu unikamy automatycznego przełączania awaryjnego z powodu przejściowych problemów z dostępnością.
 
-Aby rozpocząć pracę awaryjną inicjowaną przez klienta, należy najpierw odłączyć pamięć podręczną. Następnie zmień klienta Redis, aby użyć punktu końcowego połączenia (dawniej połączone) pomocniczej pamięci podręcznej. Gdy dwie pamięci podręczne są odłączone, pomocnicza pamięć podręczna staje się ponownie zwykłą pamięcią podręczną odczytu i zapisu i akceptuje żądania bezpośrednio od klientów Redis.
+Aby uruchomić tryb failover zainicjowany przez klienta, najpierw Odłącz pamięci podręczne. Następnie zmień klienta programu Redis tak, aby używał punktu końcowego połączenia (dawniej połączony) pomocniczej pamięci podręcznej. Po odłączeniu dwóch pamięci podręcznych pomocnicza pamięć podręczna jest ponownie regularna w pamięci podręcznej odczytu i zapisu oraz akceptuje żądania bezpośrednio od klientów Redis.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [warstwie Azure Cache for Redis Premium.](cache-premium-tier-intro.md)
+Dowiedz się więcej o [warstwie usługi Azure cache for Redis Premium](cache-premium-tier-intro.md).

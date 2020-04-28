@@ -1,6 +1,6 @@
 ---
-title: Filtrowanie oparte na analizie zagrożeń zapory platformy Azure
-description: Filtrowanie oparte na analizie zagrożeń można włączyć, aby zapora ostrzegała i odmawiała ruchu ze znanych złośliwych adresów IP i domen.
+title: Filtrowanie na podstawie analizy zagrożeń zapory platformy Azure
+description: Filtrowanie na podstawie analizy zagrożeń może być włączone, aby zapora mogła zgłaszać i odrzucać ruch z/do znanych złośliwych adresów IP i domen.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: c291dbe9c1eb37e68174a2353e296a376c7d0896
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74168677"
 ---
-# <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtrowanie oparte na analizie zagrożeń zapory platformy Azure
+# <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtrowanie na podstawie analizy zagrożeń zapory platformy Azure
 
-Filtrowanie oparte na analizie zagrożeń można włączyć, aby zapora ostrzegała i odmawiała ruchu ze znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą z źródła danych microsoft Threat Intelligence. [Inteligentny wykres zabezpieczeń](https://www.microsoft.com/en-us/security/operations/intelligence) zasila analizę zagrożeń firmy Microsoft i jest używany przez wiele usług, w tym Usługę Azure Security Center.
+Filtrowanie na podstawie analizy zagrożeń może być włączone, aby zapora mogła zgłaszać i odrzucać ruch z/do znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą ze źródła analizy zagrożeń firmy Microsoft. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) zapewnia program Microsoft Threat Intelligence i jest używany przez wiele usług, w tym Azure Security Center.
 
-![Analiza zagrożeń zapory sieciowej](media/threat-intel/firewall-threat.png)
+![Analiza zagrożeń zapory](media/threat-intel/firewall-threat.png)
 
-Jeśli włączono filtrowanie oparte na analizie zagrożeń, skojarzone reguły są przetwarzane przed regułami NAT, regułami sieci lub regułami aplikacji.
+W przypadku włączenia filtrowania opartego na analizie zagrożeń skojarzone reguły są przetwarzane przed dowolnymi regułami NAT, regułami sieciowymi lub regułami aplikacji.
 
-Możesz po prostu zarejestrować alert po wyzwoleniu reguły lub wybrać tryb alertu i odmowy.
+Można wybrać opcję rejestrowania alertu, gdy reguła jest wyzwalana, lub wybrać opcję alert i tryb Odmów.
 
-Domyślnie filtrowanie oparte na analizie zagrożeń jest włączone w trybie alertu. Nie można wyłączyć tej funkcji ani zmienić trybu, dopóki interfejs portalu nie stanie się dostępny w Twoim regionie.
+Domyślnie filtrowanie oparte na analizie zagrożeń jest włączone w trybie alertu. Nie można wyłączyć tej funkcji ani zmienić trybu do momentu udostępnienia interfejsu portalu w Twoim regionie.
 
 ![Interfejs portalu filtrowania oparty na analizie zagrożeń](media/threat-intel/threat-intel-ui.png)
 
@@ -46,12 +46,12 @@ Poniższy fragment dziennika przedstawia wyzwalaną regułę:
 
 ## <a name="testing"></a>Testowanie
 
-- **Testowanie wychodzące** — alerty ruchu wychodzącego powinny być rzadkim zjawiskiem, ponieważ oznacza to, że środowisko zostało naruszone. Aby ułatwić testowanie alertów wychodzących, utworzono testową usanną usanną usanną usanną, która wyzwala alert. Użyj **testmaliciousdomain.eastus.cloudapp.azure.com** dla testów wychodzących.
+- **Testowanie wychodzące** — alerty ruchu wychodzącego powinny być rzadkimi wystąpieniami, ponieważ oznacza to naruszenie bezpieczeństwa środowiska. Aby można było przetestować alerty wychodzące, została utworzona testowa nazwa FQDN, która wyzwala alert. Użyj **testmaliciousdomain.eastus.cloudapp.Azure.com** dla testów wychodzących.
 
-- **Testowanie przychodzące** — można oczekiwać, aby zobaczyć alerty na ruchu przychodzącego, jeśli reguły DNAT są skonfigurowane na zaporze. Jest to prawdą, nawet jeśli tylko określone źródła są dozwolone w regule DNAT i ruch jest w inny sposób odrzucany. Zapora azure nie ostrzega o wszystkich znanych skanerach portów; tylko na skanerach, o których wiadomo, że również angażują się w szkodliwe działania.
+- **Testowanie przychodzące** — możesz oczekiwać, że alerty dotyczące ruchu przychodzącego są wyświetlane, jeśli reguły DNAT są skonfigurowane na zaporze. Jest to prawdziwe, nawet jeśli tylko określone źródła są dozwolone w regule DNAT, a ruch jest odrzucany w inny sposób. Zapora platformy Azure nie ma alertu dotyczącego wszystkich znanych skanerów portów; tylko w przypadku skanerów, które są znane również w przypadku złośliwego działania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [przykłady usługi Azure Firewall Log Analytics](log-analytics-samples.md)
-- Dowiedz się, jak [wdrożyć i skonfigurować Zaporę platformy Azure](tutorial-firewall-deploy-portal.md)
-- Przejrzyj [raport analizy zabezpieczeń firmy Microsoft](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)
+- Zobacz [przykłady log Analytics zapory platformy Azure](log-analytics-samples.md)
+- Dowiedz się [, jak wdrożyć i skonfigurować zaporę platformy Azure](tutorial-firewall-deploy-portal.md)
+- Przejrzyj [Raport analizy zabezpieczeń firmy Microsoft](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)

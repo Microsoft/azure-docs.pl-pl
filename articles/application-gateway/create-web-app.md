@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie usługi App Service przy użyciu programu PowerShell
+title: Konfigurowanie App Service przy użyciu programu PowerShell
 titleSuffix: Azure Application Gateway
 description: Ten artykuł zawiera wskazówki dotyczące sposobu konfigurowania aplikacji internetowych jako hostów zaplecza w istniejącej lub nowej bramie aplikacji.
 services: application-gateway
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 4198c83a167ad8f2d52f4393c39625948e18e6e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74089508"
 ---
-# <a name="configure-app-service-with-application-gateway-using-powershell"></a>Konfigurowanie usługi App Service przy użyciu bramy aplikacji przy użyciu programu PowerShell
+# <a name="configure-app-service-with-application-gateway-using-powershell"></a>Konfigurowanie App Service z Application Gateway przy użyciu programu PowerShell
 
-Brama aplikacji umożliwia aplikację usługi App Service lub inną usługę wielodostępną jako element członkowski puli zaplecza. W tym artykule nauczysz się konfigurować aplikację usługi App Service z bramą aplikacji. W pierwszym przykładzie pokazano, jak skonfigurować istniejącą bramę aplikacji w celu używania aplikacji internetowej jako składowej puli zaplecza. Drugi przykład pokazuje, jak utworzyć nową bramę aplikacji z aplikacją internetową jako składową puli zaplecza.
+Usługa Application Gateway umożliwia korzystanie z aplikacji App Service lub innej usługi wielodostępnej jako składowej puli zaplecza. W tym artykule dowiesz się, jak skonfigurować aplikację App Service przy użyciu Application Gateway. W pierwszym przykładzie pokazano, jak skonfigurować istniejącą bramę aplikacji w celu używania aplikacji internetowej jako składowej puli zaplecza. Drugi przykład pokazuje, jak utworzyć nową bramę aplikacji z aplikacją internetową jako składową puli zaplecza.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -160,9 +160,9 @@ DnsSettings              : {
 
 ## <a name="restrict-access"></a>Ograniczanie dostępu
 
-Aplikacje sieci web wdrożone w tych przykładach używają publicznych adresów IP, do których można uzyskać dostęp bezpośrednio z Internetu. Pomaga to w rozwiązywaniu problemów podczas uczenia się o nowej funkcji i wypróbowywania nowych rzeczy. Jeśli jednak zamierzasz wdrożyć funkcję w produkcji, należy dodać więcej ograniczeń.
+Aplikacje sieci Web wdrożone w tych przykładach używają publicznych adresów IP, do których można uzyskać dostęp bezpośrednio z Internetu. Ułatwia to rozwiązywanie problemów podczas uczenia się o nowej funkcji i podejmowanie nowych zadań. Ale jeśli zamierzasz wdrożyć funkcję w środowisku produkcyjnym, musisz dodać więcej ograniczeń.
 
-Jednym ze sposobów ograniczenia dostępu do aplikacji internetowych jest użycie [statycznych ograniczeń IP usługi Azure App Service.](../app-service/app-service-ip-restrictions.md) Na przykład można ograniczyć aplikację sieci web, tak aby odbierała tylko ruch z bramy aplikacji. Funkcja ograniczenia IP usługi aplikacji służy do listy adresów VIP bramy aplikacji jako jedynego adresu z dostępem.
+Jednym ze sposobów ograniczenia dostępu do aplikacji sieci Web jest użycie [Azure App Service ograniczeń statycznych adresów IP](../app-service/app-service-ip-restrictions.md). Można na przykład ograniczyć aplikację sieci Web tak, aby tylko odbierał ruch z bramy aplikacji. Użyj funkcji ograniczenia adresów IP usługi App Service, aby wyświetlić listę adresów VIP bramy aplikacji jako jedyny adres z dostępem.
 
 ## <a name="next-steps"></a>Następne kroki
 

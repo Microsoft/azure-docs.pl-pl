@@ -1,6 +1,6 @@
 ---
-title: Wielodostępny samouczek SaaS
-description: Aprowizowanie i katalog nowych dzierżaw przy użyciu autonomicznego wzorca aplikacji
+title: Samouczek SaaS z wieloma dzierżawcami
+description: Inicjowanie obsługi administracyjnej i katalogowanie nowych dzierżawców przy użyciu wzorca aplikacji autonomicznej
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -12,147 +12,147 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
 ms.openlocfilehash: 02682a18f14e7ecbf5b42783ab84a1b55a4bb77b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74133128"
 ---
-# <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Aprowizowanie i katalog nowych dzierżaw przy użyciu aplikacji na wzorzec SaaS dzierżawcy
+# <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Inicjowanie obsługi administracyjnej i katalogowanie nowych dzierżawców przy użyciu wzorca aplikacji dla dzierżawców SaaS
 
-W tym artykule opisano inicjowanie obsługi administracyjnej i katalogowanie nowych dzierżaw przy użyciu autonomicznej aplikacji na wzorzec SaaS dzierżawy.
+W tym artykule opisano Inicjowanie obsługi administracyjnej i katalogowanie nowych dzierżawców przy użyciu aplikacji autonomicznej dla każdej dzierżawy SaaS.
 Ten artykuł ma dwie główne części:
-* Koncepcyjne omówienie inicjowania obsługi administracyjnej i katalogowania nowych najemców
-* Samouczek, który wyróżnia przykładowy kod programu PowerShell, który wykonuje inicjowanie obsługi administracyjnej i katalogowanie
-    * Samouczek używa Wingtip Bilety przykładu aplikacji SaaS, dostosowane do autonomicznej aplikacji na wzorzec dzierżawy.
+* Koncepcyjna dyskusja o aprowizacji i katalogach nowych dzierżawców
+* Samouczek przedstawiający przykładowy kod programu PowerShell, który wykonuje aprowizacji i katalogi
+    * Samouczek korzysta z przykładowej aplikacji SaaS biletów Wingtip, która została przystosowana do wzorca aplikacji autonomicznej dla każdego dzierżawcy.
 
-## <a name="standalone-application-per-tenant-pattern"></a>Autonomiczna aplikacja na wzorzec dzierżawy
+## <a name="standalone-application-per-tenant-pattern"></a>Aplikacja autonomiczna na wzorzec dzierżawy
 
-Autonomiczna aplikacja na wzorzec dzierżawy jest jednym z kilku wzorców dla aplikacji SaaS z wieloma dzierżawcami.  W tym wzorzec autonomiczna aplikacja jest aprowizowana dla każdej dzierżawy. Aplikacja składa się ze składników poziomu aplikacji i bazy danych SQL.  Każdą aplikację dzierżawy można wdrożyć w subskrypcji dostawcy.  Alternatywnie platforma Azure oferuje [program zarządzanych aplikacji,](https://docs.microsoft.com/azure/managed-applications/overview) w którym aplikacja może być wdrażana w subskrypcji dzierżawy i zarządzana przez dostawcę w imieniu dzierżawy.
+Aplikacja autonomiczna na wzorzec dzierżawy jest jednym z kilku wzorców dla wielodostępnych aplikacji SaaS.  W tym wzorcu aplikacja autonomiczna jest obsługiwana dla każdej dzierżawy. Aplikacja składa się ze składników poziomu aplikacji i bazy danych SQL.  Każdą aplikację dzierżawców można wdrożyć w ramach subskrypcji dostawcy.  Platforma Azure oferuje [program zarządzanych aplikacji](https://docs.microsoft.com/azure/managed-applications/overview) , w którym można wdrożyć aplikację w ramach subskrypcji dzierżawcy i zarządzana przez dostawcę w imieniu dzierżawcy.
 
-   ![wzorzec aplikacji na dzierżawę](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
+   ![Wzorzec aplikacji dla dzierżawy](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
-Podczas wdrażania aplikacji dla dzierżawcy, aplikacja i baza danych są aprowizowani w nowej grupie zasobów utworzonej dla dzierżawcy.  Przy użyciu oddzielnych grup zasobów izoluje zasoby aplikacji każdej dzierżawy i umożliwia im zarządzanie niezależnie. W ramach każdej grupy zasobów każde wystąpienie aplikacji jest skonfigurowane tak, aby bezpośrednio uzyskiwało dostęp do odpowiedniej bazy danych.  Ten model połączenia kontrastuje z innymi wzorami, które używają katalogu do brokera połączeń między aplikacją a bazą danych.  A ponieważ nie ma udostępniania zasobów, każda baza danych dzierżawy musi być aprowizowana z wystarczającymi zasobami do obsługi jego szczytowego obciążenia. Ten wzorzec ma tendencję do użycia w aplikacjach SaaS z mniejszą liczbą dzierżawców, gdzie duży nacisk kładzie się na izolację dzierżawy i mniejszy nacisk na koszty zasobów.
+Podczas wdrażania aplikacji dla dzierżawy, aplikacja i baza danych są obsługiwane w nowej grupie zasobów utworzonej dla dzierżawcy.  Użycie osobnych grup zasobów izoluje zasoby aplikacji poszczególnych dzierżawców i umożliwia ich niezależne zarządzanie. W ramach każdej grupy zasobów każde wystąpienie aplikacji jest skonfigurowane do bezpośredniego dostępu do odpowiedniej bazy danych.  Ten model połączenia różni się od innych wzorców, które używają wykazu do brokera połączeń między aplikacją a bazą danych.  Bez udostępniania zasobów każda baza danych dzierżawy musi być obsługiwana z wystarczającą ilością zasobów, aby obsłużyć obciążenie szczytowe. Ten wzorzec jest używany dla aplikacji SaaS z mniejszą liczbą dzierżawców, w przypadku których istnieje silny nacisk na izolację dzierżawy i mniej nacisk na koszty zasobów.
 
-## <a name="using-a-tenant-catalog-with-the-application-per-tenant-pattern"></a>Korzystanie z katalogu dzierżawy z aplikacją na wzorzec dzierżawy
+## <a name="using-a-tenant-catalog-with-the-application-per-tenant-pattern"></a>Używanie wykazu dzierżawy z aplikacją na każdy wzorzec dzierżawy
 
-Podczas gdy każda aplikacja i baza danych każdej dzierżawy są w pełni odizolowane, różne scenariusze zarządzania i analizy mogą działać między dzierżawami.  Na przykład zastosowanie zmiany schematu dla nowej wersji aplikacji wymaga zmian w schemacie każdej bazy danych dzierżawy. Scenariusze raportowania i analizy mogą również wymagać dostępu do wszystkich baz danych dzierżawy, niezależnie od tego, gdzie są wdrażane.
+Chociaż każda aplikacja i baza danych dzierżawy są w pełni izolowane, różne scenariusze zarządzania i analizy mogą działać między dzierżawcami.  Na przykład zastosowanie zmiany schematu dla nowej wersji aplikacji wymaga wprowadzenia zmian w schemacie każdej bazy danych dzierżawy. Scenariusze raportowania i analizy mogą również wymagać dostępu do wszystkich baz danych dzierżawy niezależnie od tego, gdzie są wdrożone.
 
-   ![wzorzec aplikacji na dzierżawę](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
+   ![Wzorzec aplikacji dla dzierżawy](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
 
-Katalog dzierżawy przechowuje mapowanie między identyfikatorem dzierżawy a bazą danych dzierżawy, umożliwiając rozpoznawanie identyfikatora na serwerze i nazwę bazy danych.  W aplikacji SaaS Wingtip identyfikator dzierżawy jest obliczany jako skrót nazwy dzierżawy, chociaż można użyć innych schematów.  Podczas gdy autonomiczne aplikacje nie potrzebują katalogu do zarządzania połączeniami, katalog może służyć do zakresu innych akcji do zestawu baz danych dzierżawy. Na przykład elastyczna kwerenda może użyć katalogu do określenia zestawu baz danych, w których kwerendy są dystrybuowane do raportowania między dzierżawami.
+Katalog dzierżawców zawiera mapowanie między identyfikatorem dzierżawy i bazą danych dzierżawy, co pozwala na rozpoznanie identyfikatora na serwerze i o nazwie bazy danych.  W aplikacji Wingtip SaaS identyfikator dzierżawy jest obliczany jako skrót nazwy dzierżawy, chociaż można użyć innych schematów.  Gdy aplikacje autonomiczne nie potrzebują wykazu do zarządzania połączeniami, można użyć wykazu do określania zakresu innych akcji do zestawu baz danych dzierżaw. Na przykład elastyczne zapytanie może korzystać z wykazu w celu określenia zestawu baz danych, dla których są dystrybuowane zapytania na potrzeby raportowania między dzierżawcami.
 
-## <a name="elastic-database-client-library"></a>Biblioteka klienta elastycznej bazy danych
+## <a name="elastic-database-client-library"></a>Elastic Database Biblioteka kliencka
 
-W aplikacji próbki Wingtip katalog jest implementowany przez funkcje zarządzania niezależnego fragmentu [biblioteki klienta elastycznej bazy danych](sql-database-elastic-database-client-library.md) (EDCL).  Biblioteka umożliwia aplikacji tworzenie, zarządzanie i używanie mapy niezależnego fragmentu, która jest przechowywana w bazie danych. W przykładzie Bilety Wingtip katalog jest przechowywany w bazie danych *katalogu dzierżawy.*  Fragment jest mapowany klucz dzierżawy do niezależnego fragmentu (bazy danych), w którym są przechowywane dane tej dzierżawy.  Funkcje EDCL zarządzają *mapą globalnego niezależnego fragmentu* przechowywaną w tabelach w bazie danych *katalogu dzierżawy* i *mapą lokalnego niezależnego fragmentu* przechowywanej w każdym niezależnuzyku.
+W przykładowej aplikacji Wingtip katalog jest implementowany przez funkcje zarządzania fragmentu w [bibliotece klienta Elastic Database](sql-database-elastic-database-client-library.md) (Biblioteka edcl).  Biblioteka umożliwia aplikacji Tworzenie i używanie mapy fragmentu przechowywanej w bazie danych oraz zarządzanie nią. W przykładzie biletów Wingtip katalog jest przechowywany w bazie danych *katalogu dzierżawcy* .  Fragmentu mapuje klucz dzierżawy do fragmentu (bazy danych), w którym są przechowywane dane tej dzierżawy.  Funkcje Biblioteka EDCL zarządzają *globalną mapą fragmentu* przechowywaną w tabelach w bazie danych *wykazu dzierżawców* i *lokalną mapę fragmentu* przechowywaną w każdym fragmentu.
 
-Funkcje EDCL mogą być wywoływane z aplikacji lub skryptów programu PowerShell w celu tworzenia wpisów na mapie niezależnego fragmentu i zarządzania nimi. Inne funkcje EDCL może służyć do pobierania zestawu fragmentów lub połączyć się z poprawną bazą danych dla danego klucza dzierżawy.
+Funkcje Biblioteka EDCL można wywoływać z aplikacji lub skryptów programu PowerShell w celu tworzenia wpisów na mapie fragmentu i zarządzania nimi. Inne funkcje Biblioteka EDCL umożliwiają pobranie zestawu fragmentów lub nawiązanie połączenia z poprawną bazą danych dla danego klucza dzierżawy.
 
 > [!IMPORTANT]
-> Nie należy edytować danych w bazie danych wykazu lub lokalnej mapy niezależnego fragmentu w bazach danych dzierżawy bezpośrednio. Aktualizacje bezpośrednie nie są obsługiwane ze względu na wysokie ryzyko uszkodzenia danych. Zamiast tego należy edytować dane mapowania przy użyciu tylko interfejsów API EDCL.
+> Nie należy edytować danych w bazie danych wykazu ani lokalnej mapie fragmentu w bazach danych dzierżawy. Bezpośrednie aktualizacje nie są obsługiwane z powodu wysokiego ryzyka uszkodzenia danych. Zamiast tego należy edytować dane mapowania przy użyciu tylko interfejsów API Biblioteka EDCL.
 
-## <a name="tenant-provisioning"></a>Inicjowanie obsługi administracyjnej dzierżawy
+## <a name="tenant-provisioning"></a>Inicjowanie obsługi dzierżawy
 
-Każda dzierżawa wymaga nowej grupy zasobów platformy Azure, która musi zostać utworzona, zanim zasoby będą mogły być aprowizacji w nim. Gdy grupa zasobów istnieje, szablon usługi Azure Resource Management może służyć do wdrażania składników aplikacji i bazy danych, a następnie skonfigurować połączenie z bazą danych. Aby zainicjować schemat bazy danych, szablon może zaimportować plik bacpac.  Alternatywnie baza danych może być utworzona jako kopia bazy danych "szablonu".  Baza danych jest następnie dalej aktualizowana o początkowe dane o miejscu i zarejestrowana w katalogu.
+Każda dzierżawa wymaga nowej grupy zasobów platformy Azure, która musi zostać utworzona przed zainicjowaniem obsługi zasobów w ramach tej usługi. Gdy grupa zasobów istnieje, można użyć szablonu zarządzania zasobami platformy Azure do wdrożenia składników aplikacji i bazy danych, a następnie skonfigurowania połączenia z bazą danych. Aby zainicjować schemat bazy danych, szablon może importować plik BACPAC.  Alternatywnie można utworzyć bazę danych jako kopię bazy danych "template".  Baza danych jest następnie aktualizowana przy użyciu początkowych danych o miejscu i zarejestrowanych w wykazie.
 
 ## <a name="tutorial"></a>Samouczek
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
-* Aprowizuj katalog
-* Rejestrowanie przykładowych baz danych dzierżawy wdrożonych wcześniej w katalogu
-* Udostępnij dodatkową dzierżawę i zarejestruj ją w katalogu
+* Inicjowanie obsługi administracyjnej katalogu
+* Rejestrowanie przykładowych baz danych dzierżaw, które zostały wdrożone wcześniej w wykazie
+* Zapewnij dodatkową dzierżawę i zarejestruj ją w wykazie
 
-Szablon usługi Azure Resource Manager służy do wdrażania i konfigurowania aplikacji, tworzenia bazy danych dzierżawy, a następnie importowania pliku bacpac, aby ją zainicjować. Żądanie importu może być umieszczane w kolejce przez kilka minut, zanim zostanie podjęta akcja.
+Szablon Azure Resource Manager służy do wdrażania i konfigurowania aplikacji, tworzenia bazy danych dzierżawy, a następnie do zaimportowania pliku BACPAC. Żądanie importu może być dodane do kolejki przez kilka minut przed podjęciem działania.
 
-Na końcu tego samouczka masz zestaw autonomicznych aplikacji dzierżawy, z każdej bazy danych zarejestrowanej w katalogu.
+Na końcu tego samouczka masz zestaw autonomicznych aplikacji dzierżawców z każdą bazą danych zarejestrowaną w wykazie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie następujących wymagań wstępnych:
 
 * Zainstalowany jest program Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z programem Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* Trzy przykładowe aplikacje dzierżawy są wdrażane. Aby wdrożyć te aplikacje w mniej niż pięć minut, zobacz [Wdrażanie i eksplorowanie wzorca aplikacji autonomicznej SaaS.](saas-standaloneapp-get-started-deploy.md)
+* Zostaną wdrożone trzy przykładowe aplikacje dzierżawy. Aby wdrożyć te aplikacje w mniej niż pięć minut, zobacz [wdrażanie i eksplorowanie wzorca aplikacji autonomicznej Wingtip biletów SaaS](saas-standaloneapp-get-started-deploy.md).
 
-## <a name="provision-the-catalog"></a>Nadaj katalog
+## <a name="provision-the-catalog"></a>Inicjowanie obsługi administracyjnej katalogu
 
-W tym zadaniu dowiesz się, jak aprowizować katalog używany do rejestrowania wszystkich baz danych dzierżawy. Wykonasz następujące zadania:
+W tym zadaniu dowiesz się, jak udostępnić katalog używany do rejestracji wszystkich baz danych dzierżaw. Wykonasz następujące zadania:
 
-* **Aprowizuj bazę danych wykazu** przy użyciu szablonu zarządzania zasobami platformy Azure. Baza danych jest inicjowana przez importowanie pliku bacpac.
-* **Zarejestruj przykładowe aplikacje dzierżawy,** które zostały wdrożone wcześniej.  Każdy dzierżawca jest zarejestrowany przy użyciu klucza skonstruowanego z skrótu nazwy dzierżawy.  Nazwa dzierżawy jest również przechowywana w tabeli rozszerzeń w katalogu.
+* **Zainicjuj obsługę administracyjną bazy danych katalogu** przy użyciu szablonu zarządzania zasobami platformy Azure. Baza danych została zainicjowana przez zaimportowanie pliku BACPAC.
+* **Zarejestruj przykładowe wdrożone wcześniej aplikacje dzierżawców** .  Każda dzierżawa jest zarejestrowana przy użyciu klucza złożonego ze skrótu nazwy dzierżawy.  Nazwa dzierżawy jest również przechowywana w tabeli rozszerzeń w wykazie.
 
-1. W programie PowerShell ISE otwórz *...\Learning Modules\UserConfig.psm* i zaktualizuj ** \<\> ** wartość użytkownika do wartości użytej podczas wdrażania trzech przykładowych aplikacji.  **Zapisz plik**.
-1. W programie PowerShell ISE otwórz *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* i ustaw **$Scenario = 1**. Wdrażanie katalogu dzierżawy i rejestrowanie wstępnie zdefiniowanych dzierżawców.
+1. W programie PowerShell ISE Otwórz *..\Learning Modules\UserConfig.PSM* i zaktualizuj wartość ** \<użytkownika\> ** do wartości użytej podczas wdrażania trzech przykładowych aplikacji.  **Zapisz plik**.
+1. W programie PowerShell ISE Otwórz *..\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* i ustaw **$Scenario = 1**. Wdróż katalog dzierżawy i zarejestruj wstępnie zdefiniowane dzierżawy.
 
-1. Dodaj punkt przerwania, umieszczając kursor w dowolnym `& $PSScriptRoot\New-Catalog.ps1`miejscu w wierszu, który mówi, a następnie naciśnij **klawisz F9**.
+1. Dodaj punkt przerwania, umieszczając kursor w dowolnym miejscu w wierszu `& $PSScriptRoot\New-Catalog.ps1`, a następnie naciśnij klawisz **F9**.
 
-    ![ustawianie punktu przerwania dla śledzenia](media/saas-standaloneapp-provision-and-catalog/breakpoint.png)
+    ![Ustawianie punktu przerwania na potrzeby śledzenia](media/saas-standaloneapp-provision-and-catalog/breakpoint.png)
 
-1. Uruchom skrypt, naciskając **klawisz F5**.
-1.  Po zatrzymaniu wykonywania skryptu w punkcie przerwania naciśnij **klawisz F11,** aby przejść do skryptu New-Catalog.ps1.
-1.  Śledzenie wykonywania skryptu przy użyciu opcji menu debugowania, F10 i F11, aby przejść przez lub do wywoływanych funkcji.
-    *   Aby uzyskać więcej informacji na temat debugowania skryptów programu PowerShell, zobacz [Porady dotyczące pracy z skryptami programu PowerShell i debugowania](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+1. Uruchom skrypt, naciskając klawisz **F5**.
+1.  Po zatrzymaniu wykonywania skryptu w punkcie przerwania naciśnij klawisz **F11** , aby przejść do skryptu New-Catalog. ps1.
+1.  Śledź wykonywanie skryptu przy użyciu opcji menu Debuguj, F10 i F11, aby przekroczyć lub użyć funkcji o nazwie.
+    *   Aby uzyskać więcej informacji na temat debugowania skryptów programu PowerShell, zobacz [porady dotyczące pracy z skryptami programu PowerShell i ich debugowania](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
-Po zakończeniu skryptu katalog będzie istnieć i wszystkie przykładowe dzierżawy zostaną zarejestrowane.
+Po zakończeniu działania skryptu katalog będzie istnieć i wszystkie przykładowe dzierżawy zostaną zarejestrowane.
 
-Teraz spójrz na utworzone zasoby.
+Teraz przyjrzyj się utworzonym zasobom.
 
-1. Otwórz [witrynę Azure portal](https://portal.azure.com/) i przejrzyj grupy zasobów.  Otwórz grupę zasobów **\<\> użytkownika wingtip-sa-catalog-** i zanotuj serwer katalogu i bazę danych.
-1. Otwórz bazę danych w portalu i wybierz *Eksploratora danych* z menu po lewej stronie.  Kliknij polecenie Zaloguj, a następnie wprowadź hasło = **P\@ssword1**.
+1. Otwórz [Azure Portal](https://portal.azure.com/) i przejrzyj grupy zasobów.  Otwórz grupę zasobów **\<użytkownika\> Wingtip-sa-Catalog** i zanotuj serwer wykazu i bazę danych.
+1. Otwórz bazę danych w portalu i wybierz pozycję *Eksplorator danych* z menu po lewej stronie.  Kliknij polecenie Zaloguj, a następnie wprowadź hasło = **P\@ssword1**.
 
 
-1. Eksploruj schemat bazy danych *tenantcatalog.*
-   * Obiekty w `__ShardManagement` schemacie są dostarczane przez bibliotekę klienta elastycznej bazy danych.
-   * Tabela `Tenants` `TenantsExtended` i widok są rozszerzenia dodane w przykładzie, które pokazują, jak można rozszerzyć katalog, aby zapewnić dodatkową wartość.
-1. Uruchom kwerendę, `SELECT * FROM dbo.TenantsExtended`.
+1. Eksploruj schemat bazy danych *tenantcatalog* .
+   * Wszystkie obiekty w `__ShardManagement` schemacie są udostępniane przez Elastic Databaseą bibliotekę kliencką.
+   * `Tenants` Tabela i `TenantsExtended` widok są rozszerzeniami dodawanymi w przykładzie, który pokazuje, jak można rozszerzać katalog w celu zapewnienia dodatkowej wartości.
+1. Uruchom zapytanie, `SELECT * FROM dbo.TenantsExtended`.
 
    ![Eksplorator danych](media/saas-standaloneapp-provision-and-catalog/data-explorer-tenantsextended.png)
 
-    Alternatywą dla korzystania z Eksploratora danych można połączyć się z bazą danych z programu SQL Server Management Studio. Aby to zrobić, połącz się z
+    Alternatywą dla korzystania z Eksplorator danych można nawiązać połączenie z bazą danych z SQL Server Management Studio. W tym celu należy nawiązać połączenie z serwerem Wingtip-
 
 
-    Należy zauważyć, że nie należy edytować dane bezpośrednio w katalogu — zawsze należy używać interfejsów API zarządzania fragmentami.
+    Należy pamiętać, że nie należy edytować danych bezpośrednio w wykazie — zawsze używaj interfejsów API zarządzania fragmentu.
 
-## <a name="provision-a-new-tenant-application"></a>Aprowizowanie nowej aplikacji dzierżawy
+## <a name="provision-a-new-tenant-application"></a>Inicjowanie obsługi administracyjnej nowej aplikacji dzierżawy
 
-W tym zadaniu dowiesz się, jak aprowizować aplikację jednej dzierżawy. Wykonasz następujące zadania:
+W tym zadaniu dowiesz się, jak zainicjować obsługę administracyjną pojedynczej aplikacji dzierżawy. Wykonasz następujące zadania:
 
-* **Utwórz nową grupę zasobów** dla dzierżawcy.
-* **Aprowizuj aplikację i bazę danych** do nowej grupy zasobów przy użyciu szablonu zarządzania zasobami platformy Azure.  Ta akcja obejmuje inicjowanie bazy danych ze wspólnym schematem i danymi referencyjnymi przez importowanie pliku bacpac.
-* **Zainicjować bazę danych z podstawowymi informacjami o dzierżawie**. Akcja ta obejmuje określenie typu miejsca, które określa fotografię używaną jako tło na stronie internetowej wydarzenia.
-* **Zarejestruj bazę danych w bazie danych katalogu**.
+* **Utwórz nową grupę zasobów** dla dzierżawy.
+* **Zainicjuj obsługę administracyjną aplikacji i bazy danych** w nowej grupie zasobów za pomocą szablonu usługi Azure Resource Management.  Ta akcja obejmuje zainicjowanie bazy danych ze wspólnym schematem i danymi referencyjnymi przez zaimportowanie pliku BACPAC.
+* **Zainicjuj bazę danych z podstawowymi informacjami o dzierżawie**. Ta akcja obejmuje określenie typu miejsca, który określa fotografię używaną jako tło w witrynie sieci Web zdarzeń.
+* **Zarejestruj bazę danych w bazie danych wykazu**.
 
-1. W programie PowerShell ISE otwórz *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* i ustaw **$Scenario = 2**. Wdrażanie katalogu dzierżawy i rejestrowanie wstępnie zdefiniowanych dzierżawców
+1. W programie PowerShell ISE Otwórz *..\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* i ustaw **$Scenario = 2**. Wdróż katalog dzierżawy i zarejestruj wstępnie zdefiniowane dzierżawy
 
-1. Dodaj punkt przerwania w skrypcie, umieszczając kursor w `& $PSScriptRoot\New-TenantApp.ps1`dowolnym miejscu w wierszu 49, który mówi, , a następnie naciśnij **klawisz F9**.
-1. Uruchom skrypt, naciskając **klawisz F5**.
-1.  Po zatrzymaniu wykonywania skryptu w punkcie przerwania naciśnij **klawisz F11,** aby przejść do skryptu New-Catalog.ps1.
-1.  Śledzenie wykonywania skryptu przy użyciu opcji menu debugowania, F10 i F11, aby przejść przez lub do wywoływanych funkcji.
+1. Dodaj punkt przerwania w skrypcie, umieszczając kursor w dowolnym miejscu w wierszu 49, `& $PSScriptRoot\New-TenantApp.ps1`a następnie naciśnij klawisz **F9**.
+1. Uruchom skrypt, naciskając klawisz **F5**.
+1.  Po zatrzymaniu wykonywania skryptu w punkcie przerwania naciśnij klawisz **F11** , aby przejść do skryptu New-Catalog. ps1.
+1.  Śledź wykonywanie skryptu przy użyciu opcji menu Debuguj, F10 i F11, aby przekroczyć lub użyć funkcji o nazwie.
 
-Po dzierżawy został aprowizowany, nowa dzierżawa zdarzenia w witrynie sieci Web jest otwarty.
+Po zainicjowaniu obsługi dzierżawy zostanie otwarta witryna sieci Web zdarzenia nowej dzierżawy.
 
-   ![czerwony klon wyścigi](media/saas-standaloneapp-provision-and-catalog/redmapleracing.png)
+   ![wyścig z czerwonym klonem](media/saas-standaloneapp-provision-and-catalog/redmapleracing.png)
 
-Następnie można sprawdzić nowe zasoby utworzone w witrynie Azure portal.
+Następnie można sprawdzić nowe zasoby utworzone w Azure Portal.
 
-   ![czerwony klon wyścigi zasobów](media/saas-standaloneapp-provision-and-catalog/redmapleracing-resources.png)
+   ![zasoby wyścigów z czerwonym klonem](media/saas-standaloneapp-provision-and-catalog/redmapleracing-resources.png)
 
 
-## <a name="to-stop-billing-delete-resource-groups"></a>Aby zatrzymać rozliczenia, usuń grupy zasobów
+## <a name="to-stop-billing-delete-resource-groups"></a>Aby zatrzymać rozliczanie, Usuń grupy zasobów
 
-Po zakończeniu eksplorowania próbki usuń wszystkie grupy zasobów utworzone w celu zatrzymania skojarzonego rozliczeń.
+Po zakończeniu eksplorowania przykładu usuń wszystkie utworzone przez siebie grupy zasobów, aby zatrzymać powiązane rozliczenia.
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- Aby dowiedzieć się więcej o wielodostępnych aplikacjach bazy danych SaaS, zobacz [Wzorce projektowania dla aplikacji SaaS z wieloma dzierżawami.](saas-tenancy-app-design-patterns.md)
+- Aby dowiedzieć się więcej o wielodostępnych aplikacjach baz danych SaaS, zobacz [wzorce projektowe dla wielodostępnych aplikacji SaaS](saas-tenancy-app-design-patterns.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Jak wdrożyć wingtip bilety SaaS autonomicznej aplikacji.
+> * Jak wdrożyć aplikację autonomiczną SaaS biletów Wingtip.
 > * Informacje o serwerach i bazach danych, które tworzą aplikację.
 > * Jak usunąć przykładowe zasoby, aby zatrzymać powiązane rozliczenia.
 
-Można eksplorować, jak katalog jest używany do obsługi różnych scenariuszy między dzierżawców przy użyciu bazy danych na dzierżawcę wersji [aplikacji SaaS Wingtip Bilety.](saas-dbpertenant-wingtip-app-overview.md)
+Można dowiedzieć się, w jaki sposób wykaz jest używany do obsługi różnych scenariuszy obejmujących wiele dzierżawców przy użyciu wersji bazy danych na dzierżawcę [aplikacji Wingtip biletów SaaS](saas-dbpertenant-wingtip-app-overview.md).
