@@ -1,6 +1,6 @@
 ---
-title: Dostępne niestandardowe uprawnienia roli administratora — usługa Azure AD | Dokumenty firmy Microsoft
-description: Niestandardowe uprawnienia roli administratora do delegowannia zarządzania tożsamościami.
+title: Dostępne uprawnienia roli administratora niestandardowego — usługa Azure AD | Microsoft Docs
+description: Uprawnienia roli administratora niestandardowego do delegowania zarządzania tożsamościami.
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,154 +14,154 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6156857202c1cca94df6d70ec2059daf55178f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74025144"
 ---
-# <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Podtypy i uprawnienia rejestracji aplikacji w usłudze Azure Active Directory
+# <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Podtypy rejestracji aplikacji i uprawnienia w Azure Active Directory
 
-Ten artykuł zawiera aktualnie dostępne uprawnienia do rejestracji aplikacji dla definicji ról niestandardowych w usłudze Azure Active Directory (Azure AD).
+Ten artykuł zawiera aktualnie dostępne uprawnienia rejestracji aplikacji dla niestandardowych definicji ról w Azure Active Directory (Azure AD).
 
-## <a name="permissions-for-managing-single-directory-applications"></a>Uprawnienia do zarządzania aplikacjami z jednym katalogem
+## <a name="permissions-for-managing-single-directory-applications"></a>Uprawnienia do zarządzania aplikacjami z jednym katalogiem
 
-Wybierając uprawnienia do roli niestandardowej, masz możliwość udzielenia dostępu do zarządzania tylko aplikacjami z jednym katalogiem. Aplikacje z jednym katalogiem są dostępne tylko dla użytkowników w organizacji usługi Azure AD, w której aplikacja jest zarejestrowana. Aplikacje z jednym katalogem są definiowane jako z **typami obsługiwanych kont ustawionymi** na "Konta tylko w tym katalogu organizacyjnym". W interfejsie API wykresu aplikacje z jednym katalogiem mają właściwość signInAudience ustawioną na "AzureADMyOrg".
+Podczas wybierania uprawnień roli niestandardowej można udzielić dostępu do zarządzania tylko aplikacjami z jednym katalogiem. Aplikacje z jednym katalogiem są dostępne tylko dla użytkowników w organizacji usługi Azure AD, w których zarejestrowano aplikację. Aplikacje z jednym katalogiem są zdefiniowane jako, które mają **obsługiwane typy kont** ustawione na "konta tylko w tym katalogu organizacji". W interfejs API programu Graph aplikacje z jednym katalogiem mają właściwość signInAudience ustawioną na wartość "AzureADMyOrg".
 
-Aby udzielić dostępu do zarządzania tylko aplikacjami z jednym katalogiem, użyj poniższych uprawnień z podtypem **applications.myOrganization**. Na przykład microsoft.directory/applications.myOrganization/basic/update.
+Aby udzielić dostępu do zarządzania tylko aplikacjami z jednym katalogiem, Użyj poniższych uprawnień z aplikacjami podtype **. weborganization**. Na przykład Microsoft. Directory/Applications. weborganization/Basic/Update.
 
-Zobacz [omówienie ról niestandardowych, aby](roles-custom-overview.md) uzyskać wyjaśnienie, co oznaczają podtyp, uprawnienie i zestaw właściwości. Poniższe informacje są specyficzne dla rejestracji aplikacji.
+Zobacz [Omówienie ról niestandardowych](roles-custom-overview.md) , aby uzyskać informacje na temat tego, co oznaczają ogólne warunki podtype, uprawnienie i właściwość. Poniższe informacje dotyczą rejestracji aplikacji.
 
 ### <a name="create-and-delete"></a>Tworzenie i usuwanie
 
-Istnieją dwa uprawnienia dostępne do udzielania możliwości tworzenia rejestracji aplikacji, każdy z różnych zachowań:
+Dostępne są dwa uprawnienia do przyznawania możliwości tworzenia rejestracji aplikacji, z których każdy ma inne zachowanie:
 
-#### <a name="microsoftdirectoryapplicationscreateasowner"></a>microsoft.directory/applications/createAsOwner
+#### <a name="microsoftdirectoryapplicationscreateasowner"></a>Microsoft. Directory/Applications/createAsOwner
 
-Przypisanie tego uprawnienia powoduje, że twórca jest dodawany jako pierwszy właściciel utworzonej rejestracji aplikacji, a utworzona rejestracja aplikacji będzie wliczane do przydziału 250 utworzonych obiektów twórcy.
+Przypisanie wyników tego uprawnienia do twórcy zostanie dodany jako pierwszy właściciel utworzonej rejestracji aplikacji, a rejestracja utworzonej aplikacji będzie liczona względem przydziału 250 obiektów utworzonych przez twórcę.
 
-#### <a name="microsoftdirectoryapplicationscreate"></a>microsoft.directory/applications/create
+#### <a name="microsoftdirectoryapplicationscreate"></a>Microsoft. Directory/Applications/Create
 
-Przypisanie tego uprawnienia powoduje, że twórca nie zostanie dodany jako pierwszy właściciel utworzonej rejestracji aplikacji, a utworzona rejestracja aplikacji nie będzie wliczane do przydziału 250 utworzonych obiektów twórcy. Użyj tego uprawnienia ostrożnie, ponieważ nic nie stoi na przeszkodzie, aby cesjonariusz tworzył rejestracje aplikacji, dopóki przydział na poziomie katalogu nie zostanie trafiony. Jeśli oba uprawnienia są przypisane, to uprawnienie ma pierwszeństwo.
+Przypisanie wyników tego uprawnienia do twórcy nie jest dodawany jako pierwszy właściciel utworzonej rejestracji aplikacji, a rejestracja utworzonej aplikacji nie będzie uwzględniać przydziału utworzonych obiektów 250 dla twórcy. Należy dokładnie użyć tego uprawnienia, ponieważ nie ma możliwości uniemożliwienia sobie tworzenia rejestracji aplikacji, dopóki nie zostanie osiągnięty limit przydziału na poziomie katalogu. Jeśli przypisane są oba uprawnienia, ma to pierwszeństwo.
 
-Jeśli oba uprawnienia są przypisane, uprawnienie /create będzie mieć pierwszeństwo. Chociaż uprawnienie /createAsOwner nie automatycznie dodaje twórcy jako pierwszego właściciela, właściciele mogą być określone podczas tworzenia rejestracji aplikacji podczas korzystania z interfejsów API programu Graph lub poleceń cmdlet programu PowerShell.
+Jeśli przypisane są oba uprawnienia, pierwszeństwo ma uprawnienie/CREATE. Mimo że uprawnienie/createAsOwner nie dodaje tego twórcy jako pierwszego właściciela, właściciele mogą zostać określeni podczas tworzenia rejestracji aplikacji podczas korzystania z interfejsów API programu Graph lub poleceń cmdlet środowiska PowerShell.
 
-Uprawnienia utwórz udziel dostępu do polecenia **Nowa rejestracja.**
+Utwórz uprawnienia Udziel dostępu do **nowego polecenia rejestracji** .
 
-[Te uprawnienia udzielają dostępu do polecenia Portal nowej rejestracji](./media/roles-create-custom/new-custom-role.png)
+[Te uprawnienia zapewniają dostęp do nowego portalu rejestracji](./media/roles-create-custom/new-custom-role.png)
 
-Istnieją dwa uprawnienia do udzielania możliwości usuwania rejestracji aplikacji:
+Dostępne są dwa uprawnienia do przyznawania możliwości usuwania rejestracji aplikacji:
 
-#### <a name="microsoftdirectoryapplicationsdelete"></a>microsoft.directory/applications/delete
+#### <a name="microsoftdirectoryapplicationsdelete"></a>Microsoft. katalog/aplikacje/usuwanie
 
-Daje możliwość usuwania rejestracji aplikacji niezależnie od podtypu; oznacza to, że zarówno aplikacji z jedną i wieloma dzierżawcami.
+Przyznaje możliwość usuwania rejestracji aplikacji niezależnie od podtypu; oznacza to zarówno aplikacje z jedną dzierżawą, jak i wieloma dzierżawcami.
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationdelete"></a>microsoft.directory/applications.myOrganizacja/usuwanie
+#### <a name="microsoftdirectoryapplicationsmyorganizationdelete"></a>Microsoft. Directory/Applications. weborganization/Delete
 
-Umożliwia usuwanie rejestracji aplikacji ograniczonych do tych, które są dostępne tylko dla kont w organizacji lub aplikacji z jedną dzierżawą (podtyp myOrganization).
+Umożliwia usunięcie rejestracji aplikacji ograniczonych do tych, które są dostępne tylko dla kont w organizacji lub aplikacji z jedną dzierżawą (podtyp organizacji).
 
-![Te uprawnienia udzielają dostępu do polecenia Usuń rejestrację aplikacji](./media/roles-custom-available-permissions/delete-app-registration.png)
+![Uprawnienia te umożliwiają dostęp do polecenia Usuń rejestrację aplikacji](./media/roles-custom-available-permissions/delete-app-registration.png)
 
 > [!NOTE]
-> Podczas przypisywania roli, która zawiera uprawnienia do tworzenia, przypisanie roli musi być dokonane w zakresie katalogu. Uprawnienie do tworzenia przypisane do zakresu zasobu nie umożliwia tworzenia rejestracji aplikacji.
+> Podczas przypisywania roli, która zawiera uprawnienia do tworzenia, przypisanie roli należy wykonać w zakresie katalogu. Uprawnienie CREATE przypisane do zakresu zasobów nie pozwala na tworzenie rejestracji aplikacji.
 
 ### <a name="read"></a>Odczyt
 
-Wszyscy użytkownicy w organizacji mogą domyślnie odczytywać informacje o rejestracji aplikacji. Jednak użytkownicy-goście i jednostki usługi aplikacji nie mogą. Jeśli planujesz przypisać rolę do użytkownika lub aplikacji-gościa, musisz dołączyć odpowiednie uprawnienia do odczytu.
+Wszyscy użytkownicy będący członkami w organizacji mogą domyślnie odczytywać informacje o rejestracji aplikacji. Jednak użytkownicy-Goście i podmioty usługi aplikacji nie mogą. Jeśli planujesz przypisanie roli do użytkownika lub aplikacji gościa, musisz dołączyć odpowiednie uprawnienia do odczytu.
 
-#### <a name="microsoftdirectoryapplicationsallpropertiesread"></a>microsoft.directory/applications/allProperties/read
+#### <a name="microsoftdirectoryapplicationsallpropertiesread"></a>Microsoft. Directory/Applications/allProperties/Read
 
-Możliwość odczytywania wszystkich właściwości aplikacji jednodostępnych i wielodostępnych poza właściwościami, których nie można odczytać w żadnej sytuacji, takiej jak poświadczenia.
+Możliwość odczytywania wszystkich właściwości aplikacji z jedną dzierżawą i wielodostępności poza właściwościami, których nie można odczytać w żadnej sytuacji, takiej jak poświadczenia.
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesread"></a>microsoft.directory/applications.myOrganizacja/wszystkieWłaścienia/odczyt
+#### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesread"></a>Microsoft. Directory/Applications. weborganization/allProperties/Read
 
-Udziela tych samych uprawnień co microsoft.directory/applications/allProperties/read, ale tylko dla aplikacji z jedną dzierżawą.
+Przyznaje takie same uprawnienia jak Microsoft. Directory/Applications/allProperties/Read, ale tylko w przypadku aplikacji z jedną dzierżawą.
 
-#### <a name="microsoftdirectoryapplicationsownersread"></a>microsoft.directory/applications/owners/read
+#### <a name="microsoftdirectoryapplicationsownersread"></a>Microsoft. Directory/Applications/Owners/Read
 
-Przyznaje możliwość odczytu właścicieli nieruchomości w aplikacjach jednodostępnych i wielodostępnych. Udziela dostępu do wszystkich pól na stronie właścicieli rejestracji aplikacji:
+Przyznaje możliwość odczytywania właściwości właściciele w aplikacjach z jedną dzierżawą i wieloma dzierżawcami. Przyznaje dostęp do wszystkich pól na stronie właściciele rejestracji aplikacji:
 
-![To uprawnienie daje dostęp do strony właścicieli rejestracji aplikacji](./media/roles-custom-available-permissions/app-registration-owners.png)
+![Te uprawnienia udzielają dostępu do strony właściciele rejestracji aplikacji](./media/roles-custom-available-permissions/app-registration-owners.png)
 
-#### <a name="microsoftdirectoryapplicationsstandardread"></a>microsoft.directory/applications/standard/read
+#### <a name="microsoftdirectoryapplicationsstandardread"></a>Microsoft. Directory/Applications/Standard/Read
 
-Udziela dostępu do odczytu standardowych właściwości rejestracji aplikacji. Obejmuje to właściwości na stronach rejestracji aplikacji.
+Przyznaje dostęp do odczytu standardowych właściwości rejestracji aplikacji. Obejmuje to właściwości na stronach rejestracji aplikacji.
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationstandardread"></a>microsoft.directory/applications.myOrganizacja/standard/odczyt
+#### <a name="microsoftdirectoryapplicationsmyorganizationstandardread"></a>Microsoft. Directory/Applications. weborganization/Standard/Read
 
-Udziela tych samych uprawnień co microsoft.directory/applications/standard/read, ale tylko dla aplikacji z jedną dzierżawą.
+Przyznaje takie same uprawnienia jak Microsoft. Directory/Applications/Standard/Read, ale tylko w przypadku aplikacji z jedną dzierżawą.
 
-### <a name="update"></a>Aktualizacja
+### <a name="update"></a>Aktualizowanie
 
-#### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>microsoft.directory/applications/allProperties/update
+#### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>Microsoft. Directory/Applications/allProperties/Update
 
-Możliwość aktualizowania wszystkich właściwości w aplikacjach jednosektorowych i wielosektorowych.
+Możliwość aktualizowania wszystkich właściwości w aplikacjach z pojedynczym katalogiem i na wiele katalogów.
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>microsoft.directory/applications.myOrganizacja/wszystkieWłaścienia/aktualizacja
+#### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>Microsoft. Directory/Applications. weborganization/allProperties/Update
 
-Udziela tych samych uprawnień co microsoft.directory/applications/allProperties/update, ale tylko dla aplikacji z jedną dzierżawą.
+Przyznaje takie same uprawnienia, jak Microsoft. Directory/Applications/allProperties/Update, ale tylko dla aplikacji z jedną dzierżawą.
 
-#### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
+#### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>Microsoft. katalog/aplikacje/odbiorcy/aktualizacja
 
-Możliwość aktualizacji właściwości obsługiwanego typu konta (signInAudience) w aplikacjach jednosepołowych i wieloseznakowych.
+Możliwość aktualizacji właściwości obsługiwanego typu konta (signInAudience) w aplikacjach z pojedynczym katalogiem i aplikacjami wielokatalogowymi.
 
-![To uprawnienie udziela dostępu do usługi obsługiwanego konta rejestracji aplikacji na stronie uwierzytelniania](./media/roles-custom-available-permissions/supported-account-types.png)
+![To uprawnienie udziela dostęp do właściwości typu konta obsługiwana Rejestracja aplikacji na stronie uwierzytelniania](./media/roles-custom-available-permissions/supported-account-types.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationaudienceupdate"></a>microsoft.directory/applications.myOrganizacja/publiczność/aktualizacja
+#### <a name="microsoftdirectoryapplicationsmyorganizationaudienceupdate"></a>Microsoft. katalog/aplikacje. weborganization/odbiorcy/aktualizacja
 
-Udziela tych samych uprawnień co microsoft.directory/applications/audience/update, ale tylko dla aplikacji z jedną dzierżawą.
+Przyznaje takie same uprawnienia, jak Microsoft. Directory/Applications/odbiorca/aktualizacja, ale tylko w przypadku aplikacji z jedną dzierżawą.
 
-#### <a name="microsoftdirectoryapplicationsauthenticationupdate"></a>microsoft.directory/applications/authentication/update
+#### <a name="microsoftdirectoryapplicationsauthenticationupdate"></a>Microsoft. katalog/aplikacje/uwierzytelnianie/aktualizacja
 
-Możliwość aktualizowania adresu URL odpowiedzi, adresu URL wylogowania, przepływu niejawnego i właściwości domeny wydawcy w aplikacjach z jedną i wieloma dzierżawcami. Udziela dostępu do wszystkich pól na stronie uwierzytelniania rejestracji aplikacji z wyjątkiem obsługiwanych typów kont:
+Możliwość aktualizowania adresu URL odpowiedzi, adresu URL logowania, przepływu niejawnego i właściwości domeny wydawcy w aplikacjach z jedną dzierżawą i wieloma dzierżawcami. Przyznaje dostęp do wszystkich pól na stronie uwierzytelniania rejestracji aplikacji, z wyjątkiem typów obsługiwanych kont:
 
-![Udziela dostępu do uwierzytelniania rejestracji aplikacji, ale nie jest obsługiwanych typów kont](./media/roles-custom-available-permissions/supported-account-types.png)
+![Udziela dostępu do uwierzytelniania rejestracji aplikacji, ale nie obsługiwanych typów kont](./media/roles-custom-available-permissions/supported-account-types.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationauthenticationupdate"></a>microsoft.directory/applications.myOrganizacja/uwierzytelnianie/aktualizacja
+#### <a name="microsoftdirectoryapplicationsmyorganizationauthenticationupdate"></a>Microsoft. Directory/Applications. weborganization/Authentication/Update
 
-Udziela tych samych uprawnień co microsoft.directory/applications/authentication/update, ale tylko dla aplikacji z jedną dzierżawą.
+Przyznaje takie same uprawnienia, jak Microsoft. Directory/Applications/Authentication/Update, ale tylko w przypadku aplikacji z jedną dzierżawą.
 
-#### <a name="microsoftdirectoryapplicationsbasicupdate"></a>microsoft.directory/applications/basic/update
+#### <a name="microsoftdirectoryapplicationsbasicupdate"></a>Microsoft. Directory/Applications/Basic/Update
 
-Możliwość aktualizacji nazwy, logo, adresu URL strony głównej, warunków adresu URL usług i właściwości adresu URL zasad zachowania poufności informacji w aplikacjach z jedną i wieloma dzierżawcami. Udziela dostępu do wszystkich pól na stronie znakowania rejestracji aplikacji:
+Możliwość aktualizacji nazwy, logo, adresu URL strony głównej, adresu URL warunków użytkowania oraz właściwości adresu URL zasad zachowania poufności informacji w aplikacjach z jedną dzierżawą i wieloma dzierżawcami. Przyznaje dostęp do wszystkich pól na stronie znakowania rejestracji aplikacji:
 
-![To uprawnienie zapewnia dostęp do strony znakowania rejestracji aplikacji](./media/roles-custom-available-permissions/app-registration-branding.png)
+![To uprawnienie udziela dostępu do strony znakowania rejestracji aplikacji](./media/roles-custom-available-permissions/app-registration-branding.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationbasicupdate"></a>microsoft.directory/applications.myOrganizacja/podstawowa/aktualizacja
+#### <a name="microsoftdirectoryapplicationsmyorganizationbasicupdate"></a>Microsoft. Directory/Applications. weborganization/Basic/Update
 
-Udziela tych samych uprawnień co microsoft.directory/applications/basic/update, ale tylko dla aplikacji z jedną dzierżawą.
+Przyznaje takie same uprawnienia jak Microsoft. Directory/Applications/Basic/Update, ale tylko w przypadku aplikacji z jedną dzierżawą.
 
-#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>microsoft.directory/applications/credentials/update
+#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>Microsoft. Directory/Applications/Credentials/Update
 
-Możliwość aktualizowania certyfikatów i wpisów tajnych klienta w aplikacjach jednodostępnych i wielodostępnych. Udziela dostępu do wszystkich pól na stronie świadectw rejestracji aplikacji & wpisów tajnych:
+Możliwość aktualizowania certyfikatów i właściwości tajnych klienta w aplikacjach z jedną dzierżawą i wieloma dzierżawcami. Przyznaje dostęp do wszystkich pól na stronie certyfikatów rejestracji aplikacji & Secret:
 
-![To uprawnienie udziela dostępu do strony certyfikatów rejestracji aplikacji & wpisów tajnych](./media/roles-custom-available-permissions/app-registration-secrets.png)
+![To uprawnienie udziela dostępu do certyfikatów rejestracji aplikacji & strony kluczy tajnych](./media/roles-custom-available-permissions/app-registration-secrets.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>microsoft.directory/applications.myOrganizacja/poświadczenia/aktualizacja
+#### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>Microsoft. Directory/Applications. weborganization/Credentials/Update
 
-Udziela tych samych uprawnień co microsoft.directory/applications/credentials/update, ale tylko dla aplikacji z jednym katalogiem.
+Przyznaje takie same uprawnienia, jak Microsoft. Directory/Applications/Credentials/Update, ale tylko w przypadku aplikacji z jednym katalogiem.
 
-#### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft.directory/applications/owners/update
+#### <a name="microsoftdirectoryapplicationsownersupdate"></a>Microsoft. Directory/Applications/Owners/Update
 
-Możliwość aktualizacji właściwości właściciela w jednej dzierżawie i wielu dzierżawców. Udziela dostępu do wszystkich pól na stronie właścicieli rejestracji aplikacji:
+Możliwość aktualizowania właściwości Owner w ramach jednej dzierżawy i wielu dzierżawców. Przyznaje dostęp do wszystkich pól na stronie właściciele rejestracji aplikacji:
 
-![To uprawnienie daje dostęp do strony właścicieli rejestracji aplikacji](./media/roles-custom-available-permissions/app-registration-owners.png)
+![Te uprawnienia udzielają dostępu do strony właściciele rejestracji aplikacji](./media/roles-custom-available-permissions/app-registration-owners.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationownersupdate"></a>microsoft.directory/applications.myOrganizacja/właściciele/aktualizacja
+#### <a name="microsoftdirectoryapplicationsmyorganizationownersupdate"></a>Microsoft. Directory/Applications. weborganizations/Owners/Update
 
-Udziela tych samych uprawnień co microsoft.directory/applications/owners/update, ale tylko dla aplikacji z jedną dzierżawą.
+Przyznaje takie same uprawnienia jak Microsoft. Directory/Applications/Owners/Update, ale tylko w przypadku aplikacji z jedną dzierżawą.
 
-#### <a name="microsoftdirectoryapplicationspermissionsupdate"></a>microsoft.directory/applications/permissions/update
+#### <a name="microsoftdirectoryapplicationspermissionsupdate"></a>Microsoft. Directory/Applications/Permissions/Update
 
-Możliwość aktualizowania uprawnień delegowanych, uprawnień aplikacji, autoryzowanych aplikacji klienckich, wymaganych uprawnień i udzielania właściwości zgody w aplikacjach jednodostępnych i wielodostępnych. Nie daje możliwości wykonywania zgody. Udziela dostępu do wszystkich pól w uprawnieniach interfejsu API rejestracji aplikacji i uwidaczniać strony interfejsu API:
+Możliwość aktualizowania uprawnień delegowanych, uprawnień aplikacji, autoryzowanych aplikacji klienckich, wymaganych uprawnień i przyznawania właściwości zgody w aplikacjach z jedną dzierżawą i wieloma dzierżawcami. Nie przyznaje możliwości zgody. Przyznaje dostęp do wszystkich pól w uprawnieniach interfejsu API rejestracji aplikacji i uwidacznia strony interfejsu API:
 
-![To uprawnienie udziela dostępu do strony uprawnień interfejsu API rejestracji aplikacji](./media/roles-custom-available-permissions/app-registration-api-permissions.png)
+![Te uprawnienia udzielają dostępu do strony uprawnień interfejsu API rejestracji aplikacji](./media/roles-custom-available-permissions/app-registration-api-permissions.png)
 
-![To uprawnienia udziela dostępu do rejestracji aplikacji Uwidaczniać stronę interfejsu API](./media/roles-custom-available-permissions/app-registration-expose-api.png)
+![Te uprawnienia udzielają dostępu do rejestracji aplikacji Udostępnianie strony interfejsu API](./media/roles-custom-available-permissions/app-registration-expose-api.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>microsoft.directory/applications.myOrganizacja/uprawnienia/aktualizacja
+#### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>Microsoft. katalog/aplikacje. weborganizations/Permissions/Update
 
-Udziela tych samych uprawnień co microsoft.directory/applications/permissions/update, ale tylko dla aplikacji z jedną dzierżawą.
+Przyznaje takie same uprawnienia, jak Microsoft. Directory/Applications/Permissions/Update, ale tylko w przypadku aplikacji z jedną dzierżawą.
 
 ## <a name="required-license-plan"></a>Wymagany plan licencji
 
@@ -169,5 +169,5 @@ Udziela tych samych uprawnień co microsoft.directory/applications/permissions/u
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Tworzenie ról niestandardowych przy użyciu [witryny Azure Portal, usługi Azure AD PowerShell i interfejsu API wykresu](roles-create-custom.md)
-- [Wyświetlanie przydziałów dla roli niestandardowej](roles-view-assignments.md)
+- Tworzenie ról niestandardowych przy użyciu [Azure Portal, programu Azure AD PowerShell i interfejs API programu Graph](roles-create-custom.md)
+- [Wyświetlanie przypisań roli niestandardowej](roles-view-assignments.md)

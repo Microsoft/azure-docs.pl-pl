@@ -1,35 +1,35 @@
 ---
-title: Przykłady programu Azure PowerShell dla udziału danych platformy Azure
-description: Dowiedz się więcej o przykładowych skryptach programu Azure PowerShell ułatwiające tworzenie udziałów danych w udziale danych usługi Azure i zarządzanie nimi.
+title: Przykłady Azure PowerShell dla udziału danych platformy Azure
+description: Dowiedz się więcej na temat Azure PowerShell przykładowe skrypty ułatwiające tworzenie udziałów danych i zarządzanie nimi w udziale danych platformy Azure.
 ms.service: data-share
 author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/06/2019
 ms.openlocfilehash: c2593c4c03f48624b8b9e3b9d72a3558f5f581be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73499297"
 ---
-# <a name="azure-powershell-samples-for-azure-data-share"></a>Przykłady programu Azure PowerShell dla udziału danych platformy Azure
+# <a name="azure-powershell-samples-for-azure-data-share"></a>Przykłady Azure PowerShell dla udziału danych platformy Azure
 
-Poniższa tabela zawiera łącza do przykładowych skryptów programu Azure PowerShell dla udostępniania danych platformy Azure.
+Poniższa tabela zawiera linki do przykładowych skryptów Azure PowerShell dla udziału danych platformy Azure.
 
 | |  |
 |---|---|
-|**Przykłady programu PowerShell**||
-|[Tworzenie nowego konta udziału danych](scripts/powershell/create-new-share-account-powershell.md)| Ten skrypt programu PowerShell tworzy nowe konto udziału danych. |
+|**Przykłady dla programu PowerShell**||
+|[Utwórz nowe konto udziału danych](scripts/powershell/create-new-share-account-powershell.md)| Ten skrypt programu PowerShell tworzy nowe konto udostępniania danych. |
 |[Tworzenie nowego udziału danych](scripts/powershell/create-new-share-powershell.md)| Ten skrypt programu PowerShell tworzy nowy udział danych. |
-|[Dodawanie zestawów danych do udziału](scripts/powershell/add-datasets-powershell.md)| Ten skrypt programu PowerShell dodaje zestaw danych obiektu blob do istniejącego konta udziału danych. |
-|[Ustawianie i wyświetlanie synchronizacji udziału](scripts/powershell/set-view-synchronizations-powershell.md)| Ten skrypt programu PowerShell tworzy i wyświetla synchronizacje istniejącego udziału danych. |
-|[Tworzenie zaproszenia do udostępniania danych](scripts/powershell/create-share-invitation-powershell.md)| Ten przykładowy skrypt programu PowerShell tworzy zaproszenie do dostępu do istniejącego udziału danych. |
-|[Wyświetlanie wysłanych zaproszeń do udziału](scripts/powershell/view-sent-invitations-powershell.md)| Ten przykładowy skrypt programu PowerShell pobiera listę zaproszeń wysłanych z istniejącego udziału danych. |
-|[Akceptowanie otrzymanych zaproszeń na akcje](scripts/powershell/accept-share-invitations-powershell.md)| Ten przykładowy skrypt programu PowerShell akceptuje zaproszenie do udostępniania danych|
-|[Wyświetlanie szczegółów udziału danych](scripts/powershell/view-share-details-powershell.md)| Ten przykładowy skrypt programu PowerShell zawiera listę i pobiera szczegółowe informacje o udziałach danych. |
-|[Monitorowanie wykorzystania udostępnionych danych](scripts/powershell/monitor-usage-powershell.md)| Ten przykładowy skrypt programu PowerShell monitoruje użycie wysłanych udostępnionych danych. |
-|[Tworzenie i wyświetlanie wyzwalaczy migawek](scripts/powershell/create-view-trigger-powershell.md)| Ten przykładowy skrypt programu PowerShell tworzy wyzwalacze migawki udziału.
+|[Dodawanie zestawów danych do udziału](scripts/powershell/add-datasets-powershell.md)| Ten skrypt programu PowerShell dodaje zestaw danych obiektów BLOB do istniejącego konta udziału danych. |
+|[Ustawianie i wyświetlanie synchronizacji udziału](scripts/powershell/set-view-synchronizations-powershell.md)| Ten skrypt programu PowerShell tworzy i przegląda synchronizacje istniejącego udziału danych. |
+|[Utwórz zaproszenie do udziału danych](scripts/powershell/create-share-invitation-powershell.md)| Ten przykładowy skrypt programu PowerShell tworzy zaproszenie dostępu do istniejącego udziału danych. |
+|[Wyświetl wysłane zaproszenia udziału](scripts/powershell/view-sent-invitations-powershell.md)| Ten przykładowy skrypt programu PowerShell pobiera listę zaproszeń wysyłanych z istniejącego udziału danych. |
+|[Akceptuj odebrane zaproszenia udziału](scripts/powershell/accept-share-invitations-powershell.md)| Ten przykładowy skrypt programu PowerShell akceptuje zaproszenie do udziału danych|
+|[Wyświetlanie szczegółów udziałów danych](scripts/powershell/view-share-details-powershell.md)| Ten przykładowy skrypt programu PowerShell zawiera listę i pobiera szczegóły udziałów danych. |
+|[Monitorowanie użycia danych udostępnionych](scripts/powershell/monitor-usage-powershell.md)| Ten przykładowy skrypt programu PowerShell służy do monitorowania użycia wysłanych danych udostępnionych. |
+|[Tworzenie i wyświetlanie wyzwalaczy migawek](scripts/powershell/create-view-trigger-powershell.md)| Ten przykładowy skrypt programu PowerShell tworzy wyzwalacze migawek udziału.
 
 
 
