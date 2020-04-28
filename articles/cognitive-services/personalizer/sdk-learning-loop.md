@@ -1,24 +1,24 @@
 ---
-title: 'Szybki start: tworzenie i używanie pętli uczenia się za pomocą SDK - Personalizer'
-description: Ten przewodnik Szybki start pokazuje, jak tworzyć bazę wiedzy i zarządzać nią przy użyciu sdk klienta.
+title: 'Szybki Start: Tworzenie i używanie pętli szkoleniowej z zestawem SDK — Personalizacja'
+description: Ten przewodnik Szybki Start przedstawia sposób tworzenia bazy wiedzy i zarządzania nią przy użyciu zestawu SDK klienta.
 ms.topic: quickstart
-ms.date: 01/15/2020
+ms.date: 04/27/2020
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 7ebe22227b4323b2e6b1c3fc9ca31e171d1d97cd
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c65be6c68372ffe92ffd942bf71d2b635ec2fd16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77524873"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188878"
 ---
-# <a name="quickstart-personalizer-client-library"></a>Szybki start: biblioteka klienta personalizatora
+# <a name="quickstart-personalizer-client-library"></a>Szybki Start: Biblioteka kliencka personalizacji
 
-Wyświetlanie spersonalizowanej zawartości w tym przewodniku Szybki start za pomocą usługi Personalizer.
+Wyświetl spersonalizowaną zawartość w tym przewodniku szybki start za pomocą usługi personalizacji.
 
-Wprowadzenie do biblioteki klienta personalizatora. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
+Rozpocznij pracę z biblioteką klienta personalizacji. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
 
- * Interfejs API rangi — wybiera najlepszy element z elementów zawartości na podstawie informacji w czasie rzeczywistym, które podajesz o zawartości i kontekście.
- * Api nagrody — określasz wynik nagrody na podstawie potrzeb biznesowych, a następnie wysyłasz go do Personalizer za pomocą tego interfejsu API. Ten wynik może być pojedynczą wartością, taką jak 1 na dobre i 0 na złe, lub algorytm, który tworzysz na podstawie potrzeb biznesowych.
+ * Ranga API — wybiera najlepszy element z akcji, na podstawie informacji w czasie rzeczywistym dostarczanych na temat zawartości i kontekstu.
+ * Interfejs API nagradzania — możesz określić wynik nagrody w zależności od potrzeb firmy, a następnie wysłać go do personalizacji przy użyciu tego interfejsu API. Ten wynik może być pojedynczą wartością, taką jak 1 dla dobra, i 0 dla uszkodzonych lub algorytmem tworzonym w zależności od potrzeb firmy.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# SDK](./includes/quickstart-sdk-csharp.md)]
@@ -34,7 +34,7 @@ Wprowadzenie do biblioteki klienta personalizatora. Wykonaj następujące kroki,
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli chcesz wyczyścić i usunąć subskrypcję usług Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie innych skojarzonych z nią zasobów.
+Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Interfejs wiersza polecenia platformy Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)

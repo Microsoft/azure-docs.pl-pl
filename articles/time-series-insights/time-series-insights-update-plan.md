@@ -1,6 +1,6 @@
 ---
-title: Planowanie środowiska w wersji zapoznawczej — usługa Azure Time Series Insights | Dokumenty firmy Microsoft
-description: Najważniejsze wskazówki dotyczące konfigurowania, zarządzania, planowania i wdrażania środowiska usługi Azure Time Series Insights Preview.
+title: Planowanie środowiska w wersji zapoznawczej — Azure Time Series Insights | Microsoft Docs
+description: Najlepsze rozwiązania dotyczące konfigurowania, planowania i wdrażania środowiska Azure Time Series Insights w wersji zapoznawczej oraz zarządzania nim.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,97 +8,97 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: b16d78c9670d05fcec8126c5544d1dd97f6a03bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b61df52df45cb2ee01407390ce3e34d86350ef7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76045721"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189253"
 ---
-# <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planowanie środowiska usługi Azure Time Series Insights Preview
+# <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planowanie środowiska Azure Time Series Insights w wersji zapoznawczej
 
-W tym artykule opisano najlepsze rozwiązania dotyczące planowania i szybkiego rozpoczynania pracy przy użyciu usługi Azure Time Series Insights Preview.
-
-> [!NOTE]
-> Aby uzyskać najlepsze rozwiązania dotyczące planowania wystąpienia usługi Time Series Insights o ogólnej dostępności, przeczytaj artykuł [Planowanie ogólnego środowiska dostępności usługi Azure Time Series Insights.](time-series-insights-environment-planning.md)
-
-## <a name="best-practices-for-planning-and-preparation"></a>Najlepsze praktyki w zakresie planowania i przygotowywania
-
-Najważniejsze wskazówki dotyczące planowania i przygotowywania środowiska opisano w następujących artykułach:
-
-* Co otrzymujesz po [zainicjowaniu obsługi administracyjnej środowiska usługi Time Series Insights Preview](#the-preview-environment).
-* Jakie [są identyfikatory szeregów czasowych i właściwości sygnatury czasowe.](#configure-time-series-ids-and-timestamp-properties)
-* Co to jest nowy [model serii czasowych](#understand-the-time-series-model)i jak zbudować własne.
-* Jak [skutecznie wysyłać zdarzenia w JSON](#shape-your-events).
-* [Opcje odzyskiwania po awarii w biznesie](#business-disaster-recovery)Usługi Time Series Insights .
-
-Usługa Azure Time Series Insights wykorzystuje model biznesowy płatności zgodnie z rzeczywistymu po podróży. Aby uzyskać więcej informacji na temat opłat i pojemności, przeczytaj [informacje o cenach usługi Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
-
-## <a name="the-preview-environment"></a>Środowisko podglądu
-
-Podczas aprowizowania środowiska usługi Time Series Insights Preview należy utworzyć dwa zasoby platformy Azure:
-
-* Środowisko usługi Azure Time Series Insights w wersji zapoznawczej
-* Konto v1 usługi Azure Storage ogólnego przeznaczenia
-
-W ramach procesu inicjowania obsługi administracyjnej należy określić, czy ma zostać włączona magazyn ogrzanie. Ciepły magazyn zapewnia środowisko zapytania warstwowego. Po włączeniu należy określić okres przechowywania od 7 do 30 dni. Zapytania wykonywane w okresie przechowywania magazynu ciepłe zazwyczaj zapewniają szybsze czasy odpowiedzi. Gdy zapytanie obejmuje okres przechowywania ciepłego magazynu, jest ono obsługiwane z chłodni składowej.
-
-Zapytania w ciepłym sklepie są bezpłatne, podczas gdy zapytania dotyczące chłodnią ponoszą koszty. Ważne jest, aby zrozumieć wzorce zapytań i odpowiednio zaplanować konfigurację magazynu ciepłego. Zalecamy, aby interaktywne analizy najnowszych danych były przechowywane w ciepłym magazynie, a analiza wzorców i długoterminowe trendy były zimne.
+W tym artykule opisano najlepsze rozwiązania dotyczące szybkiego planowania i rozpoczynania pracy przy użyciu wersji zapoznawczej Azure Time Series Insights.
 
 > [!NOTE]
-> Aby dowiedzieć się więcej o tym, jak zbadać ciepłe dane, przeczytaj [odwołanie do interfejsu API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
+> Aby zapoznać się z najlepszymi rozwiązaniami dotyczącymi planowania ogólnej dostępności Time Series Insights, przeczytaj artykuł [planowanie Azure Time Series Insights ogólnej dostępności](time-series-insights-environment-planning.md).
 
-Aby rozpocząć, potrzebujesz trzech dodatkowych elementów:
+## <a name="best-practices-for-planning-and-preparation"></a>Najlepsze rozwiązania dotyczące planowania i przygotowywania
+
+Najlepsze rozwiązania związane z planowaniem i przygotowywaniem środowiska są opisane w następujących artykułach:
+
+* Co otrzymujesz po [udostępnieniu środowiska Time Series Insights w wersji zapoznawczej](#the-preview-environment).
+* Jakie [są identyfikatory szeregów czasowych i właściwości sygnatur czasowych](#configure-time-series-ids-and-timestamp-properties).
+* Nowy [model szeregów czasowych](#understand-the-time-series-model)i sposób tworzenia własnych.
+* Jak [efektywnie wysyłać zdarzenia w formacie JSON](#shape-your-events).
+* Time Series Insights [Opcje odzyskiwania po awarii firmy](#business-disaster-recovery).
+
+Azure Time Series Insights wykorzystuje model biznesowy z płatność zgodnie z rzeczywistym użyciem. Aby uzyskać więcej informacji na temat opłat i pojemności, Przeczytaj [Time Series Insights Cennik](https://azure.microsoft.com/pricing/details/time-series-insights/).
+
+## <a name="the-preview-environment"></a>Środowisko wersji zapoznawczej
+
+Po udostępnieniu środowiska Time Series Insights w wersji zapoznawczej można utworzyć dwa zasoby platformy Azure:
+
+* Środowisko wersji zapoznawczej Azure Time Series Insights
+* Konto usługi Azure Storage ogólnego przeznaczenia w wersji 1
+
+W ramach procesu inicjowania obsługi administracyjnej należy określić, czy ma zostać włączona obsługa magazynu w postaci ciepłej. Magazyn ciepły zapewnia obsługę zapytań warstwowych. Po włączeniu należy określić okres przechowywania w zakresie od 7 do 30 dni. Zapytania wykonywane w ramach okresu przechowywania ciepłego magazynu zwykle zapewniają krótszy czas odpowiedzi. Gdy zapytanie obejmuje okres przechowywania w sieci ciepłej, jest ono obsługiwane w chłodnym magazynie.
+
+Zapytania dotyczące sklepu w sklepie są bezpłatne, podczas gdy zapytania dotyczące magazynu zimnego są ponoszone. Ważne jest, aby zrozumieć wzorce zapytań i odpowiednio zaplanować konfigurację magazynu ciepłego. Zalecamy, aby interakcyjna analiza najnowszych danych znajdował się w magazynie ciepłym i analizie wzorców oraz długoterminowe trendy znajdowały się na zimno.
+
+> [!NOTE]
+> Aby dowiedzieć się więcej na temat wykonywania zapytań dotyczących danych ciepłych, Przeczytaj [Informacje o interfejsie API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
+
+Aby rozpocząć, potrzebne są trzy dodatkowe elementy:
 
 * [Model szeregów czasowych](./time-series-insights-update-tsm.md)
-* [Źródło zdarzeń połączone z usługą Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
-* [Zdarzenia wpływające do źródła zdarzeń,](./time-series-insights-send-events.md) które są mapowane do modelu i są w prawidłowym formacie JSON
+* [Źródło zdarzenia połączone z Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
+* [Zdarzenia przepływające do źródła zdarzeń](./time-series-insights-send-events.md) , które są zamapowane na model i są w prawidłowym formacie JSON
 
-## <a name="review-preview-limits"></a>Przeglądanie limitów podglądu
+## <a name="review-preview-limits"></a>Przejrzyj limity wersji zapoznawczej
 
 [!INCLUDE [Review Time Series Insights Preview limits](../../includes/time-series-insights-preview-limits.md)]
 
-## <a name="configure-time-series-ids-and-timestamp-properties"></a>Konfigurowanie identyfikatorów szeregów czasowych i właściwości sygnatury czasowe
+## <a name="configure-time-series-ids-and-timestamp-properties"></a>Konfigurowanie identyfikatorów szeregów czasowych i właściwości sygnatur czasowych
 
-Aby utworzyć nowe środowisko usługi Time Series Insights, wybierz identyfikator szeregów czasowych. W ten sposób działa jako partycja logiczna dla danych. Jak wspomniano, upewnij się, że twoje identyfikatory szeregów czasowych są gotowe.
+Aby utworzyć nowe środowisko Time Series Insights, wybierz identyfikator szeregów czasowych. Wykonanie tej czynności jako partycji logicznej dla danych. Upewnij się, że identyfikatory szeregów czasowych są gotowe.
 
 > [!IMPORTANT]
-> Identyfikatorów szeregów czasowych *nie można później zmienić*. Sprawdź każdy przed ostatecznym wyborem i pierwszym użyciem.
+> Identyfikatorów szeregów czasowych *nie można zmienić później*. Sprawdź każdy z nich przed ostatecznym zaznaczeniem i pierwszym użyciem.
 
-Można wybrać maksymalnie trzy klucze, aby jednoznacznie odróżnić swoje zasoby. Aby uzyskać więcej informacji, przeczytaj [najważniejsze wskazówki dotyczące wybierania identyfikatora szeregów czasowych](./time-series-insights-update-how-to-id.md) i [magazynu i transferu danych przychodzących.](./time-series-insights-update-storage-ingress.md)
+Można wybrać maksymalnie trzy klucze, aby jednoznacznie odróżnić zasoby. Aby uzyskać więcej informacji, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi wybierania identyfikatora szeregów czasowych](./time-series-insights-update-how-to-id.md) i [danych wejściowych](./time-series-insights-update-storage-ingress.md).
 
-Właściwość **sygnatura czasowa** jest również ważna. Tę właściwość można wyznaczyć podczas dodawania źródeł zdarzeń. Każde źródło zdarzenia ma opcjonalną właściwość sygnatury czasowej, która jest używana do śledzenia źródeł zdarzeń w czasie. W wartościach sygnatury czasowej rozróżniana jest wielkość liter i musi być sformatowana zgodnie z indywidualną specyfikacją każdego źródła zdarzeń.
+Właściwość **sygnatury czasowej** jest również ważna. Tę właściwość można wyznaczyć podczas dodawania źródeł zdarzeń. Każde źródło zdarzenia ma opcjonalną właściwość sygnatury czasowej, która jest używana do śledzenia źródeł zdarzeń w czasie. W wartościach sygnatury czasowej jest uwzględniana wielkość liter i muszą one być sformatowane do poszczególnych specyfikacji każdego źródła zdarzenia.
 
 > [!TIP]
 > Sprawdź wymagania dotyczące formatowania i analizowania źródeł zdarzeń.
 
-Po lewej puste, czas enqueue zdarzenia źródła zdarzenia jest używany jako zdarzenie sygnatura czasowa. Jeśli wysyłasz dane historyczne lub zdarzenia wsadowe, dostosowywanie właściwości sygnatury czasowej jest bardziej pomocne niż domyślna godzina w kolejce zdarzenia. Aby uzyskać więcej informacji, przeczytaj o [dodaniu źródeł zdarzeń w usłudze Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+Po podaniu pustego pola czas do kolejki zdarzeń źródła zdarzeń jest używany jako sygnatura czasowa zdarzenia. W przypadku wysyłania danych historycznych lub zdarzeń wsadowych dostosowanie właściwości timestamp jest bardziej pomocne niż domyślny czas dodawania do kolejki zdarzeń. Aby uzyskać więcej informacji, przeczytaj temat jak [dodać źródła zdarzeń w usłudze Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
-## <a name="understand-the-time-series-model"></a>Opis modelu szeregów czasowych
+## <a name="understand-the-time-series-model"></a>Omówienie modelu szeregów czasowych
 
-Teraz można skonfigurować model szeregów czasowych środowiska time series w środowisku szeregów czasowych. Nowy model ułatwia znajdowanie i analizowanie danych IoT. Umożliwia curation, konserwacji i wzbogacania danych szeregów czasowych i pomaga przygotować zestawy danych gotowych do użycia przez konsumenta. Model używa identyfikatorów szeregów czasowych, które mapują do wystąpienia, które kojarzy unikatowy zasób ze zmiennymi, znanymi jako typy i hierarchie. Przeczytaj o nowym [modelu szeregów czasowych](./time-series-insights-update-tsm.md).
+Teraz można skonfigurować model szeregów czasowych środowiska Time Series Insights. Nowy model ułatwia znajdowanie i analizowanie danych IoT. Umożliwia ona nadzorowanie, konserwację i wzbogacanie danych szeregów czasowych i pomaga przygotować zestawy danych gotowe do użycia przez klientów. Model używa identyfikatorów szeregów czasowych, które mapują do wystąpienia, które kojarzy unikatowy zasób ze zmiennymi, znanymi jako typy i hierarchie. Przeczytaj o nowym [modelu szeregów czasowych](./time-series-insights-update-tsm.md).
 
-Model jest dynamiczny, dzięki czemu można go zbudować w dowolnym momencie. Aby szybko rozpocząć, skompiluj i przekaż go przed wypchnięciem danych do usługi Time Series Insights. Aby utworzyć model, przeczytaj [artykuł Użyj modelu szeregów czasowych](./time-series-insights-update-how-to-tsm.md).
+Model jest dynamiczny, więc można go skompilować w dowolnym momencie. Aby szybko rozpocząć pracę, skompiluj ją i przekaż przed wypchnięciem danych do Time Series Insights. Aby skompilować model, przeczytaj artykuł [Korzystanie z modelu szeregów czasowych](./time-series-insights-update-how-to-tsm.md).
 
-Dla wielu klientów model szeregów czasowych mapuje istniejący model zasobów lub system ERP już istniejący. Jeśli nie masz istniejącego modelu, wstępnie utworzone środowisko użytkownika jest [dostępna,](https://github.com/Microsoft/tsiclient) aby szybko rozpocząć działanie. Aby wyobrazić sobie, jak model może ci pomóc, zobacz [przykładowe środowisko demo](https://insights.timeseries.azure.com/preview/demo).
+W przypadku wielu klientów model szeregów czasowych jest mapowany na istniejący model zasobów lub system ERP. Jeśli nie masz istniejącego modelu, [zapewnione](https://github.com/Microsoft/tsiclient) zostanie wbudowane środowisko użytkownika umożliwiające szybkie rozpoczęcie pracy. Aby Envision, jak może pomóc model, zobacz [przykładowe środowisko demonstracyjne](https://insights.timeseries.azure.com/preview/demo).
 
-## <a name="shape-your-events"></a>Kształtuj swoje wydarzenia
+## <a name="shape-your-events"></a>Kształtowanie zdarzeń
 
-Można sprawdzić sposób wysyłania zdarzeń do usługi Time Series Insights. Idealnie, twoje wydarzenia są denormalized dobrze i skutecznie.
+Możesz sprawdzić sposób wysyłania zdarzeń do Time Series Insights. W idealnym przypadku zdarzenia są bardziej znormalizowane i wydajne.
 
-Dobra zasada:
+Dobrym regułą dla elementu kciuk:
 
 * Przechowuj metadane w modelu szeregów czasowych.
-* Upewnij się, że tryb szeregów czasowych, pola wystąpienia i zdarzenia zawierają tylko niezbędne informacje, takie jak identyfikator szeregów czasowych lub właściwość sygnatura czasowa.
+* Upewnij się, że tryb szeregów czasowych, pola wystąpień i zdarzenia zawierają tylko niezbędne informacje, takie jak identyfikator szeregów czasowych lub właściwość sygnatury czasowej.
 
-Aby uzyskać więcej informacji, przeczytaj shape [events](./time-series-insights-send-events.md#supported-json-shapes).
+Aby uzyskać więcej informacji, Odczytaj [zdarzenia kształtu](./time-series-insights-send-events.md#supported-json-shapes).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przejrzyj [usługę Azure Advisor,](../advisor/advisor-overview.md) aby zaplanować opcje konfiguracji odzyskiwania biznesowego.
-- Dowiedz się więcej o [przechowywaniu i przychodzących](./time-series-insights-update-storage-ingress.md) danych w wersji Zapoznawczej usługi Time Series Insights.
-- Dowiedz się więcej o [modelowaniu danych](./time-series-insights-update-tsm.md) w wersji Preview usługi Time Series Insights.
+- Przejrzyj [Azure Advisor](../advisor/advisor-overview.md) , aby zaplanować opcje konfiguracji odzyskiwania firmy.
+- Przeczytaj więcej na temat [magazynu i transferu danych](./time-series-insights-update-storage-ingress.md) przychodzących w wersji zapoznawczej Time Series Insights.
+- Dowiedz się więcej na temat [modelowania danych](./time-series-insights-update-tsm.md) w wersji zapoznawczej Time Series Insights.

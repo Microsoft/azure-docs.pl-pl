@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -8,151 +8,151 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
-ms.date: 01/15/2020
+ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 786efcb712557da4363384c9d05c33f4f16d6731
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 237ba5ba390b4065a67f29611fbd43375c239578
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76122880"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188880"
 ---
-[Przykłady](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) |[pakietu kodu źródłowego biblioteki](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | referencyjnej[(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Samples](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
+[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) | | [Przykłady](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js) pakietu | [kodu źródłowego biblioteki](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer)dokumentacji referencyjnej[(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [utwórz bezpłatną subskrypcję platformy Azure](https://azure.microsoft.com/free/)
-* Bieżąca wersja [node.js](https://nodejs.org) i NPM.
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Bieżąca wersja środowiska [Node. js](https://nodejs.org) i npm.
 
-## <a name="using-this-quickstart"></a>Korzystanie z tego przewodnika Szybki start
+## <a name="using-this-quickstart"></a>Korzystanie z tego przewodnika Szybki Start
 
 
-Istnieje kilka kroków, aby użyć tego przewodnika Szybki start:
+Aby skorzystać z tego przewodnika Szybki Start, należy wykonać kilka czynności:
 
-* W witrynie Azure portal utwórz zasób Personalizer
-* W witrynie Azure portal dla zasobu Personalizer na stronie **Konfiguracja** zmień częstotliwość aktualizacji modelu na bardzo krótki interwał
-* W edytorze kodu utwórz plik kodu i edytuj plik kodu
-* W wierszu polecenia lub terminalu zainstaluj pakiet SDK z wiersza polecenia
+* W Azure Portal Utwórz zasób personalizacji
+* W Azure Portal dla zasobu Personalizacja na stronie **Konfiguracja** Zmień częstotliwość aktualizacji modelu na bardzo krótki interwał
+* W edytorze kodu Utwórz plik kodu i edytuj plik kodu
+* W wierszu polecenia lub terminalu Zainstaluj zestaw SDK z wiersza polecenia
 * W wierszu polecenia lub terminalu uruchom plik kodu
 
 [!INCLUDE [Create Azure resource for Personalizer](create-personalizer-resource.md)]
 
-[!INCLUDE [!Change model frequency](change-model-frequency.md)]
+[!INCLUDE [Change model frequency](change-model-frequency.md)]
 
 ## <a name="create-a-new-nodejs-application"></a>Tworzenie nowej aplikacji Node.js
 
-W oknie konsoli (takim jak cmd, PowerShell lub Bash) utwórz nowy katalog aplikacji i przejdź do niego.
+W oknie konsoli (na przykład cmd, PowerShell lub bash) Utwórz nowy katalog dla aplikacji i przejdź do niego.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Uruchom `npm init -y` polecenie, aby `package.json` utworzyć plik.
+Uruchom polecenie `npm init -y` , aby utworzyć `package.json` plik.
 
 ```console
 npm init -y
 ```
 
-## <a name="install-the-nodejs-library-for-personalizer"></a>Instalowanie biblioteki Node.js dla personalizatora
+## <a name="install-the-nodejs-library-for-personalizer"></a>Zainstaluj bibliotekę środowiska Node. js dla programu Personalizacja
 
-Zainstaluj bibliotekę klienta personalizatora dla pliku Node.js za pomocą następującego polecenia:
+Zainstaluj bibliotekę kliencką programu Personalizuj dla środowiska Node. js za pomocą następującego polecenia:
 
 ```console
 npm install @azure/cognitiveservices-personalizer --save
 ```
 
-Zainstaluj pozostałe pakiety NPM dla tego szybkiego startu:
+Zainstaluj pozostałe pakiety NPM dla tego przewodnika Szybki Start:
 
 ```console
 npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 ```
 
-## <a name="object-model"></a>Model obiektu
+## <a name="object-model"></a>Model obiektów
 
-Klient Personalizer jest [personalizerClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/personalizerclient?view=azure-node-latest) obiektu, który uwierzytelnia się na platformie Azure przy użyciu microsoft.rest.ServiceClientCredentials, który zawiera klucz.
+Klient narzędzia personalizacji jest obiektem [PersonalizerClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/personalizerclient?view=azure-node-latest) , który jest uwierzytelniany na platformie Azure przy użyciu elementu Microsoft. Rest. serviceclientcredentials, który zawiera klucz.
 
-Aby poprosić o jeden najlepszy element zawartości, utwórz [RankRequest](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/rankrequest?view=azure-node-latest), a następnie przekaż go [do klienta. Metoda rangi.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/personalizerclient?view=azure-node-latest#rank-rankrequest--msrest-requestoptionsbase-) Rank Metoda zwraca RankResponse.
+Aby zażądać pojedynczego najlepszego elementu zawartości, Utwórz element [RankRequest](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/rankrequest?view=azure-node-latest), a następnie Przekaż go do [klienta. Ranga](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/personalizerclient?view=azure-node-latest#rank-rankrequest--msrest-requestoptionsbase-) metody. Metoda rangi zwraca RankResponse.
 
-Aby wysłać nagrodę do Personalizera, utwórz [nagrodęRequest](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/rewardrequest?view=azure-node-latest), a następnie przekaż ją do metody [Nagrody](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/events?view=azure-node-latest#reward-string--rewardrequest--servicecallback-void--) w klasie Wydarzenia.
+Aby wysłać wynagrodzenie do personalizacji, Utwórz element [RewardRequest](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/rewardrequest?view=azure-node-latest), a następnie Przekaż go do metody [nagradzania](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/events?view=azure-node-latest#reward-string--rewardrequest--servicecallback-void--) klasy Events (zdarzenia).
 
-Określenie nagrody, w tym szybkimrozpoczyniu jest banalne. W systemie produkcyjnym określenie, co wpływa na [wynik nagrody](../concept-rewards.md) i o ile może być złożonym procesem, możesz zdecydować się na zmianę w czasie. Powinno to być jedną z podstawowych decyzji projektowych w architekturze Personalizer.
+Ustalenie nagrody w tym przewodniku Szybki Start jest proste. W systemie produkcyjnym określenie, co ma wpływ na [wynik nagrody](../concept-rewards.md) i według ile może być złożonym procesem, można zmienić z upływem czasu. Powinna to być jedna z podstawowych decyzji projektowych w architekturze personalizacji.
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą biblioteki klienta personalizatora dla pliku Node.js:
+Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą biblioteki klienckiej personalizacji dla środowiska Node. js:
 
-* [Tworzenie klienta personalizatora](#create-a-personalizer-client)
+* [Tworzenie klienta programu Personalizacja](#create-a-personalizer-client)
 * [Interfejs API rangi](#request-the-best-action)
-* [Api nagród](#send-a-reward)
+* [Interfejs API nagradzania](#send-a-reward)
 
 ## <a name="create-a-new-nodejs-application"></a>Tworzenie nowej aplikacji Node.js
 
-Utwórz nową aplikację Node.js w preferowanym edytorze lub identyfikatorze IDE o nazwie `sample.js`.
+Utwórz nową aplikację Node. js w preferowanym edytorze lub środowisku IDE o `sample.js`nazwie.
 
 ## <a name="add-the-dependencies"></a>Dodawanie zależności
 
-Otwórz plik **sample.js** w preferowanym edytorze lub IDE. Dodaj następujące `requires` elementy, aby dodać pakiety NPM:
+Otwórz **przykładowy plik. js** w preferowanym edytorze lub w środowisku IDE. Dodaj następujące elementy `requires` , aby dodać pakiety npm:
 
 [!code-javascript[Add module dependencies](~/samples-personalizer/quickstarts/node/sample.js?name=Dependencies)]
 
-## <a name="add-personalizer-resource-information"></a>Dodawanie informacji o zasobie Personalizer
+## <a name="add-personalizer-resource-information"></a>Dodawanie informacji o zasobach personalizacji
 
-Tworzenie zmiennych dla klucza platformy Azure i punktu końcowego zasobu pobranych ze zmiennych środowiskowych o nazwie `PERSONALIZER_KEY` i `PERSONALIZER_ENDPOINT`. Jeśli utworzono zmienne środowiskowe po uruchomieniu aplikacji, edytor, IDE lub powłoki uruchomionej będzie musiał zostać zamknięty i ponownie załadowany, aby uzyskać dostęp do zmiennej. Metody zostaną utworzone w dalszej części tego przewodnika Szybki start.
+Utwórz zmienne dla klucza i punktu końcowego usługi Azure Resource ściągnięte ze zmiennych środowiskowych o nazwie `PERSONALIZER_KEY` i `PERSONALIZER_ENDPOINT`. Jeśli po uruchomieniu aplikacji zostały utworzone zmienne środowiskowe, Edytor, środowisko IDE lub powłoka, na których działa, będzie musiał zostać zamknięte i ponownie załadowane w celu uzyskania dostępu do zmiennej. Metody zostaną utworzone w dalszej części tego przewodnika Szybki Start.
 
 [!code-javascript[Add Personalizer resource information](~/samples-personalizer/quickstarts/node/sample.js?name=AuthorizationVariables)]
 
-## <a name="create-a-personalizer-client"></a>Tworzenie klienta personalizatora
+## <a name="create-a-personalizer-client"></a>Tworzenie klienta programu Personalizacja
 
-Następnie utwórz metodę zwracania klienta Personalizer. Parametrem metody jest `PERSONALIZER_RESOURCE_ENDPOINT` apiKey jest `PERSONALIZER_RESOURCE_KEY`.
+Następnie Utwórz metodę zwracającą klienta programu Personalizacja. Parametr do metody ma wartość, `PERSONALIZER_RESOURCE_ENDPOINT` a ApiKey jest. `PERSONALIZER_RESOURCE_KEY`
 
 [!code-javascript[Create a Personalizer client](~/samples-personalizer/quickstarts/node/sample.js?name=Client)]
 
-## <a name="get-content-choices-represented-as-actions"></a>Przedstawianie opcji zawartości jako akcji
+## <a name="get-content-choices-represented-as-actions"></a>Pobierz opcje zawartości reprezentowane jako akcje
 
-Akcje reprezentują wybory zawartości, z których chcesz Personalizer wybrać najlepszy element zawartości. Dodaj następujące metody do Klasy Program do reprezentowania zestawu akcji i ich funkcji.
+Akcje reprezentują opcje zawartości, z których chcesz spersonalizować, aby wybrać najlepszy element zawartości. Dodaj następujące metody do klasy program, aby reprezentować zestaw akcji i ich funkcji.
 
 [!code-javascript[Create user features](~/samples-personalizer/quickstarts/node/sample.js?name=createUserFeatureTimeOfDay)]
 
 [!code-javascript[Create actions](~/samples-personalizer/quickstarts/node/sample.js?name=getActions)]
 
-## <a name="create-the-learning-loop"></a>Tworzenie pętli uczenia się
+## <a name="create-the-learning-loop"></a>Tworzenie pętli uczenia
 
-Pętla uczenia się Personalizer to cykl połączeń [rangi](#request-the-best-action) i [nagród.](#send-a-reward) W tym przewodniku Szybki start każde wywołanie rangi, aby spersonalizować zawartość, następuje wywołanie nagrodą, aby poinformować Personalizatora, jak dobrze działała usługa.
+Pętla szkoleniowa personalizacji jest cyklem wywołań [rangi](#request-the-best-action) i [nagrody](#send-a-reward) . W tym przewodniku szybki start każde wywołanie rangi, aby spersonalizować zawartość, nastąpi wywołanie płatne, aby poinformować program Personalizuj, jak dobrze przeprowadzono usługę.
 
-Poniższy kod pętli przez cykl z prośbą użytkownika ich preferencje w wierszu polecenia, wysyłanie tych informacji do Personalizer, aby wybrać najlepszą akcję, przedstawiając wybór do wyboru z listy, a następnie wysyłanie nagrody do Personalizer sygnalizując, jak dobrze usługa zrobiła w swoim wyborze.
+Poniższy kod wykonuje pętlę przez cykl monitowania użytkownika o preferencje w wierszu polecenia, wysyłając te informacje do narzędzia personalizacji w celu wybrania najlepszej akcji, która przedstawia wybór dla klienta, aby wybrać z listy, a następnie wysyłać wynagrodzenie do narzędzia personalizacji sygnalizujące, jak dobrze została wybrana usługa.
 
 [!code-javascript[Create the learning loop](~/samples-personalizer/quickstarts/node/sample.js?name=mainLoop)]
 
-Przyjrzyj się bliżej wyzwać zaproszenia do rangi i nagrody w poniższych sekcjach.
+Zwróć uwagę na wywołania rangi i nagrody w poniższych sekcjach.
 
-Przed uruchomieniem pliku kodu dodaj następujące metody, które [utrzymuje wybór zawartości:](#get-content-choices-represented-as-actions)
+Dodaj następujące metody, które [pobierają Opcje zawartości](#get-content-choices-represented-as-actions), przed uruchomieniem pliku kodu:
 
-* lista getActionsList
-* lista właściwości niekładu getContextFeatures
+* getActionsList
+* getContextFeaturesList
 
-## <a name="request-the-best-action"></a>Poproś o najlepszą akcję
+## <a name="request-the-best-action"></a>Żądaj najlepszej akcji
 
-Aby ukończyć żądanie rangi, program pyta preferencje użytkownika o tworzenie opcji zawartości. Proces może tworzyć zawartość, aby wykluczyć `excludeActions`z akcji, pokazane jako . Żądanie rangi wymaga [akcji](../concepts-features.md#actions-represent-a-list-of-options) i ich funkcji, currentContext funkcje, excludeActions i unikatowy identyfikator zdarzenia rangi, aby otrzymać odpowiedź rankingową.
+Aby ukończyć żądanie rangi, program prosi o preferencje użytkownika w celu utworzenia opcji zawartości. Proces może tworzyć zawartość, która ma zostać wykluczona z akcji, `excludeActions`pokazana jako. Żądanie rangi wymaga [działań](../concepts-features.md#actions-represent-a-list-of-options) i ich funkcji, funkcji CurrentContext, excludeActions i unikatowego identyfikatora zdarzenia rangi, aby otrzymać żądaną odpowiedź.
 
-Ten szybki start ma proste funkcje kontekstowe pory dnia i preferencji żywieniowych użytkowników. W systemach produkcyjnych określanie i [ocena](../concept-feature-evaluation.md) [działań i funkcji](../concepts-features.md) może być kwestią nietrywialną.
+Ten przewodnik Szybki Start zawiera proste funkcje kontekstu o porze dnia i preferencjach żywności dla użytkowników. W systemach produkcyjnych określenie i [Ocena](../concept-feature-evaluation.md) [działań i funkcji](../concepts-features.md) może być nieuproszczona.
 
 [!code-javascript[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/node/sample.js?name=rank)]
 
-## <a name="send-a-reward"></a>Wyślij nagrodę
+## <a name="send-a-reward"></a>Wyślij wynagrodzenie
 
 
-Aby uzyskać wynik nagrody do wysłania w żądaniu nagrody, program pobiera wybór użytkownika z wiersza polecenia, przypisuje wartość liczbową do zaznaczenia, a następnie wysyła unikatowy identyfikator zdarzenia i wynik nagrody jako wartość liczbową do interfejsu API nagrody.
+Aby uzyskać wynik nagrody do wysłania w żądaniu nagrody, program pobiera wybór użytkownika z wiersza polecenia, przypisuje do zaznaczenia wartość liczbową, a następnie wysyła unikatowy identyfikator zdarzenia oraz wynik nagrody jako wartość liczbową do interfejsu API nagradzania.
 
-Ten szybki start przypisuje prostą liczbę jako wynik nagrody, zero lub 1. W systemach produkcyjnych określenie, kiedy i co wysłać na [zaproszenie](../concept-rewards.md) do nagrody, może być nietrywialne, w zależności od konkretnych potrzeb.
+Ten przewodnik Szybki Start przypisuje prostą liczbę jako wynik nagrody, zero lub 1. W systemach produkcyjnych określenie, kiedy i co mają być wysyłane do [płatnego wywołania,](../concept-rewards.md) może być nieuproszczone, w zależności od konkretnych potrzeb.
 
 [!code-javascript[The Personalizer learning loop sends a reward.](~/samples-personalizer/quickstarts/node/sample.js?name=reward)]
 
 ## <a name="run-the-program"></a>Uruchamianie programu
 
-Uruchom aplikację z node.js z katalogu aplikacji.
+Uruchom aplikację za pomocą środowiska Node. js z katalogu aplikacji.
 
 ```console
 node sample.js
 ```
 
-![Program szybki start zadaje kilka pytań, aby zebrać preferencje użytkownika, znane jako funkcje, a następnie zapewnia najwyższą akcję.](../media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
+![Program szybkiego startu prosi o kilka pytań, aby zebrać preferencje użytkownika, znane jako funkcje, a następnie zapewnia najwyższą akcję.](../media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)

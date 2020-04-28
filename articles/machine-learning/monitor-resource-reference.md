@@ -1,7 +1,7 @@
 ---
-title: Charakterystyka danych z monitoringu | Dokumenty firmy Microsoft
+title: Informacje o monitorowaniu danych | Microsoft Docs
 titleSuffix: Azure Machine Learning
-description: Dowiedz się więcej o danych i zasobach zebranych dla usługi Azure Machine Learning i dostępnych w usłudze Azure Monitor. Usługa Azure Monitor zbiera i wyświetla dane dotyczące obszaru roboczego usługi Azure Machine Learning i umożliwia wyświetlanie metryk, ustawianie alertów i analizowanie zarejestrowanych danych.
+description: Dowiedz się więcej na temat danych i zasobów zebranych dla Azure Machine Learning i dostępnych w Azure Monitor. Azure Monitor zbiera i przedstawia dane dotyczące obszaru roboczego Azure Machine Learning, a następnie pozwala wyświetlać metryki, ustawiać alerty i analizować zarejestrowane dane.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,190 +9,206 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 03/06/2020
-ms.openlocfilehash: 958794cda60d0ce1b0d223b9b5a6c03283022a6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 1abd52c98cb1fa6ebe1014fc7a65e756d038d683
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78927566"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187600"
 ---
-# <a name="azure-machine-learning-monitoring-data-reference"></a>Odwołanie do danych monitorowania uczenia maszynowego platformy Azure
+# <a name="azure-machine-learning-monitoring-data-reference"></a>Informacje o monitorowaniu usługi Azure Machine Learning
 
-Dowiedz się więcej o danych i zasobach zebranych przez usługę Azure Monitor z obszaru roboczego usługi Azure Machine Learning. Zobacz [monitorowanie usługi Azure Machine Learning, aby](monitor-azure-machine-learning.md) uzyskać szczegółowe informacje na temat zbierania i analizowania danych monitorowania.
+Dowiedz się więcej o danych i zasobach zbieranych przez Azure Monitor z obszaru roboczego Azure Machine Learning. Aby uzyskać szczegółowe informacje na temat zbierania i analizowania danych monitorowania, zobacz [Azure Machine Learning monitorowania](monitor-azure-machine-learning.md) .
 
 ## <a name="resource-logs"></a>Dzienniki zasobów
 
-W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure Machine Learning, gdy są one zbierane w dziennikach usługi Azure Monitor lub usłudze Azure Storage.
+W poniższej tabeli wymieniono właściwości dzienników zasobów Azure Machine Learning, które są zbierane w Azure Monitor dziennikach lub usłudze Azure Storage.
 
 ### <a name="amlcomputejobevents-table"></a>Tabela AmlComputeJobEvents
 
 | Właściwość | Opis |
 |:--- |:---|
-| TimeGenerated | Czas wygenerowania wpisu dziennika |
+| TimeGenerated | Godzina wygenerowania wpisu dziennika |
 | OperationName | Nazwa operacji skojarzonej ze zdarzeniem dziennika |
 | Kategoria | Nazwa zdarzenia dziennika, AmlComputeClusterNodeEvent |
 | JobId | Identyfikator przesłanego zadania |
-| Identyfikator eksperymentu | Identyfikator eksperymentu |
-| Nazwa eksperymentu | Nazwa eksperymentu |
-| Identyfikator klienta | Identyfikator subskrypcji, na którym przesłano eksperyment i zadanie |
-| Nazwa obszaru roboczego | Nazwa obszaru roboczego uczenia maszynowego |
+| ExperimentId | Identyfikator eksperymentu |
+| Eksperymentname | Nazwa eksperymentu |
+| CustomerSubscriptionId | Identyfikator subskrypcji, w której eksperyment i zadanie zostały przesłane |
+| WorkspaceName | Nazwa obszaru roboczego uczenia maszynowego |
 | NazwaKlastra | Nazwa klastra |
-| Stan inicjowania obsługi administracyjnej | Stan składania ofert pracy |
+| ProvisioningState | Stan przesłania zadania |
 | ResourceGroupName | Nazwa grupy zasobów |
-| Jobname | Nazwa zadania |
-| Ład klastra | Identyfikator klastra |
-| Typ zdarzenia | Typ zdarzenia Job, np. |
-| ExecutionState | Stan zadania (uruchom), np. |
+| JobName | Nazwa zadania |
+| ClusterId | Identyfikator klastra |
+| Typ zdarzenia | Typ zdarzenia zadania, np., JobSubmitted, JobRunning, JobFailed, JobSucceeded itd. |
+| ExecutionState | Stan zadania (przebieg), np., w kolejce, uruchomione, zakończone powodzeniem, zakończone niepowodzeniem |
 | ErrorDetails | Szczegóły błędu zadania |
-| KreacjaApiWersja | Wersja interfejsu API używana do tworzenia zadania |
-| Nazwa grupy clusterresource | Nazwa grupy zasobów klastra |
-| TFWorkerCount (Liczba pracowników) | Liczba pracowników TF |
+| CreationApiVersion | Wersja interfejsu API użyta do utworzenia zadania |
+| ClusterResourceGroupName | Nazwa grupy zasobów klastra |
+| TFWorkerCount | Liczba procesów roboczych TF |
 | TFParameterServerCount | Liczba serwerów parametrów TF |
-| Typ narzędzia | Rodzaj używanego narzędzia |
-| RunInContainer (Niem. | Flaga opisująca, czy zadanie powinno być uruchamiane wewnątrz kontenera |
+| — Narzędzie | Typ używanego narzędzia |
+| RunInContainer | Flaga opisująca, czy zadanie powinno być uruchamiane wewnątrz kontenera |
 | JobErrorMessage | szczegółowy komunikat o błędzie zadania |
-| Identyfikator węzła | Identyfikator węzła utworzonego w miejscu, w którym działa zadanie |
+| NodeId | IDENTYFIKATOR węzła utworzonego w przypadku, gdy zadanie jest uruchomione |
 
 ### <a name="amlcomputeclusterevents-table"></a>Tabela AmlComputeClusterEvents
 
 | Właściwość | Opis |
 |:--- |:--- |
-| TimeGenerated | Czas wygenerowania wpisu dziennika |
+| TimeGenerated | Godzina wygenerowania wpisu dziennika |
 | OperationName | Nazwa operacji skojarzonej ze zdarzeniem dziennika |
 | Kategoria | Nazwa zdarzenia dziennika, AmlComputeClusterNodeEvent |
-| Stan inicjowania obsługi administracyjnej | Stan inicjowania obsługi administracyjnej klastra |
+| ProvisioningState | Stan aprowizacji klastra |
 | NazwaKlastra | Nazwa klastra |
-| Typ klastra | Typ klastra |
-| Createdby | Użytkownik, który utworzył klaster |
-| Liczba rdzeni | Liczba rdzeni w klastrze |
-| Rozmiar maszyny Wirtualnej | Rozmiar maszyny wirtualnej klastra |
-| VmPriority (VmPriority) | Priorytet węzłów utworzonych wewnątrz klastra Dedykowana/NiskaPriority |
-| Typ skalowania | Typ ręcznego/automatycznego skalowania klastra |
-| InitialNodeCount (InitialNodeCount) | Początkowa liczba węzłów klastra |
-| Minimalny minimalny licznik | Minimalna liczba węzłów klastra |
-| Maksymalna liczba | Maksymalna liczba węzłów klastra |
-| WęzełDealocationOption | Jak węzeł powinien zostać cofnięty |
+| Clustertype | Typ klastra |
+| CreatedBy | Użytkownik, który utworzył klaster |
+| CoreCount | Liczba rdzeni w klastrze |
+| VmSize | Rozmiar maszyny wirtualnej klastra |
+| VmPriority | Priorytet węzłów utworzonych w klastrze dedykowanym/LowPriority |
+| Skalowanie | Typ ręcznego skalowania klastra/automatycznego |
+| InitialNodeCount | Początkowa liczba węzłów klastra |
+| MinimumNodeCount | Minimalna liczba węzłów klastra |
+| MaximumNodeCount | Maksymalna liczba węzłów klastra |
+| NodeDeallocationOption | Jak ma zostać cofnięty przydział węzła |
 | Wydawca | Wydawca typu klastra |
-| Oferta | Oferta, z którą jest tworzony klaster |
-| SKU | Sku węzła/maszyny wirtualnej utworzonej wewnątrz klastra |
-| Wersja | Wersja obrazu używanego podczas tworzenia węzła/maszyny wirtualnej |
-| PodsiećId | Podsieć klastra |
-| Stan alokacji | Stan alokacji klastra |
-| CurrentNodeCount (CurrentNodeCount) | Bieżąca liczba węzłów klastra |
-| Liczba docelowa | Liczba węzłów docelowych klastra podczas skalowania w górę/w dół |
+| Oferta | Oferta, w której tworzony jest klaster |
+| SKU | Jednostka SKU utworzonego węzła/maszyny wirtualnej w klastrze |
+| Wersja | Wersja obrazu używana podczas tworzenia węzła/maszyny wirtualnej |
+| SubnetId | SubnetId klastra |
+| AllocationState | Stan alokacji klastra |
+| CurrentNodeCount | Bieżąca liczba węzłów klastra |
+| TargetNodeCount | Liczba węzłów docelowych klastra podczas skalowania w górę/w dół |
 | Typ zdarzenia | Typ zdarzenia podczas tworzenia klastra. |
-| NodeIdleTimeSecondsBeforeScaleDown | Czas bezczynności w sekundach przed skalowaniem klastra w dół |
-| WywłaszczoneNodeCount | Wywłaszczona liczba węzłów klastra |
-| IsResizeGrow (IsResizeGrow) | Flaga wskazująca, że klaster jest skalowanie w górę |
-| Nazwa VmFamilyname | Nazwa rodziny maszyn wirtualnych węzłów, które można utworzyć wewnątrz klastra |
-| LeavingNodeCount | Opuszczanie liczby węzłów klastra |
-| BezużytecznyNodeCount | Niezniszcząca liczba węzłów klastra |
-| Liczba IdleNodeCount | Liczba węzłów bezczynności klastra |
-| RunningNodeCount (RunningNodeCount) | Uruchamianie liczby węzłów klastra |
-| PrzygotowanieNodeCount | Przygotowywanie liczby węzłów klastra |
-| Przydział Przydziału Alokacja | Przydzielony przydział do klastra |
-| PrzydziałUtilized | Wykorzystano przydział klastra |
-| Czastransitionu alokacji | Czas przejścia z jednego stanu do drugiego |
-| Kody clustererorcodes | Kod błędu odebrany podczas tworzenia lub skalowania klastra |
-| KreacjaApiWersja | Wersja interfejsu API używana podczas tworzenia klastra |
+| NodeIdleTimeSecondsBeforeScaleDown | Czas bezczynności (w sekundach), po którym klaster będzie skalowany w dół |
+| PreemptedNodeCount | Liczba przeniesiona węzłów klastra |
+| IsResizeGrow | Flaga oznaczająca, że klaster jest skalowany w górę |
+| VmFamilyName | Nazwa rodziny maszyn wirtualnych węzłów, które mogą zostać utworzone w klastrze |
+| LeavingNodeCount | Pozostawienie liczby węzłów klastra |
+| UnusableNodeCount | Niezdatna do użycia liczba węzłów klastra |
+| IdleNodeCount | Liczba węzłów bezczynności klastra |
+| RunningNodeCount | Liczba uruchomionych węzłów klastra |
+| PreparingNodeCount | Przygotowywanie liczby węzłów klastra |
+| QuotaAllocated | Przydzielono przydział do klastra |
+| QuotaUtilized | Wykorzystany limit przydziału klastra |
+| AllocationStateTransitionTime | Czas przejścia z jednego stanu do innego |
+| ClusterErrorCodes | Kod błędu otrzymany podczas tworzenia lub skalowania klastra |
+| CreationApiVersion | Wersja interfejsu API użyta podczas tworzenia klastra |
 
 ### <a name="amlcomputeclusternodeevents-table"></a>Tabela AmlComputeClusterNodeEvents
 
 | Właściwość | Opis |
 |:--- |:--- |
-| TimeGenerated | Czas wygenerowania wpisu dziennika |
+| TimeGenerated | Godzina wygenerowania wpisu dziennika |
 | OperationName | Nazwa operacji skojarzonej ze zdarzeniem dziennika |
 | Kategoria | Nazwa zdarzenia dziennika, AmlComputeClusterNodeEvent |
 | NazwaKlastra | Nazwa klastra |
-| Identyfikator węzła | Identyfikator utworzonego węzła klastra |
-| Rozmiar maszyny Wirtualnej | Rozmiar maszyny wirtualnej węzła |
-| Nazwa VmFamilyname | Rodzina maszyn wirtualnych, do której należy węzeł |
-| VmPriority (VmPriority) | Priorytet utworzonego węzła Dedykowana/NiskaPriority |
-| Wydawca | Wydawca obrazu maszyny wirtualnej, np. |
-| Oferta | Oferta skojarzona z utworzeniem maszyny Wirtualnej |
-| SKU | Utworzony sku węzła/maszyny wirtualnej |
-| Wersja | Wersja obrazu używanego podczas tworzenia węzła/maszyny wirtualnej |
-| Czas tworzenia klastra | Czas utworzenia klastra |
-| ResizeStartTime | Godzina rozpoczęcia skalowania klastra w górę/w dół |
+| NodeId | Identyfikator utworzonego węzła klastra |
+| VmSize | Rozmiar maszyny wirtualnej węzła |
+| VmFamilyName | Rodzina maszyn wirtualnych, do której należy węzeł |
+| VmPriority | Priorytet utworzonego węzła/LowPriority |
+| Wydawca | Wydawca obrazu maszyny wirtualnej, np. Microsoft-dsvm |
+| Oferta | Oferta skojarzona z tworzeniem maszyny wirtualnej |
+| SKU | Utworzono jednostkę SKU węzła/maszyny wirtualnej |
+| Wersja | Wersja obrazu używana podczas tworzenia węzła/maszyny wirtualnej |
+| ClusterCreationTime | Czas utworzenia klastra |
+| ResizeStartTime | Czas rozpoczęcia skalowania klastra w górę/w dół |
 | ResizeEndTime | Czas zakończenia skalowania klastra w górę/w dół |
-| Czas alokacji węzłów | Czas, w którym przydzielono węzeł |
-| NodeBootTime (Czas na węzeł) | Czas, w którym węzeł został uruchomiony |
-| StartTaskStartTime | Czas, kiedy zadanie zostało przypisane do węzła i rozpoczęte |
-| Czas rozpoczęcia zadania | Czas zakończenia zadania przypisanego do węzła |
-| TotalE2ETimeInSekundy | Węzeł całkowitego czasu był aktywny |
+| NodeAllocationTime | Czas przydzielenia węzła |
+| NodeBootTime | Czas uruchomienia węzła |
+| StartTaskStartTime | Godzina, o której zadanie zostało przypisane do węzła i uruchomione |
+| StartTaskEndTime | Czas zakończenia zadania przypisanego do węzła |
+| TotalE2ETimeInSeconds | Łączny węzeł czasu był aktywny |
 
 ### <a name="metrics"></a>Metryki
 
-W poniższych tabelach znajdują się metryki platformy zebrane dla usługi Azure Machine Learning Wszystkie metryki są przechowywane w obszarze nazw **Azure Machine Learning Workspace .**
+W poniższych tabelach przedstawiono metryki platformy zebrane dla Azure Machine Learning wszystkie metryki są przechowywane w **obszar roboczy usługi Azure Machine Learning**przestrzeni nazw.
 
-**Model**
+**Wzorów**
 
 | Metryka | Jednostka | Opis |
 | ----- | ----- | ----- |
-| Wdrożenie modelu nie powiodło się | Liczba | Liczba wdrożeń modelu, które nie powiodły się. |
-| Rozpoczęto wdrażanie modelu | Liczba | Liczba rozpoczętych wdrożeń modelu. |
-| Wdrożenie modelu powiodło się | Liczba | Liczba wdrożeń modelu, które powiodły się. |
-| Rejestr modelu nie powiódł się | Liczba | Liczba rejestracji modelu, które nie powiodły się. |
-| Rejestr modelu zakończył się pomyślnie | Liczba | Liczba rejestracji modelu, które powiodły się. |
+| Nie można wdrożyć modelu | Liczba | Liczba wdrożeń modelu zakończonych niepowodzeniem. |
+| Rozpoczęto Wdrażanie modelu | Liczba | Liczba uruchomionych wdrożeń modelu. |
+| Wdrażanie modelu powiodło się | Liczba | Liczba wdrożeń modelu, które zakończyły się powodzeniem. |
+| Nie można zarejestrować modelu | Liczba | Liczba rejestracji modelu zakończonych niepowodzeniem. |
+| Rejestrowanie modelu powiodło się | Liczba | Liczba rejestracji modelu zakończonych powodzeniem. |
 
 **Limit przydziału**
 
-Informacje o przydziałach są przeznaczone tylko dla obliczeń usługi Azure Machine Learning.
+Informacje o limicie przydziału są przeznaczone tylko dla Azure Machine Learning obliczeń.
 
 | Metryka | Jednostka | Opis |
 | ----- | ----- | ----- |
 | Aktywne rdzenie | Liczba | Liczba aktywnych rdzeni obliczeniowych. |
 | Aktywne węzły | Liczba | Liczba aktywnych węzłów. |
-| Rdzenie bezczynne | Liczba | Liczba bezczynnych rdzeni obliczeniowych. |
+| Rdzenie bezczynne | Liczba | Liczba rdzeni obliczeniowych w bezczynnym stanie. |
 | Węzły bezczynne | Liczba | Liczba bezczynnych węzłów obliczeniowych. |
-| Opuszczanie rdzeni | Liczba | Liczba opuszczających rdzeni. |
-| Opuszczanie węzłów | Liczba | Liczba węzłów opuszczających. |
-| Wywłaszczone rdzenie | Liczba | Liczba wywłaszczonych rdzeni. |
-| Wstępnie wywłaszczone węzły | Liczba | Liczba wywłaszczonych węzłów. |
-| Procent wykorzystania przydziału | Wartość procentowa | Procent użytego przydziału. |
-| Całkowita liczba rdzeni | Liczba | Całkowite rdzenie. |
-| Łączna liczba węzłów | Liczba | Całkowita liczba węzłów. |
-| Niezniszalne rdzenie | Liczba | Liczba bezużytecznych rdzeni. |
-| Nieużywalne węzły | Liczba | Liczba węzłów bezużytecznych. |
+| Opuszczanie rdzeni | Liczba | Liczba rdzeni opuszczających. |
+| Opuszczanie węzłów | Liczba | Liczba pozostałych węzłów. |
+| Występujące rdzenie | Liczba | Liczba przeniesiona rdzeni. |
+| Zastępujące węzły | Liczba | Liczba przeniesiona węzłów. |
+| Procent wykorzystania przydziałów | Wartość procentowa | Procent użytego przydziału. |
+| Całkowita liczba rdzeni | Liczba | Łączna liczba rdzeni. |
+| Łączna liczba węzłów | Liczba | Łączna liczba węzłów. |
+| Rdzenie, których nie można używać | Liczba | Liczba rdzeni, których nie można używać. |
+| Węzły niezdatne do użytku | Liczba | Liczba węzłów, które nie są używane. |
 
-Poniżej przedstawiono wymiary, za pomocą których można filtrować metryki przydziału:
+Poniżej znajdują się wymiary, których można użyć do filtrowania metryk przydziału:
 
 | Wymiar | Metryki dostępne z | Opis |
 | ---- | ---- | ---- |
-| Nazwa klastra | Wszystkie metryki przydziału | Nazwa instancji obliczeniowej. |
-| Nazwa rodziny VM | Procent wykorzystania przydziału | Nazwa rodziny maszyn wirtualnych używana przez klaster. |
-| Priorytet maszyny wirtualnej | Procent wykorzystania przydziału | Priorytet maszyny Wirtualnej.
+| Nazwa klastra | Wszystkie metryki przydziału | Nazwa wystąpienia obliczeniowego. |
+| Nazwa rodziny maszyn wirtualnych | Procent wykorzystania przydziałów | Nazwa rodziny maszyn wirtualnych używanej przez klaster. |
+| Priorytet maszyny wirtualnej | Procent wykorzystania przydziałów | Priorytet maszyny wirtualnej.
 
-**Run**
-
-Informacje na temat przebiegów szkoleniowych.
+**Zasób**
 
 | Metryka | Jednostka | Opis |
 | ----- | ----- | ----- |
-| Ukończone przebiegi | Liczba | Liczba ukończonych przebiegów. |
-| Nieudane przebiegi | Liczba | Liczba nieudanych przebiegów. |
-| Rozpoczęte biegi | Liczba | Liczba rozpoczętych uruchomień. |
+| CpuUtilization | Wartość procentowa | Procent użycia procesora CPU dla danego węzła podczas uruchamiania/zadania. Ta Metryka jest publikowana tylko wtedy, gdy zadanie jest uruchomione w węźle. Jedno zadanie może korzystać z co najmniej jednego węzła. Ta Metryka jest publikowana na węzeł. |
+| GpuUtilization | Wartość procentowa | Stopień użycia procesora GPU dla danego węzła podczas uruchamiania/zadania. Jeden węzeł może mieć jeden lub więcej procesorów GPU. Ta Metryka jest publikowana na procesor GPU na węzeł. |
 
-Poniżej przedstawiono wymiary, za pomocą których można filtrować metryki uruchamiania:
+Poniżej znajdują się wymiary, których można użyć do filtrowania metryk zasobów:
+
+| Wymiar | Opis |
+| ----- | ----- |
+| CreatedTime | |
+| DeviceId | Identyfikator urządzenia (GPU). Dostępne tylko dla GpuUtilization. |
+| NodeId | IDENTYFIKATOR węzła utworzonego w przypadku, gdy zadanie jest uruchomione. |
+| RunId | Identyfikator uruchomienia/zadania. |
+
+**Run**
+
+Informacje o przebiegach szkoleniowych.
+
+| Metryka | Jednostka | Opis |
+| ----- | ----- | ----- |
+| Ukończone uruchomienia | Liczba | Liczba ukończonych uruchomień. |
+| Nieudane uruchomienia | Liczba | Liczba nieudanych uruchomień. |
+| Uruchomione uruchomienia | Liczba | Liczba rozpoczętych uruchomień. |
+
+Poniżej znajdują się wymiary, których można użyć do filtrowania metryk przebiegu:
 
 | Wymiar | Opis |
 | ---- | ---- |
-| Typ obliczeń | Typ obliczeń, który został użyty przez uruchomienie. |
-| Typ kroku potoku | Typ [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) używane w uruchomieniu. |
-| Opublikowany ChypiulineId | Identyfikator opublikowanego potoku używany w przebiegu. |
-| Rodzaj uruchamiania | Typ uruchomienia. |
+| Computetype | Typ obliczeń używany do uruchomienia. |
+| PipelineStepType | Typ [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) używany w przebiegu. |
+| PublishedPipelineId | Identyfikator opublikowanego potoku używanego w przebiegu. |
+| RunType | Typ uruchomienia. |
 
-Prawidłowe wartości dla wymiaru RunType to:
+Prawidłowe wartości dla wymiaru RunType są następujące:
 
 | Wartość | Opis |
 | ----- | ----- |
-| Experiment | Nie potok działa. |
-| PipelineRun (PipelineRun) | Uruchomić potok, który jest elementem nadrzędnym StepRun. |
-| StepRun (StepRun) | Przebieg dla kroku potoku. |
-| Ponowne uruchomienie | Uruchom dla kroku potoku, który ponownie używa poprzedniego uruchomienia. |
+| Experiment | Uruchomienia bez potoku. |
+| PipelineRun | Uruchomienie potoku, które jest elementem nadrzędnym elementu StepRun. |
+| StepRun | Przebieg kroku potoku. |
+| ReusedStepRun | Przebieg kroku potoku, który ponownie używa poprzedniego przebiegu. |
 
 ## <a name="see-also"></a>Zobacz też
 
-- Opis monitorowania usługi Azure Machine Learning można znaleźć w części [Monitorowania usługi](monitor-azure-machine-learning.md) Azure Machine Learning.
-- Zobacz [monitorowanie zasobów platformy Azure za pomocą usługi Azure Monitor, aby](/azure/azure-monitor/insights/monitor-azure-resource) uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure.
+- Aby uzyskać opis Azure Machine Learning monitorowania, zobacz [Azure Machine Learning monitorowania](monitor-azure-machine-learning.md) .
+- Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](/azure/azure-monitor/insights/monitor-azure-resource) .

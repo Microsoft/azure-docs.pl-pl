@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: a80079574dc29c54de89f5275c65637b205742d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbfd0e36307210851070c22e74acb0a858446ce1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74227414"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866714"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Obsługa metadanych OpenAPI 2.0 w usłudze Azure Functions (wersja zapoznawcza)
 OpenAPI 2.0 (dawniej Swagger) obsługa metadanych w usłudze Azure Functions jest funkcją w wersji zapoznawczej, której można użyć do zapisu definicji OpenAPI 2.0 wewnątrz aplikacji funkcji. Następnie można hostować ten plik przy użyciu aplikacji funkcji.
@@ -53,14 +53,14 @@ Poniższa tabela przedstawia ustawienia portalu Azure i odpowiednie dane w funct
 |[Host](https://swagger.io/specification/#fixed-fields-15)|**Ustawienia** > aplikacji funkcji**Ustawienia** > usługi app**service Omówienie** > **adresu URL**|*Nie obecny*
 |[Ścieżki](https://swagger.io/specification/#paths-object-29)|**Integruj** > **wybrane metody HTTP**|Wiązania: Trasa
 |[Element ścieżki](https://swagger.io/specification/#path-item-object-32)|**Zintegruj** > **szablon Trasy**|Powiązania: Metody
-|[Zabezpieczenia](https://swagger.io/specification/#security-scheme-object-112)|**Klucze**|*Nie obecny*|
+|[Bezpieczeństwo](https://swagger.io/specification/#security-scheme-object-112)|**Klucze**|*Nie obecny*|
 |operationID*|**Trasa + Dozwolone czasowniki**|Trasa + Dozwolone czasowniki|
 
 \*Identyfikator operacji jest wymagany tylko do integracji z programami PowerApps i Flow.
 > [!NOTE]
 > Rozszerzenie x-ms-summary zawiera nazwę wyświetlaną w aplikacjach logiki, u źródłach PowerApps i flow.
 >
-> Aby dowiedzieć się więcej, zobacz [Dostosowywanie definicji swaggera dla usługi PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/).
+> Aby dowiedzieć się więcej, zobacz [Dostosowywanie definicji swaggera dla usługi PowerApps](https://docs.microsoft.com/connectors/custom-connectors/openapi-extensions).
 
 ## <a name="use-cicd-to-set-an-api-definition"></a><a name="CICD"></a>Ustawianie definicji interfejsu API za pomocą ciągłej integracji/dysku CD
 

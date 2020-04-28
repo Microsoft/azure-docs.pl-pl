@@ -1,14 +1,14 @@
 ---
-title: 'Tworzenie pierwszej aplikacji sieci szkieletowej usługi Azure w systemie Linux przy użyciu języka C #'
-description: Dowiedz się, jak utworzyć i wdrożyć aplikację sieci szkieletowej usług przy użyciu języka C# i .NET Core 2.0.
+title: 'Tworzenie pierwszej aplikacji usługi Azure Service Fabric w systemie Linux przy użyciu języka C #'
+description: Dowiedz się, jak utworzyć i wdrożyć aplikację Service Fabric przy użyciu języka C# i programu .NET Core 2,0.
 ms.topic: conceptual
 ms.date: 04/11/2018
-ms.openlocfilehash: 202dde933b41a98c1c119f422d47cbdbb0be84ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 556d8dee4efd492fa98755f1ffd1cdc1c9887856
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458138"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193653"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Tworzenie pierwszej aplikacji usługi Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ Usługa Service Fabric udostępnia zestawy SDK do kompilowania usług w systemie
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że masz [skonfigurowane środowisko programowania systemu Linux](service-fabric-get-started-linux.md). Jeśli używasz systemu Mac OS X, możesz [skonfigurować jednopunktowe środowisko systemu Linux na maszynie wirtualnej za pomocą narzędzia Vagrant](service-fabric-get-started-mac.md).
 
-Należy również zainstalować [interfejsu wiersza polecenia sieci szkieletowej usług](service-fabric-cli.md)
+Trzeba również zainstalować [interfejs wiersza polecenia Service Fabric](service-fabric-cli.md)
 
 ### <a name="install-and-set-up-the-generators-for-c"></a>Instalowanie i konfigurowanie generatorów dla języka C#
 Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletów, które ułatwiają tworzenie aplikacji usługi Service Fabric z poziomu terminalu przy użyciu generatora szablonów narzędzia Yeoman. Wykonaj poniższe kroki, aby skonfigurować generatory szablonów narzędzia Yeoman w usłudze Service Fabric dla języka C#:
@@ -33,7 +33,7 @@ Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletów, które u
    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
    nvm install node 
    ```
-2. Zainstaluj generator [szablonów Yeoman](https://yeoman.io/) na swoim komputerze z NPM
+2. Zainstaluj Generator szablonów [Narzędzia Yeoman](https://yeoman.io/) na maszynie z poziomu usługi npm
 
    ```bash
    npm install -g yo
@@ -86,10 +86,10 @@ Wdrażanie skompilowanej aplikacji przebiega tak samo jak w przypadku innych apl
 
 Parametry tych poleceń można znaleźć w manifestach wygenerowanych w pakiecie aplikacji.
 
-Po wdrożeniu aplikacji otwórz przeglądarkę i przejdź do narzędzia [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) pod adresem [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Następnie rozwiń węzeł **Aplikacje** i zwróć uwagę, że istnieje teraz wpis dla danego typu aplikacji i inny wpis dla pierwszego wystąpienia tego typu.
+Po wdrożeniu aplikacji otwórz przeglądarkę i przejdź do narzędzia [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) pod adresem `http://localhost:19080/Explorer`. Następnie rozwiń węzeł **Aplikacje** i zwróć uwagę, że istnieje teraz wpis dla danego typu aplikacji i inny wpis dla pierwszego wystąpienia tego typu.
 
 > [!IMPORTANT]
-> Aby wdrożyć aplikację do bezpiecznego klastra systemu Linux na platformie Azure, należy skonfigurować certyfikat, aby sprawdzić poprawność aplikacji w czasie wykonywania sieci szkieletowej usług. Umożliwia to usługi niezawodne usługi do komunikowania się z podstawowych interfejsów API środowiska wykonawczego sieci szkieletowej usług. Aby dowiedzieć się więcej, zobacz [Konfigurowanie aplikacji Niezawodne usługi do uruchamiania w klastrach systemu Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Aby wdrożyć aplikację do bezpiecznego klastra z systemem Linux na platformie Azure, musisz skonfigurować certyfikat w celu weryfikacji aplikacji przy użyciu środowiska uruchomieniowego Service Fabric. Dzięki temu usługi Reliable Services mogą komunikować się z podstawowymi interfejsami API środowiska uruchomieniowego Service Fabric. Aby dowiedzieć się więcej, zobacz [Konfigurowanie aplikacji Reliable Services do uruchamiania w klastrach systemu Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Uruchamianie klienta testowego i przechodzenie w tryb failover

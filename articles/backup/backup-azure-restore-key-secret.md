@@ -1,36 +1,36 @@
 ---
-title: Przywróć klucz magazynu kluczy & kluczem tajnym dla zaszyfrowanej maszyny Wirtualnej
-description: Dowiedz się, jak przywrócić klucz i klucz tajny usługi Key Vault w usłudze Azure Backup przy użyciu programu PowerShell
+title: Przywróć klucz tajny & Key Vault klucza dla zaszyfrowanej maszyny wirtualnej
+description: Dowiedz się, jak przywrócić klucz Key Vault i wpis tajny w Azure Backup przy użyciu programu PowerShell
 ms.topic: conceptual
 ms.date: 08/28/2017
-ms.openlocfilehash: 35bcb919cadd46c603b1f2ad49742c5435f873d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 826b3917fda820ed02cde425ca5a394bffec0df1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75450067"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186825"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Przywracanie klucza i wpisu tajnego usługi Key Vault dla szyfrowanych maszyn wirtualnych za pomocą usługi Azure Backup
 
-W tym artykule o mówi o użyciu usługi Azure VM Backup do wykonywania przywracania zaszyfrowanych maszyn wirtualnych platformy Azure, jeśli klucz i klucz tajny nie istnieją w magazynie kluczy. Te kroki mogą być również używane, jeśli chcesz zachować oddzielną kopię klucza (klucz szyfrowania klucza) i klucz tajny (klucz szyfrowania funkcją BitLocker) dla przywróconej maszyny Wirtualnej.
+W tym artykule omówiono korzystanie z kopii zapasowej maszyny wirtualnej platformy Azure w celu wykonania przywracania szyfrowanych maszyn wirtualnych platformy Azure, jeśli klucz i wpis tajny nie istnieją w magazynie kluczy. Te kroki mogą być również używane, jeśli chcesz zachować osobną kopię klucza (klucz szyfrowania klucza) i klucz tajny (klucz szyfrowania funkcji BitLocker) dla przywróconej maszyny wirtualnej.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Tworzenie kopii zapasowych zaszyfrowanych maszyn wirtualnych** — szyfrowane maszyny wirtualne platformy Azure zostały utworzone przy użyciu usługi Azure Backup. Zapoznaj się [z artykułem Zarządzanie tworzeniem kopii zapasowych i przywracania maszyn wirtualnych platformy Azure przy użyciu programu PowerShell,](backup-azure-vms-automation.md) aby uzyskać szczegółowe informacje na temat tworzenia kopii zapasowych zaszyfrowanych maszyn wirtualnych platformy Azure.
-* **Konfigurowanie usługi Azure Key Vault** — upewnij się, że magazyn kluczy, do którego klucze i wpisy tajne muszą zostać przywrócone, jest już obecny. Zapoznaj się z artykułem [Wprowadzenie do usługi Azure Key Vault, aby](../key-vault/key-vault-get-started.md) uzyskać szczegółowe informacje na temat zarządzania magazynem kluczy.
-* **Przywróć dysk** — upewnij się, że zostało wyzwolone zadanie przywracania w celu przywrócenia dysków zaszyfrowanej maszyny Wirtualnej przy użyciu [kroków programu PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm). Dzieje się tak, ponieważ to zadanie generuje plik JSON na koncie magazynu zawierający klucze i wpisy tajne dla zaszyfrowanej maszyny Wirtualnej do przywrócenia.
+* **Tworzenie kopii zapasowych zaszyfrowanych maszyn wirtualnych** na zaszyfrowane maszyny wirtualne platformy Azure zostały wykonane przy użyciu Azure Backup. Zapoznaj się z artykułem [Zarządzanie kopiami zapasowymi maszyn wirtualnych platformy Azure przy użyciu programu PowerShell](backup-azure-vms-automation.md) , aby uzyskać szczegółowe informacje na temat tworzenia kopii zapasowych zaszyfrowanych maszyn wirtualnych
+* **Skonfiguruj Azure Key Vault** — upewnij się, że magazyn kluczy, do którego należy przywrócić klucze i wpisy tajne, już istnieje. Zapoznaj się [z](../key-vault/key-vault-get-started.md) artykułem wprowadzenie do Azure Key Vault, aby uzyskać szczegółowe informacje na temat zarządzania magazynem kluczy.
+* **Przywróć dysk** — upewnij się, że wyzwolono zadanie przywracania na potrzeby przywracania dysków dla zaszyfrowanej maszyny wirtualnej przy użyciu [kroków programu PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm). Dzieje się tak, ponieważ to zadanie generuje plik JSON na koncie magazynu zawierającym klucze i wpisy tajne dla zaszyfrowanej maszyny wirtualnej, która ma zostać przywrócona.
 
-## <a name="get-key-and-secret-from-azure-backup"></a>Uzyskaj klucz i klucz tajny z usługi Azure Backup
+## <a name="get-key-and-secret-from-azure-backup"></a>Pobieranie klucza i wpisu tajnego z Azure Backup
 
 > [!NOTE]
-> Po przywróceniu dysku dla zaszyfrowanej maszyny Wirtualnej upewnij się, że:
+> Po przywróceniu dysku dla zaszyfrowanej maszyny wirtualnej upewnij się, że:
 >
-> * $details jest wypełniona szczegółami zadania przywracania dysku, jak wspomniano w [krokach programu PowerShell w sekcji Przywracanie dysków](backup-azure-vms-automation.md#restore-an-azure-vm)
-> * Maszyna wirtualna powinna być tworzona z przywróconych dysków tylko **po przywróceniu klucza i klucza tajnego do magazynu kluczy**.
+> * $details jest wypełniana przy użyciu szczegółów zadania przywracania dysku, jak wspomniano w [sekcji kroki w programie PowerShell w temacie Przywracanie dysków](backup-azure-vms-automation.md#restore-an-azure-vm)
+> * Maszynę wirtualną należy utworzyć z przywróconych dysków dopiero **po przywróceniu klucza i wpisu tajnego do magazynu kluczy**.
 
-Kwerenda przywrócona właściwości dysku dla szczegółów zadania.
+Wykonaj zapytanie dotyczące przywróconych właściwości dysku w celu uzyskania szczegółowych informacji o zadaniu.
 
 ```powershell
 $properties = $details.properties
@@ -39,7 +39,7 @@ $containerName = $properties["Config Blob Container Name"]
 $encryptedBlobName = $properties["Encryption Info Blob Name"]
 ```
 
-Ustaw kontekst magazynu platformy Azure i przywróć plik konfiguracyjny JSON zawierający klucz i tajne szczegóły zaszyfrowanej maszyny Wirtualnej.
+Ustaw kontekst usługi Azure Storage i Przywróć plik konfiguracji JSON zawierający dane klucza i wpisu tajnego dla zaszyfrowanej maszyny wirtualnej.
 
 ```powershell
 Set-AzCurrentStorageAccount -Name $storageaccountname -ResourceGroupName '<rg-name>'
@@ -48,9 +48,9 @@ Get-AzStorageBlobContent -Blob $encryptedBlobName -Container $containerName -Des
 $encryptionObject = Get-Content -Path $destination_path  | ConvertFrom-Json
 ```
 
-## <a name="restore-key"></a>Klucz przywracania
+## <a name="restore-key"></a>Przywróć klucz
 
-Po wygenerowaniu pliku JSON w ścieżce docelowej wymienionej powyżej wygeneruj plik obiektu blob klucza z JSON i podaj go, aby przywrócić polecenie cmdlet klucza, aby umieścić klucz (KEK) z powrotem w magazynie kluczy.
+Po wygenerowaniu pliku JSON w powyższej ścieżce docelowej wygeneruj plik Key BLOB z poziomu JSON i powróć do niego, aby przywrócić klucz polecenia cmdlet (KEK) z powrotem do magazynu kluczy.
 
 ```powershell
 $keyDestination = 'C:\keyDetails.blob'
@@ -58,11 +58,11 @@ $keyDestination = 'C:\keyDetails.blob'
 Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
 ```
 
-## <a name="restore-secret"></a>Przywracanie klucza tajnego
+## <a name="restore-secret"></a>Przywróć klucz tajny
 
-Użyj pliku JSON wygenerowanego powyżej, aby uzyskać tajną nazwę i wartość i podać go, aby ustawić tajne polecenie cmdlet, aby umieścić klucz tajny (BEK) z powrotem w magazynie kluczy.Użyj tych poleceń cmdlet, jeśli maszyna **wirtualna jest szyfrowana przy użyciu BEK i KEK**.
+Użyj pliku JSON wygenerowanego powyżej, aby uzyskać nazwę i wartość wpisu tajnego, a następnie podawanie jej w celu skonfigurowania wpisu tajnego w celu umieszczenia wpisu tajnego (klucz szyfrowania bloków) z powrotem w magazynie kluczy.Użyj tych poleceń cmdlet, jeśli **maszyna wirtualna jest zaszyfrowana przy użyciu klucz szyfrowania bloków i KEK**.
 
-**Użyj tych poleceń cmdlet, jeśli maszyna wirtualna systemu Windows jest szyfrowana przy użyciu bek i KEK.**
+**Użyj tych poleceń cmdlet, jeśli maszyna wirtualna z systemem Windows jest zaszyfrowana przy użyciu klucz szyfrowania bloków i KEK.**
 
 ```powershell
 $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
@@ -72,7 +72,7 @@ $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKey
 Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-**Użyj tych poleceń cmdlet, jeśli maszyna wirtualna z systemem Linux jest szyfrowana przy użyciu BEK i KEK.**
+**Użyj tych poleceń cmdlet, jeśli maszyna wirtualna z systemem Linux jest zaszyfrowana przy użyciu klucz szyfrowania bloków i KEK.**
 
 ```powershell
 $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
@@ -82,7 +82,7 @@ $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKey
 Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-Użyj pliku JSON wygenerowanego powyżej, aby uzyskać tajną nazwę i wartość i podać go, aby ustawić tajne polecenie cmdlet, aby umieścić klucz tajny (BEK) z powrotem w magazynie kluczy.Użyj tych poleceń cmdlet, jeśli maszyna **wirtualna jest szyfrowana tylko przy użyciu bek.**
+Użyj pliku JSON wygenerowanego powyżej, aby uzyskać nazwę i wartość wpisu tajnego, a następnie podawanie jej w celu skonfigurowania wpisu tajnego w celu umieszczenia wpisu tajnego (klucz szyfrowania bloków) z powrotem w magazynie kluczy.Użyj tych poleceń cmdlet, jeśli **maszyna wirtualna jest zaszyfrowana tylko przy użyciu klucz szyfrowania bloków** .
 
 ```powershell
 $secretDestination = 'C:\secret.blob'
@@ -92,31 +92,31 @@ Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $sec
 
 > [!NOTE]
 >
-> * Wartość dla $secretname można uzyskać, odwołując się do danych wyjściowych $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl i używając tekstu po https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 wpisach tajnych/ np.
-> * Wartość tagu DiskEncryptionKeyFileName jest taka sama jak nazwa tajnego.
+> * Wartość $secretname można uzyskać, odwołując się do danych wyjściowych $encryptionObject. OsDiskKeyAndSecretDetails. SecretUrl i przy użyciu tekstu po kluczach tajnych/np. `https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163` adres URL tajnego wpisu danych wyjściowych to i nazwa wpisu tajnego to B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> * Wartość tagu DiskEncryptionKeyFileName jest taka sama jak nazwa klucza tajnego.
 >
 >
 
-## <a name="create-virtual-machine-from-restored-disk"></a>Tworzenie maszyny wirtualnej z przywróconego dysku
+## <a name="create-virtual-machine-from-restored-disk"></a>Utwórz maszynę wirtualną z przywróconego dysku
 
-Jeśli wykonano kopię zapasową zaszyfrowanej maszyny Wirtualnej przy użyciu kopii zapasowej maszyn wirtualnych platformy Azure, wyżej wymienione polecenia cmdlet programu PowerShell ułatwiają przywracanie klucza i klucza tajnego z powrotem do magazynu kluczy. Po ich przywróceniu zapoznaj się z [artykułem Zarządzanie tworzeniem kopii zapasowych i przywracaniem maszyn wirtualnych platformy Azure przy użyciu programu PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) w celu utworzenia zaszyfrowanych maszyn wirtualnych z przywróconego dysku, klucza i klucza tajnego.
+Jeśli utworzono kopię zapasową zaszyfrowanej maszyny wirtualnej przy użyciu kopii zapasowej maszyny wirtualnej platformy Azure, polecenia cmdlet programu PowerShell wymienione powyżej umożliwiają przywrócenie klucza i wpisu tajnego z powrotem do magazynu kluczy. Po ich przywróceniu zapoznaj się z artykułem [Zarządzanie wykonywaniem kopii zapasowych i przywracaniem maszyn wirtualnych platformy Azure przy użyciu programu PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) , aby utworzyć zaszyfrowane maszyny wirtualne na podstawie przywróconego dysku, klucza
 
 ## <a name="legacy-approach"></a>Starsze podejście
 
-Powyższe podejście sprawdziłoby się we wszystkich punktach odzyskiwania. Jednak starsze podejście uzyskiwania kluczowych i tajnych informacji z punktu odzyskiwania będzie ważne dla punktów odzyskiwania starszych niż 11 lipca 2017 r. dla maszyn wirtualnych zaszyfrowanych przy użyciu BEK i KEK. Po zakończeniu zadania przywracania dysku dla zaszyfrowanej maszyny Wirtualnej przy użyciu [kroków programu PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm)upewnij się, że $rp jest wypełniona prawidłową wartością.
+Wymienione powyżej podejście będzie działało dla wszystkich punktów odzyskiwania. Jednak starsze podejście do pobierania kluczy i wpisów tajnych z punktu odzyskiwania jest prawidłowe dla punktów odzyskiwania starszych niż 11 lipca 2017 dla maszyn wirtualnych szyfrowanych przy użyciu klucz szyfrowania bloków i KEK. Po zakończeniu przywracania zadania dyskowego dla zaszyfrowanej maszyny wirtualnej przy użyciu [kroków programu PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm)upewnij się, że $RP jest wypełnione prawidłową wartością.
 
-### <a name="restore-key"></a>Klucz przywracania
+### <a name="restore-key"></a>Przywróć klucz
 
-Użyj następujących poleceń cmdlet, aby uzyskać informacje o kluczu (KEK) z punktu odzyskiwania i umieścić je, aby przywrócić polecenie cmdlet klucza, aby umieścić je z powrotem w magazynie kluczy.
+Użyj następujących poleceń cmdlet, aby uzyskać informacje o kluczu (KEK) z punktu odzyskiwania i pobrać je z powrotem do polecenia cmdlet, aby przywrócić je w magazynie kluczy.
 
 ```powershell
 $rp1 = Get-AzRecoveryServicesBackupRecoveryPoint -RecoveryPointId $rp[0].RecoveryPointId -Item $backupItem -KeyFileDownloadLocation 'C:\Users\downloads'
 Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile 'C:\Users\downloads'
 ```
 
-### <a name="restore-secret"></a>Przywracanie klucza tajnego
+### <a name="restore-secret"></a>Przywróć klucz tajny
 
-Użyj następujących poleceń cmdlet, aby uzyskać tajne informacje (BEK) z punktu odzyskiwania i karmić je, aby ustawić tajne polecenie cmdlet, aby umieścić je z powrotem w magazynie kluczy.
+Użyj następujących poleceń cmdlet, aby uzyskać informacje o kluczu tajnym (klucz szyfrowania bloków) z punktu odzyskiwania i utworzyć je za pomocą polecenia cmdlet dla wpisu tajnego, aby umieścić je w magazynie kluczy.
 
 ```powershell
 $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
@@ -128,12 +128,12 @@ Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -
 
 > [!NOTE]
 >
-> * Wartość dla $secretname można uzyskać, odwołując się do danych wyjściowych $rp1. KeyAndSecretDetails.SecretUrl i przy użyciu tekstu po secrets / https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 np. wyjście tajny adres URL jest i tajne nazwa jest B3284AAA-DAAA-4AAA-B393-60CAA848AAAAA
-> * Wartość tagu DiskEncryptionKeyFileName jest taka sama jak nazwa tajna.
-> * Wartość dla DiskEncryptionKeyEncryptionKeyURL można uzyskać z magazynu kluczy po przywróceniu kluczy z powrotem i użyciu polecenia cmdlet [Get-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/get-azurekeyvaultkey)
+> * Wartość $secretname można uzyskać, odwołując się do danych wyjściowych $rp 1. KeyAndSecretDetails. SecretUrl i Using Text po kluczach tajnych/np. wyjściowy `https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163` adres URL tajny to i nazwa wpisu tajnego to B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> * Wartość tagu DiskEncryptionKeyFileName jest taka sama jak nazwa klucza tajnego.
+> * Wartość DiskEncryptionKeyEncryptionKeyURL można uzyskać z magazynu kluczy po przywróceniu kluczy z powrotem i przy użyciu polecenia cmdlet [Get-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/get-azurekeyvaultkey)
 >
 >
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po przywróceniu klucza i klucza tajnego z powrotem do magazynu kluczy, zapoznaj się z [artykułem Zarządzanie tworzeniem kopii zapasowych i przywracania maszyn wirtualnych platformy Azure przy użyciu programu PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) do tworzenia zaszyfrowanych maszyn wirtualnych z przywróconego dysku, klucza i klucza tajnego.
+Po przywróceniu klucza i wpisu tajnego do magazynu kluczy zapoznaj się z artykułem [Zarządzanie wykonywaniem kopii zapasowych i przywracaniem maszyn wirtualnych platformy Azure przy użyciu programu PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) , aby utworzyć zaszyfrowane maszyny wirtualne na podstawie przywróconego dysku, klucza i

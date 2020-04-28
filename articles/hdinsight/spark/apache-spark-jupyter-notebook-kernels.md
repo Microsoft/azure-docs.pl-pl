@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 01aad05995f4df5181a82bdedf630d4082760c38
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.openlocfilehash: f7f460b01674359847427296e4526fc5771658f0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82137437"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191961"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Jądra notesu Jupyter w klastrze Apache Spark w usłudze Azure HDInsight
 
@@ -96,7 +96,7 @@ Oto kilka korzyści wynikających z używania nowych jądra z notesem Jupyter w 
 | -r |`-r <FRACTION>` |Tutaj **ułamek** jest liczbą zmiennoprzecinkową z zakresu od 0,0 do 1,0. Jeśli przykładowa Metoda zapytania SQL to `sample`, jądro losowo pobiera określoną część elementów zestawu wyników. Na przykład w przypadku uruchomienia zapytania SQL z argumentami `-m sample -r 0.01`, 1% wierszy wynik jest losowo próbkowany. |
 | -n |`-n <MAXROWS>` |**MAXROWS** jest wartością całkowitą. Jądro ogranicza liczbę wierszy danych wyjściowych do **MAXROWS**. Jeśli **MAXROWS** jest liczbą ujemną, taką jak **-1**, wówczas liczba wierszy w zestawie wyników nie jest ograniczona. |
 
-**Przyklad**
+**Przykład:**
 
     %%sql -q -m sample -r 0.1 -n 500 -o query2
     SELECT * FROM hivesampletable

@@ -1,6 +1,6 @@
 ---
-title: Ograniczanie instalacji rozszerzenia maszyny Wirtualnej za pomocą usługi Azure Policy
-description: Użyj usługi Azure Policy, aby ograniczyć wdrożenia rozszerzeń.
+title: Używanie Azure Policy do ograniczania instalacji rozszerzenia maszyny wirtualnej
+description: Użyj Azure Policy, aby ograniczyć wdrożenia rozszerzeń.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -13,34 +13,34 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 428db340ce43463939ce71ffadd4188060f3e732
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b86429c90f436007116a45c6dbab443d6cc889e0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073110"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188556"
 ---
-# <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Ograniczanie instalacji rozszerzeń na maszynach wirtualnych systemu Windows za pomocą usługi Azure Policy
+# <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Użyj Azure Policy, aby ograniczyć instalację rozszerzeń na maszynach wirtualnych z systemem Windows
 
-Aby zapobiec używaniu lub instalacji niektórych rozszerzeń na maszynach wirtualnych systemu Windows, można utworzyć zasady platformy Azure przy użyciu programu PowerShell w celu ograniczenia rozszerzeń dla maszyn wirtualnych w ramach grupy zasobów. 
+Aby uniemożliwić używanie lub instalację niektórych rozszerzeń na maszynach wirtualnych z systemem Windows, można utworzyć definicję Azure Policy przy użyciu programu PowerShell, aby ograniczyć rozszerzenia dla maszyn wirtualnych w grupie zasobów. 
 
-W tym samouczku używa programu Azure PowerShell w ramach powłoki chmury, która jest stale aktualizowana do najnowszej wersji. 
+W tym samouczku są używane Azure PowerShell w Cloud Shell, które są stale aktualizowane do najnowszej wersji. 
 
  
 
-## <a name="create-a-rules-file"></a>Tworzenie pliku reguł
+## <a name="create-a-rules-file"></a>Utwórz plik reguł
 
-Aby ograniczyć, jakie rozszerzenia mogą być instalowane, należy mieć [regułę,](../../governance/policy/concepts/definition-structure.md#policy-rule) aby zapewnić logikę do identyfikowania rozszerzenia.
+Aby ograniczyć rozszerzenia, które można zainstalować, musisz mieć [regułę](../../governance/policy/concepts/definition-structure.md#policy-rule) umożliwiającą określenie logiki w celu zidentyfikowania rozszerzenia.
 
-W tym przykładzie pokazano, jak odmówić rozszerzenia opublikowane przez "Microsoft.Compute" przez utworzenie pliku reguł w usłudze Azure Cloud Shell, ale jeśli pracujesz w programie PowerShell lokalnie, można również utworzyć plik lokalny i zastąpić ścieżkę ($home/clouddrive) ścieżką do pliku lokalnego na komputerze.
+W tym przykładzie pokazano, jak odmówić rozszerzeń opublikowanych przez element "Microsoft. COMPUTE", tworząc plik reguł w Azure Cloud Shell, ale jeśli pracujesz lokalnie w programie PowerShell, możesz również utworzyć plik lokalny i zastąpić ścieżkę ($home/CloudDrive) ścieżką do pliku lokalnego na komputerze.
 
-W [przysłonie chmury](https://shell.azure.com/powershell)wpisz:
+W [Cloud Shell](https://shell.azure.com/powershell)wpisz:
 
 ```azurepowershell-interactive
 nano $home/clouddrive/rules.json
 ```
 
-Skopiuj i wklej następujący plik .json do pliku.
+Skopiuj i wklej następujący plik JSON do pliku.
 
 ```json
 {
@@ -66,21 +66,21 @@ Skopiuj i wklej następujący plik .json do pliku.
 }
 ```
 
-Po zakończeniu naciśnij **klawisze Ctrl + O,** a następnie **wprowadź,** aby zapisać plik. Naciśnij **klawisze Ctrl + X,** aby zamknąć plik i wyjść.
+Gdy skończysz, naciśnij **klawisze CTRL + O** , a następnie **wprowadź** , aby zapisać plik. Naciśnij **klawisze Ctrl + X** , aby zamknąć plik i wyjść z programu.
 
-## <a name="create-a-parameters-file"></a>Tworzenie pliku parametrów
+## <a name="create-a-parameters-file"></a>Utwórz plik parametrów
 
-Potrzebny jest również plik [parametrów,](../../governance/policy/concepts/definition-structure.md#parameters) który tworzy strukturę, która będzie używana do przekazywania na liście rozszerzeń do zablokowania. 
+Potrzebny jest również plik [parametrów](../../governance/policy/concepts/definition-structure.md#parameters) , który tworzy strukturę do przekazywania na liście rozszerzeń do zablokowania. 
 
-W tym przykładzie pokazano, jak utworzyć plik parametrów dla maszyn wirtualnych w aplikacji Cloud Shell, ale jeśli pracujesz w programie PowerShell lokalnie, można również utworzyć plik lokalny i zastąpić ścieżkę ($home/clouddrive) ścieżką do pliku lokalnego na komputerze.
+Ten przykład pokazuje, jak utworzyć plik parametrów dla maszyn wirtualnych w Cloud Shell, ale jeśli pracujesz w programie PowerShell lokalnie, możesz również utworzyć plik lokalny i zastąpić ścieżkę ($home/CloudDrive) ścieżką do pliku lokalnego na komputerze.
 
-W [usłudze Cloud Shell](https://shell.azure.com/powershell)wpisz:
+W [Cloud Shell](https://shell.azure.com/powershell)wpisz:
 
 ```azurepowershell-interactive
 nano $home/clouddrive/parameters.json
 ```
 
-Skopiuj i wklej następujący plik .json do pliku.
+Skopiuj i wklej następujący plik JSON do pliku.
 
 ```json
 {
@@ -95,13 +95,13 @@ Skopiuj i wklej następujący plik .json do pliku.
 }
 ```
 
-Po zakończeniu naciśnij **klawisze Ctrl + O,** a następnie **wprowadź,** aby zapisać plik. Naciśnij **klawisze Ctrl + X,** aby zamknąć plik i wyjść.
+Gdy skończysz, naciśnij **klawisze CTRL + O** , a następnie **wprowadź** , aby zapisać plik. Naciśnij **klawisze Ctrl + X** , aby zamknąć plik i wyjść z programu.
 
 ## <a name="create-the-policy"></a>Tworzenie zasad
 
-Definicja zasad jest obiektem używanym do przechowywania konfiguracji, której chcesz użyć. Definicja zasad używa reguł i parametrów plików do definiowania zasad. Utwórz definicję zasad przy użyciu polecenia cmdlet [New-AzPolicyDefinition.](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition)
+Definicja zasad to obiekt służący do przechowywania konfiguracji, której chcesz użyć. Definicja zasad używa plików reguł i parametrów do definiowania zasad. Utwórz definicję zasad przy użyciu polecenia cmdlet [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition) .
 
- Reguły i parametry zasad to pliki utworzone i przechowywane jako pliki json w powłoce chmury.
+ Zasady i parametry zasad są plikami utworzonymi i przechowywanymi jako pliki JSON w usłudze Cloud Shell.
 
 
 ```azurepowershell-interactive
@@ -118,9 +118,9 @@ $definition = New-AzPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Przypisywanie zasad
 
-W tym przykładzie przypisuje zasadę do grupy zasobów przy użyciu [new-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Żadna maszyna wirtualna utworzona w grupie zasobów **myResourceGroup** nie będzie mogła zainstalować rozszerzenia programu VM Access Agent ani Niestandardowe skrypty. 
+Ten przykład przypisuje zasady do grupy zasobów przy użyciu polecenia [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). W przypadku wszystkich maszyn wirtualnych utworzonych w grupie zasobów moja **zasobów** nie będzie można zainstalować agenta dostępu do maszyny wirtualnej ani rozszerzeń niestandardowego skryptu. 
 
-Korzystanie z [programu Get-AzSubscription | Polecenie](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) cmdlet formatu tabeli, aby uzyskać identyfikator subskrypcji do użycia zamiast jednego w przykładzie.
+Użyj [Get-AzSubscription | Polecenie cmdlet format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) , aby użyć identyfikatora subskrypcji zamiast takiego w przykładzie.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"
@@ -141,7 +141,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testowanie zasad
 
-Aby przetestować zasady, spróbuj użyć rozszerzenia dostępu do maszyny Wirtualnej. Poniższy komunikat "Set-AzVMAccessExtension: Resource 'myVMAccess' został niedozwolony przez zasady."
+Aby przetestować zasady, spróbuj użyć rozszerzenia dostępu do maszyny wirtualnej. Następujące zasady nie mogą kończyć się niepowodzeniem z komunikatem "Set-AzVMAccessExtension: Resource" myVMAccess ".
 
 ```azurepowershell-interactive
 Set-AzVMAccessExtension `
@@ -151,15 +151,15 @@ Set-AzVMAccessExtension `
    -Location EastUS 
 ```
 
-W portalu zmiana hasła powinna zakończyć się niepowodzeniem z "Wdrożenie szablonu nie powiodło się z powodu naruszenia zasad." .
+W portalu zmiana hasła powinna zakończyć się niepowodzeniem z powodu naruszenia zasad "wdrożenie szablonu nie powiodło się." .
 
-## <a name="remove-the-assignment"></a>Usuwanie przypisania
+## <a name="remove-the-assignment"></a>Usuń przypisanie
 
 ```azurepowershell-interactive
 Remove-AzPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
 ```
 
-## <a name="remove-the-policy"></a>Usuwanie zasad
+## <a name="remove-the-policy"></a>Usuń zasady
 
 ```azurepowershell-interactive
 Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows

@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 8db477f87f344b28e8941e185c70c81d9b860a72
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: e574ac33e5f7da814c4bd813fc1c083c7cb4c2c9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149478"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187889"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Rozwiązania na platformie Azure Virtual Machines
 
-Ten artykuł zawiera informacje na temat wdrażania maszyn wirtualnych w systemie Azure, które korzystają z procesorów firmy Intel, przy użyciu funkcji Microsoft [Software Extension Guard](https://software.intel.com/sgx) (Intel SGX). 
+Ten artykuł zawiera informacje na temat wdrażania maszyn wirtualnych w systemie Azure, które korzystają z procesorów firmy Intel, które są obsługiwane przez [rozszerzenie Microsoft Software Guard](https://software.intel.com/sgx) (Intel SGX). 
 
 ## <a name="azure-confidential-computing-vm-sizes"></a>Poufne rozmiary maszyn wirtualnych platformy Azure
 
@@ -148,5 +148,5 @@ W obszarze **Właściwości**należy również odwoływać się do obrazu w obsz
 
 W tym artykule omówiono kwalifikacje i konfiguracje potrzebne podczas tworzenia poufnej maszyny wirtualnej. Teraz możesz przejść do witryny Azure Marketplace, aby wdrożyć maszynę wirtualną z serii DCsv2.
 
-[!div class=”nextstepaction”]
-[Wdrażanie maszyny wirtualnej z serii DCsv2 w portalu Azure Marketplace](quick-create-marketplace.md)
+> [!div class="nextstepaction"]
+> [Wdrażanie maszyny wirtualnej z serii DCsv2 w portalu Azure Marketplace](quick-create-marketplace.md)

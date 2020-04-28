@@ -5,20 +5,20 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 2249dde8578dcd5cc3444aeef6b51c8afb2f31fa
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: abc71d644b44b432d0ebf2a8c849554fe8db0256
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160600"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190337"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Twoje komercyjne korzyści z witryny Marketplace
 
 Opublikowano w witrynie Marketplace, teraz chcesz zobaczyć, że Twoja oferta zakończyła się pomyślnie. Firma Microsoft oferuje korzyści — sprzedaż, techniczne i Marketing — należy przyspieszyć rozwój oferty.
 
-Gdy użytkownik zacznie korzystać z oferty, zespół nagradzania w portalu Marketplace uzyska dostęp do swoich korzyści. Korzyści z witryny Marketplace są naliczane w oparciu o zaangażowanie i sprzedaż komercyjnej witryny Marketplace. Im więcej jest Ci zaangażowanych, tym więcej.
+Gdy oferta będzie aktywna w witrynie Azure Marketplace lub AppSource, przejdź do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) , aby uzyskać dostęp do odpowiednich korzyści marketingowych, handlowych i technicznych. Korzyści z witryny Marketplace są naliczane w oparciu o zaangażowanie i sprzedaż komercyjnej witryny Marketplace. Im więcej jest Ci zaangażowanych, tym więcej.
 
 ## <a name="marketplace-rewards"></a>Nagrody dotyczące portalu Marketplace
 
@@ -41,7 +41,19 @@ Szczegółowe opisy wszystkich korzyści z programu można znaleźć na [talii p
 Kroki umożliwiające rozpoczęcie pracy są proste:
 
 1. Opublikuj ofertę w Microsoft AppSource lub witrynie Azure Marketplace.
-2. Zespół dociera do oferty "właściciel" lub "główna osoba kontaktowa" w witrynie Marketplace. Najlepszym rozwiązaniem jest wprowadzenie albo indywidualnego, albo aliasu sprawdzanego regularnie: Komunikaty wysyłane do aliasów, takie jak info@company.com często są tracone.
+2. Przejdź do [pulpitu nawigacyjnego](https://partner.microsoft.com/dashboard/directory)Centrum partnerskiego, wybierz kartę **korzyści sprzedaży i marketingu** na stronie nagrody w witrynie Marketplace, aby wyświetlić listę korzyści.
+3. Aby aktywować korzyści dotyczące sprzedaży i marketingu, musisz najpierw przypisać kontakt z firmą marketingową firmy. Ten kontakt będzie otrzymywać monity o informacje o korzyściach z witryny Marketplace.
+4. Aby dodać lub zaktualizować informacje kontaktowe dotyczące marketingu, przejdź do górnej części karty korzyści sprzedaży i marketingu na stronie nagrody w witrynie Marketplace, a następnie wybierz pozycję **Dodaj, zaktualizuj lub Zmień**.  Następnie wykonaj poniższe czynności:
+
+    1. Wybierz użytkownika z listy. Jeśli użytkownik, którego chcesz przypisać, nie znajduje się na liście, możesz dodać nowych użytkowników w **ustawieniach konta**.
+    1. Podaj adres e-mail użytkownika, który jest inny niż adres e-mail skojarzony z firmowym kontem Centrum partnerskiego. Będziemy używać instrukcji poczty e-mail w przypadku korzystania z korzyści z tytułu witryny Marketplace na wskazany adres e-mail osoby kontaktowej marketingowej.
+    1. Podaj numer telefonu kontaktu i preferowany język dla tego kontaktu z marketingiem. Po zakończeniu wprowadzania tych informacji wybierz pozycję **Przypisz użytkownika**.
+    1. Po zaktualizowaniu kontaktu marketingowego wybierz pozycję **Aktywuj** , aby skorzystać z korzyści, którą chcesz zacząć używać. Po aktywowaniu korzyści kontakt z firmą marketingowej będzie kontaktować się z członkiem zespołu nagradzania w ciągu tygodnia.
+
+**Korzyści techniczne**
+
+1. Możesz skorzystać z korzyści technicznych, aby zażądać pomocy technicznej w fazie opracowywania aplikacji w chmurze i rozwiązaniach hybrydowych. Aby poprosić o pomoc, Wypełnij formularz żądania, a następnie wybierz pozycję **Prześlij żądanie**.
+2. Korzystanie z korzyści sponsorowanych przez platformę Azure będzie udostępniane za pośrednictwem poczty e-mail podczas odblokowywania tych korzyści.
 
 >[!Note]
 >Jeśli Twoja oferta była aktywna przez ponad cztery tygodnie, a wiadomość nie została odebrana, skontaktuj się z Twoją organizacją, która jest właścicielem oferty, w centrum partnerskim. Powinny one mieć komunikację i następne kroki. <br> <br> Jeśli nie możesz określić właściciela lub jeśli właściciel opuścił Twoją firmę, możesz zgłosić bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://partner.microsoft.com/support/v2/?stage=1).

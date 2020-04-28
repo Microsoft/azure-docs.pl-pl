@@ -1,5 +1,5 @@
 ---
-title: Samouczek:Tworzenie aplikacji sieci Web Node.js za pomocą zestawu JavaScript usługi Azure Cosmos DB do zarządzania danymi interfejsu API SQL
+title: 'Samouczek: Tworzenie aplikacji sieci Web Node. js przy użyciu zestawu Azure Cosmos DB JavaScript SDK do zarządzania danymi interfejsu API SQL'
 description: W tym samouczku środowiska Node.js przedstawiono, jak przy użyciu usługi Microsoft Azure Cosmos DB przechowywać dane i uzyskiwać do nich dostęp z poziomu aplikacji internetowej Node.js Express hostowanej w funkcji Web Apps usługi Microsoft Azure App Service.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 3c50e82647b22a18edee92f47abc1d136670cacc
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 18af9b395aac24608c0a1383b5abdfeb062f58c1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519673"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184881"
 ---
-# <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji sieci Web Node.js przy użyciu zestawu JavaScript SDK do zarządzania kontem interfejsu API SQL w usłudze Azure Cosmos DB 
+# <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji sieci Web Node. js przy użyciu zestawu SDK języka JavaScript do zarządzania kontem interfejsu API SQL w programie Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -28,7 +28,7 @@ ms.locfileid: "80519673"
 
 Jako deweloper być może masz aplikacje, które używają danych dokumentów NoSQL. Konto interfejsu API SQL w usłudze Azure Cosmos DB umożliwia przechowywanie tych danych dokumentów i uzyskiwanie do nich dostępu. W tym samouczku środowiska Node.js pokazano, jak przechowywać dane z konta interfejsu API SQL w usłudze Azure Cosmos DB i uzyskiwać do nich dostęp przy użyciu aplikacji Node.js Express hostowanej w funkcji Web Apps usługi Microsoft Azure App Service. W tym samouczku utworzysz aplikację internetową (z listą zadań do wykonania), która umożliwia tworzenie, pobieranie i wykonywanie zadań. Zadania są przechowywane jako dokumenty JSON w usłudze Azure Cosmos DB. 
 
-W tym samouczku przedstawiono sposób tworzenia konta interfejsu API SQL w usłudze Azure Cosmos DB za pomocą witryny Azure Portal. Następnie skompilujesz i uruchomisz aplikację internetową bazującą na zestawie SDK środowiska Node.js, utworzysz bazę danych i kontener oraz dodasz elementy do tego kontenera. W tym samouczku użyto zestawu JavaScript SDK w wersji 3.0.
+W tym samouczku przedstawiono sposób tworzenia konta interfejsu API SQL w usłudze Azure Cosmos DB za pomocą witryny Azure Portal. Następnie skompilujesz i uruchomisz aplikację internetową bazującą na zestawie SDK środowiska Node.js, utworzysz bazę danych i kontener oraz dodasz elementy do tego kontenera. W tym samouczku jest używane środowisko JavaScript SDK w wersji 3,0.
 
 Ten samouczek obejmuje następujące zadania:
 
@@ -42,7 +42,7 @@ Ten samouczek obejmuje następujące zadania:
 
 Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz następujące zasoby:
 
-* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem. 
+* Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -50,7 +50,7 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz nast
 * [Generator Express](https://www.expressjs.com/starter/generator.html) (możesz zainstalować platformę Express za pomocą polecenia `npm install express-generator -g`)
 * Zainstaluj oprogramowanie [Git][Git] na lokalnej stacji roboczej.
 
-## <a name="create-an-azure-cosmos-db-account"></a><a name="_Toc395637761"></a>Tworzenie konta usługi Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-account"></a><a name="_Toc395637761"></a>Utwórz konto Azure Cosmos DB
 Zacznijmy od utworzenia konta usługi Azure Cosmos DB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi Azure Cosmos DB na potrzeby tego samouczka, możesz od razu przejść do sekcji [Krok 2. Tworzenie nowej aplikacji Node.js](#_Toc395783178).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -87,13 +87,13 @@ Teraz nauczysz się, jak utworzyć podstawowy projekt aplikacji Hello World w ś
    
    ![Poznaj środowisko Node.js — zrzut ekranu aplikacji Hello World w oknie przeglądarki](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
-   Zatrzymaj aplikację za pomocą klawiszy CTRL+C w oknie terminala i wybierz **opcję y,** aby zakończyć zadanie wsadowe.
+   Zatrzymaj aplikację za pomocą klawiszy CTRL + C w oknie terminalu i wybierz pozycję **y** , aby zakończyć zadanie usługi Batch.
 
 ## <a name="install-the-required-modules"></a><a name="_Toc395783179"></a>Instalowanie wymaganych modułów
 
 Plik **package.json** jest jednym z plików utworzonych w folderze głównym projektu. Ten plik zawiera listę dodatkowych modułów, które są wymagane dla aplikacji Node.js. Podczas wdrażania tej aplikacji na platformie Azure ten plik służy do określania, które moduły mają być zainstalowane na platformie Azure w celu obsługi tej aplikacji. Zainstaluj jeszcze 2 pakiety na potrzeby tego samouczka.
 
-1. Zainstaluj moduł ** \@azure/cosmos** za pośrednictwem npm. 
+1. Zainstaluj moduł ** \@Azure/Cosmos** za pośrednictwem usługi npm. 
 
    ```bash
    npm install @azure/cosmos
@@ -103,11 +103,11 @@ Plik **package.json** jest jednym z plików utworzonych w folderze głównym pro
 Teraz, po wykonaniu wstępnej instalacji i konfiguracji, napiszesz kod, który jest wymagany przez aplikację z listą zadań do wykonania do komunikowania się z usługą Azure Cosmos DB.
 
 ### <a name="create-the-model"></a>Tworzenie modelu
-1. W katalogu głównym projektu utwórz nowy katalog o nazwie **models**.  
+1. W folderze głównym katalogu projektu Utwórz nowy katalog o nazwie **models**.  
 
 2. W katalogu **models** utwórz nowy plik o nazwie **taskDao.js**. Ten plik zawiera kod wymagany do utworzenia bazy danych i kontenera. Definiuje także metody odczytu, aktualizacji, tworzenia i znajdowania zadań w usłudze Azure Cosmos DB. 
 
-3. Skopiuj następujący kod do pliku **taskDao.js:**
+3. Skopiuj następujący kod do pliku **taskDao. js** :
 
    ```javascript
     // @ts-check
@@ -359,7 +359,7 @@ Teraz, po wykonaniu wstępnej instalacji i konfiguracji, napiszesz kod, który j
 
 ## <a name="build-a-user-interface"></a><a name="_Toc395783181"></a>Tworzenie interfejsu użytkownika
 
-Teraz skompilujmy interfejs użytkownika, aby użytkownik mógł wchodzić w interakcje z aplikacją. Utworzona w poprzednich sekcjach aplikacja Express używa aparatu widoku **Jade**.
+Teraz skompilujemy interfejs użytkownika, aby użytkownik mógł korzystać z aplikacji. Utworzona w poprzednich sekcjach aplikacja Express używa aparatu widoku **Jade**.
 
 1. Plik **layout.jade** w katalogu **views** jest używany jako szablon globalny dla innych plików **jade**. W tym kroku zmodyfikujesz go w celu używania platformy Twitter Bootstrap, która jest zestawem narzędzi służącym do projektowania witryn internetowych.  
 
@@ -381,7 +381,7 @@ Teraz skompilujmy interfejs użytkownika, aby użytkownik mógł wchodzić w int
        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
    ```
 
-    Ten kod mówi aparat **Jade** do renderowania niektórych HTML dla naszej aplikacji i tworzy **blok** o nazwie **zawartość,** gdzie możemy dostarczyć układ dla naszych stron zawartości. Zapisz i zamknij plik **layout.jade**.
+    Ten kod nakazuje aparatowi **Jade** wyrenderowanie kodu HTML dla naszej aplikacji, a następnie tworzy **blok** o nazwie **zawartość** , w którym można podać układ stron zawartości. Zapisz i zamknij plik **layout.jade**.
 
 3. Teraz otwórz plik **index.jade** — widok, który będzie używany przez naszą aplikację — i zastąp zawartość pliku następującym kodem:
 
@@ -437,14 +437,14 @@ Drugi formularz zawiera dwa pola wejściowe i przycisk umożliwiający utworzeni
 
 Teraz, gdy masz utworzoną aplikację, możesz uruchomić ją lokalnie, wykonując następujące kroki:  
 
-1. Aby przetestować aplikację na komputerze `npm start` lokalnym, uruchom w terminalu, [http://localhost:3000](http://localhost:3000) aby uruchomić aplikację, a następnie odśwież stronę przeglądarki. Strona powinna teraz wyglądać jak pokazano na poniższym zrzucie ekranu:
+1. Aby przetestować aplikację na komputerze lokalnym, w terminalu uruchom polecenie `npm start`, aby uruchomić aplikację, a następnie odśwież stronę przeglądarki `http://localhost:3000`. Strona powinna teraz wyglądać jak pokazano na poniższym zrzucie ekranu:
    
     ![Zrzut ekranu aplikacji MyTodo List w oknie przeglądarki](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
     > W przypadku wystąpienia błędu dotyczącego wcięcia w pliku layout.jade bądź index.jade upewnij się, że dwa pierwsze wiersze w obu plikach są wyrównane do lewej, bez spacji. Jeśli przed dwoma pierwszymi wierszami występują spacje, usuń je, zapisz oba pliki, a następnie odśwież okno przeglądarki. 
 
-2. Użyj pól Zapas, Nazwa towaru i Kategoria, aby wprowadzić nowe zadanie, a następnie wybierz pozycję **Dodaj element**. Spowoduje to utworzenie w usłudze Azure Cosmos DB dokumentu z tymi właściwościami. 
+2. Użyj pól element, nazwa elementu i Kategoria, aby wprowadzić nowe zadanie, a następnie wybierz pozycję **Dodaj element**. Spowoduje to utworzenie w usłudze Azure Cosmos DB dokumentu z tymi właściwościami. 
 
 3. Ta strona powinna zostać zaktualizowana w celu wyświetlenia nowo utworzonego elementu na liście ToDo.
    

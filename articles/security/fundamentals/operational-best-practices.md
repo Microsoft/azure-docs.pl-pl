@@ -1,5 +1,5 @@
 ---
-title: Najważniejsze wskazówki dotyczące zabezpieczeń zasobów platformy Azure
+title: Najlepsze rozwiązania w zakresie zabezpieczeń dotyczące zasobów platformy Azure
 titleSuffix: Azure security
 description: Ten artykuł zawiera zestaw najlepszych rozwiązań operacyjnych dotyczących ochrony danych, aplikacji i innych zasobów na platformie Azure.
 services: security
@@ -16,214 +16,214 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 5724a9e4308f05a82df84ae6a7d5602747f5a140
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 80b8adfc26cd87e0788852e98fddb0fd3f2e8cd5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81757359"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188590"
 ---
-# <a name="azure-operational-security-best-practices"></a>Najważniejsze wskazówki dotyczące zabezpieczeń operacyjnych platformy Azure
+# <a name="azure-operational-security-best-practices"></a>Najlepsze rozwiązania z zakresu zabezpieczeń operacyjnych platformy Azure
 Ten artykuł zawiera zestaw najlepszych rozwiązań operacyjnych dotyczących ochrony danych, aplikacji i innych zasobów na platformie Azure.
 
-Najlepsze rozwiązania są oparte na konsensusie opinii i działają z bieżącymi możliwościami platformy Azure i zestawami funkcji. Opinie i technologie zmieniają się w czasie, a ten artykuł jest regularnie aktualizowany w celu odzwierciedlenia tych zmian.
+Najlepsze rozwiązania są oparte na konsensusie opinii i współpracują z bieżącymi funkcjami platformy Azure i zestawami funkcji. Opinie i technologie zmieniają się wraz z upływem czasu, a ten artykuł jest regularnie aktualizowany w celu odzwierciedlenia tych zmian.
 
-## <a name="define-and-deploy-strong-operational-security-practices"></a>Definiowanie i wdrażanie silnych praktyk w zakresie zabezpieczeń operacyjnych
-Zabezpieczenia operacyjne platformy Azure odnoszą się do usług, formantów i funkcji dostępnych dla użytkowników w celu ochrony ich danych, aplikacji i innych zasobów na platformie Azure. Zabezpieczenia operacyjne platformy Azure są oparte na platformie, która zawiera wiedzę uzyskaną dzięki funkcjom unikatowym dla firmy Microsoft, w tym [cyklu życia rozwoju zabezpieczeń (SDL),](https://www.microsoft.com/sdl)programowi [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) i głębokiej świadomości krajobrazu zagrożeń związanych z cyberbezpieczeństwem.
+## <a name="define-and-deploy-strong-operational-security-practices"></a>Zdefiniuj i Wdróż mocne praktyki dotyczące zabezpieczeń operacyjnych
+Zabezpieczenia operacyjne platformy Azure odnoszą się do usług, formantów i funkcji dostępnych dla użytkowników w celu ochrony danych, aplikacji i innych zasobów na platformie Azure. Usługa Azure Operational Security jest oparta na strukturze, która obejmuje wiedzę uzyskaną na podstawie możliwości, które są unikatowe dla firmy Microsoft, w tym [cyklu projektowania zabezpieczeń (SDL)](https://www.microsoft.com/sdl), programu [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) , oraz głębokiej świadomości dotyczącej zagrożeń cyberbezpieczeństwa.
 
-## <a name="manage-and-monitor-user-passwords"></a>Zarządzanie hasłami użytkowników i monitorowanie ich
-W poniższej tabeli wymieniono niektóre najważniejsze wskazówki dotyczące zarządzania hasłami użytkowników:
+## <a name="manage-and-monitor-user-passwords"></a>Zarządzanie hasłami użytkowników i ich monitorowanie
+W poniższej tabeli przedstawiono niektóre najlepsze rozwiązania związane z zarządzaniem hasłami użytkowników:
 
-**Najlepsze rozwiązanie:** Upewnij się, że masz odpowiedni poziom ochrony hasłem w chmurze.   
-**Szczegóły:** Postępuj zgodnie ze wskazówkami [dotyczącymi haseł](https://www.microsoft.com/research/publication/password-guidance/)firmy Microsoft , które są ograniczone do użytkowników platform tożsamości firmy Microsoft (usługi Azure Active Directory, usługi Active Directory i konta Microsoft).
+**Najlepsze rozwiązanie**: Upewnij się, że masz odpowiedni poziom ochrony hasłem w chmurze.   
+**Szczegóły**: Postępuj zgodnie ze wskazówkami [zawartymi w temacie Wskazówki dotyczące haseł firmy Microsoft](https://www.microsoft.com/research/publication/password-guidance/), które są objęte zakresem użytkowników platform tożsamości firmy microsoft (Azure Active Directory, Active Directory i konto Microsoft).
 
-**Najlepsze rozwiązanie:** monitoruj pod kątem podejrzanych działań związanych z kontami użytkowników.   
-**Szczegóły:** Monitoruj [użytkowników zagrożonych](/azure/active-directory/reports-monitoring/concept-user-at-risk) i [ryzykownych logowaniach](../../active-directory/reports-monitoring/concept-risk-events.md) przy użyciu raportów zabezpieczeń usługi Azure AD.
+**Najlepsze rozwiązanie**: Monitoruj podejrzane działania związane z kontami użytkowników.   
+**Szczegóły**: Monitoruj [użytkowników na ryzyko](/azure/active-directory/reports-monitoring/concept-user-at-risk) i [ryzykowne logowania](../../active-directory/reports-monitoring/concept-risk-events.md) przy użyciu raportów zabezpieczeń usługi Azure AD.
 
-**Najlepsze rozwiązanie:** Automatyczne wykrywanie i korygowanie haseł wysokiego ryzyka.   
-**Szczegóły:** [Usługa Azure AD Identity Protection](/azure/active-directory/identity-protection/overview) jest funkcją usługi Azure AD Premium P2, która umożliwia:
+**Najlepsze rozwiązanie**: automatyczne wykrywanie i korygowanie haseł o wysokim ryzyku.   
+**Szczegóły**: [Azure AD Identity Protection](/azure/active-directory/identity-protection/overview) to funkcja Azure AD — wersja Premium P2 Edition, która umożliwia:
 
-- Wykrywanie potencjalnych luk w zabezpieczeniach, które mają wpływ na tożsamość organizacji
-- Konfigurowanie automatycznych odpowiedzi do wykrywania podejrzanych akcji związanych z tożsamościami organizacji
-- Badanie podejrzanych incydentów i podjęcie odpowiednich działań w celu ich rozwiązania
+- Wykrywaj potencjalne luki w zabezpieczeniach, które mają wpływ na tożsamości organizacji
+- Konfigurowanie zautomatyzowanych odpowiedzi w celu wykrycia podejrzanych działań, które są powiązane z tożsamościami organizacji
+- Zbadaj podejrzane zdarzenia i podejmij odpowiednie działania w celu ich rozwiązania
 
-## <a name="receive-incident-notifications-from-microsoft"></a>Otrzymywanie powiadomień o zdarzeniach od firmy Microsoft
-Upewnij się, że zespół operacji zabezpieczeń odbiera powiadomienia o zdarzeniach platformy Azure od firmy Microsoft. Powiadomienie o zdarzeniu informuje zespół zabezpieczeń, że masz naruszone zasoby platformy Azure, dzięki czemu mogą szybko reagować na potencjalne zagrożenia bezpieczeństwa i korygować je.
+## <a name="receive-incident-notifications-from-microsoft"></a>Odbieraj powiadomienia o zdarzeniach od firmy Microsoft
+Upewnij się, że zespół ds. operacji zabezpieczeń otrzymuje powiadomienia o zdarzeniu platformy Azure od firmy Microsoft. Powiadomienie o zdarzeniu umożliwia zespołowi ds. zabezpieczeń poznanie naruszenia zasobów platformy Azure, dzięki czemu mogą oni szybko reagować na i skorygować potencjalne zagrożenia bezpieczeństwa.
 
-W portalu rejestracji platformy Azure można upewnić się, że informacje kontaktowe administratora zawierają szczegóły, które powiadamiają o operacjach zabezpieczeń. Dane kontaktowe to adres e-mail i numer telefonu.
+W portalu rejestracji platformy Azure można upewnić się, że informacje kontaktowe administratora zawierają szczegóły powiadamiające o operacjach zabezpieczeń. Informacje kontaktowe to adres e-mail i numer telefonu.
 
-## <a name="organize-azure-subscriptions-into-management-groups"></a>Organizowanie subskrypcji platformy Azure w grupy zarządzania
-Jeśli Twoja organizacja ma wiele subskrypcji, konieczny może być sposób na wydajne zarządzanie dostępem, zasadami i zgodnością dla tych subskrypcji. [Grupy zarządzania platformy Azure](/azure/governance/management-groups/create) zapewniają poziom zakresu, który jest powyżej subskrypcji. Organizujesz subskrypcje w kontenerach nazywanych grupami zarządzania i stosujesz warunki nadzoru do grup zarządzania. Wszystkie subskrypcje w grupie zarządzania automatycznie dziedziczą warunki zastosowane do tej grupy zarządzania.
+## <a name="organize-azure-subscriptions-into-management-groups"></a>Organizuj subskrypcje platformy Azure w grupach zarządzania
+Jeśli Twoja organizacja ma wiele subskrypcji, konieczny może być sposób na wydajne zarządzanie dostępem, zasadami i zgodnością dla tych subskrypcji. [Grupy zarządzania platformy Azure](/azure/governance/management-groups/create) zapewniają poziom zakresu, który jest wyższy niż subskrypcje. Można organizować subskrypcje w kontenery nazywane grupami zarządzania i stosować warunki zarządzania do grup zarządzania. Wszystkie subskrypcje w grupie zarządzania automatycznie dziedziczą warunki zastosowane do tej grupy zarządzania.
 
-Można utworzyć elastyczną strukturę grup zarządzania i subskrypcji w katalogu. Każdy katalog otrzymuje jedną grupę zarządzania najwyższego poziomu o nazwie główna grupa zarządzania. Główna grupa zarządzania jest wbudowana w hierarchię, aby wszystkie grupy zarządzania i subskrypcje pod nią podlegały. Główna grupa zarządzania umożliwia stosowanie zasad globalnych i przypisań RBAC na poziomie katalogu.
+Można utworzyć elastyczną strukturę grup zarządzania i subskrypcji w katalogu. Każdy katalog ma jedną grupę zarządzania najwyższego poziomu nazywaną główną grupą zarządzania. Główna grupa zarządzania jest wbudowana w hierarchię, aby wszystkie grupy zarządzania i subskrypcje pod nią podlegały. Główna Grupa zarządzania pozwala na stosowanie zasad globalnych i przypisań RBAC na poziomie katalogu.
 
-Oto kilka sprawdzonych rozwiązań dotyczących korzystania z grup zarządzania:
+Poniżej przedstawiono niektóre najlepsze rozwiązania dotyczące korzystania z grup zarządzania:
 
-**Najlepsze rozwiązanie:** Upewnij się, że nowe subskrypcje stosują elementy nadzoru, takie jak zasady i uprawnienia, gdy są dodawane.   
-**Szczegóły:** Użyj głównej grupy zarządzania, aby przypisać elementy zabezpieczeń dla całego przedsiębiorstwa, które mają zastosowanie do wszystkich zasobów platformy Azure. Zasady i uprawnienia są przykładami elementów.
+**Najlepsze rozwiązanie**: Upewnij się, że nowe subskrypcje stosują elementy ładu, takie jak zasady i uprawnienia w miarę ich dodawania.   
+**Szczegóły**: Użyj głównej grupy zarządzania do przypisywania elementów zabezpieczeń dla całego przedsiębiorstwa, które są stosowane do wszystkich zasobów platformy Azure. Zasady i uprawnienia są przykładami elementów.
 
-**Najlepsze rozwiązanie:** Wyrównaj najwyższe poziomy grup zarządzania ze strategią segmentacji, aby zapewnić punkt kontroli i spójności zasad w każdym segmencie.   
-**Szczegóły:** Utwórz jedną grupę zarządzania dla każdego segmentu w głównej grupie zarządzania. Nie należy tworzyć żadnych innych grup zarządzania w katalogu głównym.
+**Najlepsze rozwiązanie**: wyrównywanie najwyższego poziomu grup zarządzania z strategią segmentacji w celu zapewnienia punktu na potrzeby kontroli i spójności zasad w poszczególnych segmentach.   
+**Szczegóły**: Utwórz pojedynczą grupę zarządzania dla każdego segmentu w ramach głównej grupy zarządzania. Nie należy tworzyć żadnych innych grup zarządzania w katalogu głównym.
 
-**Najlepsze rozwiązanie:** Ogranicz głębokość grupy zarządzania, aby uniknąć nieporozumień, które utrudniają zarówno operacje, jak i zabezpieczenia.   
-**Szczegóły:** Ogranicz hierarchię do trzech poziomów, w tym katalogu głównego.
+**Najlepsze rozwiązanie**: ograniczanie głębokości grup zarządzania, aby uniknąć pomyłek, które hamują zarówno operacje, jak i zabezpieczenia.   
+**Szczegóły**: Ogranicz hierarchię do trzech poziomów, w tym do katalogu głównego.
 
-**Najlepsze rozwiązanie:** Ostrożnie wybierz elementy, które mają być stosowane do całej jednostki z główną grupą zarządzania.   
-**Szczegóły:** Upewnij się, że główne elementy grupy zarządzania mają wyraźną potrzebę zastosowania w każdym zasobie i że mają niewielki wpływ.
+**Najlepsze rozwiązanie**: starannie wybieraj, które elementy mają być stosowane do całego przedsiębiorstwa z główną grupą zarządzania.   
+**Szczegóły**: Upewnij się, że elementy głównych grup zarządzania mają niezbędny wpływ na wszystkie zasoby i że mają one niskie znaczenie.
 
-Dobrymi kandydatami są:
+Dobre kandydaci to:
 
-- Wymogi regulacyjne, które mają wyraźny wpływ na działalność (na przykład ograniczenia związane z suwerennością danych)
-- Wymagania z niemal zerowym potencjalnym negatywnym wpływem na operacje, takie jak zasady z efektem inspekcji lub przypisania uprawnień RBAC, które zostały dokładnie sprawdzone
+- Wymagania prawne mające na celu wyraźny wpływ na działalność (na przykład ograniczenia dotyczące suwerenności danych)
+- Wymagania o niezerowym negatywnym wpływie na operacje, takie jak zasady z efektem inspekcji lub przypisywanie uprawnień RBAC, które zostały starannie przejrzane
 
-**Najlepsze rozwiązanie:** Starannie zaplanować i przetestować wszystkie zmiany w całej organizacji w głównej grupie zarządzania przed zastosowaniem ich (zasady, model RBAC i tak dalej).   
-**Szczegóły:** Zmiany w głównej grupie zarządzania mogą mieć wpływ na każdy zasób na platformie Azure. Chociaż zapewniają one skuteczny sposób zapewnienia spójności w całym przedsiębiorstwie, błędy lub niepoprawne użycie mogą negatywnie wpłynąć na operacje produkcyjne. Przetestuj wszystkie zmiany w głównej grupie zarządzania w laboratorium testowym lub pilotażowym produkcji.
+**Najlepsze rozwiązanie**: starannie Planuj i przetestuj wszystkie zmiany w całej firmie w głównej grupie zarządzania przed ich zastosowaniem (zasady, model RBAC itd.).   
+**Szczegóły**: zmiany w głównej grupie zarządzania mogą mieć wpływ na każdy zasób na platformie Azure. Chociaż zapewniają one zaawansowany sposób zapewnienia spójności w całym przedsiębiorstwie, błędy lub nieprawidłowe użycie mogą negatywnie wpłynąć na operacje produkcyjne. Przetestuj wszystkie zmiany w głównej grupie zarządzania w laboratorium testowym lub pilotażu produkcyjnym.
 
-## <a name="streamline-environment-creation-with-blueprints"></a>Usprawnij tworzenie środowiska dzięki planom
-[Usługa Azure Blueprints](/azure/governance/blueprints/overview) umożliwia architektom chmury i centralnym grupom technologii informacyjnych definiowanie powtarzalny zestaw zasobów platformy Azure, który implementuje i przestrzega standardów, wzorców i wymagań organizacji. Plany platformy Azure umożliwiają zespołom deweloperskim szybkie tworzenie i tworzenie nowych środowisk za pomocą zestawu wbudowanych składników i pewności, że tworzą te środowiska w ramach zgodności z organizacjami.
+## <a name="streamline-environment-creation-with-blueprints"></a>Usprawnianie tworzenia środowiska przy użyciu planów
+Usługa [plany platformy Azure](/azure/governance/blueprints/overview) umożliwia architektom chmury i centralnym grupom technologii informatycznych Definiowanie powtarzalnych zestawów zasobów platformy Azure, które implementują i są zgodne ze standardami, wzorcami i wymaganiami organizacji. Plany platformy Azure umożliwiają zespołom programistycznym szybkie tworzenie i wdrażanie nowych środowisk z zestawem wbudowanych składników oraz pewność, że są one tworzone w ramach zgodności organizacyjnej.
 
-## <a name="monitor-storage-services-for-unexpected-changes-in-behavior"></a>Monitorowanie usług pamięci masowej pod kątem nieoczekiwanych zmian w zachowaniu
-Diagnozowanie i rozwiązywanie problemów w rozproszonej aplikacji hostowane w środowisku chmury może być bardziej skomplikowane niż w tradycyjnych środowiskach. Aplikacje można wdrażać w infrastrukturze PaaS lub IaaS, lokalnie, na urządzeniu przenośnym lub w niektórych kombinacjach tych środowisk. Ruch sieciowy aplikacji może przechodzić przez sieci publiczne i prywatne, a aplikacja może korzystać z wielu technologii magazynowania.
+## <a name="monitor-storage-services-for-unexpected-changes-in-behavior"></a>Monitorowanie usług magazynu pod kątem nieoczekiwanych zmian w zachowaniu
+Diagnozowanie i rozwiązywanie problemów w aplikacji rozproszonej hostowanej w środowisku chmury może być bardziej skomplikowane niż w tradycyjnych środowiskach. Aplikacje można wdrażać w infrastrukturze PaaS lub IaaS, lokalnie, na urządzeniu przenośnym lub w pewnej kombinacji tych środowisk. Ruch sieciowy aplikacji może przechodzić między sieciami publicznymi i prywatnymi, a aplikacja może korzystać z wielu technologii magazynowania.
 
-Należy stale monitorować usługi magazynu używane przez aplikację pod kątem nieoczekiwanych zmian w zachowaniu (takich jak wolniejsze czasy odpowiedzi). Rejestrowanie służy do zbierania bardziej szczegółowych danych i dogłębnej analizy problemu. Informacje diagnostyczne, które można uzyskać zarówno z monitorowania i rejestrowania pomaga określić główną przyczynę problemu, który napotkał aplikację. Następnie można rozwiązać problem i określić odpowiednie kroki, aby go rozwiązać.
+Należy stale monitorować usługi magazynu używane przez aplikację w przypadku wszelkich nieoczekiwanych zmian w zachowaniu (na przykład wolniejszych czasów odpowiedzi). Funkcja rejestrowania służy do zbierania bardziej szczegółowych danych i analizowania problemów. Informacje diagnostyczne uzyskane z monitorowania i rejestrowania ułatwiają określenie głównej przyczyny problemu, który wystąpił w aplikacji. Następnie możesz rozwiązać problem i ustalić odpowiednie kroki, aby je skorygować.
 
-[Usługa Azure Storage Analytics](../../storage/common/storage-analytics.md) wykonuje rejestrowanie i udostępnia dane metryki dla konta magazynu platformy Azure. Zaleca się używanie tych danych do śledzenia żądań, analizowania trendów użycia i diagnozowania problemów z kontem magazynu.
+[Analityka magazynu platformy Azure](../../storage/common/storage-analytics.md) wykonuje rejestrowanie i udostępnia dane metryk dla konta usługi Azure Storage. Zalecamy używanie tych danych do śledzenia żądań, analizowania trendów użycia i diagnozowania problemów z kontem magazynu.
 
 ## <a name="prevent-detect-and-respond-to-threats"></a>Zapobieganie zagrożeniom, wykrywanie ich i reagowanie na nie
-[Usługa Azure Security Center](../../security-center/security-center-intro.md) pomaga zapobiegać zagrożeniom, wykrywać ich i reagować na nie, zapewniając lepszy wgląd w zabezpieczenia zasobów platformy Azure (i kontrolę nad nim). Zapewnia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami w ramach subskrypcji platformy Azure, pomaga wykrywać zagrożenia, które w przeciwnym razie mogą przejść niezauważone, i współpracuje z różnymi rozwiązaniami zabezpieczeń.
+[Azure Security Center](../../security-center/security-center-intro.md) pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie, zapewniając lepszy wgląd w zabezpieczenia zasobów platformy Azure i kontrolę nad nimi. Zapewnia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami w ramach subskrypcji platformy Azure, pomaga wykrywać zagrożenia, które w przeciwnym razie mogą być niezauważalne i działać z różnymi rozwiązaniami zabezpieczeń.
 
-Bezpłatna warstwa usługi Security Center oferuje ograniczone zabezpieczenia tylko dla zasobów platformy Azure. Warstwa Standardowa rozszerza te możliwości na chmury lokalne i inne. Usługa Security Center Standard pomaga znajdować i naprawiać luki w zabezpieczeniach, stosować mechanizmy kontroli dostępu i aplikacji w celu blokowania złośliwej aktywności, wykrywania zagrożeń przy użyciu analizy i analizy oraz szybkiego reagowania podczas ataku. Standardową warstwę cenową usługi Security Center możesz wypróbować bezpłatnie przez pierwsze 60 dni. Zaleca się [uaktualnienie subskrypcji platformy Azure do usługi Security Center Standard](../../security-center/security-center-get-started.md).
+Bezpłatna warstwa Security Center oferuje ograniczone zabezpieczenia tylko dla zasobów platformy Azure. Warstwa standardowa rozszerza te możliwości na lokalne i inne chmury. Security Center Standard ułatwia znajdowanie i rozwiązywanie luk w zabezpieczeniach, stosowanie kontroli dostępu i aplikacji w celu blokowania złośliwych działań, wykrywanie zagrożeń przy użyciu analiz i analiz oraz szybkie reagowanie na ataki. Standardową warstwę cenową usługi Security Center możesz wypróbować bezpłatnie przez pierwsze 60 dni. Zalecamy [uaktualnienie subskrypcji platformy Azure do wersji Standard Security Center](../../security-center/security-center-get-started.md).
 
-Użyj usługi Security Center, aby uzyskać centralny widok stanu zabezpieczeń wszystkich zasobów platformy Azure. Na pierwszy rzut oka sprawdź, czy odpowiednie zabezpieczenia są zainstalowane i poprawnie skonfigurowane, i szybko zidentyfikować wszystkie zasoby, które wymagają uwagi.
+Użyj Security Center, aby uzyskać centralny widok stanu zabezpieczeń wszystkich zasobów platformy Azure. Na pierwszy rzut oka upewnij się, że odpowiednie mechanizmy kontroli zabezpieczeń są poprawnie skonfigurowane, i szybko Zidentyfikuj wszystkie zasoby, które wymagają uwagi.
 
-Usługa Security Center integruje się również z programem [Microsoft Defender Advanced Threat Protection (ATP),](../../security-center/security-center-wdatp.md)który zapewnia kompleksowe funkcje wykrywania i reagowania punktów końcowych (EDR). Dzięki integracji z programem Microsoft Defender ATP można wykryć nieprawidłowości. Można również wykrywać ataki zaawansowane na punkty końcowe serwera monitorowane przez usługę Security Center i reagować na nie.
+Security Center integruje się również z usługą [Microsoft Defender Advanced Threat Protection (ATP)](../../security-center/security-center-wdatp.md), która oferuje kompleksowe możliwości wykrywania i reagowania punktów końcowych (EDR). Dzięki integracji z usługą Microsoft Defender ATP można wykasować nietypowe. Możesz także wykryć zaawansowane ataki i odpowiedzieć na nie w punktach końcowych serwera monitorowanych przez Security Center.
 
-Prawie wszystkie organizacje przedsiębiorstw mają system zarządzania informacjami i zdarzeniami (SIEM), który pomaga w identyfikowaniu pojawiających się zagrożeń poprzez konsolidację informacji dziennika z różnych urządzeń do zbierania sygnałów. Dzienniki są następnie analizowane przez system analizy danych, aby pomóc zidentyfikować to, co jest "interesujące" z hałasu, który jest nieunikniony we wszystkich rozwiązaniach do zbierania i analizy dzienników.
+Prawie wszystkie organizacje korporacyjne mają system informacji o zabezpieczeniach i zarządzania zdarzeniami (SIEM), który ułatwia identyfikowanie nowych zagrożeń przez konsolidowanie informacji dziennika z różnych urządzeń zbierających sygnał. Dzienniki są następnie analizowane przez system analizy danych, aby pomóc w zidentyfikowaniu tego, co jest interesujące, od szumu, który jest nieunikniony we wszystkich rozwiązaniach do zbierania i analizowania dzienników.
 
-[Usługa Azure Sentinel](/azure/sentinel/overview) to skalowalne rozwiązanie do zarządzania informacjami i zdarzeniami (SIEM) oraz automatyczną odpowiedzią na zagrożenia zabezpieczeń (SOAR). Usługa Azure Sentinel zapewnia inteligentną analizę zabezpieczeń i analizę zagrożeń za pomocą wykrywania alertów, widoczności zagrożeń, proaktywnego polowania i automatycznej reakcji na zagrożenia.
+[Azure — wskaźnikowy](/azure/sentinel/overview) to skalowalne, natywne i w chmurze rozwiązanie do zarządzania informacjami i zdarzeniami (Siem) oraz automatyczna odpowiedź aranżacji (o). Platforma Azure — wskaźnik przedstawia inteligentne funkcje analizy zabezpieczeń i wykrywania zagrożeń poprzez wykrywanie alertów, widoczność zagrożeń, proaktywne łowiectwo i automatyczną odpowiedź na zagrożenia.
 
-Oto kilka sprawdzonych rozwiązań dotyczących zapobiegania zagrożeniom, wykrywania ich i reagowania na nie:
+Poniżej przedstawiono niektóre najlepsze rozwiązania dotyczące zapobiegania zagrożeniom, ich wykrywania i reagowania na nie:
 
-**Najlepsze rozwiązanie:** Zwiększ szybkość i skalowalność rozwiązania SIEM przy użyciu chmurowego SIEM.   
-**Szczegóły:** Zbadaj funkcje i możliwości [usługi Azure Sentinel](/azure/sentinel/overview) i porównaj je z możliwościami tego, co obecnie używasz lokalnie. Należy rozważyć przyjęcie usługi Azure Sentinel, jeśli spełnia wymagania SIEM twojej organizacji.
+**Najlepsze**rozwiązanie: zwiększenie szybkości i skalowalności rozwiązania Siem przy użyciu Siem opartego na chmurze.   
+**Szczegóły**: Zbadaj funkcje i możliwości [platformy Azure](/azure/sentinel/overview) , a następnie porównaj je z możliwościami, które są obecnie używane lokalnie. Rozważ przyjęcie platformy Azure, jeśli spełnia wymagania SIEM organizacji.
 
-**Najlepsze rozwiązanie:** Znajdź najpoważniejsze luki w zabezpieczeniach, aby ustalić priorytety badania.   
-**Szczegóły:** Przejrzyj [bezpieczny wynik platformy Azure,](../../security-center/secure-score-security-controls.md) aby wyświetlić zalecenia wynikające z zasad i inicjatyw platformy Azure wbudowanych w usługę Azure Security Center. Zalecenia te pomagają rozwiązać najważniejsze zagrożenia, takie jak aktualizacje zabezpieczeń, ochrona punktów końcowych, szyfrowanie, konfiguracje zabezpieczeń, brak waf, maszyny wirtualne podłączone do Internetu i wiele innych.
+**Najlepsze rozwiązanie**: Znajdź najważniejsze luki w zabezpieczeniach, aby określić priorytety badania.   
+**Szczegóły**: Aby zapoznać się z zaleceniami wynikającymi z zasad i inicjatyw platformy Azure wbudowanych w Azure Security Center, przejrzyj [ocenę zabezpieczeń platformy Azure](../../security-center/secure-score-security-controls.md) . Te zalecenia ułatwiają rozwiązywanie najważniejszych zagrożeń, takich jak aktualizacje zabezpieczeń, program Endpoint Protection, szyfrowanie, konfiguracje zabezpieczeń, brak WAF, połączone z Internetem maszyn wirtualnych i wiele innych.
 
-Bezpieczny wynik, który jest oparty na formanty Center for Internet Security (CIS), umożliwia porównanie zabezpieczeń platformy Azure w organizacji ze źródłami zewnętrznymi. Zewnętrzna weryfikacja pomaga zweryfikować i wzbogacić strategię zabezpieczeń zespołu.
+Wynik bezpiecznego, który jest oparty na kontrolkach w centrum zabezpieczeń internetowych (CIS), umożliwia testowanie zabezpieczeń platformy Azure w organizacji przed źródłami zewnętrznymi. Weryfikacja zewnętrzna pomaga zweryfikować i wzbogacić strategię zabezpieczeń zespołu.
 
-**Najlepsze rozwiązanie:** Monitorowanie postawy zabezpieczeń maszyn, sieci, usług pamięci masowej i danych oraz aplikacji w celu wykrywania i określania priorytetów potencjalnych problemów z bezpieczeństwem.  
-**Szczegóły:** Postępuj zgodnie z [zaleceniami dotyczącymi zabezpieczeń](../../security-center/security-center-recommendations.md) w u źródła zabezpieczeń, począwszy od elementów o najwyższym priorytecie.
+**Najlepsze rozwiązanie**: monitorowanie stan zabezpieczeń maszyn, sieci, magazynu i usług danych oraz aplikacji w celu odnajdywania potencjalnych problemów z zabezpieczeniami i określania ich priorytetów.  
+**Szczegóły**: Postępuj zgodnie z [zaleceniami dotyczącymi zabezpieczeń](../../security-center/security-center-recommendations.md) w Security Center rozpoczynając od elementów o najwyższym priorytecie.
 
-**Najlepsze rozwiązanie:** Integruj alerty w centrum zabezpieczeń z rozwiązaniem do zarządzania informacjami o zabezpieczeniach i zdarzeniami (SIEM).   
-**Szczegóły:** Większość organizacji z SIEM używać go jako centralnej ejrze dla alertów zabezpieczeń, które wymagają odpowiedzi analityka. Przetworzone zdarzenia wywoływane przez usługę Security Center są publikowane w dzienniku aktywności platformy Azure, jednym z dzienników dostępnych za pośrednictwem usługi Azure Monitor. Usługa Azure Monitor oferuje skonsolidowany potok do routingu dowolnych danych monitorowania do narzędzia SIEM. Aby uzyskać [instrukcje, zobacz Eksportowanie alertów zabezpieczeń i zaleceń.](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) Jeśli korzystasz z usługi Azure Sentinel, zobacz [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Najlepsze**rozwiązanie: Integruj Security Center alertów z rozwiązaniem do zarządzania informacjami i zdarzeniami zabezpieczeń (Siem).   
+**Szczegóły**: Większość organizacji z Siem korzysta z niego jako centralnej usługi Clearinghouse do obsługi alertów zabezpieczeń, które wymagają odpowiedzi analityka. Przetworzone zdarzenia utworzone przez Security Center są publikowane w dzienniku aktywności platformy Azure, jeden z dzienników dostępnych za pomocą Azure Monitor. Azure Monitor oferuje skonsolidowany potok do routingu dowolnych danych monitorowania do narzędzia SIEM. Aby uzyskać instrukcje, zobacz sekcję [Eksportowanie alertów zabezpieczeń i zaleceń](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) . Jeśli używasz funkcji wskaźnikowej platformy Azure, zobacz [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
-**Najlepsze rozwiązanie:** Integruj dzienniki platformy Azure z siem.   
-**Szczegóły:** Zbieranie [i eksportowanie danych](/azure/azure-monitor/overview#integrate-and-export-data)za pomocą usługi Azure Monitor . Ta praktyka ma kluczowe znaczenie dla włączania badania incydentów zabezpieczeń, a przechowywanie dzienników online jest ograniczone. Jeśli korzystasz z usługi Azure Sentinel, zobacz [Łączenie źródeł danych](../../sentinel/connect-data-sources.md).
+**Najlepsze rozwiązanie**: Integrowanie dzienników platformy Azure z Siem.   
+**Szczegóły**: Użyj [Azure monitor, aby zebrać i wyeksportować dane](/azure/azure-monitor/overview#integrate-and-export-data). To rozwiązanie ma kluczowe znaczenie dla włączenia badania zdarzeń związanych z zabezpieczeniami, a przechowywanie dzienników w trybie online jest ograniczone. Jeśli używasz funkcji wskaźnikowej platformy Azure, zobacz temat [łączenie ze źródłami danych](../../sentinel/connect-data-sources.md).
 
-**Najlepsze praktyki:** Przyspiesz procesy dochodzeniowe i łowieckie oraz zmniejsz liczbę fałszywych alarmów, integrując funkcje wykrywania i reagowania punktów końcowych (EDR) w badaniu ataku.   
-**Szczegóły:** [Włącz integrację usługi Microsoft Defender ATP](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) za pośrednictwem zasad zabezpieczeń centrum zabezpieczeń. Należy rozważyć użycie usługi Azure Sentinel do polowania na zagrożenia i reagowania na incydenty.
+**Najlepsze rozwiązanie**: przyspieszanie procesów badania i polowania oraz zmniejszanie fałszywych wyników pozytywnych przez integrację funkcji wykrywania i reagowania punktów końcowych (EDR) z badaniem ataku.   
+**Szczegóły**: [Włącz integrację z programem Microsoft Defender ATP](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) za pośrednictwem zasad zabezpieczeń Security Center. Rozważ użycie funkcji wskaźnikowej platformy Azure na potrzeby łowiectwa zagrożeń i reagowania na zdarzenia.
 
-## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Monitorowanie kompleksowego monitorowania sieci opartego na scenariuszach
-Klienci twórz sieć end-to-end na platformie Azure, łącząc zasoby sieciowe, takie jak sieć wirtualna, usługa ExpressRoute, brama aplikacji i moduły równoważenia obciążenia. Monitorowanie jest dostępne w każdym zasobach sieciowych.
+## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Monitorowanie kompleksowego monitorowania sieci opartego na scenariuszu
+Klienci tworzą kompleksową sieć na platformie Azure, łącząc zasoby sieciowe, takie jak sieć wirtualna, ExpressRoute, Application Gateway i moduły równoważenia obciążenia. Monitorowanie jest dostępne w każdym z zasobów sieciowych.
 
-[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) to usługa regionalna. Użyj jego narzędzi diagnostycznych i wizualizacji do monitorowania i diagnozowania warunków na poziomie scenariusza sieci w, do i z platformy Azure.
+[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) to usługa regionalna. Narzędzia diagnostyczne i wizualizacje umożliwiają monitorowanie i diagnozowanie warunków na poziomie scenariusza sieci w, do i z platformy Azure.
 
 Poniżej przedstawiono najlepsze rozwiązania dotyczące monitorowania sieci i dostępnych narzędzi.
 
-**Najlepsze rozwiązanie:** Automatyzacja zdalnego monitorowania sieci za pomocą przechwytywania pakietów.  
-**Szczegóły:** Monitoruj i diagnozuj problemy z siecią bez logowania się do maszyn wirtualnych za pomocą funkcji Kontrola sieci. Wyzwalanie [przechwytywania pakietów](../../network-watcher/network-watcher-alert-triggered-packet-capture.md) przez ustawianie alertów i uzyskiwanie dostępu do informacji o wydajności w czasie rzeczywistym na poziomie pakietu. Po wyświetleniu problemu można szczegółowo zbadać, aby uzyskać lepsze diagnozy.
+**Najlepsze rozwiązanie**: Automatyzowanie zdalnego monitorowania sieci przy użyciu funkcji przechwytywania pakietów.  
+**Szczegóły**: monitorowanie i diagnozowanie problemów z siecią bez logowania się do maszyn wirtualnych przy użyciu Network Watcher. Wyzwalanie [przechwytywania pakietów](../../network-watcher/network-watcher-alert-triggered-packet-capture.md) przez ustawienie alertów i uzyskanie dostępu do informacji o wydajności w czasie rzeczywistym na poziomie pakietu. Gdy zobaczysz problem, możesz szczegółowo zbadać, aby lepiej zdiagnozować.
 
-**Najlepsze rozwiązanie:** Uzyskaj wgląd w ruch sieciowy za pomocą dzienników przepływu.  
-**Szczegóły:** Zbuduj głębsze zrozumienie wzorców ruchu sieciowego za pomocą [dzienników przepływu sieciowej grupy zabezpieczeń](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). Informacje w dziennikach przepływu ułatwiają zbieranie danych w celu zapewnienia zgodności, inspekcji i monitorowania profilu zabezpieczeń sieci.
+**Najlepsze rozwiązanie**: uzyskiwanie wglądu w ruch sieciowy przy użyciu dzienników przepływów.  
+**Szczegóły: szczegółowe**Omówienie wzorców ruchu sieciowego przy użyciu [dzienników przepływu sieciowych grup zabezpieczeń](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). Informacje w dziennikach przepływu pomagają zbierać dane dotyczące zgodności, inspekcji i monitorowania profilu zabezpieczeń sieci.
 
-**Najlepsze rozwiązanie**: Diagnozowanie problemów z łącznością sieci VPN.  
-**Szczegóły:** Użyj funkcji Kontrola sieci, aby [zdiagnozować najczęstsze problemy z bramą sieci VPN i połączeniem.](../../network-watcher/network-watcher-diagnose-on-premises-connectivity.md) Można nie tylko zidentyfikować problem, ale także użyć szczegółowych dzienników do dalszego zbadania.
+**Najlepsze rozwiązanie**: diagnozowanie problemów z łącznością z siecią VPN.  
+**Szczegóły**: Użyj Network Watcher, aby [zdiagnozować najczęstsze VPN Gateway i problemy z połączeniami](../../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Nie można zidentyfikować problemu, ale także użyć szczegółowych dzienników do dalszej analizy.
 
-## <a name="secure-deployment-by-using-proven-devops-tools"></a>Bezpieczne wdrażanie przy użyciu sprawdzonych narzędzi DevOps
-Skorzystaj z poniższych najlepszych rozwiązań devops, aby upewnić się, że twoje przedsiębiorstwo i zespoły są wydajne i wydajne.
+## <a name="secure-deployment-by-using-proven-devops-tools"></a>Bezpieczne wdrażanie za pomocą sprawdzonych narzędzi DevOps
+Skorzystaj z następujących najlepszych rozwiązań DevOps, aby upewnić się, że przedsiębiorstwo i zespoły działają wydajnie i wydajniej.
 
-**Najlepsze rozwiązanie:** Automatyzacja tworzenia i wdrażania usług.  
-**Szczegóły:** [Infrastruktura jako kod](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) to zestaw technik i praktyk, które pomagają profesjonalistom IT usunąć ciężar codziennego tworzenia infrastruktury modułowej i zarządzania nią. Umożliwia ono profesjonalistom IT tworzenie i utrzymywanie ich nowoczesnego środowiska serwera w sposób, który przypomina sposób tworzenia i obsługi kodu aplikacji przez programistów.
+**Najlepsze rozwiązanie**: Automatyzacja kompilowania i wdrażania usług.  
+**Szczegóły**: [infrastruktura jako kod](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) jest zestawem technik i praktyk, które pomagają specjalistom IT w usunięciu obciążeń codziennej kompilacji i zarządzania infrastrukturą modularną. Umożliwia ona specjalistom IT tworzenie i konserwowanie nowoczesnego środowiska serwera w taki sposób, jak deweloperzy oprogramowania kompilują i utrzymują kod aplikacji.
 
-Usługi [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) można użyć do aprowizowania aplikacji przy użyciu szablonu deklaratywnego. Pojedynczy szablon umożliwia wdrożenie wielu usług wraz z ich zależnościami. Ten sam szablon służy do wielokrotnego wdrażania aplikacji na każdym etapie cyklu życia aplikacji.
+Za pomocą [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) można zainicjować obsługę administracyjną aplikacji za pomocą szablonu deklaratywnego. Pojedynczy szablon umożliwia wdrożenie wielu usług wraz z ich zależnościami. Ten sam szablon jest używany do wielokrotnego wdrażania aplikacji na każdym etapie cyklu życia aplikacji.
 
-**Najlepsze rozwiązanie:** Automatyczne tworzenie i wdrażanie w aplikacjach sieci Web platformy Azure lub usługach w chmurze.  
-**Szczegóły:** Można skonfigurować projekty programu Azure DevOps do [automatycznego tworzenia i wdrażania](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) w aplikacjach sieci Web platformy Azure lub usługach w chmurze. Usługa Azure DevOps automatycznie wdraża pliki binarne po wykonaniu kompilacji na platformie Azure po każdym zaewidencjonowaniu kodu. Proces kompilacji pakietu jest odpowiednikiem package polecenia w programie Visual Studio, a kroki publikowania są równoważne polecenia Publish w programie Visual Studio.
+**Najlepsze rozwiązanie**: automatyczne Kompilowanie i wdrażanie aplikacji sieci Web lub usług w chmurze platformy Azure.  
+**Szczegóły**: można skonfigurować Azure DevOps Projects, aby [automatycznie kompilować i wdrażać](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) aplikacje internetowe platformy Azure lub usługi w chmurze. Usługa Azure DevOps automatycznie wdraża pliki binarne po wykonaniu kompilacji na platformie Azure po każdym zaewidencjonowaniu kodu. Proces tworzenia pakietu jest równoważny z poleceniem Package w programie Visual Studio, a kroki publikowania są równoważne z poleceniem Publikuj w programie Visual Studio.
 
-**Najlepsze rozwiązanie:** Automatyzacja zarządzania wersjami.  
-**Szczegóły:** [Usługa Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) to rozwiązanie do automatyzacji wdrażania wieloetapowego i zarządzania procesem wydawania. Tworzenie zarządzanych potoków ciągłego wdrażania, aby szybko, łatwo i często je zwolnić. Za pomocą usługi Azure Pipelines można zautomatyzować proces wydawania i można mieć wstępnie zdefiniowane przepływy pracy zatwierdzania. Wdrażaj lokalnie i w chmurze, rozszerzaj i dostosowywaj w razie potrzeby.
+**Najlepsze rozwiązanie**: Automatyzowanie zarządzania wydaniami.  
+**Szczegóły**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) to rozwiązanie służące do automatyzowania wdrożenia wielu etapów i zarządzania procesem wydania. Twórz zarządzane potoki ciągłego wdrażania, aby szybko, łatwo i często wydawania. Za pomocą Azure Pipelines można zautomatyzować proces wydania i wstępnie zdefiniowane przepływy pracy zatwierdzania. Wdrażaj lokalnie i w chmurze, rozszerzając i dostosowuj odpowiednio do potrzeb.
 
-**Najlepsze rozwiązanie:** sprawdź wydajność aplikacji przed jej uruchomieniem lub wdrożeniem aktualizacji w produkcji.  
-**Szczegóły**: Uruchom [testy obciążenia](/azure/devops/test/load-test/overview#alternatives) oparte na chmurze, aby:
+**Najlepsze rozwiązanie**: Sprawdź wydajność aplikacji przed jej uruchomieniem lub wdrożeniem aktualizacji w środowisku produkcyjnym.  
+**Szczegóły**: wykonaj [testy obciążenia](/azure/devops/test/load-test/overview#alternatives) oparte na chmurze w:
 
 - Znajdź problemy z wydajnością w aplikacji.
-- Poprawa jakości wdrażania.
+- Poprawa jakości wdrożenia.
 - Upewnij się, że aplikacja jest zawsze dostępna.
-- Upewnij się, że aplikacja może obsługiwać ruch podczas następnego uruchomienia lub kampanii marketingowej.
+- Upewnij się, że aplikacja może obsłużyć ruch na potrzeby następnego uruchomienia lub kampanii marketingowej.
 
-[Apache JMeter](https://jmeter.apache.org/) to darmowe, popularne narzędzie open source z silnym poparciem społeczności.
+[Apache JMeter](https://jmeter.apache.org/) to bezpłatne, popularne narzędzie typu "open source" z silnymi procesami społecznościowymi.
 
-**Najlepsze rozwiązanie:** Monitorowanie wydajności aplikacji.  
-**Szczegóły:** [Usługa Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) to usługa rozszerzalnego zarządzania wydajnością aplikacji (APM) dla deweloperów sieci web na wielu platformach. Usługa Application Insights służy do monitorowania aplikacji sieci web na żywo. Automatycznie wykrywa anomalie wydajności. Zawiera narzędzia analityczne ułatwiające diagnozowanie problemów i zrozumienie, co użytkownicy faktycznie robią z aplikacją. Usługa ta pomaga w ciągłym udoskonalaniu wydajności i użyteczności tworzonych rozwiązań.
+**Najlepsze rozwiązanie**: monitorowanie wydajności aplikacji.  
+**Szczegóły**: [platforma Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) to rozszerzalna usługa zarządzania wydajnością aplikacji (APM) dla deweloperów sieci Web na wielu platformach. Użyj Application Insights do monitorowania działającej aplikacji sieci Web. Automatycznie wykrywa anomalie wydajności. Zawiera narzędzia analityczne, które ułatwiają diagnozowanie problemów i zrozumienie, które użytkownicy faktycznie robią z Twoją aplikacją. Usługa ta pomaga w ciągłym udoskonalaniu wydajności i użyteczności tworzonych rozwiązań.
 
-## <a name="mitigate-and-protect-against-ddos"></a>Ograniczanie i ochrona przed atakami DDoS
-Rozproszona odmowa usługi (DDoS) jest rodzajem ataku, który próbuje wyczerpywać zasoby aplikacji. Celem jest wpłynąć na dostępność aplikacji i jej zdolność do obsługi uzasadnionych żądań. Ataki te stają się coraz bardziej wyrafinowane i większe pod względem wielkości i wpływu. Mogą być kierowane do dowolnego punktu końcowego, który jest publicznie dostępny za pośrednictwem Internetu.
+## <a name="mitigate-and-protect-against-ddos"></a>Eliminowanie i ochrona przed DDoS
+Rozproszony atak typu "odmowa usługi" (DDoS) jest typem ataku próbującego obsłużyć zasoby aplikacji. Celem jest wpływ na dostępność aplikacji i jej zdolność do obsługi uzasadnionych żądań. Te ataki stają się bardziej zaawansowane i większe w rozmiarze i wpływie. Mogą być przeznaczone dla każdego punktu końcowego, który jest publicznie dostępny przez Internet.
 
-Projektowanie i tworzenie odporności DDoS wymaga planowania i projektowania dla różnych trybów awarii. Poniżej przedstawiono najlepsze rozwiązania dotyczące tworzenia usług odpornych na DDoS na platformie Azure.
+Projektowanie i kompilowanie odporności DDoS wymaga planowania i projektowania różnych trybów awarii. Poniżej przedstawiono najlepsze rozwiązania dotyczące tworzenia DDoSych odpornych usług na platformie Azure.
 
-**Najlepsze rozwiązanie:** Upewnij się, że zabezpieczenia są priorytetem w całym cyklu życia aplikacji, od projektowania i implementacji do wdrażania i operacji. Aplikacje mogą mieć błędy, które umożliwiają stosunkowo małą liczbę żądań do korzystania z wielu zasobów, co powoduje awarię usługi.  
-**Szczegóły:** Aby chronić usługę działającą na platformie Microsoft Azure, należy dobrze zrozumieć architekturę aplikacji i skupić się na [pięciu filarach jakości oprogramowania.](https://docs.microsoft.com/azure/architecture/guide/pillars) Należy znać typowe woluminy ruchu, model łączności między aplikacją i innymi aplikacjami oraz punkty końcowe usługi, które są narażone na publiczny internet.
+**Najlepsze rozwiązanie**: Upewnij się, że zabezpieczenia są priorytetem całego cyklu życia aplikacji, od projektowania i implementacji do wdrożenia i operacji. Aplikacje mogą mieć usterkę, która pozwala na stosunkowo małą liczbę żądań użycia dużej ilości zasobów, co spowodowało awarię usługi.  
+**Szczegóły**: aby pomóc w ochronie usługi działającej na Microsoft Azure, należy dobrze zrozumieć swoją architekturę aplikacji i skupić się na [pięciu filarach jakości oprogramowania](https://docs.microsoft.com/azure/architecture/guide/pillars). Należy znać typowe woluminy ruchu, model łączności między aplikacją i innymi aplikacjami oraz punkty końcowe usługi, które są dostępne dla publicznego Internetu.
 
-Zapewnienie, że aplikacja jest wystarczająco odporna do obsługi typu "odmowa usługi", która jest przeznaczona dla samej aplikacji, jest najważniejsza. Zabezpieczenia i prywatność są wbudowane w platformę Azure, począwszy od [cyklu cyklu bezpieczeństwa rozwoju (SDL).](https://www.microsoft.com/sdl) SDL adresy zabezpieczeń na każdym etapie rozwoju i zapewnia, że platforma Azure jest stale aktualizowana, aby uczynić go jeszcze bardziej bezpieczne.
+Upewnienie się, że aplikacja jest wystarczająco odporna na obsługę odmowy usługi, która jest przeznaczona dla samej aplikacji, jest najważniejsza. Zabezpieczenia i prywatność są wbudowane w platformę Azure, począwszy od [cyklu projektowania zabezpieczeń (SDL)](https://www.microsoft.com/sdl). SDL eliminuje bezpieczeństwo w każdej fazie tworzenia i gwarantuje, że platforma Azure jest stale aktualizowana w celu zapewnienia jeszcze większego bezpieczeństwa.
 
-**Najlepsze rozwiązanie:** Zaprojektuj aplikacje do [skalowania poziomego,](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) aby sprostać zapotrzebowaniu wzmocnionego obciążenia, w szczególności w przypadku ataku DDoS. Jeśli aplikacja zależy od pojedynczego wystąpienia usługi, tworzy pojedynczy punkt awarii. Inicjowanie obsługi administracyjnej wielu wystąpień sprawia, że system jest bardziej odporny i bardziej skalowalny.  
-**Szczegóły:** Dla [usługi Azure App Service](/azure/app-service/app-service-value-prop-what-is)wybierz plan usługi app [service,](../../app-service/overview-hosting-plans.md) który oferuje wiele wystąpień.
+**Najlepsze rozwiązanie**: Projektuj aplikacje w celu [skalowania w poziomie](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) , aby spełnić zapotrzebowanie na rozbudowane obciążenie, w zależności od przypadku ataku DDoS. Jeśli aplikacja zależy od pojedynczego wystąpienia usługi, tworzy single point of failure. Inicjowanie obsługi wielu wystąpień systemu sprawia, że system jest bardziej odporny i bardziej skalowalny.  
+**Szczegóły**: dla [Azure App Service](/azure/app-service/app-service-value-prop-what-is)wybierz [Plan App Service](../../app-service/overview-hosting-plans.md) , który oferuje wiele wystąpień.
 
-W przypadku usług Azure Cloud Services skonfiguruj każdą z ról, aby [używały wielu wystąpień.](../../cloud-services/cloud-services-choose-me.md)
+W przypadku usługi Azure Cloud Services skonfiguruj każdą rolę, aby użyć [wielu wystąpień](../../cloud-services/cloud-services-choose-me.md).
 
-W przypadku [maszyn wirtualnych platformy Azure](/azure/virtual-machines/windows/overview)upewnij się, że architektura maszyny wirtualnej zawiera więcej niż jedną maszynę wirtualną i że każda maszyna wirtualna jest uwzględniona w zestawie [dostępności.](/azure/virtual-machines/virtual-machines-windows-manage-availability) Zaleca się używanie zestawów skalowania maszyny wirtualnej do skalowania automatycznego.
+W przypadku [usługi Azure Virtual Machines](/azure/virtual-machines/windows/overview)upewnij się, że architektura maszyny wirtualnej zawiera więcej niż jedną maszynę wirtualną i że każda maszyna wirtualna jest uwzględniona w [zestawie dostępności](/azure/virtual-machines/virtual-machines-windows-manage-availability). Zalecamy używanie zestawów skalowania maszyn wirtualnych do obsługi funkcji skalowania automatycznego.
 
-**Najlepsze rozwiązanie:** Nakładanie warstw zabezpieczeń w aplikacji zmniejsza ryzyko pomyślnego ataku. Zaimplementuj bezpieczne projekty dla aplikacji przy użyciu wbudowanych możliwości platformy Azure.  
-**Szczegóły:** Ryzyko ataku wzrasta wraz z rozmiarem (powierzchnią) aplikacji. Powierzchnię można zmniejszyć, korzystając z białej listy w celu zamknięcia narażonej przestrzeni adresowej IP i portów nasłuchujących, które nie są potrzebne w modułach równoważenia obciążenia[(Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) i [Azure Application Gateway).](/azure/application-gateway/application-gateway-create-probe-portal)
+**Najlepsze rozwiązanie**: Ochrona zabezpieczeń warstwowych w aplikacji zmniejsza prawdopodobieństwo pomyślnego ataku. Zaimplementuj bezpieczne projekty dla aplikacji, korzystając z wbudowanych możliwości platformy Azure.  
+**Szczegóły**: ryzyko ataku zwiększa się wraz z rozmiarem (obszarem powierzchni) aplikacji. Obszar powierzchniowy można zmniejszyć przy użyciu listy dozwolonych, aby zamknąć uwidocznioną przestrzeń adresów IP i porty nasłuchujące, które nie są potrzebne w przypadku modułów równoważenia obciążenia ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) i [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).
 
-[Sieciowe grupy zabezpieczeń](../../virtual-network/security-overview.md) to kolejny sposób na zmniejszenie powierzchni ataku. Za pomocą [tagów usług](../../virtual-network/security-overview.md#service-tags) i [grup zabezpieczeń aplikacji](../../virtual-network/security-overview.md#application-security-groups) można minimalizować złożoność tworzenia reguł zabezpieczeń i konfigurowania zabezpieczeń sieciowych jako naturalnego rozszerzenia struktury aplikacji.
+[Sieciowe grupy zabezpieczeń](../../virtual-network/security-overview.md) to inny sposób zmniejszenia obszaru ataków. Możesz użyć [tagów usługi](../../virtual-network/security-overview.md#service-tags) i [grup zabezpieczeń aplikacji](../../virtual-network/security-overview.md#application-security-groups) , aby zminimalizować złożoność tworzenia reguł zabezpieczeń i konfigurowania zabezpieczeń sieci, jako naturalnego rozszerzenia struktury aplikacji.
 
-Usługi platformy Azure należy wdrożyć w [sieci wirtualnej,](../../virtual-network/virtual-networks-overview.md) gdy tylko jest to możliwe. Ta praktyka umożliwia zasobów usługi do komunikowania się za pośrednictwem prywatnych adresów IP. Ruch usługi platformy Azure z sieci wirtualnej domyślnie używa publicznych adresów IP jako źródłowych adresów IP.
+W miarę możliwości należy wdrożyć usługi platformy Azure w [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md) . Dzięki temu zasoby usług mogą komunikować się za poorednictwem prywatnych adresów IP. Ruch usługi platformy Azure z sieci wirtualnej domyślnie używa publicznych adresów IP jako źródłowych adresów IP.
 
-Za pomocą [punktów końcowych usługi](../../virtual-network/virtual-network-service-endpoints-overview.md) przełącza ruch usługi do używania adresów prywatnych sieci wirtualnej jako źródłowych adresów IP, gdy uzyskujesz dostęp do usługi platformy Azure z sieci wirtualnej.
+Za pomocą [punktów końcowych usługi](../../virtual-network/virtual-network-service-endpoints-overview.md) ruch usługi jest przełączany do adresów prywatnych w sieci wirtualnej jako źródłowe adresy IP, gdy uzyskują dostęp do usługi platformy Azure z sieci wirtualnej.
 
-Często widzimy, że zasoby lokalne klientów są atakowane wraz z ich zasobami na platformie Azure. Jeśli łączysz środowisko lokalne z platformą Azure, zminimalizuj narażenie zasobów lokalnych na publiczny Internet.
+Często widzimy, że zasoby lokalne klientów atakują razem ze swoimi zasobami na platformie Azure. W przypadku łączenia środowiska lokalnego z platformą Azure należy zminimalizować narażenie zasobów lokalnych na publiczny Internet.
 
-Platforma Azure ma dwie [oferty usług](../../virtual-network/ddos-protection-overview.md) DDoS, które zapewniają ochronę przed atakami sieciowymi:
+Platforma Azure ma dwie [oferty usługi](../../virtual-network/ddos-protection-overview.md) DDoS, które zapewniają ochronę przed atakami sieciowymi:
 
-- Podstawowa ochrona jest domyślnie zintegrowana z platformą Azure bez dodatkowych kosztów. Skala i pojemność globalnie wdrożonej sieci platformy Azure zapewnia odporność na typowe ataki w warstwie sieciowej za pośrednictwem zawsze włączonego monitorowania ruchu i ograniczania ryzyka w czasie rzeczywistym. Basic nie wymaga żadnych zmian konfiguracji użytkownika ani aplikacji i pomaga chronić wszystkie usługi platformy Azure, w tym usługi PaaS, takie jak usługa Azure DNS.
-- Standardowa ochrona zapewnia zaawansowane możliwości ograniczania ddos przed atakami sieciowymi. Jest automatycznie dostrojony do ochrony określonych zasobów platformy Azure. Ochrona jest prosta do włączenia podczas tworzenia sieci wirtualnych. Można to również zrobić po utworzeniu i nie wymaga żadnych zmian aplikacji lub zasobów.
+- Ochrona podstawowa jest domyślnie zintegrowana z platformą Azure bez dodatkowych kosztów. Skalowanie i pojemność sieci platformy Azure wdrożonej globalnie zapewnia ochronę przed typowymi atakami warstwy sieci przez zawsze włączone monitorowanie ruchu i środki zaradcze w czasie rzeczywistym. Podstawowa nie wymaga żadnych zmian konfiguracji ani aplikacji użytkownika i pomaga chronić wszystkie usługi platformy Azure, w tym usługi PaaS, takie jak Azure DNS.
+- Ochrona standardowa zapewnia zaawansowane możliwości ograniczania DDoS przed atakami sieciowymi. Jest on automatycznie dostrojony do ochrony określonych zasobów platformy Azure. Ochrona jest prosta do włączenia podczas tworzenia sieci wirtualnych. Można to również zrobić po utworzeniu i nie wymaga żadnych zmian aplikacji ani zasobów.
 
-## <a name="enable-azure-policy"></a>Włącz zasady platformy Azure
-[Zasady platformy Azure](/azure/governance/policy/overview) to usługa na platformie Azure używana do tworzenia, przypisywania i zarządzania zasadami. Te zasady wymuszają reguły i efekty dotyczące zasobów, dzięki czemu zasoby te pozostają zgodne ze standardami firmowymi i umowami dotyczącymi poziomu usług. Usługa Azure Policy spełnia to wymaganie, oceniając zasoby pod kątem niezgodności z przypisanymi zasadami.
+## <a name="enable-azure-policy"></a>Włącz Azure Policy
+[Azure Policy](/azure/governance/policy/overview) to usługa platformy Azure, za pomocą której można tworzyć i przypisywać zasady oraz zarządzać nimi. Te zasady wymuszają reguły i efekty dotyczące zasobów, dzięki czemu te zasoby pozostają zgodne ze standardami firmy i umowami dotyczącymi poziomu usług. Usługa Azure Policy spełnia to wymaganie, oceniając zasoby pod kątem niezgodności z przypisanymi zasadami.
 
-Włącz zasady platformy Azure, aby monitorować i wymuszać pisemne zasady organizacji. Zapewni to zgodność z wymaganiami firmy lub wymogami zabezpieczeń regulacyjnych dzięki centralnemu zarządzaniu zasadami zabezpieczeń w ramach obciążeń chmury hybrydowej. Dowiedz się, jak [tworzyć zasady i zarządzać nimi, aby wymusić zgodność](../../governance/policy/tutorials/create-and-manage.md). Zobacz [struktury definicji usługi Azure Policy,](../../governance/policy/concepts/definition-structure.md) aby uzyskać omówienie elementów zasad.
+Włącz Azure Policy monitorowania i wymuszania pisania zasad w organizacji. Pozwoli to zapewnić zgodność z wymaganiami firmy lub przepisami bezpieczeństwa przez centralne zarządzanie zasadami zabezpieczeń w ramach obciążeń chmury hybrydowej. Dowiedz się [, jak tworzyć zasady i zarządzać nimi w celu wymuszenia zgodności](../../governance/policy/tutorials/create-and-manage.md). Zobacz [strukturę definicji Azure Policy](../../governance/policy/concepts/definition-structure.md) , aby zapoznać się z omówieniem elementów zasad.
 
-Oto kilka najlepszych rozwiązań w zakresie zabezpieczeń, które należy wykonać po przyjęciu zasad platformy Azure:
+Poniżej przedstawiono niektóre najlepsze rozwiązania w zakresie zabezpieczeń po przyjęciu Azure Policy:
 
-**Najlepsze rozwiązanie**: Zasady obsługuje kilka rodzajów efektów. Można o nich przeczytać w [strukturze definicji usługi Azure Policy](../../governance/policy/concepts/definition-structure.md#policy-rule). Na operacje biznesowe może mieć negatywny wpływ efekt **odmowy** i efekt **korygowania,** więc zacznij od efektu **inspekcji,** aby ograniczyć ryzyko negatywnego wpływu polityki.   
-**Szczegóły:** [Uruchom wdrożenia zasad w trybie inspekcji,](../../governance/policy/concepts/definition-structure.md#policy-rule) a następnie postępuj, aby **odmówić** lub **skorygować**. Przetestuj i przejrzyj wyniki efektu inspekcji przed przejściem do **odmowy** lub **skorygowanie**.
+**Najlepsze rozwiązanie**: zasady obsługują kilka rodzajów efektów. Informacje o nich można znaleźć w [strukturze definicji Azure Policy](../../governance/policy/concepts/definition-structure.md#policy-rule). Operacje związane z działalnością biznesową mogą mieć negatywny wpływ na skutek **odmowy** i **skorygowany** efekt, więc Zacznij od efektu **audytu** , aby ograniczyć ryzyko negatywnego wpływu na zasady.   
+**Szczegóły**: [Rozpocznij wdrożenia zasad w trybie inspekcji](../../governance/policy/concepts/definition-structure.md#policy-rule) , a później postępuj zgodnie z tym, aby **odmówić** lub **skorygować**. Przetestuj i przejrzyj wyniki działania inspekcji przed przeniesieniem do **odmowy** lub **skorygowania**.
 
-Aby uzyskać więcej informacji, zobacz Tworzenie zasad i zarządzanie nimi w [celu wymuszania zgodności](../../governance/policy/tutorials/create-and-manage.md).
+Aby uzyskać więcej informacji, zobacz [Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności](../../governance/policy/tutorials/create-and-manage.md).
 
-**Najlepsze praktyki:** Określ role odpowiedzialne za monitorowanie naruszeń zasad i zapewnienie szybkiego podjęcia odpowiednich działań naprawczych.   
-**Szczegóły:** Należy monitorować zgodność przypisanej roli za pośrednictwem [witryny Azure portal](../../governance/policy/how-to/get-compliance-data.md#portal) lub za pośrednictwem [wiersza polecenia](../../governance/policy/how-to/get-compliance-data.md#command-line).
+**Najlepsze rozwiązanie**: Zidentyfikuj role odpowiedzialne za monitorowanie naruszeń zasad i zapewnia szybkie podejmowanie odpowiednich działań naprawczych.   
+**Szczegóły**: ma przypisaną rolę Monitoruj zgodność za pośrednictwem [Azure Portal](../../governance/policy/how-to/get-compliance-data.md#portal) lub za pomocą [wiersza polecenia](../../governance/policy/how-to/get-compliance-data.md#command-line).
 
-**Najlepsze rozwiązanie:** Zasady platformy Azure to techniczna reprezentacja pisemnych zasad organizacji. Zamapuj wszystkie zasady platformy Azure na zasady organizacyjne, aby zmniejszyć zamieszanie i zwiększyć spójność.   
-**Szczegóły:** Mapowanie dokumentów w dokumentacji organizacji lub w samej polityce platformy Azure przez dodanie odwołania do zasad organizacyjnych w [opisie zasad](../../governance/policy/concepts/definition-structure.md#display-name-and-description) platformy Azure lub opisie [inicjatywy dotyczącej](../../governance/policy/concepts/definition-structure.md#initiatives) zasad platformy Azure.
+**Najlepsze rozwiązanie**: Azure Policy stanowi reprezentację techniczną dla zapisaną przez organizację zasad. Zamapuj wszystkie zasady platformy Azure na zasady organizacyjne, aby zmniejszyć liczbę pomyłek i zwiększyć spójność.   
+**Szczegóły**: mapowanie dokumentu w dokumentacji organizacji lub w samej definicji Azure Policy przez dodanie odwołania do zasad organizacji w [definicji Azure Policy](../../governance/policy/concepts/definition-structure.md#display-name-and-description) lub w opisie [Azure Policy inicjatywy](../../governance/policy/concepts/definition-structure.md#initiatives) .
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Monitorowanie raportów o ryzyku usługi Azure AD
-Zdecydowana większość naruszeń zabezpieczeń ma miejsce, gdy osoby atakujące uzyskują dostęp do środowiska, kradnąc tożsamość użytkownika. Odnajdowanie naruszonych tożsamości nie jest łatwym zadaniem. Usługa Azure AD używa adaptacyjnych algorytmów uczenia maszynowego i heurystyki do wykrywania podejrzanych akcji, które są związane z kontami użytkowników. Każda wykryta podejrzana akcja jest przechowywana w rekordzie zwanym [wykrywaniem ryzyka.](../../active-directory/reports-monitoring/concept-risk-events.md) Wykrywanie ryzyka są rejestrowane w raportach zabezpieczeń usługi Azure AD. Aby uzyskać więcej informacji, przeczytaj o [raporcie zabezpieczeń użytkowników zagrożonych](../../active-directory/reports-monitoring/concept-user-at-risk.md) i [raporcie zabezpieczeń ryzykownych logowania](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
+Większość naruszeń zabezpieczeń odbywa się, gdy osoby atakujące uzyskują dostęp do środowiska przez kradzież tożsamości użytkownika. Odnajdywanie zagrożonych tożsamości nie jest łatwe. Usługa Azure AD używa adaptacyjnych algorytmów uczenia maszynowego i heurystyki do wykrywania podejrzanych działań, które są związane z kontami użytkowników. Każda wykryte podejrzane działania są przechowywane w rekordzie nazywanym [wykryciem ryzyka](../../active-directory/reports-monitoring/concept-risk-events.md). Wykrywanie ryzyka są rejestrowane w raportach zabezpieczeń usługi Azure AD. Aby uzyskać więcej informacji, zapoznaj się z [raportem o zabezpieczeniach](../../active-directory/reports-monitoring/concept-user-at-risk.md) dotyczący użytkowników, a raport zabezpieczeń dotyczący [ryzykownych](../../active-directory/reports-monitoring/concept-risky-sign-ins.md)logowań.
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz [najlepsze rozwiązania i wzorce zabezpieczeń platformy Azure,](best-practices-and-patterns.md) aby uzyskać więcej najlepszych rozwiązań w zakresie zabezpieczeń, których należy używać podczas projektowania, wdrażania i zarządzania rozwiązaniami w chmurze przy użyciu platformy Azure.
+Zobacz [najlepsze rozwiązania i wzorce dotyczące zabezpieczeń platformy Azure](best-practices-and-patterns.md) , aby uzyskać więcej najlepszych rozwiązań w zakresie zabezpieczeń, które są używane podczas projektowania i wdrażania rozwiązań w chmurze oraz zarządzania nimi przy użyciu platformy Azure.
 
-Dostępne są następujące zasoby, aby zapewnić bardziej ogólne informacje na temat zabezpieczeń platformy Azure i powiązanych usług firmy Microsoft:
-* [Blog zespołu zabezpieczeń platformy Azure](https://blogs.msdn.microsoft.com/azuresecurity/) — aby uzyskać aktualne informacje na temat najnowszych informacji w usłudze Azure Security
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) — gdzie można zgłaszać luki w zabezpieczeniach firmy Microsoft, w tym problemy z platformą Azure, lubsecure@microsoft.com
+Dostępne są następujące zasoby umożliwiające dostarczenie bardziej ogólnych informacji na temat zabezpieczeń platformy Azure i powiązanych usług firmy Microsoft:
+* [Blog zespołu ds. zabezpieczeń platformy Azure](https://blogs.msdn.microsoft.com/azuresecurity/) — na bieżąco z najnowszymi informacjami na temat zabezpieczeń platformy Azure
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) — w przypadku których luki w zabezpieczeniach firmy Microsoft, w tym problemy z platformą Azure, mogą być zgłaszane lub wysyłane pocztą e-mailsecure@microsoft.com

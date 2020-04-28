@@ -1,163 +1,163 @@
 ---
-title: Rozszerzenie zasad platformy Azure dla kodu programu Visual Studio
-description: Dowiedz się, jak używać rozszerzenia zasad platformy Azure dla programu Visual Studio Code do wyszukiwania aliasów Menedżera zasobów.
+title: Azure Policy rozszerzenie dla Visual Studio Code
+description: Dowiedz się, jak używać rozszerzenia Azure Policy Visual Studio Code do wyszukiwania aliasów Menedżer zasobów.
 ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 5e31af652f2746adbf0eda386bdb178c752f5f84
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 0c4e04cc352744fed1c7c2965f8096f0f05c2a50
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641019"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182569"
 ---
-# <a name="use-azure-policy-extension-for-visual-studio-code"></a>Używanie rozszerzenia zasad platformy Azure dla kodu programu Visual Studio
+# <a name="use-azure-policy-extension-for-visual-studio-code"></a>Użyj rozszerzenia Azure Policy dla Visual Studio Code
 
-> Dotyczy rozszerzenia usługi Azure Policy w wersji **0.0.21** i nowszej
+> Dotyczy rozszerzenia Azure Policy w wersji **0.0.21** i nowszej
 
-Dowiedz się, jak używać rozszerzenia zasad platformy Azure dla programu Visual Studio Code do wyszukiwania [aliasów](../concepts/definition-structure.md#aliases) i przeglądania zasobów i zasad. Najpierw opiszemy sposób instalowania rozszerzenia zasad platformy Azure w programie Visual Studio Code. Następnie przejdziemy przez to, jak wyszukać aliasy.
+Dowiedz się, jak używać rozszerzenia Azure Policy Visual Studio Code do wyszukiwania [aliasów](../concepts/definition-structure.md#aliases) i przeglądania zasobów i zasad. Najpierw opisano sposób instalowania rozszerzenia Azure Policy w programie Visual Studio Code. Następnie przeprowadzimy procedurę wyszukiwania aliasów.
 
-Rozszerzenie zasad platformy Azure dla programu Visual Studio Code można zainstalować na wszystkich platformach, które są obsługiwane przez program Visual Studio Code. Ta obsługa obejmuje systemy Windows, Linux i macOS.
+Azure Policy rozszerzenia Visual Studio Code można zainstalować na wszystkich platformach obsługiwanych przez Visual Studio Code. Ta obsługa obejmuje systemy Windows, Linux i macOS.
 
 > [!NOTE]
-> Zmiany wprowadzone lokalnie do zasad wyświetlane w rozszerzeniu zasad platformy Azure dla programu Visual Studio Code nie są synchronizowane z platformą Azure.
+> Zmiany wprowadzone lokalnie do zasad wyświetlanych w rozszerzeniu Azure Policy dla Visual Studio Code nie są synchronizowane z platformą Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do wykonania czynności opisanych w tym artykule wymagane są następujące elementy:
+Aby wykonać kroki opisane w tym artykule, wymagane są następujące elementy:
 
-- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
 - [Visual Studio Code](https://code.visualstudio.com).
 
-## <a name="install-azure-policy-extension"></a>Instalowanie rozszerzenia usługi Azure Policy
+## <a name="install-azure-policy-extension"></a>Zainstaluj rozszerzenie Azure Policy
 
-Po spełnieniu wymagań wstępnych można zainstalować rozszerzenie zasad platformy Azure dla programu Visual Studio Code, wykonując następujące kroki:
+Po spełnieniu wymagań wstępnych można zainstalować Azure Policy rozszerzenia dla Visual Studio Code, wykonując następujące czynności:
 
 1. Otwórz program Visual Studio Code.
 
-1. Na pasku menu przejdź do **opcji Wyświetl** > **rozszerzenia**.
+1. Na pasku menu Przejdź do pozycji **Wyświetl** > **rozszerzenia**.
 
-1. W polu wyszukiwania wprowadź usługę **Azure Policy**.
+1. W polu wyszukiwania wprowadź **Azure Policy**.
 
-1. Wybierz **pozycję Zasady platformy Azure** z wyników wyszukiwania, a następnie wybierz pozycję **Zainstaluj**.
+1. Wybierz **Azure Policy** z wyników wyszukiwania, a następnie wybierz pozycję **Zainstaluj**.
 
-1. W razie potrzeby wybierz **opcję Przeładuj ponownie.**
+1. W razie potrzeby wybierz pozycję **Załaduj ponownie** .
 
 ## <a name="set-the-azure-environment"></a>Ustawianie środowiska platformy Azure
 
-W przypadku użytkownika chmury krajowej wykonaj następujące kroki, aby najpierw ustawić środowisko platformy Azure:
+W przypadku użytkownika w chmurze krajowej wykonaj następujące kroki, aby najpierw ustawić środowisko platformy Azure:
 
-1. Wybierz **pozycję Plik\Preferencje\Ustawienia**.
+1. Wybierz pozycję **File\Preferences\Settings**.
 
-1. Wyszukiwanie w następującym ciągu: _Azure: Chmura_
+1. Wyszukaj następujący ciąg: _Azure: Cloud_
 
-1. Wybierz chmurę narodową z listy:
+1. Wybierz z listy chmurę krajową:
 
-   ![Ustawianie domyślnego logowania się w chmurze platformy Azure dla programu Visual Studio Code](../media/extension-for-vscode/set-default-azure-cloud-sign-in.png)
+   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Ustaw domyślne logowanie w chmurze platformy Azure dla Visual Studio Code" border="false":::
 
-## <a name="connect-to-an-azure-account"></a>Łączenie się z kontem platformy Azure
+## <a name="connect-to-an-azure-account"></a>Nawiązywanie połączenia z kontem platformy Azure
 
-Aby ocenić zasoby i aliasy wyszukiwania, należy połączyć się z kontem platformy Azure. Wykonaj następujące kroki, aby połączyć się z platformą Azure z programu Visual Studio Code:
+Aby oszacować zasoby i aliasy wyszukiwania, musisz nawiązać połączenie z kontem platformy Azure. Wykonaj następujące kroki, aby nawiązać połączenie z platformą Azure z Visual Studio Code:
 
-1. Zaloguj się do platformy Azure za pomocą rozszerzenia zasad platformy Azure lub palety poleceń.
+1. Zaloguj się do platformy Azure przy użyciu rozszerzenia Azure Policy lub palety poleceń.
 
-   - Rozszerzenie zasad platformy Azure
+   - Azure Policy rozszerzenie
 
-     W rozszerzeniu zasad platformy Azure wybierz pozycję **Zaloguj się na platformie Azure**.
+     Z poziomu rozszerzenia Azure Policy wybierz pozycję **Zaloguj się do platformy Azure**.
 
-     ![Logowanie się w chmurze platformy Azure dla kodu programu Visual Studio z rozszerzenia zasad platformy Azure](../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png)
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Logowanie w chmurze platformy Azure dla Visual Studio Code z rozszerzenia Azure Policy" border="false":::
 
    - Paleta poleceń
 
-     Na pasku menu przejdź do **polecenia Wyświetl** > **paletę poleceń**i wprowadź polecenie **Azure: Zaloguj się**.
+     Na pasku menu Przejdź do **widoku** > **paleta poleceń**i wprowadź **Azure: Zaloguj się**.
 
-     ![Logowanie się w chmurze platformy Azure dla kodu programu Visual Studio z palety poleceń](../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png)
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Logowanie w chmurze platformy Azure dla Visual Studio Code z palety poleceń" border="false":::
 
-1. Postępuj zgodnie z instrukcjami logowania, aby zalogować się na platformie Azure. Po nawiązaniu połączenia nazwa konta platformy Azure jest wyświetlana na pasku stanu u dołu okna Kod programu Visual Studio.
+1. Postępuj zgodnie z instrukcjami logowania, aby zalogować się do platformy Azure. Po nawiązaniu połączenia nazwa konta platformy Azure zostanie wyświetlona na pasku stanu u dołu okna Visual Studio Code.
 
-## <a name="select-subscriptions"></a>Wybierz subskrypcje
+## <a name="select-subscriptions"></a>Wybieranie subskrypcji
 
-Podczas pierwszego logowania tylko domyślne zasoby i zasady subskrypcji są ładowane przez rozszerzenie zasad platformy Azure. Aby dodać lub usunąć subskrypcje z wyświetlania zasobów i zasad, wykonaj następujące kroki:
+Po pierwszym zalogowaniu tylko domyślne zasoby i zasady subskrypcji są ładowane przy użyciu rozszerzenia Azure Policy. Aby dodać lub usunąć subskrypcje wyświetlania zasobów i zasad, wykonaj następujące kroki:
 
-1. Uruchom polecenie subskrypcji z palety poleceń lub stopki okna.
+1. Uruchom polecenie subskrypcji za pomocą palety poleceń lub stopki okna.
 
    - Paleta poleceń: 
 
-     Na pasku menu przejdź do **sekcji Wyświetl** > **paletę poleceń**i wprowadź pozycję **Azure: Select Subscriptions**.
+     Na pasku menu Przejdź do **widoku** > **paleta poleceń**i wprowadź **Azure: wybierz subskrypcje**.
 
-   - Stopka okienna
+   - Stopka okna
 
-     W stopce okna u dołu ekranu wybierz segment zgodny z **platformą Azure: \<Twoje konto\>**.
+     W stopce okna w dolnej części ekranu wybierz segment pasujący do **platformy Azure: \<\>Twoje konto**.
 
-1. Użyj pola filtru, aby szybko znaleźć subskrypcje według nazwy. Następnie sprawdź lub usuń czek z każdej subskrypcji, aby ustawić subskrypcje wyświetlane przez rozszerzenie zasad platformy Azure. Po zakończeniu dodawania lub usuwania subskrypcji do wyświetlenia wybierz przycisk **OK**.
+1. Użyj pola filtr, aby szybko znaleźć subskrypcje według nazwy. Następnie zaznacz lub usuń zaznaczenie każdej subskrypcji, aby ustawić subskrypcje widoczne przez rozszerzenie Azure Policy. Po zakończeniu dodawania lub usuwania subskrypcji do wyświetlenia wybierz **przycisk OK**.
 
 ## <a name="search-for-and-view-resources"></a>Wyszukiwanie i wyświetlanie zasobów
 
-Rozszerzenie zasad platformy Azure zawiera listę zasobów w wybranych subskrypcjach według dostawcy zasobów i grupy zasobów w okienku **Zasoby.** Treeview obejmuje następujące grupowania zasobów w ramach wybranej subskrypcji lub na poziomie subskrypcji:
+Rozszerzenie Azure Policy wyświetla listę zasobów w wybranych subskrypcjach według dostawcy zasobów i grupy zasobów w okienku **zasoby** . Widok TreeView zawiera następujące grupy zasobów w ramach wybranej subskrypcji lub na poziomie subskrypcji:
 
 - **Dostawcy zasobów**
   - Każdy zarejestrowany dostawca zasobów z zasobami i powiązanymi zasobami podrzędnymi, które mają aliasy zasad
 - **Grupy zasobów**
-  - Wszystkie zasoby według grupy zasobów, w których się
+  - Wszystkie zasoby według grupy zasobów, w której się znajdują
 
-Domyślnie rozszerzenie filtruje część "Dostawca zasobów" według istniejących zasobów i zasobów, które mają aliasy zasad. Zmień to zachowanie w zasadach**azure** **rozszerzeń** >  **ustawień,** > aby wyświetlić wszystkich dostawców zasobów bez filtrowania.
+Domyślnie rozszerzenie filtruje część "dostawca zasobów" według istniejących zasobów i zasobów, które mają aliasy zasad. Zmień to zachowanie w **Settings** > **rozszerzeniu** > ustawienia**Azure Policy** , aby wyświetlić wszystkich dostawców zasobów bez filtrowania.
 
-Klienci z setkami lub tysiącami zasobów w jednej subskrypcji mogą preferować przeszukiwalny sposób lokalizowania swoich zasobów. Rozszerzenie zasad platformy Azure umożliwia wyszukiwanie określonego zasobu za pomocą następujących kroków:
+Klienci, którzy mają setki lub tysiące zasobów w ramach jednej subskrypcji, mogą preferować możliwość wyszukiwania swoich zasobów. Rozszerzenie Azure Policy umożliwia wyszukanie określonego zasobu, wykonując następujące czynności:
 
-1. Uruchom interfejs wyszukiwania z rozszerzenia zasad platformy Azure lub palety poleceń.
+1. Uruchom interfejs wyszukiwania z rozszerzenia Azure Policy lub palety poleceń.
 
-   - Rozszerzenie zasad platformy Azure
+   - Azure Policy rozszerzenie
 
-     W rozszerzeniu zasady platformy Azure umieść wskaźnik myszy na panelu **Zasoby** i wybierz wielokropek, a następnie wybierz pozycję **Szukaj zasobów**.
+     W rozszerzeniu Azure Policy Zatrzymaj wskaźnik myszy na panelu **zasoby** i wybierz wielokropek, a następnie wybierz pozycję **Wyszukaj zasoby**.
 
    - Paleta poleceń:
 
-     Na pasku menu przejdź do **polecenia Wyświetl** > **paletę poleceń**i wprowadź **zasoby: Wyszukaj zasoby**.
+     Na pasku menu Przejdź do **widoku** > **paleta poleceń**i wprowadź **zasoby: wyszukaj zasoby**.
 
-1. Jeśli do wyświetlenia jest wybrana więcej niż jedna subskrypcja, użyj filtru, aby wybrać subskrypcję do wyszukania.
+1. Jeśli wybrano więcej niż jedną subskrypcję do wyświetlania, Użyj filtru, aby wybrać subskrypcję do wyszukania.
 
-1. Użyj filtru, aby wybrać grupę zasobów do wyszukiwania, która jest częścią wcześniej wybranej subskrypcji.
+1. Użyj filtru, aby wybrać grupę zasobów do przeszukania, która jest częścią poprzednio wybranej subskrypcji.
 
 1. Użyj filtru, aby wybrać zasób do wyświetlenia. Filtr działa zarówno dla nazwy zasobu, jak i dla typu zasobu.
 
-## <a name="discover-aliases-for-resource-properties"></a>Odnajduj aliasy właściwości zasobów
+## <a name="discover-aliases-for-resource-properties"></a>Odnajdź aliasy dla właściwości zasobów
 
-Po wybraniu zasobu, czy za pośrednictwem interfejsu wyszukiwania lub wybierając go w treeview, rozszerzenie zasad platformy Azure otwiera plik JSON reprezentujący ten zasób i wszystkie jego wartości właściwości Menedżera zasobów.
+Po wybraniu zasobu, niezależnie od tego, czy za pomocą interfejsu wyszukiwania lub wybierając go w widoku drzewa, rozszerzenie Azure Policy otwiera plik JSON reprezentujący ten zasób i wszystkie jego Menedżer zasobów wartości właściwości.
 
-Gdy zasób jest otwarty, najechanie kursorem na nazwę lub wartość właściwości Menedżera zasobów wyświetla alias zasad platformy Azure, jeśli istnieje. W tym przykładzie zasób jest typem zasobu, `Microsoft.Compute/virtualMachines` a **właściwość properties.storageProfile.imageReference.offer** jest najechać kursorem. Kursowanie wskaźnika zawiera pasujące aliasy.
+Gdy zasób jest otwarty, wskaźnik myszy nad nazwą właściwości Menedżer zasobów lub wartością wyświetla alias Azure Policy, jeśli taki istnieje. W tym przykładzie zasób jest typem `Microsoft.Compute/virtualMachines` zasobu, a właściwość **właściwości. obszarze storageprofile. elementu imagereference. Offer** jest umieszczana na początku. Umieszczenie kursora powoduje wyświetlenie pasujących aliasów.
 
-![Hover rozszerzenia zasad platformy Azure pokazuje alias właściwości Menedżera zasobów](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy aktywowania rozszerzenia pokazuje alias właściwości Menedżer zasobów" border="false":::
 
 ## <a name="search-for-and-view-policies-and-assignments"></a>Wyszukiwanie i wyświetlanie zasad i przypisań
 
-Rozszerzenie zasad platformy Azure zawiera listę typów zasad i przypisań zasad jako widok drzewa dla subskrypcji wybranych do wyświetlenia w okienku **Zasady.** Klienci z setkami lub tysiącami zasad lub przypisań w jednej subskrypcji mogą preferować możliwość wyszukiwania, aby zlokalizować swoje zasady lub przypisania. Rozszerzenie usługi Azure Policy umożliwia wyszukiwanie określonych zasad lub przypisania za pomocą następujących kroków:
+Rozszerzenie Azure Policy wyświetla listę typów zasad i przypisań zasad jako element TreeView dla subskrypcji wybranych do wyświetlania w okienku **zasady** . Klienci, którzy mają setki lub tysiące zasad lub przypisań w ramach jednej subskrypcji, mogą należeć do wyszukiwania, aby znaleźć swoje zasady lub przydziały. Rozszerzenie Azure Policy umożliwia wyszukanie określonych zasad lub przypisanie przy użyciu następujących kroków:
 
-1. Uruchom interfejs wyszukiwania z rozszerzenia zasad platformy Azure lub palety poleceń.
+1. Uruchom interfejs wyszukiwania z rozszerzenia Azure Policy lub palety poleceń.
 
-   - Rozszerzenie zasad platformy Azure
+   - Azure Policy rozszerzenie
 
-     W rozszerzeniu Zasady platformy Azure umieść wskaźnik myszy na panelu **Zasady** i wybierz wielokropek, a następnie wybierz pozycję **Wyszukaj zasady**wyszukiwania .
+     W rozszerzeniu Azure Policy Zatrzymaj wskaźnik myszy na panelu **zasady** i wybierz wielokropek, a następnie wybierz pozycję **zasady wyszukiwania**.
 
    - Paleta poleceń:
 
-     Na pasku menu przejdź do **opcji Wyświetl** > **paletę poleceń**i wprowadź **pozycja Zasady: Wyszukaj zasady**.
+     Na pasku menu Przejdź do **widoku** > **paleta poleceń**i wprowadź **zasady: zasady wyszukiwania**.
 
-1. Jeśli do wyświetlenia jest wybrana więcej niż jedna subskrypcja, użyj filtru, aby wybrać subskrypcję do wyszukania.
+1. Jeśli wybrano więcej niż jedną subskrypcję do wyświetlania, Użyj filtru, aby wybrać subskrypcję do wyszukania.
 
-1. Użyj filtru, aby wybrać typ lub przypisanie zasad do wyszukiwania, które jest częścią wcześniej wybranej subskrypcji.
+1. Użyj filtru, aby wybrać typ zasad lub przypisanie do wyszukiwania, które jest częścią poprzednio wybranej subskrypcji.
 
-1. Użyj filtru, aby wybrać zasady lub wyświetlić. Filtr działa dla _displayName_ dla definicji zasad lub przypisania zasad.
+1. Użyj filtru, aby wybrać zasady lub do wyświetlenia. Filtr działa dla parametru _DisplayName_ dla definicji zasad lub przypisania zasad.
 
-Podczas wybierania zasad lub przypisania, czy za pośrednictwem interfejsu wyszukiwania lub wybierając go w treeview, rozszerzenie zasad platformy Azure otwiera JSON, który reprezentuje zasady lub przypisania i wszystkie jego wartości właściwości Menedżera zasobów. Rozszerzenie może sprawdzić poprawność otwartego schematu JSON usługi Azure Policy.
+Podczas wybierania zasad lub przypisywania, niezależnie od tego, czy za pomocą interfejsu wyszukiwania, czy przez wybranie go w widoku drzewa, rozszerzenie Azure Policy otwiera plik JSON, który reprezentuje zasady lub przypisanie oraz wszystkie jego wartości właściwości Menedżer zasobów. Rozszerzenie może zweryfikować otwarty schemat JSON Azure Policy.
 
 ## <a name="sign-out"></a>Wyloguj
 
-Na pasku menu przejdź do **polecenia Wyświetl** > **paletę poleceń,** a następnie wprowadź polecenie **Azure: Wyloguj .**
+Na pasku menu Przejdź do **widoku** > **paleta poleceń**, a następnie wprowadź **Azure: Wyloguj się**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przejrzyj przykłady w [przykładach zasad platformy Azure](../samples/index.md).
+- Zapoznaj się z przykładami w [Azure Policy Samples](../samples/index.md).
 - Przejrzyj temat [Struktura definicji zasad Azure Policy](../concepts/definition-structure.md).
 - Przejrzyj [wyjaśnienie działania zasad](../concepts/effects.md).
-- Dowiedz się, jak [programowo tworzyć zasady](programmatically-create.md).
-- Dowiedz się, jak [korygować niezgodne zasoby](remediate-resources.md).
-- Sprawdź, czym jest grupa zarządzania, [organizuj swoje zasoby za pomocą grup zarządzania platformy Azure](../../management-groups/overview.md).
+- Dowiedz się, jak [programowo utworzyć zasady](programmatically-create.md).
+- Dowiedz się, jak [skorygować niezgodne zasoby](remediate-resources.md).
+- Zapoznaj się z informacjami o tym, czym jest Grupa zarządzania, aby [zorganizować swoje zasoby za pomocą grup zarządzania platformy Azure](../../management-groups/overview.md).

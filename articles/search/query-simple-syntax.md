@@ -1,116 +1,116 @@
 ---
 title: Prosta składnia zapytań
 titleSuffix: Azure Cognitive Search
-description: Odwołanie do składni kwerendy prostej używane dla kwerend wyszukiwania pełnotekstowego w usłudze Azure Cognitive Search.
+description: Odwołanie do prostej składni zapytania używanej na potrzeby zapytań wyszukiwania pełnotekstowego w usłudze Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/12/2020
-ms.openlocfilehash: 066190ff6b735d30db351ff90c0b6e5173b7f583
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/24/2020
+ms.openlocfilehash: dfd75ad2c6ae246bfe6ee8b983744b3db07a841f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258868"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194945"
 ---
-# <a name="simple-query-syntax-in-azure-cognitive-search"></a>Składnia kwerend prostych w usłudze Azure Cognitive Search
+# <a name="simple-query-syntax-in-azure-cognitive-search"></a>Prosta Składnia zapytania w usłudze Azure Wyszukiwanie poznawcze
 
-Usługa Azure Cognitive Search implementuje dwa języki zapytań oparte na lucene: [analizator prostych zapytań](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) i [analizator zapytania lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). 
+Platforma Azure Wyszukiwanie poznawcze implementuje dwa języki zapytań opartych na Lucene: [prosty Analizator zapytań](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) i [Analizator zapytań Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-W usłudze Azure Cognitive Search składnia kwerendy prostej wyklucza operacje wyszukiwania rozmytego. Zamiast tego należy użyć pełnej składni Lucene do [wyszukiwania rozmytego](search-query-fuzzy.md).
+Prosty parser jest bardziej elastyczny i spróbuje zinterpretować żądanie nawet wtedy, gdy nie jest doskonale złożony. Ze względu na tę elastyczność jest to wartość domyślna dla zapytań w usłudze Azure Wyszukiwanie poznawcze. 
 
-> [!NOTE]
-> Składnia kwerendy prostej jest używana dla wyrażeń kwerend przekazanych w parametrze **wyszukiwania** interfejsu API [dokumentów wyszukiwania,](https://docs.microsoft.com/rest/api/searchservice/search-documents) nie należy mylić z [składnią OData](query-odata-filter-orderby-syntax.md) używaną dla [$filter](search-filters.md) parametru tego interfejsu API. Te różne składnie mają własne reguły do konstruowania kwerend, ucieczki ciągów i tak dalej.
->
-> Usługa Azure Cognitive Search udostępnia alternatywną [pełną składnię zapytania Lucene](query-lucene-syntax.md) dla bardziej złożonych zapytań w parametrze **wyszukiwania.** Aby dowiedzieć się więcej na temat architektury analizowania zapytań i zalet każdej składni, zobacz [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search.](search-lucene-query-architecture.md)
+Prosta składnia jest używana w wyrażeniach zapytań przesyłanych w `search` parametrach [żądania przeszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents), które nie należy mylić ze [składnią OData](query-odata-filter-orderby-syntax.md) użytą dla parametru [wyrażeń $Filter](search-filters.md) tego samego interfejsu API dokumentów wyszukiwania. Parametry `search` i `$filter` mają inną składnię z własnymi regułami tworzenia zapytań, ciągów ucieczki itd.
 
-## <a name="invoke-simple-parsing"></a>Wywoływanie prostej analizy
+Chociaż prosty parser jest oparty na [prostej klasie analizatora zapytań programu Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) , implementacja na platformie Azure wyszukiwanie poznawcze wyklucza Wyszukiwanie rozmyte. Jeśli potrzebujesz [wyszukiwania rozmytego](search-query-fuzzy.md) lub innych zaawansowanych formularzy zapytań, zamiast tego Rozważ alternatywną [pełną składnię zapytania Lucene](query-lucene-syntax.md) .
 
-Prosta składnia jest domyślna. Wywołanie jest konieczne tylko wtedy, gdy resetujesz składnię od pełnej do prostej. Aby jawnie ustawić składnię, `queryType` należy użyć parametru wyszukiwania. Prawidłowe `queryType=simple` wartości `queryType=full`obejmują `simple` lub , `full` gdzie jest ustawieniem domyślnym i wywołuje [pełną analizator zapytania Lucene](query-lucene-syntax.md) dla bardziej zaawansowanych zapytań. 
+## <a name="invoke-simple-parsing"></a>Wywołaj prostą analizę
+
+Wartością domyślną jest prosta składnia. Wywołanie jest wymagane tylko w przypadku resetowania składni z pełny na prosty. Aby jawnie ustawić składnię, użyj parametru `queryType` wyszukiwania. Prawidłowe wartości to `queryType=simple` lub `queryType=full`, gdzie `simple` jest ustawieniem domyślnym i `full` wywołuje [pełny Analizator zapytań Lucene](query-lucene-syntax.md) dla bardziej zaawansowanych zapytań. 
 
 ## <a name="syntax-fundamentals"></a>Podstawy składni
 
-Każdy tekst z co najmniej jednym terminem jest uważany za prawidłowy punkt początkowy dla wykonywania kwerendy. Usługa Azure Cognitive Search będzie dopasowywanie dokumentów zawierających dowolne lub wszystkie terminy, w tym wszelkie odmiany znalezione podczas analizy tekstu.
+Dowolny tekst z co najmniej jednym warunkiem jest uznawany za prawidłowy punkt początkowy wykonywania zapytania. Usługa Azure Wyszukiwanie poznawcze będzie pasować do dokumentów zawierających dowolne lub wszystkie warunki, w tym wszelkie odmiany znalezione podczas analizy tekstu.
 
-Tak proste, jak to brzmi, istnieje jeden aspekt wykonywania zapytań w usłudze Azure Cognitive Search, które *mogą* powodować nieoczekiwane wyniki, zwiększenie, a nie zmniejsza wyniki wyszukiwania, jak więcej terminów i operatorów są dodawane do ciągu wejściowego. Czy to rozszerzenie rzeczywiście występuje zależy od włączenia NOT operatora, w połączeniu z **searchMode ustawienie parametru,** który określa, jak NIE jest interpretowany w kategoriach i lub lub zachowań. Aby uzyskać więcej informacji, zobacz [NOT operator](#not-operator).
+Tak samo jak te dźwięki, istnieje jeden aspekt wykonywania zapytania w usłudze Azure Wyszukiwanie poznawcze, który *może* dawać nieoczekiwane wyniki, zwiększając zamiast zmniejszania wyników wyszukiwania, tak aby więcej warunków i operatorów zostało dodanych do ciągu wejściowego. Czy to rozwinięcie jest zależne od dołączenia operatora NOT, połączonego z ustawieniem parametru **searchmode** , które określa, jak nie jest interpretowane w warunkach i lub lub. Aby uzyskać więcej informacji, zobacz [not operator](#not-operator).
 
 ### <a name="precedence-operators-grouping"></a>Operatory pierwszeństwa (grupowanie)
 
-Nawiasy można używać do tworzenia podksyrii, w tym operatorów w instrukcji w nawiasie. Na przykład, `motel+(wifi||luxury)` będzie wyszukiwać dokumenty zawierające termin "motel" i "wifi" lub "luksus" (lub oba).
+Za pomocą nawiasów można tworzyć podzapytania, w tym operatory w instrukcji języka nawiasów. Program przeszuka na `motel+(wifi|luxury)` przykład dokumenty zawierające termin "Motel" i "Wi-Fi" lub "możliwość zaprojektowania" (lub oba te elementy).
 
-Grupowanie pól jest podobne, ale obejmuje grupowanie do jednego pola. Na przykład `hotelAmenities:(gym+(wifi||pool))` przeszukuje pole "hotelMenities" dla "siłownia" i "wifi", lub "siłownia" i "basen".  
+Grupowanie pól jest podobne, ale zakresy grupowanie do jednego pola. Na przykład `hotelAmenities:(gym+(wifi|pool))` szuka pola "hotelAmenities" dla "treningów" i "Wi-Fi", "treningów" i "Pool".  
 
-### <a name="escaping-search-operators"></a>Ucieczka operatorów wyszukiwania  
+### <a name="escaping-search-operators"></a>Operatory wyszukiwania ucieczki  
 
-Aby użyć dowolnego z operatorów wyszukiwania jako części wyszukiwanego tekstu, uniknij znaku, prefiksując go pojedynczym ukośnikiem odwrotnym (`\`). Na przykład w przypadku wyszukiwania `https://`symboli wieloznacznych w obszarze , gdzie `://` jest częścią ciągu zapytania, należy określić `search=https\:\/\/*`. Podobnie, wzór numeru telefonu uciekł może `\+1 \(800\) 642\-7676`wyglądać tak .
+W prostej składni Operatory wyszukiwania zawierają następujące znaki:`+ | " ( ) ' \`  
 
-Znaki specjalne, które wymagają ucieczki, są następujące:`- * ? \ /`  
+Jeśli którykolwiek z tych znaków jest częścią tokenu w indeksie, należy to zrobić, wpisując jego prefiks z pojedynczym ukośnikiem odwrotnym (`\`) w zapytaniu. Załóżmy na przykład, że użyto analizatora niestandardowego dla całego terminu tokenizacji, a indeks zawiera ciąg "możliwość zaprojektowania + Hotel". Aby uzyskać dokładne dopasowanie dla tego tokenu, Wstaw znak ucieczki: `search=luxury\+hotel`. 
 
-Aby ułatwić sprawy w bardziej typowych przypadkach, istnieją dwa wyjątki od tej reguły, w których ucieczka nie jest potrzebna:  
+Aby elementy były proste dla bardziej typowych przypadków, istnieją dwa wyjątki od tej reguły, w przypadku których ucieczki nie są konieczne:  
 
-+ Operator `-` NOT musi być tylko wysunął się, jeśli jest to pierwszy znak po odstępach, a nie, jeśli jest w środku terminu. Na przykład następujący identyfikator GUID jest prawidłowy bez znaku ucieczki: `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`.
++ Operatora `-` not nie należy zmienić tylko wtedy, gdy jest to pierwszy znak po odstępie. Jeśli `-` pojawia się w środku (na przykład w `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`), można pominąć ucieczkę.
 
-+ Operator `*` sufiksu musi zostać zmieniony tylko wtedy, gdy jest to ostatni znak przed odstępami, a nie jeśli znajduje się w środku terminu. Na przykład `4*4=16` nie wymaga ukośnika odwrotnego.
++ Operator `*` sufiksu musi zostać zmieniony tylko w przypadku, gdy jest to ostatni znak przed odstępem. Jeśli `*` pojawia się w środku (na przykład w `4*4=16`), nie jest wymagana żadna ucieczka.
 
 > [!NOTE]  
-> Chociaż ucieczka utrzymuje tokeny razem, [leksykalne analizy](search-lucene-query-architecture.md#stage-2-lexical-analysis) podczas indeksowania może pozbawić je. Na przykład standardowy analizator Lucene będzie usuwać i przerywać wyrazy na łącznikach, odstępach i innych znakach. Jeśli potrzebujesz znaków specjalnych w ciągu zapytania, może być potrzebny analizator, który zachowuje je w indeksie. Niektóre opcje obejmują [analizatory języka](index-add-language-analyzers.md)naturalnego firmy Microsoft, który zachowuje wyrazy dzielenia wyrazów lub analizatora niestandardowego dla bardziej złożonych wzorców. Aby uzyskać więcej informacji, zobacz [Częściowe terminy, wzorce i znaki specjalne](search-query-partial-matching.md).
+> Domyślnie Analizator standardowej spowoduje usunięcie i przerwanie wyrazów w łącznikach, odstępach, znakach i innych znakach podczas [analizy leksykalnej](search-lucene-query-architecture.md#stage-2-lexical-analysis). Jeśli potrzebujesz znaków specjalnych do pozostawania w ciągu zapytania, może być konieczne Analizator, który zachowuje je w indeksie. Niektóre z nich to analizatory [języka](index-add-language-analyzers.md)naturalnego firmy Microsoft, które zachowują wyrazy z wyrazami lub niestandardową, aby uzyskać bardziej złożone wzorce. Aby uzyskać więcej informacji, zobacz [częściowe terminy, wzorce i znaki specjalne](search-query-partial-matching.md).
 
-### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Kodowanie niebezpiecznych i zastrzeżonych znaków w adresach URL
+### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Kodowanie znaków niebezpiecznych i zastrzeżonych w adresach URL
 
-Upewnij się, że wszystkie niebezpieczne i zastrzeżone znaki są zakodowane w adresie URL. Na przykład "#" jest niebezpiecznym znakiem, ponieważ jest to identyfikator fragmentu/zakotwiczenia w adresie URL. Znak musi być zakodowany, `%23` jeśli jest używany w adresie URL. '&' i '=' są przykładami znaków zastrzeżonych, ponieważ rozdzielają parametry i określają wartości w usłudze Azure Cognitive Search. Zobacz [RFC1738: Uniform Resource Locators (URL), aby](https://www.ietf.org/rfc/rfc1738.txt) uzyskać więcej informacji.
+Upewnij się, że wszystkie znaki niebezpieczne i zarezerwowane są zakodowane w adresie URL. Na przykład "#" jest niebezpiecznym znakiem, ponieważ jest identyfikatorem fragmentu/kotwicą w adresie URL. Znak musi być zakodowany w `%23` przypadku użycia w adresie URL. "&" i "=" są przykładami znaków zarezerwowanych, ponieważ oddzielają one parametry i określają wartości na platformie Azure Wyszukiwanie poznawcze. Aby uzyskać więcej informacji, zobacz [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) .
 
-Niebezpieczne znaki ``" ` < > # % { } | \ ^ ~ [ ]``to . Znaki zastrzeżone to `; / ? : @ = + &`.
+Niebezpieczne znaki to ``" ` < > # % { } | \ ^ ~ [ ]``. Znaki zarezerwowane `; / ? : @ = + &`są.
 
-###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a>Limity rozmiaru kwerendy
+###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a>Limity rozmiaru zapytań
 
- Istnieje ograniczenie rozmiaru zapytań, które można wysłać do usługi Azure Cognitive Search. W szczególności można mieć co najwyżej 1024 klauzule (wyrażenia oddzielone AND, OR, i tak dalej). Istnieje również limit około 32 KB na rozmiar dowolnego pojedynczego terminu w kwerendzie. Jeśli aplikacja generuje zapytania wyszukiwania programowo, zaleca się projektowanie go w taki sposób, aby nie generować kwerend o rozmiarze nieograniczonym.  
+ Istnieje ograniczenie rozmiaru zapytań, które można wysłać do usługi Azure Wyszukiwanie poznawcze. W szczególności można mieć co najwyżej 1024 klauzul (wyrażenia oddzielone znakami i, lub itd.). Obowiązuje również limit około 32 KB na rozmiar każdego pojedynczego okresu zapytania. Jeśli aplikacja generuje zapytania wyszukiwania programowo, zalecamy zaprojektowanie go w taki sposób, aby nie generował zapytań o nieograniczonego rozmiaru.  
 
-## <a name="boolean-search"></a>Wyszukiwanie logiczne
+## <a name="boolean-search"></a>Wyszukiwanie wartości logicznych
 
-Operatory logiczne (AND, OR, NOT) można osadzać w ciągu zapytania, aby utworzyć bogaty zestaw kryteriów, względem których znajdują się pasujące dokumenty. 
+Można osadzić operatory logiczne (i, nie) w ciągu zapytania w celu utworzenia bogatego zestawu kryteriów, względem których znaleziono pasujące dokumenty. 
 
-### <a name="and-operator-"></a>Operator I`+`
+### <a name="and-operator-"></a>AND — operator`+`
 
-Operator AND jest znakiem plus. Na przykład, `wifi+luxury` będzie wyszukiwać `wifi` dokumenty `luxury`zawierające zarówno i .
+Operator AND jest znakiem plus. Na przykład `wifi + luxury` program przeszuka dokumenty zawierające zarówno `wifi` elementy, jak `luxury`i.
 
-### <a name="or-operator-"></a>Operator OR`|`
+### <a name="or-operator-"></a>OR — operator`|`
 
-Operator OR jest pionowym znakiem pręta lub rury. Na przykład `wifi | luxury` będzie wyszukiwać dokumenty `wifi` zawierające `luxury` jedną lub obie strony.
+Operator OR jest pionowym znakiem kreski lub potoku. Na przykład `wifi | luxury` program przeszuka dokumenty zawierające jeden `wifi` lub `luxury` oba te elementy.
 
 <a name="not-operator"></a>
 
-### <a name="not-operator--"></a>NIE operator`-`
+### <a name="not-operator--"></a>NOT — operator`-`
 
-Operator NOT jest znakiem minus. Na przykład `wifi –luxury` wyszuka dokumenty, `wifi` które mają ten `luxury`termin i/lub nie mają .
+Operator NOT jest znakiem minus. Program `wifi –luxury` przeszuka na przykład dokumenty, które mają `wifi` termin i/lub nie mają. `luxury`
 
-Parametr **searchMode** w żądaniu zapytania określa, czy termin z operatorem NOT jest ANDed lub `+` ORed z innymi terminami w kwerendzie (przy założeniu, że nie ma lub `|` operatora na innych warunkach). Prawidłowe `any` wartości `all`obejmują lub .
+Parametr **searchmode** w żądaniu zapytania kontroluje, czy termin z operatorem NOT jest ANDed lub logicznie innym warunkiem w zapytaniu (przy założeniu, że nie `+` ma `|` operatora OR w innych warunkach). Prawidłowe wartości to `any` include `all`lub.
 
-`searchMode=any`zwiększa wycofywanie zapytań o więcej wyników, `-` a domyślnie będą interpretowane jako "LUB NIE". Na przykład `wifi -luxury` będzie pasować do dokumentów, które zawierają termin `wifi` `luxury`lub te, które nie zawierają terminu .
+`searchMode=any`zwiększa odwoływanie zapytań przez dołączenie większej liczby wyników i domyślnie `-` będzie interpretowane jako "lub" nie ". Na przykład program `wifi -luxury` będzie pasował do dokumentów, które zawierają termin `wifi` lub te, które nie zawierają warunków `luxury`.
 
-`searchMode=all`zwiększa precyzję zapytań, włączając mniejszą liczbę wyników, a domyślnie - będzie interpretowana jako "I NIE". Na przykład `wifi -luxury` będzie pasować do `wifi` dokumentów, które zawierają termin i nie zawierają terminu "luksus". Jest to prawdopodobnie bardziej intuicyjne zachowanie `-` dla operatora. W związku z tym `searchMode=all` należy `searchMode=any` rozważyć użycie zamiast, jeśli chcesz zoptymalizować wyszukiwania dla precyzji `-` zamiast odwołania, *a* użytkownicy często używają operatora w wyszukiwaniach.
+`searchMode=all`zwiększa precyzję zapytań, dołączając mniejszą liczbę wyników i domyślnie — będzie interpretowana jako "i". Na przykład program `wifi -luxury` będzie pasował do dokumentów zawierających termin `wifi` i nie zawiera terminu "możliwość zaprojektowania". Jest to raczej bardziej intuicyjne zachowanie `-` operatora. W związku `searchMode=any` z tym należy rozważyć `searchMode=all` użycie zamiast tego, jeśli chcesz zoptymalizować wyszukiwanie pod kątem precyzji zamiast odwołania, *a* użytkownicy często używają `-` operatora w wyszukiwaniach.
 
-Decydując się na **ustawienie searchMode,** należy wziąć pod uwagę wzorce interakcji użytkownika dla zapytań w różnych aplikacjach. Użytkownicy, którzy szukają informacji są bardziej prawdopodobne, aby uwzględnić operatora w kwerendzie, w przeciwieństwie do witryn e-commerce, które mają więcej wbudowanych struktur nawigacji.
+Podczas decydowania o ustawieniu **searchmode** należy wziąć pod uwagę wzorce interakcji użytkownika dotyczące zapytań w różnych aplikacjach. Użytkownicy poszukujący informacji mogą dołączać operator do zapytania, w przeciwieństwie do witryn handlu elektronicznego, które mają bardziej wbudowaną strukturę nawigacji.
 
 <a name="prefix-search"></a>
 
 ## <a name="prefix-search"></a>Wyszukiwanie prefiksów
 
-Operator sufiksu jest `*`gwiazdką . Na przykład `lingui*` znajdzie "językowe" lub "linguini", ignorując przypadek. 
+Operatorem sufiksu jest gwiazdka `*`. Na przykład program `lingui*` wykryje "język" lub "Linguini", ignorując wielkość liter. 
 
-Podobnie jak filtry, kwerenda prefiks szuka dopasowania dokładnego. W związku z tym nie ma znaczenia punktacji (wszystkie wyniki otrzymują wynik wyszukiwania 1.0). Kwerendy prefiksu może być powolny, zwłaszcza jeśli indeks jest duży, a prefiks składa się z niewielkiej liczby znaków. 
+Podobnie jak w przypadku filtrów, zapytanie o prefiks szuka dokładnego dopasowania. W związku z tym nie ma oceny znaczenia (wyniki wyszukiwania są 1,0). Zapytania z prefiksami mogą być powolne, szczególnie jeśli indeks jest duży, a prefiks składa się z niewielkiej liczby znaków. 
 
-Jeśli chcesz wykonać kwerendę sufiks, pasujące w ostatniej części ciągu, użyj [wyszukiwania symboli wieloznacznych](query-lucene-syntax.md#bkmk_wildcard) i pełnej składni Lucene.
+Jeśli chcesz wykonać kwerendę sufiksu, odpowiadającą ostatniej części ciągu, użyj [wyszukiwania wieloznacznego](query-lucene-syntax.md#bkmk_wildcard) i pełnej składni Lucene.
 
 ## <a name="phrase-search-"></a>Wyszukiwanie fraz`"`
 
-Wyszukiwanie terminów to zapytanie o co najmniej jeden termin, w którym którykolwiek z terminów jest uznawany za zgodny. Wyszukiwanie fraz to dokładna fraza ujęta w cudzysłów `" "`. Na przykład `Roach Motel` podczas gdy (bez cudzysłowów) `Motel` będzie wyszukiwać `"Roach Motel"` dokumenty zawierające `Roach` i/lub w dowolnym miejscu w dowolnej kolejności (z cudzysłowami) będzie pasować tylko do dokumentów, które zawierają tę całość frazy razem i w tej kolejności (analiza tekstu nadal ma zastosowanie).
+Wyszukiwanie warunków jest zapytania dla co najmniej jednego terminu, gdzie dowolne z warunków jest uważane za dopasowanie. Wyszukiwanie frazy jest dokładną frazą ujętą w `" "`znaki cudzysłowu. Na `Roach Motel` przykład podczas (bez cudzysłowów) Wyszukiwanie dokumentów `Roach` zawierających i/lub `Motel` wszędzie w dowolnej kolejności `"Roach Motel"` (z cudzysłowami) będzie pasować tylko do dokumentów, które zawierają całą frazę i w tej kolejności (analiza tekstu nadal dotyczy).
 
-## <a name="see-also"></a>Zobacz też  
+## <a name="see-also"></a>Zobacz także  
 
-+ [Przykłady zapytań dotyczące wyszukiwania prostego](search-query-simple-examples.md)
-+ [Przykłady zapytań dotyczące pełnego wyszukiwania lucene](search-query-lucene-examples.md)
-+ [&#41;interfejsu API usługi Azure Cognitive Search REST &#40;dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search](search-lucene-query-architecture.md)
++ [Przykłady zapytań dla prostego wyszukiwania](search-query-simple-examples.md)
++ [Przykłady zapytań dla pełnego wyszukiwania Lucene](search-query-lucene-examples.md)
++ [Interfejs API REST wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Składnia zapytań Lucene](query-lucene-syntax.md)
 + [Składnia wyrażenia OData](query-odata-filter-orderby-syntax.md) 

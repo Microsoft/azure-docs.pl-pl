@@ -1,6 +1,6 @@
 ---
-title: Dodawanie strony do interfejsu użytkownika rozwiązania do zdalnego monitorowania — Azure | Dokumenty firmy Microsoft
-description: W tym artykule pokazano, jak dodać nową stronę do interfejsu użytkownika sieci web akceleratora rozwiązania zdalnego monitorowania.
+title: Dodawanie strony do interfejsu użytkownika rozwiązania do monitorowania zdalnego — Azure | Microsoft Docs
+description: W tym artykule opisano sposób dodawania nowej strony do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,36 +8,36 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0228f317e2d3380f2387dd557a27203eb3abc4ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c90f4166bf88a8df18a93e84903c93461b904d2c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240260"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187266"
 ---
-# <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Dodawanie strony niestandardowej do interfejsu użytkownika internetowego akceleratora rozwiązania zdalnego monitorowania
+# <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Dodawanie strony niestandardowej do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego
 
-W tym artykule pokazano, jak dodać nową stronę do interfejsu użytkownika sieci web akceleratora rozwiązania zdalnego monitorowania. W artykule opisano:
+W tym artykule opisano sposób dodawania nowej strony do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego. W tym artykule opisano:
 
 - Jak przygotować lokalne środowisko programistyczne.
 - Jak dodać nową stronę do interfejsu użytkownika sieci Web.
 
-Inne przewodniki insceny rozszerzają ten scenariusz, aby dodać więcej funkcji do strony, którą dodajesz.
+Inne Przewodniki krok po kroku zwiększają ten scenariusz, aby dodać więcej funkcji do dodawanej strony.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym przewodniku, na lokalnym komputerze deweloperskim należy zainstalować następujące oprogramowanie:
+Aby wykonać kroki opisane w tym przewodniku, musisz zainstalować następujące oprogramowanie na lokalnym komputerze deweloperskim:
 
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
-## <a name="prepare-a-local-development-environment-for-the-ui"></a>Przygotowanie lokalnego środowiska programistycznego dla interfejsu użytkownika
+## <a name="prepare-a-local-development-environment-for-the-ui"></a>Przygotuj lokalne środowisko programistyczne dla interfejsu użytkownika
 
-Kod interfejsu użytkownika akceleratora rozwiązania zdalnego monitorowania jest implementowany przy użyciu struktury [JavaScript React.](https://reactjs.org/) Kod źródłowy można znaleźć w repozytorium Usługi WebUI GitHub [do zdalnego monitorowania.](https://github.com/Azure/pcs-remote-monitoring-webui)
+Kod interfejsu użytkownika akceleratora rozwiązania do monitorowania zdalnego jest implementowany przy użyciu platformy JavaScript do [reagowania](https://reactjs.org/) . Kod źródłowy można znaleźć w repozytorium do [zdalnego monitorowania WebUI](https://github.com/Azure/pcs-remote-monitoring-webui) .
 
-Aby wprowadzić i przetestować zmiany w interfejsie użytkownika, można go uruchomić na komputerze deweloperskim lokalnym. Opcjonalnie kopia lokalna może połączyć się z wdrożonym wystąpieniem akceleratora rozwiązań, aby umożliwić mu interakcję z rzeczywistymi lub symulowanych urządzeniami.
+Aby wprowadzić i przetestować zmiany w interfejsie użytkownika, można uruchomić je na lokalnym komputerze deweloperskim. Opcjonalnie kopia lokalna może połączyć się ze wdrożonym wystąpieniem akceleratora rozwiązania, aby umożliwić mu współpracujące z rzeczywistymi lub symulowanymi urządzeniami.
 
-Aby przygotować lokalne środowisko programistyczne, użyj git, aby sklonować repozytorium [WebUI zdalnego monitorowania](https://github.com/Azure/pcs-remote-monitoring-webui) na komputerze lokalnym:
+Aby przygotować lokalne środowisko programistyczne, użyj narzędzia Git, aby sklonować repozytorium [zdalnego monitorowania WebUI](https://github.com/Azure/pcs-remote-monitoring-webui) na maszynę lokalną:
 
 ```cmd/sh
 git clone https://github.com/Azure/pcs-remote-monitoring-webui.git
@@ -45,43 +45,43 @@ git clone https://github.com/Azure/pcs-remote-monitoring-webui.git
 
 ## <a name="add-a-page"></a>Dodawanie strony
 
-Aby dodać stronę do interfejsu użytkownika sieci Web, należy dodać pliki źródłowe definiujące stronę i zmodyfikować niektóre istniejące pliki, aby uwrażliwić internetowy interfejs użytkownika na nową stronę.
+Aby dodać stronę do interfejsu użytkownika sieci Web, należy dodać pliki źródłowe, które definiują stronę, i zmodyfikować niektóre istniejące pliki, aby interfejs użytkownika sieci Web miał świadomość nowej strony.
 
-### <a name="add-the-new-files-that-define-the-page"></a>Dodawanie nowych plików definiujących stronę
+### <a name="add-the-new-files-that-define-the-page"></a>Dodaj nowe pliki, które definiują stronę
 
-Aby rozpocząć, folder **src/walkthrough/components/pages/basicPage** zawiera cztery pliki definiujące prostą stronę:
+Aby rozpocząć pracę, folder **src/Przewodnik/składniki/strony/od basicpage** zawiera cztery pliki, które definiują prostą stronę:
 
-**strona podstawowaPage.container.js**
+**Od basicpage. Container. js**
 
 [!code-javascript[Page container source](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.container.js?name=container "Page container source")]
 
-**basicPage.js**
+**Od basicpage. js**
 
 [!code-javascript[Basic page](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.js?name=page "Basic page")]
 
-**basicPage.scss**
+**Od basicpage. SCSS**
 
 [!code-javascript[Page styling](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.scss?name=styles "Page styling")]
 
-**basicPage.test.js**
+**Od basicpage. test. js**
 
 [!code-javascript[Test code for basic page](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.test.js?name=test "Test code for basic page")]
 
-Utwórz nowy folder **src / components / pages / przykład** i skopiować te cztery pliki do niego.
+Utwórz nowy folder **src/Components/Pages/example** i skopiuj do niego cztery pliki.
 
-### <a name="add-the-new-page-to-the-web-ui"></a>Dodawanie nowej strony do interfejsu użytkownika sieci Web
+### <a name="add-the-new-page-to-the-web-ui"></a>Dodaj nową stronę do interfejsu użytkownika sieci Web
 
-Aby dodać nową stronę do interfejsu użytkownika sieci Web, należy wprowadzić następujące zmiany w istniejących plikach:
+Aby dodać nową stronę do interfejsu użytkownika sieci Web, wprowadź następujące zmiany w istniejących plikach:
 
-1. Dodaj nowy kontener strony do pliku **src/components/pages/index.js:**
+1. Dodaj kontener nowej strony do pliku **src/Components/Pages/index. js** :
 
     ```js
     export * from './example/basicPage.container';
     ```
 
-1. (Opcjonalnie)  Dodaj ikonę SVG dla nowej strony. Aby uzyskać więcej informacji, zobacz [webui/src/utilities/README.md](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/utilities/README.md). Można użyć istniejącego pliku SVG.
+1. Obowiązkowe  Dodaj ikonę SVG dla nowej strony. Aby uzyskać więcej informacji, zobacz [WebUI/src/Utilities/Readme. MD](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/utilities/README.md). Możesz użyć istniejącego pliku SVG.
 
-1. Dodaj nazwę strony do pliku tłumaczeń, **public/locales/en/translations.json**. Interfejs użytkownika sieci Web używa [i18następny](https://www.i18next.com/) do internacjonalizacji.
+1. Dodaj nazwę strony do pliku tłumaczenia, **Public/Locals/pl/Translation. JSON**. Interfejs użytkownika sieci Web używa [i18next](https://www.i18next.com/) na potrzeby funkcji wielojęzycznych.
 
     ```json
     "tabs": {
@@ -89,7 +89,7 @@ Aby dodać nową stronę do interfejsu użytkownika sieci Web, należy wprowadzi
     },
     ```
 
-1. Otwórz plik **src/components/app.js** definiujący stronę aplikacji najwyższego poziomu. Dodaj nową stronę do listy importów:
+1. Otwórz plik **src/Components/App. js** , który definiuje stronę aplikacji najwyższego poziomu. Dodaj nową stronę do listy importów:
 
     ```javascript
     // Page Components
@@ -99,7 +99,7 @@ Aby dodać nową stronę do interfejsu użytkownika sieci Web, należy wprowadzi
     } from './pages';
     ```
 
-1. W tym samym pliku dodaj nową `pagesConfig` stronę do tablicy. Ustaw `to` adres trasy, odwoł się do ikony SVG i `component` tłumaczeń dodanych wcześniej i ustaw kontener strony:
+1. W tym samym pliku Dodaj nową stronę do `pagesConfig` tablicy. Ustaw `to` adres dla trasy, odwołując się do ikony SVG i wcześniej dodanych tłumaczeń i `component` Ustaw dla kontenera strony:
 
     ```js
     const pagesConfig = [
@@ -115,7 +115,7 @@ Aby dodać nową stronę do interfejsu użytkownika sieci Web, należy wprowadzi
     ];
     ```
 
-1. Dodaj dowolną nową bułkę `crumbsConfig` tartą do tablicy:
+1. Dodaj nową `crumbsConfig` tablicę struktury nawigacyjnej do tablicy:
 
     ```js
     const crumbsConfig = [
@@ -129,58 +129,58 @@ Aby dodać nową stronę do interfejsu użytkownika sieci Web, należy wprowadzi
     ];
     ```
 
-    Ta przykładowa strona ma tylko jedną kolejka na boks, ale niektóre strony mogą mieć więcej.
+    Ta przykładowa strona ma tylko jeden pasek nawigacyjny, ale niektóre strony mogą mieć więcej informacji.
 
-Zapisz wszystkie zmiany. Możesz uruchomić internetowy interfejs użytkownika z nową stroną dodaną.
+Zapisz wszystkie zmiany. Wszystko jest gotowe do uruchomienia internetowego interfejsu użytkownika z dodaną nową stroną.
 
 ### <a name="test-the-new-page"></a>Testowanie nowej strony
 
-W wierszu polecenia przejdź do katalogu głównego lokalnej kopii repozytorium i uruchom następujące polecenia, aby zainstalować wymagane biblioteki i uruchomić internetowy interfejs użytkownika lokalnie:
+W wierszu polecenia przejdź do katalogu głównego lokalnej kopii repozytorium i uruchom następujące polecenia, aby zainstalować wymagane biblioteki i uruchomić lokalny interfejs użytkownika sieci Web:
 
 ```cmd/sh
 npm install
 npm start
 ```
 
-Poprzednie polecenie uruchamia interfejs użytkownika [http://localhost:3000/dashboard](http://localhost:3000/dashboard)lokalnie w pliku .
+Poprzednie polecenie uruchamia interfejs użytkownika lokalnie w `http://localhost:3000/dashboard`.
 
-Bez łączenia lokalnego wystąpienia interfejsu użytkownika sieci web z wdrożonym wystąpieniem akceleratora rozwiązań na pulpicie nawigacyjnym są widoczne błędy. Te błędy nie wpływają na możliwość przetestowania nowej strony.
+Bez łączenia lokalnego wystąpienia interfejsu użytkownika sieci Web ze wdrożonym wystąpieniem akceleratora rozwiązania zobaczysz błędy na pulpicie nawigacyjnym. Te błędy nie wpływają na zdolność do testowania nowej strony.
 
-Teraz można edytować kod, gdy witryna jest uruchomiona lokalnie i dynamicznie wyświetlać aktualizację interfejsu użytkownika sieci Web.
+Teraz można edytować kod, gdy lokacja jest uruchamiana lokalnie i automatycznie wyświetlać aktualizację interfejsu użytkownika sieci Web.
 
-## <a name="optional-connect-to-deployed-instance"></a>[Opcjonalnie] Łączenie się z wdrożonym wystąpieniem
+## <a name="optional-connect-to-deployed-instance"></a>Obowiązkowe Nawiązywanie połączenia ze wdrożonym wystąpieniem
 
-Opcjonalnie można podłączyć lokalną uruchomię kopię interfejsu użytkownika sieci web do akceleratora rozwiązań zdalnego monitorowania w chmurze:
+Opcjonalnie możesz połączyć lokalną kopię interfejsu użytkownika sieci Web z akceleratorem rozwiązania do zdalnego monitorowania w chmurze:
 
-1. Wdrażanie **podstawowego** wystąpienia akceleratora rozwiązań przy użyciu **interfejsu wiersza** polecenia komputera. Zanotuj nazwę wdrożenia i poświadczenia podane dla maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Wdrażanie przy użyciu interfejsu wiersza polecenia](iot-accelerators-remote-monitoring-deploy-cli.md).
+1. Wdróż **podstawowe** wystąpienie akceleratora rozwiązania przy użyciu interfejsu wiersza polecenia **komputerów** . Zanotuj nazwę wdrożenia i poświadczenia podane dla maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [wdrażanie przy użyciu interfejsu wiersza polecenia](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Użyj witryny Azure portal lub [az CLI,](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) aby włączyć dostęp SSH do maszyny wirtualnej, która obsługuje mikrousług w rozwiązaniu. Przykład:
+1. Użyj Azure Portal lub [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , aby włączyć dostęp SSH do maszyny wirtualnej, która hostuje mikrousługi w rozwiązaniu. Przykład:
 
     ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Dostęp SSH należy włączyć tylko podczas testowania i programowania. Jeśli włączysz SSH, [należy wyłączyć go ponownie tak szybko, jak to możliwe](../security/fundamentals/network-best-practices.md).
+    Dostęp SSH należy włączyć tylko podczas testowania i programowania. W przypadku włączenia protokołu SSH należy [go ponownie wyłączyć najszybciej, jak to możliwe](../security/fundamentals/network-best-practices.md).
 
-1. Użyj witryny Azure portal lub [interfejsu wiersza polecenia az,](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) aby znaleźć nazwę i publiczny adres IP maszyny wirtualnej. Przykład:
+1. Użyj Azure Portal lub [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , aby znaleźć nazwę i publiczny adres IP maszyny wirtualnej. Przykład:
 
     ```azurecli
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```
 
-1. Użyj protokołu SSH, aby połączyć się z maszyną wirtualną przy użyciu adresu IP z poprzedniego kroku i poświadczeń podanych podczas pracy **na komputerach w** celu wdrożenia rozwiązania.
+1. Użyj protokołu SSH do nawiązania połączenia z maszyną wirtualną przy użyciu adresu IP z poprzedniego kroku oraz poświadczeń podanych podczas uruchamiania **komputerów** w celu wdrożenia rozwiązania.
 
-1. Aby zezwolić lokalnemu środowisku użytkownika na łączenie się, uruchom następujące polecenia w powłoce bash na maszynie wirtualnej:
+1. Aby zezwolić na połączenie lokalnego środowiska użytkownika, uruchom następujące polecenia w powłoce bash na maszynie wirtualnej:
 
     ```sh
     cd /app
     sudo ./start.sh --unsafe
     ```
 
-1. Po zakończeniu polecenia i uruchomieniu witryny sieci Web można odłączyć się od maszyny wirtualnej.
+1. Po wyświetleniu polecenia i uruchomieniu witryny sieci Web można rozłączyć się z maszyną wirtualną.
 
-1. W lokalnej kopii repozytorium [WebUI zdalnego monitorowania](https://github.com/Azure/pcs-remote-monitoring-webui) edytuj plik **.env,** aby dodać adres URL wdrożonego rozwiązania:
+1. W lokalnej kopii repozytorium [WebUI zdalnego monitorowania](https://github.com/Azure/pcs-remote-monitoring-webui) Edytuj plik **ENV** , aby dodać adres URL wdrożonego rozwiązania:
 
     ```config
     NODE_PATH = src/
@@ -189,8 +189,8 @@ Opcjonalnie można podłączyć lokalną uruchomię kopię interfejsu użytkowni
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule dowiesz się o dostępnych zasobach ułatwiające dostosowanie interfejsu użytkownika sieci Web w akceleratorze rozwiązań do zdalnego monitorowania.
+Ten artykuł zawiera informacje o dostępnych zasobach, które ułatwiają Dostosowywanie interfejsu użytkownika sieci Web w akceleratorze rozwiązania do monitorowania zdalnego.
 
-Teraz zdefiniowano stronę, następnym krokiem jest [dodanie usługi niestandardowej do interfejsu użytkownika sieci web akceleratora rozwiązania zdalnego monitorowania,](iot-accelerators-remote-monitoring-customize-service.md) który pobiera dane do wyświetlenia w interfejsie użytkownika.
+Po zdefiniowaniu strony, następnym krokiem jest [dodanie usługi niestandardowej do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego](iot-accelerators-remote-monitoring-customize-service.md) , który pobiera dane do wyświetlenia w interfejsie użytkownika.
 
-Aby uzyskać więcej informacji koncepcyjnych dotyczących akceleratora rozwiązań do zdalnego monitorowania, zobacz [Architektura zdalnego monitorowania](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Aby uzyskać więcej informacji o pojęciach dotyczących akceleratora rozwiązania do monitorowania zdalnego, zobacz [Architektura zdalnego monitorowania](iot-accelerators-remote-monitoring-sample-walkthrough.md).

@@ -1,38 +1,39 @@
 ---
 title: Przykłady zapytań podstawowych
 description: Przy użyciu usługi Azure Resource Graph uruchom kilka zapytań dla początkujących, obejmujących zliczanie i porządkowanie zasobów lub grupowanie według określonego tagu.
-ms.date: 11/21/2019
+ms.date: 04/27/2020
 ms.topic: sample
-ms.openlocfilehash: b966d8c239cb6ff706c967174bcea23bf25de374
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: fc499f466d61fb665cc31075a2c310372d993f2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238398"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185867"
 ---
-# <a name="starter-resource-graph-query-samples"></a>Przykłady kwerend wykresu zasobów startowych
+# <a name="starter-resource-graph-query-samples"></a>Przykłady zapytań na wykres zasobów początkowych
 
-Pierwszym krokiem do zrozumienia zapytań usługi Azure Resource Graph jest podstawowa wiedza na temat [języka zapytań](../concepts/query-language.md). Jeśli nie jesteś jeszcze zaznajomiony z [Kusto Query Language (KQL),](/azure/kusto/query/index)zaleca się przejrzenie [samouczka dla KQL,](/azure/kusto/query/tutorial) aby zrozumieć, jak skomponować żądania zasobów, których szukasz.
+Pierwszym krokiem do zrozumienia zapytań usługi Azure Resource Graph jest podstawowa wiedza na temat [języka zapytań](../concepts/query-language.md). Jeśli nie znasz już programu [Kusto Query Language (KQL)](/azure/kusto/query/index), zalecamy zapoznanie się z [samouczkiem dotyczącym usługi KQL](/azure/kusto/query/tutorial) , aby zrozumieć, jak tworzyć żądania dla szukanych zasobów.
 
 Omówimy następujące podstawowe zapytania:
 
 > [!div class="checklist"]
 > - [Liczba zasobów platformy Azure](#count-resources)
-> - [Zliczanie zasobów magazynu kluczy](#count-keyvaults)
-> - [Lista zasobów posortowanych według nazwy](#list-resources)
+> - [Liczenie zasobów magazynu kluczy](#count-keyvaults)
+> - [Wyświetl listę zasobów posortowanych według nazwy](#list-resources)
 > - [Pokaż wszystkie maszyny wirtualne uporządkowane według nazwy w kolejności malejącej](#show-vms)
 > - [Pokaż pięć pierwszych maszyn wirtualnych według nazwy i ich typu systemu operacyjnego](#show-sorted)
 > - [Liczba maszyn wirtualnych według typu systemu operacyjnego](#count-os)
 > - [Pokaż zasoby zawierające magazyn](#show-storage)
 > - [Lista wszystkich publicznych adresów IP](#list-publicip)
-> - [Zliczanie zasobów, które mają skonfigurowane adresy IP według subskrypcji](#count-resources-by-ip)
-> - [Lista zasobów z określoną wartością znacznika](#list-tag)
-> - [Wyświetlanie listy wszystkich kont magazynu z określoną wartością znacznika](#list-specific-tag)
-> - [Pokazywale aliasów zasobu maszyny wirtualnej](#show-aliases)
+> - [Liczba zasobów z adresami IP skonfigurowanymi przez subskrypcję](#count-resources-by-ip)
+> - [Wyświetlanie listy zasobów o określonej wartości tagu](#list-tag)
+> - [Wyświetl listę wszystkich kont magazynu z określoną wartością tagu](#list-specific-tag)
+> - [Wyświetlanie aliasów zasobu maszyny wirtualnej](#show-aliases)
 > - [Pokaż różne wartości dla określonego aliasu](#distinct-alias-values)
-> - [Pokaż nieskoczące się grupy zabezpieczeń sieci](#unassociated-nsgs)
+> - [Pokaż nieskojarzone sieciowe grupy zabezpieczeń](#unassociated-nsgs)
+> - [Pobierz podsumowanie oszczędności kosztów z Azure Advisor](#advisor-savings)
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free) .
 
 ## <a name="language-support"></a>Obsługa języków
 
@@ -61,17 +62,17 @@ Search-AzGraph -Query "Resources | summarize count()"
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20summarize%20count()" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20summarize%20count()" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20summarize%20count()" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20summarize%20count()" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20summarize%20count()" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20summarize%20count()" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
-## <a name="count-key-vault-resources"></a><a name="count-keyvaults" />Zliczanie zasobów magazynu kluczy
+## <a name="count-key-vault-resources"></a><a name="count-keyvaults" />Liczenie zasobów magazynu kluczy
 
-Ta kwerenda `count` używa `summarize` zamiast zliczania liczby zwróconych rekordów. W liczbie uwzględniono tylko magazyny kluczy.
+To zapytanie używa `count` zamiast tego `summarize` , aby policzyć liczbę zwróconych rekordów. Tylko magazyny kluczy są uwzględniane w liczniku.
 
 ```kusto
 Resources
@@ -93,11 +94,11 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.keyvault/vaults' | c
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.keyvault%2Fvaults'%20%7C%20count" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.keyvault%2Fvaults'%20%7C%20count" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.keyvault%2Fvaults'%20%7C%20count" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.keyvault%2Fvaults'%20%7C%20count" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.keyvault%2Fvaults'%20%7C%20count" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.keyvault%2Fvaults'%20%7C%20count" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
@@ -125,11 +126,11 @@ Search-AzGraph -Query "Resources | project name, type, location | order by name 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20type%2C%20location%20%7C%20order%20by%20name%20asc" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20type%2C%20location%20%7C%20order%20by%20name%20asc" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20type%2C%20location%20%7C%20order%20by%20name%20asc" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20type%2C%20location%20%7C%20order%20by%20name%20asc" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20type%2C%20location%20%7C%20order%20by%20name%20asc" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20type%2C%20location%20%7C%20order%20by%20name%20asc" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
@@ -158,11 +159,11 @@ Search-AzGraph -Query "Resources | project name, location, type| where type =~ '
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20location%2C%20type%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20order%20by%20name%20desc" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20location%2C%20type%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20order%20by%20name%20desc" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20location%2C%20type%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20order%20by%20name%20desc" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20location%2C%20type%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20order%20by%20name%20desc" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20location%2C%20type%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20order%20by%20name%20desc" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20location%2C%20type%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20order%20by%20name%20desc" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
@@ -191,11 +192,11 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%20%7C%20top%205%20by%20name%20desc" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%20%7C%20top%205%20by%20name%20desc" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%20%7C%20top%205%20by%20name%20desc" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%20%7C%20top%205%20by%20name%20desc" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%20%7C%20top%205%20by%20name%20desc" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%20%7C%20top%205%20by%20name%20desc" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
@@ -224,11 +225,11 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20summarize%20count()%20by%20tostring(properties.storageProfile.osDisk.osType)" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20summarize%20count()%20by%20tostring(properties.storageProfile.osDisk.osType)" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20summarize%20count()%20by%20tostring(properties.storageProfile.osDisk.osType)" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20summarize%20count()%20by%20tostring(properties.storageProfile.osDisk.osType)" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20summarize%20count()%20by%20tostring(properties.storageProfile.osDisk.osType)" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20summarize%20count()%20by%20tostring(properties.storageProfile.osDisk.osType)" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
@@ -255,16 +256,16 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%20%7C%20summarize%20count()%20by%20tostring(os)" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%20%7C%20summarize%20count()%20by%20tostring(os)" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%20%7C%20summarize%20count()%20by%20tostring(os)" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%20%7C%20summarize%20count()%20by%20tostring(os)" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%20%7C%20summarize%20count()%20by%20tostring(os)" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%20%7C%20summarize%20count()%20by%20tostring(os)" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
 > [!NOTE]
-> Pamiętaj, że o ile `=~` zezwala na dopasowanie bez uwzględniania wielkości liter, to użycie właściwości (takich jak **properties.storageProfile.osDisk.osType**) w zapytaniu wymaga prawidłowej wielkości liter. Jeśli właściwość jest niepoprawna wielkość liter, zwracana jest wartość null lub niepoprawna, a grupowanie lub podsumowanie będzie niepoprawne.
+> Pamiętaj, że o ile `=~` zezwala na dopasowanie bez uwzględniania wielkości liter, to użycie właściwości (takich jak **properties.storageProfile.osDisk.osType**) w zapytaniu wymaga prawidłowej wielkości liter. Jeśli właściwość jest w nieprawidłowym przypadku, zwracana jest wartość null lub jest niepoprawna, a grupowanie lub podsumowanie będzie nieprawidłowe.
 
 ## <a name="show-resources-that-contain-storage"></a><a name="show-storage" />Pokaż zasoby, które zawierają magazyn
 
@@ -289,19 +290,19 @@ Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'storage'%20%7C%20distinct%20type" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'storage'%20%7C%20distinct%20type" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'storage'%20%7C%20distinct%20type" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'storage'%20%7C%20distinct%20type" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'storage'%20%7C%20distinct%20type" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'storage'%20%7C%20distinct%20type" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
 ## <a name="list-all-public-ip-addresses"></a><a name="list-publicip" />Lista wszystkich publicznych adresów IP
 
 Podobnie jak poprzednie zapytanie, znajduje wszystko, co jest typem zawierającym słowo **publicIPAddresses**.
-Ta kwerenda rozszerza się na tym wzorcu, aby uwzględnić tylko wyniki, w których **properties.ipAddress**
-`isnotempty`, aby zwrócić tylko **adres properties.ipAddress,** i wyniki `limit` przez górę
+To zapytanie jest rozwijane w tym wzorcu, aby zawierało tylko wyniki, w których **Właściwość. IPAddress**
+`isnotempty`ma zwracać tylko **właściwości. IPAddress**i do `limit` wyników według początku
 100. W zależności od wybranej powłoki może być konieczne zastosowanie znaku ucieczki dla cudzysłowów.
 
 ```kusto
@@ -325,11 +326,11 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20project%20properties.ipAddress%20%7C%20limit%20100" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20project%20properties.ipAddress%20%7C%20limit%20100" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20project%20properties.ipAddress%20%7C%20limit%20100" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20project%20properties.ipAddress%20%7C%20limit%20100" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20project%20properties.ipAddress%20%7C%20limit%20100" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20project%20properties.ipAddress%20%7C%20limit%20100" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
@@ -357,11 +358,11 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20summarize%20count%20()%20by%20subscriptionId" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20summarize%20count%20()%20by%20subscriptionId" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20summarize%20count%20()%20by%20subscriptionId" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20summarize%20count%20()%20by%20subscriptionId" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20summarize%20count%20()%20by%20subscriptionId" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20summarize%20count%20()%20by%20subscriptionId" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
@@ -389,11 +390,11 @@ Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
@@ -419,11 +420,11 @@ Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name%2C%20tags" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name%2C%20tags" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name%2C%20tags" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name%2C%20tags" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name%2C%20tags" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name%2C%20tags" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
@@ -451,20 +452,20 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Storage%2FstorageAccounts'%20%7C%20where%20tags%5B'tag%20with%20a%20space'%5D%3D%3D'Custom%20value'" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Storage%2FstorageAccounts'%20%7C%20where%20tags%5B'tag%20with%20a%20space'%5D%3D%3D'Custom%20value'" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Storage%2FstorageAccounts'%20%7C%20where%20tags%5B'tag%20with%20a%20space'%5D%3D%3D'Custom%20value'" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Storage%2FstorageAccounts'%20%7C%20where%20tags%5B'tag%20with%20a%20space'%5D%3D%3D'Custom%20value'" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Storage%2FstorageAccounts'%20%7C%20where%20tags%5B'tag%20with%20a%20space'%5D%3D%3D'Custom%20value'" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Storage%2FstorageAccounts'%20%7C%20where%20tags%5B'tag%20with%20a%20space'%5D%3D%3D'Custom%20value'" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
 > [!NOTE]
 > W tym przykładzie użyto `==` do dopasowania zamiast warunkowego `=~`. `==` jest dopasowaniem uwzględniającym wielkość liter.
 
-## <a name="show-aliases-for-a-virtual-machine-resource"></a><a name="show-aliases" />Pokazywale aliasów zasobu maszyny wirtualnej
+## <a name="show-aliases-for-a-virtual-machine-resource"></a><a name="show-aliases" />Wyświetlanie aliasów zasobu maszyny wirtualnej
 
-[Aliasy zasad platformy Azure](../../policy/concepts/definition-structure.md#aliases) są używane przez usługę Azure Policy do zarządzania zgodnością zasobów. Program Azure Resource Graph może zwracać _aliasy_ typu zasobu. Te wartości są przydatne do porównywania bieżącej wartości aliasów podczas tworzenia niestandardowej definicji zasad. Tablica _aliasów_ nie jest domyślnie podana w wynikach kwerendy. Użyj, `project aliases` aby jawnie dodać go do wyników.
+[Aliasy Azure Policy](../../policy/concepts/definition-structure.md#aliases) są używane przez Azure Policy do zarządzania zgodnością zasobów. Wykres zasobów platformy Azure może zwracać _aliasy_ typu zasobu. Te wartości są przydatne do porównywania bieżącej wartości aliasów podczas tworzenia niestandardowej definicji zasad. Tablica _aliasów_ nie jest domyślnie określona w wynikach zapytania. Użyj `project aliases` , aby jawnie dodać go do wyników.
 
 ```kusto
 Resources
@@ -487,17 +488,17 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20limit%201%20%7C%20project%20aliases" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20limit%201%20%7C%20project%20aliases" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20limit%201%20%7C%20project%20aliases" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20limit%201%20%7C%20project%20aliases" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20limit%201%20%7C%20project%20aliases" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20limit%201%20%7C%20project%20aliases" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
 ## <a name="show-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values" />Pokaż różne wartości dla określonego aliasu
 
-Wyświetlanie wartości aliasów w jednym zasobie jest przydatne, ale nie pokazuje prawdziwej wartości przy użyciu usługi Azure Resource Graph do wykonywania zapytań w ramach subskrypcji. W tym przykładzie przyjrzy się wszystkim wartościom określonego aliasu i zwróci różne wartości.
+Wyświetlanie wartości aliasów w pojedynczym zasobie jest przydatne, ale nie pokazuje prawdziwej wartości przy użyciu grafu zasobów platformy Azure do wykonywania zapytań między subskrypcjami. Ten przykład sprawdza wszystkie wartości określonego aliasu i zwraca różne wartości.
 
 ```kusto
 Resources
@@ -520,17 +521,17 @@ Search-AzGraph -Query "Resources | where type=~'Microsoft.Compute/virtualMachine
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%3D~'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20alias%20%3D%20aliases%5B'Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType'%5D%20%7C%20distinct%20tostring(alias)" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%3D~'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20alias%20%3D%20aliases%5B'Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType'%5D%20%7C%20distinct%20tostring(alias)" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%3D~'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20alias%20%3D%20aliases%5B'Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType'%5D%20%7C%20distinct%20tostring(alias)" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%3D~'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20alias%20%3D%20aliases%5B'Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType'%5D%20%7C%20distinct%20tostring(alias)" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%3D~'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20alias%20%3D%20aliases%5B'Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType'%5D%20%7C%20distinct%20tostring(alias)" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%3D~'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20alias%20%3D%20aliases%5B'Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType'%5D%20%7C%20distinct%20tostring(alias)" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
-## <a name="show-unassociated-network-security-groups"></a><a name="unassociated-nsgs" />Pokaż nieskoczące się grupy zabezpieczeń sieci
+## <a name="show-unassociated-network-security-groups"></a><a name="unassociated-nsgs" />Pokaż nieskojarzone sieciowe grupy zabezpieczeń
 
-Ta kwerenda zwraca sieciowe grupy zabezpieczeń (NSG), które nie są skojarzone z interfejsem sieciowym lub podsiecią.
+To zapytanie zwraca sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń), które nie są skojarzone z interfejsem sieciowym lub podsiecią.
 
 ```kusto
 Resources
@@ -553,16 +554,59 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj tę kwerendę w Eksploratorze wykresu zasobów platformy Azure:
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
-- Portal Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.com</a> ![Otwórz łącze w nowej ikonie okna](../../media/new-window.png)
-- Portal azure dla instytucji rządowych: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.us</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
-- Portal Azure China: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.cn</a> ![łącze Otwórz w nowej ikonie okna](../../media/new-window.png)
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+
+---
+
+## <a name="get-cost-savings-summary-from-azure-advisor"></a><a name="advisor-savings" />Pobierz podsumowanie oszczędności kosztów z Azure Advisor
+
+To zapytanie podsumowuje oszczędności kosztów poszczególnych [Azure Advisor](../../../advisor/advisor-overview.md) rekomendacji.
+
+```kusto
+advisorresources
+| where type == 'microsoft.advisor/recommendations'
+| where properties.category == 'Cost'
+| extend
+    resources = tostring(properties.resourceMetadata.resourceId),
+    savings = todouble(properties.extendedProperties.savingsAmount),
+    solution = tostring(properties.shortDescription.solution),
+    currency = tostring(properties.extendedProperties.savingsCurrency)
+| summarize
+    dcount(resources), 
+    bin(sum(savings), 0.01)
+    by solution, currency
+| project solution, dcount_resources, sum_savings, currency
+| order by sum_savings desc
+```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "advisorresources | where type == 'microsoft.advisor/recommendations' | where properties.category == 'Cost' | extend resources = tostring(properties.resourceMetadata.resourceId), savings = todouble(properties.extendedProperties.savingsAmount), solution = tostring(properties.shortDescription.solution), currency = tostring(properties.extendedProperties.savingsCurrency) | summarize dcount(resources), bin(sum(savings), 0.01) by solution, currency | project solution, dcount_resources, sum_savings, currency | order by sum_savings desc"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "advisorresources | where type == 'microsoft.advisor/recommendations' | where properties.category == 'Cost' | extend resources = tostring(properties.resourceMetadata.resourceId), savings = todouble(properties.extendedProperties.savingsAmount), solution = tostring(properties.shortDescription.solution), currency = tostring(properties.extendedProperties.savingsCurrency) | summarize dcount(resources), bin(sum(savings), 0.01) by solution, currency | project solution, dcount_resources, sum_savings, currency | order by sum_savings desc"
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+![Ikona Eksploratora wykresu zasobów](../media/resource-graph-small.png) Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/advisorresources%20%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%20%7C%20where%20properties.category%20%3D%3D%20%27Cost%27%20%7C%20extend%20resources%20%3D%20tostring%28properties.resourceMetadata.resourceId%29%2C%20savings%20%3D%20todouble%28properties.extendedProperties.savingsAmount%29%2C%20solution%20%3D%20tostring%28properties.shortDescription.solution%29%2C%20currency%20%3D%20tostring%28properties.extendedProperties.savingsCurrency%29%20%7C%20summarize%20dcount%28resources%29%2C%20bin%28sum%28savings%29%2C%200.01%29%20by%20solution%2C%20currency%20%7C%20project%20solution%2C%20dcount_resources%2C%20sum_savings%2C%20currency%20%7C%20order%20by%20sum_savings%20desc" target="_blank">Portal.Azure.com</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/advisorresources%20%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%20%7C%20where%20properties.category%20%3D%3D%20%27Cost%27%20%7C%20extend%20resources%20%3D%20tostring%28properties.resourceMetadata.resourceId%29%2C%20savings%20%3D%20todouble%28properties.extendedProperties.savingsAmount%29%2C%20solution%20%3D%20tostring%28properties.shortDescription.solution%29%2C%20currency%20%3D%20tostring%28properties.extendedProperties.savingsCurrency%29%20%7C%20summarize%20dcount%28resources%29%2C%20bin%28sum%28savings%29%2C%200.01%29%20by%20solution%2C%20currency%20%7C%20project%20solution%2C%20dcount_resources%2C%20sum_savings%2C%20currency%20%7C%20order%20by%20sum_savings%20desc" target="_blank">Portal.Azure.us</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
+- Portal Chin platformy Azure: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/advisorresources%20%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%20%7C%20where%20properties.category%20%3D%3D%20%27Cost%27%20%7C%20extend%20resources%20%3D%20tostring%28properties.resourceMetadata.resourceId%29%2C%20savings%20%3D%20todouble%28properties.extendedProperties.savingsAmount%29%2C%20solution%20%3D%20tostring%28properties.shortDescription.solution%29%2C%20currency%20%3D%20tostring%28properties.extendedProperties.savingsCurrency%29%20%7C%20summarize%20dcount%28resources%29%2C%20bin%28sum%28savings%29%2C%200.01%29%20by%20solution%2C%20currency%20%7C%20project%20solution%2C%20dcount_resources%2C%20sum_savings%2C%20currency%20%7C%20order%20by%20sum_savings%20desc" target="_blank">Portal.Azure.CN</a> ![Otwórz link w nowym oknie ikona](../../media/new-window.png)
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [języku zapytań](../concepts/query-language.md).
-- Dowiedz się więcej o [eksplorowanie zasobów](../concepts/explore-resources.md).
-- Zobacz przykłady [zapytań zaawansowanych](advanced.md).
+- Dowiedz się więcej o sposobach [eksplorowania zasobów](../concepts/explore-resources.md).
+- Zobacz przykłady [zaawansowanych zapytań](advanced.md).

@@ -1,6 +1,6 @@
 ---
-title: Pobierz token w aplikacji sieci web, która wywołuje internetowe interfejsy API — platforma tożsamości firmy Microsoft | Azure
-description: Dowiedz się, jak uzyskać token dla aplikacji sieci web, która wywołuje internetowe interfejsy API
+title: Uzyskaj token w aplikacji sieci Web, która wywołuje interfejsy API sieci Web — Microsoft Identity platform | Azure
+description: Dowiedz się, jak uzyskać token dla aplikacji sieci Web, która wywołuje interfejsy API sieci Web
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,23 +11,23 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1069b4288f8253ccb9a7774b3144d10d85dcdd36
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 40e788099a159e1f60c0af02deccd7e3bef82744
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537121"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181736"
 ---
-# <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Aplikacja internetowa, która wywołuje internetowe interfejsy API: uzyskaj token dla aplikacji
+# <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: uzyskiwanie tokenu dla aplikacji
 
-Obiekt aplikacji klienckiej został utworzony. Teraz użyjesz go do uzyskania tokenu do wywołania internetowego interfejsu API. W ASP.NET lub ASP.NET Core wywoływanie internetowego interfejsu API odbywa się w kontrolerze:
+Obiekt aplikacji klienta został skompilowany. Teraz użyjesz go, aby uzyskać token do wywoływania interfejsu API sieci Web. W ASP.NET lub ASP.NET Core wywoływanie interfejsu API sieci Web odbywa się na kontrolerze:
 
-- Pobierz token dla internetowego interfejsu API przy użyciu pamięci podręcznej tokenu. Aby uzyskać ten token, `AcquireTokenSilent` należy wywołać metodę.
-- Wywołanie chronionego interfejsu API, przekazując token dostępu do niego jako parametr.
+- Uzyskaj token dla interfejsu API sieci Web za pomocą pamięci podręcznej tokenów. Aby uzyskać ten token, należy wywołać metodę MSAL `AcquireTokenSilent` (lub równoważną w Microsoft. Identity. Web).
+- Wywołaj chroniony interfejs API, przekazując do niego token dostępu jako parametr.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Metody kontrolera są chronione `[Authorize]` przez atrybut, który wymusza uwierzytelnianie użytkowników do korzystania z aplikacji sieci web. Oto kod, który wywołuje Microsoft Graph:
+Metody kontrolera są chronione przez `[Authorize]` atrybut, który wymusza uwierzytelnienie użytkowników w celu korzystania z aplikacji sieci Web. Oto kod, który wywołuje Microsoft Graph:
 
 ```csharp
 [Authorize]
@@ -45,7 +45,7 @@ public class HomeController : Controller
 }
 ```
 
-Usługa `ITokenAcquisition` jest wstrzykiwany przez ASP.NET za pomocą iniekcji zależności.
+`ITokenAcquisition` Usługa jest wstrzykiwana przez ASP.NET przy użyciu iniekcji zależności.
 
 Oto uproszczony kod dla akcji `HomeController`, który pobiera token do wywołania Microsoft Graph:
 
@@ -54,7 +54,7 @@ public async Task<IActionResult> Profile()
 {
  // Acquire the access token.
  string[] scopes = new string[]{"user.read"};
- string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
+ string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
  // Use the access token to call a protected web API.
  HttpClient client = new HttpClient();
@@ -63,28 +63,28 @@ public async Task<IActionResult> Profile()
 }
 ```
 
-Aby lepiej zrozumieć kod wymagany w tym scenariuszu, zobacz fazę 2[(2-1-Aplikacja sieci Web wywołuje microsoft graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) krok [ms-identity-aspnetcore-webapp-tutorial.](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial)
+Aby lepiej zrozumieć kod wymagany dla tego scenariusza, zobacz krok 2 ([2-1 — wywołania aplikacji sieci Web Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) w samouczku [MS-Identity-aspnetcore-webapp-samouczka](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) .
 
 Istnieją inne złożone odmiany, takie jak:
 
 - Wywoływanie kilku interfejsów API.
 - Przetwarzanie przyrostowej zgody i dostępu warunkowego.
 
-Te zaawansowane kroki są omówione w rozdziale 3 [samouczka 3-WebApp-multi-API.](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/3-WebApp-multi-APIs)
+Te zaawansowane kroki przedstawiono w rozdziale 3 samouczka [3-webapp-wiele interfejsów API](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/3-WebApp-multi-APIs) .
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Kod dla ASP.NET jest podobny do kodu wyświetlanego dla ASP.NET Core:
+Kod dla ASP.NET jest podobny do kodu pokazanego dla ASP.NET Core:
 
-- Akcja kontrolera, chroniona atrybutem [Authorize], wyodrębnia identyfikator dzierżawy i `ClaimsPrincipal` identyfikator użytkownika członka kontrolera. (ASP.NET używa `HttpContext.User`.)
-- Stamtąd tworzy `IConfidentialClientApplication` obiekt MSAL.NET.
+- Akcja kontrolera, chroniona przez atrybut [autoryzuje], wyodrębnia identyfikator dzierżawy i identyfikator użytkownika `ClaimsPrincipal` elementu członkowskiego kontrolera. (ASP.NET używa `HttpContext.User`.)
+- Z tego miejsca kompiluje obiekt MSAL.NET `IConfidentialClientApplication` .
 - Na koniec wywołuje `AcquireTokenSilent` metodę poufnej aplikacji klienckiej.
 
 # <a name="java"></a>[Java](#tab/java)
 
-W przykładzie Java kod, który wywołuje interfejs API jest w getUsersFromGraph metody w [AuthPageController.java#L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
+W przykładzie Java kod wywołujący interfejs API jest w metodzie getUsersFromGraph w [AuthPageController. Java # L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
 
-Metoda próbuje wywołać `getAuthResultBySilentFlow`. Jeśli użytkownik musi wyrazić zgodę na więcej `MsalInteractionRequiredException` zakresów, kod przetwarza obiekt, aby zakwestionować użytkownika.
+Metoda próbuje wywołać `getAuthResultBySilentFlow`. Jeśli użytkownik musi wyrazić zgodę na więcej zakresów, kod przetwarza `MsalInteractionRequiredException` obiekt, aby zakwestionować użytkownika.
 
 ```java
 @RequestMapping("/msal4jsample/graph/me")
@@ -144,9 +144,9 @@ public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServlet
 
 # <a name="python"></a>[Python](#tab/python)
 
-W przykładzie języka Python kod, który wywołuje Microsoft Graph jest w [app.py#L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62).
+W przykładzie języka Python kod, który wywołuje Microsoft Graph, znajduje się w [App. PR # L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62).
 
-Kod próbuje uzyskać token z pamięci podręcznej tokenu. Następnie po ustawieniu nagłówka autoryzacji wywołuje internetowy interfejs API. Jeśli nie może uzyskać tokenu, ponownie podpisuje użytkownika.
+Kod próbuje uzyskać token z pamięci podręcznej tokenów. Następnie, po ustawieniu nagłówka autoryzacji, wywoła internetowy interfejs API. Jeśli nie można uzyskać tokenu, podpisuje użytkownika ponownie.
 
 ```python
 @app.route("/graphcall")
@@ -160,6 +160,8 @@ def graphcall():
         ).json()
     return render_template('display.html', result=graph_data)
 ```
+
+---
 
 ## <a name="next-steps"></a>Następne kroki
 

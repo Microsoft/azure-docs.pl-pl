@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (Logowanie jednokrotne) z docusign | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a docusign.
+title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą DocuSign | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i DocuSign.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,220 +12,231 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01f969c3bc6f546025b3bbe5826181efdfa69be0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 02b0d8290e279b6ed4de08d074597154208cac6b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76983661"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183992"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (Logowanie jednokrotne) z docusign
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą DocuSign
 
-W tym samouczku dowiesz się, jak zintegrować DocuSign z usługą Microsoft Azure Active Directory (Azure AD). Po zintegrowaniu DocuSign z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować usługę DocuSign z usługą Microsoft Azure Active Directory (Azure AD). Po zintegrowaniu usługi DocuSign z usługą Azure AD można:
 
-* Użyj usługi Azure AD, aby kontrolować, kto ma dostęp do DocuSign.
-* Włącz automatyczne logowanie do docusign dla użytkowników za pośrednictwem ich kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji: w witrynie Azure Portal.
+* Użyj usługi Azure AD, aby kontrolować, kto ma dostęp do usługi DocuSign.
+* Włącz automatyczne logowanie do DocuSign dla użytkowników za pomocą kont usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji z usługą Azure AD z aplikacjami typu oprogramowanie jako usługa SaaS, zobacz [Logowanie jednokrotne w aplikacjach usługi Azure AD.](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Aby dowiedzieć się więcej o integracji aplikacji SaaS (Software as a Service) z usługą Azure AD, zobacz [Logowanie jednokrotne do aplikacji w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebujesz następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
-* Subskrypcja DocuSign, która jest włączona logowania jednokrotnego (SSO).
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Subskrypcja usługi DocuSign, która jest włączona (Logowanie jednokrotne).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku skonfigurujesz i przetestujesz samouszeńcę usługi Azure AD w środowisku testowym, aby to sprawdzić:
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym w celu sprawdzenia, czy:
 
-* DocuSign obsługuje zainicjowane przez dostawcę usług (SP) samoso.
+* DocuSign obsługuje logowanie jednokrotne przez dostawcę usług (SP).
 
-* DocuSign obsługuje *just-in-time inicjowania* obsługi administracyjnej użytkowników.
+* DocuSign obsługuje Inicjowanie obsługi użytkowników **just in Time** .
 
-* DocuSign obsługuje [automatyczne inicjowanie obsługi administracyjnej użytkowników](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
-* Po skonfigurowaniu docusign można wymusić kontrolę sesji, które chronią eksfiltracji i infiltracji poufnych danych organizacji w czasie rzeczywistym. Kontrola sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymusić kontrolę nad sesją za pomocą programu Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* DocuSign obsługuje [Automatyczne Inicjowanie obsługi użytkowników](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
+* Po skonfigurowaniu DocuSign można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
-## <a name="adding-docusign-from-the-gallery"></a>Dodawanie docusign z galerii
+## <a name="adding-docusign-from-the-gallery"></a>Dodawanie DocuSign z galerii
 
-Aby skonfigurować integrację docusign z usługą Azure AD, należy dodać DocuSign z galerii do listy zarządzanych aplikacji SaaS:
+Aby skonfigurować integrację programu DocuSign z usługą Azure AD, musisz dodać DocuSign z galerii do listy zarządzanych aplikacji SaaS:
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub szkolnego lub przy użyciu osobistego konta Microsoft.
-1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory.**
-1. Przejdź do **aplikacji dla przedsiębiorstw,** a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub za pomocą konto Microsoft osobistych.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **DocuSign** w polu wyszukiwania.
-1. Wybierz **docusign** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wpisz **Docusign** w polu wyszukiwania.
+1. Wybierz pozycję **Docusign** w panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-docusign"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla docusign
+## <a name="configure-and-test-azure-ad-single-sign-on-for-docusign"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla DocuSign
 
-Konfigurowanie i testowanie usługi Azure AD SSO za pomocą docuSign przy użyciu użytkownika testowego o nazwie **B.Simon**. Aby użytkownik sygnatora sygnowania dokumentów sygnowania, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a odpowiednim użytkownikiem w docusign.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą DocuSign przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD i odpowiednim użytkownikiem w DocuSign.
 
-Aby skonfigurować i przetestować sygnalizowania usługi Azure AD za pomocą docuSign, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą DocuSign, wykonaj następujące bloki konstrukcyjne:
 
-1. [Skonfiguruj samouszeńcę usługi Azure AD,](#configure-azure-ad-sso) aby użytkownicy mogli korzystać z tej funkcji.
-    1. [Utwórz użytkownika testowego usługi Azure AD,](#create-an-azure-ad-test-user) aby przetestować logowanie jednokrotne usługi Azure AD za pomocą usługi B.Simon.
-    1. [Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user) aby włączyć B.Simon do korzystania z usługi Azure AD logowania jednokrotnego.
-1. [Skonfiguruj logowanie jednokrotne docusign,](#configure-docusign-sso) aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-    1. [Utwórz użytkownika testowego DocuSign,](#create-docusign-test-user) aby wygenerować odpowiednik B.Simon w DocuSign, który jest połączony z reprezentacją usługi Azure AD użytkownika.
-1. [Przetestuj sytą próbę sycącą,](#test-sso) aby sprawdzić, czy konfiguracja działa.
+1. [Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso) , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. [Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user) , aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. [Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user) aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+1. [Skonfiguruj Logowanie jednokrotne](#configure-docusign-sso) w usłudze Docusign, aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+    1. [Utwórz użytkownika testowego Docusign](#create-docusign-test-user) w celu wygenerowania odpowiednika B. Simon w Docusign, która jest połączona z reprezentacją usługi Azure AD.
+1. [Przetestuj Logowanie jednokrotne](#test-sso) , aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Aby włączyć usługę Azure AD SSO w witrynie Azure portal, wykonaj następujące kroki:
+Aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal, wykonaj następujące kroki:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **DocuSign** znajdź sekcję **Zarządzaj,** a następnie wybierz opcję **logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Docusign** Znajdź sekcję **Zarządzanie** , a następnie wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** wybierz ikonę pióra dla **podstawowej konfiguracji SAML,** aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę pióra dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja SAML** wykonaj następujące kroki:
+1. W sekcji **Podstawowa konfiguracja języka SAML** wykonaj następujące kroki:
 
-    a. W polu **Zaloguj się na adres URL** wprowadź adres URL, używając następującego wzorca:`https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
+    a. W polu tekstowym **adres URL logowania** wprowadź adres URL, używając następującego wzorca:
 
-    b. W polu **Identyfikator (identyfikator jednostki)** wprowadź adres URL, używając następującego wzorca:`https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
+
+    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wprowadź adres URL przy użyciu następującego wzorca:
+
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
+
+    c. W polu tekstowym **adres URL odpowiedzi** wprowadź adres URL przy użyciu następującego wzorca:
+    
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login`
 
     > [!NOTE]
-    > Te wartości w nawiasach są symbolami zastępczymi. Zastąp je wartościami w rzeczywistym adresie URL logowania i identyfikatorze. Te szczegóły są wyjaśnione w sekcji "Zobacz PUNKTY KOŃCOWE SAML 2.0" w dalszej części tego samouczka.
+    > Te wartości ujęte w nawiasy są symbolami zastępczymi. Zastąp je wartościami w rzeczywistym adresie URL logowania, identyfikatorem i adresem URL odpowiedzi. Te szczegóły zostały wyjaśnione w sekcji "Zobacz punkty końcowe protokołu SAML 2,0" w dalszej części tego samouczka.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą SAML** w sekcji Saml Signing Certificate (Certyfikat **podpisywania SAML)** znajdź **pozycję Certyfikat (Base64).** Wybierz **pozycję Pobierz,** aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź pozycję **certyfikat (base64)**. Wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-1. W sekcji **Konfigurowanie docusign** skopiuj odpowiedni adres URL (lub adresy URL) na podstawie wymagań.
+1. W sekcji **Konfiguracja Docusign** skopiuj odpowiedni adres URL (lub adresy URL) zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego o nazwie B.Simon w witrynie Azure portal.
+W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
 
-1. W lewym okienku witryny Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-1. U góry ekranu wybierz pozycję **Nowy użytkownik**.
-1. We właściwościach **Użytkownika** wykonaj następujące kroki:
-   1. W polu **Nazwa** wprowadź **b.simon**.  
-   1. W polu **Nazwa** użytkownika `<username>@<companydomain>.<extension>`wprowadź . Na przykład: `B.Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło,** a następnie zanotuj wartość wyświetlaną w polu **Hasło.**
-   1. Wybierz **pozycję Utwórz**.
+1. W lewym okienku Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. W górnej części ekranu wybierz pozycję **nowy użytkownik**.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
+   1. W polu **Nazwa** wpisz **B. Simon**.  
+   1. W polu **Nazwa użytkownika** wprowadź `<username>@<companydomain>.<extension>`wartość. Na przykład: `B.Simon@contoso.com`.
+   1. Zaznacz pole wyboru **Pokaż hasło** , a następnie zanotuj wartość wyświetlaną w polu **hasło** .
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji udzielisz B.Simon dostępu do DocuSign, dzięki czemu ten użytkownik może używać logowania jednokrotnego platformy Azure.
+W tej sekcji zostanie udzielony dostęp do usługi DocuSign. Simon, aby ten użytkownik mógł korzystać z logowania jednokrotnego na platformie Azure.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **Wszystkie aplikacje**.
-1. Na liście aplikacji wybierz pozycję **DocuSign**.
-1. Na stronie przegląd aplikacji znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **Docusign**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przydziału** wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
 
-    ![Łącze Dodaj użytkownika](common/add-assign-user.png)
+    ![Link Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B.Simon** z listy **Użytkownicy,** a następnie naciśnij przycisk **Wybierz** u dołu ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie naciśnij przycisk **Wybierz** u dołu ekranu.
-1. W oknie dialogowym **Dodawanie przydziału** wybierz przycisk **Przypisz.**
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy **Użytkownicy** , a następnie naciśnij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie naciśnij przycisk **Wybierz** w dolnej części ekranu.
+1. W oknie dialogowym **Dodawanie przypisania** wybierz przycisk **Przypisz** .
 
-## <a name="configure-docusign-sso"></a>Konfigurowanie docusign sygnowania sygn.
+## <a name="configure-docusign-sso"></a>Konfigurowanie logowania jednokrotnego DocuSign
 
-1. Aby zautomatyzować konfigurację w docusign, należy zainstalować rozszerzenie przeglądarki My Apps Secure Sign-in, wybierając pozycję **Zainstaluj rozszerzenie**.
+1. Aby zautomatyzować konfigurację w programie DocuSign, należy zainstalować rozszerzenie przeglądarki Moje aplikacje bezpieczne logowanie, wybierając pozycję **Zainstaluj rozszerzenie**.
 
-    ![Rozszerzenie Moje aplikacje](common/install-myappssecure-extension.png)
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
 
-2. Po dodaniu rozszerzenia do przeglądarki wybierz pozycję **Setup DocuSign**. Zostaniesz przekierowany do aplikacji DocuSign. W tym miejscu podaj poświadczenia administratora, aby zalogować się do DocuSign. Rozszerzenie przeglądarki automatycznie konfiguruje aplikację i automatyzuje kroki od 3 do 5.
+2. Po dodaniu rozszerzenia do przeglądarki wybierz pozycję **Setup Docusign**. Nastąpi przekierowanie do aplikacji DocuSign. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do usługi DocuSign. Rozszerzenie przeglądarki automatycznie konfiguruje aplikację i automatyzuje kroki od 3 do 5.
 
-    ![Konfiguracja instalacji](common/setup-sso.png)
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
 
-3. Jeśli chcesz skonfigurować DocuSign ręcznie, otwórz nowe okno przeglądarki internetowej i zaloguj się do witryny firmy DocuSign jako administrator.
+3. Jeśli chcesz ręcznie skonfigurować DocuSign, Otwórz nowe okno przeglądarki sieci Web i zaloguj się do witryny firmy DocuSign jako administrator.
 
 4. W prawym górnym rogu strony wybierz logo profilu, a następnie wybierz pozycję **Przejdź do administratora**.
   
     ![Przejdź do administratora w obszarze Profil][51]
 
-5. Na stronie rozwiązania domeny wybierz pozycję **Domeny**.
+5. Na stronie rozwiązania domeny wybierz pozycję **domeny**.
 
-    ![Rozwiązania/domeny domen][50]
+    ![Rozwiązania domeny/domeny][50]
 
-6. W sekcji **Domeny** wybierz pozycję **DOMENA OŚWIADCZEŃ**.
+6. W sekcji **domeny** wybierz pozycję **domena roszczeń**.
 
-    ![Opcja Domena oświadczeń][52]
+    ![Opcja domeny dotyczącej roszczeń][52]
 
-7. W oknie **dialogowym Zgłaskanie domeny** w polu **Nazwa domeny** wpisz domenę firmową, a następnie wybierz pozycję **RUJ**. Upewnij się, że domena jest aktywna i jej stan jest aktywny.
+7. W oknie dialogowym **Przejmij domenę** w polu **nazwa domeny** wpisz domenę firmy, a następnie wybierz pozycję **Przejmij**. Upewnij się, że zweryfikowano domenę i że jej stan jest aktywny.
 
-    ![Odbierz okno dialogowe Nazwa domeny/domeny][53]
+    ![Przejmij okno dialogowe nazwy domeny/domeny][53]
 
-8. Na stronie rozwiązania domeny wybierz pozycję **Dostawcy tożsamości**.
+8. Na stronie rozwiązania domeny wybierz pozycję **dostawcy tożsamości**.
   
-    ![Opcja Dostawcy tożsamości][54]
+    ![Opcja dostawcy tożsamości][54]
 
-9. W sekcji **Dostawcy tożsamości** wybierz pozycję **DODAJ DOSTAWCĘ TOŻSAMOŚCI**.
+9. W sekcji **dostawcy tożsamości** wybierz pozycję **Dodaj dostawcę tożsamości**.
 
-    ![Opcja Dodaj dostawcę tożsamości][55]
+    ![Dodaj opcję dostawcy tożsamości][55]
 
 10. Na stronie **Ustawienia dostawcy tożsamości** wykonaj następujące czynności:
 
-    ![Pola Ustawienia dostawcy tożsamości][56]
+    ![Pola ustawień dostawcy tożsamości][56]
 
     a. W polu **Nazwa** wpisz unikatową nazwę konfiguracji. Nie używaj spacji.
 
-    b. W **polu Wystawca dostawcy tożsamości**wklej wartość **identyfikatora usługi Azure AD,** która została skopiowana z witryny Azure portal.
+    b. W **polu wystawca dostawcy tożsamości**wklej wartość **identyfikatora usługi Azure AD** skopiowaną z Azure Portal.
 
-    d. W polu **Adres URL logowania dostawcy tożsamości** wklej wartość adresu URL **logowania,** która została skopiowana z witryny Azure portal.
+    c. W polu **adres URL logowania dostawcy tożsamości** wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 
-    d. W polu **Adres URL wylogowania dostawcy tożsamości** wklej wartość adresu URL **wylogowania,** który został skopiowany z witryny Azure portal.
+    d. W polu **adres URL wylogowania dostawcy tożsamości** wklej wartość **adresu URL wylogowania**, która została skopiowana z Azure Portal.
 
-    e. Wybierz **pozycję Podpisz żądanie AuthN**.
+    e. Wybierz pozycję **Podpisz żądanie AuthN**.
 
-    f. Dla **wyślij żądanie AuthN przez**, wybierz **POST**.
+    f. W przypadku **wysyłania żądania AuthN przez**, wybierz pozycję **post**.
 
-    g. Dla **wyślij żądanie wylogowania przez**, wybierz **GET**.
+    g. W przypadku **wysyłania żądania wylogowania przez**program wybierz pozycję **Pobierz**.
 
-    h. W sekcji **Niestandardowe mapowanie atrybutów** wybierz pozycję **DODAJ NOWE MAPOWANIE**.
+    h. W sekcji **Mapowanie atrybutów niestandardowych** wybierz pozycję **Dodaj nowe mapowanie**.
 
-       ![Interfejs użytkownika mapowania atrybutów niestandardowych][62]
+       ![Niestandardowy interfejs użytkownika mapowania atrybutów][62]
 
-    i. Wybierz pole, które chcesz zamapować do oświadczenia usługi Azure AD. W tym przykładzie oświadczenie **adresu e-mail** jest `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`mapowane z wartością . To domyślna nazwa oświadczenia z usługi Azure AD dla oświadczenia e-mail. Wybierz **zapisz**.
+    i. Wybierz pole, które chcesz zmapować do usługi Azure AD. W tym przykładzie **EmailAddress** jest mapowany na wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`. To jest domyślna nazwa usługi w usłudze Azure AD dla żądania poczty e-mail. Wybierz pozycję **Zapisz**.
 
-       ![Pola niestandardowego mapowania atrybutów][57]
+       ![Pola mapowania atrybutów niestandardowych][57]
 
        > [!NOTE]
-       > Użyj odpowiedniego **identyfikatora użytkownika,** aby zamapować użytkownika z usługi Azure AD do mapowania użytkownika DocuSign. Wybierz odpowiednie pole i wprowadź odpowiednią wartość na podstawie ustawień organizacji.
+       > Użyj odpowiedniego **identyfikatora użytkownika** , aby zamapować użytkownika z usługi Azure AD do Docusign mapowania użytkownika. Wybierz odpowiednie pole i wprowadź odpowiednią wartość na podstawie ustawień organizacji.
 
-    j. W sekcji **Certyfikaty dostawcy tożsamości** wybierz pozycję **DODAJ CERTYFIKAT**, przekaż certyfikat pobrany z portalu usługi Azure AD i wybierz pozycję **ZAPISZ**.
+    j. W sekcji **Certyfikaty dostawcy tożsamości** wybierz pozycję **Dodaj certyfikat**, Przekaż certyfikat pobrany z portalu usługi Azure AD, a następnie wybierz pozycję **Zapisz**.
 
-       ![Certyfikaty dostawcy tożsamości/dodawanie certyfikatu][58]
+       ![Certyfikaty dostawcy tożsamości/Dodawanie certyfikatu][58]
 
-    k. W sekcji **Dostawcy tożsamości** wybierz pozycję **AKCJE**, a następnie wybierz pozycję **Punkty końcowe**.
+    k. W sekcji **dostawcy tożsamości** wybierz pozycję **Akcje**, a następnie wybierz pozycję **punkty końcowe**.
 
        ![Dostawcy tożsamości/punkty końcowe][59]
 
-    l. W sekcji **Wyświetl punkty końcowe SAML 2.0** portalu administracyjnego DocuSign wykonaj następujące kroki:
-       1. Skopiuj **adres URL wystawcy dostawcy usług,** a następnie wklej go do pola **Identyfikator** w sekcji **Podstawowa konfiguracja SAML** w witrynie Azure portal.
+    l. W sekcji **Wyświetl punkty końcowe protokołu SAML 2,0** w portalu administracyjnym Docusign wykonaj następujące kroki:
 
-       1. Skopiuj **adres URL logowania usługodawcy,** a następnie wklej go do pola Adresu **URL logowania** w sekcji **Podstawowa konfiguracja SAML** w witrynie Azure portal.
+       ![Wyświetl punkty końcowe SAML 2,0][60]
+       
+       1. Skopiuj **adres URL wystawcy dostawcy usługi**, a następnie wklej go w polu **Identyfikator** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
+       
+       1. Skopiuj **adres URL usługi konsumenta potwierdzenia dostawcy usług**, a następnie wklej go w polu **adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
+       
+       1. Skopiuj **adres URL logowania dostawcy usługi**, a następnie wklej go do pola **Zaloguj się w adresie URL** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
        1. Wybierz polecenie **Zamknij**.
 
-       ![Wyświetlanie punktów końcowych SAML 2.0][60]
-
 ### <a name="create-docusign-test-user"></a>Utwórz użytkownika testowego DocuSign
 
-W tej sekcji użytkownik o nazwie B.Simon jest tworzony w DocuSign. DocuSign obsługuje just-in-time inicjowania obsługi administracyjnej użytkownika, który jest domyślnie włączony. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w DocuSign, nowy jest tworzony po uwierzytelnieniu.
+W tej sekcji użytkownik o nazwie B. Simon został utworzony w DocuSign. DocuSign obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w usłudze DocuSign, zostanie utworzony nowy po uwierzytelnieniu.
 
->[!Note]
->Jeśli chcesz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej DocuSign](https://support.docusign.com/).
+> [!Note]
+> Jeśli musisz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej Docusign](https://support.docusign.com/).
 
-## <a name="test-sso"></a>Test SSO 
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po wybraniu kafelka DocuSign w Panelu dostępu należy automatycznie zalogować się do wystąpienia DocuSign, dla którego skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu kafelka DocuSign w panelu dostępu należy automatycznie zalogować się do wystąpienia DocuSign, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
@@ -235,9 +246,9 @@ Po wybraniu kafelka DocuSign w Panelu dostępu należy automatycznie zalogować 
 
 - [Co to jest dostęp warunkowy w usłudze Azure AD?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Wypróbuj docusign z usługą Azure AD](https://aad.portal.azure.com/)
+- [Wypróbuj DocuSign z usługą Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w usłudze Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 

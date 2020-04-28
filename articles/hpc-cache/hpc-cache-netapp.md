@@ -1,94 +1,94 @@
 ---
-title: Korzystanie z pamięci podręcznej HPC usługi Azure i plików NetApp platformy Azure
-description: Jak korzystać z pamięci podręcznej HPC usługi Azure w celu poprawy dostępu do danych przechowywanych za pomocą plików NetApp usługi Azure
+title: Użyj pamięci podręcznej platformy Azure HPC i Azure NetApp Files
+description: Jak korzystać z pamięci podręcznej platformy Azure HPC w celu ulepszania dostępu do danych przechowywanych przy użyciu Azure NetApp Files
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 38f9d0338ce4c47024d670e6d3ee89a97faecc91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d4dd69b30acb26d02218fe05a60ace9aa855ddc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238678"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194962"
 ---
-# <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Korzystanie z pamięci podręcznej HPC usługi Azure za pomocą plików NetApp platformy Azure
+# <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Używanie pamięci podręcznej platformy Azure HPC z Azure NetApp Files
 
-Usługi [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) można używać jako miejsca docelowego magazynu dla pamięci podręcznej HPC platformy Azure. W tym artykule wyjaśniono, jak obie usługi mogą współpracować ze sobą i zawiera wskazówki dotyczące konfigurowania ich.
+[Azure NetApp Files](https://azure.microsoft.com/services/netapp/) jako miejsce docelowe magazynu dla pamięci podręcznej platformy Azure HPC. W tym artykule wyjaśniono, jak te dwie usługi mogą współdziałać i podano porady dotyczące ich konfigurowania.
 
-Usługa Azure NetApp Files łączy ich system operacyjny ONTAP ze skalowalnością i szybkością platformy Microsoft Azure. Ta kombinacja umożliwia użytkownikom przesunięcie ustalonych przepływów pracy do chmury bez przepisywania kodu.
+Azure NetApp Files łączy swój system operacyjny ONTAP z skalowalnością i szybkością Microsoft Azure. Ta kombinacja umożliwia użytkownikom przesunięcia określonych przepływów pracy do chmury bez konieczności ponownego pisania kodu.
 
-Dodanie składnika usługi Azure HPC Cache może poprawić dostęp do plików, przedstawiając wiele woluminów usługi Azure NetApp Files w jednym zagregowanym obszarze nazw. Może zapewnić buforowanie krawędzi dla woluminów znajdujących się w innym regionie usługi. Może również zwiększyć wydajność na żądanie woluminów, które zostały utworzone na niższych poziomach usług, aby zaoszczędzić koszty.
+Dodanie składnika pamięci podręcznej platformy Azure HPC może poprawić dostęp do pliku przez zaprezentowanie wielu Azure NetApp Files woluminów w jednej zagregowanej przestrzeni nazw. Może zapewnić buforowanie krawędzi dla woluminów znajdujących się w innym regionie usługi. Może również zwiększyć wydajność na żądanie dla woluminów, które zostały utworzone na poziomach usługi niższej warstwy w celu oszczędności kosztów.
 
 ## <a name="overview"></a>Omówienie
 
-Aby użyć systemu Azure NetApp Files jako magazynu zaplecza z pamięcią podręczną HPC usługi Azure, wykonaj ten proces.
+Aby użyć systemu Azure NetApp Files jako magazynu zaplecza z pamięcią podręczną Azure HPC, wykonaj ten proces.
 
-1. Utwórz system i woluminy Usługi Azure NetApp Files zgodnie ze wskazówkami zawartymi w [zaplanuj swój system poniżej](#plan-your-azure-netapp-files-system).
-1. Utwórz pamięć podręczną HPC platformy Azure w regionie, w którym potrzebujesz dostępu do plików. (Użyj instrukcji w tworzenie pamięci [podręcznej HPC platformy Azure](hpc-cache-create.md).)
-1. [Zdefiniuj obiekty docelowe magazynu](#create-storage-targets-in-the-cache) w pamięci podręcznej, które wskazują woluminy plików NetApp platformy Azure. Utwórz jeden cel magazynu pamięci podręcznej dla każdego unikatowego adresu IP używanego do uzyskiwania dostępu do woluminów.
-1. Niech klienci [zainstalują pamięć podręczną HPC platformy Azure](#mount-storage-targets) zamiast bezpośrednio montować woluminy plików NetApp platformy Azure.
+1. Utwórz system Azure NetApp Files i woluminy zgodnie ze wskazówkami w temacie [Planowanie systemu, poniżej](#plan-your-azure-netapp-files-system).
+1. Utwórz pamięć podręczną platformy Azure HPC w regionie, w którym potrzebujesz dostępu do pliku. (Skorzystaj z instrukcji przedstawionych w temacie [Tworzenie pamięci podręcznej platformy Azure HPC](hpc-cache-create.md)).
+1. [Zdefiniuj cele magazynu](#create-storage-targets-in-the-cache) w pamięci podręcznej, które wskazują woluminy Azure NetApp Files. Utwórz jeden obiekt docelowy magazynu pamięci podręcznej dla każdego unikatowego adresu IP używanego do uzyskiwania dostępu do woluminów.
+1. Klienci powinni [instalować pamięć podręczną platformy Azure HPC](#mount-storage-targets) zamiast bezpośrednio instalować Azure NetApp Files woluminów.
 
-## <a name="plan-your-azure-netapp-files-system"></a>Planowanie systemu plików NetApp platformy Azure
+## <a name="plan-your-azure-netapp-files-system"></a>Zaplanuj system Azure NetApp Files
 
-Planując system plików NetApp Azure, zwróć uwagę na elementy w tej sekcji, aby upewnić się, że można go bezproblemowo zintegrować z pamięcią podręczną HPC usługi Azure.
+W przypadku planowania systemu Azure NetApp Files należy zwrócić uwagę na elementy w tej sekcji, aby upewnić się, że można się z nią bezproblemowo zintegrować z pamięcią podręczną Azure HPC.
 
-Przeczytaj także [dokumentację usługi Azure NetApp Files](../azure-netapp-files/index.yml) przed utworzeniem woluminów do użycia z pamięcią podręczną HPC usługi Azure.
+Zapoznaj się również z [dokumentacją Azure NetApp Files](../azure-netapp-files/index.yml) przed utworzeniem woluminów do użycia z pamięcią podręczną platformy Azure HPC.
 
-### <a name="nfs-client-access-only"></a>Tylko dostęp do klienta NFS
+### <a name="nfs-client-access-only"></a>Tylko dostęp klienta NFS
 
-Usługa Azure HPC Cache obsługuje obecnie tylko dostęp do usługi NFS. Nie można go używać z woluminami bitowymi W TRYBIE SMB ACL lub POSIX.
+Pamięć podręczna Azure HPC obecnie obsługuje tylko dostęp do systemu plików NFS. Nie można jej używać z woluminami listy ACL protokołu SMB ani bitowym trybem POSIX.
 
-### <a name="exclusive-subnet-for-azure-netapp-files"></a>Ekskluzywna podsieć dla plików NetApp platformy Azure
+### <a name="exclusive-subnet-for-azure-netapp-files"></a>Wyłączna podsieć dla Azure NetApp Files
 
-Usługa Azure NetApp Files używa pojedynczej podsieci delegowanej dla swoich woluminów. Żadne inne zasoby nie mogą korzystać z tej podsieci. Ponadto tylko jedna podsieć w sieci wirtualnej może służyć do usługi Azure NetApp Files. Dowiedz się więcej [w wskazówki dotyczące planowania sieci usługi Azure NetApp Files](../azure-netapp-files/azure-netapp-files-network-topologies.md).
+Azure NetApp Files używa pojedynczej podsieci delegowanej dla woluminów. Żadne inne zasoby nie mogą korzystać z tej podsieci. Ponadto do Azure NetApp Files można używać tylko jednej podsieci w sieci wirtualnej. Dowiedz się więcej w temacie [wskazówki dotyczące planowania sieci Azure NetApp Files](../azure-netapp-files/azure-netapp-files-network-topologies.md).
 
-### <a name="delegated-subnet-size"></a>Rozmiar podsieci delegowanej
+### <a name="delegated-subnet-size"></a>Rozmiar delegowanej podsieci
 
-Podczas tworzenia systemu Azure NetApp Files do użycia z pamięcią podręczną HPC usługi Azure należy użyć minimalnego rozmiaru dla podsieci delegowanej.
+Podczas tworzenia systemu Azure NetApp Files do użycia z pamięcią podręczną platformy Azure HPC należy użyć minimalnego rozmiaru podsieci delegowanej.
 
-Minimalny rozmiar, który jest określony za pomocą netmask /28, zawiera 16 adresów IP. W praktyce usługa Azure NetApp Files używa tylko trzech z tych dostępnych adresów IP do dostępu do woluminu. Oznacza to, że wystarczy utworzyć tylko trzy obiekty docelowe magazynu w pamięci podręcznej HPC platformy Azure, aby objąć wszystkie woluminy.
+Minimalny rozmiar, który jest określony za pomocą maski sieci/28, zapewnia 16 adresów IP. W przypadku Azure NetApp Files używa tylko trzech z tych dostępnych adresów IP na potrzeby dostępu do woluminu. Oznacza to, że należy utworzyć tylko trzy cele magazynu w pamięci podręcznej platformy Azure HPC, aby uwzględnić wszystkie woluminy.
 
-Jeśli podsieć delegowane jest zbyt duża, jest możliwe dla woluminów plików NetApp platformy Azure do użycia więcej adresów IP niż jedno wystąpienie pamięci podręcznej HPC platformy Azure może obsłużyć. Pojedyncza pamięć podręczna może mieć co najwyżej dziesięć obiektów docelowych magazynu.
+Jeśli delegowana podsieć jest zbyt duża, możliwe, aby Azure NetApp Files woluminów używały większej liczby adresów IP niż może obsłużyć pojedyncze wystąpienie pamięci podręcznej platformy Azure HPC. Pojedyncza pamięć podręczna może mieć co najwyżej 10 obiektów docelowych magazynu.
 
-Przykład przewodnika Szybki start w dokumentacji usługi Azure NetApp Files używa 10.7.0.0/16 dla podsieci delegowanej, co daje podsieci, która jest zbyt duża.
+Przykład szybkiego startu w dokumentacji Azure NetApp Files używa 10.7.0.0/16 dla delegowanej podsieci, która zapewnia zbyt dużą podsieć.
 
-### <a name="capacity-pool-service-level"></a>Poziom usług puli pojemności
+### <a name="capacity-pool-service-level"></a>Poziom usługi puli pojemności
 
-Wybierając poziom usług dla puli pojemności, należy wziąć pod uwagę przepływ pracy. Jeśli często zapisujesz dane z powrotem do woluminu usługi Azure NetApp Files, wydajność pamięci podręcznej może być ograniczona, jeśli czas stornia jest powolny. Wybierz wysoki poziom usług dla woluminów, które będą miały częste zapisy.
+Podczas wybierania poziomu usług dla puli pojemności należy wziąć pod uwagę przepływ pracy. Jeśli często zapisujesz dane z powrotem na woluminie Azure NetApp Files, wydajność pamięci podręcznej może być ograniczona w przypadku powolnego czasu zapisywania zwrotnego. Wybierz wysoki poziom usług dla woluminów, które będą często zapisywane.
 
-Woluminy o niskim poziomie usług również mogą wykazywać pewne opóźnienia na początku zadania, podczas gdy pamięć podręczna wstępnie wypełnia zawartość. Po uruchomieniu pamięci podręcznej z dobrym zestawem roboczym plików opóźnienie powinno stać się niezauważalne.
+Woluminy z niskimi poziomami usług mogą również wyświetlać pewne opóźnienia na początku zadania podczas wstępnego wypełniania zawartości pamięci podręcznej. Gdy pamięć podręczna zostanie uruchomiona z dobrym zestawem plików, opóźnienie powinno być niezauważalne.
 
-Ważne jest, aby zaplanować poziom usług puli pojemności z wyprzedzeniem, ponieważ nie można go zmienić po utworzeniu. Nowy wolumin musiałby zostać utworzony w innej puli pojemności, a dane skopiowane.
+Ważne jest, aby zaplanować poziom usługi puli pojemności przed czasem, ponieważ nie można jej zmienić po utworzeniu. Nowy wolumin musi zostać utworzony w innej puli pojemności, a dane skopiowane przez program.
 
-Należy zauważyć, że można zmienić przydział magazynu woluminu i rozmiar puli pojemności bez zakłócania dostępu.
+Należy pamiętać, że można zmienić przydział magazynu woluminu i rozmiar puli pojemności bez zakłócania dostępu.
 
 ## <a name="create-storage-targets-in-the-cache"></a>Tworzenie obiektów docelowych magazynu w pamięci podręcznej
 
-Po skonfigurowaniu systemu plików NetApp platformy Azure i utworzeniu pamięci podręcznej HPC platformy Azure należy zdefiniować obiekty docelowe magazynu w pamięci podręcznej, które wskazują woluminy systemu plików.
+Po skonfigurowaniu systemu Azure NetApp Files i utworzeniu pamięci podręcznej platformy Azure HPC Zdefiniuj cele magazynu w pamięci podręcznej wskazujące woluminy systemu plików.
 
-Utwórz jeden cel magazynu dla każdego adresu IP używanego przez woluminy plików NetApp azure. Adres IP jest wymieniony na stronie instrukcji montażu woluminu.
+Utwórz jeden docelowy magazyn dla każdego adresu IP używanego przez woluminy Azure NetApp Files. Adres IP jest wymieniony na stronie z instrukcjami instalacji woluminu.
 
 Jeśli wiele woluminów współużytkuje ten sam adres IP, można użyć jednego miejsca docelowego magazynu dla wszystkich z nich.  
 
-Postępuj zgodnie z [instrukcjami instalacji w dokumentacji usługi Azure NetApp Files,](../azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) aby znaleźć adresy IP do użycia.
+Postępuj zgodnie z [instrukcjami instalacji zawartymi w dokumentacji Azure NetApp Files](../azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) , aby znaleźć adresy IP do użycia.
 
-Można również znaleźć adresy IP za pomocą interfejsu wiersza polecenia platformy Azure:
+Adresy IP można również znaleźć w interfejsie wiersza polecenia platformy Azure:
 
 ```azurecli
 az netappfiles volume list -g ${RESOURCE_GROUP} --account-name ${ANF_ACCOUNT} --pool-name ${POOL} --query "[].mountTargets[].ipAddress" | grep -Ee '[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+' | tr -d '"' | tr -d , | sort | uniq
 ```
 
-Nazwy eksportu w systemie Azure NetApp Files mają składnik pojedynczej ścieżki. Nie próbuj tworzyć miejsca docelowego magazynu ``/`` dla eksportu głównego w usłudze Azure NetApp Files, ponieważ ten eksport nie zapewnia dostępu do plików.
+Eksport nazw w systemie Azure NetApp Files ma jeden składnik ścieżki. Nie należy próbować utworzyć docelowego magazynu dla eksportu ``/`` głównego w Azure NetApp Files, ponieważ ten eksport nie zapewnia dostępu do pliku.
 
-Nie ma żadnych specjalnych ograniczeń dotyczących ścieżek wirtualnego obszaru nazw dla tych obiektów docelowych magazynu.
+Nie ma specjalnych ograniczeń ścieżek wirtualnych przestrzeni nazw dla tych obiektów docelowych magazynu.
 
-## <a name="mount-storage-targets"></a>Narzędzia pamięci masowej montowania
+## <a name="mount-storage-targets"></a>Zainstaluj cele magazynu
 
-Komputery klienckie należy zainstalować pamięci podręcznej zamiast instalowania woluminów usługi Azure NetApp Files bezpośrednio. Postępuj zgodnie z instrukcjami w [instalacji pamięci podręcznej HPC platformy Azure](hpc-cache-mount.md).
+Komputery klienckie powinny zainstalować pamięć podręczną zamiast bezpośrednio instalować woluminy Azure NetApp Files. Postępuj zgodnie z instrukcjami w temacie [Instalowanie pamięci podręcznej platformy Azure HPC](hpc-cache-mount.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o konfigurowaniu i używaniu [plików NetApp usługi Azure](../azure-netapp-files/index.yml)
-* Aby uzyskać pomoc w planowaniu i konfigurowaniu systemu pamięci podręcznej HPC usługi Azure do korzystania z plików NetApp azure, [skontaktuj się z pomocą techniczną](hpc-cache-support-ticket.md).
+* Przeczytaj więcej na temat konfigurowania i używania [Azure NetApp Files](../azure-netapp-files/index.yml)
+* Aby uzyskać pomoc w planowaniu i konfigurowaniu systemu pamięci podręcznej platformy Azure HPC do używania Azure NetApp Files, [skontaktuj się z pomocą techniczną](hpc-cache-support-ticket.md).

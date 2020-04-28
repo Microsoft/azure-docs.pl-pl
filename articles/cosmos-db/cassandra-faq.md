@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
-ms.openlocfilehash: 2d6cae3a7a41eae05783d3bcc12ec2bfe8220c4c
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 9b771a82d88f9902aeb6022f07811ded8a6e0e62
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82148321"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192837"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-for-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejs API Cassandra dla Azure Cosmos DB
 
 ## <a name="what-are-some-key-differences-between-apache-cassandra-and-the-cassandra-api"></a>Jakie są kluczowe różnice między programem Apache Cassandra a interfejs API Cassandra?
 
-- W przypadku systemu Apache Cassandra zaleca się limit 100 MB klucza partycji. Interfejs API Cassandra dla Azure Cosmos DB umożliwia do 10 GB na partycję.
+- W przypadku systemu Apache Cassandra zaleca się limit 100 MB klucza partycji. Interfejs API Cassandra dla Azure Cosmos DB umożliwia do 20 GB na partycję.
 - Apache Cassandra umożliwia wyłączenie trwałych zatwierdzeń. Możesz pominąć zapisywanie w dzienniku zatwierdzeń i przejść bezpośrednio do memtables. Może to prowadzić do utraty danych, jeśli węzeł ulegnie awarii przed opróżnieniem memtables do SSTables na dysku. Azure Cosmos DB zawsze zapewnia trwałe zatwierdzenia, aby zapobiec utracie danych.
 - W przypadku, gdy obciążenie obejmuje wiele elementów zastępczych lub usunięć, w programie Apache Cassandra może zostać wyświetlona mniejsza wydajność. Powodem jest to, że obciążenie odczytywane wymaga pominięcia, aby pobrać najnowsze dane. Interfejs API Cassandra nie będzie widział wydajności operacji odczytu, gdy obciążenie ma wiele elementów zastępczych lub usunięć.
 - W przypadku obciążeń o dużej wymianie należy uruchomić kompaktowanie w celu scalenia SSTables na dysku. (Scalanie jest zbędne, ponieważ operacje zapisu Apache Cassandra są tylko do dołączenia. Wiele aktualizacji jest przechowywanych jako pojedyncze wpisy SSTable, które muszą być okresowo scalane). Ta sytuacja może również prowadzić do obniżenia wydajności odczytu podczas kompaktowania. Ten wpływ na wydajność nie występuje w interfejs API Cassandra, ponieważ interfejs API nie implementuje kompaktowania.
