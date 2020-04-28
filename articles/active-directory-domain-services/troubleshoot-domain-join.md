@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z dołączania do domeny za pomocą usług domenowych usługi Azure AD | Dokumenty firmy Microsoft
-description: Dowiedz się, jak rozwiązywać typowe problemy podczas próby dołączenia do domeny maszyny Wirtualnej lub połączenia aplikacji z Usługami domenowymi Usługi active directory platformy Azure i nie można połączyć się ani uwierzytelnić do domeny zarządzanej.
+title: Rozwiązywanie problemów z przyłączaniem do domeny za pomocą Azure AD Domain Services | Microsoft Docs
+description: Dowiedz się, jak rozwiązywać typowe problemy podczas próby dołączenia do domeny lub łączenia aplikacji z usługą Azure Active Directory Domain Services i nie można nawiązać połączenia z domeną zarządzaną ani uwierzytelniać się w niej.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -11,58 +11,58 @@ ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
 ms.openlocfilehash: f187dba4eace61695a72e4b7b08731e65ff0d7f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78299112"
 ---
-# <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Rozwiązywanie problemów z przyłączaniem do domeny w domenie usługi Azure AD Domain Services
+# <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Rozwiązywanie problemów z przyłączaniem do domeny za pomocą Azure AD Domain Services domeny zarządzanej
 
-Podczas próby dołączenia do maszyny wirtualnej (VM) lub połączyć aplikację z domeną zarządzaną usług domenowych Active Directory platformy Azure (AD DS), może pojawić się błąd, którego nie możesz wykonać. Aby rozwiązać problemy z przyłączaniem do domeny, sprawdź, w którym z następujących punktów występuje problem:
+Podczas próby dołączenia maszyny wirtualnej lub połączenia aplikacji z domeną zarządzaną Azure Active Directory Domain Services (AD DS) może zostać wyświetlony błąd, którego nie można zrobić. Aby rozwiązać problemy z przyłączaniem do domeny, należy zapoznać się z następującymi kwestiami:
 
-* Jeśli nie zostanie wyświetlony monit o uwierzytelnienie, maszyna wirtualna lub aplikacja nie może połączyć się z domeną zarządzaną usługą Azure AD DS.
-    * Zacznij rozwiązywać [problemy z łącznością w przypadku dołączania do domeny](#connectivity-issues-for-domain-join).
-* Jeśli podczas uwierzytelniania zostanie wyświetlony błąd, połączenie z domeną zarządzaną usługą Azure AD DS zakończy się pomyślnie.
-    * Zacznij rozwiązywać [problemy związane z poświadczeniami podczas dołączania do domeny](#credentials-related-issues-during-domain-join).
+* Jeśli nie otrzymasz monitu o uwierzytelnienie, maszyna wirtualna lub aplikacja nie może nawiązać połączenia z domeną zarządzaną platformy Azure AD DS.
+    * Rozpocznij Rozwiązywanie [problemów z łącznością w celu przyłączenia do domeny](#connectivity-issues-for-domain-join).
+* Jeśli wystąpi błąd podczas uwierzytelniania, połączenie z domeną zarządzaną platformy Azure AD DS powiodło się.
+    * Rozpocznij Rozwiązywanie [problemów związanych z poświadczeniami podczas przyłączania do domeny](#credentials-related-issues-during-domain-join).
 
-## <a name="connectivity-issues-for-domain-join"></a>Problemy z łącznością dla przyłącza do domeny
+## <a name="connectivity-issues-for-domain-join"></a>Problemy z łącznością w przypadku przyłączania do domeny
 
-Jeśli maszyna wirtualna nie może znaleźć domeny zarządzanej usług Azure AD DS, zwykle występuje problem z połączeniem sieciowym lub konfiguracją. Zapoznaj się z następującymi krokami rozwiązywania problemów, aby zlokalizować i rozwiązać problem:
+Jeśli maszyna wirtualna nie może znaleźć domeny zarządzanej platformy Azure AD DS, zazwyczaj występuje problem z połączeniem sieciowym lub konfiguracją. Zapoznaj się z poniższymi krokami rozwiązywania problemów, aby zlokalizować i rozwiązać problem:
 
-1. Upewnij się, że maszyna wirtualna jest połączona z tą samą lub równorzędną siecią wirtualną, która jest włączona dla usług Azure AD DS. Jeśli nie, maszyna wirtualna nie może znaleźć i połączyć się z domeną, aby dołączyć.
-    * Jeśli maszyna wirtualna nie jest połączona z tą samą siecią wirtualną, upewnij się, że komunikacja równorzędna sieci wirtualnej lub połączenie sieci VPN jest *aktywne* lub *połączone,* aby umożliwić prawidłowy przepływ ruchu.
-1. Spróbuj wykonać ping do domeny przy użyciu nazwy domeny domeny `ping aaddscontoso.com`zarządzanej usług Azure AD DS, takiej jak .
-    * Jeśli odpowiedź ping nie powiedzie się, spróbuj wykonać ping do adresów IP domeny wyświetlanej na `ping 10.0.0.4`stronie przegląd w portalu domeny zarządzanej usług Azure AD DS, takiej jak .
-    * Jeśli można pomyślnie pingować adres IP, ale nie domenę, system DNS może być niepoprawnie skonfigurowany. Upewnij się, że skonfigurowano serwery DNS domeny zarządzanej usług Azure AD DS dla sieci wirtualnej.
-1. Spróbuj opróżnić pamięć podręczną programu rozpoznawania nazw `ipconfig /flushdns`DNS na maszynie wirtualnej, na przykład .
+1. Upewnij się, że maszyna wirtualna jest połączona z tą samą lub równorzędną siecią wirtualną, która jest włączona dla usługi Azure AD DS. Jeśli nie, maszyna wirtualna nie może znaleźć domeny i połączyć się z nią w celu dołączenia.
+    * Jeśli maszyna wirtualna nie jest połączona z tą samą siecią wirtualną, upewnij się, że wirtualne sieci równorzędne lub połączenie sieci VPN jest *aktywne* lub *połączone* , aby umożliwić poprawne przepływ ruchu.
+1. Spróbuj wysłać polecenie ping do domeny przy użyciu nazwy domeny zarządzanej przez usługę Azure AD DS, na `ping aaddscontoso.com`przykład.
+    * Jeśli odpowiedź ping nie powiedzie się, spróbuj wysłać polecenie ping do adresów IP dla domeny wyświetlanej na stronie Przegląd w portalu dla domeny zarządzanej platformy Azure AD DS, `ping 10.0.0.4`na przykład.
+    * Jeśli można pomyślnie wysłać polecenie ping do adresu IP, ale nie do domeny, może to spowodować niepoprawne skonfigurowanie usługi DNS. Upewnij się, że skonfigurowano serwery DNS domeny zarządzanej AD DS platformy Azure dla sieci wirtualnej.
+1. Spróbuj użyć opróżniania pamięci podręcznej programu rozpoznawania nazw DNS na `ipconfig /flushdns`maszynie wirtualnej, na przykład.
 
-### <a name="network-security-group-nsg-configuration"></a>Konfiguracja sieciowej grupy zabezpieczeń (NSG)
+### <a name="network-security-group-nsg-configuration"></a>Konfiguracja sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)
 
-Podczas tworzenia domeny zarządzanej usług Azure AD DS utworzona jest również grupa zabezpieczeń sieci z odpowiednimi regułami pomyślnej operacji domeny. Jeśli edytujesz lub tworzysz dodatkowe reguły sieciowej grupy zabezpieczeń, możesz przypadkowo blokować porty wymagane dla usług Azure AD DS w celu świadczenia usług połączenia i uwierzytelniania. Te reguły sieciowej grupy zabezpieczeń mogą powodować problemy, takie jak nieukończenie synchronizacji haseł, nie można się zalogować lub problemy z przyłączaniem do domeny.
+Podczas tworzenia domeny zarządzanej AD DS platformy Azure zostanie również utworzona grupa zabezpieczeń sieci z odpowiednimi regułami dla pomyślnego działania domeny. Jeśli edytujesz lub utworzysz dodatkowe reguły sieciowej grupy zabezpieczeń, możesz przypadkowo zablokować porty wymagane przez usługę Azure AD DS, aby zapewnić połączenia i usługi uwierzytelniania. Te reguły sieciowej grupy zabezpieczeń mogą powodować problemy, takie jak synchronizacja haseł nie została ukończona, użytkownicy nie mogą się zalogować lub problemy z przyłączaniem do domeny.
 
-Jeśli nadal występują problemy z połączeniem, zapoznaj się z następującymi krokami rozwiązywania problemów:
+Jeśli nadal występują problemy z połączeniem, zapoznaj się z poniższymi krokami rozwiązywania problemów:
 
-1. Sprawdź stan kondycji domeny zarządzanej usług Azure AD DS w witrynie Azure portal. Jeśli masz alert dla *usługi AADDS001,* reguła sieciowej grupy zabezpieczeń blokuje dostęp.
-1. Przejrzyj [wymagane porty i reguły sieciowej grupy zabezpieczeń][network-ports]. Upewnij się, że do maszyny wirtualnej lub sieci wirtualnej, z której łączysz, nie są stosowane żadne reguły sieci zabezpieczeń, nie są one blokowe.
-1. Po rozwiązaniu problemów z konfiguracją sieciowej grupy zabezpieczeń alert *AADDS001* zniknie ze strony kondycji w ciągu około 2 godzin. Dzięki łączności sieciowej teraz dostępne, spróbuj ponownie dołączyć do domeny maszyny wirtualnej.
+1. Sprawdź stan kondycji domeny zarządzanej platformy Azure AD DS w Azure Portal. Jeśli masz alert dla usługi *AADDS001*, reguła sieciowej grupy zabezpieczeń blokuje dostęp.
+1. Przejrzyj [wymagane porty i reguły sieciowej grupy zabezpieczeń][network-ports]. Upewnij się, że żadne reguły sieciowej grupy zabezpieczeń nie są stosowane do maszyny wirtualnej lub sieci wirtualnej, z której nawiązujesz połączenie, blokując te porty sieciowe.
+1. Po rozwiązaniu problemów z konfiguracją grupy zabezpieczeń sieci alert *AADDS001* znika ze strony kondycji w ciągu około 2 godzin. Mając teraz dostęp do połączenia sieciowego, spróbuj ponownie dołączyć do domeny.
 
-## <a name="credentials-related-issues-during-domain-join"></a>Problemy związane z poświadczeniami podczas dołączania do domeny
+## <a name="credentials-related-issues-during-domain-join"></a>Problemy związane z poświadczeniami podczas przyłączania do domeny
 
-Jeśli pojawi się okno dialogowe z prośbą o poświadczenia do przyłączenia się do domeny zarządzanej usług Azure AD DS, maszyna wirtualna może połączyć się z domeną przy użyciu sieci wirtualnej platformy Azure. Proces dołączania do domeny kończy się niepowodzeniem podczas uwierzytelniania w domenie lub autoryzacji w celu ukończenia procesu dołączania do domeny przy użyciu poświadczeń.
+Jeśli zostanie wyświetlone okno dialogowe z prośbą o podanie poświadczeń w celu dołączenia do domeny zarządzanej usługi Azure AD DS, maszyna wirtualna może połączyć się z domeną przy użyciu sieci wirtualnej platformy Azure. Proces przyłączania do domeny kończy się niepowodzeniem podczas uwierzytelniania w domenie lub autoryzacji do ukończenia procesu przyłączania do domeny przy użyciu poświadczeń.
 
 Aby rozwiązać problemy związane z poświadczeniami, zapoznaj się z następującymi krokami rozwiązywania problemów:
 
-1. Spróbuj użyć formatu UPN, aby `dee@aaddscontoso.onmicrosoft.com`określić poświadczenia, takie jak . Upewnij się, że ta owana jest poprawnie ta owana liczba konfiguracji UPN w usłudze Azure AD.
-    * *SamAccountName* dla twojego konta może być automatyczniegenerowany, jeśli w dzierżawie znajduje się wielu użytkowników z tym samym prefiksem nazwy UPN lub jeśli prefiks nazwy UPN jest zbyt długi. W związku z tym format *SAMAccountName* dla konta może się różnić od tego, czego oczekujesz lub używasz w domenie lokalnej.
-1. Spróbuj użyć poświadczeń dla konta użytkownika, które jest częścią domeny zarządzanej usługi Azure AD DS, aby dołączyć maszyny wirtualne do domeny zarządzanej.
-1. Upewnij się, że [masz włączoną synchronizację haseł][enable-password-sync] i czekałeś wystarczająco długo, aby początkowa synchronizacja hasła została zakończona.
+1. Spróbuj użyć formatu UPN w celu określenia poświadczeń, takich jak `dee@aaddscontoso.onmicrosoft.com`. Upewnij się, że ta nazwa UPN jest prawidłowo skonfigurowana w usłudze Azure AD.
+    * Nazwa *sAMAccountName* dla Twojego konta może zostać wygenerowana automatycznie, jeśli istnieje wielu użytkowników z tym samym PREFIKSEM nazwy UPN w dzierżawie lub jeśli prefiks nazwy UPN jest zbyt długi. W związku z tym format *sAMAccountName* dla konta może być inny niż oczekiwany lub używany w domenie lokalnej.
+1. Spróbuj użyć poświadczeń dla konta użytkownika, które jest częścią domeny zarządzanej AD DS platformy Azure, aby dołączyć maszyny wirtualne do domeny zarządzanej.
+1. Upewnij się, że [włączono synchronizację haseł][enable-password-sync] i upłynął wystarczająco długo, aby można było ukończyć synchronizację wstępnego hasła.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać głębsze zrozumienie procesów usługi Active Directory w ramach operacji przyłączania do domeny, zobacz Problemy z [dołączaniem i uwierzytelnianiem][join-authentication-issues].
+Aby lepiej zrozumieć Active Directory procesy w ramach operacji przyłączania do domeny, zobacz [problemy z przyłączaniem i uwierzytelnianiem][join-authentication-issues].
 
-Jeśli nadal występują problemy z dołączeniem maszyny Wirtualnej do domeny zarządzanej usług Azure AD DS, [znajdź pomoc i otwórz bilet pomocy technicznej dla usługi Azure Active Directory][azure-ad-support].
+Jeśli nadal masz problemy z przyłączaniem maszyny wirtualnej do domeny zarządzanej AD DS platformy Azure, [Znajdź pomoc i Otwórz bilet pomocy technicznej dla Azure Active Directory][azure-ad-support].
 
 <!-- INTERNAL LINKS -->
 [enable-password-sync]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds

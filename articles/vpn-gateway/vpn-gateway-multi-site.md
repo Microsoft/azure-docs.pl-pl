@@ -1,6 +1,6 @@
 ---
-title: 'Łączenie sieci wirtualnej z wieloma witrynami przy użyciu bramy sieci VPN: Classic'
-description: Połącz wiele lokalnych lokacji lokalnych z klasyczną siecią wirtualną przy użyciu bramy sieci VPN.
+title: 'Łączenie sieci wirtualnej z wieloma lokacjami przy użyciu VPN Gateway: klasyczny'
+description: Połącz wiele lokalnych lokacjami lokalnymi z klasyczną siecią wirtualną przy użyciu VPN Gateway.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: yushwang
@@ -9,74 +9,74 @@ ms.topic: article
 ms.date: 02/11/2020
 ms.author: yushwang
 ms.openlocfilehash: a95cd6ea85a16b0e0bf5f67f5dfc20d57f11463b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77198103"
 ---
-# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Dodawanie połączenia lokacja lokacja do sieci wirtualnej z istniejącym połączeniem bramy sieci VPN (klasyczny)
+# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Dodawanie połączenia lokacja-lokacja do sieci wirtualnej z istniejącym połączeniem bramy sieci VPN (klasyczne)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klasyczny)](vpn-gateway-multi-site.md)
 >
 >
 
-W tym artykule otrzymasz od korzystania z programu PowerShell w celu dodania połączeń lokacja lokacja (S2S) do bramy sieci VPN, która ma istniejące połączenie. Ten typ połączenia jest często określany jako konfiguracja "wielowitamierowa". Kroki opisane w tym artykule dotyczą sieci wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania (znanego również jako zarządzanie usługami). Te kroki nie mają zastosowania do konfiguracji połączeń współistniejących w układzie typu Site-To-Site.
+W tym artykule opisano sposób dodawania połączeń typu lokacja-lokacja (S2S) do bramy sieci VPN z istniejącym połączeniem przy użyciu programu PowerShell. Ten typ połączenia jest często określany mianem konfiguracji "wiele lokacji". Kroki opisane w tym artykule mają zastosowanie do sieci wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania (nazywanego również zarządzaniem usługami). Te kroki nie dotyczą współistniejących konfiguracji połączeń ExpressRoute/lokacja-lokacja.
 
 ### <a name="deployment-models-and-methods"></a>Modele i metody wdrażania
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Aktualizujemy tę tabelę, gdy nowe artykuły i dodatkowe narzędzia stają się dostępne dla tej konfiguracji. Gdy artykuł jest dostępny, łączymy się bezpośrednio z nim z tej tabeli.
+Ta tabela jest aktualizowana w miarę jak nowe artykuły i dodatkowe narzędzia stają się dostępne dla tej konfiguracji. Gdy artykuł jest dostępny, prosimy o bezpośredni link do niego z tej tabeli.
 
 [!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
 ## <a name="about-connecting"></a>Informacje o łączeniu
 
-Do jednej sieci wirtualnej można połączyć wiele lokacji lokalnych. Jest to szczególnie atrakcyjne w przypadku tworzenia rozwiązań chmury hybrydowej. Tworzenie połączenia z wieloma lokacjami z bramą sieci wirtualnej platformy Azure jest podobne do tworzenia innych połączeń lokacja-lokacja. W rzeczywistości można użyć istniejącej bramy sieci VPN platformy Azure, o ile brama jest dynamiczna (oparta na trasie).
+Można połączyć wiele lokacji lokalnych z pojedynczą siecią wirtualną. Jest to szczególnie atrakcyjne w przypadku tworzenia rozwiązań w chmurze hybrydowej. Tworzenie połączenia między lokacjami z bramą sieci wirtualnej platformy Azure jest podobne do tworzenia innych połączeń typu lokacja-lokacja. W rzeczywistości można użyć istniejącej bramy sieci VPN platformy Azure, o ile Brama jest dynamiczna (oparta na trasach).
 
-Jeśli masz już bramę statyczną połączoną z siecią wirtualną, możesz zmienić typ bramy na dynamiczny bez konieczności przebudowywania sieci wirtualnej w celu uwzględnienia wielu lokacji. Przed zmianą typu routingu upewnij się, że lokalna brama sieci VPN obsługuje konfiguracje sieci VPN oparte na trasach.
+Jeśli masz już bramę statyczną połączoną z siecią wirtualną, możesz zmienić typ bramy na dynamiczną bez konieczności odbudowywania sieci wirtualnej w celu uwzględnienia wiele lokacji. Przed zmianą typu routingu upewnij się, że lokalna Brama sieci VPN obsługuje konfiguracje sieci VPN oparte na trasach.
 
-![diagram wielomiejscowy](./media/vpn-gateway-multi-site/multisite.png "wielomiejscowy")
+![Diagram z obsługą wiele lokacji](./media/vpn-gateway-multi-site/multisite.png "wiele lokacji")
 
 ## <a name="points-to-consider"></a>Kwestie do rozważenia
 
-**Nie będzie można użyć portalu do wprowadzania zmian w tej sieci wirtualnej.** Należy wprowadzić zmiany w pliku konfiguracji sieci zamiast korzystać z portalu. Jeśli wniesiesz zmiany w portalu, zastąpią one ustawienia odwołania do wielu lokacji dla tej sieci wirtualnej.
+**Nie będzie można używać portalu do wprowadzania zmian w tej sieci wirtualnej.** Należy wprowadzić zmiany w pliku konfiguracji sieci, zamiast korzystać z portalu. Jeśli wprowadzisz zmiany w portalu, zastąpią one ustawienia odwołań do kilku witryn dla tej sieci wirtualnej.
 
-Powinieneś czuć się komfortowo przy użyciu pliku konfiguracji sieci do czasu ukończenia procedury wielowitamierowej. Jeśli jednak w konfiguracji sieci pracuje wiele osób, musisz się upewnić, że wszyscy wiedzą o tym ograniczeniu. Nie oznacza to, że w ogóle nie możesz korzystać z portalu. Można go używać do wszystkiego innego, z wyjątkiem wprowadzania zmian konfiguracji do tej konkretnej sieci wirtualnej.
+Należy wygodnie korzystać z pliku konfiguracji sieci przez czas ukończenia procedury wielolokacjowej. Jeśli jednak w konfiguracji sieci istnieje wiele osób, należy się upewnić, że każdy wie o tym ograniczeniu. Nie oznacza to, że w ogóle nie można używać portalu. Można jej używać dla wszystkiego innego, z wyjątkiem wprowadzania zmian w konfiguracji tej konkretnej sieci wirtualnej.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Przed rozpoczęciem konfiguracji sprawdź, czy masz następujące elementy:
+Przed rozpoczęciem konfiguracji Sprawdź, czy masz następujące elementy:
 
-* Kompatybilny sprzęt sieci VPN dla każdej lokalizacji lokalnej. Sprawdź [informacje o urządzeniach sieci VPN pod kątem łączności sieci wirtualnej,](vpn-gateway-about-vpn-devices.md) aby sprawdzić, czy urządzenie, którego chcesz użyć, jest czymś, co jest znane jako zgodne.
-* Zewnętrznie publiczny adres IP IPv4 dla każdego urządzenia sieci VPN. Adres IP nie może znajdować się za translatorem adresów sieciowych. Jest to wymagane.
-* Ktoś, kto jest biegły w konfigurowaniu sprzętu VPN. Musisz mieć silne zrozumienie, jak skonfigurować urządzenie VPN lub pracować z kimś, kto to robi.
-* Zakresy adresów IP, których chcesz użyć w sieci wirtualnej (jeśli jeszcze go nie utworzono).
-* Zakresy adresów IP dla każdej lokacji sieci lokalnej, z którą będziesz się łączyć. Należy upewnić się, że zakresy adresów IP dla każdej lokacji sieci lokalnej, z którą chcesz się połączyć, nie nakładają się na siebie. W przeciwnym razie portal lub interfejs API REST odrzuci przekazywanych konfiguracji.<br>Na przykład jeśli masz dwie lokacje sieci lokalnej, które zawierają zakres adresów IP 10.2.3.0/24 i masz pakiet o adresie docelowym 10.2.3.3, platforma Azure nie wie, do której lokacji chcesz wysłać pakiet, ponieważ zakresy adresów nakładają się na siebie. Aby zapobiec problemom z routingiem, platforma Azure nie zezwala na przekazywanie pliku konfiguracji, który ma nakładające się zakresy.
+* Zgodny sprzęt sieci VPN dla każdej lokalizacji lokalnej. Sprawdź [Informacje o urządzeniach sieci VPN pod kątem łączności Virtual Network](vpn-gateway-about-vpn-devices.md) , aby sprawdzić, czy urządzenie, którego chcesz użyć, jest znane jako zgodne.
+* Zewnętrzny adres IP protokołu IPv4 dla każdego urządzenia sieci VPN. Adres IP nie może znajdować się za translatorem adresów sieciowych. Jest to wymagane.
+* Osoba, która jest w sposób nieużywany do konfigurowania sprzętu sieci VPN. Musisz mieć silny opis sposobu konfigurowania urządzenia sieci VPN lub pracy z osobą, która robi.
+* Zakresy adresów IP, które mają być używane dla sieci wirtualnej (jeśli jeszcze nie zostały utworzone).
+* Zakresy adresów IP dla każdej z lokacji sieci lokalnej, z którymi będziesz się łączyć. Należy upewnić się, że zakresy adresów IP dla każdej z lokacji sieci lokalnej, z którymi chcesz się połączyć, nie nakładają się na siebie. W przeciwnym razie Portal lub interfejs API REST odrzuci zakazaną konfigurację.<br>Na przykład jeśli masz dwie lokalne lokacje sieciowe, które zawierają zakres adresów IP 10.2.3.0/24 i masz pakiet z adresem docelowym 10.2.3.3, platforma Azure nie będzie mogła wiedzieć, do której lokacji chcesz wysłać pakiet, ponieważ zakresy adresów nakładają się na siebie. Aby zapobiec problemom z routingiem, platforma Azure nie zezwala na przekazywanie pliku konfiguracji, który ma nakładające się zakresy.
 
-### <a name="working-with-azure-powershell"></a>Praca z programem Azure PowerShell
+### <a name="working-with-azure-powershell"></a>Praca z Azure PowerShell
 
 [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
-## <a name="1-create-a-site-to-site-vpn"></a>1. Tworzenie sieci VPN typu lokacja lokacja
-Jeśli masz już sieć VPN typu lokacja-lokacja z dynamiczną bramą routingu, świetnie! Można przejść do [eksportu ustawień konfiguracji sieci wirtualnej](#export). Jeśli nie, wykonaj następujące czynności:
+## <a name="1-create-a-site-to-site-vpn"></a>1. Tworzenie sieci VPN typu lokacja-lokacja
+Jeśli masz już sieć VPN typu lokacja-lokacja z bramą dynamicznego routingu, świetnie! Możesz przystępować [eksport ustawień konfiguracji sieci wirtualnej](#export). Jeśli nie, wykonaj następujące czynności:
 
-### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>Jeśli masz już sieć wirtualną lokacja lokacja, ale ma ona statyczną (opartą na zasadach) bramę routingu:
-1. Zmień typ bramy na routing dynamiczny. Sieć VPN z wieloma lokacjami wymaga dynamicznej bramy routingu (znanej również jako routing. Aby zmienić typ bramy, musisz najpierw usunąć istniejącą bramę, a następnie utworzyć nową.
-2. Skonfiguruj nową bramę i utwórz tunel VPN. Aby uzyskać instrukcje, Aby uzyskać instrukcje, zobacz [Określanie typu jednostki SKU i sieci VPN](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Upewnij się, że typ marszruty został określony jako "Dynamiczny".
+### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>Jeśli masz już sieć wirtualną typu lokacja-lokacja, ale ma ona statyczną (opartą na zasadach) bramę routingu:
+1. Zmień typ bramy na Routing dynamiczny. Sieć VPN z obsługą wiele lokacji wymaga dynamicznej (nazywanego również bramą routingu opartego na trasach). Aby zmienić typ bramy, należy najpierw usunąć istniejącą bramę, a następnie utworzyć nową.
+2. Skonfiguruj nową bramę i Utwórz tunel VPN. Aby uzyskać instrukcje, zobacz [Określanie jednostki SKU i typu sieci VPN](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Upewnij się, że typ routingu jest określony jako "dynamiczny".
 
-### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Jeśli nie masz sieci wirtualnej lokacja lokacja:
-1. Utwórz sieć wirtualną lokacja-lokacja, korzystając z następujących instrukcji: [Utwórz sieć wirtualną z połączeniem sieci VPN między lokacjami.](vpn-gateway-site-to-site-create.md)  
-2. Konfigurowanie bramy routingu dynamicznego przy użyciu następujących instrukcji: [Konfigurowanie bramy sieci VPN](vpn-gateway-configure-vpn-gateway-mp.md). Pamiętaj, aby wybrać **routing dynamiczny** dla typu bramy.
+### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Jeśli nie masz sieci wirtualnej typu lokacja-lokacja:
+1. Utwórz sieć wirtualną lokacja-lokacja, wykonując następujące instrukcje: [utwórz Virtual Network z połączeniem sieci VPN typu lokacja-lokacja](vpn-gateway-site-to-site-create.md).  
+2. Konfigurowanie bramy routingu dynamicznego przy użyciu następujących instrukcji: [skonfiguruj VPN Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Upewnij się, że wybrano opcję **Routing dynamiczny** dla danego typu bramy.
 
 ## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2. Wyeksportuj plik konfiguracji sieci
 
-Otwórz konsolę programu PowerShell z podwyższonymi prawami. Aby przełączyć się do zarządzania usługami, użyj tego polecenia:
+Otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień. Aby przełączyć się do zarządzania usługami, użyj tego polecenia:
 
 ```powershell
 azure config mode asm
@@ -88,14 +88,14 @@ Połącz się ze swoim kontem. Użyj poniższego przykładu w celu łatwiejszego
 Add-AzureAccount
 ```
 
-Eksportuj plik konfiguracji sieci platformy Azure, uruchamiając następujące polecenie. W razie potrzeby można zmienić lokalizację pliku, aby wyeksportować go do innej lokalizacji.
+Wyeksportuj plik konfiguracji sieci platformy Azure, uruchamiając następujące polecenie. W razie potrzeby można zmienić lokalizację pliku do wyeksportowania do innej lokalizacji.
 
 ```powershell
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-## <a name="3-open-the-network-configuration-file"></a>3. Otwórz plik konfiguracji sieci
-Otwórz plik konfiguracji sieci pobrany w ostatnim kroku. Użyj dowolnego edytora xml, który Ci się podoba. Plik powinien wyglądać podobnie do następującego:
+## <a name="3-open-the-network-configuration-file"></a>3. Otwórz plik konfiguracji sieciowej
+Otwórz plik konfiguracji sieciowej pobrany w ostatnim kroku. Użyj dowolnego edytora XML. Plik powinien wyglądać podobnie do poniższego:
 
         <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
@@ -144,8 +144,8 @@ Otwórz plik konfiguracji sieci pobrany w ostatnim kroku. Użyj dowolnego edytor
           </VirtualNetworkConfiguration>
         </NetworkConfiguration>
 
-## <a name="4-add-multiple-site-references"></a>4. Dodaj wiele odwołań do witryny
-Po dodaniu lub usunięciu informacji o numerze witryny wprowadzone zostaną zmiany konfiguracji w witrynie ConnectionsToLocalNetwork/LocalNetworkSiteRef. Dodanie nowego odwołania do lokacji lokalnej wyzwala platformę Azure w celu utworzenia nowego tunelu. W poniższym przykładzie konfiguracja sieci jest dla połączenia z jedną lokacją. Zapisz plik po zakończeniu wprowadzania zmian.
+## <a name="4-add-multiple-site-references"></a>4. Dodaj odwołania do wielu lokacji
+Po dodaniu lub usunięciu informacji o odwołaniu do lokacji wprowadzisz zmiany w konfiguracji ConnectionsToLocalNetwork/LocalNetworkSiteRef. Dodanie nowego tunelu do lokalnego odwołania do lokacji spowoduje, że platforma Azure zostanie utworzona. W poniższym przykładzie konfiguracja sieci dotyczy połączenia z jedną lokacją. Zapisz plik po zakończeniu wprowadzania zmian.
 
 ```xml
   <Gateway>
@@ -155,7 +155,7 @@ Po dodaniu lub usunięciu informacji o numerze witryny wprowadzone zostaną zmia
   </Gateway>
 ```
 
-Aby dodać dodatkowe odwołania do lokacji (utworzyć konfigurację wielu lokacji), wystarczy dodać dodatkowe wiersze "LocalNetworkSiteRef", jak pokazano w poniższym przykładzie:
+Aby dodać dodatkowe odwołania do lokacji (utworzyć konfigurację z konfiguracją wiele lokacji), po prostu Dodaj dodatkowe linie "LocalNetworkSiteRef", jak pokazano w poniższym przykładzie:
 
 ```xml
   <Gateway>
@@ -167,10 +167,10 @@ Aby dodać dodatkowe odwołania do lokacji (utworzyć konfigurację wielu lokacj
 ```
 
 ## <a name="5-import-the-network-configuration-file"></a>5. Zaimportuj plik konfiguracji sieci
-Zaimportuj plik konfiguracji sieci. Po zaimportowaniu tego pliku ze zmianami zostaną dodane nowe tunele. Tunele będą używać bramy dynamicznej utworzonej wcześniej. Do zaimportowania pliku można użyć programu PowerShell.
+Zaimportuj plik konfiguracji sieci. Po zaimportowaniu tego pliku ze zmianami zostaną dodane nowe tunele. Tunele będą używały utworzonej wcześniej bramy dynamicznej. Do zaimportowania pliku można użyć programu PowerShell.
 
 ## <a name="6-download-keys"></a>6. Pobierz klucze
-Po dodaniu nowych tuneli użyj polecenia cmdlet programu PowerShell "Get-AzureVNetGatewayKey", aby uzyskać klucze wstępne IPsec/IKE dla każdego tunelu.
+Po dodaniu nowych tuneli należy użyć polecenia cmdlet "Get-AzureVNetGatewayKey" programu PowerShell, aby pobrać klucze wstępne protokołu IPsec/IKE dla każdego tunelu.
 
 Przykład:
 
@@ -179,16 +179,16 @@ Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site2"
 ```
 
-Jeśli wolisz, możesz również użyć interfejsu API REST dostępu do *klucza udostępnionego bramy sieci wirtualnej,* aby uzyskać klucze wstępnie udostępnione.
+Jeśli wolisz, możesz również użyć interfejsu API REST usługi *Get Virtual Network Gateway* w celu uzyskania kluczy wstępnych.
 
-## <a name="7-verify-your-connections"></a>7. Sprawdź swoje połączenia
-Sprawdź stan tunelu wielomiejscowego. Po pobraniu kluczy dla każdego tunelu należy zweryfikować połączenia. Użyj "Get-AzureVnetConnection", aby uzyskać listę tuneli sieci wirtualnej, jak pokazano w poniższym przykładzie. VNet1 to nazwa sieci wirtualnej.
+## <a name="7-verify-your-connections"></a>7. Sprawdź połączenia
+Sprawdź stan tunelu z obsługą wiele lokacji. Po pobraniu kluczy dla każdego tunelu należy zweryfikować połączenia. Użyj polecenie "Get-AzureVnetConnection", aby uzyskać listę tuneli sieci wirtualnej, jak pokazano w poniższym przykładzie. VNet1 jest nazwą sieci wirtualnej.
 
 ```powershell
 Get-AzureVnetConnection -VNetName VNET1
 ```
 
-Przykład zwrotu:
+Przykład powrotu:
 
 ```
     ConnectivityState         : Connected

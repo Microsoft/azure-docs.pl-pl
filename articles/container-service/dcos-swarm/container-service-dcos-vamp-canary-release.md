@@ -1,6 +1,6 @@
 ---
-title: (PRZESTARZAŁE) Wydanie kanaryjne z vampem w klastrze usługi Azure DC/OS
-description: Jak używać vamp do kanarek usługi wydania i zastosować inteligentne filtrowanie ruchu w klastrze usługi Azure Container Service DC/OS
+title: PRZESTARZAŁE Wersja systemu Kanaryjskie z pomocą systemu Vamp w klastrze DC/OS platformy Azure
+description: Jak korzystać z usługi pomocą systemu Vamp w wersji i zastosować Inteligentne filtrowanie ruchu w klastrze DC/OS Azure Container Service
 author: gggina
 ms.service: container-service
 ms.topic: conceptual
@@ -8,61 +8,61 @@ ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77189108"
 ---
-# <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(PRZESTARZAŁE) Mikrousługi kanaryjnej wersji z vamp w klastrze kontrolera domeny/systemu operacyjnego usługi kontenerowej azure
+# <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>PRZESTARZAŁE Mikrousługi wersji Kanaryjskich z pomocą systemu Vamp na klastrze DC/OS Azure Container Service
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-W tym instruktażu skonfigurowaliśmy usługę Vamp on Azure Container Service przy za pomocą klastra kontrolera domeny/systemu operacyjnego. Możemy canary zwolnić vamp demo usługi "sava", a następnie rozwiązać niezgodność usługi z Firefoksem, stosując inteligentne filtrowanie ruchu. 
+W tym instruktażu skonfigurujemy pomocą systemu Vamp na Azure Container Service z klastrem DC/OS. Firma Microsoft — wersja demonstracyjna pomocą systemu Vamp "Sava", a następnie Rozwiązywanie niezgodności usługi z programem Firefox przez zastosowanie inteligentnego filtrowania ruchu. 
 
 > [!TIP] 
-> W tym instruktażu Vamp działa w klastrze DC/OS, ale można również użyć Vamp z Kubernetes jako koordynatora.
+> W tym instruktażu pomocą systemu Vamp jest uruchamiany w klastrze DC/OS, ale można również użyć pomocą systemu Vamp z Kubernetes jako koordynatorem.
 >
 
-## <a name="about-canary-releases-and-vamp"></a>O wydaniach kanarek i Vamp
+## <a name="about-canary-releases-and-vamp"></a>Informacje o wersjach oprogramowania Kanaryjskie i pomocą systemu Vamp
 
 
-[Canary zwolnienie](https://martinfowler.com/bliki/CanaryRelease.html) to inteligentna strategia wdrażania przyjęta przez innowacyjne organizacje, takie jak Netflix, Facebook i Spotify. Jest to podejście, które ma sens, ponieważ zmniejsza problemy, wprowadza siatki bezpieczeństwa i zwiększa innowacyjność. Dlaczego więc nie wszystkie firmy z niego korzystają? Rozszerzenie potoku ciągłej integracji/ciągłego wdrażania o strategie kanaryjskie zwiększa złożoność i wymaga rozległej wiedzy i doświadczenia devops. To wystarczy, aby zablokować zarówno mniejsze firmy, jak i przedsiębiorstwa, zanim jeszcze się rozpoczną. 
+[Wydanie Kanaryjskie](https://martinfowler.com/bliki/CanaryRelease.html) to inteligentna strategia wdrażania przyjęta przez innowacyjne organizacje, takie jak Netflix, Facebook i Spotify. Jest to podejście, które ma sens, ponieważ zmniejsza problemy, wprowadza bezpieczeństwo i zwiększa innowacje. Dlaczego nie wszystkie firmy używają tego programu? Rozszerzanie potoku ciągłej integracji/ciągłego wdrażania w celu uwzględnienia strategii Kanaryjskich zwiększa złożoność i wymaga obszernej wiedzy DevOps i środowiska. Jest to wystarczające do zablokowania mniejszych firm i przedsiębiorstw przed rozpoczęciem pracy. 
 
-[Vamp](https://vamp.io/) to system open-source zaprojektowany, aby ułatwić to przejście i przynieść canary zwalnianie funkcji do preferowanego harmonogramu kontenerów. Funkcjonalność kanarek Vamp wykracza poza wdrożenia oparte na procentach. Ruch można filtrować i dzielić w różnych warunkach, na przykład w celu kierowania reklam do określonych użytkowników, zakresów adresów IP lub urządzeń. Vamp śledzi i analizuje metryki wydajności, umożliwiając automatyzację na podstawie rzeczywistych danych. Można skonfigurować automatyczne wycofywanie błędów lub skalować poszczególne warianty usługi na podstawie obciążenia lub opóźnienia.
+[Pomocą systemu Vamp](https://vamp.io/) to system "open source" zaprojektowany w celu ułatwienia tego przejścia i zapewnienia funkcji zwalniania przez narzędzie Kanaryjskie w preferowanym harmonogramie kontenerów. Funkcje Kanaryjskie pomocą systemu Vamp wykraczają poza wdrożenia oparte na procentach. Ruch może być filtrowany i podzielony na wiele warunków, na przykład dla konkretnych użytkowników, zakresów IP lub urządzeń. Pomocą systemu Vamp śledzi i analizuje metryki wydajności, umożliwiając automatyzację na podstawie rzeczywistych danych. Można skonfigurować automatyczne wycofywanie błędów lub skalować poszczególne warianty usługi na podstawie obciążenia lub opóźnienia.
 
-## <a name="set-up-azure-container-service-with-dcos"></a>Konfigurowanie usługi azure container service przy pracy z kontrolerem domeny/systemu operacyjnego
-
-
-
-1. [Wdrażanie klastra dc/os](container-service-deployment.md) z jednym wzorcem i dwoma agentami o domyślnym rozmiarze. 
-
-2. [Utwórz tunel SSH,](../container-service-connect.md) aby połączyć się z klastrem DC/OS. W tym artykule przyjęto założenie, że tunel do klastra na porcie lokalnym 80.
+## <a name="set-up-azure-container-service-with-dcos"></a>Konfigurowanie Azure Container Service przy użyciu platformy DC/OS
 
 
-## <a name="set-up-vamp"></a>Konfigurowanie vamp
 
-Teraz, gdy masz uruchomiony klaster DC/OS, możesz zainstalować vamp z interfejsu\/użytkownika dc/os (http: /localhost:80). 
+1. [Wdróż klaster DC/OS](container-service-deployment.md) z jednym serwerem głównym i dwoma agentami o domyślnym rozmiarze. 
+
+2. [Utwórz tunel SSH](../container-service-connect.md) , aby połączyć się z klastrem DC/OS. W tym artykule założono, że tunel jest używany do klastra na porcie lokalnym 80.
+
+
+## <a name="set-up-vamp"></a>Konfigurowanie pomocą systemu Vamp
+
+Teraz, gdy masz uruchomiony klaster DC/OS, możesz zainstalować pomocą systemu Vamp z poziomu interfejsu użytkownika DC/OS (http:\//localhost: 80). 
 
 ![Interfejs użytkownika platformy DC/OS](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
 Instalacja odbywa się w dwóch etapach:
 
-1. **Wdrażanie Elasticsearch**.
+1. **Wdróż Elasticsearch**.
 
-2. Następnie **wdrożyć Vamp,** instalując pakiet Vamp DC/OS wszechświata.
+2. Następnie **Wdróż pomocą systemu Vamp** przez zainstalowanie pakietu pomocą systemu Vamp DC/OS Universe.
 
-### <a name="deploy-elasticsearch"></a>Wdrażanie elasticsearch
+### <a name="deploy-elasticsearch"></a>Wdróż Elasticsearch
 
-Vamp wymaga Elasticsearch dla kolekcji metryki i agregacji. Obrazy [dockera magnetycznego](https://hub.docker.com/r/magneticio/elastic/) umożliwiają wdrożenie zgodnego stosu Vamp Elasticsearch.
+Pomocą systemu Vamp wymaga Elasticsearch do zbierania metryk i agregacji. Do wdrożenia zgodnego stosu pomocą systemu Vamp Elasticsearch można użyć [obrazów platformy Docker magneticio](https://hub.docker.com/r/magneticio/elastic/) .
 
-1. W interfejsie użytkownika kontrolera domeny/systemu operacyjnego przejdź do **witryny Usługi** i kliknij pozycję **Wdrażanie usługi**.
+1. W interfejsie użytkownika DC/OS przejdź do pozycji **usługi** , a następnie kliknij pozycję **Wdróż usługę**.
 
-2. Wybierz **tryb JSON** z okna podręcznego **Wdrażanie nowej usługi.**
+2. Wybierz **tryb JSON** z okna podręcznego **Wdróż nową usługę** .
 
    ![Wybierz tryb JSON](./media/container-service-dcos-vamp-canary-release/02_deploy_service_json_mode.png)
 
-3. Wklej w następującym JSON. Ta konfiguracja uruchamia kontener z 1 GB pamięci RAM i podstawową kontrolą kondycji na porcie Elasticsearch.
+3. Wklej poniższy kod JSON. Ta konfiguracja uruchamia kontener z 1 GB pamięci RAM i podstawową kontrolę kondycji na porcie Elasticsearch.
   
    ```JSON
    {
@@ -93,49 +93,49 @@ Vamp wymaga Elasticsearch dla kolekcji metryki i agregacji. Obrazy [dockera magn
 
 3. Kliknij przycisk **Deploy (Wdróż)**.
 
-   Dc/OS wdraża kontener Elasticsearch. Postęp można śledzić na stronie **Usługi.**  
+   Platforma DC/OS służy do wdrażania kontenera Elasticsearch. Postęp można śledzić na stronie **usługi** .  
 
-   ![wdrożyć e? Elasticsearch (wyszukiwanie elastyczne)](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
+   ![Czy wdrożyć e? Elasticsearch](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
 
-### <a name="deploy-vamp"></a>Wdrażanie vamp
+### <a name="deploy-vamp"></a>Wdróż pomocą systemu Vamp
 
-Po elasticsearch raporty jako **uruchomiony,** można dodać Vamp DC / OS Universe pakiet. 
+Gdy Elasticsearch raporty jako **uruchomione**, możesz dodać pakiet platformy pomocą systemu Vamp DC/OS. 
 
-1. Przejdź do **Universe** i poszukaj **wampira.** 
-   ![Vamp w uniwersum DC/OS](./media/container-service-dcos-vamp-canary-release/04_universe_deploy_vamp.png)
+1. Przejdź do programu **Universe** i Wyszukaj pozycję **pomocą systemu Vamp**. 
+   ![Pomocą systemu Vamp na platformę DC/OS](./media/container-service-dcos-vamp-canary-release/04_universe_deploy_vamp.png)
 
-2. Kliknij **przycisk Zainstaluj** obok pakietu vamp i wybierz pozycję **Instalacja zaawansowana**.
+2. Kliknij przycisk **Instaluj** obok pakietu pomocą systemu vamp, a następnie wybierz pozycję **Instalacja zaawansowana**.
 
-3. Przewiń w dół i wprowadź `http://elasticsearch.marathon.mesos:9200`następujący elasticsearch-url: . 
+3. Przewiń w dół i wprowadź następujący Elasticsearch-URL: `http://elasticsearch.marathon.mesos:9200`. 
 
-   ![Wprowadź adres URL elasticsearch](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
+   ![Wprowadź adres URL Elasticsearch](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
 
-4. Kliknij **pozycję Przejrzyj i zainstaluj**, a następnie kliknij przycisk **Zainstaluj,** aby rozpocząć wdrożenie.  
+4. Kliknij przycisk **Przeglądaj i zainstaluj**, a następnie kliknij przycisk **Instaluj** , aby rozpocząć wdrażanie.  
 
-   DC/OS wdraża wszystkie wymagane składniki Vamp. Postęp można śledzić na stronie **Usługi.**
+   Platforma DC/OS wdraża wszystkie wymagane składniki pomocą systemu Vamp. Postęp można śledzić na stronie **usługi** .
   
-   ![Wdrażanie vamp jako pakiet wszechświata](./media/container-service-dcos-vamp-canary-release/06_deploy_vamp.png)
+   ![Wdróż pomocą systemu Vamp jako pakiet Universe](./media/container-service-dcos-vamp-canary-release/06_deploy_vamp.png)
   
-5. Po zakończeniu wdrażania można uzyskać dostęp do interfejsu użytkownika Vamp:
+5. Po zakończeniu wdrażania możesz uzyskać dostęp do interfejsu użytkownika pomocą systemu Vamp:
 
-   ![Usługa Vamp na dc/os](./media/container-service-dcos-vamp-canary-release/07_deploy_vamp_complete.png)
+   ![Usługa pomocą systemu Vamp na kontrolerze domeny/OS](./media/container-service-dcos-vamp-canary-release/07_deploy_vamp_complete.png)
   
-   ![Interfejs użytkownika Vamp](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
+   ![Interfejs użytkownika pomocą systemu Vamp](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
 
 
 ## <a name="deploy-your-first-service"></a>Wdrażanie pierwszej usługi
 
-Teraz, gdy Vamp jest uruchomiony, wdrożyć usługę z planu. 
+Teraz, gdy pomocą systemu Vamp jest uruchomiona, wdróż usługę z planu. 
 
-W najprostszej formie [plan Vamp](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) opisuje punkty końcowe (bramy), klastry i usługi do wdrożenia. Vamp używa klastrów do grupowania różnych wariantów tej samej usługi w grupy logiczne do zwalniania kanarek lub testowania A/B.  
+W najprostszej postaci [pomocą systemu Vamp plan](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) opisuje punkty końcowe (bramy), klastry i usługi do wdrożenia. Pomocą systemu Vamp używa klastrów do grupowania różnych wariantów tej samej usługi w grupy logiczne dla testowania wydawania i/B.  
 
-W tym scenariuszu używa przykładowej aplikacji monolityczne o nazwie [**sava**](https://github.com/magneticio/sava), który jest w wersji 1.0. Monolit jest pakowany w kontenerze platformy Docker, który znajduje się w centrum platformy Docker pod względem magneticio/sava:1.0.0. Aplikacja działa zwykle na porcie 8080, ale chcesz udostępnić go pod portem 9050 w tym przypadku. Wdrażanie aplikacji za pośrednictwem Vamp przy użyciu prostego planu.
+W tym scenariuszu jest stosowana Przykładowa aplikacja monolityczna o nazwie [**Sava**](https://github.com/magneticio/sava), która jest w wersji 1,0. Monolitu znajduje się w kontenerze platformy Docker, który znajduje się w usłudze Docker Hub w obszarze magneticio/Sava: 1.0.0. Aplikacja normalnie działa na porcie 8080, ale w tym przypadku chcesz ją uwidocznić w porcie 9050. Wdróż aplikację za pośrednictwem usługi pomocą systemu Vamp przy użyciu prostego planu.
 
-1. Przejdź do **opcji Wdrożenia**.
+1. Przejdź do pozycji **wdrożenia**.
 
-2. Kliknij przycisk **Dodaj**.
+2. Kliknij pozycję **Add** (Dodaj).
 
-3. Wklej w poniższym planie YAML. Ten plan zawiera jeden klaster z tylko jednym wariantem usługi, który możemy zmienić w późniejszym kroku:
+3. Wklej w poniższej strategii YAML. Ten plan zawiera jeden klaster z tylko jedną odmianą usługi, która została zmieniona w kolejnym kroku:
 
    ```YAML
    name: sava                        # deployment name
@@ -151,53 +151,53 @@ W tym scenariuszu używa przykładowej aplikacji monolityczne o nazwie [**sava**
               webport: 8080/http # cluster endpoint, used for canary releasing
    ```
 
-4. Kliknij przycisk **Zapisz**. Vamp inicjuje wdrożenie.
+4. Kliknij przycisk **Zapisz**. Pomocą systemu Vamp inicjuje wdrożenie.
 
-Wdrożenie jest wymienione na stronie **Wdrożenia.** Kliknij wdrożenie, aby monitorować jego stan.
+Wdrożenie jest wyświetlane na stronie **wdrożenia** . Kliknij wdrożenie, aby monitorować jego stan.
 
-![Interfejs użytkownika Vamp - wdrażanie sava](./media/container-service-dcos-vamp-canary-release/09_sava100.png)
+![Interfejs użytkownika pomocą systemu Vamp — wdrażanie Sava](./media/container-service-dcos-vamp-canary-release/09_sava100.png)
 
-![usługi sava w Interfejsie Vamp](./media/container-service-dcos-vamp-canary-release/09a_sava100.png)
+![Usługa Sava w interfejsie użytkownika pomocą systemu Vamp](./media/container-service-dcos-vamp-canary-release/09a_sava100.png)
 
-Tworzone są dwie bramy, które są wymienione na stronie **Bramy:**
+Tworzone są dwie bramy, które są wymienione na stronie **bramy** :
 
-* stabilny punkt końcowy dostępu do uruchomionej usługi (port 9050) 
-* bramę wewnętrzną zarządzaną przez Vamp (więcej o tej bramie później). 
+* stabilny punkt końcowy do uzyskiwania dostępu do uruchomionej usługi (port 9050) 
+* Brama wewnętrzna zarządzana przez pomocą systemu Vamp (więcej informacji na tej bramie). 
 
-![Vamp UI - bramy sava](./media/container-service-dcos-vamp-canary-release/10_vamp_sava_gateways.png)
+![Pomocą systemu Vamp UI-Sava Gateways](./media/container-service-dcos-vamp-canary-release/10_vamp_sava_gateways.png)
 
-Usługa sava została wdrożona, ale nie można uzyskać do niej dostępu zewnętrznie, ponieważ moduł równoważenia obciążenia platformy Azure nie wie jeszcze, aby przesłać ruch do niej. Aby uzyskać dostęp do usługi, zaktualizuj konfigurację sieci platformy Azure.
+Usługa Sava została wdrożona, ale nie możesz uzyskać do niej dostępu zewnętrznie, ponieważ Azure Load Balancer nie jest już do niej przekazywane. Aby uzyskać dostęp do usługi, zaktualizuj konfigurację sieci platformy Azure.
 
 
 ## <a name="update-the-azure-network-configuration"></a>Aktualizowanie konfiguracji sieci platformy Azure
 
-Vamp wdrożył usługę sava w węzłach agenta kontrolera domeny/systemu operacyjnego, ujawniając stabilny punkt końcowy na porcie 9050. Aby uzyskać dostęp do usługi spoza klastra kontrolera domeny/systemu operacyjnego, należy wprowadzić następujące zmiany w konfiguracji sieci platformy Azure we wdrożeniu klastra: 
+Pomocą systemu Vamp wdrożono usługę Sava w węzłach agenta DC/OS, uwidaczniając stabilny punkt końcowy na porcie 9050. Aby uzyskać dostęp do usługi spoza klastra DC/OS, wprowadź następujące zmiany w konfiguracji sieci platformy Azure we wdrożeniu klastra: 
 
-1. **Skonfiguruj moduł równoważenia obciążenia platformy Azure** dla agentów (zasób o nazwie **dcos-agent-lb-xxxx)** za pomocą sondy kondycji i reguły przekazywania ruchu na porcie 9050 do wystąpień sawy. 
+1. **Skonfiguruj Azure Load Balancer** dla agentów (zasób o nazwie **dcos-Agent-lb-xxxx**) z sondą kondycji i reguły przesyłania dalej ruchu na porcie 9050 do wystąpień Sava. 
 
-2. **Zaktualizuj sieciową grupę zabezpieczeń** dla agentów publicznych (zasób o nazwie **XXXX-agent-public-nsg-XXXX),** aby zezwolić na ruch na porcie 9050.
+2. **Zaktualizuj grupę zabezpieczeń sieci** dla agentów publicznych (zasób o nazwie **xxxx-Agent-Public-sieciowej grupy zabezpieczeń-xxxx**), aby zezwolić na ruch na porcie 9050.
 
-Aby uzyskać szczegółowe kroki, aby wykonać te zadania za pomocą witryny Azure portal, zobacz [Włączanie dostępu publicznego do aplikacji usługi Azure Container Service.](container-service-enable-public-access.md) Określ port 9050 dla wszystkich ustawień portu.
-
-
-Po utworzeniu wszystko przejdź do **bloku Przegląd** modułu równoważenia obciążenia agenta DC/OS (zasobu o nazwie **dcos-agent-lb-xxxx**). Znajdź **publiczny adres IP**i użyj adresu, aby uzyskać dostęp do sava w porcie 9050.
-
-![Portal Azure — uzyskaj publiczny adres IP](./media/container-service-dcos-vamp-canary-release/18_public_ip_address.png)
-
-![Sava](./media/container-service-dcos-vamp-canary-release/19_sava100.png)
+Aby uzyskać szczegółowe instrukcje dotyczące wykonywania tych zadań przy użyciu Azure Portal, zobacz [Włączanie publicznego dostępu do aplikacji Azure Container Service](container-service-enable-public-access.md). Określ port 9050 dla wszystkich ustawień portu.
 
 
-## <a name="run-a-canary-release"></a>Uruchamianie kanarek
+Po utworzeniu wszystkiego przejdź do bloku **Przegląd** modułu równoważenia obciążenia systemu DC/OS (zasób o nazwie **dcos-Agent-lb-xxxx**). Znajdź **publiczny adres IP**i użyj adresu w celu uzyskania dostępu do Sava na porcie 9050.
 
-Załóżmy, że masz nową wersję tej aplikacji, które chcesz canary wydania do produkcji. Masz go konteneryzowany jako magneticio /sava:1.1.0 i jesteś gotowy do pracy. Vamp pozwala łatwo dodać nowe usługi do uruchomionego wdrożenia. Te "scalone" usługi są wdrażane wraz z istniejącymi usługami w klastrze i mają przypisaną wagę 0%. Żaden ruch nie jest kierowany do nowo scalonej usługi, dopóki nie dostosujesz dystrybucji ruchu. Suwak wagi w interfejsie vamp zapewnia pełną kontrolę nad dystrybucją, co pozwala na stopniowe regulacje (uwolnienie kanarek) lub natychmiastowe wycofywanie.
+![Azure Portal — Uzyskaj publiczny adres IP](./media/container-service-dcos-vamp-canary-release/18_public_ip_address.png)
 
-### <a name="merge-a-new-service-variant"></a>Scalanie nowego wariantu usługi
+![sava](./media/container-service-dcos-vamp-canary-release/19_sava100.png)
 
-Aby scalić nową usługę sava 1.1 z uruchomionym wdrożeniem:
 
-1. W interfejsie użytkownika vamp kliknij pozycję **Plany**.
+## <a name="run-a-canary-release"></a>Uruchamianie wersji programu Kanaryjskie
 
-2. Kliknij **przycisk Dodaj** i wklej w następującym planie YAML: Ten plan opisuje nowy wariant usługi (sava:1.1.0) do wdrożenia w istniejącym klastrze (sava_cluster).
+Załóżmy, że masz nową wersję tej aplikacji, którą chcesz wypróbować w środowisku produkcyjnym. Jest on kontenerem jako magneticio/Sava: 1.1.0 i gotowe do użycia. Pomocą systemu Vamp umożliwia łatwe dodawanie nowych usług do uruchomionego wdrożenia. Te "scalone" usługi są wdrażane wraz z istniejącymi usługami w klastrze i mają przypisaną wagę 0%. Żaden ruch nie jest kierowany do nowo Scalonej usługi do momentu dostosowania dystrybucji ruchu. Suwak wagi w interfejsie użytkownika pomocą systemu Vamp zapewnia pełną kontrolę nad dystrybucją, umożliwiając korektę przyrostową (wydanie Kanaryjskie) lub natychmiastowe wycofywanie.
+
+### <a name="merge-a-new-service-variant"></a>Scalanie nowej wariantu usługi
+
+Aby scalić nową usługę Sava 1,1 z uruchomionym wdrożeniem:
+
+1. W interfejsie użytkownika pomocą systemu Vamp kliknij pozycję **plany**.
+
+2. Kliknij przycisk **Dodaj** i wklej w następującej strategii YAML: ten plan opisuje nową wariant usługi (Sava: 1.1.0) do wdrożenia w ramach istniejącego klastra (sava_cluster).
 
    ```YAML
    name: sava:1.1.0      # blueprint name
@@ -211,85 +211,85 @@ Aby scalić nową usługę sava 1.1 z uruchomionym wdrożeniem:
               webport: 8080/http # cluster endpoint to update
    ```
   
-3. Kliknij przycisk **Zapisz**. Plan jest przechowywany i wyświetlany na stronie **Plany.**
+3. Kliknij przycisk **Zapisz**. Plan jest przechowywany i wyświetlany na stronie **plany** .
 
-4. Otwórz menu akcji w planie sava:1.1 i kliknij przycisk **Scal do**.
+4. Otwórz menu Akcja w planie Sava: 1.1 i kliknij pozycję **Scal z**.
 
-   ![Interfejs Vamp - plany](./media/container-service-dcos-vamp-canary-release/20_sava110_mergeto.png)
+   ![Pomocą systemu Vamp — plany interfejsu użytkownika](./media/container-service-dcos-vamp-canary-release/20_sava110_mergeto.png)
 
-5. Wybierz wdrożenie **sava** i kliknij przycisk **Scal**.
+5. Wybierz wdrożenie **Sava** , a następnie kliknij przycisk **Scal**.
 
-   ![Interfejs użytkownika Vamp - schemat scalania do wdrożenia](./media/container-service-dcos-vamp-canary-release/21_sava110_merge.png)
+   ![Interfejs użytkownika pomocą systemu Vamp — Scal plan z wdrożeniem](./media/container-service-dcos-vamp-canary-release/21_sava110_merge.png)
 
-Vamp wdraża nowy wariant usługi sava:1.1.0 opisany w planie obok sava:1.0.0 w **sava_cluster** uruchomionego wdrożenia. 
+Pomocą systemu Vamp wdraża nową odmianę usługi Sava: 1.1.0, która została opisana w planie obok Sava: 1.0.0 w **sava_cluster** uruchomionym wdrożeniu. 
 
-![Interfejs użytkownika Vamp — zaktualizowane wdrożenie sava](./media/container-service-dcos-vamp-canary-release/22_sava_cluster.png)
+![Interfejs użytkownika pomocą systemu Vamp — Zaktualizowano wdrożenie Sava](./media/container-service-dcos-vamp-canary-release/22_sava_cluster.png)
 
-Brama **sava/sava_cluster/webport** (punkt końcowy klastra) jest również aktualizowana, dodając trasę do nowo wdrożonej sava:1.1.0. W tym momencie nie jest tu kierowany ruch **(waga** jest ustawiona na 0%).
+Brama **/webport Sava/sava_cluster** (punkt końcowy klastra) jest również aktualizowana, co powoduje dodanie trasy do nowo wdrożonego Sava: 1.1.0. W tym momencie żaden ruch nie jest kierowany w tym miejscu ( **waga** jest ustawiona na 0%).
 
-![Interfejs użytkownika vamp — brama klastra](./media/container-service-dcos-vamp-canary-release/23_sava_cluster_webport.png)
+![Interfejs użytkownika pomocą systemu Vamp — Brama klastra](./media/container-service-dcos-vamp-canary-release/23_sava_cluster_webport.png)
 
-### <a name="canary-release"></a>Uwolnienie kanaryjne
+### <a name="canary-release"></a>Wersja Kanaryjskie
 
-W obu wersjach sava wdrożonych w tym samym klastrze dostosuj rozkład ruchu między nimi, przesuwając suwak **WEIGHT.**
+W przypadku obu wersji Sava wdrożonych w tym samym klastrze Dostosuj rozkład ruchu między nimi, przesuwając suwak **wagi** .
 
-1. Kliknij ![pozycję Vamp](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) UI - edytuj obok **pozycji WAGA**.
+1. Kliknij ![pozycję pomocą systemu Vamp UI —](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) Edytuj obok pozycji **waga**.
 
-2. Ustaw rozkład masy na 50%/50% i kliknij przycisk **Zapisz**.
+2. Ustaw rozkład wagi na 50%/50%, a następnie kliknij przycisk **Zapisz**.
 
-   ![Vamp UI - suwak wagi bramy](./media/container-service-dcos-vamp-canary-release/24_sava_cluster_webport_weight.png)
+   ![Pomocą systemu Vamp — suwak wagi bramy](./media/container-service-dcos-vamp-canary-release/24_sava_cluster_webport_weight.png)
 
-3. Wróć do przeglądarki i odśwież stronę sava jeszcze kilka razy. Aplikacja sava przełącza się teraz między stroną sava:1.0 a stroną sava:1.1.
+3. Wróć do przeglądarki i Odśwież stronę Sava kilka razy. Aplikacja Sava teraz przełącza się między stroną Sava: 1.0 a Sava: 1.1.
 
-   ![naprzemiennie usługi sava1.0 i sava1.1](./media/container-service-dcos-vamp-canary-release/25_sava_100_101.png)
+   ![zmienne usługi Sava 1.0 i Sava 1.1](./media/container-service-dcos-vamp-canary-release/25_sava_100_101.png)
 
 
   > [!NOTE]
-  > Ta zmiana strony działa najlepiej w trybie "Incognito" lub "Anonimowy" przeglądarki ze względu na buforowanie zasobów statycznych.
+  > Ta alternatywa strony najlepiej sprawdza się w przypadku trybu "incognito" lub "Anonymous" w przeglądarce ze względu na buforowanie zasobów statycznych.
   >
 
-### <a name="filter-traffic"></a>Filtrowanie ruchu
+### <a name="filter-traffic"></a>Filtruj ruch
 
-Załóżmy, że po wdrożeniu wykryto niezgodność w sava:1.1.0, która powoduje problemy z wyświetlaniem w przeglądarkach Firefox. Możesz ustawić Vamp, aby filtrować ruch przychodzący i kierować wszystkich użytkowników Firefoksa z powrotem do znanej stabilnej sava:1.0.0. Ten filtr natychmiast rozwiązuje zakłócenia dla użytkowników Firefoksa, podczas gdy wszyscy inni nadal korzystają z zalet ulepszonego sava:1.1.0.
+Załóżmy, że po wdrożeniu wykryto niezgodność w Sava: 1.1.0, która powoduje problemy z wyświetlaniem w przeglądarkach w przeglądarce Firefox. Można ustawić pomocą systemu vamp, aby filtrować ruch przychodzący i kierować wszystkich użytkowników programu Firefox z powrotem do znanej stabilnej Sava: 1.0.0. Ten filtr natychmiast rozwiązuje zakłócenia dla użytkowników programu Firefox, natomiast inne osoby nadal korzystają z zalet ulepszonych Sava: 1.1.0.
 
-Vamp używa **warunków** do filtrowania ruchu między trasami w bramie. Ruch jest najpierw filtrowany i kierowany zgodnie z warunkami stosowanymi dla każdej trasy. Cały pozostały ruch jest rozdzielany zgodnie z ustawieniem wagi bramy.
+Pomocą systemu Vamp używa **warunków** do filtrowania ruchu między trasami w bramie. Ruch jest najpierw filtrowany i kierowany zgodnie z warunkami zastosowanymi do każdej trasy. Cały ruch pozostały jest dystrybuowany zgodnie z ustawieniem wagi bramy.
 
-Możesz utworzyć warunek filtrowania wszystkich użytkowników Firefoksa i kierowania ich do starego sava:1.0.0:
+Można utworzyć warunek filtrowania wszystkich użytkowników Firefox i skierować je do starego Sava: 1.0.0:
 
-1. Na stronie sava/sava_cluster/webport **Gateways** kliknij ![pozycję Interfejs użytkownika](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) vamp — edytuj, aby dodać **warunek** do trasy sava/sava_cluster/sava:1.0.0/webport. 
+1. Na stronie **bramy** /webport sava/sava_cluster kliknij pozycję ![pomocą systemu Vamp UI-Edytuj](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) , aby dodać **warunek** do trasy Sava/sava_cluster/Sava: 1.0.0/webport. 
 
-2. Wprowadź warunek **user-agent ==** ![Firefox i kliknij](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png)Vamp UI - zapisz .
+2. Wprowadź warunek **User-Agent = = Firefox** i kliknij pozycję ![pomocą systemu Vamp UI-Save](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png)(Zapisz).
 
-   Vamp dodaje warunek z domyślną siłą 0%. Aby rozpocząć filtrowanie ruchu, należy dostosować siłę stanu.
+   Pomocą systemu Vamp dodaje warunek z domyślną siłą równą 0%. Aby rozpocząć filtrowanie ruchu, należy dostosować siłę stanu.
 
-3. Kliknij ![przycisk Vamp](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) UI - edytuj, aby zmienić **siłę** zastosowaną do warunku.
+3. Kliknij ![pozycję pomocą systemu Vamp UI-](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) Edytuj, aby zmienić **siłę** zastosowana do warunku.
  
-4. Ustaw **siłę** na 100% ![i kliknij Vamp UI - zapisz,](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png) aby zapisać.
+4. Ustaw **siłę** na 100%, a następnie ![kliknij pozycję interfejs użytkownika](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png) pomocą systemu Vamp — Zapisz, aby zapisać.
 
-   Vamp wysyła teraz cały ruch pasujący do warunku (wszyscy użytkownicy Firefoksa) do sava:1.0.0.
+   Pomocą systemu Vamp teraz wysyła cały ruch zgodny z warunkiem (wszyscy użytkownicy programu Firefox) do Sava: 1.0.0.
 
-   ![Interfejs użytkownika vamp - zastosuj warunek do bramy](./media/container-service-dcos-vamp-canary-release/26_apply_condition.png)
+   ![Interfejs użytkownika pomocą systemu Vamp — stosowanie warunku do bramy](./media/container-service-dcos-vamp-canary-release/26_apply_condition.png)
 
-5. Na koniec dostosuj wagę bramy, aby wysłać cały pozostały ruch (wszyscy użytkownicy spoza Firefoksa) do nowego sava:1.1.0. Kliknij ![przycisk Vamp](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) UI - edytuj obok **pozycji WAGA** i ustaw rozkład masy, aby w 100% został przekierowany na trasę sava/sava_cluster/sava:1.1.0/webport.
+5. Na koniec Dostosuj wagę bramy, aby wysłać cały ruch (wszyscy użytkownicy niebędący Firefox) do nowego Sava: 1.1.0. Kliknij ![pozycję pomocą systemu Vamp UI —](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) Edytuj obok pozycji **waga** i ustaw rozkład wagi, tak aby 100% został skierowany do trasy Sava/sava_cluster/Sava: 1.1.0/webport.
 
-   Cały ruch niefiltrowany według warunku jest teraz kierowany do nowego sava:1.1.0.
+   Cały ruch, który nie jest filtrowany przez warunek, jest teraz kierowany do nowego Sava: 1.1.0.
 
-6. Aby zobaczyć filtr w akcji, otwórz dwie różne przeglądarki (jeden Firefox i jedna druga przeglądarka) i uzyskaj dostęp do usługi sava z obu. Wszystkie żądania Firefoksa są wysyłane do sava:1.0.0, podczas gdy wszystkie inne przeglądarki są kierowane do sava:1.1.0.
+6. Aby wyświetlić filtr w akcji, Otwórz dwie różne przeglądarki (jedna Firefox i jedna inna przeglądarka) i uzyskaj dostęp do usługi Sava z obu tych programów. Wszystkie żądania programu Firefox są wysyłane do Sava: 1.0.0, podczas gdy wszystkie inne przeglądarki są kierowane do Sava: 1.1.0.
 
-   ![Interfejs użytkownika vamp - filtr ruchu](./media/container-service-dcos-vamp-canary-release/27_filter_traffic.png)
+   ![Pomocą systemu Vamp ruch filtru interfejsu użytkownika](./media/container-service-dcos-vamp-canary-release/27_filter_traffic.png)
 
-## <a name="summing-up"></a>Podsumowanie
+## <a name="summing-up"></a>Sumowanie
 
-Ten artykuł był szybkim wprowadzeniem do Vamp w klastrze DC/OS. Na początek uruchomiono usługę Vamp w klastrze kontrolera domeny/systemu operacyjnego usługi kontenerowej platformy Azure, wdrożyłeś usługę z planem Vamp i uzyskasz do niej dostęp w ujawnionym punkcie końcowym (bramie).
+Ten artykuł był szybkim wprowadzeniem do pomocą systemu Vamp w klastrze DC/OS. W przypadku startów pomocą systemu Vamp się i uruchomiono Azure Container Service w klastrze DC/OS, wdrożono usługę z planem pomocą systemu Vamp i uzyskuje dostęp do niej w uwidocznionym punkcie końcowym (bramie).
 
-Dotknęliśmy również kilku zaawansowanych funkcji Vamp: scalanie nowego wariantu usługi z uruchomionym wdrożeniem i wprowadzanie go stopniowo, a następnie filtrowanie ruchu w celu rozwiązania znanej niezgodności.
+Wprowadzono również pewne zaawansowane funkcje pomocą systemu Vamp: scalanie nowej wariantu usługi z uruchomionym wdrożeniem i wprowadzenie go przyrostowo, a następnie Filtrowanie ruchu w celu rozpoznania znanej niezgodności.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o zarządzaniu działaniami Vamp za pośrednictwem [interfejsu API Vamp REST](https://docs.vamp.io/how-vamp-works/events-and-metrics#events).
+* Dowiedz się więcej o zarządzaniu akcjami pomocą systemu Vamp za pomocą [interfejsu API REST pomocą systemu Vamp](https://docs.vamp.io/how-vamp-works/events-and-metrics#events).
 
-* Tworzenie skryptów automatyzacji Vamp w node.js i uruchamianie ich jako [przepływów pracy Vamp](https://docs.vamp.io/how-vamp-works/concepts-and-components#workflows).
+* Twórz skrypty automatyzacji pomocą systemu Vamp w programie Node. js i uruchamiaj je jako [przepływy pracy pomocą systemu Vamp](https://docs.vamp.io/how-vamp-works/concepts-and-components#workflows).
 
-* Zobacz dodatkowe [samouczki VAMP](https://docs.vamp.io/tutorials/).
+* Zobacz dodatkowe [samouczki pomocą systemu Vamp](https://docs.vamp.io/tutorials/).
 

@@ -1,7 +1,7 @@
 ---
 title: Konfigurowanie przepływu poświadczeń hasła właściciela zasobu
 titleSuffix: Azure AD B2C
-description: Dowiedz się, jak skonfigurować przepływ ROPC w usłudze Azure AD B2C.
+description: Dowiedz się, jak skonfigurować przepływ ROPC w Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,15 +12,15 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78189705"
 ---
-# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurowanie przepływu poświadczeń hasła właściciela zasobu w usłudze Azure AD B2C
+# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurowanie przepływu poświadczeń hasła właściciela zasobu w Azure AD B2C
 
-Przepływ poświadczeń hasła właściciela zasobu (ROPC) jest standardowym przepływem uwierzytelniania OAuth, w którym aplikacja, znana również jako jednostka uzależniona, wymienia prawidłowe poświadczenia, takie jak identyfikator użytkownika i hasło dla tokenu identyfikatora, tokenu dostępu i tokenu odświeżania.
+Przepływ poświadczeń hasła właściciela zasobu (ROPC) to standardowy przepływ uwierzytelniania OAuth, w którym aplikacja, nazywana również jednostką uzależnioną, wymienia prawidłowe poświadczenia, takie jak UserID i hasło dla tokenu identyfikatora, tokenu dostępu i tokenu odświeżania.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -29,16 +29,16 @@ Przepływ poświadczeń hasła właściciela zasobu (ROPC) jest standardowym prz
 ##  <a name="create-a-resource-owner-user-flow"></a>Tworzenie przepływu użytkownika właściciela zasobu
 
 1. Zaloguj się w witrynie Azure Portal jako administrator globalny dzierżawy usługi Azure AD B2C.
-2. Aby przełączyć się do dzierżawy usługi Azure AD B2C, wybierz katalog B2C w prawym górnym rogu portalu.
-3. Kliknij **pozycję Przepływy użytkownika**i wybierz pozycję Nowy przepływ **użytkownika**.
-4. Kliknij kartę **Wszystkie** i wybierz pozycję **Zaloguj się przy użyciu ROPC**.
-5. Podaj nazwę przepływu użytkownika, taką jak *ROPC_Auth*.
-6. W **obszarze Oświadczenia aplikacji**kliknij pozycję Pokaż **więcej**.
-7. Wybierz oświadczenia aplikacji potrzebne dla aplikacji, takie jak nazwa wyświetlana, adres e-mail i dostawca tożsamości.
+2. Aby przełączyć się do dzierżawy Azure AD B2C, wybierz katalog B2C w prawym górnym rogu portalu.
+3. Kliknij pozycję **przepływy użytkownika**, a następnie wybierz pozycję **Nowy przepływ użytkownika**.
+4. Kliknij kartę **wszystkie** i wybierz pozycję **Zaloguj się przy użyciu ROPC**.
+5. Podaj nazwę przepływu użytkownika, na przykład *ROPC_Auth*.
+6. W obszarze **oświadczenia aplikacji**kliknij przycisk **Pokaż więcej**.
+7. Wybierz oświadczenia aplikacji, które są potrzebne dla aplikacji, takie jak nazwa wyświetlana, adres E-mail i dostawca tożsamości.
 8. Wybierz przycisk **OK**, a następnie wybierz pozycję **Utwórz**.
 9. Kliknij pozycję **Uruchom przepływ użytkownika**.
 
-   Następnie zobaczysz punkt końcowy, taki jak w tym przykładzie:
+   Następnie zobaczysz punkt końcowy, na przykład:
 
    `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
 
@@ -49,23 +49,23 @@ Przepływ poświadczeń hasła właściciela zasobu (ROPC) jest standardowym prz
 
 ## <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 
-Użyj aplikacji programowania interfejsu API do generowania wywołania interfejsu API i przejrzenia odpowiedzi do debugowania przepływu użytkownika. Skonstruuj wywołanie w ten sposób z informacjami w poniższej tabeli jako treść żądania POST:
+Użyj ulubionej aplikacji do programowania interfejsów API do wygenerowania wywołania interfejsu API i przejrzyj odpowiedź, aby debugować przepływ użytkownika. Utwórz wywołanie podobne do tego z informacjami w poniższej tabeli jako treść żądania POST:
 - Zastąp * \<yourtenant.onmicrosoft.com>* nazwą dzierżawy B2C.
-- Zastąp * \<B2C_1A_ROPC_Auth>* pełną nazwą zasad poświadczeń haseł właściciela zasobu.
-- Wymień * \<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* identyfikatorem aplikacji z rejestracji.
+- Zastąp * \<B2C_1A_ROPC_Auth>* pełną nazwą zasad poświadczeń hasła właściciela zasobu.
+- Zastąp * \<ciąg bef2222d56-552f-4a5b-b90a-1988a7d634c3>* identyfikatorem aplikacji z rejestracji.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Klucz | Wartość |
+| Key | Wartość |
 | --- | ----- |
 | nazwa użytkownika | leadiocl@outlook.com |
-| hasło | Hasło 1 |
+| hasło | Passxword1 |
 | grant_type | hasło |
-| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
+| scope | OpenID Connect \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| response_type | id_token tokenów |
+| response_type | id_token tokenu |
 
-*Client_id* jest wartością, która została wcześniej odnotowana jako identyfikator aplikacji. *Offline_access* jest opcjonalne, jeśli chcesz otrzymać token odświeżania. Nazwa użytkownika i hasło, których używasz, muszą być poświadczeniami od istniejącego użytkownika w dzierżawie usługi Azure AD B2C.
+*Client_id* jest wartością zanotowaną wcześniej jako identyfikator aplikacji. *Offline_access* jest opcjonalne, jeśli chcesz otrzymać token odświeżenia. Używana nazwa użytkownika i hasło muszą być poświadczeniami istniejącego użytkownika w dzierżawie Azure AD B2C.
 
 Rzeczywiste żądanie POST wygląda następująco:
 
@@ -78,7 +78,7 @@ username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=o
 ```
 
 
-Pomyślna odpowiedź z dostępem w trybie offline wygląda następująco:
+Pomyślna odpowiedź z dostępem w trybie offline wygląda podobnie do poniższego przykładu:
 
 ```json
 {
@@ -90,13 +90,13 @@ Pomyślna odpowiedź z dostępem w trybie offline wygląda następująco:
 }
 ```
 
-## <a name="redeem-a-refresh-token"></a>Realizacja tokenu odświeżania
+## <a name="redeem-a-refresh-token"></a>Zrealizuj token odświeżania
 
-Skonstruuj wywołanie POST, takie jak pokazane tutaj, z informacjami w poniższej tabeli jako treść żądania:
+Utwórz wywołanie POST podobne do przedstawionego tutaj z informacjami w poniższej tabeli jako treść żądania:
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Klucz | Wartość |
+| Key | Wartość |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
@@ -104,9 +104,9 @@ Skonstruuj wywołanie POST, takie jak pokazane tutaj, z informacjami w poniższe
 | zasób | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
-*Client_id* i *zasób* są wartościami, które zostały wcześniej odnotowane jako identyfikator aplikacji. *Refresh_token* jest tokenem odebranym w wywołaniu uwierzytelniania, o którym mowa wcześniej.
+*Client_id* i *zasób* to wartości, które zostały wcześniej zanotowane jako identyfikator aplikacji. *Refresh_token* to token otrzymany wcześniej w wywołaniu uwierzytelniania.
 
-Pomyślna odpowiedź wygląda następująco:
+Pomyślna odpowiedź wygląda podobnie do poniższego przykładu:
 
 ```json
 {
@@ -124,13 +124,13 @@ Pomyślna odpowiedź wygląda następująco:
 }
 ```
 > [!NOTE]
-> Podczas tworzenia użytkowników za pośrednictwem interfejsu API graph aplikacja musi mieć uprawnienia "openid", "offline_access" i "profile" z programu Microsoft Graph.
+> Podczas tworzenia użytkowników za pośrednictwem interfejs API programu Graph aplikacja musi mieć uprawnienia "OpenID Connect", "offline_access" i "Profile" w Microsoft Graph.
 
-## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Zaimplementuj za pomocą preferowanego natywnego sdk lub użyj app-auth
+## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementowanie przy użyciu preferowanego natywnego zestawu SDK lub korzystanie z aplikacji App-auth
 
-Implementacja usługi Azure AD B2C spełnia standardy OAuth 2.0 dla poświadczeń haseł właściciela zasobów klienta publicznego i powinna być zgodna z większością zestawów SDK klienta. Przetestowaliśmy ten przepływ szeroko, w produkcji, z AppAuth dla iOS i AppAuth dla Androida. Aby uzyskać najnowsze informacje, zobacz [Native App SDK dla OAuth 2.0 i OpenID Connect implementując nowoczesne najlepsze rozwiązania](https://appauth.io/).
+Implementacja Azure AD B2C spełnia standardy protokołu OAuth 2,0 dla poświadczeń hasła właściciela publicznego zasobu klienta i powinny być zgodne z większością zestawów SDK klienta. Ten przepływ został przetestowany w środowisku produkcyjnym z AppAuth dla systemów iOS i AppAuth dla systemu Android. Najnowsze informacje znajdują się w temacie [Native App SDK for OAuth 2,0 i OpenID Connect Connect implementujące nowoczesne najlepsze rozwiązania](https://appauth.io/).
 
-Pobierz przykłady robocze, które zostały skonfigurowane do użytku z usługą Azure AD B2C z usługi GitHub, [android](https://aka.ms/aadb2cappauthropc) i [iOS](https://aka.ms/aadb2ciosappauthropc).
+Pobierz przykłady robocze, które zostały skonfigurowane do użycia z Azure AD B2C z usługi GitHub [dla systemów Android](https://aka.ms/aadb2cappauthropc) i [iOS](https://aka.ms/aadb2ciosappauthropc).
 
 
 

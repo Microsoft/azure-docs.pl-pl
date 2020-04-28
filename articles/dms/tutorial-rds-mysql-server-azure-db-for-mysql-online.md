@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: Migrowanie usługi RDS MySQL w trybie online do bazy danych platformy Azure dla mysql'
+title: 'Samouczek: Migrowanie usług RDS MySQL online do Azure Database for MySQL'
 titleSuffix: Azure Database Migration Service
-description: Dowiedz się, jak przeprowadzić migrację online z usługi RDS MySQL do bazy danych platformy Azure dla mysql przy użyciu usługi migracji bazy danych Azure.
+description: Dowiedz się, jak przeprowadzić migrację w trybie online z usług RDS MySQL do Azure Database for MySQL przy użyciu Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -13,94 +13,94 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: c34de48d0184057f42d1b779abee56e1fa9ac169
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78255160"
 ---
-# <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Samouczek: Migrowanie usługi RDS MySQL do bazy danych platformy Azure dla mysql online przy użyciu usługi DMS
+# <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Samouczek: Migrowanie usług RDS MySQL do Azure Database for MySQL online przy użyciu usługi DMS
 
-Usługi migracji usługi Azure Database można użyć do migracji baz danych z wystąpienia MySQL usługi RDS do [usługi Azure Database dla MySQL,](https://docs.microsoft.com/azure/mysql/) podczas gdy źródłowa baza danych pozostaje w trybie online podczas migracji. Innymi słowy migracji można osiągnąć przy minimalnym przestoju do aplikacji. W tym samouczku należy przeprowadzić migrację przykładowej bazy danych **employees** z wystąpienia usługi RDS MySQL do bazy danych platformy Azure dla mysql przy użyciu działania migracji online w usłudze migracji bazy danych Azure Database.
+Za pomocą Azure Database Migration Service można migrować bazy danych z wystąpienia programu RDS MySQL do [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) , gdy źródłowa baza danych pozostanie w trybie online podczas migracji. Innymi słowy, migracja może zostać osiągnięta przy minimalnym przestoju aplikacji. W tym samouczku przeprowadzisz migrację przykładowej bazy danych **Employees** z wystąpienia programu RDS MySQL do Azure Database for MySQL przy użyciu działania migracji w trybie online w programie Azure Database Migration Service.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 >
-> * Migrowanie przykładowego schematu przy użyciu narzędzi mysqldump i mysql.
+> * Przeprowadź migrację przykładowego schematu przy użyciu narzędzi mysqldump i MySQL.
 > * Utwórz wystąpienie usługi Azure Database Migration Service.
-> * Utwórz projekt migracji przy użyciu usługi migracji bazy danych platformy Azure.
+> * Utwórz projekt migracji przy użyciu Azure Database Migration Service.
 > * Uruchamianie migracji.
 > * Monitorowanie migracji.
 
 > [!NOTE]
-> Korzystanie z usługi migracji bazy danych Azure do wykonywania migracji online wymaga utworzenia wystąpienia na podstawie warstwy cenowej Premium. Więcej informacji znajduje się na stronie [cennika](https://azure.microsoft.com/pricing/details/database-migration/) usługi Azure Database Migration Service.
+> Użycie Azure Database Migration Service do przeprowadzenia migracji w trybie online wymaga utworzenia wystąpienia na podstawie warstwy cenowej Premium. Więcej informacji znajduje się na stronie [cennika](https://azure.microsoft.com/pricing/details/database-migration/) usługi Azure Database Migration Service.
 
 > [!IMPORTANT]
 > W celu uzyskania optymalnego środowiska migracji firma Microsoft zaleca utworzenie wystąpienia usługi Azure Database Migration Service w tym samym regionie platformy Azure, w którym znajduje się docelowa baza danych. Przenoszenie danych między regionami lub lokalizacjami geograficznymi może spowalniać proces migracji i powodować błędy.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-W tym artykule opisano sposób przeprowadzania migracji online z wystąpienia usługi RDS MySQL do usługi Azure Database for MySQL.
+W tym artykule opisano sposób przeprowadzania migracji w trybie online z wystąpienia programu RDS MySQL do Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
-* Upewnij się, że źródłowy serwer MySQL jest uruchomiony obsługiwany program społeczności MySQL. Aby określić wersję wystąpienia MySQL, w narzędziu mysql lub mysql Workbench uruchom polecenie:
+* Upewnij się, że źródłowy serwer MySQL korzysta z obsługiwanego programu MySQL Community Edition. Aby określić wersję wystąpienia MySQL, w narzędziu MySQL lub MySQL Workbench Uruchom polecenie:
 
     ```
     SELECT @@version;
     ```
 
-    Aby uzyskać więcej informacji, zobacz artykuł [Obsługiwane usługi Azure Database dla wersji MySQL](https://docs.microsoft.com/azure/mysql/concepts-supported-versions).
+    Aby uzyskać więcej informacji, zobacz artykuł [obsługiwane Azure Database for MySQL wersje](https://docs.microsoft.com/azure/mysql/concepts-supported-versions).
 
-* Pobierz i zainstaluj [przykładową bazę danych **Pracowników** MySQL](https://dev.mysql.com/doc/employee/en/employees-installation.html).
-* Utwórz wystąpienie [usługi Azure Database dla mysql](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
-* Utwórz usługę migracji bazy danych usługi Azure Database dla platformy Azure przy użyciu modelu wdrażania usługi Azure Resource Manager, który zapewnia łączność między lokacjami lokalnymi serwerami źródłowymi przy użyciu usługi [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnej, zobacz [dokumentację sieci wirtualnej,](https://docs.microsoft.com/azure/virtual-network/)a zwłaszcza artykuły przewodnika Szybki start ze szczegółami krok po kroku.
-* Upewnij się, że reguły sieciowej grupy zabezpieczeń sieciowej sieci nie blokują następujących portów komunikacji przychodzącej do usługi migracji bazy danych Azure: 443, 53, 9354, 445 i 12000. Aby uzyskać więcej informacji na temat filtrowania ruchu sieciowej sieciowej sieciowej w sieci wirtualnej, zobacz artykuł [Filtrowanie ruchu sieciowego z sieciowymi grupami zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-* Skonfiguruj [Zaporę systemu Windows](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) (lub zaporę systemu Linux), aby umożliwić dostęp do aparatu bazy danych. W przypadku serwera MySQL zezwalaj na łączność z portem 3306.
+* Pobierz i zainstaluj [przykładową bazę danych programu MySQL **Employees** ](https://dev.mysql.com/doc/employee/en/employees-installation.html).
+* Utwórz wystąpienie [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
+* Utwórz Microsoft Azure Virtual Network dla Azure Database Migration Service przy użyciu modelu wdrażania Azure Resource Manager, który zapewnia łączność między lokacjami z lokalnymi serwerami źródłowymi przy użyciu usługi [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnej, zapoznaj się z [dokumentacją Virtual Network](https://docs.microsoft.com/azure/virtual-network/), a w szczególności artykuły szybkiego startu z szczegółowymi szczegółami.
+* Upewnij się, że reguły grupy zabezpieczeń sieci wirtualnej nie blokują następujących portów komunikacji przychodzącej do Azure Database Migration Service: 443, 53, 9354, 445 i 12000. Aby uzyskać więcej szczegółów na temat filtrowania ruchu sieciowej grupy zabezpieczeń w sieci wirtualnej, zobacz artykuł [Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Skonfiguruj [zaporę systemu Windows](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) (lub zaporę z systemem Linux), aby umożliwić dostęp do aparatu bazy danych. W przypadku serwera MySQL Zezwól na port 3306 na potrzeby łączności.
 
 > [!NOTE]
-> Usługa Azure Database for MySQL obsługuje tylko tabele Usługi InnoDB. Aby przekonwertować tabele MyISAM na InnoDB, zapoznaj się z artykułem [Konwertowanie tabel z MyISAM na InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) .
+> Azure Database for MySQL obsługuje tylko tabele InnoDB. Aby przekonwertować tabele MyISAM na InnoDB, zapoznaj się z artykułem [konwertowanie tabel z MyISAM na InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) .
 
-### <a name="set-up-aws-rds-mysql-for-replication"></a>Konfigurowanie usługi AWS RDS MySQL dla replikacji
+### <a name="set-up-aws-rds-mysql-for-replication"></a>Konfigurowanie usługi AWS RDS MySQL na potrzeby replikacji
 
-1. Aby utworzyć nową grupę parametrów, postępuj zgodnie z instrukcjami dostarczonymi przez AWS w artykule [MySQL Database Log Files](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html), w sekcji **Format rejestrowania binarnego.**
+1. Aby utworzyć nową grupę parametrów, postępuj zgodnie z instrukcjami dostarczonymi przez AWS w [plikach dziennika bazy danych MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html)w sekcji **Format rejestrowania binarnego** .
 2. Utwórz nową grupę parametrów z następującą konfiguracją:
     * binlog_format = row
-    * binlog_checksum = BRAK
+    * binlog_checksum = brak
 3. Zapisz nową grupę parametrów.
-4. Skojarz nową grupę parametrów z wystąpieniem RDS MySQL. Może być wymagane ponowne uruchomienie komputera.
+4. Skojarz nową grupę parametrów z wystąpieniem usług RDS MySQL. Może być wymagane ponowne uruchomienie komputera.
 
 ## <a name="migrate-the-schema"></a>Migrowanie schematu
 
-1. Wyodrębnij schemat ze źródłowej bazy danych i zastosuj do docelowej bazy danych, aby zakończyć migrację wszystkich obiektów bazy danych, takich jak schematy tabeli, indeksy i procedury przechowywane.
+1. Wyodrębnij schemat ze źródłowej bazy danych i zastosuj go do docelowej bazy danych, aby ukończyć migrację wszystkich obiektów bazy danych, takich jak schematy tabel, indeksy i procedury składowane.
 
-    Najprostszym sposobem migracji tylko schematu jest użycie mysqldump z parametrem --no-data. Polecenie migracji schematu jest następujące:
+    Najprostszym sposobem migrowania tylko schematu jest użycie mysqldump z parametrem--No-Data. Polecenie migracji schematu jest następujące:
 
     ```
     mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
     ```
     
-    Na przykład, aby zrzucić plik schematu dla bazy danych **Employees,** użyj następującego polecenia:
+    Na przykład aby zrzucić plik schematu dla bazy danych **Employees** , użyj następującego polecenia:
     
     ```
     mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\employees.sql
     ```
 
-2. Zaimportuj schemat do usługi docelowej, która jest usługą Azure Database for MySQL. Aby przywrócić plik zrzutu schematu, uruchom następujące polecenie:
+2. Zaimportuj schemat do usługi docelowej, który jest Azure Database for MySQL. Aby przywrócić plik zrzutu schematu, uruchom następujące polecenie:
 
     ```
     mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
     ```
 
-    Na przykład, aby zaimportować schemat dla bazy danych **Pracownicy:**
+    Na przykład, aby zaimportować schemat dla bazy danych **Employees** :
 
     ```
     mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees < d:\employees.sql
     ```
 
-3. Jeśli w schemacie znajdują się klucze obce, ładowanie początkowe i ciągła synchronizacja migracji zakończą się niepowodzeniem. Aby wyodrębnić skrypt klucza obcego upuszczenia i dodać skrypt klucza obcego w miejscu docelowym (Usługa Azure Database for MySQL), uruchom następujący skrypt w mysql workbench:
+3. Jeśli w schemacie znajdują się klucze obce, ładowanie początkowe i ciągła synchronizacja migracji zakończą się niepowodzeniem. Aby wyodrębnić skrypt klucza obcego i dodać skrypt klucza obcego w miejscu docelowym (Azure Database for MySQL), uruchom następujący skrypt w programie MySQL Workbench:
 
     ```
     SET group_concat_max_len = 8192;
@@ -120,18 +120,18 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
       GROUP BY SchemaName;
     ```
 
-4. Uruchom klucz obcy drop (który jest drugą kolumną) w wyniku kwerendy, aby usunąć klucz obcy.
+4. Uruchom klucz obcy (który jest drugą kolumną) w wyniku zapytania, aby porzucić klucz obcy.
 
-5. Jeśli masz wyzwalacze (wstawić lub zaktualizować wyzwalacz) w danych, będzie wymusić integralność danych w miejscu docelowym przed replikowaniem danych ze źródła. Zalecenie jest, aby wyłączyć wyzwalacze we wszystkich tabelach *na miejsce docelowe* podczas migracji, a następnie włączyć wyzwalacze po zakończeniu migracji.
+5. Jeśli w danych są Wyzwalacze (INSERT lub Update Trigger), spowoduje to wymuszenie integralności danych w miejscu docelowym przed replikowaniem danych ze źródła. Zalecane jest, aby wyłączyć wyzwalacze we wszystkich tabelach w *miejscu docelowym* podczas migracji, a następnie włączyć Wyzwalacze po zakończeniu migracji.
 
-    Aby wyłączyć wyzwalacze w docelowej bazie danych:
+    Aby wyłączyć Wyzwalacze w docelowej bazie danych:
 
     ```
     select concat ('alter table ', event_object_table, ' disable trigger ', trigger_name)
     from information_schema.triggers;
     ```
 
-6. Jeśli istnieją wystąpienia typu danych ENUM w dowolnej tabeli, zaleca się tymczasowe aktualizowanie do typu danych "zmienne znaki" w tabeli docelowej. Replikacja danych WHen została zakończona, a następnie przywróć typ danych do ENUM.
+6. Jeśli istnieją wystąpienia typu danych ENUM w dowolnych tabelach, zalecamy tymczasowe aktualizowanie do typu elementu DataType "charactering" w tabeli docelowej. Po zakończeniu replikacji danych Przywróć typ danych do WYLICZENIA.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Rejestrowanie dostawcy zasobów Microsoft.DataMigration
 
@@ -139,15 +139,15 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
    ![Wyświetlanie subskrypcji w portalu](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-select-subscription1.png)
 
-2. Wybierz subskrypcję, w której chcesz utworzyć wystąpienie usługi migracji bazy danych platformy Azure, a następnie wybierz pozycję **Dostawcy zasobów**.
+2. Wybierz subskrypcję, w której chcesz utworzyć wystąpienie Azure Database Migration Service, a następnie wybierz pozycję **dostawcy zasobów**.
 
     ![Wyświetlanie dostawców zasobów](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-select-resource-provider.png)
 
-3. Wyszukaj migrację, a następnie po prawej stronie **microsoft.DataMigration**, wybierz pozycję **Zarejestruj**.
+3. Wyszukaj pozycję migracja, a następnie po prawej stronie **programu Microsoft. datamigration**wybierz pozycję **zarejestruj**.
 
     ![Rejestrowanie dostawcy zasobów](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-register-resource-provider.png)
 
-## <a name="create-an-instance-of-azure-database-migration-service"></a>Tworzenie wystąpienia usługi migracji bazy danych platformy Azure
+## <a name="create-an-instance-of-azure-database-migration-service"></a>Utwórz wystąpienie Azure Database Migration Service
 
 1. W witrynie Azure Portal wybierz pozycję + **Utwórz zasób**, wyszukaj usługę Azure Database Migration Service, a następnie wybierz usługę **Azure Database Migration Service** na liście rozwijanej.
 
@@ -159,15 +159,15 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
   
 3. Na ekranie **Tworzenie usługi migracji** określ nazwę usługi, subskrypcję oraz nową lub istniejącą grupę zasobów.
 
-4. Wybierz lokalizację, w której chcesz utworzyć wystąpienie usługi migracji bazy danych platformy Azure.
+4. Wybierz lokalizację, w której chcesz utworzyć wystąpienie Azure Database Migration Service.
 
-5. Wybierz istniejącą sieć wirtualną lub utwórz nową.
+5. Wybierz istniejącą sieć wirtualną lub Utwórz nową.
 
-    Sieć wirtualna zapewnia usługę migracji bazy danych platformy Azure z dostępem do źródłowego wystąpienia MySQL i docelowej bazy danych platformy Azure dla wystąpienia MySQL.
+    Sieć wirtualna zapewnia Azure Database Migration Service z dostępem do źródłowego wystąpienia programu MySQL i docelowego wystąpienia Azure Database for MySQL.
 
-    Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnej w witrynie Azure portal, zobacz artykuł [Tworzenie sieci wirtualnej przy użyciu portalu Azure](https://aka.ms/DMSVnet).
+    Aby uzyskać więcej informacji na temat sposobu tworzenia sieci wirtualnej w Azure Portal, zobacz artykuł [Tworzenie sieci wirtualnej przy użyciu Azure Portal](https://aka.ms/DMSVnet).
 
-6. Wybierz warstwę cenową; Dla tej migracji online, należy wybrać warstwę cenową Premium: 4vCores.
+6. Wybierz warstwę cenową; w przypadku migracji w trybie online należy wybrać warstwę cenową Premium: 4vCores.
 
     ![Konfigurowanie ustawień wystąpienia usługi Azure Database Migration Service](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-settings3.png)
 
@@ -186,39 +186,39 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
      ![Znajdowanie wystąpienia usługi Azure Database Migration Service](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-instance-search.png)
 
 3. Wybierz pozycję + **Nowy projekt migracji**.
-4. Na ekranie **Nowy projekt migracji** określ nazwę projektu w polu **tekstowym Typ serwera źródłowego** wybierz pozycję **MySQL**, a następnie w polu **tekstowym Typ serwera docelowego** wybierz pozycję **AzureDbForMySQL**.
-5. W sekcji **Wybierz typ działania** wybierz pozycję **Migracja danych online**.
+4. Na ekranie **Nowy projekt migracji** Określ nazwę projektu, w polu tekstowym **Typ serwera źródłowego** wybierz pozycję **MySQL**, a następnie w polu tekstowym **Typ serwera docelowego** wybierz pozycję **AzureDbForMySQL**.
+5. W sekcji **Wybierz typ działania** wybierz pozycję **migracja danych w trybie online**.
 
     > [!IMPORTANT]
-    > Pamiętaj, aby wybrać **migrację danych online;** Migracje w trybie offline nie są obsługiwane w tym scenariuszu.
+    > Upewnij się, że wybrano opcję **migracja danych w trybie online**; migracje w trybie offline nie są obsługiwane w tym scenariuszu.
 
     ![Tworzenie projektu usługi Database Migration Service](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-create-project6.png)
 
     > [!NOTE]
-    > Alternatywnie można wybrać **utwórz projekt tylko** do utworzenia projektu migracji teraz i wykonać migrację później.
+    > Alternatywnie możesz wybrać opcję **Utwórz projekt tylko** w celu utworzenia projektu migracji, a następnie wykonać migrację później.
 
-6. Wybierz **pozycję Zapisz**.
+6. Wybierz pozycję **Zapisz**.
 
 7. Wybierz polecenie **Utwórz i uruchom działanie**, aby utworzyć projekt i uruchomić działanie migracji.
 
     > [!NOTE]
-    > Proszę zanotować wymagania wstępne potrzebne do skonfigurowania migracji online w bloku tworzenia projektu.
+    > Zanotuj wymagania wstępne wymagane do skonfigurowania migracji online w bloku tworzenia projektu.
 
 ## <a name="specify-source-details"></a>Określanie szczegółów źródła
 
-* Na ekranie **szczegółów źródła migracji** określ szczegóły połączenia dla źródłowego wystąpienia MySQL.
+* Na ekranie **szczegóły źródła migracji** Określ szczegóły połączenia dla źródłowego wystąpienia programu MySQL.
 
    ![Szczegóły źródła](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-source-details5.png)
 
 ## <a name="specify-target-details"></a>Określanie szczegółów elementu docelowego
 
-1. Wybierz **pozycję Zapisz**, a następnie na ekranie Szczegóły **docelowe** określ szczegóły połączenia dla docelowej bazy danych platformy Azure dla serwera MySQL, który jest wstępnie aprowizowany i ma schemat **Pracowników wdrożony** przy użyciu mySQLDump.
+1. Wybierz pozycję **Zapisz**, a następnie na ekranie **szczegóły elementu docelowego** Określ szczegóły połączenia dla docelowego serwera Azure Database for MySQL, który jest wstępnie zainicjowany i ma wdrożony schemat **pracownicy** przy użyciu MySQLDump.
 
     ![Wybieranie obiektu docelowego](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-select-target5.png)
 
 2. Wybierz polecenie **Zapisz**, a następnie na ekranie **Mapuj do docelowych baz danych**, określ mapowanie źródłowej i docelowej bazy danych na potrzeby migracji.
 
-    Jeśli docelowa baza danych zawiera taką samą nazwę bazy danych jak źródłowa baza danych, usługa migracji bazy danych Azure Database domyślnie wybiera docelową bazę danych.
+    Jeśli docelowa baza danych zawiera tę samą nazwę bazy danych co źródłowa baza danych, Azure Database Migration Service domyślnie wybiera docelową bazę danych.
 
     ![Mapowanie do docelowych baz danych](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-map-targets-activity5.png)
 
@@ -236,32 +236,32 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
 1. Na ekranie działania migracji wybieraj polecenie **Odśwież**, aby zaktualizować ekran, aż do momentu, gdy **Stan** migracji zmieni się na **Uruchomiono**.
 
-    ![Stan działania — bieganie](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-activity-status4.png)
+    ![Stan działania — uruchomiony](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-activity-status4.png)
 
-2. W obszarze **NAZWA BAZY DANYCH**wybierz określoną bazę danych, aby uzyskać dostęp do stanu migracji dla operacji pełnego ładowania **danych** i **przyrostowej synchronizacji danych.**
+2. W obszarze **Nazwa bazy danych**wybierz określoną bazę danych, aby przejść do stanu migracji **pełnych operacji ładowania danych** i **przyrostowej synchronizacji danych** .
 
-    **Pełne obciążenie danych** pokazuje stan migracji obciążenia początkowego, podczas gdy **przyrostowa synchronizacja danych** pokazuje stan przechwytywania danych zmian (CDC).
+    **Pełne ładowanie danych** pokazuje stan początkowej migracji ładowania, podczas gdy **Synchronizacja danych przyrostowych** pokazuje stan funkcji przechwytywania zmian danych.
 
-    ![Ekran zapasów — pełne obciążenie danych](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-full-load.png)
+    ![Ekran spisu — pełne ładowanie danych](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-full-load.png)
 
-    ![Ekran zapasów — przyrostowa synchronizacja danych](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-incremental.png)
+    ![Ekran spisu — synchronizacja danych przyrostowych](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-incremental.png)
 
 ## <a name="perform-migration-cutover"></a>Przeprowadzanie migracji jednorazowej
 
-Po zakończeniu początkowego pełnego obciążenia bazy danych są oznaczone **jako Gotowe do przecięcia.**
+Po zakończeniu początkowego pełnego ładowania bazy danych są oznaczane jako **gotowe do uruchomienie produkcyjne**.
 
 1. Gdy wszystko jest gotowe do zakończenia migracji bazy danych, wybierz pozycję **Rozpocznij migrację jednorazową**.
 
-    ![Zacznij się przeciąć](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-start-cutover.png)
+    ![Rozpocznij obcinanie](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-start-cutover.png)
 
 2. Upewnij się, że zatrzymano wszystkie transakcje przychodzące do źródłowej bazy danych. Poczekaj, aż licznik **Zmiany oczekujące** będzie pokazywać wartość **0**.
 3. Wybierz pozycję **Potwierdź**, a następnie wybierz pozycję **Zastosuj**.
-4. Gdy stan migracji bazy danych pokazuje **zakończone,** połącz aplikacje z nową docelową bazą danych platformy Azure dla mysql bazy danych.
+4. Po **zakończeniu**wyświetlania stanu migracji bazy danych Połącz swoje aplikacje z nową docelową bazą danych Azure Database for MySQL.
 
-Migracja online lokalnego wystąpienia MySQL do usługi Azure Database for MySQL została zakończona.
+Migracja w trybie online lokalnego wystąpienia MySQL do Azure Database for MySQL jest teraz zakończona.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać informacje o usłudze Azure Database Migration Service, zobacz artykuł [Czym jest usługa Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
-* Aby uzyskać informacje na temat usługi Azure Database for MySQL, zobacz artykuł [Co to jest usługa Azure Database for MySQL?](https://docs.microsoft.com/azure/mysql/overview).
-* W przypadku innych pytań wyślij wiadomość e-mail [z aliasem Zapytaj o migracje bazy danych platformy Azure.](mailto:AskAzureDatabaseMigrations@service.microsoft.com)
+* Aby uzyskać informacje na temat Azure Database for MySQL, zobacz artykuł [co to jest Azure Database for MySQL?](https://docs.microsoft.com/azure/mysql/overview).
+* W przypadku innych pytań Wyślij wiadomość e-mail do aliasu [zadawaj migracje bazy danych Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com) .

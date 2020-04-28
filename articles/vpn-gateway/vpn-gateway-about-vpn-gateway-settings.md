@@ -1,6 +1,6 @@
 ---
-title: 'Brama sieci VPN platformy Azure: ustawienia konfiguracji'
-description: Dowiedz się więcej o ustawieniach bramy sieci VPN dla bram sieci wirtualnej platformy Azure.
+title: 'Azure VPN Gateway: ustawienia konfiguracji'
+description: Dowiedz się więcej o VPN Gateway ustawieniach dla bram sieci wirtualnej platformy Azure.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,38 +8,38 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244864"
 ---
-# <a name="about-vpn-gateway-configuration-settings"></a>Ustawienia konfiguracji bramy sieci VPN — informacje
+# <a name="about-vpn-gateway-configuration-settings"></a>Informacje o ustawieniach konfiguracji VPN Gateway
 
-Brama sieci VPN to typ bramy sieci wirtualnej, która wysyła zaszyfrowany ruch między siecią wirtualną a lokalizacją lokalną za pośrednictwem połączenia publicznego. Można również użyć bramy sieci VPN do wysyłania ruchu między sieciami wirtualnymi w obszarze szkieletu platformy Azure.
+Brama VPN Gateway to typ bramy sieci wirtualnej, który wysyła zaszyfrowany ruch sieciowy między siecią wirtualną a lokalizacją lokalną w ramach połączenia publicznego. Bramy sieci VPN można również używać do wysyłania ruchu między sieciami wirtualnymi przez sieć szkieletową platformy Azure.
 
-Połączenie bramy sieci VPN zależy od konfiguracji wielu zasobów, z których każdy zawiera konfigurowalne ustawienia. W sekcjach w tym artykule omówiono zasoby i ustawienia, które odnoszą się do bramy sieci VPN dla sieci wirtualnej utworzonej w modelu wdrażania Menedżera zasobów. Opisy i diagramy topologii dla każdego rozwiązania połączenia można znaleźć w artykule [Informacje o bramie sieci VPN.](vpn-gateway-about-vpngateways.md)
+Połączenie bramy sieci VPN bazuje na konfiguracji wielu zasobów, z których każdy zawiera konfigurowalne ustawienia. W sekcjach w tym artykule omówiono zasoby i ustawienia, które odnoszą się do bramy sieci VPN dla sieci wirtualnej utworzonej w Menedżer zasobów model wdrażania. Opisy i diagramy topologii poszczególnych rozwiązań połączeń można znaleźć w artykule [Informacje o VPN Gateway](vpn-gateway-about-vpngateways.md) .
 
-Wartości podane w tym artykule dotyczą bram sieci VPN (bram sieci wirtualnej korzystających z sieci VPN typu GatewayType). Ten artykuł nie obejmuje wszystkich typów bram ani bram nadmiarowych stref.
+Wartości w tym artykule stosują bramy sieci VPN (bramy sieci wirtualnej, które używają sieci VPN-Gatewaytype). Ten artykuł nie obejmuje wszystkich typów bram ani bram nadmiarowych.
 
-* Aby uzyskać wartości, które mają zastosowanie do -GatewayType "ExpressRoute", zobacz [Bramy sieci wirtualnej dla usługi ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
+* Aby uzyskać wartości mające zastosowanie do-Gatewaytype "ExpressRoute", zobacz [Virtual Network Gateways for ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
 
-* W przypadku bram nadmiarowych stref zobacz [Informacje o bramy nadmiarowe strefy](about-zone-redundant-vnet-gateways.md).
+* W przypadku bram nadmiarowych strefy należy zapoznać się z tematem [about Zone-nadmiarowe bramy](about-zone-redundant-vnet-gateways.md).
 
-* Aby uzyskać informacje virtual wan, zobacz [Informacje o wirtualnej sieci WAN](../virtual-wan/virtual-wan-about.md).
+* W przypadku wirtualnej sieci WAN zobacz [Informacje o wirtualnej sieci WAN](../virtual-wan/virtual-wan-about.md).
 
 
 
 ## <a name="gateway-types"></a><a name="gwtype"></a>Typy bram
 
-Każda sieć wirtualna może mieć tylko jedną bramę sieci wirtualnej każdego typu. Podczas tworzenia bramy sieci wirtualnej należy upewnić się, że typ bramy jest poprawny dla twojej konfiguracji.
+Każda sieć wirtualna może mieć tylko jedną bramę sieci wirtualnej dla każdego typu. Podczas tworzenia bramy sieci wirtualnej należy upewnić się, że typ bramy jest prawidłowy dla danej konfiguracji.
 
-Dostępne wartości dla -GatewayType to:
+Dostępne wartości dla-Gatewaytype to:
 
 * Vpn
 * ExpressRoute
 
-Brama sieci `-GatewayType` VPN wymaga *sieci Vpn*.
+Brama sieci VPN wymaga `-GatewayType` *sieci VPN*.
 
 Przykład:
 
@@ -55,13 +55,13 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>Konfigurowanie jednostki SKU bramy
 
-#### <a name="azure-portal"></a>Portal Azure
+#### <a name="azure-portal"></a>Azure Portal
 
-Jeśli używasz witryny Azure portal do tworzenia bramy sieci wirtualnej Usługi Resource Manager, można wybrać jednostkę SKU bramy przy użyciu listy rozwijanej. Opcje, z którymi są prezentowane, odpowiadają wybranemu typowi bramy i sieci VPN.
+Jeśli używasz Azure Portal do utworzenia bramy sieci wirtualnej Menedżer zasobów, możesz wybrać jednostkę SKU bramy przy użyciu listy rozwijanej. Wyświetlane opcje odpowiadają wybranemu typowi bramy i typowi sieci VPN.
 
 #### <a name="powershell"></a>PowerShell
 
-Poniższy przykład programu PowerShell określa `-GatewaySku` jako VpnGw1. Podczas tworzenia bramy za pomocą programu PowerShell należy najpierw utworzyć konfigurację IP, a następnie użyć zmiennej, aby się do niej odwołać. W tym przykładzie zmienna konfiguracji jest $gwipconfig.
+Poniższy przykład programu PowerShell określa `-GatewaySku` jako VpnGw1. W przypadku tworzenia bramy przy użyciu programu PowerShell należy najpierw utworzyć konfigurację adresu IP, a następnie użyć zmiennej, aby odwołać się do niej. W tym przykładzie zmienna konfiguracyjna jest $gwipconfig.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
@@ -75,32 +75,32 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
 
-###  <a name="resizing-or-changing-a-sku"></a><a name="resizechange"></a>Zmienianie rozmiaru lub zmienianie jednostki SKU
+###  <a name="resizing-or-changing-a-sku"></a><a name="resizechange"></a>Zmienianie rozmiarów lub zmiana w jednostce SKU
 
-Jeśli masz bramę sieci VPN i chcesz użyć innej jednostki SKU bramy, dostępne są opcje zmiany rozmiaru jednostki SKU bramy lub zmiany na inną jednostkę SKU. Po zmianie na inną jednostkę SKU bramy, należy całkowicie usunąć istniejącą bramę i utworzyć nową. Tworzenie bramy może potrwać do 45 minut. Dla porównania podczas ponownego rozmiaru jednostki SKU bramy nie ma zbyt wiele przestojów, ponieważ nie trzeba usuwać i odbudowywać bramy. Jeśli masz możliwość zmiany rozmiaru jednostki SKU bramy, a nie jej zmiany, należy to zrobić. Istnieją jednak zasady dotyczące zmiany rozmiaru:
+Jeśli masz bramę sieci VPN i chcesz korzystać z innej jednostki SKU bramy, opcje umożliwiają zmianę rozmiaru jednostki SKU bramy lub zmianę na inną jednostkę SKU. Po zmianie na inną jednostkę SKU bramy należy usunąć istniejącą bramę całkowicie i utworzyć nową. Kompilowanie bramy może potrwać do 45 minut. W porównaniu z rozmiarem jednostki SKU bramy nie ma dużo przestoju, ponieważ nie trzeba usuwać i ponownie kompilować bramy. Jeśli istnieje możliwość zmiany rozmiaru jednostki SKU bramy, zamiast jej zmiany należy to zrobić. Istnieją jednak reguły dotyczące zmiany rozmiarów:
 
-1. Z wyjątkiem podstawowej jednostki SKU można zmienić rozmiar jednostki SKU bramy sieci VPN do innej jednostki SKU bramy sieci VPN w ramach tej samej generacji (generacji 1 lub generacji2). Na przykład VpnGw1 generacji1 można zwymiarować na VpnGw2 generacji1, ale nie na VpnGw2 generacji2.
+1. Z wyjątkiem podstawowej jednostki SKU można zmienić rozmiar jednostki SKU bramy sieci VPN na inną jednostkę SKU bramy sieci VPN w ramach tej samej generacji (Generation1 lub Generation2). Na przykład VpnGw1 Generation1 można zmienić na VpnGw2 Generation1, ale nie do VpnGw2.
 2. Podczas pracy ze starymi jednostkami SKU bramy można zmienić rozmiar, wybierając z opcji Basic, Standard i HighPerformance.
-3. Nie **można** zmienić rozmiaru jednostek SKU Basic/Standard/HighPerformance na jednostki SKU VpnGw. Zamiast tego należy [zmienić](#change) na nowe jednostki SKU.
+3. **Nie można** zmienić rozmiaru jednostek SKU Basic/Standard/HighPerformance na jednostki SKU VpnGw. Zamiast tego należy [zmienić](#change) na nowe jednostki SKU.
 
 #### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>Aby zmienić rozmiar bramy
 
 [!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
 
-####  <a name="to-change-from-an-old-legacy-sku-to-a-new-sku"></a><a name="change"></a>Aby zmienić starą (starszą) jednostkę SKU na nową jednostkę SKU
+####  <a name="to-change-from-an-old-legacy-sku-to-a-new-sku"></a><a name="change"></a>Aby zmienić poprzednią (starszą) jednostkę SKU na nową jednostkę SKU
 
 [!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="connection-types"></a><a name="connectiontype"></a>Typy połączeń
 
-W modelu wdrażania Menedżera zasobów każda konfiguracja wymaga określonego typu połączenia bramy sieci wirtualnej. Dostępne wartości opcji `-ConnectionType` w programie PowerShell w usłudze Resource Manager to:
+W modelu wdrażania Menedżer zasobów Każda konfiguracja wymaga określonego typu połączenia bramy sieci wirtualnej. Dostępne wartości opcji `-ConnectionType` w programie PowerShell w usłudze Resource Manager to:
 
 * IPsec
 * Vnet2Vnet
 * ExpressRoute
 * VPNClient
 
-W poniższym przykładzie programu PowerShell tworzymy połączenie S2S, które wymaga typu połączenia *IPsec*.
+W poniższym przykładzie programu PowerShell tworzymy połączenie S2S, które wymaga typu połączenia *IPSec*.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
@@ -110,9 +110,9 @@ New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
 
 ## <a name="vpn-types"></a><a name="vpntype"></a>Typy sieci VPN
 
-Podczas tworzenia bramy sieci wirtualnej dla konfiguracji bramy sieci VPN należy określić typ sieci VPN. Typ sieci VPN, który wybierzesz, zależy od topologii połączeń, którą chcesz utworzyć. Na przykład połączenie P2S wymaga typu sieci VPN opartej na routicie. Typ sieci VPN może również zależeć od używanego sprzętu. Konfiguracje S2S wymagają urządzenia sieci VPN. Niektóre urządzenia SIECI VPN obsługują tylko określony typ sieci VPN.
+Podczas tworzenia bramy sieci wirtualnej dla konfiguracji bramy sieci VPN należy określić typ sieci VPN. Wybrany typ sieci VPN zależy od topologii połączenia, która ma zostać utworzona. Na przykład połączenie P2S wymaga typu sieci VPN RouteBased. Typ sieci VPN może także zależeć od używanego sprzętu. Konfiguracje S2S wymagają urządzenia sieci VPN. Niektóre urządzenia sieci VPN obsługują tylko określony typ sieci VPN.
 
-Wybrany typ sieci VPN musi spełniać wszystkie wymagania dotyczące połączenia dla rozwiązania, które chcesz utworzyć. Na przykład jeśli chcesz utworzyć połączenie bramy sieci VPN S2S i połączenie bramy sieci VPN P2S dla tej samej sieci wirtualnej, należy użyć typu VPN *RouteBased,* ponieważ P2S wymaga typu Sieci VPN opartej na routinie. Należy również sprawdzić, czy urządzenie sieci VPN obsługuje połączenie sieci VPN na podstawie trasy. 
+Wybrany typ sieci VPN musi spełniać wszystkie wymagania dotyczące połączenia dla rozwiązania, które chcesz utworzyć. Jeśli na przykład chcesz utworzyć połączenie bramy sieci VPN S2S i połączenie bramy sieci VPN P2S dla tej samej sieci wirtualnej, użyj typu sieci VPN *RouteBased* , ponieważ P2S wymaga typu sieci VPN RouteBased. Należy również sprawdzić, czy urządzenie sieci VPN obsługuje połączenie sieci VPN RouteBased. 
 
 Po utworzeniu bramy sieci wirtualnej nie można zmienić typu sieci VPN. Musisz usunąć bramę sieci wirtualnej i utworzyć nową. Istnieją dwa typy sieci VPN:
 
@@ -132,17 +132,17 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ## <a name="gateway-subnet"></a><a name="gwsub"></a>Podsieć bramy
 
-Przed utworzeniem bramy sieci VPN należy utworzyć podsieć bramy. Podsieć bramy zawiera adresy IP używane przez maszyny wirtualne i usługi bramy sieci wirtualnej. Podczas tworzenia bramy sieci wirtualnej maszyny wirtualne bramy są wdrażane w podsieci bramy i konfigurowane przy konieczności tworzenia ustawień bramy sieci VPN. Nigdy nie wdrażaj niczego innego (na przykład dodatkowych maszyn wirtualnych) w podsieci bramy. Podsieć bramy musi mieć nazwę "GatewaySubnet", aby działała poprawnie. Nazwanie podsieci bramy "GatewaySubnet" informuje platformę Azure, że jest to podsieć do wdrożenia maszyn wirtualnych i usług bramy sieci wirtualnej.
+Przed utworzeniem bramy sieci VPN należy utworzyć podsieć bramy. Podsieć bramy zawiera adresy IP używane przez maszyny wirtualne i usługi bramy sieci wirtualnej. Podczas tworzenia bramy sieci wirtualnej maszyny wirtualne bramy są wdrażane w podsieci bramy i konfigurowane przy użyciu wymaganych ustawień bramy sieci VPN. Nigdy nie należy wdrażać żadnych innych (na przykład dodatkowych maszyn wirtualnych) do podsieci bramy. Podsieć bramy musi mieć nazwę "GatewaySubnet", aby działała prawidłowo. Nazwa podsieci bramy "GatewaySubnet" pozwala platformie Azure wiedzieć, że jest to podsieć służąca do wdrażania maszyn wirtualnych i usług bramy sieci wirtualnej.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 >
 
-Podczas tworzenia podsieci bramy należy określić liczbę zawartych w niej adresów IP. Adresy IP w podsieci bramy są przydzielane do maszyn wirtualnych bramy i usług bramy. Niektóre konfiguracje wymagają większej liczby adresów IP niż inne. 
+Podczas tworzenia podsieci bramy należy określić liczbę zawartych w niej adresów IP. Adresy IP w podsieci bramy są przydzieleni do maszyn wirtualnych bramy i usług bramy. Niektóre konfiguracje wymagają większej liczby adresów IP niż inne. 
 
-Podczas planowania rozmiaru podsieci bramy zapoznaj się z dokumentacją konfiguracji, którą planujesz utworzyć. Na przykład konfiguracja współistnienia bramy usługi ExpressRoute/VPN wymaga większej podsieci bramy niż większość innych konfiguracji. Ponadto można upewnić się, że podsieć bramy zawiera wystarczającą liczbę adresów IP, aby pomieścić możliwe przyszłe dodatkowe konfiguracje. Chociaż można utworzyć podsieć bramy tak małe, jak /29, zaleca się utworzenie podsieci bramy /27 lub większej (/27, /26 itp.), jeśli masz do dyspozycji przestrzeń adresową. Będzie to pomieścić większość konfiguracji.
+Podczas planowania rozmiaru podsieci bramy zapoznaj się z dokumentacją dotyczącą konfiguracji, która ma zostać utworzona. Na przykład Konfiguracja współdzielenia ExpressRoute/VPN Gateway wymaga większej podsieci bramy niż większość innych konfiguracji. Ponadto warto upewnić się, że podsieć bramy zawiera wystarczającą liczbę adresów IP, aby uwzględnić możliwe przyszłe konfiguracje dodatkowe. Chociaż można utworzyć małą podsieć bramy (/29), zalecamy utworzenie podsieci bramy/27 lub większej (/27,/26 itp.), jeśli masz dostępną przestrzeń adresową. Obejmuje to większość konfiguracji.
 
-W poniższym przykładzie programu PowerShell menedżera zasobów przedstawiono podsieć bramy o nazwie GatewaySubnet. Można zobaczyć notacji CIDR określa /27, który pozwala na wystarczającą liczbę adresów IP dla większości konfiguracji, które obecnie istnieją.
+Poniższy przykład Menedżer zasobów PowerShell przedstawia podsieć bramy o nazwie GatewaySubnet. W notacji CIDR można zobaczyć wartość/27, która pozwala na wystarczającą liczbę adresów IP dla większości konfiguracji, które obecnie istnieją.
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
@@ -152,29 +152,29 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ## <a name="local-network-gateways"></a><a name="lng"></a>Bramy sieci lokalnej
 
- Brama sieci lokalnej różni się od bramy sieci wirtualnej. Podczas tworzenia konfiguracji bramy sieci VPN brama sieci lokalnej zwykle reprezentuje lokalizację lokalną. W klasycznym modelu wdrażania brama sieci była określana jako lokacja lokalna.
+ Brama sieci lokalnej różni się od bramy sieci wirtualnej. Podczas tworzenia konfiguracji bramy VPN brama sieci lokalnej zazwyczaj reprezentuje lokalizację lokalną. W klasycznym modelu wdrażania brama sieci była określana jako lokacja lokalna.
 
-Nadaj bramie sieci lokalnej nazwę, publiczny adres IP lokalnego urządzenia sieci VPN i określisz prefiksy adresów, które znajdują się w lokalizacji lokalnej. Platforma Azure analizuje prefiksy adresu docelowego dla ruchu sieciowego, sprawdza konfigurację określoną dla bramy sieci lokalnej i odpowiednio kieruje pakiety. Można również określić bramy sieci lokalnej dla konfiguracji sieci wirtualnej do sieci wirtualnej, które używają połączenia bramy sieci VPN.
+Należy podać nazwę bramy sieci lokalnej, publiczny adres IP lokalnego urządzenia sieci VPN i określić prefiksy adresów, które znajdują się w lokalizacji lokalnej. Na platformie Azure są sprawdzane prefiksy adresów docelowych dla ruchu sieciowego, zapoznaj się z konfiguracją określoną dla bramy sieci lokalnej i odpowiednio kieruj pakiety. Należy również określić bramy sieci lokalnej dla konfiguracji Sieć wirtualna-sieć wirtualna, która korzysta z połączenia bramy sieci VPN.
 
-W poniższym przykładzie programu PowerShell utworzy nową bramę sieci lokalnej:
+Poniższy przykład programu PowerShell tworzy nową bramę sieci lokalnej:
 
 ```azurepowershell-interactive
 New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
-Czasami trzeba zmodyfikować ustawienia bramy sieci lokalnej. Na przykład podczas dodawania lub modyfikowania zakresu adresów lub zmiany adresu IP urządzenia sieci VPN. Zobacz [Modyfikowanie ustawień bramy sieci lokalnej przy użyciu programu PowerShell](vpn-gateway-modify-local-network-gateway.md).
+Czasami trzeba zmodyfikować ustawienia bramy sieci lokalnej. Na przykład po dodaniu lub zmodyfikowaniu zakresu adresów lub jeśli adres IP urządzenia sieci VPN ulegnie zmianie. Zobacz [Modyfikowanie ustawień bramy sieci lokalnej przy użyciu programu PowerShell](vpn-gateway-modify-local-network-gateway.md).
 
 ## <a name="rest-apis-powershell-cmdlets-and-cli"></a><a name="resources"></a>Interfejsy API REST, polecenia cmdlet programu PowerShell i interfejs wiersza polecenia
 
-Aby uzyskać dodatkowe zasoby techniczne i określone wymagania składni podczas korzystania z interfejsów API REST, poleceń cmdlet programu PowerShell lub interfejsu wiersza polecenia platformy Azure dla konfiguracji bramy sieci VPN, zobacz następujące strony:
+Aby uzyskać dodatkowe zasoby techniczne i wymagania dotyczące składni w przypadku używania interfejsów API REST, poleceń cmdlet programu PowerShell lub interfejsu wiersza polecenia platformy Azure dla konfiguracji VPN Gateway, zobacz następujące strony:
 
-| **Wdrożenie klasyczne** | **Menedżer zasobów** |
+| **Wdrożenie klasyczne** | **Resource Manager** |
 | --- | --- |
-| [Powershell](/powershell/module/az.network/#networking) |[Powershell](/powershell/module/az.network#vpn) |
-| [INTERFEJS API ODPOCZYNKU](https://msdn.microsoft.com/library/jj154113) |[INTERFEJS API ODPOCZYNKU](/rest/api/network/virtualnetworkgateways) |
+| [Narzędzia](/powershell/module/az.network/#networking) |[Narzędzia](/powershell/module/az.network#vpn) |
+| [INTERFEJS API REST](https://msdn.microsoft.com/library/jj154113) |[INTERFEJS API REST](/rest/api/network/virtualnetworkgateways) |
 | Nieobsługiwane | [Interfejs wiersza polecenia platformy Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat dostępnych konfiguracji połączeń, zobacz [Informacje o bramie sieci VPN](vpn-gateway-about-vpngateways.md).
+Aby uzyskać więcej informacji o konfiguracjach dostępnych połączeń, zobacz [Informacje o VPN Gateway](vpn-gateway-about-vpngateways.md).

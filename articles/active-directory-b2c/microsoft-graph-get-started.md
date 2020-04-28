@@ -1,7 +1,7 @@
 ---
-title: Zarządzanie zasobami za pomocą programu Microsoft Graph
+title: Zarządzanie zasobami za pomocą Microsoft Graph
 titleSuffix: Azure AD B2C
-description: Przygotuj się do zarządzania zasobami usługi Azure AD B2C za pomocą programu Microsoft Graph, rejestrując aplikację, która ma wymagane uprawnienia interfejsu API programu Graph.
+description: Przygotuj się do zarządzania zasobami Azure AD B2C przy użyciu Microsoft Graph, rejestrując aplikację, której udzielono wymaganych uprawnień interfejs API programu Graph.
 services: B2C
 author: msmimart
 manager: celestedg
@@ -12,73 +12,73 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 32117d4bfcf0c0af94eced095b94ab0c1b6f88af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78184359"
 ---
-# <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Zarządzanie usługą Azure AD B2C za pomocą programu Microsoft Graph
+# <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Zarządzanie Azure AD B2C przy użyciu Microsoft Graph
 
-[Program Microsoft Graph][ms-graph] umożliwia zarządzanie wieloma zasobami w dzierżawie usługi Azure AD B2C, w tym kontami użytkowników klientów i zasadami niestandardowymi. Pisząc skrypty lub aplikacje wywołujące [interfejs API programu Microsoft Graph,][ms-graph-api]można zautomatyzować zadania zarządzania dzierżawą, takie jak:
+[Microsoft Graph][ms-graph] umożliwia zarządzanie wieloma zasobami w ramach dzierżawy Azure AD B2C, w tym kont użytkowników klienta i zasad niestandardowych. Pisząc skrypty lub aplikacje wywołujące [interfejs API Microsoft Graph][ms-graph-api], można zautomatyzować zadania zarządzania dzierżawcą, takie jak:
 
-* Migrowanie istniejącego magazynu użytkowników do dzierżawy usługi Azure AD B2C
-* Wdrażanie zasad niestandardowych za pomocą potoku platformy Azure w usłudze Azure DevOps i zarządzanie niestandardowymi kluczami zasad
-* Hostowanie rejestracji użytkowników na własnej stronie i tworzenie kont użytkowników w katalogu usługi Azure AD B2C za kulisami
-* Automatyzacja rejestracji aplikacji
+* Migrowanie istniejącego magazynu użytkownika do dzierżawy Azure AD B2C
+* Wdrażanie zasad niestandardowych przy użyciu potoku platformy Azure w usłudze Azure DevOps i zarządzanie kluczami zasad niestandardowych
+* Rejestracja użytkowników hosta na własnej stronie i tworzenie kont użytkowników w katalogu Azure AD B2C w tle
+* Automatyzowanie rejestracji aplikacji
 * Uzyskiwanie dzienników inspekcji
 
-Poniższe sekcje ułatwiają przygotowanie do korzystania z interfejsu API programu Microsoft Graph w celu zautomatyzowania zarządzania zasobami w katalogu usługi Azure AD B2C.
+Poniższe sekcje ułatwiają przygotowanie się do korzystania z interfejsu API Microsoft Graph w celu zautomatyzowania zarządzania zasobami w katalogu Azure AD B2C.
 
-## <a name="microsoft-graph-api-interaction-modes"></a>Tryby interakcji interfejsu API programu Microsoft Graph
+## <a name="microsoft-graph-api-interaction-modes"></a>Tryby interakcji interfejsu API Microsoft Graph
 
-Istnieją dwa tryby komunikacji, których można użyć podczas pracy z interfejsem API programu Microsoft Graph do zarządzania zasobami w dzierżawie usługi Azure AD B2C:
+Istnieją dwa tryby komunikacji, których można używać podczas pracy z interfejsem API Microsoft Graph do zarządzania zasobami w dzierżawie Azure AD B2C:
 
-* **Interaktywne** — odpowiednie do uruchamiania po zakończeniu zadań, można użyć konta administratora w dzierżawie B2C do wykonywania zadań zarządzania. Ten tryb wymaga, aby administrator zalogował się przy użyciu swoich poświadczeń przed wywołaniem interfejsu API programu Microsoft Graph.
+* **Interaktywnie** — odpowiednie dla zadań wykonywanych jednorazowo należy użyć konta administratora w dzierżawie B2C do wykonywania zadań zarządzania. Ten tryb wymaga od administratora zalogowania się przy użyciu poświadczeń przed wywołaniem interfejsu API Microsoft Graph.
 
-* **Automatyczne** — w przypadku zaplanowanych lub stale uruchamianych zadań ta metoda używa konta usługi skonfigurowanego z uprawnieniami wymaganymi do wykonywania zadań zarządzania. "Konto usługi" w usłudze Azure AD B2C można utworzyć, rejestrując aplikację używaną przez aplikacje i skrypty do uwierzytelniania przy użyciu identyfikatora *aplikacji (klienta)* i przyznania poświadczeń klienta OAuth 2.0. W takim przypadku aplikacja działa jako sama do wywołania interfejsu API programu Microsoft Graph, a nie użytkownika administratora, jak w opisanej wcześniej metodzie interaktywnej.
+* **Zautomatyzowane** — w przypadku zaplanowanych lub ciągle wykonywanych zadań ta metoda korzysta z konta usługi skonfigurowanego z uprawnieniami wymaganymi do wykonywania zadań zarządzania. Tworzysz "konto usługi" w Azure AD B2C przez zarejestrowanie aplikacji, której aplikacje i skrypty używają do uwierzytelniania przy użyciu *identyfikatora aplikacji (klienta)* i przyznania poświadczeń klienta OAuth 2,0. W takim przypadku aplikacja działa jako sama do wywołania interfejsu API Microsoft Graph, a nie użytkownika administratora, tak jak w opisanej wcześniej metodzie interaktywnej.
 
-Włącz **scenariusz automatycznej** interakcji, tworząc rejestrację aplikacji pokazaną w poniższych sekcjach.
+Scenariusz interakcji **automatycznej** można włączyć przez utworzenie rejestracji aplikacji pokazanej w poniższych sekcjach.
 
-## <a name="register-management-application"></a>Zarejestruj aplikację do zarządzania
+## <a name="register-management-application"></a>Zarejestruj aplikację zarządzania
 
-Zanim skrypty i aplikacje będą mogły wchodzić w interakcje z [interfejsem API programu Microsoft Graph][ms-graph-api] w celu zarządzania zasobami usługi Azure AD B2C, należy utworzyć rejestrację aplikacji w dzierżawie usługi Azure AD B2C, która udziela wymaganych uprawnień interfejsu API.
+Zanim skrypty i aplikacje będą mogły korzystać z [interfejsu API Microsoft Graph][ms-graph-api] w celu zarządzania zasobami Azure AD B2C, należy utworzyć rejestrację aplikacji w dzierżawie Azure AD B2C, która przyznaje wymagane uprawnienia interfejsu API.
 
 [!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
 ### <a name="grant-api-access"></a>Udzielanie dostępu do interfejsu API
 
-Następnie przyznaj uprawnienia zarejestrowanej aplikacji do manipulowania zasobami dzierżawy za pośrednictwem wywołań interfejsu API programu Microsoft Graph.
+Następnie udziel zarejestrowanej aplikacji uprawnień do manipulowania zasobami dzierżawy za pomocą wywołań interfejsu API Microsoft Graph.
 
 [!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
-### <a name="create-client-secret"></a>Tworzenie klucza tajnego klienta
+### <a name="create-client-secret"></a>Utwórz klucz tajny klienta
 
 [!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
-Masz teraz aplikację, która ma uprawnienia do *tworzenia,* *odczytu,* *aktualizacji*i *usuwania* użytkowników w dzierżawie usługi Azure AD B2C. Przejdź do następnej sekcji, aby dodać uprawnienia do *aktualizacji hasła.*
+Masz teraz aplikację, która ma uprawnienia do *tworzenia*, *odczytywania*, *aktualizowania*i *usuwania* użytkowników w dzierżawie Azure AD B2C. Przejdź do następnej sekcji, aby dodać uprawnienia do *aktualizacji haseł* .
 
-## <a name="enable-user-delete-and-password-update"></a>Włączanie usuwania użytkowników i aktualizacji hasła
+## <a name="enable-user-delete-and-password-update"></a>Włącz usuwanie i aktualizowanie haseł użytkowników
 
-Uprawnienie *Do odczytu i zapisu danych katalogu* **NIE** obejmuje możliwości usuwania użytkowników lub aktualizowania haseł kont użytkowników.
+Uprawnienie *Odczyt i zapis danych katalogu* **nie** obejmuje możliwości usuwania użytkowników ani aktualizowania haseł kont użytkowników.
 
-Jeśli aplikacja lub skrypt musi usunąć użytkowników lub zaktualizować ich hasła, przypisz rolę *administratora użytkownika* do aplikacji:
+Jeśli aplikacja lub skrypt musi usunąć użytkowników lub zaktualizować swoje hasła, należy przypisać rolę *administratora użytkownika* do aplikacji:
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) i użyj filtru **Katalog + Subskrypcja,** aby przełączyć się do dzierżawy usługi Azure AD B2C.
-1. Wyszukaj i wybierz **pozycję Azure AD B2C**.
-1. W obszarze **Zarządzanie**wybierz pozycję **Role i administratorzy**.
-1. Wybierz rolę **Administratora użytkownika.**
-1. Wybierz **pozycję Dodaj przydziały**.
-1. W polu tekstowym **Zaznacz** wprowadź nazwę aplikacji zarejestrowanej wcześniej, na przykład *managementapp1*. Wybierz aplikację, gdy pojawi się w wynikach wyszukiwania.
-1. Wybierz pozycję **Dodaj**. Może upłynąć kilka minut, aby uprawnienia do pełnego propagacji.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i Użyj filtru **Directory + Subscription** , aby przełączyć się do dzierżawy Azure AD B2C.
+1. Wyszukaj i wybierz **Azure AD B2C**.
+1. W obszarze **Zarządzanie**wybierz pozycję **role i Administratorzy**.
+1. Wybierz rolę **administratora użytkowników** .
+1. Wybierz pozycję **Dodaj przypisania**.
+1. W polu tekstowym **Wybierz** wpisz nazwę wcześniej zarejestrowanej aplikacji, na przykład *managementapp1*. Wybierz aplikację, gdy zostanie ona wyświetlona w wynikach wyszukiwania.
+1. Wybierz pozycję **Dodaj**. Pełne propagowanie uprawnień może potrwać kilka minut.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy zarejestrowałeś aplikację do zarządzania i przyznano jej wymagane uprawnienia, aplikacje i usługi (na przykład usługi Azure Pipelines) mogą używać jego poświadczeń i uprawnień do interakcji z interfejsem API programu Microsoft Graph.
+Teraz, po zarejestrowaniu aplikacji zarządzania i przyznaniu jej wymaganych uprawnień, Twoje aplikacje i usługi (na przykład Azure Pipelines) mogą używać swoich poświadczeń i uprawnień do współdziałania z interfejsem API Microsoft Graph.
 
-* [Operacje B2C obsługiwane przez program Microsoft Graph](microsoft-graph-operations.md)
-* [Zarządzanie kontami użytkowników usługi Azure AD B2C za pomocą programu Microsoft Graph](manage-user-accounts-graph-api.md)
-* [Pobierz dzienniki inspekcji za pomocą interfejsu API raportowania usługi Azure AD](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
+* [B2C operacje obsługiwane przez Microsoft Graph](microsoft-graph-operations.md)
+* [Zarządzanie kontami użytkowników Azure AD B2C przy użyciu Microsoft Graph](manage-user-accounts-graph-api.md)
+* [Pobieranie dzienników inspekcji za pomocą interfejsu API raportowania usługi Azure AD](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
 [ms-graph]: https://docs.microsoft.com/graph/

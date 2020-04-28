@@ -1,6 +1,6 @@
 ---
-title: Własny przegląd pakietu dostępu w zarządzaniu uprawnieniami usługi Azure AD
-description: Dowiedz się, jak przejrzeć dostęp użytkowników do pakietów dostępu do zarządzania uprawnieniami w recenzjach dostępu usługi Azure Active Directory (Wersja zapoznawcza).
+title: Samoobsługowe przeglądanie pakietu dostępu w usłudze Azure AD uprawnień zarządzania
+description: Dowiedz się, jak przeglądać dostęp użytkowników do pakietów dostępu do zarządzania prawami w Azure Active Directory przeglądy dostępu (wersja zapoznawcza).
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,49 +17,49 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45da1170705bab1206a98c59e02c7616c25ce502
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78967772"
 ---
-# <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Własny przegląd pakietu dostępu w zarządzaniu uprawnieniami usługi Azure AD
+# <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Samoobsługowe przeglądanie pakietu dostępu w usłudze Azure AD uprawnień zarządzania
 
-Zarządzanie uprawnieniami usługi Azure AD upraszcza sposób zarządzania dostępem przedsiębiorstw do grup, aplikacji i witryn programu SharePoint. W tym artykule opisano, jak użytkownik wykonuje własny przegląd przypisanych pakietów dostępu.
+Zarządzanie prawami usługi Azure AD upraszcza zarządzanie dostępem do grup, aplikacji i witryn programu SharePoint przez przedsiębiorstwa. W tym artykule opisano sposób, w jaki użytkownik wykonuje własne przeglądy przypisanych pakietów dostępu.
 
 ## <a name="open-the-access-review"></a>Otwórz przegląd dostępu
 
-Aby wykonać przegląd dostępu, należy najpierw otworzyć przegląd dostępu. Aby znaleźć i otworzyć przegląd dostępu, należy skorzystać z poniższej procedury:
+Aby przeprowadzić przegląd dostępu, musisz najpierw otworzyć przegląd dostępu. Aby znaleźć i otworzyć przegląd dostępu, wykonaj czynności opisane w poniższej procedurze:
 
-1. Użytkownik może otrzymać wiadomość e-mail od firmy Microsoft z prośbą o sprawdzenie dostępu. Znajdź wiadomość e-mail, aby otworzyć przegląd dostępu. Oto przykład wiadomości e-mail z prośbą o sprawdzenie dostępu: 
+1. Otrzymasz od firmy Microsoft wiadomość e-mail z prośbą o sprawdzenie dostępu. Znajdź wiadomość e-mail, aby otworzyć przegląd dostępu. Oto przykład wiadomości e-mail żądającej przeglądu dostępu: 
     
-    ![Dostęp do wiadomości e-mail recenzenta](./media/entitlement-management-access-reviews-review-access/self-review-reviewer-email.png)
+    ![Adres e-mail recenzenta przeglądu dostępu](./media/entitlement-management-access-reviews-review-access/self-review-reviewer-email.png)
 
-1. Kliknij łącze **Przejrzyj dostęp.**
+1. Kliknij link **Przejrzyj dostęp** .
 
-1. Możesz również przejść bezpośrednio https://myaccess.microsoft.com do, aby znaleźć oczekujące opinie o dostępie, jeśli nie otrzymasz wiadomości e-mail.  (Dla rządu STANÓW `https://myaccess.microsoft.us` Zjednoczonych użyj zamiast tego).
+1. Możesz też przejść bezpośrednio do https://myaccess.microsoft.com pozycji, aby znaleźć oczekujące przeglądy dostępu, jeśli nie otrzymasz wiadomości e-mail.  (W przypadku instytucji rządowych `https://myaccess.microsoft.us` USA Użyj zamiast niej).
 
-1. Kliknij **pozycję Przeglądy programu Access** na lewym pasku nawigacyjnym, aby wyświetlić listę oczekujących przeglądów dostępu przypisanych do Ciebie.
+1. Kliknij przycisk **przeglądy dostępu** na lewym pasku nawigacyjnym, aby wyświetlić listę oczekujących przeglądów dostępu przypisanych do użytkownika.
 
 
-1.  Kliknij recenzję, którą chcesz rozpocząć.
+1.  Kliknij przegląd, którego chcesz zacząć.
 
-## <a name="perform-the-access-review"></a>Wykonywanie przeglądu dostępu
+## <a name="perform-the-access-review"></a>Wykonaj przegląd dostępu
 
-Po otwarciu przeglądu dostępu możesz zobaczyć swój dostęp. Aby dokonać przeglądu dostępu, wykonaj następującą procedurę:
+Po otwarciu przeglądu dostępu zobaczysz Twój dostęp. Aby zapoznać się z przeglądem dostępu, wykonaj czynności opisane w poniższej procedurze:
 
-1.  Zdecyduj, czy nadal potrzebujesz dostępu do pakietu dostępu. Na przykład projekt, nad który pracujesz, nie został ukończony, więc nadal potrzebujesz dostępu, aby kontynuować pracę nad projektem.
+1.  Zdecyduj, czy nadal potrzebujesz dostępu do pakietu dostępu. Na przykład projekt, nad którym pracujesz, nie jest gotowy, więc nadal potrzebujesz dostępu, aby kontynuować pracę nad projektem.
 
-1.  Kliknij **przycisk Tak,** aby zachować dostęp, lub kliknij przycisk **Nie,** aby usunąć dostęp.
+1.  Kliknij przycisk **tak** , aby zachować dostęp, lub kliknij przycisk **nie** , aby usunąć dostęp.
     >[!NOTE]
-    >Jeśli stwierdzono, że nie potrzebujesz już dostępu, nie są natychmiast usuwane z pakietu dostępu. Zostaniesz usunięty z pakietu dostępu po zakończeniu przeglądu lub jeśli administrator zatrzyma przegląd.
+    >Jeśli użytkownik stwierdził, że nie potrzebujesz już dostępu, nie zostanie natychmiast usunięty z pakietu dostępu. Użytkownik zostanie usunięty z pakietu dostępu po zakończeniu przeglądu lub jeśli administrator zatrzyma przegląd.
 
-1.  Jeśli klikniesz **przycisk Tak,** może być konieczne dołączenie instrukcji justowania w polu **Przyczyna.**
+1.  Jeśli klikniesz **przycisk tak**, może być konieczne dołączenie instrukcji justowania do pola **Przyczyna** .
 
-1.  Kliknij **przycisk Prześlij**.
+1.  Kliknij przycisk **Prześlij**.
 
-Możesz wrócić do recenzji, jeśli zmienisz zdanie i zdecydujesz się zmienić odpowiedź przed zakończeniem przeglądu.
+Możesz powrócić do przeglądu, jeśli zmienisz zdanie i zdecydujesz się zmienić odpowiedź przed końcem przeglądu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przeglądanie dostępu do pakietów dostępu](entitlement-management-access-reviews-review-access.md) 
+- [Przejrzyj dostęp do pakietów dostępu](entitlement-management-access-reviews-review-access.md) 

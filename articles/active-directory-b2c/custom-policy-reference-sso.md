@@ -1,7 +1,7 @@
 ---
 title: Zarządzanie sesjami logowania jednokrotnego przy użyciu zasad niestandardowych
 titleSuffix: Azure AD B2C
-description: Dowiedz się, jak zarządzać sesjami SSO przy użyciu zasad niestandardowych w usłudze Azure AD B2C.
+description: Dowiedz się, jak zarządzać sesjami logowania jednokrotnego przy użyciu zasad niestandardowych w programie Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,48 +12,48 @@ ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 80cf0d101a29de7fca9d4dd36e188a500d35e290
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79246034"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Zarządzanie sesjami logowania jednokrotnego w usłudze Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Zarządzanie sesjami logowania jednokrotnego w usłudze Azure Active Directory B2C (Azure AD B2C) umożliwia administratorowi kontrolowanie interakcji z użytkownikiem po uwierzytelnienia użytkownika. Na przykład administrator może kontrolować, czy wybór dostawców tożsamości jest wyświetlany lub czy szczegóły konta lokalnego muszą zostać wprowadzone ponownie. W tym artykule opisano sposób konfigurowania ustawień logowania typu "SSO" dla usługi Azure AD B2C.
+Usługa logowania jednokrotnego (SSO) w programie Azure Active Directory B2C (Azure AD B2C) umożliwia administratorowi sterowanie interakcją z użytkownikiem po jego uwierzytelnieniu. Administrator może na przykład określić, czy jest wyświetlany wybór dostawców tożsamości, czy też należy wprowadzić ponownie szczegóły konta lokalnego. W tym artykule opisano sposób konfigurowania ustawień logowania jednokrotnego dla Azure AD B2C.
 
-Zarządzanie sesjami SSO ma dwie części. Pierwszy dotyczy interakcji użytkownika bezpośrednio z usługą Azure AD B2C, a drugi dotyczy interakcji użytkownika z zewnętrznymi stronami, takimi jak Facebook. Usługa Azure AD B2C nie zastępuje ani nie pomija sesji jednośmiękowych, które mogą być przechowywane przez strony zewnętrzne. Zamiast trasy za pośrednictwem usługi Azure AD B2C, aby uzyskać dostęp do strony zewnętrznej jest "zapamiętany", unikając konieczności reprompt użytkownika, aby wybrać ich dostawcy tożsamości społecznej lub przedsiębiorstwa. Ostateczna decyzja o SSO pozostaje w przypadku strony zewnętrznej.
+Zarządzanie sesjami logowania jednokrotnego ma dwie części. Pierwsza z nich zajmuje się interakcją użytkownika bezpośrednio z Azure AD B2Cami i innymi pochodzącymi w interakcjach z użytkownikami zewnętrznymi, takimi jak Facebook. Azure AD B2C nie przesłania ani nie pomija sesji logowania jednokrotnego, które mogą być przechowywane przez strony zewnętrzne. Zamiast trasy do Azure AD B2C do strony zewnętrznej jest "zapamiętane", unikając konieczności monitowania użytkownika o wybranie dostawcy tożsamości społecznościowej lub korporacyjnej. Ostateczna decyzja dotycząca logowania jednokrotnego pozostaje ze stroną zewnętrzną.
 
-Zarządzanie sesjami jednojadłymi używa tej samej semantyki, co każdy inny profil techniczny w zasadach niestandardowych. Po wykonaniu kroku aranżacji profil techniczny skojarzony z tym `UseTechnicalProfileForSessionManagement` krokiem jest wyszukiwany w celu uzyskania odwołania. Jeśli taki istnieje, dostawca sesji jednośdziejowej, do którego istnieje odwołanie, jest sprawdzany, aby sprawdzić, czy użytkownik jest uczestnikiem sesji. Jeśli tak, dostawca sesji samouszczącej się jest używany do ponownego zapełnienia sesji. Podobnie po zakończeniu wykonywania kroku aranżacji dostawca jest używany do przechowywania informacji w sesji, jeśli określono dostawcę sesji logowania posoczeniucowego.
+Zarządzanie sesjami SSO korzysta z tej samej semantyki co inny profil techniczny w zasadach niestandardowych. Po wykonaniu kroku aranżacji do `UseTechnicalProfileForSessionManagement` odwołania zostanie odpytany profil techniczny skojarzony z tym krokiem. Jeśli taki istnieje, oznacza to, że dostawca sesji rejestracji jednokrotnej, którego dotyczy odwołanie, jest sprawdzany w celu sprawdzenia, czy użytkownik jest uczestnikiem sesji. W takim przypadku dostawca sesji logowania jednokrotnego jest używany do ponownego zapełnienia sesji. Podobnie po zakończeniu wykonywania kroku aranżacji dostawca jest używany do przechowywania informacji w sesji, jeśli określono dostawcę sesji logowania jednokrotnego.
 
-Usługa Azure AD B2C zdefiniowała liczbę dostawców sesji typu SSO, których można używać:
+Azure AD B2C zdefiniował wielu dostawców sesji rejestracji jednokrotnej, których można użyć:
 
 * NoopSSOSessionProvider
-* DefaultSSSessionProvider
-* ZewnętrznyloginSSoSessionProvider
+* DefaultSSOSessionProvider
+* ExternalLoginSSOSessionProvider
 * SamlSSOSessionProvider
 
-Klasy zarządzania SSO `<UseTechnicalProfileForSessionManagement ReferenceId="{ID}" />` są określane przy użyciu elementu profilu technicznego.
+Klasy zarządzania logowaniem jednokrotnym `<UseTechnicalProfileForSessionManagement ReferenceId="{ID}" />` są określane przy użyciu elementu profilu technicznego.
 
 ## <a name="input-claims"></a>Oświadczenia wejściowe
 
-Element `InputClaims` jest pusty lub nieobecny.
+`InputClaims` Element jest pusty lub nie istnieje.
 
-## <a name="persisted-claims"></a>Utrwalone roszczenia
+## <a name="persisted-claims"></a>Utrwalone oświadczenia
 
-Oświadczenia, które muszą zostać zwrócone do aplikacji lub używane przez warunki wstępne w kolejnych krokach, powinny być przechowywane w sesji lub rozszerzone przez odczyt z profilu użytkownika w katalogu. Za pomocą utrwalonych oświadczeń gwarantuje, że procesy uwierzytelniania nie zakończy się niepowodzeniem na brakujące oświadczenia. Aby dodać oświadczenia w sesji, użyj `<PersistedClaims>` elementu profilu technicznego. Gdy dostawca jest używany do ponownego zapełnienia sesji, utrwalone oświadczenia są dodawane do worka oświadczeń.
+Oświadczenia, które muszą zostać zwrócone do aplikacji lub używane przez warunki wstępne w kolejnych krokach, powinny być przechowywane w sesji lub uzupełnione przez odczyt z profilu użytkownika w katalogu. Korzystanie z utrwalonych oświadczeń gwarantuje, że w przypadku brakujących oświadczeń przejazdów uwierzytelniania nie powiedzie się. Aby dodać oświadczenia w sesji, użyj `<PersistedClaims>` elementu profilu technicznego. Gdy dostawca jest używany do ponownego wypełniania sesji, utrwalane oświadczenia są dodawane do zbioru oświadczeń.
 
 ## <a name="output-claims"></a>Oświadczenia wyjściowe
 
-Jest `<OutputClaims>` używany do pobierania oświadczeń z sesji.
+`<OutputClaims>` Służy do pobierania oświadczeń z sesji.
 
 ## <a name="session-providers"></a>Dostawcy sesji
 
 ### <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
 
-Jak sama nazwa nakazuje, ten dostawca nic nie robi. Ten dostawca może służyć do wygaszanie zachowania SSO dla określonego profilu technicznego. Następujący `SM-Noop` profil techniczny znajduje się w [pakiecie startowym niestandardowych zasad](custom-policy-get-started.md#custom-policy-starter-pack).
+Jak nazywa się, ten dostawca niczego nie robi. Ten dostawca może służyć do pomijania zachowania logowania jednokrotnego dla określonego profilu technicznego. Poniższy `SM-Noop` profil techniczny jest zawarty w [pakiecie startowym zasad niestandardowych](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-Noop">
@@ -62,9 +62,9 @@ Jak sama nazwa nakazuje, ten dostawca nic nie robi. Ten dostawca może służyć
 </TechnicalProfile>
 ```
 
-### <a name="defaultssosessionprovider"></a>DefaultSSSessionProvider
+### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
-Ten dostawca może służyć do przechowywania oświadczeń w sesji. Ten dostawca jest zazwyczaj odwołuje się w profilu technicznym używanym do zarządzania kontami lokalnymi. Następujący `SM-AAD` profil techniczny znajduje się w [pakiecie startowym niestandardowych zasad](custom-policy-get-started.md#custom-policy-starter-pack).
+Tego dostawcy można używać do przechowywania oświadczeń w sesji. Ten dostawca jest zwykle przywoływany w profilu technicznym używanym do zarządzania kontami lokalnymi. Poniższy `SM-AAD` profil techniczny jest zawarty w [pakiecie startowym zasad niestandardowych](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
@@ -84,7 +84,7 @@ Ten dostawca może służyć do przechowywania oświadczeń w sesji. Ten dostawc
 </TechnicalProfile>
 ```
 
-Następujący `SM-MFA` profil techniczny znajduje się w [pakiecie startowym](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`niestandardowych zasad . Ten profil techniczny zarządza sesją uwierzytelniania wieloskładnikowego.
+Poniższy `SM-MFA` profil techniczny jest zawarty w `SocialAndLocalAccountsWithMfa` [pakiecie startowym zasad niestandardowych](custom-policy-get-started.md#custom-policy-starter-pack) . Ten profil techniczny służy do zarządzania sesją uwierzytelniania wieloskładnikowego.
 
 ```XML
 <TechnicalProfile Id="SM-MFA">
@@ -99,9 +99,9 @@ Następujący `SM-MFA` profil techniczny znajduje się w [pakiecie startowym](cu
 </TechnicalProfile>
 ```
 
-### <a name="externalloginssosessionprovider"></a>ZewnętrznyloginSSoSessionProvider
+### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
-Ten dostawca jest używany do pomijania ekranu "wybierz dostawcę tożsamości". Zazwyczaj odwołuje się do niego w profilu technicznym skonfigurowanym dla zewnętrznego dostawcy tożsamości, takiego jak Facebook. Następujący `SM-SocialLogin` profil techniczny znajduje się w [pakiecie startowym niestandardowych zasad](custom-policy-get-started.md#custom-policy-starter-pack).
+Ten dostawca służy do pomijania ekranu "wybieranie dostawcy tożsamości". Zwykle jest to przywoływane w profilu technicznym skonfigurowanym dla zewnętrznego dostawcy tożsamości, takiego jak Facebook. Poniższy `SM-SocialLogin` profil techniczny jest zawarty w [pakiecie startowym zasad niestandardowych](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">
@@ -120,11 +120,11 @@ Ten dostawca jest używany do pomijania ekranu "wybierz dostawcę tożsamości".
 
 | Atrybut | Wymagany | Opis|
 | --- | --- | --- |
-| ZawszeFetchClaimsFromProvider | Nie | Nie jest obecnie używany, mogą być ignorowane. |
+| AlwaysFetchClaimsFromProvider | Nie | Obecnie nie są używane, można je zignorować. |
 
 ### <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
 
-Ten dostawca służy do zarządzania sesjami SAML usługi Azure AD B2C między aplikacją jednostki uzależnionej lub federowanym dostawcą tożsamości SAML. W przypadku korzystania z dostawcy usługi SSO do `RegisterServiceProviders` przechowywania sesji `false`dostawcy tożsamości SAML należy ustawić na . Poniższy `SM-Saml-idp` profil techniczny jest używany przez [profil techniczny SAML](saml-technical-profile.md).
+Ten dostawca służy do zarządzania Azure AD B2C sesji SAML między aplikacją jednostki uzależnionej lub dostawcą federacyjnego tożsamości SAML. W przypadku korzystania z dostawcy rejestracji jednokrotnej w celu przechowywania sesji dostawcy `RegisterServiceProviders` tożsamości SAML należy ustawić `false`wartość. Poniższy `SM-Saml-idp` profil techniczny jest używany przez [profil techniczny SAML](saml-technical-profile.md).
 
 ```XML
 <TechnicalProfile Id="SM-Saml-idp">
@@ -136,9 +136,9 @@ Ten dostawca służy do zarządzania sesjami SAML usługi Azure AD B2C między a
 </TechnicalProfile>
 ```
 
-Podczas korzystania z dostawcy do przechowywania sesji SAML `RegisterServiceProviders` B2C, musi ustawić `true`. Wylogowanie sesji `SessionIndex` SAML wymaga i `NameID` do ukończenia.
+W przypadku korzystania z dostawcy do przechowywania sesji SAML B2C, `RegisterServiceProviders` musi ona mieć ustawioną wartość. `true` Wylogowywanie sesji języka SAML wymaga `SessionIndex` zakończenia `NameID` i.
 
-Poniższy `SM-Saml-idp` profil techniczny jest używany przez [profil techniczny emitenta SAML](saml-issuer-technical-profile.md)
+Następujący `SM-Saml-idp` profil techniczny jest używany przez [profil techniczny wystawcy SAML](saml-issuer-technical-profile.md)
 
 ```XML
 <TechnicalProfile Id="SM-Saml-sp">
@@ -150,8 +150,8 @@ Poniższy `SM-Saml-idp` profil techniczny jest używany przez [profil techniczny
 
 | Atrybut | Wymagany | Opis|
 | --- | --- | --- |
-| InsessionIndex (Index) | Nie | Nie jest obecnie używany, mogą być ignorowane.|
-| Zarejestrujuchsługi | Nie | Wskazuje, że dostawca powinien zarejestrować wszystkich dostawców usług SAML, które zostały wystawione potwierdzenia. Możliwe wartości: `true` (domyślnie) lub `false`.|
+| IncludeSessionIndex | Nie | Obecnie nie są używane, można je zignorować.|
+| RegisterServiceProviders | Nie | Wskazuje, że dostawca powinien rejestrować wszystkich dostawców usług SAML, którzy wystawiły potwierdzenie. Możliwe wartości: `true` (ustawienie domyślne) lub `false`.|
 
 
 

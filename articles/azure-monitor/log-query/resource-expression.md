@@ -1,35 +1,35 @@
 ---
-title: wyrażenie resource() w kwerendzie dziennika usługi Azure Monitor | Dokumenty firmy Microsoft
-description: Wyrażenie zasobu jest używane w kwerendzie dziennika usługi Azure Monitor zorientowanej na zasoby do pobierania danych z wielu zasobów.
+title: wyrażenie Resource () w kwerendzie dziennika Azure Monitor | Microsoft Docs
+description: Wyrażenie zasobu jest używane w zasobie zorientowanym na zasoby Azure Monitor zapytania dziennika do pobierania danych z wielu zasobów.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 2a729caefe698b13833098ba48df9d4bfbd97356
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77665703"
 ---
-# <a name="resource-expression-in-azure-monitor-log-query"></a>wyrażenie resource() w kwerendzie dziennika usługi Azure Monitor
+# <a name="resource-expression-in-azure-monitor-log-query"></a>wyrażenie Resource () w zapytaniu dziennika Azure Monitor
 
-Wyrażenie `resource` jest używane w zapytaniu usługi Azure Monitor [o zakresie do zasobu](scope.md#query-scope) w celu pobrania danych z innych zasobów. 
+`resource` Wyrażenie jest używane w kwerendzie Azure monitor [należącej do zakresu](scope.md#query-scope) , aby można było pobrać dane z innych zasobów. 
 
 
 ## <a name="syntax"></a>Składnia
 
-`resource(`*Identyfikator*`)`
+`resource(`*Identyfikatora*`)`
 
 ## <a name="arguments"></a>Argumenty
 
-- *Identyfikator:* Identyfikator zasobu.
+- *Identyfikator*: Identyfikator zasobu zasobu.
 
 | Identyfikator | Opis | Przykład
 |:---|:---|:---|
-| Zasób | Zawiera dane dla zasobu. | ("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm") |
-| Grupa zasobów lub subskrypcja | Zawiera dane dla zasobu i wszystkie zasoby, które zawiera.  | ("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup) |
+| Zasób | Zawiera dane dla zasobu. | zasób ("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/Providers/Microsoft.COMPUTE/virtualmachines/MyVM") |
+| Grupa zasobów lub subskrypcja | Zawiera dane dotyczące zasobu i wszystkich zasobów, które zawiera.  | zasób ("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup") |
 
 
 ## <a name="notes"></a>Uwagi
@@ -49,5 +49,5 @@ union (Heartbeat),(resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [zakres zapytań dziennika i zakres czasu w usłudze Azure Monitor Log Analytics, aby](scope.md) uzyskać szczegółowe informacje na temat zakresu kwerendy.
-- Uzyskaj dostęp do pełnej dokumentacji [języka zapytań Kusto](/azure/kusto/query/).
+- Aby uzyskać szczegółowe informacje na temat zakresu zapytania [, zobacz zakres zapytań dzienników i zakres czasu w Azure Monitor Log Analytics](scope.md) .
+- Uzyskaj dostęp do pełnej dokumentacji dotyczącej [języka zapytań Kusto](/azure/kusto/query/).

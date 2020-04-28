@@ -1,6 +1,6 @@
 ---
-title: Przepływy użytkowników w usłudze Azure Active Directory B2C | Dokumenty firmy Microsoft
-description: Dowiedz się więcej o rozszerzalnej ramach zasad usługi Azure Active Directory B2C i jak tworzyć różne przepływy użytkowników.
+title: Przepływy użytkownika w Azure Active Directory B2C | Microsoft Docs
+description: Dowiedz się więcej o rozszerzalnym środowisku zasad Azure Active Directory B2C i sposobach tworzenia różnych przepływów użytkowników.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,29 +11,29 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c11bc48742c398d2048a236c7d00af044971f845
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78185614"
 ---
-# <a name="user-flows-in-azure-active-directory-b2c"></a>Przepływy użytkownika w usłudze Azure Active Directory B2C
+# <a name="user-flows-in-azure-active-directory-b2c"></a>Przepływy użytkownika w Azure Active Directory B2C
 
-Rozszerzalna struktura zasad usługi Azure Active Directory B2C (Azure AD B2C) jest podstawową siłą usługi. Zasady w pełni opisują środowisko tożsamości, takie jak rejestracja, logowanie się lub edytowanie profilu. Aby ułatwić konfigurowanie najczęstszych zadań tożsamości, portal usługi Azure AD B2C zawiera wstępnie zdefiniowane, konfigurowalne zasady o nazwie **przepływy użytkowników**.
+Rozszerzalna struktura zasad Azure Active Directory B2C (Azure AD B2C) jest podstawową siłą usługi. Zasady w pełni opisują środowiska tożsamości, takie jak rejestrowanie, logowanie lub edytowanie profilów. Aby ułatwić skonfigurowanie najczęstszych zadań związanych z tożsamościami, Portal Azure AD B2C obejmuje wstępnie zdefiniowane, konfigurowalne zasady o nazwie **przepływy użytkownika**.
 
 ## <a name="what-are-user-flows"></a>Co to są przepływy użytkowników?
 
 Przepływ użytkownika umożliwia kontrolowanie zachowań w aplikacjach przez skonfigurowanie następujących ustawień:
 
-- Typy kont używane do logowania, takie jak konta społecznościowe, takie jak Facebook lub konta lokalne
-- Atrybuty, które mają być zbierane od konsumenta, takie jak imię, kod pocztowy i rozmiar buta
+- Typy kont używane do logowania, takie jak konta społecznościowe, takie jak konta w serwisie Facebook lub konto lokalne
+- Atrybuty, które mają być zbierane od konsumenta, takie jak imię i nazwisko, kod pocztowy i rozmiar butów
 - Azure Multi-Factor Authentication
-- Dostosowywanie interfejsu użytkownika
-- Informacje, które aplikacja otrzymuje jako oświadczenia w tokenie
+- Dostosowanie interfejsu użytkownika
+- Informacje odbierane przez aplikację jako oświadczenia w tokenie
 
-Można utworzyć wiele przepływów użytkowników różnych typów w dzierżawie i używać ich w aplikacjach w razie potrzeby. Przepływy użytkownika mogą być ponownie zażywane w aplikacjach. Ta elastyczność umożliwia definiowanie i modyfikowanie środowiska tożsamości przy minimalnych lub żadnych zmian w kodzie. Aplikacja wyzwala przepływ użytkownika przy użyciu standardowego żądania uwierzytelniania HTTP, który zawiera parametr przepływu użytkownika. Dostosowany [token](tokens-overview.md) jest odbierany jako odpowiedź.
+W razie konieczności można utworzyć wiele przepływów użytkowników różnych typów w dzierżawie i używać ich w aplikacjach. Przepływy użytkowników mogą być ponownie używane między aplikacjami. Ta elastyczność umożliwia definiowanie i modyfikowanie środowisk tożsamości przy minimalnych lub niewielkich zmianach w kodzie. Aplikacja wyzwala przepływ użytkownika przy użyciu standardowego żądania uwierzytelniania HTTP, zawierającego parametr przepływu użytkownika. Jako odpowiedź otrzymano dostosowany [token](tokens-overview.md) .
 
-Poniższe przykłady przedstawiają parametr ciągu zapytania "p", który określa przepływ użytkownika, który ma być używany:
+W poniższych przykładach pokazano parametr ciągu zapytania "p", który określa przepływ użytkownika do użycia:
 
 ```
 https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
@@ -61,28 +61,28 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="user-flow-versions"></a>Wersje przepływu użytkownika
 
-W witrynie Azure portal nowe [wersje przepływów użytkowników](user-flow-versions.md) są dodawane przez cały czas. Po rozpoczęciu korzystania z usługi Azure AD B2C, przetestowane przepływy użytkowników są zalecane do użycia. Podczas tworzenia nowego przepływu użytkownika, należy wybrać przepływ użytkownika, który jest potrzebny z **zalecanej** karty.
+W Azure Portal nowe [wersje przepływów użytkowników](user-flow-versions.md) są dodawane przez cały czas. Po rozpoczęciu pracy z Azure AD B2C przetestowane przepływy użytkowników są zalecane do użycia. Podczas tworzenia nowego przepływu użytkownika należy wybrać wymagany przepływ użytkownika z karty **zalecane** .
 
-Obecnie zalecane są następujące przepływy użytkownika:
+Obecnie zalecane są następujące przepływy użytkowników:
 
-- **Zarejestruj się i zaloguj** — obsługuje zarówno środowisko rejestracji, jak i logowania za pomocą jednej konfiguracji. Użytkownicy są prowadzone w dół właściwą ścieżkę w zależności od kontekstu. Zaleca się, aby używać tego przepływu użytkownika przez przepływ użytkownika **rejestracji** lub przepływ użytkownika **logowania.**
-- **Edycja profilu** — umożliwia użytkownikom edytowanie informacji o profilu.
-- **Resetowanie hasła** — umożliwia skonfigurowanie, czy i w jaki sposób użytkownicy mogą zresetować swoje hasło.
+- **Rejestracja i logowanie** — obsługuje zarówno środowisko rejestracji, jak i logowania przy użyciu jednej konfiguracji. Użytkownicy są w stanie wyprowadzić właściwą ścieżkę w zależności od kontekstu. Zaleca się użycie tego przepływu użytkownika w przepływie użytkownika podczas **rejestrowania** lub w przepływie użytkownika **logowania** .
+- **Edytowanie profilów** — umożliwia użytkownikom edytowanie informacji o profilu.
+- **Resetowanie hasła** — pozwala określić, czy i jak użytkownicy mogą resetować swoje hasła.
 
 ## <a name="linking-user-flows"></a>Łączenie przepływów użytkowników
 
-Przepływ użytkownika **rejestracji lub logowania** za pomocą kont lokalnych zawiera łącze **Zapomniałeś hasła?** na pierwszej stronie środowiska. Kliknięcie tego łącza nie powoduje automatycznego wyzwalania przepływu użytkownika resetowania hasła.
+Przepływ użytkownika **rejestracji lub logowania** z kontami lokalnymi zawiera link **zapomniane hasło?** na pierwszej stronie środowiska. Kliknięcie tego linku nie powoduje automatycznego wyzwolenia przepływu użytkownika resetowania hasła.
 
-Zamiast tego kod `AADB2C90118` błędu jest zwracany do aplikacji. Aplikacja musi obsługiwać ten kod błędu, uruchamiając przepływ określonego użytkownika, który resetuje hasło. Aby zobaczyć przykład, spójrz na [prosty ASP.NET przykład,](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) który pokazuje łączenie przepływów użytkownika.
+Zamiast tego kod `AADB2C90118` błędu jest zwracany do aplikacji. Aplikacja musi obsłużyć ten kod błędu przez uruchomienie określonego przepływu użytkownika, który resetuje hasło. Aby zobaczyć przykład, zapoznaj się z [prostym przykładem ASP.NET](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) , który pokazuje łączenie przepływów użytkowników.
 
-## <a name="email-address-storage"></a>Przechowywanie adresów e-mail
+## <a name="email-address-storage"></a>Magazyn adresów e-mail
 
-Adres e-mail może być wymagany jako część przepływu użytkownika. Jeśli użytkownik uwierzytelnia się za pomocą dostawcy tożsamości społecznościowej, adres e-mail jest przechowywany w **otherMails** właściwości. Jeśli konto lokalne jest oparte na nazwie użytkownika, adres e-mail jest przechowywany we właściwości szczegółów silnego uwierzytelniania. Jeśli konto lokalne jest oparte na adresie e-mail, adres e-mail jest przechowywany we właściwości **signInNames.**
+W ramach przepływu użytkownika może być wymagany adres e-mail. Jeśli użytkownik jest uwierzytelniany przy użyciu dostawcy tożsamości społecznościowej, adres e-mail jest przechowywany we właściwości **otherMails** . Jeśli konto lokalne jest oparte na nazwie użytkownika, adres e-mail jest przechowywany we właściwości szczegóły silnego uwierzytelniania. Jeśli konto lokalne jest oparte na adresie e-mail, adres e-mail jest przechowywany we właściwości **signInNames** .
 
-W żadnym z tych przypadków nie ma gwarancji, że adres e-mail zostanie zweryfikowany. Administrator dzierżawy może wyłączyć weryfikację poczty e-mail w podstawowych zasadach dla kont lokalnych. Nawet jeśli weryfikacja adresu e-mail jest włączona, adresy nie są weryfikowane, jeśli pochodzą od dostawcy tożsamości społecznościowych i nie zostały zmienione.
+W żadnym z tych przypadków nie gwarantuje się zweryfikowania adresu e-mail. Administrator dzierżawy może wyłączyć weryfikację wiadomości e-mail w podstawowych zasadach dla kont lokalnych. Nawet jeśli Weryfikacja adresu e-mail jest włączona, adresy nie są weryfikowane, jeśli pochodzą od dostawcy tożsamości społecznościowej i nie zostały zmienione.
 
-Tylko **inneumaile** i **signInNames** właściwości są widoczne za pośrednictwem interfejsu API programu Microsoft Graph. Adres e-mail we właściwości szczegółów silnego uwierzytelniania jest niedostępny.
+Tylko właściwości **otherMails** i **signInNames** są udostępniane za pomocą interfejsu API Microsoft Graph. Adres e-mail we właściwości szczegółu silnego uwierzytelniania jest niedostępny.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby utworzyć zalecane przepływy użytkownika, postępuj zgodnie z instrukcjami w [samouczku: Tworzenie przepływu użytkownika](tutorial-create-user-flows.md).
+Aby utworzyć zalecane przepływy użytkowników, postępuj zgodnie z instrukcjami podanymi w [samouczku: tworzenie przepływu użytkownika](tutorial-create-user-flows.md).

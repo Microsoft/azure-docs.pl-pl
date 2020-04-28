@@ -217,7 +217,7 @@ Usługa Azure Backup Server udostępnia kod menedżerowi ochrony danych. Odwoła
 
     ![Serwer kopii zapasowych platformy Azure — sprawdzanie powitalnym i wymagań wstępnych](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    Jeśli środowisko ma niezbędne wymagania wstępne, zostanie wyświetlony komunikat informujący, że urządzenie spełnia wymagania. Kliknij przycisk **alej**.  
+    Jeśli środowisko ma niezbędne wymagania wstępne, zostanie wyświetlony komunikat informujący, że urządzenie spełnia wymagania. Kliknij przycisk **Dalej**.  
 
     ![Serwer kopii zapasowej platformy Azure — sprawdzanie wymagań wstępnych nieprzekazano](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 

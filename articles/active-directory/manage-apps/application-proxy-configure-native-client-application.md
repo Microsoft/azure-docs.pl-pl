@@ -1,6 +1,6 @@
 ---
-title: Publikowanie natywnych aplikacji klienckich — Azure AD | Dokumenty firmy Microsoft
-description: Obejmuje sposób włączania natywnych aplikacji klienckich do komunikowania się z usługą Azure AD Application Proxy Connector w celu zapewnienia bezpiecznego dostępu zdalnego do aplikacji lokalnych.
+title: Publikowanie natywnych aplikacji klienckich — Azure AD | Microsoft Docs
+description: W tym artykule opisano, jak włączyć natywne aplikacje klienckie do komunikowania się z łącznikiem usługi Azure serwer proxy aplikacji usługi Azure AD, aby zapewnić bezpieczny dostęp zdalny do aplikacji lokalnych.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,65 +17,65 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d2a2bb9dd543da7455a276075a829ef06032edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77159288"
 ---
-# <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Jak włączyć natywne aplikacje klienckie do interakcji z aplikacjami proxy
+# <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Jak włączyć natywne aplikacje klienckie do współdziałania z aplikacjami proxy
 
-Za pomocą serwera proxy aplikacji usługi Azure Active Directory (Azure AD) można publikować aplikacje sieci web, ale może również służyć do publikowania natywnych aplikacji klienckich skonfigurowanych za pomocą biblioteki uwierzytelniania usługi Azure AD Library (ADAL). Natywne aplikacje klienckie różnią się od aplikacji sieci Web, ponieważ są zainstalowane na urządzeniu, podczas gdy aplikacje sieci web są dostępne za pośrednictwem przeglądarki.
+Za pomocą serwera proxy aplikacji usługi Azure Active Directory (Azure AD) można publikować aplikacje sieci Web, ale mogą one również służyć do publikowania natywnych aplikacji klienckich, które są skonfigurowane przy użyciu biblioteki Azure AD Authentication Library (ADAL). Natywne aplikacje klienckie różnią się od aplikacji sieci Web, ponieważ są one instalowane na urządzeniu, podczas gdy aplikacje sieci Web są dostępne za pośrednictwem przeglądarki.
 
-Aby obsługiwać natywne aplikacje klienckie, serwer proxy aplikacji akceptuje tokeny wystawione przez usługę Azure AD, które są wysyłane w nagłówku. Usługa serwera proxy aplikacji wykonuje uwierzytelnianie dla użytkowników. To rozwiązanie nie używa tokenów aplikacji do uwierzytelniania.
+Aby zapewnić obsługę natywnych aplikacji klienckich, serwer proxy aplikacji akceptuje tokeny wystawione przez usługę Azure AD, które są wysyłane w nagłówku. Usługa serwera proxy aplikacji wykonuje uwierzytelnianie dla użytkowników. To rozwiązanie nie korzysta z tokenów aplikacji na potrzeby uwierzytelniania.
 
 ![Relacja między użytkownikami końcowymi, usługą Azure AD i opublikowanymi aplikacjami](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Aby opublikować aplikacje natywne, należy użyć biblioteki uwierzytelniania usługi Azure AD, która zajmuje się uwierzytelnianiem i obsługuje wiele środowisk klienckich. Serwer proxy aplikacji pasuje do [scenariusza interfejsu API aplikacji natywnej do sieci Web](../azuread-dev/native-app.md).
+Aby opublikować aplikacje natywne, należy użyć biblioteki Azure AD Authentication Library, która jest obsługiwana przez uwierzytelnianie i obsługuje wiele środowisk klienta. Serwer proxy aplikacji mieści się w [scenariuszu interfejsu API sieci Web aplikacji natywnej](../azuread-dev/native-app.md).
 
-W tym artykule otrzymasz od czterech kroków, aby opublikować aplikację macierzystą za pomocą serwera proxy aplikacji i biblioteki uwierzytelniania usługi Azure AD.
+W tym artykule omówiono cztery kroki umożliwiające opublikowanie aplikacji natywnej przy użyciu serwera proxy aplikacji i biblioteki uwierzytelniania usługi Azure AD.
 
-## <a name="step-1-publish-your-proxy-application"></a>Krok 1: Publikowanie aplikacji proxy
+## <a name="step-1-publish-your-proxy-application"></a>Krok 1. publikowanie aplikacji serwera proxy
 
-Opublikuj aplikację serwera proxy tak, jak każdą inną aplikację i przypisz użytkowników do dostępu do aplikacji. Aby uzyskać więcej informacji, zobacz [Publikowanie aplikacji za pomocą serwera proxy aplikacji](application-proxy-add-on-premises-application.md).
+Opublikuj swoją aplikację proxy tak jak każda inna aplikacja i przypisz użytkownikom dostęp do aplikacji. Aby uzyskać więcej informacji, zobacz [publikowanie aplikacji przy użyciu serwera proxy aplikacji](application-proxy-add-on-premises-application.md).
 
-## <a name="step-2-register-your-native-application"></a>Krok 2: Zarejestruj swoją aplikację natywną
+## <a name="step-2-register-your-native-application"></a>Krok 2. rejestrowanie aplikacji natywnej
 
 Teraz musisz zarejestrować aplikację w usłudze Azure AD w następujący sposób:
 
-1. Zaloguj się do [portalu usługi Azure Active Directory](https://aad.portal.azure.com/). Pojawi się **pulpit nawigacyjny** **centrum administracyjnego usługi Azure Active Directory.**
-1. Na pasku bocznym wybierz pozycję **Azure Active Directory**. Zostanie wyświetlona strona przeglądu **usługi Azure Active Directory.**
-1. Na pasku bocznym przeglądu usługi Azure AD wybierz pozycję **Rejestracje aplikacji**. Zostanie wyświetlona lista wszystkich rejestracji aplikacji.
-1. Wybierz **pozycję Nowa rejestracja**. Zostanie wyświetlona strona **Zarejestruj aplikację.**
+1. Zaloguj się do [portalu Azure Active Directory](https://aad.portal.azure.com/). Zostanie wyświetlony **pulpit nawigacyjny** **Centrum administracyjnego Azure Active Directory** .
+1. Na pasku bocznym wybierz pozycję **Azure Active Directory**. Zostanie wyświetlona strona przegląd **Azure Active Directory** .
+1. Na pasku bocznym przegląd usługi Azure AD wybierz pozycję **rejestracje aplikacji**. Zostanie wyświetlona lista wszystkich rejestracji aplikacji.
+1. Wybierz pozycję **Nowa rejestracja**. Zostanie wyświetlona strona **zarejestruj aplikację** .
 
-   ![Tworzenie nowej rejestracji aplikacji w witrynie Azure portal](./media/application-proxy-configure-native-client-application/create.png)
+   ![Utwórz nową rejestrację aplikacji w Azure Portal](./media/application-proxy-configure-native-client-application/create.png)
 
-1. W nagłówku **Nazwa** określ nazwę wyświetlaną aplikacji skierowaną do użytkownika.
-1. W nagłówku **Obsługiwane typy kont** wybierz poziom dostępu, korzystając z następujących wskazówek:
+1. W nagłówku **Nazwa** Określ nazwę wyświetlaną użytkownika dla aplikacji.
+1. W obszarze **obsługiwane typy kont** wybierz poziom dostępu, korzystając z następujących wskazówek:
 
-   - Aby kierować reklamy tylko na konta wewnętrzne organizacji, wybierz opcję **Konta tylko w tym katalogu organizacyjnym**.
-   - Aby kierować reklamy tylko do klientów biznesowych lub edukacyjnych, wybierz pozycję **Konta w dowolnym katalogu organizacyjnym**.
-   - Aby kierować reklamy na najszerszy zestaw tożsamości firmy Microsoft, wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft**.
+   - Aby kierować tylko konta, które są wewnętrzne dla Twojej organizacji, wybierz opcję **konta tylko w tym katalogu organizacji**.
+   - Aby kierować tylko do klientów branżowych lub edukacyjnych, wybierz pozycję **konta w dowolnym katalogu organizacyjnym**.
+   - Aby określić szeroki zbiór tożsamości firmy Microsoft, wybierz pozycję **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft**.
 
-1. W nagłówku **Przekierowanie identyfikatora URI** wybierz pozycję **Klient publiczny (mobilny & pulpit),** a następnie wpisz identyfikator URI przekierowania dla aplikacji.
-1. Wybierz i przeczytaj **zasady platformy Microsoft**, a następnie wybierz pozycję **Zarejestruj**. Zostanie utworzona i wyświetlona strona przeglądu dla nowej rejestracji aplikacji.
+1. W nagłówku **URI przekierowania** wybierz pozycję **Klient publiczny (Mobile & Desktop)**, a następnie wpisz identyfikator URI przekierowania dla aplikacji.
+1. Wybierz i przeczytaj **Zasady platformy Microsoft**, a następnie wybierz pozycję **zarejestruj**. Zostanie utworzona i wyświetlona strona przeglądu nowej rejestracji aplikacji.
 
-Aby uzyskać bardziej szczegółowe informacje dotyczące tworzenia nowej rejestracji aplikacji, zobacz [Integrowanie aplikacji z usługą Azure Active Directory](../develop/quickstart-register-app.md).
+Aby uzyskać szczegółowe informacje na temat tworzenia nowej rejestracji aplikacji, zobacz [Integrowanie aplikacji z Azure Active Directory](../develop/quickstart-register-app.md).
 
-## <a name="step-3-grant-access-to-your-proxy-application"></a>Krok 3: Udziel dostępu do aplikacji proxy
+## <a name="step-3-grant-access-to-your-proxy-application"></a>Krok 3. udzielanie dostępu do aplikacji serwera proxy
 
-Po zarejestrowaniu aplikacji macierzystej można nadać jej dostęp do innych aplikacji w katalogu, w tym przypadku w celu uzyskania dostępu do aplikacji proxy. Aby włączyć nanatywną aplikację, która ma być narażona na aplikację proxy:
+Po zarejestrowaniu natywnej aplikacji można udzielić jej dostępu do innych aplikacji w katalogu w tym przypadku w celu uzyskania dostępu do aplikacji serwera proxy. Aby umożliwić uwidocznienie aplikacji natywnej aplikacji serwera proxy:
 
-1. Na pasku bocznym nowej strony rejestracji aplikacji wybierz pozycję **Uprawnienia interfejsu API**. Zostanie wyświetlona strona **uprawnień interfejsu API** dla nowej rejestracji aplikacji.
-1. Wybierz **pozycję Dodaj uprawnienie**. Zostanie wyświetlona strona **Żądania uprawnień interfejsu API.**
-1. W obszarze **Wybierz interfejs API** wybierz pozycję **Interfejsy API**używane przez moją organizację . Pojawi się lista zawierająca aplikacje w katalogu, które udostępniają interfejsy API.
-1. Wpisz pole wyszukiwania lub przewiń, aby znaleźć aplikację serwera proxy opublikowaną w [kroku 1: Opublikuj aplikację serwera proxy,](#step-1-publish-your-proxy-application)a następnie wybierz aplikację serwera proxy.
-1. W **nagłówku Jakiego typu uprawnień wymaga aplikacja?** Jeśli aplikacja natywna musi uzyskać dostęp do interfejsu API aplikacji proxy jako zalogowany użytkownik, wybierz pozycję **Uprawnienia delegowane**.
-1. W nagłówku **Wybierz uprawnienia** wybierz żądane uprawnienie i wybierz pozycję **Dodaj uprawnienia**. Strona **uprawnień interfejsu API** dla aplikacji macierzystej pokazuje teraz dodaną aplikację serwera proxy i interfejs API uprawnień.
+1. Na pasku bocznym strony rejestracja nowej aplikacji wybierz pozycję **uprawnienia interfejsu API**. Zostanie wyświetlona strona **uprawnienia interfejsu API** dla nowej rejestracji aplikacji.
+1. Wybierz pozycję **Dodaj uprawnienie**. Zostanie wyświetlona strona **uprawnienia do interfejsu API żądania** .
+1. W obszarze **Wybierz ustawienie interfejsu API** wybierz opcję **interfejsy API, które są wykorzystywane przez moją organizację**. Zostanie wyświetlona lista zawierająca aplikacje w katalogu, które uwidaczniają interfejsy API.
+1. Wpisz w polu wyszukiwania lub przewiń, aby znaleźć aplikację serwera proxy opublikowaną w [kroku 1: publikowanie aplikacji serwera proxy](#step-1-publish-your-proxy-application), a następnie wybierz aplikację serwera proxy.
+1. W obszarze **jakiego typu uprawnienia aplikacja jest wymagana?** wybierz pozycję Typ uprawnienia. Jeśli aplikacja natywna musi uzyskać dostęp do interfejsu API aplikacji serwera proxy jako zalogowanego użytkownika, wybierz pozycję **uprawnienia delegowane**.
+1. W nagłówku **Wybierz uprawnienia** wybierz odpowiednie uprawnienia, a następnie wybierz pozycję **Dodaj uprawnienia**. Strona **uprawnienia interfejsu API** dla aplikacji natywnej zawiera teraz dodaną aplikację serwera proxy i interfejs API uprawnień.
 
-## <a name="step-4-edit-the-active-directory-authentication-library"></a>Krok 4: Edytowanie biblioteki uwierzytelniania usługi Active Directory
+## <a name="step-4-edit-the-active-directory-authentication-library"></a>Krok 4. Edytowanie Active Directory Authentication Library
 
-Edytuj kod aplikacji natywnej w kontekście uwierzytelniania biblioteki uwierzytelniania usługi Active Directory (ADAL), aby uwzględnić następujący tekst:
+Edytuj natywny kod aplikacji w kontekście uwierzytelniania Active Directory Authentication Library (ADAL) w celu uwzględnienia następującego tekstu:
 
 ```
 // Acquire Access Token from AAD for Proxy Application
@@ -91,20 +91,20 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
 ```
 
-Wymagane informacje w przykładowym kodzie można znaleźć w portalu usługi Azure AD w następujący sposób:
+Informacje wymagane w przykładowym kodzie można znaleźć w portalu usługi Azure AD w następujący sposób:
 
-| Wymagane informacje | Jak go znaleźć w portalu usługi Azure AD |
+| Wymagane informacje | Jak znaleźć je w portalu usługi Azure AD |
 | --- | --- |
-| \<identyfikator dzierżawy> | **Azure Active Directory** > **Identyfikator katalogu** właściwości usługi Azure Active**Directory** >  |
-| \<Zewnętrzny adres URL aplikacji proxy> | **Aplikacje korporacyjne** > *serwera proxy* > serwera**proxy** > **External Url** aplikacji proxy |
-| \<Identyfikator aplikacji aplikacji natywnej> | **Aplikacje** > dla przedsiębiorstw identyfikator aplikacji*natywnej* > **Properties** > **Application ID** właściwości |
-| \<Przekieruj identyfikator URI aplikacji macierzystej> | **Rejestracje** > aplikacji usługi Azure Active Directory*natywnej* > **App registrations** > aplikacji**Przekierowanie identyfikatorów URI** |
-| \<adres URL interfejsu API aplikacji proxy> | **Rejestracja** > aplikacji usługi Azure Active Directory**uprawnienia** > interfejsu**API / NAZWA UPRAWNIEŃ** interfejsu**API** > *aplikacji* >  |
+| \<> identyfikatora dzierżawy | **Azure Active Directory** > **Properties** > **Identyfikator katalogu** właściwości Azure Active Directory |
+| \<Zewnętrzny adres URL aplikacji serwera proxy> | **Aplikacje** > korporacyjne —**zewnętrzny adres URL** **serwera proxy** > aplikacji*serwera proxy* >  |
+| \<Identyfikator aplikacji natywnej> | **Aplikacje** > korporacyjne —**Identyfikator aplikacji** **dla aplikacji** > *natywnych* >  |
+| \<Identyfikator URI przekierowania aplikacji natywnej> | **Azure Active Directory** > **App registrations**rejestracje aplikacji >  > **identyfikatorów URI przekierowania** *aplikacji natywnych* |
+| \<Adres URL interfejsu API aplikacji serwera proxy> | **Azure Active Directory** > **App registrations**rejestracje aplikacji > uprawnienia > interfejsu > **API***aplikacji natywnych do***interfejsu API/uprawnień** |
 
-Po edycji usługi ADAL z tymi parametrami użytkownicy mogą uwierzytelniać się w natywnych aplikacjach klienckich, nawet jeśli są poza siecią firmową.
+Po przeprowadzeniu edycji biblioteki ADAL przy użyciu tych parametrów użytkownicy mogą uwierzytelniać się w natywnych aplikacjach klienckich nawet wtedy, gdy znajdują się poza siecią firmową.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat przepływu aplikacji natywnych, zobacz [Aplikacje natywne w usłudze Azure Active Directory](../azuread-dev/native-app.md).
+Aby uzyskać więcej informacji na temat natywnego przepływu aplikacji, zobacz [aplikacje natywne w Azure Active Directory](../azuread-dev/native-app.md).
 
-Dowiedz się więcej o [konfigurowaniu logowania jednokrotnego w aplikacjach usługi Azure Active Directory](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Dowiedz się więcej na temat konfigurowania [logowania jednokrotnego do aplikacji w Azure Active Directory](what-is-single-sign-on.md#choosing-a-single-sign-on-method).

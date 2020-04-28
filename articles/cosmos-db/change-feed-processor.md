@@ -1,6 +1,6 @@
 ---
-title: Zmienianie biblioteki procesorów kanałów informacyjnych w usłudze Azure Cosmos DB
-description: Dowiedz się, jak używać biblioteki procesorów danych strumieniowych usługi Azure Cosmos DB do odczytywania pliku danych o zmianach składników procesora pliku danych zmian
+title: Zmień bibliotekę procesora kanału informacyjnego w Azure Cosmos DB
+description: Dowiedz się, jak używać biblioteki procesora kanału zmian Azure Cosmos DB do odczytywania źródła zmian, składników procesora źródła zmian
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,93 +9,93 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: e71b2807595aebeb1f0c8682fde119f4e267e55d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273303"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesor zestawienia zmian w usłudze Azure Cosmos DB 
 
-Procesor pliku danych zmian jest częścią [usługi Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3). Upraszcza proces odczytywania pliku danych o zmianach i skutecznie rozdziela przetwarzanie zdarzeń wśród wielu konsumentów.
+Procesor kanału informacyjnego zmian jest częścią [zestawu Azure Cosmos DB SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3). Upraszcza proces odczytywania źródła zmian i rozpowszechniania przetwarzania zdarzeń przez wielu użytkowników efektywnie.
 
-Główną zaletą biblioteki procesora kanału informacyjnego zmian jest jego zachowanie odporne na uszkodzenia, które zapewnia "co najmniej raz" dostarczanie wszystkich zdarzeń w pliku danych o zmianach.
+Główną zaletą biblioteki procesora kanału informacyjnego jest zachowanie odporne na błędy, które gwarantuje, że dostarczanie wszystkich zdarzeń w strumieniu zmian zostanie zakończone "co najmniej raz".
 
-## <a name="components-of-the-change-feed-processor"></a>Składniki procesora podawania zmian
+## <a name="components-of-the-change-feed-processor"></a>Składniki procesora źródła zmian
 
-Istnieją cztery główne składniki wdrażania procesora podawania zmian: 
+Istnieją cztery główne składniki implementacji procesora kanału informacyjnego zmiany: 
 
-1. **Monitorowany pojemnik:** Monitorowany kontener zawiera dane, z których jest generowany kanał informacyjny zmian. Wszelkie wstawia i aktualizacje monitorowanego kontenera są odzwierciedlane w posuwu zmian kontenera.
+1. **Monitorowany kontener:** Monitorowany kontener zawiera dane, z których jest generowane strumieniowe źródło zmian. Wszystkie wstawienia i aktualizacje monitorowanego kontenera są odzwierciedlone w kanale zmian kontenera.
 
-1. **Kontener dzierżawy:** Kontener dzierżawy działa jako magazyn stanu i współrzędnych przetwarzania źródła danych zmian przez wielu pracowników. Kontener dzierżawy może być przechowywany na tym samym koncie co monitorowany kontener lub na osobnym koncie. 
+1. **Kontener dzierżawy:** Kontener dzierżawy działa jako magazyn stanów i koordynuje przetwarzanie źródła zmian przez wielu pracowników. Kontener dzierżawy może być przechowywany na tym samym koncie co monitorowany kontener lub na osobnym koncie. 
 
-1. **Gospodarz:** Host jest wystąpieniem aplikacji, które używa procesora pliku danych zmian do nasłuchiwać zmian. Wiele wystąpień z tą samą konfiguracją dzierżawy może działać równolegle, ale każde wystąpienie powinno mieć inną **nazwę wystąpienia**. 
+1. **Host:** Host jest wystąpieniem aplikacji korzystającym z procesora źródła zmian do nasłuchiwania zmian. Wiele wystąpień z tą samą konfiguracją dzierżawy może działać równolegle, ale każde wystąpienie powinno mieć inną **nazwę wystąpienia**. 
 
-1. **Delegat:** Pełnomocnik jest kod, który definiuje, co ty, deweloper, chcesz zrobić z każdej partii zmian, które odczytuje procesor pliku danych zmian. 
+1. **Delegat:** Delegat to kod, który definiuje, co ty i dla deweloperów chce wykonać przy każdej partii zmian, które procesor kanału informacyjnego zmian odczytuje. 
 
-Aby lepiej zrozumieć, jak te cztery elementy procesora pliku danych zmian współpracują ze sobą, przyjrzyjmy się przykładowi na poniższym diagramie. Monitorowany kontener przechowuje dokumenty i używa "Miasta" jako klucza partycji. Widzimy, że wartości klucza partycji są dystrybuowane w zakresach, które zawierają elementy. Istnieją dwa wystąpienia hosta i procesor pliku danych zmian przypisuje różne zakresy wartości klucza partycji do każdego wystąpienia, aby zmaksymalizować dystrybucję obliczeń. Każdy zakres jest odczytywany równolegle, a jego postęp jest utrzymywany oddzielnie od innych zakresów w kontenerze dzierżawy.
+Aby dowiedzieć się więcej o tym, jak te cztery elementy procesora źródła zmian współpracują ze sobą, przyjrzyjmy się przykładowi na poniższym diagramie. Monitorowany kontener przechowuje dokumenty i używa jako klucza partycji "miasto". Zobaczymy, że wartości klucza partycji są dystrybuowane w zakresach zawierających elementy. Istnieją dwa wystąpienia hosta, a procesor kanału informacyjnego zmiany przypisuje różne zakresy wartości klucza partycji do każdego wystąpienia, aby zmaksymalizować rozkład obliczeń. Każdy zakres jest odczytywany równolegle, a jego postęp jest obsługiwany niezależnie od innych zakresów w kontenerze dzierżawy.
 
-![Zmienianie przykładu procesora danych](./media/change-feed-processor/changefeedprocessor.png)
+![Przykładowy procesor źródła zmian](./media/change-feed-processor/changefeedprocessor.png)
 
-## <a name="implementing-the-change-feed-processor"></a>Implementowanie procesora pliku danych zmian
+## <a name="implementing-the-change-feed-processor"></a>Implementacja procesora źródła zmian
 
-Punktem wejścia jest zawsze monitorowany kontener `Container` z `GetChangeFeedProcessorBuilder`wywoływanego wystąpienia:
+Punkt wejścia jest zawsze monitorowanym kontenerem z `Container` wystąpienia wywoływanego: `GetChangeFeedProcessorBuilder`
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
-Gdzie pierwszy parametr jest odrębną nazwą, która opisuje cel tego procesora, a druga nazwa jest implementacją delegata, która będzie obsługiwać zmiany. 
+Gdzie pierwszy parametr jest odrębną nazwą opisującą cel tego procesora, a druga nazwa jest implementacją delegata, która będzie obsługiwać zmiany. 
 
-Przykładem delegata jest:
+Przykładem delegata będzie:
 
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-Na koniec można zdefiniować nazwę `WithInstanceName` dla tego wystąpienia procesora z `WithLeaseContainer`i który jest kontenerem do utrzymania stanu dzierżawy z .
+Na koniec zdefiniujesz nazwę tego wystąpienia procesora z `WithInstanceName` i który jest kontenerem do obsługi stanu dzierżawy. `WithLeaseContainer`
 
-Wywołanie `Build` da Ci wystąpienie procesora, `StartAsync`które można rozpocząć od wywołania .
+Wywołanie `Build` spowoduje udostępnienie wystąpienia procesora, które można uruchomić, wywołując `StartAsync`metodę.
 
 ## <a name="processing-life-cycle"></a>Cykl życia przetwarzania
 
-Normalny cykl życia wystąpienia hosta jest:
+Normalny cykl życia wystąpienia hosta to:
 
-1. Przeczytaj kanał zmian.
-1. Jeśli nie ma żadnych zmian, uśpij przez wstępnie zdefiniowaną `WithPollInterval` ilość czasu (można dostosowywać za pomocą w Konstruktorze) i przejdź do #1.
-1. Jeśli są zmiany, wyślij je do **pełnomocnika**.
-1. Po pomyślnym zakończeniu przetwarzania **zmian**przez pełnomocnika zaktualizuj magazyn dzierżawy o ostatni przetworzony punkt w czasie i przejdź do #1.
+1. Przeczytaj Źródło zmian.
+1. `WithPollInterval` W przypadku braku zmian w stanie uśpienia przez wstępnie zdefiniowany czas (dostosowywalny w programie w ramach konstruktora) i przejdź do #1.
+1. Jeśli istnieją zmiany, wyślij je do **delegata**.
+1. Po **pomyślnym**zakończeniu przetwarzania zmian przez delegata należy zaktualizować magazyn dzierżawy o ostatni przetworzony punkt w czasie i przejść do #1.
 
 ## <a name="error-handling"></a>Obsługa błędów
 
-Procesor pliku danych zmian jest odporny na błędy kodu użytkownika. Oznacza to, że jeśli implementacja delegata ma nieobsługiwany wyjątek (krok #4), przetwarzanie wątku, że określona partia zmian zostanie zatrzymana i zostanie utworzony nowy wątek. Nowy wątek sprawdzi, który był ostatni punkt w czasie magazynu dzierżawy ma dla tego zakresu wartości klucza partycji i uruchom ponownie stamtąd, skutecznie wysyłając tę samą partię zmian do delegata. To zachowanie będzie kontynuowane, dopóki delegat nie przetwarza zmian poprawnie i jest to powód, dla którego procesor pliku danych zmian ma gwarancję "co najmniej raz", ponieważ jeśli błądzami kodu delegata, ponowi próbę tej partii.
+Procesor kanału informacyjnego zmiany jest odporny na błędy kodu użytkownika. Oznacza to, że jeśli w implementacji delegata występuje nieobsłużony wyjątek (krok #4), przetwarzanie wątku, w którym określona partia zmian zostanie zatrzymane i zostanie utworzony nowy wątek. Nowy wątek sprawdzi, który był ostatnim punktem w czasie, gdy magazyn dzierżawy ma dla tego zakresu wartości kluczy partycji, a następnie ponownie uruchomi się z tego powodu, wysyłając tę samą partię zmian do delegata. Takie zachowanie będzie kontynuowane do momentu poprawnego przetworzenia przez delegata zmian i jest to powód, dla którego procesor źródła zmian ma gwarancję "co najmniej raz", ponieważ w przypadku zgłaszania kodu delegata zostanie ponowiona ta partia.
 
 ## <a name="dynamic-scaling"></a>Dynamiczne skalowanie
 
-Jak wspomniano podczas wprowadzenia, procesor pliku danych zmian może automatycznie dystrybuować obliczenia między wieloma wystąpieniami. Można wdrożyć wiele wystąpień aplikacji przy użyciu procesora pliku danych zmian i skorzystać z niego, tylko kluczowe wymagania to:
+Jak wspomniano w trakcie wprowadzania, procesor kanału informacyjnego zmiany może automatycznie dystrybuować obliczenia w wielu wystąpieniach. Można wdrożyć wiele wystąpień aplikacji przy użyciu procesora źródła zmian i korzystać z niego, ale jedynymi wymaganiami są:
 
-1. Wszystkie wystąpienia powinny mieć taką samą konfigurację kontenera dzierżawy.
+1. Wszystkie wystąpienia powinny mieć tę samą konfigurację kontenera dzierżawy.
 1. Wszystkie wystąpienia powinny mieć taką samą nazwę przepływu pracy.
-1. Każde wystąpienie musi mieć inną`WithInstanceName`nazwę wystąpienia ( ).
+1. Każde wystąpienie musi mieć inną nazwę wystąpienia (`WithInstanceName`).
 
-Jeśli te trzy warunki mają zastosowanie, procesor pliku danych zmiany, przy użyciu algorytmu równej dystrybucji, rozprowadza wszystkie dzierżawy w kontenerze dzierżawy we wszystkich uruchomionych wystąpieniach i zrówna się z obliczeniami. Jedna dzierżawa może być własnością tylko jednego wystąpienia w danym czasie, więc maksymalna liczba wystąpień jest równa liczbie dzierżaw.
+Jeśli te trzy warunki mają zastosowanie, procesor kanału informacyjnego zmiany będzie używać algorytmu dystrybucji równej, dystrybuuje wszystkie dzierżawy w kontenerze dzierżawy do wszystkich uruchomionych wystąpień i obliczeń zrównoleglanie. Jedna dzierżawa może należeć tylko do jednego wystąpienia w danym momencie, więc Maksymalna liczba wystąpień jest równa liczbie dzierżaw.
 
-Liczba wystąpień może rosnąć i zmniejszać się, a procesor pliku danych zmian będzie dynamicznie dostosowywać obciążenie przez odpowiednie redystrybucja.
+Liczba wystąpień może się zwiększać i zmniejszać, a procesor kanału informacyjnego zmiany dynamicznie dostosowuje obciążenie przez ponowną dystrybucję.
 
-Ponadto procesor źródła danych zmian może dynamicznie dostosowywać się do skalowania kontenerów ze względu na zwiększenie przepustowości lub magazynu. Gdy kontener rośnie, procesor pliku danych zmian w sposób przejrzysty obsługuje te scenariusze, dynamicznie zwiększając dzierżawy i rozprowadzając nowe dzierżawy między istniejącymi wystąpieniami.
+Ponadto procesor kanału informacyjnego zmiany można dynamicznie dopasować do skalowania kontenerów z powodu wzrostu przepływności lub magazynu. Gdy rozmiar kontenera zostanie powiększony, procesor kanału informacyjnego zmian w sposób niewidoczny dla użytkownika przechwytuje te scenariusze poprzez dynamiczne zwiększanie dzierżaw i dystrybucję nowych dzierżaw między istniejącymi wystąpieniami.
 
-## <a name="change-feed-and-provisioned-throughput"></a>Zmienianie źródła danych i aprowizowana przepływność
+## <a name="change-feed-and-provisioned-throughput"></a>Kanał informacyjny zmian i przepływność aprowizacji
 
-Opłaty są naliczane za używane procesory RU, ponieważ przenoszenie danych do i z kontenerów usługi Cosmos zawsze zużywa procesory RU. Opłaty są naliczane za opłaty za użycie przez kontener dzierżawy.
+Opłata jest naliczana za zużyte jednostek ru, ponieważ przenoszenie danych do i z kontenerów Cosmos zawsze zużywa jednostek ru. Opłata jest naliczana za jednostek ru zużyty przez kontener dzierżawy.
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
-* [Przykłady użycia w usłudze GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
-* [Dodatkowe przykłady w usłudze GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
+* [Zestaw SDK Azure Cosmos DB](sql-api-sdk-dotnet.md)
+* [Przykłady użycia w witrynie GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
+* [Dodatkowe przykłady w witrynie GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz możesz dowiedzieć się więcej o procesorze pliku danych zmian w następujących artykułach:
+Teraz można dowiedzieć się więcej o procesorze źródła zmian w następujących artykułach:
 
-* [Omówienie kanału informacyjnego zmian](change-feed.md)
-* [Jak przeprowadzić migrację z biblioteki procesora kanału informacyjnego zmian](how-to-migrate-from-change-feed-library.md)
+* [Przegląd źródła zmian](change-feed.md)
+* [Jak przeprowadzić migrację z biblioteki procesora źródła zmian](how-to-migrate-from-change-feed-library.md)
 * [Korzystanie z estymatora zestawienia zmian](how-to-use-change-feed-estimator.md)
 * [Czas rozpoczęcia procesora zestawienia zmian](how-to-configure-change-feed-start-time.md)

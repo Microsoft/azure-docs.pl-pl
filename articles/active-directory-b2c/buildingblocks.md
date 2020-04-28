@@ -1,7 +1,7 @@
 ---
 title: BuildingBlocks
 titleSuffix: Azure AD B2C
-description: Określ element BuildingBlocks zasad niestandardowych w usłudze Azure Active Directory B2C.
+description: Określ element BuildingBlocks zasad niestandardowych w Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,17 +12,17 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cf9c333af48e1c148dcd20ccf5ce91b284bd728b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78189875"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**BuildingBlocks** Element jest dodawany wewnątrz [TrustFrameworkPolicy](trustframeworkpolicy.md) element.
+Element **BuildingBlocks** jest dodawany wewnątrz elementu [TrustFrameworkPolicy](trustframeworkpolicy.md) .
 
 ```XML
 <TrustFrameworkPolicy
@@ -59,23 +59,23 @@ ms.locfileid: "78189875"
  </BuildingBlocks>
 ```
 
-**BuildingBlocks** Element zawiera następujące elementy, które muszą być określone w zdefiniowanej kolejności:
+Element **BuildingBlocks** zawiera następujące elementy, które muszą być określone w określonej kolejności:
 
-- [ClaimsSchema](claimsschema.md) — definiuje typy oświadczeń, do których można się odwoływać jako część zasad. Schemat oświadczeń jest miejscem, w którym deklarujesz typy oświadczeń. Typ oświadczenia jest podobny do zmiennej w wielu językach programowych. Typ oświadczenia służy do zbierania danych od użytkownika aplikacji, otrzymywania oświadczeń od dostawców tożsamości społecznościowych, wysyłania i odbierania danych z niestandardowego interfejsu API REST lub przechowywania dowolnych danych wewnętrznych używanych przez zasady niestandardowe.
+- [ClaimsSchema](claimsschema.md) — definiuje typy roszczeń, do których można odwoływać się w ramach zasad. Schemat oświadczeń jest miejscem, w którym deklarujesz typy oświadczeń. Typ zgłoszenia jest podobny do zmiennej w wielu językach programistycznych. Typ oświadczenia służy do zbierania danych od użytkownika aplikacji, otrzymywania oświadczeń od dostawców tożsamości społecznościowych, wysyłania i odbierania danych z niestandardowego interfejsu API REST lub przechowywania wszelkich danych wewnętrznych używanych przez zasady niestandardowe.
 
-- [Predykates i PredicateValidationsInput](predicates.md) — umożliwia przeprowadzenie procesu sprawdzania poprawności, aby upewnić się, że tylko poprawnie utworzone dane są wprowadzane do oświadczenia.
+- [Predykaty i PredicateValidationsInput](predicates.md) — umożliwiają wykonanie procesu walidacji w celu zapewnienia, że tylko prawidłowo uformowane dane są wprowadzane do żądania.
 
-- [ClaimsTransformations](claimstransformations.md) — zawiera listę przekształceń oświadczeń, które mogą być używane w zasadach.  Transformacja oświadczeń konwertuje jedno oświadczenie na inne. W transformacji oświadczeń można określić metodę przekształcania, taką jak:
-  - Zmiana przypadku oświadczenia ciągu na określony. Na przykład zmiana ciągu z małych na wielkie litery.
-  - Porównanie dwóch roszczeń i zwrócenie roszczenia z prawdą wskazującą, że oświadczenia są zgodne, w przeciwnym razie fałszywe.
-  - Tworzenie oświadczenia ciągu z podanego parametru w zasadach.
+- [ClaimsTransformations](claimstransformations.md) — zawiera listę transformacji oświadczeń, które mogą być używane w zasadach.  Transformacja oświadczeń konwertuje jedno oświadczenie na inne. W transformacji oświadczeń należy określić metodę transformacji, taką jak:
+  - Zmiana wielkości liter w ramach żądania ciągu na określony. Na przykład zmiana ciągu z małych liter na wielkie litery.
+  - Porównanie dwóch oświadczeń i zwrócenie oświadczenia z wartością prawda wskazującą, że oświadczenia są zgodne, w przeciwnym razie false.
+  - Tworzenie żądania ciągu z podanego parametru w zasadach.
   - Tworzenie losowego ciągu przy użyciu generatora liczb losowych.
-  - Formatowanie oświadczenia zgodnie z podanym ciągiem formatu. Ta transformacja używa `String.Format` metody C#.
+  - Formatowanie roszczeń zgodnie z podanym ciągiem formatu. Ta transformacja używa metody języka `String.Format` C#.
 
-- InputValidation — ten element umożliwia wykonywanie agregacji logicznych, które są podobne do *i* *lub*.
+- InputValidation — ten element umożliwia wykonywanie agregacji logicznych, które są podobne do *i* i *lub*.
 
-- [ContentDefinitions](contentdefinitions.md) — zawiera adresy URL dla szablonów HTML5 do użycia w podróży użytkownika. W zasadach niestandardowych definicja zawartości definiuje identyfikator URI strony HTML5, który jest używany dla określonego kroku w podróży użytkownika. Na przykład strony logowania lub rejestracji, resetowania hasła lub strony błędów. Wygląd i działanie można zmodyfikować, zastępując loaduri dla pliku HTML5. Możesz też tworzyć nowe definicje zawartości zgodnie z potrzebami. Ten element może zawierać zlokalizowane odwołanie zasobów przy użyciu identyfikatora lokalizacji.
+- [ContentDefinitions](contentdefinitions.md) — zawiera adresy URL dla szablonów HTML5 do użycia w podróży użytkownika. W przypadku zasad niestandardowych definicja zawartości definiuje identyfikator URI strony HTML5, który jest używany przez określony krok w podróży użytkownika. Na przykład strony logowania lub rejestracji, resetowania haseł lub błędów. Możesz zmodyfikować wygląd i działanie, zastępując LoadUri pliku HTML5. Można też tworzyć nowe definicje zawartości zgodnie z potrzebami. Ten element może zawierać zlokalizowane odwołanie do zasobów przy użyciu identyfikatora lokalizacji.
 
-- [Lokalizacja](localization.md) — umożliwia obsługę wielu języków. Obsługa lokalizacji w zasadach umożliwia skonfigurowanie listy obsługiwanych języków w zasadach i wybranie języka domyślnego. Obsługiwane są również ciągi i kolekcje specyficzne dla języka.
+- [Lokalizacja](localization.md) — umożliwia obsługę wielu języków. Obsługa lokalizacji w ramach zasad umożliwia skonfigurowanie listy obsługiwanych języków w zasadach i wybranie języka domyślnego. Obsługiwane są również ciągi i kolekcje charakterystyczne dla języka.
 
-- [DisplayControls](display-controls.md) — definiuje formanty, które mają być wyświetlane na stronie. Formanty wyświetlania mają specjalną funkcjonalność i współdziałają z profilami technicznymi sprawdzania poprawności zaplecza. Kontrolki wyświetlania są obecnie w **wersji zapoznawczej**.
+- [DisplayControls](display-controls.md) — definiuje kontrolki, które mają być wyświetlane na stronie. Kontrolki wyświetlania mają specjalne funkcje i współdziałają z profilami technicznymi weryfikacji zaplecza. Kontrolki wyświetlania są obecnie dostępne w **wersji zapoznawczej**.

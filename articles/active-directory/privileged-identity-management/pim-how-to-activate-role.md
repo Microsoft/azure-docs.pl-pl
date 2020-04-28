@@ -1,6 +1,6 @@
 ---
-title: Aktywowanie ról usługi Azure AD w usłudze PIM — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Dowiedz się, jak aktywować role usługi Azure AD w usłudze Azure AD Privileged Identity Management (PIM).
+title: Aktywuj moje role usługi Azure AD w programie PIM-Azure Active Directory | Microsoft Docs
+description: Dowiedz się, jak aktywować role usługi Azure AD w Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,239 +15,239 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f95a1a08189668e5b6f88941069566b00a73bce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77499192"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Aktywowanie ról usługi Azure AD w usłudze PIM
 
-Zarządzanie tożsamościami uprzywilejowanymi usługi Azure Directory (Azure AD) upraszcza sposób zarządzania przez przedsiębiorstwa uprzywilejowanym dostępem do zasobów w usłudze Azure AD i innych usługach online firmy Microsoft, takich jak Office 365 lub Microsoft Intune.  
+Usługa Azure Active Directory (Azure AD) Privileged Identity Management (PIM) upraszcza zarządzanie dostępem uprzywilejowanym do zasobów w usłudze Azure AD oraz innych Usługi online, takich jak Office 365 czy Microsoft Intune.  
 
-Jeśli masz prawo do roli administracyjnej, oznacza to, że można aktywować tę rolę, gdy trzeba wykonać akcje uprzywilejowane. Jeśli na przykład od czasu do czasu zarządzasz funkcjami usługi Office 365, administratorzy ról uprzywilejowanych w organizacji mogą nie uczynić Cię stałym administratorem globalnym, ponieważ ta rola ma wpływ również na inne usługi. Zamiast tego sprawiają, że kwalifikujesz się do ról usługi Azure AD, takich jak Administrator usługi Exchange Online. Możesz poprosić o aktywowanie tej roli, gdy potrzebujesz jej uprawnień, a następnie będziesz mieć kontrolę administratora przez określony okres czasu.
+Jeśli masz uprawnienia do roli administracyjnej, oznacza to, że można aktywować tę rolę, gdy konieczne jest wykonanie uprzywilejowanych akcji. Na przykład w przypadku okresowego zarządzania funkcjami pakietu Office 365 Administratorzy ról uprzywilejowanych w organizacji mogą nie nakonywać stałego administratora globalnego, ponieważ rola ta ma wpływ na inne usługi. Zamiast tego uprawniają do skorzystania z ról usługi Azure AD, takich jak administrator usługi Exchange Online. Możesz zażądać aktywowania tej roli, gdy będzie potrzebne jej uprawnienia, a następnie będziesz mieć kontrolę administratora dla wstępnie wyznaczonych okresów.
 
-Ten artykuł jest przeznaczony dla administratorów, którzy muszą aktywować swoją rolę usługi Azure AD w zarządzania tożsamościami uprzywilejowanymi.
+Ten artykuł jest przeznaczony dla administratorów, którzy muszą aktywować swoją rolę usługi Azure AD w Privileged Identity Management.
 
-## <a name="determine-your-version-of-pim"></a>Określanie wersji programu PIM
+## <a name="determine-your-version-of-pim"></a>Określanie używanej wersji programu PIM
 
-Począwszy od listopada 2019 r. część ról usługi Azure AD usługi Zarządzanie tożsamościami uprzywilejowanymi jest aktualizowana do nowej wersji, która odpowiada środowiskom ról zasobów platformy Azure. Spowoduje to utworzenie dodatkowych funkcji, a także [zmiany w istniejącym interfejsie API](azure-ad-roles-features.md#api-changes). Gdy nowa wersja jest wdrażana, które procedury, które należy wykonać w tym artykule, zależą od wersji zarządzania tożsamościami uprzywilejowanymi, które obecnie masz. Wykonaj kroki opisane w tej sekcji, aby ustalić, którą wersję zarządzania tożsamościami uprzywilejowanymi masz. Po poznaniu wersji zarządzania tożsamościami uprzywilejowanymi można wybrać procedury w tym artykule, które są zgodne z tą wersją.
+Od listopada 2019 część Privileged Identity Management ról usługi Azure AD jest aktualizowana do nowej wersji, która jest zgodna z środowiskami dla ról zasobów platformy Azure. Spowoduje to utworzenie dodatkowych funkcji, a także [zmian w istniejącym interfejsie API](azure-ad-roles-features.md#api-changes). Gdy nowa wersja jest wdrażana, procedury, które należy wykonać w tym artykule, zależą od aktualnie posiadanej wersji Privileged Identity Management. Wykonaj kroki opisane w tej sekcji, aby określić, która wersja Privileged Identity Management masz. Po uzyskaniu informacji o wersji Privileged Identity Management możesz wybrać procedury w tym artykule, które pasują do tej wersji.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com/) za pomocą roli [administratora ról uprzywilejowanych.](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
-1. Otwórz **zarządzanie tożsamościami uprzywilejowanymi usługą Azure AD**. Jeśli u góry strony przeglądu masz baner, postępuj zgodnie z instrukcjami na karcie **Nowa wersja** tego artykułu. W przeciwnym razie postępuj zgodnie z instrukcjami na karcie **Poprzednia wersja.**
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu roli [administrator ról uprzywilejowanych](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Otwórz **Azure AD Privileged Identity Management**. Jeśli masz baner w górnej części strony przegląd, postępuj zgodnie z instrukcjami wyświetlanymi na karcie **Nowa wersja** tego artykułu. W przeciwnym razie postępuj zgodnie z instrukcjami podanymi w **poprzedniej wersji** karty.
 
     [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 # <a name="new-version"></a>[Nowa wersja](#tab/new)
 
-## <a name="activate-a-role"></a>Aktywowanie roli
+## <a name="activate-a-role"></a>Aktywuj rolę
 
-Jeśli musisz przyjąć rolę usługi Azure AD, możesz zażądać aktywacji przy użyciu opcji nawigacji **Moje role** w zarządzania tożsamościami uprzywilejowanymi.
+Jeśli musisz założyć rolę usługi Azure AD, możesz zażądać aktywacji przy użyciu opcji nawigacji **Moje role** w Privileged Identity Management.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. Otwórz **zarządzanie tożsamościami uprzywilejowanymi usługą Azure AD**. Aby uzyskać informacje dotyczące dodawania kafelka zarządzania tożsamościami uprzywilejowanymi do pulpitu nawigacyjnego, zobacz [Rozpoczynanie korzystania z zarządzania tożsamościami uprzywilejowanymi](pim-getting-started.md).
+1. Otwórz **Azure AD Privileged Identity Management**. Aby uzyskać informacje na temat dodawania kafelka Privileged Identity Management do pulpitu nawigacyjnego, zobacz [Rozpoczynanie korzystania z Privileged Identity Management](pim-getting-started.md).
 
-1. Wybierz **pozycję Moje role**, a następnie wybierz pozycję Role usługi Azure **AD,** aby wyświetlić listę kwalifikujących się ról usługi Azure AD.
+1. Wybierz pozycję **Moje role**, a następnie wybierz pozycję **role usługi Azure AD** , aby wyświetlić listę uprawnionych ról usługi Azure AD.
 
-    ![Strona Moje role z rolami, które możesz aktywować](./media/pim-how-to-activate-role/my-roles.png)
+    ![Strona Moje role pokazujące role, które można uaktywnić](./media/pim-how-to-activate-role/my-roles.png)
 
-1. Na liście **role usługi Azure AD** znajdź rolę, którą chcesz aktywować.
+1. Na liście **role usługi Azure AD** Znajdź rolę, którą chcesz aktywować.
 
-    ![Role usługi Azure AD — lista kwalifikujących się ról](./media/pim-how-to-activate-role/activate-link.png)
+    ![Role usługi Azure AD — lista wszystkich uprawnionych ról](./media/pim-how-to-activate-role/activate-link.png)
 
-1. Wybierz **pozycję Aktywuj,** aby otworzyć okienko Aktywuj.
+1. Wybierz pozycję **Aktywuj** , aby otworzyć okienko Aktywuj.
 
-    ![Role usługi Azure AD — strona aktywacji zawiera czas trwania i zakres](./media/pim-how-to-activate-role/activate-page.png)
+    ![Strona aktywacji ról usługi Azure AD zawiera czas trwania i zakres](./media/pim-how-to-activate-role/activate-page.png)
 
-1. Jeśli twoja rola wymaga uwierzytelniania wieloskładnikowego, wybierz pozycję **Zweryfikuj swoją tożsamość przed kontynuowaniem**. Wystarczy uwierzytelnić tylko raz na sesję.
+1. Jeśli Twoja rola wymaga uwierzytelniania wieloskładnikowego, wybierz opcję **Weryfikuj swoją tożsamość przed kontynuowaniem**. Musisz tylko raz uwierzytelnić się na sesję.
 
-    ![Weryfikowanie mojej tożsamości za pomocą usługi MFA przed aktywacją roli](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
+    ![Weryfikuj moją tożsamość z użyciem usługi MFA przed aktywacją roli](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
 
-1. Wybierz **pozycję Zweryfikuj moją tożsamość** i postępuj zgodnie z instrukcjami, aby zapewnić dodatkową weryfikację zabezpieczeń.
+1. Wybierz pozycję **Weryfikuj moją tożsamość** i postępuj zgodnie z instrukcjami, aby zapewnić dodatkową weryfikację zabezpieczeń.
 
-    ![Ekran, aby zapewnić weryfikację zabezpieczeń, taką jak kod PIN](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
+    ![Ekran zapewniający weryfikację zabezpieczeń, np. kod PIN](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
-1. Jeśli chcesz określić ograniczony zakres, wybierz **zakres,** aby otworzyć okienko filtru. W okienku filtru można określić zasoby usługi Azure AD, do których masz dostęp. Najlepszym rozwiązaniem jest żądanie dostępu tylko do zasobów, których potrzebujesz.
+1. Jeśli chcesz określić ograniczony zakres, wybierz pozycję **zakres** , aby otworzyć okienko filtru. W okienku Filtr można określić zasoby usługi Azure AD, do których chcesz uzyskać dostęp. Najlepszym rozwiązaniem jest zażądanie dostępu tylko do zasobów, które są potrzebne.
 
-1. W razie potrzeby określ niestandardową godzinę rozpoczęcia aktywacji. Rola usługi Azure AD zostanie aktywowana po wybranym czasie.
+1. W razie potrzeby określ czas rozpoczęcia aktywacji niestandardowej. Rola usługi Azure AD zostanie aktywowana po wybranej godzinie.
 
 1. W polu **Przyczyna** wprowadź przyczynę żądania aktywacji.
 
-1. Wybierz **pozycję Aktywuj**.
+1. Wybierz pozycję **Aktywuj**.
 
-    Jeśli rola nie wymaga zatwierdzenia, jest aktywowana i dodawana do listy aktywnych ról. Jeśli chcesz użyć tej roli, wykonaj kroki opisane w następnej sekcji.
+    Jeśli rola nie wymaga zatwierdzenia, zostanie aktywowana i dodana do listy aktywnych ról. Jeśli chcesz użyć roli, postępuj zgodnie z instrukcjami w następnej sekcji.
 
-    ![Ukończono okienko Aktywacja z zakresem, czasem rozpoczęcia, czasem trwania i powodem](./media/pim-how-to-activate-role/azure-ad-activation-status.png)
+    ![Okienko ukończono aktywację z zakresem, czasem rozpoczęcia, czasem trwania i przyczynie](./media/pim-how-to-activate-role/azure-ad-activation-status.png)
 
-    Jeśli [rola wymaga zatwierdzenia,](pim-resource-roles-approval-workflow.md) aby aktywować, w prawym górnym rogu przeglądarki pojawi się powiadomienie informujące o oczekiwanym na zatwierdzenie żądania.
+    Jeśli [rola wymaga zatwierdzenia](pim-resource-roles-approval-workflow.md) do aktywacji, w prawym górnym rogu przeglądarki zostanie wyświetlone powiadomienie z informacją, że żądanie oczekuje na zatwierdzenie.
 
     ![Żądanie aktywacji oczekuje na powiadomienie o zatwierdzeniu](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## <a name="use-a-role-immediately-after-activation"></a>Używanie roli natychmiast po aktywacji
+## <a name="use-a-role-immediately-after-activation"></a>Korzystanie z roli natychmiast po aktywacji
 
-W przypadku opóźnienia po aktywacji wykonaj następujące kroki po aktywowaniu, aby natychmiast użyć ról usługi Azure AD.
+W przypadku wszelkich opóźnień po aktywacji wykonaj następujące czynności po aktywowaniu programu, aby natychmiast korzystać z ról usługi Azure AD.
 
-1. Otwórz zarządzanie tożsamościami uprzywilejowanymi usługą Azure AD.
+1. Otwórz Azure AD Privileged Identity Management.
 
-1. Wybierz **pozycję Moje role,** aby wyświetlić listę kwalifikujących się ról usługi Azure AD i ról zasobów platformy Azure.
+1. Wybierz pozycję **Moje role** , aby wyświetlić listę uprawnionych ról usługi Azure AD i ról zasobów platformy Azure.
 
-1. Wybierz **role usługi Azure AD**.
+1. Wybierz pozycję **role usługi Azure AD**.
 
-1. Wybierz kartę **Aktywne role.**
+1. Wybierz kartę **aktywne role** .
 
-1. Gdy rola jest aktywna, wyloguj się z portalu i zaloguj się ponownie.
+1. Po uaktywnieniu roli Wyloguj się z portalu i zaloguj się ponownie.
 
     Rola powinna być teraz dostępna do użycia.
 
-## <a name="view-the-status-of-your-requests"></a>Wyświetlanie stanu swoich żądań
+## <a name="view-the-status-of-your-requests"></a>Wyświetlanie stanu żądań
 
-Możesz wyświetlić stan oczekujących żądań do aktywacji.
+Można wyświetlić stan oczekujących żądań, które należy aktywować.
 
-1. Otwórz zarządzanie tożsamościami uprzywilejowanymi usługą Azure AD.
+1. Otwórz Azure AD Privileged Identity Management.
 
-1. Wybierz **pozycję Moje żądania,** aby wyświetlić listę żądań roli usługi Azure AD i roli zasobów platformy Azure.
+1. Wybierz pozycję **Moje żądania** , aby wyświetlić listę ról usługi Azure AD i żądań ról zasobów platformy Azure.
 
-    ![Moje żądania — strona usługi Azure AD przedstawiająca oczekujące żądania](./media/pim-how-to-activate-role/my-requests-page.png)
+    ![Moje żądania — Strona usługi Azure AD przedstawiająca oczekujące żądania](./media/pim-how-to-activate-role/my-requests-page.png)
 
-1. Przewiń w prawo, aby wyświetlić kolumnę **Stan żądania.**
+1. Przewiń w prawo, aby wyświetlić kolumnę **stan żądania** .
 
 ## <a name="cancel-a-pending-request"></a>Anulowanie oczekującego żądania
 
-Jeśli nie wymagasz aktywacji roli, która wymaga zatwierdzenia, możesz anulować oczekujące żądanie w dowolnym momencie.
+Jeśli nie wymagasz aktywacji roli wymagającej zatwierdzenia, możesz w dowolnym momencie anulować oczekujące żądanie.
 
-1. Otwórz zarządzanie tożsamościami uprzywilejowanymi usługą Azure AD.
+1. Otwórz Azure AD Privileged Identity Management.
 
-1. Wybierz **pozycję Moje prośby**.
+1. Wybierz pozycję **Moje żądania**.
 
-1. Dla roli, którą chcesz anulować, wybierz łącze **Anuluj.**
+1. Dla roli, którą chcesz anulować, wybierz łącze **Anuluj** .
 
-    Po wybraniu opcji Anuluj żądanie zostanie anulowane. Aby ponownie aktywować rolę, musisz przesłać nowe żądanie aktywacji.
+    Po wybraniu przycisku Anuluj żądanie zostanie anulowane. Aby ponownie aktywować rolę, trzeba będzie przesłać nowe żądanie aktywacji.
 
-   ![Moja lista żądań z wyróżnioną akcją Anuluj](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+   ![Lista moje żądania z wyróżnioną akcją anulowania](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Nie udzielono uprawnień po aktywowaniu roli
 
-Po uaktywnieniu roli w zarządzanie tożsamością uprzywilejowaną aktywacja może nie natychmiast propagować do wszystkich portali, które wymagają roli uprzywilejowanej. Czasami nawet po rozpropagowaniu zmiany buforowanie internetowe w portalu może spowodować, że zmiany nie zostaną natychmiast uwzględnione. Jeśli aktywacja jest opóźniona, oto, co należy zrobić.
+Po aktywowaniu roli w Privileged Identity Management aktywacja może nie być natychmiast propagowana do wszystkich portali, które wymagają roli uprzywilejowanej. Czasami nawet po rozpropagowaniu zmiany buforowanie internetowe w portalu może spowodować, że zmiany nie zostaną natychmiast uwzględnione. Jeśli aktywacja jest opóźniona, Oto co należy zrobić.
 
 1. Wyloguj się z witryny Azure Portal, a następnie zaloguj się ponownie.
 
-    Po aktywowaniu roli usługi Azure AD zostaną wyświetlenia etapów aktywacji. Po zakończeniu wszystkich etapów zobaczysz link **Wyloguj**. Możesz użyć tego linku, aby się wylogować. Rozwiąże to większość przypadków opóźnienia aktywacji.
+    Po aktywowaniu roli usługi Azure AD zobaczysz etapy aktywacji. Po zakończeniu wszystkich etapów zobaczysz link **Wyloguj**. Możesz użyć tego linku, aby się wylogować. Spowoduje to rozproszenie większości przypadków opóźnienia aktywacji.
 
-1. W zarządzania tożsamościami uprzywilejowanymi sprawdź, czy jesteś wymieniony jako członek roli.
+1. W Privileged Identity Management Sprawdź, czy jesteś członkiem roli.
 
 # <a name="previous-version"></a>[Poprzednia wersja](#tab/previous)
 
-## <a name="activate-a-role"></a>Aktywowanie roli
+## <a name="activate-a-role"></a>Aktywuj rolę
 
-Jeśli musisz przejąć rolę usługi Azure AD, możesz zażądać aktywacji przy użyciu opcji nawigacji **Moje role** w zarządzania tożsamościami uprzywilejowanymi.
+Gdy musisz wykonać tę rolę usługi Azure AD, możesz zażądać aktywacji przy użyciu opcji nawigacji **My role** w Privileged Identity Management.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. Otwórz **zarządzanie tożsamościami uprzywilejowanymi usługą Azure AD**. Aby uzyskać informacje dotyczące dodawania kafelka zarządzania tożsamościami uprzywilejowanymi do pulpitu nawigacyjnego, zobacz [Rozpoczynanie korzystania z zarządzania tożsamościami uprzywilejowanymi](pim-getting-started.md).
+1. Otwórz **Azure AD Privileged Identity Management**. Aby uzyskać informacje na temat dodawania kafelka Privileged Identity Management do pulpitu nawigacyjnego, zobacz [Rozpoczynanie korzystania z Privileged Identity Management](pim-getting-started.md).
 
-1. Kliknij pozycję **Role usługi Azure AD**.
+1. Kliknij pozycję **role usługi Azure AD**.
 
-1. Kliknij **pozycję Moje role,** aby wyświetlić listę kwalifikujących się ról usługi Azure AD.
+1. Kliknij pozycję **Moje role** , aby wyświetlić listę uprawnionych ról usługi Azure AD.
 
-    ![Role usługi Azure AD — moje role z listą kwalifikujących się lub aktywnych ról](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Role usługi Azure AD — moje role pokazujące listę ról kwalifikujących się lub aktywnych](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. Znajdź rolę, którą chcesz aktywować.
 
-    ![Role usługi Azure AD — lista kwalifikujących się ról z łączem Aktywuj](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Role usługi Azure AD — Lista moich uprawnionych ról pokazująca link aktywowania](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
-1. Kliknij **przycisk Aktywuj,** aby otworzyć okienko szczegółów aktywacji roli.
+1. Kliknij przycisk **Aktywuj** , aby otworzyć okienko Szczegóły aktywacji roli.
 
-1. Jeśli twoja rola wymaga uwierzytelniania wieloskładnikowego (MFA), kliknij **zweryfikuj swoją tożsamość przed kontynuowaniem**. Wystarczy uwierzytelnić tylko raz na sesję.
+1. Jeśli Twoja rola wymaga uwierzytelniania wieloskładnikowego (MFA), kliknij przycisk **Weryfikuj swoją tożsamość przed kontynuowaniem**. Musisz tylko raz uwierzytelnić się na sesję.
 
-    ![Weryfikowanie okienka tożsamości za pomocą usługi MFA przed aktywacją roli](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
+    ![Weryfikowanie okienka moje tożsamości za pomocą usługi MFA przed aktywacją roli](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
 
-1. Kliknij **zweryfikuj moją tożsamość** i postępuj zgodnie z instrukcjami, aby zapewnić dodatkową weryfikację zabezpieczeń.
+1. Kliknij pozycję **Weryfikuj moją tożsamość** i postępuj zgodnie z instrukcjami, aby zapewnić dodatkową weryfikację zabezpieczeń.
 
-    ![Dodatkowa strona weryfikacji zabezpieczeń z pytaniem, jak się z Tobą skontaktować](./media/pim-how-to-activate-role/additional-security-verification.png)
+    ![Dodatkowa strona weryfikacji zabezpieczeń z prośbą o kontakt z Tobą](./media/pim-how-to-activate-role/additional-security-verification.png)
 
-1. Kliknij **przycisk Aktywuj,** aby otworzyć okienko aktywacji.
+1. Kliknij przycisk **Aktywuj** , aby otworzyć okienko aktywacja.
 
-    ![Okienko aktywacji określające czas rozpoczęcia, czas trwania, bilet i przyczynę](./media/pim-how-to-activate-role/directory-roles-activate.png)
+    ![Okienko aktywacji, aby określić czas rozpoczęcia, czas trwania, bilet i powód](./media/pim-how-to-activate-role/directory-roles-activate.png)
 
-1. W razie potrzeby określ niestandardową godzinę rozpoczęcia aktywacji.
+1. W razie potrzeby określ czas rozpoczęcia aktywacji niestandardowej.
 
 1. Określ czas trwania aktywacji.
 
-1. W polu **Przyczyna aktywacji** wprowadź przyczynę żądania aktywacji. Niektóre role wymagają podania numeru biletu problemowego.
+1. W polu **Przyczyna aktywacji** wprowadź przyczynę żądania aktywacji. Niektóre role wymagają podania numeru biletu problemu.
 
-    ![Ukończone okienko aktywacji z niestandardowym czasem rozpoczęcia, czasem trwania, biletem i powodem](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
+    ![Okienko ukończono aktywację z niestandardowym czasem rozpoczęcia, czasem trwania, biletem i powodem](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
 
 1. Kliknij pozycję **Aktywuj**.
 
-    Jeśli rola nie wymaga zatwierdzenia, zostanie wyświetlone okienko **stanu aktywacji,** w które wyświetlają się stan aktywacji.
+    Jeśli rola nie wymaga zatwierdzenia, zostanie wyświetlone okienko **stanu aktywacji** z wyświetlonym stanem aktywacja.
 
-    ![Strona stanu aktywacji z trzema etapami aktywacji](./media/pim-how-to-activate-role/activation-status.png)
+    ![Na stronie stanu aktywacji są wyświetlane trzy etapy aktywacji](./media/pim-how-to-activate-role/activation-status.png)
 
-    Po zakończeniu wszystkich etapów kliknij łącze **Wyloguj,** aby wylogować się z witryny Azure portal. Po zalogowaniu się z powrotem do portalu, można teraz użyć roli.
+    Po zakończeniu wszystkich etapów kliknij link **Wyloguj** się, aby wylogować się z Azure Portal. Po ponownym zalogowaniu się do portalu możesz teraz korzystać z roli.
 
-    Jeśli [rola wymaga zatwierdzenia](./azure-ad-pim-approval-workflow.md) do aktywacji, powiadomienie platformy Azure pojawi się w prawym górnym rogu przeglądarki informując, że żądanie oczekuje na zatwierdzenie.
+    Jeśli [rola wymaga zatwierdzenia](./azure-ad-pim-approval-workflow.md) w celu aktywowania, w prawym górnym rogu przeglądarki zostanie wyświetlone powiadomienie z informacją, że żądanie oczekuje na zatwierdzenie.
 
-## <a name="view-the-status-of-your-requests"></a>Wyświetlanie stanu swoich żądań
+## <a name="view-the-status-of-your-requests"></a>Wyświetlanie stanu żądań
 
-Możesz wyświetlić stan oczekujących żądań do aktywacji.
+Można wyświetlić stan oczekujących żądań, które należy aktywować.
 
-1. Otwórz zarządzanie tożsamościami uprzywilejowanymi usługą Azure AD.
+1. Otwórz Azure AD Privileged Identity Management.
 
-1. Kliknij pozycję **Role usługi Azure AD**.
+1. Kliknij pozycję **role usługi Azure AD**.
 
-1. Kliknij **pozycję Moje prośby,** aby wyświetlić listę twoich żądań.
+1. Kliknij pozycję **Moje żądania** , aby wyświetlić listę Twoich żądań.
 
-    ![Role usługi Azure AD — lista moich żądań](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Role usługi Azure AD — moje żądania](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## <a name="deactivate-a-role"></a>Dezaktywowanie roli
 
-Po aktywowaniu roli automatycznie dezaktywuje się po osiągnięciu limitu czasu (kwalifikowalny czas trwania).
+Po aktywowaniu roli zostanie ona automatycznie zdezaktywowana, gdy zostanie osiągnięty limit czasu (uprawniony czas trwania).
 
-Jeśli zadania administratora zostaną ukończone wcześniej, możesz również ręcznie dezaktywować rolę w usłudze Azure AD Privileged Identity Management.
+W przypadku wczesnego wykonywania zadań administratora można także dezaktywować rolę ręcznie w Azure AD Privileged Identity Management.
 
-1. Otwórz zarządzanie tożsamościami uprzywilejowanymi usługą Azure AD.
+1. Otwórz Azure AD Privileged Identity Management.
 
-1. Kliknij pozycję **Role usługi Azure AD**.
+1. Kliknij pozycję **role usługi Azure AD**.
 
-1. Kliknij **pozycję Moje role**.
+1. Kliknij pozycję **Moje role**.
 
-1. Kliknij **pozycję Aktywne role,** aby wyświetlić listę aktywnych ról.
+1. Kliknij pozycję **aktywne role** , aby wyświetlić listę aktywnych ról.
 
-1. Znajdź rolę, której wykonasz, a następnie kliknij pozycję **Dezaktywuj**.
+1. Znajdź rolę, której używasz, a następnie kliknij pozycję **Dezaktywuj**.
 
 ## <a name="cancel-a-pending-request"></a>Anulowanie oczekującego żądania
 
-Jeśli nie wymagasz aktywacji roli, która wymaga zatwierdzenia, możesz anulować oczekujące żądanie w dowolnym momencie.
+Jeśli nie wymagasz aktywacji roli wymagającej zatwierdzenia, możesz w dowolnym momencie anulować oczekujące żądanie.
 
-1. Otwórz zarządzanie tożsamościami uprzywilejowanymi usługą Azure AD.
+1. Otwórz Azure AD Privileged Identity Management.
 
-1. Kliknij pozycję **Role usługi Azure AD**.
+1. Kliknij pozycję **role usługi Azure AD**.
 
-1. Kliknij **pozycję Moje prośby**.
+1. Kliknij pozycję **Moje żądania**.
 
-1. W przypadku roli, którą chcesz anulować, kliknij przycisk **Anuluj.**
+1. W przypadku roli, którą chcesz anulować, kliknij przycisk **Anuluj** .
 
-    Po kliknięciu przycisku Anuluj żądanie zostanie anulowane. Aby ponownie aktywować rolę, musisz przesłać nowe żądanie aktywacji.
+    Po kliknięciu przycisku Anuluj żądanie zostanie anulowane. Aby ponownie aktywować rolę, trzeba będzie przesłać nowe żądanie aktywacji.
 
-   ![Lista moich żądań z wyróżnionym przyciskiem Anuluj](./media/pim-how-to-activate-role/directory-role-cancel.png)
+   ![Lista moje żądania z wyróżnionym przyciskiem Anuluj](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Nie udzielono uprawnień po aktywowaniu roli
 
-Po uaktywnieniu roli w zarządzanie tożsamością uprzywilejowaną aktywacja może nie natychmiast propagować do wszystkich portali, które wymagają roli uprzywilejowanej. Czasami nawet po rozpropagowaniu zmiany buforowanie internetowe w portalu może spowodować, że zmiany nie zostaną natychmiast uwzględnione. Jeśli aktywacja jest opóźniona, oto, co należy zrobić.
+Po aktywowaniu roli w Privileged Identity Management aktywacja może nie być natychmiast propagowana do wszystkich portali, które wymagają roli uprzywilejowanej. Czasami nawet po rozpropagowaniu zmiany buforowanie internetowe w portalu może spowodować, że zmiany nie zostaną natychmiast uwzględnione. Jeśli aktywacja jest opóźniona, Oto co należy zrobić.
 
 1. Wyloguj się z witryny Azure Portal, a następnie zaloguj się ponownie.
 
-    Po aktywowaniu roli usługi Azure AD zostaną wyświetlenia etapów aktywacji. Po zakończeniu wszystkich etapów zobaczysz link **Wyloguj**. Możesz użyć tego linku, aby się wylogować. Rozwiąże to większość przypadków opóźnienia aktywacji.
+    Po aktywowaniu roli usługi Azure AD zobaczysz etapy aktywacji. Po zakończeniu wszystkich etapów zobaczysz link **Wyloguj**. Możesz użyć tego linku, aby się wylogować. Spowoduje to rozproszenie większości przypadków opóźnienia aktywacji.
 
-1. W zarządzania tożsamościami uprzywilejowanymi sprawdź, czy jesteś wymieniony jako członek roli.
+1. W Privileged Identity Management Sprawdź, czy jesteś członkiem roli.
 
  ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Uaktywnianie ról usługi Azure AD w zarządzania tożsamościami uprzywilejowanymi](pim-how-to-activate-role.md)
+- [Aktywuj moje role usługi Azure AD w Privileged Identity Management](pim-how-to-activate-role.md)

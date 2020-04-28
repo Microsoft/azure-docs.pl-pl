@@ -1,7 +1,7 @@
 ---
-title: Rozwiązywanie problemów z bramą i połączeniami sieci wirtualnej platformy Azure — Azure PowerShell
+title: Rozwiązywanie problemów z usługą Azure VNet Gateway i połączeniami — Azure PowerShell
 titleSuffix: Azure Network Watcher
-description: Na tej stronie wyjaśniono, jak używać polecenia cmdlet programu Azure Network Watcher
+description: Na tej stronie wyjaśniono, jak korzystać z polecenia cmdlet programu PowerShell dla usługi Azure Network Watcher
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -13,46 +13,46 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: 0723ddc9b0e2f15d5c8e51c96d51f58f1313493a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78673667"
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Rozwiązywanie problemów z bramą sieci wirtualnej i połączeniami przy użyciu programu Azure Network Watcher PowerShell
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Rozwiązywanie problemów z bramą Virtual Network i połączeniami przy użyciu programu Azure Network Watcher PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
-> - [Powershell](network-watcher-troubleshoot-manage-powershell.md)
+> - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [Interfejs wiersza polecenia platformy Azure](network-watcher-troubleshoot-manage-cli.md)
-> - [INTERFEJS API ODPOCZYNKU](network-watcher-troubleshoot-manage-rest.md)
+> - [Interfejs API REST](network-watcher-troubleshoot-manage-rest.md)
 
-Kontrola sieci zapewnia wiele możliwości, ponieważ odnosi się do zrozumienia zasobów sieciowych na platformie Azure. Jedną z tych możliwości jest rozwiązywanie problemów z zasobami. Rozwiązywanie problemów z zasobami można wywołać za pośrednictwem portalu, programu PowerShell, interfejsu wiersza polecenia lub interfejsu API REST. Po wywołaniu, Network Watcher sprawdza kondycję bramy sieci wirtualnej lub połączenia i zwraca jego wyniki.
+Network Watcher udostępnia wiele funkcji, które odnoszą się do poznania zasobów sieciowych na platformie Azure. Jedną z tych możliwości jest rozwiązywanie problemów z zasobami. Rozwiązywanie problemów z zasobami można wywołać za pomocą portalu, programu PowerShell, interfejsu wiersza polecenia lub API REST. Gdy jest wywoływana, Network Watcher sprawdza kondycję Virtual Network bramy lub połączenia i zwraca swoje wyniki.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym scenariuszu przyjęto założenie, że postępuje już kroki w [Tworzenie obserwatora sieci,](network-watcher-create.md) aby utworzyć obserwatora sieci.
+W tym scenariuszu założono, że wykonano już kroki opisane w temacie [tworzenie Network Watcher](network-watcher-create.md) w celu utworzenia Network Watcher.
 
-Aby uzyskać listę obsługiwanych typów bram, odwiedź stronę [Obsługiwane typy bramy](network-watcher-troubleshoot-overview.md#supported-gateway-types).
+Aby zapoznać się z listą obsługiwanych typów bram, należy odwiedzić [obsługiwane typy bram](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
 ## <a name="overview"></a>Omówienie
 
-Rozwiązywanie problemów z zasobami zapewnia możliwość rozwiązywania problemów, które pojawiają się z bram sieci wirtualnej i połączeń. Po wysłaniu żądania do rozwiązywania problemów z zasobami dzienniki są wyszukiwane i kontrolowane. Po zakończeniu kontroli wyniki są zwracane. Żądania rozwiązywania problemów z zasobami są długotrwałymi żądaniami, co może potrwać wiele minut, aby zwrócić wynik. Dzienniki z rozwiązywania problemów są przechowywane w kontenerze na koncie magazynu, który jest określony.
+Rozwiązywanie problemów z zasobami zapewnia możliwość rozwiązywania problemów związanych z Virtual Network bramami i połączeniami. Gdy żądanie dotyczy rozwiązywania problemów z zasobami, dzienniki są badane i sprawdzane. Po zakończeniu inspekcji są zwracane wyniki. Żądania rozwiązywania problemów z zasobami są długotrwałymi żądaniami, co może potrwać kilka minut. Dzienniki rozwiązywania problemów są przechowywane w kontenerze na koncie magazynu, które jest określone.
 
-## <a name="retrieve-network-watcher"></a>Pobieranie obserwatora sieci
+## <a name="retrieve-network-watcher"></a>Pobierz Network Watcher
 
-Pierwszym krokiem jest pobranie wystąpienia Obserwatora sieci. Zmienna `$networkWatcher` jest przekazywana do polecenia `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet w kroku 4.
+Pierwszym krokiem jest pobranie wystąpienia Network Watcher. `$networkWatcher` Zmienna jest przenoszona do `Start-AzNetworkWatcherResourceTroubleshooting` polecenia cmdlet w kroku 4.
 
 ```powershell
 $networkWatcher = Get-AzNetworkWatcher -Location "WestCentralUS" 
 ```
 
-## <a name="retrieve-a-virtual-network-gateway-connection"></a>Pobieranie połączenia bramy sieci wirtualnej
+## <a name="retrieve-a-virtual-network-gateway-connection"></a>Pobieranie połączenia bramy Virtual Network
 
-W tym przykładzie rozwiązywanie problemów z zasobami jest uruchomiony na połączenie. Można również przekazać go bramy sieci wirtualnej.
+W tym przykładzie trwa Rozwiązywanie problemów z zasobami w ramach połączenia. Możesz również przekazać ją do bramy Virtual Network.
 
 ```powershell
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
@@ -60,7 +60,7 @@ $connection = Get-AzVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupN
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Rozwiązywanie problemów z zasobami zwraca dane dotyczące kondycji zasobu, zapisuje również dzienniki na koncie magazynu do przejrzenia. W tym kroku tworzymy konto magazynu, jeśli istnieje istniejące konto magazynu, możesz go użyć.
+Rozwiązywanie problemów z zasobami zwraca dane dotyczące kondycji zasobu, a także zapisuje dzienniki na koncie magazynu w celu przejrzenia. W tym kroku utworzymy konto magazynu, jeśli istnieje już istniejące konto magazynu.
 
 ```powershell
 $sa = New-AzStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
@@ -68,25 +68,25 @@ Set-AzCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name $sa.S
 $sc = New-AzStorageContainer -Name logs
 ```
 
-## <a name="run-network-watcher-resource-troubleshooting"></a>Uruchamianie rozwiązywania problemów z zasobami Obserwatora sieci
+## <a name="run-network-watcher-resource-troubleshooting"></a>Uruchom Network Watcher Rozwiązywanie problemów z zasobami
 
-Rozwiązywanie problemów `Start-AzNetworkWatcherResourceTroubleshooting` z zasobami za pomocą polecenia cmdlet. Przekazujemy polecenie cmdlet obiektu Kontrola sieci, identyfikator bramy połączenia lub sieci wirtualnej, identyfikator konta magazynu i ścieżkę do przechowywania wyników.
+Rozwiązywanie problemów z zasobami `Start-AzNetworkWatcherResourceTroubleshooting` przy użyciu polecenia cmdlet. Przekazujemy polecenie cmdlet Network Watcher obiektu, identyfikatorem połączenia lub bramą Virtual Network, identyfikatorem konta magazynu oraz ścieżką do przechowywania wyników.
 
 > [!NOTE]
-> Polecenie `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet jest długotrwałe i może potrwać kilka minut.
+> `Start-AzNetworkWatcherResourceTroubleshooting` Polecenie cmdlet jest długotrwałe i może potrwać kilka minut.
 
 ```powershell
 Start-AzNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"
 ```
 
-Po uruchomieniu polecenia cmdlet, Network Watcher przegląda zasób, aby zweryfikować kondycję. Zwraca wyniki do powłoki i przechowuje dzienniki wyników na określonym koncie magazynu.
+Po uruchomieniu polecenia cmdlet Network Watcher przegląda zasób w celu zweryfikowania kondycji. Zwraca wyniki do powłoki i zapisuje dzienniki wyników na określonym koncie magazynu.
 
 ## <a name="understanding-the-results"></a>Zrozumienie wyników
 
-Tekst akcji zawiera ogólne wskazówki dotyczące sposobu rozwiązania problemu. Jeśli można podjąć działanie w przypadku problemu, łącze jest dostarczane z dodatkowymi wskazówkami. W przypadku, gdy nie ma żadnych dodatkowych wskazówek, odpowiedź zawiera adres URL, aby otworzyć przypadek pomocy technicznej.  Aby uzyskać więcej informacji na temat właściwości odpowiedzi i co jest zawarte, odwiedź [omówienie rozwiązywania problemów z obserwatorem sieci](network-watcher-troubleshoot-overview.md)
+Tekst akcji zawiera ogólne wskazówki dotyczące sposobu rozwiązania problemu. Jeśli można wykonać akcję dotyczącą problemu, zostanie podane łącze z dodatkowymi wskazówkami. W przypadku braku dodatkowych wskazówek odpowiedź zawiera adres URL służący do otwierania zgłoszenia do pomocy technicznej.  Aby uzyskać więcej informacji o właściwościach odpowiedzi i uwzględnionych na niej tematach, odwiedź stronę [Network Watcher Rozwiązywanie problemów](network-watcher-troubleshoot-overview.md)
 
-Instrukcje dotyczące pobierania plików z kont usługi Azure Storage można znaleźć w [obszarze Wprowadzenie do usługi Azure Blob Storage przy użyciu programu .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Innym narzędziem, które może być używane, jest Eksplorator magazynu. Więcej informacji na temat Eksploratora magazynu można znaleźć tutaj pod następującym linkiem: [Eksplorator magazynu](https://storageexplorer.com/)
+Aby uzyskać instrukcje dotyczące pobierania plików z kont usługi Azure Storage, zobacz Rozpoczynanie [pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Inne narzędzie, które może być używane, jest Eksplorator usługi Storage. Więcej informacji na temat Eksplorator usługi Storage można znaleźć tutaj przy użyciu następującego linku: [Eksplorator usługi Storage](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli ustawienia zostały zmienione, które zatrzymują łączność sieci VPN, zobacz [Zarządzanie grupami zabezpieczeń sieci,](../virtual-network/manage-network-security-group.md) aby wyśledzić grupę zabezpieczeń sieci i reguły zabezpieczeń, które mogą być kwestionowane.
+Jeśli zmieniono ustawienia, które zatrzymują łączność z siecią VPN, zobacz [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to Track The Network Security Groups and Security rules.

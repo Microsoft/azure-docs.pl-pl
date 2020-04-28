@@ -123,7 +123,7 @@ Usługa Azure Mesh nie obsługuje obecnie rozpoznawania nazw DNS w różnych apl
 
 Aby uzyskać inne znane problemy z systemem DNS z uruchamianiem klastra programistycznego sieci szkieletowej usług w systemie Windows 10, zobacz: [Debugowanie kontenerów systemu Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) i [znane problemy z systemem DNS](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
 
-### <a name="networking"></a>Obsługa sieci
+### <a name="networking"></a>Networking
 
 ServiceFabric sieci NAT może zniknąć podczas korzystania z aplikacji na komputerze lokalnym. Aby zdiagnozować, czy tak się stało, uruchom następujące czynności z wiersza polecenia:
 

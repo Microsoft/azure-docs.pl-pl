@@ -1,7 +1,7 @@
 ---
-title: Przykłady przekształcania oświadczeń ogólnych dla zasad niestandardowych
+title: Ogólne przykłady transformacji oświadczeń dla zasad niestandardowych
 titleSuffix: Azure AD B2C
-description: Ogólne przykłady transformacji oświadczeń dla schematu struktury środowiska tożsamości (IEF) usługi Azure Active Directory B2C.
+description: Ogólne przykłady transformacji oświadczeń dla schematu programu Identity Experience Framework (IEF) Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,28 +12,28 @@ ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: afdf2f531ede30d868123d89cac94fcfae070384
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78188549"
 ---
-# <a name="general-claims-transformations"></a>Przekształcenia roszczeń ogólnych
+# <a name="general-claims-transformations"></a>Ogólne przekształcenia oświadczeń
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-W tym artykule przedstawiono przykłady użycia przekształceń oświadczeń ogólnych schematu struktury środowiska tożsamości w usłudze Azure Active Directory B2C (Azure AD B2C). Aby uzyskać więcej informacji, zobacz [ClaimsTransformations](claimstransformations.md).
+W tym artykule przedstawiono przykłady użycia ogólnych przekształceń oświadczeń schematu programu Identity Experience Framework w Azure Active Directory B2C (Azure AD B2C). Aby uzyskać więcej informacji, zobacz [ClaimsTransformations](claimstransformations.md).
 
-## <a name="copyclaim"></a>Kopiuj Roszczenia
+## <a name="copyclaim"></a>CopyClaim
 
-Skopiuj wartość oświadczenia do innej. Obie reklamy muszą być tego samego typu.
+Kopiuj wartość żądania do innej. Oba oświadczenia muszą pochodzić z tego samego typu.
 
-| Element | TransformClaimType (Typ transformacji) | Typ danych | Uwagi |
+| Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim (własnach wejściowych) | inputClaim | ciąg, int | Typ oświadczenia, który ma zostać skopiowany. |
-| WynikClaim | outputClaim | ciąg, int | ClaimType, który jest produkowany po tym ClaimsTransformation został wywołany. |
+| Oświadczenie inputclaim | Oświadczenie inputclaim | String, int | Typ zgłoszenia, który ma zostać skopiowany. |
+| Oświadczenie outputclaim | Oświadczenie outputclaim | String, int | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
 
-Ta transformacja oświadczeń służy do kopiowania wartości z ciągu lub oświadczenia liczbowego do innego oświadczenia. Poniższy przykład kopiuje wartość oświadczenia zewnętrznego Email do oświadczenia e-mail.
+Ta transformacja oświadczeń służy do kopiowania wartości z ciągu lub oświadczenia liczbowego do innego oświadczenia. Poniższy przykład kopiuje wartość externalEmail roszczeń do żądania e-mail.
 
 ```XML
 <ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim">
@@ -49,20 +49,20 @@ Ta transformacja oświadczeń służy do kopiowania wartości z ciągu lub oświ
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-    - **inputClaim**:bob@contoso.com
+    - **oświadczenie inputclaim**:bob@contoso.com
 - Oświadczenia wyjściowe:
-    - **outputClaim**:bob@contoso.com
+    - **oświadczenie outputclaim**:bob@contoso.com
 
-## <a name="doesclaimexist"></a>CzyClaimExist
+## <a name="doesclaimexist"></a>DoesClaimExist
 
-Sprawdza, czy **inputClaim** istnieje lub nie i ustawia **outputClaim** true lub false odpowiednio.
+Sprawdza, czy **oświadczenie inputclaim** istnieje, czy nie, i odpowiednio ustawia **oświadczenie outputclaim** na wartość true lub false.
 
-| Element | TransformClaimType (Typ transformacji) | Typ danych | Uwagi |
+| Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim (własnach wejściowych) | inputClaim |Dowolne | Oświadczenie wejściowe, którego istnienie musi zostać zweryfikowane. |
-| WynikClaim | outputClaim | wartość logiczna | ClaimType, który jest produkowany po tym ClaimsTransformation został wywołany. |
+| Oświadczenie inputclaim | Oświadczenie inputclaim |Dowolne | Dane wejściowe, których istnienie musi być zweryfikowane. |
+| Oświadczenie outputclaim | Oświadczenie outputclaim | wartość logiczna | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
 
-Ta transformacja oświadczeń służy do sprawdzania, czy oświadczenie istnieje lub zawiera dowolną wartość. Zwracana wartość jest wartością logiczną, która wskazuje, czy oświadczenie istnieje. Poniższy przykład sprawdza, czy adres e-mail istnieje.
+Ta transformacja oświadczeń służy do sprawdzania, czy oświadczenie istnieje lub zawiera dowolną wartość. Wartość zwracana jest wartością logiczną, która wskazuje, czy istnieje. Poniższy przykład sprawdza, czy adres e-mail istnieje.
 
 ```XML
 <ClaimsTransformation Id="CheckIfEmailPresent" TransformationMethod="DoesClaimExist">
@@ -78,20 +78,20 @@ Ta transformacja oświadczeń służy do sprawdzania, czy oświadczenie istnieje
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **inputClaim**:someone@contoso.com
+  - **oświadczenie inputclaim**:someone@contoso.com
 - Oświadczenia wyjściowe:
-  - **outputClaim**: prawda
+  - **oświadczenie outputclaim**: true
 
 ## <a name="hash"></a>Skrót
 
-Hash pod warunkiem zwykły tekst przy użyciu soli i tajemnicy. Algorytm mieszania używany jest SHA-256.
+Mieszaj podany zwykły tekst przy użyciu soli i wpisu tajnego. Algorytmem wyznaczania wartości skrótu jest SHA-256.
 
-| Element | TransformClaimType (Typ transformacji) | Typ danych | Uwagi |
+| Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim (własnach wejściowych) | Postaci zwykłego tekstu | ciąg | Oświadczenie wejściowe, które ma być zaszyfrowane |
-| InputClaim (własnach wejściowych) | Soli | ciąg | Parametr soli. Można utworzyć wartość losową, używając `CreateRandomString` transformacji oświadczeń. |
-| Inputparameter | randomizerSecret | ciąg | Wskazuje istniejący **klucz zasad**usługi Azure AD B2C . Aby utworzyć nowy klucz zasad: w dzierżawie usługi Azure AD B2C w obszarze **Zarządzanie**wybierz pozycję **Identity Experience Framework**. Wybierz **klawisze zasad,** aby wyświetlić klucze, które są dostępne w dzierżawie. Wybierz pozycję **Dodaj**. W obszarze **Opcje**wybierz **pozycję Ręczny**. Podaj nazwę (prefiks *B2C_1A_* może zostać dodany automatycznie.). W polu **tekstowym Tajne** wprowadź dowolny klucz tajny, którego chcesz użyć, na przykład 1234567890. Aby uzyskać **opcję Użycie klucza,** wybierz **pozycję Podpis**. Wybierz **pozycję Utwórz**. |
-| WynikClaim | hash | ciąg | ClaimType, który jest produkowany po tej transformacji oświadczeń został wywołany. Oświadczenie skonfigurowane w `plaintext` inputClaim. |
+| Oświadczenie inputclaim | formacie | ciąg | Dane wejściowe do zaszyfrowania |
+| Oświadczenie inputclaim | Solo | ciąg | Parametr soli. Można utworzyć wartość losową przy użyciu `CreateRandomString` transformacji oświadczeń. |
+| InputParameter | randomizerSecret | ciąg | Wskazuje istniejący **klucz zasad**Azure AD B2C. Aby utworzyć nowy klucz zasad: w dzierżawie Azure AD B2C w obszarze **Zarządzaj**wybierz pozycję **platforma obsługi tożsamości**. Wybierz pozycję **klucze zasad** , aby wyświetlić klucze, które są dostępne w dzierżawie. Wybierz pozycję **Dodaj**. W obszarze **Opcje**wybierz pozycję **Ręczne**. Podaj nazwę (prefiks *B2C_1A_* może zostać dodany automatycznie). W polu tekstowym **wpis tajny** wprowadź dowolne tajne, na przykład 1234567890. W obszarze **użycie klucza**wybierz pozycję **podpis**. Wybierz przycisk **Utwórz**. |
+| Oświadczenie outputclaim | hash | ciąg | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń. Zostało skonfigurowane w `plaintext` oświadczenie inputclaim. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">
@@ -115,4 +115,4 @@ Hash pod warunkiem zwykły tekst przy użyciu soli i tajemnicy. Algorytm mieszan
   - **sól**: 487624568
   - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Oświadczenia wyjściowe:
-  - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=
+  - **oświadczenie outputclaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U =

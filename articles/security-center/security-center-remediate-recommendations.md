@@ -1,6 +1,6 @@
 ---
-title: Korygowanie zaleceń w usłudze Azure Security Center | Dokumenty firmy Microsoft
-description: W tym artykule wyjaśniono, jak korygować zalecenia w usłudze Azure Security Center, aby chronić zasoby i przestrzegać zasad zabezpieczeń.
+title: Koryguj zalecenia w Azure Security Center | Microsoft Docs
+description: W tym artykule wyjaśniono, jak skorygować zalecenia w Azure Security Center, aby chronić zasoby i zachować zgodność z zasadami zabezpieczeń.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,89 +14,89 @@ ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 6863f4bbfc6aabc4e7bf4314ad26dd4590d31362
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77603503"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Rekomendacje dotyczące korygowania w usłudze Azure Security Center
 
-Zalecenia dają sugestie, jak lepiej zabezpieczyć swoje zasoby. Zaimplementuj zalecenie, wykonując kroki korygowania podane w zaleceniu.
+Zalecenia zawierają sugestie dotyczące lepszego zabezpieczania zasobów. Zalecenie jest implementowane przez wykonanie czynności zaradczych, które zostały podane w zaleceniu.
 
-## <a name="remediation-steps"></a>Kroki korygowania<a name="remediation-steps"></a>
+## <a name="remediation-steps"></a>Kroki zaradcze<a name="remediation-steps"></a>
 
-Po zapoznaniu się ze wszystkimi zaleceniami zdecyduj, który z nich należy najpierw zaradzić. Zalecamy użycie [wpływu bezpiecznego wyniku,](security-center-recommendations.md#monitor-recommendations) aby ustalić priorytety, co należy zrobić w pierwszej kolejności.
+Po przejrzeniu wszystkich zaleceń Zdecyduj, które z nich należy skorygować w pierwszej kolejności. Zalecamy użycie [wpływu na ocenę](security-center-recommendations.md#monitor-recommendations) , aby pomóc w ustaleniu, co należy zrobić w pierwszej kolejności.
 
 1. Na liście kliknij zalecenie.
 
-1. Postępuj zgodnie z instrukcjami w sekcji **Kroki korygowania.** Każde zalecenie ma swój własny zestaw instrukcji. Poniższy zrzut ekranu przedstawia kroki korygowania dotyczące konfigurowania aplikacji w celu zezwalania tylko na ruch za pośrednictwem protokołu HTTPS.
+1. Postępuj zgodnie z instrukcjami w sekcji **kroki zaradcze** . Każde zalecenie ma swój własny zestaw instrukcji. Poniższy zrzut ekranu przedstawia kroki korygowania dotyczące konfigurowania aplikacji tak, aby zezwalały na ruch za pośrednictwem protokołu HTTPS.
 
-    ![Szczegóły zalecenia](./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png)
+    ![Szczegóły rekomendacji](./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png)
 
-1. Po zakończeniu pojawi się powiadomienie informujące o pomyślnym wykonaniu korygowania.
+1. Po zakończeniu zostanie wyświetlone powiadomienie z informacją o tym, czy korygowanie zakończyło się pomyślnie.
 
-## <a name="quick-fix-remediation"></a>Szybkie korygowanie<a name="one-click"></a>
+## <a name="quick-fix-remediation"></a>Szybkie rozwiązywanie problemów<a name="one-click"></a>
 
-Szybka poprawka umożliwia szybkie korygowanie zalecenia dotyczące wielu zasobów. Jest dostępna tylko dla określonych zaleceń. Quick Fix upraszcza korygowanie i umożliwia szybkie zwiększenie bezpiecznego wyniku, poprawiając bezpieczeństwo środowiska.
+Szybkie rozwiązanie pozwala szybko skorygować zalecenia dotyczące wielu zasobów. Jest on dostępny tylko dla konkretnych zaleceń. Szybka naprawa upraszcza korygowanie i pozwala szybko zwiększyć swój Bezpieczny wynik, zwiększając bezpieczeństwo środowiska.
 
-Aby zaimplementować szybkie korygowanie:
+Aby zaimplementować szybkie korygowanie poprawek:
 
-1. Z listy zaleceń, które mają **Quick Fix!** etykiety, kliknij na zalecenie.
+1. Z listy zaleceń, które mają **szybką poprawkę!** Kliknij zalecenie.
 
-    [![Wybierz szybką poprawkę!](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
+    [![Wybierz pozycję szybka naprawa.](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
 
-1. Na karcie **Zasoby w złej kondycji** wybierz zasoby, na których chcesz zaimplementować zalecenie, a następnie kliknij przycisk **Koryguj**.
-
-    > [!NOTE]
-    > Niektóre z wymienionych zasobów mogą być wyłączone, ponieważ nie masz odpowiednich uprawnień do ich modyfikowania.
-
-1. W polu potwierdzenia przeczytaj szczegóły korygowania i implikacje.
-
-    ![Szybka poprawka](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
+1. Na karcie **zasoby w złej kondycji** Wybierz zasoby, dla których chcesz wdrożyć zalecenie, a następnie kliknij przycisk **Koryguj**.
 
     > [!NOTE]
-    > Implikacje są wymienione w szarym polu w oknie **Korygowanie zasobów,** który otwiera się po kliknięciu przycisku **Koryguj**. Wymieniają one, jakie zmiany zachodzą podczas postępowania z szybkim korygowanie.
+    > Niektóre z wymienionych zasobów mogą być wyłączone, ponieważ nie masz odpowiednich uprawnień, aby je modyfikować.
 
-1. W razie potrzeby wstaw odpowiednie parametry i zatwierdz środki zaradcze.
+1. W polu potwierdzenia Przeczytaj szczegóły dotyczące korygowania i implikacje.
+
+    ![Szybka naprawa](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
     > [!NOTE]
-    > Może upłynąć kilka minut po zakończeniu korygowania, aby wyświetlić zasoby na karcie Zasoby w **dobrej kondycji.** Aby wyświetlić akcje korygowania, sprawdź [dziennik aktywności](#activity-log).
+    > Implikacje są wymienione w szarym polu okna **korygowanie zasobów** , które jest otwierane po kliknięciu przycisku **Koryguj**. Wyświetlają one zmiany, które są wykonywane podczas korygowania szybkiej korekty.
 
-1. Po zakończeniu pojawi się powiadomienie informujące o pomyślnym wykonaniu korygowania.
+1. W razie potrzeby Wstaw odpowiednie parametry i zatwierdź korygowanie.
 
-## <a name="quick-fix-remediation-logging-in-the-activity-log"></a>Rejestrowanie korygowania quick fix w dzienniku aktywności<a name="activity-log"></a>
+    > [!NOTE]
+    > Ukończenie korygowania zasobów na karcie **zasoby w dobrej kondycji** może potrwać kilka minut. Aby wyświetlić akcje korygowania, sprawdź [Dziennik aktywności](#activity-log).
 
-Operacja korygowania używa wdrożenia szablonu lub wywołania interfejsu API PATCH REST, aby zastosować konfigurację do zasobu. Te operacje są rejestrowane w [dzienniku aktywności platformy Azure](../azure-resource-manager/management/view-activity-logs.md).
+1. Po zakończeniu zostanie wyświetlone powiadomienie z informacją o tym, czy korygowanie zakończyło się pomyślnie.
+
+## <a name="quick-fix-remediation-logging-in-the-activity-log"></a>Szybkie rozwiązywanie problemów z rejestrowaniem w dzienniku aktywności<a name="activity-log"></a>
+
+Operacja korygowania używa wdrożenia szablonu lub wywołania interfejsu API poprawek REST w celu zastosowania konfiguracji w zasobie. Te operacje są rejestrowane w [dzienniku aktywności platformy Azure](../azure-resource-manager/management/view-activity-logs.md).
 
 
-## <a name="recommendations-with-quick-fix-remediation"></a>Zalecenia z szybkim korygowaniem
+## <a name="recommendations-with-quick-fix-remediation"></a>Zalecenia z funkcją szybkiego rozwiązywania problemów
 
 |Zalecenie|Domniemanie|
 |---|---|
-|Inspekcja na serwerach SQL powinna być włączona|Ta akcja umożliwi inspekcję SQL na tych serwerach i ich bazach danych. <br>**Uwaga:** <ul><li>Dla każdego regionu wybranych serwerów SQL konto magazynu do zapisywania dzienników inspekcji zostanie utworzone i udostępnione przez wszystkie serwery w tym regionie.</li><li>Aby zapewnić prawidłową inspekcję, nie należy usuwać ani zmieniać nazwy grupy zasobów ani kont magazynu.</li></ul>|
-|Zaawansowane zabezpieczenia danych powinny być włączone w wystąpieniach zarządzanych SQL|Ta akcja umożliwi SQL Advanced Data Security (ADS) w wybranych wystąpieniach zarządzanych SQL. <br>**Uwaga:** <ul><li>Dla każdego regionu i grupy zasobów wybranych wystąpień zarządzanych SQL konto magazynu do zapisywania wyników skanowania zostanie utworzone i udostępnione przez wszystkie wystąpienia w tym regionie.</li><li> Opłata ADS jest naliczana w wysokości $15 za wystąpienie zarządzane SQL.</li></ul>|
-|Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniach zarządzanych SQL|Ta akcja umożliwi ocenę luk w zabezpieczeniach SQL w wybranych wystąpieniach zarządzanych SQL. <br>**Uwaga:**<ul><li>Ocena luk w zabezpieczeniach SQL jest częścią pakietu SQL Advanced Data Security (ADS). Jeśli usługa ADS nie jest już włączona, zostanie automatycznie włączona w wystąpieniu zarządzanym.</li><li>Dla każdego regionu i grupy zasobów wybranych wystąpień zarządzanych SQL konto magazynu do przechowywania wyników skanowania zostanie utworzone i udostępnione przez wszystkie wystąpienia w tym regionie.</li><li>Opłata ADS jest naliczana w wysokości $15 za serwer SQL.</li></ul>||
-|Zaawansowane zabezpieczenia danych powinny być włączone na serwerach SQL|Ta akcja umożliwi zaawansowane bezpieczeństwo danych (ADS) na tych wybranych serwerach i ich bazach danych. <br>**Uwaga:**<ul><li>Dla każdego regionu i grupy zasobów wybranych serwerów SQL konto magazynu do przechowywania wyników skanowania zostanie utworzone i udostępnione przez wszystkie serwery w tym regionie.<</li><li>Opłata ADS jest naliczana w wysokości $15 za serwer SQL.</li></ul>||
-|Ocena luk w zabezpieczeniach powinna być włączona na serwerach SQL|Ta akcja umożliwi ocenę luk w zabezpieczeniach SQL na tych wybranych serwerach i ich bazach danych. <br>**Uwaga:**<ul><li>Ocena luk w zabezpieczeniach SQL jest częścią pakietu SQL Advanced Data Security (ADS). Jeśli usługa ADS nie jest już włączona, zostanie automatycznie włączona na serwerze SQL.</li><li>Dla każdego regionu i grupy zasobów wybranych serwerów SQL konto magazynu do przechowywania wyników skanowania zostanie utworzone i udostępnione przez wszystkie wystąpienia w tym regionie.</li><li>Opłata ADS jest naliczana w wysokości $15 za serwer SQL.</li></ul>||
-|Należy włączyć przezroczyste szyfrowanie danych w bazach danych SQL|Ta akcja umożliwia szyfrowanie danych przezroczystych danych bazy danych SQL (TDE) w wybranych bazach danych. <br>**Uwaga:** Domyślnie będą używane klucze TDE zarządzane przez usługę.
-|Należy włączyć bezpieczny transfer na konta magazynu|Ta akcja aktualizuje zabezpieczenia konta magazynu, aby zezwalać tylko na żądania przez bezpieczne połączenia. (HTTPS). <br>**Uwaga:**<ul><li>Wszystkie żądania przy użyciu protokołu HTTP zostaną odrzucone.</li><li>Podczas korzystania z usługi plików platformy Azure połączenie bez szyfrowania zakończy się niepowodzeniem, w tym scenariusze przy użyciu SMB 2.1, SMB 3.0 bez szyfrowania i niektóre smaki klienta SMB systemu Linux. Dowiedz się więcej.</li></ul>|
-|Aplikacja internetowa powinna być dostępna tylko za pośrednictwem protokołu HTTPS|Ta akcja spowoduje przekierowanie całego ruchu z protokołu HTTP do protokołu HTTPS w wybranych zasobach. <br>**Uwaga:**<ul><li>Punkt końcowy HTTPS, który nie ma certyfikatu SSL, pojawi się w przeglądarce z komunikatem "Błąd prywatności". Dlatego użytkownicy, którzy mają domenę niestandardową, muszą sprawdzić, czy skonfigurowali certyfikat SSL.</li><li>Upewnij się, że zapory aplikacji pakietowych i sieci web chroniące usługę aplikacji umożliwiają przekazywanie sesji HTTPS.</li></ul>|
-|Aplikacja function powinna być dostępna tylko za pośrednictwem protokołu HTTPS|Ta akcja spowoduje przekierowanie całego ruchu z protokołu HTTP do protokołu HTTPS w wybranych zasobach. <br>**Uwaga:**<ul><li>Punkt końcowy HTTPS, który nie ma certyfikatu SSL, pojawi się w przeglądarce z komunikatem "Błąd prywatności". Dlatego użytkownicy, którzy mają domenę niestandardową, muszą sprawdzić, czy skonfigurowali certyfikat SSL.</li><li>Upewnij się, że zapory aplikacji pakietowych i sieci web chroniące usługę aplikacji umożliwiają przekazywanie sesji HTTPS.</li></ul>|
-|Aplikacja API powinna być dostępna tylko za pośrednictwem protokołu HTTPS|Ta akcja spowoduje przekierowanie całego ruchu z protokołu HTTP do protokołu HTTPS w wybranych zasobach. <br>**Uwaga:**<ul><li>Punkt końcowy HTTPS, który nie ma certyfikatu SSL, pojawi się w przeglądarce z komunikatem "Błąd prywatności". Dlatego użytkownicy, którzy mają domenę niestandardową, muszą sprawdzić, czy skonfigurowali certyfikat SSL.</li><li>Upewnij się, że zapory aplikacji pakietowych i sieci web chroniące usługę aplikacji umożliwiają przekazywanie sesji HTTPS.</li></ul>|
-|Zdalne debugowanie powinno być wyłączone dla aplikacji sieci Web|Ta akcja wyłącza debugowanie zdalne.|
-|Zdalne debugowanie powinno być wyłączone dla aplikacji funkcji|Ta akcja wyłącza debugowanie zdalne.|
-|Zdalne debugowanie powinno być wyłączone dla aplikacji interfejsu API|Ta akcja wyłącza debugowanie zdalne.|
-|CORS nie powinien zezwalać każdemu zasobowi na dostęp do aplikacji sieci Web|Ta akcja blokuje innym domenom dostęp do aplikacji sieci Web. Aby zezwolić na określone domeny, wprowadź je w polu Dozwolone źródła (oddzielone przecinkami). <br>**Uwaga:** Pozostawienie pustego pola spowoduje zablokowanie wszystkich wywołań między źródłami.'Tytuł pola Param: 'Dozwolone źródła'|
-|CORS nie powinien zezwalać każdemu zasobom na dostęp do aplikacji function|Ta akcja blokuje innym domenom dostęp do aplikacji funkcji. Aby zezwolić na określone domeny, wprowadź je w polu Dozwolone źródła (oddzielone przecinkami). <br>**Uwaga:** Pozostawienie pustego pola spowoduje zablokowanie wszystkich wywołań między źródłami.'Tytuł pola Param: 'Dozwolone źródła'|
-|Usługa CORS nie powinna zezwalać każdemu zasobom na dostęp do aplikacji interfejsu API|Ta akcja blokuje innym domenom dostęp do aplikacji interfejsu API. Aby zezwolić na określone domeny, wprowadź je w polu Dozwolone źródła (oddzielone przecinkami). <br>**Uwaga:** Pozostawienie pustego pola spowoduje zablokowanie wszystkich wywołań między źródłami.'Tytuł pola Param: 'Dozwolone źródła'|
-|Agent monitorowania powinien być włączony na maszynach wirtualnych|Ta akcja instaluje agenta monitorowania na wybranych maszynach wirtualnych. Wybierz obszar roboczy dla agenta, do który ma się zgłosić.<ul><li>Jeśli zasady aktualizacji jest ustawiona na automatyczne, zostanie wdrożony na nowe istniejące wystąpienia.</li><li>Jeśli zasady aktualizacji są ustawione ręcznie i chcesz zainstalować agenta w istniejących wystąpieniach, zaznacz to pole wyboru. [Dowiedz się więcej](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set)</li></ul>|
-|Dzienniki diagnostyczne w magazynie kluczy powinny być włączone|Ta akcja umożliwia dzienniki diagnostyczne w magazynach kluczy. Dzienniki diagnostyczne i metryki są zapisywane w wybranym obszarze roboczym.|
-|Dzienniki diagnostyczne w magistrali usługowej powinny być włączone|Ta akcja umożliwia dzienniki diagnostyczne na magistrali usług. Dzienniki diagnostyczne i metryki są zapisywane w wybranym obszarze roboczym.|
+|Inspekcja na serwerach SQL powinna być włączona|Ta akcja spowoduje włączenie inspekcji SQL na tych serwerach i w ich bazach danych. <br>**Uwaga**: <ul><li>Dla każdego regionu wybranych serwerów SQL konto magazynu do zapisywania dzienników inspekcji zostanie utworzone i udostępnione przez wszystkie serwery w tym regionie.</li><li>Aby zapewnić odpowiednią inspekcję, nie należy usuwać ani zmieniać nazw grup zasobów ani kont magazynu.</li></ul>|
+|Zaawansowana ochrona danych powinna być włączona w wystąpieniach zarządzanych SQL|Ta akcja spowoduje włączenie zabezpieczeń SQL Advanced Data Security (AD) w wybranych wystąpieniach zarządzanych SQL. <br>**Uwaga**: <ul><li>Dla każdego regionu i grupy zasobów wybranych wystąpień programu SQL konto magazynu do zapisywania wyników skanowania zostanie utworzone i udostępnione przez wszystkie wystąpienia w tym regionie.</li><li> Usługa ADS jest naliczana zgodnie z $15 na wystąpienie zarządzane SQL.</li></ul>|
+|Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniach zarządzanych SQL|Ta akcja spowoduje włączenie oceny luk w zabezpieczeniach SQL na wybranych wystąpieniach zarządzanych przez program SQL. <br>**Uwaga**:<ul><li>Ocena luk w zabezpieczeniach SQL jest częścią pakietu SQL Advanced Data Security (AD). Jeśli usługa ADS nie jest już włączona, zostanie ona automatycznie włączona w zarządzanym wystąpieniu.</li><li>Dla każdego regionu i grupy zasobów wybranych wystąpień zarządzanych przez program SQL konto magazynu do przechowywania wyników skanowania zostanie utworzone i udostępnione przez wszystkie wystąpienia w tym regionie.</li><li>Usługa ADS jest naliczana zgodnie z $15 na program SQL Server.</li></ul>||
+|Zaawansowana ochrona danych powinna być włączona na serwerach SQL|Ta akcja spowoduje włączenie zaawansowanych zabezpieczeń danych (ADS) na tych wybranych serwerach i ich bazach danych. <br>**Uwaga**:<ul><li>Dla każdego regionu i grupy zasobów wybranych serwerów SQL konto magazynu do przechowywania wyników skanowania zostanie utworzone i udostępnione przez wszystkie serwery w tym regionie. <</li><li>Usługa ADS jest naliczana zgodnie z $15 na program SQL Server.</li></ul>||
+|Ocena luk w zabezpieczeniach powinna być włączona na serwerach SQL|Ta akcja spowoduje włączenie oceny luk w zabezpieczeniach programu SQL dla wybranych serwerów i ich baz danych. <br>**Uwaga**:<ul><li>Ocena luk w zabezpieczeniach SQL jest częścią pakietu SQL Advanced Data Security (AD). Jeśli usługa ADS nie jest już włączona, zostanie ona automatycznie włączona na serwerze SQL.</li><li>Dla każdego regionu i grupy zasobów wybranych serwerów SQL konto magazynu do przechowywania wyników skanowania zostanie utworzone i udostępnione przez wszystkie wystąpienia w tym regionie.</li><li>Usługa ADS jest naliczana zgodnie z $15 na program SQL Server.</li></ul>||
+|Należy włączyć funkcję przezroczystego szyfrowania danych w bazach danych SQL.|Ta akcja włącza SQL Database Transparent Data Encryption (TDE) dla wybranych baz danych. <br>**Uwaga**: Domyślnie zostaną użyte klucze TDE zarządzane przez usługę.
+|Należy włączyć bezpieczny transfer na konta magazynu|Ta akcja aktualizuje zabezpieczenia konta magazynu tak, aby zezwalać na żądania przez bezpieczne połączenia. (HTTPS). <br>**Uwaga**:<ul><li>Wszystkie żądania przy użyciu protokołu HTTP zostaną odrzucone.</li><li>Gdy korzystasz z usługi Azure Files, połączenie bez szyfrowania zakończy się niepowodzeniem, w tym scenariusze korzystające z protokołu SMB 2,1, protokołu SMB 3,0 bez szyfrowania i niektórych typów klienta SMB systemu Linux. Dowiedz się więcej.</li></ul>|
+|Aplikacja sieci Web powinna być dostępna tylko za pośrednictwem protokołu HTTPS|Ta akcja spowoduje przekierowanie całego ruchu z protokołu HTTP do HTTPS na wybranych zasobach. <br>**Uwaga**:<ul><li>Punkt końcowy HTTPS, który nie ma certyfikatu SSL, będzie wyświetlany w przeglądarce z powodu błędu "Prywatność". Użytkownicy, którzy posiadają domenę niestandardową, muszą sprawdzić, czy skonfigurowali certyfikat SSL.</li><li>Upewnij się, że pakiet i zapory aplikacji sieci Web chronią usługę App Service, Zezwalaj na przekazywanie sesji HTTPS.</li></ul>|
+|aplikacja funkcji powinna być dostępna tylko za pośrednictwem protokołu HTTPS|Ta akcja spowoduje przekierowanie całego ruchu z protokołu HTTP do HTTPS na wybranych zasobach. <br>**Uwaga**:<ul><li>Punkt końcowy HTTPS, który nie ma certyfikatu SSL, będzie wyświetlany w przeglądarce z powodu błędu "Prywatność". Użytkownicy, którzy posiadają domenę niestandardową, muszą sprawdzić, czy skonfigurowali certyfikat SSL.</li><li>Upewnij się, że pakiet i zapory aplikacji sieci Web chronią usługę App Service, Zezwalaj na przekazywanie sesji HTTPS.</li></ul>|
+|Aplikacja interfejsu API powinna być dostępna tylko za pośrednictwem protokołu HTTPS|Ta akcja spowoduje przekierowanie całego ruchu z protokołu HTTP do HTTPS na wybranych zasobach. <br>**Uwaga**:<ul><li>Punkt końcowy HTTPS, który nie ma certyfikatu SSL, będzie wyświetlany w przeglądarce z powodu błędu "Prywatność". Użytkownicy, którzy posiadają domenę niestandardową, muszą sprawdzić, czy skonfigurowali certyfikat SSL.</li><li>Upewnij się, że pakiet i zapory aplikacji sieci Web chronią usługę App Service, Zezwalaj na przekazywanie sesji HTTPS.</li></ul>|
+|Zdalne debugowanie powinno zostać wyłączone dla aplikacji sieci Web|Ta akcja powoduje wyłączenie debugowania zdalnego.|
+|Zdalne debugowanie powinno zostać wyłączone dla aplikacja funkcji|Ta akcja powoduje wyłączenie debugowania zdalnego.|
+|Debugowanie zdalne powinno być wyłączone dla aplikacji interfejsu API|Ta akcja powoduje wyłączenie debugowania zdalnego.|
+|Mechanizm CORS nie powinien zezwalać wszystkim zasobom na dostęp do aplikacji sieci Web|Ta akcja blokuje dostęp do aplikacji sieci Web innym domenom. Aby zezwolić na określone domeny, wprowadź je w polu dozwolone źródła (oddzielone przecinkami). <br>**Uwaga**: pozostawienie pustego pola spowoduje zablokowanie wszystkich wywołań między źródłami. "Nazwa pola PARAM:" dozwolone źródła "|
+|Mechanizm CORS nie powinien zezwalać wszystkim zasobom na dostęp do aplikacja funkcji|Ta akcja blokuje dostęp do aplikacji funkcji przez inne domeny. Aby zezwolić na określone domeny, wprowadź je w polu dozwolone źródła (oddzielone przecinkami). <br>**Uwaga**: pozostawienie pustego pola spowoduje zablokowanie wszystkich wywołań między źródłami. "Nazwa pola PARAM:" dozwolone źródła "|
+|Mechanizm CORS nie powinien zezwalać wszystkim zasobom na dostęp do aplikacji interfejsu API|Ta akcja uniemożliwia innym domenom uzyskanie dostępu do aplikacji interfejsu API. Aby zezwolić na określone domeny, wprowadź je w polu dozwolone źródła (oddzielone przecinkami). <br>**Uwaga**: pozostawienie pustego pola spowoduje zablokowanie wszystkich wywołań między źródłami. "Nazwa pola PARAM:" dozwolone źródła "|
+|Agent monitorowania powinien być włączony na maszynach wirtualnych|Ta akcja powoduje zainstalowanie agenta monitorowania na wybranych maszynach wirtualnych. Wybierz obszar roboczy, do którego ma zostać zaraportowany Agent.<ul><li>Jeśli zasady aktualizacji są ustawione na automatyczne, zostaną wdrożone w nowych istniejących wystąpieniach.</li><li>Jeśli zasady aktualizacji są ustawione na ręczne i chcesz zainstalować agenta w istniejących wystąpieniach, zaznacz pole wyboru. [Dowiedz się więcej](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set)</li></ul>|
+|Dzienniki diagnostyczne w Key Vault powinny być włączone|Ta akcja włącza dzienniki diagnostyczne w magazynach kluczy. Dzienniki diagnostyczne i metryki są zapisywane w wybranym obszarze roboczym.|
+|Należy włączyć dzienniki diagnostyczne w usłudze Service Bus|Ta akcja powoduje włączenie dzienników diagnostycznych w usłudze Service Bus. Dzienniki diagnostyczne i metryki są zapisywane w wybranym obszarze roboczym.|
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym dokumencie pokazano, jak korygować zalecenia w Centrum zabezpieczeń. Aby dowiedzieć się więcej o Centrum zabezpieczeń, zobacz następujące tematy:
+W tym dokumencie przedstawiono sposób korygowania zaleceń w Security Center. Aby dowiedzieć się więcej na temat Security Center, zobacz następujące tematy:
 
-* [Ustawianie zasad zabezpieczeń w usłudze Azure Security Center](tutorial-security-policy.md) — dowiedz się, jak skonfigurować zasady zabezpieczeń dla subskrypcji platformy Azure i grup zasobów.
-* [Monitorowanie kondycji zabezpieczeń w usłudze Azure Security Center](security-center-monitoring.md) — dowiedz się, jak monitorować kondycję zasobów platformy Azure.
+* [Ustawianie zasad zabezpieczeń w Azure Security Center](tutorial-security-policy.md) — informacje na temat konfigurowania zasad zabezpieczeń dla subskrypcji i grup zasobów platformy Azure.
+* [Monitorowanie kondycji zabezpieczeń w Azure Security Center](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.

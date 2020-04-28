@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie aktywnych i aktywnych połączeń bramy sieci VPN usługi S2S
-description: W tym artykule okonywanie połączeń aktywnych aktywnych z bramami sieci VPN platformy Azure przy użyciu usługi Azure Resource Manager i programu PowerShell.
+title: Konfigurowanie aktywnych i aktywnych połączeń S2S platformy Azure VPN Gateway
+description: W tym artykule opisano konfigurowanie połączeń aktywnych i aktywnych za pomocą bram sieci VPN platformy Azure przy użyciu Azure Resource Manager i programu PowerShell.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
@@ -9,52 +9,52 @@ ms.date: 07/24/2018
 ms.author: yushwang
 ms.reviewer: cherylmc
 ms.openlocfilehash: ec3697208434eb971e47136416f2c2cc541b5cea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244643"
 ---
-# <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Konfigurowanie aktywnych aktywnych połączeń sieci VPN s2s za pomocą bram sieci VPN platformy Azure
+# <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Konfigurowanie aktywnych i aktywnych połączeń sieci VPN S2S z bramami sieci VPN platformy Azure
 
-W tym artykule otwór o krokach tworzenia aktywnych i aktywnych połączeń międzylokalnościami i sieci wirtualnej do sieci wirtualnej przy użyciu modelu wdrażania Menedżera zasobów i programu PowerShell.
+W tym artykule przedstawiono kroki umożliwiające utworzenie aktywnych — aktywnych połączeń między różnymi lokalizacjami i między sieciami wirtualnymi przy użyciu modelu wdrażania Menedżer zasobów i programu PowerShell.
 
 
 
-## <a name="about-highly-available-cross-premises-connections"></a>Informacje o wysoce dostępnych połączeniach międzylokajnych
-Aby osiągnąć wysoką dostępność dla łączności między lokalizacjami i siecią wirtualną z siecią wirtualną, należy wdrożyć wiele bram sieci VPN i ustanowić wiele połączeń równoległych między sieciami a platformą Azure. Zobacz [wysoce dostępne między premises i łączności sieci wirtualnej do sieci wirtualnej, aby](vpn-gateway-highlyavailable.md) uzyskać omówienie opcji łączności i topologii.
+## <a name="about-highly-available-cross-premises-connections"></a>Informacje o połączeniach między lokalizacjami o wysokiej dostępności
+Aby zapewnić wysoką dostępność połączeń między różnymi lokalizacjami i między sieciami wirtualnymi, należy wdrożyć wiele bram sieci VPN i ustanowić wiele połączeń równoległych między firmami i platformą Azure. Aby zapoznać się z omówieniem opcji łączności i topologii, zobacz [wiele lokalizacji i łączność między sieciami wirtualnymi o wysokiej](vpn-gateway-highlyavailable.md) dostępności.
 
-Ten artykuł zawiera instrukcje konfigurowania aktywnego połączenia sieci VPN między lokalami oraz aktywne połączenie między dwiema sieciami wirtualnymi.
+Ten artykuł zawiera instrukcje dotyczące konfigurowania aktywnego i aktywnego połączenia sieci VPN obejmującego wiele lokalizacji oraz połączenia aktywnego między dwiema sieciami wirtualnymi.
 
-* [Część 1 — tworzenie i konfigurowanie bramy sieci VPN platformy Azure w trybie aktywnym i aktywnym](#aagateway)
-* [Część 2 - Ustanawianie aktywnych i aktywnych połączeń międzylokacowych](#aacrossprem)
-* [Część 3 - Ustanawianie aktywnych połączeń sieci wirtualnej z siecią wirtualną](#aav2v)
+* [Część 1 — Tworzenie i Konfigurowanie bramy sieci VPN platformy Azure w trybie aktywny-aktywny](#aagateway)
+* [Część 2 — ustanawianie połączeń między lokalizacjami aktywnymi](#aacrossprem)
+* [Część 3 — nawiązywanie połączeń między sieciami wirtualnymi w sieci wirtualnej](#aav2v)
 
 Jeśli masz już bramę sieci VPN, możesz:
-* [Aktualizowanie istniejącej bramy sieci VPN z aktywnego stanu wstrzymania do aktywnej aktywności lub odwrotnie](#aaupdate)
+* [Aktualizowanie istniejącej bramy sieci VPN z trybu aktywny-gotowość do aktywnego-aktywnego lub odwrotnie](#aaupdate)
 
-Można je połączyć, aby utworzyć bardziej złożoną, wysoce dostępną topologię sieci, która spełnia Twoje potrzeby.
+Można połączyć je razem w celu utworzenia bardziej złożonej topologii sieci o wysokiej dostępności, która spełnia Twoje potrzeby.
 
 > [!IMPORTANT]
 > Tryb aktywny-aktywny używa tylko następujących jednostek SKU: 
 >   * VpnGw1, VpnGw2, VpnGw3
->   * HighPerformance (dla starych starszych jednostek SKU)
+>   * HighPerformance (dla starych starszych wersji SKU)
 
-## <a name="part-1---create-and-configure-active-active-vpn-gateways"></a><a name ="aagateway"></a>Część 1 - Tworzenie i konfigurowanie aktywnych i aktywnych bram sieci VPN
-Poniższe kroki skonfigurują bramę sieci VPN platformy Azure w trybach aktywnych i aktywnych. Kluczowe różnice między bramami aktywnymi i aktywnymi w trybie gotowości:
+## <a name="part-1---create-and-configure-active-active-vpn-gateways"></a><a name ="aagateway"></a>Część 1 — Tworzenie i Konfigurowanie bram sieci VPN aktywnych-aktywnych
+Poniższe kroki spowodują skonfigurowanie bramy sieci VPN platformy Azure w trybie aktywny-aktywny. Kluczowe różnice między bramami Active-Active i Active-Standby:
 
 * Należy utworzyć dwie konfiguracje IP bramy z dwoma publicznymi adresami IP
 * Należy ustawić flagę EnableActiveActiveFeature
-* Jednostka SKU bramy musi być VpnGw1, VpnGw2, VpnGw3 lub HighPerformance (starsza jednostka SKU).
+* Jednostka SKU bramy musi mieć wartość VpnGw1, VpnGw2, VpnGw3 lub HighPerformance (starsza wersja SKU).
 
-Inne właściwości są takie same jak bramy nieaktywne aktywne. 
+Inne właściwości są takie same, jak bramy nieaktywne-aktywne. 
 
 ### <a name="before-you-begin"></a>Przed rozpoczęciem
 * Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
-* Niezbędne jest zainstalowanie poleceń cmdlet programu PowerShell usługi Azure Resource Manager. Zobacz [Omówienie programu Azure PowerShell,](/powershell/azure/overview) aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu PowerShell.
+* Niezbędne jest zainstalowanie poleceń cmdlet programu PowerShell usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu PowerShell, zobacz [omówienie Azure PowerShell](/powershell/azure/overview) .
 
-### <a name="step-1---create-and-configure-vnet1"></a>Krok 1 - Tworzenie i konfigurowanie sieci wirtualnej1
-#### <a name="1-declare-your-variables"></a>1. Zadeklaruj swoje zmienne
+### <a name="step-1---create-and-configure-vnet1"></a>Krok 1 — Tworzenie i Konfigurowanie VNet1
+#### <a name="1-declare-your-variables"></a>1. Zadeklaruj zmienne
 To ćwiczenie rozpoczniemy od zadeklarowania zmiennych. W poniższym przykładzie deklarujemy zmienne przy użyciu wartości podanych dla tego ćwiczenia. Podczas konfigurowania produktu należy pamiętać o zastąpieniu ich odpowiednimi wartościami. Tych zmiennych można użyć, aby wykonać opisane kroki w celu zapoznania się z tego typu konfiguracją. Zmodyfikuj zmienne, a następnie skopiuj je i wklej do konsoli programu PowerShell.
 
 ```powershell
@@ -82,7 +82,7 @@ $Connection151 = "VNet1toSite5_1"
 $Connection152 = "VNet1toSite5_2"
 ```
 
-#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Połącz się z subskrypcją i utwórz nową grupę zasobów
+#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Połącz się z subskrypcją i Utwórz nową grupę zasobów
 Upewnij się, że program PowerShell został przełączony do trybu umożliwiającego korzystanie z poleceń cmdlet usługi Resource Manager. Więcej informacji znajduje się w temacie [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Używanie programu Windows PowerShell z usługą Resource Manager).
 
 Otwórz konsolę programu PowerShell i połącz się ze swoim kontem. Użyj poniższego przykładu w celu łatwiejszego nawiązania połączenia:
@@ -93,7 +93,7 @@ Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="3-create-testvnet1"></a>3. Utwórz TestVNet1
+#### <a name="3-create-testvnet1"></a>3. Utwórz sieci testvnet1
 Poniższy przykład pozwala utworzyć sieć wirtualną o nazwie TestVNet1 oraz trzy podsieci noszące kolejno nazwy GatewaySubnet, FrontEnd i BackEnd. Podczas zastępowania wartości ważne jest, aby podsieć bramy zawsze nosiła nazwę GatewaySubnet. W przypadku nadania jej innej nazwy proces tworzenia bramy zakończy się niepowodzeniem.
 
 ```powershell
@@ -104,9 +104,9 @@ $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWS
 New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
 ```
 
-### <a name="step-2---create-the-vpn-gateway-for-testvnet1-with-active-active-mode"></a>Krok 2 - Tworzenie bramy sieci VPN dla TestVNet1 w trybie aktywnym i aktywnym
-#### <a name="1-create-the-public-ip-addresses-and-gateway-ip-configurations"></a>1. Tworzenie publicznych adresów IP i konfiguracji adresów IP bramy
-Zażądaj dwóch publicznych adresów IP, które mają być przydzielone do bramy, którą utworzysz dla sieci wirtualnej. Należy również zdefiniować wymagane konfiguracje podsieci i adresu IP.
+### <a name="step-2---create-the-vpn-gateway-for-testvnet1-with-active-active-mode"></a>Krok 2. Tworzenie bramy sieci VPN dla usługi sieci testvnet1 z trybem aktywny-aktywny
+#### <a name="1-create-the-public-ip-addresses-and-gateway-ip-configurations"></a>1. Utwórz publiczne adresy IP i konfiguracje protokołu IP bramy
+Zażądaj przydzielenia dwóch publicznych adresów IP do bramy, która zostanie utworzona dla sieci wirtualnej. Zdefiniowano również wymagane konfiguracje podsieci i adresów IP.
 
 ```powershell
 $gw1pip1 = New-AzPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
@@ -118,15 +118,15 @@ $gw1ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $sub
 $gw1ipconf2 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet $subnet1 -PublicIpAddress $gw1pip2
 ```
 
-#### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2. Tworzenie bramy sieci VPN z konfiguracją aktywny-aktywny
-Utwórz bramę sieci wirtualnej dla sieci TestVNet1. Należy zauważyć, że istnieją dwa wpisy GatewayIpConfig i EnableActiveActiveFeature flagi jest ustawiona. Tworzenie bramy może potrwać co najmniej 45 minut.
+#### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2. Utwórz bramę sieci VPN z konfiguracją Active-Active
+Utwórz bramę sieci wirtualnej dla sieci TestVNet1. Należy zauważyć, że istnieją dwa wpisy GatewayIpConfig i ustawiono flagę EnableActiveActiveFeature. Tworzenie bramy może potrwać co najmniej 45 minut.
 
 ```powershell
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
 ```
 
-#### <a name="3-obtain-the-gateway-public-ip-addresses-and-the-bgp-peer-ip-address"></a>3. Uzyskiwanie publicznych adresów IP bramy i równorzędnego adresu IP BGP
-Po utworzeniu bramy należy uzyskać adres IP elementu równorzędnego BGP w usłudze Azure VPN Gateway. Ten adres jest potrzebny do skonfigurowania bramy sieci VPN platformy Azure jako elementu równorzędnego BGP dla lokalnych urządzeń sieci VPN.
+#### <a name="3-obtain-the-gateway-public-ip-addresses-and-the-bgp-peer-ip-address"></a>3. Uzyskaj publiczne adresy IP bramy i adres IP elementu równorzędnego BGP
+Po utworzeniu bramy należy uzyskać adres IP elementu równorzędnego BGP na VPN Gateway platformy Azure. Ten adres jest wymagany do skonfigurowania VPN Gateway platformy Azure jako elementu równorzędnego protokołu BGP dla lokalnych urządzeń sieci VPN.
 
 ```powershell
 $gw1pip1 = Get-AzPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1
@@ -134,7 +134,7 @@ $gw1pip2 = Get-AzPublicIpAddress -Name $GW1IPName2 -ResourceGroupName $RG1
 $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 ```
 
-Użyj następujących poleceń cmdlet, aby wyświetlić dwa publiczne adresy IP przydzielone dla bramy sieci VPN i odpowiadające im adresy IP elementu równorzędnego BGP dla każdego wystąpienia bramy:
+Użyj następujących poleceń cmdlet, aby wyświetlić dwa publiczne adresy IP przydzieloną dla bramy sieci VPN, i odpowiadające im adresy IP elementów równorzędnych BGP dla każdego wystąpienia bramy:
 
 ```powershell
 PS D:\> $gw1pip1.IpAddress
@@ -151,20 +151,20 @@ PS D:\> $vnet1gw.BgpSettingsText
 }
 ```
 
-Kolejność publicznych adresów IP dla wystąpień bramy i odpowiadających im adresów równorzędnych BGP są takie same. W tym przykładzie maszyna wirtualna bramy z publicznym adresem IP 40.112.190.5 użyje 10.12.255.4 jako adresu równorzędnego BGP, a brama z 138.91.156.129 użyje 10.12.255.5. Te informacje są potrzebne podczas konfigurowania lokalnych urządzeń sieci VPN łączących się z bramą aktywny-aktywny. Brama jest pokazana na poniższym diagramie ze wszystkimi adresami:
+Kolejność publicznych adresów IP dla wystąpień bramy i odpowiednich adresów komunikacji równorzędnej BGP jest taka sama. W tym przykładzie maszyna wirtualna bramy z publicznym adresem IP 40.112.190.5 będzie używać 10.12.255.4 jako adresu komunikacji równorzędnej BGP, a brama z 138.91.156.129 będzie używać 10.12.255.5. Te informacje są potrzebne podczas konfigurowania lokalnych urządzeń sieci VPN nawiązujących połączenie z bramą Active-Active. Brama jest pokazywana na poniższym diagramie ze wszystkimi adresami:
 
-![brama aktywny-aktywny](./media/vpn-gateway-activeactive-rm-powershell/active-active-gw.png)
+![Brama Active-Active](./media/vpn-gateway-activeactive-rm-powershell/active-active-gw.png)
 
-Po utworzeniu bramy można użyć tej bramy do ustanowienia aktywnej sieci międzylokacjowej lub połączenia sieci wirtualnej z siecią wirtualną. W poniższych sekcjach przedstawiono kroki, aby ukończyć ćwiczenie.
+Po utworzeniu bramy można używać tej bramy do nawiązywania połączenia między różnymi lokalizacjami lub między sieciami wirtualnymi. W poniższych sekcjach opisano kroki, które należy wykonać w celu ukończenia ćwiczenia.
 
-## <a name="part-2---establish-an-active-active-cross-premises-connection"></a><a name ="aacrossprem"></a>Część 2 - Ustanowienie aktywnego połączenia między lokalami
-Aby ustanowić połączenie międzylokacje, należy utworzyć bramę sieci lokalnej do reprezentowania lokalnego urządzenia sieci VPN i połączenie, aby połączyć bramę sieci VPN platformy Azure z bramą sieci lokalnej. W tym przykładzie brama sieci VPN platformy Azure jest w trybie aktywnym i aktywnym. W rezultacie, mimo że istnieje tylko jedno lokalne urządzenie sieci VPN (brama sieci lokalnej) i jeden zasób połączenia, oba wystąpienia bramy sieci VPN platformy Azure ustanowią tunele sieci VPN S2S z urządzeniem lokalnym.
+## <a name="part-2---establish-an-active-active-cross-premises-connection"></a><a name ="aacrossprem"></a>Część 2 — Nawiązywanie połączenia między lokalizacjami aktywnymi i aktywnymi
+Aby nawiązać połączenie między różnymi lokalizacjami, należy utworzyć bramę sieci lokalnej do reprezentowania lokalnego urządzenia sieci VPN oraz połączenie z bramą sieci VPN platformy Azure z bramą sieć lokalną. W tym przykładzie Brama sieci VPN platformy Azure jest w trybie aktywny-aktywny. W związku z tym, mimo że istnieje tylko jedno lokalne urządzenie sieci VPN (Brama sieci lokalnej) i jeden zasób połączenia, wystąpienia bramy sieci VPN platformy Azure ustanawiają tunele sieci VPN S2S z urządzeniem lokalnym.
 
-Przed kontynuowaniem upewnij się, że ukończyłeś [część 1](#aagateway) tego ćwiczenia.
+Przed kontynuowaniem upewnij się, że wykonano [część 1](#aagateway) tego ćwiczenia.
 
-### <a name="step-1---create-and-configure-the-local-network-gateway"></a>Krok 1 - Tworzenie i konfigurowanie bramy sieci lokalnej
-#### <a name="1-declare-your-variables"></a>1. Zadeklaruj swoje zmienne
-To ćwiczenie będzie nadal tworzyć konfigurację pokazaną na diagramie. Należy pamiętać o zastąpieniu przykładowych wartości tymi, które mają zostać użyte w danej konfiguracji.
+### <a name="step-1---create-and-configure-the-local-network-gateway"></a>Krok 1 — Tworzenie i Konfigurowanie bramy sieci lokalnej
+#### <a name="1-declare-your-variables"></a>1. Zadeklaruj zmienne
+W tym ćwiczeniu będzie nadal można utworzyć konfigurację pokazaną na diagramie. Należy pamiętać o zastąpieniu przykładowych wartości tymi, które mają zostać użyte w danej konfiguracji.
 
 ```powershell
 $RG5 = "TestAARG5"
@@ -176,14 +176,14 @@ $LNGASN5 = 65050
 $BGPPeerIP51 = "10.52.255.253"
 ```
 
-Kilka rzeczy, na które należy zwrócić uwagę w odniesieniu do parametrów bramy sieci lokalnej:
+Kilka rzeczy, które należy zwrócić uwagę na parametry bramy sieci lokalnej:
 
-* Brama sieci lokalnej może znajdować się w tej samej lub innej lokalizacji i grupie zasobów co brama sieci VPN. W tym przykładzie przedstawiono je w różnych grupach zasobów, ale w tej samej lokalizacji platformy Azure.
-* Jeśli istnieje tylko jedno lokalne urządzenie sieci VPN, jak pokazano powyżej, aktywne połączenie może pracować z protokołem BGP lub bez niego. W tym przykładzie użyto protokołu BGP dla połączenia między lokalami.
-* Jeśli protokół BGP jest włączony, prefiks, który należy zadeklarować dla bramy sieci lokalnej, jest adresem hosta adresu IP elementu równorzędnego BGP na urządzeniu sieci VPN. W tym przypadku jest to /32 prefiks "10.52.255.253/32".
-* Przypominamy, że należy użyć różnych sieci ASN BGP między sieciami lokalnymi a siecią wirtualną platformy Azure. Jeśli są takie same, należy zmienić sieć wirtualną ASN, jeśli lokalne urządzenie sieci VPN już używa asn do obsługi równorzędnej z innymi sąsiadami protokołu BGP.
+* Brama sieci lokalnej może znajdować się w tej samej lub innej lokalizacji i grupie zasobów co Brama sieci VPN. Ten przykład pokazuje je w różnych grupach zasobów, ale w tej samej lokalizacji platformy Azure.
+* Jeśli istnieje tylko jedno lokalne urządzenie sieci VPN, jak pokazano powyżej, połączenie aktywne-aktywne może współdziałać z protokołem BGP lub bez niego. W tym przykładzie zastosowano protokół BGP dla połączenia obejmującego wiele lokalizacji.
+* W przypadku włączenia protokołu BGP prefiks, który należy zadeklarować dla bramy sieci lokalnej, jest adresem hosta adresu IP elementu równorzędnego BGP na urządzeniu sieci VPN. W tym przypadku jest to prefiks klasy/32 "10.52.255.253/32".
+* W razie konieczności należy używać różnych numerów ASN protokołu BGP między sieciami lokalnymi i siecią wirtualną platformy Azure. Jeśli są one takie same, należy zmienić numer ASN sieci wirtualnej, jeśli lokalne urządzenie sieci VPN już używa numeru ASN do komunikacji równorzędnej z innymi sąsiadami BGP.
 
-#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Tworzenie bramy sieci lokalnej dla lokacji5
+#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Utwórz bramę sieci lokalnej dla usługi Site5
 Przed kontynuowaniem upewnij się, że nadal masz połączenie z subskrypcją 1. Utwórz grupę zasobów, jeśli nie została jeszcze utworzona.
 
 ```powershell
@@ -191,7 +191,7 @@ New-AzResourceGroup -Name $RG5 -Location $Location5
 New-AzLocalNetworkGateway -Name $LNGName51 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP51 -AddressPrefix $LNGPrefix51 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP51
 ```
 
-### <a name="step-2---connect-the-vnet-gateway-and-local-network-gateway"></a>Krok 2 - Podłącz bramę sieci wirtualnej i bramę sieci lokalnej
+### <a name="step-2---connect-the-vnet-gateway-and-local-network-gateway"></a>Krok 2. Łączenie bramy sieci wirtualnej i bramy sieć lokalna
 #### <a name="1-get-the-two-gateways"></a>1. Pobierz dwie bramy
 
 ```powershell
@@ -199,15 +199,15 @@ $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
 $lng5gw1 = Get-AzLocalNetworkGateway  -Name $LNGName51 -ResourceGroupName $RG5
 ```
 
-#### <a name="2-create-the-testvnet1-to-site5-connection"></a>2. Utwórz połączenie TestVNet1 z witryną5
-W tym kroku należy utworzyć połączenie z TestVNet1 do Site5_1 z "EnableBGP" ustawiona na $True.
+#### <a name="2-create-the-testvnet1-to-site5-connection"></a>2. Utwórz sieci testvnet1 do połączenia site5
+W tym kroku utworzysz połączenie z sieci testvnet1, aby Site5_1 z opcją "EnableBGP" ustawioną na $True.
 
 ```powershell
 New-AzVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw1 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 ```
 
-#### <a name="3-vpn-and-bgp-parameters-for-your-on-premises-vpn-device"></a>3. Parametry VPN i BGP dla lokalnego urządzenia VPN
-W poniższym przykładzie wymieniono parametry wprowadzone w sekcji konfiguracji BGP na lokalnym urządzeniu sieci VPN dla tego ćwiczenia:
+#### <a name="3-vpn-and-bgp-parameters-for-your-on-premises-vpn-device"></a>3. parametry sieci VPN i protokołu BGP dla lokalnego urządzenia sieci VPN
+W poniższym przykładzie przedstawiono parametry, które należy wprowadzić do sekcji konfiguracyjnej protokołu BGP na lokalnym urządzeniu sieci VPN, w tym ćwiczeniu:
 
 ```
 - Site5 ASN            : 65050
@@ -221,15 +221,15 @@ W poniższym przykładzie wymieniono parametry wprowadzone w sekcji konfiguracji
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-Połączenie powinno zostać nawiązane po kilku minutach, a sesja równorzędna BGP rozpocznie się po nawiązaniu połączenia IPsec. W tym przykładzie do tej pory skonfigurowano tylko jedno lokalne urządzenie sieci VPN, co powoduje, że diagram pokazano poniżej:
+Połączenie powinno być nawiązywane po kilku minutach, a sesja komunikacji równorzędnej BGP rozpocznie się po nawiązaniu połączenia IPsec. W tym przykładzie skonfigurowano tylko jedno lokalne urządzenie sieci VPN, co prowadzi do poniższej ilustracji:
 
-![aktywny-aktywny-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
+![Active-Active-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
 
-### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>Krok 3 - Podłącz dwa lokalne urządzenia sieci VPN do aktywnej bramy sieci VPN
-Jeśli masz dwa urządzenia sieci VPN w tej samej sieci lokalnej, możesz osiągnąć podwójną nadmiarowość, łącząc bramę sieci VPN platformy Azure z drugim urządzeniem sieci VPN.
+### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>Krok 3. Łączenie dwóch lokalnych urządzeń sieci VPN z aktywną i aktywną bramą sieci VPN
+W przypadku dwóch urządzeń sieci VPN w tej samej sieci lokalnej można osiągnąć podwójną nadmiarowość, łącząc bramę sieci VPN platformy Azure z drugim urządzeniem sieci VPN.
 
-#### <a name="1-create-the-second-local-network-gateway-for-site5"></a>1. Tworzenie drugiej bramy sieci lokalnej dla lokacji5
-Adres IP bramy, prefiks adresu i adres równorzędny protokołu BGP dla drugiej bramy sieci lokalnej nie mogą pokrywać się z poprzednią bramą sieci lokalnej dla tej samej sieci lokalnej.
+#### <a name="1-create-the-second-local-network-gateway-for-site5"></a>1. Utwórz drugą bramę sieci lokalnej dla usługi Site5
+Adres IP bramy, prefiks adresu i adres komunikacji równorzędnej BGP dla drugiej bramy sieci lokalnej nie mogą nakładać się na poprzednią bramę sieci lokalnej dla tej samej sieci lokalnych.
 
 ```powershell
 $LNGName52 = "Site5_2"
@@ -242,8 +242,8 @@ $BGPPeerIP52 = "10.52.255.254"
 New-AzLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP52 -AddressPrefix $LNGPrefix52 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP52
 ```
 
-#### <a name="2-connect-the-vnet-gateway-and-the-second-local-network-gateway"></a>2. Podłącz bramę sieci wirtualnej i drugą bramę sieci lokalnej
-Utwórz połączenie z TestVNet1 do Site5_2 z "EnableBGP" ustawioną na $True
+#### <a name="2-connect-the-vnet-gateway-and-the-second-local-network-gateway"></a>2. Nawiąż połączenie z bramą sieci wirtualnej i drugą bramą sieć lokalną
+Utwórz połączenie z sieci testvnet1, aby Site5_2 z opcją "EnableBGP" ustawioną na $True
 
 ```powershell
 $lng5gw2 = Get-AzLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5
@@ -253,8 +253,8 @@ $lng5gw2 = Get-AzLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5
 New-AzVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw2 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 ```
 
-#### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. Parametry VPN i BGP dla drugiego lokalnego urządzenia VPN
-Podobnie, poniżej wymieniono parametry, które wprowadzisz w drugim urządzeniu VPN:
+#### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. parametry sieci VPN i protokołu BGP dla drugiego lokalnego urządzenia sieci VPN
+Podobnie, poniżej przedstawiono listę parametrów, które należy wprowadzić w drugim urządzeniu sieci VPN:
 
 ```
 - Site5 ASN            : 65050
@@ -268,21 +268,21 @@ Podobnie, poniżej wymieniono parametry, które wprowadzisz w drugim urządzeniu
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-Po nawiązaniu połączenia (tunele) będą dostępne dwa nadmiarowe urządzenia sieci VPN i tunele łączące sieć lokalną i platformę Azure:
+Po nawiązaniu połączenia (tunele) będziesz mieć dwa nadmiarowe urządzenia sieci VPN i tunele, które łączą się z siecią lokalną i platformą Azure:
 
-![podwójna redundancja-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
+![Podwójna nadmiarowość — crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
-## <a name="part-3---establish-an-active-active-vnet-to-vnet-connection"></a><a name ="aav2v"></a>Część 3 - Ustanawianie aktywnego połączenia sieci wirtualnej z siecią wirtualną
-W tej sekcji utworzy się aktywne połączenie sieci wirtualnej z siecią wirtualną z usługą BGP. 
+## <a name="part-3---establish-an-active-active-vnet-to-vnet-connection"></a><a name ="aav2v"></a>Część 3 — nawiązywanie połączenia sieci wirtualnej między sieciami wirtualnymi
+W tej sekcji jest tworzone połączenie między sieciami wirtualnymi w sieci wirtualnej z protokołem BGP. 
 
-Poniższe instrukcje stanowią ciąg dalszy poprzedzających je kroków wymienionych powyżej. Aby utworzyć i skonfigurować testvnet1 i bramę sieci VPN z usługą BGP, należy ukończyć [część 1.](#aagateway) 
+Poniższe instrukcje stanowią ciąg dalszy poprzedzających je kroków wymienionych powyżej. Należy ukończyć [część 1](#aagateway) , aby utworzyć i skonfigurować sieci testvnet1 oraz VPN Gateway przy użyciu protokołu BGP. 
 
-### <a name="step-1---create-testvnet2-and-the-vpn-gateway"></a>Krok 1 - Tworzenie TestVNet2 i bramy sieci VPN
-Ważne jest, aby upewnić się, że przestrzeń adresowa IP nowej sieci wirtualnej, TestVNet2, nie pokrywa się z żadnym z zakresów sieci wirtualnej.
+### <a name="step-1---create-testvnet2-and-the-vpn-gateway"></a>Krok 1. Tworzenie TestVNet2 i bramy sieci VPN
+Ważne jest, aby upewnić się, że przestrzeń adresów IP nowej sieci wirtualnej (TestVNet2) nie pokrywa się z żadnym z zakresów sieci wirtualnej.
 
-W tym przykładzie sieci wirtualne należą do tej samej subskrypcji. Można skonfigurować połączenia sieci wirtualnej z siecią wirtualną między różnymi subskrypcjami; aby dowiedzieć się więcej, zapoznaj się [z informacjami dotyczącymi konfigurowania połączenia sieci wirtualnej z siecią wirtualną.](vpn-gateway-vnet-vnet-rm-ps.md) Upewnij się, że podczas tworzenia połączeń dodano "-EnableBgp $True" w celu włączenia protokołu BGP.
+W tym przykładzie sieci wirtualne należą do tej samej subskrypcji. Połączenia między sieciami wirtualnymi można skonfigurować między różnymi subskrypcjami; Aby uzyskać więcej informacji, zapoznaj się z tematem [Konfigurowanie połączenia Sieć wirtualna-sieć wirtualna](vpn-gateway-vnet-vnet-rm-ps.md) . Pamiętaj o dodaniu "-EnableBgp $True" podczas tworzenia połączeń, aby włączyć protokół BGP.
 
-#### <a name="1-declare-your-variables"></a>1. Zadeklaruj swoje zmienne
+#### <a name="1-declare-your-variables"></a>1. Zadeklaruj zmienne
 Należy pamiętać o zastąpieniu przykładowych wartości tymi, które mają zostać użyte w danej konfiguracji.
 
 ```powershell
@@ -320,8 +320,8 @@ $gwsub2 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName2 -AddressPrefix $GWS
 New-AzVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2 -Location $Location2 -AddressPrefix $VNetPrefix21,$VNetPrefix22 -Subnet $fesub2,$besub2,$gwsub2
 ```
 
-#### <a name="3-create-the-active-active-vpn-gateway-for-testvnet2"></a>3. Tworzenie aktywnej bramy sieci VPN dla TestVNet2
-Zażądaj dwóch publicznych adresów IP, które mają być przydzielone do bramy, którą utworzysz dla sieci wirtualnej. Należy również zdefiniować wymagane konfiguracje podsieci i adresu IP.
+#### <a name="3-create-the-active-active-vpn-gateway-for-testvnet2"></a>3. Utwórz bramę sieci VPN typu Active-Active dla usługi TestVNet2
+Zażądaj przydzielenia dwóch publicznych adresów IP do bramy, która zostanie utworzona dla sieci wirtualnej. Zdefiniowano również wymagane konfiguracje podsieci i adresów IP.
 
 ```powershell
 $gw2pip1 = New-AzPublicIpAddress -Name $GW2IPName1 -ResourceGroupName $RG2 -Location $Location2 -AllocationMethod Dynamic
@@ -333,14 +333,14 @@ $gw2ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW2IPconf1 -Subnet $sub
 $gw2ipconf2 = New-AzVirtualNetworkGatewayIpConfig -Name $GW2IPconf2 -Subnet $subnet2 -PublicIpAddress $gw2pip2
 ```
 
-Utwórz bramę sieci VPN z numerem AS i flagą "EnableActiveActiveFeature". Należy zauważyć, że należy zastąpić domyślną sieć ASN w swoich bramach sieci VPN platformy Azure. Sieci ASN dla połączonych sieci wirtualnych muszą być różne, aby włączyć BGP i routingu tranzytowego.
+Utwórz bramę sieci VPN z numerem AS i flagą "EnableActiveActiveFeature". Należy pamiętać, że należy zastąpić domyślny numer ASN na bramach sieci VPN platformy Azure. Zawiadomienie ASN dla połączonej sieci wirtualnych musi być inne, aby można było włączyć routing BGP i transport.
 
 ```powershell
 New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet2ASN -EnableActiveActiveFeature
 ```
 
-### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>Krok 2 - Podłączanie bram TestVNet1 i TestVNet2
-W tym przykładzie obie bramy są w tej samej subskrypcji. Ten krok można wykonać w tej samej sesji programu PowerShell.
+### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>Krok 2. Łączenie bram sieci testvnet1 i TestVNet2
+W tym przykładzie obie bramy znajdują się w tej samej subskrypcji. Ten krok można wykonać w tej samej sesji programu PowerShell.
 
 #### <a name="1-get-both-gateways"></a>1. Pobierz obie bramy
 Pamiętaj o zalogowaniu się i połączeniu z subskrypcją 1.
@@ -350,8 +350,8 @@ $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 $vnet2gw = Get-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 ```
 
-#### <a name="2-create-both-connections"></a>2. Tworzenie obu połączeń
-W tym kroku utworzysz połączenie z TestVNet1 do TestVNet2 i połączenie z TestVNet2 do TestVNet1.
+#### <a name="2-create-both-connections"></a>2. Utwórz oba połączenia
+W tym kroku utworzysz połączenie od sieci testvnet1 do TestVNet2, a połączenie z TestVNet2 do sieci testvnet1.
 
 ```powershell
 New-AzVirtualNetworkGatewayConnection -Name $Connection12 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet2gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp $True
@@ -360,25 +360,25 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG
 ```
 
 > [!IMPORTANT]
-> Pamiętaj, aby włączyć BGP dla obu połączeń.
+> Należy pamiętać o włączeniu protokołu BGP dla obu połączeń.
 > 
 > 
 
-Po wykonaniu tych kroków połączenie zostanie nawiązane w ciągu kilku minut, a sesja równorzędna BGP będzie się po zakończeniu połączenia sieci wirtualnej z siecią wirtualną z podwójną nadmiarowością:
+Po wykonaniu tych kroków połączenie zostanie nawiązane w ciągu kilku minut, a sesja komunikacji równorzędnej BGP zostanie zakończona po zakończeniu połączenia między sieciami wirtualnymi przy użyciu podwójnej nadmiarowości:
 
-![active-active-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
+![Active-Active-V2V](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
 
 ## <a name="update-an-existing-vpn-gateway"></a><a name ="aaupdate"></a>Aktualizowanie istniejącej bramy sieci VPN
 
-Ta sekcja ułatwia zmianę istniejącej bramy sieci VPN platformy Azure z trybu aktywnego i aktywnego w trybie aktywnym lub na odwrót.
+Ta sekcja ułatwia zmianę istniejącej bramy sieci VPN platformy Azure z trybu aktywny-wstrzymanie w trybie aktywny-aktywny lub odwrotnie.
 
-### <a name="change-an-active-standby-gateway-to-an-active-active-gateway"></a>Zmienianie bramy aktywnej w trybie gotowości na bramę aktywną i aktywną
+### <a name="change-an-active-standby-gateway-to-an-active-active-gateway"></a>Zmiana bramy aktywnego stanu gotowości na bramę Active-Active
 
-Poniższy przykład konwertuje bramę aktywnego wstrzymania na bramę aktywny-aktywny. Po zmianie bramy aktywnej w trybie gotowości na aktywny-aktywny, należy utworzyć inny publiczny adres IP, a następnie dodać drugą konfigurację IP bramy.
+Poniższy przykład konwertuje bramę Active-Standby do bramy Active-Active. W przypadku zmiany bramy aktywnego stanu gotowości na aktywny-aktywny należy utworzyć inny publiczny adres IP, a następnie dodać drugą konfigurację protokołu IP bramy.
 
-#### <a name="1-declare-your-variables"></a>1. Zadeklaruj swoje zmienne
+#### <a name="1-declare-your-variables"></a>1. Zadeklaruj zmienne
 
-Zastąp następujące parametry używane w przykładach ustawieniami wymaganymi dla własnej konfiguracji, a następnie zadeklaruj te zmienne.
+Zastąp następujące parametry używane dla przykładów z ustawieniami, które są wymagane dla własnej konfiguracji, a następnie zadeklaruj te zmienne.
 
 ```powershell
 $GWName = "TestVNetAA1GW"
@@ -397,7 +397,7 @@ $gw = Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 $location = $gw.Location
 ```
 
-#### <a name="2-create-the-public-ip-address-then-add-the-second-gateway-ip-configuration"></a>2. Utwórz publiczny adres IP, a następnie dodaj drugą konfigurację IP bramy
+#### <a name="2-create-the-public-ip-address-then-add-the-second-gateway-ip-configuration"></a>2. Utwórz publiczny adres IP, a następnie Dodaj drugą konfigurację protokołu IP bramy
 
 ```powershell
 $gwpip2 = New-AzPublicIpAddress -Name $GWIPName2 -ResourceGroupName $RG -Location $location -AllocationMethod Dynamic
@@ -406,38 +406,38 @@ Add-AzVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPconf2 
 
 #### <a name="3-enable-active-active-mode-and-update-the-gateway"></a>3. Włącz tryb aktywny-aktywny i zaktualizuj bramę
 
-W tym kroku włączysz tryb aktywny-aktywny i zaktualizujesz bramę. W tym przykładzie brama sieci VPN korzysta obecnie ze starszej standardowej jednostki SKU. Jednak active-active nie obsługuje standardowej jednostki SKU. Aby zmienić rozmiar starszej jednostki SKU do tej, która jest obsługiwana (w tym przypadku HighPerformance), wystarczy określić obsługiwane starsze jednostki SKU, które mają być używane.
+W tym kroku włączasz tryb aktywny-aktywny i aktualizujesz bramę. W tym przykładzie Brama sieci VPN używa obecnie starszej standardowej jednostki SKU. Jednak usługa Active-Active nie obsługuje standardowej jednostki SKU. Aby zmienić rozmiar starszej wersji SKU na obsługiwaną przez program (w tym przypadku HighPerformance), wystarczy określić obsługiwaną starszą jednostkę SKU, która ma być używana.
 
-* Nie można zmienić starszej jednostki SKU na jedną z nowych jednostek SKU przy użyciu tego kroku. Rozmiar starszej jednostki SKU można zmienić tylko na inną obsługiwaną starszą jednostkę SKU. Na przykład nie można zmienić jednostki SKU ze standardowej na VpnGw1 (nawet jeśli VpnGw1 jest obsługiwany dla aktywnych aktywnych), ponieważ Standard jest starszą jednostką SKU, a VpnGw1 jest bieżącą jednostką SKU. Aby uzyskać więcej informacji na temat zmiany rozmiaru i migracji jednostek SKU, zobacz [Jednostki SKU bramy](vpn-gateway-about-vpngateways.md#gwsku).
+* W tym kroku nie można zmienić starszej wersji SKU na jedną z nowych jednostek SKU. Można zmienić rozmiar starszej jednostki SKU na inną obsługiwaną starszą jednostkę SKU. Nie można na przykład zmienić jednostki SKU z warstwy Standardowa na VpnGw1 (mimo że VpnGw1 jest obsługiwana w przypadku usługi Active-Active), ponieważ Standard jest starszą wersją SKU, a VpnGw1 jest bieżącą jednostką SKU. Aby uzyskać więcej informacji na temat zmiany rozmiarów i migracji jednostek SKU, zobacz [jednostki SKU bramy](vpn-gateway-about-vpngateways.md#gwsku).
 
-* Jeśli chcesz zmienić rozmiar bieżącej jednostki SKU, na przykład VpnGw1 do VpnGw3, możesz to zrobić za pomocą tego kroku, ponieważ jednostki SKU znajdują się w tej samej rodzinie jednostek SKU. Aby to zrobić, należy użyć wartości:```-GatewaySku VpnGw3```
+* Jeśli chcesz zmienić rozmiar bieżącej jednostki SKU, na przykład VpnGw1 do VpnGw3, możesz to zrobić za pomocą tego kroku, ponieważ jednostki SKU znajdują się w tej samej rodzinie SKU. W tym celu należy użyć wartości:```-GatewaySku VpnGw3```
 
-Gdy używasz tego w swoim środowisku, jeśli nie trzeba zmienić rozmiaru bramy, nie trzeba określić -GatewaySku. Należy zauważyć, że w tym kroku należy ustawić obiekt bramy w programie PowerShell, aby wyzwolić rzeczywistą aktualizację. Ta aktualizacja może potrwać od 30 do 45 minut, nawet jeśli nie zmiana rozmiaru bramy.
+Jeśli używasz tego środowiska w środowisku, jeśli nie musisz zmieniać rozmiaru bramy, nie musisz określać-GatewaySku. Należy zauważyć, że w tym kroku należy ustawić obiekt bramy w programie PowerShell, aby wyzwolić rzeczywistą aktualizację. Ta aktualizacja może potrwać od 30 do 45 minut, nawet jeśli nie zmieniasz rozmiarów bramy.
 
 ```powershell
 Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature -GatewaySku HighPerformance
 ```
 
-### <a name="change-an-active-active-gateway-to-an-active-standby-gateway"></a>Zmienianie bramy aktywnej i aktywnej na bramę aktywną w trybie gotowości
-#### <a name="1-declare-your-variables"></a>1. Zadeklaruj swoje zmienne
+### <a name="change-an-active-active-gateway-to-an-active-standby-gateway"></a>Zmiana bramy Active-Active na bramę Active-Standby
+#### <a name="1-declare-your-variables"></a>1. Zadeklaruj zmienne
 
-Zastąp następujące parametry używane w przykładach ustawieniami wymaganymi dla własnej konfiguracji, a następnie zadeklaruj te zmienne.
+Zastąp następujące parametry używane dla przykładów z ustawieniami, które są wymagane dla własnej konfiguracji, a następnie zadeklaruj te zmienne.
 
 ```powershell
 $GWName = "TestVNetAA1GW"
 $RG = "TestVPNActiveActive01"
 ```
 
-Po zadeklarowaniu zmiennych pobierz nazwę konfiguracji IP, którą chcesz usunąć.
+Po zadeklarowaniu zmiennych Pobierz nazwę konfiguracji protokołu IP, którą chcesz usunąć.
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 $ipconfname = $gw.IpConfigurations[1].Name
 ```
 
-#### <a name="2-remove-the-gateway-ip-configuration-and-disable-the-active-active-mode"></a>2. Usuń konfigurację IP bramy i wyłącz tryb aktywny-aktywny
+#### <a name="2-remove-the-gateway-ip-configuration-and-disable-the-active-active-mode"></a>2. Usuń konfigurację protokołu IP bramy i Wyłącz tryb aktywny-aktywny.
 
-W tym przykładzie można usunąć konfigurację ip bramy i wyłączyć tryb aktywny-aktywny. Należy zauważyć, że należy ustawić obiekt bramy w programie PowerShell, aby wyzwolić rzeczywistą aktualizację.
+Użyj tego przykładu, aby usunąć konfigurację adresu IP bramy i wyłączyć tryb aktywny-aktywny. Zwróć uwagę, że musisz ustawić obiekt bramy w programie PowerShell, aby wyzwolić rzeczywistą aktualizację.
 
 ```powershell
 Remove-AzVirtualNetworkGatewayIpConfig -Name $ipconfname -VirtualNetworkGateway $gw

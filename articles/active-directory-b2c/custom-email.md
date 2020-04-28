@@ -1,7 +1,7 @@
 ---
 title: Niestandardowe weryfikacje wiadomości e-mail
 titleSuffix: Azure AD B2C
-description: Dowiedz się, jak dostosować weryfikacyjną wiadomość e-mail wysłaną do klientów podczas rejestracji w celu korzystania z aplikacji obsługujących usługę Azure AD B2C.
+description: Dowiedz się, jak dostosować weryfikację wiadomości e-mail wysyłanych do klientów podczas rejestrowania się w celu korzystania z aplikacji obsługujących Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,50 +12,50 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6cc0508a63f26b955ac5e0ebf3ef58a184a35997
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78671631"
 ---
-# <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Niestandardowa weryfikacja poczty e-mail w usłudze Azure Active Directory B2C
+# <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Niestandardowa Weryfikacja poczty e-mail w Azure Active Directory B2C
 
-Użyj niestandardowej poczty e-mail w usłudze Azure Active Directory B2C (Azure AD B2C), aby wysłać niestandardową wiadomość e-mail do użytkowników, którzy zarejestrują się, aby korzystać z aplikacji. Korzystając z [funkcji DisplayControls](display-controls.md) (obecnie w wersji zapoznawczej) i dostawcy poczty e-mail innej firmy, można użyć własnego szablonu poczty e-mail i *od:* adresu i tematu, a także obsługi lokalizacji i niestandardowych ustawień hasła jednorazowego (OTP).
+Użyj niestandardowych wiadomości e-mail w programie Azure Active Directory B2C (Azure AD B2C), aby wysyłać niestandardowe wiadomości e-mail do użytkowników, którzy logują się w celu korzystania z aplikacji. Korzystając z usługi [DisplayControls](display-controls.md) (obecnie w wersji zapoznawczej) i dostawcy poczty e-mail innej firmy, można użyć własnego szablonu wiadomości E-mail oraz *z adresu:* adres i temat, a także do obsługi lokalizacji i niestandardowych ustawień hasła jednorazowego (OTP).
 
-Niestandardowa weryfikacja poczty e-mail wymaga użycia zewnętrznego dostawcy poczty e-mail, takiego jak [SendGrid](https://sendgrid.com) lub [SparkPost,](https://sparkpost.com)niestandardowego interfejsu API REST lub dowolnego dostawcy poczty e-mail opartego na protokosze HTTP (w tym własnego). W tym artykule opisano konfigurowanie rozwiązania korzystającego z sendgrid.
+Niestandardowa Weryfikacja poczty e-mail wymaga użycia dostawcy poczty e-mail innej firmy, takiego jak [SendGrid](https://sendgrid.com) lub [SparkPost](https://sparkpost.com), niestandardowy interfejs API REST lub dowolny dostawca poczty e-mail oparty na protokole HTTP (w tym własny). W tym artykule opisano konfigurowanie rozwiązania korzystającego z SendGrid.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="create-a-sendgrid-account"></a>Tworzenie konta SendGrid
+## <a name="create-a-sendgrid-account"></a>Utwórz konto SendGrid
 
-Jeśli jeszcze go nie masz, zacznij od skonfigurowania konta SendGrid (klienci platformy Azure mogą odblokować 25 000 bezpłatnych wiadomości e-mail każdego miesiąca). Aby uzyskać instrukcje dotyczące konfiguracji, zobacz [sekcję Tworzenie konta SendGrid](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) w sekcji [Jak wysyłać wiadomości e-mail przy użyciu sendgridu za pomocą platformy Azure](../sendgrid-dotnet-how-to-send-email.md).
+Jeśli jeszcze tego nie masz, Zacznij od skonfigurowania konta SendGrid (klienci platformy Azure mogą odblokować 25 000 bezpłatnych wiadomości e-mail miesięcznie). Instrukcje dotyczące instalacji znajdują się w sekcji [Tworzenie konta SendGrid](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) w temacie [jak wysyłać wiadomości E-mail przy użyciu usługi SendGrid z platformą Azure](../sendgrid-dotnet-how-to-send-email.md).
 
-Pamiętaj, aby ukończyć sekcję, w której [utworzysz klucz interfejsu API SendGrid](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key). Zapisz klucz interfejsu API do użycia w późniejszym kroku.
+Pamiętaj, aby ukończyć sekcję, w której [tworzysz klucz interfejsu API SendGrid](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key). Zapisz klucz interfejsu API do użycia w późniejszym kroku.
 
-## <a name="create-azure-ad-b2c-policy-key"></a>Tworzenie klucza zasad usługi Azure AD B2C
+## <a name="create-azure-ad-b2c-policy-key"></a>Utwórz klucz zasad Azure AD B2C
 
-Następnie należy przechowywać klucz interfejsu API SendGrid w kluczu zasad usługi Azure AD B2C dla zasad do odwołania.
+Następnie Zapisz klucz interfejsu API SendGrid w kluczu zasad Azure AD B2C, aby uzyskać informacje dotyczące zasad.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
-1. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD B2C. Wybierz filtr **subskrypcja Katalogu +** w górnym menu i wybierz katalog usługi Azure AD B2C.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Upewnij się, że używasz katalogu zawierającego dzierżawcę Azure AD B2C. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog Azure AD B2C.
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
-1. Na stronie Przegląd wybierz pozycję **Identity Experience Framework**.
-1. Wybierz pozycję **Klawisze zasad,** a następnie wybierz pozycję **Dodaj**.
-1. W **Options**przypadku `Manual`opcji wybierz opcję .
-1. Wprowadź **nazwę** klucza zasad. Na przykład `SendGridSecret`. Prefiks `B2C_1A_` zostanie automatycznie dodany do nazwy klucza.
-1. W **pliku Secret**wprowadź wcześniej zarejestrowany klucz tajny klienta.
-1. Dla **użycia klucza**wybierz opcję `Signature`.
-1. Wybierz **pozycję Utwórz**.
+1. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
+1. Wybierz pozycję **klucze zasad** , a następnie wybierz pozycję **Dodaj**.
+1. W obszarze **Opcje**wybierz `Manual`opcję.
+1. Wprowadź **nazwę** klucza zasad. Na przykład `SendGridSecret`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
+1. W **kluczu tajnym**wprowadź wcześniej zarejestrowany klucz tajny klienta.
+1. W obszarze **użycie klucza**wybierz `Signature`opcję.
+1. Wybierz przycisk **Utwórz**.
 
-## <a name="create-sendgrid-template"></a>Tworzenie szablonu SendGrid
+## <a name="create-sendgrid-template"></a>Utwórz szablon SendGrid
 
-Po utworzeniu konta SendGrid i kluczu interfejsu API SendGrid przechowywanym w kluczu zasad usługi Azure AD B2C należy utworzyć [szablon transakcyjny dynamiczny](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)SendGrid .
+Przy użyciu konta SendGrid i klucza interfejsu API SendGrid przechowywanego w kluczu zasad Azure AD B2C Utwórz [dynamiczny szablon transakcyjny](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)SendGrid.
 
-1. W witrynie SendGrid otwórz stronę [szablony transakcyjne](https://sendgrid.com/dynamic_templates) i wybierz pozycję **Utwórz szablon**.
-1. Wprowadź unikatową nazwę `Verification email` szablonu, a następnie wybierz pozycję **Zapisz**.
-1. Aby rozpocząć edycję nowego szablonu, wybierz pozycję **Dodaj wersję**.
-1. Wybierz **pozycję Edytor kodu,** a następnie **kontynuuj**.
-1. W edytorze HTML wklej następujący szablon HTML lub użyj własnego. Parametry `{{otp}}` `{{email}}` i parametry zostaną zastąpione dynamicznie wartością hasła jednorazowego i adresem e-mail użytkownika.
+1. W witrynie SendGrid Otwórz stronę [Szablony transakcyjne](https://sendgrid.com/dynamic_templates) i wybierz pozycję **Utwórz szablon**.
+1. Wprowadź unikatową nazwę szablonu, `Verification email` taką jak, a następnie wybierz pozycję **Zapisz**.
+1. Aby rozpocząć edytowanie nowego szablonu, wybierz pozycję **Dodaj wersję**.
+1. Wybierz **Edytor kodu** , a następnie **Kontynuuj**.
+1. W edytorze HTML wklej następujący szablon HTML lub użyj własnych. Parametry `{{otp}}` i `{{email}}` zostaną zamienione dynamicznie z wartością hasła jednorazowego i adresem e-mail użytkownika.
 
     ```HTML
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -151,14 +151,14 @@ Po utworzeniu konta SendGrid i kluczu interfejsu API SendGrid przechowywanym w k
     </html>
     ```
 
-1. Rozwiń **ustawienia** po lewej stronie, `{{subject}}`a w przypadku **tematu wiadomości e-mail**wprowadź .
-1. Wybierz **pozycję Zapisz szablon**.
-1. Wróć do strony **Szablony transakcyjne,** wybierając strzałkę wstecz.
-1. Zapisz **identyfikator** szablonu utworzonego do użycia w późniejszym kroku. Na przykład `d-989077fbba9746e89f3f6411f596fb96`. Ten identyfikator należy określić podczas [dodawania transformacji oświadczeń](#add-the-claims-transformation).
+1. Rozwiń pozycję **Ustawienia** po lewej stronie, a w polu **temat wiadomości e-mail**wprowadź `{{subject}}`wartość.
+1. Wybierz pozycję **Zapisz szablon**.
+1. Wróć do strony **Szablony transakcyjne** , wybierając strzałkę wstecz.
+1. Zapisz **Identyfikator** szablonu, który został utworzony do użycia w późniejszym kroku. Na przykład `d-989077fbba9746e89f3f6411f596fb96`. Ten identyfikator należy określić podczas [dodawania transformacji oświadczeń](#add-the-claims-transformation).
 
-## <a name="add-azure-ad-b2c-claim-types"></a>Dodawanie typów oświadczeń usługi Azure AD B2C
+## <a name="add-azure-ad-b2c-claim-types"></a>Dodawanie Azure AD B2C typów roszczeń
 
-W zasadach dodaj następujące typy `<ClaimsSchema>` oświadczeń `<BuildingBlocks>`do elementu w programie .
+W zasadach Dodaj następujące typy roszczeń do `<ClaimsSchema>` elementu w `<BuildingBlocks>`elemencie.
 
 Te typy oświadczeń są niezbędne do generowania i weryfikowania adresu e-mail przy użyciu kodu hasła jednorazowego (OTP).
 
@@ -181,15 +181,15 @@ Te typy oświadczeń są niezbędne do generowania i weryfikowania adresu e-mail
 
 ## <a name="add-the-claims-transformation"></a>Dodawanie transformacji oświadczeń
 
-Następnie potrzebujesz transformacji oświadczeń do wysiedlić oświadczenie ciągu JSON, które będzie treścią żądania wysłanego do SendGrid.
+Następnie konieczne jest przekształcenie oświadczeń, aby uzyskać dane wyjściowe oświadczenia ciągu JSON, które będzie treścią żądania wysłanego do SendGrid.
 
-Struktura obiektu JSON jest zdefiniowana przez identyfikatory w notacji punktowej InputParameters i TransformationClaimTypes z InputClaims. Liczby w notacji kropkowej implikują tablice. Wartości pochodzą z InputClaims' wartości i InputParameters "Value" właściwości. Aby uzyskać więcej informacji na temat przekształceń oświadczeń JSON, zobacz [Przekształcenia oświadczeń JSON](json-transformations.md).
+Struktura obiektu JSON jest definiowana przez identyfikatory w notacji kropkowej obiektu InputParameters i TransformationClaimTypes InputClaims. Liczby w zapisie kropkowym oznaczają tablice. Wartości pochodzą z wartości InputClaims i właściwości InputParameters "". Aby uzyskać więcej informacji na temat transformacji oświadczeń JSON, zobacz [przekształcenia oświadczeń JSON](json-transformations.md).
 
-Dodaj następujące przekształcenia `<ClaimsTransformations>` oświadczeń `<BuildingBlocks>`do elementu w ramach . Wprowadzać następujące aktualizacje xml transformacji oświadczeń:
+Dodaj następującą transformację oświadczeń do `<ClaimsTransformations>` elementu w. `<BuildingBlocks>` Wprowadź następujące aktualizacje do przekształcenia XML oświadczeń:
 
-* Zaktualizuj `template_id` wartość InputParameter o identyfikator szablonu transakcyjnego SendGrid utworzonego wcześniej w [szablonie Utwórz sendgrid](#create-sendgrid-template).
-* Zaktualizuj `from.email` wartość adresu. Użyj prawidłowego adresu e-mail, aby zapobiec oznaczaniu wiadomości e-mail weryfikacyjnej jako spamu.
-* Zaktualizuj `personalizations.0.dynamic_template_data.subject` wartość parametru wejściowego wiersza tematu za pomocą wiersza tematu odpowiedniego dla twojej organizacji.
+* Zaktualizuj wartość `template_id` INPUTPARAMETER o identyfikator szablonu transakcyjnego SendGrid utworzonego wcześniej w [szablonie tworzenie SendGrid](#create-sendgrid-template).
+* Zaktualizuj wartość `from.email` adresu. Użyj prawidłowego adresu e-mail, aby pomóc w zapobieganiu oznaczania wiadomości e-mail weryfikacyjnej jako spamu.
+* Zaktualizuj wartość parametru wejściowego `personalizations.0.dynamic_template_data.subject` wiersza tematu z wierszem tematu odpowiednim dla Twojej organizacji.
 
 ```XML
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
@@ -211,9 +211,9 @@ Dodaj następujące przekształcenia `<ClaimsTransformations>` oświadczeń `<Bu
 </ClaimsTransformation>
 ```
 
-## <a name="add-datauri-content-definition"></a>Dodawanie definicji zawartości DataUri
+## <a name="add-datauri-content-definition"></a>Dodaj definicję zawartości DataUri
 
-Poniżej przekształcenia `<BuildingBlocks>`oświadczeń w ramach , dodać następujące [ContentDefinition](contentdefinitions.md) do odwołania się do identyfikatora URI danych w wersji 2.0.0:
+Poniżej przekształceń oświadczeń w `<BuildingBlocks>`programie Dodaj następujący [ContentDefinition](contentdefinitions.md) , aby odwołać się do identyfikatora URI danych 2.0.0:
 
 ```XML
 <ContentDefinitions>
@@ -223,20 +223,20 @@ Poniżej przekształcenia `<BuildingBlocks>`oświadczeń w ramach , dodać nast�
 </ContentDefinitions>
 ```
 
-## <a name="create-a-displaycontrol"></a>Tworzenie displaycontrol
+## <a name="create-a-displaycontrol"></a>Tworzenie elementu DisplayControl
 
-Formant wyświetlania weryfikacji służy do weryfikacji adresu e-mail za pomocą kodu weryfikacyjnego, który jest wysyłany do użytkownika.
+Kontrolka wyświetlania weryfikacji służy do weryfikowania adresu e-mail z kodem weryfikacyjnym, który jest wysyłany do użytkownika.
 
-W tym przykładzie kontrolka wyświetlania jest skonfigurowana w taki sposób:
+Ten przykładowy formant wyświetlania jest skonfigurowany do:
 
-1. Zbieranie `email` typu oświadczenia adresu od użytkownika.
-1. Poczekaj, aż użytkownik `verificationCode` poda typ oświadczenia z kodem wysłanym do użytkownika.
-1. `email` Powrót do samodzielnie potwierdzonego profilu technicznego, który ma odwołanie do tego formantu wyświetlania.
-1. Korzystając `SendCode` z akcji, wygeneruj kod OTP i wyślij do użytkownika wiadomość e-mail z kodem OTP.
+1. Zbierz typ `email` zgłoszenia adresu od użytkownika.
+1. Poczekaj, aż użytkownik poda `verificationCode` typ zgłoszenia przy użyciu kodu wysłanego do użytkownika.
+1. `email` Zwróć zwrot do profilu technicznego z własnym potwierdzeniem, który ma odwołanie do tego formantu ekranu.
+1. Za pomocą `SendCode` akcji Wygeneruj kod OTP i Wyślij wiadomość e-mail z kodem OTP do użytkownika.
 
-![Wyślij akcję e-mail z kodem weryfikacyjnym](media/custom-email/display-control-verification-email-action-01.png)
+![Wyślij wiadomość e-mail z kodem weryfikacyjnym](media/custom-email/display-control-verification-email-action-01.png)
 
-W definicje zawartości, `<BuildingBlocks>`nadal w ramach , dodać następujące [DisplayControl](display-controls.md) typu [VerificationControl](display-control-verification.md) do zasad.
+W obszarze definicje zawartości nadal w `<BuildingBlocks>`ramach programu Dodaj do zasad następujący [formant DisplayControl](display-controls.md) typu [VerificationControl](display-control-verification.md) .
 
 ```XML
 <DisplayControls>
@@ -265,11 +265,11 @@ W definicje zawartości, `<BuildingBlocks>`nadal w ramach , dodać następujące
 </DisplayControls>
 ```
 
-## <a name="add-otp-technical-profiles"></a>Dodawanie profili technicznych OTP
+## <a name="add-otp-technical-profiles"></a>Dodaj profile techniczne OTP
 
-Profil `GenerateOtp` techniczny generuje kod adresu e-mail. Profil `VerifyOtp` techniczny weryfikuje kod skojarzony z adresem e-mail. Można zmienić konfigurację formatu i wygaśnięcie hasła jednorazowego. Aby uzyskać więcej informacji na temat profili technicznych OTP, zobacz [Definiowanie profilu technicznego hasła jednorazowego](one-time-password-technical-profile.md).
+Profil `GenerateOtp` techniczny generuje kod dla adresu e-mail. Profil `VerifyOtp` techniczny weryfikuje kod skojarzony z adresem e-mail. Można zmienić konfigurację formatu i czas wygaśnięcia hasła jednorazowego. Więcej informacji o profilach technicznych OTP znajduje się w temacie [Definiowanie profilu technicznego hasła jednorazowego](one-time-password-technical-profile.md).
 
-Dodaj następujące profile techniczne `<ClaimsProviders>` do elementu.
+Dodaj następujące profile techniczne do `<ClaimsProviders>` elementu.
 
 ```XML
 <ClaimsProvider>
@@ -311,9 +311,9 @@ Dodaj następujące profile techniczne `<ClaimsProviders>` do elementu.
 
 ## <a name="add-a-rest-api-technical-profile"></a>Dodawanie profilu technicznego interfejsu API REST
 
-Ten profil techniczny interfejsu API REST generuje zawartość wiadomości e-mail (przy użyciu formatu SendGrid). Aby uzyskać więcej informacji na temat profili technicznych RESTful, zobacz [Definiowanie profilu technicznego RESTful](restful-technical-profile.md).
+Profil techniczny interfejsu API REST generuje zawartość wiadomości e-mail (przy użyciu formatu SendGrid). Więcej informacji o profilach technicznych RESTful znajduje się w temacie [Definiowanie profilu technicznego RESTful](restful-technical-profile.md).
 
-Podobnie jak w profilach technicznych OTP, dodaj `<ClaimsProviders>` do elementu następujące profile techniczne.
+Podobnie jak w przypadku profilów technicznych OTP, do `<ClaimsProviders>` elementu należy dodać następujące profile techniczne.
 
 ```XML
 <ClaimsProvider>
@@ -342,11 +342,11 @@ Podobnie jak w profilach technicznych OTP, dodaj `<ClaimsProviders>` do elementu
 </ClaimsProvider>
 ```
 
-## <a name="make-a-reference-to-the-displaycontrol"></a>Odwoływanie się do DisplayControl
+## <a name="make-a-reference-to-the-displaycontrol"></a>Utwórz odwołanie do elementu DisplayControl
 
-W ostatnim kroku dodaj odwołanie do displaycontrol utworzonego. Zastąp istniejący `LocalAccountSignUpWithLogonEmail` samodzielnie potwierdzony profil techniczny następującym, jeśli użyto wcześniejszej wersji zasad usługi Azure AD B2C. Ten profil techniczny `DisplayClaims` używa z odwołaniem do DisplayControl.
+W ostatnim kroku Dodaj odwołanie do utworzonego elementu DisplayControl. Jeśli używasz wcześniejszej wersji zasad Azure AD B2C, Zastąp istniejący `LocalAccountSignUpWithLogonEmail` własny profil techniczny z poniższymi zasadami. Ten profil techniczny jest `DisplayClaims` używany wraz z odwołaniem do elementu DisplayControl.
 
-Aby uzyskać więcej informacji, zobacz [Samodzielnie potwierdzony profil techniczny](restful-technical-profile.md) i [DisplayControl](display-controls.md).
+Aby uzyskać więcej informacji, Zobacz Profil techniczny i [formant DisplayControl](display-controls.md)z [własnym potwierdzeniem](restful-technical-profile.md) .
 
 ```XML
 <ClaimsProvider>
@@ -393,14 +393,14 @@ Aby uzyskać więcej informacji, zobacz [Samodzielnie potwierdzony profil techni
 </ClaimsProvider>
 ```
 
-## <a name="optional-localize-your-email"></a>[Opcjonalnie] Lokalizowanie poczty e-mail
+## <a name="optional-localize-your-email"></a>Obowiązkowe Lokalizowanie poczty e-mail
 
-Aby zlokalizować wiadomość e-mail, należy wysłać zlokalizowane ciągi do SendGrid lub dostawcy poczty e-mail. Na przykład, aby zlokalizować temat wiadomości e-mail, treść, wiadomość kod lub podpis wiadomości e-mail. Aby to zrobić, można użyć [GetLocalizedStringsTransformation](string-transformations.md) roszczeń transformacji do kopiowania zlokalizowanych ciągów do typów oświadczeń. W `GenerateSendGridRequestBody` transformacji oświadczeń, która generuje ładunek JSON, używa oświadczeń wejściowych, które zawierają zlokalizowane ciągi.
+Aby zlokalizować tę wiadomość e-mail, musisz wysłać zlokalizowane ciągi do SendGrid lub dostawcę poczty e-mail. Na przykład lokalizowanie tematu wiadomości e-mail, treści, wiadomości z kodem lub podpisu wiadomości e-mail. W tym celu można użyć transformacji oświadczeń [GetLocalizedStringsTransformation](string-transformations.md) do kopiowania zlokalizowanych ciągów do typów oświadczeń. W transformacji `GenerateSendGridRequestBody` oświadczeń, która GENERUJE ładunek JSON, używa oświadczeń wejściowych, które zawierają zlokalizowane ciągi.
 
-1. W zasadach zdefiniuj następujące oświadczenia ciągów: temat, wiadomość, codeIntro i podpis.
-1. Zdefiniuj transformację oświadczeń [GetLocalizedStringsTransformation,](string-transformations.md) aby zastąpić zlokalizowane wartości ciągów w oświadczeniach z kroku 1.
-1. Zmień `GenerateSendGridRequestBody` transformację oświadczeń, aby używać oświadczeń wejściowych z następującym fragmentem kodu XML.
-1. Zaktualizuj szablon SendGrind, aby używać parametrów dynamicznych zamiast wszystkich ciągów, które będą zlokalizowane przez usługę Azure AD B2C.
+1. W zasadach Zdefiniuj następujące oświadczenia ciągu: subject, Message, codeIntro i Signature.
+1. Zdefiniuj transformację oświadczeń [GetLocalizedStringsTransformation](string-transformations.md) , aby zastąpić zlokalizowane wartości ciągu do oświadczeń z kroku 1.
+1. Zmień transformację oświadczeń, `GenerateSendGridRequestBody` tak aby korzystała z oświadczeń wejściowych z poniższym FRAGMENTEM kodu XML.
+1. Zaktualizuj szablon SendGrind, tak aby korzystał z parametrów dynamicznych zamiast wszystkich ciągów, które będą lokalizowane przez Azure AD B2C.
 
 ```XML
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
@@ -425,8 +425,8 @@ Aby zlokalizować wiadomość e-mail, należy wysłać zlokalizowane ciągi do S
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz znaleźć przykład niestandardowych zasad weryfikacji poczty e-mail w usłudze GitHub:
+Przykład niestandardowych zasad weryfikacji poczty e-mail można znaleźć w witrynie GitHub:
 
-[Niestandardowa weryfikacja poczty e-mail — DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
+[Niestandardowa Weryfikacja poczty e-mail — DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
 
-Aby uzyskać informacje dotyczące korzystania z niestandardowego interfejsu API REST lub dowolnego dostawcy poczty E-mail SMTP opartego na protok lub protok/i, zobacz [Definiowanie profilu technicznego restful w zasadach niestandardowych usługi Azure AD B2C](restful-technical-profile.md).
+Aby uzyskać informacje o korzystaniu z niestandardowego interfejsu API REST lub dowolnego dostawcy poczty e-mail opartego na protokole HTTP, zobacz [Definiowanie profilu technicznego RESTful w zasadach niestandardowych Azure AD B2C](restful-technical-profile.md).

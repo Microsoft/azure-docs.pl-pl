@@ -1,6 +1,6 @@
 ---
-title: Synchronizowanie atrybutów z usługą Azure AD w celu mapowania | Dokumenty firmy Microsoft
-description: Dowiedz się, jak synchronizować atrybuty z lokalnej usługi Active Directory z usługą Azure AD. Podczas konfigurowania inicjowania obsługi administracyjnej użytkowników w aplikacjach SaaS należy użyć funkcji rozszerzenia katalogu, aby dodać atrybuty źródłowe, które nie są domyślnie synchronizowane.
+title: Synchronizowanie atrybutów z usługą Azure AD na potrzeby mapowania | Microsoft Docs
+description: Dowiedz się, jak synchronizować atrybuty z Active Directory lokalnego z usługą Azure AD. Podczas konfigurowania aprowizacji użytkowników do aplikacji SaaS Użyj funkcji rozszerzenia katalogu, aby dodać atrybuty źródłowe, które nie są domyślnie synchronizowane.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,47 +16,47 @@ ms.author: mimart
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 09d1efaf54bee65bd3274987e68e643f887baade
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77522275"
 ---
-# <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Synchronizowanie atrybutu z lokalnej usługi Active Directory z usługą Azure AD w celu inicjowania obsługi administracyjnej aplikacji
+# <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Synchronizowanie atrybutu z Active Directory lokalnego z usługą Azure AD w celu aprowizacji aplikacji
 
-Podczas dostosowywania mapowania atrybutów do inicjowania obsługi administracyjnej przez użytkowników może się okazać, że atrybut, który chcesz zamapować, nie jest wyświetlany na liście **atrybutów Źródło.** W tym artykule pokazano, jak dodać brakujący atrybut, synchronizując go z lokalnej usługi Active Directory (AD) do usługi Azure Active Directory (Azure AD).
+Podczas dostosowywania mapowań atrybutów do aprowizacji użytkowników może się okazać, że atrybut, który ma być mapowany, nie jest wyświetlany na liście **atrybutów źródłowych** . W tym artykule pokazano, jak dodać brakujący atrybut przez zsynchronizowanie go z lokalnej Active Directory (AD) do Azure Active Directory (Azure AD).
 
-Usługa Azure AD musi zawierać wszystkie dane wymagane do utworzenia profilu użytkownika podczas inicjowania obsługi administracyjnej kont użytkowników z usługi Azure AD do aplikacji SaaS. W niektórych przypadkach, aby udostępnić dane, może być konieczne zsynchronizowanie atrybutów z lokalnej usługi AD na usługę Azure AD. Usługa Azure AD Connect automatycznie synchronizuje niektóre atrybuty z usługą Azure AD, ale nie wszystkie atrybuty. Ponadto niektóre atrybuty (takie jak SAMAccountName), które są domyślnie synchronizowane, mogą nie być udostępniane przy użyciu interfejsu API programu Microsoft Graph. W takich przypadkach można użyć funkcji rozszerzenia katalogu usługi Azure AD Connect, aby zsynchronizować atrybut z usługą Azure AD. W ten sposób atrybut będzie widoczny dla interfejsu API programu Microsoft Graph i usługi inicjowania obsługi administracyjnej usługi Azure AD.
+Usługa Azure AD musi zawierać wszystkie dane wymagane do utworzenia profilu użytkownika podczas aprowizacji kont użytkowników z usługi Azure AD do aplikacji SaaS. W niektórych przypadkach, aby udostępnić dane, może być konieczne zsynchronizowanie atrybutów z lokalnej usługi AD do usługi Azure AD. Azure AD Connect automatycznie synchronizuje niektóre atrybuty do usługi Azure AD, ale nie wszystkie atrybuty. Ponadto niektóre atrybuty (takie jak SAMAccountName), które są domyślnie synchronizowane, mogą nie być ujawnione przy użyciu interfejsu API Microsoft Graph. W takich przypadkach można użyć funkcji rozszerzenia katalogu Azure AD Connect, aby zsynchronizować atrybut z usługą Azure AD. Dzięki temu atrybut będzie widoczny dla interfejsu API Microsoft Graph i usługi Azure AD Provisioning.
 
-Jeśli dane potrzebne do inicjowania obsługi administracyjnej znajdują się w usłudze Active Directory, ale nie są dostępne do inicjowania obsługi administracyjnej z przyczyn opisanych powyżej, wykonaj następujące kroki.
+Jeśli dane potrzebne do aprowizacji są w Active Directory ale nie są dostępne do aprowizacji z powodów opisanych powyżej, wykonaj te kroki.
  
 ## <a name="sync-an-attribute"></a>Synchronizowanie atrybutu 
 
-1. Otwórz kreatora usługi Azure AD Connect, wybierz pozycję Zadania, a następnie wybierz pozycję **Dostosuj opcje synchronizacji**.
+1. Otwórz Kreatora Azure AD Connect, wybierz pozycję zadania, a następnie wybierz pozycję **Dostosuj opcje synchronizacji**.
 
-   ![Kreator łączyć usługi Azure Active Directory](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-customize.png)
+   ![Strona dodatkowych zadań kreatora Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-customize.png)
  
-2. Zaloguj się jako globalny administrator usługi Azure AD. 
+2. Zaloguj się jako Administrator globalny usługi Azure AD. 
 
-3. Na stronie **Funkcje opcjonalne** wybierz pozycję **Synchronizacja atrybutów rozszerzenia katalogu**.
+3. Na stronie **funkcje opcjonalne** wybierz pozycję **Synchronizacja atrybutów rozszerzenia katalogu**.
  
-   ![Kreator łączyć usługi Azure Active Directory — strona Funkcje opcjonalne](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extension-attribute-sync.png)
+   ![Strona funkcji opcjonalnych kreatora Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extension-attribute-sync.png)
 
-4. Wybierz atrybuty, które chcesz rozszerzyć na usługę Azure AD.
+4. Wybierz atrybuty, które chcesz zwiększyć do usługi Azure AD.
    > [!NOTE]
-   > W obszarze **Dostępne atrybuty** rozróżniana jest wielkość liter.
+   > Wyszukiwanie w obszarze **dostępne atrybuty** uwzględnia wielkość liter.
 
-   ![Strona wyboru rozszerzenia rozszerzeń usługi Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
+   ![Strona wyboru rozszerzeń katalogu kreatora Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
 
-5. Zakończ kreatora usługi Azure AD Connect i zezwalaj na uruchomienie pełnego cyklu synchronizacji. Po zakończeniu cyklu schemat jest rozszerzany, a nowe wartości są synchronizowane między lokalną usługą AD i usługą Azure AD.
+5. Zakończ pracę kreatora Azure AD Connect i Zezwalaj na uruchomienie pełnego cyklu synchronizacji. Po zakończeniu cyklu schemat zostanie rozszerzony i nowe wartości są synchronizowane między lokalną usługą AD i usługą Azure AD.
  
-6. W witrynie Azure Portal podczas [edytowania mapowań atrybutów użytkownika](customize-application-attributes.md)lista **atrybutów Źródło** będzie teraz `<attributename> (extension_<appID>_<attributename>)`zawierać dodany atrybut w formacie. Wybierz atrybut i zamapuj go na aplikację docelową do inicjowania obsługi administracyjnej.
+6. W Azure Portal, podczas [edytowania mapowań atrybutów użytkowników](customize-application-attributes.md), lista **atrybutów źródłowych** będzie teraz zawierać dodany atrybut w formacie `<attributename> (extension_<appID>_<attributename>)`. Wybierz atrybut i zamapuj go do aplikacji docelowej w celu aprowizacji.
 
-   ![Strona wyboru rozszerzenia rozszerzeń usługi Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
+   ![Strona wyboru rozszerzeń katalogu kreatora Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 
 > [!NOTE]
-> Możliwość aprowizowania atrybutów odwołań z lokalnej usługi AD, takiej jak **managedby** lub **DN/DistinguishedName**, nie jest obecnie obsługiwana. Możesz poprosić o tę funkcję w [u użytkownika voice](https://feedback.azure.com/forums/169401-azure-active-directory). 
+> Możliwość udostępniania atrybutów odwołań z lokalnej usługi AD, takich jak **zarządzane** lub **DN/odróżnionyname**, nie jest obecnie obsługiwana. Tę funkcję można zażądać na [głos użytkownika](https://feedback.azure.com/forums/169401-azure-active-directory). 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Określanie, kto ma zakres inicjowania obsługi administracyjnej](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+* [Zdefiniuj, kto jest w zakresie aprowizacji](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)

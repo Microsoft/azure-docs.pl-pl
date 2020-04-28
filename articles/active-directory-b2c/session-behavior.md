@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie zachowania sesji — usługa Azure Active Directory B2C | Dokumenty firmy Microsoft
-description: Konfigurowanie zachowania sesji w usłudze Azure Active Directory B2C.
+title: Skonfiguruj zachowanie sesji — Azure Active Directory B2C | Microsoft Docs
+description: Skonfiguruj zachowanie sesji w Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,51 +11,51 @@ ms.date: 04/16/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c1d39fdbca9484f47ce0c8537c82247b75b2e3db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186815"
 ---
-# <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Konfigurowanie zachowania sesji w usłudze Azure Active Directory B2C
+# <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Konfigurowanie zachowania sesji w Azure Active Directory B2C
 
-Ta funkcja zapewnia precyzyjną kontrolę przepływu [na użytkownika:](user-flow-overview.md)
+Ta funkcja zapewnia precyzyjną kontrolę na [podstawie przepływu poszczególnych użytkowników](user-flow-overview.md):
 
-- Okres istnienia sesji aplikacji sieci web zarządzanych przez usługę Azure AD B2C.
-- Zachowanie logowania jednokrotnego (Logowanie jednokrotne) w wielu aplikacjach i przepływach użytkowników w dzierżawie usługi Azure AD B2C.
+- Okresy istnienia sesji aplikacji sieci Web zarządzanych przez Azure AD B2C.
+- Zachowanie logowania jednokrotnego w wielu aplikacjach i przepływach użytkowników w dzierżawie Azure AD B2C.
 
-Te ustawienia nie są dostępne dla przepływów użytkownika resetowania hasła.
+Te ustawienia nie są dostępne na potrzeby przepływów użytkownika resetowania hasła.
 
-Usługa Azure AD B2C obsługuje [protokół uwierzytelniania OpenID Connect](openid-connect.md) umożliwiający bezpieczne logowanie do aplikacji sieci Web. Do zarządzania sesjami aplikacji sieci Web można używać następujących właściwości:
+Azure AD B2C obsługuje [protokół uwierzytelniania OpenID Connect Connect](openid-connect.md) do włączania bezpiecznego logowania do aplikacji sieci Web. Aby zarządzać sesjami aplikacji sieci Web, można użyć następujących właściwości:
 
 ## <a name="session-behavior-properties"></a>Właściwości zachowania sesji
 
-- **Okres istnienia sesji aplikacji sieci Web (w minutach)** — okres istnienia pliku cookie sesji usługi Azure AD B2C przechowywane w przeglądarce użytkownika po pomyślnym uwierzytelnieniu.
-    - Domyślnie = 1440 minut.
+- **Okres istnienia sesji aplikacji sieci Web (w minutach)** — okres istnienia pliku cookie sesji usługi Azure AD B2C's w przeglądarce użytkownika po pomyślnym uwierzytelnieniu.
+    - Wartość domyślna = 1440 min.
     - Minimum (włącznie) = 15 minut.
-    - Maksymalna (włącznie) = 1440 minut.
-- **Limit czasu sesji aplikacji sieci Web** — jeśli ten przełącznik jest ustawiony na **Bezwzględny,** użytkownik jest zmuszony do ponownego uwierzytelnienia po upływie okresu określonego przez **okres istnienia sesji aplikacji sieci Web (minut).** Jeśli ten przełącznik jest ustawiony na **Rolling** (ustawienie domyślne), użytkownik pozostaje zalogowany tak długo, jak użytkownik jest stale aktywny w aplikacji sieci web.
-- **Konfiguracja logowania jednokrotnego** Jeśli masz wiele aplikacji i przepływów użytkowników w dzierżawie B2C, można zarządzać interakcje użytkowników między nimi za pomocą **właściwości konfiguracji logowania jednokrotnego.** Można ustawić właściwość na jedno z następujących ustawień:
-    - **Dzierżawa** — to ustawienie jest ustawieniem domyślnym. Za pomocą tego ustawienia umożliwia wiele aplikacji i przepływów użytkownika w dzierżawie B2C do udziału w tej samej sesji użytkownika. Na przykład gdy użytkownik zaloguje się do aplikacji, użytkownik może również bezproblemowo zalogować się do innego, Contoso Pharmacy, po uzyskaniu do niego dostępu.
-    - **Aplikacja** — to ustawienie umożliwia zachowanie sesji użytkownika wyłącznie dla aplikacji, niezależnie od innych aplikacji. Na przykład jeśli chcesz, aby użytkownik zalogował się do Contoso Pharmacy (z tymi samymi poświadczeniami), nawet jeśli użytkownik jest już zalogowany do contoso shopping, innej aplikacji w tej samej dzierżawie B2C.
-    - **Zasady** — to ustawienie umożliwia zachowanie sesji użytkownika wyłącznie dla przepływu użytkownika, niezależnie od aplikacji korzystających z niego. Na przykład jeśli użytkownik już zalogował się i ukończył krok uwierzytelniania wieloskładnikowego (MFA), użytkownik może uzyskać dostęp do części o podwyższonym poziomie zabezpieczeń wielu aplikacji, o ile sesja powiązana z przepływem użytkownika nie wygaśnie.
-    - **Wyłączone** — to ustawienie wymusza na użytkowniku uruchamianie przez cały przepływ użytkownika przy każdym wykonaniu zasad.
+    - Maksimum (włącznie) = 1440 min.
+- **Limit czasu sesji aplikacji sieci Web** — Jeśli ten przełącznik jest ustawiony na wartość **bezwzględną**, użytkownik jest zmuszony do uwierzytelnienia ponownie po upływie czasu określonego przez okres **istnienia sesji aplikacji sieci Web (w minutach)** . Jeśli ten przełącznik jest ustawiony na wartość **roll** (ustawienie domyślne), użytkownik pozostanie zalogowany, o ile użytkownik będzie stale aktywny w aplikacji sieci Web.
+- **Konfiguracja logowania** jednokrotnego Jeśli masz wiele aplikacji i przepływów użytkowników w dzierżawie usługi B2C, możesz zarządzać interakcjami użytkowników w nich przy użyciu właściwości **Konfiguracja logowania** jednokrotnego. Właściwość można ustawić na jedno z następujących ustawień:
+    - **Dzierżawca** — to ustawienie jest domyślne. Użycie tego ustawienia umożliwia wielu aplikacjom i przepływom użytkowników w dzierżawie B2C współużytkowanie tej samej sesji użytkownika. Na przykład, gdy użytkownik loguje się do aplikacji, użytkownik może również bezproblemowo zalogować się do innego, farmaceuty firmy Contoso, po uzyskaniu do niego dostępu.
+    - **Aplikacja** — to ustawienie umożliwia obsługę sesji użytkownika wyłącznie dla aplikacji, niezależnie od innych aplikacji. Na przykład jeśli chcesz, aby użytkownik logował się do usługi contoso apteki (z tymi samymi poświadczeniami), nawet jeśli użytkownik jest już zalogowany do kupowania w firmie Contoso, inna aplikacja w tej samej dzierżawie B2C.
+    - **Zasady** — to ustawienie umożliwia obsługę sesji użytkownika wyłącznie dla przepływu użytkownika niezależnie od aplikacji, z których korzysta. Na przykład jeśli użytkownik jest już zalogowany i ukończył krok uwierzytelniania wieloskładnikowego (MFA), użytkownik może uzyskać dostęp do części o wyższym poziomie zabezpieczeń wielu aplikacji, o ile sesja związana z przepływem użytkownika nie wygasa.
+    - **Wyłączone** — to ustawienie wymusza uruchomienie użytkownika przez cały przepływ użytkownika przy każdym wykonaniu zasad.
 
-Przy użyciu tych właściwości włączono następujące przypadki użycia:
+Następujące przypadki użycia są włączone przy użyciu tych właściwości:
 
-- Spełnij wymagania twojej branży dotyczące zabezpieczeń i zgodności, ustawiając odpowiednie okresy istnienia sesji aplikacji sieci web.
-- Wymuś uwierzytelnianie po określonym czasie podczas interakcji użytkownika z wysokozabezpieczaną częścią aplikacji sieci web.
+- Zapoznaj się z wymaganiami dotyczącymi zabezpieczeń i zgodności w branży, ustawiając odpowiednie okresy istnienia sesji aplikacji sieci Web.
+- Wymuś uwierzytelnianie po upływie określonego czasu podczas interakcji użytkownika z częścią aplikacji sieci Web o wysokim poziomie zabezpieczeń.
 
 ## <a name="configure-the-properties"></a>Konfigurowanie właściwości
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-2. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD B2C, wybierając filtr **subskrypcji katalog +** w górnym menu i wybierając katalog zawierający dzierżawę usługi Azure AD B2C.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając w górnym menu pozycję **katalog i subskrypcja** , a następnie wybierz katalog zawierający dzierżawcę Azure AD B2C.
 3. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
-4. Wybierz **przepływy użytkownika (zasady)**.
-5. Otwórz poprzednio utworzony przepływ użytkownika.
-6. Wybierz **pozycję Właściwości**.
-7. Konfigurowanie **okresu istnienia sesji aplikacji sieci Web (w minutach),** limit czasu sesji aplikacji sieci **Web,** **konfiguracja logowania jednokrotnego**i **wymaganie tokenu identyfikatora w żądaniach wylogowania zgodnie** z potrzebami.
+4. Wybierz pozycję **przepływy użytkownika (zasady)**.
+5. Otwórz wcześniej utworzony przepływ użytkownika.
+6. Wybierz pozycję **Właściwości**.
+7. Skonfiguruj **okres istnienia sesji aplikacji sieci Web (minuty)**, **limit czasu sesji aplikacji sieci Web**, **konfigurację logowania**jednokrotnego i **Wymagaj tokenu identyfikatora w żądaniach wylogowywania** zgodnie z potrzebami.
 
-    ![Ustawienia właściwości zachowania sesji w witrynie Azure portal](./media/session-behavior/session-behavior.png)
+    ![Ustawienia właściwości zachowanie sesji w Azure Portal](./media/session-behavior/session-behavior.png)
 
 8. Kliknij przycisk **Zapisz**.

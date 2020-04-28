@@ -1,6 +1,6 @@
 ---
-title: Odwołanie do ustawień roamingu systemu Windows 10 — usługa Azure Active Directory
-description: Ustawienia, które będą przemieszczane lub archiwizowane w systemie Windows 10 za pomocą ESR
+title: Informacje o ustawieniach mobilnych systemu Windows 10 — Azure Active Directory
+description: Ustawienia, które będą miały dostęp do roamingu lub tworzenia kopii zapasowej w systemie Windows 10 z usługą ESR
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,178 +12,178 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a7abc402f1fc2e449e7aac5effdb01b6b941100
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672624"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Informacje dotyczące ustawień roamingu w systemie Windows 10
 
-Poniżej znajduje się lista ustawień, które będą przemieszczane lub archiwizowane w systemie Windows 10. 
+Poniżej znajduje się lista ustawień, które mają być przenoszone lub tworzone w ramach kopii zapasowej w systemie Windows 10. 
 
 ## <a name="devices-and-endpoints"></a>Urządzenia i punkty końcowe
 
-Zobacz poniższą tabelę, aby zapoznać się z podsumowaniem urządzeń i typów kont obsługiwanych przez strukturę synchronizacji, tworzenia kopii zapasowych i przywracania w systemie Windows 10.
+W poniższej tabeli znajduje się podsumowanie informacji o urządzeniach i typach kont obsługiwanych przez środowisko synchronizacji, wykonywania kopii zapasowych i przywracania w systemie Windows 10.
 
-| Typ i działanie konta | Aplikacje klasyczne | Urządzenia przenośne |
+| Typ konta i operacja | Komputery | Komórkowy |
 | --- | --- | --- |
-| Usługa Azure Active Directory: synchronizacja |Tak |Nie |
-| Usługa Azure Active Directory: tworzenie kopii zapasowych/przywracanie |Nie |Nie |
+| Azure Active Directory: synchronizacja |Tak |Nie |
+| Azure Active Directory: kopia zapasowa/przywracanie |Nie |Nie |
 | Konto Microsoft: synchronizacja |Tak |Tak |
 | Konto Microsoft: kopia zapasowa/przywracanie |Nie |Tak |
 
 ## <a name="what-is-backup"></a>Co to jest kopia zapasowa?
 
-Ustawienia systemu Windows są zazwyczaj domyślnie synchronizowane, ale niektóre ustawienia są tylko kopie zapasowe, takie jak lista zainstalowanych aplikacji na urządzeniu. Kopia zapasowa jest dostępna tylko dla urządzeń przenośnych i obecnie nie jest dostępna dla użytkowników korzystających z roamingu w stanie przedsiębiorstwa. Kopia zapasowa używa konta Microsoft i przechowuje ustawienia i dane aplikacji w usłudze OneDrive. Jeśli użytkownik wyłączy synchronizację na urządzeniu za pomocą aplikacji Ustawienia, dane aplikacji, które zwykle synchronizuje, stają się tylko kopia zapasowa. Dane kopii zapasowej są dostępne tylko za pośrednictwem operacji przywracania podczas pierwszego uruchomienia nowego urządzenia. Kopie zapasowe można wyłączyć za pomocą ustawień urządzenia i można nimi zarządzać i usuwać za pośrednictwem konta usługi OneDrive użytkownika.
+Ustawienia systemu Windows są zwykle synchronizowane domyślnie, ale w przypadku niektórych ustawień tworzona jest tylko kopia zapasowa, na przykład lista zainstalowanych aplikacji na urządzeniu. Kopie zapasowe są przeznaczone tylko dla urządzeń przenośnych i obecnie nie są dostępne dla Enterprise State Roaming użytkowników. Kopia zapasowa używa konto Microsoft i zapisuje ustawienia i dane aplikacji w usłudze OneDrive. Jeśli użytkownik wyłączy synchronizację na urządzeniu za pomocą aplikacji ustawienia, dane aplikacji, które zwykle synchronizują, staną się tylko kopiami zapasowymi. Dostęp do danych kopii zapasowej można uzyskać tylko za pomocą operacji przywracania podczas pierwszego uruchomienia nowego urządzenia. Kopie zapasowe można wyłączyć za pomocą ustawień urządzenia i można je zarządzać i usuwać za pomocą konta usługi OneDrive użytkownika.
 
-## <a name="windows-settings-overview"></a>Omówienie ustawień systemu Windows
+## <a name="windows-settings-overview"></a>Przegląd ustawień systemu Windows
 
-Następujące grupy ustawień są dostępne dla użytkowników końcowych, aby włączyć/wyłączyć synchronizację ustawień na urządzeniach z systemem Windows 10.
+Następujące grupy ustawień są dostępne dla użytkowników końcowych do włączania/wyłączania synchronizacji ustawień na urządzeniach z systemem Windows 10.
 
-* Temat: tło pulpitu, kafelek użytkownika, pozycja paska zadań itp. 
-* Ustawienia programu Internet Explorer: historia przeglądania, wpisane adresy URL, ulubione itp. 
-* Hasła: Menedżer poświadczeń systemu Windows, w tym profile Wi-Fi 
-* Preferencje językowe: słownik pisowni, ustawienia języka systemowego 
-* Łatwość dostępu: narrator, klawiatura ekranowa, lupa 
-* Inne ustawienia systemu Windows: zobacz szczegóły ustawień systemu Windows
-* Ustawienie przeglądarki Microsoft Edge: ulubione przeglądarki Microsoft Edge, lista lektur i inne ustawienia
+* Motyw: tło pulpitu, kafelek użytkownika, położenie paska zadań itp. 
+* Ustawienia programu Internet Explorer: historia przeglądania, wpisywane adresy URL, Ulubione itd. 
+* Hasła: Menedżer poświadczeń systemu Windows, w tym profile sieci Wi-Fi 
+* Preferencje językowe: słownik pisowni, ustawienia języka systemu 
+* Łatwość dostępu: Narrator, klawiatura ekranowa, Lupa 
+* Inne ustawienia systemu Windows: Zobacz szczegóły ustawień systemu Windows
+* Ustawienie przeglądarki Microsoft Edge: Ulubione Microsoft Edge, lista do czytania i inne ustawienia
 
 ![Synchronizuj swoje ustawienia](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 > [!NOTE]
-> Ten artykuł dotyczy przeglądarki microsoft edge legacy w formacie HTML uruchomionej w systemie Windows 10 w lipcu 2015 r. Artykuł nie ma zastosowania do nowej przeglądarki opartej na chromie Microsoft Edge, wydanej 15 stycznia 2020 roku. Aby uzyskać więcej informacji na temat zachowania synchronizacji dla nowej przeglądarki Microsoft Edge, zobacz artykuł [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+> Ten artykuł ma zastosowanie do starszej przeglądarki opartej na języku HTML Microsoft Edge, która została uruchomiona z systemem Windows 10 w lipcu 2015. Artykuł nie ma zastosowania do nowej przeglądarki opartej na formacie chromu Microsoft Edge wydanej 15 stycznia 2020. Aby uzyskać więcej informacji na temat zachowania synchronizacji dla nowej przeglądarki Microsoft Edge, zobacz artykuł [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
-Synchronizacja ustawień przeglądarki Przeglądarki Microsoft Edge (ulubione, lista lektur) może być włączona lub wyłączona przez użytkowników końcowych za pomocą opcji menu Ustawień przeglądarki Microsoft Edge.
+Grupa ustawień przeglądarki Microsoft Edge (Ulubione, lista do czytania) Synchronizacja może być włączona lub wyłączona przez użytkowników końcowych za pomocą opcji menu ustawienia przeglądarki Microsoft Edge.
 
 ![Konto](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
-W systemie Windows 10 w wersji 1803 lub nowszej synchronizacja grupy ustawień programu Internet Explorer (ulubione, wpisane adresy URL) może być włączana lub wyłączona przez użytkowników końcowych za pomocą opcji menu Ustawienia programu Internet Explorer. 
+W przypadku systemu Windows 10 w wersji 1803 lub nowszej, można włączyć lub wyłączyć synchronizację grupy ustawień programu Internet Explorer (Ulubione, adresy URL z określonym typem) przez użytkowników końcowych za pomocą opcji menu Ustawienia programu Internet Explorer. 
 
 ![Ustawienia](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Szczegóły ustawień systemu Windows
 
-W poniższej tabeli inne wpisy w kolumnie Grupa ustawień odnoszą się do ustawień, które można wyłączyć, przechodząc do ustawienia > konta > synchronizuj ustawienia > inne ustawienia systemu Windows. 
+W poniższej tabeli inne wpisy w kolumnie grupa ustawień odnoszą się do ustawień, które można wyłączyć, przechodząc do pozycji Ustawienia > konta > zsynchronizuj ustawienia > innych ustawień systemu Windows. 
 
-Wpisy wewnętrzne w kolumnie Grupa ustawień odnoszą się do ustawień i aplikacji, które można wyłączyć tylko z synchronizacji w samej aplikacji lub przez wyłączenie synchronizacji dla całego urządzenia przy użyciu ustawień zarządzania urządzeniami przenośnymi (MDM) lub zasad grupy.
-Ustawienia, które nie są wędruj lub nie będą synchronizowane, nie będą należeć do grupy.
+Wpisy wewnętrzne w kolumnie grupa ustawień odnoszą się do ustawień i aplikacji, które można wyłączyć tylko w ramach samej aplikacji lub wyłączając synchronizację dla całego urządzenia za pomocą ustawień zarządzania urządzeniami przenośnymi (MDM) lub zasady grupy.
+Ustawienia, które nie są przekazywane ani synchronizowane, nie będą należeć do grupy.
 
-| Ustawienia | Aplikacje klasyczne | Urządzenia przenośne | Grupa |
+| Ustawienia | Komputery | Komórkowy | Grupa |
 | --- | --- | --- | --- |
-| **Konta**: zdjęcie konta |synchronizacja |X |motyw |
-| **Konta:** inne ustawienia konta |X |X | |
-| **Zaawansowana komórkowa łączność szerokopasmowa:** nazwa sieci udostępniania połączenia internetowego (umożliwia automatyczne wykrywanie mobilnych hotspotów Wi-Fi przez Bluetooth) |X |X |Hasła |
-| **Dane aplikacji:** poszczególne aplikacje mogą synchronizować dane |synchronizacja kopii zapasowej |synchronizacja kopii zapasowej |internal |
+| **Konta**: obraz konta |synchronizacja |X |motyw |
+| **Konta**: inne ustawienia konta |X |X | |
+| **Advanced Mobile szerokopasmowa**: Nazwa sieci udostępniania połączenia internetowego (umożliwia Autowykrywanie mobilnych hotspotów Wi-Fi za pośrednictwem połączenia Bluetooth) |X |X |Hasła |
+| **Dane aplikacji**: poszczególne aplikacje mogą synchronizować dane |Synchronizuj kopię zapasową |Synchronizuj kopię zapasową |internal |
 | **Lista aplikacji**: lista zainstalowanych aplikacji |X |kopia zapasowa |Inne |
 | **Bluetooth**: wszystkie ustawienia Bluetooth |X |X | |
-| **Wiersz polecenia**: Wiersz polecenia "Ustawienia domyślne" wiersza polecenia |synchronizacja |X |internal |
-| **Poświadczenia**: Szafka poświadczeń |synchronizacja |synchronizacja |hasło |
-| **Data, godzina i region:** czas automatyczny (synchronizacja czasu internetowego) |synchronizacja |synchronizacja |language |
-| **Data, godzina i region:** zegar 24-godzinny |synchronizacja |X |language |
-| **Data, godzina i region:** data i godzina |synchronizacja |X |language |
-| **Data, godzina i region**: strefa czasowa | |X |language |
-| **Data, godzina i region:** czas letni |synchronizacja |X |language |
-| **Data, godzina i region:** kraj/region |synchronizacja |X |language |
-| **Data, godzina i region:** pierwszy dzień tygodnia |synchronizacja |X |language |
-| **Data, godzina i region:** format regionu (ustawienia regionalne) |synchronizacja |X |language |
-| **Data, godzina i region**: krótka data |synchronizacja |X |language |
-| **Data, godzina i region:** data długa |synchronizacja |X |language |
-| **Data, godzina i region:** krótki czas |synchronizacja |X |language |
-| **Data, godzina i region:** długi czas |synchronizacja |X |language |
-| **Personalizacja pulpitu:** motyw pulpitu (tło, kolor systemu, domyślne dźwięki systemowe, wygaszacz ekranu) |synchronizacja |X |motyw |
+| **Wiersz polecenia**: wiersz polecenia "ustawienia domyślne" |synchronizacja |X |internal |
+| **Poświadczenia**: blokowanie poświadczeń |synchronizacja |synchronizacja |hasło |
+| **Data, godzina i region**: automatyczna godzina (synchronizacja czasu internetowego) |synchronizacja |synchronizacja |language |
+| **Data, godzina i region**: zegar 24-godzinny |synchronizacja |X |language |
+| **Data, godzina i region**: Data i godzina |synchronizacja |X |language |
+| **Data, godzina i region**: Strefa czasowa | |X |language |
+| **Data, godzina i region**: czas letni |synchronizacja |X |language |
+| **Data, godzina i region**: kraj/region |synchronizacja |X |language |
+| **Data, godzina i region**: pierwszy dzień tygodnia |synchronizacja |X |language |
+| **Data, godzina i region**: format regionu (ustawienia regionalne) |synchronizacja |X |language |
+| **Data, godzina i region**: Data krótka |synchronizacja |X |language |
+| **Data, godzina i region**: Data długa |synchronizacja |X |language |
+| **Data, godzina i region**: godzina krótka |synchronizacja |X |language |
+| **Data, godzina i region**: godzina długa |synchronizacja |X |language |
+| **Personalizacja pulpitu**: kompozycja pulpitu (tło, systemowy kolor, domyślne dźwięki systemowe, wygaszacz ekranu) |synchronizacja |X |motyw |
 | **Personalizacja pulpitu**: tapeta pokazu slajdów |synchronizacja |X |motyw |
-| **Personalizacja pulpitu:** ustawienia paska zadań (pozycja, automatyczne ukrywanie itp.) |synchronizacja |X |motyw |
-| **Personalizacja pulpitu:** układ ekranu startowego |X |kopia zapasowa | |
-| **Urządzenia:** drukarki udostępnione, do których masz połączenie |X |X |inne |
-| **Przeglądarka Microsoft Edge**: lista lektur |synchronizacja |synchronizacja |internal |
-| **Przeglądarka Microsoft Edge**: ulubione |synchronizacja |synchronizacja |internal |
-| **Przeglądarka Microsoft Edge**: najlepsze witryny <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
+| **Personalizacja pulpitu**: ustawienia paska zadań (pozycja, Autoukrywanie itp.) |synchronizacja |X |motyw |
+| **Personalizacja pulpitu**: układ ekranu startowego |X |kopia zapasowa | |
+| **Urządzenia**: udostępnione drukarki, z którymi nawiązano połączenie |X |X |inne |
+| **Przeglądarka Microsoft Edge**: odczytywanie listy |synchronizacja |synchronizacja |internal |
+| **Przeglądarka Microsoft Edge**: Ulubione |synchronizacja |synchronizacja |internal |
+| **Przeglądarka Microsoft Edge**: najważniejsze witryny <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
 | **Przeglądarka Microsoft Edge**: wpisane adresy URL <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
 | **Przeglądarka Microsoft Edge**: ustawienia paska ulubionych <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
-| **Przeglądarka Microsoft Edge**: pokaż przycisk home <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
-| **Przeglądarka Microsoft Edge**: blokowanie wyskakujących okienków <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
-| **Przeglądarka Microsoft Edge**: zapytaj mnie, co zrobić z każdym pobraniem <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
-| **Przeglądarka Microsoft Edge**: oferta zapisywania haseł <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
-| **Przeglądarka Microsoft Edge**: send nie śledź żądań <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
-| **Przeglądarka Microsoft Edge**: zapisywanie wpisów formularzy <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
-| **Przeglądarka Microsoft Edge**: pokaż sugestie wyszukiwania i witryny podczas pisania <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
-| **Przeglądarka Microsoft Edge**: preferencja dotycząca plików cookie <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
-| **Przeglądarka Microsoft Edge**: pozwala witrynom zapisywać chronione licencje multimedialne na moim urządzeniu <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
+| **Przeglądarka Microsoft Edge**: Pokaż przycisk Home <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
+| **Przeglądarka Microsoft Edge**: blokowanie wyskakujących okienek <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
+| **Przeglądarka Microsoft Edge**: pytaj, co należy zrobić przy każdym pobieraniu <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
+| **Przeglądarka Microsoft Edge**: Oferta zapisywania haseł <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
+| **Przeglądarka Microsoft Edge**: wysyłanie żądań nie Śledź <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
+| **Przeglądarka Microsoft Edge**: zapisywanie wpisów formularza <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
+| **Przeglądarka Microsoft Edge**: Pokaż wyszukiwanie i sugestie dotyczące witryn podczas wpisywania <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
+| **Przeglądarka Microsoft Edge**: Preferencje plików cookie <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
+| **Przeglądarka Microsoft Edge**: Zezwól lokacjom na zapisywanie chronionych licencji multimediów na moim urządzeniu <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
 | **Przeglądarka Microsoft Edge**: ustawienie czytnika ekranu <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
-| **Wysoki kontrast:** włączanie lub wyłączanie |synchronizacja |X |ułatwienia dostępu |
-| **Wysoki kontrast**: Ustawienia motywu |synchronizacja |X |ułatwienia dostępu |
-| **Internet Explorer**: otwieranie kart (adres URL i tytuł) |synchronizacja |synchronizacja |Internet Explorer |
-| **Internet Explorer**: lista lektur |synchronizacja |synchronizacja |Internet Explorer |
+| **Duży kontrast**: włączone lub wyłączone |synchronizacja |X |ułatwienia dostępu |
+| **Duży kontrast**: ustawienia motywu |synchronizacja |X |ułatwienia dostępu |
+| **Internet Explorer**: otwieranie kart (URL i tytuł) |synchronizacja |synchronizacja |Internet Explorer |
+| **Internet Explorer**: odczytywanie listy |synchronizacja |synchronizacja |Internet Explorer |
 | **Internet Explorer**: wpisane adresy URL |synchronizacja |synchronizacja |Internet Explorer |
 | **Internet Explorer**: historia przeglądania |synchronizacja |synchronizacja |Internet Explorer |
-| **Internet Explorer**: ulubione |synchronizacja |synchronizacja |Internet Explorer |
+| **Internet Explorer**: Ulubione |synchronizacja |synchronizacja |Internet Explorer |
 | **Internet Explorer**: wykluczone adresy URL |synchronizacja |synchronizacja |Internet Explorer |
 | **Internet Explorer**: strony główne |synchronizacja |synchronizacja |Internet Explorer |
 | **Internet Explorer**: sugestie dotyczące domen |synchronizacja |synchronizacja |Internet Explorer |
-| **Klawiatura:** użytkownicy mogą włączać/wyłączać klawiaturę ekranową |synchronizacja |X |ułatwienia dostępu |
-| **Klawiatura:** włącz lepkie tak (domyślnie wyłączone) |synchronizacja |X |ułatwienia dostępu |
-| **Klawiatura:** włączanie klawiszy filtrów (domyślnie wyłączone) |synchronizacja |X |ułatwienia dostępu |
-| **Klawiatura:** włączanie klawiszy przełączania (domyślnie wyłączone) |synchronizacja |X |ułatwienia dostępu |
-| **Internet Explorer**: domena Język: chiński (CHS) QWERTY - umożliwia samodzielne uczenie się |synchronizacja |X |Język |
-| **Język**: CHS QWERTY - włącz dynamiczny ranking kandydatów |synchronizacja |X |Język |
-| **Język**: CHS QWERTY - char-set Simplified Chinese |synchronizacja |X |Język |
-| **Język**: CHS QWERTY - char-set Chiński tradycyjny |synchronizacja |X |Język |
-| **Język**: CHS QWERTY - fuzzy pinyin |synchronizacja |kopia zapasowa |Język |
-| **Język**: CHS QWERTY - rozmyte pary |synchronizacja |kopia zapasowa |Język |
-| **Język**: CHS QWERTY - full pinyin |synchronizacja |X |Język |
-| **Język**: CHS QWERTY - double pinyin |synchronizacja |X |Język |
-| **Język**: CHS QWERTY - odczyt automatycznej korekcji |synchronizacja |X |Język |
-| **Język**: CHS QWERTY - C/E switch key, shift |synchronizacja |X |Język |
-| **Język**: CHS QWERTY - C/E switch key, Ctrl |synchronizacja |X |Język |
-| **Język**: CHS WUBI - tryb wprowadzania pojedynczego znaku |synchronizacja |X |Język |
-| **Język**: CHS WUBI - pokaż pozostałe kodowanie kandydata |synchronizacja |X |Język |
-| **Język**: CHS WUBI - sygnał dźwiękowy, gdy kodowanie 4 jest nieprawidłowe |synchronizacja |X |Język |
-| **Język**: CHT Bopomofo - obejmują CJK Ext-A |synchronizacja |X |Język |
-| **Język**: JapońskiE IME - predykcyjne pisanie i niestandardowe słowa |synchronizacja |synchronizacja |Język |
-| **Język**: Koreański (KOR) IME |X |X |Język |
+| **Klawiatura**: użytkownicy mogą włączać lub wyłączać klawiaturę ekranową |synchronizacja |X |ułatwienia dostępu |
+| **Klawiatura**: Włącz funkcję Sticky Notes Yes (domyślnie wyłączona) |synchronizacja |X |ułatwienia dostępu |
+| **Klawiatura**: Włącz klucze filtrów (domyślnie wyłączone) |synchronizacja |X |ułatwienia dostępu |
+| **Klawiatura**: Włącz klawisze przełączania (domyślnie wyłączone) |synchronizacja |X |ułatwienia dostępu |
+| **Internet Explorer**: język domeny: chiński (CHS) QWERTY — Włączanie samodzielnej nauki |synchronizacja |X |Język |
+| **Język**: CHS QWERTY — Włączanie klasyfikacji dynamicznej kandydatów |synchronizacja |X |Język |
+| **Język**: CHS QWERTY-char-Set chiński uproszczony |synchronizacja |X |Język |
+| **Język**: CHS QWERTY-char-Set chiński tradycyjny |synchronizacja |X |Język |
+| **Język**: CHS QWERTY — rozmyte pinyin |synchronizacja |kopia zapasowa |Język |
+| **Język**: CHS par QWERTY — rozmyte |synchronizacja |kopia zapasowa |Język |
+| **Język**: CHS QWERTY — pełen pinyin |synchronizacja |X |Język |
+| **Język**: CHS QWERTY — podwójny pinyin |synchronizacja |X |Język |
+| **Język**: CHS QWERTY — odczytywanie Autokorekty |synchronizacja |X |Język |
+| **Język**: CHS — klawisz przełącznika QWERTY-C/E, Shift |synchronizacja |X |Język |
+| **Język**: CHS QWERTY-C/E klawisz przełącznika, Ctrl |synchronizacja |X |Język |
+| **Język**: CHS Wubi — tryb wprowadzania pojedynczego znaku |synchronizacja |X |Język |
+| **Język**: CHS Wubi — pokazuje pozostałe kodowanie kandydata |synchronizacja |X |Język |
+| **Język**: CHS Wubi-dźwięk, gdy 4-kodowanie jest nieprawidłowe |synchronizacja |X |Język |
+| **Język**: CHT Bopomofo — Uwzględnij CJK EXT-A |synchronizacja |X |Język |
+| **Język**: japoński IME — wpisywanie predykcyjne i słowa niestandardowe |synchronizacja |synchronizacja |Język |
+| **Język**: KOREAŃSKI (Kor) IME |X |X |Język |
 | **Język**: rozpoznawanie pisma ręcznego |X |X |Język |
-| **Język**: profil językowy |synchronizacja |kopia zapasowa |Język |
-| **Język**: sprawdzanie pisowni - autokorekta i zaznaczanie błędów ortograficznych |synchronizacja |kopia zapasowa |Język |
-| **Język**: lista klawiatur |synchronizacja |kopia zapasowa |Język |
-| **Ekran blokady:** wszystkie ustawienia ekranu blokady |X |X | |
-| **Lupa: włączanie**lub wyłączanie (przełącznik główny) |X |X |Łatwość dostępu |
-| **Lupa:** włączanie lub wyłączanie koloru inwersji (domyślnie wyłączone) |synchronizacja |X |Łatwość dostępu |
-| **Lupa**: śledzenie - postępuj zgodnie z fokusem klawiatury |synchronizacja |X |Łatwość dostępu |
-| **Lupa**: śledzenie - podążaj za kursorem myszy |synchronizacja |X |Łatwość dostępu |
-| **Lupa:** rozpoczyna się, gdy użytkownicy logują się (domyślnie wyłączają się) |synchronizacja |X |Łatwość dostępu |
-| **Mysz**: zmienia rozmiar kursora myszy |synchronizacja |X |inne |
+| **Język**: profil języka |synchronizacja |kopia zapasowa |Język |
+| **Język**: sprawdzanie pisowni i wyróżnianie błędów pisowni |synchronizacja |kopia zapasowa |Język |
+| **Język**: Lista klawiatur |synchronizacja |kopia zapasowa |Język |
+| **Ekran blokady**: wszystkie ustawienia ekranu blokady |X |X | |
+| **Lupa**: wł. lub wył. (przełącznik główny) |X |X |Łatwość dostępu |
+| **Lupa**: Włącz lub Wyłącz kolor niewersji (domyślnie wyłączone) |synchronizacja |X |Łatwość dostępu |
+| **Lupa**: śledzenie — postępuj zgodnie z fokusem klawiatury |synchronizacja |X |Łatwość dostępu |
+| **Lupa**: śledzenie — postępuj zgodnie z kursorem myszy |synchronizacja |X |Łatwość dostępu |
+| **Lupa**: Rozpocznij, gdy użytkownicy logują się (domyślnie wyłączone) |synchronizacja |X |Łatwość dostępu |
+| **Mysz**: zmiana rozmiaru kursora myszy |synchronizacja |X |inne |
 | **Mysz**: zmiana koloru kursora myszy |synchronizacja |X |inne |
 | **Mysz**: wszystkie inne ustawienia |X |X | |
 | **Narrator**: szybkie uruchamianie |synchronizacja |X |Łatwość dostępu |
-| **Narrator**: użytkownicy mogą zmieniać ton mówienia Narratora |synchronizacja |X |Łatwość dostępu |
-| **Narrator**: użytkownicy mogą włączać lub wyłączać wskazówki do czytania narratora dla typowych elementów (domyślnie włączone) |synchronizacja |X |Łatwość dostępu |
-| **Narrator**: użytkownicy mogą włączać lub wyłączać, czy słyszą wpisane znaki (domyślnie włączone) |synchronizacja |X |Łatwość dostępu |
-| **Narrator**: użytkownicy mogą włączać czy wyłączać, czy słyszą wpisane słowa (domyślnie włączone) |synchronizacja |X |Łatwość dostępu |
-| **Narrator**: mają kursor wstawiania po Narratorze (domyślnie włączony) |synchronizacja |X |Łatwość dostępu |
-| **Narrator**: włączanie wizualnego wyróżniania kursora Narratora (domyślnie włączone) |synchronizacja |X |Łatwość dostępu |
-| **Narrator**: odtwarzanie sygnałów dźwiękowych (domyślnie włączone) |synchronizacja |X |Łatwość dostępu |
-| **Narrator:** włączanie klawiszy na klawiaturze dotykowej po podniesieniu palca (domyślnie wyłączone) |synchronizacja |X |Łatwość dostępu |
-| **Łatwość dostępu**: ustawianie grubości migającego kursora |synchronizacja |X |Łatwość dostępu |
-| **Łatwość dostępu:** usuwanie obrazów tła (domyślnie wyłączone) |synchronizacja |X |Łatwość dostępu |
-| **Zasilanie i uśpienie:** wszystkie ustawienia |X |X | |
-| **Personalizacja ekranu startowego:** kolor akcentu (tylko telefon) |X |synchronizacja |motyw |
-| **Pisanie :** słownik pisowni |synchronizacja |kopia zapasowa |Język |
-| **Wpisywanie :** autokorekta błędnie napisane słowo |synchronizacja |kopia zapasowa |Język |
-| **Pisanie :** wyróżnianie błędnie napisanych wyrazów |synchronizacja |kopia zapasowa |Język |
-| **Pisanie : pokazywanie**sugestii tekstowych podczas pisania |synchronizacja |kopia zapasowa |Język |
-| **Pisanie :** dodawanie spacji po wybraniu sugestii tekstowej |synchronizacja |kopia zapasowa |Język |
-| **Pisanie :** dodawanie kropki po dwukrotnym dotknięciu spacji |synchronizacja |kopia zapasowa |Język |
-| **Wpisywanie**: wielkie litery każdego zdania |synchronizacja |kopia zapasowa |Język |
-| Pisanie : **używaj**wszystkich wielkich liter, gdy naciskam klawiszem shift |synchronizacja |kopia zapasowa |Język |
-| Pisanie : **odtwarzanie**dźwięków klawiszy podczas pisania |synchronizacja |kopia zapasowa |Język |
-| **Pisanie :** dane personalizacji klawiatury dotykowej |synchronizacja |kopia zapasowa |Język |
-| **Wi-Fi**: Profile Wi-Fi (tylko WPA) |synchronizacja |synchronizacja |Hasła |
+| **Narrator**: użytkownicy mogą zmieniać wysokość głosu Narratora |synchronizacja |X |Łatwość dostępu |
+| **Narrator**: użytkownicy mogą włączać lub wyłączać wskazówki dotyczące odczytywania dla typowych elementów (domyślnie włączone) |synchronizacja |X |Łatwość dostępu |
+| **Narrator**: użytkownicy mogą włączać lub wyłączać, czy mogą słyszeć wpisane znaki (domyślnie włączone) |synchronizacja |X |Łatwość dostępu |
+| **Narrator**: użytkownicy mogą włączać lub wyłączać, czy mogą słyszeć wpisane słowa (domyślnie włączone) |synchronizacja |X |Łatwość dostępu |
+| **Narrator**: zawiera kursor wstawiania po programie narrator (domyślnie włączony) |synchronizacja |X |Łatwość dostępu |
+| **Narrator**: Włącz podświetlanie wizualizacji kursora (domyślnie włączone) |synchronizacja |X |Łatwość dostępu |
+| **Narrator**: Odtwarzanie podpowiedzi audio (domyślnie włączone) |synchronizacja |X |Łatwość dostępu |
+| **Narrator**: Aktywuj klucze na klawiaturze dotykowej po podniesieniu palca (domyślnie wyłączone) |synchronizacja |X |Łatwość dostępu |
+| **Łatwość dostępu**: Ustawianie grubości miganego kursora |synchronizacja |X |Łatwość dostępu |
+| **Łatwość dostępu**: Usuń obrazy tła (domyślnie wyłączone) |synchronizacja |X |Łatwość dostępu |
+| **Włącz i uśpienie**: wszystkie ustawienia |X |X | |
+| **Personalizacja ekranu startowego**: kolor akcentu (tylko telefon) |X |synchronizacja |motyw |
+| **Wpisywanie**: słownik ortograficzny |synchronizacja |kopia zapasowa |Język |
+| **Wpisywanie**: Autokorekta błędnie napisanego wyrazu |synchronizacja |kopia zapasowa |Język |
+| **Wpisywanie**: wyróżnianie błędnie napisanych wyrazów |synchronizacja |kopia zapasowa |Język |
+| **Wpisywanie**: Pokazuj sugestie tekstowe podczas pisania |synchronizacja |kopia zapasowa |Język |
+| **Wpisywanie**: Dodaj odstęp po wybraniu sugestii tekstu |synchronizacja |kopia zapasowa |Język |
+| **Wpisywanie**: Dodaj kropkę po dwukrotnym naciśnięciu spacji |synchronizacja |kopia zapasowa |Język |
+| **Wpisywanie**: wielkie litery w poszczególnych zdaniach |synchronizacja |kopia zapasowa |Język |
+| **Wpisywanie**: Użyj wielkich liter po dwukrotnym naciśnięciu klawisza Shift |synchronizacja |kopia zapasowa |Język |
+| **Wpisywanie**: Odtwórz dźwięki klawiszy podczas pisania |synchronizacja |kopia zapasowa |Język |
+| **Wpisywanie**: dane personalizacji dla klawiatury dotykowej |synchronizacja |kopia zapasowa |Język |
+| **Wi-Fi**: profile sieci Wi-Fi (tylko WPA) |synchronizacja |synchronizacja |Hasła |
 
 ###### <a name="footnote-1"></a>Przypis 1
 
-Minimalna obsługiwana wersja systemu operacyjnego Windows Creators Update (Kompilacja 15063). 
+Minimalna obsługiwana wersja systemu operacyjnego Windows Creator Update (kompilacja 15063). 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać omówienie, zobacz [omówienie roamingu stanu przedsiębiorstwa](enterprise-state-roaming-overview.md).
+Aby zapoznać się z omówieniem, zobacz [Omówienie usługi Enterprise State roaming](enterprise-state-roaming-overview.md).

@@ -1,7 +1,7 @@
 ---
-title: Zarządzanie zasadami niestandardowymi za pomocą programu PowerShell
+title: Zarządzanie zasadami niestandardowymi przy użyciu programu PowerShell
 titleSuffix: Azure AD B2C
-description: Użyj polecenia cmdlet programu PowerShell usługi Azure Active Directory (Azure AD) do programowania zarządzania niestandardowymi zasadami usługi Azure AD B2C. Tworzenie, odczytywanie, aktualizowanie i usuwanie zasad niestandardowych za pomocą programu PowerShell.
+description: Użyj polecenia cmdlet programu PowerShell Azure Active Directory (Azure AD), aby zarządzać programistycznymi Azure AD B2C zasad niestandardowych. Tworzenie, odczytywanie, aktualizowanie i usuwanie zasad niestandardowych przy użyciu programu PowerShell.
 author: msmimart
 manager: celestedg
 ms.service: active-directory
@@ -11,39 +11,39 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ebf0cfffa410d8dfe2f0e0b42a0fee0c16106fde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78187410"
 ---
-# <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Zarządzanie niestandardowymi zasadami usługi Azure AD B2C za pomocą programu Azure PowerShell
+# <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Zarządzanie zasadami niestandardowymi Azure AD B2C przy użyciu Azure PowerShell
 
-Program Azure PowerShell udostępnia kilka poleceń cmdlet do zarządzania niestandardowymi wierszami polecenia i skryptami w dzierżawie usługi Azure AD B2C. Dowiedz się, jak użyć modułu programu Azure AD PowerShell do:
+Azure PowerShell udostępnia kilka poleceń cmdlet dla niestandardowego zarządzania zasadami dla wiersza polecenia i opartego na skryptach w dzierżawie Azure AD B2C. Dowiedz się, jak używać modułu Azure AD PowerShell do:
 
-* Wyświetlanie listy zasad niestandardowych w dzierżawie usługi Azure AD B2C
-* Pobieranie zasad od dzierżawy
-* Aktualizowanie istniejącej zasady przez zastępowanie jej zawartości
-* Przekazywanie nowych zasad do dzierżawy usługi Azure AD B2C
+* Wyświetlanie listy zasad niestandardowych w dzierżawie Azure AD B2C
+* Pobieranie zasad z dzierżawy
+* Aktualizowanie istniejących zasad przez zastąpienie jej zawartości
+* Przekaż nowe zasady do dzierżawy Azure AD B2C
 * Usuwanie zasad niestandardowych z dzierżawy
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Dzierżawa usługi Azure AD B2C](tutorial-create-tenant.md)i poświadczenia dla użytkownika w katalogu z rolą [administratora zasad IEF B2C](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
-* [Zasady niestandardowe](custom-policy-get-started.md) przesłane do dzierżawy
-* [Moduł programu Azure AD PowerShell for Graph **w wersji zapoznawczej**](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+* [Azure AD B2C dzierżawy](tutorial-create-tenant.md)i poświadczenia dla użytkownika w katalogu z rolą [administratora zasad B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Zasady niestandardowe](custom-policy-get-started.md) przekazane do dzierżawy
+* [Moduł Azure AD PowerShell dla programu Graph w **wersji zapoznawczej**](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
-## <a name="connect-powershell-session-to-b2c-tenant"></a>Łączenie sesji programu PowerShell z dzierżawą usługi B2C
+## <a name="connect-powershell-session-to-b2c-tenant"></a>Połącz sesję programu PowerShell z dzierżawcą B2C
 
-Aby pracować z niestandardowymi zasadami w dzierżawie usługi Azure AD B2C, należy najpierw połączyć sesję programu PowerShell z dzierżawą przy użyciu polecenia [Connect-AzureAD.][Connect-AzureAD]
+Aby móc korzystać z zasad niestandardowych w dzierżawie Azure AD B2C, musisz najpierw połączyć sesję programu PowerShell z dzierżawcą za pomocą polecenia [Connect-AzureAD][Connect-AzureAD] .
 
-Wykonaj następujące polecenie, zastępując `{b2c-tenant-name}` nazwą dzierżawy usługi Azure AD B2C. Zaloguj się przy za pomocą konta, do które przypisano rolę [administratora zasad IEF B2C](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) w katalogu.
+Wykonaj następujące polecenie, zastępując `{b2c-tenant-name}` nazwę dzierżawy Azure AD B2C. Zaloguj się przy użyciu konta, któremu przypisano rolę [administrator zasad B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) w katalogu.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"
 ```
 
-Przykładowe polecenie wyjściowe przedstawiające pomyślne logowanie:
+Przykładowe dane wyjściowe polecenia zawierające pomyślne Logowanie:
 
 ```Console
 PS C:\> Connect-AzureAD -Tenant "contosob2c.onmicrosoft.com"
@@ -55,13 +55,13 @@ azureuser@contoso.com AzureCloud  00000000-0000-0000-0000-000000000000 contosob2
 
 ## <a name="list-all-custom-policies-in-the-tenant"></a>Wyświetlanie listy wszystkich zasad niestandardowych w dzierżawie
 
-Odnajdowanie zasad niestandardowych umożliwia administratorowi usługi Azure AD B2C przeglądanie, zarządzanie i dodawanie logiki biznesowej do swoich operacji. Użyj polecenia [Get-AzureADMSTrustFrameworkPolicy,][Get-AzureADMSTrustFrameworkPolicy] aby zwrócić listę identyfikatorów zasad niestandardowych w dzierżawie usługi Azure AD B2C.
+Odnajdywanie zasad niestandardowych umożliwia administratorowi Azure AD B2C przeglądanie i Dodawanie logiki biznesowej do swoich operacji oraz zarządzanie nimi. Użyj polecenia [Get-AzureADMSTrustFrameworkPolicy][Get-AzureADMSTrustFrameworkPolicy] , aby zwrócić listę identyfikatorów zasad niestandardowych w dzierżawie Azure AD B2C.
 
 ```PowerShell
 Get-AzureADMSTrustFrameworkPolicy
 ```
 
-Przykładowe polecenie wyjściowe:
+Przykładowe dane wyjściowe polecenia:
 
 ```Console
 PS C:\> Get-AzureADMSTrustFrameworkPolicy
@@ -77,13 +77,13 @@ B2C_1A_PasswordReset
 
 ## <a name="download-a-policy"></a>Pobieranie zasad
 
-Po przejrzeniu listy identyfikatorów zasad można kierować określone zasady za pomocą [get-AzureADMSTrustFrameworkPolicy,][Get-AzureADMSTrustFrameworkPolicy] aby pobrać jej zawartość.
+Po przejrzeniu listy identyfikatorów zasad można wskazać określone zasady za pomocą [Get-AzureADMSTrustFrameworkPolicy][Get-AzureADMSTrustFrameworkPolicy] , aby pobrać jego zawartość.
 
 ```PowerShell
 Get-AzureADMSTrustFrameworkPolicy [-Id <policyId>]
 ```
 
-W tym przykładzie zasady z *identyfikatorem B2C_1A_signup_signin* są pobierane:
+W tym przykładzie zostanie pobrane zasady z IDENTYFIKATORem *B2C_1A_signup_signin* :
 
 ```Console
 PS C:\> Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
@@ -112,9 +112,9 @@ PS C:\> Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
 </TrustFrameworkPolicy>
 ```
 
-Aby lokalnie edytować zawartość zasad, należy przesuń polecenie do pliku z argumentem, `-OutputFilePath` a następnie otwórz plik w ulubionym edytorze.
+Aby edytować zawartość zasad lokalnie, należy przekazać dane wyjściowe polecenia do pliku z `-OutputFilePath` argumentem, a następnie otworzyć plik w ulubionym edytorze.
 
-Przykładowe polecenie wysyłające dane wyjściowe do pliku:
+Przykładowe polecenie wysyła dane wyjściowe do pliku:
 
 ```PowerShell
 # Download and send policy output to a file
@@ -123,9 +123,9 @@ Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -OutputFilePath C:\RP
 
 ## <a name="update-an-existing-policy"></a>Aktualizowanie istniejących zasad
 
-Po edycji pliku zasad, który został utworzony lub pobrany, można opublikować zaktualizowane zasady do usługi Azure AD B2C przy użyciu [polecenia Set-AzureADMSTrustFrameworkPolicy.][Set-AzureADMSTrustFrameworkPolicy]
+Po edytowaniu utworzonego lub pobranego pliku zasad można opublikować zaktualizowane zasady do Azure AD B2C za pomocą polecenia [Set-AzureADMSTrustFrameworkPolicy][Set-AzureADMSTrustFrameworkPolicy] .
 
-Jeśli wydasz `Set-AzureADMSTrustFrameworkPolicy` polecenie o identyfikatorze zasad, które już istnieje w dzierżawie usługi Azure AD B2C, zawartość tej zasady zostanie zastąpiona.
+Jeśli wydajesz `Set-AzureADMSTrustFrameworkPolicy` polecenie z identyfikatorem zasad, które już istnieją w dzierżawie Azure AD B2C, zawartość tych zasad zostanie zastąpiona.
 
 ```PowerShell
 Set-AzureADMSTrustFrameworkPolicy [-Id <policyId>] -InputFilePath <inputpolicyfilePath> [-OutputFilePath <outputFilePath>]
@@ -138,13 +138,13 @@ Przykładowe polecenie:
 Set-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -InputFilePath C:\B2C_1A_signup_signin.xml
 ```
 
-Aby uzyskać dodatkowe przykłady, zobacz [Set-AzureADMSTrustFrameworkPolcy][Set-AzureADMSTrustFrameworkPolicy] odwołanie do polecenia.
+Więcej przykładów można znaleźć w dokumentacji polecenia [Set-AzureADMSTrustFrameworkPolicy][Set-AzureADMSTrustFrameworkPolicy] .
 
-## <a name="upload-a-new-policy"></a>Przekazywanie nowych zasad
+## <a name="upload-a-new-policy"></a>Przekaż nowe zasady
 
-Po wprowadzeniu zmian w zasadach niestandardowych, który jest uruchomiony w wersji produkcyjnej, można opublikować wiele wersji zasad dla scenariuszy awaryjnych lub testowania A/B. Możesz też wykonać kopię istniejącej zasady, zmodyfikować ją za pomocą kilku małych zmian, a następnie przekazać ją jako nową zasadę do użycia przez inną aplikację.
+Po wprowadzeniu zmian w zasadach niestandardowych, które działają w środowisku produkcyjnym, można opublikować wiele wersji zasad dla scenariuszy testowania rezerwowego lub A/B. Można też utworzyć kopię istniejących zasad, zmodyfikować ją z kilkoma małymi zmianami, a następnie przekazać ją jako nowe zasady do użytku przez inną aplikację.
 
-Użyj [polecenia New-AzureADMSTrustFrameworkPolicy,][New-AzureADMSTrustFrameworkPolicy] aby przekazać nową zasadę:
+Użyj polecenia [New-AzureADMSTrustFrameworkPolicy][New-AzureADMSTrustFrameworkPolicy] , aby przekazać nowe zasady:
 
 ```PowerShell
 New-AzureADMSTrustFrameworkPolicy -InputFilePath <inputpolicyfilePath> [-OutputFilePath <outputFilePath>]
@@ -159,9 +159,9 @@ New-AzureADMSTrustFrameworkPolicy -InputFilePath C:\SignUpOrSignInv2.xml
 
 ## <a name="delete-a-custom-policy"></a>Usuwanie zasad niestandardowych
 
-Aby zachować czysty cykl życia operacji, zaleca się okresowe usuwanie nieużywanych zasad niestandardowych. Na przykład można usunąć stare wersje zasad po przeprowadzeniu migracji do nowego zestawu zasad i weryfikacji nowych zasad. Ponadto jeśli spróbujesz opublikować zestaw zasad niestandardowych i pojawi się błąd, może mieć sens usunięcie zasad, które zostały utworzone w ramach wersji nie powiodło się.
+Aby zachować czysty cykl życia operacji, zalecamy okresowe usuwanie nieużywanych zasad niestandardowych. Na przykład może być konieczne usunięcie starych wersji zasad po przeprowadzeniu migracji do nowego zestawu zasad i zweryfikowaniu funkcjonalności nowych zasad. Ponadto jeśli spróbujesz opublikować zestaw zasad niestandardowych i otrzymasz błąd, warto usunąć zasady, które zostały utworzone w ramach wydania zakończonego niepowodzeniem.
 
-Użyj polecenia [Usuń AzureADMSTrustFrameworkPolicy,][Remove-AzureADMSTrustFrameworkPolicy] aby usunąć zasady z dzierżawy.
+Użyj polecenia [Remove-AzureADMSTrustFrameworkPolicy][Remove-AzureADMSTrustFrameworkPolicy] , aby usunąć zasady z dzierżawy.
 
 ```PowerShell
 Remove-AzureADMSTrustFrameworkPolicy -Id <policyId>
@@ -176,9 +176,9 @@ Remove-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
 
 ## <a name="troubleshoot-policy-upload"></a>Rozwiązywanie problemów z przekazywaniem zasad
 
-Podczas próby opublikowania nowej zasady niestandardowej lub aktualizacji istniejących zasad nieprawidłowe formatowanie XML i błędy w łańcuchu dziedziczenia plików zasad mogą powodować błędy sprawdzania poprawności.
+Podczas próby opublikowania nowych zasad niestandardowych lub zaktualizowania istniejących zasad niewłaściwe formatowanie XML i błędy w łańcuchu dziedziczenia plików zasad mogą spowodować błędy walidacji.
 
-Na przykład w tym przypadku jest próba aktualizacji zasad z zawartością, która zawiera nieprawidłowo sformułowany kod XML (dane wyjściowe są obcinane dla zwięzłości):
+Załóżmy na przykład, że podjęto próbę zaktualizowania zasad o zawartości zawierającej źle sformułowany kod XML (dane wyjściowe są obcinane dla zwięzłości):
 
 ```Console
 PS C:\> Set-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -InputFilePath C:\B2C_1A_signup_signin.xml
@@ -191,11 +191,11 @@ Message: Validation failed: 1 validation error(s) found in policy "B2C_1A_SIGNUP
 ...
 ```
 
-Aby uzyskać informacje dotyczące rozwiązywania problemów z zasadami niestandardowymi, zobacz [Rozwiązywanie problemów z zasadami niestandardowymi usługi Azure AD B2C i platformą środowiska tożsamości](active-directory-b2c-guide-troubleshooting-custom.md).
+Aby uzyskać informacje na temat rozwiązywania problemów z zasadami niestandardowymi, zobacz [Rozwiązywanie problemów Azure AD B2C zasad niestandardowych i platformy obsługi tożsamości](active-directory-b2c-guide-troubleshooting-custom.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać informacje dotyczące używania programu PowerShell do wdrażania zasad niestandardowych w ramach potoku ciągłej integracji/ciągłego dostarczania (CI/CD), zobacz [Wdrażanie zasad niestandardowych z potoku programu Azure DevOps.](deploy-custom-policies-devops.md)
+Aby uzyskać informacje o używaniu programu PowerShell do wdrażania zasad niestandardowych w ramach potoku ciągłej integracji/ciągłego dostarczania (CI/CD), zobacz [wdrażanie zasad niestandardowych z potoku usługi Azure DevOps](deploy-custom-policies-devops.md).
 
 <!-- LINKS - External -->
 [Connect-AzureAD]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy

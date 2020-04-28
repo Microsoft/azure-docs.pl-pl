@@ -1,6 +1,6 @@
 ---
-title: Komunikat o błędzie pojawia się na stronie aplikacji po zalogowaniu | Dokumenty firmy Microsoft
-description: Jak rozwiązać problemy z logowaniem usługi Azure AD, gdy aplikacja zwraca komunikat o błędzie.
+title: Na stronie aplikacji jest wyświetlany komunikat o błędzie po zalogowaniu | Microsoft Docs
+description: Jak rozwiązywać problemy z logowaniem do usługi Azure AD, gdy aplikacja zwróci komunikat o błędzie.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,151 +17,151 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b8d20b31e96973a492355f0515d0532deea0ac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77185492"
 ---
-# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Strona aplikacji wyświetla komunikat o błędzie po zalogowaniu się użytkownika
+# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Na stronie aplikacji jest wyświetlany komunikat o błędzie po zalogowaniu się użytkownika
 
-W tym scenariuszu usługa Azure Active Directory (Azure AD) loguje użytkownika. Ale aplikacja wyświetla komunikat o błędzie i nie pozwala użytkownikowi zakończyć przepływ logowania. Problem polega na tym, że aplikacja nie zaakceptowała odpowiedzi wystawionej przez usługę Azure AD.
+W tym scenariuszu Azure Active Directory (Azure AD) podpisuje użytkownika w programie. Jednak aplikacja wyświetla komunikat o błędzie i nie zezwala użytkownikowi na zakończenie przepływu logowania. Problem polega na tym, że aplikacja nie zaakceptował odpowiedzi wydanej przez usługę Azure AD.
 
-Istnieje kilka możliwych przyczyn, dla których aplikacja nie zaakceptowała odpowiedzi z usługi Azure AD. Jeśli komunikat o błędzie nie identyfikuje wyraźnie, czego brakuje w odpowiedzi, spróbuj wykonać następujące czynności:
+Istnieje kilka możliwych przyczyn, dla których aplikacja nie zaakceptował odpowiedzi z usługi Azure AD. Jeśli komunikat o błędzie nie identyfikuje jasno braku odpowiedzi, spróbuj wykonać następujące czynności:
 
--   Jeśli aplikacja jest galerią usługi Azure AD, sprawdź, czy postępujesz do kroków w [jak debugować aplikacje logowania jednokrotnego oparte na SAML w usłudze Azure AD.](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
+-   Jeśli aplikacja jest galerią usługi Azure AD, upewnij się, że wykonano kroki opisane w temacie jak debugować Logowanie jednokrotne oparte na protokole [SAML do aplikacji w usłudze Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Użyj narzędzia, takiego jak [Fiddler,](https://www.telerik.com/fiddler) aby przechwycić żądanie SAML, odpowiedź i token.
+-   Użyj narzędzia, takiego jak [programu Fiddler](https://www.telerik.com/fiddler) , aby przechwycić żądanie SAML, odpowiedź i token.
 
--   Wyślij odpowiedź SAML do dostawcy aplikacji i zapytaj go, czego brakuje.
+-   Wyślij odpowiedź SAML do dostawcy aplikacji i poproś o ich brak.
 
-## <a name="attributes-are-missing-from-the-saml-response"></a>W odpowiedzi SAML brakuje atrybutów
+## <a name="attributes-are-missing-from-the-saml-response"></a>Brak atrybutów w odpowiedzi SAML
 
-Aby dodać atrybut w konfiguracji usługi Azure AD, który zostanie wysłany w odpowiedzi usługi Azure AD, wykonaj następujące kroki:
+Aby dodać atrybut w konfiguracji usługi Azure AD, który będzie wysyłany w odpowiedzi usługi Azure AD, wykonaj następujące kroki:
 
-1. Otwórz [**witrynę Azure portal**](https://portal.azure.com/) i zaloguj się jako administrator globalny lub współadministrator.
+1. Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako Administrator globalny lub współadministrator.
 
-2. W górnej części okienka nawigacji po lewej stronie wybierz pozycję **Wszystkie usługi,** aby otworzyć rozszerzenie usługi Azure AD.
+2. W górnej części okienka nawigacji po lewej stronie wybierz pozycję **wszystkie usługi** , aby otworzyć rozszerzenie usługi Azure AD.
 
-3. Wpisz **usługę Azure Active Directory** w polu wyszukiwania filtru, a następnie wybierz pozycję Azure Active **Directory**.
+3. Wpisz **Azure Active Directory** w polu wyszukiwania filtru, a następnie wybierz pozycję **Azure Active Directory**.
 
-4. Wybierz **aplikacje dla przedsiębiorstw** w okienku nawigacji usługi Azure AD.
+4. W okienku nawigacji usługi Azure AD wybierz pozycję **aplikacje dla przedsiębiorstw** .
 
-5. Wybierz **pozycję Wszystkie aplikacje,** aby wyświetlić listę aplikacji.
+5. Wybierz pozycję **wszystkie aplikacje** , aby wyświetlić listę aplikacji.
 
    > [!NOTE]
-   > Jeśli nie widzisz żądanej aplikacji, użyj kontrolki **Filtruj** u góry **listy Wszystkie aplikacje**. Ustaw opcję **Pokaż** na "Wszystkie aplikacje".
+   > Jeśli nie widzisz potrzebnej aplikacji, użyj kontrolki **filtru** w górnej części **listy wszystkie aplikacje**. Dla opcji **Pokaż** wybierz wartość "wszystkie aplikacje".
 
-6. Wybierz aplikację, którą chcesz skonfigurować do logowania jednokrotnego.
+6. Wybierz aplikację, którą chcesz skonfigurować do rejestracji jednokrotnej.
 
-7. Po załadowaniu aplikacji wybierz **pozycję Logowanie jednokrotne** w okienku nawigacji.
+7. Po załadowaniu aplikacji wybierz pozycję **Logowanie jednokrotne** w okienku nawigacji.
 
-8. W sekcji **Atrybuty użytkownika** wybierz pozycję **Wyświetl i edytuj wszystkie inne atrybuty użytkownika**. W tym miejscu można zmienić atrybuty, które mają być wysyłane do aplikacji w tokenie SAML, gdy użytkownicy się logują.
+8. W sekcji **atrybuty użytkownika** wybierz pozycję **Wyświetl i edytuj wszystkie inne atrybuty użytkownika**. W tym miejscu możesz zmienić atrybuty do wysłania do aplikacji w tokenie SAML, gdy użytkownik loguje się.
 
    Aby dodać atrybut:
 
-   1. Wybierz **pozycję Dodaj atrybut**. Wprowadź **nazwę**i wybierz **wartość** z listy rozwijanej.
+   1. Wybierz pozycję **Dodaj atrybut**. Wprowadź **nazwę**i wybierz **wartość** z listy rozwijanej.
 
-   1.  Wybierz **pozycję Zapisz**. Nowy atrybut zostanie wyświetlony w tabeli.
+   1.  Wybierz pozycję **Zapisz**. W tabeli zostanie wyświetlony nowy atrybut.
 
 9. Zapisz konfigurację.
 
-   Następnym razem, gdy użytkownik zaloguje się do aplikacji, usługa Azure AD wyśle nowy atrybut w odpowiedzi SAML.
+   Przy następnym zalogowaniu się użytkownika do aplikacji usługa Azure AD wyśle nowy atrybut do odpowiedzi SAML.
 
-## <a name="the-app-doesnt-identify-the-user"></a>Aplikacja nie identyfikuje użytkownika
+## <a name="the-app-doesnt-identify-the-user"></a>Aplikacja nie zidentyfikuje użytkownika
 
-Logowanie się do aplikacji kończy się niepowodzeniem, ponieważ w odpowiedzi SAML brakuje atrybutu, takiego jak rola. Lub kończy się niepowodzeniem, ponieważ aplikacja oczekuje innego formatu lub wartości dla **atrybutu NameID** (User Identifier).
+Logowanie do aplikacji nie powiodło się, ponieważ odpowiedź SAML nie zawiera atrybutu, takiego jak rola. Lub nie powiedzie się, ponieważ aplikacja oczekuje innego formatu lub wartości atrybutu **NameID** (identyfikator użytkownika).
 
-Jeśli używasz [automatycznego inicjowania obsługi administracyjnej usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) do tworzenia, obsługi i usuwania użytkowników w aplikacji, sprawdź, czy użytkownik został aprowizny do aplikacji SaaS. Aby uzyskać więcej informacji, zobacz [Żaden użytkownik nie jest aprowidyzowany w aplikacji usługi Azure AD Gallery.](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
+Jeśli używasz [zautomatyzowanej aprowizacji użytkowników usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) , aby tworzyć, konserwować i usuwać użytkowników w aplikacji, sprawdź, czy użytkownik został zainicjowany do aplikacji SaaS. Aby uzyskać więcej informacji, zobacz [nie zainicjowano obsługi administracyjnej użytkowników w aplikacji z galerii usługi Azure AD](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
 
 ## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Dodawanie atrybutu do konfiguracji aplikacji usługi Azure AD
 
-Aby zmienić wartość identyfikatora użytkownika, wykonaj następujące czynności:
+Aby zmienić wartość identyfikatora użytkownika, wykonaj następujące kroki:
 
-1. Otwórz [**witrynę Azure portal**](https://portal.azure.com/) i zaloguj się jako administrator globalny lub współadministrator.
+1. Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako Administrator globalny lub współadministrator.
 
-2. Wybierz **wszystkie usługi** w górnej części okienka nawigacji po lewej stronie, aby otworzyć rozszerzenie usługi Azure AD.
+2. Wybierz pozycję **wszystkie usługi** w górnej części okienka nawigacji po lewej stronie, aby otworzyć rozszerzenie usługi Azure AD.
 
-3. Wpisz **usługę Azure Active Directory** w polu wyszukiwania filtru, a następnie wybierz pozycję Azure Active **Directory**.
+3. Wpisz **Azure Active Directory** w polu wyszukiwania filtru, a następnie wybierz pozycję **Azure Active Directory**.
 
-4. Wybierz **aplikacje dla przedsiębiorstw** w okienku nawigacji usługi Azure AD.
+4. W okienku nawigacji usługi Azure AD wybierz pozycję **aplikacje dla przedsiębiorstw** .
 
-5. Wybierz **pozycję Wszystkie aplikacje,** aby wyświetlić listę aplikacji.
+5. Wybierz pozycję **wszystkie aplikacje** , aby wyświetlić listę aplikacji.
 
    > [!NOTE]
-   > Jeśli nie widzisz żądanej aplikacji, użyj kontrolki **Filtruj** u góry **listy Wszystkie aplikacje**. Ustaw opcję **Pokaż** na "Wszystkie aplikacje".
+   > Jeśli nie widzisz potrzebnej aplikacji, użyj kontrolki **filtru** w górnej części **listy wszystkie aplikacje**. Dla opcji **Pokaż** wybierz wartość "wszystkie aplikacje".
 
-6. Wybierz aplikację, którą chcesz skonfigurować dla aplikacji SSO.
+6. Wybierz aplikację, którą chcesz skonfigurować dla logowania jednokrotnego.
 
-7. Po załadowaniu aplikacji wybierz **pozycję Logowanie jednokrotne** w okienku nawigacji.
+7. Po załadowaniu aplikacji wybierz pozycję **Logowanie jednokrotne** w okienku nawigacji.
 
-8. W obszarze **Atrybuty użytkownika**wybierz unikatowy identyfikator użytkownika z listy rozwijanej **Identyfikator użytkownika.**
+8. W obszarze **atrybuty użytkownika**wybierz unikatowy identyfikator użytkownika z listy rozwijanej **Identyfikator użytkownika** .
 
-## <a name="change-the-nameid-format"></a>Zmienianie formatu NameID
+## <a name="change-the-nameid-format"></a>Zmień format NameID
 
-Jeśli aplikacja oczekuje innego formatu atrybutu **NameID** (User Identifier), zobacz [Edytowanie nameID,](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) aby zmienić format NameID.
+Jeśli aplikacja oczekuje innego formatu atrybutu **NameID** (identyfikator użytkownika), zobacz [Edytowanie NameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) , aby zmienić format NameID.
 
-Usługa Azure AD wybiera format atrybutu **NameID** (identyfikator użytkownika) na podstawie wybranej wartości lub formatu żądanego przez aplikację w 2018 roku. Aby uzyskać więcej informacji, zobacz sekcję "NameIDPolicy" protokołu [SAML logowania jednokrotnego.](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy)
+Usługa Azure AD wybiera format atrybutu **NameID** (identyfikator użytkownika) w oparciu o wybraną wartość lub format żądany przez aplikację w elemencie SAML AuthRequest. Aby uzyskać więcej informacji, zobacz sekcję "NameIDPolicy" [protokołu SAML logowania](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy)jednokrotnego.
 
 ## <a name="the-app-expects-a-different-signature-method-for-the-saml-response"></a>Aplikacja oczekuje innej metody podpisu dla odpowiedzi SAML
 
 Aby zmienić, które części tokenu SAML są podpisane cyfrowo przez usługę Azure AD, wykonaj następujące kroki:
 
-1. Otwórz [witrynę Azure portal](https://portal.azure.com/) i zaloguj się jako administrator globalny lub współadministrator.
+1. Otwórz [Azure Portal](https://portal.azure.com/) i zaloguj się jako Administrator globalny lub współadministrator.
 
-2. Wybierz **wszystkie usługi** w górnej części okienka nawigacji po lewej stronie, aby otworzyć rozszerzenie usługi Azure AD.
+2. Wybierz pozycję **wszystkie usługi** w górnej części okienka nawigacji po lewej stronie, aby otworzyć rozszerzenie usługi Azure AD.
 
-3. Wpisz **usługę Azure Active Directory** w polu wyszukiwania filtru, a następnie wybierz pozycję Azure Active **Directory**.
+3. Wpisz **Azure Active Directory** w polu wyszukiwania filtru, a następnie wybierz pozycję **Azure Active Directory**.
 
-4. Wybierz **aplikacje dla przedsiębiorstw** w okienku nawigacji usługi Azure AD.
+4. W okienku nawigacji usługi Azure AD wybierz pozycję **aplikacje dla przedsiębiorstw** .
 
-5. Wybierz **pozycję Wszystkie aplikacje,** aby wyświetlić listę aplikacji.
+5. Wybierz pozycję **wszystkie aplikacje** , aby wyświetlić listę aplikacji.
 
    > [!NOTE]
-   > Jeśli nie widzisz żądanej aplikacji, użyj formantu **Filtru** u góry **listy Wszystkie aplikacje**. Ustaw opcję **Pokaż** na "Wszystkie aplikacje".
+   > Jeśli nie widzisz potrzebnej aplikacji, użyj kontrolki **filtru** w górnej części **listy wszystkie aplikacje**. Dla opcji **Pokaż** wybierz wartość "wszystkie aplikacje".
 
-6. Wybierz aplikację, którą chcesz skonfigurować do logowania jednokrotnego.
+6. Wybierz aplikację, którą chcesz skonfigurować do rejestracji jednokrotnej.
 
-7. Po załadowaniu aplikacji wybierz **opcję Logowanie jednokrotne** w okienku nawigacji.
+7. Po załadowaniu aplikacji wybierz pozycję **Logowanie jednokrotne** w okienku nawigacji.
 
-8. W obszarze **Certyfikat podpisywania SAML**wybierz pozycję **Pokaż zaawansowane ustawienia podpisywania certyfikatów**.
+8. W obszarze **certyfikat podpisywania SAML**wybierz pozycję **Pokaż zaawansowane ustawienia podpisywania certyfikatu**.
 
-9. Wybierz **opcję podpisywania,** od których aplikacja oczekuje spośród następujących opcji:
+9. Wybierz **opcję podpisywania** , której aplikacja oczekuje spośród następujących opcji:
 
    * **Podpisz odpowiedź SAML**
-   * **Podpisz odpowiedź i asercja SAML**
-   * **Podpisz twierdzenie SAML**
+   * **Podpisz odpowiedź i potwierdzenie SAML**
+   * **Podpisz potwierdzenie SAML**
 
-   Następnym razem, gdy użytkownik zaloguje się do aplikacji, usługa Azure AD podpisze część odpowiedzi SAML, która została wybrana.
+   Przy następnym zalogowaniu się użytkownika do aplikacji usługa Azure AD będzie podpisywać część wybranej odpowiedzi SAML.
 
 ## <a name="the-app-expects-the-sha-1-signing-algorithm"></a>Aplikacja oczekuje algorytmu podpisywania SHA-1
 
-Domyślnie usługa Azure AD podpisuje token SAML przy użyciu najbardziej bezpiecznego algorytmu. Zaleca się, aby nie zmieniać algorytmu podpisywania na *SHA-1,* chyba że aplikacja wymaga sha-1.
+Domyślnie usługa Azure AD podpisuje token SAML przy użyciu najbardziej bezpiecznego algorytmu. Zaleca się, aby nie zmieniać algorytmu podpisywania *SHA-1* , chyba że aplikacja wymaga algorytmu SHA-1.
 
 Aby zmienić algorytm podpisywania, wykonaj następujące kroki:
 
-1. Otwórz [witrynę Azure portal](https://portal.azure.com/) i zaloguj się jako administrator globalny lub współadministrator.
+1. Otwórz [Azure Portal](https://portal.azure.com/) i zaloguj się jako Administrator globalny lub współadministrator.
 
-2. Wybierz **wszystkie usługi** w górnej części okienka nawigacji po lewej stronie, aby otworzyć rozszerzenie usługi Azure AD.
+2. Wybierz pozycję **wszystkie usługi** w górnej części okienka nawigacji po lewej stronie, aby otworzyć rozszerzenie usługi Azure AD.
 
-3. Wpisz **usługę Azure Active Directory** w polu wyszukiwania filtru, a następnie wybierz pozycję Azure Active **Directory**.
+3. Wpisz **Azure Active Directory** w polu wyszukiwania filtru, a następnie wybierz pozycję **Azure Active Directory**.
 
-4. Wybierz **aplikacje dla przedsiębiorstw** w okienku nawigacji usługi Azure AD.
+4. W okienku nawigacji usługi Azure AD wybierz pozycję **aplikacje dla przedsiębiorstw** .
 
-5. Wybierz **pozycję Wszystkie aplikacje,** aby wyświetlić listę aplikacji.
+5. Wybierz pozycję **wszystkie aplikacje** , aby wyświetlić listę aplikacji.
 
    > [!NOTE]
-   > Jeśli nie widzisz żądanej aplikacji, użyj formantu **Filtru** u góry **listy Wszystkie aplikacje**. Ustaw opcję **Pokaż** na "Wszystkie aplikacje".
+   > Jeśli nie widzisz potrzebnej aplikacji, użyj kontrolki **filtru** w górnej części **listy wszystkie aplikacje**. Dla opcji **Pokaż** wybierz wartość "wszystkie aplikacje".
 
-6. Wybierz aplikację, którą chcesz skonfigurować do logowania jednokrotnego.
+6. Wybierz aplikację, którą chcesz skonfigurować do rejestracji jednokrotnej.
 
-7. Po załadowaniu aplikacji wybierz **opcję Logowanie jednokrotne** z okienka nawigacji po lewej stronie aplikacji.
+7. Po załadowaniu aplikacji wybierz pozycję **Logowanie** jednokrotne w okienku nawigacji po lewej stronie aplikacji.
 
-8. W obszarze **Certyfikat podpisywania SAML**wybierz pozycję **Pokaż zaawansowane ustawienia podpisywania certyfikatów**.
+8. W obszarze **certyfikat podpisywania SAML**wybierz pozycję **Pokaż zaawansowane ustawienia podpisywania certyfikatu**.
 
-9. Wybierz **SHA-1** jako **algorytm podpisywania**.
+9. Jako **algorytm podpisywania**wybierz opcję **SHA-1** .
 
-   Następnym razem, gdy użytkownik zaloguje się do aplikacji, usługa Azure AD podpisze token SAML przy użyciu algorytmu SHA-1.
+   Przy następnym zalogowaniu się użytkownika do aplikacji usługa Azure AD podpisuje token SAML przy użyciu algorytmu SHA-1.
 
 ## <a name="next-steps"></a>Następne kroki
-[Jak debugować oparte na SAML logowanie jednokrotne do aplikacji w usłudze Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+[Jak debugować Logowanie jednokrotne oparte na języku SAML do aplikacji w usłudze Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).

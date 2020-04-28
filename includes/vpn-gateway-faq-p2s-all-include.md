@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,15 +9,15 @@ ms.date: 02/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: ec684e5e6fa2ef8e9ed30be49f59e8aa7ef3a28b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79117092"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Ile punktów końcowych klienta sieci VPN może obejmować konfiguracja punkt-lokacja?
 
-To zależy od jednostki SKU bramy. Aby uzyskać więcej informacji na temat liczby obsługiwanych połączeń, zobacz [Jednostki SKU bramy](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
+Zależy od jednostki SKU bramy. Aby uzyskać więcej informacji o liczbie obsługiwanych połączeń, zobacz [jednostki SKU bramy](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
 
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a><a name="supportedclientos"></a>Których systemów operacyjnych klienta można używać z połączeniami typu punkt-lokacja?
 
@@ -30,7 +30,7 @@ Obsługiwane są następujące systemy operacyjne klientów:
 * Windows Server 2012 R2 (tylko 64-bitowy)
 * Windows Server 2016 (tylko 64-bitowy)
 * Windows 10
-* Mac OS X w wersji 10.11 lub wyższej
+* Mac OS X w wersji 10,11 lub nowszej
 * Linux (StrongSwan)
 * iOS
 
@@ -40,11 +40,11 @@ Obsługiwane są następujące systemy operacyjne klientów:
 
 Platforma Azure obsługuje trzy typy opcji sieci VPN typu punkt-lokacja:
 
-* Protokół Secure Socket Tunneling Protocol (SSTP). SSTP to zastrzeżone rozwiązanie oparte na SSL firmy Microsoft, które może przenikać przez zapory, ponieważ większość zapór otwiera wychodzący port TCP używany przez 443 SSL.
+* Protokół Secure Socket Tunneling Protocol (SSTP). SSTP to firmowe rozwiązanie oparte na protokole SSL firmy Microsoft, które może przeniknąć zapory od momentu, gdy większość zapór otworzy wychodzący port TCP, którego używa protokół SSL 443.
 
-* Openvpn. OpenVPN to rozwiązanie oparte na SSL, które może przenikać przez zapory, ponieważ większość zapór otwiera wychodzący port TCP używany przez 443 SSL.
+* OpenVPN. OpenVPN jest rozwiązaniem opartym na protokole SSL, które może przeniknąć zapory od czasu, gdy większość zapór otwiera wychodzący port TCP, którego używa protokół SSL 443.
 
-* Sieć VPN z protokołem IKEv2. IKEv2 VPN to oparte na standardach rozwiązanie sieci VPN IPsec, które używa wychodzących portów UDP 500 i 4500 oraz nr protokołu IP. 50. Zapory nie zawsze otwierają te porty, więc istnieje możliwość, że sieć VPN z protokołem IKEv2 nie będzie mogła nawiązywać połączeń przez serwery proxy i zapory.
+* Sieć VPN z protokołem IKEv2. Sieci VPN IKEv2 to oparte na standardach rozwiązanie sieci VPN IPsec, które korzysta z wychodzących portów UDP 500 i 4500 oraz protokołu IP nr. 50. Zapory nie zawsze otwierają te porty, więc istnieje możliwość, że sieć VPN z protokołem IKEv2 nie będzie mogła nawiązywać połączeń przez serwery proxy i zapory.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>Czy w przypadku ponownego uruchomienia komputera klienckiego skonfigurowanego pod kątem połączenia typu punkt-lokacja połączenie z siecią VPN zostanie nawiązane automatycznie?
 
@@ -58,13 +58,13 @@ Automatyczne ponowne nawiązywanie połączenia i DDNS nie są obecnie obsługiw
 
 Tak. W przypadku modelu wdrażania przy użyciu usługi Resource Manager dla bramy trzeba mieć sieć VPN opartą na trasach. W przypadku klasycznego modelu wdrażania należy użyć bramy dynamicznej. Nie obsługujemy połączeń typu punkt-lokacja dla bram VPN Gateway z routingiem statycznym lub bram VPN Gateway opartych na zasadach.
 
-### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-network-gateways-at-the-same-time"></a>Czy mogę skonfigurować klienta typu punkt-lokacja do łączenia się z wieloma bramami sieci wirtualnej w tym samym czasie?
+### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-network-gateways-at-the-same-time"></a>Czy można skonfigurować klienta punkt-lokacja do łączenia się z wieloma bramami sieci wirtualnych w tym samym czasie?
 
-W zależności od używanego oprogramowania klienta sieci VPN można połączyć się z wieloma bramami sieci wirtualnej, pod warunkiem że podłączone sieci wirtualne nie mają między nimi sprzecznych przestrzeni adresowych lub z sieci z klientem.  Podczas gdy klient sieci VPN platformy Azure obsługuje wiele połączeń sieci VPN, tylko jedno połączenie może być połączone w danym momencie.
+W zależności od używanego oprogramowania klienta sieci VPN może być możliwe nawiązanie połączenia z wieloma bramami Virtual Network, pod warunkiem, że sieci wirtualne, z którymi nawiązano połączenie, nie mają przestrzeni adresowej powodujących konflikt między nimi lub z siecią z klientem, z którego nawiązywane jest połączenie.  Klient sieci VPN platformy Azure obsługuje wiele połączeń sieci VPN, ale tylko jedno połączenie może być połączone w danym momencie.
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Czy można skonfigurować klienta typu punkt-lokacja pod kątem jednoczesnego nawiązywania połączenia z wieloma sieciami wirtualnymi?
 
-Tak, połączenia typu "wskaż na lokację" z bramą sieci wirtualnej wdrożoną w sieci wirtualnej, która jest równorzędna z innymi sieciami wirtualnymi, mogą mieć dostęp do innych stron równorzędnych sieci wirtualnych.  Pod warunkiem, że usługi równorzędne sieci wirtualne korzystają z funkcji UseRemoteGateway / AllowGatewayTransit, klient typu punkt-lokacja będzie mógł połączyć się z tymi równorzędnymi sieciami wirtualnymi.  Aby uzyskać więcej informacji, zapoznaj się z [tym](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) artykułem.
+Tak, połączenia punkt-lokacja z bramą Virtual Network wdrożone w sieci wirtualnej, która jest połączona z innym sieci wirtualnychem, może mieć dostęp do innych komunikacji równorzędnych sieci wirtualnych.  Pod warunkiem, że Komunikacja równorzędna sieci wirtualnych korzysta z funkcji UseRemoteGateway/AllowGatewayTransit, klient punkt-lokacja będzie mógł nawiązać połączenie z tymi równorzędnymi sieci wirtualnych.  Aby uzyskać więcej informacji, zapoznaj się z [tym](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) artykułem.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Jakiej przepływności można oczekiwać w przypadku połączeń typu lokacja-lokacja lub punkt-lokacja?
 
@@ -72,21 +72,21 @@ Trudno jest utrzymać dokładną przepływność tuneli VPN. Protokoły IPsec i 
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Czy mogę używać dowolnego programowego klienta sieci VPN dla połączeń typu punkt-lokacja obsługujących protokoły SSTP i/lub IKEv2?
 
-Nie. Możesz używać wyłącznie natywnego klienta sieci VPN w systemie Windows dla protokołu SSTP i natywnego klienta sieci VPN na komputerach Mac dla protokołu IKEv2. Można jednak użyć klienta OpenVPN na wszystkich platformach, aby połączyć się za pomocą protokołu OpenVPN. Zapoznaj się z listą obsługiwanych systemów operacyjnych klienta.
+Nie. Możesz używać wyłącznie natywnego klienta sieci VPN w systemie Windows dla protokołu SSTP i natywnego klienta sieci VPN na komputerach Mac dla protokołu IKEv2. Można jednak użyć klienta OpenVPN na wszystkich platformach, aby nawiązać połączenie za pośrednictwem protokołu OpenVPN. Zapoznaj się z listą obsługiwanych systemów operacyjnych klienta.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Czy platforma Azure obsługuje sieć VPN z protokołem IKEv2 w systemie Windows?
 
-Protokół IKEv2 jest obsługiwany w systemach Windows 10 i Server 2016. Jednak aby można było używać protokołu IKEv2, należy zainstalować aktualizacje i lokalnie ustawić wartość klucza rejestru. Wersje systemu operacyjnego przed windows 10 nie są obsługiwane i można używać tylko SSTP lub **OpenVPN® Protocol**.
+Protokół IKEv2 jest obsługiwany w systemach Windows 10 i Server 2016. Jednak aby można było używać protokołu IKEv2, należy zainstalować aktualizacje i lokalnie ustawić wartość klucza rejestru. Wersje systemu operacyjnego starsze niż Windows 10 nie są obsługiwane i mogą korzystać tylko z **protokołu SSTP lub OpenVPN®**.
 
 Aby przygotowywać system Windows 10 lub Server 2016 pod kątem protokołu IKEv2:
 
 1. Zainstaluj aktualizację.
 
-   | Wersja systemu operacyjnego | Data | Numer/link |
+   | Wersja systemu operacyjnego | Date | Numer/link |
    |---|---|---|
    | Windows Server 2016<br>Windows 10 w wersji 1607 | 17 stycznia 2018 r. | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 w wersji 1703 | 17 stycznia 2018 r. | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
-   | Windows 10 wersja 1709 | 22 marca 2018 r. | [aktualizacja KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   | Windows 10 w wersji 1709 | 22 marca, 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |
 
 2. Ustaw wartość klucza rejestru. Utwórz lub ustaw klucz rejestru REG_DWORD „HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload”na wartość 1.
@@ -103,9 +103,9 @@ Dla sieci VPN P2S platforma Azure obsługuje systemy Windows, Mac i Linux.
 
 Tak, te nowe funkcje możesz włączyć w już wdrożonych bramach, używając do tego programu PowerShell lub witryny Azure Portal. Warunkiem jest, aby używane przez Ciebie jednostki SKU bramy obsługiwały protokół RADIUS i/lub protokół IKEv2. Na przykład podstawowa jednostka SKU bramy sieci VPN nie obsługuje protokołu RADIUS ani protokołu IKEv2.
 
-### <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a><a name="removeconfig"></a>Jak usunąć konfigurację połączenia P2S?
+### <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a><a name="removeconfig"></a>Jak mogę usunąć konfiguracji połączenia P2S?
 
-Konfigurację P2S można usunąć przy użyciu interfejsu wiersza polecenia platformy Azure i programu PowerShell przy użyciu następujących poleceń:
+Konfigurację P2S można usunąć za pomocą interfejsu wiersza polecenia platformy Azure i programu PowerShell przy użyciu następujących poleceń:
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 

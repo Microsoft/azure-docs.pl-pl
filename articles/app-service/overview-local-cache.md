@@ -48,7 +48,7 @@ Funkcja lokalnej pamięci podręcznej usługi Azure App Service udostępnia wido
 ## <a name="enable-local-cache-in-app-service"></a>Włączanie lokalnej pamięci podręcznej w usłudze aplikacji
 Konfigurowanie lokalnej pamięci podręcznej przy użyciu kombinacji ustawień aplikacji zarezerwowanej. Te ustawienia aplikacji można skonfigurować przy użyciu następujących metod:
 
-* [Portal Azure](#Configure-Local-Cache-Portal)
+* [Azure Portal](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Konfigurowanie lokalnej pamięci podręcznej przy użyciu witryny Azure portal

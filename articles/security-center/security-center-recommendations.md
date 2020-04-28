@@ -1,6 +1,6 @@
 ---
 title: Zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure
-description: W tym dokumencie znajdziesz informacje o tym, jak zalecenia w usłudze Azure Security Center pomagają chronić zasoby platformy Azure i przestrzeganie zasad zabezpieczeń.
+description: W tym dokumencie przedstawiono sposób, w jaki zalecenia w Azure Security Center pomagają chronić zasoby platformy Azure i zachować zgodność z zasadami zabezpieczeń.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
 ms.openlocfilehash: 408b0f020be72b8e6b10dd6c97298afda1b91360
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79245306"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure 
-W tym temacie wyjaśniono, jak wyświetlić i zrozumieć zalecenia w usłudze Azure Security Center, aby pomóc w ochronie zasobów platformy Azure.
+W tym temacie wyjaśniono, jak wyświetlać i zrozumieć zalecenia w Azure Security Center, aby pomóc w ochronie zasobów platformy Azure.
 
 > [!NOTE]
 > Informacje na temat usługi przedstawiono w tym dokumencie za pomocą przykładowego wdrożenia.  Ten dokument nie jest przewodnikiem krok po kroku.
@@ -29,48 +29,48 @@ W tym temacie wyjaśniono, jak wyświetlić i zrozumieć zalecenia w usłudze Az
 
 ## <a name="what-are-security-recommendations"></a>Co to są zalecenia dotyczące zabezpieczeń?
 
-Zalecenia to działania, które należy podjąć w celu zabezpieczenia zasobów.
+Zalecenia to akcje, które należy wykonać, aby zabezpieczyć zasoby.
 
-Usługa Security Center okresowo analizuje stan zabezpieczeń zasobów platformy Azure w celu zidentyfikowania potencjalnych luk w zabezpieczeniach. Następnie zawiera zalecenia dotyczące sposobu ich usuwania.
+Security Center okresowe Analizowanie stanu zabezpieczeń zasobów platformy Azure w celu zidentyfikowania potencjalnych luk w zabezpieczeniach. Następnie zawiera zalecenia dotyczące sposobu ich usuwania.
 
-Każde zalecenie zawiera:
+Każde zalecenie oferuje następujące informacje:
 
 - Krótki opis tego, co jest zalecane.
-- Kroki naprawcze do przeprowadzenia w celu wdrożenia zalecenia. <!-- In some cases, Quick Fix remediation is available. -->
-- Jakie zasoby są w potrzebie wykonywania zalecanych działań na nich.
-- **Wpływ Secure Score**, czyli kwota, która zostanie wydrzesza, jeśli zaimplementujesz to zalecenie.
+- Kroki korygowania, które należy wykonać w celu wdrożenia zalecenia. <!-- In some cases, Quick Fix remediation is available. -->
+- Które zasoby są wymagane do wykonania zalecanej akcji.
+- Istotny **wpływ na ocenę**, czyli ilość, która będzie obowiązywać w przypadku zaimplementowania tego zalecenia.
 
-## <a name="monitor-recommendations"></a>Monitorowanie zaleceń<a name="monitor-recommendations"></a>
+## <a name="monitor-recommendations"></a>Zalecenia dotyczące monitorowania<a name="monitor-recommendations"></a>
 
-Usługa Security Center analizuje stan zabezpieczeń zasobów w celu zidentyfikowania potencjalnych luk w zabezpieczeniach. **Kafelek Zalecenia** w obszarze **Przegląd** zawiera całkowitą liczbę zaleceń zidentyfikowanych przez centrum zabezpieczeń.
+Security Center analizuje stan zabezpieczeń zasobów, aby identyfikować potencjalne luki w zabezpieczeniach. Kafelek **zalecenia** w obszarze **Przegląd** przedstawia łączną liczbę zaleceń identyfikowanych przez Security Center.
 
-![Omówienie centrum zabezpieczeń](./media/security-center-recommendations/asc-overview.png)
+![Omówienie usługi Security Center](./media/security-center-recommendations/asc-overview.png)
 
-1. Wybierz **kafelek Rekomendacje** w obszarze **Przegląd**. Zostanie otwarta lista **Rekomendacje.**
+1. Wybierz **kafelek rekomendacje** w obszarze **Przegląd**. Zostanie otwarta lista **rekomendacje** .
 
       ![Wyświetlanie zaleceń](./media/security-center-recommendations/view-recommendations.png)
 
-    Można filtrować zalecenia. Aby filtrować zalecenia, wybierz **filtr** na **bloku Zalecenia.** Otwiera się **blok Filtruj** i wybierasz wartości ważności i stanu, które mają być widoczne.
+    Możesz filtrować zalecenia. Aby filtrować zalecenia, wybierz pozycję **Filtruj** w bloku **zalecenia** . Zostanie otwarty blok **filtru** i zostanie wybrana wartość ważność i stan, które mają być wyświetlane.
 
-   * **ZALECENIA**: Zalecenie.
-   * **SECURE SCORE IMPACT:** Wynik generowany przez centrum zabezpieczeń przy użyciu zaleceń dotyczących zabezpieczeń i stosowanie zaawansowanych algorytmów w celu określenia, jak ważne jest każde zalecenie. Aby uzyskać więcej informacji, zobacz [Bezpieczne obliczanie wyniku](security-center-secure-score.md#secure-score-calculation).
-   * **ZASÓB**: Wyświetla listę zasobów, do których stosuje się to zalecenie.
-   * **PASEK STANU**: Opisuje ważność tego konkretnego zalecenia:
-       * **Wysoki (czerwony)**: Luka w zabezpieczeniach występuje w znaczącym zasobie (takim jak aplikacja, maszyna wirtualna lub grupa zabezpieczeń sieci) i wymaga uwagi.
-       * **Średni (Pomarańczowy)**: Istnieje luka i niekrytyczne lub dodatkowe kroki są wymagane, aby ją wyeliminować lub zakończyć proces.
-       * **Niski (niebieski)**: Istnieje luka, która powinna zostać rozwiązana, ale nie wymaga natychmiastowej uwagi. (Domyślnie niskie rekomendacje nie są prezentowane, ale możesz filtrować niskie rekomendacje, jeśli chcesz je zobaczyć). 
-       * **Zdrowy (Zielony)**:
-       * **Niedostępne (szary)**:
+   * **Zalecenia**: zalecenie.
+   * **Bezpieczny wpływ na ocenę**: wynik wygenerowany przez Security Center przy użyciu zaleceń dotyczących zabezpieczeń oraz stosowanie zaawansowanych algorytmów w celu określenia, jak kluczowe jest każde zalecenie. Aby uzyskać więcej informacji, zobacz temat [bezpieczne Obliczanie wyniku](security-center-secure-score.md#secure-score-calculation).
+   * **Zasób**: zawiera listę zasobów, do których stosuje się to zalecenie.
+   * **Paski stanu**: opisuje ważność danego zalecenia:
+       * **Wysoka (czerwony)**: istnieje luka w zabezpieczeniach, która ma zrozumiały zasób (na przykład aplikację, maszynę wirtualną lub sieciową grupę zabezpieczeń) i wymaga uwagi.
+       * **Średni (pomarańczowy)**: istnieje luka w zabezpieczeniach, która nie jest krytyczna lub dodatkowe kroki są wymagane do eliminacji lub ukończenia procesu.
+       * **Niska (niebieska)**: istnieje luka w zabezpieczeniach, którą należy rozwiązać, ale nie wymaga natychmiastowej uwagi. (Domyślnie małe rekomendacje nie są wyświetlane, ale można filtrować według niskich zaleceń, jeśli chcesz je zobaczyć). 
+       * **Dobra kondycja (zielony)**:
+       * **Niedostępne (szare)**:
 
-1. Aby wyświetlić szczegóły każdej rekomendacji, kliknij zalecenie.
+1. Aby wyświetlić szczegóły każdego zalecenia, kliknij zalecenie.
 
-    ![Szczegóły zalecenia](./media/security-center-recommendations/recommendation-details.png)
+    ![Szczegóły rekomendacji](./media/security-center-recommendations/recommendation-details.png)
 
 >[!NOTE] 
-> Zobacz [klasyczne i resource manager modeli wdrażania](../azure-classic-rm.md) zasobów platformy Azure.
+> Zobacz [klasyczne i Menedżer zasobów modele wdrażania](../azure-classic-rm.md) dla zasobów platformy Azure.
  
 ## <a name="next-steps"></a>Następne kroki
 
-W tym dokumencie wprowadzono zalecenia dotyczące zabezpieczeń w u centrum zabezpieczeń. Aby dowiedzieć się, jak zaradzić zaleceniu:
+W tym dokumencie wprowadzono zalecenia dotyczące zabezpieczeń w Security Center. Aby dowiedzieć się, jak skorygować zalecenia:
 
-* [Korygowanie zaleceń](security-center-remediate-recommendations.md) — dowiedz się, jak skonfigurować zasady zabezpieczeń dla subskrypcji platformy Azure i grup zasobów.
+* [Skoryguj zalecenia](security-center-remediate-recommendations.md) — Dowiedz się, jak skonfigurować zasady zabezpieczeń dla subskrypcji i grup zasobów platformy Azure.

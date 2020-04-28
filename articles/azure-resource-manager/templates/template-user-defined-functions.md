@@ -1,24 +1,24 @@
 ---
 title: Funkcje zdefiniowane przez użytkownika w szablonach
-description: W tym artykule opisano sposób definiowania i używania funkcji zdefiniowanych przez użytkownika w szablonie usługi Azure Resource Manager.
+description: Opisuje sposób definiowania i używania funkcji zdefiniowanych przez użytkownika w szablonie Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 2c09572a460aa028b23987033d2b77e2aad8a0cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943217"
 ---
-# <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funkcje zdefiniowane przez użytkownika w szablonie usługi Azure Resource Manager
+# <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funkcje zdefiniowane przez użytkownika w szablonie Azure Resource Manager
 
-W szablonie można tworzyć własne funkcje. Te funkcje są dostępne do użycia w szablonie. Funkcje zdefiniowane przez użytkownika są [oddzielone](template-functions.md) od standardowych funkcji szablonu, które są automatycznie dostępne w szablonie. Tworzenie własnych funkcji, gdy masz skomplikowane wyrażenia, które są wielokrotnie używane w szablonie.
+W ramach szablonu można tworzyć własne funkcje. Te funkcje są dostępne do użycia w szablonie. Funkcje zdefiniowane przez użytkownika są niezależne od [standardowych funkcji szablonów](template-functions.md) , które są automatycznie dostępne w ramach szablonu. Utwórz własne funkcje, jeśli masz skomplikowane wyrażenia, które są wielokrotnie używane w szablonie.
 
-W tym artykule opisano sposób dodawania funkcji zdefiniowanych przez użytkownika w szablonie usługi Azure Resource Manager.
+W tym artykule opisano sposób dodawania funkcji zdefiniowanych przez użytkownika w szablonie Azure Resource Manager.
 
 ## <a name="define-the-function"></a>Zdefiniuj funkcję
 
-Funkcje wymagają wartości obszaru nazw, aby uniknąć konfliktów nazw z funkcjami szablonu. W poniższym przykładzie pokazano funkcję, która zwraca unikatową nazwę:
+Funkcje wymagają wartości przestrzeni nazw, aby uniknąć konfliktów nazw z funkcjami szablonu. Poniższy przykład pokazuje funkcję, która zwraca unikatową nazwę:
 
 ```json
 "functions": [
@@ -42,9 +42,9 @@ Funkcje wymagają wartości obszaru nazw, aby uniknąć konfliktów nazw z funkc
 ],
 ```
 
-## <a name="use-the-function"></a>Użyj funkcji
+## <a name="use-the-function"></a>Korzystanie z funkcji
 
-W poniższym przykładzie przedstawiono szablon, który zawiera funkcję zdefiniowaną przez użytkownika. Używa tej funkcji, aby uzyskać unikatową nazwę konta magazynu. Szablon ma parametr o nazwie **storageNamePrefix,** który przekazuje jako parametr do funkcji.
+Poniższy przykład pokazuje szablon, który zawiera funkcję zdefiniowaną przez użytkownika. Używa tej funkcji, aby uzyskać unikatową nazwę konta magazynu. Szablon zawiera parametr o nazwie **storageNamePrefix** , który jest przekazywany jako parametr do funkcji.
 
 ```json
 {
@@ -98,13 +98,13 @@ W poniższym przykładzie przedstawiono szablon, który zawiera funkcję zdefini
 Podczas definiowania funkcji użytkownika istnieją pewne ograniczenia:
 
 * Funkcja nie może uzyskać dostępu do zmiennych.
-* Funkcja może używać tylko parametrów, które są zdefiniowane w funkcji. Podczas korzystania z [funkcji parametrów](template-functions-deployment.md#parameters) w ramach funkcji zdefiniowanej przez użytkownika, jesteś ograniczony do parametrów dla tej funkcji.
+* Funkcja może używać tylko parametrów, które są zdefiniowane w funkcji. Gdy używana jest funkcja [Parameters](template-functions-deployment.md#parameters) w funkcji zdefiniowanej przez użytkownika, są ograniczone do parametrów tej funkcji.
 * Funkcja nie może wywoływać innych funkcji zdefiniowanych przez użytkownika.
-* Funkcja nie może korzystać z funkcji [odwołania](template-functions-resource.md#reference) ani żadnej z funkcji [listy.](template-functions-resource.md#list)
+* Funkcja nie może używać funkcji [Reference](template-functions-resource.md#reference) ani żadnej z funkcji [list](template-functions-resource.md#list) .
 * Parametry funkcji nie mogą mieć wartości domyślnych.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o dostępnych właściwościach funkcji zdefiniowanych przez użytkownika, zobacz [Opis struktury i składni szablonów usługi Azure Resource Manager](template-syntax.md).
-* Aby uzyskać listę dostępnych funkcji szablonu, zobacz [Funkcje szablonów usługi Azure Resource Manager](template-functions.md).
+* Aby dowiedzieć się więcej o dostępnych właściwościach funkcji zdefiniowanych przez użytkownika, zobacz [Opis struktury i składni szablonów Azure Resource Manager](template-syntax.md).
+* Listę dostępnych funkcji szablonu można znaleźć w temacie [Azure Resource Manager Template Functions](template-functions.md).

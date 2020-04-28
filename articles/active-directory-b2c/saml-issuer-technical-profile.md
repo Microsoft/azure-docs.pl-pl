@@ -1,7 +1,7 @@
 ---
 title: Definiowanie profilu technicznego dla wystawcy SAML w zasadach niestandardowych
 titleSuffix: Azure AD B2C
-description: Zdefiniuj profil techniczny wystawcy tokenu saml (SamL) tokenu asercji zabezpieczeń w zasadach niestandardowych w usłudze Azure Active Directory B2C.
+description: Zdefiniuj profil techniczny dla wystawcy token SAML (SAML) w zasadach niestandardowych w programie Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,23 +12,23 @@ ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c35f85b9ec5d86d1cd61f165b891c576c06a03db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78967272"
 ---
-# <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiowanie profilu technicznego dla wystawcy tokenu SAML w zasadach niestandardowych usługi Azure Active Directory B2C
+# <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny dla wystawcy tokenów SAML w zasadach niestandardowych Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Usługa Azure Active Directory B2C (Azure AD B2C) emituje kilka typów tokenów zabezpieczających podczas przetwarzania każdego przepływu uwierzytelniania. Profil techniczny wystawcy tokenu SAML emituje token SAML, który jest zwracany z powrotem do aplikacji jednostki uzależniającej (dostawcy usług). Zazwyczaj ten profil techniczny jest ostatnim krokiem aranżacji w podróży użytkownika.
+Azure Active Directory B2C (Azure AD B2C) emituje kilka typów tokenów zabezpieczających podczas przetwarzania poszczególnych przepływów uwierzytelniania. Profil techniczny wystawcy tokenów SAML emituje token SAML zwracanego z powrotem do aplikacji jednostki uzależnionej (dostawcy usługi). Zazwyczaj ten profil techniczny to ostatni krok aranżacji w podróży użytkownika.
 
 ## <a name="protocol"></a>Protocol (Protokół)
 
-Atrybut **Nazwa** elementu **Protokołu** musi być ustawiony `None`na . Ustaw element **OutputTokenFormat** na `SAML2`.
+Atrybut **name** elementu **Protocol** musi być ustawiony na `None`. Ustaw element **OutputTokenFormat** na `SAML2`wartość.
 
-W poniższym przykładzie `Saml2AssertionIssuer`przedstawiono profil techniczny dla:
+W poniższym przykładzie przedstawiono profil techniczny dla `Saml2AssertionIssuer`:
 
 ```XML
 <TechnicalProfile Id="Saml2AssertionIssuer">
@@ -48,34 +48,34 @@ W poniższym przykładzie `Saml2AssertionIssuer`przedstawiono profil techniczny 
 </TechnicalProfile>
 ```
 
-## <a name="input-output-and-persist-claims"></a>Oświadczenia dotyczące danych wejściowych, wyjściowych i utrzymywać
+## <a name="input-output-and-persist-claims"></a>Oświadczenia danych wejściowych, wyjściowych i utrwalania
 
-**InputClaims**, **OutputClaims**i **PersistClaims** elementy są puste lub nieobecne. **InutputClaimsTransformations** i **OutputClaimsTransformations** elementy są również nieobecne.
+Elementy **InputClaims**, **OutputClaims**i **PersistClaims** są puste lub nie istnieją. Obecne są również elementy **InutputClaimsTransformations** i **OutputClaimsTransformations** .
 
 ## <a name="metadata"></a>Metadane
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| IssuerUri | Nie | Nazwa wystawcy, która pojawia się w odpowiedzi SAML. Wartość powinna mieć taką samą nazwę, jak skonfigurowana w aplikacji jednostki uzależniona. |
+| IssuerUri | Nie | Nazwa wystawcy, która pojawia się w odpowiedzi SAML. Wartość powinna być taka sama jak nazwa skonfigurowana w aplikacji jednostki uzależnionej. |
 
 ## <a name="cryptographic-keys"></a>Klucze kryptograficzne
 
-CryptographicKey element zawiera następujące atrybuty:
+Element CryptographicKeys zawiera następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Podpisywanie metadanych | Tak | Certyfikat X509 (zestaw kluczy RSA) używany do podpisywania metadanych SAML. Usługa Azure AD B2C używa tego klucza do podpisywania metadanych. |
-| SamlMessageSigning (Podpis samlMessage)| Tak| Określ certyfikat X509 (zestaw kluczy RSA), który ma być używany do podpisywania komunikatów SAML. Usługa Azure AD B2C używa tego `<samlp:Response>` klucza do podpisywania odpowiedzi wysyłanej do jednostki uzależniającej.|
+| MetadataSigning | Tak | Certyfikat x509 (zestaw kluczy RSA) służący do podpisywania metadanych protokołu SAML. Azure AD B2C używa tego klucza do podpisywania metadanych. |
+| SamlMessageSigning| Tak| Określ certyfikat x509 (zestaw kluczy RSA), który ma być używany do podpisywania komunikatów SAML. Azure AD B2C używa tego klucza do podpisywania wysyłania odpowiedzi `<samlp:Response>` do jednostki uzależnionej.|
 
 ## <a name="session-management"></a>Zarządzanie sesjami
 
-Aby skonfigurować sesje SAML usługi Azure AD B2C między aplikacją `UseTechnicalProfileForSessionManagement` jednostki uzależnianej, atrybut elementu, odwołanie do [samlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider) sesji SWO.
+Aby skonfigurować Azure AD B2C sesje SAML między aplikacją jednostki uzależnionej, atrybut `UseTechnicalProfileForSessionManagement` elementu, odwołanie do sesji SSO [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz następujący artykuł, na przykład przy użyciu profilu technicznego emitenta SAML:
+Zapoznaj się z poniższym artykułem, aby zapoznać się z profilem technicznym wystawcy SAML:
 
-- [Rejestrowanie aplikacji SAML w usłudze Azure AD B2C](connect-with-saml-service-providers.md)
+- [Rejestrowanie aplikacji SAML w Azure AD B2C](connect-with-saml-service-providers.md)
 
 
 

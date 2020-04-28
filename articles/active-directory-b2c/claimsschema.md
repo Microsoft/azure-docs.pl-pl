@@ -1,6 +1,6 @@
 ---
-title: ClaimsSchema — usługa Azure Active Directory B2C | Dokumenty firmy Microsoft
-description: Określ element ClaimsSchema zasad niestandardowych w usłudze Azure Active Directory B2C.
+title: ClaimsSchema — Azure Active Directory B2C | Microsoft Docs
+description: Określ element ClaimsSchema zasad niestandardowych w Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,17 +11,17 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78397805"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**Element ClaimsSchema** definiuje typy oświadczeń, do których można się odwoływać jako część zasad. Schemat oświadczeń jest miejscem, w którym deklarujesz swoje oświadczenia. Roszczenie może być imię, nazwisko, imię, imię, numer telefonu i więcej. Element ClaimsSchema zawiera listę elementów **ClaimType.** Element **ClaimType** zawiera atrybut **Id,** który jest nazwą oświadczenia.
+Element **ClaimsSchema** definiuje typy roszczeń, do których można odwoływać się w ramach zasad. Schemat oświadczeń to miejsce, w którym deklarujesz oświadczenia. Do żądania może być imię, nazwisko, nazwa wyświetlana, numer telefonu i inne. Element ClaimsSchema zawiera listę elementów **ClaimType** . Element **ClaimType** zawiera atrybut **ID** , który jest nazwą oświadczenia.
 
 ```XML
 <BuildingBlocks>
@@ -38,27 +38,27 @@ ms.locfileid: "78397805"
       <UserInputType>TextBox</UserInputType>
 ```
 
-## <a name="claimtype"></a>Claimtype
+## <a name="claimtype"></a>Claim
 
 Element **ClaimType** zawiera następujący atrybut:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Identyfikator | Tak | Identyfikator, który jest używany dla typu oświadczenia. Inne elementy można użyć tego identyfikatora w zasadach. |
+| Identyfikator | Tak | Identyfikator, który jest używany dla typu zgłoszenia. Inne elementy mogą używać tego identyfikatora w zasadach. |
 
 Element **ClaimType** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| DisplayName | 1:1 | Tytuł wyświetlany użytkownikom na różnych ekranach. Wartość może być [zlokalizowana](localization.md). |
-| typ_danych | 1:1 | Rodzaj oświadczenia. |
-| Domyślne typy partnerów | 0:1 | Domyślne typy oświadczeń partnera do użycia dla określonego protokołu. Wartość może zostać zastąpiona w **PartnerClaimType** określony w **InputClaim** lub **OutputClaim** elementów. Ten element służy do określania domyślnej nazwy protokołu.  |
-| Maska | 0:1 | Opcjonalny ciąg znaków maskujących, które mogą być stosowane podczas wyświetlania oświadczenia. Na przykład numer telefonu 324-232-4343 można zamaskować jako XXX-XXX-4343. |
-| UserHelpText (Tekst pomocy użytkownika) | 0:1 | Opis typu oświadczenia, który może być pomocny dla użytkowników, aby zrozumieć jego cel. Wartość może być [zlokalizowana](localization.md). |
-| Typ użytkownika | 0:1 | Typ formantu wejściowego, który powinien być dostępny dla użytkownika podczas ręcznego wprowadzania danych oświadczeń dla typu oświadczenia. Zobacz typy danych wejściowych użytkownika zdefiniowane w dalszej części tej strony. |
-| AdminHelpText (Pomoc administracyjna) | 0:1 | Opis typu oświadczenia, który może być przydatny dla administratorów, aby zrozumieć jego cel. |
-| Ograniczenie | 0:1 | Ograniczenia wartości dla tego oświadczenia, takie jak wyrażenie regularne (Regex) lub lista dopuszczalnych wartości. Wartość może być [zlokalizowana](localization.md). |
-PredicateValidationReference| 0:1 | Odwołanie do **PredicateValidationsInput** elementu. **PredicateValidationReference** elementy umożliwiają wykonywanie procesu sprawdzania poprawności, aby upewnić się, że tylko poprawnie utworzone dane są wprowadzane. Aby uzyskać więcej informacji, zobacz [Predykaty](predicates.md). |
+| Nazwa wyświetlana | 1:1 | Tytuł wyświetlany użytkownikom na różnych ekranach. Wartość może być [zlokalizowana](localization.md). |
+| typ_danych | 1:1 | Typ żądania. |
+| DefaultPartnerClaimTypes | 0:1 | Domyślne typy roszczeń partnera, które mają być używane przez określony protokół. Wartość można zastąpić w **PartnerClaimType** określonym w elementach **oświadczenie inputclaim** lub **oświadczenie outputclaim** . Użyj tego elementu, aby określić nazwę domyślną dla protokołu.  |
+| Maska | 0:1 | Opcjonalny ciąg znaków maskowania, który można zastosować podczas wyświetlania żądania. Na przykład numer telefonu 324-232-4343 może być maskowany jako XXX-XXX-4343. |
+| UserHelpText | 0:1 | Opis typu zgłoszenia, który może być przydatny dla użytkowników, aby zrozumieć jego przeznaczenie. Wartość może być [zlokalizowana](localization.md). |
+| UserInputType | 0:1 | Typ kontrolki wejściowej, która powinna być dostępna dla użytkownika po ręcznym wprowadzeniu danych roszczeń dla typu zgłoszenia. Zobacz typy danych wejściowych użytkownika zdefiniowane w dalszej części tej strony. |
+| AdminHelpText | 0:1 | Opis typu zgłoszenia, który może być przydatny dla administratorów, aby zrozumieć jego przeznaczenie. |
+| Ograniczenie | 0:1 | Ograniczenia wartości dla tego żądania, takie jak wyrażenie regularne (regularne) lub lista akceptowalnych wartości. Wartość może być [zlokalizowana](localization.md). |
+PredicateValidationReference| 0:1 | Odwołanie do elementu **PredicateValidationsInput** . Elementy **PredicateValidationReference** umożliwiają wykonywanie procesu walidacji w celu zapewnienia, że wprowadzane są tylko prawidłowo uformowane dane. Aby uzyskać więcej informacji, zobacz [predykaty](predicates.md). |
 
 
 
@@ -69,33 +69,33 @@ Element **DataType** obsługuje następujące wartości:
 | Typ | Opis |
 | ------- | ----------- |
 |wartość logiczna|Reprezentuje wartość logiczną (`true` lub `false`).|
-|date| Reprezentuje chwilę w czasie, zwykle wyrażoną jako data dnia. Wartość daty jest zgodna z konwencją ISO 8601.|
-|Data i godzina|Reprezentuje chwilę w czasie, zwykle wyrażoną jako data i godzina dnia. Wartość daty jest zgodna z konwencją ISO 8601.|
-|czas trwania|Reprezentuje przedział czasu w latach, miesiącach, dniach, godzinach, minutach i sekundach. Format jest `PnYnMnDTnHnMnS`, `P` gdzie wskazuje wartość `N` dodatnią lub ujemną. `nY`to liczba lat, po których `Y`następuje dosłowny . `nMo`to liczba miesięcy, po których `Mo`następuje dosłowny . `nD`to liczba dni, po których `D`następuje literał . Przykłady: `P21Y` reprezentuje 21 lat. `P1Y2Mo`wynosi jeden rok i dwa miesiące. `P1Y2Mo5D`wynosi jeden rok, dwa miesiące i pięć dni.  `P1Y2M5DT8H5M620S`oznacza jeden rok, dwa miesiące, pięć dni, osiem godzin, pięć minut i dwadzieścia sekund.  |
+|date| Reprezentuje chwilę w czasie, zazwyczaj wyrażoną jako dzień. Wartość daty jest zgodna z Konwencją ISO 8601.|
+|Data i godzina|Reprezentuje chwilę w czasie, zwykle wyrażoną jako datę i godzinę dnia. Wartość daty jest zgodna z Konwencją ISO 8601.|
+|czas trwania|Reprezentuje przedział czasu w latach, miesiącach, dniach, godzinach, minutach i sekundach. Format is `PnYnMnDTnHnMnS`, gdzie `P` wskazuje wartość dodatnią lub `N` ujemną. `nY`to liczba lat, po której następuje literał `Y`. `nMo`to liczba miesięcy, po której następuje literał `Mo`. `nD`to liczba dni, po której następuje literał `D`. Przykłady: `P21Y` reprezentuje 21 lat. `P1Y2Mo`reprezentuje rok i dwa miesiące. `P1Y2Mo5D`reprezentuje jeden rok, dwa miesiące i pięć dni.  `P1Y2M5DT8H5M620S`reprezentuje jeden rok, dwa miesiące, pięć dni, osiem godzin, pięć minut i dwadzieścia sekund.  |
 |phoneNumber|Reprezentuje numer telefonu. |
-|int| Reprezentuje liczbę między -2,147,483,648 i 2,147,483,647|
-|long| Reprezentuje liczbę między -9,223,372,036,854,775,808 do 9,223,372,036,854,775,807 |
+|int| Reprezentuje liczbę z przedziału od-2 147 483 648 do 2 147 483 647|
+|długi| Reprezentuje liczbę z przedziału od-zakresu od do 9 223 372 036 854 775 807 |
 |ciąg| Reprezentuje tekst jako sekwencję jednostek kodu UTF-16.|
-|Stringcollection|Reprezentuje kolekcję `string`.|
-|użytkownikTożowicieli| Reprezentuje tożsamość użytkownika.|
-|użytkownikIdentityCollection|Reprezentuje kolekcję `userIdentity`.|
+|stringCollection|Reprezentuje kolekcję `string`.|
+|Tożsamość użytkownika| Reprezentuje tożsamość użytkownika.|
+|userIdentityCollection|Reprezentuje kolekcję `userIdentity`.|
 
-### <a name="defaultpartnerclaimtypes"></a>Domyślne typy partnerów
+### <a name="defaultpartnerclaimtypes"></a>DefaultPartnerClaimTypes
 
 **DefaultPartnerClaimTypes** może zawierać następujący element:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| Protocol (Protokół) | 1:n | Lista protokołów z domyślną nazwą typu oświadczenia partnera. |
+| Protocol (Protokół) | 1: n | Lista protokołów z domyślną nazwą typu zgłoszenia partnera. |
 
-Element **Protokołu** zawiera następujące atrybuty:
+Element **Protocol** zawiera następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Nazwa | Tak | Nazwa prawidłowego protokołu obsługiwanego przez usługę Azure AD B2C. Możliwe wartości to: OAuth1, OAuth2, SAML2, OpenIdConnect. |
-| Typ partnera | Tak | Nazwa typu oświadczenia, która ma być używana. |
+| Nazwa | Tak | Nazwa prawidłowego protokołu obsługiwanego przez Azure AD B2C. Możliwe wartości to: OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| PartnerClaimType | Tak | Nazwa typu zgłoszenia do użycia. |
 
-W poniższym przykładzie, gdy struktura środowiska tożsamości wchodzi w interakcję z dostawcą tożsamości SAML2 lub aplikacją jednostki uzależnionej, oświadczenie **nazwiska** jest mapowane na `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, z OpenIdConnect i OAuth2, oświadczenie jest mapowane na `family_name`.
+W poniższym przykładzie, gdy platforma obsługi tożsamości współdziała z dostawcą tożsamości SAML2 lub aplikacją jednostki uzależnionej, to wniosek o **nazwisko** jest mapowany na `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, z OpenIdConnect i OAuth2, to jest mapowany na. `family_name`
 
 ```XML
 <ClaimType Id="surname">
@@ -109,7 +109,7 @@ W poniższym przykładzie, gdy struktura środowiska tożsamości wchodzi w inte
 </ClaimType>
 ```
 
-W rezultacie token JWT wystawiony przez usługę Azure AD `family_name` B2C emituje **nazwę**nazwy zamiast ClaimType .
+W związku z tym token JWT wystawiony przez Azure AD B2C emituje `family_name` **zamiast nazwy elementu**claimname.
 
 ```JSON
 {
@@ -127,10 +127,10 @@ Element **Mask** zawiera następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| `Type` | Tak | Typ maski oświadczenia. Możliwe `Simple` wartości: `Regex`lub . Wartość `Simple` wskazuje, że prosta maska tekstowa jest stosowana do wiodącej części oświadczenia ciągu. Wartość `Regex` wskazuje, że wyrażenie regularne jest stosowane do oświadczenia ciągu jako całości.  Jeśli `Regex` wartość jest określona, atrybut opcjonalny musi być również zdefiniowany z wyrażeniem regularnym do użycia. |
-| `Regex` | Nie | Jeśli **`Type`** jest `Regex`ustawiona na , określ wyrażenie regularne do użycia.
+| `Type` | Tak | Typ maski żądania. Możliwe wartości: `Simple` lub `Regex`. `Simple` Wartość wskazuje, że prosta maska tekstu jest stosowana do wiodącej części żądania ciągu. `Regex` Wartość wskazuje, że wyrażenie regularne jest stosowane do żądania ciągu jako całości.  Jeśli `Regex` wartość jest określona, opcjonalny atrybut musi również być zdefiniowany za pomocą wyrażenia regularnego do użycia. |
+| `Regex` | Nie | Jeśli **`Type`** jest ustawiona na `Regex`, Określ wyrażenie regularne, które ma być używane.
 
-W poniższym przykładzie konfiguruje oświadczenie `Simple` **phonenumber** z maską:
+Poniższy przykład konfiguruje **wierzytelność** z `Simple` maską:
 
 ```XML
 <ClaimType Id="PhoneNumber">
@@ -141,11 +141,11 @@ W poniższym przykładzie konfiguruje oświadczenie `Simple` **phonenumber** z m
 </ClaimType>
 ```
 
-Struktura środowiska tożsamości renderuje numer telefonu, ukrywając pierwsze sześć cyfr:
+Struktura środowiska tożsamości renderuje numer telefonu podczas ukrywania pierwszych sześciu cyfr:
 
-![Roszczenie numer telefonu wyświetlane w przeglądarce z pierwszych sześciu cyfr maskowane przez Xs](./media/claimsschema/mask.png)
+![Numer telefonu jest wyświetlany w przeglądarce z pierwszych sześcioma cyframi maskowanymi przy użyciu metody XS](./media/claimsschema/mask.png)
 
-W poniższym przykładzie konfiguruje `Regex` oświadczenie **AlternateEmail** z maską:
+Poniższy przykład konfiguruje **AlternateEmail** z `Regex` maską:
 
 ```XML
 <ClaimType Id="AlternateEmail">
@@ -156,39 +156,39 @@ W poniższym przykładzie konfiguruje `Regex` oświadczenie **AlternateEmail** z
 </ClaimType>
 ```
 
-Struktura środowiska tożsamości renderuje tylko pierwszą literę adresu e-mail i nazwę domeny e-mail:
+Struktura środowiska tożsamości renderuje tylko pierwszą literę adresu e-mail i nazwę domeny poczty e-mail:
 
-![Oświadczenie e-mail wyświetlane w przeglądarce ze znakami zamaskowanych przez gwiazdki](./media/claimsschema/mask-regex.png)
+![W przeglądarce pokazywane są znaki maskowane przez gwiazdki](./media/claimsschema/mask-regex.png)
 
 
 ### <a name="restriction"></a>Ograniczenie
 
-Element **Ograniczenie** może zawierać następujący atrybut:
+Element **ograniczenia** może zawierać następujący atrybut:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| MergeBehavior (Zachowanie scalania) | Nie | Metoda używana do scalania wartości wyliczenia z ClaimType w zasadach nadrzędnych o tym samym identyfikatorze. Użyj tego atrybutu podczas zastępowanie oświadczenia określonego w zasadach podstawowych. Możliwe `Append`wartości: `Prepend`, `ReplaceAll`, lub . Wartość `Append` jest kolekcją danych, które powinny być dołączane na końcu kolekcji określonej w zasadach nadrzędnych. Wartość `Prepend` jest kolekcją danych, które powinny zostać dodane przed kolekcją określoną w zasadach nadrzędnych. Wartość `ReplaceAll` jest zbiorem danych określonych w zasadach nadrzędnych, które powinny być ignorowane. |
+| MergeBehavior | Nie | Metoda służąca do scalania wartości wyliczenia z obiektem ClaimType w zasadach nadrzędnych z tym samym identyfikatorem. Użyj tego atrybutu podczas zastępowania żądania określonego w zasadach podstawowych. Możliwe wartości: `Append`, `Prepend`, lub `ReplaceAll`. `Append` Wartość jest kolekcją danych, które powinny być dołączane na końcu kolekcji określonej w zasadach nadrzędnych. `Prepend` Wartość jest kolekcją danych, które powinny zostać dodane przed kolekcją określoną w zasadach nadrzędnych. `ReplaceAll` Wartość jest kolekcją danych określonych w zasadach nadrzędnych, które powinny być ignorowane. |
 
-**Element Restriction** zawiera następujące elementy:
+Element **ograniczenia** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| Wyliczenie | 1:n | Dostępne opcje w interfejsie użytkownika dla użytkownika, aby wybrać dla oświadczenia, takie jak wartość w rozwijanej. |
-| Wzorce | 1:1 | Wyrażenie regularne do użycia. |
+| Wyliczenie | 1: n | Dostępne opcje w interfejsie użytkownika dla użytkownika, które mają zostać wybrane dla roszczeń, takie jak wartość z listy rozwijanej. |
+| Wzorce | 1:1 | Wyrażenie regularne, które ma być używane. |
 
 #### <a name="enumeration"></a>Wyliczenie
 
-Element **Wyliczenia** definiuje dostępne opcje dla użytkownika, aby wybrać dla oświadczenia w interfejsie użytkownika, takie jak wartość w `CheckboxMultiSelect`, `DropdownSingleSelect`, lub `RadioSingleSelect`. Alternatywnie można zdefiniować i zlokalizować dostępne opcje za pomocą [localizedCollections](localization.md#localizedcollections) elementu. Aby wyszukać element z kolekcji **wyliczenia** oświadczenia, należy użyć przekształcenia oświadczeń [GetMappedValueFromLocalizedCollection.](string-transformations.md#getmappedvaluefromlocalizedcollection)
+Element **Enumeration** definiuje dostępne opcje dla użytkownika, które można wybrać dla roszczeń w interfejsie użytkownika, takie jak wartość w `CheckboxMultiSelect`, `DropdownSingleSelect`, lub. `RadioSingleSelect` Alternatywnie można zdefiniować i zlokalizować dostępne opcje z elementem [LocalizedCollections](localization.md#localizedcollections) . Aby wyszukać element z kolekcji **wyliczania** oświadczeń, należy użyć przekształcenia oświadczeń [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) .
 
-Element **wyliczenia** zawiera następujące atrybuty:
+Element **Enumeration** zawiera następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Tekst | Tak | Ciąg wyświetlania, który jest wyświetlany użytkownikowi w interfejsie użytkownika dla tej opcji. |
-|Wartość | Tak | Wartość oświadczenia skojarzona z wybraniem tej opcji. |
-| Wybierz opcjęObdefault | Nie | Wskazuje, czy ta opcja powinna być zaznaczona domyślnie w interfejsie użytkownika. Możliwe wartości: Prawda lub Fałsz. |
+| Tekst | Tak | Ciąg wyświetlany, który jest wyświetlany użytkownikowi w interfejsie użytkownika dla tej opcji. |
+|Wartość | Tak | Wartość żądania skojarzona z wybraniem tej opcji. |
+| SelectByDefault | Nie | Wskazuje, czy ta opcja powinna być wybrana domyślnie w interfejsie użytkownika. Możliwe wartości: true lub false. |
 
-W poniższym przykładzie skonfigurowano oświadczenie listy rozwijanej `New York` **miasta** z domyślną wartością ustawioną na:
+W poniższym przykładzie jest konfigurowane pole listy rozwijanej **miasto** z wartością domyślną ustawioną `New York`na:
 
 ```XML
 <ClaimType Id="city">
@@ -203,20 +203,20 @@ W poniższym przykładzie skonfigurowano oświadczenie listy rozwijanej `New Yor
 </ClaimType>
 ```
 
-Lista miast rozwijanej z wartością domyślną ustawioną na Nowy Jork:
+Lista miast listy rozwijanej z wartością domyślną ustawioną na Nowy Jork:
 
-![Kontrolka rozwijana renderowana w przeglądarce i wyświetlana wartość domyślna](./media/claimsschema/dropdownsingleselect.png)
+![Kontrolka listy rozwijanej renderowana w przeglądarce i pokazująca wartość domyślną](./media/claimsschema/dropdownsingleselect.png)
 
 ### <a name="pattern"></a>Wzorce
 
-Element **Wzorzec** może zawierać następujące atrybuty:
+Element **Pattern** może zawierać następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Regularnewygasijenie | Tak | Wyrażenie regularne, że oświadczenia tego typu muszą być zgodne, aby były prawidłowe. |
-| Helptext | Nie | Komunikat o błędzie dla użytkowników, jeśli sprawdzanie wyrażeń regularnych nie powiedzie się. |
+| RegularExpression | Tak | Wyrażenie regularne, które musi być zgodne z typem oświadczeń, aby było prawidłowe. |
+| HelpText | Nie | Komunikat o błędzie dla użytkowników, jeśli sprawdzenie wyrażenia regularnego nie powiedzie się. |
 
-W poniższym przykładzie skonfigurowano oświadczenie **e-mail** z weryfikacją danych wejściowych wyrażenia regularnego i tekstem pomocy:
+Poniższy przykład służy do konfigurowania zgłoszenia **wiadomości e-mail** przy użyciu walidacji danych wejściowych i tekstu pomocy:
 
 ```XML
 <ClaimType Id="email">
@@ -233,34 +233,34 @@ W poniższym przykładzie skonfigurowano oświadczenie **e-mail** z weryfikacją
  </ClaimType>
 ```
 
-Struktura środowiska tożsamości renderuje oświadczenie adresu e-mail z weryfikacją danych wejściowych formatu poczty e-mail:
+Platforma obsługi tożsamości renderuje to konto e-mail przy użyciu walidacji danych wejściowych w formacie wiadomości e-mail:
 
-![TextBox z komunikatem o błędzie wyzwalanym przez ograniczenie wyrażenia regularnego](./media/claimsschema/pattern.png)
+![Pole tekstowe zawierające komunikat o błędzie wyzwalane przez ograniczenie wyrażenia regularnego](./media/claimsschema/pattern.png)
 
-### <a name="userinputtype"></a>Typ użytkownika
+### <a name="userinputtype"></a>UserInputType
 
-Usługa Azure AD B2C obsługuje różne typy danych wejściowych użytkownika, takie jak pole tekstowe, hasło i lista rozwijana, które mogą być używane podczas ręcznego wprowadzania danych oświadczeń dla typu oświadczenia. Należy określić **UserInputType** podczas zbierania informacji od użytkownika przy użyciu [samodzielnie potwierdzonego profilu technicznego](self-asserted-technical-profile.md) i [formantów wyświetlania](display-controls.md).
+Azure AD B2C obsługuje różne typy danych wejściowych użytkownika, takie jak pole tekstowe, hasło i lista rozwijana, które mogą być używane podczas ręcznego wprowadzania danych dotyczących roszczeń dla danego typu. Należy określić **UserInputType** , gdy zbierasz informacje od użytkownika przy użyciu [własnego profilu technicznego](self-asserted-technical-profile.md) i [kontrolek wyświetlania](display-controls.md).
 
 Element **UserInputType** dostępne typy danych wejściowych użytkownika:
 
-| Typ użytkownika | Obsługiwany typ roszczenia | Opis |
+| UserInputType | Obsługiwane oświadczenia | Opis |
 | --------- | -------- | ----------- |
-|Pole wyboruMultiSelect| `string` |Pole rozwijane wielokrotnego wyboru. Wartość oświadczenia jest reprezentowana w ciągu ogranicznika przecinka wybranych wartości. |
-|DateTimeDropdown | `date`, `dateTime` |Listy rozwijane, aby wybrać dzień, miesiąc i rok. |
-|Rozwijaneleselektuj |`string` |Pojedyncze pole listy rozwijanej wyboru. Wartość oświadczenia jest wybraną wartością.|
-|Skrzynka e-mail | `string` |Pole wprowadzania wiadomości e-mail. |
-|Akapitu | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Pole, które pokazuje tekst tylko w znaczniku akapitu. |
+|CheckboxMultiSelect| `string` |Pole listy rozwijanej wiele zaznaczeń. Wartość żądania jest reprezentowana jako ciąg ogranicznika przecinki dla wybranych wartości. |
+|DateTimeDropdown | `date`, `dateTime` |Lista rozwijana, aby wybrać dzień, miesiąc i rok. |
+|DropdownSingleSelect |`string` |Pole listy rozwijanej pojedynczy wybór. Wartość żądania jest wybraną wartością.|
+|EmailBox | `string` |Pole wejściowe wiadomości e-mail. |
+|Akapitu | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Pole, w którym jest wyświetlany tekst tylko w znaczniku akapitu. |
 |Hasło | `string` |Pole tekstowe hasła.|
-|RadioSingleSelect |`string` | Kolekcja przycisków radiowych. Wartość oświadczenia jest wybraną wartością.|
-|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Pole tekstowe tylko do odczytu. |
+|RadioSingleSelect |`string` | Kolekcja przycisków radiowych. Wartość żądania jest wybraną wartością.|
+|Trybie | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Pole tekstowe tylko do odczytu. |
 |TextBox |`boolean`, `int`, `string` |Jednowierszowe pole tekstowe. |
 
 
 #### <a name="textbox"></a>TextBox
 
-Typ wprowadzania danych użytkownika **TextBox** jest używany do zapewnienia jednowierszowego pola tekstowego.
+Typ danych **wejściowych użytkownika jest** używany do udostępniania jednowierszowego pola tekstowego.
 
-![TextBox z właściwościami określonymi w typie oświadczenia](./media/claimsschema/textbox.png)
+![Pole tekstowe z właściwościami określonymi w typie zgłoszenia](./media/claimsschema/textbox.png)
 
 ```XML
 <ClaimType Id="displayName">
@@ -271,11 +271,11 @@ Typ wprowadzania danych użytkownika **TextBox** jest używany do zapewnienia je
 </ClaimType>
 ```
 
-#### <a name="emailbox"></a>Skrzynka e-mail
+#### <a name="emailbox"></a>EmailBox
 
-Typ wprowadzania danych użytkownika **EmailBox** służy do zapewnienia podstawowego pola wprowadzania wiadomości e-mail.
+Typ danych wejściowych użytkownika **EmailBox** służy do dostarczania podstawowego pola wejściowego wiadomości e-mail.
 
-![EmailBox z właściwościami określonymi w typie oświadczenia](./media/claimsschema/emailbox.png)
+![EmailBox pokazujący właściwości określone w typie zgłoszenia](./media/claimsschema/emailbox.png)
 
 ```XML
 <ClaimType Id="email">
@@ -291,9 +291,9 @@ Typ wprowadzania danych użytkownika **EmailBox** służy do zapewnienia podstaw
 
 #### <a name="password"></a>Hasło
 
-Typ **wprowadzania** hasła użytkownika służy do rejestrowania hasła wprowadzonego przez użytkownika.
+Typ danych wejściowych użytkownika **hasła** służy do rejestrowania hasła wprowadzonego przez użytkownika.
 
-![Używanie typu oświadczenia z hasłem](./media/claimsschema/password.png)
+![Korzystanie z typu "Claim" z hasłem](./media/claimsschema/password.png)
 
 ```XML
 <ClaimType Id="password">
@@ -306,9 +306,9 @@ Typ **wprowadzania** hasła użytkownika służy do rejestrowania hasła wprowad
 
 #### <a name="datetimedropdown"></a>DateTimeDropdown
 
-Typ wejściowy użytkownika **DateTimeDropdown** służy do zapewnienia zestawu rozwijanych, aby wybrać dzień, miesiąc i rok. Można użyć predykatów i PredicateValidations elementów do kontrolowania wartości daty minimalnej i maksymalnej. Aby uzyskać więcej informacji, zobacz **sekcję Konfigurowanie zakresu dat** [w predykatach i predykacjach](predicates.md).
+Typ danych wejściowych użytkownika **DateTimeDropdown** służy do udostępniania zestawu list rozwijanych w celu wybrania dnia, miesiąca i roku. Można użyć predykatów i elementów PredicateValidations, aby kontrolować wartości minimalne i maksymalne daty. Aby uzyskać więcej informacji, zobacz sekcję **Konfigurowanie zakresu dat** [predykatów i PredicateValidations](predicates.md).
 
-![Używanie typu oświadczenia z datą w dół](./media/claimsschema/datetimedropdown.png)
+![Używanie typu usługi z datetimedropdown](./media/claimsschema/datetimedropdown.png)
 
 ```XML
 <ClaimType Id="dateOfBirth">
@@ -321,9 +321,9 @@ Typ wejściowy użytkownika **DateTimeDropdown** służy do zapewnienia zestawu 
 
 #### <a name="radiosingleselect"></a>RadioSingleSelect
 
-Typ danych wejściowych użytkownika **RadioSingleSelect** służy do zapewnienia kolekcji przycisków radiowych, które umożliwiają użytkownikowi wybranie jednej opcji.
+Typ danych wejściowych użytkownika **RadioSingleSelect** służy do udostępniania kolekcji przycisków radiowych, które umożliwiają użytkownikowi wybranie jednej opcji.
 
-![Używanie typu oświadczenia z radiodsingleselect](./media/claimsschema/radiosingleselect.png)
+![Używanie typu usługi z radiodsingleselect](./media/claimsschema/radiosingleselect.png)
 
 ```XML
 <ClaimType Id="color">
@@ -338,11 +338,11 @@ Typ danych wejściowych użytkownika **RadioSingleSelect** służy do zapewnieni
 </ClaimType>
 ```
 
-#### <a name="dropdownsingleselect"></a>Rozwijaneleselektuj
+#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
-Typ danych wejściowych użytkownika **RozwijanySingleSelect** służy do udostępnienia pola rozwijanego, które umożliwia użytkownikowi wybranie jednej opcji.
+Typ danych wejściowych użytkownika **DropdownSingleSelect** służy do udostępniania pola rozwijanego, które pozwala użytkownikowi wybrać jedną opcję.
 
-![Używanie typu oświadczenia z rozwijanymwysiewu](./media/claimsschema/dropdownsingleselect.png)
+![Używanie typu usługi z dropdownsingleselect](./media/claimsschema/dropdownsingleselect.png)
 
 ```XML
 <ClaimType Id="city">
@@ -357,11 +357,11 @@ Typ danych wejściowych użytkownika **RozwijanySingleSelect** służy do udost�
 </ClaimType>
 ```
 
-#### <a name="checkboxmultiselect"></a>Pole wyboruMultiSelect
+#### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
-Typ danych wejściowych **checkboxMultiSelect** użytkownika służy do zapewnienia kolekcji pól wyboru, które umożliwiają użytkownikowi wybranie wielu opcji.
+Typ danych wejściowych użytkownika **CheckboxMultiSelect** służy do udostępniania kolekcji pól wyboru, które umożliwiają użytkownikowi wybranie wielu opcji.
 
-![Używanie typu oświadczenia z polem wyborumultiselect](./media/claimsschema/checkboxmultiselect.png)
+![Używanie typu usługi z checkboxmultiselect](./media/claimsschema/checkboxmultiselect.png)
 
 ```XML
 <ClaimType Id="languages">
@@ -376,11 +376,11 @@ Typ danych wejściowych **checkboxMultiSelect** użytkownika służy do zapewnie
 </ClaimType>
 ```
 
-#### <a name="readonly"></a>Readonly
+#### <a name="readonly"></a>Trybie
 
-Typ danych wejściowych użytkownika tylko do **odczytu** służy do dostarczania pola tylko do odczytu w celu wyświetlenia oświadczenia i wartości.
+Typ danych wejściowych użytkownika **tylko do odczytu** służy do udostępniania pola tylko do odczytu w celu wyświetlenia żądania i wartości.
 
-![Używanie typu oświadczenia z tylko do odczytu](./media/claimsschema/readonly.png)
+![Korzystanie z typu "Claim" z tylko do odczytu](./media/claimsschema/readonly.png)
 
 ```XML
 <ClaimType Id="membershipNumber">
@@ -394,9 +394,9 @@ Typ danych wejściowych użytkownika tylko do **odczytu** służy do dostarczani
 
 #### <a name="paragraph"></a>Akapitu
 
-Typ wprowadzania użytkownika **Akapit** jest używany do dostarczania pola, które pokazuje tekst tylko w znaczniku akapitu.  Na przykład &lt;&gt;p&lt;tekst&gt;/p . A **A** Paragraph `OutputClaim` user input type of self-asserted technical profile, must set the `Required` attribute `false` (default).
+Typ danych wejściowych użytkownika **akapitu** służy do podania pola, które wyświetla tekst tylko w znaczniku akapitu.  &lt;Na przykład&gt;tekst&lt;/p.&gt; Typ `OutputClaim` danych wejściowych użytkownika **akapitu** z własnym profilem technicznym, należy ustawić `Required` atrybut `false` (domyślnie).
 
-![Używanie typu oświadczenia z akapitem](./media/claimsschema/paragraph.png)
+![Korzystanie z typu "Claim" z akapitem](./media/claimsschema/paragraph.png)
 
 ```XML
 <ClaimType Id="responseMsg">

@@ -1,7 +1,7 @@
 ---
 title: Wersje układu strony
 titleSuffix: Azure AD B2C
-description: Historia wersji układu strony do dostosowywania interfejsu użytkownika w zasadach niestandardowych.
+description: Historia wersji układu stron dla dostosowywania interfejsu użytkownika w zasadach niestandardowych.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,56 +12,56 @@ ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78183979"
 ---
 # <a name="page-layout-versions"></a>Wersje układu strony
 
-Pakiety układu strony są okresowo aktualizowane w celu uwzględnienia poprawek i ulepszeń w elementach strony. Poniższy dziennik zmian określa zmiany wprowadzone w każdej wersji.
+Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawek i ulepszeń w ich elementach strony. Następujący dziennik zmian określa zmiany wprowadzone w każdej wersji.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="200"></a>2.0.0
 
-- Strona samodzielnie potwierdzona`selfasserted`( )
-  - Dodano obsługę [kontrolek wyświetlania](display-controls.md) w zasadach niestandardowych.
+- Strona z własnym potwierdzeniem (`selfasserted`)
+  - Dodano obsługę [formantów wyświetlania](display-controls.md) w zasadach niestandardowych.
 
 ## <a name="120"></a>1.2.0
 
 - Wszystkie strony
   - Poprawki ułatwień dostępu
-  - Teraz możesz dodać `data-preload="true"` atrybut [w tagach HTML,](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) aby kontrolować kolejność ładowania css i JavaScript.
-    - Ładuj połączone pliki CSS w tym samym czasie co szablon HTML, aby nie "migotał" między ładowaniem plików.
-    - Kontroluj kolejność `script` pobierania i wykonywania tagów przed załadowaniem strony.
-  - Pole poczty `type=email` e-mail jest teraz, a klawiatury mobilne będą dostarczać poprawne sugestie
-  - Obsługa tłumaczenia Chrome
-- Ujednolicone i samodzielnie dochodzone strony
-  - Pola nazwy użytkownika/adresu e-mail i hasła używają teraz elementu `form` HTML, aby umożliwić programowi Edge i Internet Explorer (IE) prawidłowe zapisanie tych informacji.
+  - Teraz możesz dodać `data-preload="true"` atrybut do [tagów HTML w](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) celu KONTROLOWANIA kolejności ładowania dla CSS i JavaScript.
+    - Załaduj połączone pliki CSS jednocześnie jako szablon HTML, aby nie "migotać" między ładowaniem plików.
+    - Kontroluj kolejność, w jakiej `script` Tagi są pobierane i wykonywane przed załadowaniem strony.
+  - Pole e-mail to teraz `type=email` , a klawiatury przenośne zapewniają poprawne sugestie
+  - Obsługa funkcji tłumaczenia dla programu Chrome
+- Ujednolicone i samodzielne strony
+  - Pola username/email i Password używają teraz elementu HTML `form` , aby umożliwić programowi Edge i Internet Explorer (IE) prawidłowe Zapisywanie tych informacji.
 
 ## <a name="110"></a>1.1.0
 
 - Strona wyjątku (globalexception)
-  - Poprawka dotycząca ułatwień dostępu
-  - Usunięto domyślną wiadomość, gdy nie ma kontaktu z zasadami
-  - Usunięto domyślny CSS
-- Strona usługi MFA (wieloczynnikowa)
-  - Usunięto przycisk "Potwierdź kod"
-  - Pole wejściowe kodu przyjmuje teraz tylko maksymalnie sześć (6) znaków
-  - Strona automatycznie podejmie próbę zweryfikowania kodu wprowadzonego po wprowadzeniu 6-cyfrowego kodu, bez konieczności klikania przycisku
-  - Jeśli kod jest nieprawidłowy, pole wprowadzania jest automatycznie czyszczone
-  - Po trzech (3) próbach z nieprawidłowym kodem B2C wysyła błąd z powrotem do jednostki uzależniającej
+  - Poprawka ułatwień dostępu
+  - Usunięto komunikat domyślny, gdy nie ma kontaktu z zasad
+  - Usunięto domyślny kod CSS
+- Strona usługi MFA (wieloskładnikowa)
+  - Przycisk "Potwierdź kod" został usunięty
+  - Pole wejściowe dla kodu przyjmuje teraz tylko dane wejściowe z maksymalnie sześciu (6) znaków
+  - Strona automatycznie podejmie próbę zweryfikowania kodu wprowadzonego po wprowadzeniu 6-cyfrowy kod bez kliknięcia przycisku
+  - Jeśli kod jest nieprawidłowy, pole wejściowe zostanie automatycznie wyczyszczone
+  - Po trzech (3) próbach z nieprawidłowym kodem B2C wysyła błąd z powrotem do jednostki uzależnionej
   - Poprawki ułatwień dostępu
-  - Usunięto domyślny CSS
+  - Usunięto domyślny kod CSS
 - Strona z własnym potwierdzeniem (selfasserted)
-  - Usunięto alert anulowania
-  - Klasa CSS dla elementów błędu
-  - Poprawiono logikę błędu pokazywal/ukrywanie
-  - Usunięto domyślny CSS
-- Ujednolicony SSP (unifiedssp)
-  - Dodano kontrolę keep me signed in (KMSI)
+  - Usunięto alert dotyczący anulowania
+  - Klasa CSS dla elementów Error
+  - Ulepszone wyświetlanie/ukrywanie logiki błędów
+  - Usunięto domyślny kod CSS
+- Ujednolicony Dostawca SSP (unifiedssp)
+  - Dodano kontrolkę nie wylogowuj mnie (KMSI)
 
 ## <a name="100"></a>1.0.0
 

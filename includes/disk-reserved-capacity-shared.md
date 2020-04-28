@@ -88,7 +88,7 @@ Po zakupie rezerwacji jest ona automatycznie stosowana do wszystkich istniejący
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 
-Możesz anulować, wymienić lub zwrócić rezerwacje w określonych ograniczeniach. Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) (Samoobsługowe wymiany i zwroty kosztów dla rezerwacji platformy Azure).
+Możesz anulować, wymienić lub zwrócić rezerwacje w określonych ograniczeniach. Aby uzyskać więcej informacji, zobacz [Samoobsługowe wymiany i zwroty pieniędzy za rezerwacje platformy Azure.](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations)
 
 ## <a name="expiration-of-a-reservation"></a>Wygaśnięcie rezerwacji
 
@@ -102,5 +102,5 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Co to są rezerwacje platformy Azure?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Co to jest Azure Reservations?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Omówienie stosowania rabatu za rezerwację do usługi Azure Disk Storage](../articles/cost-management-billing/reservations/understand-disk-reservations.md)

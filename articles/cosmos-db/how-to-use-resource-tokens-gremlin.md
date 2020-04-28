@@ -1,6 +1,6 @@
 ---
-title: Używanie tokenów zasobów usługi Azure Cosmos DB przy użyciu zestawu SDK gremlin
-description: Dowiedz się, jak tworzyć tokeny zasobów i używać ich do uzyskiwania dostępu do bazy danych Graph.
+title: Używanie tokenów zasobów Azure Cosmos DB z zestawem SDK Gremlin
+description: Dowiedz się, jak tworzyć tokeny zasobów i korzystać z nich w celu uzyskiwania dostępu do bazy danych programu Graph.
 author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
@@ -8,29 +8,29 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 42f3c7f3351bddab429489dccf28587549d76e18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78897849"
 ---
-# <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Używanie tokenów zasobów usługi Azure Cosmos DB przy użyciu zestawu SDK gremlin
+# <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Używanie tokenów zasobów Azure Cosmos DB z zestawem SDK Gremlin
 
-W tym artykule wyjaśniono, jak używać [tokenów zasobów usługi Azure Cosmos DB](secure-access-to-data.md) w celu uzyskania dostępu do bazy danych Graph za pośrednictwem zestawu SDK gremlin.
+W tym artykule wyjaśniono, jak używać [tokenów zasobów Azure Cosmos DB](secure-access-to-data.md) , aby uzyskać dostęp do bazy danych grafu za pomocą zestawu SDK Gremlin.
 
 ## <a name="create-a-resource-token"></a>Tworzenie tokenu zasobu
 
-Apache TinkerPop Gremlin SDK nie ma interfejsu API do tworzenia tokenów zasobów. Termin *token zasobu* jest koncepcją usługi Azure Cosmos DB. Aby utworzyć tokeny zasobów, pobierz [zestaw SDK usługi Azure Cosmos DB](sql-api-sdk-dotnet.md). Jeśli aplikacja musi utworzyć tokeny zasobów i używać ich do uzyskania dostępu do bazy danych Graph, wymaga dwóch oddzielnych zestawów SDK.
+Zestaw Apache TinkerPop Gremlin SDK nie ma interfejsu API, który służy do tworzenia tokenów zasobów. Termin *token zasobu* jest koncepcją Azure Cosmos DB. Aby utworzyć tokeny zasobów, Pobierz [zestaw SDK Azure Cosmos DB](sql-api-sdk-dotnet.md). Jeśli aplikacja musi utworzyć tokeny zasobów i korzystać z nich w celu uzyskania dostępu do bazy danych programu Graph, wymagane są dwa oddzielne zestawy SDK.
 
-Hierarchia modelu obiektu powyżej tokenów zasobów jest zilustrowana w następującym konspekcie:
+Hierarchia modelu obiektów powyżej tokenów zasobów jest zilustrowana w następującym konspekcie:
 
-- **Konto usługi Azure Cosmos DB** — jednostka najwyższego poziomu, z `contoso.gremlin.cosmos.azure.com`którą jest skojarzony system DNS (na przykład ).
-  - **Baza danych usługi Azure Cosmos DB**
+- **Konto Azure Cosmos DB** — jednostka najwyższego poziomu, z którą jest skojarzony system DNS (na przykład `contoso.gremlin.cosmos.azure.com`).
+  - **Baza danych Azure Cosmos DB**
     - **Użytkownik**
       - **Uprawnienie**
-        - **Token** — właściwość obiektu permission, która oznacza, jakie akcje są dozwolone lub odrzucone.
+        - **Token** -właściwość obiektu uprawnienia, która oznacza, jakie akcje są dozwolone lub odrzucane.
 
-Token zasobu używa następującego `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`formatu: . Ten ciąg jest nieprzezroczysty dla klientów i powinien być używany tak jak jest, bez modyfikacji lub interpretacji.
+Token zasobu używa następującego formatu: `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. Ten ciąg jest nieprzezroczysty dla klientów i powinien być używany bez modyfikacji ani interpretacji.
 
 ```csharp
 // Notice that document client is created against .NET SDK endpoint, rather than Gremlin.
@@ -54,8 +54,8 @@ DocumentClient client = new DocumentClient(
 }
 ```
 
-## <a name="use-a-resource-token"></a>Używanie tokenu zasobu
-Tokeny zasobów można używać bezpośrednio jako właściwości "hasło" podczas konstruowania klasy GremlinServer.
+## <a name="use-a-resource-token"></a>Użycie tokenu zasobu
+Tokenów zasobów można używać bezpośrednio jako właściwości "Password" podczas konstruowania klasy GremlinServer.
 
 ```csharp
 // The Gremlin application needs to be given a resource token. It can't discover the token on its own.
@@ -78,7 +78,7 @@ GremlinServer server = new GremlinServer(
   }
 ```
 
-To samo podejście działa we wszystkich SDK TinkerPop Gremlin.
+Takie samo podejście działa we wszystkich zestawach SDK TinkerPop Gremlin.
 
 ```java
 Cluster.Builder builder = Cluster.build();
@@ -95,12 +95,12 @@ builder.authProperties(authenticationProperties);
 
 ## <a name="limit"></a>Limit
 
-Z jednym kontem Gremlin, można wydać nieograniczoną liczbę tokenów. Jednak można użyć tylko do 100 tokenów jednocześnie w ciągu 1 godziny. Jeśli aplikacja przekracza limit tokenu na godzinę, żądanie uwierzytelniania zostanie odrzucone i zostanie wyświetlony następujący komunikat o błędzie: "Przekroczony dozwolony limit tokenu zasobu wynoszący 100, który może być używany jednocześnie." Nie działa, aby zamknąć aktywne połączenia, które używają określonych tokenów, aby zwolnić miejsca dla nowych tokenów. Aparat bazy danych usługi Azure Cosmos DB Gremlin śledzi unikatowe tokeny w ciągu godziny bezpośrednio przed żądaniem uwierzytelnienia.
+Za pomocą jednego konta Gremlin można wydać nieograniczoną liczbę tokenów. Można jednak używać tylko do 100 tokenów jednocześnie w ciągu 1 godziny. Jeśli aplikacja przekracza limit tokenów na godzinę, żądanie uwierzytelnienia zostanie odrzucone i zostanie wyświetlony następujący komunikat o błędzie: "Przekroczono dozwolony limit tokenów zasobów 100, który może być używany współbieżnie". Nie działa to blisko aktywnych połączeń, które używają określonych tokenów do zwolnienia miejsc dla nowych tokenów. Aparat bazy danych Azure Cosmos DB Gremlin śledzi unikatowe tokeny w ciągu godziny bezpośrednio przed żądaniem uwierzytelnienia.
 
 ## <a name="permission"></a>Uprawnienie
 
-Typowym błędem, który napotykają aplikacje podczas korzystania z tokenów zasobów, jest "Niewystarczające uprawnienia podane w nagłówku autoryzacji dla odpowiedniego żądania. Ponów próbę przy innym nagłówku autoryzacji." Ten błąd jest zwracany, gdy przechodzenie przez gremlin próbuje napisać krawędzi lub wierzchołka, ale token zasobu udziela tylko uprawnienia *odczytu.* Sprawdź, czy przechodzi się, aby sprawdzić, czy zawiera on którykolwiek z następujących kroków: *.addV()*, *.addE(),* *.drop()* lub *.property()*.
+Typowym błędem napotykanym przez aplikacje podczas korzystania z tokenów zasobów jest "niewystarczające uprawnienia podane w nagłówku autoryzacji dla odpowiedniego żądania. Spróbuj ponownie, używając innego nagłówka autoryzacji. " Ten błąd jest zwracany, gdy przechodzenie Gremlin próbuje napisać krawędY lub wierzchołek, ale token zasobu przyznaje tylko uprawnienia do *odczytu* . Zbadaj przechodzenie, aby sprawdzić, czy zawiera on następujące kroki: *. addV ()*, *. addE ()*, *. Drop ()*, lub *. Property ()*.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Kontrola dostępu oparta na rolach](role-based-access-control.md) w usłudze Azure Cosmos DB
-* [Dowiedz się, jak zabezpieczyć dostęp do danych](secure-access-to-data.md) w usłudze Azure Cosmos DB
+* [Kontrola dostępu oparta na rolach](role-based-access-control.md) w Azure Cosmos DB
+* [Dowiedz się, jak zabezpieczyć dostęp do danych](secure-access-to-data.md) w Azure Cosmos DB

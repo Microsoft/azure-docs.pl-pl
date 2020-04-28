@@ -1,7 +1,7 @@
 ---
-title: Obsługiwane operacje programu Microsoft Graph
+title: Obsługiwane Microsoft Graph operacje
 titleSuffix: Azure AD B2C
-description: Indeks operacji programu Microsoft Graph obsługiwanych do zarządzania zasobami usługi Azure AD B2C, w tym użytkowników, przepływów użytkowników, dostawców tożsamości, zasad niestandardowych, kluczy zasad i innych.
+description: Indeks operacji Microsoft Graph obsługiwanych przez zarządzanie zasobami Azure AD B2C, w tym użytkownikami, przepływami użytkowników, dostawcami tożsamości, zasadami niestandardowymi, kluczami zasad i innymi.
 services: B2C
 author: msmimart
 manager: celestedg
@@ -12,96 +12,96 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78184252"
 ---
-# <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Operacje programu Microsoft Graph dostępne dla usługi Azure AD B2C
+# <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph operacji dostępnych dla Azure AD B2C
 
-Następujące operacje interfejsu API programu Microsoft Graph są obsługiwane do zarządzania zasobami usługi Azure AD B2C, w tym użytkowników, dostawców tożsamości, przepływów użytkowników, zasad niestandardowych i kluczy zasad.
+Następujące Microsoft Graph operacje interfejsu API są obsługiwane na potrzeby zarządzania zasobami Azure AD B2C, w tym użytkownikami, dostawcami tożsamości, przepływami użytkowników, zasadami niestandardowymi i kluczami zasad.
 
-Każde łącze w poniższych sekcjach jest przeznaczone dla odpowiedniej strony w odwołaniu interfejsu API programu Microsoft Graph dla tej operacji.
+Każdy link w poniższych sekcjach odwołuje się do odpowiedniej strony w ramach odwołania do interfejsu API Microsoft Graph dla tej operacji.
 
 ## <a name="user-management"></a>Zarządzanie użytkownikami
 
 - [Wyświetlanie użytkowników](https://docs.microsoft.com/graph/api/user-list)
-- [Tworzenie użytkownika konsumenckiego](https://docs.microsoft.com/graph/api/user-post-users)
-- [Uzyskaj użytkownika](https://docs.microsoft.com/graph/api/user-get)
+- [Tworzenie użytkownika odbiorcy](https://docs.microsoft.com/graph/api/user-post-users)
+- [Pobierz użytkownika](https://docs.microsoft.com/graph/api/user-get)
 - [Aktualizowanie użytkownika](https://docs.microsoft.com/graph/api/user-update)
 - [Usuń użytkownika](https://docs.microsoft.com/graph/api/user-delete)
 
-Aby uzyskać więcej informacji na temat zarządzania kontami użytkowników usługi Azure AD B2C za pomocą interfejsu API programu Microsoft Graph, zobacz [Zarządzanie kontami użytkowników usługi Azure AD B2C za pomocą programu Microsoft Graph](manage-user-accounts-graph-api.md).
+Aby uzyskać więcej informacji na temat zarządzania kontami użytkowników Azure AD B2C przy użyciu interfejsu API Microsoft Graph, zobacz [Azure AD B2C Zarządzanie kontami użytkowników przy użyciu Microsoft Graph](manage-user-accounts-graph-api.md).
 
-## <a name="identity-providers-user-flow"></a>Dostawcy tożsamości (przepływ użytkowników)
+## <a name="identity-providers-user-flow"></a>Dostawcy tożsamości (przepływ użytkownika)
 
-Zarządzanie dostawcami tożsamości dostępnymi dla przepływów użytkowników w dzierżawie usługi Azure AD B2C.
+Zarządzaj dostawcami tożsamości dostępnymi dla przepływów użytkowników w dzierżawie Azure AD B2C.
 
-- [Lista dostawców tożsamości zarejestrowanych w dzierżawie usługi Azure AD B2C](https://docs.microsoft.com/graph/api/identityprovider-list)
+- [Wyświetlanie listy dostawców tożsamości zarejestrowanych w dzierżawie Azure AD B2C](https://docs.microsoft.com/graph/api/identityprovider-list)
 - [Tworzenie dostawcy tożsamości](https://docs.microsoft.com/graph/api/identityprovider-post-identityproviders)
-- [Uzyskaj dostawcę tożsamości](https://docs.microsoft.com/graph/api/identityprovider-get)
+- [Uzyskiwanie dostawcy tożsamości](https://docs.microsoft.com/graph/api/identityprovider-get)
 - [Aktualizowanie dostawcy tożsamości](https://docs.microsoft.com/graph/api/identityprovider-update)
 - [Usuwanie dostawcy tożsamości](https://docs.microsoft.com/graph/api/identityprovider-delete)
 
 ## <a name="user-flow"></a>Przepływ użytkownika
 
-Skonfiguruj wstępnie utworzone zasady rejestracji, logowania, połączonej rejestracji i logowania, resetowania hasła i aktualizacji profilu.
+Skonfiguruj wstępnie skompilowane zasady rejestracji, logowania, połączonego rejestrowania i logowania, resetowania haseł i aktualizacji profilu.
 
-- [Lista przepływów użytkowników](https://docs.microsoft.com/graph/api/identityuserflow-list)
+- [Wyświetlanie listy przepływów użytkownika](https://docs.microsoft.com/graph/api/identityuserflow-list)
 - [Tworzenie przepływu użytkownika](https://docs.microsoft.com/graph/api/identityuserflow-post-userflows)
-- [Uzyskaj przepływ użytkownika](https://docs.microsoft.com/graph/api/identityuserflow-get)
+- [Pobierz przepływ użytkownika](https://docs.microsoft.com/graph/api/identityuserflow-get)
 - [Usuwanie przepływu użytkownika](https://docs.microsoft.com/graph/api/identityuserflow-delete)
 
 ## <a name="custom-policies"></a>Zasady niestandardowe
 
-Poniższe operacje umożliwiają zarządzanie zasadami struktury zaufania usługi Azure AD B2C, znanymi jako [zasady niestandardowe.](custom-policy-overview.md)
+Poniższe operacje umożliwiają zarządzanie Azure AD B2C zasadami struktury zaufania, znanymi jako [zasady niestandardowe](custom-policy-overview.md).
 
-- [Wyświetlanie listy wszystkich zasad struktury zaufania skonfigurowanych w dzierżawie](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies)
-- [Tworzenie zasad struktury zaufania](https://docs.microsoft.com/graph/api/trustframework-post-trustframeworkpolicy)
-- [Odczytywanie właściwości istniejących zasad struktury zaufania](https://docs.microsoft.com/graph/api/trustframeworkpolicy-get)
+- [Wyświetl listę wszystkich zasad struktury zaufania skonfigurowanych w dzierżawie](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies)
+- [Utwórz zasady dotyczące struktury zaufania](https://docs.microsoft.com/graph/api/trustframework-post-trustframeworkpolicy)
+- [Odczytaj właściwości istniejących zasad struktury zaufania](https://docs.microsoft.com/graph/api/trustframeworkpolicy-get)
 - [Aktualizowanie lub tworzenie zasad struktury zaufania.](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)
 - [Usuwanie istniejących zasad struktury zaufania](https://docs.microsoft.com/graph/api/trustframeworkpolicy-delete)
 
 ## <a name="policy-keys"></a>Klucze zasad
 
-Struktura środowiska tożsamości przechowuje wpisy tajne, do których odwołuje się w zasadach niestandardowych, aby ustanowić zaufanie między składnikami. Te wpisy tajne mogą być symetryczne lub asymetryczne klucze/wartości. W witrynie Azure portal te jednostki są wyświetlane jako **klucze zasad**.
+Struktura środowiska tożsamości przechowuje wpisy tajne, do których odwołuje się zasada niestandardowa, aby ustanowić relację zaufania między składnikami. Te klucze tajne mogą być symetrycznymi lub asymetryczne klucze/wartości. W Azure Portal te jednostki są wyświetlane jako **klucze zasad**.
 
-Zasobem najwyższego poziomu dla kluczy zasad w interfejsie API programu Microsoft Graph jest [zestaw kluczy zaufanej struktury](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset). Każdy **zestaw kluczy** zawiera co najmniej jeden **klawisz**. Aby utworzyć klucz, najpierw utwórz pusty zestaw kluczy, a następnie wygeneruj klucz w zestawie kluczy. Można utworzyć ręczny klucz tajny, przekazać certyfikat lub klucz PKCS12. Kluczem może być wygenerowany klucz tajny, zdefiniowany ciąg (np. klucz tajny aplikacji Facebooka) lub przesłany certyfikat. Jeśli zestaw kluczy ma wiele kluczy, aktywny jest tylko jeden z kluczy.
+Zasób najwyższego poziomu dla kluczy zasad w interfejsie API Microsoft Graph jest [zaufanym zestawem kluczy](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset). Każdy **zestaw kluczy** zawiera co najmniej jeden **klucz**. Aby utworzyć klucz, najpierw utwórz pusty zestaw kluczy, a następnie Wygeneruj klucz w zestawie kluczy. Można utworzyć Ręczny klucz tajny, przekazać certyfikat lub klucz PKCS12. Klucz może być wygenerowanym wpisem tajnym, definiowanym przez Ciebie ciągiem (na przykład wpisem tajnym aplikacji w serwisie Facebook) lub przekazywanym certyfikatem. Jeśli zestaw kluczy ma wiele kluczy, tylko jeden z kluczy jest aktywny.
 
-### <a name="trust-framework-policy-keyset"></a>Zestaw kluczy zasad struktury zaufania
+### <a name="trust-framework-policy-keyset"></a>Zestaw kluczy zasad zaufania platformy
 
-- [Wyświetlanie listy zestawień kluczy struktury zaufania](https://docs.microsoft.com/graph/api/trustframework-list-keysets)
-- [Tworzenie zestawy kluczy struktury zaufania](https://docs.microsoft.com/graph/api/trustframework-post-keysets)
+- [Wyświetl listę zestawów ustawień struktury zaufania](https://docs.microsoft.com/graph/api/trustframework-list-keysets)
+- [Tworzenie zestawów narzędzi struktury zaufania](https://docs.microsoft.com/graph/api/trustframework-post-keysets)
 - [Pobierz zestaw kluczy](https://docs.microsoft.com/graph/api/trustframeworkkeyset-get)
-- [Aktualizowanie zestawy kluczy struktury zaufania](https://docs.microsoft.com/graph/api/trustframeworkkeyset-update)
-- [Usuwanie zestawy kluczy struktury zaufania](https://docs.microsoft.com/graph/api/trustframeworkkeyset-delete)
+- [Aktualizowanie zestawów danych struktury zaufania](https://docs.microsoft.com/graph/api/trustframeworkkeyset-update)
+- [Usuwanie zestawów danych struktury zaufania](https://docs.microsoft.com/graph/api/trustframeworkkeyset-delete)
 
-### <a name="trust-framework-policy-key"></a>Klucz zasad struktury zaufania
+### <a name="trust-framework-policy-key"></a>Klucz zasad zaufania platformy
 
-- [Uzyskaj aktualnie aktywny klucz w zestawie kluczy](https://docs.microsoft.com/graph/api/trustframeworkkeyset-getactivekey)
+- [Pobierz obecnie aktywny klucz w zestawie kluczy](https://docs.microsoft.com/graph/api/trustframeworkkeyset-getactivekey)
 - [Generowanie klucza w zestawie kluczy](https://docs.microsoft.com/graph/api/trustframeworkkeyset-generatekey)
 - [Przekazywanie klucza tajnego opartego na ciągu](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadsecret)
-- [Przekazywanie certyfikatu X.509](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadcertificate)
-- [Przekazywanie certyfikatu formatu PKCS12](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12)
+- [Przekaż certyfikat X. 509](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadcertificate)
+- [Przekaż certyfikat formatu PKCS12](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12)
 
 ## <a name="applications"></a>Aplikacje
 
 - [Wyświetlanie listy aplikacji](https://docs.microsoft.com/graph/api/application-list)
 - [Tworzenie aplikacji](https://docs.microsoft.com/graph/api/resources/application)
-- [Aktualizacja aplikacji](https://docs.microsoft.com/graph/api/application-update)
-- [Tworzenie usługiPrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal)
-- [Tworzenie oauth2Permission Grant](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant)
+- [Aktualizuj aplikację](https://docs.microsoft.com/graph/api/application-update)
+- [Utwórz obiekt serviceprincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal)
+- [Utwórz przyznanie oauth2Permission](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant)
 - [Usuwanie aplikacji](https://docs.microsoft.com/graph/api/application-delete)
 
 ## <a name="application-extension-properties"></a>Właściwości rozszerzenia aplikacji
 
-- [Właściwości rozszerzenia listy](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
+- [Wyświetl właściwości rozszerzenia](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
 
-Usługa Azure AD B2C udostępnia katalog, który może pomieścić 100 atrybutów niestandardowych na użytkownika. W przypadku przepływów użytkowników te właściwości rozszerzenia są [zarządzane przy użyciu portalu Azure.](custom-policy-custom-attributes.md) W przypadku zasad niestandardowych usługa Azure AD B2C tworzy dla Ciebie właściwość przy pierwszym zapisie wartości do właściwości rozszerzenia.
+Azure AD B2C udostępnia katalog, który może zawierać 100 atrybutów niestandardowych na użytkownika. W przypadku przepływów użytkowników te właściwości rozszerzenia są [zarządzane przy użyciu Azure Portal](custom-policy-custom-attributes.md). W przypadku zasad niestandardowych Azure AD B2C tworzy właściwość za pierwszym razem, gdy zasady zapisują wartość do właściwości rozszerzenia.
 
 ## <a name="audit-logs"></a>Dzienniki inspekcji
 
-- [Lista dzienników inspekcji](https://docs.microsoft.com/graph/api/directoryaudit-list)
+- [Wyświetl listę dzienników inspekcji](https://docs.microsoft.com/graph/api/directoryaudit-list)
 
-Aby uzyskać więcej informacji na temat uzyskiwania dostępu do dzienników inspekcji usługi Azure AD B2C za pomocą interfejsu API programu Microsoft Graph, zobacz [Uzyskiwanie dostępu do dzienników inspekcji usługi Azure AD B2C](view-audit-logs.md).
+Aby uzyskać więcej informacji na temat uzyskiwania dostępu do dzienników inspekcji Azure AD B2C za pomocą interfejsu API Microsoft Graph, zobacz [dostęp do dzienników inspekcji Azure AD B2C](view-audit-logs.md).

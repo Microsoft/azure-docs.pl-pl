@@ -1,6 +1,6 @@
 ---
-title: Narzędzie Co zrobić w przypadku dostępu warunkowego — usługa Azure Active Directory
-description: Dowiedz się, jak zrozumieć wpływ zasad dostępu warunkowego na środowisko.
+title: Narzędzie What If dostępu warunkowego — Azure Active Directory
+description: Dowiedz się, jak zrozumieć wpływ zasad dostępu warunkowego w danym środowisku.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,49 +12,49 @@ manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc87b434664ba12cefeb233972e749f631d8a2b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77620680"
 ---
-# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Rozwiązywanie problemów przy użyciu narzędzia Co jeśli w programie "Dostęp warunkowy"
+# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Rozwiązywanie problemów przy użyciu narzędzia What If w dostępie warunkowym
 
-[Dostęp warunkowy](../active-directory-conditional-access-azure-portal.md) to funkcja usługi Azure Active Directory (Azure AD), która umożliwia kontrolowanie sposobu uzyskiwania dostępu autoryzowanym użytkownikom do aplikacji w chmurze. Skąd wiesz, czego można oczekiwać od zasad dostępu warunkowego w twoim środowisku? Aby odpowiedzieć na to pytanie, można użyć **narzędzia Dostęp warunkowy Co jeśli**.
+[Dostęp warunkowy](../active-directory-conditional-access-azure-portal.md) jest możliwością Azure Active Directory (Azure AD), która umożliwia kontrolowanie sposobu, w jaki autoryzowani użytkownicy uzyskują dostęp do aplikacji w chmurze. Jak wiesz, czego można oczekiwać od zasad dostępu warunkowego w danym środowisku? Aby odpowiedzieć na to pytanie, można użyć **narzędzia What If dostępu warunkowego**.
 
 W tym artykule wyjaśniono, jak można użyć tego narzędzia do testowania zasad dostępu warunkowego.
 
 ## <a name="what-it-is"></a>Co to jest
 
-**Narzędzie zasad Warunkowy dostęp Co jeśli** umożliwia zrozumienie wpływu zasad dostępu warunkowego na środowisko. Zamiast testować zasady, wykonując wiele logów ręcznie, to narzędzie umożliwia ocenę symulowanego logowania użytkownika. Symulacja szacuje wpływ tego logowania na zasady i generuje raport symulacji. Raport zawiera listę nie tylko stosowanych zasad dostępu warunkowego, ale także [klasycznych zasad,](policy-migration.md#classic-policies) jeśli istnieją.    
+**Narzędzie zasady What If dostępu warunkowego** pozwala zrozumieć wpływ zasad dostępu warunkowego w danym środowisku. Zamiast testować swoje zasady przez ręczne przeprowadzenie wielu logowań, to narzędzie umożliwia ocenę symulowanego logowania użytkownika. Symulacja szacuje wpływ tego logowania na zasady i generuje raport symulacji. Raport nie tylko zawiera zasady dostępu warunkowego, ale również [zasady klasyczne](policy-migration.md#classic-policies) , jeśli istnieją.    
 
-Narzędzie **Co jeśli** umożliwia szybkie określenie zasad, które mają zastosowanie do określonego użytkownika. Można użyć tych informacji, na przykład, jeśli chcesz rozwiązać problem.    
+Narzędzie **What If** umożliwia szybkie ustalenie zasad, które mają zastosowanie do określonego użytkownika. Możesz użyć tych informacji, na przykład jeśli trzeba rozwiązać problem.    
 
 ## <a name="how-it-works"></a>Jak to działa
 
-W **narzędziu Warunkowy dostęp Co jeśli**należy najpierw skonfigurować ustawienia scenariusza logowania, który ma symulować. Należą do nich następujące ustawienia:
+W **narzędziu dostępu warunkowego What If**należy najpierw skonfigurować ustawienia scenariusza logowania, który ma zostać symulowany. Należą do nich następujące ustawienia:
 
-- Użytkownik, którego chcesz przetestować 
-- Aplikacje w chmurze, do które użytkownik będzie próbował uzyskać dostęp
-- Warunki, w jakich wykonywany jest dostęp do skonfigurowanych aplikacji w chmurze
+- Użytkownik, który ma zostać przetestowany 
+- Aplikacje w chmurze, do których użytkownik podejmie próbę uzyskania dostępu
+- Warunki, w których odbywa się dostęp do konfigurowania aplikacji w chmurze
      
-W następnym kroku można zainicjować przebieg symulacji, który ocenia ustawienia. Tylko zasady, które są włączone są częścią przebiegu oceny.
+Następnym krokiem jest zainicjowanie przebiegu symulacji, który służy do obliczania ustawień. Tylko zasady, które są włączone, są częścią przebiegu ewaluacyjnego.
 
-Po zakończeniu oceny narzędzie generuje raport zasad, których dotyczy problem.
+Po zakończeniu oceny narzędzie generuje raport dotyczący odpowiednich zasad.
 
 ## <a name="running-the-tool"></a>Uruchamianie narzędzia
 
-Narzędzie Co **jeśli** można znaleźć na stronie **[Dostęp warunkowy — Zasady](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** w witrynie Azure portal.
+Narzędzie **What If** można znaleźć na stronie **[zasady dostępu warunkowego](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** w Azure Portal.
 
-Aby uruchomić narzędzie, na pasku narzędzi u góry listy zasad kliknij przycisk **Co jeśli**.
+Aby uruchomić narzędzie, na pasku narzędzi na górze listy zasad kliknij pozycję **What If**.
 
 ![What If](./media/what-if-tool/01.png)
 
-Przed uruchomieniem oceny należy skonfigurować ustawienia.
+Aby można było uruchomić ocenę, należy skonfigurować ustawienia.
 
 ## <a name="settings"></a>Ustawienia
 
-W tej sekcji znajdują się informacje o ustawieniach przebiegu symulacji.
+Ta sekcja zawiera informacje o ustawieniach przebiegu symulacji.
 
 ![What If](./media/what-if-tool/02.png)
 
@@ -64,46 +64,46 @@ Można wybrać tylko jednego użytkownika. Jest to jedyne wymagane pole.
 
 ### <a name="cloud-apps"></a>Aplikacje w chmurze
 
-Domyślnym ustawieniem tego ustawienia jest **Wszystkie aplikacje w chmurze**. Ustawienie domyślne wykonuje ocenę wszystkich dostępnych zasad w twoim środowisku. Zakres można zawęzić do zasad dotyczących określonych aplikacji w chmurze.
+Wartość domyślna tego ustawienia to **wszystkie aplikacje w chmurze**. Ustawienie domyślne służy do oceny wszystkich dostępnych zasad w danym środowisku. Można zawęzić zakres do zasad mających wpływ na określone aplikacje w chmurze.
 
 ### <a name="ip-address"></a>Adres IP
 
-Adres IP jest pojedynczym adresem IPv4, który naśladuje [stan lokalizacji.](location-condition.md) Adres reprezentuje adres internetowy urządzenia używanego przez użytkownika do logowania. Adres IP urządzenia można zweryfikować, na przykład przechodząc do [adresu IP.](https://whatismyipaddress.com)    
+Adres IP jest pojedynczym adresem IPv4, aby naśladować [warunek lokalizacji](location-condition.md). Adres reprezentuje adres połączony z Internetem urządzenia używany przez użytkownika do logowania. Adres IP urządzenia można zweryfikować, na przykład przechodząc do obszaru [mój adres IP](https://whatismyipaddress.com).    
 
 ### <a name="device-platforms"></a>Platformy urządzeń
 
-To ustawienie naśladuje [stan platform urządzeń](concept-conditional-access-conditions.md#device-platforms) i reprezentuje odpowiednik wszystkich platform **(w tym nieobsługiwał)**. 
+To ustawienie naśladuje [warunek platformy urządzeń](concept-conditional-access-conditions.md#device-platforms) i reprezentuje odpowiednik **wszystkich platform (w tym nieobsługiwane)**. 
 
 ### <a name="client-apps"></a>Aplikacje klienckie
 
-To ustawienie naśladuje [stan aplikacji klienckich](concept-conditional-access-conditions.md#client-apps-preview).
-Domyślnie to ustawienie powoduje ocenę wszystkich zasad, które są wybierane indywidualnie lub w aplikacjach **mobilnych** i **klientach klasycznych.** Wykrywa również zasady wymuszania **programu Exchange ActiveSync (EAS).** Ustawienie to można zawęzić, wybierając:
+To ustawienie naśladuje [warunek aplikacji klienckich](concept-conditional-access-conditions.md#client-apps-preview).
+Domyślnie to ustawienie powoduje obliczenie wszystkich zasad mających zarówno **przeglądarkę** , **jak i aplikacje mobilne oraz klientów klasycznych** pojedynczo lub oba wybrane. Wykrywa także zasady, które wymuszają program **Exchange ActiveSync (EAS)**. To ustawienie można zawęzić, wybierając pozycję:
 
-- **Przeglądarki** do oceny wszystkich zasad z co najmniej **przeglądarka** wybrana. 
-- **Aplikacje mobilne i klienci komputerowi** do oceny wszystkich zasad z wybranymi co najmniej **aplikacjami mobilnymi i klientami komputerowymi.** 
+- **Przeglądarka** oceni wszystkie zasady, które mają co najmniej wybraną **przeglądarkę** . 
+- **Aplikacje mobilne i klienci stacjonarni** w celu ocenienia wszystkich zasad, dla których wybrano co najmniej **aplikacje mobilne i klienci stacjonarni** . 
 
-### <a name="sign-in-risk"></a>Ryzyko logowania
+### <a name="sign-in-risk"></a>Ryzyko związane z logowaniem
 
-To ustawienie naśladuje [stan ryzyka logowania](concept-conditional-access-conditions.md#sign-in-risk).   
+To ustawienie naśladuje [warunek ryzyka związanego z logowaniem](concept-conditional-access-conditions.md#sign-in-risk).   
 
 ## <a name="evaluation"></a>Ocena 
 
-Rozpoczęcie oceny można rozpocząć, klikając przycisk **Co jeśli**. Wynik oceny zawiera raport, który składa się z: 
+Aby rozpocząć ocenę, kliknij **What If**. Wynik oceny zawiera raport, który składa się z: 
 
 ![What If](./media/what-if-tool/03.png)
 
-- Wskaźnik, czy w twoim środowisku istnieją klasyczne zasady
-- Zasady mające zastosowanie do użytkownika
+- Wskaźnik określający, czy w środowisku istnieją zasady klasyczne
+- Zasady dotyczące użytkownika
 - Zasady, które nie mają zastosowania do użytkownika
 
-Jeśli istnieją [klasyczne zasady](policy-migration.md#classic-policies) dla wybranych aplikacji w chmurze, zostanie wyświetlony wskaźnik. Klikając wskaźnik, zostaniesz przekierowany do klasycznej strony zasad. Na stronie zasad klasycznych można przeprowadzić migrację klasycznej zasady lub ją po prostu wyłączyć. Możesz powrócić do wyniku oceny, zamykając tę stronę.
+Jeśli dla wybranych aplikacji w chmurze istnieją [zasady klasyczne](policy-migration.md#classic-policies) , zostanie wyświetlony wskaźnik. Klikając wskaźnik, nastąpi przekierowanie do strony zasady klasyczne. Na stronie zasady klasyczne można migrować zasady klasyczne lub po prostu je wyłączyć. Możesz powrócić do wyniku oceny, zamykając Tę stronę.
 
-Na liście zasad, które mają zastosowanie do wybranego użytkownika, można również znaleźć listę [formantów dotacji](concept-conditional-access-grant.md) i [kontroli sesji,](concept-conditional-access-session.md) które użytkownik musi spełnić.
+Na liście zasad, które są stosowane dla wybranego użytkownika, można również znaleźć listę [kontrolek](concept-conditional-access-grant.md) i kontrolek [sesji](concept-conditional-access-session.md) , które użytkownik musi spełnić.
 
-Na liście zasad, które nie mają zastosowania do użytkownika, można, a także znaleźć powody, dla których te zasady nie mają zastosowania. Dla każdej wymienionej zasady przyczyna reprezentuje pierwszy warunek, który nie został spełniony. Możliwą przyczyną zasad, które nie są stosowane jest wyłączone zasady, ponieważ nie są one dalej oceniane.   
+Na liście zasad, które nie mają zastosowania do użytkownika, możesz również znaleźć powody, dla których te zasady nie są stosowane. Dla każdej z wymienionych zasad powód reprezentuje pierwszy warunek, który nie był spełniony. Możliwą przyczyną niestosowania zasad jest zasada wyłączona, ponieważ nie są one jeszcze oceniane.   
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się, jak skonfigurować zasady dostępu warunkowego, zobacz [Wymaganie usługi MFA dla określonych aplikacji z dostępem warunkowym usługi Azure Active Directory](app-based-mfa.md).
-- Jeśli chcesz skonfigurować zasady dostępu warunkowego dla swojego środowiska, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi dostępu warunkowego w usłudze Azure Active Directory](best-practices.md). 
-- jeśli chcesz przeprowadzić migrację klasycznych zasad, zobacz [Migrowanie klasycznych zasad w witrynie Azure portal](policy-migration.md)  
+- Jeśli chcesz dowiedzieć się, jak skonfigurować zasady dostępu warunkowego, zobacz [Wymagaj uwierzytelniania wieloskładnikowego dla określonych aplikacji, Azure Active Directory dostępu warunkowego](app-based-mfa.md).
+- Aby skonfigurować zasady dostępu warunkowego dla środowiska, zobacz [najlepsze rozwiązania dotyczące dostępu warunkowego w Azure Active Directory](best-practices.md). 
+- Jeśli chcesz przeprowadzić migrację klasycznych zasad, zobacz [Migrowanie zasad klasycznych w Azure Portal](policy-migration.md)  

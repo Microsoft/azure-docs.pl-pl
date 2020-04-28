@@ -1,6 +1,6 @@
 ---
-title: Ustawienia zasad grupy i mdm dla ESR — usługa Azure Active Directory
-description: Ustawienia zarządzania dla roamingu w stanie przedsiębiorstwa
+title: Ustawienia zasady grupy i MDM dla usługi ESR — Azure Active Directory
+description: Ustawienia zarządzania dla Enterprise State Roaming
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,51 +12,51 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bdffbc3a140bd13dcd6d352db8c192803d39b03e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672364"
 ---
-# <a name="group-policy-and-mdm-settings"></a>Ustawienia zasad grupy i mdm
+# <a name="group-policy-and-mdm-settings"></a>Ustawienia zasady grupy i zarządzania urządzeniami przenośnymi
 
-Użyj tych zasad grupy i ustawień zarządzania urządzeniami przenośnymi (MDM) tylko na urządzeniach należących do firmy, ponieważ te zasady są stosowane do całego urządzenia użytkownika. Zastosowanie zasad MDM w celu wyłączenia synchronizacji ustawień dla osobistego urządzenia należącego do użytkownika negatywnie wpłynie na korzystanie z tego urządzenia. Ponadto zasady będą miały również wpływ na inne konta użytkowników na urządzeniu.
+Te zasady grupy i ustawienia zarządzania urządzeniami przenośnymi (MDM) są używane tylko na urządzeniach należących do firmy, ponieważ te zasady są stosowane do całego urządzenia użytkownika. Zastosowanie zasad zarządzania urządzeniami przenośnymi w celu wyłączenia synchronizacji ustawień dla urządzenia osobistego użytkownika nie wpłynie negatywnie na korzystanie z tego urządzenia. Zasady mogą również wpływać na inne konta użytkowników na urządzeniu.
 
-Przedsiębiorstwa, które chcą zarządzać roamingiem dla urządzeń osobistych (niezarządzanych), mogą używać witryny Azure Portal do włączania lub wyłączania roamingu, a nie przy użyciu zasad grupy lub usług MDM.
+Przedsiębiorstwa, które chcą zarządzać roamingiem dla urządzeń osobistych (niezarządzanych), mogą używać Azure Portal do włączania lub wyłączania roamingu zamiast używania zasady grupy lub MDM.
 W poniższych tabelach opisano dostępne ustawienia zasad.
 
 > [!NOTE]
-> Ten artykuł dotyczy przeglądarki microsoft edge legacy w formacie HTML uruchomionej w systemie Windows 10 w lipcu 2015 r. Artykuł nie ma zastosowania do nowej przeglądarki opartej na chromie Microsoft Edge, wydanej 15 stycznia 2020 roku. Aby uzyskać więcej informacji na temat zachowania synchronizacji dla nowej przeglądarki Microsoft Edge, zobacz artykuł [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+> Ten artykuł ma zastosowanie do starszej przeglądarki opartej na języku HTML Microsoft Edge, która została uruchomiona z systemem Windows 10 w lipcu 2015. Artykuł nie ma zastosowania do nowej przeglądarki opartej na formacie chromu Microsoft Edge wydanej 15 stycznia 2020. Aby uzyskać więcej informacji na temat zachowania synchronizacji dla nowej przeglądarki Microsoft Edge, zobacz artykuł [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
-## <a name="mdm-settings"></a>Ustawienia MDM
+## <a name="mdm-settings"></a>Ustawienia zarządzania urządzeniami przenośnymi
 
-Ustawienia zasad MDM dotyczą zarówno systemu Windows 10, jak i systemu Windows 10 Mobile.  Obsługa systemu Windows 10 Mobile istnieje tylko w przypadku roamingu opartego na koncie Microsoft za pośrednictwem konta usługi OneDrive użytkownika. Szczegółowe informacje na temat urządzeń obsługiwanych w przypadku synchronizacji opartej na usłudze Azure AD można znaleźć w [obszarze Urządzenia i punkty końcowe.](enterprise-state-roaming-windows-settings-reference.md)
+Ustawienia zasad MDM dotyczą zarówno systemu Windows 10, jak i Windows 10 Mobile.  Obsługa systemu Windows 10 Mobile istnieje tylko w przypadku roamingu konto Microsoft na podstawie konta użytkownika w usłudze OneDrive. Zapoznaj się z tematami [urządzenia i punkty końcowe,](enterprise-state-roaming-windows-settings-reference.md) Aby uzyskać szczegółowe informacje na temat urządzeń obsługiwanych w przypadku synchronizacji opartej na usłudze Azure AD.
 
 | Nazwa | Opis |
 | --- | --- |
-| Zezwalaj na połączenie z kontem Microsoft |Umożliwia użytkownikom uwierzytelnienie przy użyciu konta Microsoft na urządzeniu |
-| Zezwalaj na synchronizację moich ustawień |Umożliwia użytkownikom poruszanie się po ustawieniach systemu Windows i danych aplikacji; Wyłączenie tych zasad spowoduje wyłączenie synchronizacji oraz kopii zapasowych na urządzeniach mobilnych |
+| Zezwalaj na połączenie konta Microsoft |Zezwala użytkownikom na uwierzytelnianie przy użyciu konto Microsoft na urządzeniu |
+| Zezwalaj na synchronizowanie moich ustawień |Umożliwia użytkownikom roaming ustawień systemu Windows i danych aplikacji. Wyłączenie tych zasad spowoduje wyłączenie synchronizacji oraz tworzenie kopii zapasowych na urządzeniach przenośnych |
 
 ## <a name="group-policy-settings"></a>Ustawienia zasad grupy
 
-Ustawienia zasad grupy dotyczą urządzeń z systemem Windows 10, które są przyłączone do domeny usługi Active Directory. Tabela zawiera również starsze ustawienia, które wydają się zarządzać ustawieniami synchronizacji, ale które nie działają w roamingu korporacyjnym dla systemu Windows 10, które są odnotowane w opisie "Nie używaj".
+Ustawienia zasad grupy stosują się do urządzeń z systemem Windows 10, które są przyłączone do domeny Active Directory. Tabela zawiera również starsze ustawienia, które pojawią się w celu zarządzania ustawieniami synchronizacji, ale które nie działają dla Enterprise State Roaming dla systemu Windows 10, które są wymienione w opisie "nie używaj".
 
-Te ustawienia znajdują się pod adresem:`Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
+Te ustawienia znajdują się w:`Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
 | Nazwa | Opis |
 | --- | --- |
-| Konta: blokowanie kont Microsoft |To ustawienie zasad uniemożliwia użytkownikom dodawanie nowych kont Microsoft na tym komputerze |
-| Nie synchronizuj |Uniemożliwia użytkownikom poruszanie się po ustawieniach systemu Windows i danych aplikacji |
-| Nie synchronizuj personalizacji |Wyłącza synchronizację grupy Motywy |
-| Nie synchronizuj ustawień przeglądarki |Wyłącza synchronizację grupy programu Internet Explorer |
-| Nie synchronizuj haseł |Wyłącza synchronizację grupy Hasła |
-| Nie synchronizuj innych ustawień systemu Windows |Wyłącza synchronizację z grupą Inne ustawienia systemu Windows |
-| Nie synchronizuj personalizacji pulpitu |Nie używać; nie ma wpływu |
-| Nie synchronizuj na połączeniach taryfowych |Wyłącza roaming na połączeniach taryfowych, takich jak komórkowe 3G |
-| Nie synchronizuj aplikacji |Nie używać; nie ma wpływu |
-| Nie synchronizuj ustawień aplikacji |Wyłącza roaming danych aplikacji |
-| Nie synchronizuj ustawień startu |Nie używać; nie ma wpływu |
+| Konta: Blokuj konta Microsoft |To ustawienie zasad uniemożliwia użytkownikom dodawanie nowych kont Microsoft na tym komputerze |
+| Nie Synchronizuj |Uniemożliwia użytkownikom roaming ustawień systemu Windows i danych aplikacji |
+| Nie Synchronizuj personalizacji |Wyłącza synchronizację grupy motywy |
+| Nie Synchronizuj ustawień przeglądarki |Wyłącza synchronizację grupy programu Internet Explorer |
+| Nie Synchronizuj haseł |Wyłącza synchronizację grupy haseł |
+| Nie Synchronizuj innych ustawień systemu Windows |Wyłącza synchronizację z inną grupą ustawień systemu Windows |
+| Nie Synchronizuj personalizacji pulpitu |Nie należy używać; nie ma wpływu |
+| Nie Synchronizuj w połączeniach taryfowych |Wyłącza roaming dla połączeń taryfowych, takich jak sieć komórkowa 3G |
+| Nie Synchronizuj aplikacji |Nie należy używać; nie ma wpływu |
+| Nie Synchronizuj ustawień aplikacji |Wyłącza roaming danych aplikacji |
+| Nie Synchronizuj ustawień uruchomieniowych |Nie należy używać; nie ma wpływu |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać omówienie, zobacz [omówienie roamingu stanu przedsiębiorstwa](enterprise-state-roaming-overview.md).
+Aby zapoznać się z omówieniem, zobacz [Omówienie usługi Enterprise State roaming](enterprise-state-roaming-overview.md).

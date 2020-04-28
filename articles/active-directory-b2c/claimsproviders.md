@@ -1,6 +1,6 @@
 ---
-title: ClaimsProviders — Usługa Azure Active Directory B2C | Dokumenty firmy Microsoft
-description: Określ element ClaimsProvider zasad niestandardowych w usłudze Azure Active Directory B2C.
+title: ClaimsProviders — Azure Active Directory B2C | Microsoft Docs
+description: Określ element ClaimsProvider zasad niestandardowych w Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,17 +11,17 @@ ms.date: 01/29/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dfb34085181e0b759d1d77485ff21b5bc59e0de3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78189773"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Dostawca oświadczeń zawiera zestaw [profili technicznych](technicalprofiles.md). Każdy dostawca oświadczeń musi mieć jeden lub więcej profilów technicznych, które określają punkty końcowe i protokoły potrzebne do komunikowania się z dostawcą oświadczeń. Dostawca oświadczeń może mieć wiele profilów technicznych. Na przykład można zdefiniować wiele profilów technicznych, ponieważ dostawca oświadczeń obsługuje wiele protokołów, różnych punktów końcowych z różnymi możliwościami lub zwalnia różne oświadczenia na różnych poziomach pewności. Może być dopuszczalne, aby zwolnić poufnych oświadczeń w jednej podróży użytkownika, ale nie w innym.
+Dostawca oświadczeń zawiera zestaw [profilów technicznych](technicalprofiles.md). Każdy dostawca oświadczeń musi mieć co najmniej jeden profil techniczny, który określa punkty końcowe i protokoły wymagane do komunikowania się z dostawcą oświadczeń. Dostawca oświadczeń może mieć wiele profilów technicznych. Można na przykład zdefiniować wiele profilów technicznych, ponieważ dostawca oświadczeń obsługuje wiele protokołów, różne punkty końcowe z różnymi możliwościami lub zwalnia różne oświadczenia na różnych poziomach gwarancji. Możliwe jest zaakceptowanie poufnych oświadczeń w jednej podróży użytkownika, ale nie w innej.
 
 ```XML
 <ClaimsProviders>
@@ -43,7 +43,7 @@ Element **ClaimsProviders** zawiera następujący element:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| ClaimsProvider | 1:n | Akredytowany dostawca oświadczeń, który może być wykorzystany w różnych procesach użytkownika. |
+| ClaimsProvider | 1: n | Akredytowany Dostawca oświadczeń, który może być używany w różnych przejazdach użytkownika. |
 
 ## <a name="claimsprovider"></a>ClaimsProvider
 
@@ -51,11 +51,11 @@ Element **ClaimsProvider** zawiera następujące elementy podrzędne:
 
 | Element | Wystąpień | Opis |
 | ------- | ---------- | ----------- |
-| Domain | 0:1 | Ciąg zawierający nazwę domeny dostawcy oświadczeń. Jeśli na przykład dostawca oświadczeń zawiera profil techniczny facebooka, nazwa domeny jest Facebook.com. Ta nazwa domeny jest używana dla wszystkich profilów technicznych zdefiniowanych w dostawcy oświadczeń, chyba że zostanie zastąpiona przez profil techniczny. Do nazwy domeny można również odwoływać się w **domain_hint**. Aby uzyskać więcej informacji, zobacz **sekcję Przekieruj logowanie do dostawcy społecznościowego** [w obszarze Konfigurowanie bezpośredniego logowania przy użyciu usługi Azure Active Directory B2C](direct-signin.md). |
-| DisplayName | 1:1 | Ciąg zawierający nazwę dostawcy oświadczeń. |
-| [TechnicalProfiles](technicalprofiles.md) | 0:1 | Zestaw profili technicznych obsługiwanych przez dostawcę oświadczeń |
+| Domain | 0:1 | Ciąg, który zawiera nazwę domeny dostawcy zgłoszeń. Na przykład jeśli dostawca oświadczeń zawiera profil techniczny w serwisie Facebook, nazwa domeny to Facebook.com. Ta nazwa domeny jest używana dla wszystkich profilów technicznych zdefiniowanych w dostawcy oświadczeń, chyba że zostanie zastąpiona przez profil techniczny. Nazwa domeny może być również przywoływana w **domain_hint**. Aby uzyskać więcej informacji, zobacz sekcję logowanie za pomocą funkcji **przekierowanie do dostawcy społecznościowego** [Konfigurowanie bezpośredniego logowania przy użyciu Azure Active Directory B2C](direct-signin.md). |
+| Nazwa wyświetlana | 1:1 | Ciąg, który zawiera nazwę dostawcy oświadczeń. |
+| [TechnicalProfiles](technicalprofiles.md) | 0:1 | Zestaw profilów technicznych obsługiwanych przez dostawcę usług |
 
-**ClaimsProvider** organizuje, jak profile techniczne odnoszą się do dostawcy oświadczeń. W poniższym przykładzie pokazano dostawcę oświadczeń usługi Azure Active Directory z profilami technicznymi usługi Azure Active Directory:
+**ClaimsProvider** organizuje sposób, w jaki profile techniczne odnoszą się do dostawcy oświadczeń. Poniższy przykład przedstawia dostawcę oświadczeń Azure Active Directory z profilami technicznymi Azure Active Directory:
 
 ```XML
 <ClaimsProvider>
@@ -93,7 +93,7 @@ Element **ClaimsProvider** zawiera następujące elementy podrzędne:
 </ClaimsProvider>
 ```
 
-W poniższym przykładzie przedstawiono dostawcę oświadczeń facebooka z profilem technicznym **Facebook-OAUTH.**
+Poniższy przykład przedstawia dostawcę oświadczeń Facebook z profilem technicznym **Facebook-OAuth** .
 
 ```XML
 <ClaimsProvider>

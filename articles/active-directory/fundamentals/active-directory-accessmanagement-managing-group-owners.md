@@ -1,6 +1,6 @@
 ---
-title: Dodawanie lub usuwanie właścicieli grup — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Instrukcje dotyczące dodawania lub usuwania właścicieli grup przy użyciu usługi Azure Active Directory.
+title: Dodawanie lub usuwanie właścicieli grup — Azure Active Directory | Microsoft Docs
+description: Instrukcje dotyczące dodawania lub usuwania właścicieli grup przy użyciu Azure Active Directory.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -13,34 +13,34 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f83a48ad13fe4ae217319b2aa85adf976aa6a7ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77149851"
 ---
-# <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Dodawanie lub usuwanie właścicieli grup w usłudze Azure Active Directory
-Grupy usługi Azure Active Directory (Azure AD) są własnością właścicieli grup i są zarządzane przez właścicieli. Właściciele grup mogą być użytkownikami lub jednostkami usług i mogą zarządzać grupą, w tym członkostwem. Tylko obecni właściciele grup lub administratorzy zarządzający grupami mogą przypisywać właścicieli grup. Właściciele grup nie muszą być członkami grupy.
+# <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Dodawanie lub usuwanie właścicieli grupy w Azure Active Directory
+Grupy Azure Active Directory (Azure AD) należą do właścicieli grup i są przez nich zarządzane. Właściciele grup mogą być użytkownikami lub jednostkami usługi i mogą zarządzać grupą, w tym członkostwem. Tylko istniejący właściciele grup lub Administratorzy grup mogą przypisywać właścicieli grup. Właściciele grupy nie muszą być członkami grupy.
 
-Gdy grupa nie ma właściciela, administratorzy zarządzający grupami nadal mogą zarządzać grupą. Zaleca się, aby każda grupa miała co najmniej jednego właściciela. Gdy właściciele zostaną przystyli do grupy, ostatniego właściciela grupy nie można usunąć. Przed usunięciem ostatniego właściciela z grupy należy wybrać innego właściciela.
+Gdy grupa nie ma właściciela, Administratorzy zarządzający grupami nadal mogą zarządzać tą grupą. Jest to zalecane dla każdej grupy, aby mieć co najmniej jednego właściciela. Gdy właściciele są przypisać do grupy, nie można usunąć ostatniego właściciela grupy. Przed usunięciem ostatniego właściciela z grupy upewnij się, że wybrano innego właściciela.
 
 ## <a name="add-an-owner-to-a-group"></a>Dodawanie właściciela do grupy
-Poniżej znajdują się instrukcje dotyczące dodawania użytkownika jako właściciela do grupy przy użyciu portalu usługi Azure AD. Aby dodać jednostkę usługi jako właściciela grupy, postępuj zgodnie z instrukcjami, aby to zrobić za pomocą [programu PowerShell](https://docs.microsoft.com/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0).
+Poniżej znajdują się instrukcje dodawania użytkownika jako właściciela do grupy przy użyciu portalu usługi Azure AD. Aby dodać nazwę główną usługi jako właściciela grupy, postępuj zgodnie z instrukcjami, aby to zrobić przy użyciu [programu PowerShell](https://docs.microsoft.com/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0).
 
 ### <a name="to-add-a-group-owner"></a>Aby dodać właściciela grupy
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu konta administratora globalnego dla katalogu.
 
-2. Wybierz **pozycję Azure Active Directory**, wybierz **grupki**, a następnie wybierz grupę, dla której chcesz dodać właściciela (w tym przykładzie *zasady MDM — Zachód).*
+2. Wybierz pozycję **Azure Active Directory**, wybierz pozycję **grupy**, a następnie wybierz grupę, dla której chcesz dodać właściciela (na przykład *zasady zarządzania urządzeniami przenośnymi — zachodni*).
 
-3. Na stronie **Zasady MDM — Przegląd zachodni** wybierz pozycję **Właściciele**.
+3. Na stronie **Przegląd zasad zarządzania urządzeniami przenośnymi** wybierz pozycję **właściciele**.
 
-    ![Zasady MDM — strona Przegląd zachodu z wyróżnioną opcją Właściciele](media/active-directory-accessmanagement-managing-group-owners/add-owners-option-overview-blade.png)
+    ![Zasady zarządzania urządzeniami przenośnymi — Strona przeglądu zachodniego z wyróżnioną opcją właściciele](media/active-directory-accessmanagement-managing-group-owners/add-owners-option-overview-blade.png)
 
-4. Na stronie **Zasady MDM — Zachód - Właściciele** wybierz pozycję Dodaj **właścicieli**, a następnie wyszukaj i wybierz użytkownika, który będzie nowym właścicielem grupy, a następnie wybierz pozycję **Wybierz**.
+4. Na stronie **zasady zarządzania urządzeniami przenośnymi-zachodni-właściciele** wybierz pozycję **Dodaj właścicieli**, a następnie wyszukaj i wybierz użytkownika, który będzie nowym właścicielem grupy, a następnie wybierz **pozycję Wybierz**.
 
-    ![Zasady MDM — Zachód — strona Właściciele z wyróżnioną opcją Dodaj właścicieli](media/active-directory-accessmanagement-managing-group-owners/add-owners-owners-blade.png)
+    ![Zasady zarządzania urządzeniami przenośnymi — zachodnie strony właściciele z wyróżnioną opcją Dodaj właścicieli](media/active-directory-accessmanagement-managing-group-owners/add-owners-owners-blade.png)
 
-    Po wybraniu nowego właściciela można odświeżyć stronę **Właściciele** i wyświetlić nazwę dodaną do listy właścicieli.
+    Po wybraniu nowego właściciela można odświeżyć stronę **właściciele** i zobaczyć nazwę dodaną do listy właścicieli.
 
 ## <a name="remove-an-owner-from-a-group"></a>Usuwanie właściciela z grupy
 Usuń właściciela z grupy przy użyciu usługi Azure AD.
@@ -48,24 +48,24 @@ Usuń właściciela z grupy przy użyciu usługi Azure AD.
 ### <a name="to-remove-an-owner"></a>Aby usunąć właściciela
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu konta administratora globalnego dla katalogu.
 
-2. Wybierz **pozycję Azure Active Directory**, wybierz **grupki**, a następnie wybierz grupę, dla której chcesz usunąć właściciela (w tym przykładzie *zasady MDM — Zachód).*
+2. Wybierz pozycję **Azure Active Directory**, wybierz pozycję **grupy**, a następnie wybierz grupę, dla której chcesz usunąć właściciela (na przykład *zasady zarządzania urządzeniami przenośnymi — zachodni*).
 
-3. Na stronie **Zasady MDM — Przegląd zachodni** wybierz pozycję **Właściciele**.
+3. Na stronie **Przegląd zasad zarządzania urządzeniami przenośnymi** wybierz pozycję **właściciele**.
 
-    ![Zasady MDM — strona Przegląd zachodu z wyróżnioną opcją Właściciele](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
+    ![Zasady zarządzania urządzeniami przenośnymi — Strona przeglądu zachodniego z wyróżnioną opcją właściciele](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
 
-4. Na stronie **Zasady MDM — Zachód — Właściciele** wybierz użytkownika, którego chcesz usunąć jako właściciela grupy, wybierz pozycję **Usuń** ze strony z informacjami o użytkowniku i wybierz pozycję **Tak,** aby potwierdzić swoją decyzję.
+4. Na stronie **zasady zarządzania urządzeniami przenośnymi-zachodni-właściciele** wybierz użytkownika, którego chcesz usunąć jako właściciela grupy, wybierz pozycję **Usuń** ze strony informacje o użytkowniku, a następnie wybierz pozycję **tak** , aby potwierdzić decyzję.
 
-    ![Strona informacyjna użytkownika z wyróżnioną opcją Usuń](media/active-directory-accessmanagement-managing-group-owners/remove-owner-info-blade.png)
+    ![Strona informacji użytkownika z wyróżnioną opcją usuwania](media/active-directory-accessmanagement-managing-group-owners/remove-owner-info-blade.png)
 
-    Po usunięciu właściciela możesz powrócić do strony **Właściciele** i zobaczyć, że nazwa została usunięta z listy właścicieli.
+    Po usunięciu właściciela można wrócić do strony **właściciele** i zobaczyć, że nazwa została usunięta z listy właścicieli.
 
 ## <a name="next-steps"></a>Następne kroki
 - [Zarządzanie dostępem do zasobów za pomocą grup usługi Azure Active Directory](active-directory-manage-groups.md)
 
 - [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](../users-groups-roles/groups-settings-cmdlets.md)
 
-- [Przypisywanie dostępu do zintegrowanej aplikacji SaaS za pomocą grup](../users-groups-roles/groups-saasapps.md)
+- [Przypisywanie dostępu do zintegrowanej aplikacji SaaS przy użyciu grup](../users-groups-roles/groups-saasapps.md)
 
 - [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 

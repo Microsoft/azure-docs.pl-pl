@@ -1,40 +1,40 @@
 ---
-title: Indeksuj dane geoprzestrzenne za pomocą usługi Azure Cosmos DB
-description: Indeksuj dane przestrzenne za pomocą usługi Azure Cosmos DB
+title: Indeksowanie danych geoprzestrzennych przy użyciu Azure Cosmos DB
+description: Indeksuj dane przestrzenne za pomocą Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: eb0a2b2778b3217e185b9883def6eaa54674cc5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79137907"
 ---
-# <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indeksuj dane geoprzestrzenne za pomocą usługi Azure Cosmos DB
+# <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indeksowanie danych geoprzestrzennych przy użyciu Azure Cosmos DB
 
-Zaprojektowaliśmy aparat bazy danych usługi Azure Cosmos DB, aby był naprawdę niezależny od schematu i zapewniał pierwszorzędną obsługę JSON. Aparat bazy danych zoptymalizowany do zapisu usługi Azure Cosmos DB natywnie rozumie dane przestrzenne reprezentowane w standardzie GeoJSON.
+Zaprojektowano aparat bazy danych Azure Cosmos DB, aby niezależny od schemat i zapewnić obsługę pierwszej klasy w formacie JSON. Aparat zoptymalizowanej bazy danych z możliwością zapisu Azure Cosmos DB natywnie rozumie dane przestrzenne reprezentowane w standardzie GEOJSON.
 
-W skrócie, geometria jest rzutowana ze współrzędnych geodezyjnych na płaszczyznę 2D, a następnie stopniowo dzielona na komórki za pomocą **quadtree**. Komórki te są mapowane na 1D na podstawie położenia komórki w **krzywej wypełnienia przestrzeni Hilberta,** która zachowuje lokalizację punktów. Ponadto, gdy dane lokalizacji jest indeksowany, przechodzi przez proces znany jako **tesselation**, czyli wszystkie komórki, które przecinają lokalizację są identyfikowane i przechowywane jako klucze w indeksie usługi Azure Cosmos DB. W czasie kwerendy argumenty, takie jak punkty i wielokąty są również tessellated wyodrębnić odpowiednie zakresy identyfikatorów komórek, a następnie używane do pobierania danych z indeksu.
+W Nutshell geometria jest rzutowana od współrzędnych Geodetic do płaszczyzny 2D, a następnie przedzielona stopniowo na komórki przy użyciu **QuadTree**. Te komórki są mapowane na 1D w oparciu o lokalizację komórki w **Hilbertej krzywej wypełniania**, która zachowuje miejscowość punktów. Ponadto, gdy dane lokalizacji są indeksowane, przechodzi przez proces znany jako **mozaikowania**, czyli wszystkie komórki, które przecinają lokalizację, są identyfikowane i przechowywane jako klucze w indeksie Azure Cosmos DB. W czasie zapytania, argumenty, takie jak punkty i wielokąty, są również tessellated do wyodrębnienia odpowiednich zakresów identyfikatorów komórek, a następnie używane do pobierania danych z indeksu.
 
-Jeśli określisz zasadę indeksowania, która zawiera indeks przestrzenny dla /* (wszystkie ścieżki), wszystkie dane znalezione w kontenerze są indeksowane pod kątem wydajnych zapytań przestrzennych.
+W przypadku określenia zasad indeksowania, które zawierają indeks przestrzenny dla/* (wszystkie ścieżki), wszystkie dane znajdujące się w kontenerze są indeksowane pod kątem wydajnych zapytań przestrzennych.
 
 > [!NOTE]
-> Usługa Azure Cosmos DB obsługuje indeksowanie punktów, sznurków linii, wielokątów i wielokątów
+> Azure Cosmos DB obsługuje indeksowanie punktów, LineStrings, wielokątów i wielowielokątnych
 >
 >
 
 ## <a name="modifying-geospatial-data-type"></a>Modyfikowanie typu danych geoprzestrzennych
 
-W kontenerze `geospatialConfig` określa sposób indeksowane dane geoprzestrzenne. Należy określić `geospatialConfig` jeden na kontener: geografia lub geometria. Jeśli nie zostanie `geospatialConfig` określony, domyślnie będzie typu danych geografii. Po zmodyfikowaniu `geospatialConfig`, wszystkie istniejące dane geoprzestrzenne w kontenerze zostaną ponownie zindeksowane.
+W kontenerze `geospatialConfig` określa sposób indeksowania danych geoprzestrzennych. Należy określić jeden `geospatialConfig` dla każdego kontenera: Geografia lub geometria. Jeśli nie `geospatialConfig` zostanie określony, domyślnie będzie to typ danych Geografia. Po zmodyfikowaniu `geospatialConfig`wszystkie istniejące dane geograficzne w kontenerze zostaną ponownie indeksowane.
 
 > [!NOTE]
-> Usługa Azure Cosmos DB obecnie obsługuje modyfikacje geospatialConfig w .NET SDK tylko w wersjach 3.6 i powyżej.
+> Azure Cosmos DB obecnie obsługuje modyfikacje geospatialConfig w zestawie SDK platformy .NET tylko w wersji 3,6 i nowszych.
 >
 
-Oto przykład modyfikowania typu danych geoprzestrzennych, `geometry` `geospatialConfig` ustawiając właściwość i dodając **obwiednia:**
+Oto przykład modyfikacji typu danych geoprzestrzennych do `geometry` przez ustawienie `geospatialConfig` właściwości i dodanie elementu **boundingBox**:
 
 ```csharp
     //Retrieve the container's details
@@ -66,9 +66,9 @@ Oto przykład modyfikowania typu danych geoprzestrzennych, `geometry` `geospatia
 
 ## <a name="geography-data-indexing-examples"></a>Przykłady indeksowania danych geograficznych
 
-Poniższy fragment kodu JSON przedstawia zasady indeksowania z włączoną indeksacją przestrzenną dla typu danych **geografii.** Jest prawidłowy dla danych przestrzennych z typem danych geografii i będzie indeksować wszelkie GeoJSON Point, Polygon, MultiPolygon lub LineString znalezione w dokumentach do wykonywania zapytań przestrzennych. Jeśli modyfikujesz zasady indeksowania przy użyciu portalu Azure portal, można określić następujące JSON dla zasad indeksowania, aby włączyć indeksowanie przestrzenne w kontenerze:
+Poniższy fragment kodu JSON przedstawia zasady indeksowania z włączonym indeksem przestrzennym dla typu danych **Geografia** . Jest ona prawidłowa dla danych przestrzennych z typem danych Geografia i będzie indeksować dowolny punkt GEOJSON, Wielokąt, MultiPolygon lub LineString znaleziony w dokumentach dla zapytań przestrzennych. W przypadku modyfikowania zasad indeksowania przy użyciu Azure Portal można określić następujące dane JSON dla zasad indeksowania, aby włączyć indeksowanie przestrzenne w kontenerze:
 
-**Zasady indeksowania kontenerów JSON z geografii indeksowania przestrzennego**
+**Plik JSON zasad indeksowania kontenera z indeksowaniem przestrzennym geografii**
 
 ```json
     {
@@ -95,26 +95,26 @@ Poniższy fragment kodu JSON przedstawia zasady indeksowania z włączoną indek
 ```
 
 > [!NOTE]
-> Jeśli wartość GeoJSON lokalizacji w dokumencie jest nieprawidłowo sformułowany lub nieprawidłowy, a następnie nie zostanie zindeksowany do wykonywania zapytań przestrzennych. Wartości lokalizacji można sprawdzać sprawdzać przy użyciu ST_ISVALID i ST_ISVALIDDETAILED.
+> Jeśli wartość GEOJSON lokalizacji w dokumencie jest źle sformułowana lub nieprawidłowa, nie zostanie ona zaindeksowana na potrzeby zapytań przestrzennych. Możesz sprawdzić poprawność wartości lokalizacji przy użyciu ST_ISVALID i ST_ISVALIDDETAILED.
 
-Można również [zmodyfikować zasady indeksowania](how-to-manage-indexing-policy.md) przy użyciu interfejsu wiersza polecenia platformy Azure, programu PowerShell lub dowolnego sdk.
+[Zasady indeksowania](how-to-manage-indexing-policy.md) można także modyfikować za pomocą interfejsu wiersza polecenia platformy Azure, programu PowerShell lub dowolnego zestawu SDK.
 
-## <a name="geometry-data-indexing-examples"></a>Przykłady indeksowania danych geometrii
+## <a name="geometry-data-indexing-examples"></a>Przykłady indeksowania danych geometrycznych
 
-W przypadku typu danych **geometrii,** podobnego do typu danych geografii, należy określić odpowiednie ścieżki i typy do indeksu. Ponadto należy również określić `boundingBox` w ramach zasad indeksowania, aby wskazać żądany obszar, który ma być indeksowany dla tej określonej ścieżki. Każda ścieżka geoprzestrzenna`boundingBox`wymaga własnego .
+W przypadku typu danych **geometria** , podobnego do typu danych Geografia, należy określić odpowiednie ścieżki i typy do indeksowania. Ponadto należy również określić `boundingBox` w ramach zasad indeksowania, aby wskazać żądany obszar do indeksowania dla tej konkretnej ścieżki. Każda ścieżka geoprzestrzenna wymaga`boundingBox`własnych.
 
-Obwiednia składa się z następujących właściwości:
+Pole ograniczenia składa się z następujących właściwości:
 
-- **xmin**: minimalna zindeksowana współrzędna x
-- **ymin**: minimalna zindeksowana współrzędna y
-- **xmax**: maksymalna zindeksowana współrzędna x
-- **ymax**: maksymalna wydymiona współrzędna y
+- **xmin**: minimalna indeksowana Współrzędna x
+- **ymin**: minimalna indeksowana Współrzędna y
+- **XMAX**: Maksymalna indeksowana Współrzędna x
+- **ymax**: Maksymalna indeksowana Współrzędna y
 
-Obwiednia jest wymagana, ponieważ dane geometryczne zajmują płaszczyznę, która może być nieskończona. Indeksy przestrzenne wymagają jednak ograniczonej przestrzeni. Dla typu danych **geografii** Ziemia jest granicą i nie trzeba ustawiać obwiedni.
+Pole ograniczenia jest wymagane, ponieważ dane geometryczne zajmuje płaszczyznę, która może być nieskończona. Indeksy przestrzenne, jednak wymagają skończonego miejsca. Dla typu danych **Geografia** Ziemia jest granicą i nie trzeba ustawiać pola ograniczenia.
 
-Należy utworzyć obwiednię zawierającą wszystkie (lub większość) danych. Tylko operacje obliczone na obiektach, które są całkowicie wewnątrz obwiedni będą mogły korzystać z indeksu przestrzennego. Nie należy obwiednia znacznie większe niż jest to konieczne, ponieważ będzie to negatywnie wpłynąć na wydajność kwerendy.
+Należy utworzyć pole ograniczenia, które zawiera wszystkie (lub najwięcej) danych. Tylko operacje obliczane na obiektach, które znajdują się w całości wewnątrz pola ograniczenia, będą mogły korzystać z indeksu przestrzennego. Pole ograniczenia nie powinno być znacznie większe niż to konieczne, ponieważ może to negatywnie wpłynąć na wydajność zapytań.
 
-Oto przykładowa zasada indeksowania, która indeksuje dane **geometrii** za `geometry`pomocą **geospatialConfig** ustawiona na:
+Oto przykładowe zasady indeksowania, które indeksuje dane **geometrii** z **geospatialConfig** ustawioną `geometry`na:
 
 ```json
  {
@@ -150,15 +150,15 @@ Oto przykładowa zasada indeksowania, która indeksuje dane **geometrii** za `ge
 }
 ```
 
-Powyższa zasada indeksowania ma **granicęBox** (-10, 10) dla współrzędnych x i (-20, 20) dla współrzędnych y. Kontener z powyższymi zasadami indeksowania zindeksuje wszystkie punkty, wielokąty, wielokąty i sznurki liniowe, które znajdują się całkowicie w tym regionie.
+Powyższe zasady indeksowania mają **boundingBox** (-10, 10) dla współrzędnych x i (-20, 20) dla współrzędnych y. Kontener z powyższymi zasadami indeksowania będzie indeksować wszystkie punkty, wielokąty, wielowielokątne i LineStrings, które znajdują się w całości w tym regionie.
 
 > [!NOTE]
-> Jeśli spróbujesz dodać zasady indeksowania z **boundingBox** do kontenera z `geography` typem danych, zakończy się niepowodzeniem. Należy zmodyfikować **geospatialConfig** kontenera `geometry` przed dodaniem **boundingBox**. Można dodawać dane i modyfikować pozostałą część zasad indeksowania (takich jak ścieżki i typy) przed lub po wybraniu typu danych geoprzestrzennych dla kontenera.
+> Próba dodania zasad indeksowania z **boundingBox** do kontenera z `geography` typem danych zakończy się niepowodzeniem. Przed dodaniem BoundingBox należy zmodyfikować **geospatialConfig** kontenera. **boundingBox** `geometry` Można dodać dane i zmodyfikować pozostałe zasady indeksowania (takie jak ścieżki i typy) przed lub po wybraniu typu danych geoprzestrzennych dla kontenera.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy dowiesz się, jak rozpocząć korzystanie z pomocy technicznej geoprzestrzennej w usłudze Azure Cosmos DB, możesz następnie:
+Teraz, gdy wiesz już, jak zacząć korzystać z obsługi geograficznej w Azure Cosmos DB, możesz dalej:
 
-* Dowiedz się więcej o [zapytaniu usługi Azure Cosmos DB](sql-query-getting-started.md)
-* Dowiedz się więcej o [wyszukiwaniu danych przestrzennych za pomocą usługi Azure Cosmos DB](sql-query-geospatial-query.md)
-* Dowiedz się więcej o [danych lokalizacji Geospatial i GeoJSON w usłudze Azure Cosmos DB](sql-query-geospatial-intro.md)
+* Dowiedz się więcej o [Azure Cosmos DB Query](sql-query-getting-started.md)
+* Dowiedz się więcej o wysyłaniu [zapytań do danych przestrzennych za pomocą Azure Cosmos DB](sql-query-geospatial-query.md)
+* Dowiedz się więcej o [danych lokalizacji geograficznej i GEOJSON w Azure Cosmos DB](sql-query-geospatial-intro.md)

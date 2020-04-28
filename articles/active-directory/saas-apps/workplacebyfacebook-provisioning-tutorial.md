@@ -101,7 +101,7 @@ Usługa inicjowania obsługi administracyjnej usługi Azure AD umożliwia zakres
 
 * Zacznij od małych. Przetestuj z małym zestawem użytkowników i grup przed wprowadzeniem do wszystkich. Gdy zakres inicjowania obsługi administracyjnej jest ustawiony na przypisanych użytkowników i grup, można kontrolować to, przypisując jednego lub dwóch użytkowników lub grup do aplikacji. Gdy zakres jest ustawiony dla wszystkich użytkowników i grup, można określić [filtr zakresu na podstawie atrybutów](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). Wybierz pozycję **Aplikacje przedsiębiorstwa**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje przedsiębiorstwa**, a następnie wybierz pozycję **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -127,7 +127,7 @@ Usługa inicjowania obsługi administracyjnej usługi Azure AD umożliwia zakres
 
     ![Wiadomość e-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-7. Wybierz **pozycję Zapisz**.
+7. Wybierz pozycję **Zapisz**.
 
 8. W sekcji **Mapowania** wybierz pozycję **Synchronizuj użytkowników usługi Azure Active Directory z workplace przez Facebooka**.
 
@@ -184,7 +184,7 @@ Po skonfigurowaniu inicjowania obsługi administracyjnej użyj następujących z
 ## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 *  Jeśli użytkownik zostanie utworzony bezpowodzenia i występuje zdarzenie dziennika inspekcji o kodzie "1789003", oznacza to, że użytkownik pochodzi z domeny niezweryfikowanej.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie inicjowanie obsługi administracyjnej kont użytkowników dla aplikacji dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

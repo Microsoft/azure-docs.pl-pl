@@ -1,6 +1,6 @@
 ---
-title: 'Synchronizacja usługi Azure AD Connect: rozszerzenia katalogów | Dokumenty firmy Microsoft'
-description: W tym temacie opisano funkcję rozszerzeń katalogów w usłudze Azure AD Connect.
+title: 'Azure AD Connect Synchronize: rozszerzenia katalogów | Microsoft Docs'
+description: W tym temacie opisano funkcję rozszerzeń katalogów w Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,83 +17,83 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 80438319a6337dd6f28f9bdca8a428829b6cb0b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77917917"
 ---
-# <a name="azure-ad-connect-sync-directory-extensions"></a>Synchronizacja usługi Azure AD Connect: rozszerzenia katalogów
-Rozszerzenia katalogów można użyć, aby rozszerzyć schemat w usłudze Azure Active Directory (Azure AD) o własne atrybuty z lokalnej usługi Active Directory. Ta funkcja umożliwia tworzenie aplikacji LOB przez użycie atrybutów, które nadal zarządzać lokalnie. Te atrybuty mogą być używane przez [rozszerzenia](https://docs.microsoft.com/graph/extensibility-overview
-). Dostępne atrybuty można zobaczyć za pomocą [Programu Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Za pomocą tej funkcji można również tworzyć grupy dynamiczne w usłudze Azure AD.
+# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Synchronize: rozszerzenia katalogów
+Możesz użyć rozszerzeń katalogów, aby rozszerzać schemat w Azure Active Directory (Azure AD) z własnymi atrybutami z Active Directory lokalnych. Ta funkcja umożliwia tworzenie aplikacji biznesowych przez konsumowanie atrybutów, które nadal są zarządzane lokalnie. Te atrybuty mogą być używane przez [rozszerzenia](https://docs.microsoft.com/graph/extensibility-overview
+). Dostępne atrybuty można wyświetlić za pomocą [eksploratora Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). Za pomocą tej funkcji można także tworzyć grupy dynamiczne w usłudze Azure AD.
 
-Obecnie żadne obciążenie usługi Office 365 nie zużywa tych atrybutów.
+W tej chwili żadne obciążenie pakietu Office 365 nie korzysta z tych atrybutów.
 
-## <a name="customize-which-attributes-to-synchronize-with-azure-ad"></a>Dostosowywanie atrybutów do synchronizacji z usługą Azure AD
+## <a name="customize-which-attributes-to-synchronize-with-azure-ad"></a>Dostosuj atrybuty, które mają być synchronizowane z usługą Azure AD
 
-W kreatorze instalacji można skonfigurować dodatkowe atrybuty, które mają zostać zsynchronizowane.
+Można skonfigurować dodatkowe atrybuty, które mają być synchronizowane w ścieżce ustawień niestandardowych w Kreatorze instalacji.
 
 >[!NOTE]
->W polu Dostępne atrybuty rozróżniana jest wielkość liter.
+>W polu dostępne atrybuty jest rozróżniana wielkość liter.
 
 ![Kreator rozszerzenia schematu](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 
-Instalacja pokazuje następujące atrybuty, które są ważne kandydatów:
+Instalacja pokazuje następujące atrybuty, które są prawidłowymi kandydatami:
 
 * Typy obiektów użytkowników i grup
-* Atrybuty o pojedynczej wartości: ciąg, wartość logiczna, liczba całkowita, binarny
-* Atrybuty wielowartościowe: ciąg, binarny
+* Atrybuty jednowartościowe: String, Boolean, Integer, Binary
+* Atrybuty wielowartościowe: String, Binary
 
 
 >[!NOTE]
-> Mimo że usługa Azure AD Connect obsługuje synchronizowanie atrybutów usługi Active Directory z usługą Azure AD z wieloma wartościami jako wielowartościowych rozszerzeń katalogów, obecnie nie ma możliwości pobierania/korzystania z danych przekazanych w atrybutach rozszerzenia katalogów o wielu wartościach.
+> Chociaż Azure AD Connect obsługuje synchronizowanie atrybutów Active Directory z obsługą wartości wielowartościowych w usłudze Azure AD jako rozszerzenia katalogów z obsługą wartości wielowartościowych, nie ma obecnie możliwości pobierania/wykorzystywania danych przekazywanych w atrybutach rozszerzenia katalogu o wiele wartości.
 
-Lista atrybutów jest odczytywana z pamięci podręcznej schematu, która jest tworzona podczas instalacji usługi Azure AD Connect. Jeśli schemat usługi Active Directory został rozszerzony o dodatkowe atrybuty, należy [odświeżyć schemat,](how-to-connect-installation-wizard.md#refresh-directory-schema) zanim te nowe atrybuty będą widoczne.
+Lista atrybutów jest odczytana z pamięci podręcznej schematu, która została utworzona podczas instalacji Azure AD Connect. Jeśli schemat Active Directory został rozszerzony o dodatkowe atrybuty, należy [odświeżyć schemat](how-to-connect-installation-wizard.md#refresh-directory-schema) , zanim te nowe atrybuty są widoczne.
 
-Obiekt w usłudze Azure AD może mieć maksymalnie 100 atrybutów dla rozszerzeń katalogów. Maksymalna długość wynosi 250 znaków. Jeśli wartość atrybutu jest dłuższa, aparat synchronizacji obcina ją.
+Obiekt w usłudze Azure AD może mieć do 100 atrybutów dla rozszerzeń katalogów. Maksymalna długość to 250 znaków. Jeśli wartość atrybutu jest dłuższa, aparat synchronizacji obcina go.
 
-## <a name="configuration-changes-in-azure-ad-made-by-the-wizard"></a>Zmiany konfiguracji usługi Azure AD wprowadzone przez kreatora
+## <a name="configuration-changes-in-azure-ad-made-by-the-wizard"></a>Zmiany konfiguracji w usłudze Azure AD wykonane przez Kreatora
 
-Podczas instalacji usługi Azure AD Connect aplikacja jest rejestrowana, gdzie te atrybuty są dostępne. Możesz zobaczyć tę aplikację w witrynie Azure portal. Jego nazwa jest zawsze **Aplikacja rozszerzenia schematu dzierżawy**.
+Podczas instalacji Azure AD Connect aplikacja jest zarejestrowana, w której te atrybuty są dostępne. Ta aplikacja jest widoczna w Azure Portal. Jego nazwa to zawsze **aplikacja rozszerzenia schematu dzierżawy**.
 
 ![Aplikacja rozszerzenia schematu](./media/how-to-connect-sync-feature-directory-extensions/extension3new.png)
 
-Upewnij się, że wybrałeś **wszystkie aplikacje,** aby wyświetlić tę aplikację.
+Upewnij się, że wybrano pozycję **wszystkie aplikacje** , aby wyświetlić tę aplikację.
 
-Atrybuty są poprzedzone **rozszerzeniem \_\_{ApplicationId}**. Identyfikator aplikacji ma taką samą wartość dla wszystkich atrybutów w dzierżawie usługi Azure AD. Ta wartość będzie potrzebna dla wszystkich innych scenariuszy w tym temacie.
+Atrybuty są poprzedzone **rozszerzeniem \_{identyfikator aplikacji}\_**. Identyfikator aplikacji ma taką samą wartość dla wszystkich atrybutów w dzierżawie usługi Azure AD. Ta wartość będzie potrzebna dla wszystkich innych scenariuszy w tym temacie.
 
-## <a name="viewing-attributes-using-the-microsoft-graph-api"></a>Wyświetlanie atrybutów przy użyciu interfejsu API programu Microsoft Graph
+## <a name="viewing-attributes-using-the-microsoft-graph-api"></a>Wyświetlanie atrybutów przy użyciu interfejsu API Microsoft Graph
 
-Te atrybuty są teraz dostępne za pośrednictwem interfejsu API programu Microsoft Graph przy użyciu [programu Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
+Te atrybuty są teraz dostępne za pośrednictwem interfejsu API Microsoft Graph przy użyciu [eksploratora Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> W interfejsie API programu Microsoft Graph należy poprosić o atrybuty, które mają zostać zwrócone. Jawnie wybierz atrybuty `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`w ten sposób: .
+> W interfejsie API Microsoft Graph należy poproszony o zwrócenie atrybutów. Jawnie wybierz następujące atrybuty: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
 >
-> Aby uzyskać więcej informacji, zobacz [Microsoft Graph: Use query parameters](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+> Aby uzyskać więcej informacji, zobacz [Microsoft Graph: Użyj parametrów zapytania](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Używanie atrybutów w grupach dynamicznych
 
-Jednym z bardziej przydatnych scenariuszy jest użycie tych atrybutów w dynamicznych grupach zabezpieczeń lub office 365.
+Jednym z bardziej przydatnych scenariuszy jest użycie tych atrybutów w grupach zabezpieczeń dynamicznych lub Office 365.
 
-1. Utwórz nową grupę w usłudze Azure AD. Nadaj mu dobre imię i upewnij się, że **typem członkostwa** jest **użytkownik dynamiczny**.
+1. Utwórz nową grupę w usłudze Azure AD. Nadaj mu dobrą nazwę i upewnij się, że **Typ członkostwa** to **użytkownik dynamiczny**.
 
    ![Zrzut ekranu z nową grupą](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup1.png)
 
-2. Wybierz, aby **dodać kwerendę dynamiczną**. Jeśli spojrzysz na właściwości, nie zobaczysz tych atrybutów rozszerzonych. Najpierw musisz je dodać. Kliknij **pozycję Pobierz niestandardowe właściwości rozszerzenia**, wprowadź identyfikator aplikacji i kliknij pozycję Odśwież **właściwości**.
+2. Wybierz, aby **dodać zapytanie dynamiczne**. Jeśli Przyjrzyj się właściwościom, te atrybuty rozszerzone nie będą widoczne. Należy je najpierw dodać. Kliknij przycisk **Pobierz niestandardowe właściwości rozszerzenia**, wprowadź identyfikator aplikacji, a następnie kliknij przycisk **Odśwież właściwości**.
 
-   ![Zrzut ekranu, na którym dodano rozszerzenia katalogów](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup2.png) 
+   ![Zrzut ekranu, na którym dodano rozszerzenia katalogu](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup2.png) 
 
-3. Otwórz wykaz właściwości i zwróć uwagę, że dodane atrybuty są teraz widoczne.
+3. Otwórz listę rozwijaną właściwości i zwróć uwagę, że dodane atrybuty są teraz widoczne.
 
-   ![Zrzut ekranu z nowymi atrybutami wyświetlanymi w interfejsie użytkownika](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup3.png)
+   ![Zrzut ekranu z nowymi atrybutami widocznymi w interfejsie użytkownika](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup3.png)
 
-   Uzupełnij wyrażenie zgodnie z twoimi wymaganiami. W naszym przykładzie reguła jest ustawiona na **(user.extension_9d98ed114c4840d298fad781915f27e4_division -eq "Sprzedaż i marketing")**.
+   Wypełnij wyrażenie, aby dostosować je do swoich wymagań. W naszym przykładzie reguła jest ustawiona na **(User. extension_9d98ed114c4840d298fad781915f27e4_division-EQ "Sales and Marketing")**.
 
-4. Po utworzeniu grupy, daj usłudze Azure AD trochę czasu, aby wypełnić członków, a następnie przejrzeć członków.
+4. Po utworzeniu grupy Udziel usługi Azure AD trochę czasu, aby wypełnić członków, a następnie przejrzyj członków.
 
-   ![Zrzut ekranu z członkami grupy dynamicznej](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup4.png)  
+   ![Zrzut ekranu z elementami członkowskimi w grupie dynamicznej](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup4.png)  
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o konfiguracji [synchronizacji usługi Azure AD Connect.](how-to-connect-sync-whatis.md)
+Dowiedz się więcej o konfiguracji [synchronizacji Azure AD Connect](how-to-connect-sync-whatis.md) .
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md).

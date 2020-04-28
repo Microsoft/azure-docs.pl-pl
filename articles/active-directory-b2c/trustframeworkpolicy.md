@@ -1,6 +1,6 @@
 ---
-title: TrustFrameworkPolicy — usługa Azure Active Directory B2C | Dokumenty firmy Microsoft
-description: Określ element TrustFrameworkPolicy zasad niestandardowych w usłudze Azure Active Directory B2C.
+title: TrustFrameworkPolicy — Azure Active Directory B2C | Microsoft Docs
+description: Określ element TrustFrameworkPolicy zasad niestandardowych w Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,17 +11,17 @@ ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c964a7bde0b7db9357c73fc79d2df3170075fcc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186390"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Zasady niestandardowe są reprezentowane jako jeden lub więcej plików w formacie XML, które odwołują się do siebie w łańcuchu hierarchicznym. Elementy XML definiują elementy zasad, takie jak schemat oświadczeń, przekształcenia oświadczeń, definicje zawartości, dostawcy oświadczeń, profile techniczne, proces użytkownika i kroki aranżacji. Każdy plik zasad jest zdefiniowany w ramach najwyższego poziomu **TrustFrameworkPolicy** element pliku zasad.
+Zasady niestandardowe są reprezentowane jako jeden lub więcej plików w formacie XML, które odnoszą się do siebie nawzajem w łańcuchu hierarchicznym. Elementy XML definiują elementy zasad, takie jak schemat oświadczeń, przekształcenia oświadczeń, definicje zawartości, dostawcy oświadczeń, profile techniczne, podróż użytkownika i kroki aranżacji. Każdy plik zasad jest zdefiniowany w elemencie **TrustFrameworkPolicy** najwyższego poziomu pliku zasad.
 
 ```XML
 <TrustFrameworkPolicy
@@ -36,20 +36,20 @@ Zasady niestandardowe są reprezentowane jako jeden lub więcej plików w formac
 ```
 
 
-**Element TrustFrameworkPolicy** zawiera następujące atrybuty:
+Element **TrustFrameworkPolicy** zawiera następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 |---------- | -------- | ----------- |
-| PolitykaSchemaVersion | Tak | Wersja schematu, która ma być używana do wykonywania zasad. Wartość musi być`0.3.0.0` |
-| Identyfikatorobiektobiekt dzierżawy | Nie | Unikatowy identyfikator obiektu dzierżawy usługi Azure Active Directory B2C (Azure AD B2C). |
+| PolicySchemaVersion | Tak | Wersja schematu, która ma zostać użyta do wykonania zasad. Wartość musi być równa`0.3.0.0` |
+| TenantObjectId | Nie | Unikatowy identyfikator obiektu dzierżawy Azure Active Directory B2C (Azure AD B2C). |
 | TenantId | Tak | Unikatowy identyfikator dzierżawy, do której należy ta zasada. |
 | PolicyId | Tak | Unikatowy identyfikator zasad. Ten identyfikator musi być poprzedzony *B2C_1A_* |
-| Polityka publiczna | Tak | Identyfikator URI dla zasad, który jest kombinacją identyfikatora dzierżawy i identyfikatora zasad. |
-| Tryb wdrażania | Nie | Możliwe wartości: `Production` `Development`, lub . Wartość domyślna to `Production`. Ta właściwość służy do debugowania zasad. Aby uzyskać więcej informacji, zobacz [Zbieranie dzienników](troubleshoot-with-application-insights.md). |
-| UserJourneyRecorderEndpoint | Nie | Punkt końcowy używany, gdy **DeploymentMode** `Development`jest ustawiony na . Wartość musi `urn:journeyrecorder:applicationinsights`być . Aby uzyskać więcej informacji, zobacz [Zbieranie dzienników](troubleshoot-with-application-insights.md). |
+| PublicPolicyUri | Tak | Identyfikator URI dla zasad, który jest kombinacją identyfikatora dzierżawy i identyfikatora zasad. |
+| DeploymentMode | Nie | Możliwe wartości: `Production`, lub `Development`. Wartość domyślna to `Production`. Ta właściwość służy do debugowania zasad. Aby uzyskać więcej informacji, zobacz [zbieranie dzienników](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | Nie | Punkt końcowy, który jest używany, gdy **DeploymentMode** ma `Development`ustawioną wartość. Wartość musi być `urn:journeyrecorder:applicationinsights`. Aby uzyskać więcej informacji, zobacz [zbieranie dzienników](troubleshoot-with-application-insights.md). |
 
 
-W poniższym przykładzie pokazano, jak określić **TrustFrameworkPolicy** element:
+Poniższy przykład pokazuje, jak określić element **TrustFrameworkPolicy** :
 
 ``` XML
 <TrustFrameworkPolicy
@@ -66,35 +66,35 @@ W poniższym przykładzie pokazano, jak określić **TrustFrameworkPolicy** elem
 
 Te typy plików zasad są zwykle używane w podróży użytkownika:
 
-- Plik **podstawowy,** który zawiera większość definicji. Aby ułatwić rozwiązywanie problemów i długoterminowe utrzymanie zasad, zaleca się wprowadzenie minimalnej liczby zmian w tym pliku.
-- Plik **Rozszerzeń,** który zawiera unikatowe zmiany konfiguracji dla dzierżawy. Ten plik zasad pochodzi z pliku podstawowego. Ten plik służy do dodawania nowych funkcji lub zastępowania istniejących funkcji. Na przykład użyj tego pliku do federacji z nowymi dostawcami tożsamości.
-- Plik **jednostki uzależniona (RP),** który jest pojedynczym plikiem skoncentrowanym na zadaniach, który jest wywoływany bezpośrednio przez aplikację jednostki uzależniona, taką jak aplikacje sieci web, urządzenia przenośne lub klasyczne. Każde unikatowe zadanie, takie jak rejestracja lub logowanie, resetowanie hasła lub edycja profilu, wymaga własnego pliku zasad RP. Ten plik zasad pochodzi z pliku Rozszerzenia.
+- Plik **podstawowy** , który zawiera większość definicji. Aby ułatwić rozwiązywanie problemów i długoterminową konserwację zasad, zaleca się dokonanie minimalnej liczby zmian w tym pliku.
+- Plik **rozszerzeń** , który przechowuje unikatowe zmiany konfiguracji dla Twojej dzierżawy. Ten plik zasad pochodzi od pliku podstawowego. Użyj tego pliku, aby dodać nowe funkcje lub zastąpić istniejące funkcje. Na przykład użyj tego pliku do sfederować z nowymi dostawcami tożsamości.
+- Plik **jednostki uzależnionej (RP)** , który jest pojedynczym plikiem skoncentrowanym na zadaniach, który jest wywoływany bezpośrednio przez aplikację jednostki uzależnionej, taką jak aplikacje internetowe, mobilne lub klasyczne. Każde unikatowe zadanie, takie jak rejestrowanie lub logowanie, Resetowanie hasła lub edytowanie profilu, wymaga własnego pliku zasad RP. Ten plik zasad pochodzi z pliku rozszerzeń.
 
-Aplikacja jednostki uzależniającej wywołuje plik zasad RP w celu wykonania określonego zadania. Na przykład, aby zainicjować przepływ logowania. Struktura środowiska tożsamości w usłudze Azure AD B2C dodaje wszystkie elementy najpierw z pliku podstawowego, a następnie z pliku Rozszerzeń, a na koniec z pliku zasad RP, aby zebrać bieżące zasady w efekcie. Elementy tego samego typu i nazwy w pliku RP zastępują te elementy w rozszerzeniach, a rozszerzenia zastępują base. Na poniższym diagramie przedstawiono relację między plikami zasad a aplikacjami jednostki uzależniającej.
+Aplikacja jednostki uzależnionej wywołuje plik zasad RP, aby wykonać określone zadanie. Na przykład, aby zainicjować przepływ logowania. Struktura środowiska tożsamości w Azure AD B2C dodaje wszystkie elementy najpierw z pliku podstawowego, a następnie z pliku rozszerzeń, a wreszcie z pliku zasad RP, aby utworzyć bieżące zasady. Elementy tego samego typu i nazwy w pliku RP przesłaniają te elementy w rozszerzeniach, a rozszerzenia przesłaniają bazę. Na poniższym diagramie przedstawiono relację między plikami zasad i aplikacjami jednostki uzależnionej.
 
 ![Diagram przedstawiający model dziedziczenia zasad struktury zaufania](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
 
 Model dziedziczenia jest następujący:
 
-- Zasady nadrzędne i zasady podrzędne mają ten sam schemat.
-- Zasady podrzędne na dowolnym poziomie można dziedziczyć z zasad nadrzędnych i rozszerzyć go przez dodanie nowych elementów.
-- Nie ma ograniczeń co do liczby poziomów.
+- Nadrzędne zasady i zasady podrzędne są tego samego schematu.
+- Zasady podrzędne na dowolnym poziomie mogą dziedziczyć z zasad nadrzędnych i zwiększać je, dodając nowe elementy.
+- Nie ma żadnego limitu liczby poziomów.
 
-Aby uzyskać więcej informacji, zobacz [Wprowadzenie do zasad niestandardowych](custom-policy-get-started.md).
+Aby uzyskać więcej informacji, zobacz Wprowadzenie [do zasad niestandardowych](custom-policy-get-started.md).
 
 ## <a name="base-policy"></a>Zasady podstawowe
 
-Aby dziedziczyć zasady z innej zasady, **BasePolicy** element musi być zadeklarowany w **ramach TrustFrameworkPolicy** element pliku zasad. **BasePolicy** Element jest odwołanie do zasad podstawowych, z których tej zasady jest pochodną.
+Aby dziedziczyć zasady z innych zasad, element **BasePolicy** musi być zadeklarowany w elemencie **TrustFrameworkPolicy** pliku zasad. Element **BasePolicy** jest odwołaniem do zasad podstawowych, z których pochodzą te zasady.
 
-**Element BasePolicy** zawiera następujące elementy:
+Element **BasePolicy** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | --------|
-| TenantId | 1:1 | Identyfikator dzierżawy usługi Azure AD B2C. |
-| PolicyId | 1:1 | Identyfikator zasady nadrzędnej. |
+| TenantId | 1:1 | Identyfikator dzierżawy Azure AD B2C. |
+| PolicyId | 1:1 | Identyfikator zasad nadrzędnych. |
 
 
-W poniższym przykładzie pokazano, jak określić zasady podstawowe. Ta **polityka B2C_1A_TrustFrameworkExtensions** jest pochodną polityki **B2C_1A_TrustFrameworkBase.**
+Poniższy przykład pokazuje, jak określić zasady podstawowe. Te zasady **B2C_1A_TrustFrameworkExtensions** pochodzą z zasad **B2C_1A_TrustFrameworkBaseymi** .
 
 ``` XML
 <TrustFrameworkPolicy
@@ -116,11 +116,11 @@ W poniższym przykładzie pokazano, jak określić zasady podstawowe. Ta **polit
 
 ## <a name="policy-execution"></a>Wykonywanie zasad
 
-Aplikacja jednostki uzależniającej, taka jak aplikacja internetowa, mobilna lub klasyczna, wywołuje [zasady jednostki uzależniającej (RP).](relyingparty.md) Plik zasad RP wykonuje określone zadanie, takie jak logowanie się, resetowanie hasła lub edytowanie profilu. Zasady RP konfiguruje listę oświadczeń aplikacji jednostki uzależniona odbiera jako część tokenu, który jest wystawiany. Wiele aplikacji może używać tych samych zasad. Wszystkie aplikacje otrzymują ten sam token z oświadczeń, a użytkownik przechodzi przez tę samą podróż użytkownika. Pojedyncza aplikacja może używać wielu zasad.
+Aplikacja jednostki uzależnionej, taka jak aplikacja sieci Web, urządzeń przenośnych lub aplikacji klasycznej, wywołuje [zasady jednostki uzależnionej (RP)](relyingparty.md). Plik zasad RP wykonuje określone zadanie, takie jak logowanie, Resetowanie hasła lub edytowanie profilu. Zasady RP konfigurują listę oświadczeń odbieranych przez aplikację jednostki uzależnionej jako część wystawionego tokenu. Wiele aplikacji może korzystać z tych samych zasad. Wszystkie aplikacje otrzymują ten sam token z oświadczeniami, a użytkownik przechodzi przez tę samą podróż użytkownika. Pojedyncza aplikacja może używać wielu zasad.
 
-Wewnątrz pliku zasad RP należy określić element **DefaultUserJourney,** który wskazuje [userjourney](userjourneys.md). Podróż użytkownika jest zwykle zdefiniowana w zasadach Podstawowe lub Rozszerzenia.
+Wewnątrz pliku zasad RP należy określić element **DefaultUserJourney** , który wskazuje na [UserJourney](userjourneys.md). Podróż użytkownika zwykle jest definiowana w zasadach podstawowych lub opartych na rozszerzeniach.
 
-B2C_1A_signup_signin polityka:
+Zasady B2C_1A_signup_signin:
 
 ```XML
 <RelyingParty>
@@ -136,23 +136,23 @@ B2C_1A_TrustFrameWorkBase lub B2C_1A_TrustFrameworkExtensionPolicy:
   ...
 ```
 
-Podróż użytkownika definiuje logikę biznesową tego, przez co przechodzi użytkownik. Każda podróż użytkownika jest zestawem kroków aranżacji, który wykonuje serię akcji, w kolejności pod względem uwierzytelniania i zbierania informacji.
+Podróż użytkownika definiuje logikę biznesową, przez którą przechodzi użytkownik. Każda podróż użytkownika to zestaw kroków aranżacji, które wykonują serię akcji, w kolejności pod względem uwierzytelniania i zbierania informacji.
 
-**SocialAndLocalAccounts** plik zasad w [pakiecie startowym](custom-policy-get-started.md#custom-policy-starter-pack) zawiera SignUpOrSignIn, ProfileEdit, PasswordReset podróży użytkownika. Możesz dodać więcej podróży użytkowników dla innych scenariuszy, takich jak zmiana adresu e-mail lub łączenie i odłączanie konta społecznościowego.
+Plik zasad **SocialAndLocalAccounts** w [pakiecie początkowym](custom-policy-get-started.md#custom-policy-starter-pack) zawiera SignUpOrSignIn, ProfileEdit, PasswordReset użytkownika. Możesz dodać więcej podróży użytkowników dla innych scenariuszy, takich jak zmiana adresu e-mail lub łączenie i odłączanie konta społecznościowego.
 
-Kroki aranżacji mogą wywoływać [profil techniczny](technicalprofiles.md). Profil techniczny zapewnia strukturę z wbudowanym mechanizmem komunikacji z różnymi typami stron. Na przykład profil techniczny może wykonywać następujące działania między innymi:
+Kroki aranżacji mogą wywołać [profil techniczny](technicalprofiles.md). Profil techniczny zapewnia platformę z wbudowanym mechanizmem do komunikowania się z różnymi typami stron. Na przykład profil techniczny może wykonywać następujące działania między innymi:
 
-- Renderowanie środowiska użytkownika.
-- Zezwalaj użytkownikom na logowanie się za pomocą konta społecznościowego lub korporacyjnego, takiego jak Facebook, konto Microsoft, Google, Salesforce lub inny dostawca tożsamości.
-- Skonfiguruj weryfikację telefoniczną dla usługi MFA.
-- Odczytywanie i zapisywanie danych do i z magazynu tożsamości usługi Azure AD B2C.
-- Wywołanie niestandardowej usługi interfejsu API Restful.
+- Renderuj środowisko użytkownika.
+- Zezwól użytkownikom na logowanie się przy użyciu konta społecznościowego lub firmowego, takiego jak Facebook, konto Microsoft, Google, Salesforce lub dowolnego innego dostawcy tożsamości.
+- Skonfiguruj weryfikację telefonu dla usługi MFA.
+- Odczytaj i Zapisz dane do i z magazynu tożsamości Azure AD B2C.
+- Wywoływanie niestandardowej usługi interfejsu API RESTful.
 
 ![Diagram przedstawiający przepływ wykonywania zasad](./media/trustframeworkpolicy/custom-policy-execution.png)
 
- **Element TrustFrameworkPolicy** zawiera następujące elementy:
+ Element **TrustFrameworkPolicy** zawiera następujące elementy:
 
-- Polityka podstawowa, jak określono powyżej
+- BasePolicy jak określono powyżej
 - [BuildingBlocks](buildingblocks.md)
 - [ClaimsProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)

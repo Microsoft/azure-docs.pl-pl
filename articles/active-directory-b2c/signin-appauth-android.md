@@ -1,7 +1,7 @@
 ---
 title: Uzyskiwanie tokenu w aplikacji systemu Android
 titleSuffix: Azure AD B2C
-description: Jak utworzyć aplikację dla systemu Android, która używa appauth z usługi Azure Active Directory B2C do zarządzania tożsamościami użytkowników i uwierzytelniania użytkowników.
+description: Jak utworzyć aplikację dla systemu Android, która używa AppAuth z Azure Active Directory B2C, aby zarządzać tożsamościami użytkowników i uwierzytelniać użytkowników.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,18 +12,18 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 31ad373b1544fc601a9c37e05e324a9c1dfb3f73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78183787"
 ---
-# <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Logowanie się przy użyciu aplikacji dla systemu Android w usłudze Azure Active Directory B2C
+# <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Logowanie przy użyciu aplikacji systemu Android w Azure Active Directory B2C
 
-Platforma Microsoft Identity korzysta z otwartych standardów, takich jak OAuth2 i OpenID Connect. Te standardy umożliwiają korzystanie z dowolnej biblioteki, którą chcesz zintegrować z usługą Azure Active Directory B2C. Aby ułatwić korzystanie z innych bibliotek, można użyć przewodnika, takiego jak ten, aby zademonstrować sposób konfigurowania bibliotek innych firm do łączenia się z platformą tożsamości firmy Microsoft. Większość bibliotek, które implementują [specyfikację OAuth2 RFC6749,](https://tools.ietf.org/html/rfc6749) może łączyć się z platformą Microsoft Identity.
+Platforma Microsoft Identity korzysta z otwartych standardów, takich jak OAuth2 i OpenID Connect. Te standardy umożliwiają korzystanie z dowolnej biblioteki, którą chcesz zintegrować z usługą Azure Active Directory B2C. Aby ułatwić korzystanie z innych bibliotek, można użyć przewodnika, takiego jak ten, aby zademonstrować sposób konfigurowania bibliotek innych firm do łączenia się z platformą tożsamości firmy Microsoft. Większość bibliotek implementujących [specyfikację RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) może łączyć się z platformą tożsamości firmy Microsoft.
 
 > [!WARNING]
-> Firma Microsoft nie udostępnia poprawek dla bibliotek innych firm i nie dokonała przeglądu tych bibliotek. W tym przykładzie jest przy użyciu biblioteki innej firmy o nazwie AppAuth, który został przetestowany pod kątem zgodności w podstawowych scenariuszach z usługi Azure AD B2C. Problemy i żądania funkcji powinny być kierowane do projektu open source biblioteki. Zobacz [ten artykuł,](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) aby uzyskać więcej informacji.
+> Firma Microsoft nie udostępnia poprawek dla bibliotek innych firm i nie przeprowadzono przeglądu tych bibliotek. Ten przykład korzysta z biblioteki innej firmy o nazwie AppAuth, która została przetestowana pod kątem zgodności w podstawowych scenariuszach z Azure AD B2C. Problemy i żądania funkcji powinny być kierowane do projektu open-source biblioteki. Aby uzyskać więcej informacji, zobacz [ten artykuł](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) .
 >
 >
 
@@ -35,50 +35,50 @@ Przed rozpoczęciem korzystania z usługi Azure AD B2C należy utworzyć katalog
 
 ## <a name="create-an-application"></a>Tworzenie aplikacji
 
-Następnie zarejestruj aplikację w dzierżawie usługi Azure AD B2C. Dzięki temu usługa Azure AD informacje potrzebne do bezpiecznej komunikacji z aplikacją.
+Następnie zarejestruj aplikację w dzierżawie Azure AD B2C. Dzięki temu usługa Azure AD musi uzyskać bezpieczne komunikowanie się z Twoją aplikacją.
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Zarejestruj **identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
+Zapisz **Identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
 
-Również nagrać niestandardowy identyfikator URI przekierowania do użycia w późniejszym kroku. Na przykład `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+Zapisz także niestandardowy identyfikator URI przekierowania do użycia w późniejszym kroku. Na przykład `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Tworzenie przepływów użytkownika
 
-W usłudze Azure AD B2C każde środowisko użytkownika jest definiowane przez [przepływ użytkownika,](user-flow-overview.md)który jest zestawem zasad, które kontrolują zachowanie usługi Azure AD. Ta aplikacja wymaga przepływu użytkownika logowania i rejestracji. Podczas tworzenia przepływu użytkownika należy pamiętać o:
+W Azure AD B2C każde środowisko użytkownika jest definiowane przez [przepływ użytkownika](user-flow-overview.md), czyli zestaw zasad kontrolujących zachowanie usługi Azure AD. Ta aplikacja wymaga przepływu użytkownika logowania i logowania. Podczas tworzenia przepływu użytkownika upewnij się, że:
 
 * Wybierz **nazwę wyświetlaną** jako atrybut rejestracji w przepływie użytkownika.
-* Wybierz **nazwy wyświetlane** i oświadczenia aplikacji **identyfikatora obiektu** w każdym przepływie użytkownika. Można również wybrać inne oświadczenia.
-* Skopiuj **nazwę** każdego przepływu użytkownika po jego utworzeniu. Powinny zawierać prefiks `b2c_1_`.  Później będzie potrzebna nazwa przepływu użytkownika.
+* Wybierz **nazwę wyświetlaną** i **Identyfikator obiektu** oświadczenia aplikacji w każdym przepływie użytkownika. Można również wybrać inne oświadczenia.
+* Skopiuj **nazwę** każdego przepływu użytkownika po jego utworzeniu. Powinny zawierać prefiks `b2c_1_`.  Nazwa przepływu użytkownika będzie potrzebna później.
 
-Po utworzeniu przepływów użytkownika możesz przystąpić do tworzenia aplikacji.
+Po utworzeniu przepływów użytkowników możesz utworzyć aplikację.
 
-## <a name="download-the-sample-code"></a>Pobierz przykładowy kod
+## <a name="download-the-sample-code"></a>Pobieranie przykładowego kodu
 
-Udostępniliśmy próbkę roboczą, która używa appauth z usługą Azure AD B2C [w usłudze GitHub.](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c) Możesz pobrać kod i uruchomić go. Możesz szybko rozpocząć pracę z własną aplikacją przy użyciu własnej konfiguracji usługi Azure AD B2C, postępując zgodnie z instrukcjami w [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md).
+Udostępnimy przykład roboczy, który używa usługi AppAuth z usługą Azure AD B2C [w serwisie GitHub](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Możesz pobrać kod i uruchomić go. Możesz szybko rozpocząć pracę z własną aplikacją przy użyciu własnej konfiguracji Azure AD B2C, postępując zgodnie z instrukcjami podanymi w [README.MD](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md).
 
-Próbka jest modyfikacją próbki dostarczonej przez [AppAuth](https://openid.github.io/AppAuth-Android/). Odwiedź ich stronę, aby dowiedzieć się więcej o AppAuth i jej funkcjach.
+Przykładem jest modyfikacja przykładu dostarczonego przez [AppAuth](https://openid.github.io/AppAuth-Android/). Odwiedź stronę, aby dowiedzieć się więcej na temat AppAuth i jego funkcji.
 
-## <a name="modifying-your-app-to-use-azure-ad-b2c-with-appauth"></a>Modyfikowanie aplikacji w celu używania usługi Azure AD B2C z aplikacją AppAuth
+## <a name="modifying-your-app-to-use-azure-ad-b2c-with-appauth"></a>Modyfikowanie aplikacji do użycia Azure AD B2C z AppAuth
 
 > [!NOTE]
-> AppAuth obsługuje interfejs API systemu Android 16 (Jellybean) i powyżej. Zalecamy korzystanie z interfejsu API 23 lub powyżej.
+> AppAuth obsługuje interfejsy API systemu Android 16 (Jellybean) i nowsze. Zalecamy korzystanie z interfejsu API 23 lub nowszego.
 >
 
-### <a name="configuration"></a>Konfigurowanie
+### <a name="configuration"></a>Konfiguracja
 
-Można skonfigurować komunikację z usługą Azure AD B2C, określając identyfikator URI odnajdywania lub określając zarówno identyfikatory identyfikatorów URI punktu końcowego autoryzacji, jak i tokenu końcowego. W obu przypadkach potrzebne będą następujące informacje:
+Komunikację można skonfigurować przy użyciu Azure AD B2C, określając identyfikator URI odnajdowania lub określając zarówno punkt końcowy autoryzacji, jak i identyfikatory URI punktu końcowego tokenu. W obu przypadkach potrzebne są następujące informacje:
 
-* Identyfikator najemcy (np. contoso.onmicrosoft.com)
-* Nazwa przepływu użytkownika (np.\_\_
+* Identyfikator dzierżawy (np. contoso.onmicrosoft.com)
+* Nazwa przepływu użytkownika (np. B2C\_1\_)
 
-Jeśli zdecydujesz się automatycznie odnajdywać identyfikatory identyfikatorów URI autoryzacji i tokenu końcowego, należy pobrać informacje z identyfikatora URI odnajdywania. Identyfikator URI odnajdywania\_można wygenerować, zastępując identyfikator dzierżawy i nazwę zasad\_w następującym adresie URL:
+W przypadku wybrania opcji automatycznego odnajdywania identyfikatorów URI punktów końcowych autoryzacji i tokenów należy pobrać informacje z identyfikatora URI odnajdywania. Identyfikator URI odnajdywania można wygenerować, zastępując identyfikator dzierżawy\_i nazwę zasady\_następującym adresem URL:
 
 ```java
 String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
 ```
 
-Następnie można uzyskać autoryzacji i identyfikatorów URI punktu końcowego tokenu i utworzyć obiekt autoryzacji Usługi konfiguracyjne, uruchamiając następujące:
+Następnie można uzyskać autoryzację i identyfikatory URI punktu końcowego tokenu i utworzyć obiekt AuthorizationServiceConfiguration, uruchamiając następujące polecenie:
 
 ```java
 final Uri issuerUri = Uri.parse(mDiscoveryURI);
@@ -99,7 +99,7 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
   });
 ```
 
-Zamiast używać odnajdywania w celu uzyskania identyfikatorów URI autoryzacyjnych\_i tokenów\_końcowych, można również określić je jawnie, zastępując identyfikator dzierżawy i nazwę zasad w poniższym adresie URL:
+Zamiast odnajdywania w celu uzyskiwania adresów URI autoryzacji i tokenów, można je również jawnie określić, zastępując identyfikator dzierżawy\_i nazwę zasad\_w poniższym adresie URL:
 
 ```java
 String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
@@ -107,7 +107,7 @@ String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2
 String mTokenEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
 ```
 
-Uruchom następujący kod, aby utworzyć obiekt autoryzacji Usługi konfiguracyjne:
+Uruchom następujący kod, aby utworzyć obiekt AuthorizationServiceConfiguration:
 
 ```java
 AuthorizationServiceConfiguration config =
@@ -116,14 +116,14 @@ AuthorizationServiceConfiguration config =
 // perform the auth request...
 ```
 
-### <a name="authorizing"></a>Autoryzowania
+### <a name="authorizing"></a>Autoryzowanie
 
-Po skonfigurowaniu lub pobraniu konfiguracji usługi autoryzacji można utworzyć żądanie autoryzacji. Aby utworzyć żądanie, potrzebne będą następujące informacje:
+Po skonfigurowaniu lub pobraniu konfiguracji usługi autoryzacji można utworzyć żądanie autoryzacji. Aby można było utworzyć żądanie, potrzebne są następujące informacje:
 
-* Identyfikator klienta (application id), który został nagrany wcześniej. Na przykład `00000000-0000-0000-0000-000000000000`.
-* Niestandardowy identyfikator URI przekierowania, który został nagrany wcześniej. Na przykład `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+* Identyfikator klienta (Identyfikator aplikacji), który został zarejestrowany wcześniej. Na przykład `00000000-0000-0000-0000-000000000000`.
+* Niestandardowy identyfikator URI przekierowania, który został wcześniej zarejestrowany. Na przykład `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
-Oba elementy powinny zostać zapisane podczas [rejestracji aplikacji.](#create-an-application)
+Oba elementy powinny być zapisane podczas [rejestrowania aplikacji](#create-an-application).
 
 ```java
 AuthorizationRequest req = new AuthorizationRequest.Builder(
@@ -134,4 +134,4 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
     .build();
 ```
 
-Zapoznaj się z [przewodnikiem AppAuth,](https://openid.github.io/AppAuth-Android/) jak zakończyć resztę procesu. Jeśli chcesz szybko rozpocząć pracę z działającą aplikacją, zapoznaj się z [naszą próbką](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Wykonaj kroki opisane w [README.md,](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) aby wprowadzić własną konfigurację usługi Azure AD B2C.
+Zapoznaj się z [przewodnikiem AppAuth](https://openid.github.io/AppAuth-Android/) , aby dokończyć pozostałą część procesu. Jeśli musisz szybko rozpocząć pracę z działającą aplikacją, zapoznaj się z [naszym Przykładem](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Postępuj zgodnie z instrukcjami w [README.MD](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) , aby wprowadzić własną konfigurację Azure AD B2C.
