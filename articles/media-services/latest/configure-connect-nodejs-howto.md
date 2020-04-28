@@ -1,6 +1,6 @@
 ---
-title: Łączenie się z interfejsem API usługi Azure Media Services w wersji 3 — node.js
-description: W tym artykule pokazano, jak połączyć się z interfejsem API usługi Media Services w wersji 3 za pomocą pliku Node.js.
+title: Nawiązywanie połączenia z interfejsem API programu Azure Media Services v3 — Node. js
+description: W tym artykule pokazano, jak nawiązać połączenie z interfejsem API programu Media Services v3 przy użyciu środowiska Node. js.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,27 +14,27 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
 ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74896097"
 ---
-# <a name="connect-to-media-services-v3-api---nodejs"></a>Łączenie się z interfejsem API usługi Media Services w wersji 3 — node.js
+# <a name="connect-to-media-services-v3-api---nodejs"></a>Nawiązywanie połączenia z interfejsem API programu Media Services v3 — Node. js
 
-W tym artykule pokazano, jak połączyć się z zestawem SDK węzła Azure Media Services w wersji 3.js przy użyciu metody logowania jednostki usługi.
+W tym artykule opisano sposób nawiązywania połączenia z zestawem SDK środowiska Node. js Azure Media Services v3 przy użyciu głównej metody logowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Zainstaluj [plik Node.js](https://nodejs.org/en/download/).
-- [Utwórz konto usługi Media Services](create-account-cli-how-to.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta usługi Media Services.
+- Zainstaluj program [Node. js](https://nodejs.org/en/download/).
+- [Utwórz konto Media Services](create-account-cli-how-to.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services.
 
 > [!IMPORTANT]
-> Przejrzyj [konwencje nazewnictwa](media-services-apis-overview.md#naming-conventions).
+> Zapoznaj się z [konwencjami nazewnictwa](media-services-apis-overview.md#naming-conventions).
 
-## <a name="create-packagejson"></a>Tworzenie pliku package.json
+## <a name="create-packagejson"></a>Utwórz plik Package. JSON
 
-1. Utwórz plik package.json za pomocą ulubionego edytora.
+1. Utwórz plik Package. JSON przy użyciu ulubionego edytora.
 1. Otwórz plik i wklej następujący kod:
 
 ```json
@@ -56,21 +56,21 @@ Należy określić następujące pakiety:
 
 |Pakiet|Opis|
 |---|---|
-|`azure-arm-mediaservices`|Zestaw SDK usług multimediów platformy Azure. <br/>Aby upewnić się, że używasz najnowszego pakietu usługi Azure Media Services, sprawdź, czy [npm instaluje usługi azure-arm-media.](https://www.npmjs.com/package/azure-arm-mediaservices/)|
-|`azure-storage`|SDK magazynu. Używane podczas przesyłania plików do zasobów.|
-|`ms-rest-azure`| Służy do logowania.|
+|`azure-arm-mediaservices`|Azure Media Services SDK. <br/>Aby upewnić się, że używasz najnowszego pakietu Azure Media Services, zaznacz pozycję [npm Install Azure-ARM-MediaServices](https://www.npmjs.com/package/azure-arm-mediaservices/).|
+|`azure-storage`|Zestaw SDK magazynu. Używane podczas przekazywania plików do zasobów.|
+|`ms-rest-azure`| Używane do logowania.|
 
-Aby upewnić się, że używasz najnowszego pakietu, można uruchomić następujące polecenie:
+Możesz uruchomić następujące polecenie, aby upewnić się, że używasz najnowszego pakietu:
 
 ```
 npm install azure-arm-mediaservices
 ```
 
-## <a name="connect-to-nodejs-client"></a>Łączenie się z klientem node.js
+## <a name="connect-to-nodejs-client"></a>Łączenie z klientem Node. js
 
-1. Utwórz plik .js przy użyciu ulubionego edytora.
+1. Utwórz plik js przy użyciu ulubionego edytora.
 1. Otwórz plik i wklej następujący kod.
-1. Ustaw wartości w sekcji "konfiguracja punktu końcowego" na wartości dodane z [interfejsów API dostępu](access-api-cli-how-to.md).
+1. Ustaw wartości w sekcji "Konfiguracja punktu końcowego" na wartości, które pochodzą z [interfejsów API dostępu](access-api-cli-how-to.md).
 
 ```js
 'use strict';
@@ -116,16 +116,16 @@ msRestAzure.loginWithServicePrincipalSecret(aadClientId, aadSecret, aadTenantId,
 
 ## <a name="run-your-app"></a>Uruchamianie aplikacji
 
-Otwórz wiersz polecenia. Przejdź do katalogu przykładu i wykonaj następujące polecenia:
+Otwórz wiersz polecenia. Przejdź do katalogu przykładowego i wykonaj następujące polecenia:
 
 ```
 npm install 
 node index.js
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-- [Pojęcia dotyczące usług multimedialnych](concepts-overview.md)
+- [Koncepcje Media Services](concepts-overview.md)
 - [Instalacja menedżera NPM — azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)
 
 ## <a name="next-steps"></a>Następne kroki

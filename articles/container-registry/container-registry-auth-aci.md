@@ -1,34 +1,34 @@
 ---
-title: Dostęp z wystąpień kontenera
-description: Dowiedz się, jak zapewnić dostęp do obrazów w rejestrze kontenerów prywatnych z wystąpień kontenerów platformy Azure przy użyciu jednostki usługi Azure Active Directory.
+title: Dostęp z Container Instances
+description: Dowiedz się, jak zapewnić dostęp do obrazów w rejestrze kontenerów prywatnych z Azure Container Instances przy użyciu jednostki usługi Azure Active Directory.
 ms.topic: article
 ms.date: 04/23/2018
 ms.openlocfilehash: b1bc8119c495dea99c6bdc4923db198d041a1e9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74456506"
 ---
-# <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Uwierzytelnij się przy użyciu rejestru kontenerów platformy Azure z wystąpień kontenerów platformy Azure
+# <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Uwierzytelnianie za pomocą Azure Container Registry z Azure Container Instances
 
-Można użyć jednostki usługi Azure Active Directory (Azure AD), aby zapewnić dostęp do rejestrów kontenerów prywatnych w rejestrze kontenerów platformy Azure.
+Za pomocą nazwy głównej usługi Azure Active Directory (Azure AD) można zapewnić dostęp do prywatnych rejestrów kontenerów w Azure Container Registry.
 
-W tym artykule nauczysz się tworzyć i konfigurować jednostkę usługi Azure AD z uprawnieniami *ściągania* do rejestru. Następnie należy uruchomić kontener w instancjach kontenera azure (ACI), który pobiera jego obraz z rejestru prywatnego, przy użyciu jednostki usługi do uwierzytelniania.
+Ten artykuł zawiera informacje na temat tworzenia i konfigurowania jednostki usługi Azure AD z uprawnieniami *ściągania* do rejestru. Następnie należy uruchomić kontener w Azure Container Instances (ACI), który pobiera obraz z prywatnego rejestru przy użyciu nazwy głównej usługi do uwierzytelniania.
 
-## <a name="when-to-use-a-service-principal"></a>Kiedy używać jednostki usługi
+## <a name="when-to-use-a-service-principal"></a>Kiedy używać nazwy głównej usługi
 
-Należy użyć jednostki usługi do uwierzytelniania z usługi ACI w **scenariuszach bezgłowych,** takich jak w aplikacjach lub usługach, które tworzą wystąpienia kontenera w sposób zautomatyzowany lub w inny sposób nienadzorowany.
+Należy używać nazwy głównej usługi do uwierzytelniania z ACI w **scenariuszach bezobsługowych**, takich jak aplikacje lub usługi, które tworzą wystąpienia kontenerów w sposób zautomatyzowany lub w inny sposób nienadzorowany.
 
-Na przykład jeśli masz automatyczny skrypt, który działa w nocy i tworzy [wystąpienie kontenera oparte na zadaniach](../container-instances/container-instances-restart-policy.md) do przetwarzania niektórych danych, można użyć jednostki usługi z uprawnieniami tylko ściągane do uwierzytelniania w rejestrze. Następnie można obrócić poświadczenia jednostki usługi lub całkowicie odwołać jego dostęp bez wpływu na inne usługi i aplikacje.
+Na przykład jeśli masz zautomatyzowany skrypt, który działa nocnie i tworzy [wystąpienie kontenera opartego na zadaniach](../container-instances/container-instances-restart-policy.md) , aby przetworzyć niektóre dane, można użyć jednostki usługi z uprawnieniami tylko do ściągania w celu uwierzytelnienia w rejestrze. Następnie można obrócić poświadczenia jednostki usługi lub całkowicie odwołać swój dostęp bez wpływu na inne usługi i aplikacje.
 
-Jednostki usługi powinny być również używane, gdy [użytkownik administratora](container-registry-authentication.md#admin-account) rejestru jest wyłączony.
+Nazwy główne usług należy również stosować, gdy [użytkownik administrator](container-registry-authentication.md#admin-account) rejestru jest wyłączony.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
-## <a name="authenticate-using-the-service-principal"></a>Uwierzytelnij się przy użyciu jednostki usługi
+## <a name="authenticate-using-the-service-principal"></a>Uwierzytelnianie przy użyciu nazwy głównej usługi
 
-Aby uruchomić kontener w wystąpieniach kontenera platformy Azure przy `--registry-username`użyciu jednostki `--registry-password`usługi, należy określić jego identyfikator programu i hasło do programu .
+Aby uruchomić kontener w Azure Container Instances przy użyciu nazwy głównej usługi, określ jej identyfikator `--registry-username`i hasło dla. `--registry-password`
 
 ```azurecli-interactive
 az container create \
@@ -42,17 +42,17 @@ az container create \
 
 ## <a name="sample-scripts"></a>Przykładowe skrypty
 
-Poprzednie przykładowe skrypty interfejsu wiersza polecenia platformy Azure można znaleźć w usłudze GitHub, a także wersje programu Azure PowerShell:
+Powyższe przykładowe skrypty dla interfejsu wiersza polecenia platformy Azure można znaleźć w witrynie GitHub, jak również wersje Azure PowerShell:
 
 * [Interfejs wiersza polecenia platformy Azure][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następujące artykuły zawierają dodatkowe szczegóły dotyczące pracy z podmiotami obsługującymi usługi i acr:
+Poniższe artykuły zawierają dodatkowe informacje na temat pracy z jednostkami usługi i ACR:
 
-* [Uwierzytelnianie rejestru kontenerów platformy Azure z podmiotami zabezpieczeń usługi](container-registry-auth-service-principal.md)
-* [Uwierzytelnij się przy użyciu usługi Azure Container Registry z usługi Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md)
+* [Uwierzytelnianie Azure Container Registry przy użyciu jednostek usługi](container-registry-auth-service-principal.md)
+* [Uwierzytelnianie za pomocą Azure Container Registry z usługi Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md)
 
 <!-- IMAGES -->
 

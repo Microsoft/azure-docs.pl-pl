@@ -1,23 +1,23 @@
 ---
-title: Niestandardowe łącza tematu łącznika
-description: Łącza do tematów dotyczących tworzenia, używania, udostępniania i certyfikacji łączników niestandardowych
+title: Linki do tematu łączników niestandardowych
+description: Linki do tematów dotyczących tworzenia, używania, udostępniania i certyfikowania łączników niestandardowych
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 1/30/2018
 ms.openlocfilehash: d91d46e0119c22f4f2538ab5ea982ca4418256cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74792657"
 ---
-# <a name="custom-connectors-in-logic-apps"></a>Łączniki niestandardowe w aplikacjach logiki
+# <a name="custom-connectors-in-logic-apps"></a>Łączniki niestandardowe w Logic Apps
 
-Bez pisania kodu można tworzyć przepływy pracy i aplikacje za pomocą aplikacji [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), usługi [Power Automate](https://flow.microsoft.com) oraz [rozwiązania Power Apps](https://powerapps.microsoft.com). Aby ułatwić integrację aplikacji, danych i procesów biznesowych, usługi te oferują [~200 łączników](https://docs.microsoft.com/connectors/) — dla usług i produktów firmy Microsoft, a także innych usług, takich jak GitHub, Salesforce, Twitter i inne.
+Bez pisania kodu można tworzyć przepływy pracy i aplikacje za pomocą aplikacji [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), usługi [Power Automate](https://flow.microsoft.com) oraz [rozwiązania Power Apps](https://powerapps.microsoft.com). Aby ułatwić integrację aplikacji, danych i procesów biznesowych, te usługi oferują [200 łączniki](https://docs.microsoft.com/connectors/) — dla usług i produktów firmy Microsoft, a także innych usług, takich jak GitHub, Salesforce, Twitter i inne.
 
-Czasami jednak może być konieczne wywoływanie interfejsów API, usług i systemów, które nie są dostępne jako wstępnie utworzone łączniki. Na potrzeby obsługi bardziej niestandardowych scenariuszy można tworzyć *łączniki niestandardowe* z ich własnymi wyzwalaczami i akcjami. Witryna dokumentacji łączników ma kompletne podstawowe i zaawansowane samouczki dotyczące łączników niestandardowych. Można rozpocząć od [niestandardowego przeglądu łącznika,](https://docs.microsoft.com/connectors/custom-connectors/)ale można również przejść bezpośrednio do tych tematów, aby uzyskać szczegółowe informacje na temat określonego obszaru:
+Czasami jednak może być konieczne wywoływanie interfejsów API, usług i systemów, które nie są dostępne jako wstępnie utworzone łączniki. Na potrzeby obsługi bardziej niestandardowych scenariuszy można tworzyć *łączniki niestandardowe* z ich własnymi wyzwalaczami i akcjami. Witryna dokumentacji łączników ma kompletne i zaawansowane samouczki dotyczące łączników niestandardowych. Możesz zacząć od [przeglądu niestandardowego łącznika](https://docs.microsoft.com/connectors/custom-connectors/), ale możesz też przejść bezpośrednio do tych tematów, aby uzyskać szczegółowe informacje na temat określonego obszaru:
 
 * [Tworzenie łącznika usługi Logic Apps](https://docs.microsoft.com/connectors/custom-connectors/create-logic-apps-connector)
 

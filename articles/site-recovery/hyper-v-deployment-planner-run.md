@@ -1,6 +1,6 @@
 ---
-title: Uruchamianie planisty wdrażania funkcji Hyper-V w usłudze Azure Site Recovery
-description: W tym artykule opisano sposób uruchamiania planu wdrażania usługi Azure Site Recovery deployment Planner dla odzyskiwania po awarii funkcji Hyper-V na platformie Azure.
+title: Uruchom Planista wdrażania funkcji Hyper-V w Azure Site Recovery
+description: W tym artykule opisano sposób uruchamiania Planista wdrażania usługi Azure Site Recovery na potrzeby odzyskiwania po awarii funkcji Hyper-V na platformie Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74082617"
 ---
-# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Uruchamianie planu wdrażania usługi Azure Site Recovery dla odzyskiwania po awarii funkcji Hyper-V na platformie Azure
+# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Uruchamianie planisty wdrażania Azure Site Recovery na potrzeby odzyskiwania po awarii funkcji Hyper-V na platformie Azure
 
-Narzędzie wiersza polecenia planowania wdrażania odzyskiwania lokacji (ASRDeploymentPlanner.exe) można uruchomić w dowolnym z tych czterech trybów: 
+Narzędzie wiersza polecenia planisty wdrożenia Site Recovery (ASRDeploymentPlanner. exe) można uruchomić w dowolnym z czterech następujących trybów: 
 -   Pobieranie listy maszyn wirtualnych
 -   [Profil](#profile-hyper-v-vms)
 -   Generowanie raportu
@@ -41,7 +41,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 | -User | Nazwa użytkownika używana do nawiązywania połączenia z hostem lub klastrem funkcji Hyper-V. Użytkownik musi mieć dostęp administracyjny.|
 | -ServerListFile | Plik z listą serwerów zawierającą maszyny wirtualne do profilowania. Można użyć bezwzględnej lub względnej ścieżki pliku. Ten plik powinien zawierać w każdym wierszu jeden z następujących elementów:<ul><li>Nazwa hosta funkcji Hyper-V lub jego adres IP</li><li>Nazwa klastra funkcji Hyper-V lub jego adres IP</li></ul><br>**Przykład:** plik ServerList.txt zawiera informacje o następujących serwerach:<ul><li>Host_1</li><li>10.8.59.27</li><li>Klaster_1</li><li>Host_2</li>|
 | -Directory|(Opcjonalnie) Ścieżka UNC (Universal Naming Convention) lub ścieżka katalogu lokalnego, w której mają być przechowywane dane wygenerowane podczas tej operacji. Jeśli nie podano nazwy, jako katalog domyślny zostanie użyty katalog o nazwie „ProfiledData” w bieżącej ścieżce.|
-|-OutputFile| (Opcjonalnie) Plik z listą maszyn wirtualnych pobranych z serwerów funkcji Hyper-V jest zapisywany. Jeśli nazwa nie zostanie podana, szczegółowe informacje zostaną zapisane w pliku VMList.txt.  Użyj tego pliku do uruchomienia profilowania po usunięciu z niego maszyn wirtualnych, które nie muszą być profilowane.|
+|-OutputFile| Obowiązkowe Plik z listą maszyn wirtualnych pobranych z serwerów funkcji Hyper-V jest zapisywany. Jeśli nazwa nie zostanie podana, szczegółowe informacje zostaną zapisane w pliku VMList.txt.  Użyj tego pliku do uruchomienia profilowania po usunięciu z niego maszyn wirtualnych, które nie muszą być profilowane.|
 |-Password|(Opcjonalnie) Hasło wymagane do nawiązania połączenia z hostem funkcji Hyper-V. Jeśli nie zostanie ono określone jako parametr, po uruchomieniu polecenia zostanie wyświetlony związany z tym monit.|
 
 ### <a name="getvmlist-discovery"></a>Odnajdywanie GetVMList
@@ -97,8 +97,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Directory|(Opcjonalnie) Ścieżka UNC lub ścieżka do katalogu lokalnego, w której są przechowywane dane profilowania wygenerowane podczas profilowania. Jeśli nie podano nazwy, jako katalog domyślny zostanie użyty katalog o nazwie „ProfiledData” w bieżącej ścieżce.|
 |-Password|(Opcjonalnie) Hasło wymagane do nawiązania połączenia z hostem funkcji Hyper-V. Jeśli nie zostanie ono określone jako parametr, po uruchomieniu polecenia zostanie wyświetlony związany z tym monit.|
 |-StorageAccountName|(Opcjonalnie) Nazwa konta magazynu używana do wyszukiwania osiągalnej przepływności na potrzeby replikacji danych ze środowiska lokalnego na platformę Azure. Narzędzie przekazuje dane testowe na to konto magazynu w celu obliczenia przepływności. Musi to być konto magazynu ogólnego przeznaczenia typu v1 (GPv1).|
-|-StorageAccountKey|(Opcjonalnie) Klucz używany do uzyskiwania dostępu do konta magazynu. Przejdź do witryny > Azure portal > nazwa konta > magazynu > **storage-account Ustawienia** > **kluczy dostępu****1** (lub podstawowy klucz dostępu dla klasycznego konta magazynu). **Storage accounts***storage-account name*|
-|-Environment|(Opcjonalnie) Docelowe środowisko na potrzeby konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment lub AzureChinaCloud. Wartość domyślna to AzureCloud. Użyj parametru, gdy region docelowy jest azure us government lub Azure China 21Vianet.|
+|-StorageAccountKey|(Opcjonalnie) Klucz używany do uzyskiwania dostępu do konta magazynu. Przejdź do obszaru Azure Portal > **konta** > magazynu**Ustawienia** > **Access Keys** > *nazwy* > konta magazynu**Klucz1** (lub podstawowy klucz dostępu dla klasycznego konta magazynu).|
+|-Environment|(Opcjonalnie) Docelowe środowisko na potrzeby konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment lub AzureChinaCloud. Wartość domyślna to AzureCloud. Użyj parametru, jeśli regionem docelowym jest platforma Azure US USA lub Azure Chiny 21Vianet.|
 
 Zalecamy, aby maszyny wirtualne były profilowane przez więcej niż 7 dni. Jeśli wzorzec zmian zmienia się w ciągu miesiąca, zaleca się przeprowadzenie profilowania w tygodniu, w którym występuje maksymalna wartość współczynnika zmian. W celu uzyskania lepszych rekomendacji zaleca się wykonywanie profilowania przez 31 dni. 
 
@@ -154,7 +154,7 @@ Jeśli serwer, na którym uruchomione jest narzędzie, został ponownie uruchomi
 
 Jeśli przekazano nazwę i klucz konta magazynu, narzędzie mierzy przepływność na ostatnim etapie profilowania. Jeśli narzędzie zostanie zamknięte przed ukończeniem profilowania, przepływność nie zostanie obliczona. Aby znaleźć przepływność przed wygenerowaniem raportu, można uruchomić operację GetThroughput w konsoli wiersza polecenia. W przeciwnym razie wygenerowany raport nie będzie zawierać informacji o przepływności.
 
-Usługa Azure Site Recovery nie obsługuje maszyn wirtualnych z dyskami iSCSI i pass-through. Narzędzie nie może wykryć i profil iSCSI i dysków przekazu, które są podłączone do maszyn wirtualnych.
+Azure Site Recovery nie obsługuje maszyn wirtualnych z dyskami iSCSI i pass-through. Narzędzie nie może wykryć i profilować dysków iSCSI i przekazujące, które są dołączone do maszyn wirtualnych.
 
 ## <a name="generate-a-report"></a>Generowanie raportu
 Narzędzie generuje plik programu Microsoft Excel z włączoną obsługą makr (plik XLSM) jako dane wyjściowe raportu. Plik ten zawiera podsumowanie wszystkich zaleceń dotyczących wdrożenia. Raport nosi nazwę DeploymentPlannerReport_*unikatowy_identyfikator_numeryczny*.xlsm i jest umieszczany w wybranym katalogu.
@@ -281,9 +281,9 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 |-Virtualization|Typ wirtualizacji (VMware lub Hyper-V).|
 |-Directory|(Opcjonalnie) Ścieżka UNC lub ścieżka katalogu lokalnego, w której są przechowywane profilowane dane (pliki wygenerowane podczas profilowania). Te dane są wymagane do wygenerowania raportu. Jeśli nie podano nazwy, jako katalog domyślny zostanie użyty katalog o nazwie „ProfiledData” w bieżącej ścieżce.|
 | -StorageAccountName | Nazwa konta magazynu używana w celu znalezienia użytej przepustowości na potrzeby replikacji danych ze środowiska lokalnego na platformę Azure. Narzędzie przekazuje dane testowe na to konto magazynu w celu określenia użytej przepustowości. Musi to być konto magazynu ogólnego przeznaczenia typu v1 (GPv1).|
-| -StorageAccountKey | Klucz konta magazynu używany do uzyskiwania dostępu do konta magazynu. Przejdź do witryny Azure portal > **konto magazynu —** > *nazwa* > konta magazynu**Klucze** > **dostępu klucze** > **dostępu 1**.|
+| -StorageAccountKey | Klucz konta magazynu używany do uzyskiwania dostępu do konta magazynu. Przejdź do obszaru Azure Portal > **konta** > magazynu**Ustawienia** > **Access Keys** > *nazw* > kont magazynu**Klucz1**.|
 | -VMListFile | Plik zawierający listę maszyn wirtualnych, które mają być profilowane, na potrzeby obliczenia użytej przepustowości. Można użyć bezwzględnej lub względnej ścieżki pliku. W przypadku funkcji Hyper-V jest to plik wyjściowy operacji GetVMList. Jeśli jest on przygotowywany ręcznie, powinien zawierać w każdym wierszu jedną nazwę serwera lub adres IP, po którym występuje nazwa maszyny wirtualnej. Oba elementy powinny być rozdzielone znakiem \. Nazwa maszyny wirtualnej określona w pliku powinna być taka sama jak nazwa maszyny wirtualnej na hoście funkcji Hyper-V.<br><br>**Przykład:** plik VMList.txt zawiera informacje o następujących maszynach wirtualnych:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Environment|(Opcjonalnie) Docelowe środowisko na potrzeby konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment lub AzureChinaCloud. Wartość domyślna to AzureCloud. Użyj parametru, gdy docelowy region platformy Azure to platforma Azure US Government lub Azure China 21Vianet.|
+|-Environment|(Opcjonalnie) Docelowe środowisko na potrzeby konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment lub AzureChinaCloud. Wartość domyślna to AzureCloud. Użyj parametru, jeśli docelowy region świadczenia usługi Azure to Azure USA lub Azure Chiny 21Vianet.|
 
 ### <a name="example"></a>Przykład
 ```

@@ -1,6 +1,6 @@
 ---
-title: Łączenie się z programem SharePoint za pomocą aplikacji logiki platformy Azure
-description: Automatyzuj zadania i przepływy pracy monitoruj zasoby w usłudze SharePoint Online lub SharePoint Server lokalnie i zarządzają nimi przy użyciu aplikacji Azure Logic Apps
+title: Połącz z programem SharePoint z Azure Logic Apps
+description: Automatyzowanie zadań i przepływów pracy, które monitorują zasoby i zarządzają nimi w usłudze SharePoint Online lub SharePoint Server lokalnie przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,30 +8,30 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: bb82ef2d6fb83c2e1b0fa81aa9504c9bb7d8234b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789260"
 ---
-# <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorowanie zasobów programu SharePoint i zarządzanie nimi za pomocą aplikacji Azure Logic Apps
+# <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorowanie zasobów programu SharePoint i zarządzanie nimi za pomocą Azure Logic Apps
 
-Za pomocą aplikacji Azure Logic Apps i łącznika programu SharePoint można tworzyć zautomatyzowane zadania i przepływy pracy monitorujące zasoby, takie jak pliki, foldery, listy, elementy, osoby itd., w usłudze SharePoint Online lub w programie SharePoint Server lokalnie, na przykład:
+Za pomocą Azure Logic Apps i łącznika programu SharePoint można tworzyć automatyczne zadania i przepływy pracy, które monitorują zasoby i zarządzają nimi, takie jak pliki, foldery, listy, elementy, osoby itd., w usłudze SharePoint Online lub w programie SharePoint Server lokalnie, na przykład:
 
 * Monitoruj, kiedy pliki lub elementy są tworzone, zmieniane lub usuwane.
-* Tworzenie, pobierz, aktualizuj lub usuń elementy.
-* Dodawanie, uładanie lub usuwanie załączników. Pobierz zawartość z załączników.
-* Tworzenie, kopiowanie, aktualizowanie lub usuwanie plików. 
+* Tworzenie, pobieranie, aktualizowanie lub usuwanie elementów.
+* Dodawanie, pobieranie lub usuwanie załączników. Pobierz zawartość z załączników.
+* Tworzenie, kopiowanie, aktualizowanie i usuwanie plików. 
 * Aktualizowanie właściwości pliku. Pobierz zawartość, metadane lub właściwości pliku.
-* Lista lub wyodrębnianie folderów.
+* Wyświetl listę lub Wyodrębnij foldery.
 * Pobierz listy lub widoki listy.
-* Ustaw stan zatwierdzania zawartości.
-* Rozwiązuj osoby.
-* Wyślij żądania HTTP do programu SharePoint.
-* Pobierz wartości encji.
+* Ustaw stan zatwierdzenia zawartości.
+* Rozpoznaj osoby.
+* Wysyłaj żądania HTTP do programu SharePoint.
+* Pobierz wartości jednostki.
 
-Można użyć wyzwalaczy, które otrzymują odpowiedzi z programu SharePoint i udostępniają dane wyjściowe innym działaniom. Akcje w aplikacjach logiki umożliwiają wykonywanie zadań w programie SharePoint. Można również użyć innych akcji przy użyciu danych wyjściowych z akcji programu SharePoint. Na przykład jeśli regularnie pobierasz pliki z programu SharePoint, możesz wysyłać wiadomości do zespołu przy użyciu łącznika Slack.
-Jeśli jesteś nowy w aplikacjach logiki, sprawdź [Co to jest usługa Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Można użyć wyzwalaczy, które odbierają odpowiedzi z programu SharePoint i udostępniają dane wyjściowe innym akcjom. Za pomocą akcji w aplikacjach logiki można wykonywać zadania w programie SharePoint. Możesz również mieć inne akcje, które używają danych wyjściowych z akcji programu SharePoint. Na przykład, jeśli regularnie pobierasz pliki z programu SharePoint, możesz wysyłać komunikaty do zespołu za pomocą łącznika zapasowego.
+Jeśli jesteś nowym sposobem logiki aplikacji, zapoznaj [się z tematem Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -39,42 +39,42 @@ Jeśli jesteś nowy w aplikacjach logiki, sprawdź [Co to jest usługa Azure Log
 
 * Adres witryny programu SharePoint i poświadczenia użytkownika
 
-  Poświadczenia autoryzują aplikację logiki do tworzenia połączenia i uzyskiwania dostępu do konta programu SharePoint. 
+  Twoje poświadczenia autoryzują aplikację logiki, aby utworzyć połączenie i uzyskać dostęp do konta programu SharePoint. 
 
-* Przed połączeniem aplikacji logiki z systemami lokalnymi, takimi jak SharePoint Server, należy [zainstalować i skonfigurować lokalną bramę danych](../logic-apps/logic-apps-gateway-install.md). W ten sposób można określić, aby używać instalacji bramy podczas tworzenia połączenia programu SharePoint Server dla aplikacji logiki.
+* Aby można było połączyć Aplikacje logiki z systemami lokalnymi, takimi jak SharePoint Server, należy [zainstalować i skonfigurować lokalną bramę danych](../logic-apps/logic-apps-gateway-install.md). Dzięki temu można określić, czy podczas tworzenia połączenia z programem SharePoint Server dla aplikacji logiki ma być używana instalacja bramy.
 
-* Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Aplikacja logiki, w której chcesz uzyskać dostęp do konta programu SharePoint. Aby rozpocząć od wyzwalacza programu SharePoint, [utwórz pustą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby użyć akcji programu SharePoint, uruchom aplikację logiki za pomocą wyzwalacza, takiego jak wyzwalacz Salesforce, jeśli masz konto Salesforce.
+* Aplikacja logiki, w której chcesz uzyskać dostęp do konta programu SharePoint. Aby rozpocząć pracę z wyzwalaczem programu SharePoint, [Utwórz pustą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby użyć akcji programu SharePoint, uruchom aplikację logiki z wyzwalaczem, takim jak wyzwalacz usługi Salesforce, jeśli masz konto usługi Salesforce.
 
-  Na przykład można uruchomić aplikację logiki z **when rekord jest tworzony** Salesforce wyzwalacza. 
-  Ten wyzwalacz jest uruchamiany za każdym razem, gdy w salesforce tworzony jest nowy rekord, taki jak potencjalny klient. 
-  Następnie można wykonać ten wyzwalacz za pomocą akcji **Utwórz plik** programu SharePoint. W ten sposób po utworzeniu nowego rekordu aplikacja logiki tworzy plik w programie SharePoint z informacjami o tym nowym rekordzie.
+  Na przykład możesz uruchomić aplikację logiki przy użyciu wyzwalacza usługi Salesforce, **gdy rekord zostanie utworzony** . 
+  Ten wyzwalacz jest uruchamiany za każdym razem, gdy w usłudze Salesforce zostanie utworzony nowy rekord, taki jak potencjalny klient. 
+  Następnie można użyć tego wyzwalacza z akcją **Utwórz plik** programu SharePoint. Dzięki temu po utworzeniu nowego rekordu aplikacja logiki tworzy plik w programie SharePoint z informacjami o nowym rekordzie.
 
-## <a name="connect-to-sharepoint"></a>Łączenie się z programem SharePoint
+## <a name="connect-to-sharepoint"></a>Połącz z programem SharePoint
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com)i otwórz aplikację logiki w logice App Designer, jeśli nie jest już otwarty.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com)i Otwórz aplikację logiki w Projektancie aplikacji logiki, jeśli nie jest jeszcze otwarta.
 
-1. W przypadku pustych aplikacji logiki w polu wyszukiwania wprowadź "sharepoint" jako filtr. W obszarze listy wyzwalaczy wybierz odpowiedni wyzwalacz. 
+1. W przypadku pustych aplikacji logiki w polu wyszukiwania wprowadź ciąg "SharePoint" jako filtr. Na liście Wyzwalacze wybierz wyzwalacz, który chcesz. 
 
    — lub —
 
-   W przypadku istniejących aplikacji logiki w ostatnim kroku, w którym chcesz dodać akcję programu SharePoint, wybierz pozycję **Nowy krok**. 
-   W polu wyszukiwania wpisz "sharepoint" jako filtr. 
-   W obszarze listy akcje wybierz odpowiednią akcję.
+   W przypadku istniejących aplikacji logiki w ostatnim kroku, w którym chcesz dodać akcję programu SharePoint, wybierz pozycję **nowy krok**. 
+   W polu wyszukiwania wprowadź wartość "SharePoint" jako filtr. 
+   Na liście Akcje wybierz żądaną akcję.
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy na strzałkę między krokami. 
-   Wybierz wyświetlony znak**+** plus ( ), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. 
+   Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
 
-1. Po wyświetleniu monitu o zalogowanie się podaj niezbędne informacje o połączeniu. Jeśli korzystasz z programu SharePoint Server, upewnij się, że wybierz pozycję **Połącz za pośrednictwem lokalnej bramy danych**. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
+1. Po wyświetleniu monitu o zalogowanie się podaj niezbędne informacje dotyczące połączenia. Jeśli używasz programu SharePoint Server, upewnij się, że wybrano opcję **Połącz za pośrednictwem lokalnej bramy danych**. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
 
-1. Podaj szczegóły niezbędne do wybranego wyzwalacza lub akcji i kontynuuj tworzenie przepływu pracy aplikacji logiki.
+1. Podaj niezbędne szczegóły wybranego wyzwalacza lub akcji i Kontynuuj tworzenie przepływu pracy aplikacji logiki.
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i limitów, które są opisane przez opis OpenAPI łącznika (dawniej Swagger), przejrzyj [stronę referencyjną](/connectors/sharepoint/)łącznika .
+Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i limitów, które są opisane w opisie OpenAPI łącznika (dawniej Swagger), przejrzyj [stronę odwołania](/connectors/sharepoint/)łącznika.
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
@@ -83,4 +83,4 @@ Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i li
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o innych [łącznikach aplikacji logiki](../connectors/apis-list.md)
+* Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)

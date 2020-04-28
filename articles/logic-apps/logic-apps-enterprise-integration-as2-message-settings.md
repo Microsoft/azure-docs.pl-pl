@@ -1,6 +1,6 @@
 ---
 title: Ustawienia komunikatów AS2
-description: Przewodnik po ustawieniach wysyłania i odbierania as2 w usłudze Azure Logic Apps z pakietem integracji przedsiębiorstwa
+description: Przewodnik referencyjny dotyczący ustawień wysyłania i odbierania AS2 w Azure Logic Apps z Pakiet integracyjny dla przedsiębiorstw
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,53 +9,53 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2019
 ms.openlocfilehash: ad047a30b901d71604c775e9882b0f242f094638
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74793025"
 ---
-# <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Odwołanie do ustawień komunikatu AS2 w usłudze Azure Logic Apps z pakietem integracji przedsiębiorstwa
+# <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Dokumentacja dla ustawień komunikatu AS2 w Azure Logic Apps z Pakiet integracyjny dla przedsiębiorstw
 
-To odwołanie opisuje właściwości, które można ustawić dla określenia, jak umowa AS2 obsługuje wiadomości wysyłane i odbierane między partnerami handlowymi. Skonfiguruj te właściwości na podstawie umowy z partnerem, który wymienia wiadomości z Tobą.
+Ta dokumentacja zawiera opis właściwości, które można ustawić w celu określenia sposobu, w jaki umowa AS2 obsługuje komunikaty wysyłane i odbierane przez partnerów handlowych. Skonfiguruj te właściwości na podstawie umowy z partnerem, który wymienia z nim wiadomości.
 
 <a name="AS2-incoming-messages"></a>
 
-## <a name="as2-receive-settings"></a>As2 Odbieranie ustawień
+## <a name="as2-receive-settings"></a>AS2 Ustawienia odbierania
 
-![Wybierz "Ustawienia odbioru"](./media/logic-apps-enterprise-integration-as2-message-settings/receive-settings.png)
+![Wybieranie opcji "Odbierz ustawienia"](./media/logic-apps-enterprise-integration-as2-message-settings/receive-settings.png)
 
 | Właściwość | Wymagany | Opis |
 |----------|----------|-------------|
-| **Zastępowanie właściwości wiadomości** | Nie | Zastępuje właściwości wiadomości przychodzących z ustawieniami właściwości. |
-| **Wiadomość powinna być podpisana** | Nie | Określa, czy wszystkie przychodzące wiadomości muszą być podpisane cyfrowo. Jeśli wymagane jest podpisywanie, z listy **Certyfikat** wybierz istniejący certyfikat publiczny partnera gościa do sprawdzania poprawności podpisu w wiadomościach. Jeśli nie masz certyfikatu, dowiedz się więcej o [dodawaniu certyfikatów.](../logic-apps/logic-apps-enterprise-integration-certificates.md) |
-| **Wiadomość powinna być zaszyfrowana** | Nie | Określa, czy wszystkie przychodzące wiadomości muszą być szyfrowane. Niezaszyfrowane wiadomości są odrzucane. Jeśli potrzebujesz szyfrowania, z listy **Certyfikat** wybierz istniejący prywatny certyfikat partnera hosta do odszyfrowywania wiadomości przychodzących. Jeśli nie masz certyfikatu, dowiedz się więcej o [dodawaniu certyfikatów.](../logic-apps/logic-apps-enterprise-integration-certificates.md) |
-| **Wiadomość powinna być skompresowana** | Nie | Określa, czy wszystkie przychodzące wiadomości muszą być skompresowane. Nieskompresowane wiadomości są odrzucane. |
-| **Nie zezwalaj na duplikaty identyfikatorów wiadomości** | Nie | Określa, czy zezwolić na wiadomości o zduplikowanych identyfikatorach. Jeśli nie zezwalasz na zduplikowane identyfikatory, wybierz liczbę dni między czekami. Można również zdecydować, czy mają być zawieszane duplikaty. |
-| **Tekst MDN** | Nie | Określa domyślne powiadomienie o dyspozycji wiadomości (MDN), które ma zostać wysłane do nadawcy wiadomości. |
-| **Wyślij mdn** | Nie | Określa, czy dla odebranych komunikatów mają być wysyłane synchroniczne numery MDN.  |
-| **Wyślij podpisaną nazwę MDN** | Nie | Określa, czy dla odebranych wiadomości mają być wysyłane podpisane numery MDN. Jeśli wymagane jest podpisywanie, z listy **Algorytm MIC** wybierz algorytm, który ma być używany do podpisywania wiadomości. |
-| **Wyślij asynchroniczne MDN** | Nie | Określa, czy kody MDN mają być wysyłane asynchronicznie. Jeśli wybierzesz asynchroniczne mdny, w polu **adresu URL** określ adres URL, gdzie wysłać mdn. |
+| **Zastąp właściwości komunikatu** | Nie | Przesłania właściwości przychodzących komunikatów przy użyciu ustawień właściwości. |
+| **Komunikat powinien być podpisany** | Nie | Określa, czy wszystkie wiadomości przychodzące muszą być podpisane cyfrowo. Jeśli wymagasz podpisywania, z listy **certyfikat** wybierz istniejący certyfikat publiczny partnera gościa, aby sprawdzić poprawność podpisu w komunikatach. Jeśli nie masz certyfikatu, Dowiedz się więcej o [dodawaniu certyfikatów](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
+| **Komunikat powinien być zaszyfrowany** | Nie | Określa, czy wszystkie wiadomości przychodzące muszą być szyfrowane. Nieszyfrowane wiadomości są odrzucane. Jeśli wymagane jest szyfrowanie, z listy **certyfikat** wybierz istniejący certyfikat prywatny partnera hosta na potrzeby odszyfrowywania wiadomości przychodzących. Jeśli nie masz certyfikatu, Dowiedz się więcej o [dodawaniu certyfikatów](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
+| **Komunikat powinien być skompresowany** | Nie | Określa, czy wszystkie komunikaty przychodzące muszą być kompresowane. Nieskompresowane komunikaty są odrzucane. |
+| **Nie Zezwalaj na duplikaty identyfikatora wiadomości** | Nie | Określa, czy zezwalać na komunikaty ze zduplikowanymi identyfikatorami. W przypadku niezezwalania na zduplikowane identyfikatory wybierz liczbę dni między sprawdzeniami. Można również wybrać, czy mają zostać zawieszone duplikaty. |
+| **POWIADOMIENIA MDN tekst** | Nie | Określa domyślne powiadomienie o dyspozycji wiadomości (powiadomienia MDN), które ma zostać wysłane do nadawcy wiadomości. |
+| **Wyślij powiadomienia MDN** | Nie | Określa, czy wysyłać synchroniczną MDNs dla odebranych komunikatów.  |
+| **Wyślij podpisany powiadomienia MDN** | Nie | Określa, czy należy wysyłać podpisane wiadomości MDNs dla odebranych komunikatów. Jeśli wymagasz podpisywania, z listy **algorytm mikrofonu** wybierz algorytm, który ma być używany do podpisywania komunikatów. |
+| **Wyślij powiadomienia MDN asynchroniczny** | Nie | Określa, czy ma być wysyłana asynchronicznie. W przypadku wybrania opcji asynchroniczny MDNs w polu **adres URL** Podaj adres URL, dla którego ma zostać wysłana mDNS. |
 ||||
 
 <a name="AS2-outgoing-messages"></a>
 
-## <a name="as2-send-settings"></a>Ustawienia as2 wysyłania
+## <a name="as2-send-settings"></a>Ustawienia wysyłania AS2
 
-![Wybierz "Ustawienia wysyłania"](./media/logic-apps-enterprise-integration-as2-message-settings/send-settings.png)
+![Wybierz pozycję "Ustawienia wysyłania".](./media/logic-apps-enterprise-integration-as2-message-settings/send-settings.png)
 
 | Właściwość | Wymagany | Opis |
 |----------|----------|-------------|
-| **Włączanie podpisywania wiadomości** | Nie | Określa, czy wszystkie wiadomości wychodzące muszą być podpisane cyfrowo. Jeśli wymagane jest podpisywanie, wybierz następujące wartości: <p>- Z listy **Algorytm podpisywania** wybierz algorytm, który ma być używany do podpisywania wiadomości. <br>- Z listy **Certyfikat wybierz** istniejący prywatny certyfikat partnera hosta do podpisywania wiadomości. Jeśli nie masz certyfikatu, dowiedz się więcej o [dodawaniu certyfikatów.](../logic-apps/logic-apps-enterprise-integration-certificates.md) |
-| **Włączanie szyfrowania wiadomości** | Nie | Określa, czy wszystkie wiadomości wychodzące muszą być szyfrowane. Jeśli potrzebujesz szyfrowania, wybierz następujące wartości: <p>- Z listy **Algorytm szyfrowania** wybierz algorytm certyfikatu publicznego partnera gościa, który będzie używany do szyfrowania wiadomości. <br>- Z listy **Certyfikat wybierz** istniejący prywatny certyfikat partnera gościa do szyfrowania wiadomości wychodzących. Jeśli nie masz certyfikatu, dowiedz się więcej o [dodawaniu certyfikatów.](../logic-apps/logic-apps-enterprise-integration-certificates.md) |
-| **Włączanie kompresji wiadomości** | Nie | Określa, czy wszystkie wiadomości wychodzące muszą być skompresowane. |
-| **Rozwijanie nagłówków HTTP** | Nie | Umieszcza nagłówek `content-type` HTTP w jednym wierszu. |
-| **Nazwa pliku przesyłania w nagłówku MIME** | Nie | Określa, czy nazwa pliku ma być dołączana do nagłówka MIME. |
-| **Wniosek MDN** | Nie | Określa, czy powiadomienia o dyspozycji wiadomości (MDN) mają być odbierane dla wszystkich wiadomości wychodzących. |
-| **Wniosek podpisany MDN** | Nie | Określa, czy dla wszystkich wiadomości wychodzących mają być odbierane podpisane mdny. Jeśli wymagane jest podpisywanie, z listy **Algorytm MIC** wybierz algorytm, który ma być używany do podpisywania wiadomości. |
-| **Żądanie asynchroniczne MDN** | Nie | Określa, czy nazwy MDN mają być odbierane asynchronicznie. Jeśli wybierzesz asynchroniczne mdny, w polu **adresu URL** określ adres URL, gdzie wysłać mdn. |
-| **Włączanie nrr** | Nie | Określa, czy wymagać potwierdzenia braku odrzucenia (NRR). Ten atrybut komunikacji dostarcza dowodów, że dane zostały odebrane zgodnie z omówieniem. |
-| **Format algorytmu SHA2** | Nie | Określa format algorytmu MIC używany do podpisywania nagłówków wychodzących komunikatów AS2 lub mdn |
+| **Włącz podpisywanie komunikatów** | Nie | Określa, czy wszystkie wiadomości wychodzące muszą być podpisane cyfrowo. Jeśli wymagane jest podpisywanie, wybierz następujące wartości: <p>— Z listy **algorytm podpisywania** wybierz algorytm, który ma być używany do podpisywania wiadomości. <br>— Z listy **certyfikat** wybierz istniejący certyfikat prywatny partnera hosta do podpisywania wiadomości. Jeśli nie masz certyfikatu, Dowiedz się więcej o [dodawaniu certyfikatów](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
+| **Włącz szyfrowanie komunikatów** | Nie | Określa, czy wszystkie wiadomości wychodzące muszą być szyfrowane. Jeśli wymagane jest szyfrowanie, należy wybrać następujące wartości: <p>— Z listy **algorytm szyfrowania** wybierz algorytm certyfikatu publicznego partnera gościa, który ma być używany do szyfrowania wiadomości. <br>— Z listy **certyfikat** wybierz istniejący certyfikat prywatny partnera gościa na potrzeby szyfrowania wiadomości wychodzących. Jeśli nie masz certyfikatu, Dowiedz się więcej o [dodawaniu certyfikatów](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
+| **Włącz kompresję komunikatów** | Nie | Określa, czy wszystkie komunikaty wychodzące muszą być kompresowane. |
+| **Unfold nagłówki HTTP** | Nie | Umieszcza nagłówek HTTP `content-type` w pojedynczym wierszu. |
+| **Nazwa pliku transmisji w nagłówku MIME** | Nie | Określa, czy nazwa pliku ma zostać dołączona do nagłówka MIME. |
+| **POWIADOMIENIA MDN żądania** | Nie | Określa, czy otrzymywać powiadomienia o dyspozycjach komunikatów (MDNs) dla wszystkich wychodzących komunikatów. |
+| **POWIADOMIENIA MDN podpisanego żądania** | Nie | Określa, czy mają być odbierane podpisane usługi MDNs dla wszystkich wychodzących wiadomości. Jeśli wymagasz podpisywania, z listy **algorytm mikrofonu** wybierz algorytm, który ma być używany do podpisywania komunikatów. |
+| **POWIADOMIENIA MDN asynchroniczne żądania** | Nie | Określa, czy ma być odbierana asynchronicznie. W przypadku wybrania opcji asynchroniczny MDNs w polu **adres URL** Podaj adres URL, dla którego ma zostać wysłana mDNS. |
+| **Włącz NRR** | Nie | Określa, czy ma być wymagane potwierdzenie bez wyparcia (NRR). Ten atrybut komunikacyjny zawiera dowody, że dane zostały odebrane jako rozkierowane. |
+| **Format algorytmu algorytmu SHA2** | Nie | Określa format algorytmu mikrofonu używany do podpisywania w nagłówkach wychodzących komunikatów AS2 lub powiadomienia MDN |
 ||||
 
 ## <a name="next-steps"></a>Następne kroki

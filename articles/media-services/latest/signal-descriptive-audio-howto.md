@@ -1,6 +1,6 @@
 ---
-title: Opisowe ścieżki dźwiękowe sygnału z usługą Azure Media Services w wersji 3 | Dokumenty firmy Microsoft
-description: Postępuj zgodnie z instrukcjami tego samouczka, aby przekazać plik, zakodować wideo, dodać opisowe ścieżki audio i przesyłać strumieniowo zawartość za pomocą usługi Media Services w wersji 3.
+title: Śledzenie sygnałów dźwiękowych z Azure Media Services v3 | Microsoft Docs
+description: Wykonaj kroki tego samouczka, aby przekazać plik, zakodować wideo, dodać opisowe ścieżki audio i przesłać strumieniowo zawartość do Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,54 +13,54 @@ ms.custom: ''
 ms.date: 09/25/2019
 ms.author: juliako
 ms.openlocfilehash: 0d8f88e6c2fe273efa969278146de67ba18eaecf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72392191"
 ---
-# <a name="signal-descriptive-audio-tracks"></a>Opisowe ścieżki dźwiękowe sygnału
+# <a name="signal-descriptive-audio-tracks"></a>Śledzenie sygnałów dźwiękowych
 
-Możesz dodać ścieżkę narracji do filmu, aby pomóc klientom niedowidzącym śledzić nagranie wideo, słuchając narracji. W umiaście Media Services w wersji 3 możesz sygnalizować opisowe ścieżki audio, dokonując adnotacji o ścieżce dźwiękowej w pliku manifestu.
+Możesz dodać ścieżkę narracji do wideo, aby ułatwić wizualnym klientom niesparowane nagranie wideo przez nasłuchiwanie narracji. W Media Services v3 można sygnalizować opisowe ścieżki audio przez adnotację ścieżki audio w pliku manifestu.
 
-W tym artykule pokazano, jak zakodować wideo, przesłać plik MP4 tylko audio (kodek AAC) zawierający opisowy dźwięk do zasobu wyjściowego i edytować plik .ism, aby uwzględnić opisowy dźwięk.
+W tym artykule pokazano, jak zakodować wideo, przekazać plik MP4 tylko w formacie audio (koder-dekoder AAC) zawierający opisowy dźwięk do wyjściowego elementu zawartości i edytować plik. ISM, aby uwzględnić dźwięk opisowy.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Utwórz konto usługi Media Services](create-account-cli-how-to.md).
+- [Utwórz konto Media Services](create-account-cli-how-to.md).
 - Postępuj zgodnie z instrukcjami zawartymi w temacie [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Uzyskiwanie dostępu do interfejsu API usług Azure Media Services za pomocą interfejsu wiersza polecenia platformy Azure) i zapisz poświadczenia. Będą one potrzebne w celu uzyskania dostępu do interfejsu API.
-- Przejrzyj [dynamiczne opakowanie](dynamic-packaging-overview.md).
-- Przejrzyj samouczek [Przekazywanie, kodowanie i przesyłanie strumieniowe filmów.](stream-files-tutorial-with-api.md)
+- Przejrzyj [dynamiczne pakowanie](dynamic-packaging-overview.md).
+- Zapoznaj się z samouczkiem [przekazywanie, kodowanie i przesyłanie strumieniowe wideo](stream-files-tutorial-with-api.md) .
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Tworzenie zasobu wejściowego i przekazywanie do niego pliku lokalnego 
 
 Funkcja **CreateInputAsset** tworzy nowy [zasób](https://docs.microsoft.com/rest/api/media/assets) wejściowy i przekazuje do niego określony lokalny plik wideo. Ten **zasób** służy jako dane wejściowe zadania kodowania. W usłudze Media Services w wersji 3 danymi wejściowymi **zadania** może być **zasób** lub zawartość udostępniona dla konta usługi Media Services za pośrednictwem adresów URL protokołu HTTPS. 
 
-Jeśli chcesz dowiedzieć się, jak kodować z adresu URL HTTPS, zobacz [ten artykuł](job-input-from-http-how-to.md) .  
+Jeśli chcesz dowiedzieć się, jak kodować przy użyciu adresu URL HTTPS, zobacz [ten artykuł](job-input-from-http-how-to.md) .  
 
 W usłudze Media Services 3 do przekazywania plików służą interfejsy API usługi Azure Storage. Przedstawia to poniższy fragment kodu dla platformy .NET.
 
 Poniższa funkcja wykonuje następujące akcje:
 
-* Tworzy **zasób** 
+* Tworzy element **zawartości** 
 * Pobranie zapisywalnego [adresu URL sygnatury dostępu współdzielonego](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) do [kontenera zasobu w magazynie](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
 * Przekazanie pliku do kontenera w magazynie przy użyciu adresu URL sygnatury dostępu współdzielonego
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-Jeśli chcesz przekazać nazwę utworzonego zasobu wejściowego do innych `Name` metod, upewnij się, `CreateInputAssetAsync`że używasz właściwości na obiekcie trwałości zwróconym z , na przykład inputAsset.Name. 
+Jeśli musisz przekazać nazwę utworzonego elementu zawartości wejściowej do innych metod, upewnij się, że używasz `Name` właściwości obiektu zasobu zwróconego z `CreateInputAssetAsync`, na przykład inputAsset.Name. 
 
-## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>Tworzenie zasobu wyjściowego w celu przechowywania wyniku zadania kodowania
+## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>Utwórz zasób wyjściowy do przechowywania wyniku zadania kodowania
 
-[Zasób](https://docs.microsoft.com/rest/api/media/assets) wyjściowy przechowuje wynik zadania kodowania. Poniższa funkcja pokazuje, jak utworzyć zasób wyjściowy.
+Wyjściowy element [zawartości](https://docs.microsoft.com/rest/api/media/assets) przechowuje wynik zadania kodowania. Poniższa funkcja przedstawia sposób tworzenia wyjściowego elementu zawartości.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
-Jeśli chcesz przekazać nazwę utworzonego zasobu wyjściowego do innych `Name` metod, upewnij się, `CreateIOutputAssetAsync`że używasz właściwości na obiekcie trwałości zwróconym z , na przykład outputAsset.Name. 
+Jeśli musisz przekazać nazwę utworzonego elementu wyjściowego do innych metod, upewnij się, że używasz `Name` właściwości obiektu zasobu zwróconego z `CreateIOutputAssetAsync`, na przykład outputAsset.Name. 
 
-W przypadku tego artykułu przekazać `outputAsset.Name` wartość `SubmitJobAsync` do `UploadAudioIntoOutputAsset` i funkcji.
+W przypadku tego artykułu Przekaż `outputAsset.Name` wartość do funkcji `SubmitJobAsync` i. `UploadAudioIntoOutputAsset`
 
-## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Tworzenie transformacji i zadania kodująca przekazany plik
+## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Tworzenie transformacji i zadania, które kodują przekazany plik
 
 W przypadku kodowania lub przetwarzania zawartości w usłudze Media Services typowym wzorcem postępowania jest skonfigurowanie ustawień kodowania jako przepisu. Następnie przesyła się **zadanie** w celu zastosowania tego przepisu do wideo. Przesłanie nowego zadania dla każdego nowego wideo powoduje zastosowanie tego przepisu do wszystkich wideo w bibliotece. Przepis w usłudze Media Services nazywa się **przekształceniem**. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](transform-concept.md). Przykład opisany w tym samouczku definiuje przepis, który umożliwia kodowanie wideo w celu jego przesyłania strumieniowego do różnych urządzeń z systemami iOS i Android. 
 
@@ -74,15 +74,15 @@ Następująca funkcja przesyła zadanie.
 
 ## <a name="wait-for-the-job-to-complete"></a>Oczekiwanie na zakończenie zadania
 
-Ukończenie zadania zajmuje trochę czasu, a Ty chcesz otrzymać powiadomienie o tym fakcie. Zalecamy użycie usługi Event Grid, aby poczekać na zakończenie zadania.
+Ukończenie zadania zajmuje trochę czasu, a Ty chcesz otrzymać powiadomienie o tym fakcie. Zalecamy używanie Event Grid, aby poczekać na ukończenie zadania.
 
-Zadanie zwykle przechodzi przez następujące stany: **Zaplanowane**, **W kolejce**, **Przetwarzanie**, **Zakończone** (stan końcowy). Jeśli zadanie napotka błąd, może być w stanie **Error (Błąd)**. Jeśli zadanie jest w trakcie anulowania, może być w stanie **Canceling (Anulowanie)**, a po zakończeniu tej operacji w stanie **Canceled (Anulowane)**.
+Zadanie zazwyczaj przechodzi przez następujące stany: **zaplanowane**, **kolejkowane**, **przetwarzane**, **zakończone** (stan końcowy). Jeśli zadanie napotka błąd, może być w stanie **Error (Błąd)**. Jeśli zadanie jest w trakcie anulowania, może być w stanie **Canceling (Anulowanie)**, a po zakończeniu tej operacji w stanie **Canceled (Anulowane)**.
 
-Aby uzyskać więcej informacji, zobacz [Obsługa zdarzeń w siatce zdarzeń](reacting-to-media-services-events.md).
+Aby uzyskać więcej informacji, zobacz [Obsługa zdarzeń Event Grid](reacting-to-media-services-events.md).
 
-## <a name="upload-the-audio-only-mp4-file"></a>Przesyłanie pliku MP4 tylko do dźwięku
+## <a name="upload-the-audio-only-mp4-file"></a>Przekaż plik MP4 tylko do nagrania dźwiękowego
 
-Prześlij dodatkowy plik MP4 tylko audio (kodek AAC) zawierający opisowy dźwięk do zasobu wyjściowego.  
+Przekaż dodatkowy plik MP4 tylko audio (koder-dekoder AAC) zawierający opisowy dźwięk do wyjściowego elementu zawartości.  
 
 ```csharp
 private static async Task UpoadAudioIntoOutputAsset(
@@ -133,16 +133,16 @@ Oto przykład wywołania `UpoadAudioIntoOutputAsset` funkcji:
 await UpoadAudioIntoOutputAsset(client, config.ResourceGroup, config.AccountName, outputAsset.Name, "audio_description.m4a");
 ```
 
-## <a name="edit-the-ism-file"></a>Edytowanie pliku .ism
+## <a name="edit-the-ism-file"></a>Edytuj plik. ISM
 
-Po zakończeniu zadania kodowania zasób wyjściowy będzie zawierał pliki wygenerowane przez zadanie kodowania. 
+Gdy zadanie kodowania zostanie wykonane, zasoby wyjściowe będą zawierać pliki wygenerowane przez zadanie kodowania. 
 
-1. W witrynie Azure portal przejdź do konta magazynu skojarzonego z kontem usługi Media Services. 
-1. Znajdź kontener z nazwą zasobu wyjściowego. 
-1. W kontenerze znajdź plik .ism i kliknij pozycję **Edytuj obiekt blob** (w prawym oknie). 
-1. Edytuj plik .ism, dodając informacje o przesłanym pliku MP4 tylko audio (kodek AAC) zawierającym opisowy dźwięk i naciśnij **klawisz Zapisz** po zakończeniu.
+1. W Azure Portal przejdź do konta magazynu skojarzonego z Twoim kontem Media Services. 
+1. Znajdź kontener z nazwą wyjściowego elementu zawartości. 
+1. W kontenerze Znajdź plik. ISM i kliknij pozycję **Edytuj obiekt BLOB** (w oknie po prawej stronie). 
+1. Edytuj plik. ISM, dodając informacje o przekazanym pliku MP4 tylko audio (koder-dekoder AAC) zawierający opisowy dźwięk, a następnie naciśnij przycisk **Zapisz** po zakończeniu.
 
-    Aby zasygnalizować opisowe ścieżki audio, należy dodać parametry "dostępność" i "rola" do pliku .ism. Twoim obowiązkiem jest prawidłowe ustawienie tych parametrów w celu zasygnalizacji ścieżki dźwiękowej jako audiodeskrypcji. Na przykład `<param name="accessibility" value="description" />` dodaj `<param name="role" value="alternate" />` i do pliku .ism dla określonej ścieżki audio, jak pokazano w poniższym przykładzie.
+    Aby sygnalizować opisowe ścieżki audio, należy dodać parametry "Accessibility" i "role" do pliku ISM. Ponosisz odpowiedzialność za poprawne ustawianie tych parametrów, aby sygnalizować ścieżkę audio jako opis. Na przykład Dodaj `<param name="accessibility" value="description" />` i `<param name="role" value="alternate" />` do pliku ISM dla określonej ścieżki audio, jak pokazano w poniższym przykładzie.
  
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -200,7 +200,7 @@ Po zakończeniu zadania kodowania zasób wyjściowy będzie zawierał pliki wyge
 </smil>
 ```
 
-## <a name="get-a-streaming-locator"></a>Pobierz lokalizator przesyłania strumieniowego
+## <a name="get-a-streaming-locator"></a>Uzyskaj lokalizator przesyłania strumieniowego
 
 Po zakończeniu kodowania następnym krokiem jest udostępnienie klientom w zasobie wyjściowym pliku wideo, który można odtwarzać. Działanie to można wykonać w dwóch krokach: najpierw należy utworzyć [lokalizator przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streaminglocators), a następnie utworzyć adresy URL przesyłania strumieniowego, których mogą używać klienci. 
 
@@ -233,8 +233,8 @@ W tym artykule strumień jest testowany za pomocą odtwarzacza Azure Media Playe
 > [!NOTE]
 > Jeśli odtwarzacz jest hostowany w witrynie korzystającej z protokołu HTTPS, zmień adres URL tak, aby zawierał ciąg „https”.
 
-1. Otwórz przeglądarkę internetową [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)i przejdź do pliku .
-2. W polu **URL:** wklej jedną z wartości adresu URL przesyłania strumieniowego, które otrzymałeś z aplikacji. 
+1. Otwórz przeglądarkę internetową i przejdź do [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
+2. W polu **adres URL:** wklej jeden z wartości adresu URL przesyłania strumieniowego uzyskanych z aplikacji. 
  
      Adres URL możesz wkleić w formacie HLS, Dash, lub Smooth, a usługa Azure Media Player przełączy się na odpowiedni protokół przesyłania strumieniowego w celu automatycznego odtworzenia na urządzeniu.
 3. Naciśnij pozycję **Aktualizuj odtwarzacz**.
@@ -243,4 +243,4 @@ Usługi Azure Media Player można użyć do testowania, ale nie należy jej uży
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Analizowanie plików wideo](analyze-videos-tutorial-with-api.md)
+[Analizowanie wideo](analyze-videos-tutorial-with-api.md)

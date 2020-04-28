@@ -1,6 +1,6 @@
 ---
-title: Tworzenie aplikacji jednostronicowej wywołującej internetowy interfejs API — platforma tożsamości firmy Microsoft | Azure
-description: Dowiedz się, jak utworzyć jednostronicową aplikację, która wywołuje internetowy interfejs API
+title: Tworzenie jednostronicowej aplikacji wywołującej internetowy interfejs API — platforma tożsamości firmy Microsoft | Azure
+description: Dowiedz się, jak utworzyć aplikację jednostronicową, która wywołuje interfejs API sieci Web
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,21 +12,21 @@ ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.openlocfilehash: 5b70b109f43e80fc3ec68f52aef2dba6823033bb
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80882135"
 ---
-# <a name="single-page-application-call-a-web-api"></a>Aplikacja jednostronicowa: wywoływanie internetowego interfejsu API
+# <a name="single-page-application-call-a-web-api"></a>Aplikacja jednostronicowa: wywoływanie interfejsu API sieci Web
 
-Zaleca się wywołanie `acquireTokenSilent` metody nabycia lub odnowienia tokenu dostępu przed wywołaniem interfejsu API sieci web. Po tokenie można wywołać chroniony interfejs API sieci web.
+Zalecamy wywołanie `acquireTokenSilent` metody w celu uzyskania lub odnowienia tokenu dostępu przed wywołaniem internetowego interfejsu API. Po uzyskaniu tokenu można wywołać chroniony internetowy interfejs API.
 
 ## <a name="call-a-web-api"></a>Wywoływanie interfejsu API sieci Web
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Użyj tokenu nabytego dostępu jako nośnika w żądaniu HTTP, aby wywołać dowolny internetowy interfejs API, taki jak microsoft graph API. Przykład:
+Użyj tokenu uzyskanego dostępu jako okaziciela w żądaniu HTTP w celu wywołania dowolnego internetowego interfejsu API, takiego jak Microsoft Graph API. Przykład:
 
 ```javascript
     var headers = new Headers();
@@ -46,7 +46,7 @@ Użyj tokenu nabytego dostępu jako nośnika w żądaniu HTTP, aby wywołać dow
 
 # <a name="angular"></a>[Angular](#tab/angular)
 
-Otoka kątowa MSAL korzysta z interceptora HTTP, aby automatycznie pozyskiwać tokeny dostępu w trybie dyskretnym i dołączać je do żądań HTTP do interfejsów API. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie tokenu do wywoływania interfejsu API](scenario-spa-acquire-token.md).
+Otoka kątowa MSAL wykorzystuje Interceptor HTTP, aby automatycznie uzyskiwać tokeny dostępu w trybie dyskretnym i dołączać je do żądań HTTP do interfejsów API. Aby uzyskać więcej informacji, zobacz [pozyskiwanie tokenu do wywoływania interfejsu API](scenario-spa-acquire-token.md).
 
 ---
 

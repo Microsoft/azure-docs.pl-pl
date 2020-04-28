@@ -1,24 +1,24 @@
 ---
-title: Zapytania wyszukiwania w dziennikach usługi Azure Monitor | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera samouczek dotyczący rozpoczynania korzystania z wyszukiwania w kwerendach dziennika usługi Azure Monitor.
+title: Zapytania wyszukiwania w dziennikach Azure Monitor | Microsoft Docs
+description: Ten artykuł zawiera Samouczek przedstawiający wprowadzenie do korzystania z wyszukiwania w dzienniku Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/06/2018
 ms.openlocfilehash: e13f4abc37e348759e7d0b8a2f7d890c82fe0d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77660244"
 ---
-# <a name="search-queries-in-azure-monitor-logs"></a>Kwerendy wyszukiwania w dziennikach usługi Azure Monitor
-Zapytania dziennika usługi Azure Monitor można rozpocząć od nazwy tabeli lub polecenia wyszukiwania. W tym samouczku omówiono zapytania oparte na wyszukiwaniu. Każda metoda ma zalety.
+# <a name="search-queries-in-azure-monitor-logs"></a>Wyszukiwanie zapytań w dziennikach Azure Monitor
+Zapytania dziennika Azure Monitor mogą rozpoczynać się od nazwy tabeli lub polecenia wyszukiwania. Ten samouczek obejmuje zapytania oparte na wyszukiwaniach. Istnieją zalety każdej z tych metod.
 
-Kwerendy oparte na tabelach zaczynają się od określania zakresu zapytania i dlatego wydają się być bardziej wydajne niż zapytania wyszukiwania. Zapytania wyszukiwania są mniej ustrukturyzowane, co czyni je lepszym wyborem podczas wyszukiwania określonej wartości w kolumnach lub tabelach. **wyszukiwanie** może skanować wszystkie kolumny w danej tabeli lub we wszystkich tabelach, aby uzyskać określoną wartość. Ilość przetwarzanych danych może być ogromna, dlatego te zapytania mogą potrwać dłużej i mogą zwracać bardzo duże zestawy wyników.
+Zapytania oparte na tabelach rozpoczynają się od określania zakresu zapytania i dlatego są bardziej wydajne niż zapytania wyszukiwania. Zapytania wyszukiwania są mniej strukturalne, co sprawia, że są one lepszym wyborem podczas wyszukiwania określonej wartości w kolumnach lub tabelach. **Wyszukiwanie** może skanować wszystkie kolumny w danej tabeli lub we wszystkich tabelach dla określonej wartości. Ilość przetwarzanych danych może być olbrzymia, co oznacza, że te zapytania mogą trwać dłużej i mogą zwracać bardzo duże zestawy wyników.
 
-## <a name="search-a-term"></a>Wyszukiwanie terminu
+## <a name="search-a-term"></a>Wyszukaj termin
 Polecenie **wyszukiwania** jest zwykle używane do wyszukiwania określonego terminu. W poniższym przykładzie wszystkie kolumny we wszystkich tabelach są skanowane pod kątem terminu "błąd":
 
 ```Kusto
@@ -26,10 +26,10 @@ search "error"
 | take 100
 ```
 
-Chociaż są one łatwe w użyciu, zapytania nieskopowe, takie jak ten, który pokazano powyżej, nie są skuteczne i mogą zwrócić wiele nieistotnych wyników. Lepszą praktyką byłoby wyszukiwanie w odpowiedniej tabeli, a nawet w określonej kolumnie.
+Mimo że są one łatwe w użyciu, zapytania nieobjęte zakresem, takie jak pokazane powyżej, nie są efektywne i prawdopodobnie zwracają wiele nieistotnych wyników. Lepszym rozwiązaniem jest wyszukanie w odpowiedniej tabeli, a nawet konkretnej kolumny.
 
-### <a name="table-scoping"></a>Zakres tabeli
-Aby wyszukać termin w `in (table-name)` określonej tabeli, dodaj tylko po **operatorze wyszukiwania:**
+### <a name="table-scoping"></a>Określanie zakresu tabeli
+Aby wyszukać termin w określonej tabeli, Dodaj `in (table-name)` bezpośrednio po operatorze **wyszukiwania** :
 
 ```Kusto
 search in (Event) "error"
@@ -42,8 +42,8 @@ search in (Event, SecurityEvent) "error"
 | take 100
 ```
 
-### <a name="table-and-column-scoping"></a>Zakres tabeli i kolumn
-Domyślnie **wyszukiwanie** oceni wszystkie kolumny w zestawie danych. Aby wyszukać tylko określoną kolumnę (o nazwie *Źródło* w poniższym przykładzie), użyj tej składni:
+### <a name="table-and-column-scoping"></a>Określanie zakresu tabeli i kolumny
+Domyślnie **Wyszukiwanie** będzie szacować wszystkie kolumny w zestawie danych. Aby wyszukać tylko określoną kolumnę (nazwane *Źródło* w poniższym przykładzie), użyj następującej składni:
 
 ```Kusto
 search in (Event) Source:"error"
@@ -51,75 +51,75 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Jeśli używasz `==` zamiast `:`, wyniki będą zawierać rekordy, w których *źródło* kolumna ma dokładną wartość "błąd", a w tym przypadku dokładnie. Za pomocą ':' będzie zawierać rekordy, w których *Źródło* ma wartości, takie jak "kod błędu 404" lub "Błąd".
+> Jeśli używasz `==` zamiast programu `:`, wyniki mogą zawierać rekordy, w których kolumna *źródłowa* ma dokładną wartość "Error" i w tym konkretnym przypadku. Użycie ":" spowoduje uwzględnienie rekordów, w których *Źródło* ma wartości takie jak "kod błędu 404" lub "błąd".
 
-## <a name="case-sensitivity"></a>Sensitivity
-Domyślnie wyszukiwanie terminów jest niewrażliwe na wielkości liter, więc wyszukiwanie "dns" może przynieść wyniki, takie jak "DNS", "dns" lub "Dns". Aby rozróżniać wielkość liter `kind` w wyszukiwaniu, użyj tej opcji:
+## <a name="case-sensitivity"></a>Uwzględnianie wielkości liter
+Domyślnie wyszukiwanie warunkowe nie uwzględnia wielkości liter, dlatego wyszukiwanie "DNS" może dać wyniki, takie jak "DNS", "DNS" lub "DNS". Aby wyszukać wielkość liter, użyj `kind` opcji:
 
 ```Kusto
 search kind=case_sensitive in (Event) "DNS"
 | take 100
 ```
 
-## <a name="use-wild-cards"></a>Używanie dzikich kart
-Polecenie **wyszukiwania** obsługuje symbole wieloznaczne na początku, końcu lub w połowie terminu.
+## <a name="use-wild-cards"></a>Korzystanie z symboli wieloznacznych
+Polecenie **Search** obsługuje symbole wieloznaczne, na początku, na końcu lub w środku okresu.
 
-Aby wyszukać terminy zaczynające się od "win":
+Aby wyszukać terminy, które zaczynają się od "win":
 ```Kusto
 search in (Event) "win*"
 | take 100
 ```
 
-Aby wyszukać terminy, które kończą się na ".com":
+Aby wyszukać Terminy kończące się na ". com":
 ```Kusto
 search in (Event) "*.com"
 | take 100
 ```
 
-Aby wyszukać terminy zawierające "www":
+Aby wyszukać terminy zawierające ciąg "www":
 ```Kusto
 search in (Event) "*www*"
 | take 100
 ```
 
-Aby wyszukać terminy, które zaczynają się od "corp", a kończy na ".com", takie jak "corp.mydomain.com""
+Aby wyszukać terminy zaczynające się od "Corp" i kończące się na ". com", takie jak "corp.mydomain.com" "
 
 ```Kusto
 search in (Event) "corp*.com"
 | take 100
 ```
 
-Można również dostać wszystko w tabeli za `search in (Event) *`pomocą tylko dziką kartę: `Event`, ale to byłoby takie samo jak pisanie tylko .
+Możesz również uzyskać wszystko w tabeli, używając tylko symbolu wieloznacznego: `search in (Event) *`, ale tak samo jak w przypadku pisania. `Event`
 
 > [!TIP]
-> Chociaż można `search *` użyć, aby uzyskać każdą kolumnę z każdej tabeli, zaleca się, aby zawsze zakres zapytania do określonych tabel. Nieskopowe kwerendy mogą zająć trochę czasu, aby zakończyć i może zwrócić zbyt wiele wyników.
+> `search *` W celu uzyskania każdej kolumny z każdej tabeli zaleca się, aby zawsze określać zakres zapytań do określonych tabel. Wykonywanie zapytań w zakresie nienależących do zakresu może potrwać trochę czasu i może zwracać zbyt wiele wyników.
 
-## <a name="add-and--or-to-search-queries"></a>Dodawanie *i* / *lub* wyszukiwanie zapytań
-Użyj **i** wyszukaj rekordy zawierające wiele terminów:
+## <a name="add-and--or-to-search-queries"></a>Dodawanie *i* / *or* wyszukiwanie zapytań
+Użyj programu **i** , aby wyszukać rekordy zawierające wiele warunków:
 
 ```Kusto
 search in (Event) "error" and "register"
 | take 100
 ```
 
-Użyj **lub** aby uzyskać rekordy, które zawierają co najmniej jeden z terminów:
+Użyj **lub** , aby pobrać rekordy zawierające co najmniej jeden z warunków:
 
 ```Kusto
 search in (Event) "error" or "register"
 | take 100
 ```
 
-Jeśli masz wiele warunków wyszukiwania, możesz połączyć je w tę samą kwerendę przy użyciu nawiasów:
+Jeśli masz wiele warunków wyszukiwania, możesz połączyć je do tego samego zapytania przy użyciu nawiasów:
 
 ```Kusto
 search in (Event) "error" and ("register" or "marshal*")
 | take 100
 ```
 
-Wyniki tego przykładu mogą być rekordy, które zawierają termin "błąd", a także zawierają "register" lub coś, co zaczyna się od "marshal".
+Wyniki tego przykładu byłyby rekordy zawierające termin "Error", a także zawierają "Register" lub coś, który rozpoczyna się od "Marshal".
 
-## <a name="pipe-search-queries"></a>Zapytania wyszukiwania potoków
-Podobnie jak każde inne polecenie, **wyszukiwanie** może być potokowane, aby wyniki wyszukiwania mogły być filtrowane, sortowane i agregowane. Na przykład, aby uzyskać liczbę rekordów *zdarzeń* zawierających "wygraj":
+## <a name="pipe-search-queries"></a>Zapytania wyszukiwania potokowego
+Podobnie jak każde inne polecenie, **Wyszukiwanie** może być potokiem, dzięki czemu wyniki wyszukiwania mogą być filtrowane, sortowane i agregowane. Na przykład, aby uzyskać liczbę rekordów *zdarzeń* zawierających "win":
 
 ```Kusto
 search in (Event) "win"
@@ -131,4 +131,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz dalsze tutoriale na [stronie języka zapytania Kusto](/azure/kusto/query/).
+- Zobacz więcej samouczków w [witrynie języka zapytań Kusto](/azure/kusto/query/).

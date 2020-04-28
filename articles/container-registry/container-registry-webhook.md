@@ -1,87 +1,87 @@
 ---
-title: Elementów Webhook, aby odpowiedzieć na akcje rejestru
-description: Dowiedz się, jak używać zestawów webhook do wyzwalania zdarzeń, gdy akcje wypychania lub ściągania występują w repozytoriach rejestru.
+title: Elementy webhook odpowiadające na akcje rejestru
+description: Dowiedz się, jak używać elementów webhook do wyzwalania zdarzeń w przypadku akcji wypychania lub ściągania w repozytoriach rejestru.
 ms.topic: article
 ms.date: 05/24/2019
 ms.openlocfilehash: 5e6fd2d9f4c7727365a8e2fe3893aafebfeb7bd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74454375"
 ---
-# <a name="using-azure-container-registry-webhooks"></a>Korzystanie z elementów webhook rejestru kontenerów platformy Azure
+# <a name="using-azure-container-registry-webhooks"></a>Używanie Azure Container Registry elementów webhook
 
-Rejestr kontenera platformy Azure przechowuje prywatne obrazy kontenerów platformy Docker i zarządza nimi podobnie, jak koncentrator platformy Docker przechowuje publiczne obrazy platformy Docker. Może również hostować repozytoria [wykresów Helm](container-registry-helm-repos.md) (wersja zapoznawcza), format pakowania do wdrażania aplikacji w uduchowionych w umięśniach. Za pomocą zestawów webhook można wyzwalać zdarzenia, gdy określone akcje mają miejsce w jednym z repozytoriów rejestru. Webhooks może odpowiadać na zdarzenia na poziomie rejestru lub mogą być ograniczone do określonego tagu repozytorium. Za pomocą rejestru [replikowanego geograficznie](container-registry-geo-replication.md) można skonfigurować każdy element webhook, aby odpowiadał na zdarzenia w określonej replice regionalnej.
+Rejestr kontenera platformy Azure przechowuje prywatne obrazy kontenerów platformy Docker i zarządza nimi podobnie, jak koncentrator platformy Docker przechowuje publiczne obrazy platformy Docker. Może również hostować repozytoria dla [wykresów Helm](container-registry-helm-repos.md) (wersja zapoznawcza) — format pakietu do wdrażania aplikacji w Kubernetes. Elementów webhook można użyć do wyzwalania zdarzeń, gdy pewne akcje są wykonywane w jednym z repozytoriów rejestru. Elementy webhook mogą reagować na zdarzenia na poziomie rejestru lub mogą być ograniczone do określonego tagu repozytorium. W przypadku rejestru z [replikacją geograficzną](container-registry-geo-replication.md) należy skonfigurować każdy element webhook w celu reagowania na zdarzenia w określonej replice regionalnej.
 
-Aby uzyskać szczegółowe informacje na temat żądań elementu webhook, zobacz [odwołanie do schematu elementu webhook rejestru kontenerów platformy Azure](container-registry-webhook-reference.md).
+Aby uzyskać szczegółowe informacje o żądaniach elementu webhook, zobacz [Azure Container Registry odwołanie do schematu elementu webhook](container-registry-webhook-reference.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Usługa Azure Container Registry — Tworzy rejestr kontenera w subskrypcji platformy Azure. Na przykład użyj [witryny Azure portal](container-registry-get-started-portal.md) lub interfejsu [wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md). Jednostki [SKU rejestru kontenerów platformy Azure](container-registry-skus.md) mają różne przydziały łączy webhook.
+* Usługa Azure Container Registry — Tworzy rejestr kontenera w subskrypcji platformy Azure. Na przykład użyj [Azure Portal](container-registry-get-started-portal.md) lub [interfejsu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md). [Jednostki sku Azure Container Registry](container-registry-skus.md) mają różne przydziały elementów webhook.
 * Interfejs wiersza polecenia platformy Docker — Aby skonfigurować lokalny komputer jako hosta platformy Docker i uzyskać dostęp do poleceń interfejsu wiersza polecenia platformy Docker, zainstaluj [aparat platformy Docker](https://docs.docker.com/engine/installation/).
 
-## <a name="create-webhook---azure-portal"></a>Tworzenie elementu webhook — witryna Azure portal
+## <a name="create-webhook---azure-portal"></a>Utwórz element webhook — Azure Portal
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-1. Przejdź do rejestru kontenerów, w którym chcesz utworzyć element webhook.
-1. W obszarze **Usługi**wybierz pozycję **Webhooks**.
-1. Wybierz **pozycję Dodaj** na pasku narzędzi elementu webhook.
-1. Wypełnij formularz *Tworzenie elementu webhook* o następujące informacje:
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Przejdź do rejestru kontenerów, w której chcesz utworzyć element webhook.
+1. W obszarze **usługi**wybierz pozycję elementy **webhook**.
+1. Wybierz pozycję **Dodaj** na pasku narzędzi elementu webhook.
+1. Wypełnij formularz *Utwórz element webhook* , podając następujące informacje:
 
 | Wartość | Opis |
 |---|---|
-| Nazwa elementu webhook | Nazwa, którą chcesz nadać elementowi webhook. Może zawierać tylko litery i cyfry i musi mieć długość od 5 do 50 znaków. |
-| Lokalizacja | W przypadku rejestru [replikowanego geograficznie](container-registry-geo-replication.md) określ region platformy Azure repliki rejestru. 
-| Identyfikator URI usługi | Identyfikator URI, w którym element webhook powinien wysyłać powiadomienia POST. |
-| Nagłówki niestandardowe | Nagłówki, które chcesz przekazać wraz z żądaniem POST. Powinny być w formacie "klucz: wartość". |
-| Akcje wyzwalania | Akcje wyzwalające element webhook. Akcje obejmują wypychanie obrazu, usuwanie obrazu, wypychanie wykresu helm, usuwanie wykresu helm i kwarantannę obrazu. Można wybrać jedną lub więcej akcji, aby wyzwolić element webhook. |
-| Stan | Stan elementu webhook po jego utworzeniu. Jest domyślnie włączona. |
-| Zakres | Zakres, w którym działa element webhook. Jeśli nie zostanie określony, zakres jest dla wszystkich zdarzeń w rejestrze. Można go określić dla repozytorium lub tagu przy użyciu formatu "repozytorium:tag" lub "repozytorium:*" dla wszystkich tagów w repozytorium. |
+| Nazwa elementu webhook | Nazwa, która ma zostać nadana elementowi webhook. Może zawierać tylko litery i cyfry i musi mieć 5-50 znaków. |
+| Lokalizacja | W przypadku rejestru z [replikacją geograficzną](container-registry-geo-replication.md) Określ region platformy Azure repliki rejestru. 
+| Identyfikator URI usługi | Identyfikator URI, w którym element webhook powinien wysyłać powiadomienia po stronie. |
+| Nagłówki niestandardowe | Nagłówki, które mają zostać przekazane wraz z żądaniem POST. Powinny mieć format "klucz: wartość". |
+| Akcje wyzwalania | Akcje wyzwalające element webhook. Akcje obejmują wypychanie obrazu, Usuwanie obrazu, Helm wykresu wypychania, usuwanie wykresu Helm i kwarantannę obrazu. Możesz wybrać jedną lub więcej akcji, aby wyzwolić element webhook. |
+| Stan | Stan elementu webhook po jego utworzeniu. Jest on domyślnie włączony. |
+| Zakres | Zakres, w którym działa element webhook. Jeśli nie zostanie określony, zakres dotyczy wszystkich zdarzeń w rejestrze. Może być określony dla repozytorium lub tag przy użyciu formatu "Repository: tag" lub "Repository: *" dla wszystkich tagów w repozytorium. |
 
 Przykładowy formularz elementu webhook:
 
-![Interfejs użytkownika tworzenia elementu webhook ACR w witrynie Azure portal](./media/container-registry-webhook/webhook.png)
+![Interfejs użytkownika tworzenia elementu webhook ACR w Azure Portal](./media/container-registry-webhook/webhook.png)
 
 ## <a name="create-webhook---azure-cli"></a>Tworzenie elementu webhook — interfejs wiersza polecenia platformy Azure
 
-Aby utworzyć element webhook przy użyciu interfejsu wiersza polecenia interfejsu wiersza polecenia platformy Azure, należy użyć [az acr webhook utworzyć](/cli/azure/acr/webhook#az-acr-webhook-create) polecenie. Następujące polecenie tworzy element webhook dla wszystkich zdarzeń usuwania obrazu w *rejestrze mycontainerregistry:*
+Aby utworzyć element webhook przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ ACR webhook Create](/cli/azure/acr/webhook#az-acr-webhook-create) . Następujące polecenie tworzy element webhook dla wszystkich zdarzeń usunięcia obrazu w rejestrze *mycontainerregistry*:
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
 ```
 
-## <a name="test-webhook"></a>Test webhook
+## <a name="test-webhook"></a>Testuj element webhook
 
-### <a name="azure-portal"></a>Portal Azure
+### <a name="azure-portal"></a>Azure Portal
 
-Przed użyciem elementu webhook można go przetestować za pomocą przycisku **Ping.** Ping wysyła ogólne żądanie POST do określonego punktu końcowego i rejestruje odpowiedź. Korzystanie z funkcji ping może pomóc w sprawdzeniu prawidłowej konfiguracji elementu webhook.
+Przed użyciem elementu webhook można przetestować go za pomocą przycisku **ping** . Polecenie ping wysyła ogólne żądanie POST do określonego punktu końcowego i rejestruje odpowiedź. Korzystanie z funkcji ping może pomóc w sprawdzeniu, czy poprawnie skonfigurowano element webhook.
 
 1. Wybierz element webhook, który chcesz przetestować.
-2. Na górnym pasku narzędzi wybierz **polecenie Ping**.
-3. Sprawdź odpowiedź punktu końcowego w kolumnie **STAN HTTP.**
+2. Na górnym pasku narzędzi wybierz polecenie **ping**.
+3. Sprawdź odpowiedź punktu końcowego w kolumnie **stan http** .
 
-![Interfejs użytkownika tworzenia elementu webhook ACR w witrynie Azure portal](./media/container-registry-webhook/webhook-02.png)
+![Interfejs użytkownika tworzenia elementu webhook ACR w Azure Portal](./media/container-registry-webhook/webhook-02.png)
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby przetestować element webhook usługi ACR za pomocą interfejsu wiersza polecenia interfejsu wiersza polecenia platformy Azure, użyj polecenia [az acr webhook ping.](/cli/azure/acr/webhook#az-acr-webhook-ping)
+Aby przetestować element webhook ACR za pomocą interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ ACR webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping) .
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-Aby wyświetlić wyniki, użyj polecenia [az acr webhook list-events.](/cli/azure/acr/webhook)
+Aby wyświetlić wyniki, użyj polecenia [AZ ACR webhook list-Events](/cli/azure/acr/webhook) .
 
 ```azurecli-interactive
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01
 ```
 
-## <a name="delete-webhook"></a>Usuwanie elementu webhook
+## <a name="delete-webhook"></a>Usuń element webhook
 
-### <a name="azure-portal"></a>Portal Azure
+### <a name="azure-portal"></a>Azure Portal
 
-Każdy element webhook można usunąć, wybierając element webhook, a następnie **przycisk Usuń** w witrynie Azure portal.
+Każdy element webhook można usunąć, wybierając element webhook, a następnie przycisk **Usuń** w Azure Portal.
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
@@ -93,12 +93,12 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 ### <a name="webhook-schema-reference"></a>Odwołanie do schematu elementu webhook
 
-Aby uzyskać szczegółowe informacje na temat formatu i właściwości ładunków zdarzeń JSON emitowanych przez usługę Azure Container Registry, zobacz odwołanie do schematu elementu webhook:
+Aby uzyskać szczegółowe informacje o formacie i właściwościach ładunków zdarzeń JSON emitowanych przez Azure Container Registry, zobacz odwołanie do schematu elementu webhook:
 
-[Odwołanie do schematu elementu webhook rejestru kontenerów platformy Azure](container-registry-webhook-reference.md)
+[Odwołanie do schematu elementu webhook Azure Container Registry](container-registry-webhook-reference.md)
 
-### <a name="event-grid-events"></a>Zdarzenia w siatce zdarzeń
+### <a name="event-grid-events"></a>Zdarzenia Event Grid
 
-Oprócz natywnych zdarzeń elementu webhook rejestru omówione w tym artykule, usługa Azure Container Registry może emitować zdarzenia do siatki zdarzeń:
+Oprócz natywnych zdarzeń elementu webhook rejestru omówionych w tym artykule Azure Container Registry mogą emitować zdarzenia do Event Grid:
 
-[Szybki start: wysyłanie zdarzeń rejestru kontenerów do siatki zdarzeń](container-registry-event-grid-quickstart.md)
+[Szybki Start: wysyłanie zdarzeń rejestru kontenera do Event Grid](container-registry-event-grid-quickstart.md)

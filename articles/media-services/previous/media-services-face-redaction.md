@@ -1,6 +1,6 @@
 ---
-title: Redagowanie twarzy za pomocą usługi Azure Media Analytics | Dokumenty firmy Microsoft
-description: Usługa Azure Media Redactor to procesor multimediów usługi Azure Media Analytics, który oferuje skalowalną redakcję twarzy w chmurze. W tym artykule pokazano, jak redagować twarze za pomocą analizy multimediów platformy Azure.
+title: Redagowanie twarzy przy użyciu Azure Media Analytics | Microsoft Docs
+description: Azure Media Redactor to Azure Media Analyticsy procesor multimediów, który oferuje skalowalne możliwości redakcyjne w chmurze. W tym artykule przedstawiono sposób redagowania twarzy przy użyciu usługi Azure Media Analytics.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,47 +14,47 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6a1b7a76ef1efda51f09ac733b3d434235ff40ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74900300"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Redagowanie twarzy za pomocą usługi Azure Media Analytics 
+# <a name="redact-faces-with-azure-media-analytics"></a>Redagowanie twarzy przy użyciu Azure Media Analytics 
 ## <a name="overview"></a>Omówienie
-**Usługa Azure Media Redactor** to procesor multimediów [usługi Azure Media Analytics](media-services-analytics-overview.md) (MP), który oferuje skalowalną redakcję twarzy w chmurze. Funkcja przeredagowania twarzy umożliwia modyfikowanie filmu w celu rozmycia twarzy wybranych osób. Możesz użyć usługi redagowania twarzy w scenariuszach bezpieczeństwa publicznego i mediów informacyjnych. Kilka minut materiału, który zawiera wiele twarzy może potrwać wiele godzin, aby redagować ręcznie, ale z tej usługi proces redakcyjny twarzy będzie wymagać tylko kilku prostych kroków. Aby uzyskać więcej informacji, zobacz [ten](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure Media redactor** to procesor Media [Azure Media Analytics](media-services-analytics-overview.md) (MP), który oferuje skalowalne możliwości redakcyjne w chmurze. Redakcja twarzy umożliwia modyfikowanie wideo w celu rozmycia powierzchni wybranych osób. Możesz chcieć użyć usługi redakcyjnej ze stroną w scenariuszach bezpieczeństwa publicznego i mediów informacyjnych. Kilka minut filmu, które zawiera wiele twarzy, może zająć więcej czasu, ale w przypadku tej usługi proces redakcyjny twarzy będzie wymagał zaledwie kilku prostych kroków. Aby uzyskać więcej informacji, zobacz [ten](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
-Ten artykuł zawiera szczegółowe informacje na temat **usługi Azure Media Redactor** i pokazuje, jak go używać z zestawem SDK usługi Media Services dla platformy .NET.
+Ten artykuł zawiera szczegółowe informacje dotyczące **Azure Media redactor** i pokazuje, jak używać go z zestawem SDK Media Services dla platformy .NET.
 
-## <a name="face-redaction-modes"></a>Tryby przeredagowania twarzy
-Redakcja twarzy polega na wykrywaniu twarzy w każdej klatce wideo i śledzeniu obiektu twarzy zarówno do przodu, jak i do tyłu w czasie, dzięki czemu ta sama osoba może być zamazana pod innymi kątami. Zautomatyzowany proces redakcyjny jest złożony i nie zawsze generuje 100% żądanych danych wyjściowych, z tego powodu Media Analytics zapewnia kilka sposobów modyfikowania ostatecznego wyjścia.
+## <a name="face-redaction-modes"></a>Tryby redakcyjne
+Redakcja twarzy działa przez wykrywanie powierzchni w każdej klatce wideo i śledzenie obiektu twarzy zarówno do przodu, jak i do tyłu, tak aby ta sama osoba mogła być zamazana z innych kątów. Zautomatyzowany proces redakcyjny jest skomplikowany i nie zawsze produkuje 100% żądanych danych wyjściowych. z tego powodu Media Analytics udostępnia kilka sposobów modyfikowania końcowych danych wyjściowych.
 
-Oprócz trybu w pełni automatycznego, istnieje dwuprzebiegowy przepływ pracy, który umożliwia wybór / de-wybór znalezionych twarzy za pośrednictwem listy identyfikatorów. Ponadto, aby dowolne dopasowania na klatkę MP używa pliku metadanych w formacie JSON. Ten przepływ pracy jest podzielony na **tryby Analizy** i **Redact.** Można połączyć dwa tryby w jednym przebiegu, który uruchamia oba zadania w jednym zadaniu; ten tryb nazywa się **Combined**.
+Oprócz pełnego trybu automatycznego istnieje dwuprzebiegowy przepływ pracy, który umożliwia zaznaczanie/usuwanie wybranych twarzy przez listę identyfikatorów. Ponadto w celu dostrojenia dowolnej ramki pakiet MP używa pliku metadanych w formacie JSON. Ten przepływ pracy jest podzielony na tryby **analizowania** i **redagowania** . Dwa tryby można połączyć w jednym przebiegu, który uruchamia oba zadania w jednym zadaniu. Ten tryb jest wywoływany **razem**.
 
-### <a name="combined-mode"></a>Tryb łączony
-Powoduje to automatyczne zredagowanie mp4 bez ręcznego wprowadzania danych.
+### <a name="combined-mode"></a>Tryb połączony
+Spowoduje to wygenerowanie redagowane MP4 automatycznie bez żadnych ręcznych danych wejściowych.
 
 | Etap | Nazwa pliku | Uwagi |
 | --- | --- | --- |
-| Zasób wejściowy |foo.bar |Wideo w formacie WMV, MOV lub MP4 |
-| Config wejściowy |Predefiniowane ustawienia konfiguracji zadania |{'version':'1.0', 'options': {'mode':'combined'}} |
-| Zasób wyjściowy |foo_redacted.mp4 |Wideo z zastosowanym rozmyciem |
+| Zasób wejściowy |foo. bar |Wideo w formacie WMV, MOV lub MP4 |
+| Konfiguracja wejściowa |Ustawienie wstępne konfiguracji zadania |{"Version": "1.0", "Options": {"Mode": "połączony"}} |
+| Wyjściowy element zawartości |foo_redacted. mp4 |Film wideo z zastosowanym rozmyciem |
 
-#### <a name="input-example"></a>Przykład wejściowy:
-[zobacz ten film](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
+#### <a name="input-example"></a>Przykład danych wejściowych:
+[Obejrzyj to wideo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
 #### <a name="output-example"></a>Przykładowe dane wyjściowe:
-[zobacz ten film](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
+[Obejrzyj to wideo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
 ### <a name="analyze-mode"></a>Tryb analizy
-Przebieg **analizy** dwuprzebiegowego przepływu pracy pobiera wejście wideo i tworzy plik JSON lokalizacji twarzy oraz obrazy jpg każdej wykrytej twarzy.
+**Przeanalizuj** przebieg przepływu pracy dwuprzebiegowej pobiera wideo i tworzy plik JSON lokalizacji, a obrazy jpg każdej wykrytej klasy.
 
 | Etap | Nazwa pliku | Uwagi |
 | --- | --- | --- |
-| Zasób wejściowy |foo.bar |Wideo w formacie WMV, MPV lub MP4 |
-| Config wejściowy |Predefiniowane ustawienia konfiguracji zadania |{'version':'1.0', 'options': {'mode':'analyze'}} |
-| Zasób wyjściowy |foo_annotations.json |Dane adnotacji lokalizacji twarzy w formacie JSON. Może to być edytowane przez użytkownika, aby zmodyfikować rozmyte obwiednie. Zobacz przykład poniżej. |
-| Zasób wyjściowy |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Przycięte o rozcięcie każdej wykrytej twarzy, gdzie liczba wskazuje labelId twarzy |
+| Zasób wejściowy |foo. bar |Wideo w formacie WMV, MPV lub MP4 |
+| Konfiguracja wejściowa |Ustawienie wstępne konfiguracji zadania |{"Version": "1.0", "Options": {"Mode": "Analizuj"}} |
+| Wyjściowy element zawartości |plik foo_annotations. JSON |Dane adnotacji lokalizacji czołowych w formacie JSON. Może to być edytowane przez użytkownika w celu zmodyfikowania pól związanych z rozmyciem. Zobacz przykład poniżej. |
+| Wyjściowy element zawartości |foo_thumb %0 6 d. jpg [foo_thumb000001. jpg, foo_thumb000002. jpg] |Przycięta jpg każdej wykrytej klasy, gdzie liczba wskazuje labelId |
 
 #### <a name="output-example"></a>Przykładowe dane wyjściowe:
 
@@ -107,27 +107,27 @@ Przebieg **analizy** dwuprzebiegowego przepływu pracy pobiera wejście wideo i 
     … truncated
 ```
 
-### <a name="redact-mode"></a>Tryb redact
-Drugi przebieg przepływu pracy zajmuje większą liczbę danych wejściowych, które muszą być połączone w jeden zasób.
+### <a name="redact-mode"></a>Tryb redagowania
+Drugi przebieg przepływu pracy pobiera większą liczbę danych wejściowych, które muszą być połączone w pojedynczy element zawartości.
 
-Obejmuje to listę identyfikatorów do rozmycia, oryginalny film i adnotacje JSON. W tym trybie adnotacje są stosowane do rozmywania na wejściowym filmie wideo.
+Obejmuje to listę identyfikatorów rozmycia, oryginalnego wideo oraz JSON adnotacji. W tym trybie są stosowane adnotacje w celu zastosowania rozmycia danych wejściowych wideo.
 
-Dane wyjściowe z przebiegu Analizy nie zawierają oryginalnego wideo. Wideo musi zostać przesłane do zasobu wejściowego dla zadania trybu Redact i wybrane jako plik podstawowy.
+Dane wyjściowe z przebiegu analizy nie obejmują oryginalnego wideo. Film wideo musi zostać przekazany do wejściowego zasobu dla zadania tryb Zredaguj i wybrany jako plik podstawowy.
 
 | Etap | Nazwa pliku | Uwagi |
 | --- | --- | --- |
-| Zasób wejściowy |foo.bar |Wideo w formacie WMV, MPV lub MP4. Ten sam film, jak w kroku 1. |
-| Zasób wejściowy |foo_annotations.json |adnotacje plik metadanych z fazy pierwszej, z opcjonalnymi modyfikacjami. |
-| Zasób wejściowy |foo_IDList.txt (opcjonalnie) |Opcjonalna nowa lista oddzielonych wierszami identyfikatorów twarzy do redagowanie. Jeśli pozostanie puste, spowoduje to rozmycie wszystkich ścian. |
-| Config wejściowy |Predefiniowane ustawienia konfiguracji zadania |{'version':'1.0', 'options': {'mode':'redact'}} |
-| Zasób wyjściowy |foo_redacted.mp4 |Wideo z rozmyciem zastosowanym na podstawie adnotacji |
+| Zasób wejściowy |foo. bar |Wideo w formacie WMV, MPV lub MP4. To samo wideo jak w kroku 1. |
+| Zasób wejściowy |plik foo_annotations. JSON |plik metadanych adnotacji z fazy pierwszej, z opcjonalnymi modyfikacjami. |
+| Zasób wejściowy |foo_IDList. txt (opcjonalnie) |Opcjonalna lista oddzielonych od nowa linia identyfikatorów kroju do redagowania. Jeśli pole pozostanie puste, rozmycie wszystkie twarze. |
+| Konfiguracja wejściowa |Ustawienie wstępne konfiguracji zadania |{"Version": "1.0", "Options": {"Mode": "Zredaguj"}} |
+| Wyjściowy element zawartości |foo_redacted. mp4 |Wideo z rozmyciem stosowane na podstawie adnotacji |
 
 #### <a name="example-output"></a>Przykładowe dane wyjściowe
-Jest to dane wyjściowe z listy identyfikatorów z wybraną jednym identyfikatorem.
+Jest to wyjście z IDList z wybranym IDENTYFIKATORem.
 
-[zobacz ten film](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
+[Obejrzyj to wideo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
-Przykład foo_IDList.txt
+Przykład foo_IDList. txt
  
      1
      2
@@ -135,11 +135,11 @@ Przykład foo_IDList.txt
 
 ## <a name="blur-types"></a>Typy rozmycia
 
-W trybie **Połączone** lub **Redact** istnieje 5 różnych trybów rozmycia, z których można wybierać za pomocą konfiguracji wejściowej JSON: **Niski,** **Med,** **Wysoki,** **Box**i **Czarny.** Domyślnie używany jest **Med.**
+W trybie **połączonym** lub **Zredaguj** istnieją 5 różnych trybów rozmycia, z których można skorzystać za pośrednictwem konfiguracji danych wejściowych JSON: **Low**, **Med**, **High**, **Box**i **Black**. Domyślnie jest używana wartość **Med** .
 
-Próbki typów rozmycia można znaleźć poniżej.
+Przykłady typów rozmycia można znaleźć poniżej.
 
-### <a name="example-json"></a>Przykład JSON:
+### <a name="example-json"></a>Przykładowy kod JSON:
 
 ```json
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
@@ -149,9 +149,9 @@ Próbki typów rozmycia można znaleźć poniżej.
 
 ![Małe](./media/media-services-face-redaction/blur1.png)
  
-#### <a name="med"></a>Med
+#### <a name="med"></a>Komitetem
 
-![Med](./media/media-services-face-redaction/blur2.png)
+![Komitetem](./media/media-services-face-redaction/blur2.png)
 
 #### <a name="high"></a>Wysoka
 
@@ -167,16 +167,16 @@ Próbki typów rozmycia można znaleźć poniżej.
 
 ## <a name="elements-of-the-output-json-file"></a>Elementy wyjściowego pliku JSON
 
-Redaction MP zapewnia precyzyjne wykrywanie i śledzenie lokalizacji twarzy, które może wykryć do 64 ludzkich twarzy w ramce wideo. Ściany czołowe zapewniają najlepsze wyniki, podczas gdy ściany boczne i małe ściany (mniej lub równe 24x24 pikselom) są trudne.
+Pakiet administracyjny redakcyjny zapewnia wykrywanie i śledzenie lokalizacji twarzy z wysoką dokładnością, które mogą wykrywać nawet 64 ludzkich powierzchni w ramce wideo. Twarze czołowe zapewniają najlepsze wyniki, a jednocześnie twarze i małe twarze (mniejsze niż lub równe 24x24 pikseli) są trudne.
 
 [!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 
 ## <a name="net-sample-code"></a>Przykładowy kod platformy .NET
 
-W poniższym programie pokazano, jak:
+Poniższy program pokazuje, jak:
 
-1. Utwórz zasób i przekaż plik multimedialny do zasobu.
-2. Utwórz zadanie z zadaniem redakcyjnym twarzy na podstawie pliku konfiguracyjnego zawierającego następujące ustawienia json: 
+1. Utwórz element zawartości i Przekaż plik multimedialny do elementu zawartości.
+2. Utwórz zadanie z zadaniem redakcyjnym ze stroną na podstawie pliku konfiguracji, który zawiera następujące ustawienia wstępne JSON: 
 
     ```json
             {
@@ -371,7 +371,7 @@ namespace FaceRedaction
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Powiązane linki
-[Omówienie usługi Azure Media Services Analytics](media-services-analytics-overview.md)
+[Omówienie Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Pokazy usługi Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demonstracje Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

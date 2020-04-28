@@ -1,6 +1,6 @@
 ---
-title: Problem z logowaniem się do aplikacji lokalnej przy użyciu serwera proxy aplikacji usługi Azure AD | Dokumenty firmy Microsoft
-description: Rozwiązywanie typowych problemów napotykanych, gdy nie można zalogować się do aplikacji lokalnej zintegrowanej z usługą Azure AD przy użyciu serwera proxy aplikacji usługi Azure AD
+title: Problem z logowaniem do aplikacji lokalnej przy użyciu serwera proxy aplikacji usługi Azure AD | Microsoft Docs
+description: Rozwiązywanie typowych problemów związanych z zalogowaniem się do aplikacji lokalnej zintegrowanej z usługą Azure AD przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,15 +16,15 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 91a00e243032fd9702e8b549c75363f1a3e1c87f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74232324"
 ---
-# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemy z logowaniem się do aplikacji lokalnej przy użyciu serwera proxy aplikacji usługi Azure AD
+# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemy z logowaniem do aplikacji lokalnej przy użyciu serwera proxy aplikacji usługi Azure AD
 
-Jeśli masz problemy z logowaniem się w aplikacji lokalnej, możesz spróbować wykonać poniższe czynności, aby rozwiązać problem.
+Jeśli masz problemy z zalogowaniem się do aplikacji lokalnej, możesz spróbować wykonać poniższe kroki, aby rozwiązać problem.
 
 ## <a name="i-can-load-my-application-but-something-on-the-page-looks-broken"></a>Mogę załadować moją aplikację, lecz niektóre elementy strony wyglądają na uszkodzone
 
@@ -56,7 +56,7 @@ Następujące dokumenty mogą ułatwić rozwiązanie niektórych często spotyka
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Mam problem z łącznikiem agenta serwera proxy aplikacji
   Następujące dokumenty mogą ułatwić rozwiązanie niektórych często spotykanych problemów tego typu.
-  * [Mam problemy z instalacją łącznika agenta proxy aplikacji](application-proxy-connector-installation-problem.md)
+  * [Mam problemy z instalowaniem łącznika agenta serwera proxy aplikacji](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>Następne kroki
 [Jak zapewnić bezpieczny, zdalny dostęp do aplikacji lokalnych](application-proxy.md)

@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie środowiska deweloperskiego usługi Azure Media Services | Microsoft Docs
-description: W tym artykule opisano sposób konfigurowania środowiska do tworzenia za pomocą usługi Azure Media Services.
+description: W tym artykule opisano sposób konfigurowania środowiska do programowania przy użyciu Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 5ef9b3d6f13de70cdf2fff87d9aed0a8efc2b782
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74895801"
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Konfigurowanie środowiska deweloperskiego usługi Media Services  
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Sprawdź najnowszą wersję usługi [Media Services w wersji 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji z wersji 2 do v3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 W poniższych krokach opisano wymagania wstępne dotyczące programowania z użyciem usługi Azure Media Services.
 

@@ -1,6 +1,6 @@
 ---
-title: Łączenie się z usługą Yammer za pomocą aplikacji Logika platformy Azure
-description: Automatyzowanie zadań i przepływów pracy monitorujących, publikowanych i zarządzania wiadomościami, kanałami informacyjnymi i innymi usługami w usłudze Yammer przy użyciu aplikacji Azure Logic Apps
+title: Nawiązywanie połączenia z usługą Yammer z Azure Logic Apps
+description: Automatyzuj zadania i przepływy pracy, które monitorują, publikują i zarządzają wiadomościami, źródłami danych i innymi w usłudze Yammer przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,66 +8,66 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 194c08d034d44ba0a4472b3b516fc45d1d262d28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789073"
 ---
-# <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Monitorowanie konta usługi Yammer i zarządzanie nim przy użyciu usługi Azure Logic Apps
+# <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Monitorowanie konta usługi Yammer i zarządzanie nim przy użyciu Azure Logic Apps
 
-Za pomocą usługi Azure Logic Apps i łącznika usługi Yammer można tworzyć zautomatyzowane zadania i przepływy pracy, które monitorują wiadomości, źródła danych i inne elementy na koncie usługi Yammer oraz nimi, a także inne akcje, na przykład:
+Za pomocą Azure Logic Apps i łącznika usługi Yammer można tworzyć automatyczne zadania i przepływy pracy, które monitorują komunikaty, kanały informacyjne i nie tylko na koncie w usłudze Yammer, a także inne akcje, na przykład:
 
-* Monitoruj, gdy w obserwowanych kanałach informacyjnych i grupach pojawią się nowe wiadomości.
-* Otrzymuuj wiadomości, grupy, sieci, dane użytkowników i inne.
-* Publikuj i polub wiadomości.
+* Monitoruj, kiedy nowe komunikaty pojawiają się w odwiedzonych źródłach i grupach.
+* Pobieranie komunikatów, grup, sieci, szczegółów użytkowników i nie tylko.
+* Komunikaty post i like.
 
-Można użyć wyzwalaczy, które otrzymują odpowiedzi z konta Yammer i udostępnić dane wyjściowe innym działaniom. Można użyć akcji, które wykonują zadania przy użyciu konta usługi Yammer. Można również mieć inne akcje użyć danych wyjściowych z yammer akcji. Na przykład, gdy nowe wiadomości pojawiają się w kanałach informacyjnych lub grupach, można udostępnić te wiadomości z łącznika Slack. Jeśli jesteś nowy w aplikacjach logiki, sprawdź [Co to jest usługa Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Można użyć wyzwalaczy, które odbierają odpowiedzi z konta usługi Yammer i udostępniają dane wyjściowe innym akcjom. Możesz użyć akcji, które wykonują zadania przy użyciu konta w usłudze Yammer. Możesz również mieć inne akcje, które używają danych wyjściowych z akcji usługi Yammer. Na przykład, gdy nowe komunikaty są wyświetlane w obszarze źródła lub grupy, można je udostępnić za pomocą łącznika zapasowego. Jeśli jesteś nowym sposobem logiki aplikacji, zapoznaj [się z tematem Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/). 
 
-* Twoje konto usługi Yammer i poświadczenia użytkownika
+* Twoje konto w usłudze Yammer i poświadczenia użytkownika
 
-   Poświadczenia autoryzują aplikację logiki do tworzenia połączenia i uzyskiwania dostępu do konta usługi Yammer.
+   Twoje poświadczenia autoryzują aplikację logiki, aby utworzyć połączenie i uzyskać dostęp do konta w usłudze Yammer.
 
-* Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Aplikacja logiki, w której chcesz uzyskać dostęp do konta usługi Yammer. Aby rozpocząć od wyzwalacza usługi Yammer, [utwórz pustą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby użyć akcji Yammer, uruchom aplikację logiki z innym wyzwalaczem, na przykład **wyzwalaczem cyklu.**
+* Aplikacja logiki, w której chcesz uzyskać dostęp do konta w usłudze Yammer. Aby rozpocząć pracę z wyzwalaczem usługi Yammer, [Utwórz pustą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby użyć akcji usługi Yammer, uruchom aplikację logiki z innym wyzwalaczem, na przykład wyzwalaczem **cyklu** .
 
-## <a name="connect-to-yammer"></a>Łączenie się z usługi Yammer
+## <a name="connect-to-yammer"></a>Nawiązywanie połączenia z usługą Yammer
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com)i otwórz aplikację logiki w logice App Designer, jeśli nie jest już otwarty.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com)i Otwórz aplikację logiki w Projektancie aplikacji logiki, jeśli nie jest jeszcze otwarta.
 
 1. Wybierz ścieżkę: 
 
-   * W przypadku pustych aplikacji logiki w polu wyszukiwania wprowadź "yammer" jako filtr. 
-   W obszarze listy wyzwalaczy wybierz odpowiedni wyzwalacz. 
+   * W przypadku pustych aplikacji logiki w polu wyszukiwania wprowadź ciąg "Yammer" jako filtr. 
+   Na liście Wyzwalacze wybierz wyzwalacz, który chcesz. 
 
      — lub —
 
-   * W przypadku istniejących aplikacji logiki: 
+   * Dla istniejących aplikacji logiki: 
    
-     * W obszarze ostatniego kroku, w którym chcesz dodać akcję, wybierz pozycję **Nowy krok**. 
+     * W ostatnim kroku, w którym chcesz dodać akcję, wybierz pozycję **nowy krok**. 
 
        — lub —
 
-     * Między krokami, w których chcesz dodać akcję, przesuń wskaźnik myszy na strzałkę między krokami. 
-     Wybierz wyświetlony znak**+** plus ( ), a następnie wybierz pozycję **Dodaj akcję**.
+     * Między krokami, do których chcesz dodać akcję, przesuń wskaźnik myszy nad strzałkę między krokami. 
+     Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
      
-       W polu wyszukiwania wpisz "yammer" jako filtr. 
-       W obszarze listy akcje wybierz odpowiednią akcję.
+       W polu wyszukiwania wprowadź ciąg "Yammer" jako filtr. 
+       Na liście Akcje wybierz żądaną akcję.
 
-1. Jeśli zostanie wyświetlony monit o zalogowanie się do usługi Yammer, zaloguj się teraz, aby zezwolić na dostęp.
+1. Jeśli zostanie wyświetlony monit o zalogowanie do usługi Yammer, zaloguj się teraz, aby zezwolić na dostęp.
 
-1. Podaj szczegóły niezbędne do wybranego wyzwalacza lub akcji i kontynuuj tworzenie przepływu pracy aplikacji logiki.
+1. Podaj niezbędne szczegóły wybranego wyzwalacza lub akcji i Kontynuuj tworzenie przepływu pracy aplikacji logiki.
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i limitów, które są opisane przez opis OpenAPI łącznika (dawniej Swagger), przejrzyj [stronę referencyjną](/connectors/yammer/)łącznika .
+Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i limitów, które są opisane w opisie OpenAPI łącznika (dawniej Swagger), przejrzyj [stronę odwołania](/connectors/yammer/)łącznika.
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
@@ -76,4 +76,4 @@ Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i li
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o innych [łącznikach aplikacji logiki](../connectors/apis-list.md)
+* Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)

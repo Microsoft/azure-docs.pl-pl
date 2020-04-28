@@ -1,6 +1,6 @@
 ---
-title: Importowanie kolekcji Listonosz do połączeń REST przesyłania strumieniowego na żywo na żywo
-description: Ten artykuł zawiera definicję kolekcji Postman dla usługi Azure Media Services REST wywołania.
+title: Importowanie kolekcji programu Poster dla wywołań REST usługi Azure Live Streaming
+description: Ten artykuł zawiera definicję kolekcji programu Poster dla Azure Media Services wywołań REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 897513abcc9f829f1cbdc315208e4451ae4dbc41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60637594"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importowanie kolekcji listonosza za pomocą operacji przesyłania strumieniowego na żywo 
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importowanie kolekcji ogłoszeń z użyciem operacji przesyłania strumieniowego na żywo 
 
-Ten artykuł zawiera definicję kolekcji **Postman,** która zawiera zgrupowane żądania HTTP, które wywołują interfejsy API REST usługi Azure Media Services **na żywo.** Aby uzyskać informacje dotyczące konfigurowania **postmana,** tak aby można było go używać do wywoływania interfejsów API REST usługi Media Services, zobacz [Konfigurowanie postmana dla obsługi interfejsu API usługi Media Services.](media-rest-apis-with-postman.md)
+Ten artykuł zawiera definicję kolekcji programu **Poster** zawierającą pogrupowane żądania HTTP, które wywołują interfejsy API usługi **Live Streaming** Azure Media Services. Aby uzyskać informacje o sposobie konfigurowania programu **Poster** , aby można było go użyć do wywołania interfejsów api REST Media Services, zobacz temat [Konfigurowanie programu poster dla Media Services wywołań interfejsu API REST](media-rest-apis-with-postman.md) .
 
 ```
 {

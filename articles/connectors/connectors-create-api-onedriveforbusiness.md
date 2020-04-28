@@ -1,6 +1,6 @@
 ---
-title: Łączenie się z usłudze OneDrive dla Firm
-description: Przekazywanie plików i zarządzanie nimi za pomocą interfejsów API rest usługi OneDrive dla firm i aplikacji Azure Logic Apps
+title: Nawiązywanie połączenia z usługą OneDrive dla firm
+description: Przekazywanie plików i zarządzanie nimi za pomocą interfejsów API REST usługi OneDrive dla firm i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,32 +8,32 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 48c819566db43e2f997309d1bea55a9436ec7085
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789459"
 ---
-# <a name="get-started-with-the-onedrive-for-business-connector"></a>Wprowadzenie do łącznika usługi OneDrive dla Firm
-Połącz się z usłudze OneDrive dla Firm, aby zarządzać plikami. Można wykonywać różne akcje, takie jak przekazywanie, aktualizowanie, ugryczanie i usuwanie plików.
+# <a name="get-started-with-the-onedrive-for-business-connector"></a>Wprowadzenie do łącznika usługi OneDrive dla firm
+Połącz się z usługą OneDrive dla firm, aby zarządzać plikami. Można wykonywać różne czynności, takie jak przekazywanie, aktualizowanie, pobieranie i usuwanie plików.
 
-Możesz rozpocząć, tworząc aplikację logiki teraz, zobacz [Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Teraz możesz zacząć od utworzenia aplikacji logiki, zobacz [Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="create-a-connection-to-onedrive-for-business"></a>Tworzenie połączenia z usługą OneDrive dla Firm
-Aby utworzyć aplikacje logiki za pomocą usługi OneDrive dla Firm, należy najpierw utworzyć **połączenie,** a następnie podać szczegóły dotyczące następujących właściwości:
+## <a name="create-a-connection-to-onedrive-for-business"></a>Utwórz połączenie z usługą OneDrive dla firm
+Aby utworzyć Aplikacje logiki za pomocą usługi OneDrive dla firm, należy najpierw utworzyć **połączenie** , a następnie podać szczegóły następujących właściwości:
 
 | Właściwość | Wymagany | Opis |
 | --- | --- | --- |
-| Token |Tak |Podaj poświadczenia usługi OneDrive dla Firm |
+| Token |Tak |Podaj poświadczenia usługi OneDrive dla firm |
 
-Po utworzeniu połączenia można go użyć do wykonania akcji i nasłuchiwać wyzwalaczy opisanych w tym artykule.
+Po utworzeniu połączenia można użyć go do wykonywania akcji i nasłuchiwania wyzwalaczy opisanych w tym artykule.
 
 > [!INCLUDE [Steps to create a connection to OneDrive for Business](../../includes/connectors-create-api-onedriveforbusiness.md)]
 > 
 
-## <a name="connector-specific-details"></a>Szczegóły specyficzne dla łącznika
+## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 
-Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger, a także zobacz wszelkie limity w [szczegółach łącznika](/connectors/onedriveforbusinessconnector/).
+Wyświetlanie wszystkich wyzwalaczy i akcji zdefiniowanych w strukturze Swagger, a także wszystkich ograniczeń w [szczegółach łącznika](/connectors/onedriveforbusinessconnector/).
 
-## <a name="more-connectors"></a>Więcej złączy
+## <a name="more-connectors"></a>Więcej łączników
 Wróć do [listy interfejsów API](apis-list.md).

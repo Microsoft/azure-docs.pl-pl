@@ -1,33 +1,33 @@
 ---
 title: Konfigurowanie warstwy PremiumV2
-description: Dowiedz się, jak uzyskać lepszą wydajność aplikacji sieci Web, urządzeń mobilnych i interfejsu API w usłudze Azure App Service, skalując do nowej warstwy cenowej PremiumV2.
+description: Dowiedz się, jak ulepszyć wydajność aplikacji sieci Web, mobilnych i interfejsu API w Azure App Service przez skalowanie do nowej warstwy cenowej PremiumV2.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 07/25/2018
 ms.custom: seodec18
 ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74672212"
 ---
-# <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurowanie warstwy PremiumV2 dla usługi Azure App Service
+# <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurowanie warstwy PremiumV2 dla Azure App Service
 
-Nowa warstwa cenowa **PremiumV2** zapewnia szybsze procesory, pamięć masową SSD i podwaja stosunek pamięci do rdzenia istniejących warstw cenowych. Dzięki korzyści wydajności można zaoszczędzić pieniądze, uruchamiając aplikacje na mniejszej liczbie wystąpień. W tym artykule dowiesz się, jak utworzyć aplikację w warstwie **PremiumV2** lub skalować aplikację do warstwy **PremiumV2.**
+Nowa warstwa cenowa **PremiumV2** zapewnia szybszy procesor, magazyn SSD i podwaja współczynnik pamięci na rdzeń istniejących warstw cenowych. Korzystając z wydajności, możesz zaoszczędzić pieniądze, uruchamiając aplikacje na mniejszej liczbie wystąpień. Ten artykuł zawiera informacje na temat tworzenia aplikacji w warstwie **PremiumV2** lub skalowania aplikacji do warstwy **PremiumV2** .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skalować aplikację do **wersji PremiumV2,** musisz mieć aplikację usługi Azure App Service, która działa w warstwie cenowej niższej niż **PremiumV2,** a aplikacja musi być uruchomiona we wdrożeniu usługi app service, która obsługuje wersję PremiumV2.
+Aby skalować aplikację w górę do **PremiumV2**, musisz mieć aplikację Azure App Service działającą w warstwie cenowej niższą niż **PremiumV2**, a aplikacja musi działać w ramach wdrożenia App Service, które obsługuje PremiumV2.
 
 <a name="availability"></a>
 
-## <a name="premiumv2-availability"></a>Dostępność premiumv2
+## <a name="premiumv2-availability"></a>Dostępność PremiumV2
 
-Warstwa **PremiumV2** jest dostępna dla usługi App Service zarówno w _systemie Windows,_ jak i _linux._
+Warstwa **PremiumV2** jest dostępna dla App Service zarówno w _systemie Windows_ , jak i _Linux_.
 
-**Usługa PremiumV2** jest dostępna w większości regionów platformy Azure. Aby sprawdzić, czy jest on dostępny w Twoim regionie, uruchom następujące polecenie interfejsu wiersza polecenia platformy Azure w [usłudze Azure Cloud Shell:](../cloud-shell/overview.md)
+**PremiumV2** jest dostępna w większości regionów świadczenia usługi Azure. Aby sprawdzić, czy jest on dostępny w Twoim regionie, uruchom następujące polecenie interfejsu wiersza polecenia platformy Azure w [Azure Cloud Shell](../cloud-shell/overview.md):
 
 ```azurecli-interactive
 az appservice list-locations --sku P1V2
@@ -37,61 +37,61 @@ az appservice list-locations --sku P1V2
 
 ## <a name="create-an-app-in-premiumv2-tier"></a>Tworzenie aplikacji w warstwie PremiumV2
 
-Warstwa cenowa aplikacji usługi App Service jest zdefiniowana w [planie usługi app service,](overview-hosting-plans.md) na który działa. Możesz utworzyć plan usługi app service samodzielnie lub jako część tworzenia aplikacji.
+Warstwa cenowa aplikacji App Service jest definiowana w [planie App Service](overview-hosting-plans.md) , w którym jest uruchomiona. W ramach tworzenia aplikacji można utworzyć App Service plan samodzielny.
 
-Podczas konfigurowania planu usługi app service w <a href="https://portal.azure.com" target="_blank">witrynie Azure portal</a>wybierz **warstwę cenową**. 
+Podczas konfigurowania planu App Service w <a href="https://portal.azure.com" target="_blank">Azure Portal</a>wybierz pozycję **warstwa cenowa**. 
 
-Wybierz **opcję Produkcja**, a następnie wybierz opcję **P1V2**, **P2V2**lub **P3V2**, a następnie kliknij przycisk **Zastosuj**.
+Wybierz pozycję **produkcja**, a następnie wybierz pozycję **P1V2**, **P2V2**lub **P3V2**, a następnie kliknij pozycję **Zastosuj**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> Jeśli nie widzisz **P1V2**, **P2V2**i **P3V2** jako opcje lub jeśli opcje są wyszarzone, a następnie **PremiumV2** prawdopodobnie nie jest dostępny w podstawowym wdrożenia usługi App Service, który zawiera plan usługi app service. Aby uzyskać więcej informacji, zobacz [Skalowanie w górę z nieobsługiconej grupy zasobów i kombinacji regionów.](#unsupported)
+> Jeśli nie widzisz opcji **P1V2**, **P2V2**i **P3V2** jako opcje lub jeśli opcje są wyszarzone, to **PremiumV2** prawdopodobnie nie jest dostępna w podstawowym wdrożeniu App Service, które zawiera plan App Service. Aby uzyskać więcej informacji [, zobacz Skalowanie w górę z nieobsługiwanej kombinacji grupy zasobów i regionu](#unsupported) .
 
-## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Skalowanie w górę istniejącej aplikacji do warstwy PremiumV2
+## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Skalowanie istniejącej aplikacji do warstwy PremiumV2
 
-Przed skalowaniem istniejącej aplikacji do warstwy **PremiumV2** upewnij się, że **usługa PremiumV2** jest dostępna. Aby uzyskać więcej informacji, zobacz [Dostępność PremiumV2](#availability). Jeśli opcja ta nie jest dostępna, zobacz [Skalowanie w górę z nieobsługiconej grupy zasobów i kombinacji regionów](#unsupported).
+Przed przeskalowaniem istniejącej aplikacji do warstwy **PremiumV2** upewnij się, że **PremiumV2** jest dostępna. Aby uzyskać więcej informacji, zobacz [PremiumV2 Availability (dostępność](#availability)). Jeśli nie jest dostępny, zobacz [skalowanie w górę z nieobsługiwanej kombinacji grupy zasobów i regionu](#unsupported).
 
-W zależności od środowiska hostingowego skalowanie w górę może wymagać dodatkowych kroków. 
+Skalowanie w górę może wymagać wykonania dodatkowych czynności w zależności od środowiska hostingu. 
 
-W <a href="https://portal.azure.com" target="_blank">witrynie Azure portal</a>otwórz stronę aplikacji usługi App Service.
+W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>Otwórz stronę aplikacji App Service.
 
-W lewej części strony aplikacji Usługi App Service wybierz pozycję **Skaluj w górę (plan usługi app service).**
+W lewym panelu nawigacyjnym strony aplikacji App Service wybierz pozycję **Skaluj w górę (plan App Service)**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-Wybierz **opcję Produkcja**, a następnie wybierz opcję **P1V2**, **P2V2**lub **P3V2**, a następnie kliknij przycisk **Zastosuj**.
+Wybierz pozycję **produkcja**, a następnie wybierz pozycję **P1V2**, **P2V2**lub **P3V2**, a następnie kliknij pozycję **Zastosuj**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
-Jeśli operacja zakończy się pomyślnie, strona przeglądu aplikacji pokazuje, że jest teraz w warstwie **PremiumV2.**
+Jeśli operacja zakończyła się pomyślnie, na stronie Przegląd aplikacji zostanie wyświetlona, że znajduje się ona teraz w warstwie **PremiumV2** .
 
 ![](media/app-service-configure-premium-tier/finished.png)
 
-### <a name="if-you-get-an-error"></a>Jeśli zostanie wyświetlony błąd
+### <a name="if-you-get-an-error"></a>Jeśli wystąpi błąd
 
-Niektóre plany usługi app service nie można skalować do warstwy PremiumV2, jeśli podstawowe wdrożenie usługi App Service nie obsługuje PremiumV2.  Aby uzyskać więcej informacji, zobacz [Skalowanie w górę z nieobsługiconej grupy zasobów i kombinacji regionów.](#unsupported)
+Niektóre plany App Service nie mogą skalować w górę do warstwy PremiumV2, jeśli podstawowe wdrożenie App Service nie obsługuje PremiumV2.  Aby uzyskać więcej informacji [, zobacz Skalowanie w górę z nieobsługiwanej kombinacji grupy zasobów i regionu](#unsupported) .
 
 <a name="unsupported"></a>
 
-## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>Skalowanie w górę z nieobsługiconej kombinacji grupy zasobów i regionu
+## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>Skalowanie w górę z nieobsługiwanej kombinacji grupy zasobów i regionu
 
-Jeśli aplikacja jest uruchamiana we wdrożeniu usługi App Service, gdzie **usługa PremiumV2** nie jest dostępna lub jeśli aplikacja działa w regionie, który obecnie nie obsługuje **wersji PremiumV2,** należy ponownie wdrożyć aplikację, aby skorzystać z **wersji PremiumV2.**  Dostępne są dwie opcje:
+Jeśli aplikacja działa w ramach wdrożenia App Service, w którym **PremiumV2** jest niedostępna, lub jeśli aplikacja działa w regionie, który obecnie nie obsługuje **PremiumV2**, należy ponownie wdrożyć aplikację w celu skorzystania z **PremiumV2**.  Dostępne są dwie opcje:
 
-- Utwórz **nową** grupę zasobów, a następnie utwórz **nową** aplikację i plan usługi App Service w **nowej** grupie zasobów, wybierając żądany region platformy Azure podczas procesu tworzenia.  **Należy** wybrać plan **PremiumV2** w momencie utworzenia nowego planu usługi aplikacji.  Dzięki temu połączenie grupy zasobów, planu usługi app service i regionu platformy Azure spowoduje, że plan usługi App Service zostanie utworzony we wdrożeniu usługi App Service, który obsługuje **wersję PremiumV2.**  Następnie ponownie wdrożyć kod aplikacji do nowo utworzonego planu usługi aplikacji i aplikacji. W razie potrzeby można następnie skalować plan usługi app service w dół z **PremiumV2,** aby zaoszczędzić koszty, a w przyszłości nadal będzie można pomyślnie skalować z powrotem w przyszłości za pomocą **PremiumV2**.
-- Jeśli aplikacja jest już uruchamiana w istniejącej warstwie **Premium,** możesz sklonować aplikację ze wszystkimi ustawieniami aplikacji, ciągami połączeń i konfiguracją wdrożenia w nowy plan usługi aplikacji korzystający z **programu PremiumV2.**
+- Utwórz **nową** grupę zasobów, a następnie Utwórz **nową** aplikację i App Service plan w **nowej** grupie zasobów, wybierając żądany region świadczenia usługi Azure w trakcie procesu tworzenia.  W momencie tworzenia nowego planu usługi App Service **musisz** wybrać plan **PremiumV2** .  Dzięki temu kombinacja grupy zasobów, planu App Service i regionu platformy Azure spowoduje utworzenie planu App Service w ramach wdrożenia App Service, które obsługuje **PremiumV2**.  Następnie ponownie Wdróż kod aplikacji w nowo utworzonej aplikacji i planie usługi App Service. W razie potrzeby można później skalować plan App Service w dół od **PremiumV2** , aby zaoszczędzić koszty. nadal będzie można pomyślnie skalować ponownie kopię zapasową w przyszłości przy użyciu **PremiumV2**.
+- Jeśli aplikacja jest już uruchomiona w istniejącej warstwie **Premium** , można sklonować aplikację ze wszystkimi ustawieniami aplikacji, parametrami połączeń i konfiguracją wdrożenia do nowego planu usługi App Service korzystającego z **PremiumV2**.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    Na stronie **Klonuj aplikację** możesz utworzyć plan usługi app service przy użyciu **usługi PremiumV2** w żądanym regionie i określić ustawienia aplikacji i konfigurację, które mają zostać sklonować.
+    Na stronie **klonowanie aplikacji** można utworzyć plan App Service przy użyciu **PremiumV2** w wybranym regionie i określić ustawienia i konfigurację aplikacji, które mają zostać sklonowane.
 
 ## <a name="automate-with-scripts"></a>Automatyzowanie przy użyciu skryptów
 
-Tworzenie aplikacji można zautomatyzować w warstwie **PremiumV2** za pomocą skryptów przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub programu Azure [PowerShell.](/powershell/azure/overview)
+Tworzenie aplikacji można zautomatyzować w warstwie **PremiumV2** za pomocą skryptów, korzystając z [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub [Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Następujące polecenie tworzy plan usługi app service w _P1V2_. Można go uruchomić w Cloud Shell. Dostępne opcje `--sku` to P1V2, _P2V2_i _P3V2._
+Następujące polecenie tworzy App Service plan w _P1V2_. Można uruchomić ją w Cloud Shell. Dostępne opcje `--sku` to P1V2, _P2V2_i _P3V2_.
 
 ```azurecli-interactive
 az appservice plan create \
@@ -104,7 +104,7 @@ az appservice plan create \
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Następujące polecenie tworzy plan usługi app service w _P1V2_. `-WorkerSize` Dostępne opcje to _Małe,_ _Średnie_i _Duże_.
+Następujące polecenie tworzy App Service plan w _P1V2_. `-WorkerSize` Opcje dla są _małe_, _średnie_i _duże_.
 
 ```powershell
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `

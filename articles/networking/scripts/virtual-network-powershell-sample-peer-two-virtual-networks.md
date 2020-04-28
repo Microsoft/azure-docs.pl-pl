@@ -1,6 +1,6 @@
 ---
-title: Przykład skryptu programu Azure PowerShell — dwie sieci wirtualne | Dokumenty firmy Microsoft
-description: Przykład skryptu programu Azure PowerShell — dwie sieci wirtualne
+title: Przykładowy skrypt Azure PowerShell — równorzędne dwie sieci wirtualne | Microsoft Docs
+description: Przykładowy skrypt Azure PowerShell — równorzędne dwie sieci wirtualne
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: kumud
 ms.openlocfilehash: 53af283813500fc93d3e5fb9d4b00a9c3034af2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890186"
 ---
 # <a name="peer-two-virtual-networks"></a>Komunikacja równorzędna dwóch sieci wirtualnych
 
-Ten skrypt tworzy i łączy dwie sieci wirtualne w tym samym regionie za pośrednictwem sieci platformy Azure. Po uruchomieniu skryptu utworzysz komunikację równorzędną pomiędzy dwiema sieciami wirtualnymi.
+Ten skrypt tworzy i łączy dwie sieci wirtualne w tym samym regionie za pomocą sieci platformy Azure. Po uruchomieniu skryptu utworzysz komunikację równorzędną pomiędzy dwiema sieciami wirtualnymi.
 
-W razie potrzeby zainstaluj program Azure PowerShell przy użyciu instrukcji znalezionych `Connect-AzAccount` w [przewodniku programu Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), a następnie uruchom w celu utworzenia połączenia z platformą Azure.
+W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdującej się w [przewodniku Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), a następnie `Connect-AzAccount` Uruchom polecenie, aby utworzyć połączenie z platformą Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

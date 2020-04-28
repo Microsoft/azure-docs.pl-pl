@@ -1,6 +1,6 @@
 ---
-title: H264 Single Bitrate 4K Media Encoder Standard preset - Azure | Dokumenty firmy Microsoft
-description: W tym artykule przedstawiono omówienie ustawienia wstępnego zadania Media Encoder Standard "H264 Single Bitrate 4K".
+title: Wielokrotna H264 pojedynczej szybkości transmisji bitów 4K Media Encoder Standard wstępnej platformy Azure | Microsoft Docs
+description: Ten artykuł zawiera Media Encoder Standard Omówienie wstępnie zdefiniowanego zadania "wielokrotna H264 pojedynczej szybkości transmisji bitów 4".
 author: Juliako
 manager: femila
 editor: ''
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: c1ba173f97353a5ffdd4a9b58f99f6f817f963ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74895892"
 ---
 # <a name="h264-single-bitrate-4k"></a>Pojedyncza szybkość transmisji bitów H264 4K
-`Media Encoder Standard`definiuje zestaw ustawień predefiniowanych kodowania, których można używać podczas tworzenia zadań kodowania. Można użyć a, `preset name` aby określić, w jakim formacie chcesz zakodować plik multimedialny. Można też utworzyć własne ustawienia predefiniowane oparte na języku JSON lub XML (przy użyciu kodowania UTF-8 lub UTF-16. Następnie należy przekazać niestandardowe ustawienia predefiniowane do kodera. Aby uzyskać listę wszystkich predefiniowanych `Media Encoder Standard` nazw obsługiwanych przez ten koder, zobacz [Presety zadań dla standardu kodera multimediów](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definiuje zestaw ustawień predefiniowanych kodowania, których można użyć podczas tworzenia zadań kodowania. Możesz użyć, `preset name` aby określić format, w którym chcesz kodować plik multimedialny. Można też tworzyć własne ustawienia predefiniowane JSON lub XML (przy użyciu kodowania UTF-8 lub UTF-16. Następnie można przekazać niestandardowe ustawienie wstępne do kodera. Aby uzyskać listę wszystkich wstępnie zdefiniowanych nazw obsługiwanych przez ten `Media Encoder Standard` koder, zobacz [Ustawienia wstępne zadań dla Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- W tym `H264 Single Bitrate 4K` temacie przedstawiono ustawienia predefiniowane w formacie XML i JSON.  
+ W tym temacie przedstawiono `H264 Single Bitrate 4K` ustawienia wstępne w formacie XML i JSON.  
   
- To ustawienie wstępne tworzy pojedynczy plik MP4 o szybkości transmisji bitów 18000 kb/s i stereofoniczny dźwięk AAC. Aby uzyskać szczegółowe informacje na temat profilu, szybkości transmisji bitów, częstotliwości próbkowania itp. Aby uzyskać wyjaśnienia, co oznacza każdy element w tych ustawieniach predefiniowanych i prawidłowe wartości dla każdego elementu, zobacz temat [schematu Standardowy koder nośnika.](media-services-mes-schema.md)  
+ To ustawienie wstępne tworzy pojedynczy plik MP4 z szybkością transmisji bitów 18000 KB/s oraz stereo AAC audio. Aby uzyskać szczegółowe informacje na temat profilu, szybkości transmisji bitów, częstotliwości próbkowania itp., zapoznaj się z kodem XML lub JSON zdefiniowanym poniżej. Aby dowiedzieć się, co oznacza każdy element w tych ustawieniach wstępnych, i prawidłowe wartości dla każdego elementu, zobacz temat [schemat Media Encoder Standard](media-services-mes-schema.md) .  
   
 > [!NOTE]
->  Powinieneś otrzymać typ jednostki zarezerwowanej premium z kodami 4K. Aby uzyskać więcej informacji, zobacz [Jak skalować kodowanie](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  Należy uzyskać typ jednostki zarezerwowanej Premium z kodowaniem 4K. Aby uzyskać więcej informacji, zobacz [Jak skalować kodowanie](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
  XML  
   

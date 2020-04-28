@@ -1,66 +1,66 @@
 ---
 title: Odwołanie do schematu elementu webhook rejestru
-description: Odwołanie do ładunku JSON dla żądań elementu webhook w rejestrze kontenerów platformy Azure, które są generowane, gdy elementy webhook są włączone dla zdarzeń wypychania lub usuwania artefaktów
+description: Dokumentacja ładunku JSON dla żądań elementu webhook w rejestrze kontenerów platformy Azure, które są generowane, gdy elementy webhook są włączone dla zdarzeń wypychania lub usuwania artefaktów
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74455962"
 ---
-# <a name="azure-container-registry-webhook-reference"></a>Odwołanie do elementu webhook rejestru kontenerów platformy Azure
+# <a name="azure-container-registry-webhook-reference"></a>Azure Container Registry odwołanie elementu webhook
 
-Można [skonfigurować elementy webhook](container-registry-webhook.md) dla rejestru kontenerów, które generują zdarzenia, gdy niektóre akcje są wykonywane przeciwko niemu. Na przykład włącz elementy webhook, które są wyzwalane, gdy obraz kontenera lub wykres helm jest wypychany do rejestru lub usunięte. Po wyzwoleniu elementu webhook, usługa Azure Container Registry wystawia żądanie HTTP lub HTTPS zawierające informacje o zdarzeniu do określonego punktu końcowego. Punkt końcowy można następnie przetworzyć element webhook i działać odpowiednio.
+Można [skonfigurować elementy webhook](container-registry-webhook.md) dla rejestru kontenerów, które generują zdarzenia, gdy są wykonywane pewne akcje. Na przykład Włącz elementy webhook wyzwalane, gdy obraz kontenera lub wykres Helm jest wypychany do rejestru lub został usunięty. Po wyzwoleniu elementu webhook Azure Container Registry wystawia żądanie HTTP lub HTTPS zawierające informacje o zdarzeniu do określonego punktu końcowego. Punkt końcowy może następnie przetworzyć element webhook i odpowiednio wykonać odpowiednie działania.
 
-W poniższych sekcjach szczegółowo schemat żądań elementu webhook generowanych przez obsługiwane zdarzenia. Sekcje zdarzeń zawierają schemat ładunku dla typu zdarzenia, ładunek żądania przykład i co najmniej jedno polecenie przykładowe, które wyzwoliłoby element webhook.
+W poniższych sekcjach szczegółowo opisano schemat żądań elementu webhook generowanych przez obsługiwane zdarzenia. Sekcje zdarzeń zawierają schemat ładunku dla typu zdarzenia, przykładowego ładunku żądania i jednego lub więcej przykładowych poleceń, które spowodują wywołanie elementu webhook.
 
-Aby uzyskać informacje dotyczące konfigurowania zestawów webhook dla rejestru kontenerów platformy Azure, zobacz [Korzystanie z elementów webhook rejestru kontenerów platformy Azure.](container-registry-webhook.md)
+Informacje o konfigurowaniu elementów webhook dla usługi Azure Container Registry można znaleźć w temacie [Using Azure Container Registry webhooks](container-registry-webhook.md).
 
-## <a name="webhook-requests"></a>Żądania elementu Webhook
+## <a name="webhook-requests"></a>Żądania elementu webhook
 
 ### <a name="http-request"></a>Żądanie HTTP
 
-Wyzwalany element webhook `POST` sprawia, że żądanie HTTP do punktu końcowego adresu URL określonego podczas konfigurowania elementu webhook.
+Wyzwolony element webhook wysyła żądanie `POST` http do punktu końcowego adresu URL, który został określony podczas konfigurowania elementu webhook.
 
 ### <a name="http-headers"></a>Nagłówki HTTP
 
-Żądania elementu `Content-Type` webhook `application/json` obejmują, jeśli `Content-Type` nie określono niestandardowego nagłówka dla elementu webhook.
+Żądania elementu webhook zawierają `Content-Type` element `application/json` , jeśli nie określono `Content-Type` niestandardowego nagłówka elementu webhook.
 
-Żadne inne nagłówki nie są dodawane do żądania poza te nagłówki niestandardowe, które mogły być określone dla elementu webhook.
+Żadne inne nagłówki nie są dodawane do żądania poza tymi niestandardowymi nagłówkami, które mogły zostać określone dla elementu webhook.
 
 ## <a name="push-event"></a>Zdarzenie wypychania
 
-Element Webhook wyzwalany, gdy obraz kontenera jest wypychany do repozytorium.
+Element webhook wyzwolony, gdy obraz kontenera jest wypychany do repozytorium.
 
 ### <a name="push-event-payload"></a>Ładunek zdarzenia wypychania
 
 |Element|Typ|Opis|
 |-------------|----------|-----------|
 |`id`|Ciąg|Identyfikator zdarzenia elementu webhook.|
-|`timestamp`|DateTime|Czas, w którym zdarzenie webhook zostało wyzwolone.|
+|`timestamp`|DateTime|Godzina, o której wyzwolono zdarzenie elementu webhook.|
 |`action`|Ciąg|Akcja, która wyzwoliła zdarzenie elementu webhook.|
-|[Docelowego](#target)|Typ złożony|Miejsce docelowe zdarzenia, które wyzwoliło zdarzenie elementu webhook.|
-|[Żądanie](#request)|Typ złożony|Żądanie, które wygenerowało zdarzenie elementu webhook.|
+|[obiektów](#target)|Typ złożony|Obiekt docelowy zdarzenia, które wyzwoliło zdarzenie elementu webhook.|
+|[żądając](#request)|Typ złożony|Żądanie, które spowodowało wygenerowanie zdarzenia elementu webhook.|
 
-### <a name="target"></a><a name="target"></a>Docelowego
+### <a name="target"></a><a name="target"></a>obiektów
 
 |Element|Typ|Opis|
 |------------------|----------|-----------|
 |`mediaType`|Ciąg|Typ MIME obiektu, do którego istnieje odwołanie.|
-|`size`|Int32|Liczba bajtów zawartości. Tak samo jak pole Długość.|
-|`digest`|Ciąg|Podsumowanie zawartości, zgodnie z definicją specyfikacji interfejsu API HTTP rejestru V2.|
-|`length`|Int32|Liczba bajtów zawartości. Tak samo jak pole Rozmiar.|
+|`size`|Int32|Liczba bajtów zawartości. Takie samo jak długość pola.|
+|`digest`|Ciąg|Podsumowanie zawartości zgodnie ze specyfikacją interfejsu API protokołu HTTP w rejestrze w wersji 2.|
+|`length`|Int32|Liczba bajtów zawartości. Takie samo jak rozmiar pola.|
 |`repository`|Ciąg|Nazwa repozytorium.|
-|`tag`|Ciąg|Nazwa znacznika obrazu.|
+|`tag`|Ciąg|Nazwa tagu obrazu.|
 
-### <a name="request"></a><a name="request"></a>Żądanie
+### <a name="request"></a><a name="request"></a>żądając
 
 |Element|Typ|Opis|
 |------------------|----------|-----------|
-|`id`|Ciąg|Identyfikator żądania, które zainicjowało zdarzenie.|
-|`host`|Ciąg|Zewnętrznie dostępna nazwa hosta wystąpienia rejestru, określona przez nagłówek hosta HTTP dla żądań przychodzących.|
+|`id`|Ciąg|Identyfikator żądania, który zainicjował zdarzenie.|
+|`host`|Ciąg|Dostępna zewnętrznie nazwa hosta wystąpienia rejestru określona przez nagłówek hosta HTTP w żądaniach przychodzących.|
 |`method`|Ciąg|Metoda żądania, która wygenerowała zdarzenie.|
 |`useragent`|Ciąg|Nagłówek agenta użytkownika żądania.|
 
@@ -88,7 +88,7 @@ Element Webhook wyzwalany, gdy obraz kontenera jest wypychany do repozytorium.
 }
 ```
 
-Przykładowe polecenie [interfejsu wiersza polecenia platformy Docker,](https://docs.docker.com/engine/reference/commandline/cli/) które wyzwala element webhook zdarzenia **wypychania** obrazu:
+Przykładowe polecenie [interfejsu wiersza polecenia platformy Docker](https://docs.docker.com/engine/reference/commandline/cli/) wyzwalające element webhook zdarzenia **push** :
 
 ```bash
 docker push myregistry.azurecr.io/hello-world:v1
@@ -96,30 +96,30 @@ docker push myregistry.azurecr.io/hello-world:v1
 
 ## <a name="chart-push-event"></a>Zdarzenie wypychania wykresu
 
-Element Webhook wyzwalany, gdy wykres Helm jest wypychany do repozytorium.
+Element webhook wyzwalany podczas wypychania wykresu Helm do repozytorium.
 
-### <a name="chart-push-event-payload"></a>Ładunek zdarzenia wypychania wykresu
+### <a name="chart-push-event-payload"></a>Ładunek zdarzeń wypychania wykresu
 
 |Element|Typ|Opis|
 |-------------|----------|-----------|
 |`id`|Ciąg|Identyfikator zdarzenia elementu webhook.|
-|`timestamp`|DateTime|Czas, w którym zdarzenie webhook zostało wyzwolone.|
+|`timestamp`|DateTime|Godzina, o której wyzwolono zdarzenie elementu webhook.|
 |`action`|Ciąg|Akcja, która wyzwoliła zdarzenie elementu webhook.|
-|[Docelowego](#helm_target)|Typ złożony|Miejsce docelowe zdarzenia, które wyzwoliło zdarzenie elementu webhook.|
+|[obiektów](#helm_target)|Typ złożony|Obiekt docelowy zdarzenia, które wyzwoliło zdarzenie elementu webhook.|
 
-### <a name="target"></a><a name="helm_target"></a>Docelowego
+### <a name="target"></a><a name="helm_target"></a>obiektów
 
 |Element|Typ|Opis|
 |------------------|----------|-----------|
 |`mediaType`|Ciąg|Typ MIME obiektu, do którego istnieje odwołanie.|
 |`size`|Int32|Liczba bajtów zawartości.|
-|`digest`|Ciąg|Podsumowanie zawartości, zgodnie z definicją specyfikacji interfejsu API HTTP rejestru V2.|
+|`digest`|Ciąg|Podsumowanie zawartości zgodnie ze specyfikacją interfejsu API protokołu HTTP w rejestrze w wersji 2.|
 |`repository`|Ciąg|Nazwa repozytorium.|
-|`tag`|Ciąg|Nazwa znacznika wykresu.|
+|`tag`|Ciąg|Nazwa tagu wykresu.|
 |`name`|Ciąg|Nazwa wykresu.|
 |`version`|Ciąg|Wersja wykresu.|
 
-### <a name="payload-example-chart-push-event"></a>Przykład ładunku: zdarzenie wypychania wykresu
+### <a name="payload-example-chart-push-event"></a>Przykład ładunku: zdarzenie push wykresu
 
 ```JSON
 {
@@ -138,7 +138,7 @@ Element Webhook wyzwalany, gdy wykres Helm jest wypychany do repozytorium.
 }
 ```
 
-Przykładowe polecenie [interfejsu wiersza polecenia platformy Azure,](/cli/azure/acr) które wyzwala element webhook **zdarzenia chart_push:**
+Przykładowe polecenie [interfejsu wiersza polecenia platformy Azure](/cli/azure/acr) wyzwalające element webhook zdarzenia **chart_push** :
 
 ```azurecli
 az acr helm push wordpress-5.4.0.tgz --name MyRegistry
@@ -146,36 +146,36 @@ az acr helm push wordpress-5.4.0.tgz --name MyRegistry
 
 ## <a name="delete-event"></a>Usuń zdarzenie
 
-Element Webhook wyzwalany po usunięciu repozytorium lub manifestu obrazu. Nie jest wyzwalany po usunięciu znacznika.
+Element webhook wyzwalany po usunięciu repozytorium lub manifestu obrazu. Niewyzwalane, gdy tag zostanie usunięty.
 
-### <a name="delete-event-payload"></a>Usuwanie ładunku zdarzeń
+### <a name="delete-event-payload"></a>Usuń ładunek zdarzenia
 
 |Element|Typ|Opis|
 |-------------|----------|-----------|
 |`id`|Ciąg|Identyfikator zdarzenia elementu webhook.|
-|`timestamp`|DateTime|Czas, w którym zdarzenie webhook zostało wyzwolone.|
+|`timestamp`|DateTime|Godzina, o której wyzwolono zdarzenie elementu webhook.|
 |`action`|Ciąg|Akcja, która wyzwoliła zdarzenie elementu webhook.|
-|[Docelowego](#delete_target)|Typ złożony|Miejsce docelowe zdarzenia, które wyzwoliło zdarzenie elementu webhook.|
-|[Żądanie](#delete_request)|Typ złożony|Żądanie, które wygenerowało zdarzenie elementu webhook.|
+|[obiektów](#delete_target)|Typ złożony|Obiekt docelowy zdarzenia, które wyzwoliło zdarzenie elementu webhook.|
+|[żądając](#delete_request)|Typ złożony|Żądanie, które spowodowało wygenerowanie zdarzenia elementu webhook.|
 
-### <a name="target"></a><a name="delete_target"></a>Docelowego
+### <a name="target"></a><a name="delete_target"></a>obiektów
 
 |Element|Typ|Opis|
 |------------------|----------|-----------|
 |`mediaType`|Ciąg|Typ MIME obiektu, do którego istnieje odwołanie.|
-|`digest`|Ciąg|Podsumowanie zawartości, zgodnie z definicją specyfikacji interfejsu API HTTP rejestru V2.|
+|`digest`|Ciąg|Podsumowanie zawartości zgodnie ze specyfikacją interfejsu API protokołu HTTP w rejestrze w wersji 2.|
 |`repository`|Ciąg|Nazwa repozytorium.|
 
-### <a name="request"></a><a name="delete_request"></a>Żądanie
+### <a name="request"></a><a name="delete_request"></a>żądając
 
 |Element|Typ|Opis|
 |------------------|----------|-----------|
-|`id`|Ciąg|Identyfikator żądania, które zainicjowało zdarzenie.|
-|`host`|Ciąg|Zewnętrznie dostępna nazwa hosta wystąpienia rejestru, określona przez nagłówek hosta HTTP dla żądań przychodzących.|
+|`id`|Ciąg|Identyfikator żądania, który zainicjował zdarzenie.|
+|`host`|Ciąg|Dostępna zewnętrznie nazwa hosta wystąpienia rejestru określona przez nagłówek hosta HTTP w żądaniach przychodzących.|
 |`method`|Ciąg|Metoda żądania, która wygenerowała zdarzenie.|
 |`useragent`|Ciąg|Nagłówek agenta użytkownika żądania.|
 
-### <a name="payload-example-image-delete-event"></a>Przykład ładunku: zdarzenie usuwania obrazu
+### <a name="payload-example-image-delete-event"></a>Przykład ładunku: zdarzenie usunięcia obrazu
 
 ```JSON
 {
@@ -196,7 +196,7 @@ Element Webhook wyzwalany po usunięciu repozytorium lub manifestu obrazu. Nie j
   }
 ```
 
-Przykładowe polecenia [interfejsu wiersza polecenia platformy Azure,](/cli/azure/acr) które wyzwalają element webhook zdarzenia **usuwania:**
+Przykład poleceń [interfejsu wiersza polecenia platformy Azure](/cli/azure/acr) , które wyzwalają element webhook zdarzenia **delete** :
 
 ```azurecli
 # Delete repository
@@ -208,30 +208,30 @@ az acr repository delete --name MyRegistry --image MyRepository:MyTag
 
 ## <a name="chart-delete-event"></a>Zdarzenie usuwania wykresu
 
-Element Webhook wyzwalany po usunięciu wykresu helm lub repozytorium. 
+Element webhook wyzwalany po usunięciu wykresu lub repozytorium Helm. 
 
-### <a name="chart-delete-event-payload"></a>Ładunek zdarzenia usuwania wykresu
+### <a name="chart-delete-event-payload"></a>Usuń ładunek zdarzenia z wykresu
 
 |Element|Typ|Opis|
 |-------------|----------|-----------|
 |`id`|Ciąg|Identyfikator zdarzenia elementu webhook.|
-|`timestamp`|DateTime|Czas, w którym zdarzenie webhook zostało wyzwolone.|
+|`timestamp`|DateTime|Godzina, o której wyzwolono zdarzenie elementu webhook.|
 |`action`|Ciąg|Akcja, która wyzwoliła zdarzenie elementu webhook.|
-|[Docelowego](#chart_delete_target)|Typ złożony|Miejsce docelowe zdarzenia, które wyzwoliło zdarzenie elementu webhook.|
+|[obiektów](#chart_delete_target)|Typ złożony|Obiekt docelowy zdarzenia, które wyzwoliło zdarzenie elementu webhook.|
 
-### <a name="target"></a><a name="chart_delete_target"></a>Docelowego
+### <a name="target"></a><a name="chart_delete_target"></a>obiektów
 
 |Element|Typ|Opis|
 |------------------|----------|-----------|
 |`mediaType`|Ciąg|Typ MIME obiektu, do którego istnieje odwołanie.|
 |`size`|Int32|Liczba bajtów zawartości.|
-|`digest`|Ciąg|Podsumowanie zawartości, zgodnie z definicją specyfikacji interfejsu API HTTP rejestru V2.|
+|`digest`|Ciąg|Podsumowanie zawartości zgodnie ze specyfikacją interfejsu API protokołu HTTP w rejestrze w wersji 2.|
 |`repository`|Ciąg|Nazwa repozytorium.|
-|`tag`|Ciąg|Nazwa znacznika wykresu.|
+|`tag`|Ciąg|Nazwa tagu wykresu.|
 |`name`|Ciąg|Nazwa wykresu.|
 |`version`|Ciąg|Wersja wykresu.|
 
-### <a name="payload-example-chart-delete-event"></a>Przykład ładunku: zdarzenie usuwania wykresu
+### <a name="payload-example-chart-delete-event"></a>Przykład ładunku: zdarzenie usunięcia wykresu
 
 ```JSON
 {
@@ -250,7 +250,7 @@ Element Webhook wyzwalany po usunięciu wykresu helm lub repozytorium.
 }
 ```
 
-Przykładowe polecenie [interfejsu wiersza polecenia platformy Azure,](/cli/azure/acr) które wyzwala element webhook **zdarzenia chart_delete:**
+Przykładowe polecenie [interfejsu wiersza polecenia platformy Azure](/cli/azure/acr) wyzwalające element webhook zdarzenia **chart_delete** :
 
 ```azurecli
 az acr helm delete wordpress --version 5.4.0 --name MyRegistry
@@ -258,4 +258,4 @@ az acr helm delete wordpress --version 5.4.0 --name MyRegistry
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Korzystanie z elementów webhook rejestru kontenerów platformy Azure](container-registry-webhook.md)
+[Używanie Azure Container Registry elementów webhook](container-registry-webhook.md)

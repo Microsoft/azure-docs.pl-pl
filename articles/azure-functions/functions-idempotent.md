@@ -1,45 +1,45 @@
 ---
-title: Projektowanie usług Azure Functions dla identycznych danych wejściowych
-description: Tworzenie funkcji platformy Azure w celu idempotentu
+title: Projektowanie Azure Functions dla identycznych danych wejściowych
+description: Kompilowanie Azure Functions idempotentne
 author: craigshoemaker
 ms.author: cshoe
 ms.date: 9/12/2019
 ms.topic: article
 ms.openlocfilehash: 15af60ac5a862e6fb20e65ba6fbb92482420b7c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74226871"
 ---
-# <a name="designing-azure-functions-for-identical-input"></a>Projektowanie usług Azure Functions dla identycznych danych wejściowych
+# <a name="designing-azure-functions-for-identical-input"></a>Projektowanie Azure Functions dla identycznych danych wejściowych
 
-Rzeczywistość architektury opartej na zdarzeniach i opartych na wiadomościach nakazuje akceptowanie identycznych żądań przy jednoczesnym zachowaniu integralności danych i stabilności systemu.
+W rzeczywistości opartej na zdarzeniach i architekturze opartych na komunikatach jest konieczne zaakceptowanie identycznych żądań podczas zachowywania integralności danych i stabilności systemu.
 
-Aby zilustrować, należy wziąć pod uwagę przycisk połączenia windy. Po naciśnięciu przycisku zapala się i winda jest wysyłana na podłogę. Kilka chwil później ktoś inny dołącza do Ciebie w holu. Ta osoba uśmiecha się do ciebie i naciska podświetlany przycisk po raz drugi. Uśmiechasz się i chichoczysz do siebie, gdy przypominasz sobie, że polecenie wezwania windy jest idempotentne.
+Aby to zilustrować, weź pod uwagę przycisk wywoływania Wind. Po naciśnięciu przycisku zostanie on wyróżniony, a winda jest wysyłana do Twojego podłogi. Kilka chwil później ktoś inny dołączy cię w poczekalni. Ta osoba uśmiechuje Cię i naciska po raz drugi przycisk światła. Powrócisz i chuckle się do siebie, ponieważ przypominasz, że polecenie wywołujące windę jest idempotentne.
 
-Naciśnięcie przycisku połączenia windy po raz drugi, trzeci lub czwarty nie ma wpływu na wynik końcowy. Po naciśnięciu przycisku, niezależnie od tego, ile razy winda jest wysyłana na twoje piętro. Systemy idempotentne, takie jak winda, skutkują takim samym wynikiem, bez względu na to, ile razy wydawane są identyczne polecenia.
+Naciśnięcie przycisku wywołania podnośnika w drugim, trzecim lub czwartym czasie nie ma wpływu na wynik końcowy. Po naciśnięciu przycisku, bez względu na liczbę razy, winda jest wysyłana do podłogi. Systemy idempotentne, takie jak windy, dają ten sam wynik niezależnie od tego, ile razy są wydawane te same polecenia.
 
-Jeśli chodzi o tworzenie aplikacji, należy wziąć pod uwagę następujące scenariusze:
+Gdy chodzi o tworzenie aplikacji, należy wziąć pod uwagę następujące scenariusze:
 
-- Co się stanie, jeśli aplikacja do kontroli zapasów spróbuje usunąć ten sam produkt więcej niż jeden raz?
-- Jak zachowuje się aplikacja zasobów ludzkich, jeśli istnieje więcej niż jedno żądanie utworzenia rekordu pracownika dla tej samej osoby?
-- Gdzie idą pieniądze, jeśli aplikacja bankowa dostaje 100 wniosków o taką samą wypłatę?
+- Co się stanie, jeśli aplikacja kontroli spisu próbuje usunąć ten sam produkt więcej niż raz?
+- Jak działa aplikacja kadrowa, jeśli istnieje więcej niż jedno żądanie utworzenia rekordu pracownika dla tej samej osoby?
+- Gdzie działa pieniądze, jeśli aplikacja bankowa uzyska 100 żądań, aby wykonać to samo wycofanie?
 
-Istnieje wiele kontekstów, w których żądania do funkcji mogą odbierać identyczne polecenia. Niektóre sytuacje obejmują:
+Istnieje wiele kontekstów, w których żądania do funkcji mogą otrzymać identyczne polecenia. Niektóre sytuacje obejmują:
 
-- Ponowij zasady ponawiania prób, wysyłając to samo żądanie wiele razy
-- Buforowane polecenia odtwarzane w aplikacji
+- Ponawianie próby wysłania tego samego żądania przez wiele razy
+- Zbuforowane polecenia są odtwarzane w aplikacji
 - Błędy aplikacji wysyłające wiele identycznych żądań
 
-Aby chronić integralność danych i kondycję systemu, aplikacja idempotentna zawiera logikę, która może zawierać następujące zachowania:
+Aby chronić integralność danych i kondycję systemu, aplikacja idempotentne zawiera logikę, która może zawierać następujące zachowania:
 
-- Sprawdzenie istnienia danych przed próbą wykonania usunięcia
-- Sprawdzanie, czy dane już istnieją przed próbą wykonania akcji tworzenia
-- Uzgadnianie logiki, która tworzy spójność ostateczną w danych
-- Kontrole współbieżności
+- Weryfikowanie istnienia danych przed próbą wykonania operacji usuwania
+- Sprawdzanie, czy dane już istnieją, przed podjęciem próby wykonania akcji tworzenia
+- Uzgadnianie logiki służącej do tworzenia ostatecznej spójności danych
+- Kontrolki współbieżności
 - Wykrywanie duplikacji
-- Walidacja świeżości danych
-- Logika ochrony do weryfikacji danych wejściowych
+- Weryfikacja Aktualności danych
+- Logika ochrony do weryfikowania danych wejściowych
 
-Ostatecznie idempotency uzyskuje się poprzez zapewnienie danego działania jest możliwe i jest wykonywany tylko raz.
+Ostatecznie idempotentności osiąga się, upewniając się, że dana akcja jest możliwa i jest wykonywana tylko raz.

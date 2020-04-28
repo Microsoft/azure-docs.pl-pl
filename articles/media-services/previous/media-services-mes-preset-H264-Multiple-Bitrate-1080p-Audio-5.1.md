@@ -1,6 +1,6 @@
 ---
-title: H264 Wielokrotna szybkość transmisji bitów 1080p Audio 5.1 | Dokumenty firmy Microsoft
-description: W tym temacie przedstawiono omówienie ustawienia predefiniowanego zadania **H264 Multiple Bitrate 1080p Audio 5.1.**
+title: Wielokrotna H264 wiele szybkości transmisji bitów 1080p audio 5,1 | Microsoft Docs
+description: Ten temat zawiera omówienie **wielokrotna H264 wiele szybkości transmisji bitów w rozdzielczości 1080P Audio 5,1** .
 author: Juliako
 manager: femila
 editor: ''
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 53ea54406969d246845018191960b13b8ee9a08a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61129767"
 ---
 # <a name="h264-multiple-bitrate-1080p-audio-51"></a>Wielokrotna szybkość transmisji bitów H264 1080p Audio 5.1 
 
-`Media Encoder Standard`definiuje zestaw ustawień predefiniowanych kodowania, których można używać podczas tworzenia zadań kodowania. Można użyć a, `preset name` aby określić, w jakim formacie chcesz zakodować plik multimedialny. Można też utworzyć własne ustawienia predefiniowane oparte na języku JSON lub XML (przy użyciu kodowania UTF-8 lub UTF-16. Następnie należy przekazać niestandardowe ustawienia predefiniowane do kodera. Aby uzyskać listę wszystkich predefiniowanych `Media Encoder Standard` nazw obsługiwanych przez ten koder, zobacz [Presety zadań dla standardu kodera multimediów](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definiuje zestaw ustawień predefiniowanych kodowania, których można użyć podczas tworzenia zadań kodowania. Możesz użyć, `preset name` aby określić format, w którym chcesz kodować plik multimedialny. Można też tworzyć własne ustawienia predefiniowane JSON lub XML (przy użyciu kodowania UTF-8 lub UTF-16. Następnie można przekazać niestandardowe ustawienie wstępne do kodera. Aby uzyskać listę wszystkich wstępnie zdefiniowanych nazw obsługiwanych przez ten `Media Encoder Standard` koder, zobacz [Ustawienia wstępne zadań dla Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- W tym `H264 Multiple Bitrate 1080p Audio 5.1` temacie przedstawiono ustawienia predefiniowane w formacie XML i JSON.  
+ W tym temacie przedstawiono `H264 Multiple Bitrate 1080p Audio 5.1` ustawienia wstępne w formacie XML i JSON.  
   
- To ustawienie wstępne tworzy zestaw 8 plików MP4 wyrównanych do GOP, od 6000 kb/s do 400 kb/s i dźwięku AAC 5.1. Aby uzyskać szczegółowe informacje na temat profilu, szybkości transmisji bitów, częstotliwości próbkowania itp. Aby uzyskać wyjaśnienia dotyczące tego, co oznacza każdy element i prawidłowych wartości dla każdego elementu, zobacz [schemat Standardowy kodera multimediów](media-services-mes-schema.md).  
+ To ustawienie wstępne tworzy zestaw 8 grupę GOPych plików MP4, z zakresu od 6000 KB/s do 400 KB/s i AAC 5,1 audio. Aby uzyskać szczegółowe informacje na temat profilu, szybkości transmisji bitów, częstotliwości próbkowania itp., zapoznaj się z kodem XML lub JSON zdefiniowanym poniżej. Aby poznać wyjaśnienie co oznaczają każdy element, i prawidłowe wartości dla każdego elementu, zobacz [schemat Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Modyfikując `Width` wartości `Height` i wartości między warstwami, upewnij się, że współczynnik proporcji pozostaje spójny. Na przykład: 1920x1080, 1280x720, 1080x576, 640x360. Nie należy używać kombinacji współczynników proporcji, takich jak: 1280x720, 720x480, 640x360.  
+>  Podczas modyfikowania wartości `Width` i `Height` w warstwach upewnij się, że współczynnik proporcji pozostaje spójny. Na przykład: 1920 x 1080, 1280x720, 1080x576, 640 x 360. Nie należy używać kombinacji proporcji, takich jak: 1280x720, 720x480, 640 x 360.  
   
  XML  
   

@@ -1,28 +1,28 @@
 ---
-title: Przykłady inteligentnych analiz usługi Log Analytics | Dokumenty firmy Microsoft
-description: Przykłady, które używają funkcji inteligentnej analizy w usłudze Log Analytics do przeprowadzania analizy aktywności użytkownika.
+title: Przykłady Log Analytics Smart Analytics | Microsoft Docs
+description: Przykłady korzystające z funkcji inteligentnej analizy w Log Analytics do wykonywania analiz aktywności użytkownika.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/15/2019
 ms.openlocfilehash: 51584ccf5f845be8a06b1e049cae11e636edef11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77659836"
 ---
-# <a name="log-analytics-smart-analytics-examples"></a>Przykłady inteligentnych analiz usługi Log Analytics
-Ten artykuł zawiera przykłady, które używają funkcji inteligentnej analizy w usłudze Log Analytics do przeprowadzania analizy aktywności użytkownika. Można użyć tych przykładów do analizowania własnych aplikacji monitorowanych przez usługa Application Insights lub użyć pojęć w tych kwerendach do podobnej analizy na inne dane. 
+# <a name="log-analytics-smart-analytics-examples"></a>Przykłady Log Analytics Smart Analytics
+W tym artykule przedstawiono przykłady korzystania z funkcji inteligentnej analizy w programie Log Analytics do wykonywania analiz aktywności użytkownika. Za pomocą tych przykładów można analizować własne aplikacje monitorowane przez Application Insights lub użyć koncepcji w tych zapytaniach w celu uzyskania podobnej analizy innych danych. 
 
-Szczegółowe informacje na temat różnych słów kluczowych używanych w tych przykładach można znaleźć w [języku Kusto.](https://docs.microsoft.com/azure/kusto/query/) Przejdź przez [lekcję na temat tworzenia zapytań,](get-started-queries.md) jeśli jesteś nowy w usłudze Log Analytics.
+Aby uzyskać szczegółowe informacje o różnych słowach kluczowych używanych w tych przykładach, zobacz [Dokumentacja języka Kusto](https://docs.microsoft.com/azure/kusto/query/) . Zapoznaj się z lekcji, aby [utworzyć zapytania](get-started-queries.md) , jeśli jesteś nowym log Analytics.
 
-## <a name="cohorts-analytics"></a>Analiza kohort
+## <a name="cohorts-analytics"></a>Analiza kohorty
 
-Analiza kohortowa śledzi aktywność określonych grup użytkowników, znanych jako kohorty. Próbuje zmierzyć, jak atrakcyjna jest usługa, mierząc stopę powracających użytkowników. Użytkownicy są pogrupowane według czasu, kiedy po raz pierwszy korzystali z usługi. Analizując kohorty, spodziewamy się spadku aktywności w pierwszych śledzonych okresach. Każda kohorta jest zatytułowana w tygodniu jej członkowie byli obserwowani po raz pierwszy.
+Analiza kohorta śledzi aktywność określonych grup użytkowników, znaną jako kohorty. Podejmuje próbę zmierzenia, jak odwoływanie się do usługi polega na mierzeniu liczby zwracanych użytkowników. Użytkownicy są pogrupowani według czasu pierwszego użycia usługi. Podczas analizowania kohorty oczekujemy zmniejszenia działania w ciągu pierwszych śledzonych okresów. Każdy kohorta jest tytułem tygodnia, którego członkowie zostali zaobserwowane po raz pierwszy.
 
-Poniższy przykład analizuje liczbę działań, które użytkownicy wykonują w ciągu 5 tygodni, po pierwszym użyciu usługi.
+Poniższy przykład analizuje liczbę działań, które użytkownicy wykonują w ciągu 5 tygodni od pierwszego użycia usługi.
 
 ```Kusto
 let startDate = startofweek(bin(datetime(2017-01-20T00:00:00Z), 1d));
@@ -83,12 +83,12 @@ week
           p4 = todouble(r4)/todouble(r0)*100 
 | sort by Cohort asc
 ```
-W tym przykładzie wyniki w następujących danych wyjściowych.
+W tym przykładzie przedstawiono następujące dane wyjściowe.
 
-![Wyniki analizy kohorty](media/smart-analytics/cohorts.png)
+![Dane wyjściowe analizy kohorta](media/smart-analytics/cohorts.png)
 
-## <a name="rolling-monthly-active-users-and-user-stickiness"></a>Stopniowe miesięczne aktywni użytkownicy i lepkość użytkowników
-W poniższych przykładach użyto analizy szeregów czasowych z funkcją [series_fir,](/azure/kusto/query/series-firfunction) która umożliwia wykonywanie obliczeń okien przesuwnych. Przykładowa aplikacja jest monitorowana jest sklepem internetowym, który śledzi aktywność użytkowników za pośrednictwem zdarzeń niestandardowych. Kwerenda śledzi dwa typy działań użytkownika, _AddToCart_ i _Checkout_i definiuje _aktywnych użytkowników_ jako tych, którzy wykonali wyewidencjonowanie co najmniej raz w danym dniu.
+## <a name="rolling-monthly-active-users-and-user-stickiness"></a>Miesięczny aktywny Użytkownicy i lepkość użytkownika
+W poniższych przykładach jest stosowana analiza szeregów czasowych z funkcją [series_fir](/azure/kusto/query/series-firfunction) , która umożliwia wykonywanie obliczeń okna przewijania. Monitorowana aplikacja Przykładowa jest sklepem online, który śledzi aktywność użytkowników za pomocą zdarzeń niestandardowych. Zapytanie śledzi dwa typy działań użytkownika, _AddToCart_ i _wyewidencjonowywanie_oraz definiuje _aktywnych użytkowników_ jako tych, którzy wykonali wyewidencjonowanie co najmniej raz w danym dniu.
 
 
 
@@ -131,11 +131,11 @@ customEvents
 | render timechart
 ```
 
-W tym przykładzie wyniki w następujących danych wyjściowych.
+W tym przykładzie przedstawiono następujące dane wyjściowe.
 
-![Stopniowe miesięczne dane wyjściowe użytkowników](media/smart-analytics/rolling-mau.png)
+![Dane wyjściowe dla kroczących użytkowników miesięcznych](media/smart-analytics/rolling-mau.png)
 
-TOn poniższy przykład zamienia powyższe zapytanie w funkcję wielokrotnego użytku i używa go do obliczania lepkości użytkownika stopniowego. Aktywni użytkownicy w tej kwerendzie są definiowani jako tylko ci użytkownicy, którzy wykonali wyewidencjonowanie co najmniej raz w danym dniu.
+Poniższy przykład powoduje zamianę powyższego zapytania w funkcję wielokrotnego użytku i używa jej do obliczania lepkość użytkownika. Aktywni użytkownicy w tej kwerendzie są zdefiniowani jako tylko użytkownicy, którzy wykonali wyewidencjonowanie co najmniej raz w danym dniu.
 
 ``` Kusto
 let rollingDcount = (sliding_window_size: int, event_name:string)
@@ -173,17 +173,17 @@ on Timestamp
 | render timechart
 ```
 
-W tym przykładzie wyniki w następujących danych wyjściowych.
+W tym przykładzie przedstawiono następujące dane wyjściowe.
 
-![Wyjście lepkości użytkownika](media/smart-analytics/user-stickiness.png)
+![Dane wyjściowe lepkość użytkownika](media/smart-analytics/user-stickiness.png)
 
 ## <a name="regression-analysis"></a>Analiza regresji
-W tym przykładzie pokazano, jak utworzyć detektor automatyczny dla przerw w działaniu usługi na podstawie wyłącznie dzienników śledzenia aplikacji. Detektor szuka nieprawidłowego nagłego wzrostu względnej ilości śladów błędów i ostrzeżeń w aplikacji.
+W tym przykładzie pokazano, jak utworzyć zautomatyzowany detektor dla przerw w działaniu usługi w oparciu wyłącznie o dzienniki śledzenia aplikacji. Detektor poszukuje nieprawidłowego nagłego wzrostu w względnej ilości błędów i śladów ostrzeżeń w aplikacji.
 
-Dwie techniki są używane do oceny stanu usługi na podstawie danych dzienników śledzenia:
+Do oszacowania stanu usługi na podstawie danych dzienników śledzenia służą dwie techniki:
 
-- Użyj [make-series](/azure/kusto/query/make-seriesoperator) do konwersji półstrukturalnych dzienników śledzenia tekstu na metrykę, która reprezentuje stosunek między dodatnimi i ujemnymi wierszami śledzenia.
-- Za pomocą [series_fit_2lines](/azure/kusto/query/series-fit-2linesfunction) i [series_fit_line](/azure/kusto/query/series-fit-linefunction) można wykonać zaawansowane wykrywanie kroków za pomocą analizy szeregów czasowych z regresją liniową 2-liniową.
+- Użyj [marki z seriami](/azure/kusto/query/make-seriesoperator) , aby przekonwertować częściowo strukturalne dzienniki śledzenia danych na metrykę, która reprezentuje stosunek między dodatnią i ujemną linią śledzenia.
+- Użyj [series_fit_2lines](/azure/kusto/query/series-fit-2linesfunction) i [series_fit_line](/azure/kusto/query/series-fit-linefunction) do przeprowadzenia zaawansowanego wykrywania skoku krok po analizie szeregów czasowych przy użyciu regresji liniowej 2-liniowej.
 
 ``` Kusto
 let startDate = startofday(datetime("2017-02-01"));
@@ -214,5 +214,5 @@ traces
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Szczegółowe informacje na temat języka można znaleźć w [języku Eksploratora danych.](/azure/kusto/query)
-- Przejmij [lekcję pisania zapytań w usłudze Log Analytics](get-started-queries.md).
+- Szczegółowe informacje na temat języka można znaleźć w dokumentacji dotyczącej [języka Eksplorator danych](/azure/kusto/query) .
+- Zapoznaj się z [lekcjami dotyczącymi pisania zapytań w log Analytics](get-started-queries.md).

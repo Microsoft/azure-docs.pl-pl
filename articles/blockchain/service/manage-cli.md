@@ -1,27 +1,27 @@
 ---
-title: Zarządzanie usługą Azure Blockchain za pomocą interfejsu wiersza polecenia platformy Azure
-description: Jak zarządzać usługą Azure Blockchain service za pomocą interfejsu wiersza polecenia platformy Azure
+title: Zarządzanie usługą Azure łańcucha bloków przy użyciu interfejsu wiersza polecenia platformy Azure
+description: Jak zarządzać usługą Azure łańcucha bloków za pomocą interfejsu wiersza polecenia platformy Azure
 ms.date: 11/22/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: ac75be644877905c1517395c1c789b1ea16fd49c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74455580"
 ---
-# <a name="manage-azure-blockchain-service-using-azure-cli"></a>Zarządzanie usługą Azure Blockchain za pomocą interfejsu wiersza polecenia platformy Azure
+# <a name="manage-azure-blockchain-service-using-azure-cli"></a>Zarządzanie usługą Azure łańcucha bloków przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Oprócz witryny Azure portal można używać interfejsu wiersza polecenia platformy Azure do zarządzania członkami łańcucha bloków i węzłami transakcji dla usługi Azure Blockchain.
+Oprócz Azure Portal można użyć interfejsu wiersza polecenia platformy Azure, aby zarządzać członkami łańcucha bloków i węzłami transakcji dla usługi Azure łańcucha bloków.
 
-Upewnij się, że zainstalowano najnowszą [platformę Interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) i zalogowano się do konta platformy Azure za pomocą `az login`programu .
+Upewnij się, że zainstalowano najnowszy [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) i zalogowano się na koncie `az login`platformy Azure w programie.
 
-W poniższych przykładach `<parameter names>` zastąp przykład własnymi wartościami.
+W poniższych przykładach Zastąp przykład `<parameter names>` własnymi wartościami.
 
-## <a name="create-blockchain-member"></a>Tworzenie członka łańcucha bloków
+## <a name="create-blockchain-member"></a>Utwórz składową łańcucha bloków
 
-Przykład tworzy członka łańcucha bloków w usłudze Azure Blockchain, który uruchamia protokół księgi kworum w nowym konsorcjum.
+Przykład tworzy element członkowski łańcucha bloków w usłudze Azure łańcucha bloków Service, która uruchamia protokół finansów kworum w nowym konsorcjum.
 
 ```azurecli
 az resource create \
@@ -34,21 +34,21 @@ az resource create \
 
 | Parametr | Opis |
 |---------|-------------|
-| **grupa zasobów** | Nazwa grupy zasobów, w której tworzone są zasoby usługi Azure Blockchain Service. |
-| **Nazwa** | Unikatowa nazwa identyfikująca członka łańcucha bloków usługi Azure Blockchain. Nazwa jest używana dla adresu publicznego punktu końcowego. Na przykład `myblockchainmember.blockchain.azure.com`. |
-| **Lokalizacji** | Region platformy Azure, w którym jest tworzony członek łańcucha bloków. Na przykład `eastus`. Wybierz lokalizację najbliżej użytkowników lub innych aplikacji Azure. |
-| **hasło** | Hasło konta członkowskiego. Hasło konta członkowskiego służy do uwierzytelniania w publicznym punkcie końcowym członka łańcucha bloków przy użyciu uwierzytelniania podstawowego. Hasło musi spełniać trzy z następujących czterech wymagań: długość musi wynosić od 12 & 72 znaków, 1 małe litery, 1 wielkie litery, 1 liczba i 1 znak specjalny, który\`nie jest znakiem liczby(#), percent(%), przecinek(,), gwiazdką(*), cytatem tylnym(), podwójnym cudzysłowem("), pojedynczym cudzysłowem('), kreską(-) i średnikiem(;)|
-| **Protokół** | Publiczna wersja zapoznawcza obsługuje Kworum. |
-| **Konsorcjum** | Nazwa konsorcjum do przyłączenia lub utworzenia. |
-| **konsorcjumManagementAccountPassword** | Hasło do zarządzania konsorcjum. Hasło służy do dołączania do konsorcjum. |
-| **Rulename** | Nazwa reguły umieszczania na białej liście zakresu adresów IP. Opcjonalny parametr dla reguł zapory.|
-| **startIpAddress (startIpAddress)** | Początek zakresu adresów IP do umieszczenia na białej liście. Opcjonalny parametr dla reguł zapory. |
-| **endIpAddress (adres endIpAddress)** | Koniec zakresu adresów IP dla białej listy. Opcjonalny parametr dla reguł zapory. |
-| **skuName (nazwa skuname)** | Typ warstwy. Użyj S0 dla standardu i B0 dla basic. |
+| **Grupa zasobów** | Nazwa grupy zasobów, w której są tworzone zasoby usługi Azure łańcucha bloków. |
+| **Nazwij** | Unikatowa nazwa identyfikująca członka usługi Azure łańcucha bloków Service łańcucha bloków. Nazwa jest używana dla publicznego adresu punktu końcowego. Na przykład `myblockchainmember.blockchain.azure.com`. |
+| **przeniesienie** | Region świadczenia usługi Azure, w którym jest tworzony element członkowski łańcucha bloków. Na przykład `eastus`. Wybierz lokalizację najbliżej użytkowników lub innych aplikacji Azure. |
+| **hasło** | Hasło konta elementu członkowskiego. Hasło konta elementu członkowskiego służy do uwierzytelniania w publicznym punkcie końcowym elementu członkowskiego łańcucha bloków przy użyciu uwierzytelniania podstawowego. Hasło musi spełniać trzy z czterech następujących wymagań: długość musi należeć do zakresu od 12 & 72 znaków, 1 małe litery, 1 wielkie litery, 1 cyfra i 1 znak specjalny, który nie jest znakiem numeru (#), procent (%), przecinek (,), gwiazdka (\`), cudzysłów (), podwójny cudzysłów ("), apostrof (), kreska () i semicolumn (;)|
+| **protokol** | Publiczna wersja zapoznawcza obsługuje kworum. |
+| **ustanawiające** | Nazwa konsorcjum do przyłączenia lub utworzenia. |
+| **consortiumManagementAccountPassword** | Hasło zarządzania konsorcjum. Hasło służy do przyłączania konsorcjum. |
+| **ruleName** | Nazwa reguły listy dozwolonych zakres adresów IP. Opcjonalny parametr reguł zapory.|
+| **Wartość** | Początek zakresu adresów IP dla listy dozwolonych. Opcjonalny parametr reguł zapory. |
+| **endIpAddress** | Koniec zakresu adresów IP dla listy dozwolonych. Opcjonalny parametr reguł zapory. |
+| **skuName** | Typ warstwy. Użyj S0 dla Standard i B0 dla warstwy Podstawowa. |
 
-## <a name="change-blockchain-member-password"></a>Zmienianie hasła członka łańcucha bloków
+## <a name="change-blockchain-member-password"></a>Zmień hasło elementu członkowskiego łańcucha bloków
 
-Przykład zmienia hasło członka łańcucha bloków.
+Przykład zmienia hasło elementu członkowskiego łańcucha bloków.
 
 ```azurecli
 az resource update \
@@ -61,13 +61,13 @@ az resource update \
 
 | Parametr | Opis |
 |---------|-------------|
-| **grupa zasobów** | Nazwa grupy zasobów, w której tworzone są zasoby usługi Azure Blockchain Service. |
-| **Nazwa** | Nazwa identyfikująca członka usługi Azure Blockchain. |
-| **hasło** | Hasło konta członkowskiego. Hasło musi spełniać trzy z następujących czterech wymagań: długość musi wynosić od 12 & 72 znaków, 1 małe litery, 1 wielkie litery, 1 liczba i 1 znak specjalny, który\`nie jest znakiem liczby(#), percent(%), przecinek(,), gwiazdką(*), cytatem tylnym(), podwójnym cudzysłowem("), pojedynczym cudzysłowem('), kreską(-) i średnikiem(;). |
+| **Grupa zasobów** | Nazwa grupy zasobów, w której są tworzone zasoby usługi Azure łańcucha bloków. |
+| **Nazwij** | Nazwa identyfikująca członka usługi Azure łańcucha bloków. |
+| **hasło** | Hasło konta elementu członkowskiego. Hasło musi spełniać trzy z czterech następujących wymagań: długość musi wynosić od 12 & 72 znaków, 1 małe litery, 1 wielkie litery, 1 cyfra i 1 znak specjalny, który nie jest znakiem numeru (#), procent (%), przecinek (,), gwiazdka (\`), cudzysłów (), podwójny cudzysłów ("), apostrof (), kreska () i średnika (;). |
 
-## <a name="create-transaction-node"></a>Tworzenie węzła transakcji
+## <a name="create-transaction-node"></a>Utwórz węzeł transakcji
 
-Utwórz węzeł transakcji wewnątrz istniejącego elementu członkowskiego łańcucha bloków. Dodając węzły transakcji, można zwiększyć izolację zabezpieczeń i rozłożyć obciążenia. Na przykład może mieć punkt końcowy węzła transakcji dla różnych aplikacji klienckich.
+Utwórz węzeł transakcji wewnątrz istniejącego elementu członkowskiego łańcucha bloków. Dodając węzły transakcji, można zwiększyć izolację zabezpieczeń i rozłożyć obciążenie. Można na przykład mieć punkt końcowy węzła transakcji dla różnych aplikacji klienckich.
 
 ```azurecli
 az resource create \
@@ -80,15 +80,15 @@ az resource create \
 
 | Parametr | Opis |
 |---------|-------------|
-| **grupa zasobów** | Nazwa grupy zasobów, w której tworzone są zasoby usługi Azure Blockchain Service. |
-| **Nazwa** | Nazwa członka łańcucha bloków usługi Azure Blockchain, który zawiera również nową nazwę węzła transakcji. |
-| **Lokalizacji** | Region platformy Azure, w którym jest tworzony członek łańcucha bloków. Na przykład `eastus`. Wybierz lokalizację najbliżej użytkowników lub innych aplikacji Azure. |
-| **hasło** | Hasło węzła transakcji. Hasło musi spełniać trzy z następujących czterech wymagań: długość musi wynosić od 12 & 72 znaków, 1 małe litery, 1 wielkie litery, 1 liczba i 1 znak specjalny, który\`nie jest znakiem liczby(#), percent(%), przecinek(,), gwiazdką(*), cytatem tylnym(), podwójnym cudzysłowem("), pojedynczym cudzysłowem('), kreską(-) i średnikiem(;). |
-| **Rulename** | Nazwa reguły umieszczania na białej liście zakresu adresów IP. Opcjonalny parametr dla reguł zapory. |
-| **startIpAddress (startIpAddress)** | Początek zakresu adresów IP do umieszczenia na białej liście. Opcjonalny parametr dla reguł zapory. |
-| **endIpAddress (adres endIpAddress)** | Koniec zakresu adresów IP dla białej listy. Opcjonalny parametr dla reguł zapory.|
+| **Grupa zasobów** | Nazwa grupy zasobów, w której są tworzone zasoby usługi Azure łańcucha bloków. |
+| **Nazwij** | Nazwa elementu członkowskiego usługi Azure łańcucha bloków Service łańcucha bloków, który zawiera również nową nazwę węzła transakcji. |
+| **przeniesienie** | Region świadczenia usługi Azure, w którym jest tworzony element członkowski łańcucha bloków. Na przykład `eastus`. Wybierz lokalizację najbliżej użytkowników lub innych aplikacji Azure. |
+| **hasło** | Hasło węzła transakcji. Hasło musi spełniać trzy z czterech następujących wymagań: długość musi wynosić od 12 & 72 znaków, 1 małe litery, 1 wielkie litery, 1 cyfra i 1 znak specjalny, który nie jest znakiem numeru (#), procent (%), przecinek (,), gwiazdka (\`), cudzysłów (), podwójny cudzysłów ("), apostrof (), kreska () i średnika (;). |
+| **ruleName** | Nazwa reguły listy dozwolonych zakres adresów IP. Opcjonalny parametr reguł zapory. |
+| **Wartość** | Początek zakresu adresów IP dla listy dozwolonych. Opcjonalny parametr reguł zapory. |
+| **endIpAddress** | Koniec zakresu adresów IP dla listy dozwolonych. Opcjonalny parametr reguł zapory.|
 
-## <a name="change-transaction-node-password"></a>Zmienianie hasła węzła transakcji
+## <a name="change-transaction-node-password"></a>Zmień hasło węzła transakcji
 
 Przykład zmienia hasło węzła transakcji.
 
@@ -102,13 +102,13 @@ az resource update \
 
 | Parametr | Opis |
 |---------|-------------|
-| **grupa zasobów** | Nazwa grupy zasobów, w której istnieją zasoby usługi Azure Blockchain Service. |
-| **Nazwa** | Nazwa członka łańcucha bloków usługi Azure Blockchain, który zawiera również nową nazwę węzła transakcji. |
-| **hasło** | Hasło węzła transakcji. Hasło musi spełniać trzy z następujących czterech wymagań: długość musi wynosić od 12 & 72 znaków, 1 małe litery, 1 wielkie litery, 1 liczba i 1 znak specjalny, który\`nie jest znakiem liczby(#), percent(%), przecinek(,), gwiazdką(*), cytatem tylnym(), podwójnym cudzysłowem("), pojedynczym cudzysłowem('), kreską(-) i średnikiem(;). |
+| **Grupa zasobów** | Nazwa grupy zasobów, w której znajdują się zasoby usługi Azure łańcucha bloków. |
+| **Nazwij** | Nazwa elementu członkowskiego usługi Azure łańcucha bloków Service łańcucha bloków, który zawiera również nową nazwę węzła transakcji. |
+| **hasło** | Hasło węzła transakcji. Hasło musi spełniać trzy z czterech następujących wymagań: długość musi wynosić od 12 & 72 znaków, 1 małe litery, 1 wielkie litery, 1 cyfra i 1 znak specjalny, który nie jest znakiem numeru (#), procent (%), przecinek (,), gwiazdka (\`), cudzysłów (), podwójny cudzysłów ("), apostrof (), kreska () i średnika (;). |
 
-## <a name="change-consortium-management-account-password"></a>Zmienianie hasła do konta zarządzania konsorcjum
+## <a name="change-consortium-management-account-password"></a>Zmień hasło konta zarządzania konsorcjum
 
-Konto zarządzania konsorcjum jest używane do zarządzania członkostwem konsorcjum. Każdy członek jest jednoznacznie identyfikowany przez konto zarządzania konsorcjum i można zmienić hasło tego konta za pomocą następującego polecenia.
+Konto zarządzania konsorcjum służy do zarządzania członkostwem konsorcjum. Każdy element członkowski jest jednoznacznie identyfikowany przez konto zarządzania konsorcjum i można zmienić hasło tego konta za pomocą poniższego polecenia.
 
 ```azurecli
 az resource update \
@@ -121,9 +121,9 @@ az resource update \
 
 | Parametr | Opis |
 |---------|-------------|
-| **grupa zasobów** | Nazwa grupy zasobów, w której tworzone są zasoby usługi Azure Blockchain Service. |
-| **Nazwa** | Nazwa identyfikująca członka usługi Azure Blockchain. |
-| **konsorcjumManagementAccountPassword** | Hasło konta zarządzania konsorcjum. Hasło musi spełniać trzy z następujących czterech wymagań: długość musi wynosić od 12 & 72 znaków, 1 małe litery, 1 wielkie litery, 1 liczba i 1 znak specjalny, który\`nie jest znakiem liczby(#), percent(%), przecinek(,), gwiazdką(*), cytatem tylnym(), podwójnym cudzysłowem("), pojedynczym cudzysłowem('), kreską(-) i średnikiem(;). |
+| **Grupa zasobów** | Nazwa grupy zasobów, w której są tworzone zasoby usługi Azure łańcucha bloków. |
+| **Nazwij** | Nazwa identyfikująca członka usługi Azure łańcucha bloków. |
+| **consortiumManagementAccountPassword** | Hasło konta zarządzania konsorcjum. Hasło musi spełniać trzy z czterech następujących wymagań: długość musi wynosić od 12 & 72 znaków, 1 małe litery, 1 wielkie litery, 1 cyfra i 1 znak specjalny, który nie jest znakiem numeru (#), procent (%), przecinek (,), gwiazdka (\`), cudzysłów (), podwójny cudzysłów ("), apostrof (), kreska () i średnika (;). |
   
 ## <a name="update-firewall-rules"></a>Aktualizowanie reguł zapory
 
@@ -138,15 +138,15 @@ az resource update \
 
 | Parametr | Opis |
 |---------|-------------|
-| **grupa zasobów** | Nazwa grupy zasobów, w której istnieją zasoby usługi Azure Blockchain Service. |
-| **Nazwa** | Nazwa członka łańcucha bloków usługi Azure Blockchain. |
-| **Rulename** | Nazwa reguły umieszczania na białej liście zakresu adresów IP. Opcjonalny parametr dla reguł zapory.|
-| **startIpAddress (startIpAddress)** | Początek zakresu adresów IP do umieszczenia na białej liście. Opcjonalny parametr dla reguł zapory.|
-| **endIpAddress (adres endIpAddress)** | Koniec zakresu adresów IP dla białej listy. Opcjonalny parametr dla reguł zapory.|
+| **Grupa zasobów** | Nazwa grupy zasobów, w której znajdują się zasoby usługi Azure łańcucha bloków. |
+| **Nazwij** | Nazwa członka usługi Azure łańcucha bloków Service łańcucha bloków. |
+| **ruleName** | Nazwa reguły listy dozwolonych zakres adresów IP. Opcjonalny parametr reguł zapory.|
+| **Wartość** | Początek zakresu adresów IP dla listy dozwolonych. Opcjonalny parametr reguł zapory.|
+| **endIpAddress** | Koniec zakresu adresów IP dla listy dozwolonych. Opcjonalny parametr reguł zapory.|
 
-## <a name="list-api-keys"></a>Lista kluczy interfejsu API
+## <a name="list-api-keys"></a>Wyświetl listę kluczy interfejsu API
 
-Klucze interfejsu API mogą być używane do dostępu do węzła podobne do nazwy użytkownika i hasła. Istnieją dwa klucze interfejsu API do obsługi rotacji kluczy. Użyj następującego polecenia, aby wyświetlić listę kluczy interfejsu API.
+Klucze interfejsu API mogą służyć do dostępu do węzła, podobnie jak nazwa użytkownika i hasło. Istnieją dwa klucze interfejsu API do obsługi rotacji kluczy. Użyj poniższego polecenia, aby wyświetlić listę kluczy interfejsu API.
 
 ```azurecli
 az resource invoke-action \
@@ -158,12 +158,12 @@ az resource invoke-action \
 
 | Parametr | Opis |
 |---------|-------------|
-| **grupa zasobów** | Nazwa grupy zasobów, w której istnieją zasoby usługi Azure Blockchain Service. |
-| **Nazwa** | Nazwa członka łańcucha bloków usługi Azure Blockchain, który zawiera również nową nazwę węzła transakcji. |
+| **Grupa zasobów** | Nazwa grupy zasobów, w której znajdują się zasoby usługi Azure łańcucha bloków. |
+| **Nazwij** | Nazwa elementu członkowskiego usługi Azure łańcucha bloków Service łańcucha bloków, który zawiera również nową nazwę węzła transakcji. |
 
-## <a name="regenerate-api-keys"></a>Ponowne generowanie kluczy interfejsu API
+## <a name="regenerate-api-keys"></a>Wygeneruj ponownie klucze interfejsu API
 
-Użyj następującego polecenia, aby ponownie wygenerować klucze interfejsu API.
+Użyj poniższego polecenia, aby ponownie wygenerować klucze interfejsu API.
 
 ```azurecli
 az resource invoke-action \
@@ -176,11 +176,11 @@ az resource invoke-action \
 
 | Parametr | Opis |
 |---------|-------------|
-| **grupa zasobów** | Nazwa grupy zasobów, w której istnieją zasoby usługi Azure Blockchain Service. |
-| **Nazwa** | Nazwa członka łańcucha bloków usługi Azure Blockchain, który zawiera również nową nazwę węzła transakcji. |
-| **keyName** | Zamień \<keyValue\> na key1 lub key2. |
+| **Grupa zasobów** | Nazwa grupy zasobów, w której znajdują się zasoby usługi Azure łańcucha bloków. |
+| **Nazwij** | Nazwa elementu członkowskiego usługi Azure łańcucha bloków Service łańcucha bloków, który zawiera również nową nazwę węzła transakcji. |
+| **keyName** | Zastąp \<wartość\> parametru wartością Klucz1 lub klucz2. |
 
-## <a name="delete-a-transaction-node"></a>Usuwanie węzła transakcji
+## <a name="delete-a-transaction-node"></a>Usuń węzeł transakcji
 
 Przykład usuwa węzeł transakcji elementu członkowskiego łańcucha bloków.
 
@@ -193,12 +193,12 @@ az resource delete \
 
 | Parametr | Opis |
 |---------|-------------|
-| **grupa zasobów** | Nazwa grupy zasobów, w której istnieją zasoby usługi Azure Blockchain Service. |
-| **Nazwa** | Nazwa członka łańcucha bloków usługi Azure Blockchain, który zawiera również nazwę węzła transakcji do usunięcia. |
+| **Grupa zasobów** | Nazwa grupy zasobów, w której znajdują się zasoby usługi Azure łańcucha bloków. |
+| **Nazwij** | Nazwa elementu członkowskiego usługi Azure łańcucha bloków Service łańcucha bloków, który zawiera również nazwę węzła transakcji do usunięcia. |
 
-## <a name="delete-a-blockchain-member"></a>Usuwanie członka łańcucha bloków
+## <a name="delete-a-blockchain-member"></a>Usuwanie elementu członkowskiego łańcucha bloków
 
-Przykład usuwa członka łańcucha bloków.
+Przykład usuwa element członkowski łańcucha bloków.
 
 ```azurecli
 az resource delete \
@@ -209,12 +209,12 @@ az resource delete \
 
 | Parametr | Opis |
 |---------|-------------|
-| **grupa zasobów** | Nazwa grupy zasobów, w której istnieją zasoby usługi Azure Blockchain Service. |
-| **Nazwa** | Nazwa członka łańcucha bloków usługi Azure Blockchain do usunięcia. |
+| **Grupa zasobów** | Nazwa grupy zasobów, w której znajdują się zasoby usługi Azure łańcucha bloków. |
+| **Nazwij** | Nazwa członka usługi Azure łańcucha bloków Service łańcucha bloków do usunięcia. |
 
-## <a name="azure-active-directory"></a>Usługa Azure Active Directory
+## <a name="azure-active-directory"></a>Azure Active Directory
 
-### <a name="grant-access-for-azure-ad-user"></a>Udzielanie dostępu użytkownikom usługi Azure AD
+### <a name="grant-access-for-azure-ad-user"></a>Udzielanie dostępu użytkownikowi usługi Azure AD
 
 ```azurecli
 az role assignment create \
@@ -225,13 +225,13 @@ az role assignment create \
 
 | Parametr | Opis |
 |---------|-------------|
-| **role (rola)** | Nazwa roli usługi Azure AD. |
-| **Cesjonariusza** | Identyfikator użytkownika usługi Azure AD. Na przykład: `user@contoso.com` |
-| **Zakres** | Zakres przypisania roli. Może być członkiem łańcucha bloków lub węzłem transakcji. |
+| **roli** | Nazwa roli usługi Azure AD. |
+| **osoby przydzielonej** | Identyfikator użytkownika usługi Azure AD. Na przykład: `user@contoso.com` |
+| **Scope** | Zakres przypisania roli. Może być elementem członkowskim łańcucha bloków lub węzłem transakcji. |
 
-**Przykład:**
+**Przyklad**
 
-Udziel dostępu do węzła dla użytkownika usługi Azure AD **członkowi**łańcucha bloków:
+Udziel dostępu do węzła dla użytkownika usługi Azure AD **do łańcucha bloków:**
 
 ```azurecli
 az role assignment create \
@@ -240,9 +240,9 @@ az role assignment create \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
 ```
 
-**Przykład:**
+**Przyklad**
 
-Udziel dostępu do węzła dla użytkownika usługi Azure AD do **węzła transakcji**łańcucha bloków:
+Przyznaj dostęp do węzła dla użytkownika usługi Azure AD do **węzła transakcji**łańcucha bloków:
 
 ```azurecli
 az role assignment create \
@@ -251,7 +251,7 @@ az role assignment create \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1/transactionNodes/contosoTransactionNode1
 ```
 
-### <a name="grant-node-access-for-azure-ad-group-or-application-role"></a>Udziel dostępu do węzła dla grupy lub roli aplikacji usługi Azure AD
+### <a name="grant-node-access-for-azure-ad-group-or-application-role"></a>Udzielanie dostępu do węzła dla roli aplikacji lub grupy usługi Azure AD
 
 ```azurecli
 az role assignment create \
@@ -261,13 +261,13 @@ az role assignment create \
 
 | Parametr | Opis |
 |---------|-------------|
-| **role (rola)** | Nazwa roli usługi Azure AD. |
-| **identyfikator cesjonariusza-obiekt** | Identyfikator grupy usługi Azure AD lub identyfikator aplikacji. |
-| **Zakres** | Zakres przypisania roli. Może być członkiem łańcucha bloków lub węzłem transakcji. |
+| **roli** | Nazwa roli usługi Azure AD. |
+| **przydzielone-ID obiektu** | Identyfikator grupy usługi Azure AD lub identyfikator aplikacji. |
+| **Scope** | Zakres przypisania roli. Może być elementem członkowskim łańcucha bloków lub węzłem transakcji. |
 
-**Przykład:**
+**Przyklad**
 
-Udziel dostępu do węzła dla **roli aplikacji**
+Przyznaj dostęp do węzła dla **roli aplikacji**
 
 ```azurecli
 az role assignment create \
@@ -276,7 +276,7 @@ az role assignment create \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
 ```
 
-### <a name="remove-azure-ad-node-access"></a>Usuwanie dostępu do węzła usługi Azure AD
+### <a name="remove-azure-ad-node-access"></a>Usuń dostęp do węzła usługi Azure AD
 
 ```azurecli
 az role assignment delete \
@@ -287,10 +287,10 @@ az role assignment delete \
 
 | Parametr | Opis |
 |---------|-------------|
-| **role (rola)** | Nazwa roli usługi Azure AD. |
-| **Cesjonariusza** | Identyfikator użytkownika usługi Azure AD. Na przykład: `user@contoso.com` |
-| **Zakres** | Zakres przypisania roli. Może być członkiem łańcucha bloków lub węzłem transakcji. |
+| **roli** | Nazwa roli usługi Azure AD. |
+| **osoby przydzielonej** | Identyfikator użytkownika usługi Azure AD. Na przykład: `user@contoso.com` |
+| **Scope** | Zakres przypisania roli. Może być elementem członkowskim łańcucha bloków lub węzłem transakcji. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [skonfigurować węzły transakcji usługi Azure Blockchain Service za pomocą portalu Azure.](configure-transaction-nodes.md)
+Dowiedz się [, jak skonfigurować węzły transakcji usługi Azure łańcucha bloków za pomocą Azure Portal](configure-transaction-nodes.md).

@@ -1,6 +1,6 @@
 ---
-title: Zaawansowane kodowanie za pomocą przepływu pracy Media Encoder Premium | Dokumenty firmy Microsoft
-description: Dowiedz się, jak zakodować za pomocą przepływu pracy media encoder Premium. Przykłady kodu są zapisywane w języku C# i używają zestawu SDK usług multimedialnych dla platformy .NET.
+title: Zaawansowane kodowanie za pomocą Media Encoder Premium Workflow | Microsoft Docs
+description: Dowiedz się, jak kodować przy użyciu Media Encoder Premium Workflow. Przykłady kodu są zapisywane w języku C# i używają zestawu Media Services SDK dla platformy .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,33 +14,33 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ca5de657ad45f53cff0cb01d5fe9cc412baf4533
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72792298"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Zaawansowane kodowanie za pomocą usługi Media Encoder Premium Workflow
 > [!NOTE]
-> Procesor nośników Media Encoder Premium Workflow omówiony w tym artykule nie jest dostępny w Chinach.
+> Procesor multimediów Media Encoder Premium Workflow omawiany w tym artykule nie jest dostępny w Chinach.
 >
 >
 
 ## <a name="overview"></a>Omówienie
-Usługa Microsoft Azure Media Services wprowadza procesor nośników **Media Encoder Premium Workflow.** Ten procesor oferuje zaawansowane możliwości kodowania dla przepływów pracy premium na żądanie.
+Microsoft Azure Media Services jest wprowadzany do **Media Encoder Premium Workflow** procesora multimediów. Ten procesor oferuje zaawansowane możliwości kodowania dla przepływów pracy na żądanie w warstwie Premium.
 
-Następujące tematy przedstawiają szczegóły dotyczące **przepływu pracy usługi Media Encoder Premium:**
+Poniższe tematy zawierają szczegółowe informacje dotyczące **Media Encoder Premium Workflow**:
 
-* [Formaty obsługiwane przez przepływ pracy Premium Kodera multimediów](media-services-premium-workflow-encoder-formats.md) — omówiono formaty plików i kodeków obsługiwanych przez **media encoder Premium Workflow**.
-* [Przegląd i porównanie koderów multimediów platformy Azure na żądanie](media-services-encode-asset.md) porównuje możliwości kodowania w programie Media **Encoder Premium Workflow** i **Media Encoder Standard.**
+* [Formaty obsługiwane przez Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) — omawia formaty plików i kodery-dekoder obsługiwane przez **Media Encoder Premium Workflow**.
+* [Omówienie i porównanie koderów multimediów na żądanie na platformie Azure](media-services-encode-asset.md) porównuje możliwości kodowania **Media Encoder Premium Workflow** i **Media Encoder Standard**.
 
-W tym artykule pokazano, jak zakodować za pomocą **przepływu pracy usługi Media Encoder Premium** przy użyciu platformy .NET.
+W tym artykule pokazano, jak kodować **Media Encoder Premium Workflow** przy użyciu platformy .NET.
 
-Zadania kodowania przepływu **pracy usługi Media Encoder Premium** wymagają oddzielnego pliku konfiguracyjnego, zwanego plikiem przepływu pracy. Te pliki mają rozszerzenie przepływu pracy i są tworzone za pomocą narzędzia [Projektant przepływu pracy.](media-services-workflow-designer.md)
+Zadania kodowania dla **Media Encoder Premium Workflow** wymagają oddzielnego pliku konfiguracji o nazwie plik przepływu pracy. Te pliki mają rozszerzenie. Workflow i są tworzone za pomocą narzędzia [Projektant przepływu pracy](media-services-workflow-designer.md) .
 
-W [tym](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)miejscu można również uzyskać domyślne pliki przepływu pracy . Folder zawiera również opis tych plików.
+W [tym miejscu](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)możesz również uzyskać domyślne pliki przepływu pracy. Folder zawiera również opis tych plików.
 
-Pliki przepływu pracy muszą zostać przekazane na konto usługi Media Services jako zasób, a ten zasób powinien zostać przekazany do zadania kodowania.
+Pliki przepływu pracy muszą zostać przekazane do konta Media Services jako element zawartości, a ten zasób powinien zostać przekazany do zadania kodowania.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 
@@ -48,24 +48,24 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
 
 ## <a name="encoding-example"></a>Przykład kodowania
 
-W poniższym przykładzie pokazano, jak zakodować za pomocą **przepływu pracy usługi Media Encoder Premium**.
+Poniższy przykład ilustruje sposób kodowania przy użyciu **Media Encoder Premium Workflow**.
 
-Wykonywane są następujące kroki:
+Wykonywane są następujące czynności:
 
-1. Utwórz zasób i przekaż plik przepływu pracy.
-2. Utwórz zasób i przekaż źródłowy plik multimedialny.
+1. Utwórz element zawartości i Przekaż plik przepływu pracy.
+2. Utwórz element zawartości i Przekaż plik nośnika źródłowego.
 3. Pobierz procesor multimediów "Media Encoder Premium Workflow".
-4. Tworzenie zadania i zadania.
+4. Utwórz zadanie i zadanie.
 
-    W większości przypadków ciąg konfiguracji zadania jest pusty (jak w poniższym przykładzie). Istnieje kilka zaawansowanych scenariuszy (które wymagają dynamicznego ustawiania właściwości środowiska uruchomieniowego), w którym to przypadku należy podać ciąg XML do zadania kodowania. Przykładami takich scenariuszy są: tworzenie nakładki, równoległe lub sekwencyjne szwy nośników, napisy.
-5. Dodaj dwa zasoby wejściowe do zadania.
+    W większości przypadków ciąg konfiguracyjny dla zadania jest pusty (jak w poniższym przykładzie). Istnieją pewne zaawansowane scenariusze (które wymagają dynamicznego ustawiania właściwości środowiska uruchomieniowego), w którym należy podać ciąg XML do zadania kodowania. Przykładami takich scenariuszy są: Tworzenie nakładki, równoległe lub sekwencyjne łączenie z nośnikami, napisy.
+5. Dodaj dwa dane wejściowe do zadania.
 
-   1. 1. miejsce – zasób przepływu pracy.
-   2. 2. – zasób wideo.
+   1. 1 — zasób przepływu pracy.
+   2. 2 — zasób wideo.
 
       >[!NOTE]
-      >Zasób przepływu pracy musi zostać dodany do zadania przed zasóbem multimedialnym.
-      Ciąg konfiguracji dla tego zadania powinien być pusty.
+      >Do zadania przed zasobem multimediów należy dodać zasób przepływu pracy.
+      Ciąg konfiguracyjny dla tego zadania powinien być pusty.
    
 6. Prześlij zadanie kodowania.
 
@@ -231,7 +231,7 @@ namespace MediaEncoderPremiumWorkflowSample
 
 ## <a name="need-help"></a>Potrzebujesz pomocy?
 
-Możesz otworzyć bilet pomocy technicznej, przechodząc do [nowego żądania pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Możesz otworzyć bilet pomocy technicznej, przechodząc do [nowego żądania obsługi](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -1,23 +1,23 @@
 ---
-title: Opisywanie aplikacji i usług sieci szkieletowej usługi Azure
-description: W tym artykule opisano, jak manifesty są używane do opisywania aplikacji i usług sieci szkieletowej usług.
+title: Opisywanie usług i aplikacji Service Fabric platformy Azure
+description: Opisuje, w jaki sposób manifesty są używane do opisywania Service Fabric aplikacji i usług.
 ms.topic: conceptual
 ms.date: 8/12/2019
 ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75349963"
 ---
-# <a name="service-fabric-application-and-service-manifests"></a>Manifesty aplikacji i usług sieci szkieletowej usług
-W tym artykule opisano, jak aplikacje i usługi sieci szkieletowej usług są definiowane i wersjonowane przy użyciu plików ApplicationManifest.xml i ServiceManifest.xml.  Aby uzyskać bardziej szczegółowe przykłady, zobacz [przykłady manifestów aplikacji i usług](service-fabric-manifest-examples.md).  Schemat XML dla tych plików manifestu jest udokumentowany w [dokumentacji schematu ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
+# <a name="service-fabric-application-and-service-manifests"></a>Service Fabric manifesty aplikacji i usług
+W tym artykule opisano sposób, w jaki Service Fabric aplikacje i usługi są zdefiniowane i używane do obsługi wersji przy użyciu plików ApplicationManifest. XML i servicemanifest. XML.  Aby uzyskać bardziej szczegółowe przykłady, zobacz [przykłady manifestów aplikacji i usług](service-fabric-manifest-examples.md).  Schemat XML dla tych plików manifestu jest udokumentowany w [dokumentacji schematu ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
 
 > [!WARNING]
-> Schemat pliku XML manifestu wymusza prawidłową kolejność elementów podrzędnych.  Jako częściowe obejście otwórz "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" w programie Visual Studio podczas tworzenia lub modyfikowania dowolnego manifestu sieci szkieletowej usług. Pozwoli to sprawdzić kolejność elementów podrzędnych i zapewnia intelli-sense.
+> Schemat pliku XML manifestu wymusza prawidłową kolejność elementów podrzędnych.  Jako częściowe obejście, Otwórz "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" w programie Visual Studio podczas tworzenia lub modyfikowania dowolnych manifestów Service Fabric. Umożliwi to sprawdzenie kolejności elementów podrzędnych i zapewnia korzystać projekcjami.
 
-## <a name="describe-a-service-in-servicemanifestxml"></a>Opis usługi w pliku ServiceManifest.xml
-Manifest usługi deklaratywnie definiuje typ usługi i wersję. Określa metadane usługi, takie jak typ usługi, właściwości kondycji, metryki równoważenia obciążenia, pliki binarne usługi i pliki konfiguracyjne.  Innymi słowy, opisano kod, konfigurację i pakiety danych, które tworzą pakiet usługi do obsługi jednego lub więcej typów usług. Manifest usługi może zawierać wiele pakietów kodu, konfiguracji i danych, które mogą być wersjona niezależnie. Oto manifest usługi dla ASP.NET Core usługi front-end sieci [web aplikacji przykładowej głosowania](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (i oto kilka bardziej szczegółowych [przykładów):](service-fabric-manifest-examples.md)
+## <a name="describe-a-service-in-servicemanifestxml"></a>Opisywanie usługi w pliku servicemanifest. XML
+Manifest usługi deklaratywnie definiuje typ i wersję usługi. Określa on metadane usługi, takie jak typ usługi, właściwości kondycji, metryki równoważenia obciążenia, pliki binarne usługi i plików konfiguracyjnych.  Można to zrobić w inny sposób, opisując kod, konfigurację i pakiety danych tworzące pakiet usługi do obsługi jednego lub kilku typów usług. Manifest usługi może zawierać wiele pakietów kodu, konfiguracji i danych, które mogą być niezależnie od wersji. Oto manifest usługi dla usługi ASP.NET Core Internet frontonu [przykładowej aplikacji do głosowania](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (i przedstawiono kilka [bardziej szczegółowych przykładów](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -57,24 +57,24 @@ Manifest usługi deklaratywnie definiuje typ usługi i wersję. Określa metadan
 </ServiceManifest>
 ```
 
-**Atrybuty wersji** są ciągami bez struktury i nie są analizowane przez system. Atrybuty wersji są używane do wersji każdego składnika dla uaktualnień.
+Atrybuty **wersji** są ciągami bez struktury i nie są analizowane przez system. Atrybuty wersji są używane do wersji każdego składnika do uaktualnienia.
 
-**ServiceTypes** deklaruje, jakie typy usług są obsługiwane przez **Pakiety Kodu w** tym manifeście. Gdy usługa jest tworzone dla jednego z tych typów usług, wszystkie pakiety kodu zadeklarowane w tym manifeście są aktywowane przez uruchomienie ich punktów wejścia. Procesy wynikowe oczekuje się zarejestrować obsługiwane typy usług w czasie wykonywania. Typy usług są zadeklarowane na poziomie manifestu, a nie na poziomie pakietu kodu. Tak więc, gdy istnieje wiele pakietów kodu, wszystkie są aktywowane za każdym razem, gdy system szuka jednego z zadeklarowanych typów usług.
+Elementy **ServiceType** deklarują, jakie typy usług są obsługiwane przez **CodePackages** w tym manifeście. W przypadku wystąpienia usługi dla jednego z tych typów usług wszystkie pakiety kodu zadeklarowane w tym manifeście są uaktywniane przez uruchomienie ich punktów wejścia. Procesy powstające powinny rejestrować obsługiwane typy usług w czasie wykonywania. Typy usług są deklarowane na poziomie manifestu, a nie na poziomie pakietu kodu. Tak więc w przypadku wielu pakietów kodu są one aktywowane, gdy system szuka jednego z zadeklarowanych typów usług.
 
-Plik wykonywalny określony przez **entrypoint** jest zazwyczaj długotrwałym hostem usługi. **SetupEntryPoint** to uprzywilejowany punkt wejścia, który działa z tymi samymi poświadczeniami co sieć szkieletowa usług (zazwyczaj konto *LocalSystem)* przed jakimkolwiek innym punktem wejścia.  Obecność oddzielnego punktu wejścia konfiguracji pozwala uniknąć konieczności uruchamiania hosta usługi z wysokimi uprawnieniami przez dłuższy czas. Plik wykonywalny określony przez **entrypoint** jest uruchamiany po pomyślnym zamknięciu **programu SetupEntryPoint.** Jeśli proces zostanie zakończony lub ulegnie awarii, wynikowy proces zostanie monitorowany i ponownie uruchomiony (zaczynając od nowa za pomocą **programu SetupEntryPoint).**  
+Plik wykonywalny określony przez **punkt wejścia** jest zwykle długotrwałym hostem usługi. **SetupEntryPoint** to uprzywilejowany punkt wejścia, który jest uruchamiany z tymi samymi poświadczeniami co Service Fabric (zazwyczaj konto *LocalSystem* ) przed innym punktem wejścia.  Obecność oddzielnego punktu wejścia Instalatora pozwala uniknąć konieczności uruchamiania hosta usługi z wysokim poziomem uprawnień przez dłuższy czas. Plik wykonywalny określony przez **punkt wejścia** jest uruchamiany po pomyślnym zamknięciu **SetupEntryPoint** . Jeśli proces kiedykolwiek się zakończy lub ulegnie awarii, proces wynikający jest monitorowany i uruchamiany ponownie (od **SetupEntryPoint**).  
 
-Typowe scenariusze korzystania z **Programu SetupEntryPoint** są po uruchomieniu pliku wykonywalnego przed uruchomieniem usługi lub wykonaniu operacji z podwyższonym poziomem uprawnień. Przykład:
+Typowymi scenariuszami używania **SetupEntryPoint** są uruchamianie plików wykonywalnych przed uruchomieniem usługi lub wykonywanie operacji z podniesionymi uprawnieniami. Przykład:
 
-* Konfigurowanie i inicjowanie zmiennych środowiskowych, których potrzebuje plik wykonywalny usługi. Nie jest to ograniczone tylko do plików wykonywalnych napisanych za pośrednictwem modeli programowania sieci szkieletowej usług. Na przykład npm.exe potrzebuje niektórych zmiennych środowiskowych skonfigurowanych do wdrażania aplikacji node.js.
-* Konfigurowanie kontroli dostępu przez instalowanie certyfikatów zabezpieczeń.
+* Konfigurowanie i Inicjowanie zmiennych środowiskowych wymaganych przez plik wykonywalny usługi. Nie jest to ograniczone tylko do plików wykonywalnych pisanych za pośrednictwem modeli programowania Service Fabric. Na przykład npm. exe wymaga pewnych zmiennych środowiskowych skonfigurowanych do wdrażania aplikacji node. js.
+* Konfigurowanie kontroli dostępu przez zainstalowanie certyfikatów zabezpieczeń.
 
-Aby uzyskać więcej informacji na temat konfigurowania programu SetupEntryPoint, zobacz [Konfigurowanie zasad dla punktu wejścia konfiguracji usługi](service-fabric-application-runas-security.md)
+Aby uzyskać więcej informacji na temat konfigurowania SetupEntryPoint, zobacz [Konfigurowanie zasad dla punktu wejścia Instalatora usługi](service-fabric-application-runas-security.md)
 
-**EnvironmentVariables** (nie ustawiona w poprzednim przykładzie) zawiera listę zmiennych środowiskowych, które są ustawione dla tego pakietu kodu. Zmienne środowiskowe mogą być `ApplicationManifest.xml` zastąpione w celu zapewnienia różnych wartości dla różnych wystąpień usługi. 
+**EnvironmentVariables** (nie ustawiono w poprzednim przykładzie) zawiera listę zmiennych środowiskowych ustawionych dla tego pakietu kodu. Zmienne środowiskowe można przesłaniać w `ApplicationManifest.xml` programie, aby zapewnić różne wartości dla różnych wystąpień usługi. 
 
-**DataPackage** (nie ustawiona w poprzednim przykładzie) deklaruje folder o nazwie przez **Name** atrybut, który zawiera dowolne dane statyczne do korzystania przez proces w czasie wykonywania.
+**Pakiet** danych (nie został ustawiony w poprzednim przykładzie) deklaruje folder **o nazwie,** który zawiera dowolne dane statyczne do użycia przez proces w czasie wykonywania.
 
-**ConfigPackage** deklaruje folder o nazwie według atrybutu **Nazwa,** który zawiera plik *Settings.xml.* Plik ustawień zawiera sekcje zdefiniowanych przez użytkownika ustawień pary klucz-wartość, które proces odczytuje w czasie wykonywania. Podczas uaktualniania, jeśli tylko **configPackage** **wersja** została zmieniona, a następnie uruchomiony proces nie jest ponownie uruchamiany. Zamiast tego wywołanie zwrotne powiadamia proces, że ustawienia konfiguracji zostały zmienione, dzięki czemu można je ponownie załadować dynamicznie. Oto przykładowy plik *Settings.xml:*
+**ConfigPackage** deklaruje folder **o nazwie,** który zawiera plik *Settings. XML* . Plik ustawień zawiera sekcje ustawień zdefiniowanych przez użytkownika, pary klucz-wartość, które proces odczytuje z powrotem w czasie wykonywania. W trakcie uaktualniania, jeśli tylko wersja **ConfigPackage** **version** została zmieniona, uruchomiony proces nie zostanie ponownie uruchomiony. Zamiast tego wywołanie zwrotne powiadamia proces, że ustawienia konfiguracji zostały zmienione, aby można je było ponownie załadować dynamicznie. Oto przykładowy plik *Settings. XML* :
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -85,11 +85,11 @@ Aby uzyskać więcej informacji na temat konfigurowania programu SetupEntryPoint
 </Settings>
 ```
 
-Punkt końcowy usługi sieci **szkieletowej** usług jest przykładem zasobu sieci szkieletowej usług. Zasób sieci szkieletowej usług można zadeklarować/zmienić bez zmiany skompilowanego kodu. Dostęp do zasobów sieci szkieletowej usług, które są określone w manifeście usługi mogą być kontrolowane za pośrednictwem **SecurityGroup** w manifeście aplikacji. Gdy zasób punktu końcowego jest zdefiniowany w manifeście usługi, usługa Sieci szkieletowej przypisuje porty z zakresu portów aplikacji zastrzeżonych, gdy port nie jest jawnie określony. Dowiedz się więcej o [określaniu lub zastępowaniu zasobów punktu końcowego](service-fabric-service-manifest-resources.md).
+**Punkt końcowy** usługi Service Fabric jest przykładem zasobu Service Fabric. Zasób Service Fabric można zadeklarować/zmienić bez zmiany skompilowanego kodu. Dostęp do Service Fabric zasobów, które są określone w manifeście usługi, można kontrolować za pomocą **zabezpieczeń** w manifeście aplikacji. Gdy zasób punktu końcowego jest zdefiniowany w manifeście usługi, Service Fabric przypisuje porty z zakresu portów aplikacji zastrzeżonej, gdy port nie jest jawnie określony. Przeczytaj więcej na temat [określania lub zastępowania zasobów punktu końcowego](service-fabric-service-manifest-resources.md).
 
  
 > [!WARNING]
-> Zgodnie z projektem porty statyczne nie powinny pokrywać się z zakresem portów aplikacji określonym w ClusterManifest. Jeśli określisz port statyczny, przypisz go poza zakresem portów aplikacji, w przeciwnym razie spowoduje to konflikty portów. Wraz z wersją 6.5CU2 wydamy **ostrzeżenie zdrowotne,** gdy wykryjemy taki konflikt, ale pozwolimy, aby wdrożenie było kontynuowane z zachowaniem wysłanego 6.5. Możemy jednak uniemożliwić wdrożenie aplikacji z następnych głównych wersji.
+> Przez projektowanie portów statycznych nie należy nakładać się na zakres portów aplikacji określony w ClusterManifest. Jeśli określisz port statyczny, przypisz go poza zakresem portów aplikacji, w przeciwnym razie spowoduje to konflikty portów. Za pomocą programu Release 6.5 ZASTOSUJESZ pakietu CU2 zostanie **wyświetlone ostrzeżenie o kondycji** , gdy wykryjesz taki konflikt, ale zezwolisz na synchronizację wdrożenia z przesłanym zachowaniem 6,5. Jednak firma Microsoft może uniemożliwić wdrożenie aplikacji z następnych głównych wersji.
 >
 
 <!--
@@ -101,10 +101,10 @@ For more information about other features supported by service manifests, refer 
 *TODO: Configuration overrides
 -->
 
-## <a name="describe-an-application-in-applicationmanifestxml"></a>Opis aplikacji w pliku ApplicationManifest.xml
-Manifest aplikacji deklaratywnie opisuje typ aplikacji i wersję. Określa metadane składu usługi, takie jak stabilne nazwy, schemat partycjonowania, współczynnik liczby/replikacji wystąpień, zasady zabezpieczeń/izolacji, ograniczenia umieszczania, zastąpienia konfiguracji i typy usług składowych. Opisano również domeny równoważenia obciążenia, w których aplikacja jest umieszczana.
+## <a name="describe-an-application-in-applicationmanifestxml"></a>Opisz aplikację w ApplicationManifest. XML
+Manifest aplikacji deklaratywnie opisuje typ i wersję aplikacji. Określa metadane kompozycji usługi, takie jak nazwy stabilne, schemat partycjonowania, liczba wystąpień/współczynnik replikacji, zasady zabezpieczeń/izolacji, ograniczenia umieszczania, zastąpień konfiguracji i typy usług składowych. Opisano również domeny równoważenia obciążenia, w których znajduje się aplikacja.
 
-W związku z tym manifest aplikacji opisuje elementy na poziomie aplikacji i odwołuje się do jednego lub więcej manifestów usługi do tworzenia typu aplikacji. Oto manifest wniosku dla [wniosku o głosowanie próbki](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (i oto kilka bardziej szczegółowych [przykładów):](service-fabric-manifest-examples.md)
+W ten sposób manifest aplikacji opisuje elementy na poziomie aplikacji i odwołuje się do co najmniej jednego manifestu usługi do redagowania typu aplikacji. Oto manifest aplikacji dla [przykładowej aplikacji do głosowania](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (i Oto kilka [bardziej szczegółowych przykładów](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -147,25 +147,25 @@ W związku z tym manifest aplikacji opisuje elementy na poziomie aplikacji i odw
 </ApplicationManifest>
 ```
 
-Podobnie jak manifesty **usługi, Atrybuty Version** są ciągami niestrukturalnymi i nie są analizowane przez system. Atrybuty wersji są również używane do wersji każdego składnika dla uaktualnień.
+Podobnie jak w przypadku manifestów usługi, atrybuty **wersji** są ciągami bez struktury i nie są analizowane przez system. Atrybuty wersji są również używane do wersji każdego składnika do uaktualnienia.
 
-**Parametry** definiuje parametry używane w całym manifeście aplikacji. Wartości tych parametrów mogą być dostarczane, gdy aplikacja jest tworzone i można zastąpić ustawienia konfiguracji aplikacji lub usługi.  Domyślna wartość parametru jest używana, jeśli wartość nie zostanie zmieniona podczas tworzenia wystąpienia aplikacji. Aby dowiedzieć się, jak zachować różne parametry aplikacji i usługi dla poszczególnych środowisk, zobacz [Zarządzanie parametrami aplikacji dla wielu środowisk](service-fabric-manage-multiple-environment-app-configuration.md).
+**Parametry** definiują parametry używane w ramach manifestu aplikacji. Wartości tych parametrów można podać podczas tworzenia wystąpienia aplikacji i mogą zastąpić ustawienia konfiguracji aplikacji lub usługi.  Wartość domyślna parametru jest używana, jeśli wartość nie zostanie zmieniona podczas tworzenia wystąpienia aplikacji. Aby dowiedzieć się, jak zarządzać różnymi parametrami aplikacji i usług dla poszczególnych środowisk, zobacz [Zarządzanie parametrami aplikacji w wielu środowiskach](service-fabric-manage-multiple-environment-app-configuration.md).
 
-**ServiceManifestImport** zawiera odwołania do manifestów usługi, które tworzą ten typ aplikacji. Manifest aplikacji może zawierać wiele importu manifestu usługi, każdy z nich może być wersjona niezależnie. Importowane manifesty usług określają, jakie typy usług są prawidłowe w ramach tego typu aplikacji. W ramach servicemanifestImport należy zastąpić wartości konfiguracji w pliku Settings.xml i zmiennych środowiskowych w plikach ServiceManifest.xml. **Zasady** (nie ustawione w poprzednim przykładzie) dla powiązania punktu końcowego, zabezpieczeń i dostępu oraz udostępniania pakietów można ustawić w manifestach importowanej usługi.  Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad zabezpieczeń dla aplikacji](service-fabric-application-runas-security.md).
+**ServiceManifestImport** zawiera odwołania do manifestów usługi tworzących ten typ aplikacji. Manifest aplikacji może zawierać wiele importów manifestu usługi, każdy z nich może być niezależnie w wersji. Zaimportowane manifesty usług określają, jakie typy usług są prawidłowe w ramach tego typu aplikacji. W ramach ServiceManifestImport zastąpisz wartości konfiguracyjne w pliku Settings. XML i zmienne środowiskowe w plikach servicemanifest. XML. **Zasady** (nie ustawiane w poprzednim przykładzie) dla powiązania punktu końcowego, zabezpieczeń i dostępu oraz udostępniania pakietów można ustawić dla zaimportowanych manifestów usługi.  Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad zabezpieczeń dla aplikacji](service-fabric-application-runas-security.md).
 
-**DefaultServices** deklaruje wystąpienia usługi, które są tworzone automatycznie za każdym razem, gdy aplikacja jest tworzona dla tego typu aplikacji. Usługi domyślne są tylko wygodą i zachowują się jak normalne usługi pod każdym względem po ich utworzeniu. Są one uaktualniane wraz z innymi usługami w wystąpieniu aplikacji i mogą być również usuwane. Manifest aplikacji może zawierać wiele usług domyślnych.
+**DefaultServices** deklaruje wystąpienia usługi, które są tworzone automatycznie za każdym razem, gdy aplikacja zostanie utworzona na podstawie tego typu aplikacji. Usługi domyślne są tylko wygodą i zachowują się jak normalne usługi w każdym przypadku, gdy zostały utworzone. Są one uaktualniane wraz z innymi usługami w wystąpieniu aplikacji i można je również usunąć. Manifest aplikacji może zawierać wiele domyślnych usług.
 
-**Certyfikaty** (niestawione w poprzednim przykładzie) deklarują certyfikaty używane do [konfigurowania punktów końcowych HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) lub [szyfrowania wpisów tajnych w manifeście aplikacji](service-fabric-application-secret-management.md).
+**Certyfikaty** (nie są ustawiane w poprzednim przykładzie) deklaruje certyfikaty używane do [konfiguracji punktów końcowych https](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) lub [Szyfruj wpisy tajne w manifeście aplikacji](service-fabric-application-secret-management.md).
 
-**Ograniczenia umieszczania** to instrukcje definiujące, gdzie usługi powinny być uruchamiane. Te instrukcje są dołączone do poszczególnych usług, które można wybrać dla jednej lub więcej właściwości węzła. Aby uzyskać więcej informacji, zobacz [Ograniczenia umieszczania i składnia właściwości węzła](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
+**Ograniczenia umieszczania** to instrukcje określające, gdzie mają być uruchamiane usługi. Te instrukcje są dołączone do poszczególnych usług wybranych dla jednej lub wielu właściwości węzła. Aby uzyskać więcej informacji, zobacz temat [ograniczenia umieszczania i składnia właściwości węzła](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax) .
 
-**Zasady** (nie ustawione w poprzednim przykładzie) opisuje kolekcję dziennika, [domyślne zasady uruchamiania](service-fabric-application-runas-security.md)jako , [kondycji](service-fabric-health-introduction.md#health-policies)i [zasad dostępu do zabezpieczeń,](service-fabric-application-runas-security.md) które mają być ustawione na poziomie aplikacji, w tym, czy usługi mają dostęp do środowiska uruchomieniowego sieci szkieletowej usług.
+**Zasady** (nie zostały ustawione w poprzednim przykładzie) opisują zbieranie dzienników, [domyślne zasady uruchamiania](service-fabric-application-runas-security.md)i [kondycji](service-fabric-health-introduction.md#health-policies), aby [security access](service-fabric-application-runas-security.md) ustawić na poziomie aplikacji, w tym czy usługi mają dostęp do Service Fabric środowiska uruchomieniowego.
 
 > [!NOTE] 
-> Domyślnie aplikacje sieci szkieletowej usług mają dostęp do środowiska uruchomieniowego sieci szkieletowej usług w postaci punktu końcowego akceptującego żądania specyficzne dla aplikacji i zmiennych środowiskowych wskazujących ścieżki plików na hoście zawierającym pliki sieci szkieletowej i pliki specyficzne dla aplikacji . Należy rozważyć wyłączenie tego dostępu, gdy aplikacja obsługuje niezaufany kod (tj. kod, którego pochodzenie jest nieznane lub którego właściciel aplikacji wie, że nie jest bezpieczny do wykonania). Aby uzyskać więcej informacji, zobacz [najważniejsze wskazówki dotyczące zabezpieczeń w sieci szkieletowej usług](service-fabric-best-practices-security.md#platform-isolation). 
+> Domyślnie aplikacje Service Fabric mają dostęp do środowiska uruchomieniowego Service Fabric, w postaci punktu końcowego akceptującego żądania specyficzne dla aplikacji, a zmienne środowiskowe wskazujące ścieżki plików na hoście zawierającym pliki sieci szkieletowej i specyficzne dla aplikacji. Należy rozważyć wyłączenie tego dostępu, gdy aplikacja zawiera kod niezaufany (tj. kod, którego pochodzenie jest nieznany lub którego właściciel aplikacji nie ma być bezpiecznie wykonywany). Aby uzyskać więcej informacji, zobacz [najlepsze rozwiązania w zakresie zabezpieczeń w Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
 >
 
-**Podmioty** (niestawiewające w poprzednim przykładzie) opisują podmioty zabezpieczeń (użytkowników lub grupy) wymagane do [uruchamiania usług i bezpiecznych zasobów usługi.](service-fabric-application-runas-security.md)  Podmioty są odwoływane w **sekcjach Zasady.**
+**Podmioty** zabezpieczeń (nie są ustawiane w poprzednim przykładzie) opisują nazwy główne (użytkowników lub grup) wymagane do [uruchamiania usług i zabezpieczonych zasobów usług](service-fabric-application-runas-security.md).  W sekcjach **zasad** istnieją odwołania do podmiotów zabezpieczeń.
 
 
 
@@ -181,12 +181,12 @@ For more information about other features supported by application manifests, re
 
 
 ## <a name="next-steps"></a>Następne kroki
-- [Zapakuj aplikację](service-fabric-package-apps.md) i przygotuj ją do wdrożenia.
-- [Wdrażanie i usuwanie aplikacji](service-fabric-deploy-remove-applications.md).
-- [Skonfiguruj parametry i zmienne środowiskowe dla różnych wystąpień aplikacji](service-fabric-manage-multiple-environment-app-configuration.md).
+- Utwórz [pakiet aplikacji](service-fabric-package-apps.md) i przygotuj go do wdrożenia.
+- [Wdrażaj i usuwaj aplikacje](service-fabric-deploy-remove-applications.md).
+- [Konfigurowanie parametrów i zmiennych środowiskowych dla różnych wystąpień aplikacji](service-fabric-manage-multiple-environment-app-configuration.md).
 - [Skonfiguruj zasady zabezpieczeń dla aplikacji](service-fabric-application-runas-security.md).
-- [Konfigurowanie punktów końcowych HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service).
-- [Szyfrowanie wpisów tajnych w manifeście aplikacji](service-fabric-application-secret-management.md)
+- [Skonfiguruj punkty końcowe HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service).
+- [Szyfruj wpisy tajne w manifeście aplikacji](service-fabric-application-secret-management.md)
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

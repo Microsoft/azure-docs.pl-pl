@@ -1,29 +1,29 @@
 ---
-title: 'Bezpieczna komunikacja zdalna usługi z C #'
-description: Dowiedz się, jak zabezpieczyć komunikację zdalną usługi dla niezawodnych usług języka C#, które są uruchomione w klastrze sieci szkieletowej usług Azure.
+title: 'Zabezpieczanie komunikacji zdalnej usługi przy użyciu języka C #'
+description: Dowiedz się, jak zabezpieczyć komunikację zdalną usługi na podstawie komunikacji zdalnej dla niezawodnych usług w języku C#, które działają w klastrze Service Fabric platformy Azure.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ee2f1d70f4094ccc7d80edbfaf16509b5124f607
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609625"
 ---
-# <a name="secure-service-remoting-communications-in-a-c-service"></a>Bezpieczna komunikacja zdalna usługi w usłudze Języka C#
+# <a name="secure-service-remoting-communications-in-a-c-service"></a>Bezpieczna komunikacja zdalna usługi w usłudze C#
 > [!div class="op_single_selector"]
 > * [C# w systemie Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java w systemie Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-Bezpieczeństwo jest jednym z najważniejszych aspektów komunikacji. Struktura aplikacji niezawodne usługi zawiera kilka wstępnie utworzonych stosów komunikacji i narzędzi, których można użyć w celu zwiększenia bezpieczeństwa. W tym artykule omówiono sposób poprawy zabezpieczeń podczas korzystania z komunikacji zdalnej usługi w usłudze Języka C#. Opiera się na istniejącym [przykładzie,](service-fabric-reliable-services-communication-remoting.md) który wyjaśnia, jak skonfigurować komunikacji zdalnej dla niezawodnych usług napisanych w języku C#. 
+Bezpieczeństwo jest jednym z najważniejszych aspektów komunikacji. Platforma aplikacji Reliable Services zawiera kilka wstępnie utworzonych stosów i narzędzi do komunikacji, których można użyć w celu zwiększenia bezpieczeństwa. W tym artykule omówiono sposób ulepszania zabezpieczeń w przypadku korzystania z komunikacji zdalnej usługi w usłudze C#. Jest ona oparta na istniejącym [przykładzie](service-fabric-reliable-services-communication-remoting.md) , który wyjaśnia, jak skonfigurować obsługę zdalną dla niezawodnych usług pisanych w języku C#. 
 
-Aby zabezpieczyć usługę podczas korzystania z komunikacji zdalnej usługi za pomocą usług Języka C#, wykonaj następujące kroki:
+Aby pomóc w zabezpieczeniu usługi w przypadku korzystania z usług zdalnych usługi w języku C#, wykonaj następujące kroki:
 
-1. Utwórz interfejs, który definiuje metody, `IHelloWorldStateful`które będą dostępne dla zdalnego wywołania procedury w usłudze. Usługa będzie `FabricTransportServiceRemotingListener`używać , który `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` jest zadeklarowany w obszarze nazw. Jest to `ICommunicationListener` implementacja, która zapewnia możliwości komunikacji zdalnej.
+1. Utwórz interfejs `IHelloWorldStateful`, który definiuje metody, które będą dostępne dla zdalnego wywołania procedury w usłudze. Zostanie użyta `FabricTransportServiceRemotingListener`usługa, która jest zadeklarowana w `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` przestrzeni nazw. Jest to `ICommunicationListener` implementacja, która udostępnia możliwości komunikacji zdalnej.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -48,12 +48,12 @@ Aby zabezpieczyć usługę podczas korzystania z komunikacji zdalnej usługi za 
     ```
 2. Dodaj ustawienia odbiornika i poświadczenia zabezpieczeń.
 
-    Upewnij się, że certyfikat, którego chcesz użyć, aby ułatwić zabezpieczenie komunikacji usługi, jest zainstalowany we wszystkich węzłach w klastrze. 
+    Upewnij się, że certyfikat, którego chcesz użyć, aby zabezpieczyć komunikację usługi, został zainstalowany na wszystkich węzłach w klastrze. 
     
     > [!NOTE]
-    > W węzłach systemu Linux certyfikat musi być obecny jako pliki w formacie PEM w katalogu */var/lib/sfcerts.* Aby dowiedzieć się więcej, zobacz [Lokalizacja i format certyfikatów X.509 w węzłach systemu Linux](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
+    > W węzłach systemu Linux certyfikat musi być obecny jako plik w formacie PEM w katalogu */var/lib/sfcerts* . Aby dowiedzieć się więcej, zobacz temat [lokalizowanie i formatowanie certyfikatów X. 509 w węzłach systemu Linux](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
 
-    Istnieją dwa sposoby dostarczania ustawień odbiornika i poświadczeń zabezpieczeń:
+    Istnieją dwa sposoby zapewnienia ustawień odbiornika i poświadczeń zabezpieczeń:
 
    1. Podaj je bezpośrednio w kodzie usługi:
 
@@ -88,9 +88,9 @@ Aby zabezpieczyć usługę podczas korzystania z komunikacji zdalnej usługi za 
            return x509Credentials;
        }
        ```
-   2. Podaj je za pomocą [pakietu konfiguracyjnego:](service-fabric-application-and-service-manifests.md)
+   2. Podaj je przy użyciu [pakietu konfiguracji](service-fabric-application-and-service-manifests.md):
 
-       Dodaj nazwaną `TransportSettings` sekcję w pliku settings.xml.
+       Dodaj nazwaną `TransportSettings` sekcję w pliku Settings. XML.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">
@@ -106,7 +106,7 @@ Aby zabezpieczyć usługę podczas korzystania z komunikacji zdalnej usługi za 
        </Section>
        ```
 
-       W takim przypadku `CreateServiceReplicaListeners` metoda będzie wyglądać następująco:
+       W takim przypadku `CreateServiceReplicaListeners` Metoda będzie wyglądać następująco:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -120,7 +120,7 @@ Aby zabezpieczyć usługę podczas korzystania z komunikacji zdalnej usługi za 
        }
        ```
 
-        Jeśli dodasz `TransportSettings` sekcję w pliku settings.xml, `FabricTransportRemotingListenerSettings` domyślnie wczytuje wszystkie ustawienia z tej sekcji.
+        Jeśli dodasz `TransportSettings` sekcję w pliku Settings. XML, `FabricTransportRemotingListenerSettings` program załaduje domyślnie wszystkie ustawienia z tej sekcji.
 
         ```xml
         <!--"TransportSettings" section .-->
@@ -128,7 +128,7 @@ Aby zabezpieczyć usługę podczas korzystania z komunikacji zdalnej usługi za 
             ...
         </Section>
         ```
-        W takim przypadku `CreateServiceReplicaListeners` metoda będzie wyglądać następująco:
+        W takim przypadku `CreateServiceReplicaListeners` Metoda będzie wyglądać następująco:
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -141,7 +141,7 @@ Aby zabezpieczyć usługę podczas korzystania z komunikacji zdalnej usługi za 
             };
         }
         ```
-3. Po wywołaniu metod w zabezpieczonej usłudze przy użyciu stosu `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` komunikacji zdalnej, zamiast `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`używać klasy do tworzenia serwera proxy usługi, należy użyć . Przemiń `FabricTransportRemotingSettings`w `SecurityCredentials`, który zawiera .
+3. Gdy wywołujesz metody w zabezpieczonej usłudze przy użyciu stosu zdalnego, zamiast używać `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` klasy do tworzenia serwera proxy usługi, użyj polecenia. `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory` Przekaż `FabricTransportRemotingSettings`, który zawiera `SecurityCredentials`.
 
     ```csharp
 
@@ -171,7 +171,7 @@ Aby zabezpieczyć usługę podczas korzystania z komunikacji zdalnej usługi za 
 
     ```
 
-    Jeśli kod klienta jest uruchomiony jako część usługi, można załadować `FabricTransportRemotingSettings` z pliku settings.xml. Utwórz HelloWorldClientTransportSettings sekcji, która jest podobna do kodu usługi, jak pokazano wcześniej. Wprowadzać następujące zmiany w kodzie klienta:
+    Jeśli kod klienta jest uruchomiony w ramach usługi, można załadować `FabricTransportRemotingSettings` z pliku Settings. XML. Utwórz sekcję HelloWorldClientTransportSettings podobną do kodu usługi, jak pokazano wcześniej. Wprowadź następujące zmiany w kodzie klienta:
 
     ```csharp
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(
@@ -184,11 +184,11 @@ Aby zabezpieczyć usługę podczas korzystania z komunikacji zdalnej usługi za 
 
     ```
 
-    Jeśli klient nie jest uruchomiony jako część usługi, można utworzyć plik client_name.settings.xml w tej samej lokalizacji, w której znajduje się client_name.exe. Następnie utwórz sekcję TransportSettings w tym pliku.
+    Jeśli klient nie działa w ramach usługi, można utworzyć plik client_name. Settings. XML w tej samej lokalizacji, w której znajduje się client_name. exe. Następnie utwórz sekcję TransportSettings w tym pliku.
 
-    Podobnie jak w przypadku usługi, jeśli dodasz sekcję `TransportSettings` w pliku client settings.xml/client_name.settings.xml, `FabricTransportRemotingSettings` domyślnie ładuje wszystkie ustawienia z tej sekcji.
+    Podobnie jak w przypadku dodania `TransportSettings` sekcji w ustawieniach klienta. xml/CLIENT_NAME. Settings. XML, program `FabricTransportRemotingSettings` domyślnie ładuje wszystkie ustawienia z tej sekcji.
 
-    W takim przypadku wcześniejszy kod jest jeszcze bardziej uproszczony:  
+    W takim przypadku poprzedni kod jest jeszcze bardziej uproszczony:  
 
     ```csharp
 
@@ -200,4 +200,4 @@ Aby zabezpieczyć usługę podczas korzystania z komunikacji zdalnej usługi za 
     ```
 
 
-W następnym kroku przeczytaj [interfejs API sieci Web z owin w reliable services](service-fabric-reliable-services-communication-webapi.md).
+W następnym kroku Przeczytaj [internetowy interfejs API z Owin w Reliable Services](service-fabric-reliable-services-communication-webapi.md).

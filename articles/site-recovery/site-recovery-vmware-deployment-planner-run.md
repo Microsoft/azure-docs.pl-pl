@@ -1,6 +1,6 @@
 ---
-title: Uruchamianie planera wdrażania odzyskiwania po awarii VMware za pomocą usługi Azure Site Recovery
-description: W tym artykule opisano sposób uruchamiania programu Azure Site Recovery Deployment Planner dla odzyskiwania po awarii VMware na platformie Azure.
+title: Uruchom Planista wdrażania na potrzeby odzyskiwania po awarii programu VMware z Azure Site Recovery
+description: W tym artykule opisano sposób uruchamiania Planista wdrażania usługi Azure Site Recovery na potrzeby odzyskiwania po awarii oprogramowania VMware na platformę Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73953281"
 ---
-# <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Uruchamianie planisty wdrażania odzyskiwania po awarii VMware
+# <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Uruchamianie Planista wdrażania na potrzeby odzyskiwania po awarii oprogramowania VMware
 Ten artykuł to podręcznik użytkownika planisty wdrożenia usługi Azure Site Recovery dla wdrożeń produkcyjnych oprogramowania VMware na platformie Azure.
 
 
@@ -42,7 +42,7 @@ Najpierw musisz utworzyć listę maszyn wirtualnych, które chcesz profilować. 
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. Opcjonalnie może być konieczne uruchomienie następującego polecenia, jeśli Connect-VIServer nie jest rozpoznawany jako nazwa polecenia cmdlet.
+4. Opcjonalnie może być konieczne uruchomienie następującego polecenia, jeśli polecenie Connect-VIServer nie jest rozpoznawane jako nazwa polecenia cmdlet.
 
             Add-PSSnapin VMware.VimAutomation.Core
 
@@ -81,7 +81,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Protocol| (Opcjonalnie) Wybrany protokół — „http” lub „https” — na potrzeby łączenia z programem vCenter. Protokół domyślny to https.|
 | -StorageAccountName | (Opcjonalnie) Nazwa konta magazynu używana do wyszukiwania osiągalnej przepływności na potrzeby replikacji danych ze środowiska lokalnego na platformę Azure. Narzędzie przekazuje dane testowe na to konto magazynu w celu obliczenia przepływności. Musi to być konto magazynu ogólnego przeznaczenia typu v1 (GPv1). |
 | -StorageAccountKey | (Opcjonalnie) Klucz konta magazynu używany do uzyskiwania dostępu do konta magazynu. W witrynie Azure Portal przejdź do pozycji Konta magazynu > <*Nazwa_konta_magazynu*> > Ustawienia > Klucze dostępu > Klucz1. |
-| -Environment | (Opcjonalnie) Jest to docelowe środowisko konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment i AzureChinaCloud. Wartością domyślną jest AzureCloud. Użyj parametru, gdy docelowy region platformy Azure to platforma Azure US Government lub Azure China 21Vianet. |
+| -Environment | (Opcjonalnie) Jest to docelowe środowisko konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment i AzureChinaCloud. Wartością domyślną jest AzureCloud. Użyj parametru, jeśli docelowy region świadczenia usługi Azure to Azure USA lub Azure Chiny 21Vianet. |
 
 
 Zalecamy, aby maszyny wirtualne były profilowane przez więcej niż 7 dni. Jeśli wzorzec zmian zmienia się w ciągu miesiąca, zaleca się przeprowadzenie profilowania w tygodniu, w którym występuje maksymalna wartość współczynnika zmian. W celu uzyskania lepszych rekomendacji zaleca się wykonywanie profilowania przez 31 dni. Podczas profilowania jest uruchomiony proces ASRDeploymentPlanner.exe. Czas profilowania w narzędziu jest określany w dniach. Aby przeprowadzić szybki test narzędzia lub weryfikację koncepcji, można wykonać profilowanie przez kilka godzin lub minut. Minimalny dozwolony czas profilowania to 30 minut.
@@ -95,7 +95,7 @@ Domyślnie narzędzie jest skonfigurowane do profilowania i generowania raportu 
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Aby przeprowadzić profilowanie, powiedzmy, 1500 maszyn wirtualnych przy ustawieniach domyślnych, utwórz dwa pliki VMList.txt. Jeden zawierający listę 1000 maszyn wirtualnych i drugi zawierający listę 500 maszyn wirtualnych. Uruchom dwa wystąpienia programu Azure Site Recovery Deployment Planner, jedno z vmlist1.txt i inne z VMList2.txt. Do przechowywania danych profilowanych maszyn wirtualnych z obu plików VMList możesz używać tej samej ścieżki katalogu.
+Aby przeprowadzić profilowanie, powiedzmy, 1500 maszyn wirtualnych przy ustawieniach domyślnych, utwórz dwa pliki VMList.txt. Jeden zawierający listę 1000 maszyn wirtualnych i drugi zawierający listę 500 maszyn wirtualnych. Uruchom dwa wystąpienia Planista wdrażania usługi Azure Site Recovery, jeden z plikiem vmlist1. txt i inne z plikiem vmlist2. txt. Do przechowywania danych profilowanych maszyn wirtualnych z obu plików VMList możesz używać tej samej ścieżki katalogu.
 
 Zauważyliśmy, że w zależności od konfiguracji sprzętu, a szczególnie rozmiaru pamięci RAM serwera, z którego jest uruchamiane narzędzie do generowania raportu, operacja może zakończyć się niepowodzeniem z powodu zbyt małej ilości pamięci. Jeśli masz dobry sprzęt, możesz zwiększyć wartość klucza MaxVMsSupported.  
 
@@ -136,10 +136,10 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## <a name="generate-report"></a>Generowanie raportu
-Narzędzie generuje plik programu Microsoft Excel z włączoną obsługą makr (plik XLSM) jako dane wyjściowe raportu zawierające podsumowanie wszystkich zaleceń dotyczące wdrożenia. Raport zostanie `DeploymentPlannerReport_<unique numeric identifier>.xlsm` nazwany i umieszczony w określonym katalogu.
+Narzędzie generuje plik programu Microsoft Excel z włączoną obsługą makr (plik XLSM) jako dane wyjściowe raportu zawierające podsumowanie wszystkich zaleceń dotyczące wdrożenia. Raport ma nazwę `DeploymentPlannerReport_<unique numeric identifier>.xlsm` i znajduje się w określonym katalogu.
 
 >[!NOTE]
->Generowanie raportu wymaga komputera z systemem Windows lub systemu Windows Server z programem Excel 2013 lub nowszym. Symbol dziesiętny na tym komputerze powinien być skonfigurowany jako ".", aby utworzyć szacunki kosztów. W przypadku ustawienia "", jako symbol dziesiętny, przejdź do "Zmień datę, godzinę lub formaty liczb" w Panelu sterowania i przejdź do "Ustawienia dodatkowe", aby zmienić symbol dziesiętny na ".".
+>Generowanie raportu wymaga komputera z systemem Windows lub Windows Server z programem Excel 2013 lub nowszym. Symbol dziesiętny na tym komputerze powinien zostać skonfigurowany jako "." w celu utworzenia oszacowania kosztów. Jeśli masz Instalatora "," jako symbol dziesiętny, przejdź do pozycji "Zmień datę, godzinę lub format liczbowy" w panelu sterowania i przejdź do pozycji "Ustawienia dodatkowe", aby zmienić symbol dziesiętny na ".".
 
 Po zakończeniu profilowania możesz uruchomić narzędzie w trybie generowania raportu. Poniższa tabela zawiera listę obowiązkowych i opcjonalnych parametrów narzędzia uruchamianego w trybie generowania raportu.
 
@@ -159,11 +159,11 @@ Po zakończeniu profilowania możesz uruchomić narzędzie w trybie generowania 
 |-Protocol|(Opcjonalnie) Wybrany protokół — „http” lub „https” — na potrzeby łączenia z programem vCenter. Protokół domyślny to https.|
 | -DesiredRPO | (Opcjonalnie) Żądany cel punktu odzyskiwania w minutach. Wartość domyślna to 15 minut.|
 | -Bandwidth | Przepustowość w Mb/s. Parametr służący do obliczania celu punktu odzyskiwania, który można osiągnąć dla określonej przepustowości. |
-| -StartDate | (Opcjonalnie) Data i godzina rozpoczęcia w formacie DD-MM-RRRR:GG:MM (format 24-godzinny). *StartDate* musi być określony wraz z *EndDate*. W przypadku określenia wartości parametru StartDate wygenerowany raport będzie dotyczyć profilowanych danych zebranych od daty StartDate do daty EndDate. |
-| -EndDate | (Opcjonalnie) Data i godzina zakończenia w 24-godzinnym formacie DD-MM-RRRR:GG:MM. *EndDate* musi być określony wraz z *StartDate*. W przypadku określenia wartości parametru EndDate wygenerowany raport będzie dotyczyć profilowanych danych zebranych od daty StartDate do daty EndDate. |
+| -StartDate | (Opcjonalnie) Data i godzina rozpoczęcia w formacie DD-MM-RRRR:GG:MM (format 24-godzinny). *StartDate* musi być określony wraz z parametrem *EndDate*. W przypadku określenia wartości parametru StartDate wygenerowany raport będzie dotyczyć profilowanych danych zebranych od daty StartDate do daty EndDate. |
+| -EndDate | (Opcjonalnie) Data i godzina zakończenia w 24-godzinnym formacie DD-MM-RRRR:GG:MM. Należy określić parametr *EndDate* wraz z *StartDate*. W przypadku określenia wartości parametru EndDate wygenerowany raport będzie dotyczyć profilowanych danych zebranych od daty StartDate do daty EndDate. |
 | -GrowthFactor | (Opcjonalnie) Współczynnik wzrostu wyrażony jako wartość procentowa. Wartość domyślna to 30 procent. |
 | -UseManagedDisks | (Opcjonalnie) UseManagedDisks — Yes/No. Wartość domyślna to Yes. Liczba maszyn wirtualnych, które można umieścić w ramach pojedynczego konta magazynu, jest obliczana z uwzględnieniem tego, czy na potrzeby pracy w trybie failover/testu pracy w trybie failover jest używany dysk zarządzany, czy niezarządzany. |
-|-SubscriptionId |(Opcjonalnie) Identyfikator GUID subskrypcji. Należy zauważyć, że ten parametr jest wymagany, gdy trzeba wygenerować raport szacowania kosztów z najnowszą ceną na podstawie subskrypcji, oferty skojarzonej z subskrypcją i dla określonego docelowego regionu platformy Azure w **określonej walucie**.|
+|-SubscriptionId |(Opcjonalnie) Identyfikator GUID subskrypcji. Należy pamiętać, że ten parametr jest wymagany, gdy konieczne jest wygenerowanie raportu szacowania kosztów z najnowszymi cenami w oparciu o subskrypcję, ofertę skojarzoną z subskrypcją i dla określonego docelowego regionu świadczenia usługi Azure w **podanej walucie**.|
 |-TargetRegion|(Opcjonalnie) Region świadczenia usługi Azure, w którym ma zostać przeprowadzona replikacja. Użycie tego parametru jest przydatne w przypadku generowania raportu dla konkretnego docelowego regionu świadczenia usługi Azure, ponieważ koszty korzystania z platformy Azure są różne w różnych regionach.<br>Domyślnym regionem jest WestUS2 lub ostatnio używany region docelowy.<br>Więcej informacji zawiera lista [obsługiwanych regionów docelowych](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Opcjonalnie) Oferta skojarzona z daną subskrypcją. Wartością domyślną jest MS-AZR-0003P (Płatność zgodnie z rzeczywistym użyciem).|
 |-Currency|(Opcjonalnie) Waluta, w jakiej pokazywany jest koszt w wygenerowanym raporcie. Domyślna waluta to dolar amerykański ($) lub ostatnio użyta waluta.<br>Więcej informacji zawiera lista [obsługiwanych walut](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
@@ -208,7 +208,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 
 #### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Przykład 7: generowanie raportu dla regionu świadczenia usługi Azure Indie Południowe w rupiach indyjskich i z konkretnym identyfikatorem oferty
 
-Należy zauważyć, że identyfikator subskrypcji jest wymagany do generowania raportu kosztów w określonej walucie.
+Należy pamiętać, że identyfikator subskrypcji jest wymagany do generowania raportu kosztów w określonej walucie.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
@@ -242,7 +242,7 @@ Wygenerowany raport programu Microsoft Excel zawiera następujące informacje:
 
 * [Podsumowanie lokalne](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [Zalecenia](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [Rozmieszczenie magazynu< >maszyn wirtualnych](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [< maszyny wirtualnej — >rozmieszczenia magazynu](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [Zgodne maszyny wirtualne](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [Niezgodne maszyny wirtualne](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
 * [Szacowanie kosztów](site-recovery-vmware-deployment-planner-cost-estimation.md)
@@ -265,7 +265,7 @@ Otwórz konsolę wiersza polecenia i przejdź do folderu narzędzia do planowani
 | -StorageAccountName | Nazwa konta magazynu używana w celu znalezienia użytej przepustowości na potrzeby replikacji danych ze środowiska lokalnego na platformę Azure. Narzędzie przekazuje dane testowe na to konto magazynu w celu określenia użytej przepustowości. Musi to być konto magazynu ogólnego przeznaczenia typu v1 (GPv1).|
 | -StorageAccountKey | Klucz konta magazynu używany do uzyskiwania dostępu do konta magazynu. W witrynie Azure Portal przejdź do pozycji Konta magazynu > <*Nazwa_konta_magazynu*> > Ustawienia > Klucze dostępu > Klucz1 (lub podstawowy klucz dostępu w przypadku klasycznego konta magazynu). |
 | -VMListFile | Plik zawierający listę maszyn wirtualnych, które mają być profilowane, na potrzeby obliczenia użytej przepustowości. Można użyć bezwzględnej lub względnej ścieżki pliku. Ten plik powinien zawierać jedną nazwę/jeden adres IP maszyny wirtualnej w każdym wierszu. Nazwy maszyn wirtualnych określone w pliku powinny być takie same jak nazw maszyn wirtualnych na serwerze vCenter/hoście vSphere ESXi.<br>Na przykład plik VMList.txt zawiera informacje o następujących maszynach wirtualnych:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Environment | (Opcjonalnie) Jest to docelowe środowisko konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment i AzureChinaCloud. Wartością domyślną jest AzureCloud. Użyj parametru, gdy docelowy region platformy Azure to platforma Azure US Government lub Azure China 21Vianet. |
+| -Environment | (Opcjonalnie) Jest to docelowe środowisko konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment i AzureChinaCloud. Wartością domyślną jest AzureCloud. Użyj parametru, jeśli docelowy region świadczenia usługi Azure to Azure USA lub Azure Chiny 21Vianet. |
 
 Narzędzie tworzy kilka plików asrvhdfile<#>.vhd (gdzie znak „#” to liczba plików) o rozmiarze 64 MB w określonym katalogu. Narzędzie przekazuje te pliki na konto magazynu w celu znalezienia informacji o przepływności. Po zmierzeniu przepływności narzędzie usuwa wszystkie pliki z konta magazynu i serwera lokalnego. Jeśli działanie narzędzia zostanie z jakiegokolwiek powodu przerwane podczas obliczania przepływności, nie usunie ono plików z magazynu ani z serwera lokalnego. Trzeba będzie usunąć je ręcznie.
 
@@ -291,4 +291,4 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 >  4. Zmień ustawienia usługi Site Recovery na serwerze przetwarzania, aby [zwiększyć przepustowość sieci na potrzeby replikacji](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
 ## <a name="next-steps"></a>Następne kroki
-* [Analizowanie wygenerowanego raportu](site-recovery-vmware-deployment-planner-analyze-report.md).
+* [Analizuj wygenerowany raport](site-recovery-vmware-deployment-planner-analyze-report.md).

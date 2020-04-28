@@ -1,21 +1,21 @@
 ---
-title: Przewracaj certyfikat klastra sieci szkieletowej usługi Azure
-description: Dowiedz się, jak przerzucić certyfikat klastra sieci szkieletowej usług identyfikowany przez nazwę pospolitą certyfikatu.
+title: Przewinięcie certyfikatu klastra Service Fabric platformy Azure
+description: Dowiedz się, jak przetworzyć certyfikat klastra Service Fabric identyfikowany przy użyciu nazwy pospolitej certyfikatu.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 94cc6841886b1b0eb4271ac0f727a2e3561e0081
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451959"
 ---
-# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Ręczne przewracanie certyfikatu klastra sieci szkieletowej usług
-Gdy certyfikat klastra sieci szkieletowej usług jest bliski wygaśnięcia, należy zaktualizować certyfikat.  Narzucie certyfikatu jest proste, jeśli klaster został [skonfigurowany do używania certyfikatów opartych na nazwie pospolitej](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (zamiast odcisku palca).  Uzyskaj nowy certyfikat od urzędu certyfikacji z nową datą wygaśnięcia.  Certyfikaty z podpisem własnym nie są obsługiwane dla klastrów produkcyjnych sieci szkieletowej usług, aby uwzględnić certyfikaty wygenerowane podczas przepływu pracy tworzenia klastra usługi Azure portal. Nowy certyfikat musi mieć taką samą nazwę pospolitą jak starszy certyfikat. 
+# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Ręczne przewinięcie certyfikatu klastra Service Fabric
+Gdy certyfikat klastra Service Fabric jest bliski wygaśnięcia, należy zaktualizować certyfikat.  Przerzucanie certyfikatów jest proste, Jeśli klaster został [skonfigurowany do używania certyfikatów na podstawie nazwy pospolitej](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (zamiast odcisku palca).  Pobierz nowy certyfikat z urzędu certyfikacji z nową datą wygaśnięcia.  Certyfikaty z podpisem własnym nie obsługują klastrów Service Fabric produkcyjnych w celu uwzględnienia certyfikatów wygenerowanych podczas przepływu pracy tworzenia klastra Azure Portal. Nowy certyfikat musi mieć taką samą nazwę pospolitą jak certyfikat starszej wersji. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Klaster sieci szkieletowej usług automatycznie użyje zadeklarowanego certyfikatu z dalszą datą wygaśnięcia; gdy na hoście jest zainstalowany więcej niż jeden certyfikat sprawdzania poprawności. Najlepszym rozwiązaniem jest użycie szablonu Usługi Resource Manager do aprowizowania zasobów platformy Azure. W środowisku nieprodukcyjnym można użyć następującego skryptu do przekazania nowego certyfikatu do magazynu kluczy, a następnie zainstalowania certyfikatu w zestawie skalowania maszyny wirtualnej: 
+Klaster Service Fabric automatycznie będzie używać zadeklarowanego certyfikatu z dalszą datą wygaśnięcia w przyszłości. Jeśli na hoście jest zainstalowany więcej niż jeden certyfikat weryfikacji. Najlepszym rozwiązaniem jest użycie szablonu Menedżer zasobów w celu udostępnienia zasobów platformy Azure. W przypadku środowiska nieprodukcyjnego można użyć następującego skryptu do przekazania nowego certyfikatu do magazynu kluczy, a następnie zainstalowania certyfikatu na zestawie skalowania maszyn wirtualnych: 
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -71,7 +71,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Virtual
 ```
 
 >[!NOTE]
-> Oblicza, że klucze tajności zestawu skalowania maszyny wirtualnej nie obsługują tego samego identyfikatora zasobu dla dwóch oddzielnych wpisów tajnych, ponieważ każdy klucz tajny jest wersjonawki unikatowym zasobem. 
+> Oblicza wpisy tajne zestawu skalowania maszyn wirtualnych nie obsługują tego samego identyfikatora zasobu dla dwóch oddzielnych wpisów tajnych, ponieważ każdy klucz tajny jest unikatowym zasobem w wersji. 
 
 ## <a name="next-steps"></a>Następne kroki
 

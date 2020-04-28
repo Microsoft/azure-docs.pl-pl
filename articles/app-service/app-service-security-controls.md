@@ -1,63 +1,63 @@
 ---
 title: Mechanizmy zabezpieczeń
-description: Znajdź listę kontrolną zabezpieczeń do oceny usługi Azure App Service dla twojej organizacji.
+description: Znajdź listę kontrolną kontroli zabezpieczeń na potrzeby oceny Azure App Service w organizacji.
 author: msmbaldwin
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 2586821c4c48f809efb5408c3cdae5e42e3b3fcf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74671449"
 ---
-# <a name="security-controls-for-azure-app-service"></a>Mechanizmy kontroli zabezpieczeń usługi Azure App Service
+# <a name="security-controls-for-azure-app-service"></a>Kontrolki zabezpieczeń dla Azure App Service
 
-Ten artykuł dokumentuje kontrolki zabezpieczeń wbudowane w usługę Azure App Service.
+W tym artykule opisano kontrolki zabezpieczeń wbudowane w Azure App Service.
 
 [!INCLUDE [Security controls header](../../includes/security-controls-header.md)]
 
-## <a name="network"></a>Network (Sieć)
+## <a name="network"></a>Sieć
 
-| Kontrola bezpieczeństwa | Tak/Nie | Uwagi | Dokumentacja
+| Kontrola zabezpieczeń | Tak/Nie | Uwagi | Dokumentacja
 |---|---|--|
-| Obsługa punktu końcowego usługi| Tak | Dostępne dla usługi app service.| [Ograniczenia dostępu do usługi Azure App Service](app-service-ip-restrictions.md)
-| Obsługa wtrysku sieci wirtualnej| Tak | Środowiska usługi app service są prywatne implementacje usługi App Service dedykowane do jednego klienta wstrzykuje się do sieci wirtualnej klienta. | [Wprowadzenie do środowisk App Service Environment](environment/intro.md)
-| Obsługa izolacji sieci i zapory sieciowej| Tak | W przypadku publicznej odmiany usługi App Service dla wielu dzierżawców klienci mogą skonfigurować sieciowe listy ACL (ograniczenia adresów IP), aby zablokować dozwolony ruch przychodzący.  Środowiska usługi app service są wdrażane bezpośrednio w sieciach wirtualnych i dlatego mogą być zabezpieczone za pomocą sieciowych grup zabezpieczeń. | [Ograniczenia dostępu do usługi Azure App Service](app-service-ip-restrictions.md)
-| Wymuszone wsparcie tunelowania| Tak | Środowiska usługi app service można wdrożyć w sieci wirtualnej klienta, gdzie jest skonfigurowany wymuszony tunelowanie. | [Konfigurowanie wymuszonego tunelowania środowiska App Service Environment](environment/forced-tunnel-support.md)
+| Obsługa punktów końcowych usługi| Tak | Dostępne dla App Service.| [Ograniczenia dostępu Azure App Service](app-service-ip-restrictions.md)
+| Obsługa iniekcji sieci wirtualnej| Tak | Środowiska App Service są prywatnymi implementacjami App Service przeznaczonymi dla pojedynczego klienta, które zostały dodane do sieci wirtualnej klienta. | [Wprowadzenie do środowisk App Service Environment](environment/intro.md)
+| Izolacja sieci i obsługa zapór| Tak | W przypadku publicznej App Service odmiany wielodostępnej wielu dzierżawców klienci mogą konfigurować listy ACL sieci (ograniczenia adresów IP), aby zablokować dozwolony ruch przychodzący.  Środowiska App Service są wdrażane bezpośrednio w sieciach wirtualnych, dlatego można je zabezpieczyć za pomocą sieciowych grup zabezpieczeń. | [Ograniczenia dostępu Azure App Service](app-service-ip-restrictions.md)
+| Obsługa tunelowania wymuszonego| Tak | Środowiska App Service można wdrożyć w sieci wirtualnej klienta, w której jest skonfigurowany tunelowanie wymuszone. | [Konfigurowanie wymuszonego tunelowania środowiska App Service Environment](environment/forced-tunnel-support.md)
 
-## <a name="monitoring--logging"></a>Monitorowanie & rejestrowania
+## <a name="monitoring--logging"></a>Monitorowanie rejestrowania &
 
-| Kontrola bezpieczeństwa | Tak/Nie | Uwagi | Dokumentacja
+| Kontrola zabezpieczeń | Tak/Nie | Uwagi | Dokumentacja
 |---|---|--|
-| Obsługa monitorowania platformy Azure (analiza dzienników, wgląd w aplikacje itp.)| Tak | Usługa App Service integruje się z aplikacją App Insights dla języków obsługujących usługę Application Insights (Full .NET Framework, .NET Core, Java i Node.JS).  Zobacz [Monitorowanie wydajności usługi Azure App Service](../azure-monitor/app/azure-web-apps.md). Usługa App Service wysyła również metryki aplikacji do usługi Azure Monitor. | [Monitorowanie aplikacji w usłudze Azure App Service](web-sites-monitor.md)
-| Rejestrowanie i audyt płaszczyzny kontroli i zarządzania| Tak | Wszystkie operacje zarządzania wykonywane na obiektach usługi App Service odbywają się za pośrednictwem [usługi Azure Resource Manager](../azure-resource-manager/index.yml). Dzienniki historyczne tych operacji są dostępne zarówno w portalu, jak i za pośrednictwem interfejsu wiersza polecenia. | [Operacje dostawcy zasobów usługi Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftweb), dziennik aktywności [monitora az](/cli/azure/monitor/activity-log)
-| Rejestrowanie i inspekcja płaszczyzny danych | Nie | Płaszczyzna danych dla usługi App Service to zdalny udział plików zawierający wdrożoną zawartość witryny sieci Web klienta.  Nie ma inspekcji zdalnego udziału plików. |
+| Pomoc techniczna dotycząca monitorowania platformy Azure (log Analytics, App Insights itp.)| Tak | App Service integruje się z Application Insights dla języków, które obsługują Application Insights (pełny .NET Framework, .NET Core, Java i Node. JS).  Zobacz [monitorowanie wydajności Azure App Service](../azure-monitor/app/azure-web-apps.md). App Service również wysyła metryki aplikacji do Azure Monitor. | [Monitorowanie aplikacji w Azure App Service](web-sites-monitor.md)
+| Rejestrowanie i inspekcja płaszczyzny kontroli i zarządzania| Tak | Wszystkie operacje zarządzania wykonywane na App Service obiektów odbywają się za pośrednictwem [Azure Resource Manager](../azure-resource-manager/index.yml). Dzienniki historyczne tych operacji są dostępne zarówno w portalu, jak i za pośrednictwem interfejsu wiersza polecenia. | [Azure Resource Manager operacji dostawcy zasobów](../role-based-access-control/resource-provider-operations.md#microsoftweb), [AZ monitor Activity-Log](/cli/azure/monitor/activity-log)
+| Rejestrowanie i inspekcja płaszczyzny danych | Nie | Płaszczyzna danych dla App Service jest zdalnym udziałem plików zawierającym zawartość witryny sieci Web wdrożonej przez klienta.  Nie istnieje Inspekcja zdalnego udziału plików. |
 
 ## <a name="identity"></a>Tożsamość
 
-| Kontrola bezpieczeństwa | Tak/Nie | Uwagi |  Dokumentacja
+| Kontrola zabezpieczeń | Tak/Nie | Uwagi |  Dokumentacja
 |---|---|--|
-| Uwierzytelnianie| Tak | Klienci mogą tworzyć aplikacje w usłudze App Service, które automatycznie integrują się z [usługą Azure Active Directory (Azure AD),](../active-directory/index.yml) a także z innymi dostawcami tożsamości zgodnymi z usługą OAuth Aby dostęp do zasobów usługi App Service, cały dostęp był kontrolowany przez kombinację uwierzytelnionych zabezpieczeń usługi Azure AD i ról RBAC usługi Azure Resource Manager. | [Uwierzytelnianie i autoryzacja w usłudze Azure App Service](overview-authentication-authorization.md)
-| Autoryzacja| Tak | W przypadku dostępu do zasobów usługi App Service cały dostęp jest kontrolowany przez kombinację uwierzytelnionego podmiotu usługi Azure AD i ról RBAC usługi Azure Resource Manager.  | [Uwierzytelnianie i autoryzacja w usłudze Azure App Service](overview-authentication-authorization.md)
+| Uwierzytelnianie| Tak | Klienci mogą tworzyć aplikacje na App Service, które automatycznie integrują się z usługą [Azure Active Directory (Azure AD)](../active-directory/index.yml) , a także z innymi dostawcami tożsamości zgodnymi z uwierzytelnianiem OAuth na potrzeby zarządzania dostępem do App Service zasobów, cały dostęp jest kontrolowany przez kombinację uwierzytelnionego podmiotu zabezpieczeń usługi Azure AD i Azure Resource Manager ról RBAC. | [Uwierzytelnianie i autoryzacja w usłudze Azure App Service](overview-authentication-authorization.md)
+| Autoryzacja| Tak | W celu zarządzania dostępem do zasobów App Service, cały dostęp jest kontrolowany przez kombinację uwierzytelnionego podmiotu zabezpieczeń usługi Azure AD i Azure Resource Manager ról RBAC.  | [Uwierzytelnianie i autoryzacja w usłudze Azure App Service](overview-authentication-authorization.md)
 
 ## <a name="data-protection"></a>Ochrona danych
 
-| Kontrola bezpieczeństwa | Tak/Nie | Uwagi | Dokumentacja
+| Kontrola zabezpieczeń | Tak/Nie | Uwagi | Dokumentacja
 |---|---|--|
-| Szyfrowanie po stronie serwera w spoczynku: klucze zarządzane przez firmę Microsoft | Tak | Zawartość pliku witryny sieci Web jest przechowywana w usłudze Azure Storage, która automatycznie szyfruje zawartość w spoczynku. <br><br>Wpisy tajne dostarczone przez klienta są szyfrowane w spoczynku. Wpisy tajne są szyfrowane w spoczynku, podczas gdy przechowywane w bazach danych konfiguracji usługi App Service.<br><br>Dyski podłączone lokalnie mogą być opcjonalnie używane jako tymczasowe przechowywanie przez witryny sieci Web (D:\local i %TMP%). Dyski podłączone lokalnie nie są szyfrowane w spoczynku. | [Szyfrowanie usługi Azure Storage dla danych w stanie spoczynku](../storage/common/storage-service-encryption.md)
-| Szyfrowanie po stronie serwera w spoczynku: klucze zarządzane przez klienta (BYOK) | Tak | Klienci mogą przechowywać wpisy tajne aplikacji w magazynie kluczy i pobierać je w czasie wykonywania. | [Korzystanie z odwołań do usługi App Service i usługi Azure Functions (wersja zapoznawcza)](app-service-key-vault-references.md)
-| Szyfrowanie na poziomie kolumny (usługi Azure Data Services)| Nie dotyczy | |
-| Szyfrowanie podczas przesyłania (takie jak szyfrowanie usługi ExpressRoute, szyfrowanie w sieci wirtualnej i szyfrowanie sieci wirtualnej wirtualnej)| Tak | Klienci mogą skonfigurować witryny sieci web tak, aby wymagały i używały protokołu HTTPS do ruchu przychodzącego.  | [Jak zrobić tylko https usługi Azure App Service](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/) (wpis w blogu)
-| Szyfrowane wywołania interfejsu API| Tak | Wywołania zarządzania w celu skonfigurowania usługi App Service występują za pośrednictwem wywołań [usługi Azure Resource Manager](../azure-resource-manager/index.yml) za pośrednictwem protokołu HTTPS. |
+| Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft | Tak | Zawartość pliku witryny sieci Web jest przechowywana w usłudze Azure Storage, która automatycznie szyfruje zawartość w stanie spoczynku. <br><br>Klucze tajne dostarczone przez klienta są szyfrowane w stanie spoczynku. Wpisy tajne są szyfrowane w stanie spoczynku, podczas gdy są przechowywane w App Service bazach danych konfiguracji.<br><br>Opcjonalnie dyski dołączone lokalnie mogą być używane jako magazyn tymczasowy przez witryny sieci Web (D:\Local i% TMP%). Dyski dołączone lokalnie nie są szyfrowane w stanie spoczynku. | [Szyfrowanie usługi Azure Storage dla danych magazynowanych](../storage/common/storage-service-encryption.md)
+| Szyfrowanie po stronie serwera w spoczynku: klucze zarządzane przez klienta (BYOK) | Tak | Klienci mogą wybrać przechowywanie wpisów tajnych aplikacji w Key Vault i pobrać je w czasie wykonywania. | [Użyj Key Vault odwołań dla App Service i Azure Functions (wersja zapoznawcza)](app-service-key-vault-references.md)
+| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Nie dotyczy | |
+| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie sieci wirtualnej)| Tak | Klienci mogą konfigurować witryny sieci Web tak, aby wymagały protokołu HTTPS i używać go do obsługi ruchu przychodzącego.  | [Jak utworzyć tylko Azure App Service https](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/) (wpis w blogu)
+| Wywołania interfejsu API są szyfrowane| Tak | Wywołania zarządzania w celu skonfigurowania App Service występują za pośrednictwem [Azure Resource Manager](../azure-resource-manager/index.yml) wywołań za pośrednictwem protokołu HTTPS. |
 
 ## <a name="configuration-management"></a>Zarządzanie konfiguracją
 
-| Kontrola bezpieczeństwa | Tak/Nie | Uwagi | Dokumentacja
+| Kontrola zabezpieczeń | Tak/Nie | Uwagi | Dokumentacja
 |---|---|--|
-| Obsługa zarządzania konfiguracją (przechowywanie wersji konfiguracji itp.)| Tak | W przypadku operacji zarządzania stan konfiguracji usługi App Service można wyeksportować jako szablon usługi Azure Resource Manager i wersjonować w czasie. W przypadku operacji w czasie wykonywania klienci mogą obsługiwać wiele różnych wersji aplikacji na żywo przy użyciu funkcji slotów wdrażania usługi App Service. | 
+| Obsługa zarządzania konfiguracją (wersja konfiguracji itp.)| Tak | W przypadku operacji zarządzania stanem konfiguracji App Service można wyeksportować jako szablon Azure Resource Manager i wersji w czasie. W przypadku operacji środowiska uruchomieniowego klienci mogą obsługiwać wiele różnych wersji na żywo aplikacji przy użyciu funkcji App Service miejsc wdrożenia. | 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [wbudowanych zabezpieczeniach w usługach platformy Azure.](../security/fundamentals/security-controls.md)
+- Dowiedz się więcej o [wbudowanych kontrolach zabezpieczeń w ramach usług platformy Azure](../security/fundamentals/security-controls.md).

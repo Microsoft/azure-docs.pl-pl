@@ -1,26 +1,26 @@
 ---
-title: Schemat zdarzeń dziennika automatycznej skali platformy Azure
-description: Format dzienników do monitorowania i rozwiązywania problemów z akcjami skalowania automatycznego
+title: Schemat zdarzeń dziennika automatycznego skalowania platformy Azure
+description: Format dzienników do monitorowania i rozwiązywania problemów dotyczących akcji automatycznego skalowania
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.subservice: autoscale
 ms.openlocfilehash: 3c32f15208a8e692054ee6c1f7effc6b7c89de3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75395943"
 ---
-# <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Schemat dziennika zasobów akcji automatycznego skalowania akcji usługi Azure Monitor
+# <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Schemat dziennika zasobów akcji automatycznego skalowania Azure Monitor
 
-Poniżej przedstawiono ogólne formaty dzienników zasobów skalowania automatycznego z dołączonymi przykładowymi danymi. Nie wszystkie poniższe przykłady są poprawnie utworzone JSON, ponieważ mogą zawierać wiele wartości, które mogą być prawidłowe dla danego pola. 
+Poniżej znajdują się ogólne formaty dzienników zasobów automatycznego skalowania z dołączonymi przykładowymi danymi. Nie wszystkie przykłady poniżej są poprawnie sformułowane w formacie JSON, ponieważ mogą zawierać wiele wartości, które mogą być prawidłowe dla danego pola. 
 
-Użyj zdarzeń tego typu, aby rozwiązać problemy, które mogą mieć z skalowania automatycznego. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów ze skalowaniem automatycznym](autoscale-troubleshoot.md).
+Zdarzenia tego typu umożliwiają rozwiązywanie problemów z automatycznym skalowaniem. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z automatycznym skalowaniem](autoscale-troubleshoot.md).
 
 
 ## <a name="profile-evaluation"></a>Ocena profilu
 
-Nagrywane, gdy skalowanie automatyczne po raz pierwszy patrzy na profil skalowania automatycznego
+Rejestrowane, gdy funkcja automatycznego skalowania najpierw przegląda profil skalowania automatycznego
 
 ```json
 {
@@ -37,9 +37,9 @@ Nagrywane, gdy skalowanie automatyczne po raz pierwszy patrzy na profil skalowan
 }
 ```
 
-## <a name="profile-cooldown-evaluation"></a>Ocena odnowienia profilu
+## <a name="profile-cooldown-evaluation"></a>Cooldown oceny profilu
 
-Rejestrowane, gdy skalowanie automatyczne ocenia, czy nie należy wykonywać skali z powodu okresu ochłodzenia. 
+Rejestrowane, gdy funkcja automatycznego skalowania jest szacowana, jeśli nie należy jej skalować ze względu na okres chłodzenia. 
 
 ```json
 {
@@ -60,9 +60,9 @@ Rejestrowane, gdy skalowanie automatyczne ocenia, czy nie należy wykonywać ska
 }
 ```
 
-## <a name="rule-evaluation"></a>Ocena reguł
+## <a name="rule-evaluation"></a>Ocena reguły
 
-Rejestrowane, gdy skalowanie automatyczne po raz pierwszy rozpoczyna ocenę określonej reguły skali. 
+Rejestrowane, gdy funkcja automatycznego skalowania najpierw rozpoczyna ocenianie określonej reguły skalowania. 
 
 ```json
 {
@@ -87,9 +87,9 @@ Rejestrowane, gdy skalowanie automatyczne po raz pierwszy rozpoczyna ocenę okre
 }
 ```
 
-## <a name="metric-evaluation"></a>Ocena metryczna
+## <a name="metric-evaluation"></a>Ocena metryki
 
-Rejestrowane podczas skalowania automatycznego oceny metryki używanej do wyzwalania akcji skalowania. 
+Rejestrowane, gdy automatyczne skalowanie ocenia metrykę używaną do wyzwalania akcji skalowania. 
 
 ```json
 {
@@ -111,9 +111,9 @@ Rejestrowane podczas skalowania automatycznego oceny metryki używanej do wyzwal
 }
 ```
 
-## <a name="instance-count-evaluation"></a>Ocena liczby wystąpień
+## <a name="instance-count-evaluation"></a>Obliczanie liczby wystąpień
 
-Rejestrowane, gdy skalowanie automatyczne ocenia liczbę wystąpień już uruchomionych w ramach przygotowań do podjęcia decyzji, czy należy uruchomić więcej, zamknąć niektóre lub nic nie robić. 
+Rejestrowane, gdy funkcja automatycznego skalowania oblicza liczbę wystąpień już uruchomionych w celu podjęcia decyzji o tym, czy powinna zacząć działać więcej, zamknąć niektóre lub nic nie rób. 
 
 ```json
 {
@@ -132,9 +132,9 @@ Rejestrowane, gdy skalowanie automatyczne ocenia liczbę wystąpień już urucho
 }
 ```
 
-## <a name="scale-action-evaluation"></a>Ocena działania skali
+## <a name="scale-action-evaluation"></a>Obliczanie akcji skalowania
 
-Rejestrowane, gdy skalowanie automatyczne rozpoczyna ocenę, jeśli ma nastąpić akcja skalowania. 
+Rejestrowane, gdy automatyczne skalowanie rozpoczyna Obliczanie w przypadku akcji skalowania. 
 
 ```json
 {
@@ -154,7 +154,7 @@ Rejestrowane, gdy skalowanie automatyczne rozpoczyna ocenę, jeśli ma nastąpi�
 
 ## <a name="instance-update-evaluation"></a>Ocena aktualizacji wystąpienia
 
-Rejestrowane, gdy skalowanie automatyczne aktualizuje liczbę uruchomionych wystąpień obliczeniowych w górę lub w dół.
+Rejestrowane, gdy automatyczne skalowanie aktualizuje liczbę wystąpień obliczeniowych uruchomionych w górę lub w dół.
 
 ```json
 {
@@ -175,7 +175,7 @@ Rejestrowane, gdy skalowanie automatyczne aktualizuje liczbę uruchomionych wyst
 
 ## <a name="scale-action"></a>Akcja skalowania
 
-Rejestrowane, gdy skalowanie automatyczne inicjuje akcję skalowania w górę lub w dół. 
+Rejestrowane, gdy automatyczne skalowanie inicjuje akcję skalowania w górę lub w dół. 
 ```json
 {
   "time": "2018-09-10 18:12:00.6132593",
@@ -198,7 +198,7 @@ Rejestrowane, gdy skalowanie automatyczne inicjuje akcję skalowania w górę lu
 
 ## <a name="scale-action-tracking"></a>Śledzenie akcji skalowania
 
-Rejestrowane w różnych odstępach akcji skalowania wystąpienia.
+Rejestrowane w różnych interwałach akcji skalowania wystąpienia.
 
 ```json
 {
@@ -217,4 +217,4 @@ Rejestrowane w różnych odstępach akcji skalowania wystąpienia.
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [skalowaniu automatycznym](autoscale-overview.md)
+Informacje o [automatycznym skalowaniu](autoscale-overview.md)

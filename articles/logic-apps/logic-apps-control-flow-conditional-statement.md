@@ -1,84 +1,84 @@
 ---
 title: Dodawanie instrukcji warunkowych do przepływów pracy
-description: Jak utworzyć warunki, które kontrolują akcje w przepływach pracy w usłudze Azure Logic Apps
+description: Jak utworzyć warunki sterujące akcjami w przepływach pracy w Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74793256"
 ---
-# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Tworzenie instrukcji warunkowych sterujących akcjami przepływu pracy w usłudze Azure Logic Apps
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Tworzenie instrukcji warunkowych kontrolujących akcje przepływu pracy w Azure Logic Apps
 
-Aby uruchomić określone akcje w aplikacji logiki tylko po przejściu określonego warunku, dodaj *instrukcję warunkową*. Ta struktura kontroli porównuje dane w przepływie pracy z określonymi wartościami lub polami. Następnie można określić różne akcje, które są uruchamiane na podstawie tego, czy dane spełniają warunek. Warunki można zagnieżdżać wewnątrz siebie.
+Aby uruchamiać określone akcje w aplikacji logiki tylko po przekazaniu określonego warunku, Dodaj *instrukcję warunkową*. Ta struktura kontroli porównuje dane w przepływie pracy z określonymi wartościami lub polami. Następnie można określić różne akcje, które są uruchamiane w zależności od tego, czy dane spełniają warunek. Możesz zagnieżdżać warunki wewnątrz siebie.
 
-Załóżmy na przykład, że masz aplikację logiki, która wysyła zbyt wiele wiadomości e-mail, gdy nowe elementy pojawiają się w kanale RSS witryny. Instrukcję warunkową można dodać, aby wysyłać wiadomości e-mail tylko wtedy, gdy nowy element zawiera określony ciąg. 
+Załóżmy na przykład, że masz aplikację logiki, która wysyła zbyt wiele wiadomości e-mail, gdy nowe elementy są widoczne w kanale informacyjnym RSS witryny sieci Web. Możesz dodać instrukcję warunkową, aby wysyłać wiadomości e-mail tylko wtedy, gdy nowy element zawiera określony ciąg. 
 
 > [!TIP]
-> Aby uruchomić różne kroki na podstawie różnych określonych wartości, należy użyć [*instrukcji switch*](../logic-apps/logic-apps-control-flow-switch-statement.md) zamiast.
+> Aby wykonać różne kroki na podstawie różnych konkretnych wartości, należy zamiast tego użyć [*instrukcji switch*](../logic-apps/logic-apps-control-flow-switch-statement.md) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
-* Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Aby wykonać przykład w tym artykule, [utwórz tę przykładową aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) z kontem Outlook.com lub programu Office 365 Outlook.
+* Aby postępować zgodnie z przykładem w tym artykule, [Utwórz tę przykładową aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) przy użyciu konta programu Outlook Outlook.com lub Office 365.
 
 ## <a name="add-condition"></a>Dodawanie warunku
 
-1. W <a href="https://portal.azure.com" target="_blank">witrynie Azure portal</a>otwórz aplikację logiki w logice App Designer.
+1. W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. Dodaj warunek w żądanej lokalizacji. 
+1. Dodaj warunek w pożądanej lokalizacji. 
 
-   Aby dodać warunek między krokami, przesuń wskaźnik myszy na strzałkę, w której chcesz dodać warunek. Wybierz **wyświetlony** znak**+** plus ( ), a następnie wybierz pozycję **Dodaj akcję**. Przykład:
+   Aby dodać warunek między krokami, przesuń wskaźnik myszy nad strzałkę, w której chcesz dodać warunek. Wybierz wyświetlony znak **Plus** (**+**), a następnie wybierz pozycję **Dodaj akcję**. Przykład:
 
-   ![Dodawanie akcji między krokami](./media/logic-apps-control-flow-conditional-statement/add-action.png)
+   ![Dodaj akcję między krokami](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
-   Jeśli chcesz dodać warunek na końcu przepływu pracy, u dołu aplikacji logiki wybierz pozycję **Nowy krok** > **Dodaj akcję**.
+   Jeśli chcesz dodać warunek na końcu przepływu pracy, w dolnej części aplikacji logiki wybierz pozycję **nowy krok** > **Dodaj akcję**.
 
-1. W polu wyszukiwania wpisz "condition" jako filtr. Wybierz tę akcję: **Warunek - Kontrola**
+1. W polu wyszukiwania wprowadź wartość "warunek" jako filtr. Wybierz tę akcję: **formant warunku**
 
    ![Dodawanie warunku](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 
-1. W polu **Warunek** zbuduj swój stan. 
+1. W polu **warunek** Skompiluj swój warunek. 
 
-   1. W lewym polu określ dane lub pole, które chcesz porównać.
+   1. W polu po lewej stronie Określ dane lub pola, które chcesz porównać.
 
-      Po kliknięciu wewnątrz lewego pola zostanie wyświetlona dynamiczna lista zawartości, dzięki czemu można wybrać dane wyjściowe z poprzednich kroków w aplikacji logiki. 
-      W tym przykładzie wybierz podsumowanie kanału informacyjnego RSS.
+      Po kliknięciu w lewym polu zostanie wyświetlona lista zawartości dynamicznej, aby można było wybrać dane wyjściowe z poprzednich kroków w aplikacji logiki. 
+      Na potrzeby tego przykładu wybierz podsumowanie kanału informacyjnego RSS.
 
-      ![Zbuduj swój stan](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
+      ![Kompilowanie warunku](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
 
-   1. W środkowym polu wybierz operację do wykonania. 
-   W tym przykładzie wybierz "**zawiera**". 
+   1. W środkowym polu Wybierz operację do wykonania. 
+   Na potrzeby tego przykładu wybierz pozycję "**Contains**". 
 
-   1. W prawym polu określ wartość lub pole jako kryteria. 
-   W tym przykładzie określ ten ciąg: **Microsoft**
+   1. W prawym polu Określ wartość lub pole jako kryterium. 
+   W tym przykładzie określ następujący ciąg: **Microsoft**
 
-   Oto pełny warunek:
+   Oto pełen warunek:
 
    ![Gotowy warunek](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-   Aby dodać kolejny wiersz do warunku, wybierz pozycję **Dodaj** > **wiersz**. 
-   Aby dodać grupę z podwarszadami, wybierz pozycję **Dodaj** > **grupę Dodaj**. 
-   Aby zgrupować istniejące wiersze, zaznacz pola wyboru dla tych wierszy, wybierz przycisk elipsy (...) dla dowolnego wiersza, a następnie wybierz pozycję **Grupuj**.
+   Aby dodać kolejny wiersz do warunku, wybierz pozycję **Dodaj** > **Dodaj wiersz**. 
+   Aby dodać grupę z podwarunkami, wybierz pozycję **Dodaj** > **Dodaj grupę**. 
+   Aby zgrupować istniejące wiersze, zaznacz pola wyboru dla tych wierszy, wybierz przycisk wielokropka (...) dla każdego wiersza, a następnie wybierz polecenie **Utwórz grupę**.
 
-1. W obszarze **Jeśli prawda** i **Jeśli false**, dodaj kroki do wykonania na podstawie tego, czy warunek jest spełniony. Przykład:
+1. W obszarze **Jeśli prawda** i w **przypadku wartości false**Dodaj kroki do wykonania w zależności od tego, czy warunek jest spełniony. Przykład:
 
-   ![Warunek ze ścieżkami "Jeśli jest prawdziwa" i "Jeśli fałsz"](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
+   ![Warunek z ścieżkami "If true" i "If false"](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
    > [!TIP]
-   > Można przeciągnąć istniejące akcje do **If true** i **If false** paths.
+   > Możesz przeciągnąć istniejące akcje do ścieżek **if true** i **if false** .
 
 1. Zapisz aplikację logiki.
 
-Ta aplikacja logiki teraz wysyła pocztę tylko wtedy, gdy nowe elementy w kanale RSS spełniają twój warunek.
+Ta aplikacja logiki wysyła wiadomość e-mail tylko wtedy, gdy nowe elementy kanału informacyjnego RSS spełnią warunek.
 
 ## <a name="json-definition"></a>Definicja JSON
 
@@ -111,11 +111,11 @@ Oto definicja kodu wysokiego poziomu za instrukcją warunkową:
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
 * Jeśli masz pytania, odwiedź [forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Aby przesłać lub zagłosować na funkcje i sugestie, odwiedź [witrynę opinii użytkowników usługi Azure Logic Apps](https://aka.ms/logicapps-wish).
+* Aby przesłać funkcje i sugestie lub zagłosować na nie, odwiedź [witrynę opinii o Azure Logic Apps użytkownika](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Uruchamianie kroków na podstawie różnych wartości (instrukcje switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Uruchamianie i powtarzanie kroków (pętli)](../logic-apps/logic-apps-control-flow-loops.md)
-* [Uruchamianie lub scalanie równoległych kroków (gałęzi)](../logic-apps/logic-apps-control-flow-branches.md)
-* [Uruchamianie kroków na podstawie stanu akcji zgrupowanych (zakresy)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Wykonaj kroki na podstawie różnych wartości (przełącznik instrukcji switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Uruchom i powtórz kroki (pętle)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Uruchamianie lub scalanie równoległych kroków (gałęzie)](../logic-apps/logic-apps-control-flow-branches.md)
+* [Wykonaj kroki na podstawie pogrupowanego stanu akcji (zakresy)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

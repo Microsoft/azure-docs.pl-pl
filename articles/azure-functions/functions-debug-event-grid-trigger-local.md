@@ -1,111 +1,111 @@
 ---
-title: Debugowanie lokalne usługi Azure Functions Event Grid
-description: Dowiedz się, jak lokalnie debugować funkcje platformy Azure wyzwalane przez zdarzenie w usłudze Event Grid
+title: Azure Functions Event Grid debugowania lokalnego
+description: Zapoznaj się z lokalnym debugowaniem usługi Azure Functions wyzwalanej przez zdarzenie Event Grid
 author: craigshoemaker
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
 ms.openlocfilehash: 97509001aa66c2c1bf0c91b6b2a5ab25f9d6ec88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74227065"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Debugowanie lokalnego wyzwalacza siatki zdarzeń funkcji platformy Azure
 
-W tym artykule pokazano, jak debugować funkcję lokalną, która obsługuje zdarzenie usługi Azure Event Grid wywoływane przez konto magazynu. 
+W tym artykule pokazano, jak debugować funkcję lokalną, która obsługuje zdarzenie Azure Event Grid zgłoszone przez konto magazynu. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Tworzenie lub używanie istniejącej aplikacji funkcji
-- Tworzenie lub używanie istniejącego konta magazynu
-- Pobierz [ngrok,](https://ngrok.com/) aby umożliwić platformie Azure wywołanie funkcji lokalnej
+- Tworzenie istniejącego konta magazynu lub korzystanie z niego
+- Pobierz [ngrok](https://ngrok.com/) , aby umożliwić platformie Azure wywołanie funkcji lokalnej
 
 ## <a name="create-a-new-function"></a>Tworzenie nowej funkcji
 
-Otwórz aplikację funkcji w programie Visual Studio i kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i kliknij polecenie **Dodaj > nową funkcję platformy Azure**.
+Otwórz aplikację funkcji w programie Visual Studio i kliknij prawym przyciskiem myszy nazwę projektu w Eksplorator rozwiązań a następnie kliknij pozycję **dodaj > nową funkcję platformy Azure**.
 
-W oknie *Nowa funkcja platformy Azure* wybierz pozycję **Wyzwalacz siatki zdarzeń** i kliknij przycisk **OK**.
+W oknie *Nowa funkcja platformy Azure* wybierz **wyzwalacz Event Grid** i kliknij przycisk **OK**.
 
 ![Tworzenie nowej funkcji](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-function.png)
 
-Po utworzeniu funkcji otwórz plik kodu i skopiuj adres URL skomentowany w górnej części pliku. Ta lokalizacja jest używana podczas konfigurowania wyzwalacza siatki zdarzeń.
+Po utworzeniu funkcji Otwórz plik kodu i skopiuj adres URL oznaczony jako komentarz w górnej części pliku. Ta lokalizacja jest używana podczas konfigurowania wyzwalacza Event Grid.
 
 ![Kopiuj lokalizację](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-copy-location.png)
 
-Następnie ustaw punkt przerwania w wierszu zaczynanym od `log.LogInformation`.
+Następnie ustaw punkt przerwania w wierszu zaczynającym się od `log.LogInformation`.
 
-![Ustawianie punktu przerwania](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-set-breakpoint.png)
+![Ustaw punkt przerwania](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-set-breakpoint.png)
 
 
-Następnie **naciśnij klawisz F5,** aby rozpocząć sesję debugowania.
+Następnie **naciśnij klawisz F5** , aby rozpocząć sesję debugowania.
 
 ## <a name="allow-azure-to-call-your-local-function"></a>Zezwalaj platformie Azure na wywoływanie funkcji lokalnej
 
-Aby włamać się do funkcji debugowane na komputerze, należy włączyć sposób azure do komunikowania się z funkcją lokalną z chmury.
+Aby podzielić na maszynę debugowaną funkcję, musisz umożliwić platformie Azure komunikowanie się z lokalną funkcją z chmury.
 
-Narzędzie [ngrok](https://ngrok.com/) umożliwia platformie Azure wywołanie funkcji uruchomionej na komputerze. Rozpocznij *ngrok* za pomocą następującego polecenia:
+Narzędzie [ngrok](https://ngrok.com/) umożliwia platformie Azure wywoływanie funkcji działającej na maszynie. Uruchom *ngrok* przy użyciu następującego polecenia:
 
 ```bash
 ngrok http -host-header=localhost 7071
 ```
-Gdy narzędzie jest skonfigurowane, okno polecenia powinno wyglądać podobnie do następującego zrzutu ekranu:
+Po skonfigurowaniu narzędzia okno polecenia powinno wyglądać podobnie do poniższego zrzutu ekranu:
 
-![Start ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
+![Uruchom ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
 
-Skopiuj adres URL **HTTPS** wygenerowany po uruchomieniu *ngrok.* Ta wartość jest używana podczas konfigurowania punktu końcowego zdarzenia siatki zdarzeń.
+Skopiuj adres URL **protokołu HTTPS** wygenerowany, gdy *ngrok* jest uruchomiony. Ta wartość jest używana podczas konfigurowania punktu końcowego zdarzenia w usłudze Event Grid.
 
 ## <a name="add-a-storage-event"></a>Dodawanie zdarzenia magazynu
 
-Otwórz witrynę Azure portal i przejdź do konta magazynu i kliknij opcję **Zdarzenia.**
+Otwórz Azure Portal i przejdź do konta magazynu i kliknij opcję **zdarzenia** .
 
-![Zdarzenie Dodaj konto magazynu](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
+![Dodawanie zdarzenia konta magazynu](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
-W oknie *Zdarzenia* kliknij przycisk **Subskrypcja zdarzeń.** W oknie *Parzysta subskrypcja* kliknij pozycję rozwijana *Typ punktu końcowego* i wybierz pozycję **Web Hook**.
+W oknie *zdarzenia* kliknij przycisk **subskrypcja zdarzeń** . W oknie *subskrypcji nawet* kliknij listę rozwijaną *Typ punktu końcowego* i wybierz **element webhook**.
 
 ![Wybierz typ subskrypcji](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
 
-Po skonfigurowaniu typu punktu końcowego kliknij wybierz **punkt końcowy,** aby skonfigurować wartość punktu końcowego.
+Po skonfigurowaniu typu punktu końcowego kliknij pozycję **Wybierz punkt końcowy** , aby skonfigurować wartość punktu końcowego.
 
-![Wybieranie typu punktu końcowego](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint.png)
+![Wybierz typ punktu końcowego](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint.png)
 
-Wartość *punktu końcowego subskrybenta* składa się z trzech różnych wartości. Prefiks to adres URL HTTPS generowany przez *ngrok*. Pozostała część adresu URL pochodzi z adresu URL znajdującego się w pliku kodu funkcji, z nazwą funkcji dodaną na końcu. Począwszy od adresu URL z pliku kodu funkcji, adres URL *ngrok* zastępuje `http://localhost:7071` i zastępuje nazwę funkcji `{functionname}`.
+Wartość *punktu końcowego subskrybenta* składa się z trzech różnych wartości. Prefiks jest adresem URL HTTPS wygenerowanym przez *ngrok*. Pozostała część adresu URL pochodzi z adresu URL znajdującego się w pliku kodu funkcji z dodaną nazwą funkcji na końcu. Począwszy od adresu URL z pliku kodu funkcji, adres URL *ngrok* zastępuje `http://localhost:7071` i zastępuje `{functionname}`nazwę funkcji.
 
 Poniższy zrzut ekranu pokazuje, jak powinien wyglądać końcowy adres URL:
 
 ![Wybór punktu końcowego](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint-selection.png)
 
-Po wprowadzeniu odpowiedniej wartości kliknij przycisk **Potwierdź zaznaczenie**.
+Po wprowadzeniu odpowiedniej wartości kliknij przycisk **Potwierdź wybór**.
 
 > [!IMPORTANT]
-> Za każdym razem, gdy uruchamiasz *ngrok,* adres URL HTTPS jest generowany ponownie, a wartość zmienia się. W związku z tym należy utworzyć nową subskrypcję zdarzeń za każdym razem, gdy udostępniasz swoją funkcję na platformie Azure za pośrednictwem *ngrok*.
+> Za każdym razem, gdy zaczniesz *ngrok*, adres URL https jest generowany ponownie i zmieniana jest wartość. W związku z tym należy utworzyć nową subskrypcję zdarzeń przy każdym udostępnieniu funkcji na platformie Azure za pośrednictwem *ngrok*.
 
 ## <a name="upload-a-file"></a>Przekazywanie pliku
 
-Teraz możesz przekazać plik na swoje konto magazynu, aby wyzwolić zdarzenie w siatce zdarzeń dla funkcji lokalnej do obsługi. 
+Teraz możesz przekazać plik na konto magazynu, aby wyzwolić Event Grid zdarzenie do obsługi funkcji lokalnej. 
 
-Otwórz [Eksploratora magazynu](https://azure.microsoft.com/features/storage-explorer/) i połącz się z kontem magazynu. 
+Otwórz [Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/) i nawiąż połączenie z kontem magazynu. 
 
-- Rozwiń **kontenery obiektów blob** 
-- Kliknij prawym przyciskiem myszy i wybierz polecenie **Utwórz kontener obiektów blob**.
-- Nadawanie nazwy **testowi kontenera**
-- Wybierz pojemnik *testowy*
-- Kliknij przycisk **Prześlij**
-- Kliknij **pozycję Przekaż pliki**
-- Wybierz plik i przekaż go do kontenera obiektów blob
+- Rozwijanie **kontenerów obiektów BLOB** 
+- Kliknij prawym przyciskiem myszy i wybierz pozycję **Utwórz kontener obiektów BLOB**.
+- Nazwij **test** kontenera
+- Wybierz kontener *testu*
+- Kliknij przycisk **Przekaż**
+- Kliknij pozycję **Przekaż pliki**
+- Wybierz plik i przekaż go do kontenera obiektów BLOB
 
-## <a name="debug-the-function"></a>Debugowanie funkcji
+## <a name="debug-the-function"></a>Debuguj funkcję
 
-Gdy siatka zdarzeń rozpoznaje nowy plik jest przekazyany do kontenera magazynu, punkt przerwania zostanie trafiony w funkcji lokalnej.
+Gdy Event Grid rozpoznaje nowy plik zostanie przekazany do kontenera magazynu, punkt przerwania zostanie osiągnięty w funkcji lokalnej.
 
-![Start ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
+![Uruchom ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Aby wyczyścić zasoby utworzone w tym artykule, usuń kontener **testowy** na koncie magazynu.
+Aby wyczyścić zasoby utworzone w tym artykule, Usuń kontener **testowy** na koncie magazynu.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Automatyzowanie zmiany rozmiaru przekazanych obrazów za pomocą usługi Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md)
-- [Wyzwalacz siatki zdarzeń dla funkcji platformy Azure](./functions-bindings-event-grid.md)
+- [Wyzwalacz Event Grid dla Azure Functions](./functions-bindings-event-grid.md)

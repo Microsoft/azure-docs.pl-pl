@@ -1,6 +1,6 @@
 ---
-title: Obsługa korzystania z usługi Azure Site Recovery za pomocą usługi Azure Backup
-description: Zawiera omówienie sposobu, w jaki usługa Azure Site Recovery i Azure Backup mogą być używane razem.
+title: Obsługa używania Azure Site Recovery z Azure Backup
+description: Zawiera omówienie sposobu, w jaki Azure Site Recovery i Azure Backup mogą być używane razem.
 author: sideeksh
 manager: rochakm
 ms.service: site-recovery
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: sideeksh
 ms.openlocfilehash: d8c896bc655339fbd7d51f738fb629450e8c12ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72376213"
 ---
-# <a name="support-for-using-site-recovery-with-azure-backup"></a>Obsługa korzystania z usługi Site Recovery za pomocą usługi Azure Backup
+# <a name="support-for-using-site-recovery-with-azure-backup"></a>Obsługa używania Site Recovery z Azure Backup
 
-W tym artykule podsumowano obsługę korzystania z [usługi site recovery](site-recovery-overview.md) wraz z [usługą Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+W tym artykule podsumowano obsługę używania [usługi Site Recovery](site-recovery-overview.md) razem z [usługą Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
 
 **Akcja** | **Obsługa usługi Site Recovery** | **Szczegóły**
 --- | --- | ---
-**Wdrażanie usług razem** | Obsługiwane | Usługi są interoperacyjne i można je skonfigurować razem.
-**Kopia zapasowa/przywracanie plików** | Obsługiwane | Gdy kopia zapasowa i replikacja są włączone dla maszyny Wirtualnej i kopie zapasowe są pobierane, nie ma problemu z przywracaniem plików na maszynach wirtualnych po stronie źródłowej lub grupy maszyn wirtualnych. Replikacja jest kontynuowana w zwykły sposób, bez zmian w kondycji replikacji.
-**Przywracanie dysku** | Brak bieżącej obsługi | Jeśli zostanie przywróceniu kopii zapasowej dysku, należy ponownie wyłączyć i ponownie włączyć replikację maszyny Wirtualnej.
-**Przywracanie maszyny wirtualnej** | Brak bieżącej obsługi | W przypadku przywracania maszyny Wirtualnej lub grupy maszyn wirtualnych należy wyłączyć i ponownie włączyć replikację maszyny Wirtualnej.  
+**Wdróż wspólnie usługi** | Obsługiwane | Usługi są współobsługiwane i można je skonfigurować razem.
+**Kopia zapasowa/przywracanie pliku** | Obsługiwane | Gdy włączono tworzenie kopii zapasowych i replikacja dla maszyny wirtualnej, a kopie zapasowe są wykonywane, nie ma żadnego problemu podczas przywracania plików na maszynach wirtualnych po stronie źródłowej ani w grupie maszyn wirtualnych. Replikacja jest kontynuowana jak zwykle bez zmian kondycji replikacji.
+**Przywracanie dysku** | Brak bieżącej pomocy technicznej | W przypadku przywrócenia dysku z kopią zapasową należy ponownie wyłączyć i ponownie włączyć replikację maszyny wirtualnej.
+**Przywracanie maszyny wirtualnej** | Brak bieżącej pomocy technicznej | W przypadku przywrócenia maszyny wirtualnej lub grupy maszyn wirtualnych należy wyłączyć i ponownie włączyć replikację maszyny wirtualnej.  
 
 

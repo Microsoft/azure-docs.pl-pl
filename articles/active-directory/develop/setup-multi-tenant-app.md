@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie nowej aplikacji wielodostępowej
-description: Dowiedz się, jak skonfigurować aplikację jako wielodostępną i jak działają aplikacje z wieloma dzierżawcami
+title: Konfigurowanie nowej aplikacji wielodostępnej
+description: Dowiedz się, jak skonfigurować aplikację jako wiele dzierżawców i jak działają aplikacje z wieloma dzierżawcami
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.openlocfilehash: a27524f860f17642dcd0640bcb740fc04c187407
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80881387"
 ---
-# <a name="how-to-configure-a-new-multi-tenant-application"></a>Jak skonfigurować nową aplikację wielodostępną
+# <a name="how-to-configure-a-new-multi-tenant-application"></a>Jak skonfigurować nową aplikację z wieloma dzierżawcami
 
-Oto lista zalecanych tematów, aby dowiedzieć się więcej o aplikacjach wielodostępnych:
+Poniżej znajduje się lista zalecanych tematów, aby dowiedzieć się więcej o aplikacjach wielodostępnych:
 
-- Uzyskaj ogólne [zrozumienie, co to znaczy być aplikacją wielodostępną](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
-- Uzyskaj ogólne [zrozumienie, jak skonfigurować aplikację jako wielodostępną](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant)
-- Uzyskaj omówienie krok po [kroku, w jaki sposób struktura zgody usługi Azure AD jest używana do implementowania zgody,](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)która jest wymagana dla aplikacji z wieloma dzierżawcami
-- Aby uzyskać więcej informacji, dowiedz się, [jak aplikacja wielodostępna jest skonfigurowana i zakodowana end-to-end](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), w tym jak się zarejestrować, użyj "wspólnego" punktu końcowego, zaimplementuj zgodę "użytkownik" i "administrator", jak zaimplementować bardziej zaawansowane scenariusze wielowarstwowe
+- Poznaj ogólne informacje o [tym, co oznacza aplikacja wielodostępna](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
+- Zapoznaj się z ogólną wiedzą na [temat konfigurowania aplikacji jako wielodostępności](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant)
+- Zapoznaj się z omówieniem krok po kroku [dotyczący sposobu, w jaki struktura zgody na usługę Azure AD jest używana do implementowania zgody](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications), która jest wymagana w przypadku aplikacji wielodostępnych
+- Aby uzyskać więcej informacji, Dowiedz się, w jaki sposób można [skonfigurować i zakodować kompleksową aplikację wielodostępną](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), w tym informacje na temat sposobu rejestracji, używania "wspólnego" punktu końcowego, implementowania zgody "User" i "admin", jak zaimplementować bardziej zaawansowane scenariusze wielowarstwowe
 
 ## <a name="next-steps"></a>Następne kroki
-[Przepływ stosu azuread](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

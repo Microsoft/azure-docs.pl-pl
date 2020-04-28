@@ -1,6 +1,6 @@
 ---
-title: Często zadawane pytania dotyczące wdrażania — usługa Azure App Service | Dokumenty firmy Microsoft
-description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące wdrażania funkcji aplikacji sieci Web usługi Azure App Service.
+title: Często zadawane pytania dotyczące wdrażania — Azure App Service | Microsoft Docs
+description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące wdrażania Web Apps funkcji Azure App Service.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -10,87 +10,87 @@ ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74671687"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Często zadawane pytania dotyczące aplikacji internetowych na platformie Azure
 
-W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące problemów z wdrażaniem [funkcji aplikacji sieci Web usługi Azure App Service.](https://azure.microsoft.com/services/app-service/web/)
+W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące problemów z wdrażaniem [Web Apps funkcji Azure App Service](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="i-am-just-getting-started-with-app-service-web-apps-how-do-i-publish-my-code"></a>Dopiero zaczynam pracę z aplikacjami internetowymi usługi App Service. Jak opublikować kod?
+## <a name="i-am-just-getting-started-with-app-service-web-apps-how-do-i-publish-my-code"></a>Rozpoczynam pracę z App Service aplikacjami sieci Web. Jak mogę opublikować mój kod?
 
 Oto kilka opcji publikowania kodu aplikacji sieci Web:
 
-*   Wdrażanie przy użyciu programu Visual Studio. Jeśli masz rozwiązanie programu Visual Studio, kliknij prawym przyciskiem myszy projekt aplikacji sieci web, a następnie wybierz polecenie **Publikuj**.
-*   Wdrażanie przy użyciu klienta FTP. W witrynie Azure portal pobierz profil publikowania dla aplikacji sieci web, do której chcesz wdrożyć kod. Następnie przekaż pliki do \site\wwwroot przy użyciu tych samych poświadczeń ftp profilu publikowania.
+*   Wdrażanie przy użyciu programu Visual Studio. Jeśli masz rozwiązanie Visual Studio, kliknij prawym przyciskiem myszy projekt aplikacji sieci Web, a następnie wybierz polecenie **Publikuj**.
+*   Wdróż program przy użyciu klienta FTP. W Azure Portal Pobierz profil publikowania dla aplikacji sieci Web, w której chcesz wdrożyć swój kod. Następnie Przekaż pliki do \site\wwwroot przy użyciu tych samych poświadczeń FTP profilu publikowania.
 
-Aby uzyskać więcej informacji, zobacz [Wdrażanie aplikacji w usłudze App Service](deploy-local-git.md).
+Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji do App Service](deploy-local-git.md).
 
-## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Podczas próby wdrożenia z programu Visual Studio jest wyświetlany komunikat o błędzie. Jak rozwiązać ten błąd?
+## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Pojawia się komunikat o błędzie podczas próby wdrożenia z programu Visual Studio. Jak mogę rozwiązać ten błąd?
 
-Jeśli zostanie wyświetlony następujący komunikat, być może używasz starszej wersji SDK: "Błąd podczas wdrażania zasobu "YourResourceName" w grupie zasobów "YourResourceGroup": MissingRegistrationForLocation: Subskrypcja nie jest zarejestrowana dla "składniki" w lokalizacji "Central US". Ponownie zarejestruj się dla tego dostawcy, aby mieć dostęp do tej lokalizacji." 
+Jeśli zobaczysz następujący komunikat, być może używasz starszej wersji zestawu SDK: "błąd podczas wdrażania zasobu" YourResourceName "w grupie zasobów" YourResourceGroup ": MissingRegistrationForLocation: subskrypcja nie jest zarejestrowana dla typu zasobu" Components "w lokalizacji" środkowe stany USA ". Zarejestruj ponownie dla tego dostawcy w celu uzyskania dostępu do tej lokalizacji. 
 
-Aby rozwiązać ten błąd, uaktualnij do [najnowszego sdk](https://azure.microsoft.com/downloads/). Jeśli widzisz ten komunikat i masz najnowszy sdk, prześlij prośbę o pomoc techniczną.
+Aby rozwiązać ten problem, należy przeprowadzić uaktualnienie do [najnowszego zestawu SDK](https://azure.microsoft.com/downloads/). Jeśli zobaczysz ten komunikat i masz najnowszy zestaw SDK, Prześlij żądanie pomocy technicznej.
 
-## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Jak wdrożyć aplikację ASP.NET z programu Visual Studio do usługi App Service?
+## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Jak mogę wdrożyć aplikację ASP.NET z poziomu programu Visual Studio w celu App Service?
 <a id="deployasp"></a>
 
-Samouczek [Tworzenie pierwszej ASP.NET aplikacji sieci web na platformie Azure w ciągu pięciu minut](app-service-web-get-started-dotnet.md) pokazuje, jak wdrożyć ASP.NET aplikacji sieci web do aplikacji sieci web w usłudze App Service przy użyciu programu Visual Studio.
+Samouczek [Tworzenie pierwszej aplikacji sieci web ASP.NET na platformie Azure w ciągu pięciu minut](app-service-web-get-started-dotnet.md) pokazuje, jak wdrożyć aplikację sieci Web ASP.NET w aplikacji sieci web w App Service przy użyciu programu Visual Studio.
 
-## <a name="what-are-the-different-types-of-deployment-credentials"></a>Jakie są różne typy poświadczeń wdrożenia?
+## <a name="what-are-the-different-types-of-deployment-credentials"></a>Jakie są różne typy poświadczeń wdrażania?
 
-Usługa App Service obsługuje dwa typy poświadczeń dla lokalnego wdrożenia git i wdrożenia FTP/S. Aby uzyskać więcej informacji na temat konfigurowania poświadczeń wdrożenia, zobacz [Konfigurowanie poświadczeń wdrażania usługi App Service](deploy-configure-credentials.md).
+App Service obsługuje dwa typy poświadczeń dla lokalnego wdrożenia git i wdrożenia FTP/S. Więcej informacji o sposobie konfigurowania poświadczeń wdrożenia znajduje się w temacie [Konfigurowanie poświadczeń wdrażania dla App Service](deploy-configure-credentials.md).
 
-## <a name="what-is-the-file-or-directory-structure-of-my-app-service-web-app"></a>Jaka jest struktura plików lub katalogów mojej aplikacji sieci Web usługi App Service?
+## <a name="what-is-the-file-or-directory-structure-of-my-app-service-web-app"></a>Co to jest struktura plików lub katalogów aplikacji sieci Web App Service?
 
-Aby uzyskać informacje na temat struktury plików aplikacji usługi App Service, zobacz [Struktura plików na platformie Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure).
+Aby uzyskać informacje o strukturze plików aplikacji App Service, zobacz [Struktura plików na platformie Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure).
 
-## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>Jak rozwiązać problem "Ftp Error 550 - There is not enough space on the disk" podczas próby FTP moje pliki?
+## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>Jak mogę rozwiązać problem "Błąd FTP 550 — za mało miejsca na dysku" podczas próby FTP moje pliki?
 
-Jeśli widzisz ten komunikat, jest prawdopodobne, że jesteś uruchomiony do przydziału dysku w planie usługi dla aplikacji sieci web. Może być konieczne skalowanie w górę do wyższej warstwy usług w zależności od zapotrzebowania na miejsce na dysku. Aby uzyskać więcej informacji na temat planów cenowych i limitów zasobów, zobacz [Ceny usługi App Service](https://azure.microsoft.com/pricing/details/app-service/).
+Jeśli zobaczysz ten komunikat, prawdopodobnie korzystasz z przydziału dysku w planie usługi dla aplikacji sieci Web. Może być konieczne skalowanie w górę do wyższej warstwy usług w zależności od potrzeb dotyczących miejsca na dysku. Aby uzyskać więcej informacji na temat planów cenowych i limitów zasobów, zobacz [App Service Cennik](https://azure.microsoft.com/pricing/details/app-service/).
 
-## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Jak skonfigurować ciągłe wdrażanie aplikacji sieci web usługi App Service?
+## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Jak mogę skonfigurować ciągłe wdrażanie dla aplikacji internetowej App Service?
 
-Możesz skonfigurować ciągłe wdrażanie z kilku zasobów, w tym Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox i innych repozytoriów Git. Te opcje są dostępne w portalu. [Ciągłe wdrażanie usługi App Service](deploy-continuous-deployment.md) to pomocny samouczek, który wyjaśnia, jak skonfigurować ciągłe wdrażanie.
+Można skonfigurować ciągłe wdrażanie z kilku zasobów, w tym Azure DevOps, OneDrive, GitHub, BitBucket, Dropbox i innych repozytoriów Git. Te opcje są dostępne w portalu. [Ciągłe wdrażanie do App Service](deploy-continuous-deployment.md) to przydatny samouczek, w którym wyjaśniono, jak skonfigurować ciągłe wdrażanie.
 
-## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>Jak rozwiązać problemy z ciągłym wdrażaniem z GitHub i Bitbucket?
+## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>Jak mogę rozwiązywania problemów z ciągłym wdrażaniem z usługi GitHub i Bitbucket?
 
-Aby uzyskać pomoc w badaniu problemów z ciągłym wdrażaniem z GitHub lub Bitbucket, zobacz [Badanie ciągłego wdrażania.](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
+Aby uzyskać pomoc w prowadzeniu problemów z ciągłym wdrażaniem z usługi GitHub lub BitBucket, zobacz [Badanie ciągłego wdrażania](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
 
-## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this-issue"></a>Nie mogę FTP na mojej stronie i opublikować mój kod. Jak rozwiązać ten problem?
+## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this-issue"></a>Nie mogę przeprowadzić połączenia FTP z moją witryną i opublikować mój kod. Jak mogę rozwiązać ten problem?
 
-Aby rozwiązać problemy FTP:
+Aby rozwiązać problemy z usługą FTP:
 
-1. Sprawdź, czy wprowadzasz poprawną nazwę hosta i poświadczenia. Aby uzyskać szczegółowe informacje na temat różnych typów poświadczeń i sposobu ich używania, zobacz [Poświadczenia wdrażania](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
-2. Sprawdź, czy porty FTP nie są blokowane przez zaporę. Porty powinny mieć następujące ustawienia:
+1. Sprawdź, czy wprowadzasz poprawną nazwę hosta i poświadczenia. Aby uzyskać szczegółowe informacje o różnych typach poświadczeń i sposobach ich użycia, zobacz [poświadczenia wdrożenia](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
+2. Upewnij się, że porty FTP nie są blokowane przez zaporę. Porty powinny mieć następujące ustawienia:
     * Port połączenia sterowania FTP: 21
     * Port połączenia danych FTP: 989, 10001-10300
 
-## <a name="how-do-i-publish-my-code-to-app-service"></a>Jak opublikować kod w usłudze App Service?
+## <a name="how-do-i-publish-my-code-to-app-service"></a>Jak mogę opublikować mój kod, aby App Service?
 
-Szybki start platformy Azure został zaprojektowany, aby ułatwić wdrażanie aplikacji przy użyciu stosu wdrażania i wybranej metody. Aby skorzystać z przewodnika Szybki start, w witrynie Azure portal przejdź do usługi aplikacji w obszarze **Wdrażanie**wybierz pozycję **Szybki start**.
+Przewodnik Szybki Start platformy Azure został zaprojektowany z założeniami, aby ułatwić wdrożenie aplikacji za pomocą wybranego stosu i metody wdrażania. Aby skorzystać z przewodnika Szybki Start, w Azure Portal przejdź do usługi App Service, w obszarze **Deployment (wdrażanie**) wybierz pozycję **Szybki Start**.
 
-## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>Dlaczego moja aplikacja czasami uruchamia się ponownie po wdrożeniu w usłudze App Service?
+## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>Dlaczego moja aplikacja czasami jest uruchamiana ponownie po wdrożeniu do App Service?
 
-Aby dowiedzieć się więcej o okolicznościach, w których wdrożenie aplikacji może spowodować ponowne uruchomienie, zobacz [Problemy z wdrażaniem a czasem wykonywania](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts"). Jak opisano w artykule, usługa App Service wdraża pliki w folderze wwwroot. Nigdy nie uruchamia bezpośrednio ponownie aplikacji.
+Aby dowiedzieć się, jak sytuacje, w których wdrożenie aplikacji może spowodować ponowne uruchomienie, zobacz [problemy dotyczące wdrażania i środowiska uruchomieniowego](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts"). Zgodnie z opisem w artykule App Service wdraża pliki w folderze wwwroot. Nigdy nie jest bezpośrednio ponownie uruchamiana aplikacja.
 
 ## <a name="how-do-i-integrate-azure-devops-code-with-app-service"></a>Jak zintegrować kod usługi Azure DevOps z usługą App Service?
 
-Dostępne są dwie opcje ciągłego wdrażania za pomocą usługi Azure DevOps:
+Dostępne są dwie opcje korzystania z ciągłego wdrażania w usłudze Azure DevOps:
 
-*   Użyj projektu Git. Połącz się za pośrednictwem usługi App Service przy użyciu Centrum wdrażania.
-*   Użyj projektu kontroli wersji team foundation (TFVC). Wdrażanie przy użyciu agenta kompilacji dla usługi App Service.
+*   Użyj projektu git. Połącz się za pośrednictwem App Service przy użyciu centrum wdrażania.
+*   Użyj projektu Kontrola wersji serwera Team Foundation (TFVC). Wdróż program przy użyciu agenta kompilacji dla App Service.
 
-Ciągłe wdrażanie kodu dla obu tych opcji zależy od istniejących przepływów pracy dewelopera i procedur zaewidencjonowania. Więcej informacji można znaleźć w tych artykułach: 
+Ciągłe wdrażanie kodu dla obu tych opcji zależy od istniejących przepływów pracy dla deweloperów i procedur zaewidencjonowania. Więcej informacji można znaleźć w tych artykułach: 
 
-*   [Wdrażanie ciągłego wdrażania aplikacji w witrynie sieci Web platformy Azure](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
-*   [Konfigurowanie organizacji DevOps platformy Azure, aby mogła wdrażać w aplikacji sieci web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
+*   [Implementowanie ciągłego wdrażania aplikacji w witrynie sieci Web platformy Azure](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
+*   [Skonfiguruj organizację usługi Azure DevOps, aby umożliwić wdrażanie jej w aplikacji sieci Web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
 
-## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Jak wdrożyć aplikację w usłudze App Service za pomocą protokołu FTP lub FTPS?
+## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Jak mogę użyć usługi FTP lub FTPS do wdrożenia mojej aplikacji do App Service?
 
-Aby uzyskać informacje dotyczące wdrażania aplikacji sieci Web w usłudze App Service za pomocą protokołu FTP lub FTPS, zobacz [Wdrażanie aplikacji w usłudze App Service przy użyciu protokołu FTP/S](deploy-ftp.md).
+Aby uzyskać informacje na temat używania protokołu FTP lub FTPS do wdrażania aplikacji sieci Web w celu App Service, zobacz [wdrażanie aplikacji do App Service przy użyciu protokołu FTP/S](deploy-ftp.md).

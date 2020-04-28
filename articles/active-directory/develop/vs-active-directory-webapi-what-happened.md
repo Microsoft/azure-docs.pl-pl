@@ -1,6 +1,6 @@
 ---
-title: Zmiany wprowadzone w projektach webapi podczas łączenia się z usługą Azure AD
-description: W tym artykule opisano, co dzieje się z projektem WebAPI podczas łączenia się z usługą Azure AD przy użyciu programu Visual Studio
+title: Zmiany wprowadzone do projektów WebAPI podczas nawiązywania połączenia z usługą Azure AD
+description: Opisuje, co się dzieje z projektem WebAPI podczas nawiązywania połączenia z usługą Azure AD przy użyciu programu Visual Studio
 author: ghogen
 manager: jillfra
 ms.workload: azure-vs
@@ -11,66 +11,66 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: 46fb0ad37b872a1d7ca72114f2f263df776aabf1
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886062"
 ---
-# <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Co się stało z moim projektem WebAPI (usługa połączona z usługą Visual Studio Azure Active Directory)
+# <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Co się stało z moim projektem WebAPI (usługa połączona Azure Active Directory Visual Studio)
 
 > [!div class="op_single_selector"]
 > - [Wprowadzenie](vs-active-directory-webapi-getting-started.md)
 > - [Co się stało](vs-active-directory-webapi-what-happened.md)
 
-W tym artykule identyfikowane są dokładne zmiany wprowadzone w ASP.NET webapi, ASP.NET aplikacji jednostronicowej i ASP.NET projektów interfejsu API platformy Azure podczas dodawania [połączonej usługi Azure Active Directory przy użyciu programu Visual Studio](vs-active-directory-add-connected-service.md). Dotyczy również projektów usługi Azure Mobile w programie ASP.NET usługi Azure w programie Visual Studio 2015.
+W tym artykule opisano dokładne zmiany wprowadzone do ASP.NET WebAPI, ASP.NET aplikację jednostronicową i ASP.NET projekty interfejsu API platformy Azure podczas dodawania [usługi połączonej Azure Active Directory przy użyciu programu Visual Studio](vs-active-directory-add-connected-service.md). Dotyczy również projektów usługi mobilnej platformy Azure ASP.NET w programie Visual Studio 2015.
 
-Aby uzyskać informacje na temat pracy z połączoną usługą, zobacz [Wprowadzenie](vs-active-directory-webapi-getting-started.md).
+Aby uzyskać informacje na temat pracy z połączoną usługą, zobacz [wprowadzenie](vs-active-directory-webapi-getting-started.md).
 
-## <a name="added-references"></a>Dodano referencje
+## <a name="added-references"></a>Dodano odwołania
 
-Wpływa na pliki projektu *.NET `packages.config` odwołania) i (Odwołania NuGet).
-
-| Typ | Dokumentacja |
-| --- | --- |
-| .NET; Nuget | Microsoft.Owin |
-| .NET; Nuget | Microsoft.Owin.Host.SystemWeb |
-| .NET; Nuget | Microsoft.Owin.Security |
-| .NET; Nuget | Microsoft.Owin.Security.ActiveDirectory |
-| .NET; Nuget | Microsoft.Owin.Security.Jwt |
-| .NET; Nuget | Microsoft.Owin.Security.OAuth |
-| .NET; Nuget | Okręg wyborczy Owin |
-| .NET; Nuget | System.IdentityModel.Tokens.Jwt |
-
-Dodatkowe odwołania, jeśli wybrano opcję **Odczyt danych katalogu:**
+Dotyczy pliku projektu *. NET References i `packages.config` (odwołania NuGet).
 
 | Typ | Dokumentacja |
 | --- | --- |
-| .NET; Nuget | Elementframework |
-| .NET        | EntityFramework.SqlServer (tylko program Visual Studio 2015) |
-| .NET; Nuget | Microsoft.Azure.ActiveDirectory.GraphClient |
-| .NET; Nuget | Microsoft.Data.Edm |
-| .NET; Nuget | Microsoft.Data.OData |
-| .NET; Nuget | Microsoft.Data.Services.Klient |
-| .NET; Nuget | Microsoft.IdentityModel.Clients.ActiveDirectory |
-| .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms<br>(Tylko program Visual Studio 2015) |
-| .NET; Nuget | System.Przestrzenny |
+| Waga NuGet | Microsoft. Owin |
+| Waga NuGet | Microsoft.Owin.Host.SystemWeb |
+| Waga NuGet | Microsoft. Owin. Security |
+| Waga NuGet | Microsoft. Owin. Security. ActiveDirectory |
+| Waga NuGet | Microsoft. Owin. Security. JWT |
+| Waga NuGet | Microsoft. Owin. Security. OAuth |
+| Waga NuGet | Owin |
+| Waga NuGet | System. IdentityModel. Tokens. JWT |
 
-Następujące odwołania są usuwane (ASP.NET tylko 4 projekty, jak w programie Visual Studio 2015):
+Dodatkowe odwołania w przypadku wybrania opcji **Odczytaj dane katalogu** :
 
 | Typ | Dokumentacja |
 | --- | --- |
-| .NET; Nuget | Microsoft.AspNet.Identity.Core |
-| .NET; Nuget | Microsoft.AspNet.Identity.EntityFramework |
-| .NET; Nuget | Microsoft.AspNet.Identity.Owin |
+| Waga NuGet | EntityFramework |
+| .NET        | EntityFramework. SqlServer (tylko w programie Visual Studio 2015) |
+| Waga NuGet | Microsoft. Azure. ActiveDirectory. GraphClient |
+| Waga NuGet | Microsoft. Data. EDM |
+| Waga NuGet | Microsoft. Data. OData |
+| Waga NuGet | Microsoft. Data. Services. Client |
+| Waga NuGet | Microsoft.IdentityModel.Clients.ActiveDirectory |
+| .NET        | Microsoft. IdentityModel. clients. ActiveDirectory. WindowsForms<br>(Tylko w programie Visual Studio 2015) |
+| Waga NuGet | System. przestrzenny |
+
+Następujące odwołania są usuwane (tylko projekty ASP.NET 4, jak w programie Visual Studio 2015):
+
+| Typ | Dokumentacja |
+| --- | --- |
+| Waga NuGet | Microsoft. AspNet. Identity. Core |
+| Waga NuGet | Microsoft. AspNet. Identity. EntityFramework |
+| Waga NuGet | Microsoft. AspNet. Identity. Owin |
 
 ## <a name="project-file-changes"></a>Zmiany w pliku projektu
 
-- Ustaw właściwość `IISExpressSSLPort` na odrębną liczbę.
-- Ustaw właściwość `WebProject_DirectoryAccessLevelKey` na 0 lub 1, jeśli wybrano opcję **Odczyt danych katalogu.**
-- Ustaw `IISUrl` właściwość `https://localhost:<port>/` `<port>` na `IISExpressSSLPort` miejsce, w którym jest zgodna z wartością.
+- Ustaw właściwość `IISExpressSSLPort` na wartość DISTINCT.
+- Ustaw właściwość `WebProject_DirectoryAccessLevelKey` na 0 lub 1, jeśli wybrano opcję **Odczytaj dane katalogu** .
+- Ustaw właściwość `IISUrl` na gdzie `https://localhost:<port>/` `<port>` pasuje do `IISExpressSSLPort` wartości.
 
-## <a name="webconfig-or-appconfig-changes"></a>web.config lub app.config zmiany
+## <a name="webconfig-or-appconfig-changes"></a>zmiany pliku Web. config lub App. config
 
 - Dodano następujące wpisy konfiguracji:
 
@@ -82,33 +82,33 @@ Następujące odwołania są usuwane (ASP.NET tylko 4 projekty, jak w programie 
     </appSettings>
     ```
 
-- Tylko visual studio 2017: dodano `<appSettings>`również następujący wpis w obszarze "
+- Tylko program Visual Studio 2017: dodano również następujący wpis w `<appSettings>`sekcji "
 
     ```xml
     <add key="ida:MetadataAddress" value="<domain URL + /federationmetadata/2007-06/federationmetadata.xml>" />
     ```
 
-- Dodano `<dependentAssembly>` elementy `<runtime><assemblyBinding>` pod `System.IdentityModel.Tokens.Jwt`węzłem dla .
+- Dodano `<dependentAssembly>` elementy w `<runtime><assemblyBinding>` węźle dla `System.IdentityModel.Tokens.Jwt`.
 
-- Jeśli wybrano opcję **Odczyt danych katalogu,** `<appSettings>`dodano następujący wpis konfiguracji w obszarze:
+- W przypadku wybrania opcji **Odczytaj dane katalogu** dodano następujący wpis konfiguracyjny poniżej `<appSettings>`:
 
     ```xml
     <add key="ida:Password" value="<Your Azure AD app's new password>" />
     ```
 
-## <a name="code-changes-and-additions"></a>Zmiany i uzupełnienia kodu
+## <a name="code-changes-and-additions"></a>Zmiany i dodatki kodu
 
-- Dodano `[Authorize]` atrybut `Controllers/ValueController.cs` i inne istniejące kontrolery.
+- Dodano `[Authorize]` atrybut do `Controllers/ValueController.cs` i wszystkich innych istniejących kontrolerów.
 
-- Dodano klasę uruchamiania `App_Start/Startup.Auth.cs`uwierzytelniania , zawierającą logikę uruchamiania dla uwierzytelniania usługi Azure AD lub odpowiednio ją zmodyfikował. Jeśli wybrano opcję **Odczyt danych katalogu,** ten plik zawiera również kod do odbierania kodu OAuth i wymiany go na token dostępu.
+- Dodano klasę uruchamiania uwierzytelniania, `App_Start/Startup.Auth.cs`zawierającą logikę uruchamiania dla uwierzytelniania usługi Azure AD lub odpowiednio ją zmodyfikowano. W przypadku wybrania opcji **Czytaj dane katalogu** ten plik zawiera również kod umożliwiający otrzymanie kodu OAuth i wymienianie go z tokenem dostępu.
 
-- (Visual Studio 2015 tylko z aplikacją ASP.NET 4) Usunięto `App_Start/IdentityConfig.cs` i dodano `Controllers/AccountController.cs`, `Models/IdentityModel.cs`i `Providers/ApplicationAuthProvider.cs`.
+- (Tylko program Visual Studio 2015 z aplikacją ASP.NET 4) Usunięty `App_Start/IdentityConfig.cs` i dodany `Controllers/AccountController.cs`, `Models/IdentityModel.cs`, i `Providers/ApplicationAuthProvider.cs`.
 
-- Dodano `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) lub `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), zawierające informacje używane przez program Visual Studio do śledzenia dodania połączonej usługi.
+- Dodano `Connected Services/AzureAD/ConnectedService.json` (visual Studio 2017) lub `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015) zawierający informacje używane przez program Visual Studio do śledzenia dodawania połączonej usługi.
 
 ### <a name="file-backup-visual-studio-2015"></a>Kopia zapasowa plików (Visual Studio 2015)
 
-Podczas dodawania połączonej usługi program Visual Studio 2015 tworzą kopie zapasowe zmienionych i usuniętych plików. Wszystkie pliki, których dotyczy `Backup/AzureAD`problem, są zapisywane w folderze . Visual Studio 2017 nie tworzy kopii zapasowych.
+Podczas dodawania połączonej usługi program Visual Studio 2015 tworzy kopie zapasowe zmienionych i usuniętych plików. Wszystkie odnośne pliki są zapisywane w folderze `Backup/AzureAD`. Program Visual Studio 2017 nie tworzy kopii zapasowych.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`
@@ -121,11 +121,11 @@ Podczas dodawania połączonej usługi program Visual Studio 2015 tworzą kopie 
 ## <a name="changes-on-azure"></a>Zmiany na platformie Azure
 
 - Utworzono aplikację usługi Azure AD w domenie wybranej podczas dodawania połączonej usługi.
-- Zaktualizowano aplikację o uprawnienie **Odczyt danych katalogu,** jeśli ta opcja została zaznaczona.
+- Aplikacja została zaktualizowana w celu uwzględnienia uprawnienia **Odczyt danych katalogu** , jeśli ta opcja została wybrana.
 
-[Dowiedz się więcej o usłudze Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
+[Dowiedz się więcej o Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Scenariusze uwierzytelniania dla usługi Azure Active Directory](authentication-scenarios.md)
+- [Scenariusze uwierzytelniania dla Azure Active Directory](authentication-scenarios.md)
 - [dodawanie logowania przy użyciu konta Microsoft do aplikacji internetowej ASP.NET](quickstart-v2-aspnet-webapp.md)

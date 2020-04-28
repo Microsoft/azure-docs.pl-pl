@@ -1,26 +1,26 @@
 ---
-title: Infrastruktura sieci szkieletowej usług Azure jako najważniejsze wskazówki dotyczące kodu
-description: Najważniejsze rozwiązania i zagadnienia dotyczące projektowania dotyczące zarządzania siecią szkieletową usług Azure jako infrastruktury jako kodu.
+title: Infrastruktura Service Fabric platformy Azure jako najlepsze rozwiązania dotyczące kodu
+description: Najlepsze rozwiązania i zagadnienia dotyczące projektowania dotyczące zarządzania Service Fabric platformy Azure jako infrastruktury jako kodu.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551832"
 ---
 # <a name="infrastructure-as-code"></a>Infrastruktura jako kod
 
-W scenariuszu produkcyjnym utwórz klastry sieci szkieletowej usług Azure przy użyciu szablonów Menedżera zasobów. Szablony Menedżera zasobów zapewniają większą kontrolę nad właściwościami zasobów i zapewniają spójny model zasobów.
+W scenariuszu produkcyjnym Utwórz klastry usługi Azure Service Fabric przy użyciu szablonów Menedżer zasobów. Szablony Menedżer zasobów zapewniają większą kontrolę nad właściwościami zasobów i zapewniają spójny model zasobów.
 
-Przykładowe szablony Menedżera zasobów są dostępne dla systemów Windows i Linux w [przykładach platformy Azure w usłudze GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Te szablony mogą służyć jako punkt wyjścia dla szablonu klastra. `azuredeploy.json` Pobieraj `azuredeploy.parameters.json` i edytuj je, aby spełnić twoje wymagania niestandardowe.
+Przykładowe szablony Menedżer zasobów są dostępne dla systemów Windows i Linux w [przykładach platformy Azure w witrynie GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Te szablony mogą służyć jako punkt początkowy dla szablonu klastra. Pobierz `azuredeploy.json` i `azuredeploy.parameters.json` edytuj je w celu spełnienia wymagań niestandardowych.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Aby `azuredeploy.json` wdrożyć `azuredeploy.parameters.json` szablony pobrane powyżej, należy użyć następujących poleceń interfejsu wiersza polecenia platformy Azure:
+Aby wdrożyć pobrane `azuredeploy.json` powyżej `azuredeploy.parameters.json` szablony i, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli
 ResourceGroupName="sfclustergroup"
@@ -30,7 +30,7 @@ az group create --name $ResourceGroupName --location $Location
 az group deployment create --name $ResourceGroupName  --template-file azuredeploy.json --parameters @azuredeploy.parameters.json
 ```
 
-Tworzenie zasobu przy użyciu programu Powershell
+Tworzenie zasobu przy użyciu programu PowerShell
 
 ```powershell
 $ResourceGroupName="sfclustergroup"
@@ -42,9 +42,9 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
 ```
 
-## <a name="azure-service-fabric-resources"></a>Zasoby sieci szkieletowej usług Azure
+## <a name="azure-service-fabric-resources"></a>Zasoby usługi Azure Service Fabric
 
-Aplikacje i usługi można wdrażać w klastrze sieci szkieletowej usług za pośrednictwem usługi Azure Resource Manager. Szczegółowe informacje można znaleźć w obszarze [Zarządzanie aplikacjami i usługami jako zasoby usługi Azure Resource Manager.](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) Poniżej przedstawiono najlepsze rozwiązania zasobów aplikacji sieci szkieletowej usługi do uwzględnienia w zasobach szablonu Menedżera zasobów Menedżera zasobów.
+Aplikacje i usługi można wdrożyć w klastrze Service Fabric za pośrednictwem Azure Resource Manager. Aby uzyskać szczegółowe informacje [, zobacz Zarządzanie aplikacjami i usługami jako zasoby Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) . Poniżej przedstawiono najlepsze rozwiązanie Service Fabric zasoby dotyczące aplikacji do uwzględnienia w Menedżer zasobów zasobów szablonów.
 
 ```json
 {
@@ -73,7 +73,7 @@ Aplikacje i usługi można wdrażać w klastrze sieci szkieletowej usług za po�
 }
 ```
 
-Aby wdrożyć aplikację przy użyciu usługi Azure Resource Manager, należy najpierw utworzyć pakiet aplikacji sieci szkieletowej usług [sfpkg.](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) Poniższy skrypt python jest przykładem tworzenia sfpkg:
+Aby wdrożyć aplikację przy użyciu Azure Resource Manager, musisz najpierw utworzyć pakiet aplikacji Service Fabric [sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) . Poniższy skrypt w języku Python stanowi przykład tworzenia sfpkg:
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
@@ -91,7 +91,7 @@ microservices_sfpkg.close()
 ```
 
 ## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Konfiguracja automatycznego uaktualniania systemu operacyjnego maszyny wirtualnej platformy Azure 
-Uaktualnianie maszyn wirtualnych jest operacją inicjującą przez użytkownika i zaleca się użycie [automatycznego uaktualnienia systemu operacyjnego Virtual Machine Scale Set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) dla klastrów usługi Azure Service Fabric hosta zarządzania poprawkami; Aplikacja aranżacji poprawek jest alternatywnym rozwiązaniem, które jest przeznaczone do hostowania poza platformą Azure, chociaż POA może być używany na platformie Azure, z obciążeniem hostingu POA na platformie Azure jest częstym powodem, aby preferować automatyczne uaktualnianie systemu operacyjnego maszyny wirtualnej niż POA. Poniżej przedstawiono właściwości szablonu Menedżera zasobów zestawu skalowania maszyny wirtualnej obliczeniowej, aby włączyć automatyczne uaktualnianie systemu operacyjnego:
+Uaktualnienie maszyn wirtualnych jest operacją inicjowaną przez użytkownika i zaleca się użycie [automatycznego uaktualnienia systemu operacyjnego zestawu skalowania maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) dla klastrów Service Fabric platformy Azure. Aplikacja aranżacji poprawek jest rozwiązaniem alternatywnym, które jest przeznaczone do przechowywania poza platformą Azure, chociaż można używać go na platformie Azure, z obciążeniem hostingu na platformie Azure. Poniżej przedstawiono właściwości szablonu skalowania maszyn wirtualnych obliczeniowych Menedżer zasobów, które umożliwiają automatyczne uaktualnianie systemu operacyjnego:
 
 ```json
 "upgradePolicy": {
@@ -102,11 +102,11 @@ Uaktualnianie maszyn wirtualnych jest operacją inicjującą przez użytkownika 
     }
 },
 ```
-Podczas korzystania z automatycznych uaktualnień systemu operacyjnego z sieci szkieletowej usług, nowy obraz systemu operacyjnego jest wdrażany jeden domeny aktualizacji w czasie, aby utrzymać wysoką dostępność usług uruchomionych w sieci szkieletowej usług. Aby korzystać z automatycznych uaktualnień systemu operacyjnego w sieci szkieletowej usług, klaster musi być skonfigurowany do używania warstwy Silver Durability lub nowszej.
+W przypadku korzystania z automatycznych uaktualnień systemu operacyjnego z Service Fabric nowy obraz systemu operacyjnego jest przewinięcie jednej domeny aktualizacji jednocześnie w celu zapewnienia wysokiej dostępności usług uruchomionych w programie Service Fabric. Aby korzystać z automatycznych uaktualnień systemu operacyjnego w Service Fabric klaster musi być skonfigurowany do korzystania z warstwy trwałości Silver lub wyższej.
 
-Upewnij się, że następujący klucz rejestru jest ustawiony na false, aby uniemożliwić komputerom hosta systemu Windows inicjowanie nieskoordynowanych aktualizacji: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Upewnij się, że w następującym kluczu rejestru ustawiono wartość "false", aby zapobiec inicjowaniu nieskoordynowanych aktualizacji na maszynach hosta z systemem Windows: HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
-Poniżej przedstawiono właściwości szablonu Menedżera zasobów zestawu skalowania maszyny wirtualnej obliczeń, aby ustawić klucz rejestru WindowsUpdate na false:
+Poniżej przedstawiono właściwości szablonu skalowania maszyn wirtualnych Menedżer zasobów, aby ustawić wartość false dla klucza rejestru WindowsUpdate:
 ```json
 "osProfile": {
         "computerNamePrefix": "{vmss-name}",
@@ -119,12 +119,12 @@ Poniżej przedstawiono właściwości szablonu Menedżera zasobów zestawu skalo
       },
 ```
 
-## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Konfiguracja uaktualnienia klastra sieci szkieletowej usługi Azure
-Poniżej znajduje się właściwość szablonu Menedżera zasobów klastra usług sieci szkieletowych, aby włączyć automatyczne uaktualnianie:
+## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Konfiguracja uaktualniania klastra Service Fabric platformy Azure
+Poniżej przedstawiono właściwość szablonu Menedżer zasobów klastra Service Fabric w celu włączenia automatycznego uaktualniania:
 ```json
 "upgradeMode": "Automatic",
 ```
-Aby ręcznie uaktualnić klaster, pobierz dystrybucję cab/deb na maszynę wirtualną klastra, a następnie wywołaj następujący program PowerShell:
+Aby ręcznie uaktualnić klaster, Pobierz dystrybucję pliku cab/deb na maszynę wirtualną klastra, a następnie Wywołaj następujące polecenie programu PowerShell:
 ```powershell
 Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
 Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
@@ -133,6 +133,6 @@ Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Windows Server: [Tworzenie klastra sieci szkieletowej usług dla systemu Windows Server](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Linux: [tworzenie klastra systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+* Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Windows Server: [Service Fabric tworzenia klastra dla systemu Windows Server](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+* Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Linux: [Tworzenie klastra systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 * Uzyskaj informacje o [opcjach pomocy technicznej usługi Service Fabric](service-fabric-support.md)

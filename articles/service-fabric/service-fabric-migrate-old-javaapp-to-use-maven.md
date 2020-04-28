@@ -1,15 +1,15 @@
 ---
-title: Migracja z java sdk do maven
+title: Migrowanie z zestawu Java SDK do Maven
 description: Aktualizowanie starszych aplikacji Java korzystających z zestawu SDK Java usługi Service Fabric w celu pobrania zależności Java usługi Service Fabric z narzędzia Maven. Po ukończeniu tej konfiguracji starsze aplikacje Java będą mogły obsługiwać kompilację.
 author: rapatchi
 ms.topic: conceptual
 ms.date: 08/23/2017
 ms.author: rapatchi
 ms.openlocfilehash: b5e126ebdf3b89470472391c59d378c7a6d39b86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609812"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Aktualizowanie starszych aplikacji Java usługi Service Fabric w celu pobierania bibliotek z narzędzia Maven

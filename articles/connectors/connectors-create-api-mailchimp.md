@@ -1,6 +1,6 @@
 ---
-title: Połącz się z MailChimp
-description: Tworzenie marketingowych wiadomości e-mail i zarządzanie nimi za pomocą interfejsów API MailChimp REST i aplikacji Azure Logic Apps
+title: Nawiązywanie połączenia z usługą MailChimp
+description: Twórz marketingowe wiadomości e-mail i zarządzaj nimi za pomocą interfejsów API REST MailChimp i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: a440f702058abc25bb360111418c451d59c3ab1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789632"
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>Wprowadzenie do łącznika MailChimp
 
-MailChimp to usługa SaaS, która umożliwia firmom zarządzanie i automatyzację działań marketingu e-mailowego, w tym wysyłanie marketingowych wiadomości e-mail, automatycznych wiadomości i ukierunkowanych kampanii.
+MailChimp to usługa SaaS, która umożliwia firmom zarządzanie i automatyzowanie działań marketingowych poczty e-mail, w tym wysyłanie wiadomości e-mail marketingowych, zautomatyzowanych komunikatów i kampanii strategicznych.
 
-Możesz rozpocząć, tworząc aplikację logiki teraz, zobacz [Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Teraz możesz zacząć od utworzenia aplikacji logiki, zobacz [Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="create-a-connection-to-mailchimp"></a>Tworzenie połączenia z mailchimp
+## <a name="create-a-connection-to-mailchimp"></a>Utwórz połączenie z usługą MailChimp
 
-Aby utworzyć aplikacje logiki za pomocą aplikacji MailChimp, należy najpierw utworzyć **połączenie,** a następnie podać szczegóły dotyczące następujących właściwości:
+Aby utworzyć Aplikacje logiki za pomocą usługi MailChimp, należy najpierw utworzyć **połączenie** , a następnie podać szczegóły następujących właściwości:
 
 | Właściwość | Wymagany | Opis |
 | --- | --- | --- |
@@ -30,10 +30,10 @@ Aby utworzyć aplikacje logiki za pomocą aplikacji MailChimp, należy najpierw 
 
 > [!INCLUDE [Steps to create a connection to MailChimp](../../includes/connectors-create-api-mailchimp.md)]
 
-## <a name="connector-specific-details"></a>Szczegóły specyficzne dla łącznika
+## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 
-Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger, a także zobacz wszelkie limity w [szczegółach łącznika](/connectors/mailchimp/).
+Wyświetlanie wszystkich wyzwalaczy i akcji zdefiniowanych w strukturze Swagger, a także wszystkich ograniczeń w [szczegółach łącznika](/connectors/mailchimp/).
 
-## <a name="more-connectors"></a>Więcej złączy
+## <a name="more-connectors"></a>Więcej łączników
 
 Wróć do [listy interfejsów API](apis-list.md).

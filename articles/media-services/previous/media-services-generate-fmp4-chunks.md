@@ -1,6 +1,6 @@
 ---
-title: Tworzenie zadania kodowania usługi Azure Media Services, które generuje fragmenty fMP4 | Dokumenty firmy Microsoft
-description: W tym temacie pokazano, jak utworzyć zadanie kodowania, które generuje fragmenty fMP4. Gdy to zadanie jest używane z koderem Media Encoder Standard lub Media Encoder Premium Workflow, zasób wyjściowy będzie zawierał fragmenty fMP4 zamiast plików ISO MP4.
+title: Utwórz zadanie kodowania Azure Media Services, które generuje fragmenty fMP4 | Microsoft Docs
+description: W tym temacie pokazano, jak utworzyć zadanie kodowania, które generuje fragmenty fMP4. Gdy to zadanie jest używane z koderem Media Encoder Standard lub Media Encoder Premium Workflow, wyjściowy element zawartości będzie zawierał fragmenty fMP4 zamiast plików MP4 ISO.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 48c09a6100586c0c99f3d54f9708c770488c681f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61463871"
 ---
-#  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Tworzenie zadania kodowania, które generuje fragmenty fMP4
+#  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Utwórz zadanie kodowania generujące fragmenty fMP4
 
 ## <a name="overview"></a>Omówienie
 
-W tym artykule pokazano, jak utworzyć zadanie kodowania, które generuje fragmenty pofragmentowanego formatu MP4 (fMP4) zamiast plików ISO MP4. Aby wygenerować fragmenty fMP4, użyj **kodera Media Encoder Standard** lub **Media Encoder Premium Workflow,** aby utworzyć zadanie kodowania, a także określić opcję **AssetFormatOption.AdaptiveStreaming,** jak pokazano w tym fragmencie kodu:  
+W tym artykule pokazano, jak utworzyć zadanie kodowania, które generuje fragmenty fragmentaryczne MP4 (fMP4) zamiast plików MP4 ISO. Aby wygenerować fragmenty fMP4, Użyj kodera **Media Encoder Standard** lub **Media Encoder Premium Workflow** , aby utworzyć zadanie kodowania, a także określić opcję **AssetFormatOption. AdaptiveStreaming** , jak pokazano w tym fragmencie kodu:  
     
 ```csharp
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
@@ -32,15 +32,15 @@ W tym artykule pokazano, jak utworzyć zadanie kodowania, które generuje fragme
             formatOption: AssetFormatOption.AdaptiveStreaming);
 ```
 
-## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Kodowanie za pomocą sdk usługi Media Services .NET
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Kodowanie przy użyciu zestawu SDK programu Media Services .NET
 
-Poniższy przykład kodu używa media services .NET SDK do wykonywania następujących zadań:
+Poniższy przykład kodu używa Media Services .NET SDK do wykonywania następujących zadań:
 
 - Utwórz zadanie kodowania.
-- Uzyskaj odwołanie do **kodera Media Encoder Standard.**
-- Dodaj zadanie kodowania do zadania i określ, aby użyć predefiniowanych **ustawień adaptacyjnego przesyłania strumieniowego.** 
-- Utwórz zasób wyjściowy, który będzie zawierał fragmenty fMP4 i plik .ism.
-- Dodaj program obsługi zdarzeń, aby sprawdzić postęp zadania.
+- Pobierz odwołanie do kodera **Media Encoder Standard** .
+- Dodaj zadanie kodowania do zadania i określ, aby użyć adaptacyjnego ustawienia wstępnego **przesyłania strumieniowego** . 
+- Utwórz element zawartości wyjściowej, który będzie zawierać fragmenty fMP4 i plik. ISM.
+- Dodaj procedurę obsługi zdarzeń, aby sprawdzić postęp zadania.
 - Przesyłanie zadania.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
@@ -177,5 +177,5 @@ namespace AdaptiveStreaming
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz też
-[Omówienie kodowania usług multimedialnych](media-services-encode-asset.md)
+[Omówienie kodowania Media Services](media-services-encode-asset.md)
 

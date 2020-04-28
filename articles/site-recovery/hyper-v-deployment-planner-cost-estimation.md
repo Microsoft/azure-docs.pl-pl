@@ -1,6 +1,6 @@
 ---
-title: Przejrzyj raport szacowania kosztów planu wdrażania usługi Azure Site Recovery Deployment Planowanie odzyskiwania danych w celu odzyskiwania maszyn wirtualnych z funkcji Hyper V na platformie Azure| Dokumenty firmy Microsoft
-description: W tym artykule opisano sposób przeglądania raportu szacowania kosztów wygenerowanego planistą wdrażania usługi Azure Site Recovery deployment planner dla odzyskiwania po awarii funkcji Hyper-V na platformie Azure.
+title: Zapoznaj się z raportem oszacowania kosztów Planista wdrażania usługi Azure Site Recovery na potrzeby odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V na platformie Azure | Microsoft Docs
+description: W tym artykule opisano sposób przeglądania raportu szacowania kosztów wygenerowanego przez Planista wdrażania usługi Azure Site Recovery na potrzeby odzyskiwania po awarii funkcji Hyper-V na platformie Azure.
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60947230"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Raport szacowania kosztów przez Planistę wdrażania usługi Azure Site Recovery 
@@ -56,7 +56,7 @@ W pierwszej sekcji przedstawiono ogólny koszt odzyskiwania według składników
 
 **Sieć**: koszt usługi ExpressRoute i sieci VPN między lokacjami na potrzeby odzyskiwania po awarii. 
 
-**Licencja usługi Azure Site Recovery:** koszt licencji usługi Site Recovery dla wszystkich zgodnych maszyn wirtualnych. Jeśli w tabeli szczegółowej analizy kosztów ręcznie wprowadzono maszynę wirtualną, koszt licencji usługi Site Recovery również jest uwzględniany w przypadku tej maszyny wirtualnej.
+**Licencja na Azure Site Recovery**: koszt licencji Site Recovery dla wszystkich zgodnych maszyn wirtualnych. Jeśli w tabeli szczegółowej analizy kosztów ręcznie wprowadzono maszynę wirtualną, koszt licencji usługi Site Recovery również jest uwzględniany w przypadku tej maszyny wirtualnej.
 
 ### <a name="overall-dr-costs-by-states"></a>Ogólne koszty odzyskiwania po awarii według stanów
 Łączny koszt odzyskiwania po awarii jest dzielony na kategorie na podstawie dwóch różnych stanów: replikacji i testowania odzyskiwania po awarii.
@@ -111,7 +111,7 @@ Aby ręcznie dodać maszyny wirtualne:
 
     b. **Rozmiar IaaS (wybór)**
 
-    d. **Typ magazynu (Standardowa/Premium)**
+    c. **Typ magazynu (Standardowa/Premium)**
 
     d. **Łączny rozmiar magazynu maszyny wirtualnej (GB)**
 
@@ -157,7 +157,7 @@ Aby ręcznie dodać maszyny wirtualne:
 
 **Łączny koszt testowania odzyskiwania po awarii (średni)**: koszt obliczeń i magazynu na potrzeby testowania odzyskiwania po awarii.
 
-**Koszt licencji usługi Azure Site Recovery:** Koszt licencji usługi Site Recovery.
+**Koszt licencji Azure Site Recovery**: Site Recovery koszt licencji.
 
 ## <a name="supported-target-regions"></a>Obsługiwane regiony docelowe
 Planista wdrażania usługi Site Recovery udostępnia szacowanie kosztów dla poniższych regionów świadczenia usługi Azure. Jeśli ta lista nie zawiera Twojego regionu, możesz użyć dowolnego spośród następujących regionów, którego cena jest najbardziej zbliżona do Twojego:
@@ -171,9 +171,9 @@ Planista wdrażania usługi Site Recovery może wygenerować raport kosztów z u
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentyńskie ($)||AUD|Dolar australijski ($)||BRL|Real brazylijski (R$)|
 |CAD|Dolar kanadyjski ($)||CHF|Frank szwajcarski (chf)||DKK|Korona duńska (kr)|
-|EUR|Euro (€)||GBP|Funt brytyjski (£)||HKD|Dolar hongkoński (HK$)|
-|IDR|Rupia indonezyjska (Rp)||INR|Rupia indyjska||JPY|Jen japoński (¥)|
-|KRW|Koreański wygrał (♡)||MXN|Peso meksykańskie (MX$)||MYR|Ringgit malezyjski (RM$)|
+|EUR|Euro (€)||GBP|Funt brytyjski (l)||HKD|Dolar hongkoński (HK$)|
+|IDR|Rupia indonezyjska (Rp)||INR|Rupia indyjska (₹)||JPY|Japoński (y)|
+|KRW|Koreański (₩)||MXN|Peso meksykańskie (MX$)||MYR|Ringgit malezyjski (RM$)|
 |NOK|Korona norweska (kr)||NZD|Dolar nowozelandzki ($)||RUB|Rubel rosyjski (руб)|
 |SAR|Rial saudyjski (SR)||SEK|Korona szwedzka (kr)||TWD|Dolar tajwański (NT$)|
 |TRY|Lira turecka (TL)||USD| Dolar amerykański ($)||ZAR|Rand południowoafrykański (R)|

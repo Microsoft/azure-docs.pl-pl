@@ -1,27 +1,27 @@
 ---
-title: Uaktualnianie konfiguracji autonomicznego klastra
-description: Dowiedz się, jak uaktualnić konfigurację, która uruchamia autonomiczny klaster sieci szkieletowej usług.
+title: Uaktualnianie konfiguracji klastra autonomicznego
+description: Dowiedz się, jak uaktualnić konfigurację, w której działa autonomiczny klaster Service Fabric.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 8e7e01dac29cb9ba91c83270dac4e46c73b2089e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75610130"
 ---
-# <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Uaktualnianie konfiguracji autonomicznego klastra 
+# <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Uaktualnianie konfiguracji klastra autonomicznego 
 
-Dla każdego nowoczesnego systemu, możliwość aktualizacji jest kluczem do długoterminowego sukcesu produktu. Klaster sieci szkieletowej usług Azure to zasób, którego jesteś właścicielem. W tym artykule opisano sposób uaktualniania ustawień konfiguracji autonomicznego klastra sieci szkieletowej usług.
+W przypadku każdego nowoczesnego systemu możliwość uaktualnienia jest kluczem do długoterminowej sukcesu produktu. Klaster Service Fabric platformy Azure to zasób, którego jesteś członkiem. W tym artykule opisano sposób uaktualniania ustawień konfiguracji autonomicznego klastra Service Fabric.
 
-## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Dostosowywanie ustawień klastra w pliku ClusterConfig.json
-Klastry autonomiczne są konfigurowane za pośrednictwem pliku *ClusterConfig.json.* Aby dowiedzieć się więcej o różnych ustawieniach, zobacz [Ustawienia konfiguracji autonomicznego klastra systemu Windows](service-fabric-cluster-manifest.md).
+## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Dostosowywanie ustawień klastra w pliku ClusterConfig. JSON
+Klastry autonomiczne są konfigurowane za pomocą pliku *ClusterConfig. JSON* . Aby dowiedzieć się więcej na temat różnych ustawień, zobacz [Ustawienia konfiguracji autonomicznego klastra systemu Windows](service-fabric-cluster-manifest.md).
 
-Ustawienia można dodawać, aktualizować `fabricSettings` lub usuwać w sekcji w sekcji [Właściwości klastra](./service-fabric-cluster-manifest.md#cluster-properties) w pliku *ClusterConfig.json*. 
+Możesz dodawać, aktualizować lub usuwać ustawienia w `fabricSettings` sekcji w sekcji [właściwości klastra](./service-fabric-cluster-manifest.md#cluster-properties) w pliku *ClusterConfig. JSON*. 
 
-Na przykład następujący JSON dodaje nowe ustawienie *MaxDiskQuotaInMB* do `fabricSettings`sekcji *Diagnostyka* w obszarze:
+Na przykład poniższy kod JSON dodaje nowe ustawienie *MaxDiskQuotaInMB* do sekcji *Diagnostyka* w obszarze `fabricSettings`:
 
 ```json
       {
@@ -35,48 +35,48 @@ Na przykład następujący JSON dodaje nowe ustawienie *MaxDiskQuotaInMB* do `fa
       }
 ```
 
-Po zmodyfikowaniu ustawień w pliku ClusterConfig.json [przetestuj konfigurację klastra,](#test-the-cluster-configuration) a następnie [uaktualnij konfigurację klastra,](#upgrade-the-cluster-configuration) aby zastosować ustawienia do klastra. 
+Po zmodyfikowaniu ustawień w pliku ClusterConfig. JSON [Przetestuj konfigurację klastra](#test-the-cluster-configuration) , a następnie [Uaktualnij konfigurację klastra](#upgrade-the-cluster-configuration) , aby zastosować ustawienia do klastra. 
 
 ## <a name="test-the-cluster-configuration"></a>Testowanie konfiguracji klastra
-Przed zainicjowaniem uaktualnienia konfiguracji można przetestować nową konfigurację klastra JSON, uruchamiając następujący skrypt programu PowerShell w pakiecie autonomicznym:
+Przed rozpoczęciem uaktualniania konfiguracji można przetestować nowy plik JSON konfiguracji klastra, uruchamiając następujący skrypt programu PowerShell w pakiecie autonomicznym:
 
 ```powershell
 TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File>
 ```
 
-Lub użyj tego skryptu:
+Lub Użyj tego skryptu:
 
 ```powershell
 TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
 ```
 
-Niektórych konfiguracji nie można uaktualnić, takich jak punkty końcowe, nazwa klastra, adres IP węzła itp. Nowa konfiguracja klastra JSON jest testowany na stary i zgłasza błędy w oknie programu PowerShell, jeśli występuje problem.
+Niektórych konfiguracji nie można uaktualnić, takich jak punkty końcowe, nazwa klastra, adres IP węzła itd. Plik JSON nowej konfiguracji klastra jest testowany pod kątem starego i zgłasza błędy w oknie programu PowerShell, jeśli wystąpił problem.
 
-## <a name="upgrade-the-cluster-configuration"></a>Uaktualnianie konfiguracji klastra
-Aby uaktualnić uaktualnienie konfiguracji klastra, uruchom [program Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). Uaktualnienie konfiguracji jest przetwarzane domeny uaktualnienia przez domenę uaktualnienia.
+## <a name="upgrade-the-cluster-configuration"></a>Uaktualnij konfigurację klastra
+Aby uaktualnić uaktualnienie konfiguracji klastra, uruchom polecenie [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). Uaktualnienie konfiguracji jest przetwarzane przez domenę uaktualnień.
 
 ```powershell
 Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 ```
 
-## <a name="upgrade-cluster-certificate-configuration"></a>Uaktualnianie konfiguracji certyfikatu klastra
-Certyfikat klastra jest używany do uwierzytelniania między węzłami klastra. Najazd certyfikatu należy wykonać z zachowaniem szczególnej ostrożności, ponieważ błąd blokuje komunikację między węzłami klastra.
+## <a name="upgrade-cluster-certificate-configuration"></a>Uaktualnij konfigurację certyfikatu klastra
+Certyfikat klastra jest używany do uwierzytelniania między węzłami klastra. Przerzucanie certyfikatów powinno być wykonywane z zachowaniem dodatkowej uwagi, ponieważ błąd blokuje komunikację między węzłami klastra.
 
 Obsługiwane są cztery opcje:  
 
-* Uaktualnienie pojedynczego certyfikatu: Ścieżka uaktualnienia to Certyfikat A (podstawowy) -> certyfikat B (podstawowy) -> certyfikat C (podstawowy) ->....
+* Uaktualnienie pojedynczego certyfikatu: ścieżka uaktualnienia to certyfikat A (podstawowy) — > certyfikat B (podstawowy) — > certyfikat C (podstawowy) — >...
 
-* Podwójne uaktualnienie certyfikatu: Ścieżka uaktualnienia to Certyfikat A (podstawowy) -> certyfikat A (podstawowy) i B (pomocniczy) -> certyfikat B (podstawowy) -> certyfikat B (podstawowy) i C (pomocniczy) -> certyfikat C (podstawowy) ->....
+* Podwójne uaktualnienie certyfikatu: ścieżka uaktualnienia to certyfikat A (podstawowy) — > certyfikat A (podstawowy) i B (pomocniczy) — > certyfikat B (podstawowy)-> Certificate B (podstawowy) i C (pomocniczy)-> certyfikat C (podstawowy)->...
 
-* Uaktualnienie typu certyfikatu: konfiguracja certyfikatu oparta na odciskach palców < > konfigurację certyfikatu opartego na commonname. Na przykład odcisk palca certyfikatu A (podstawowy) i odcisk palca B (pomocniczy) -> Certyfikat CommonName C.
+* Uaktualnienie typu certyfikatu: Konfiguracja certyfikatu oparta na odcisku palca <-> konfiguracja pospolita certyfikatu opartego na certyfikacie. Przykład: odcisk palca certyfikatu A (podstawowy) i odcisk palca B (pomocniczy) — > pospolity certyfikat.
 
-* Aktualizacja odcisku palca wystawcy certyfikatu: Ścieżka uaktualnienia to Certyfikat CN=A,IssuerThumbprint=IT1 (podstawowy) -> Certyfikat CN=A,IssuerThumbprint=IT1,IT2 (podstawowy) -> Certyfikat CN=A,IssuerThumbprint=IT2 (podstawowy).
+* Uaktualnienie odcisku palca wystawcy certyfikatu: ścieżka uaktualnienia to certyfikat CN = A, IssuerThumbprint = IT1 (podstawowy) — > certyfikat CN = A, IssuerThumbprint = IT1, IT2 (podstawowy) — > certyfikat CN = A, IssuerThumbprint = IT2 (podstawowy).
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, jak dostosować niektóre [ustawienia klastra sieci szkieletowej usług](service-fabric-cluster-fabric-settings.md).
-* Dowiedz się, jak [skalować klaster w i na zewnątrz](service-fabric-cluster-scale-up-down.md).
-* Dowiedz się więcej o [uaktualnieniach aplikacji](service-fabric-application-upgrade.md).
+* Dowiedz się, jak dostosować niektóre [Service Fabric ustawienia klastra](service-fabric-cluster-fabric-settings.md).
+* Dowiedz się [, jak skalować klaster w programie i na zewnątrz](service-fabric-cluster-scale-up-down.md).
+* Dowiedz się więcej na temat [uaktualnień aplikacji](service-fabric-application-upgrade.md).
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG

@@ -1,6 +1,6 @@
 ---
-title: Importowanie kolekcji Postman za pomocą operacji przesyłania strumieniowego na żądanie platformy Azure
-description: Ten artykuł zawiera definicję kolekcji Postman dla usługi Azure Media Services REST wywołania.
+title: Importowanie kolekcji programu Poster przy użyciu operacji przesyłania strumieniowego na żądanie na platformie Azure
+description: Ten artykuł zawiera definicję kolekcji programu Poster dla Azure Media Services wywołań REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 37fd131e570fa9f50df2479503b35407d67410cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60637539"
 ---
-# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importowanie kolekcji listonosza za pomocą operacji przesyłania strumieniowego na żądanie 
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importowanie kolekcji ogłoszeń z użyciem operacji przesyłania strumieniowego na żądanie 
 
-Ten artykuł zawiera definicję kolekcji **Postman,** która zawiera zgrupowane żądania HTTP, które wywołują interfejsy API REST usługi Azure Media Services. Aby uzyskać informacje dotyczące konfigurowania **postmana,** tak aby można było go używać do wywoływania interfejsów API REST usługi Media Services, zobacz [Konfigurowanie postmana dla obsługi interfejsu API usługi Media Services.](media-rest-apis-with-postman.md)
+Ten artykuł zawiera definicję kolekcji **ogłoszeń** , która zawiera pogrupowane żądania HTTP, które wywołują Azure Media Services interfejsy API REST. Aby uzyskać informacje o sposobie konfigurowania programu **Poster** , aby można było go użyć do wywołania interfejsów api REST Media Services, zobacz temat [Konfigurowanie programu poster dla Media Services wywołań interfejsu API REST](media-rest-apis-with-postman.md) .
 
 ```json
 {

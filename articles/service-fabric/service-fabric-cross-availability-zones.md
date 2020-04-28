@@ -1,45 +1,45 @@
 ---
-title: Wdrażanie klastra w strefach dostępności
-description: Dowiedz się, jak utworzyć klaster sieci szkieletowej usług Azure w strefach dostępności.
+title: Wdróż klaster w Strefy dostępności
+description: Dowiedz się, jak utworzyć klaster usługi Azure Service Fabric w Strefy dostępności.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.openlocfilehash: 6da9517f822c9c157d26a1bda8dab2c694b08b12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609982"
 ---
-# <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Wdrażanie klastra sieci szkieletowej usługi Azure w strefach dostępności
-Strefy dostępności na platformie Azure to oferta o wysokiej dostępności, która chroni aplikacje i dane przed awariami centrów danych. Strefa dostępności to unikatowa fizyczna lokalizacja wyposażona w niezależne zasilanie, chłodzenie i sieci w regionie platformy Azure.
+# <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Wdróż klaster Service Fabric platformy Azure w Strefy dostępności
+Strefy dostępności na platformie Azure to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefa dostępności jest unikatową lokalizacją fizyczną z niezależną mocą, chłodzeniem i siecią w regionie świadczenia usługi Azure.
 
-Sieci szkieletowej usług obsługuje klastry, które obejmują strefy dostępności, wdrażając typy węzłów, które są przypięte do określonych stref. Zapewni to wysoką dostępność aplikacji. Strefy dostępności platformy Azure są dostępne tylko w wybranych regionach. Aby uzyskać więcej informacji, zobacz [Omówienie stref dostępności platformy Azure](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Service Fabric obsługuje klastry, które rozciągają się między Strefy dostępności przez wdrożenie typów węzłów, które są przypięte do określonych stref. Zapewni to wysoką dostępność aplikacji. Strefy dostępności platformy Azure są dostępne tylko w wybranych regionach. Aby uzyskać więcej informacji, zobacz [strefy dostępności platformy Azure przegląd](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Przykładowe szablony są dostępne: [szablon strefy między dostępnością sieci szkieletowej usług](https://github.com/Azure-Samples/service-fabric-cluster-templates)
+Dostępne są przykładowe szablony: [Service Fabric Szablon strefy dostępności krzyżowej](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
-## <a name="recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones"></a>Zalecana topologia dla podstawowego typu węzłów klastrów sieci szkieletowej usług Azure obejmujących strefy dostępności
-Klaster sieci szkieletowej usług rozproszony w strefach dostępności zapewnia wysoką dostępność stanu klastra. Aby rozlinąć klaster sieci szkieletowej usług między strefami, należy utworzyć typ węzła podstawowego w każdej strefie dostępności obsługiwanej przez region. Spowoduje to równomierne rozłożenie węzłów źródłowych na każdy z typów węzłów podstawowych.
+## <a name="recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones"></a>Zalecana topologia dla podstawowego typu węzła klastrów Service Fabric platformy Azure, obejmująca między Strefy dostępności
+Klaster Service Fabric rozproszony przez Strefy dostępności zapewnia wysoką dostępność stanu klastra. Aby objąć klaster Service Fabric między strefami, należy utworzyć podstawowy typ węzła w każdej strefie dostępności obsługiwanej przez ten region. Spowoduje to równomierne dystrybuowanie węzłów inicjatora w każdym z podstawowych typów węzłów.
 
-Zalecana topologia dla typu węzła podstawowego wymaga zasobów opisanych poniżej:
+Zalecana topologia dla typu węzła podstawowego wymaga opisanych poniżej zasobów:
 
-* Poziom niezawodności klastra ustawiony na Platinum.
+* Poziom niezawodności klastra ma ustawioną wartość Platinum.
 * Trzy typy węzłów oznaczone jako podstawowe.
-    * Każdy typ węzła powinny być mapowane do własnego zestawu skalowania maszyny wirtualnej znajduje się w różnych strefach.
-    * Każdy zestaw skalowania maszyny wirtualnej powinien mieć co najmniej pięć węzłów (Silver Durability).
-* Pojedynczy publiczny zasób IP przy użyciu standardowej jednostki SKU.
-* Zasób modułu równoważenia obciążenia przy użyciu standardowej jednostki SKU.
-* Grupa sieciowej sieciowej, do której odwołuje się podsieć, w której można wdrożyć zestawy skalowania maszyny wirtualnej.
+    * Każdy typ węzła powinien być mapowany do własnego zestawu skalowania maszyn wirtualnych znajdującego się w różnych strefach.
+    * Każdy zestaw skalowania maszyn wirtualnych powinien mieć co najmniej pięć węzłów (trwałość srebrna).
+* Pojedynczy zasób publicznego adresu IP używający standardowej jednostki SKU.
+* Pojedynczy zasób Load Balancer przy użyciu standardowej jednostki SKU.
+* SIECIOWEJ grupy zabezpieczeń przywoływany przez podsieć, w której wdrażasz zestawy skalowania maszyn wirtualnych.
 
 >[!NOTE]
-> Właściwość grupy pojedynczego umieszczania zestawu pojedynczych miejsc docelowych maszyny wirtualnej musi być ustawiona na true, ponieważ sieć szkieletowa usług nie obsługuje zestawu skalowania pojedynczej maszyny wirtualnej, który obejmuje strefy.
+> Właściwość pojedynczej grupy położenia zestawu skalowania maszyn wirtualnych musi być ustawiona na wartość true, ponieważ Service Fabric nie obsługuje pojedynczego zestawu skalowania maszyn wirtualnych obejmującego strefy.
 
- ![Architektura strefy dostępności sieci szkieletowej usług Azure][sf-architecture]
+ ![Architektura strefy dostępności usługi Azure Service Fabric][sf-architecture]
 
 ## <a name="networking-requirements"></a>Wymagania dotyczące sieci
-### <a name="public-ip-and-load-balancer-resource"></a>Publiczny zasób ip i modułu równoważenia obciążenia
-Aby włączyć właściwość zones na zasób zestawu skalowania maszyny wirtualnej, moduł równoważenia obciążenia i zasob IP, do którego odwołuje się ten zestaw skalowania maszyny wirtualnej, muszą używać *standardowej* jednostki SKU. Utworzenie modułu równoważenia obciążenia lub zasobu IP bez właściwości SKU spowoduje utworzenie podstawowej jednostki SKU, która nie obsługuje stref dostępności. Standardowy moduł równoważenia obciążenia SKU domyślnie zablokuje cały ruch z zewnątrz; aby zezwolić na ruch zewnętrzny, grupa sieciowa musi zostać wdrożona w podsieci.
+### <a name="public-ip-and-load-balancer-resource"></a>Publiczny adres IP i zasób Load Balancer
+Aby włączyć właściwość Zones w zasobie zestawu skalowania maszyn wirtualnych, moduł równoważenia obciążenia i zasób IP, do których odwołuje się ten zestaw skalowania maszyn wirtualnych, muszą używać *standardowej* jednostki SKU. Utworzenie modułu równoważenia obciążenia lub zasobu IP bez właściwości SKU spowoduje utworzenie podstawowej jednostki SKU, która nie obsługuje Strefy dostępności. Moduł równoważenia obciążenia standardowej jednostki SKU domyślnie blokuje cały ruch z zewnątrz. Aby zezwolić na ruch zewnętrzny, należy wdrożyć sieciowej grupy zabezpieczeń w podsieci.
 
 ```json
 {
@@ -87,10 +87,10 @@ Aby włączyć właściwość zones na zasób zestawu skalowania maszyny wirtual
 ```
 
 >[!NOTE]
-> Nie jest możliwe do zmiany w miejscu jednostki SKU na publicznych zasobów IP i modułu równoważenia obciążenia. Jeśli przeprowadzasz migrację z istniejących zasobów, które mają podstawową jednostkę SKU, zobacz sekcję migracji w tym artykule.
+> Nie można wykonać zmiany w miejscu jednostki SKU dla zasobów publicznego adresu IP i modułu równoważenia obciążenia. W przypadku migrowania z istniejących zasobów z podstawową jednostką SKU zapoznaj się z sekcją migracja tego artykułu.
 
-### <a name="virtual-machine-scale-set-nat-rules"></a>Reguły skalowania maszyny wirtualnej ustawione na nat
-Przychodzące reguły translatora adresów sieciowych modułu równoważenia obciążenia powinny być zgodne z pulami NAT z zestawu skalowania maszyny wirtualnej. Każdy zestaw skalowania maszyny wirtualnej musi mieć unikatową pulę przychodzącej usługi NAT.
+### <a name="virtual-machine-scale-set-nat-rules"></a>Reguły NAT zestawu skalowania maszyn wirtualnych
+Reguły NAT dla ruchu przychodzącego modułu równoważenia obciążenia powinny być zgodne z pulami NAT z zestawu skalowania maszyn wirtualnych. Każdy zestaw skalowania maszyn wirtualnych musi mieć unikatową pulę NAT dla ruchu przychodzącego.
 
 ```json
 {
@@ -135,18 +135,18 @@ Przychodzące reguły translatora adresów sieciowych modułu równoważenia obc
 }
 ```
 
-### <a name="standard-sku-load-balancer-outbound-rules"></a>Reguły wychodzące modułu SKU Load Balancer
-Standardowy moduł równoważenia obciążenia i standardowy publiczny adres IP wprowadzają nowe możliwości i różne zachowania do łączności wychodzącej w porównaniu z wykorzystaniem podstawowych jednostek SKU. Jeśli chcesz łączności wychodzącej podczas pracy ze standardowymi jednostkami SKU, należy jawnie zdefiniować ją za pomocą standardowych publicznych adresów IP lub standardowego publicznego modułu równoważenia obciążenia. Aby uzyskać więcej informacji, zobacz [Połączenia wychodzące](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) i [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+### <a name="standard-sku-load-balancer-outbound-rules"></a>Standardowa jednostka SKU Load Balancer reguły ruchu wychodzącego
+Usługa Load Balancer w warstwie Standardowa i Standard publiczny adres IP wprowadzają nowe możliwości i inne zachowania łączności wychodzącej w porównaniu z użyciem podstawowych jednostek SKU. Jeśli chcesz mieć łączność wychodzącą podczas pracy z standardowymi jednostkami SKU, musisz jawnie zdefiniować ją przy użyciu standardowych publicznych adresów IP lub standardowych Load Balancer publicznych. Aby uzyskać więcej informacji, zobacz [połączenia wychodzące](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) i [Azure usługa Load Balancer w warstwie Standardowa](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
 >[!NOTE]
-> Standardowy szablon odwołuje się do grupy ndg, która domyślnie zezwala na cały ruch wychodzący. Ruch przychodzący jest ograniczony do portów, które są wymagane dla operacji zarządzania siecią szkieletową usług. Reguły sieciowej sieciowej sieciowej można zmodyfikować, aby spełnić twoje wymagania.
+> Standardowy szablon odwołuje się do elementu sieciowej grupy zabezpieczeń, który domyślnie zezwala na cały ruch wychodzący. Ruch przychodzący jest ograniczony do portów, które są wymagane do Service Fabric operacji zarządzania. Reguły sieciowej grupy zabezpieczeń można modyfikować w celu spełnienia wymagań.
 
-### <a name="enabling-zones-on-a-virtual-machine-scale-set"></a>Włączanie stref w zestawie skalowania maszyny wirtualnej
-Aby włączyć strefę, w zestawie skalowania maszyny wirtualnej należy uwzględnić następujące trzy wartości w zasób zestawu skalowania maszyny wirtualnej.
+### <a name="enabling-zones-on-a-virtual-machine-scale-set"></a>Włączanie stref na zestawie skalowania maszyn wirtualnych
+Aby włączyć strefę, w zestawie skalowania maszyn wirtualnych należy uwzględnić następujące trzy wartości w zasobie zestawu skalowania maszyn wirtualnych.
 
-* Pierwszą wartością jest właściwość **zones,** która określa, w której strefie dostępności zostanie wdrożony zestaw skalowania maszyny wirtualnej.
-* Druga wartość to właściwość "singlePlacementGroup", która musi być ustawiona na true.
-* Trzecią wartością jest właściwość "faultDomainOverride" w rozszerzeniu zestawu skalowania maszyny wirtualnej sieci szkieletowej usług. Wartość dla tej właściwości powinna zawierać region i strefę, w której zostanie umieszczony ten zestaw skalowania maszyny wirtualnej. Przykład: "faultDomainOverride": "eastus/az1" Wszystkie zasoby zestawu skalowania maszyny wirtualnej muszą być umieszczone w tym samym regionie, ponieważ klastry sieci szkieletowej usługi Azure nie mają obsługi między regionami.
+* Pierwsza wartość to właściwość **Zones** , która określa strefę dostępności, w której zostanie wdrożony zestaw skalowania maszyn wirtualnych.
+* Druga wartość to właściwość "singlePlacementGroup", która musi mieć wartość true.
+* Trzecia wartość to właściwość "faultDomainOverride" w rozszerzeniu zestawu skalowania maszyn wirtualnych Service Fabric. Wartość tej właściwości powinna obejmować region i strefę, w której zostanie umieszczony ten zestaw skalowania maszyn wirtualnych. Przykład: "faultDomainOverride": "Wschód/AZ1" wszystkie zasoby zestawu skalowania maszyn wirtualnych muszą być umieszczone w tym samym regionie, ponieważ klastry usługi Azure Service Fabric nie mają obsługi między regionami.
 
 ```json
 {
@@ -186,8 +186,8 @@ Aby włączyć strefę, w zestawie skalowania maszyny wirtualnej należy uwzglę
 }
 ```
 
-### <a name="enabling-multiple-primary-node-types-in-the-service-fabric-cluster-resource"></a>Włączanie wielu typów węzłów podstawowych w zasobie klastra sieci szkieletowej usług
-Aby ustawić jeden lub więcej typów węzłów jako podstawowych w zasobie klastra, należy ustawić właściwość "isPrimary" na "true". Podczas wdrażania klastra sieci szkieletowej usług w strefach dostępności, powinny mieć trzy typy węzłów w różnych strefach.
+### <a name="enabling-multiple-primary-node-types-in-the-service-fabric-cluster-resource"></a>Włączanie wielu typów węzłów głównych w Service Fabric zasobów klastra
+Aby ustawić co najmniej jeden typ węzła jako podstawowy w zasobie klastra, ustaw właściwość "isprimary" na wartość "true". W przypadku wdrażania klastra Service Fabric w Strefy dostępności należy mieć trzy typy węzłów w różnych strefach.
 
 ```json
 {
@@ -245,20 +245,20 @@ Aby ustawić jeden lub więcej typów węzłów jako podstawowych w zasobie klas
 }
 ```
 
-## <a name="migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Migracja do stref dostępności z klastra przy użyciu podstawowego modułu równoważenia obciążenia jednostki SKU i podstawowej jednostki SKU IP
-Aby przeprowadzić migrację klastra, który używał modułu równoważenia obciążenia i adresu IP z podstawową jednostką SKU, należy najpierw utworzyć całkowicie nowy moduł równoważenia obciążenia i zasób IP przy użyciu standardowej jednostki SKU. Nie jest możliwe zaktualizowanie tych zasobów w miejscu.
+## <a name="migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Migrowanie do korzystania z Strefy dostępności z klastra przy użyciu podstawowej jednostki SKU Load Balancer i podstawowego adresu IP jednostki SKU
+Aby przeprowadzić migrację klastra, który używa Load Balancer i adresu IP z podstawową jednostką SKU, należy najpierw utworzyć zupełnie nowy Load Balancer i zasób IP przy użyciu standardowej jednostki SKU. Nie można zaktualizować tych zasobów w miejscu.
 
-Nowe LB i IP powinny być odwoływane w nowych typach węzłów strefy dostępności krzyżowej, których chcesz użyć. W powyższym przykładzie dodano trzy nowe zasoby zestawu skalowania maszyny wirtualnej w strefach 1,2 i 3. Te zestawy skalowania maszyny wirtualnej odwołują się do nowo utworzonych lb i IP i są oznaczone jako typy węzłów podstawowych w zasobie klastra sieci szkieletowej usług.
+Nowy LB i adres IP powinny być przywoływane w nowych typach węzłów strefy dostępności, których chcesz użyć. W powyższym przykładzie dodano trzy nowe zasoby zestawu skalowania maszyn wirtualnych w strefach 1, 2 i 3. Te zestawy skalowania maszyn wirtualnych odwołują się do nowo utworzonych LB i IP i są oznaczone jako typy węzłów głównych w zasobie klastra Service Fabric.
 
-Aby rozpocząć, należy dodać nowe zasoby do istniejącego szablonu Menedżera zasobów. Zasoby te obejmują:
-* Publiczny zasób IP przy użyciu standardowej jednostki SKU.
-* Zasób modułu równoważenia obciążenia przy użyciu standardowej jednostki SKU.
-* Grupa sieciowej sieciowej, do której odwołuje się podsieć, w której można wdrożyć zestawy skalowania maszyny wirtualnej.
+Aby rozpocząć, musisz dodać nowe zasoby do istniejącego szablonu Menedżer zasobów. Te zasoby obejmują:
+* Zasób publicznego adresu IP używający standardowej jednostki SKU.
+* Zasób Load Balancer przy użyciu standardowej jednostki SKU.
+* SIECIOWEJ grupy zabezpieczeń przywoływany przez podsieć, w której wdrażasz zestawy skalowania maszyn wirtualnych.
 * Trzy typy węzłów oznaczone jako podstawowe.
-    * Każdy typ węzła powinien być mapowany do własnego zestawu skalowania maszyny wirtualnej znajdującego się w różnych strefach.
-    * Każdy zestaw skalowania maszyny wirtualnej powinien mieć co najmniej pięć węzłów (Silver Durability).
+    * Każdy typ węzła powinien być mapowany do własnego zestawu skalowania maszyn wirtualnych znajdującego się w różnych strefach.
+    * Każdy zestaw skalowania maszyn wirtualnych powinien mieć co najmniej pięć węzłów (trwałość srebrna).
 
-Przykład tych zasobów można znaleźć w [przykładowym szablonie](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-Ubuntu-2-NodeType-Secure).
+Przykładem tych zasobów można znaleźć w przykładowym [szablonie](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-Ubuntu-2-NodeType-Secure).
 
 ```powershell
 New-AzureRmResourceGroupDeployment `
@@ -267,7 +267,7 @@ New-AzureRmResourceGroupDeployment `
     -TemplateParameterFile $Parameters
 ```
 
-Po zakończeniu wdrażania zasobów można rozpocząć wyłączanie węzłów w typie węzła podstawowego z oryginalnego klastra. Ponieważ węzły są wyłączone, usługi systemowe będą migrować do nowego typu węzła podstawowego, który został wdrożony w powyższym kroku.
+Po zakończeniu wdrażania zasobów można rozpocząć wyłączanie węzłów w podstawowym typie węzła z oryginalnego klastra. Po wyłączeniu węzłów usługi systemowe zostaną zmigrowane do nowego typu węzła podstawowego, który został wdrożony w powyższym kroku.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
@@ -289,7 +289,7 @@ foreach($name in $nodeNames) {
 }
 ```
 
-Gdy węzły są wyłączone, usługi systemowe będą uruchamiane na typ węzła podstawowego, który jest rozłożony na strefy. Następnie można usunąć wyłączone węzły z klastra. Po usunięciu węzłów można usunąć oryginalne zasoby zestawu ip, modułu równoważenia obciążenia i zestawu skalowania maszyny wirtualnej.
+Po wyłączeniu węzłów usługi systemowe będą działały na podstawowym typie węzła, który jest rozłożony między strefy. Następnie można usunąć wyłączone węzły z klastra. Po usunięciu węzłów można usunąć oryginalny adres IP, Load Balancer i zasoby zestawu skalowania maszyn wirtualnych.
 
 ```powershell
 foreach($name in $nodeNames){
@@ -309,9 +309,9 @@ Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
 Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
 ```
 
-Następnie należy usunąć odwołania do tych zasobów z wdrożonego szablonu Menedżera zasobów.
+Następnie należy usunąć odwołania do tych zasobów z szablonu Menedżer zasobów, który został wdrożony.
 
-Ostatnim krokiem będzie aktualizowanie nazwy DNS i publicznego adresu IP.
+Ostatni krok obejmuje zaktualizowanie nazwy DNS i publicznego adresu IP.
 
 ```powershell
 $oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname

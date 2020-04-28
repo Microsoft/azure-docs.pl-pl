@@ -1,15 +1,15 @@
 ---
 title: Replikacja geograficzna rejestru
-description: Rozpocznij tworzenie i zarządzanie geograficznie replikowanym rejestrem kontenerów platformy Azure, który umożliwia rejestrowi obsługiwanie wielu regionów za pomocą replik regionalnych z wieloma wzorcami.
+description: Rozpocznij tworzenie rejestru kontenerów platformy Azure z replikacją geograficzną i zarządzanie nim, dzięki czemu rejestr ma udostępniać wiele regionów z wielogłównymi replikami regionalnymi.
 author: stevelas
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
 ms.openlocfilehash: d238de30e458261a11c941c03ac127c732ca8d3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74456445"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replikacja geograficzna w usłudze Azure Container Registry
@@ -57,11 +57,11 @@ Funkcja replikacji geograficznej usługi Azure Container Registry zapewnia nast�
 
 * Zarządzanie pojedynczym rejestrem w wielu regionach: `contoso.azurecr.io`
 * Zarządzanie jedną konfiguracją wdrożeń obrazów, ponieważ we wszystkich regionach jest używany ten sam adres URL obrazu: `contoso.azurecr.io/public/products/web:1.2`
-* Wypychanie do jednego rejestru, podczas gdy usługa ACR zarządza replikacją geograficzną. Regionalne [elementy webhook](container-registry-webhook.md) można skonfigurować w celu powiadamiania o zdarzeniach w określonych replikach.
+* Wypchnij do jednego rejestru, podczas gdy ACR zarządza replikacją geograficzną. Można skonfigurować regionalne elementy [webhook](container-registry-webhook.md) w celu powiadomienia o zdarzeniach w określonych replikach.
 
 ## <a name="configure-geo-replication"></a>Konfigurowanie replikacji geograficznej
 
-Konfigurowanie replikacji geograficznej jest równie proste, co klikanie regionów na mapie. Replikację geograficzną można również zarządzać za pomocą narzędzi, w tym poleceń [replikacji az acr](/cli/azure/acr/replication) w narzędziu wiersza polecenia platformy Azure, lub wdrożyć rejestr włączony do replikacji geograficznej za pomocą [szablonu usługi Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
+Konfigurowanie replikacji geograficznej jest równie proste, co klikanie regionów na mapie. Replikacją geograficzną można także zarządzać za pomocą narzędzi, w tym poleceń [AZ ACR Replication](/cli/azure/acr/replication) w interfejsie wiersza polecenia platformy Azure, lub wdrożyć rejestr obsługujący replikację geograficzną przy użyciu [szablonu Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
 
 Replikacja geograficzna jest funkcją dotyczącą tylko [rejestrów w warstwie Premium](container-registry-skus.md). Jeśli Twój rejestr nie znajduje się jeszcze w warstwie Premium, możesz zmienić warstwę z warstwy Podstawowa i Standardowa na warstwę Premium w [witrynie Azure Portal](https://portal.azure.com):
 
@@ -89,24 +89,24 @@ Aby skonfigurować dodatkowe repliki, wybierz zielone sześciokąty dla innych r
 
 Usługa ACR rozpocznie synchronizowanie obrazów między skonfigurowanymi replikami. Po ukończeniu tego zadania w portalu zostanie wyświetlony stan *Gotowe*. Stan repliki w portalu nie jest automatycznie aktualizowany. Użyj przycisku odświeżania, aby wyświetlić zaktualizowany stan.
 
-## <a name="considerations-for-using-a-geo-replicated-registry"></a>Zagadnienia dotyczące korzystania z rejestru replikowanego geograficznie
+## <a name="considerations-for-using-a-geo-replicated-registry"></a>Zagadnienia dotyczące korzystania z rejestru z replikacją geograficzną
 
-* Każdy region w rejestrze replikowanym geograficznie jest niezależny po skonfigurowaniu. Łas sla rejestru kontenerów platformy Azure mają zastosowanie do każdego regionu replikowanego geograficznie.
-* Podczas wypychania lub ściągania obrazów z rejestru replikowanego geograficznie usługa Azure Traffic Manager w tle wysyła żądanie do rejestru znajdującego się w regionie znajdującym się najbliżej Ciebie.
-* Po wypchnięciu aktualizacji obrazu lub tagu do najbliższego regionu, zajmuje trochę czasu dla usługi Azure Container Registry do replikacji manifestów i warstw do pozostałych regionów, które zostały włączone. Replikowanie większych obrazów trwa dłużej niż mniejsze. Obrazy i znaczniki są synchronizowane w różnych regionach replikacji z modelu spójności ostatecznej.
-* Aby zarządzać przepływami pracy, które zależą od aktualizacji wypychania do replikowanego geograficznie, zaleca się skonfigurowanie [elementów webhook](container-registry-webhook.md) w celu reagowania na zdarzenia wypychania. Regionalne elementy webhook można skonfigurować w rejestrze replikowanym geograficznie, aby śledzić zdarzenia wypychania w miarę ich wypełniania w regionach replikowanych geograficznie.
+* Każdy region w rejestrze z replikacją geograficzną jest niezależny od konfiguracji. Azure Container Registry umowy SLA mają zastosowanie do każdego regionu zreplikowanego geograficznie.
+* W przypadku wypychania lub ściągania obrazów z rejestru z replikacją geograficzną, usługa Azure Traffic Manager w tle wysyła żądanie do rejestru znajdującego się w regionie najbliżej użytkownika.
+* Po wypchnięciu aktualizacji obrazu lub tagu do najbliższego regionu przez Azure Container Registry replikację manifestów i warstw do pozostałych regionów, które zostały wybrane. Większe obrazy trwają dłużej niż mniejsze. Obrazy i Tagi są synchronizowane w regionach replikacji z modelem spójności ostatecznej.
+* Aby zarządzać przepływami pracy, które są zależne od aktualizacji wypychanych do replikowanych geograficznie, zalecamy skonfigurowanie elementów [webhook](container-registry-webhook.md) w celu reagowania na zdarzenia wypychania. Można skonfigurować regionalne elementy webhook w ramach rejestru replikowanego geograficznie do śledzenia zdarzeń wypychania w miarę ich kończenia w regionach replikowanych geograficznie.
 
 ## <a name="delete-a-replica"></a>Usuwanie repliki
 
-Po skonfigurowaniu repliki dla rejestru można ją usunąć w dowolnym momencie, jeśli nie jest już potrzebna. Usuń replikę przy użyciu portalu Azure lub innych narzędzi, takich jak polecenie [usuwania replikacji az acr](/cli/azure/acr/replication#az-acr-replication-delete) w narzędziu wiersza polecenia platformy Azure CLI.
+Po skonfigurowaniu repliki dla rejestru możesz ją usunąć w dowolnym momencie, jeśli nie jest już potrzebne. Usuń replikę za pomocą Azure Portal lub innych narzędzi, takich jak polecenie [AZ ACR Replication Delete](/cli/azure/acr/replication#az-acr-replication-delete) w interfejsie wiersza polecenia platformy Azure.
 
-Aby usunąć replikę w witrynie Azure portal:
+Aby usunąć replikę z Azure Portal:
 
-1. Przejdź do rejestru kontenerów platformy Azure i wybierz pozycję **Replikacje**.
-1. Wybierz nazwę repliki i wybierz pozycję **Usuń**. Upewnij się, że chcesz usunąć replikę.
+1. Przejdź do Azure Container Registry i wybierz pozycję **replikacje**.
+1. Wybierz nazwę repliki, a następnie wybierz pozycję **Usuń**. Potwierdź, że chcesz usunąć replikę.
 
 > [!NOTE]
-> Nie można usunąć repliki rejestru w *regionie macierzystym* rejestru, czyli lokalizacji, w której został utworzony rejestr. Replikę domową można usunąć tylko przez usunięcie samego rejestru.
+> Nie można usunąć repliki rejestru w *regionie głównym* rejestru, czyli w lokalizacji, w której został utworzony rejestr. Replikę główną można usunąć tylko przez usunięcie samego rejestru.
 
 ## <a name="geo-replication-pricing"></a>Cennik replikacji geograficznej
 
@@ -114,13 +114,13 @@ Replikacja geograficzna jest funkcją [jednostki SKU w warstwie Premium](contain
 
 W poprzednim przykładzie firma Contoso skonsolidowała dwa rejestry w ramach jednego, dodając repliki do regionu Wschodnie stany USA, Kanada Środkowa i Europa Zachodnia. Firma Contoso zapłaciłaby miesięcznie czterokrotną opłatę za warstwę Premium bez dodatkowej konfiguracji ani zarządzania. W każdym regionie obrazy są teraz ściągane lokalnie, co zwiększa wydajność i niezawodność bez ponoszenia opłat za ruch wychodzący w sieci z regionu Zachodnie stany USA do regionu Kanada Środkowa i Wschodnie stany USA.
 
-## <a name="troubleshoot-push-operations-with-geo-replicated-registries"></a>Rozwiązywanie problemów z operacjami wypychania za pomocą rejestrów replikowanych geograficznie
+## <a name="troubleshoot-push-operations-with-geo-replicated-registries"></a>Rozwiązywanie problemów z operacjami wypychania z rejestrami replikowanymi geograficznie
  
-Klient platformy Docker, który wypycha obraz do rejestru replikowanego geograficznie, może nie wypchnąć wszystkich warstw obrazu i jego manifestu do pojedynczego regionu replikowanego. Może tak wystąpić, ponieważ usługa Azure Traffic Manager kieruje żądania rejestru do najbliższego replikowanego rejestru w sieci. Jeśli rejestr ma dwa *pobliskie* regiony replikacji, warstwy obrazu i manifest mogą być dystrybuowane do dwóch lokacji, a operacja wypychania kończy się niepowodzeniem po sprawdzeniu poprawności manifestu. Ten problem występuje ze względu na sposób, w jaki nazwa DNS rejestru jest rozpoznawana na niektórych hostach systemu Linux. Ten problem nie występuje w systemie Windows, który zapewnia pamięć podręczną DNS po stronie klienta.
+Klient platformy Docker, który wypycha obraz do rejestru z replikacją geograficzną, może nie wypchnąć wszystkich warstw obrazu i jego manifestu do jednego zreplikowanego regionu. Może to być spowodowane tym, że usługa Azure Traffic Manager kieruje żądania rejestru do najbliższego rejestru replikowanego w sieci. Jeśli rejestr ma dwa regiony replikacji w *pobliżu* , warstwy obrazu i manifest mogą być dystrybuowane do dwóch lokacji, a operacja push kończy się niepowodzeniem po sprawdzeniu poprawności manifestu. Ten problem występuje ze względu na sposób, w jaki nazwa DNS rejestru jest rozpoznawana na niektórych hostach z systemem Linux. Ten problem nie występuje w systemie Windows, co zapewnia pamięć podręczną usługi DNS po stronie klienta.
  
-Jeśli wystąpi ten problem, jednym z rozwiązań jest `dnsmasq` zastosowanie pamięci podręcznej DNS po stronie klienta, takiej jak na hoście systemu Linux. Pomaga to zapewnić, że nazwa rejestru jest rozpoznawana konsekwentnie. Jeśli używasz maszyny Wirtualnej z systemem Linux na platformie Azure do wypychania do rejestru, zobacz opcje w [opcjach rozpoznawania nazw DNS dla maszyn wirtualnych systemu Linux na platformie Azure](../virtual-machines/linux/azure-dns.md).
+W przypadku wystąpienia tego problemu jedno rozwiązanie ma zastosowanie pamięci podręcznej DNS po stronie klienta, `dnsmasq` takiej jak na hoście z systemem Linux. Pozwala to zapewnić spójność nazwy rejestru. Jeśli używasz maszyny wirtualnej z systemem Linux na platformie Azure do wypychania do rejestru, zobacz Opcje [rozpoznawania nazw DNS dla maszyn wirtualnych z systemem Linux na platformie Azure](../virtual-machines/linux/azure-dns.md).
 
-Aby zoptymalizować rozpoznawanie dns do najbliższej repliki podczas wypychania obrazów, skonfiguruj rejestr replikowany geograficznie w tych samych regionach platformy Azure jako źródło operacji wypychania lub w najbliższym regionie podczas pracy poza platformą Azure.
+W celu zoptymalizowania rozpoznawania nazw DNS do najbliższej repliki podczas wypychania obrazów Skonfiguruj rejestr z replikacją geograficzną w tych samych regionach platformy Azure jako źródło operacji wypychania lub najbliższy Region podczas pracy poza platformą Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

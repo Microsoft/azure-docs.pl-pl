@@ -1,6 +1,6 @@
 ---
-title: Filtrowanie ruchu sieciowego — usługa Azure PowerShell | Dokumenty firmy Microsoft
-description: W tym artykule dowiesz się, jak filtrować ruch sieciowy do podsieci z sieciową grupą zabezpieczeń przy użyciu programu PowerShell.
+title: Filtruj ruch sieciowy — Azure PowerShell | Microsoft Docs
+description: W tym artykule dowiesz się, jak filtrować ruch sieciowy w podsieci z grupą zabezpieczeń sieci przy użyciu programu PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -18,10 +18,10 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 08031bc2ac29ea77374e21c4ce6f7bcf6151bcad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66730032"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrowanie ruchu sieciowego za pomocą sieciowej grupy zabezpieczeń przy użyciu programu PowerShell
@@ -35,11 +35,11 @@ Ruch sieciowy przychodzący do podsieci sieci wirtualnej i wychodzący z niej mo
 * Wdrażanie maszyn wirtualnych w podsieci
 * Testowanie filtrów ruchu
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować i używać programu PowerShell lokalnie, ten artykuł wymaga modułu programu Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
+Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie, ten artykuł będzie wymagał modułu Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
 ## <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
 
@@ -47,13 +47,13 @@ Sieciowa grupa zabezpieczeń zawiera reguły zabezpieczeń. Reguły zabezpiecze�
 
 ### <a name="create-application-security-groups"></a>Tworzenie grup zabezpieczeń aplikacji
 
-Najpierw utwórz grupę zasobów dla wszystkich zasobów utworzonych w tym artykule za pomocą [aplikacji New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Poniższy przykład obejmuje tworzenie grupy zasobów w lokalizacji *eastus*:
+Najpierw utwórz grupę zasobów dla wszystkich zasobów utworzonych w tym artykule przy użyciu elementu [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Poniższy przykład obejmuje tworzenie grupy zasobów w lokalizacji *eastus*:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-Utwórz grupę zabezpieczeń aplikacji za pomocą [new-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup). Grupa zabezpieczeń aplikacji umożliwia grupowanie serwerów o podobnych wymaganiach w zakresie filtrowania portów. Poniższy przykład tworzy dwie grupy zabezpieczeń aplikacji.
+Utwórz grupę zabezpieczeń aplikacji za pomocą elementu [New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup). Grupa zabezpieczeń aplikacji umożliwia grupowanie serwerów o podobnych wymaganiach w zakresie filtrowania portów. Poniższy przykład tworzy dwie grupy zabezpieczeń aplikacji.
 
 ```azurepowershell-interactive
 $webAsg = New-AzApplicationSecurityGroup `
@@ -69,7 +69,7 @@ $mgmtAsg = New-AzApplicationSecurityGroup `
 
 ### <a name="create-security-rules"></a>Tworzenie reguł zabezpieczeń
 
-Utwórz regułę zabezpieczeń za pomocą [pliku New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). Poniższy przykład tworzy regułę, która zezwala na ruch przychodzący z Internetu do grupy zabezpieczeń aplikacji *myWebServers* przez porty 80 i 443:
+Utwórz regułę zabezpieczeń przy użyciu elementu [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). Poniższy przykład tworzy regułę, która zezwala na ruch przychodzący z Internetu do grupy zabezpieczeń aplikacji *myWebServers* przez porty 80 i 443:
 
 ```azurepowershell-interactive
 $webRule = New-AzNetworkSecurityRuleConfig `
@@ -97,7 +97,7 @@ $mgmtRule = New-AzNetworkSecurityRuleConfig `
   -DestinationPortRange 3389
 ```
 
-W tym artykule RDP (port 3389) jest narażony na działanie Internetu dla maszyny Wirtualnej *myAsgMgmtServers.* W środowiskach produkcyjnych zamiast udostępniania portu 3389 w Internecie zaleca się łączenie się z zasobami platformy Azure, którymi chcesz zarządzać za pomocą [sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub połączenia sieci [prywatnej.](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+W tym artykule protokół RDP (Port 3389) został uwidoczniony w Internecie dla maszyny wirtualnej *myAsgMgmtServers* . W przypadku środowisk produkcyjnych zamiast udostępniania portu 3389 do Internetu zaleca się nawiązanie połączenia z zasobami platformy Azure, którymi chcesz zarządzać za pomocą połączenia [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub sieci [prywatnej](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) .
 
 ### <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
 
@@ -123,7 +123,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Utwórz konfigurację podsieci za pomocą [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig), a następnie zapisz konfigurację podsieci w sieci wirtualnej za pomocą [Sieci Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork). Poniższy przykład dodaje podsieć o nazwie *mySubnet* do sieci wirtualnej i kojarzy z nią sieciową grupę zabezpieczeń *myNsg*:
+Utwórz konfigurację podsieci z poleceniem [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig), a następnie Zapisz konfigurację podsieci w sieci wirtualnej za pomocą [opcji Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork). Poniższy przykład dodaje podsieć o nazwie *mySubnet* do sieci wirtualnej i kojarzy z nią sieciową grupę zabezpieczeń *myNsg*:
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig `
@@ -136,7 +136,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-Przed utworzeniem maszyn wirtualnych pobierz obiekt sieci wirtualnej za pomocą podsieci za pomocą [sieci Get-AzVirtualNetwork:](/powershell/module/az.network/get-azvirtualnetwork)
+Przed utworzeniem maszyn wirtualnych Pobierz obiekt sieci wirtualnej z podsiecią za pomocą [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork):
 
 ```powershell-interactive
 $virtualNetwork = Get-AzVirtualNetwork `
@@ -144,7 +144,7 @@ $virtualNetwork = Get-AzVirtualNetwork `
  -Resourcegroupname myResourceGroup
 ```
 
-Utwórz publiczny adres IP dla każdej maszyny Wirtualnej za pomocą [adresu New-AzPublicIpAddress:](/powershell/module/az.network/new-azpublicipaddress)
+Utwórz publiczny adres IP dla każdej maszyny wirtualnej za pomocą [nowego AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress):
 
 ```powershell-interactive
 $publicIpWeb = New-AzPublicIpAddress `
@@ -160,7 +160,7 @@ $publicIpMgmt = New-AzPublicIpAddress `
   -Name myVmMgmt
 ```
 
-Utwórz dwa interfejsy sieciowe za pomocą [new-aznetworkinterface](/powershell/module/az.network/new-aznetworkinterface)i przypisz publiczny adres IP do interfejsu sieciowego. Poniższy przykład tworzy interfejs sieciowy, przypisuje do niego publiczny adres IP *myVmWeb* oraz ustawia go jako element członkowski grupy zabezpieczeń aplikacji *myAsgWebServers*:
+Utwórz dwa interfejsy sieciowe za pomocą polecenie [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)i przypisz publiczny adres IP do interfejsu sieciowego. Poniższy przykład tworzy interfejs sieciowy, przypisuje do niego publiczny adres IP *myVmWeb* oraz ustawia go jako element członkowski grupy zabezpieczeń aplikacji *myAsgWebServers*:
 
 ```powershell-interactive
 $webNic = New-AzNetworkInterface `
@@ -186,7 +186,7 @@ $mgmtNic = New-AzNetworkInterface `
 
 Utwórz dwie maszyny wirtualne w sieci wirtualnej, aby umożliwić weryfikację filtrowania ruchu w kolejnym kroku.
 
-Utwórz konfigurację maszyny wirtualnej za pomocą [new-AzVMConfig](/powershell/module/az.compute/new-azvmconfig), a następnie utwórz maszynę wirtualną z [new-AzVM](/powershell/module/az.compute/new-azvm). Poniższy przykład tworzy maszynę wirtualną, która będzie służyć jako serwer internetowy. Opcja `-AsJob` tworzy maszynę wirtualną w tle, dzięki czemu można przejść do następnego kroku:
+Utwórz konfigurację maszyny wirtualnej za pomocą polecenie [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig), a następnie utwórz maszynę wirtualną za pomocą [nowej AzVM](/powershell/module/az.compute/new-azvm). Poniższy przykład tworzy maszynę wirtualną, która będzie służyć jako serwer internetowy. Opcja `-AsJob` tworzy maszynę wirtualną w tle, dzięki czemu można przejść do następnego kroku:
 
 ```azurepowershell-interactive
 # Create user object
@@ -277,7 +277,7 @@ Użyj następującego polecenia, aby zainstalować usługi Microsoft IIS na masz
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Po zakończeniu instalacji usług IIS odłącz się od maszyny wirtualnej *myVmWeb*, co spowoduje pozostanie w połączeniu pulpitu zdalnego z maszyną wirtualną *myVmMgmt*. Aby wyświetlić ekran powitalny usługi IIS, otwórz\/przeglądarkę internetową i przejdź do strony http: /myVmWeb.
+Po zakończeniu instalacji usług IIS odłącz się od maszyny wirtualnej *myVmWeb*, co spowoduje pozostanie w połączeniu pulpitu zdalnego z maszyną wirtualną *myVmMgmt*. Aby wyświetlić ekran powitalny usług IIS, Otwórz przeglądarkę internetową i przejdź do protokołu\/http:/myVmWeb.
 
 Odłącz się od maszyny wirtualnej *myVmMgmt*.
 
@@ -294,7 +294,7 @@ Aby potwierdzić, że możesz uzyskać dostęp do serwera internetowego *myVmWeb
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie jest już potrzebne, można użyć [Remove-AzResourceGroup,](/powershell/module/az.resources/remove-azresourcegroup) aby usunąć grupę zasobów i wszystkie zasoby, które zawiera:
+Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) :
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force
@@ -302,6 +302,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule utworzono grupę zabezpieczeń sieci i skojarzyno ją z podsiecią sieci wirtualnej. Aby dowiedzieć się więcej na temat sieciowych grup zabezpieczeń, zobacz [Network security groups overview (Omówienie sieciowych grup zabezpieczeń)](security-overview.md) oraz [Manage a network security group (Zarządzanie sieciową grupą zabezpieczeń)](manage-network-security-group.md).
+W tym artykule utworzono sieciową grupę zabezpieczeń i skojarzono ją z podsiecią sieci wirtualnej. Aby dowiedzieć się więcej na temat sieciowych grup zabezpieczeń, zobacz [Network security groups overview (Omówienie sieciowych grup zabezpieczeń)](security-overview.md) oraz [Manage a network security group (Zarządzanie sieciową grupą zabezpieczeń)](manage-network-security-group.md).
 
 Platforma Azure domyślnie kieruje ruch pomiędzy podsieciami. Zamiast tego możesz przykładowo skierować ruch pomiędzy podsieciami przez maszynę wirtualną, która będzie służyć jako zapora. Aby dowiedzieć się, jak to zrobić, zobacz [Tworzenie tabeli tras](tutorial-create-route-table-powershell.md).

@@ -1,25 +1,25 @@
 ---
-title: Wdrażanie i uaktualnianie za pomocą usługi Azure Resource Manager
-description: Dowiedz się, jak wdrożyć aplikacje i usługi w klastrze sieci szkieletowej usług przy użyciu szablonu usługi Azure Resource Manager.
+title: Wdrażanie i uaktualnianie przy użyciu Azure Resource Manager
+description: Dowiedz się, jak wdrażać aplikacje i usługi w klastrze Service Fabric przy użyciu szablonu Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75610254"
 ---
-# <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Zarządzanie aplikacjami i usługami jako zasobami usługi Azure Resource Manager
+# <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Zarządzanie aplikacjami i usługami jako zasobami Azure Resource Manager
 
-Aplikacje i usługi można wdrażać w klastrze sieci szkieletowej usług za pośrednictwem usługi Azure Resource Manager. Oznacza to, że zamiast wdrażania aplikacji i zarządzania nimi za pośrednictwem programu PowerShell lub interfejsu wiersza polecenia po konieczności oczekiwania na gotowy klaster, można teraz wyrazić aplikacje i usługi w JSON i wdrożyć je w tym samym szablonie Menedżera zasobów co klaster. Proces rejestracji aplikacji, inicjowania obsługi administracyjnej i wdrażania odbywa się w jednym kroku.
+Aplikacje i usługi można wdrożyć w klastrze Service Fabric za pośrednictwem Azure Resource Manager. Oznacza to, że zamiast wdrażać aplikacje i zarządzać nimi za pomocą programu PowerShell lub interfejsu wiersza polecenia, a następnie zaczekać, aż klaster będzie gotowy, możesz teraz wyrazić aplikacje i usługi w formacie JSON i wdrożyć je w tym samym szablonie Menedżer zasobów co klaster. Proces rejestracji aplikacji, aprowizacji i wdrożenia odbywa się w jednym kroku.
 
-Jest to zalecany sposób wdrażania wszelkich aplikacji do zarządzania konfiguracją, nadzoru lub klastra, które są wymagane w klastrze. Obejmuje to [aplikację aranżacji poprawek,](service-fabric-patch-orchestration-application.md)watchdogs lub wszelkie aplikacje, które muszą być uruchomione w klastrze przed wdrożeniem innych aplikacji lub usług. 
+Jest to zalecany sposób wdrożenia wszelkich aplikacji do zarządzania konfiguracją, nadzorem lub klastrem, które są wymagane w klastrze. Obejmuje to [aplikację aranżacji poprawek](service-fabric-patch-orchestration-application.md), licznik alarmów lub wszystkie aplikacje, które muszą działać w klastrze przed wdrożeniem innych aplikacji lub usług. 
 
-W stosownych przypadkach zarządzaj aplikacjami jako zasobami Menedżera zasobów, aby ulepszyć:
-* Dziennik inspekcji: Menedżer zasobów przeprowadza inspekcje każdej operacji i przechowuje szczegółowy *dziennik aktywności,* który może pomóc w śledzeniu wszelkich zmian wprowadzonych w tych aplikacjach i klastrze.
-* Kontrola dostępu oparta na rolach (RBAC): Zarządzanie dostępem do klastrów, a także aplikacji wdrożonych w klastrze można wykonać za pomocą tego samego szablonu Menedżera zasobów.
-* Usługa Azure Resource Manager (za pośrednictwem witryny Azure portal) staje się kompleksowym zakładem obsługi do zarządzania klastrem i wdrożeniami aplikacji o znaczeniu krytycznym.
+W razie potrzeby Zarządzaj aplikacjami jako zasobami Menedżer zasobów, aby zwiększyć:
+* Dziennik inspekcji: Menedżer zasobów przeprowadza inspekcję każdej operacji i utrzymuje szczegółowy *Dziennik aktywności* , który może pomóc w śledzeniu wszelkich zmian wprowadzonych w tych aplikacjach i w klastrze.
+* Kontrola dostępu oparta na rolach (RBAC): zarządzanie dostępem do klastrów oraz aplikacji wdrożonych w klastrze można wykonać za pomocą tego samego szablonu Menedżer zasobów.
+* Azure Resource Manager (za pośrednictwem Azure Portal) stanie się jednym zatrzymywaniem do zarządzania klastrem i krytycznymi wdrożeniami aplikacji.
 
 Poniższy fragment kodu przedstawia różne rodzaje zasobów, którymi można zarządzać za pomocą szablonu:
 
@@ -51,12 +51,12 @@ Poniższy fragment kodu przedstawia różne rodzaje zasobów, którymi można za
 ```
 
 
-## <a name="add-a-new-application-to-your-resource-manager-template"></a>Dodawanie nowej aplikacji do szablonu Menedżera zasobów
+## <a name="add-a-new-application-to-your-resource-manager-template"></a>Dodawanie nowej aplikacji do szablonu Menedżer zasobów
 
-1. Przygotuj szablon Menedżera zasobów klastra do wdrożenia. Aby uzyskać więcej informacji na ten temat, zobacz [Tworzenie klastra sieci szkieletowej usług przy użyciu usługi Azure Resource Manager.](service-fabric-cluster-creation-via-arm.md)
-2. Pomyśl o niektórych aplikacjach, które planujesz wdrożyć w klastrze. Czy są jakieś, które zawsze będą uruchomione, że inne aplikacje mogą przyjmować zależności? Czy planujesz wdrożenie jakichkolwiek aplikacji nadzoru klastra lub aplikacji instalacyjnych? Tego rodzaju aplikacje są najlepiej zarządzane za pomocą szablonu Menedżera zasobów, jak wspomniano powyżej. 
-3. Po zorientowali się, jakie aplikacje, które mają być wdrażane w ten sposób, aplikacje muszą być spakowane, spakowane i umieścić na udział plików. Udział musi być dostępny za pośrednictwem punktu końcowego REST dla usługi Azure Resource Manager do wykorzystania podczas wdrażania.
-4. W szablonie Menedżera zasobów poniżej deklaracji klastra opisz właściwości każdej aplikacji. Właściwości te obejmują liczbę replik lub wystąpień oraz wszelkie łańcuchy zależności między zasobami (inne aplikacje lub usługi). Aby uzyskać listę kompleksowych właściwości, zobacz [specyfikację Swagger interfejsu API REST](https://aka.ms/sfrpswaggerspec). Należy zauważyć, że nie zastępuje to manifestów aplikacji lub usługi, ale raczej opisuje niektóre z tych, co jest w nich jako część szablonu Menedżera zasobów klastra. Oto przykładowy szablon, który obejmuje wdrażanie usługi bezstanowej *Service1* i usługi stanowej *Service2* w ramach *Application1:*
+1. Przygotuj szablon Menedżer zasobów klastra do wdrożenia. Aby uzyskać więcej informacji na ten temat [, zobacz Tworzenie klastra Service Fabric przy użyciu Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) .
+2. Zastanów się nad niektórymi aplikacjami, które planujesz wdrożyć w klastrze. Czy istnieją jakieś, które będą zawsze uruchamiane, czy inne aplikacje mogą przyjmować zależności? Czy planujesz wdrożenie wszelkich aplikacji do zarządzania klastrami lub konfiguracji? Te różne aplikacje są najlepiej zarządzane za pośrednictwem szablonu Menedżer zasobów, jak opisano powyżej. 
+3. Po ustaleniu aplikacji, które mają zostać wdrożone w ten sposób, aplikacje muszą być spakowane, spakowane i umieszczone w udziale plików. Udział musi być dostępny za pomocą punktu końcowego REST, aby Azure Resource Manager do użycia podczas wdrażania.
+4. W szablonie Menedżer zasobów poniżej deklaracji klastra opisz właściwości poszczególnych aplikacji. Te właściwości obejmują liczbę replik lub wystąpień oraz wszystkie łańcuchy zależności między zasobami (innymi aplikacjami lub usługami). Aby uzyskać listę kompleksowych właściwości, zobacz [specyfikację Swagger interfejsu API REST](https://aka.ms/sfrpswaggerspec). Należy zauważyć, że nie zastępuje to manifestów aplikacji ani usług, ale zamiast tego opisuje niektóre z nich w ramach szablonu Menedżer zasobów klastra. Oto przykładowy szablon, który obejmuje wdrożenie *Service1* usługi bezstanowej i usługi stanowej *Językowej2* w ramach *Application1*:
 
    ```json
    {
@@ -244,30 +244,30 @@ Poniższy fragment kodu przedstawia różne rodzaje zasobów, którymi można za
    ```
 
    > [!NOTE] 
-   > *ApiVersion* musi być `"2019-03-01"`ustawiona na . Ten szablon można również wdrożyć niezależnie od klastra, o ile klaster został już wdrożony.
+   > Wartość *apiVersion* musi być ustawiona na `"2019-03-01"`wartość. Ten szablon można również wdrożyć niezależnie od klastra, o ile klaster został już wdrożony.
 
-5. Wdrożyć! 
+5. Wdrażanie! 
 
-## <a name="remove-service-fabric-resource-provider-application-resource"></a>Usuń zasób aplikacji dostawcy zasobów sieci szkieletowej usług
-Następujące wyzwalają pakiet aplikacji do un-aprowizowana z klastra, a to oczyści miejsce na dysku używane:
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Usuń zasób aplikacji dostawcy zasobów Service Fabric
+Poniższe polecenie spowoduje wyzwolenie pakietu aplikacji, który zostanie nieobsługiwany z klastra. spowoduje to wyczyszczenie użytego miejsca na dysku:
 ```powershell
 Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2019-03-01" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
 ```
-Po prostu usunięcie Microsoft.ServiceFabric/clusters/application z szablonu ARM nie spowoduje anulowania obsługi administracyjnej aplikacji
+Po prostu usunięcie usługi Microsoft. servicefabric/klastrów/aplikacji z szablonu ARM nie spowoduje anulowania aprowizacji aplikacji
 
 >[!NOTE]
-> Po zakończeniu usuwania nie powinieneś już widzieć wersji pakietu w SFX lub ARM. Nie można usunąć zasobu wersji typu aplikacji, z którego jest uruchomiona aplikacja; ARM/SFRP zapobiegnie temu. Jeśli spróbujesz anulować aprovision uruchomionego pakietu, środowisko wykonawcze SF zapobiegnie.
+> Po zakończeniu usuwania nie powinna już być widoczna wersja pakietu w SFX lub ARM. Nie można usunąć zasobu wersji typu aplikacji, z którym działa aplikacja; Nie będzie to przeszkadzać w usłudze ARM/SFRP. W przypadku próby cofnięcia aprowizacji uruchomionego pakietu środowisko uruchomieniowe SF uniemożliwi jego obsługę.
 
 
-## <a name="manage-an-existing-application-via-resource-manager"></a>Zarządzanie istniejącą aplikacją za pośrednictwem Menedżera zasobów
+## <a name="manage-an-existing-application-via-resource-manager"></a>Zarządzanie istniejącą aplikacją za pośrednictwem Menedżer zasobów
 
-Jeśli klaster jest już włączony, a niektóre aplikacje, którymi chcesz zarządzać jako zasoby Menedżera zasobów, są już wdrożone, zamiast usuwać aplikacje i ponownie je wdrażać, można użyć wywołania PUT przy użyciu tych samych interfejsów API, aby aplikacje zostały jako zasoby Menedżera zasobów. Aby uzyskać dodatkowe informacje, zobacz Co to [jest model zasobów aplikacji sieci szkieletowej usług?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
+Jeśli klaster jest już włączony i niektóre aplikacje, które mają być zarządzane, jako Menedżer zasobów zasoby są już wdrożone na nim, zamiast usuwać aplikacje i wdrażać je ponownie, można użyć wywołania PUT przy użyciu tych samych interfejsów API, aby aplikacje były potwierdzane jako zasoby Menedżer zasobów. Aby uzyskać dodatkowe informacje, zobacz [temat co to jest model zasobów aplikacji Service Fabric?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
 
 > [!NOTE]
-> Aby zezwolić na uaktualnienie klastra, aby zignorować niezdrowe aplikacje, klient może określić "maxPercentUnhealthyApplications: 100" w sekcji "upgradeDescription/healthPolicy"; szczegółowe opisy wszystkich ustawień znajdują się w [dokumentacji zasad aktualizacji klastra interfejsu API rest](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)rest .
+> Aby umożliwić uaktualnienie klastra do ignorowania aplikacji w złej kondycji, klient może określić "maxPercentUnhealthyApplications: 100" w sekcji "upgradeDescription/healthPolicy"; szczegółowe opisy wszystkich ustawień znajdują się w [dokumentacji zasad uaktualniania klastra interfejsu API REST usługi Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Użyj [interfejsu wiersza polecenia sieci szkieletowej usług](service-fabric-cli.md) lub [programu PowerShell,](service-fabric-deploy-remove-applications.md) aby wdrożyć inne aplikacje w klastrze. 
-* [Uaktualnianie klastra sieci szkieletowej usług](service-fabric-cluster-upgrade.md)
+* Użyj [interfejsu wiersza polecenia Service Fabric](service-fabric-cli.md) lub [programu PowerShell](service-fabric-deploy-remove-applications.md) , aby wdrożyć inne aplikacje w klastrze. 
+* [Uaktualnianie klastra Service Fabric](service-fabric-cluster-upgrade.md)
 

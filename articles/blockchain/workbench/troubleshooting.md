@@ -1,32 +1,32 @@
 ---
-title: Rozwiązywanie problemów z systemem Azure Blockchain Workbench
-description: Jak rozwiązać problem z aplikacją Azure Blockchain Workbench Preview.
+title: Rozwiązywanie problemów z usługą Azure łańcucha bloków Workbench
+description: Jak rozwiązywać problemy z aplikacją Azure łańcucha bloków Workbench w wersji zapoznawczej.
 ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: ef4bce4dfba77aafa9b86c6877c153534b54636e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74324296"
 ---
-# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Rozwiązywanie problemów z systemem Azure Blockchain Workbench Preview
+# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure łańcucha bloków Workbench Preview
 
-Skrypt programu PowerShell jest dostępny, aby pomóc w debugowaniu deweloperów lub obsłudze. Skrypt generuje podsumowanie i zbiera szczegółowe dzienniki do rozwiązywania problemów. Zebrane dzienniki obejmują:
+Skrypt programu PowerShell jest dostępny, aby pomóc w debugowaniu i obsłudze deweloperów. Skrypt generuje podsumowanie i zbiera szczegółowe dzienniki dotyczące rozwiązywania problemów. Zebrane dzienniki obejmują:
 
-* Sieć blockchain, taka jak Ethereum
-* Mikrousługi blockchain workbench
+* Sieć łańcucha bloków, taka jak Ethereum
+* Mikrousługi łańcucha bloków Workbench
 * Application Insights
-* Monitorowanie platformy Azure (dzienniki usługi Azure Monitor)
+* Monitorowanie platformy Azure (dzienniki Azure Monitor)
 
-Za pomocą tych informacji można określić kolejne kroki i określić główną przyczynę problemów.
+Możesz użyć tych informacji do określenia następnych kroków i ustalenia głównej przyczyny problemów.
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-## <a name="troubleshooting-script"></a>Rozwiązywanie skryptów
+## <a name="troubleshooting-script"></a>Skrypt rozwiązywania problemów
 
-Skrypt rozwiązywania problemów programu PowerShell jest dostępny w usłudze GitHub. [Pobierz plik ZIP](https://github.com/Azure-Samples/blockchain/archive/master.zip) lub sklonuj przykład z usługi GitHub.
+Skrypt rozwiązywania problemów z programem PowerShell jest dostępny w witrynie GitHub. [Pobierz plik ZIP](https://github.com/Azure-Samples/blockchain/archive/master.zip) lub sklonuj przykład z usługi GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/blockchain.git
@@ -35,7 +35,7 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ## <a name="run-the-script"></a>Uruchamianie skryptu
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-Uruchom `collectBlockchainWorkbenchTroubleshooting.ps1` skrypt, aby zebrać dzienniki i utworzyć plik ZIP zawierający folder informacji o rozwiązywaniu problemów. Przykład:
+Uruchom `collectBlockchainWorkbenchTroubleshooting.ps1` skrypt, aby zebrać dzienniki i utworzyć plik zip zawierający folder informacji o rozwiązywaniu problemów. Przykład:
 
 ``` powershell
 collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>" -ResourceGroupName "workbench-resource-group-name"
@@ -44,13 +44,13 @@ Skrypt akceptuje następujące parametry:
 
 | Parametr  | Opis | Wymagany |
 |---------|---------|----|
-| Subscriptionid | Identyfikator subskrypcji, aby utworzyć lub zlokalizować wszystkie zasoby. | Tak |
-| ResourceGroupName | Nazwa grupy zasobów platformy Azure, w której wdrożono program Blockchain Workbench. | Tak |
-| Historia wyjściowa | Ścieżka do utworzenia danych wyjściowych . zip. Jeśli nie zostanie określony, domyślnie bieżący katalog. | Nie |
-| LookbackHours | Liczba godzin do użycia podczas ściągania danych telemetrycznych. Wartość domyślna to 24 godziny. Maksymalna wartość to 90 godzin | Nie |
-| OmsSubscriptionId | Identyfikator subskrypcji, w którym są wdrażane dzienniki usługi Azure Monitor. Przekaż ten parametr tylko wtedy, gdy dzienniki usługi Azure Monitor dla sieci blockchain są wdrażane poza grupą zasobów Blockchain Workbench.| Nie |
-| Grupa OmsResource |Grupa zasobów, w której wdrożono dzienniki usługi Azure Monitor. Przekaż ten parametr tylko wtedy, gdy dzienniki usługi Azure Monitor dla sieci blockchain są wdrażane poza grupą zasobów Blockchain Workbench.| Nie |
-| Nazwa obszaru OmsWorkSpace | Nazwa obszaru roboczego usługi Log Analytics. Przekaż ten parametr tylko wtedy, gdy dzienniki usługi Azure Monitor dla sieci blockchain są wdrażane poza grupą zasobów Blockchain Workbench | Nie |
+| Identyfikator | Utwórz identyfikator subskrypcji, aby utworzyć lub zlokalizować wszystkie zasoby. | Tak |
+| ResourceGroupName | Nazwa grupy zasobów platformy Azure, w której wdrożono łańcucha bloków Workbench. | Tak |
+| OutputDirectory | Ścieżka do tworzenia danych wyjściowych. Plik ZIP. Jeśli nie zostanie określony, wartością domyślną jest bieżący katalog. | Nie |
+| LookbackHours | Liczba godzin do użycia podczas ściągania danych telemetrycznych. Wartość domyślna to 24 godziny. Wartość maksymalna to 90 godzin | Nie |
+| OmsSubscriptionId | Identyfikator subskrypcji, w której wdrożone są dzienniki Azure Monitor. Ten parametr należy przekazać tylko wtedy, gdy dzienniki Azure Monitor dla sieci łańcucha bloków są wdrożone poza grupą zasobów łańcucha bloków Workbench.| Nie |
+| OmsResourceGroup |Grupa zasobów, w której wdrożono dzienniki Azure Monitor. Ten parametr należy przekazać tylko wtedy, gdy dzienniki Azure Monitor dla sieci łańcucha bloków są wdrożone poza grupą zasobów łańcucha bloków Workbench.| Nie |
+| OmsWorkspaceName | Nazwa obszaru roboczego Log Analytics. Ten parametr należy przekazać tylko wtedy, gdy dzienniki Azure Monitor dla sieci łańcucha bloków są wdrożone poza grupą zasobów łańcucha bloków Workbench | Nie |
 
 ## <a name="what-is-collected"></a>Co jest zbierane?
 
@@ -58,17 +58,17 @@ Wyjściowy plik ZIP zawiera następującą strukturę folderów:
 
 | Folder lub plik | Opis  |
 |---------|---------|
-| \Podsumowanie.txt | Podsumowanie systemu |
-| \Metryki\blockchain | Metryki dotyczące łańcucha bloków |
-| \Metryki\Stół roboczy | Metryki dotyczące warsztatu |
-| \Szczegóły\Blockchain | Szczegółowe dzienniki dotyczące łańcucha bloków |
-| \Szczegóły\Stół roboczy | Szczegółowe dzienniki dotyczące warsztatu |
+| \Summary.txt | Podsumowanie systemu |
+| \Metrics\blockchain | Metryki dotyczące łańcucha bloków |
+| \Metrics\Workbench | Metryki dotyczące Workbench |
+| \Details\Blockchain | Szczegółowe dzienniki dotyczące łańcucha bloków |
+| \Details\Workbench | Szczegółowe dzienniki dotyczące Workbench |
 
-Plik podsumowania zawiera migawkę ogólnego stanu aplikacji i kondycji aplikacji. Podsumowanie zawiera zalecane akcje, wyróżnia najważniejsze błędy i metadane dotyczące uruchamiania usług.
+Plik podsumowania zawiera migawkę ogólnego stanu aplikacji i kondycji aplikacji. Podsumowanie zawiera zalecane akcje, wyróżnia najważniejsze błędy i metadane dotyczące uruchomionych usług.
 
-Folder **Metryki** zawiera metryki różnych składników systemu w czasie. Na przykład plik `\Details\Workbench\apiMetrics.txt` wyjściowy zawiera podsumowanie różnych kodów odpowiedzi i czasy odpowiedzi w całym okresie zbierania. Folder **Szczegóły** zawiera szczegółowe dzienniki rozwiązywania określonych problemów z workbench lub podstawową siecią łańcucha bloków. Na przykład `\Details\Workbench\Exceptions.csv` zawiera listę najnowszych wyjątków, które wystąpiły w systemie, co jest przydatne do rozwiązywania problemów z błędami z inteligentnych kontraktów lub interakcji z łańcucha bloków. 
+Folder **metryk** zawiera metryki różnych składników systemu w miarę upływu czasu. Na przykład plik `\Details\Workbench\apiMetrics.txt` wyjściowy zawiera podsumowanie różnych kodów odpowiedzi i czasów odpowiedzi w całym okresie zbierania. Folder **szczegóły** zawiera szczegółowe dzienniki umożliwiające rozwiązywanie określonych problemów z usługą Workbench lub podstawową siecią łańcucha bloków. Na przykład `\Details\Workbench\Exceptions.csv` zawiera listę najnowszych wyjątków, które wystąpiły w systemie, co jest przydatne do rozwiązywania problemów z inteligentnymi kontraktami lub interakcjami z łańcucha bloków. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Przewodnik po rozwiązywaniu problemów z usługą Azure Blockchain Workbench Application Insights](https://aka.ms/workbenchtroubleshooting)
+> [Przewodnik rozwiązywania problemów z usługą Azure łańcucha bloków Workbench Application Insights](https://aka.ms/workbenchtroubleshooting)

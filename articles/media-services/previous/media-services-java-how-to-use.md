@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: fedec6ea764394d36f5b4d7c883f7cb9f9520a29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "64869019"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Rozpoczynanie korzystania z zestawu SDK klienta Java dla usług Azure Media Services  
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Sprawdź najnowszą wersję usługi [Media Services w wersji 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji z wersji 2 do v3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi dostarczania zawartości wideo za pomocą usług Azure Media Services przy użyciu zestawu SDK klienta Java.
 
@@ -53,7 +53,7 @@ Jeśli na przykład Twoim narzędziem kompilacji jest narzędzie `gradle`, dodaj
 ## <a name="how-to-use-azure-media-services-with-java"></a>Instrukcje: korzystanie z usług Azure Media Services z językiem Java
 
 >[!NOTE]
->Po utworzeniu konta usługi Media Services **domyślny** punkt końcowy przesyłania strumieniowego jest dodawany do konta w stanie **Zatrzymane.** Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**.
+>Po utworzeniu konta Media Services zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego w stanie **zatrzymanym** . Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**.
 
 Poniższy kod przedstawia sposób tworzenia elementu zawartości, przesyłania pliku multimediów do elementu zawartości, uruchamiania zadania polegającego na przekształceniu elementu zawartości i tworzenia lokalizatora w celu strumieniowego przesyłania wideo.
 

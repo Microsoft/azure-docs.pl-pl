@@ -1,6 +1,6 @@
 ---
-title: Rejestrowanie aplikacji sieci Web, która wywołuje internetowe interfejsy API — platforma tożsamości firmy Microsoft | Azure
-description: Dowiedz się, jak zarejestrować aplikację internetową, która wywołuje internetowe interfejsy API
+title: Zarejestruj aplikację sieci Web, która wywołuje interfejsy API sieci Web — Microsoft Identity platform | Azure
+description: Dowiedz się, jak zarejestrować aplikację sieci Web, która wywołuje interfejsy API sieci Web
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,25 +12,25 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 8cb7d86bd419563363779c499962c81f0c59e3b6
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80881880"
 ---
-# <a name="a-web-app-that-calls-web-apis-app-registration"></a>Aplikacja internetowa, która wywołuje internetowe interfejsy API: rejestracja aplikacji
+# <a name="a-web-app-that-calls-web-apis-app-registration"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: Rejestracja aplikacji
 
-Aplikacja internetowa, która wywołuje interfejsy API sieci Web ma taką samą rejestrację jak aplikacja sieci web, która loguje użytkowników. Postępuj zgodnie z instrukcjami w [aplikacji internetowej, która loguje się do użytkowników: Rejestracja aplikacji](scenario-web-app-sign-user-app-registration.md).
+Aplikacja sieci Web, która wywołuje interfejsy API sieci Web, ma taką samą rejestrację jak aplikacja sieci Web, która podpisuje użytkowników w programie. Tak więc postępuj zgodnie z instrukcjami w [aplikacji sieci Web, które logują się w użytkownikach: rejestrowanie aplikacji](scenario-web-app-sign-user-app-registration.md).
 
-Jednak ponieważ aplikacja sieci web teraz również wywołuje interfejsy API sieci web, staje się poufne aplikacji klienckiej. Dlatego wymagana jest dodatkowa rejestracja. Aplikacja musi udostępniać poświadczenia klienta lub *wpisy tajne*z platformą tożsamości firmy Microsoft.
+Jednak ponieważ aplikacja sieci Web teraz wywołuje również interfejsy API sieci Web, jest to poufna aplikacja kliencka. Dlatego jest wymagana dodatkowa Rejestracja. Aplikacja musi udostępniać poświadczenia klienta lub wpisy *tajne*przy użyciu platformy tożsamości firmy Microsoft.
 
 [!INCLUDE [Registration of client secrets](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
 ## <a name="api-permissions"></a>Uprawnienia aplikacji
 
-Aplikacje sieci Web wywołują interfejsy API w imieniu zalogowanego użytkownika. Aby to zrobić, muszą zażądać *delegowanych uprawnień*. Aby uzyskać szczegółowe informacje, zobacz [Dodawanie uprawnień dostępu do internetowych interfejsów API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+Interfejsy API wywołań aplikacji sieci Web w imieniu zalogowanego użytkownika. Aby to zrobić, muszą one żądać *delegowania uprawnień*. Aby uzyskać szczegółowe informacje, zobacz [Dodawanie uprawnień dostępu do interfejsów API sieci Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Aplikacja internetowa, która wywołuje internetowe interfejsy API: konfiguracja kodu](scenario-web-app-call-api-app-configuration.md)
+> [Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: Konfiguracja kodu](scenario-web-app-call-api-app-configuration.md)

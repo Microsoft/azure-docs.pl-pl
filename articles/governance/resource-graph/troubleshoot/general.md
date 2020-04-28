@@ -1,38 +1,38 @@
 ---
 title: Rozwiązywanie typowych problemów
-description: Dowiedz się, jak rozwiązywać problemy z różnymi zestawami SDK podczas wykonywania zapytań o zasoby platformy Azure za pomocą programu Azure Resource Graph.
+description: Dowiedz się, jak rozwiązywać problemy z różnymi zestawami SDK podczas badania zasobów platformy Azure za pomocą usługi Azure Resource Graph.
 ms.date: 10/18/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: f881db4f75bcee8c13221717596442ac29a4b1ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74303897"
 ---
-# <a name="troubleshoot-errors-using-azure-resource-graph"></a>Rozwiązywanie problemów z błędami przy użyciu programu Azure Resource Graph
+# <a name="troubleshoot-errors-using-azure-resource-graph"></a>Rozwiązywanie problemów z błędami przy użyciu grafu zasobów platformy Azure
 
-Można napotkać błędy podczas wykonywania zapytań o zasoby platformy Azure za pomocą programu Azure Resource Graph. W tym artykule opisano różne błędy, które mogą wystąpić i jak je rozwiązać.
+Podczas wykonywania zapytania dotyczącego zasobów platformy Azure za pomocą usługi Azure Resource Graph mogą wystąpić błędy. W tym artykule opisano różne błędy, które mogą wystąpić i sposoby ich rozwiązywania.
 
 ## <a name="finding-error-details"></a>Znajdowanie szczegółów błędu
 
-Większość błędów jest wynikiem problemu podczas uruchamiania kwerendy z programem Azure Resource Graph. Gdy kwerenda nie powiedzie się, SDK zawiera szczegółowe informacje na temat kwerendy nie powiodło się. Te informacje wskazują problem, dzięki czemu można go naprawić, a późniejsza kwerenda zakończy się pomyślnie.
+Większość błędów jest wynikiem problemu podczas wykonywania zapytania przy użyciu grafu zasobów platformy Azure. Gdy zapytanie nie powiedzie się, zestaw SDK zawiera szczegółowe informacje o zapytaniu zakończonym niepowodzeniem. Te informacje wskazują, że problem może zostać naprawiony, a późniejsza kwerenda powiedzie się.
 
 ## <a name="general-errors"></a>Błędy ogólne
 
-### <a name="scenario-too-many-subscriptions"></a><a name="toomanysubscription"></a>Scenariusz: Zbyt wiele subskrypcji
+### <a name="scenario-too-many-subscriptions"></a><a name="toomanysubscription"></a>Scenariusz: zbyt wiele subskrypcji
 
 #### <a name="issue"></a>Problem
 
-Klienci z dostępem do ponad 1000 subskrypcji, w tym subskrypcji między dzierżawcami za pomocą [usługi Azure Lighthouse,](../../../lighthouse/overview.md)nie mogą pobierać danych we wszystkich subskrypcjach w ramach jednego wywołania usługi Azure Resource Graph.
+Klienci mający dostęp do ponad 1000 subskrypcji, w tym subskrypcji między dzierżawcami i [usługi Azure Lighthouse](../../../lighthouse/overview.md), nie mogą pobierać danych ze wszystkich subskrypcji w ramach pojedynczego wywołania do grafu zasobów platformy Azure.
 
 #### <a name="cause"></a>Przyczyna
 
-Narzędzia Azure CLI i PowerShell przekazuje tylko pierwsze 1000 subskrypcji usługi Azure Resource Graph. Interfejs API REST dla usługi Azure Resource Graph akceptuje maksymalną liczbę subskrypcji do wykonania kwerendy.
+Interfejs wiersza polecenia platformy Azure i program PowerShell przesyłają dalej tylko pierwsze subskrypcje 1000 do grafu zasobów platformy Azure. Interfejs API REST dla usługi Azure Resource Graph akceptuje maksymalną liczbę subskrypcji, na które należy wykonać zapytanie.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Żądania wsadowe dla kwerendy z podzbiorem subskrypcji, aby pozostać poniżej limitu subskrypcji 1000. Rozwiązanie używa **parametru Subskrypcja** w programie PowerShell.
+Żądania usługi Batch dotyczące zapytania z podzbiorem subskrypcji w ramach limitu subskrypcji 1000. Rozwiązanie korzysta z parametru **subskrypcji** w programie PowerShell.
 
 ```azurepowershell-interactive
 # Replace this query with your own
@@ -57,38 +57,38 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 $response
 ```
 
-### <a name="scenario-unsupported-content-type-rest-header"></a><a name="rest-contenttype"></a>Scenariusz: Nieobsługicony nagłówek REST typu zawartości
+### <a name="scenario-unsupported-content-type-rest-header"></a><a name="rest-contenttype"></a>Scenariusz: nieobsługiwany nagłówek REST typu Content-Type
 
 #### <a name="issue"></a>Problem
 
-Klienci, którzy pytają o interfejs API REST programu Azure Resource Graph, otrzymują zwróconą odpowiedź _500_ (wewnętrzny błąd serwera).
+Klienci wysyłający zapytanie do interfejsu API REST usługi Azure Resource Graph otrzymują odpowiedź _500_ (błąd wewnętrzny serwera).
 
 #### <a name="cause"></a>Przyczyna
 
-Interfejs API REST programu Azure `Content-Type` Resource Graph obsługuje tylko **aplikację/json**. Niektóre narzędzia REST lub agenci domyślnie **mają tekst/zwykły**, który nie jest obsługiwane przez interfejs API REST.
+Interfejs API REST usługi Azure Resource Graph obsługuje tylko `Content-Type` **aplikację/plik JSON**. Niektóre narzędzia lub agenci REST są domyślnie **tekstem/zwykłym**, co nie jest obsługiwane przez interfejs API REST.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Sprawdź, czy narzędzie lub agent używany do wykonywania zapytań o `Content-Type` usługę Azure Resource Graph ma skonfigurowany nagłówek interfejsu API REST dla **aplikacji/json**.
+Sprawdź, czy narzędzie lub Agent używany do wysyłania zapytań do grafu zasobów platformy Azure ma nagłówek `Content-Type` interfejsu API REST skonfigurowany dla **aplikacji/JSON**.
 
-### <a name="scenario-no-read-permission-to-all-subscriptions-in-list"></a><a name="rest-403"></a>Scenariusz: Brak uprawnień do odczytu wszystkich subskrypcji na liście
+### <a name="scenario-no-read-permission-to-all-subscriptions-in-list"></a><a name="rest-403"></a>Scenariusz: Brak uprawnień do odczytu do wszystkich subskrypcji na liście
 
 #### <a name="issue"></a>Problem
 
-Klienci, którzy jawnie przekazać listę subskrypcji z kwerendą programu Azure Resource Graph uzyskać _odpowiedź 403_ (zabronione).
+Klienci, którzy jawnie przekazują listę subskrypcji za pomocą zapytania grafu zasobów platformy Azure, uzyskują odpowiedź _403_ (dostęp zabroniony).
 
 #### <a name="cause"></a>Przyczyna
 
-Jeśli klient nie ma uprawnień do odczytu do wszystkich dostarczonych subskrypcji, żądanie jest odrzucane z powodu braku odpowiednich praw bezpieczeństwa.
+Jeśli klient nie ma uprawnienia do odczytu wszystkich podanych subskrypcji, żądanie zostanie odrzucone z powodu braku odpowiednich praw zabezpieczeń.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Dołącz co najmniej jedną subskrypcję na liście subskrypcji, do których klient uruchamia kwerendę ma co najmniej dostęp do odczytu. Aby uzyskać więcej informacji, zobacz [Uprawnienia w grafie zasobów platformy Azure](../overview.md#permissions-in-azure-resource-graph).
+Uwzględnij co najmniej jedną subskrypcję na liście subskrypcji, do której klient uruchamia kwerendę ma co najmniej dostęp do odczytu. Aby uzyskać więcej informacji, zobacz [uprawnienia na wykresie zasobów platformy Azure](../overview.md#permissions-in-azure-resource-graph).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie widzisz problemu lub nie możesz rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy technicznej:
+Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
 
 - Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [forów platformy Azure](https://azure.microsoft.com/support/forums/).
-- Połącz [@AzureSupport](https://twitter.com/azuresupport) się z — oficjalnym kontem platformy Microsoft Azure w celu poprawy jakości obsługi klienta, łącząc społeczność platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
-- Jeśli potrzebujesz więcej pomocy, możesz zgłosić zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc **techniczną**.
+- Connect with [@AzureSupport](https://twitter.com/azuresupport) — oficjalne konto Microsoft Azure, aby usprawnić obsługę klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+- Jeśli potrzebujesz więcej pomocy, możesz obsłużyć zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**.

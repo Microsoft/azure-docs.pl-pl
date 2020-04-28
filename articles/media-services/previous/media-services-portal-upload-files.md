@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 3ebeb3c601dd3f734265d49d60728056561928be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61127821"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Przekazywanie plików na konto usługi Media Services w witrynie Azure Portal 
@@ -26,21 +26,21 @@ ms.locfileid: "61127821"
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)
 > * [.NET](media-services-dotnet-upload-files.md)
-> * [Reszta](media-services-rest-upload-files.md)
+> * [REST](media-services-rest-upload-files.md)
 > 
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Sprawdź najnowszą wersję usługi [Media Services w wersji 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji z wersji 2 do v3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Za pomocą usługi Azure Media Services można przekazać pliki cyfrowe do elementu zawartości. Element zawartości może zawierać wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki transkrypcji (oraz metadane dla tych plików). Po przekazaniu plików zawartość jest bezpiecznie przechowywana w chmurze na potrzeby dalszego przetwarzania i przesyłania strumieniowego.
 
 W usłudze Media Services obowiązuje limit maksymalnego rozmiaru przetwarzanych plików. Aby uzyskać szczegółowe informacje na temat limitów rozmiarów plików, zobacz [Media Services quotas and limitations](media-services-quotas-and-limitations.md) (Limity przydziału i ograniczenia w usłudze Media Services).
 
-Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
+Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="upload-files"></a>Przekazywanie plików
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
-2. Wybierz **pozycję Zasoby ustawień** > **Assets**. Następnie wybierz przycisk **Przekaż**.
+2. Wybierz pozycję **Ustawienia** > **zasoby**. Następnie wybierz przycisk **Przekaż**.
    
     ![Przekazywanie plików](./media/media-services-portal-vod-get-started/media-services-upload.png)
    

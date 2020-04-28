@@ -1,6 +1,6 @@
 ---
-title: Wprowadzenie do magazynu obiektów blob przy użyciu programu Visual Studio (ASP.NET Core)
-description: Jak rozpocząć korzystanie z magazynu obiektów Blob platformy Azure w projekcie programu Visual Studio ASP.NET Core po utworzeniu konta magazynu przy użyciu usług połączonych z programem Visual Studio
+title: Wprowadzenie do usługi BLOB Storage przy użyciu programu Visual Studio (ASP.NET Core)
+description: Jak rozpocząć pracę z usługą Azure Blob Storage w projekcie programu Visual Studio ASP.NET Core po utworzeniu konta magazynu przy użyciu usług połączonych programu Visual Studio
 services: storage
 author: ghogen
 manager: jillfra
@@ -14,29 +14,29 @@ ms.date: 11/14/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 81df41470c893f569fd17345e8bdf4b29641ec64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72298833"
 ---
-# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Wprowadzenie do usługi Azure Blob Storage i usług połączonych z programem Visual Studio (ASP.NET Core)
+# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Rozpoczynanie pracy z usługą Azure Blob Storage i usługami połączonymi programu Visual Studio (ASP.NET Core)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-W tym artykule opisano, jak rozpocząć korzystanie z magazynu obiektów Blob platformy Azure w programie Visual Studio po utworzeniu konta magazynu platformy Azure lub odwoływaniu się do niego w projekcie ASP.NET Core przy użyciu funkcji **Połączonych usług** programu Visual Studio. **Operacja Połączone usługi** instaluje odpowiednie pakiety NuGet, aby uzyskać dostęp do magazynu platformy Azure w projekcie i dodaje parametry połączenia dla konta magazynu do plików konfiguracji projektu. (Zobacz [dokumentację magazynu, aby](https://azure.microsoft.com/documentation/services/storage/) uzyskać ogólne informacje na temat usługi Azure Storage).
+W tym artykule opisano, jak rozpocząć korzystanie z usługi Azure Blob Storage w programie Visual Studio po utworzeniu lub odwołaniu się do konta usługi Azure Storage w projekcie ASP.NET Core przy użyciu funkcji **usługi połączonej** programu Visual Studio. Operacja **połączone usługi** instaluje odpowiednie pakiety NuGet w celu uzyskania dostępu do usługi Azure Storage w projekcie i dodaje parametry połączenia dla konta magazynu do plików konfiguracji projektu. (Zobacz [dokumentację magazynu](https://azure.microsoft.com/documentation/services/storage/) , aby uzyskać ogólne informacje na temat usługi Azure Storage).
 
-Usługa Azure Blob storage to usługa do przechowywania dużych ilości nieustrukturyzowanych danych, do których można uzyskać dostęp z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS. Pojedynczy obiekt blob może mieć dowolny rozmiar. Obiekty BLOB mogą być takimi jak obrazy, pliki audio i wideo, nieprzetworzone dane i pliki dokumentów. W tym artykule opisano, jak rozpocząć pracę z magazynem obiektów blob po utworzeniu konta magazynu platformy Azure przy użyciu **usług połączonych** programu Visual Studio w projekcie ASP.NET Core.
+Azure Blob Storage to usługa służąca do przechowywania dużych ilości danych bez struktury, do których można uzyskiwać dostęp z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS. Pojedynczy obiekt BLOB może być dowolnym rozmiarem. Obiekty blob mogą być takie jak obrazy, pliki audio i wideo, dane pierwotne i pliki dokumentów. W tym artykule opisano sposób rozpoczynania pracy z usługą BLOB Storage po utworzeniu konta usługi Azure Storage przy użyciu **usług połączonych** programu Visual Studio w projekcie ASP.NET Core.
 
-Podobnie jak pliki w folderach, obiekty blob magazynu na żywo w kontenerach. Po utworzeniu obiektu blob, należy utworzyć jeden lub więcej kontenerów w tym obiekcie blob. Na przykład w obiekcie blob o nazwie "Notatnik" można utworzyć kontenery o nazwie "obrazy" do przechowywania obrazów i inny o nazwie "audio" do przechowywania plików audio. Po utworzeniu kontenerów można przekazać do nich poszczególne pliki. Zobacz [Szybki start: Przekazywanie, pobieranie i listy obiektów blob przy użyciu platformy .NET,](../storage/blobs/storage-quickstart-blobs-dotnet.md) aby uzyskać więcej informacji na temat programowo manipulowania obiektami blob.
+Równie jak pliki aktywne w folderach, Magazyn obiektów BLOB na żywo w kontenerach. Po utworzeniu obiektu BLOB utworzysz jeden lub więcej kontenerów w tym obiekcie blob. Na przykład w obiekcie blob o nazwie "album" można utworzyć kontenery o nazwie "images" do przechowywania obrazów i inne o nazwie "audio" do przechowywania plików audio. Po utworzeniu kontenerów można przekazać do nich poszczególne pliki. Zobacz [Szybki Start: przekazywanie, pobieranie i wyświetlanie listy obiektów BLOB przy użyciu platformy .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) , aby uzyskać więcej informacji na temat programistycznego manipulowania obiektami BLOB.
 
-Niektóre interfejsy API usługi Azure Storage są asynchroniczne, a kod w tym artykule zakłada, że używane są metody asynchroniczne. Aby uzyskać więcej informacji, zobacz [programowanie asynchroniczne.](https://docs.microsoft.com/dotnet/csharp/async)
+Niektóre interfejsy API usługi Azure Storage są asynchroniczne, a w kodzie w tym artykule przyjęto, że metody asynchroniczne są używane. Aby uzyskać więcej informacji, zobacz [programowanie asynchroniczne](https://docs.microsoft.com/dotnet/csharp/async) .
 
-## <a name="access-blob-containers-in-code"></a>Dostęp do kontenerów obiektów blob w kodzie
+## <a name="access-blob-containers-in-code"></a>Dostęp do kontenerów obiektów BLOB w kodzie
 
-Aby programowo uzyskiwać dostęp do obiektów blob w projektach ASP.NET Core, należy dodać następujący kod, jeśli nie jest jeszcze obecny:
+Aby programowo uzyskać dostęp do obiektów BLOB w projektach ASP.NET Core, należy dodać następujący kod, jeśli jeszcze nie istnieje:
 
-1. Dodaj niezbędne `using` instrukcje:
+1. Dodaj wymagane `using` instrukcje:
 
     ```cs
     using Microsoft.Extensions.Configuration;
@@ -46,7 +46,7 @@ Aby programowo uzyskiwać dostęp do obiektów blob w projektach ASP.NET Core, n
     using LogLevel = Microsoft.Extensions.Logging.LogLevel;
     ```
 
-1. Pobierz `CloudStorageAccount` obiekt, który reprezentuje informacje o koncie magazynu. Użyj następującego kodu, aby uzyskać parametry połączenia magazynu i informacje o koncie magazynu z konfiguracji usługi platformy Azure:
+1. Pobierz `CloudStorageAccount` obiekt reprezentujący informacje o koncie magazynu. Użyj poniższego kodu, aby uzyskać parametry połączenia magazynu i informacje o koncie magazynu z konfiguracji usługi platformy Azure:
 
     ```cs
      CloudStorageAccount storageAccount = new CloudStorageAccount(
@@ -55,7 +55,7 @@ Aby programowo uzyskiwać dostęp do obiektów blob w projektach ASP.NET Core, n
         "<access-key>"), true);
     ```
 
-1. Użyj `CloudBlobClient` obiektu, aby `CloudBlobContainer` uzyskać odwołanie do istniejącego kontenera na koncie magazynu:
+1. Użyj `CloudBlobClient` obiektu, aby pobrać `CloudBlobContainer` odwołanie do istniejącego kontenera na koncie magazynu:
 
     ```cs
     // Create a blob client.
@@ -67,7 +67,7 @@ Aby programowo uzyskiwać dostęp do obiektów blob w projektach ASP.NET Core, n
 
 ## <a name="create-a-container-in-code"></a>Tworzenie kontenera w kodzie
 
-Można również użyć `CloudBlobClient` do utworzenia kontenera na `CreateIfNotExistsAsync`koncie magazynu, dzwoniąc:
+Możesz również użyć, `CloudBlobClient` aby utworzyć kontener na koncie magazynu, wywołując: `CreateIfNotExistsAsync`
 
 ```cs
 // Create a blob client.
@@ -80,7 +80,7 @@ CloudBlobContainer container = blobClient.GetContainerReference("my-new-containe
 await container.CreateIfNotExistsAsync();
 ```
 
-Aby udostępnić pliki w kontenerze wszystkim, ustaw kontener jako publiczny:
+Aby pliki w kontenerze były dostępne dla wszystkich, ustaw kontener jako publiczny:
 
 ```cs
 await container.SetPermissionsAsync(new BlobContainerPermissions
@@ -91,7 +91,7 @@ await container.SetPermissionsAsync(new BlobContainerPermissions
 
 ## <a name="upload-a-blob-into-a-container"></a>Przekazywanie obiektu blob do kontenera
 
-Aby przekazać plik obiektu blob do kontenera, uzyskać odwołanie do kontenera i użyć go, aby uzyskać odwołanie do obiektu blob. Następnie przekaż dowolny strumień danych do `UploadFromStreamAsync` tego odwołania, wywołując metodę. Ta operacja tworzy obiekt blob, jeśli jeszcze go nie ma i zastępuje istniejący obiekt blob. 
+Aby przekazać plik obiektu BLOB do kontenera, Pobierz odwołanie do kontenera i użyj go, aby uzyskać odwołanie do obiektu BLOB. Następnie Przekaż dowolny strumień danych do tego odwołania, wywołując `UploadFromStreamAsync` metodę. Ta operacja tworzy obiekt BLOB, jeśli jeszcze nie istnieje, i zastępuje istniejący obiekt BLOB. 
 
 ```cs
 // Get a reference to a blob named "myblob".
@@ -107,7 +107,7 @@ using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
 
 ## <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
 
-Aby wyświetlić listę obiektów blob w kontenerze, `ListBlobsSegmentedAsync` najpierw uzyskać odwołanie do kontenera, a następnie wywołać jego metodę, aby pobrać obiekty blobs i/lub katalogi w nim. Aby uzyskać dostęp do bogatego zestawu `IListBlobItem`właściwości i metod `CloudBlockBlob` `CloudPageBlob`zwracanego `CloudBlobDirectory` , rzutuj go na , , lub obiekt. Jeśli nie znasz typu obiektu blob, użyj sprawdzania typu, aby określić, do którego rzutowania ma być rzutowanie.
+Aby wyświetlić listę obiektów BLOB w kontenerze, najpierw Uzyskaj odwołanie do kontenera, a następnie `ListBlobsSegmentedAsync` Wywołaj metodę, aby pobrać obiekty blob i/lub znajdujące się w niej katalogi. Aby uzyskać `IListBlobItem`dostęp do bogatego zestawu właściwości i metod dla zwracanego elementu, przerzutowanie go na obiekt `CloudBlockBlob`, `CloudPageBlob`lub. `CloudBlobDirectory` Jeśli nie znasz typu obiektu BLOB, użyj sprawdzenia typu, aby określić, które z nich rzutować.
 
 ```cs
 BlobContinuationToken token = null;
@@ -141,11 +141,11 @@ do
 } while (token != null);
 ```
 
-Zobacz [Szybki start: Przekazywanie, pobieranie i listy obiektów blob przy użyciu platformy .NET,](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) aby uzyskać inne sposoby wyświetlania listy zawartości kontenera obiektów blob.
+Zobacz [Szybki Start: przekazywanie, pobieranie i wyświetlanie listy obiektów BLOB przy użyciu platformy .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) , aby poznać inne sposoby wyświetlania zawartości kontenera obiektów BLOB.
 
 ## <a name="download-a-blob"></a>Pobieranie obiektu blob
 
-Aby pobrać obiekt blob, najpierw uzyskać odwołanie do `DownloadToStreamAsync` obiektu blob, a następnie wywołać metodę. W poniższym przykładzie `DownloadToStreamAsync` użyto metody do przeniesienia zawartości obiektu blob do obiektu strumienia, który można następnie zapisać jako plik lokalny.
+Aby pobrać obiekt BLOB, należy najpierw pobrać odwołanie do obiektu BLOB, a następnie wywołać `DownloadToStreamAsync` metodę. W poniższym przykładzie zastosowano `DownloadToStreamAsync` metodę transferu zawartości obiektu BLOB do obiektu strumienia, który można następnie zapisać jako plik lokalny.
 
 ```cs
 // Get a reference to a blob named "photo1.jpg".
@@ -158,11 +158,11 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Zobacz [Szybki start: Przekazywanie, pobieranie i listy obiektów blob przy użyciu platformy .NET,](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) aby uzyskać inne sposoby zapisywania obiektów blob jako plików.
+Zobacz [Szybki Start: przekazywanie, pobieranie i wyświetlanie listy obiektów BLOB przy użyciu platformy .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) , aby uzyskać inne sposoby zapisywania obiektów BLOB jako plików.
 
 ## <a name="delete-a-blob"></a>Usuwanie obiektu blob
 
-Aby usunąć obiekt blob, najpierw uzyskać odwołanie do `DeleteAsync` obiektu blob, a następnie wywołać metodę:
+Aby usunąć obiekt BLOB, należy najpierw pobrać odwołanie do obiektu BLOB, a następnie wywołać `DeleteAsync` metodę:
 
 ```cs
 // Get a reference to a blob named "myblob.txt".

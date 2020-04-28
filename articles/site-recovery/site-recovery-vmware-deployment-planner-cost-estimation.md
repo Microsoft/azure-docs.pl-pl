@@ -1,6 +1,6 @@
 ---
-title: Przejrzyj szacunki kosztów w planście wdrażania usługi Azure Site Recovery
-description: W tym artykule opisano sposób przeglądania szacunków kosztów w usłudze Azure Site Recovery Deployment Planner dla odzyskiwania po awarii VMware.
+title: Zapoznaj się z oszacowaniami kosztów w Planista wdrażania usługi Azure Site Recovery
+description: W tym artykule opisano sposób przeglądania szacunków kosztów w Planista wdrażania usługi Azure Site Recovery na potrzeby odzyskiwania po awarii oprogramowania VMware.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
 ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73953341"
 ---
-# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Przeglądanie szacunków kosztów w planście wdrażania VMware 
+# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Przejrzyj oszacowania kosztów w Planista wdrażania VMware 
 
 Raport planisty wdrożenia zawiera podsumowanie szacowania kosztów w arkuszach [Zalecenia](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) i szczegółową analizę kosztów w arkuszu szacowania kosztów. Szczegółowa analiza kosztów jest przygotowywana dla poszczególnych maszyn wirtualnych. 
 
 >[!Note]
->Bieżąca wersja narzędzia planowania wdrażania w wersji 2.5 zapewnia szacowanie kosztów dla maszyn wirtualnych replikujących na dyski zarządzane.
+>Bieżąca wersja narzędzia planista wdrożenia v 2.5 zapewnia oszacowanie kosztów dla maszyn wirtualnych replikowanych do Managed Disks.
 
 ### <a name="cost-estimation-summary"></a>Podsumowanie szacowania kosztów 
 Na wykresie przedstawiono podsumowanie szacowanych łącznych kosztów odzyskiwania po awarii (DR) na platformie Azure w wybranym regionie docelowym w walucie określonej na potrzeby generowania raportu.
@@ -77,7 +77,7 @@ Wybierz odpowiednie ustawienia zgodnie z wymaganiami.
 
 **VPN Gateway**: wybierz bramę VPN Gateway, jeśli istnieje w Twoim środowisku. Wartość domyślna to Nie dotyczy.
 
-**Region docelowy:** Określony region platformy Azure dla odzyskiwania po awarii. Cena użyta w raporcie na potrzeby obliczania, magazynu, sieci i licencji opiera się na cenniku platformy Azure dla tego regionu. 
+**Region docelowy**: określony region platformy Azure dla usługi Dr. Cena użyta w raporcie na potrzeby obliczania, magazynu, sieci i licencji opiera się na cenniku platformy Azure dla tego regionu. 
 
 ### <a name="vm-running-on-azure"></a>Maszyna wirtualna działająca na platformie Azure
 Jeśli na potrzeby odzyskiwania po awarii na platformie Azure działa maszyna wirtualna kontrolera domeny lub systemu DNS albo maszyna wirtualna programu SQL Server z zawsze włączonymi grupami dostępności, musisz podać liczbę i rozmiar maszyn wirtualnych w celu uwzględnienia ich kosztu obliczeń w łącznym koszcie odzyskiwania po awarii. 
@@ -101,7 +101,7 @@ Aby ręcznie dodać maszyny wirtualne:
 
 * Liczba maszyn wirtualnych, rozmiar IaaS (wybór)
 * Typ magazynu (Standardowa/Premium)
-* Całkowity rozmiar magazynu maszyny wirtualnej (GB) komputera źródłowego
+* Łączny rozmiar magazynu maszyny wirtualnej (GB)
 * Liczba operacji testowania odzyskiwania po awarii w roku 
 * Czas trwania każdej operacji testowania odzyskiwania po awarii (dni) 
 * Typ systemu operacyjnego
@@ -122,7 +122,7 @@ Aby ręcznie dodać maszyny wirtualne:
 
 **Typ magazynu**: typ magazynu używany przez maszynę wirtualną. Jest to magazyn w warstwie Standardowa lub Premium.
 
-**Całkowity rozmiar magazynu maszyny Wirtualnej (GB)**: Całkowita ilość miejsca do magazynowania źródłowej maszyny Wirtualnej.
+**Łączny rozmiar magazynu maszyny wirtualnej (GB)**: łączny magazyn ŹRÓDŁOWEJ maszyny wirtualnej.
 
 **Liczba operacji testowania odzyskiwania po awarii w roku**: liczba wykonań testowania odzyskiwania po awarii w ciągu roku. Wartość domyślna to 4 razy w roku. Można zmodyfikować okres dla wybranych maszyn wirtualnych lub zastosować nową wartość do wszystkich maszyn wirtualnych, wprowadzając nową wartość w górnym wierszu i klikając przycisk „Zastosuj do wszystkich”. Liczba operacji testowania odzyskiwania po awarii w ciągu roku i czasu trwania poszczególnych okresów testowania odzyskiwania po awarii jest obliczany łączny koszt odzyskiwania po awarii.  
 

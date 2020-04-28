@@ -1,7 +1,7 @@
 ---
-title: Rozwiązywanie problemów z TLS/SSL (MSAL iOS/macOS) | Azure
+title: Rozwiązywanie problemów z protokołem TLS/SSL (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, co zrobić z różnymi problemami przy użyciu certyfikatów TLS/SSL z msal. Biblioteka Objective-C.
+description: Dowiedz się, co zrobić, aby poznać różne problemy przy użyciu protokołu TLS/SSL z MSAL. Biblioteka zamierzania języka C.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,36 +13,36 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: 1507231c3ab395319d5ce95ec06dbb592c324aa6
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80881081"
 ---
-# <a name="how-to-troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>Jak: Rozwiązywanie problemów z rozwiązaniami MSAL dla komputerów iOS TLS/SSL
+# <a name="how-to-troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>Instrukcje: Rozwiązywanie problemów z MSAL dla systemów iOS i macOS TLS/SSL
 
-Ten artykuł zawiera informacje ułatwiające rozwiązywanie problemów, które mogą wystąpić podczas korzystania z [biblioteki uwierzytelniania Firmy Microsoft (MSAL) dla systemu iOS i macOS](reference-v2-libraries.md)
+Ten artykuł zawiera informacje ułatwiające rozwiązywanie problemów, które mogą występować podczas korzystania z [biblioteki Microsoft Authentication Library (MSAL) dla systemów iOS i macOS](reference-v2-libraries.md)
 
 ## <a name="network-issues"></a>Problemy z siecią
 
-**Błąd -1200**: "Wystąpił błąd SSL i nie można nawiązać bezpiecznego połączenia z serwerem".
+**Błąd-1200**: "Wystąpił błąd SSL i nie można nawiązać bezpiecznego połączenia z serwerem".
 
-Ten błąd oznacza, że połączenie nie jest bezpieczne. Występuje, gdy certyfikat jest nieprawidłowy. Aby uzyskać więcej informacji, w tym serwer, `NSURLErrorFailingURLErrorKey` który `userInfo` nie sprawdza TLS, zapoznaj się ze słownikiem obiektu błędu.
+Ten błąd oznacza, że połączenie nie jest bezpieczne. Występuje, gdy certyfikat jest nieprawidłowy. Aby uzyskać więcej informacji, `NSURLErrorFailingURLErrorKey` w tym o tym, który serwer kończy sprawdzanie protokołu TLS, zapoznaj się z tematem w `userInfo` słowniku obiektu Error.
 
-Ten błąd pochodzi z biblioteki sieciowej firmy Apple. Pełna lista kodów błędów NSURL znajduje się w NSURLError.h w systemach SDK macOS i iOS. Aby uzyskać więcej informacji na temat tego błędu, zobacz [Kody błędów systemu ładowania adresów URL](https://developer.apple.com/documentation/foundation/1508628-url_loading_system_error_codes?language=objc).
+Ten błąd pochodzi z biblioteki sieciowej firmy Apple. Pełna lista kodów błędów NSURL znajduje się w NSURLError. h w zestawach SDK macOS i iOS. Aby uzyskać więcej informacji na temat tego błędu, zobacz temat [ładowanie kodów błędów systemu adresów URL](https://developer.apple.com/documentation/foundation/1508628-url_loading_system_error_codes?language=objc).
 
 ## <a name="certificate-issues"></a>Problemy z certyfikatami
 
-Jeśli adres URL zawierający nieprawidłowy certyfikat łączy się z serwerem, który ma być używany w ramach przepływu uwierzytelniania, dobrym początkiem diagnozowania problemu jest przetestowanie adresu URL za pomocą usługi sprawdzania poprawności SSL, takiej jak [test serwera SSL](https://www.ssllabs.com/ssltest/analyze.html). Testuje serwer pod kątem szerokiej gamy scenariuszy i przeglądarek oraz sprawdza, czy nie ma wielu znanych luk w zabezpieczeniach.
+Jeśli adres URL podający nieprawidłowy certyfikat nawiązuje połączenie z serwerem, który ma być używany w ramach przepływu uwierzytelniania, dobrym sposobem na zdiagnozowanie problemu jest przetestowanie adresu URL za pomocą usługi weryfikacji SSL, takiej jak [test serwera SSL](https://www.ssllabs.com/ssltest/analyze.html). Testuje serwer dla szerokiej gamy scenariuszy i przeglądarek i sprawdza wiele znanych luk w zabezpieczeniach.
 
-Domyślnie nowa funkcja usługi Apple [App Transport Security (ATS)](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) stosuje bardziej rygorystyczne zasady zabezpieczeń do aplikacji korzystających z certyfikatów TLS/SSL. Niektóre systemy operacyjne i przeglądarki internetowe zaczęły domyślnie wymuszać niektóre z tych zasad. Ze względów bezpieczeństwa zalecamy, aby nie wyłączać ats.
+Domyślnie funkcja [Security transport (ATS)](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) firmy Apple obejmuje bardziej rygorystyczne zasady zabezpieczeń dla aplikacji korzystających z certyfikatów TLS/SSL. Niektóre systemy operacyjne i przeglądarki sieci Web zaczęły domyślnie wymuszać niektóre z tych zasad. Ze względów bezpieczeństwa zalecamy wyłączenie usługi ATS.
 
-Certyfikaty korzystające z skrótów SHA-1 mają znane luki w zabezpieczeniach. Większość nowoczesnych przeglądarek internetowych nie zezwala na certyfikaty z skrótami SHA-1.
+Certyfikaty używające skrótów SHA-1 mają znane luki w zabezpieczeniach. Większość nowoczesnych przeglądarek sieci Web nie zezwala na certyfikaty z użyciem skrótów SHA-1.
 
-## <a name="captive-portals"></a>Portale zniewolonych
+## <a name="captive-portals"></a>Portale wewnętrzne
 
-Portal zniewolony przedstawia użytkownikowi stronę internetową, gdy po raz pierwszy uzyskuje dostęp do sieci Wi-Fi i nie uzyskał jeszcze dostępu do tej sieci. Przechwytuje ich ruch internetowy, dopóki użytkownik nie spełnia wymagań portalu. Błędy sieciowe, ponieważ użytkownik nie może połączyć się z zasobami sieciowymi, są oczekiwane, dopóki użytkownik nie połączy się za pośrednictwem portalu.
+Portal internetowy przedstawia użytkownikowi stronę internetową, gdy najpierw uzyskują dostęp do sieci Wi-Fi i nie udzielono jeszcze dostępu do tej sieci. Przechwytuje on ruch internetowy, dopóki użytkownik nie spełni wymagań portalu. Błędy sieci, ponieważ użytkownik nie może nawiązać połączenia z zasobami sieciowymi, dopóki użytkownik nie nawiąże połączenia z portalem.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [portalach zniewolonych](https://en.wikipedia.org/wiki/Captive_portal) i nowej funkcji [bezpieczeństwa transportu aplikacji (ATS)](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) firmy Apple.
+Dowiedz się więcej o [portalach](https://en.wikipedia.org/wiki/Captive_portal) międzyfirmowych i funkcji [Security transport (ATS)](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) firmy Apple.

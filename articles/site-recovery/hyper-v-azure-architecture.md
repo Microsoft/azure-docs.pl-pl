@@ -1,6 +1,6 @@
 ---
-title: Architektura odzyskiwania po awarii funkcji Hyper-V w usłudze Azure Site Recovery
-description: Ten artykuł zawiera omówienie składników i architektury używane podczas wdrażania odzyskiwania po awarii dla lokalnych maszyn wirtualnych funkcji Hyper-V (bez programu VMM) na platformie Azure za pomocą usługi Azure Site Recovery.
+title: Architektura odzyskiwania po awarii funkcji Hyper-V w Azure Site Recovery
+description: Ten artykuł zawiera omówienie składników i architektury używanych podczas wdrażania odzyskiwania po awarii dla lokalnych maszyn wirtualnych funkcji Hyper-V (bez programu VMM) na platformie Azure przy użyciu usługi Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 022d6edad1e907173dfde3481e60d2523be087a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74082665"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii z funkcji Hyper-V do platformy Azure
 
 
-W tym artykule opisano architekturę i procesy używane podczas replikowania, pracy awaryjnej i odzyskiwania maszyn wirtualnych funkcji Hyper-V między lokalnymi hostami funkcji Hyper-V a platformą Azure przy użyciu usługi [Azure Site Recovery.](site-recovery-overview.md)
+W tym artykule opisano architekturę i procesy używane podczas replikowania, przełączania awaryjnego i odzyskiwania maszyn wirtualnych funkcji Hyper-V między lokalnymi hostami funkcji Hyper-V i platformą Azure przy użyciu usługi [Azure Site Recovery](site-recovery-overview.md) .
 
-Hosty funkcji Hyper-V można opcjonalnie zarządzać w chmurach prywatnych Menedżera maszyn wirtualnych (System Center Virtual Machine Manager).
+Hosty funkcji Hyper-V można opcjonalnie zarządzać w chmurach prywatnych System Center Virtual Machine Manager (VMM).
 
 
 
-## <a name="architectural-components---hyper-v-without-vmm"></a>Komponenty architektoniczne - Hyper-V bez programu VMM
+## <a name="architectural-components---hyper-v-without-vmm"></a>Składniki architektury — funkcja Hyper-V bez programu VMM
 
-Poniższa tabela i grafika zapewniają widok wysokiego poziomu składników używanych do replikacji funkcji Hyper-V na platformie Azure, gdy hosty funkcji Hyper-V nie są zarządzane przez program VMM.
+W poniższej tabeli i grafice przedstawiono ogólny widok składników służących do replikacji funkcji Hyper-V do platformy Azure, gdy hosty funkcji Hyper-V nie są zarządzane przez program VMM.
 
 **Składnik** | **Wymaganie** | **Szczegóły**
 --- | --- | ---
-**Azure** | Subskrypcja platformy Azure, konto magazynu platformy Azure i sieć platformy Azure. | Replikowane dane z lokalnych obciążeń maszyn wirtualnych są przechowywane na koncie magazynu. Maszyny wirtualne platformy Azure są tworzone przy obliczu replikowanych danych obciążenia po wykonaniu pracy awaryjnej z witryny lokalnej.<br/><br/> Maszyny wirtualne platformy Azure nawiązują połączenie z siecią wirtualną platformy Azure, gdy są tworzone.
-**Funkcja Hyper-V** | Podczas wdrażania usługi Site Recovery można zbierać hosty funkcji Hyper-V i klastry do lokacji funkcji Hyper-V. Dostawca odzyskiwania witryny platformy Azure i agent usług odzyskiwania usługi na każdym autonomicznym hoście funkcji Hyper-V lub w każdym węźle klastra funkcji Hyper-V. | Dostawca koordynuje replikację za pomocą usługi Site Recovery przez Internet. Agent usługi Recovery Services obsługuje replikację danych.<br/><br/> Komunikacja zarówno ze strony dostawcy, jak i agenta, jest bezpieczna i szyfrowana. Zreplikowane dane w usłudze Azure Storage również są szyfrowane.
-**Maszyny wirtualne funkcji Hyper-V** | Co najmniej jedna maszyna wirtualna uruchomiona w funkcji Hyper-V. | Nic nie musi być jawnie zainstalowane na maszynach wirtualnych.
+**Azure** | Subskrypcja platformy Azure, konto usługi Azure Storage i sieć platformy Azure. | Zreplikowane dane z obciążeń lokalnych maszyn wirtualnych są przechowywane na koncie magazynu. Maszyny wirtualne platformy Azure są tworzone przy użyciu replikowanych danych obciążenia, gdy wystąpi tryb failover z lokacji lokalnej.<br/><br/> Maszyny wirtualne platformy Azure nawiązują połączenie z siecią wirtualną platformy Azure, gdy są tworzone.
+**Funkcja Hyper-V** | Podczas wdrażania Site Recovery należy zebrać hosty i klastry funkcji Hyper-V do lokacji funkcji Hyper-V. Na każdym autonomicznym hoście funkcji Hyper-V lub na każdym węźle klastra funkcji Hyper-V należy zainstalować dostawcę Azure Site Recovery i agenta Recovery Services. | Dostawca koordynuje replikację za pomocą usługi Site Recovery przez Internet. Agent usługi Recovery Services obsługuje replikację danych.<br/><br/> Komunikacja zarówno ze strony dostawcy, jak i agenta, jest bezpieczna i szyfrowana. Zreplikowane dane w usłudze Azure Storage również są szyfrowane.
+**Maszyny wirtualne funkcji Hyper-V** | Co najmniej jedna maszyna wirtualna działająca w funkcji Hyper-V. | Niczego nie trzeba jawnie instalować na maszynach wirtualnych.
 
 
 **Architektura funkcji Hyper-V do platformy Azure (bez programu VMM)**
@@ -39,17 +39,17 @@ Poniższa tabela i grafika zapewniają widok wysokiego poziomu składników uży
 ![Architektura](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
-## <a name="architectural-components---hyper-v-with-vmm"></a>Komponenty architektoniczne - Hyper-V z programem VMM
+## <a name="architectural-components---hyper-v-with-vmm"></a>Składniki architektury — funkcja Hyper-V z programem VMM
 
-Poniższa tabela i grafika zapewniają widok wysokiego poziomu składników używanych do replikacji funkcji Hyper-V na platformie Azure, gdy hosty funkcji Hyper-V są zarządzane w chmurach programu VMM.
+W poniższej tabeli i grafice przedstawiono ogólny widok składników służących do replikacji funkcji Hyper-V do platformy Azure, gdy hosty funkcji Hyper-V są zarządzane w chmurach programu VMM.
 
 **Składnik** | **Wymaganie** | **Szczegóły**
 --- | --- | ---
-**Azure** | Subskrypcja platformy Azure, konto magazynu platformy Azure i sieć platformy Azure. | Replikowane dane z lokalnych obciążeń maszyn wirtualnych są przechowywane na koncie magazynu. Maszyny wirtualne platformy Azure są tworzone przy obliczu replikowanych danych po wykonaniu pracy awaryjnej z lokacji lokalnej.<br/><br/> Maszyny wirtualne platformy Azure nawiązują połączenie z siecią wirtualną platformy Azure, gdy są tworzone.
-**Serwer VMM** | Serwer VMM ma co najmniej jedną chmurę zawierającą hosty funkcji Hyper-V. | Należy zainstalować dostawcę odzyskiwania lokacji na serwerze programu VMM, aby zorganizować replikację za pomocą usługi Site Recovery i zarejestrować serwer w magazynie usług odzyskiwania.
-**Host funkcji Hyper-V** | Co najmniej jeden host/klaster funkcji Hyper-V zarządzany przez program VMM. |  Agent usług odzyskiwania jest instalowyny na każdym hoście funkcji Hyper-V lub w węźle klastra.
+**Azure** | Subskrypcja platformy Azure, konto usługi Azure Storage i sieć platformy Azure. | Zreplikowane dane z obciążeń lokalnych maszyn wirtualnych są przechowywane na koncie magazynu. Maszyny wirtualne platformy Azure są tworzone przy użyciu replikowanych danych, gdy wystąpi przejście w tryb failover z lokacji lokalnej.<br/><br/> Maszyny wirtualne platformy Azure nawiązują połączenie z siecią wirtualną platformy Azure, gdy są tworzone.
+**Serwer VMM** | Serwer VMM ma co najmniej jedną chmurę zawierającą hosty funkcji Hyper-V. | Należy zainstalować dostawcę Site Recovery na serwerze programu VMM, aby zorganizować replikację z Site Recovery i zarejestrować serwer w magazynie Recovery Services.
+**Host funkcji Hyper-V** | Co najmniej jeden host/klaster funkcji Hyper-V zarządzany przez program VMM. |  Agenta Recovery Services należy zainstalować na każdym hoście funkcji Hyper-V lub w węźle klastra.
 **Maszyny wirtualne funkcji Hyper-V** | Co najmniej jedna maszyna wirtualna uruchomiona na serwerze hosta funkcji Hyper-V. | Niczego nie trzeba jawnie instalować na maszynach wirtualnych.
-**Obsługa sieci** | Sieci logiczne i maszyn wirtualnych skonfigurowane na serwerze VMM. Sieć maszyn wirtualnych powinna być połączona z siecią logiczną skojarzoną z chmurą. | Sieci maszyn wirtualnych są mapowane do sieci wirtualnych platformy Azure. Gdy maszyny wirtualne platformy Azure są tworzone po przełączeniu w tryb failover, są one dodawane do sieci platformy Azure, która jest mapowana do sieci maszyn wirtualnych.
+**Networking** | Sieci logiczne i maszyn wirtualnych skonfigurowane na serwerze VMM. Sieć maszyn wirtualnych powinna być połączona z siecią logiczną skojarzoną z chmurą. | Sieci VMNETWORK są mapowane na sieci wirtualne platformy Azure. Gdy maszyny wirtualne platformy Azure są tworzone po przejściu w tryb failover, zostaną dodane do sieci platformy Azure zamapowanej do sieci maszyn wirtualnych.
 
 **Architektura funkcji Hyper-V do platformy Azure (z programem VMM)**
 
@@ -59,7 +59,7 @@ Poniższa tabela i grafika zapewniają widok wysokiego poziomu składników uży
 
 ## <a name="replication-process"></a>Proces replikacji
 
-![Replikacja funkcji Hyper-V na platformę Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
+![Replikacja funkcji Hyper-V do platformy Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
 
 **Proces replikacji i odzyskiwania**
 
@@ -69,80 +69,80 @@ Poniższa tabela i grafika zapewniają widok wysokiego poziomu składników uży
 1. Po włączeniu ochrony dla maszyny wirtualnej funkcji Hyper-V, w witrynie Azure Portal lub środowisku lokalnym, zostanie uruchomione zadanie **Włącz ochronę**.
 2. To zadanie sprawdza, czy maszyna spełnia wymagania wstępne, a następnie wywołuje metodę [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), aby skonfigurować replikację za pomocą określonych ustawień.
 3. Zadanie uruchamia replikację początkową, wywołując metodę [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), aby zainicjować pełną replikację maszyny wirtualnej i wysłać dyski wirtualne maszyny wirtualnej na platformę Azure.
-4. Zadanie można monitorować na karcie **Zadania.**      ![](media/hyper-v-azure-architecture/image1.png) Lista ![zadań Włącz dotowanie ochrony](media/hyper-v-azure-architecture/image2.png)
+4. Zadanie można monitorować na karcie **zadania** .      ![](media/hyper-v-azure-architecture/image1.png) Lista ![zadań Włącz przechodzenie do szczegółów](media/hyper-v-azure-architecture/image2.png)
 
 
-### <a name="initial-data-replication"></a>Replikacja danych początkowych
+### <a name="initial-data-replication"></a>Początkowa replikacja danych
 
-1. Po wyzwoleniu replikacji początkowej jest pobierana migawka [migawki maszyny Wirtualnej funkcji Funkcji Hyper V.](https://technet.microsoft.com/library/dd560637.aspx)
-2. Wirtualne dyski twarde na maszynie wirtualnej są replikowane jeden po drugim, dopóki nie zostaną skopiowane na platformę Azure. Może to trochę potrwać, w zależności od rozmiaru maszyny Wirtualnej i przepustowości sieci. [Dowiedz się, jak](https://support.microsoft.com/kb/3056159) zwiększyć przepustowość sieci.
-3. Jeśli zmiany dysku wystąpią podczas replikacji początkowej, moduł śledzenia replik repliki funkcji Hyper-V śledzi zmiany jako dzienniki replikacji funkcji Hyper-V (hrl). Te pliki dziennika znajdują się w tym samym folderze co dyski. Każdy dysk ma skojarzony plik hrl, który jest wysyłany do magazynu pomocniczego. Pliki migawki i dziennika zużywają zasoby dysku w trakcie replikacji początkowej.
+1. Gdy replikacja początkowa jest wyzwalana, wykonywana jest migawka [migawki maszyny wirtualnej funkcji Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) .
+2. Wirtualne dyski twarde w maszynie wirtualnej są replikowane pojedynczo, dopóki nie zostaną skopiowane na platformę Azure. Może to chwilę potrwać, w zależności od rozmiaru maszyny wirtualnej i przepustowości sieci. [Dowiedz się, jak](https://support.microsoft.com/kb/3056159) zwiększyć przepustowość sieci.
+3. Jeśli podczas początkowej replikacji wystąpią zmiany dysku, śledzenie replikacji funkcji Hyper-V Replica śledzi zmiany w postaci dzienników replikacji funkcji Hyper-V (. HRL). Te pliki dzienników znajdują się w tym samym folderze co dyski. Każdy dysk ma skojarzony plik. HRL, który jest wysyłany do magazynu pomocniczego. Pliki migawki i dziennika zużywają zasoby dysku w trakcie replikacji początkowej.
 4. Po zakończeniu replikacji początkowej migawka maszyny wirtualnej jest usuwana.
 5. Różnicowe zmiany dysku w dzienniku są synchronizowane i scalane z dyskiem nadrzędnym.
 
 
 ### <a name="finalize-protection-process"></a>Finalizowanie procesu ochrony
 
-1. Po zakończeniu replikacji początkowej zostanie **uruchamiana ochrona Finalize na maszynie wirtualnej.** Konfiguruje sieci i inne ustawienia po replikacji, tak aby maszyna wirtualna jest chroniona.
-2. Na tym etapie można sprawdzić ustawienia maszyny Wirtualnej, aby upewnić się, że jest gotowy do pracy awaryjnej. Można uruchomić wiertło odzyskiwania po awarii (test pracy awaryjnej) dla maszyny Wirtualnej, aby sprawdzić, czy przechodzi w stan failover zgodnie z oczekiwaniami. 
+1. Po zakończeniu replikacji początkowej zostanie uruchomione zadanie **finalizowanie ochrony na maszynie wirtualnej** . Konfiguruje sieć i inne ustawienia po replikacji, aby maszyna wirtualna była chroniona.
+2. Na tym etapie można sprawdzić ustawienia maszyny wirtualnej, aby upewnić się, że jest ono gotowe do pracy w trybie failover. Aby sprawdzić, czy maszyna wirtualna jest w trybie failover zgodnie z oczekiwaniami, można uruchomić polecenie drążenia odzyskiwania po awarii. 
 
 
 ## <a name="delta-replication"></a>Replikacja różnicowa
 
-1. Po replikacji początkowej replikacja delta rozpoczyna się zgodnie z zasadami replikacji.
-2. Moduł śledzenia replik repliki funkcji Hyper-V śledzi zmiany na wirtualnym dysku twardym jako pliki hrl. Z każdym dyskiem skonfigurowanym pod kątem replikacji jest skojarzony plik hrl.
-3. Dziennik jest wysyłany do konta magazynu klienta. Gdy dziennik jest przesyłany na platformę Azure, zmiany na dysku podstawowym są śledzone w innym pliku dziennika w tym samym folderze.
-4. Podczas replikacji początkowej i delta można monitorować maszynę wirtualną w witrynie Azure portal.
+1. Po replikacji początkowej rozpoczyna się replikacja różnicowa, zgodnie z zasadami replikacji.
+2. Śledzenie replikacji funkcji Hyper-V Replica śledzi zmiany w wirtualnym dysku twardym jako pliki. HRL. Z każdym dyskiem skonfigurowanym pod kątem replikacji jest skojarzony plik hrl.
+3. Dziennik jest wysyłany do konta magazynu klienta. Gdy dziennik jest przesyłany do platformy Azure, zmiany na dysku podstawowym są śledzone w innym pliku dziennika, w tym samym folderze.
+4. Podczas replikacji początkowej i różnicowej można monitorować maszynę wirtualną w Azure Portal.
 
-### <a name="resynchronization-process"></a>Proces ponownej synchronizowania
+### <a name="resynchronization-process"></a>Proces ponownej synchronizacji
 
 1. Jeśli replikacja różnicowa nie powiedzie się, a pełna replikacja byłaby kosztowna pod względem przepustowości lub czasu, maszyna wirtualna jest oznaczana do ponownej synchronizacji.
     - Jeśli na przykład pliki hrl będą zajmować 50% rozmiaru dysku, to maszyna wirtualna zostanie oznaczona do ponownej synchronizacji.
-    -  Domyślnie ponowna synchronizacja jest zaplanowana do automatycznego uruchamiania poza godzinami pracy biura.
+    -  Domyślnie ponowna synchronizacja jest zaplanowana do automatycznego uruchamiania poza godzinami pracy.
 1.  Ponowna synchronizacja wysyła tylko dane różnicowe.
-    - Minimalizuje ilość danych wysyłanych przez obliczanie sum kontrolnych źródłowych i docelowych maszyn wirtualnych.
-    - Używa algorytmu fragmentowania stałego bloku, w którym pliki źródłowe i docelowe są podzielone na stałe fragmenty.
-    - Sumy kontrolne dla każdego fragmentu są generowane. Są one porównywane w celu określenia, które bloki ze źródła muszą być stosowane do obiektu docelowego.
+    - Minimalizuje ilość danych wysyłanych przez Obliczanie sum kontrolnych źródłowej i docelowej maszyny wirtualnej.
+    - Używa algorytmu fragmentacji o stałym bloku, w którym pliki źródłowe i docelowe są podzielone na stałe fragmenty.
+    - Generowane są sumy kontrolne dla każdego fragmentu. Są one porównywane w celu określenia, które bloki ze źródła mają być stosowane do obiektu docelowego.
 2. Po ukończeniu ponownej synchronizacji replikacja różnicowa powinna zostać wznowiona.
-3. Jeśli nie chcesz czekać na domyślną ponowną synchronizację poza godzinami, możesz ponownie zsynchronizować maszynę wirtualną ręcznie. Na przykład, jeśli wystąpi awaria. Aby to zrobić, w witrynie Azure portal wybierz maszynę wirtualną > **Resynchronize**.
+3. Jeśli nie chcesz czekać na domyślną ponowną synchronizację poza godzinami, możesz ponownie zsynchronizować maszynę wirtualną ręcznie. Na przykład jeśli wystąpi awaria. W tym celu w Azure Portal wybierz maszynę wirtualną > ponownie **zsynchronizuj**.
 
     ![Ręczna ponowna synchronizacja](./media/hyper-v-azure-architecture/image4-site.png)
 
 
-### <a name="retry-process"></a>Ponów próbę procesu
+### <a name="retry-process"></a>Ponów próbę wykonania procesu
 
-Jeśli wystąpi błąd replikacji, może zostać użyty wbudowany mechanizm ponawiania. Ponów próbę jest klasyfikowany zgodnie z opisem w tabeli.
+Jeśli wystąpi błąd replikacji, może zostać użyty wbudowany mechanizm ponawiania. Ponowna próba została sklasyfikowana zgodnie z opisem w tabeli.
 
 **Kategoria** | **Szczegóły**
 --- | ---
-**Błąd nieodwracalny** | Nie jest podejmowana próba ponowienia. Maszyna wirtualna będzie mieć stan **Krytyczny** i będzie wymagana interwencja administratora.<br/><br/> Przykładami tych błędów są uszkodzony łańcuch wirtualnej rzeczywistości wirtualnej, nieprawidłowy stan repliki maszyny Wirtualnej, błędy uwierzytelniania sieciowego, błędy autoryzacji i błędy maszyny Wirtualnej (dla autonomicznych serwerów Hyper-V.
-**Błędy odwracalne** | Ponowne próby są wykonywane co interwał replikacji przy użyciu wycofywania wykładniczego zwiększającego interwał ponawiania prób od początku pierwszej próby o 1, 2, 4, 8 i 10 minut. Jeśli błąd będzie się powtarzać, ponowne próby będą wykonywane co 30 minut. Przykłady obejmują błędy sieciowe, błędy dysku o niskim poziomie i niski poziom pamięci.
+**Błąd nieodwracalny** | Nie jest podejmowana próba ponowienia. Maszyna wirtualna będzie mieć stan **Krytyczny** i będzie wymagana interwencja administratora.<br/><br/> Przykłady tych błędów obejmują przerwany łańcuch wirtualnego dysku twardego, nieprawidłowy stan maszyny wirtualnej repliki, błędy uwierzytelniania sieci, błędy autoryzacji i błędy maszyn wirtualnych (w przypadku autonomicznych serwerów funkcji Hyper-V).
+**Błędy odwracalne** | Ponowne próby są wykonywane co interwał replikacji przy użyciu wycofywania wykładniczego zwiększającego interwał ponawiania prób od początku pierwszej próby o 1, 2, 4, 8 i 10 minut. Jeśli błąd będzie się powtarzać, ponowne próby będą wykonywane co 30 minut. Przykładami mogą być błędy sieci, błędy niskiego dysku i Stany małej ilości pamięci.
 
 
 
 ## <a name="failover-and-failback-process"></a>Proces pracy w trybie failover i podczas powrotu po awarii
 
-1. Planowane lub nieplanowane przejście w tryb failover można uruchomić z maszyn wirtualnych funkcji Hyper-V do platformy Azure. Jeśli zostanie uruchomione planowane przejście w tryb failover, źródłowe maszyny wirtualne zostaną wyłączone w celu zapewnienia, że nie będzie miała miejsca utrata danych. Uruchom nieplanowaną przełączoną w błąd, jeśli witryna główna nie jest dostępna.
+1. Planowane lub nieplanowane przejście w tryb failover można uruchomić z maszyn wirtualnych funkcji Hyper-V do platformy Azure. Jeśli zostanie uruchomione planowane przejście w tryb failover, źródłowe maszyny wirtualne zostaną wyłączone w celu zapewnienia, że nie będzie miała miejsca utrata danych. Uruchom nieplanowaną pracę w trybie failover, Jeśli lokacja główna jest niedostępna.
 2. W tryb failover można przełączyć pojedynczą maszynę lub można utworzyć plany odzyskiwania, aby zaaranżować tryb failover na wielu maszynach.
-3. Uruchom przemiebienie awaryjne. Po zakończeniu pierwszego etapu pracy awaryjnej powinien być widoczny utworzone maszyny wirtualne repliki na platformie Azure. Jeśli jest to wymagane, do maszyny wirtualnej można przypisać publiczny adres IP.
-4. Następnie zatwierdzić pracy awaryjnej, aby rozpocząć dostęp do obciążenia z repliki maszyny Wirtualnej platformy Azure.
+3. Uruchamiasz tryb failover. Po zakończeniu pierwszego etapu pracy w trybie failover powinno być możliwe wyświetlenie utworzonych maszyn wirtualnych repliki na platformie Azure. Jeśli jest to wymagane, do maszyny wirtualnej można przypisać publiczny adres IP.
+4. Następnie możesz zatwierdzić tryb failover, aby rozpocząć uzyskiwanie dostępu do obciążenia z repliki maszyny wirtualnej platformy Azure.
 
-Po ponownym uruchomieniu infrastruktury lokalnej można wrócić do komputera. Powrót po awarii występuje w trzech etapach:
+Po ponownym uruchomieniu infrastruktury lokalnej można wrócić do trybu powrotu po awarii. Powrót po awarii występuje w trzech etapach:
 
-1. Rozpoczęcie planowanej pracy awaryjnej z platformy Azure do lokacji lokalnej:
-    - **Minimalizowanie przestojów:** Jeśli używasz tej opcji Usługa Site Recovery synchronizuje dane przed przełączeniem awaryjnym. Sprawdza, czy nie ma zmienionych bloków danych i pobiera je do lokacji lokalnej, podczas gdy maszyna wirtualna platformy Azure jest uruchomiona, minimalizując przestoje. Po ręcznym określeniu, że praca awaryjna powinna zakończyć się, maszyna wirtualna platformy Azure jest zamykana, wszelkie ostateczne zmiany delta są kopiowane i rozpoczyna się praca awaryjna.
-    - **Pełne pobieranie**: Dzięki tej opcji dane są synchronizowane podczas pracy awaryjnej. Ta opcja powoduje pobranie całego dysku. Jest szybszy, ponieważ nie są obliczane sumy kontrolne, ale jest więcej przestojów. Użyj tej opcji, jeśli używasz repliki maszyn wirtualnych platformy Azure od jakiegoś czasu lub jeśli lokalna maszyna wirtualna została usunięta.
-    - **Utwórz maszynę wirtualną:** Można wybrać, aby powiększyć powiększe z powrotem do tej samej maszyny wirtualnej lub do alternatywnej maszyny Wirtualnej. Można określić, że odzyskiwanie witryny należy utworzyć maszynę wirtualną, jeśli jeszcze nie istnieje.
+1. Rozpocznij pracę w trybie failover z platformy Azure do lokacji lokalnej:
+    - **Minimalizuj czas przestoju**: Jeśli używasz tej opcji, Site Recovery synchronizuje dane przed przełączeniem w tryb failover. Sprawdza on zmiany bloków danych i pobiera je do lokacji lokalnej, podczas gdy maszyna wirtualna platformy Azure działa, co minimalizuje przestoje. Gdy ręcznie określisz, że praca w trybie failover powinna zakończyć działanie, maszyna wirtualna platformy Azure zostanie wyłączona, zostaną skopiowane wszystkie końcowe zmiany różnicowe i rozpocznie się przełączanie do trybu failover.
+    - **Pełne pobieranie**: w przypadku tej opcji dane są synchronizowane podczas pracy w trybie failover. Ta opcja powoduje pobranie całego dysku. Jest to szybsze, ponieważ nie są obliczane sumy kontrolne, ale występuje więcej przestojów. Użyj tej opcji, jeśli korzystasz z maszyn wirtualnych platformy Azure z repliką przez jakiś czas lub jeśli lokalna maszyna wirtualna została usunięta.
+    - **Tworzenie maszyny wirtualnej**: możesz wybrać powrót po awarii do tej samej maszyny wirtualnej lub do alternatywnej maszyny wirtualnej. Możesz określić, że Site Recovery powinna utworzyć maszynę wirtualną, jeśli jeszcze nie istnieje.
 
-2. Po zakończeniu synchronizacji początkowej należy wybrać, aby zakończyć przebienie awaryjne. Po jej zakończeniu można zalogować się do lokalnej maszyny Wirtualnej, aby sprawdzić wszystko działa zgodnie z oczekiwaniami. W witrynie Azure portal, można zobaczyć, że maszyny wirtualne platformy Azure zostały zatrzymane.
-3.  Następnie należy zatwierdzić pracę awaryjną, aby zakończyć i rozpocząć dostęp do obciążenia z lokalnej maszyny Wirtualnej ponownie.
-4. Po zakończeniu pracy obciążeń po awarii, można włączyć replikację odwrotną, tak aby lokalne maszyny wirtualne replikować na platformie Azure ponownie.
+2. Po zakończeniu synchronizacji początkowej należy wybrać opcję ukończenia pracy w trybie failover. Po zakończeniu możesz zalogować się na lokalnej maszynie wirtualnej, aby sprawdzić, czy wszystko działa zgodnie z oczekiwaniami. W Azure Portal można zobaczyć, że maszyny wirtualne platformy Azure zostały zatrzymane.
+3.  Następnie należy zatwierdzić tryb failover, aby zakończyć pracę, i ponownie rozpocząć dostęp do obciążenia z lokalnej maszyny wirtualnej.
+4. Po niepomyślnym zakończeniu obciążeń należy włączyć replikację odwrotną, aby lokalne maszyny wirtualne zostały ponownie zreplikowane na platformę Azure.
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 
-Wykonaj [ten samouczek,](tutorial-prepare-azure.md) aby rozpocząć pracę z replikacją funkcji Hyper-V na platformę Azure.
+Postępuj zgodnie z [tym samouczkiem](tutorial-prepare-azure.md) , aby rozpocząć pracę z funkcją Hyper-V do replikacji platformy Azure.
 
 

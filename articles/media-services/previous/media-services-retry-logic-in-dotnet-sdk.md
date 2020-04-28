@@ -1,6 +1,6 @@
 ---
-title: Logika ponawiania próby w sdku usługi media dla platformy .NET | Dokumenty firmy Microsoft
-description: W tym temacie przedstawiono omówienie logiki ponawiania prób w zestawie SDK usług multimedialnych dla platformy .NET.
+title: Logika ponawiania w zestawie Media Services SDK dla platformy .NET | Microsoft Docs
+description: Temat zawiera omówienie logiki ponawiania w zestawie Media Services SDK dla platformy .NET.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,65 +15,65 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61094659"
 ---
-# <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Logika ponawiania próby w sdku usług multimedialnych dla platformy .NET  
+# <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Logika ponawiania w zestawie Media Services SDK dla platformy .NET  
 
-Podczas pracy z usługami Platformy Microsoft Azure mogą wystąpić błędy przejściowe. Jeśli wystąpi błąd przejściowy, w większości przypadków po kilku ponownych prób operacji zakończy się pomyślnie. Moduł SDK usługi media services dla platformy .NET implementuje logikę ponawiania próby w celu obsługi błędów przejściowych skojarzonych z wyjątkami i błędami, które są spowodowane przez żądania sieci web, wykonywanie zapytań, zapisywanie zmian i operacje magazynu.  Domyślnie zestaw SDK usług multimedialnych dla platformy .NET wykonuje cztery ponownych prób przed ponownym zgłoszeniem wyjątku do aplikacji. Kod w aplikacji musi następnie poprawnie obsługiwać ten wyjątek.  
+Podczas pracy z usługami Microsoft Azureymi mogą wystąpić błędy przejściowe. Jeśli wystąpi błąd przejściowy, w większości przypadków po kilku ponownych próbach operacja zakończy się pomyślnie. Zestaw Media Services SDK dla platformy .NET implementuje logikę ponawiania w celu obsługi błędów przejściowych związanych z wyjątkami i błędami, które są spowodowane żądaniami sieci Web, wykonywaniem zapytań, zapisywaniem zmian i operacjami magazynu.  Domyślnie zestaw Media Services SDK dla programu .NET wykonuje cztery ponowne próby przed ponownym przesłaniem wyjątku do aplikacji. Kod w aplikacji musi następnie prawidłowo obsłużyć ten wyjątek.  
 
- Poniżej przedstawiono krótkie wytyczne dotyczące zasad żądania sieci Web, magazynu, kwerendy i savechanges:  
+ Poniżej przedstawiono krótkie wytyczne dotyczące żądań sieci Web, magazynu, zapytań i zasad metody SaveChanges:  
 
-* Zasady magazynu są używane do operacji przechowywania obiektów blob (przekazywania lub pobierania plików zasobów).  
-* Zasady żądania sieci Web są używane dla ogólnych żądań sieci web (na przykład do uzyskiwania tokenu uwierzytelniania i rozpoznawania punktu końcowego klastra użytkowników).  
-* Zasady kwerendy są używane do wykonywania zapytań o jednostki z rest (na przykład mediaContext.Assets.Where")..  
-* Zasady SaveChanges służy do robienia wszystkiego, co zmienia dane w ramach usługi (na przykład tworzenie jednostki aktualizowanie jednostki, wywoływanie funkcji usługi dla operacji).  
+* Zasady magazynu są używane na potrzeby operacji usługi BLOB Storage (przekazywanie lub pobieranie plików zasobów).  
+* Zasady żądania sieci Web są używane w przypadku ogólnych żądań sieci Web (na przykład w celu uzyskania tokenu uwierzytelniania i rozpoznawania punktu końcowego klastra użytkowników).  
+* Zasady zapytania służą do wykonywania zapytań dotyczących jednostek z REST (na przykład mediaContext. assets. WHERE (...)).  
+* Zasady metody SaveChanges są używane do wykonywania wszystkich operacji, które zmieniają dane w ramach usługi (na przykład tworząc jednostkę aktualizującą jednostkę, wywołując funkcję usługi dla operacji).  
   
-  W tym temacie wymieniono typy wyjątków i kody błędów obsługiwane przez zestawie SDK usługi Media Services dla logiki ponawiania prób przez platformę .NET.  
+  W tym temacie wymieniono typy wyjątków i kody błędów, które są obsługiwane przez zestaw Media Services SDK dla logiki ponawiania prób programu .NET.  
 
 ## <a name="exception-types"></a>Typy wyjątków
-W poniższej tabeli opisano wyjątki, które SDK usługi Media Services dla .NET obsługuje lub nie obsługuje dla niektórych operacji, które mogą powodować błędy przejściowe.  
+W poniższej tabeli opisano wyjątki, które są obsługiwane przez zestaw Media Services SDK dla platformy .NET lub nie są obsługiwane w przypadku niektórych operacji, które mogą spowodować błędy przejściowe.  
 
-| Wyjątek | Żądanie sieci Web | Magazyn | Zapytanie | Savechanges |
+| Wyjątek | Żądanie sieci Web | Magazyn | Zapytanie | Metody SaveChanges |
 | --- | --- | --- | --- | --- |
-| Webexception<br/>Aby uzyskać więcej informacji, zobacz [sekcję Kody stanu WebException.](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) |Tak |Tak |Tak |Tak |
-| DataServiceClientException (Z wyjątkiem usługi danych)<br/> Aby uzyskać więcej informacji, zobacz [Kody stanu błędu HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nie |Tak |Tak |Tak |
-| DataServiceQueryException (Nieekceptiona usługi dataserviceexception)<br/> Aby uzyskać więcej informacji, zobacz [Kody stanu błędu HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nie |Tak |Tak |Tak |
-| DataServiceRequestException (Nieeksceptacja usługi dataservicerequestexception)<br/> Aby uzyskać więcej informacji, zobacz [Kody stanu błędu HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nie |Tak |Tak |Tak |
-| DataServiceTransportException (Nieekceptacja usługi danych) |Nie |Nie |Tak |Tak |
-| Timeoutexception |Tak |Tak |Tak |Nie |
-| Socketexception |Tak |Tak |Tak |Tak |
-| Wyjątkowe miejsce w pamięci magazynu |Nie |Tak |Nie |Nie |
-| Ioexception |Nie |Tak |Nie |Nie |
+| WebException<br/>Aby uzyskać więcej informacji, zobacz sekcję [kody stanu WebException](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) . |Tak |Tak |Tak |Tak |
+| DataServiceClientException<br/> Aby uzyskać więcej informacji, zobacz [kody stanu błędów HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nie |Tak |Tak |Tak |
+| DataServiceQueryException<br/> Aby uzyskać więcej informacji, zobacz [kody stanu błędów HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nie |Tak |Tak |Tak |
+| DataServiceRequestException<br/> Aby uzyskać więcej informacji, zobacz [kody stanu błędów HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nie |Tak |Tak |Tak |
+| DataServiceTransportException |Nie |Nie |Tak |Tak |
+| TimeoutException |Tak |Tak |Tak |Nie |
+| SocketException |Tak |Tak |Tak |Tak |
+| Storageexception |Nie |Tak |Nie |Nie |
+| IOException |Nie |Tak |Nie |Nie |
 
-### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a>Kody stanu WebException
-W poniższej tabeli przedstawiono, dla których kody błędów WebException logika ponawiania jest zaimplementowana. [Wyliczenie WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) definiuje kody stanu.  
+### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a>Kody stanu wyjątków WebException
+W poniższej tabeli przedstawiono kody błędów usługi WebException, których logika ponawiania jest zaimplementowana. Wyliczenie [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) definiuje kody stanu.  
 
-| Stan | Żądanie sieci Web | Magazyn | Zapytanie | Savechanges |
+| Stan | Żądanie sieci Web | Magazyn | Zapytanie | Metody SaveChanges |
 | --- | --- | --- | --- | --- |
-| ConnectFailure (Połączenie) |Tak |Tak |Tak |Tak |
-| NazwaResolutionFailure |Tak |Tak |Tak |Tak |
+| ConnectFailure |Tak |Tak |Tak |Tak |
+| NameResolutionFailure |Tak |Tak |Tak |Tak |
 | ProxyNameResolutionFailure |Tak |Tak |Tak |Tak |
-| SendFailure (Niebezpieczeństwo wyślij) |Tak |Tak |Tak |Tak |
-| Awaria rurociągu |Tak |Tak |Tak |Nie |
-| ConnectionClosed (Zamknięte połączenie) |Tak |Tak |Tak |Nie |
-| KeepAliveWłasna |Tak |Tak |Tak |Nie |
-| NieznanyError |Tak |Tak |Tak |Nie |
-| ReceiveFailure (Nieujmowie) |Tak |Tak |Tak |Nie |
-| RequestCanceled (Wyliczył) |Tak |Tak |Tak |Nie |
+| SendFailure |Tak |Tak |Tak |Tak |
+| PipelineFailure |Tak |Tak |Tak |Nie |
+| ConnectionClosed |Tak |Tak |Tak |Nie |
+| KeepAliveFailure |Tak |Tak |Tak |Nie |
+| UnknownError |Tak |Tak |Tak |Nie |
+| ReceiveFailure |Tak |Tak |Tak |Nie |
+| RequestCanceled |Tak |Tak |Tak |Nie |
 | Limit czasu |Tak |Tak |Tak |Nie |
-| ProtokółError <br/>Ponowna próby na ProtocolError jest kontrolowana przez obsługę kodu stanu HTTP. Aby uzyskać więcej informacji, zobacz [Kody stanu błędu HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Tak |Tak |Tak |Tak |
+| ProtocolError <br/>Ponowienie w ProtocolError jest kontrolowane przez obsługę kodu stanu HTTP. Aby uzyskać więcej informacji, zobacz [kody stanu błędów HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Tak |Tak |Tak |Tak |
 
-### <a name="http-error-status-codes"></a><a name="HTTPStatusCode"></a>Kody stanu błędów HTTP
-Gdy operacje query i SaveChanges zrzucają dataserviceclientexception, DataServiceQueryException lub DataServiceQueryException, kod stanu błędu HTTP jest zwracany we właściwości StatusCode.  W poniższej tabeli przedstawiono kody błędów, dla których implementowana jest logika ponawiania.  
+### <a name="http-error-status-codes"></a><a name="HTTPStatusCode"></a>Kody stanu błędu HTTP
+Gdy zapytania i metody SaveChanges operacji zwracają DataServiceClientException, DataServiceQueryException lub DataServiceQueryException, kod stanu błędu HTTP jest zwracany we właściwości StatusCode.  W poniższej tabeli przedstawiono, w których kodach błędów jest implementowana logika ponowień.  
 
-| Stan | Żądanie sieci Web | Magazyn | Zapytanie | Savechanges |
+| Stan | Żądanie sieci Web | Magazyn | Zapytanie | Metody SaveChanges |
 | --- | --- | --- | --- | --- |
 | 401 |Nie |Tak |Nie |Nie |
-| 403 |Nie |Tak<br/>Obsługa ponownych prób z dłuższym oczekiwaniem. |Nie |Nie |
+| 403 |Nie |Tak<br/>Obsługa ponawiania prób z dłuższymi czekami. |Nie |Nie |
 | 408 |Tak |Tak |Tak |Tak |
 | 429 |Tak |Tak |Tak |Tak |
 | 500 |Tak |Tak |Tak |Nie |
@@ -81,7 +81,7 @@ Gdy operacje query i SaveChanges zrzucają dataserviceclientexception, DataServi
 | 503 |Tak |Tak |Tak |Tak |
 | 504 |Tak |Tak |Tak |Nie |
 
-Jeśli chcesz przyjrzeć się rzeczywistej implementacji zestawu SDK usługi Media Services dla logiki ponawiania ponawiania .NET, zobacz [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
+Jeśli chcesz zapoznać się z rzeczywistą implementacją logiki usługi Media Services SDK dla platformy .NET, zobacz [Azure-SDK-for-Media-Services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
 
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
