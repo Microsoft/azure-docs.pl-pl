@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: wesmc
 ms.openlocfilehash: 498a7ee28b9404d0733e4615f4df635a8c904b51
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67183040"
 ---
-### <a name="cacheskuname"></a>nazwa pamięci podręcznejNA
+### <a name="cacheskuname"></a>cacheSKUName
 
-Warstwa cenowa nowej pamięci podręcznej Azure dla redis.
+Warstwa cenowa nowej pamięci podręcznej platformy Azure dla Redis.
 
 ```json
     "cacheSKUName": {
@@ -30,11 +30,11 @@ Warstwa cenowa nowej pamięci podręcznej Azure dla redis.
     },
 ```
 
-Szablon definiuje wartości, które są dozwolone dla tego parametru (Basic, Standard lub Premium) i przypisuje wartość domyślną (Podstawowa), jeśli nie określono żadnej wartości. Basic zapewnia jeden węzeł o wielu rozmiarach dostępnych do 53 GB. Standard zapewnia dwuwęzłową podstawową/replikę o wielu rozmiarach dostępnych do 53 GB i 99,9% umowy SLA.
+Szablon definiuje wartości, które są dozwolone dla tego parametru (podstawowa, standardowa lub Premium) i przypisuje wartość domyślną (podstawowa), jeśli nie określono żadnej wartości. Podstawowa oferuje pojedynczy węzeł z wieloma rozmiarami dostępnymi do 53 GB. Standard oferuje dwa węzły podstawowe/repliki o wielu rozmiarach dostępnych do 53 GB i 99,9% umowy SLA.
 
 ### <a name="cacheskufamily"></a>cacheSKUFamily
 
-Rodzina dla sku.
+Rodzina dla jednostki SKU.
 
 ```json
     "cacheSKUFamily": {
@@ -52,9 +52,9 @@ Rodzina dla sku.
 
 ### <a name="cacheskucapacity"></a>cacheSKUCapacity
 
-Rozmiar nowej pamięci podręcznej azure dla wystąpienia Redis.
+Rozmiar nowego wystąpienia usługi Azure cache for Redis.
 
-Dla rodzin podstawowych i standardowych:
+W przypadku rodzin podstawowych i standardowych:
 
 ```json
     "cacheSKUCapacity": {
@@ -75,18 +75,18 @@ Dla rodzin podstawowych i standardowych:
     }
 ```
 
-Pojemność pamięci podręcznej wartości premium jest zdefiniowana tak samo, z wyjątkiem dozwolonych wartości uruchamianych od 1 do 5 zamiast od 0 do 6.
+Pojemność pamięci podręcznej wartości Premium jest zdefiniowana tak samo, z tą różnicą, że dozwolone wartości są uruchamiane z przenoszącą od 1 do 5 zamiast od 0 do 6.
 
-Szablon definiuje wartości całkowite, które są dozwolone dla tego parametru (od 0 do 6 dla rodzin podstawowych i standardowych; od 1 do 5 dla rodziny Premium). Jeśli nie określono żadnej wartości, szablon przypisuje domyślną wartość 0 dla basic i standard, 1 dla premium.
+Szablon definiuje wartości całkowite dozwolone dla tego parametru (od 0 do 6 dla rodzin podstawowych i standardowych; od 1 do 5 dla rodziny Premium). Jeśli żadna wartość nie zostanie określona, szablon przypisze wartość domyślną 0 dla warstwy Podstawowa i standardowa, 1 dla warstwy Premium.
 
 Wartości odpowiadają następującym rozmiarom pamięci podręcznej:
 
-| Wartość | Podstawowe i standardowe<br>rozmiar pamięci podręcznej | Premium<br>rozmiar pamięci podręcznej |
+| Wartość | Basic i Standard<br>rozmiar pamięci podręcznej | Premium<br>rozmiar pamięci podręcznej |
 | :---: | :------------------------------: | :-------------------: |
-| 0     | 250 MB (domyślnie)                 | Nie dotyczy                   |
-| 1     | 1 GB                             | 6 GB (domyślnie)        |
+| 0     | 250 MB (wartość domyślna)                 | n/d                   |
+| 1     | 1 GB                             | 6 GB (wartość domyślna)        |
 | 2     | 2,5 GB                           | 13 GB                 |
 | 3     | 6 GB                             | 26 GB                 |
 | 4     | 13 GB                            | 53 GB                 |
 | 5     | 26 GB                            | 120 GB                |
-| 6     | 53 GB                            | Nie dotyczy                   |
+| 6     | 53 GB                            | n/d                   |

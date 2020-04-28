@@ -1,6 +1,6 @@
 ---
-title: Wprowadzenie do magazynu kolejek przy użyciu programu Visual Studio (projekty webjob)
-description: Jak rozpocząć korzystanie z magazynu kolejki platformy Azure w projekcie WebJob po nawiązaniu połączenia z kontem magazynu przy użyciu usług połączonych programu Visual Studio.
+title: Wprowadzenie do usługi queue storage przy użyciu programu Visual Studio (projekty WebJob)
+description: Jak rozpocząć pracę z usługą Azure queue storage w projekcie Zadania WebJob po nawiązaniu połączenia z kontem magazynu przy użyciu usług połączonych programu Visual Studio.
 services: storage
 author: ghogen
 manager: jillfra
@@ -14,27 +14,27 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ffba203bafaf3837cd2d7fc1a6fd962a6926b186
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72298748"
 ---
-# <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Wprowadzenie do usługi Azure Queue storage i usług połączonych z programem Visual Studio (projekty webjob)
+# <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Rozpoczynanie pracy z usługą Azure queue storage i usługami połączonymi programu Visual Studio (projekty zadań WebJob)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Omówienie
-W tym artykule opisano, jak rozpocząć korzystanie z magazynu kolejki platformy Azure w projekcie usługi Visual Studio Azure WebJob po utworzeniu konta magazynu platformy Azure lub do którego do niego nawiązano, korzystając z okna dialogowego **Dodaj połączone usługi** programu Visual Studio. Po dodaniu konta magazynu do projektu WebJob przy użyciu okna dialogowego **Dodaj połączone usługi** programu Visual Studio są instalowane odpowiednie pakiety Azure Storage NuGet, odpowiednie odwołania .NET są dodawane do projektu, a parametry połączenia dla konta magazynu są aktualizowane w pliku App.config.  
+W tym artykule opisano sposób rozpoczynania pracy z usługą Azure queue storage w projekcie WebJob programu Visual Studio Azure po utworzeniu lub przywoływaniu konta usługi Azure Storage za pomocą okna dialogowego **Dodawanie usług połączonych** programu Visual Studio. Po dodaniu konta magazynu do projektu zadania WebJob przy użyciu okna dialogowego **Dodaj połączone usługi** programu Visual Studio zostaną zainstalowane odpowiednie pakiety NuGet magazynu platformy Azure, odpowiednie odwołania platformy .NET zostaną dodane do projektu, a parametry połączenia dla konta magazynu są aktualizowane w pliku App. config.  
 
-Ten artykuł zawiera przykłady kodu języka C#, które pokazują, jak używać narzędzia Azure WebJobs SDK w wersji 1.x z usługą Azure Queue storage.
+W tym artykule przedstawiono przykłady kodu w języku C#, które pokazują, jak używać zestawu SDK Azure WebJobs w wersji 1. x z usługą Azure queue storage.
 
-Azure Queue Storage to usługa do przechowywania dużej liczby komunikatów, do której można uzyskać dostęp z dowolnego miejsca na świecie za pośrednictwem uwierzytelnionego połączenia za pomocą protokołu HTTP lub HTTPS. Pojedynczy komunikat z kolejki nie może przekraczać 64 KB, a kolejka może zawierać miliony komunikatów — maksymalnie liczbę nieprzekraczającą całkowitego limitu pojemności konta magazynu. Aby uzyskać więcej [informacji, zobacz Wprowadzenie do usługi Azure Queue Storage przy użyciu platformy .NET.](../storage/queues/storage-dotnet-how-to-use-queues.md) Aby uzyskać więcej informacji na temat ASP.NET, zobacz [ASP.NET](https://www.asp.net).
+Azure Queue Storage to usługa do przechowywania dużej liczby komunikatów, do której można uzyskać dostęp z dowolnego miejsca na świecie za pośrednictwem uwierzytelnionego połączenia za pomocą protokołu HTTP lub HTTPS. Pojedynczy komunikat z kolejki nie może przekraczać 64 KB, a kolejka może zawierać miliony komunikatów — maksymalnie liczbę nieprzekraczającą całkowitego limitu pojemności konta magazynu. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z usługą Azure queue storage przy użyciu platformy .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) . Aby uzyskać więcej informacji na temat ASP.NET, zobacz [ASP.NET](https://www.asp.net).
 
-## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Jak wyzwolić funkcję po odebraniu wiadomości kolejki
-Aby napisać funkcję, którą sdk WebJobs wywołuje po odebraniu wiadomości kolejki, użyj atrybutu **QueueTrigger.** Konstruktor atrybutów przyjmuje parametr string, który określa nazwę kolejki do sondowania. Aby zobaczyć, jak dynamicznie ustawić nazwę kolejki, zapoznaj się z [instrukcjami ustawiania opcji konfiguracji](#how-to-set-configuration-options).
+## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Jak wyzwolić funkcję po odebraniu komunikatu w kolejce
+Aby napisać funkcję, którą zestaw SDK zadań WebJob wywołuje po odebraniu komunikatu kolejki, należy użyć atrybutu **QueueTrigger** . Konstruktor atrybutu przyjmuje parametr ciągu, który określa nazwę kolejki do sondowania. Aby dowiedzieć się, jak ustawić nazwę kolejki dynamicznie, zapoznaj [się z tematem Ustawianie opcji konfiguracji](#how-to-set-configuration-options).
 
-### <a name="string-queue-messages"></a>Komunikaty kolejki ciągów
-W poniższym przykładzie kolejka zawiera komunikat ciągu, więc **QueueTrigger** jest stosowany do parametru ciągu o nazwie **logMessage,** który zawiera zawartość wiadomości kolejki. Funkcja [zapisuje komunikat dziennika na pulpicie nawigacyjnym](#how-to-write-logs).
+### <a name="string-queue-messages"></a>Komunikaty w kolejce ciągów
+W poniższym przykładzie Kolejka zawiera komunikat ciągu, więc **QueueTrigger** jest stosowana do parametru ciągu o nazwie **LogMessage** , który zawiera zawartość komunikatu w kolejce. Funkcja [zapisuje komunikat dziennika na pulpicie nawigacyjnym](#how-to-write-logs).
 
 ```csharp
 public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
@@ -43,10 +43,10 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 }
 ```
 
-Oprócz **ciągu**parametr może być tablicą bajtów, obiektem **CloudQueueMessage** lub poco, który definiujesz.
+Oprócz **ciągu**, parametr może być tablicą bajtową, obiektem **CloudQueueMessage** lub zdefiniowanym poco.
 
-### <a name="poco-plain-old-clr-object-queue-messages"></a>Komunikaty kolejki POCO [(Zwykły stary obiekt CLR)](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)
-W poniższym przykładzie komunikat kolejki zawiera JSON dla **obiektu Informacji o obiektach blobinformation,** który zawiera właściwość **BlobName.** SDK automatycznie deserializes obiektu.
+### <a name="poco-plain-old-clr-object-queue-messages"></a>POCO [(zwykły stary obiekt CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) komunikaty kolejki
+W poniższym przykładzie komunikat kolejki zawiera kod JSON dla obiektu **BlobInformation** , który zawiera właściwość **blobname** . Zestaw SDK automatycznie deserializacji obiektu.
 
 ```csharp
 public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
@@ -55,7 +55,7 @@ public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobI
 }
 ```
 
-Zestawu SDK używa [pakietu Newtonsoft.Json NuGet](https://www.nuget.org/packages/Newtonsoft.Json) do serializacji i deserializacji wiadomości. Jeśli tworzysz wiadomości kolejki w programie, który nie używa webjobs SDK, można napisać kod, jak w poniższym przykładzie, aby utworzyć komunikat kolejki POCO, który można przeanalizować.
+Zestaw SDK używa [pakietu NuGet Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json) do serializacji i deserializacji komunikatów. W przypadku tworzenia komunikatów w kolejce w programie, który nie korzysta z zestawu SDK WebJobs, można napisać kod, taki jak Poniższy przykład, aby utworzyć komunikat w kolejce POCO, który może być analizowany przez zestaw SDK.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
@@ -63,8 +63,8 @@ var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 logQueue.AddMessage(queueMessage);
 ```
 
-### <a name="async-functions"></a>Funkcje asynchronizowe
-Następująca funkcja asynchronii [zapisuje dziennik na pulpicie nawigacyjnym](#how-to-write-logs).
+### <a name="async-functions"></a>Funkcje asynchroniczne
+Następująca funkcja Async [zapisuje dziennik na pulpicie nawigacyjnym](#how-to-write-logs).
 
 ```csharp
 public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
@@ -73,7 +73,7 @@ public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] str
 }
 ```
 
-Funkcje asynchronizowe mogą przyjmować [token anulowania,](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)jak pokazano w poniższym przykładzie, który kopiuje obiekt blob. (Aby uzyskać wyjaśnienie symbolu zastępczego **queueTrigger,** zobacz sekcję [Obiektów Blobs).](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message)
+Funkcje asynchroniczne mogą przyjmować [token anulowania](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), jak pokazano w poniższym przykładzie, który kopiuje obiekt BLOB. (Aby uzyskać wyjaśnienie symbolu zastępczego **queueTrigger** , zobacz sekcję [obiektów BLOB](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) ).
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -86,39 +86,39 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 }
 ```
 
-## <a name="types-the-queuetrigger-attribute-works-with"></a>Typy atrybutu QueueTrigger, z które współpracuje
-Funkcji **QueueTrigger** można używać z następującymi typami:
+## <a name="types-the-queuetrigger-attribute-works-with"></a>Typy, które współdziałają z atrybutem QueueTrigger
+Możesz użyć **QueueTrigger** z następującymi typami:
 
-* **Ciąg**
-* Typ POCO serializowany jako JSON
-* **bajt[]**
+* **parametry**
+* Typ POCO, który jest serializowany jako JSON
+* **Byte []**
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>Algorytm sondowania
-Zestaw SDK implementuje algorytm losowego wykładniczego wycofywania, aby zmniejszyć wpływ sondowania w kolejkach bezczynności na koszty transakcji magazynu.  Po znalezieniu wiadomości, SDK czeka dwie sekundy, a następnie sprawdza, czy inny komunikat; gdy nie zostanie znaleziony żaden komunikat, czeka około czterech sekund przed ponowną próbą. Po kolejnych nieudanych próbach uzyskania wiadomości kolejki czas oczekiwania nadal wzrasta, aż osiągnie maksymalny czas oczekiwania, który jest domyślnie wyświetlany jedną minutę. [Maksymalny czas oczekiwania jest konfigurowalny](#how-to-set-configuration-options).
+Zestaw SDK implementuje losowy wykładniczy algorytm wycofywania, aby zmniejszyć wpływ sondowania w kolejce na koszty transakcji magazynu.  Po znalezieniu komunikatu zestaw SDK czeka dwa sekundy, a następnie sprawdza inny komunikat; gdy nie zostanie znaleziony żaden komunikat, czeka około czterech sekund przed ponowieniem próby. Po kolejnych nieudanych próbach pobrania komunikatu w kolejce czas oczekiwania będzie się zwiększać do momentu osiągnięcia maksymalnego czasu oczekiwania, który jest wartością domyślną jednej minuty. [Maksymalny czas oczekiwania można skonfigurować](#how-to-set-configuration-options).
 
 ## <a name="multiple-instances"></a>Wiele wystąpień
-Jeśli aplikacja sieci web działa w wielu wystąpieniach, ciągłe WebJobs działa na każdym komputerze, a każdy komputer będzie czekać na wyzwalacze i próby uruchomienia funkcji. W niektórych scenariuszach może to prowadzić do niektórych funkcji przetwarzania tych samych danych dwa razy, więc funkcje powinny być idempotentne (napisane tak, że wywoływanie ich wielokrotnie z tych samych danych wejściowych nie daje zduplikowanych wyników).  
+Jeśli aplikacja sieci Web działa w wielu wystąpieniach, ciągłe zadania WebJob są uruchamiane na każdej maszynie, a każda maszyna będzie oczekiwać na wyzwalacze i próbuje uruchomić funkcje. W niektórych scenariuszach może to spowodować, że niektóre funkcje przetwarzają te same dane dwa razy, dlatego funkcje powinny być idempotentne (zapisane w taki sposób, aby wielokrotnie wywołujący te same dane wejściowe nie generowały zduplikowanych wyników).  
 
-## <a name="parallel-execution"></a>Równoległego
-Jeśli masz wiele funkcji nasłuchiwania w różnych kolejkach, zestaw SDK wywoła je równolegle, gdy wiadomości są odbierane jednocześnie.
+## <a name="parallel-execution"></a>Wykonywanie równoległe
+Jeśli masz wiele funkcji nasłuchujących w różnych kolejkach, zestaw SDK wywoła je równolegle, gdy komunikaty są odbierane jednocześnie.
 
-To samo dotyczy wielu wiadomości są odbierane dla jednej kolejki. Domyślnie SDK pobiera partii 16 komunikatów kolejki naraz i wykonuje funkcję, która przetwarza je równolegle. [Rozmiar partii można konfigurować](#how-to-set-configuration-options). Gdy liczba przetwarzana pobiera w dół do połowy rozmiaru partii, SDK pobiera inną partię i rozpoczyna przetwarzanie tych komunikatów. W związku z tym maksymalna liczba równoczesnych komunikatów przetwarzanych na funkcję jest półtora razy rozmiar partii. Ten limit ma zastosowanie oddzielnie do każdej funkcji, która ma atrybut **QueueTrigger.** Jeśli nie chcesz równoległego wykonywania wiadomości odebranych w jednej kolejce, ustaw rozmiar partii na 1.
+Taka sama ma wartość true, Jeśli odebrano wiele komunikatów dla jednej kolejki. Domyślnie zestaw SDK pobiera partię 16 komunikatów z kolejki jednocześnie i wykonuje funkcję, która przetwarza je równolegle. [Rozmiar wsadu można skonfigurować](#how-to-set-configuration-options). Gdy liczba jest przetwarzana do połowy rozmiaru partii, zestaw SDK pobiera kolejną partię i uruchamia przetwarzanie tych komunikatów. W związku z tym Maksymalna liczba współbieżnych komunikatów przetwarzanych na funkcję to jedna i połowa rozmiaru partii. Ten limit dotyczy osobno każdej funkcji, która ma atrybut **QueueTrigger** . Jeśli nie chcesz, aby wykonywanie równoległe komunikatów odebranych w jednej kolejce było możliwe, ustaw rozmiar wsadu na 1.
 
-## <a name="get-queue-or-queue-message-metadata"></a>Pobierz metadane wiadomości kolejki lub kolejki
-Można uzyskać następujące właściwości komunikatu, dodając parametry do podpisu metody:
+## <a name="get-queue-or-queue-message-metadata"></a>Pobieranie metadanych kolejki lub komunikatów w kolejce
+Następujące właściwości komunikatu można uzyskać, dodając parametry do sygnatury metody:
 
-* **DataCzas** wygaśnięcia zestawu dat
-* **Wstawianie datetimeoffsettime**
-* **DateTimeOffset** następnyVisibleTime
-* **string** queueTrigger (zawiera tekst wiadomości)
-* identyfikator **ciągu**
-* **pop** stringReceipt
-* int dequeueCount **(int** dequeueCount)
+* ExpirationTime **DateTimeOffset**
+* InsertionTime **DateTimeOffset**
+* NextVisibleTime **DateTimeOffset**
+* **ciąg** queueTrigger (zawiera tekst komunikatu)
+* Identyfikator **ciągu**
+* popReceipt **ciągu**
+* **int** dequeueCount
 
-Jeśli chcesz pracować bezpośrednio z interfejsem API magazynu platformy Azure, możesz również dodać parametr **CloudStorageAccount.**
+Jeśli chcesz współpracować bezpośrednio z interfejsem API usługi Azure Storage, możesz również dodać parametr **CloudStorageAccount** .
 
-Poniższy przykład zapisuje wszystkie te metadane w dzienniku aplikacji INFO. W tym przykładzie zarówno logMessage i queueTrigger zawierają zawartość komunikatu kolejki.
+Poniższy przykład zapisuje wszystkie te metadane do dziennika aplikacji INFORMACYJNej. W przykładzie zarówno logMessage, jak i queueTrigger zawierają zawartość komunikatu w kolejce.
 
 ```csharp
 public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
@@ -147,7 +147,7 @@ public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
 }
 ```
 
-Oto przykładowy dziennik napisany przez przykładowy kod:
+Oto przykładowy dziennik zapisany przez przykładowy kod:
 
         logMessage=Hello world!
         expirationTime=10/14/2014 10:31:04 PM +00:00
@@ -159,10 +159,10 @@ Oto przykładowy dziennik napisany przez przykładowy kod:
         queue endpoint=https://contosoads.queue.core.windows.net/
         queueTrigger=Hello world!
 
-## <a name="graceful-shutdown"></a>Wdzięczne zamknięcie
-Funkcja uruchamiana w ciągłym trybie WebJob może zaakceptować parametr **CancellationToken,** który umożliwia systemowi operacyjnemu powiadamianie funkcji, gdy praca w sieci Web ma zostać zakończona. Tego powiadomienia można użyć, aby upewnić się, że funkcja nie kończy się nieoczekiwanie w sposób, który pozostawia dane w niespójnym stanie.
+## <a name="graceful-shutdown"></a>Bezpieczne zamykanie
+Funkcja, która jest uruchamiana w ciągłym zadaniach WebJob, może przyjmować parametr **CancellationToken** , który umożliwia systemowi operacyjnemu powiadomienie funkcji, gdy zadanie WebJob zostanie zakończone. Możesz użyć tego powiadomienia, aby upewnić się, że funkcja nie kończy się nieoczekiwanie w sposób, który opuszcza dane w stanie niespójnym.
 
-W poniższym przykładzie pokazano, jak sprawdzić zbliżające się zakończenie webjob w funkcji.
+Poniższy przykład pokazuje, jak sprawdzić oczekujące zakończenie zadania WebJob w funkcji.
 
 ```csharp
 public static void GracefulShutdownDemo(
@@ -183,15 +183,15 @@ public static void GracefulShutdownDemo(
 }
 ```
 
-**Uwaga:** Pulpit nawigacyjny może nie poprawnie wyświetlić stan i dane wyjściowe funkcji, które zostały zamknięte.
+**Uwaga:** Pulpit nawigacyjny może nie wyświetlać poprawnie stanu i danych wyjściowych funkcji, które zostały zamknięte.
 
-Aby uzyskać więcej informacji, zobacz [WebJobs Graceful Shutdown](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
+Aby uzyskać więcej informacji, zobacz temat [WebJobs bezpiecznie Shutdown](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
 
-## <a name="how-to-create-a-queue-message-while-processing-a-queue-message"></a>Jak utworzyć wiadomość kolejki podczas przetwarzania wiadomości kolejki
-Aby napisać funkcję, która tworzy nową wiadomość kolejki, użyj atrybutu **Kolejka.** Podobnie jak **funkcja QueueTrigger**, przekazujesz w nazwie kolejki jako ciąg lub można [dynamicznie ustawić nazwę kolejki.](#how-to-set-configuration-options)
+## <a name="how-to-create-a-queue-message-while-processing-a-queue-message"></a>Jak utworzyć komunikat w kolejce podczas przetwarzania komunikatu w kolejce
+Aby napisać funkcję, która tworzy nowy komunikat w kolejce, Użyj atrybutu **Queue** . Podobnie jak **QueueTrigger**, należy przekazać nazwę kolejki jako ciąg lub można [ustawić ją dynamicznie](#how-to-set-configuration-options).
 
-### <a name="string-queue-messages"></a>Komunikaty kolejki ciągów
-Poniższy przykład kodu nieaskronikowego tworzy nowy komunikat kolejki w kolejce o nazwie "outputqueue" z taką samą zawartością, jak komunikat kolejki odebrany w kolejce o nazwie "inputqueue". (Dla funkcji asynchronicznych należy użyć **\<IAsyncCollector T>** jak pokazano w dalszej części tej sekcji.)
+### <a name="string-queue-messages"></a>Komunikaty w kolejce ciągów
+Następujący przykładowy kod nieasynchroniczny tworzy nowy komunikat kolejki w kolejce o nazwie "operacja" z tą samą zawartością, co komunikat kolejki odebrany w kolejce o nazwie "InputQueue". (W przypadku funkcji asynchronicznych Użyj **\<IAsyncCollector T>** , jak pokazano w dalszej części tej sekcji).
 
 ```csharp
 public static void CreateQueueMessage(
@@ -202,8 +202,8 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-object-queue-messages"></a>Komunikaty kolejki POCO [(Zwykły stary obiekt CLR)](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)
-Aby utworzyć komunikat kolejki, który zawiera POCO, a nie ciąg, przekazać typ POCO jako parametr wyjściowy do konstruktora **atrybutu queue.**
+### <a name="poco-plain-old-clr-object-queue-messages"></a>POCO [(zwykły stary obiekt CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) komunikaty kolejki
+Aby utworzyć komunikat kolejki, który zawiera POCO, a nie ciąg, Przekaż typ POCO jako parametr wyjściowy do konstruktora atrybutu **kolejki** .
 
 ```csharp
 public static void CreateQueueMessage(
@@ -214,10 +214,10 @@ public static void CreateQueueMessage(
 }
 ```
 
-SDK automatycznie serializuje obiekt do JSON. Komunikat kolejki jest zawsze tworzony, nawet jeśli obiekt ma wartość null.
+Zestaw SDK automatycznie serializować obiekt do formatu JSON. Komunikat kolejki jest zawsze tworzony, nawet jeśli obiekt ma wartość null.
 
-### <a name="create-multiple-messages-or-in-async-functions"></a>Tworzenie wielu wiadomości lub funkcji asynchronizycznych
-Aby utworzyć wiele komunikatów, należy utworzyć typ parametru dla kolejki wyjściowej **ICollector\<T>** lub **IAsyncCollector\<T>**, jak pokazano w poniższym przykładzie.
+### <a name="create-multiple-messages-or-in-async-functions"></a>Tworzenie wielu komunikatów lub w funkcjach asynchronicznych
+Aby utworzyć wiele komunikatów, należy utworzyć typ parametru dla kolejki wyjściowej **ICollector\<t>** lub **IAsyncCollector\<t>**, jak pokazano w poniższym przykładzie.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -231,23 +231,23 @@ public static void CreateQueueMessages(
 }
 ```
 
-Każdy komunikat kolejki jest tworzony natychmiast **po** add metoda jest wywoływana.
+Każda wiadomość w kolejce jest tworzona natychmiast po wywołaniu metody **Add** .
 
-### <a name="types-that-the-queue-attribute-works-with"></a>Typy, z którymi działa atrybut Kolejka
-Atrybut **Queue** można użyć w następujących typach parametrów:
+### <a name="types-that-the-queue-attribute-works-with"></a>Typy, z którymi działa atrybut kolejki
+Można użyć atrybutu **Queue** dla następujących typów parametrów:
 
-* **out string** (tworzy komunikat kolejki, jeśli wartość parametru jest niena null po zakończeniu funkcji)
-* **out byte[]** (działa jak **ciąg)**
-* **się CloudQueueMessage** (działa jak **ciąg)**
-* **out POCO** (typ serializowalny, tworzy komunikat z obiektem null, jeśli parametr ma wartość null po zakończeniu funkcji)
+* **ciąg out** (tworzy komunikat w kolejce, jeśli wartość parametru jest inna niż null, gdy funkcja zostanie zakończona)
+* **out-Byte []** (działa jak **ciąg**)
+* **CloudQueueMessage out** (działa jak **ciąg**)
+* **poco out** (typ możliwy do serializacji, tworzy komunikat z obiektem o wartości null, jeśli parametr ma wartość null, gdy funkcja zostanie zakończona)
 * **ICollector**
-* **IAsyncKollector**
-* **CloudQueue** (do ręcznego tworzenia wiadomości przy użyciu interfejsu API usługi Azure Storage bezpośrednio)
+* **IAsyncCollector**
+* **CloudQueue** (do ręcznego tworzenia komunikatów przy użyciu interfejsu API usługi Azure Storage)
 
-### <a name="use-webjobs-sdk-attributes-in-the-body-of-a-function"></a>Używanie atrybutów SDK webjobs w treści funkcji
-Jeśli przed użyciem atrybutu SDK WebJobs, takiego jak **Kolejka,** **Obiekt Blob**lub **Tabela,** należy wykonać pewną pracę w ramach funkcji, można użyć interfejsu **IBinder.**
+### <a name="use-webjobs-sdk-attributes-in-the-body-of-a-function"></a>Używanie atrybutów zestawu SDK zadań WebJob w treści funkcji
+Jeśli musisz wykonać pewne czynności w funkcji przed użyciem atrybutu zestawu SDK usługi WebJobs, takiego jak **Queue**, **BLOB**lub **Table**, możesz użyć interfejsu **IBinder** .
 
-W poniższym przykładzie przyjmuje komunikat kolejki wejściowej i tworzy nową wiadomość z tej samej zawartości w kolejce wyjściowej. Nazwa kolejki wyjściowej jest ustawiana przez kod w treści funkcji.
+Poniższy przykład przyjmuje komunikat w kolejce wejściowej i tworzy nowy komunikat z tą samą zawartością w kolejce wyjściowej. Nazwa kolejki wyjściowej jest ustawiana przez kod w treści funkcji.
 
 ```csharp
 public static void CreateQueueMessage(
@@ -261,16 +261,16 @@ public static void CreateQueueMessage(
 }
 ```
 
-Interfejs **IBinder** może być również używany z atrybutami **Tabela** i **Obiekt blob.**
+Interfejs **IBinder** może być również używany z atrybutami **Table** i **BLOB** .
 
-## <a name="how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a>Jak odczytywać i zapisywać obiekty BLOB i tabele podczas przetwarzania wiadomości kolejki
-Atrybuty **obiektów blob** i **table** umożliwiają odczytywanie i zapisywanie obiektów blob i tabel. Przykłady w tej sekcji dotyczą obiektów blob. Aby uzyskać przykłady kodu, które pokazują, jak wyzwalać procesy podczas tworzenia lub aktualizowanie obiektów BLOB, zobacz [Jak używać magazynu obiektów blob platformy Azure z zestawem SDK WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
+## <a name="how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a>Odczytywanie i zapisywanie obiektów blob i tabel podczas przetwarzania komunikatu w kolejce
+Atrybuty **obiektów BLOB** i **tabel** umożliwiają odczytywanie i zapisywanie obiektów blob i tabel. Przykłady w tej sekcji dotyczą obiektów BLOB. Przykłady kodu, które pokazują, jak wyzwolić procesy podczas tworzenia lub aktualizowania obiektów blob, można znaleźć w temacie [jak używać usługi Azure Blob Storage z zestawem SDK WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 <!-- , and for code samples that read and write tables, see [How to use Azure table storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md). -->
 
-### <a name="string-queue-messages-triggering-blob-operations"></a>Komunikaty kolejki ciągów wyzwalające operacje obiektów blob
-Dla komunikatu kolejki, który zawiera ciąg, **queueTrigger** jest symbolem zastępczym, którego można użyć w parametrze blobPath atrybutu **blobPath,** który zawiera zawartość wiadomości. **Blob**
+### <a name="string-queue-messages-triggering-blob-operations"></a>Komunikaty kolejki ciągów wyzwalające operacje obiektu BLOB
+W przypadku komunikatu w kolejce, który zawiera ciąg, **queueTrigger** jest symbolem zastępczym, którego można użyć w parametrze **Blobpath ścieżką** atrybutu **obiektu BLOB** , który zawiera treść komunikatu.
 
-W poniższym przykładzie użyto **Stream** obiektów do odczytu i zapisu obiektów blob. Komunikat kolejki to nazwa obiektu blob znajdującego się w kontenerze textblobs. Kopia obiektu blob z "-new" dołączone do nazwy jest tworzony w tym samym kontenerze.
+W poniższym przykładzie za pomocą obiektów **strumienia** można odczytywać i zapisywać obiekty blob. Komunikat kolejki to nazwa obiektu BLOB znajdującego się w kontenerze textblobs. Kopia obiektu BLOB z "-New" dołączona do nazwy jest tworzona w tym samym kontenerze.
 
 ```csharp
 public static void ProcessQueueMessage(
@@ -282,11 +282,11 @@ public static void ProcessQueueMessage(
 }
 ```
 
-Konstruktor **atrybutów obiektów Blob** przyjmuje parametr **blobPath,** który określa nazwę kontenera i obiektu blob. Aby uzyskać więcej informacji na temat tego symbolu [zastępczego, zobacz Jak używać magazynu obiektów blob platformy Azure z zestawem SDK webjobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
+Konstruktor atrybutu **obiektu BLOB** przyjmuje parametr **blobpath ścieżką** , który określa nazwę kontenera i obiektu BLOB. Aby uzyskać więcej informacji na temat tego symbolu zastępczego, zobacz [jak używać usługi Azure Blob Storage z zestawem SDK WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
-Gdy atrybut ozdabia **Stream** obiektu, inny parametr konstruktora określa **tryb FileAccess** jako odczyt, zapis lub odczyt/zapis.
+Gdy atrybut zdobi obiekt **Stream** , inny parametr konstruktora określa tryb **FileAccess** jako Odczyt, zapis lub odczyt/zapis.
 
-W poniższym przykładzie użyto **CloudBlockBlob** obiektu do usunięcia obiektu blob. Komunikat kolejki jest nazwą obiektu blob.
+Poniższy przykład używa obiektu **CloudBlockBlob** , aby usunąć obiekt BLOB. Komunikat kolejki jest nazwą obiektu BLOB.
 
 ```csharp
 public static void DeleteBlob(
@@ -297,10 +297,10 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-object-queue-messages"></a>Komunikaty kolejki POCO [(Zwykły stary obiekt CLR)](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)
-W przypadku poco przechowywane jako JSON w komunikacie kolejki, można użyć symboli zastępczych, które nazwy właściwości obiektu w parametrze **blobPath** **atrybutu queue.** Można również użyć nazw właściwości metadanych kolejki jako symboli zastępczych. Zobacz: [Pobierz metadane wiadomości kolejki lub kolejki](#get-queue-or-queue-message-metadata).
+### <a name="poco-plain-old-clr-object-queue-messages"></a>POCO [(zwykły stary obiekt CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) komunikaty kolejki
+W przypadku elementu POCO przechowywanego jako dane JSON w komunikacie kolejki można użyć symboli zastępczych, które są właściwościami obiektu w parametrze **blobpath ścieżką** parametru **kolejki** . Nazwy właściwości metadanych kolejki można także użyć jako symboli zastępczych. Zobacz [Pobieranie metadanych kolejki lub komunikatów w kolejce](#get-queue-or-queue-message-metadata).
 
-Poniższy przykład kopiuje obiekt blob do nowego obiektu blob z innym rozszerzeniem. Komunikat kolejki jest obiektem **informacji o obiektach blobInformation,** który zawiera właściwości **BlobName** i **BlobNameWithoutExtension.** Nazwy właściwości są używane jako symbole zastępcze w ścieżce obiektu blob dla atrybutów **obiektu Blob.**
+Poniższy przykład kopiuje obiekt BLOB do nowego obiektu BLOB przy użyciu innego rozszerzenia. Komunikat kolejki to obiekt **BlobInformation** , który zawiera właściwości **blobname** i **BlobNameWithoutExtension** . Nazwy właściwości są używane jako symbole zastępcze w ścieżce obiektu BLOB dla atrybutów **obiektu BLOB** .
 
 ```csharp
 public static void CopyBlobPOCO(
@@ -312,7 +312,7 @@ public static void CopyBlobPOCO(
 }
 ```
 
-Zestawu SDK używa [pakietu Newtonsoft.Json NuGet](https://www.nuget.org/packages/Newtonsoft.Json) do serializacji i deserializacji wiadomości. Jeśli tworzysz wiadomości kolejki w programie, który nie używa webjobs SDK, można napisać kod, jak w poniższym przykładzie, aby utworzyć komunikat kolejki POCO, który można przeanalizować.
+Zestaw SDK używa [pakietu NuGet Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json) do serializacji i deserializacji komunikatów. W przypadku tworzenia komunikatów w kolejce w programie, który nie korzysta z zestawu SDK WebJobs, można napisać kod, taki jak Poniższy przykład, aby utworzyć komunikat w kolejce POCO, który może być analizowany przez zestaw SDK.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
@@ -320,32 +320,32 @@ var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 logQueue.AddMessage(queueMessage);
 ```
 
-Jeśli musisz wykonać jakąś pracę w ramach funkcji przed powiększeniem obiektu blob z obiektem, można użyć atrybutu w treści funkcji, jak pokazano w [użyj atrybutów SDK WebJobs w treści funkcji](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
+Jeśli konieczne jest wykonanie pewnej pracy w funkcji przed powiązaniem obiektu BLOB z obiektem, można użyć atrybutu w treści funkcji, jak pokazano w temacie [Używanie atrybutów zestawu SDK zadań WebJob w treści funkcji](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
 
-### <a name="types-you-can-use-the-blob-attribute-with"></a>Typy, których można używać atrybutu Blob z
-Atrybut **obiektu Blob** może być używany z następującymi typami:
+### <a name="types-you-can-use-the-blob-attribute-with"></a>Typy, z których można korzystać przy użyciu atrybutu obiektu BLOB
+Atrybut **obiektu BLOB** może być używany z następującymi typami:
 
-* **Strumień** (odczyt lub zapis, określony przy użyciu parametru konstruktora FileAccess)
-* **Textreader**
+* **Stream** (odczyt lub zapis, określony przy użyciu parametru konstruktora FileAccess)
+* **TextReader**
 * **TextWriter**
-* **ciąg (odczyt)**
-* **out string** (zapis; tworzy obiekt blob tylko wtedy, gdy parametr ciągu jest nie-null, gdy funkcja zwraca)
-* POCO (czytaj)
-* out POCO (zapis; zawsze tworzy obiekt blob, tworzy jako obiekt null, jeśli parametr POCO ma wartość null, gdy funkcja zwraca)
+* **ciąg** (odczyt)
+* **ciąg out** (Write; tworzy obiekt BLOB tylko wtedy, gdy parametr String ma wartość różną od null, gdy funkcja zwróci wartość)
+* POCO (odczyt)
+* POCO out (Write; zawsze tworzy obiekt BLOB, tworzy jako null Object, jeśli parametr POCO ma wartość null, gdy funkcja zwróci wartość)
 * **CloudBlobStream** (zapis)
 * **ICloudBlob** (odczyt lub zapis)
 * **CloudBlockBlob** (odczyt lub zapis)
 * **CloudPageBlob** (odczyt lub zapis)
 
-## <a name="how-to-handle-poison-messages"></a>Jak radzić sobie z trującymi wiadomościami
-Wiadomości, których zawartość powoduje niepowodzenie funkcji są nazywane *trującymi wiadomościami*. Gdy funkcja nie powiedzie się, komunikat kolejki nie jest usuwany i ostatecznie jest pobierany ponownie, co powoduje powtórzenie cyklu. SDK może automatycznie przerwać cykl po ograniczonej liczbie iteracji lub można to zrobić ręcznie.
+## <a name="how-to-handle-poison-messages"></a>Jak obsługiwać skażone komunikaty
+Komunikaty, których zawartość powoduje niepowodzenie funkcji, są nazywane *skażonymi komunikatami*. Gdy funkcja się nie powiedzie, komunikat kolejki nie zostanie usunięty i ostatecznie zostanie pobrany ponownie, co spowoduje powtarzanie cyklu. Zestaw SDK może automatycznie przerwać cykl po ograniczonej liczbie iteracji lub można to zrobić ręcznie.
 
-### <a name="automatic-poison-message-handling"></a>Automatyczna obsługa wiadomości o trucinie
-SDK wywoła funkcję do 5 razy, aby przetworzyć komunikat kolejki. Jeśli piąta próba nie powiedzie się, wiadomość zostanie przeniesiona do kolejki trujących. Możesz zobaczyć, jak skonfigurować maksymalną liczbę ponownych prób w [jak ustawić opcje konfiguracji](#how-to-set-configuration-options).
+### <a name="automatic-poison-message-handling"></a>Automatyczna obsługa skażonych komunikatów
+Zestaw SDK będzie wywoływał funkcję do 5 razy w celu przetworzenia komunikatu w kolejce. Jeśli piąta próba nie powiedzie się, komunikat zostanie przeniesiony do kolejki trującej. Możesz zobaczyć, jak skonfigurować maksymalną liczbę ponownych prób w [sposobie ustawiania opcji konfiguracji](#how-to-set-configuration-options).
 
-Kolejka trucizn nosi nazwę *{originalqueuename}*-poison. Można napisać funkcję przetwarzania wiadomości z kolejki trucizny, rejestrując je lub wysyłając powiadomienie, że wymagana jest ręczna uwaga.
+Kolejka Trująca nosi nazwę *{originalqueuename}*-trującą. Funkcję można napisać, aby przetwarzać komunikaty z kolejki trującej, rejestrując je lub wysyłając powiadomienie, które wymaga ręcznej uwagi.
 
-W poniższym przykładzie **CopyBlob** funkcja zakończy się niepowodzeniem, gdy komunikat kolejki zawiera nazwę obiektu blob, który nie istnieje. W takim przypadku wiadomość jest przenoszona z kolejki copyblobqueue do kolejki copyblobqueue-poison. **ProcessPoisonMessage** następnie rejestruje trujący komunikat.
+W poniższym przykładzie funkcja **CopyBlob** zakończy się niepowodzeniem, gdy komunikat kolejki zawiera nazwę obiektu BLOB, który nie istnieje. Gdy tak się stanie, komunikat jest przenoszony z kolejki copyblobqueue do kolejki copyblobqueue-trującej. **ProcessPoisonMessage** następnie rejestruje trujący komunikat.
 
 ```csharp
 public static void CopyBlob(
@@ -363,12 +363,12 @@ public static void ProcessPoisonMessage(
 }
 ```
 
-Na poniższej ilustracji przedstawiono dane wyjściowe konsoli z tych funkcji podczas przetwarzania trującego komunikatu.
+Na poniższej ilustracji przedstawiono dane wyjściowe konsoli z tych funkcji, gdy jest przetwarzany skażony komunikat.
 
-![Wyjście konsoli do obsługi trujących komunikatów](./media/vs-storage-webjobs-getting-started-queues/poison.png)
+![Dane wyjściowe konsoli dla obsługi skażonych komunikatów](./media/vs-storage-webjobs-getting-started-queues/poison.png)
 
-### <a name="manual-poison-message-handling"></a>Ręczna obsługa wiadomości o trucinie
-Można uzyskać liczbę razy wiadomość została pobrana do przetwarzania przez dodanie **int** parametr o nazwie **dequeueCount** do funkcji. Następnie można sprawdzić liczbę dequeue w kodzie funkcji i wykonać własną obsługę trujących wiadomości, gdy liczba przekracza próg, jak pokazano w poniższym przykładzie.
+### <a name="manual-poison-message-handling"></a>Obsługa ręcznej trującej wiadomości
+Można uzyskać, ile razy wiadomość została pobrana do przetwarzania przez dodanie parametru **int** o nazwie **dequeueCount** do funkcji. Następnie można sprawdzić liczbę oddziałów w kodzie funkcji i wykonać własną trującą wiadomość, gdy liczba przekroczy wartość progową, jak pokazano w poniższym przykładzie.
 
 ```csharp
 public static void CopyBlob(
@@ -389,14 +389,14 @@ public static void CopyBlob(
 ```
 
 ## <a name="how-to-set-configuration-options"></a>Jak ustawić opcje konfiguracji
-Za pomocą typu **JobHostConfiguration** można ustawić następujące opcje konfiguracji:
+Możesz użyć typu **JobHostConfiguration** , aby ustawić następujące opcje konfiguracji:
 
 * Ustaw parametry połączenia zestawu SDK w kodzie.
-* Skonfiguruj ustawienia **funkcji QueueTrigger,** takie jak maksymalna liczba dekań.
+* Skonfiguruj ustawienia **QueueTrigger** , takie jak Maksymalna liczba Dequeue.
 * Pobierz nazwy kolejek z konfiguracji.
 
-### <a name="set-sdk-connection-strings-in-code"></a>Ustawianie ciągów połączeń zestawu SDK w kodzie
-Ustawienie ciągów połączeń SDK w kodzie umożliwia używanie własnych nazw ciągów połączeń w plikach konfiguracyjnych lub zmiennych środowiskowych, jak pokazano w poniższym przykładzie.
+### <a name="set-sdk-connection-strings-in-code"></a>Ustaw parametry połączenia zestawu SDK w kodzie
+Ustawienie parametrów połączenia zestawu SDK w kodzie umożliwia korzystanie z własnych nazw parametrów połączenia w plikach konfiguracji lub zmiennych środowiskowych, jak pokazano w poniższym przykładzie.
 
 ```csharp
 static void Main(string[] args)
@@ -419,14 +419,14 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="configure-queuetrigger--settings"></a>Konfigurowanie ustawień programu QueueTrigger
-Można skonfigurować następujące ustawienia, które mają zastosowanie do przetwarzania wiadomości kolejki:
+### <a name="configure-queuetrigger--settings"></a>Konfigurowanie ustawień QueueTrigger
+Można skonfigurować następujące ustawienia, które są stosowane do przetwarzania komunikatów w kolejce:
 
-* Maksymalna liczba komunikatów kolejki, które są pobierane jednocześnie do wykonania równolegle (domyślnie jest 16).
-* Maksymalna liczba ponownych prób przed wysłaniem wiadomości kolejki do kolejki zacięcia (domyślnie jest to 5).
-* Maksymalny czas oczekiwania przed ponownym sondowaniem, gdy kolejka jest pusta (domyślnie jest to 1 minuta).
+* Maksymalna liczba komunikatów w kolejce, które są pobierane jednocześnie do wykonania równolegle (wartość domyślna to 16).
+* Maksymalna liczba ponownych prób przed wysłaniem komunikatu kolejki do kolejki trującej (wartość domyślna to 5).
+* Maksymalny czas oczekiwania przed ponownym sondowaniem, gdy kolejka jest pusta (wartość domyślna to 1 minuta).
 
-W poniższym przykładzie pokazano, jak skonfigurować te ustawienia:
+Poniższy przykład pokazuje, jak skonfigurować następujące ustawienia:
 
 ```csharp
 static void Main(string[] args)
@@ -440,12 +440,12 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Ustawianie wartości parametrów konstruktora zestawu SDK webjobs w kodzie
-Czasami chcesz określić nazwę kolejki, nazwę obiektu blob lub kontenera lub nazwę tabeli w kodzie, a nie kod twardy. Na przykład można określić nazwę kolejki dla **queueTrigger** w pliku konfiguracji lub zmiennej środowiskowej.
+### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Ustaw wartości parametrów konstruktora zestawu SDK usługi WebJobs w kodzie
+Czasami chcesz określić nazwę kolejki, nazwę obiektu BLOB lub kontener albo nazwę tabeli w kodzie, a nie twardy kod. Na przykład możesz chcieć określić nazwę kolejki dla **QueueTrigger** w pliku konfiguracyjnym lub zmiennej środowiskowej.
 
-Można to zrobić, przekazując w **NameResolver** obiektu do **JobHostConfiguration** typu. Dołączasz specjalne symbole zastępcze otoczone procentem (%) znaki w parametrach konstruktora atrybutów SDK WebJobs, a kod **NameResolver** określa rzeczywiste wartości, które mają być używane zamiast tych symboli zastępczych.
+Można to zrobić, przekazując obiekt **NameResolver** do typu **JobHostConfiguration** . Dołączasz specjalne symbole zastępcze otoczone procentowo (%) znaki konstruktora atrybutu zestawu SDK zadań WebJob i kod **NameResolver** określa rzeczywiste wartości używane zamiast tych symboli zastępczych.
 
-Załóżmy na przykład, że chcesz użyć kolejki o nazwie logqueuetest w środowisku testowym i jeden o nazwie logqueueprod w środowisku produkcyjnym. Zamiast nazwy kolejki zakodowane, chcesz określić nazwę wpisu w **appSettings** kolekcji, która będzie miała rzeczywistą nazwę kolejki. Jeśli **appSettings** klucz jest logqueue, funkcja może wyglądać jak w poniższym przykładzie.
+Załóżmy na przykład, że chcesz użyć kolejki o nazwie logqueuetest w środowisku testowym i jednego o nazwie logqueueprod w produkcji. Zamiast zakodowanej nazwy kolejki, należy określić nazwę wpisu w kolekcji **AppSettings** , która ma rzeczywistą nazwę kolejki. Jeśli klucz **AppSettings** jest logqueue, funkcja może wyglądać podobnie jak w poniższym przykładzie.
 
 ```csharp
 public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
@@ -454,7 +454,7 @@ public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
 }
 ```
 
-Twoja **klasa NameResolver** może następnie uzyskać nazwę kolejki z **appSettings,** jak pokazano w poniższym przykładzie:
+Klasa **NameResolver** może następnie pobrać nazwę kolejki z **AppSettings** , jak pokazano w następującym przykładzie:
 
 ```csharp
 public class QueueNameResolver : INameResolver
@@ -466,7 +466,7 @@ public class QueueNameResolver : INameResolver
 }
 ```
 
-Klasa **NameResolver** należy przekazać do obiektu **JobHost,** jak pokazano w poniższym przykładzie.
+Klasa **NameResolver** jest przekazywany do obiektu **JobHost** , jak pokazano w poniższym przykładzie.
 
 ```csharp
 static void Main(string[] args)
@@ -478,10 +478,10 @@ static void Main(string[] args)
 }
 ```
 
-**Uwaga:** Nazwy kolejek, tabel i obiektów blob są rozpoznawane za każdym razem, gdy wywoływana jest funkcja, ale nazwy kontenerów obiektów blob są rozpoznawane tylko po uruchomieniu aplikacji. Nie można zmienić nazwy kontenera obiektów blob, gdy zadanie jest uruchomione.
+**Uwaga:** Nazwy kolejek, tabel i obiektów BLOB są rozpoznawane za każdym razem, gdy wywoływana jest funkcja, ale nazwy kontenerów obiektów BLOB są rozpoznawane tylko wtedy, gdy aplikacja jest uruchamiana. Nie można zmienić nazwy kontenera obiektów blob, gdy zadanie jest uruchomione.
 
 ## <a name="how-to-trigger-a-function-manually"></a>Jak ręcznie wyzwolić funkcję
-Aby wyzwolić funkcję ręcznie, należy użyć **Call** lub **CallAsync** metody na **JobHost** obiektu i **NoAutomaticTrigger** atrybut na funkcji, jak pokazano w poniższym przykładzie.
+Aby ręcznie wyzwolić funkcję, należy użyć metody **call** lub **CallAsync** w obiekcie **JobHost** i atrybucie **NoAutomaticTrigger** w funkcji, jak pokazano w poniższym przykładzie.
 
 ```csharp
 public class Program
@@ -505,21 +505,21 @@ public class Program
 ```
 
 ## <a name="how-to-write-logs"></a>Jak pisać dzienniki
-Pulpit nawigacyjny pokazuje dzienniki w dwóch miejscach: stronę webjob i stronę dla określonego wywołania webjob.
+Pulpit nawigacyjny pokazuje dzienniki w dwóch miejscach: stronę Zadania WebJob i stronę dla określonego wywołania Zadania WebJob.
 
-![Loguje się na stronie WebJob](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Dzienniki na stronie Zadania WebJob](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-![Strona wywołania funkcji loguje się](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
+![Strona rejestrowania w wywołaniu funkcji](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-Dane wyjściowe z metody konsoli, które można wywołać w funkcji lub w **Main()** metoda pojawia się na pulpicie nawigacyjnym strony dla WebJob, a nie na stronie dla wywołania określonej metody. Dane wyjściowe z TextWriter obiektu, który można uzyskać z parametru w podpisie metody pojawia się na stronie pulpitu nawigacyjnego dla wywołania metody.
+Dane wyjściowe z metod konsoli wywoływanych w funkcji lub w metodzie **Main ()** pojawiają się na stronie pulpitu nawigacyjnego Zadania WebJob, a nie na stronie dla określonego wywołania metody. Dane wyjściowe z obiektu TextWriter uzyskane z parametru w podpisie metody są wyświetlane na stronie pulpitu nawigacyjnego wywołania metody.
 
-Dane wyjściowe konsoli nie mogą być połączone z wywołaniem określonej metody, ponieważ konsola jest jednowątkowa, podczas gdy wiele funkcji zadań może być uruchomionych w tym samym czasie. Dlatego SDK zapewnia każde wywołanie funkcji z własnym unikatowym obiektem modułu zapisującego dzienniki.
+Dane wyjściowe konsoli nie mogą być połączone z konkretnym wywołaniem metody, ponieważ konsola jest jednowątkowa, podczas gdy wiele funkcji zadań może być uruchomionych w tym samym czasie. Dlatego zestaw SDK udostępnia każde wywołanie funkcji z własnym unikatowym obiektem modułu zapisywania dzienników.
 
-Aby napisać [dzienniki śledzenia aplikacji,](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview)użyj **Console.Out** (tworzy dzienniki oznaczone jako INFO) i **Console.Error** (tworzy dzienniki oznaczone jako ERROR). Alternatywą jest użycie [śledzenia lub tracesource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), który zapewnia pełne, ostrzeżenie i krytyczne poziomy oprócz informacji i błędów. Dzienniki śledzenia aplikacji są wyświetlane w plikach dziennika aplikacji sieci Web, tabelach platformy Azure lub obiektach blob platformy Azure w zależności od sposobu konfigurowania aplikacji sieci Web platformy Azure. Podobnie jak w przypadku wszystkich danych wyjściowych konsoli, najnowsze dzienniki aplikacji 100 są również wyświetlane na stronie pulpitu nawigacyjnego dla webjob, a nie na stronie wywołania funkcji.
+Aby napisać [dzienniki śledzenia aplikacji](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview), użyj **konsoli. out** (tworzy dzienniki oznaczone jako info) i **Console. Error** (tworzy dzienniki oznaczone jako error). Alternatywą jest użycie [funkcji trace lub TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), która zapewnia pełne, ostrzegawcze i krytyczne poziomy oprócz informacji i błędów. Dzienniki śledzenia aplikacji są wyświetlane w plikach dziennika aplikacji sieci Web, w tabelach platformy Azure lub w obiektach Blob platformy Azure w zależności od sposobu konfigurowania aplikacji sieci Web platformy Azure. Podobnie jak w przypadku wszystkich danych wyjściowych konsoli, najnowsze Dzienniki aplikacji 100 są również wyświetlane na stronie pulpitu nawigacyjnego Zadania WebJob, a nie na stronie wywołania funkcji.
 
-Dane wyjściowe konsoli są wyświetlane na pulpicie nawigacyjnym tylko wtedy, gdy program jest uruchomiony w programie Azure WebJob, a nie wtedy, gdy program jest uruchomiony lokalnie lub w innym środowisku.
+Dane wyjściowe konsoli są wyświetlane na pulpicie nawigacyjnym tylko wtedy, gdy program jest uruchomiony w zadaniach WebJob platformy Azure, a nie w przypadku uruchamiania lokalnego lub w innym środowisku.
 
-Rejestrowanie można wyłączyć, ustawiając ciąg połączenia pulpitu nawigacyjnego na wartość null. Aby uzyskać więcej informacji, zobacz [Jak ustawić opcje konfiguracji](#how-to-set-configuration-options).
+Rejestrowanie można wyłączyć, ustawiając parametry połączenia pulpitu nawigacyjnego na wartość null. Aby uzyskać więcej informacji, zobacz [How to set Configuration Options](#how-to-set-configuration-options).
 
 W poniższym przykładzie przedstawiono kilka sposobów pisania dzienników:
 
@@ -535,30 +535,30 @@ public static void WriteLog(
 }
 ```
 
-Na pulpicie nawigacyjnym SDK webjobs dane wyjściowe z obiektu **TextWriter** są wyświetlane po naciśnięciu strony dla określonego wywołania funkcji i wybraniu **opcji Przełącz dane wyjściowe:**
+Na pulpicie nawigacyjnym zestawu SDK usługi WebJobs dane wyjściowe z obiektu **TextWriter** są wyświetlane po przejściu do strony dla określonego wywołania funkcji i wybraniu opcji **Przełącz dane wyjściowe**:
 
-![Łącze wywołania](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
+![Link wywołania](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
-![Strona wywołania funkcji loguje się](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
+![Strona rejestrowania w wywołaniu funkcji](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-Na pulpicie nawigacyjnym SDK webjobs najnowsze 100 wierszy danych wyjściowych konsoli pojawia się po przełączeniu do strony dla webjob (nie dla wywołania funkcji) i wybierz pozycję **Przełącz dane wyjściowe**.
+Na pulpicie nawigacyjnym zestawu SDK usługi WebJobs są wyświetlane ostatnie 100 wierszy danych wyjściowych konsoli, gdy przejdziesz do strony zadania WebJob (nie dla wywołania funkcji), a następnie wybierz pozycję **Przełącz dane wyjściowe**.
 
-![Przełączanie danych wyjściowych](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Przełącz dane wyjściowe](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-W ciągłym webjobecharze pojawiają się w /data/jobs/continuous/*{webjobname}*/job_log.txt w systemie plików aplikacji sieci web.
+W przypadku ciągłego Zadania WebJob Dzienniki aplikacji są wyświetlane w/Data/Jobs/Continuous/*{webjobname}*/job_log. txt w systemie plików aplikacji sieci Web.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-W obiekcie blob platformy Azure dzienniki aplikacji wyglądają następująco: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Błąd,contosoadsnew,491e54, 635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Informacje,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
+W obiekcie blob platformy Azure Dzienniki aplikacji wyglądają następująco: 2014-09-26T21:01:13, informacje, contosoadsnew, 491e54, 635473620738373502, 0, 17404, 17, Console. Write-Witaj świecie!, 2014-09-26T21:01:13, Error, contosoadsnew, 491e54, 635473620738373502, 0, 17404, 19, Console. Error-Hello World!, 2014-09-26T21:01:13, informacje, contosoadsnew, 491e54, 635473620738529920, 17404,, 17, Console. out-Hello World!,
 
-W tabeli platformy Azure **dzienniki Console.Out** i **Console.Error** wyglądają następująco:
+I w tabeli platformy Azure **konsoli. out** i **Console. Error** Logs wyglądać następująco:
 
-![Tabela logowania informacji](./media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
+![Dziennik informacji w tabeli](./media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
 
-![Logowanie błędów w tabeli](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
+![Dziennik błędów w tabeli](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule przedstawiono przykłady kodu, które pokazują, jak obsługiwać typowe scenariusze pracy z kolejkami platformy Azure. Aby uzyskać więcej informacji na temat korzystania z usługi Azure WebJobs i webjobs SDK, zobacz [zasoby dokumentacji usługi Azure WebJobs](https://go.microsoft.com/fwlink/?linkid=390226).
+W tym artykule przedstawiono przykłady kodu, które pokazują, jak obsługiwać typowe scenariusze pracy z kolejkami platformy Azure. Więcej informacji o sposobach używania Azure WebJobs i zestawu SDK usługi WebJobs znajduje się w temacie [Azure WebJobs zasoby dokumentacji](https://go.microsoft.com/fwlink/?linkid=390226).
 

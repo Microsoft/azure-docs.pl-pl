@@ -1,6 +1,6 @@
 ---
-title: Projektowanie rozwiązań do odzyskiwania po awarii
-description: Dowiedz się, jak zaprojektować rozwiązanie chmurowe do odzyskiwania po awarii, wybierając odpowiedni wzorzec pracy awaryjnej.
+title: Projektowanie rozwiązań odzyskiwania po awarii
+description: Dowiedz się, jak zaprojektować rozwiązanie w chmurze na potrzeby odzyskiwania po awarii, wybierając odpowiedni wzorzec trybu failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -12,164 +12,164 @@ ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 01/25/2019
 ms.openlocfilehash: 4eeaa187142a6d0d97b12f685ebc455f3844606f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73825870"
 ---
-# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategie odzyskiwania po awarii dla aplikacji korzystających z elastycznych pul bazy danych SQL
+# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategie odzyskiwania po awarii dla aplikacji korzystających z SQL Database pul elastycznych
 
-Z biegiem lat dowiedzieliśmy się, że usługi w chmurze nie są niezawodne i zdarzają się katastrofalne incydenty. Baza danych SQL zapewnia kilka możliwości zapewnienia ciągłości biznesowej aplikacji w przypadku wystąpienia tych zdarzeń. [Pule elastyczne](sql-database-elastic-pool.md) i pojedyncze bazy danych obsługują ten sam rodzaj funkcji odzyskiwania po awarii (DR). W tym artykule opisano kilka strategii odzyskiwania po awarii dla pul elastycznych, które wykorzystują te funkcje ciągłości biznesowej bazy danych SQL.
+W ciągu lat zapoznaj się z tym, że usługi w chmurze nie są foolproof i zdarzają się katastrofalne zdarzenia. SQL Database oferuje kilka funkcji zapewniających ciągłość działania aplikacji w przypadku wystąpienia tych zdarzeń. [Pule elastyczne](sql-database-elastic-pool.md) i pojedyncze bazy danych obsługują tego samego rodzaju możliwości odzyskiwania po awarii (Dr). W tym artykule opisano kilka strategii odzyskiwania po awarii dla pul elastycznych, które wykorzystują te SQL Database funkcje ciągłości działania.
 
-W tym artykule użyto następującego kanonicznego wzorca aplikacji isv SaaS:
+W tym artykule jest stosowany następujący wzorzec kanonicznej aplikacji SaaS niezależnego dostawcy oprogramowania:
 
-Nowoczesna aplikacja sieci web oparta na chmurze udostępnia jedną bazę danych SQL dla każdego użytkownika końcowego. Isv ma wielu klientów i dlatego używa wielu baz danych, znany jako dzierżawy baz danych. Ponieważ bazy danych dzierżawy zazwyczaj mają wzorce działań nieprzewidywalne, niezależna firma isv używa puli elastycznej, aby koszt bazy danych bardzo przewidywalne przez dłuższy czas. Pula elastyczna upraszcza również zarządzanie wydajnością, gdy wzrost aktywności użytkownika. Oprócz baz danych dzierżawy aplikacja używa również kilku baz danych do zarządzania profilami użytkowników, zabezpieczeniami, zbieraniem wzorców użycia itp. Dostępność poszczególnych dzierżaw nie ma wpływu na dostępność aplikacji jako całości. Jednak dostępność i wydajność baz danych zarządzania ma kluczowe znaczenie dla funkcji aplikacji i jeśli bazy danych zarządzania są w trybie offline, cała aplikacja jest w trybie offline.
+Nowoczesne aplikacje sieci Web oparte na chmurze udostępniają jedną bazę danych SQL dla każdego użytkownika końcowego. Dostawca ISV ma wielu klientów i w związku z tym używa wielu baz danych, nazywanych bazami danych dzierżawcy. Ponieważ bazy danych dzierżaw zwykle mają nieprzewidywalne wzorce aktywności, dostawca ISV używa puli elastycznej, aby zapewnić, że baza danych jest bardzo przewidywalna w ciągu dłuższych okresów czasu. Elastyczna Pula upraszcza również zarządzanie wydajnością, gdy działanie użytkownika zostanie pożądane. Oprócz baz danych dzierżawców aplikacja używa także kilku baz danych do zarządzania profilami użytkowników, zabezpieczeniami, zbierania wzorców użycia itp. Dostępność indywidualnych dzierżawców nie ma wpływu na dostępność aplikacji jako całości. Jednak dostępność i wydajność baz danych zarządzania ma kluczowe znaczenie dla funkcji aplikacji, a jeśli bazy danych zarządzania są w trybie offline, cała aplikacja jest w trybie offline.
 
-W tym artykule omówiono strategie odzyskiwania po awarii obejmujące szereg scenariuszy, od aplikacji startowych wrażliwych na koszty do tych z rygorystycznymi wymaganiami dotyczącymi dostępności.
+W tym artykule omówiono strategie odzyskiwania po awarii obejmujące różne scenariusze od rozróżniania kosztów aplikacji uruchamiania do tych, które mają rygorystyczne wymagania dotyczące dostępności.
 
 > [!NOTE]
-> Jeśli używasz baz danych Premium lub Business Critical i pul elastycznych, możesz je odporne na awarie regionalne, konwertując je na konfigurację wdrożenia nadmiarowego strefy. Zobacz [bazy danych nadmiarowe strefowe](sql-database-high-availability.md).
+> Jeśli używasz baz danych Premium lub Krytyczne dla działania firmy i pul elastycznych, możesz je odporne na awarie regionalne, konwertując je na konfigurację nadmiarowego wdrożenia strefy. Zobacz [bazy danych strefowo nadmiarowe](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Scenariusz 1. Uruchamianie z uwzględnieniem kosztów
 
-Jestem firmą start-up i jestem bardzo wrażliwy na koszty.  Chcę uprościć wdrażanie i zarządzanie aplikacją i mogę mieć ograniczoną umowy SLA dla klientów indywidualnych. Ale chcę upewnić się, że aplikacja jako całość nigdy nie jest w trybie offline.
+Jestem biznesem uruchamianym i są niezwykle opłacalne.  Chcę uprościć wdrażanie aplikacji i zarządzanie nią i mogę mieć ograniczoną umowę SLA dla poszczególnych klientów. Ale chcę mieć pewność, że aplikacja jako całość nigdy nie jest w trybie offline.
 
-Aby spełnić wymagania dotyczące prostoty, należy wdrożyć wszystkie bazy danych dzierżawy w jednej puli elastycznej w wybranym regionie platformy Azure i wdrożyć bazy danych zarządzania jako pojedyncze bazy danych replikowane geograficznie. W przypadku odzyskiwania po awarii dzierżawców należy użyć funkcji przywracania geograficznego, co wiąże się z bez dodatkowych kosztów. Aby zapewnić dostępność baz danych zarządzania, replikuj je geograficznie do innego regionu przy użyciu grupy automatycznego trybu failover (krok 1). Bieżący koszt konfiguracji odzyskiwania po awarii w tym scenariuszu jest równy całkowitemu kosztowi pomocniczych baz danych. Ta konfiguracja jest zilustrowana na następnym diagramie.
+Aby spełnić wymagania prostoty, wdróż wszystkie bazy danych dzierżaw w jednej elastycznej puli w wybranym regionie platformy Azure i Wdróż bazy danych zarządzania jako pojedyncze bazy danych z replikacją geograficzną. W przypadku odzyskiwania po awarii dzierżawców należy użyć funkcji przywracania geograficznego, która nie oferuje żadnych dodatkowych kosztów. Aby zapewnić dostępność baz danych zarządzania, należy przeprowadzić replikację geograficzną w innym regionie przy użyciu grupy autotrybu failover (krok 1). Ciągły koszt konfiguracji odzyskiwania po awarii w tym scenariuszu jest równy łącznym kosztom pomocniczych baz danych. Ta konfiguracja jest zilustrowana na następnym diagramie.
 
 ![Rysunek 1.](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
-Jeśli wystąpi awaria w regionie podstawowym, kroki odzyskiwania, aby przenieść aplikację do trybu online są zilustrowane przez następny diagram.
+Jeśli w regionie podstawowym wystąpi awaria, kroki odzyskiwania umożliwiające przełączenie aplikacji do trybu online są zilustrowane na następnym diagramie.
 
-* Grupa trybu failover inicjuje automatyczną tryb failover bazy danych zarządzania do regionu odzyskiwania po awarii. Aplikacja jest automatycznie ponownie połączony z nowym podstawowym i wszystkie nowe konta i dzierżawy baz danych są tworzone w regionie odzyskiwania po awarii. Obecni klienci widzą swoje dane tymczasowo niedostępne.
-* Utwórz pulę elastyczną z taką samą konfiguracją jak oryginalna pula (2).
-* Użyj przywracania geograficznego, aby utworzyć kopie baz danych dzierżawy (3). Można rozważyć wyzwolenie poszczególnych przywraca przez połączenia użytkownika końcowego lub użyć innego schematu priorytetu specyficzne dla aplikacji.
+* Grupa trybu failover inicjuje automatyczną pracę awaryjną bazy danych zarządzania w regionie odzyskiwania po awarii. Aplikacja jest automatycznie ponownie łączona z nowym serwerem podstawowym, a wszystkie nowe konta i bazy danych dzierżaw są tworzone w regionie odzyskiwania po awarii. Istniejący klienci zobaczą, że ich dane są tymczasowo niedostępne.
+* Utwórz pulę elastyczną z taką samą konfiguracją jak oryginalna Pula (2).
+* Użyj funkcji przywracania geograficznego, aby utworzyć kopie baz danych dzierżaw (3). Można rozważyć wyzwolenie poszczególnych przywracania przez połączenia użytkowników końcowych lub użycie innego schematu priorytetu specyficznego dla aplikacji.
 
-W tym momencie aplikacja jest z powrotem w trybie online w regionie odzyskiwania po awarii, ale niektórzy klienci doświadczają opóźnienia podczas uzyskiwania dostępu do swoich danych.
+W tym momencie aplikacja przechodzi do trybu online w regionie odzyskiwania po awarii, ale niektórzy klienci napotykają opóźnienia podczas uzyskiwania dostępu do danych.
 
 ![Rysunek 2](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-2.png)
 
-Jeśli awaria była tymczasowa, jest możliwe, że region podstawowy jest odzyskiwany przez platformę Azure przed zakończeniem wszystkich przywracania bazy danych w regionie odzyskiwania po awarii. W takim przypadku zaaranżować przenoszenie aplikacji z powrotem do regionu podstawowego. Proces wykonuje kroki przedstawione na następnym diagramie.
+Jeśli awaria była tymczasowa, możliwe jest odzyskanie regionu podstawowego przez platformę Azure przed ukończeniem przywracania bazy danych w regionie odzyskiwania po awarii. W takim przypadku należy zorganizować przeniesienie aplikacji z powrotem do regionu podstawowego. Proces wykonuje kroki opisane na następnym diagramie.
 
 * Anuluj wszystkie zaległe żądania przywracania geograficznego.
-* Przejmuje się w błąd bazy danych zarządzania w regionie podstawowym (5). Po odzyskaniu regionu stare prawybory automatycznie stały się drugortarłonami. Teraz ponownie zmieniają role.
-* Zmień ciąg połączenia aplikacji, aby wskazywał z powrotem do regionu podstawowego. Teraz wszystkie nowe konta i dzierżawy baz danych są tworzone w regionie podstawowym. Niektórzy istniejący klienci widzą swoje dane tymczasowo niedostępne.
-* Ustaw wszystkie bazy danych w puli odzyskiwania po awarii jako tylko do odczytu, aby upewnić się, że nie można ich zmodyfikować w regionie odzyskiwania po awarii (6).
-* Dla każdej bazy danych w puli odzyskiwania po awarii, która uległa zmianie od czasu odzyskania, zmień nazwę lub usuń odpowiednie bazy danych w puli podstawowej (7).
+* Przełączenie baz danych zarządzania w tryb failover do regionu podstawowego (5). Po odzyskaniu w regionie stare Primaries mają automatycznie pełnić rolę pomocniczą. Teraz ponownie przełączają role.
+* Zmień parametry połączenia aplikacji tak, aby wskazywały region podstawowy. Teraz wszystkie nowe konta i bazy danych dzierżawy są tworzone w regionie podstawowym. Niektórzy istniejący klienci zobaczą, że ich dane są tymczasowo niedostępne.
+* Ustaw wszystkie bazy danych w puli DR na tylko do odczytu, aby upewnić się, że nie można ich modyfikować w regionie odzyskiwania po awarii (6).
+* Dla każdej bazy danych w puli odzyskiwania po awarii, która zmieniła się od momentu odzyskiwania, Zmień nazwę lub usuń odpowiednie bazy danych w puli podstawowej (7).
 * Skopiuj zaktualizowane bazy danych z puli odzyskiwania po awarii do puli podstawowej (8).
 * Usuwanie puli odzyskiwania po awarii (9)
 
-W tym momencie aplikacja jest w trybie online w regionie podstawowym ze wszystkimi bazami danych dzierżawy dostępnych w puli podstawowej.
+W tym momencie aplikacja jest w trybie online w regionie podstawowym ze wszystkimi bazami danych dzierżawy dostępnymi w puli podstawowej.
 
 ![Rysunek 3](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-3.png)
 
-Kluczową **zaletą** tej strategii jest niski koszt bieżący nadmiarowości warstwy danych. Kopie zapasowe są pobierane automatycznie przez usługę bazy danych SQL bez ponownego zapisywania aplikacji i bez dodatkowych kosztów.  Koszt jest ponoszony tylko wtedy, gdy elastyczne bazy danych są przywracane. Kompromis **polega** na tym, że całkowite odzyskanie wszystkich baz danych dzierżawy zajmuje dużo czasu. Czas zależy od całkowitej liczby przywracania zainicjowanych w regionie odzyskiwania po awarii i ogólnego rozmiaru baz danych dzierżawy. Nawet jeśli priorytet przywraca niektórych dzierżawców nad innymi, konkurują z wszystkich innych przywraca, które są inicjowane w tym samym regionie, co usługa rozstrzyga i ogranicza, aby zminimalizować ogólny wpływ na istniejące bazy danych klientów. Ponadto odzyskiwanie baz danych dzierżawy nie można uruchomić, dopóki nie zostanie utworzona nowa pula elastyczna w regionie odzyskiwania po awarii.
+Najważniejsze **korzyści wynikające** z tej strategii to niski ciągły koszt nadmiarowości warstwy danych. Kopie zapasowe są wykonywane automatycznie przez usługę SQL Database bez ponownego zapisywania aplikacji i bez dodatkowych kosztów.  Koszt jest naliczany tylko w przypadku przywrócenia elastycznych baz danych. Dzięki temu cały czas odzyskiwanie wszystkich baz danych dzierżawy **trwa znacznie** . Czas zależy od łącznej liczby operacji przywracania zainicjowanej w regionie DR oraz całkowitego rozmiaru baz danych dzierżawy. Nawet jeśli określisz priorytety niektórych dzierżawców, będziesz mieć możliwość konkurowania ze wszystkimi innymi przywracaniami, które są inicjowane w tym samym regionie, w którym usługa rozstrzyga i ogranicza ograniczenia, aby zminimalizować ogólny wpływ na istniejące bazy danych klientów. Ponadto nie można uruchomić odzyskiwania baz danych dzierżawy, dopóki nie zostanie utworzona nowa pula elastyczna w regionie odzyskiwania po awarii.
 
-## <a name="scenario-2-mature-application-with-tiered-service"></a>Scenariusz 2. Dojrzała aplikacja z usługą warstwową
+## <a name="scenario-2-mature-application-with-tiered-service"></a>Scenariusz 2. Aplikacja dla dorosłych z usługą warstwową
 
-Jestem dojrzałą aplikacją SaaS z wielopoziomowymi ofertami usług i różnymi opłatami SLA dla klientów testowych i płacących klientów. Dla klientów testowych muszę obniżyć koszty w jak największej wysokości. Klienci testowi mogą zdejmować przestoje, ale chcę zmniejszyć jego prawdopodobieństwo. Dla płacących klientów każdy przestój jest ryzykiem lotu. Dlatego chcę mieć pewność, że płacący klienci są zawsze w stanie uzyskać dostęp do swoich danych.
+Jestem dojrzałą aplikacją SaaS z ofertami usług warstwowych i różnymi umowy slami dla klientów korzystających z wersji próbnej oraz w przypadku płacenia klientów. W przypadku klientów korzystających z wersji próbnych należy zmniejszyć koszty tak, jak to możliwe. Klienci korzystający z wersji próbnej mogą podejmować przestoje, ale chcą ograniczyć jej prawdopodobieństwo. W przypadku płatnych odbiorców każdy przestój jest ryzykiem związanym z lotem. Dlatego chcę mieć pewność, że płacący klienci zawsze mogą uzyskać dostęp do swoich danych.
 
-Aby obsługiwać ten scenariusz, oddzielić dzierżawy wersji próbnej od płatnych dzierżaw, umieszczając je w oddzielnych pulach elastycznych. Klienci wersji próbnej mają niższe eDTU lub wirtualne na dzierżawę i niższą umowy SLA z dłuższym czasem odzyskiwania. Płacący klienci znajdują się w puli z wyższymi eDTU lub wirtualnymi na dzierżawcę i wyższą opłatą SLA. Aby zagwarantować najniższy czas odzyskiwania, bazy danych dzierżawców klientów płacących są replikowane geograficznie. Ta konfiguracja jest zilustrowana na następnym diagramie.
+Aby obsłużyć ten scenariusz, należy oddzielić dzierżawy w wersji próbnej od płatnych dzierżawców, umieszczając je w osobnych pulach elastycznych. Klienci korzystający z wersji próbnej mają mniejszą liczbę jednostek eDTU lub rdzeni wirtualnych na dzierżawcę oraz niższą umowę SLA o dłuższym czasie odzyskiwania. Płacący klienci są w puli o wyższej liczby jednostek eDTU lub rdzeni wirtualnych na dzierżawcę i wyższą umowę SLA. W celu zagwarantowania najmniejszego czasu odzyskiwania bazy danych dzierżawy klientów z wypłaceniem są replikowane geograficznie. Ta konfiguracja jest zilustrowana na następnym diagramie.
 
 ![Rysunek 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
-Podobnie jak w pierwszym scenariuszu, bazy danych zarządzania są dość aktywne, więc można użyć jednej bazy danych replikowanej geograficznie dla niego (1). Zapewnia to przewidywalną wydajność dla nowych subskrypcji klientów, aktualizacji profilu i innych operacji zarządzania. Region, w którym znajdują się prawybory baz danych zarządzania jest regionem podstawowym, a region, w którym znajdują się pomocnicze bazy danych zarządzania, jest regionem odzyskiwania po awarii.
+Jak w pierwszym scenariuszu bazy danych zarządzania są dość aktywne, aby można było korzystać z jednej geograficznie zreplikowanej bazy danych (1). Zapewnia to przewidywalną wydajność nowych subskrypcji klientów, aktualizacji profilów i innych operacji zarządzania. Region, w którym znajduje się Primaries baz danych zarządzania, jest regionem podstawowym, a region, w którym znajdują się pomocnicze bazy danych zarządzania, jest regionem odzyskiwania po awarii.
 
-Bazy danych dzierżawców płacących klientów mają aktywne bazy danych w puli "płatnej" aprowizowana w regionie podstawowym. Aprowizuj pulę pomocniczą o tej samej nazwie w regionie odzyskiwania po awarii. Każdy dzierżawca jest replikowany geograficznie do puli pomocniczej (2). Umożliwia to szybkie odzyskiwanie wszystkich baz danych dzierżawy przy użyciu trybu failover.
+Bazy danych dzierżawy klientów dokonujących wpłaty mają aktywne bazy danych w puli "płatne", która została zainicjowana w regionie podstawowym. Zainicjuj obsługę puli pomocniczej o tej samej nazwie w regionie odzyskiwania po awarii. Każda dzierżawa jest replikowana geograficznie do puli pomocniczej (2). Umożliwia to szybkie odzyskiwanie wszystkich baz danych dzierżaw przy użyciu trybu failover.
 
-Jeśli wystąpi awaria w regionie podstawowym, kroki odzyskiwania, aby przenieść aplikację do trybu online są zilustrowane na następnym diagramie:
+Jeśli w regionie podstawowym wystąpi awaria, kroki odzyskiwania umożliwiające przełączenie aplikacji do trybu online są zilustrowane na następnym diagramie:
 
 ![Rysunek 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
-* Natychmiast przeładuj w błąd bazy danych zarządzania do regionu odzyskiwania po awarii (3).
-* Zmień parametry połączenia aplikacji, aby wskazywał region odzyskiwania po awarii. Teraz wszystkie nowe konta i dzierżawy baz danych są tworzone w regionie odzyskiwania po awarii. Istniejący klienci wersji próbnej widzą swoje dane tymczasowo niedostępne.
-* Przełącz się w stan fail over płatnych dzierżawców baz danych do puli w regionie odzyskiwania po awarii, aby natychmiast przywrócić ich dostępność (4). Ponieważ tryb failover jest szybką zmianą poziomu metadanych, należy wziąć pod uwagę optymalizację, w której poszczególne tryby failover są wyzwalane na żądanie przez połączenia użytkownika końcowego.
-* Jeśli rozmiar eDTU puli dodatkowej lub wartość typu vCore była niższa niż podstawowa, ponieważ pomocnicze bazy danych wymagały tylko pojemności do przetwarzania dzienników zmian, gdy były pomocniczymi elementami, natychmiast zwiększ pojemność puli, aby pomieścić pełne obciążenie wszystkich najemców (5).
-* Utwórz nową pulę elastyczną o tej samej nazwie i tej samej konfiguracji w regionie odzyskiwania po awarii dla baz danych klientów wersji próbnej (6).
-* Po utworzeniu puli klientów wersji próbnej użyj przywracania geograficznego, aby przywrócić bazy danych poszczególnych dzierżawców wersji próbnej do nowej puli (7). Należy rozważyć wyzwolenie poszczególnych przywraca przez połączenia użytkownika końcowego lub użyć innego schematu priorytetu specyficzne dla aplikacji.
+* Natychmiastowe przełączenie baz danych zarządzania do regionu odzyskiwania po awarii (3).
+* Zmień parametry połączenia aplikacji tak, aby wskazywały region DR. Teraz wszystkie nowe konta i bazy danych dzierżawy są tworzone w regionie odzyskiwania po awarii. Obecni klienci korzystający z wersji próbnej zobaczą, że dane są tymczasowo niedostępne.
+* Przełączenie w tryb failover baz danych płatnej dzierżawy do puli w regionie odzyskiwania po awarii w celu natychmiastowego przywrócenia ich dostępności (4). Ponieważ przejście w tryb failover to szybka zmiana poziomu metadanych, należy rozważyć optymalizację, w której poszczególne przełączenia w tryb failover są wyzwalane na żądanie przez połączenia użytkowników końcowych.
+* Jeśli rozmiar eDTU puli dodatkowej lub wartość rdzeń wirtualny była niższa niż podstawowa, ponieważ pomocnicze bazy danych wymagały przetworzenia dzienników zmian tylko wtedy, gdy były one pomocnicze, natychmiast Zwiększ pojemność puli teraz, aby uwzględnić pełne obciążenie wszystkich dzierżawców (5).
+* Utwórz nową pulę elastyczną o tej samej nazwie i tej samej konfiguracji w regionie DR dla baz danych wersji próbnych klientów (6).
+* Po utworzeniu puli wersji próbnych klientów Użyj funkcji przywracania geograficznego, aby przywrócić pojedyncze bazy danych dzierżawy wersji próbnej do nowej puli (7). Należy rozważyć wyzwolenie poszczególnych przywracania przez połączenia użytkowników końcowych lub użycie innego schematu priorytetu specyficznego dla aplikacji.
 
-W tym momencie aplikacja jest z powrotem w trybie online w regionie odzyskiwania po awarii. Wszyscy płacący klienci mają dostęp do swoich danych, podczas gdy klienci wersji próbnej doświadczają opóźnienia podczas uzyskiwania dostępu do swoich danych.
+W tym momencie aplikacja przechodzi do trybu online w regionie odzyskiwania po awarii. Wszyscy klienci z płatnościami mają dostęp do swoich danych, podczas gdy próbuje oni uzyskać opóźnienia podczas uzyskiwania dostępu do danych.
 
-Po odzyskaniu regionu podstawowego przez platformę Azure *po* przywróceniu aplikacji w regionie odzyskiwania po awarii można kontynuować uruchamianie aplikacji w tym regionie lub można zdecydować się na powrót po awarii do regionu podstawowego. Jeśli region podstawowy jest odzyskiwany *przed* zakończeniem procesu pracy awaryjnej, należy rozważyć niepowodzenie z powrotem od razu. Powrót po awarii wykonuje kroki opisane na następnym diagramie:
+Gdy podstawowy region jest odzyskiwany przez platformę Azure po przywróceniu aplikacji w regionie odzyskiwania *po* awarii, można kontynuować uruchamianie aplikacji w tym regionie lub można zdecydować, aby powrócić do regionu podstawowego. Jeśli region podstawowy zostanie odzyskany *przed* ukończeniem procesu przełączania do trybu failover, należy natychmiast rozważyć powrót po awarii. Powrót po awarii powoduje wykonanie kroków przedstawionych na następnym diagramie:
 
-![Rysunek 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
+![Rysunek 6.](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
 * Anuluj wszystkie zaległe żądania przywracania geograficznego.
-* Przejmuje się awaryjnie w bazach danych zarządzania (8). Po odzyskaniu regionu stary podstawowy automatycznie staje się drugorzędny. Teraz znowu staje się podstawowym.  
-* Przejmuje się awaryjnie w bazach danych dzierżawy płatnej (9). Podobnie, po ożywieniu regionu, stare prawybory automatycznie stają się pomocniczymi. Teraz znowu stają się prawyborami.
-* Ustaw przywrócone bazy danych wersji próbnej, które uległy zmianie w regionie odzyskiwania po awarii, na tylko do odczytu (10).
-* Dla każdej bazy danych w puli odzyskiwania po awarii klientów wersji próbnej, która uległa zmianie od czasu odzyskania, zmień nazwę lub usuń odpowiednią bazę danych w puli podstawowej klientów próbnej (11).
+* Przełączenie w tryb failover baz danych zarządzania (8). Po odzyskiwaniu w regionie stary podstawowy automatycznie staje się pomocniczą. Teraz zostanie on ponownie podstawowy.  
+* Przełączenie w tryb failover płatnych baz danych dzierżaw (9). Podobnie po odzyskaniu regionu stare Primaries automatycznie stają się pomocniczymi. Teraz stają się one Primaries ponownie.
+* Ustaw przywrócone bazy danych w wersji próbnej, które zostały zmienione w regionie odzyskiwania po awarii (10).
+* Dla każdej bazy danych w puli odzyskiwania po awarii dla klientów w wersji próbnej, która zmieniła się od momentu odzyskania, należy zmienić nazwę odpowiedniej bazy danych lub usunąć ją w podstawowej puli klientów wersji próbnej
 * Skopiuj zaktualizowane bazy danych z puli odzyskiwania po awarii do puli podstawowej (12).
 * Usuń pulę odzyskiwania po awarii (13).
 
 > [!NOTE]
-> Operacja pracy awaryjnej jest asynchroniza. Aby zminimalizować czas odzyskiwania, ważne jest, aby wykonać polecenie trybu failover bazy danych dzierżawy w partiach co najmniej 20 baz danych.
+> Operacja przejścia w tryb failover jest asynchroniczna. Aby zminimalizować czas odzyskiwania, należy wykonać polecenie trybu failover baz danych dzierżawy w partiach co najmniej 20 baz danych.
 
-Kluczową **zaletą** tej strategii jest to, że zapewnia najwyższą umowy SLA dla płacących klientów. Gwarantuje również, że nowe wersje próbne są odblokowane zaraz po utworzeniu puli odzyskiwania po awarii. Kompromis **polega** na tym, że ta konfiguracja zwiększa całkowity koszt baz danych dzierżawy o koszt dodatkowej puli odzyskiwania po awarii dla płatnych klientów. Ponadto jeśli pula pomocnicza ma inny rozmiar, płacący klienci doświadczają niższej wydajności po przełączeniu w pracę awaryjną, dopóki uaktualnienie puli w regionie odzyskiwania po awarii nie zostanie zakończone.
+Najważniejsze **korzyści wynikające** z tej strategii zapewniają najwyższą umowę SLA dla klientów korzystających z płatności. Gwarantuje również, że nowe wersje próbne zostaną odblokowane natychmiast po utworzeniu puli odzyskiwania po awarii. W **tym przypadku taka** konfiguracja zwiększa łączny koszt baz danych dzierżawy przez koszt dodatkowej puli Dr dla płatnych klientów. Ponadto, jeśli Pula pomocnicza ma inny rozmiar, płatne klienci mogą obniżyć wydajność po przejściu do trybu failover do momentu zakończenia uaktualniania puli w regionie odzyskiwania po awarii.
 
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Scenariusz 3. Aplikacja rozproszona geograficznie z usługą warstwową
 
-Mam dojrzałą aplikację SaaS z warstwowymi ofertami usług. Chcę zaoferować bardzo agresywną umowy SLA moim płatnym klientom i zminimalizować ryzyko wystąpienia awarii, ponieważ nawet krótka przerwa może spowodować niezadowolenie klientów. Bardzo ważne jest, aby płacący klienci zawsze mogli uzyskać dostęp do swoich danych. Wersje próbne są bezpłatne, a umowy SLA nie są oferowane w okresie próbnym.
+Mam nieSaaSą aplikację z ofertami usług warstwowych. Chcę zaoferować bardzo agresywną umowę SLA klientom z płatnościami i zminimalizować ryzyko wystąpienia awarii, ponieważ nawet krótkie przerwy mogą spowodować niezadowolenie klientów. Ważne jest, aby płacący klienci zawsze mogli uzyskiwać dostęp do swoich danych. Wersje próbne są bezpłatne i Umowa SLA nie jest oferowana w okresie próbnym.
 
-Aby obsługiwać ten scenariusz, należy użyć trzech oddzielnych pul elastycznych. Aprowizuj dwie pule o równym rozmiarze z wysokimi eDTU lub vCorami na bazę danych w dwóch różnych regionach, aby zawierały bazy danych dzierżawy płatnych klientów. Trzecia pula zawierająca dzierżawców wersji próbnej może mieć niższe eDTU lub vCore na bazę danych i być aprowizowana w jednym z dwóch regionów.
+Aby obsłużyć ten scenariusz, należy użyć trzech oddzielnych pul elastycznych. Udostępnij dwie pule o równym rozmiarze z wysoką jednostek eDTU lub rdzeni wirtualnych na bazę danych w dwóch różnych regionach, aby zawierały płatne bazy danych dzierżaw klientów. Trzecia Pula zawierająca dzierżawy w wersji próbnej może mieć niższą jednostek eDTU lub rdzeni wirtualnych na bazę danych i być obsługiwana w jednym z dwóch regionów.
 
-Aby zagwarantować najniższy czas odzyskiwania podczas awarii, bazy danych dzierżawców klientów płacących są replikowane geograficznie z 50% podstawowych baz danych w każdym z dwóch regionów. Podobnie każdy region ma 50% pomocniczych baz danych. W ten sposób, jeśli region jest w trybie offline, tylko 50% płatnych baz danych klientów mają wpływ i muszą awaryjnie. Inne bazy danych pozostają nienaruszone. Ta konfiguracja jest zilustrowana na poniższym diagramie:
+W celu zagwarantowania najmniejszego czasu odzyskiwania w trakcie awarii, wypłatne bazy danych dzierżawy klientów są replikowane geograficznie z 50% podstawowych baz danych w każdym z tych dwóch regionów. Podobnie każdy region ma 50% pomocniczych baz danych. W ten sposób, jeśli region jest w trybie offline, wpływają tylko na 50% baz danych płatnych klientów i będzie można przechodzić w tryb failover. Pozostałe bazy danych pozostają bez zmian. Ta konfiguracja jest zilustrowana na poniższym diagramie:
 
 ![Rysunek 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
-Podobnie jak w poprzednich scenariuszach, bazy danych zarządzania są dość aktywne, więc skonfiguruj je jako pojedyncze bazy danych replikowane geograficznie (1). Zapewnia to przewidywalną wydajność nowych subskrypcji klientów, aktualizacji profili i innych operacji zarządzania. Region A jest regionem podstawowym dla baz danych zarządzania i region B jest używany do odzyskiwania baz danych zarządzania.
+Podobnie jak w poprzednich scenariuszach, bazy danych zarządzania są dość aktywne, dlatego należy je skonfigurować jako pojedyncze bazy danych z replikacją geograficzną (1). Zapewnia to przewidywalną wydajność nowych subskrypcji klientów, aktualizacje profilów i inne operacje zarządzania. Region A jest regionem podstawowym baz danych zarządzania, a region B jest używany do odzyskiwania baz danych zarządzania.
 
-Bazy danych dzierżawców płacących klientów są również replikowane geograficznie, ale z głównymi i pomocniczymi bazami danych podzielonymi między regionY A i region B (2). W ten sposób dzierżawy podstawowych baz danych dotkniętych awarią może awaryjnie do innego regionu i stają się dostępne. Nie ma to żadnego wpływu na drugą połowę baz danych dzierżawy.
+Bazy danych dzierżawy klientów płacących również są replikowane geograficznie, ale z Primaries i pomocniczymi rozbiciem między region A i region B (2). W ten sposób podstawowe bazy danych dzierżawy, na które wpływa awaria, mogą być przełączane w tryb failover do innego regionu i stają się dostępne. Nie ma to wpływu na drugą połowę baz danych dzierżawy.
 
-Następny diagram ilustruje kroki odzyskiwania do podjęcia, jeśli wystąpi awaria w regionie A.
+Na następnym diagramie przedstawiono kroki odzyskiwania, które należy wykonać w przypadku wystąpienia awarii w regionie A.
 
 ![Rysunek 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
 
-* Natychmiast w pracy awaryjnej baz danych zarządzania do regionu B (3).
-* Zmień parametry połączenia aplikacji, aby wskazywał bazy danych zarządzania w regionie B. Zmodyfikuj bazy danych zarządzania, aby upewnić się, że nowe konta i bazy danych dzierżawy są tworzone w regionie B, a tam również znajdują się istniejące bazy danych dzierżawy. Istniejący klienci wersji próbnej widzą swoje dane tymczasowo niedostępne.
-* Przełącz się w stan fail over do bazy danych płatnego dzierżawcy do puli 2 w regionie B, aby natychmiast przywrócić ich dostępność (4). Ponieważ tryb failover jest szybką zmianą poziomu metadanych, można rozważyć optymalizację, w której poszczególne tryb failover są wyzwalane na żądanie przez połączenia użytkownika końcowego.
-* Ponieważ teraz pula 2 zawiera tylko podstawowe bazy danych, całkowite obciążenie w puli wzrasta i może natychmiast zwiększyć jego rozmiar eDTU (5) lub liczbę podstawowych.
-* Utwórz nową pulę elastyczną o tej samej nazwie i tej samej konfiguracji w regionie B dla baz danych klientów wersji próbnej (6).
-* Po utworzeniu puli użyj przywracania geograficznego, aby przywrócić indywidualną próbną bazę danych dzierżawy do puli (7). Można rozważyć wyzwolenie poszczególnych przywraca przez połączenia użytkownika końcowego lub użyć innego schematu priorytetu specyficzne dla aplikacji.
+* Natychmiastowe przełączanie baz danych zarządzania do regionu B (3).
+* Zmień parametry połączenia aplikacji tak, aby wskazywały bazy danych zarządzania w regionie B. Zmodyfikuj bazy danych zarządzania, aby upewnić się, że nowe konta i bazy danych dzierżawy są tworzone w regionie B i tam znajdują się również istniejące bazy danych dzierżaw. Obecni klienci korzystający z wersji próbnej zobaczą, że dane są tymczasowo niedostępne.
+* Przełączenie w tryb failover baz danych płatnej dzierżawy do puli 2 w regionie B w celu natychmiastowego przywrócenia ich dostępności (4). Ponieważ przejście w tryb failover to szybka zmiana poziomu metadanych, można rozważyć optymalizację, w której poszczególne przełączenia w tryb failover są wyzwalane na żądanie przez połączenia użytkowników końcowych.
+* Ponieważ pula 2 zawiera tylko podstawowe bazy danych, Łączne obciążenie w puli rośnie i może natychmiast zwiększyć swój rozmiar eDTU (5) lub liczbę rdzeni wirtualnych.
+* Utwórz nową pulę elastyczną o tej samej nazwie i tej samej konfiguracji w regionie B dla baz danych wersji próbnych klientów (6).
+* Po utworzeniu puli Użyj funkcji przywracania geograficznego, aby przywrócić bazę danych dzierżawy pojedynczej wersji próbnej do puli (7). Można rozważyć wyzwolenie poszczególnych przywracania przez połączenia użytkowników końcowych lub użycie innego schematu priorytetu specyficznego dla aplikacji.
 
 > [!NOTE]
-> Operacja pracy awaryjnej jest asynchroniza. Aby zminimalizować czas odzyskiwania, ważne jest, aby wykonać polecenie trybu failover bazy danych dzierżawy w partiach co najmniej 20 baz danych.
+> Operacja przejścia w tryb failover jest asynchroniczna. Aby zminimalizować czas odzyskiwania, należy wykonać polecenie trybu failover baz danych dzierżawy w partiach co najmniej 20 baz danych.
 
-W tym momencie aplikacja jest z powrotem w trybie online w regionie B. Wszyscy płacący klienci mają dostęp do swoich danych, podczas gdy klienci wersji próbnej doświadczają opóźnienia podczas uzyskiwania dostępu do swoich danych.
+W tym momencie aplikacja przechodzi do trybu online w regionie B. Wszyscy klienci z płatnościami mają dostęp do swoich danych, podczas gdy próbuje oni uzyskać opóźnienia podczas uzyskiwania dostępu do danych.
 
-Po odzyskaniu regionu A należy zdecydować, czy chcesz używać regionu B dla klientów próbnych, czy powrotu po awarii do korzystania z puli klientów próbnych w regionie A. Jednym z kryteriów może być % próbnych baz danych dzierżawy zmodyfikowanych od czasu odzyskania. Niezależnie od tej decyzji, należy ponownie zrównoważyć płatnych najemców między dwoma pulami. następny diagram ilustruje proces, gdy baza danych dzierżawy wersji próbnej powróci do regionu A.  
+W przypadku odzyskania regionu A należy zdecydować, czy chcesz użyć regionu B dla klientów wersji próbnej lub powrotu po awarii do korzystania z puli próbnej klientów w regionie A. Jednym z kryteriów może być% baz danych dzierżawy w wersji próbnej zmodyfikowanych od momentu odzyskania. Niezależnie od tej decyzji należy ponownie zrównoważyć płatne dzierżawy między dwiema pulami. na następnym diagramie przedstawiono proces ponownego powrotu baz danych dzierżawy do regionu A.  
 
-![Rysunek 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
+![Rysunek 6.](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
-* Anuluj wszystkie zaległe żądania przywracania geograficznego do puli próbnej pamięci dr.
-* Przejmuje się awaryjnie w bazie danych zarządzania (8). Po odzyskaniu regionu stary podstawowy automatycznie stał się drugorzędny. Teraz znowu staje się podstawowym.  
-* Wybierz, które płatne bazy danych dzierżawy powiodą się z powrotem do puli 1 i inicjują opcję pracy awaryjnej do ich pomocniczych (9). Po odzyskaniu regionu wszystkie bazy danych w puli 1 automatycznie stały się pomocniczymi elementami. Teraz 50% z nich ponownie staje się prawyborami.
-* Zmniejsz rozmiar puli 2 do oryginalnego eDTU (10) lub liczby punów wirtualnych.
-* Ustaw wszystkie przywrócone bazy danych próbnych w regionie B na tylko do odczytu (11).
-* Dla każdej bazy danych w puli odzyskiwania po awarii, która uległa zmianie od czasu odzyskania, zmień nazwę lub usuń odpowiednią bazę danych w puli podstawowej wersji próbnej (12).
+* Anuluj wszystkie zaległe żądania przywracania geograficznego w puli odzyskiwania po awarii.
+* Przełączenie w tryb failover bazy danych zarządzania (8). Po odzyskaniu w regionie stary podstawowy automatycznie stał się pomocniczy. Teraz zostanie on ponownie podstawowy.  
+* Wybierz płatne bazy danych dzierżawy powrotu po awarii do puli 1 i zainicjuj pracę w trybie failover dla swoich serwerów pomocniczych (9). Po odzyskaniu regionu wszystkie bazy danych w puli 1 automatycznie stały się pomocniczymi. Teraz 50% z nich staje się ponownie Primaries.
+* Zmniejsz rozmiar puli 2 do oryginalnej liczby jednostek eDTU (10) lub rdzeni wirtualnych.
+* Ustaw wszystkie przywrócone bazy danych w wersji próbnej w regionie B w trybie tylko do odczytu (11).
+* Dla każdej bazy danych w puli odzyskiwania po awarii, która zmieniła się od momentu odzyskania, Zmień nazwę odpowiedniej bazy danych na podstawową (12) lub usuń ją z niej.
 * Skopiuj zaktualizowane bazy danych z puli odzyskiwania po awarii do puli podstawowej (13).
 * Usuń pulę odzyskiwania po awarii (14).
 
-Główne **zalety** tej strategii to:
+Najważniejsze **korzyści wynikające** z tej strategii są następujące:
 
-* Obsługuje najbardziej agresywną umowę SLA dla płacących klientów, ponieważ zapewnia, że awaria nie może mieć wpływu na więcej niż 50% baz danych dzierżawy.
-* Gwarantuje, że nowe wersje próbne są odblokowane, gdy tylko pula odzyskiwania po awarii ścieżki zostanie utworzona podczas odzyskiwania.
-* Umożliwia bardziej efektywne wykorzystanie pojemności puli, ponieważ 50% pomocniczych baz danych w puli 1 i puli 2 są gwarantowane być mniej aktywne niż podstawowe bazy danych.
+* Obsługuje ona najbardziej agresywne umowy SLA dla klientów korzystających z tej usługi, ponieważ gwarantuje to, że awaria nie może wpływać na ponad 50% baz danych dzierżaw.
+* Gwarantuje to, że nowe wersje próbne zostaną odblokowane, gdy tylko podczas odzyskiwania zostanie utworzona końcowa Pula programu DR.
+* Zapewnia to wydajniejsze korzystanie z pojemności puli jako 50% pomocniczych baz danych w puli 1, a pula 2 gwarantuje mniej aktywności niż w przypadku podstawowych baz danych.
 
-Główne **kompromisy** to:
+**Główne wady** są następujące:
 
-* Operacje CRUD względem baz danych zarządzania mają mniejsze opóźnienia dla użytkowników końcowych połączonych z regionem A niż dla użytkowników końcowych połączonych z regionem B, ponieważ są one wykonywane względem podstawowych baz danych zarządzania.
-* Wymaga bardziej złożonego projektu bazy danych zarządzania. Na przykład każdy rekord dzierżawy ma tag lokalizacji, który musi zostać zmieniony podczas pracy awaryjnej i powrotu po awarii.  
-* Klienci płacący mogą mieć niższą wydajność niż zwykle, dopóki uaktualnienie puli w regionie B nie zostanie zakończone.
+* Operacje CRUD z bazami danych zarządzania mają małe opóźnienia dla użytkowników końcowych połączonych z regionem A, A nie dla użytkowników końcowych podłączonych do regionu B, gdy są wykonywane względem podstawowej bazy danych zarządzania.
+* Wymaga bardziej złożonego projektu bazy danych zarządzania. Na przykład każdy rekord dzierżawy ma tag lokalizacji, który należy zmienić podczas pracy w trybie failover i powrotu po awarii.  
+* Klienci korzystający z płacenia mogą mieć niższą wydajność niż zwykle do momentu zakończenia uaktualniania puli w regionie B.
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym artykule koncentruje się na strategii odzyskiwania po awarii dla warstwy bazy danych używane przez SaaS isv aplikacji wielu dzierżawców. Wybrana strategia jest oparta na potrzebach aplikacji, takich jak model biznesowy, umowa SLA, którą chcesz zaoferować klientom, ograniczenie budżetu itp. Każda opisana strategia określa korzyści i kompromis, dzięki czemu można podjąć świadomą decyzję. Ponadto określonej aplikacji prawdopodobnie zawiera inne składniki platformy Azure. Dlatego można przejrzeć ich wskazówki dotyczące ciągłości biznesowej i zorganizować odzyskiwanie warstwy bazy danych z nimi. Aby dowiedzieć się więcej na temat zarządzania odzyskiwaniem aplikacji bazy danych na platformie Azure, zobacz [Projektowanie rozwiązań w chmurze do odzyskiwania po awarii.](sql-database-designing-cloud-solutions-for-disaster-recovery.md)  
+Ten artykuł koncentruje się na strategii odzyskiwania po awarii dla warstwy bazy danych używanej przez wielodostępną aplikację SaaS niezależnego dostawcy oprogramowania. Wybrana strategia zależy od potrzeb aplikacji, takich jak model biznesowy, umowa SLA, która ma być oferowana klientom, ograniczenie budżetu itp. Każda opisana strategia przedstawia korzyści i wymianę, dzięki czemu można podejmować świadome decyzje. Ponadto konkretna aplikacja będzie zawierać inne składniki platformy Azure. Należy zapoznać się ze wskazówkami dotyczącymi ciągłości działania i zorganizować odzyskiwanie warstwy bazy danych. Aby dowiedzieć się więcej o zarządzaniu odzyskiwaniem aplikacji bazy danych na platformie Azure, zapoznaj się z artykułem [projektowanie rozwiązań w chmurze na potrzeby odzyskiwania po awarii](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o automatycznych kopiach zapasowych usługi Azure SQL Database, zobacz [Automatyczne kopie zapasowe bazy danych SQL](sql-database-automated-backups.md).
-* Aby zapoznać się z omówieniem ciągłości biznesowej i scenariuszami, zobacz [Omówienie ciągłości biznesowej](sql-database-business-continuity.md).
-* Aby dowiedzieć się więcej na temat używania automatycznych kopii zapasowych do odzyskiwania, zobacz [przywracanie bazy danych z kopii zapasowych inicjowanych przez usługę](sql-database-recovery-using-backups.md).
-* Aby dowiedzieć się więcej o szybszych opcjach odzyskiwania, zobacz [Aktywne grupy replikacji geograficznej](sql-database-active-geo-replication.md) i [Auto-failover](sql-database-auto-failover-group.md).
-* Aby dowiedzieć się więcej na temat używania automatycznych kopii zapasowych do archiwizacji, zobacz [kopiowanie bazy danych](sql-database-copy.md).
+* Aby dowiedzieć się więcej o Azure SQL Database zautomatyzowanych kopii zapasowych, zobacz [SQL Database zautomatyzowane kopie zapasowe](sql-database-automated-backups.md).
+* Aby zapoznać się z omówieniem i scenariuszami ciągłości działania, zobacz temat [ciągłość działania — Omówienie](sql-database-business-continuity.md).
+* Aby dowiedzieć się więcej o korzystaniu z automatycznych kopii zapasowych na potrzeby odzyskiwania, zobacz [przywracanie bazy danych z kopii zapasowych inicjowanych przez usługę](sql-database-recovery-using-backups.md).
+* Aby dowiedzieć się więcej na temat szybszych opcji odzyskiwania, zobacz [aktywnej replikacji geograficznej](sql-database-active-geo-replication.md) i [grup Autotryb failover](sql-database-auto-failover-group.md).
+* Aby dowiedzieć się więcej o korzystaniu z automatycznych kopii zapasowych do archiwizowania, zobacz [kopia bazy danych](sql-database-copy.md).

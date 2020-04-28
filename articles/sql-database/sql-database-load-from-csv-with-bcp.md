@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/25/2019
 ms.openlocfilehash: b0df3d588f1d9b0a50c3ea7a583b0704e7e85c39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73827488"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Ładowanie danych z pliku CSV do usługi Azure SQL Database (pliki proste)
@@ -26,9 +26,9 @@ Dane z pliku CSV można importować do usługi Azure SQL Database za pomocą nar
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym artykule, potrzebujesz:
+Aby wykonać kroki opisane w tym artykule, potrzebne są:
 
-* Serwer i baza danych usługi Azure SQL Database
+* Serwer Azure SQL Database i baza danych
 * Zainstalowane narzędzie wiersza polecenia bcp
 * Zainstalowane narzędzie wiersza polecenia sqlcmd
 
@@ -57,7 +57,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## <a name="2-create-a-source-data-file"></a>2. Tworzenie źródłowego pliku danych
+## <a name="2-create-a-source-data-file"></a>2. Utwórz plik danych źródłowych
 
 Otwórz program Notatnik i skopiuj następujące wiersze danych do nowego pliku tekstowego, a następnie zapisz ten plik w lokalnym katalogu tymczasowym: C:\Temp\DimDate2.txt. Te dane są w formacie ASCII.
 

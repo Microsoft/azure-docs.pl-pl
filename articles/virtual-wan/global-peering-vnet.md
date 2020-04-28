@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie komunikacji równorzędnej globalnej sieci wirtualnej dla wirtualnej sieci WAN platformy Azure | Dokumenty firmy Microsoft
-description: Podłącz sieć wirtualną w innym regionie do centrum wirtualnej sieci WAN.
+title: Konfigurowanie globalnej komunikacji równorzędnej sieci wirtualnej dla usługi Azure Virtual WAN | Microsoft Docs
+description: Połącz sieć wirtualną w innym regionie z wirtualnym koncentratorem sieci WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,39 +8,39 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.openlocfilehash: 340472f84d2dd2c4f46d180992745a57e8ad1884
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73588228"
 ---
-# <a name="configure-global-vnet-peering-cross-region-vnet-for-virtual-wan"></a>Konfigurowanie globalnej sieci równorzędnej sieci wirtualnej (międzyregionowej sieci wirtualnej) dla wirtualnej sieci WAN
+# <a name="configure-global-vnet-peering-cross-region-vnet-for-virtual-wan"></a>Skonfiguruj globalne wirtualne sieci równorzędne (Sieć wirtualna między regionami) dla wirtualnej sieci WAN
 
-Sieć wirtualną w innym regionie można połączyć z koncentratorem wirtualnej sieci WAN.
+Sieć wirtualną można połączyć w innym regionie z wirtualnym koncentratorem sieci WAN.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Sprawdź, czy spełniasz następujące kryteria:
+Sprawdź, czy zostały spełnione następujące kryteria:
 
-* Sieć wirtualna między regionami (szprycha) nie jest połączona z innym koncentratorem wirtualnej sieci WAN. Szprycha może być podłączona tylko do jednego koncentratora wirtualnego.
-* Sieć wirtualna (szprycha) nie zawiera bramy sieci wirtualnej (na przykład bramy sieci wirtualnej usługi Azure VPN gateway lub bramy sieci wirtualnej usługi ExpressRoute). Jeśli sieć wirtualna zawiera bramę sieci wirtualnej, należy usunąć bramę przed nawiązaniem połączenia sieci wirtualnej szprychy z koncentratorem.
+* Sieć wirtualna między regionami (szprych) nie jest połączona z innym wirtualnym koncentratorem sieci WAN. Szprycha może być połączona tylko z jednym koncentratorem wirtualnym.
+* Sieć wirtualna (szprych) nie zawiera bramy sieci wirtualnej (na przykład usługi Azure VPN Gateway lub bramy sieci wirtualnej ExpressRoute). Jeśli sieć wirtualna zawiera bramę sieci wirtualnej, należy usunąć bramę przed nawiązaniem połączenia z siecią wirtualną szprychy z koncentratorem.
 
 ## <a name="register-this-feature"></a><a name="register"></a>Rejestrowanie tej funkcji
 
-Tę funkcję można zarejestrować za pomocą programu PowerShell. Jeśli wybierzesz "Wypróbuj" w poniższym przykładzie, usługa Azure Cloud-Shell zostanie otwarta i nie trzeba będzie instalować poleceń cmdlet programu PowerShell lokalnie na komputerze. W razie potrzeby można zmienić subskrypcje za pomocą polecenia cmdlet 'Select-AzSubscription -SubscriptionId'. <subid>
+Możesz zarejestrować się w celu korzystania z tej funkcji przy użyciu programu PowerShell. W przypadku wybrania opcji "Wypróbuj" z poniższego przykładu zostanie otwarte środowisko Azure Cloud Shell i nie będzie konieczne lokalne zainstalowanie poleceń cmdlet programu PowerShell na komputerze. W razie potrzeby można zmienić subskrypcje przy użyciu polecenia cmdlet "Select-AzSubscription- <subid>Subscription".
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName AllowCortexGlobalVnetPeering -ProviderNamespace Microsoft.Network
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.Network'
 ```
 
-## <a name="verify-registration"></a><a name="verify"></a>Weryfikowanie rejestracji
+## <a name="verify-registration"></a><a name="verify"></a>Weryfikuj rejestrację
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -FeatureName AllowCortexGlobalVnetPeering -ProviderNamespace Microsoft.Network
 ```
 
-## <a name="connect-a-vnet-to-the-hub"></a><a name="hub"></a>Podłączanie sieci wirtualnej do koncentratora
+## <a name="connect-a-vnet-to-the-hub"></a><a name="hub"></a>Łączenie sieci wirtualnej z centrum
 
 W tym kroku utworzysz połączenie komunikacji równorzędnej między koncentratorem a siecią wirtualną między regionami. Powtórz te czynności dla każdej sieci wirtualnej, z którą chcesz się połączyć.
 
@@ -56,4 +56,4 @@ W tym kroku utworzysz połączenie komunikacji równorzędnej między koncentrat
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o wirtualnej sieci WAN, zobacz [Omówienie wirtualnej sieci WAN](virtual-wan-about.md).
+Aby dowiedzieć się więcej o wirtualnej sieci WAN, zobacz [Omówienie usługi Virtual WAN](virtual-wan-about.md).

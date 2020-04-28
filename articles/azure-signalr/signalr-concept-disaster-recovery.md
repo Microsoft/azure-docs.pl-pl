@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
 ms.openlocfilehash: cf0f345b0fbf9fea2512f72c1996c9a1597cc0cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73747646"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Odporność i odzyskiwanie po awarii
 
 Odporność i odzyskiwanie po awarii to typowe potrzeby systemów online. Sama usługa Azure SignalR Service gwarantuje dostępność na poziomie 99,9%, ale nadal jest to usługa regionalna.
-Wystąpienie usługi jest zawsze uruchomione w jednym regionie i nie będzie awaryjnie do innego regionu, gdy występuje awaria całego regionu.
+Wystąpienie usługi jest zawsze uruchamiane w jednym regionie i nie przejdzie w tryb failover w innym regionie, gdy występuje awaria całego regionu.
 
 Zamiast tego zestaw SDK usługi udostępnia obsługę wielu wystąpień usługi SignalR i automatycznego przełączania do innych wystąpień, gdy niektóre z nich staną się niedostępne.
-Dzięki tej funkcji będziesz mógł odzyskać, gdy ma miejsce awaria, ale musisz samodzielnie skonfigurować odpowiednią topologię systemu. W tym dokumencie dowiesz się, jak to zrobić.
+Korzystając z tej funkcji, będziesz mieć możliwość odzyskiwania po awarii, ale konieczne będzie skonfigurowanie odpowiedniej topologii systemu. W tym dokumencie dowiesz się, jak to zrobić.
 
 ## <a name="high-available-architecture-for-signalr-service"></a>Architektura wysokiej dostępności usługi SignalR
 
@@ -28,8 +28,8 @@ W przypadku łączenia wielu wystąpień usługi z serwerem aplikacji można okr
 Wystąpienie podstawowe to wystąpienie, które obsługuje ruch online, a wystąpienie pomocnicze to wystąpienie w pełni funkcjonalne, lecz stanowiące zapas dla wystąpienia podstawowego.
 W implementacji zestawu SDK negocjacja zwraca tylko podstawowe punkty końcowe, dzięki czemu w standardowych przypadkach klienci łączą się tylko z podstawowymi punktami końcowymi.
 Ale jeśli podstawowe wystąpienie nie działa, negocjacja zwróci pomocnicze punkty końcowe, dzięki czemu klient będzie mógł nawiązać połączenie.
-Podstawowe wystąpienie i serwer aplikacji są połączone za pośrednictwem normalnych połączeń z serwerem, ale pomocnicze wystąpienie i serwer aplikacji są połączone za pośrednictwem specjalnego typu połączenia o nazwie słabe połączenie.
-Główną różnicą słabe połączenie jest to, że nie akceptuje routingu połączenia klienta, ponieważ wystąpienie pomocnicze znajduje się w innym regionie. Routing klienta do innego regionu nie jest optymalnym wyborem (zwiększa opóźnienie).
+Wystąpienie podstawowe i serwer aplikacji są połączone za pomocą normalnych połączeń serwera, ale wystąpienie pomocnicze i serwer aplikacji są połączone za pomocą specjalnego typu połączenia o nazwie Słabe połączenie.
+Główna różnica między słabym połączeniem polega na tym, że nie akceptuje on routingu połączeń klientów, ponieważ wystąpienie pomocnicze znajduje się w innym regionie. Kierowanie klienta do innego regionu nie jest optymalnym wyborem (zwiększa opóźnienie).
 
 Jedno wystąpienie usługi może mieć różne role, jeśli łączy się z wieloma serwerami aplikacji.
 Jedną z typowych konfiguracji dla scenariusza z wieloma regionami jest skonfigurowanie dwóch (lub więcej) par wystąpień usługi SignalR i serwerów aplikacji.
@@ -51,7 +51,7 @@ Można to zrobić na dwa sposoby:
 
 ### <a name="through-config"></a>Za pomocą konfiguracji
 
-Powinieneś już wiedzieć, jak ustawić ciąg połączenia usługi SignalR za pomocą zmiennych środowiskowych/ustawień `Azure:SignalR:ConnectionString`aplikacji/web.cofig, we wpisie konfigura o nazwie .
+Należy już wiedzieć, jak ustawić parametry połączenia usługi sygnalizujące za pomocą zmiennych środowiskowych/ustawień aplikacji/Web. cofig w pozycji konfiguracji o nazwie `Azure:SignalR:ConnectionString`.
 Jeśli masz wiele punktów końcowych, możesz je umieścić w wielu wpisach konfiguracji, z których każdy jest w następującym formacie:
 
 ```
@@ -63,7 +63,7 @@ Nazwa jest opcjonalna, lecz będzie przydatna, jeśli chcesz dostosować zachowa
 
 ### <a name="through-code"></a>Za pomocą kodu
 
-Jeśli wolisz przechowywać parametry połączenia w innym miejscu, możesz również odczytać je `AddAzureSignalR()` w kodzie i używać `MapAzureSignalR()` ich jako parametrów podczas wywoływania (w ASP.NET Core) lub (w ASP.NET).
+Jeśli wolisz przechowywać parametry połączenia w innym miejscu, możesz je również odczytać w kodzie i używać ich jako parametrów podczas wywoływania `AddAzureSignalR()` (w ASP.NET Core) lub `MapAzureSignalR()` (w ASP.NET).
 
 Oto przykładowy kod:
 
@@ -88,10 +88,10 @@ app.MapAzureSignalR(GetType().FullName, hub,  options => options.Endpoints = new
     };
 ```
 
-Można skonfigurować wiele wystąpień podstawowych lub pomocniczych. Jeśli istnieje wiele wystąpień podstawowych i/lub pomocniczych, negotiate zwróci punkt końcowy w następującej kolejności:
+Można skonfigurować wiele wystąpień podstawowego lub pomocniczego. Jeśli istnieje wiele wystąpień podstawowych i/lub pomocniczych, Negocjuj zwróci punkt końcowy w następującej kolejności:
 
 1. Jeśli istnieje co najmniej jedno wystąpienie podstawowe w trybie online, zwróć losowe podstawowe wystąpienie online.
-2. Jeśli wszystkie wystąpienia podstawowe są w dół, zwraca losowe pomocnicze wystąpienie online.
+2. Jeśli wszystkie wystąpienia podstawowe nie działają, zwróć losowe pomocnicze wystąpienie w trybie online.
 
 ## <a name="failover-sequence-and-best-practice"></a>Sekwencja trybu failover i najlepsze rozwiązania
 
@@ -126,7 +126,7 @@ Usługa SignalR może obsługiwać oba wzorce, a główna różnica zależy od s
 Jeśli serwery aplikacji są zgodne ze wzorcem aktywny/pasywny, usługa SignalR będzie także zgodna z tym wzorcem (ponieważ podstawowy serwer aplikacji zwraca tylko swoje podstawowe wystąpienie usługi SignalR).
 Jeśli serwery aplikacji są zgodne z wzorcem aktywny/aktywny, usługa SignalR będzie także zgodna z tym wzorcem (ponieważ wszystkie serwery aplikacji zwracają własne podstawowe wystąpienia usługi SignalR, to wszystkie wystąpienia mogą obsługiwać ruch).
 
-Należy zauważyć, niezależnie od wzorców, które chcesz użyć, należy połączyć każde wystąpienie usługi SignalR do serwera aplikacji jako podstawowy.
+Należy zauważyć, że nie ma znaczenia, które wzorce są używane, należy połączyć każde wystąpienie usługi sygnalizujące z serwerem aplikacji jako podstawowa.
 
 Ze względu na charakter połączenia usługi SignalR (jest to połączenie długie) połączenia klientów zostaną przerwane w przypadku wystąpienia awarii i przejścia do trybu failover.
 Takie przypadki należy obsługiwać po stronie klienta, aby były przezroczyste dla użytkowników końcowych. Na przykład należy nawiązać ponownie połączenie po zamknięciu połączenia.
@@ -135,4 +135,4 @@ Takie przypadki należy obsługiwać po stronie klienta, aby były przezroczyste
 
 W tym artykule przedstawiono sposób konfigurowania aplikacji pod kątem odporności ze względu na usługę SignalR. Aby dowiedzieć się więcej na temat połączenia serwera/klienta i routingu połączenia w usłudze SignalR, możesz przeczytać [ten artykuł](signalr-concept-internals.md) przedstawiający elementy wewnętrzne usługi SignalR.
 
-W przypadku skalowania scenariuszy, takich jak dzielenie na fragmenty, które używają wielu wystąpień razem do obsługi dużej liczby połączeń, przeczytaj [sposób skalowania wielu wystąpień](signalr-howto-scale-multi-instances.md).
+W przypadku scenariuszy skalowania, takich jak fragmentowania, w połączeniu z wieloma wystąpieniami w celu obsługi dużej liczby połączeń, należy zapoznać [się z tematem skalowanie wielu wystąpień](signalr-howto-scale-multi-instances.md).

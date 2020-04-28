@@ -1,7 +1,7 @@
 ---
-title: Umiejętności poznawcze podziału tekstu
+title: Umiejętność rozdzielania tekstu
 titleSuffix: Azure Cognitive Search
-description: Podziel tekst na fragmenty lub strony tekstu na podstawie długości w potoku wzbogacania sztucznej inteligencji w usłudze Azure Cognitive Search.
+description: Przerwij tekst w fragmentach lub stronach tekstu na podstawie długości w potoku wzbogacenia AI na platformie Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,21 +9,21 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3f80169808b1e6420f04b786d2bb06bde9c96231
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73479663"
 ---
-# <a name="text-split-cognitive-skill"></a>Umiejętności poznawcze podziału tekstu
+# <a name="text-split-cognitive-skill"></a>Umiejętność rozdzielania tekstu
 
-**Umiejętność Dzielenie tekstu** dzieli tekst na fragmenty tekstu. Można określić, czy tekst ma być podzielony na zdania, czy na strony o określonej długości. Ta umiejętność jest szczególnie przydatna, jeśli w innych umiejętnościach niższego szczebla obowiązują maksymalne wymagania dotyczące długości tekstu. 
+Umiejętności **podziału tekstu** dzieli tekst na fragmenty tekstu. Można określić, czy tekst ma być podzielony na zdania, czy na strony o określonej długości. Ta umiejętność jest szczególnie przydatna, jeśli istnieją maksymalne wymagania dotyczące długości tekstu w innych umiejętnościach. 
 
 > [!NOTE]
-> Ta umiejętność nie jest powiązana z interfejsem API usług Cognitive Services i nie są naliczane opłaty za korzystanie z niej. Należy jednak [dołączyć zasób usług Cognitive Services,](cognitive-search-attach-cognitive-services.md)aby zastąpić opcję **Wolny** zasób, która ogranicza liczbę wzbogacenia dziennie.
+> Ta umiejętność nie jest powiązana z interfejsem API Cognitive Services i nie jest naliczana opłata za korzystanie z niego. Mimo to należy [dołączyć zasób Cognitive Services](cognitive-search-attach-cognitive-services.md), aby zastąpić opcję **bezpłatnych** zasobów, która ogranicza liczbę codziennych wzbogacań dziennie.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.SplitSkill 
+Microsoft. umiejętności. Text. SplitSkill 
 
 ## <a name="skill-parameters"></a>Parametry umiejętności
 
@@ -31,26 +31,26 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
-| textSplitMode      | "strony" lub "zdania" | 
-| maximumPageLength (Maksymalna długość strony) | Jeśli textSplitMode jest ustawiony na "strony", odnosi się to `String.Length`do maksymalnej długości strony mierzonej przez . Minimalna wartość to 100.  Jeśli textSplitMode jest ustawiona na "strony", algorytm spróbuje podzielić tekst na fragmenty, które są co najwyżej "maximumPageLength" w rozmiarze. W takim przypadku algorytm dołoży wszelkich starań, aby złamać zdanie na granicy zdania, więc rozmiar fragmentu może być nieco mniejszy niż "maximumPageLength". | 
-| domyślny Kod Języka   | (opcjonalnie) Jeden z następujących kodów języków: `da, de, en, es, fi, fr, it, ko, pt`. Wartość domyślna to angielski (pl). Kilka rzeczy do rozważenia:<ul><li>Jeśli przejdziesz format languagecode-countrycode, używana jest tylko część kodu języka formatu.</li><li>Jeśli języka nie ma na poprzedniej liście, umiejętność podziału przerywa tekst w granicach znaków.</li><li>Podanie kodu języka jest przydatne, aby uniknąć cięcia wyrazu na pół dla języków innych niż białe, takich jak chiński, japoński i koreański.</li><li>Jeśli nie znasz języka (tj. musisz podzielić tekst do wprowadzenia do [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), domyślnie angielski (en) powinien być wystarczający. </li></ul>  |
+| textsplitmode      | "Strony" lub "zdania" | 
+| maximumPageLength | Jeśli textsplitmode ma wartość "Pages", odnosi się do maksymalnej długości strony, która jest `String.Length`mierzona przez. Wartość minimalna to 100.  Jeśli element textsplitmode ma wartość "Pages", algorytm podejmie próbę podzielenia tekstu na fragmenty o rozmiarze co najwyżej "maximumPageLength". W takim przypadku algorytm będzie optymalnie dzielić zdanie na granicy zdania, więc rozmiar fragmentu może być nieco mniejszy niż "maximumPageLength". | 
+| defaultLanguageCode   | obowiązkowe Jeden z następujących kodów języka: `da, de, en, es, fi, fr, it, ko, pt`. Wartość domyślna to angielski (EN). Kilka kwestii, które należy wziąć pod uwagę:<ul><li>Jeśli przekażesz format languagecode-CountryCode, zostanie użyta tylko część languagecode formatu.</li><li>Jeśli język nie znajduje się na poprzedniej liście, podzielona umiejętność zrywa tekst w granicach znaku.</li><li>Udostępnianie kodu języka jest przydatne, aby uniknąć wycinania wyrazu w połowie dla języków innych niż odstępy, takich jak chińskie, Japońskie i koreański.</li><li>Jeśli nie znasz języka (tj. musisz podzielić tekst na dane wejściowe na [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), wartość domyślna języka angielskiego (EN) powinna być wystarczająca. </li></ul>  |
 
 
-## <a name="skill-inputs"></a>Wprowadzanie umiejętności
+## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
 
 | Nazwa parametru       | Opis      |
 |----------------------|------------------|
-| tekst  | Tekst do podzielenia na podciąg. |
-| languageCode  | (Opcjonalnie) Kod języka dokumentu. Jeśli nie znasz języka (tj. musisz podzielić tekst do wprowadzenia do [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), można bezpiecznie usunąć to dane wejściowe.  |
+| tekst  | Tekst, który ma zostać podzielony na podciąg. |
+| languageCode  | Obowiązkowe Kod języka dla dokumentu. Jeśli nie znasz języka (tj. musisz podzielić tekst na dane wejściowe na [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), możesz bezpiecznie usunąć te dane wejściowe.  |
 
 ## <a name="skill-outputs"></a>Wyniki umiejętności 
 
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
-| textItems ( textItems ) | Tablica podciągów, które zostały wyodrębnione. |
+| textitems | Tablica podciągów, które zostały wyodrębnione. |
 
 
-##  <a name="sample-definition"></a>Przykładowa definicja
+##  <a name="sample-definition"></a>Definicja Przykładowa
 
 ```json
 {
@@ -128,9 +128,9 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 ```
 
 ## <a name="error-cases"></a>Przypadki błędów
-Jeśli język nie jest obsługiwany, generowane jest ostrzeżenie, a tekst jest dzielony na granicach znaków.
+Jeśli język nie jest obsługiwany, generowane jest ostrzeżenie, a tekst jest dzielony w granicach znaków.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
-+ [Jak zdefiniować zestaw umiejętności](cognitive-search-defining-skillset.md)
++ [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

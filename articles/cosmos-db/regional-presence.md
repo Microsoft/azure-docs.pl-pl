@@ -1,6 +1,6 @@
 ---
-title: Obecność regionalna dzięki usłudze Azure Cosmos DB
-description: W tym artykule wyjaśniono o regionalnej obecności usługi Azure Cosmos DB i różnych środowiskach chmury.
+title: Obecność regionalna z Azure Cosmos DB
+description: W tym artykule opisano regionalne obecność Azure Cosmos DB i różnych środowisk chmury.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,41 +8,41 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.custom: seodec18
 ms.openlocfilehash: 95b9a9804fe1a9473d226912f178284f701a1547
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72753227"
 ---
-# <a name="regional-presence-with-azure-cosmos-db"></a>Obecność regionalna dzięki usłudze Azure Cosmos DB
+# <a name="regional-presence-with-azure-cosmos-db"></a>Obecność regionalna z Azure Cosmos DB
 
-Usługa Azure Cosmos DB jest usługą podstawową na platformie Azure i domyślnie jest zawsze dostępna we wszystkich regionach, w których dostępna jest platforma Azure. Obecnie platforma Azure jest dostępna w [54 regionach](https://azure.microsoft.com/global-infrastructure/regions/) na całym świecie. 
+Azure Cosmos DB to fundamentowa usługa na platformie Azure, a domyślnie zawsze jest dostępna we wszystkich regionach, w których platforma Azure jest dostępna. Obecnie platforma Azure jest dostępna w [54 regionach](https://azure.microsoft.com/global-infrastructure/regions/) na całym świecie. 
 
-[![Regiony, w których dostępna jest usługa Azure Cosmos DB](./media/regional-presence/regional-presence.png)](./media/regional-presence/regional-presence.png#lightbox)
+[![Regiony, w których Azure Cosmos DB jest dostępna](./media/regional-presence/regional-presence.png)](./media/regional-presence/regional-presence.png#lightbox)
 
-Usługa Cosmos DB jest dostępna we wszystkich pięciu różnych środowiskach chmury platformy Azure dostępnych dla klientów:
+Cosmos DB jest dostępny we wszystkich pięciu różnych środowiskach chmury platformy Azure dostępnych dla klientów:
 
-* **Chmura publiczna platformy Azure,** która jest dostępna na całym świecie.
+* Chmura **publiczna platformy Azure** , która jest dostępna globalnie.
 
-* **Usługa Azure China 21Vianet** jest dostępna za pośrednictwem unikatowego partnerstwa między firmą Microsoft i 21Vianet, jednym z największych dostawców internetu w Chinach.
+* **Usługa Azure Chiny 21Vianet** jest dostępna za pomocą unikatowego powiązania między firmą Microsoft i 21Vianet — jednym z największych dostawców Internetu w danym kraju w Chinach.
 
-* **Platforma Azure Germany** świadczy usługi w ramach modelu powiernika danych, który zapewnia, że dane klientów pozostają w Niemczech pod kontrolą T-Systems International GmbH, spółki zależnej Deutsche Telecom, działającej jako niemiecki powiernik danych.
+* **Platforma Azure (Niemcy** ) udostępnia usługi w ramach modelu zarządca danych, co zapewnia, że dane klienta pozostają w Niemczech pod kontrolą międzyplatformowych usług typu T-Systems.
 
-* **Usługa Azure Government** jest dostępna w czterech regionach Stanów Zjednoczonych dla amerykańskich agencji rządowych i ich partnerów. 
+* **Azure Government** jest dostępna w czterech regionach Stany Zjednoczone do instytucji RZĄDowych Stanów Zjednoczonych i ich partnerów. 
 
-* **Usługa Azure Government for Department of Defense (DoD)** jest dostępna w dwóch regionach Stanów Zjednoczonych dla Departamentu Obrony STANÓW Zjednoczonych.
+* **Azure Government dla Departamentu Obrony (DoD)** jest dostępny w dwóch regionach w Stany Zjednoczone do Departamentu Obrony Stanów Zjednoczonych.
 
-## <a name="regional-presence-with-global-distribution"></a>Obecność regionalna z globalną dystrybucją
+## <a name="regional-presence-with-global-distribution"></a>Obecność regionalna z dystrybucją globalną
 
-Wszystkie interfejsy API udostępniane przez usługę Azure Cosmos DB (w tym SQL, MongoDB, Cassandra, Gremlin i Table) są domyślnie dostępne we wszystkich regionach platformy Azure. Na przykład interfejsy API mongodb i cassandra mogą być udostępniane przez usługę Azure Cosmos DB nie tylko we wszystkich globalnych regionach platformy Azure, ale także w suwerennych chmurach, takich jak Chiny, Niemcy, rząd i Departament Obrony (DoD).
+Wszystkie interfejsy API udostępniane przez Azure Cosmos DB (w tym SQL, MongoDB, Cassandra, Gremlin i Table) są domyślnie dostępne we wszystkich regionach platformy Azure. Można na przykład mieć MongoDB i Cassandra interfejsy API udostępniane przez Azure Cosmos DB nie tylko we wszystkich globalnych regionach świadczenia usługi Azure, ale również w przypadku suwerennych chmur, takich jak Chiny, Niemcy, instytucje rządowe i Departament Obrony (DoD).
 
-Usługa Azure Cosmos DB to [usługa globalnie rozproszonej](distribute-data-globally.md) bazy danych. Możesz skojarzyć dowolną liczbę regionów platformy Azure z kontem usługi Azure Cosmos, a dane są replikowane automatycznie i w sposób przezroczysty. Region usługi Azure Cosmos można w dowolnym momencie dodać lub usunąć do konta usługi Azure Cosmos. Dzięki możliwości globalnej dystrybucji "pod klucz" i wielowpanicowanej replikacji usługa Azure Cosmos DB oferuje mniej niż 10 ms opóźnień odczytu i zapisu przy 99 percentylu, dostępności odczytu i zapisu 99,999 oraz możliwości elastycznego skalowania aprowizacji przepływność odczytów i zapisów we wszystkich regionach skojarzonych z kontem usługi Azure Cosmos. Usługa Azure Cosmos DB, oferuje również pięć dobrze zdefiniowanych modeli spójności i można zastosować określony model spójności do danych. Na koniec usługa Azure Cosmos DB jest jedyną usługą bazy danych w branży, która zapewnia kompleksową [umowę dotyczącą poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/) obejmującą aprowizowaną przepływność, opóźnienie na 99 percentylu, wysoką dostępność i spójność. Powyższe możliwości są dostępne we wszystkich chmurach platformy Azure.
+Azure Cosmos DB to [globalnie dystrybuowana](distribute-data-globally.md) usługa bazy danych. Możesz skojarzyć dowolną liczbę regionów świadczenia usługi Azure z kontem usługi Azure Cosmos, a Twoje dane są automatycznie i w sposób niewidoczny dla użytkownika zreplikowane. Możesz w dowolnym momencie dodać lub usunąć region do konta usługi Azure Cosmos. Dzięki możliwości globalnej dystrybucji gotowe i protokołu replikacji z wieloma wzorcami Azure Cosmos DB oferuje mniej niż 10 operacji odczytu i zapisu w 99 percentylu, 99,999 dostępności i zapisu, a także możliwość elastycznego skalowania przepływności w celu odczytu i zapisu we wszystkich regionach skojarzonych z kontem platformy Azure Cosmos. Azure Cosmos DB, oferuje także pięć dobrze zdefiniowanych modeli spójności i można zastosować konkretny model spójności do danych. Na koniec Azure Cosmos DB jest jedyną usługą bazy danych w branży, która zapewnia kompleksową [Umowa dotycząca poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/) obejmującą przepływność, opóźnienie 99 percentylu, wysoką dostępność i spójność. Powyższe możliwości są dostępne we wszystkich chmurach platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz możesz dowiedzieć się więcej o podstawowych pojęciach usługi Azure Cosmos DB, wykonując następujące artykuły:
+Teraz możesz zapoznać się z podstawowymi koncepcjami Azure Cosmos DB z następującymi artykułami:
 
 * [Globalna dystrybucja danych](distribute-data-globally.md)
-* [Jak zarządzać kontem usługi Azure Cosmos DB](manage-account.md)
-* [Przepływność obsługi kontenerów i baz danych usługi Azure Cosmos](set-throughput.md)
-* [Usługa Azure Cosmos DB NDLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [Jak zarządzać kontem Azure Cosmos DB](manage-account.md)
+* [Obsługa przepływności dla kontenerów i baz danych platformy Azure Cosmos](set-throughput.md)
+* [Azure Cosmos DB umowy SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

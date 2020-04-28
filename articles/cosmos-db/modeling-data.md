@@ -1,43 +1,43 @@
 ---
-title: Modelowanie danych w usłudze Azure Cosmos DB
+title: Modelowanie danych w Azure Cosmos DB
 titleSuffix: Azure Cosmos DB
-description: Dowiedz się więcej o modelowaniu danych w bazach danych NoSQL, różnicach między modelowania danych w relacyjnej bazie danych i bazie danych dokumentów.
+description: Dowiedz się więcej na temat modelowania danych w bazach danych NoSQL, różnice między danymi modelowania w relacyjnej bazie danych i bazą danych dokumentów.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: 523049ea3286445117f41147f3dd12a2c911d1ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72755013"
 ---
-# <a name="data-modeling-in-azure-cosmos-db"></a>Modelowanie danych w usłudze Azure Cosmos DB
+# <a name="data-modeling-in-azure-cosmos-db"></a>Modelowanie danych w Azure Cosmos DB
 
-Podczas gdy bazy danych bez schematu, takie jak Azure Cosmos DB, sprawiają, że bardzo łatwo przechowywać i wysyłać zapytania do danych nieustrukturyzowanych i częściowo ustrukturyzowanych, należy poświęcić trochę czasu na myślenie o modelu danych, aby w pełni wykorzystać wydajność i skalowalność oraz najniższą skalowalność i najniższą Koszt.
+Bazy danych bez schematu, takie jak Azure Cosmos DB, ułatwiają przechowywanie i wykonywanie zapytań dotyczących danych niestrukturalnych i z częściową strukturą, należy poświęcać trochę czasu na zaplanowanie modelu danych w celu uzyskania optymalnej wydajności i skalowalności oraz najniższych kosztów.
 
-W jaki sposób będą przechowywane dane? W jaki sposób aplikacja będzie pobierać i wysyłać zapytania do danych? Czy aplikacja jest ciężka do odczytu lub zapisu ciężki?
+Jak są przechowywane dane? Jak aplikacja będzie pobierać dane i wysyłać do nich zapytania? Czy aplikacja jest odczytana i intensywnie zapisu?
 
-Po przeczytaniu tego artykułu, będziesz w stanie odpowiedzieć na następujące pytania:
+Po przeczytaniu tego artykułu będzie można odpowiedzieć na następujące pytania:
 
-* Co to jest modelowanie danych i dlaczego warto się tym przejmować?
-* Czym różni się modelowanie danych w usłudze Azure Cosmos DB od relacyjnej bazy danych?
-* Jak wyrazić relacje danych w nierelacyjnej bazie danych?
-* Kiedy osadzam dane i kiedy łącze do danych?
+* Co to jest Modelowanie danych i dlaczego warto zadbać o to?
+* Jak dane modelowania w Azure Cosmos DB różnić się do relacyjnej bazy danych?
+* Jak mogęe relacje danych ekspresowych w nierelacyjnej bazie danych?
+* Kiedy można osadzać dane i jak łączyć się z danymi?
 
 ## <a name="embedding-data"></a>Osadzanie danych
 
-Po uruchomieniu modelowania danych w usłudze Azure Cosmos DB spróbuj traktować jednostki jako **samodzielne elementy** reprezentowane jako dokumenty JSON.
+Po rozpoczęciu modelowania danych w Azure Cosmos DB spróbuj traktować swoje jednostki jako **elementy samodzielne** reprezentowane jako dokumenty JSON.
 
-Dla porównania najpierw zobaczmy, jak możemy modelować dane w relacyjnej bazie danych. W poniższym przykładzie pokazano, jak osoba może być przechowywana w relacyjnej bazie danych.
+Na potrzeby porównania najpierw zobaczymy, jak możemy modelować dane w relacyjnej bazie danych. Poniższy przykład pokazuje, jak osoba może być przechowywana w relacyjnej bazie danych.
 
-![Relacyjny model bazy danych](./media/sql-api-modeling-data/relational-data-model.png)
+![Model relacyjnej bazy danych](./media/sql-api-modeling-data/relational-data-model.png)
 
-Podczas pracy z relacyjnych baz danych, strategia jest normalizacja wszystkich danych. Normalizacja danych zazwyczaj polega na pobraniu jednostki, takiej jak osoba, i podzieleniu jej na oddzielne składniki. W powyższym przykładzie osoba może mieć wiele rekordów szczegółów kontaktu, a także wiele rekordów adresów. Dane kontaktowe można dalej rozkładać, wyodrębniając wspólne pola, takie jak typ. To samo dotyczy adresu, każdy rekord może być typu *Dom* lub *Firma*.
+W przypadku pracy z relacyjnymi bazami danych strategia ma na celu normalizację wszystkich danych. Normalizacja danych zazwyczaj obejmuje przejęcie jednostki, takiej jak osoba, i przedzielenie jej na składniki dyskretne. W powyższym przykładzie osoba może mieć wiele rekordów szczegółów kontaktu, a także wiele rekordów adresów. Szczegóły kontaktu można podzielić na dalsze wyodrębnianie wspólnych pól, takich jak typ. To samo dotyczy adresu, każdy rekord może być typu *dom* lub *Business*.
 
-Założeniem przewodnim podczas normalizacji danych jest **uniknięcie przechowywania nadmiarowych danych** w każdym rekordzie i raczej odwoływanie się do danych. W tym przykładzie, aby odczytać osobę, ze wszystkimi jej danymi kontaktowymi i adresami, należy użyć JOINS skutecznie komponować dane (lub denormalize) danych w czasie wykonywania.
+Identyfikator GUID w przypadku normalizacji danych ma na celu **uniknięcie przechowywania nadmiarowych danych** w każdym rekordzie i raczej odnieść się do danych. W tym przykładzie w celu odczytania osoby z uwzględnieniem wszystkich informacji kontaktowych i adresów należy użyć sprzężeń, aby efektywnie redagować (lub denormalizować) dane w czasie wykonywania.
 
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
@@ -45,9 +45,9 @@ Założeniem przewodnim podczas normalizacji danych jest **uniknięcie przechowy
     JOIN ContactDetailType cdt ON cdt.Id = cd.TypeId
     JOIN Address a ON a.PersonId = p.Id
 
-Aktualizowanie jednej osoby z jej danymi kontaktowymi i adresami wymaga operacji zapisu w wielu poszczególnych tabelach.
+Aktualizowanie pojedynczej osoby przy użyciu ich szczegółów i adresów kontaktowych wymaga operacji zapisu w wielu pojedynczych tabelach.
 
-Teraz przyjrzyjmy się, jak będziemy modelować te same dane jako samodzielnej jednostki w usłudze Azure Cosmos DB.
+Teraz przyjrzyjmy się sposobom, w jaki będziemy modelować te same dane jak samodzielna jednostka w Azure Cosmos DB.
 
     {
         "id": "1",
@@ -68,31 +68,31 @@ Teraz przyjrzyjmy się, jak będziemy modelować te same dane jako samodzielnej 
         ]
     }
 
-Stosując powyższe **podejście, zdenormalowaliśmy** rekord osoby, **osadząc** wszystkie informacje związane z tą osobą, takie jak ich dane kontaktowe i adresy, w jednym dokumencie *JSON.*
-Ponadto, ponieważ nie ograniczamy się do schematu stałego, mamy elastyczność, aby wykonywać takie czynności, jak posiadanie szczegółów kontaktu o różnych kształtach.
+Korzystając z powyższego podejścia, odnosząc **się do** rekordu osoby, **osadzając** wszystkie informacje dotyczące tej osoby, takie jak informacje kontaktowe i adresy, w *jednym dokumencie JSON* .
+Ponadto, ponieważ nie ograniczamy się do stałego schematu, mamy elastyczną możliwość wykonywania takich czynności, jak posiadanie szczegółowych informacji o różnych kształtach.
 
-Pobieranie pełnego rekordu osoby z bazy danych jest teraz **pojedynczą operacją odczytu** względem pojedynczego kontenera i dla pojedynczego elementu. Aktualizowanie rekordu osoby, z ich danymi kontaktowymi i adresami, jest również **pojedynczą operacją zapisu** względem pojedynczego elementu.
+Pobranie kompletnego rekordu osoby z bazy danych jest teraz **jedną operacją odczytu** dla jednego kontenera i dla pojedynczego elementu. Aktualizacja rekordu osoby przy użyciu ich szczegółów i adresów kontaktowych jest również **jedną operacją zapisu** w odniesieniu do pojedynczego elementu.
 
-Przez denormalizing danych, aplikacja może być konieczne wydanie mniejszej liczby zapytań i aktualizacji, aby zakończyć typowe operacje.
+Przez denormalizację danych, aplikacja może potrzebować mniejszej liczby zapytań i aktualizacji w celu wykonania typowych operacji.
 
-### <a name="when-to-embed"></a>Kiedy osadzić
+### <a name="when-to-embed"></a>Kiedy należy osadzić
 
-Ogólnie rzecz biorąc, należy używać wbudowanych modeli danych, gdy:
+Ogólnie rzecz biorąc, użyj osadzonych modeli danych w programie:
 
-* Istnieją **zawarte** relacje między jednostkami.
-* Istnieją **relacje jeden do niewielu** między jednostkami.
-* Istnieją osadzone dane, które **zmieniają się rzadko**.
-* Istnieją osadzone dane, które nie będą rosnąć **bez powiązanych**.
-* Istnieją osadzone dane, które są **często używane razem.**
+* **Istnieją relacje między** jednostkami.
+* Między jednostkami istnieją relacje **"jeden do kilku** ".
+* Dane osadzone są **rzadko zmieniane**.
+* Istnieją osadzone dane, które nie zostaną powiększone **bez powiązania**.
+* Istnieje osadzona Data, do której często wykonywane są **zapytania**.
 
 > [!NOTE]
-> Zazwyczaj zdenormalizowane modele danych zapewniają lepszą wydajność **odczytu.**
+> Zwykle nieznormalizowane modele danych zapewniają lepszą wydajność **odczytu** .
 
-### <a name="when-not-to-embed"></a>Kiedy nie osadzać
+### <a name="when-not-to-embed"></a>Kiedy nie można osadzić
 
-Podczas gdy regułą w usłudze Azure Cosmos DB jest denormalize wszystko i osadzać wszystkie dane w jednym elemencie, może to prowadzić do niektórych sytuacji, które należy unikać.
+Chociaż reguła kciuka w Azure Cosmos DB ma denormalizować wszystko i osadzić wszystkie dane w jednym elemencie, może to prowadzić do pewnych sytuacji, które należy unikać.
 
-Weź ten fragment JSON.
+Zrób ten fragment kodu JSON.
 
     {
         "id": "1",
@@ -110,11 +110,11 @@ Weź ten fragment JSON.
         ]
     }
 
-Może to być, co jednostki post z osadzonych komentarzy będzie wyglądać, gdybyśmy modelowania typowy blog lub CMS, system. Problem z tym przykładem jest to, że tablica komentarzy jest **nieograniczona,** co oznacza, że nie ma (praktycznego) limitu liczby komentarzy, które może mieć pojedynczy post. Może to stać się problemem, ponieważ rozmiar przedmiotu może rosnąć nieskończenie duży.
+Może to być obiekt post z osadzonymi komentarzami, który będzie wyglądać podobnie w przypadku modelowania typowego bloga lub systemu CMS. Problem z tym przykładem polega na tym, że tablica komentarzy jest **nieograniczona**, co oznacza, że nie ma (praktyczne) limitu liczby komentarzy, które mogą mieć pojedynczy wpis. Może to stać się problemem, ponieważ rozmiar elementu może wzrosnąć nieskończonie.
 
-Wraz ze wzrostem rozmiaru elementu będzie miało wpływ na możliwość przesyłania danych przez sieć, a także odczytywania i aktualizowania elementu na dużą skalę.
+Ponieważ rozmiar elementu zwiększa możliwość przesyłania danych za pośrednictwem sieci, a także odczytywanie i aktualizowanie elementu, na dużą skalę.
 
-W takim przypadku lepiej byłoby wziąć pod uwagę następujący model danych.
+W takim przypadku lepszym rozwiązaniem jest uwzględnienie poniższego modelu danych.
 
     Post item:
     {
@@ -147,11 +147,11 @@ W takim przypadku lepiej byłoby wziąć pod uwagę następujący model danych.
         ]
     }
 
-Ten model ma trzy najnowsze komentarze osadzone w kontenerze post, który jest tablicą ze stałym zestawem atrybutów. Inne komentarze są pogrupowane w partiach 100 komentarzy i przechowywane jako oddzielne elementy. Rozmiar partii został wybrany jako 100, ponieważ nasza fikcyjna aplikacja pozwala użytkownikowi załadować 100 komentarzy naraz.  
+Ten model ma trzy ostatnie komentarze osadzone w kontenerze post, który jest tablicą ze stałym zestawem atrybutów. Inne Komentarze są pogrupowane w do partii 100 komentarzy i przechowywane jako oddzielne elementy. Rozmiar partii został wybrany jako 100, ponieważ nasza fikcyjna aplikacja umożliwia użytkownikowi ładowanie 100 komentarzy w danym momencie.  
 
-Innym przypadkiem, w którym osadzanie danych nie jest dobrym pomysłem, jest to, że osadzone dane są często używane w elementach i często się zmieniają.
+Innym przypadkiem, gdy osadzenie danych nie jest dobrym pomysłem, jest to, że osadzone dane są często używane między elementami i zmieniają się często.
 
-Weź ten fragment JSON.
+Zrób ten fragment kodu JSON.
 
     {
         "id": "1",
@@ -169,17 +169,17 @@ Weź ten fragment JSON.
         ]
     }
 
-Może to stanowić portfel akcji danej osoby. Postanowiliśmy osadzić informacje o akcjach w każdym dokumencie portfela. W środowisku, w którym powiązane dane często się zmieniają, na przykład aplikacja do handlu akcjami, osadzanie danych, które często się zmieniają, oznacza, że stale aktualizujesz każdy dokument portfela za każdym razem, gdy akcja jest handlowana.
+Może to reprezentować portfolio magazynowego osoby. Wybrano osadzenie informacji o zapasach w każdym dokumencie portfolio. W środowisku, w którym dane związane ze zmianą są często zmieniane, podobnie jak aplikacja do notowania giełdowego, osadzenie danych, które często zmieniają się, to oznacza, że stale aktualizujesz każdy dokument portfolio przy każdej wymianie zasobów.
 
-Akcje *zaza* mogą być przedmiotem obrotu setki razy w ciągu jednego dnia, a tysiące użytkowników może mieć *zaza* na swoim portfelu. W modelu danych, takim jak powyższy, musielibyśmy aktualizować wiele tysięcy dokumentów portfela wiele razy dziennie, co prowadzi do systemu, który nie będzie dobrze skalowany.
+*Zaza* giełdowe mogą być sprzedawane wiele razy w jednym dniu, a tysiące użytkowników mogą mieć *Zaza* w portfelu. Korzystając z modelu danych, takiego jak powyżej, będziemy musieli aktualizować wiele tysięcy dokumentów portfolio wiele razy dziennie, co pozwoli na system, który nie jest dobrze skalowany.
 
-## <a name="referencing-data"></a>Odwoływanie się do danych
+## <a name="referencing-data"></a>Odwołujące się do danych
 
-Osadzanie danych działa ładnie w wielu przypadkach, ale istnieją scenariusze, gdy denormalizing danych spowoduje więcej problemów, niż jest to warte. Więc co teraz robimy?
+Osadzanie danych działa dobrze w wielu przypadkach, ale istnieją scenariusze, w których denormalizacja danych spowoduje więcej problemów niż jest to możliwe. Co teraz robimy?
 
-Relacyjne bazy danych nie są jedynym miejscem, w którym można tworzyć relacje między encjami. W bazie danych dokumentów można mieć informacje w jednym dokumencie, które odnoszą się do danych w innych dokumentach. Nie zaleca się tworzenia systemów, które byłyby lepiej dostosowane do relacyjnej bazy danych w usłudze Azure Cosmos DB lub innej bazy danych dokumentów, ale proste relacje są w porządku i mogą być przydatne.
+Relacyjne bazy danych nie są jedynym miejscem, w którym można tworzyć relacje między jednostkami. W bazie danych dokumentów można zawierać informacje w jednym dokumencie, które odnoszą się do danych w innych dokumentach. Nie zaleca się kompilowania systemów, które lepiej nadają się do relacyjnej bazy danych w Azure Cosmos DB lub innej bazy danych dokumentów, ale proste relacje są bardziej przydatne i mogą być użyteczne.
 
-W JSON poniżej zdecydowaliśmy się na przykład portfela akcji z wcześniej, ale tym razem odnosimy się do pozycji akcji w portfelu zamiast osadzać go. W ten sposób, gdy towar akcji zmienia się często w ciągu dnia, jedynym dokumentem, który wymaga aktualizacji, jest pojedynczy dokument magazynowy.
+W poniższym kodzie JSON wybieramy użycie przykładu portfela giełdowego z wcześniejszego, ale tym razem odwołujesz się do elementu giełdowego w portfolio, zamiast go osadzać. W ten sposób, gdy element giełdowy ulega częstym zmianom w ciągu dnia, jedynym dokumentem, który ma zostać zaktualizowany, jest ten, który należy zaktualizować.
 
     Person document:
     {
@@ -214,32 +214,32 @@ W JSON poniżej zdecydowaliśmy się na przykład portfela akcji z wcześniej, a
         "pe": 75.82
     }
 
-Bezpośrednim minusem tego podejścia jest jednak, jeśli aplikacja jest wymagana do wyświetlania informacji o każdym magazynie, który jest przechowywany podczas wyświetlania portfela osoby; w takim przypadku należy wykonać wiele podróży do bazy danych, aby załadować informacje dla każdego dokumentu giełdowego. Tutaj podjęliśmy decyzję o poprawie wydajności operacji zapisu, które zdarzają się często w ciągu dnia, ale z kolei zagrożone na operacje odczytu, które potencjalnie mają mniejszy wpływ na wydajność tego konkretnego systemu.
+Natychmiast minusem tego podejścia, jeśli aplikacja jest wymagana do wyświetlania informacji o każdym magazynie, który jest przechowywany podczas wyświetlania portfolio osoby; w takim przypadku należy wykonać wiele podróży do bazy danych w celu załadowania informacji dla każdego dokumentu giełdowego. Tutaj podjęto decyzję o ulepszaniu wydajności operacji zapisu, która zdarza się często w ciągu dnia, ale z powodu naruszenia operacji odczytu, które potencjalnie mają mniejszy wpływ na wydajność danego systemu.
 
 > [!NOTE]
-> Znormalizowane modele danych **mogą wymagać większej liczby rund** na serwer.
+> Znormalizowane modele danych **mogą wymagać większej liczby rund** do serwera.
 
-### <a name="what-about-foreign-keys"></a>A co z kluczami obcymi?
+### <a name="what-about-foreign-keys"></a>Co o kluczach obcych?
 
-Ponieważ obecnie nie istnieje pojęcie ograniczenia, klucz obcy lub w inny sposób, wszelkie relacje między dokumentami, które masz w dokumentach są skutecznie "słabe łącza" i nie zostaną zweryfikowane przez samą bazę danych. Jeśli chcesz upewnić się, że dane, do których odnosi się dokument, faktycznie istnieje, należy to zrobić w aplikacji lub za pomocą wyzwalaczy po stronie serwera lub procedur przechowywanych w usłudze Azure Cosmos DB.
+Ponieważ obecnie nie ma koncepcji ograniczenia, klucza obcego lub w inny sposób, wszelkie relacje między dokumentami, które znajdują się w dokumentach, są skutecznie "słabymi łączami" i nie będą weryfikowane przez samą bazę danych. Jeśli chcesz mieć pewność, że dane, do których odwołuje się dokument, rzeczywiście istnieją, należy to zrobić w aplikacji lub przy użyciu wyzwalaczy po stronie serwera lub procedur składowanych w Azure Cosmos DB.
 
-### <a name="when-to-reference"></a>Kiedy się odwoływać
+### <a name="when-to-reference"></a>Kiedy można się odwołać
 
-Ogólnie rzecz biorąc, należy użyć znormalizowanych modeli danych, gdy:
+Ogólnie rzecz biorąc, używaj znormalizowanych modeli danych, gdy:
 
-* Reprezentujący relacje **jeden do wielu.**
-* Reprezentujący relacje **wiele do wielu.**
-* Powiązane **dane często się zmieniają**.
-* Dane, do których istnieje odwołanie, mogą być **niezwiązane.**
+* Reprezentuje relacje **jeden do wielu** .
+* Reprezentuje relacje **wiele do wielu** .
+* Często związane ze sobą **zmiany**danych.
+* Dane, do których istnieją odwołania, mogą być **niepowiązane**.
 
 > [!NOTE]
-> Zazwyczaj normalizacji zapewnia lepszą wydajność **zapisu.**
+> Zwykle normalizacja zapewnia lepszą wydajność **zapisu** .
 
-### <a name="where-do-i-put-the-relationship"></a>Gdzie mogę umieścić związek?
+### <a name="where-do-i-put-the-relationship"></a>Gdzie mogę umieścić relację?
 
-Rozwój relacji pomoże określić, w którym dokumencie do przechowywania odwołania.
+Wzrost relacji pomoże określić, w którym dokumencie jest przechowywane odwołanie.
 
-Jeśli spojrzymy na JSON poniżej, że modele wydawców i książek.
+Jeśli przeszukasz Poniższy kod JSON, ten modeluje wydawców i książki.
 
     Publisher document:
     {
@@ -257,9 +257,9 @@ Jeśli spojrzymy na JSON poniżej, że modele wydawców i książek.
     ...
     {"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
 
-Jeśli liczba książek na wydawcę jest niewielka przy ograniczonym wzroście, przechowywanie odwołania do książki w dokumencie wydawcy może być przydatne. Jeśli jednak liczba książek na wydawcę jest nieograniczona, ten model danych doprowadzi do modyfikowalnych, rosnących tablic, jak w powyższym dokumencie wydawcy.
+Jeśli liczba ksiąg na wydawcę jest mała z ograniczonym wzrostem, może być przydatne przechowywanie odwołania do książki wewnątrz dokumentu wydawcy. Jeśli jednak liczba książek dla wydawcy jest nieograniczona, wówczas ten model danych prowadziłoby do modyfikowalnych, rosnących tablic, jak w przypadku przykładowego dokumentu wydawcy powyżej.
 
-Przełączanie rzeczy wokół nieco spowodowałoby model, który nadal reprezentuje te same dane, ale teraz unika tych dużych kolekcji modyfikowalne.
+Przełączenie na bit spowoduje powstanie modelu, który nadal reprezentuje te same dane, ale teraz pozwala uniknąć tych dużych niemodyfikowalnych kolekcji.
 
     Publisher document:
     {
@@ -276,15 +276,15 @@ Przełączanie rzeczy wokół nieco spowodowałoby model, który nadal reprezent
     ...
     {"id": "1000","name": "Deep Dive into Azure Cosmos DB", "pub-id": "mspress"}
 
-W powyższym przykładzie upuściliśmy niezwiązane kolekcji w dokumencie wydawcy. Zamiast tego mamy tylko odniesienie do wydawcy w każdym dokumencie książki.
+W powyższym przykładzie podaliśmy niepowiązaną kolekcję do dokumentu wydawcy. Zamiast tego mamy już odwołanie do wydawcy w każdym dokumencie książki.
 
-### <a name="how-do-i-model-manymany-relationships"></a>Jak modelować wiele:wiele relacji?
+### <a name="how-do-i-model-manymany-relationships"></a>Jak mogę model wiele: wiele relacji?
 
-W relacyjnej bazie danych *wiele:wiele* relacji są często modelowane z tabel sprzężenia, które po prostu łączą rekordy z innych tabel razem.
+W relacyjnej bazie danych *wiele: wiele* relacji jest często modelowanych przy użyciu tabel sprzężenia, które po prostu łączą rekordy z innych tabel.
 
-![Dołączanie do tabel](./media/sql-api-modeling-data/join-table.png)
+![Sprzęganie tabel](./media/sql-api-modeling-data/join-table.png)
 
-Możesz być kuszony, aby replikować to samo przy użyciu dokumentów i utworzyć model danych, który wygląda podobnie do następującego.
+Może być skłonny do replikowania tych samych rzeczy przy użyciu dokumentów i tworzenia modelu danych, który wygląda podobnie do poniższego.
 
     Author documents:
     {"id": "a1", "name": "Thomas Andersen" }
@@ -303,10 +303,10 @@ Możesz być kuszony, aby replikować to samo przy użyciu dokumentów i utworzy
     {"authorId": "a1", "bookId": "b2" }
     {"authorId": "a1", "bookId": "b3" }
 
-To by zadziałało. Jednak załadowanie autora z ich książek lub załadowanie książki z jego autorem, zawsze wymaga co najmniej dwóch dodatkowych zapytań do bazy danych. Jedno zapytanie do dokumentu łączącego, a następnie inne zapytanie, aby pobrać rzeczywisty dokument jest przyłączany.
+To będzie działała. Jednak załadowanie autora przy użyciu ich ksiąg lub załadowanie książki z jej autorem zawsze wymaga co najmniej dwóch dodatkowych zapytań względem bazy danych. Jedno zapytanie do przyłączania dokumentu, a następnie inne zapytanie w celu pobrania rzeczywistego dokumentu.
 
-Jeśli wszystko to tabela sprzężenia robi jest klejenie razem dwa kawałki danych, to dlaczego nie upuścić go całkowicie?
-Należy wziąć pod uwagę następujące kwestie.
+Jeśli cała ta tabela sprzężenia jest taka, gluing dwie fragmenty danych, a następnie dlaczego nie porzucasz jej całkowicie?
+Weź pod uwagę następujące kwestie.
 
     Author documents:
     {"id": "a1", "name": "Thomas Andersen", "books": ["b1, "b2", "b3"]}
@@ -318,17 +318,17 @@ Należy wziąć pod uwagę następujące kwestie.
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
     {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
 
-Teraz, gdybym miał autora, od razu wiem, które książki napisali, i odwrotnie, gdybym miał załadowany dokument książki, znałbym identyfikatory autora(-ów). Spowoduje to zapisanie kwerendy pośredniczącej względem tabeli sprzężenia, zmniejszając liczbę rund serwera, które aplikacja musi wykonać.
+Teraz, jeśli mam autora, natychmiast wiemy, które książki zostały napisane, i odwrotnie, jeśli mam załadowana dokument książki, znamy identyfikatory autorów. Spowoduje to zaoszczędzenie zapytania pośredniego względem tabeli sprzężenia, zmniejszając liczbę operacji w sieci, które musi wykonać aplikacja.
 
 ## <a name="hybrid-data-models"></a>Hybrydowe modele danych
 
-Teraz przyjrzeliśmy się osadzaniu (lub denormalizacji) i odwoływaniu się (lub normalizacji) danych, każdy ma swoje plusy i każdy ma kompromisy, jak widzieliśmy.
+Teraz wykorzystamy osadzenie (lub denormalizowanie) i odwołujące się do nich (lub normalizowanie) danych, każdy z nich ma swoje boki i każdy z nich ma naruszone kompromisy.
 
-Nie zawsze musi być albo albo, nie bój się mieszać rzeczy się trochę.
+Nie zawsze musi być albo lub, nie być obawialiśmy, aby można było nieco nie mieszać.
 
-Na podstawie wzorców użycia określonych aplikacji i obciążeń mogą wystąpić przypadki, w których mieszanie danych osadzonych i przywoływanych ma sens i może prowadzić do prostszej logiki aplikacji przy mniejszej liczbie rund serwera przy zachowaniu dobrego poziomu wydajności.
+W oparciu o specyficzne dla aplikacji wzorce użycia i obciążenia mogą wystąpić sytuacje, w których mieszanie osadzonych i przywoływanych danych jest sensowne i może prowadzić do uproszczenia logiki aplikacji z mniejszą liczbą podróży serwera przy zachowaniu dobrego poziomu wydajności.
 
-Należy wziąć pod uwagę następujące JSON.
+Rozważmy poniższy kod JSON.
 
     Author documents:
     {
@@ -371,19 +371,19 @@ Należy wziąć pod uwagę następujące JSON.
         ]
     }
 
-W tym miejscu mamy (głównie) po modelu osadzonego, gdzie dane z innych jednostek są osadzone w dokumencie najwyższego poziomu, ale inne dane są odwoływane.
+W tym miejscu (głównie) nastąpiło osadzony model, w którym dane z innych jednostek są osadzone w dokumencie najwyższego poziomu, ale istnieją odwołania do innych danych.
 
-Jeśli spojrzymy na dokument książki, możemy zobaczyć kilka interesujących pól, gdy spojrzymy na tablicę autorów. Istnieje `id` pole, którego używamy do odwoływania się do dokumentu autora, standardowa praktyka w `name` znormalizowanym modelu, ale wtedy mamy też i `thumbnailUrl`. Mogliśmy utknąć `id` i zostawić aplikację, aby uzyskać wszelkie dodatkowe informacje potrzebne z odpowiedniego dokumentu autora za pomocą "link", ale ponieważ nasza aplikacja wyświetla nazwisko autora i obraz miniatury z każdej książki wyświetlane możemy zapisać podróż do serwera na książkę na liście przez deormalowanie **niektórych** danych od autora.
+Jeśli zobaczysz dokument księgi, zobaczymy kilka interesujących pól, gdy zobaczymy tablicę autorów. Istnieje `id` pole, które jest używane do odwoływania się z powrotem do dokumentu autora, standardowej zwyczajowej w znormalizowanym modelu, ale również mamy `name` i. `thumbnailUrl` Firma Microsoft mogła zostać `id` zablokowana i pozostawiona aplikacji w celu uzyskania wszelkich dodatkowych informacji wymaganych od odpowiedniego dokumentu autora przy użyciu linku, ale ponieważ nasza aplikacja wyświetla nazwę autora i miniaturę obrazu z każdą z wyświetlonych książek, można zapisać w postaci okrężnej na serwerze dla każdej książki na liście, denormalizacjjąc **niektóre** dane od autora.
 
-Oczywiście, gdyby imię i nazwisko autora zmieniło się lub chcieli zaktualizować swoje zdjęcie, musielibyśmy zaktualizować każdą książkę, którą kiedykolwiek opublikowali, ale dla naszej aplikacji, przy założeniu, że autorzy nie zmieniają często swoich nazw, jest to dopuszczalna decyzja projektowa.  
+Upewnij się, że jeśli nazwa autora została zmieniona lub chcesz zaktualizować swoje zdjęcie, musimy przeszedł i zaktualizować każdą opublikowaną przez siebie książkę, ale dla naszej aplikacji, w oparciu o założenie, że autorzy nie zmieniają nazw często, jest to akceptowalna decyzja w zakresie projektu.  
 
-W tym przykładzie istnieją wstępnie obliczone wartości **agregacji,** aby zaoszczędzić kosztowne przetwarzanie w operacji odczytu. W tym przykładzie niektóre dane osadzone w dokumencie autora są danymi, które są obliczane w czasie wykonywania. Za każdym razem, gdy nowa książka jest publikowana, tworzony jest dokument książki, **a** pole CountOfBooks jest ustawiane na wartość obliczeniową na podstawie liczby dokumentów książki, które istnieją dla określonego autora. Ta optymalizacja byłaby dobra w systemach odczytu ciężkich, gdzie możemy sobie pozwolić na obliczenia na zapisy w celu optymalizacji odczytów.
+W przykładzie istnieją **wstępnie obliczone wartości zagregowane** , aby zaoszczędzić kosztowne przetwarzanie operacji odczytu. W przykładzie niektóre dane osadzone w dokumencie autor są danymi obliczanymi w czasie wykonywania. Za każdym razem, gdy nowa książka jest publikowana, tworzony jest dokument księgi, **a** pole countOfBooks jest ustawione na wartość obliczoną na podstawie liczby dokumentów księgi istniejących dla danego autora. Ta optymalizacja jest lepsza w odniesieniu do dużych systemów, w których możemy umożliwić wykonywanie obliczeń przy zapisach w celu zoptymalizowania operacji odczytu.
 
-Możliwość modelowania z wstępnie obliczonymi polami jest możliwa, ponieważ usługa Azure Cosmos DB obsługuje **transakcje wieloznadowe.** Wiele sklepów NoSQL nie może wykonywać transakcji między dokumentami i dlatego zaleca decyzje projektowe, takie jak "zawsze osadzić wszystko", ze względu na to ograniczenie. Za pomocą usługi Azure Cosmos DB można używać wyzwalaczy po stronie serwera lub procedur przechowywanych, które wstawiają książki i aktualizują autorów w ramach transakcji ACID. Teraz nie **musisz** osadzić wszystkiego w jednym dokumencie, aby upewnić się, że dane pozostają spójne.
+Istnieje możliwość, że model z polami wstępnie obliczonymi jest możliwy, ponieważ Azure Cosmos DB obsługuje **transakcje wielodokumentowe**. Wiele magazynów NoSQL nie może wykonywać transakcji między dokumentami i dlatego ambasadoruje decyzje projektowe, takie jak "Zawsze osadzaj wszystko", z powodu tego ograniczenia. Za pomocą Azure Cosmos DB można używać wyzwalaczy po stronie serwera lub procedur składowanych, które wstawiają książki i aktualizują autorów w ramach transakcji KWAŚNej. Teraz nie **trzeba** osadzać wszystkiego w jednym dokumencie, aby upewnić się, że dane pozostają spójne.
 
-## <a name="distinguishing-between-different-document-types"></a>Rozróżnianie różnych typów dokumentów
+## <a name="distinguishing-between-different-document-types"></a>Rozróżnianie między różnymi typami dokumentów
 
-W niektórych scenariuszach można mieszać różne typy dokumentów w tej samej kolekcji; zwykle jest to przypadek, gdy chcesz wiele, powiązanych dokumentów, aby usiąść w tej samej [partycji](partitioning-overview.md). Na przykład można umieścić zarówno książki i recenzje książek `bookId`w tej samej kolekcji i podzielić go przez . W takiej sytuacji zwykle chcesz dodać do dokumentów pole, które identyfikuje ich typ w celu ich rozróżnienia.
+W niektórych scenariuszach warto mieszać różne typy dokumentów w tej samej kolekcji. zwykle jest to przypadek, gdy wiele powiązanych dokumentów ma być w tej samej [partycji](partitioning-overview.md). Można na przykład umieścić zarówno książki, jak i książki, w tej samej kolekcji, a następnie podzielić `bookId`je na partycje. W takiej sytuacji zazwyczaj warto dodać do dokumentów za pomocą pola, które identyfikuje ich typ w celu odróżnienia ich.
 
     Book documents:
     {
@@ -409,12 +409,12 @@ W niektórych scenariuszach można mieszać różne typy dokumentów w tej samej
 
 ## <a name="next-steps"></a>Następne kroki
 
-Największe wynos z tego artykułu są do zrozumienia, że modelowanie danych w świecie bez schematu jest tak samo ważne, jak zawsze.
+Największą wnioskią z tego artykułu jest zrozumienie, że Modelowanie danych w świecie wolnym od schematu jest tak ważne jak kiedykolwiek.
 
-Tak jak nie ma jednego sposobu do reprezentowania fragmentu danych na ekranie, nie ma jednego sposobu modelowania danych. Należy zrozumieć aplikacji i jak będzie produkować, zużywać i przetwarzać dane. Następnie, stosując niektóre z wytycznych przedstawionych w tym miejscu można ustawić tworzenie modelu, który odpowiada na bezpośrednie potrzeby aplikacji. Gdy aplikacje trzeba zmienić, można wykorzystać elastyczność bazy danych bez schematu, aby objąć tę zmianę i łatwo rozwijać model danych.
+Tak samo jak nie istnieje jeden sposób reprezentowania fragmentu danych na ekranie, nie istnieje jeden sposób na Modelowanie danych. Musisz zrozumieć swoją aplikację i sposób, w jaki będzie ona generować, wykorzystywać i przetwarzać dane. Następnie stosując niektóre z wytycznych przedstawionych w tym miejscu, można skonfigurować model, który odnosi się do natychmiastowych potrzeb aplikacji. Gdy aplikacje wymagają zmiany, można wykorzystać elastyczność bazy danych bez schematu, aby wdrożyć tę zmianę i łatwo rozwijać model danych.
 
-Aby dowiedzieć się więcej o usłudze Azure Cosmos DB, zapoznaj się ze stroną [dokumentacji](https://azure.microsoft.com/documentation/services/cosmos-db/) usługi.
+Aby dowiedzieć się więcej na temat Azure Cosmos DB, zapoznaj się ze stroną [dokumentacji](https://azure.microsoft.com/documentation/services/cosmos-db/) usługi.
 
-Aby dowiedzieć się, jak fragmentowanie danych na wielu partycjach, zapoznaj się z [partycjonowanie danych w usłudze Azure Cosmos DB](sql-api-partition-data.md).
+Aby dowiedzieć się, jak fragmentu dane w wielu partycjach, zobacz [Partycjonowanie danych w Azure Cosmos DB](sql-api-partition-data.md).
 
-Aby dowiedzieć się, jak modelować i partycjonować dane w usłudze Azure Cosmos DB przy użyciu przykładu rzeczywistego świata, zapoznaj się [z modelowania danych i partycjonowania — przykład świata rzeczywistego.](how-to-model-partition-example.md)
+Aby dowiedzieć się, jak modelować i dzielić dane na Azure Cosmos DB przy użyciu rzeczywistego przykładu, zobacz [modelowanie i partycjonowanie danych — rzeczywisty przykład](how-to-model-partition-example.md).

@@ -1,6 +1,6 @@
 ---
-title: Udzielanie dostępu do zarządzania usługą PIM — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Dowiedz się, jak udzielić dostępu innym administracjom do zarządzania zarządzaniem zarządzaniem tożsamościami uprzywilejowanymi usługą Azure AD (PIM).
+title: Udzielanie dostępu do zarządzania usługą PIM Azure Active Directory | Microsoft Docs
+description: Dowiedz się, jak udzielić dostępu innym administratorom do zarządzania usługą Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,76 +15,76 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7424e92f8520d13137b6ac8787523095058a005f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74022111"
 ---
-# <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>Udzielanie dostępu innym administratorom do zarządzania zarządzaniem tożsamościami uprzywilejowanymi
+# <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>Udzielanie dostępu innym administratorom w celu zarządzania Privileged Identity Management
 
-Administrator globalny, który włącza zarządzanie tożsamościami uprzywilejowanymi (PIM) dla organizacji, automatycznie otrzymuje przypisania ról i dostęp do zarządzania tożsamościami uprzywilejowanymi. Nikt inny w organizacji usługi Azure Active Directory (Azure AD) nie otrzymuje dostępu do zapisu domyślnie, ale, w tym innych administratorów globalnych. Inni administratorzy globalni, administratorzy zabezpieczeń i czytelnicy zabezpieczeń mają dostęp tylko do odczytu do zarządzania tożsamościami uprzywilejowanymi. Aby udzielić dostępu do zarządzania tożsamościami uprzywilejowanymi, pierwszy użytkownik może przypisać inne osoby do roli **Administrator ról uprzywilejowanych.**
+Administrator globalny, który umożliwia Privileged Identity Management (PIM) dla organizacji, automatycznie uzyskuje przypisania ról i dostęp do Privileged Identity Management. Nikt inny w organizacji Azure Active Directory (Azure AD) nie otrzymuje domyślnie dostępu do zapisu, w tym innych administratorów globalnych. Inni administratorzy globalni, administratorzy zabezpieczeń i czytelnicy zabezpieczeń mają dostęp tylko do odczytu do Privileged Identity Management. Aby udzielić dostępu do Privileged Identity Management, pierwszy użytkownik może przypisać inne osoby do roli **administrator ról uprzywilejowanych** .
 
 > [!NOTE]
-> Zarządzanie zarządzaniem uprzywilejowanymi tożsamościami wymaga uwierzytelniania wieloskładnikowego platformy Azure. Ponieważ konta Microsoft nie mogą zarejestrować się w celu uwierzytelniania wieloskładnikowego platformy Azure, użytkownik, który loguje się za pomocą konta Microsoft, nie może uzyskać dostępu do zarządzania tożsamościami uprzywilejowanymi.
+> Zarządzanie Privileged Identity Management wymaga platformy Azure Multi-Factor Authentication. Ponieważ konta Microsoft nie mogą zarejestrować się w usłudze Azure Multi-Factor Authentication, użytkownik, który zaloguje się przy użyciu konto Microsoft, nie może uzyskać dostępu do Privileged Identity Management.
 
-Upewnij się, że zawsze w roli administratora ról uprzywilejowanych jest co najmniej dwóch użytkowników, jeśli jeden użytkownik zostanie zablokowany lub jego konto zostanie usunięte.
+Upewnij się, że w roli administratora roli uprzywilejowanej są zawsze co najmniej dwóch użytkowników, na wypadek gdy jeden użytkownik jest zablokowany lub jego konto zostanie usunięte.
 
-## <a name="grant-access-to-manage-pim"></a>Udzielanie dostępu do zarządzania pim
+## <a name="grant-access-to-manage-pim"></a>Udzielanie dostępu do zarządzania usługą PIM
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. W usłudze Azure AD otwórz **zarządzanie tożsamościami uprzywilejowanymi**.
+1. W usłudze Azure AD Otwórz **Privileged Identity Management**.
 
-1. Wybierz **role usługi Azure AD**.
+1. Wybierz pozycję **role usługi Azure AD**.
 
-1. Wybierz **pozycję Role**.
+1. Wybierz pozycję **role**.
 
-    ![Role usługi AD uprzywilejowanego zarządzania tożsamościami — role](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
+    ![Privileged Identity Management ról usługi Azure AD — role](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
 
-1. Wybierz rolę **Administrator roli uprzywilejowanej,** aby otworzyć stronę członków.
+1. Wybierz rolę **administrator ról uprzywilejowanych** , aby otworzyć stronę członkowie.
 
     ![Administrator ról uprzywilejowanych — członkowie](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
 
-1. Wybierz **pozycję Dodaj członka,** aby otworzyć okienko Dodaj członków zarządzanych.
+1. Wybierz pozycję **Dodaj członka** , aby otworzyć okienko Dodawanie elementów zarządzanych.
 
-1. Wybierz **pozycję Wybierz członków,** aby otworzyć okienko Wybierz elementy członkowskie.
+1. Wybierz pozycję **Wybierz członków** , aby otworzyć okienko wybierz członków.
 
-    ![Administrator ról uprzywilejowanych — wybieranie członków](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
+    ![Administrator ról uprzywilejowanych — Wybieranie członków](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
 
-1. Zaznacz element członkowski, a następnie kliknij przycisk **Zaznacz**.
+1. Wybierz element członkowski, a następnie kliknij przycisk **Wybierz**.
 
-1. Wybierz **przycisk OK,** aby członek kwalifikował się do roli **Administrator roli uprzywilejowanej.**
+1. Wybierz **przycisk OK** , aby członek mógł być uprawniony do roli **administratora roli uprzywilejowanej** .
 
-    Po przypisaniu nowej roli do innej osoby w zarządzania tożsamościami uprzywilejowanymi są one automatycznie konfigurowane jako **kwalifikujące się** do aktywowania roli.
+    Po przypisaniu nowej roli do kogoś w Privileged Identity Management są one automatycznie konfigurowane jako **kwalifikujące** się do aktywowania roli.
 
-1. Aby uczynić go stałym, wybierz użytkownika na liście elementów członkowskich Administrator roli uprzywilejowanej.
+1. Aby element członkowski był trwały, wybierz użytkownika z listy członków administratora roli uprzywilejowanej.
 
-1. Wybierz **pozycję Więcej,** a następnie **pozycję Pokonuj na stałe,** aby przydział stał się trwały.
+1. Wybierz pozycję **więcej** , a następnie **Ustaw trwałe** , aby przypisywać trwałe.
 
-    ![Administrator ról uprzywilejowanych — na stałe](./media/pim-how-to-give-access-to-pim/pim-pra-make-permanent.png)
+    ![Administrator ról uprzywilejowanych — Ustaw jako trwały](./media/pim-how-to-give-access-to-pim/pim-pra-make-permanent.png)
 
-1. Wyślij użytkownikowi łącze do [Przycisku Rozpocznij korzystanie z zarządzania tożsamościami uprzywilejowanymi](pim-getting-started.md).
+1. Wyślij użytkownikowi link, aby [rozpocząć korzystanie z Privileged Identity Management](pim-getting-started.md).
 
-## <a name="remove-access-to-manage-pim"></a>Usuwanie dostępu do zarządzania pim
+## <a name="remove-access-to-manage-pim"></a>Usuwanie dostępu w celu zarządzania usługą PIM
 
-Przed usunięciem kogoś z roli Administrator ról uprzywilejowanych, zawsze upewnij się, że nadal będzie co najmniej dwóch użytkowników przypisanych do niego.
+Przed usunięciem kogoś z roli administrator ról uprzywilejowanych zawsze upewnij się, że nadal są przypisane co najmniej dwóch użytkowników.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. Otwórz **zarządzanie tożsamościami uprzywilejowanymi usługą Azure AD**.
+1. Otwórz **Azure AD Privileged Identity Management**.
 
-1. Wybierz **role usługi Azure AD**.
+1. Wybierz pozycję **role usługi Azure AD**.
 
-1. Wybierz **pozycję Role**.
+1. Wybierz pozycję **role**.
 
-1. Wybierz rolę **Administrator roli uprzywilejowanej,** aby otworzyć stronę członków.
+1. Wybierz rolę **administrator ról uprzywilejowanych** , aby otworzyć stronę członkowie.
 
-1. Zaznacz pole wyboru obok użytkownika, którego chcesz usunąć, a następnie wybierz pozycję **Usuń członka**.
+1. Zaznacz pole wyboru obok użytkownika, który chcesz usunąć, a następnie wybierz pozycję **Usuń członka**.
 
-    ![Administrator ról uprzywilejowanych — usuń członka](./media/pim-how-to-give-access-to-pim/pim-pra-remove-member.png)
+    ![Administrator ról uprzywilejowanych — usuwanie elementu członkowskiego](./media/pim-how-to-give-access-to-pim/pim-pra-remove-member.png)
 
-1. Gdy zostaniesz poproszony o potwierdzenie, że chcesz usunąć członka z roli, wybierz przycisk **Tak**.
+1. Gdy zostanie wyświetlony monit o potwierdzenie usunięcia elementu członkowskiego z roli, wybierz pozycję **tak**.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie i konfigurowanie zapory platformy Azure przy użyciu programu Azure PowerShell
-description: W tym artykule dowiesz się, jak wdrożyć i skonfigurować Zaporę platformy Azure przy użyciu programu Azure PowerShell.
+title: Wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu Azure PowerShell
+description: W tym artykule dowiesz się, jak wdrożyć i skonfigurować zaporę platformy Azure przy użyciu Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,15 +8,15 @@ ms.date: 4/10/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 7f48012ca1f97c2e28380d95da37863c4bc17f63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73831843"
 ---
-# <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Wdrażanie i konfigurowanie zapory platformy Azure przy użyciu programu Azure PowerShell
+# <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu Azure PowerShell
 
-Kontrolowanie dostępu do sieciowego ruchu wychodzącego jest ważną częścią ogólnego planu zabezpieczeń sieci. Na przykład można ograniczyć dostęp do witryn sieci Web. Można też ograniczyć wychodzące adresy IP i porty, do których można uzyskać dostęp.
+Kontrolowanie dostępu do sieciowego ruchu wychodzącego jest ważną częścią ogólnego planu zabezpieczeń sieci. Na przykład możesz chcieć ograniczyć dostęp do witryn sieci Web. Można też ograniczyć liczbę wychodzących adresów IP i portów, do których można uzyskać dostęp.
 
 Jednym ze sposobów kontrolowania dostępu do sieciowego ruchu wychodzącego z podsieci platformy Azure jest użycie usługi Azure Firewall. Za pomocą usługi Azure Firewall można skonfigurować następujące reguły:
 
@@ -25,7 +25,7 @@ Jednym ze sposobów kontrolowania dostępu do sieciowego ruchu wychodzącego z p
 
 Ruch sieciowy podlega skonfigurowanym regułom zapory podczas kierowania ruchu sieciowego do zapory jako bramy domyślnej podsieci.
 
-W tym artykule utworzysz uproszczoną pojedynczą sieć wirtualną z trzema podsieciami dla łatwego wdrażania. W przypadku wdrożeń produkcyjnych zaleca się [model koncentratora i szprychy,](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) w którym zapora znajduje się we własnej sieci wirtualnej. Serwery obciążenia znajdują się w równorzędnych sieciach wirtualnych w tym samym regionie z co najmniej jedną podsiecią.
+W tym artykule utworzysz uproszczoną pojedynczą sieć wirtualną z trzema podsieciami w celu łatwego wdrożenia. W przypadku wdrożeń produkcyjnych zaleca się [model Hub i szprych](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) , gdzie Zapora znajduje się w własnej sieci wirtualnej. Serwery obciążenia znajdują się w sieci wirtualnych komunikacji równorzędnej w tym samym regionie co co najmniej jedna podsieć.
 
 * **AzureFirewallSubnet** — w tej podsieci znajduje się zapora.
 * **Workload-SN** — w tej podsieci znajduje się serwer obciążeń. Ruch sieciowy tej podsieci przechodzi przez zaporę.
@@ -39,17 +39,17 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Konfigurowanie testowego środowiska sieciowego
 > * Wdrażanie zapory
 > * Tworzenie trasy domyślnej
-> * Konfigurowanie reguły aplikacji w celu umożliwienia dostępu do www.google.com
+> * Skonfiguruj regułę aplikacji, aby zezwolić na dostęp do www.google.com
 > * Konfigurowanie reguły sieci w celu umożliwienia dostępu do zewnętrznych serwerów DNS
 > * Testowanie zapory
 
-Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [witryny Azure portal](tutorial-firewall-deploy-portal.md).
+Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure Portal](tutorial-firewall-deploy-portal.md).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ta procedura wymaga uruchomienia programu PowerShell lokalnie. Musisz mieć zainstalowany moduł programu Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Po zweryfikowaniu wersji programu PowerShell uruchom polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
+Ta procedura wymaga, aby program PowerShell był uruchamiany lokalnie. Musisz mieć zainstalowany moduł Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Po zweryfikowaniu wersji programu PowerShell uruchom polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
 ## <a name="set-up-the-network"></a>Konfigurowanie sieci
 
@@ -57,7 +57,7 @@ Najpierw utwórz grupę zasobów zawierającą zasoby wymagane do wdrożenia zap
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów zawiera wszystkie zasoby dla wdrożenia.
+Grupa zasobów zawiera wszystkie zasoby wdrożenia.
 
 ```azurepowershell
 New-AzResourceGroup -Name Test-FW-RG -Location "East US"
@@ -68,14 +68,14 @@ New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 Ta sieć wirtualna ma trzy podsieci:
 
 > [!NOTE]
-> Rozmiar podsieci AzureFirewallSubnet to /26. Aby uzyskać więcej informacji na temat rozmiaru podsieci, zobacz [Często zadawane pytania dotyczące zapory platformy Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 ```azurepowershell
 $FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
 $Worksub = New-AzVirtualNetworkSubnetConfig -Name Workload-SN -AddressPrefix 10.0.2.0/24
 $Jumpsub = New-AzVirtualNetworkSubnetConfig -Name Jump-SN -AddressPrefix 10.0.3.0/24
 ```
-Teraz utwórz sieć wirtualną:
+Teraz Utwórz sieć wirtualną:
 
 ```azurepowershell
 $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG `
@@ -87,7 +87,7 @@ $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG 
 Teraz utwórz maszyny wirtualne przesiadkową i obciążeń, a następnie umieść je w odpowiednich podsieciach.
 Po wyświetleniu monitu wpisz nazwę użytkownika i hasło maszyny wirtualnej.
 
-Utwórz maszynę wirtualną Srv-Jump.
+Utwórz maszynę wirtualną z przeskokiem SRV.
 
 ```azurepowershell
 New-AzVm `
@@ -120,7 +120,7 @@ New-AzVM -ResourceGroupName Test-FW-RG -Location "East US" -VM $VirtualMachine -
 
 ## <a name="deploy-the-firewall"></a>Wdrażanie zapory
 
-Teraz wdrożyć zaporę w sieci wirtualnej.
+Teraz Wdróż zaporę w sieci wirtualnej.
 
 ```azurepowershell
 # Get a Public IP for the firewall
@@ -139,7 +139,7 @@ Zanotuj prywatny adres IP. Użyjesz go później podczas tworzenia trasy domyśl
 
 ## <a name="create-a-default-route"></a>Tworzenie trasy domyślnej
 
-Tworzenie tabeli z wyłączeniam propagacji marszruty BGP
+Tworzenie tabeli z wyłączonym propagacją tras BGP
 
 ```azurepowershell
 $routeTableDG = New-AzRouteTable `
@@ -168,7 +168,7 @@ Set-AzVirtualNetworkSubnetConfig `
 
 ## <a name="configure-an-application-rule"></a>Konfigurowanie reguły aplikacji
 
-Reguła aplikacji umożliwia dostęp wychodzący do www.google.com.
+Reguła aplikacji zezwala na dostęp wychodzący do www.google.com.
 
 ```azurepowershell
 $AppRule1 = New-AzFirewallApplicationRule -Name Allow-Google -SourceAddress 10.0.2.0/24 `
@@ -186,7 +186,7 @@ Usługa Azure Firewall zawiera wbudowaną kolekcję reguł dla nazw FQDN infrast
 
 ## <a name="configure-a-network-rule"></a>Konfigurowanie reguły sieci
 
-Reguła sieci umożliwia dostęp wychodzący do dwóch adresów IP w porcie 53 (DNS).
+Reguła sieci umożliwia dostęp wychodzący do dwóch adresów IP na porcie 53 (DNS).
 
 ```azurepowershell
 $NetRule1 = New-AzFirewallNetworkRule -Name "Allow-DNS" -Protocol UDP -SourceAddress 10.0.2.0/24 `
@@ -202,7 +202,7 @@ Set-AzFirewall -AzureFirewall $Azfw
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Zmienianie podstawowego i pomocniczego adresu DNS dla interfejsu sieciowego **Srv-Work**
 
-Do celów testowania w tej procedurze skonfiguruj podstawowe i pomocnicze adresy DNS serwera. Nie jest to ogólne wymaganie zapory platformy Azure.
+W celach testowych w ramach tej procedury skonfiguruj podstawowe i pomocnicze adresy serwera DNS. To nie jest ogólne wymaganie dotyczące zapory platformy Azure.
 
 ```azurepowershell
 $NIC.DnsSettings.DnsServers.Add("209.244.0.3")
@@ -212,24 +212,24 @@ $NIC | Set-AzNetworkInterface
 
 ## <a name="test-the-firewall"></a>Testowanie zapory
 
-Teraz przetestuj zaporę, aby potwierdzić, że działa zgodnie z oczekiwaniami.
+Teraz Przetestuj zaporę, aby upewnić się, że działa zgodnie z oczekiwaniami.
 
-1. Zanotuj prywatny adres IP maszyny wirtualnej **Srv-Work:**
+1. Zanotuj prywatny adres IP dla maszyny wirtualnej **SRV** :
 
    ```
    $NIC.IpConfigurations.PrivateIpAddress
    ```
 
-1. Podłącz pulpit zdalny do maszyny wirtualnej **Srv-Jump** i zaloguj się. Stamtąd otwórz połączenie pulpitu zdalnego z prywatnym adresem IP **Srv-Work** i zaloguj się.
+1. Połącz pulpit zdalny z maszyną wirtualną z **przeskokiem SRV** i zaloguj się. W tym miejscu Otwórz połączenie pulpitu zdalnego z prywatnym adresem IP **SRV** i zaloguj się.
 
-3. W programie **SRV-Work**otwórz okno programu PowerShell i uruchom następujące polecenia:
+3. W obszarze **SRV (Pracuj**) Otwórz okno programu PowerShell i uruchom następujące polecenia:
 
    ```
    nslookup www.google.com
    nslookup www.microsoft.com
    ```
 
-   Oba polecenia powinny zwracać odpowiedzi, pokazując, że zapytania DNS przechodzą przez zaporę.
+   Oba polecenia powinny zwracać odpowiedzi, pokazując, że zapytania DNS są przekazywane przez zaporę.
 
 1. Uruchom następujące polecenia:
 
@@ -241,16 +241,16 @@ Teraz przetestuj zaporę, aby potwierdzić, że działa zgodnie z oczekiwaniami.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Żądania `www.google.com` powinny zakończyć `www.microsoft.com` się pomyślnie, a żądania powinny zakończyć się niepowodzeniem. To pokazuje, że reguły zapory działają zgodnie z oczekiwaniami.
+   `www.google.com` Żądania powinny się zakończyć pomyślnie, a `www.microsoft.com` żądania powinny kończyć się niepowodzeniem. Pokazuje to, że reguły zapory działają zgodnie z oczekiwaniami.
 
-Więc teraz masz zweryfikowane, że reguły zapory działają:
+Teraz sprawdzono, że reguły zapory działają:
 
 * Możesz rozpoznać nazwy DNS przy użyciu skonfigurowanego zewnętrznego serwera DNS.
 * Możesz przejść do jednej z dozwolonych nazw FQDN, ale nie do innych.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Zasoby zapory można zachować w następnym samouczku lub, jeśli nie jest już potrzebne, usuń grupę zasobów **Test-FW-RG,** aby usunąć wszystkie zasoby związane z zaporą:
+Zasoby zapory można zachować w następnym samouczku lub, jeśli nie są już potrzebne, Usuń grupę zasobów **test-PD-RG** , aby usunąć wszystkie zasoby związane z zaporą:
 
 ```azurepowershell
 Remove-AzResourceGroup -Name Test-FW-RG

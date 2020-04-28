@@ -1,34 +1,34 @@
 ---
-title: Dostrajanie wydajności usługi Azure Data Lake Storage Gen1 — program PowerShell
-description: Porady dotyczące zwiększania wydajności podczas korzystania z usługi Azure PowerShell z usługą Azure Data Lake Storage Gen1.
+title: Dostrajanie wydajności Azure Data Lake Storage Gen1 — PowerShell
+description: Wskazówki dotyczące poprawy wydajności podczas korzystania z Azure PowerShell z Azure Data Lake Storage Gen1.
 author: stewu
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: stewu
 ms.openlocfilehash: c975af1799d427651b76bb9fde5ff765afed3f86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73904580"
 ---
-# <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dotyczące korzystania z programu PowerShell z usługą Azure Data Lake Storage Gen1
+# <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dotyczące korzystania z programu PowerShell z Azure Data Lake Storage Gen1
 
-W tym artykule opisano właściwości, które można dostroić, aby uzyskać lepszą wydajność podczas korzystania z programu PowerShell do pracy z usługą Data Lake Storage Gen1.
+W tym artykule opisano właściwości, które można dostosować w celu uzyskania lepszej wydajności podczas pracy z Data Lake Storage Gen1mi przy użyciu programu PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="performance-related-properties"></a>Właściwości związane z wydajnością
 
-| Właściwość            | Domyślne | Opis |
+| Właściwość            | Domyślny | Opis |
 |---------------------|---------|-------------|
-| PerFileThreadCount  | 10      | Ten parametr umożliwia wybór liczby wątków równoległych na potrzeby przekazywania lub pobierania każdego pliku. Liczba ta reprezentuje maksymalną liczbę wątków, które można przydzielić na plik, ale może uzyskać mniej wątków w zależności od scenariusza (na przykład, jeśli przekazujesz plik 1 KB, otrzymasz jeden wątek, nawet jeśli poprosisz o 20 wątków).  |
-| ConcurrentFileCount | 10      | Ten parametr jest przeznaczony konkretnie na potrzeby przekazywania lub pobierania folderów. Określa liczbę współbieżnych plików, które można przekazać lub pobrać. Liczba ta reprezentuje maksymalną liczbę równoczesnych plików, które mogą być przesyłane lub pobierane w tym samym czasie, ale może uzyskać mniejszą współbieżność w zależności od scenariusza (na przykład, jeśli przesyłasz dwa pliki, otrzymasz dwa równoczesne pliki przesłane, nawet jeśli poprosisz 15). |
+| PerFileThreadCount  | 10      | Ten parametr umożliwia wybór liczby wątków równoległych na potrzeby przekazywania lub pobierania każdego pliku. Ta liczba reprezentuje maksymalną liczbę wątków, które mogą być przydzieloną dla każdego pliku, ale możesz uzyskać mniejszą liczbę wątków w zależności od danego scenariusza (na przykład w przypadku przekazywania pliku o wartości 1 KB uzyskasz jeden wątek nawet w przypadku podawania 20 wątków).  |
+| ConcurrentFileCount | 10      | Ten parametr jest przeznaczony konkretnie na potrzeby przekazywania lub pobierania folderów. Określa liczbę współbieżnych plików, które można przekazać lub pobrać. Ta liczba reprezentuje maksymalną liczbę współbieżnych plików, które można przekazać lub pobrać jednocześnie, ale możesz uzyskać mniejszą współbieżność w zależności od scenariusza (na przykład w przypadku przekazywania dwóch plików są odbierane dwa współbieżne pliki, nawet jeśli zostanie wyświetlony monit o 15). |
 
 **Przykład:**
 
-To polecenie pobiera pliki z usługi Data Lake Storage Gen1 na dysk lokalny użytkownika przy użyciu 20 wątków na plik i 100 równoczesnych plików.
+To polecenie umożliwia pobranie plików z Data Lake Storage Gen1 na dysk lokalny użytkownika przy użyciu 20 wątków na plik i 100 współbieżnych plików.
 
 ```PowerShell
 Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
@@ -42,9 +42,9 @@ Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
 
 ## <a name="how-to-determine-property-values"></a>Jak określić wartości właściwości
 
-Następne pytanie, które może mieć, to jak określić, jaką wartość należy podać dla właściwości związanych z wydajnością. Oto kilka użytecznych wskazówek.
+Następnym pytaniem, co może być, jest określenie wartości, która ma być dostępna dla właściwości związanych z wydajnością. Oto kilka użytecznych wskazówek.
 
-* **Krok 1: Określ całkowitą liczbę wątków** — rozpocznij od obliczenia całkowitej liczby wątków do użycia. Jako ogólne wytyczne należy użyć sześciu wątków dla każdego rdzenia fizycznego.
+* **Krok 1. określenie całkowitej liczby wątków** — Rozpocznij od obliczenia łącznej liczby wątków do użycia. Ogólnie rzecz biorąc, należy używać sześciu wątków dla każdego rdzenia fizycznego.
 
     `Total thread count = total physical cores * 6`
 
@@ -54,17 +54,17 @@ Następne pytanie, które może mieć, to jak określić, jaką wartość należ
 
     `Total thread count = 16 cores * 6 = 96 threads`
 
-* **Krok 2: Oblicz PerFileThreadCount** - Obliczamy nasze PerFileThreadCount na podstawie rozmiaru plików. W przypadku plików mniejszych niż 2,5 GB nie ma potrzeby zmiany tego parametru, ponieważ domyślnie 10 jest wystarczająca. W przypadku plików większych niż 2,5 GB należy użyć 10 wątków jako podstawy dla pierwszych 2,5 GB i dodać 1 wątek dla każdego dodatkowego zwiększenia rozmiaru pliku o 256 MB. Podczas kopiowania folderu zawierającego pliki o szerokim zakresie rozmiarów warto podzielić je na grupy złożone z plików o podobnym rozmiarze. Różne rozmiary plików mogą spowodować utratę optymalnej wydajności. Jeśli pogrupowanie plików o podobnym rozmiarze jest niemożliwe, wartość parametru PerFileThreadCount należy ustawić na podstawie największego rozmiaru pliku.
+* **Krok 2. Obliczanie PerFileThreadCount** — obliczamy nasze PerFileThreadCount na podstawie rozmiaru plików. W przypadku plików mniejszych niż 2,5 GB nie ma potrzeby zmiany tego parametru, ponieważ wartością domyślną jest 10. W przypadku plików o rozmiarze większym niż 2,5 GB należy używać 10 wątków jako podstawy dla pierwszych 2,5 GB i dodać 1 wątek dla każdego dodatkowego wzrostu 256-MB w rozmiarze pliku. Podczas kopiowania folderu zawierającego pliki o szerokim zakresie rozmiarów warto podzielić je na grupy złożone z plików o podobnym rozmiarze. Różne rozmiary plików mogą spowodować utratę optymalnej wydajności. Jeśli pogrupowanie plików o podobnym rozmiarze jest niemożliwe, wartość parametru PerFileThreadCount należy ustawić na podstawie największego rozmiaru pliku.
 
     `PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size`
 
     **Przykład:**
 
-    Zakładając, że masz 100 plików od 1 GB do 10 GB, używamy 10 GB jako największego rozmiaru pliku dla równania, które brzmiełoby jak poniżej.
+    Przy założeniu, że masz 100 plików z zakresu od 1 GB do 10 GB, użyjemy 10 GB jako największego rozmiaru pliku dla równania, który będzie wyglądać podobnie do poniższego.
 
     `PerFileThreadCount = 10 + ((10 GB - 2.5 GB) / 256 MB) = 40 threads`
 
-* **Krok 3: Oblicz liczbę concurrentFilecount** — obliczanie sumy wątków i sumy PerFileThreadCount na podstawie następującego równania:
+* **Krok 3. Obliczanie ConcurrentFilecount** — Użyj całkowitej liczby wątków i PerFileThreadCount do obliczenia ConcurrentFilecount na podstawie następującego równania:
 
     `Total thread count = PerFileThreadCount * ConcurrentFileCount`
 
@@ -78,11 +78,11 @@ Następne pytanie, które może mieć, to jak określić, jaką wartość należ
 
 ## <a name="further-tuning"></a>Dalsze dostosowywanie
 
-Ze względu na zakres rozmiarów plików, z jakimi można pracować, może być konieczne dalsze dostosowanie. Poprzednie obliczenia działają dobrze, jeśli wszystkie lub większość plików są większe i bliżej zakresu 10 GB. Jeśli natomiast istnieje wiele różnych rozmiarów plików, z czego wiele plików jest mniejszych, można zmniejszyć wartość parametru PerFileThreadCount. Dzięki zmniejszeniu wartości parametru PerFileThreadCount można zwiększyć wartość parametru ConcurrentFileCount. Tak więc, jeśli założymy, że większość naszych plików jest mniejsza w zakresie 5 GB, możemy przerobić nasze obliczenia:
+Ze względu na zakres rozmiarów plików, z jakimi można pracować, może być konieczne dalsze dostosowanie. Poprzednie obliczenie działa prawidłowo, jeśli wszystkie lub większość plików są większe i zbliżone do zakresu 10 GB. Jeśli natomiast istnieje wiele różnych rozmiarów plików, z czego wiele plików jest mniejszych, można zmniejszyć wartość parametru PerFileThreadCount. Dzięki zmniejszeniu wartości parametru PerFileThreadCount można zwiększyć wartość parametru ConcurrentFileCount. Dlatego jeśli założono, że większość naszych plików jest mniejsza w zakresie 5 GB, możemy ponownie wykonać nasze obliczenia:
 
 `PerFileThreadCount = 10 + ((5 GB - 2.5 GB) / 256 MB) = 20`
 
-Tak, **ConcurrentFileCount** staje się 96/20, który jest 4.8, zaokrąglone do **4**.
+**ConcurrentFileCount** to 96/20, czyli 4,8, zaokrąglone do **4**.
 
 Te ustawienia można jeszcze bardziej dostosować, zwiększając lub zmniejszając wartość parametru **PerFileThreadCount** zależnie od rozkładu rozmiarów plików.
 
@@ -92,14 +92,14 @@ Te ustawienia można jeszcze bardziej dostosować, zwiększając lub zmniejszaj�
 
 * **Zbyt wiele wątków**: jeśli liczba wątków zostanie nadmiernie zwiększona bez zwiększenia rozmiaru klastra, istnieje ryzyko obniżonej wydajności. Podczas przełączania kontekstu na procesorze mogą wystąpić problemy z rywalizacją o zasoby.
 
-* **Niewystarczająca współbieżność**: jeśli współbieżność nie jest wystarczająca, to klaster może być za mały. Można zwiększyć liczbę węzłów w klastrze, co daje większą współbieżność.
+* **Niewystarczająca współbieżność**: jeśli współbieżność nie jest wystarczająca, to klaster może być za mały. Można zwiększyć liczbę węzłów w klastrze, co zapewnia większą współbieżność.
 
 * **Błędy ograniczania przepływności**: błędy ograniczania przepływności mogą wystąpić wówczas, gdy współbieżność jest zbyt wysoka. W przypadku błędów ograniczania przepływności należy albo zmniejszyć współbieżność, albo skontaktować się z nami.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Korzystanie z usługi Azure Data Lake Storage Gen1 dla wymagań dotyczących dużych zbiorów danych](data-lake-store-data-scenarios.md) 
+* [Użyj Azure Data Lake Storage Gen1, aby uzyskać wymagania dotyczące danych Big Data](data-lake-store-data-scenarios.md) 
 * [Zabezpieczanie danych w usłudze Data Lake Storage 1. generacji](data-lake-store-secure-data.md)
-* [Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Użyj Azure Data Lake Analytics z Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Korzystanie z usługi Azure HDInsight z usługą Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

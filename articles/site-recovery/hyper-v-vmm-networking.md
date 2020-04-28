@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie adresowania IP po przewijaniu po awarii w lokacji dodatkowej za pomocą usługi Azure Site Recovery
-description: W tym artykule opisano sposób konfigurowania adresowania IP do łączenia się z maszynami wirtualnymi w dodatkowej lokacji lokalnej po odzyskiwaniu po awarii i pracy awaryjnej za pomocą usługi Azure Site Recovery.
+title: Skonfiguruj adresowanie IP po przejściu w tryb failover do lokacji dodatkowej za pomocą Azure Site Recovery
+description: Opisuje sposób konfigurowania adresowania IP na potrzeby nawiązywania połączenia z maszynami wirtualnymi w dodatkowej lokacji lokalnej po odzyskiwaniu po awarii i przejściu do trybu failover za pomocą Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,76 +8,76 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73961424"
 ---
-# <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Konfigurowanie adresowania IP w celu łączenia się z dodatkową lokacją lokalną po przełączeniu w ten sposób po przełączeniu awaryjnym
+# <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Konfigurowanie adresowania IP w celu nawiązania połączenia z dodatkową lokacją lokalną po przejściu do trybu failover
 
-Po przełączeniu maszyn wirtualnych funkcji Hyper-V w chmurach Menedżera maszyn wirtualnych (System Center Virtual Machine Manager) w lokacji dodatkowej należy mieć możliwość nawiązania połączenia z replikami maszyn wirtualnych. Ten artykuł pomaga to zrobić. 
+Po przełączeniu w tryb failover maszyn wirtualnych funkcji Hyper-V w chmurach System Center Virtual Machine Manager (VMM) do lokacji dodatkowej należy mieć możliwość łączenia się z maszynami wirtualnymi replik. W tym artykule opisano, jak to zrobić. 
 
 ## <a name="connection-options"></a>Opcje połączenia
 
-Po przemieraniu awaryjnego istnieje kilka sposobów obsługi adresowania IP dla maszyn wirtualnych replik: 
+Po przejściu w tryb failover istnieje kilka sposobów obsługi adresowania IP dla maszyn wirtualnych repliki: 
 
-- **Zachowaj ten sam adres IP po przewijaniu awaryjnym:** W tym scenariuszu replikowana maszyna wirtualna ma ten sam adres IP co podstawowa maszyna wirtualna. Upraszcza to problemy związane z siecią po pracy awaryjnej, ale wymaga pewnych prac związanych z infrastrukturą.
-- **Użyj innego adresu IP po pracy awaryjnej:** W tym scenariuszu maszyna wirtualna pobiera nowy adres IP po przejściu w tryb failover. 
+- **Zachowaj ten sam adres IP po**przejściu w tryb failover: w tym scenariuszu REPLIKOWANA maszyna wirtualna ma ten sam adres IP co podstawowa maszyna wirtualna. Upraszcza to problemy związane z siecią po przejściu w tryb failover, ale wymaga pewnego działania infrastruktury.
+- **Użyj innego adresu IP po**przejściu w tryb failover: w tym SCENARIUSZU maszyna wirtualna Pobiera nowy adres IP po przejściu do trybu failover. 
  
 
-## <a name="retain-the-ip-address"></a>Zachowaj adres IP
+## <a name="retain-the-ip-address"></a>Zachowywanie adresu IP
 
-Jeśli chcesz zachować adresy IP z lokacji głównej, po przełączeniu w życie awaryjne lokacji dodatkowej, możesz:
+Jeśli chcesz zachować adresy IP z lokacji głównej, po przejściu do trybu failover do lokacji dodatkowej, możesz:
 
-- Wdrażanie rozciągniętej podsieci między lokacjami podstawowymi i dodatkowymi.
-- Wykonaj pełną podsieć pracy awaryjnej z lokacji podstawowej do dodatkowej. Należy zaktualizować trasy, aby wskazać nową lokalizację adresów IP.
-
-
-### <a name="deploy-a-stretched-subnet"></a>Wdrażanie rozciągniętej podsieci
-
-W konfiguracji rozciągniętej podsieć jest dostępna jednocześnie w lokacjach podstawowych i dodatkowych. W rozciągniętej podsieci po przeniesieniu komputera i jego konfiguracji adresu IP (Warstwa 3) do lokacji dodatkowej sieć automatycznie kieruje ruch do nowej lokalizacji. 
-
-- Z punktu widzenia warstwy 2 (warstwa łącza danych) potrzebny jest sprzęt sieciowy, który może zarządzać rozciągniętą siecią VLAN.
-- Rozciągając sieć VLAN, domena potencjalnych usterek rozciąga się na obie lokacje. Staje się to pojedynczym punktem awarii. Chociaż jest to mało prawdopodobne, w takim scenariuszu może nie być w stanie wyizolować incydentu, takiego jak burza transmisji. 
+- Wdróż rozciągnięta podsieć między lokacjami podstawowymi i dodatkowymi.
+- Wykonaj pełną podsieć w trybie failover z lokacji podstawowej do dodatkowej. Należy zaktualizować trasy, aby wskazać nową lokalizację adresów IP.
 
 
-### <a name="fail-over-a-subnet"></a>Przejmuje się w sieci w stanie fail over podsieci
+### <a name="deploy-a-stretched-subnet"></a>Wdróż rozciągnięta podsieć
 
-Można w pełni przejść przez całą podsieć, aby uzyskać korzyści z rozciągniętej podsieci, bez rozciągania jej. W tym rozwiązaniu podsieć jest dostępna w lokacji źródłowej lub docelowej, ale nie w obu jednocześnie.
+W konfiguracji rozciąganej podsieć jest dostępna jednocześnie zarówno w lokacji głównej, jak i dodatkowej. W przypadku przełączenia maszyny i konfiguracji adresu IP (warstwy 3) do lokacji dodatkowej sieć automatycznie kieruje ruch do nowej lokalizacji. 
 
-- Aby zachować przestrzeń adresową IP w przypadku pracy awaryjnej, można programowo zorganizować dla infrastruktury routera, aby przenieść podsieci z jednej lokacji do drugiej.
-- W przypadku pracy awaryjnej podsieci są przesuniętye wraz ze skojarzonymi z nimi maszynami wirtualnymi.
+- Z perspektywy warstwy 2 (warstwy łącza danych) potrzebny jest sprzęt sieciowy, który może zarządzać rozciągniętymi sieciami VLAN.
+- Dzięki rozciągnięciu sieci VLAN potencjalna domena błędów rozciąga się na obie lokacje. To single point of failure. Chociaż jest to mało prawdopodobne, w takim scenariuszu może nie być możliwe odizolowanie zdarzenia, takiego jak burza emisji. 
+
+
+### <a name="fail-over-a-subnet"></a>Przełączenie w tryb failover podsieci
+
+Całą podsieć można przełączyć w tryb failover, aby uzyskać zalety rozciągniętej podsieci, bez jej rzeczywistego rozciągania. W tym rozwiązaniu podsieć jest dostępna w lokacji źródłowej lub docelowej, ale nie jednocześnie.
+
+- Aby zachować przestrzeń adresów IP w przypadku przejścia w tryb failover, można programowo rozmieścić infrastrukturę routera, aby przenieść podsieci z jednej lokacji do drugiej.
+- W przypadku przejścia w tryb failover podsieci są przenoszone ze skojarzonych maszyn wirtualnych.
 - Główną wadą tego podejścia jest to, że w przypadku awarii należy przenieść całą podsieć.
 
 #### <a name="example"></a>Przykład
 
-Oto przykład pełnego trybu failover podsieci. 
+Oto przykład pełnej podsieci trybu failover. 
 
-- Przed przełączeniem awaryjnym lokacja główna ma aplikacje uruchomione w podsieci 192.168.1.0/24.
-- Podczas pracy awaryjnej wszystkie maszyny wirtualne w tej podsieci są awaryjne w lokacji dodatkowej i zachowują swoje adresy IP. 
-- Trasy między wszystkimi lokacjami muszą zostać zmodyfikowane, aby odzwierciedlić fakt, że wszystkie maszyny wirtualne w podsieci 192.168.1.0/24 zostały przeniesione do lokacji dodatkowej.
+- Przed przejściem w tryb failover lokacja główna ma aplikacje działające w podsieci 192.168.1.0/24.
+- Podczas pracy w trybie failover wszystkie maszyny wirtualne w tej podsieci są przenoszone do lokacji dodatkowej i zachowują ich adresy IP. 
+- Trasy między wszystkimi lokacjami należy zmodyfikować w taki sposób, aby odzwierciedlały fakt, że wszystkie maszyny wirtualne w podsieci 192.168.1.0/24 zostały przeniesione do lokacji dodatkowej.
 
-Poniższa grafika ilustruje podsieci przed i po pracy awaryjnej.
+Poniższe grafiki ilustrują podsieci przed i po przejściu do trybu failover.
 
 
-**Przed przejściem awaryjnym**
+**Przed przejściem w tryb failover**
 
-![Przed przejściem awaryjnym](./media/hyper-v-vmm-networking/network-design2.png)
+![Przed przejściem w tryb failover](./media/hyper-v-vmm-networking/network-design2.png)
 
-**Po pracy awaryjnej**
+**Po przejściu w tryb failover**
 
-![Po pracy awaryjnej](./media/hyper-v-vmm-networking/network-design3.png)
+![Po przejściu w tryb failover](./media/hyper-v-vmm-networking/network-design3.png)
 
-Po przemijeniu awaryjnym usługa Site Recovery przydziela adres IP dla każdego interfejsu sieciowego na maszynie Wirtualnej. Adres jest przydzielany ze statycznej puli adresów IP w odpowiedniej sieci dla każdego wystąpienia maszyny Wirtualnej.
+Po przejściu w tryb failover Site Recovery przydziela adres IP dla każdego interfejsu sieciowego na maszynie wirtualnej. Adres jest przypisywany z puli statycznych adresów IP w odpowiedniej sieci dla każdego wystąpienia maszyny wirtualnej.
 
-- Jeśli pula adresów IP w lokacji dodatkowej jest taka sama jak w lokacji źródłowej, usługa Site Recovery przydziela ten sam adres IP (źródłowej maszyny Wirtualnej) do repliki maszyny Wirtualnej. Adres IP jest zarezerwowany w programie VMM, ale nie jest ustawiony jako adres IP trybu failover na hoście funkcji Hyper-V. Adres IP trybu failover na hoście funkcji Hyper-v jest ustawiany tuż przed przełączeniem trybu failover.
-- Jeśli ten sam adres IP nie jest dostępny, usługa Site Recovery przydziela inny dostępny adres IP z puli.
-- Jeśli maszyny wirtualne korzystają z usługi DHCP, usługa Site Recovery nie zarządza adresami IP. Należy sprawdzić, czy serwer DHCP w lokacji dodatkowej może przydzielać adresy z tego samego zakresu co lokacja źródłowa.
+- Jeśli pula adresów IP w lokacji dodatkowej jest taka sama jak w lokacji źródłowej, Site Recovery przydziela ten sam adres IP (źródłowej maszyny wirtualnej) do maszyny wirtualnej repliki. Adres IP jest zastrzeżony w programie VMM, ale nie jest ustawiony jako adres IP trybu failover na hoście funkcji Hyper-V. Adres IP trybu failover na hoście funkcji Hyper-v jest ustawiany tuż przed przełączeniem w tryb failover.
+- Jeśli ten sam adres IP jest niedostępny, Site Recovery przydziela inny dostępny adres IP z puli.
+- Jeśli maszyny wirtualne korzystają z protokołu DHCP, Site Recovery nie zarządzają adresami IP. Należy sprawdzić, czy serwer DHCP w lokacji dodatkowej może przydzielić adresy z tego samego zakresu, w którym znajduje się lokacja źródłowa.
 
-### <a name="validate-the-ip-address"></a>Sprawdzanie poprawności adresu IP
+### <a name="validate-the-ip-address"></a>Weryfikowanie adresu IP
 
-Po włączeniu ochrony maszyny Wirtualnej można użyć następującego przykładowego skryptu, aby zweryfikować adres przypisany do maszyny Wirtualnej. Ten adres IP jest ustawiony jako adres IP trybu failover i przypisany do maszyny Wirtualnej w czasie pracy awaryjnej:
+Po włączeniu ochrony maszyny wirtualnej można użyć następującego przykładowego skryptu do zweryfikowania adresu przypisanego do maszyny wirtualnej. Ten adres IP jest ustawiany jako adres IP trybu failover i przypisany do maszyny wirtualnej w momencie przejścia w tryb failover:
 
     ```
     $vm = Get-SCVirtualMachine -Name <VM_NAME>
@@ -86,12 +86,12 @@ Po włączeniu ochrony maszyny Wirtualnej można użyć następującego przykła
     $ip.address 
     ```
 
-## <a name="use-a-different-ip-address"></a>Używanie innego adresu IP
+## <a name="use-a-different-ip-address"></a>Użyj innego adresu IP
 
-W tym scenariuszu adresy IP maszyn wirtualnych, które są awaryjne są zmieniane. Wadą tego rozwiązania jest wymagana konserwacja.  Wpisy DNS i pamięci podręcznej mogą wymagać aktualizacji. Może to spowodować przestoje, które można złagodzić w następujący sposób:
+W tym scenariuszu adresy IP maszyn wirtualnych, które są przełączane w tryb failover, są zmieniane. Wadą tego rozwiązania jest wymagana konserwacja.  Może być konieczne zaktualizowanie wpisów DNS i pamięci podręcznej. Może to spowodować przestoje, co może być skorygowane w następujący sposób:
 
-- Użyj niskich wartości TTL dla aplikacji intranetowych.
-- Użyj następującego skryptu w planie odzyskiwania usługi Site Recovery, aby na czas zaktualizować serwer DNS. Skrypt nie jest potrzebny, jeśli używasz dynamicznej rejestracji DNS.
+- Używaj wartości niskiego czasu wygaśnięcia dla aplikacji intranetowych.
+- Aby zaktualizować serwer DNS, należy użyć następującego skryptu w planie odzyskiwania Site Recovery. Nie jest potrzebny skrypt, jeśli używasz dynamicznej rejestracji w systemie DNS.
 
     ```
     param(
@@ -107,22 +107,22 @@ W tym scenariuszu adresy IP maszyn wirtualnych, które są awaryjne są zmienian
     
 ### <a name="example"></a>Przykład 
 
-W tym przykładzie mamy różne adresy IP w lokacjach podstawowych i dodatkowych, a istnieje trzecia lokacja, z której można uzyskać dostęp do aplikacji hostowanych w lokacji podstawowej lub lokacji odzyskiwania.
+W tym przykładzie mamy różne adresy IP w lokacjach głównych i dodatkowych, a także trzecią lokację, z której można uzyskać dostęp do aplikacji hostowanych w lokacji głównej lub odzyskania.
 
-- Przed przełączeniem pracy awaryjnej aplikacje są hostowane podsieć 192.168.1.0/24 w lokacji głównej.
-- Po przemijce awaryjnej aplikacje są konfigurowane w podsieci 172.16.1.0/24 w lokacji dodatkowej.
-- Wszystkie trzy witryny mogą mieć do siebie dostęp.
-- Po przemijeniu w stan failover aplikacje zostaną przywrócone w podsieci odzyskiwania.
-- W tym scenariuszu nie ma potrzeby pracy awaryjnej w całej podsieci i nie są potrzebne żadne zmiany do ponownej konfiguracji tras sieci VPN lub sieci. Przewijalnia awaryjna i niektóre aktualizacje dns zapewniają dostępność aplikacji.
-- Jeśli usługa DNS jest skonfigurowana tak, aby zezwalała na aktualizacje dynamiczne, maszyny wirtualne rejestrują się przy użyciu nowego adresu IP po uruchomieniu po przejściu w tryb failover.
+- Przed przejściem w tryb failover aplikacje są hostowaną podsiecią 192.168.1.0/24 w lokacji głównej.
+- Po przejściu w tryb failover aplikacje są konfigurowane w podsieci 172.16.1.0/24 w lokacji dodatkowej.
+- Wszystkie trzy Lokacje mogą uzyskiwać dostęp do siebie nawzajem.
+- Po przejściu w tryb failover aplikacje zostaną przywrócone w podsieci odzyskiwania.
+- W tym scenariuszu nie ma potrzeby przełączania całej podsieci do trybu failover i nie są wymagane żadne zmiany w celu ponownego skonfigurowania sieci VPN lub tras sieciowych. W trybie failover i niektórych aktualizacjach DNS upewnij się, że aplikacje są nadal dostępne.
+- Jeśli serwer DNS jest skonfigurowany tak, aby zezwalał na aktualizacje dynamiczne, maszyny wirtualne będą się rejestrować przy użyciu nowego adresu IP, gdy zostaną uruchomione po przejściu do trybu failover.
 
-**Przed przejściem awaryjnym**
+**Przed przejściem w tryb failover**
 
-![Inny adres IP - przed przejściem awaryjnym](./media/hyper-v-vmm-networking/network-design10.png)
+![Inny adres IP — przed przejściem w tryb failover](./media/hyper-v-vmm-networking/network-design10.png)
 
-**Po pracy awaryjnej**
+**Po przejściu w tryb failover**
 
-![Inny adres IP - po pracy awaryjnej](./media/hyper-v-vmm-networking/network-design11.png)
+![Inny adres IP — po przejściu w tryb failover](./media/hyper-v-vmm-networking/network-design11.png)
 
 
 ## <a name="next-steps"></a>Następne kroki

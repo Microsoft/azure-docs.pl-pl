@@ -1,9 +1,9 @@
 ---
-title: Podłącz symulator sieci Web Raspberry Pi do usługi Azure IoT Hub (node.js)
-description: Połącz symulator sieci Web Raspberry Pi z usługą Azure IoT Hub dla Raspberry Pi, aby wysyłać dane do chmury platformy Azure.
+title: Połącz Raspberry Pi Web symulator z platformą Azure IoT Hub (Node. js)
+description: Połącz Raspberry Pi Web symulator z platformą Azure IoT Hub Raspberry Pi, aby wysyłać dane do chmury platformy Azure.
 author: wesmc7777
 manager: philmea
-keywords: symulator raspberry pi, azure iot raspberry pi, raspberry pi iot hub, raspberry pi wysyłają dane do chmury, raspberry pi do chmury
+keywords: Raspberry Pi symulatora, Azure IoT Raspberry Pi, Raspberry Pi IoT Hub, Raspberry Pi wysyła dane do chmury, Raspberry Pi do chmury
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
 ms.openlocfilehash: efbe41be6c923f3547df86fd6faeb56bff5e0802
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73954527"
 ---
-# <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Podłącz symulator online Raspberry Pi z usługą Azure IoT Hub (node.js)
+# <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Połącz symulator online Raspberry Pi z platformą Azure IoT Hub (Node. js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-W tym samouczku możesz rozpocząć od nauki podstaw pracy z symulatorem online Raspberry Pi. Następnie dowiesz się, jak bezproblemowo połączyć symulator Pi z chmurą przy użyciu [usługi Azure IoT Hub.](about-iot-hub.md)
+W tym samouczku rozpocznie się zapoznanie się z podstawą pracy z symulatorem online Raspberry Pi. Następnie dowiesz się, jak bezproblemowo połączyć symulatora pi z chmurą przy użyciu [usługi Azure IoT Hub](about-iot-hub.md).
 
-Jeśli masz urządzenia fizyczne, odwiedź [witrynę Podłącz Raspberry Pi do usługi Azure IoT Hub,](iot-hub-raspberry-pi-kit-node-get-started.md) aby rozpocząć.
+Jeśli masz urządzenia fizyczne, odwiedź stronę [Connect Raspberry Pi do platformy IoT Hub Azure](iot-hub-raspberry-pi-kit-node-get-started.md) , aby rozpocząć pracę.
 
 <p>
 <div id="diag" style="width:100%; text-align:center">
@@ -42,28 +42,28 @@ Jeśli masz urządzenia fizyczne, odwiedź [witrynę Podłącz Raspberry Pi do u
 
 * Utwórz centrum IoT.
 
-* Zarejestruj urządzenie dla Pi w centrum IoT hub.
+* Zarejestruj urządzenie dla platformy Pi w centrum IoT.
 
-* Uruchom przykładową aplikację na Pi, aby wysłać symulowane dane czujnika do centrum IoT hub.
+* Uruchom przykładową aplikację w języku Pi, aby wysyłać symulowane dane czujników do centrum IoT Hub.
 
-Połącz symulowane Raspberry Pi z utworzonym centrum IoT Hub. Następnie uruchom przykładową aplikację z symulatorem do generowania danych z czujnika. Na koniec wysyłasz dane czujnika do centrum IoT Hub.
+Połącz symulowane Raspberry Pi z tworzonym Centrum IoT. Następnie uruchamiasz przykładową aplikację z symulatorem, aby generować dane czujnika. Na koniec wysyłasz dane czujnika do centrum IoT Hub.
 
 ## <a name="what-you-learn"></a>Omawiane zagadnienia
 
-* Jak utworzyć centrum Usługi Azure IoT i uzyskać nowy ciąg połączenia urządzenia. Jeśli nie masz konta platformy Azure, [utwórz bezpłatne konto próbne platformy Azure](https://azure.microsoft.com/free/) w ciągu zaledwie kilku minut.
+* Jak utworzyć usługę Azure IoT Hub i uzyskać nowe parametry połączenia z urządzeniem. Jeśli nie masz konta platformy Azure, [Utwórz bezpłatne konto wersji próbnej platformy Azure](https://azure.microsoft.com/free/) w ciągu zaledwie kilku minut.
 
-* Jak pracować z symulatorem online Raspberry Pi.
+* Jak korzystać z symulatora online Raspberry Pi.
 
-* Jak wysyłać dane z czujników do centrum IoT Hub.
+* Jak wysyłać dane czujnika do centrum IoT Hub.
 
-## <a name="overview-of-raspberry-pi-web-simulator"></a>Przegląd symulatora sieci Web Raspberry Pi
+## <a name="overview-of-raspberry-pi-web-simulator"></a>Omówienie symulatora sieci Web Raspberry Pi
 
 Kliknij przycisk, aby uruchomić symulator online Raspberry Pi.
 
 > [!div class="button"]
-> <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Uruchom Raspberry Pi Simulator</a>
+> <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Uruchom symulator Raspberry Pi</a>
 
-Istnieją trzy obszary w symulatorze www.
+W symulatorze sieci Web znajdują się trzy obszary.
 
 1. Obszar montażu — domyślny obwód to urządzenie Pi połączone z czujnikiem BME280 i diodą LED. Obszar ten jest zablokowany w wersji zapoznawczej więc obecnie nie można go dostosowywać.
 
@@ -78,15 +78,15 @@ Istnieją trzy obszary w symulatorze www.
    * **Zwiń/rozwiń** — z prawej strony znajduje się przycisk umożliwiający zwijanie/rozwijanie okna konsoli.
 
 > [!NOTE]
-> Symulator sieci Web Raspberry Pi jest teraz dostępny w wersji zapoznawczej. Chcielibyśmy usłyszeć Twój głos w [ChatroomIe Gitter.](https://gitter.im/Microsoft/raspberry-pi-web-simulator) Kod źródłowy jest publiczny w [usłudze GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
+> Symulator sieci Web Raspberry Pi jest teraz dostępny w wersji zapoznawczej. Chcemy słyszeć Twój głos w [warunkom chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). Kod źródłowy jest publiczny w serwisie [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
-![Przegląd symulatora online Pi](media/iot-hub-raspberry-pi-web-simulator/0-overview.png)
+![Omówienie symulatora online](media/iot-hub-raspberry-pi-web-simulator/0-overview.png)
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="register-a-new-device-in-the-iot-hub"></a>Zarejestruj nowe urządzenie w centrum IoT
+## <a name="register-a-new-device-in-the-iot-hub"></a>Rejestrowanie nowego urządzenia w usłudze IoT Hub
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
@@ -96,18 +96,18 @@ Istnieją trzy obszary w symulatorze www.
 1. 
    ![Zastępowanie parametrów połączenia urządzenia](media/iot-hub-raspberry-pi-web-simulator/1-connectionstring.png)
 
-2. Wybierz **uruchom** `npm start` lub wpisz, aby uruchomić aplikację.
+2. Wybierz polecenie **Uruchom** lub `npm start` wpisz, aby uruchomić aplikację.
 
-Powinieneś zobaczyć następujące dane wyjściowe, które pokazują dane z czujnika ![i komunikaty wysyłane do koncentratora IoT Output — dane czujników wysyłane z Raspberry Pi do centrum IoT hub](media/iot-hub-raspberry-pi-web-simulator/2-run-application.png)
+Powinny pojawić się następujące dane wyjściowe pokazujące dane czujnika i komunikaty wysyłane do danych z czujnika danych wyjściowych ![usługi IoT Hub wysyłane z Raspberry Pi do centrum IoT Hub](media/iot-hub-raspberry-pi-web-simulator/2-run-application.png)
 
-## <a name="read-the-messages-received-by-your-hub"></a>Czytanie wiadomości odebranych przez centrum
+## <a name="read-the-messages-received-by-your-hub"></a>Odczytywanie komunikatów odebranych przez centrum
 
-Jednym ze sposobów monitorowania wiadomości odebranych przez centrum IoT hub z symulowanego urządzenia jest użycie narzędzi Azure IoT Tools for Visual Studio Code. Aby dowiedzieć się więcej, zobacz [Wysyłanie i odbieranie wiadomości między urządzeniem a centrum IoT Hub za pomocą narzędzi Azure IoT Tools for Visual Studio Code.](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
+Jednym ze sposobów monitorowania komunikatów odebranych przez Centrum IoT Hub z symulowanego urządzenia jest użycie narzędzi Azure IoT Tools for Visual Studio Code. Aby dowiedzieć się więcej, zobacz [Korzystanie z narzędzi Azure IoT Tools for Visual Studio Code w celu wysyłania i odbierania komunikatów między urządzeniem i IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 Aby uzyskać więcej sposobów przetwarzania danych wysyłanych przez urządzenie, przejdź do następnej sekcji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Uruchomisz przykładową aplikację, aby zebrać dane z czujników i wysłać je do centrum IoT Hub.
+Uruchomiono przykładową aplikację, która umożliwia zbieranie danych z czujnika i wysyłanie ich do centrum IoT.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

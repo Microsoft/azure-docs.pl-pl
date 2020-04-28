@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów z klastrem Apache Spark w usłudze Azure HDInsight
-description: Dowiedz się więcej o problemach związanych z klastrami Platformy Spark apache w usłudze Azure HDInsight i o tym, jak je obejść.
+description: Dowiedz się więcej o problemach związanych z klastrami Apache Spark w usłudze Azure HDInsight i sposobach ich obejścia.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,122 +9,122 @@ ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73494533"
 ---
-# <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Znane problemy dla klastra Apache Spark w programie HDInsight
+# <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Znane problemy dotyczące klastra Apache Spark w usłudze HDInsight
 
-Ten dokument śledzi wszystkie znane problemy dla publicznej wersji zapoznawczej platformy HDInsight Spark.  
+Ten dokument śledzi wszystkie znane problemy dotyczące publicznej wersji zapoznawczej usługi HDInsight Spark.  
 
-## <a name="apache-livy-leaks-interactive-session"></a>Apache Livy wycieki interaktywnej sesji
-Po ponownym uruchomieniu [Apache Livy](https://livy.incubator.apache.org/) (z [Apache Ambari](https://ambari.apache.org/) lub z powodu restartu maszyny wirtualnej headnode 0) z interakcyjną sesją wciąż żywą, wycieka interaktywna sesja zadania. W rezultacie nowe zadania mogą zostać zablokowane w stanie Zaakceptowane.
+## <a name="apache-livy-leaks-interactive-session"></a>Przeciek usługi Livy wycieka sesji interaktywnej
+Po ponownym uruchomieniu programu [Apache usługi Livy](https://livy.incubator.apache.org/) (z platformy [Apache Ambari](https://ambari.apache.org/) lub z powodu ponownego uruchomienia maszyny wirtualnej węzła głównego 0) przy jednoczesnym utrzymywaniu aktywnej sesji zostanie ujawniona nieoczekiwana sesja zadania interaktywnego. W związku z tym nowe zadania mogą być zablokowane w stanie zaakceptowanym.
 
-**Łagodzenia:**
+**Środki zaradcze**
 
-Aby obejść ten problem, użyj następującej procedury:
+Aby obejść ten problem, wykonaj czynności opisane w poniższej procedurze:
 
-1. Ssh w headnode. Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. SSH do węzła głównego. Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Uruchom następujące polecenie, aby znaleźć identyfikatory aplikacji interaktywnych zadań uruchomionych za pośrednictwem livy.
+2. Uruchom następujące polecenie, aby znaleźć identyfikatory aplikacji zadań interaktywnych rozpoczętych za pomocą usługi Livy.
 
         yarn application –list
 
-    Domyślne nazwy zadań będą Livy, jeśli zadania zostały uruchomione z livy sesji interaktywnej bez jawnych nazw określonych. W przypadku sesji Livy rozpoczętej przez [Jupyter](https://jupyter.org/) `remotesparkmagics_*`Notebook nazwa zadania zaczyna się od .
+    Domyślne nazwy zadań zostaną usługi Livy, jeśli zadania zostały uruchomione z sesją interaktywną usługi Livy bez określonych jawnych nazw. W przypadku sesji usługi Livy uruchomionej przez [Jupyter Notebook](https://jupyter.org/)nazwa zadania rozpoczyna się od `remotesparkmagics_*`.
 
-3. Uruchom następujące polecenie, aby zabić te zadania.
+3. Uruchom następujące polecenie, aby skasować te zadania.
 
         yarn application –kill <Application ID>
 
-Nowe zadania zaczynają działać.
+Rozpoczęto wykonywanie nowych zadań.
 
-## <a name="spark-history-server-not-started"></a>Nie uruchomiono serwera spark History Server
-Serwer spark History Server nie jest uruchamiany automatycznie po utworzeniu klastra.  
+## <a name="spark-history-server-not-started"></a>Serwer historii platformy Spark nie został uruchomiony
+Serwer historii platformy Spark nie jest uruchamiany automatycznie po utworzeniu klastra.  
 
-**Łagodzenia:**
+**Środki zaradcze**
 
 Ręcznie uruchom serwer historii z Ambari.
 
-## <a name="permission-issue-in-spark-log-directory"></a>Problem z uprawnieniami w katalogu dziennika platformy Spark
-hdiuser otrzymuje następujący błąd podczas przesyłania zadania za pomocą spark-submit:
+## <a name="permission-issue-in-spark-log-directory"></a>Problem z uprawnieniami w katalogu dzienników platformy Spark
+hdiuser pobiera następujący błąd podczas przesyłania zadania przy użyciu usługi Spark-Submit:
 
 ```
 java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
 ```
 
-I nie jest zapisywany żaden dziennik sterownika.
+I nie zapisano dziennika sterownika.
 
-**Łagodzenia:**
+**Środki zaradcze**
 
-1. Dodaj hdiuser do grupy Hadoop.
-2. Podaj 777 uprawnień do /var/log/spark po utworzeniu klastra.
-3. Zaktualizuj lokalizację dziennika iskry przy użyciu Ambari, aby był katalogiem z uprawnieniami 777.  
-4. Uruchom iskrę-submit jako sudo.  
+1. Dodaj hdiuser do grupy usługi Hadoop.
+2. Udostępnienie 777 uprawnień na/var/log/Spark po utworzeniu klastra.
+3. Zaktualizuj lokalizację dziennika platformy Spark za pomocą Ambari jako katalog z uprawnieniami 777.  
+4. Uruchom platformę Spark — Prześlij jako sudo.  
 
-## <a name="spark-phoenix-connector-is-not-supported"></a>Złącze Spark-Phoenix nie jest obsługiwane
+## <a name="spark-phoenix-connector-is-not-supported"></a>Łącznik Spark-Phoenix nie jest obsługiwany
 
-Klastry platformy HDInsight Spark nie obsługują łącznika Spark-Phoenix.
+Klastry HDInsight Spark nie obsługują łącznika Spark-Phoenix.
 
-**Łagodzenia:**
+**Środki zaradcze**
 
-Zamiast tego należy użyć łącznika Spark-HBase. Aby uzyskać instrukcje, zobacz [Jak używać łącznika Spark-HBase](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Zamiast tego należy użyć łącznika Spark-HBase. Aby uzyskać instrukcje, zobacz [jak używać łącznika Spark-HBase](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
-## <a name="issues-related-to-jupyter-notebooks"></a>Problemy związane z notebookami Jupyter
+## <a name="issues-related-to-jupyter-notebooks"></a>Problemy związane z notesami Jupyter
 
-Oto kilka znanych problemów związanych z notebookami Jupyter.
+Poniżej przedstawiono znane problemy związane z notesami Jupyter.
 
-### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Notesy ze znakami innymi niż ASCII w nazwach plików
+### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Notesy zawierające znaki inne niż ASCII w nazwach plików
 
-Nie należy używać znaków innych niż ASCII w nazwach plików notesu Jupyter. Jeśli spróbujesz przekazać plik za pośrednictwem interfejsu użytkownika Jupyter, który ma nazwę pliku innego niż ASCII, nie powiedzie się bez żadnego komunikatu o błędzie. Jupyter nie pozwala przesłać pliku, ale nie zgłasza widoczny błąd albo.
+Nie należy używać znaków innych niż ASCII w nazwach plików notesu Jupyter. Jeśli próbujesz przekazać plik za pomocą interfejsu użytkownika Jupyter, który ma nazwę pliku innego niż ASCII, kończy się niepowodzeniem bez żadnego komunikatu o błędzie. Jupyter nie zezwala na przekazywanie pliku, ale nie generuje widocznego błędu ani.
 
-### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Błąd podczas ładowania notesów o większych rozmiarach
+### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Wystąpił błąd podczas ładowania notesów o większych rozmiarach
 
-Podczas ładowania notesów o większym rozmiarze może pojawić się błąd. **`Error loading notebook`**  
+Podczas ładowania notesów o **`Error loading notebook`** większej wielkości może pojawić się komunikat o błędzie.  
 
-**Łagodzenia:**
+**Środki zaradcze**
 
-Jeśli ten błąd zostanie wyświetlony, nie oznacza to, że dane są uszkodzone lub utracone.  Notesy są nadal na `/var/lib/jupyter`dysku w , i można SSH do klastra, aby uzyskać do nich dostęp. Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Jeśli zostanie wyświetlony ten błąd, nie oznacza to, że dane są uszkodzone lub utracone.  Twoje notesy nadal znajdują się `/var/lib/jupyter`na dysku w systemie i można do niego uzyskać dostęp za pomocą protokołu SSH. Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Po nawiązaniu połączenia z klastrem przy użyciu protokołu SSH można skopiować notesy z klastra na komputer lokalny (przy użyciu protokołu SCP lub WinSCP) jako kopię zapasową, aby zapobiec utracie ważnych danych w notesie. Następnie możesz tunel SSH do headnode w porcie 8001, aby uzyskać dostęp do Jupyter bez przechodzenia przez bramę.  W tym miejscu można wyczyścić dane wyjściowe notesu i ponownie je zasłonąć, aby zminimalizować rozmiar notebooka.
+Po nawiązaniu połączenia z klastrem przy użyciu protokołu SSH można skopiować notesy z klastra na maszynę lokalną (za pomocą usługi SCP lub WinSCP) jako kopię zapasową, aby zapobiec utracie ważnych danych w notesie. Można następnie tunel SSH do węzła głównego na porcie 8001, aby uzyskać dostęp do Jupyter bez przechodzenia przez bramę.  Stamtąd możesz wyczyścić dane wyjściowe notesu i zapisać go ponownie, aby zminimalizować rozmiar notesu.
 
-Aby zapobiec wystąpieniu tego błędu w przyszłości, należy postępować zgodnie z najlepszymi rozwiązaniami:
+Aby zapobiec wystąpieniu tego błędu w przyszłości, musisz przestrzegać pewnych najlepszych rozwiązań:
 
-* Ważne jest, aby zachować mały rozmiar notebooka. Wszelkie dane wyjściowe z zadań platformy Spark, które są wysyłane z powrotem do Jupyter jest zachowywany w notesie.  Jest to najlepsza praktyka z Jupyter `.collect()` w ogóle, aby uniknąć uruchamiania na dużych RDD lub dataframes; Zamiast tego, jeśli chcesz zajrzeć do zawartości RDD, `.take()` `.sample()` należy rozważyć uruchomienie lub tak, aby dane wyjściowe nie stają się zbyt duże.
-* Ponadto podczas zapisywania notesu wyczyść wszystkie komórki wyjściowe, aby zmniejszyć rozmiar.
+* Ważne jest, aby zachować mały rozmiar notesu. Wszystkie dane wyjściowe z zadań platformy Spark, które są wysyłane z powrotem do Jupyter, są utrwalane w notesie.  Najlepszym rozwiązaniem jest Jupyter ogólnie, aby uniknąć uruchamiania `.collect()` w dużych RDDach lub ramkach danych. Zamiast tego, jeśli chcesz uzyskać wgląd w zawartość RDD, Rozważ uruchomienie `.take()` lub `.sample()` , aby dane wyjściowe nie były zbyt duże.
+* Ponadto podczas zapisywania notesu Wyczyść wszystkie komórki wyjściowe, aby zmniejszyć rozmiar.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Początkowe uruchamianie notesu trwa dłużej niż oczekiwano
 
-Pierwsze instrukcje kodu w notatniku Jupyter przy użyciu magii Spark może potrwać ponad minutę.  
+Pierwsza instrukcja Code w notesie Jupyter przy użyciu usługi Spark Magic może trwać dłużej niż minutę.  
 
-**Wyjaśnienie:**
+**Znaleźć**
 
-Dzieje się tak, ponieważ po uruchomieniu pierwszej komórki kodu. W tle inicjuje konfigurację sesji i spark, SQL i hive konteksty są ustawione. Po ustawieniu tych kontekstów, pierwsza instrukcja jest uruchamiana i daje wrażenie, że instrukcja miała dużo czasu, aby zakończyć.
+Dzieje się tak, ponieważ po uruchomieniu pierwszej komórki kodu. W tle spowoduje to zainicjowanie konfiguracji sesji i kontekstów platformy Spark, SQL i Hive. Po ustawieniu tych kontekstów Pierwsza instrukcja jest uruchamiana i daje wrażenie, że ukończenie instrukcji trwało długo.
 
-### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Limit czasu notesu Jupyter podczas tworzenia sesji
+### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Przekroczono limit czasu notesu Jupyter podczas tworzenia sesji
 
-Gdy klaster platformy Spark nie ma zasobów, jądra Platformy Spark i PySpark w notesie Jupytera przestają czas na próbę utworzenia sesji.
+Gdy w klastrze Spark brakuje zasobów, jądra platformy Spark i PySpark w notesie Jupyter spowodują przekroczenie limitu czasu podczas próby utworzenia sesji.
 
-**Czynniki:**
+**Środki zaradcze**
 
-1. Zwolnić niektóre zasoby w klastrze platformy Spark przez:
+1. Zwolnij trochę zasobów w klastrze Spark, wykonując następujące:
 
-   * Zatrzymywanie innych notesów platformy Spark przez przejście do menu Zamknij i Wstrzymanie lub kliknięcie przycisku Zamknij w Eksploratorze notesu.
-   * Zatrzymywanie innych aplikacji Spark z YARN.
+   * Zatrzymywanie innych notesów platformy Spark przez przejście do menu Zamknij i zatrzymane lub kliknięcie przycisku Zamknij w Eksploratorze notesu.
+   * Zatrzymywanie innych aplikacji platformy Spark z PRZĘDZy.
 
-2. Uruchom ponownie notes, który próbował uruchomić. Wystarczającej ilości zasobów powinny być dostępne, aby utworzyć sesję teraz.
+2. Uruchom ponownie Notes, który próbujesz uruchomić. Aby można było utworzyć sesję, należy teraz udostępnić wystarczającą ilość zasobów.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Przegląd: platforma Apache Spark w usłudze Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenariusze
 
-* [Apache Spark z analizą biznesową: wykonywanie interaktywnej analizy danych przy użyciu funkcji Spark w funkcji HDInsight za pomocą narzędzi analizy biznesowej](apache-spark-use-bi-tools.md)
-* [Apache Spark z uczeniem maszynowym: użyj platformy Spark w hdinsight do analizowania temperatury budynku przy użyciu danych HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark z uczeniem maszynowym: użyj iskry w hdinsight, aby przewidzieć wyniki inspekcji żywności](apache-spark-machine-learning-mllib-ipython.md)
-* [Analiza dziennika strony internetowej przy użyciu platformy Apache Spark w hdinsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark z usługą BI: wykonywanie interaktywnej analizy danych przy użyciu platformy Spark w usłudze HDInsight przy użyciu narzędzi analizy biznesowej](apache-spark-use-bi-tools.md)
+* [Apache Spark z Machine Learning: korzystanie z platformy Spark w usłudze HDInsight do analizowania temperatury kompilacji przy użyciu danych HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark z Machine Learning: korzystanie z platformy Spark w usłudze HDInsight do przewidywania wyników inspekcji żywności](apache-spark-machine-learning-mllib-ipython.md)
+* [Analiza dzienników witryny sieci Web przy użyciu Apache Spark w usłudze HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Tworzenie i uruchamianie aplikacji
 
@@ -134,9 +134,9 @@ Gdy klaster platformy Spark nie ma zasobów, jądra Platformy Spark i PySpark w 
 ### <a name="tools-and-extensions"></a>Narzędzia i rozszerzenia
 
 * [Tworzenie i przesyłanie aplikacji Spark Scala przy użyciu dodatku HDInsight Tools Plugin for IntelliJ IDEA](apache-spark-intellij-tool-plugin.md)
-* [Użyj wtyczki HDInsight Tools dla IntelliJ IDEA do zdalnego debugowania aplikacji Apache Spark](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Używanie notebooków Apache Zeppelin z klastrem Apache Spark w programie HDInsight](apache-spark-zeppelin-notebook.md)
-* [Jądra dostępne dla notebooka Jupyter w klastrze Apache Spark dla usługi HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Użyj wtyczki narzędzi HDInsight do IntelliJ pomysł, aby debugować aplikacje Apache Spark zdalnie](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Korzystanie z notesów Apache Zeppelin z klastrem Apache Spark w usłudze HDInsight](apache-spark-zeppelin-notebook.md)
+* [Jądra dostępne dla notesu Jupyter w klastrze Apache Spark dla usługi HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Korzystanie z zewnętrznych pakietów z notesami Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalacja oprogramowania Jupyter na komputerze i nawiązywanie połączenia z klastrem Spark w usłudze HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 

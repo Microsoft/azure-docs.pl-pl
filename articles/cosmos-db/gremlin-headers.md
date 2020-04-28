@@ -1,6 +1,6 @@
 ---
-title: Nagłówki odpowiedzi usługi Azure Cosmos DB Gremlin
-description: Dokumentacja referencyjna dotycząca metadanych odpowiedzi serwera, która umożliwia dodatkowe rozwiązywanie problemów
+title: Azure Cosmos DB nagłówki odpowiedzi Gremlin
+description: Dokumentacja referencyjna dla metadanych odpowiedzi serwera, która umożliwia dodatkowe Rozwiązywanie problemów
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
@@ -8,49 +8,49 @@ ms.date: 09/03/2019
 author: luisbosquez
 ms.author: lbosq
 ms.openlocfilehash: 95677f4c45c0213de5ffac5521bac1c6bf7294e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72755077"
 ---
-# <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Nagłówki odpowiedzi serwera usługi Azure Cosmos DB Gremlin
+# <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB nagłówki odpowiedzi serwera Gremlin
 W tym artykule opisano nagłówki, które serwer Gremlin usługi Cosmos DB zwraca do obiektu wywołującego po wykonaniu żądania. Te nagłówki są przydatne podczas rozwiązywania problemów z wydajnością żądań, tworzenia aplikacji integrującej się natywnie z usługą Cosmos DB i upraszczania obsługi klientów.
 
-Należy pamiętać, że biorąc zależność od tych nagłówków są ograniczenie przenoszenia aplikacji do innych implementacji Gremlin. W zamian zyskujesz ściślejszą integrację z Cosmos DB Gremlin. Te nagłówki nie są standardem TinkerPop.
+Należy pamiętać, że w zależności od tych nagłówków ograniczenie przenośności aplikacji do innych implementacji Gremlin. W programie zwracasz ściślejszą integrację z usługą Cosmos DB Gremlin. Te nagłówki nie są standardem TinkerPop.
 
 ## <a name="headers"></a>Nagłówki
 
-| Nagłówek | Typ | Wartość próbki | Po uwzględnieniu | Wyjaśnienie |
+| Nagłówek | Typ | Przykładowa wartość | Po dołączeniu | Wyjaśnienie |
 | --- | --- | --- | --- | --- |
-| **x-ms-request-charge** | double | 11.3243 | Sukces i niepowodzenie | Ilość przepływności kolekcji lub bazy danych używane w [jednostkach żądań (RU/s lub RU)](request-units.md) dla komunikatu częściowej odpowiedzi. Ten nagłówek jest obecny w każdej kontynuacji dla żądań, które mają wiele fragmentów. Odzwierciedla ładunek określonego fragmentu odpowiedzi. Tylko dla żądań, które składają się z jednego fragmentu odpowiedzi ten nagłówek odpowiada całkowity koszt przechodzenia. Jednak dla większości złożonych traversals ta wartość reprezentuje koszt częściowy. |
-| **x-ms-total-request-charge** | double | 423.987 | Sukces i niepowodzenie | Ilość zbierania lub przepływności bazy danych zużywane w [jednostkach żądania (RU/s lub RU)](request-units.md) dla całego żądania. Ten nagłówek jest obecny w każdej kontynuacji dla żądań, które mają wiele fragmentów. Wskazuje ona opłatę skumulowaną od początku żądania. Wartość tego nagłówka w ostatnim fragmencie wskazuje pełną opłatę za żądanie. |
-| **x-ms-server-time-ms** | double | 13.75 | Sukces i niepowodzenie | Ten nagłówek jest dołączony do celów rozwiązywania problemów z opóźnieniami. Wskazuje ilość czasu w milisekundach, który serwer Programu Cosmos DB Gremlin zajęło wykonanie i wykonanie komunikatu odpowiedzi częściowej. Przy użyciu wartości tego nagłówka i porównując go do ogólnych aplikacji opóźnienia żądania można obliczyć opóźnienie sieci obciążenie. |
-| **x-ms-total-server-time-ms** | double | 130.512 | Sukces i niepowodzenie | Całkowity czas ( w milisekundach) serwera Programu Cosmos DB Gremlin, który zajął wykonanie całego przechodzenia. Ten nagłówek jest uwzględniony w każdej odpowiedzi częściowej. Reprezentuje skumulowany czas wykonywania od początku żądania. Ostatnia odpowiedź wskazuje całkowity czas wykonywania. Ten nagłówek jest przydatne do rozróżnienia między klientem a serwerem jako źródło opóźnienia. Można porównać czas wykonywania przechodzenia na klienta do wartości tego nagłówka. |
-| **x-ms-status-code** | long | 200 | Sukces i niepowodzenie | Nagłówek wskazuje wewnętrzną przyczynę zakończenia lub zakończenia żądania. Aplikacja zaleca się przyjrzeć wartość tego nagłówka i podjąć działania naprawcze. |
-| **x-ms-substatus-code** | long | 1003 | Tylko awaria | Cosmos DB to wielomodelowa baza danych, która jest zbudowana na ujednoliconej warstwie magazynu. Ten nagłówek zawiera dodatkowe szczegółowe informacje na temat przyczyny awarii, gdy wystąpi błąd w niższych warstwach stosu wysokiej dostępności. Aplikacji zaleca się przechowywanie tego nagłówka i używać go podczas kontaktowania się z obsługą klienta usługi Cosmos DB. Wartość tego nagłówka jest przydatna dla inżyniera usługi Cosmos DB do szybkiego rozwiązywania problemów. |
-| **x-ms-retry-after-ms** | ciąg (TimeSpan) | "00:00:03.9500000" | Tylko awaria | Ten nagłówek jest reprezentacją ciągu typu [.NET TimeSpan.](https://docs.microsoft.com/dotnet/api/system.timespan) Ta wartość będzie uwzględniana tylko w żądaniach nie powiodło się z powodu wyczerpania przepływności aprowizowanej. Aplikacja powinna ponownie przesłać przechodzenie ponownie po poleconych okresach. |
-| **x-ms-activity-id** | (Guid) | "A9218E01-3A3A-4716-9636-5BD86B056613" | Sukces i niepowodzenie | Nagłówek zawiera unikatowy identyfikator żądania po stronie serwera. Każde żądanie jest przypisywane przez serwer unikatowy identyfikator do celów śledzenia. Aplikacje powinny rejestrować identyfikatory działań zwracanych przez serwer dla żądań, o których klienci mogą chcieć skontaktować się z działem obsługi klienta. Personel pomocy technicznej usługi Cosmos DB może znaleźć określone żądania według tych identyfikatorów w danych telemetrycznych usługi usługi Usługi Cosmos DB. |
+| **x-ms-request-charge** | double | 11,3243 | Sukces i niepowodzenie | Ilość przepływności kolekcji lub bazy danych wykorzystywana w [jednostkach żądania (ru/s lub jednostek ru)](request-units.md) dla komunikatu częściowego odpowiedzi. Ten nagłówek jest obecny w każdej kontynuacji dla żądań, które mają wiele fragmentów. Odzwierciedla opłaty za konkretny fragment odpowiedzi. Tylko w przypadku żądań składających się z pojedynczego fragmentu odpowiedzi ten nagłówek dopasowuje łączny koszt przechodzenia. Jednak w przypadku większości złożonych przechodzenia ta wartość reprezentuje koszt częściowy. |
+| **x-ms-total-request-charge** | double | 423,987 | Sukces i niepowodzenie | Ilość przepływności kolekcji lub bazy danych wykorzystywana w [jednostkach żądania (ru/s lub jednostek ru)](request-units.md) dla całego żądania. Ten nagłówek jest obecny w każdej kontynuacji dla żądań, które mają wiele fragmentów. Wskazuje ona łączną opłatę od początku żądania. Wartość tego nagłówka w ostatnim fragmencie wskazuje na całkowitą opłatą żądania. |
+| **x-MS-Server-Time-MS** | double | 13,75 | Sukces i niepowodzenie | Ten nagłówek jest uwzględniany w celu rozwiązywania problemów z opóźnieniem. Wskazuje on czas (w milisekundach), jaki program Cosmos DB Gremlin Server wykonał i wygenerował komunikat częściowej odpowiedzi. Użycie wartości tego nagłówka i porównanie jej z ogólnymi aplikacjami opóźnienia żądań może obliczyć obciążenie opóźnienia sieci. |
+| **x-MS-Total-serwer-czas-MS** | double | 130,512 | Sukces i niepowodzenie | Łączny czas (w milisekundach), jaki program Cosmos DB Gremlin Server wykonał cały przechodzenie. Ten nagłówek jest uwzględniany w każdej częściowej odpowiedzi. Reprezentuje łączny czas wykonania od momentu rozpoczęcia żądania. Ostatnia odpowiedź wskazuje łączny czas wykonywania. Ten nagłówek jest przydatny do rozróżniania między klientem a serwerem jako źródłem opóźnienia. Można porównać czas wykonywania przechodzenia na kliencie z wartością tego nagłówka. |
+| **x-ms-status-code** | długi | 200 | Sukces i niepowodzenie | Nagłówek wskazuje wewnętrzny powód uzupełniania lub kończenia żądania. Zalecane jest, aby aplikacja poszukiwała wartości tego nagłówka i podejmować działania naprawcze. |
+| **x-MS-Substatus — kod** | długi | 1003 | Tylko Niepowodzenie | Cosmos DB to wielomodelowa baza danych, która jest oparta na ujednoliconej warstwie magazynu. Ten nagłówek zawiera dodatkowe informacje o przyczynie niepowodzenia w przypadku wystąpienia błędu w niższych warstwach stosu o wysokiej dostępności. Aplikacja zaleca przechowywanie tego nagłówka i używanie go podczas kontaktowania się z działem obsługi klienta Cosmos DB. Wartość tego nagłówka jest przydatna dla Cosmos DB inżyniera w celu szybkiego rozwiązywania problemów. |
+| **x-ms-retry-after-ms** | ciąg (TimeSpan) | "00:00:03.9500000" | Tylko Niepowodzenie | Ten nagłówek jest reprezentacją ciągu typu [TimeSpan](https://docs.microsoft.com/dotnet/api/system.timespan) platformy .NET. Ta wartość zostanie uwzględniona tylko w żądaniach zakończonych niepowodzeniem z powodu wyczerpania przepływności. Aplikacja powinna ponownie przesłać przechodzenie po upływie pożądanego czasu. |
+| **x-ms-activity-id** | ciąg (GUID) | "A9218E01-3A3A-4716-9636-5BD86B056613" | Sukces i niepowodzenie | Nagłówek zawiera unikatowy identyfikator po stronie serwera dla żądania. Każde żądanie ma przypisany unikatowy identyfikator serwera do celów śledzenia. Aplikacje powinny rejestrować identyfikatory działań zwracanych przez serwer w przypadku żądań, do których klienci mogą chcieć skontaktować się z pomocą techniczną. Pracownicy pomocy technicznej Cosmos DB mogą znaleźć określone żądania według identyfikatorów w usłudze Cosmos DB telemetrii usługi. |
 
 ## <a name="status-codes"></a>Kody stanu
 
-Poniżej wymieniono większość typowych kodów stanu zwracanych przez serwer.
+Poniżej wymieniono najczęstsze kody stanu zwracane przez serwer.
 
 | Stan | Wyjaśnienie |
 | --- | --- |
-| **401** | Komunikat `"Unauthorized: Invalid credentials provided"` o błędzie jest zwracany, gdy hasło uwierzytelniania nie jest zgodne z kluczem konta usługi Cosmos DB. Przejdź do konta Usługi Cosmos DB Gremlin w witrynie Azure portal i upewnij się, że klucz jest poprawny.|
-| **404** | Równoczesne operacje, które próbują usunąć i zaktualizować tę samą krawędź lub wierzchołek jednocześnie. Komunikat o błędzie `"Owner resource does not exist"` wskazuje, że określona baza danych lub kolekcja jest niepoprawna w ramach parametrów połączenia w formacie `/dbs/<database name>/colls/<collection or graph name>`.|
-| **408** | `"Server timeout"`oznacza, że przechodzenie trwało ponad **30 sekund** i zostało anulowane przez serwer. Zoptymalizuj przechodzenie, aby szybko działały, filtrując wierzchołki lub krawędzie przy każdym przeskoku przechodzenia, aby zawęzić zakres wyszukiwania.|
+| **401** | Komunikat `"Unauthorized: Invalid credentials provided"` o błędzie jest zwracany, jeśli hasło uwierzytelniania nie jest zgodne z kluczem konta Cosmos DB. Przejdź do konta Cosmos DB Gremlin w Azure Portal i upewnij się, że klucz jest prawidłowy.|
+| **404** | Współbieżne operacje, które próbują usunąć i zaktualizować tę samą krawędź lub wierzchołek jednocześnie. Komunikat o błędzie `"Owner resource does not exist"` wskazuje, że określona baza danych lub kolekcja jest niepoprawna w ramach parametrów połączenia w formacie `/dbs/<database name>/colls/<collection or graph name>`.|
+| **408** | `"Server timeout"`wskazuje, że przechodzenie trwało ponad **30 sekund** i zostało anulowane przez serwer. Zoptymalizuj przechodzenie, aby szybko pracować przez filtrowanie wierzchołków lub krawędzi dla każdego przeskoku, aby zawęzić zakres wyszukiwania.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` Taka sytuacja zwykle występuje, gdy wierzchołek lub krawędź z danym identyfikatorem już istnieje w grafie.| 
-| **412** | Kod stanu jest uzupełniony `"PreconditionFailedException": One of the specified pre-condition is not met`komunikatem o błędzie . Ten błąd wskazuje na naruszenie kontroli współbieżności optymistyczne między odczytywanie krawędzi lub wierzchołka i zapisywanie go z powrotem do magazynu po modyfikacji. Najczęstsze sytuacje, gdy wystąpi ten błąd `g.V('identifier').property('name','value')`jest modyfikacja właściwości, na przykład . Aparat Gremlin będzie odczytywać wierzchołek, modyfikować go i zapisywać go z powrotem. Jeśli istnieje inny przechodzenie uruchomione równolegle próbuje napisać ten sam wierzchołek lub krawędzi, jeden z nich otrzyma ten błąd. Aplikacja powinna ponownie przesłać przechodzenie do serwera.| 
-| **429** | Żądanie zostało ograniczone i powinno zostać ponowione po wartości w **x-ms-retry-after-ms**| 
+| **412** | Kod stanu jest uzupełniony komunikatem `"PreconditionFailedException": One of the specified pre-condition is not met`o błędzie. Ten błąd jest indykatywny dla optymistycznego naruszenia kontroli współbieżności między odczytaniem krawędzi lub wierzchołkiem i zapisem go z powrotem do magazynu po modyfikacji. Najczęstsze sytuacje, w których ten błąd występuje w przypadku modyfikacji `g.V('identifier').property('name','value')`właściwości, na przykład. Aparat Gremlin odczyta wierzchołek, zmodyfikuje go i zapisze ponownie. Jeśli inne przechodzenie działa równolegle, próba zapisania tego samego wierzchołka lub krawędzi spowoduje wystąpienie tego błędu. Aplikacja powinna ponownie przesłać przechodzenie na serwer.| 
+| **429** | Żądanie zostało ograniczone i powinno być ponawiane po wartości w **x-MS-retry-After-MS**| 
 | **500** | Komunikat o błędzie zawierający informację `"NotFoundException: Entity with the specified id does not exist in the system."` wskazuje, że utworzono ponownie bazę danych i/lub kolekcję z tą samą nazwą. Ten błąd zniknie w ciągu 5 minut, gdy zmiana zostanie rozpropagowana i unieważni pamięci podręczne w różnych składnikach usługi Cosmos DB. Aby uniknąć tego problemu, za każdym razem używaj unikatowych nazw baz danych i kolekcji.| 
-| **1000** | Ten kod stanu jest zwracany, gdy serwer pomyślnie przeanalizował wiadomość, ale nie mógł wykonać. Zwykle wskazuje na problem z kwerendą.| 
-| **1001** | Ten kod jest zwracany po zakończeniu wykonywania przez przechodzenie serwera, ale nie można serializować odpowiedzi z powrotem do klienta. Ten błąd może się zdarzyć, gdy traversal generuje złożony wynik, który jest zbyt duży lub nie jest zgodny ze specyfikacją protokołu TinkerPop. Aplikacja powinna uprościć przechodzenie, gdy napotka ten błąd. | 
-| **1003** | `"Query exceeded memory limit. Bytes Consumed: XXX, Max: YYY"`jest zwracany, gdy traversal przekracza dozwolony limit pamięci. Limit pamięci wynosi **2 GB** na przechodzenie.| 
-| **1004** | Ten kod stanu wskazuje nieprawidłowo sformułowane żądanie wykresu. Żądanie może być zniekształcone, gdy nie powiedzie się deserializacji, typ niewartości jest deserialized jako typ wartości lub nieobsługiwane operacji gremlin wymagane. Aplikacja nie należy ponowić próbę żądania, ponieważ nie zakończy się pomyślnie. | 
-| **1007** | Zazwyczaj ten kod stanu jest `"Could not process request. Underlying connection has been closed."`zwracany z komunikatem o błędzie . Taka sytuacja może się zdarzyć, jeśli sterownik klienta próbuje użyć połączenia, które jest zamykane przez serwer. Aplikacja powinna ponowić próbę przechodzenia na inne połączenie.
-| **1008** | Serwer Programu Cosmos DB Gremlin może zakończyć połączenia w celu zrównoważenia ruchu w klastrze. Sterowniki klienta powinny obsługiwać tę sytuację i używać tylko połączeń na żywo do wysyłania żądań do serwera. Czasami sterowniki klienta mogą nie wykryć, że połączenie zostało zamknięte. Gdy aplikacja napotka `"Connection is too busy. Please retry after sometime or open more connections."` błąd, należy ponowić próbę przechodzenia na inne połączenie.
+| **1000** | Ten kod stanu jest zwracany, gdy serwer pomyślnie przeanalizuje komunikat, ale nie można go wykonać. Zwykle wskazuje problem z kwerendą.| 
+| **1001** | Ten kod jest zwracany, gdy serwer kończy wykonywanie przechodzenia, ale nie może serializować odpowiedzi z powrotem do klienta. Ten błąd może wystąpić, gdy przechodzenie generuje skomplikowany wynik, który jest zbyt duży lub nie jest zgodny ze specyfikacją protokołu TinkerPop. Aplikacja powinna uprościć przechodzenie po napotkaniu tego błędu. | 
+| **1003** | `"Query exceeded memory limit. Bytes Consumed: XXX, Max: YYY"`jest zwracany, gdy przechodzenie przekracza dozwolony limit pamięci. Limit pamięci wynosi **2 GB** na przechodzenie.| 
+| **1004** | Ten kod stanu wskazuje źle sformułowane żądanie grafu. Żądanie może być nieprawidłowo sformułowane, gdy nie powiedzie się deserializacja, typ inny niż wartość jest deserializowany jako typ wartości lub zażądano nieobsługiwanej operacji Gremlin. Aplikacja nie powinna ponowić próby żądania, ponieważ nie powiodło się. | 
+| **1007** | Zazwyczaj ten kod stanu jest zwracany z komunikatem `"Could not process request. Underlying connection has been closed."`o błędzie. Taka sytuacja może wystąpić, jeśli sterownik klienta próbuje użyć połączenia, które jest zamykane przez serwer. Aplikacja powinna ponowić próbę przechodzenia przy użyciu innego połączenia.
+| **1008** | Cosmos DB Gremlin serwer może przerwać połączenia, aby ponownie zrównoważyć ruch w klastrze. Sterowniki klientów powinny obsługiwać tę sytuację i używać tylko połączeń na żywo do wysyłania żądań do serwera. Sporadyczne sterowniki klienta nie mogą wykryć, czy połączenie zostało zamknięte. Gdy aplikacja napotka błąd, `"Connection is too busy. Please retry after sometime or open more connections."` powinien ponowić próbę przechodzenia na inne połączenie.
 
 ## <a name="samples"></a>Samples
 
@@ -69,7 +69,7 @@ using (GremlinClient client = new GremlinClient(server, new GraphSON2Reader(), n
 }
 ```
 
-Przykład, który pokazuje, jak odczytać atrybut stanu z klienta Java Gremlin:
+Przykład demonstrujący sposób odczytywania atrybutu stanu z Gremlin klienta Java:
 
 ```java
 try {
@@ -107,6 +107,6 @@ try {
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* [Kody stanu HTTP dla usługi Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 
-* [Typowe nagłówki odpowiedzi REST usługi Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers)
-* [Wymagania dostawcy sterowników tinkerpop graph]( http://tinkerpop.apache.org/docs/current/dev/provider/#_graph_driver_provider_requirements)
+* [Kody stanu HTTP dla Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 
+* [Nagłówki odpowiedzi REST Common Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers)
+* [Wymagania dostawcy sterownika programu TinkerPop Graph]( http://tinkerpop.apache.org/docs/current/dev/provider/#_graph_driver_provider_requirements)

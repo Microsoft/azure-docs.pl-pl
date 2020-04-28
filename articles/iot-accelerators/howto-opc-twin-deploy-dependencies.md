@@ -1,6 +1,6 @@
 ---
-title: Jak wdrożyć zależności chmury OPC Twin na platformie Azure | Dokumenty firmy Microsoft
-description: W tym artykule opisano sposób wdrażania zależności platformy OPC Twin Azure potrzebne do lokalnego rozwoju i debugowania.
+title: Jak wdrożyć zależności w chmurze OPC bliźniaczy na platformie Azure | Microsoft Docs
+description: W tym artykule opisano sposób wdrażania nieOPCych zależności platformy Azure wymaganych do lokalnego projektowania i debugowania.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -9,19 +9,19 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 231d1efa02ec80e8ad56a8895d4262d774480111
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73824097"
 ---
-# <a name="deploying-dependencies-for-local-development"></a>Wdrażanie zależności dla rozwoju lokalnego
+# <a name="deploying-dependencies-for-local-development"></a>Wdrażanie zależności dla lokalnego tworzenia
 
-W tym artykule wyjaśniono, jak wdrożyć tylko usługi platformy Azure platform potrzebne do lokalnego rozwoju i debugowania.   Na końcu zostanie wdrożona grupa zasobów zawierająca wszystko, czego potrzebujesz do lokalnego rozwoju i debugowania.
+W tym artykule wyjaśniono, jak wdrażać tylko usługi platformy Azure, które są konieczne do lokalnego tworzenia i debugowania.   Na koniec zostanie wdrożona Grupa zasobów, która zawiera wszystko, czego potrzebujesz do lokalnego tworzenia i debugowania.
 
 ## <a name="deploy-azure-platform-services"></a>Wdrażanie usług platformy Azure
 
-1. Upewnij się, że masz zainstalowane rozszerzenia [programu PowerShell i AzureRM PowerShell.](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)  Otwórz wiersz polecenia lub terminal i uruchom:
+1. Upewnij się, że zainstalowano rozszerzenia PowerShell i [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) .  Otwórz wiersz polecenia lub terminal i uruchom polecenie:
 
    ```bash
    git clone https://github.com/Azure/azure-iiot-components
@@ -32,27 +32,27 @@ W tym artykule wyjaśniono, jak wdrożyć tylko usługi platformy Azure platform
    deploy -type local
    ```
 
-2. Postępuj zgodnie z instrukcjami, aby przypisać nazwę do grupy zasobów dla wdrożenia.  Skrypt wdraża tylko zależności do tej grupy zasobów w subskrypcji platformy Azure, ale nie mikro usług.  Skrypt rejestruje również aplikację w usłudze Azure Active Directory.  Jest to potrzebne do obsługi uwierzytelniania opartego na architekturze OAUTH.  Wdrożenie może potrwać kilka minut.
+2. Postępuj zgodnie z monitami, aby przypisać nazwę do grupy zasobów dla wdrożenia.  Skrypt wdraża tylko zależności od tej grupy zasobów w ramach subskrypcji platformy Azure, ale nie do mikrousług.  Skrypt rejestruje również aplikację w Azure Active Directory.  Jest to konieczne do obsługi uwierzytelniania OAUTH.  Wdrożenie może potrwać kilka minut.
 
-3. Po zakończeniu skryptu można zapisać plik .env.  Plik środowiska .env jest plikiem konfiguracyjnym wszystkich usług i narzędzi, które chcesz uruchomić na komputerze deweloperskim.  
+3. Po zakończeniu działania skryptu możesz wybrać opcję zapisania pliku ENV.  Plik środowiska ENV to plik konfiguracji wszystkich usług i narzędzi, które mają być uruchamiane na komputerze deweloperskim.  
 
-## <a name="troubleshooting-deployment-failures"></a>Rozwiązywanie problemów z błędami wdrażania
+## <a name="troubleshooting-deployment-failures"></a>Rozwiązywanie problemów z błędami wdrożenia
 
 ### <a name="resource-group-name"></a>Nazwa grupy zasobów
 
-Upewnij się, że używasz krótkiej i prostej nazwy grupy zasobów.  Nazwa jest również używana do nazwania zasobów jako takich, które muszą być zgodne z wymaganiami dotyczącymi nazewnictwa zasobów.  
+Upewnij się, że używana jest krótka i prosta Nazwa grupy zasobów.  Nazwa jest używana również do nazywania zasobów w taki sposób, aby musiała być zgodna z wymaganiami dotyczącymi nazw zasobów.  
 
-### <a name="azure-active-directory-aad-registration"></a>Rejestracja usługi Azure Active Directory (AAD)
+### <a name="azure-active-directory-aad-registration"></a>Rejestracja w usłudze Azure Active Directory (AAD)
 
-Skrypt wdrażania próbuje zarejestrować aplikacje usługi AAD w usłudze Azure Active Directory.  W zależności od praw do wybranej dzierżawy usługi AAD może to zakończyć się niepowodzeniem.   Dostępne są trzy opcje:
+Skrypt wdrażania próbuje zarejestrować aplikacje usługi AAD w Azure Active Directory.  W zależności od uprawnień do wybranej dzierżawy usługi AAD może to się nie powieść.   Dostępne są trzy opcje:
 
-1. Jeśli wybierzesz dzierżawę usługi AAD z listy dzierżaw, uruchom ponownie skrypt i wybierz inny z listy.
-2. Alternatywnie wdrożyć prywatną dzierżawę usługi AAD, uruchom ponownie skrypt i wybierz, aby go użyć.
-3. Kontynuuj bez uwierzytelniania.  Ponieważ korzystasz z mikro usług lokalnie, jest to dopuszczalne, ale nie naśladuje środowisk produkcyjnych.  
+1. Jeśli wybrano dzierżawę usługi AAD z listy dzierżawców, uruchom ponownie skrypt i wybierz inny z listy.
+2. Alternatywnie można wdrożyć prywatną dzierżawę usługi AAD, uruchomić ponownie skrypt i wybrać opcję użycia.
+3. Kontynuuj bez uwierzytelniania.  Ponieważ używasz usługi Micro Services lokalnie, jest to akceptowalne, ale nie naśladuje środowiska produkcyjnego.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, po pomyślnym wdrożeniu usług OPC Twin do istniejącego projektu, oto sugerowany następny krok:
+Teraz, po pomyślnym wdrożeniu usług OPC bliźniaczych w istniejącym projekcie, poniżej przedstawiono sugerowany następny krok:
 
 > [!div class="nextstepaction"]
-> [Dowiedz się, jak wdrożyć moduły OPC Twin](howto-opc-twin-deploy-modules.md)
+> [Dowiedz się więcej na temat wdrażania modułów OPC bliźniaczych](howto-opc-twin-deploy-modules.md)

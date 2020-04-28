@@ -1,7 +1,7 @@
 ---
-title: Umiejętność poznawcza rozpoznawania nazwanych jednostek
+title: Umiejętność rozpoznawania nazwanych jednostek
 titleSuffix: Azure Cognitive Search
-description: Wyodrębnianie nazwanych encji dla osób, lokalizacji i organizacji z tekstu w potoku wzbogacania sztucznej inteligencji w usłudze Azure Cognitive Search.
+description: Wyodrębnij nazwane jednostki dla osoby, lokalizacji i organizacji z tekstu w potoku wzbogacenia AI na platformie Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,30 +9,30 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 127155e492b556ce1ce02b67cf0b0846b99ebcd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72791950"
 ---
-#    <a name="named-entity-recognition-cognitive-skill"></a>Umiejętność poznawcza rozpoznawania nazwanych jednostek
+#    <a name="named-entity-recognition-cognitive-skill"></a>Umiejętność rozpoznawania nazwanych jednostek
 
-Umiejętności **Rozpoznawania nazwanych jednostek** wyodrębnia nazwane jednostki z tekstu. Dostępne jednostki obejmują `person` `location` typy i `organization`.
+Umiejętność **rozpoznawania jednostek nazwanych** wyodrębnia nazwane jednostki z tekstu. Dostępne jednostki obejmują typy `person` `location` i. `organization`
 
 > [!IMPORTANT]
-> Nazwana umiejętność rozpoznawania encji jest teraz przerywana przez [microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Obsługa została wstrzymana 15 lutego 2019 r., a interfejs API został usunięty z produktu 2 maja 2019 r. Postępuj zgodnie z zaleceniami w [przestarzałe umiejętności wyszukiwania poznawczego,](cognitive-search-skill-deprecated.md) aby przeprowadzić migrację do obsługiwanej umiejętności.
+> Umiejętność rozpoznawania jednostek nazwanych została już wycofana w wyniku zamiany przez [Microsoft. umiejętności. Text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Wsparcie zostało zatrzymane 15 lutego 2019, a interfejs API został usunięty z produktu na 2 maja 2019. Postępuj zgodnie z zaleceniami z [przestarzałych umiejętności wyszukiwania poznawczego](cognitive-search-skill-deprecated.md) , aby przeprowadzić migrację do obsługiwanej umiejętności.
 
 > [!NOTE]
-> W miarę rozszerzania zakresu poprzez zwiększanie częstotliwości przetwarzania, dodawanie większej liczby dokumentów lub dodawanie kolejnych algorytmów sztucznej inteligencji należy [dołączyć rozliczany zasób usług Cognitive Services.](cognitive-search-attach-cognitive-services.md) Opłaty naliczane podczas wywoływania interfejsów API w usługach Cognitive Services i wyodrębniania obrazu w ramach etapu pękania dokumentów w usłudze Azure Cognitive Search. Nie ma żadnych opłat za wyodrębnianie tekstu z dokumentów.
+> Podczas rozszerzania zakresu przez zwiększenie częstotliwości przetwarzania, Dodawanie większej liczby dokumentów lub Dodawanie algorytmów AI, należy [dołączyć Cognitive Services rozliczanego zasobu](cognitive-search-attach-cognitive-services.md). Opłaty naliczane podczas wywoływania interfejsów API w Cognitive Services oraz do wyodrębniania obrazów w ramach etapu łamania dokumentu w usłudze Azure Wyszukiwanie poznawcze. Nie są naliczane opłaty za Wyodrębnianie tekstu z dokumentów.
 >
-> Wykonanie wbudowanych umiejętności jest naliczane według istniejącej [ceny płatności zgodnie z rzeczywistymi oczekiwaniami.](https://azure.microsoft.com/pricing/details/cognitive-services/) Ceny wyodrębniania obrazów są opisane na [stronie cennika usługi Azure Cognitive Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Do wykonania wbudowanych umiejętności są naliczane opłaty za istniejące [Cognitive Services cena płatność zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/details/cognitive-services/)użyciem. Cennik wyodrębniania obrazów został opisany na [stronie cennika usługi Azure wyszukiwanie poznawcze](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.NamedEntityRecognitionSkill
+Microsoft. umiejętności. Text. NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>Limity danych
-Maksymalny rozmiar rekordu powinien wynosić 50 000 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)znaków mierzonych za pomocą pliku . Jeśli musisz podzielić dane przed wysłaniem ich do ekstraktora fraz kluczowych, rozważ użycie [umiejętności Dzielenie tekstu](cognitive-search-skill-textsplit.md).
+Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych przez [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Jeśli konieczne jest rozbicie danych przed wysłaniem ich do wyodrębniania kluczowych fraz, rozważ użycie [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parametry umiejętności
 
@@ -40,27 +40,27 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
-| categories    | Tablica kategorii, które powinny zostać wyodrębnione.  Możliwe typy `"Person"`kategorii: , `"Location"`, `"Organization"`. Jeśli nie podano żadnej kategorii, zwracane są wszystkie typy.|
-|domyślny Kod Języka |  Kod języka tekstu wejściowego. Obsługiwane są następujące języki:`de, en, es, fr, it`|
-| minimumPrecision (minimumPrecision)  | Liczba z 0 do 1. Jeśli dokładność jest niższa niż ta wartość, jednostka nie jest zwracana. Wartość domyślna to 0.|
+| categories    | Tablica kategorii, które mają zostać wyodrębnione.  Możliwe typy kategorii: `"Person"`, `"Location"`, `"Organization"`. Jeśli nie podano żadnej kategorii, zwracane są wszystkie typy.|
+|defaultLanguageCode |  Kod języka tekstu wejściowego. Obsługiwane są następujące języki:`de, en, es, fr, it`|
+| minimumPrecision  | Liczba z zakresu od 0 do 1. Jeśli dokładność jest mniejsza niż ta wartość, jednostka nie jest zwracana. Wartość domyślna to 0.|
 
-## <a name="skill-inputs"></a>Wprowadzanie umiejętności
+## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
 
 | Nazwa wejściowa      | Opis                   |
 |---------------|-------------------------------|
-| languageCode  | Element opcjonalny. Wartość domyślna to `"en"`.  |
+| languageCode  | Opcjonalny. Wartość domyślna to `"en"`.  |
 | tekst          | Tekst do analizy.          |
 
 ## <a name="skill-outputs"></a>Wyniki umiejętności
 
 | Nazwa wyjściowa     | Opis                   |
 |---------------|-------------------------------|
-| Osób      | Tablica ciągów, w których każdy ciąg reprezentuje nazwę osoby. |
+| podatnicy      | Tablica ciągów, w których każdy ciąg reprezentuje nazwę osoby. |
 | locations  | Tablica ciągów, w których każdy ciąg reprezentuje lokalizację. |
 | organizations  | Tablica ciągów, w których każdy ciąg reprezentuje organizację. |
-| Podmioty | Tablica typów złożonych. Każdy typ złożony obejmuje następujące pola: <ul><li>kategoria (`"person"` `"organization"`, `"location"`, lub )</li> <li>wartość (rzeczywista nazwa jednostki)</li><li>przesunięcie (miejsce, w którym znaleziono go w tekście)</li><li>zaufanie (wartość między 0 a 1, która reprezentuje tę pewność, że wartość jest rzeczywistą jednostką)</li></ul> |
+| obiekty | Tablica typów złożonych. Każdy typ złożony zawiera następujące pola: <ul><li>Kategoria (`"person"`, `"organization"`lub `"location"`)</li> <li>wartość (rzeczywista nazwa jednostki)</li><li>Przesunięcie (lokalizacja, w której została znaleziona).</li><li>zaufanie (wartość z zakresu od 0 do 1, która reprezentuje, że wartość jest rzeczywistą jednostką)</li></ul> |
 
-##  <a name="sample-definition"></a>Przykładowa definicja
+##  <a name="sample-definition"></a>Definicja Przykładowa
 
 ```json
   {
@@ -151,10 +151,10 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 
 ## <a name="error-cases"></a>Przypadki błędów
-Jeśli kod języka dokumentu nie jest obsługiwane, zwracany jest błąd i nie są wyodrębniane żadne jednostki.
+Jeśli kod języka dla dokumentu nie jest obsługiwany, zwracany jest błąd i nie są wyodrębniane żadne jednostki.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
-+ [Jak zdefiniować zestaw umiejętności](cognitive-search-defining-skillset.md)
-+ [Umiejętność rozpoznawania encji](cognitive-search-skill-entity-recognition.md)
++ [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
++ [Umiejętność rozpoznawania jednostek](cognitive-search-skill-entity-recognition.md)

@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z kontrolerem transferu danych przychodzących bramy aplikacji
-description: Ten artykuł zawiera dokumentację dotyczącą rozwiązywania typowych pytań i/lub problemów z kontrolerem transferu danych przychodzących bramy aplikacji.
+title: Application Gateway Rozwiązywanie problemów z kontrolerem transferu danych przychodzących
+description: Ten artykuł zawiera dokumentację dotyczącą rozwiązywania typowych pytań i/lub problemów z Application Gatewaym kontrolerem danych przychodzących.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,27 +8,27 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: a64a9ce5e080308674893273e90a0e83686e339e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73795510"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Rozwiązywanie typowych pytań lub problemów z kontrolerem transferu danych przychodzących
 
-[Usługa Azure Cloud Shell](https://shell.azure.com/) to najwygodniejszy sposób rozwiązywania problemów związanych z instalacją usługi AKS i AGIC. Uruchom powłokę z [shell.azure.com](https://shell.azure.com/) lub klikając link:
+[Azure Cloud Shell](https://shell.azure.com/) jest najwygodniejszym sposobem rozwiązywania problemów z instalacją AKS i AGIC. Uruchom powłokę z [Shell.Azure.com](https://shell.azure.com/) lub klikając łącze:
 
-[![Uruchom osadź](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
+[![Uruchom osadzenie](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
 
 
-## <a name="test-with-a-simple-kubernetes-app"></a>Testuj za pomocą prostej aplikacji Kubernetes
+## <a name="test-with-a-simple-kubernetes-app"></a>Testowanie przy użyciu prostej aplikacji Kubernetes
 
-Poniższe kroki zakładają:
-  - Masz klaster AKS z włączoną obsługą sieci zaawansowanej
+W poniższych krokach przyjęto, że:
+  - Masz klaster AKS z włączoną funkcją zaawansowanej sieci
   - AGIC został zainstalowany w klastrze AKS
-  - Brama aplikacji w sieci wirtualnej współużytkowana z klastrem usługi AKS
+  - Już zweryfikowaniu Application Gateway w sieci wirtualnej udostępnionej w klastrze AKS
 
-Aby sprawdzić, czy brama aplikacji + AKS + instalacja AGIC jest poprawnie skonfigurowana, należy wdrożyć najprostszą możliwą aplikację:
+Aby sprawdzić, czy instalacja Application Gateway + AKS + AGIC została skonfigurowana prawidłowo, wdróż najprostszą możliwą aplikację:
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -76,64 +76,64 @@ spec:
 EOF
 ```
 
-Skopiuj i wklej wszystkie wiersze jednocześnie ze skryptu powyżej do [usługi Azure Cloud Shell](https://shell.azure.com/). Upewnij się, że całe polecenie `cat` jest kopiowane `EOF`- począwszy od ostatniego .
+Skopiuj i Wklej wszystkie wiersze jednocześnie ze skryptu powyżej do [Azure Cloud Shell](https://shell.azure.com/). Upewnij się, że całe polecenie zostało skopiowane — `cat` rozpoczyna się od i `EOF`włącznie z ostatnim.
 
 ![apply](./media/application-gateway-ingress-controller-troubleshooting/tsg--apply-config.png)
 
-Po pomyślnym wdrożeniu aplikacji powyżej klastra AKS będzie miał nowy pod, usługi i transferu przychodzącego.
+Po pomyślnym wdrożeniu aplikacji powyżej AKS klaster będzie miał nową usługę pod, usługą i ruchem przychodzącym.
 
-Pobierz listę strąków z `kubectl get pods -o wide` [Cloud Shell:](https://shell.azure.com/).
-Oczekujemy, że pod o nazwie "test-agic-app-pod" zostały utworzone. Będzie miał adres IP. Ten adres musi znajdować się w sieci wirtualnej bramy aplikacji, która jest używana z usługą AKS.
+Pobierz listę zasobników z [Cloud Shell](https://shell.azure.com/): `kubectl get pods -o wide`.
+Oczekujemy, że element pod nazwą "test-agic-App-pod" został utworzony. Będzie on miał adres IP. Ten adres musi znajdować się w sieci wirtualnej Application Gateway, która jest używana z AKS.
 
-![Strąków](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
+![zasobników](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
 
-Pobierz listę usług: `kubectl get services -o wide`. Oczekujemy, że usługa o nazwie "test-agic-app-service".
+Pobierz listę usług: `kubectl get services -o wide`. Oczekujemy, że zostanie wyświetlona usługa o nazwie "test-agic-App-Service".
 
-![Strąków](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
+![zasobników](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
 
-Pobierz listę wnikaczach: `kubectl get ingress`. Oczekujemy, że zasób transferu przychodzącego o nazwie "test-agic-app-ingress" został utworzony. Zasób będzie miał nazwę hosta "test.agic.contoso.com".
+Pobierz listę ingresses: `kubectl get ingress`. Oczekujemy, że zasób transferu danych przychodzących o nazwie "test-agic-App-Ingres" został utworzony. Zasób będzie miał nazwę hosta "test.agic.contoso.com".
 
-![Strąków](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
+![zasobników](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
-Jednym z zasobników będzie AGIC. `kubectl get pods`wyświetli listę zasobników, z których jeden rozpocznie się od "ingress-azure". Pobierz wszystkie dzienniki tego `kubectl logs <name-of-ingress-controller-pod>` zasobnika, aby sprawdzić, czy mieliśmy pomyślne wdrożenie. Pomyślne wdrożenie dodałoby następujące wiersze do dziennika:
+Jednym z tych zasobników będzie AGIC. `kubectl get pods`zostanie wyświetlona lista wielowymiarowa, z których jedna będzie zaczynać się od "ruchu przychodzącego z platformy Azure". Pobierz wszystkie dzienniki tego programu pod względem `kubectl logs <name-of-ingress-controller-pod>` programu, aby sprawdzić, czy zakończono pomyślnie wdrożenie. Pomyślne wdrożenie dodaliśmy następujące wiersze do dziennika:
 ```
 I0927 22:34:51.281437       1 process.go:156] Applied Application Gateway config in 20.461335266s
 I0927 22:34:51.281585       1 process.go:165] cache: Updated with latest applied config.
 I0927 22:34:51.282342       1 process.go:171] END AppGateway deployment
 ```
 
-Alternatywnie, z [Cloud Shell](https://shell.azure.com/) możemy pobrać tylko linie wskazujące `kubectl logs <ingress-azure-....> | grep 'Applied App Gateway config in'`pomyślną konfigurację bramy aplikacji z , gdzie `<ingress-azure....>` powinna być dokładna nazwa zasobnika AGIC.
+Alternatywnie, z [Cloud Shell](https://shell.azure.com/) można pobrać tylko wiersze wskazujące pomyślne Application Gateway konfigurację z `kubectl logs <ingress-azure-....> | grep 'Applied App Gateway config in'`, gdzie `<ingress-azure....>` powinna być dokładna nazwa AGIC pod.
 
-Brama aplikacji będzie miała zastosowaną następującą konfigurację:
+Application Gateway zostanie zastosowana następująca konfiguracja:
 
-- Słuchacz: ![słuchacz](./media/application-gateway-ingress-controller-troubleshooting/tsg--listeners.png)
+- Odbiornik: ![odbiornik](./media/application-gateway-ingress-controller-troubleshooting/tsg--listeners.png)
 
 - Reguła routingu: ![routing_rule](./media/application-gateway-ingress-controller-troubleshooting/tsg--rule.png)
 
 - Pula zaplecza:
-  - W puli adresów wewnętrznej będzie jeden adres IP i będzie on zgodny z `kubectl get pods -o wide` 
- ![adresem IP zasobnika, który obserwowaliśmy wcześniej z backend_pool](./media/application-gateway-ingress-controller-troubleshooting/tsg--backendpools.png)
+  - W puli adresów zaplecza będzie dostępny jeden adres IP, który będzie pasował do adresu IP pod zaobserwowanej wcześniej usługą `kubectl get pods -o wide` 
+ ![backend_pool](./media/application-gateway-ingress-controller-troubleshooting/tsg--backendpools.png)
 
 
-Na koniec możemy `cURL` użyć polecenia z poziomu [usługi Cloud Shell,](https://shell.azure.com/) aby ustanowić połączenie HTTP z nowo wdrożoną aplikacją:
+Na koniec możemy użyć `cURL` polecenia z poziomu [Cloud Shell](https://shell.azure.com/) , aby nawiązać połączenie HTTP z nowo wdrożoną aplikacją:
 
-1. Użyj, `kubectl get ingress` aby uzyskać publiczny adres IP bramy aplikacji
+1. Użyj `kubectl get ingress` , aby uzyskać publiczny adres IP Application Gateway
 2. Użycie rozszerzenia `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
 
-![Strąków](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
+![zasobników](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
-Wynik `HTTP/1.1 200 OK` wskazuje, że brama aplikacji + AKS + system AGIC działa zgodnie z oczekiwaniami.
-
-
-## <a name="inspect-kubernetes-installation"></a>Inspekcja instalacji kubernetes
-
-### <a name="pods-services-ingress"></a>Strąki, Usługi, Ruch przychodzący
-Kontroler transferu danych przychodzących bramy aplikacji (AGIC) stale monitoruje następujące zasoby kubernetes: [Wdrażanie](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment) lub [Zasobnik](https://kubernetes.io/docs/concepts/workloads/pods/pod/#what-is-a-pod), [Usługa](https://kubernetes.io/docs/concepts/services-networking/service/), [Ruch przychodzący](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+Wynik `HTTP/1.1 200 OK` wskazuje, że system Application Gateway i AKS + AGIC działa zgodnie z oczekiwaniami.
 
 
-Aby AGIC działał zgodnie z oczekiwaniami, muszą być następujące:
-  1. AKS musi mieć jeden lub więcej zdrowych **zasobników**.
-     Sprawdź to z [Cloud Shell](https://shell.azure.com/) z `kubectl get pods -o wide --show-labels` Jeśli `apsnetapp`masz pod z , dane wyjściowe mogą wyglądać następująco:
+## <a name="inspect-kubernetes-installation"></a>Inspekcja instalacji Kubernetes
+
+### <a name="pods-services-ingress"></a>, Usługi, ruch przychodzący
+Application Gateway kontroler usług przychodzących (AGIC) nieustannie monitoruje następujące zasoby Kubernetes: [wdrożenie](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment) lub [pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/#what-is-a-pod), [Usługa](https://kubernetes.io/docs/concepts/services-networking/service/), [ruch](https://kubernetes.io/docs/concepts/services-networking/ingress/) przychodzący
+
+
+Aby AGIC działał zgodnie z oczekiwaniami, należy wykonać następujące czynności:
+  1. AKS musi mieć co najmniej jeden z prawidłowych **zasobników**.
+     Sprawdź poprawność tego `kubectl get pods -o wide --show-labels` elementu [Cloud Shell](https://shell.azure.com/) w przypadku `apsnetapp`, gdy posiadasz element z, dane wyjściowe mogą wyglądać następująco:
      ```bash
      delyan@Azure:~$ kubectl get pods -o wide --show-labels
 
@@ -141,8 +141,8 @@ Aby AGIC działał zgodnie z oczekiwaniami, muszą być następujące:
      aspnetapp              1/1     Running   0          17h   10.0.0.6    aks-agentpool-35064155-1   <none>           <none>            app=aspnetapp
      ```
 
-  2. Jedna lub więcej **usług**, odwołując się do zasobników powyżej za pomocą pasujących `selector` etykiet.
-     Sprawdź to z [Cloud Shell](https://shell.azure.com/) za pomocą`kubectl get services -o wide`
+  2. Co najmniej jedna **Usługa**, odwołująca się do powyższych `selector` zasobników za pośrednictwem pasujących etykiet.
+     Sprawdź poprawność tego [Cloud Shell](https://shell.azure.com/) z`kubectl get services -o wide`
      ```bash
      delyan@Azure:~$ kubectl get services -o wide --show-labels
 
@@ -150,7 +150,7 @@ Aby AGIC działał zgodnie z oczekiwaniami, muszą być następujące:
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
      ```
 
-  3. **Ingress**, z `kubernetes.io/ingress.class: azure/application-gateway`adnotacjami , odwołując się do powyższej usługi Sprawdź to z Usługi Cloud [Shell](https://shell.azure.com/) za pomocą`kubectl get ingress -o wide --show-labels`
+  3. Ruch przychodzący **, z** `kubernetes.io/ingress.class: azure/application-gateway`adnotacjami, odwołujący się do usługi powyżej, weryfikuj ten element z [Cloud Shell](https://shell.azure.com/) z`kubectl get ingress -o wide --show-labels`
      ```bash
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
 
@@ -158,7 +158,7 @@ Aby AGIC działał zgodnie z oczekiwaniami, muszą być następujące:
      aspnetapp   *                 80      17h   <none>
      ```
 
-  4. Wyświetl adnotacje ruchu przychodzącego `kubectl get ingress aspnetapp -o yaml` powyżej: (zastąp `aspnetapp` nazwą swojego ruchu przychodzącego)
+  4. Wyświetl adnotacje powyższych danych wejściowych: `kubectl get ingress aspnetapp -o yaml` ( `aspnetapp` Zastąp nazwą swojego ruchu przychodzącego)
      ```bash
      delyan@Azure:~$ kubectl get ingress aspnetapp -o yaml
 
@@ -174,12 +174,12 @@ Aby AGIC działał zgodnie z oczekiwaniami, muszą być następujące:
          servicePort: 80
      ```
 
-     Zasób transferu `kubernetes.io/ingress.class: azure/application-gateway`.ingress musi być oś.
+     Do zasobu transferu danych przychodzących należy dodać adnotację `kubernetes.io/ingress.class: azure/application-gateway`.
  
 
-### <a name="verify-observed-namespace"></a>Weryfikowanie obserwowanej przestrzeni nazw
+### <a name="verify-observed-namespace"></a>Sprawdź zaobserwowany obszar nazw
 
-* Pobierz istniejące przestrzenie nazw w klastrze Kubernetes. W jakiej przestrzeni nazw działa twoja aplikacja? Czy AGIC oglądania tej przestrzeni nazw? Zapoznaj się z dokumentacją [pomocy technicznej wielu obszarów nazw,](./ingress-controller-multiple-namespace-support.md#enable-multiple-namespace-support) dotyczącą prawidłowego konfigurowania obserwowanych obszarów nazw.
+* Pobierz istniejące przestrzenie nazw w klastrze Kubernetes. W jakim obszarze nazw jest uruchomiona aplikacja? Czy AGIC ogląda tę przestrzeń nazw? Zapoznaj się z dokumentacją dotyczącą [obsługi wielu przestrzeni nazw](./ingress-controller-multiple-namespace-support.md#enable-multiple-namespace-support) , aby poprawnie skonfigurować obserwowane obszary nazw.
 
     ```bash
     # What namespaces exist on your cluster
@@ -190,7 +190,7 @@ Aby AGIC działał zgodnie z oczekiwaniami, muszą być następujące:
     ```
 
 
-* Zasobnik AGIC powinien `default` znajdować się w `NAMESPACE`obszarze nazw (patrz kolumna). Zdrowy zasobnik `Running` miałby `STATUS` w kolumnie. Powinna istnieć co najmniej jedna kapsuła AGIC.
+* AGIC pod musi znajdować się w `default` przestrzeni nazw (zobacz `NAMESPACE`kolumna). W `Running` `STATUS` kolumnie znajduje się w dobrej kondycji. Powinien być co najmniej jeden AGIC pod.
 
     ```bash
     # Get a list of the Application Gateway Ingress Controller pods
@@ -198,13 +198,13 @@ Aby AGIC działał zgodnie z oczekiwaniami, muszą być następujące:
     ```
 
 
-* Jeśli zasobnik AGIC nie`STATUS` jest zdrowy (kolumna z powyższego polecenia nie `Running`jest):
-  - pobierz dzienniki, aby zrozumieć, dlaczego:`kubectl logs <pod-name>`
-  - dla poprzedniego wystąpienia zasobnika:`kubectl logs <pod-name> --previous`
-  - opisać zasobnika, aby uzyskać więcej kontekstu:`kubectl describe pod <pod-name>`
+* Jeśli AGIC pod nie jest w dobrej kondycji (`STATUS` kolumna z powyższego `Running`polecenia nie jest):
+  - Pobierz dzienniki, aby zrozumieć, dlaczego:`kubectl logs <pod-name>`
+  - dla poprzedniego wystąpienia:`kubectl logs <pod-name> --previous`
+  - opisz element pod, aby uzyskać więcej kontekstu:`kubectl describe pod <pod-name>`
 
 
-* Czy masz usługi Kubernetes [Service](https://kubernetes.io/docs/concepts/services-networking/service/) i zasobów [przychodzących?](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+* Czy masz [usługę](https://kubernetes.io/docs/concepts/services-networking/service/) [Kubernetes i zasoby](https://kubernetes.io/docs/concepts/services-networking/ingress/) dotyczące transferu danych przychodzących?
     
     ```bash
     # Get all services across all namespaces
@@ -215,7 +215,7 @@ Aby AGIC działał zgodnie z oczekiwaniami, muszą być następujące:
     ```
 
 
-* Czy Twój [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) jest `kubernetes.io/ingress.class: azure/application-gateway`oznaczony: ? AGIC będzie obserwować tylko zasoby Usługi Przychodzące Kubernetes, które mają tę adnotację.
+* [Czy Twoje](https://kubernetes.io/docs/concepts/services-networking/ingress/) przychodzące adnotacje są z `kubernetes.io/ingress.class: azure/application-gateway`:? AGIC będzie oglądać tylko dla zasobów przychodzących Kubernetes, które mają tę adnotację.
     
     ```bash
     # Get the YAML definition of a particular ingress resource
@@ -223,31 +223,31 @@ Aby AGIC działał zgodnie z oczekiwaniami, muszą być następujące:
     ```
 
 
-* AGIC emituje zdarzenia Kubernetes dla niektórych błędów krytycznych. Można wyświetlić następujące:
+* AGIC emituje zdarzenia Kubernetes dla pewnych błędów krytycznych. Można je wyświetlić:
   - w terminalu za pośrednictwem`kubectl get events --sort-by=.metadata.creationTimestamp`
-  - w przeglądarce przy użyciu interfejsu [użytkownika sieci Web Kubernetes (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
+  - w przeglądarce przy użyciu [interfejsu użytkownika sieci Web Kubernetes (pulpit nawigacyjny)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 
 
 ## <a name="logging-levels"></a>Poziomy rejestrowania
 
-AGIC ma 3 poziomy rejestrowania. Poziom 1 jest domyślny i pokazuje minimalną liczbę wierszy dziennika.
-Poziom 5, z drugiej strony, będzie wyświetlać wszystkie dzienniki, w tym zdezynfekowanej zawartości config stosowane do ARM.
+AGIC ma 3 poziomy rejestrowania. Poziom 1 jest domyślnym i zawiera minimalną liczbę wierszy dziennika.
+Poziom 5, z drugiej strony, będzie wyświetlał wszystkie dzienniki, w tym oczyszczoną zawartość konfiguracji zastosowanej do ARM.
 
-Społeczność Kubernetes ustanowiła 9 poziomów rejestrowania dla narzędzia [kubectl.](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-output-verbosity-and-debugging) W tym repozytorium wykorzystujemy 3 z nich, z podobną semantyką:
+Społeczność Kubernetes ustanowiła 9 poziomów rejestrowania dla narzędzia [polecenia kubectl](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-output-verbosity-and-debugging) . W tym repozytorium wykorzystujemy 3 z nich z podobną semantyką:
 
 
 | Szczegółowość | Opis |
 |-----------|-------------|
-|  1        | Domyślny poziom dziennika; pokazuje szczegóły uruchamiania, ostrzeżenia i błędy |
+|  1        | Domyślny poziom rejestrowania; pokazuje szczegóły uruchamiania, ostrzeżenia i błędy |
 |  3        | Rozszerzone informacje o zdarzeniach i zmianach; listy utworzonych obiektów |
-|  5        | Dzienniki obiektów marshal; pokazuje zdezynfekowany config JSON stosowany do ARM |
+|  5        | Rejestruje obiekty organizowane; pokazuje oczyszczoną konfigurację JSON zastosowaną do ARM |
 
 
-Poziomy szczegółowości można regulować za `verbosityLevel` pomocą zmiennej w pliku [helm-config.yaml.](#sample-helm-config-file) Zwiększ poziom szczegółowości, `5` aby uzyskać konfigur json wysyłane do [ARM:](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
-  - dodać `verbosityLevel: 5` na linii przez siebie w [helm-config.yaml](#sample-helm-config-file) i ponownie zainstalować
-  - pobierz dzienniki z`kubectl logs <pod-name>`
+Poziomy szczegółowości są ustawiane za pośrednictwem `verbosityLevel` zmiennej w pliku [Helm-config. YAML](#sample-helm-config-file) . Zwiększ poziom szczegółowości, aby `5` uzyskać konfigurację JSON wysłaną do [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview):
+  - Dodaj `verbosityLevel: 5` bezpośrednio w wierszu w [Helm-config. YAML](#sample-helm-config-file) i ponownie zainstaluj
+  - Pobierz dzienniki z`kubectl logs <pod-name>`
 
-### <a name="sample-helm-config-file"></a>Przykładowy plik konfiguracyjny helmu
+### <a name="sample-helm-config-file"></a>Przykładowy plik konfiguracji Helm
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 

@@ -1,35 +1,35 @@
 ---
 title: Dodawanie adresatów w udziale danych platformy Azure
-description: Dowiedz się, jak dodać adresatów do istniejącego udziału danych w usłudze Azure Data Share.
+description: Dowiedz się, jak dodać odbiorców do istniejącego udziału danych w udziale danych platformy Azure.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 9f49ab3aed60bfbe04ad022070a931461e3f52f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73490534"
 ---
-# <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Jak dodać adresata do istniejącego udziału danych w udziale danych platformy Azure
+# <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Jak dodać odbiorcę do istniejącego udziału danych w udziale danych platformy Azure
 
-W tym artykule pokazano, jak dodać adresatów do istniejącego wcześniej udziału danych.
+W tym artykule pokazano, jak dodać odbiorców do istniejącego już udziału danych.
 
-Aby uzyskać informacje na temat dodawania adresatów podczas tworzenia udziału, zobacz samouczek [Udostępnianie danych.](share-your-data.md)
+Aby uzyskać informacje na temat dodawania odbiorców podczas tworzenia udziału, zobacz samouczek [udostępnianie danych](share-your-data.md) .
 
-## <a name="navigate-to-a-sent-data-share"></a>Przechodzenie do folderu udostępniania danych wysłanych
+## <a name="navigate-to-a-sent-data-share"></a>Przejdź do wysłanego udziału danych
 
-W usłudze Azure Data Share przejdź do wysłanego udziału i wybierz kartę **Zaproszenia.** Aby dodać nowy, kliknij pozycję **Dodaj adresata**.
+W udziale danych platformy Azure przejdź do wysłanego udziału i wybierz kartę **zaproszenia** . w tym miejscu znajdują się wszyscy adresaci zaproszeń do tego udziału danych. Aby dodać nowe konto, kliknij przycisk **Dodaj adresata**.
 
-![Dodaj adresata](./media/how-to/how-to-add-recipients/add-recipient.png)
+![Dodaj odbiorcę](./media/how-to/how-to-add-recipients/add-recipient.png)
 
-Po prawej stronie strony pojawi się panel. Kliknij **pozycję Dodaj adresata,** a następnie wypełnij wiadomość e-mail nowego adresata w pustym wierszu. Dodaj dowolną liczbę adresatów.
+Panel zostanie wyświetlona po prawej stronie. Kliknij pozycję **Dodaj odbiorcę** , a następnie wprowadź adres e-mail nowego odbiorcy w pustym wierszu. Dodaj dowolną liczbę adresatów.
 
-![Dodaj adresata](./media/how-to/how-to-add-recipients/add-recipient-side.png)
+![Dodaj odbiorcę](./media/how-to/how-to-add-recipients/add-recipient-side.png)
 
-Kliknij **pozycję Dodaj i wyślij zaproszenie**. Nowi adresaci otrzymają e-maile z zaproszeniem do udziału w danych.
+Kliknij przycisk **Dodaj i Wyślij zaproszenie**. Nowi adresaci będą wysyłać wiadomości e-mail z zaproszeniem do tego udziału danych.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [usuwaniu zaproszenia do udziału](how-to-delete-invitation.md).
+Dowiedz się więcej na temat [usuwania zaproszenia do udziału](how-to-delete-invitation.md).

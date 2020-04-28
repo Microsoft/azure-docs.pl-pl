@@ -1,6 +1,6 @@
 ---
-title: Przypisywanie ról zasobów platformy Azure do gości w usłudze PIM — Azure AD | Dokumenty firmy Microsoft
-description: Dowiedz się, jak zaprosić zewnętrznych użytkowników-gości i przypisać role zasobów platformy Azure w usłudze Azure AD Privileged Identity Management (PIM).
+title: Przypisywanie ról zasobów platformy Azure do Gości w usłudze PIM — Azure AD | Microsoft Docs
+description: Dowiedz się, jak zapraszać zewnętrznych użytkowników-Gości i przypisywać role zasobów platformy Azure w Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -16,154 +16,154 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2efcf77d65fa2f9e203ed805cd7d78b9802ee3aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74021937"
 ---
-# <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Zapraszanie użytkowników-gości i przypisywanie ról zasobów platformy Azure w zarządzania tożsamościami uprzywilejowanymi
+# <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Zapraszanie użytkowników-Gości i przypisywanie ról zasobów platformy Azure w Privileged Identity Management
 
-Użytkownicy-goście-goście usługi Azure Ad (Azure AD) są częścią funkcji współpracy między firmami (B2B) w usłudze Azure AD, dzięki czemu można zarządzać zewnętrznymi użytkownikami i dostawcami-gośćmi w usłudze Azure AD. Po połączeniu współpracy B2B z usługą Azure AD Privileged Identity Management (PIM) można rozszerzyć wymagania dotyczące zgodności i nadzoru dla gości. Na przykład można użyć tych funkcji zarządzania tożsamościami uprzywilejowanymi dla zadań tożsamości platformy Azure z gośćmi:
+Użytkownicy-Goście usługi Azure Active Directory (Azure AD) są częścią funkcji współpracy między firmami (B2B, Business-to-Business) w ramach usługi Azure AD, dzięki czemu możesz zarządzać zewnętrznymi użytkownikami i dostawcami Gości jako Gości w usłudze Azure AD. W przypadku łączenia współpracy B2B z usługą Azure AD Privileged Identity Management (PIM) można zwiększyć wymagania dotyczące zgodności i zarządzania dla Gości. Można na przykład użyć tych funkcji Privileged Identity Management dla zadań związanych z tożsamością platformy Azure z Gośćmi:
 
 - Przypisywanie dostępu do określonych zasobów platformy Azure
-- Włącz dostęp just-in-time
-- Określanie czasu trwania i daty zakończenia przydziału
-- Wymagaj uwierzytelniania wieloskładnikowego przy aktywnym przypisywanie lub aktywacja
-- Wykonywanie recenzji dostępu
+- Włącz dostęp just in Time
+- Określ czas trwania przypisania i datę zakończenia
+- Wymagaj uwierzytelniania wieloskładnikowego w aktywnym przypisaniu lub aktywacji
+- Wykonaj przeglądy dostępu
 - Korzystanie z alertów i dzienników inspekcji
 
-W tym artykule opisano sposób zapraszania gościa do organizacji i zarządzania dostępem do zasobów platformy Azure przy użyciu zarządzania tożsamościami uprzywilejowanymi.
+W tym artykule opisano, jak zapraszać gościa do organizacji i zarządzać dostępem do zasobów platformy Azure przy użyciu Privileged Identity Management.
 
-## <a name="when-would-you-invite-guests"></a>Kiedy zaprosisz gości?
+## <a name="when-would-you-invite-guests"></a>Kiedy zapraszasz Gości?
 
-Oto kilka przykładów, kiedy możesz zaprosić gości do swojej organizacji:
+Poniżej przedstawiono kilka przykładów, które mogą zapraszać Gości do organizacji:
 
-- Zezwalaj zewnętrznemu dostawcy na własny rachunek, który ma tylko konto e-mail, aby uzyskać dostęp do zasobów platformy Azure dla projektu.
-- Zezwalaj zewnętrznemu partnerowi w dużej organizacji korzystającej z lokalnych usług fedascyjnych Active Directory na dostęp do aplikacji wydatków.
-- Zezwalaj inżynierom pomocy technicznej niew organizacji (na przykład pomocy technicznej firmy Microsoft) na tymczasowy dostęp do zasobu platformy Azure w celu rozwiązywania problemów.
+- Zezwól zewnętrznemu dostawcy samoobsługowego, który ma dostęp do zasobów platformy Azure dla projektu i ma tylko konto e-mail.
+- Zezwól partnerowi zewnętrznemu w dużej organizacji korzystającej z Active Directory Federation Services lokalnych w celu uzyskania dostępu do aplikacji do wydatków.
+- Zezwól inżynierom pomocy technicznej, które nie są w organizacji (np. pomocy technicznej firmy Microsoft), aby tymczasowo uzyskiwać dostęp do zasobów platformy Azure w celu rozwiązywania problemów.
 
-## <a name="how-does-collaboration-using-b2b-guests-work"></a>Jak działa współpraca z gośćmi B2B?
+## <a name="how-does-collaboration-using-b2b-guests-work"></a>Jak działa współpraca przy użyciu Gości B2B?
 
-Korzystając ze współpracy B2B, można zaprosić użytkownika zewnętrznego do organizacji jako gościa. Gość może być zarządzany jako użytkownik w organizacji, ale gość musi być uwierzytelniony w organizacji domowej, a nie w organizacji usługi Azure AD. Oznacza to, że jeśli gość nie ma już dostępu do swojej organizacji macierzystej, utraci również dostęp do organizacji. Na przykład jeśli gość opuści swoją organizację, automatycznie utraci dostęp do wszystkich zasobów udostępnionych im w usłudze Azure AD bez konieczności wykonywania jakichkolwiek działań. Aby uzyskać więcej informacji na temat współpracy B2B, zobacz [Co to jest dostęp użytkownika-gościa w usłudze Azure Active Directory B2B?](../b2b/what-is-b2b.md).
+Gdy używasz współpracy B2B, możesz zaprosić użytkownika zewnętrznego do organizacji jako gościa. Gość może być zarządzany jako użytkownik w organizacji, ale gość musi być uwierzytelniony w swojej organizacji domowej, a nie w organizacji usługi Azure AD. Oznacza to, że jeśli gość nie ma już dostępu do swojej organizacji domowej, utraci również dostęp do swojej organizacji. Na przykład jeśli gość opuści organizację, automatycznie utraci dostęp do wszystkich zasobów, które zostały Ci udostępnione w usłudze Azure AD bez konieczności wykonywania żadnych czynności. Aby uzyskać więcej informacji na temat współpracy B2B, zobacz temat [co to jest dostęp gościa w Azure Active Directory B2B?](../b2b/what-is-b2b.md).
 
-![Diagram przedstawiający sposób uwierzytelniania użytkownika-gościa w katalogu domowym](./media/pim-resource-roles-external-users/b2b-external-user.png)
+![Diagram przedstawiający sposób uwierzytelniania użytkownika-gościa w katalogu macierzystym](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
-## <a name="check-guest-collaboration-settings"></a>Sprawdzanie ustawień współpracy gościa
+## <a name="check-guest-collaboration-settings"></a>Sprawdź ustawienia współpracy gościa
 
-Aby upewnić się, że możesz zapraszać gości do swojej organizacji, sprawdź ustawienia współpracy gości.
+Aby upewnić się, że możesz zapraszać Gości do organizacji, sprawdź ustawienia współpracy gościa.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 
-1. Wybierz**ustawienia użytkownika**usługi Azure **Active Directory** > .
+1. Wybierz pozycję **Azure Active Directory** > **Ustawienia użytkownika**.
 
-1. Wybierz **pozycję Zarządzaj ustawieniami współpracy zewnętrznej**.
+1. Wybierz pozycję **Zarządzaj ustawieniami współpracy zewnętrznej**.
 
-    ![Strona ustawień współpracy zewnętrznej z ustawieniami ograniczeń uprawnień, zaproszenia i ograniczenia współpracy](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
+    ![Strona ustawień współpracy zewnętrznej przedstawiające ustawienia ograniczeń uprawnień, zaproszeń i współpracy](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
 
-1. Upewnij się, że **administratorzy i użytkownicy w roli osoby zapraszania gościa mogą zapraszać** przełącznik jest ustawiony na **Tak**.
+1. Upewnij się, że **Administratorzy i użytkownicy w roli osoby zapraszające gościa mogą zapraszać** przełącznik ma ustawioną **wartość tak**.
 
 ## <a name="invite-a-guest-and-assign-a-role"></a>Zapraszanie gościa i przypisywanie roli
 
-Za pomocą uprzywilejowanego zarządzania tożsamościami można zaprosić gościa i sprawić, by kwalifikował się do roli zasobów platformy Azure.
+Korzystając z Privileged Identity Management, możesz zaprosić gościa i uczynić go uprawnionym do roli zasobów platformy Azure.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com/) z użytkownikiem, który jest członkiem [administratora ról uprzywilejowanych](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) lub [administratora użytkownika.](../users-groups-roles/directory-assign-admin-roles.md#user-administrator)
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu użytkownika, który jest członkiem roli [administrator ról uprzywilejowanych](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) lub [administratora](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) .
 
-1. Otwórz **zarządzanie tożsamościami uprzywilejowanymi usługą Azure AD**.
+1. Otwórz **Azure AD Privileged Identity Management**.
 
-1. Wybierz **zasoby platformy Azure**.
+1. Wybierz pozycję **zasoby platformy Azure**.
 
-1. Filtr **Zasobów** służy do filtrowania listy zasobów zarządzanych.
+1. Użyj **filtru zasobów** , aby odfiltrować listę zarządzanych zasobów.
 
-1. Wybierz zasób, który chcesz zarządzać, taki jak zasób, grupa zasobów, subskrypcja lub grupa zarządzania.
+1. Wybierz zasób, którym chcesz zarządzać, na przykład zasób, grupę zasobów, subskrypcję lub grupę zarządzania.
 
-    Należy ustawić zakres tylko to, czego potrzebuje gość.
+    Należy ustawić zakres tylko na potrzeby gościa.
 
-1. W obszarze Zarządzanie wybierz pozycję **Role,** aby wyświetlić listę ról zasobów platformy Azure.
+1. W obszarze Zarządzanie wybierz pozycję **role** , aby wyświetlić listę ról dla zasobów platformy Azure.
 
-    ![Lista ról zasobów platformy Azure z liczbą użytkowników, którzy są aktywni i uprawnieni](./media/pim-resource-roles-external-users/resources-roles.png)
+    ![Lista ról zasobów platformy Azure zawierająca liczbę aktywnych użytkowników i kwalifikujących się](./media/pim-resource-roles-external-users/resources-roles.png)
 
-1. Wybierz minimalną rolę, której użytkownik będzie potrzebował.
+1. Wybierz minimalną rolę wymaganą przez użytkownika.
 
-    ![Wybrana strona roli z listą bieżących członków tej roli](./media/pim-resource-roles-external-users/selected-role.png)
+    ![Strona wybranej roli z listą bieżących członków tej roli](./media/pim-resource-roles-external-users/selected-role.png)
 
-1. Na stronie roli wybierz pozycję **Dodaj członka,** aby otworzyć okienko Nowe przypisanie.
+1. Na stronie Rola wybierz pozycję **Dodaj członka** , aby otworzyć okienko nowe przypisanie.
 
-1. Kliknij **pozycję Wybierz członka lub grupę**.
+1. Kliknij pozycję **Wybierz członka lub grupę**.
 
-    ![Nowe przypisanie — wybieranie okienka członka lub grupy z listą użytkowników i grup wraz z opcją Zaproś](./media/pim-resource-roles-external-users/select-member-group.png)
+    ![Nowe przypisanie — Wybierz okienko elementu członkowskiego lub grupy z listą użytkowników i grup wraz z opcją zaproszenia](./media/pim-resource-roles-external-users/select-member-group.png)
 
-1. Aby zaprosić gościa, kliknij przycisk **Zaproś**.
+1. Aby zaprosić gościa, kliknij pozycję **Zaproś**.
 
-    ![Zapraszanie strony gościa z polami do wprowadzenia adresu e-mail i określenia wiadomości osobistej](./media/pim-resource-roles-external-users/invite-guest.png)
+    ![Zapraszanie strony Gościa z polami do wprowadzania adresu e-mail i określania wiadomości osobistej](./media/pim-resource-roles-external-users/invite-guest.png)
 
-1. Po wybraniu gościa kliknij przycisk **Zaproś**.
+1. Po wybraniu gościa kliknij pozycję **Zaproś**.
 
     Gość powinien zostać dodany jako wybrany element członkowski.
 
 1. W okienku **Wybierz członka lub grupę** kliknij pozycję **Wybierz**.
 
-1. W okienku **Ustawienia członkostwa** wybierz typ i czas trwania przypisania.
+1. W okienku **Ustawienia członkostwa** wybierz typ przypisania i czas trwania.
 
-    ![Nowe przypisanie — strona Ustawienia członkostwa z opcjami określającymi typ przydziału, datę rozpoczęcia i datę zakończenia](./media/pim-resource-roles-external-users/membership-settings.png)
+    ![Strona Ustawienia nowej przynależności do przypisania z opcjami określającymi typ przypisania, datę początkową i datę końcową](./media/pim-resource-roles-external-users/membership-settings.png)
 
-1. Aby ukończyć przypisanie, wybierz pozycję **Gotowe,** a następnie **dodaj**.
+1. Aby zakończyć przypisanie, wybierz opcję **gotowe** , a następnie **Dodaj**.
 
-    Przypisanie roli gościa pojawi się na liście ról.
+    Przypisanie roli gościa zostanie wyświetlone na liście ról.
 
-    ![Strona roli z wyszczególnienie gościa jako kwalifikującego się](./media/pim-resource-roles-external-users/role-assignment.png)
+    ![Strona roli](./media/pim-resource-roles-external-users/role-assignment.png)
 
-## <a name="activate-role-as-a-guest"></a>Aktywowanie roli gościa
+## <a name="activate-role-as-a-guest"></a>Aktywuj rolę jako gościa
 
-Jeśli jesteś użytkownikiem zewnętrznym, musisz zaakceptować zaproszenie do bycia gościem w organizacji usługi Azure AD i ewentualnie aktywować przypisanie roli.
+Jeśli jesteś użytkownikiem zewnętrznym, musisz zaakceptować zaproszenie jako gość w organizacji usługi Azure AD i prawdopodobnie aktywować przypisanie roli.
 
-1. Otwórz wiadomość e-mail z zaproszeniem. Wiadomość e-mail będzie wyglądać podobnie do poniższej.
+1. Otwórz wiadomość e-mail z zaproszeniem. Wiadomość e-mail będzie wyglądać podobnie do poniższego.
 
-    ![Wyślij zaproszenie pocztą e-mail z nazwą katalogu, wiadomością osobistą i linkiem Wprowadzenie](./media/pim-resource-roles-external-users/email-invite.png)
+    ![Wyślij wiadomość e-mail z zaproszeniem z nazwą katalogu, wiadomością osobistą i linkiem wprowadzającym](./media/pim-resource-roles-external-users/email-invite.png)
 
-1. Wybierz link **Wprowadzenie** w wiadomości e-mail.
+1. Wybierz link **wprowadzenie** w wiadomości e-mail.
 
-1. Po przejrzeniu uprawnień kliknij przycisk **Zaakceptuj**.
+1. Po przejrzeniu uprawnień kliknij przycisk **Akceptuj**.
 
-    ![Przeglądanie strony uprawnień w przeglądarce z listą uprawnień, które organizacja chciałaby przejrzeć](./media/pim-resource-roles-external-users/invite-accept.png)
+    ![Przeglądanie strony uprawnień w przeglądarce z listą uprawnień, które organizacja chce przejrzeć](./media/pim-resource-roles-external-users/invite-accept.png)
 
-1. Może zostaćsz poproszony o zaakceptowanie warunków użytkowania i określenie, czy chcesz pozostać zalogowanym. W witrynie Azure portal, jeśli *kwalifikujesz się do* roli, nie będziesz jeszcze mieć dostępu do zasobów.
+1. Może zostać wyświetlony monit o zaakceptowanie warunków użytkowania i określenie, czy użytkownik ma pozostać zalogowany. W Azure Portal, jeśli *kwalifikujesz się* do roli, nie masz jeszcze dostępu do zasobów.
 
-1. Aby aktywować przypisanie roli, otwórz wiadomość e-mail za pomocą linku aktywuj rolę. Wiadomość e-mail będzie wyglądać podobnie do poniższej.
+1. Aby aktywować przypisanie roli, Otwórz wiadomość e-mail przy użyciu linku Aktywuj rolę. Wiadomość e-mail będzie wyglądać podobnie do poniższego.
 
-    ![Wiadomość e-mail z informacją, że kwalifikujesz się do otrzymania roli z linkiem Aktywuj rolę](./media/pim-resource-roles-external-users/email-role-assignment.png)
+    ![Adres e-mail wskazujący, że kwalifikujesz się do roli przy użyciu linku Aktywuj rolę](./media/pim-resource-roles-external-users/email-role-assignment.png)
 
-1. Wybierz **pozycję Aktywuj rolę,** aby otworzyć kwalifikujące się role w zarządzania tożsamościami uprzywilejowanymi.
+1. Wybierz pozycję **Aktywuj rolę** , aby otworzyć odpowiednie role w Privileged Identity Management.
 
-    ![Strona Moje role w zarządzania tożsamościami uprzywilejowanymi z listą kwalifikujących się ról](./media/pim-resource-roles-external-users/my-roles-eligible.png)
+    ![Strona Moje role w Privileged Identity Management wystawiania kwalifikujących się ról](./media/pim-resource-roles-external-users/my-roles-eligible.png)
 
-1. W obszarze Akcja wybierz łącze **Aktywuj.**
+1. W obszarze Akcja wybierz łącze **Aktywuj** .
 
-    W zależności od ustawień roli należy określić pewne informacje, aby aktywować rolę.
+    W zależności od ustawień roli należy określić kilka informacji w celu aktywowania roli.
 
-1. Po określeniu ustawień roli kliknij przycisk **Aktywuj,** aby aktywować rolę.
+1. Po określeniu ustawień dla roli kliknij pozycję **Aktywuj** , aby aktywować rolę.
 
-    ![Aktywowanie zakresu i opcji wyświetlania listy stron w celu określenia czasu rozpoczęcia, czasu trwania i przyczyny](./media/pim-resource-roles-external-users/activate-role.png)
+    ![Aktywuj zakres i opcje wyświetlania strony, aby określić czas rozpoczęcia, czas trwania i powód](./media/pim-resource-roles-external-users/activate-role.png)
 
-    O ile administrator nie jest zobowiązany do zatwierdzenia żądania, powinieneś mieć dostęp do określonych zasobów.
+    Jeśli administrator nie musi zatwierdzić Twojego żądania, powinien mieć dostęp do określonych zasobów.
 
-## <a name="view-activity-for-a-guest"></a>Wyświetlanie aktywności dla gościa
+## <a name="view-activity-for-a-guest"></a>Wyświetl działania gościa
 
-Można przeglądać dzienniki inspekcji, aby śledzić, co robią goście.
+Możesz wyświetlić dzienniki inspekcji, aby śledzić, co robią Goście.
 
-1. Jako administrator otwórz zarządzanie tożsamościami uprzywilejowanymi i wybierz udostępniony zasób.
+1. Jako administrator Otwórz Privileged Identity Management i wybierz zasób, który został udostępniony.
 
-1. Wybierz **inspekcję zasobów,** aby wyświetlić działanie dla tego zasobu. Poniżej przedstawiono przykład działania dla grupy zasobów.
+1. Wybierz pozycję **Inspekcja zasobów** , aby wyświetlić działanie tego zasobu. Poniżej przedstawiono przykład działania dotyczącego grupy zasobów.
 
-    ![Zasoby platformy Azure — strona inspekcji zasobów zawierająca listę czasu, żądacza i akcji](./media/pim-resource-roles-external-users/audit-resource.png)
+    ![Zasoby platformy Azure — na stronie Inspekcja zasobów na liście czas, Obiekt żądający i akcja](./media/pim-resource-roles-external-users/audit-resource.png)
 
-1. Aby wyświetlić działanie dla gościa, wybierz*nazwę gościa***użytkownicy** >  **usługi Azure Active Directory** > .
+1. Aby wyświetlić działanie gościa, wybierz pozycję **Azure Active Directory** > **Użytkownicy** > *Nazwa gość*.
 
-1. Wybierz **dzienniki inspekcji,** aby wyświetlić dzienniki inspekcji dla organizacji. W razie potrzeby można określić filtry.
+1. Wybierz pozycję **dzienniki inspekcji** , aby wyświetlić dzienniki inspekcji dla organizacji. W razie potrzeby można określić filtry.
 
-    ![Dzienniki inspekcji katalogu lista data, cel, zainicjowane przez, i działania](./media/pim-resource-roles-external-users/audit-directory.png)
+    ![Dzienniki inspekcji katalogów wymieniają datę, cel, zainicjowane przez i działanie](./media/pim-resource-roles-external-users/audit-directory.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przypisywanie ról administratora usługi Azure AD w zarządzania tożsamościami uprzywilejowanymi](pim-how-to-add-role-to-user.md)
-- [Co to jest dostęp użytkownika gościa we współpracy usługi Azure AD B2B?](../b2b/what-is-b2b.md)
+- [Przypisywanie ról administratorów usługi Azure AD w Privileged Identity Management](pim-how-to-add-role-to-user.md)
+- [Co to jest dostęp gościa w usłudze Azure AD B2B współpraca?](../b2b/what-is-b2b.md)

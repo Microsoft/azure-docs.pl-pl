@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z katalogu U-SQL w usłudze Azure Data Lake Analytics
-description: Dowiedz się, jak używać katalogu U-SQL do udostępniania kodu i danych. Tworzenie funkcji wycenianych w tabeli, tworzenie widoków, tworzenie tabel i wykonywanie ich kwerend.
+title: Użyj wykazu U-SQL w Azure Data Lake Analytics
+description: Dowiedz się, jak udostępniać kod i dane przy użyciu wykazu U-SQL. Twórz funkcje z wartościami przechowywanymi w tabeli, twórz widoki, twórz tabele i wysyłaj do nich zapytania.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -10,19 +10,19 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: conceptual
 ms.date: 05/09/2017
 ms.openlocfilehash: f3b9f14be4422373fb30f8c3d4909fd9c9546fdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71672847"
 ---
-# <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Wprowadzenie do wykazu U-SQL w usłudze Azure Data Lake Analytics
+# <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Wprowadzenie do wykazu U-SQL w Azure Data Lake Analytics
 
-## <a name="create-a-tvf"></a>Tworzenie tvf
+## <a name="create-a-tvf"></a>Utwórz TVF
 
-W poprzednim skrypcie U-SQL powtórzony użycie EXTRACT do odczytu z tego samego pliku źródłowego. Za pomocą U-SQL tabeli cenne funkcji (TVF), można hermetyzować dane do przyszłego ponownego użycia.  
+W poprzednim skrypcie U-SQL powtórzono użycie WYODRĘBNIAnia do odczytu z tego samego pliku źródłowego. Za pomocą funkcji zwracającej tabelę w języku U-SQL (TVF) można hermetyzować dane do użytku w przyszłości.  
 
-Poniższy skrypt tworzy plik `Searchlog()` TVF wywoływany w domyślnej bazie danych i schemacie:
+Poniższy skrypt tworzy TVF o nazwie wywoływanej `Searchlog()` w domyślnej bazie danych i schemacie:
 
 ```
 DROP FUNCTION IF EXISTS Searchlog;
@@ -72,9 +72,9 @@ OUTPUT @res
 
 ## <a name="create-views"></a>Tworzenie widoków
 
-Jeśli masz pojedyncze wyrażenie zapytania, zamiast TVF można użyć U-SQL VIEW do hermetyzacji tego wyrażenia.
+Jeśli masz pojedyncze wyrażenie zapytania, a nie TVF, możesz użyć widoku U-SQL do hermetyzacji tego wyrażenia.
 
-Następujący skrypt tworzy widok `SearchlogView` wywoływany w domyślnej bazie danych i schemacie:
+Poniższy skrypt tworzy widok o nazwie `SearchlogView` w domyślnej bazie danych i schemacie:
 
 ```
 DROP VIEW IF EXISTS SearchlogView;
@@ -91,7 +91,7 @@ CREATE VIEW SearchlogView AS
 USING Extractors.Tsv();
 ```
 
-Poniższy skrypt pokazuje użycie zdefiniowanego widoku:
+Poniższy skrypt demonstruje użycie zdefiniowanego widoku:
 
 ```
 @res =
@@ -109,7 +109,7 @@ OUTPUT @res
 ```
 
 ## <a name="create-tables"></a>Tworzenie tabel
-Podobnie jak w przypadku tabel relacyjnych bazy danych, za pomocą języka U-SQL można utworzyć tabelę ze wstępnie zdefiniowanym schematem lub utworzyć tabelę, która wylicza schemat z kwerendy, która wypełnia tabelę (nazywaną również CREATE TABLE AS SELECT lub CTAS).
+Podobnie jak w przypadku tabel relacyjnych baz danych, za pomocą języka U-SQL można utworzyć tabelę ze wstępnie zdefiniowanym schematem lub utworzyć tabelę, która wnioskuje schemat z zapytania, które wypełnia tabelę (nazywaną również CREATE TABLE jako SELECT lub CTAS).
 
 Utwórz bazę danych i dwie tabele przy użyciu następującego skryptu:
 
@@ -143,9 +143,9 @@ CREATE TABLE SearchLog2(
 ```
 
 ## <a name="query-tables"></a>Wykonywanie zapytań dotyczących tabel
-Można wysyłać zapytania do tabel, takich jak utworzone w poprzednim skrypcie, w taki sam sposób, w jaki wysyłasz zapytania do plików danych. Zamiast tworzyć zestaw wierszy przy użyciu EXTRACT, można teraz odwołać się do nazwy tabeli.
+Można wykonywać zapytania dotyczące tabel, takich jak te utworzone w poprzednim skrypcie, w taki sam sposób, jak pliki danych. Zamiast tworzenia zestawu wierszy przy użyciu WYODRĘBNIAnia, możesz teraz odwołać się do nazwy tabeli.
 
-Aby odczytać z tabel, zmodyfikuj skrypt przekształcania, który był wcześniej używany:
+Aby odczytywać z tabel, zmodyfikuj użyty wcześniej skrypt przekształcenia:
 
 ```
 @rs1 =
@@ -168,7 +168,7 @@ OUTPUT @res
 ```
 
  >[!NOTE]
- >Obecnie nie można uruchomić select w tabeli w tym samym skrypcie, w którym utworzono tabelę.
+ >Obecnie nie można uruchomić SELECT w tabeli w tym samym skrypcie, w której utworzono tabelę.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Omówienie usługi Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

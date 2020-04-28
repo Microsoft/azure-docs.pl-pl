@@ -1,6 +1,6 @@
 ---
-title: Przewodnik po programowalności U-SQL dla usługi Azure Data Lake
-description: Dowiedz się więcej o zestawie usług w usłudze Azure Data Lake Analytics, które umożliwiają tworzenie chmurowej platformy danych big data.
+title: Przewodnik programowania U-SQL dla Azure Data Lake
+description: Dowiedz się więcej o zestawie usług w Azure Data Lake Analytics, które umożliwiają tworzenie opartej na chmurze platformy danych Big Data.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -10,19 +10,19 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: dc55615d7a5c6ae9a393ed4fd5f49cd92aedc0f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73162579"
 ---
 # <a name="u-sql-programmability-guide"></a>Przewodnik programowania U-SQL
 
-U-SQL to język zapytań przeznaczony dla obciążeń typu danych big data. Jedną z unikatowych cech U-SQL jest połączenie języka deklaratywnego podobnego do JĘZYKA SQL z rozszerzalnością i programowalnością, która jest dostarczana przez język C#. W tym przewodniku koncentrujemy się na rozszerzalności i programowalność języka U-SQL, który jest włączony przez C#.
+Skrypt U-SQL jest językiem zapytań, który jest przeznaczony do obsługi dużych ilości danych obciążeń. Jedną z unikatowych funkcji języka U-SQL jest kombinacja języków deklaratywnych podobnej do języka SQL z rozszerzalnością i programowaniem udostępnianym przez język C#. W tym przewodniku skoncentrujemy się na rozszerzalności i programowaniu języka U-SQL, który jest włączony w języku C#.
 
 ## <a name="requirements"></a>Wymagania
 
-Pobierz i zainstaluj [narzędzia usługi Azure Data Lake Tools dla programu Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
+Pobierz i zainstaluj [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
 
 ## <a name="get-started-with-u-sql"></a>Wprowadzenie do języka U-SQL  
 
@@ -44,11 +44,11 @@ Spójrz na następujący skrypt U-SQL:
   FROM @a;    
 ```
 
-Ten skrypt definiuje dwa zestawy `@a` `@results`wierszy: i . Zestaw `@results` wierszy `@a`jest zdefiniowany z pliku .
+Ten skrypt definiuje dwa zestawy wierszy: `@a` i `@results`. Zestaw `@results` wierszy jest definiowany `@a`z.
 
-## <a name="c-types-and-expressions-in-u-sql-script"></a>Typy i wyrażenia języka C# w skrypcie U-SQL
+## <a name="c-types-and-expressions-in-u-sql-script"></a>Typy i wyrażenia C# w skrypcie U-SQL
 
-Wyrażenie U-SQL jest wyrażeniem języka C# połączonym `AND` `OR`z `NOT`operacjami logicznymi U-SQL, takimi jak , i . Wyrażenia U-SQL mogą być używane z SELECT, EXTRACT, WHERE, HAVING, GROUP BY i DECLARE. Na przykład następujący skrypt analizuje ciąg jako wartość DateTime.
+Wyrażenie u-SQL to wyrażenie języka C# połączone z operacjami logicznymi U-SQL `AND`, `OR`takimi `NOT`jak, i. Wyrażenia U-SQL mogą być używane z opcją SELECT, EXTRACT, WHERE, HAVING, GROUP BY i DECLARE. Na przykład następujący skrypt analizuje ciąg jako wartość DateTime.
 
 ```
 @results =
@@ -59,15 +59,15 @@ Wyrażenie U-SQL jest wyrażeniem języka C# połączonym `AND` `OR`z `NOT`opera
   FROM @a;    
 ```
 
-Poniższy urywek analizuje ciąg jako datetime wartość w DECLARE instrukcji.
+Poniższy fragment kodu analizuje ciąg jako wartość DateTime w instrukcji DECLARE.
 
 ```
 DECLARE @d = DateTime.Parse("2016/01/01");
 ```
 
-### <a name="use-c-expressions-for-data-type-conversions"></a>Używanie wyrażeń języka C# do konwersji typu danych
+### <a name="use-c-expressions-for-data-type-conversions"></a>Używanie wyrażeń języka C# do konwersji typów danych
 
-W poniższym przykładzie pokazano, jak można wykonać konwersję danych datetime przy użyciu wyrażeń języka C#. W tym konkretnym scenariuszu dane datetime ciągu ciąg jest konwertowany na standardowy datetime z północy 00:00:00 czas notacji.
+W poniższym przykładzie pokazano, jak można wykonać konwersję danych daty/godziny przy użyciu wyrażeń języka C#. W tym konkretnym scenariuszu dane daty i godziny są konwertowane na standardową datę i godzinę o północy 00:00:00.
 
 ```
 DECLARE @dt = "2016-07-06 10:23:15";
@@ -83,11 +83,11 @@ OUTPUT @rs1
   USING Outputters.Text();
 ```
 
-### <a name="use-c-expressions-for-todays-date"></a>Używanie wyrażeń języka C# dla dzisiejszej daty
+### <a name="use-c-expressions-for-todays-date"></a>Użyj wyrażeń języka C# dla dzisiejszej daty
 
-Aby wyciągnąć dzisiejszą datę, możemy użyć następującego wyrażenia C#:`DateTime.Now.ToString("M/d/yyyy")`
+Aby ściągnąć bieżącą datę, można użyć następującego wyrażenia języka C#:`DateTime.Now.ToString("M/d/yyyy")`
 
-Oto przykład użycia tego wyrażenia w skrypcie:
+Oto przykład sposobu użycia tego wyrażenia w skrypcie:
 
 ```
 @rs1 =
@@ -104,41 +104,41 @@ Oto przykład użycia tego wyrażenia w skrypcie:
 ```
 ## <a name="using-net-assemblies"></a>Korzystanie z zestawów .NET
 
-Model rozszerzalności języka U-SQL w dużej mierze opiera się na możliwości dodawania kodu niestandardowego z zestawów .NET. 
+Model rozszerzalności U-SQL jest w dużym stopniu oparty na możliwości dodawania niestandardowego kodu z zestawów .NET. 
 
-### <a name="register-a-net-assembly"></a>Rejestrowanie zestawu .NET
+### <a name="register-a-net-assembly"></a>Rejestrowanie zestawu platformy .NET
 
-Instrukcja `CREATE ASSEMBLY` służy do umieszczania zestawu .NET w bazie danych U-SQL. Następnie skrypty U-SQL można użyć tych `REFERENCE ASSEMBLY` zestawów przy użyciu instrukcji. 
+Użyj instrukcji `CREATE ASSEMBLY` , aby umieścić zestaw .net w SQL Database. Następnie skrypty U-SQL mogą używać tych zestawów przy użyciu `REFERENCE ASSEMBLY` instrukcji. 
 
-Poniższy kod pokazuje, jak zarejestrować zestaw:
+Poniższy kod przedstawia sposób rejestrowania zestawu:
 
 ```
 CREATE ASSEMBLY MyDB.[MyAssembly]
    FROM "/myassembly.dll";
 ```
 
-Poniższy kod pokazuje, jak odwoływać się do zestawu:
+Poniższy kod ilustruje sposób odwoływania się do zestawu:
 
 ```
 REFERENCE ASSEMBLY MyDB.[MyAssembly];
 ```
 
-Zapoznaj się z [instrukcjami rejestracji zestawu,](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) które obejmują ten temat bardziej szczegółowo.
+Zapoznaj się z [instrukcjami dotyczącymi rejestracji zestawów](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) , które szczegółowo omawiają ten temat.
 
 
-### <a name="use-assembly-versioning"></a>Korzystanie z przechowywania wersji zestawu
-Obecnie U-SQL używa programu .NET Framework w wersji 4.5. Dlatego upewnij się, że własne zestawy są zgodne z tą wersją środowiska wykonawczego.
+### <a name="use-assembly-versioning"></a>Użyj wersji zestawu
+Obecnie skrypt U-SQL używa .NET Framework w wersji 4,5. Upewnij się, że własne zestawy są zgodne z tą wersją środowiska uruchomieniowego.
 
-Jak wspomniano wcześniej, U-SQL uruchamia kod w formacie 64-bitowym (x64). Więc upewnij się, że kod jest skompilowany do uruchomienia na x64. W przeciwnym razie pojawi się błąd nieprawidłowego formatu wyświetlany wcześniej.
+Jak wspomniano wcześniej, skrypt U-SQL uruchamia kod w formacie 64-bitowym (x64). Upewnij się, że kod został skompilowany do uruchamiania na x64. W przeciwnym razie zostanie wyświetlony komunikat o błędzie o niepoprawnym formacie.
 
-Każdy przekazany plik DLL zestawu i pliku zasobów, takich jak inny środowiska wykonawczego, natywnego zestawu lub pliku konfiguracyjnego, może mieć co najwyżej 400 MB. Całkowity rozmiar wdrożonych zasobów za pośrednictwem deploy resource lub za pośrednictwem odwołań do zestawów i ich dodatkowych plików nie może przekraczać 3 GB.
+Każda przekazana Biblioteka DLL zestawu i plik zasobów, na przykład inne środowisko uruchomieniowe, zestaw natywny lub plik konfiguracji, może mieć co najwyżej 400 MB. Łączny rozmiar wdrożonych zasobów, za pośrednictwem zasobu wdrażania lub odwołań do zestawów i ich dodatkowych plików, nie może przekroczyć 3 GB.
 
-Na koniec należy zauważyć, że każda baza danych U-SQL może zawierać tylko jedną wersję danego zestawu. Na przykład jeśli potrzebujesz zarówno w wersji 7, jak i w wersji 8 biblioteki Json.NET NewtonSoft, musisz zarejestrować je w dwóch różnych bazach danych. Ponadto każdy skrypt może odwoływać się tylko do jednej wersji biblioteki DLL danego zestawu. W związku z tym U-SQL następuje c# zarządzania zestawami i semantyki wersji.
+Na koniec należy pamiętać, że każda baza danych U-SQL może zawierać tylko jedną wersję danego zestawu. Jeśli na przykład wymagana jest wersja 7 i 8 biblioteki NewtonSoft Json.NET, należy zarejestrować je w dwóch różnych bazach danych. Ponadto każdy skrypt może odwoływać się tylko do jednej wersji biblioteki DLL zestawu. W tym aspekcie skrypt U-SQL jest zgodny z zasadami zarządzania zestawami w języku C# i semantyką wersji.
 
 ## <a name="use-user-defined-functions-udf"></a>Korzystanie z funkcji zdefiniowanych przez użytkownika: UDF
-U-SQL funkcje zdefiniowane przez użytkownika lub UDF, są procedury programowania, które akceptują parametry, wykonać akcję (na przykład obliczenia złożone) i zwraca wynik tej akcji jako wartość. Zwracana wartość UDF może być tylko pojedyncza skalarna. U-SQL UDF można wywołać w skrypcie podstawowym U-SQL, jak każda inna funkcja skalarna języka C#.
+Funkcje języka U-SQL zdefiniowane przez użytkownika lub UDF są procedurami programowania, które akceptują parametry, wykonywania akcji (takich jak złożone obliczenia) i zwracania wyniku tej akcji jako wartości. Wartość zwracana przez funkcję UDF może być tylko jedną wartością skalarną. Funkcja UDF języka u-SQL może być wywoływana w skrypcie podstawowym języka U-SQL, podobnie jak w przypadku każdej innej funkcji skalarnej C#.
 
-Zaleca się zainicjowanie funkcji zdefiniowanych przez użytkownika U-SQL jako **publicznych** i **statycznych**.
+Zalecamy zainicjowanie funkcji U-SQL zdefiniowanych przez użytkownika jako **Public** i **static**.
 
 ```
 public static string MyFunction(string param1)
@@ -147,11 +147,11 @@ public static string MyFunction(string param1)
 }
 ```
 
-Najpierw przyjrzyjmy się prostemu przykładowi tworzenia UDF.
+Najpierw przyjrzyjmy się prostemu przykładowi tworzenia plików UDF.
 
-W tym scenariuszu użycia musimy określić okres obrachunkowy, w tym kwartał obrachunkowy i miesiąc obrachunkowy pierwszego logowania dla określonego użytkownika. Pierwszym miesiącem fiskalnym roku w naszym scenariuszu jest czerwiec.
+W tym scenariuszu przypadku użycia musimy określić okres obrachunkowy, łącznie z kwartałem obrachunkowym oraz miesiącem obrachunkowym pierwszego logowania dla określonego użytkownika. Pierwszy miesiąc obrachunkowy roku w naszym scenariuszu to czerwiec.
 
-Aby obliczyć okres obrachunkowy, wprowadzamy następującą funkcję Języka C#:
+Aby obliczyć okres obrachunkowy, wprowadzamy następującą funkcję języka C#:
 
 ```
 public static string GetFiscalPeriod(DateTime dt)
@@ -188,11 +188,11 @@ public static string GetFiscalPeriod(DateTime dt)
 }
 ```
 
-Po prostu oblicza miesiąc obrachunkowy i kwartał i zwraca wartość ciągu. W czerwcu, pierwszym miesiącu pierwszego kwartału fiskalnego, używamy "Q1:P1". W lipcu używamy "Q1:P2" i tak dalej.
+Po prostu oblicza miesiąc obrachunkowy i kwartał i zwraca wartość ciągu. W czerwcu pierwszy miesiąc pierwszego kwartału obrachunkowego używa "Q1: P1". W lipcu używamy "Q1: P2" i tak dalej.
 
 Jest to zwykła funkcja języka C#, która będzie używana w naszym projekcie U-SQL.
 
-Oto jak wygląda sekcja bez kodu w tym scenariuszu:
+Oto jak wygląda sekcja powiązane z kodem w tym scenariuszu:
 
 ```
 using Microsoft.Analytics.Interfaces;
@@ -242,13 +242,13 @@ namespace USQL_Programmability
 }
 ```
 
-Teraz będziemy wywoływać tę funkcję z podstawowego skryptu U-SQL. Aby to zrobić, musimy podać w pełni kwalifikowaną nazwę dla funkcji, w tym obszar nazw, który w tym przypadku jest NameSpace.Class.Function(parameter).
+Teraz będziemy wywoływać tę funkcję z podstawowego skryptu U-SQL. W tym celu należy podać w pełni kwalifikowaną nazwę funkcji, w tym przestrzeń nazw, która w tym przypadku jest przestrzeń nazw. Class. Function (parametr).
 
 ```
 USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)
 ```
 
-Poniżej znajduje się rzeczywisty skrypt podstawowy U-SQL:
+Poniżej przedstawiono rzeczywisty skrypt podstawowy U-SQL:
 
 ```
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -290,22 +290,22 @@ Poniżej znajduje się plik wyjściowy wykonywania skryptu:
 301f23d2-d690-11e5-9a98-4b4f60a1836f,2016-02-11T09:01:33.9720000-08:00,2016-06-01T00:00:00.0000000,"Q3:8","User3",""
 ```
 
-W tym przykładzie pokazano proste użycie wbudowanego UDF w U-SQL.
+W tym przykładzie pokazano proste użycie wbudowanego formatu UDF w języku U-SQL.
 
 ### <a name="keep-state-between-udf-invocations"></a>Zachowaj stan między wywołaniami UDF
-Obiekty programowalności języka U-SQL C# mogą być bardziej zaawansowane, wykorzystując interaktywność za pośrednictwem zmiennych globalnych związanych z kodem. Przyjrzyjmy się następującego scenariusza przypadku użycia biznesowego.
+Obiekty programowania U-SQL C# mogą być bardziej zaawansowane, wykorzystując interaktywność za pomocą zmiennych globalnych związanych z kodem. Przyjrzyjmy się w następującym scenariuszu przypadku użycia biznesowego.
 
-W dużych organizacjach użytkownicy mogą przełączać się między odmianami aplikacji wewnętrznych. Mogą to być programy Microsoft Dynamics CRM, PowerBI itd. Klienci mogą chcieć zastosować analizę telemetryczną, jak użytkownicy przełączają się między różnymi aplikacjami, jakie są trendy użycia i tak dalej. Celem firmy jest optymalizacja użycia aplikacji. Mogą również chcieć połączyć różne aplikacje lub określone procedury logowania.
+W dużych organizacjach użytkownicy mogą przełączać się między odmianami wewnętrznych aplikacji. Mogą one obejmować program Microsoft Dynamics CRM, usługi PowerBI i tak dalej. Klienci mogą chcieć zastosować analizę telemetrii, w jaki sposób użytkownicy przełączają się między różnymi aplikacjami, czym są trendy użycia i tak dalej. Celem firmy jest zoptymalizowanie użycia aplikacji. Mogą także chcieć połączyć różne aplikacje lub konkretne procedury logowania.
 
-Aby osiągnąć ten cel, musimy określić identyfikatory sesji i czas opóźnienia między ostatnią sesją, która wystąpiła.
+Aby osiągnąć ten cel, musimy określić identyfikatory sesji i czas zwłoki między ostatnią sesją, która wystąpiła.
 
-Musimy znaleźć poprzednie logowanie, a następnie przypisać to logowanie do wszystkich sesji, które są generowane do tej samej aplikacji. Pierwszym wyzwaniem jest to, że skrypt podstawowy U-SQL nie pozwala nam na stosowanie obliczeń na już obliczonych kolumnach z funkcją LGD. Drugim wyzwaniem jest to, że musimy zachować konkretną sesję dla wszystkich sesji w tym samym okresie.
+Musimy znaleźć poprzednie logowanie, a następnie przypisać to logowanie do wszystkich sesji, które są generowane w tej samej aplikacji. Pierwsze wyzwanie polega na tym, że skrypt podstawowy języka U-SQL nie pozwala na stosowanie obliczeń do już obliczonych kolumn z funkcją LAG. Drugie wyzwanie polega na tym, że musimy utrzymywać określoną sesję dla wszystkich sesji w tym samym czasie.
 
-Aby rozwiązać ten problem, używamy zmiennej globalnej `static public string globalSession;`w sekcji związanej z kodem: .
+Aby rozwiązać ten problem, używana jest zmienna globalna wewnątrz sekcji kodu: `static public string globalSession;`.
 
 Ta zmienna globalna jest stosowana do całego zestawu wierszy podczas wykonywania skryptu.
 
-Oto sekcja dotycząca kodu naszego programu U-SQL:
+Oto sekcja kodu w naszym programie U-SQL:
 
 ```
 using Microsoft.Analytics.Interfaces;
@@ -343,9 +343,9 @@ namespace USQLApplication21
 }
 ```
 
-W tym przykładzie `static public string globalSession;` pokazano `getStampUserSession` zmienną globalną używaną wewnątrz funkcji i uzyskiwanie ponownego inicjalizowania za każdym razem, gdy parametr Session jest zmieniany.
+Ten przykład pokazuje zmienną `static public string globalSession;` globalną używaną wewnątrz `getStampUserSession` funkcji i zainicjowaną ponownie za każdym razem, gdy parametr sesji zostanie zmieniony.
 
-Podstawowy skrypt U-SQL jest następujący:
+Skrypt podstawowy U-SQL jest następujący:
 
 ```
 DECLARE @in string = @"\UserSession\test1.tsv";
@@ -395,7 +395,7 @@ OUTPUT @rs2
     USING Outputters.Csv();
 ```
 
-Funkcja `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` jest wywoływana w tym miejscu podczas obliczania drugiego zestawu wierszy pamięci. Przekazuje kolumnę `UserSessionTimestamp` i zwraca `UserSessionTimestamp` wartość, dopóki nie ujmuje się.
+Funkcja `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` jest wywoływana w tym miejscu podczas obliczania drugiego zestawu wierszy pamięci. Przekazuje `UserSessionTimestamp` kolumnę i zwraca wartość do momentu `UserSessionTimestamp` zmiany.
 
 Plik wyjściowy jest następujący:
 
@@ -424,17 +424,17 @@ Plik wyjściowy jest następujący:
 "2016-02-19T01:20:31.4800000-08:00","User4","2016-02-18T14:37:27.6560000-08:00",False,"2136f4cf-7c7d-43c1-8ae2-08f4ad6a6e08"
 ```
 
-W tym przykładzie pokazano bardziej skomplikowany scenariusz przypadku użycia, w którym używamy zmiennej globalnej wewnątrz sekcji związanej z kodem, która jest stosowana do całego zestawu wierszy pamięci.
+W tym przykładzie przedstawiono bardziej skomplikowany scenariusz przypadków użycia, w którym używana jest zmienna globalna w sekcji kodu, która jest stosowana do całego zestawu wierszy pamięci.
 
-## <a name="use-user-defined-types-udt"></a>Używanie typów zdefiniowanych przez użytkownika: UDT
-Typy zdefiniowane przez użytkownika lub UDT to kolejna funkcja programowalności języka U-SQL. U-SQL UDT działa jak zwykły typ zdefiniowany przez użytkownika języka C#. C# jest silnie wpisany język, który umożliwia korzystanie z wbudowanych i niestandardowych typów zdefiniowanych przez użytkownika.
+## <a name="use-user-defined-types-udt"></a>Użyj typów zdefiniowanych przez użytkownika: UDT
+Typy zdefiniowane przez użytkownika lub UDT są kolejną funkcją programowalności języka U-SQL. Program U-SQL UDT działa jak zwykły typ zdefiniowany przez użytkownika w języku C#. C# jest jednoznacznie określonym językiem, który umożliwia korzystanie z wbudowanych i niestandardowych typów zdefiniowanych przez użytkownika.
 
-U-SQL nie może niejawnie serializować lub de-serializować dowolnych UDTs, gdy UDT jest przekazywana między wierzchołkami w zestawach wierszy. Oznacza to, że użytkownik musi podać jawne formater przy użyciu interfejsu IFormatter. Zapewnia to U-SQL z metody serializacji i de-serializacji dla UDT.
+Skrypt U-SQL nie może niejawnie serializować lub deserializować dowolnych UDTs, gdy UDT jest przenoszona między wierzchołkami w zestawach wierszy. Oznacza to, że użytkownik musi dostarczyć jawny program formatujący przy użyciu interfejsu IFormatter. Zapewnia to język U-SQL z metodami serializacji i deserializacji dla UDT.
 
 > [!NOTE]
-> Wbudowane ekstraktory i wyjścia U-SQL nie mogą obecnie serializować ani de-serializować danych UDT do lub z plików nawet z zestawem IFormatter. Tak więc podczas pisania danych UDT do pliku z OUTPUT instrukcji lub odczytu go z ekstraktorem, należy przekazać go jako ciąg lub tablicy bajtów. Następnie należy wywołać kod serializacji i deserializacji (czyli metoda ToString() UDT) jawnie. Z drugiej strony, zdefiniowane przez użytkownika ekstraktory i wyjścia mogą odczytywać i zapisywać UDTs.
+> Wbudowane wtyczki języka U-SQL i wypełniania nie można obecnie serializować lub deserializować danych UDT do lub z plików, nawet z zestawem IFormatter. Dlatego podczas zapisywania danych UDT do pliku z instrukcją OUTPUT lub odczytywania go za pomocą ekstraktora należy przekazać go jako ciąg lub tablicę bajtów. Następnie należy wywołać kod serializacji i deserializacji (oznacza to, że Metoda ToString () obiektu UDT jest jawnie. Zdefiniowane przez użytkownika programy wyodrębniające i wyskakujące, z drugiej strony, mogą odczytywać i zapisywać UDTs.
 
-Jeśli spróbujemy użyć UDT w EXTRACTOR lub OUTPUTTER (z poprzedniego SELECT), jak pokazano poniżej:
+Jeśli spróbujemy użyć UDT w EKSTRAKTORze lub wypełnieniu (z poprzedniego wyboru), jak pokazano poniżej:
 
 ```
 @rs1 =
@@ -447,7 +447,7 @@ OUTPUT @rs1
     USING Outputters.Text();
 ```
 
-Otrzymujemy następujący błąd:
+Zostanie wyświetlony następujący błąd:
 
 ```
 Error   1   E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
@@ -464,9 +464,9 @@ the preceding SELECT.   C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\
 USQL-Programmability\Types.usql 52  1   USQL-Programmability
 ```
 
-Aby pracować z UDT w outputter, musimy albo serializować go do ciągu z ToString() metody lub utworzyć niestandardowy outputter.
+Aby można było korzystać z UDT w wypełnieniu, musimy serializować go do ciągu za pomocą metody ToString () lub utworzyć niestandardowy element.
 
-Obecnie nie można używać UDTs w grupie WEDŁUG. Jeśli UDT jest używany w GROUP BY, zgłaszany jest następujący błąd:
+Nie można obecnie używać UDTs w grupie GROUP BY. Jeśli UDT jest używany w grupie przez, zgłaszany jest następujący błąd:
 
 ```
 Error   1   E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
@@ -485,26 +485,26 @@ C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\USQ
 
 Aby zdefiniować UDT, musimy:
 
-* Dodaj następujące obszary nazw:
+* Dodaj następujące przestrzenie nazw:
 
 ```
 using Microsoft.Analytics.Interfaces
 using System.IO;
 ```
 
-* Dodaj `Microsoft.Analytics.Interfaces`, co jest wymagane dla interfejsów UDT. Ponadto `System.IO` może być konieczne zdefiniowanie interfejsu IFormatter.
+* Dodaj `Microsoft.Analytics.Interfaces`, który jest wymagany dla interfejsów UDT. Ponadto `System.IO` może być konieczne zdefiniowanie interfejsu IFormatter.
 
-* Zdefiniuj typ zdefiniowany za pomocą atrybutu SqlUserDe defineedType.
+* Zdefiniuj użyty-zdefiniowany typ z atrybutem SqlUserDefinedType.
 
-**SqlUserDefinedType** służy do oznaczania definicji typu w zestawie jako typu zdefiniowanego przez użytkownika (UDT) w U-SQL. Właściwości atrybutu odzwierciedlają fizyczne właściwości UDT. Klasa ta nie może być dziedziczona.
+**SqlUserDefinedType** służy do oznaczania definicji typu w zestawie jako typu zdefiniowanego przez użytkownika (UDT) w języku U-SQL. Właściwości w atrybucie odzwierciedlają fizyczne cechy UDT. Klasa ta nie może być dziedziczona.
 
-SqlUserDefinedType jest atrybutem wymaganym dla definicji UDT.
+SqlUserDefinedType jest wymaganym atrybutem dla definicji UDT.
 
 Konstruktor klasy:  
 
-* SqlUserDefinedTypeAttribute (formater typów)
+* SqlUserDefinedTypeAttribute (typ programu formatującego)
 
-* Formater typu: Wymagany parametr do zdefiniowania formatera UDT - `IFormatter` w szczególności typ interfejsu musi być przekazany w tym miejscu.
+* Typ programu formatującego: parametr wymagany do zdefiniowania programu formatującego typu UDT — w tym celu należy `IFormatter` przesłać tutaj typ interfejsu.
 
 ```
 [SqlUserDefinedType(typeof(MyTypeFormatter))]
@@ -512,7 +512,7 @@ public class MyType
 { … }
 ```
 
-* Typowy UDT wymaga również definicji interfejsu IFormatter, jak pokazano w poniższym przykładzie:
+* Typowy typ UDT wymaga również definicji interfejsu IFormatter, jak pokazano w następującym przykładzie:
 
 ```
 public class MyTypeFormatter : IFormatter<MyType>
@@ -525,27 +525,27 @@ public class MyTypeFormatter : IFormatter<MyType>
 }
 ```
 
-The `IFormatter` interface serializes and de-serializes an object graph with the root type of \<typeparamref name="T">.
+Serializacja `IFormatter` interfejsu i deserializacji grafu obiektu z typem głównym \<Typeparamref Name = "T" >.
 
-\<typeparam name="T">Typ główny wykresu obiektu do serializacji i de-serializacji.
+\<typeparam Name = "T" >typ główny grafu obiektów do serializacji i deserializacji.
 
-* **Deserialize:** De-serializes danych na dostarczonym strumieniu i rekonstytuuje wykres obiektów.
+* **Deserializacja: deserializacji dane**z dostarczonego strumienia i reprodukcji grafu obiektów.
 
-* **Serialize:** Serializes obiektu lub wykres obiektów, z danym katalogu głównego do dostarczonego strumienia.
+* **Serializacja**: serializacja obiektu lub grafu obiektów z podanym elementem głównym do podanego strumienia.
 
-`MyType`wystąpienie: Wystąpienie typu.  
-`IColumnWriter`moduł `IColumnReader` zapisujący/czytnik: strumień kolumny źródłowej.  
-`ISerializationContext`kontekst: Wyliczenie, który definiuje zestaw flag, który określa kontekst źródłowy lub docelowy dla strumienia podczas serializacji.
+`MyType`wystąpienie: wystąpienie typu.  
+`IColumnWriter`składnik zapisywania `IColumnReader` /czytelnik: źródłowy strumień kolumn.  
+`ISerializationContext`Context: enum, który definiuje zestaw flag, który określa źródłowy lub docelowy kontekst strumienia podczas serializacji.
 
-* **Pośredni:** Określa, że kontekst źródłowy lub docelowy nie jest magazynem utrwalonych.
+* **Pośredni**: określa, że kontekst źródłowy lub docelowy nie jest magazynem utrwalonym.
 
-* **Trwałość:** Określa, że kontekst źródłowy lub docelowy jest magazynem utrwalone.
+* **Trwałość**: określa, że kontekst źródłowy lub docelowy to utrwalony magazyn.
 
-Jako zwykły typ języka C# definicja U-SQL UDT może zawierać zastąpienia dla operatorów, takich jak +/==/!=. Może również zawierać metody statyczne. Na przykład jeśli mamy zamiar użyć tego UDT jako parametr u-SQL MIN funkcji agregacji, musimy zdefiniować < zastępowanie operatora.
+Jako zwykły typ C# definicja UDT języka U-SQL może zawierać przesłonięcia dla operatorów, takich jak +/= =/! =. Może również zawierać metody statyczne. Na przykład jeśli będziemy używać tego UDT jako parametru do minimalnej funkcji agregującej U-SQL, musimy zdefiniować < przesłonięcia operatora.
 
-Wcześniej w tym przewodniku, wykazaliśmy przykład identyfikacji okresu obrachunkowego od konkretnej daty w formacie `Qn:Pn (Q1:P10)`. W poniższym przykładzie pokazano, jak zdefiniować typ niestandardowy dla wartości okresu obrachunkowego.
+Wcześniej w tym przewodniku przedstawiono przykład identyfikacji okresu obrachunkowego z określonego dnia w formacie `Qn:Pn (Q1:P10)`. Poniższy przykład pokazuje, jak zdefiniować typ niestandardowy dla wartości okresu obrachunkowego.
 
-Poniżej przedstawiono przykład sekcji bez kodu z niestandardowym interfejsem UDT i IFormatter:
+Poniżej znajduje się przykład sekcji związanej z kodem z niestandardowym interfejsem UDT i IFormatter:
 
 ```
 [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
@@ -646,11 +646,11 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-Zdefiniowany typ obejmuje dwie liczby: kwartał i miesiąc. Operatory `==/!=/>/<` i `ToString()` metoda statyczna są zdefiniowane w tym miejscu.
+Zdefiniowany typ zawiera dwie liczby: kwartał i miesiąc. Operatory `==/!=/>/<` i Metoda `ToString()` statyczna są zdefiniowane w tym miejscu.
 
-Jak wspomniano wcześniej, UDT może być używany w wyrażeniach SELECT, ale nie może być używany w OUTPUTTER/EXTRACTOR bez niestandardowej serializacji. Albo musi być serializowany jako `ToString()` ciąg z lub używane z niestandardowych OUTPUTTER/EXTRACTOR.
+Jak wspomniano wcześniej, można użyć UDT w wyrażeniach SELECT, ale nie można używać go w wypełnieniu/EKSTRAKTORze bez serializacji niestandardowej. Musi być serializowany jako ciąg z `ToString()` lub używany z niestandardowym wyciągiem/ekstraktorem.
 
-Teraz porozmawiajmy o użyciu UDT. W sekcji związanej z kodem zmieniliśmy naszą funkcję GetFiscalPeriod na następującą:
+Teraz omawiamy użycie UDT. W sekcji kodu została zmieniona nasza funkcja GetFiscalPeriod na następujące:
 
 ```
 public static FiscalPeriod GetFiscalPeriodWithCustomType(DateTime dt)
@@ -689,7 +689,7 @@ public static FiscalPeriod GetFiscalPeriodWithCustomType(DateTime dt)
 
 Jak widać, zwraca wartość naszego typu FiscalPeriod.
 
-Poniżej przedstawiamy przykład, jak używać go dalej w skrypcie podstawowym U-SQL. W tym przykładzie przedstawiono różne formy wywołania UDT ze skryptu U-SQL.
+Tutaj przedstawiono przykład korzystania z niego w skrypcie podstawowym języka U-SQL. W tym przykładzie pokazano różne formy wywołania UDT ze skryptu U-SQL.
 
 ```
 DECLARE @input_file string = @"c:\work\cosmos\usql-programmability\input_file.tsv";
@@ -895,10 +895,10 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-## <a name="use-user-defined-aggregates-udagg"></a>Używanie agregatów zdefiniowanych przez użytkownika: UDAGG
-Agregaty zdefiniowane przez użytkownika to wszystkie funkcje związane z agregacją, które nie są dostarczane z u-SQL. Przykładem może być agregacja do wykonywania niestandardowych obliczeń matematycznych, konkadowania ciągów, manipulacje z ciągami i tak dalej.
+## <a name="use-user-defined-aggregates-udagg"></a>Użyj agregacji zdefiniowanych przez użytkownika: UDAGG
+Agregacje zdefiniowane przez użytkownika to wszelkie funkcje związane z agregacją, które nie są dostarczane z użyciem języka U-SQL. Przykładem może być agregacja, która umożliwia wykonywanie niestandardowych obliczeń matematycznych, łączenie ciągów, manipulowanie za pomocą ciągów i tak dalej.
 
-Zdefiniowana przez użytkownika definicja klasy podstawowej agregacji jest następująca:
+Zdefiniowana przez użytkownika definicja klasy bazowej agregacji jest następująca:
 
 ```csharp
     [SqlUserDefinedAggregate]
@@ -914,10 +914,10 @@ Zdefiniowana przez użytkownika definicja klasy podstawowej agregacji jest nast�
 
 **SqlUserDefinedAggregate** wskazuje, że typ powinien być zarejestrowany jako agregacja zdefiniowana przez użytkownika. Klasa ta nie może być dziedziczona.
 
-Atrybut SqlUserDedefedType jest **opcjonalny** dla definicji UDAGG.
+Atrybut SqlUserDefinedType jest **opcjonalny** dla definicji UDAGG.
 
 
-Klasa podstawowa umożliwia przekazywanie trzech parametrów abstrakcyjnych: dwa jako parametry wejściowe i jeden jako wynik. Typy danych są zmienne i powinny być zdefiniowane podczas dziedziczenia klasy.
+Klasa bazowa umożliwia przekazywanie trzech parametrów abstrakcyjnych: dwa jako parametry wejściowe i jeden jako wynik. Typy danych są zmienne i powinny być zdefiniowane podczas dziedziczenia klas.
 
 ```
 public class GuidAggregate : IAggregate<string, string, string>
@@ -935,19 +935,19 @@ public class GuidAggregate : IAggregate<string, string, string>
 }
 ```
 
-* **Init** wywołuje raz dla każdej grupy podczas obliczeń. Zapewnia procedurę inicjowania dla każdej grupy agregacji.  
-* **Akumuluj** jest wykonywany raz dla każdej wartości. Zapewnia główne funkcje algorytmu agregacji. Może służyć do agregowania wartości z różnych typów danych, które są zdefiniowane podczas dziedziczenia klasy. Może akceptować dwa parametry typów danych zmiennych.
-* **Terminate** jest wykonywany raz na grupę agregacji na końcu przetwarzania do wyprowadzenia wyniku dla każdej grupy.
+* **Init** wywołuje jeden raz dla każdej grupy podczas obliczania. Zapewnia procedurę inicjowania dla każdej grupy agregacji.  
+* **Gromadzenie** jest wykonywane raz dla każdej wartości. Zapewnia główną funkcjonalność algorytmu agregacji. Może służyć do agregowania wartości przy użyciu różnych typów danych, które są zdefiniowane podczas dziedziczenia klas. Może akceptować dwa parametry zmiennych typów danych.
+* **Zakończenie** jest wykonywane raz dla każdej grupy agregacji na końcu przetwarzania, aby wyprowadzić wynik dla każdej grupy.
 
-Aby zadeklarować poprawne typy danych wejściowych i wyjściowych, należy użyć definicji klasy w następujący sposób:
+Aby zadeklarować poprawne dane wejściowe i wyjściowe, Użyj definicji klasy w następujący sposób:
 
 ```
 public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
-* T1: Pierwszy parametr do akumulacji
-* T2: Drugi parametr do akumulacji
-* TResult: Zwraca typ zakończenia
+* T1: pierwszy parametr do akumulacji
+* T2: drugi parametr do akumulacji
+* TResult: zwracany typ przerwania
 
 Przykład:
 
@@ -961,8 +961,8 @@ lub
 public class GuidAggregate : IAggregate<string, string, string>
 ```
 
-### <a name="use-udagg-in-u-sql"></a>Użyj UDAGG w U-SQL
-Aby użyć UDAGG, najpierw zdefiniuj go w kodzie lub odwołaj się do niego z istniejącej biblioteki DLL programowania, jak wspomniano wcześniej.
+### <a name="use-udagg-in-u-sql"></a>Używanie UDAGG w języku U-SQL
+Aby użyć UDAGG, najpierw Zdefiniuj ją w kodzie lub odwołuje się do niej z istniejącej biblioteki DLL programowania, jak opisano wcześniej.
 
 Następnie użyj następującej składni:
 
@@ -1023,63 +1023,63 @@ DECLARE @output_file string = @" \usql-programmability\output_file.tsv";
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-W tym scenariuszu przypadku użycia łączymy identyfikatory GUID klasy dla określonych użytkowników.
+W tym scenariuszu przypadku użycia łączymy identyfikatory GUID klas dla określonych użytkowników.
 
-## <a name="use-user-defined-objects-udo"></a>Używanie obiektów zdefiniowanych przez użytkownika: UDO
-U-SQL umożliwia definiowanie niestandardowych obiektów programowalności, które są nazywane obiektami zdefiniowanymi przez użytkownika lub UDO.
+## <a name="use-user-defined-objects-udo"></a>Użyj obiektów zdefiniowanych przez użytkownika: UDO
+Język U-SQL umożliwia Definiowanie niestandardowych obiektów programistycznych, które są nazywane obiektami zdefiniowanymi przez użytkownika lub UDO.
 
-Poniżej znajduje się lista UDO w U-SQL:
+Poniżej znajduje się lista UDO w języku U-SQL:
 
 * Ekstraktory zdefiniowane przez użytkownika
-    * Wyodrębnianie wiersza po wierszu
+    * Wyodrębnij wiersz według wiersza
     * Służy do implementowania wyodrębniania danych z niestandardowych plików strukturalnych
 
-* Dane wyjściowe zdefiniowane przez użytkownika
-    * Wynik wiersz po wierszu
-    * Służy do wyprowadzania niestandardowych typów danych lub niestandardowych formatów plików
+* Wyskakujące definicje zdefiniowane przez użytkownika
+    * Wiersz danych wyjściowych według wiersza
+    * Używane do wyprowadzania niestandardowych typów danych lub niestandardowych formatów plików
 
 * Procesory zdefiniowane przez użytkownika
-    * Weź jeden wiersz i wyprodukuj jeden wiersz
-    * Służy do zmniejszania liczby kolumn lub tworzenia nowych kolumn z wartościami pochodnymi istniejącego zestawu kolumn
+    * Weź jeden wiersz i Wygeneruj jeden wiersz
+    * Służy do zmniejszania liczby kolumn lub tworzenia nowych kolumn z wartościami, które są wyprowadzane z istniejącego zestawu kolumn
 
-* 2019 r.
-    * Weź jeden wiersz i wyprodukuj od 0 do n wierszy
-    * Używany z NA ZASTOSOWANIEM OUTER/CROSS
+* Appliers zdefiniowany przez użytkownika
+    * Weź jeden wiersz i Wygeneruj 0 do n wierszy
+    * Stosowane z ZASTOSOWANIEm ZEWNĘTRZNYm/KRZYŻowym
 
-* Kombajny zdefiniowane przez użytkownika
-    * Łączy zestawy wierszy — zdefiniowane przez użytkownika numery JOIN
+* Połączenia zdefiniowane przez użytkownika
+    * Łączy zestawy wierszy--zdefiniowane przez użytkownika sprzężeń
 
-* Reduktory zdefiniowane przez użytkownika
-    * Weź n wiersze i wyprodukuj jeden wiersz
+* Ograniczenia zdefiniowane przez użytkownika
+    * Zrób n wierszy i Wygeneruj jeden wiersz
     * Służy do zmniejszania liczby wierszy
 
-UDO jest zazwyczaj wywoływana jawnie w skrypcie U-SQL jako część następujących instrukcji U-SQL:
+UDO jest zazwyczaj wywoływana jawnie w skrypcie U-SQL w ramach następujących instrukcji U-SQL:
 
 * EXTRACT
-* Wyjście
-* Proces
-* Połączyć
-* Zmniejszyć
+* ROZDZIELCZOŚCI
+* PODSTAWOWYCH
+* ŻĄDANY
+* ZMNIEJSZENIE
 
 > [!NOTE]  
-> UDO są ograniczone do korzystania z pamięci 0.5Gb.  To ograniczenie pamięci nie ma zastosowania do lokalnych wykonań.
+> UDO są ograniczone do zużywania 0,5 GB pamięci.  To ograniczenie pamięci nie ma zastosowania do lokalnych wykonań.
 
-## <a name="use-user-defined-extractors"></a>Korzystanie z ekstraktorów zdefiniowanych przez użytkownika
-U-SQL umożliwia importowanie danych zewnętrznych przy użyciu instrukcji EXTRACT. Instrukcja EXTRACT może używać wbudowanych ekstraktorów UDO:  
+## <a name="use-user-defined-extractors"></a>Korzystanie z wyodrębniania zdefiniowanego przez użytkownika
+Język U-SQL umożliwia importowanie danych zewnętrznych przy użyciu instrukcji EXTRACT. Instrukcja EXTRACT może używać wbudowanych UDO Extracts:  
 
-* *Extractors.Text()*: Zapewnia wyodrębnianie z rozdzielonych plików tekstowych o różnych kodowaniach.
+* *Extracts. Text ()*: zapewnia wyodrębnianie z rozdzielanych plików tekstowych różnych kodowań.
 
-* *Extractors.Csv()*: Umożliwia wyodrębnianie z plików wartości oddzielonych przecinkami (CSV) o różnych kodowaniach.
+* *Extracts. CSV ()*: zapewnia wyodrębnianie z plików wartości rozdzielanych przecinkami (CSV) różnych kodowań.
 
-* *Extractors.Tsv()*: Umożliwia wyodrębnianie z plików wartości oddzielonych kartą (TSV) o różnych kodach.
+* *Extracts. tsv ()*: zapewnia ekstrakcję z plików z wartościami rozdzielanymi tabulatorami (tsv) różnych kodowań.
 
-Może być przydatne do opracowania niestandardowego ekstraktora. Może to być pomocne podczas importowania danych, jeśli chcemy wykonać dowolne z następujących zadań:
+Może być przydatne do opracowania niestandardowego ekstraktora. Może to być przydatne podczas importowania danych, jeśli chcemy wykonać dowolne z następujących zadań:
 
-* Modyfikuj dane wejściowe, dzieląc kolumny i modyfikując poszczególne wartości. Funkcja procesora jest lepsza do łączenia kolumn.
-* Analizuj nieustrukturyzowane dane, takie jak strony sieci Web i wiadomości e-mail, lub dane półstrukturalne, takie jak XML/JSON.
-* Analizuj dane w nieobsługiwym kodowaniu.
+* Zmodyfikuj dane wejściowe, dzieląc kolumny i modyfikując poszczególne wartości. Funkcja procesora jest lepsza do łączenia kolumn.
+* Analizuj dane bez struktury, takie jak strony sieci Web i wiadomości e-mail, lub częściowo niestrukturalne dane, takie jak XML/JSON.
+* Analizuj dane w nieobsługiwanym kodowaniu.
 
-Aby zdefiniować ekstraktor zdefiniowany przez użytkownika lub UDE, musimy utworzyć `IExtractor` interfejs. Wszystkie parametry wejściowe do ekstraktora, takie jak ograniczniki kolumn/wierszy i kodowanie, muszą być zdefiniowane w konstruktorze klasy. Interfejs `IExtractor` powinien również zawierać definicję zastąpienia w `IEnumerable<IRow>` następujący sposób:
+Aby zdefiniować zdefiniowany przez użytkownika Ekstraktor lub LUCZ, musimy utworzyć `IExtractor` interfejs. Wszystkie parametry wejściowe do ekstraktora, takie jak ograniczniki kolumn/wierszy i kodowanie, muszą być zdefiniowane w konstruktorze klasy. `IExtractor` Interfejs powinien również zawierać definicję `IEnumerable<IRow>` przesłonięcia w następujący sposób:
 
 ```
 [SqlUserDefinedExtractor]
@@ -1093,20 +1093,20 @@ public class SampleExtractor : IExtractor
 }
 ```
 
-**Atrybut SqlUserDedefdefedExtractor** wskazuje, że typ powinien być zarejestrowany jako ekstraktor zdefiniowany przez użytkownika. Klasa ta nie może być dziedziczona.
+Atrybut **SqlUserDefinedExtractor** wskazuje, że typ powinien być zarejestrowany jako Ekstraktor zdefiniowany przez użytkownika. Klasa ta nie może być dziedziczona.
 
-SqlUserDefinedExtractor jest opcjonalnym atrybutem definicji UDE. Służy do definiowania AtomicFileProcessing właściwości dla obiektu UDE.
+SqlUserDefinedExtractor jest opcjonalnym atrybutem definicji LUCZ. Służy do definiowania właściwości AtomicFileProcessing dla obiektu LUCZ.
 
-* bool AtomicFileProcessing   
+* AtomicFileProcessing bool   
 
-* **true** = Wskazuje, że ten ekstraktor wymaga atomowych plików wejściowych (JSON, XML, ...)
-* **false** = Wskazuje, że ten ekstraktor może zajmować się podzielonymi / rozproszonymi plikami (CSV, SEQ, ...)
+* **true** = wskazuje, że ten Ekstraktor wymaga niepodzielnych plików wejściowych (JSON, XML,...)
+* **wartość false** = wskazuje, że ten Ekstraktor może obsłużyć pliki podzielone/rozproszone (CSV, SEQ,...)
 
-Głównymi obiektami programowalności UDE są **wejścia** i **wyjścia**. Obiekt wejściowy służy do wyliczania danych wejściowych jako `IUnstructuredReader`. Obiekt wyjściowy służy do ustawiania danych wyjściowych w wyniku działania ekstraktora.
+Główne obiekty programowalności LUCZ są **danymi wejściowymi** i **wyjściowymi**. Obiekt wejściowy służy do wyliczania danych wejściowych jako `IUnstructuredReader`. Obiekt wyjściowy służy do ustawiania danych wyjściowych w wyniku działania wyodrębniania.
 
-Dane wejściowe są `System.IO.Stream` dostępne `System.IO.StreamReader`za pośrednictwem i .
+Dane wejściowe są dostępne za pomocą `System.IO.Stream` i `System.IO.StreamReader`.
 
-W przypadku wyliczenia kolumn wejściowych najpierw dzielimy strumień wejściowy przy użyciu ogranicznika wiersza.
+W przypadku wyliczania kolumn wejściowych należy najpierw podzielić strumień wejściowy przy użyciu ogranicznika wiersza.
 
 ```
 foreach (Stream current in input.Split(my_row_delimiter))
@@ -1115,7 +1115,7 @@ foreach (Stream current in input.Split(my_row_delimiter))
 }
 ```
 
-Następnie należy dodatkowo podzielić wiersz wejściowy na części kolumn.
+Następnie można dodatkowo podzielić wiersz wejściowy na części kolumn.
 
 ```
 foreach (Stream current in input.Split(my_row_delimiter))
@@ -1129,15 +1129,15 @@ foreach (Stream current in input.Split(my_row_delimiter))
 
 Aby ustawić dane wyjściowe, używamy `output.Set` metody.
 
-Ważne jest, aby zrozumieć, że niestandardowy ekstraktor tylko wyprowadza kolumny i wartości, które są zdefiniowane z danych wyjściowych. Ustaw wywołanie metody.
+Ważne jest, aby zrozumieć, że niestandardowy Ekstraktor tylko wyprowadza kolumny i wartości, które są zdefiniowane przy użyciu danych wyjściowych. Ustaw wywołanie metody.
 
 ```
 output.Set<string>(count, part);
 ```
 
-Rzeczywiste wyjście ekstraktora jest wyzwalane przez wywołanie `yield return output.AsReadOnly();`.
+Rzeczywiste dane wyjściowe wyekstraktoru są wyzwalane przez wywołanie `yield return output.AsReadOnly();`.
 
-Oto przykład ekstraktora:
+Poniżej znajduje się przykład wyekstraktora:
 
 ```
 [SqlUserDefinedExtractor(AtomicFileProcessing = true)]
@@ -1196,9 +1196,9 @@ public class FullDescriptionExtractor : IExtractor
 }
 ```
 
-W tym scenariuszu przypadku użycia ekstraktor ponownie generuje identyfikator GUID dla kolumny "guid" i konwertuje wartości kolumny "użytkownik" na wielkie litery. Niestandardowe ekstraktory mogą dawać bardziej skomplikowane wyniki, analizując dane wejściowe i manipulując nimi.
+W tym scenariuszu przypadku użycia Ekstraktor ponownie generuje identyfikator GUID dla kolumny "GUID" i konwertuje wartości kolumny "User" na wielkie litery. Niestandardowe ekstrakty mogą generować bardziej skomplikowane wyniki przez analizowanie danych wejściowych i manipulowanie nimi.
 
-Poniżej znajduje się podstawowy skrypt U-SQL, który używa niestandardowego ekstraktora:
+Poniżej przedstawiono podstawowy skrypt U-SQL, który używa wyskakującego ekstraktora:
 
 ```
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -1216,22 +1216,22 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ```
 
-## <a name="use-user-defined-outputters"></a>Używanie danych wyjściowych zdefiniowanych przez użytkownika
-Dane wyjściowe zdefiniowane przez użytkownika to kolejne UDO U-SQL, które umożliwia rozszerzenie wbudowanej funkcji U-SQL. Podobnie jak ekstraktor, istnieje kilka wbudowanych outputters.
+## <a name="use-user-defined-outputters"></a>Użyj zdefiniowanych przez użytkownika wyskakujących okienek
+Wypełnianie zdefiniowane przez użytkownika to inny UDO języka U-SQL, który pozwala na rozbudowa wbudowanej funkcji języka U-SQL. Podobnie jak w przypadku wyodrębniania, istnieje kilka wbudowanych wypełnień.
 
-* *Outputters.Text()*: Zapisuje dane do rozdzielonych plików tekstowych o różnych kodowaniach.
-* *Outputters.Csv()*: Zapisuje dane do plików csv (comma-separated) różnych kodowania.
-* *Outputters.Tsv()*: Zapisuje dane do plików wartości oddzielonych kartą (TSV) o różnych kodowaniach.
+* *. Text ()*: zapisuje dane do rozdzielanych plików tekstowych różnych kodowań.
+* *. CSV ()*: zapisuje dane w plikach z wartościami rozdzielanymi przecinkami (CSV) różnych kodowań.
+* *. Tsv ()*: zapisuje dane w plikach z wartościami rozdzielanymi tabulatorami (tsv) różnych kodowań.
 
-Niestandardowy wyprowadzacz umożliwia zapisywanie danych w niestandardowym formacie zdefiniowanym. Może to być przydatne w przypadku następujących zadań:
+Niestandardowy element wypełnień umożliwia zapisanie danych w niestandardowym formacie zdefiniowanym. Może to być przydatne w przypadku następujących zadań:
 
-* Zapisywanie danych do plików o częściowo ustrukturyzowanych lub nieustrukturyzowanych.
-* Zapisywanie danych nie obsługiwanych kodowania.
-* Modyfikowanie danych wyjściowych lub dodawanie atrybutów niestandardowych.
+* Zapisywanie danych w plikach z częściową strukturą lub bez struktury.
+* Zapisywanie danych nie jest obsługiwane.
+* Modyfikowanie danych wyjściowych lub Dodawanie atrybutów niestandardowych.
 
-Aby zdefiniować dane wyjściowe zdefiniowane `IOutputter` przez użytkownika, musimy utworzyć interfejs.
+Aby zdefiniować wystawcy zdefiniowany przez użytkownika, musimy utworzyć `IOutputter` interfejs.
 
-Poniżej przedstawiono implementację klasy podstawowej: `IOutputter`
+Poniżej znajduje się implementacja `IOutputter` klasy bazowej:
 
 ```
 public abstract class IOutputter : IUserDefinedOperator
@@ -1243,7 +1243,7 @@ public abstract class IOutputter : IUserDefinedOperator
 }
 ```
 
-Wszystkie parametry wejściowe do wyjścia, takie jak ograniczniki kolumn/wierszy, kodowanie i tak dalej, muszą być zdefiniowane w konstruktorze klasy. Interfejs `IOutputter` powinien również zawierać `void Output` definicję zastąpienia. Atrybut `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` można opcjonalnie ustawić dla przetwarzania plików niepodzielnie. Aby uzyskać więcej informacji, zobacz następujące szczegóły.
+Wszystkie parametry wejściowe do elementu wypełnienia, takie jak ograniczniki kolumn/wierszy, kodowanie i tak dalej, muszą być zdefiniowane w konstruktorze klasy. `IOutputter` Interfejs powinien również zawierać definicję `void Output` przesłonięcia. Opcjonalnie można `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` ustawić atrybut na potrzeby przetwarzania plików niepodzielnych. Aby uzyskać więcej informacji, zobacz następujące szczegóły.
 
 ```
 [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
@@ -1267,30 +1267,30 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output`jest wywoływana dla każdego wiersza wejściowego. Zwraca zestaw `IUnstructuredWriter output` wierszy.
-* Klasa Konstruktora służy do przekazywania parametrów do pliku wyjściowego zdefiniowanego przez użytkownika.
-* `Close`jest używany do opcjonalnie zastąpić do wydania stanu kosztowne lub określić, kiedy ostatni wiersz został napisany.
+* `Output`jest wywoływana dla każdego wiersza wejściowego. Zwraca `IUnstructuredWriter output` zestaw wierszy.
+* Klasa konstruktora służy do przekazywania parametrów do zdefiniowanego przez użytkownika wystawcy.
+* `Close`służy do opcjonalnego przesłonięcia w celu zwolnienia drogi lub określenia czasu zapisania ostatniego wiersza.
 
-**Atrybut SqlUserDedefedOutputter** wskazuje, że typ powinien być zarejestrowany jako plik wyjściowy zdefiniowany przez użytkownika. Klasa ta nie może być dziedziczona.
+Atrybut **SqlUserDefinedOutputter** wskazuje, że typ powinien być zarejestrowany jako element, zdefiniowany przez użytkownika. Klasa ta nie może być dziedziczona.
 
-SqlUserDefinedOutputter jest opcjonalnym atrybutem dla zdefiniowanej przez użytkownika definicji wyjścia. Służy do definiowania AtomicFileProcessing właściwości.
+SqlUserDefinedOutputter jest opcjonalnym atrybutem dla definicji elementu wyszukania zdefiniowanej przez użytkownika. Służy do definiowania właściwości AtomicFileProcessing.
 
-* bool AtomicFileProcessing   
+* AtomicFileProcessing bool   
 
-* **true** = Wskazuje, że ten wyprowadzacz wymaga plików wyjściowych atomowych (JSON, XML, ...)
-* **false** = Wskazuje, że ten wyprowadzacz może radzić sobie z podzielonymi / rozproszonymi plikami (CSV, SEQ, ...)
+* **true** = wskazuje, że ten wynik nie wymaga niepodzielnych plików wyjściowych (JSON, XML,...)
+* **wartość false** = wskazuje, że ten wynik może dotyczyć plików podzielonych/rozproszonych (CSV, SEQ,...)
 
-Głównymi obiektami programowalności są **wiersze** i **dane wyjściowe**. Obiekt **wiersza** służy do wyliczania danych wyjściowych jako `IRow` interfejsu. **Dane wyjściowe** służą do ustawiania danych wyjściowych do pliku docelowego.
+Główne obiekty programowalności są **wierszami** i **danymi wyjściowymi**. Obiekt **Row** służy do wyliczania danych wyjściowych jako `IRow` interfejsów. Dane **wyjściowe** są używane do ustawiania danych wyjściowych w pliku docelowym.
 
-Dane wyjściowe są dostępne `IRow` za pośrednictwem interfejsu. Dane wyjściowe są przekazywane wiersz w czasie.
+Dostęp do danych wyjściowych uzyskuje `IRow` się za pomocą interfejsu. Dane wyjściowe są przekazywane w wierszu jednocześnie.
 
-Poszczególne wartości są wyliczana przez wywołanie Get metody interfejsu IRow:
+Poszczególne wartości są wyliczane przez wywołanie metody get interfejsu IRow:
 
 ```
 row.Get<string>("column_name")
 ```
 
-Poszczególne nazwy kolumn można `row.Schema`określić, dzwoniąc:
+Nazwy poszczególnych kolumn można określić, wywołując `row.Schema`:
 
 ```
 ISchema schema = row.Schema;
@@ -1298,11 +1298,11 @@ var col = schema[i];
 string val = row.Get<string>(col.Name)
 ```
 
-Takie podejście umożliwia tworzenie elastycznego modułu wyjściowego dla dowolnego schematu metadanych.
+Takie podejście umożliwia tworzenie elastycznego elementu wymawianego dla dowolnego schematu metadanych.
 
-Dane wyjściowe są zapisywane `System.IO.StreamWriter`do pliku za pomocą programu . Parametr strumienia jest `output.BaseStream` ustawiony `IUnstructuredWriter output`jako część .
+Dane wyjściowe są zapisywane do pliku przy użyciu `System.IO.StreamWriter`. Parametr Stream jest ustawiany `output.BaseStream` jako część. `IUnstructuredWriter output`
 
-Należy zauważyć, że ważne jest opróżnienie buforu danych do pliku po każdej iteracji wiersza. Ponadto `StreamWriter` obiekt musi być używany z atrybutem Disposable (domyślnie) i ze słowem kluczowym **using:**
+Należy pamiętać, że należy zwrócić bufor danych do pliku po każdej iteracji wiersza. Ponadto, `StreamWriter` obiekt musi być używany z włączonym atrybutem jednorazowym (domyślnie) i słowem kluczowym **using** :
 
 ```
 using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._encoding))
@@ -1311,10 +1311,10 @@ using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._enc
 }
 ```
 
-W przeciwnym razie wywołaj metodę Flush() jawnie po każdej iteracji. Pokazujemy to w poniższym przykładzie.
+W przeciwnym razie wywołanie metody Flush () jawnie po każdej iteracji. Pokazujemy to w poniższym przykładzie.
 
-### <a name="set-headers-and-footers-for-user-defined-outputter"></a>Ustawianie nagłówków i stopek dla określonego przez użytkownika wyjścia
-Aby ustawić nagłówek, należy użyć przepływu wykonywania pojedynczej iteracji.
+### <a name="set-headers-and-footers-for-user-defined-outputter"></a>Ustawianie nagłówków i stopek dla elementu predefiniowanego zdefiniowanego przez użytkownika
+Aby ustawić nagłówek, Użyj pojedynczego przepływu wykonywania iteracji.
 
 ```
 public override void Output(IRow row, IUnstructuredWriter output)
@@ -1337,9 +1337,9 @@ if (isHeaderRow)
 
 Kod w pierwszym `if (isHeaderRow)` bloku jest wykonywany tylko raz.
 
-W przypadku stopki należy użyć odwołania `System.IO.Stream` do`output.BaseStream`wystąpienia obiektu ( ). Zapisz stopka w Close() metody `IOutputter` interfejsu.  (Aby uzyskać więcej informacji, zobacz poniższy przykład).
+Dla stopki Użyj odwołania do wystąpienia `System.IO.Stream` obiektu (`output.BaseStream`). Napisz stopkę w metodzie Close () `IOutputter` interfejsu.  (Aby uzyskać więcej informacji, zobacz Poniższy przykład).
 
-Poniżej znajduje się przykład dane wyjściowe zdefiniowane przez użytkownika:
+Poniżej znajduje się przykład elementu predefiniowanego zdefiniowanego przez użytkownika:
 
 ```
 [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
@@ -1466,16 +1466,16 @@ OUTPUT @rs0
     USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
-Jest to wyprowadzacz HTML, który tworzy plik HTML z danymi tabeli.
+Jest to niektóry element HTML, który tworzy plik HTML z danymi tabeli.
 
-### <a name="call-outputter-from-u-sql-base-script"></a>Wywoływanie wyprowadzania ze skryptu podstawowego U-SQL
-Aby wywołać niestandardowy wyprowadzacz z podstawowego skryptu U-SQL, należy utworzyć nowe wystąpienie obiektu wyjściowego.
+### <a name="call-outputter-from-u-sql-base-script"></a>Wywołaj instrukcję z podstawowego skryptu języka U-SQL
+Aby wywołać niestandardowy element wywołujący z podstawowego skryptu U-SQL, należy utworzyć nowe wystąpienie tego obiektu.
 
 ```sql
 OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
-Aby uniknąć tworzenia wystąpienia obiektu w skrypcie podstawowym, możemy utworzyć otokę funkcji, jak pokazano w naszym wcześniejszym przykładzie:
+Aby uniknąć tworzenia wystąpienia obiektu w skrypcie podstawowym, możemy utworzyć otokę funkcji, jak pokazano w poprzednim przykładzie:
 
 ```csharp
         // Define the factory classes
@@ -1497,11 +1497,11 @@ USING USQL_Programmability.Factory.HTMLOutputter(isHeader: true);
 ```
 
 ## <a name="use-user-defined-processors"></a>Korzystanie z procesorów zdefiniowanych przez użytkownika
-Procesor zdefiniowany przez użytkownika lub UDP jest typem UDO U-SQL, który umożliwia przetwarzanie przychodzących wierszy przez zastosowanie funkcji programowalności. UDP umożliwia łączenie kolumn, modyfikowanie wartości i dodawanie nowych kolumn, jeśli to konieczne. Zasadniczo pomaga przetwarzać zestaw wierszy do tworzenia elementów danych wymaganych.
+Procesor zdefiniowany przez użytkownika lub UDP jest typem UDO języka U-SQL, który umożliwia przetwarzanie wierszy przychodzących przez zastosowanie funkcji programowalności. Protokół UDP umożliwia łączenie kolumn, modyfikowanie wartości i dodawanie nowych kolumn w razie potrzeby. W zasadzie ułatwia przetwarzanie zestawu wierszy w celu utworzenia wymaganych elementów danych.
 
-Aby zdefiniować UDP, musimy `IProcessor` utworzyć interfejs `SqlUserDefinedProcessor` z atrybutem, który jest opcjonalny dla UDP.
+Aby zdefiniować protokół UDP, musimy utworzyć `IProcessor` interfejs z `SqlUserDefinedProcessor` atrybutem, który jest opcjonalny dla protokołu UDP.
 
-Ten interfejs powinien zawierać `IRow` definicję zastępowania zestawu wierszy interfejsu, jak pokazano w poniższym przykładzie:
+Ten interfejs powinien zawierać definicję przesłonięcia `IRow` zestawu wierszy interfejsu, jak pokazano w następującym przykładzie:
 
 ```
 [SqlUserDefinedProcessor]
@@ -1516,29 +1516,29 @@ public override IRow Process(IRow input, IUpdatableRow output)
 
 **SqlUserDefinedProcessor** wskazuje, że typ powinien być zarejestrowany jako procesor zdefiniowany przez użytkownika. Klasa ta nie może być dziedziczona.
 
-Atrybut SqlUserDedefdefedProcessor jest **opcjonalny** dla definicji UDP.
+Atrybut SqlUserDefinedProcessor jest **opcjonalny** dla definicji UDP.
 
-Głównymi obiektami programowalności są **wejścia** i **wyjścia**. Obiekt wejściowy służy do wyliczania kolumn wejściowych i danych wyjściowych oraz do ustawiania danych wyjściowych w wyniku działania procesora.
+Główne obiekty programowalności są **danymi wejściowymi** i **wyjściowymi**. Obiekt wejściowy służy do wyliczania kolumn wejściowych i danych wyjściowych oraz do ustawiania danych wyjściowych w wyniku działania procesora.
 
-W przypadku wyliczenia kolumn wejściowych używamy `input.Get` tej metody.
+W przypadku wyliczania kolumn wejściowych używamy `input.Get` metody.
 
 ```
 string column_name = input.Get<string>("column_name");
 ```
 
-Parametr dla `input.Get` metody jest kolumna, która jest `PRODUCE` przekazywana jako część `PROCESS` klauzuli instrukcji skryptu podstawowego U-SQL. Musimy użyć poprawnego typu danych tutaj.
+Parametr `input.Get` metody jest kolumną, która jest przenoszona jako część `PRODUCE` klauzuli `PROCESS` instrukcji skryptu podstawowego U-SQL. W tym miejscu musimy użyć poprawnego typu danych.
 
-W przypadku danych `output.Set` wyjściowych należy użyć metody.
+W przypadku danych wyjściowych `output.Set` Użyj metody.
 
-Należy pamiętać, że producent niestandardowy tylko wyprowadza kolumny i wartości, które są zdefiniowane za `output.Set` pomocą wywołania metody.
+Należy pamiętać, że producent niestandardowy tylko wyprowadza kolumny i wartości, które są zdefiniowane za pomocą wywołania `output.Set` metody.
 
 ```
 output.Set<string>("mycolumn", mycolumn);
 ```
 
-Rzeczywiste dane wyjściowe procesora `return output.AsReadOnly();`są wyzwalane przez wywołanie .
+Rzeczywiste dane wyjściowe procesora są wyzwalane przez `return output.AsReadOnly();`wywołanie.
 
-Oto przykład procesora:
+Poniżej znajduje się przykład procesora:
 
 ```
 [SqlUserDefinedProcessor]
@@ -1558,11 +1558,11 @@ public override IRow Process(IRow input, IUpdatableRow output)
 }
 ```
 
-W tym scenariuszu przypadku użycia procesor generuje nową kolumnę o nazwie "full_description" przez połączenie istniejących kolumn — w tym przypadku "użytkownik" wielkimi literami i "des". Regeneruje również identyfikator GUID i zwraca oryginalne i nowe wartości guid.
+W tym scenariuszu przypadku użycia procesor generuje nową kolumnę o nazwie "full_description" przez połączenie istniejących kolumn — w tym przypadku "użytkownik" w Wielkiej litery i "des". Powoduje również ponowne wygenerowanie identyfikatora GUID i zwrócenie oryginalnych i nowych wartości identyfikatora GUID.
 
-Jak widać z poprzedniego przykładu, można wywołać `output.Set` metody Języka C# podczas wywoływania metody.
+Jak widać w poprzednim przykładzie, można wywołać metody języka C# podczas `output.Set` wywołania metody.
 
-Poniżej przedstawiono przykład podstawowego skryptu U-SQL, który używa niestandardowego procesora:
+Poniżej znajduje się przykład podstawowego skryptu U-SQL, który używa niestandardowego procesora:
 
 ```
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -1587,12 +1587,12 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-## <a name="use-user-defined-appliers"></a>Korzystanie z ceł ceł ceł zdefiniowanych przez użytkownika
-Pewien U-SQL użytkownik zdefiniowany rozczyanek umożliwia wywołanie pewien zwyczaj C# funkcja pod kątem każdy wiersz który' zwracany przy ten zewnętrzny tabela wyrażenie od pewien zapytanie. Prawe dane wejściowe są oceniane dla każdego wiersza z lewego wejścia, a wiersze, które są produkowane są łączone dla danych wyjściowych końcowych. Lista kolumn, które są produkowane przez APPLY operatora są kombinacją zestawu kolumn w lewej i prawej danych wejściowych.
+## <a name="use-user-defined-appliers"></a>Użyj appliers zdefiniowanych przez użytkownika
+Zdefiniowany przez użytkownika applier języka U-SQL umożliwia wywoływanie niestandardowej funkcji C# dla każdego wiersza, który jest zwracany przez wyrażenie tabeli zewnętrznej zapytania. Prawidłowe dane wejściowe są oceniane dla każdego wiersza z lewej strony wejściowej, a tworzone wiersze są łączone dla końcowych danych wyjściowych. Lista kolumn, które są tworzone przez operator APPLY, jest kombinacją zestawu kolumn po lewej stronie i po prawej stronie.
 
-20.00.
+Applier zdefiniowany przez użytkownika jest wywoływany jako część wyrażenia USQL SELECT.
 
-Typowe wywołanie do zastosowania zdefiniowanego przez użytkownika wygląda następująco:
+Typowe wywołanie applier zdefiniowanego przez użytkownika wygląda następująco:
 
 ```
 SELECT …
@@ -1601,9 +1601,9 @@ CROSS APPLYis used to pass parameters
 new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-Aby uzyskać więcej informacji na temat używania cedów w wyrażeniu SELECT, zobacz [U-SQL SELECT Wybieranie z ZASTOSOWANIA KRZYŻOWEGO i ZASTOSUJ ZEWNĘTRZNIE](/u-sql/statements-and-expressions/select/from/select-selecting-from-cross-apply-and-outer-apply).
+Aby uzyskać więcej informacji o korzystaniu z appliers w wyrażeniu SELECT, zobacz [U-SQL Wybierz opcję select from Cross Apply i OUTER APPLY](/u-sql/statements-and-expressions/select/from/select-selecting-from-cross-apply-and-outer-apply).
 
-Definicja klasy podstawowej podstawowego nika wiązanika zdefiniowanego przez użytkownika jest następująca:
+Zdefiniowana przez użytkownika definicja klasy bazowej applier jest następująca:
 
 ```
 public abstract class IApplier : IUserDefinedOperator
@@ -1614,7 +1614,7 @@ public abstract IEnumerable<IRow> Apply(IRow input, IUpdatableRow output);
 }
 ```
 
-Aby zdefiniować wiązkę zastosowania zdefiniowaną `IApplier` przez użytkownika, musimy utworzyć interfejs z atrybutem [`SqlUserDefinedApplier`], który jest opcjonalny dla zdefiniowanej przez użytkownika definicji wiązki definicji.
+Aby zdefiniować applier zdefiniowany przez użytkownika, musimy utworzyć `IApplier` interfejs z atrybutem [`SqlUserDefinedApplier`], który jest opcjonalny dla definicji applier zdefiniowanej przez użytkownika.
 
 ```
 [SqlUserDefinedApplier]
@@ -1632,12 +1632,12 @@ public class ParserApplier : IApplier
 }
 ```
 
-* Zastosuj jest wywoływana dla każdego wiersza tabeli zewnętrznej. Zwraca zestaw `IUpdatableRow` wierszy wyjściowych.
-* Klasa Konstruktora służy do przekazywania parametrów do stosowane zdefiniowanego przez użytkownika.
+* Zastosuj jest wywoływany dla każdego wiersza tabeli zewnętrznej. Zwraca `IUpdatableRow` wyjściowy zestaw wierszy.
+* Klasa konstruktora służy do przekazywania parametrów do applier zdefiniowanych przez użytkownika.
 
-**SqlUserDefinedApplier** wskazuje, że typ powinien być zarejestrowany jako likwal definiowany przez użytkownika. Klasa ta nie może być dziedziczona.
+**SqlUserDefinedApplier** wskazuje, że typ powinien być zarejestrowany jako applier zdefiniowany przez użytkownika. Klasa ta nie może być dziedziczona.
 
-**SqlUserDefinedApplier** jest **opcjonalny** dla zdefiniowanej przez użytkownika definicji likdatora.
+**SqlUserDefinedApplier** jest **opcjonalny** dla definicji applier zdefiniowanej przez użytkownika.
 
 
 Główne obiekty programowalności są następujące:
@@ -1646,9 +1646,9 @@ Główne obiekty programowalności są następujące:
 public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 ```
 
-Zestawy wierszy wejściowych `IRow` są przekazywane jako dane wejściowe. Wiersze danych wyjściowych `IUpdatableRow` są generowane jako interfejs wyjściowy.
+Wejściowe zestawy wierszy są przesyłane jako `IRow` dane wejściowe. Wiersze wyjściowe są generowane jako `IUpdatableRow` Interfejs wyjściowy.
 
-Poszczególne nazwy kolumn można określić, wywołując `IRow` Schema metody.
+Nazwy poszczególnych kolumn można określić przez wywołanie metody `IRow` schematu.
 
 ```
 ISchema schema = row.Schema;
@@ -1656,35 +1656,35 @@ var col = schema[i];
 string val = row.Get<string>(col.Name)
 ```
 
-Aby uzyskać rzeczywiste wartości danych `IRow`z przychodzącego , `IRow` używamy Get() metoda interfejsu.
+Aby uzyskać rzeczywiste wartości danych z przychodzącego `IRow`, używamy metody get () `IRow` interfejsu.
 
 ```
 mycolumn = row.Get<int>("mycolumn")
 ```
 
-Lub używamy nazwy kolumny schematu:
+Lub użyjemy nazwy kolumny schematu:
 
 ```
 row.Get<int>(row.Schema[0].Name)
 ```
 
-Wartości wyjściowe muszą `IUpdatableRow` być ustawione z wyjściem:
+Wartości wyjściowe muszą być ustawione przy użyciu `IUpdatableRow` danych wyjściowych:
 
 ```
 output.Set<int>("mycolumn", mycolumn)
 ```
 
-Ważne jest, aby zrozumieć, że niestandardowe appliers tylko `output.Set` kolumny wyjściowe i wartości, które są zdefiniowane za pomocą wywołania metody.
+Ważne jest, aby zrozumieć, że niestandardowe appliers tylko kolumny i wartości, które są zdefiniowane `output.Set` za pomocą wywołania metody.
 
-Rzeczywiste dane wyjściowe są `yield return output.AsReadOnly();`wyzwalane przez wywołanie .
+Rzeczywista wartość wyjściowa jest wyzwalana przez wywołanie `yield return output.AsReadOnly();`.
 
-Parametry dyszce zdefiniowane przez użytkownika mogą być przekazywane do konstruktora. Applier może zwrócić zmienną liczbę kolumn, które muszą być zdefiniowane podczas wywołania 201/07 w podstawowym skrypcie U-SQL.
+Parametry applier zdefiniowane przez użytkownika mogą być przesyłane do konstruktora. Applier może zwrócić zmienną liczbę kolumn, które należy zdefiniować podczas wywołania applier w podstawowym skrypcie U-SQL.
 
 ```
 new USQL_Programmability.ParserApplier ("all") AS properties(make string, model string, year string, type string, millage int);
 ```
 
-Oto przykład nika 2013/
+Oto przykład applier zdefiniowany przez użytkownika:
 
 ```
 [SqlUserDefinedApplier]
@@ -1742,7 +1742,7 @@ public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 }
 ```
 
-Poniżej znajduje się podstawowy skrypt U-SQL dla tego zastosowania zdefiniowanego przez użytkownika:
+Poniżej przedstawiono podstawowy skrypt U-SQL dla tego applier zdefiniowanego przez użytkownika:
 
 ```
 DECLARE @input_file string = @"c:\usql-programmability\car_fleet.tsv";
@@ -1771,7 +1771,7 @@ DECLARE @output_file string = @"c:\usql-programmability\output_file.tsv";
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-W tym przypadku użycia dezyl ów działa jako parser wartości rozdzielanych przecinkami dla właściwości floty samochodowej. Wiersze pliku wejściowego wyglądają następująco:
+W tym scenariuszu przypadku użycia applier zdefiniowany przez użytkownika pełni rolę analizatora wartości rozdzielanych przecinkami dla właściwości floty samochodowej. Wiersze pliku wejściowego wyglądają następująco:
 
 ```
 103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
@@ -1779,30 +1779,30 @@ W tym przypadku użycia dezyl ów działa jako parser wartości rozdzielanych pr
 210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
 ```
 
-Jest to typowy plik TSV rozdzielany kartą z kolumną właściwości, która zawiera właściwości samochodu, takie jak make i model. Te właściwości muszą być analizowane do kolumn tabeli. Obiekt, który jest dostarczany umożliwia również generowanie dynamicznej liczby właściwości w zestawie wierszy wyników, na podstawie parametru, który jest przekazywany. Można wygenerować wszystkie właściwości lub tylko określony zestaw właściwości.
+Jest to typowy plik TSV rozdzielany tabulatorami z kolumną właściwości, która zawiera właściwości samochodu, takie jak marka i model. Te właściwości muszą zostać przeanalizowane do kolumn tabeli. Dostarczony applier umożliwia również generowanie dynamicznej liczby właściwości w zestawie wierszy wynik na podstawie przekazanego parametru. Można wygenerować wszystkie właściwości lub tylko określony zestaw właściwości.
 
     …USQL_Programmability.ParserApplier ("all")
     …USQL_Programmability.ParserApplier ("make")
     …USQL_Programmability.ParserApplier ("make&model")
 
-20.00 2019 r. można wywołać jako nowe wystąpienie obiektu 2010:
+Applier zdefiniowany przez użytkownika może być wywoływana jako nowe wystąpienie obiektu applier:
 
 ```
 CROSS APPLY new MyNameSpace.MyApplier (parameter: "value") AS alias([columns types]…);
 ```
 
-Lub z wywołaniem metody fabrycznej otoki:
+Lub z wywołaniem metody fabryki otoki:
 
 ```csharp
     CROSS APPLY MyNameSpace.MyApplier (parameter: "value") AS alias([columns types]…);
 ```
 
-## <a name="use-user-defined-combiners"></a>Korzystanie z kombajników zdefiniowanych przez użytkownika
-Kombajn zdefiniowany przez użytkownika lub UDC umożliwia łączenie wierszy z lewej i prawej zestawy wierszy, w oparciu o logikę niestandardową. Kombajn zdefiniowany przez użytkownika jest używany z wyrażeniem COMBINE.
+## <a name="use-user-defined-combiners"></a>Używanie złączów zdefiniowanych przez użytkownika
+Zdefiniowany przez użytkownika element łączenia lub UDC umożliwia łączenie wierszy z wierszy z lewej i po prawej stronie, na podstawie logiki niestandardowej. Program łączący zdefiniowany przez użytkownika jest używany z wyrażeniem łączenia.
 
-Kombajn jest wywoływany z wyrażeniem COMBINE, które zawiera niezbędne informacje o zestawach wierszy wejściowych, kolumnach grupowania, schematie oczekiwanego wyniku i dodatkowych informacjach.
+Połączenie jest wywoływane z wyrażeniem łączenia, które dostarcza niezbędne informacje na temat wejściowych zestawów wierszy, kolumn grupowania, oczekiwanego schematu wyniku i dodatkowych informacji.
 
-Aby wywołać kombajn w podstawowym skrypcie U-SQL, używamy następującej składni:
+Aby wywołać połączenie w podstawowym skrypcie U-SQL, należy użyć następującej składni:
 
 ```
 Combine_Expression :=
@@ -1815,11 +1815,11 @@ Combine_Expression :=
     USING_Clause.
 ```
 
-Aby uzyskać więcej informacji, zobacz [ŁĄCZENIE wyrażenia (U-SQL)](/u-sql/statements-and-expressions/combine-expression).
+Aby uzyskać więcej informacji, zobacz [łączenie wyrażenia (U-SQL)](/u-sql/statements-and-expressions/combine-expression).
 
-Aby zdefiniować kombajnia zdefiniowane przez `ICombiner` użytkownika,`SqlUserDefinedCombiner`musimy utworzyć interfejs z atrybutem [ ], który jest opcjonalny dla zdefiniowanej przez użytkownika definicji kombajny.
+Aby zdefiniować zdefiniowany przez użytkownika połączenie, musimy utworzyć `ICombiner` interfejs z atrybutem [`SqlUserDefinedCombiner`], który jest opcjonalny dla definicji łączenia zdefiniowanej przez użytkownika.
 
-Definicja klasy podstawowej: `ICombiner`
+Definicja `ICombiner` klasy bazowej:
 
 ```
 public abstract class ICombiner : IUserDefinedOperator
@@ -1832,7 +1832,7 @@ public abstract IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-Niestandardowa implementacja `ICombiner` interfejsu powinna zawierać `IEnumerable<IRow>` definicję zastąpienia łączyć.
+Implementacja niestandardowa `ICombiner` interfejsu powinna zawierać definicję przesłonięcia `IEnumerable<IRow>` łączenia.
 
 ```
 [SqlUserDefinedCombiner]
@@ -1847,45 +1847,45 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-**Atrybut SqlUserDefinedCombiner** wskazuje, że typ powinien być zarejestrowany jako kombajniara zdefiniowana przez użytkownika. Klasa ta nie może być dziedziczona.
+Atrybut **SqlUserDefinedCombiner** wskazuje, że typ powinien być zarejestrowany jako połączenie zdefiniowane przez użytkownika. Klasa ta nie może być dziedziczona.
 
-**SqlUserDefinedCombiner** służy do definiowania właściwości trybu kombajny. Jest to opcjonalny atrybut dla zdefiniowanej przez użytkownika definicji kombajnika.
+**SqlUserDefinedCombiner** jest używany do definiowania właściwości tryb łączenia. Jest to opcjonalny atrybut dla definicji łączenia zdefiniowanej przez użytkownika.
 
-Tryb trybu kombinatora
+Tryb CombinerMode
 
-Wyliczenia CombinerMode może przyjmować następujące wartości:
+Wyliczenie CombinerMode może przyjmować następujące wartości:
 
-* Pełna (0) Każdy wiersz wyjściowy potencjalnie zależy od wszystkich wierszy wejściowych z lewej i prawej strony o tej samej wartości klucza.
+* Pełny (0) każdy wiersz danych wyjściowych może być zależny od wszystkich wierszy danych wejściowych od lewej i prawej z tą samą wartością klucza.
 
-* Po lewej (1) Każdy wiersz wyjściowy zależy od pojedynczego wiersza wejściowego od lewej (i potencjalnie wszystkich wierszy z prawej strony o tej samej wartości klucza).
+* Po lewej (1) każdy wiersz danych wyjściowych zależy od pojedynczego wiersza wejściowego od lewej strony (i potencjalnie wszystkie wiersze z prawej strony z tą samą wartością klucza).
 
-* Po prawej (2) Każdy wiersz wyjściowy zależy od pojedynczego wiersza wejściowego od prawej (i potencjalnie wszystkich wierszy z lewej strony o tej samej wartości klucza).
+* Prawy (2) każdy wiersz danych wyjściowych zależy od jednego wiersza wejściowego z prawej strony (i potencjalnie z lewej strony z tą samą wartością klucza).
 
-* Wewnętrzny (3) Każdy wiersz wyjściowy zależy od pojedynczego wiersza wejściowego od lewej i prawej strony o tej samej wartości.
+* Wewnętrzny (3) każdy wiersz danych wyjściowych zależy od pojedynczego wiersza wejściowego od lewej i prawej z tą samą wartością.
 
-Przykład:`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`[ ]
+Przykład: [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
 
 
-Głównymi obiektami programowalności są:
+Główne obiekty programowalności są następujące:
 
 ```csharp
     public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
         IUpdatableRow output
 ```
 
-Zestawy wierszy wejściowych są przekazywane jako **lewy** i **prawy** `IRowset` typ interfejsu. Oba zestawy wierszy muszą być wyliczone do przetwarzania. Można wyliczyć każdy interfejs tylko raz, więc musimy wyliczyć i buforować go w razie potrzeby.
+Wejściowe zestawy wierszy są przesyłane jako **lewe** i **prawego** `IRowset` typu interfejsu. Oba zestawy wierszy muszą być wyliczane do przetwarzania. Każdy interfejs można wyliczyć tylko raz, dlatego musimy wyliczyć i w razie potrzeby w pamięci podręcznej.
 
-Do celów buforowania możemy utworzyć listę\<\> T typu struktury pamięci w wyniku wykonywania kwerendy LINQ, `IRow` w szczególności lista<>. Typ danych anonimowych może być również używany podczas wyliczania.
+W celach pamięci podręcznej możemy utworzyć listę\<typu\> T struktury w wyniku wykonywania zapytania LINQ, w zależności od typu<`IRow`>. Typ danych anonimowych może być również używany podczas wyliczania.
 
-Zobacz [Wprowadzenie do zapytań LINQ (C#), aby](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) uzyskać więcej informacji na temat zapytań LINQ i\< [IEnumerable\<T\> Interface,](/dotnet/api/system.collections.generic.ienumerable-1) aby uzyskać więcej informacji na temat interfejsu IEnumerable T.\>
+Aby uzyskać więcej informacji o interfejsie IEnumerable\<t\> , [\<\> ](/dotnet/api/system.collections.generic.ienumerable-1) zobacz [wprowadzenie do zapytań LINQ (C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) .
 
-Aby uzyskać rzeczywiste wartości danych `IRowset`z przychodzącego , `IRow` używamy Get() metoda interfejsu.
+Aby uzyskać rzeczywiste wartości danych z przychodzącego `IRowset`, używamy metody get () `IRow` interfejsu.
 
 ```
 mycolumn = row.Get<int>("mycolumn")
 ```
 
-Poszczególne nazwy kolumn można określić, wywołując `IRow` Schema metody.
+Nazwy poszczególnych kolumn można określić przez wywołanie metody `IRow` schematu.
 
 ```
 ISchema schema = row.Schema;
@@ -1899,7 +1899,7 @@ Lub przy użyciu nazwy kolumny schematu:
 c# row.Get<int>(row.Schema[0].Name)
 ```
 
-Ogólne wyliczenie z LINQ wygląda następująco:
+Ogólne Wyliczenie za pomocą LINQ wygląda następująco:
 
 ```
 var myRowset =
@@ -1910,17 +1910,17 @@ var myRowset =
                           }).ToList();
 ```
 
-Po wyliczenie obu zestawów wierszy, mamy zamiar pętli przez wszystkie wiersze. Dla każdego wiersza w lewym zestawie wierszy znajdziemy wszystkie wiersze, które spełniają stan naszego kombajny.
+Po wyliczyć obu zestawów wierszy przejdziemy do pętli przez wszystkie wiersze. Dla każdego wiersza w lewym zestawie wierszy będziemy znajdować wszystkie wiersze, które spełniają warunek naszego połączenia.
 
-Wartości wyjściowe muszą `IUpdatableRow` być ustawione z wyjściem.
+Wartości wyjściowe muszą być ustawione przy użyciu `IUpdatableRow` danych wyjściowych.
 
 ```
 output.Set<int>("mycolumn", mycolumn)
 ```
 
-Rzeczywiste dane wyjściowe są `yield return output.AsReadOnly();`wyzwalane przez wywołanie do .
+Rzeczywista wartość wyjściowa jest wyzwalana `yield return output.AsReadOnly();`przez wywołanie metody.
 
-Oto przykład kombajny:
+Poniżej znajduje się przykład łączenia:
 
 ```
 [SqlUserDefinedCombiner]
@@ -1974,9 +1974,9 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-W tym scenariuszu użycia budujemy raport analityczny dla sprzedawcy detalicznego. Celem jest znalezienie wszystkich produktów, które kosztują więcej niż $20,000 i które sprzedają się za pośrednictwem strony internetowej szybciej niż za pośrednictwem zwykłego sprzedawcy detalicznego w określonym czasie.
+W tym scenariuszu przypadku użycia tworzymy raport analityczny dla sprzedawcy detalicznego. Celem jest znalezienie wszystkich produktów, które są droższe niż $20 000 i które kupują w witrynie sieci Web szybciej niż w przypadku zwykłego handlu detalicznego w określonym przedziale czasu.
 
-Oto podstawowy skrypt U-SQL. Można porównać logikę między zwykłym SPRZĘŻENIE i kombajnem:
+Oto podstawowy skrypt U-SQL. Można porównać logikę między regularnym SPRZĘŻENIem a złączem:
 
 ```sql
 DECLARE @LocalURI string = @"\usql-programmability\";
@@ -2071,28 +2071,28 @@ OUTPUT @rs1 TO @output_file1 USING Outputters.Tsv();
 OUTPUT @rs2 TO @output_file2 USING Outputters.Tsv();
 ```
 
-Kombajnia zdefiniowana przez użytkownika może być wywoływana jako nowe wystąpienie obiektu edycyjnego:
+Zdefiniowany przez użytkownika element łączący może być wywoływany jako nowe wystąpienie obiektu applier:
 
 ```
 USING new MyNameSpace.MyCombiner();
 ```
 
 
-Lub z wywołaniem metody fabrycznej otoki:
+Lub z wywołaniem metody fabryki otoki:
 
 ```
 USING MyNameSpace.MyCombiner();
 ```
 
-## <a name="use-user-defined-reducers"></a>Korzystanie z reduktorów zdefiniowanych przez użytkownika
+## <a name="use-user-defined-reducers"></a>Używanie zmniejszeń zdefiniowanych przez użytkownika
 
-U-SQL umożliwia pisanie niestandardowych reduktorów zestawu wierszy w języku C# przy użyciu struktury rozszerzalności operatora zdefiniowanego przez użytkownika i implementowania interfejsu IReducer.
+Język U-SQL umożliwia pisanie niestandardowych funkcji zmniejszania zestawów wierszy w języku C# przy użyciu zdefiniowanej przez użytkownika platformy rozszerzalności operatora i implementowanie interfejsu IReducer.
 
-Zdefiniowany przez użytkownika reduktor lub UDR może służyć do eliminowania niepotrzebnych wierszy podczas wyodrębniania (importowania). Może również służyć do manipulowania i oceny wierszy i kolumn. Na podstawie logiki programowania można również zdefiniować, które wiersze muszą zostać wyodrębnione.
+W celu wyeliminowania niepotrzebnych wierszy podczas wyodrębniania danych (import) można użyć ograniczenia zdefiniowanego przez użytkownika lub UDR. Można go również użyć do manipulowania i obliczenia wierszy i kolumn. Na podstawie logiki programowania można także określić, które wiersze muszą zostać wyodrębnione.
 
-Aby zdefiniować klasę UDR, musimy `IReducer` utworzyć interfejs `SqlUserDefinedReducer` z atrybutem opcjonalnym.
+Aby zdefiniować klasę UDR, musimy utworzyć `IReducer` interfejs z opcjonalnym `SqlUserDefinedReducer` atrybutem.
 
-Ten interfejs klasy powinien zawierać `IEnumerable` definicję zastępowania zestawu wierszy interfejsu.
+Ten interfejs klasy powinien zawierać definicję przesłonięcia `IEnumerable` zestawu wierszy interfejsu.
 
 ```
 [SqlUserDefinedReducer]
@@ -2107,15 +2107,15 @@ public class EmptyUserReducer : IReducer
 }
 ```
 
-**Atrybut SqlUserDefinedReducer** wskazuje, że typ powinien być zarejestrowany jako reduktor zdefiniowany przez użytkownika. Klasa ta nie może być dziedziczona.
-**SqlUserDefinedReducer** jest opcjonalnym atrybutem dla zdefiniowanej przez użytkownika definicji reduktora. Służy do definiowania Właściwości IsRecursive.
+Atrybut **SqlUserDefinedReducer** wskazuje, że typ powinien być zarejestrowany jako zmniejszenie zdefiniowane przez użytkownika. Klasa ta nie może być dziedziczona.
+**SqlUserDefinedReducer** jest opcjonalnym atrybutem dla definicji ograniczenia zdefiniowanej przez użytkownika. Służy do definiowania właściwości isrekurencyjnej.
 
-* bool isrecursive bool isrecursive bool isrecursive bool    
-* **true** = wskazuje, czy reduktor jest asocyjny i przemienny
+* bool isrekurencyjny    
+* **true** = wskazuje, czy ten spadek jest asocjacyjny i komutatywna
 
-Głównymi obiektami programowalności są **wejścia** i **wyjścia**. Obiekt wejściowy służy do wyliczania wierszy wejściowych. Dane wyjściowe są używane do ustawiania wierszy danych wyjściowych w wyniku zmniejszenia aktywności.
+Główne obiekty programowalności są **danymi wejściowymi** i **wyjściowymi**. Obiekt wejściowy jest używany do wyliczania wierszy wejściowych. Dane wyjściowe służą do ustawiania wierszy wyjściowych w wyniku zmniejszenia aktywności.
 
-W przypadku wyliczenia wierszy `Row.Get` wejściowych używamy tej metody.
+W przypadku wyliczenia wierszy wejściowych używamy `Row.Get` metody.
 
 ```
 foreach (IRow row in input.Rows)
@@ -2124,19 +2124,19 @@ foreach (IRow row in input.Rows)
 }
 ```
 
-Parametr dla `Row.Get` metody jest kolumna, która jest `PRODUCE` przekazywana `REDUCE` jako część klasy instrukcji skryptu podstawowego U-SQL. Musimy również użyć poprawnego typu danych.
+Parametr `Row.Get` metody jest kolumną, która jest przenoszona jako część `PRODUCE` klasy `REDUCE` instrukcji skryptu podstawowego U-SQL. Musimy również użyć poprawnego typu danych.
 
-W przypadku danych `output.Set` wyjściowych należy użyć metody.
+W przypadku danych wyjściowych `output.Set` Użyj metody.
 
-Ważne jest, aby zrozumieć, że niestandardowy reduktor `output.Set` tylko wyprowadza wartości, które są zdefiniowane za pomocą wywołania metody.
+Ważne jest, aby zrozumieć, że w przypadku danych wyjściowych tylko wartości, które są `output.Set` zdefiniowane za pomocą wywołania metody.
 
 ```
 output.Set<string>("mycolumn", guid);
 ```
 
-Rzeczywiste wyjście reduktora jest `yield return output.AsReadOnly();`wyzwalane przez wywołanie .
+Rzeczywiste dane wyjściowe tego ograniczenia są wyzwalane przez `yield return output.AsReadOnly();`wywołanie.
 
-Poniżej znajduje się przykład reduktora:
+Poniżej znajduje się przykład zredukowania:
 
 ```
 [SqlUserDefinedReducer]
@@ -2172,9 +2172,9 @@ public class EmptyUserReducer : IReducer
 }
 ```
 
-W tym scenariuszu przypadku użycia reduktor pomija wiersze z pustą nazwą użytkownika. Dla każdego wiersza w zestawie wierszy odczytuje każdą wymaganą kolumnę, a następnie ocenia długość nazwy użytkownika. Wyprowadza rzeczywisty wiersz tylko wtedy, gdy długość wartości nazwy użytkownika jest większa niż 0.
+W tym scenariuszu przypadku użycia, zmniejszenie jest pomijane w wierszach z pustą nazwą użytkownika. Dla każdego wiersza w zestawie wierszy odczytuje wszystkie wymagane kolumny, a następnie oblicza długość nazwy użytkownika. Wyświetla on rzeczywisty wiersz tylko wtedy, gdy wartość nazwy użytkownika jest większa niż 0.
 
-Poniżej znajduje się podstawowy skrypt U-SQL, który używa niestandardowego reduktora:
+Poniżej przedstawiono podstawowy skrypt U-SQL, który używa niestandardowego ograniczenia:
 
 ```
 DECLARE @input_file string = @"\usql-programmability\input_file_reducer.tsv";

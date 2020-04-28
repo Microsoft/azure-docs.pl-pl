@@ -1,6 +1,6 @@
 ---
 title: Witamy w aplikacji Wingtips
-description: Dowiedz się więcej o modelach dzierżawy bazy danych i przykładowej aplikacji SaaS wingtips dla usługi Azure SQL Database w środowisku w chmurze.
+description: Dowiedz się więcej na temat modeli dzierżawy bazy danych oraz przykładowej aplikacji Wingtips SaaS dla Azure SQL Database w środowisku chmury.
 keywords: samouczek usługi sql database
 services: sql-database
 ms.service: sql-database
@@ -13,69 +13,69 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
 ms.openlocfilehash: 4e0b3afe51ac7c7a6b9213fcee79af57cbbd8197
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73818329"
 ---
-# <a name="the-wingtip-tickets-saas-application"></a>Aplikacja Wingtip Tickets SaaS
+# <a name="the-wingtip-tickets-saas-application"></a>Aplikacja SaaS bilety Wingtip
 
-Ta sama aplikacja *Wingtip Tickets* SaaS jest implementowana w każdej z trzech próbek. Aplikacja jest prostą listą wydarzeń i biletami aplikacji SaaS kierowania małych miejscach - teatry, kluby, itp. Każde miejsce jest najemcą aplikacji i ma własne dane: szczegóły miejsca, listy wydarzeń, klientów, zamówienia biletów itp.  Aplikacja, wraz ze skryptami zarządzania i samouczki, prezentuje scenariusz SaaS end-to-end. Obejmuje to inicjowanie obsługi administracyjnej dzierżawców, monitorowanie i zarządzanie wydajnością, zarządzanie schematami oraz raportowanie i analizy między dzierżawami.
+Te same *bilety Wingtip* SaaS aplikację są implementowane w każdym z trzech przykładów. Aplikacja jest prostą listą zdarzeń i biletów aplikacji SaaS dla małych miejsc — kina, klubów itp. Każdy z miejsc jest dzierżawcą aplikacji i ma swoje własne dane: szczegóły dotyczące miejsca, listy wydarzeń, klientów, zamówień biletów itp.  Aplikacja wraz ze skryptami i samouczkami zarządzania przedstawia kompleksowy scenariusz SaaS. Obejmuje to dzierżawy, monitorowanie i zarządzanie wydajnością, zarządzanie schematami oraz raportowanie i analiza między dzierżawcami.
 
-## <a name="three-saas-application-and-tenancy-patterns"></a>Trzy wzorce aplikacji i najmu SaaS
+## <a name="three-saas-application-and-tenancy-patterns"></a>Trzy SaaS aplikacji i dzierżawców
 
-Dostępne są trzy wersje aplikacji; każdy eksploruje inny wzorzec dzierżawy bazy danych w usłudze Azure SQL Database.  Pierwszy używa autonomicznej aplikacji na dzierżawę z własną bazą danych. Drugi używa aplikacji z wieloma dzierżawami z bazą danych na dzierżawę. Trzeci przykład używa aplikacji z wieloma dzierżawami z podzielonymi na fragmenty wielodostępne bazy danych.
+Dostępne są trzy wersje aplikacji; Każdy z nich eksploruje różne wzorce dzierżawy bazy danych na Azure SQL Database.  Pierwszy używa autonomicznej aplikacji na dzierżawcę z własną bazą danych. Druga aplikacja korzysta z aplikacji wielodostępnej z bazą danych na dzierżawcę. Trzeci przykład korzysta z aplikacji wielodostępnej z bazami danych z wieloma dzierżawcami podzielonej na fragmenty.
 
-![Trzy wzorce najmu][image-three-tenancy-patterns]
+![Trzy wzorce dzierżawy][image-three-tenancy-patterns]
 
- Każdy przykład zawiera kod aplikacji, a także skrypty zarządzania i samouczki, które eksplorują zakres wzorców projektowania i zarządzania.  Każda próbka wdraża w mniej niż pięć minut.  Wszystkie trzy można wdrożyć obok siebie, dzięki czemu można porównać różnice w projektowaniu i zarządzaniu.
+ Każdy przykład obejmuje kod aplikacji oraz skrypty zarządzania i samouczki, które eksplorują różne wzorce projektowania i zarządzania.  Każdy przykład jest wdrażany w mniej niż pięć minut.  Wszystkie trzy można wdrożyć obok siebie, aby można było porównać różnice w projekcie i zarządzaniu.
 
-## <a name="standalone-application-per-tenant-pattern"></a>Autonomiczna aplikacja na wzorzec dzierżawy
+## <a name="standalone-application-per-tenant-pattern"></a>Aplikacja autonomiczna na wzorzec dzierżawy
 
-Autonomiczna aplikacja na wzorzec dzierżawy używa aplikacji pojedynczej dzierżawy z bazą danych dla każdej dzierżawy. Każda aplikacja dzierżawy, w tym jej bazy danych, jest wdrażany w oddzielnej grupie zasobów platformy Azure. Grupa zasobów można wdrożyć w subskrypcji dostawcy usług lub subskrypcji dzierżawy i zarządzane przez dostawcę w imieniu dzierżawy. Autonomiczna aplikacja na wzorzec dzierżawy zapewnia największą izolację dzierżawy, ale jest zazwyczaj najdroższa, ponieważ nie ma możliwości udostępniania zasobów między wieloma dzierżawcami.  Ten wzorzec jest dobrze nadaje się do aplikacji, które mogą być bardziej złożone i które są wdrażane do mniejszej liczby dzierżaw.  W przypadku wdrożeń autonomicznych aplikację można dostosować dla każdej dzierżawy łatwiej niż w innych wzorcach.  
+Aplikacja autonomiczna na wzorzec dzierżawców korzysta z pojedynczej aplikacji dzierżawców z bazą danych dla każdej dzierżawy. Aplikacja każdej dzierżawy, w tym jej baza danych, jest wdrażana w osobnej grupie zasobów platformy Azure. Grupę zasobów można wdrożyć w ramach subskrypcji dostawcy usług lub subskrypcji dzierżawcy i zarządzanej przez dostawcę w imieniu dzierżawcy. Aplikacja autonomiczna na wzorzec dzierżawy zapewnia największą izolację dzierżawy, ale zazwyczaj jest najtańsze, ponieważ nie ma możliwości udostępniania zasobów między wieloma dzierżawcami.  Ten wzorzec jest dobrze dostosowany do aplikacji, które mogą być bardziej skomplikowane i które są wdrażane w mniejszych liczbach dzierżawców.  W przypadku wdrożeń autonomicznych można dostosować aplikację dla każdej dzierżawy łatwiej niż w innych wzorcach.  
 
-Sprawdź [samouczki][docs-tutorials-for-wingtip-sa] i kod na GitHub [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
+Zapoznaj się z [samouczkami][docs-tutorials-for-wingtip-sa] i kodem w serwisie GitHub [. ../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
-## <a name="database-per-tenant-pattern"></a>Baza danych na wzorzec dzierżawy
+## <a name="database-per-tenant-pattern"></a>Wzorzec bazy danych na dzierżawcę
 
-Wzorzec bazy danych na dzierżawę jest skuteczny dla dostawców usług, którzy zajmują się izolacją dzierżawy i chcą uruchomić scentralizowaną usługę, która umożliwia oszczędne korzystanie z zasobów udostępnionych. Baza danych jest tworzona dla każdego miejsca lub dzierżawy, a wszystkie bazy danych są zarządzane centralnie. Bazy danych mogą być hostowane w pulach elastycznych, aby zapewnić ekonomiczne i łatwe zarządzanie wydajnością, co wykorzystuje nieprzewidywalne wzorce obciążenia dzierżawców. Baza danych wykazu przechowuje mapowanie między dzierżawcami i ich bazami danych. To mapowanie jest zarządzane przy użyciu funkcji zarządzania mapami niezależnego fragmentu [biblioteki klienta elastycznej bazy danych,](sql-database-elastic-database-client-library.md)która zapewnia efektywne zarządzanie połączeniami z aplikacją.
+Wzorzec bazy danych na dzierżawcę jest efektywny dla dostawców usług, którzy są zainteresowani izolacją dzierżawy i chcą uruchamiać scentralizowaną usługę, która umożliwia oszczędne wykorzystanie udostępnionych zasobów. Baza danych jest tworzona dla każdego miejsca lub dzierżawy, a wszystkie bazy danych są zarządzane centralnie. Bazy danych mogą być hostowane w pulach elastycznych, aby zapewnić wydajne i łatwe zarządzanie wydajnością, które wykorzystuje nieprzewidywalne wzorce obciążeń dzierżawców. Baza danych wykazu przechowuje mapowanie między dzierżawcami i ich bazami danych. To mapowanie jest zarządzane przy użyciu funkcji zarządzania mapami fragmentu w [bibliotece klienta Elastic Database](sql-database-elastic-database-client-library.md), co zapewnia wydajne zarządzanie połączeniami z aplikacją.
 
-Sprawdź [samouczki][docs-tutorials-for-wingtip-dpt] i kod na GitHub [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
+Zapoznaj się z [samouczkami][docs-tutorials-for-wingtip-dpt] i kodem w serwisie GitHub [. ../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
-## <a name="sharded-multi-tenant-database-pattern"></a>Wzorzec bazy danych z wieloma dzierżawami podzielonymi na fragmenty
+## <a name="sharded-multi-tenant-database-pattern"></a>Wzorzec bazy danych podzielonej na fragmenty z wieloma dzierżawcami
 
-Bazy danych z wieloma dzierżawcami są skuteczne dla dostawców usług poszukujących niższych kosztów na dzierżawę i w porządku z ograniczoną izolacją dzierżawy. Ten wzorzec umożliwia pakowanie dużej liczby dzierżawców do pojedynczej bazy danych, co powoduje obniżenie kosztu dzierżawcy. Prawie nieskończona skala jest możliwe przez dzielenie na fragmenty dzierżawy w wielu bazach danych. Baza danych wykazu mapuje dzierżawców do baz danych.  
+Bazy danych z wieloma dzierżawcami są efektywne dla dostawców usług poszukujących niższych kosztów na dzierżawcę i są w niej zmniejszone z ograniczoną izolacją dzierżawy. Ten wzorzec umożliwia pakowanie dużej liczby dzierżawców w pojedynczą bazę danych, co zapewnia koszt dla dzierżawy w dół. Najbliżej nieskończonej skali można fragmentowania dzierżawców w wielu bazach danych. Baza danych wykazu mapuje dzierżawy do baz danych.  
 
-Ten wzorzec umożliwia również model *hybrydowy,* w którym można zoptymalizować pod kątem kosztów z wieloma dzierżawcami w bazie danych lub zoptymalizować pod kątem izolacji z jednej dzierżawy w ich własnej bazie danych. Wybór można dokonać na zasadzie dzierżawy przez dzierżawcę, gdy dzierżawa jest aprowizowana lub później, bez wpływu na aplikację.  Ten model może być skutecznie stosowany, gdy grupy dzierżawców muszą być traktowane inaczej. Na przykład tanich dzierżawców można przypisać do udostępnionych baz danych, podczas gdy dzierżawy premium mogą być przypisane do własnych baz danych. 
+Ten wzorzec umożliwia również model *hybrydowy* , w którym można zoptymalizować koszt z wieloma dzierżawcami w bazie danych, lub zoptymalizować pod kątem izolacji z jedną dzierżawą w swojej bazie danych. Wybór można przeprowadzić w przypadku dzierżawcy przez dzierżawcę, gdy dzierżawa jest inicjowana lub później, bez wpływu na aplikację.  Ten model może być używany efektywnie, gdy grupy dzierżawców muszą być traktowane inaczej. Na przykład dzierżawy o niskich kosztach mogą być przypisywane do udostępnionych baz danych, a dzierżawy w warstwie Premium można przypisywać do własnych baz danych. 
 
-Sprawdź [samouczki][docs-tutorials-for-wingtip-mt] i kod na GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
+Zapoznaj się z [samouczkami][docs-tutorials-for-wingtip-mt] i kodem w serwisie GitHub [. ../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Następne kroki
 
-#### <a name="conceptual-descriptions"></a>Opisy koncepcyjne
+#### <a name="conceptual-descriptions"></a>Opisy pojęć
 
-- Bardziej szczegółowe wyjaśnienie wzorców najmu aplikacji jest dostępne w [wzorcach dzierżawy bazy danych SaaS z wieloma dzierżawami][saas-tenancy-app-design-patterns-md]
+- Bardziej szczegółowy opis wzorców dzierżawy aplikacji jest dostępny w wzorcach dzierżawy wielodostępnej [bazy danych SaaS][saas-tenancy-app-design-patterns-md]
 
 #### <a name="tutorials-and-code"></a>Samouczki i kod
 
-- Autonomiczna aplikacja na dzierżawę:
-    - [Samouczki dotyczące samodzielnej aplikacji][docs-tutorials-for-wingtip-sa].
-    - [Kod dla samodzielnej aplikacji, na GitHub][github-code-for-wingtip-sa].
+- Aplikacja autonomiczna na dzierżawcę:
+    - [Samouczki dotyczące aplikacji autonomicznej][docs-tutorials-for-wingtip-sa].
+    - [Kod aplikacji autonomicznej w serwisie GitHub][github-code-for-wingtip-sa].
 
 - Baza danych na dzierżawcę:
-    - [Samouczki dla bazy danych dla dzierżawcy][docs-tutorials-for-wingtip-dpt].
-    - [Kod bazy danych dla dzierżawy, w usłudze GitHub][github-code-for-wingtip-dpt].
+    - [Samouczki dla bazy danych na dzierżawcę][docs-tutorials-for-wingtip-dpt].
+    - [Kod dla bazy danych na dzierżawcę w witrynie GitHub][github-code-for-wingtip-dpt].
 
-- Podzielony na fragmenty wielodostępny:
-    - [Samouczki dla podzielonej wielodostępne.][docs-tutorials-for-wingtip-mt]
-    - [Kod dla podzielonej wielodostępnych, w usłudze GitHub][github-code-for-wingtip-mt].
+- Podzielonej na fragmenty wiele dzierżawców:
+    - [Samouczki dotyczące podzielonej na fragmenty wielu dzierżawców][docs-tutorials-for-wingtip-mt].
+    - [Kod dla wielu dzierżawców podzielonej na fragmenty w serwisie GitHub][github-code-for-wingtip-mt].
 
 
 
 <!-- Image references. -->
 
-[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "Trzy wzorce najmu."
+[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "Trzy wzorce dzierżawy."
 
 <!-- Docs.ms.com references. -->
 

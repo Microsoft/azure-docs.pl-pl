@@ -1,6 +1,6 @@
 ---
 title: Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics
-description: Dowiedz się, jak analizować dzienniki witryn sieci Web przy użyciu usługi Azure Data Lake Analytics w celu uruchamiania funkcji i zapytań U-SQL.
+description: Informacje na temat analizowania dzienników witryn sieci Web przy użyciu Azure Data Lake Analytics do uruchamiania funkcji i zapytań U-SQL.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,56 +10,56 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 04c6d4c74a82ccfbcbb0faecb0dca5ec495f6663
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71672880"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics
-Dowiedz się, jak analizować dzienniki witryn za pomocą usługi Data Lake Analytics, zwłaszcza gdy dowiadywać się, które osoby odsyłacze napadały na błędy podczas próby odwiedzenia witryny.
+Dowiedz się, jak analizować dzienniki witryn sieci Web przy użyciu Data Lake Analytics, szczególnie w przypadku szukania odwołujących się błędów podczas próby odwiedzenia witryny sieci Web.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Visual Studio 2015 lub Visual Studio 2013**.
+* **Program Visual Studio 2015 lub Visual Studio 2013**.
 * **[Data Lake Tools dla Visual Studio](https://aka.ms/adltoolsvs)**.
 
-    Po zainstalowaniu programu Data Lake Tools for Visual Studio w menu **Narzędzia** w programie Visual Studio zostanie wyświetlony element **usługi Data Lake:**
+    Po zainstalowaniu narzędzi Data Lake Tools for Visual Studio zobaczysz **Data Lake** element w menu **Narzędzia** w programie Visual Studio:
 
-    ![Menu programu U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
-* **Podstawowa znajomość usługi Data Lake Analytics i narzędzia Data Lake Tools for Visual Studio**. Aby rozpocząć, zobacz:
+    ![Menu U-SQL programu Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
+* **Podstawowa znajomość Data Lake Analytics i narzędzi Data Lake Tools for Visual Studio**. Aby rozpocząć, zobacz:
 
-  * [Tworzenie skryptu U-SQL przy użyciu narzędzi usługi Data Lake dla programu Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* **Konto usługi Data Lake Analytics.**  Zobacz [Tworzenie konta usługi Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
-* **Zainstaluj przykładowe dane.** W witrynie Azure Portal otwórz konto Usługi Data Lake Analytics i kliknij **pozycję Przykładowe skrypty** w menu po lewej stronie, a następnie kliknij polecenie **Kopiuj przykładowe dane**. 
+  * [Utwórz skrypt U-SQL przy użyciu narzędzi Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+* **Konto usługi Data Lake Analytics.**  Zobacz [Tworzenie konta Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
+* **Zainstaluj przykładowe dane.** W witrynie Azure Portal Otwórz konto Data Lake Analytics a następnie kliknij pozycję **przykładowe skrypty** w menu po lewej stronie, a następnie kliknij pozycję **Kopiuj przykładowe dane**. 
 
 ## <a name="connect-to-azure"></a>Nawiązywanie połączenia z usługą Azure
-Przed utworzeniem i przetestowaniem skryptów U-SQL należy najpierw połączyć się z platformą Azure.
+Przed rozpoczęciem kompilowania i testowania skryptów U-SQL należy najpierw nawiązać połączenie z platformą Azure.
 
 **Aby nawiązać połączenie z usługą Data Lake Analytics**
 
 1. Otwórz program Visual Studio.
-2. Kliknij **pozycję Data Lake > Options and Settings**.
-3. Kliknij **pozycję Zaloguj się**lub Zmień **użytkownika,** jeśli ktoś się zalogował, i postępuj zgodnie z instrukcjami.
-4. Kliknij **przycisk OK,** aby zamknąć okno dialogowe Opcje i Ustawienia.
+2. Kliknij **Data Lake > opcje i ustawienia**.
+3. Kliknij przycisk **Zaloguj**lub **Zmień użytkownika** , jeśli ktoś się zalogował, i postępuj zgodnie z instrukcjami.
+4. Kliknij przycisk **OK** , aby zamknąć okno dialogowe Opcje i ustawienia.
 
-**Aby przeglądać konta usługi Data Lake Analytics**
+**Aby przeglądać konta Data Lake Analytics**
 
-1. W programie Visual Studio otwórz **Eksploratora serwera,** naciskając **klawisze CTRL+ALT+S**.
-2. W **Eksploratorze serwera** rozwiń węzeł **Azure**, a następnie rozwiń węzeł **Data Lake Analytics**. Zostanie wyświetlona lista kont usługi Data Lake Analytics, o ile jakieś istnieją. Nie można tworzyć kont usługi Data Lake Analytics ze studia. Aby utworzyć konto, zobacz [Wprowadzenie do usługi Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-get-started-portal.md) lub Wprowadzenie do usługi Azure Data Lake Analytics przy użyciu usługi Azure [PowerShell](data-lake-analytics-get-started-powershell.md).
+1. W programie Visual Studio Otwórz **Eksplorator serwera** , naciskając **klawisze CTRL + ALT + S**.
+2. W **Eksploratorze serwera** rozwiń węzeł **Azure**, a następnie rozwiń węzeł **Data Lake Analytics**. Zostanie wyświetlona lista kont usługi Data Lake Analytics, o ile jakieś istnieją. Nie można tworzyć kont Data Lake Analytics z poziomu programu Studio. Aby utworzyć konto, zobacz Rozpoczynanie [pracy z usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-get-started-portal.md) lub Rozpoczynanie [pracy z usługą Azure Data Lake Analytics przy użyciu Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## <a name="develop-u-sql-application"></a>Tworzenie aplikacji U-SQL
-Aplikacja U-SQL jest głównie skrypt U-SQL. Aby dowiedzieć się więcej o U-SQL, zobacz [Wprowadzenie do U-SQL](data-lake-analytics-u-sql-get-started.md).
+Aplikacja U-SQL jest głównie skryptem U-SQL. Aby dowiedzieć się więcej o języku U-SQL, zobacz Wprowadzenie [do języka u-SQL](data-lake-analytics-u-sql-get-started.md).
 
-Do aplikacji można dodać operatory zdefiniowane przez użytkownika.  Aby uzyskać więcej informacji, zobacz [Tworzenie operatorów zdefiniowanych przez użytkowników U-SQL dla zadań usługi Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md).
+Do aplikacji można dodawać Dodawanie operatorów zdefiniowanych przez użytkownika.  Aby uzyskać więcej informacji, zobacz temat [Tworzenie zdefiniowanych przez użytkownika operatorów U-SQL dla zadań Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md).
 
 **Aby utworzyć i przesłać zadanie usługi Data Lake Analytics**
 
-1. Kliknij **> projektu > pliku**.
+1. Kliknij **plik > nowym > projekcie**.
 2. Wybierz typ U-SQL Project (Projekt U-SQL).
 
     ![nowy projekt U-SQL programu Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 3. Kliknij przycisk **OK**. Program Visual Studio tworzy rozwiązanie z użyciem pliku Script.usql.
-4. Wprowadź następujący skrypt w pliku Script.usql:
+4. Wprowadź następujący skrypt do pliku Script. usql:
 
         // Create a database for easy reuse, so you don't need to read from a file every time.
         CREATE DATABASE IF NOT EXISTS SampleDBTutorials;
@@ -138,7 +138,7 @@ Do aplikacji można dodać operatory zdefiniowane przez użytkownika.  Aby uzysk
                 cs_referer,
                 sc_status;
 
-    Aby zrozumieć U-SQL, zobacz [Wprowadzenie do języka U-SQL usługi Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).    
+    Aby zrozumieć język U-SQL, zobacz Wprowadzenie do [języka u-sql Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).    
 5. Dodaj nowy skrypt U-SQL do projektu i wprowadź następujące elementy:
 
         // Query the referrers that ran into errors
@@ -150,25 +150,25 @@ Do aplikacji można dodać operatory zdefiniowane przez użytkownika.  Aby uzysk
         OUTPUT @content
         TO @"/Samples/Outputs/UnsuccessfulResponses.log"
         USING Outputters.Tsv();
-6. Przełącz się z powrotem do pierwszego skryptu U-SQL i obok przycisku **Prześlij** określ swoje konto Analytics.
-7. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy pozycję **Script.usql**, a następnie kliknij pozycję **Build Script** (Kompiluj skrypt). Sprawdź wyniki w okienku Dane wyjściowe.
+6. Przełącz się z powrotem do pierwszego skryptu U-SQL i obok przycisku **Prześlij** Określ konto analizy.
+7. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy pozycję **Script.usql**, a następnie kliknij pozycję **Build Script** (Kompiluj skrypt). Sprawdź wyniki w okienku danych wyjściowych.
 8. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy pozycję **Script.usql**, a następnie kliknij pozycję **Submit Script** (Prześlij skrypt).
-9. Sprawdź, czy konto Analytics to **konto,** na którym chcesz uruchomić zadanie, a następnie kliknij przycisk **Prześlij**. Po zakończeniu przesyłania wyniki przesyłania i link do zadania są dostępne w oknie wyników narzędzi Data Lake Tools dla programu Visual Studio.
-10. Poczekaj, aż zadanie zostanie zakończone pomyślnie.  Jeśli zadanie nie powiodło się, najprawdopodobniej brakuje pliku źródłowego.  Zapoznaj się z sekcją Warunek wstępny tego samouczka. Aby uzyskać dodatkowe informacje dotyczące rozwiązywania problemów, zobacz [Monitorowanie zadań usługi Azure Data Lake Analytics i rozwiązywanie problemów z jego rozwiązywaniem](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+9. Sprawdź, czy **konto analizy jest kontem** , w którym chcesz uruchomić zadanie, a następnie kliknij przycisk **Prześlij**. Po zakończeniu przesyłania wyniki przesyłania i link do zadania są dostępne w oknie wyników narzędzi Data Lake Tools dla programu Visual Studio.
+10. Poczekaj, aż zadanie zostanie ukończone pomyślnie.  Jeśli zadanie nie powiodło się, najprawdopodobniej brakuje pliku źródłowego.  Zapoznaj się z sekcją wymagań wstępnych w tym samouczku. Aby uzyskać dodatkowe informacje dotyczące rozwiązywania problemów, zobacz [monitorowanie i rozwiązywanie problemów z zadaniami Azure Data Lake Analytics](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
-    Po zakończeniu zadania zostanie wyświetlony następujący ekran:
+    Po zakończeniu zadania zobaczysz następujący ekran:
 
-    ![data lake analizy analizy weblogs dzienniki stron internetowych](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
-11. Teraz powtórz kroki 7- 10 dla **Script1.usql**.
+    ![Dzienniki witryn sieci Web analizy usługi Data Lake Analytics](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
+11. Teraz Powtórz kroki 7-10 dla **Script1. usql**.
 
 **Aby wyświetlić dane wyjściowe zadania**
 
 1. W **Eksploratorze serwera** rozwiń węzeł **Azure**, rozwiń węzeł **Data Lake Analytics**, rozwiń konto usługi Data Lake Analytics, rozwiń węzeł **Konta magazynu**, kliknij prawym przyciskiem myszy domyślne konto usługi Data Lake Storage, a następnie kliknij przycisk **Explorer**.
-2. Kliknij dwukrotnie **pozycję Przykłady,** aby otworzyć folder, a następnie kliknij dwukrotnie pozycję **Wyjścia**.
-3. Kliknij dwukrotnie **pozycję UnsuccessfulResponses.log**.
-4. Można również dwukrotnie kliknąć plik wyjściowy wewnątrz widoku wykresu zadania, aby przejść bezpośrednio do danych wyjściowych.
+2. Kliknij dwukrotnie pozycję **przykłady** , aby otworzyć folder, a następnie kliknij dwukrotnie pozycję dane **wyjściowe**.
+3. Kliknij dwukrotnie pozycję **UnsuccessfulResponses. log**.
+4. Możesz również kliknąć dwukrotnie plik wyjściowy w widoku grafu zadania, aby przejść bezpośrednio do danych wyjściowych.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 Aby rozpocząć pracę z usługą Data Lake Analytics przy użyciu różnych narzędzi, zobacz:
 
 * [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu Portalu Azure](data-lake-analytics-get-started-portal.md)

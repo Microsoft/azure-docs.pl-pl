@@ -1,6 +1,6 @@
 ---
-title: Menedżer odzyskiwania w celu rozwiązania problemów z mapą niezależnego fragmentu
-description: Użyj klasy RecoveryManager, aby rozwiązać problemy z mapami niezależnego fragmentu
+title: Recovery Manager rozwiązać problemy dotyczące mapy fragmentu
+description: Używanie klasy Recoverymanager do rozwiązywania problemów z mapami fragmentu
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,43 +12,43 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 6101e00ab98b0d8d901f2e42bf4083d40d0a3227
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823850"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Używanie klasy RecoveryManager do rozwiązywanie problemów z mapą fragmentów
 
-[Klasa RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) zapewnia ADO.NET aplikacjom możliwość łatwego wykrywania i korygowania wszelkich niespójności między mapą globalnego niezależnego fragmentu (GSM) a lokalną mapą niezależnego fragmentu (LSM) w środowisku podzielonej bazy danych.
+Klasa [recoverymanager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) udostępnia aplikacje ADO.NET, które ułatwiają wykrywanie i poprawianie wszelkich niespójności między globalnym mapowaniem FRAGMENTU (GSM) a lokalną mapą FRAGMENTU (LSM) w środowisku bazy danych podzielonej na fragmenty.
 
-GSM i LSM śledzić mapowanie każdej bazy danych w środowisku podzielonym na fragmenty. Od czasu do czasu występuje przerwa między GSM i LSM. W takim przypadku należy użyć RecoveryManager klasy do wykrywania i naprawy przerwy.
+Metody GSM i LSM śledzą mapowanie każdej bazy danych w środowisku podzielonej na fragmentyu. Sporadycznie występuje przerwy między GSM i LSM. W takim przypadku należy użyć klasy Recoverymanager do wykrycia i naprawy przerwy.
 
-Klasa RecoveryManager jest częścią [biblioteki klienta elastycznej bazy danych.](sql-database-elastic-database-client-library.md)
+Klasa Recoverymanager jest częścią [Elastic Databaseej biblioteki klienta](sql-database-elastic-database-client-library.md).
 
-![Mapa odłamków][1]
+![Mapa fragmentu][1]
 
-Definicje terminów można znaleźć w [glosariuszu narzędzi elastycznej bazy danych](sql-database-elastic-scale-glossary.md). Aby zrozumieć, jak **ShardMapManager** jest używany do zarządzania danymi w rozwiązaniu podzielonym na fragmenty, zobacz [Zarządzanie mapami niezależnego fragmentu.](sql-database-elastic-scale-shard-map-management.md)
+Aby zapoznać się z definicjami warunków, zobacz [słownik narzędzi Elastic Database](sql-database-elastic-scale-glossary.md). Aby zrozumieć, w jaki sposób **ShardMapManager** jest używany do zarządzania danymi w rozwiązaniu podzielonej na fragmenty, zobacz [Zarządzanie mapami fragmentu](sql-database-elastic-scale-shard-map-management.md).
 
-## <a name="why-use-the-recovery-manager"></a>Dlaczego warto skorzystać z menedżera odzyskiwania
+## <a name="why-use-the-recovery-manager"></a>Dlaczego warto korzystać z Menedżera odzyskiwania
 
-W środowisku podzielonej bazy danych jest jeden dzierżawcy na bazę danych i wiele baz danych na serwer. W środowisku może być również wiele serwerów. Każda baza danych jest mapowana na mapie niezależnego fragmentu, dzięki czemu wywołania mogą być kierowane do właściwego serwera i bazy danych. Bazy danych są śledzone zgodnie z **kluczem dzielenia na fragmenty,** a każdemu niezależnemu fragmentowi jest przypisywany **zakres wartości klucza.** Na przykład klucz dzielenia na fragmenty może reprezentować nazwy klientów od "D" do "F". Mapowanie wszystkich fragmentów (aka baz danych) i ich zakresów mapowania są zawarte w **globalnej mapie niezależnego fragmentu (GSM).** Każda baza danych zawiera również mapę zakresów zawartych na niezależnej mapie, która jest znana jako **mapa lokalnego niezależnego fragmentu (LSM).** Gdy aplikacja łączy się z fragmentem, mapowanie jest buforowane z aplikacją do szybkiego pobierania. LSM służy do sprawdzania poprawności danych w pamięci podręcznej.
+W środowisku bazy danych podzielonej na fragmenty istnieje jedna dzierżawa na bazę danych, a wiele baz danych na serwer. W środowisku może być również wiele serwerów. Każda baza danych jest mapowana na mapie fragmentu, więc wywołania można kierować do właściwego serwera i bazy danych. Bazy danych są śledzone według **klucza fragmentowania**, a każdy fragmentu ma przypisany **zakres wartości klucza**. Na przykład klucz fragmentowania może reprezentować nazwy klientów od "D" do "F". Mapowanie wszystkich fragmentów (aliasów baz danych) i ich zakresów mapowania są zawarte w **globalnej mapie fragmentu (GSM)**. Każda baza danych zawiera również mapę zakresów zawartych w fragmentu, która jest znana jako **lokalna Mapa fragmentu (LSM)**. Gdy aplikacja nawiązuje połączenie z fragmentu, mapowanie jest buforowane z aplikacją do szybkiego pobierania. LSM jest używany do walidacji danych w pamięci podręcznej.
 
-GSM i LSM mogą być zsynchronizowane z następujących powodów:
+Usługi GSM i LSM mogą stać się niezsynchronizowane z następujących powodów:
 
-1. Usunięcie niezależnego fragmentu, którego zakres uważa się, że nie jest już używany lub zmiana nazwy niezależnego fragmentu. Usunięcie fragmentu **powoduje, że odwzorowanie oddzielonych fragmentów jest oddzielone.** Podobnie zmieniona baza danych może spowodować mapowanie oddzielonych fragmentów. W zależności od intencji zmiany fragment może wymagać usunięcia lub lokalizacja niezależnego fragmentu musi zostać zaktualizowana. Aby odzyskać usuniętą bazę danych, zobacz [Przywracanie usuniętej bazy danych](sql-database-recovery-using-backups.md).
-2. Występuje zdarzenie trybu failover geograficznego. Aby kontynuować, należy zaktualizować nazwę serwera i nazwę bazy danych menedżera mapy niezależnego fragmentu w aplikacji, a następnie zaktualizować szczegóły mapowania niezależnego fragmentu dla wszystkich fragmentów na mapie niezależnego fragmentu. If there is a geo-failover, such recovery logic should be automated within the failover workflow. Automatyzacja akcji odzyskiwania umożliwia bezproblemowe zarządzanie bazami danych z obsługą geograficzną i pozwala uniknąć ręcznych działań człowieka. Aby dowiedzieć się więcej o opcjach odzyskiwania bazy danych w przypadku awarii centrum danych, zobacz [Ciągłość działania](sql-database-business-continuity.md) i [odzyskiwanie po awarii](sql-database-disaster-recovery.md).
-3. Fragment lub baza danych ShardMapManager jest przywracana do wcześniejszego czasu w punkcie. Aby dowiedzieć się więcej o odzyskiwaniu czasu przy użyciu kopii zapasowych, zobacz [Odzyskiwanie przy użyciu kopii zapasowych](sql-database-recovery-using-backups.md).
+1. Usunięcie elementu fragmentu, którego zakres nie jest już używany, lub zmiana nazwy fragmentu. Usunięcie fragmentu skutkuje **mapowaniem oddzielonym fragmentu**. Podobnie baza danych o zmienionej nazwie może spowodować oddzielenie mapowania fragmentu. W zależności od intencji zmiany fragmentu może być konieczne usunięcie lub należy zaktualizować lokalizację fragmentu. Aby odzyskać usuniętą bazę danych, zobacz [przywracanie usuniętej bazy danych](sql-database-recovery-using-backups.md).
+2. Wystąpi zdarzenie geograficzne — tryb failover. Aby kontynuować, należy zaktualizować nazwę serwera i nazwę bazy danych Menedżera mapy fragmentu w aplikacji, a następnie zaktualizować szczegóły mapowania fragmentu dla wszystkich fragmentów na mapie fragmentu. W przypadku geograficznego trybu failover taka logika odzyskiwania powinna być zautomatyzowana w ramach przepływu pracy trybu failover. Automatyzacja akcji odzyskiwania umożliwia łatwość zarządzania bazami danych z obsługą geograficzną i unika ręcznych działań ludzkich. Aby dowiedzieć się więcej o opcjach odzyskiwania bazy danych w przypadku awarii centrum danych, zobacz [ciągłość](sql-database-business-continuity.md) działania i [odzyskiwanie po awarii](sql-database-disaster-recovery.md).
+3. Baza danych fragmentu lub ShardMapManager jest przywracana do wcześniejszego punktu w czasie. Aby dowiedzieć się więcej o odzyskiwaniu do punktu w czasie za pomocą kopii zapasowych, zobacz [odzyskiwanie przy użyciu kopii zapas](sql-database-recovery-using-backups.md)
 
-Aby uzyskać więcej informacji na temat narzędzi elastycznej bazy danych azure SQL Database, replikacji geograficznej i przywracania, zobacz następujące:
+Aby uzyskać więcej informacji na temat Azure SQL Database narzędzi Elastic Database, replikacji geograficznej i przywracania, zobacz następujące tematy:
 
-* [Omówienie: Ciągłość działania chmury i odzyskiwanie po awarii bazy danych za pomocą bazy danych SQL](sql-database-business-continuity.md)
-* [Wprowadzenie do narzędzi elastycznej bazy danych](sql-database-elastic-scale-get-started.md)  
-* [Zarządzanie mapami ShardMap](sql-database-elastic-scale-shard-map-management.md)
+* [Przegląd: Ciągłość biznesowa w chmurze i odzyskiwanie po awarii bazy danych za pomocą SQL Database](sql-database-business-continuity.md)
+* [Wprowadzenie do narzędzi elastycznych baz danych](sql-database-elastic-scale-get-started.md)  
+* [ShardMap Management](sql-database-elastic-scale-shard-map-management.md)
 
-## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Pobieranie recoverymanager z ShardMapManager
+## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Pobieranie elementu Recoverymanager z ShardMapManager
 
-Pierwszym krokiem jest utworzenie recoverymanager wystąpienia. [GetRecoveryManager Metoda](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) zwraca menedżera odzyskiwania dla bieżącego wystąpienia [ShardMapManager.](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) Aby rozwiązać wszelkie niespójności na mapie niezależnego fragmentu, należy najpierw pobrać RecoveryManager dla konkretnej mapy niezależnego fragmentu.
+Pierwszym krokiem jest utworzenie wystąpienia programu Recoverymanager. [Metoda Getrecoverymanager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) zwraca Menedżera odzyskiwania dla bieżącego wystąpienia [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) . Aby rozwiązać wszelkie niespójności w mapie fragmentu, należy najpierw pobrać program Recoverymanager dla konkretnej mapy fragmentu.
 
    ```java
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnectionString,  
@@ -56,65 +56,65 @@ Pierwszym krokiem jest utworzenie recoverymanager wystąpienia. [GetRecoveryMana
              RecoveryManager rm = smm.GetRecoveryManager();
    ```
 
-W tym przykładzie RecoveryManager jest inicjowany z ShardMapManager. ShardMapManager zawierający ShardMap jest również już zainicjowane.
+W tym przykładzie zostanie zainicjowany program Recoverymanager z ShardMapManager. ShardMapManager zawierający ShardMap jest również już zainicjowany.
 
-Ponieważ ten kod aplikacji manipuluje samą mapą niezależnego fragmentu, poświadczenia używane w metodzie fabrycznej (w poprzednim przykładzie smmConnectionString) powinny być poświadczeniami, które mają uprawnienia do odczytu i zapisu w bazie danych GSM, do których odwołuje się połączenie Ciąg. Te poświadczenia zazwyczaj różnią się od poświadczeń używanych do otwierania połączeń dla routingu zależnego od danych. Aby uzyskać więcej informacji, zobacz [Używanie poświadczeń w kliencie elastycznej bazy danych](sql-database-elastic-scale-manage-credentials.md).
+Ponieważ ten kod aplikacji manipuluje mapą fragmentu, poświadczenia używane w metodzie fabryki (w poprzednim przykładzie, smmConnectionString) powinny mieć poświadczenia, które mają uprawnienia do odczytu i zapisu w bazie danych GSM, do których odwołuje się ciąg połączenia. Te poświadczenia zwykle różnią się od poświadczeń używanych do otwierania połączeń dla routingu zależnego od danych. Aby uzyskać więcej informacji, zobacz [używanie poświadczeń w kliencie Elastic Database](sql-database-elastic-scale-manage-credentials.md).
 
-## <a name="removing-a-shard-from-the-shardmap-after-a-shard-is-deleted"></a>Usuwanie fragmentu z mapy niezależnego fragmentu po usunięciu fragmentu
+## <a name="removing-a-shard-from-the-shardmap-after-a-shard-is-deleted"></a>Usuwanie elementu fragmentu z ShardMap po usunięciu fragmentu
 
-[Metoda Odłącza](https://docs.microsoft.com/previous-versions/azure/dn842083(v=azure.100)) odłącza dany fragment od mapy niezależnego fragmentu i usuwa mapowania skojarzone z fragmentem.  
+[Metoda DetachShard](https://docs.microsoft.com/previous-versions/azure/dn842083(v=azure.100)) odłącza dany fragmentu z mapy fragmentu i usuwa mapowania skojarzone z fragmentu.  
 
-* Parametr lokalizacji jest lokalizacją niezależnego fragmentu, w szczególności nazwą serwera i nazwą bazy danych, odłączanego fragmentu.
-* Parametr shardMapName jest nazwą mapy niezależnego fragmentu. Jest to wymagane tylko wtedy, gdy wiele map niezależnego fragmentu są zarządzane przez tego samego menedżera mapy niezależnego fragmentu. Element opcjonalny.
+* Parametr Location jest lokalizacją fragmentu, w odróżnieniu od nazwy serwera i nazwy bazy danych fragmentu.
+* Parametr shardMapName jest nazwą mapy fragmentu. Jest to wymagane tylko wtedy, gdy wiele map fragmentu jest zarządzanych przez ten sam Menedżer mapy fragmentu. Element opcjonalny.
 
 > [!IMPORTANT]
-> Tej techniki należy używać tylko wtedy, gdy masz pewność, że zakres zaktualizowanego mapowania jest pusty. Powyższe metody nie sprawdzają danych dla zakresu, który jest przenoszony, dlatego najlepiej jest uwzględnić kontrole w kodzie.
+> Tej techniki należy używać tylko wtedy, gdy masz pewność, że zakres zaktualizowanego mapowania jest pusty. Powyższe metody nie sprawdzają danych dla przenoszonego zakresu, dlatego najlepiej dołączać czeki w kodzie.
 
-W tym przykładzie usuwa fragmenty z mapy niezależnego fragmentu.
+Ten przykład usuwa fragmentów z mapy fragmentu.
 
    ```java
    rm.DetachShard(s.Location, customerMap);
    ```
 
-Mapa niezależnego fragmentu odzwierciedla lokalizację niezależnego fragmentu w GSM przed usunięciem fragmentu. Ponieważ fragment został usunięty, zakłada się, że było to zamierzone, a zakres klucza dzielenia na fragmenty nie jest już używany. Jeśli nie, można wykonać przywracanie czasu punktu w. , aby odzyskać fragment z wcześniejszego punktu w czasie. (W takim przypadku przejrzyj następującą sekcję, aby wykryć niespójności fragmentów). Aby odzyskać, zobacz [Odzyskiwanie w punkcie czasu](sql-database-recovery-using-backups.md).
+Mapa fragmentu odzwierciedla lokalizację fragmentu w GSM przed usunięciem fragmentu. Ponieważ fragmentu został usunięty, zakłada się, że jest to zamierzone, a zakres kluczy fragmentowania nie jest już używany. W przeciwnym razie można wykonać przywracanie do punktu w czasie. Aby odzyskać fragmentu z wcześniejszego punktu w czasie. (W tym przypadku zapoznaj się z poniższą sekcją w celu wykrycia niespójności fragmentu). Aby odzyskać, zobacz [odzyskiwanie do punktu w czasie](sql-database-recovery-using-backups.md).
 
-Ponieważ zakłada się, że usunięcie bazy danych było zamierzone, ostateczną akcję oczyszczania administracyjnego jest usunięcie wpisu do fragmentu w menedżerze mapy niezależnego fragmentu. Zapobiega to aplikacji przypadkowo zapisywania informacji do zakresu, który nie jest oczekiwany.
+Ponieważ przyjęto założenie, że usunięcie bazy danych zostało zamierzone, końcowa Akcja oczyszczania administracyjnego polega na usunięciu wpisu do fragmentu w Menedżerze fragmentu map. Zapobiega to przypadkowemu zapisywaniu informacji przez aplikację do zakresu, który nie jest oczekiwany.
 
 ## <a name="to-detect-mapping-differences"></a>Aby wykryć różnice mapowania
 
-[DetectMappingDifferences Metoda](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) wybiera i zwraca jedną z map niezależnego fragmentu (lokalne lub globalne) jako źródło prawdy i uzgadnia mapowania na obu mapach niezależnego fragmentu (GSM i LSM).
+[Metoda DetectMappingDifferences](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) wybiera i zwraca jeden z map fragmentu (lokalne lub globalne) jako źródło prawdy i uzgadnia mapowania na obu mapach FRAGMENTU (GSM i LSM).
 
    ```java
    rm.DetectMappingDifferences(location, shardMapName);
    ```
 
 * *Lokalizacja* określa nazwę serwera i nazwę bazy danych.
-* Parametr *shardMapName* jest nazwą mapy niezależnego fragmentu. Jest to wymagane tylko wtedy, gdy wiele map niezależnego fragmentu są zarządzane przez tego samego menedżera mapy niezależnego fragmentu. Element opcjonalny.
+* Parametr *shardMapName* jest nazwą mapy fragmentu. Jest to wymagane tylko wtedy, gdy wiele map fragmentu jest zarządzanych przez ten sam Menedżer mapy fragmentu. Element opcjonalny.
 
-## <a name="to-resolve-mapping-differences"></a>Aby rozwiązać różnice mapowania
+## <a name="to-resolve-mapping-differences"></a>Aby rozwiązać różnice dotyczące mapowania
 
-[ResolveMappingDifferences Metoda](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) wybiera jedną z map niezależnego fragmentu (lokalne lub globalne) jako źródło prawdy i uzgadnia mapowania na obu mapach niezależnego fragmentu (GSM i LSM).
+[Metoda ResolveMappingDifferences](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) wybiera jeden z map fragmentu (lokalne lub globalne) jako źródło prawdy i uzgadnia mapowania na obu mapach FRAGMENTU (GSM i LSM).
 
    ```java
    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    ```
 
-* *RecoveryToken* Parametr wylicza różnice w mapowaniach między GSM i LSM dla określonego fragmentu.
-* [MappingDifferenceResoluation wyliczenie](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) służy do wskazania metody rozwiązywania różnicy między mapowania niezależnego fragmentu.
-* **MappingDifferenceResolution.KeepShardMapping** zaleca się, gdy LSM zawiera dokładne mapowanie i dlatego mapowanie w niezależnego fragmentu powinny być używane. Zazwyczaj dzieje się tak, jeśli istnieje przewija się w błąd: fragment znajduje się teraz na nowym serwerze. Ponieważ fragment musi najpierw zostać usunięty z GSM (przy użyciu RecoveryManager.DetachShard metody), mapowanie nie istnieje już na GSM. W związku z tym LSM musi służyć do ponownego ustanowienia mapowania niezależnego fragmentu.
+* Parametr *RecoveryToken* wylicza różnice w MAPOWANIU między GSM i LSM dla określonego fragmentu.
+* [Wyliczenie MappingDifferenceResolution](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) jest używane do wskazywania metody rozpoznawania różnicy między mapowaniami fragmentu.
+* **MappingDifferenceResolution. KeepShardMapping** zaleca się, aby gdy LSM zawiera dokładne mapowanie i dlatego należy użyć mapowania w fragmentu. Zwykle jest to sytuacja, gdy istnieje przejście w tryb failover: fragmentu teraz znajduje się na nowym serwerze. Ponieważ fragmentu należy najpierw usunąć z usługi GSM (przy użyciu metody Recoverymanager. DetachShard), mapowanie nie istnieje już w usłudze GSM. W związku z tym LSM musi być używany do ponownego ustanowienia mapowania fragmentu.
 
-## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Dołączanie fragmentu do mapy niezależnego odłamka po przywróceniu fragmentu
+## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Dołącz fragmentu do ShardMap po przywróceniu fragmentu
 
-[AttachShard Metoda](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) dołącza danego niezależnego fragmentu do mapy niezależnego fragmentu. Następnie wykrywa niespójności mapy niezależnego fragmentu i aktualizuje mapowania, aby dopasować fragment w punkcie przywracania niezależnego fragmentu. Zakłada się, że baza danych jest również zmieniana w celu odzwierciedlenia oryginalnej nazwy bazy danych (przed przywróceniem fragmentu), ponieważ przywracanie czasu punktu domyślnie do nowej bazy danych dołączonej do sygnatury czasowej.
+[Metoda AttachShard](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) dołącza daną fragmentu do mapy fragmentu. Następnie wykrywa wszystkie niespójności mapy fragmentu i aktualizuje mapowania tak, aby pasowały do fragmentu w punkcie przywracania fragmentu. Zakłada się, że nazwa bazy danych jest również zmieniona, aby odzwierciedlała oryginalną nazwę bazy danych (przed przystąpieniem do fragmentuu), ponieważ przywracanie do punktu w czasie jest domyślnie dodawane do nowej bazy danych z sygnaturą czasową.
 
    ```java
    rm.AttachShard(location, shardMapName)
    ```
 
-* Parametr *lokalizacji* jest nazwą serwera i nazwą bazy danych dołączonego fragmentu.
-* Parametr *shardMapName* jest nazwą mapy niezależnego fragmentu. Jest to wymagane tylko wtedy, gdy wiele map niezależnego fragmentu są zarządzane przez tego samego menedżera mapy niezależnego fragmentu. Element opcjonalny.
+* Parametr *Location* to nazwa serwera i nazwa bazy danych fragmentu, które są dołączane.
+* Parametr *shardMapName* jest nazwą mapy fragmentu. Jest to wymagane tylko wtedy, gdy wiele map fragmentu jest zarządzanych przez ten sam Menedżer mapy fragmentu. Element opcjonalny.
 
-W tym przykładzie dodaje fragment do mapy niezależnego fragmentu, który został niedawno przywrócony z wcześniejszego czasu w punkcie. Ponieważ fragment (a mianowicie mapowanie dla niezależnego fragmentu w LSM) został przywrócony, jest potencjalnie niezgodne z wpisem niezależnego fragmentu w GSM. Poza tym przykładowym kodem fragment został przywrócony i zmieniono jego nazwę na oryginalną nazwę bazy danych. Ponieważ został przywrócony, zakłada się, że mapowanie w LSM jest zaufanym mapowaniem.
+Ten przykład dodaje fragmentu do mapy fragmentu, która została ostatnio przywrócona z wcześniejszego punktu w czasie. Ponieważ fragmentu (tj. mapowanie dla fragmentu w LSM) zostało przywrócone, może być niespójny z wpisem fragmentu w GSM. Na zewnątrz tego przykładowego kodu fragmentu został przywrócony i zmieniono nazwę na oryginalną. Ponieważ został przywrócony, zakłada się, że mapowanie w LSM jest zaufanym mapowaniem.
 
    ```java
    rm.AttachShard(s.Location, customerMap);
@@ -125,26 +125,26 @@ W tym przykładzie dodaje fragment do mapy niezależnego fragmentu, który zosta
        }
    ```
 
-## <a name="updating-shard-locations-after-a-geo-failover-restore-of-the-shards"></a>Aktualizowanie lokalizacji niezależnego fragmentu po przeżycie awaryjnym (przywracaniu geograficznym) fragmentów
+## <a name="updating-shard-locations-after-a-geo-failover-restore-of-the-shards"></a>Aktualizowanie lokalizacji fragmentu po geograficznej trybie failover (Przywracanie) fragmentów
 
-Jeśli istnieje geo-failover, pomocnicza baza danych jest zapisywany dostępne i staje się nową podstawową bazą danych. Nazwa serwera i potencjalnie bazy danych (w zależności od konfiguracji) może się różnić od oryginalnego podstawowego. W związku z tym wpisy mapowania dla niezależnego fragmentu w GSM i LSM muszą być ustalone. Podobnie jeśli baza danych zostanie przywrócona do innej nazwy lub lokalizacji lub do wcześniejszego punktu w czasie, może to spowodować niespójności w mapach niezależnego fragmentu. Menedżer map niezależnego fragmentu obsługuje dystrybucję otwartych połączeń do poprawnej bazy danych. Dystrybucja jest oparta na danych na mapie niezależnego fragmentu i wartości klucza dzielenia na fragmenty, który jest celem żądania aplikacji. Po geo-failover te informacje muszą być aktualizowane o dokładną nazwę serwera, nazwę bazy danych i mapowanie niezależnego fragmentu odzyskanej bazy danych.
+W przypadku geograficznego przejścia w tryb failover pomocnicza baza danych jest dostępna do zapisu i będzie nową podstawową bazą danych. Nazwa serwera i potencjalnie baza danych (w zależności od konfiguracji) mogą różnić się od oryginalnego elementu podstawowego. W związku z tym wpisy mapowania dla fragmentu w GSM i LSM muszą być ustalone. Podobnie, jeśli baza danych zostanie przywrócona do innej nazwy lub lokalizacji lub do wcześniejszego punktu w czasie, może to spowodować niespójności w mapach fragmentu. Menedżer mapy fragmentu obsługuje dystrybucję otwartych połączeń do prawidłowej bazy danych. Dystrybucja opiera się na danych na mapie fragmentu oraz wartości klucza fragmentowania, który jest elementem docelowym żądania aplikacji. Po geograficznym przejściu do trybu failover należy zaktualizować te informacje przy użyciu dokładnej nazwy serwera, nazwy bazy danych i mapowania fragmentu odzyskanej bazy danych.
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
-Geo-failover i odzyskiwanie są operacje zazwyczaj zarządzane przez administratora chmury aplikacji celowo przy użyciu jednej z baz danych SQL platformy Azure funkcji ciągłości biznesowej. Planowanie ciągłości działania wymaga procesów, procedur i środków, aby zapewnić, że operacje biznesowe mogą być kontynuowane bez przerwy. Metody dostępne jako część RecoveryManager klasy powinny być używane w ramach tego przepływu pracy, aby upewnić się, że GSM i LSM są aktualizowane na podstawie podjętej akcji odzyskiwania. Istnieje pięć podstawowych kroków, aby prawidłowo upewnić się, że GSM i LSM odzwierciedlają dokładne informacje po zdarzeniu pracy awaryjnej. Kod aplikacji do wykonania tych kroków można zintegrować z istniejącymi narzędziami i przepływem pracy.
+Geograficznie tryb failover i odzyskiwanie są zwykle zarządzane przez administratora chmury aplikacji celowo wykorzystującej jedną z funkcji ciągłości działania usługi Azure SQL Database. Planowanie ciągłości działalności biznesowej wymaga procesów, procedur i miar, aby zapewnić, że operacje biznesowe mogą być kontynuowane bez przeszkód. Metody dostępne jako część klasy Recoverymanager powinny być używane w tym przepływie pracy, aby upewnić się, że GSM i LSM są aktualne na podstawie wykonywanej akcji odzyskiwania. Istnieje pięć podstawowych kroków, aby prawidłowo zapewnić, że GSM i LSM odzwierciedlają dokładne informacje po przejściu w tryb failover. Kod aplikacji do wykonania tych kroków można zintegrować z istniejącymi narzędziami i przepływem pracy.
 
-1. Pobierz RecoveryManager z ShardMapManager.
-2. Odłącz stary fragment od mapy niezależnego fragmentu.
-3. Dołącz nowy fragment do mapy niezależnego fragmentu, łącznie z nową lokalizacją niezależnego fragmentu.
-4. Wykrywanie niespójności w mapowaniu między GSM i LSM.
-5. Rozwiązuj różnice między GSM i LSM, ufając LSM.
+1. Pobierz z ShardMapManager.
+2. Odłącz starą fragmentu od mapy fragmentu.
+3. Dołącz nowy fragmentu do mapy fragmentu, w tym nowej lokalizacji fragmentu.
+4. Wykrywaj niespójności w mapowaniu między GSM i LSM.
+5. Rozwiąż różnice między GSM i LSM, aby ufać LSM.
 
-W tym przykładzie wykonuje się następujące kroki:
+W tym przykładzie wykonywane są następujące czynności:
 
-1. Usuwa fragmenty z mapy niezależnego fragmentu, które odzwierciedlają lokalizacje niezależnego fragmentu przed zdarzeniem trybu failover.
-2. Dołącza fragmenty do mapy niezależnego fragmentu odzwierciedlając nowe lokalizacje niezależnego fragmentu (parametr "Configuration.SecondaryServer" to nowa nazwa serwera, ale ta sama nazwa bazy danych).
-3. Pobiera tokeny odzyskiwania, wykrywając różnice mapowania między GSM i LSM dla każdego niezależnego fragmentu.
-4. Rozwiązuje niespójności, ufając mapowanie z LSM każdego niezależnego fragmentu.
+1. Usuwa fragmentów z mapy fragmentu, która odzwierciedla lokalizacje fragmentu przed zdarzeniem trybu failover.
+2. Dołącza fragmentów do mapy fragmentu odzwierciedlające nowe lokalizacje fragmentu (parametr "Configuration. SecondaryServer" to nowa nazwa serwera, ale ta sama nazwa bazy danych).
+3. Pobiera tokeny odzyskiwania przez wykrywanie różnic mapowania między GSM i LSM dla każdego fragmentuu.
+4. Rozwiązuje niespójności, ufając mapowanie od LSM każdego fragmentuu.
 
    ```java
    var shards = smm.GetShards();

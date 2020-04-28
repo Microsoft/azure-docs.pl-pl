@@ -1,6 +1,6 @@
 ---
-title: Środowisko użytkownika za pomocą usługi Azure AD Identity Protection
-description: Środowisko użytkownika usługi Azure AD Identity Protection
+title: Środowiska użytkownika z Azure AD Identity Protection
+description: Środowisko użytkownika Azure AD Identity Protection
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -12,76 +12,76 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc10fb4f9894a355c9eed024ae9f87747214999b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72887002"
 ---
-# <a name="user-experiences-with-azure-ad-identity-protection"></a>Środowisko użytkownika za pomocą usługi Azure AD Identity Protection
+# <a name="user-experiences-with-azure-ad-identity-protection"></a>Środowiska użytkownika z Azure AD Identity Protection
 
-Za pomocą usługi Azure Active Directory Identity Protection można:
+Za pomocą Azure Active Directory Identity Protection można:
 
-* Wymagaj od użytkowników rejestrowania się w celu uwierzytelniania wieloskładnikowego usługi Azure
-* Automatyzacja korygowania ryzykownych logów i użytkowników, których bezpieczeństwo zostało naruszone
+* Wymagaj od użytkowników rejestracji w usłudze Azure Multi-Factor Authentication (MFA)
+* Automatyzuj korygowanie ryzykownych logowań i narażonych użytkowników
 
-Wszystkie zasady ochrony tożsamości mają wpływ na środowisko logowania dla użytkowników. Umożliwienie użytkownikom rejestrowania się i używania narzędzi, takich jak usługa Azure MFA i samoobsługowe resetowanie hasła, może zmniejszyć wpływ. Te narzędzia wraz z odpowiednimi opcjami zasad daje użytkownikom opcję samozaradania, gdy jej potrzebują.
+Wszystkie zasady ochrony tożsamości mają wpływ na środowisko logowania użytkowników. Umożliwienie użytkownikom zarejestrowania się i używania narzędzi, takich jak usługa Azure MFA i Samoobsługowe resetowanie hasła, może zmniejszyć wpływ. Te narzędzia wraz z odpowiednimi opcjami wyboru zasad zapewniają użytkownikom możliwość samodzielnego korygowania, gdy ich potrzebują.
 
-## <a name="multi-factor-authentication-registration"></a>Rejestracja uwierzytelniania wieloskładnikowego
+## <a name="multi-factor-authentication-registration"></a>Rejestracja w usłudze uwierzytelniania wieloskładnikowego
 
-Włączenie zasad ochrony tożsamości wymagających rejestracji uwierzytelniania wieloskładnikowego i kierowania na wszystkich użytkowników, upewnij się, że mają możliwość korzystania z usługi Azure MFA do samodzielnego korygowania w przyszłości. Skonfigurowanie tej zasady daje użytkownikom 14-dniowy okres, w którym mogą wybrać rejestrację, a na końcu są zmuszeni do rejestracji. Środowisko dla użytkowników jest opisane poniżej. Więcej informacji można znaleźć w dokumentacji użytkownika końcowego w artykule, [Omówienie weryfikacji dwuskładnikowej oraz konta służbowego lub szkolnego.](../user-help/user-help-two-step-verification-overview.md)
+Włączenie zasady ochrony tożsamości wymagające rejestracji w usłudze uwierzytelniania wieloskładnikowego i przekierowania wszystkim użytkownikom zapewnia możliwość korzystania z usługi Azure MFA do samodzielnego korygowania w przyszłości. Skonfigurowanie tych zasad spowoduje, że użytkownicy będą mieć 14-dniowy okres, w którym mogą oni wybrać rejestrację, a na koniec będą zmuszeni do rejestracji. Środowisko dla użytkowników zostało opisane poniżej. Więcej informacji można znaleźć w dokumentacji użytkownika końcowego w artykule [Omówienie weryfikacji dwuskładnikowej i konta służbowego](../user-help/user-help-two-step-verification-overview.md).
 
 ### <a name="registration-interrupt"></a>Przerwanie rejestracji
 
-1. Podczas logowania do dowolnej aplikacji zintegrowanej z usługą Azure AD użytkownik otrzymuje powiadomienie o wymaganiu skonfigurowania konta do uwierzytelniania wieloskładnikowego. Ta zasada jest również wyzwalana w systemie Windows 10 Out of Box Experience dla nowych użytkowników z nowym urządzeniem.
+1. Podczas logowania do dowolnej aplikacji zintegrowanej z usługą Azure AD użytkownik otrzymuje powiadomienie o wymaganym skonfigurowaniu konta do uwierzytelniania wieloskładnikowego. Te zasady są również wyzwalane w środowisku systemu Windows 10 w przypadku nowych użytkowników przy użyciu nowego urządzenia.
    
-    ![Więcej informacji wymaganych](./media/concept-identity-protection-user-experience/identity-protection-experience-more-info-mfa.png)
+    ![Wymagane są więcej informacji](./media/concept-identity-protection-user-experience/identity-protection-experience-more-info-mfa.png)
 
-1. Wykonaj kroki z przewodnikiem, aby zarejestrować się w usłudze Azure Multi-Factor Authentication i zakończyć logowanie.
+1. Wykonaj kroki z przewodnikiem, aby zarejestrować się w usłudze Azure Multi-Factor Authentication i ukończyć logowanie.
 
-## <a name="risky-sign-in-remediation"></a>Ryzykowne korygowanie logowania
+## <a name="risky-sign-in-remediation"></a>Ryzykowne Rozwiązywanie problemów
 
-Gdy administrator skonfigurował zasady dla ryzyka logowania, użytkownicy, których dotyczy problem, są powiadamiani, gdy próbują się zalogować i wyzwolić poziom ryzyka zasad. 
+Gdy administrator skonfigurował zasady dotyczące ryzyka związanego z logowaniem, użytkownicy, których to dotyczy, są powiadamiani o próbie zalogowania się i wyzwolenie poziomu ryzyka zasad. 
 
-### <a name="risky-sign-in-self-remediation"></a>Ryzykowne samorekultywowanie logowania
+### <a name="risky-sign-in-self-remediation"></a>Samodzielne rozwiązywanie problemów z logowaniem
 
-1. Użytkownik jest informowany, że wykryto coś niezwykłego o ich logowania, takich jak logowanie się z nowej lokalizacji, urządzenia lub aplikacji.
+1. Użytkownik jest informowany o wykryciu nietypowej rejestracji, na przykład w przypadku logowania się z nowej lokalizacji, urządzenia lub aplikacji.
    
-    ![Coś niezwykłego monitu](./media/concept-identity-protection-user-experience/120.png)
+    ![Coś nietypowego monitu](./media/concept-identity-protection-user-experience/120.png)
 
-1. Użytkownik jest zobowiązany do udowodnienia swojej tożsamości, wypełniając usługi Azure MFA za pomocą jednej z wcześniej zarejestrowanych metod. 
+1. Użytkownik musi potwierdzić swoją tożsamość, kończąc usługę Azure MFA przy użyciu jednej z wcześniej zarejestrowanych metod. 
 
-### <a name="risky-sign-in-administrator-unblock"></a>Ryzykowne odblokowanie administratora logowania
+### <a name="risky-sign-in-administrator-unblock"></a>Odblokowanie ryzykownego konta administratora
 
-Administratorzy mogą blokować użytkowników po zalogowaniu się w zależności od poziomu ryzyka. Aby odblokować, użytkownicy końcowi muszą skontaktować się ze swoim personelem IT lub mogą spróbować zalogować się ze znanej lokalizacji lub urządzenia. Samoremediacja przez wykonywanie uwierzytelniania wieloskładnikowego nie jest opcją w tym przypadku.
+Administratorzy mogą blokować użytkownikom logowanie się w zależności od poziomu ryzyka. Aby uzyskać odblokowywanie, użytkownicy końcowi muszą kontaktować się z pracownikami IT lub mogą próbować zalogować się ze znajomej lokalizacji lub urządzenia. Samoobsługowe korygowanie przez przeprowadzenie uwierzytelniania wieloskładnikowego nie jest opcją w tym przypadku.
 
-![Zablokowane przez zasady ryzyka logowania](./media/concept-identity-protection-user-experience/200.png)
+![Zablokowane przez zasady dotyczące ryzyka związanego z logowaniem](./media/concept-identity-protection-user-experience/200.png)
 
-Pracownicy IT mogą postępować zgodnie z instrukcjami w sekcji [Odblokowywanie użytkowników,](howto-identity-protection-remediate-unblock.md#unblocking-based-on-sign-in-risk) aby umożliwić użytkownikom zalogowanie się z powrotem.
+Pracownicy działu IT mogą postępować zgodnie z instrukcjami w sekcji [odblokowywanie użytkowników](howto-identity-protection-remediate-unblock.md#unblocking-based-on-sign-in-risk) , aby umożliwić użytkownikom ponowne logowanie.
 
-## <a name="risky-user-remediation"></a>Ryzykowne korygowanie przez użytkownika
+## <a name="risky-user-remediation"></a>Ryzykowne korygowanie użytkowników
 
-Po skonfigurowaniu zasad ryzyka użytkownika użytkownicy, którzy spełniają prawdopodobieństwo naruszenia poziomu ryzyka użytkownika, muszą przejść przez przepływ odzyskiwania naruszenia zabezpieczeń użytkownika, zanim będą mogli się zalogować. 
+Po skonfigurowaniu zasad ryzyka użytkownika użytkownicy, którzy spełnią prawdopodobieństwo naruszenia poziomu ryzyka dla użytkownika, muszą przejść przez przepływ odzyskiwania przez użytkownika przed zalogowaniem się. 
 
-### <a name="risky-user-self-remediation"></a>Ryzykowne samorekultywacja użytkownika
+### <a name="risky-user-self-remediation"></a>Samodzielne korygowanie użytkowników
 
-1. Użytkownik jest informowany, że ich bezpieczeństwo konta jest zagrożone z powodu podejrzanej aktywności lub wycieku poświadczeń.
+1. Użytkownik jest informowany, że zabezpieczenia konta są zagrożone ze względu na podejrzane działanie lub nieujawnione poświadczenia.
    
     ![Korekty](./media/concept-identity-protection-user-experience/101.png)
 
-1. Użytkownik jest zobowiązany do udowodnienia swojej tożsamości, wypełniając usługi Azure MFA za pomocą jednej z wcześniej zarejestrowanych metod. 
-1. Wreszcie użytkownik jest zmuszony do zmiany hasła przy użyciu samoobsługowego resetowania hasła, ponieważ ktoś inny mógł mieć dostęp do swojego konta.
+1. Użytkownik musi potwierdzić swoją tożsamość, kończąc usługę Azure MFA przy użyciu jednej z wcześniej zarejestrowanych metod. 
+1. Na koniec użytkownik jest zmuszony do zmiany hasła przy użyciu funkcji samoobsługowego resetowania hasła, ponieważ ktoś inny mógł uzyskać dostęp do swojego konta.
 
-## <a name="risky-sign-in-administrator-unblock"></a>Ryzykowne odblokowanie administratora logowania
+## <a name="risky-sign-in-administrator-unblock"></a>Odblokowanie ryzykownego konta administratora
 
-Administratorzy mogą blokować użytkowników po zalogowaniu się w zależności od poziomu ryzyka. Aby odblokować, użytkownicy końcowi muszą skontaktować się ze swoim personelem IT. Samozaradianie przez wykonywanie uwierzytelniania wieloskładnikowego i samoobsługowego resetowania hasła nie jest w tym przypadku opcją.
+Administratorzy mogą blokować użytkownikom logowanie się w zależności od poziomu ryzyka. Aby uzyskać odblokowywanie, użytkownicy końcowi muszą skontaktować się z pracownikami IT. Samoobsługowe korygowanie przez przeprowadzenie uwierzytelniania wieloskładnikowego i samoobsługowego resetowania hasła nie jest opcją w tym przypadku.
 
-![Zablokowane przez zasady dotyczące ryzyka użytkownika](./media/concept-identity-protection-user-experience/104.png)
+![Zablokowane przez zasady ryzyka użytkownika](./media/concept-identity-protection-user-experience/104.png)
 
-Pracownicy IT mogą postępować zgodnie z instrukcjami w sekcji [Odblokowywanie użytkowników,](howto-identity-protection-remediate-unblock.md#unblocking-based-on-user-risk) aby umożliwić użytkownikom zalogowanie się z powrotem.
+Pracownicy działu IT mogą postępować zgodnie z instrukcjami w sekcji [odblokowywanie użytkowników](howto-identity-protection-remediate-unblock.md#unblocking-based-on-user-risk) , aby umożliwić użytkownikom ponowne logowanie.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-- [Korygowanie ryzyka i odblokowywanie użytkowników](howto-identity-protection-remediate-unblock.md)
+- [Korygowanie zagrożeń i odblokowywanie użytkowników](howto-identity-protection-remediate-unblock.md)
 
 - [Ochrona tożsamości w usłudze Azure Active Directory](../active-directory-identityprotection.md) 

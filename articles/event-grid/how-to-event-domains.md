@@ -1,6 +1,6 @@
 ---
-title: Publikowanie zdarzeń w domenach zdarzeń za pomocą usługi Azure Event Grid
-description: Pokazuje, jak zarządzać dużymi zestawami tematów w usłudze Azure Event Grid i publikować zdarzenia przy użyciu domen zdarzeń.
+title: Publikowanie zdarzeń przy użyciu domen zdarzeń z Azure Event Grid
+description: Pokazuje, jak zarządzać dużymi zestawami tematów w Azure Event Grid i publikować zdarzenia do nich za pomocą domen zdarzeń.
 services: event-grid
 author: banisadr
 ms.service: event-grid
@@ -8,22 +8,22 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.openlocfilehash: 1d07227249806b7d54523af66817a170c19354ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72786557"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Zarządzanie tematami i publikowanie zdarzeń przy użyciu domen zdarzeń
 
 W tym artykule pokazano, jak:
 
-* Tworzenie domeny siatki zdarzeń
-* Subskrybowanie tematów siatki zdarzeń
-* Klawisze listy
+* Tworzenie domeny Event Grid
+* Subskrybowanie do tematów usługi Event Grid
+* Klucze list
 * Publikowanie zdarzeń w domenie
 
-Aby dowiedzieć się więcej o domenach zdarzeń, zobacz [Opis domen zdarzeń do zarządzania tematami w siatce zdarzeń](event-domains.md).
+Aby dowiedzieć się więcej o domenach zdarzeń, zobacz [Opis domen zdarzeń do zarządzania Event Grid tematami](event-domains.md).
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -31,9 +31,9 @@ Aby dowiedzieć się więcej o domenach zdarzeń, zobacz [Opis domen zdarzeń do
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-## <a name="create-an-event-domain"></a>Tworzenie domeny zdarzenia
+## <a name="create-an-event-domain"></a>Tworzenie domeny zdarzeń
 
-Aby zarządzać dużymi zestawami tematów, utwórz domenę zdarzeń.
+Aby zarządzać dużymi zestawami tematów, Utwórz domenę zdarzeń.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azurecli)
 
@@ -48,7 +48,7 @@ az eventgrid domain create \
   -l <location>
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```azurepowershell-interactive
 # If you have not already installed the module, do it now.
 # This module is required for preview features.
@@ -78,16 +78,16 @@ Pomyślne utworzenie zwraca następujące wartości:
 }
 ```
 
-Należy `endpoint` pamiętać, że i `id` jak są one wymagane do zarządzania domeną i publikowania zdarzeń.
+Należy pamiętać `endpoint` , `id` że są one wymagane do zarządzania domeną i publikowania zdarzeń.
 
 ## <a name="manage-access-to-topics"></a>Zarządzanie dostępem do tematów
 
-Zarządzanie dostępem do tematów odbywa się za pomocą [przypisania roli](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). Przypisanie roli używa kontroli dostępu opartej na rolach, aby ograniczyć operacje na zasobach platformy Azure do autoryzowanych użytkowników w określonym zakresie.
+Zarządzanie dostępem do tematów odbywa się za pomocą [przypisywania ról](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). Przypisanie roli korzysta z kontroli dostępu opartej na rolach w celu ograniczenia operacji na zasobach platformy Azure do autoryzowanych użytkowników w określonym zakresie.
 
-Usługa Event Grid ma dwie wbudowane role, za pomocą których można przypisać dostęp określonych użytkowników do różnych tematów w domenie. Role te `EventGrid EventSubscription Contributor (Preview)`są , co pozwala na tworzenie i `EventGrid EventSubscription Reader (Preview)`usuwanie subskrypcji, i , który pozwala tylko na listę subskrypcji zdarzeń.
+Event Grid ma dwie wbudowane role, których można użyć do przypisywania określonych użytkowników w różnych tematach w domenie. Role te to `EventGrid EventSubscription Contributor (Preview)`, które umożliwiają tworzenie i usuwanie subskrypcji oraz `EventGrid EventSubscription Reader (Preview)`, które pozwalają na wyświetlanie listy subskrypcji zdarzeń.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azurecli)
-Następujące polecenia interfejsu `alice@contoso.com` wiersza polecenia platformy Azure ograniczają się `demotopic1`do tworzenia i usuwania subskrypcji zdarzeń tylko na temat:
+Poniższe polecenie interfejsu wiersza polecenia platformy `alice@contoso.com` Azure umożliwia tworzenie i usuwanie subskrypcji zdarzeń tylko w `demotopic1`temacie:
 
 ```azurecli-interactive
 az role assignment create \
@@ -96,8 +96,8 @@ az role assignment create \
   --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
-Następujące polecenia programu PowerShell ograniczają `alice@contoso.com` tworzenie i usuwanie subskrypcji `demotopic1`zdarzeń tylko na temat:
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+Poniższe polecenia programu PowerShell są `alice@contoso.com` ograniczone do tworzenia i usuwania subskrypcji zdarzeń tylko w `demotopic1`temacie:
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment `
@@ -107,15 +107,15 @@ New-AzureRmRoleAssignment `
 ```
 ---
 
-Aby uzyskać więcej informacji na temat zarządzania dostępem do operacji w siatce zdarzeń, zobacz [Zabezpieczenia i uwierzytelnianie w siatce zdarzeń](./security-authentication.md).
+Aby uzyskać więcej informacji na temat zarządzania dostępem do Event Grid operacji, zobacz [Event Grid zabezpieczenia i uwierzytelnianie](./security-authentication.md).
 
 ## <a name="create-topics-and-subscriptions"></a>Tworzenie tematów i subskrypcji
 
-Usługa Siatki zdarzeń automatycznie tworzy odpowiedni temat w domenie i zarządza nim na podstawie wywołania w celu utworzenia subskrypcji zdarzenia dla tematu domeny. Nie ma osobnego kroku do tworzenia tematu w domenie. Podobnie po usunięciu ostatniej subskrypcji zdarzenia dla tematu, temat jest usuwany, jak również.
+Usługa Event Grid automatycznie tworzy odpowiedni temat w domenie i zarządza nim w oparciu o wywołanie tworzenia subskrypcji zdarzeń dla tematu domeny. Nie ma oddzielnego kroku do utworzenia tematu w domenie. Podobnie po usunięciu ostatniej subskrypcji zdarzeń dla tematu również temat zostaje usunięty.
 
-Subskrybowanie tematu w domenie jest takie samo jak subskrybowanie innych zasobów platformy Azure. W przypadku identyfikatora zasobu źródłowego określ identyfikator domeny zdarzenia zwrócony podczas wcześniejszego tworzenia domeny. Aby określić temat, który chcesz subskrybować, dodaj `/topics/<my-topic>` na końcu identyfikatora zasobu źródłowego. Aby utworzyć subskrypcję zdarzenia zakresu domeny, która odbiera wszystkie zdarzenia w domenie, określ identyfikator domeny zdarzenia bez określania żadnych tematów.
+Subskrybowanie tematu w domenie jest takie samo jak subskrybowanie innych zasobów platformy Azure. W polu Identyfikator zasobu źródłowego Określ identyfikator domeny zdarzenia zwracany podczas tworzenia domeny wcześniej. Aby określić temat, który chcesz subskrybować, Dodaj `/topics/<my-topic>` na końcu identyfikatora zasobu źródłowego. Aby utworzyć subskrypcję zdarzeń zakresu domeny, która odbiera wszystkie zdarzenia w domenie, określ identyfikator domeny zdarzeń bez określania żadnych tematów.
 
-Zazwyczaj użytkownik, któremu udzielono dostępu w poprzedniej sekcji, utworzy subskrypcję. Aby uprościć ten artykuł, należy utworzyć subskrypcję. 
+Zwykle użytkownik, do którego udzielono dostępu w poprzedniej sekcji, utworzy subskrypcję. Aby uprościć ten artykuł, Utwórz subskrypcję. 
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azurecli)
 
@@ -126,7 +126,7 @@ az eventgrid event-subscription create \
   --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzureRmEventGridSubscription `
@@ -137,16 +137,16 @@ New-AzureRmEventGridSubscription `
 
 ---
 
-Jeśli potrzebujesz punktu końcowego testu, aby subskrybować zdarzenia, zawsze możesz wdrożyć [wstępnie skonfliktową aplikację sieci web,](https://github.com/Azure-Samples/azure-event-grid-viewer) która wyświetla przychodzące zdarzenia. Możesz wysłać swoje wydarzenia do `https://<your-site-name>.azurewebsites.net/api/updates`witryny testowej pod adresem .
+Jeśli potrzebujesz testowego punktu końcowego, aby subskrybować Twoje zdarzenia, możesz zawsze wdrożyć wstępnie utworzoną [aplikację sieci Web](https://github.com/Azure-Samples/azure-event-grid-viewer) , która wyświetla zdarzenia przychodzące. Zdarzenia można wysyłać do witryny testowej w `https://<your-site-name>.azurewebsites.net/api/updates`witrynie.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
-Uprawnienia ustawione dla tematu są przechowywane w usłudze Azure Active Directory i muszą zostać usunięte jawnie. Usunięcie subskrypcji zdarzeń nie spowoduje odwołania użytkownikom dostępu do tworzenia subskrypcji zdarzeń, jeśli mają dostęp do zapisu na temat.
+Uprawnienia ustawione dla tematu są przechowywane w Azure Active Directory i muszą zostać usunięte jawnie. Usunięcie subskrypcji zdarzeń nie spowoduje odwołania użytkowników, którzy mają dostęp do zapisu w temacie.
 
 
-## <a name="publish-events-to-an-event-grid-domain"></a>Publikowanie zdarzeń w domenie siatki zdarzeń
+## <a name="publish-events-to-an-event-grid-domain"></a>Publikowanie zdarzeń w domenie Event Grid
 
-Publikowanie zdarzeń w domenie jest takie samo jak [publikowanie w temacie niestandardowym](./post-to-custom-topic.md). Jednak zamiast publikowania w temacie niestandardowym, można opublikować wszystkie zdarzenia do punktu końcowego domeny. W danych zdarzenia JSON określisz temat, do którego chcesz przejść zdarzenia. Następująca tablica zdarzeń spowoduje `"id": "1111"` zdarzenie `demotopic1` z do `"id": "2222"` tematu, `demotopic2`podczas gdy zdarzenie z zostanie wysłany do tematu:
+Publikowanie zdarzeń w domenie jest takie samo jak [Publikowanie w temacie niestandardowym](./post-to-custom-topic.md). Jednak zamiast publikować w temacie niestandardowym, należy opublikować wszystkie zdarzenia w punkcie końcowym domeny. W danych zdarzenia JSON należy określić temat, do którego mają być przekazywane zdarzenia. Następująca tablica zdarzeń spowodowałaby zaistnienie zdarzenia w temacie `"id": "1111"` `demotopic1` w czasie, gdy zdarzenie `"id": "2222"` zostanie wysłane do tematu `demotopic2`:
 
 ```json
 [{
@@ -176,7 +176,7 @@ Publikowanie zdarzeń w domenie jest takie samo jak [publikowanie w temacie nies
 ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azurecli)
-Aby uzyskać punkt końcowy domeny za pomocą interfejsu wiersza polecenia platformy Azure, użyj
+Aby uzyskać punkt końcowy domeny za pomocą interfejsu wiersza polecenia platformy Azure, użyj polecenia
 
 ```azurecli-interactive
 az eventgrid domain show \
@@ -184,7 +184,7 @@ az eventgrid domain show \
   -n <my-domain>
 ```
 
-Aby uzyskać klucze domeny, użyj:
+Aby uzyskać klucze dla domeny, należy użyć:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -192,8 +192,8 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
-Aby uzyskać punkt końcowy domeny z programem PowerShell, użyj
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+Aby uzyskać punkt końcowy domeny za pomocą programu PowerShell, użyj polecenia
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomain `
@@ -201,7 +201,7 @@ Get-AzureRmEventGridDomain `
   -Name <my-domain>
 ```
 
-Aby uzyskać klucze domeny, użyj:
+Aby uzyskać klucze dla domeny, należy użyć:
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomainKey `
@@ -210,8 +210,8 @@ Get-AzureRmEventGridDomainKey `
 ```
 ---
 
-A następnie użyj ulubionej metody tworzenia postu HTTP, aby opublikować wydarzenia w domenie event grid.
+Następnie użyj ulubionej metody tworzenia żądania HTTP POST, aby opublikować zdarzenia w domenie Event Grid.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać więcej informacji na temat pojęć wysokiego poziomu w domenach zdarzeń i dlaczego są one przydatne, zobacz [omówienie koncepcyjne domen zdarzeń](event-domains.md).
+* Aby uzyskać więcej informacji o pojęciach dotyczących wysokiego poziomu w domenach zdarzeń oraz o tym, dlaczego są one przydatne, zobacz [Omówienie pojęć dotyczących domen zdarzeń](event-domains.md).

@@ -1,6 +1,6 @@
 ---
-title: Dzienniki strumienia do sumologic przy użyciu usługi Azure Monitor | Dokumenty firmy Microsoft
-description: Dowiedz się, jak zintegrować dzienniki usługi Azure Active Directory z sumologic przy użyciu usługi Azure Monitor
+title: Przesyłanie strumieniowe dzienników do SumoLogic przy użyciu Azure Monitor | Microsoft Docs
+description: Dowiedz się, jak zintegrować dzienniki Azure Active Directory z usługą SumoLogic przy użyciu Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,32 +18,32 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6cdfc4e393ca7bf4bcbd523b4fad72690d5f2744
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74014385"
 ---
-# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Integruj dzienniki usługi Azure Active Directory z sumologic przy użyciu usługi Azure Monitor
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Integrowanie dzienników Azure Active Directory z usługą SumoLogic przy użyciu Azure Monitor
 
-W tym artykule dowiesz się, jak zintegrować dzienniki usługi Azure Active Directory (Azure AD) z sumologic przy użyciu usługi Azure Monitor. Najpierw rozsyłasz dzienniki do centrum zdarzeń platformy Azure, a następnie integrujesz centrum zdarzeń z SumoLogic.
+W tym artykule dowiesz się, jak zintegrować dzienniki usługi Azure Active Directory (Azure AD) z usługą SumoLogic przy użyciu Azure Monitor. Najpierw należy skierować dzienniki do centrum zdarzeń platformy Azure, a następnie zintegrować centrum zdarzeń z SumoLogic.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby używać tej funkcji, potrzebujesz następujących elementów:
-* Centrum zdarzeń platformy Azure zawierające dzienniki aktywności usługi Azure AD. Dowiedz się, jak [przesyłać strumieniowo dzienniki aktywności do centrum zdarzeń](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
-* Subskrypcja z włączoną rejestracją jednokrotną SumoLogic.
+* Centrum zdarzeń platformy Azure, które zawiera dzienniki aktywności usługi Azure AD. Dowiedz się, jak [przesyłać strumieniowo dzienniki aktywności do centrum zdarzeń](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
+* Subskrypcja z włączonym logowaniem jednokrotnym w usłudze SumoLogic.
 
-## <a name="steps-to-integrate-azure-ad-logs-with-sumologic"></a>Kroki integracji dzienników usługi Azure AD z sumologic 
+## <a name="steps-to-integrate-azure-ad-logs-with-sumologic"></a>Kroki umożliwiające integrację dzienników usługi Azure AD z usługą SumoLogic 
 
-1. Najpierw [przesyłaj strumieniowo dzienniki usługi Azure AD do centrum zdarzeń platformy Azure.](quickstart-azure-monitor-stream-logs-to-event-hub.md)
-2. Skonfiguruj wystąpienie SumoLogic do [zbierania dzienników dla usługi Azure Active Directory](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory).
-3. [Zainstaluj aplikację SumoLogic usługi Azure AD,](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) aby korzystać ze wstępnie skonfigurowanych pulpitów nawigacyjnych, które zapewniają analizę środowiska w czasie rzeczywistym.
+1. Najpierw należy [przesłać strumieniowo dzienniki usługi Azure AD do centrum zdarzeń platformy Azure](quickstart-azure-monitor-stream-logs-to-event-hub.md).
+2. Skonfiguruj wystąpienie usługi SumoLogic, aby [zbierać dzienniki dla Azure Active Directory](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory).
+3. [Zainstaluj aplikację usługi Azure AD SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) , aby korzystać z wstępnie skonfigurowanych pulpitów nawigacyjnych, które zapewniają analizę w czasie rzeczywistym środowiska.
 
    ![Pulpit nawigacyjny](./media/howto-integrate-activity-logs-with-sumologic/overview-dashboard.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Interpretowanie schematu dzienników inspekcji w usłudze Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Interpretuj schemat dzienników inspekcji w Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpret sign-in logs schema in Azure Monitor (Interpretowanie schematu dzienników logowania w usłudze Azure Monitor)](reference-azure-monitor-sign-ins-log-schema.md)
 * [Często zadawane pytania i znane problemy](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

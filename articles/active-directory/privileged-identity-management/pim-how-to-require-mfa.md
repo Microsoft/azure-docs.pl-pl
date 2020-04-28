@@ -1,6 +1,6 @@
 ---
-title: Usługa MFA lub 2FA i zarządzanie tożsamościami uprzywilejowanymi — usługa Azure AD | Dokumenty firmy Microsoft
-description: Dowiedz się, jak usługa Azure AD Privileged Identity Management (PIM) sprawdza poprawność uwierzytelniania wieloskładnikowego (MFA).
+title: MFA lub funkcji 2FA i Privileged Identity Management — Azure AD | Microsoft Docs
+description: Dowiedz się, jak Azure AD Privileged Identity Management (PIM) sprawdza poprawność uwierzytelniania wieloskładnikowego (MFA).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,30 +15,30 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6df593909c3ae5962e413eb84e64196fade0326b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74022152"
 ---
-# <a name="multi-factor-authentication-and-privileged-identity-management"></a>Uwierzytelnianie wieloskładnikowe i zarządzanie tożsamościami uprzywilejowanymi
+# <a name="multi-factor-authentication-and-privileged-identity-management"></a>Uwierzytelnianie wieloskładnikowe i Privileged Identity Management
 
-Zaleca się, aby wymagać uwierzytelniania wieloskładnikowego (MFA) dla wszystkich administratorów. Zmniejsza to ryzyko ataku z powodu złamanego hasła.
+Zalecamy wymaganie uwierzytelniania wieloskładnikowego (MFA) dla wszystkich administratorów. Zmniejsza to ryzyko ataków spowodowanych przez złamane hasło.
 
-Podczas logowania użytkownicy mogą wymagać, aby ukończyli wyzwanie uwierzytelniania wieloskładnikowego. Można również wymagać, aby użytkownicy ukończyli wyzwanie uwierzytelniania wieloskładnikowego podczas aktywowania roli w usłudze Azure Active Directory (Azure AD) Privileged Identity Management (PIM). W ten sposób, jeśli użytkownik nie ukończył wyzwanie uwierzytelniania wieloskładnikowego po zalogowaniu się, zostanie poproszony o to przez zarządzanie tożsamościami uprzywilejowanymi.
+Możesz wymagać, aby użytkownicy ukończyli wyzwanie usługi uwierzytelniania wieloskładnikowego podczas logowania. Możesz również wymagać, aby użytkownicy ukończyli wyzwanie usługi uwierzytelnianie wieloskładnikowe, gdy aktywują rolę w usłudze Azure Active Directory (Azure AD) Privileged Identity Management (PIM). W ten sposób, jeśli użytkownik nie wykonał żądania uwierzytelniania wieloskładnikowego po zalogowaniu się, zostanie wyświetlony monit o wykonanie tej czynności przez Privileged Identity Management.
 
 > [!IMPORTANT]
-> Obecnie uwierzytelnianie wieloskładnikowe platformy Azure działa tylko z kontami służbowymi lub szkolnymi, a nie kontami osobistymi Microsoft (zwykle kontem osobistym używanym do logowania się do usług firmy Microsoft, takich jak Skype, Xbox lub Outlook.com). Z tego powodu każda osoba korzystająca z konta osobistego nie może być uprawnionym administratorem, ponieważ nie może aktywować swoich ról za pomocą uwierzytelniania wieloskładnikowego. Jeśli ci użytkownicy muszą nadal zarządzać obciążeniami przy użyciu konta Microsoft, podnieś je na stałe administratorów.
+> Teraz usługa Azure Multi-Factor Authentication działa tylko z kontami służbowymi, a nie kontami osobistymi firmy Microsoft (zazwyczaj konta osobistego, które jest używane do logowania się do usług firmy Microsoft, takich jak Skype, Xbox lub Outlook.com). Z tego względu każdy użytkownik korzystający z konta osobistego nie może być uprawnionym administratorem, ponieważ nie może używać uwierzytelniania wieloskładnikowego w celu aktywowania ich ról. Jeśli Ci użytkownicy muszą kontynuować zarządzanie obciążeniami przy użyciu konto Microsoft, w razie potrzeby Podnieś poziom uprawnień do stałych administratorów.
 
-## <a name="how-pim-validates-mfa"></a>Jak pim sprawdza poprawność usługi MFA
+## <a name="how-pim-validates-mfa"></a>Jak PIM sprawdza poprawność uwierzytelniania MFA
 
-Istnieją dwie opcje sprawdzania poprawności uwierzytelniania wieloskładnikowego, gdy użytkownik aktywuje rolę.
+Dostępne są dwie opcje weryfikacji uwierzytelniania wieloskładnikowego, gdy użytkownik aktywuje rolę.
 
-Najprostszą opcją jest poleganie na usłudze Azure Multi-Factor Authentication dla użytkowników, którzy aktywują rolę uprzywilejowaną. Aby to zrobić, najpierw sprawdź, czy ci użytkownicy są licencjonowane, jeśli to konieczne, i zarejestrowali się dla usługi Azure Uwierzytelnianie wieloskładnikowe. Aby uzyskać więcej informacji na temat wdrażania uwierzytelniania wieloskładnikowego platformy Azure, zobacz [Wdrażanie uwierzytelniania wieloskładnikowego platformy Azure w chmurze.](../authentication/howto-mfa-getstarted.md) Zaleca się, ale nie jest wymagane, aby skonfigurować usługę Azure AD, aby wymusić uwierzytelnianie wieloskładnikowe dla tych użytkowników podczas logowania. Dzieje się tak, ponieważ sprawdzanie uwierzytelniania wieloskładnikowego będzie przeprowadzane przez samo zarządzanie tożsamościami uprzywilejowanymi.
+Najprostsza opcja polega na tym, że usługa Azure Multi-Factor Authentication dla użytkowników, którzy aktywują rolę uprzywilejowaną. Aby to zrobić, najpierw sprawdź, czy Ci użytkownicy mają licencję, w razie potrzeby, i zarejestrowano w usłudze Azure Multi-Factor Authentication. Aby uzyskać więcej informacji na temat wdrażania usługi Azure Multi-Factor Authentication, zobacz [wdrażanie usługi azure Multi-Factor Authentication opartej na chmurze](../authentication/howto-mfa-getstarted.md). Zalecane jest, ale nie wymagane, skonfigurowanie usługi Azure AD w celu wymuszenia uwierzytelniania wieloskładnikowego dla tych użytkowników podczas logowania. Wynika to z faktu, że sprawdzanie uwierzytelniania wieloskładnikowego zostanie przeprowadzone przez Privileged Identity Management samego siebie.
 
-Alternatywnie, jeśli użytkownicy uwierzytelniają się lokalnie, dostawca tożsamości może być odpowiedzialny za uwierzytelnianie wieloskładnikowe. Na przykład jeśli skonfigurowano usługi federacyjne usługi AD, aby wymagały uwierzytelniania opartego na kartach inteligentnych przed uzyskaniem dostępu do usługi Azure AD, [zabezpieczanie zasobów w chmurze za pomocą uwierzytelniania wieloskładnikowego platformy Azure i usług AD FS](../authentication/howto-mfa-adfs.md) zawiera instrukcje konfigurowania usług AD FS do wysyłania oświadczeń do usługi Azure AD. Gdy użytkownik próbuje aktywować rolę, Zarządzanie tożsamością uprzywilejowaną zaakceptuje, że uwierzytelnianie wieloskładnikowe zostało już zweryfikowane dla użytkownika po otrzymaniu odpowiednich oświadczeń.
+Alternatywnie, jeśli użytkownicy uwierzytelniają się lokalnie, dostawca tożsamości może być odpowiedzialny za uwierzytelnianie wieloskładnikowe. Jeśli na przykład skonfigurowano usługi federacyjne usług AD, aby wymagały uwierzytelniania opartego na karcie inteligentnej przed uzyskaniem dostępu do usługi Azure AD, [Zabezpieczanie zasobów w chmurze za pomocą usługi azure Multi-Factor Authentication i AD FS](../authentication/howto-mfa-adfs.md) zawiera instrukcje dotyczące konfigurowania AD FS w celu wysyłania oświadczeń do usługi Azure AD. Gdy użytkownik próbuje aktywować rolę, Privileged Identity Management zaakceptuje, że uwierzytelnianie wieloskładnikowe zostało już zweryfikowane dla użytkownika po odebraniu odpowiednich oświadczeń.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Konfigurowanie ustawień roli usługi Azure AD w zarządzania tożsamościami uprzywilejowanymi](pim-how-to-change-default-settings.md)
-- [Konfigurowanie ustawień roli zasobów platformy Azure w zarządzania tożsamościami uprzywilejowanymi](pim-resource-roles-configure-role-settings.md)
+- [Konfigurowanie ustawień roli usługi Azure AD w Privileged Identity Management](pim-how-to-change-default-settings.md)
+- [Skonfiguruj ustawienia roli zasobów platformy Azure w Privileged Identity Management](pim-resource-roles-configure-role-settings.md)

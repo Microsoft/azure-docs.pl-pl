@@ -1,6 +1,6 @@
 ---
-title: Funkcje fabryki danych i zmienne systemowe
-description: Zawiera listę funkcji usługi Azure Data Factory i zmiennych systemowych
+title: Data Factory funkcje i zmienne systemowe
+description: Zawiera listę funkcji Azure Data Factory i zmiennych systemowych
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
@@ -11,33 +11,33 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73667648"
 ---
-# <a name="azure-data-factory---functions-and-system-variables"></a>Fabryka danych platformy Azure — funkcje i zmienne systemowe
+# <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory — funkcje i zmienne systemowe
 > [!NOTE]
-> Ten artykuł dotyczy wersji 1 usługi Data Factory. Jeśli używasz bieżącej wersji usługi Data Factory, zobacz [Zmienne systemowe w ustawieniach Data Factory](../control-flow-system-variables.md).
+> Ten artykuł dotyczy wersji 1 usługi Data Factory. Jeśli używasz bieżącej wersji usługi Data Factory, zobacz [zmienne systemowe w Data Factory](../control-flow-system-variables.md).
 
-Ten artykuł zawiera informacje o funkcjach i zmiennych obsługiwanych przez usługę Azure Data Factory.
+Ten artykuł zawiera informacje o funkcjach i zmiennych obsługiwanych przez Azure Data Factory.
 
-## <a name="data-factory-system-variables"></a>Zmienne systemowe fabryki danych
+## <a name="data-factory-system-variables"></a>Zmienne systemowe Data Factory
 
-| Nazwa zmiennej | Opis | Zakres obiektu | Przypadki zakresu json i użycia |
+| Nazwa zmiennej | Opis | Zakres obiektów | Zakres i przypadki użycia JSON |
 | --- | --- | --- | --- |
-| Początek okna |Początek interwału czasu dla bieżącego okna uruchamiania aktywności |aktywność |<ol><li>Określ kwerendy wyboru danych. Zobacz artykuły łącznika, do których odwołuje się artykuł [Działania przenoszenia danych.](data-factory-data-movement-activities.md)</li> |
-| OknoWykaz |Koniec interwału czasu dla bieżącego okna uruchamiania aktywności |aktywność |tak samo jak WindowStart. |
-| Początek plasterków |Początek interwału czasu dla tworzonego plasterka danych |aktywność<br/>Dataset |<ol><li>Podczas pracy z zestawami danych [Azure Blob](data-factory-azure-blob-connector.md) i [File System określ](data-factory-onprem-file-system-connector.md)dynamiczne ścieżki folderów i nazwy plików.</li><li>Określ zależności wejściowe z funkcjami fabryki danych w kolekcji danych wejściowych aktywności.</li></ol> |
-| PlasterekWyciężk |Koniec interwału czasu dla bieżącego plasterka danych. |aktywność<br/>Dataset |tak samo jak SliceStart. |
+| WindowStart |Początek interwału czasu dla bieżącego okna uruchomienia działania |aktywność |<ol><li>Określ zapytania dotyczące wyboru danych. Zobacz artykuły dotyczące łączników, do których odwołuje się artykuł [działania przenoszenia danych](data-factory-data-movement-activities.md) .</li> |
+| WindowEnd |Koniec interwału bieżącego okna uruchamiania działania |aktywność |Analogicznie jak WindowStart. |
+| Parametru slicestart |Początek przedziału czasu dla generowanego wycinka danych |aktywność<br/>zestawu |<ol><li>Określ dynamiczne ścieżki folderów i nazwy plików podczas pracy z [zestawami danych](data-factory-onprem-file-system-connector.md) [Azure Blob](data-factory-azure-blob-connector.md) i system plików.</li><li>Określ zależności wejściowe z funkcjami fabryki danych w kolekcji danych wejściowych działania.</li></ol> |
+| SliceEnd |Koniec interwału dla bieżącego wycinka danych. |aktywność<br/>zestawu |Analogicznie jak parametru slicestart. |
 
 > [!NOTE]
-> Obecnie fabryka danych wymaga, aby harmonogram określony w działaniu dokładnie odpowiada harmonogramowi określonej w dostępności wyjściowego zestawu danych. W związku z tym WindowStart, WindowEnd i SliceStart i SliceEnd zawsze mapują do tego samego okresu czasu i pojedynczego plasterka wyjściowego.
+> Obecnie Fabryka danych wymaga, aby harmonogram określony w działaniu był dokładnie zgodny z harmonogramem określonym w temacie dostępność wyjściowego zestawu danych. W związku z tym WindowStart, WindowEnd i parametru slicestart i SliceEnd zawsze są mapowane na ten sam okres i jeden wycinek wyjściowy.
 > 
 
 ### <a name="example-for-using-a-system-variable"></a>Przykład użycia zmiennej systemowej
-W poniższym przykładzie rok, miesiąc, dzień i **godzina SliceStart** są wyodrębniane do oddzielnych zmiennych, które są używane przez **właściwości folderPath** i **fileName.**
+W poniższym przykładzie rok, miesiąc, dzień i czas **parametru slicestart** są wyodrębniane do oddzielnych zmiennych, które są używane przez właściwości **folderPath** i **filename** .
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -51,17 +51,17 @@ W poniższym przykładzie rok, miesiąc, dzień i **godzina SliceStart** są wyo
 ],
 ```
 
-## <a name="data-factory-functions"></a>Funkcje fabryki danych
-Funkcje w fabryce danych wraz ze zmiennymi systemowymi można używać do następujących celów:
+## <a name="data-factory-functions"></a>Funkcje Data Factory
+Można używać funkcji w usłudze Fabryka danych wraz z zmiennymi systemowymi do następujących celów:
 
-1. Określanie kwerend wyboru danych (zobacz artykuły łącznika, do których odwołuje się artykuł [Działania przenoszenia danych.](data-factory-data-movement-activities.md)
+1. Określanie kwerend wyboru danych (zobacz artykuły dotyczące łączników, do których odwołuje się artykuł dotyczący [działań związanych z przenoszeniem danych](data-factory-data-movement-activities.md) .
    
-   Składnia wywoływania funkcji fabryki danych to: ** $$ \<funkcja>** dla kwerend wyboru danych i innych właściwości w działaniu i zestawach danych.  
+   Składnia służąca do wywoływania funkcji fabryki danych to: ** $$ \<funkcja>** dla zapytań dotyczących wyboru danych i innych właściwości w działaniu i zestawach DataSet.  
 2. Określanie zależności wejściowych z funkcjami fabryki danych w kolekcji danych wejściowych działania.
    
-    $$ nie jest potrzebne do określania wyrażeń zależności wejściowych.     
+    $ $ nie jest wymagany do określenia wejściowych wyrażeń zależności.     
 
-W poniższym przykładzie **właściwość sqlReaderQuery** w pliku JSON jest `Text.Format` przypisywana do wartości zwracaej przez funkcję. W tym przykładzie użyto również zmiennej systemowej o nazwie **WindowStart**, która reprezentuje czas rozpoczęcia okna uruchamiania działania.
+W poniższym przykładzie właściwość **sqlReaderQuery** w pliku JSON jest przypisana do wartości zwracanej przez `Text.Format` funkcję. Ten przykład używa również zmiennej systemowej o nazwie **WindowStart**, która reprezentuje godzinę rozpoczęcia okna uruchomienia działania.
 
 ```json
 {
@@ -70,37 +70,37 @@ W poniższym przykładzie **właściwość sqlReaderQuery** w pliku JSON jest `T
 }
 ```
 
-Zobacz [temat Niestandardowe ciągi formatów daty i godziny,](https://msdn.microsoft.com/library/8kb3ddd4.aspx) który opisuje różne opcje formatowania, których można użyć (na przykład: ay vs. yyyy). 
+Zobacz temat [Niestandardowe ciągi formatujące datę i godzinę](https://msdn.microsoft.com/library/8kb3ddd4.aspx) , które opisują różne opcje formatowania, których można użyć (na przykład: AY a rrrr). 
 
 ### <a name="functions"></a>Funkcje
-W poniższych tabelach znajdują się wszystkie funkcje usługi Azure Data Factory:
+W poniższej tabeli wymieniono wszystkie funkcje w Azure Data Factory:
 
 | Kategoria | Funkcja | Parametry | Opis |
 | --- | --- | --- | --- |
-| Time |AddHours(X,Y) |X: DataPoraz <br/><br/>Y: int |Dodaje godziny Y do podanego czasu X. <br/><br/>Przykład: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Time |AddMinutes(X,Y) |X: DataPoraz <br/><br/>Y: int |Dodaje minuty Y do X.<br/><br/>Przykład: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Time |StartOfHour(X) |X: Datetime |Pobiera czas rozpoczęcia dla godziny reprezentowane przez składnik godziny X. <br/><br/>Przykład: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
-| Data |Dodatki (X,Y) |X: DataPoraz<br/><br/>Y: int |Dodaje dni Y do X. <br/><br/>Przykład: 15.09.2013 12:00:00 + 2 dni = 17.09.2013 12:00:00.<br/><br/>Można również odjąć dni, określając Y jako liczbę ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
-| Data |Dodaj miesiące(X,Y) |X: DataPoraz<br/><br/>Y: int |Dodaje Y miesięcy do X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Można również odjąć miesiące, określając Y jako liczbę ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Data |Dodaj ćwiartki(X,Y) |X: DataPoraz <br/><br/>Y: int |Dodaje Y * 3 miesięcy do X.<br/><br/>Przykład: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
-| Data |Dodaj tydzień (X,Y) |X: DataPoraz<br/><br/>Y: int |Dodaje Y * 7 dni do X<br/><br/>Przykład: 15.09.2013 12:00:00 + 1 tydzień = 22.09.2013 12:00:00<br/><br/>Można również odjąć tygodnie, określając Y jako liczbę ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
-| Data |Lata add(X,Y) |X: DataPoraz<br/><br/>Y: int |Dodaje Y lat do X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Można również odjąć lata, określając Y jako liczbę ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
-| Data |Dzień(X) |X: DataPoraz |Pobiera składnik dzień X.<br/><br/>Przykład: `Day of 9/15/2013 12:00:00 PM is 9`. |
-| Data |DayOfWeek (X) |X: DataPoraz |Pobiera dzień tygodnia składnik X.<br/><br/>Przykład: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
-| Data |DayOfYear(X) |X: DataPoraz |Pobiera dzień w roku reprezentowane przez składnik roku X.<br/><br/>Przykłady:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
-| Data |DaysInMonth(X) |X: DataPoraz |Pobiera dni w miesiącu reprezentowane przez składnik miesiąca parametru X.<br/><br/>Przykład: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
-| Data |Dzień Zakończenia(X) |X: DataPoraz |Pobiera datę i godzinę, która reprezentuje koniec dnia (składnika dnia) X.<br/><br/>Przykład: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
-| Data |Koniec miesiąca(X) |X: DataPoraz |Pobiera koniec miesiąca reprezentowane przez składnik miesiąca parametru X. <br/><br/>Przykład: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (data i godzina reprezentująca koniec miesiąca września) |
-| Data |StartOfDay(X) |X: DataPoraz |Pobiera początek dnia reprezentowane przez składnik dzień parametru X.<br/><br/>Przykład: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| DateTime |Od(X) |X: Ciąg |Analizuj ciąg X do daty. |
-| DateTime |Kleszcze(X) |X: DataPoraz |Pobiera ticks właściwości parametru X. Jeden kleszcz jest równy 100 nanosekund. Wartość tej właściwości reprezentuje liczbę znaczników, które upłynęły od północy 12:00:00, 1 stycznia 0001. |
-| Tekst |Format(X) |X: Zmienna ciągu |Formatuje tekst (użyj `\\'` kombinacji, aby uciec `'` znak).|
+| Time |Addgodz. (X, Y) |X: DateTime <br/><br/>Y: int |Dodaje Y godz. do danego czasu X. <br/><br/>Przykład: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Time |Addminut (X, Y) |X: DateTime <br/><br/>Y: int |Dodaje Y minuty do X.<br/><br/>Przykład: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Time |Początek godziny (X) |X: DateTime |Pobiera godzinę rozpoczęcia dla godziny reprezentowanej przez składnik godziny X. <br/><br/>Przykład: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Date |AddDays (X, Y) |X: DateTime<br/><br/>Y: int |Dodaje Y dni do X. <br/><br/>Przykład: 9/15/2013 12:00:00 PM + 2 dni = 9/17/2013 12:00:00 PM.<br/><br/>Liczbę dni można odjąć za pomocą wartości Y jako liczby ujemnej.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Date |Addmiesiącach (X, Y) |X: DateTime<br/><br/>Y: int |Dodaje Y miesiące do X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Za pomocą wartości Y można odjąć liczbę miesięcy.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Date |Addćwiartki (X, Y) |X: DateTime <br/><br/>Y: int |Dodaje Y * 3 miesiące do X.<br/><br/>Przykład: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Date |Addtygodnie (X, Y) |X: DateTime<br/><br/>Y: int |Dodaje Y * 7 dni do X<br/><br/>Przykład: 9/15/2013 12:00:00 PM + 1 tydzień = 9/22/2013 12:00:00 PM<br/><br/>Można odjąć tygodnie zbyt, określając wartość Y jako liczbę ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Date |AddYears (X, Y) |X: DateTime<br/><br/>Y: int |Dodaje Y lata do X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Za pomocą wartości Y można odjąć liczbę lat.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Date |Dzień (X) |X: DateTime |Pobiera składnik Day X.<br/><br/>Przykład: `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Date |DayOfWeek (X) |X: DateTime |Pobiera składnik dnia tygodnia X.<br/><br/>Przykład: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
+| Date |Dzieńroku (X) |X: DateTime |Pobiera dzień w roku reprezentowany przez składnik Year X.<br/><br/>Przykłady:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Date |DaysInMonth (X) |X: DateTime |Pobiera dni w miesiącu reprezentowane przez składnik miesiąca parametru X.<br/><br/>Przykład: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
+| Date |EndOfDay (X) |X: DateTime |Pobiera datę i godzinę reprezentującą koniec dnia (składnik dnia) X.<br/><br/>Przykład: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
+| Date |EndOfMonth (X) |X: DateTime |Pobiera koniec miesiąca reprezentowanego przez składnik miesiąca parametru X. <br/><br/>Przykład: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (Data i godzina reprezentująca koniec miesiąca z września) |
+| Date |StartOfDay (X) |X: DateTime |Pobiera początek dnia reprezentowanego przez składnik dnia parametru X.<br/><br/>Przykład: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
+| DateTime |Od (X) |X: ciąg |Przeanalizuj ciąg X do daty i godziny. |
+| DateTime |Takty (X) |X: DateTime |Pobiera właściwość Ticks parametru X. Jeden takt jest równy 100 nanosekund. Wartość tej właściwości reprezentuje liczbę taktów, które upłynęły od 12:00:00 północy, 1 stycznia 0001. |
+| Tekst |Format (X) |X: zmienna ciągu |Formatuje tekst (Użyj `\\'` kombinacji do znaku `'` ucieczki).|
 
 > [!IMPORTANT]
-> Podczas korzystania z funkcji w innej funkcji, **$$** nie trzeba używać prefiksu dla funkcji wewnętrznej. Na przykład: $$Text.Format('PartitionKey \\eq\\'my_pkey_filter_value' i RowKey \\ge '{0: yyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). W tym przykładzie **$$** należy zauważyć, że prefiks nie jest używany dla **time.AddHours** funkcji. 
+> W przypadku korzystania z funkcji w innej funkcji nie trzeba używać **$$** prefiksu dla wewnętrznej funkcji. Na przykład: $ $Text. Format ("PartitionKey EQ \\" my_pkey_filter_value\\"i RowKey GE \\" {0: RRRR-MM-DD GG: mm: SS}\\"", Time. AddHours (parametru slicestart,-6)). W tym przykładzie należy zauważyć, **$$** że prefiks nie jest używany przez funkcję **Time. AddHours** . 
 
 #### <a name="example"></a>Przykład
-W poniższym przykładzie parametry wejściowe i wyjściowe dla `Text.Format` działania Hive są określane przy użyciu funkcji i slicestart zmiennej systemowej. 
+W poniższym przykładzie parametry wejściowe i wyjściowe dla działania programu Hive są określane przy użyciu `Text.Format` funkcji i zmiennej systemowej parametru slicestart. 
 
 ```json  
 {
@@ -141,7 +141,7 @@ W poniższym przykładzie parametry wejściowe i wyjściowe dla `Text.Format` dz
 
 ### <a name="example-2"></a>Przykład 2
 
-W poniższym przykładzie DateTime parametr dla działania procedury składowanej jest określany przy użyciu text. Formatuj, a zmienną SliceStart. 
+W poniższym przykładzie parametr DateTime dla działania procedury składowanej jest określany za pomocą tekstu. Funkcja format i zmienna parametru slicestart. 
 
 ```json
 {
@@ -176,7 +176,7 @@ W poniższym przykładzie DateTime parametr dla działania procedury składowane
 ```
 
 ### <a name="example-3"></a>Przykład 3
-Aby odczytać dane z poprzedniego dnia, a nie dnia reprezentowanego przez SliceStart, należy użyć funkcji AddDays, jak pokazano w poniższym przykładzie: 
+Aby odczytać dane z poprzedniego dnia zamiast dnia reprezentowanego przez parametru slicestart, użyj funkcji addDays, jak pokazano w następującym przykładzie: 
 
 ```json
 {
@@ -227,5 +227,5 @@ Aby odczytać dane z poprzedniego dnia, a nie dnia reprezentowanego przez SliceS
 }
 ```
 
-Zobacz [temat Niestandardowe ciągi formatów daty i godziny,](https://msdn.microsoft.com/library/8kb3ddd4.aspx) który opisuje różne opcje formatowania, których można użyć (na przykład: yy vs yyyy). 
+Zapoznaj się z tematami [niestandardowego formatu daty i godziny](https://msdn.microsoft.com/library/8kb3ddd4.aspx) , który opisuje różne opcje formatowania, których można użyć (na przykład: yy a rrrr). 
 

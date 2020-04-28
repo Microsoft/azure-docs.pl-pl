@@ -16,25 +16,25 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 894d8dfb7f870ec4a2a11f1d75ee0376b25d8c7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74014446"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Użytkownicy oflagowani w związku z raportem dotyczącym narażonych użytkowników w witrynie Azure Portal
 
-Usługa Azure Active Directory (Azure AD) wykrywa podejrzane akcje powiązane z kontami użytkowników. Dla każdej wykrytej akcji tworzony jest rekord zwany [wykrywaniem ryzyka.](concept-risk-events.md)
+Usługa Azure Active Directory (Azure AD) wykrywa podejrzane akcje powiązane z kontami użytkowników. Dla każdej wykrytej akcji tworzony jest rekord nazywany [wykryciem ryzyka](concept-risk-events.md) .
 
 Dostęp do raportów zabezpieczeń można uzyskać z poziomu witryny [Azure Portal](https://portal.azure.com), wybierając blok **Azure Active Directory**, a następnie przechodząc do sekcji **Zabezpieczenia**. 
 
-Wykryte wykrywanie ryzyka służy do obliczania:
+Wykryte wykrywania ryzyka są używane do obliczania:
 
 - **Ryzykowne logowania** — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. 
 
 - **Użytkownicy oflagowani w związku z ryzykiem** — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone. 
 
-Aby dowiedzieć się, jak skonfigurować zasady wyzwalające te wykrywanie ryzyka, zobacz [Jak skonfigurować zasady dotyczące ryzyka użytkownika](../identity-protection/howto-user-risk-policy.md). 
+Aby dowiedzieć się, jak skonfigurować zasady wyzwalające te wykrycia ryzyka, zobacz [jak skonfigurować zasady ryzyka dla użytkowników](../identity-protection/howto-user-risk-policy.md). 
 
 ![Ryzykowne logowania](./media/concept-user-at-risk/10.png)
 
@@ -45,9 +45,9 @@ Wszystkie wersje usługi Azure Active Directory zapewniają dostęp do raportów
 
 - W **usłudze Azure Active Directory w wersji Bezpłatna i Podstawowa** masz dostęp do listy użytkowników oflagowanych w związku z ryzykiem. 
 
-- Ponadto wersja **usługi Azure Active Directory Premium 1** umożliwia zbadanie niektórych podstawowych wykrywania ryzyka, które zostały wykryte dla każdego raportu. 
+- Ponadto wersja **Azure Active Directory — wersja Premium 1** umożliwia sprawdzenie niektórych podstawowych wykryć ryzyka, które zostały wykryte dla każdego raportu. 
 
-- Wersja **usługi Azure Active Directory Premium 2** zawiera najbardziej szczegółowe informacje na temat wszystkich podstawowych wykrywania ryzyka, a także umożliwia konfigurowanie zasad zabezpieczeń, które automatycznie reagują na skonfigurowane poziomy ryzyka.
+- Wersja **Azure Active Directory — wersja Premium 2** zapewnia najbardziej szczegółowe informacje na temat wszystkich wykrytych zagrożeń, a także umożliwia konfigurowanie zasad zabezpieczeń, które automatycznie reagują na skonfigurowane poziomy ryzyka.
 
 
 ## <a name="users-at-risk-report-for-azure-ad-free-and-basic-editions"></a>Raport dotyczący narażonych użytkowników dla usługi Azure AD w wersji Bezpłatna i Podstawowa
@@ -73,7 +73,7 @@ Raport dotyczący użytkowników oflagowanych w związku z ryzykiem w usłudze A
 
 - Lista kont użytkowników, których bezpieczeństwo mogło zostać naruszone 
 
-- Zagregowane informacje o [wykrytych typach wykrywania ryzyka](concept-risk-events.md)
+- Zagregowane informacje o wykrytych [typach wykrycia ryzyka](concept-risk-events.md)
 
 - Opcja pobrania raportu
 
@@ -89,11 +89,11 @@ Po wybraniu użytkownika jest dla niego wyświetlany szczegółowy widok raportu
 
 - Odrzucanie wszystkich zdarzeń.
 
-- Zbadaj zgłoszone wykrywanie ryzyka dla użytkownika. 
+- Zbadaj zgłoszone wykrywania ryzyka dla użytkownika. 
 
 ![Ryzykowne logowania](./media/concept-user-at-risk/324.png)
 
-Aby zbadać wykrywanie ryzyka, wybierz jeden z listy, aby otworzyć **szczegóły** bloku dla tego wykrywania ryzyka. Na **szczegóły** bloku, masz możliwość ręcznego zamknięcia wykrywania ryzyka lub ponownie aktywować ręcznie zamknięte wykrywanie ryzyka. 
+Aby zbadać wykrywanie ryzyka, wybierz jeden z listy, aby otworzyć blok **szczegóły** tego wykrywania ryzyka. W bloku **szczegóły** jest dostępna opcja ręcznego zamknięcia wykrywania ryzyka lub ponownego aktywowania ręcznie zamkniętego wykrywania ryzyka. 
 
 ![Ryzykowne logowania](./media/concept-user-at-risk/325.png)
 

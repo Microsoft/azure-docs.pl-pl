@@ -1,6 +1,6 @@
 ---
-title: Tworzenie operatorów zdefiniowanych przez użytkownika U-SQL — usługa Azure Data Lake Analytics
-description: Dowiedz się, jak tworzyć operatory zdefiniowane przez użytkownika, które będą używane i ponownie używane w zadaniach usługi Azure Data Lake Analytics.
+title: Tworzenie zdefiniowanych przez użytkownika operatorów U-SQL — Azure Data Lake Analytics
+description: Dowiedz się, jak opracowywać zdefiniowane przez użytkownika operatory do użycia i ponownego użycia w Azure Data Lake Analytics zadaniach.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -10,21 +10,21 @@ ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: b2d1293b06b4d8791138ed666bc3cb4abe3adf40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71316540"
 ---
-# <a name="develop-u-sql-user-defined-operators-udos"></a>Tworzenie operatorów zdefiniowanych przez użytkownika U-SQL (UDO)
-W tym artykule opisano sposób tworzenia operatorów zdefiniowanych przez użytkownika do przetwarzania danych w zadaniu U-SQL.
+# <a name="develop-u-sql-user-defined-operators-udos"></a>Tworzenie zdefiniowanych przez użytkownika operatorów U-SQL (udo)
+W tym artykule opisano sposób tworzenia operatorów zdefiniowanych przez użytkownika w celu przetwarzania danych w zadaniu U-SQL.
 
 ## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Definiowanie i używanie operatora zdefiniowanego przez użytkownika w języku U-SQL
 **Aby utworzyć i przesłać zadanie U-SQL**
 
-1. Z programu Visual Studio wybierz **opcję Plik > nowy > project > programie U-SQL Project**.
-2. Kliknij przycisk **OK**. Program Visual Studio tworzy rozwiązanie z plikiem Script.usql.
-3. Z **Eksploratora rozwiązań**rozwiń pozycję Script.usql, a następnie kliknij dwukrotnie **Script.usql.cs**.
+1. W programie Visual Studio wybierz kolejno pozycje **plik > nowy > projekt > projekt U-SQL**.
+2. Kliknij przycisk **OK**. Program Visual Studio tworzy rozwiązanie przy użyciu pliku Script. usql.
+3. W **Eksplorator rozwiązań**rozwiń węzeł Script. usql, a następnie kliknij dwukrotnie pozycję **Script.usql.cs**.
 4. Wklej następujący kod do pliku:
 
         using Microsoft.Analytics.Interfaces;
@@ -82,7 +82,7 @@ W tym artykule opisano sposób tworzenia operatorów zdefiniowanych przez użytk
                 }
             }
         }
-6. Otwórz **plik Script.usql**i wklej następujący skrypt U-SQL:
+6. Otwórz **skrypt. usql**i wklej następujący skrypt U-SQL:
 
         @drivers =
             EXTRACT UserID      string,
@@ -115,14 +115,14 @@ W tym artykule opisano sposób tworzenia operatorów zdefiniowanych przez użytk
 8. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy pozycję **Script.usql**, a następnie kliknij pozycję **Build Script** (Kompiluj skrypt).
 9. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy pozycję **Script.usql**, a następnie kliknij pozycję **Submit Script** (Prześlij skrypt).
 10. Jeśli nie masz połączenia z subskrypcją platformy Azure, zostanie wyświetlony monit o wprowadzenie poświadczeń konta platformy Azure.
-11. Kliknij **przycisk Prześlij**. Wyniki przesyłania i łącze zadania są dostępne w oknie Wyniki po zakończeniu przesyłania.
-12. Kliknij przycisk **Odśwież,** aby wyświetlić najnowszy stan zadania i odświeżyć ekran.
+11. Kliknij przycisk **Prześlij**. Wyniki przesłania i link zadania są dostępne w oknie wyników po zakończeniu przesłania.
+12. Kliknij przycisk **Odśwież** , aby wyświetlić najnowszy stan zadania i odświeżyć ekran.
 
-**Aby zobaczyć dane wyjściowe**
+**Aby wyświetlić dane wyjściowe**
 
-1. Z **Eksploratora serwera**rozwiń **pozycję Azure**, rozwiń usługę Data Lake **Analytics**, rozwiń konto usługi Data Lake Analytics, rozwiń pozycję **Konta magazynu**, kliknij prawym przyciskiem myszy magazyn domyślny, a następnie kliknij polecenie **Eksplorator**.
-2. Rozwiń pozycję Przykłady, rozwiń pozycję Dane wyjściowe, a następnie kliknij dwukrotnie pozycję **Drivers.csv**.
+1. W **Eksplorator serwera**rozwiń węzeł **Azure**, rozwiń pozycję **Data Lake Analytics**, rozwiń konto Data Lake Analytics, rozwiń węzeł **konta magazynu**, kliknij prawym przyciskiem myszy magazyn domyślny, a następnie kliknij pozycję **Eksplorator**.
+2. Rozwiń pozycję przykłady, rozwiń węzeł dane wyjściowe, a następnie kliknij dwukrotnie pozycję **Drivers. csv**.
 
-## <a name="see-also"></a>Zobacz też
-* [Rozszerzanie wyrażeń U-SQL za pomocą kodu użytkownika](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
-* [Używanie narzędzi usługi Data Lake Tools dla programu Visual Studio do tworzenia aplikacji U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
+## <a name="see-also"></a>Zobacz także
+* [Rozszerzanie wyrażeń U-SQL z kodem użytkownika](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
+* [Używanie narzędzi Data Lake Tools for Visual Studio do tworzenia aplikacji U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

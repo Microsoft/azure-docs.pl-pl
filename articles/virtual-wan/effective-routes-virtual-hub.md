@@ -1,6 +1,6 @@
 ---
-title: 'Wyświetlanie skutecznych tras wirtualnego centrum: wirtualna sieć WAN platformy Azure | Dokumenty firmy Microsoft'
-description: Vie skuteczne trasy dla wirtualnego centrum w wirtualnej sieci WAN platformy Azure
+title: 'Wyświetlanie efektywnych tras koncentratora wirtualnego: Azure Virtual WAN | Microsoft Docs'
+description: Wyświetl efektywne trasy dla koncentratora wirtualnego w wirtualnej sieci WAN platformy Azure
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,64 +8,64 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 1173da81736661048d1e4e12d9919bc2aadf73ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73515852"
 ---
-# <a name="view-effective-routes-of-a-virtual-hub"></a>Wyświetlanie skutecznych tras wirtualnego koncentratora
+# <a name="view-effective-routes-of-a-virtual-hub"></a>Wyświetlanie efektywnych tras koncentratora wirtualnego
 
-Możesz wyświetlić wszystkie trasy centrum wirtualnej sieci WAN w witrynie Azure portal. Aby wyświetlić trasy, przejdź do koncentratora wirtualnego, a następnie wybierz pozycję **Routing -> Wyświetl trasy efektywne**.
+W Azure Portal można wyświetlić wszystkie trasy wirtualnego koncentratora sieci WAN. Aby wyświetlić trasy, przejdź do koncentratora wirtualnego, a następnie wybierz pozycję **Routing-> Wyświetl efektywne trasy**.
 
-## <a name="understanding-routes"></a><a name="understand"></a>Opis tras
+## <a name="understanding-routes"></a><a name="understand"></a>Informacje o trasach
 
-Poniższy przykład może pomóc lepiej zrozumieć, jak wirtualne routingu sieci WAN.
+Poniższy przykład może pomóc lepiej zrozumieć sposób wyświetlania routingu wirtualnego sieci WAN.
 
-W tym przykładzie mamy wirtualną sieć WAN z trzema koncentratorami. Pierwszy hub znajduje się w regionie Wschodnich Stanów Zjednoczonych, drugi hub znajduje się w regionie Europy Zachodniej, a trzeci znajduje się w regionie Zachodnie Stany Zjednoczone. W wirtualnej sieci WAN wszystkie koncentratory są ze sobą połączone. W tym przykładzie założono, że wschodnie centra stany USA i Europa Zachodnia mają połączenia z lokalnych oddziałów (szprych) i sieci wirtualnych platformy Azure (szprych).
+W tym przykładzie mamy wirtualną sieć WAN z trzema centrami. Pierwsze centrum znajduje się w regionie Wschodnie stany USA, drugie centrum znajduje się w regionie Europa Zachodnia, a trzeci centrum znajduje się w regionie zachodnie stany USA. W wirtualnej sieci WAN wszystkie centra są połączone. W tym przykładzie przyjęto założenie, że centra Wschodnie stany USA i Europa Zachodnia mają połączenia z gałęzi lokalnych (szprychy) i sieci wirtualnych platformy Azure.
 
-Adres wirtualny platformy Azure (10.4.0.0/16) z wirtualnym urządzeniem sieciowym (10.4.0.6) jest dalej równorzędny z siecią wirtualną (10.5.0.0/16). Zobacz [dodatkowe informacje](#abouthubroute) w dalszej części tego artykułu, aby uzyskać więcej informacji na temat tabeli tras koncentratora.
+Połączenie sieci wirtualnej platformy Azure (10.4.0.0/16) z sieciowym urządzeniem wirtualnym (10.4.0.6) jest w dalszej komunikacji równorzędnej z siecią wirtualną (10.5.0.0/16). Więcej [informacji na](#abouthubroute) temat tabeli tras centrum znajduje się w dalszej części tego artykułu.
 
-W tym przykładzie zakładamy również, że oddział 1 w Europie Zachodniej jest połączony z węzłem Wschodnie stany USA, a także z centrum Europy Zachodniej. Obwód usługi ExpressRoute w wschodnich stanach USA łączy oddział 2 z centrum wschodnie stany USA.
+W tym przykładzie założono również, że gałąź Europa Zachodnia 1 jest połączona z centrum Wschodnie stany USA, a także do centrum Europa Zachodnia. Obwód ExpressRoute w regionie Wschodnie stany USA nawiązuje połączenie z gałęzią 2 do centrum Wschodnie stany USA.
 
 ![diagram](./media/effective-routes-virtual-hub/diagram.png)
 
-## <a name="view-effective-routes"></a><a name="view"></a>Wyświetlanie efektywnych tras
+## <a name="view-effective-routes"></a><a name="view"></a>Wyświetl efektywne trasy
 
-Po wybraniu opcji "Wyświetl trasy efektywne" w portalu, tworzy dane wyjściowe wyświetlane w [tabeli trasy centrum](#routetable) dla centrum wschodnich stanów USA.
+Po wybraniu opcji "Wyświetl efektywne trasy" w portalu dane wyjściowe są wyświetlane w [tabeli tras centrum](#routetable) dla centrum Wschodnie stany USA.
 
-Aby umieścić to w perspektywie, pierwszy wiersz oznacza, że centrum wschodnie stany USA nauczyło się trasy 10.20.1.0/24 (Gałąź 1) z powodu połączenia *typu NASTĘPNEGO przeskoku* SIECI VPN (wystąpienie bramy sieci VPN następnego przeskoku00 IP 10.1.0.6, wystąpienie 1 IP 10.1.0.7). *Punkt początkowy trasy* wskazuje identyfikator zasobu. *As Path* wskazuje ścieżkę AS dla gałęzi 1.
+Aby to zrobić w perspektywie, pierwszy wiersz oznacza, że centrum Wschodnie stany USA wyuczył trasę 10.20.1.0/24 (gałąź 1) z powodu połączenia *typu następnego przeskoku* VPN ("następny przeskok" VPN Gateway Instance0 IP 10.1.0.6, wystąpienia1 IP 10.1.0.7). *Kierowanie punktów początkowych* do identyfikatora zasobu. *Ścieżka as* wskazuje ścieżkę as dla gałęzi 1.
 
-### <a name="hub-route-table"></a><a name="routetable"></a>Tabela trasy koncentratora
+### <a name="hub-route-table"></a><a name="routetable"></a>Tabela tras centrum
 
-Użyj paska przewijania u dołu tabeli, aby wyświetlić "Ścieżkę AS".
+Użyj paska przewijania u dołu tabeli, aby wyświetlić ścieżkę "AS".
 
-| **Prefiks** |  **Typ następnego skoku** | **Następny przeskok** |  **Początek trasy** |**Ścieżka AS** |
+| **Prefiks** |  **Typ następnego skoku** | **Następny przeskok** |  **Źródło trasy** |**Ścieżka AS** |
 | ---        | ---                | ---          | ---               | ---         |
-| 10.20.1.0/24|Sieć VPN |10.1.0.6, 10.1.0.7| /subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-gw| 20000|
-|10.21.1.0/24 |ExpressRoute|10.1.0.10, 10.1.0.11|/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/expressRouteGateways/4444a6ac74e4d855555-eastus-gw|21000|
-|10.23.1.0/24| Sieć VPN |10.1.0.6, 10.1.0.7|/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-gw|23000|
-|10.4.0.0/16|Połączenie z siecią wirtualną| On-link |  |  |
-|10.5.0.0/16| Adres IP| 10.4.0.6|/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualHubs/easthub_1/routeTables/table_1| |
-|0.0.0.0/0| Adres IP| `<Azure Firewall IP>` |/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualHubs/easthub_1/routeTables/table_1| |
-|10.22.1.0/16| Koncentrator zdalny|10.8.0.6, 10.8.0.7|/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualHubs/westhub_| 4848-22000 |
-|10.9.0.0/16| Koncentrator zdalny|  On-link |/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualHubs/westhub_1| |
+| 10.20.1.0/24|VPN |10.1.0.6, 10.1.0.7| /subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW| 20000|
+|10.21.1.0/24 |ExpressRoute|10.1.0.10, 10.1.0.11|/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/expressRouteGateways/4444a6ac74e4d85555-eastus-GW|21000|
+|10.23.1.0/24| VPN |10.1.0.6, 10.1.0.7|/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW|23000|
+|10.4.0.0/16|Połączenie Virtual Network| Na linku |  |  |
+|10.5.0.0/16| Adres IP| 10.4.0.6|/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/easthub_1/routetables/table_1| |
+|0.0.0.0/0| Adres IP| `<Azure Firewall IP>` |/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/easthub_1/routetables/table_1| |
+|10.22.1.0/16| Koncentrator zdalny|10.8.0.6, 10.8.0.7|/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/westhub_| 4848-22000 |
+|10.9.0.0/16| Koncentrator zdalny|  Na linku |/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/westhub_1| |
 
 >[!NOTE]
-> Gdyby centra wschodnich stanów USA i Europy Zachodniej nie komunikowały się ze sobą w przykładowej topologii, nauczona trasa (10.9.0.0/16) nie istniałaby. Koncentratory anonsują tylko sieci, które są bezpośrednio z nimi połączone.
+> Jeśli środkowe stany USA i Europa Zachodnia nie komunikują się ze sobą w przykładowej topologii, nie istnieje trasa poznania (10.9.0.0/16). Koncentratory anonsują tylko te sieci, które są bezpośrednio połączone z nimi.
 >
 
 ## <a name="additional-information"></a><a name="additional"></a>Dodatkowe informacje
 
-### <a name="about-the-hub-route-table"></a><a name="abouthubroute"></a>Tabela trasy koncentratora – informacje
+### <a name="about-the-hub-route-table"></a><a name="abouthubroute"></a>Informacje o tabeli tras centrum
 
-Można utworzyć wirtualną trasę koncentratora i zastosować trasę do tabeli trasy koncentratora wirtualnego. Możesz zastosować wiele tras do tabeli tras koncentratora wirtualnego. Dzięki temu można ustawić trasę dla docelowej sieci wirtualnej za pośrednictwem adresu IP (zazwyczaj sieciowego urządzenia wirtualnego (NVA) w sieci wirtualnej szprychy). Aby uzyskać więcej informacji na temat sieciowe, zobacz [Kierowanie ruchu z koncentratora wirtualnego do urządzenia WUS](virtual-wan-route-table-portal.md).
+Można utworzyć trasę koncentratora wirtualnego i zastosować trasę do tabeli tras koncentratora wirtualnego. Możesz zastosować wiele tras do tabeli tras koncentratora wirtualnego. Pozwala to na ustawienie trasy dla docelowej sieci wirtualnej za pośrednictwem adresu IP (zazwyczaj jest to sieciowe urządzenie wirtualne (urządzenie WUS). Aby uzyskać więcej informacji na temat urządzeń WUS, zobacz [kierowanie ruchu z koncentratora wirtualnego do urządzenie WUS](virtual-wan-route-table-portal.md).
 
-### <a name="about-default-route-00000"></a><a name="aboutdefaultroute"></a>Informacje o trasie domyślnej (0.0.0.0/0)
+### <a name="about-default-route-00000"></a><a name="aboutdefaultroute"></a>Informacje o trasy domyślnej (0.0.0.0/0)
 
-Koncentrator wirtualny ma możliwość propagowania wyuczonej domyślnej trasy do sieci wirtualnej, sieci VPN typu lokacja-lokacja i połączenia usługi ExpressRoute, jeśli flaga jest "Włączona" w połączeniu. Ta flaga jest widoczna podczas edytowania połączenia sieci wirtualnej, połączenia sieci VPN lub połączenia usługi ExpressRoute. "EnableInternetSecurity" jest zawsze false domyślnie w hub vnet, expressroute i połączeń sieci VPN.
+Koncentrator wirtualny ma możliwość propagowania zaznanej trasy domyślnej do sieci wirtualnej, sieci VPN typu lokacja-lokacja oraz połączenia ExpressRoute, jeśli flaga jest włączona w połączeniu. Ta flaga jest widoczna podczas edytowania połączenia sieci wirtualnej, połączenia sieci VPN lub połączenia ExpressRoute. Element "EnableInternetSecurity" jest zawsze domyślnie fałszywy w przypadku połączeń między sieciami wirtualnymi, ExpressRoute i VPN.
 
-Trasa domyślna nie pochodzi z wirtualnego koncentratora sieci WAN. Trasa domyślna jest propagowana, jeśli jest już prowadzona przez koncentrator wirtualnej sieci WAN w wyniku wdrożenia zapory w centrum lub jeśli inna połączona lokacja wymusiła tunelowanie włączone.
+Trasa domyślna nie pochodzi z wirtualnego koncentratora sieci WAN. Trasa domyślna jest propagowana, jeśli jest już wykorzystana przez koncentrator wirtualnych sieci WAN w wyniku wdrożenia zapory w koncentratorze lub jeśli w innej połączonej lokacji włączono tunelowanie wymuszone.
 
 ## <a name="next-steps"></a>Następne kroki
 

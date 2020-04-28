@@ -1,8 +1,8 @@
 ---
-title: Użyj geoauchy
+title: Użyj geograficznego AI
 titleSuffix: Azure Data Science Virtual Machine
-description: Dowiedz się, jak używać maszyny wirtualnej do nauki o danych geoa i autu do analizowania danych i tworzenia modeli na podstawie danych geoprzestrzennych.
-keywords: głębokie uczenie się, sztuczna inteligencja, narzędzia do nauki o danych, maszyna wirtualna do nauki o danych, analiza geoprzestrzenna
+description: Dowiedz się, jak używać geograficznego Data Science Virtual Machine AI do analizowania danych i tworzenia modeli opartych na danych geograficznych.
+keywords: uczenie głębokie, AI, narzędzia do nauki o danych, maszyna wirtualna do nauki o danych, analiza geoprzestrzenna
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -11,41 +11,41 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.openlocfilehash: 2d7532c51e2963c0dc9f8d02e7a0e32864e80f92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70278413"
 ---
-# <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Korzystanie z maszyny wirtualnej nauki o danych geo sztucznej inteligencji
+# <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Korzystanie z geograficznie sztucznej analizy Data Science Virtual Machine
 
-Maszyna wirtualna do nauki o danych geoalogicznej umożliwia pobieranie danych do analizy, wykonywanie wranglingu danych i tworzenie modeli dla aplikacji AI, które zużywają informacje geoprzestrzenne. Po zainicjowaniu obsługi administracyjnej maszyny wirtualnej geoauczych i zalogowaniu się do usługi ArcGIS Pro za pośrednictwem konta ArcGIS można rozpocząć interakcję z komputerami ArcGIS i systemem ArcGI w trybie online. Można również uzyskać dostęp do systemu ArcGIS z interfejsów języka Python i mostka języka R, który jest wstępnie skonfigurowany na maszynie wirtualnej nauki o danych geograficznych. Aby tworzyć zaawansowane aplikacje AI, połącz maszynę wirtualną nauki o danych geograficznych z platformami uczenia maszynowego i uczenia głębokiego oraz innym dostępnym na niej oprogramowaniem do nauki o danych.  
+Data Science VM geograficznej AI do pobierania danych do analizy, wykonywania przetwarzanie danych i tworzenia modeli dla aplikacji AI korzystających z informacji geoprzestrzennych. Po zainicjowaniu obsługi Data Science VM geograficznym AI i zalogowaniu się w usłudze ArcGIS Pro za pomocą konta ArcGIS możesz rozpocząć korzystanie z usługi ArcGIS Desktop i ArcGIs online. Możesz również uzyskać dostęp do ArcGIS z interfejsów języka Python i mostka językowego R, który jest wstępnie skonfigurowany w Data Science VM geograficznym. Aby tworzyć bogate aplikacje AI, Połącz Data Science VM geograficzną z platformami uczenia maszynowego i głębokiego uczenia oraz innym oprogramowaniem do nauki o danych, które są dla niego dostępne.  
 
 
 ## <a name="configuration-details"></a>Szczegóły konfiguracji
 
-Biblioteka Języka Python, [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm), która jest używana do interfejsu z arcgis, jest zainstalowana w ```c:\anaconda```globalnym środowisku conda głównego maszyny Wirtualnej nauki danych, który znajduje się w .
+Biblioteka języka Python, [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm), która jest używana do interfejsu z ArcGIS, jest instalowana w globalnym głównym środowisku conda środowiska Data Science VM, które znajduje się w ```c:\anaconda```lokalizacji.
 
-- Jeśli korzystasz z pythona w wierszu polecenia, uruchom, ```activate``` aby aktywować w środowisku pythonowym katalogu conda root.
-- Jeśli używasz notebooka IDE lub Jupyter, możesz wybrać środowisko lub jądro, aby upewnić się, że znajdujesz się w odpowiednim środowisku conda.
+- Jeśli używasz języka Python w wierszu polecenia, uruchom ```activate``` polecenie, aby aktywować w głównym środowisku Python Conda.
+- Jeśli używasz notesu IDE lub Jupyter, możesz wybrać środowisko lub jądro, aby upewnić się, że jesteś w odpowiednim środowisku Conda.
 
-Mostek R do systemu ArcGIS jest instalowany jako biblioteka języka R o nazwie [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) w głównym wystąpieniu autonomicznym programu Microsoft Machine Learning Server, które znajduje się w ```C:\Program Files\Microsoft\ML Server\R_SERVER```programie . Visual Studio, RStudio i Jupyter są już wstępnie skonfigurowane do korzystania ```arcgisbinding``` z tego środowiska języka R i będą miały dostęp do biblioteki języka R. 
-
-
-## <a name="geo-ai-data-science-vm-samples"></a>Próbki maszyn wirtualnych do nauki o danych geoalogicznych
-
-Oprócz próbek opartych na uczenia maszynowego i uczenia głębokiego opartych na platformie wirtualnej z podstawowej maszyny wirtualnej do nauki o danych zestaw próbek geoprzestrzennych jest również dostarczany jako część maszyny wirtualnej do nauki o danych geoau. Te przykłady mogą pomóc w rozpoczęciu tworzenia aplikacji AI przy użyciu danych geoprzestrzennych i oprogramowania ArcGIS:
+Mostek R do ArcGIS jest instalowany jako biblioteka języka R o nazwie [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) w głównym wystąpieniu autonomicznym Microsoft Machine Learning Server, które znajduje ```C:\Program Files\Microsoft\ML Server\R_SERVER```się w. Programy Visual Studio, RStudio i Jupyter są już wstępnie skonfigurowane do korzystania z tego środowiska R i będą miały dostęp do biblioteki ```arcgisbinding``` języka r. 
 
 
-1. [Wprowadzenie do analizy geoprzestrzennej w języku Python:](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb)Przykład wprowadzający pokazujący, jak pracować z danymi geoprzestrzennymi za pośrednictwem interfejsu Pythona do arcGIS, jest dostarczany przez bibliotekę [arcpy.](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) Pokazuje również, jak połączyć tradycyjne uczenie maszynowe z danymi geoprzestrzennymi, a następnie wizualizować wynik na mapie w systemie ArcGIS.
+## <a name="geo-ai-data-science-vm-samples"></a>Przykłady geograficznie Data Science VM AI
 
-2. [Wprowadzenie do analizy geoprzestrzennej za pomocą języka R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): przykład wprowadzający, który pokazuje, jak pracować z danymi geoprzestrzennymi przy użyciu interfejsu R do systemu ArcGIS dostarczonego przez [bibliotekę arcgisbinding.](https://github.com/R-ArcGIS/r-bridge) 
+Oprócz przykładów opartych na środowisku uczenia maszynowego i głębokiego uczenia z Data Science VM podstawowej zestaw próbek geograficznych jest również dostarczany jako część geograficznego Data Science VM AI. Te przykłady mogą ułatwić szybkie rozpoczęcie tworzenia aplikacji AI przy użyciu danych geoprzestrzennych i oprogramowania ArcGIS:
 
-3. [Klasyfikacja użytkowania gruntów na poziomie piksela:](https://github.com/Azure/pixel_level_land_classification)Samouczek ilustrukt ilustruje, jak utworzyć model głębokiej sieci neuronowej, który akceptuje obraz lotniczy jako dane wejściowe i zwraca etykietę pokrywy lądowej. Przykłady etykiet na pokrycie terenu są *zalesione* i *wodne*. Model zwraca taką etykietę dla każdego piksela obrazu. 
+
+1. Rozpoczynanie pracy [z analizami geograficznymi przy użyciu języka Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): przykład wprowadzający pokazujący, jak korzystać z danych geograficznych za pomocą interfejsu języka Python do ArcGIS, zapewnia Biblioteka [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) . Pokazano również, jak połączyć tradycyjne Uczenie maszynowe z danymi geograficznymi, a następnie wizualizować wynik mapy w ArcGIS.
+
+2. [Wprowadzenie do analizy geograficznej przy użyciu języka r](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): przykład wprowadzający, który pokazuje, jak korzystać z danych geoprzestrzennych przy użyciu interfejsu języka R do ArcGIS, który jest udostępniany przez bibliotekę [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) . 
+
+3. [Klasyfikacja użycia gruntów na poziomie pikseli](https://github.com/Azure/pixel_level_land_classification): samouczek, w którym pokazano, jak utworzyć model sieci głębokiej neuronowych, który akceptuje obraz antenowy jako dane wejściowe i zwraca etykietę okładki gruntowej. Przykłady etykiet okładki gruntowej są *zalesione* i *wodne*. Model zwraca taką etykietę dla każdego piksela na obrazie. 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dodatkowe przykłady, które używają maszyny Wirtualnej do nauki o danych są dostępne tutaj:
+Dodatkowe przykłady używające Data Science VM są dostępne tutaj:
 
-* [Próbki](dsvm-samples-and-walkthroughs.md)
+* [Samples](dsvm-samples-and-walkthroughs.md)

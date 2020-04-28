@@ -1,63 +1,63 @@
 ---
 title: Usuwanie projektu usługi Azure Migrate
-description: W tym artykule opisano sposób tworzenia projektu migracji platformy Azure i dodawania narzędzia oceny/migracji.
+description: Opisuje sposób tworzenia projektu Azure Migrate i dodawania narzędzia do oceny/migracji.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: raynew
 ms.openlocfilehash: 55842d36cddb2a7851ff5bd7002c20e9873158f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73512732"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Usuwanie projektu usługi Azure Migrate
 
-W tym artykule opisano sposób usuwania projektu [migracji platformy Azure.](migrate-overview.md)
+W tym artykule opisano sposób usuwania projektu [Azure Migrate](migrate-overview.md) .
 
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
 Przed usunięciem projektu:
 
-- Po usunięciu projektu, projektu i odnalezione metadane komputera są usuwane.
-- Jeśli do narzędzia Oceny serwera dołączono obszar roboczy usługi Log Analytics do analizy zależności, zdecyduj, czy chcesz usunąć obszar roboczy. 
-    - Obszar roboczy nie jest automatycznie usuwany. Usuń go ręcznie.
-    - Przed usunięciem sprawdź, do czego służy obszar roboczy. Ten sam obszar roboczy usługi Log Analytics może służyć do wielu scenariuszy.
-    - Przed usunięciem projektu można znaleźć łącze do obszaru roboczego w **obszarze migracji platformy Azure — Usługi** > Migracji platformy**Azure — ocena serwera**w obszarze Obszar **roboczy systemu OMS**.
-    - Aby usunąć obszar roboczy po usunięciu projektu, znajdź obszar roboczy w odpowiedniej grupie zasobów i postępuj zgodnie z [tymi instrukcjami](../azure-monitor/platform/delete-workspace.md).
+- Po usunięciu projektu, projektu i odnalezionych metadanych maszyn są usuwane.
+- Jeśli dołączono obszar roboczy Log Analytics do narzędzia do oceny zależności serwera, należy zdecydować, czy chcesz usunąć obszar roboczy. 
+    - Obszar roboczy nie jest automatycznie usuwany. Usuń je ręcznie.
+    - Przed usunięciem należy sprawdzić, do czego służy obszar roboczy. Ten sam obszar roboczy Log Analytics może być używany w wielu scenariuszach.
+    - Przed usunięciem projektu można znaleźć link do obszaru roboczego w obszarze **Azure Migrate serwery** > **Azure Migrate — Ocena serwera**, w obszarze **roboczym pakietu OMS**.
+    - Aby usunąć obszar roboczy po usunięciu projektu, Znajdź obszar roboczy w odpowiedniej grupie zasobów i postępuj zgodnie z [tymi instrukcjami](../azure-monitor/platform/delete-workspace.md).
 
 
 ## <a name="delete-a-project"></a>Usuwanie projektu
 
 
-1. W witrynie Azure portal otwórz grupę zasobów, w której utworzono projekt.
-2. Na stronie grupy zasobów wybierz pozycję **Pokaż ukryte typy**.
+1. W Azure Portal Otwórz grupę zasobów, w której został utworzony projekt.
+2. Na stronie Grupa zasobów wybierz pozycję **Pokaż ukryte typy**.
 3. Wybierz projekt i skojarzone zasoby, które chcesz usunąć.
-    - Typem zasobu dla projektów migracji platformy Azure jest **microsoft.Migrate/migrateprojects**.
-    - W następnej sekcji przejrzyj zasoby utworzone do odnajdowania, oceny i migracji w projekcie migracji platformy Azure.
-    - Jeśli grupa zasobów zawiera tylko projekt migracji platformy Azure, można usunąć całą grupę zasobów.
-    - Jeśli chcesz usunąć projekt z poprzedniej wersji usługi Azure Migrate, kroki są takie same. Typem zasobu dla tych projektów jest **projekt migracji**.
+    - Typ zasobu dla projektów Azure Migrate to **Microsoft. migruje/migrateprojects**.
+    - W następnej sekcji zapoznaj się z zasobami utworzonymi na potrzeby odnajdywania, oceny i migracji w projekcie Azure Migrate.
+    - Jeśli grupa zasobów zawiera tylko projekt Azure Migrate, można usunąć całą grupę zasobów.
+    - Jeśli chcesz usunąć projekt z poprzedniej wersji Azure Migrate, kroki są takie same. Typ zasobu dla tych projektów to **projekt migracji**.
 
 
 ## <a name="created-resources"></a>Utworzone zasoby
 
-Te tabele podsumowują zasoby utworzone do odnajdowania, oceny i migracji w projekcie migracji platformy Azure.
+Te tabele zawierają podsumowanie zasobów utworzonych na potrzeby odnajdywania, oceny i migracji w projekcie Azure Migrate.
 
 > [!NOTE]
-> Usuń magazyn kluczy z ostrożnością, ponieważ może zawierać klucze zabezpieczeń.
+> Usuń Magazyn kluczy z zachowaniem ostrożności, ponieważ może on zawierać klucze zabezpieczeń.
 
 ### <a name="vmwarephysical-server"></a>VMware/serwer fizyczny
 
-**Zasobów** | **Typ**
+**Zasób** | **Typ**
 --- | ---
-"Nazwa urządzenia"kv | Magazyn kluczy
-Strona "Nazwa urządzenia" | Witryny Microsoft.OffAzure/VMwareSites
-"Nazwa projektu" | Microsoft.Migrate/migrateprojects Microsoft.Migrate/migrateprojects Microsoft.Migrate/migrateprojects Microsoft.
-Projekt "ProjectName" | Microsoft.Migrate/assessmentProjects
-"ProjectName"rsvault | Magazyn usługi Recovery Services
+"Urządzeniename" KV | Magazyn kluczy
+Lokacja "urządzeniename" | Microsoft. OffAzure/VMwareSites
+ProjectName | Microsoft. migrowana/migrateprojects
+Projekt "ProjectName" | Microsoft. migrowana/assessmentProjects
+"ProjectName" rsvault | Magazyn usługi Recovery Services
 "ProjectName"-MigrateVault-* | Magazyn usługi Recovery Services
 migrateappligwsa* | Konto magazynu
 migrateapplilsa* | Konto magazynu
@@ -67,15 +67,15 @@ migrateapplisbns16041 | Przestrzeń nazw usługi Service Bus
 
 ### <a name="hyper-v-vm"></a>Maszyna wirtualna funkcji Hyper-V 
 
-**Zasobów** | **Typ**
+**Zasób** | **Typ**
 --- | ---
-"Nazwa projektu" | Microsoft.Migrate/migrateprojects Microsoft.Migrate/migrateprojects Microsoft.Migrate/migrateprojects Microsoft.
-Projekt "ProjectName" | Microsoft.Migrate/assessmentProjects
-HyperV*kv | Magazyn kluczy
-HyperV*Witryna | Microsoft.OffAzure/HyperVSites
+ProjectName | Microsoft. migrowana/migrateprojects
+Projekt "ProjectName" | Microsoft. migrowana/assessmentProjects
+HyperV * KV | Magazyn kluczy
+Lokacja funkcji Hyper * | Microsoft. OffAzure/HyperVSites
 "ProjectName"-MigrateVault-* | Magazyn usługi Recovery Services
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak dodać dodatkowe narzędzia [oceny](how-to-assess.md) i [migracji.](how-to-migrate.md) 
+Dowiedz się, jak dodać dodatkowe narzędzia do [oceny](how-to-assess.md) i [migracji](how-to-migrate.md) . 

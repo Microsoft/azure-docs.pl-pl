@@ -1,6 +1,6 @@
 ---
-title: Tworzenie przeglądu dostępu pakietu dostępu w zarządzaniu uprawnieniami usługi Azure AD
-description: Dowiedz się, jak utworzyć zasady przeglądu dostępu dla pakietów dostępu do zarządzania uprawnieniami w przeglądach dostępu usługi Azure Active Directory (Wersja zapoznawcza).
+title: Tworzenie przeglądu dostępu do pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
+description: Dowiedz się, jak utworzyć zasady przeglądu dostępu dla pakietów dostępu do zarządzania prawami w Azure Active Directory przeglądy dostępu (wersja zapoznawcza).
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,82 +17,82 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a862bbb1f574e4adab2f7d8e59a1abe8e5a5fa2a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73608841"
 ---
-# <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Tworzenie przeglądu dostępu pakietu dostępu w zarządzaniu uprawnieniami usługi Azure AD
+# <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Tworzenie przeglądu dostępu do pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
 
-Aby zmniejszyć ryzyko nieaktualnego dostępu, należy włączyć okresowe przeglądy użytkowników, którzy mają aktywne przypisania do pakietu dostępu w zarządzaniu uprawnieniami usługi Azure AD. Przeglądy można włączyć podczas tworzenia nowego pakietu dostępu lub edytowania istniejącego pakietu dostępu. W tym artykule opisano, jak włączyć przeglądy dostępu pakietów dostępu.
+Aby zmniejszyć ryzyko nieaktualnego dostępu, należy włączyć okresowe przeglądy użytkowników, którzy mają aktywne przypisania do pakietu dostępu w usłudze Azure AD uprawnienia do zarządzania. Możesz włączyć przeglądy podczas tworzenia nowego pakietu dostępu lub edytowania istniejącego pakietu. W tym artykule opisano, jak włączyć przeglądy dostępu do pakietów dostępu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby włączyć przeglądy pakietów dostępu, należy spełnić wymagania wstępne dotyczące tworzenia pakietu dostępu:
+Aby włączyć przeglądy pakietów dostępu, musisz spełnić wymagania wstępne dotyczące tworzenia pakietu dostępu:
 - Usługa Azure AD — warstwa Premium P2
-- Administrator globalny, administrator użytkownika, właściciel katalogu lub menedżer pakietów programu Access
+- Administrator globalny, administrator użytkownika, właściciel katalogu lub Menedżer pakietów dostępu
 
-Aby uzyskać więcej informacji, zobacz [Wymagania licencyjne](entitlement-management-overview.md#license-requirements).
+Aby uzyskać więcej informacji, zobacz [wymagania dotyczące licencji](entitlement-management-overview.md#license-requirements).
 
 
-## <a name="create-an-access-review-of-an-access-package"></a>Tworzenie przeglądu dostępu pakietu dostępu
+## <a name="create-an-access-review-of-an-access-package"></a>Tworzenie przeglądu dostępu do pakietu dostępu
 
-Przeglądy dostępu można włączyć podczas [tworzenia nowego pakietu dostępu](entitlement-management-access-package-create.md) lub edytowania istniejących zasad pakietu [dostępu.](entitlement-management-access-package-lifecycle-policy.md) Wykonaj następujące kroki, aby włączyć przeglądy dostępu do pakietu dostępu:
+Przeglądy dostępu można włączyć podczas [tworzenia nowego pakietu dostępu](entitlement-management-access-package-create.md) lub [edytowania istniejących zasad pakietu](entitlement-management-access-package-lifecycle-policy.md) . Wykonaj następujące kroki, aby włączyć przeglądy dostępu do pakietu dostępu:
 
-1. Otwórz kartę **Cykl życia** dla pakietu dostępu i przewiń w dół do programu **Access Reviews**.
+1. Otwórz kartę **cykl życia** dla pakietu dostępu i przewiń w dół do **omówienia dostępu**.
 
-1. Przesuń przełącznik **Wymagaj recenzji dostępu** do **Tak**.
+1. Przenieś opcję **Wymagaj przeglądów dostępu** na **wartość tak**.
 
-    ![Dodawanie recenzji dostępu](./media/entitlement-management-access-reviews/access-reviews-pane.png)
+    ![Dodawanie przeglądu dostępu](./media/entitlement-management-access-reviews/access-reviews-pane.png)
 
-1. Określ datę rozpoczęcia przeglądów obok **pozycji Uruchamianie na**.
+1. Określ **datę rozpoczęcia przeglądu obok początku.**
 
-1. Następnie ustaw **częstotliwość przeglądu** na **roczną,** **biroczną,** **kwartalną** lub **miesięczną.**
-To ustawienie określa, jak często będą miały miejsce przeglądy dostępu.
+1. Następnie ustaw **częstotliwość przeglądu** na **roczną**, co **rok**, co **kwartał** lub **co miesiąc**.
+To ustawienie określa, jak często będą przeprowadzane przeglądy dostępu.
 
-1. Ustaw **czas trwania,** aby określić, ile dni każdy przegląd serii cyklicznej będzie otwarty dla danych wejściowych od recenzentów. Na przykład można zaplanować roczny przegląd, który rozpoczyna się 1 stycznia i jest otwarty do przeglądu przez 30 dni, aby recenzenci mieli czas do końca miesiąca na udzielenie odpowiedzi.
+1. Ustaw **czas trwania** , aby określić, ile dni każdy przegląd cyklicznej serii będzie otwarty do wprowadzania danych od recenzentów. Na przykład można zaplanować coroczne przeglądy, które zaczynają się od 1 stycznia i są otwarte do przeglądu przez 30 dni, tak aby recenzenci musieli odpowiedzieć na koniec miesiąca.
 
-1. Obok **pozycji Recenzenci**wybierz pozycję **Self-review,** jeśli chcesz, aby użytkownicy mogli przeprowadzić własną recenzję dostępu, lub wybierz **pozycję Określony recenzent,** jeśli chcesz wyznaczyć recenzenta.
+1. Obok pozycji **recenzenci**wybierz opcję **samodzielna Recenzja** , jeśli chcesz, aby użytkownicy korzystali z własnego przeglądu dostępu lub wybierali **określonych recenzentów** , jeśli chcesz wyznaczyć recenzenta.
 
     ![Wybierz pozycję Dodaj recenzentów](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png)
 
-1. Jeśli wybrano **określonego recenzenta,** określ, którzy użytkownicy wykonają przegląd dostępu:
-    1. Wybierz **pozycję Dodaj recenzentów**.
-    1. W okienku **Wybierz recenzenci** wyszukaj i wybierz użytkowników, których chcesz być recenzentem.
-    1. Po wybraniu recenzentów kliknij przycisk **Wybierz.**
+1. W przypadku wybrania **określonych recenzentów**Określ, którzy użytkownicy będą wykonywać przegląd dostępu:
+    1. Wybierz pozycję **Dodaj recenzentów**.
+    1. W okienku **Wybierz recenzentów** Wyszukaj i wybierz użytkowników, którym chcesz być recenzentem.
+    1. Po wybraniu recenzentów kliknij przycisk **Wybierz** .
 
     ![Określ recenzentów](./media/entitlement-management-access-reviews/access-reviews-select-reviewer.png)
 
-1. Kliknij **pozycję Recenzja + Utwórz,** jeśli tworzysz nowy pakiet dostępu lub **Aktualizuj,** jeśli edytujesz pakiet dostępu, u dołu strony.
+1. Kliknij przycisk **Przegląd + Utwórz** , jeśli tworzysz nowy pakiet lub **aktualizację** dostępu, Jeśli edytujesz pakiet dostępu w dolnej części strony.
 
 ## <a name="view-the-status-of-the-access-review"></a>Wyświetlanie stanu przeglądu dostępu
 
-Po dacie rozpoczęcia przegląd dostępu zostanie wyświetlony w sekcji **Przeglądy programu Access.** Wykonaj następujące kroki, aby wyświetlić stan przeglądu dostępu:
+Po dacie rozpoczęcia przegląd dostępu zostanie wyświetlony w sekcji **przeglądy dostępu** . Wykonaj następujące kroki, aby wyświetlić stan przeglądu dostępu:
 
-1. W **obszarze Zarządzanie tożsamościami**kliknij pozycję **Pakiety programu Access,** a następnie wybierz pakiet dostępu ze stanem przeglądu dostępu, który chcesz sprawdzić.   
+1. W obszarze **Zarządzanie tożsamościami**kliknij pozycję **pakiety dostępu** , a następnie wybierz pakiet dostępu ze stanem przeglądu dostępu, który chcesz sprawdzić.   
 
-1. Gdy już znajdziesz się w przeglądzie pakietu dostępu, kliknij pozycję **Przeglądy programu Access** w menu po lewej stronie.
+1. Po przeprowadzeniu przeglądu pakietu dostępu kliknij pozycję **przeglądy dostępu** w menu po lewej stronie.
     
-    ![Wybieranie recenzji dostępu](./media/entitlement-management-access-reviews/access-review-status-access-package-overview.png)
+    ![Wybierz przeglądy dostępu](./media/entitlement-management-access-reviews/access-review-status-access-package-overview.png)
 
-1. Zostanie wyświetlona lista zawierająca wszystkie zasady, które mają skojarzone z nimi przeglądy dostępu. Kliknij recenzję, aby zobaczyć jej raport.
+1. Zostanie wyświetlona lista zawierająca wszystkie zasady, które mają skojarzone z nimi przeglądy dostępu. Kliknij przycisk Przeglądaj, aby wyświetlić jego raport.
 
-    ![Lista opinii o dostępie](./media/entitlement-management-access-reviews/access-review-status-select-access-reviews.png)
+    ![Lista przeglądów dostępu](./media/entitlement-management-access-reviews/access-review-status-select-access-reviews.png)
    
-1. Podczas wyświetlania raportu pokazuje liczbę użytkowników przeglądanych i działania podjęte przez recenzenta na nich.
+1. Podczas wyświetlania raportu wyświetlana jest liczba przeglądanych użytkowników oraz akcje podjęte przez recenzenta.
 
-    ![Wyświetl stan recenzji](./media/entitlement-management-access-reviews/access-review-status.png)
+    ![Wyświetl stan przeglądu](./media/entitlement-management-access-reviews/access-review-status.png)
  
 
-## <a name="access-reviews-email-notifications"></a>Dostęp do recenzji powiadomień e-mail
-Możesz wyznaczyć recenzentów lub użytkownicy mogą sami przeglądać ich dostęp. Domyślnie usługa Azure AD wyśle wiadomość e-mail do recenzentów lub recenzentów wkrótce po rozpoczęciu przeglądu.
+## <a name="access-reviews-email-notifications"></a>Powiadomienia e-mail dotyczące przeglądów dostępu
+Możesz wyznaczyć recenzentów lub sprawdzić ich dostęp. Domyślnie usługa Azure AD wyśle wiadomość e-mail do recenzentów lub samorecenzentów wkrótce po rozpoczęciu przeglądu.
 
-Wiadomość e-mail będzie zawierać instrukcje dotyczące sposobu przeglądania dostępu do pakietów dostępu. Jeśli przegląd jest dla użytkowników, aby przejrzeć ich dostęp, pokaż im instrukcje dotyczące wykonywania samodzielnego przeglądu swoich pakietów dostępu.
+Wiadomość e-mail zawiera instrukcje dotyczące przeglądania dostępu do pakietów dostępu. Jeśli przegląd jest przeznaczony dla użytkowników w celu przejrzenia ich dostępu, należy wyświetlić instrukcje dotyczące sposobu przeprowadzania samodzielnej oceny swoich pakietów dostępu.
   
-Jeśli użytkownicy-goście zostali przypisani jako recenzenci i nie zaakceptowali zaproszenia gościa usługi Azure AD, nie otrzymają oni wiadomości e-mail z recenzji dostępu usługi Azure AD. Muszą najpierw zaakceptować zaproszenie i utworzyć konto w usłudze Azure AD, zanim będą mogli odbierać wiadomości e-mail. 
+Jeśli przypisano użytkowników-Gości jako recenzentów, którzy nie zaakceptowali zaproszenia gościa usługi Azure AD, nie będą oni otrzymywać wiadomości e-mail z przeglądu dostępu do usługi Azure AD. Najpierw muszą zaakceptować zaproszenie i utworzyć konto w usłudze Azure AD, zanim będą mogły otrzymywać wiadomości e-mail. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przegląd dostępu do pakietów dostępu](entitlement-management-access-reviews-review-access.md)
-- [Własny przegląd pakietów dostępu](entitlement-management-access-reviews-self-review.md)
+- [Przejrzyj dostęp do pakietów dostępu](entitlement-management-access-reviews-review-access.md)
+- [Samoprzegląd pakietów dostępu](entitlement-management-access-reviews-self-review.md)

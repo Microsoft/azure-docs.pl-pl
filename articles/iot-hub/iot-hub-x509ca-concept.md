@@ -1,6 +1,6 @@
 ---
-title: Pojęcia zabezpieczeń usługi Azure IoT Hub X.509 | Dokumenty firmy Microsoft
-description: Koncepcja — opis wartości certyfikatów urzędu certyfikacji X.509 w produkcji urządzeń IoT i uwierzytelniania.
+title: Pojęcia dotyczące zabezpieczeń platformy Azure IoT Hub X. 509 | Microsoft Docs
+description: Koncepcja — Omówienie certyfikatów urzędu certyfikacji X. 509 w procesie produkcji urządzeń IoT i uwierzytelniania.
 author: eustacea
 manager: arjmands
 ms.service: iot-hub
@@ -9,124 +9,124 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61320511"
 ---
-# <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Koncepcyjne zrozumienie certyfikatów X.509 CA w branży IoT
+# <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Omówienie pojęć związanych z certyfikatami urzędu certyfikacji X. 509 w branży IoT
 
-W tym artykule opisano wartość używania certyfikatów urzędu certyfikacji X.509 (CA) w produkcji urządzeń IoT i uwierzytelniania w centrum IoT Hub. Zawiera informacje na temat konfiguracji łańcucha dostaw i wyróżnić zalety.
+W tym artykule opisano wartość przy użyciu certyfikatów programu X. 509 urzędu certyfikacji w obszarze produkcja i uwierzytelnianie urządzeń IoT w celu IoT Hub. Zawiera informacje o konfiguracji łańcucha dostaw i korzyściach z wyróżniania.
 
 W tym artykule opisano:
 
-* Czym są certyfikaty urzędu certyfikacji X.509 i jak je uzyskać
+* Jakie certyfikaty urzędu certyfikacji X. 509 są i jak je pobrać
 
-* Jak zarejestrować certyfikat urzędu certyfikacji X.509 w centrum IoT Hub
+* Jak zarejestrować certyfikat certyfikatu X. 509 urzędu certyfikacji w celu IoT Hub
 
-* Jak skonfigurować łańcuch dostaw produkcji dla uwierzytelniania opartego na ucho jako certyfikatu C.019
+* Jak skonfigurować łańcuch dostaw produkcyjnych dla uwierzytelniania opartego na urzędzie certyfikacji X. 509
 
-* Jak urządzenia podpisane za pomocą usługi X.509 CA łączą się z centrum IoT Hub
+* Jak urządzenia podpisane przy użyciu urzędu certyfikacji X. 509 łączą się z IoT Hub
 
 ## <a name="overview"></a>Omówienie
 
-Uwierzytelnianie urzędu certyfikacji (CA) X.509 to podejście do uwierzytelniania urządzeń w centrum IoT Hub przy użyciu metody, która znacznie upraszcza tworzenie tożsamości urządzenia i zarządzanie cyklem życia w łańcuchu dostaw.
+Uwierzytelnianie przez urząd certyfikacji X. 509 jest podejściem do uwierzytelniania urządzeń w IoT Hub przy użyciu metody, która znacznie upraszcza tworzenie tożsamości urządzeń i zarządzanie cyklem życia w łańcuchu dostaw.
 
-Wyróżniającym atrybutem uwierzytelniania urzędu certyfikacji X.509 jest relacja jeden-do-wielu certyfikat urzędu certyfikacji z jego urządzeniami podrzędnymi. Ta relacja umożliwia rejestrację dowolnej liczby urządzeń w Centrum IoT przez zarejestrowanie certyfikatu urzędu certyfikacji X.509 raz, w przeciwnym razie unikatowe certyfikaty urządzenia muszą być wstępnie zarejestrowane dla każdego urządzenia, zanim urządzenie będzie można połączyć. Ta relacja jeden do wielu upraszcza również operacje zarządzania cyklem życia certyfikatów urządzeń.
+Atrybut odróżniający uwierzytelniania urzędu certyfikacji X. 509 jest relacją "jeden do wielu", a certyfikat urzędu certyfikacji ma urządzenia podrzędne. Ta relacja umożliwia rejestrację dowolnej liczby urządzeń w IoT Hub przez rejestrację certyfikatu X. 509 urzędu certyfikacji. w przeciwnym razie unikatowe certyfikaty urządzeń muszą być wstępnie zarejestrowane dla każdego urządzenia, aby można było nawiązać połączenie z urządzeniem. Ta relacja jeden do wielu upraszcza również operacje zarządzania cyklem życia certyfikatów urządzeń.
 
-Innym ważnym atrybutem uwierzytelniania X.509 CA jest uproszczenie logistyki łańcucha dostaw. Bezpieczne uwierzytelnianie urządzeń wymaga, aby każde urządzenie miało unikatowy klucz tajny, taki jak klucz jako podstawa zaufania. W uwierzytelnianiu opartym na certyfikatach ten klucz tajny jest kluczem prywatnym. Typowy przepływ produkcji urządzenia obejmuje wiele kroków i opiekunów. Bezpieczne zarządzanie kluczami prywatnymi urządzeń w wielu opiekunach i utrzymywanie zaufania jest trudne i kosztowne. Użycie urzędów certyfikacji rozwiązuje ten problem, podpisując każdego opiekuna w kryptograficznym łańcuchu zaufania, zamiast powierzać im klucze prywatne urządzenia. Każdy opiekun z kolei podpisuje urządzenia na odpowiednim etapie procesu przepływu produkcji. Ogólny wynik to optymalny łańcuch dostaw z wbudowaną odpowiedzialnością dzięki wykorzystaniu kryptograficznego łańcucha zaufania. Warto zauważyć, że proces ten zapewnia największe bezpieczeństwo, gdy urządzenia chronią swoje unikalne klucze prywatne. W tym celu wzywamy do korzystania z modułów sprzętowych bezpiecznych (HSM) zdolnych do wewnętrznego generowania kluczy prywatnych, które nigdy nie ujrzą światła dziennego.
+Innym ważnym atrybutem uwierzytelniania urzędu certyfikacji X. 509 jest uproszczenie logistyki łańcucha dostaw. Bezpieczne uwierzytelnianie urządzeń wymaga, aby każde urządzenie posiada unikatowy klucz tajny, taki jak klucz jako podstawa zaufania. W przypadku uwierzytelniania opartego na certyfikatach ten klucz tajny jest kluczem prywatnym. Typowy przepływ produkcji urządzenia obejmuje wiele kroków i powierników. Bezpieczne zarządzanie kluczami prywatnymi urządzeń w wielu powiernikach i utrzymywanie zaufania jest trudne i kosztowne. Korzystanie z urzędów certyfikacji rozwiązuje ten problem przez podpisywanie każdego elementu podrzędnego do kryptograficznego łańcucha zaufania, a nie przy użyciu kluczy prywatnych urządzeń. Każdy powiernik z kolei umożliwia znakowanie urządzeń w odpowiednim kroku procesu przepływu produkcji. Ogólny wynik to optymalny łańcuch dostaw z wbudowaną odpowiedzialnością za korzystanie z kryptograficznego łańcucha zaufania. Warto zauważyć, że ten proces daje największe zabezpieczenia, gdy urządzenia chronią swoje unikatowe klucze prywatne. W tym celu zachęcamy do używania sprzętowych modułów zabezpieczeń (HSM), które umożliwiają wewnętrznie generowanie kluczy prywatnych, które nigdy nie będą widoczne.
 
-Ten artykuł zawiera kompleksowy widok używania uwierzytelniania urzędu certyfikacji X.509, od konfiguracji łańcucha dostaw po połączenie z urządzeniem, przy jednoczesnym wykorzystaniu przykładu świata rzeczywistego w celu umocnienia zrozumienia.
+Ten artykuł zawiera kompleksowy widok użycia uwierzytelniania urzędu certyfikacji X. 509 z konfiguracji łańcucha dostaw do połączenia urządzenia, przy jednoczesnym użyciu rzeczywistego przykładu do poznania zwiększyć.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Certyfikat urzędu certyfikacji X.509 jest certyfikatem cyfrowym, którego posiadacz może podpisać inne certyfikaty. Ten certyfikat cyfrowy jest X.509, ponieważ jest zgodny ze standardem formatowania certyfikatów określonym przez standard RFC 5280 IETF i jest urzędem certyfikacji, ponieważ jego posiadacz może podpisywać inne certyfikaty.
+Certyfikat X. 509 urzędu certyfikacji jest certyfikatem cyfrowym, którego posiadacz może podpisać inne certyfikaty. Ten certyfikat cyfrowy to X. 509, ponieważ jest zgodny ze standardem formatowania certyfikatu zalecanym przez specyfikację RFC 5280 w standardzie IETF i jest urzędem certyfikacji, ponieważ jego posiadacz może podpisać inne certyfikaty.
 
-Użycie X.509 CA jest najlepiej rozumiane w odniesieniu do konkretnego przykładu. Rozważmy Company-X, producent Smart-X-Widgets przeznaczone do profesjonalnej instalacji. Firma-X zleca zarówno produkcję, jak i instalację. To kontrakty producenta Factory-Y do produkcji Smart-X-Widgets i usługodawca Technician-Z zainstalować. Firma-X pragnie, aby Smart-X-Widget został dostarczony bezpośrednio z Factory-Y do Technician-Z w celu instalacji i że łączy się bezpośrednio z wystąpieniem Usługi IoT Hub firmy-X po instalacji bez dalszej interwencji firmy X. Aby tak się stało, firma-X musi wykonać kilka jednorazowych operacji konfiguracyjnych, aby zagruntować Smart-X-Widget dla automatycznego połączenia. Mając na uwadze scenariusz end-to-end, reszta tego artykułu jest skonstruowana w następujący sposób:
+Korzystanie z urzędu certyfikacji X. 509 jest najlepiej zrozumiałe w odniesieniu do konkretnego przykładu. Rozważmy firmę-X, producenta inteligentnych elementów widget, które są przeznaczone do instalacji profesjonalnej. Firma-X websources (produkcja i instalacja). Producent kontraktów IT w celu wyprodukowania inteligentnych-X-widget i Service Provider technik-Z do zainstalowania. Firma-X chce, aby element widget Smart-X był bezpośrednio dostarczany z fabryki do Z programu Factory-Z do pracy z firmą Z w ramach instalacji i łączył się bezpośrednio z wystąpieniem IoT Hub firmy-X, po zakończeniu instalacji bez dalszej interwencji z firmy-X. Aby to nastąpić, firma-X musi wykonać kilka jednorazowych operacji konfiguracyjnych, aby utworzyć element widget Smart-X-dla automatycznego połączenia. Z kompleksowym scenariuszem pozostała część tego artykułu jest następująca:
 
-* Uzyskiwanie certyfikatu urzędu certyfikacji X.509
+* Pozyskiwanie certyfikatu urzędu certyfikacji X. 509
 
-* Rejestrowanie certyfikatu urzędu certyfikacji X.509 w centrum IoT Hub
+* Zarejestruj certyfikat certyfikatu X. 509 urzędu certyfikacji, aby IoT Hub
 
-* Podpisywanie urządzeń w łańcuchu zaufania certyfikatów
+* Podpisywanie urządzeń do łańcucha zaufania
 
-* Połączenie urządzenia
+* Połączenie z urządzeniem
 
-## <a name="acquire-the-x509-ca-certificate"></a>Uzyskiwanie certyfikatu urzędu certyfikacji X.509
+## <a name="acquire-the-x509-ca-certificate"></a>Pozyskiwanie certyfikatu urzędu certyfikacji X. 509
 
-Firma-X ma możliwość zakupu certyfikatu urzędu certyfikacji X.509 od publicznego głównego urzędu certyfikacji lub utworzenia go za pośrednictwem procesu podpisu własnego. Jedna opcja będzie optymalna w stosunku do innych w zależności od scenariusza aplikacji. Niezależnie od opcji proces ten wymaga dwóch podstawowych kroków, generowania pary kluczy publicznych/prywatnych i podpisywania klucza publicznego w certyfikacie.
+Firma-X ma możliwość zakupu certyfikatu z urzędu certyfikacji X. 509 z publicznego głównego urzędu certyfikacji lub utworzenia go za pośrednictwem procesu z podpisem własnym. Jedna opcja jest optymalna dla innych, w zależności od scenariusza aplikacji. Niezależnie od opcji, proces obejmuje dwa podstawowe kroki, generując parę kluczy publiczny/prywatny i podpisując klucz publiczny w certyfikacie.
 
 ![Przepływ do generowania certyfikatów X509CA](./media/iot-hub-x509ca-concept/csr-flow.png)
 
-Szczegółowe informacje na temat wykonywania tych kroków różnią się w zależności od dostawcy usług.
+Szczegółowe informacje o tym, jak wykonać te kroki, różnią się w zależności od różnych dostawców usług.
 
-### <a name="purchasing-an-x509-ca-certificate"></a>Zakup certyfikatu urzędu certyfikacji X.509
+### <a name="purchasing-an-x509-ca-certificate"></a>Zakup certyfikatu X. 509 urzędu certyfikacji
 
-Zakup certyfikatu urzędu certyfikacji ma zaletę, że dobrze znany główny urząd certyfikacji działa jako zaufana strona trzecia, aby ręczyć za legalność urządzeń IoT, gdy urządzenia się łączą. Firma-X wybrałaby tę opcję, jeśli zamierza smart-X-Widget do interakcji z produktami lub usługami innych firm po początkowym połączeniu z Centrum IoT Hub.
+Zakup certyfikatu urzędu certyfikacji ma zalety posiadania dobrze znanego głównego urzędu certyfikacji jako zaufanej strony trzeciej w celu zagwarantowania autentyczności urządzeń IoT, gdy urządzenia nawiązują połączenie. Firma-X wybierze tę opcję, jeśli zamierzasz użyć widżetu inteligentnego X, aby móc korzystać z produktów lub usług innych firm po nawiązaniu początkowego połączenia z IoT Hub.
 
-Aby zakupić certyfikat urzędu certyfikacji X.509, firma-X wybrałaby dostawcę usług certyfikatów głównych. Wyszukiwanie w Internecie dla wyrażenia "Root CA" przyniesie dobre przewody. Główny urząd certyfikacji poprowadzi firmę X na temat tworzenia pary kluczy publicznych/prywatnych oraz sposobu generowania żądania podpisywania certyfikatów (CSR) dla ich usług. CSR to formalny proces ubiegania się o certyfikat od urzędu certyfikacji. Wynikiem tego zakupu jest certyfikat do użycia jako certyfikat urzędu. Biorąc pod uwagę wszechobecność certyfikatów X.509, certyfikat prawdopodobnie został prawidłowo sformatowany zgodnie ze standardem RFC 5280 IETF.
+Aby kupić certyfikat urzędu certyfikacji X. 509, firma-X wybierz dostawcę usług certyfikatów głównych. Wyszukiwanie w Internecie dla frazy "główny urząd certyfikacji" spowoduje zwrócenie prawidłowych potencjalnych klientów. Główny urząd certyfikacji poprowadzi firmę-X na temat tworzenia pary kluczy publicznych/prywatnych oraz sposobu generowania żądania podpisania certyfikatu (CSR) dla swoich usług. CSR to formalny proces stosowania certyfikatu z urzędu certyfikacji. Wynikiem tego zakupu jest certyfikat używany jako certyfikat urzędu certyfikacji. Mając powszechność certyfikatów X. 509, certyfikat jest prawdopodobnie poprawnie sformatowany w standardzie RFC 5280 grupy IETF.
 
-### <a name="creating-a-self-signed-x509-ca-certificate"></a>Tworzenie certyfikatu urzędu certyfikacji typu self-signed X.509
+### <a name="creating-a-self-signed-x509-ca-certificate"></a>Tworzenie certyfikatu certyfikacji X. 509 z podpisem własnym
 
-Proces tworzenia certyfikatu urzędu certyfikacji z podpisem własnym X.509 jest podobny do zakupu, z wyjątkiem angażowania osoby podpisującej innej firmy, takiej jak główny urząd certyfikacji. W naszym przykładzie firma-X podpisze certyfikat urzędu zamiast głównego urzędu certyfikacji. Firma-X może wybrać tę opcję do testowania, dopóki nie będzie gotowa do zakupu certyfikatu urzędu. Firma-X może również używać samodzielnie podpisanego certyfikatu urzędu certyfikacji X.509 w produkcji, jeśli smart-X-Widget nie jest przeznaczony do łączenia się z usługami innych firm poza Centrum IoT Hub.
+Proces tworzenia certyfikatu z podpisem własnym X. 509 urzędu certyfikacji jest podobny do zakupu z wyjątkiem od osoby podpisującej innej firmy, takiej jak główny urząd certyfikacji. W naszym przykładzie firma-X podpisuje swój certyfikat urzędu zamiast głównego urzędu certyfikacji. Firma-X może wybrać tę opcję do testowania, dopóki nie będą gotowi do zakupu certyfikatu urzędu certyfikacji. Firma-X może również używać certyfikatu urzędu certyfikacji X. 509 z podpisem własnym w środowisku produkcyjnym, jeśli funkcja Smart-X-widget nie jest przeznaczona do łączenia się z żadną z usług innych firm poza IoT Hub.
 
-## <a name="register-the-x509-certificate-to-iot-hub"></a>Zarejestruj certyfikat X.509 w Urzędzie IoT Hub
+## <a name="register-the-x509-certificate-to-iot-hub"></a>Zarejestruj certyfikat X. 509 w celu IoT Hub
 
-Firma-X musi zarejestrować urząd certyfikacji X.509 w centrum IoT Hub, gdzie będzie służyć do uwierzytelniania widżetów Smart-X podczas łączenia. Jest to jednorazowy proces, który umożliwia uwierzytelnienie i zarządzanie dowolną liczbą urządzeń Smart-X-Widget. Ten proces jest jednorazowy ze względu na relację jeden do wielu między certyfikatem urzędu a urządzeniami, a także stanowi jedną z głównych zalet korzystania z metody uwierzytelniania urzędu certyfikacji X.509. Alternatywą jest przesłanie pojedynczych odcisków palców certyfikatu dla każdego urządzenia Smart-X-Widget, zwiększając w ten sposób koszty operacyjne.
+Firma-X musi zarejestrować urząd certyfikacji X. 509, aby IoT Hub, w którym będzie on obsługiwał uwierzytelnianie inteligentnych elementów widget. Jest to jednorazowy proces, który umożliwia uwierzytelnianie dowolnej liczby urządzeń typu "Smart-X" i zarządzanie nią. Ten proces jest jednorazowy ze względu na relację jeden-do-wielu między certyfikatem i urządzeniami urzędu, a także stanowi jedną z głównych zalet korzystania z metody uwierzytelniania urzędu certyfikacji X. 509. Alternatywą jest przekazywanie odcisków palców poszczególnych certyfikatów dla każdego i każdego urządzenia inteligentnego, co pozwala na dodawanie do kosztów operacyjnych.
 
-Rejestrowanie certyfikatu urzędu certyfikacji X.509 jest procesem dwuetapowym, przekazywaniem certyfikatu i dowodem posiadania certyfikatu.
+Zarejestrowanie certyfikatu urzędu certyfikacji X. 509 jest procesem dwuetapowym, przekazywaniem certyfikatu i dowodem posiadania certyfikatu.
 
 ![Rejestrowanie certyfikatu X509CA](./media/iot-hub-x509ca-concept/pop-flow.png)
 
-### <a name="x509-ca-certificate-upload"></a>Przekazywanie certyfikatu urzędu certyfikacji X.509
+### <a name="x509-ca-certificate-upload"></a>Przekazywanie certyfikatu w urzędzie certyfikacji X. 509
 
-Proces przekazywania certyfikatów urzędu certyfikacji X.509 jest właśnie taki, który przekazuje certyfikat urzędu certyfikacji do centrum IoT Hub. Usługa IoT Hub oczekuje certyfikatu w pliku. Firma-X po prostu przesyła plik certyfikatu. Plik certyfikatu NIE MOŻE w żadnym wypadku zawierać żadnych kluczy prywatnych. Najlepsze praktyki ze standardów dotyczących infrastruktury kluczy publicznych (PKI) nakazują, aby znajomość prywatnej firmy-X w tym przypadku mieściła się wyłącznie w ramach firmy X.
+Proces przekazywania certyfikatu X. 509 urzędu certyfikacji polega na tym, że Przekaż certyfikat urzędu certyfikacji do IoT Hub. IoT Hub oczekuje certyfikatu w pliku. Firma-X po prostu przekazuje plik certyfikatu. W żadnym wypadku plik certyfikatu nie może zawierać żadnych kluczy prywatnych. Najlepsze rozwiązania z zakresu standardów związanych z infrastrukturą kluczy publicznych (PKI) mają na celu założenia, że informacje o prywatnej firmie X w tym przypadku znajdują się wyłącznie w ramach firmy-X.
 
-### <a name="proof-of-possession-of-the-certificate"></a>Dowód posiadania certyfikatu
+### <a name="proof-of-possession-of-the-certificate"></a>Potwierdzenie posiadania certyfikatu
 
-Certyfikat urzędu certyfikacji X.509, podobnie jak każdy certyfikat cyfrowy, jest informacją publiczną, która jest podatna na podsłuchiwanie. W związku z tym podsłuch może przechwycić certyfikat i spróbować przesłać go jako swój własny. W naszym przykładzie Centrum IoT pragnie upewnić się, że certyfikat urzędu certyfikacji, który firma-X przesyła, naprawdę należy do firmy X. Czyni to poprzez wyzwanie Company-X do dowodu, że w rzeczywistości posiadają certyfikat poprzez [dowód posiadania (PoP) przepływu](https://tools.ietf.org/html/rfc5280#section-3.1). Przepływ weryfikacji posiadania pociąga za sobą, że centrum IoT Hub generuje losową liczbę podpisaną przez firmę-X przy użyciu klucza prywatnego. Jeśli firma-X postępowała zgodnie z najlepszymi praktykami w zakresie infrastruktury kluczy publicznych i chroniła ich klucz prywatny, tylko oni byliby w stanie poprawnie odpowiedzieć na wyzwanie dotyczące dowodu posiadania. Usługa IoT Hub rejestruje certyfikat urzędu certyfikacji X.509 po pomyślnej odpowiedzi na wyzwanie weryfikacji posiadania.
+Certyfikat certyfikatu X. 509 urzędu certyfikacji, podobnie jak każdy certyfikat cyfrowy, to informacje publiczne, które są podatne na podsłuchiwanie. W związku z tym osoba przechwytująca może przechwycić certyfikat i spróbować go przekazać jako własny. W naszym przykładzie IoT Hub chcemy upewnić się, że certyfikat urzędu certyfikacji firma-X jest przekazywany w rzeczywistości do firmy-X. Robi to przez wyzwanie firmy-X, aby udowodnić, że w rzeczywistości posiadają certyfikat za pomocą [przepływu dowodu posiadania (pop)](https://tools.ietf.org/html/rfc5280#section-3.1). Przepływ dowodu posiadania wiąże się z IoT Hub wygenerowaniem losowej liczby do podpisania przez firmę-X przy użyciu jego klucza prywatnego. Jeśli spełnione są najlepsze rozwiązania związane z infrastrukturą kluczy publicznych w firmie X, a klucz prywatny jest chroniony, tylko w celu poprawnego reagowania na wyzwanie dowodu posiadania. IoT Hub przechodzi do rejestru urzędu certyfikacji X. 509 po pomyślnej reakcji na wyzwanie dowodu posiadania.
 
-Skuteczna odpowiedź na wyzwanie weryfikacji posiadania z usługi IoT Hub kończy rejestrację urzędu certyfikacji X.509.
+Pomyślna odpowiedź na wyzwanie związane z dowodem posiadania z IoT Hub kończy rejestrację urzędu certyfikacji X. 509.
 
-## <a name="sign-devices-into-a-certificate-chain-of-trust"></a>Podpisywanie urządzeń w łańcuchu zaufania certyfikatów
+## <a name="sign-devices-into-a-certificate-chain-of-trust"></a>Podpisywanie urządzeń do łańcucha zaufania
 
-IoT wymaga, aby każde urządzenie posiadało unikatową tożsamość. Te tożsamości znajdują się w certyfikatach formularza dla schematów uwierzytelniania opartych na certyfikatach. W naszym przykładzie oznacza to, że każdy Smart-X-Widget musi posiadać unikatowy certyfikat urządzenia. W jaki sposób firma-X przygotowuje się do tego w swoim łańcuchu dostaw?
+IoT wymaga, aby każde urządzenie miało unikatową tożsamość. Te tożsamości znajdują się w formularzach certyfikaty dla schematów uwierzytelniania opartych na certyfikatach. W naszym przykładzie oznacza to, że każdy widżet inteligentny-X musi dysponować unikatowym certyfikatem urządzenia. W jaki sposób Instalator firmy-X dla tego elementu jest w łańcuchu dostaw?
 
-Jednym ze sposobów, aby przejść o tym jest wstępnie wygenerować certyfikaty dla Smart-X-Widgets i powierzając wiedzę o odpowiednich unikalnych kluczy prywatnych urządzenia z partnerami łańcucha dostaw. Dla firmy X oznacza to powierzenie Factory-Y i Technician-Z. Chociaż jest to prawidłowa metoda, wiąże się z wyzwaniami, które należy przezwyciężyć, aby zapewnić zaufanie w następujący sposób:
+Jednym ze sposobów, aby to zrobić, jest wstępne generowanie certyfikatów dla inteligentnych elementów widget i powierzenie znajomości odpowiednich kluczy prywatnych urządzeń z partnerami łańcucha dostaw. W przypadku firm-X oznacza to powierzenie fabryki-Y i technika-Z. Chociaż jest to prawidłowa Metoda, wiąże się to z wyzwaniami, które należy przezwyciężyć, aby zapewnić zaufanie w następujący sposób:
 
-1. Konieczność udostępniania kluczy prywatnych urządzeń partnerom łańcucha dostaw, oprócz ignorowania najlepszych praktyk infrastruktury kluczy publicznych, które uniemożliwia udostępnianie kluczy prywatnych, sprawia, że budowanie zaufania do łańcucha dostaw jest kosztowne. Oznacza to, że systemy kapitałowe, takie jak bezpieczne pomieszczenia do pomieszczeń prywatnych urządzeń, i procesy, takie jak okresowe audyty bezpieczeństwa, muszą być zainstalowane. Oba zwiększają koszty łańcucha dostaw.
+1. Konieczność udostępniania kluczy prywatnych urządzeń z partnerami łańcucha dostaw oprócz ignorowania najlepszych praktyk infrastruktury PKI, które nigdy nie współdzielą kluczy prywatnych, sprawia, że Tworzenie zaufania w łańcuchu dostaw jest kosztowne. Oznacza to, że systemy kapitałowe, takie jak bezpieczne pokoje do kluczy prywatnych urządzenia, i procesy, takie jak okresowe inspekcje zabezpieczeń, muszą być zainstalowane. Dodaj koszt do łańcucha dostaw.
 
-2. Bezpieczne rozliczanie urządzeń w łańcuchu dostaw, a później zarządzanie nimi podczas wdrażania staje się zadaniem jeden do jednego dla każdej pary klucz-urządzenie od momentu generowania unikatowego certyfikatu urządzenia (a więc klucza prywatnego) do wycofania urządzenia. Wyklucza to zarządzanie grupami urządzeń, chyba że pojęcie grup jest w jakiś sposób wbudowane w proces. Bezpieczne zarządzanie księgowością i cyklem życia urządzeń staje się zatem dużym obciążeniem dla operacji. W naszym przykładzie Firma-X poniesie ten ciężar.
+2. Bezpieczne ewidencjonowanie urządzeń w łańcuchu dostaw i zarządzanie nimi w ramach wdrożenia to zadanie jedno-do-jednego dla każdej pary klucz-urządzenie od punktu unikatowego certyfikatu urządzenia (w związku z tym klucza prywatnego) do wycofania urządzenia. Uniemożliwia to zarządzanie grupami urządzeń, chyba że koncepcja grup jest wyraźnie wbudowana w proces. Bezpieczeństwo i zarządzanie cyklem życia urządzeń w tym przypadku jest dużym obciążeniem operacji. W naszym przykładzie firma-X ponosi ten ciężar.
 
-Uwierzytelnianie certyfikatów urzędu certyfikacji X.509 oferuje eleganckie rozwiązania dla wymienionych wyzwań dzięki wykorzystaniu łańcuchów certyfikatów. Łańcuch certyfikatów wynika z podpisania przez urząd certyfikacji pośredniego urzędu certyfikacji, który z kolei podpisuje inny pośredni urząd certyfikacji i tak trwa do momentu, gdy końcowy pośredni urząd certyfikacji podpisze urządzenie. W naszym przykładzie, Company-X znaki Factory-Y, co z kolei znaki Technician-Z, że w końcu podpisuje Smart-X-Widget.
+Uwierzytelnianie certyfikatu X. 509 urzędu certyfikacji oferuje eleganckie rozwiązania umożliwiające aforee wyzwań przy użyciu łańcuchów certyfikatów. Łańcuch certyfikatów wynika z podpisywania urzędu certyfikacji pośredniego urzędu certyfikacji, który z kolei podpisuje inny pośredni urząd certyfikacji i tak dalej, aż do ostatniego pośredniego urzędu certyfikacji podpisującego urządzenie. W naszym przykładzie firma-X oznakuje fabrykę-Y, która z kolei jest oznaką technika Z, która oznacza, że jest to element widget inteligentny-X.
 
 ![Hierarchia łańcucha certyfikatów](./media/iot-hub-x509ca-concept/cert-chain-hierarchy.png)
 
-Powyżej kaskady certyfikatów w łańcuchu przedstawia logiczne przekazanie władzy. Wiele łańcuchów dostaw stosuje się do tego logicznego przekazania, w którym każdy pośredni urząd certyfikacji jest logowany do łańcucha podczas odbierania wszystkich certyfikatów urzędu certyfikacji wyższego szczebla, a ostatni pośredni urząd certyfikacji ostatecznie podpisuje każde urządzenie i wstrzykuje wszystkie certyfikaty urzędu z łańcucha do urządzenia. Jest to powszechne, gdy firma produkcyjna kontraktowa z hierarchią fabryk zleca konkretnej fabryce produkcję. Podczas gdy hierarchia może być kilka poziomów głębokości (na przykład według geografii/typu produktu/linii produkcyjnej), tylko fabryka na końcu dostaje do interakcji z urządzeniem, ale łańcuch jest utrzymywany od góry hierarchii.
+Powyższe kaskadowe certyfikaty w łańcuchu przedstawiają wartość logiczną urzędu certyfikacji. Wiele łańcuchów dostaw jest zgodnych z tą logiczną informacją o tym, że każdy pośredni urząd certyfikacji jest zalogowany do łańcucha podczas uzyskiwania wszystkich nadrzędnych certyfikatów urzędu certyfikacji, a ostatni pośredni urząd certyfikacji rejestruje każde urządzenie i wstrzyknąć wszystkie certyfikaty urzędu z łańcucha do urządzenia. Jest to typowe w przypadku, gdy firma produkcyjna kontraktu z hierarchią fabryk przeprodukuje daną fabrykę do produkcji. Hierarchia może mieć wiele poziomów głębokości (na przykład według lokalizacji typu Geografia/produkt/linia produkcyjna), tylko fabryka na końcu uzyskuje dostęp do urządzenia, ale łańcuch jest utrzymywany w górnej części hierarchii.
 
-Alternatywne łańcuchy mogą mieć różne pośrednie urzędy certyfikacji interakcji z urządzeniem, w którym to przypadku urząd certyfikacji interakcji z urządzeniem wstrzykuje zawartość łańcucha certyfikatów w tym momencie. Modele hybrydowe są również możliwe, gdy tylko niektóre urzędy certyfikacji mają fizyczną interakcję z urządzeniem.
+Alternatywne łańcuchy mogą korzystać z różnych pośrednich urzędów certyfikacji z urządzeniem, na którym wystąpiła praca z urządzeniem przez urząd certyfikacji w tym momencie. Modele hybrydowe są również dostępne w przypadku, gdy tylko część urzędu certyfikacji ma fizyczne interakcje z urządzeniem.
 
-W naszym przykładzie zarówno Factory-Y, jak i Technician-Z wchodzą w interakcję z widżetem Smart-X.In our example, both Factory-Y and Technician-Z interact with the Smart-X-Widget. Chociaż Firma-X jest właścicielem Smart-X-Widget, w rzeczywistości nie wchodzi w interakcję fizycznie z nim w całym łańcuchu dostaw. Łańcuch zaufania certyfikatów dla Smart-X-Widget obejmuje zatem podpisanie Factory-Y przez firmę X, które z kolei podpisuje Technician-Z, które następnie zapewni ostateczny podpis Smart-X-Widget. Produkcja i instalacja Smart-X-Widget obejmują Factory-Y i Technician-Z przy użyciu odpowiednich certyfikatów pośredniego urzędu certyfikacji do podpisania każdego Smart-X-Widgets. Efektem końcowym całego procesu są widżety Smart-X z unikatowymi certyfikatami urządzeń i łańcuchem zaufania certyfikatów, które przechodzą do certyfikatu urzędu certyfikacji company-x.
+W naszym przykładzie zarówno fabryka-Y, jak i technika-Z są współpracujące z widżetem Smart-X. Gdy element Company-x jest właścicielem inteligentnych-X-widget, faktycznie nie działa on fizycznie w całym łańcuchu dostaw. Łańcuch certyfikatów zaufania dla widżetu inteligentnego X składa się z tego względu jako producenta podpisywania X firmy-Y, która z kolei ma charakter technika, który następnie będzie dostarczać końcowy podpis do inteligentnych elementów widget-X. Tworzenie i instalacja widżetu inteligentnego X obejmuje fabryki-Y i technikę Z przy użyciu odpowiednich certyfikatów pośrednich urzędów certyfikacji do podpisywania każdego i każdego elementu widget inteligentnych-X. Wynik tego całego procesu to inteligentne-X — widżety z unikatowymi certyfikatami urządzeń i łańcuchem certyfikatów zaufania do certyfikatu urzędu certyfikacji firmy-X.
 
-![Łańcuch zaufania od certyfikatów jednej firmy do certyfikatów innej firmy](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
+![Łańcuch zaufania z certyfikatów jednej firmy do certyfikatów innej firmy](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
 
-Jest to dobry punkt do przeglądu wartości metody X.509 CA. Zamiast wstępnie generować i przekazywać certyfikaty dla każdego Smart-X-Widget do łańcucha dostaw, Firma-X musiała podpisać Factory-Y tylko raz. Zamiast śledzić każde urządzenie w całym cyklu życia urządzenia, Firma-X może teraz śledzić i zarządzać urządzeniami za pośrednictwem grup, które naturalnie wynikają z procesu łańcucha dostaw, na przykład urządzeń zainstalowanych przez Technician-Z po lipcu pewnego roku.
+Jest to dobry punkt, aby przejrzeć wartość metody urzędu certyfikacji X. 509. Zamiast wstępnie generować i wyłączać certyfikaty dla każdego widżetu inteligentnego X w łańcuchu dostaw, firma-X musi tylko raz podpisać fabrykę-Y. Zamiast śledzić każde urządzenie w całym cyklu życia urządzenia, firma-X może teraz śledzić urządzenia i zarządzać nimi za pośrednictwem grup, które w sposób naturalny pochodzą z procesu łańcucha dostaw.
 
-Wreszcie, metoda uwierzytelniania urzędu certyfikacji napełnia bezpieczną odpowiedzialność w łańcuchu dostaw produkcji urządzeń. Ze względu na proces łańcucha certyfikatów akcje każdego członka w łańcuchu są rejestrowane kryptograficznie i weryfikowalne.
+Ostatnia, ale nie najmniejsza, metoda uwierzytelniania urzędu certyfikacji nie umożliwia bezpiecznej odpowiedzialności w łańcuchu dostaw produkcyjnych urządzenia. Ze względu na proces łańcucha certyfikatów działania każdego elementu członkowskiego w łańcuchu są kryptograficznie rejestrowane i możliwe do zweryfikowania.
 
-Proces ten opiera się na pewnych założeniach, które muszą być powierzchniowe dla kompletności. Wymaga niezależnego utworzenia urządzenia unikatowa para klucza publicznego/ prywatnego i że klucz prywatny być chronione w urządzeniu. Na szczęście istnieją bezpieczne chipy krzemowe w postaci sprzętowych modułów bezpiecznych (HSM) zdolnych do wewnętrznego generowania kluczy i ochrony kluczy prywatnych. Firma-X wystarczy dodać jeden z takich chipów do komponentu Smart-X-Widget.
+Ten proces polega na pewnych założeń, które muszą być wyznaczone do kompletności. Wymaga niezależnego utworzenia unikatowej pary kluczy publiczny/prywatny i że klucz prywatny ma być chroniony na urządzeniu. Na szczęście należy zabezpieczyć mikroukłady krzemu w postaci bezpiecznych modułów sprzętowych (HSM), które mogą wewnętrznie generować klucze i chronić klucze prywatne. Firma-X należy dodać jeden z tych mikroukładów do składowych komponentów typu Smart-X-widget.
 
-## <a name="device-connection"></a>Połączenie urządzenia
+## <a name="device-connection"></a>Połączenie z urządzeniem
 
-Poprzednie sekcje powyżej zostały budowania do połączenia urządzenia. Po prostu rejestrując certyfikat urzędu certyfikacji X.509 w Urzędzie IoT Hub jeden raz, w jaki sposób potencjalnie miliony urządzeń łączą się i są uwierzytelniane po raz pierwszy?  Proste; poprzez ten sam przesyłanie certyfikatów i przepływ dowodu posiadania, z jakim wcześniej napotkaliśmy rejestrację certyfikatu urzędu certyfikacji X.509.
+Poprzednie sekcje powyżej zostały skompilowane do połączenia urządzenia. Po prostu rejestrując certyfikat dla urzędu certyfikacji X. 509 do IoT Hub jeden raz, jak potencjalnie miliony urządzeń nawiązują połączenie i uwierzytelniają się po raz pierwszy?  Ułatwia za pomocą tego samego przekazanie certyfikatu i przepływu potwierdzania, który został wcześniej osiągnięty podczas rejestrowania certyfikatu X. 509 urzędu certyfikacji.
 
-Urządzenia wyprodukowane do uwierzytelniania X.509 CA są wyposażone w unikatowe certyfikaty urządzenia i łańcuch certyfikatów z ich odpowiedniego łańcucha dostaw produkcyjnych. Połączenie urządzenia, nawet po raz pierwszy, odbywa się w dwuetapowym procesie: przesyłanie łańcucha certyfikatów i dowód posiadania.
+Urządzenia wytworzone na potrzeby uwierzytelniania urzędu certyfikacji X. 509 są wyposażone w unikatowe certyfikaty urządzeń i łańcuch certyfikatów z odpowiedniego łańcucha dostaw produkcji. Połączenie urządzenia, nawet po raz pierwszy, odbywa się w procesie dwuetapowym: przekazywanie łańcucha certyfikatów i potwierdzenie jego posiadania.
 
-Podczas przekazywania łańcucha certyfikatów urządzenie przekazuje unikatowy certyfikat urządzenia wraz z łańcuchem certyfikatów zainstalowanym w nim do usługi IoT Hub. Korzystając z wstępnie zarejestrowanego certyfikatu urzędu certyfikacji X.509, usługa IoT Hub może za pomocą kryptograficznej weryfikacji kilku rzeczy, że łańcuch przekazanych certyfikatów jest wewnętrznie spójny i że łańcuch został zainicjowany przez prawidłowego właściciela certyfikatu urzędu certyfikacji X.509. Po prostu był z X.509 CA procesu rejestracji, IoT Hub zainicjuje proces dowodu posiadania wyzwanie odpowiedzi, aby upewnić się, że łańcuch, a tym samym certyfikat urządzenia rzeczywiście należy do urządzenia przesyłania go. Robi to, generując losowe wyzwanie, które ma być podpisane przez urządzenie przy użyciu klucza prywatnego do sprawdzania poprawności przez centrum IoT Hub. Pomyślna odpowiedź wyzwala Usługi IoT Hub, aby zaakceptować urządzenie jako autentyczne i udzielić mu połączenia.
+Podczas przekazywania łańcucha certyfikatów urządzenie przekazuje jego unikatowy certyfikat wraz z łańcuchem certyfikatów zainstalowanym w ramach tego programu do IoT Hub. Przy użyciu wstępnie zarejestrowanego certyfikatu w urzędzie certyfikacji X. 509 IoT Hub może przeprowadzić kryptograficzną weryfikację kilku rzeczy, że przekazany łańcuch certyfikatów jest wewnętrznie spójny i że łańcuch pochodzi od prawidłowego właściciela certyfikatu X. 509 urzędu certyfikacji. Po prostu był to proces rejestracji urzędu certyfikacji X. 509, IoT Hub mógłby zainicjować proces reagowania na potwierdzenie nieposiadania, aby upewnić się, że łańcuch i ten certyfikat urządzenia rzeczywiście należy do urządzenia. Robi to przez wygenerowanie losowego wyzwania do podpisania przez urządzenie przy użyciu jego klucza prywatnego do walidacji przez IoT Hub. Wyzwalacze pomyślnej odpowiedzi IoT Hub do zaakceptowania urządzenia jako autentycznego i przyznania połączenia IT.
 
-W naszym przykładzie każdy widżet Smart-X-Widget będzie przesyłać swój unikatowy certyfikat urządzenia wraz z certyfikatami urzędu certyfikacji Factory-Y i Technician-Z X.509, a następnie odpowiadać na wyzwanie weryfikacji posiadania z usługi IoT Hub.
+W naszym przykładzie każdy element inteligentny-X-widget przekaże unikatowy certyfikat urządzenia razem z certyfikatami Factory-Y i technika-Z X. 509 urzędu certyfikacji, a następnie reaguje na wyzwanie dowodu posiadania z IoT Hub.
 
-![Przepływ z jednego certyfikatu do drugiego, pop wyzwanie z piasty](./media/iot-hub-x509ca-concept/device-pop-flow.png)
+![Przepływ z jednego certyfikatu do innego, żądanie pop z centrum](./media/iot-hub-x509ca-concept/device-pop-flow.png)
 
-Należy zauważyć, że podstawą zaufania jest ochrona kluczy prywatnych, w tym kluczy prywatnych urządzenia. W związku z tym nie możemy wystarczająco podkreślić znaczenia bezpiecznych chipów krzemowych w postaci sprzętowych modułów bezpiecznych (HSM) do ochrony kluczy prywatnych urządzenia, a także ogólnej najlepszej praktyki, aby nigdy nie udostępniać żadnych kluczy prywatnych, takich jak jedna fabryka powierzająca drugą klucza prywatnego.
+Należy zauważyć, że podstawy zaufania są przechowywane w ochronie kluczy prywatnych, w tym kluczy prywatnych urządzeń. W związku z tym nie można już uzyskać wystarczającej ważności bezpiecznych mikroukładów krzemu w postaci bezpiecznych modułów sprzętowych (HSM) na potrzeby ochrony kluczy prywatnych urządzeń, a także ogólnie najlepszym rozwiązaniem, aby nigdy nie współdzielić żadnych kluczy prywatnych, takich jak jedna fabryka, która powierza innym swojemu kluczowi prywatnemu.

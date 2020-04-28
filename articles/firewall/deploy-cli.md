@@ -1,5 +1,5 @@
 ---
-title: Wdrażanie i konfigurowanie zapory platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
+title: Wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 description: W tym artykule dowiesz się, jak wdrożyć i skonfigurować zaporę platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: firewall
 author: vhorne
@@ -8,24 +8,24 @@ ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: e97783d1a32916cad151f1d0858a8190d0005fd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73831981"
 ---
-# <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Wdrażanie i konfigurowanie zapory platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Kontrolowanie dostępu do sieciowego ruchu wychodzącego jest ważną częścią ogólnego planu zabezpieczeń sieci. Na przykład można ograniczyć dostęp do witryn sieci Web. Można też ograniczyć wychodzące adresy IP i porty, do których można uzyskać dostęp.
+Kontrolowanie dostępu do sieciowego ruchu wychodzącego jest ważną częścią ogólnego planu zabezpieczeń sieci. Na przykład możesz chcieć ograniczyć dostęp do witryn sieci Web. Można też ograniczyć liczbę wychodzących adresów IP i portów, do których można uzyskać dostęp.
 
 Jednym ze sposobów kontrolowania dostępu do sieciowego ruchu wychodzącego z podsieci platformy Azure jest użycie usługi Azure Firewall. Za pomocą usługi Azure Firewall można skonfigurować następujące reguły:
 
-* Reguły aplikacji, które definiują w pełni kwalifikowane nazwy domen (FQDN), do których można uzyskać dostęp z podsieci. FQDN może również [zawierać wystąpienia SQL](sql-fqdn-filtering.md).
+* Reguły aplikacji, które definiują w pełni kwalifikowane nazwy domen (FQDN), do których można uzyskać dostęp z podsieci. Nazwa FQDN może również [zawierać wystąpienia SQL](sql-fqdn-filtering.md).
 * Reguły sieci, które definiują adres źródłowy, protokół, port docelowy i adres docelowy.
 
 Ruch sieciowy podlega skonfigurowanym regułom zapory podczas kierowania ruchu sieciowego do zapory jako bramy domyślnej podsieci.
 
-W tym artykule utworzysz uproszczoną pojedynczą sieć wirtualną z trzema podsieciami dla łatwego wdrażania. W przypadku wdrożeń produkcyjnych zaleca się [model koncentratora i szprychy.](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) Zapora znajduje się we własnej sieci wirtualnej. Serwery obciążenia znajdują się w równorzędnych sieciach wirtualnych w tym samym regionie z co najmniej jedną podsiecią.
+W tym artykule utworzysz uproszczoną pojedynczą sieć wirtualną z trzema podsieciami w celu łatwego wdrożenia. W przypadku wdrożeń produkcyjnych zaleca się [model Hub i szprych](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) . Zapora znajduje się w własnej sieci wirtualnej. Serwery obciążenia znajdują się w sieci wirtualnych komunikacji równorzędnej w tym samym regionie co co najmniej jedna podsieć.
 
 * **AzureFirewallSubnet** — w tej podsieci znajduje się zapora.
 * **Workload-SN** — w tej podsieci znajduje się serwer obciążeń. Ruch sieciowy tej podsieci przechodzi przez zaporę.
@@ -39,13 +39,13 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Konfigurowanie testowego środowiska sieciowego
 > * Wdrażanie zapory
 > * Tworzenie trasy domyślnej
-> * Konfigurowanie reguły aplikacji w celu umożliwienia dostępu do www.google.com
+> * Skonfiguruj regułę aplikacji, aby zezwolić na dostęp do www.google.com
 > * Konfigurowanie reguły sieci w celu umożliwienia dostępu do zewnętrznych serwerów DNS
 > * Testowanie zapory
 
-Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [witryny Azure portal](tutorial-firewall-deploy-portal.md) lub [programu Azure PowerShell.](deploy-ps.md)
+Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure Portal](tutorial-firewall-deploy-portal.md) lub [Azure PowerShell](deploy-ps.md).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -53,9 +53,9 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, uruchom interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby znaleźć wersję, uruchom **az --version**. Aby uzyskać informacje o instalowaniu lub uaktualnianiu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, uruchom interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby znaleźć wersję, uruchom polecenie **AZ--Version**. Aby uzyskać informacje o instalowaniu lub uaktualnianiu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
-Zainstaluj rozszerzenie Zapory platformy Azure:
+Zainstaluj rozszerzenie zapory platformy Azure:
 
 ```azurecli-interactive
 az extension add -n azure-firewall
@@ -68,7 +68,7 @@ Najpierw utwórz grupę zasobów zawierającą zasoby wymagane do wdrożenia zap
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów zawiera wszystkie zasoby dla wdrożenia.
+Grupa zasobów zawiera wszystkie zasoby wdrożenia.
 
 ```azurecli-interactive
 az group create --name Test-FW-RG --location eastus
@@ -79,7 +79,7 @@ az group create --name Test-FW-RG --location eastus
 Ta sieć wirtualna ma trzy podsieci.
 
 > [!NOTE]
-> Rozmiar podsieci AzureFirewallSubnet to /26. Aby uzyskać więcej informacji na temat rozmiaru podsieci, zobacz [Często zadawane pytania dotyczące zapory platformy Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 ```azurecli-interactive
 az network vnet create \
@@ -104,9 +104,9 @@ az network vnet subnet create \
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
 Teraz utwórz maszyny wirtualne przesiadkową i obciążeń, a następnie umieść je w odpowiednich podsieciach.
-Po wyświetleniu monitu wpisz hasło do maszyny wirtualnej.
+Po wyświetleniu monitu wpisz hasło dla maszyny wirtualnej.
 
-Utwórz maszynę wirtualną Srv-Jump.
+Utwórz maszynę wirtualną z przeskokiem SRV.
 
 ```azurecli-interactive
 az vm create \
@@ -122,7 +122,7 @@ az vm open-port --port 3389 --resource-group Test-FW-RG --name Srv-Jump
 
 
 
-Utwórz kartę sieciową dla srv-work z określonymi adresami IP serwera DNS i bez publicznego adresu IP do przetestowania.
+Utwórz kartę sieciową dla SRV-Work z określonymi adresami IP serwera DNS i bez publicznego adresu IP do przetestowania.
 
 ```azurecli-interactive
 az network nic create \
@@ -134,8 +134,8 @@ az network nic create \
    --dns-servers 209.244.0.3 209.244.0.4
 ```
 
-Teraz utwórz maszynę wirtualną obciążenia.
-Po wyświetleniu monitu wpisz hasło do maszyny wirtualnej.
+Teraz Utwórz maszynę wirtualną obciążenia.
+Po wyświetleniu monitu wpisz hasło dla maszyny wirtualnej.
 
 ```azurecli-interactive
 az vm create \
@@ -149,7 +149,7 @@ az vm create \
 
 ## <a name="deploy-the-firewall"></a>Wdrażanie zapory
 
-Teraz wdrożyć zaporę w sieci wirtualnej.
+Teraz Wdróż zaporę w sieci wirtualnej.
 
 ```azurecli-interactive
 az network firewall create \
@@ -181,7 +181,7 @@ Zanotuj prywatny adres IP. Użyjesz go później podczas tworzenia trasy domyśl
 
 ## <a name="create-a-default-route"></a>Tworzenie trasy domyślnej
 
-Tworzenie tabeli z wyłączeniam propagacji marszruty BGP
+Tworzenie tabeli z wyłączonym propagacją tras BGP
 
 ```azurecli-interactive
 az network route-table create \
@@ -203,7 +203,7 @@ az network route-table route create \
   --next-hop-ip-address $fwprivaddr
 ```
 
-Skojarz tabelę marszruty z podsiecią
+Kojarzenie tabeli tras z podsiecią
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -216,7 +216,7 @@ az network vnet subnet update \
 
 ## <a name="configure-an-application-rule"></a>Konfigurowanie reguły aplikacji
 
-Reguła aplikacji umożliwia dostęp wychodzący do www.google.com.
+Reguła aplikacji zezwala na dostęp wychodzący do www.google.com.
 
 ```azurecli-interactive
 az network firewall application-rule create \
@@ -235,7 +235,7 @@ Usługa Azure Firewall zawiera wbudowaną kolekcję reguł dla nazw FQDN infrast
 
 ## <a name="configure-a-network-rule"></a>Konfigurowanie reguły sieci
 
-Reguła sieci umożliwia dostęp wychodzący do dwóch adresów IP w porcie 53 (DNS).
+Reguła sieci umożliwia dostęp wychodzący do dwóch adresów IP na porcie 53 (DNS).
 
 ```azurecli-interactive
 az network firewall network-rule create \
@@ -253,9 +253,9 @@ az network firewall network-rule create \
 
 ## <a name="test-the-firewall"></a>Testowanie zapory
 
-Teraz przetestuj zaporę, aby potwierdzić, że działa zgodnie z oczekiwaniami.
+Teraz Przetestuj zaporę, aby upewnić się, że działa zgodnie z oczekiwaniami.
 
-1. Zanotuj prywatny adres IP maszyny wirtualnej **Srv-Work:**
+1. Zanotuj prywatny adres IP dla maszyny wirtualnej **SRV** :
 
    ```azurecli-interactive
    az vm list-ip-addresses \
@@ -263,16 +263,16 @@ Teraz przetestuj zaporę, aby potwierdzić, że działa zgodnie z oczekiwaniami.
    -n Srv-Work
    ```
 
-1. Podłącz pulpit zdalny do maszyny wirtualnej **Srv-Jump** i zaloguj się. Stamtąd otwórz połączenie pulpitu zdalnego z prywatnym adresem IP **Srv-Work** i zaloguj się.
+1. Połącz pulpit zdalny z maszyną wirtualną z **przeskokiem SRV** i zaloguj się. W tym miejscu Otwórz połączenie pulpitu zdalnego z prywatnym adresem IP **SRV** i zaloguj się.
 
-3. W programie **SRV-Work**otwórz okno programu PowerShell i uruchom następujące polecenia:
+3. W obszarze **SRV (Pracuj**) Otwórz okno programu PowerShell i uruchom następujące polecenia:
 
    ```
    nslookup www.google.com
    nslookup www.microsoft.com
    ```
 
-   Oba polecenia powinny zwracać odpowiedzi, pokazując, że zapytania DNS przechodzą przez zaporę.
+   Oba polecenia powinny zwracać odpowiedzi, pokazując, że zapytania DNS są przekazywane przez zaporę.
 
 1. Uruchom następujące polecenia:
 
@@ -284,16 +284,16 @@ Teraz przetestuj zaporę, aby potwierdzić, że działa zgodnie z oczekiwaniami.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Żądania `www.google.com` powinny zakończyć `www.microsoft.com` się pomyślnie, a żądania powinny zakończyć się niepowodzeniem. To pokazuje, że reguły zapory działają zgodnie z oczekiwaniami.
+   `www.google.com` Żądania powinny się zakończyć pomyślnie, a `www.microsoft.com` żądania powinny kończyć się niepowodzeniem. Pokazuje to, że reguły zapory działają zgodnie z oczekiwaniami.
 
-Więc teraz masz zweryfikowane, że reguły zapory działają:
+Teraz sprawdzono, że reguły zapory działają:
 
 * Możesz rozpoznać nazwy DNS przy użyciu skonfigurowanego zewnętrznego serwera DNS.
 * Możesz przejść do jednej z dozwolonych nazw FQDN, ale nie do innych.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Zasoby zapory można zachować w następnym samouczku lub, jeśli nie jest już potrzebne, usuń grupę zasobów **Test-FW-RG,** aby usunąć wszystkie zasoby związane z zaporą:
+Zasoby zapory można zachować w następnym samouczku lub, jeśli nie są już potrzebne, Usuń grupę zasobów **test-PD-RG** , aby usunąć wszystkie zasoby związane z zaporą:
 
 ```azurecli-interactive
 az group delete \

@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie zasadami konta usługi Azure Data Lake Analytics
-description: Dowiedz się, jak używać zasad konta do kontrolowania użycia konta Usługi Data Lake Analytics, takiego jak maksymalna liczba analiz i maksymalna liczba zadań.
+title: Zarządzanie zasadami konta Azure Data Lake Analytics
+description: Dowiedz się, w jaki sposób używać zasad konta do kontrolowania użycia konta Data Lake Analytics, takich jak maksymalna wartość i Maksymalna liczba zadań.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: guyhay
@@ -10,101 +10,101 @@ ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 4689714073047e383a53a04bd0069a8a27afdf9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72966439"
 ---
-# <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Zarządzanie usługą Azure Data Lake Analytics przy użyciu zasad konta
+# <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Zarządzanie Azure Data Lake Analytics przy użyciu zasad konta
 
-Zasady konta ułatwiają kontrolowanie sposobu wykorzystania zasobów konta usługi Azure Data Lake Analytics. Te zasady umożliwiają kontrolowanie kosztów korzystania z usługi Azure Data Lake Analytics. Na przykład za pomocą tych zasad można zapobiec nieoczekiwane skoki kosztów, ograniczając liczbę jednostek AUs konto może jednocześnie używać.
+Zasady konta ułatwiają kontrolę sposobu używania zasobów Azure Data Lake Analytics konta. Te zasady umożliwiają kontrolę kosztów używania Azure Data Lake Analytics. Na przykład przy użyciu tych zasad można uniknąć nieoczekiwanych ponoszenia kosztów poprzez ograniczenie liczby jednostek, które mogą być używane jednocześnie przez konto.
 
 ## <a name="account-level-policies"></a>Zasady na poziomie konta
 
-Te zasady dotyczą wszystkich zadań na koncie Usługi Data Lake Analytics.
+Te zasady mają zastosowanie do wszystkich zadań w ramach konta Data Lake Analytics.
 
-### <a name="maximum-number-of-aus-in-a-data-lake-analytics-account"></a>Maksymalna liczba procesorów analizy na koncie usługi Data Lake Analytics
-Zasady sterują całkowitą liczbą jednostek analitycznych (AU), z których może korzystać twoje konto Usługi Data Lake Analytics. Domyślnie wartość jest ustawiona na 250. Na przykład jeśli ta wartość jest ustawiona na 250 AUs, można mieć jedno zadanie uruchomione z 250 AUs przypisane do niego lub 10 zadań uruchomionych z 25 AUs każdy. Dodatkowe zadania, które są przesyłane są umieszczane w kolejce, dopóki uruchomione zadania nie zostaną zakończone. Po zakończeniu uruchamiania zadań au są zwalniane dla zadań w kolejce do uruchomienia.
+### <a name="maximum-number-of-aus-in-a-data-lake-analytics-account"></a>Maksymalna liczba jednostek na koncie Data Lake Analytics
+Zasady kontrolują łączną liczbę jednostek analitycznych (jako wartościowe), które mogą być używane przez konto Data Lake Analytics. Domyślnie wartość jest równa 250. Na przykład jeśli ta wartość jest ustawiona na 250, można mieć jedno zadanie z przypisaną do niej 250 lub 10 zadaniami z 25 wystąpieniami. Dodatkowe przesłane zadania są umieszczane w kolejce do momentu zakończenia wykonywanych zadań. Gdy uruchomione zadania są zakończone, należy zwolnić miejsce na zadania w kolejce do uruchomienia.
 
-Aby zmienić liczbę analiz użytkownika konta Usługi Data Lake Analytics:
+Aby zmienić liczbę jednostek dla konta Data Lake Analytics:
 
-1. W witrynie Azure portal przejdź do konta usługi Data Lake Analytics.
-2. Kliknij **pozycję Limity i zasady**.
-3. W obszarze **Maksymalna liczba AUs**przesuń suwak, aby wybrać wartość, lub wprowadź wartość w polu tekstowym. 
+1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
+2. Kliknij pozycję **limity i zasady**.
+3. W obszarze **Maksymalna**wartość pola wyboru przesuń suwak, aby wybrać wartości, lub wprowadź wartość w polu tekstowym. 
 4. Kliknij przycisk **Zapisz**.
 
 > [!NOTE]
-> Jeśli potrzebujesz więcej niż domyślne (250) aus, w portalu, kliknij **Pomoc + Wsparcie,** aby przesłać żądanie pomocy technicznej. Liczba au dostępnych na koncie Data Lake Analytics może zostać zwiększona.
+> Jeśli potrzebujesz więcej niż domyślnego (250), w portalu kliknij pozycję **Pomoc i obsługa techniczna** , aby przesłać żądanie pomocy technicznej. Można zwiększyć liczbę elementów dostępnych w Twoim koncie Data Lake Analytics.
 >
 
-### <a name="maximum-number-of-jobs-that-can-run-simultaneously"></a>Maksymalna liczba zadań, które można uruchamiać jednocześnie
-Ta zasada ogranicza liczbę zadań można uruchomić jednocześnie. Domyślnie ta wartość jest ustawiona na 20. Jeśli usługa Data Lake Analytics ma dostępne au, nowe zadania są zaplanowane do natychmiastowego uruchomienia, dopóki całkowita liczba uruchomionych zadań osiągnie wartość tej zasady. Po osiągnięciu maksymalnej liczby zadań, które można uruchomić jednocześnie, kolejne zadania są umieszczane w kolejce w kolejności priorytetu, aż do jednego lub więcej uruchomionych zadań zakończyć (w zależności od dostępnych aus).
+### <a name="maximum-number-of-jobs-that-can-run-simultaneously"></a>Maksymalna liczba zadań, które mogą być uruchamiane jednocześnie
+Te zasady ograniczają liczbę zadań, które mogą być uruchamiane jednocześnie. Domyślnie ta wartość jest równa 20. Jeśli Data Lake Analytics ma dostęp do tej jednostki, zaplanowano uruchomienie nowych zadań natychmiast do momentu, aż całkowita liczba uruchomionych zadań osiągnie wartość tych zasad. Po osiągnięciu maksymalnej liczby zadań, które mogą być uruchamiane jednocześnie, kolejne zadania są umieszczane w kolejności według priorytetu do momentu ukończenia jednego lub większej liczby uruchomionych zadań (w zależności od dostępnej wartości.
 
-Aby zmienić liczbę zadań, które można uruchomić jednocześnie:
+Aby zmienić liczbę zadań, które mogą być uruchamiane jednocześnie:
 
-1. W witrynie Azure portal przejdź do konta usługi Data Lake Analytics.
-2. Kliknij **pozycję Limity i zasady**.
+1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
+2. Kliknij pozycję **limity i zasady**.
 3. W obszarze **Maksymalna liczba uruchomionych zadań**przesuń suwak, aby wybrać wartość, lub wprowadź wartość w polu tekstowym. 
 4. Kliknij przycisk **Zapisz**.
 
 > [!NOTE]
-> Jeśli musisz uruchomić więcej niż domyślną (20) liczbę zadań, w portalu kliknij przycisk **Pomoc+Obsługa,** aby przesłać żądanie pomocy technicznej. Liczba zadań, które można uruchomić jednocześnie na koncie Usługi Data Lake Analytics, może zostać zwiększona.
+> Jeśli potrzebujesz więcej niż domyślnej (20) liczby zadań, w portalu kliknij pozycję **Pomoc i obsługa techniczna** , aby przesłać żądanie pomocy technicznej. Można zwiększyć liczbę zadań, które mogą być uruchamiane jednocześnie na koncie Data Lake Analytics.
 >
 
-### <a name="how-long-to-keep-job-metadata-and-resources"></a>Jak długo przechowywać metadane i zasoby zadania 
-Gdy użytkownicy uruchamiają zadania U-SQL, usługa Data Lake Analytics przechowuje wszystkie powiązane pliki. Pliki te obejmują skrypt U-SQL, pliki DLL, do których odwołuje się skrypt U-SQL, skompilowane zasoby i statystyki. Pliki znajdują się w folderze /system/ domyślnego konta usługi Azure Data Lake Storage. Ta zasada określa, jak długo te zasoby są przechowywane, zanim zostaną automatycznie usunięte (wartość domyślna to 30 dni). Można użyć tych plików do debugowania i do dostrajania wydajności zadań, które zostaną ponownie uruchom w przyszłości.
+### <a name="how-long-to-keep-job-metadata-and-resources"></a>Jak długo mają być przechowywane metadane i zasoby zadań 
+Gdy użytkownicy uruchamiają zadania U-SQL, Usługa Data Lake Analytics zachowuje wszystkie powiązane pliki. Pliki te obejmują skrypt U-SQL, pliki DLL, do których odwołuje się skrypt U-SQL, skompilowane zasoby i statystyki. Pliki znajdują się w folderze/System/domyślnego konta Azure Data Lake Storage. Ta zasada kontroluje, jak długo te zasoby są przechowywane przed ich automatycznym usunięciem (wartość domyślna to 30 dni). Tych plików można używać do debugowania oraz do dostrajania wydajności zadań, które zostaną ponownie uruchomione w przyszłości.
 
 Aby zmienić czas przechowywania metadanych i zasobów zadania:
 
-1. W witrynie Azure portal przejdź do konta usługi Data Lake Analytics.
-2. Kliknij **pozycję Limity i zasady**.
-3. W obszarze **Dni zachować kwerendy o zadaniach przesuń**suwak, aby zaznaczyć wartość, lub wprowadź wartość w polu tekstowym.  
+1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
+2. Kliknij pozycję **limity i zasady**.
+3. W obszarze **dni, aby zachować zapytania dotyczące zadań**, przesuń suwak, aby wybrać wartość, lub wprowadź wartość w polu tekstowym.  
 4. Kliknij przycisk **Zapisz**.
 
-## <a name="job-level-policies"></a>Zasady dotyczące poziomu zadań
+## <a name="job-level-policies"></a>Zasady na poziomie zadania
 
-Zasady na poziomie zadania umożliwiają kontrolowanie maksymalnych jednostek AU i maksymalnego priorytetu, jaki poszczególni użytkownicy (lub członkowie określonych grup zabezpieczeń) mogą ustawiać na zadaniach, które przesyłają. Ta zasada umożliwia kontrolowanie kosztów ponoszonych przez użytkowników. Pozwala również kontrolować wpływ zaplanowanych zadań na zadania produkcyjne o wysokim priorytecie, które są uruchomione na tym samym koncie usługi Data Lake Analytics.
+Zasady na poziomie zadania umożliwiają kontrolowanie maksymalnej wartości i maksymalnego priorytetu (lub członków określonych grup zabezpieczeń), które mogą być ustawione na zadania przesyłane. Te zasady umożliwiają kontrolę kosztów ponoszonych przez użytkowników. Pozwala również kontrolować wpływ zaplanowanych zadań na zadania produkcyjne o wysokim priorytecie, które są uruchomione na tym samym koncie Data Lake Analytics.
 
-Usługa Data Lake Analytics ma dwie zasady, które można ustawić na poziomie zadania:
+Data Lake Analytics ma dwie zasady, które można ustawić na poziomie zadania:
 
-* **Limit UA na zadanie:** Użytkownicy mogą przesyłać tylko zadania, które mają do tej liczby AUs. Domyślnie ten limit jest taki sam jak maksymalny limit UA dla konta.
-* **Priorytet:** Użytkownicy mogą przesyłać tylko zadania o priorytecie niższym lub równym tej wartości. Wyższa liczba wskazuje niższy priorytet. Domyślnie ten limit jest ustawiony na 1, co jest najwyższym możliwym priorytetem.
+* **Limit dla każdego zadania**: użytkownicy mogą przesyłać tylko zadania, które mają do tej liczby. Domyślnie ten limit jest taki sam, jak maksymalny limit aktualizacji dla konta.
+* **Priorytet**: użytkownicy mogą przesyłać tylko zadania o priorytecie niższym lub równym tej wartości. Wyższa liczba wskazuje niższy priorytet. Domyślnie ten limit jest ustawiony na 1, czyli najwyższy możliwy priorytet.
 
-Na każdym koncie jest ustawiona domyślna zasada. Domyślna zasada ma zastosowanie do wszystkich użytkowników konta. Można utworzyć dodatkowe zasady dla określonych użytkowników i grup. 
+Na każdym koncie są ustawione zasady domyślne. Zasady domyślne dotyczą wszystkich użytkowników konta. Można utworzyć dodatkowe zasady dla określonych użytkowników i grup. 
 
 > [!NOTE]
-> Zasady na poziomie konta i zasady na poziomie zadania mają zastosowanie jednocześnie.
+> Zasady na poziomie konta i zasady na poziomie zadania są stosowane jednocześnie.
 >
 
 ### <a name="add-a-policy-for-a-specific-user-or-group"></a>Dodawanie zasad dla określonego użytkownika lub grupy
 
-1. W witrynie Azure portal przejdź do konta usługi Data Lake Analytics.
-2. Kliknij **pozycję Limity i zasady**.
-3. W obszarze **Limity przesyłania zadań**kliknij przycisk **Dodaj zasady.** Następnie wybierz lub wprowadź następujące ustawienia:
-    1. **Nazwa zasady obliczeniowej:** Wprowadź nazwę zasad, aby przypomnieć o celu zasad.
-    2. **Wybierz użytkownika lub grupę**: Wybierz użytkownika lub grupę, do dla które stosuje się te zasady.
-    3. **Ustawianie limitu AU zadania:** Ustawianie limitu UA, który ma zastosowanie do wybranego użytkownika lub grupy.
-    4. **Ustaw limit priorytetu:** Ustaw limit priorytetu, który ma zastosowanie do wybranego użytkownika lub grupy.
+1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
+2. Kliknij pozycję **limity i zasady**.
+3. W obszarze **limity dostarczania zadania**kliknij przycisk **Dodaj zasady** . Następnie wybierz lub wprowadź następujące ustawienia:
+    1. **Nazwa zasad obliczeniowych**: Wprowadź nazwę zasad, aby przypominać o przeznaczeniu zasad.
+    2. **Wybierz użytkownika lub grupę**: Wybierz użytkownika lub grupę, których dotyczą te zasady.
+    3. **Ustaw limit opcji au zadania**: Ustaw limit aktualizacji automatycznych dotyczący wybranego użytkownika lub grupy.
+    4. **Ustaw limit priorytetów**: Ustaw limit priorytetów dotyczący wybranego użytkownika lub grupy.
 
 4. Kliknij przycisk **OK**.
 
-5. Nowa zasada jest wyświetlana w tabeli **Domyślne** zasady w obszarze **Limity przesyłania zadań**. 
+5. Nowe zasady są wymienione w tabeli zasad **domyślnych** w obszarze limity dotyczące **wysyłania zadań**. 
 
-### <a name="delete-or-edit-an-existing-policy"></a>Usuwanie lub edytowanie istniejącej zasady
+### <a name="delete-or-edit-an-existing-policy"></a>Usuwanie lub edytowanie istniejących zasad
 
-1. W witrynie Azure portal przejdź do konta usługi Data Lake Analytics.
-2. Kliknij **pozycję Limity i zasady**.
-3. W obszarze **Limity przesyłania zadań**znajdź zasady, które chcesz edytować.
-4.  Aby wyświetlić opcje **Usuwanie** i **edycja,** w prawej `...`kolumnie tabeli kliknij pozycję .
+1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
+2. Kliknij pozycję **limity i zasady**.
+3. W obszarze **Limity wysyłania zadań**Znajdź zasady, które chcesz edytować.
+4.  Aby wyświetlić opcje **usuwania** i **edycji** , w kolumnie po prawej stronie tabeli kliknij pozycję `...`.
 
-## <a name="additional-resources-for-job-policies"></a>Dodatkowe zasoby dla zasad zatrudnienia
+## <a name="additional-resources-for-job-policies"></a>Dodatkowe zasoby dotyczące zasad dotyczących zadań
 * [Wpis w blogu przegląd zasad](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-overview/)
-* [Wpis w blogu dotyczące zasad dotyczących poziomu konta](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy/)
-* [Wpis w blogu dotyczące zasad dotyczących poziomu zadania](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy/)
+* [Wpis w blogu dotyczący zasad na poziomie konta](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy/)
+* [Wpis w blogu dotyczący zasad na poziomie zadania](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy/)
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Wprowadzenie do usługi Data Lake Analytics przy użyciu witryny Azure portal](data-lake-analytics-get-started-portal.md)
-* [Zarządzanie usługą Azure Data Lake Analytics przy użyciu usługi Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+* [Wprowadzenie do Data Lake Analytics przy użyciu Azure Portal](data-lake-analytics-get-started-portal.md)
+* [Zarządzanie Azure Data Lake Analytics przy użyciu Azure PowerShell](data-lake-analytics-manage-use-powershell.md)

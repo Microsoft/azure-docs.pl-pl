@@ -1,6 +1,6 @@
 ---
-title: Opóźnienia raportowania usługi Azure Active Directory | Dokumenty firmy Microsoft
-description: Dowiedz się więcej o czasie potrzebnym do wyświetlenia zdarzeń raportowania w witrynie Azure portal
+title: Opóźnienia raportowania Azure Active Directory | Microsoft Docs
+description: Dowiedz się więcej o tym, ile czasu zajmuje raportowanie zdarzeń w Azure Portal
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,37 +18,37 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74007699"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory reporting latencies (Opóźnienia raportowania w usłudze Azure Active Directory)
 
-Opóźnienie to czas potrzebny na wyświetlanie danych raportowania usługi Azure Active Directory (Azure AD) w [portalu Azure.](https://portal.azure.com) W tym artykule wymieniono oczekiwane opóźnienie dla różnych typów raportów. 
+Opóźnienie to czas potrzebny na wyświetlenie danych raportowania Azure Active Directory (Azure AD) w [Azure Portal](https://portal.azure.com). W tym artykule wymieniono oczekiwane opóźnienie dla różnych typów raportów. 
 
 ## <a name="activity-reports"></a>Raporty dotyczące działań
 
 Istnieją dwa typy raportów aktywności:
 
-- [Logowania](concept-sign-ins.md) — zawiera informacje o użyciu zarządzanych aplikacji i działań logowania użytkownika
-- [Dzienniki inspekcji](concept-audit-logs.md) — zawiera informacje o aktywności systemowej o użytkownikach i grupach, zarządzanych aplikacjach i działaniach katalogowych
+- [Logowania](concept-sign-ins.md) — zawiera informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników
+- [Dzienniki inspekcji](concept-audit-logs.md) — zawiera informacje o aktywności systemu dotyczące użytkowników i grup, zarządzanych aplikacji i działań w katalogu
 
-W poniższej tabeli wymieniono informacje o opóźnieniach dla raportów aktywności. 
+W poniższej tabeli wymieniono informacje o opóźnieniu dla raportów aktywności. 
 
 > [!NOTE]
-> **Opóźnienie (95 percentyl)** odnosi się do czasu, w którym 95% dzienników zostaną zgłoszone, a **latencja (99 percentyl)** odnosi się do czasu, w którym 99% dzienników zostaną zgłoszone. 
+> **Opóźnienie (używany 95. percentyl)** odnosi się do czasu, przez który 95% dzienników zostanie zgłoszony i **opóźnienie (99 percentyl)** odnosi się do momentu, w którym będzie raportowany 99% dzienników. 
 >
 
-| Raport | Opóźnienie (95 percentyl) |Opóźnienie (99 percentyl)|
+| Raport | Opóźnienie (używany 95. percentyl) |Opóźnienie (99 percentyl)|
 | :-- | --- | --- |
 | Dzienniki inspekcji | 2 min  | 5 min  |
 | Logowania | 2 min  | 5 min |
 
-### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Jak szybko mogę zobaczyć dane aktywności po uzyskaniu licencji premium?
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Jak wkrótce można zobaczyć dane o działaniach po uzyskaniu licencji Premium?
 
-Jeśli masz już dane dotyczące działań z bezpłatną licencją, możesz je zobaczyć natychmiast po uaktualnieniu. Jeśli nie masz żadnych danych, po uaktualnieniu do licencji premium dane będą wyświetlane w raportach przez jeden lub dwa dni.
+Jeśli masz już dane dotyczące działań z bezpłatną licencją, zobaczysz ją natychmiast po uaktualnieniu. Jeśli nie masz żadnych danych, po przeprowadzeniu uaktualnienia do licencji Premium dane będą wyświetlane w raportach dopiero po upływie jednego lub dwóch dni.
 
 ## <a name="security-reports"></a>Raporty dotyczące zabezpieczeń
 
@@ -57,7 +57,7 @@ Istnieją dwa typy raportów dotyczących zabezpieczeń:
 - [Ryzykowne logowania](concept-risky-sign-ins.md) — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. 
 - [Użytkownicy oflagowani w związku z ryzykiem](concept-user-at-risk.md) — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone. 
 
-W poniższej tabeli wymieniono informacje o opóźnieniach dla raportów zabezpieczeń.
+W poniższej tabeli wymieniono informacje o opóźnieniu dla raportów zabezpieczeń.
 
 | Raport | Minimalne | Średnia | Maksimum |
 | :-- | --- | --- | --- |
@@ -66,14 +66,14 @@ W poniższej tabeli wymieniono informacje o opóźnieniach dla raportów zabezpi
 
 ## <a name="risk-detections"></a>Wykrycia ryzyka
 
-Usługa Azure AD używa adaptacyjnych algorytmów uczenia maszynowego i heurystyki do wykrywania podejrzanych akcji, które są związane z kontami użytkowników. Każda wykryta podejrzana akcja jest przechowywana w rekordzie zwanym **wykrywaniem ryzyka.**
+Usługa Azure AD używa adaptacyjnych algorytmów uczenia maszynowego i heurystyki do wykrywania podejrzanych działań, które są związane z kontami użytkowników. Każda wykryte podejrzane działania są przechowywane w rekordzie nazywanym **wykryciem ryzyka**.
 
-W poniższej tabeli wymieniono informacje o opóźnieniach w wykrywaniu ryzyka.
+W poniższej tabeli wymieniono informacje o opóźnieniu dotyczące wykrywania zagrożeń.
 
 | Raport | Minimalne | Średnia | Maksimum |
 | :-- | --- | --- | --- |
-| Logowania z anonimowych adresów IP |5 minut |15 min. |2 godziny |
-| Logowania z nieznanych lokalizacji |5 minut |15 min. |2 godziny |
+| Logowania z anonimowych adresów IP |5 minut |15 minut |2 godziny |
+| Logowania z nieznanych lokalizacji |5 minut |15 minut |2 godziny |
 | Użytkownicy z ujawnionymi poświadczeniami |2 godziny |4 godziny |8 godzin |
 | Niemożliwa podróż do nietypowych lokalizacji |5 minut |1 godzina |8 godzin  |
 | Logowania z zainfekowanych urządzeń |2 godziny |4 godziny |8 godzin  |
@@ -82,6 +82,6 @@ W poniższej tabeli wymieniono informacje o opóźnieniach w wykrywaniu ryzyka.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Omówienie raportów usługi Azure AD](overview-reports.md)
-* [Programowy dostęp do raportów usługi Azure AD](concept-reporting-api.md)
-* [Wykrywanie ryzyka usługi Azure Active Directory](concept-risk-events.md)
+* [Przegląd raportów usługi Azure AD](overview-reports.md)
+* [Programistyczny dostęp do raportów usługi Azure AD](concept-reporting-api.md)
+* [Azure Active Directory wykrywania ryzyka](concept-risk-events.md)

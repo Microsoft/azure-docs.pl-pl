@@ -1,6 +1,6 @@
 ---
-title: Przykład skryptu interfejsu wiersza polecenia platformy Azure — równoważenie obciążenia wielu witryn sieci Web za pomocą interfejsu wiersza polecenia platformy Azure | Dokumenty firmy Microsoft
-description: Przykład skryptu interfejsu wiersza polecenia platformy Azure — równoważenie obciążenia wielu witryn sieci Web do tej samej maszyny wirtualnej
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — Równoważenie obciążenia wielu witryn sieci Web za pomocą interfejsu wiersza polecenia platformy Azure | Microsoft Docs
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — Równoważenie obciążenia wielu witryn sieci Web do tej samej maszyny wirtualnej
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
@@ -13,15 +13,15 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: allensu
 ms.openlocfilehash: 568934d6b5ecc2fbb3b6fc6588ecfd48c8306490
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73889454"
 ---
 # <a name="load-balance-multiple-websites"></a>Równoważenie obciążenia wielu witryn internetowych
 
-Ten przykład skryptu tworzy sieć wirtualną z dwóch maszyn wirtualnych (VM), które są członkami zestawu dostępności. Moduł równoważenia obciążenia kieruje ruch dla 2 osobnych adresów IP do 2 maszyn wirtualnych. Po uruchomieniu skryptu możesz wdrożyć oprogramowanie serwera internetowego na maszynach wirtualnych i hostować wiele witryn internetowych, z których każda będzie miała własny adres IP.
+Ten przykładowy skrypt tworzy sieć wirtualną z dwiema maszynami wirtualnymi, które są elementami członkowskimi zestawu dostępności. Moduł równoważenia obciążenia kieruje ruch dla 2 osobnych adresów IP do 2 maszyn wirtualnych. Po uruchomieniu skryptu możesz wdrożyć oprogramowanie serwera internetowego na maszynach wirtualnych i hostować wiele witryn internetowych, z których każda będzie miała własny adres IP.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

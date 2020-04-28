@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,17 +9,17 @@ ms.date: 10/20/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 732c08a1d97735ef1df04abbed548fd4af4e3411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73491684"
 ---
-| **Typ wirtualnej sieci WAN** | **Typ koncentratora** | **Dostępne konfiguracje** |
+| **Typ wirtualnej sieci WAN** | **Typ centrum** | **Dostępne konfiguracje** |
 |---|---|---|
-|Podstawowa (Basic) | Podstawowa (Basic) | Tylko sieć VPN między lokacjami |
-| Standardowa | Standardowa | ExpressRoute<br>Sieć VPN użytkowników (P2S)<br>VPN (lokacja na miejscu)<br> Inter-hub i sieć wirtualna do sieci wirtualnej przechodzące przez koncentrator wirtualny |
+|Podstawowy | Podstawowy | Tylko sieć VPN typu lokacja-lokacja |
+| Standardowa | Standardowa | ExpressRoute<br>Sieć VPN użytkownika (P2S)<br>Sieć VPN (lokacja-lokacja)<br> Przesyłanie między centrami i między sieciami wirtualnymi za pomocą koncentratora wirtualnego |
 
 >[!NOTE]
->Można uaktualnić z poziomu podstawowego do standardowego, ale nie można przywrócić standardu do języka basic.
+>Możesz przeprowadzić uaktualnienie z warstwy Podstawowa do standardowa, ale nie można przywrócić warstwy z powrotem z warstwy Standardowa do warstwy Podstawowa.
 >

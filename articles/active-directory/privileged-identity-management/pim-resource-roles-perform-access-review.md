@@ -1,6 +1,6 @@
 ---
-title: Przeglądanie dostępu do ról zasobów platformy Azure w usłudze PIM — Usługa Azure AD | Dokumenty firmy Microsoft
-description: Dowiedz się, jak przejrzeć dostęp do ról zasobów platformy Azure w usłudze Azure AD Privileged Identity Management (PIM).
+title: Przeglądanie dostępu do ról zasobów platformy Azure w usłudze PIM — Azure AD | Microsoft Docs
+description: Dowiedz się, jak przeglądać dostęp do ról zasobów platformy Azure w Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -17,37 +17,37 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ddb4d0ff1339f1427c5041528cdbe464a345b37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73847014"
 ---
-# <a name="review-access-to-azure-resource-roles-in-privileged-identity-management"></a>Przeglądanie dostępu do ról zasobów platformy Azure w zarządzania tożsamościami uprzywilejowanymi
+# <a name="review-access-to-azure-resource-roles-in-privileged-identity-management"></a>Przejrzyj dostęp do ról zasobów platformy Azure w Privileged Identity Management
 
-Przeglądy dostępu do uprzywilejowanego zarządzania tożsamościami (PIM) mogą pomóc w bezpiecznym dostępie do ról uprzywilejowanych w usłudze Azure Active Directory (Azure AD). W tym artykule kroki, aby zakończyć przegląd przypisania ról uprzywilejowanych w przeglądzie dostępu usługi Azure AD.
+Przeglądy dostępu Privileged Identity Management (PIM) mogą pomóc w zabezpieczeniu dostępu do ról uprzywilejowanych w usłudze Azure Active Directory (Azure AD). W tym artykule opisano kroki, które należy wykonać, aby zapoznać się z przypisaniami ról uprzywilejowanych w przeglądzie dostępu do usługi Azure AD.
 
-Jeśli jesteś przypisany do roli administracyjnej, może być konieczne ukończenie przeglądu dostępu przez administratora, aby potwierdzić potrzebę roli. Żądanie potwierdzenia może pochodzić z wiadomości e-mail zawierającej łącze lub można je potwierdzić w [witrynie Azure portal.](https://portal.azure.com)
+Jeśli masz przypisaną rolę administracyjną, może być konieczne ukończenie przeglądu dostępu przez administratora, aby potwierdzić potrzebę roli. Żądanie potwierdzenia może zawierać wiadomość e-mail zawierającą link lub można potwierdzić w [Azure Portal](https://portal.azure.com).
 
-Jeśli jesteś administratorem ról uprzywilejowanych zainteresowanym przeglądami dostępu, uzyskaj więcej informacji na temat [Jak rozpocząć przegląd dostępu](pim-resource-roles-start-access-review.md).
+Jeśli jesteś administratorem roli uprzywilejowanej interesu w przeglądach dostępu, uzyskaj więcej szczegółowych informacji na [temat sposobu uruchamiania przeglądu dostępu](pim-resource-roles-start-access-review.md).
 
-## <a name="approve-or-deny-access"></a>Zatwierdzanie lub odmawianie dostępu
+## <a name="approve-or-deny-access"></a>Zatwierdź lub Odmów dostępu
 
-Możesz zatwierdzić lub odmówić dostępu na podstawie tego, czy nadal używasz tej roli, czy nie. Wybierz **pozycję Zatwierdź,** jeśli chcesz pozostać w tej roli, lub **odmów,** jeśli nie potrzebujesz już dostępu. Stan zmieni się dopiero po tym, jak recenzent zastosuje wyniki.
+Możesz zatwierdzić lub odmówić dostępu na podstawie tego, czy nadal używasz tej roli, czy nie. Wybierz pozycję **Zatwierdź** , jeśli chcesz pozostać w roli, lub **Odmów** , jeśli nie potrzebujesz już dostępu. Stan zmieni się tylko wtedy, gdy recenzent zastosuje wyniki.
 
-Wykonaj następujące kroki, aby znaleźć i zakończyć przegląd dostępu:
+Wykonaj następujące kroki, aby znaleźć i ukończyć przegląd dostępu:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
-1. Wybierz **pozycję Usługa Azure Active Directory** i otwórz zarządzanie **tożsamościami uprzywilejowanymi**.
-1. Wybierz **pozycję Przejrzyj dostęp**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Wybierz **Azure Active Directory** i Otwórz **Privileged Identity Management**.
+1. Wybierz pozycję **Przejrzyj dostęp**.
 
-   ![Zrzut ekranu przedstawiający aplikację Zarządzania tożsamościami uprzywilejowanymi z wybraną wybraną wiórką Dostęp do recenzji](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
+   ![Zrzut ekranu aplikacji Privileged Identity Management z wybranym blokiem przegląd dostępu](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
 
-1. Wybierz recenzję, którą chcesz ukończyć.
-1. Wybierz **pozycję Zatwierdź** lub **Odmów**. W **polu Podaj przyczynę**wprowadź uzasadnienie biznesowe swojej decyzji, jeśli zajdzie taka potrzeba.
+1. Wybierz przegląd, który chcesz zakończyć.
+1. Wybierz pozycję **Zatwierdź** lub **Odmów**. W **polu podaj przyczynę**wprowadź uzasadnienie biznesowe dla swojej decyzji w razie potrzeby.
 
-   ![Zrzut ekranu przedstawiający stronę Przejrzyj szczegóły](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
+   ![Zrzut ekranu przedstawiający stronę szczegółów przeglądu](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wykonywanie przeglądu dostępu do moich ról usługi Azure AD w zarządzania tożsamościami uprzywilejowanymi](pim-how-to-perform-security-review.md)
+- [Przeprowadź przegląd dostępu do ról usługi Azure AD w Privileged Identity Management](pim-how-to-perform-security-review.md)

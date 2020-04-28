@@ -1,6 +1,6 @@
 ---
-title: Odkryj zasoby platformy Azure do zarządzania w pim — Azure AD | Dokumenty firmy Microsoft
-description: Dowiedz się, jak odnajdować zasoby platformy Azure do zarządzania w usłudze Azure AD Privileged Identity Management (PIM).
+title: Odnajdywanie zasobów platformy Azure do zarządzania w usłudze PIM — Azure AD | Microsoft Docs
+description: Dowiedz się, jak odnajdywać zasoby platformy Azure do zarządzania w usłudze Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,56 +15,56 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87da43100c7494937ddc842e0f903ba3a360959e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74022892"
 ---
-# <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Odnajdowanie zasobów platformy Azure do zarządzania w dziale Zarządzanie tożsamościami uprzywilejowanymi
+# <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Odnajdywanie zasobów platformy Azure w celu zarządzania nimi w Privileged Identity Management
 
-Korzystając z usługi Azure Active Directory (Azure AD) Privileged Identity Management (PIM), można poprawić ochronę zasobów platformy Azure. Jest to przydatne dla organizacji, które już używają zarządzania tożsamościami uprzywilejowanymi do ochrony ról usługi Azure AD, oraz dla właścicieli grup zarządzania i subskrypcji, które chcą zabezpieczyć zasoby produkcyjne.
+Za pomocą usługi Azure Active Directory (Azure AD) Privileged Identity Management (PIM) można poprawić ochronę zasobów platformy Azure. Jest to przydatne w przypadku organizacji, które już używają Privileged Identity Management do ochrony ról usługi Azure AD oraz do grup zarządzania i właścicieli subskrypcji, którzy chcą zabezpieczyć zasoby produkcyjne.
 
-Podczas pierwszej konfiguracji uprzywilejowanego zarządzania tożsamościami dla zasobów platformy Azure, należy odnajdywać i wybierać zasoby do ochrony za pomocą uprzywilejowanego zarządzania tożsamościami. Nie ma ograniczeń co do liczby zasobów, którymi można zarządzać za pomocą zarządzania tożsamościami uprzywilejowanymi. Zalecamy jednak rozpoczęcie od najbardziej krytycznych zasobów (produkcyjnych).
+Podczas pierwszego konfigurowania Privileged Identity Management dla zasobów platformy Azure należy odnaleźć i wybrać zasoby, które mają być chronione przez Privileged Identity Management. Nie ma limitu liczby zasobów, którymi można zarządzać za pomocą Privileged Identity Management. Zalecamy jednak rozpoczęcie od najbardziej krytycznych zasobów (produkcyjnych).
 
 ## <a name="discover-resources"></a>Odnajdywanie zasobów
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. Otwórz **zarządzanie tożsamościami uprzywilejowanymi usługą Azure AD**.
+1. Otwórz **Azure AD Privileged Identity Management**.
 
-1. Wybierz **zasoby platformy Azure**.
+1. Wybierz pozycję **zasoby platformy Azure**.
 
-    Jeśli po raz pierwszy używasz zarządzania tożsamościami uprzywilejowanymi dla zasobów platformy Azure, zobaczysz stronę **Odnajduj zasoby.**
+    Jeśli korzystasz z Privileged Identity Management dla zasobów platformy Azure po raz pierwszy, zobaczysz stronę **odnajdywanie zasobów** .
 
-    ![Odkryj okienko zasobów bez zasobów wymienionych po raz pierwszy](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
+    ![Okienko odnajdywanie zasobów bez zasobów wymienionych na potrzeby pierwszego uruchomienia](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
 
-    Jeśli inny administrator w organizacji już zarządza zasobami platformy Azure w zarządzania tożsamościami uprzywilejowanymi, zobaczysz listę zasobów, które są obecnie zarządzane.
+    Jeśli innym administratorem w organizacji już zarządzasz zasobami platformy Azure w Privileged Identity Management, zostanie wyświetlona lista zasobów, które są aktualnie zarządzane.
 
-    ![Odkryj zasoby z listą zasobów, które są obecnie zarządzane](./media/pim-resource-roles-discover-resources/discover-resources.png)
+    ![Okienko odnajdywania zasobów zawierające listę aktualnie zarządzanych zasobów](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
-1. Wybierz **pozycję Odkryj zasoby,** aby uruchomić środowisko odnajdywania.
+1. Wybierz pozycję **odkryj zasoby** , aby uruchomić środowisko odnajdywania.
 
-    ![Okienko odnajdywania z wyświetlaniem zasobów, którymi można zarządzać, takich jak subskrypcje i grupy zarządzania](./media/pim-resource-roles-discover-resources/discovery-pane.png)
+    ![Okienko odnajdywania zawierające listę zasobów, którymi można zarządzać, takich jak subskrypcje i grupy zarządzania](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
-1. Na stronie **Odnajdowanie** użyj **filtru stanu zasobu** i **Wybierz typ zasobu,** aby filtrować grupy zarządzania lub subskrypcje, do których masz uprawnienia do zapisu. To chyba najłatwiej zacząć od **Wszystkich** początkowo.
+1. Na stronie **odnajdywanie** Użyj **filtru stanu zasobów** i **Wybierz typ zasobu** , aby odfiltrować grupy zarządzania lub subskrypcje, do których masz uprawnienia do zapisu. Prawdopodobnie najłatwiej **zacząć od początku** .
 
-    Za pomocą zarządzania tożsamościami uprzywilejowanych można wyszukiwać i wybierać tylko zasoby grupy zarządzania lub subskrypcji. Podczas zarządzania grupą zarządzania lub subskrypcji w zarządzania tożsamościami uprzywilejowanymi, można również zarządzać jej zasobów podrzędnych.
+    Za pomocą Privileged Identity Management można wyszukiwać i wybierać tylko zasoby grupy zarządzania lub subskrypcji. W przypadku zarządzania grupą zarządzania lub subskrypcją w programie Privileged Identity Management można także zarządzać swoimi zasobami podrzędnymi.
 
-1. Zaznacz to pole wyboru obok wszystkich zasobów niezarządzanych, którymi chcesz zarządzać.
+1. Zaznacz pole wyboru obok wszystkich niezarządzanych zasobów, którymi chcesz zarządzać.
 
-1. Wybierz **pozycję Zarządzaj zasobem,** aby rozpocząć zarządzanie wybranymi zasobami.
+1. Wybierz pozycję **Zarządzaj zasobem** , aby rozpocząć zarządzanie wybranymi zasobami.
 
     > [!NOTE]
-    > Po zarządzaniu grupą zarządzania lub subskrypcją nie można jej odpodatkować. Uniemożliwia to innemu administratorowi zasobów usunięcie ustawień zarządzania tożsamościami uprzywilejowanymi.
+    > Zarządzanie grupą lub subskrypcją nie jest możliwe, ponieważ nie jest ona zarządzana. Zapobiega to usunięciu przez innego administratora zasobów Privileged Identity Management ustawień.
 
-    ![Okienko Odnajdowanie z zaznaczonym zasobem i wyróżnioną opcją Zarządzaj zasobem](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
+    ![Okienko odnajdywania z wybranym zasobem i z wyróżnioną opcją Zarządzaj zasobem](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Jeśli zostanie wyświetlony komunikat potwierdzający dołączanie wybranego zasobu do zarządzania, wybierz opcję **Tak**.
+1. Jeśli zostanie wyświetlony komunikat z prośbą o potwierdzenie dołączenia wybranego zasobu do zarządzania, wybierz pozycję **tak**.
 
-    ![Komunikat potwierdzający dołączanie wybranych zasobów do zarządzania](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
+    ![Komunikat potwierdzający dołączenie wybranych zasobów do zarządzania](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Konfigurowanie ustawień roli zasobów platformy Azure w zarządzania tożsamościami uprzywilejowanymi](pim-resource-roles-configure-role-settings.md)
-- [Przypisywanie ról zasobów platformy Azure w zarządzania tożsamościami uprzywilejowanymi](pim-resource-roles-assign-roles.md)
+- [Skonfiguruj ustawienia roli zasobów platformy Azure w Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
+- [Przypisywanie ról zasobów platformy Azure w Privileged Identity Management](pim-resource-roles-assign-roles.md)

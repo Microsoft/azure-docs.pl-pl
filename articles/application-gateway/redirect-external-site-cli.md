@@ -1,5 +1,5 @@
 ---
-title: Przekierowanie ruchu zewnętrznego przy użyciu interfejsu wiersza polecenia — brama aplikacji platformy Azure
+title: Przekierowywanie ruchu zewnętrznego przy użyciu interfejsu wiersza polecenia platformy Azure Application Gateway
 description: Dowiedz się, jak utworzyć bramę aplikacji, która przekierowuje wewnętrzny ruch internetowy do odpowiedniej puli przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: application-gateway
 author: vhorne
@@ -8,24 +8,24 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: fc955b4959bb20628463f7699a0b66ec2b89a393
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74011609"
 ---
-# <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Tworzenie bramy aplikacji z przekierowaniem zewnętrznym przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Tworzenie bramy aplikacji z przekierowaniami zewnętrznymi przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Za pomocą interfejsu wiersza polecenia platformy Azure można skonfigurować [przekierowanie ruchu internetowego](multiple-site-overview.md) podczas tworzenia [bramy aplikacji](overview.md). W tym samouczku można skonfigurować odbiornik i regułę, która przekierowuje ruch sieci web, który dociera do bramy aplikacji do lokacji zewnętrznej.
+Przy użyciu interfejsu wiersza polecenia platformy Azure można skonfigurować [przekierowywanie ruchu internetowego](multiple-site-overview.md) podczas tworzenia [bramy aplikacji](overview.md). W tym samouczku skonfigurujesz odbiornik i regułę, która przekierowuje ruch internetowy, który dociera do bramy aplikacji do lokacji zewnętrznej.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
 > * Konfigurowanie sieci
-> * Tworzenie reguły odbiornika i przekierowania
+> * Tworzenie reguły odbiornika i przekierowywania
 > * Tworzenie bramy aplikacji
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -88,7 +88,7 @@ Tworzenie bramy aplikacji może potrwać kilka minut. Po utworzeniu bramy aplika
 
 ### <a name="add-the-redirection-configuration"></a>Dodawanie konfiguracji przekierowania
 
-Dodaj konfigurację przekierowania, która wysyła ruch z *www\.consoto.org* do odbiornika *dla www\.contoso.com* do bramy aplikacji za pomocą [az sieci aplikacji bramy przekierowania-config create](/cli/azure/network/application-gateway/redirect-config).
+Dodaj konfigurację przekierowania, która wysyła ruch *z\.consoto.org www* do odbiornika dla *sieci\.Web contoso.com* do bramy aplikacji za pomocą polecenia [AZ Network Application-Gateway redirect-config Create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -101,7 +101,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>Dodawanie odbiornika i reguły routingu
 
-Odbiornik jest wymagany, aby włączyć bramę aplikacji, aby odpowiednio kierować ruch. Utwórz odbiornik przy użyciu [az sieci aplikacji bramy http-listener utworzyć](/cli/azure/network/application-gateway) z portem frontend utworzony z [az sieci aplikacji bramy frontend-port utworzyć](/cli/azure/network/application-gateway). Reguła jest wymagana dla odbiornika wiedzieć, gdzie wysłać ruch przychodzący. Utwórz podstawową regułę o nazwie *redirectRule* przy użyciu [tworzenia reguły aplikacji az network-gateway](/cli/azure/network/application-gateway).
+Odbiornik jest wymagany, aby umożliwić bramie aplikacji odpowiednie kierowanie ruchu sieciowego. Utwórz odbiornik za pomocą polecenia [AZ Network Application-Gateway HTTP-Listener Create](/cli/azure/network/application-gateway) z portem frontonu utworzonym za pomocą polecenia [AZ Network Application-Gateway fronton-port Create](/cli/azure/network/application-gateway). Dla odbiornika należy określić, gdzie ma być wysyłany ruch przychodzący. Utwórz podstawową regułę o nazwie *redirectRule* przy użyciu polecenia [AZ Network Application-Gateway Rule Create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -128,12 +128,12 @@ az network application-gateway rule create \
 
 Aby uzyskać publiczny adres IP bramy aplikacji, możesz użyć polecenia [az network public-ip show](/cli/azure/network/public-ip). Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki.
 
-Powinieneś *zobaczyć bing.com* pojawiają się w przeglądarce.
+W przeglądarce powinny być widoczne *Bing.com* .
 
 ## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > * Konfigurowanie sieci
-> * Tworzenie reguły odbiornika i przekierowania
+> * Tworzenie reguły odbiornika i przekierowywania
 > * Tworzenie bramy aplikacji

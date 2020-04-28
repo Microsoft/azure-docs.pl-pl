@@ -1,6 +1,6 @@
 ---
-title: Guest OS rodzina 1 informacja o emeryturze | Dokumenty firmy Microsoft
-description: Zawiera informacje o tym, kiedy nastąpiła emerytura z rodziny 1 gościa usługi Azure i jak ustalić, czy dotyczy cię problem
+title: Powiadomienie o wycofaniu rodziny systemów operacyjnych gościa 1 | Microsoft Docs
+description: Zawiera informacje o tym, kiedy wystąpiło wycofanie rodziny systemów operacyjnych gościa platformy Azure 1 i jak ustalić, czy ma to wpływ
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -10,29 +10,29 @@ ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
 ms.openlocfilehash: ae2df6f47d99fc5d452a6d3ea70f2dd2e4e7416b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68359585"
 ---
-# <a name="guest-os-family-1-retirement-notice"></a>Gość OS Rodzina 1 informacja o przejściu na emeryturę
-Przejście na emeryturę OS Family 1 zostało po raz pierwszy ogłoszone 1 czerwca 2013 roku.
+# <a name="guest-os-family-1-retirement-notice"></a>Powiadomienie o wycofaniu rodziny systemów operacyjnych gościa 1
+Wycofanie rodziny systemów operacyjnych 1 zostało po raz pierwszy ogłoszone 1 czerwca 2013.
 
-**2 września 2014 r.** Rodzina systemu operacyjnego Azure Guest (Guest OS) 1.x, która jest oparta na systemie operacyjnym Windows Server 2008, została oficjalnie wycofana. Wszystkie próby wdrożenia nowych usług lub uaktualnienia istniejących usług przy użyciu rodziny 1 zakończy się niepowodzeniem z komunikatem o błędzie informującym, że rodzina systemu operacyjnego gościa 1 została wycofana.
+**Września 2, 2014** Rodzina systemów operacyjnych gościa platformy Azure (system operacyjny gościa) 1. x, która jest oparta na systemie operacyjnym Windows Server 2008, została oficjalnie wycofana. Wszystkie próby wdrożenia nowych usług lub uaktualnienia istniejących usług przy użyciu rodziny 1 zakończą się niepowodzeniem z komunikatem o błędzie z informacją o tym, że Rodzina systemów operacyjnych gościa 1 została wycofana.
 
-**3 listopada 2014 r.** Rozszerzona obsługa usługi Guest OS Family 1 została zakończona i jest całkowicie wycofana. Wpływ na wszystkie usługi nadal w rodzinie 1 będą miały wpływ. Możemy zatrzymać te usługi w dowolnym momencie. Nie ma żadnej gwarancji, że usługi będą nadal działać, chyba że ręcznie uaktualnić je samodzielnie.
+**3 listopada 2014** Zakończono rozszerzoną obsługę rodziny systemów operacyjnych gościa 1 i została ona całkowicie wycofana. Będzie to miało wpływ na wszystkie usługi. Firma Microsoft może zatrzymać te usługi w dowolnym momencie. Nie ma gwarancji, że usługi będą nadal działać, dopóki nie zostaną ręcznie uaktualnione.
 
-Jeśli masz dodatkowe pytania, odwiedź [fora usług](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) w chmurze lub [skontaktuj się z pomocą techniczną platformy Azure.](https://azure.microsoft.com/support/options/)
+Jeśli masz dodatkowe pytania, odwiedź [fora Cloud Services](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) lub [skontaktuj się z pomocą techniczną platformy Azure](https://azure.microsoft.com/support/options/).
 
-## <a name="are-you-affected"></a>Czy dotyczy cię problem?
-Usługi w chmurze są zagrożone, jeśli ma zastosowanie jedna z następujących sytuacji:
+## <a name="are-you-affected"></a>Czy chcesz to mieć na pewno?
+Na Cloud Services mają zastosowanie następujące czynności:
 
-1. Masz wartość "osFamily = "1" jawnie określona w pliku ServiceConfiguration.cscfg dla usługi w chmurze.
-2. Nie masz wartości osFamily jawnie określone w pliku ServiceConfiguration.cscfg dla usługi w chmurze. Obecnie system używa domyślnej wartości "1" w tym przypadku.
-3. Portal Azure zawiera listę wartości rodziny systemu operacyjnego gościa jako "Windows Server 2008".
+1. Istnieje wartość "Rodzina systemów operacyjnych =" 1 "jawnie określona w pliku ServiceConfiguration. cscfg dla usługi w chmurze.
+2. Nie istnieje wartość Rodzina systemów operacyjnych jawnie określona w pliku ServiceConfiguration. cscfg dla usługi w chmurze. Obecnie w tym przypadku system używa wartości domyślnej "1".
+3. W Azure Portal przedstawiono wartość rodziny systemów operacyjnych gościa jako "Windows Server 2008".
 
-Aby znaleźć, które z usług w chmurze są uruchomione, które rodziny systemu operacyjnego, można uruchomić następujący skrypt w programie Azure PowerShell, mimo że należy [najpierw skonfigurować platformę Azure PowerShell.](/powershell/azureps-cmdlets-docs) Aby uzyskać więcej informacji na temat skryptu, zobacz [Rodzina systemu operacyjnego gościa azure 1 koniec życia: czerwiec 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
+Aby dowiedzieć się, które usługi w chmurze działają z rodziną systemów operacyjnych, można uruchomić następujący skrypt w Azure PowerShell, chociaż należy najpierw [skonfigurować Azure PowerShell](/powershell/azureps-cmdlets-docs) . Aby uzyskać więcej informacji na temat skryptu, zobacz [Rodzina systemów operacyjnych gościa platformy Azure 1 koniec cyklu życia: czerwiec 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -44,28 +44,28 @@ foreach($subscription in Get-AzureSubscription) {
 }
 ```
 
-Na usługi w chmurze będzie mieć wpływ wycofanie z systemu operacyjnego Rodzina 1, jeśli kolumna osFamily w danych wyjściowych skryptu jest pusta lub zawiera wartość "1".
+Na usługi w chmurze będzie miało wpływ 1 Rodzina systemu operacyjnego, jeśli kolumna Rodzina systemów operacyjnych w danych wyjściowych skryptu jest pusta lub zawiera wartość "1".
 
-## <a name="recommendations-if-you-are-affected"></a>Zalecenia dotyczące
-Zaleca się migrację ról usługi w chmurze do jednej z obsługiwanych rodzin systemu operacyjnego gościa:
+## <a name="recommendations-if-you-are-affected"></a>Zalecenia w przypadku, gdy ma to dotyczyć
+Zalecamy Migrowanie ról usługi w chmurze do jednej z obsługiwanych rodzin systemów operacyjnych gościa:
 
-**Rodzina systemów operacyjnych gościa 4.x** — Windows Server 2012 R2 *(zalecane)*
+**Rodzina systemów operacyjnych Gości 4. x** -Windows Server 2012 R2 *(zalecane)*
 
-1. Upewnij się, że aplikacja używa SDK 2.1 lub nowszego z .NET framework 4.0, 4.5 lub 4.5.1.
-2. Ustaw atrybut osFamily na "4" w pliku ServiceConfiguration.cscfg i ponownie wdrożyć usługę w chmurze.
+1. Upewnij się, że aplikacja korzysta z zestawu SDK 2,1 lub nowszego z programem .NET Framework 4,0, 4,5 lub 4.5.1.
+2. Ustaw atrybut Rodzina systemów operacyjnych na wartość "4" w pliku ServiceConfiguration. cscfg i ponownie Wdróż usługę w chmurze.
 
-**Rodzina systemów operacyjnych gościa 3.x** — Windows Server 2012
+**Rodzina systemów operacyjnych gościa 3. x** — Windows Server 2012
 
-1. Upewnij się, że aplikacja używa SDK 1.8 lub nowszego z .NET framework 4.0 lub 4.5.
-2. Ustaw atrybut osFamily na "3" w pliku ServiceConfiguration.cscfg i ponownie wdrożyć usługę w chmurze.
+1. Upewnij się, że aplikacja korzysta z zestawu SDK 1,8 lub nowszego w programie .NET Framework 4,0 lub 4,5.
+2. Ustaw atrybut Rodzina systemów operacyjnych na wartość "3" w pliku ServiceConfiguration. cscfg i ponownie Wdróż usługę w chmurze.
 
-**Rodzina systemów operacyjnych gościa 2.x** — Windows Server 2008 R2
+**Rodzina systemów operacyjnych gościa 2. x** — Windows Server 2008 R2
 
-1. Upewnij się, że aplikacja używa SDK 1.3 i powyżej z .NET framework 3.5 lub 4.0.
-2. Ustaw atrybut osFamily na "2" w pliku ServiceConfiguration.cscfg i ponownie wdrożyć usługę w chmurze.
+1. Upewnij się, że aplikacja korzysta z zestawu SDK 1,3 i nowszego w programie .NET Framework 3,5 lub 4,0.
+2. Ustaw atrybut Rodzina systemów operacyjnych na wartość "2" w pliku ServiceConfiguration. cscfg i ponownie Wdróż usługę w chmurze.
 
-## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>Rozszerzona obsługa rodziny systemu operacyjnego gościa 1 zakończona 3 listopada 2014
-Usługi w chmurze w rodzinie systemu operacyjnego gościa 1 nie są już obsługiwane. Migracja z rodziny 1 tak szybko, jak to możliwe, aby uniknąć zakłóceń w świadczeniu usług.  
+## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>Rozszerzona pomoc techniczna dla rodziny systemów operacyjnych gościa 1 — LIS 3, 2014
+Usługi w chmurze w rodzinie systemów operacyjnych gościa 1 nie są już obsługiwane. Aby uniknąć przerw w działaniu usługi, należy przeprowadzić migrację z rodziny 1.  
 
 ## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z [najnowszymi wydaniami systemu operacyjnego dla gości](cloud-services-guestos-update-matrix.md).
+Zapoznaj się z najnowszymi [wersjami systemów operacyjnych gościa](cloud-services-guestos-update-matrix.md).

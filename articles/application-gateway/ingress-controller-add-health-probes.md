@@ -1,6 +1,6 @@
 ---
-title: Dodawanie sond kondycji do zasobników AKS
-description: Ten artykuł zawiera informacje na temat dodawania sond kondycji (gotowość i/lub żywotność) do zasobników usługi AKS za pomocą bramy aplikacji.
+title: Dodaj sondy kondycji do AKSych/zasobników
+description: Ten artykuł zawiera informacje na temat dodawania sond kondycji (gotowość i/lub czas życia) do AKSch z Application Gateway.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 5d0543a3a43d53e462a6406312faddf37d2653c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73795593"
 ---
 # <a name="add-health-probes-to-your-service"></a>Dodawanie sond kondycji do usługi
-Domyślnie kontroler transferu danych przychodzących będzie aprowizować sondę HTTP GET dla narażonych zasobników.
-Właściwości sondy można dostosować, dodając [gotowość lub sondę żywotności](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) do specyfikacji. `deployment` / `pod`
+Domyślnie kontroler transferu danych w ramach udostępniania protokołu HTTP GET dla uwidocznionych zasobników.
+Właściwości sondy można dostosować, dodając [gotowość lub sondę na żywo](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) do swojej `deployment` / `pod` specyfikacji.
 
 ## <a name="with-readinessprobe-or-livenessprobe"></a>Z `readinessProbe` lub`livenessProbe`
 ```yaml
@@ -45,22 +45,22 @@ spec:
           timeoutSeconds: 1
 ```
 
-Odwołanie do interfejsu API kubernetes:
-* [Sondy kontenerowe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
-* [Akcja httpget](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/#httpgetaction-v1-core)
+Dokumentacja interfejsu API Kubernetes:
+* [Sondy kontenera](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
+* [Akcja narzędzia HttpGet](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/#httpgetaction-v1-core)
 
 > [!NOTE]
-> * `readinessProbe`i `livenessProbe` są obsługiwane po `httpGet`skonfigurowaniu z programem .
-> * Sondowanie na porcie innym niż ten narażony na zasobniku nie jest obecnie obsługiwane.
-> * `HttpHeaders`, `InitialDelaySeconds` `SuccessThreshold` nie są obsługiwane.
+> * `readinessProbe`i `livenessProbe` są obsługiwane w przypadku skonfigurowania programu `httpGet`.
+> * Sondowanie na porcie innym niż ten uwidoczniony w obszarze pod nie jest obecnie obsługiwane.
+> * `HttpHeaders`, `InitialDelaySeconds`, `SuccessThreshold` nie są obsługiwane.
 
-##  <a name="without-readinessprobe-or-livenessprobe"></a>Bez `readinessProbe` lub`livenessProbe`
-Jeśli powyższe sondy nie są dostarczane, a następnie kontroler transferu danych `Path` przychodzących przyjąć założenie, że usługa jest osiągalna na określone dla `backend-path-prefix` adnotacji lub `path` określone w `ingress` definicji usługi.
+##  <a name="without-readinessprobe-or-livenessprobe"></a>Bez `readinessProbe` ani`livenessProbe`
+Jeśli powyższe sondy nie zostaną podane, kontroler transferu danych przychodzących przyjmuje założenie, że usługa jest `Path` dostępna dla `backend-path-prefix` adnotacji lub `path` określonego w `ingress` definicji usługi.
 
-## <a name="default-values-for-health-probe"></a>Wartości domyślne dla sondy kondycji
-Dla każdej właściwości, które nie można wywnioskować przez sondę gotowości/żywotności, Domyślne wartości są ustawiane.
+## <a name="default-values-for-health-probe"></a>Wartości domyślne sondy kondycji
+Dla każdej właściwości, która nie może zostać wywnioskowana przez sondę gotowości/na żywo, ustawiane są wartości domyślne.
 
-| Właściwość sondowania bramy aplikacji | Wartość domyślna |
+| Application Gateway Właściwość sondy | Wartość domyślna |
 |-|-|
 | `Path` | / |
 | `Host` | localhost |

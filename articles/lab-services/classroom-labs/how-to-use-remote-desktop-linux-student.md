@@ -1,6 +1,6 @@
 ---
-title: Używanie pulpitu zdalnego dla systemu Linux w usługach Azure Lab | Dokumenty firmy Microsoft
-description: Dowiedz się, jak używać pulpitu zdalnego dla maszyn wirtualnych systemu Linux w laboratorium w usługach Azure Lab Services.
+title: Korzystanie z pulpitu zdalnego dla systemu Linux w Azure Lab Services | Microsoft Docs
+description: Dowiedz się, jak korzystać z usług pulpitu zdalnego dla maszyn wirtualnych z systemem Linux w laboratorium w Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,38 +14,38 @@ ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
 ms.openlocfilehash: 0f45af2730b05998fc82212c63778c89bb16b6ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73585075"
 ---
-# <a name="use-remote-desktop-for-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Używanie pulpitu zdalnego dla maszyn wirtualnych systemu Linux w laboratorium usługi Azure Lab Services w klasie
-W tym artykule pokazano, jak uczniowie mogą łączyć się z maszyną wirtualną systemu Linux (VM) w laboratorium przy użyciu protokołu RDP/SSH. 
+# <a name="use-remote-desktop-for-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Korzystanie z usług pulpitu zdalnego dla maszyn wirtualnych z systemem Linux w laboratorium z klasą Azure Lab Services
+W tym artykule opisano, jak uczniowie mogą łączyć się z maszyną wirtualną z systemem Linux w laboratorium przy użyciu protokołu RDP/SSH. 
 
-Instruktor musi włączyć funkcję połączenia pulpitu zdalnego, zanim uczniowie będą mogli połączyć się z maszyną wirtualną laboratorium klasy. Aby uzyskać instrukcje dotyczące sposobu włączania funkcji połączenia pulpitu zdalnego, zobacz [Włączanie pulpitu zdalnego dla maszyn wirtualnych systemu Linux](how-to-enable-remote-desktop-linux.md).
+Instruktor musi włączyć funkcję Podłączanie pulpitu zdalnego, zanim uczniowie będą mogli połączyć się z maszyną wirtualną laboratorium klasy. Aby uzyskać instrukcje dotyczące włączania funkcji Podłączanie pulpitu zdalnego przez instruktora, zobacz [Włączanie usług pulpitu zdalnego dla maszyn wirtualnych z systemem Linux](how-to-enable-remote-desktop-linux.md).
 
 > [!IMPORTANT] 
-> Włączenie **połączenia pulpitu zdalnego** otwiera port **RDP** tylko na komputerach z systemem Linux. Instruktor może połączyć się z komputerem Linux przy użyciu protokołu SSH po raz pierwszy i zainstalować pakiety RDP i GUI, dzięki czemu można później połączyć się z komputerem z systemem Linux przy użyciu protokołu RDP. 
+> Włączenie usługi **Podłączanie pulpitu zdalnego** otwiera tylko port **RDP** na maszynach z systemem Linux. Instruktor może nawiązać połączenie z maszyną z systemem Linux przy pierwszym użyciu protokołu SSH, a także zainstalować pakiety RDP i GUI, aby można było połączyć się z maszyną z systemem Linux później przy użyciu protokołu RDP. 
 
-## <a name="connect-to-the-student-vm"></a>Łączenie się z maszyną wirtualną dla studentów
-Studenci mogą RDP w ich linux maszyn wirtualnych po właściciel laboratorium (nauczyciel / profesor) **publikuje** szablon maszyny Wirtualnej z pakietów RDP i GUI zainstalowane na komputerze. Oto konkretne kroki: 
+## <a name="connect-to-the-student-vm"></a>Nawiązywanie połączenia z maszyną wirtualną ucznia
+Studenci mogą włączyć protokół RDP na maszynach wirtualnych z systemem Linux po **opublikowaniu** przez właściciela laboratorium (nauczyciel/profesor) szablonu maszyny wirtualnej z zainstalowanym na nim pakietem RDP i interfejsem GUI. Oto konkretne kroki: 
 
-1. Gdy uczeń loguje się bezpośrednio do`https://labs.azure.com`portalu Labs ( )`https://labs.azure.com/register/<registrationCode>`lub za pomocą linku rejestracyjnego ( ), wyświetlany jest kafelek dla każdego laboratorium, do których student ma dostęp. 
-2. Na kafelku przełącz przycisk, aby uruchomić maszynę wirtualną, jeśli jest w stanie zatrzymania. 
-3. Wybierz przycisk **Połącz**. Dostępne są dwie opcje łączenia się z maszyną wirtualną: **SSH** i **Pulpit zdalny**.
+1. Gdy student loguje się bezpośrednio do portalu Labs (`https://labs.azure.com`) lub przy użyciu linku do rejestracji (`https://labs.azure.com/register/<registrationCode>`), zostanie wyświetlony kafelek dla każdego laboratorium, do którego student ma dostęp. 
+2. Na kafelku Przełącz przycisk, aby uruchomić maszynę wirtualną, jeśli jest ona w stanie zatrzymania. 
+3. Wybierz przycisk **Połącz**. Zobaczysz dwie opcje połączenia z maszyną wirtualną: **SSH** i **pulpit zdalny**.
 
-    ![Student VM - opcje połączenia](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
+    ![Maszyna wirtualna ucznia — opcje połączeń](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 
-## <a name="connect-using-ssh-or-rdp"></a>Łączenie za pomocą protokołu SSH lub RDP
-Jeśli wybierzesz opcję **SSH,** zostanie wyświetlone następujące okno dialogowe **Połącz z maszyną wirtualną:**  
+## <a name="connect-using-ssh-or-rdp"></a>Nawiązywanie połączenia przy użyciu protokołu SSH lub RDP
+W przypadku wybrania opcji **SSH** zostanie wyświetlone okno dialogowe **Połącz z maszyną wirtualną** :  
 
-![Ciąg połączenia SSH](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
+![Parametry połączenia SSH](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
-Zaznacz przycisk **Kopiuj** obok pola tekstowego, aby skopiować go do schowka. Zapisz parametry połączenia SSH. Użyj tego ciągu połączenia z terminala SSH (jak [Putty](https://www.putty.org/)), aby połączyć się z maszyną wirtualną.
+Wybierz przycisk **Kopiuj** obok pola tekstowego, aby skopiować go do Schowka. Zapisz parametry połączenia SSH. Użyj tych parametrów połączenia z terminalu SSH [(jak tutaj](https://www.putty.org/)), aby nawiązać połączenie z maszyną wirtualną.
 
-Jeśli wybierzesz opcję **RDP,** plik RDP zostanie pobrany na komputer. Zapisz go i otwórz, aby połączyć się z urządzeniem. 
+W przypadku wybrania opcji **RDP** na komputerze zostanie pobrany plik RDP. Zapisz go i Otwórz, aby nawiązać połączenie z maszyną. 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się, jak włączyć funkcję połączenia pulpitu zdalnego dla maszyn wirtualnych z systemem Linux w laboratorium klasy, zobacz [Włączanie pulpitu zdalnego dla maszyn wirtualnych systemu Linux](how-to-enable-remote-desktop-linux.md). 
+Aby dowiedzieć się, jak włączyć funkcję Podłączanie pulpitu zdalnego dla maszyn wirtualnych z systemem Linux w laboratorium z klasą, zobacz temat [Włączanie usług pulpitu zdalnego dla komputerów z systemem Linux](how-to-enable-remote-desktop-linux.md). 
 

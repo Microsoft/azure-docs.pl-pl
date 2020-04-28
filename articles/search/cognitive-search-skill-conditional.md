@@ -1,7 +1,7 @@
 ---
-title: Warunkowa umiejętność poznawcza
+title: Warunkowa umiejętność
 titleSuffix: Azure Cognitive Search
-description: Umiejętność warunkowa w usłudze Azure Cognitive Search umożliwia filtrowanie, tworzenie wartości domyślnych i scalanie wartości w definicji zestawu umiejętności.
+description: Umiejętności warunkowe w usłudze Azure Wyszukiwanie poznawcze umożliwiają filtrowanie, tworzenie ustawień domyślnych i scalanie wartości w definicji zestawu umiejętności.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72792044"
 ---
-# <a name="conditional-cognitive-skill"></a>Warunkowa umiejętność poznawcza
+# <a name="conditional-cognitive-skill"></a>Warunkowa umiejętność
 
-Umiejętność **warunkowa** umożliwia scenariusze usługi Azure Cognitive Search, które wymagają operacji logicznej w celu określenia danych do przypisania do danych wyjściowych. Scenariusze te obejmują filtrowanie, przypisywanie wartości domyślnej i scalanie danych na podstawie warunku.
+Umiejętność **warunkowa** umożliwia korzystanie z scenariuszy wyszukiwanie poznawcze platformy Azure, które wymagają operacji logicznej do określenia danych, które mają zostać przypisane do danych wyjściowych. Te scenariusze obejmują filtrowanie, przypisywanie wartości domyślnej i scalanie danych na podstawie warunku.
 
-Następujący pseudokod pokazuje, co osiąga umiejętność warunkowa:
+Poniższa pseudokodzie demonstruje, jakie są działania warunkowe:
 
 ```
 if (condition) 
@@ -29,19 +29,19 @@ else
 ```
 
 > [!NOTE]
-> Ta umiejętność nie jest powiązana z interfejsem API usług Azure Cognitive Services i nie są naliczane opłaty za korzystanie z niej. Jednak nadal należy [dołączyć zasób usług Cognitive Services,](cognitive-search-attach-cognitive-services.md) aby zastąpić opcję "Wolny" zasób, który ogranicza do niewielkiej liczby wzbogacenia dziennie.
+> To umiejętność nie jest powiązana z interfejsem API usługi Azure Cognitive Services i nie jest naliczana opłata za korzystanie z niego. Nadal jednak należy [dołączyć zasób Cognitive Services](cognitive-search-attach-cognitive-services.md) , aby zastąpić opcję zasobu "Free", która ogranicza użytkownika do niewielkiej liczby wzbogacań dziennie.
 
 ## <a name="odatatype"></a>@odata.type  
-Umiejętności firmy Microsoft.Util.ConditionalSkill
+Microsoft. umiejętności. util. ConditionalSkill
 
 
 ## <a name="evaluated-fields"></a>Ocenione pola
 
-Ta umiejętność jest szczególna, ponieważ jej dane wejściowe są oceniane pola.
+Ta umiejętność jest specjalna, ponieważ jej dane wejściowe są oceniane.
 
 Następujące elementy są prawidłowymi wartościami wyrażenia:
 
--   Ścieżki adnotacji (ścieżki w wyrażeniach muszą być rozdzielone przez "$(" i ")")
+-   Ścieżki adnotacji (ścieżki w wyrażeniach muszą być rozdzielone znakami "$ (" i ")")
  <br/>
     Przykłady:
     ```
@@ -49,7 +49,7 @@ Następujące elementy są prawidłowymi wartościami wyrażenia:
         "= $(/document/content)"
     ```
 
--  Literały (ciągi, liczby, prawda, fałsz, wartość null) <br/>
+-  Literały (ciągi, cyfry, prawda, FAŁSZ, null) <br/>
     Przykłady:
     ```
        "= 'this is a string'"   // string (note the single quotation marks)
@@ -58,21 +58,21 @@ Następujące elementy są prawidłowymi wartościami wyrażenia:
        "= null"                 // null value
     ```
 
--  Wyrażenia, które używają operatorów porównania (==, !=, >=, >, <=, <) <br/>
+-  Wyrażenia wykorzystujące operatory porównania (= =,! =, >=, >, <=, <) <br/>
     Przykłady:
     ```
         "= $(/document/language) == 'en'"
         "= $(/document/sentiment) >= 0.5"
     ```
 
--   Wyrażenia, które używają operatorów logicznych (&&, ||, !, ^) <br/>
+-   Wyrażenia wykorzystujące operatory logiczne (&&, | |,!, ^) <br/>
     Przykłady:
     ```
         "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
         "= !true"
     ```
 
--   Wyrażenia, które używają operatorów liczbowych \*(+, -, , /, %) <br/>
+-   Wyrażenia wykorzystujące Operatory liczbowe (+,-, \*,/,%) <br/>
     Przykłady: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
@@ -80,25 +80,25 @@ Następujące elementy są prawidłowymi wartościami wyrażenia:
         "= $(/document/lengthInMeters) / 0.3049" // division
     ```
 
-Ponieważ umiejętność warunkowa obsługuje oceny, można go używać w scenariuszach transformacji pomocniczej. Na przykład zobacz [definicję umiejętności 4](#transformation-example).
+Ponieważ umiejętność warunkowa obsługuje szacowanie, można jej używać w scenariuszach mniejszych transformacji. Na przykład zobacz [Definicja umiejętności 4](#transformation-example).
 
-## <a name="skill-inputs"></a>Wprowadzanie umiejętności
+## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
 W danych wejściowych jest rozróżniana wielkość liter.
 
 | Dane wejściowe   | Opis |
 |-------------|-------------|
-| Warunek   | To dane wejściowe jest [polem ocenianym,](#evaluated-fields) które reprezentuje warunek do oceny. Warunek ten powinien być oceniany na wartość logiczną *(true* lub *false).*   <br/>  Przykłady: <br/> "= prawda" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
-| kiedyTrue    | To dane wejściowe jest [polem ocenianym,](#evaluated-fields) które reprezentuje wartość do zwrócenia, jeśli warunek jest oceniany na *wartość true*. Ciągi stałe powinny być zwracane w pojedynczych cudzysłowach (' i '). <br/>Przykładowe wartości: <br/> "= 'kontrakt'"<br/>"= $(/dokument/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
-| whenFalse   | To dane wejściowe jest [polem ocenianym,](#evaluated-fields) które reprezentuje wartość do zwrócenia, jeśli warunek jest oceniany na *false*. <br/>Przykładowe wartości: <br/> "= 'kontrakt'"<br/>"= $(/dokument/contractType)" <br/> "= $(/document/entities/\*)" <br/>
+| rozgrzewa   | To dane wejściowe to [oceniane pole](#evaluated-fields) , które reprezentuje warunek do oceny. Ten warunek powinien być wartością logiczną (*true* lub *false*).   <br/>  Przykłady: <br/> "= true" <br/> "= $ (/Document/Language) = =" fr "" <br/> "= $ (/Document/Pages/\*/Language) = = $ (/Document/expectedLanguage)" <br/> |
+| whenTrue    | To dane wejściowe to [oceniane pole](#evaluated-fields) , które reprezentuje wartość zwracaną, jeśli warunek ma *wartość true*. Stałe ciągi powinny być zwracane w pojedynczym cudzysłowie ("i"). <br/>Przykładowe wartości: <br/> "=" kontrakt ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/> |
+| whenFalse   | To dane wejściowe to [oceniane pole](#evaluated-fields) , które reprezentuje wartość zwracaną, jeśli warunek zostanie obliczony na *wartość false*. <br/>Przykładowe wartości: <br/> "=" kontrakt ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/>
 
 ## <a name="skill-outputs"></a>Wyniki umiejętności
-Jest jedno wyjście, które jest po prostu nazywane "wyjściem". Zwraca wartość *whenFalse,* jeśli warunek jest false lub *whenTrue,* jeśli warunek jest spełniony.
+Istnieje jedno wyjście o nazwie "output". Zwraca wartość *whenFalse* , jeśli warunek ma wartość false lub *whenTrue* , jeśli warunek ma wartość true.
 
 ## <a name="examples"></a>Przykłady
 
-### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Przykładowa definicja umiejętności 1: filtrowanie dokumentów w celu zwrócenia tylko dokumentów francuskich
+### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Przykładowa definicja kwalifikacji 1: Filtruj dokumenty, aby zwracały tylko dokumenty francuski
 
-Poniższe dane wyjściowe zwracają tablicę zdań ("/document/frenchSentences"), jeśli językiem dokumentu jest francuski. Jeśli język nie jest francuski, wartość jest ustawiona na *null*.
+Następujące dane wyjściowe zwracają tablicę zdań ("/document/frenchSentences"), jeśli językiem dokumentu jest francuski. Jeśli język nie jest w języku francuskim, wartość jest równa *null*.
 
 ```json
 {
@@ -112,12 +112,12 @@ Poniższe dane wyjściowe zwracają tablicę zdań ("/document/frenchSentences")
     "outputs": [ { "name": "output", "targetName": "frenchSentences" } ]
 }
 ```
-Jeśli "/document/frenchSentences" jest używany jako *kontekst* innej umiejętności, ta umiejętność jest uruchamiana tylko wtedy, gdy "/document/frenchSentences" nie jest *ustawiona*na null .
+Jeśli wartość "/document/frenchSentences" jest używana jako *kontekst* innej umiejętności, ta umiejętność jest uruchamiana tylko wtedy, gdy opcja "/Document/frenchSentences" nie ma *wartości null*.
 
 
-### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Przykładowa definicja umiejętności 2: Ustawianie wartości domyślnej dla wartości, która nie istnieje
+### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Przykładowa definicja umiejętności 2: Ustaw wartość domyślną dla wartości, która nie istnieje
 
-Poniższe dane wyjściowe tworzy adnotację ("/document/languageWithDefault"), która jest ustawiona na język dokumentu lub "es", jeśli język nie jest ustawiony.
+Poniższe dane wyjściowe tworzą adnotację ("/document/languageWithDefault") ustawioną na język dokumentu lub do "es", jeśli język nie jest ustawiony.
 
 ```json
 {
@@ -132,9 +132,9 @@ Poniższe dane wyjściowe tworzy adnotację ("/document/languageWithDefault"), k
 }
 ```
 
-### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Przykładowa definicja umiejętności 3: Scalanie wartości z dwóch pól w jeden
+### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Przykładowa definicja umiejętności 3: scalanie wartości z dwóch pól w jeden
 
-W tym przykładzie niektóre zdania mają *właściwość frenchSentiment.* Ilekroć *właściwość frenchSentiment* jest null, chcemy użyć *wartości englishSentiment.* Przypisujemy dane wyjściowe do elementu członkowskiego, który nazywa się *tonacji* ("/document/sentiment/*/sentiment").
+W tym przykładzie niektóre zdania mają właściwość *frenchSentiment* . Zawsze, gdy właściwość *frenchSentiment* ma wartość null, chcemy użyć wartości *englishSentiment* . Dane wyjściowe są przypisywane do elementu członkowskiego o nazwie *tonacji* ("/Document/Sentiment/*/Sentiment").
 
 ```json
 {
@@ -150,11 +150,11 @@ W tym przykładzie niektóre zdania mają *właściwość frenchSentiment.* Ilek
 ```
 
 ## <a name="transformation-example"></a>Przykład transformacji
-### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Przykładowa definicja umiejętności 4: Transformacja danych w jednym polu
+### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Przykładowa definicja umiejętności 4: transformacja danych dla pojedynczego pola
 
-W tym przykładzie otrzymujemy *opinię,* która wynosi od 0 do 1. Chcemy przekształcić ją w przedziale od -1 do 1. Możemy użyć umiejętności warunkowej, aby wykonać tę drobną transformację.
+W tym przykładzie otrzymamy *tonacji* z zakresu od 0 do 1. Chcemy przekształcić ten element, aby znajdował się w zakresie od-1 do 1. W celu przeprowadzenia tej drobnej transformacji możemy użyć umiejętności warunkowej.
 
-W tym przykładzie nie używamy warunkowego aspektu umiejętności, ponieważ warunek jest zawsze *prawdziwy.*
+W tym przykładzie nie używamy warunkowego aspektu umiejętności, ponieważ warunek ma zawsze *wartość true*.
 
 ```json
 {
@@ -169,11 +169,11 @@ W tym przykładzie nie używamy warunkowego aspektu umiejętności, ponieważ wa
 }
 ```
 
-## <a name="special-considerations"></a>Uwagi szczególne
-Niektóre parametry są oceniane, więc należy zachować szczególną ostrożność, aby postępować zgodnie z udokumentowanym wzorcem. Wyrażenia muszą zaczynać się od znaku równości. Ścieżka musi być rozdzielona przez "$(" i ")". Upewnij się, że ciągi są umieszczane w pojedynczych cudzysłowach. Pomaga to oceniając odróżnić ciągi i rzeczywiste ścieżki i operatorów. Upewnij się również, że biały znak wokół operatorów (na przykład "*" w ścieżce oznacza coś innego niż mnożyć).
+## <a name="special-considerations"></a>Uwagi specjalne
+Niektóre parametry są oceniane, dlatego należy zachować szczególną ostrożność, aby postępować zgodnie z udokumentowanym wzorcem. Wyrażenia muszą zaczynać się od znaku równości. Ścieżka musi być rozdzielonych znakami "$ (" i ")". Upewnij się, że umieszczasz ciągi w pojedynczym cudzysłowie. Pomaga to w ewaluatora rozróżnić ciągi i rzeczywiste ścieżki i operatory. Upewnij się również, że umieszczono odstęp wokół operatorów (na przykład "*" w ścieżce oznacza coś innego niż mnożenie).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
-+ [Jak zdefiniować zestaw umiejętności](cognitive-search-defining-skillset.md)
++ [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
