@@ -1,6 +1,6 @@
 ---
 title: Skalowalność dostawcy zasobów usługi Azure Storage
-description: Cele skalowalności i wydajności dla operacji względem dostawcy zasobów usługi Azure Storage. Dostawca zasobów implementuje usługę Azure Resource Manager dla usługi Azure Storage.
+description: Cele dotyczące skalowalności i wydajności dla operacji względem dostawcy zasobów usługi Azure Storage. Dostawca zasobów implementuje Azure Resource Manager dla usługi Azure Storage.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,13 +9,13 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: e7fb118dbc53b36e01c8188b9013a3f739bf0c59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75747777"
 ---
-# <a name="scalability-and-performance-targets-for-the-azure-storage-resource-provider"></a>Cele dotyczące skalowalności i wydajności dostawcy zasobów usługi Azure Storage
+# <a name="scalability-and-performance-targets-for-the-azure-storage-resource-provider"></a>Cele skalowalności i wydajności dla dostawcy zasobów usługi Azure Storage
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
@@ -23,7 +23,7 @@ ms.locfileid: "75747777"
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-- [Cele dotyczące skalowalności i wydajności dla standardowych kont magazynu](scalability-targets-standard-account.md)
-- [Limity i przydziały subskrypcji platformy Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)
+- [Cele skalowalności i wydajności dla kont magazynu w warstwie Standardowa](scalability-targets-standard-account.md)
+- [Ograniczenia i limity subskrypcji platformy Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)

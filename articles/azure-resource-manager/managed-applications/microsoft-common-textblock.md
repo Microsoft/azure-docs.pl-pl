@@ -1,22 +1,22 @@
 ---
-title: Element interfejsu użytkownika textblock
-description: Zawiera opis elementu interfejsu użytkownika narzędzia Microsoft.Common.TextBlock dla witryny Azure portal. Służy do dodawania tekstu do interfejsu.
+title: TextBlock — element interfejsu użytkownika
+description: Opisuje element Microsoft. Common. TextBlock interfejsu użytkownika dla Azure Portal. Służy do dodawania tekstu do interfejsu.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 418056cb149f4441bac49db839a0dba40c2bb42d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75652218"
 ---
-# <a name="microsoftcommontextblock-ui-element"></a>Element interfejsu użytkownika microsoft.common.textblock
+# <a name="microsoftcommontextblock-ui-element"></a>Microsoft. Common. TextBlock — element interfejsu użytkownika
 
-Formant, który może służyć do dodawania tekstu do interfejsu portalu.
+Kontrolka, która może służyć do dodawania tekstu do interfejsu portalu.
 
-## <a name="ui-sample"></a>Próbka interfejsu użytkownika
+## <a name="ui-sample"></a>Przykładowy interfejs użytkownika
 
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textblock.png)
 
@@ -45,5 +45,5 @@ Formant, który może służyć do dodawania tekstu do interfejsu portalu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zapoznać się z wprowadzeniem do tworzenia definicji interfejsu użytkownika, zobacz [Wprowadzenie do createuidefinition](create-uidefinition-overview.md).
-* Aby uzyskać opis wspólnych właściwości w elementach interfejsu użytkownika, zobacz [CreateUiDefinition elementów](create-uidefinition-elements.md).
+* Wprowadzenie do tworzenia definicji interfejsu użytkownika można znaleźć w temacie [wprowadzenie do CreateUiDefinition](create-uidefinition-overview.md).
+* Opis wspólnych właściwości elementów interfejsu użytkownika można znaleźć w temacie [CreateUiDefinition elementy](create-uidefinition-elements.md).

@@ -10,10 +10,10 @@ ms.date: 03/28/2017
 ms.author: mlearned
 ms.custom: H1Hack27Feb201
 ms.openlocfilehash: 317862b694b93de44422ac3c28575c732ffc5be5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75887924"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(PRZESTARZAŁE) Często zadawane pytania dotyczące usługi Container Service
@@ -56,7 +56,7 @@ Jeśli używasz poleceń interfejsu wiersza polecenia Azure do wdrażania klastr
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Jak mogę utworzyć nazwę główną usługi dla mojego klastra Kubernetes?
 
-Do utworzenia klastra Kubernetes w usłudze Azure Container Service wymagany jest również identyfikator i hasło nazwy głównej usługi Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Informacje o jednostki usługi dla klastra Kubernetes](../../container-service/kubernetes/container-service-kubernetes-service-principal.md).
+Do utworzenia klastra Kubernetes w usłudze Azure Container Service wymagany jest również identyfikator i hasło nazwy głównej usługi Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Informacje o jednostce usługi dla klastra Kubernetes](../../container-service/kubernetes/container-service-kubernetes-service-principal.md).
 
 Jeśli używasz [poleceń interfejsu wiersza polecenia Azure](../../container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) do wdrażania klastra Kubernetes, poświadczenia nazwy głównej usługi dla klastra mogą być generowane automatycznie.
 
@@ -114,7 +114,7 @@ Aby uzyskać więcej informacji, zobacz [Łączenie z klastrem usługi Azure Con
 
 ### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>Rozpoznawanie nazw DNS nie działa w systemie Windows. Co mam zrobić?
 
-Istnieją pewne znane problemy z systemem DNS w systemie Windows, których poprawki są nadal aktywnie wycofywane. Upewnij się, że używasz najbardziej zaktualizowanej wersji acs-engine i windows (z zainstalowanymi [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) i [KB4089848),](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) aby twoje środowisko z tego skorzystało. W przeciwnym razie kroki zaradcze znajdziesz w tabeli poniżej:
+W systemie Windows istnieją znane problemy związane z usługą DNS, których poprawki są nadal aktywnie wycofywane. Upewnij się, że korzystasz z najnowszej zaktualizowanej wersji aparatu ACS i systemu Windows (z zainstalowanym programem [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) i [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) ), aby umożliwić korzystanie z tego środowiska. W przeciwnym razie kroki zaradcze znajdziesz w tabeli poniżej:
 
 | Objaw w usłudze DNS | Obejście  |
 |-------------|-------------|

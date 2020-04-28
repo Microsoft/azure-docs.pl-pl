@@ -1,72 +1,72 @@
 ---
-title: Przenoszenie zewnętrznego modułu równoważenia obciążenia platformy Azure do innego regionu platformy Azure przy użyciu usługi Azure PowerShell
-description: Użyj szablonu usługi Azure Resource Manager, aby przenieść zewnętrzny moduł równoważenia obciążenia platformy Azure z jednego regionu platformy Azure do drugiego przy użyciu programu Azure PowerShell.
+title: Przenoszenie zewnętrznych Load Balancer platformy Azure do innego regionu platformy Azure przy użyciu Azure PowerShell
+description: Użyj szablonu Azure Resource Manager, aby przenieść zewnętrzny Load Balancer platformy Azure z jednego regionu świadczenia usługi Azure do innego przy użyciu Azure PowerShell.
 author: asudbring
 ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: a24eb4608e7630d5b613751fa2120361eccd7672
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75644821"
 ---
-# <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>Przenoszenie zewnętrznego modułu równoważenia obciążenia platformy Azure do innego regionu przy użyciu programu Azure PowerShell
+# <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>Przenoszenie zewnętrznych Load Balancer platformy Azure do innego regionu przy użyciu Azure PowerShell
 
-Istnieją różne scenariusze, w których chcesz przenieść istniejący moduł równoważenia obciążenia zewnętrznego z jednego regionu do drugiego. Na przykład można utworzyć zewnętrznego modułu równoważenia obciążenia z tą samą konfiguracją do testowania. Można również przenieść zewnętrznego modułu równoważenia obciążenia do innego regionu w ramach planowania odzyskiwania po awarii.
+Istnieją różne scenariusze, w których należy przenieść istniejący zewnętrzny moduł równoważenia obciążenia z jednego regionu do innego. Na przykład możesz chcieć utworzyć zewnętrzny moduł równoważenia obciążenia z tą samą konfiguracją do testowania. Możesz również przenieść zewnętrzny moduł równoważenia obciążenia do innego regionu w ramach planowania odzyskiwania po awarii.
 
-Nie można przenosić zewnętrznych modułów równoważenia obciążenia platformy Azure z jednego regionu do drugiego. Można jednak użyć szablonu usługi Azure Resource Manager do wyeksportowania istniejącej konfiguracji i publicznego adresu IP zewnętrznego modułu równoważenia obciążenia.  Następnie można zorganizować zasób w innym regionie, eksportując moduł równoważenia obciążenia i publiczny adres IP do szablonu, modyfikując parametry zgodne z regionem docelowym, a następnie wdrażając szablony w nowym regionie.  Aby uzyskać więcej informacji na temat Menedżera zasobów i szablonów, zobacz [Eksportowanie grup zasobów do szablonów](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
+Zewnętrznych usług równoważenia obciążenia platformy Azure nie można przenosić z jednego regionu do innego. Można jednak użyć szablonu Azure Resource Manager do eksportowania istniejącej konfiguracji i publicznego adresu IP zewnętrznego modułu równoważenia obciążenia.  Następnie można przemieścić zasób w innym regionie, eksportując moduł równoważenia obciążenia i publiczny adres IP do szablonu, modyfikując parametry w celu dopasowania do regionu docelowego, a następnie wdrażając szablony w nowym regionie.  Aby uzyskać więcej informacji na temat Menedżer zasobów i szablonów, zobacz [Eksportowanie grup zasobów do szablonów](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Upewnij się, że moduł równoważenia obciążenia zewnętrznego platformy Azure znajduje się w regionie platformy Azure, z którego chcesz przenieść.
+- Upewnij się, że zewnętrzny moduł równoważenia obciążenia platformy Azure znajduje się w regionie świadczenia usługi Azure, z którego chcesz przenieść.
 
-- Nie można przenosić zewnętrznych modułów równoważenia obciążenia platformy Azure między regionami.  Musisz skojarzyć nowy moduł równoważenia obciążenia z zasobami w regionie docelowym.
+- Nie można przenosić zewnętrznych usług równoważenia obciążenia platformy Azure między regionami.  Należy skojarzyć nowy moduł równoważenia obciążenia z zasobami w regionie docelowym.
 
-- Aby wyeksportować konfigurację zewnętrznego modułu równoważenia obciążenia i wdrożyć szablon w celu utworzenia zewnętrznego modułu równoważenia obciążenia w innym regionie, należy potrzebować roli Współautor sieci lub wyższy.
+- Aby wyeksportować konfigurację zewnętrznego modułu równoważenia obciążenia i wdrożyć szablon w celu utworzenia zewnętrznego modułu równoważenia obciążenia w innym regionie, musisz mieć rolę współautor sieci lub wyższą.
    
-- Zidentyfikuj układ sieci źródłowej i wszystkie zasoby, których aktualnie używasz. Ten układ obejmuje między innymi moduły równoważenia obciążenia, sieciowe grupy zabezpieczeń, publiczne adresy IP i sieci wirtualne.
+- Zidentyfikuj układ sieci źródłowej i wszystkie aktualnie używane zasoby. Ten układ obejmuje, ale nie jest ograniczony do modułów równoważenia obciążenia, sieciowych grup zabezpieczeń, publicznych adresów IP i sieci wirtualnych.
 
-- Sprawdź, czy subskrypcja platformy Azure umożliwia tworzenie zewnętrznych modułów równoważenia obciążenia w regionie docelowym, który jest używany. Skontaktuj się z pomocą techniczną, aby włączyć wymagany limit przydziału.
+- Sprawdź, czy subskrypcja platformy Azure umożliwia tworzenie zewnętrznych modułów równoważenia obciążenia w używanym regionie docelowym. Skontaktuj się z pomocą techniczną, aby włączyć wymagany limit przydziału.
 
-- Upewnij się, że subskrypcja ma wystarczającą ilość zasobów do obsługi dodawania modułów równoważenia obciążenia dla tego procesu.  Zobacz [Limity subskrypcji i usług platformy Azure, przydziały i ograniczenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
+- Upewnij się, że Twoja subskrypcja ma wystarczającą ilość zasobów, aby obsłużyć Dodawanie modułów równoważenia obciążenia dla tego procesu.  Zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
 
 
-## <a name="prepare-and-move"></a>Przygotowanie i przeniesienie
-Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia obciążenia do przeniesienia przy użyciu szablonu Menedżera zasobów i przenieść konfigurację zewnętrznego modułu równoważenia obciążenia do regionu docelowego przy użyciu programu Azure PowerShell.  W ramach tego procesu należy uwzględnić publiczną konfigurację IP zewnętrznego modułu równoważenia obciążenia i wykonać najpierw przed przeniesieniem zewnętrznego modułu równoważenia obciążenia.
+## <a name="prepare-and-move"></a>Przygotowywanie i przenoszenie
+Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia obciążenia na potrzeby przenoszenia przy użyciu szablonu Menedżer zasobów i przenieść konfigurację zewnętrznego modułu równoważenia obciążenia do regionu docelowego przy użyciu Azure PowerShell.  W ramach tego procesu konfiguracja publicznego adresu IP zewnętrznego modułu równoważenia obciążenia musi być uwzględniona, a przed przeniesieniem zewnętrznego modułu równoważenia obciążenia należy najpierw wykonać te czynności.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="export-the-public-ip-template-and-deploy-from-azure-powershell"></a>Eksportowanie publicznego szablonu ip i wdrażanie z programu Azure PowerShell
+### <a name="export-the-public-ip-template-and-deploy-from-azure-powershell"></a>Wyeksportuj szablon publicznego adresu IP i Wdróż go z Azure PowerShell
 
-1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) i postępuj zgodnie ze wskazówkami wyświetlanymi na ekranie:
+1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
-2. Uzyskaj identyfikator zasobu publicznego adresu IP, który chcesz przenieść do regionu docelowego, i umieść go w zmiennej przy użyciu [adresu Get-AzPublicIPAddress:](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)
+2. Uzyskaj identyfikator zasobu publicznego adresu IP, który chcesz przenieść do regionu docelowego i umieść go w zmiennej przy użyciu polecenia [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $sourcePubIPID = (Get-AzPublicIPaddress -Name <source-public-ip-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Wyeksportuj publiczny adres IP źródłowy do pliku json do katalogu, w którym wykona się polecenie [Export-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0)
+3. Wyeksportuj źródłowy publiczny adres IP do pliku JSON do katalogu, w którym wykonujesz polecenie [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. Pobrany plik zostanie nazwany na cześć grupy zasobów, z którego został wyeksportowany.  Znajdź plik, który został wyeksportowany z polecenia o nazwie ** \<nazwa grupy zasobów>.json** i otwórz go w wybranym edytorze:
+4. Pobrany plik zostanie nazwany po grupie zasobów, z której został wyeksportowany zasób.  Znajdź plik, który został wyeksportowany z polecenia o nazwie ** \<Resource-Group-Name>. JSON** i otwórz go w wybranym edytorze:
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
    ```
 
-5. Aby edytować parametr publicznej nazwy IP, zmień **właściwość defaultValue** nazwy źródłowego publicznego adresu IP na nazwę docelowego publicznego adresu IP, upewnij się, że nazwa znajduje się w cudzysłowie:
+5. Aby edytować parametr publicznej nazwy IP, należy zmienić właściwość **DefaultValue** źródłowej nazwy publicznego adresu IP na nazwę docelowego publicznego adresu IP, upewnij się, że nazwa jest cudzysłowem:
     
     ```json
         {
@@ -81,7 +81,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
 
     ```
 
-6. Aby edytować region docelowy, w którym zostanie przeniesiony publiczny adres IP, zmień właściwość **lokalizacji** w obszarze zasoby:
+6. Aby edytować region docelowy, w którym zostanie przeniesiony publiczny adres IP, Zmień właściwość **lokalizacji** w obszarze zasoby:
 
     ```json
             "resources": [
@@ -107,16 +107,16 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
              ]             
     ```
   
-7. Aby uzyskać kody lokalizacji regionu, można użyć polecenia cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) programu Azure PowerShell, uruchamiając następujące polecenie:
+7. Aby uzyskać kody lokalizacji regionu, możesz użyć polecenia cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) programu Azure PowerShell, uruchamiając następujące polecenie:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     
     ```
-8. Można również zmienić inne parametry w szablonie, jeśli wybierzesz i są opcjonalne w zależności od wymagań:
+8. W przypadku wybrania opcji i opcjonalnych w zależności od wymagań można także zmienić inne parametry szablonu:
 
-    * **Sku** - Można zmienić sku publicznego adresu IP w konfiguracji ze standardowego na podstawowy lub podstawowy na standard, zmieniając właściwość **sku** > **name** w pliku ** \<>.json name grupy zasobów:**
+    * **Jednostka SKU** — można zmienić jednostkę SKU publicznego adresu IP w konfiguracji z warstwy Standardowa na podstawowa lub podstawowa na Standard, zmieniając właściwość**Nazwa** **jednostki SKU** > w pliku ** \<Resource-Group-Name>. JSON** :
 
          ```json
             "resources": [
@@ -131,9 +131,9 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
                     },
          ```
 
-         Aby uzyskać więcej informacji na temat różnic między podstawowymi i standardowymi identyfikatorami publicznymi sku, zobacz [Tworzenie, zmienianie lub usuwanie publicznego adresu IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+         Aby uzyskać więcej informacji o różnicach między podstawowymi i standardowymi adresami IP jednostki SKU, zobacz [Tworzenie, zmienianie lub usuwanie publicznego adresu IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
-    * **Publicznej metody alokacji ip** i **limitu czasu bezczynności** — można zmienić obie te opcje w szablonie, zmieniając **właściwość publicIPAllocationMethod** z **dynamicznego** na **statyczny** lub **statyczny** na **dynamiczny**. Limit czasu bezczynność można zmienić, zmieniając **idleTimeoutInMinutes** właściwości do żądanej kwoty.  Wartość domyślna to **4**:
+    * **Metoda alokacji publicznego adresu IP** i **limit czasu bezczynności** — można zmienić obie te opcje w szablonie, zmieniając właściwość **publicIPAllocationMethod** z **dynamicznego** na **statyczny** lub **statyczny** na **dynamiczny**. Limit czasu bezczynności można zmienić, zmieniając właściwość **idleTimeoutInMinutes** na żądaną wartość.  Wartość domyślna to **4**:
 
          ```json
          "resources": [
@@ -161,14 +161,14 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
         Aby uzyskać więcej informacji na temat metod alokacji i wartości limitu czasu bezczynności, zobacz [Tworzenie, zmienianie lub usuwanie publicznego adresu IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
 
-9. Zapisz ** \<plik>.json nazwa grupy zasobów.**
+9. Zapisz plik ** \<Resource-Group-Name>. JSON** .
 
-10. Utwórz grupę zasobów w regionie docelowym dla docelowego publicznego adresu IP, który ma zostać wdrożony przy użyciu [programu New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
+10. Utwórz grupę zasobów w regionie docelowym dla docelowego publicznego adresu IP do wdrożenia przy użyciu polecenia [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Wdrażanie edytowanego ** \<pliku>.json w** grupie zasobów utworzonej w poprzednim kroku przy użyciu [funkcji New-AzResourceGroupDeployment:](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)
+11. Wdróż edytowany ** \<plik Resource-Group-Name>. JSON** w grupie zasobów utworzonej w poprzednim kroku przy użyciu polecenia [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -176,7 +176,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
     
     ```
 
-12. Aby sprawdzić, czy zasoby zostały utworzone w regionie docelowym, należy użyć [adresów Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) i [Get-AzPublicIPAddress:](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)
+12. Aby sprawdzić, czy zasoby zostały utworzone w regionie docelowym, użyj polecenie [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) i [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
     
     ```azurepowershell-interactive
 
@@ -190,32 +190,32 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
 
     ```
 
-### <a name="export-the-external-load-balancer-template-and-deploy-from-azure-powershell"></a>Eksportowanie szablonu zewnętrznego modułu równoważenia obciążenia i wdrażanie z programu Azure PowerShell
+### <a name="export-the-external-load-balancer-template-and-deploy-from-azure-powershell"></a>Wyeksportuj szablon zewnętrznego modułu równoważenia obciążenia i Wdróż go z Azure PowerShell
 
-1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) i postępuj zgodnie ze wskazówkami wyświetlanymi na ekranie:
+1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-2. Uzyskaj identyfikator zasobu zewnętrznego modułu równoważenia obciążenia, który chcesz przenieść do regionu docelowego, i umieść go w zmiennej za pomocą [Get-AzLoadBalancer:](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0)
+2. Uzyskaj identyfikator zasobu zewnętrznego modułu równoważenia obciążenia, który ma zostać przeniesiony do regionu docelowego i umieść go w zmiennej przy użyciu polecenia [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $sourceExtLBID = (Get-AzLoadBalancer -Name <source-external-lb-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Wyeksportowanie źródłowej konfiguracji zewnętrznego modułu równoważenia obciążenia do pliku json do katalogu, w którym wykona się polecenie [Export-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0)
+3. Wyeksportuj konfigurację źródłową zewnętrznego modułu równoważenia obciążenia do pliku JSON do katalogu, w którym wykonujesz polecenie [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceExtLBID -IncludeParameterDefaultValue
    ```
-4. Pobrany plik zostanie nazwany na cześć grupy zasobów, z którego został wyeksportowany.  Znajdź plik, który został wyeksportowany z polecenia o nazwie ** \<nazwa grupy zasobów>.json** i otwórz go w wybranym edytorze:
+4. Pobrany plik zostanie nazwany po grupie zasobów, z której został wyeksportowany zasób.  Znajdź plik, który został wyeksportowany z polecenia o nazwie ** \<Resource-Group-Name>. JSON** i otwórz go w wybranym edytorze:
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
    ```
 
-5. Aby edytować parametr nazwy zewnętrznego modułu równoważenia obciążenia, zmień **właściwość defaultValue** nazwy źródłowego zewnętrznego modułu równoważenia obciążenia na nazwę docelowego zewnętrznego modułu równoważenia obciążenia, upewnij się, że nazwa znajduje się w cudzysłowie:
+5. Aby edytować parametr nazwy zewnętrznego modułu równoważenia obciążenia, Zmień właściwość **DefaultValue** źródłowego zewnętrznego modułu równoważenia obciążenia na nazwę docelowego zewnętrznego modułu równoważenia obciążenia, a następnie upewnij się, że nazwa jest cudzysłowem:
 
     ```json
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -232,19 +232,19 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
 
     ```
 
-6.  Aby edytować wartość docelowego publicznego adresu IP, który został przeniesiony powyżej, należy najpierw uzyskać identyfikator zasobu, a następnie skopiować i wkleić go do ** \<pliku>.json.**  Aby uzyskać identyfikator, użyj [Get-AzPublicIPAddress:](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)
+6.  Aby edytować wartość docelowego publicznego adresu IP, który został przeniesiony powyżej, należy najpierw uzyskać identyfikator zasobu, a następnie skopiować i wkleić go do pliku ** \<Resource-Group-Name>. JSON** .  Aby uzyskać identyfikator, użyj polecenie [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $targetPubIPID = (Get-AzPublicIPaddress -Name <target-public-ip-name> -ResourceGroupName <target-resource-group-name>).Id
     ```
-    Wpisz zmienną i naciśnij enter, aby wyświetlić identyfikator zasobu.  Wyróżnij ścieżkę identyfikatora i skopiuj ją do schowka:
+    Wpisz zmienną i naciśnij klawisz ENTER, aby wyświetlić identyfikator zasobu.  Zaznacz ścieżkę identyfikatora i skopiuj ją do schowka:
 
     ```powershell
     PS C:\> $targetPubIPID
     /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupLB-Move/providers/Microsoft.Network/publicIPAddresses/myPubIP-in-move
     ```
 
-7.  W pliku ** \<>.json name resource-group** wklej **identyfikator zasobu** ze zmiennej zamiast **domyślnejWartość** w drugim parametrze dla publicznego identyfikatora zewnętrznego IP, upewnij się, że ścieżka została ujęta w cudzysłów:
+7.  W pliku ** \<Resource-Group-Name>. JSON** wklej **Identyfikator zasobu** ze zmiennej zamiast elementu **DefaultValue** w drugim parametrze dla zewnętrznego identyfikatora IP, upewnij się, że ścieżka została umieszczona w cudzysłowie:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -261,7 +261,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
 
     ```
 
-8.  Jeśli skonfigurowano wychodzące reguły TRANSLATORa i wychodzące dla modułu równoważenia obciążenia, w tym pliku będzie obecny trzeci wpis dla zewnętrznego identyfikatora wychodzącego publicznego adresu IP.  Powtórz powyższe kroki w **regionie docelowym,** aby uzyskać identyfikator wychodzącego publicznego iP i wkleić ten wpis do ** \<pliku>.json z nazwą grupy zasobów:**
+8.  W przypadku skonfigurowania wychodzącego NAT i reguł ruchu wychodzącego dla modułu równoważenia obciążenia trzeci wpis będzie obecny w tym pliku dla zewnętrznego identyfikatora dla wychodzącego publicznego adresu IP.  Powtórz powyższe kroki w **regionie docelowym** , aby uzyskać identyfikator wychodzącego publicznego adresu IP i wkleić ten wpis do pliku ** \<Resource-Group-Name>. JSON** :
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -282,7 +282,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
         },
     ```
 
-10. Aby edytować region docelowy, w którym zostanie przeniesiona konfiguracja zewnętrznego modułu równoważenia obciążenia, zmień właściwość **lokalizacji** w obszarze **zasoby** w pliku ** \<>.json nazwa grupy zasobów:**
+10. Aby edytować region docelowy, w którym zostanie przeniesiona konfiguracja zewnętrznego modułu równoważenia obciążenia, Zmień właściwość **Location** w obszarze **zasoby** w pliku ** \<Resource-Group-Name>. JSON** :
 
     ```json
         "resources": [
@@ -297,16 +297,16 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
                 },
     ```
 
-11. Aby uzyskać kody lokalizacji regionu, można użyć polecenia cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) programu Azure PowerShell, uruchamiając następujące polecenie:
+11. Aby uzyskać kody lokalizacji regionu, możesz użyć polecenia cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) programu Azure PowerShell, uruchamiając następujące polecenie:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     
     ```
-12. Można również zmienić inne parametry w szablonie, jeśli wybierzesz i są opcjonalne w zależności od wymagań:
+12. W przypadku wybrania opcji i opcjonalnych w zależności od wymagań można także zmienić inne parametry szablonu:
     
-    * **Sku** - Można zmienić sku zewnętrznego modułu równoważenia obciążenia w konfiguracji ze standardowego na podstawowy lub podstawowy na standard, zmieniając właściwość **sku** > **name** w pliku ** \<>.json name resource-group:**
+    * **Jednostka SKU** — można zmienić jednostkę SKU zewnętrznego modułu równoważenia obciążenia w konfiguracji z warstwy Standardowa na podstawowa lub podstawowa na standardowa, zmieniając właściwość**Nazwa** **jednostki SKU** > w pliku ** \<Resource-Group-Name>. JSON** :
 
         ```json
         "resources": [
@@ -320,9 +320,9 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
                 "tier": "Regional"
             },
         ```
-      Aby uzyskać więcej informacji na temat różnic między podstawowymi i standardowymi modułami równoważenia obciążenia sku, zobacz [Omówienie równoważenia obciążenia standardowego usługi Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+      Aby uzyskać więcej informacji na temat różnic między usługą równoważenia obciążenia Basic i standardowymi jednostkami SKU, zobacz [Omówienie usługi Azure usługa Load Balancer w warstwie Standardowa](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
-    * **Reguły równoważenia obciążenia** — można dodawać lub usuwać reguły równoważenia obciążenia w konfiguracji, dodając lub usuwając wpisy do sekcji **loadBalancingRules** w pliku ** \<>.json nazwa grupy zasobów:**
+    * **Reguły równoważenia obciążenia** — można dodawać lub usuwać reguły równoważenia obciążenia w konfiguracji przez dodanie lub usunięcie wpisów do sekcji **loadBalancingRules** w ** \<pliku Resource-Group-Name>. JSON** :
 
         ```json
         "loadBalancingRules": [
@@ -352,9 +352,9 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
                     }
                 ]
         ```
-       Aby uzyskać więcej informacji na temat reguł równoważenia obciążenia, zobacz [Co to jest moduł równoważenia obciążenia platformy Azure?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+       Aby uzyskać więcej informacji o regułach równoważenia obciążenia, zobacz [co to jest Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Sondy** — można dodać lub usunąć sondę dla modułu równoważenia obciążenia w konfiguracji, dodając lub usuwając **wpisy** do sekcji ** \<sondy pliku>.json:**
+    * **Sondy** — można dodać lub usunąć sondę modułu równoważenia obciążenia w konfiguracji przez dodanie lub usunięcie wpisów do sekcji **sondy** w pliku ** \<Resource-Group-Name>. JSON** :
 
         ```json
         "probes": [
@@ -372,9 +372,9 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
                     }
                 ],
         ```
-       Aby uzyskać więcej informacji na temat sond kondycji modułu równoważenia obciążenia platformy Azure, zobacz [Sondy kondycji modułu równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+       Aby uzyskać więcej informacji na Azure Load Balancer sond kondycji, zobacz [sondy kondycji Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
 
-    * **Przychodzące reguły NAT** — dla modułu równoważenia obciążenia można dodawać lub usuwać przychodzące reguły NAT, dodając lub usuwając wpisy do sekcji **inboundNatRules** ** \<** Przychodzące UstawieniaNatrules pliku>.json:
+    * **Reguły NAT dla ruchu przychodzącego** — można dodać lub usunąć reguły NAT dla ruchu przychodzącego dla modułu równoważenia obciążenia przez dodanie lub usunięcie wpisów do sekcji **inboundNatRules** w ** \<pliku Resource-Group-Name>. JSON** :
 
         ```json
         "inboundNatRules": [
@@ -396,7 +396,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
                     }
                 ]
         ```
-        Aby zakończyć dodawanie lub usuwanie przychodzącej reguły TRANSLATORA, reguła musi być obecna lub usuwana jako właściwość **typu** na końcu pliku ** \<>.json nazwa grupy zasobów:**
+        Aby ukończyć Dodawanie lub usuwanie reguły NAT dla ruchu przychodzącego, reguła musi być obecna lub usunięta jako właściwość **typu** na końcu pliku ** \<Resource-Group-Name>. JSON** :
 
         ```json
         {
@@ -420,9 +420,9 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
             }
         }
         ```
-        Aby uzyskać więcej informacji na temat przychodzących reguł nat, zobacz [Co to jest moduł równoważenia obciążenia platformy Azure?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+        Aby uzyskać więcej informacji na temat reguł NAT dla ruchu przychodzącego, zobacz [co to jest Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Reguły ruchu wychodzącego** — reguły ruchu wychodzącego można dodawać lub usuwać w konfiguracji, edytując właściwość **outboundRules** w pliku ** \<>.json name grupy zasobów:**
+    * **Reguły ruchu wychodzącego** — można dodawać lub usuwać reguły wychodzące w konfiguracji, edytując Właściwość **outboundRules** w pliku ** \<Resource-Group-Name>. JSON** :
 
         ```json
         "outboundRules": [
@@ -448,16 +448,16 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
                 ]
         ```
 
-         Aby uzyskać więcej informacji na temat reguł ruchu [wychodzącego, zobacz Reguły ruchu wychodzącego modułu równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
+         Aby uzyskać więcej informacji na temat reguł ruchu wychodzącego, zobacz [Load Balancer reguły wychodzące](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
 
-13. Zapisz ** \<plik>.json nazwa grupy zasobów.**
+13. Zapisz plik ** \<Resource-Group-Name>. JSON** .
     
-10. Utwórz lub grupę zasobów w regionie docelowym dla docelowego zewnętrznego modułu równoważenia obciążenia, który ma zostać wdrożony przy użyciu [programu New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). Istniejąca grupa zasobów z góry może być również ponownie życiówka w ramach tego procesu:
+10. Utwórz lub grupę zasobów w regionie docelowym dla docelowego zewnętrznego modułu równoważenia obciążenia, który ma zostać wdrożony przy użyciu polecenia [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). W ramach tego procesu można także ponownie użyć istniejącej grupy zasobów z powyższych elementów:
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Wdrażanie edytowanego ** \<pliku>.json w** grupie zasobów utworzonej w poprzednim kroku przy użyciu [funkcji New-AzResourceGroupDeployment:](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)
+11. Wdróż edytowany ** \<plik Resource-Group-Name>. JSON** w grupie zasobów utworzonej w poprzednim kroku przy użyciu polecenia [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -465,7 +465,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
     
     ```
 
-12. Aby sprawdzić, czy zasoby zostały utworzone w regionie docelowym, należy użyć [get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) i [Get-AzLoadBalancer:](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0)
+12. Aby sprawdzić, czy zasoby zostały utworzone w regionie docelowym, użyj polecenie [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) i [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
     
     ```azurepowershell-interactive
 
@@ -481,7 +481,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrznego modułu równoważenia
 
 ## <a name="discard"></a>Odrzuć 
 
-Po wdrożeniu, jeśli chcesz rozpocząć od nowa lub odrzucić publiczny adres IP i moduł równoważenia obciążenia w miejscu docelowym, usuń grupę zasobów, która została utworzona w miejscu docelowym, a przeniesiony publiczny adres IP i moduł równoważenia obciążenia zostaną usunięte.  Aby usunąć grupę zasobów, użyj [usuń azResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+Jeśli po wdrożeniu chcesz zacząć od początku lub odrzucić publiczny adres IP i moduł równoważenia obciążenia w miejscu docelowym, Usuń grupę zasobów, która została utworzona w miejscu docelowym, a przeniesiony publiczny adres IP i moduł równoważenia obciążenia zostaną usunięte.  Aby usunąć grupę zasobów, użyj polecenie [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 
 ```azurepowershell-interactive
 
@@ -491,7 +491,7 @@ Remove-AzResourceGroup -Name <resource-group-name>
 
 ## <a name="clean-up"></a>Czyszczenie
 
-Aby zatwierdzić zmiany i zakończyć przenoszenie sieciowej grupy sieciowej, usuń źródłową grupę sieciowej grupy zasobów sieciowych lub zasobów, użyj [usuń-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) lub [Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress?view=azps-2.6.0) i [Remove-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/remove-azloadbalancer?view=azps-2.6.0)
+Aby zatwierdzić zmiany i zakończyć przenoszenie sieciowej grupy zabezpieczeń, Usuń źródło sieciowej grupy zabezpieczeń lub grupę zasobów, użyj [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) lub [Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress?view=azps-2.6.0) i [Remove-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/remove-azloadbalancer?view=azps-2.6.0)
 
 ```azurepowershell-interactive
 
@@ -510,7 +510,7 @@ Remove-AzPublicIpAddress -Name <public-ip> -ResourceGroupName <resource-group-na
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przeniesiono grupę zabezpieczeń sieci platformy Azure z jednego regionu do drugiego i oczyściłeś zasoby źródłowe.  Aby dowiedzieć się więcej na temat przenoszenia zasobów między regionami i odzyskiwania po awarii na platformie Azure, zobacz:
+W tym samouczku przeniesiono grupę zabezpieczeń sieci platformy Azure z jednego regionu do innego i wyczyszczono zasoby źródłowe.  Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyskiwaniem po awarii na platformie Azure, zobacz:
 
 
 - [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

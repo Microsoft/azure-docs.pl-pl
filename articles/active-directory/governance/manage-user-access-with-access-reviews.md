@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie dostępem użytkowników za pomocą recenzji dostępu — Usługa Azure AD
+title: Zarządzanie dostępem użytkowników za pomocą przeglądów dostępu — Azure AD
 description: Dowiedz się, jak za pomocą przeglądów dostępu w usłudze Azure Active Directory zarządzać dostępem użytkowników — członkostwem w grupie lub przypisaniem do aplikacji
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c307b349144974a4d38f937feeebb98f369d047
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75932411"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Zarządzanie dostępem użytkowników za pomocą przeglądów dostępu w usłudze Azure AD
@@ -34,7 +34,7 @@ Usługa Azure Active Directory (Azure AD) pozwala łatwo zapewnić użytkownikom
 
 - Usługa Azure AD — warstwa Premium P2
 
-Aby uzyskać więcej informacji, zobacz [Wymagania licencyjne](access-reviews-overview.md#license-requirements).
+Aby uzyskać więcej informacji, zobacz [wymagania dotyczące licencji](access-reviews-overview.md#license-requirements).
 
 ## <a name="create-and-perform-an-access-review"></a>Tworzenie i przeprowadzanie przeglądu dostępu
 
@@ -44,20 +44,20 @@ W przeglądzie dostępu może uczestniczyć jeden lub większa liczba recenzent�
 
 2. Zdecyduj, czy poszczególni użytkownicy mają dokonać przeglądu własnego dostępu, czy wybrana grupa użytkowników ma przeprowadzić przegląd dostępu wszystkich użytkowników.
 
-3. Jako administrator globalny lub administrator użytkownika przejdź do [strony Zarządzanie tożsamościami](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. Jako Administrator globalny lub administrator użytkownika przejdź na [stronę ładu tożsamości](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-4. Utwórz przegląd dostępu. Aby uzyskać więcej informacji, zobacz [Tworzenie przeglądu dostępu grup lub aplikacji](create-access-review.md).
+4. Utwórz przegląd dostępu. Aby uzyskać więcej informacji, zobacz [Tworzenie przeglądu dostępu do grup lub aplikacji](create-access-review.md).
 
-5. Po rozpoczęciu przeglądu dostępu poproś recenzentów o podanie danych wejściowych. Domyślnie każdy z nich otrzymuje wiadomość e-mail z usługi Azure AD z łączem do panelu dostępu, w którym [przegląda dostęp do grup lub aplikacji](perform-access-review.md).
+5. Po rozpoczęciu przeglądu dostępu podawaj recenzentów, aby wprowadzić dane wejściowe. Domyślnie każdy z nich otrzymuje wiadomość e-mail z usługi Azure AD z linkiem do panelu dostępu, który umożliwia [przejrzenie dostępu do grup lub aplikacji](perform-access-review.md).
 
 6. Jeśli recenzenci nie przekażą opinii, można wysłać im przypomnienia za pośrednictwem usługi Azure AD. Domyślnie usługa Azure AD automatycznie wysyła przypomnienia recenzentom, którzy jeszcze nie odpowiedzieli, po upływie połowy czasu przeznaczonego na przekazanie opinii.
 
-7. Po otrzymaniu opinii recenzentów zakończ przegląd dostępu i zastosuj zmiany. Aby uzyskać więcej informacji, zobacz [Finalniej przeglądu dostępu grup lub aplikacji](complete-access-review.md).
+7. Po otrzymaniu opinii recenzentów zakończ przegląd dostępu i zastosuj zmiany. Aby uzyskać więcej informacji, zobacz [Kończenie przeglądu dostępu do grup lub aplikacji](complete-access-review.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie przeglądu dostępu grup lub aplikacji](create-access-review.md)
+[Tworzenie przeglądu dostępu do grup lub aplikacji](create-access-review.md)
 
 
 

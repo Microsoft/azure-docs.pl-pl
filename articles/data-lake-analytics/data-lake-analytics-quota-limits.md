@@ -1,6 +1,6 @@
 ---
 title: Dostosowywanie przydziałów i limitów w usłudze Azure Data Lake Analytics
-description: Dowiedz się, jak dostosować i zwiększyć przydziały i limity na kontach usługi Azure Data Lake Analytics (ADLA).
+description: Dowiedz się, jak dostosować i zwiększyć limity przydziałów i limitów na kontach Azure Data Lake Analytics (ADLA).
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: omidm1
@@ -10,74 +10,74 @@ ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: c1d7c8cc4b50682a74ac88b2113f0d44ebc55199
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75644719"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Dostosowywanie przydziałów i limitów w usłudze Azure Data Lake Analytics
 
-Dowiedz się, jak dostosować i zwiększyć przydział i limity na kontach usługi Azure Data Lake Analytics (ADLA). Znajomość tych limitów pomoże Ci zrozumieć zachowanie zadania U-SQL. Wszystkie limity przydziałów są miękkie, dzięki czemu można zwiększyć maksymalne limity, kontaktując się z pomocą techniczną platformy Azure.
+Dowiedz się, jak dostosować i zwiększyć limit przydziału oraz limity na kontach Azure Data Lake Analytics (ADLA). Znajomość tych limitów pomoże Ci zrozumieć zachowanie zadania U-SQL. Wszystkie limity przydziałów są nietrwałe, dzięki czemu można zwiększyć maksymalną liczbę limitów, kontaktując się z pomocą techniczną platformy Azure.
 
 ## <a name="azure-subscriptions-limits"></a>Limity subskrypcji platformy Azure
 
-**Maksymalna liczba kont ADLA na subskrypcję w regionie:** 5
+**Maksymalna liczba kont ADLA na subskrypcję na region:** 5
 
-Jeśli spróbujesz utworzyć szóste konto ADLA, pojawi się komunikat o błędzie "Osiągnąłeś maksymalną dozwoloną liczbę kont Usługi Data Lake Analytics (5) w regionie pod nazwą subskrypcji".
+Jeśli spróbujesz utworzyć szóste konto ADLA, zostanie wyświetlony komunikat o błędzie "Osiągnięto maksymalną dozwoloną liczbę kont Data Lake Analytics (5) w regionie pod nazwą subskrypcji".
 
-Jeśli chcesz przekroczyć ten limit, możesz wypróbować następujące opcje:
-* wybierz inny region, jeśli jest to odpowiednie
-* skontaktuj się z pomocą techniczną platformy [Azure, otwierając bilet pomocy technicznej,](#increase-maximum-quota-limits) aby zażądać zwiększenia przydziału.
+Jeśli chcesz wykraczać poza ten limit, możesz wypróbować następujące opcje:
+* Wybierz inny region, jeśli jest to odpowiednie
+* Skontaktuj się z pomocą techniczną platformy Azure, [otwierając bilet pomocy technicznej](#increase-maximum-quota-limits) , aby zażądać zwiększenia limitu przydziału.
 
-## <a name="default-adla-account-limits"></a>Domyślne limity kont usługi ADLA
+## <a name="default-adla-account-limits"></a>Domyślne limity kont ADLA
 
-**Maksymalna liczba jednostek analitycznych (AU) na konto:** 250, domyślnie 32
+**Maksymalna liczba jednostek analizy (Australia) dla konta:** 250, domyślnie 32
 
-Jest to maksymalna liczba aus, które można uruchomić jednocześnie na koncie. Jeśli całkowita liczba uruchomionych aus we wszystkich zadaniach przekracza ten limit, nowsze zadania są automatycznie umieszczane w kolejce. Przykład:
+Jest to maksymalna liczba jednostek, które mogą być uruchamiane współbieżnie na koncie. Jeśli łączna liczba uruchomionych jednostek w ramach wszystkich zadań przekracza ten limit, nowsze zadania są umieszczane w kolejce automatycznie. Przykład:
 
-* Jeśli masz tylko jedno zadanie uruchomione z 32 aus, po przesłaniu drugiego zadania będzie czekać w kolejce zadań, aż pierwsze zadanie zostanie zakończone.
-* Jeśli masz już cztery zadania uruchomione i każdy używa 8 AUs, po przesłaniu piątego zadania, które wymaga 8 AUs czeka w kolejce zadań, aż istnieje 8 AUs dostępne.
+* Jeśli masz tylko jedno zadanie działające z 32, podczas przesyłania drugiego zadania zostanie ono zaczekać w kolejce zadań do momentu zakończenia pierwszego zadania.
+* Jeśli masz już cztery zadania, a każdy z nich korzysta z 8 jednostek zadanich, po przesłaniu piątego zadania wymagającego 8 jednostek, które zaczekają w kolejce zadań do momentu, gdy zostanie wydana 8 dostępnych jednostek.
 
-    ![Limity usługi Azure Data Lake Analytics i strona przydziału](./media/data-lake-analytics-quota-limits/adjust-quota-limits.png)
+    ![Strona limity Azure Data Lake Analytics i limit przydziału](./media/data-lake-analytics-quota-limits/adjust-quota-limits.png)
 
-**Maksymalna liczba jednostek analitycznych (AU) na zadanie:** 250, domyślnie 32
+**Maksymalna liczba jednostek analizy (Australia) na zadanie:** 250, domyślnie 32
 
-Jest to maksymalna liczba jednostek AU, którą każde zadanie może być przypisane na twoim koncie. Zadania, które są przypisane więcej niż ten limit zostaną odrzucone, chyba że osoba przesyłającą ma wpływ na zasady obliczeń (limit przesyłania zadania), który daje im więcej jednostek AU na zadanie. Górna granica tej wartości to limit UA dla konta.
+Jest to maksymalna liczba jednostek, które mogą być przypisane do poszczególnych zadań w ramach konta. Zadania, do których przypisano więcej niż ten limit, będą odrzucane, chyba że ma to wpływ na zasadę obliczeniową (limit przesłania zadania), która daje im więcej informacji na temat poszczególnych zadań. Górna granica tej wartości jest limitem aktualizacji dla konta.
 
-**Maksymalna liczba równoczesnych zadań U-SQL na konto:** 20
+**Maksymalna liczba jednoczesnych zadań U-SQL na konto:** 20
 
-Jest to maksymalna liczba zadań, które można uruchomić jednocześnie na koncie. Powyżej tej wartości nowsze zadania są automatycznie umieszczane w kolejce.
+Jest to maksymalna liczba zadań, które mogą być uruchamiane współbieżnie na koncie. Powyżej tej wartości nowsze zadania są umieszczane w kolejce automatycznie.
 
-## <a name="adjust-adla-account-limits"></a>Dostosowywanie limitów kont usługi ADLA
+## <a name="adjust-adla-account-limits"></a>Dostosuj limity kont ADLA
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz istniejące konto ADLA.
 3. Kliknij pozycję **Właściwości**.
-4. Dostosuj wartości **maksymalnej liczby au,** **maksymalną liczbę uruchomionych zadań**i **limity przesyłania zadań** do własnych potrzeb.
+4. Dostosuj wartości **maksymalnego**punktu, **maksymalnej liczby uruchomionych zadań**i **limitów przesłania zadań** do własnych potrzeb.
 
-## <a name="increase-maximum-quota-limits"></a>Zwiększenie maksymalnych limitów przydziałów
+## <a name="increase-maximum-quota-limits"></a>Zwiększ maksymalne limity przydziału
 
-Więcej informacji na temat limitów platformy Azure można znaleźć w [dokumentacji limitów specyficznych dla usługi platformy Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-analytics-limits)
+Więcej informacji na temat limitów platformy Azure można znaleźć w [dokumentacji ograniczeń dotyczących usługi platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-analytics-limits).
 
-1. Otwórz żądanie pomocy technicznej w witrynie Azure portal.
+1. Otwórz żądanie obsługi w Azure Portal.
 
-    ![Strona portalu usługi Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
+    ![Strona portalu Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
 
-    ![Strona portalu usługi Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
-2. Wybierz typ problemu **Przydział**.
-3. Wybierz **subskrypcję** (upewnij się, że nie jest to subskrypcja "próbna").
+    ![Strona portalu Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
+2. Wybierz **limit przydziału**typu problemu.
+3. Wybierz swoją **subskrypcję** (Upewnij się, że nie jest to subskrypcja wersji próbnej).
 4. Wybierz typ przydziału **Data Lake Analytics**.
 
-    ![Strona portalu usługi Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
+    ![Strona portalu Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
 
-5. Na stronie problemu wyjaśnij żądany limit zwiększenia, **podaj szczegóły,** dlaczego potrzebujesz tej dodatkowej pojemności.
+5. Na stronie problem Wyjaśnij żądany limit wzrostu ze **szczegółowymi informacjami** o tym, dlaczego potrzebujesz dodatkowej pojemności.
 
-    ![Strona portalu usługi Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
+    ![Strona portalu Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
 
-6. Zweryfikuj informacje kontaktowe i utwórz żądanie pomocy technicznej.
+6. Zweryfikuj swoje informacje kontaktowe i Utwórz żądanie pomocy technicznej.
 
-Firma Microsoft sprawdza twoje żądanie i stara się jak najszybciej zaspokoić potrzeby biznesowe.
+Firma Microsoft przegląda Twoje żądanie i próbuje odpowiednio dopasować potrzeby biznesowe.
 
 ## <a name="next-steps"></a>Następne kroki
 

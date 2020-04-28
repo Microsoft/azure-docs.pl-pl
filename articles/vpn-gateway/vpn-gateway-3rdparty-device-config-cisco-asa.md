@@ -1,6 +1,6 @@
 ---
-title: Przykładowa konfiguracja do łączenia urządzeń Cisco ASA z bramami sieci VPN platformy Azure
-description: Ten artykuł zawiera przykładową konfigurację do łączenia urządzeń Cisco ASA z bramami sieci VPN platformy Azure.
+title: Przykładowa konfiguracja służąca do łączenia urządzeń Cisco ASA z bramami sieci VPN platformy Azure
+description: Ten artykuł zawiera przykładową konfigurację służącą do łączenia urządzeń Cisco ASA z bramami sieci VPN platformy Azure.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
@@ -8,69 +8,69 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
 ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75778086"
 ---
-# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Przykładowa konfiguracja: urządzenie Cisco ASA (IKEv2/no BGP)
-Ten artykuł zawiera przykładowe konfiguracje dotyczące łączenia urządzeń ASA (Adaptive Security Appliance) firmy Cisco z bramami sieci VPN platformy Azure. W przykładzie stosuje się urządzenia Cisco ASA, które są uruchomione IKEv2 bez protokołu Brama graniczna (BGP). 
+# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Przykładowa konfiguracja: urządzenie Cisco ASA (IKEv2/No BGP)
+Ten artykuł zawiera przykładowe konfiguracje do łączenia urządzeń Cisco adaptacyjnego urządzenia zabezpieczeń (ASA) z bramami sieci VPN platformy Azure. Przykład dotyczy urządzeń Cisco ASA z uruchomioną IKEv2 bez Border Gateway Protocol (BGP). 
 
-## <a name="device-at-a-glance"></a>Urządzenie w skrócie
+## <a name="device-at-a-glance"></a>Szybkie urządzenie
 
 |                        |                                   |
 | ---                    | ---                               |
-| Dostawca urządzeń          | Cisco                             |
+| Dostawca urządzenia          | Cisco                             |
 | Model urządzenia           | ASA                               |
-| Wersja docelowa         | 8.4 i nowsze                     |
-| Testowany model           | ASA 5505                          |
-| Przetestowana wersja         | 9.2                               |
+| Wersja docelowa         | 8,4 i nowsze                     |
+| Przetestowany model           | ASA 5505                          |
+| Przetestowana wersja         | 9,2                               |
 | Wersja IKE            | IKEv2                             |
 | BGP                    | Nie                                |
 | Typ bramy sieci VPN platformy Azure | Brama sieci VPN oparta na trasach           |
 |                        |                                   |
 
 > [!NOTE]
-> Przykładowa konfiguracja łączy urządzenie Cisco ASA z bramą sieci VPN **opartą na trasach** platformy Azure. Połączenie używa niestandardowych zasad IPsec/IKE z opcją **UsePolicyBasedTrafficSelectors,** jak opisano w [tym artykule](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+> Przykładowa konfiguracja łączy urządzenie Cisco ASA z bramą sieci VPN **opartą na trasach** platformy Azure. Połączenie używa niestandardowych zasad protokołu IPsec/IKE z opcją **UsePolicyBasedTrafficSelectors** , zgodnie z opisem w [tym artykule](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 >
-> Przykład wymaga, aby urządzenia ASA używać zasad **IKEv2** z konfiguracji opartych na liście dostępu, a nie oparte na VTI. Zapoznaj się ze specyfikacjami dostawcy urządzenia sieci VPN, aby sprawdzić, czy zasady IKEv2 są obsługiwane na lokalnych urządzeniach sieci VPN.
+> Przykład wymaga, aby urządzenia ASA korzystały z zasad protokołu **IKEv2** z konfiguracjami opartymi na liście, nie opartymi na VTi. Sprawdź specyfikacje dostawcy urządzenia sieci VPN, aby sprawdzić, czy zasady protokołu IKEv2 są obsługiwane na lokalnych urządzeniach sieci VPN.
 
 
-## <a name="vpn-device-requirements"></a>Wymagania dotyczące urządzeń VPN
-Bramy sieci VPN platformy Azure używają standardowych pakietów protokołów IPsec/IKE do ustanawiania tuneli sieci VPN typu lokacja lokacja (S2S). Aby uzyskać szczegółowe parametry protokołu IPsec/IKE i domyślne algorytmy kryptograficzne dla bram sieci VPN platformy Azure, zobacz [Informacje o urządzeniach sieci VPN](vpn-gateway-about-vpn-devices.md).
+## <a name="vpn-device-requirements"></a>Wymagania dotyczące urządzeń sieci VPN
+Bramy sieci VPN platformy Azure używają standardowych pakietów protokołu IPsec/IKE do ustanawiania tuneli VPN między lokacjami (S2S). Szczegółowe parametry protokołu IPsec/IKE i domyślne algorytmy kryptograficzne dla bram sieci VPN platformy Azure znajdują się w temacie [Informacje o urządzeniach sieci VPN](vpn-gateway-about-vpn-devices.md).
 
 > [!NOTE]
-> Opcjonalnie można określić dokładną kombinację algorytmów kryptograficznych i mocnych klawiszy dla określonego połączenia, zgodnie z opisem w [informacje o wymaganiach kryptograficznych](vpn-gateway-about-compliance-crypto.md). Jeśli określisz dokładną kombinację algorytmów i mocnych stron klawiszy, pamiętaj, aby używać odpowiednich specyfikacji na urządzeniach sieci VPN.
+> Opcjonalnie można określić dokładną kombinację algorytmów kryptograficznych i siły klucza dla określonego połączenia, zgodnie z opisem w [temacie Informacje o wymaganiach kryptograficznych](vpn-gateway-about-compliance-crypto.md). W przypadku określenia dokładnej kombinacji algorytmów i siły klucza należy pamiętać, aby użyć odpowiednich specyfikacji na urządzeniach sieci VPN.
 
 ## <a name="single-vpn-tunnel"></a>Pojedynczy tunel VPN
-Ta konfiguracja składa się z jednego tunelu sieci VPN S2S między bramą sieci VPN platformy Azure a lokalnym urządzeniem sieci VPN. Opcjonalnie można skonfigurować BGP w tunelu sieci VPN.
+Ta konfiguracja składa się z pojedynczego tunelu sieci VPN S2S między bramą sieci VPN platformy Azure a lokalnym urządzeniem sieci VPN. Opcjonalnie można skonfigurować protokół BGP przez tunel VPN.
 
 ![Pojedynczy tunel VPN S2S](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
 
-Aby uzyskać instrukcje krok po kroku dotyczące tworzenia konfiguracji platformy Azure, zobacz [Konfiguracja tunelu pojedynczej sieci VPN](vpn-gateway-3rdparty-device-config-overview.md#singletunnel).
+Aby uzyskać instrukcje krok po kroku dotyczące kompilowania konfiguracji platformy Azure, zobacz [Konfiguracja pojedynczego tunelu sieci VPN](vpn-gateway-3rdparty-device-config-overview.md#singletunnel).
 
 ### <a name="virtual-network-and-vpn-gateway-information"></a>Informacje o sieci wirtualnej i bramie sieci VPN
-W tej sekcji wymieniono parametry próbki.
+Ta sekcja zawiera listę parametrów dla przykładu.
 
-| **Parametr**                | **Wartość**                    |
+| **Konstruktora**                | **Wartościami**                    |
 | ---                          | ---                          |
 | Prefiksy adresów sieci wirtualnej        | 10.11.0.0/16<br>10.12.0.0/16 |
 | Adres IP bramy sieci VPN platformy Azure         | Azure_Gateway_Public_IP      |
 | Prefiksy adresów lokalnych | 10.51.0.0/16<br>10.52.0.0/16 |
-| Lokalny adres IP urządzenia sieci VPN    | OnPrem_Device_Public_IP     |
-| * Sieć wirtualna BGP ASN                | 65010                        |
-| * Adres IP elementu równorzędnego usługi Azure BGP           | 10.12.255.30                 |
-| * Lokalnie BGP ASN         | 65050                        |
+| Adres IP lokalnego urządzenia sieci VPN    | OnPrem_Device_Public_IP     |
+| * Numer ASN protokołu BGP sieci wirtualnej                | 65010                        |
+| * Adres IP elementu równorzędnego protokołu BGP platformy Azure           | 10.12.255.30                 |
+| * Lokalne ASN protokołu BGP         | 65050                        |
 | * Lokalny adres IP elementu równorzędnego BGP     | 10.52.255.254                |
 |                              |                              |
 
 \*Opcjonalny parametr tylko dla protokołu BGP.
 
-### <a name="ipsecike-policy-and-parameters"></a>Zasady i parametry protokołu IPsec/IKE
-W poniższej tabeli wymieniono algorytmy IPsec/IKE i parametry, które są używane w przykładzie. Zapoznaj się ze specyfikacjami urządzeń sieci VPN, aby sprawdzić algorytmy obsługiwane dla modeli urządzeń sieci VPN i wersji oprogramowania układowego.
+### <a name="ipsecike-policy-and-parameters"></a>Parametry i zasady protokołu IPsec/IKE
+W poniższej tabeli wymieniono Algorytmy IPsec/IKE i parametry, które są używane w przykładzie. Aby sprawdzić algorytmy obsługiwane przez modele urządzeń sieci VPN i wersje oprogramowania układowego, należy zapoznać się ze specyfikacją urządzenia sieci VPN.
 
-| **IPsec/IKEv2**  | **Wartość**                            |
+| **IPsec/IKEv2**  | **Wartościami**                            |
 | ---              | ---                                  |
 | Szyfrowanie IKEv2 | AES256                               |
 | Integralność IKEv2  | SHA384                               |
@@ -78,46 +78,46 @@ W poniższej tabeli wymieniono algorytmy IPsec/IKE i parametry, które są używ
 | * Szyfrowanie IPsec | AES256                               |
 | * Integralność protokołu IPsec  | SHA1                                 |
 | Grupa PFS        | PFS24                                |
-| Okres istnienia skojarzeń zabezpieczeń QM   | 7200 sekund                         |
-| Selektor ruchu | Użyj $True $True |
-| Klucz wstępny   | Klucz PreSharedKey                         |
+| Okres istnienia skojarzeń zabezpieczeń QM   | 7 200 sekund                         |
+| Selektor ruchu | UsePolicyBasedTrafficSelectors $True |
+| Klucz wstępny   | PreSharedKey                         |
 |                  |                                      |
 
-\*Na niektórych urządzeniach integralność protokołu IPsec musi być wartością null, gdy algorytm szyfrowania IPsec jest AES-GCM.
+\*Na niektórych urządzeniach integralność protokołu IPsec musi mieć wartość null, jeśli algorytm szyfrowania IPsec to AES-GCM.
 
 ### <a name="asa-device-support"></a>Obsługa urządzeń ASA
 
-* Obsługa IKEv2 wymaga ASA w wersji 8.4 i nowszej.
+* Obsługa protokołu IKEv2 wymaga ASA w wersji 8,4 lub nowszej.
 
-* Obsługa grupy DH i grupy PFS poza grupą 5 wymaga asa w wersji 9.x.
+* Obsługa grup DH i grup PFS poza grupą 5 wymaga ASA w wersji 9. x.
 
-* Obsługa szyfrowania IPsec z AES-GCM i IPsec Integrity z SHA-256, SHA-384 lub SHA-512 wymaga asa w wersji 9.x. To wymaganie pomocy technicznej dotyczy nowszych urządzeń ASA. W momencie publikacji modele ASA 5505, 5510, 5520, 5540, 5550 i 5580 nie obsługują tych algorytmów. Zapoznaj się ze specyfikacjami urządzeń sieci VPN, aby sprawdzić algorytmy obsługiwane dla modeli urządzeń sieci VPN i wersji oprogramowania układowego.
+* Obsługa szyfrowania IPsec za pomocą algorytmu AES-GCM i integralności IPsec z algorytmem SHA-256, SHA-384 lub SHA-512 wymaga ASA w wersji 9. x. To wymaganie dotyczące obsługi ma zastosowanie do nowszych urządzeń ASA. W momencie publikacji ASA modele 5505, 5510, 5520, 5540, 5550 i 5580 nie obsługują tych algorytmów. Aby sprawdzić algorytmy obsługiwane przez modele urządzeń sieci VPN i wersje oprogramowania układowego, należy zapoznać się ze specyfikacją urządzenia sieci VPN.
 
 
 ### <a name="sample-device-configuration"></a>Przykładowa konfiguracja urządzenia
-Skrypt zawiera przykład, który jest oparty na konfiguracji i parametrów, które są opisane w poprzednich sekcjach. Konfiguracja tunelu sieci VPN S2S składa się z następujących części:
+Skrypt zawiera przykład, który jest oparty na konfiguracji i parametrach, które zostały opisane w poprzednich sekcjach. Konfiguracja tunelu sieci VPN S2S składa się z następujących części:
 
 1. Interfejsy i trasy
 2. Listy dostępu
 3. Zasady i parametry IKE (faza 1 lub tryb główny)
 4. Zasady i parametry protokołu IPsec (faza 2 lub tryb szybki)
-5. Inne parametry, takie jak mocowanie TCP MSS
+5. Inne parametry, takie jak ograniczanie TCP
 
 > [!IMPORTANT]
-> Wykonaj następujące kroki przed użyciem przykładowego skryptu. Zastąp wartości zastępcze w skrypcie ustawieniami urządzenia dla konfiguracji.
+> Przed użyciem przykładowego skryptu wykonaj następujące czynności. Zastąp wartości symboli zastępczych w skrypcie ustawieniami urządzenia dla konfiguracji.
 
-* Określ konfigurację interfejsu dla interfejsów wewnętrznych i zewnętrznych.
-* Zidentyfikuj trasy sieci wewnętrznych/prywatnych i zewnętrznych/publicznych.
+* Określ konfigurację interfejsu zarówno w interfejsie, jak i na zewnątrz.
+* Zidentyfikuj trasy dla sieci firmowej/prywatnej i zewnętrznej/publicznej.
 * Upewnij się, że wszystkie nazwy i numery zasad są unikatowe na urządzeniu.
 * Upewnij się, że algorytmy kryptograficzne są obsługiwane na urządzeniu.
-* Zastąp następujące **wartości zastępcze** wartościami rzeczywistymi dla konfiguracji:
-  - Nazwa interfejsu zewnętrznego: **na zewnątrz**
+* Zastąp następujące **wartości symboli zastępczych** wartościami rzeczywistymi dla danej konfiguracji:
+  - Zewnętrzna nazwa interfejsu: **poza**
   - **Azure_Gateway_Public_IP**
   - **OnPrem_Device_Public_IP**
   - IKE: **Pre_Shared_Key**
-  - Nazwy bramy sieci wirtualnej i sieci lokalnej: **VNetName** i **LNGName**
-  - **Prefiksy** adresów sieci wirtualnej i lokalnej
-  - Prawidłowe **maski sieciowe**
+  - Nazwy sieci wirtualnej i bramy sieci lokalnej: **VNetName** i **LNGName**
+  - **Prefiksy** adresów sieci wirtualnych i lokalnych
+  - Poprawne **maski** sieci
 
 #### <a name="sample-script"></a>Przykładowy skrypt
 
@@ -274,9 +274,9 @@ sysopt connection tcpmss 1350
 
 ## <a name="simple-debugging-commands"></a>Proste polecenia debugowania
 
-Do celów debugowania należy używać następujących poleceń ASA:
+Użyj następujących poleceń ASA do celów debugowania:
 
-* Pokaż skojarzenie zabezpieczeń IPsec lub IKE:Show the IPsec or IKE security association (SA):
+* Pokaż skojarzenie zabezpieczeń protokołu IPsec lub IKE:
     ```
     show crypto ipsec sa
     show crypto ikev2 sa
@@ -287,13 +287,13 @@ Do celów debugowania należy używać następujących poleceń ASA:
     debug crypto ikev2 platform <level>
     debug crypto ikev2 protocol <level>
     ```
-    Polecenia `debug` mogą generować znaczne dane wyjściowe na konsoli.
+    `debug` Polecenia mogą generować znaczące dane wyjściowe w konsoli programu.
 
 * Pokaż bieżące konfiguracje na urządzeniu:
     ```
     show run
     ```
-    Użyj `show` podpokazów, aby wyświetlić listę określonych części konfiguracji urządzenia, na przykład:
+    Użyj `show` podpoleceń, aby wyświetlić listę określonych części konfiguracji urządzenia, na przykład:
     ```
     show run crypto
     show run access-list
@@ -301,4 +301,4 @@ Do celów debugowania należy używać następujących poleceń ASA:
     ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby skonfigurować aktywne połączenia międzylokacje i sieci wirtualne z siecią wirtualną, zobacz [Konfigurowanie aktywnych i aktywnych bram sieci VPN](vpn-gateway-activeactive-rm-powershell.md).
+Aby skonfigurować aktywne-aktywne połączenia między lokalizacjami i połączeń między sieciami wirtualnymi, zobacz [Konfigurowanie bram VPN Gateway Active-Active](vpn-gateway-activeactive-rm-powershell.md).

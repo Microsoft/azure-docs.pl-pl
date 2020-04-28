@@ -1,6 +1,6 @@
 ---
-title: Optymalizacja zadań usługi Azure Stream Analytics za pomocą partycjonowania
-description: W tym artykule opisano, jak używać partycjonowania do optymalizacji zadań usługi Azure Stream Analytics, których nie można zrównolegli.
+title: Używanie ponownego partycjonowania do optymalizowania Azure Stream Analytics zadań
+description: W tym artykule opisano sposób użycia ponownego partycjonowania w celu zoptymalizowania Azure Stream Analytics zadań, które nie mogą być równoległe.
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -8,26 +8,26 @@ ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: c70cfb6c1626908a2ba4e707a890f6dc7481c51a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75732386"
 ---
-# <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Użyj partycjonowania, aby zoptymalizować przetwarzanie za pomocą usługi Azure Stream Analytics
+# <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Użyj ponownego partycjonowania, aby zoptymalizować przetwarzanie za pomocą Azure Stream Analytics
 
-W tym artykule pokazano, jak używać partycjonowania do skalowania kwerendy usługi Azure Stream Analytics w scenariuszach, których nie można w pełni [zrównolegnąć.](stream-analytics-scale-jobs.md)
+W tym artykule pokazano, jak za pomocą ponownego partycjonowania skalować zapytanie Azure Stream Analytics w scenariuszach, które nie mogą być w pełni [równoległe](stream-analytics-scale-jobs.md).
 
-Korzystanie z [równoległości](stream-analytics-parallelization.md) może być nie możliwe, jeśli:
+Nie można używać [przetwarzanie równoległe](stream-analytics-parallelization.md) , jeśli:
 
-* Nie sterujesz kluczem partycji dla strumienia wejściowego.
-* Źródło "rozpyla" dane wejściowe na wielu partycjach, które później muszą zostać scalone.
+* Nie kontrolujesz klucza partycji dla strumienia wejściowego.
+* Twoje Źródło "rozpylania" na wielu partycjach, które później muszą zostać scalone.
 
-Ponowne partycjonowanie lub przetasowanie jest wymagane podczas przetwarzania danych w strumieniu, który nie jest podzielony na fragmenty zgodnie z naturalnym schematem danych wejściowych, takim jak **PartitionId** for Event Hubs. Podczas ponownej partycjonowania każdy niezależnego fragmentu mogą być przetwarzane niezależnie, co pozwala na liniowe skalowanie w poziomie potoku przesyłania strumieniowego.
+Ponowne partycjonowanie lub reshuffling jest wymagane podczas przetwarzania danych w strumieniu, który nie jest podzielonej na fragmenty zgodnie z naturalnym schematem wejściowym, takim jak **PartitionID** dla Event Hubs. Po ponownym partycjonowaniu każdy fragmentu może być przetwarzany niezależnie, co pozwala na liniowe skalowanie potoku przesyłania strumieniowego.
 
-## <a name="how-to-repartition"></a>Jak ponownie pogrupować
+## <a name="how-to-repartition"></a>Jak ponownie podzielić na partycje
 
-Aby podzielić na partycje, użyj słowa kluczowego **INTO** po **instrukcji PARTITION BY** w zapytaniu. W poniższym przykładzie partycje danych przez **DeviceID** do liczby partycji 10. Mieszanie **DeviceID** służy do określenia, która partycja akceptuje, który podwzłos. Dane są opróżniane niezależnie dla każdego strumienia partycjonowane, przy założeniu, że dane wyjściowe obsługuje zapisy podzielone na partycje i ma 10 partycji.
+Aby ponownie podzielić na partycje, użyj słowa kluczowego **do** po instrukcji **Partition by** w zapytaniu. Poniższy przykład dzieli dane według elementu **DeviceID** na liczbę partycji 10. Mieszanie elementu **DeviceID** służy do określenia, która partycja akceptuje Podstrumień. Dane są opróżniane niezależnie dla każdego strumienia partycjonowanego, przy założeniu, że dane wyjściowe obsługują operacje zapisu partycjonowane i mają 10 partycji.
 
 ```sql
 SELECT * 
@@ -37,7 +37,7 @@ PARTITION BY DeviceID
 INTO 10
 ```
 
-Poniższa przykładowa kwerenda łączy dwa strumienie danych partycjonowanych. Podczas łączenia dwóch strumieni danych podzielonych na partycje strumienie muszą mieć ten sam klucz partycji i liczbę. Wynik jest strumień, który ma ten sam schemat partycji.
+Poniższe przykładowe zapytanie łączy dwa strumienie danych z podziałem na partycje. W przypadku sprzęgania dwóch strumieni danych z podziałem na partycje, strumienie muszą mieć ten sam klucz partycji i liczbę. Wynik jest strumieniem, który ma ten sam schemat partycji.
 
 ```sql
 WITH step1 AS (SELECT * FROM input1 PARTITION BY DeviceID INTO 10),
@@ -46,28 +46,28 @@ step2 AS (SELECT * FROM input2 PARTITION BY DeviceID INTO 10)
 SELECT * INTO output FROM step1 PARTITION BY DeviceID UNION step2 PARTITION BY DeviceID
 ```
 
-Schemat danych wyjściowych powinien być zgodny z kluczem schematu strumienia i liczą się, aby każdy podstrunnik mógł być opróżniany niezależnie. Strumień może być również scalane i partycjonowane ponownie przez inny schemat przed opróżnianie, ale należy unikać tej metody, ponieważ dodaje do ogólnego opóźnienia przetwarzania i zwiększa wykorzystanie zasobów.
+Schemat danych wyjściowych powinien być zgodny z kluczem schematu strumienia i liczbą, tak aby każdy Podstrumień mógł zostać opróżniony niezależnie. Strumień można także scalić i ponownie podzielić na partycje przez inny schemat przed użyciem operacji opróżniania, ale należy unikać tej metody, ponieważ dodaje do ogólnego opóźnienia przetwarzania i zwiększa wykorzystanie zasobów.
 
-## <a name="streaming-units-for-repartitions"></a>Jednostki przesyłania strumieniowego dla partycjonowania
+## <a name="streaming-units-for-repartitions"></a>Jednostki przesyłania strumieniowego na potrzeby ponownego partycjonowania
 
-Eksperymentuj i obserwuj użycie zasobów zadania, aby określić dokładną liczbę partycji, których potrzebujesz. Liczba [jednostek przesyłania strumieniowego (SU)](stream-analytics-streaming-unit-consumption.md) musi być dostosowana do zasobów fizycznych potrzebnych dla każdej partycji. Ogólnie rzecz biorąc, sześć SUs są potrzebne dla każdej partycji. Jeśli do zadania przypisano za mało zasobów, system zastosuje partycję tylko wtedy, gdy jest ono korzystne dla zadania.
+Eksperymentuj i Obserwuj użycie zasobów zadania, aby określić dokładną liczbę potrzebnych partycji. Liczba [jednostek przesyłania strumieniowego (Su)](stream-analytics-streaming-unit-consumption.md) musi zostać skorygowana zgodnie z zasobami fizycznymi wymaganymi dla każdej partycji. Ogólnie rzecz biorąc, dla każdej partycji są dostępne sześć usług SUs. Jeśli do zadania są przypisane niewystarczające zasoby, system zastosuje repartycję tylko wtedy, gdy będzie ona czerpać korzyści z zadania.
 
-## <a name="repartitions-for-sql-output"></a>Ponowne partycjoncje dla danych wyjściowych SQL
+## <a name="repartitions-for-sql-output"></a>Podział na partycje dla danych wyjściowych SQL
 
-Gdy zadanie używa bazy danych SQL dla danych wyjściowych, użyj jawnego partycjonowania, aby dopasować optymalną liczbę partycji, aby zmaksymalizować przepływność. Ponieważ SQL działa najlepiej z ośmiu modułów zapisujących, partycjonowanie przepływu do ośmiu przed opróżniania lub gdzieś dalej w górę, może korzystać z wydajności zadania. 
+Gdy zadanie korzysta z usługi SQL Database na potrzeby danych wyjściowych, należy użyć jawnego ponownego partycjonowania, aby dopasować optymalną liczbę partycji. Ze względu na to, że program SQL działa najlepiej z ośmioma składnikami zapisywania, należy ponownie podzielić przepływ na osiem przed użyciem operacji opróżniania lub w innym miejscu, w którym można skorzystać z wydajności zadań. 
 
-Gdy istnieje więcej niż 8 partycji wejściowych, dziedziczenie schematu partycjonowania wejściowego może nie być odpowiednim wyborem. Należy rozważyć użycie [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) w kwerendzie jawnie określić liczbę modułów zapisu danych wyjściowych. 
+Jeśli istnieje więcej niż 8 partycji wejściowych, dziedziczenie schematu partycjonowania danych wejściowych może nie być odpowiednią opcją. Rozważ użycie polecenia [into](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) w zapytaniu, aby jawnie określić liczbę składników zapisywania danych wyjściowych. 
 
-Poniższy przykład odczytuje z danych wejściowych, niezależnie od tego, że jest naturalnie podzielony na partycje i ponownie dzieli strumień dziesięciokrotnie zgodnie z deviceid wymiaru i opróżnia dane do danych wyjściowych. 
+Poniższy przykład odczytuje dane wejściowe, bez względu na to, że są w naturalny sposób partycjonowane i ponownie dzieli dziesięciokrotny strumienia zgodnie z wymiarem DeviceID i opróżnia dane do danych wyjściowych. 
 
 ```sql
 SELECT * INTO [output] FROM [input] PARTITION BY DeviceID INTO 10
 ```
 
-Aby uzyskać więcej informacji, zobacz [dane wyjściowe usługi Azure Stream Analytics do usługi Azure SQL Database](stream-analytics-sql-output-perf.md).
+Aby uzyskać więcej informacji, zobacz [Azure Stream Analytics danych wyjściowych Azure SQL Database](stream-analytics-sql-output-perf.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
-* [Wykorzystanie równoległości zapytań w usłudze Azure Stream Analytics](stream-analytics-parallelization.md)
+* [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
+* [Korzystanie z przetwarzanie równoległe zapytań w Azure Stream Analytics](stream-analytics-parallelization.md)

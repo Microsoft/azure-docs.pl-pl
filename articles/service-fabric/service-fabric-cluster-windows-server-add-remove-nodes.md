@@ -1,35 +1,35 @@
 ---
-title: Dodawanie lub usuwanie węzłów do autonomicznego klastra sieci szkieletowej usług
-description: Dowiedz się, jak dodać lub usunąć węzły do klastra sieci szkieletowej usług Azure na komputerze fizycznym lub wirtualnym z systemem Windows Server, który może być lokalny lub w dowolnej chmurze.
+title: Dodawanie lub usuwanie węzłów w autonomicznym klastrze Service Fabric
+description: Dowiedz się, jak dodawać lub usuwać węzły do klastra Service Fabric platformy Azure na maszynie fizycznej lub wirtualnej z systemem Windows Server, która może być lokalna lub w dowolnej chmurze.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: f9bee35ee8e82070b4cf601139b471562ba5e10b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75934204"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Dodawanie węzłów do autonomicznego klastra usługi Service Fabric uruchomionego na serwerze Windows Server lub usuwanie go
-Po [utworzeniu autonomicznego klastra sieci szkieletowej usług na komputerach z systemem Windows Server](service-fabric-cluster-creation-for-windows-server.md)potrzeby (biznesowe) mogą ulec zmianie i trzeba będzie dodać lub usunąć węzły do klastra. Ten artykuł zawiera szczegółowe kroki, aby to osiągnąć. Należy pamiętać, że funkcja dodawania/usuwania węzła nie jest obsługiwana w lokalnych klastrach programistycznych.
+Po [utworzeniu autonomicznego klastra Service Fabric na maszynach z systemem Windows Server](service-fabric-cluster-creation-for-windows-server.md), wymagania (biznesowe) mogą ulec zmianie i trzeba będzie dodać lub usunąć węzły do klastra. Ten artykuł zawiera szczegółowe instrukcje, aby to osiągnąć. Należy pamiętać, że funkcje Dodaj/Usuń węzeł nie są obsługiwane w lokalnych klastrach programistycznych.
 
 ## <a name="add-nodes-to-your-cluster"></a>Dodawanie węzłów do klastra
 
-1. Przygotuj maszynę wirtualną/maszynę, którą chcesz dodać do klastra, wykonując kroki opisane w [zaplanuj i przygotuj wdrożenie klastra sieci szkieletowej usług.](service-fabric-cluster-standalone-deployment-preparation.md)
+1. Przygotuj maszynę wirtualną/maszynę, którą chcesz dodać do klastra, wykonując czynności opisane w temacie [Planowanie i przygotowywanie wdrożenia klastra Service Fabric](service-fabric-cluster-standalone-deployment-preparation.md).
 
-2. Określ, do której domeny błędów i domeny uaktualnienia zamierzasz dodać tę maszynę wirtualną/komputer.
+2. Zidentyfikuj domenę błędów i domenę uaktualnienia, do której chcesz dodać tę maszynę wirtualną/maszynę.
 
-   Jeśli certyfikaty są używane do zabezpieczania klastra, oczekuje się, że certyfikaty zostaną zainstalowane w lokalnych magazynach certyfikatów w ramach przygotowań do przyłączenia węzła do klastra. Analog ma zastosowanie w przypadku korzystania z innych form zabezpieczeń.
+   W przypadku użycia certyfikatów do zabezpieczenia klastra należy zainstalować certyfikaty w lokalnych magazynach certyfikatów w ramach przygotowania do przyłączenia węzła do klastra. Wartość analogowa ma zastosowanie w przypadku korzystania z innych form zabezpieczeń.
 
-3. Pulpit zdalny (RDP) do maszyny wirtualnej/maszyny, którą chcesz dodać do klastra.
+3. Pulpitu zdalnego (RDP) do maszyny wirtualnej/maszyny, którą chcesz dodać do klastra.
 
-4. Skopiuj lub [pobierz autonomiczny pakiet sieci szkieletowej usług dla systemu Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) na maszynę wirtualną/komputer i rozpakuj pakiet.
+4. Skopiuj lub [Pobierz pakiet autonomiczny dla Service Fabric dla systemu Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) do maszyny wirtualnej/maszyny i Rozpakuj pakiet.
 
-5. Uruchom program PowerShell z podwyższonymi uprawnieniami i przejdź do lokalizacji rozpakowanego pakietu.
+5. Uruchom program PowerShell z podwyższonym poziomem uprawnień i przejdź do lokalizacji rozpakowanego pakietu.
 
-6. Uruchom skrypt *AddNode.ps1* z parametrami opisującymi nowy węzeł do dodania. Poniższy przykład dodaje nowy węzeł o nazwie VM5, o typie NodeType0 i adres IP 182.17.34.52, do UD1 i fd:/dc1/r0. `ExistingClusterConnectionEndPoint`jest punktem końcowym połączenia dla węzła już w istniejącym klastrze, który może być adresem IP *dowolnego* węzła w klastrze. 
+6. Uruchom skrypt *AddNode. ps1* z parametrami opisującymi nowy węzeł do dodania. Poniższy przykład dodaje nowy węzeł o nazwie VM5, z typem NodeType0 i adresem IP 182.17.34.52, do UD1 i FD:/DC1/R0. `ExistingClusterConnectionEndPoint`jest punktem końcowym połączenia dla węzła znajdującego się już w istniejącym klastrze, który może być adresem IP *dowolnego* węzła w klastrze. 
 
    Niezabezpieczone (prototypowanie):
 
@@ -46,9 +46,9 @@ Po [utworzeniu autonomicznego klastra sieci szkieletowej usług na komputerach z
 
    ```
 
-   Po zakończeniu pracy skryptu można sprawdzić, czy nowy węzeł został dodany przez uruchomienie polecenia cmdlet [Get-ServiceFabricNode.](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps)
+   Po zakończeniu działania skryptu można sprawdzić, czy nowy węzeł został dodany, uruchamiając polecenie cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) .
 
-7. Aby zapewnić spójność między różnymi węzłami w klastrze, należy zainicjować uaktualnienie konfiguracji. Uruchom [Get-ServiceFabricClusterConfiguration,](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) aby uzyskać najnowszy plik konfiguracji i dodać nowo dodany węzeł do sekcji "Węzły". Zaleca się również, aby zawsze mieć dostęp do najnowszej konfiguracji klastra w przypadku konieczności ponownego rozmieszczenia klastra, który ma tę samą konfigurację.
+7. Aby zapewnić spójność w różnych węzłach w klastrze, należy zainicjować uaktualnienie konfiguracji. Uruchom [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) , aby pobrać najnowszy plik konfiguracji i dodać nowo dodany węzeł do sekcji "nodes" (węzły). Zalecane jest również, aby zawsze była dostępna Najnowsza Konfiguracja klastra, jeśli trzeba ponownie wdrożyć klaster, który ma taką samą konfigurację.
 
    ```
     {
@@ -60,17 +60,17 @@ Po [utworzeniu autonomicznego klastra sieci szkieletowej usług na komputerach z
     }
    ```
 
-8. Uruchom [start-ServiceFabricClusterConfigurationUpgrade,](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) aby rozpocząć uaktualnienie.
+8. Uruchom [menu Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) , aby rozpocząć uaktualnianie.
 
    ```
    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
    ```
 
-   Można monitorować postęp uaktualnienia w Eksploratorze sieci szkieletowej usług. Alternatywnie można uruchomić [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
+   Postęp uaktualniania można monitorować na Service Fabric Explorer. Alternatywnie można uruchomić polecenie [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
-### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Dodawanie węzłów do klastrów skonfigurowanych za pomocą programu Windows Security przy użyciu gMSA
-W przypadku klastrów skonfigurowanych za pomocą konta usługihttps://technet.microsoft.com/library/hh831782.aspx)zarządzanej grupy(gMSA) można dodać nowy węzeł za pomocą uaktualnienia konfiguracji:
-1. Uruchom [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) na dowolnym z istniejących węzłów, aby uzyskać najnowszy plik konfiguracji i dodać szczegóły dotyczące nowego węzła, który chcesz dodać w sekcji "Węzły". Upewnij się, że nowy węzeł jest częścią tego samego konta zarządzanego grupy. To konto powinno być administratorem na wszystkich komputerach.
+### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Dodawanie węzłów do klastrów skonfigurowanych z zabezpieczeniami systemu Windows przy użyciu gMSA
+W przypadku klastrów skonfigurowanych za pomocą konta usługi zarządzanego przez grupęhttps://technet.microsoft.com/library/hh831782.aspx)(gMSA) (nowy węzeł można dodać przy użyciu uaktualnienia konfiguracji:
+1. Uruchom [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) na dowolnym z istniejących węzłów, aby uzyskać najnowszy plik konfiguracji, i Dodaj szczegółowe informacje o nowym węźle, który chcesz dodać do sekcji "węzły". Upewnij się, że nowy węzeł jest częścią tego samego konta zarządzanego przez grupę. To konto powinno być kontem administratora na wszystkich komputerach.
 
     ```
         {
@@ -81,21 +81,21 @@ W przypadku klastrów skonfigurowanych za pomocą konta usługihttps://technet.m
             "upgradeDomain": "UD1"
         }
     ```
-2. Uruchom [start-ServiceFabricClusterConfigurationUpgrade,](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) aby rozpocząć uaktualnienie.
+2. Uruchom [menu Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) , aby rozpocząć uaktualnianie.
 
     ```
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
     ```
-    Można monitorować postęp uaktualnienia w Eksploratorze sieci szkieletowej usług. Alternatywnie można uruchomić [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+    Postęp uaktualniania można monitorować na Service Fabric Explorer. Alternatywnie można uruchomić polecenie [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 ### <a name="add-node-types-to-your-cluster"></a>Dodawanie typów węzłów do klastra
-Aby dodać nowy typ węzła, zmodyfikuj konfigurację, aby uwzględnić nowy typ węzła w sekcji "Typy węzłów" w sekcji "Właściwości" i rozpocznij uaktualnienie konfiguracji przy użyciu [funkcji Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps). Po zakończeniu uaktualniania można dodać nowe węzły do klastra za pomocą tego typu węzła.
+Aby dodać nowy typ węzła, należy zmodyfikować konfigurację w celu uwzględnienia nowego typu węzła w sekcji "elementów NodeType" w obszarze "właściwości" i rozpocząć uaktualnianie konfiguracji przy użyciu polecenia [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps). Po zakończeniu uaktualniania można dodać do klastra nowe węzły z tym typem węzła.
 
 ## <a name="remove-nodes-from-your-cluster"></a>Usuwanie węzłów z klastra
-Węzeł można usunąć z klastra przy użyciu uaktualnienia konfiguracji, w następujący sposób:
+Węzeł może zostać usunięty z klastra przy użyciu uaktualnienia konfiguracji w następujący sposób:
 
-1. Uruchom [Get-ServiceFabricClusterConfiguration,](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) aby uzyskać najnowszy plik konfiguracyjny i *usunąć* węzeł z sekcji "Węzły".
-Dodaj parametr "NodesToBeRemoved" do sekcji "Konfiguracja" w sekcji "FabricSettings". "Wartość" powinna być oddzieloną przecinkami listą nazw węzłów węzłów, które muszą zostać usunięte.
+1. Uruchom [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) , aby pobrać najnowszy plik konfiguracji i *usunąć* węzeł z sekcji "nodes" (węzły).
+Dodaj parametr "NodesToBeRemoved" do sekcji "Setup" w sekcji "FabricSettings". "Wartość" powinna być rozdzielaną przecinkami listą nazw węzłów węzłów, które należy usunąć.
 
     ```
          "fabricSettings": [
@@ -118,29 +118,29 @@ Dodaj parametr "NodesToBeRemoved" do sekcji "Konfiguracja" w sekcji "FabricSetti
             }
         ]
     ```
-2. Uruchom [start-ServiceFabricClusterConfigurationUpgrade,](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) aby rozpocząć uaktualnienie.
+2. Uruchom [menu Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) , aby rozpocząć uaktualnianie.
 
     ```
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
     ```
-    Można monitorować postęp uaktualnienia w Eksploratorze sieci szkieletowej usług. Alternatywnie można uruchomić [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
+    Postęp uaktualniania można monitorować na Service Fabric Explorer. Alternatywnie można uruchomić polecenie [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
 > [!NOTE]
-> Usunięcie węzłów może zainicjować wiele uaktualnień. Niektóre węzły są `IsSeedNode=”true”` oznaczone tagiem i można je zidentyfikować, przeprowadzając kwerendę w manifeście klastra za pomocą programu `Get-ServiceFabricClusterManifest`. Usuwanie takich węzłów może trwać dłużej niż inne, ponieważ węzły źródłowe będą musiały być przenoszone w takich scenariuszach. Klaster musi obsługiwać co najmniej 3 węzły typu węzła podstawowego.
+> Usunięcie węzłów może inicjować wiele uaktualnień. Niektóre węzły są oznaczone `IsSeedNode=”true”` tagami i mogą być identyfikowane przez przeszukiwanie manifestu klastra przy użyciu `Get-ServiceFabricClusterManifest`. Usunięcie takich węzłów może potrwać dłużej niż inne, ponieważ węzły inicjatora będą musiały zostać przeniesione w taki sposób. Klaster musi obsługiwać co najmniej 3 węzły podstawowego typu węzła.
 > 
 > 
 
 ### <a name="remove-node-types-from-your-cluster"></a>Usuwanie typów węzłów z klastra
-Przed usunięciem typu węzła należy dokładnie sprawdzić, czy istnieją węzły odwołujące się do typu węzła. Usuń te węzły przed usunięciem odpowiedniego typu węzła. Po usunięciu wszystkich odpowiednich węzłów można usunąć typ węzła z konfiguracji klastra i rozpocząć uaktualnienie konfiguracji przy użyciu [funkcji Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
+Przed usunięciem typu węzła należy sprawdzić, czy istnieją węzły odwołujące się do typu węzła. Usuń te węzły przed usunięciem odpowiedniego typu węzła. Po usunięciu odpowiednich węzłów można usunąć NodeType z konfiguracji klastra i rozpocząć uaktualnianie konfiguracji przy użyciu polecenia [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
 
 
-### <a name="replace-primary-nodes-of-your-cluster"></a>Zastępowanie węzłów podstawowych klastra
-Zastąpienie węzłów podstawowych należy wykonać jeden węzeł po drugim, zamiast usuwania, a następnie dodawanie w partiach.
+### <a name="replace-primary-nodes-of-your-cluster"></a>Zastąp podstawowe węzły klastra
+Zastąpienie węzłów podstawowych powinno odbywać się po jednym węźle, zamiast usuwać, a następnie dodawać w partiach.
 
 
 ## <a name="next-steps"></a>Następne kroki
 * [Ustawienia konfiguracji autonomicznego klastra systemu Windows](service-fabric-cluster-manifest.md)
-* [Zabezpieczanie autonomicznego klastra w systemie Windows przy użyciu certyfikatów X509](service-fabric-windows-cluster-x509-security.md)
-* [Tworzenie autonomicznego klastra sieci szkieletowej usług z maszynami wirtualnymi platformy Azure z systemem Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
+* [Zabezpieczanie klastra autonomicznego w systemie Windows przy użyciu certyfikatów x509](service-fabric-windows-cluster-x509-security.md)
+* [Tworzenie autonomicznego klastra Service Fabric z maszynami wirtualnymi platformy Azure z systemem Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
 

@@ -1,24 +1,24 @@
 ---
-title: Wyświetl odwołanie do artefaktu definicji
-description: Zawiera przykład artefaktu definicji widoku dla aplikacji zarządzanych platformy Azure. Nazwa pliku to viewDefinition.json.
+title: Pokaż odwołanie artefaktu definicji
+description: Zawiera przykład artefaktu definicji widoku dla Azure Managed Applications. Nazwa pliku to galerii. JSON.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 5173db54abef132a4a4d5d117881352ca37d6b23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651204"
 ---
-# <a name="reference-view-definition-artifact"></a>Odwołanie: Zobacz artefakt definicji
+# <a name="reference-view-definition-artifact"></a>Reference: artefakt definicji widoku
 
-Ten artykuł jest odwołaniem do artefaktu *viewDefinition.json* w aplikacjach zarządzanych platformy Azure. Aby uzyskać więcej informacji na temat konfiguracji widoków tworzenia, zobacz [Wyświetlanie artefaktu definicji](concepts-view-definition.md).
+Ten artykuł jest odwołaniem do artefaktu *galerii. JSON* w Azure Managed Applications. Aby uzyskać więcej informacji na temat konfiguracji widoków tworzenia, zobacz [artefakt definicji widoku](concepts-view-definition.md).
 
 ## <a name="view-definition"></a>Definicja widoku
 
-Poniżej przedstawiono przykład pliku *viewDefinition.json* dla aplikacji zarządzanych platformy Azure:
+Poniższy kod JSON przedstawia przykład pliku *galerii. JSON* dla Azure Managed Applications:
 
 ```json
 {
@@ -87,6 +87,6 @@ Poniżej przedstawiono przykład pliku *viewDefinition.json* dla aplikacji zarz�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Samouczek: Tworzenie aplikacji zarządzanej przy niestandardowych akcjach i zasobach](tutorial-create-managed-app-with-custom-provider.md)
-- [Odwołanie: Artefakt elementów interfejsu użytkownika](reference-createuidefinition-artifact.md)
-- [Odwołanie: Artefakt szablonu wdrożenia](reference-main-template-artifact.md)
+- [Samouczek: Tworzenie aplikacji zarządzanej z niestandardowymi akcjami i zasobami](tutorial-create-managed-app-with-custom-provider.md)
+- [Odwołanie: artefakt elementów interfejsu użytkownika](reference-createuidefinition-artifact.md)
+- [Odwołanie: artefakt szablonu wdrożenia](reference-main-template-artifact.md)

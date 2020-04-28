@@ -1,47 +1,47 @@
 ---
-title: Powiadomienia o niezawodnych usługach
-description: Dokumentacja koncepcyjna dla powiadomień o niezawodnych usługach sieci szkieletowej dla menedżera stanu niezawodnego i niezawodnego słownika
+title: Powiadomienia Reliable Services
+description: Dokumentacja dotycząca pojęć związanych z Service Fabric Reliable Services powiadomieniami dotyczącymi niezawodnego menedżera stanu i niezawodnego słownika
 author: mcoskun
 ms.topic: conceptual
 ms.date: 6/29/2017
 ms.author: mcoskun
 ms.openlocfilehash: 1f3239ea1da252ccd84c6572b562756c8fd1677d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75639568"
 ---
-# <a name="reliable-services-notifications"></a>Powiadomienia o niezawodnych usługach
-Powiadomienia umożliwiają klientom śledzenie zmian wprowadzonych w interesującym im obiekcie. Dwa typy obiektów obsługują powiadomienia: *Reliable State Manager* i Reliable *Dictionary*.
+# <a name="reliable-services-notifications"></a>Powiadomienia Reliable Services
+Powiadomienia umożliwiają klientom śledzenie zmian wprowadzonych w obiekcie, który Cię interesuje. Dwa typy obiektów obsługują powiadomienia: *niezawodnego menedżera stanu* i *niezawodnego słownika*.
 
-Typowe powody używania powiadomień to:
+Typowe przyczyny używania powiadomień to:
 
-* Tworzenie zmaterializowanych widoków, takich jak indeksy pomocnicze lub zagregowane filtrowane widoki stanu repliki. Przykładem jest posortowany indeks wszystkich kluczy w słowniku niezawodnym.
+* Tworzenie widoków z materiałami, takich jak indeksy pomocnicze lub zagregowane widoki filtrowane stanu repliki. Przykładem jest posortowany indeks wszystkich kluczy w niezawodnym słowniku.
 * Wysyłanie danych monitorowania, takich jak liczba użytkowników dodanych w ciągu ostatniej godziny.
 
 Powiadomienia są uruchamiane w ramach stosowania operacji. Z tego powodu powiadomienia powinny być obsługiwane tak szybko, jak to możliwe, a zdarzenia synchroniczne nie powinny zawierać żadnych kosztownych operacji.
 
-## <a name="reliable-state-manager-notifications"></a>Powiadomienia menedżera stanu niezawodnego
-Reliable State Manager udostępnia powiadomienia dla następujących zdarzeń:
+## <a name="reliable-state-manager-notifications"></a>Powiadomienia Menedżera niezawodnego stanu
+Niezawodny Menedżer stanu udostępnia powiadomienia dla następujących zdarzeń:
 
 * Transakcja
   * Zatwierdzenie
-* Kierownik państwa
+* Menedżer stanu
   * Ponowne kompilowanie
   * Dodanie niezawodnego stanu
-  * Usunięcie niezawodnego stanu
+  * Usuwanie niezawodnego stanu
 
-Menedżer stanu niezawodne śledzi bieżące transakcje pokładowe. Jedyną zmianą w stanie transakcji, która powoduje, że powiadomienie ma zostać odpalone, jest transakcja zatwierdzona.
+Niezawodny Menedżer stanu śledzi bieżące transakcje numerów porządkowych określających. Jedyną zmianą stanu transakcji, która powoduje, że powiadomienie jest wyzwalane, jest zatwierdzenie transakcji.
 
-Menedżer stanu niezawodne utrzymuje kolekcję niezawodnych stanów, takich jak niezawodny słownik i niezawodne kolejki. Menedżer stanu niezawodne uruchamia powiadomienia, gdy ta kolekcja zmienia: stan niezawodny jest dodawany lub usuwany lub cała kolekcja jest przebudowywana.
-Kolekcja Programu Reliable State Manager jest przebudowywana w trzech przypadkach:
+Niezawodny Menedżer stanu przechowuje zbiór niezawodnych Stanów, takich jak niezawodny słownik i niezawodna kolejka. Niezawodny Menedżer stanu wyzwala powiadomienia, gdy ta kolekcja ulegnie zmianie: niezawodny stan jest dodawany lub usuwany albo cała kolekcja została odbudowana.
+Kolekcja niezawodnego menedżera stanu jest ponownie skompilowana w trzech przypadkach:
 
-* Odzyskiwanie: Po uruchomieniu repliki odzyskuje swój poprzedni stan z dysku. Na koniec odzyskiwania używa **NotifyStateManagerChangedEventArgs** do wypalania zdarzenia, które zawiera zestaw odzyskane stany niezawodne.
-* Pełna kopia: Zanim replika może dołączyć do zestawu konfiguracyjnego, musi zostać zbudowana. Czasami wymaga to pełnej kopii stanu Menedżera stanu niezawodnego z repliki podstawowej, która ma zostać zastosowana do bezczynnej repliki pomocniczej. Menedżer stanu niezawodne w replice pomocniczej używa **NotifyStateManagerChangedEventArgs** do wypalania zdarzenia, które zawiera zestaw wiarygodnych stanów, które nabył z repliki podstawowej.
-* Przywracanie: W scenariuszach odzyskiwania po awarii stan repliki można przywrócić z kopii zapasowej za pośrednictwem **restoreasync**. W takich przypadkach Menedżer stanu niezawodnego w replice podstawowej używa **NotifyStateManagerChangedEventArgs** do wypalania zdarzenia, które zawiera zestaw niezawodnych stanów, które zostały przywrócone z kopii zapasowej.
+* Odzyskiwanie: po uruchomieniu repliki odzyska poprzedni stan z dysku. Po zakończeniu odzyskiwania używa **NotifyStateManagerChangedEventArgs** do wyzwolenia zdarzenia, które zawiera zestaw odzyskanych niezawodnych Stanów.
+* Pełna kopia: zanim replika będzie mogła dołączyć do zestawu konfiguracyjnego, musi być skompilowana. Czasami wymaga to pełnej kopii stanu niezawodnego menedżera stanu z repliki podstawowej, która ma zostać zastosowana do bezczynnej repliki pomocniczej. Niezawodny Menedżer stanu w replice pomocniczej używa **NotifyStateManagerChangedEventArgs** do uruchamiania zdarzenia, które zawiera zestaw niezawodnych Stanów uzyskanych z repliki podstawowej.
+* Przywracanie: w scenariuszach odzyskiwania po awarii stan repliki można przywrócić z kopii zapasowej za pomocą **RestoreAsync**. W takich przypadkach niezawodny Menedżer stanu w replice podstawowej używa **NotifyStateManagerChangedEventArgs** do wyzwolenia zdarzenia, które zawiera zestaw niezawodnych Stanów, które zostały przywrócone z kopii zapasowej.
 
-Aby zarejestrować powiadomienia o transakcjach i/lub powiadomienia menedżera stanu, należy zarejestrować się w **transactionchanged** lub **StateManagerZmienia zdarzenia** w Menedżerze stanu niezawodne. Wspólne miejsce do rejestrowania się przy tych programach obsługi zdarzeń jest konstruktor usługi stanowej. Podczas rejestracji w konstruktorze, nie przegapisz żadnego powiadomienia, które jest spowodowane przez zmianę w okresie istnienia **IReliableStateManager**.
+Aby zarejestrować się w celu otrzymywania powiadomień o transakcjach i/lub powiadomień menedżera stanu, należy zarejestrować się ze zdarzeniami **TransactionChanged** lub **StateManagerChanged** w Menedżerze niezawodnego stanu. Typowym miejscem na zarejestrowanie się w tych procedurach obsługi zdarzeń jest Konstruktor usługi stanowej. Po zarejestrowaniu się w konstruktorze nie zostaną pominięte żadne powiadomienia, które są spowodowane zmianą w okresie istnienia **IReliableStateManager**.
 
 ```csharp
 public MyService(StatefulServiceContext context)
@@ -52,14 +52,14 @@ public MyService(StatefulServiceContext context)
 }
 ```
 
-**TransactionChanged** obsługi zdarzeń używa **NotifyTransactionChangedEventArgs,** aby podać szczegółowe informacje o zdarzeniu. Zawiera właściwość akcji (na przykład **NotifyTransactionChangedAction.Commit**), która określa typ zmiany. Zawiera również właściwość transakcji, która zapewnia odwołanie do transakcji, która uległa zmianie.
+Procedura obsługi zdarzeń **TransactionChanged** używa **NotifyTransactionChangedEventArgs** w celu dostarczenia szczegółowych informacji o zdarzeniu. Zawiera właściwość akcji (na przykład **NotifyTransactionChangedAction. Commit**), która określa typ zmiany. Zawiera również Właściwość TRANSACTION, która zawiera odwołanie do transakcji, która została zmieniona.
 
 > [!NOTE]
-> Dzisiaj **TransactionChanged** zdarzenia są wywoływane tylko wtedy, gdy transakcja jest zatwierdzona. Akcja jest wtedy równa **NotifyTransactionChangedAction.Commit**. Ale w przyszłości zdarzenia mogą być wywoływane dla innych typów zmian stanu transakcji. Zalecamy sprawdzenie akcji i przetworzenie zdarzenia tylko wtedy, gdy jest to działanie, którego oczekujesz.
+> Dzisiaj zdarzenia **TransactionChanged** są zgłaszane tylko wtedy, gdy transakcja jest zatwierdzona. Ta akcja jest następnie równa **NotifyTransactionChangedAction. Commit**. Jednak w przyszłości zdarzenia mogą być zgłaszane dla innych typów stanu transakcji. Zalecamy sprawdzenie akcji i przetwarzanie zdarzenia tylko wtedy, gdy jest to oczekiwane.
 > 
 > 
 
-Poniżej przedstawiono przykład **TransactionChanged** obsługi zdarzeń.
+Poniżej znajduje się przykład programu obsługi zdarzeń **TransactionChanged** .
 
 ```csharp
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
@@ -74,14 +74,14 @@ private void OnTransactionChangedHandler(object sender, NotifyTransactionChanged
 }
 ```
 
-Program obsługi zdarzeń **StateManagerChanged** używa **NotifyStateManagerChangedEventArgs,** aby podać szczegółowe informacje o zdarzeniu.
+Procedura obsługi zdarzeń **StateManagerChanged** używa **NotifyStateManagerChangedEventArgs** w celu dostarczenia szczegółowych informacji o zdarzeniu.
 **NotifyStateManagerChangedEventArgs** ma dwie podklasy: **NotifyStateManagerRebuildEventArgs** i **NotifyStateManagerSingleEntityChangedEventArgs**.
-Właściwości akcji w **NotifyStateManagerChangedEventArgs** można rzutować **NotifyStateManagerChangedEventArgs** do poprawnej podklasy:
+Właściwość Action w **NotifyStateManagerChangedEventArgs** służy do rzutowania **NotifyStateManagerChangedEventArgs** do poprawnej podklasy:
 
-* **NotifyStateManagerChangedAction.Rebuild**: **NotifyStateManagerRebuildEventArgs**
-* **NotifyStateManagerChangedAction.Add** and **NotifyStateManagerChangedAction.Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**
+* **NotifyStateManagerChangedAction. Rebuild**: **NotifyStateManagerRebuildEventArgs**
+* **NotifyStateManagerChangedAction. Add** i **NotifyStateManagerChangedAction. Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**
 
-Poniżej przedstawiono **przykładu StateManagerZmieniony** program obsługi powiadomień.
+Poniżej znajduje się przykład **StateManagerChanged** obsługi powiadomień.
 
 ```csharp
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
@@ -98,16 +98,16 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 ```
 
 ## <a name="reliable-dictionary-notifications"></a>Powiadomienia o niezawodnym słowniku
-Niezawodny słownik udostępnia powiadomienia dla następujących zdarzeń:
+Niezawodny słownik zapewnia powiadomienia dla następujących zdarzeń:
 
-* Odbuduj: Wywoływane, gdy **ReliableDictionary** odzyskał swój stan z odzyskanego lub skopiowanego stanu lokalnego lub kopii zapasowej.
-* Clear: Wywoływane, gdy stan **ReliableDictionary** został wyczyszczony za pomocą **ClearAsync** metody.
-* Dodaj: Wywoływane po dodaniu elementu do **ReliableDictionary**.
-* Aktualizacja: Wywoływana, gdy element w **IReliableDictionary** został zaktualizowany.
-* Usuń: Wywoływane po usunięciu elementu w **IReliableDictionary.**
+* Rebuild: wywoływana, gdy **ReliableDictionary** odzyska swój stan z przywróconego lub skopiowanego stanu lokalnego lub kopii zapasowej.
+* Clear: wywoływana, gdy stan elementu **ReliableDictionary** został wyczyszczony za pomocą metody **ClearAsync** .
+* Dodaj: wywoływana, gdy element został dodany do **ReliableDictionary**.
+* Update: wywoływana, gdy element w **IReliableDictionary** został zaktualizowany.
+* Remove: wywoływana, gdy element w **IReliableDictionary** został usunięty.
 
-Aby uzyskać powiadomienia reliable dictionary, należy zarejestrować się w **dictionarychanged** obsługi zdarzeń na **IReliableDictionary**. Wspólne miejsce, aby zarejestrować się w tych programach obsługi zdarzeń jest w **ReliableStateManager.StateManagerZmienił** dodać powiadomienie.
-Rejestrowanie, gdy **IReliableDictionary** jest dodawany do **IReliableStateManager** zapewnia, że nie przegapisz żadnych powiadomień.
+Aby uzyskać niezawodne powiadomienia słowników, musisz zarejestrować się w programie obsługi zdarzeń **DictionaryChanged** na **IReliableDictionary**. Typowym miejscem do zarejestrowania się w tych procedurach obsługi zdarzeń jest dodanie powiadomienia **ReliableStateManager. StateManagerChanged** .
+Rejestrowanie w przypadku dodania **IReliableDictionary** do **IReliableStateManager** gwarantuje, że nie zostaną pominięte żadne powiadomienia.
 
 ```csharp
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
@@ -127,11 +127,11 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 ```
 
 > [!NOTE]
-> **ProcessStateManagerSingleEntityNotification** jest metoda przykładowa, że poprzedni **OnStateManagerChangedHandler** przykład wywołania.
+> **ProcessStateManagerSingleEntityNotification** to przykładowa Metoda wywołująca poprzedni przykład **OnStateManagerChangedHandler** .
 > 
 > 
 
-Poprzedni kod ustawia interfejs **IReliableNotificationAsyncCallback** wraz ze **słownikiemzmienił**. Ponieważ **NotifyDictionaryRebuildEventArgs** zawiera **IAsyncEnumerable** interfejs - który musi być wyliczony asynchronicznie - odbudować powiadomienia są uruchamiane przez **RebuildNotificationAsyncCallback** zamiast **OnDictionaryChangedHandler**.
+Poprzedni kod ustawia interfejs **IReliableNotificationAsyncCallback** oraz **DictionaryChanged**. Ponieważ **NotifyDictionaryRebuildEventArgs** zawiera interfejs **IAsyncEnumerable** — który musi zostać wyliczony asynchronicznie — powiadomienia odbudowywania są wywoływane przez **RebuildNotificationAsyncCallback** zamiast **OnDictionaryChangedHandler**.
 
 ```csharp
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
@@ -149,18 +149,18 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 ```
 
 > [!NOTE]
-> W poprzednim kodzie, w ramach przetwarzania powiadomień o przebudowie, najpierw zachowany stan zagregowany jest czyszczony. Ponieważ niezawodna kolekcja jest przebudowywana z nowym stanem, wszystkie poprzednie powiadomienia są bez znaczenia.
+> W powyższym kodzie, w ramach przetwarzania powiadomienia o ponownym przeniesieniu, najpierw jest czyszczony stan "zagregowany". Ponieważ niezawodna kolekcja jest tworzona ponownie z nowym stanem, wszystkie wcześniejsze powiadomienia są nieistotne.
 > 
 > 
 
-Program obsługi zdarzeń **DictionaryChanged** używa **NotifyDictionaryChangedEventArgs,** aby podać szczegółowe informacje o zdarzeniu.
-**NotifyDictionaryChangedEventArgs** ma pięć podklas. Użyj właściwości akcji w **NotifyDictionaryChangedEventArgs** do rzutowania **NotifyDictionaryChangedEventArgs** do poprawnej podklasy:
+Procedura obsługi zdarzeń **DictionaryChanged** używa **NotifyDictionaryChangedEventArgs** w celu dostarczenia szczegółowych informacji o zdarzeniu.
+**NotifyDictionaryChangedEventArgs** ma pięć podklas. Użyj właściwości Action w **NotifyDictionaryChangedEventArgs** , aby rzutować **NotifyDictionaryChangedEventArgs** do poprawnej podklasy:
 
-* NotifyDictionaryChangedAction.Rebuild : **NotifyDictionaryRebuildEventArgs** **NotifyDictionionaryChangedAction.Rebuild**: NotifyDictionaryRebuildEventArgs NotifyDictionionary
-* NotifyDictionaryChangedAction.Clear : NotifyDictionaryClearEventArgs **NotifyDictionionaryChangedaction.Clear**: **NotifyDictionaryClearEventArgs NotifyDictionionaryChangargs NotifyDictionionaryClearEventArgs NotifyDiction**
-* **NotifyDictionaryChangedaction.Add**: NotifyDictionaryItemaddedEventArgs NotifyDictionaryChangedaction.Add : **NotifyDictionaryItemedeventArgs NotifyDictionary**
-* **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
-* **NotifyDictionaryChangedaction.Remove**: **NotifyDictionaryItemRemovedEventArgs** NotifyDictionaryChangedaction.Remove : NotifyDictionaryItemRemovedEventArgs NotifyDictionary
+* **NotifyDictionaryChangedAction. Rebuild**: **NotifyDictionaryRebuildEventArgs**
+* **NotifyDictionaryChangedAction. Clear**: **NotifyDictionaryClearEventArgs**
+* **NotifyDictionaryChangedAction. Add**: **NotifyDictionaryItemAddedEventArgs**
+* **NotifyDictionaryChangedAction. Update**: **NotifyDictionaryItemUpdatedEventArgs**
+* **NotifyDictionaryChangedAction. Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
 ```csharp
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
@@ -194,21 +194,21 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 ```
 
 ## <a name="recommendations"></a>Zalecenia
-* *Wykonaj* zdarzenia powiadomień tak szybko, jak to możliwe.
-* *Nie* należy wykonywać żadnych kosztownych operacji (na przykład operacji we/wy) w ramach zdarzeń synchronicznych.
-* *Sprawdź* typ akcji przed przetworzeniem zdarzenia. Nowe typy akcji mogą zostać dodane w przyszłości.
+* *Wykonaj* pełne zdarzenia powiadomień tak szybko, jak to możliwe.
+* *Nie* wykonuj żadnych kosztownych operacji (na przykład operacji we/wy) w ramach zdarzeń synchronicznych.
+* Przed przetworzeniem *zdarzenia Sprawdź typ* akcji. Nowe typy akcji mogą zostać dodane w przyszłości.
 
-Oto kilka rzeczy, o których należy pamiętać:
+Poniżej przedstawiono niektóre kwestie, o których należy pamiętać:
 
-* Powiadomienia są uruchamiane w ramach wykonywania operacji. Na przykład powiadomienie przywracania jest uruchamiany jako ostatni krok operacji przywracania. Przywracanie nie zakończy się, dopóki zdarzenie powiadomienia jest przetwarzane.
-* Ponieważ powiadomienia są uruchamiane jako część operacji stosowania, klienci widzą tylko powiadomienia dla operacji zatwierdzonych lokalnie. A ponieważ operacje są gwarantowane tylko do lokalnego zatwierdzania (innymi słowy, rejestrowane), mogą lub nie mogą być cofnięte w przyszłości.
-* Na ścieżce ponawianie pojedyncze powiadomienie jest uruchamiane dla każdej zastosowanej operacji. Oznacza to, że jeśli transakcja T1 zawiera Create(X), Delete(X) i Create(X), otrzymasz jedno powiadomienie o utworzeniu X, jedno dla usunięcia i jedno dla ponownego utworzenia w tej kolejności.
-* W przypadku transakcji, które zawierają wiele operacji, operacje są stosowane w kolejności, w jakiej zostały odebrane w replice podstawowej od użytkownika.
-* W ramach przetwarzania postępu fałszywych, niektóre operacje mogą zostać cofnięte. Powiadomienia są wywoływane dla takich operacji cofania, toczenia stanu repliki z powrotem do punktu stabilnego. Jedną z ważnych różnic powiadomień cofania jest to, że zdarzenia, które mają zduplikowane klucze są agregowane. Na przykład jeśli transakcja T1 jest cofnięta, zobaczysz pojedyncze powiadomienie delete(X).
+* Powiadomienia są uruchamiane w ramach wykonywania operacji. Na przykład powiadomienie przywracania jest wyzwalane jako ostatni krok operacji przywracania. Przywracanie nie zostanie zakończone, dopóki nie zostanie przetworzone zdarzenie powiadomienia.
+* Ponieważ powiadomienia są uruchamiane w ramach operacji zastosowania, klienci widzą tylko powiadomienia dla lokalnie zatwierdzonych operacji. I ponieważ operacje są gwarantowane tylko lokalnie zatwierdzane (innymi słowy, zarejestrowane), mogą one lub nie być cofnięte w przyszłości.
+* W przypadku ponownej ścieżki wykonaj pojedyncze powiadomienie dla każdej zastosowanej operacji. Oznacza to, że jeśli transakcja T1 obejmuje tworzenie (X), Delete (X) i Create (X), otrzymasz jedno powiadomienie na potrzeby utworzenia X, jednego do usunięcia, a drugi do utworzenia ponownie, w tej kolejności.
+* W przypadku transakcji zawierających wiele operacji operacje są stosowane w kolejności, w jakiej zostały odebrane w replice podstawowej od użytkownika.
+* W ramach przetwarzania fałszywych postępów niektóre operacje mogą być cofnięte. Powiadomienia są zgłaszane dla takich operacji cofania, ale wycofywanie stanu repliki z powrotem do stabilnego punktu. Jedną z ważnych różnic między powiadomieniami o cofnięciu jest to, że agregowane są zdarzenia, które mają zduplikowane klucze. Na przykład jeśli transakcja T1 jest cofnięta, zobaczysz pojedyncze powiadomienie do usunięcia (X).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Elementy Reliable Collections](service-fabric-work-with-reliable-collections.md)
-* [Szybki start niezawodnych usług](service-fabric-reliable-services-quick-start.md)
-* [Tworzenie kopii zapasowych i przywracanie niezawodnych usług (odzyskiwanie po awarii)](service-fabric-reliable-services-backup-restore.md)
-* [Informacje dla dewelopera dotyczące niezawodnych kolekcji](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [Reliable Services Szybki Start](service-fabric-reliable-services-quick-start.md)
+* [Reliable Services kopii zapasowej i przywracania (odzyskiwanie po awarii)](service-fabric-reliable-services-backup-restore.md)
+* [Dokumentacja dla deweloperów dla niezawodnych kolekcji](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 

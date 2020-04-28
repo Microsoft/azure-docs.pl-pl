@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: digital-twins
 ms.author: alinast
 author: alinamstanciu
@@ -10,13 +10,13 @@ ms.topic: include
 ms.date: 01/06/2020
 ms.custom: include file
 ms.openlocfilehash: bacb665eeffc6bb5351d11ec74139a272c95a9fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75692588"
 ---
-W poniższych przykładach `YOUR_MANAGEMENT_API_URL` odnosi się do identyfikatora URI interfejsów API cyfrowych bliźniąt:
+W poniższych przykładach `YOUR_MANAGEMENT_API_URL` odwołuje się do identyfikatora URI interfejsów API Digital bliźniaczych reprezentacji:
 
 ```URL
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0
@@ -24,5 +24,5 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.
 
 | Nazwa | Zamień na |
 | --- | --- |
-| YOUR_INSTANCE_NAME | Nazwa wystąpienia usługi Azure Digital Twins |
-| YOUR_LOCATION | Region, w który znajduje się twoje wystąpienie, jest |
+| YOUR_INSTANCE_NAME | Nazwa wystąpienia usługi Azure Digital bliźniaczych reprezentacji |
+| YOUR_LOCATION | Region, w którym jest hostowane wystąpienie |

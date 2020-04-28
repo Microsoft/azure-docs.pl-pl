@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,27 +9,27 @@ ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f322803d3484b4ec2d5449e19d67d75b35d6d92f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75751685"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
-### <a name="what-should-i-do-if-im-getting-a-certificate-mismatch-when-connecting-using-certificate-authentication"></a>Co należy zrobić, jeśli podczas nawiązywania połączenia przy użyciu uwierzytelniania certyfikatów ostępuje niedopasowanie certyfikatów?
+### <a name="what-should-i-do-if-im-getting-a-certificate-mismatch-when-connecting-using-certificate-authentication"></a>Co należy zrobić, jeśli podczas nawiązywania połączenia przy użyciu uwierzytelniania certyfikatu występuje niezgodność certyfikatu?
 
-Odznacz **opcję "Sprawdź tożsamość serwera, sprawdzając certyfikat"** lub **dodaj numer FQDN serwera wraz z certyfikatem** podczas ręcznego tworzenia profilu. Można to zrobić, uruchamiając **rasphone** z wiersza polecenia i wybierając profil z listy rozwijanej.
+Usuń zaznaczenie pola wyboru **"Weryfikuj tożsamość serwera, sprawdzając certyfikat"** lub **Dodaj nazwę FQDN serwera wraz z certyfikatem** podczas ręcznego tworzenia profilu. Można to zrobić, uruchamiając polecenie **Rasphone** z wiersza polecenia i wybierając profil z listy rozwijanej.
 
-Pomijanie sprawdzania poprawności tożsamości serwera nie jest ogólnie zalecane, ale w przypadku uwierzytelniania certyfikatu platformy Azure ten sam certyfikat jest używany do sprawdzania poprawności serwera w protokole tunelowania sieci VPN (IKEv2/SSTP) i protokole EAP. Ponieważ certyfikat serwera i nazwa FQDN są już weryfikowane przez protokół tunelowania sieci VPN, ponowne sprawdzenie poprawności tego samego w eap jest zbędne.
+Pomijanie sprawdzania poprawności tożsamości serwera nie jest zalecane, ale z uwierzytelnianiem przy użyciu certyfikatu platformy Azure, ten sam certyfikat jest używany do sprawdzania poprawności serwera w protokole tunelowania sieci VPN (IKEv2/SSTP) i protokół EAP. Ponieważ certyfikat serwera i nazwa FQDN są już weryfikowane przez protokół tunelowania sieci VPN, nadmiarowe sprawdzenie poprawności tego samego ponownie w protokole EAP.
 
-![punkt do lokacji](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Certyfikat serwera")
+![punkt-lokacja](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Certyfikat serwera")
 
-### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>Czy mogę używać własnego wewnętrznego głównego urzędu certyfikacji infrastruktury kluczy publicznych do generowania certyfikatów dla łączności typu punkt-lokacja?
+### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>Czy można użyć własnego głównego urzędu certyfikacji PKI do generowania certyfikatów dla połączeń punkt-lokacja?
 
 Tak. Wcześniej można było używać tylko certyfikatów głównych z podpisem własnym. Nadal można przesłać 20 certyfikatów głównych.
 
-### <a name="can-i-use-certificates-from-azure-key-vault"></a>Czy mogę używać certyfikatów z usługi Azure Key Vault?
+### <a name="can-i-use-certificates-from-azure-key-vault"></a>Czy mogę używać certyfikatów z Azure Key Vault?
 
 Nie.
 

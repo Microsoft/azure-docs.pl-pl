@@ -1,6 +1,6 @@
 ---
-title: 'Brama sieci VPN platformy Azure: generowanie certyfikatów eksportu & dla P2S: MakeCert'
-description: Utwórz certyfikat główny z podpisem własnym, wyeksportuj klucz publiczny i wygeneruj certyfikaty klientów przy użyciu funkcji MakeCert.
+title: 'VPN Gateway platformy Azure: generowanie & eksportowanie certyfikatów dla P2S: MakeCert'
+description: Utwórz certyfikat główny z podpisem własnym, wyeksportuj klucz publiczny i Wygeneruj certyfikaty klienta przy użyciu MakeCert.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,62 +8,62 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
 ms.openlocfilehash: ad2ab31e6771efc54238d5747863fa2a9bb2f356
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75833974"
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Generowanie i eksportowanie certyfikatów dla połączeń typu punkt-lokacja przy użyciu funkcji MakeCert
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Generowanie i eksportowanie certyfikatów dla połączeń punkt-lokacja za pomocą MakeCert
 
-Połączenia typu "punkt-lokacja" używają certyfikatów do uwierzytelniania. W tym artykule pokazano, jak utworzyć certyfikat główny z podpisem własnym i wygenerować certyfikaty klienta przy użyciu funkcji MakeCert. Jeśli szukasz różnych instrukcji certyfikatów, zobacz [Certyfikaty - PowerShell](vpn-gateway-certificates-point-to-site.md) lub [Certyfikaty - Linux](vpn-gateway-certificates-point-to-site-linux.md).
+Połączenia punkt-lokacja używają certyfikatów do uwierzytelniania. W tym artykule pokazano, jak utworzyć certyfikat główny z podpisem własnym i wygenerować certyfikaty klienta przy użyciu MakeCert. Jeśli szukasz różnych instrukcji dotyczących certyfikatów, zobacz [Certificates-PowerShell](vpn-gateway-certificates-point-to-site.md) lub [Certificates-Linux](vpn-gateway-certificates-point-to-site-linux.md).
 
-Chociaż zaleca się użycie [kroków programu Windows 10 PowerShell](vpn-gateway-certificates-point-to-site.md) do tworzenia certyfikatów, udostępniamy te instrukcje MakeCert jako opcjonalną metodę. Certyfikaty generowane przy użyciu dowolnej metody można zainstalować w [dowolnym obsługiwanym systemie operacyjnym klienta](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). Jednak MakeCert ma następujące ograniczenia:
+Chociaż zalecamy używanie [kroków programu PowerShell systemu Windows 10](vpn-gateway-certificates-point-to-site.md) do tworzenia certyfikatów, firma Microsoft udostępnia te instrukcje MakeCert jako opcjonalną metodę. Certyfikaty generowane przy użyciu jednej z tych metod można zainstalować w [dowolnym obsługiwanym systemie operacyjnym klienta](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). Jednak MakeCert ma następujące ograniczenie:
 
-* MakeCert jest przestarzały. Oznacza to, że to narzędzie może zostać usunięte w dowolnym momencie. Wszystkie certyfikaty, które zostały już wygenerowane przy użyciu funkcji MakeCert, nie będą miały wpływu, gdy MakeCert nie będzie już dostępny. MakeCert jest używany tylko do generowania certyfikatów, a nie jako mechanizm sprawdzania poprawności.
+* MakeCert jest przestarzała. Oznacza to, że to narzędzie można usunąć w dowolnym momencie. Nie będzie to miało wpływu na wszystkie certyfikaty, które zostały już wygenerowane przy użyciu usługi MakeCert, gdy MakeCert nie jest już dostępny. MakeCert jest używana tylko do generowania certyfikatów, a nie mechanizmu weryfikacji.
 
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Tworzenie certyfikatu głównego z podpisem własnym
 
-W poniższych krokach pokazano, jak utworzyć certyfikat z podpisem własnym przy użyciu funkcji MakeCert. Te kroki nie są specyficzne dla modelu wdrożenia. Są one ważne zarówno dla Menedżera zasobów, jak i klasyczne.
+Poniższe kroki pokazują, jak utworzyć certyfikat z podpisem własnym za pomocą MakeCert. Te kroki nie są specyficzne dla modelu wdrożenia. Są one prawidłowe dla Menedżer zasobów i klasycznych.
 
 1. Pobierz i zainstaluj [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
-2. Po instalacji narzędzie makecert.exe można zazwyczaj znaleźć pod tą ścieżką: "C:\Program Files (x86)\Windows Kits\10\bin\<arch>". Chociaż możliwe, że został zainstalowany w innej lokalizacji. Otwórz wiersz polecenia jako administrator i przejdź do lokalizacji narzędzia MakeCert. Można użyć następującego przykładu, dostosowując się do właściwej lokalizacji:
+2. Po instalacji można zwykle znaleźć narzędzie Makecert. exe w tej ścieżce: "C:\Program Files (x86) \Windows Kits\10\bin\<Arch>". Chociaż jest możliwe, że został on zainstalowany w innej lokalizacji. Otwórz wiersz polecenia jako administrator i przejdź do lokalizacji narzędzia MakeCert. Można użyć poniższego przykładu, dostosowując do właściwej lokalizacji:
 
    ```cmd
    cd C:\Program Files (x86)\Windows Kits\10\bin\x64
    ```
-3. Utwórz i zainstaluj certyfikat w magazynie certyfikatów osobistych na komputerze. Poniższy przykład tworzy odpowiedni plik *cer,* który można przekazać na platformę Azure podczas konfigurowania P2S. Zastąp "P2SRootCert" i "P2SRootCert.cer" nazwą, której chcesz użyć dla certyfikatu. Certyfikat znajduje się w folderze "Certyfikaty — bieżący użytkownik\Osobisty\Certyfikaty".
+3. Utwórz i Zainstaluj certyfikat w osobistym magazynie certyfikatów na komputerze. Poniższy przykład tworzy odpowiedni plik *. cer* , który jest przekazywany do platformy Azure podczas konfigurowania P2S. Zastąp element "P2SRootCert" i "P2SRootCert. cer" nazwą, której chcesz użyć dla certyfikatu. Certyfikat znajduje się w "Certificates-Current User\Personal\Certificates".
 
    ```cmd
    makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
    ```
 
-## <a name="export-the-public-key-cer"></a><a name="cer"></a>Eksportowanie klucza publicznego (.cer)
+## <a name="export-the-public-key-cer"></a><a name="cer"></a>Eksportowanie klucza publicznego (CER)
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
-Plik exported.cer musi zostać przekazany na platformę Azure. Aby uzyskać instrukcje, zobacz [Konfigurowanie połączenia typu punkt-lokacja](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). Aby dodać dodatkowy zaufany certyfikat główny, zobacz [tę sekcję](vpn-gateway-howto-point-to-site-resource-manager-portal.md#add) artykułu.
+Wyeksportowany plik CER musi zostać przekazany do platformy Azure. Aby uzyskać instrukcje, zobacz [Konfigurowanie połączenia punkt-lokacja](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). Aby dodać dodatkowy zaufany certyfikat główny, zapoznaj się z [tą sekcją](vpn-gateway-howto-point-to-site-resource-manager-portal.md#add) artykułu.
 
-### <a name="export-the-self-signed-certificate-and-private-key-to-store-it-optional"></a>Eksportowanie certyfikatu z podpisem własnym i klucza prywatnego w celu jego przechowywania (opcjonalnie)
+### <a name="export-the-self-signed-certificate-and-private-key-to-store-it-optional"></a>Wyeksportuj certyfikat z podpisem własnym i klucz prywatny, aby go zapisać (opcjonalnie)
 
-Można wyeksportować certyfikat główny z podpisem własnym i bezpiecznie go przechowywać. W razie potrzeby można go później zainstalować na innym komputerze i wygenerować więcej certyfikatów klienta lub wyeksportować inny plik cer. Aby wyeksportować certyfikat główny z podpisem własnym jako .pfx, wybierz certyfikat główny i użyj tych samych kroków, jak opisano w obszarze [Eksportowanie certyfikatu klienta](#clientexport).
+Możesz chcieć wyeksportować certyfikat główny z podpisem własnym i bezpiecznie go zapisać. W razie potrzeby można później zainstalować go na innym komputerze i generować więcej certyfikatów klienta lub wyeksportować inny plik. cer. Aby wyeksportować certyfikat główny z podpisem własnym jako plik PFX, wybierz certyfikat główny i wykonaj te same kroki, zgodnie z opisem w sekcji [Eksportowanie certyfikatu klienta](#clientexport).
 
-## <a name="create-and-install-client-certificates"></a>Tworzenie i instalowanie certyfikatów klientów
+## <a name="create-and-install-client-certificates"></a>Tworzenie i instalowanie certyfikatów klienta
 
-Certyfikat z podpisem własnym nie jest instalowyny bezpośrednio na komputerze klienckim. Należy wygenerować certyfikat klienta z certyfikatu z podpisem własnym. Następnie należy wyeksportować i zainstalować certyfikat klienta na komputerze klienckim. Poniższe kroki nie są specyficzne dla modelu wdrożenia. Są one ważne zarówno dla Menedżera zasobów, jak i klasyczne.
+Certyfikat z podpisem własnym nie jest instalowany bezpośrednio na komputerze klienckim. Należy wygenerować certyfikat klienta z certyfikatu z podpisem własnym. Następnie należy wyeksportować certyfikat klienta i zainstalować go na komputerze klienckim. Poniższe kroki nie są specyficzne dla modelu wdrożenia. Są one prawidłowe dla Menedżer zasobów i klasycznych.
 
 ### <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Generowanie certyfikatu klienta
 
-Na każdym komputerze klienckim nawiązującym połączenie z siecią wirtualną za pomocą połączenia typu punkt-lokacja musi być zainstalowany certyfikat klienta w celu uwierzytelniania. Certyfikat klienta jest generowany z certyfikatu głównego z podpisem własnym, a następnie eksportuje i instaluje certyfikat klienta. Jeśli certyfikat klienta nie jest zainstalowany, uwierzytelnianie kończy się niepowodzeniem. 
+Na każdym komputerze klienckim nawiązującym połączenie z siecią wirtualną za pomocą połączenia typu punkt-lokacja musi być zainstalowany certyfikat klienta w celu uwierzytelniania. Certyfikat klienta jest generowany na podstawie certyfikatu głównego z podpisem własnym, a następnie eksportowany i instalowany jest certyfikat klienta. Jeśli certyfikat klienta nie jest zainstalowany, uwierzytelnianie kończy się niepowodzeniem. 
 
-Poniższe kroki przebiegają przez generowanie certyfikatu klienta z certyfikatu głównego z podpisem własnym. Można wygenerować wiele certyfikatów klienta z tego samego certyfikatu głównego. Podczas generowania certyfikatów klientów przy użyciu poniższych kroków certyfikat klienta jest automatycznie instalowany na komputerze używanym do generowania certyfikatu. Jeśli chcesz zainstalować certyfikat klienta na innym komputerze klienckim, możesz go wyeksportować.
+Poniższe kroki przeprowadzą Cię przez proces generowania certyfikatu klienta z certyfikatu głównego z podpisem własnym. Można generować wiele certyfikatów klienta z tego samego certyfikatu głównego. Po wygenerowaniu certyfikatów klienta przy użyciu poniższych kroków certyfikat klienta jest automatycznie instalowany na komputerze, który został użyty do wygenerowania certyfikatu. Jeśli chcesz zainstalować certyfikat klienta na innym komputerze klienckim, możesz wyeksportować certyfikat.
  
-1. Na tym samym komputerze, który został użyty do utworzenia certyfikatu z podpisem własnym, otwórz wiersz polecenia jako administrator.
-2. Zmodyfikuj i uruchom próbkę, aby wygenerować certyfikat klienta.
-   * Zmień *"P2SRootCert"* na nazwę katalogu głównego z podpisem własnym, z którego generujesz certyfikat klienta. Upewnij się, że używasz nazwy certyfikatu głównego, która jest niezależnie od wartości "CN =", która została określona podczas tworzenia katalogu głównego z podpisem własnym.
-   * Zmień *P2SChildCert* na nazwę, którą chcesz wygenerować certyfikat klienta.
+1. Na tym samym komputerze, który został użyty do utworzenia certyfikatu z podpisem własnym, Otwórz wiersz polecenia jako administrator.
+2. Zmodyfikuj i uruchom przykład, aby wygenerować certyfikat klienta.
+   * Zmień *wartość "P2SRootCert"* na nazwę elementu głównego z podpisem własnym, z którego jest generowany certyfikat klienta. Upewnij się, że używasz nazwy certyfikatu głównego, która jest bez względu na to, że wartość "CN =" została określona podczas tworzenia katalogu głównego z podpisem własnym.
+   * Zmień *P2SChildCert* na nazwę, dla której chcesz wygenerować certyfikat klienta.
 
-   Jeśli uruchomisz poniższy przykład bez modyfikowania go, wynikiem jest certyfikat klienta o nazwie P2SChildcert w magazynie certyfikatów osobistych, który został wygenerowany z certyfikatu głównego P2SRootCert.
+   W przypadku uruchomienia poniższego przykładu bez modyfikowania, wynik jest certyfikat klienta o nazwie P2SChildcert w osobistym magazynie certyfikatów, który został wygenerowany na podstawie certyfikatu głównego P2SRootCert.
 
    ```cmd
    makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
@@ -79,9 +79,9 @@ Aby zainstalować certyfikat klienta, zobacz [Instalowanie certyfikatu klienta](
 
 ## <a name="next-steps"></a>Następne kroki
 
-Kontynuuj konfigurację punktu do lokacji. 
+Kontynuuj pracę z konfiguracją punkt-lokacja. 
 
-* Aby **zapoznać się z** instrukcjami procesu wdrażania usługi Resource Manager, zobacz [Konfigurowanie systemu P2S przy użyciu natywnego uwierzytelniania certyfikatów platformy Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
-* Aby zapoznać się z **klasycznymi** krokami modelu wdrażania, zobacz [Konfigurowanie połączenia sieci VPN typu punkt-lokacja do sieci wirtualnej (klasycznej).](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+* Aby uzyskać **Menedżer zasobów** kroki dotyczące modelu wdrażania, zobacz [Konfigurowanie P2S przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* Kroki **klasycznego** modelu wdrażania można znaleźć w temacie [Konfigurowanie połączenia sieci VPN typu punkt-lokacja z siecią wirtualną (klasyczną)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
 Aby uzyskać informacje dotyczące rozwiązywania problemów z połączeniem typu punkt-lokacja, zobacz [Troubleshooting Azure point-to-site connections (Rozwiązywanie problemów z połączeniami typu punkt-lokacja na platformie Azure)](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

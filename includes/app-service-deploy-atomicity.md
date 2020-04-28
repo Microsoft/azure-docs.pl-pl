@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -9,16 +9,16 @@ ms.date: 01/07/2020
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: feed8b21833d4244d027d64d5e6547b94e4fa66f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75945145"
 ---
 ## <a name="what-happens-to-my-app-during-deployment"></a>Co się stanie z moją aplikacją podczas wdrażania?
 
-Wszystkie oficjalnie obsługiwane metody wdrażania wprowadzać zmiany `/home/site/wwwroot` do plików w folderze aplikacji. Te pliki są używane do uruchamiania aplikacji. W związku z tym wdrożenie może zakończyć się niepowodzeniem z powodu zablokowanych plików. Aplikacja może również zachowywać się nieprzewidywalnie podczas wdrażania, ponieważ nie wszystkie pliki zaktualizowane w tym samym czasie. Jest to niepożądane dla aplikacji skierowanej do klienta. Istnieje kilka różnych sposobów, aby uniknąć tych problemów:
+Wszystkie oficjalnie obsługiwane metody wdrażania wprowadzają zmiany w plikach w `/home/site/wwwroot` folderze aplikacji. Te pliki są używane do uruchamiania aplikacji. W związku z tym wdrożenie może zakończyć się niepowodzeniem ze względu na zablokowane pliki. Aplikacja może również zachowywać się nieprzewidywalne podczas wdrażania, ponieważ nie wszystkie pliki zostały zaktualizowane w tym samym czasie. Jest to niepożądane dla aplikacji klienta. Istnieje kilka różnych sposobów, aby uniknąć następujących problemów:
 
-- [Uruchom aplikację bezpośrednio z pakietu ZIP](../articles/app-service/deploy-run-package.md) bez rozpakowywania.
-- Zatrzymaj aplikację lub włącz tryb offline dla aplikacji podczas wdrażania. Aby uzyskać więcej informacji, zobacz [Radzenie sobie z zablokowanymi plikami podczas wdrażania](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment).
-- Wdrażanie w [miejscu przejściowym](../articles/app-service/deploy-staging-slots.md) z włączoną [automatyczną zamianą.](../articles/app-service/deploy-staging-slots.md#configure-auto-swap) 
+- [Uruchom aplikację bezpośrednio z pakietu zip](../articles/app-service/deploy-run-package.md) bez jej rozpakowania.
+- Zatrzymaj aplikację lub Włącz tryb offline dla aplikacji podczas wdrażania. Aby uzyskać więcej informacji, zobacz temat [postępowanie z zablokowanymi plikami podczas wdrażania](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment).
+- Wdróż w [miejscu przejściowym](../articles/app-service/deploy-staging-slots.md) z włączonym funkcją [autozamieniania](../articles/app-service/deploy-staging-slots.md#configure-auto-swap) . 

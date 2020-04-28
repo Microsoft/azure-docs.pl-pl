@@ -1,5 +1,5 @@
 ---
-title: Włączanie tożsamości zarządzanych na maszynach wirtualnych w laboratorium w laboratoriach devtest azure
+title: Włącz zarządzane tożsamości na maszynach wirtualnych laboratorium w Azure DevTest Labs
 description: W tym artykule pokazano, jak właściciel laboratorium może włączyć tożsamości zarządzane przypisane przez użytkownika na maszynach wirtualnych laboratorium.
 services: lab-services
 documentationcenter: na
@@ -14,44 +14,44 @@ ms.topic: article
 ms.date: 01/03/2020
 ms.author: spelluru
 ms.openlocfilehash: 5d70f83babcf53249f581230e72326d99a0533d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75692669"
 ---
-# <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Włączanie tożsamości zarządzanych przypisanych przez użytkownika na laboratoryjnych maszynach wirtualnych w laboratoriach devtest azure
-Jako właściciel laboratorium możesz włączyć tożsamości zarządzane przypisane przez użytkownika na maszynach wirtualnych laboratorium w laboratoriach DevTest Labs.
+# <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Włącz tożsamości zarządzane przypisane przez użytkownika na maszynach wirtualnych laboratorium w Azure DevTest Labs
+Jako właściciel laboratorium można włączyć tożsamości zarządzane przypisane przez użytkownika na maszynach wirtualnych laboratorium (VM) w Azure DevTest Labs.
 
-Tożsamości zarządzanej można uwierzytelnić do dowolnej usługi obsługującej uwierzytelnianie usługi Azure Active Directory (AD), w tym usługi Key Vault, bez podawania żadnych poświadczeń w kodzie. Aby uzyskać więcej informacji na temat tożsamości zarządzanych, zobacz [Co to są tożsamości zarządzane dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md).
+Tożsamość zarządzana może służyć do uwierzytelniania w dowolnej usłudze, która obsługuje uwierzytelnianie Azure Active Directory (AD), w tym Key Vault, bez przekazywania poświadczeń w kodzie. Aby uzyskać więcej informacji na temat tożsamości zarządzanych, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md).
 
-Dzięki tej funkcji użytkownicy laboratorium mogą udostępniać zasoby platformy Azure, takie jak usługa Azure SQL Database w kontekście laboratorium. Uwierzytelnianie do zasobu jest załatwiona przez samą tożsamość. Po skonfigurowaniu każda istniejąca/nowo utworzona maszyna wirtualna laboratorium zostanie włączona z tą tożsamością. Użytkownicy laboratorium mogą uzyskiwać dostęp do zasobów po zalogowaniu się na swoich komputerach.
+Dzięki tej funkcji użytkownicy laboratorium mogą udostępniać zasoby platformy Azure, takie jak Azure SQL Database w kontekście laboratorium. Uwierzytelnianie do zasobu jest traktowana przez samą tożsamość. Po skonfigurowaniu każda istniejąca/nowo utworzona maszyna wirtualna laboratorium zostanie włączona z tą tożsamością. Użytkownicy laboratorium mogą uzyskać dostęp do zasobów po zalogowaniu się na ich maszynach.
 
 > [!NOTE]
-> Można dodać wielu użytkowników przypisanych tożsamości zarządzanych, które mają być włączone na maszynach wirtualnych laboratorium.
+> Można dodać wiele tożsamości zarządzanych przypisanych przez użytkownika, które mają być włączone na maszynach wirtualnych laboratorium.
 
 ## <a name="use-azure-portal"></a>Korzystanie z witryny Azure Portal
-Aby dodać użytkownikowi przypisaną tożsamość zarządzaną dla maszyn wirtualnych w laboratorium, wykonaj następujące kroki:
+Aby dodać tożsamość zarządzaną przypisaną przez użytkownika dla maszyn wirtualnych laboratorium, wykonaj następujące kroki:
 
-1. [Tworzenie tożsamości zarządzanej przypisanej przez użytkownika w ramach subskrypcji](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
+1. [Tworzenie tożsamości zarządzanej przypisanej przez użytkownika w Twojej subskrypcji](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
 1. Przejdź do strony **Konfiguracja i zasady** dla laboratorium.
-2. Wybierz **tożsamość (podgląd)** w menu po lewej stronie.
-3. Wybierz kartę **Maszyna wirtualna.**
-4. Wybierz **pozycję Dodaj,** aby wybrać istniejącą tożsamość z wstępnie wypełnionej listy rozwijanej. 
+2. Wybierz pozycję **tożsamość (wersja zapoznawcza)** w menu po lewej stronie.
+3. Wybierz kartę **maszyna wirtualna** .
+4. Wybierz pozycję **Dodaj** , aby wybrać istniejącą tożsamość z wstępnie wypełnionej listy rozwijanej. 
 
     ![Przycisk Dodaj tożsamość](./media/enable-managed-identities-lab-vms/add-identity-button.png)
-5. Wybierz istniejącą **tożsamość zarządzaną przez użytkownika** z listy rzuconej w dół i wybierz **przycisk OK**. 
+5. Wybierz istniejącą **tożsamość zarządzaną przez użytkownika** z listy rozwijanej, a następnie wybierz **przycisk OK**. 
 
-    ![Dodawanie tożsamości](./media/enable-managed-identities-lab-vms/add-identity.png)
+    ![Dodaj tożsamość](./media/enable-managed-identities-lab-vms/add-identity.png)
 
 ## <a name="use-api"></a>Korzystanie z interfejsu API
 
-1.  Po utworzeniu tożsamości zanotuj identyfikator zasobu tożsamości. Powinien wyglądać jak następująca próbka: 
+1.  Po utworzeniu tożsamości Zanotuj identyfikator zasobu tożsamości. Powinien wyglądać podobnie do poniższego przykładu: 
 
     `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-2. Uruchom metodę PUT HTTPS, aby dodać nowy zasób **ServiceRunner** do laboratorium, jak pokazano w poniższym przykładzie. 
+2. Uruchom metodę PUT HTTPS, aby dodać nowy zasób **servicerunner** do laboratorium, jak pokazano w poniższym przykładzie. 
 
-    Zasób przebiegu usługi jest zasobem serwera proxy do zarządzania i kontrolowania zarządzanych tożsamości w DevTest Labs. Nazwa obiektu programu service runner może być dowolną prawidłową nazwą, ale zaleca się użycie nazwy zasobu tożsamości zarządzanej.
+    Zasób modułu uruchamiającego usługi jest zasobem serwera proxy, który służy do zarządzania tożsamościami zarządzanymi w DevTest Labs i ich kontrolowania. Nazwa modułu uruchamiającego usługi może być dowolną prawidłową nazwą, ale zalecamy użycie nazwy zarządzanego zasobu tożsamości.
 
     ```json
     {
@@ -69,7 +69,7 @@ Aby dodać użytkownikowi przypisaną tożsamość zarządzaną dla maszyn wirtu
     ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o tożsamościach zarządzanych, zobacz [Co to są tożsamości zarządzane dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md)
+Aby dowiedzieć się więcej o tożsamościach zarządzanych, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md).
 
 
 

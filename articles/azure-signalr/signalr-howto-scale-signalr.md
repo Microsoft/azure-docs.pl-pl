@@ -1,47 +1,47 @@
 ---
-title: Skalowanie wystąpienia usługi Azure SignalR
-description: Dowiedz się, jak skalować wystąpienie usługi Azure SignalR, aby dodać lub zmniejszyć pojemność za pośrednictwem witryny Azure portal lub interfejsu wiersza polecenia platformy Azure.
+title: Skalowanie wystąpienia usługi Azure Signal Service
+description: Dowiedz się, jak skalować wystąpienie usługi Azure Signal Service, aby zwiększyć lub zmniejszyć pojemność, za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: zhshang
 ms.openlocfilehash: c8d74342e624b837c7ee803a2bcdcc12a3fb814b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75659291"
 ---
-# <a name="how-to-scale-an-azure-signalr-service-instance"></a>Jak skalować wystąpienie usługi Azure SignalR?
-W tym artykule pokazano, jak skalować wystąpienie usługi Azure SignalR. Istnieją dwa scenariusze skalowania, skalowania w górę i skalowania w poziomie.
+# <a name="how-to-scale-an-azure-signalr-service-instance"></a>Jak skalować wystąpienie usługi Azure sygnalizujące?
+W tym artykule opisano sposób skalowania wystąpienia usługi Azure Signal Service. Istnieją dwa scenariusze skalowania, skalowanie w górę i w poziomie.
 
-* [Skalowanie w górę:](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)uzyskaj więcej jednostek, połączeń, wiadomości i nie tylko. Skalowanie w górę przez zmianę warstwy cenowej z Bezpłatna na Standardowa.
-* [Skalowanie w poziomie:](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)Zwiększenie liczby jednostek SignalR. Można skalować w poziomie do 100 jednostek.
+* [Skalowanie w górę](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): uzyskiwanie większej liczby jednostek, połączeń, wiadomości i innych. Skalowanie w górę przez zmianę warstwy cenowej z bezpłatna na Standard.
+* [Skalowanie w poziomie](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Zwiększ liczbę jednostek sygnalizujących. Możesz skalować w poziomie do maksymalnie 100 jednostek.
 
-Zastosowanie ustawień skali zajmuje kilka minut. W rzadkich przypadkach, może upłynąć około 30 minut, aby zastosować. Nie wymagają one zmiany kodu lub ponownego rozmieszczenia aplikacji serwera.
+Zastosowanie ustawień skalowania może potrwać kilka minut. W rzadkich przypadkach może upłynąć około 30 minut. Nie wymagają one zmiany kodu ani ponownego wdrażania aplikacji serwera.
 
-Aby uzyskać informacje na temat cen i pojemności poszczególnych usług SignalR, zobacz [Szczegóły cen usługi Azure SignalR](https://azure.microsoft.com/pricing/details/signalr-service/).  
+Aby uzyskać informacje na temat cen i pojemności poszczególnych usług sygnalizujących, zobacz [szczegóły cennika usługi Azure sygnalizującej](https://azure.microsoft.com/pricing/details/signalr-service/).  
 
 > [!NOTE]
-> Zmiana usługi SignalR z warstwy **bezpłatnej** na warstwę **standardową** lub odwrotnie, adres IP usługi publicznej zostanie zmieniony i zwykle trwa 30-60 minut, aby propagować zmiany na serwery DNS w całym Internecie. Usługa może być nieosiągalna przed zaktualizowaniem systemu DNS. Ogólnie rzecz biorąc, nie zaleca się zbyt często zmieniać warstwy cenowej.
+> Zmiana usługi sygnalizującej z warstwy **bezpłatna** na warstwę **standardowa** lub odwrotnie, publiczny adres IP usługi zostanie zmieniony i zwykle trwa 30-60 minut, aby PROPAGOWAĆ zmianę do serwerów DNS w całym Internecie. Usługa może być nieosiągalna, zanim system DNS zostanie zaktualizowany. Zazwyczaj nie zaleca się zbyt częstej zmiany warstwy cenowej.
 
 
-## <a name="scale-on-azure-portal"></a>Skalowanie w witrynie Azure portal
+## <a name="scale-on-azure-portal"></a>Skalowanie na Azure Portal
 
 1. W przeglądarce otwórz witrynę [Azure Portal](https://portal.azure.com).
 
-2. Na stronie SignalR Service z lewego menu wybierz opcję **Skaluj**.
+2. Z menu po lewej stronie usługi sygnalizującego wybierz pozycję **Skala**.
    
-3. Wybierz warstwę cenową, a następnie kliknij przycisk **Wybierz**. Ustaw liczbę jednostek dla **warstwy standardowej.**
+3. Wybierz warstwę cenową, a następnie kliknij pozycję **Wybierz**. Ustaw liczbę jednostek dla warstwy **standardowa** .
    
-    ![Skaluj na portalu](./media/signalr-howto-scale/signalr-howto-scale.png)
+    ![Skalowanie w portalu](./media/signalr-howto-scale/signalr-howto-scale.png)
 
 4. Kliknij przycisk **Zapisz**.
 
 ## <a name="scale-using-azure-cli"></a>Skalowanie przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Ten skrypt tworzy nowy zasób usługi SignalR **warstwy** bezpłatnej warstwy i nowej grupy zasobów i skaluje go do warstwy **standardowej.** 
+Ten skrypt tworzy nowy zasób usługi sygnalizującego dla warstwy **bezpłatna** i nowej grupy zasobów, a następnie skaluje je do warstwy **standardowa** . 
 
 ```azurecli-interactive
 #!/bin/bash
@@ -77,17 +77,17 @@ Zanotuj rzeczywistą nazwę wygenerowaną dla nowej grupy zasobów. Tej nazwy gr
 
 [!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
 
-## <a name="compare-pricing-tiers"></a>Porównanie warstw cenowych
+## <a name="compare-pricing-tiers"></a>Porównaj warstwy cenowe
 
-Aby uzyskać szczegółowe informacje, takie jak dołączone komunikaty i połączenia dla każdej warstwy cenowej, zobacz [Szczegóły cen usług SignalR](https://azure.microsoft.com/pricing/details/signalr-service/).
+Aby uzyskać szczegółowe informacje, takie jak uwzględnione komunikaty i połączenia dla każdej warstwy cenowej, zobacz [szczegóły cennika usługi sygnalizującego](https://azure.microsoft.com/pricing/details/signalr-service/).
 
-Aby zapoznać się z tabelą limitów usług, przydziałów i ograniczeń w każdej warstwie, zobacz [Limity usługi SignalR](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
+Aby zapoznać się z tabelą limity usług, przydziałów i ograniczeń w poszczególnych warstwach, zobacz [limity usługi sygnałów](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku dowiesz się, jak skalować pojedyncze wystąpienie usługi SignalR.
+W tym przewodniku zawarto informacje na temat skalowania wystąpienia usługi pojedynczej sygnalizacji.
 
-Wiele punktów końcowych są również obsługiwane do skalowania, dzielenia na fragmenty i scenariuszy między regionami.
+Obsługa wielu punktów końcowych jest także obsługiwana w scenariuszach skalowania, fragmentowania i między regionami.
 
 > [!div class="nextstepaction"]
-> [skalowanie usługi SignalR z wieloma wystąpieniami](./signalr-howto-scale-multi-instances.md)
+> [Usługa sygnalizująca skalowanie z wieloma wystąpieniami](./signalr-howto-scale-multi-instances.md)

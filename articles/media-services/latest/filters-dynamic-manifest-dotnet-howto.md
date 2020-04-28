@@ -1,6 +1,6 @@
 ---
-title: Tworzenie filtrów za pomocą narzędzia Azure Media Services w wersji 3 .NET SDK
-description: W tym temacie opisano sposób tworzenia filtrów, aby klient mógł ich używać do przesyłania strumieniowego określonych sekcji strumienia. Usługa Media Services tworzy dynamiczne manifesty w celu osiągnięcia tego selektywnego przesyłania strumieniowego.
+title: Tworzenie filtrów za pomocą zestawu .NET SDK programu Azure Media Services v3
+description: W tym temacie opisano sposób tworzenia filtrów, aby klient mógł używać ich do przesyłania strumieniowego określonych sekcji strumienia. Media Services tworzy dynamiczne manifesty do osiągnięcia tego selektywnego przesyłania strumieniowego.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,35 +14,35 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: juliako
 ms.openlocfilehash: ef04b1b7b5030189482e89e26e4565397cbdd7c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75779250"
 ---
-# <a name="create-filters-with-media-services-net-sdk"></a>Tworzenie filtrów za pomocą sdk usługi Media Services .NET
+# <a name="create-filters-with-media-services-net-sdk"></a>Tworzenie filtrów za pomocą zestawu SDK platformy Media Services .NET
 
-Podczas dostarczania zawartości klientom (przesyłanie strumieniowe wydarzeń na żywo lub wideo na żądanie) klient może potrzebować większej elastyczności niż opisana w pliku manifestu domyślnego zasobu. Usługa Azure Media Services umożliwia definiowanie filtrów kont i filtrów zasobów dla zawartości. 
+W przypadku dostarczania zawartości klientom (przesyłania strumieniowego na żywo lub wideo na żądanie) klient może potrzebować większej elastyczności niż to, co opisano w pliku manifestu domyślnego elementu zawartości. Azure Media Services umożliwia zdefiniowanie filtrów kont i filtrów zasobów dla zawartości. 
 
-Aby uzyskać szczegółowy opis tej funkcji i scenariuszy, w których jest używana, zobacz [Dynamiczne manifesty](filters-dynamic-manifest-overview.md) i [filtry](filters-concept.md).
+Aby uzyskać szczegółowy opis tej funkcji i scenariuszy, w których są używane, zobacz [dynamiczne manifesty](filters-dynamic-manifest-overview.md) i [filtry](filters-concept.md).
 
-W tym temacie pokazano, jak za pomocą sdk platformy Media Services .NET do definiowania filtru zasobu Wideo na żądanie i tworzenia [filtrów kont](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) i [filtrów zasobów](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
+W tym temacie pokazano, jak za Media Services pomocą zestawu SDK platformy .NET zdefiniować filtr dla zasobu wideo na żądanie i utworzyć [filtry konta](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) i [filtry zasobów](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
 
 > [!NOTE]
-> Upewnij się, że przegląd [prezentacjiTimeRange](filters-concept.md#presentationtimerange).
+> Pamiętaj o przejrzeniu [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-- Przejrzyj [filtry i manifesty dynamiczne](filters-dynamic-manifest-overview.md).
-- [Utwórz konto usługi Media Services](create-account-cli-how-to.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta usługi Media Services. 
-- Uzyskiwanie informacji potrzebnych do [uzyskiwania dostępu do interfejsów API](access-api-cli-how-to.md)
-- Przejrzyj [przekazywanie, kodowanie i przesyłanie strumieniowe przy użyciu usługi Azure Media Services,](stream-files-tutorial-with-api.md) aby zobaczyć, jak [rozpocząć korzystanie z sdk .NET](stream-files-tutorial-with-api.md#start_using_dotnet)
+- Przeglądanie [filtrów i manifestów dynamicznych](filters-dynamic-manifest-overview.md).
+- [Utwórz konto Media Services](create-account-cli-how-to.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services. 
+- Uzyskaj informacje konieczne do [uzyskania dostępu do interfejsów API](access-api-cli-how-to.md)
+- Zapoznaj się z tematem [przekazywanie, kodowanie i przesyłanie strumieniowe przy użyciu Azure Media Services](stream-files-tutorial-with-api.md) , aby zobaczyć, jak [zacząć korzystać z zestawu SDK .NET](stream-files-tutorial-with-api.md#start_using_dotnet)
 
-## <a name="define-a-filter"></a>Definiowanie filtru  
+## <a name="define-a-filter"></a>Zdefiniuj filtr  
 
-W .NET można skonfigurować wybór ścieżek za pomocą klas [FilterTrackSelection](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) i [FilterTrackPropertyCondition.](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) 
+W programie .NET można skonfigurować opcje śledzenia przy użyciu klas [FilterTrackSelection](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) i [FilterTrackPropertyCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) . 
 
-Poniższy kod definiuje filtr, który zawiera wszystkie ścieżki audio, które są EC-3 i wszelkie ścieżki wideo, które mają szybkość transmisji bitów w zakresie 0-1000000.
+Poniższy kod definiuje filtr, który zawiera wszystkie ścieżki audio, które są zgodne ze standardem EC-3 i wszystkie ścieżki wideo, które mają szybkość transmisji bitów w zakresie 0-1000000.
 
 ```csharp
 var audioConditions = new List<FilterTrackPropertyCondition>()
@@ -64,9 +64,9 @@ List<FilterTrackSelection> includedTracks = new List<FilterTrackSelection>()
 };
 ```
 
-## <a name="create-account-filters"></a>Tworzenie filtrów kont
+## <a name="create-account-filters"></a>Tworzenie filtrów konta
 
-Poniższy kod pokazuje, jak użyć platformy .NET do utworzenia filtru konta, który zawiera wszystkie wybrane ścieżki [zdefiniowane powyżej](#define-a-filter). 
+Poniższy kod pokazuje, jak używać programu .NET do tworzenia filtru konta, który obejmuje wszystkie wybory śledzenia [zdefiniowane powyżej](#define-a-filter). 
 
 ```csharp
 AccountFilter accountFilterParams = new AccountFilter(tracks: includedTracks);
@@ -75,7 +75,7 @@ client.AccountFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, "
 
 ## <a name="create-asset-filters"></a>Tworzenie filtrów zasobów
 
-Poniższy kod pokazuje, jak użyć platformy .NET do utworzenia filtru zasobów, który zawiera wszystkie wybrane ścieżki [zdefiniowane powyżej](#define-a-filter). 
+Poniższy kod pokazuje, jak używać programu .NET do tworzenia filtru zasobów, który obejmuje wszystkie wybory śledzenia [zdefiniowane powyżej](#define-a-filter). 
 
 ```csharp
 AssetFilter assetFilterParams = new AssetFilter(tracks: includedTracks);
@@ -84,9 +84,9 @@ client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, enc
 
 ## <a name="associate-filters-with-streaming-locator"></a>Kojarzenie filtrów z lokalizatorem przesyłania strumieniowego
 
-Można określić listę filtrów zasobów lub kont, które miałyby zastosowanie do lokalizatora przesyłania strumieniowego. [Pakiet pakiet dynamiczny (punkt końcowy przesyłania strumieniowego)](dynamic-packaging-overview.md) stosuje tę listę filtrów wraz z tymi określonymi przez klienta w adresie URL. Ta kombinacja generuje [manifest dynamiczny](filters-dynamic-manifest-overview.md), który jest oparty na filtrach w adresie URL + filtry określone na lokalizatora przesyłania strumieniowego. Zaleca się użycie tej funkcji, jeśli chcesz zastosować filtry, ale nie chcesz ujawniać nazw filtrów w adresie URL.
+Można określić listę filtrów zasobów lub kont, które mają zastosowanie do lokalizatora przesyłania strumieniowego. [Pakowarka dynamiczna (punkt końcowy przesyłania strumieniowego)](dynamic-packaging-overview.md) stosuje tę listę filtrów razem z tymi, które są określone przez klienta w adresie URL. Ta kombinacja generuje [manifest dynamiczny](filters-dynamic-manifest-overview.md), który jest oparty na filtrach w adresach URL i filtrach określonych w lokalizatorze przesyłania strumieniowego. Zalecamy użycie tej funkcji, jeśli chcesz zastosować filtry, ale nie chcesz ujawniać nazw filtrów w adresie URL.
 
-Poniższy kod języka C# pokazuje, jak utworzyć `StreamingLocator.Filters`lokalizator przesyłania strumieniowego i określić . Jest to opcjonalna właściwość, która przyjmuje nazwy `IList<string>` filtru.
+Poniższy kod w języku C# pokazuje, jak utworzyć lokalizator przesyłania strumieniowego `StreamingLocator.Filters`i określić. Jest to opcjonalna właściwość, która przyjmuje `IList<string>` nazwy filtrów.
 
 ```csharp
 IList<string> filters = new List<string>();
@@ -104,9 +104,9 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
       
-## <a name="stream-using-filters"></a>Przesyłanie strumieniowe przy użyciu filtrów
+## <a name="stream-using-filters"></a>Strumieniowe Używanie filtrów
 
-Po zdefiniowaniu filtrów klienci mogą używać ich w adresie URL przesyłania strumieniowego. Filtry mogą być stosowane do adaptacyjnych protokołów przesyłania strumieniowego szybkości transmisji bitów: Apple HTTP Live Streaming (HLS), MPEG-DASH i Smooth Streaming.
+Po zdefiniowaniu filtrów klienci mogą używać ich w adresie URL przesyłania strumieniowego. Filtry mogą być stosowane do protokołów przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów: Apple HTTP Live Streaming (HLS), MPEG-KRESKa i Smooth Streaming.
 
 W poniższej tabeli przedstawiono kilka przykładów adresów URL z filtrami:
 
@@ -118,6 +118,6 @@ W poniższej tabeli przedstawiono kilka przykładów adresów URL z filtrami:
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Przesyłanie strumieniowe filmów](stream-files-tutorial-with-api.md) 
+[Strumieniowe przesyłanie wideo](stream-files-tutorial-with-api.md) 
 
 

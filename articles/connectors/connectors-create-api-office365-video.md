@@ -1,6 +1,6 @@
 ---
-title: Łączenie się z klipem wideo usługi Office 365
-description: Automatyzuj zadania i przepływy pracy, które zarządzają klipami wideo w usłudze Wideo w usłudze Office 365, korzystając z aplikacji Azure Logic Apps
+title: Łączenie z wideo pakietu Office 365
+description: Automatyzowanie zadań i przepływów pracy, które zarządzają klipami wideo w wideo pakietu Office 365 przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,36 +8,36 @@ ms.topic: article
 ms.date: 05/18/2016
 tags: connectors
 ms.openlocfilehash: 8ac6b7b411e7f42dd076c5b16e7b500a819c617f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75665789"
 ---
-# <a name="manage-videos-in-office365-video-by-using-azure-logic-apps"></a>Zarządzanie klipami wideo w usłudze Office365 Wideo przy użyciu aplikacji Azure Logic Apps
+# <a name="manage-videos-in-office365-video-by-using-azure-logic-apps"></a>Zarządzanie filmami wideo w usłudze Office 365 za pomocą Azure Logic Apps
 
-Połącz się z klipem wideo usługi Office 365, aby uzyskać informacje o klipie wideo z usługi Office 365, uzyskać listę klipów wideo i nie tylko. Dzięki usłudze Wideo usługi Office 365 możesz:
+Połącz się z filmem wideo pakietu Office 365, aby uzyskać informacje na temat wideo z pakietem Office 365, uzyskać listę filmów wideo i wiele więcej. Film wideo z pakietem Office 365 umożliwia:
 
-* Twórz przepływ biznesowy na podstawie danych, które otrzymujesz z usługi Wideo w usłudze Office 365. 
+* Kompiluj swój przepływ biznesowy na podstawie danych uzyskanych z wideo pakietu Office 365. 
 
-* Użyj akcji, które sprawdzają stan portalu wideo, otrzymują listę wszystkich filmów na kanale i nie tylko. Te akcje uzyskać odpowiedź, a następnie udostępnić dane wyjściowe dla innych akcji. 
+* Użyj akcji, które sprawdzają stan portalu wideo, uzyskaj listę wszystkich filmów wideo w kanale i nie tylko. Te akcje odbierają odpowiedź, a następnie udostępniają dane wyjściowe dla innych akcji. 
 
-Na przykład można użyć łącznika wyszukiwania Bing do wyszukiwania klipów wideo usługi Office 365, a następnie użyć łącznika wideo usługi Office 365, aby uzyskać informacje o tym klipie wideo. Jeśli film spełnia Twoje wymagania, możesz opublikować ten film na Facebooku.
+Na przykład możesz użyć łącznika Wyszukiwanie Bing, aby wyszukać wideo pakietu Office 365, a następnie skorzystać z łącznika wideo pakietu Office 365, aby uzyskać informacje o tym filmie wideo. Jeśli film wideo spełnia Twoje wymagania, możesz ogłosić ten film wideo w serwisie Facebook.
 
-Możesz rozpocząć, tworząc aplikację logiki teraz, zobacz [Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Teraz możesz zacząć od utworzenia aplikacji logiki, zobacz [Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="connect-to-office365-video"></a>Łączenie się z klipem wideo usługi Office365
+## <a name="connect-to-office365-video"></a>Łączenie z wideo w usłudze Office 365
 
-Po dodaniu tego łącznika do aplikacji logiki należy zalogować się do konta wideo usługi Office 365 i zezwolić aplikacjom logiki na łączenie się z kontem.
+Po dodaniu tego łącznika do aplikacji logiki należy zalogować się do konta wideo pakietu Office 365 i zezwolić aplikacjom logiki na łączenie się ze swoim kontem.
 
 > [!INCLUDE [Steps to create a connection to Office 365 Video](../../includes/connectors-create-api-office365video.md)]
 
-Po utworzeniu połączenia należy wprowadzić właściwości wideo usługi Office 365, takie jak nazwa dzierżawy lub identyfikator kanału. 
+Po utworzeniu połączenia należy wprowadzić właściwości wideo pakietu Office 365, takie jak nazwa dzierżawy lub identyfikator kanału. 
 
-## <a name="connector-specific-details"></a>Szczegóły specyficzne dla łącznika
+## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 
-Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger, a także zobacz wszelkie limity w [szczegółach łącznika](/connectors/office365videoconnector/).
+Wyświetlanie wszystkich wyzwalaczy i akcji zdefiniowanych w strukturze Swagger, a także wszystkich ograniczeń w [szczegółach łącznika](/connectors/office365videoconnector/).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o innych [łącznikach aplikacji logiki](../connectors/apis-list.md)
+* Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)

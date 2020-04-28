@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: iot-hub
 author: dominicbetts
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: bd08812f83413a997ce655d68d866b145b20dcef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75912525"
 ---
 ## <a name="extended-iot-scenarios"></a>Rozszerzone scenariusze IoT
@@ -21,9 +21,9 @@ Używanie innych usług i narzędzi platformy Azure. Po połączeniu urządzenia
 
 | Scenariusz                                                   | Usługa lub narzędzie platformy Azure              |
 |----------------------------------------------------------- |------------------------------------|
-| [Zarządzanie komunikatami usługi IoT Hub](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)                  | Rozszerzenie centrum Usługi IoT usługi VS Code Azure|
-| [Zarządzanie urządzeniem IoT](../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md)                        | Interfejsu wiersza polecenia platformy Azure i rozszerzenia IoT    |
-| [Zarządzanie urządzeniem IoT](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | Rozszerzenie centrum Usługi IoT usługi VS Code Azure|
+| [Zarządzanie komunikatami usługi IoT Hub](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)                  | VS Code rozszerzenie platformy Azure IoT Hub|
+| [Zarządzanie urządzeniem IoT](../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md)                        | Interfejs wiersza polecenia platformy Azure i rozszerzenie IoT    |
+| [Zarządzanie urządzeniem IoT](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | VS Code rozszerzenie platformy Azure IoT Hub|
 | [Zapisywanie komunikatów usługi IoT Hub w magazynie platformy Azure](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)  | Azure Table Storage                |
 | [Wizualizowanie danych czujników](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)                      | Microsoft Power BI                 |
 | [Wizualizowanie danych czujników](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | Azure Web Apps                     |

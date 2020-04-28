@@ -1,6 +1,6 @@
 ---
-title: Zasady ryzyka — ochrona tożsamości usługi Azure Active Directory
-description: Włączanie i konfigurowanie zasad ryzyka w usłudze Azure Active Directory Identity Protection
+title: Zasady dotyczące ryzyka — Azure Active Directory Identity Protection
+description: Włączanie i Konfigurowanie zasad ryzyka w Azure Active Directory Identity Protection
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -12,74 +12,74 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ffa08f7ebf013d42d6da0589ce0f1ccc97289de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75707009"
 ---
-# <a name="how-to-configure-and-enable-risk-policies"></a>Jak: Konfigurowanie i włączanie zasad ryzyka
+# <a name="how-to-configure-and-enable-risk-policies"></a>Instrukcje: Konfigurowanie i Włączanie zasad ryzyka
 
-Jak dowiedzieliśmy się w poprzednim artykule, [zasady ochrony tożsamości](concept-identity-protection-policies.md) mamy dwie zasady ryzyka, które możemy włączyć w naszym katalogu. 
+Jak opisano w poprzednim artykule, [Zasady ochrony tożsamości](concept-identity-protection-policies.md) mają dwie zasady dotyczące ryzyka, które możemy włączyć w naszym katalogu. 
 
-- Zasady dotyczące ryzyka logowania
-- Zasady dotyczące ryzyka użytkownika
+- Zasady dotyczące ryzyka związanego z logowaniem
+- Zasady ryzyka dla użytkowników
 
-![Strona przegląd zabezpieczeń umożliwiająca obsługę zasad ryzyka użytkownika i logowania](./media/howto-identity-protection-configure-risk-policies/identity-protection-security-overview.png)
+![Strona Przegląd zabezpieczeń umożliwiająca Włączanie zasad ryzyka użytkownika i logowania](./media/howto-identity-protection-configure-risk-policies/identity-protection-security-overview.png)
 
-Obie zasady działają w celu zautomatyzowania reagowania na wykrywanie ryzyka w twoim środowisku i umożliwiają użytkownikom samodzielne korygowanie po wykryciu ryzyka. 
+Obie zasady działają w celu zautomatyzowania reakcji na wykrycie zagrożeń w środowisku i umożliwiają użytkownikom samodzielne korygowanie w przypadku wykrycia ryzyka. 
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-Jeśli organizacja chce umożliwić użytkownikom samodzielne korygowanie po wykryciu zagrożeń, użytkownicy muszą być zarejestrowani zarówno dla samoobsługowego resetowania hasła, jak i uwierzytelniania wieloskładnikowego platformy Azure. Zalecamy [włączenie połączonego środowiska rejestracji informacji o zabezpieczeniach,](../authentication/howto-registration-mfa-sspr-combined.md) aby uzyskać najlepsze środowisko. Umożliwienie użytkownikom samodzielnego korygowania przywraca ich do stanu produkcyjnego szybciej bez konieczności interwencji administratora. Administratorzy nadal mogą zobaczyć te zdarzenia i zbadać je po fakcie. 
+Jeśli organizacja chce zezwolić użytkownikom na samodzielne korygowanie w przypadku wykrycia zagrożeń, użytkownicy muszą być zarejestrowani do samoobsługowego resetowania haseł i platformy Azure Multi-Factor Authentication. Zalecamy [włączenie usługi rejestracji informacji o zabezpieczeniach](../authentication/howto-registration-mfa-sspr-combined.md) w celu uzyskania najlepszego środowiska. Umożliwienie użytkownikom samodzielnego korygowania umożliwia szybsze pobieranie stanu wydajności bez konieczności interwencji administratora. Administratorzy nadal mogą zobaczyć te zdarzenia i zbadać je po fakcie. 
 
 ## <a name="choosing-acceptable-risk-levels"></a>Wybór dopuszczalnych poziomów ryzyka
 
-Organizacje muszą zdecydować o poziomie ryzyka, które są skłonne zaakceptować równoważenie doświadczenia użytkownika i postawy zabezpieczeń. 
+Organizacje muszą decydować o tym, jaki jest poziom ryzyka, aby akceptować możliwości użytkowników i stan zabezpieczeń. 
 
-Zalecenie firmy Microsoft polega na ustawieniu progu zasad dotyczących ryzyka użytkownika na **Wysoki,** a zasady ryzyka logowania na **średni i wyższy**.
+Zalecenie firmy Microsoft polega na ustawieniu wartości progowej dla zasad ryzyka dla użytkowników na **wysoki** i zasady ryzyka związanego **z logowaniem.**
 
-Wybranie **wysokiego** progu zmniejsza liczbę wyzwolonych zasad i minimalizuje wpływ na użytkowników. Jednak wyklucza wykrywanie **niskiego** i **średniego** ryzyka z zasad, które mogą nie blokować osobie atakującej możliwości wykorzystania naruszonej tożsamości. Wybranie **niskiego** progu powoduje wprowadzenie dodatkowych przerwań użytkownika, ale zwiększoną postawę zabezpieczeń.
+Wybranie **wysokiego** progu zmniejsza liczbę wyzwalanych zasad i minimalizuje wpływ na użytkowników. Nie dotyczy to jednak wykrycia **niskiego** i **średniego** ryzyka z zasad, co może uniemożliwić atakującemu wykorzystanie tożsamości. Wybranie **niskiego** progu powoduje wprowadzenie dodatkowych przerwań przez użytkownika, ale zwiększoną stan zabezpieczeń.
 
 ## <a name="exclusions"></a>Wykluczenia
 
-Wszystkie zasady pozwalają na wykluczenie użytkowników, takich jak [dostęp awaryjny lub break-glass konta administratora](../users-groups-roles/directory-emergency-access.md). Organizacje mogą określić, że muszą wykluczyć inne konta z określonych zasad na podstawie sposobu, w jaki konta są używane. Wszystkie wyłączenia powinny być regularnie poddawane przeglądowi, aby sprawdzić, czy nadal mają zastosowanie.
+Wszystkie zasady zezwalają na wykluczenie użytkowników, takich jak [dostęp awaryjny lub konta administratora z przerwaniem](../users-groups-roles/directory-emergency-access.md). Organizacje mogą określić, że muszą wykluczać inne konta z określonych zasad w zależności od sposobu korzystania z kont. Wszystkie wykluczenia powinny być regularnie przeglądane w celu sprawdzenia, czy nadal mają zastosowanie.
 
-Skonfigurowane zaufane [lokalizacje sieciowe](../conditional-access/location-condition.md) są używane przez ochronę tożsamości w niektórych wykrywaniach ryzyka w celu zmniejszenia liczby fałszywych alarmów.
+Skonfigurowane lokalizacje zaufanej [sieci](../conditional-access/location-condition.md) są używane przez funkcję ochrony tożsamości podczas niektórych wykryć ryzyka, aby zmniejszyć liczbę fałszywie dodatnich.
 
 ## <a name="enable-policies"></a>Włącz zasady
 
-Aby włączyć zasady ryzyka użytkownika i ryzyka logowania wykonaj następujące kroki.
+Aby włączyć ryzyko dla użytkownika i zasady dotyczące ryzyka związanego z logowaniem, wykonaj następujące czynności.
 
-1. Przejdź do [witryny Azure portal](https://portal.azure.com).
-1. Przejdź do**przeglądu****ochrony** > tożsamości**zabezpieczeń** >  **usługi Azure Active Directory** > .
-1. Wybierz **pozycję Konfiguruj zasady ryzyka użytkownika**.
-   1. W obszarze **Przydziały**
-      1. **Użytkownicy** — wybierz **wszystkich użytkowników** lub Wybierz osoby **i grupy,** jeśli ograniczysz wdrożenie.
-         1. Opcjonalnie można wykluczyć użytkowników z zasad.
-      1. **Warunki** - **Użytkownik ryzyko** Microsoft zalecenie jest ustawienie tej opcji na **Wysoki**.
-   1. W obszarze **Kontrole**
-      1. **Dostęp** — zalecenie firmy Microsoft polega **na zezwoleniu na dostęp** i **wymaganie zmiany hasła**.
-   1. **Wymuszaj zasady** - **włączone**
-   1. **Zapisz** — ta akcja spowoduje powrót do strony **Przegląd.**
-1. Wybierz **pozycję Konfiguruj zasady ryzyka logowania**.
-   1. W obszarze **Przydziały**
-      1. **Użytkownicy** — wybierz **wszystkich użytkowników** lub Wybierz osoby **i grupy,** jeśli ograniczysz wdrożenie.
-         1. Opcjonalnie można wykluczyć użytkowników z zasad.
-      1. **Warunki** - **Ryzyko logowania Microsoft** zaleca, aby ustawić tę opcję na Średni i **wyższy**.
-   1. W obszarze **Kontrole**
-      1. **Dostęp** — zalecenie firmy Microsoft polega **na zezwoleniu na dostęp** i **wymaganie uwierzytelniania wieloskładnikowego**.
-   1. **Wymuszaj zasady** - **włączone**
+1. Przejdź do [Azure Portal](https://portal.azure.com).
+1. Przejdź do**omówienia**usługi **Azure Active Directory** > **Security** > **Identity Protection** > .
+1. Wybierz pozycję **Konfiguruj zasady ryzyka użytkownika**.
+   1. W obszarze **przypisania**
+      1. **Użytkownicy** — wybierz opcję **Wszyscy użytkownicy** lub **Wybierz osoby i grupy w** przypadku ograniczenia wdrożenia.
+         1. Opcjonalnie możesz zdecydować się na wykluczenie użytkowników z zasad.
+      1. **Warunki** - **ryzyko dla użytkownika** firma Microsoft zaleca ustawienie tej opcji na **wysoki**.
+   1. W obszarze **Controls**
+      1. **Dostęp** — zalecenia firmy Microsoft mają **na celu umożliwienie dostępu** i **wymaganie zmiany hasła**.
+   1. **Wymuś zasady** - **On**
+   1. **Zapisz** — ta akcja spowoduje powrót do strony **Przegląd** .
+1. Wybierz pozycję **Konfiguruj zasady dotyczące ryzyka związanego z logowaniem**.
+   1. W obszarze **przypisania**
+      1. **Użytkownicy** — wybierz opcję **Wszyscy użytkownicy** lub **Wybierz osoby i grupy w** przypadku ograniczenia wdrożenia.
+         1. Opcjonalnie możesz zdecydować się na wykluczenie użytkowników z zasad.
+      1. **Warunki** - **ryzyka związanego z logowaniem** firma Microsoft polega na ustawieniu tej opcji na **średni i wyższy**.
+   1. W obszarze **Controls**
+      1. **Dostęp** — zalecenia firmy Microsoft mają na celu **umożliwienie dostępu** i **wymaganie uwierzytelniania wieloskładnikowego**.
+   1. **Wymuś zasady** - **On**
    1. **Zapisz**
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Włączanie zasad rejestracji uwierzytelniania wieloskładnikowego platformy Azure](howto-identity-protection-configure-mfa-policy.md)
+- [Włączanie zasad rejestracji w usłudze Azure Multi-Factor Authentication](howto-identity-protection-configure-mfa-policy.md)
 
 - [Co to jest ryzyko](concept-identity-protection-risks.md)
 
 - [Badanie wykryć ryzyka](howto-identity-protection-investigate-risk.md)
 
-- [Symuluj wykrywanie ryzyka](howto-identity-protection-simulate-risk.md)
+- [Symulowanie wykrywania ryzyka](howto-identity-protection-simulate-risk.md)

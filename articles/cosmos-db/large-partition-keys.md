@@ -1,41 +1,41 @@
 ---
 title: Tworzenie kontenerów usługi Azure Cosmos z dużym kluczem partycji
-description: Dowiedz się, jak utworzyć kontener w usłudze Azure Cosmos DB przy użyciu dużego klucza partycji przy użyciu witryny Azure portal i różnych zestawów SDK.
+description: Dowiedz się, jak utworzyć kontener w Azure Cosmos DB z dużym kluczem partycji przy użyciu Azure Portal i różnych zestawów SDK.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.openlocfilehash: 7184a6b85e93c41dfe914813301a4b1a0c88f2cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75887686"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Tworzenie kontenerów z dużym kluczem partycji
 
-Usługa Azure Cosmos DB używa schematu partycjonowania opartego na mieszaniu w celu osiągnięcia skalowania w poziomie danych. Wszystkie kontenery usługi Azure Cosmos utworzone przed 3 maja 2019 r. używają funkcji mieszania, która oblicza skrót na podstawie pierwszych 100 bajtów klucza partycji. Jeśli istnieje wiele kluczy partycji, które mają te same pierwsze 100 bajtów, a następnie te partycje logiczne są uważane za tę samą partycję logiczną przez usługę. Może to prowadzić do problemów, takich jak przydział rozmiaru partycji są niepoprawne i unikatowe indeksy stosowane w kluczach partycji. Duże klucze partycji są wprowadzane do rozwiązania tego problemu. Usługa Azure Cosmos DB obsługuje teraz duże klucze partycji o wartościach do 2 KB.
+Azure Cosmos DB stosuje schemat partycjonowania oparty na skrócie, aby osiągnąć skalowanie danych w poziomie. Wszystkie kontenery usługi Azure Cosmos utworzone przed 3 2019 maja mogą korzystać z funkcji skrótu, która oblicza wartość skrótu na podstawie pierwszych 100 bajtów klucza partycji. Jeśli istnieje wiele kluczy partycji, które mają te same pierwsze 100 bajtów, te partycje logiczne są traktowane jako te same partycje logiczne przez usługę. Może to prowadzić do problemów, takich jak nieprawidłowy limit przydziału rozmiaru partycji i unikatowe indeksy stosowane w ramach kluczy partycji. Wprowadzono duże klucze partycji w celu rozwiązania tego problemu. Azure Cosmos DB teraz obsługuje duże klucze partycji z wartościami do 2 KB.
 
-Duże klucze partycji są obsługiwane przy użyciu funkcji ulepszonej wersji funkcji mieszania, która może generować unikatowy skrót z dużych kluczy partycji do 2 KB. Ta wersja skrótu jest również zalecane w scenariuszach z wysokiej kardynalności klucz partycji, niezależnie od rozmiaru klucza partycji. Kardynalność klucza partycji jest zdefiniowana jako liczba unikatowych partycji logicznych, na przykład w kolejności ~30000 partycji logicznych w kontenerze. W tym artykule opisano sposób tworzenia kontenera z dużym kluczem partycji przy użyciu witryny Azure portal i różnych zestawów SDK.
+Duże klucze partycji są obsługiwane przy użyciu funkcji rozszerzonej wersji funkcji skrótu, która może generować unikatowy skrót z dużych kluczy partycji do 2 KB. Ta wersja skrótu jest również zalecana w przypadku scenariuszy o dużej kardynalności klucza partycji, niezależnie od rozmiaru klucza partycji. Kardynalność klucza partycji jest definiowana jako liczba unikatowych partycji logicznych, na przykład w kolejności ~ 30000 partycji logicznych w kontenerze. W tym artykule opisano sposób tworzenia kontenera z dużym kluczem partycji przy użyciu Azure Portal i różnych zestawów SDK.
 
-## <a name="create-a-large-partition-key-azure-portal"></a>Tworzenie dużego klucza partycji (Azure portal)
+## <a name="create-a-large-partition-key-azure-portal"></a>Tworzenie dużego klucza partycji (Azure Portal)
 
-Aby utworzyć klucz partycji dużych, podczas tworzenia nowego kontenera przy użyciu witryny Azure portal, sprawdź **Mój klucz partycji jest większy niż 100 bajtów** opcji. Usuń zaznaczenie pola wyboru, jeśli nie potrzebujesz dużych kluczy partycji lub jeśli masz aplikacje uruchomione w wersji zestawów SDK starszych niż 1.18.
+Aby utworzyć duży klucz partycji, podczas tworzenia nowego kontenera przy użyciu Azure Portal zaznacz opcję **mój klucz partycji jest większy niż 100-bajtów** . Usuń zaznaczenie pola wyboru, jeśli nie są potrzebne duże klucze partycji lub aplikacje działające w wersji SDK starszej niż 1,18.
 
-![Tworzenie dużych kluczy partycji za pomocą portalu Azure](./media/large-partition-keys/large-partition-key-with-portal.png)
+![Tworzenie dużych kluczy partycji przy użyciu Azure Portal](./media/large-partition-keys/large-partition-key-with-portal.png)
 
-## <a name="create-a-large-partition-key-powershell"></a>Tworzenie dużego klucza partycji (programu PowerShell)
+## <a name="create-a-large-partition-key-powershell"></a>Tworzenie dużego klucza partycji (program PowerShell)
 
-Aby utworzyć kontener z obsługą dużych kluczy partycji zobacz,
+Aby utworzyć kontener z obsługą dużych kluczy partycji, zobacz,
 
 * [Tworzenie kontenera usługi Azure Cosmos o dużym rozmiarze klucza partycji](manage-with-powershell.md#create-container-big-pk)
 
-## <a name="create-a-large-partition-key-net-sdk"></a>Tworzenie dużego klucza partycji (.Net SDK)
+## <a name="create-a-large-partition-key-net-sdk"></a>Tworzenie dużego klucza partycji (zestaw SDK dla platformy .NET)
 
-Aby utworzyć kontener z dużym kluczem partycji przy użyciu `PartitionKeyDefinitionVersion.V2` pliku .NET SDK, należy określić właściwość. W poniższym przykładzie pokazano, jak określić Version właściwości w PartitionKeyDefinition obiektu i ustawić go na PartitionKeyDefinitionVersion.V2.
+Aby utworzyć kontener z dużym kluczem partycji przy użyciu zestawu .NET SDK, określ `PartitionKeyDefinitionVersion.V2` właściwość. Poniższy przykład pokazuje, jak określić Właściwość Version w obiekcie PartitionKeyDefinition i ustawić ją na PartitionKeyDefinitionVersion. v2.
 
-### <a name="v3-net-sdk"></a>V3 .NET SDK
+### <a name="v3-net-sdk"></a>zestaw SDK v3 .NET
 
 ```csharp
 await database.CreateContainerAsync(
@@ -45,7 +45,7 @@ await database.CreateContainerAsync(
     })
 ```
 
-### <a name="v2-net-sdk"></a>SDK w wersji 2 .NET
+### <a name="v2-net-sdk"></a>zestaw SDK dla systemu v2
 
 ```csharp
 DocumentCollection collection = await newClient.CreateDocumentCollectionAsync(
@@ -62,19 +62,19 @@ database,
       new RequestOptions { OfferThroughput = 400 });
 ```
 
-## <a name="supported-sdk-versions"></a>Obsługiwane wersje SDK
+## <a name="supported-sdk-versions"></a>Obsługiwane wersje zestawu SDK
 
-Duże klucze partycji są obsługiwane z następującymi minimalnymi wersjami sdków:
+Klucze dużych partycji są obsługiwane z następującymi minimalnymi wersjami zestawów SDK:
 
-|Typ SDK  | Minimalna wersja   |
+|Typ zestawu SDK  | Minimalna wersja   |
 |---------|---------|
-|.Net     |    1.18     |
-|Synchronizacja java     |   2.4.0      |
+|.Net     |    1,18     |
+|Synchronizacja Java     |   2.4.0      |
 |Java Async   |  2.5.0        |
-| Interfejs API REST | wersja wyższa `2017-05-03` niż `x-ms-version` przy użyciu nagłówka żądania.|
-| Szablon usługi Resource Manager | wersji 2 przy `"version":2` użyciu `partitionKey` właściwości w obiekcie. |
+| Interfejs API REST | wersja wyższa niż `2017-05-03` przy użyciu nagłówka `x-ms-version` żądania.|
+| Szablon usługi Resource Manager | Wersja 2 przy użyciu `"version":2` właściwości w `partitionKey` obiekcie. |
 
-Obecnie nie można używać kontenerów z dużym kluczem partycji w usłudze Power BI i usłudze Azure Logic Apps. Można użyć kontenerów bez dużego klucza partycji z tych aplikacji.
+Obecnie nie można używać kontenerów z dużym kluczem partycji w ramach Power BI i Azure Logic Apps. Z tych aplikacji można korzystać z kontenerów bez dużego klucza partycji.
 
 ## <a name="next-steps"></a>Następne kroki
 

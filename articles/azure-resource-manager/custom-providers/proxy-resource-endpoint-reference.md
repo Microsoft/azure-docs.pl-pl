@@ -1,24 +1,24 @@
 ---
 title: Dokumentacja serwera proxy zasobu niestandardowego
-description: Odwołanie do niestandardowego serwera proxy zasobów dla dostawców zasobów niestandardowych platformy Azure. W tym artykule zostaną przejmują wymagania dotyczące punktów końcowych implementujących zasoby niestandardowe serwera proxy.
+description: Niestandardowy adres serwera proxy zasobów dla dostawców zasobów niestandardowych platformy Azure. W tym artykule opisano wymagania dotyczące punktów końcowych implementujących zasoby niestandardowe serwera proxy.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 46b38686b39836f3d4bfb80686d514f932a79bf3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75650463"
 ---
 # <a name="custom-resource-proxy-reference"></a>Odwołanie do niestandardowego serwera proxy zasobów
 
-W tym artykule zostaną przejmują wymagania dotyczące punktów końcowych implementujących zasoby niestandardowe serwera proxy. Jeśli nie znasz dostawców zasobów niestandardowych platformy Azure, zobacz [omówienie dostawców zasobów niestandardowych](overview.md).
+W tym artykule opisano wymagania dotyczące punktów końcowych implementujących zasoby niestandardowe serwera proxy. Jeśli nie znasz niestandardowych dostawców zasobów platformy Azure, zapoznaj [się z tematem Omówienie niestandardowych dostawców zasobów](overview.md).
 
 ## <a name="how-to-define-a-proxy-resource-endpoint"></a>Jak zdefiniować punkt końcowy zasobu serwera proxy
 
-Zasób serwera proxy można utworzyć, określając **typ routingu** do "Serwera proxy".
+Zasób serwera proxy można utworzyć, określając element **routingtype** jako "proxy".
 
 Przykładowy dostawca zasobów niestandardowych:
 
@@ -40,12 +40,12 @@ Przykładowy dostawca zasobów niestandardowych:
 }
 ```
 
-## <a name="building-proxy-resource-endpoint"></a>Tworzenie punktu końcowego zasobów serwera proxy
+## <a name="building-proxy-resource-endpoint"></a>Tworzenie punktu końcowego zasobu serwera proxy
 
-**Punkt końcowy,** który implementuje **punkt końcowy** zasobu "Proxy" musi obsługiwać żądanie i odpowiedź dla nowego interfejsu API na platformie Azure. W takim przypadku **resourceType** wygeneruje nowy `PUT` `GET`interfejs `DELETE` API zasobów platformy Azure dla programu `GET` , i wykonać CRUD na jednym zasobie, a także pobrać wszystkie istniejące zasoby.
+**Punkt końcowy** , który implementuje **punkt końcowy** zasobu "proxy", musi obsługiwać żądanie i odpowiedź dla nowego interfejsu API na platformie Azure. W takim przypadku obiekt **ResourceType** wygeneruje nowy interfejs API zasobów platformy Azure dla `PUT`, `GET`i, `DELETE` aby wykonać CRUD na jednym zasobie, a także `GET` pobrać wszystkie istniejące zasoby.
 
 > [!NOTE]
-> Pola `id` `name`, `type` i pola nie są wymagane, ale są potrzebne do integracji zasobu niestandardowego z istniejącym ekosystemem platformy Azure.
+> Pola `id`, `name`i `type` nie są wymagane, ale są niezbędne do integracji zasobu niestandardowego z istniejącym ekosystemem platformy Azure.
 
 Przykładowy zasób:
 
@@ -65,15 +65,15 @@ Przykładowy zasób:
 
 Odwołanie do parametru:
 
-Właściwość | Sample | Opis
+Właściwość | Przykład | Opis
 ---|---|---
-name | '{myCustomResourceName}' | Nazwa zasobu niestandardowego.
-type | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | Obszar nazw typu zasobu.
-id | "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupGroupName}/<br>dostawcy/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{myCustomResourceName}' | Identyfikator zasobu.
+name | '{myCustomResourceName}' | Nazwa niestandardowego zasobu.
+type | "Microsoft. CustomProviders/resourceProviders/{resourceTypeName}" | Przestrzeń nazw typu zasobu.
+id | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>dostawcy/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{myCustomResourceName}' | Identyfikator zasobu.
 
 ### <a name="create-a-custom-resource"></a>Tworzenie zasobu niestandardowego
 
-Żądanie przychodzące interfejsu API platformy Azure:
+Przychodzące żądanie interfejsu API platformy Azure:
 
 ``` HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resource-provider-name}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -90,7 +90,7 @@ Content-Type: application/json
 }
 ```
 
-Wniosek ten zostanie następnie przekazany do **punktu końcowego** w formularzu:
+To żądanie zostanie następnie przekazane do **punktu końcowego** w postaci:
 
 ``` HTTP
 PUT https://{endpointURL}/?api-version=2018-09-01-preview
@@ -107,12 +107,12 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywane z powrotem do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
+Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywana ponownie do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
 
-- Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone pod górnym obiektem.
-- Nagłówek `Content-Type` powinien być ustawiony na "application/json; charset=utf-8".
+- Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone w obiekcie najwyższego poziomu.
+- `Content-Type` Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
 
-**Punkt końcowy** Odpowiedzi:
+**Punkt końcowy** Reakcji
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -131,7 +131,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Odpowiedź dostawcy zasobów niestandardowych platformy Azure:
+Odpowiedź niestandardowego dostawcy zasobów platformy Azure:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -152,7 +152,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="remove-a-custom-resource"></a>Usuwanie zasobu niestandardowego
 
-Żądanie przychodzące interfejsu API platformy Azure:
+Przychodzące żądanie interfejsu API platformy Azure:
 
 ``` HTTP
 Delete https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -160,7 +160,7 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-Wniosek ten zostanie następnie przekazany do **punktu końcowego** w formularzu:
+To żądanie zostanie następnie przekazane do **punktu końcowego** w postaci:
 
 ``` HTTP
 Delete https://{endpointURL}/?api-version=2018-09-01-preview
@@ -168,19 +168,19 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```
 
-Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywane z powrotem do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
+Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywana ponownie do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
 
-- Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone pod górnym obiektem.
-- Nagłówek `Content-Type` powinien być ustawiony na "application/json; charset=utf-8".
+- Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone w obiekcie najwyższego poziomu.
+- `Content-Type` Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
 
-**Punkt końcowy** Odpowiedzi:
+**Punkt końcowy** Reakcji
 
 ``` HTTP
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
 
-Odpowiedź dostawcy zasobów niestandardowych platformy Azure:
+Odpowiedź niestandardowego dostawcy zasobów platformy Azure:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -189,7 +189,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="retrieve-a-custom-resource"></a>Pobieranie zasobu niestandardowego
 
-Żądanie przychodzące interfejsu API platformy Azure:
+Przychodzące żądanie interfejsu API platformy Azure:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -197,7 +197,7 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-Wniosek ten zostanie następnie przekazany do **punktu końcowego** w formularzu:
+To żądanie zostanie następnie przekazane do **punktu końcowego** w postaci:
 
 ``` HTTP
 GET https://{endpointURL}/?api-version=2018-09-01-preview
@@ -205,31 +205,12 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```
 
-Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywane z powrotem do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
+Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywana ponownie do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
 
-- Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone pod górnym obiektem.
-- Nagłówek `Content-Type` powinien być ustawiony na "application/json; charset=utf-8".
+- Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone w obiekcie najwyższego poziomu.
+- `Content-Type` Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
 
-**Punkt końcowy** Odpowiedzi:
-
-``` HTTP
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-
-{
-    "name": "{myCustomResourceName}",
-    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}",
-    "type": "Microsoft.CustomProviders/resourceProviders/myCustomResources",
-    "properties": {
-        "myProperty1": "myPropertyValue1",
-        "myProperty2": {
-            "myProperty3" : "myPropertyValue3"
-        }
-    }
-}
-```
-
-Odpowiedź dostawcy zasobów niestandardowych platformy Azure:
+**Punkt końcowy** Reakcji
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -248,9 +229,28 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### <a name="enumerate-all-custom-resources"></a>Wyliczaj wszystkie zasoby niestandardowe
+Odpowiedź niestandardowego dostawcy zasobów platformy Azure:
 
-Żądanie przychodzące interfejsu API platformy Azure:
+``` HTTP
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "name": "{myCustomResourceName}",
+    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}",
+    "type": "Microsoft.CustomProviders/resourceProviders/myCustomResources",
+    "properties": {
+        "myProperty1": "myPropertyValue1",
+        "myProperty2": {
+            "myProperty3" : "myPropertyValue3"
+        }
+    }
+}
+```
+
+### <a name="enumerate-all-custom-resources"></a>Wylicz wszystkie zasoby niestandardowe
+
+Przychodzące żądanie interfejsu API platformy Azure:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources?api-version=2018-09-01-preview
@@ -258,7 +258,7 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-Wniosek ten zostanie następnie przekazany do **punktu końcowego** w formularzu:
+To żądanie zostanie następnie przekazane do **punktu końcowego** w postaci:
 
 ``` HTTP
 GET https://{endpointURL}/?api-version=2018-09-01-preview
@@ -266,13 +266,13 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources
 ```
 
-Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywane z powrotem do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
+Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywana ponownie do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
 
-- Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone pod górnym obiektem.
-- Nagłówek `Content-Type` powinien być ustawiony na "application/json; charset=utf-8".
-- Lista zasobów powinny być umieszczone w `value` ramach właściwości najwyższego poziomu.
+- Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone w obiekcie najwyższego poziomu.
+- `Content-Type` Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
+- Listę zasobów należy umieścić pod właściwości najwyższego poziomu `value` .
 
-**Punkt końcowy** Odpowiedzi:
+**Punkt końcowy** Reakcji
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -295,7 +295,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Odpowiedź dostawcy zasobów niestandardowych platformy Azure:
+Odpowiedź niestandardowego dostawcy zasobów platformy Azure:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -320,8 +320,8 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Omówienie dostawców zasobów niestandardowych platformy Azure](overview.md)
-- [Szybki start: tworzenie niestandardowego dostawcy zasobów platformy Azure i wdrażanie zasobów niestandardowych](./create-custom-provider.md)
+- [Omówienie niestandardowych dostawców zasobów platformy Azure](overview.md)
+- [Szybki Start: Tworzenie niestandardowego dostawcy zasobów platformy Azure i wdrażanie zasobów niestandardowych](./create-custom-provider.md)
 - [Samouczek: Tworzenie niestandardowych akcji i zasobów na platformie Azure](./tutorial-get-started-with-custom-providers.md)
-- [Jak: Dodawanie akcji niestandardowych do interfejsu API REST platformy Azure](./custom-providers-action-endpoint-how-to.md)
-- [Odwołanie: Odwołanie do niestandardowej pamięci podręcznej zasobów](proxy-cache-resource-endpoint-reference.md)
+- [Instrukcje: Dodawanie akcji niestandardowych do interfejsu API REST platformy Azure](./custom-providers-action-endpoint-how-to.md)
+- [Odwołanie: niestandardowe odwołanie do pamięci podręcznej zasobów](proxy-cache-resource-endpoint-reference.md)

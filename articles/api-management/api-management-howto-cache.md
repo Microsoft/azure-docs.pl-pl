@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75708359"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Dodawanie buforowania w celu poprawy wydajności usługi Azure API Management
@@ -50,7 +50,7 @@ W celu ukończenia tego samouczka:
 
 W zasadach buforowania pokazanych w tym przykładzie pierwsze żądanie operacji **GetSpeakers** zwraca odpowiedź z usługi zaplecza. Ta odpowiedź jest zbuforowana z kluczem uwzględniającym określone nagłówki i parametry ciągu zapytania. Dla kolejnych wywołań operacji z pasującymi parametrami będą zwracana buforowaną odpowiedź do czasu wygaśnięcia interwału czasu trwania pamięci podręcznej.
 
-1. Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal.azure.com).
+1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 2. Przejdź do swojego wystąpienia usługi APIM.
 3. Wybierz kartę **API**.
 4. Kliknij pozycję **Demo Conference API** (Pokazowy interfejs API konferencji) na liście interfejsów API.
@@ -81,7 +81,7 @@ W zasadach buforowania pokazanych w tym przykładzie pierwsze żądanie operacji
 Wywołaj operację z portalu dla deweloperów, aby sprawdzić działanie buforowania.
 
 1. W portalu Azure przejdź do swojego wystąpienia usługi APIM.
-2. Wybierz kartę **Interfejsy API.**
+2. Wybierz kartę **interfejsy API** .
 3. Wybierz interfejs API, do którego dodano zasady buforowania.
 4. Wybierz operację **GetSpeakers**.
 5. Kliknij kartę **Test** w prawym górnym menu.

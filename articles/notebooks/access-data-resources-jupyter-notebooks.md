@@ -1,30 +1,30 @@
 ---
-title: Dostęp do danych w notesach jupyter — usługa Azure Notebooks Preview
-description: Dowiedz się, jak uzyskać dostęp do plików, interfejsów API REST, baz danych i różnych zasobów usługi Azure Storage z notesu usługi Jupyter.
+title: Dostęp do danych w notesach Jupyter Azure Notebooks — wersja zapoznawcza
+description: Dowiedz się, jak uzyskać dostęp do plików, interfejsów API REST, baz danych i różnych zasobów usługi Azure Storage z notesu Jupyter.
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646351"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Dostęp do danych z chmury w notesie
 
-Wykonywanie ciekawej pracy w notebooku Jupyter wymaga danych. Dane, rzeczywiście, jest ratą notebooków.
+Wykonanie interesującej pracy w notesie Jupyter wymaga danych. Dane, faktycznie, to Lifeblood notesów.
 
-Z pewnością można [importować pliki danych do projektu,](work-with-project-data-files.md)nawet za pomocą poleceń, takich jak `curl` z notesu, aby pobrać plik bezpośrednio. Jest jednak prawdopodobne, że trzeba pracować z dużo bardziej obszerne dane, które są dostępne ze źródeł innych niż pliki, takich jak interfejsy API REST, relacyjne bazy danych i magazynu w chmurze, takich jak tabele platformy Azure.
+Można na pewno [zaimportować pliki danych do projektu](work-with-project-data-files.md), nawet używając poleceń takich jak `curl` z notesu, aby bezpośrednio pobrać plik. Jest to jednak konieczne, aby pracować z znacznie bardziej rozbudowanymi danymi, które są dostępne w źródłach niezwiązanych z plikami, takimi jak interfejsy API REST, relacyjne bazy danych i magazyn w chmurze, takie jak tabele platformy Azure.
 
-W tym artykule pokrótce opisano te różne opcje. Ponieważ dostęp do danych jest najlepiej widoczny w akcji, można znaleźć kod do uruchomienia w [przykładach notesów platformy Azure — dostęp do danych](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
+W tym artykule krótko opisano te różne opcje. Ze względu na to, że dostęp do danych jest najlepiej widoczny w akcji, można znaleźć kod możliwy do uruchomienia w [Azure Notebooks próbkach — dostęp do danych](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="rest-apis"></a>Interfejsy API REST
 
-Ogólnie rzecz biorąc, ogromna ilość danych dostępnych z Internetu jest dostępna nie za pośrednictwem plików, ale za pośrednictwem interfejsów API REST. Na szczęście, ponieważ komórka notesu może zawierać dowolny kod, można użyć kodu do wysyłania żądań i odbierania danych JSON. Następnie można przekonwertować ten JSON na dowolny format, którego chcesz użyć, na przykład ramkę danych pandas.
+Ogólnie mówiąc, olbrzymia ilość danych dostępnych w Internecie jest dostępna nie za pośrednictwem plików, ale za pośrednictwem interfejsów API REST. Na szczęście, ponieważ komórka notesu może zawierać dowolny kod, który lubisz, można użyć kodu do wysyłania żądań i odbierania danych JSON. Następnie można przekonwertować ten kod JSON na dowolny format, który ma być używany, taki jak Pandas Dataframe.
 
-Aby uzyskać dostęp do danych przy użyciu interfejsu API REST, należy użyć tego samego kodu w komórkach kodu notesu, które są używane w dowolnej innej aplikacji. Ogólna struktura przy użyciu biblioteki żądań jest następująca:
+Aby uzyskać dostęp do danych przy użyciu interfejsu API REST, należy użyć tego samego kodu w komórkach kodu notesu, które są używane w dowolnej innej aplikacji. Ogólna struktura przy użyciu biblioteki Requests jest następująca:
 
 ```python
 import pandas
@@ -41,43 +41,43 @@ if response.status_code == 200:
     print(dataframe_rest2)
 ```
 
-## <a name="azure-sql-databases"></a>Bazy danych SQL platformy Azure
+## <a name="azure-sql-databases"></a>Bazy danych SQL Azure
 
-Dostęp do baz danych programu SQL Server można uzyskać za pomocą bibliotek pyodbc lub pymssql.
+Dostęp do SQL Server baz danych można uzyskać za pomocą bibliotek moduł pyodbc lub pymssql.
 
-[Użyj języka Python do kwerendy bazy danych SQL platformy Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) zawiera instrukcje dotyczące tworzenia bazy danych zawierającej dane AdventureWorks i pokazuje, jak kwerendy tych danych. Ten sam kod jest wyświetlany w notesie przykładu dla tego artykułu.
+[Używanie języka Python do wykonywania zapytań w bazie danych Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) zawiera instrukcje dotyczące tworzenia bazy danych zawierającej dane AdventureWorks i pokazujące, jak wykonywać zapytania dotyczące tych danych. Ten sam kod jest przedstawiony w notesie przykładowym dla tego artykułu.
 
 ## <a name="azure-storage"></a>Azure Storage
 
-Usługa Azure Storage udostępnia kilka różnych typów magazynu nierelacyjnego, w zależności od typu posiadanych danych i sposobu uzyskiwania do nich dostępu:
+Usługa Azure Storage oferuje kilka różnych typów magazynu nierelacyjnego, w zależności od typu danych i sposobu dostępu do niego:
 
-- Magazyn tabel: zapewnia niedrogie, dużej ilości pamięci masowej dla danych tabelaryczne, takich jak zebrane dzienniki czujników, dzienniki diagnostyczne i tak dalej.
-- Magazyn obiektów blob: zapewnia magazyn podobny do pliku dla dowolnego typu danych.
+- Table Storage: zapewnia niski koszt magazynowania magazynu o dużej pojemności dla danych tabelarycznych, na przykład zebranych dzienników czujników, dzienników diagnostycznych itd.
+- BLOB Storage: zapewnia magazyn podobne do plików dla dowolnego typu danych.
 
-Przykładowy notes pokazuje pracę z tabelami i obiektami blob, w tym sposób używania podpisu dostępu współdzielonego w celu umożliwienia dostępu tylko do odczytu do obiektów blob.
+W przykładowym notesie przedstawiono pracę z tabelami i obiektami BLOB, w tym używanie sygnatury dostępu współdzielonego w celu zezwalania na dostęp tylko do odczytu do obiektów BLOB.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Usługa Azure Cosmos DB udostępnia w pełni indeksowany magazyn NoSQL dla dokumentów JSON). Następujące artykuły zawierają wiele różnych sposobów pracy z usługą Cosmos DB z języka Python:
+Azure Cosmos DB zapewnia w pełni indeksowany Magazyn NoSQL dla dokumentów JSON. Poniższe artykuły zawierają różne sposoby pracy z Cosmos DBami z poziomu języka Python:
 
-- [Tworzenie aplikacji interfejsu API SQL za pomocą języka Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [Tworzenie aplikacji Flask za pomocą interfejsu API usługi Azure Cosmos DB dla mongodb](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
-- [Tworzenie bazy danych wykresów przy użyciu interfejsu Api języka Python i Gremlin](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
+- [Tworzenie aplikacji interfejsu API SQL przy użyciu języka Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
+- [Tworzenie aplikacji do kolby z interfejsem API Azure Cosmos DB dla MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
+- [Tworzenie bazy danych grafu przy użyciu języka Python i interfejsu API Gremlin](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [tworzenie aplikacji Cassandra przy użyciu języka Python i usługi Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [tworzenie aplikacji interfejsu API tabel przy użyciu języka Python i usługi Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
 
-Podczas pracy z usługą Cosmos DB można użyć biblioteki [tabeli azure-cosmosdb.](https://pypi.org/project/azure-cosmosdb-table/)
+Podczas pracy z Cosmos DB można użyć biblioteki [Azure-cosmosdb-Table](https://pypi.org/project/azure-cosmosdb-table/) .
 
 ## <a name="other-azure-databases"></a>Inne bazy danych platformy Azure
 
-Platforma Azure udostępnia wiele innych typów baz danych, których można użyć. Poniższe artykuły zawierają wskazówki dotyczące uzyskiwania dostępu do tych baz danych z języka Python:
+Platforma Azure udostępnia wiele innych typów baz danych, których można użyć. W poniższych artykułach przedstawiono wskazówki dotyczące uzyskiwania dostępu do tych baz danych z języka Python:
 
 - [Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Python](https://docs.microsoft.com/azure/postgresql/connect-python)
 - [Szybki start: korzystanie z usługi Azure Redis Cache w połączeniu z językiem Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
 - [Usługa Azure Database for MySQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Python](https://docs.microsoft.com/azure/mysql/connect-python)
-- [Fabryka danych platformy Azure](https://azure.microsoft.com/services/data-factory/)
-  - [Kreator kopiowania dla usługi Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
+  - [Kreator kopiowania dla Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Jak: Praca z plikami danych projektu](work-with-project-data-files.md)
+- [Instrukcje: współdziałanie z plikami danych projektu](work-with-project-data-files.md)

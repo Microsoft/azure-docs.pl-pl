@@ -1,22 +1,22 @@
 ---
-title: Element interfejsu użytkownika UserNameTextBox
-description: W tym artykule opisano element interfejsu użytkownika microsoft.compute.UserNameTextBox dla witryny Azure portal. Umożliwia użytkownikom dostarczanie nazw użytkowników systemu Windows lub Linux.
+title: UserNameTextBox — element interfejsu użytkownika
+description: Opisuje element interfejsu użytkownika Microsoft. COMPUTE. UserNameTextBox dla Azure Portal. Umożliwia użytkownikom dostarczanie nazw użytkowników systemu Windows lub Linux.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: c7544ae7d872a64547cb6c57ce8af9a09fc6c3d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651906"
 ---
-# <a name="microsoftcomputeusernametextbox-ui-element"></a>Element interfejsu użytkownika microsoft.compute.userNameTextBox
+# <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft. COMPUTE. UserNameTextBox — element interfejsu użytkownika
 
-Kontrolka pola tekstowego z wbudowaną weryfikacją nazw użytkowników systemów Windows i Linux.
+Kontrolka pola tekstowego z wbudowaną walidacją nazw użytkowników systemu Windows i Linux.
 
-## <a name="ui-sample"></a>Próbka interfejsu użytkownika
+## <a name="ui-sample"></a>Przykładowy interfejs użytkownika
 
 ![Microsoft.Compute.UserNameTextBox](./media/managed-application-elements/microsoft.compute.usernametextbox.png)
 
@@ -47,13 +47,13 @@ Kontrolka pola tekstowego z wbudowaną weryfikacją nazw użytkowników systemó
 
 ## <a name="remarks"></a>Uwagi
 
-- Jeśli `constraints.required` ustawiono **wartość true**, pole tekstowe musi mieć wartość, aby pomyślnie sprawdzić poprawność. Wartość domyślna to **true**.
-- `osPlatform`musi być określony i może być albo **Windows** lub **Linux**.
+- Jeśli `constraints.required` ma wartość **true**, pole tekstowe musi mieć wartość, aby pomyślnie sprawdzić poprawność. Wartość domyślna to **true**.
+- `osPlatform`musi być określony i może być w **systemie Windows** lub **Linux**.
 - `constraints.regex`jest wzorcem wyrażenia regularnego JavaScript. Jeśli jest określony, wartość pola tekstowego musi być zgodna ze wzorcem, aby pomyślnie sprawdzić poprawność. Wartość domyślna to **null**.
-- `constraints.validationMessage`jest ciągiem do wyświetlenia, gdy wartość pola `constraints.regex`tekstowego nie powiedzie się sprawdzanie poprawności określone przez program . Jeśli nie zostanie określony, używane są wbudowane komunikaty sprawdzania poprawności pola tekstowego. Wartość domyślna to **null**.
-- Ten element ma wbudowaną walidację, która `osPlatform`jest oparta na wartości określonej dla . Wbudowana sprawdzanie poprawności może służyć wraz z niestandardowym wyrażeniem regularnym. Jeśli określono `constraints.regex` wartość dla, a następnie wyzwalane są zarówno wbudowane, jak i niestandardowe sprawdzanie poprawności.
+- `constraints.validationMessage`jest ciągiem, który ma być wyświetlany, gdy wartość pola tekstowego nie powiedzie się `constraints.regex`walidacji określonej przez. Jeśli nie zostanie określony, będą używane wbudowane komunikaty weryfikacyjne pola tekstowego. Wartość domyślna to **null**.
+- Ten element ma wbudowaną weryfikację opartą na wartości określonej dla `osPlatform`parametru. Wbudowanej walidacji można używać razem z niestandardowym wyrażeniem regularnym. Jeśli określono wartość dla `constraints.regex` parametru, wyzwalane są zarówno wbudowane, jak i niestandardowe walidacje.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zapoznać się z wprowadzeniem do tworzenia definicji interfejsu użytkownika, zobacz [Wprowadzenie do createuidefinition](create-uidefinition-overview.md).
-* Aby uzyskać opis wspólnych właściwości w elementach interfejsu użytkownika, zobacz [CreateUiDefinition elementów](create-uidefinition-elements.md).
+* Wprowadzenie do tworzenia definicji interfejsu użytkownika można znaleźć w temacie [wprowadzenie do CreateUiDefinition](create-uidefinition-overview.md).
+* Opis wspólnych właściwości elementów interfejsu użytkownika można znaleźć w temacie [CreateUiDefinition elementy](create-uidefinition-elements.md).

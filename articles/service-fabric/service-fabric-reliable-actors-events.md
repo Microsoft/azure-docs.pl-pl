@@ -1,23 +1,23 @@
 ---
-title: Zdarzenia u aktorów usługi Azure fabric oparte na aktorach
-description: Dowiedz się więcej o zdarzeniach dla niezawodnych aktorów sieci szkieletowej usług, skutecznym sposobem komunikowania się między aktorem a klientem.
+title: Zdarzenia w aktorach Service Fabric platformy Azure opartych na aktorach
+description: Informacje o zdarzeniach dotyczących Reliable Actors Service Fabric, efektywny sposób komunikowania się między aktorem a klientem.
 author: vturecek
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: 73c149a0d0992fecd1acf633891057570285df64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75639670"
 ---
-# <a name="actor-events"></a>Wydarzenia aktorskie
-Zdarzenia aktora umożliwiają wysyłanie powiadomień o najlepszym wysiłku od aktora do klientów. Zdarzenia aktora są przeznaczone do komunikacji między aktorem a klientem i nie powinny być używane do komunikacji między aktorami.
+# <a name="actor-events"></a>Zdarzenia aktora
+Zdarzenia aktora umożliwiają wysyłanie powiadomień o najlepszych nakładów od aktora do klientów. Zdarzenia aktora są przeznaczone do komunikacji między komputerami i nie powinny być używane do komunikacji między aktorami.
 
 Poniższe fragmenty kodu pokazują, jak używać zdarzeń aktora w aplikacji.
 
-Zdefiniuj interfejs opisujący zdarzenia opublikowane przez aktora. Ten interfejs musi pochodzić `IActorEvents` z interfejsu. Argumenty metod muszą być [serializable umowy danych](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Metody muszą zwracać void, jak powiadomienia o zdarzeniach są jednym ze sposobów i najlepszych starań.
+Zdefiniuj interfejs, który opisuje zdarzenia opublikowane przez aktora. Ten interfejs musi być pochodny `IActorEvents` interfejsu. Argumenty metod muszą być [serializowane kontraktu danych](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Metody muszą zwracać typ void, ponieważ powiadomienia o zdarzeniach są jednym sposobem i najlepszym nakładem pracy.
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -49,7 +49,7 @@ public interface GameActor extends Actor, ActorEventPublisherE<GameEvents>
     CompletableFuture<String> getGameScore();
 }
 ```
-Po stronie klienta zaimplementuj program obsługi zdarzeń.
+Po stronie klienta Zaimplementuj procedurę obsługi zdarzeń.
 
 ```csharp
 class GameEventsHandler : IGameEvents
@@ -70,7 +70,7 @@ class GameEventsHandler implements GameEvents {
 }
 ```
 
-Na kliencie utwórz serwer proxy dla aktora, który publikuje zdarzenie i subskrybować jego zdarzenia.
+Na kliencie Utwórz serwer proxy do aktora, który publikuje zdarzenie i subskrybuje jego zdarzenia.
 
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
@@ -85,9 +85,9 @@ GameActor actorProxy = ActorProxyBase.create<GameActor>(GameActor.class, new Act
 return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler());
 ```
 
-W przypadku pracy awaryjnej aktora może awaryjnie do innego procesu lub węzła. Serwer proxy aktora zarządza aktywnymi subskrypcjami i automatycznie subskrybuje je ponownie. Interwał ponownej subskrypcji można `ActorProxyEventExtensions.SubscribeAsync<TEvent>` kontrolować za pośrednictwem interfejsu API. Aby zrezygnować z subskrypcji, użyj `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` interfejsu API.
+W przypadku pracy awaryjnej aktor może przechodzić w tryb failover do innego procesu lub węzła. Serwer proxy aktora zarządza aktywnymi subskrypcjami i automatycznie subskrybuje je. Interwał ponownej subskrypcji można kontrolować za pomocą `ActorProxyEventExtensions.SubscribeAsync<TEvent>` interfejsu API. Aby anulować subskrypcję, użyj `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` interfejsu API.
 
-Na aktora, publikować wydarzenia, jak się zdarzają. Jeśli istnieją subskrybenci zdarzenia, środowisko wykonawcze Actors wysyła im powiadomienie.
+Na aktora Opublikuj zdarzenia w miarę ich występowania. Jeśli istnieją Subskrybenci dla zdarzenia, środowisko uruchomieniowe aktorów wysyła je do powiadomienia.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
@@ -100,9 +100,9 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Ponowne entrancy aktora](service-fabric-reliable-actors-reentrancy.md)
+* [Współużytkowania wątkowości aktora](service-fabric-reliable-actors-reentrancy.md)
 * [Diagnostyka aktora i monitorowanie wydajności](service-fabric-reliable-actors-diagnostics.md)
-* [Dokumentacja referencyjna interfejsu API aktora](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# Przykładowy kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Przykładowy kod C# .NET Core](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
-* [Przykładowy kod Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Dokumentacja interfejsu API aktora](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Przykładowy kod w języku C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Przykładowy kod w języku C# .NET Core](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
+* [Przykładowy kod w języku Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)

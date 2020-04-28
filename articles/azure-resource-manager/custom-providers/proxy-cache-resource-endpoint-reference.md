@@ -1,24 +1,24 @@
 ---
 title: Dokumentacja pamięci podręcznej zasobu niestandardowego
-description: Odwołanie do niestandardowej pamięci podręcznej zasobów dla dostawców zasobów niestandardowych platformy Azure. W tym artykule zostaną przejmują wymagania dotyczące punktów końcowych implementujących zasoby niestandardowe pamięci podręcznej.
+description: Niestandardowa dokumentacja pamięci podręcznej zasobów dla dostawców zasobów niestandardowych platformy Azure. W tym artykule przedstawiono wymagania dotyczące punktów końcowych implementujących zasoby niestandardowe pamięci podręcznej.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: e1b8c44f020d18066423eed236018308fe88b607
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75650385"
 ---
-# <a name="custom-resource-cache-reference"></a>Odwołanie do niestandardowej pamięci podręcznej zasobów
+# <a name="custom-resource-cache-reference"></a>Niestandardowe odwołanie do pamięci podręcznej zasobów
 
-W tym artykule zostaną przejmują wymagania dotyczące punktów końcowych implementujących zasoby niestandardowe pamięci podręcznej. Jeśli nie znasz dostawców zasobów niestandardowych platformy Azure, zobacz [omówienie dostawców zasobów niestandardowych](overview.md).
+W tym artykule przedstawiono wymagania dotyczące punktów końcowych implementujących zasoby niestandardowe pamięci podręcznej. Jeśli nie znasz niestandardowych dostawców zasobów platformy Azure, zapoznaj [się z tematem Omówienie niestandardowych dostawców zasobów](overview.md).
 
 ## <a name="how-to-define-a-cache-resource-endpoint"></a>Jak zdefiniować punkt końcowy zasobu pamięci podręcznej
 
-Zasób serwera proxy można utworzyć, określając **typ routingu** do "Proxy, Cache".
+Zasób serwera proxy można utworzyć, określając element **routingtype** na wartość "proxy" w pamięci podręcznej.
 
 Przykładowy dostawca zasobów niestandardowych:
 
@@ -40,17 +40,17 @@ Przykładowy dostawca zasobów niestandardowych:
 }
 ```
 
-## <a name="building-proxy-resource-endpoint"></a>Tworzenie punktu końcowego zasobów serwera proxy
+## <a name="building-proxy-resource-endpoint"></a>Tworzenie punktu końcowego zasobu serwera proxy
 
-**Punkt końcowy,** który implementuje **punkt końcowy** zasobu "Proxy, cache", musi obsługiwać żądanie i odpowiedź dla nowego interfejsu API na platformie Azure. W takim przypadku **resourceType** wygeneruje nowy `PUT` `GET`interfejs `DELETE` API zasobów platformy Azure dla programu `GET` , i wykonać CRUD na jednym zasobie, a także pobrać wszystkie istniejące zasoby:
+**Punkt końcowy** , który implementuje **punkt końcowy** zasobu "proxy" w pamięci podręcznej, musi obsługiwać żądanie i odpowiedź dla nowego interfejsu API na platformie Azure. W takim przypadku obiekt **ResourceType** wygeneruje nowy interfejs API zasobów platformy Azure dla `PUT`, `GET`i, `DELETE` aby wykonać CRUD na jednym zasobie, a także `GET` pobrać wszystkie istniejące zasoby:
 
 > [!NOTE]
-> Interfejs API platformy Azure `PUT`wygeneruje metody żądania , `GET`i `DELETE`, ale punkt **końcowy** pamięci podręcznej musi obsługiwać `PUT` i . `DELETE`
-> Zalecamy, aby **punkt** końcowy `GET`również implementuje .
+> `PUT`Interfejs API platformy Azure będzie generować metody żądań, `GET`, i `DELETE`, ale **punkt końcowy** pamięci podręcznej musi `PUT` obsługiwać `DELETE`i.
+> Zalecamy, aby **punkt końcowy** został również `GET`zaimplementowany.
 
 ### <a name="create-a-custom-resource"></a>Tworzenie zasobu niestandardowego
 
-Żądanie przychodzące interfejsu API platformy Azure:
+Przychodzące żądanie interfejsu API platformy Azure:
 
 ``` HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -67,7 +67,7 @@ Content-Type: application/json
 }
 ```
 
-Wniosek ten zostanie następnie przekazany do **punktu końcowego** w formularzu:
+To żądanie zostanie następnie przekazane do **punktu końcowego** w postaci:
 
 ``` HTTP
 PUT https://{endpointURL}/?api-version=2018-09-01-preview
@@ -84,14 +84,14 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywane z powrotem do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
+Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywana ponownie do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
 
-- Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone pod górnym obiektem.
-- Nagłówek `Content-Type` powinien być ustawiony na "application/json; charset=utf-8".
-- Dostawca zasobów niestandardowych zastąpi `name`pola `type`, `id` i pola dla żądania.
-- Dostawca zasobów niestandardowych zwróci tylko `properties` pola w obiekcie dla punktu końcowego pamięci podręcznej.
+- Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone w obiekcie najwyższego poziomu.
+- `Content-Type` Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
+- Dostawca zasobów niestandardowych spowoduje zastąpienie pól `name`, `type`, i `id` dla żądania.
+- Dostawca zasobów niestandardowych zwróci tylko pola pod `properties` obiektem dla punktu końcowego pamięci podręcznej.
 
-**Punkt końcowy** Odpowiedzi:
+**Punkt końcowy** Reakcji
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -107,9 +107,9 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Pola `name` `id`, `type` i pola zostaną automatycznie wygenerowane dla zasobu niestandardowego przez niestandardowego dostawcę zasobów.
+Pola `name`, `id`i `type` zostaną automatycznie wygenerowane dla zasobu niestandardowego przez niestandardowego dostawcę zasobów.
 
-Odpowiedź dostawcy zasobów niestandardowych platformy Azure:
+Odpowiedź niestandardowego dostawcy zasobów platformy Azure:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -130,7 +130,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="remove-a-custom-resource"></a>Usuwanie zasobu niestandardowego
 
-Żądanie przychodzące interfejsu API platformy Azure:
+Przychodzące żądanie interfejsu API platformy Azure:
 
 ``` HTTP
 Delete https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -138,7 +138,7 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-Wniosek ten zostanie następnie przekazany do **punktu końcowego** w formularzu:
+To żądanie zostanie następnie przekazane do **punktu końcowego** w postaci:
 
 ``` HTTP
 Delete https://{endpointURL}/?api-version=2018-09-01-preview
@@ -146,20 +146,20 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```
 
-Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywała z powrotem do odbiorcy. Odpowiedź z punktu końcowego powinna zwrócić:
+Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywana ponownie do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
 
-- Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone pod górnym obiektem.
-- Nagłówek `Content-Type` powinien być ustawiony na "application/json; charset=utf-8".
-- Dostawca zasobów niestandardowych platformy Azure usunie element z jego pamięci podręcznej tylko wtedy, gdy zostanie zwrócona odpowiedź na poziomie 200. Nawet jeśli zasób nie istnieje, **punkt końcowy** powinien zwrócić 204.
+- Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone w obiekcie najwyższego poziomu.
+- `Content-Type` Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
+- Dostawca zasobów niestandardowych platformy Azure usunie element z jego pamięci podręcznej, jeśli zostanie zwrócona odpowiedź na poziomie 200. Nawet jeśli zasób nie istnieje, **punkt końcowy** powinien zwrócić 204.
 
-**Punkt końcowy** Odpowiedzi:
+**Punkt końcowy** Reakcji
 
 ``` HTTP
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
 
-Odpowiedź dostawcy zasobów niestandardowych platformy Azure:
+Odpowiedź niestandardowego dostawcy zasobów platformy Azure:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -168,7 +168,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="retrieve-a-custom-resource"></a>Pobieranie zasobu niestandardowego
 
-Żądanie przychodzące interfejsu API platformy Azure:
+Przychodzące żądanie interfejsu API platformy Azure:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -178,7 +178,7 @@ Content-Type: application/json
 
 Żądanie **nie** zostanie przekazane do **punktu końcowego**.
 
-Odpowiedź dostawcy zasobów niestandardowych platformy Azure:
+Odpowiedź niestandardowego dostawcy zasobów platformy Azure:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -197,9 +197,9 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### <a name="enumerate-all-custom-resources"></a>Wyliczaj wszystkie zasoby niestandardowe
+### <a name="enumerate-all-custom-resources"></a>Wylicz wszystkie zasoby niestandardowe
 
-Żądanie przychodzące interfejsu API platformy Azure:
+Przychodzące żądanie interfejsu API platformy Azure:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources?api-version=2018-09-01-preview
@@ -209,7 +209,7 @@ Content-Type: application/json
 
 To żądanie **nie** zostanie przekazane do **punktu końcowego**.
 
-Odpowiedź dostawcy zasobów niestandardowych platformy Azure:
+Odpowiedź niestandardowego dostawcy zasobów platformy Azure:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -234,8 +234,8 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Omówienie dostawców zasobów niestandardowych platformy Azure](overview.md)
-- [Szybki start: tworzenie niestandardowego dostawcy zasobów platformy Azure i wdrażanie zasobów niestandardowych](./create-custom-provider.md)
+- [Omówienie niestandardowych dostawców zasobów platformy Azure](overview.md)
+- [Szybki Start: Tworzenie niestandardowego dostawcy zasobów platformy Azure i wdrażanie zasobów niestandardowych](./create-custom-provider.md)
 - [Samouczek: Tworzenie niestandardowych akcji i zasobów na platformie Azure](./tutorial-get-started-with-custom-providers.md)
-- [Jak: Dodawanie akcji niestandardowych do interfejsu API REST platformy Azure](./custom-providers-action-endpoint-how-to.md)
-- [Odwołanie: Odwołanie do niestandardowego serwera proxy zasobów](proxy-resource-endpoint-reference.md)
+- [Instrukcje: Dodawanie akcji niestandardowych do interfejsu API REST platformy Azure](./custom-providers-action-endpoint-how-to.md)
+- [Odwołanie: niestandardowe informacje o serwerze proxy zasobów](proxy-resource-endpoint-reference.md)

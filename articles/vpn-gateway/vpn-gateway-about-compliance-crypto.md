@@ -1,5 +1,5 @@
 ---
-title: 'Brama sieci VPN platformy Azure: wymagania kryptograficzne'
+title: 'Azure VPN Gateway: wymagania kryptograficzne'
 description: W tym artykule omówiono wymagania kryptograficzne i bramy sieci VPN platformy Azure
 services: vpn-gateway
 author: yushwang
@@ -8,57 +8,57 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
 ms.openlocfilehash: 93e13592d9c434b159ad4f4c10ef30328941c64e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75902823"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Wymagania kryptograficzne i bramy sieci VPN platformy Azure — informacje
 
-W tym artykule omówiono sposób konfigurowania bram sieci VPN platformy Azure w celu spełnienia wymagań kryptograficznych zarówno dla tuneli sieci VPN s2s międzylokacyjnych, jak i połączeń sieci wirtualnej do sieci wirtualnej na platformie Azure.
+W tym artykule omówiono, jak można skonfigurować bramy sieci VPN platformy Azure, aby spełniały wymagania kryptograficzne zarówno dla tuneli VPN S2S, jak i połączeń między sieciami wirtualnymi w ramach platformy Azure.
 
-## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>Informacje o połączeniach sieci VPN IKEv1 i IKEv2 dla platformy Azure
+## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>Informacje o protokołach IKEv1 i IKEv2 dla połączeń sieci VPN platformy Azure
 
-Tradycyjnie zezwalaliśmy na połączenia IKEv1 tylko dla podstawowych jednostek SKU i zezwalaliśmy na połączenia IKEv2 dla wszystkich jednostek SKU bramy sieci VPN innych niż podstawowe jednostki SKU. Podstawowe jednostki SKU zezwalają tylko na 1 połączenie i wraz z innymi ograniczeniami, takimi jak wydajność, klienci korzystający ze starszych urządzeń obsługujących tylko protokoły IKEv1 mieli ograniczone środowisko. Aby zwiększyć komfort korzystania z usług klientów korzystających z protokołów IKEv1, zezwalamy teraz na połączenia IKEv1 dla wszystkich jednostek SKU bramy sieci VPN, z wyjątkiem podstawowych jednostek SKU. Aby uzyskać więcej informacji, zobacz [Jednostki SKU bramy sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
+Tradycyjnie dozwolone są połączenia protokołu IKEv1 tylko dla podstawowych jednostek SKU i dozwolone są połączenia IKEv2 dla wszystkich jednostek SKU bramy sieci VPN innych niż podstawowe jednostki SKU. Podstawowe jednostki SKU zezwalają tylko na 1 połączenie i wraz z innymi ograniczeniami, takimi jak wydajność, klienci korzystający ze starszych urządzeń, które obsługują tylko protokoły IKEv1, mają ograniczoną obsługę. Aby zwiększyć możliwości klientów korzystających z protokołów IKEv1, teraz zezwalamy na połączenia protokołu IKEv1 dla wszystkich jednostek SKU bramy sieci VPN, z wyjątkiem podstawowej jednostki SKU. Aby uzyskać więcej informacji, zobacz [VPN Gateway jednostek SKU](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
 
-![Połączenia Usługi Azure VPN Gateway IKEv1 i IKEv2](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
+![Azure VPN Gateway połączenia IKEv1 i IKEv2](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
 
-Gdy połączenia IKEv1 i IKEv2 są stosowane do tej samej bramy sieci VPN, tranzyt między tymi dwoma połączeniami jest włączony automatycznie.
+Gdy połączenia protokołu IKEv1 i IKEv2 są stosowane do tej samej bramy sieci VPN, podczas przesyłania między tymi dwoma połączeniami jest włączana funkcja włączona.
 
-## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Parametry zasad IPsec i IKE dla bram sieci VPN platformy Azure — informacje
+## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Informacje o parametrach zasad protokołu IPsec i IKE dla bram sieci VPN platformy Azure
 
-Standard protokołu IPsec i IKE obsługuje szeroką gamę algorytmów kryptograficznych w różnych kombinacjach. Jeśli nie zażądasz określonej kombinacji algorytmów i parametrów kryptograficznych, bramy sieci VPN platformy Azure użyją zestawu propozycji domyślnych. Domyślne zestawy zasad zostały wybrane w celu maksymalizacji współdziałania z szeroką gamą urządzeń sieci VPN innych firm w domyślnych konfiguracjach. W rezultacie zasady i liczba propozycji nie mogą obejmować wszystkich możliwych kombinacji dostępnych algorytmów kryptograficznych i kluczowych mocnych stron.
+Standard protokołu IPsec i IKE obsługuje szeroką gamę algorytmów kryptograficznych w różnych kombinacjach. Jeśli nie zażądasz konkretnej kombinacji algorytmów kryptograficznych i parametrów, bramy sieci VPN platformy Azure używają zestawu domyślnych propozycji. Domyślne zestawy zasad zostały wybrane do zmaksymalizowania współdziałania z szeroką gamą urządzeń sieci VPN innych firm w konfiguracji domyślnej. W związku z tym zasady i liczba propozycji nie mogą obejmować wszystkich możliwych kombinacji dostępnych algorytmów kryptograficznych i siły klucza.
 
-Domyślny zestaw zasad dla bramy sieci VPN platformy Azure znajduje się w artykule: [Informacje o urządzeniach sieci VPN i parametrach IPsec/IKE dla połączeń bramy sieci VPN między lokacjami](vpn-gateway-about-vpn-devices.md).
+Domyślny zestaw zasad dla usługi Azure VPN Gateway jest wymieniony w artykule: [Informacje o urządzeniach sieci VPN i parametrach protokołu IPSec/IKE dla połączeń między](vpn-gateway-about-vpn-devices.md)lokacjami VPN Gateway.
 
 ## <a name="cryptographic-requirements"></a>Wymagania kryptograficzne
 
-W przypadku komunikacji, która wymaga określonych algorytmów kryptograficznych lub parametrów, zazwyczaj ze względu na wymagania dotyczące zgodności lub zabezpieczeń, można teraz skonfigurować ich bramy sieci VPN platformy Azure do używania niestandardowych zasad IPsec/IKE z określonymi algorytmami kryptograficznymi i mocnymi sługami kluczy, a nie domyślnymi zestawami zasad platformy Azure.
+W przypadku komunikacji wymagającej określonych algorytmów kryptograficznych lub parametrów, zazwyczaj ze względu na wymagania dotyczące zgodności lub zabezpieczeń, można teraz skonfigurować bramy sieci VPN platformy Azure tak, aby korzystały z niestandardowych zasad protokołu IPsec/IKE z określonymi algorytmami kryptograficznymi i silnymi zasadami, a nie z domyślnymi zestawami zasad platformy Azure.
 
-Na przykład zasady trybu głównego IKEv2 dla bram sieci VPN platformy Azure wykorzystują tylko Diffie-Hellman Group 2 (1024 bity), podczas gdy może być konieczne określenie silniejszych grup, które mają być używane w IKE, takich jak Grupa 14 (2048-bit), Grupa 24 (2048-bitowa grupa MODP) lub ECP (krzywa eliptyczna grupy) 256 lub 384 bitów (odpowiednio grupa 19 i grupa 20). Podobne wymagania dotyczą również zasad trybu szybkiego protokołu IPsec.
+Na przykład zasady trybu głównego protokołu IKEv2 dla bram sieci VPN platformy Azure używają tylko grupy Diffie'ego-Hellmana 2 (1024 bitów). może być konieczne określenie silniejszych grup do użycia w usłudze IKE, takich jak grupa 14 (2048-bitowa), Grupa 24 (2048-bitowa Grupa MODP, bitowy) lub ECP (grupy krzywej eliptycznej) 256 lub 384 bit (odpowiednio grupy 19 i grupy 20). Podobne wymagania dotyczą również zasad trybu szybkiego protokołu IPsec.
 
-## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Niestandardowe zasady IPsec/IKE z bramami sieci VPN platformy Azure
+## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Niestandardowe zasady protokołu IPsec/IKE z bramami sieci VPN platformy Azure
 
-Bramy sieci VPN platformy Azure obsługują teraz niestandardowe zasady IPsec/IKE dla połączenia. W przypadku połączenia lokacja-lokacja lub sieci wirtualnej z siecią wirtualną można wybrać określoną kombinację algorytmów kryptograficznych dla protokołu IPsec i IKE o żądanej sile klucza, jak pokazano w poniższym przykładzie:
+Bramy sieci VPN platformy Azure obsługują teraz dla połączeń, niestandardowe zasady protokołu IPsec/IKE. W przypadku połączenia typu lokacja-lokacja lub Sieć wirtualna-sieć wirtualna można wybrać konkretną kombinację algorytmów kryptograficznych dla protokołów IPsec i IKE z odpowiednią siłą klucza, jak pokazano w następującym przykładzie:
 
-![ipsec-ike-policy ipsec-ike-policy ipsec-ike-policy ipsec](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
+![IPSec — zasady IKE](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
 
-Można utworzyć zasady IPsec/IKE i zastosować do nowego lub istniejącego połączenia.
+Można utworzyć zasady protokołu IPsec/IKE i zastosować je do nowego lub istniejącego połączenia.
 
 ### <a name="workflow"></a>Przepływ pracy
 
-1. Tworzenie sieci wirtualnych, bram sieci VPN lub bram sieci lokalnej dla topologii łączności zgodnie z opisem w innych dokumentach insektowych
+1. Utwórz sieci wirtualne, bramy sieci VPN lub bramy sieci lokalnej dla topologii łączności, zgodnie z opisem w innych dokumentach
 2. Tworzenie zasad protokołu IPsec/IKE
-3. Zasady można zastosować podczas tworzenia połączenia S2S lub sieci wirtualnej z siecią wirtualną
-4. Jeśli połączenie jest już utworzone, można zastosować lub zaktualizować zasady do istniejącego połączenia
+3. Zasady można zastosować podczas tworzenia połączenia S2S lub połączeń między sieciami wirtualnymi
+4. Jeśli połączenie zostało już utworzone, możesz zastosować lub zaktualizować zasady do istniejącego połączenia
 
-## <a name="ipsecike-policy-faq"></a>Zasady IPsec/IKE często zadawane pytania
+## <a name="ipsecike-policy-faq"></a>Zasady protokołu IPsec/IKE — często zadawane pytania
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania niestandardowych zasad protokołu IPsec/IKE w połączeniu, zobacz [Konfigurowanie zasad protokołu IPsec/IKE.](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+Instrukcje krok po kroku dotyczące konfigurowania niestandardowych zasad protokołu IPsec/IKE można znaleźć w temacie [Konfigurowanie zasad protokołu IPSec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) .
 
-Zobacz też [Łączenie wielu urządzeń sieci VPN opartych na zasadach,](vpn-gateway-connect-multiple-policybased-rm-ps.md) aby dowiedzieć się więcej o opcji UsePolicyBasedTrafficSelectors.
+Zobacz również [łączenie wielu urządzeń sieci VPN opartych na zasadach](vpn-gateway-connect-multiple-policybased-rm-ps.md) , aby dowiedzieć się więcej o opcji UsePolicyBasedTrafficSelectors.

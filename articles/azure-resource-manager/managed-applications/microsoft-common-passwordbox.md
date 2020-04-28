@@ -1,22 +1,22 @@
 ---
-title: Element interfejsu użytkownika passwordbox
-description: Zawiera opis elementu interfejsu użytkownika microsoft.common.passwordbox dla witryny Azure portal. Umożliwia użytkownikom podanie wartości tajnej podczas wdrażania aplikacji zarządzanych.
+title: PasswordBox — element interfejsu użytkownika
+description: Opisuje element interfejsu użytkownika Microsoft. Common. PasswordBox dla Azure Portal. Umożliwia użytkownikom podanie wartości klucza tajnego podczas wdrażania aplikacji zarządzanych.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 5f7d3a47482ccec9778b102d3509b5f8ef343185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75652309"
 ---
-# <a name="microsoftcommonpasswordbox-ui-element"></a>Element interfejsu użytkownika microsoft.common.passwordbox
+# <a name="microsoftcommonpasswordbox-ui-element"></a>Microsoft. Common. PasswordBox — element interfejsu użytkownika
 
-Formant, który może służyć do dostarczania i potwierdzania hasła.
+Kontrolka, która może służyć do udostępniania i potwierdzania hasła.
 
-## <a name="ui-sample"></a>Próbka interfejsu użytkownika
+## <a name="ui-sample"></a>Przykładowy interfejs użytkownika
 
 ![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
 
@@ -52,10 +52,10 @@ Formant, który może służyć do dostarczania i potwierdzania hasła.
 ## <a name="remarks"></a>Uwagi
 
 - Ten element nie obsługuje `defaultValue` właściwości.
-- Aby uzyskać `constraints`szczegółowe informacje na temat implementacji , zobacz [Microsoft.Common.TextBox](microsoft-common-textbox.md).
-- Jeśli `options.hideConfirmation` ustawiona jest **wartość true,** drugie pole tekstowe potwierdzające hasło użytkownika jest ukryte. Wartość domyślna to **fałsz**.
+- Aby uzyskać szczegółowe informacje `constraints`dotyczące implementacji programu, zobacz [Microsoft. Common. TextBox](microsoft-common-textbox.md).
+- Jeśli `options.hideConfirmation` jest ustawiona na **wartość true**, drugie pole tekstowe potwierdzające hasło użytkownika jest ukryte. Wartość domyślna to **fałsz**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zapoznać się z wprowadzeniem do tworzenia definicji interfejsu użytkownika, zobacz [Wprowadzenie do createuidefinition](create-uidefinition-overview.md).
-* Aby uzyskać opis wspólnych właściwości w elementach interfejsu użytkownika, zobacz [CreateUiDefinition elementów](create-uidefinition-elements.md).
+* Wprowadzenie do tworzenia definicji interfejsu użytkownika można znaleźć w temacie [wprowadzenie do CreateUiDefinition](create-uidefinition-overview.md).
+* Opis wspólnych właściwości elementów interfejsu użytkownika można znaleźć w temacie [CreateUiDefinition elementy](create-uidefinition-elements.md).

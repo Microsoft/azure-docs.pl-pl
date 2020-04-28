@@ -1,6 +1,6 @@
 ---
-title: Łączenie się z Outlook.com
-description: Automatyzuj zadania i przepływy pracy, które zarządzają pocztą e-mail, kalendarzami i kontaktami w Outlook.com za pomocą usługi Azure Logic Apps
+title: Nawiązywanie połączenia z usługą Outlook.com
+description: Automatyzowanie zadań i przepływów pracy, które zarządzają pocztą e-mail, kalendarzami i kontaktami w programie Outlook.com przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,24 +8,24 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 8d3b180b6f1e9dc4ec4b09dd81786cc81e8588da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75707190"
 ---
-# <a name="manage-email-calendars-and-contacts-in-outlookcom-by-using-azure-logic-apps"></a>Zarządzanie pocztą e-mail, kalendarzami i kontaktami w Outlook.com przy użyciu aplikacji Azure Logic Apps
+# <a name="manage-email-calendars-and-contacts-in-outlookcom-by-using-azure-logic-apps"></a>Zarządzanie pocztą e-mail, kalendarzami i kontaktami w programie Outlook.com przy użyciu Azure Logic Apps
 
-Za pomocą [usługi Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika Outlook.com](/connectors/outlook/)można tworzyć zautomatyzowane zadania i przepływy pracy, które zarządzają Twoim @outlook.com lub @hotmail.com kontem, tworząc aplikacje logiki. Na przykład można zautomatyzować następujące zadania:
+Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika Outlook.com](/connectors/outlook/)można tworzyć zautomatyzowane zadania i przepływy pracy, które @outlook.com zarządzają kontami lub @hotmail.com przez tworzenie aplikacji logiki. Na przykład można zautomatyzować następujące zadania:
 
-* Otrzyj, wysyłaj i odpowiadaj na wiadomości e-mail.
+* Pobieranie, wysyłanie i odpowiadanie na wiadomości e-mail.
 * Planowanie spotkań w kalendarzu.
 * Dodawanie i edytowanie kontaktów.
 
-Można użyć dowolnego wyzwalacza, aby uruchomić przepływ pracy, na przykład, gdy pojawia się nowa wiadomość e-mail, gdy element kalendarza jest aktualizowany lub gdy zdarzenie odbywa się w usłudze różnicy. Można użyć akcji, które reagują na zdarzenie wyzwalacza, na przykład wysłać wiadomość e-mail lub utworzyć nowe zdarzenie kalendarza.
+Możesz użyć dowolnego wyzwalacza, aby uruchomić przepływ pracy, na przykład po nadejściu nowej wiadomości e-mail, po zaktualizowaniu elementu kalendarza lub gdy zdarzenie występuje w usłudze różnicowej. Możesz użyć akcji, które reagują na zdarzenie wyzwalacza, na przykład Wyślij wiadomość e-mail lub Utwórz nowe wydarzenie w kalendarzu.
 
 > [!NOTE]
-> Aby zautomatyzować zadania dla konta @fabrikam.onmicrosoft.comsłużbowego firmy Microsoft, takie jak , użyj [łącznika programu Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md).
+> Aby zautomatyzować zadania dla konta służbowego firmy Microsoft, @fabrikam.onmicrosoft.comtakie jak, użyj [łącznika programu Outlook pakietu Office 365](../connectors/connectors-create-api-office365-outlook.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,46 +33,46 @@ Można użyć dowolnego wyzwalacza, aby uruchomić przepływ pracy, na przykład
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/). 
 
-* Aplikacja logiki, w której chcesz uzyskać dostęp do konta Outlook.com. Aby uruchomić przepływ pracy za pomocą Outlook.com wyzwalacza, musisz mieć [pustą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby dodać akcję Outlook.com do przepływu pracy, aplikacja logiki musi już mieć wyzwalacz.
+* Aplikacja logiki, do której chcesz uzyskać dostęp do konta Outlook.com. Aby uruchomić przepływ pracy przy użyciu wyzwalacza Outlook.com, musisz mieć [pustą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby dodać akcję Outlook.com do przepływu pracy, aplikacja logiki musi już mieć wyzwalacz.
 
 ## <a name="add-a-trigger"></a>Dodawanie wyzwalacza
 
-[Wyzwalacz](../logic-apps/logic-apps-overview.md#logic-app-concepts) jest zdarzeniem, które uruchamia przepływ pracy w aplikacji logiki. W tym przykładzie aplikacja logiki używa wyzwalacza "sondowania", który sprawdza dostępność nowej wiadomości e-mail na koncie e-mail na podstawie określonego interwału i częstotliwości.
+[Wyzwalacz](../logic-apps/logic-apps-overview.md#logic-app-concepts) to zdarzenie, które uruchamia przepływ pracy w aplikacji logiki. Ta przykładowa aplikacja logiki używa wyzwalacza sondowania, który sprawdza nową wiadomość e-mail na koncie e-mail na podstawie określonego interwału i częstotliwości.
 
-1. W [witrynie Azure portal](https://portal.azure.com)otwórz pustą aplikację logiki w projektancie aplikacji logiki.
+1. W [Azure Portal](https://portal.azure.com)Otwórz pustą aplikację logiki w Projektancie aplikacji logiki.
 
-1. W polu wyszukiwania wpisz "outlook.com" jako filtr. W tym przykładzie wybierz pozycję **Po nadejściu nowej wiadomości e-mail**.
+1. W polu wyszukiwania wprowadź ciąg "outlook.com" jako filtr. Na potrzeby tego przykładu wybierz **po nadejściu nowej wiadomości e-mail**.
 
-1. Jeśli zostanie wyświetlony monit o zalogowanie się, podaj Outlook.com poświadczenia, aby aplikacja logiki mogła połączyć się z Twoim kontem. W przeciwnym razie, jeśli połączenie już istnieje, podaj informacje dotyczące właściwości wyzwalacza:
+1. Jeśli zostanie wyświetlony monit o zalogowanie się, podaj poświadczenia Outlook.com, aby umożliwić aplikacji logiki łączenie się z kontem. W przeciwnym razie, jeśli połączenie już istnieje, podaj informacje o właściwościach wyzwalacza:
 
-1. W wyzwalaczu ustaw wartości **częstotliwość** i **interwał.**
+1. W wyzwalaczu Ustaw wartości **częstotliwości** i **interwałów** .
 
-   Na przykład, jeśli chcesz, aby wyzwalacz sondować co 15 minut, ustaw **częstotliwość** na **Minuta**i ustaw **interwał** na **15**.
+   Na przykład jeśli wyzwalacz ma sondować co 15 minut, należy ustawić **częstotliwość** na **minutę**i ustawić **Interwał** na **15**.
 
-1. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**, która zapisuje aplikację logiki.
+1. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**, co spowoduje zapisanie aplikacji logiki.
 
-Aby odpowiedzieć na wyzwalacz, dodaj kolejną akcję. Na przykład można dodać akcję **wysyłania wiadomości** usługi Twilio, która wysyła tekst po odebraniu wiadomości e-mail.
+Aby odpowiedzieć na wyzwalacz, Dodaj kolejną akcję. Można na przykład dodać akcję Twilio **Wyślij wiadomość** , która wysyła tekst po nadejściu wiadomości e-mail.
 
 ## <a name="add-an-action"></a>Dodawanie akcji
 
-[Akcja](../logic-apps/logic-apps-overview.md#logic-app-concepts) jest operacją, która jest uruchamiana przez przepływ pracy w aplikacji logiki. W tym przykładowym przykładzie aplikacja logiki wysyła wiadomość e-mail z konta Outlook.com. Można użyć danych wyjściowych z innego wyzwalacza, aby wypełnić akcję. Załóżmy na przykład, że aplikacja logiki używa SalesForce **Gdy obiekt jest tworzony** wyzwalacz. Możesz dodać Outlook.com Wyślij akcję **e-mail** i użyć danych wyjściowych z wyzwalacza SalesForce w wiadomości e-mail.
+[Akcja](../logic-apps/logic-apps-overview.md#logic-app-concepts) jest operacją uruchomioną przez przepływ pracy w aplikacji logiki. Ta przykładowa aplikacja logiki wysyła wiadomość e-mail z konta usługi Outlook.com. Aby wypełnić akcję, można użyć danych wyjściowych z innego wyzwalacza. Załóżmy na przykład, że aplikacja logiki używa usługi SalesForce, **gdy zostanie utworzony wyzwalacz obiektu** . Można dodać akcję Outlook.com **Wyślij wiadomość e-mail** i użyć danych wyjściowych z wyzwalacza usługi Salesforce w wiadomości e-mail.
 
-1. W [witrynie Azure portal](https://portal.azure.com)otwórz aplikację logiki w projektancie aplikacji logiki.
+1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. Aby dodać akcję jako ostatni krok w przepływie pracy, wybierz pozycję **Nowy krok**. 
+1. Aby dodać akcję jako ostatni krok w przepływie pracy, wybierz pozycję **nowy krok**. 
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy na strzałkę między tymi krokami. Wybierz wyświetlony znak**+** plus ( ), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między tymi krokami. Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
 
-1. W polu wyszukiwania wpisz "outlook.com" jako filtr. W tym przykładzie wybierz pozycję **Wyślij wiadomość e-mail**. 
+1. W polu wyszukiwania wprowadź ciąg "outlook.com" jako filtr. Na potrzeby tego przykładu wybierz opcję **Wyślij wiadomość e-mail**. 
 
-1. Jeśli zostanie wyświetlony monit o zalogowanie się, podaj Outlook.com poświadczenia, aby aplikacja logiki mogła połączyć się z Twoim kontem. W przeciwnym razie jeśli połączenie już istnieje, podaj informacje dotyczące właściwości akcji.
+1. Jeśli zostanie wyświetlony monit o zalogowanie się, podaj poświadczenia Outlook.com, aby umożliwić aplikacji logiki łączenie się z kontem. W przeciwnym razie, jeśli połączenie już istnieje, podaj informacje o właściwościach akcji.
 
-1. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**, która zapisuje aplikację logiki.
+1. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**, co spowoduje zapisanie aplikacji logiki.
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać szczegółowe informacje techniczne, takie jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger [łącznika,](/connectors/outlook/)zobacz stronę odwołania łącznika . 
+Aby uzyskać szczegółowe informacje techniczne, takie jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](/connectors/outlook/). 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o innych [łącznikach aplikacji logiki](../connectors/apis-list.md)
+* Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)

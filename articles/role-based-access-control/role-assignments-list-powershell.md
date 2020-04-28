@@ -1,6 +1,6 @@
 ---
-title: Lista przypisań ról przy użyciu usługi Azure RBAC i azure powershell
-description: Dowiedz się, jak określić, do jakich zasobów użytkownicy, grupy, jednostki usług lub tożsamości zarządzane mają dostęp do przy użyciu kontroli dostępu opartej na rolach platformy Azure (RBAC) i programu Azure PowerShell.
+title: Wyświetlanie listy przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure PowerShell
+description: Dowiedz się, jak określić, które zasoby użytkownicy, grupy, nazwy główne usług lub tożsamości zarządzane są dostępne do korzystania z kontroli dostępu opartej na rolach (RBAC) na platformie Azure i Azure PowerShell.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,28 +15,28 @@ ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 0ec3153e5b1bfbe04a079d1cfc44e8e8709784d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75931153"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Lista przypisań ról przy użyciu usługi Azure RBAC i azure powershell
+# <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Wyświetlanie listy przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]W tym artykule opisano sposób listy przypisań ról przy użyciu programu Azure PowerShell.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]W tym artykule opisano sposób wyświetlania listy przypisań ról przy użyciu Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Jeśli twoja organizacja zleciła funkcje zarządzania na zewnątrz dostawcy usług, który korzysta z [usługi Azure zarządzanie zasobami delegowanymi,](../lighthouse/concepts/azure-delegated-resource-management.md)przypisania ról autoryzowane przez tego dostawcę usług nie będą wyświetlane w tym miejscu.
+> Jeśli organizacja ma funkcje zarządzania, które są używane przez usługę zarządzania [zasobami delegowanymi przez platformę Azure](../lighthouse/concepts/azure-delegated-resource-management.md), w tym miejscu nie będą wyświetlane przypisania ról autoryzowane przez tego dostawcę usług.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Program PowerShell w usłudze Azure Cloud Shell](/azure/cloud-shell/overview) lub [usłudze Azure PowerShell](/powershell/azure/install-az-ps)
+- Program [PowerShell w Azure Cloud Shell](/azure/cloud-shell/overview) lub [Azure PowerShell](/powershell/azure/install-az-ps)
 
-## <a name="list-role-assignments-for-the-current-subscription"></a>Lista przypisań ról dla bieżącej subskrypcji
+## <a name="list-role-assignments-for-the-current-subscription"></a>Wyświetl listę przypisań ról dla bieżącej subskrypcji
 
-Najprostszym sposobem uzyskania listy wszystkich przypisań ról w bieżącej subskrypcji (w tym dziedziczonych przypisań ról z grup głównych i zarządzania) jest użycie [funkcji Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) bez żadnych parametrów.
+Najprostszym sposobem uzyskania listy wszystkich przypisań ról w bieżącej subskrypcji (łącznie z dziedziczonymi przypisaniami ról z grup głównych i zarządzania) jest użycie metody [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) bez żadnych parametrów.
 
 ```azurepowershell
 Get-AzRoleAssignment
@@ -70,7 +70,7 @@ CanDelegate        : False
 
 ## <a name="list-role-assignments-for-a-subscription"></a>Tworzenie listy przypisań ról dla subskrypcji
 
-Aby wyświetlić listę wszystkich przypisań ról w zakresie subskrypcji, należy użyć funkcji [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Aby uzyskać identyfikator subskrypcji, można go znaleźć w bloku **Subskrypcje** w witrynie Azure portal lub można użyć [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
+Aby wyświetlić listę wszystkich przypisań ról w zakresie subskrypcji, użyj polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Aby uzyskać identyfikator subskrypcji, możesz go znaleźć w bloku **subskrypcje** w Azure Portal lub użyć polecenie [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /subscriptions/<subscription_id>
@@ -82,7 +82,7 @@ PS C:\> Get-AzRoleAssignment -Scope /subscriptions/00000000-0000-0000-0000-00000
 
 ## <a name="list-role-assignments-for-a-user"></a>Tworzenie listy przypisań ról dla użytkownika
 
-Aby wyświetlić listę wszystkich ról przypisanych do określonego użytkownika, należy użyć funkcji [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+Aby wyświetlić listę wszystkich ról, które są przypisane do określonego użytkownika, użyj polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
 Get-AzRoleAssignment -SignInName <email_or_userprincipalname>
@@ -96,7 +96,7 @@ RoleDefinitionName : BizTalk Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 ```
 
-Aby wyświetlić listę wszystkich ról przypisanych do określonego użytkownika oraz ról przypisanych do grup, do których należy użytkownik, należy użyć funkcji [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+Aby wyświetlić listę wszystkich ról, które są przypisane do określonego użytkownika i role, które są przypisane do grup, do których należy użytkownik, użyj polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
 Get-AzRoleAssignment -SignInName <email_or_userprincipalname> -ExpandPrincipalGroups
@@ -108,7 +108,7 @@ Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | F
 
 ## <a name="list-role-assignments-for-a-resource-group"></a>Tworzenie listy przypisań ról dla grupy zasobów
 
-Aby wyświetlić listę wszystkich przypisań ról w zakresie grupy zasobów, należy użyć funkcji [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+Aby wyświetlić listę wszystkich przypisań ról w zakresie grupy zasobów, użyj polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
 Get-AzRoleAssignment -ResourceGroupName <resource_group_name>
@@ -130,9 +130,9 @@ RoleDefinitionName : Virtual Machine Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 ```
 
-## <a name="list-role-assignments-for-a-management-group"></a>Wyświetlanie przypisań ról dla grupy zarządzania
+## <a name="list-role-assignments-for-a-management-group"></a>Wyświetlanie listy przypisań ról dla grupy zarządzania
 
-Aby wyświetlić listę wszystkich przypisań ról w zakresie grupy zarządzania, należy użyć funkcji [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Aby uzyskać identyfikator grupy zarządzania, można go znaleźć w bloku **Grupy zarządzania** w witrynie Azure portal lub można użyć [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+Aby wyświetlić listę wszystkich przypisań ról w zakresie grupy zarządzania, użyj polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Aby uzyskać identyfikator grupy zarządzania, można go znaleźć w bloku **grupy zarządzania** w Azure Portal lub użyć polecenie [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -142,25 +142,25 @@ Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<gr
 PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/marketing-group
 ```
 
-## <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Wyświetlanie przypisań ról dla administratora usług klasycznych i współadministratorów
+## <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Wyświetl listę przypisań ról dla administratora klasycznej usługi i współadministratorów
 
-Aby wyświetlić listę przypisań ról dla administratora subskrypcji klasycznej i współadministratorów, użyj [funkcji Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+Aby wyświetlić listę przypisań ról dla klasycznego administratora subskrypcji i współadministratorów, użyj polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## <a name="list-role-assignments-for-a-managed-identity"></a>Wyświetlanie przypisań ról dla tożsamości zarządzanej
+## <a name="list-role-assignments-for-a-managed-identity"></a>Wyświetlanie listy przypisań ról dla tożsamości zarządzanej
 
-1. Pobierz identyfikator obiektu tożsamości zarządzanej przypisanej do systemu lub przypisanej przez użytkownika. 
+1. Pobierz identyfikator obiektu przypisanej do systemu lub tożsamości zarządzanej przypisanej przez użytkownika. 
 
-    Aby uzyskać identyfikator obiektu tożsamości zarządzanej przypisanej przez użytkownika, można użyć [programu Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
+    Aby uzyskać identyfikator obiektu tożsamości zarządzanej przypisanej przez użytkownika, można użyć polecenie [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
 
     ```azurepowershell
     Get-AzADServicePrincipal -DisplayNameBeginsWith "<name> or <vmname>"
     ```
 
-1. Aby wyświetlić listę przypisań ról, należy użyć funkcji [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+1. Aby wyświetlić listę przypisań ról, użyj polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
     ```azurepowershell
     Get-AzRoleAssignment -ObjectId <objectid>
@@ -168,4 +168,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dodawanie lub usuwanie przypisań ról przy użyciu usługi Azure RBAC i azure powershell](role-assignments-powershell.md)
+- [Dodawanie lub usuwanie przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure PowerShell](role-assignments-powershell.md)

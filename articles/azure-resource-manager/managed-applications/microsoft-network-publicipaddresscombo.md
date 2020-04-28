@@ -1,28 +1,28 @@
 ---
-title: Element interfejsu użytkownika PublicIpAddressCombo
-description: W tym artykule opisano element interfejsu użytkownika microsoft.network.publicIpAddressCombo dla witryny Azure portal.
+title: PublicIpAddressCombo — element interfejsu użytkownika
+description: Opisuje element interfejsu użytkownika Microsoft. Network. PublicIpAddressCombo dla Azure Portal.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 0393673663df8f3ca580ff34e16bee910b955f8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651919"
 ---
-# <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Element interfejsu użytkownika microsoft.network.publicIpAddressCombo
+# <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Element interfejsu użytkownika Microsoft. Network. PublicIpAddressCombo
 
-Grupa formantów dotyczących wybierania nowego lub istniejącego publicznego adresu IP.
+Grupa kontrolek służących do wybierania nowego lub istniejącego publicznego adresu IP.
 
-## <a name="ui-sample"></a>Próbka interfejsu użytkownika
+## <a name="ui-sample"></a>Przykładowy interfejs użytkownika
 
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
 
-- Jeśli użytkownik wybierze opcję "Brak" dla publicznego adresu IP, pole tekstowe etykiety nazwy domeny jest ukryte.
-- Jeśli użytkownik wybierze istniejący publiczny adres IP, pole tekstowe etykiety nazwy domeny jest wyłączone. Jego wartość to etykieta nazwy domeny wybranego adresu IP.
-- Sufiks nazwy domeny (na przykład westus.cloudapp.azure.com) jest aktualizowany automatycznie na podstawie wybranej lokalizacji.
+- Jeśli użytkownik wybierze opcję "Brak" dla publicznego adresu IP, pole tekstowe etykieta nazwy domeny jest ukryte.
+- Jeśli użytkownik wybierze istniejący publiczny adres IP, pole tekstowe etykieta nazwy domeny jest wyłączone. Jego wartość to etykieta nazwy domeny wybranego adresu IP.
+- Sufiks nazwy domeny (na przykład westus.cloudapp.azure.com) są automatycznie aktualizowane na podstawie wybranej lokalizacji.
 
 ## <a name="schema"></a>Schemat
 
@@ -59,7 +59,7 @@ Grupa formantów dotyczących wybierania nowego lub istniejącego publicznego ad
 
 ## <a name="sample-output"></a>Przykładowe dane wyjściowe
 
-Jeśli użytkownik nie wybierze publicznego adresu IP, formant zwraca następujące dane wyjściowe:
+Jeśli użytkownik nie wybierze publicznego adresu IP, kontrolka zwróci następujące dane wyjściowe:
 
 ```json
 {
@@ -67,7 +67,7 @@ Jeśli użytkownik nie wybierze publicznego adresu IP, formant zwraca następuj�
 }
 ```
 
-Jeśli użytkownik wybierze nowy lub istniejący adres IP, formant zwraca następujące dane wyjściowe:
+Jeśli użytkownik wybierze nowy lub istniejący adres IP, kontrolka zwróci następujące dane wyjściowe:
 
 ```json
 {
@@ -80,18 +80,18 @@ Jeśli użytkownik wybierze nowy lub istniejący adres IP, formant zwraca nastę
 }
 ```
 
-- Gdy `options.hideNone` jest **true**określony `newOrExistingOrNone` jako true , będzie miał tylko wartość **nowych** lub **istniejących**.
-- Gdy `options.hideDomainNameLabel` jest **true**określony `domainNameLabel` jako true , jest niezadeklarowany.
+- Gdy `options.hideNone` jest określony jako **true**, `newOrExistingOrNone` będzie mieć tylko wartość **New** lub **exist**.
+- Gdy `options.hideDomainNameLabel` jest określony jako **true**, `domainNameLabel` jest niezadeklarowany.
 
 ## <a name="remarks"></a>Uwagi
 
-- Jeśli `constraints.required.domainNameLabel` jest ustawiona na **true,** użytkownik musi podać etykietę nazwy domeny podczas tworzenia nowego publicznego adresu IP. Istniejące publiczne adresy IP bez etykiety nie są dostępne do wyboru.
-- Jeśli `options.hideNone` ustawiono **wartość true**, opcja wyboru **Brak** dla publicznego adresu IP jest ukryta. Wartość domyślna to **fałsz**.
-- Jeśli `options.hideDomainNameLabel` ustawiona jest wartość **true,** pole tekstowe etykiety nazwy domeny jest ukryte. Wartość domyślna to **fałsz**.
-- Jeśli `options.hideExisting` jest true, użytkownik nie może wybrać istniejącego publicznego adresu IP. Wartość domyślna to **fałsz**.
-- W `zone`przypadku publicznych adresów IP dla określonych publicznych adresów IP strefy lub strefy są dostępne tylko publiczne adresy IP.
+- Jeśli `constraints.required.domainNameLabel` jest ustawiona na **true**, użytkownik musi podać etykietę nazwy domeny podczas tworzenia nowego publicznego adresu IP. Istniejące publiczne adresy IP bez etykiet nie są dostępne do wyboru.
+- Jeśli `options.hideNone` jest ustawiona na **true**, opcja wyboru **Brak** dla publicznego adresu IP jest ukryta. Wartość domyślna to **fałsz**.
+- Jeśli `options.hideDomainNameLabel` ma wartość **true**, pole tekstowe etykiety nazwy domeny jest ukryte. Wartość domyślna to **fałsz**.
+- Jeśli `options.hideExisting` ma wartość true, użytkownik nie może wybrać istniejącego publicznego adresu IP. Wartość domyślna to **fałsz**.
+- Dla `zone`programu dostępne są tylko publiczne adresy IP dla określonej strefy lub strefy odporne na publiczne adresy IP.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zapoznać się z wprowadzeniem do tworzenia definicji interfejsu użytkownika, zobacz [Wprowadzenie do createuidefinition](create-uidefinition-overview.md).
-* Aby uzyskać opis wspólnych właściwości w elementach interfejsu użytkownika, zobacz [CreateUiDefinition elementów](create-uidefinition-elements.md).
+* Wprowadzenie do tworzenia definicji interfejsu użytkownika można znaleźć w temacie [wprowadzenie do CreateUiDefinition](create-uidefinition-overview.md).
+* Opis wspólnych właściwości elementów interfejsu użytkownika można znaleźć w temacie [CreateUiDefinition elementy](create-uidefinition-elements.md).

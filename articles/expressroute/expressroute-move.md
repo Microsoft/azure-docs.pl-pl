@@ -1,6 +1,6 @@
 ---
-title: 'Usługa ExpressRoute: przenoszenie obwodów z klasycznego do usługi Azure Resource Manager'
-description: Omówienie mostkowania modeli wdrażania klasycznego i menedżera zasobów.
+title: 'ExpressRoute: Przenieś obwody z klasycznego do Azure Resource Manager'
+description: Przegląd mostkowania klasycznych i Menedżer zasobów modeli wdrażania.
 services: expressroute
 author: ganesr
 ms.service: expressroute
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: ganesr
 ms.openlocfilehash: c4fed30f7f4b723f04cd59b2a987b498e3d614a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645909"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Przenoszenie obwodów usługi ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager | Microsoft Azure
@@ -57,7 +57,7 @@ Poniższe operacje klasyczne są obsługiwane w obwodzie usługi ExpressRoute, g
 * Tworzenie/aktualizowanie/pobieranie/usuwanie linków sieci wirtualnej do klasycznych sieci wirtualnych
 * Tworzenie/aktualizowanie/pobieranie/usuwanie autoryzacji linków sieci wirtualnej względem łączności obejmującej wiele subskrypcji
 
-Jednak gdy **allowClassicOperations** jest ustawiona na TRUE, nie można wykonać następujące operacje klasyczne:
+Jeśli jednak **allowClassicOperations** ma wartość true, nie można wykonać następujących operacji klasycznych:
 
 * Tworzenie/aktualizowanie/pobieranie/usuwanie komunikacji równorzędnej protokołu BGP dla komunikacji równorzędnej prywatnej i publicznej Azure oraz Microsoft
 * Usuwanie obwodów usługi ExpressRoute
@@ -87,7 +87,7 @@ W tej sekcji opisano, jakie operacje nie są obsługiwane dla obwodów usługi E
 * Zarządzanie cyklem życia obwodu usługi ExpressRoute z klasycznego modelu wdrażania.
 * Obsługa kontroli dostępu opartej na rolach (RBAC) dla klasycznego modelu wdrażania. W klasycznym modelu wdrażania nie można wykonywać kontrolek RBAC do obwodu. Dowolny administrator/współadministrator subskrypcji może połączyć sieci wirtualne z obwodem lub je od niego odłączyć.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 Wykonaj instrukcje opisane w artykule [Move an ExpressRoute circuit from the classic to the Resource Manager deployment model](expressroute-howto-move-arm.md) (Przenoszenie obwodu usługi ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager).
 
 ## <a name="next-steps"></a>Następne kroki

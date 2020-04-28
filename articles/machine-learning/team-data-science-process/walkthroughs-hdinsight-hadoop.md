@@ -1,6 +1,6 @@
 ---
-title: Analiza usługi Azure HDInsight Hadoop przy użyciu procesu analizy danych zespołu
-description: Przykłady procesu nauki o danych zespołu, które przechodzą przez korzystanie z hive na platformie Azure HDInsight Hadoop do analizy predykcyjnej.
+title: Analiza na Azure HDInsight Hadoop przy użyciu procesu analizy danych w zespole Hive
+description: Przykłady procesu nauka danych zespołu, który przeprowadzi Cię przez użycie usługi Hive w Azure HDInsight Hadoop w celu przeprowadzenia analizy predykcyjnej.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,36 +12,36 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: f72ea6ed5f0eec076d181ef56c99c4f1308a7741
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864166"
 ---
-# <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Wskazówki dotyczące nauki o danych usługi HDInsight Hadoop przy użyciu gałęzi na platformie Azure 
+# <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Przewodniki dotyczące analizy danych usługi Hadoop w usłudze HDInsight przy użyciu programu Hive na platformie Azure 
 
-Te wskazówki używają hive z klastra HDInsight Hadoop do analizy predykcyjnej. Wykonaj one kroki opisane w procesie nauki o danych zespołu. Aby zapoznać się z omówieniem procesu nauki o danych zespołu, zobacz [Proces nauki o danych](overview.md). Aby zapoznać się z wprowadzeniem do usługi Azure HDInsight, [stosu technologii Hadoop i klastrów Hadoop.](../../hdinsight/hadoop/apache-hadoop-introduction.md)
+Te instruktaże używają usługi Hive z klastrem usługi HDInsight Hadoop w celu przeprowadzania analizy predykcyjnej. Postępują zgodnie z krokami opisanymi w procesie nauki o danych zespołowych. Aby zapoznać się z omówieniem procesu nauki o danych zespołowych, zobacz [proces nauki o danych](overview.md). Aby zapoznać się z wprowadzeniem do usługi Azure HDInsight, zobacz [wprowadzenie do usługi Azure HDInsight, stosu technologii Hadoop i klastrów Hadoop](../../hdinsight/hadoop/apache-hadoop-introduction.md).
 
-Dodatkowe wskazówki do nauki o danych, które wykonują proces nauki o danych zespołu są pogrupowane według **platformy,** której używają. Zobacz [wskazówki wykonujące proces nauki o danych zespołu](walkthroughs.md) dla itemization tych przykładów.
+Dodatkowe przewodniki dotyczące analizy danych, które wykonują proces nauki o danych zespołowych, są pogrupowane według **platformy** , z której korzystają. Zobacz [przewodniki wykonujące proces nauki danych zespołu](walkthroughs.md) , aby zapoznać się z przykładami.
 
 
-## <a name="predict-taxi-tips-using-hive-with-hdinsight-hadoop"></a>Przewiduj porady dotyczące taksówek za pomocą hive z HDInsight Hadoop
+## <a name="predict-taxi-tips-using-hive-with-hdinsight-hadoop"></a>Przewidywanie wskazówek dotyczących taksówki przy użyciu platformy Hive z usługą HDInsight Hadoop
 
-[Przewodnik Użyj klastrów HDInsight Hadoop](hive-walkthrough.md) używa danych z nowojorskich taksówek do przewidywania: 
+W instruktażu [Korzystanie z klastrów usługi HDInsight Hadoop](hive-walkthrough.md) wykorzystuje dane z nowych taksówki do przewidywania: 
 
-- Czy napiwek jest płatny 
-- Rozkład kwot napiwków
+- Czy Porada jest płatna 
+- Rozkład kwot TIP
 
-Scenariusz jest implementowany przy użyciu gałęzi z [klastrem Usługi Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/). Dowiesz się, jak przechowywać, eksplorować i udostępniać dane inżyniera z publicznie dostępnego zestawu danych dotyczących taksówek i taryf w Nowym Jorku. Za pomocą usługi Azure Machine Learning można również tworzyć i wdrażać modele.
+Scenariusz jest implementowany przy użyciu programu Hive z [klastrem Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/). Dowiesz się, jak przechowywać i eksplorować dane inżynierów oraz korzystać z nich z publicznie dostępnego zestawu danych o wykorzystaniu i taryfy za taksówkę NYC. Do kompilowania i wdrażania modeli służy również Azure Machine Learning.
 
-## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Przewidywanie kliknięć anonsu za pomocą gałęzi za pomocą funkcji HDInsight Hadoop
+## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Przewidywanie kliknięć anonsów przy użyciu programu Hive z usługą HDInsight Hadoop
 
-[Użyj platformy Azure HDInsight Klastry Hadoop na 1 TB zestawu danych](hive-criteo-walkthrough.md) instruktażowy używa publicznie dostępne [criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) kliknij zestaw danych, aby przewidzieć, czy wskazówka jest wypłacana i oczekiwane kwoty. Scenariusz jest implementowany przy użyciu gałęzi z [klastra Usługi Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) do przechowywania, eksplorowania, inżynierii funkcji i w dół przykładowych danych. Używa usługi Azure Machine Learning do tworzenia, uczenia i oceniania modelu klasyfikacji binarnej, który przewiduje, czy użytkownik kliknie anons. W przewodniku kończy się pokazano, jak opublikować jeden z tych modeli jako usługi sieci Web.
+W przypadku [klastrów użycia Azure HDInsight Hadoop na 1 TB zestawu danych](hive-criteo-walkthrough.md) są używane publicznie dostępne [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) kliknij zestaw danych, aby przewidzieć, czy Porada jest płatna i oczekiwane kwoty. Scenariusz jest implementowany przy użyciu programu Hive z [klastrem Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) do przechowywania, eksplorowania, tworzenia inżynierów funkcji i w dół przykładowych danych. Używa Azure Machine Learning do kompilowania, uczenia i oceny binarnego modelu klasyfikacji, który przewidywalnuje, czy użytkownik kliknie anons. Instruktaż zawiera informacje na temat publikowania jednego z tych modeli jako usługi sieci Web.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z omówieniem kluczowych składników, które składają się na proces nauki o danych zespołu, zobacz [omówienie procesu nauki o danych zespołu.](overview.md)
+Aby zapoznać się z omówieniem najważniejszych składników, które składają się na proces nauki o danych zespołowych, zobacz [Omówienie procesu nauki o danych zespołowych](overview.md).
 
-Aby zapoznać się z omówień cyklu życia procesu nauki o danych zespołu, którego można użyć do struktury projektów nauki o danych, zobacz [cykl życia procesu nauki o danych zespołu.](lifecycle.md) Cykl życia określa kroki, od początku do końca, które projekty zwykle wykonaj, gdy są one wykonywane. 
+Aby zapoznać się z omówieniem cyklu życia procesu nauki o danych zespołu, którego możesz użyć do struktury projektów analizy danych, zobacz [cykl życia procesu nauki o danych zespołowych](lifecycle.md). Cykl życia przedstawia kroki od początku do końca, które projekty zwykle są wykonywane podczas wykonywania. 
 

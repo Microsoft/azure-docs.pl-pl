@@ -9,37 +9,37 @@ ms.topic: reference
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 507e503b881df123ffc6694c53b0e9cc9b6a8872
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75775474"
 ---
 # <a name="peering-service---faqs"></a>Usługa komunikacji równorzędnej — często zadawane pytania
 
-Możesz przejrzeć poniższe informacje w przypadku pytań ogólnych.
+Poniżej znajdziesz poniższe informacje.
 
-**Czy operator korzystający z istniejącej komunikacji bezpośredniej w komunikacji równorzędnej z firmą Microsoft może obsługiwać usługę komunikacji równorzędnej?**
+**Czy może być przewoźnikiem korzystającym z istniejącej bezpośredniej komunikacji równorzędnej z firmą Microsoft w celu obsługi komunikacji równorzędnej?**
 
-Tak, przewoźnik może wykorzystać istniejące pni do obsługi usługi komunikacji równorzędnej. PNI usługi komunikacji równorzędnej wymaga różnorodności do obsługi ha. Jeśli istniejąca PNI ma już różnorodność, nie jest wymagana żadna nowa infrastruktura. Jeśli istniejąca PNI potrzebuje różnorodności, można ją rozszerzyć.
+Tak. Operator może wykorzystać swój istniejący PNI do obsługi komunikacji równorzędnej. Usługa komunikacji równorzędnej PNI wymaga różnorodności do obsługi wysokiej dostępności. Jeśli istniejący PNI ma już różnorodność, nie jest wymagana żadna Nowa infrastruktura. Jeśli istniejąca PNI wymaga różnorodności, można ją rozszerzyć.
 
-**Czy operator może używać nowej komunikacji bezpośredniej komunikacji równorzędnej z firmą Microsoft do obsługi usługi komunikacji równorzędnej?**
+**Czy przewoźnik może użyć nowej bezpośredniej komunikacji równorzędnej z firmą Microsoft w celu obsługi komunikacji równorzędnej?**
 
-Tak, jest to również możliwe. Firma Microsoft będzie współpracować z usługą Carrier w celu utworzenia nowej komunikacji równorzędnej bezpośredniej w celu obsługi usługi komunikacji równorzędnej.  
+Tak, to jest również możliwe. Firma Microsoft będzie współpracować z przewoźnikiem w celu utworzenia nowej bezpośredniej komunikacji równorzędnej w celu obsługi komunikacji równorzędnej.  
 
-**Dlaczego bezpośrednie równorzędne wymaga obsługi usługi komunikacji równorzędnej?**
+**Dlaczego należy kierować komunikację równorzędną do obsługi komunikacji równorzędnej?**
 
-Jednym z podstawowych sterowników usługi komunikacji równorzędnej jest zapewnienie łączności z usługami online firmy Microsoft za pośrednictwem dobrze połączonej usługi SP. PNI są zawsze w zakresie Gb/s, a tym samym podstawowym elementem konstrukcyjnym dla łączności o wysokiej przepustowości między operatorem a firmą Microsoft.
+Jednym z podstawowych sterowników usługi komunikacji równorzędnej jest zapewnienie łączności z firmą Microsoft Usługi online za pośrednictwem dobrze połączonego programu SP. PNI są zawsze w zakresie GB/s, a więc podstawowy blok konstrukcyjny do łączności między przewoźnikiem i firmą Microsoft.
 
-**Jakie są wymagania dotyczące różnorodności w bezpośrednim komunikacji równorzędnej do obsługi usługi komunikacji równorzędnej?**
+**Jakie są wymagania różnorodności dotyczące bezpośredniej komunikacji równorzędnej do obsługi komunikacji równorzędnej?**
 
-PNI musi obsługiwać nadmiarowość lokalną i nadmiarowość geograficzną. Nadmiarowość lokalna jest zdefiniowana jako dwa zróżnicowane ścieżki w określonej lokacji komunikacji równorzędnej. Nadmiarowość geograficzna wymaga, aby firma Carrier ma dodatkową łączność w innej lokacji brzegowej firmy Microsoft w przypadku awarii lokacji głównej. W przypadku krótkiego czasu trwania awarii przewoźnik może kierować ruch przez witrynę kopii zapasowej.
+PNI musi obsługiwać lokalną nadmiarowość i nadmiarowość geograficzną. Lokalna — nadmiarowość jest definiowana jako dwa różne zestawy ścieżek w określonej witrynie komunikacji równorzędnej. Nadmiarowość geograficzna wymaga, aby operator miał dodatkową łączność z inną lokacją programu Microsoft Edge na wypadek awarii lokacji głównej. W przypadku przewoźnika czas trwania krótkich awarii może kierować ruchem przez lokację kopii zapasowej.
 
-**Przewoźnik oferuje już SLA i Internet klasy korporacyjnej, jak różni się ta oferta?**
+**Przewoźnik oferuje już umowę SLA i Internet klasy korporacyjnej, w jaki sposób ta oferta jest różna?**
 
-Niektórzy przewoźnicy oferują umowy SLA i internet klasy korporacyjnej ze strony sieci. W usłudze komunikacji równorzędnej firma Microsoft zaoferuje usługę SLA oferującą ruch w części sieci Firmy Microsoft. Wybierając peering service klient otrzyma end-to-end umowy SLA. Umowy SLA z ich witryny do firmy Microsoft edge w sieci usługodawcy mogą być objęte przez usługodawcę. La w microsoft global network od microsoft krawędzi do użytkowników końcowych aplikacji jest teraz objęte przez firmę Microsoft.
+Niektórzy przewoźnicy oferują umowę SLA i Internet klasy korporacyjnej w swojej części sieci. W usłudze Komunikacja równorzędna firma Microsoft oferuje ruch oferowany w ramach umowy SLA w ramach sieci firmy Microsoft. Po wybraniu usługi Komunikacja równorzędna klient uzyska kompleksową umowę SLA. Umowa SLA z witryny do przeglądarki Microsoft Edge w sieci usługodawcy internetowego może być objęta przez usługodawcę internetowego. Umowa SLA w sieci globalnej firmy Microsoft od przeglądarki Microsoft Edge do aplikacji użytkownicy końcowi jest teraz objęta firmą Microsoft.
 
-**Jeśli dostawca usług już równorzędne z microsoft przy użyciu PNI to jakie zmiany są wymagane do obsługi usługi komunikacji równorzędnej?**
+**Jeśli dostawca usług jest już równorzędny z firmą Microsoft przy użyciu usługi PNI, jakiego rodzaju zmiany są wymagane do obsługi komunikacji równorzędnej?**
 
-* Zmiany w oprogramowaniu w celu zidentyfikowania użytkownika usługi komunikacji równorzędnej i jego ruchu. Może wymagać zmian zasad routingu w celu wymiany ruchu użytkownika w najbliższej krawędzi firmy Microsoft za pośrednictwem połączenia usługi komunikacji równorzędnej.
-* Upewnij się, że łączność ma nadmiarowość lokalną i nadmiarowość geograficzną.
+* Zmiany oprogramowania umożliwiające zidentyfikowanie użytkownika usługi równorzędnej i jego ruchu. Mogą wymagać zmian zasad routingu w celu wymiany ruchu użytkownika w najbliższej przeglądarce Microsoft Edge za pomocą połączenia usługi komunikacji równorzędnej.
+* Upewnij się, że łączność ma lokalne ustawienia nadmiarowości i nadmiarowości geograficznej.

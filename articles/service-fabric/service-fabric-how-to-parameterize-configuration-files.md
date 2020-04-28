@@ -1,27 +1,27 @@
 ---
-title: Parametryzowanie plików konfiguracyjnych w sieci szkieletowej usług Azure
-description: Dowiedz się, jak parametryzować pliki konfiguracyjne w sieci szkieletowej usług, co jest użyteczną techniką podczas zarządzania wieloma środowiskami.
+title: Pliki konfiguracji Sparametryzuj na platformie Azure Service Fabric
+description: Dowiedz się, jak Sparametryzuj pliki konfiguracyjne w Service Fabric, przydatną techniką w zarządzaniu wieloma środowiskami.
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75644634"
 ---
-# <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Jak parametryzować pliki konfiguracyjne w sieci szkieletowej usług
+# <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Jak Sparametryzuj pliki konfiguracji w Service Fabric
 
-W tym artykule pokazano, jak parametryzować plik konfiguracji w sieci szkieletowej usług.  Jeśli nie znasz jeszcze podstawowych pojęć zarządzania aplikacjami w wielu środowiskach, przeczytaj artykuł [Zarządzanie aplikacjami w wielu środowiskach.](service-fabric-manage-multiple-environment-app-configuration.md)
+W tym artykule opisano sposób Sparametryzuj pliku konfiguracji w Service Fabric.  Jeśli nie znasz już podstawowych pojęć związanych z zarządzaniem aplikacjami dla wielu środowisk, przeczytaj artykuł [Zarządzanie aplikacjami w wielu środowiskach](service-fabric-manage-multiple-environment-app-configuration.md).
 
-## <a name="procedure-for-parameterizing-configuration-files"></a>Procedura parametryzacji plików konfiguracyjnych
+## <a name="procedure-for-parameterizing-configuration-files"></a>Procedura dla plików konfiguracji parametryzacja
 
-W tym przykładzie należy zastąpić wartość konfiguracji przy użyciu parametrów we wdrożeniu aplikacji.
+W tym przykładzie zastąpisz wartość konfiguracji przy użyciu parametrów we wdrożeniu aplikacji.
 
-1. Otwórz plik * \<MyService>\PackageRoot\Config\Settings.xml* w projekcie usługi.
-1. Ustaw nazwę i wartość parametru konfiguracji, na przykład rozmiar pamięci podręcznej równy 25, dodając następujący kod XML:
+1. Otwórz plik *\packageroot\config\settings.XML usługi> w projekcie usługi. \<*
+1. Ustaw nazwę i wartość parametru konfiguracji, na przykład rozmiar pamięci podręcznej równej 25, dodając następujący kod XML:
 
    ```xml
     <Section Name="MyConfigSection">
@@ -30,15 +30,15 @@ W tym przykładzie należy zastąpić wartość konfiguracji przy użyciu parame
    ```
 
 1. Zapisz i zamknij plik.
-1. Otwórz plik * \<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml.*
-1. W pliku ApplicationManifest.xml zadeklaruj parametr `Parameters` i wartość domyślną w elemencie.  Zaleca się, aby nazwa parametru zawierała nazwę usługi (na przykład "MyService").
+1. Otwórz plik *\applicationpackageroot\applicationmanifest.XML aplikacji>. \<*
+1. W pliku ApplicationManifest. XML Zadeklaruj parametr i wartość domyślną w `Parameters` elemencie.  Zaleca się, aby nazwa parametru zawierała nazwę usługi (na przykład "Moja usługa").
 
    ```xml
     <Parameters>
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
    ```
-1. W `ServiceManifestImport` sekcji pliku ApplicationManifest.xml dodaj `ConfigOverrides` i `ConfigOverride` element, odwołując się do pakietu konfiguracji, sekcji i parametru.
+1. W `ServiceManifestImport` sekcji pliku ApplicationManifest. XML Dodaj element `ConfigOverrides` i `ConfigOverride` , odwołując się do pakietu konfiguracyjnego, sekcji i parametru.
 
    ```xml
     <ConfigOverrides>
@@ -53,9 +53,9 @@ W tym przykładzie należy zastąpić wartość konfiguracji przy użyciu parame
    ```
 
 > [!NOTE]
-> W przypadku, gdy dodasz ConfigOverride, sieci szkieletowej usług zawsze wybiera parametry aplikacji lub wartość domyślną określoną w manifeście aplikacji.
+> W przypadku dodania elementu ConfigOverride, Service Fabric zawsze wybiera parametry aplikacji lub wartość domyślną określoną w manifeście aplikacji.
 >
 >
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać informacje o innych funkcjach zarządzania aplikacjami dostępnych w programie Visual Studio, zobacz [Zarządzanie aplikacjami sieci szkieletowej usług w programie Visual Studio.](service-fabric-manage-application-in-visual-studio.md)
+Aby uzyskać informacje na temat innych funkcji zarządzania aplikacjami, które są dostępne w programie Visual Studio, zobacz [Zarządzanie aplikacjami Service Fabric w programie Visual Studio](service-fabric-manage-application-in-visual-studio.md).

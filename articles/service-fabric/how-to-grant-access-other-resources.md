@@ -1,41 +1,41 @@
 ---
-title: Udzielanie dostępu aplikacji do innych zasobów platformy Azure
-description: W tym artykule wyjaśniono, jak udzielić aplikacji sieci szkieletowej usługi z obsługą zarządzanych tożsamości dostępu do innych zasobów platformy Azure obsługujących uwierzytelnianie oparte na usłudze Azure Active Directory.
+title: Udzielanie aplikacji dostępu do innych zasobów platformy Azure
+description: W tym artykule wyjaśniono, jak udzielić zarządzanej tożsamości Service Fabric dostępu do innych zasobów platformy Azure obsługujących uwierzytelnianie oparte na Azure Active Directory.
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 3b1feab1e67e993df771564a1a7c1aba4236b2c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614797"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Udzielanie aplikacji sieci szkieletowej usługi zarządzanego dostępu do tożsamości zasobów platformy Azure (wersja zapoznawcza)
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Udzielanie zarządzanej tożsamości aplikacji Service Fabric do zasobów platformy Azure (wersja zapoznawcza)
 
-Zanim aplikacja może używać swojej tożsamości zarządzanej, aby uzyskać dostęp do innych zasobów, uprawnienia muszą być przyznane tej tożsamości na chronionym zasobie platformy Azure, do którego uzyskuje się dostęp. Udzielanie uprawnień jest zazwyczaj akcji zarządzania na "płaszczyzny kontroli" usługi platformy Azure, która jest właścicielem chronionego zasobu kierowane za pośrednictwem usługi Azure Resource Manager, który wymusi wszelkie odpowiednie sprawdzanie dostępu oparte na rolach.
+Aby aplikacja mogła korzystać z tożsamości zarządzanej w celu uzyskania dostępu do innych zasobów, należy przyznać uprawnienia do tej tożsamości w chronionym dostępnym zasobach platformy Azure. Przyznawanie uprawnień jest zazwyczaj akcją zarządzania w ramach "płaszczyzny kontroli" usługi platformy Azure będącej właścicielem chronionego zasobu kierowanego za pośrednictwem Azure Resource Manager, który będzie wymuszać wszelkie stosowne sprawdzanie dostępu oparte na rolach.
 
-Dokładna sekwencja kroków będzie następnie zależeć od typu zasobu platformy Azure, do którego uzyskuje się dostęp, a także od języka/klienta używanego do udzielania uprawnień. Dalsza część artykułu zakłada, że tożsamość przypisana przez użytkownika jest przypisana do aplikacji i zawiera kilka typowych przykładów dla Twojej wygody, ale nie jest to w żaden sposób wyczerpujące odniesienie do tego tematu; zapoznaj się z dokumentacją odpowiednich usług platformy Azure, aby uzyskać aktualne instrukcje dotyczące udzielania uprawnień.  
+Dokładna sekwencja kroków będzie następnie zależała od typu zasobów platformy Azure, do którego uzyskiwany jest dostęp, a także od języka/klienta używanego do udzielania uprawnień. W pozostałej części artykułu przyjęto założenie, że tożsamość przypisana do aplikacji i zawiera kilka typowych przykładów dla wygody użytkownika, ale nie jest to wyczerpujące odwołanie do tego tematu. Zapoznaj się z dokumentacją odpowiednich usług platformy Azure, aby uzyskać aktualne instrukcje dotyczące przyznawania uprawnień.  
 
 ## <a name="granting-access-to-azure-storage"></a>Udzielanie dostępu do usługi Azure Storage
-Można użyć tożsamości zarządzanej aplikacji sieci szkieletowej usługi (przypisane przez użytkownika w tym przypadku) do pobierania danych z obiektu blob magazynu platformy Azure. Udziel tożsamości wymaganych uprawnień w witrynie Azure portal, wykonując następujące kroki:
+Możesz użyć zarządzanej tożsamości aplikacji Service Fabric (w tym przypadku przypisanej do użytkownika), aby pobrać dane z obiektu BLOB usługi Azure Storage. Przyznaj tożsamości wymagane uprawnienia w Azure Portal wykonaj następujące czynności:
 
 1. Przejdź do konta magazynu
 2. Kliknij link Kontrola dostępu (IAM) w panelu po lewej stronie.
-3. (opcjonalnie) Sprawdź istniejący dostęp: wybierz tożsamość zarządzaną przypisaną do systemu lub przez użytkownika w formancie "Znajdź"; wybierz odpowiednią tożsamość z listy wyników
-4. Kliknij przycisk + Dodaj przypisanie roli u góry strony, aby dodać nowe przypisanie roli dla tożsamości aplikacji.
-W obszarze Rola z listy rozwijanej wybierz pozycję Czytnik danych obiektów blob magazynu.
-5. W następnej pozycji rozwijanej w `User assigned managed identity`obszarze Przypisywanie dostępu wybierz pozycję .
+3. obowiązkowe Sprawdź istniejący dostęp: Wybierz zarządzaną tożsamość systemową lub przypisaną przez użytkownika w kontrolce "Znajdź"; Wybierz odpowiednią tożsamość z listy wyników wynikowych
+4. Kliknij pozycję + Dodaj przypisanie roli w górnej części strony, aby dodać nowe przypisanie roli dla tożsamości aplikacji.
+W obszarze Rola, z listy rozwijanej wybierz pozycję czytnik danych magazynu obiektów BLOB.
+5. Na następnej liście rozwijanej w obszarze Przypisz dostęp do wybierz `User assigned managed identity`opcję.
 6. Następnie upewnij się, że odpowiednia subskrypcja znajduje się na liście rozwijanej Subskrypcja, po czym ustaw opcję Grupa zasobów na wartość Wszystkie grupy zasobów.
-7. W obszarze Wybierz wybierz pozycję UAI odpowiadającą aplikacji sieci szkieletowej usług, a następnie kliknij przycisk Zapisz.
+7. W obszarze Wybierz Wybierz UAI odpowiadający aplikacji Service Fabric a następnie kliknij przycisk Zapisz.
 
-Obsługa tożsamości zarządzanych sieci szkieletowej usługi przypisanych do systemu nie obejmuje integracji w witrynie Azure portal; jeśli aplikacja używa tożsamości przypisanej do systemu, należy najpierw znaleźć identyfikator klienta tożsamości aplikacji, a następnie powtórzyć powyższe `Azure AD user, group, or service principal` kroki, ale wybierając opcję w formancie Znajdź.
+Obsługa zarządzanych tożsamości przypisanych przez system Service Fabric nie obejmuje integracji w Azure Portal; Jeśli aplikacja używa tożsamości przypisanej do systemu, należy najpierw znaleźć identyfikator klienta tożsamości aplikacji, a następnie powtórz powyższe kroki, ale wybierając `Azure AD user, group, or service principal` opcję w kontrolce Znajdź.
 
-## <a name="granting-access-to-azure-key-vault"></a>Udzielanie dostępu do usługi Azure Key Vault
-Podobnie z dostępem do magazynu, można wykorzystać tożsamość zarządzaną aplikacji sieci szkieletowej usług, aby uzyskać dostęp do magazynu kluczy platformy Azure. Kroki przyznawania dostępu w witrynie Azure portal są podobne do tych wymienionych powyżej i nie będą powtarzane w tym miejscu. Różnice można znaleźć na poniższej ilustracji.
+## <a name="granting-access-to-azure-key-vault"></a>Udzielanie dostępu Azure Key Vault
+Podobnie jak w przypadku uzyskiwania dostępu do magazynu, można wykorzystać zarządzaną tożsamość aplikacji Service Fabric, aby uzyskać dostęp do magazynu kluczy platformy Azure. Procedury udzielania dostępu w Azure Portal są podobne do wymienionych powyżej i nie będą powtarzane w tym miejscu. Różnice można znaleźć na poniższej ilustracji.
 
-![Zasady dostępu do usługi Key Vault](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
+![Zasady dostępu Key Vault](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-Poniższy przykład ilustruje udzielanie dostępu do magazynu za pośrednictwem wdrożenia szablonu; dodać fragmenty kodu poniżej jako inny wpis `resources` pod elementem szablonu. Przykład pokazuje przyznanie dostępu dla typów tożsamości przypisanych przez użytkownika i przypisanych do systemu, odpowiednio — wybierz odpowiedni.
+Poniższy przykład ilustruje udzielanie dostępu do magazynu za pośrednictwem wdrożenia szablonu; Dodaj fragmenty kodu poniżej jako inny wpis pod `resources` elementem szablonu. W przykładzie pokazano, jak uzyskać dostęp do zarówno typów tożsamości przypisanych przez użytkownika, jak i przypisanych do systemu, a także wybrać odpowiednie.
 
 ```json
     # under 'variables':
@@ -65,7 +65,7 @@ Poniższy przykład ilustruje udzielanie dostępu do magazynu za pośrednictwem 
         }
     },
 ```
-A w przypadku tożsamości zarządzanych przypisanych do systemu:
+I dla tożsamości zarządzanych przypisanych przez system:
 ```json
     # under 'variables':
   "variables": {
@@ -102,8 +102,8 @@ A w przypadku tożsamości zarządzanych przypisanych do systemu:
     }
 ```
 
-Aby uzyskać więcej informacji, zobacz [Vaults - Update Access Policy](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).
+Aby uzyskać więcej informacji, zobacz temat [magazyny — aktualizacje zasad dostępu](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## <a name="next-steps"></a>Następne kroki
-* [Wdrażanie aplikacji sieci szkieletowej usług Azure z tożsamością zarządzaną przypisaną do systemu](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Wdrażanie aplikacji sieci szkieletowej usług Azure z tożsamością zarządzaną przypisaną przez użytkownika](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Wdrażanie aplikacji Service Fabric platformy Azure przy użyciu tożsamości zarządzanej przypisanej do systemu](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Wdrażanie aplikacji Service Fabric platformy Azure przy użyciu tożsamości zarządzanej przypisanej przez użytkownika](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)

@@ -1,6 +1,6 @@
 ---
-title: Sprzężenia w obszarze hive Apache prowadzi do outOfMemory błąd - Azure HDInsight
-description: Radzenie sobie z błędami OutOfMemory "Limit narzutów GC przekroczony błąd"
+title: Sprzężenia w Apache Hive prowadzi do błędu OutOfMemory — Azure HDInsight
+description: Postępowanie z błędami OutOfMemory "Przekroczono limit narzutów GC"
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,23 +8,23 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
 ms.openlocfilehash: ab334dfb15044fd0734a107c12003ca2c1f86906
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75895187"
 ---
-# <a name="scenario-joins-in-apache-hive-leads-to-an-outofmemory-error-in-azure-hdinsight"></a>Scenariusz: Sprzężenie w obszarze hive Apache prowadzi do błędu OutOfMemory w usłudze Azure HDInsight
+# <a name="scenario-joins-in-apache-hive-leads-to-an-outofmemory-error-in-azure-hdinsight"></a>Scenariusz: sprzężenia w Apache Hive prowadzi do błędu OutOfMemory w usłudze Azure HDInsight
 
-W tym artykule opisano kroki rozwiązywania problemów i możliwe rozwiązania problemów podczas korzystania ze składników zapytania interaktywnego w klastrach usługi Azure HDInsight.
+W tym artykule opisano kroki rozwiązywania problemów oraz możliwe rozwiązania problemów występujących w przypadku używania interakcyjnych składników zapytań w klastrach usługi Azure HDInsight.
 
 ## <a name="issue"></a>Problem
 
-Domyślnym zachowaniem sprzężeń Apache Hive jest załadowanie całej zawartości tabeli do pamięci, dzięki czemu sprzężenie można wykonać bez konieczności wykonywania kroku Map/Reduce. Jeśli tabela Hive jest zbyt duży, aby zmieścić się w pamięci, kwerenda może zakończyć się niepowodzeniem.
+Domyślne zachowanie Apache Hive sprzężeń polega na załadowaniu całej zawartości tabeli do pamięci, aby można było wykonać sprzężenie bez konieczności wykonywania kroków mapy/zmniejszenia. Jeśli tabela programu Hive jest zbyt duża, aby zmieścić ją w pamięci, zapytanie może zakończyć się niepowodzeniem.
 
 ## <a name="cause"></a>Przyczyna
 
-Podczas uruchamiania sprzężeń w gałęzi o wystarczającym rozmiarze następuje następujący błąd:
+Po uruchomieniu sprzężeń w gałęzi o wystarczającym rozmiarze wystąpi następujący błąd:
 
 ```
 Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded error.
@@ -32,7 +32,7 @@ Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded error.
 
 ## <a name="resolution"></a>Rozwiązanie
 
-Uniemożliwić gałęzi ładowania tabel do pamięci na sprzężenia (zamiast wykonywania map/reduce krok) przez ustawienie następującej wartości konfiguracji gałęzi:
+Nie Zezwalaj na załadowanie tabel do pamięci przy użyciu sprzężeń (zamiast przeprowadzenia mapy/kroku zmniejszenia) przez ustawienie następujących wartości konfiguracji programu Hive:
 
 ```
 hive.auto.convert.join=false
@@ -40,10 +40,10 @@ hive.auto.convert.join=false
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli ustawienie tej wartości nie rozwiązało problemu, odwiedź jedną z następujących opcji...
+Jeśli ustawienie tej wartości nie rozwiązało problemu, odwiedź jedną z następujących czynności...
 
-* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej platformy Azure Community.](https://azure.microsoft.com/support/community/)
+* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz [@AzureSupport](https://twitter.com/azuresupport) się z — oficjalnym kontem platformy Microsoft Azure w celu poprawy jakości obsługi klienta, łącząc społeczność platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Połącz się [@AzureSupport](https://twitter.com/azuresupport) za pomocą — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
 
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy z [witryny Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wybierz **pozycję Obsługa z** paska menu lub otwórz centrum pomocy + pomocy **technicznej.** Aby uzyskać bardziej szczegółowe informacje, zapoznaj się z [instrukcjami tworzenia żądania pomocy technicznej platformy Azure.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) Dostęp do obsługi zarządzania subskrypcjami i rozliczeń jest dołączony do subskrypcji platformy Microsoft Azure, a pomoc techniczna jest świadczona za pośrednictwem jednego z [planów pomocy technicznej platformy Azure.](https://azure.microsoft.com/support/plans/)
+* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zobacz [jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

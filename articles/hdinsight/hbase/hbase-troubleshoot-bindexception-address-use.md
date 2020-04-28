@@ -1,6 +1,6 @@
 ---
-title: BindException — adres już używany w usłudze Azure HDInsight
-description: BindException — adres już używany w usłudze Azure HDInsight
+title: Bindexception — adres jest już używany w usłudze Azure HDInsight
+description: Bindexception — adres jest już używany w usłudze Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,19 +8,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 80f984643d6d8be88b381881c6fc1cb1cb5f1815
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75887346"
 ---
-# <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>Scenariusz: BindException — adres już używany w usłudze Azure HDInsight
+# <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>Scenariusz: powiązanaexception — adres jest już używany w usłudze Azure HDInsight
 
-W tym artykule opisano kroki rozwiązywania problemów i możliwe rozwiązania problemów podczas interakcji z klastrami usługi Azure HDInsight.
+W tym artykule opisano kroki rozwiązywania problemów oraz możliwe rozwiązania problemów występujących w przypadku współpracy z klastrami usługi Azure HDInsight.
 
 ## <a name="issue"></a>Problem
 
-Nie można ukończyć operacji ponownego uruchamiania na serwerze regionu Apache HBase. Z `region-server.log` katalogu `/var/log/hbase` w węzłach procesu roboczego, w których uruchamianie serwera regionu kończy się niepowodzeniem, może zostać wyświetlony komunikat o błędzie podobny w następujący sposób:
+Nie można wykonać operacji ponownego uruchamiania na serwerze regionu Apache HBase. W katalogu `region-server.log` w `/var/log/hbase` w węzłach procesu roboczego, w którym nie można uruchomić serwera regionów, może zostać wyświetlony komunikat o błędzie podobny do poniższego:
 
 ```
 Caused by: java.net.BindException: Problem binding to /10.2.0.4:16020 : Address already in use
@@ -32,23 +32,23 @@ Caused by: java.net.BindException: Address already in use
 
 ## <a name="cause"></a>Przyczyna
 
-Ponowne uruchamianie serwerów regionu Apache HBase podczas intensywnej aktywności obciążenia. Poniżej znajduje się to, co dzieje się za kulisami, gdy użytkownik inicjuje operację ponownego uruchamiania na serwerze regionu HBase z interfejsu apache Ambari:
+Ponowne uruchamianie serwerów regionu Apache HBase podczas działania dużego obciążenia. Poniżej znajdują się informacje o tym, co się stanie w tle, gdy użytkownik inicjuje operację ponownego uruchamiania na serwerze regionu HBase z poziomu interfejsu użytkownika Apache Ambari:
 
 1. Agent Ambari wysyła żądanie zatrzymania do serwera regionu.
 
-1. Agent Ambari czeka 30 sekund na serwer regionu, aby zamknąć bezpiecznie
+1. Agent Ambari czeka 30 sekund, aż serwer regionu zostanie bezpiecznie zamknięty
 
-1. Jeśli aplikacja nadal łączy się z serwerem regionu, serwer nie zostanie natychmiast zamknięty. 30-sekundowy limit czasu wygasa przed zamknięciem.
+1. Jeśli aplikacja nadal nawiązuje połączenie z serwerem regionu, serwer nie zostanie natychmiast zamknięty. Limit czasu 30 sekund upływa przed zamknięciem.
 
-1. Po 30 sekundach agent Ambari wysyła`kill -9`polecenie force-kill ( ) do serwera regionu.
+1. Po 30 sekundach Agent Ambari wysyła polecenie Force-Kill (`kill -9`) do serwera regionu.
 
-1. Z powodu tego nagłego zamknięcia, chociaż proces serwera regionu zostaje zabity, port związany z `AddressBindException`procesem może nie zostać zwolniony, co ostatecznie prowadzi do .
+1. Ze względu na to nieoczekiwane zamknięcie, chociaż proces serwera regionu zostanie zamknięty, port skojarzony z procesem może nie zostać wyrzucony, który ostatecznie `AddressBindException`prowadzi do.
 
 ## <a name="resolution"></a>Rozwiązanie
 
-Zmniejsz obciążenie serwerów regionu HBase przed zainicjowaniem ponownego uruchomienia. Ponadto, to dobry pomysł, aby najpierw opróżnić wszystkie tabele. Aby uzyskać odwołanie dotyczące opróżniania tabel, zobacz [HDInsight HBase: Jak poprawić czas ponownego uruchamiania klastra Apache HBase przez opróżnianie tabel](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+Przed zainicjowaniem ponownego uruchomienia Zmniejsz obciążenie serwerów regionów HBase. Ponadto dobrym pomysłem jest pierwsze opróżnianie wszystkich tabel. Aby uzyskać informacje na temat sposobu opróżniania tabel, zobacz [HDInsight HBase: jak ulepszyć czas ponownego uruchamiania klastra Apache HBase przy użyciu tabel opróżniania](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
-Alternatywnie spróbuj ręcznie ponownie uruchomić serwery regionu w węzłach procesu roboczego za pomocą następujących poleceń:
+Alternatywnie spróbuj ręcznie uruchomić ponownie serwery regionów w węzłach procesu roboczego, używając następujących poleceń:
 
 ```bash
 sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"
@@ -57,10 +57,10 @@ sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh star
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie widzisz problemu lub nie możesz rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy technicznej:
+Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
 
-* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej platformy Azure Community.](https://azure.microsoft.com/support/community/)
+* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz [@AzureSupport](https://twitter.com/azuresupport) się z — oficjalnym kontem platformy Microsoft Azure w celu poprawy jakości obsługi klienta. Łączenie społeczności platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy z [witryny Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wybierz **pozycję Obsługa z** paska menu lub otwórz centrum pomocy + pomocy **technicznej.** Aby uzyskać bardziej szczegółowe informacje, zapoznaj [się z instrukcjami tworzenia żądania pomocy technicznej platformy Azure.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) Dostęp do obsługi zarządzania subskrypcjami i rozliczeń jest dołączony do subskrypcji platformy Microsoft Azure, a pomoc techniczna jest świadczona za pośrednictwem jednego z [planów pomocy technicznej platformy Azure.](https://azure.microsoft.com/support/plans/)
+* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

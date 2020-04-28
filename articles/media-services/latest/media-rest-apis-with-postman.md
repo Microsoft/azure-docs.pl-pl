@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie listonosza dla wywołań interfejsu API rest usługi Azure Media Services w wersji 3
-description: W tym artykule pokazano, jak skonfigurować postmana, dzięki czemu można go używać do wywoływania interfejsów API REST usługi Azure Media Services (AMS).
+title: Konfigurowanie programu Poster dla wywołań interfejsu API REST z Azure Media Services v3
+description: W tym artykule opisano sposób konfigurowania programu Poster, aby można było go użyć do wywołania interfejsów API REST Azure Media Services (AMS).
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,28 +14,28 @@ ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
 ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75779641"
 ---
-# <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Konfigurowanie postman dla usług Media Services w wersji 3 REST wywołania interfejsu API
+# <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Konfigurowanie programu Poster dla wywołań interfejsu API REST z Media Services v3
 
-W tym artykule pokazano, jak skonfigurować **postmana,** dzięki czemu można go używać do wywoływania interfejsów API REST usługi Azure Media Services (AMS). W tym artykule pokazano, jak zaimportować pliki środowiska i kolekcji do **programu Postman**. Kolekcja zawiera zgrupowane definicje żądań HTTP, które wywołują interfejsy API REST usługi Azure Media Services (AMS). Plik środowiska zawiera zmienne, które są używane przez kolekcję.
+W tym artykule opisano sposób konfigurowania programu **Poster** , aby można było go użyć do wywołania interfejsów api REST Azure Media Services (AMS). W tym artykule przedstawiono sposób importowania plików środowiska i kolekcji do programu **Poster**. Kolekcja zawiera zgrupowane definicje żądań HTTP, które wywołują Azure Media Services (AMS) interfejsy API REST. Plik środowiska zawiera zmienne, które są używane przez kolekcję.
 
-Przed rozpoczęciem tworzenia należy [przejrzeć programowanie z interfejsami API usługi Media Services w wersji 3](media-services-apis-overview.md).
+Przed rozpoczęciem opracowywania programu zapoznaj [się z tematem Programowanie przy użyciu interfejsów api Media Services v3](media-services-apis-overview.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Utwórz konto usługi Media Services](create-account-cli-how-to.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta usługi Media Services. 
-- Uzyskiwanie informacji potrzebnych do [uzyskiwania dostępu do interfejsów API](access-api-cli-how-to.md)
+- [Utwórz konto Media Services](create-account-cli-how-to.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services. 
+- Uzyskaj informacje konieczne do [uzyskania dostępu do interfejsów API](access-api-cli-how-to.md)
 - Zainstaluj klienta REST programu [Postman](https://www.getpostman.com/), aby uruchomić interfejsy API REST przedstawione w niektórych samouczkach dotyczących AMS REST. 
 
-    W przykładzie użyto programu **Postman**, ale odpowiednie będzie każde narzędzie REST. Inne alternatywy to: **Visual Studio Code** z wtyczką REST lub **Telerik Fiddler**. 
+    W przykładzie użyto programu **Postman**, ale odpowiednie będzie każde narzędzie REST. Inne alternatywy to: **Visual Studio Code** z wtyczką REST lub **Telerik programu Fiddler**. 
 
 > [!IMPORTANT]
-> Przejrzyj [konwencje nazewnictwa](media-services-apis-overview.md#naming-conventions).
+> Zapoznaj się z [konwencjami nazewnictwa](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="download-postman-files"></a>Pobieranie plików Postman
 
@@ -49,7 +49,7 @@ Sklonuj repozytorium GitHub zawierające kolekcję programu Postman oraz pliki �
 
 ### <a name="configure-the-environment"></a>Konfigurowanie środowiska 
 
-1. Otwórz aplikację **Listonosz.**
+1. Otwórz aplikację **Poster** .
 2. Po prawej stronie ekranu wybierz opcję **Zarządzaj środowiskiem**.
 
     ![Zarządzanie środowiskiem](./media/develop-with-postman/postman-import-env.png)
@@ -76,9 +76,9 @@ Sklonuj repozytorium GitHub zawierające kolekcję programu Postman oraz pliki �
 
 ## <a name="get-azure-ad-token"></a>Pobieranie tokenu usługi Azure AD 
 
-Przed rozpoczęciem manipulowania zasobami usługi AMS w wersji 3 należy uzyskać i ustawić token usługi Azure AD dla uwierzytelniania głównego usługi.
+Przed rozpoczęciem manipulowania zasobami usługi AMS v3 musisz uzyskać i ustawić token usługi Azure AD na potrzeby uwierzytelniania w ramach jednostki usług.
 
-1. W lewym oknie aplikacji Postman wybierz "Krok 1: Pobierz token AAD Auth".
+1. W lewym oknie aplikacji Poster wybierz pozycję "krok 1: pobieranie tokenu uwierzytelniania usługi AAD".
 2. Następnie wybierz pozycję „Pobieranie tokenu usługi Azure AD do uwierzytelniania jednostki usługi”.
 3. Kliknij pozycję **Wyślij**.
 
@@ -94,10 +94,10 @@ Przed rozpoczęciem manipulowania zasobami usługi AMS w wersji 3 należy uzyska
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów 
 
-* Jeśli aplikacja nie powiedzie się z "HTTP 504: Limit czasu bramy", upewnij się, że zmienna lokalizacji nie została jawnie ustawiona na wartość inną niż oczekiwana lokalizacja konta usługi Media Services. 
-* Jeśli pojawi się błąd "nie znaleziono konta", sprawdź również, czy właściwość lokalizacji w komunikacie JSON treści jest ustawiona na lokalizację, w której znajduje się konto usługi Media Services. 
+* Jeśli aplikacja nie powiedzie się z "HTTP 504: limit czasu bramy", upewnij się, że zmienna lokalizacji nie została jawnie ustawiona na wartość inną niż oczekiwana Lokalizacja konta Media Services. 
+* Jeśli zostanie wyświetlony komunikat o błędzie "nie znaleziono konta", upewnij się również, że właściwość Location w treści pliku JSON jest ustawiona na lokalizację, w której znajduje się konto Media Services. 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Przekazywanie plików na konto usługi Media Services — REST](upload-files-rest-how-to.md)
 - [Tworzenie filtrów za pomocą usługi Media Services — REST](filters-dynamic-manifest-rest-howto.md)
@@ -105,5 +105,5 @@ Przed rozpoczęciem manipulowania zasobami usługi AMS w wersji 3 należy uzyska
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przesyłaj strumieniowo pliki za pomocą programu REST](stream-files-tutorial-with-rest.md).  
-- [Samouczek: Kodowanie zdalnego pliku na podstawie adresu URL i przesyłanie strumieniowe wideo - REST](stream-files-tutorial-with-rest.md)
+- [Przesyłaj strumieniowo pliki przy użyciu protokołu REST](stream-files-tutorial-with-rest.md).  
+- [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — REST](stream-files-tutorial-with-rest.md)

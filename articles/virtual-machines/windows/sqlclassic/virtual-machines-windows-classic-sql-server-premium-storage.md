@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z usługi Azure Premium Storage z programem SQL Server | Dokumenty firmy Microsoft
-description: W tym artykule użyto zasobów utworzonych za pomocą klasycznego modelu wdrażania i zawiera wskazówki dotyczące korzystania z usługi Azure Premium Storage z programem SQL Server uruchomionym na maszynach wirtualnych platformy Azure.
+title: Korzystanie z usługi Azure Premium Storage z usługą SQL Server | Microsoft Docs
+description: W tym artykule użyto zasobów utworzonych przy użyciu klasycznego modelu wdrażania i przedstawiono wskazówki dotyczące korzystania z usługi Azure Premium Storage z usługą SQL Server działającą na platformie Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -16,61 +16,61 @@ ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 479f9abc667e20a136da5f6231e78a1e4052f087
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75965669"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Korzystanie z usługi Azure Premium Storage z programem SQL Server na maszynach wirtualnych
 
 ## <a name="overview"></a>Omówienie
 
-[Dyski SSD w wersji Azure w wersji premium](../disks-types.md) to następna generacja magazynu, która zapewnia małe opóźnienia i wysoką przepływność we/wy. Najlepiej sprawdza się w przypadku kluczowych obciążeń intensywnie korzystających z we/wy, takich jak SQL Server na [maszynach wirtualnych IaaS.](https://azure.microsoft.com/services/virtual-machines/)
+[Azure Premium dysków SSD](../disks-types.md) to Kolejna generacja magazynu, która zapewnia małe opóźnienia i wysoką przepływność we/wy. Najlepiej sprawdza się w przypadku obciążeń intensywnie korzystających z operacji we/wy, takich jak SQL Server na [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)IaaS.
 
 > [!IMPORTANT]
-> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Menedżer zasobów i Klasyczny](../../../azure-resource-manager/management/deployment-models.md). W tym artykule opisano przy użyciu modelu wdrażania klasycznego. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager.
+> Platforma Azure ma dwa różne modele wdrażania służące do tworzenia zasobów i pracy z nimi: [Menedżer zasobów i klasyczne](../../../azure-resource-manager/management/deployment-models.md). W tym artykule opisano korzystanie z klasycznego modelu wdrażania. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager.
 
-Ten artykuł zawiera planowanie i wskazówki dotyczące migracji maszyny wirtualnej z systemem SQL Server w celu użycia magazynu w wersji Premium. Obejmuje to infrastruktury platformy Azure (sieci, magazynu) i gościa maszyny Wirtualnej systemu Windows kroki. W przykładzie w [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) przedstawiono pełną kompleksową migrację end to end, jak przenieść większe maszyny wirtualne, aby skorzystać z ulepszonego lokalnego magazynu dysków SSD za pomocą programu PowerShell.
+Ten artykuł zawiera informacje o planowaniu i wskazówkach dotyczących migracji maszyny wirtualnej z systemem SQL Server w celu użycia Premium Storage. Obejmuje to tworzenie infrastruktury platformy Azure (sieci, magazynu) i maszyn wirtualnych z systemem Windows gościa. Przykład w [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) przedstawia pełną kompleksową migrację sposobu przenoszenia większych maszyn wirtualnych w celu wykorzystania ulepszonego lokalnego magazynu SSD przy użyciu programu PowerShell.
 
-Ważne jest, aby zrozumieć kompleksowy proces korzystania z usługi Azure Premium Storage z programem SQL Server na maszynach wirtualnych IAAS. Obejmuje to:
+Ważne jest, aby zrozumieć kompleksowy proces wykorzystywania Premium Storage platformy Azure z SQL Server na maszynach wirtualnych IAAS. Obejmuje to następujące działania:
 
-* Identyfikacja wymagań wstępnych do korzystania z magazynu w wersji Premium.
-* Przykłady wdrażania programu SQL Server w systemie IaaS w magazynie w wersji Premium dla nowych wdrożeń.
-* Przykłady migracji istniejących wdrożeń, zarówno serwerów autonomicznych, jak i wdrożeń przy użyciu grup dostępności SQL zawsze włączone.
-* Możliwe podejścia migracyjne.
-* Pełny przykład end-to-end pokazujący kroki platformy Azure, Windows i SQL Server dla migracji istniejącej implementacji Zawsze włączone.
+* Identyfikacja wymagań wstępnych, które mają być używane Premium Storage.
+* Przykłady wdrażania SQL Server w programie IaaS, aby Premium Storage w przypadku nowych wdrożeń.
+* Przykłady migracji istniejących wdrożeń, zarówno serwerów autonomicznych, jak i wdrożeń przy użyciu zawsze dostępnych grup dostępności SQL.
+* Możliwe podejścia migracji.
+* Pełny przykład do końca przedstawiający platformę Azure, Windows i SQL Server kroki migracji istniejącej zawsze włączonej implementacji.
 
-Aby uzyskać więcej informacji na temat programu SQL Server w maszynach wirtualnych platformy Azure, zobacz [SQL Server w usłudze Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Aby uzyskać więcej informacji na temat SQL Server na platformie Azure Virtual Machines, zobacz [SQL Server na platformie azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
-**Autor:** **Rekonstrukcyjni** Daniel Sol: Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
+**Autor:** Daniel peruwiański **Technical rewidenci:** Luis Carlos Vargas, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
-## <a name="prerequisites-for-premium-storage"></a>Wymagania wstępne dotyczące pamięci masowej w wersji premium
+## <a name="prerequisites-for-premium-storage"></a>Wymagania wstępne dotyczące Premium Storage
 
-Istnieje kilka wymagań wstępnych dotyczących korzystania z magazynu w wersji Premium.
+Istnieje kilka wymagań wstępnych dotyczących korzystania z Premium Storage.
 
 ### <a name="machine-size"></a>Rozmiar maszyny
 
-Do korzystania z magazynu w wersji Premium należy użyć maszyn wirtualnych serii DS (VM). Jeśli maszyny z serii DS nie były wcześniej używane w usłudze w chmurze, należy usunąć istniejącą maszynę wirtualną, zachować dołączone dyski, a następnie utworzyć nową usługę w chmurze przed ponownym utworzeniem maszyny Wirtualnej jako rozmiar roli DS*. Aby uzyskać więcej informacji na temat rozmiarów maszyn wirtualnych, zobacz [Rozmiary maszyn wirtualnych i usług w chmurze dla platformy Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+W przypadku korzystania z Premium Storage należy użyć Virtual Machines serii DS (VM). Jeśli wcześniej nie korzystano z maszyn z serii DS w usłudze w chmurze, należy usunąć istniejącą maszynę wirtualną, zachować dołączone dyski, a następnie utworzyć nową usługę w chmurze przed ponownym utworzeniem maszyny wirtualnej jako jej rozmiaru. Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych i usług w chmurze dla platformy Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="cloud-services"></a>Usługi w chmurze
 
-Maszyn wirtualnych DS* z magazynem w wersji Premium można używać tylko wtedy, gdy są one tworzone w nowej usłudze w chmurze. Jeśli używasz programu SQL Server Always On na platformie Azure, odbiornik zawsze włączone odwołuje się do adresu IP wewnętrznego lub zewnętrznego modułu równoważenia obciążenia platformy Azure, który jest skojarzony z usługą w chmurze. W tym artykule koncentruje się na jak przeprowadzić migrację przy zachowaniu dostępności w tym scenariuszu.
+W przypadku tworzenia w nowej usłudze w chmurze można używać tylko maszyn wirtualnych DS * z Premium Storage. Jeśli używasz programu SQL Server zawsze włączony na platformie Azure, odbiornik "Always On" odnosi się do wewnętrznego lub zewnętrznego Load Balancer adresu IP platformy Azure skojarzonego z usługą w chmurze. W tym artykule opisano sposób przeprowadzania migracji przy zachowaniu dostępności w tym scenariuszu.
 
 > [!NOTE]
-> Seria DS* musi być pierwszą maszyną wirtualną wdrożoną w nowej usłudze w chmurze.
+> Seria DS * musi być pierwszą maszyną wirtualną wdrożoną w nowej usłudze w chmurze.
 >
 >
 
-### <a name="regional-vnets"></a>Regionalne sieci wirtualne
+### <a name="regional-vnets"></a>SIECI wirtualnych regionalny
 
-W przypadku maszyn wirtualnych DS* należy skonfigurować sieć wirtualną (VNET) hostującą maszyny wirtualne jako regionalne. To "rozszerza" sieci wirtualnej jest umożliwienie większych maszyn wirtualnych, które mają być aprowizacji w innych klastrach i umożliwić komunikację między nimi. Na poniższym zrzucie ekranu wyróżniona lokalizacja pokazuje regionalne wirtualne sieci wirtualne, podczas gdy pierwszy wynik pokazuje "wąską"net wirtualną.
+W przypadku maszyn wirtualnych usług DS * należy skonfigurować Virtual Network hostowanie maszyn wirtualnych w taki sposób, aby były regionalne. Ta "rozszerza" sieć wirtualną umożliwia zainicjowanie większych maszyn wirtualnych w innych klastrach i umożliwienie komunikacji między nimi. Na poniższym zrzucie ekranu wyróżniona lokalizacja pokazuje regionalne sieci wirtualnych, podczas gdy pierwszy wynik pokazuje sieć wirtualną "wąskie".
 
-![RegionalVNET (w sieci regionalnej)][1]
+![RegionalVNET][1]
 
-Można podnieść bilet pomocy technicznej firmy Microsoft, aby przeprowadzić migrację do regionalnej sieci wirtualnej. Firma Microsoft wprowadza zmiany. Aby zakończyć migrację do regionalnych sieci wirtualnych, zmień właściwość AffinityGroup w konfiguracji sieci. Najpierw wyeksportuj konfigurację sieci w programie PowerShell, a następnie zastąp właściwość **AffinityGroup** w elemencie **VirtualNetworkSite** **właściwością Lokalizacja.** Określ, `Location = XXXX` gdzie `XXXX` jest region platformy Azure. Następnie zaimportuj nową konfigurację.
+Możesz zgłosić bilet pomocy technicznej firmy Microsoft w celu przeprowadzenia migracji do regionalnej sieci wirtualnej. Następnie firma Microsoft wprowadza zmianę. Aby ukończyć migrację do sieci wirtualnych regionalnej, Zmień właściwość AffinityGroup w konfiguracji sieci. Najpierw wyeksportuj konfigurację sieci w programie PowerShell, a następnie zastąp Właściwość **AffinityGroup** w elemencie **VirtualNetworkSite** elementem z właściwością **Location** . Określ `Location = XXXX` , `XXXX` gdzie jest regionem świadczenia usługi Azure. Następnie zaimportuj nową konfigurację.
 
-Na przykład biorąc pod uwagę następującą konfigurację sieci wirtualnej:
+Rozważmy na przykład następującą konfigurację sieci wirtualnej:
 
 ```xml
 <VirtualNetworkSite name="danAzureSQLnet" AffinityGroup="AzureSQLNetwork">
@@ -83,7 +83,7 @@ Na przykład biorąc pod uwagę następującą konfigurację sieci wirtualnej:
 </VirtualNetworkSite>
 ```
 
-Aby przenieść tę tę do regionalnej sieci wirtualnej w Europie Zachodniej, zmień konfigurację na następującą:
+Aby przenieść ją do regionalnej sieci wirtualnej w regionie Europa Zachodnia, Zmień konfigurację na następującą:
 ```xml
 <VirtualNetworkSite name="danAzureSQLnet" Location="West Europe">
 <AddressSpace>
@@ -97,9 +97,9 @@ Aby przenieść tę tę do regionalnej sieci wirtualnej w Europie Zachodniej, zm
 
 ### <a name="storage-accounts"></a>Konta magazynu
 
-Należy utworzyć nowe konto magazynu, które jest skonfigurowane dla magazynu w wersji Premium. Należy zauważyć, że użycie magazynu w wersji Premium jest ustawione na koncie magazynu, a nie na poszczególnych dyskach wirtualnych, jednak podczas korzystania z maszyny wirtualnej z serii DS* można dołączyć dyski wirtualne z kont Premium i Magazynu standardowego. Możesz to rozważyć, jeśli nie chcesz umieszczać dysku VHD systemu operacyjnego na koncie magazynu w wersji Premium.
+Należy utworzyć nowe konto magazynu skonfigurowane dla Premium Storage. Należy pamiętać, że użycie Premium Storage jest ustawione na koncie magazynu, a nie na poszczególnych dyskach VHD, jednak w przypadku korzystania z maszyny wirtualnej z serii DS * można dołączyć dysk VHD z kont magazynu w warstwie Premium i standardowa. Można to wziąć pod uwagę, jeśli nie chcesz umieszczać wirtualnego dysku twardego systemu operacyjnego na koncie Premium Storage.
 
-Następujące **polecenie New-AzureStorageAccountPowerShell** z **typem** "Premium_LRS" tworzy konto magazynu w wersji Premium:
+Następujące polecenie **New-AzureStorageAccountPowerShell** z **typem** "Premium_LRS" tworzy konto Premium Storage:
 
 ```powershell
 $newstorageaccountname = "danpremstor"
@@ -108,79 +108,79 @@ New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "We
 
 ### <a name="vhds-cache-settings"></a>Ustawienia pamięci podręcznej VHD
 
-Główną różnicą między tworzeniem dysków, które są częścią konta magazynu w warstwie Premium, jest ustawienie pamięci podręcznej dysku. W przypadku dysków woluminów SQL Server Data zaleca się użycie funkcji **"Buforowanie odczytu".** W przypadku woluminów dziennika transakcji ustawienie pamięci podręcznej dysku powinno być ustawione na "**Brak**". To różni się od zaleceń dla kont magazynu standardowego.
+Główną różnicą między tworzeniem dysków, które są częścią konta Premium Storage jest ustawienie pamięci podręcznej dysku. W przypadku dysków woluminu danych SQL Server zaleca się użycie elementu "**buforowanie odczytu**". W przypadku woluminów dziennika transakcji ustawienie pamięci podręcznej dysku powinno mieć wartość "**Brak**". Różni się to od zaleceń dotyczących kont magazynu w warstwie Standardowa.
 
-Po podłączeniu veds, ustawienie pamięci podręcznej nie można zmienić. Należy odłączyć i ponownie dołączyć VHD z zaktualizowanym ustawieniem pamięci podręcznej.
+Po dołączeniu dysków VHD nie można zmienić ustawienia pamięci podręcznej. Konieczne będzie odłączenie i ponowne dołączenie dysku VHD ze zaktualizowanym ustawieniem pamięci podręcznej.
 
 ### <a name="windows-storage-spaces"></a>Miejsca do magazynowania systemu Windows
 
-Można użyć [miejsca do magazynowania systemu Windows,](https://technet.microsoft.com/library/hh831739.aspx) tak jak w przypadku poprzedniego magazynu standardowego, co umożliwia migrację maszyny Wirtualnej, która już korzysta z miejsc do magazynowania. Przykład w [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (krok 9 i do przodu) pokazuje kod programu Powershell wyodrębnić i zaimportować maszynę wirtualną z wieloma dołączonymi VHD.
+Możesz użyć funkcji [miejsca do magazynowania systemu Windows](https://technet.microsoft.com/library/hh831739.aspx) , jak w przypadku poprzedniego magazynu w warstwie Standardowa, dzięki czemu można migrować maszynę wirtualną, która już korzysta z funkcji miejsca do magazynowania. Przykład w [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (krok 9 i do przodu) pokazuje kod programu PowerShell służący do wyodrębniania i importowania maszyny wirtualnej z wieloma dołączonymi wirtualnymi dyskami wirtualnymi.
 
-Pule magazynu były używane ze standardowym kontem magazynu platformy Azure w celu zwiększenia przepływności i zmniejszenia opóźnień. Wartość może okazać się wartość w testowaniu pul magazynu z magazynu w wersji Premium dla nowych wdrożeń, ale dodać dodatkową złożoność z konfiguracją magazynu.
+Pule magazynów były używane z kontem usługi Azure Storage w warstwie Standardowa w celu zwiększenia przepływności i skrócenia opóźnień. Możesz znaleźć wartość w temacie Testowanie pul magazynów z Premium Storageami dla nowych wdrożeń, ale w przypadku konfigurowania magazynu są dodawane dodatkowe złożoności.
 
-#### <a name="how-to-find-which-azure-virtual-disks-map-to-storage-pools"></a>Jak znaleźć dyski wirtualne platformy Azure mapowane do pul magazynu
+#### <a name="how-to-find-which-azure-virtual-disks-map-to-storage-pools"></a>Jak ustalić, które dyski wirtualne platformy Azure są mapowane na Pule magazynów
 
-Ponieważ istnieją różne zalecenia dotyczące ustawiania pamięci podręcznej dla dołączonych dysków VHD, możesz zdecydować się skopiować dyski VHD na konto magazynu w warstwie Premium. Jednak po ponownym dołączeniu ich do nowej maszyny Wirtualnej z serii DS może być konieczne zmodyfikowanie ustawień pamięci podręcznej. Łatwiej jest zastosować ustawienia pamięci podręcznej w warstwie Premium Storage zalecane, gdy masz oddzielne dyski VHD dla plików danych SQL i plików dziennika (a nie jeden dysk WIRTUALNY, który zawiera oba).
+Ponieważ istnieją różne zalecenia dotyczące ustawienia pamięci podręcznej dla dołączonych wirtualnych dysków twardych, możesz zdecydować się na skopiowanie dysków VHD do konta Premium Storage. Jednak po ponownym dołączeniu ich do nowej maszyny wirtualnej z serii DS może zajść potrzeba zmiany ustawień pamięci podręcznej. Zastosowanie Premium Storage zalecanych ustawień pamięci podręcznej może być prostsze w przypadku oddzielnych dysków VHD dla plików danych i plików dziennika SQL (a nie jednego wirtualnego dysku twardego, który zawiera obie wersje).
 
 > [!NOTE]
-> Jeśli masz dane i pliki dziennika programu SQL Server na tym samym woluminie, wybrana opcja buforowania zależy od wzorców dostępu we/wy dla obciążeń bazy danych. Tylko testowanie może wykazać, która opcja buforowania jest najlepsza dla tego scenariusza.
+> W przypadku SQL Server danych i plików dziennika na tym samym woluminie wybrana opcja buforowania zależy od wzorców dostępu we/wy dla obciążeń związanych z bazą danych. Tylko testowanie może zademonstrować, która opcja buforowania jest Najlepsza dla tego scenariusza.
 >
 >
 
-Jeśli jednak używasz miejsca do magazynowania systemu Windows, które są wykonane z wielu dysków VHD, należy spojrzeć na oryginalne skrypty, aby zidentyfikować, które dołączone dyski VHD znajdują się w określonej puli, dzięki czemu można następnie ustawić ustawienia pamięci podręcznej odpowiednio dla każdego dysku.
+Jednak w przypadku korzystania z funkcji miejsca do magazynowania systemu Windows, które składają się z wielu wirtualnych dysków twardych, należy zapoznać się z oryginalnymi skryptami, aby określić, które dołączone dyski VHD znajdują się w określonej puli, więc można ustawić odpowiednie ustawienia pamięci podręcznej dla każdego dysku.
 
-Jeśli nie masz oryginalnego skryptu dostępne, aby pokazać, które dyski VHD map do puli magazynu, można użyć następujących kroków, aby określić mapowanie puli dysku/magazynu.
+Jeśli nie masz oryginalnego skryptu, aby pokazać, które dyski VHD są mapowane do puli magazynów, możesz wykonać poniższe kroki, aby określić mapowanie puli dysków/magazynu.
 
-Dla każdego dysku należy wykonać następujące czynności:
+Dla każdego dysku wykonaj następujące czynności:
 
-1. Pobierz listę dysków dołączonych do maszyny Wirtualnej za pomocą polecenia **Get-AzureVM:**
+1. Pobierz listę dysków dołączonych do maszyny wirtualnej za pomocą polecenia **Get-AzureVM** :
 
 ```powershell
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-1. Zanotuj DiskName i LUN.
+1. Zanotuj wartość diskname i numer LUN.
 
-    ![Nazwa dyskuAndLUN][2]
-1. Pulpit zdalny do maszyny Wirtualnej. Następnie przejdź do **programu Zarządzanie komputerami** | **Dyski Menedżera** | **urządzeń**. Spójrz na właściwości każdego z "Microsoft Virtual Disks"
+    ![DisknameAndLUN][2]
+1. Pulpit zdalny do maszyny wirtualnej. Następnie przejdź do pozycji **Zarządzanie** | komputerem**Menedżer urządzeń** | **stacje dysków**. Przyjrzyj się właściwościom wszystkich dysków wirtualnych firmy Microsoft
 
-    ![VirtualDiskProperties (Właściwości wirtualne dyskietki)][3]
-1. Numer jednostki LUN w tym miejscu jest odwołaniem do numeru jednostki LUN określonego podczas dołączania dysku VHD do maszyny Wirtualnej.
-1. Aby uzyskać dostęp do "Microsoft Virtual Disk", przejdź do karty **Szczegóły,** a następnie na liście **Właściwości** przejdź do **klucza sterownika**. W **value**, należy zwrócić uwagę **na przesunięcie**, który jest 0002 na poniższym zrzucie ekranu. 0002 oznacza PhysicalDisk2, do którego odwołuje się pula magazynu.
+    ![VirtualDiskProperties][3]
+1. Numer LUN w tym miejscu jest odwołaniem do numeru LUN wskazanego podczas dołączania wirtualnego dysku twardego do maszyny wirtualnej.
+1. W polu "dysk wirtualny Microsoft" przejdź do karty **szczegóły** , a następnie na liście **Właściwości** przejdź do pozycji **klucz sterownika**. W polu **wartość**Zwróć uwagę na **przesunięcie**, czyli 0,002 na poniższym zrzucie ekranu. W odniesieniu do PhysicalDisk2 odwołuje się do puli magazynów.
 
     ![VirtualDiskPropertyDetails][4]
-1. Dla każdej puli magazynu zrzuć skojarzone dyski:
+1. Dla każdej puli magazynów wykonaj zrzuty skojarzonych dysków:
 
 ```powershell
 Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 ```
 
-![GetStoragePool (Basen GetStoragePool)][5]
+![GetStoragePool][5]
 
-Teraz można użyć tych informacji do skojarzenia dołączonych dysków WIRTUALNYCH z dyskami fizycznymi w pulach magazynu.
+Teraz można użyć tych informacji do kojarzenia dołączonych dysków VHD z dyskami fizycznymi w pulach magazynu.
 
-Po zamapowaniu dysków VHD na dyski fizyczne w pulach magazynu można następnie odłączyć i skopiować je na konto magazynu w warstwie Premium, a następnie dołączyć je z prawidłowym ustawieniem pamięci podręcznej. Zobacz przykład w [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage), kroki od 8 do 12. W tych krokach pokazano, jak wyodrębnić konfigurację dysku VHD podłączoną do maszyny Wirtualnej do pliku CSV, skopiować dyski VHD, zmienić ustawienia pamięci podręcznej konfiguracji dysku i wreszcie ponownie wdrożyć maszynę wirtualną jako maszynę wirtualną z serii DS ze wszystkimi podłączonymi dyskami.
+Po zmapowaniu wirtualnych dysków twardych na dyski fizyczne w pulach magazynu można odłączyć i skopiować je do konta Premium Storage, a następnie dołączyć je przy użyciu poprawnego ustawienia pamięci podręcznej. Zobacz przykład w [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage), kroki od 8 do 12. W tych krokach pokazano, jak wyodrębnić konfigurację dysku VHD dołączonej do maszyny wirtualnej do pliku CSV, skopiować dyski VHD, zmienić ustawienia pamięci podręcznej konfiguracji dysku, a następnie ponownie wdrożyć maszynę wirtualną jako maszynę wirtualną z serii DS przy użyciu wszystkich dołączonych dysków.
 
-### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>Przepustowość pamięci masowej maszyn wirtualnych i przepustowość pamięci masowej VHD
+### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>Przepustowość magazynu maszyny wirtualnej i przepływność magazynu wirtualnego dysku twardego
 
-Wydajność pamięci masowej zależy od określonego rozmiaru maszyny Wirtualnej DS* i rozmiarów dysków VHD. Maszyny wirtualne mają różne uprawnienia dla liczby wirtualnych, które mogą być dołączone i maksymalną przepustowość, którą obsługują (MB/s). Aby uzyskać określone numery przepustowości, zobacz [Rozmiary maszyn wirtualnych i usług w chmurze dla platformy Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Wielkość wydajności magazynu zależy od określonego rozmiaru maszyny wirtualnej * i rozmiarów dysków VHD. Maszyny wirtualne mają różne przydziały dla liczby wirtualnych dysków twardych, które mogą być dołączane, oraz maksymalną przepustowość, która obsługuje (MB/s). Aby uzyskać informacje o określonych numerach przepustowości, zobacz [rozmiary maszyn wirtualnych i usług w chmurze dla platformy Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Zwiększone we/wy są osiągane przy większych rozmiarach dysków. Należy wziąć to pod uwagę, gdy myślisz o ścieżce migracji. Aby uzyskać szczegółowe informacje, [zobacz tabelę dla we/wy i typy dysków](../disks-types.md#premium-ssd).
+Zwiększono liczbę operacji we/wy na większe rozmiary dysków. Należy wziąć pod uwagę to, kiedy myślisz o ścieżce migracji. Aby uzyskać szczegółowe informacje, [Zobacz tabelę dla operacji IOPS i typów dysków](../disks-types.md#premium-ssd).
 
-Na koniec należy wziąć pod uwagę, że maszyny wirtualne mają różne maksymalne przepustowość dysku, które obsługują dla wszystkich dysków podłączonych. Przy dużym obciążeniu można nasycić maksymalną przepustowość dysku dostępną dla tego rozmiaru roli maszyny Wirtualnej. Na przykład Standard_DS14 obsługuje do 512 MB/s; w związku z tym z trzech dysków P30 można nasycić przepustowość dysku maszyny Wirtualnej. Ale w tym przykładzie limit przepływności może zostać przekroczony w zależności od kombinacji operacji we/wy odczytu i zapisu.
+Na koniec należy wziąć pod uwagę, że maszyny wirtualne mają różne maksymalne przepustowości dysków, które obsługują dla wszystkich dołączonych dysków. W przypadku dużego obciążenia można zmienić nasycenie maksymalnej przepustowości dysku dostępnej dla danego rozmiaru roli maszyny wirtualnej. Na przykład Standard_DS14 obsługuje do 512 MB/s; w związku z tym trzy dyski P30 umożliwiają Nasycenie przepustowości dysku maszyny wirtualnej. Jednak w tym przykładzie można przekroczyć limit przepływności w zależności od kombinacji systemu IOs odczytu i zapisu.
 
 ## <a name="new-deployments"></a>Nowe wdrożenia
 
-W następnych dwóch sekcjach pokazano, jak można wdrożyć maszyny wirtualne programu SQL Server w magazynie w wersji Premium. Jak wspomniano wcześniej, nie musi być konieczne umieszczenie dysku systemu operacyjnego w magazynie w wersji Premium. Możesz to zrobić, jeśli zamierzasz umieścić żadnych intensywnych obciążeń we/wy na dysku VHD systemu operacyjnego.
+W następnych dwóch sekcjach pokazano, jak można wdrożyć maszyny wirtualne SQL Server w Premium Storage. Jak wspomniano wcześniej, nie trzeba umieszczać dysku systemu operacyjnego w usłudze Premium Storage. Możesz to zrobić, jeśli zamierzasz umieścić duże obciążenia operacji we/wy na wirtualnym dysku twardym systemu operacyjnego.
 
-W pierwszym przykładzie pokazano przy użyciu istniejących obrazów galerii Azure. W drugim przykładzie pokazano, jak używać niestandardowego obrazu maszyny Wirtualnej, który masz na istniejącym koncie magazynu standardowego.
+Pierwszy przykład pokazuje wykorzystanie istniejących obrazów galerii platformy Azure. Drugi przykład pokazuje, jak korzystać z niestandardowego obrazu maszyny wirtualnej, który znajduje się w istniejącym standardowym koncie magazynu.
 
 > [!NOTE]
-> Te przykłady zakładają, że utworzono już regionalną siecię wirtualną.
+> W tych przykładach założono, że utworzono już regionalną sieć wirtualną.
 
-### <a name="create-a-new-vm-with-premium-storage-with-gallery-image"></a>Tworzenie nowej maszyny Wirtualnej z magazynem w wersji Premium z obrazem galerii
+### <a name="create-a-new-vm-with-premium-storage-with-gallery-image"></a>Tworzenie nowej maszyny wirtualnej przy użyciu Premium Storage z obrazem galerii
 
-W poniższym przykładzie pokazano, jak umieścić dysk VHD systemu operacyjnego na pamięci masowej w wersji premium i dołączyć dyski VHD magazynu w wersji premium. Można jednak również umieścić dysk systemu operacyjnego na koncie magazynu standardowego, a następnie dołączyć dyski VHD, które znajdują się na koncie magazynu w wersji Premium. Oba scenariusze są zademonstrowane.
+W poniższym przykładzie przedstawiono sposób umieszczania dysku VHD systemu operacyjnego w usłudze Premium Storage i dołączanie Premium Storage dysków VHD. Można jednak również umieścić dysk systemu operacyjnego na koncie magazynu w warstwie Standardowa, a następnie dołączyć dyski VHD, które znajdują się na koncie Premium Storage. Przedstawiono oba scenariusze.
 
 ```powershell
 $mysubscription = "DansSubscription"
@@ -191,7 +191,7 @@ Set-AzureSubscription -SubscriptionName $mysubscription
 Select-AzureSubscription -SubscriptionName $mysubscription -Current  
 ```
 
-#### <a name="step-1-create-a-premium-storage-account"></a>Krok 1: Tworzenie konta magazynu w klasie premium
+#### <a name="step-1-create-a-premium-storage-account"></a>Krok 1. Tworzenie konta Premium Storage
 
 ```powershell
 #Create Premium Storage account, note Type
@@ -199,14 +199,14 @@ $newxiostorageaccountname = "danspremsams"
 New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
 ```
 
-#### <a name="step-2-create-a-new-cloud-service"></a>Krok 2: Tworzenie nowej usługi w chmurze
+#### <a name="step-2-create-a-new-cloud-service"></a>Krok 2. Tworzenie nowej usługi w chmurze
 
 ```powershell
 $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-3-reserve-a-cloud-service-vip-optional"></a>Krok 3: Zarezerwuj usługę w chmurze VIP (opcjonalnie)
+#### <a name="step-3-reserve-a-cloud-service-vip-optional"></a>Krok 3. Zarezerwuj adres VIP usługi w chmurze (opcjonalnie)
 
 ```powershell
 #check exisitng reserved VIP
@@ -216,7 +216,7 @@ $reservedVIPName = "sqlcloudVIP"
 New-AzureReservedIP –ReservedIPName $reservedVIPName –Label $reservedVIPName –Location $location
 ```
 
-#### <a name="step-4-create-a-vm-container"></a>Krok 4: Tworzenie kontenera maszyny Wirtualnej
+#### <a name="step-4-create-a-vm-container"></a>Krok 4. Tworzenie kontenera maszyny wirtualnej
 
 ```powershell
 #Generate storage keys for later
@@ -230,7 +230,7 @@ $containerName = 'vhds'
 New-AzureStorageContainer -Name $containerName -Context $xioContext
 ```
 
-#### <a name="step-5-placing-os-vhd-on-standard-or-premium-storage"></a>Krok 5: Umieszczenie OS VHD w pamięci standardowej lub premium
+#### <a name="step-5-placing-os-vhd-on-standard-or-premium-storage"></a>Krok 5. Umieszczanie wirtualnego dysku twardego systemu operacyjnego w wersji Standard lub Premium Storage
 
 ```powershell
 #NOTE: Set up subscription and default storage account which is used to place the OS VHD in
@@ -244,7 +244,7 @@ $standardstorageaccountname = "danstdams"
 Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $standardstorageaccountname
 ```
 
-#### <a name="step-6-create-vm"></a>Krok 6: Tworzenie maszyny wirtualnej
+#### <a name="step-6-create-vm"></a>Krok 6. Tworzenie maszyny wirtualnej
 
 ```powershell
 #Get list of available SQL Server Images from the Azure Image Gallery.
@@ -289,11 +289,11 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmName | Get-AzureDataDisk
 Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 ```
 
-### <a name="create-a-new-vm-to-use-premium-storage-with-a-custom-image"></a>Tworzenie nowej maszyny Wirtualnej w celu używania magazynu w wersji Premium z obrazem niestandardowym
+### <a name="create-a-new-vm-to-use-premium-storage-with-a-custom-image"></a>Utwórz nową maszynę wirtualną, aby użyć Premium Storage z obrazem niestandardowym
 
-W tym scenariuszu pokazano, gdzie masz istniejących obrazów niestandardowych, które znajdują się na koncie magazynu standardowego. Jak wspomniano, jeśli chcesz umieścić OS VHD w magazynie w wersji Premium, musisz skopiować obraz, który istnieje na koncie magazynu standardowego i przenieść je do magazynu w wersji Premium, zanim będzie można go użyć. Jeśli masz obraz w środowisku lokalnym, można również użyć tej metody, aby skopiować go bezpośrednio do konta magazynu w wersji Premium.
+W tym scenariuszu pokazano, gdzie masz istniejące dostosowane obrazy, które znajdują się na koncie magazynu w warstwie Standardowa. Jak wspomniano, jeśli chcesz umieścić wirtualny dysk twardy systemu operacyjnego na Premium Storage należy skopiować obraz, który istnieje na koncie magazynu w warstwie Standardowa, i przenieść go do Premium Storage, zanim będzie można go użyć. Jeśli masz obraz lokalnie, możesz również użyć tej metody do skopiowania bezpośrednio do konta Premium Storage.
 
-#### <a name="step-1-create-storage-account"></a>Krok 1: Tworzenie konta magazynu
+#### <a name="step-1-create-storage-account"></a>Krok 1. Tworzenie konta magazynu
 
 ```powershell
 $mysubscription = "DansSubscription"
@@ -307,16 +307,16 @@ New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location 
 $origstorageaccountname = "danstdams"
 ```
 
-#### <a name="step-2-create-cloud-service"></a>Krok 2 Tworzenie usługi w chmurze
+#### <a name="step-2-create-cloud-service"></a>Krok 2. Tworzenie usługi w chmurze
 
 ```powershell
 $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-3-use-existing-image"></a>Krok 3: Użyj istniejącego obrazu
+#### <a name="step-3-use-existing-image"></a>Krok 3. Korzystanie z istniejącego obrazu
 
-Można użyć istniejącego obrazu. Możesz też [zrobić zdjęcie istniejącej maszyny](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Należy pamiętać, że obraz nie musi być maszyną DS*. Po wyświetleniu obrazu poniższe kroki pokazują, jak skopiować go do konta magazynu w programie Premium za pomocą polecenia **Programu PowerShell Start-AzureStorageBlobCopy.**
+Możesz użyć istniejącego obrazu. Możesz też [wykonać obraz istniejącej maszyny](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Należy pamiętać, że komputer nie musi być maszyną DS *. Po utworzeniu obrazu w poniższych krokach pokazano, jak skopiować go na konto Premium Storage przy użyciu programu PowerShell **Start-AzureStorageBlobCopy** .
 
 ```powershell
 #Get storage account keys:
@@ -330,7 +330,7 @@ $origContext = New-AzureStorageContext  –StorageAccountName $origstorageaccoun
 $destContext = New-AzureStorageContext  –StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
 ```
 
-#### <a name="step-4-copy-blob-between-storage-accounts"></a>Krok 4: Kopiowanie obiektu blob między kontami magazynu
+#### <a name="step-4-copy-blob-between-storage-accounts"></a>Krok 4. Kopiowanie obiektu BLOB między kontami magazynu
 
 ```powershell
 #Get Image VHD
@@ -343,13 +343,13 @@ $blob = Start-AzureStorageBlobCopy -SrcBlob $myImageVHD -SrcContainer $container
 -Context $origContext -DestContext $destContext  
 ```
 
-#### <a name="step-5-regularly-check-copy-status"></a>Krok 5: Regularnie sprawdzaj status kopii:
+#### <a name="step-5-regularly-check-copy-status"></a>Krok 5. regularne sprawdzanie stanu kopiowania:
 
 ```powershell
 $blob | Get-AzureStorageBlobCopyState
 ```
 
-#### <a name="step-6-add-image-disk-to-azure-disk-repository-in-subscription"></a>Krok 6: Dodawanie dysku obrazu do repozytorium dysków platformy Azure w ramach subskrypcji
+#### <a name="step-6-add-image-disk-to-azure-disk-repository-in-subscription"></a>Krok 6. Dodawanie dysku obrazu do repozytorium dysku platformy Azure w ramach subskrypcji
 
 ```powershell
 $imageMediaLocation = $destContext.BlobEndPoint+"/"+$myImageVHD
@@ -359,11 +359,11 @@ Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
 ```
 
 > [!NOTE]
-> Może się okazać, że nawet jeśli raporty stanu jako sukces, nadal można uzyskać błąd dzierżawy dysku. W takim przypadku odczekaj około 10 minut.
+> Może się okazać, że mimo że stan jest zgłaszany jako powodzenie, nadal można uzyskać błąd dzierżawy dysku. W takim przypadku odczekaj około 10 minut.
 
-#### <a name="step-7--build-the-vm"></a>Krok 7: Tworzenie maszyny Wirtualnej
+#### <a name="step-7--build-the-vm"></a>Krok 7. Tworzenie maszyny wirtualnej
 
-W tym miejscu budujesz maszynę wirtualną z obrazu i dołączasz dwie dyski wirtualne magazynu premium:
+Tutaj tworzysz maszynę wirtualną z obrazu i dołączasz dwa Premium Storage VHD:
 
 ```powershell
 $newimageName = "prem"+"dansoldonorsql2k14"
@@ -398,244 +398,244 @@ $vmConfigsl2 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 1 -HostCachi
 $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 ```
 
-## <a name="existing-deployments-that-do-not-use-always-on-availability-groups"></a>Istniejące wdrożenia, które nie korzystają z grup dostępności zawsze włączonych
+## <a name="existing-deployments-that-do-not-use-always-on-availability-groups"></a>Istniejące wdrożenia, które nie używają zawsze dostępnych grup dostępności
 
 > [!NOTE]
-> W przypadku istniejących wdrożeń najpierw zobacz sekcję [Wymagania wstępne](#prerequisites-for-premium-storage) tego artykułu.
+> W przypadku istniejących wdrożeń należy najpierw zapoznać się z sekcją [wymagania wstępne](#prerequisites-for-premium-storage) w tym artykule.
 
-Istnieją różne zagadnienia dotyczące wdrożeń programu SQL Server, które nie używają grup zawsze na dostępność i tych, które to robią. Jeśli nie używasz always on i masz istniejący autonomiczny program SQL Server, możesz uaktualnić do magazynu w wersji Premium przy użyciu nowej usługi w chmurze i konta magazynu. Rozważmy następujące opcje:
+Istnieją różne zagadnienia dotyczące wdrożeń SQL Server, które nie korzystają z zawsze zainstalowanych grup dostępności i tych, które to są. Jeśli nie używasz opcji zawsze włączone i masz istniejące autonomiczne SQL Server, możesz przeprowadzić uaktualnienie do Premium Storage przy użyciu nowej usługi w chmurze i konta magazynu. Należy wziąć pod uwagę następujące opcje:
 
-* **Utwórz nową maszynę wirtualną programu SQL Server**. Można utworzyć nową maszynę wirtualną programu SQL Server, która używa konta magazynu w wersji Premium, zgodnie z dokumentami w nowych wdrożeniach. Następnie powróć kopię zapasową i przywróć konfigurację programu SQL Server i bazy danych użytkowników. Aplikacja musi zostać zaktualizowana w celu odwołania się do nowego programu SQL Server, jeśli jest dostępny wewnętrznie lub zewnętrznie. Należy skopiować wszystkie obiekty "out of db", tak jakby przeprowadzano migrację programu SQL Server side by side (SxS). Obejmuje to obiekty, takie jak logowania, certyfikaty i połączone serwery.
-* **Migrowanie istniejącej maszyny Wirtualnej programu SQL Server**. Wymaga to przełączenia maszyny Wirtualnej programu SQL Server do trybu offline, a następnie przeniesienia jej do nowej usługi w chmurze, która obejmuje kopiowanie wszystkich dołączonych dysków VHD do konta magazynu w ramach programu Premium. Gdy maszyna wirtualna jest w trybie online, aplikacja odwołuje się do nazwy hosta serwera, jak poprzednio. Należy pamiętać, że rozmiar istniejącego dysku wpływa na charakterystykę wydajności. Na przykład dysk 400 GB jest zaokrąglany w górę do P20. Jeśli wiesz, że nie wymaga tej wydajności dysku, można odtworzyć maszynę wirtualną z serii DS i dołączyć dyski wirtualne magazynu premium o wymaganej specyfikacji rozmiaru/wydajności. Następnie można odłączyć i ponownie dołączyć pliki BAZY DANYCH SQL.
-
-> [!NOTE]
-> Podczas kopiowania dysków VHD należy pamiętać o rozmiarze, w zależności od rozmiaru oznacza, jaki typ dysku magazynu w wersji Premium należą do, określa specyfikację wydajności dysku. Platforma Azure zaokrągla do najbliższego rozmiaru dysku, więc jeśli masz dysk 400GB, jest zaokrąglana w górę do P20. W zależności od istniejących wymagań we/wy vHD systemu operacyjnego może nie być konieczne migrowanie tego do konta magazynu w wersji Premium.
-
-Jeśli program SQL Server jest dostępny zewnętrznie, zmieni się program VIP usługi w chmurze. Należy również zaktualizować punkty końcowe, listy ACL i ustawienia DNS.
-
-## <a name="existing-deployments-that-use-always-on-availability-groups"></a>Istniejące wdrożenia korzystające z grup dostępności zawsze włączone
+* **Utwórz nową maszynę wirtualną SQL Server**. Można utworzyć nową maszynę wirtualną SQL Server, która używa konta Premium Storage, zgodnie z opisem w nowych wdrożeniach. Następnie wykonaj kopię zapasową i Przywróć konfigurację SQL Server i bazy danych użytkowników. Aplikacja musi zostać zaktualizowana, aby można było odwoływać się do nowego SQL Server, jeśli dostęp do niego odbywa się wewnętrznie lub zewnętrznie. Należy skopiować wszystkie obiekty "poza bazą danych" tak, jakby była wykonywana w ramach migracji SQL Serverej obok siebie (SxS). Obejmuje to takie obiekty jak logowania, certyfikaty i połączone serwery.
+* **Migrowanie istniejącej maszyny wirtualnej SQL Server**. Wymaga to przełączenia SQL Server maszyny wirtualnej w tryb offline, a następnie przeniesienia jej do nowej usługi w chmurze, która obejmuje skopiowanie wszystkich dołączonych dysków VHD na konto Premium Storage. Gdy maszyna wirtualna przejdzie w tryb online, aplikacja odwołuje się do nazwy hosta serwera tak jak wcześniej. Należy pamiętać, że rozmiar istniejącego dysku wpływa na charakterystykę wydajności. Na przykład dysk 400 GB jest zaokrąglany do P20. Jeśli wiesz, że nie wymagasz wydajności dysku, możesz ponownie utworzyć maszynę wirtualną jako maszynę wirtualną z serii DS i dołączyć Premium Storage dysków VHD o wymaganej wielkości/specyfikacji wydajności. Następnie można odłączyć i ponownie dołączyć pliki bazy danych SQL.
 
 > [!NOTE]
-> W przypadku istniejących wdrożeń najpierw zobacz sekcję [Wymagania wstępne](#prerequisites-for-premium-storage) tego artykułu.
+> Podczas kopiowania dysków VHD należy pamiętać o rozmiarze, w zależności od wielkości oznacza, jaki typ dysku Premium Storage, w którym się znajdują, określa specyfikację wydajności dysku. Platforma Azure zaokrągla do najbliższego rozmiaru dysku, więc jeśli masz dysk 400 GB, to jest zaokrąglany do P20. W zależności od istniejących wymagań we/wy wirtualnego dysku twardego systemu operacyjnego może nie być konieczne Migrowanie tego programu do konta Premium Storage.
 
-Początkowo w tej sekcji przyjrzymy się, jak zawsze na interakcję z siecią Azure. Następnie rozłamujemy migracje na dwa scenariusze: migracje, w których niektóre przestoje mogą być tolerowane, oraz migracje, w których należy osiągnąć minimalny czas przestoju.
+Jeśli SQL Server jest dostępny zewnętrznie, adres VIP usługi w chmurze zostanie zmieniony. Konieczne jest również zaktualizowanie punktów końcowych, list ACL i ustawień DNS.
 
-Lokalne grupy dostępności programu SQL Server Always On Availability używają odbiornika lokalnego, który rejestruje wirtualną nazwę DNS wraz z adresem IP współużytkowany przez jeden lub więcej serwerów SQL. Gdy klienci łączą się, są kierowani za pośrednictwem adresu IP odbiornika do podstawowego programu SQL Server. Jest to serwer, który jest właścicielem zawsze na zasobie IP w tym czasie.
-
-![WdrożeniaZarządzazazachomożknięć włączone][6]
-
-Na platformie Microsoft Azure można mieć tylko jeden adres IP przypisany do karty sieciowej na maszynie wirtualnej, więc w celu osiągnięcia tej samej warstwy abstrakcji jako lokalnie, platforma Azure wykorzystuje adres IP, który jest przypisany do wewnętrznych/zewnętrznych modułów równoważenia obciążenia (ILB/ELB). Zasób IP współużytkowane przez serwery jest ustawiony na ten sam adres IP co ILB/ELB. Jest to publikowane w systemie DNS, a ruch klienta jest przekazywany przez klucz równoważenia obciążenia/elb do repliki programu SQL Server. Moduł ILB/ELB wie, który program SQL Server jest podstawowy, ponieważ używa sond do sondowania zasobu Zawsze na dysku IP. W poprzednim przykładzie sonduje każdy węzeł, który ma punkt końcowy, do którego odwołuje się ELB/ILB, w zależności od odpowiedzi jest podstawowy program SQL Server.
+## <a name="existing-deployments-that-use-always-on-availability-groups"></a>Istniejące wdrożenia korzystające z zawsze dostępnych grup dostępności
 
 > [!NOTE]
-> ModułY równoważenia obciążenia sieciowego i elb są przypisane do określonej usługi w chmurze platformy Azure, dlatego każda migracja w chmurze na platformie Azure najprawdopodobniej oznacza, że zmienia się adres IP modułu równoważenia obciążenia.
+> W przypadku istniejących wdrożeń należy najpierw zapoznać się z sekcją [wymagania wstępne](#prerequisites-for-premium-storage) w tym artykule.
+
+Wcześniej w tej sekcji opisano, jak zawsze współdziała z siecią platformy Azure. Następnie przeprowadzimy migrację w do dwóch scenariuszy: migracji, w których można tolerować trochę przestoju i przeprowadzić migrację, gdzie trzeba uzyskać minimalny Przestój.
+
+Lokalne SQL Server zawsze włączone grupy dostępności używają odbiornika lokalnego, który rejestruje wirtualną nazwę DNS wraz z adresem IP współdzielonym przez jeden lub więcej serwerów SQL. Gdy klienci nawiązują połączenie, są kierowani przez adres IP odbiornika do podstawowego SQL Server. Jest to serwer, który jest właścicielem zawsze włączony zasób IP w tym czasie.
+
+![DeploymentsUseAlways][6]
+
+W Microsoft Azure można mieć tylko jeden adres IP przypisany do karty sieciowej na maszynie wirtualnej, więc w celu osiągnięcia tej samej warstwy abstrakcji jako lokalnej platforma Azure korzysta z adresu IP przypisanego do wewnętrznych/zewnętrznych modułów równoważenia obciążenia (ILB/ELB). Zasób IP współużytkowany przez serwery jest ustawiony na ten sam adres IP, co ILB/ELB. Jest on publikowany w systemie DNS, a ruch klienta jest przesyłany przez ILB/ELB do podstawowej repliki SQL Server. ILB/ELB wie, który SQL Server jest podstawowy, ponieważ używa sondy do sondowania zawsze włączony zasób IP. W poprzednim przykładzie sonduje każdy węzeł, który ma punkt końcowy, do którego odwołuje się ELB/ILB, w zależności od tego, co odpowiada, jest podstawową SQL Server.
+
+> [!NOTE]
+> ILB i ELB są przypisane do określonej usługi w chmurze platformy Azure, w związku z czym każda migracja w chmurze na platformie Azure najprawdopodobniej oznacza, że Load Balancer adres IP ulegnie zmianie.
 >
 >
 
-### <a name="migrating-always-on-deployments-that-can-allow-some-downtime"></a>Migracja wdrożeń Always On, które mogą umożliwić pewne przestoje
+### <a name="migrating-always-on-deployments-that-can-allow-some-downtime"></a>Migrowanie zawsze włączone wdrożenia, które mogą pozwolić na przestoje
 
-Istnieją dwie strategie migracji zawsze włączone wdrożenia, które pozwalają na pewne przestoje:
+Istnieją dwie strategie, które umożliwiają Migrowanie zawsze na wdrożeniach, które są dostępne dla pewnego przestoju:
 
-1. **Dodawanie kolejnych replik pomocniczych do istniejącego klastra zawsze włączone**
+1. **Dodaj więcej replik pomocniczych do istniejącego klastra zawsze włączone**
 2. **Migrowanie do nowego klastra zawsze włączone**
 
-#### <a name="1-add-more-secondary-replicas-to-an-existing-always-on-cluster"></a>1. Dodawanie większej liczby replik pomocniczych do istniejącego klastra zawsze włączone
+#### <a name="1-add-more-secondary-replicas-to-an-existing-always-on-cluster"></a>1. Dodaj więcej replik pomocniczych do istniejącego klastra zawsze włączone.
 
-Jedną ze strategii jest dodanie kolejnych pomocniczych do grupy zawsze na dostępności. Należy dodać je do nowej usługi w chmurze i zaktualizować odbiornika za pomocą nowego adresu IP modułu równoważenia obciążenia.
+Jedną z strategii jest dodanie większej liczby serwerów pomocniczych do grupy dostępności zawsze włączone. Należy dodać je do nowej usługi w chmurze i zaktualizować odbiornik przy użyciu nowego adresu IP modułu równoważenia obciążenia.
 
 ##### <a name="points-of-downtime"></a>Punkty przestoju:
 
 * Sprawdzanie poprawności klastra.
-* Testowanie zawsze na pracy awaryjnej dla nowych pomocniczych.
+* Testowanie zawsze w trybie failover dla nowych serwerów pomocniczych.
 
-Jeśli używasz pule magazynu systemu Windows w ramach maszyny Wirtualnej dla wyższej przepływności we/wy, są one przełączane do trybu offline podczas sprawdzania poprawności pełnego klastra. Test sprawdzania poprawności jest wymagany podczas dodawania węzłów do klastra. Czas potrzebny do uruchomienia testu może się różnić, więc należy przetestować to w reprezentatywnym środowisku testowym, aby uzyskać przybliżony czas, jak długo to trwa.
+Jeśli używasz pul magazynu systemu Windows w ramach maszyny wirtualnej w celu zwiększenia przepływności we/wy, są one przełączane do trybu offline podczas pełnej weryfikacji klastra. Test weryfikacyjny jest wymagany w przypadku dodawania węzłów do klastra. Czas potrzebny na uruchomienie testu może się różnić, dlatego należy go przetestować w reprezentatywnym środowisku testowym, aby uzyskać przybliżony czas trwania.
 
-Należy aprowizować czas, w którym można wykonać ręczne testowanie pracy awaryjnej i chaosu na nowo dodanych węzłach, aby zapewnić funkcje zawsze na wysokiej dostępności zgodnie z oczekiwaniami.
+Należy przewidzieć czas, w którym można przeprowadzić ręczne przełączenie w tryb failover i testy chaos na nowo dodanych węzłach, aby zapewnić wysoką dostępność funkcji wysokiej dostępności zgodnie z oczekiwaniami.
 
-![WdrażanieZachodza w 2][7]
+![DeploymentUseAlways On2][7]
 
 > [!NOTE]
-> Należy zatrzymać wszystkie wystąpienia programu SQL Server, gdzie pule magazynu są używane przed uruchomieniu sprawdzania poprawności.
+> Należy zatrzymać wszystkie wystąpienia SQL Server, w których pule magazynu są używane przed uruchomieniem walidacji.
 >
 > ##### <a name="high-level-steps"></a>Kroki ogólne
 >
 
-1. Utwórz dwa nowe serwery SQL w nowej usłudze w chmurze z dołączonym magazynem premium.
-2. Kopiuj za pomocą pełnych kopii zapasowych i przywracaj za pomocą **norecovery**.
-3. Kopiuj obiekty zależne "z bazy danych użytkownika", takie jak loginy itp.
-4. Utwórz nowy wewnętrzny moduł równoważenia obciążenia (ILB) lub użyj zewnętrznego modułu równoważenia obciążenia (ELB), a następnie skonfiguruj punkty końcowe z równoważenia obciążenia w obu nowych węzłach.
+1. Utwórz dwa nowe serwery SQL w nowej usłudze w chmurze z dołączonymi Premium Storage.
+2. Kopiuj przez pełne kopie zapasowe i Przywróć z opcją **NORECOVERY**.
+3. Kopiuj poza obiekty zależne od użytkownika, takie jak logowania itp.
+4. Utwórz nowy Load Balancer wewnętrzny (ILB) lub Użyj zewnętrznego Load Balancer (ELB), a następnie skonfiguruj punkty końcowe ze zrównoważonym obciążeniem na obu nowych węzłach.
 
    > [!NOTE]
-   > Sprawdź, czy wszystkie węzły mają prawidłową konfigurację punktu końcowego przed kontynuowaniem
+   > Przed kontynuowaniem sprawdź, czy wszystkie węzły mają poprawną konfigurację punktu końcowego
    >
    >
-5. Zatrzymaj dostęp użytkownika/aplikacji do programu SQL Server (w przypadku korzystania z puli magazynu).
-6. Zatrzymaj usługi SQL Server Engine Services we wszystkich węzłach (w przypadku korzystania z pul magazynu).
+5. Zatrzymaj dostęp użytkownika/aplikacji do SQL Server (jeśli są używane Pule magazynów).
+6. Zatrzymaj usługi SQL Server Engine na wszystkich węzłach (jeśli są używane Pule magazynów).
 7. Dodaj nowe węzły do klastra i uruchom pełną weryfikację.
-8. Po pomyślnym zakończeniu sprawdzania poprawności uruchom wszystkie usługi SQL Server Services.
-9. Tworzenie kopii zapasowych dzienników transakcji i przywracanie baz danych użytkowników.
-10. Dodaj nowe węzły do grupy Zawsze dostępności i umieść replikację w **synchroniczności**.
-11. Dodaj zasób adresu IP nowego przyjemnego/ELB usługi w chmurze za pośrednictwem programu PowerShell dla zawsze włączone na podstawie przykładu wielu lokacji w [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage). W klastrze systemu Windows ustaw **możliwych właścicieli** zasobu **Adres IP** na nowe stare węzły. Zobacz sekcję "Dodawanie zasobu adresu IP w tej samej podsieci" [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
-12. Przewija się w stan failover do jednego z nowych węzłów.
-13. Wykonuj nowe węzły Automatycznie partnerów trybu failover i testowania pracy awaryjnej.
-14. Usuń oryginalne węzły z grupy dostępności.
+8. Po pomyślnym zakończeniu walidacji Uruchom wszystkie usługi SQL Server.
+9. Utwórz kopię zapasową dzienników transakcji i Przywróć bazy danych użytkowników.
+10. Dodaj nowe węzły do grupy dostępności zawsze włączone i umieść replikację **synchronicznie**.
+11. Dodaj zasób adres IP nowej usługi w chmurze ILB/ELB za pomocą programu PowerShell, aby był zawsze włączony na podstawie przykładu z wiele lokacji w [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage). W obszarze klastrowanie systemu Windows Ustaw **możliwych właścicieli** zasobu **adresu IP** na nowe węzły. Zobacz sekcję "Dodawanie zasobu adresu IP w tej samej podsieci" w [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
+12. Przełączenie w tryb failover do jednego z nowych węzłów.
+13. Ustaw nowych węzłów jako partnerów trybu failover i przetestuj pracę w trybie failover.
+14. Usuń pierwotne węzły z grupy dostępności.
 
 ##### <a name="advantages"></a>Zalety
 
-* Nowe serwery SQL mogą być testowane (SQL Server i aplikacja) przed ich dodaniem do Always On.
-* Można zmienić rozmiar maszyny Wirtualnej i dostosować magazyn do dokładnych wymagań. Jednak byłoby korzystne, aby zachować wszystkie ścieżki pliku SQL takie same.
-* Można kontrolować, kiedy zostanie rozpoczęty transfer kopii zapasowych bazy danych do replik pomocniczych. To różni się od używania polecenia Azure **Start-AzureStorageBlobCopy** do kopiowania vhds, ponieważ jest to kopia asynchroniczną.
+* Nowe serwery SQL można testować (SQL Server i aplikacji), zanim zostaną dodane do zawsze włączone.
+* Można zmienić rozmiar maszyny wirtualnej i dostosować magazyn do swoich dokładnych wymagań. Jednak byłoby korzystne, aby wszystkie ścieżki plików SQL były takie same.
+* Można kontrolować, kiedy jest uruchamiany transfer kopii zapasowych bazy danych do replik pomocniczych. Różni się to od używania usługi Azure **Start-AzureStorageBlobCopy** polecenia cmdlet do kopiowania dysków VHD, ponieważ jest to kopia asynchroniczna.
 
 ##### <a name="disadvantages"></a>Wady
 
-* Podczas korzystania z pul magazynu systemu Windows występuje przestój klastra podczas sprawdzania poprawności pełnego klastra dla nowych dodatkowych węzłów.
-* W zależności od wersji programu SQL Server i istniejącej liczby replik pomocniczych dodawanie większej liczby replik pomocniczych może być nie możliwe bez usuwania istniejących pomocniczych plików.
-* Może to być długi czas transferu danych SQL podczas konfigurowania pomocniczych.
-* Podczas migracji wiąże się dodatkowe koszty, gdy nowe maszyny działają równolegle.
+* W przypadku korzystania z pul magazynu systemu Windows istnieje przestój klastra podczas pełnej weryfikacji klastra dla nowych węzłów dodatkowych.
+* W zależności od wersji SQL Server i istniejącej liczby replik pomocniczych mogą nie być możliwe dodawanie dodatkowych replik pomocniczych bez usuwania istniejących serwerów pomocniczych.
+* Podczas konfigurowania serwerów pomocniczych może być długi czas transferu danych SQL.
+* W trakcie migracji są dostępne dodatkowe koszty.
 
-#### <a name="2-migrate-to-a-new-always-on-cluster"></a>2. Migracja do nowego klastra zawsze włączone
+#### <a name="2-migrate-to-a-new-always-on-cluster"></a>2. Przeprowadź migrację do nowego klastra zawsze włączone
 
-Inną strategią jest utworzenie zupełnie nowego klastra zawsze włączone z zupełnie nowymi węzłami w nowej usłudze w chmurze, a następnie przekierowanie klientów do korzystania z niej.
+Inną strategią jest utworzenie zupełnie nowego klastra o nowej usłudze w chmurze, a następnie przekierowanie klientów do korzystania z nich.
 
 ##### <a name="points-of-downtime"></a>Punkty przestoju
 
-Podczas przesyłania aplikacji i użytkowników do nowego odbiornika Zawsze włączone występują przestoje. Czas przestoju zależy od:
+W przypadku przenoszenia aplikacji i użytkowników do nowego odbiornika zawsze włączone występują przestoje. Przestój zależy od następujących:
 
-* Czas, który został przesuń, aby przywrócić końcowe kopie zapasowe dziennika transakcji do baz danych na nowych serwerach.
-* Czas pracy, aby zaktualizować aplikacje klienckie do korzystania z nowego odbiornika zawsze włączone.
+* Czas potrzebny do przywrócenia kopii zapasowych dziennika ostatniej transakcji do baz danych na nowych serwerach.
+* Czas potrzebny do zaktualizowania aplikacji klienckich w taki sposób, aby korzystał z nowego odbiornika zawsze włączony.
 
 ##### <a name="advantages"></a>Zalety
 
-* Można przetestować rzeczywiste zmiany kompilacji środowiska produkcyjnego, programu SQL Server i systemu operacyjnego.
-* Istnieje możliwość dostosowania magazynu i potencjalnie zmniejszyć rozmiar maszyny Wirtualnej. Może to doprowadzić do obniżenia kosztów.
-* Podczas tego procesu można zaktualizować kompilację lub wersję programu SQL Server. Można również uaktualnić system operacyjny.
-* Poprzedni zawsze na klastrze może działać jako stały obiekt docelowy wycofywania.
+* Można testować rzeczywiste środowisko produkcyjne, SQL Server i zmiany kompilacji systemu operacyjnego.
+* Istnieje możliwość dostosowania magazynu i ewentualnego zmniejszenia rozmiaru maszyny wirtualnej. Może to spowodować zmniejszenie kosztów.
+* Możesz zaktualizować SQL Server kompilację lub wersję w trakcie tego procesu. Możesz również uaktualnić system operacyjny.
+* Poprzedni klaster zawsze włączony może pełnić funkcję stałego miejsca docelowego wycofywania.
 
 ##### <a name="disadvantages"></a>Wady
 
-* Należy zmienić nazwę DNS odbiornika, jeśli chcesz, aby oba klastry zawsze włączone były uruchomione jednocześnie. Spowoduje to dodanie kosztów administracyjnych podczas migracji, ponieważ ciągi aplikacji klienckiej muszą odzwierciedlać nową nazwę odbiornika.
-* Należy zaimplementować mechanizm synchronizacji między dwoma środowiskami, aby zachować je tak blisko, jak to możliwe, aby zminimalizować wymagania synchronizacji końcowej przed migracją.
-* Podczas migracji jest dodatkowy koszt, gdy masz uruchomione nowe środowisko.
+* Należy zmienić nazwę DNS odbiornika, jeśli chcesz, aby oba klastry były uruchamiane jednocześnie. Powoduje to dodanie kosztów administracyjnych podczas migracji, ponieważ ciągi aplikacji klienckich muszą odzwierciedlać nazwę nowego odbiornika.
+* Aby zminimalizować wymagania dotyczące synchronizacji przed migracją, należy zaimplementować mechanizm synchronizacji między tymi dwoma środowiskami.
+* Podczas migracji występuje koszt, który jest już uruchomiony.
 
-### <a name="migrating-always-on-deployments-for-minimal-downtime"></a>Migracja zawsze włączonych wdrożeń przy minimalnych przestojach
+### <a name="migrating-always-on-deployments-for-minimal-downtime"></a>Migrowanie zawsze włączonych wdrożeń w celu zapewnienia minimalnego przestoju
 
-Istnieją dwie strategie migracji wdrożeń Always On dla minimalnych przestojów:
+Istnieją dwie strategie migracji zawsze na wdrożenia w celu zapewnienia minimalnego przestoju:
 
-1. **Korzystanie z istniejącego dodatkowego: jednoustrojowego**
-2. **Wykorzystanie istniejących replik pomocniczych: wiele lokacji**
+1. **Korzystanie z istniejącej pomocniczej: pojedynczej lokacji**
+2. **Użyj istniejących replik pomocniczych: wiele lokacji**
 
-#### <a name="1-utilize-an-existing-secondary-single-site"></a>1. Wykorzystanie istniejącego dodatkowego: single-site
+#### <a name="1-utilize-an-existing-secondary-single-site"></a>1. Użyj istniejącej pomocniczej: pojedynczej lokacji
 
-Jedną ze strategii minimalnego przestoju jest podjęcie istniejącej chmury pomocniczej i usunięcie go z bieżącej usługi w chmurze. Następnie skopiuj dyski VHD do nowego konta magazynu w wersji Premium i utwórz maszynę wirtualną w nowej usłudze w chmurze. Następnie zaktualizuj odbiornik w klastrowaniu i pracy awaryjnej.
+Jedną z strategii minimalnej przestoju jest skorzystanie z istniejącej pomocniczej chmury i usunięcie jej z bieżącej usługi w chmurze. Następnie skopiuj wirtualne dyski twarde do nowego konta Premium Storage i Utwórz maszynę wirtualną w nowej usłudze w chmurze. Następnie należy zaktualizować odbiornik w obszarze klastrowanie i tryb failover.
 
 ##### <a name="points-of-downtime"></a>Punkty przestoju
 
-* Jest przestoju podczas aktualizowania węzła końcowego z punktu końcowego z równoważenia obciążenia.
-* Ponowne połączenie klienta może być opóźnione w zależności od konfiguracji klienta/DNS.
-* Istnieje dodatkowy przestój, jeśli zdecydujesz się przetraktować grupę Zawsze na klastrze w trybie offline, aby zamienić adresy IP. Można tego uniknąć przy użyciu zależności OR i możliwych właścicieli dla dodanego zasobu adresu IP. Zobacz sekcję "Dodawanie zasobu adresu IP w tej samej podsieci" [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
+* Podczas aktualizowania węzła końcowego za pomocą punktu końcowego ze zrównoważonym obciążeniem występuje Przestój.
+* Ponowne połączenie klienta może być opóźnione w zależności od konfiguracji klienta/systemu DNS.
+* W przypadku wybrania opcji przełączenia grupy klastrów do trybu offline w celu wymiany adresów IP występuje dodatkowy Przestój. Można uniknąć tego przy użyciu zależności i możliwych właścicieli dla dodanego zasobu adresu IP. Zobacz sekcję "Dodawanie zasobu adresu IP w tej samej podsieci" w [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
 
 > [!NOTE]
-> Jeśli chcesz, aby dodany węzeł był uczestniczyć w jako zawsze włączony partner trybu failover, musisz dodać punkt końcowy platformy Azure z odwołaniem do zestawu z równoważeniem obciążenia. Po uruchomieniu polecenia **Add-AzureEndpoint** w tym celu bieżące połączenia pozostają otwarte, ale nowe połączenia z odbiornikiem nie mogą być ustanawiane, dopóki moduł równoważenia obciążenia nie zostanie zaktualizowany. W testach zaobserwowano, że trwa to 90-120sekund, to powinno być testowane.
+> Jeśli chcesz, aby dodany węzeł partake jako zawsze włączony partner trybu failover, musisz dodać punkt końcowy platformy Azure z odwołaniem do zestawu o zrównoważonym obciążeniu. Po uruchomieniu polecenia **Add-AzureEndpoint** w celu wykonania tych czynności bieżące połączenia pozostają otwarte, ale nie można nawiązać nowych połączeń z odbiornikiem do momentu zaktualizowania modułu równoważenia obciążenia. W teście były widoczne jako ostatnie 90-120seconds, należy je przetestować.
 
 ##### <a name="advantages"></a>Zalety
 
-* Podczas migracji nie poniesiono żadnych dodatkowych kosztów.
+* Podczas migracji nie są naliczane żadne dodatkowe koszty.
 * Migracja jeden do jednego.
 * Zmniejszona złożoność.
-* Umożliwia zwiększenie we/wy we/wy z jednostek SKU magazynu w jakości Premium. Gdy dyski są odłączone od maszyny Wirtualnej i kopiowane do nowej usługi w chmurze, narzędzie innej firmy może służyć do zwiększenia rozmiaru dysku VHD, co zapewnia wyższą przepustowość. Aby zwiększyć rozmiary VHD, zobacz tę [dyskusję na forum](https://social.msdn.microsoft.com/Forums/azure/4a9bcc9e-e5bf-4125-9994-7c154c9b0d52/resizing-azure-data-disk?forum=WAVirtualMachinesforWindows).
+* Umożliwia zwiększenie liczby operacji we/wy z Premium Storage jednostek SKU. Gdy dyski są odłączone od maszyny wirtualnej i kopiowane do nowej usługi w chmurze, można użyć narzędzia innej firmy w celu zwiększenia rozmiaru wirtualnego dysku twardego, który zapewnia wyższą przepływność. Aby zwiększyć rozmiary wirtualnego dysku twardego, zobacz tę [dyskusję na forum](https://social.msdn.microsoft.com/Forums/azure/4a9bcc9e-e5bf-4125-9994-7c154c9b0d52/resizing-azure-data-disk?forum=WAVirtualMachinesforWindows).
 
 ##### <a name="disadvantages"></a>Wady
 
-* Podczas migracji występuje tymczasowa utrata wysokiej pozna i odzyskiwania po awarii.
-* Ponieważ jest to migracja 1:1, należy użyć minimalnego rozmiaru maszyny Wirtualnej, który obsługuje liczbę wirtualnych, więc może nie być w stanie zmniejszyć rozmiaru maszyn wirtualnych.
-* W tym scenariuszu można użyć polecenia Azure **Start-AzureStorageBlobCopy,** który jest asynchroniczne. Nie ma umowy SLA przy wypełnianie kopii. Czas kopii jest różny, podczas gdy zależy to od oczekiwania w kolejce zależy również od ilości danych do przesłania. Czas kopiowania zwiększa się, jeśli transfer przechodzi do innego centrum danych platformy Azure, które obsługuje magazyn w usłudze Premium w innym regionie. Jeśli masz tylko 2 węzły, należy wziąć pod uwagę możliwe środki zaradcze w przypadku, gdy kopia trwa dłużej niż w testach. Może to obejmować następujące pomysły.
-  * Dodaj tymczasowy węzeł programu SQL Server dla wysokiej klasy przed migracją z uzgodnionym przestojem.
+* Podczas migracji istnieje tymczasowa utrata HA i DR.
+* W przypadku migracji do 1:1 należy użyć minimalnego rozmiaru maszyny wirtualnej obsługującego liczbę wirtualnych dysków twardych, aby nie było możliwe Downsize maszyn wirtualnych.
+* W tym scenariuszu można użyć usługi Azure **Start-AzureStorageBlobCopy** polecenia cmdlet, która jest asynchroniczna. Nie ma umowy SLA dotyczącej ukończenia kopiowania. Czas wykonywania kopii jest różny, podczas gdy jest to zależne od oczekiwania w kolejce, zależy również od ilości danych do przesłania. Czas kopiowania zwiększa się, jeśli transfer przechodzi do innego centrum danych platformy Azure, które obsługuje Premium Storage w innym regionie. Jeśli masz tylko 2 węzły, weź pod uwagę możliwe środki zaradcze w przypadku, gdy kopiowanie trwa dłużej niż w testowaniu. Może to obejmować następujące pomysły.
+  * Dodaj tymczasowy węzeł trzeciego SQL Server dla HA przed migracją z uzgodnionym przestojem.
   * Uruchom migrację poza zaplanowaną konserwacją platformy Azure.
-  * Upewnij się, że kworum klastra zostało poprawnie skonfigurowane.  
+  * Upewnij się, że kworum klastra zostało prawidłowo skonfigurowane.  
 
 ##### <a name="high-level-steps"></a>Kroki ogólne
 
-Ten dokument nie wykazuje pełnego przykładu końca do końca, jednak [dodatek](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) zawiera szczegółowe informacje, które można wykorzystać do wykonania tego.
+Ten dokument nie pokazuje kompletnego kompleksowego przykładu, ale [dodatek](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) zawiera szczegółowe informacje, które mogą zostać użyte do wykonania tej czynności.
 
-![Minimalny czas przestoju][8]
+![MinimalDowntime][8]
 
-* Zbierz konfigurację dysku i usuń węzeł (nie usuwaj dołączonych dysków VHD).
-* Tworzenie konta magazynu w wersji Premium i kopiowanie dysków VHD z konta Magazynu standardowego
-* Utwórz nową usługę w chmurze i ponownie wdrożyć SQL2 VM w tej usłudze w chmurze. Utwórz maszynę wirtualną przy użyciu skopiowanego oryginalnego dysku twardego systemu operacyjnego I VHD i dołączając skopiowane dyski VHD.
-* Skonfiguruj ILB / ELB i dodaj punkty końcowe.
-* Aktualizuj odbiornika przez:
-  * Przesuń grupę Zawsze w trybie offline i aktualizuje odbiornik zawsze włączony z nowym adresem IP ILB / ELB.
-  * Lub dodanie zasobu adresu IP nowych WEWNĘTRZNEGO USŁUGI W chmurze/ELB za pośrednictwem programu PowerShell do klastrowania systemu Windows. Następnie ustaw możliwe właścicieli zasobu adres IP do zmigrowanego węzła SQL2 i ustaw to jako zależność OR w nazwie sieciowej. Zobacz sekcję "Dodawanie zasobu adresu IP w tej samej podsieci" [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
-* Sprawdź konfigurację/propagację dns dla klientów.
-* Migrowanie maszyny wirtualnej SQL1 i przechodzenie przez kroki 2–4.
-* Jeśli używasz kroków 5ii, dodaj SQL1 jako możliwego właściciela dla dodanego zasobu adresu IP
-* Testowanie pracy awaryjnej.
+* Zbierz konfigurację dysków i Usuń węzeł (nie usuwaj dołączonych wirtualnych dysków twardych).
+* Utwórz konto Premium Storage i skopiuj dyski VHD z konta magazynu w warstwie Standardowa
+* Utwórz nową usługę w chmurze i Wdróż ponownie maszynę wirtualną SQL2 w tej usłudze w chmurze. Utwórz maszynę wirtualną przy użyciu skopiowanego oryginalnego wirtualnego dysku twardego systemu operacyjnego i dołączając skopiowane wirtualne dyski twarde.
+* Skonfiguruj ILB/ELB i Dodaj punkty końcowe.
+* Aktualizuj odbiornik przez:
+  * Przełączenie grupy zawsze włączone do trybu offline i zaktualizowanie odbiornika Always On z nowym adresem IP ILB/ELB.
+  * Lub dodając zasób adres IP nowej usługi w chmurze ILB/ELB za pomocą programu PowerShell do klastrowania systemu Windows. Następnie ustaw możliwych właścicieli zasobu adresu IP na zmigrowany węzeł i SQL2, a następnie ustaw jako lub zależność w polu Nazwa sieci. Zobacz sekcję "Dodawanie zasobu adresu IP w tej samej podsieci" w [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
+* Sprawdź na klientach konfigurację/propagację DNS.
+* Migruj maszynę wirtualną SQL1 i wykonaj kroki 2 – 4.
+* Jeśli używasz kroków 5ii, Dodaj SQL1 jako możliwego właściciela dla dodanego zasobu adresu IP
+* Testowanie pracy w trybie failover.
 
-#### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2. Wykorzystanie istniejących replik pomocniczych: Wielozadaniowe
+#### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2. Użyj istniejących replik pomocniczych: wiele lokacji
 
-Jeśli masz węzły w więcej niż jednym centrum danych platformy Azure (DC) lub jeśli masz środowisko hybrydowe, możesz użyć konfiguracji Zawsze włączone w tym środowisku, aby zminimalizować przestoje.
+Jeśli masz węzły w więcej niż jednym centrum danych platformy Azure lub jeśli masz środowisko hybrydowe, możesz użyć konfiguracji Always On w tym środowisku, aby zminimalizować przestoje.
 
-Podejście polega na zmianie synchronizacji zawsze włączone na synchroniczne dla lokalnego lub pomocniczego kontrolera domeny platformy Azure, a następnie pracy awaryjnej do tego programu SQL Server. Następnie skopiuj dyski VHD na konto magazynu w wersji Premium i ponownie wdrożyć komputer do nowej usługi w chmurze. Zaktualizuj odbiornik, a następnie wróć po awarii.
+Podejście polega na zmianie synchronizacji zawsze włączone na synchroniczny dla lokalnego lub pomocniczego kontrolera domeny platformy Azure, a następnie przełączenia w tryb failover do tego SQL Server. Następnie skopiuj wirtualne dyski twarde do konta Premium Storage i ponownie Wdróż maszynę w nowej usłudze w chmurze. Zaktualizuj odbiornik, a następnie powrót po awarii.
 
 ##### <a name="points-of-downtime"></a>Punkty przestoju
 
-Czas przestoju składa się z czasu do pracy awaryjnej do alternatywnego kontrolera domeny i z powrotem. Zależy to również od konfiguracji klienta/DNS, a ponowne połączenie klienta może być opóźnione.
-Rozważmy następujący przykład konfiguracji hybrydowej Zawsze włączone:
+Przestój obejmuje czas przejścia w tryb failover na alternatywny kontroler domeny i z powrotem. Zależy to również od konfiguracji klienta/systemu DNS, a ponowne połączenie klienta może zostać opóźnione.
+Rozważmy następujący przykład konfiguracji hybrydowej:
 
-![Wielolokalowe1][9]
+![MultiSite1][9]
 
 ##### <a name="advantages"></a>Zalety
 
-* Można korzystać z istniejącej infrastruktury.
-* Masz możliwość wstępnego uaktualnienia magazynu platformy Azure na dr azure dc pierwszy.
-* Magazyn kontrolera domeny platformy DR Azure można ponownie skonfigurować.
-* Istnieje co najmniej dwa zadania failover podczas migracji, z wyłączeniem testów pracy awaryjnej.
-* Nie trzeba przenosić danych programu SQL Server z kopią zapasową i przywracania.
+* Można wykorzystać istniejącą infrastrukturę.
+* Istnieje możliwość wstępnego uaktualnienia usługi Azure Storage na kontrolerze domeny odzyskiwania po awarii.
+* Można ponownie skonfigurować magazyn usługi odzyskiwania po awarii na platformie Azure.
+* Podczas migracji istnieją co najmniej dwie przełączenia w tryb failover, z wyłączeniem testowania pracy w trybie failover.
+* Nie ma potrzeby przenoszenia danych SQL Server przy użyciu kopii zapasowych i przywracania.
 
 ##### <a name="disadvantages"></a>Wady
 
-* W zależności od dostępu klienta do programu SQL Server może wystąpić zwiększone opóźnienie, gdy program SQL Server jest uruchomiony w alternatywnym kontrolerze domeny dla aplikacji.
-* Czas kopiowania dysków VHD do magazynu w wersji Premium może być długi. Może to mieć wpływ na decyzję o utrzymaniu węzła w grupie dostępności. Należy wziąć to pod uwagę, gdy obciążenia pracy intensywnej pracy dziennika są uruchomione podczas migracji jest wymagane, ponieważ węzeł podstawowy musi zachować niezreliktowane transakcje w dzienniku transakcji. W związku z tym może to znacznie wzrosnąć.
-* W tym scenariuszu można użyć polecenia Azure **Start-AzureStorageBlobCopy,** który jest asynchroniczne. Po zakończeniu nie ma umowy SLA. Czas kopii jest różny, podczas gdy zależy to od oczekiwania w kolejce, zależy również od ilości danych do przesłania. W związku z tym masz tylko jeden węzeł w drugim centrum danych, należy podjąć kroki ograniczające zagrożenie w przypadku, gdy kopia trwa dłużej niż w testach. Te kroki ograniczające zagrożenie obejmują następujące pomysły:
-  * Dodaj tymczasowy drugi węzeł SQL dla wysokiej klasy przed migracją z uzgodnionym przestojem.
+* W zależności od dostępu klienta do SQL Server może wystąpić zwiększenie opóźnienia, gdy SQL Server jest uruchomiony w alternatywnym kontrolerze domeny dla aplikacji.
+* Czas kopiowania dysków VHD do magazynu w warstwie Premium może być długi. Może to mieć wpływ na decyzję, czy zachować węzeł w grupie dostępności. Należy wziąć pod uwagę, że podczas migracji jest wymagane ładowanie zadań intensywnie korzystających z dzienników, ponieważ węzeł podstawowy musi utrzymywać niezreplikowane transakcje w dzienniku transakcji. W związku z tym może znacznie wzrosnąć.
+* W tym scenariuszu można użyć usługi Azure **Start-AzureStorageBlobCopy** polecenia cmdlet, która jest asynchroniczna. Nie ma umowy SLA po zakończeniu. Czas kopiowania jest różny, podczas gdy jest to zależne od oczekiwania w kolejce, zależy również od ilości danych do przesłania. W związku z tym, że masz tylko jeden węzeł w jednym centrum danych, należy podjąć czynności zaradcze w przypadku, gdy kopiowanie trwa dłużej niż w przypadku testowania. Te czynności zaradcze obejmują następujące pomysły:
+  * Dodaj tymczasowy drugi węzeł SQL dla HA przed migracją z uzgodnionym przestojem.
   * Uruchom migrację poza zaplanowaną konserwacją platformy Azure.
-  * Upewnij się, że kworum klastra zostało poprawnie skonfigurowane.
+  * Upewnij się, że kworum klastra zostało prawidłowo skonfigurowane.
 
-W tym scenariuszu przyjęto założenie, że instalacja została udokumentowana i wiesz, jak magazyn jest mapowany w celu wprowadzania zmian w celu zapewnienia optymalnych ustawień pamięci podręcznej dysku.
+W tym scenariuszu przyjęto założenie, że zawarto udokumentowaną instalację i dowiesz się, jak magazyn jest zamapowany, aby wprowadzić zmiany w celu zapewnienia optymalnego ustawienia pamięci podręcznej.
 
 ##### <a name="high-level-steps"></a>Kroki ogólne
 
-![Wielozadaniowe2][10]
+![Multisite2][10]
 
-* Upewnij się, że lokalnie / alternatywne azure DC SQL Server Primary i uczynić go innym partnerem automatycznego przełączania awaryjnego (AFP).
-* Zbierz informacje o konfiguracji dysku z sql2 i usuń węzeł (nie usuwaj dołączonych dysków VHD).
-* Utwórz konto magazynu w wersji Premium i skopiuj dyski VHD z konta magazynu standardowego.
-* Utwórz nową usługę w chmurze i utwórz maszynę wirtualną SQL2 z dołączonymi dyskami magazynu premium.
-* Skonfiguruj ILB / ELB i dodaj punkty końcowe.
-* Zaktualizuj odbiornik zawsze włączony, podają nowy adres IP ILB / ELB i przetestuj ją w pracy awaryjnej.
+* Utwórz lokalny/alternatywny kontroler domeny platformy Azure SQL Server podstawowy i uczyń go innym partnerem trybu failover.
+* Zbierz informacje o konfiguracji dysku z SQL2 i Usuń węzeł (nie usuwaj dołączonych wirtualnych dysków twardych).
+* Utwórz konto Premium Storage i skopiuj dyski VHD z konta magazynu w warstwie Standardowa.
+* Utwórz nową usługę w chmurze i Utwórz maszynę wirtualną SQL2 z dołączonymi dyskami magazynu Premium.
+* Skonfiguruj ILB/ELB i Dodaj punkty końcowe.
+* Zaktualizuj odbiornik zawsze włączony przy użyciu nowego adresu IP ILB/ELB i test pracy w trybie failover.
 * Sprawdź konfigurację DNS.
-* Zmień AFP na SQL2, a następnie migruj SQL1 i przejdź przez kroki 2– 5.
-* Testowanie pracy awaryjnej.
-* Przełączanie AFP z powrotem do SQL1 i SQL2
+* Zmień wartość AFP na SQL2, a następnie dokonaj migracji SQL1 i wykonaj kroki 2 – 5.
+* Testowanie pracy w trybie failover.
+* Przełączenie AFP z powrotem do SQL1 i SQL2
 
-## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Dodatek: Migrowanie klastra zawsze w klastrze do magazynu w jakości Premium
+## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Dodatek: Migrowanie klastra z obsługą wielu lokacji do Premium Storage
 
-Poniżej dalsza część artykułu Zawiera szczegółowy przykład konwersji klastra z wieloma lokacjami zawsze na magazyn w wersji Premium. Konwertuje również odbiornika z przy użyciu zewnętrznego modułu równoważenia obciążenia (ELB) do wewnętrznego modułu równoważenia obciążenia (ILB).
+Pozostała część tego artykułu zawiera szczegółowy przykład konwersji wielolokacjowego klastra do magazynu w warstwie Premium. Konwertuje również odbiornik z używania zewnętrznego modułu równoważenia obciążenia (ELB) do wewnętrznego modułu równoważenia obciążenia (ILB).
 
 ### <a name="environment"></a>Środowisko
 
-* Windows 2k12 / SQL 2k12
-* 1 Pliki DB na SP
+* 2k12 systemu Windows/SQL 2k12
+* 1 pliki bazy danych w usłudze SP
 * 2 x Pule magazynów na węzeł
 
-![Dodatek 1][11]
+![Appendix1][11]
 
-### <a name="vm"></a>Vm:
+### <a name="vm"></a>MASZYN
 
-W tym przykładzie mamy zamiar zademonstrować przejście z ELB do ILB. Elb był dostępny przed ILB, więc pokazuje, jak przełączyć się na ILB podczas migracji.
+W tym przykładzie przedstawimy przechodzenie z ELB do ILB. ELB był dostępny przed ILB, więc pokazuje, jak przełączyć się do ILB podczas migracji.
 
 ![Appendix2][12]
 
-### <a name="pre-steps-connect-to-subscription"></a>Kroki wstępne: Łączenie się z subskrypcją
+### <a name="pre-steps-connect-to-subscription"></a>Kroki wstępne: łączenie z subskrypcją
 
 ```powershell
 Add-AzureAccount
@@ -644,7 +644,7 @@ Add-AzureAccount
 Get-AzureSubscription
 ```
 
-#### <a name="step-1-create-new-storage-account-and-cloud-service"></a>Krok 1: Tworzenie nowego konta magazynu i usługi w chmurze
+#### <a name="step-1-create-new-storage-account-and-cloud-service"></a>Krok 1. Tworzenie nowego konta magazynu i usługi w chmurze
 
 ```powershell
 $mysubscription = "DansSubscription"
@@ -681,43 +681,43 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Krok 2: Zwiększ dozwolone błędy \<zasobów Opcjonalne>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Krok 2: zwiększenie dozwolonych błędów dla zasobów \<opcjonalnych>
 
-W przypadku niektórych zasobów należących do grupy zawsze dostępnej dostępności istnieją ograniczenia dotyczące liczby błędów, które mogą wystąpić w okresie, w którym usługa klastrowania próbuje ponownie uruchomić grupę zasobów. Zaleca się zwiększenie tej wartości podczas przechodzenia przez tę procedurę, ponieważ jeśli nie ręcznie przejdziesz w tryb failover i nie uruchomisz awaryjnie, wyłączając maszyny, możesz zbliżyć się do tego limitu.
+W przypadku niektórych zasobów należących do grupy dostępności zawsze włączone istnieją limity dotyczące liczby błędów, które mogą wystąpić w danym okresie, w których usługa klastra próbuje ponownie uruchomić grupę zasobów. Zaleca się zwiększyć ten proces podczas przechodzenia przez tę procedurę, ponieważ w przypadku nieręcznego przełączenia w tryb failover i wyzwolenia trybu failover w celu zamknięcia maszyn można przejść do tego limitu.
 
-Byłoby rozsądne, aby podwoić limit awarii, aby to zrobić w Menedżerze klastra trybu failover, przejdź do właściwości zawsze na grupy zasobów:
+Rozsądne jest podwójne zwiększenie liczby niepowodzeń, aby zrobić to w Menedżer klastra trybu failover, przejdź do właściwości zawsze włączone grupy zasobów:
 
-![Dodatek3][13]
+![Appendix3][13]
 
 Zmień maksymalną liczbę błędów na 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Krok 3: Dodawanie zasobu \<adresu IP dla grupy klastrów opcjonalne>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Krok 3. Dodawanie zasobu adresu IP dla opcjonalnej \<> grupy klastrów
 
-Jeśli masz tylko jeden adres IP dla grupy klastrów i jest on wyrównany do podsieci w chmurze, uważaj, jeśli przypadkowo przejedziesz do trybu offline wszystkie węzły klastra w chmurze w tej sieci, zasób IP klastra i nazwa sieci klastra nie będą mogły przejść do trybu online. W tej sytuacji zapobiega aktualizacji do innych zasobów klastra.
+Jeśli istnieje tylko jeden adres IP dla grupy klastra i jest on wyrównany do podsieci chmury, uważaj, jeśli przypadkowo przejdziesz do trybu offline wszystkie węzły klastra w chmurze w tej sieci, nie będzie można przełączyć zasobu adresu IP klastra i sieci klastra do trybu online. W takiej sytuacji uniemożliwia ona aktualizowanie innych zasobów klastra.
 
-#### <a name="step-4-dns-configuration"></a>Krok 4: Konfiguracja DNS
+#### <a name="step-4-dns-configuration"></a>Krok 4. Konfiguracja DNS
 
-Implementowanie płynnego przejścia zależy od sposobu wykorzystania i aktualizacji systemu DNS.
-Po zainstalowaniu funkcji Zawsze włączone tworzy grupę zasobów klastra systemu Windows, po otwarciu Menedżera klastrów trybu failover zobaczysz, że ma on co najmniej trzy zasoby, do których odwołuje się dokument:
+Implementacja płynnego przejścia zależy od sposobu, w jaki system DNS jest używany i aktualizowany.
+Gdy program jest zawsze włączony, tworzy grupę zasobów klastra systemu Windows, jeśli otwarto Menedżer klastra trybu failover, zobaczysz, że co najmniej ma trzy zasoby, do których odwołuje się dokument:
 
-* Virtual Network Name (VNN) — nazwa DNS, z którą klienci łączą się, gdy chcą połączyć się z serwerami SQL za pośrednictwem funkcji Zawsze włączone.
-* Zasób adresu IP — adres IP skojarzony z siecią VNN, można mieć więcej niż jeden, a w konfiguracji wielolokacjowej masz adres IP na lokację/podsieć.
+* Nazwa Virtual Network (VNN) — nazwa DNS, z którą łączą się klienci, gdy chcesz połączyć się z serwerami SQL Server przy użyciu funkcji zawsze włączone.
+* Zasób adresu IP — adres IP, który został skojarzony z VNN, może mieć więcej niż jeden, a w konfiguracji w wielu lokacjach istnieje adres IP dla każdej lokacji/podsieci.
 
-Podczas nawiązywania połączenia z programem SQL Server sterownik klienta programu SQL Server pobiera rekordy DNS skojarzone z odbiornikiem i próbuje połączyć się z każdym skojarzonym adresem IP zawsze włączonym. Następnie omawiamy pewne czynniki, które mogą mieć na to wpływ.
+Podczas nawiązywania połączenia z SQL Server, sterownik klienta SQL Server pobiera rekordy DNS skojarzone z odbiornikiem i próbuje połączyć się z każdym zawsze przy skojarzonym adresie IP. Następnie omawiamy niektóre czynniki, które mogą mieć wpływ na to.
 
-Liczba równoczesnych rekordów DNS skojarzonych z nazwą odbiornika zależy nie tylko od liczby skojarzonych adresów IP, ale od ustawienia "RegisterAllIpProviders" w klastrze trybu failover dla zasobu Always ON VNN.
+Liczba współbieżnych rekordów DNS, które są skojarzone z nazwą odbiornika, zależy nie tylko od liczby skojarzonych adresów IP, ale RegisterAllIpProviders'setting w klastrze trybu failover dla zasobu zawsze włączone VNN.
 
-Podczas wdrażania zawsze włączone na platformie Azure istnieją różne kroki, aby utworzyć odbiornika i adresy IP, trzeba ręcznie skonfigurować "RegisterAllIpProviders" do 1, to różni się od lokalnego zawsze włączone wdrożenia, gdzie jest już ustawiona na 1.
+Po wdrożeniu zawsze włączone na platformie Azure należy wykonać różne kroki, aby utworzyć odbiornik i adresy IP, trzeba ręcznie skonfigurować "RegisterAllIpProviders" do 1, ale jest to inne dla lokalnego wdrożenia, które ma już ustawioną wartość 1.
 
-Jeśli "RegisterAllIpProviders" jest 0, a następnie widzisz tylko jeden rekord DNS w systemie DNS skojarzone z odbiornikiem:
+Jeśli wartość "RegisterAllIpProviders" to 0, zobaczysz tylko jeden rekord DNS w systemie DNS skojarzonym z odbiornikiem:
 
-![Dodatek 4][14]
+![Appendix4][14]
 
-Jeśli "RegisterAllIpProviders" jest 1:
+Jeśli "RegisterAllIpProviders" to 1:
 
-![Dodatek5][15]
+![Appendix5][15]
 
-Poniższy kod zrzuca ustawienia VNN i ustawia go dla Ciebie. Aby zmiana została wejdą w życie, musisz wyłączyć VNN i przywrócić ją do trybu online. Spowoduje to przełączenie odbiornika w tryb offline, powodując zakłócenia łączności klienta.
+Poniższy kod zrzuca ustawienia VNN i ustawia go dla Ciebie. Aby zmiana zaczęła obowiązywać, należy przełączyć VNN w tryb offline i włączyć ją z powrotem w tryb online. Spowoduje to przejście odbiornika w tryb offline, powodując zakłócenia łączności klienta.
 
 ```powershell
 ##Always On Listener Name
@@ -728,11 +728,11 @@ Get-ClusterResource $ListenerName| Get-ClusterParameter
 Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1
 ```
 
-W późniejszym kroku migracji należy zaktualizować odbiornik zawsze włączone o zaktualizowany adres IP, który odwołuje się do modułu równoważenia obciążenia, co wiąże się z usuwaniem i dodawaniem zasobów adresu IP. Po aktualizacji adresu IP należy upewnić się, że nowy adres IP został zaktualizowany w strefie DNS i że klienci aktualizują swoją lokalną pamięć podręczną DNS.
+W późniejszym kroku migracji należy zaktualizować odbiornik zawsze włączony przy użyciu zaktualizowanego adresu IP, który odwołuje się do modułu równoważenia obciążenia, co obejmuje usunięcie i dodanie zasobu adresu IP. Po aktualizacji IP należy upewnić się, że nowy adres IP został zaktualizowany w strefie DNS i że klienci aktualizują lokalną pamięć podręczną DNS.
 
-Jeśli klienci znajdują się w innym segmencie sieci i odwołują się do innego serwera DNS, należy wziąć pod uwagę, co dzieje się z transferem strefy DNS podczas migracji, ponieważ czas ponownego połączenia aplikacji jest ograniczony co najmniej przez czas transferu strefy dowolnego nowego adresu IP adresów dla odbiornika. Jeśli jesteś w tym miejscu w granicach czasu, należy omówić i przetestować wymuszanie przyrostowego transferu strefy z zespołami systemu Windows, a także umieścić rekord hosta DNS na niższym czasie wygaśnięcia (TTL), więc klienci są aktualizowani. Aby uzyskać więcej informacji, zobacz [Przyrostowe transfery stref](https://technet.microsoft.com/library/cc958973.aspx) i [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer).
+Jeśli klienci znajdują się w innym segmencie sieci i odwołują się do innego serwera DNS, należy wziąć pod uwagę, co się dzieje z transferem strefy DNS podczas migracji, ponieważ czas ponownego połączenia aplikacji jest ograniczony przez co najmniej godzinę transferu strefy dla każdego nowego adresu IP odbiornika. Jeśli w tym miejscu jest używane ograniczenie czasowe, należy omówić i testować przyrostowy transfer stref z zespołami Windows, a także wprowadzić rekord hosta DNS na czas wygaśnięcia (TTL), aby zaktualizować klientów. Aby uzyskać więcej informacji, zobacz [Przyrostowe transfery stref](https://technet.microsoft.com/library/cc958973.aspx) i [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer).
 
-Domyślnie czas wygaśnięcia rekordu DNS skojarzony z odbiornikiem w trybie Zawsze włączony na platformie Azure wynosi 1200 sekund. Można to zmniejszyć, jeśli podczas migracji występują ograniczenia czasowe, aby upewnić się, że klienci aktualizują swój system DNS za pomocą zaktualizowanego adresu IP odbiornika. Można zobaczyć i zmodyfikować konfigurację przez wyrzucenie konfiguracji VNN:
+Domyślnie czas wygaśnięcia rekordu DNS, który jest skojarzony z odbiornikiem w przypadku, gdy jest on zawsze włączony na platformie Azure, wynosi 1200 sekund. Możesz zmniejszyć ten limit, jeśli w trakcie migracji używasz ograniczenia czasowego, aby upewnić się, że klienci zaktualizują system DNS przy użyciu zaktualizowanego adresu IP dla odbiornika. Konfigurację można zobaczyć i zmodyfikować przez zatopienie konfiguracji VNN:
 
 ```powershell
 $AGName = "myProductionAG"
@@ -745,17 +745,17 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 ```
 
 > [!NOTE]
-> Im niższy "HostRecordTTL", tym większa ilość ruchu DNS.
+> Im mniejsza jest wartość "HostRecordTTL", tym większa jest liczba ruchu DNS.
 
-##### <a name="client-application-settings"></a>Ustawienia aplikacji klienckiej
+##### <a name="client-application-settings"></a>Ustawienia aplikacji klienta
 
-Jeśli aplikacja kliencka SQL obsługuje .NET 4.5 SQLClient, możesz użyć słowa kluczowego "MULTISUBNETFAILOVER=TRUE". To słowo kluczowe powinno być stosowane, ponieważ umożliwia szybsze połączenie z grupą dostępności zawsze w programie SQL podczas pracy awaryjnej. Wylicza za pośrednictwem wszystkich adresów IP skojarzonych z odbiornikiem Zawsze włączone równolegle i wykonuje bardziej agresywne połączenie TCP ponawianie próby podczas pracy awaryjnej.
+Jeśli aplikacja kliencka SQL obsługuje program .NET 4,5 SQLClient, można użyć słowa kluczowego "MULTISUBNETFAILOVER = TRUE". To słowo kluczowe powinno być stosowane, ponieważ umożliwia szybsze nawiązywanie połączenia z zawsze włączonymi grupami dostępności programu SQL podczas pracy w trybie failover. Jest on wyliczany przez wszystkie adresy IP skojarzone z zawsze włączonym odbiornikiem, a jednocześnie wykonuje bardziej agresywne ponowienie połączenia TCP podczas pracy w trybie failover.
 
-Aby uzyskać więcej informacji na temat poprzednich ustawień, zobacz [Słowo kluczowe MultiSubnetFailover i Skojarzone funkcje](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Zobacz też [Pomoc techniczna SqlClient dla wysokiej dostępności, odzyskiwania po awarii](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
+Aby uzyskać więcej informacji na temat poprzednich ustawień, zobacz [słowo kluczowe MultiSubnetFailover i powiązane funkcje](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Zapoznaj [się również z obsługą klienta w celu zapewnienia wysokiej dostępności, odzyskiwania po awarii](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
-#### <a name="step-5-cluster-quorum-settings"></a>Krok 5: Ustawienia kworum klastra
+#### <a name="step-5-cluster-quorum-settings"></a>Krok 5. ustawienia kworum klastra
 
-Ponieważ zamierzasz wyjmować co najmniej jeden program SQL Server w dół naraz, należy zmodyfikować ustawienie kworum klastra, jeśli używasz monitora udziału plików (FSW) z dwoma węzłami, należy ustawić kworum, aby zezwolić na większość węzłów i korzystać z dynamicznego głosowania , co pozwala na pozostanie jednego węzła na stojąco.
+W miarę jak należy wykonać co najmniej jedną SQL Server w tym samym czasie, należy zmodyfikować ustawienie kworum klastra, jeśli używany jest monitor udziału plików (FSW) z dwoma węzłami, należy ustawić kworum tak, aby zezwalało na większość węzłów i korzystać z dynamicznego głosu, co pozwala na stałe pozostawanie w jednym węźle.
 
 ```powershell
 Set-ClusterQuorum -NodeMajority  
@@ -763,7 +763,7 @@ Set-ClusterQuorum -NodeMajority
 
 Aby uzyskać więcej informacji na temat zarządzania kworum klastra i konfigurowania go, zobacz [Konfigurowanie kworum i zarządzanie nim w klastrze trybu failover systemu Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx).
 
-#### <a name="step-6-extract-existing-endpoints-and-acls"></a>Krok 6: Wyodrębnianie istniejących punktów końcowych i list ACL
+#### <a name="step-6-extract-existing-endpoints-and-acls"></a>Krok 6. wyodrębnienie istniejących punktów końcowych i list ACL
 
 ```powershell
 #GET Endpoint info
@@ -772,17 +772,17 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureEndpoin
 Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConfig -EndpointName "myAOEndPoint-LB"  
 ```
 
-Zapisz ten tekst w pliku.
+Zapisz ten tekst do pliku.
 
-#### <a name="step-7-change-failover-partners-and-replication-modes"></a>Krok 7: Zmiana partnerów trybu pracy awaryjnej i trybów replikacji
+#### <a name="step-7-change-failover-partners-and-replication-modes"></a>Krok 7. zmiana trybu failover partnerów i trybów replikacji
 
-Jeśli masz więcej niż dwa serwery SQL, należy zmienić tryb failover innego pomocniczego w innym kontrolerze domeny lub lokalnie na "Synchroniczne" i uczynić go automatycznym partnerem trybu failover (AFP), jest to tak, aby zachować ha podczas wprowadzania zmian. Można to zrobić za pośrednictwem TSQL modyfikacji chociaż SSMS:
+Jeśli masz więcej niż dwa serwery SQL, należy zmienić tryb failover innej pomocniczej w innym kontrolerze domeny lub lokalnie na "synchroniczny" i uczynić go automatycznym partnerem trybu failover (AFP), dzięki czemu można zachować HA podczas wprowadzania zmian. Można to zrobić za pośrednictwem TSQL modyfikacji, chociaż narzędzie SSMS:
 
-![Dodatek6][16]
+![Appendix6][16]
 
-#### <a name="step-8-remove-secondary-vm-from-cloud-service"></a>Krok 8: Usuwanie dodatkowej maszyny Wirtualnej z usługi w chmurze
+#### <a name="step-8-remove-secondary-vm-from-cloud-service"></a>Krok 8. Usuwanie pomocniczej maszyny wirtualnej z usługi w chmurze
 
-Należy zaplanować migrację węzła pomocniczego chmury pierwszy. Jeśli ten węzeł jest obecnie podstawowy, należy zainicjować ręczne tryb failover.
+Należy najpierw zaplanować migrację węzła pomocniczego w chmurze. Jeśli ten węzeł jest obecnie podstawowy, należy zainicjować ręczną pracę awaryjną.
 
 ```powershell
 $vmNameToMigrate="dansqlams2"
@@ -833,15 +833,15 @@ Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate
 Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 ```
 
-#### <a name="step-9-change-disk-caching-settings-in-csv-file-and-save"></a>Krok 9: Zmiana ustawień buforowania dysku w pliku CSV i zapisywanie
+#### <a name="step-9-change-disk-caching-settings-in-csv-file-and-save"></a>Krok 9. zmiana ustawień buforowania dysku w pliku CSV i zapisywanie
 
-W przypadku woluminów danych należy je ustawić tylko na odczyt.
+W przypadku woluminów danych należy ustawić wartość tylko do odczytu.
 
-W przypadku woluminów TLOG należy je ustawić na NONE.
+Dla woluminów TLOG należy ustawić wartość NONE.
 
-![Dodatek7][17]
+![Appendix7][17]
 
-#### <a name="step-10-copy-vhds"></a>Krok 10: Kopiowanie VHDS
+#### <a name="step-10-copy-vhds"></a>Krok 10. kopiowanie dysków VHD
 
 ```powershell
 #Ensure you have created the container for these:
@@ -871,7 +871,7 @@ ForEach ($disk in $diskobjects)
 ```
 
 
-Możesz sprawdzić stan kopii VHD na konto magazynu w wersji Premium:
+Stan kopiowania wirtualnych dysków twardych można sprawdzić na koncie Premium Storage:
 
 ```powershell
 ForEach ($disk in $diskobjects)
@@ -887,17 +887,17 @@ ForEach ($disk in $diskobjects)
 }
 ```
 
-![Dodatek 8][18]
+![Appendix8][18]
 
-Poczekaj, aż wszystkie te zostaną zarejestrowane jako sukces.
+Zaczekaj, aż wszystkie te dane zostaną zarejestrowane jako powodzenie.
 
-Aby uzyskać informacje dotyczące poszczególnych obiektów blob:
+Aby uzyskać informacje dotyczące pojedynczych obiektów blob:
 
 ```powershell
 Get-AzureStorageBlobCopyState -Blob "blobname.vhd" -Container $containerName -Context $xioContext
 ```
 
-#### <a name="step-11-register-os-disk"></a>Krok 11: Zarejestruj dysk systemu operacyjnego
+#### <a name="step-11-register-os-disk"></a>Krok 11. rejestrowanie dysku systemu operacyjnego
 
 ```powershell
 #Change storage account
@@ -914,9 +914,9 @@ $xioDiskName = $osdiskforbuild + "xio"
 Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$osvhd"  -Label "BootDisk" -OS "Windows"
 ```
 
-#### <a name="step-12-import-secondary-into-new-cloud-service"></a>Krok 12: Importowanie dodatku wtórnego do nowej usługi w chmurze
+#### <a name="step-12-import-secondary-into-new-cloud-service"></a>Krok 12. Importowanie dodatkowych do nowej usługi w chmurze
 
-Poniższy kod używa również dodaną opcję tutaj można zaimportować maszynę i użyć zachowawki VIP.
+W poniższym kodzie użyto również opcji dodanej w tym miejscu możesz zaimportować maszynę i użyć możliwego do przechowania adresu VIP.
 
 ```powershell
 #Build VM Config
@@ -952,7 +952,7 @@ ForEach ( $attachdatadisk in $datadiskimport)
 $vmConfig  | New-AzureVM –ServiceName $destcloudsvc –Location $location -VNetName $vnet ## Optional (-ReservedIPName $reservedVIPName)
 ```
 
-#### <a name="step-13-create-ilb-on-new-cloud-svc-add-load-balanced-endpoints-and-acls"></a>Krok 13: Tworzenie równoważenia obciążenia przy nowym svcie w chmurze, dodawanie punktów końcowych i list ACL z równoważenia obciążenia
+#### <a name="step-13-create-ilb-on-new-cloud-svc-add-load-balanced-endpoints-and-acls"></a>Krok 13. Tworzenie ILB w nowej chmurze SVC, dodawanie punktów końcowych ze zrównoważonym obciążeniem i list ACL
 
 ```powershell
 #Check for existing ILB
@@ -977,7 +977,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 ```
 
-#### <a name="step-14-update-always-on"></a>Krok 14: Aktualizacja zawsze wł.
+#### <a name="step-14-update-always-on"></a>Krok 14. aktualizowanie zawsze włączone
 
 ```powershell
 #Code to be executed on a Cluster Node
@@ -1000,21 +1000,21 @@ Get-ClusterGroup $AGName | Get-ClusterResource -Name "IP Address $newCloudServic
 #Make sure no static records in DNS
 ```
 
-![Dodatek 9][19]
+![Appendix9][19]
 
 Teraz usuń stary adres IP usługi w chmurze.
 
-![Dodatek 10][20]
+![Appendix10][20]
 
-#### <a name="step-15-dns-update-check"></a>Krok 15: Sprawdzanie aktualizacji DNS
+#### <a name="step-15-dns-update-check"></a>Krok 15: sprawdzenie aktualizacji DNS
 
-Teraz należy sprawdzić serwery DNS w sieciach klienckich programu SQL Server i upewnić się, że klastrowanie dodało dodatkowy rekord hosta dla dodanego adresu IP. Jeśli te serwery DNS nie zostały zaktualizowane, należy rozważyć wymuszenie transferu strefy DNS i upewnić się, że klienci tam podsieci są w stanie rozpoznać zarówno zawsze na adresach IP, jest to, dzięki czemu nie trzeba czekać na automatyczną replikację DNS.
+Należy teraz sprawdzić serwery DNS w SQL Server sieci klienta i upewnić się, że klaster dodał dodatkowy rekord hosta dla dodanego adresu IP. Jeśli te serwery DNS nie zostały zaktualizowane, należy rozważyć wymuszenie przeniesienia strefy DNS i upewnić się, że klienci w podsieci będą mogli rozpoznać zarówno adresy IP, jak i w ten sposób, że nie trzeba czekać na automatyczną replikację DNS.
 
-#### <a name="step-16-reconfigure-always-on"></a>Krok 16: Rekonfiguruj zawsze włączone
+#### <a name="step-16-reconfigure-always-on"></a>Krok 16. ponowne konfigurowanie zawsze włączone
 
-W tym momencie poczekaj na pomocniczy tego węzła, który został zmigrowany, aby w pełni ponownie zsynchronizować z węzłem lokalnym i przełączyć się do węzła replikacji synchroniiowej i uczynić go AFP.  
+W tym momencie poczekasz na pomocniczy węzeł, który został poddany migracji, aby w pełni ponownie synchronizować się z węzłem lokalnym i przełączyć się na węzeł replikacji synchronicznej i udostępnić go w ramach platformy AFP.  
 
-#### <a name="step-17-migrate-second-node"></a>Krok 17: Migrowanie drugiego węzła
+#### <a name="step-17-migrate-second-node"></a>Krok 17. Migrowanie drugiego węzła
 
 ```powershell
 $vmNameToMigrate="dansqlams1"
@@ -1066,15 +1066,15 @@ Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate
 Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 ```
 
-#### <a name="step-18-change-disk-caching-settings-in-csv-file-and-save"></a>Krok 18: Zmiana ustawień buforowania dysku w pliku CSV i zapisywanie
+#### <a name="step-18-change-disk-caching-settings-in-csv-file-and-save"></a>Krok 18. zmiana ustawień buforowania dysku w pliku CSV i zapisywanie
 
-W przypadku woluminów danych ustawienia pamięci podręcznej powinny być ustawione na READONLY.
+W przypadku woluminów danych ustawienia pamięci podręcznej powinny mieć wartość tylko do odczytu.
 
-W przypadku woluminów TLOG ustawienia pamięci podręcznej powinny być ustawione na BRAK.
+W przypadku woluminów TLOG ustawienia pamięci podręcznej powinny mieć wartość NONE.
 
-![Dodatek 11][21]
+![Appendix11][21]
 
-#### <a name="step-19-create-new-independent-storage-account-for-secondary-node"></a>Krok 19: Tworzenie nowego niezależnego konta magazynu dla węzła pomocniczego
+#### <a name="step-19-create-new-independent-storage-account-for-secondary-node"></a>Krok 19. Tworzenie nowego niezależnego konta magazynu dla węzła pomocniczego
 
 ```powershell
 $newxiostorageaccountnamenode2 = "danspremsams2"
@@ -1094,7 +1094,7 @@ Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $
 Select-AzureSubscription -SubscriptionName $mysubscription -Current
 ```
 
-#### <a name="step-20-copy-vhds"></a>Krok 20: Kopiowanie VHDS
+#### <a name="step-20-copy-vhds"></a>Krok 20. kopiowanie dysków VHD
 
 ```powershell
 #Ensure you have created the container for these:
@@ -1128,7 +1128,7 @@ ForEach ($disk in $diskobjects)
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
 ```
 
-Stan kopii VHD można sprawdzić dla wszystkich dysków VHD:
+Stan kopiowania wirtualnego dysku twardego można sprawdzić dla wszystkich dysków VHD:
 
 ```powershell
 ForEach ($disk in $diskobjects)
@@ -1144,18 +1144,18 @@ ForEach ($disk in $diskobjects)
 }
 ```
 
-![Dodatek 12][22]
+![Appendix12][22]
 
-Poczekaj, aż wszystkie te zostaną zarejestrowane jako sukces.
+Zaczekaj, aż wszystkie te dane zostaną zarejestrowane jako powodzenie.
 
-Aby uzyskać informacje dotyczące poszczególnych obiektów blob:
+Aby uzyskać informacje dotyczące pojedynczych obiektów blob:
 
 ```powershell
 #Check individual blob status
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 ```
 
-#### <a name="step-21-register-os-disk"></a>Krok 21: Zarejestruj dysk systemu operacyjnego
+#### <a name="step-21-register-os-disk"></a>Krok 21. rejestrowanie dysku systemu operacyjnego
 
 ```powershell
 #change storage account to the new XIO storage account
@@ -1202,7 +1202,7 @@ ForEach ( $attachdatadisk in $datadiskimport)
 $vmConfig  | New-AzureVM –ServiceName $destcloudsvc –Location $location -VNetName $vnet -Verbose
 ```
 
-#### <a name="step-22-add-load-balanced-endpoints-and-acls"></a>Krok 22: Dodawanie punktów końcowych i list ACL z równoważenia obciążenia
+#### <a name="step-22-add-load-balanced-endpoints-and-acls"></a>Krok 22: Dodawanie punktów końcowych ze zrównoważonym obciążeniem i list ACL
 
 ```powershell
 #Endpoints
@@ -1220,37 +1220,37 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 #https://msdn.microsoft.com/library/azure/dn495192.aspx
 ```
 
-#### <a name="step-23-test-failover"></a>Krok 23: Test pracy awaryjnej
+#### <a name="step-23-test-failover"></a>Krok 23. test pracy w trybie failover
 
-Poczekaj na zmiętowane węzła do synchronizacji z lokalnym węzłem zawsze włączone. Umieść go w trybie replikacji synchroniczowej i poczekaj, aż zostanie zsynchronizowany. Następnie pracy awaryjnej z lokalnego do pierwszego węzła migrowane, który jest AFP. Gdy to zadziała, zmień ostatni migrowany węzeł do AFP.
+Zaczekaj, aż migrowany węzeł zostanie zsynchronizowany z lokalnym węzłem zawsze włączonym. Umieść go w trybie replikacji synchronicznej i poczekaj na zsynchronizowanie. Następnie przejście w tryb failover z lokalizacji lokalnej do pierwszego migrowanego węzła, który jest AFP. Po zakończeniu pracy, Zmień ostatni zmigrowany węzeł na AFP.
 
-Należy przetestować pracy awaryjnej między wszystkimi węzłami i uruchomić mimo testów chaosu, aby upewnić się, że praca w przypadku pracy awaryjnej zgodnie z oczekiwaniami i w czasie manor.
+Należy przetestować tryb failover między wszystkimi węzłami i uruchamiać testy chaos, aby zapewnić pracę w trybie failover zgodnie z oczekiwaniami i w Manor.
 
-#### <a name="step-24-put-back-cluster-quorum-settings--dns-ttl--failover-pntrs--sync-settings"></a>Krok 24: Odłóż ustawienia kworum klastra / DNS TTL / Failover Pntrs / Ustawienia synchronizacji
+#### <a name="step-24-put-back-cluster-quorum-settings--dns-ttl--failover-pntrs--sync-settings"></a>Krok 24. przełączenie ustawień kworum klastra/czas wygaśnięcia DNS/Pntrs trybu failover/synchronizacja
 
 ##### <a name="adding-ip-address-resource-on-same-subnet"></a>Dodawanie zasobu adresu IP w tej samej podsieci
 
-Jeśli masz tylko dwa serwery SQL i chcesz przeprowadzić migrację do nowej usługi w chmurze, ale chcesz zachować je w tej samej podsieci, możesz uniknąć przesuń odbiornika w tryb offline, aby usunąć oryginalny adres IP zawsze włączony i dodać nowy adres IP. W przypadku migracji maszyn wirtualnych do innej podsieci nie trzeba tego robić, ponieważ istnieje dodatkowa sieć klastra, która odwołuje się do tej podsieci.
+Jeśli masz tylko dwa serwery SQL i chcesz migrować je do nowej usługi w chmurze, ale chcesz zachować je w tej samej podsieci, możesz uniknąć przełączenia odbiornika do trybu offline, aby usunąć oryginalny adres IP, a następnie dodać nowy adres IP. W przypadku migrowania maszyn wirtualnych do innej podsieci nie trzeba tego robić, ponieważ istnieje dodatkowa sieć klastrów, która odwołuje się do tej podsieci.
 
-Po utworzeniu zmigrowanego pomocniczego i dodaniu do nowego zasobu adresu IP dla nowej usługi w chmurze przed przełączeniem w życie istniejącej usługi podstawowej należy wykonać następujące kroki w Menedżerze trybu failover klastra:
+Po przeprowadzeniu migracji pomocniczej i dodaniu jej do nowego zasobu adresu IP dla nowej usługi w chmurze przed przejściem do trybu failover istniejącego elementu podstawowego należy wykonać następujące kroki w Menedżer trybu failover klastra:
 
-Aby dodać adres IP, zobacz dodatek, krok 14.
+Aby dodać adres IP, zobacz dodatek, Krok 14.
 
-1. W przypadku bieżącego zasobu adresu IP zmień możliwego właściciela na "Istniejący podstawowy program SQL Server", w przykładzie "dansqlams4":
+1. W przypadku bieżącego zasobu adresu IP Zmień możliwego właściciela na "istniejący SQL Server podstawowy", w przykładzie "dansqlams4":
 
-    ![Dodatek 13][23]
-2. W przypadku nowego zasobu adresu IP zmień możliwego właściciela na "Migrowany pomocniczy program SQL Server", w przykładzie "dansqlams5":
+    ![Appendix13][23]
+2. W przypadku nowego zasobu adresu IP Zmień możliwego właściciela na "zmigrowany SQL Server pomocniczy", w przykładzie "dansqlams5":
 
-    ![Dodatek 14][24]
-3. Po ustawieniu można przejść w ramach trybu failover, a podczas migracji ostatniego węzła możliwe właściciele powinni być edytowani, aby węzeł był dodawany jako możliwy właściciel:
+    ![Appendix14][24]
+3. Po wybraniu tej opcji można przełączyć się do trybu failover, a po przeprowadzeniu migracji ostatniego węzła należy edytować możliwych właścicieli, aby ten węzeł został dodany jako możliwy właściciel:
 
-    ![Dodatek 15][25]
+    ![Appendix15][25]
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Usługa Azure w magazynie w wersji premium](../disks-types.md)
+* [Premium Storage platformy Azure](../disks-types.md)
 * [Maszyny wirtualne](https://azure.microsoft.com/services/virtual-machines/)
-* [Program SQL Server w maszynach wirtualnych platformy Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* [SQL Server na platformie Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png

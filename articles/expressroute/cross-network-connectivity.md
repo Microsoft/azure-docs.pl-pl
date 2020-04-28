@@ -1,6 +1,6 @@
 ---
-title: Łączność między sieciami azureowymi
-description: Na tej stronie opisano scenariusz aplikacji dla łączności między sieciowej i rozwiązania opartego na funkcjach sieci platformy Azure.
+title: Łączność między sieciami platformy Azure
+description: Na tej stronie opisano scenariusz aplikacji służący do łączności między sieciami i rozwiązań opartych na funkcjach sieciowych platformy Azure.
 services: expressroute
 author: rambk
 ms.service: expressroute
@@ -8,133 +8,133 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: rambala
 ms.openlocfilehash: 48ec26cc98310dfeb61aa17018c940b431cfbcee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75644260"
 ---
 # <a name="cross-network-connectivity"></a>Łączność między sieciami
 
-Firma Fabrikam Inc. ma dużą obecność fizyczną i wdrożenie platformy Azure we wschodnich stanach USA. Firma Fabrikam ma łączność zaplecza między wdrożeniami lokalnymi i wdrożeniami platformy Azure za pośrednictwem usługi ExpressRoute. Podobnie Contoso Ltd. ma obecność i wdrożenie platformy Azure w zachodnie stany USA. Contoso ma łączność zaplecza między jego lokalnych i wdrożenia platformy Azure za pośrednictwem usługi ExpressRoute.  
+Firma Fabrikam Inc. ma dużą obecność fizyczną i wdrożenie platformy Azure w regionie Wschodnie stany USA. Firma Fabrikam ma łączność zaplecza między wdrożeniami lokalnymi i platformą Azure za pośrednictwem usługi ExpressRoute. Podobnie firma Contoso Ltd. ma w regionie zachodnie stany USA obecność i wdrożenie platformy Azure. Firma Contoso ma łączność zaplecza między wdrożeniami lokalnymi i platformą Azure za pośrednictwem usługi ExpressRoute.  
 
-Fabrikam Inc. przejmuje Firmę Contoso Ltd. Po fuzji Firma Fabrikam chce połączyć sieci. Poniższy rysunek ilustruje scenariusz:
+Fabrikam Inc. uzyskuje Contoso Ltd. Po połączeniu firma Fabrikam chce połączyć się z sieciami. Na poniższej ilustracji przedstawiono scenariusz:
 
  [![1]][1]
 
-Strzałki przerywane na środku powyższego rysunku wskazują żądane połączenia międzysystemowe sieci. W szczególności istnieją trzy typy połączeń krzyżowych: 1) Fabrikam i Contoso VNets cross connect, 2) Cross regional on-premises and VNets cross connects (czyli łączenie sieci lokalnej Fabrikam z siecią wirtualną Contoso i łączenie contoso sieci lokalnej do sieci wirtualnej Fabrikam vnet) i 3) połączenia krzyżowego sieciowej firmy Fabrikam i Contoso. 
+Strzałki kreskowane na środku powyższego rysunku wskazują żądanych połączeń sieciowych. W odniesieniu do programu istnieją trzy typy pożądanych połączeń: 1) Fabrikam i contoso sieci wirtualnych Cross connect, 2) międzyregionalne lokalne i sieci wirtualnych połączenie krzyżowe (czyli połączenie sieci firmy Fabrikam z siecią wirtualną Contoso i połączenie sieci lokalnej firmy Contoso z firmą Fabrikam VNet) oraz 3) Fabrikam i contoso lokalna sieć firmowa. 
 
-W poniższej tabeli przedstawiono tabelę tras prywatnej komunikacji równorzędnej usługi ExpressRoute firmy Contoso Ltd. przed połączeniem.
+W poniższej tabeli przedstawiono tabelę tras prywatnej komunikacji równorzędnej ExpressRoute firmy Contoso Ltd. przed połączeniem.
 
 [![2]][2]
 
-W poniższej tabeli przedstawiono efektywne trasy maszyny Wirtualnej w subskrypcji Contoso przed fuzją. W tabeli maszyna wirtualna w sieci wirtualnej jest świadoma przestrzeni adresowej sieci wirtualnej i sieci lokalnej Contoso, z wyjątkiem sieci domyślnej. 
+W poniższej tabeli przedstawiono efektywne trasy maszyny wirtualnej w ramach subskrypcji contoso przed połączeniem. Na tabelę maszyny wirtualne w sieci wirtualnej wiedzą, że przestrzeń adresowa wirtualnej i sieć firmowa contoso, niezależnie od domyślnych. 
 
 [![4]][4]
 
-W poniższej tabeli przedstawiono tabelę tras prywatnej komunikacji równorzędnej usługi ExpressRoute firmy Fabrikam Inc. przed połączeniem.
+W poniższej tabeli przedstawiono tabelę tras prywatnej komunikacji równorzędnej ExpressRoute firmy Fabrikam Inc. przed połączeniem.
 
 [![3]][3]
 
-W poniższej tabeli przedstawiono efektywne trasy maszyny Wirtualnej w subskrypcji fabrikam przed fuzją. W tabeli maszyna wirtualna na sieci wirtualnej jest świadoma przestrzeni adresowej sieci wirtualnej i sieci lokalnej firmy Fabrikam, z wyjątkiem sieci domyślnej.
+W poniższej tabeli przedstawiono efektywne trasy maszyny wirtualnej w subskrypcji firmy Fabrikam przed połączeniem. Na tabelę maszyny wirtualne w sieci wirtualnej wiedzą, że przestrzeń adresowa wirtualnej i sieć firmowa firmy Fabrikam, niezależnie od domyślnych.
 
 [![5]][5]
 
-W tym artykule przejdźmy krok po kroku i omówić, jak osiągnąć żądane połączenia krzyżowe przy użyciu następujących funkcji sieci platformy Azure:
+W tym artykule opisano krok po kroku i omówiono sposób osiągnięcia żądanych połączeń krzyżowych przy użyciu następujących funkcji sieci platformy Azure:
 
-* [Komunikacja równorzędna sieci wirtualnej][Virtual network peering] 
-* [Połączenie usługi ExpressRoute w sieci wirtualnej][connection]
-* [Globalny zasięg][Global Reach] 
+* [Wirtualne sieci równorzędne][Virtual network peering] 
+* [Połączenie ExpressRoute sieci wirtualnej][connection]
+* [Global Reach][Global Reach] 
 
-## <a name="cross-connecting-vnets"></a>Sieci wirtualne łączące poprzecznego
+## <a name="cross-connecting-vnets"></a>Połączenie krzyżowe sieci wirtualnych
 
-Komunikacja równorzędna sieci wirtualnej (komunikacja równorzędna sieci wirtualnej) zapewnia najbardziej optymalną i najlepszą wydajność sieci podczas łączenia dwóch sieci wirtualnych. Komunikacja równorzędna sieci wirtualnej obsługuje komunikację równorzędną dwóch sieci wirtualnych zarówno w tym samym regionie platformy Azure (powszechnie nazywany komunikacja równorzędna sieci wirtualnej), jak i w dwóch różnych regionach platformy Azure (powszechnie nazywanych komunikacją równorzędną sieci wirtualnej globalnej). 
+Komunikacja równorzędna sieci wirtualnych (wirtualne sieci równorzędne) zapewnia optymalną i najlepszą wydajność sieci podczas łączenia dwóch sieci wirtualnych. Komunikacja równorzędna sieci wirtualnych obsługuje komunikację równorzędną dwóch sieci wirtualnych jednocześnie w tym samym regionie świadczenia usługi Azure (nazywanej zwykle równorzędnymi sieciami wirtualnymi) i w dwóch różnych regionach świadczenia usługi Azure (zazwyczaj nazywane globalnymi sieciami równorzędnymi). 
 
-Skonfigurujmy globalną sieć wirtualną komunikacji równorzędnej między sieciami wirtualnymi w subskrypcjach platformy Contoso i Fabrikam azure. Aby dowiedzieć się, jak utworzyć komunikację równorzędną sieci wirtualnej między dwiema sieciami wirtualnymi, zobacz Tworzenie artykułu [komunikacji równorzędnej sieci wirtualnej.][Configure VNet peering]
+Skonfigurujmy globalną komunikację równorzędną sieci wirtualnej między sieci wirtualnych w ramach subskrypcji platformy Azure w firmie Contoso i fabrikam. Aby uzyskać informacje na temat tworzenia komunikacji równorzędnej sieci wirtualnej między dwiema sieciami wirtualnymi, zobacz artykuł [Tworzenie komunikacji równorzędnej sieci wirtualnej][Configure VNet peering] .
 
-Na poniższej ilustracji przedstawiono architekturę sieci po skonfigurowaniu komunikacji równorzędnej sieci wirtualnej globalnej.
+Na poniższej ilustracji przedstawiono architekturę sieci po skonfigurowaniu globalnej sieci równorzędnej.
 
-[![6]][6]
+[![ust]][6]
 
-W poniższej tabeli przedstawiono trasy znane maszynie wirtualnej subskrypcji Contoso. Zwróć uwagę na ostatni wpis tabeli. Ten wpis jest wynikiem krzyżowego łączenia sieci wirtualnych.
+W poniższej tabeli przedstawiono trasy znane dla maszyny wirtualnej subskrypcji contoso. Zwróć uwagę na ostatni wpis w tabeli. Ten wpis jest wynikiem połączenia między sieciami wirtualnymi.
 
 [![7]][7]
 
-W poniższej tabeli przedstawiono trasy znane maszynie wirtualnej subskrypcji fabrikam. Zwróć uwagę na ostatni wpis tabeli. Ten wpis jest wynikiem krzyżowego łączenia sieci wirtualnych.
+W poniższej tabeli przedstawiono trasy znane dla maszyny wirtualnej subskrypcji fabrikam. Zwróć uwagę na ostatni wpis w tabeli. Ten wpis jest wynikiem połączenia między sieciami wirtualnymi.
 
-[![8]][8]
+[![0,8]][8]
 
-Komunikacja równorzędna sieci wirtualnej bezpośrednio łączy dwie sieci wirtualne (zobacz nie ma następnego przeskoku dla wpisu *VNetGlobalPeering* w powyższych dwóch tabelach)
+Wirtualne sieci równorzędne łączą się bezpośrednio w dwóch sieciach wirtualnych (Zobacz, że nie ma żadnego następnego skoku dla wpisu *VNetGlobalPeering* w powyższych dwóch tabelach)
 
 ## <a name="cross-connecting-vnets-to-the-on-premises-networks"></a>Łączenie sieci wirtualnych z sieciami lokalnymi
 
-Możemy podłączyć obwód usługi ExpressRoute do wielu sieci wirtualnych. Zobacz [Limity subskrypcji i usług][Subscription limits] dla maksymalnej liczby sieci wirtualnych, które mogą być podłączone do obwodu usługi ExpressRoute. 
+Można połączyć obwód ExpressRoute z wieloma sieciami wirtualnymi. Zapoznaj się z [limitami subskrypcji i usług][Subscription limits] , aby uzyskać maksymalną liczbę sieci wirtualnych, które mogą być połączone z obwodem usługi ExpressRoute. 
 
-Połączmy obwód Fabrikam ExpressRoute z siecią wirtualną subskrypcji Contoso i podobnie obwód Contoso ExpressRoute z siecią wirtualną subskrypcji firmy Fabrikam, aby umożliwić łączność krzyżową między sieciami wirtualnymi a sieciami lokalnymi. Aby połączyć sieć wirtualną z obwodem usługi ExpressRoute w innej subskrypcji, musimy utworzyć i użyć autoryzacji.  Zobacz artykuł: [Podłączanie sieci wirtualnej do obwodu usługi ExpressRoute][Connect-ER-VNet].
+Połączmy obwód usługi Fabrikam ExpressRoute z siecią wirtualną subskrypcji firmy Contoso i podobnym obwodem usługi contoso ExpressRoute do sieci wirtualnej Fabrikam Subscription, aby umożliwić komunikację między sieciami wirtualnymi i lokalnymi. Aby połączyć sieć wirtualną z obwodem usługi ExpressRoute w innej subskrypcji, musimy utworzyć i używać autoryzacji.  Zobacz artykuł: [łączenie sieci wirtualnej z obwodem ExpressRoute][Connect-ER-VNet].
 
-Na poniższej ilustracji przedstawiono architekturę sieci po skonfigurowaniu połączenia krzyżowego usługi ExpressRoute z sieciami wirtualnymi.
+Na poniższej ilustracji przedstawiono architekturę sieci po skonfigurowaniu połączenia krzyżowego ExpressRoute z sieciami wirtualnymi.
 
 [![9]][9]
 
-W poniższej tabeli przedstawiono tabelę tras prywatnej komunikacji równorzędnej usługi ExpressRoute firmy Contoso Ltd., po połączeniu sieci wirtualnych z sieciami lokalnymi za pośrednictwem usługi ExpressRoute. Zobacz, że tabela tras ma trasy należące do obu sieci wirtualnych.
+W poniższej tabeli przedstawiono tabelę tras prywatnej komunikacji równorzędnej ExpressRoute firmy Contoso Ltd. po nawiązaniu połączenia między sieciami wirtualnymi i sieciami lokalnymi za pośrednictwem ExpressRoute. Sprawdź, czy tabela tras ma trasy należące do sieci wirtualnych.
 
-[![10]][10]
+[![dziesięć]][10]
 
-W poniższej tabeli przedstawiono tabelę tras prywatnej komunikacji równorzędnej usługi ExpressRoute firmy Fabrikam Inc., po połączeniu sieci wirtualnych z sieciami lokalnymi za pośrednictwem usługi ExpressRoute. Zobacz, że tabela tras ma trasy należące do obu sieci wirtualnych.
+W poniższej tabeli przedstawiono tabelę tras prywatnej komunikacji równorzędnej ExpressRoute firmy Fabrikam Inc. po nawiązaniu połączenia między sieciami wirtualnymi i sieciami lokalnymi za pośrednictwem ExpressRoute. Sprawdź, czy tabela tras ma trasy należące do sieci wirtualnych.
 
 [![11]][11]
 
-W poniższej tabeli przedstawiono trasy znane maszynie wirtualnej subskrypcji Contoso. Zwróć uwagę na wpisy *bramy sieci wirtualnej* tabeli. Maszyna wirtualna widzi trasy dla obu sieci lokalnych.
+W poniższej tabeli przedstawiono trasy znane dla maszyny wirtualnej subskrypcji contoso. Zwróć uwagę na wpisy *bramy sieci wirtualnej* w tabeli. Maszyna wirtualna widzi trasy dla sieci lokalnych.
 
-[![12]][12]
+[![dwunastomiesięcznych]][12]
 
-W poniższej tabeli przedstawiono trasy znane maszynie wirtualnej subskrypcji fabrikam. Zwróć uwagę na wpisy *bramy sieci wirtualnej* tabeli. Maszyna wirtualna widzi trasy dla obu sieci lokalnych.
+W poniższej tabeli przedstawiono trasy znane dla maszyny wirtualnej subskrypcji fabrikam. Zwróć uwagę na wpisy *bramy sieci wirtualnej* w tabeli. Maszyna wirtualna widzi trasy dla sieci lokalnych.
 
 [![13]][13]
 
 >[!NOTE]
->W subskrypcjach fabrikam i/lub Contoso można również szprychy sieci wirtualnych do odpowiedniej sieci wirtualnej centrum (projekt koncentratora i szprychy nie jest zilustrowany na diagramach architektury w tym artykule). Połączenia krzyżowe między bramami sieci wirtualnej koncentratora z usługą ExpressRoute umożliwią również komunikację między centrami wschód-zachód i szprychami.
+>W subskrypcjach Fabrikam i/lub contoso można także mieć sieci wirtualnych z odpowiednią siecią wirtualną koncentratora (projekt gwiazdy nie jest zilustrowany na diagramach architektury w tym artykule). Połączenia krzyżowe między bramami sieci wirtualnej centrum a usługą ExpressRoute umożliwiają również komunikację między centrami wschodnie i zachodnie i szprych.
 >
 
-## <a name="cross-connecting-on-premises-networks"></a>Łączenie krzyżowe w sieciach lokalnych
+## <a name="cross-connecting-on-premises-networks"></a>Łączenie między sieciami lokalnymi
 
-Usługa ExpressRoute Global Reach zapewnia łączność między sieciami lokalnymi połączonymi z różnymi obwodami usługi ExpressRoute. Skonfigurujmy globalny zasięg między obwodami Contoso i Fabrikam ExpressRoute. Ponieważ obwody usługi ExpressRoute są w różnych subskrypcji, musimy utworzyć i używać autoryzacji. Aby uzyskać wskazówki dotyczące krok po kroku, zobacz Konfigurowanie globalnego [zasięgu usługi ExpressRoute.][Configure Global Reach]
+ExpressRoute Global Reach zapewnia łączność między sieciami lokalnymi podłączonymi do różnych obwodów usługi ExpressRoute. Skonfigurujmy Global Reach między obwodami firmy Contoso i fabrikam ExpressRoute. Ze względu na to, że obwody usługi ExpressRoute znajdują się w różnych subskrypcjach, musimy utworzyć i używać autoryzacji. Zobacz [Konfigurowanie ExpressRoute Global REACH][Configure Global Reach] artykułu, aby uzyskać wskazówki krok po kroku.
 
-Na poniższej ilustracji przedstawiono architekturę sieci po skonfigurowaniu globalnego zasięgu.
+Na poniższej ilustracji przedstawiono architekturę sieci po skonfigurowaniu Global Reach.
 
 [![14]][14]
 
-W poniższej tabeli przedstawiono tabelę tras prywatnej komunikacji równorzędnej usługi ExpressRoute firmy Contoso Ltd., po skonfigurowaniu globalnego zasięgu. Zobacz, że tabela tras ma trasy należące do obu sieci lokalnych. 
+W poniższej tabeli przedstawiono tabelę tras prywatnej komunikacji równorzędnej ExpressRoute firmy Contoso Ltd., po skonfigurowaniu Global Reach. Sprawdź, czy tabela tras ma trasy należące do sieci lokalnych. 
 
-[![15]][15]
+[![15000]][15]
 
-W poniższej tabeli przedstawiono tabelę tras prywatnej komunikacji równorzędnej usługi ExpressRoute firmy Fabrikam Inc., po skonfigurowaniu globalnego zasięgu. Zobacz, że tabela tras ma trasy należące do obu sieci lokalnych.
+W poniższej tabeli przedstawiono tabelę tras prywatnej komunikacji równorzędnej ExpressRoute firmy Fabrikam Inc. po skonfigurowaniu Global Reach. Sprawdź, czy tabela tras ma trasy należące do sieci lokalnych.
 
 [![16]][16]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [często zadawane pytania dotyczące sieci wirtualnej][VNet-FAQ], aby uzyskać więcej pytań dotyczących sieci wirtualnej i komunikacji równorzędnej sieci wirtualnej. Zobacz [często zadawane pytania dotyczące usługi ExpressRoute, aby][ER-FAQ] uzyskać więcej pytań dotyczących usługi ExpressRoute i łączności z siecią wirtualną.
+Zobacz [często zadawane pytania dotyczące usługi Virtual Network][VNet-FAQ], aby uzyskać dalsze pytania dotyczące sieci wirtualnej i komunikacji równorzędnej. Zapoznaj się z [ExpressRoute często zadawanych][ER-FAQ] pytań, aby uzyskać odpowiedzi na pytania dotyczące ExpressRoute i sieci wirtualnej.
 
-Globalny zasięg jest wdrażany w zależności od kraju/regionu. Aby sprawdzić, czy globalny zasięg jest dostępny w krajach/regionach, które chcesz, zobacz [Globalny zasięg usługi ExpressRoute][Global Reach].
+Global Reach jest wdrażana w kraju/regionie według kraju/regionu. Aby sprawdzić, czy Global Reach jest dostępny w krajach/regionach, które chcesz, zobacz [ExpressRoute Global REACH][Global Reach].
 
 <!--Image References-->
-[1]: ./media/cross-network-connectivity/premergerscenario.png "Scenariusz aplikacji"
-[2]: ./media/cross-network-connectivity/contosoexr-rt-premerger.png "Tabela tras Contoso ExpressRoute przed połączeniem"
-[3]: ./media/cross-network-connectivity/fabrikamexr-rt-premerger.png "Tabela tras Fabrikam ExpressRoute przed połączeniem"
-[4]: ./media/cross-network-connectivity/contosovm-routes-premerger.png "Trasy maszyn wirtualnych Contoso przed połączeniem"
-[5]: ./media/cross-network-connectivity/fabrikamvm-routes-premerger.png "tras Fabrikam VM przed fuzją"
-[6]: ./media/cross-network-connectivity/vnet-peering.png "Architektura po komunikacji równorzędnej sieci wirtualnej"
-[7]: ./media/cross-network-connectivity/contosovm-routes-peering.png "Trasy maszyn wirtualnych Contoso po komunikacji równorzędnej sieci wirtualnej"
-[8]: ./media/cross-network-connectivity/fabrikamvm-routes-peering.png "tras fabrikam VM po komunikacji równorzędnej sieci wirtualnej"
-[9]: ./media/cross-network-connectivity/exr-x-connect.png "Architektura po połączeniu krzyżowym ExpressRoutes"
-[10]: ./media/cross-network-connectivity/contosoexr-rt-xconnect.png "Tabela tras Contoso ExpressRoute po połączeniu krzyżowym Sieci ExR i VNets"
-[11]: ./media/cross-network-connectivity/fabrikamexr-rt-xconnect.png "Tabela tras Fabrikam ExpressRoute po połączeniu krzyżowym Sieci ExR i VNets"
-[12]: ./media/cross-network-connectivity/contosovm-routes-xconnect.png "Trasy contoso VM po połączeniu krzyżowym ExR i sieci wirtualnych"
-[13]: ./media/cross-network-connectivity/fabrikamvm-routes-xconnect.png "tras Fabrikam VM po połączeniu krzyżowym ExR i VNets"
-[14]: ./media/cross-network-connectivity/globalreach.png "Architektura po skonfigurowaniu globalnego zasięgu"
-[15]: ./media/cross-network-connectivity/contosoexr-rt-gr.png "Tabela tras contoso expressroute po osiągnięciu globalnym"
-[16]: ./media/cross-network-connectivity/fabrikamexr-rt-gr.png "Tabela tras Fabrikam ExpressRoute po globalnym zasięgu"
+[1]: ./media/cross-network-connectivity/premergerscenario.png "scenariusz aplikacji"
+[2]: ./media/cross-network-connectivity/contosoexr-rt-premerger.png "contoso ExpressRoute — tabela tras przed połączeniem"
+[3]: ./media/cross-network-connectivity/fabrikamexr-rt-premerger.png "Fabrikam ExpressRoute tabelę tras przed fuzją"
+[4]: ./media/cross-network-connectivity/contosovm-routes-premerger.png "trasy maszyn wirtualnych firmy Contoso przed połączeniem"
+[5]: ./media/cross-network-connectivity/fabrikamvm-routes-premerger.png. "trasy maszyn wirtualnych firmy Fabrikam przed połączeniem"
+[6]: ./media/cross-network-connectivity/vnet-peering.png "architektura po komunikacji równorzędnej sieci wirtualnej"
+[7]: ./media/cross-network-connectivity/contosovm-routes-peering.png "tras maszyn wirtualnych contoso po komunikacji równorzędnej sieci wirtualnej"
+[8]: ./media/cross-network-connectivity/fabrikamvm-routes-peering.png "tras maszyn wirtualnych Fabrikam po komunikacji równorzędnej sieci" wirtualnej
+[9]: ./media/cross-network-connectivity/exr-x-connect.png "architektura po połączeniu krzyżowym usługa expressroutes"
+[10]: ./media/cross-network-connectivity/contosoexr-rt-xconnect.png "contoso ExpressRoute Route tabeli po nawiązaniu połączenia między ExR i sieci wirtualnych"
+[11]: ./media/cross-network-connectivity/fabrikamexr-rt-xconnect.png "tabela "Fabrikam ExpressRoute Route" po nawiązaniu połączenia między ExR i sieci wirtualnych"
+[12]: ./media/cross-network-connectivity/contosovm-routes-xconnect.png "tras maszyn wirtualnych firmy Contoso po połączeniu między ExR i sieci wirtualnych"
+[13]: ./media/cross-network-connectivity/fabrikamvm-routes-xconnect.png "tras maszyn wirtualnych Fabrikam po połączeniu z ExR i sieci wirtualnych"
+[14]: ./media/cross-network-connectivity/globalreach.png "architektura po skonfigurowaniu Global REACH"
+[15]: ./media/cross-network-connectivity/contosoexr-rt-gr.png "contoso ExpressRoute route tabeli po Global REACH"
+[16]: ./media/cross-network-connectivity/fabrikamexr-rt-gr.png "Fabrikam ExpressRoute tabeli tras po Global REACH"
 
 <!--Link References-->
 [Virtual network peering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview

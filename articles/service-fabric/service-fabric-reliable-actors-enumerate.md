@@ -1,19 +1,19 @@
 ---
-title: Wyliczaj podmioty w sieci szkieletowej usług Azure
-description: Dowiedz się więcej o wyliczeniu wiarygodnych aktorów i ich metadanych w aplikacji sieci szkieletowej usług Azure przy użyciu przykładów.
+title: Wyliczanie aktorów na platformie Azure Service Fabric
+description: Zapoznaj się z wyliczeniem Reliable Actors i ich metadanych w aplikacji Service Fabric platformy Azure przy użyciu przykładów.
 author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 1516c9005a7c4dd0adcb279e9954e5f882c575c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645603"
 ---
-# <a name="enumerate-service-fabric-reliable-actors"></a>Wyliczaj wiarygodnych aktorów z sieci szkieletowej usług
-Usługa Reliable Actors umożliwia klientowi wyliczać metadane dotyczące podmiotów, które usługa jest hostowana. Ponieważ usługa aktora jest usługą stanową podzieloną na partycje, wyliczenie jest wykonywane na partycję. Ponieważ każda partycja może zawierać wiele aktorów, wyliczenie jest zwracany jako zestaw wyników skonkonerch. Strony są zapętlone, dopóki wszystkie strony nie zostaną odczytane. W poniższym przykładzie pokazano, jak utworzyć listę wszystkich aktywnych aktorów w jednej partycji usługi aktora:
+# <a name="enumerate-service-fabric-reliable-actors"></a>Wyliczenie Service Fabric Reliable Actors
+Usługa Reliable Actors umożliwia klientowi Wyliczenie metadanych dotyczących aktorów, które są obsługiwane przez usługę. Ponieważ usługa aktora jest podzielona na partycje usługa stanowa, wyliczanie jest wykonywane na partycję. Ponieważ każda partycja może zawierać wiele aktorów, Wyliczenie jest zwracane jako zestaw wyników stronicowanych. Strony są zapętle do momentu odczytania wszystkich stron. Poniższy przykład pokazuje, jak utworzyć listę wszystkich aktywnych aktorów w jednej partycji usługi aktora:
 
 ```csharp
 IActorService actorServiceProxy = ActorServiceProxy.Create(
@@ -60,10 +60,10 @@ while (continuationToken != null);
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zarządzanie stanem aktora](service-fabric-reliable-actors-state-management.md)
-* [Cykl życia aktora i wyrzucanie elementów bezużytecznych](service-fabric-reliable-actors-lifecycle.md)
-* [Dokumentacja referencyjna interfejsu API podmiotów](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Cykl życia aktora i odzyskiwanie pamięci](service-fabric-reliable-actors-lifecycle.md)
+* [Dokumentacja referencyjna interfejsu API aktorów](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Przykładowy kod platformy .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Przykładowy kod java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Przykładowy kod w języku Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

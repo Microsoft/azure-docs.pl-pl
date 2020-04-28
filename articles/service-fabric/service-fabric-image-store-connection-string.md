@@ -1,44 +1,44 @@
 ---
-title: Ciąg połączenia magazynu obrazów sieci szkieletowej usługi Azure
-description: Dowiedz się więcej o ciągu połączenia magazynu obrazów, w tym jego zastosowaniach i aplikacjach do klastra sieci szkieletowej usług.
+title: Parametry połączenia magazynu obrazu Service Fabric platformy Azure
+description: Dowiedz się więcej na temat parametrów połączenia magazynu obrazu, w tym ich zastosowań i aplikacji do klastra Service Fabric.
 author: alexwun
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: alexwun
 ms.openlocfilehash: c3395248188c2a16736cfc8cea262fe163a6944b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645671"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Omówienie ustawienia ImageStoreConnectionString
 
-W niektórych z naszej dokumentacji pokrótce wspominamy o istnieniu parametru "ImageStoreConnectionString", nie opisując, co to naprawdę oznacza. I po przejściu przez artykuł, takich jak [Wdrażanie i usuwanie aplikacji za pomocą programu PowerShell][10], wygląda na to, wszystko, co robisz, to skopiować / wkleić wartość, jak pokazano w manifeście klastra klastra klastra docelowego. Więc ustawienie musi być konfigurowalne dla klastra, ale podczas tworzenia klastra za pośrednictwem [witryny Azure portal,][11]nie ma opcji, aby skonfigurować to ustawienie i zawsze jest "fabric:ImageStore". Jaki jest zatem cel tego ustawienia?
+W niektórych naszych dokumentach krótko wspominamy o istnieniu parametru "ImageStoreConnectionString" bez opisywania, co naprawdę robi. Po przeprowadzeniu tego artykułu, takiego jak [wdrażanie i usuwanie aplikacji przy użyciu programu PowerShell][10], wygląda na to, że wszystko jest kopiowane/wklejane, jak pokazano w manifeście klastra klastra docelowego. Dlatego ustawienie musi być konfigurowalne dla klastra, ale podczas tworzenia klastra za pomocą [Azure Portal][11]nie jest dostępna opcja konfigurowania tego ustawienia i zawsze "Sieć szkieletowa: magazynu ImageStore". Co to jest cel tego ustawienia?
 
 ![Manifest klastra][img_cm]
 
-Usługa Service Fabric rozpoczęła się jako platforma do wewnętrznego wykorzystania firmy Microsoft przez wiele różnych zespołów, więc niektóre jej aspekty są wysoce konfigurowalne - "Image Store" jest jednym z takich aspektów. Zasadniczo magazyn obrazów jest podłączanym repozytorium do przechowywania pakietów aplikacji. Gdy aplikacja jest wdrażana w węźle w klastrze, ten węzeł pobiera zawartość pakietu aplikacji z Magazynu obrazów. ImageStoreConnectionString jest ustawieniem, które zawiera wszystkie informacje niezbędne dla klientów i węzłów, aby znaleźć poprawny magazyn obrazów dla danego klastra.
+Service Fabric wyłączone jako platforma dla wewnętrznego użytku firmy Microsoft przez wiele różnorodnych zespołów, więc niektóre aspekty tego typu są wysoce dostosowywane — "Magazyn obrazów" jest jednym z tych aspektów. Zasadniczo Magazyn obrazów to podłączane repozytorium do przechowywania pakietów aplikacji. Gdy aplikacja zostanie wdrożona w węźle klastra, ten węzeł pobierze zawartość pakietu aplikacji z Magazyn obrazów. ImageStoreConnectionString jest ustawieniem obejmującym wszystkie niezbędne informacje dla klientów i węzłów, aby znaleźć odpowiednie Magazyn obrazów dla danego klastra.
 
-Obecnie istnieją trzy możliwe rodzaje dostawców magazynu obrazów i ich odpowiednie parametry połączenia są następujące:
+Obecnie istnieją trzy możliwe rodzaje Magazyn obrazów dostawców i odpowiadające im parametry połączenia są następujące:
 
-1. Usługa sklepu z obrazami: "fabric:ImageStore"
+1. Usługa Magazyn obrazów: "Sieć szkieletowa: magazynu ImageStore"
 
-2. System plików: "file:[ścieżka systemu plików]"
+2. System plików: "plik: [ścieżka systemu plików]"
 
-3. Usługa Azure Storage: "xstore:DefaultEndpointsProtocol=https; AccountName=[...]; AccountKey=[...]; Kontener=[...]"
+3. Azure Storage: "xstore: DefaultEndpointsProtocol = https; AccountName = [...]; AccountKey = [...]; Kontener = [...] "
 
-Typ dostawcy używany w produkcji jest usługa magazynu obrazów, która jest stanową utrwalone usługi systemowej, które można zobaczyć z Eksploratora sieci szkieletowej usług. 
+Typ dostawcy używany w środowisku produkcyjnym to usługa Magazyn obrazów, która jest stanową utrwalaną usługą systemową, którą można zobaczyć z Service Fabric Explorer. 
 
-![Usługa magazynu obrazów][img_is]
+![Usługa Magazyn obrazów][img_is]
 
-Hostowanie magazynu obrazów w usłudze systemowej w samym klastrze eliminuje zależności zewnętrzne dla repozytorium pakietów i daje nam większą kontrolę nad lokalizacjami magazynu. Przyszłe ulepszenia wokół magazynu obrazów mogą najpierw kierować reklamy na dostawcę magazynu obrazów, jeśli nie wyłącznie. Parametry połączenia dla dostawcy usługi magazynu obrazów nie ma żadnych unikatowych informacji, ponieważ klient jest już połączony z klastrem docelowym. Klient musi tylko wiedzieć, że protokoły przeznaczone dla usługi systemowej powinny być używane.
+Hosting Magazyn obrazów w usłudze systemowej w ramach klastra eliminuje zależności zewnętrzne dla repozytorium pakietów i daje nam większą kontrolę nad zaistnieniem magazynu. Przyszłe ulepszenia dotyczące Magazyn obrazów mogą najpierw kierować do dostawcy Magazyn obrazów, jeśli nie jest to wyłącznie. Parametry połączenia dla dostawcy usług Magazyn obrazów nie mają żadnych unikatowych informacji, ponieważ klient jest już połączony z klastrem docelowym. Klient musi tylko wiedzieć, że powinny być używane protokoły przeznaczone dla usługi systemowej.
 
-Dostawca systemu plików jest używany zamiast usługi magazynu obrazów dla lokalnych klastrów jednokojowych podczas tworzenia, aby nieco szybciej uruchamiać klaster. Różnica jest zazwyczaj mała, ale jest to przydatna optymalizacja dla większości ludzi podczas rozwoju. Jest możliwe do wdrożenia lokalnego klastra jednokojowego z innymi typami dostawcy magazynu, jak również, ale zwykle nie ma powodu, aby to zrobić, ponieważ przepływ pracy rozwijać/test pozostaje taka sama, niezależnie od dostawcy. Dostawca usługi Azure Storage istnieje tylko dla starszej obsługi starych klastrów wdrożonych przed dostawcą usługi magazynu obrazów został wprowadzony.
+Dostawca systemu plików jest używany zamiast usługi Magazyn obrazów lokalnych klastrów jednobox podczas opracowywania, aby nieco szybciej zainicjować klaster. Różnica jest zwykle mała, ale jest to przydatna Optymalizacja dla większości osób podczas opracowywania. Istnieje możliwość wdrożenia lokalnego klastra jednorazowego z innymi typami dostawcy magazynu, ale zazwyczaj nie jest to konieczne, ponieważ przepływ pracy tworzenia/testowania pozostaje taki sam niezależnie od dostawcy. Dostawca usługi Azure Storage istnieje tylko w przypadku starszej obsługi starych klastrów wdrożonych przed wprowadzeniem dostawcy usług Magazyn obrazów.
 
-Ponadto dostawca systemu plików ani dostawca usługi Azure Storage nie powinien być używany jako metoda udostępniania magazynu obrazów między wieloma klastrami — spowoduje to uszkodzenie danych konfiguracji klastra, ponieważ każdy klaster może zapisywać w obrazie dane powodujące konflikty. Sklepie. Aby udostępnić aprowizacji pakietów aplikacji między wieloma klastrami, należy użyć plików [sfpkg][12] zamiast tego, które mogą być przekazywane do dowolnego magazynu zewnętrznego z pobrania identyfikatora URI.
+Ponadto nie należy używać dostawcy systemu plików ani dostawcy usługi Azure Storage jako metody udostępniania Magazyn obrazów między wieloma klastrami — spowoduje to uszkodzenie danych konfiguracji klastra, ponieważ każdy klaster może zapisywać dane powodujące konflikt z Magazyn obrazów. Aby udostępnić udostępniane pakiety aplikacji między wieloma klastrami, należy zamiast tego użyć plików [sfpkg][12] , które mogą być przekazywane do dowolnego zewnętrznego magazynu z identyfikatorem URI pobierania.
 
-Tak więc, podczas gdy ImageStoreConnectionString jest konfigurowalny, wystarczy użyć ustawienia domyślnego. Podczas publikowania na platformie Azure za pośrednictwem programu Visual Studio parametr jest automatycznie ustawiany odpowiednio dla Ciebie. W przypadku wdrażania programowego w klastrach hostowanych na platformie Azure parametry połączenia są zawsze "fabric:ImageStore". Chociaż w razie wątpliwości, jego wartość zawsze można zweryfikować, pobierając manifest klastra przez [program PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx)lub [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Klastry testowe i produkcyjne lokalne powinny być zawsze skonfigurowane do używania dostawcy usługi magazynu obrazów.
+Mimo że ImageStoreConnectionString można skonfigurować, wystarczy użyć ustawienia domyślnego. W przypadku publikowania na platformie Azure za pomocą programu Visual Studio, parametr jest automatycznie ustawiany odpowiednio. W celu wdrożenia programistycznego w klastrach hostowanych na platformie Azure parametry połączenia to zawsze "Sieć szkieletowa: magazynu ImageStore". Chociaż w razie wątpliwości, jego wartość może być zawsze weryfikowana przez pobranie manifestu klastra przez program [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx)lub [rest](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Zarówno lokalne klastry testowe, jak i produkcyjne powinny być zawsze skonfigurowane do korzystania z Magazyn obrazów dostawcy usług.
 
 ### <a name="next-steps"></a>Następne kroki
 [Wdrażanie i usuwanie aplikacji przy użyciu programu PowerShell][10]

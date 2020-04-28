@@ -1,6 +1,6 @@
 ---
 title: Przekraczanie limitów czasu polecenia „hbase hbck” w usłudze Azure HDInsight
-description: Problem z limitem czasu z poleceniem "hbase hbck" podczas ustawiania przypisań regionów
+description: Problem z limitem czasu podczas usuwania przypisań regionów przy użyciu polecenia "HBase hbck"
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,46 +8,46 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 5604b42e1611830f3aaea9ae180cdb8142ab0942
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75887193"
 ---
-# <a name="scenario-timeouts-with-hbase-hbck-command-in-azure-hdinsight"></a>Scenariusz: Limity czasu z poleceniem 'hbase hbck' w usłudze Azure HDInsight
+# <a name="scenario-timeouts-with-hbase-hbck-command-in-azure-hdinsight"></a>Scenariusz: przekroczenie limitu czasu za pomocą polecenia "HBase hbck" w usłudze Azure HDInsight
 
-W tym artykule opisano kroki rozwiązywania problemów i możliwe rozwiązania problemów podczas interakcji z klastrami usługi Azure HDInsight.
+W tym artykule opisano kroki rozwiązywania problemów oraz możliwe rozwiązania problemów występujących w przypadku współpracy z klastrami usługi Azure HDInsight.
 
 ## <a name="issue"></a>Problem
 
-Napotkaj `hbase hbck` limity czasu z poleceniem podczas naprawiania przypisań regionu.
+Napotkaj limity czasu `hbase hbck` przy użyciu polecenia przy rozwiązywaniu przypisań regionów.
 
 ## <a name="cause"></a>Przyczyna
 
-Potencjalną przyczyną problemów z limitem `hbck` czasu podczas korzystania z polecenia może być to, że kilka regionów jest w stanie "w okresie przejściowym" przez długi czas. Te regiony można zobaczyć w trybie offline w interfejsie użytkownika wzorca bazy danych. Ponieważ duża liczba regionów próbuje przejść, HBase Master może limit czasu i nie może przenieść tych regionów z powrotem do trybu online.
+Potencjalną przyczyną problemów z przekroczeniem limitu czasu `hbck` , gdy użycie polecenia może być w stanie "w przejściu" przez długi czas. Te regiony można zobaczyć jako offline w interfejsie użytkownika HBase Master. Ze względu na to, że duża liczba regionów próbuje przejść, HBase Master może przekroczyć limit czasu i nie można przywrócić tych regionów z powrotem do trybu online.
 
 ## <a name="resolution"></a>Rozwiązanie
 
-1. Zaloguj się do klastra HDInsight HBase przy użyciu funkcji SSH.
+1. Zaloguj się do klastra HBase usługi HDInsight przy użyciu protokołu SSH.
 
-1. Uruchom `hbase zkcli` polecenie, aby połączyć się z powłoką Apache ZooKeeper.
+1. Uruchom `hbase zkcli` polecenie, aby nawiązać połączenie z powłoką Apache ZooKeeper.
 
-1. Uruchom `rmr /hbase/regions-in-transition` `rmr /hbase-unsecure/regions-in-transition` lub polecenie.
+1. Uruchom `rmr /hbase/regions-in-transition` polecenie `rmr /hbase-unsecure/regions-in-transition` lub.
 
-1. Wyjdź `hbase zkcli` `exit` z powłoki za pomocą polecenia.
+1. Wyjdź z `hbase zkcli` powłoki przy użyciu `exit` polecenia.
 
-1. Z interfejsu apache Ambari Uruchom ponownie usługę Active HBase Master.
+1. W interfejsie użytkownika Apache Ambari Uruchom ponownie usługę Active HBase Master.
 
 1. Uruchom polecenie `hbase hbck -fixAssignments`.
 
-1. Monitoruj interfejs użytkownika wzorca bazy danych HBase "region w okresie przejściowym", aby upewnić się, że żaden region nie utknie.
+1. Aby upewnić się, że żaden region nie jest zablokowany HBase Master, należy go monitorować w sekcji "region w przejściu".
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie widzisz problemu lub nie możesz rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy technicznej:
+Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
 
-- Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej platformy Azure Community.](https://azure.microsoft.com/support/community/)
+- Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-- Połącz [@AzureSupport](https://twitter.com/azuresupport) się z — oficjalnym kontem platformy Microsoft Azure w celu poprawy jakości obsługi klienta. Łączenie społeczności platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+- Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
-- Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy z [witryny Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wybierz **pozycję Obsługa z** paska menu lub otwórz centrum pomocy + pomocy **technicznej.** Aby uzyskać bardziej szczegółowe informacje, zapoznaj [się z instrukcjami tworzenia żądania pomocy technicznej platformy Azure.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) Dostęp do obsługi zarządzania subskrypcjami i rozliczeń jest dołączony do subskrypcji platformy Microsoft Azure, a pomoc techniczna jest świadczona za pośrednictwem jednego z [planów pomocy technicznej platformy Azure.](https://azure.microsoft.com/support/plans/)
+- Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

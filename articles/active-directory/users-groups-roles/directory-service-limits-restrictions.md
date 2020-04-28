@@ -1,6 +1,6 @@
 ---
-title: Limity i ograniczenia usług — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Ograniczenia użycia i inne limity usług dla usługi Azure Active Directory
+title: Limity i ograniczenia usługi — Azure Active Directory | Microsoft Docs
+description: Ograniczenia użycia i inne limity usługi dla usługi Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -16,14 +16,14 @@ ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3b83f10cd021f54dc16e196cb7a9ccd7c46fd2ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75659648"
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Ograniczenia i limity usługi Azure AD
-Ten artykuł zawiera ograniczenia użycia i inne limity usług dla usługi Azure Active Directory (Azure AD). Jeśli szukasz pełnego zestawu limitów usług platformy Microsoft Azure, zobacz [Limity subskrypcji i usług platformy Azure, przydziały i ograniczenia](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+Ten artykuł zawiera ograniczenia użycia i inne limity usługi dla usługi Azure Active Directory (Azure AD). Jeśli szukasz pełnego zestawu Microsoft Azure limitów usługi, zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 

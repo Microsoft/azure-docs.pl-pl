@@ -1,7 +1,7 @@
 ---
 title: Umiejętności poznawcze z zakresu kształtowania
 titleSuffix: Azure Cognitive Search
-description: Wyodrębnij metadane i informacje strukturalne z nieustrukturyzowanych danych i ukształtuj go jako typ złożony w potoku wzbogacania sztucznej inteligencji w usłudze Azure Cognitive Search.
+description: Wyodrębnij metadane i informacje strukturalne z danych bez struktury i kształtj je jako typ złożony w potoku wzbogacania AI na platformie Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,33 +9,33 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 384b79037bb30656934c5e4b596dac2b776593b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75754121"
 ---
 # <a name="shaper-cognitive-skill"></a>Umiejętności poznawcze z zakresu kształtowania
 
-**Shaper** umiejętności konsoliduje kilka danych wejściowych do [typu złożonego,](search-howto-complex-data-types.md) który może być odwołuje się później w potoku wzbogacania. **Shaper** umiejętności pozwala zasadniczo utworzyć strukturę, zdefiniować nazwę elementów członkowskich tej struktury i przypisać wartości do każdego elementu członkowskiego. Przykłady pól skonsolidowanych przydatnych w scenariuszach wyszukiwania obejmują łączenie imienia i nazwiska w jedną strukturę, miasto i stan w jedną strukturę lub nazwę i data urodzenia w jedną strukturę w celu ustanowienia unikatowej tożsamości.
+Umiejętność **kształtu** konsoliduje kilka wejść do [typu złożonego](search-howto-complex-data-types.md) , do którego można przystąpić później w potoku wzbogacania. Umiejętność **kształtu** pozwala na zasadniczo utworzyć strukturę, zdefiniować nazwę elementów członkowskich tej struktury i przypisać wartości do każdego elementu członkowskiego. Przykłady skonsolidowanych pól przydatnych w scenariuszach wyszukiwania obejmują łączenie imion i nazwisk w jedną strukturę, miasto i stan w jedną strukturę, a także nazwę i DataUrodzenia w jednej strukturze w celu ustanowienia unikatowej tożsamości.
 
-Ponadto **Shaper** umiejętności zilustrowane w [scenariuszu 3](#nested-complex-types) dodaje opcjonalne *sourceContext* właściwości do danych wejściowych. Właściwości *źródła* i *sourceContext* wzajemnie się wykluczają. Jeśli dane wejściowe są w kontekście umiejętności, po prostu użyj *źródła*. Jeśli dane wejściowe są w *innym* kontekście niż kontekst umiejętności, użyj *sourceContext*. *SourceContext* wymaga zdefiniowania zagnieżdżonych danych wejściowych z określonym elementem, który jest adresowany jako źródło. 
+Ponadto umiejętność **kształtowania** zilustrowana w [scenariuszu 3](#nested-complex-types) dodaje opcjonalną Właściwość *sourceContext* do danych wejściowych. Właściwości *Source* i *sourceContext* wzajemnie się wykluczają. Jeśli dane wejściowe są w kontekście umiejętności, wystarczy użyć *źródła*. Jeśli dane wejściowe są w *innym* kontekście niż kontekst umiejętności, użyj *sourceContext*. *SourceContext* wymaga zdefiniowania zagnieżdżonych danych wejściowych z określonym elementem, który jest adresowany jako źródło. 
 
-Nazwa danych wyjściowych jest zawsze "wyjście". Wewnętrznie potoku można mapować inną nazwę, takich jak "analyzedText", jak pokazano w poniższych przykładach, ale **shaper** sama umiejętność zwraca "dane wyjściowe" w odpowiedzi. Może to być ważne, jeśli debugowanie wzbogaconych dokumentów i zauważyć rozbieżność nazewnictwa lub jeśli tworzysz umiejętności niestandardowe i strukturyzowania odpowiedzi samodzielnie.
+Nazwa wyjściowa jest zawsze "output". Wewnętrznie potok może mapować inną nazwę, taką jak "analyzedText", jak pokazano w poniższych przykładach, ale umiejętność **kształtowania** zwraca wartość "output" w odpowiedzi. Taka sytuacja może być ważna, jeśli debugujesz wzbogacone dokumenty i zauważysz rozbieżność nazewnictwa, lub jeśli tworzysz umiejętność niestandardową i utworzysz swoją samą strukturę.
 
 > [!NOTE]
-> **Umiejętność Shaper** nie jest powiązana z interfejsem API usług Cognitive Services i nie są naliczane opłaty za korzystanie z niej. Należy jednak [dołączyć zasób usług Cognitive Services,](cognitive-search-attach-cognitive-services.md)aby zastąpić opcję **Wolny** zasób, która ogranicza liczbę wzbogacenia dziennie.
+> Umiejętność **kształtu** nie jest powiązana z interfejsem API Cognitive Services i nie jest naliczana opłata za korzystanie z niego. Mimo to należy [dołączyć zasób Cognitive Services](cognitive-search-attach-cognitive-services.md), aby zastąpić opcję **bezpłatnych** zasobów, która ogranicza liczbę codziennych wzbogacań dziennie.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Util.ShaperSkill
+Microsoft. umiejętności. util. ShaperSkill
 
 ## <a name="scenario-1-complex-types"></a>Scenariusz 1: typy złożone
 
-Rozważmy scenariusz, w którym chcesz utworzyć strukturę o nazwie *analyzedText,* który ma dwa elementy członkowskie: *tekst* i *tonację*, odpowiednio. W indeksie wieloczęściowe pole z przeszukiwania jest nazywane *typem złożonym* i często jest tworzone, gdy dane źródłowe mają odpowiednią złożoną strukturę, która jest do niego mapowana.
+Rozważmy scenariusz, w którym chcesz utworzyć strukturę o nazwie *analyzedText* , która ma dwa elementy członkowskie: odpowiednio *tekst* i *tonacji*. W indeksie pole z możliwością wyszukiwania wieloczęściowego jest nazywane *typem złożonym* i często tworzone, gdy dane źródłowe mają odpowiadającą jej strukturę złożoną.
 
-Jednak inne podejście do tworzenia typów złożonych jest za pośrednictwem **Shaper** umiejętności. Dołączając tę umiejętność do zestawu umiejętności, operacje w pamięci podczas przetwarzania zestawu umiejętności mogą wyprowadzać kształty danych za pomocą struktur zagnieżdżonych, które następnie można mapować na złożony typ w indeksie. 
+Jednak inne podejście do tworzenia typów złożonych polega na użyciu umiejętności **kształtu** . Uwzględniając te umiejętności w zestawu umiejętności, operacje w pamięci podczas przetwarzania zestawu umiejętności mogą wyprowadzać kształty danych z zagnieżdżonymi strukturami, które następnie można mapować na typ złożony w indeksie. 
 
-Poniższa definicja umiejętności przykład zawiera nazwy elementów członkowskich jako dane wejściowe. 
+Poniższa przykładowa definicja umiejętności zawiera nazwy elementów członkowskich jako dane wejściowe. 
 
 
 ```json
@@ -63,7 +63,7 @@ Poniższa definicja umiejętności przykład zawiera nazwy elementów członkows
 
 ### <a name="sample-index"></a>Przykładowy indeks
 
-Zestaw umiejętności jest wywoływany przez indeksatora, a indeksator wymaga indeksu. Złożona reprezentacja pola w indeksie może wyglądać jak w poniższym przykładzie. 
+Element zestawu umiejętności jest wywoływany przez indeksator, a indeksator wymaga indeksu. Złożona reprezentacja pola w indeksie może wyglądać podobnie do poniższego przykładu. 
 
 ```json
 
@@ -88,9 +88,9 @@ Zestaw umiejętności jest wywoływany przez indeksatora, a indeksator wymaga in
                 },
 ```
 
-### <a name="skill-input"></a>Wprowadzanie umiejętności
+### <a name="skill-input"></a>Dane wejściowe kwalifikacji
 
-Przychodzący dokument JSON zawierający użyteczne dane wejściowe dla tej umiejętności **Shaper** może być:
+Dokument przychodzącego JSON udostępniający użyteczne dane wejściowe dla tej umiejętności **kształtu** może być następujący:
 
 ```json
 {
@@ -107,9 +107,9 @@ Przychodzący dokument JSON zawierający użyteczne dane wejściowe dla tej umie
 ```
 
 
-### <a name="skill-output"></a>Wydajność umiejętności
+### <a name="skill-output"></a>Dane wyjściowe kwalifikacji
 
-Umiejętność **Shaper** generuje nowy element o nazwie *analyzedText* z połączonymi elementami *tekstu* i *tonacji.* To dane wyjściowe jest zgodne ze schematem indeksu. Zostanie zaimportowany i zindeksowany w indeksie usługi Azure Cognitive Search.
+Umiejętność **kształtu** generuje nowy element o nazwie *analyzedText* z połączonymi elementami *tekstu* i *tonacji*. Dane wyjściowe są zgodne ze schematem indeksu. Zostanie ona zaimportowana i zindeksowana w indeksie Wyszukiwanie poznawcze platformy Azure.
 
 ```json
 {
@@ -129,11 +129,11 @@ Umiejętność **Shaper** generuje nowy element o nazwie *analyzedText* z połą
 }
 ```
 
-## <a name="scenario-2-input-consolidation"></a>Scenariusz 2: konsolidacja wejściowa
+## <a name="scenario-2-input-consolidation"></a>Scenariusz 2: Konsolidacja danych wejściowych
 
-W innym przykładzie wyobraź sobie, że na różnych etapach przetwarzania potoku wyodrębniłeś tytuł książki i tytuły rozdziałów na różnych stronach książki. Można teraz utworzyć pojedynczą strukturę składającą się z tych różnych danych wejściowych.
+W innym przykładzie Załóżmy, że na różnych etapach przetwarzania potoku wyodrębniono tytuł książki oraz tytuły rozdziałów na różnych stronach książki. Teraz można utworzyć pojedynczą strukturę składającą się z tych różnych danych wejściowych.
 
-Definicja umiejętności **Shaper** dla tego scenariusza może wyglądać następująco:
+Definicja umiejętności **kształtu** w tym scenariuszu może wyglądać podobnie do poniższego przykładu:
 
 ```json
 {
@@ -158,8 +158,8 @@ Definicja umiejętności **Shaper** dla tego scenariusza może wyglądać nastę
 }
 ```
 
-### <a name="skill-output"></a>Wydajność umiejętności
-W takim przypadku **Shaper** spłaszcza wszystkie tytuły rozdziałów, aby utworzyć jedną tablicę. 
+### <a name="skill-output"></a>Dane wyjściowe kwalifikacji
+W takim przypadku **kształt** Spłaszcza wszystkie tytuły rozdziałów, aby utworzyć pojedynczą tablicę. 
 
 ```json
 {
@@ -183,11 +183,11 @@ W takim przypadku **Shaper** spłaszcza wszystkie tytuły rozdziałów, aby utwo
 
 <a name="nested-complex-types"></a>
 
-## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scenariusz 3: konsolidacja danych wejściowych z kontekstów zagnieżdżonych
+## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scenariusz 3: wprowadzanie konsolidacji z zagnieżdżonych kontekstów
 
-Wyobraź sobie, że masz tytuł, rozdziały i zawartość książki i uruchamiasz rozpoznawanie jednostek i kluczowe frazy dotyczące zawartości, a teraz musisz agregować wyniki z różnych umiejętności w jeden kształt z nazwą rozdziału, encjami i kluczowymi frazami.
+Załóżmy, że masz tytuł, rozdziały i zawartość książki oraz uruchomiono rozpoznawanie jednostek i kluczowe frazy dla zawartości, a teraz trzeba agregować wyniki z różnych umiejętności w jednym kształcie z nazwą rozdziału, jednostkami i frazami kluczowymi.
 
-Definicja umiejętności **Shaper** dla tego scenariusza może wyglądać następująco:
+Definicja umiejętności **kształtu** w tym scenariuszu może wyglądać podobnie do poniższego przykładu:
 
 ```json
 {
@@ -223,8 +223,8 @@ Definicja umiejętności **Shaper** dla tego scenariusza może wyglądać nastę
 }
 ```
 
-### <a name="skill-output"></a>Wydajność umiejętności
-W takim przypadku **Shaper** tworzy typ złożony. Ta struktura istnieje w pamięci. Jeśli chcesz zapisać go w [magazynie wiedzy,](knowledge-store-concept-intro.md)należy utworzyć projekcję w swoim zestawem umiejętności, który definiuje charakterystykę pamięci masowej.
+### <a name="skill-output"></a>Dane wyjściowe kwalifikacji
+W takim przypadku **kształt** tworzy typ złożony. Ta struktura istnieje w pamięci. Jeśli chcesz zapisać go w [sklepie z bazami](knowledge-store-concept-intro.md)danych, należy utworzyć projekcję w zestawu umiejętności, która definiuje charakterystykę magazynu.
 
 ```json
 {
@@ -246,10 +246,10 @@ W takim przypadku **Shaper** tworzy typ złożony. Ta struktura istnieje w pami�
 }
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
-+ [Jak zdefiniować zestaw umiejętności](cognitive-search-defining-skillset.md)
++ [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
 + [Jak używać typów złożonych](search-howto-complex-data-types.md)
 + [Magazyn wiedzy (wersja zapoznawcza)](knowledge-store-concept-intro.md)
-+ [Tworzenie magazynu wiedzy w rest](knowledge-store-create-rest.md)
++ [Tworzenie sklepu merytorycznego w usłudze REST](knowledge-store-create-rest.md)

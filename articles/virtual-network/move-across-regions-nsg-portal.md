@@ -1,52 +1,52 @@
 ---
-title: Przenoszenie sieciowej grupy zabezpieczeń platformy Azure do innego regionu platformy Azure przy użyciu witryny Azure portal
-description: Użyj szablonu usługi Azure Resource Manager, aby przenieść grupę zabezpieczeń sieci platformy Azure z jednego regionu platformy Azure do innego przy użyciu witryny Azure portal.
+title: Przenoszenie sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) platformy Azure do innego regionu platformy Azure przy użyciu Azure Portal
+description: Użyj szablonu Azure Resource Manager, aby przenieść grupę zabezpieczeń sieci platformy Azure z jednego regionu platformy Azure do innego przy użyciu Azure Portal.
 author: asudbring
 ms.service: virtual-network
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: allensu
 ms.openlocfilehash: dce267178c3caf813ccdcac4bba86ccfde3f3421
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75647190"
 ---
-# <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Przenoszenie sieciowej grupy zabezpieczeń platformy Azure do innego regionu przy użyciu witryny Azure portal
+# <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Przenoszenie sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) platformy Azure do innego regionu przy użyciu Azure Portal
 
-Istnieją różne scenariusze, w których chcesz przenieść istniejące cele zabezpieczeń z jednego regionu do drugiego. Na przykład można utworzyć sieciowej grupy zabezpieczeń z tej samej konfiguracji i reguł zabezpieczeń do testowania. Można również przenieść nsg do innego regionu w ramach planowania odzyskiwania po awarii.
+Istnieją różne scenariusze, w których należy przenieść istniejące sieciowych grup zabezpieczeń z jednego regionu do innego. Na przykład możesz chcieć utworzyć sieciowej grupy zabezpieczeń z tą samą konfiguracją i regułami zabezpieczeń na potrzeby testowania. Możesz również przenieść sieciowej grupy zabezpieczeń do innego regionu w ramach planowania odzyskiwania po awarii.
 
-Nie można przenosić grup zabezpieczeń platformy Azure z jednego regionu do drugiego. Można jednak użyć szablonu usługi Azure Resource Manager do wyeksportowania istniejących reguł konfiguracji i zabezpieczeń sieciowej grupy zabezpieczeń.  Następnie można zorganizować zasób w innym regionie, eksportując grupę zabezpieczeń do szablonu, modyfikując parametry zgodne z regionem docelowym, a następnie wdrażając szablon w nowym regionie.  Aby uzyskać więcej informacji na temat Menedżera zasobów i szablonów, zobacz [Szybki start: Tworzenie i wdrażanie szablonów usługi Azure Resource Manager przy użyciu portalu Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Grup zabezpieczeń platformy Azure nie można przenosić z jednego regionu do innego. Można jednak użyć szablonu Azure Resource Manager, aby wyeksportować istniejące reguły konfiguracji i zabezpieczeń sieciowej grupy zabezpieczeń.  Następnie można przemieścić zasób w innym regionie, eksportując sieciowej grupy zabezpieczeń do szablonu, modyfikując parametry w celu dopasowania do regionu docelowego, a następnie wdrożyć szablon w nowym regionie.  Aby uzyskać więcej informacji na temat Menedżer zasobów i szablonów, zobacz [Szybki Start: Tworzenie i wdrażanie szablonów Azure Resource Manager przy użyciu Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Upewnij się, że grupa zabezpieczeń sieci platformy Azure znajduje się w regionie platformy Azure, z którego chcesz przenieść.
+- Upewnij się, że grupa zabezpieczeń sieci platformy Azure znajduje się w regionie świadczenia usługi Azure, z którego chcesz przenieść.
 
-- Nie można przenosić grup zabezpieczeń sieci platformy Azure między regionami.  Musisz skojarzyć nową szkoliwę grupy ndsg z zasobami w regionie docelowym.
+- Nie można przenosić grup zabezpieczeń sieci platformy Azure między regionami.  Należy skojarzyć nowe sieciowej grupy zabezpieczeń z zasobami w regionie docelowym.
 
-- Aby wyeksportować konfigurację sieciowej grupy zabezpieczeń i wdrożyć szablon w celu utworzenia sieciowej grupy zabezpieczeń w innym regionie, musisz mieć rolę współautora sieci lub wyższą.
+- Aby wyeksportować konfigurację sieciowej grupy zabezpieczeń i wdrożyć szablon w celu utworzenia sieciowej grupy zabezpieczeń w innym regionie, musisz mieć rolę współautor sieci lub wyższą.
 
-- Zidentyfikuj układ sieci źródłowej i wszystkie zasoby, których aktualnie używasz. Ten układ obejmuje między innymi moduły równoważenia obciążenia, publiczne adresy IP i sieci wirtualne.
+- Zidentyfikuj układ sieci źródłowej i wszystkie aktualnie używane zasoby. Ten układ obejmuje, ale nie jest ograniczony do modułów równoważenia obciążenia, publicznych adresów IP i sieci wirtualnych.
 
-- Sprawdź, czy subskrypcja platformy Azure umożliwia tworzenie grup zabezpieczeń w regionie docelowym, który jest używany. Skontaktuj się z pomocą techniczną, aby włączyć wymagany limit przydziału.
+- Sprawdź, czy subskrypcja platformy Azure umożliwia tworzenie sieciowych grup zabezpieczeń w regionie docelowym, który jest używany. Skontaktuj się z pomocą techniczną, aby włączyć wymagany limit przydziału.
 
-- Upewnij się, że subskrypcja ma wystarczającą ilość zasobów do obsługi dodatku nsgs dla tego procesu.  Zobacz [Azure subscription and service limits, quotas, and constraints (Limity, przydziały i ograniczenia usługi i subskrypcji platformy Azure)](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
-
-
-## <a name="prepare-and-move"></a>Przygotowanie i przeniesienie
-Poniższe kroki pokazują, jak przygotować grupę zabezpieczeń sieci do przenoszenia reguły konfiguracji i zabezpieczeń przy użyciu szablonu Menedżera zasobów i przenieść reguły konfiguracji sieciowej grupy zabezpieczeń i zabezpieczeń do regionu docelowego za pomocą portalu.
+- Upewnij się, że Twoja subskrypcja ma wystarczającą ilość zasobów, aby obsłużyć Dodawanie sieciowych grup zabezpieczeń dla tego procesu.  Zobacz [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits) (Limity, przydziały i ograniczenia usługi i subskrypcji platformy Azure).
 
 
-### <a name="export-the-template-and-deploy-from-the-portal"></a>Eksportowanie szablonu i wdrażanie z portalu
+## <a name="prepare-and-move"></a>Przygotowywanie i przenoszenie
+Poniższe kroki pokazują, jak przygotować grupę zabezpieczeń sieci dla reguły konfiguracji i zabezpieczeń przenieść przy użyciu szablonu Menedżer zasobów i przenieść reguły konfiguracji i zabezpieczeń sieciowej grupy zabezpieczeń do regionu docelowego przy użyciu portalu.
 
-1. Zaloguj się do**grup zasobów** [portalu](https://portal.azure.com) > Azure .
-2. Znajdź grupę zasobów zawierającą źródłową grupę NSG i kliknij ją.
-3. Wybierz**szablon eksportu** **> Ustawienia** > .
-4. Wybierz **pozycję Wdrażanie** w bloku **Szablon eksportu.**
-5. Kliknij **pozycję SZABLON** > **Edytuj parametry,** aby otworzyć plik **parameters.json** w edytorze online.
-6. Aby edytować parametr nazwy nsg, zmień właściwość **value** w obszarze **parametry:**
+
+### <a name="export-the-template-and-deploy-from-the-portal"></a>Eksportowanie szablonu i wdrażanie go z portalu
+
+1. Zaloguj się do [Azure portal](https://portal.azure.com) > **grup zasobów**Azure Portal.
+2. Znajdź grupę zasobów zawierającą sieciowej grupy zabezpieczeń źródłową i kliknij ją.
+3. Wybierz pozycję > **Ustawienia** > **Eksportuj szablon**.
+4. Wybierz pozycję **Wdróż** w bloku **Eksportuj szablon** .
+5. Kliknij pozycję **szablon** > **Edytuj parametry** , aby otworzyć plik **Parameters. JSON** w edytorze online.
+6. Aby edytować parametr nazwy sieciowej grupy zabezpieczeń, Zmień właściwość **Value** w obszarze **Parametry**:
 
     ```json
             {
@@ -60,13 +60,13 @@ Poniższe kroki pokazują, jak przygotować grupę zabezpieczeń sieci do przeno
             }
     ```
 
-7. Zmień wartość źródłowej grupy NSG w edytorze na wybraną nazwę dla docelowej grupy nsg. Upewnij się, że nazwa jest ujęta w cudzysłowie.
+7. Zmień wartość sieciowej grupy zabezpieczeń źródła w edytorze na nazwę wybraną dla elementu docelowego sieciowej grupy zabezpieczeń. Upewnij się, że nazwa została ujęta w cudzysłów.
 
-8.  Kliknij **pozycję Zapisz** w edytorze.
+8.  Kliknij przycisk **Zapisz** w edytorze.
 
-9.  Kliknij **pozycję Szablon** > **Edytuj szablon,** aby otworzyć plik **template.json** w edytorze online.
+9.  Kliknij pozycję **szablon** > **Edytuj szablon** , aby otworzyć plik **Template. JSON** w edytorze online.
 
-10. Aby edytować region docelowy, w którym zostanie przeniesiona konfiguracja sieciowej grupy zabezpieczeń i reguły zabezpieczeń, zmień właściwość **lokalizacji** w obszarze **zasoby** w edytorze online:
+10. Aby edytować region docelowy, w którym zostaną przeniesione reguły konfiguracji i zabezpieczeń sieciowej grupy zabezpieczeń, Zmień właściwość **Location** w obszarze **zasoby** w edytorze online:
 
     ```json
             "resources": [
@@ -84,11 +84,11 @@ Poniższe kroki pokazują, jak przygotować grupę zabezpieczeń sieci do przeno
 
     ```
 
-11. Aby uzyskać kody lokalizacji regionu, zobacz [Lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Kod dla regionu to nazwa regionu bez spacji, **Central US** = **centralus**.
+11. Aby uzyskać kody lokalizacji regionu, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Kod regionu to nazwa regionu bez spacji, **środkowe stany USA** = **.**
 
-12. Można również zmienić inne parametry w szablonie, jeśli wybierzesz i są opcjonalne w zależności od wymagań:
+12. W przypadku wybrania opcji i opcjonalnych w zależności od wymagań można także zmienić inne parametry szablonu:
 
-    * **Reguły zabezpieczeń** — można edytować reguły wdrożone w docelowej sieciowej grupy zabezpieczeń, dodając lub usuwając reguły do sekcji **securityRules** w pliku **template.json:**
+    * **Reguły zabezpieczeń** — można edytować, które reguły są wdrażane w docelowym sieciowej grupy zabezpieczeń, dodając lub usuwając reguły do sekcji **securityRules** w pliku **Template. JSON** :
 
         ```json
            "resources": [
@@ -124,7 +124,7 @@ Poniższe kroki pokazują, jak przygotować grupę zabezpieczeń sieci do przeno
             }
         ```
 
-      Aby zakończyć dodawanie lub usuwanie reguł w docelowej sieciowej grupy wlekajsz, należy również edytować typy reguł niestandardowych na końcu pliku **template.json** w formacie poniższego przykładu:
+      Aby ukończyć Dodawanie lub usuwanie reguł w docelowym sieciowej grupy zabezpieczeń, należy również edytować niestandardowe typy reguł na końcu pliku **Template. JSON** w formacie poniższego przykładu:
 
       ```json
            {
@@ -151,31 +151,31 @@ Poniższe kroki pokazują, jak przygotować grupę zabezpieczeń sieci do przeno
             }
       ```
 
-13. Kliknij **pozycję Zapisz** w edytorze online.
+13. Kliknij przycisk **Zapisz** w edytorze online.
 
-14. Kliknij **przycisk Basics** > **Subscription,** aby wybrać subskrypcję, w której zostanie wdrożona docelowa grupa nsg.
+14. Kliknij pozycję**subskrypcja** **podstawy** > , aby wybrać subskrypcję, w której zostanie wdrożony docelowy element sieciowej grupy zabezpieczeń.
 
-15. Kliknij pozycję Grupa**zasobów** **BASICS,** > aby wybrać grupę zasobów, w której zostanie wdrożona docelowa grupa zasobów płciowych.  Możesz kliknąć **przycisk Utwórz nowy,** aby utworzyć nową grupę zasobów dla docelowej grupy zasobów grupy roboczej.  Upewnij się, że nazwa nie jest taka sama jak grupa zasobów źródłowych istniejącej grupy zasobów nienasytekowych.
+15. Kliknij pozycję **podstawowe** > **grupy zasobów** , aby wybrać grupę zasobów, w której zostanie wdrożony docelowy element sieciowej grupy zabezpieczeń.  Możesz kliknąć przycisk **Utwórz nowy** , aby utworzyć nową grupę zasobów dla elementu docelowego sieciowej grupy zabezpieczeń.  Upewnij się, że nazwa nie jest taka sama jak źródłowa Grupa zasobów istniejącej sieciowej grupy zabezpieczeń.
 
-16. Sprawdź, czy**lokalizacja** **BASICS** > jest ustawiona na lokalizację docelową, w której chcesz wdrożyć pragę zunifikowanie.
+16. Sprawdź, czy**Lokalizacja** **podstawy** > jest ustawiona na lokalizację docelową, w której ma zostać wdrożone sieciowej grupy zabezpieczeń.
 
-17. Sprawdź w obszarze **USTAWIENIA,** czy nazwa jest zgodna z nazwą wprowadzona w edytorze parametrów powyżej.
+17. Sprawdź, czy w obszarze **Ustawienia** nazwa jest zgodna z nazwą wprowadzoną w edytorze parametrów powyżej.
 
-18. Zaznacz pole w **regulaminie**.
+18. Zaznacz pole wyboru w obszarze **warunki i postanowienia**.
 
-19. Kliknij przycisk **Zakup,** aby wdrożyć docelową grupę zabezpieczeń sieci.
+19. Kliknij przycisk **Kup** , aby wdrożyć docelową grupę zabezpieczeń sieci.
 
 ## <a name="discard"></a>Odrzuć
 
-Jeśli chcesz odrzucić docelową grupę ndsg, usuń grupę zasobów, która zawiera docelową grupę nsg.  Aby to zrobić, wybierz grupę zasobów z pulpitu nawigacyjnego w portalu i wybierz pozycję **Usuń** u góry strony przeglądu.
+Jeśli chcesz odrzucić element docelowy sieciowej grupy zabezpieczeń, Usuń grupę zasobów zawierającą docelowy element sieciowej grupy zabezpieczeń.  Aby to zrobić, wybierz grupę zasobów z pulpitu nawigacyjnego w portalu i wybierz pozycję **Usuń** w górnej części strony przegląd.
 
 ## <a name="clean-up"></a>Czyszczenie
 
-Aby zatwierdzić zmiany i zakończyć przenoszenie grupy roboczej, usuń źródłową grupę nsg lub grupę zasobów. Aby to zrobić, wybierz grupę zabezpieczeń sieci lub grupę zasobów z pulpitu nawigacyjnego w portalu i wybierz **pozycję Usuń** u góry każdej strony.
+Aby zatwierdzić zmiany i zakończyć przenoszenie sieciowej grupy zabezpieczeń, Usuń źródło sieciowej grupy zabezpieczeń lub grupę zasobów. W tym celu wybierz grupę zabezpieczeń sieci lub grupę zasobów z pulpitu nawigacyjnego w portalu i wybierz pozycję **Usuń** w górnej części każdej strony.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przeniesiono grupę zabezpieczeń sieci platformy Azure z jednego regionu do drugiego i oczyściłeś zasoby źródłowe.  Aby dowiedzieć się więcej na temat przenoszenia zasobów między regionami i odzyskiwania po awarii na platformie Azure, zobacz:
+W tym samouczku przeniesiono grupę zabezpieczeń sieci platformy Azure z jednego regionu do innego i wyczyszczono zasoby źródłowe.  Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyskiwaniem po awarii na platformie Azure, zobacz:
 
 
 - [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

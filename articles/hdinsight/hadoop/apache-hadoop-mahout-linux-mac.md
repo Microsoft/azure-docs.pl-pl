@@ -1,6 +1,6 @@
 ---
-title: Generowanie rekomendacji przy użyciu programu Apache Mahout w usłudze Azure HDInsight
-description: Dowiedz się, jak używać biblioteki uczenia maszynowego Apache Mahout do generowania rekomendacji filmowych za pomocą funkcji HDInsight (Hadoop).
+title: Generowanie rekomendacji przy użyciu oprogramowania Apache Mahout w usłudze Azure HDInsight
+description: Dowiedz się, jak wygenerować zalecenia dotyczące filmów za pomocą usługi HDInsight (Hadoop) za pomocą biblioteki Apache Mahout Machine Learning.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,47 +9,47 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/03/2020
 ms.openlocfilehash: 33110e9f1d45fcd11e5f4cad1b589ab929a9472d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75767640"
 ---
-# <a name="generate-movie-recommendations-using-apache-mahout-with-apache-hadoop-in-hdinsight-ssh"></a>Generowanie rekomendacji filmowych przy użyciu Apache Mahout z Apache Hadoop w HDInsight (SSH)
+# <a name="generate-movie-recommendations-using-apache-mahout-with-apache-hadoop-in-hdinsight-ssh"></a>Generowanie zaleceń dotyczących filmów przy użyciu platformy Apache Mahout z Apache Hadoop w usłudze HDInsight (SSH)
 
 [!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
 
-Dowiedz się, jak używać biblioteki uczenia maszynowego [Apache Mahout](https://mahout.apache.org) za pomocą usługi Azure HDInsight do generowania rekomendacji filmowych.
+Dowiedz się, jak generować zalecenia dotyczące filmu przy użyciu biblioteki [Apache Mahout](https://mahout.apache.org) Machine Learning z usługą Azure HDInsight.
 
-Mahout to biblioteka [uczenia maszynowego](https://en.wikipedia.org/wiki/Machine_learning) dla Apache Hadoop. Mahout zawiera algorytmy przetwarzania danych, takie jak filtrowanie, klasyfikacja i klastrowanie. W tym artykule użyjesz aparatu rekomendacji do generowania rekomendacji filmów, które są oparte na filmach, które widzieli twoi znajomi.
+Mahout to biblioteka [uczenia maszynowego](https://en.wikipedia.org/wiki/Machine_learning) dla Apache Hadoop. Mahout zawiera algorytmy przetwarzania danych, takie jak filtrowanie, klasyfikacja i klastrowanie. W tym artykule opisano użycie aparatu rekomendacji do generowania zaleceń dotyczących filmów, które są oparte na oglądanych przez znajomych filmach.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Klaster Apache Hadoop w programie HDInsight. Zobacz [Wprowadzenie do HDInsight w systemie Linux](./apache-hadoop-linux-tutorial-get-started.md).
+Klaster Apache Hadoop w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z usługą HDInsight w systemie Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="apache-mahout-versioning"></a>Apache Mahout przechowywanie wersji
+## <a name="apache-mahout-versioning"></a>Obsługa wersji oprogramowania Apache Mahout
 
-Aby uzyskać więcej informacji na temat wersji programu Mahout w formacie HDInsight, zobacz [wersje HDInsight i komponenty Apache Hadoop](../hdinsight-component-versioning.md).
+Aby uzyskać więcej informacji na temat wersji programu Mahout w usłudze HDInsight, zobacz [wersje usługi HDInsight i składniki Apache Hadoop](../hdinsight-component-versioning.md).
 
-## <a name="understanding-recommendations"></a>Zrozumienie zaleceń
+## <a name="understanding-recommendations"></a>Omówienie zaleceń
 
-Jedną z funkcji, która jest dostarczana przez Mahout jest aparat rekomendacji. Ten aparat akceptuje dane w `userID` `itemId`formacie `prefValue` , i (preferencja dla elementu). Mahout może następnie przeprowadzić analizę współodpadową w celu określenia: *użytkownicy, którzy preferują element, mają również preferencje dla tych innych elementów.* Mahout następnie określa użytkowników z preferencjami podobnych elementów, które mogą służyć do tworzenia zaleceń.
+Jedną z funkcji dostarczanych przez Mahout jest aparat rekomendacji. Ten aparat akceptuje dane w formacie `userID`, `itemId`i `prefValue` (Preferencja dla elementu). Mahout może następnie wykonać analizę wspólnego wystąpienia, aby określić: *Użytkownicy, którzy mają preferencję dla elementu, również mają preferencję dla tych innych elementów*. Mahout następnie określa użytkowników z preferencjami podobne elementy, które mogą służyć do uzyskania rekomendacji.
 
-Następujący przepływ pracy jest uproszczonym przykładem, w który użyto danych filmowych:
+Poniższy przepływ pracy to uproszczony przykład, który używa danych filmowych:
 
-* **Co-occurrence**: Joe, Alice i Bob wszyscy lubili *Star Wars*, *Imperium kontratakuje*i *Powrót Jedi*. Mahout określa, że użytkownicy, którzy lubią jeden z tych filmów również jak pozostałe dwa.
+* **Wspólne wystąpienie**: Jan, Alicja i Robert wszystkie Niemniej *,* *Empire uderzają z powrotem*i *zwracają Jedi*. Mahout określa, że użytkownicy, którzy lubią jeden z tych filmów, lubią również pozostałe dwa.
 
-* **Współwystępowanie:** Bob i Alice również lubił *Phantom Menace*, *Attack of the Clones*i Revenge of the *Sith*. Mahout określa, że użytkownicy, którzy lubili poprzednie trzy filmy również lubią te trzy filmy.
+* **Wspólne wystąpienie**: Robert i Alicja również polubili *Menace Fantom*, *atakujący klony*i *Revenge Sith*. Mahout określa, że użytkownicy, którzy lubią poprzednie trzy filmy, również lubią te trzy filmy.
 
-* **Zalecenie podobieństwa:** Ponieważ Joe lubił pierwsze trzy filmy, Mahout patrzy na filmy, które inni o podobnych preferencjach lubili, ale Joe nie oglądał (lubił / oceniał). W tym przypadku Mahout poleca *The Phantom Menace*, *Attack of the Clones*i *Revenge of the Sith.*
+* **Zalecenie dotyczące podobieństwa**: ze względu na to, że Jan polubili pierwsze trzy filmy, Mahout przegląda filmy, które przypominają inne podobne preferencje, ale Janusz nie zobaczył (podobieństwa/sklasyfikowany). W takim przypadku Mahout zaleca *Fantom Menace*, *ataki klonów*i *Revenge Sith*.
 
-### <a name="understanding-the-data"></a>Opis danych
+### <a name="understanding-the-data"></a>Zrozumienie danych
 
-[GroupLens Research](https://grouplens.org/datasets/movielens/) zapewnia dane ratingowe dla filmów w formacie zgodnym z mahoutem. Te dane są dostępne w domyślnym `/HdiSamples/HdiSamples/MahoutMovieData`magazynie klastra pod adresem .
+Wygodnie [GroupLens Research](https://grouplens.org/datasets/movielens/) udostępnia dane klasyfikacji dla filmów w formacie zgodnym z Mahout. Te dane są dostępne w domyślnym magazynie klastra pod adresem `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-Istnieją dwa pliki `moviedb.txt` `user-ratings.txt`i . Plik `user-ratings.txt` jest używany podczas analizy. Jest `moviedb.txt` używany do dostarczania przyjaznych dla użytkownika informacji tekstowych podczas przeglądania wyników.
+Istnieją dwa pliki `moviedb.txt` i `user-ratings.txt`. Ten `user-ratings.txt` plik jest używany podczas analizy. `moviedb.txt` Służy do udostępniania informacji tekstowych przyjaznych dla użytkownika podczas przeglądania wyników.
 
-Dane zawarte w `user-ratings.txt` ma strukturę `movieID` `userRating` `userID`, `timestamp`, i , który wskazuje, jak wysoko każdy użytkownik ocenił film. Oto przykład danych:
+Dane zawarte w programie `user-ratings.txt` mają strukturę `userID`, `movieID`, `userRating`, i `timestamp`, która wskazuje, jak wysoce każdy użytkownik ocenił film. Oto przykład danych:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -59,20 +59,20 @@ Dane zawarte w `user-ratings.txt` ma strukturę `movieID` `userRating` `userID`,
 
 ## <a name="run-the-analysis"></a>Uruchamianie analizy
 
-1. Użyj [polecenia ssh,](../hdinsight-hadoop-linux-use-ssh-unix.md) aby połączyć się z klastrem. Edytuj poniższe polecenie, zastępując clustername nazwą klastra, a następnie wprowadź polecenie:
+1. Użyj [polecenia SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) do nawiązania połączenia z klastrem. Edytuj poniższe polecenie, zastępując wartość CLUSTERname nazwą klastra, a następnie wprowadź polecenie:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Aby uruchomić zadanie rekomendacji, użyj następującego polecenia:
+1. Użyj następującego polecenia, aby uruchomić zadanie rekomendacji:
 
     ```bash
     mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
     ```
 
 > [!NOTE]  
-> Zadanie może potrwać kilka minut, aby zakończyć i może uruchomić wiele mapreduce zadań.
+> Ukończenie zadania może potrwać kilka minut i może działać wiele zadań MapReduce.
 
 ## <a name="view-the-output"></a>Wyświetlanie danych wyjściowych
 
@@ -91,24 +91,24 @@ Dane zawarte w `user-ratings.txt` ma strukturę `movieID` `userRating` `userID`,
     4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
     ```
 
-    Pierwsza kolumna `userID`to . Wartości zawarte w '[' i ']' to: `movieId``recommendationScore`.
+    Pierwsza kolumna to `userID`. Wartości zawarte w "[" i "]" są `movieId`następujące:`recommendationScore`.
 
-2. Można użyć danych wyjściowych, wraz z moviedb.txt, aby zapewnić więcej informacji na temat zaleceń. Najpierw skopiuj pliki lokalnie za pomocą następujących poleceń:
+2. Możesz użyć danych wyjściowych wraz z MovieDB. txt, aby uzyskać więcej informacji na temat zaleceń. Najpierw skopiuj pliki przy użyciu następujących poleceń:
 
     ```bash
     hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
     hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
     ```
 
-    To polecenie kopiuje dane wyjściowe do pliku o nazwie **recommendations.txt** w bieżącym katalogu wraz z plikami danych filmu.
+    To polecenie kopiuje dane wyjściowe do pliku o nazwie **rekomendacje. txt** w bieżącym katalogu wraz z plikami danych filmu.
 
-3. Użyj następującego polecenia, aby utworzyć skrypt języka Python, który wyszukuje nazwy filmów dla danych w danych wyjściowych zaleceń:
+3. Użyj następującego polecenia, aby utworzyć skrypt języka Python, który wyszukuje nazwy filmów w danych wyjściowych zaleceń:
 
     ```bash
     nano show_recommendations.py
     ```
 
-    Po otwarciu edytora użyj następującego tekstu jako zawartości pliku:
+    Gdy Edytor zostanie otwarty, użyj następującego tekstu jako zawartości pliku:
 
    ```python
    #!/usr/bin/env python
@@ -162,23 +162,23 @@ Dane zawarte w `user-ratings.txt` ma strukturę `movieID` `userRating` `userID`,
    print "------------------------"
    ```
 
-    Naciśnij **klawisze Ctrl-X**, **Y**, a na koniec **klawisz Enter,** aby zapisać dane.
+    Naciśnij **klawisze Ctrl-X**, **Y**i **Enter** , aby zapisać dane.
 
-4. Uruchom skrypt Języka Python. Następujące polecenie zakłada, że znajdujesz się w katalogu, w którym pobrano wszystkie pliki:
+4. Uruchom skrypt języka Python. Następujące polecenie założono, że jesteś w katalogu, w którym wszystkie pliki zostały pobrane:
 
     ```bash
     python show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
 
-    To polecenie analizuje zalecenia wygenerowane dla identyfikatora użytkownika 4.
+    To polecenie sprawdza zalecenia wygenerowane dla użytkownika o IDENTYFIKATORze 4.
 
-   * Plik **user-ratings.txt** służy do pobierania filmów, które zostały ocenione.
+   * Plik **User-ratings. txt** służy do pobierania przeklasyfikowanych filmów.
 
-   * Plik **moviedb.txt** służy do pobierania nazw filmów.
+   * Plik **MovieDB. txt** służy do pobierania nazw filmów.
 
-   * **Recommendations.txt** służy do pobierania rekomendacji filmu dla tego użytkownika.
+   * **Zalecenia. txt** są używane do pobierania zaleceń dotyczących filmu dla tego użytkownika.
 
-     Dane wyjściowe z tego polecenia są podobne do następującego tekstu:
+     Dane wyjściowe tego polecenia są podobne do następującego tekstu:
 
         ```output
         Seven Years in Tibet (1997), score=5.0
@@ -192,22 +192,22 @@ Dane zawarte w `user-ratings.txt` ma strukturę `movieID` `userRating` `userID`,
         Time to Kill, A (1996), score=5.0
         ```
 
-## <a name="delete-temporary-data"></a>Usuwanie danych tymczasowych
+## <a name="delete-temporary-data"></a>Usuń dane tymczasowe
 
-Zadania Mahout nie usuwają tymczasowych danych, które są tworzone podczas przetwarzania zadania. Parametr `--tempDir` jest określony w przykładowym zadaniu, aby wyizolować pliki tymczasowe do określonej ścieżki w celu łatwego usunięcia. Aby usunąć pliki tymczasowe, użyj następującego polecenia:
+Zadania Mahout nie usuwają danych tymczasowych, które są tworzone podczas przetwarzania zadania. `--tempDir` Parametr jest określony w przykładowym zadaniu do izolowania plików tymczasowych do określonej ścieżki w celu łatwego usunięcia. Aby usunąć pliki tymczasowe, użyj następującego polecenia:
 
 ```bash
 hdfs dfs -rm -f -r /temp/mahouttemp
 ```
 
 > [!WARNING]  
-> Jeśli chcesz ponownie uruchomić polecenie, należy również usunąć katalog wyjściowy. Aby usunąć ten katalog, użyj następujących elementów:
+> Jeśli chcesz ponownie uruchomić polecenie, musisz również usunąć katalog wyjściowy. Aby usunąć ten katalog, wykonaj następujące czynności:
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy już wiesz, jak korzystać z programu Mahout, odkryj inne sposoby pracy z danymi w programie HDInsight:
+Teraz, gdy wiesz już, jak korzystać z usługi Mahout, odkryj inne sposoby pracy z danymi w usłudze HDInsight:
 
-* [Ul Apache z hdinsight](hdinsight-use-hive.md)
-* [MapReduce z HDInsight](hdinsight-use-mapreduce.md)
+* [Apache Hive z usługą HDInsight](hdinsight-use-hive.md)
+* [MapReduce z usługą HDInsight](hdinsight-use-mapreduce.md)

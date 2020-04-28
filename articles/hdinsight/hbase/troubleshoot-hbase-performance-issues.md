@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów z wydajnością oprogramowania Apache HBase w usłudze Azure HDInsight
-description: Różne wskazówki dotyczące dostrajania wydajności Apache HBase i wskazówki dotyczące uzyskiwania optymalnej wydajności w usłudze Azure HDInsight.
+description: Różne wskazówki i wskazówki dotyczące dostrajania wydajności usługi Apache HBase w celu uzyskania optymalnej wydajności w usłudze Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,84 +8,84 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75887159"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Rozwiązywanie problemów z wydajnością oprogramowania Apache HBase w usłudze Azure HDInsight
 
-W tym artykule opisano różne wskazówki dotyczące dostrajania wydajności apache HBase i wskazówki dotyczące uzyskiwania optymalnej wydajności w usłudze Azure HDInsight. Wiele z tych wskazówek zależy od określonego obciążenia i wzorca odczytu/zapisu/skanowania. Przed zastosowaniem zmian konfiguracji w środowisku produkcyjnym należy dokładnie je przetestować.
+W tym artykule opisano różne wskazówki i wskazówki dotyczące dostrajania wydajności usługi Apache HBase w celu uzyskania optymalnej wydajności w usłudze Azure HDInsight. Wiele z tych wskazówek zależą od określonego obciążenia i wzorca odczytu/zapisu/skanowania. Przed zastosowaniem zmian w konfiguracji w środowisku produkcyjnym należy je dokładnie przetestować.
 
-## <a name="hbase-performance-insights"></a>Szczegółowe informacje o wydajności bazy danych HBase
+## <a name="hbase-performance-insights"></a>Szczegółowe informacje o wydajności HBase
 
-Głównym wąskim gardłem w większości obciążeń HBase jest Dziennik zapisu z wyprzedzeniem (WAL). To poważnie wpływa na wydajność zapisu. HDInsight HBase ma oddzielny model obliczeniowy magazynu. Dane są przechowywane zdalnie w usłudze Azure Storage, nawet jeśli maszyny wirtualne obsługują serwery regionu. Do niedawna wal został również napisany do usługi Azure Storage. W umiań HD, to zachowanie wzmocniło to wąskie gardło. Funkcja [Przyspieszone zapisy](./apache-hbase-accelerated-writes.md) ma na celu rozwiązanie tego problemu. Zapisuje wa w dyskach zarządzanych w usłudze Azure Premium SSD. To ogromnie korzyści wydajności zapisu i pomaga wiele problemów napotykanych przez niektóre obciążenia intensywnie zapisu.
+Największe wąskie gardło w większości obciążeń HBase to zapis z wyprzedzeniem (WAL). Znacznie wpływa na wydajność zapisu. Usługa HDInsight HBase ma rozdzielony model obliczeniowy magazynu. Dane są przechowywane zdalnie w usłudze Azure Storage, mimo że maszyny wirtualne hostuje serwery regionów. Do ostatniego zapisywana była również usługa Azure Storage. W usłudze HDInsight to zachowanie wzmacnia ten wąskie gardło. Funkcja [szybsze zapisy](./apache-hbase-accelerated-writes.md) została zaprojektowana w celu rozwiązania tego problemu. Zapisuje on dane w WAL na dyskach zarządzanych przez usługę Azure SSD w warstwie Premium. Ta nieznacznie zaletuje wydajność zapisu i ułatwia wiele problemów spowodowanych przez niektóre obciążenia intensywnie korzystające z pisania.
 
-Aby uzyskać znaczną poprawę operacji odczytu, użyj [konta magazynu obiektów blob w wersji Premium](https://azure.microsoft.com/blog/azure-premium-block-blob-storage-is-now-generally-available/) jako magazynu zdalnego. Ta opcja jest możliwa tylko wtedy, gdy funkcja WAL jest włączona.
+Aby uzyskać znaczące ulepszenia operacji odczytu, użyj [konta blokowego Premium BLOB Storage](https://azure.microsoft.com/blog/azure-premium-block-blob-storage-is-now-generally-available/) jako magazynu zdalnego. Ta opcja jest możliwa tylko wtedy, gdy funkcja WAL jest włączona.
 
-## <a name="compaction"></a>Zagęszczania
+## <a name="compaction"></a>Kompaktowania
 
-Zagęszczanie jest kolejnym potencjalnym wąskim gardłem, które jest zasadniczo uzgodnione w społeczności. Domyślnie główne zagęszczanie jest wyłączone w klastrach HDInsight HBase. Zagęszczanie jest wyłączone, ponieważ mimo że jest to proces intensywnie korzystający z zasobów, klienci mają pełną elastyczność, aby zaplanować go zgodnie z ich obciążeń. Na przykład mogą zaplanować go poza godzinami szczytu. Ponadto lokalizacja danych nie jest problemem, ponieważ nasz magazyn jest zdalny (wspierany przez usługę Azure Storage) zamiast lokalnego systemu rozproszonych plików (HDFS) usługi Hadoop.
+Kompaktowanie to kolejne potencjalne wąskie gardło, które jest zasadniczo uzgadniane w społeczności. Domyślnie kompaktowanie główne jest wyłączone w klastrach usługi HDInsight HBase. Kompaktowanie jest wyłączone, ponieważ chociaż jest to proces intensywnie obciążający zasoby, klienci mają pełną elastyczność, aby zaplanować ją zgodnie z ich obciążeniami. Na przykład mogą zaplanować je w godzinach poza godzinami szczytu. Ponadto nie jest to problem, ponieważ nasz magazyn jest zdalny (za pomocą usługi Azure Storage), a nie do lokalnego rozproszony system plików Hadoop (HDFS).
 
-Klienci powinni zaplanować duże zagęszczenie w dogodnie. Jeśli nie wykonają tej konserwacji, zagęszczanie niekorzystnie wpłynie na wydajność odczytu na dłuższą metę.
+Klienci powinni zaplanować główne kompaktowanie w ich wygodie. Jeśli nie wykonują tej konserwacji, kompaktowanie będzie niekorzystnie wpłynąć na wydajność odczytu w długim przebiegu.
 
-W przypadku operacji skanowania oznacza opóźnienia, które są znacznie wyższe niż 100 milisekund, powinny być powodem do niepokoju. Sprawdź, czy główne zagęszczenie zostało dokładnie zaplanowane.
+W przypadku operacji skanowania średnie opóźnienia, które są znacznie większe niż 100 milisekund, powinny być przyczyną problemu. Sprawdź, czy Poprzednia wersja kompaktowania została dokładnie zaplanowana.
 
-## <a name="apache-phoenix-workload"></a>Obciążenie apache Phoenix
+## <a name="apache-phoenix-workload"></a>Obciążenie Apache Phoenix
 
-Udzielenie odpowiedzi na następujące pytania pomoże Ci lepiej zrozumieć obciążenie apache phoenix:
+Udzielenie odpowiedzi na następujące pytania pomoże Ci lepiej zrozumieć Apache Phoenix obciążenie:
 
-* Czy wszystkie twoje "odczyty" przekładają się na skany?
+* Czy wszystkie Twoje "odczyty" są używane do skanowania?
     * Jeśli tak, jakie są cechy tych skanów?
-    * Czy zoptymalizowałeś schemat tabeli Phoenix pod kątem tych skanów, w tym odpowiedniego indeksowania?
-* Czy użyłeś `EXPLAIN` instrukcji, aby zrozumieć plany kwerendy generowane przez "odczyty"?
-* Czy twoje zapisy "upsert-selects"?
-    * Jeśli tak, będą również robić skany. Oczekiwane opóźnienie skanowania wynosi średnio około 100 milisekund, w porównaniu do 10 milisekund dla punktu dostaje w HBase.  
+    * Czy schemat tabeli platformy Phoenix został zoptymalizowany dla tych skanów, w tym do odpowiedniego indeksowania?
+* Czy użyto `EXPLAIN` instrukcji, aby zrozumieć plany zapytania dotyczące generowania "operacji odczytu"?
+* Czy Twoje zapisy to "upsert-Select"?
+    * Jeśli tak, również będą wykonywały skanowanie. Oczekiwane opóźnienie skanowania orednie około 100 milisekund, w porównaniu do 10 milisekund dla punktu, w HBase.  
 
-## <a name="test-methodology-and-metrics-monitoring"></a>Metodologia badań i monitorowanie metryk
+## <a name="test-methodology-and-metrics-monitoring"></a>Metodologia testowania i monitorowanie metryk
 
-Jeśli używasz testów porównawczych, takich jak Yahoo! Cloud Serving Benchmark, JMeter lub Pherf, aby przetestować i dostroić wydajność, upewnij się, że:
+Jeśli używasz testów porównawczych, takich jak Yahoo! Chmura obsługująca testy porównawcze, JMeter lub Pherf do testowania i dostrajania wydajności, należy upewnić się, że:
 
-- Maszyny klienckie nie stają się wąskim gardłem. Aby to zrobić, sprawdź użycie procesora CPU na komputerach klienckich.
+- Komputery klienckie nie stają się wąskim gardłem. W tym celu należy sprawdzić użycie procesora CPU na komputerach klienckich.
 
-- Konfiguracje po stronie klienta, podobnie jak liczba wątków, są odpowiednio dostrojone, aby nasycić przepustowość klienta.
+- Konfiguracje po stronie klienta, takie jak liczba wątków, są odpowiednio dopasowane, aby zwiększyć nasycenie przepustowości klienta.
 
-- Wyniki badań są rejestrowane dokładnie i systematycznie.
+- Wyniki testu są rejestrowane dokładnie i systematycznie.
 
-Jeśli zapytania nagle zaczął robić znacznie gorzej niż wcześniej, sprawdź potencjalne błędy w kodzie aplikacji. Czy nagle generuje duże ilości nieprawidłowych danych? Jeśli tak, może zwiększyć opóźnienia odczytu.
+Jeśli zapytania nagle rozpoczęły działanie znacznie gorszy niż wcześniej, sprawdź, czy w kodzie aplikacji są możliwe usterki. Czy nagle generuje duże ilości nieprawidłowych danych? Jeśli tak, może to wydłużyć opóźnienia odczytu.
 
 ## <a name="migration-issues"></a>Problemy z migracją
 
-Jeśli przeprowadzasz migrację do usługi Azure HDInsight, upewnij się, że migracja odbywa się systematycznie i dokładnie, najlepiej za pośrednictwem automatyzacji. Unikaj migracji ręcznej. Upewnij się, że:
+W przypadku migrowania do usługi Azure HDInsight upewnij się, że migracja jest przeprowadzana systematycznie i dokładnie, najlepiej za pośrednictwem automatyzacji. Unikaj ręcznej migracji. Upewnij się, że:
 
-- Atrybuty tabeli są migrowane dokładnie. Atrybuty mogą obejmować kompresję, filtry kwitnienia i tak dalej.
+- Atrybuty tabeli są migrowane dokładnie. Atrybuty mogą obejmować kompresję, filtry rozwinięte i tak dalej.
 
-- Ustawienia soli w tabelach Phoenix są odpowiednio mapowane na nowy rozmiar klastra. Na przykład liczba zasobników soli powinna być wielokrotnością liczby węzłów procesu roboczego w klastrze. I należy użyć wielu, które jest czynnikiem ilości hot spotting.
+- Ustawienia Sole w tabelach w Phoenix są mapowane odpowiednio do nowego rozmiaru klastra. Na przykład liczba zasobników soli powinna być wielokrotnością liczby węzłów procesu roboczego w klastrze. I należy użyć wielu, która jest czynnikiem ilości gorącej wykrywania trendów.
 
-## <a name="server-side-configuration-tunings"></a>Strojenie konfiguracji po stronie serwera
+## <a name="server-side-configuration-tunings"></a>Dostrajania konfiguracji po stronie serwera
 
-W hdinsight HBase HFiles są przechowywane w magazynie zdalnym. Gdy istnieje brak pamięci podręcznej, koszt odczytów jest wyższy niż w systemach lokalnych, ponieważ dane w systemach lokalnych są wspierane przez lokalny system HDFS. W większości scenariuszy inteligentne użycie pamięci podręcznej HBase (pamięć podręczna bloku i pamięć podręczna zasobników) jest przeznaczony do obejścia tego problemu. W przypadkach, gdy problem nie jest obchodzony, przy użyciu konta bloku premii blob może pomóc w tym problemie. Sterownik obiektów blob usługi Windows Azure Storage `fs.azure.read.request.size` opiera się na niektórych właściwości, takich jak pobieranie danych w blokach na podstawie tego, co określa do odczytu tryb (sekwencyjne i losowe), więc może nadal być wystąpienia wyższych opóźnień z odczytów. Dzięki eksperymentom empirycznym odkryliśmy, że ustawienie`fs.azure.read.request.size`rozmiaru bloku żądania odczytu ( ) na 512 KB i dopasowanie rozmiaru bloku tabel HBase do tego samego rozmiaru daje najlepszy wynik w praktyce.
+W usłudze HDInsight HBase HFiles są przechowywane w magazynie zdalnym. W przypadku braku miejsca w pamięci podręcznej koszt odczytu jest wyższy niż w przypadku systemów lokalnych, ponieważ dane w systemach lokalnych są obsługiwane przez lokalny system plików HDFS. W przypadku większości scenariuszy inteligentne użycie pamięci podręcznej HBase (pamięć podręczna bloków i pamięć podręczna zasobników) zostało zaprojektowane w celu obejścia tego problemu. W przypadkach, gdy problem nie jest omijany, użycie konta blokowego obiektu BLOB w warstwie Premium może pomóc w tym problemie. Sterownik Azure Storage Blob systemu Windows opiera się na pewnych właściwościach, `fs.azure.read.request.size` takich jak pobieranie danych w blokach na podstawie tego, co jest określane jako tryb odczytu (sekwencyjne i losowe), dzięki czemu mogą być nadal wystąpienia większej liczby opóźnień z odczytami. W wyniku eksperymentów doświadczalnych znaleźliśmy, że ustawienie rozmiaru bloku żądania odczytu (`fs.azure.read.request.size`) na 512 KB i dopasowanie rozmiaru bloku tabel HBase do tego samego rozmiaru daje najlepszy wynik.
 
-W przypadku większości klastrów węzłów o dużym `bucketcache` rozmiarze usługa HDInsight HBase udostępnia jako plik na lokalnym `regionservers`dysku SSD premium dołączonym do maszyny wirtualnej, która działa. Zamiast tego użycie pamięci podręcznej poza stertą może zapewnić pewną poprawę. To obejście ma ograniczenie korzystania z dostępnej pamięci i potencjalnie jest mniejsza niż pamięć podręczna oparta na plikach, więc nie zawsze może być najlepszym wyborem.
+W przypadku większości klastrów węzłów o dużej wielkości Usługa HDInsight HBase `bucketcache` udostępnia jako plik w lokalnym SSD w warstwie Premium, który jest podłączony do maszyny wirtualnej, która jest uruchamiana `regionservers`. Użycie pamięci podręcznej poza stertą może zapewnić pewne udoskonalenia. To obejście ma ograniczenie wykorzystania dostępnej pamięci i potencjalnie mniejszej niż pamięć podręczna oparta na plikach, dzięki czemu może nie zawsze być najlepszym wyborem.
 
-Oto niektóre z innych konkretnych parametrów, które dostroiliśmy, i które wydawały się pomagać w różnym stopniu:
+Poniżej przedstawiono niektóre z innych określonych parametrów, które zostały dostrojone i które były pomocne w różnych stopniach:
 
-- Zwiększ `memstore` rozmiar z domyślnego 128 MB do 256 MB. Zazwyczaj to ustawienie jest zalecane w przypadku scenariuszy zapisu ciężkich.
+- Zwiększ `memstore` rozmiar z domyślnych 128 mb do 256 MB. Zwykle to ustawienie jest zalecane w przypadku dużych scenariuszy zapisu.
 
-- Zwiększ liczbę wątków przeznaczonych do zagęszczania, z domyślnego ustawienia **1** do **4**. To ustawienie jest istotne, jeśli obserwujemy częste drobne zagęszczenia.
+- Zwiększ liczbę wątków, które są dedykowane dla kompaktowania, z domyślnego ustawienia od **1** do **4**. To ustawienie ma zastosowanie, jeśli obserwujemy często drobne kompakty.
 
-- Należy `memstore` unikać blokowania opróżniania ze względu na limit sklepu. Aby zapewnić ten bufor, należy zwiększyć `Hbase.hstore.blockingStoreFiles` ustawienie do **100**.
+- Unikaj `memstore` blokowania opróżniania z powodu limitu magazynu. Aby podać ten bufor, zwiększ wartość `Hbase.hstore.blockingStoreFiles` ustawienia na **100**.
 
-- Aby kontrolować spłukiwanie, należy użyć następujących ustawień:
+- Aby kontrolować opróżnianie, użyj następujących ustawień:
 
-    - `Hbase.regionserver.maxlogs`: **140** (pozwala uniknąć spłukiwania z powodu limitów WAL)
+    - `Hbase.regionserver.maxlogs`: **140** (unika opróżniania z powodu limitów Wal)
 
     - `Hbase.regionserver.global.memstore.lowerLimit`: **0,55**
 
     - `Hbase.regionserver.global.memstore.upperLimit`: **0,60**
 
-- Konfiguracje specyficzne dla phoenix do strojenia puli wątków:
+- Konfiguracje specyficzne dla platformy Phoenix dla dostrajania puli wątków:
 
     - `Phoenix.query.queuesize`: **10000**
 
@@ -93,7 +93,7 @@ Oto niektóre z innych konkretnych parametrów, które dostroiliśmy, i które w
 
 - Inne konfiguracje specyficzne dla Phoenix:
 
-    - `Phoenix.rpc.index.handler.count`: **50** (jeśli istnieje duże lub wiele odnośnych indeksów)
+    - `Phoenix.rpc.index.handler.count`: **50** (jeśli istnieją duże lub liczne wyszukiwania indeksów)
 
     - `Phoenix.stats.updateFrequency`: **1 godzina**
 
@@ -101,27 +101,27 @@ Oto niektóre z innych konkretnych parametrów, które dostroiliśmy, i które w
 
     - `Phoenix.coprocessor.maxmetadatacachesize`: **50 MB**
 
-- Limity czasu RPC: **3 minuty**
+- Limity czasu wywołań RPC: **3 minuty**
 
-   - Limity czasu RPC obejmują limit czasu HBase RPC, limit czasu skanera klienta HBase i limit czasu zapytania Phoenix. 
-   - Upewnij się, `hbase.client.scanner.caching` że parametr jest ustawiony na tę samą wartość zarówno na końcu serwera, jak i na końcu klienta. Jeśli nie są takie same, to ustawienie prowadzi do błędów `OutOfOrderScannerException`po stronie klienta, które są związane z . To ustawienie powinno być ustawione na niską wartość dla dużych skanów. Ustawiliśmy tę wartość na **100**.
+   - Limity czasu wywołań RPC obejmują limit czasu usługi HBase RPC, limit czasu skanera klienta HBase i limit czasu zapytania w Phoenix. 
+   - Upewnij się, że `hbase.client.scanner.caching` parametr jest ustawiony na tę samą wartość zarówno na końcu serwera, jak i na końcu klienta. Jeśli nie są one takie same, to ustawienie prowadzi do błędów klienta, które są powiązane z `OutOfOrderScannerException`. Dla tego ustawienia należy ustawić niską wartość dla dużych skanów. Ta wartość jest ustawiana na **100**.
 
 ## <a name="other-considerations"></a>Inne zagadnienia
 
-Poniżej przedstawiono dodatkowe parametry, które należy wziąć pod uwagę:
+Poniżej znajdują się dodatkowe parametry, które należy wziąć pod uwagę:
 
-- `Hbase.rs.cacheblocksonwrite`– domyślnie w hdi, to ustawienie jest ustawione na **true**.
+- `Hbase.rs.cacheblocksonwrite`— Domyślnie w HDI, to ustawienie ma **wartość true**.
 
-- Ustawienia, które umożliwiają odroczenie drobnego zagęszczania na później.
+- Ustawienia, które zezwalają na odroczenie mniejszych kompaktowania w przyszłości.
 
-- Ustawienia eksperymentalne, takie jak dostosowywanie procentów kolejek zarezerwowanych dla żądań odczytu i zapisu.
+- Ustawienia eksperymentalne, takie jak dopasowanie wartości procentowej kolejek, które są zarezerwowane dla żądań odczytu i zapisu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli problem pozostaje nierozwiązany, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy technicznej:
+Jeśli problem nie zostanie rozwiązany, odwiedź jeden z następujących kanałów, aby uzyskać dodatkowe wsparcie:
 
-- Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej platformy Azure Community.](https://azure.microsoft.com/support/community/)
+- Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-- Połącz [@AzureSupport](https://twitter.com/azuresupport)się z . Jest to oficjalne konto platformy Microsoft Azure w celu poprawy jakości obsługi klienta. Łączy społeczność platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+- Połącz się [@AzureSupport](https://twitter.com/azuresupport)z. Jest to oficjalne konto Microsoft Azure na potrzeby ulepszania środowiska klienta. Łączy społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
 
-- Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy z [witryny Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wybierz **pozycję Obsługa z** paska menu lub otwórz centrum pomocy + pomocy **technicznej.** Aby uzyskać bardziej szczegółowe informacje, zapoznaj [się z instrukcjami tworzenia żądania pomocy technicznej platformy Azure.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) Subskrypcja platformy Microsoft Azure obejmuje dostęp do obsługi zarządzania subskrypcjami i rozliczeń, a pomoc techniczna jest świadczona za pośrednictwem jednego z [planów pomocy technicznej platformy Azure.](https://azure.microsoft.com/support/plans/)
+- Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Twoja subskrypcja Microsoft Azure obejmuje dostęp do zarządzania subskrypcjami i rozliczeń, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

@@ -1,6 +1,6 @@
 ---
-title: Połącz się z Facebookiem
-description: Automatyzuj zadania i przepływy pracy, które zarządzają osią czasu i strony facebooka za pomocą usługi Azure Logic Apps
+title: Łączenie z serwisem Facebook
+description: Automatyzowanie zadań i przepływów pracy, które zarządzają osią czasu i stroną w serwisie Facebook przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,37 +8,37 @@ ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
 ms.openlocfilehash: 803453291b5cab2c51fec6641f8b096f62336325
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75665806"
 ---
-# <a name="manage-your-facebook-timeline-and-page-by-using-azure-logic-apps"></a>Zarządzanie osią czasu i stroną na Facebooku za pomocą usługi Azure Logic Apps
+# <a name="manage-your-facebook-timeline-and-page-by-using-azure-logic-apps"></a>Zarządzanie osią czasu i stroną w serwisie Facebook przy użyciu Azure Logic Apps
 
-Połącz się z Facebookiem i publikuj na osi czasu, pobierz kanał strony i nie tylko. Dzięki Facebookowi możesz:
+Nawiąż połączenie z serwisem Facebook i Opublikuj je na osi czasu, Pobierz kanał informacyjny strony i nie tylko. W usłudze Facebook można:
 
-* Zbuduj przepływ swojej firmy na podstawie danych, które otrzymujesz z Facebooka. 
-* Użyj wyzwalacza po odebraniu nowego wpisu.
-* Użyj akcji, które publikują posty na osi czasu, pobierz kanał informacyjny strony i nie tylko. Te akcje uzyskać odpowiedź, a następnie udostępnić dane wyjściowe dla innych akcji. Na przykład, gdy na twojej osi czasu znajduje się nowy post, możesz go opublikować i przesunąć do kanału na Twitterze. 
+* Utwórz przepływ biznesowy na podstawie danych uzyskanych z serwisu Facebook. 
+* Użyj wyzwalacza, gdy zostanie odebrany nowy wpis.
+* Użyj akcji, które są ogłaszane na osi czasu, uzyskaj kanał informacyjny strony i nie tylko. Te akcje odbierają odpowiedź, a następnie udostępniają dane wyjściowe dla innych akcji. Na przykład, gdy na osi czasu jest nowy wpis, możesz wykonać ten wpis i wypchnąć go do kanału informacyjnego usługi Twitter. 
 
-Możesz rozpocząć, tworząc aplikację logiki teraz, zobacz [Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Teraz możesz zacząć od utworzenia aplikacji logiki, zobacz [Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="create-a-connection-to-facebook"></a>Tworzenie połączenia z Facebookiem
+## <a name="create-a-connection-to-facebook"></a>Utwórz połączenie z usługą Facebook
 
-Po dodaniu tego łącznika do aplikacji logiki należy autoryzować aplikacje logiki, aby połączyć się z Facebookiem.
+Po dodaniu tego łącznika do usługi Logic Apps musisz autoryzować Aplikacje logiki, aby połączyć się z serwisem Facebook.
 
-1. Zaloguj się na swoje konto na Facebooku.
+1. Zaloguj się do swojego konta w serwisie Facebook.
 
-2. Wybierz **pozycję Autoryzuj**i pozwól aplikacjom logiki łączyć się z Facebookiem i korzystać z niego. 
+2. Wybierz pozycję **Autoryzuj**, aby umożliwić aplikacjom logiki łączenie się z usługą Facebook i korzystanie z niej. 
 
 > [!INCLUDE [Steps to create a connection to Facebook](../../includes/connectors-create-api-facebook.md)]
 > 
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać szczegółowe informacje techniczne, takie jak wyzwalacze, akcje i limity, zgodnie z opisem pliku OpenAPI łącznika (dawniej Swagger), zobacz [stronę odwołania łącznika](/connectors/facebook/).
+Aby uzyskać szczegółowe informacje techniczne, takie jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku OpenAPI łącznika (dawniej Swagger), zobacz [stronę odwołania łącznika](/connectors/facebook/).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o innych [łącznikach aplikacji logiki](../connectors/apis-list.md)
+* Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)

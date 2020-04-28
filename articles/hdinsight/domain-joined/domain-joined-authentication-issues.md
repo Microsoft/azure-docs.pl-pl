@@ -8,25 +8,25 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.openlocfilehash: 26eec9cdd327ceb51e72deb1d6f40d585ce368fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75896139"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemy z uwierzytelnianiem w usłudze Azure HDInsight
 
-W tym artykule opisano kroki rozwiązywania problemów i możliwe rozwiązania problemów podczas interakcji z klastrami usługi Azure HDInsight.
+W tym artykule opisano kroki rozwiązywania problemów oraz możliwe rozwiązania problemów występujących w przypadku współpracy z klastrami usługi Azure HDInsight.
 
-W przypadku bezpiecznych klastrów wspieranych przez usługę Azure Data Lake (Gen1 lub Gen2), gdy użytkownicy domeny logują się do usług klastrowania za pośrednictwem bramy HDI (na przykład logując się do portalu Apache Ambari), usługa HDI Gateway spróbuje najpierw uzyskać token OAuth z usługi Azure Active Directory (Azure AD) , a następnie pobierz bilet protokołu Kerberos z usługi Azure AD DS. Uwierzytelnianie może zakończyć się niepowodzeniem w jednym z tych etapów. Ten artykuł ma na celu debugowanie niektórych z tych problemów.
+W przypadku bezpiecznych klastrów objętych usługą Azure Data Lake (Gen1 lub Gen2), gdy użytkownicy domeny logują się do usług klastra za pośrednictwem bramy HDI (na przykład zalogowania się do portalu Apache Ambari), program HDI Gateway spróbuje najpierw uzyskać token OAuth od Azure Active Directory (Azure AD), a następnie uzyskać bilet protokołu Kerberos z usługi Azure AD DS. Uwierzytelnianie może zakończyć się niepowodzeniem w żadnym z tych etapów. Ten artykuł ma na celu debugowanie niektórych z tych problemów.
 
-Gdy uwierzytelnianie nie powiedzie się, zostanie wyświetlony monit o poświadczenia. Jeśli anulujesz to okno dialogowe, zostanie wydrukowany komunikat o błędzie. Oto niektóre z typowych komunikatów o błędach:
+Gdy uwierzytelnianie nie powiedzie się, zostanie wyświetlony monit o podanie poświadczeń. Jeśli anulujesz to okno dialogowe, zostanie wydrukowany komunikat o błędzie. Poniżej przedstawiono niektóre typowe komunikaty o błędach:
 
 ## <a name="invalid_grant-or-unauthorized_client-50126"></a>invalid_grant lub unauthorized_client, 50126
 
 ### <a name="issue"></a>Problem
 
-Logowanie nie powiedzie się dla użytkowników federowanych z kodem błędu 50126 (zalogowanie się powiedzie się dla użytkowników chmury). Komunikat o błędzie jest podobny do:
+Logowanie użytkowników federacyjnych kończy się niepowodzeniem z kodem błędu 50126 (logowanie dla użytkowników w chmurze kończy się niepowodzeniem). Komunikat o błędzie jest podobny do:
 
 ```
 Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_description":"AADSTS70002: Error validating credentials. AADSTS50126: Invalid username or password\r\nTrace ID: 09cc9b95-4354-46b7-91f1-efd92665ae00\r\n Correlation ID: 4209bedf-f195-4486-b486-95a15b70fbe4\r\nTimestamp: 2019-01-28 17:49:58Z","error_codes":[70002,50126], "timestamp":"2019-01-28 17:49:58Z","trace_id":"09cc9b95-4354-46b7-91f1-efd92665ae00","correlation_id":"4209bedf-f195-4486-b486-95a15b70fbe4"}
@@ -34,11 +34,11 @@ Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_descript
 
 ### <a name="cause"></a>Przyczyna
 
-Kod błędu usługi Azure AD 50126 oznacza, `AllowCloudPasswordValidation` że zasady nie zostały ustawione przez dzierżawcę.
+Kod błędu usługi Azure AD 50126 oznacza `AllowCloudPasswordValidation` , że zasady nie zostały ustawione przez dzierżawcę.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Administrator firmy dzierżawy usługi Azure AD powinien włączyć usługę Azure AD do używania skrótów haseł dla użytkowników wspieranych przez usługę ADFS.  Zastosuj `AllowCloudPasswordValidationPolicy` jak pokazano w artykule [Użyj pakietu zabezpieczeń przedsiębiorstwa w hdinsight](../domain-joined/apache-domain-joined-architecture.md).
+Administrator firmy w dzierżawie usługi Azure AD powinien zezwolić usłudze Azure AD na używanie skrótów haseł dla użytkowników z kopiami zapasowymi usług ADFS.  Zastosuj, `AllowCloudPasswordValidationPolicy` jak pokazano w artykule, [Użyj pakiet Enterprise Security w usłudze HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
 ---
 
@@ -46,7 +46,7 @@ Administrator firmy dzierżawy usługi Azure AD powinien włączyć usługę Azu
 
 ### <a name="issue"></a>Problem
 
-Logowanie nie powiedzie się z kodem błędu 50034. Komunikat o błędzie jest podobny do:
+Logowanie kończy się niepowodzeniem z kodem błędu 50034. Komunikat o błędzie jest podobny do:
 
 ```
 {"error":"invalid_grant","error_description":"AADSTS50034: The user account Microsoft.AzureAD.Telemetry.Diagnostics.PII does not exist in the 0c349e3f-1ac3-4610-8599-9db831cbaf62 directory. To sign into this application, the account must be added to the directory.\r\nTrace ID: bbb819b2-4c6f-4745-854d-0b72006d6800\r\nCorrelation ID: b009c737-ee52-43b2-83fd-706061a72b41\r\nTimestamp: 2019-04-29 15:52:16Z", "error_codes":[50034],"timestamp":"2019-04-29 15:52:16Z","trace_id":"bbb819b2-4c6f-4745-854d-0b72006d6800", "correlation_id":"b009c737-ee52-43b2-83fd-706061a72b41"}
@@ -54,7 +54,7 @@ Logowanie nie powiedzie się z kodem błędu 50034. Komunikat o błędzie jest p
 
 ### <a name="cause"></a>Przyczyna
 
-Nazwa użytkownika jest niepoprawna (nie istnieje). Użytkownik nie używa tej samej nazwy użytkownika, która jest używana w witrynie Azure portal.
+Nazwa użytkownika jest niepoprawna (nie istnieje). Użytkownik nie korzysta z tej samej nazwy użytkownika, która jest używana w Azure Portal.
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -74,11 +74,11 @@ Konto użytkownika jest zablokowane, kod błędu 50053. Komunikat o błędzie je
 
 ### <a name="cause"></a>Przyczyna
 
-Zbyt wiele prób logowania przy za pomocą nieprawidłowego hasła.
+Zbyt wiele prób logowania przy użyciu niepoprawnego hasła.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Poczekaj około 30 minut, zatrzymaj wszystkie aplikacje, które mogą próbować uwierzytelnić.
+Zaczekaj 30 minut lub tak, Zatrzymaj wszystkie aplikacje, które mogą próbować uwierzytelniać.
 
 ---
 
@@ -98,7 +98,7 @@ Hasło wygasło.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Zmień hasło w witrynie Azure portal (w systemie lokalnym), a następnie poczekaj 30 minut na synchronizację, aby nadrobić zaległości.
+Zmień hasło w Azure Portal (w systemie lokalnym), a następnie poczekaj 30 minut na przechwycenie synchronizacji.
 
 ---
 
@@ -106,15 +106,15 @@ Zmień hasło w witrynie Azure portal (w systemie lokalnym), a następnie poczek
 
 ### <a name="issue"></a>Problem
 
-Otrzymuj komunikat `interaction_required`o błędzie .
+Odbieranie komunikatu `interaction_required`o błędzie.
 
 ### <a name="cause"></a>Przyczyna
 
-Zasady dostępu warunkowego lub uwierzytelniania wieloskładnikowego są stosowane do użytkownika. Ponieważ uwierzytelnianie interakcyjne nie jest jeszcze obsługiwane, użytkownika lub klaster należy wykluczyć z uwierzytelniania wieloskładnikowego lub dostępu warunkowego. Jeśli zdecydujesz się zwolnić klaster (zasady zwolnienia oparte na `ServiceEndpoints` adresie IP), upewnij się, że usługa AD jest włączona dla tej sieci wirtualnej.
+Zasady dostępu warunkowego lub uwierzytelniania wieloskładnikowego są stosowane do użytkownika. Ponieważ uwierzytelnianie interakcyjne nie jest jeszcze obsługiwane, użytkownika lub klaster należy wykluczyć z uwierzytelniania wieloskładnikowego lub dostępu warunkowego. Jeśli zdecydujesz się na wykluczenie klastra (Zasady wykluczania oparte na adresach IP), upewnij `ServiceEndpoints` się, że Usługa AD jest włączona dla tej sieci wirtualnej.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Użyj zasad dostępu warunkowego i wyłącz klastry HDInisght z usługi MFA, jak pokazano w [temacie Konfigurowanie klastra HDInsight z pakietem zabezpieczeń przedsiębiorstwa przy użyciu usług domenowych Active Directory platformy Azure](./apache-domain-joined-configure-using-azure-adds.md).
+Użyj zasad dostępu warunkowego i Wyklucz klastry HDInisght z usługi MFA, jak pokazano w temacie [Konfigurowanie klastra usługi HDInsight z pakiet Enterprise Security przy użyciu Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
 ---
 
@@ -122,25 +122,25 @@ Użyj zasad dostępu warunkowego i wyłącz klastry HDInisght z usługi MFA, jak
 
 ### <a name="issue"></a>Problem
 
-Logowanie jest odrzucane.
+Odmowa logowania.
 
 ### <a name="cause"></a>Przyczyna
 
-Aby przejść do tego etapu, uwierzytelnianie OAuth nie jest problemem, ale uwierzytelnianie Kerberos jest. Jeśli ten klaster jest wspierany przez usługi ADLS, logowanie OAuth powiodło się przed podjęciem próby umowy Kerberos auth. W klastrach WASB logowania OAuth nie jest podejmowana próba. Może istnieć wiele przyczyn niepowodzenia protokołu Kerberos — takie jak skróty haseł są niezsynchronizowane, konto użytkownika zablokowane w usługach Azure AD DS i tak dalej. Skróty haseł są synchronizowane tylko wtedy, gdy użytkownik zmieni hasło. Podczas tworzenia wystąpienia usług Azure AD DS rozpocznie synchronizację haseł, które są zmieniane po utworzeniu. Nie będzie synchronizować z mocą wsteczną haseł, które zostały ustawione przed jego powstaniem.
+Aby przejść do tego etapu, uwierzytelnianie OAuth nie jest problemem, ale uwierzytelnianie Kerberos to. Jeśli ten klaster jest objęty ADLS, logowanie OAuth zakończyło się pomyślnie przed podjęciem próby uwierzytelnienia Kerberos. W klastrach WASB nie podjęto próby logowania przy użyciu protokołu OAuth. Może istnieć wiele powodów użycia protokołu Kerberos skróty haseł, które nie są zsynchronizowane, konto użytkownika zostało zablokowane na platformie Azure AD DS i tak dalej. Skróty haseł synchronizują się tylko wtedy, gdy użytkownik zmienia hasło. Podczas tworzenia wystąpienia usługi Azure AD DS rozpocznie się Synchronizowanie haseł, które zostały zmienione po utworzeniu. Nie synchronizuje wstecz hasła, które zostały ustawione przed jego rozpoczęciem.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Jeśli uważasz, że hasła mogą nie być zsynchronizowane, spróbuj zmienić hasło i poczekać kilka minut na synchronizację.
+Jeśli uważasz, że hasła mogą nie być zsynchronizowane, spróbuj zmienić hasło i poczekaj kilka minut na synchronizację.
 
-Spróbuj SSH do Musisz spróbować uwierzytelnić (kinit) przy użyciu tych samych poświadczeń użytkownika, z komputera, który jest przyłączony do domeny. SSH do węzła head / edge z użytkownikiem lokalnym, a następnie uruchomić kinit.
+Spróbuj użyć protokołu SSH w celu uwierzytelnienia (Narzędzie kinit) przy użyciu tych samych poświadczeń użytkownika, z komputera, który jest przyłączony do domeny. Użyj protokołu SSH do węzła głowy/krawędzi z użytkownikiem lokalnym, a następnie uruchom narzędzie kinit.
 
 ---
 
-## <a name="kinit-fails"></a>kinit nie powiedzie się
+## <a name="kinit-fails"></a>Narzędzie kinit kończy się niepowodzeniem
 
 ### <a name="issue"></a>Problem
 
-Kinit zawodzi.
+Narzędzie kinit kończy się niepowodzeniem.
 
 ### <a name="cause"></a>Przyczyna
 
@@ -148,25 +148,25 @@ Różni się.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Aby kinit się powiódł, `sAMAccountName` musisz znać swoje (jest to krótka nazwa konta bez obszaru). `sAMAccountName`jest zwykle prefiksem konta `bob@contoso.com`(jak bob w ). Dla niektórych użytkowników może być inaczej. Będziesz potrzebował możliwości przeglądania / wyszukiwania katalogu, aby `sAMAccountName`dowiedzieć się .
+Aby narzędzie kinit się powieść, musisz znać `sAMAccountName` (to jest krótka nazwa konta bez obszaru). `sAMAccountName`jest zazwyczaj prefiksem konta (na przykład Roberta `bob@contoso.com`in). W przypadku niektórych użytkowników może się to różnić. Będziesz potrzebować możliwości przeglądania i przeszukiwania katalogu w celu uzyskania informacji `sAMAccountName`.
 
-Sposoby `sAMAccountName`na znalezienie :
+Sposoby znajdowania `sAMAccountName`:
 
-* Jeśli możesz zalogować się do Ambari za pomocą lokalnego administratora Ambari, spójrz na listę użytkowników.
+* Jeśli możesz zalogować się do usługi Ambari przy użyciu lokalnego administratora usługi Ambari, zapoznaj się z listą użytkowników.
 
-* Jeśli masz [komputer z systemem Windows przyłączony do domeny,](../../active-directory-domain-services/manage-domain.md)możesz korzystać ze standardowych narzędzi usługi Windows AD do przeglądania. Wymaga to działającego konta w domenie.
+* Jeśli masz [przyłączoną do domeny maszynę z systemem Windows](../../active-directory-domain-services/manage-domain.md), możesz użyć standardowych narzędzi Windows AD do przeglądania. Wymaga to konta działającego w domenie.
 
-* W węźle głównym można używać poleceń SAMBA do wyszukiwania. Wymaga to prawidłowej sesji Protokołu Kerberos (pomyślnego kinitu). wyszukiwanie reklam netto "(userPrincipalName=bob*)"
+* W węźle głównym można wyszukiwać za pomocą poleceń SAMBA. Wymaga to prawidłowej sesji protokołu Kerberos (pomyślne narzędzie kinit). Wyszukiwanie w usłudze net AD "(userPrincipalName = Robert *)"
 
-    Wyniki wyszukiwania / przeglądania powinny `sAMAccountName` wyświetlać atrybut. Ponadto, można spojrzeć na `pwdLastSet` `badPasswordTime`inne `userPrincipalName` atrybuty, takie jak , itp., aby zobaczyć, czy te właściwości pasują do tego, czego oczekujesz.
+    W wynikach wyszukiwania/przeglądania powinna być wyświetlana wartość `sAMAccountName` atrybutu. Ponadto można przeglądać inne atrybuty, takie jak `pwdLastSet`, `badPasswordTime` `userPrincipalName` itp., aby sprawdzić, czy te właściwości są zgodne z oczekiwaniami.
 
 ---
 
-## <a name="kinit-fails-with-preauthentication-failure"></a>kinit kończy się niepowodzeniem z niepowodzeniem preauthentication
+## <a name="kinit-fails-with-preauthentication-failure"></a>Narzędzie kinit kończy się niepowodzeniem z powodu niepowodzenia uwierzytelniania wstępnego
 
 ### <a name="issue"></a>Problem
 
-Kinit kończy `Preauthentication` się niepowodzeniem.
+Narzędzie kinit kończy się `Preauthentication` niepowodzeniem z powodu błędu.
 
 ### <a name="cause"></a>Przyczyna
 
@@ -174,23 +174,23 @@ Nieprawidłowa nazwa użytkownika lub hasło.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Sprawdź swoją nazwę użytkownika i hasło. Sprawdź również inne właściwości opisane powyżej. Aby włączyć pełne debugowanie, `export KRB5_TRACE=/tmp/krb.log` uruchom z sesji przed wypróbowaniem kinit.
+Sprawdź nazwę użytkownika i hasło. Sprawdź również inne opisane powyżej właściwości. Aby włączyć pełne debugowanie, uruchom `export KRB5_TRACE=/tmp/krb.log` polecenie z sesji przed podjęciem próby narzędzie kinit.
 
 ---
 
-## <a name="job--hdfs-command-fails-due-to-tokennotfoundexception"></a>Zadanie / HDFS polecenie nie powiedzie się z powodu TokenNotFoundException
+## <a name="job--hdfs-command-fails-due-to-tokennotfoundexception"></a>Polecenie Job/HDFS nie powiodło się z powodu TokenNotFoundException
 
 ### <a name="issue"></a>Problem
 
-Polecenie Job / HDFS `TokenNotFoundException`kończy się niepowodzeniem z powodu .
+Polecenie Job/HDFS nie powiodło `TokenNotFoundException`się z powodu błędu.
 
 ### <a name="cause"></a>Przyczyna
 
-Nie znaleziono wymaganego tokenu dostępu OAuth, aby zadanie/polecenie zakończyło się pomyślnie. Sterownik ADLS / ABFS spróbuje pobrać token dostępu OAuth z usługi poświadczeń przed dokonaniem żądań magazynu. Ten token zostanie zarejestrowany po zalogowaniu się do portalu Ambari przy użyciu tego samego użytkownika.
+Nie znaleziono wymaganego tokenu dostępu OAuth, aby zadanie/polecenie zakończyło się pomyślnie. Sterownik ADLS/ABFS podejmie próbę pobrania tokenu dostępu OAuth z usługi Credential przed przekazaniem żądań magazynu. Ten token jest rejestrowany po zalogowaniu się do portalu Ambari przy użyciu tego samego użytkownika.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Upewnij się, że pomyślnie zalogowano się do portalu Ambari raz za pośrednictwem nazwy użytkownika, którego tożsamość jest używana do uruchamiania zadania.
+Upewnij się, że po pomyślnym zalogowaniu się do portalu Ambari za pomocą nazwy użytkownika, której tożsamość jest używana do uruchomienia zadania.
 
 ---
 
@@ -198,26 +198,26 @@ Upewnij się, że pomyślnie zalogowano się do portalu Ambari raz za pośrednic
 
 ### <a name="issue"></a>Problem
 
-Użytkownik otrzymuje `Error fetching access token`komunikat o błędzie .
+Użytkownik otrzymuje komunikat `Error fetching access token`o błędzie.
 
 ### <a name="cause"></a>Przyczyna
 
-Ten błąd występuje sporadycznie, gdy użytkownicy próbują uzyskać dostęp do ADLS Gen2 przy użyciu list ACL i tokenu Kerberos wygasła.
+Ten błąd występuje sporadycznie, gdy użytkownicy próbują uzyskać dostęp do ADLS Gen2 przy użyciu list kontroli dostępu, a token Kerberos wygasł.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-* W przypadku usługi Azure Data Lake Storage Gen1 posprzątaj pamięć podręczną przeglądarki i zaloguj się ponownie do ambari.
+* W przypadku Azure Data Lake Storage Gen1, wyczyść pamięć podręczną przeglądarki i ponownie zaloguj się do Ambari.
 
-* W przypadku usługi Azure Data `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` Lake Storage Gen2 uruchom dla użytkownika, który użytkownik próbuje się zalogować
+* W przypadku Azure Data Lake Storage Gen2 Uruchom `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` dla użytkownika, w którym użytkownik próbuje się zalogować
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie widzisz problemu lub nie możesz rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy technicznej:
+Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
 
-* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej platformy Azure Community.](https://azure.microsoft.com/support/community/)
+* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz [@AzureSupport](https://twitter.com/azuresupport) się z — oficjalnym kontem platformy Microsoft Azure w celu poprawy jakości obsługi klienta. Łączenie społeczności platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy z [witryny Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wybierz **pozycję Obsługa z** paska menu lub otwórz centrum pomocy + pomocy **technicznej.** Aby uzyskać bardziej szczegółowe informacje, zapoznaj [się z instrukcjami tworzenia żądania pomocy technicznej platformy Azure.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) Dostęp do obsługi zarządzania subskrypcjami i rozliczeń jest dołączony do subskrypcji platformy Microsoft Azure, a pomoc techniczna jest świadczona za pośrednictwem jednego z [planów pomocy technicznej platformy Azure.](https://azure.microsoft.com/support/plans/)
+* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

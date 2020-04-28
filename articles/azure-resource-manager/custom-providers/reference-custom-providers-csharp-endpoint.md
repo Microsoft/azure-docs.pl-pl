@@ -1,24 +1,24 @@
 ---
-title: Odwołanie do punktu końcowego RESTful dostawcy niestandardowego C#
-description: Zawiera podstawowe informacje o punkcie końcowym dostawców niestandardowych platformy Azure C# RESTful. Punkt końcowy jest dostarczany za pośrednictwem aplikacji funkcji platformy Azure.
+title: Odwołanie do punktu końcowego RESTful języka C# dostawcy niestandardowego
+description: Zawiera podstawowe informacje dotyczące punktu końcowego RESTful języka C# dla dostawców niestandardowych platformy Azure. Punkt końcowy jest dostępny za pomocą aplikacji funkcji platformy Azure.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6ecb22cb968e0d963242c8c2d5dd1a6cb24229c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651178"
 ---
-# <a name="custom-provider-c-restful-endpoint-reference"></a>Odwołanie do punktu końcowego RESTful dostawcy niestandardowego C#
+# <a name="custom-provider-c-restful-endpoint-reference"></a>Odwołanie do punktu końcowego RESTful języka C# dostawcy niestandardowego
 
-Ten artykuł jest podstawowym odwołaniem dla niestandardowego dostawcy C# punkt końcowy RESTful. Jeśli nie znasz dostawców niestandardowych platformy Azure, zobacz [omówienie dostawców zasobów niestandardowych.](overview.md)
+Ten artykuł zawiera podstawowe informacje o niestandardowym punkcie końcowym RESTful języka C#. Jeśli nie znasz dostawców niestandardowych platformy Azure, zapoznaj [się z tematem Omówienie niestandardowych dostawców zasobów](overview.md).
 
-## <a name="azure-function-app-restful-endpoint"></a>Aplikacja funkcji platformy Azure PUNKT KOŃCOWY RESTful
+## <a name="azure-function-app-restful-endpoint"></a>Punkt końcowy RESTful aplikacji funkcji platformy Azure
 
-Poniższy kod działa z aplikacją funkcji platformy Azure. Aby dowiedzieć się, jak skonfigurować aplikację funkcji platformy Azure do pracy z dostawcami niestandardowymi platformy Azure, zobacz [samouczek dotyczący konfigurowania usług Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md).
+Poniższy kod współdziała z aplikacją funkcji platformy Azure. Aby dowiedzieć się, jak skonfigurować aplikację funkcji platformy Azure do pracy z dostawcami niestandardowymi platformy Azure, zapoznaj [się z samouczkiem dotyczącym konfigurowania Azure Functions dla dostawców niestandardowych platformy Azure](./tutorial-custom-providers-function-setup.md).
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -255,7 +255,7 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Omówienie dostawców zasobów niestandardowych platformy Azure](overview.md)
-- [Samouczek: Tworzenie dostawcy zasobów niestandardowych platformy Azure i wdrażanie zasobów niestandardowych](./create-custom-provider.md)
-- [Jak: Dodawanie akcji niestandardowych do interfejsu API rest platformy Azure](./custom-providers-action-endpoint-how-to.md)
-- [Odwołanie: Niestandardowe odwołanie do pamięci podręcznej zasobów](proxy-cache-resource-endpoint-reference.md)
+- [Omówienie niestandardowych dostawców zasobów platformy Azure](overview.md)
+- [Samouczek: Tworzenie niestandardowego dostawcy zasobów platformy Azure i wdrażanie zasobów niestandardowych](./create-custom-provider.md)
+- [Instrukcje: Dodawanie akcji niestandardowych do interfejsu API REST platformy Azure](./custom-providers-action-endpoint-how-to.md)
+- [Odwołanie: niestandardowe odwołanie do pamięci podręcznej zasobów](proxy-cache-resource-endpoint-reference.md)

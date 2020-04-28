@@ -1,6 +1,6 @@
 ---
-title: Analiza hdinsight spark z PySpark, Scala - Team Data Science Process
-description: Przykłady procesu nauki o danych zespołu, które przechodzą przez korzystanie z PySpark i Scala na platformie Azure HDInsight Spark.
+title: Analiza na platformie HDInsight Spark z PySpark, Scala — zespołowe przetwarzanie danych
+description: Przykłady procesu nauka danych zespołu, który przeprowadzi Cię przez użycie PySpark i scala na Azure HDInsight Spark.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,40 +12,40 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 91aac279a264d64ace5988d147c4caf8c52e9656
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864149"
 ---
-# <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Wskazówki dotyczące nauki o danych platformy HDInsight Spark przy użyciu pyspark i scala na platformie Azure
+# <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Przewodniki dotyczące analizy danych w usłudze HDInsight Spark przy użyciu PySpark i scala na platformie Azure
 
-Te wskazówki używają PySpark i Scala w klastrze platformy Azure Spark do analizy predykcyjnej. Wykonaj one kroki opisane w procesie nauki o danych zespołu. Aby zapoznać się z omówieniem procesu nauki o danych zespołu, zobacz [Proces nauki o danych](overview.md). Aby uzyskać omówienie spark on HDInsight, zobacz [Wprowadzenie do spark na HDInsight](../../hdinsight/spark/apache-spark-overview.md).
+Te instruktaże wykorzystują PySpark i Scala w klastrze platformy Azure Spark w celu przeprowadzania analiz predykcyjnych. Postępują zgodnie z krokami opisanymi w procesie nauki o danych zespołowych. Aby zapoznać się z omówieniem procesu nauki o danych zespołowych, zobacz [proces nauki o danych](overview.md). Aby zapoznać się z omówieniem platformy Spark w usłudze HDInsight, zobacz [wprowadzenie do platformy Spark w usłudze HDInsight](../../hdinsight/spark/apache-spark-overview.md).
 
-Dodatkowe wskazówki do nauki o danych, które wykonują proces nauki o danych zespołu są pogrupowane według **platformy,** której używają. Zobacz [wskazówki wykonujące proces nauki o danych zespołu](walkthroughs.md) dla itemization tych przykładów.
+Dodatkowe przewodniki dotyczące analizy danych, które wykonują proces nauki o danych zespołowych, są pogrupowane według **platformy** , z której korzystają. Zobacz [przewodniki wykonujące proces nauki danych zespołu](walkthroughs.md) , aby zapoznać się z przykładami.
 
-## <a name="predict-taxi-tips-using-pyspark-on-azure-spark"></a>Przewiduj porady dotyczące taksówek za pomocą pysparku w usłudze Azure Spark
+## <a name="predict-taxi-tips-using-pyspark-on-azure-spark"></a>Przewidywanie wskazówek dotyczących taksówki przy użyciu PySpark na platformie Azure Spark
 
-Przy użyciu danych taksówki w Nowym [Jorku, Użyj spark na platformie Azure HDInsight](spark-overview.md) instruktaż przewiduje, czy wskazówka jest wypłacana i zakres oczekiwanych kwot. W tym przykładzie użyto proces nauki o danych zespołu w scenariuszu przy użyciu [klastra platformy Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/) do przechowywania, eksplorowania i funkcji inżyniera danych z publicznie dostępnego nyc podróży taksówką i zestaw danych taryfy. W tym temacie przeglądowym użyto klastra platformy Spark usługi HDInsight i notesów PySpark jupyter. Te notesy pokazują, jak eksplorować dane, a następnie jak tworzyć i używać modeli. Zaawansowany notes eksploracji i modelowania danych pokazuje, jak uwzględnić krzyżowe sprawdzanie poprawności, tworzenie hiperparametrów i ocenę modelu.
+Za pomocą nowych danych o taksówkach w [usłudze Azure HDInsight wskazówki dotyczące korzystania z platformy Spark w ramach przewodnika dotyczącego usługi](spark-overview.md) , w której znajduje się Porada i zakres przewidywanych kwot. W tym przykładzie użyto zespołowego procesu nauki o danych w scenariuszu korzystającego z [Azure HDInsight Spark klastra](https://azure.microsoft.com/services/hdinsight/) do przechowywania, eksplorowania i opisywania danych inżynierów z publicznie dostępnego zestawu danych podróży i opłat za taksówkę z NYC. Ten temat zawiera informacje dotyczące klastrów usługi HDInsight Spark i Jupyter PySpark. Te notesy pokazują, jak eksplorować dane, a następnie jak tworzyć i korzystać z modeli. Zaawansowany Notes eksploracji i modelowania danych pokazuje, jak uwzględnić wzajemne sprawdzanie poprawności, czyszczenie parametrów funkcji Hyper-i obliczanie modelu.
 
-### <a name="data-exploration-and-modeling-with-spark"></a>Eksploracja i modelowanie danych za pomocą platformy Spark 
-Eksploruj zestaw danych i tworzenie, ocena i oceny modeli uczenia maszynowego, pracując za pośrednictwem [Tworzenie klasyfikacji binarnej i modeli regresji dla danych z Spark MLlib toolkit tematu.](spark-data-exploration-modeling.md)
+### <a name="data-exploration-and-modeling-with-spark"></a>Eksplorowanie i modelowanie danych za pomocą platformy Spark 
+Eksplorowanie zestawu danych i tworzenie, Ocena i Ocena modeli uczenia maszynowego przez pracę w temacie [Create Binary Modeling and regresji dla danych za pomocą narzędzia Spark MLlib Toolkit](spark-data-exploration-modeling.md) .
 
-### <a name="model-consumption"></a>Zużycie modelu
-Aby dowiedzieć się, jak ocenić modele klasyfikacji i regresji utworzone w tym temacie, zobacz [Ocenianie i ocenianie modeli uczenia maszynowego utworzonych przez platformę Spark.](spark-model-consumption.md)
+### <a name="model-consumption"></a>Użycie modelu
+Aby dowiedzieć się, jak oszacować modele klasyfikacji i regresji utworzone w tym temacie, zobacz [ocenę i ocenę modeli uczenia maszynowego opartych na platformie Spark](spark-model-consumption.md).
 
-### <a name="cross-validation-and-hyperparameter-sweeping"></a>Krzyżowa walidacja i zamiatanie hiperparametrowe
-Zobacz [Zaawansowane eksploracji danych i modelowania z Spark](spark-advanced-data-exploration-modeling.md) na jak modele mogą być szkolone przy użyciu krzyżowego sprawdzania poprawności i hyper-parametrów zamiatanie.
+### <a name="cross-validation-and-hyperparameter-sweeping"></a>Czyszczenie z przekroczeniem poprawności i parametry
+Zobacz [Zaawansowane eksplorowanie i modelowanie danych za pomocą platformy Spark](spark-advanced-data-exploration-modeling.md) , w jaki sposób można przeszkoleć modele przy użyciu weryfikacji krzyżowej i funkcji Hyper-Parameter.
 
 
-## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Przewidywanie porad dotyczących taksówek przy użyciu aplikacji Scala na platformie Azure Spark
+## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Przewidywanie wskazówek dotyczących taksówki przy użyciu Scala na platformie Azure Spark
 
-[Użyj Scala z spark na platformie Azure](scala-walkthrough.md) instruktaż przewiduje, czy wskazówka jest wypłacana i zakres kwot oczekuje się zapłaty. Pokazano w nim, jak używać scali do nadzorowanych zadań uczenia maszynowego za pomocą pakietów biblioteki uczenia maszynowego platformy Spark (MLlib) i sparkML w klastrze platformy Azure HDInsight Spark. Przeprowadzi Cię przez zadania, które tworzą [proces nauki o danych:](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)pozyskiwania i eksploracji danych, wizualizacji, inżynierii funkcji, modelowania i zużycia modelu. Zbudowane modele obejmują regresję logistyczną i liniową, losowe lasy i drzewa pobudzone gradientem.
+W instruktażu [Scala z platformą Spark w systemie Azure](scala-walkthrough.md) jest przewidywane, czy Porada jest płatna, oraz jaki jest zakres kwot, które należy zapłacić. Pokazano, jak używać Scala do nadzorowanych zadań uczenia maszynowego z pakietami MLlib (Spark Machine Learning Library) i SparkML w klastrze Azure HDInsight Spark. Przeprowadzi Cię przez zadania, które stanowią [proces analizy danych](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): pozyskiwanie i Eksploracja danych, Wizualizacja, Inżynieria funkcji, modelowanie i użycie modelu. Modele skompilowane obejmują regresję logistyczną i liniową, lasy losowe i podwyższające gradienty drzew.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z omówieniem procesu nauki o danych zespołu, zobacz [omówienie procesu nauki o danych zespołu.](overview.md)
+Aby zapoznać się z omówieniem procesu nauki o danych zespołowych, zobacz [Omówienie procesu nauka danych zespołu](overview.md).
 
-Aby zapoznać się z omówienia cyklu życia procesu nauki o danych zespołu, zobacz [Cykl życia procesu nauki o danych zespołu.](lifecycle.md) Ten cykl życia określa kroki, od początku do końca, które projekty zwykle wykonaj, gdy są wykonywane. 
+Aby zapoznać się z omówieniem cyklu życia procesu nauki o danych zespołowych, zobacz [cykl życia procesu nauki o danych zespołowych](lifecycle.md). Ten cykl życia przedstawia kroki od początku do końca, które zwykle są wykonywane podczas wykonywania projektów. 
 

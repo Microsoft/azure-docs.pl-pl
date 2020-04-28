@@ -1,6 +1,6 @@
 ---
-title: Pliki netapp usługi Azure — klipy wideo | Dokumenty firmy Microsoft
-description: Zawiera odwołania do klipów wideo, które zawierają dyskusje dotyczące korzystania z plików NetApp platformy Azure.
+title: Wideo Azure NetApp Files | Microsoft Docs
+description: Zawiera odwołania do filmów wideo, które zawierają dyskusje na temat używania Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: b-juche
 ms.openlocfilehash: aca6899da3c92cca0fd8564da5ec3d1679eb2579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75890973"
 ---
-# <a name="azure-netapp-files-videos"></a>Filmy o plikach NetApp platformy Azure
-Ten artykuł zawiera odwołania do klipów wideo, które zawierają szczegółowe dyskusje dotyczące korzystania z plików NetApp platformy Azure. 
+# <a name="azure-netapp-files-videos"></a>Azure NetApp Files filmów wideo
+Ten artykuł zawiera odwołania do filmów wideo, które zawierają szczegółowe dyskusje na temat używania Azure NetApp Files. 
 
-Dostępnych jest kilka klipów wideo, które pomogą Ci dowiedzieć się więcej o plikach NetApp platformy Azure:  
+Dostępnych jest kilka filmów wideo, które pomagają dowiedzieć się więcej na temat Azure NetApp Files:  
 
-* [Microsoft Ignite 2019: Uruchamianie najbardziej wymagających obciążeń plików korporacyjnych za pomocą usługi Azure NetApp Files](https://myignite.techcommunity.microsoft.com/sessions/82938?source=sessions) zawiera krótkie wprowadzenie do plików NetApp platformy Azure, w tym przypadki użycia i prezentacje, a następnie pogłębia możliwości i plan działania.
-* [Rozmowy o usłudze Azure NetApp Files prowadzone przez Kirka Ryana](https://www.youtube.com/channel/UCq1jZkyVXqMsMSIvScBE2qg/playlists) to seria filmów, samouczków i demonstracji poświęconych plikom NetApp usługi Azure. 
+* [Microsoft zapłon 2019: uruchamianie najbardziej wymagających obciążeń związanych z plikami w przedsiębiorstwie za pomocą Azure NetApp Files](https://myignite.techcommunity.microsoft.com/sessions/82938?source=sessions) zawiera krótkie wprowadzenie do Azure NetApp Files, w tym przypadków użycia i demonstracji, a następnie dokładniejsze informacje o możliwościach i planach.
+* [Azure NetApp Files rozmowy przez Kirka ryanów](https://www.youtube.com/channel/UCq1jZkyVXqMsMSIvScBE2qg/playlists) to szereg filmów wideo, samouczków i pokazów przeznaczonych do Azure NetApp Files. 

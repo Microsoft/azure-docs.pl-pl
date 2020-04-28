@@ -1,51 +1,51 @@
 ---
 title: Rozwiązywanie problemów z błędami przenoszenia
-description: Usługa Azure Resource Manager umożliwia przenoszenie zasobów do nowej grupy zasobów lub subskrypcji.
+description: Użyj Azure Resource Manager, aby przenieść zasoby do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 5a65f7daa0f5e3b1c8c6ddfdbecc0ff7d53e5afd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75891273"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Rozwiązywanie problemów z przenoszeniem zasobów platformy Azure do nowej grupy zasobów lub subskrypcji
 
-Ten artykuł zawiera sugestie ułatwiające rozwiązywanie problemów podczas przenoszenia zasobów.
+Ten artykuł zawiera sugestie ułatwiające rozwiązywanie problemów dotyczących przemieszczania zasobów.
 
 ## <a name="upgrade-a-subscription"></a>Uaktualnianie subskrypcji
 
-Jeśli rzeczywiście chcesz uaktualnić subskrypcję platformy Azure (na przykład przejście z bezpłatnego do płatności zgodnie z rzeczywistym), musisz przekonwertować subskrypcję.
+Jeśli chcesz uaktualnić subskrypcję platformy Azure (np. przełączenie z bezpłatnej do płatnej zgodnie z rzeczywistym użyciem), musisz przekonwertować swoją subskrypcję.
 
-* Aby uaktualnić bezpłatną wersję próbną, zobacz [Uaktualnianie bezpłatnej wersji próbnej lub subskrypcji platformy Microsoft Imagine Azure do programu Płatności zgodnie z rzeczywistym przejściem.](../../billing/billing-upgrade-azure-subscription.md)
-* Aby zmienić konto płatności zgodnie z rzeczywistym przejściem, zobacz [Zmienianie subskrypcji usługi Azure Pay-As-You-Go na inną ofertę.](../../billing/billing-how-to-switch-azure-offer.md)
+* Aby uaktualnić bezpłatną wersję próbną, zobacz [uaktualnianie bezpłatnej wersji próbnej lub Microsoft Imagine subskrypcję platformy Azure na płatność zgodnie z rzeczywistym](../../billing/billing-upgrade-azure-subscription.md)użyciem.
+* Aby zmienić konto z opcją płatność zgodnie z rzeczywistym użyciem, zobacz artykuł [zmiana subskrypcji systemu Azure z płatność zgodnie z rzeczywistym użyciem na inną ofertę](../../billing/billing-how-to-switch-azure-offer.md).
 
-Jeśli nie możesz przekonwertować subskrypcji, [utwórz żądanie pomocy technicznej platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Wybierz **pozycję Zarządzanie subskrypcjami** dla typu problemu.
+Jeśli nie możesz przekonwertować subskrypcji, [Utwórz żądanie pomocy technicznej platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Wybierz pozycję **Zarządzanie subskrypcją** dla typu problemu.
 
-## <a name="service-limitations"></a>Ograniczenia usług
+## <a name="service-limitations"></a>Ograniczenia usługi
 
-Niektóre usługi wymagają dodatkowych zagadnień podczas przenoszenia zasobów. Jeśli przenosisz następujące usługi, sprawdź wskazówki i ograniczenia.
+Niektóre usługi wymagają dodatkowych zagadnień podczas przesuwania zasobów. Jeśli przenosisz następujące usługi, upewnij się, że zostały sprawdzone wskazówki i ograniczenia.
 
 * [Usługi aplikacji](./move-limitations/app-service-move-limitations.md)
 * [Usługa Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
 * [Klasyczny model wdrażania](./move-limitations/classic-model-move-limitations.md)
-* [Obsługa sieci](./move-limitations/networking-move-limitations.md)
+* [Networking](./move-limitations/networking-move-limitations.md)
 * [Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
 * [Maszyny wirtualne](./move-limitations/virtual-machines-move-limitations.md)
 
 ## <a name="large-requests"></a>Duże żądania
 
-Jeśli to możliwe, podziel duże ruchy na oddzielne operacje przenoszenia. Menedżer zasobów natychmiast zwraca błąd, gdy istnieje więcej niż 800 zasobów w jednej operacji. Jednak przeniesienie mniej niż 800 zasobów może również zakończyć się niepowodzeniem przez limit czasu.
+Gdy jest to możliwe, podział dużych operacji przenoszenia na oddzielne operacje przeniesienia. Menedżer zasobów natychmiast zwraca błąd, jeśli w jednej operacji znajduje się więcej niż 800 zasobów. Jednak przeniesienie mniejsze niż 800 zasobów może również zakończyć się niepowodzeniem przez przekroczenie limitu czasu.
 
-## <a name="resource-not-in-succeeded-state"></a>Zasób nie jest w stanie powiodło się
+## <a name="resource-not-in-succeeded-state"></a>Zasób nie jest w stanie pomyślnym
 
-Po otrzymaniu komunikatu o błędzie, który wskazuje, że zasób nie może zostać przeniesiony, ponieważ nie jest w stanie powiódł się, może być faktycznie zasobem zależnym, który blokuje przeniesienie. Zazwyczaj kod błędu jest **MoveCannotProceedWithResourcesNotInSucceededState**.
+Gdy zostanie wyświetlony komunikat o błędzie informujący o tym, że nie można przenieść zasobu, ponieważ nie jest on w stanie "powodzenie", może to być zależny zasób, który blokuje przeniesienie. Zazwyczaj kod błędu to **MoveCannotProceedWithResourcesNotInSucceededState**.
 
-Jeśli źródło lub docelowa grupa zasobów zawiera sieć wirtualną, stany wszystkich zasobów zależnych dla sieci wirtualnej są sprawdzane podczas przenoszenia. Kontrola obejmuje te zasoby bezpośrednio i pośrednio zależne od sieci wirtualnej. Jeśli którykolwiek z tych zasobów są w stanie awarii, przeniesienie jest zablokowany. Na przykład jeśli maszyna wirtualna, która korzysta z sieci wirtualnej nie powiodło się, ruch jest zablokowany. Przeniesienie jest blokowane nawet wtedy, gdy maszyna wirtualna nie jest jednym z zasobów są przenoszone i nie znajduje się w jednej z grup zasobów dla przeniesienia.
+Jeśli źródłowa lub docelowa Grupa zasobów zawiera sieć wirtualną, Stany wszystkich zasobów zależnych dla sieci wirtualnej są sprawdzane podczas przenoszenia. Kontrola obejmuje te zasoby bezpośrednio i pośrednio zależne od sieci wirtualnej. Jeśli którykolwiek z tych zasobów jest w stanie niepowodzenia, przeniesienie jest zablokowane. Na przykład jeśli maszyna wirtualna, która używa sieci wirtualnej, zakończyła się niepowodzeniem, przenoszenie jest zablokowane. Przenoszenie jest blokowane nawet wtedy, gdy maszyna wirtualna nie jest jednym z przenoszonych zasobów i nie znajduje się w jednej z grup zasobów dla przeniesienia.
 
-Po wyświetleniu tego błędu dostępne są dwie opcje. Przenieś zasoby do grupy zasobów, która nie ma sieci wirtualnej, albo [skontaktuj się z pomocą techniczną](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+Po otrzymaniu tego błędu dostępne są dwie opcje. Przenieś zasoby do grupy zasobów, która nie ma sieci wirtualnej, lub [skontaktuj się z pomocą techniczną](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać polecenia przenoszenia zasobów, zobacz [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](move-resource-group-and-subscription.md).
+Aby uzyskać polecenia przenoszenia zasobów, zobacz [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](move-resource-group-and-subscription.md).

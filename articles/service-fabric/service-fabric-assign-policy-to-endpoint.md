@@ -1,17 +1,17 @@
 ---
 title: Przypisywanie zasad dostępu do punktów końcowych usługi
-description: Dowiedz się, jak przypisać zasady dostępu zabezpieczeń do punktów końcowych HTTP lub HTTPS w usłudze sieci szkieletowej usług.
+description: Dowiedz się, jak przypisywać zasady dostępu zabezpieczeń do punktów końcowych HTTP lub HTTPS w usłudze Service Fabric.
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.openlocfilehash: c7d30e85848f045b5724bb8bdc6e5c810102c044
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614659"
 ---
-# <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Przypisywanie zasad dostępu do zabezpieczeń dla punktów końcowych HTTP i HTTPS
-W przypadku zastosowania zasady uruchamiania, a manifest usługi deklaruje zasoby punktu końcowego HTTP, należy określić **SecurityAccessPolicy**.  **SecurityAccessPolicy** zapewnia, że porty przydzielone do tych punktów końcowych są poprawnie ograniczone do konta użytkownika, które usługa jest uruchamiana jako. W przeciwnym razie **http.sys** nie ma dostępu do usługi i otrzymasz błędy z wywołaniami od klienta. Poniższy przykład stosuje konto Customer1 do punktu końcowego o nazwie **EndpointName**, co daje mu pełne prawa dostępu.
+# <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Przypisywanie zasad dostępu zabezpieczeń dla punktów końcowych HTTP i HTTPS
+W przypadku zastosowania zasad Uruchom jako i manifestu usługi deklaruje zasoby punktu końcowego protokołu HTTP, należy określić **SecurityAccessPolicy**.  **SecurityAccessPolicy** gwarantuje, że porty przyłączone do tych punktów końcowych są poprawnie ograniczone do konta użytkownika, na którym działa usługa. W przeciwnym razie **http. sys** nie ma dostępu do usługi i pojawiają się błędy z wywołaniami klienta. Poniższy przykład dotyczy konta Customer1 w punkcie końcowym o nazwie **EndpointName**, który daje pełne prawa dostępu.
 
 ```xml
 <Policies>
@@ -21,7 +21,7 @@ W przypadku zastosowania zasady uruchamiania, a manifest usługi deklaruje zasob
 </Policies>
 ```
 
-Dla punktu końcowego HTTPS należy również wskazać nazwę certyfikatu, aby powrócić do klienta. Odwołanie się do certyfikatu przy użyciu **endpointbindingpolicy**.  Certyfikat jest zdefiniowany w sekcji **Certyfikaty** manifestu aplikacji.
+W przypadku punktu końcowego HTTPS wskaż również nazwę certyfikatu do zwrócenia klientowi. Odwoływanie się do certyfikatu za pomocą **EndpointBindingPolicy**.  Certyfikat jest zdefiniowany w sekcji **Certyfikaty** manifestu aplikacji.
 
 ```xml
 <Policies>
@@ -34,12 +34,12 @@ Dla punktu końcowego HTTPS należy również wskazać nazwę certyfikatu, aby p
 ```
 
 > [!WARNING] 
-> Korzystając z protokołu HTTPS, nie należy używać tego samego portu i certyfikatu dla różnych wystąpień usługi (niezależnie od aplikacji) wdrożonych w tym samym węźle. Uaktualnienie dwóch różnych usług przy użyciu tego samego portu w różnych wystąpieniach aplikacji spowoduje niepowodzenie uaktualnienia. Aby uzyskać więcej informacji, zobacz [Uaktualnianie wielu aplikacji za pomocą punktów końcowych HTTPS ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+> W przypadku korzystania z protokołu HTTPS nie należy używać tego samego portu i certyfikatu dla różnych wystąpień usługi (niezależnie od aplikacji) wdrożonych w tym samym węźle. Uaktualnienie dwóch różnych usług przy użyciu tego samego portu w różnych wystąpieniach aplikacji spowoduje niepowodzenie uaktualnienia. Aby uzyskać więcej informacji, zobacz [Uaktualnianie wielu aplikacji za pomocą punktów końcowych https ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 > 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-Aby uzyskać następujące kroki, przeczytaj następujące artykuły:
-* [Opis modelu aplikacji](service-fabric-application-model.md)
+Aby zapoznać się z kolejnymi krokami, przeczytaj następujące artykuły:
+* [Omówienie modelu aplikacji](service-fabric-application-model.md)
 * [Określanie zasobów w manifeście usługi](service-fabric-service-manifest-resources.md)
 * [Wdrażanie aplikacji](service-fabric-deploy-remove-applications.md)
 

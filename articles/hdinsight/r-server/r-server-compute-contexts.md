@@ -1,6 +1,6 @@
 ---
-title: Opcje kontekstu obliczeń dla usług ML w usłudze HDInsight — Azure
-description: Dowiedz się więcej o różnych opcjach kontekstu obliczeniowego dostępnych dla użytkowników w usługach ML w programie HDInsight
+title: Opcje kontekstu obliczeniowego dla usług ML w usłudze HDInsight — Azure
+description: Dowiedz się więcej na temat różnych opcji kontekstu obliczeniowego dostępnych dla użytkowników korzystających z usług ML w usłudze HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,77 +9,77 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: b67bd5b6310e1f8ce35dc14690757209ef62c9d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75660260"
 ---
-# <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opcje kontekstu obliczania usług ML w programie HDInsight
+# <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opcje kontekstu obliczeniowego dla usług ML w usłudze HDInsight
 
-Usługi ML w usłudze Azure HDInsight sterują sposób wykonywania wywołań przez ustawienie kontekstu obliczeniowego. W tym artykule opisano opcje, które są dostępne, aby określić, czy i jak wykonanie jest równoległe między rdzeniami węzła krawędzi lub klastra HDInsight.
+Usługi ML w usłudze Azure HDInsight kontrolują sposób wykonywania wywołań przez ustawienie kontekstu obliczeniowego. W tym artykule opisano opcje, które są dostępne, aby określić, czy i jak wykonywanie jest równoległe między rdzeniami węzła lub klastra usługi HDInsight.
 
-Węzeł brzegowy klastra zapewnia wygodne miejsce do łączenia się z klastrem i uruchamiania skryptów języka R. W węźle brzegowym można uruchamiać równoległe funkcje rozproszone RevoScaleR na rdzeniach serwera węzła brzegowego. Można również uruchomić je w węzłach klastra przy użyciu RevoScaleR's Hadoop Map Reduce lub Apache Spark obliczeń kontekstów.
+Węzeł brzegowy klastra zapewnia wygodne miejsce do łączenia się z klastrem i uruchamiania skryptów języka R. Węzeł brzegowy umożliwia uruchamianie równoległych funkcji rozproszonych kolekcję funkcji revoscaler na różnych rdzeniach serwera węzła brzegowego. Można je również uruchamiać w węzłach klastra przy użyciu mapy usługi Hadoop w usłudze kolekcję funkcji revoscaler, zmniejszając lub Apache Spark konteksty obliczeniowe.
 
-## <a name="ml-services-on-azure-hdinsight"></a>Usługi ML w usłudze Azure HDInsight
+## <a name="ml-services-on-azure-hdinsight"></a>Usługi w usłudze ML w usłudze Azure HDInsight
 
-[Usługi ML w usłudze Azure HDInsight](r-server-overview.md) zapewniają najnowsze możliwości analizy opartej na r. Można użyć danych, które są przechowywane w kontenerze Apache Hadoop HDFS na koncie magazynu [obiektów Blob platformy Azure,](../../storage/common/storage-introduction.md "Azure Blob Storage") w magazynie usługi Data Lake store lub lokalnym systemie plików systemu Linux. Ponieważ usługi ML services są oparte na środowisku R typu open source, tworzone aplikacje oparte na języku R mogą stosować dowolne z ponad 8000 pakietów języka R typu open source. Mogą również korzystać z procedur w [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), pakiet analizy dużych zbiorów danych firmy Microsoft, który jest dołączony do usług ML Services.  
+[Usługi ml w usłudze Azure HDInsight](r-server-overview.md) zapewniają najnowsze możliwości analityczne na podstawie języka R. Dane przechowywane w kontenerze Apache Hadoop HDFS można używać na koncie [usługi Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage") storage, Data Lake Store lub lokalnym systemie plików systemu Linux. Ze względu na to, że usługa ML jest oparta na języku R typu "open source", tworzone aplikacje oparte na języku R mogą stosować dowolne z pakietów języka R typu "open source". Mogą również korzystać z procedur w [kolekcję funkcji revoscaler](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), pakietu do analizy danych Big Data, który jest dołączony do usługi ml.  
 
-## <a name="compute-contexts-for-an-edge-node"></a>Obliczania kontekstów dla węzła brzegowego
+## <a name="compute-contexts-for-an-edge-node"></a>Konteksty obliczeniowe dla węzła krawędzi
 
-Ogólnie rzecz biorąc skrypt języka R, który jest uruchamiany w klastrze usług ML w węźle brzegowym, jest uruchamiany w interpreterze języka R w tym węźle. Wyjątki są te kroki, które wywołują RevoScaleR funkcji. Wywołania RevoScaleR są uruchamiane w środowisku obliczeniowym, które zależy od sposobu ustawiania kontekstu obliczeniowego RevoScaleR.  Po uruchomieniu skryptu Języka R z węzła krawędzi możliwe wartości kontekstu obliczeniowego są następujące:
+Ogólnie rzecz biorąc, skrypt języka R uruchamiany w klastrze usługi ML w węźle brzegowym jest uruchamiany w ramach interpretera języka R w tym węźle. Wyjątkami są te kroki, które wywołują funkcję kolekcję funkcji revoscaler. Wywołania kolekcję funkcji revoscaler są uruchamiane w środowisku obliczeniowym, który jest określany przez ustawienie kontekstu obliczeniowego kolekcję funkcji revoscaler.  Po uruchomieniu skryptu języka R z węzła brzegowego możliwe wartości kontekstu obliczeniowego są następujące:
 
-- lokalny sekwencyjny (*lokalny*)
-- lokalny równoległy (*localpar*)
-- Zmniejsz mapę
+- lokalna sekwencyjna (*lokalna*)
+- lokalna Parallel (*localpar*)
+- Zmniejszenie mapy
 - platforma Spark
 
-Opcje *lokalne* i *localpar* różnią się tylko w jaki **sposób rxExec** wywołania są wykonywane. Oba wykonują inne wywołania funkcji rx w sposób równoległy we wszystkich dostępnych rdzeniach, chyba że określono inaczej `rxOptions(numCoresToUse=6)`za pomocą opcji RevoScaleR **numCoresToUse,** na przykład . Opcje wykonywania równoległego oferują optymalną wydajność.
+Opcje *lokalne* i *localpar* różnią się tylko sposobem wykonywania wywołań **rxExec** . Oba wywołania funkcji RX są wykonywane równolegle przez wszystkie dostępne rdzenie, chyba że określono inaczej przy użyciu opcji kolekcję funkcji revoscaler **numCoresToUse** , na przykład `rxOptions(numCoresToUse=6)`. Opcje wykonywania równoległego zapewniają optymalną wydajność.
 
-W poniższej tabeli podsumowano różne opcje kontekstu obliczeniowego, aby ustawić sposób wykonywania wywołań:
+Poniższa tabela zawiera podsumowanie różnych opcji kontekstu obliczeniowego w celu ustawienia sposobu wykonywania wywołań:
 
 | Kontekst obliczeniowy  | Jak ustawić                      | Kontekst wykonywania                        |
 | ---------------- | ------------------------------- | ---------------------------------------- |
-| Lokalne sekwencyjne | rxSetComputeContext('local')    | Równoległe wykonywanie między rdzeniami serwera węzłów brzegowych, z wyjątkiem wywołań rxExec, które są wykonywane szeregowo |
-| Równolegle lokalny   | rxSetComputeContext('localpar') | Równoległe wykonywanie między rdzeniami serwera węzłów brzegowych |
-| platforma Spark            | RxSpark()                       | Równoległe wykonanie rozproszone za pośrednictwem platformy Spark w węzłach klastra HDI |
-| Zmniejsz mapę       | RxHadoopMR()                    | Równoległe wykonanie rozproszone za pośrednictwem map Reduce w węzłach klastra HDI |
+| Lokalna sekwencyjna | rxSetComputeContext ("Local")    | Równoległe wykonywanie na rdzeniach serwera węzła brzegowego, z wyjątkiem wywołań rxExec, które są wykonywane sekwencyjnie |
+| Lokalna Parallel   | rxSetComputeContext('localpar') | Równoległe wykonywanie na rdzeniach serwera węzła brzegowego |
+| platforma Spark            | Obliczeniowego rxspark ()                       | Równoległe wykonywanie rozproszone za pośrednictwem platformy Spark w węzłach klastra HDI |
+| Zmniejszenie mapy       | RxHadoopMR()                    | Równoległe wykonywanie rozproszone za pośrednictwem mapy zmniejsza się między węzłami klastra HDI |
 
-## <a name="guidelines-for-deciding-on-a-compute-context"></a>Wskazówki dotyczące podejmowania decyzji w kontekście obliczeń
+## <a name="guidelines-for-deciding-on-a-compute-context"></a>Wskazówki dotyczące podejmowania decyzji dotyczących kontekstu obliczeniowego
 
-Która z trzech opcji, które wybierzesz, które zapewniają równoległe wykonanie zależy od charakteru pracy analitycznej, rozmiaru i lokalizacji danych. Nie ma prostej formuły, która informuje, który kontekst obliczeniowy do użycia. Istnieją jednak pewne zasady przewodnie, które mogą pomóc ci dokonać właściwego wyboru, a przynajmniej pomóc zawęzić swoje wybory przed uruchomieniem testu porównawczego. Te zasady przewodnie obejmują:
+Spośród trzech wybranych opcji, które zapewniają równoległe wykonywanie, zależy od rodzaju pracy z analizą, rozmiaru i lokalizacji danych. Nie istnieje prosta formuła informująca o tym, który kontekst obliczeń ma być używany. Istnieją jednak pewne zasady dotyczące identyfikatorów, które mogą pomóc w dokonaniu właściwego wyboru lub, co najmniej, pomóc w zawężaniu wybranych opcji przed uruchomieniem testu porównawczego. Te zasady dotyczące identyfikatorów są następujące:
 
 - Lokalny system plików Linux jest szybszy niż HDFS.
-- Powtarzane analizy są szybsze, jeśli dane są lokalne i jeśli są w XDF.
-- Zaleca się przesyłanie strumieniowe niewielkich ilości danych ze źródła danych tekstowych. Jeśli ilość danych jest większa, przekonwertuj je na XDF przed analizą.
-- Obciążenie związane z kopiowaniem lub przesyłaniem strumieniowo danych do węzła krawędzi w celu analizy staje się nie do opanowania dla bardzo dużych ilości danych.
-- ApacheSpark jest szybszy niż Map Reduce do analizy w Hadoop.
+- Powtarzające się analizy są szybsze, jeśli dane są lokalne i są w XDF.
+- Preferowane jest przesyłanie strumieniowe małych ilości danych ze źródła danych tekstowych. Jeśli ilość danych jest większa, przed rozpoczęciem analizy przekonwertuj ją na XDF.
+- Narzuty kopiowania lub przesyłania strumieniowego danych do węzła brzegowego w celu analizy nie będzie można zarządzać dla bardzo dużych ilości danych.
+- ApacheSpark jest szybsze niż zmniejszenie mapy w usłudze Hadoop.
 
-Biorąc pod uwagę te zasady, w poniższych sekcjach przedstawiono pewne ogólne zasady przy wyborze kontekstu obliczeniowego.
+Zgodnie z tymi zasadami następujące sekcje zawierają niektóre ogólne reguły dotyczące wyboru kontekstu obliczeniowego.
 
 ### <a name="local"></a>Lokalny
 
-- Jeśli ilość danych do analizy jest niewielka i nie wymaga ponownej analizy, przesyłaj je bezpośrednio do procedury analizy przy użyciu *lokalnego* lub *lokalnego.*
-- Jeśli ilość danych do analizy jest mała lub średnia i wymaga ponownej analizy, skopiuj je do lokalnego systemu plików, zaimportuj do XDF i przeanalizuj za pośrednictwem *lokalnego* lub *lokalnego.*
+- Jeśli ilość danych do analizy jest mała i nie wymaga powtarzanej analizy, prześlij ją bezpośrednio do procedury analizy przy użyciu *lokalnego* lub *localpar*.
+- Jeśli ilość danych do analizy jest mała lub średniej wielkości i wymaga przeprowadzenia ponownej analizy, skopiuj ją do lokalnego systemu plików, zaimportuj ją do XDF i Przeanalizuj ją za pośrednictwem *lokalnego* lub *localpar*.
 
 ### <a name="apache-spark"></a>Apache Spark
 
-- Jeśli ilość danych do analizy jest duża, a następnie zaimportować go do Spark DataFrame przy użyciu **RxHiveData** lub **RxParquetData**, lub XDF w hdfs (chyba że magazyn jest problem) i analizować go przy użyciu kontekstu obliczeń Platformy Spark.
+- Jeśli ilość danych do analizy jest duża, należy zaimportować ją do ramki Dataframe platformy Spark przy użyciu **RxHiveData** lub **RxParquetData**, lub do XDF w systemie plików HDFS (chyba że magazyn jest problemem) i przeanalizować go przy użyciu kontekstu obliczeniowego platformy Spark.
 
-### <a name="apache-hadoop-map-reduce"></a>Apache Hadoop Mapa Zmniejszyć
+### <a name="apache-hadoop-map-reduce"></a>Zmniejszenie mapy Apache Hadoop
 
-- Użyj mapu Zmniejsz kontekst obliczeniowy tylko wtedy, gdy natkniesz się na problem nie do pokonania z kontekstem obliczeń platformy Spark, ponieważ jest on ogólnie wolniejszy.  
+- Używaj mapy zmniejszaj kontekst obliczeń tylko wtedy, gdy wystąpi problem pokonania z kontekstem obliczeń Spark, ponieważ jest on ogólnie wolniejszy.  
 
-## <a name="inline-help-on-rxsetcomputecontext"></a>Inline pomoc na rxSetComputeContext
-Aby uzyskać więcej informacji i przykładów kontekstów obliczeniowych RevoScaleR, zobacz wbudowaną pomoc w R na rxSetComputeContext metody, na przykład:
+## <a name="inline-help-on-rxsetcomputecontext"></a>Wbudowana Pomoc dotycząca rxSetComputeContext
+Aby uzyskać więcej informacji i przykłady kontekstów obliczeniowych kolekcję funkcji revoscaler, zobacz Pomoc wbudowaną w języku R na metodzie rxSetComputeContext, na przykład:
 
     > ?rxSetComputeContext
 
-Można również zapoznać się z [omówieniem przetwarzania rozproszonego](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) w [dokumentacji serwera uczenia maszynowego](https://docs.microsoft.com/machine-learning-server/).
+Możesz również zapoznać się z [omówieniem rozproszonego przetwarzania](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) danych w [dokumentacji Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule dowiesz się o opcjach, które są dostępne, aby określić, czy i jak wykonanie jest równoległe między rdzeniami węzła krawędzi lub klastra HDInsight. Aby dowiedzieć się więcej o korzystaniu z usług ML z klastrami HDInsight, zobacz następujące tematy:
+Ten artykuł zawiera informacje o opcjach, które są dostępne, aby określić, czy i jak wykonywanie jest równoległe między rdzeniami węzła lub klastra usługi HDInsight. Aby dowiedzieć się więcej na temat korzystania z usług w usłudze ML z klastrami usługi HDInsight, zobacz następujące tematy:
 
-- [Przegląd usług ML dla Apache Hadoop](r-server-overview.md)
+- [Omówienie usług ML dla Apache Hadoop](r-server-overview.md)
 - [Opcje usługi Azure Storage dla usług ML w usłudze HDInsight](r-server-storage.md)

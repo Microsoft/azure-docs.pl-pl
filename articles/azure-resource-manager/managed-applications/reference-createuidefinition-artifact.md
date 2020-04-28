@@ -1,24 +1,24 @@
 ---
 title: Artefakt CreateUiDefinition
-description: Pokazuje, jak utworzyć artefakt createUiDefinition dla aplikacji zarządzanej platformy Azure. Plik nosi nazwę createUiDefinition.json.
+description: Pokazuje, jak utworzyć artefakt createUiDefinition dla aplikacji zarządzanej platformy Azure. Plik ma nazwę createUiDefinition. JSON.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 9be1cb02c419314a33b9487bf183ef3659b2b549
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651490"
 ---
-# <a name="reference-user-interface-elements-artifact"></a>Odwołanie: Artefakt elementów interfejsu użytkownika
+# <a name="reference-user-interface-elements-artifact"></a>Odwołanie: artefakt elementów interfejsu użytkownika
 
-Ten artykuł jest odwołaniem do artefaktu *createUiDefinition.json* w aplikacjach zarządzanych platformy Azure. Aby uzyskać więcej informacji na temat tworzenia elementów interfejsu użytkownika, zobacz [Tworzenie elementów interfejsu użytkownika](create-uidefinition-elements.md).
+Ten artykuł jest odwołaniem do artefaktu *createUiDefinition. JSON* w Azure Managed Applications. Aby uzyskać więcej informacji na temat tworzenia elementów interfejsu użytkownika, zobacz [Tworzenie elementów interfejsu użytkownika](create-uidefinition-elements.md).
 
 ## <a name="user-interface-elements"></a>Elementy interfejsu użytkownika
 
-Poniżej przedstawiono następujący zestaw JSON, na przykład pliku *createUiDefinition.json* dla aplikacji zarządzanych platformy Azure:
+Poniższy kod JSON przedstawia przykład pliku *createUiDefinition. JSON* dla Azure Managed Applications:
 
 ```json
 {
@@ -81,6 +81,6 @@ Poniżej przedstawiono następujący zestaw JSON, na przykład pliku *createUiDe
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Samouczek: Tworzenie aplikacji zarządzanej przy niestandardowych akcjach i zasobach](tutorial-create-managed-app-with-custom-provider.md)
-- [Odwołanie: Artefakt szablonu wdrożenia](reference-main-template-artifact.md)
-- [Odwołanie: Zobacz artefakt definicji](reference-view-definition-artifact.md)
+- [Samouczek: Tworzenie aplikacji zarządzanej z niestandardowymi akcjami i zasobami](tutorial-create-managed-app-with-custom-provider.md)
+- [Odwołanie: artefakt szablonu wdrożenia](reference-main-template-artifact.md)
+- [Reference: artefakt definicji widoku](reference-view-definition-artifact.md)

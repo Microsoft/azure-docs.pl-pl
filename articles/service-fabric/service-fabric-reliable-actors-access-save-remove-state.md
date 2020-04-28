@@ -1,34 +1,34 @@
 ---
-title: Zarządzanie stanem sieci szkieletowej usługi Azure
-description: Dowiedz się więcej o uzyskiwaniu dostępu, zapisywaniu i usuwaniu stanu dla niezawodnego aktora sieci szkieletowej usług Azure oraz zagadnienia dotyczące projektowania aplikacji.
+title: Zarządzanie stanem Service Fabric platformy Azure
+description: Informacje o uzyskiwaniu dostępu, zapisywania i usuwania stanu dla niezawodnego aktora Service Fabric platformy Azure oraz zagadnienia dotyczące projektowania aplikacji.
 author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645637"
 ---
-# <a name="access-save-and-remove-reliable-actors-state"></a>Dostęp, zapisywanie i usuwanie stanu Niezawodni aktorzy
-[Reliable Actors](service-fabric-reliable-actors-introduction.md) są jednowątkowe obiekty, które można hermetyzować zarówno logiki i stanu i niezawodnie zachować stan. Każde wystąpienie aktora ma swój własny [menedżer stanu:](service-fabric-reliable-actors-state-management.md)struktura danych podobną do słownika, która niezawodnie przechowuje pary klucz/wartość. Menedżer stanu jest otoki wokół dostawcy stanu. Można go używać do przechowywania danych, niezależnie od tego, które [ustawienie trwałości](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) jest używane.
+# <a name="access-save-and-remove-reliable-actors-state"></a>Dostęp, zapisywanie i usuwanie stanu Reliable Actors
+[Reliable Actors](service-fabric-reliable-actors-introduction.md) są obiektami jednowątkowymi, które mogą w sposób niezawodny hermetyzować logikę i stan i zachować stan. Każde wystąpienie aktora ma swój własny [Menedżer stanu](service-fabric-reliable-actors-state-management.md): strukturę danych przypominającą słownik, która w niezawodny sposób przechowuje pary klucz/wartość. Menedżer stanu jest otoką wokół dostawcy stanu. Można jej użyć do przechowywania danych bez względu na to, które [ustawienie trwałości](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) jest używane.
 
-Klucze menedżera stanu muszą być ciągami. Wartości są ogólne i mogą być dowolnego typu, w tym typów niestandardowych. Wartości przechowywane w Menedżerze stanu muszą być serializowalne dla kontraktu danych, ponieważ mogą być przesyłane przez sieć do innych węzłów podczas replikacji i mogą być zapisywane na dysku, w zależności od ustawienia trwałości stanu aktora.
+Klucze menedżera stanu muszą być ciągami. Wartości są ogólne i mogą być dowolnego typu, w tym typów niestandardowych. Wartości przechowywane w Menedżerze Stanów muszą być serializowane kontraktu danych, ponieważ mogą być przesyłane przez sieć do innych węzłów podczas replikacji i mogą być zapisywane na dysku w zależności od ustawienia trwałości stanu aktora.
 
-Menedżer stanu udostępnia typowe metody słownika do zarządzania stanem, podobne do tych znalezionych w reliable dictionary.
+Menedżer stanu udostępnia typowe metody słownika do zarządzania stanem, podobnie jak te znajdujące się w niezawodnym słowniku.
 
-Aby uzyskać więcej informacji, zobacz [najważniejsze wskazówki dotyczące zarządzania stanem aktora](service-fabric-reliable-actors-state-management.md#best-practices).
+Aby uzyskać więcej informacji, zobacz [najlepsze rozwiązania dotyczące zarządzania stanem aktora](service-fabric-reliable-actors-state-management.md#best-practices).
 
 ## <a name="access-state"></a>Stan dostępu
-Stan jest dostępny za pośrednictwem menedżera stanu za pomocą klucza. Metody menedżera stanu są asynchroniczne, ponieważ mogą wymagać we/wy dysku, gdy aktorzy utrwaliły się w stanie. Przy pierwszym dostępie obiekty stanu są buforowane w pamięci. Operacje powtarzania dostępu uzyskują dostęp do obiektów bezpośrednio z pamięci i zwracają synchronicznie bez ponoszenia narzutów we/wy dysku lub asynchronicznie przełączających kontekst. Obiekt stanu jest usuwany z pamięci podręcznej w następujących przypadkach:
+Dostęp do stanu jest uzyskiwany za pomocą menedżera stanu według klucza. Metody menedżera stanu są wszystkie asynchroniczne, ponieważ mogą wymagać wejścia/wyjścia dysku, gdy aktory mają stan trwały. Po pierwszym dostępie obiekty stanu są buforowane w pamięci. Powtarzaj dostęp do obiektów Access Objects bezpośrednio z pamięci i zwracają synchronicznie, bez ponoszenia obciążenia we/wy dysku lub asynchronicznego przełączenia kontekstu. Obiekt State zostaje usunięty z pamięci podręcznej w następujących przypadkach:
 
-* Metoda aktora zgłasza nieobsługiowany wyjątek po pobraniu obiektu z menedżera stanu.
-* Aktor jest reaktywowany po dezaktywacji lub po awarii.
-* Serwer stanu podaje stan na dysku. To zachowanie zależy od implementacji dostawcy stanu. Domyślny dostawca stanu `Persisted` dla tego ustawienia ma to zachowanie.
+* Metoda aktor zgłasza nieobsługiwany wyjątek po pobraniu obiektu z menedżera stanu.
+* Aktor jest ponownie uaktywniany, Po zdezaktywowaniu lub po wystąpieniu błędu.
+* Stan strony dostawcy stanu na dysk. To zachowanie zależy od implementacji dostawcy stanu. Domyślnym dostawcą stanu dla tego `Persisted` ustawienia jest to zachowanie.
 
-Można pobrać stan przy użyciu standardowej operacji `KeyNotFoundException` *Pobierz,* która `NoSuchElementException`zgłasza (C#) lub (Java), jeśli wpis nie istnieje dla klucza:
+Stan można pobrać przy użyciu standardowej operacji *pobierania* , która zgłasza `KeyNotFoundException`(C#) lub `NoSuchElementException`(Java), Jeśli wpis nie istnieje dla klucza:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -61,7 +61,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Można również pobrać stan przy użyciu *TryGet* metody, która nie zgłasza, jeśli wpis nie istnieje dla klucza:
+Możesz również pobrać stan przy użyciu metody *TryGet* , która nie zgłasza, jeśli dla klucza nie istnieje wpis:
 
 ```csharp
 class MyActor : Actor, IMyActor
@@ -104,9 +104,9 @@ class MyActorImpl extends FabricActor implements  MyActor
 ```
 
 ## <a name="save-state"></a>Zapisz stan
-Metody pobierania menedżera stanu zwracają odwołanie do obiektu w pamięci lokalnej. Modyfikowanie tego obiektu w pamięci lokalnej sam nie powoduje, że mają być zapisywane trwale. Gdy obiekt jest pobierany z menedżera stanu i modyfikowany, musi zostać ponownie wstawiony do menedżera stanu, aby zapisać trwale.
+Metody pobierania menedżera stanu zwracają odwołanie do obiektu w pamięci lokalnej. Zmodyfikowanie tego obiektu w lokalnej pamięci nie powoduje jego zapisania trwale. Gdy obiekt jest pobierany z menedżera stanu i modyfikowany, musi zostać ponownie wstawiony do menedżera stanu w celu zapisania trwale.
 
-Stan można wstawić przy użyciu bezwarunkowego *zestawu*, `dictionary["key"] = value` który jest odpowiednikiem składni:
+Stan można wstawić przy użyciu *zestawu*bezwarunkowego, który jest odpowiednikiem `dictionary["key"] = value` składni:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -139,7 +139,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Stan można dodać za pomocą *Add* metody. Ta metoda `InvalidOperationException`zgłasza (C#) lub `IllegalStateException`(Java), gdy próbuje dodać klucz, który już istnieje.
+Stan można dodać za pomocą metody *Add* . Ta metoda zgłasza `InvalidOperationException`(C#) lub `IllegalStateException`(Java), gdy próbuje dodać klucz, który już istnieje.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -172,7 +172,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Można również dodać stan przy użyciu *TryAdd* metody. Ta metoda nie jest zgłaszana, gdy próbuje dodać klucz, który już istnieje.
+Możesz również dodać stan przy użyciu metody *TryAdd* . Ta metoda nie jest zgłaszana, gdy próbuje dodać klucz, który już istnieje.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -215,9 +215,9 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Na końcu metody aktora menedżer stanu automatycznie zapisuje wszystkie wartości, które zostały dodane lub zmodyfikowane przez operację wstawiania lub aktualizacji. "Zapisz" może zawierać utrwalanie dysku i replikacji, w zależności od użytych ustawień. Wartości, które nie zostały zmodyfikowane, nie są zachowywane ani replikowane. Jeśli żadne wartości nie zostały zmodyfikowane, operacja zapisywania nic nie robi. Jeśli zapisywanie nie powiedzie się, zmodyfikowany stan zostanie odrzucony, a oryginalny stan zostanie ponownie załadowany.
+Na końcu metody aktora Menedżer stanu automatycznie zapisuje wszystkie wartości, które zostały dodane lub zmodyfikowane przez operację wstawiania lub aktualizacji. "Save" może obejmować utrwalanie dysków i replikacji w zależności od użytych ustawień. Wartości, które nie zostały zmodyfikowane, nie są utrwalane ani replikowane. Jeśli żadne wartości nie zostały zmodyfikowane, operacja zapisywania nie robi nic. Jeśli zapisanie nie powiedzie się, zmodyfikowany stan zostanie odrzucony i zostanie ponownie załadowany pierwotny stan.
 
-Stan można również zapisać ręcznie, `SaveStateAsync` wywołując metodę na podstawie aktora:
+Można również zapisać stan ręcznie, wywołując `SaveStateAsync` metodę na podstawie aktora:
 
 ```csharp
 async Task IMyActor.SetCountAsync(int count)
@@ -239,7 +239,7 @@ interface MyActor {
 ```
 
 ## <a name="remove-state"></a>Usuń stan
-Stan można trwale usunąć z menedżera stanu aktora, wywołując *Remove* metody. Ta metoda `KeyNotFoundException`zgłasza (C#) lub `NoSuchElementException`(Java), gdy próbuje usunąć klucz, który nie istnieje.
+Stan można trwale usunąć z menedżera stanu aktora, wywołując metodę *Remove* . Ta metoda zgłasza `KeyNotFoundException`(C#) lub `NoSuchElementException`(Java), gdy próbuje usunąć klucz, który nie istnieje.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -272,7 +272,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Stan można również usunąć trwale przy użyciu *TryRemove* metody. Ta metoda nie jest zgłaszana, gdy próbuje usunąć klucz, który nie istnieje.
+Stan można również trwale usunąć za pomocą metody *TryRemove* . Ta metoda nie jest zgłaszana, gdy próbuje usunąć klucz, który nie istnieje.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -317,6 +317,6 @@ class MyActorImpl extends FabricActor implements  MyActor
 
 ## <a name="next-steps"></a>Następne kroki
 
-Stan, który jest przechowywany w reliable actors musi być serializowany przed jego zapisane na dysku i replikowane dla wysokiej dostępności. Dowiedz się więcej [o serializacji typu aktora](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+Stan, który jest przechowywany w Reliable Actors musi być serializowany przed zapisem na dysku i replikowany w celu zapewnienia wysokiej dostępności. Dowiedz się więcej o [serializacji typu aktora](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-Następnie dowiedz się więcej o [diagnostyce aktora i monitorowaniu wydajności](service-fabric-reliable-actors-diagnostics.md).
+Następnie Dowiedz się więcej na temat [diagnostyki aktora i monitorowania wydajności](service-fabric-reliable-actors-diagnostics.md).

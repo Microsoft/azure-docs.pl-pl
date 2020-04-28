@@ -1,6 +1,6 @@
 ---
-title: Migrowanie danych relacyjnych od jednego do niewielu do interfejsu API SQL usługi Azure Cosmos DB
-description: Dowiedz się, jak obsługiwać złożoną migrację danych dla relacji jeden-do-niewielu w interfejsie API SQL
+title: Migrowanie danych relacyjnych "jeden do kilku" do Azure Cosmos DB interfejsu API SQL
+description: Informacje na temat obsługi złożonej migracji danych dla relacji jeden-do-wielu z interfejsem API SQL
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: thvankra
 ms.openlocfilehash: 467e9627a2623779bd808ca5aebdf76d8a5eda42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75896638"
 ---
-# <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Migrowanie danych relacyjnych od jednego do niewielu do konta interfejsu API usługi Azure Cosmos DB SQL
+# <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Migrowanie danych relacyjnych "jeden do kilku" do Azure Cosmos DB konta interfejsu API SQL
 
-Aby przeprowadzić migrację z relacyjnej bazy danych do interfejsu API SQL usługi Azure Cosmos DB, może być konieczne wprowadzenie zmian w modelu danych w celu optymalizacji.
+Aby przeprowadzić migrację z relacyjnej bazy danych do Azure Cosmos DB SQL API, może być konieczne wprowadzenie zmian w modelu danych na potrzeby optymalizacji.
 
-Jedną z typowych transformacji jest denormalizacja danych przez osadzenie powiązanych podpozytów w jednym dokumencie JSON. Tutaj przyjrzymy się kilku opcji dla tego przy użyciu usługi Azure Data Factory lub Azure Databricks. Aby uzyskać ogólne wskazówki dotyczące modelowania danych dla usługi Cosmos DB, zapoznaj się [z modelowania danych w usłudze Azure Cosmos DB.](modeling-data.md)  
+Jedna wspólna transformacja polega na denormalizacji danych przez osadzenie powiązanych podelementów w ramach jednego dokumentu JSON. Oto kilka opcji dla tego programu przy użyciu Azure Data Factory lub Azure Databricks. Ogólne wskazówki dotyczące modelowania danych dla Cosmos DB można znaleźć w temacie [Modelowanie danych w Azure Cosmos DB](modeling-data.md).  
 
 ## <a name="example-scenario"></a>Przykładowy scenariusz
 
-Załóżmy, że mamy następujące dwie tabele w naszej bazie danych SQL, Zamówienia i OrderDetails.
+Załóżmy, że mamy dwie tabele w bazie danych SQL, Orders i OrderDetails.
 
 
 ![Szczegóły zamówienia](./media/migrate-relational-to-cosmos-sql-api/orders.png)
 
-Chcemy połączyć tę relację jeden do niewielu w jeden dokument JSON podczas migracji. Aby to zrobić, możemy utworzyć kwerendę T-SQL przy użyciu "FOR JSON", jak poniżej:
+Chcemy połączyć tę relację "jeden do kilku" z jednym dokumentem JSON podczas migracji. W tym celu możemy utworzyć zapytanie T-SQL przy użyciu polecenia "FOR JSON" w następujący sposób:
 
 ```sql
 SELECT
@@ -46,31 +46,31 @@ SELECT
 FROM Orders o;
 ```
 
-Wyniki tej kwerendy będą wyglądać poniżej: 
+Wyniki tego zapytania będą wyglądać następująco: 
 
 ![Szczegóły zamówienia](./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png#lightbox)
 
 
-W idealnym przypadku chcesz użyć pojedynczego działania kopiowania usługi Azure Data Factory (ADF), aby zbadać dane SQL jako źródło i zapisać dane wyjściowe bezpośrednio do ujścia usługi Azure Cosmos DB jako odpowiednie obiekty JSON. Obecnie nie jest możliwe wykonanie potrzebnej transformacji JSON w jednym działaniu kopiowania. Jeśli spróbujemy skopiować wyniki powyższej kwerendy do kontenera interfejsu API SQL usługi Azure Cosmos DB, zobaczymy OrderDetails pole jako właściwość ciągu naszego dokumentu, zamiast oczekiwanej tablicy JSON.
+Najlepiej użyć działania kopiowania pojedynczego Azure Data Factory (ADF) do wysyłania zapytań dotyczących danych SQL jako źródła i zapisywania danych wyjściowych bezpośrednio do Azure Cosmos DB ujścia jako odpowiednich obiektów JSON. Obecnie nie jest możliwe wykonywanie transformacji JSON w jednym działaniu kopiowania. Jeśli spróbujemy skopiować wyniki powyższego zapytania do Azure Cosmos DB kontenera interfejsu API SQL, zobaczymy pole OrderDetails jako właściwość ciągu naszego dokumentu zamiast oczekiwanej tablicy JSON.
 
-Możemy obejść to bieżące ograniczenie w jeden z następujących sposobów:
+To bieżące ograniczenie można obejść w jeden z następujących sposobów:
 
-* **Użyj usługi Azure Data Factory z dwoma działaniami kopiowania:** 
-  1. Pobierz dane w formacie JSON z SQL do pliku tekstowego w pośredniczącej lokalizacji magazynu obiektów blob oraz 
-  2. Ładowanie danych z pliku tekstowego JSON do kontenera w usłudze Azure Cosmos DB.
+* **Użyj Azure Data Factory z dwoma działaniami kopiowania**: 
+  1. Pobierz dane w formacie JSON z bazy danych SQL do pliku tekstowego w lokalizacji magazynu obiektów blob, a następnie 
+  2. Załaduj dane z pliku tekstowego JSON do kontenera w Azure Cosmos DB.
 
-* **Użyj usługi Azure Databricks do odczytu z języka SQL i zapisu w usłudze Azure Cosmos DB** — przedstawimy dwie opcje tutaj.
+* **Użyj Azure Databricks do odczytywania danych z bazy danych SQL i zapisywania do Azure Cosmos DB — w** tym miejscu przedstawimy dwie opcje.
 
 
-Przyjrzyjmy się tym podejściom bardziej szczegółowo:
+Przyjrzyjmy się tym podejściem bardziej szczegółowo:
 
 ## <a name="azure-data-factory"></a>Azure Data Factory
 
-Mimo że nie możemy osadzić OrderDetails jako tablicy JSON w docelowym dokumencie usługi Cosmos DB, możemy obejść ten problem przy użyciu dwóch oddzielnych działań kopiowania.
+Chociaż nie można osadzić OrderDetails jako tablicy JSON w docelowym dokumencie Cosmos DB, możemy obejść problem, używając dwóch oddzielnych działań kopiowania.
 
 ### <a name="copy-activity-1-sqljsontoblobtext"></a>#1 działania kopiowania: SqlJsonToBlobText
 
-W przypadku danych źródłowych używamy kwerendy SQL, aby uzyskać zestaw wyników jako pojedynczą kolumnę z jednym obiektem JSON (reprezentującym kolejność) na wiersz przy użyciu funkcji SQL Server OPENJSON i FOR JSON PATH:
+W przypadku danych źródłowych używamy zapytania SQL w celu pobrania zestawu wyników jako pojedynczej kolumny z jednym obiektem JSON (reprezentującym kolejność) za pomocą SQL Server OPENJSON i funkcji ścieżki JSON:
 
 ```sql
 SELECT [value] FROM OPENJSON(
@@ -91,49 +91,49 @@ SELECT [value] FROM OPENJSON(
 )
 ```
 
-![Kopia ADF](./media/migrate-relational-to-cosmos-sql-api/adf1.png)
+![Kopia APD](./media/migrate-relational-to-cosmos-sql-api/adf1.png)
 
 
-W przypadku działania kopiowania sqljsonToBlobText wybieramy "Tekst rozdzielany" i wskazujemy go do określonego folderu w usłudze Azure@concatBlob Storage o dynamicznie wygenerowanej unikatowej nazwie pliku (na przykład ' (pipeline(). RunId,'.json').
-Ponieważ nasz plik tekstowy nie jest tak naprawdę "rozdzielony" i nie chcemy, aby był analizowany w oddzielnych kolumnach za pomocą przecinków i chcemy zachować podwójne cudzysłowy ("), ustawiamy "Ogranicznik kolumny" na kartę ("\t") - lub inny znak nie występujący w danych - i "Znak cytatu" "Brak znaku cudzysłowu".
+W przypadku ujścia działania kopiowania SqlJsonToBlobText wybieramy "Tekst rozdzielany" i wskazujemy go do określonego folderu w usłudze Azure Blob Storage z dynamicznie wygenerowaną unikatową nazwą pliku (na przykład "@concatpotok (). RunId, ". JSON").
+Ponieważ nasz plik tekstowy nie jest w rzeczywistości "rozdzielony" i nie chcemy przeanalizować go w oddzielnych kolumnach przy użyciu przecinków i chcesz zachować podwójne cudzysłowy ("), ustawiamy" ogranicznik kolumny "na kartę (" \t ") lub inny znak, który nie występuje w danych i" znaku cudzysłowu "do" bez znaku cudzysłowu ".
 
-![Kopia ADF](./media/migrate-relational-to-cosmos-sql-api/adf2.png)
+![Kopia APD](./media/migrate-relational-to-cosmos-sql-api/adf2.png)
 
 ### <a name="copy-activity-2-blobjsontocosmos"></a>#2 działania kopiowania: BlobJsonToCosmos
 
-Następnie zmodyfikujemy nasz potok usługi ADF, dodając drugie działanie kopiowania, które wygląda w usłudze Azure Blob Storage dla pliku tekstowego, który został utworzony przez pierwsze działanie. Przetwarza go jako źródło "JSON", aby wstawić do ujścia usługi Cosmos DB jako jeden dokument na JSON-wiersz znaleziony w pliku tekstowym.
+Następnie zmodyfikujemy nasz potok ADF, dodając drugie działanie kopiowania, które przeszukuje Blob Storage platformy Azure dla pliku tekstowego, który został utworzony przez pierwsze działanie. Przetwarza ją jako Źródło "JSON", aby wstawić do Cosmos DB ujścia, ponieważ jeden dokument na wiersz JSON został znaleziony w pliku tekstowym.
 
-![Kopia ADF](./media/migrate-relational-to-cosmos-sql-api/adf3.png)
+![Kopia APD](./media/migrate-relational-to-cosmos-sql-api/adf3.png)
 
-Opcjonalnie dodajemy również działanie "Usuń" do potoku, aby usunąć wszystkie poprzednie pliki pozostałe w folderze /Orders/ przed każdym uruchomieniem. Nasz potok ADF wygląda teraz mniej więcej tak:
+Opcjonalnie należy również dodać działanie "Delete" do potoku, aby usunąć wszystkie poprzednie pliki pozostałe w folderze/Orders/przed każdym uruchomieniem. Nasz potok ADF wygląda teraz następująco:
 
-![Kopia ADF](./media/migrate-relational-to-cosmos-sql-api/adf4.png)
+![Kopia APD](./media/migrate-relational-to-cosmos-sql-api/adf4.png)
 
-Po wyzwoleniu potoku powyżej widzimy plik utworzony w naszej pośredniczącej lokalizacji usługi Azure Blob Storage zawierającej jeden obiekt JSON na wiersz:
+Po wyzwoleniu powyższego potoku zobaczymy plik utworzony w naszej lokalizacji Blob Storage platformy Azure zawierającej jeden obiekt JSON dla każdego wiersza:
 
-![Kopia ADF](./media/migrate-relational-to-cosmos-sql-api/adf5.png)
+![Kopia APD](./media/migrate-relational-to-cosmos-sql-api/adf5.png)
 
-Widzimy również dokumenty zamówień z prawidłowo osadzonymi szczegółami zamówienia wstawionymi do naszej kolekcji Cosmos DB:
+Zobaczymy również dokumenty Orders z prawidłowo osadzonymi OrderDetails wstawionymi do naszej kolekcji Cosmos DB:
 
-![Kopia ADF](./media/migrate-relational-to-cosmos-sql-api/adf6.png)
+![Kopia APD](./media/migrate-relational-to-cosmos-sql-api/adf6.png)
 
 
 ## <a name="azure-databricks"></a>Azure Databricks
 
-Możemy również użyć platformy Spark in [Azure Databricks](https://azure.microsoft.com/services/databricks/) do kopiowania danych z naszego źródła bazy danych SQL do miejsca docelowego usługi Azure Cosmos DB bez tworzenia pośredniczących plików tekstowych/JSON w usłudze Azure Blob Storage. 
+Możemy również użyć platformy Spark w [Azure Databricks](https://azure.microsoft.com/services/databricks/) , aby skopiować dane ze źródła SQL Database do Azure Cosmos DB docelowej bez tworzenia pośrednich plików tekstu/JSON na platformie Azure Blob Storage. 
 
 > [!NOTE]
-> Aby uzyskać przejrzystość i prostotę, poniższe fragmenty kodu zawierają fikcyjne hasła bazy danych jawnie wbudowane, ale zawsze należy używać wpisów tajnych usługi Azure Databricks.
+> Dla jasności i prostoty fragmenty kodu poniżej zawierają fikcyjne hasła bazy danych jawnie wbudowane, ale zawsze należy używać Azure Databricks wpisów tajnych.
 >
 
-Najpierw tworzymy i dołączamy wymagany [łącznik SQL](https://docs.databricks.com/data/data-sources/sql-databases-azure.html) i [biblioteki łączników usługi Azure Cosmos DB](https://docs.databricks.com/data/data-sources/azure/cosmosdb-connector.html) do naszego klastra usługi Azure Databricks. Uruchom ponownie klaster, aby upewnić się, że biblioteki są ładowane.
+Najpierw tworzymy i dołączymy wymagane biblioteki łączników [SQL](https://docs.databricks.com/data/data-sources/sql-databases-azure.html) i [Azure Cosmos DB łączników](https://docs.databricks.com/data/data-sources/azure/cosmosdb-connector.html) do naszego klastra Azure Databricks. Uruchom ponownie klaster, aby upewnić się, że biblioteki są załadowane.
 
 ![Databricks](./media/migrate-relational-to-cosmos-sql-api/databricks1.png)
 
-Następnie przedstawiamy dwie próbki, dla Scala i Python. 
+Następnie przedstawimy dwie przykłady dla Scala i Python. 
 
 ### <a name="scala"></a>Scala
-W tym miejscu możemy uzyskać wyniki kwerendy SQL z "FOR JSON" dane wyjściowe do DataFrame:
+W tym miejscu uzyskasz wyniki zapytania SQL z danymi wyjściowymi "FOR JSON" w ramce Dataframe:
 
 ```scala
 // Connect to Azure SQL https://docs.databricks.com/data/data-sources/sql-databases-azure.html
@@ -153,7 +153,7 @@ display(orders)
 
 ![Databricks](./media/migrate-relational-to-cosmos-sql-api/databricks2.png)
 
-Następnie łączymy się z naszą bazą danych i kolekcją Usługi Cosmos DB:
+Następnie nawiązujemy połączenie z naszą Cosmos DB bazą danych i kolekcją:
 
 ```scala
 // Connect to Cosmos DB https://docs.databricks.com/data/data-sources/azure/cosmosdb-connector.html
@@ -178,7 +178,7 @@ val configMap = Map(
 val configCosmos = Config(configMap)
 ```
 
-Na koniec definiujemy nasz schemat i from_json do zastosowania DataFrame przed zapisaniem go w kolekcji Usługi CosmosDB.
+Na koniec zdefiniujemy schemat i użyjemy from_json, aby zastosować ramkę danych przed zapisaniem jej w kolekcji CosmosDB.
 
 ```scala
 // Convert DataFrame to proper nested schema
@@ -213,7 +213,7 @@ CosmosDBSpark.save(ordersWithSchema, configCosmos)
 
 ### <a name="python"></a>Python
 
-Jako alternatywne podejście może być konieczne wykonanie przekształceń JSON w programie Spark (jeśli źródłowa baza danych nie obsługuje "FOR JSON" lub podobnej operacji) lub może być używana operacja równoległa dla bardzo dużego zestawu danych. Tutaj prezentujemy próbkę PySpark. Zacznij od skonfigurowania połączeń źródłowej i docelowej bazy danych w pierwszej komórce:
+Alternatywnie można wykonać przekształcenia JSON w usłudze Spark (jeśli źródłowa baza danych nie obsługuje "FOR JSON" lub podobnej operacji) lub można użyć operacji równoległych dla bardzo dużego zestawu danych. Tutaj przedstawiono przykład PySpark. Zacznij od skonfigurowania połączenia źródłowej i docelowej bazy danych w pierwszej komórce:
 
 ```python
 import uuid
@@ -245,7 +245,7 @@ writeConfig = {
 }
 ```
 
-Następnie będziemy wysyłać zapytania do źródłowej bazy danych (w tym przypadku programu SQL Server) dla rekordów szczegółów zamówienia i zamówienia, umieszczając wyniki w platformie Spark Dataframes. Utworzymy również listę zawierającą wszystkie identyfikatory zamówień i pulę wątków dla operacji równoległych:
+Następnie wyślemy zapytanie do źródłowej bazy danych (w tym przypadku SQL Server) dla rekordów Order i Order detail, co powoduje umieszczenie wyników w ramkach dataframes. Utworzymy również listę zawierającą wszystkie identyfikatory zamówień i pulę wątków dla operacji równoległych:
 
 ```python
 import json
@@ -278,7 +278,7 @@ orderids = orders.select('OrderId').collect()
 pool = ThreadPool(10)
 ```
 
-Następnie utwórz funkcję pisania zamówień do docelowej kolekcji interfejsu API SQL. Ta funkcja będzie filtrować wszystkie szczegóły zamówienia dla danego identyfikatora zamówienia, przekonwertować je na tablicę JSON i wstawić tablicę do dokumentu JSON, który zapiszemy w docelowej kolekcji interfejsu API SQL dla tej kolejności:
+Następnie Utwórz funkcję do pisania zamówień w docelowej kolekcji interfejsów API SQL. Ta funkcja będzie filtrować wszystkie szczegóły zamówienia dla danego identyfikatora zamówienia, przekonwertować je do tablicy JSON i wstawić tablicę do dokumentu JSON, który zostanie zapisany w docelowej kolekcji interfejsów API SQL dla tej kolejności:
 
 ```python
 def writeOrder(orderid):
@@ -330,16 +330,16 @@ def writeOrder(orderid):
   df.write.format("com.microsoft.azure.cosmosdb.spark").mode("append").options(**writeConfig).save()
 ```
 
-Na koniec wywołamy powyższe za pomocą funkcji mapy w puli wątków, aby wykonać równolegle, przechodząc na liście identyfikatorów zamówień, które utworzyliśmy wcześniej:
+Na koniec wywołamy powyższe polecenie przy użyciu funkcji map w puli wątków, aby wykonać je równolegle, przekazując listę utworzonych wcześniej identyfikatorów kolejności:
 
 ```python
 #map order details to orders in parallel using the above function
 pool.map(writeOrder, orderids)
 ```
-W obu podejściach, na końcu, powinniśmy uzyskać poprawnie zapisane osadzone OrderDetails w ramach każdego dokumentu zamówienia w kolekcji Usługi Cosmos DB:
+W obu przypadkach na końcu powinna zostać prawidłowo zapisana osadzona OrderDetails w każdym dokumencie kolejności w kolekcji Cosmos DB:
 
 ![Databricks](./media/migrate-relational-to-cosmos-sql-api/databricks4.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [modelowaniu danych w usłudze Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/modeling-data)
-* Dowiedz [się, jak modelować i dzielić dane w usłudze Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example)
+* Informacje [na temat modelowania danych w Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/modeling-data)
+* Dowiedz się [, jak modelować i dzielić dane na Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example)

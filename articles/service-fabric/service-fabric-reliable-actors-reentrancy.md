@@ -1,24 +1,24 @@
 ---
-title: Ponowne entranowanie w podmiotach sieci szkieletowej usług Azure
-description: Wprowadzenie do ponownego wniesienia dla usługi Sieci szkieletowej wiarygodnych aktorów, sposób logicznie uniknąć blokowania na podstawie kontekstu wywołania.
+title: Współużytkowania wątkowości na platformie Azure Service Fabric
+description: Wprowadzenie do współużytkowania wątkowości Service Fabric Reliable Actors, sposób logicznego unikania blokowania na podstawie kontekstu wywołania.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 46ce91e607341e2fbdc0b6a3018e74cb24e76839
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645535"
 ---
-# <a name="reliable-actors-reentrancy"></a>Niezawodni aktorzy ponownie
-Środowisko uruchomieniowe Reliable Actors domyślnie umożliwia ponowne wymierzanie kontekstu oparte na wywołaniu logicznym. Pozwala to na podmioty być reentrant, jeśli są one w tym samym łańcuchu kontekstu wywołania. Na przykład aktor A wysyła wiadomość do aktora B, który wysyła wiadomość do aktora C. W ramach przetwarzania wiadomości, jeśli aktor C wywołuje aktora A, wiadomość jest reentrant, więc będzie dozwolone. Wszystkie inne wiadomości, które są częścią kontekstu różnych wywołań zostaną zablokowane na aktora A, dopóki nie zakończy przetwarzania.
+# <a name="reliable-actors-reentrancy"></a>Reliable Actors współużytkowania wątkowości
+Domyślnie środowisko uruchomieniowe Reliable Actors zezwala na współużytkowania wątkowości na kontekst wywołania logicznego. Pozwala to na współużytkowanie aktorów, jeśli znajdują się w tym samym łańcuchu kontekstu wywołania. Na przykład aktor A wysyła komunikat do aktora B, który wysyła komunikat do aktora C. W ramach przetwarzania wiadomości, jeśli aktor w języku C wywołuje aktora A, komunikat jest współużytkowany, więc będzie dozwolony. Wszystkie inne komunikaty, które są częścią innego kontekstu wywołania, będą blokowane na aktora A do momentu zakończenia przetwarzania.
 
-Istnieją dwie opcje dostępne dla ponownego wniesienia aktora zdefiniowane w wyliczenia: `ActorReentrancyMode`
+Dostępne są dwie opcje aktora współużytkowania wątkowości zdefiniowane w `ActorReentrancyMode` wyliczeniu:
 
 * `LogicalCallContext`(zachowanie domyślne)
-* `Disallowed`- wyłącza reentrancy
+* `Disallowed`-wyłącza współużytkowania wątkowości
 
 ```csharp
 public enum ActorReentrancyMode
@@ -34,9 +34,9 @@ public enum ActorReentrancyMode
     Disallowed(2)
 }
 ```
-Ponowne entrancy można skonfigurować w ustawieniach `ActorService`'s podczas rejestracji. Ustawienie dotyczy wszystkich wystąpień aktora utworzonych w usłudze aktora.
+Współużytkowania wątkowości można skonfigurować w `ActorService`ustawieniach ustawień podczas rejestracji. To ustawienie ma zastosowanie do wszystkich wystąpień aktora utworzonych w usłudze aktora.
 
-W poniższym przykładzie przedstawiono usługę aktora, `ActorReentrancyMode.Disallowed`która ustawia tryb ponownego wniesienia na . W takim przypadku jeśli aktor wysyła wiadomość wielokrotnego wniesienia do innego aktora, zostanie zgłoszony wyjątek typu. `FabricException`
+W poniższym przykładzie przedstawiono usługę aktora, która ustawia tryb współużytkowania wątkowości na `ActorReentrancyMode.Disallowed`. W takim przypadku, jeśli aktor wysyła komunikat Współużytkowany do innego aktora, zostanie zgłoszony wyjątek typu `FabricException` .
 
 ```csharp
 static class Program
@@ -102,4 +102,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o reentrancy w [dokumentacji referencyjnej interfejsu API aktora](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* Dowiedz się więcej o współużytkowania wątkowości w dokumentacji dotyczącej [interfejsu API aktora](https://msdn.microsoft.com/library/azure/dn971626.aspx)

@@ -1,6 +1,6 @@
 ---
-title: Kopiowanie danych z amazon S3 do usługi Azure Storage przy użyciu AzCopy | Dokumenty firmy Microsoft
-description: Przesyłanie danych za pomocą wiader AzCopy i Amazon S3
+title: Kopiowanie danych z usługi Amazon S3 do magazynu Azure Storage przy użyciu programu AzCopy | Microsoft Docs
+description: Transferowanie danych za pomocą zasobników AzCopy i Amazon S3
 services: storage
 author: normesta
 ms.service: storage
@@ -9,156 +9,156 @@ ms.date: 01/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: a3180593eaf8c01c772fd761d88b5f5b9f7657ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75941504"
 ---
-# <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Kopiowanie danych z usługi Amazon S3 do usługi Azure Storage przy użyciu programu AzCopy
+# <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Kopiowanie danych z usług Amazon S3 do usługi Azure Storage za pomocą AzCopy
 
-AzCopy to narzędzie wiersza polecenia, za pomocą którego można kopiować obiekty BLOB lub pliki do lub z konta magazynu. Ten artykuł ułatwia kopiowanie obiektów, katalogów i zasobników z amazon web services (AWS) S3 do magazynu obiektów blob platformy Azure przy użyciu programu AzCopy.
+AzCopy to narzędzie wiersza polecenia, które służy do kopiowania obiektów blob lub plików do lub z konta magazynu. Ten artykuł pomaga w kopiowaniu obiektów, katalogów i zasobników z Amazon Web Services (AWS) S3 do usługi Azure Blob Storage za pomocą AzCopy.
 
-## <a name="choose-how-youll-provide-authorization-credentials"></a>Wybieranie sposobu podawania poświadczeń autoryzacji
+## <a name="choose-how-youll-provide-authorization-credentials"></a>Wybierz sposób dostarczania poświadczeń autoryzacji
 
-* Aby autoryzować za pomocą usługi Azure Storage, użyj usługi Azure Active Directory (AD) lub tokenu sygnatury dostępu współdzielonego (SAS).
+* Aby autoryzować usługę Azure Storage, użyj Azure Active Directory (AD) lub tokenu sygnatury dostępu współdzielonego (SAS).
 
-* Aby autoryzować za pomocą AWS S3, użyj klucza dostępu AWS i tajnego klucza dostępu.
+* Aby autoryzować za pomocą AWS S3, użyj klucza dostępu AWS i klucza dostępu tajnego.
 
-### <a name="authorize-with-azure-storage"></a>Autoryzuj za pomocą usługi Azure Storage
+### <a name="authorize-with-azure-storage"></a>Autoryzuj w usłudze Azure Storage
 
-Zobacz [wprowadzenie do AzCopy](storage-use-azcopy-v10.md) artykuł, aby pobrać AzCopy i wybierz sposób dostarczania poświadczeń autoryzacji do usługi magazynu.
+Zapoznaj się z artykułem [wprowadzenie do AzCopy](storage-use-azcopy-v10.md) w celu pobrania AzCopy i wybrania sposobu dostarczania poświadczeń autoryzacji do usługi magazynu.
 
 > [!NOTE]
-> Przykłady w tym artykule zakładają, że uwierzytelniłeś `AzCopy login` swoją tożsamość za pomocą polecenia. AzCopy następnie używa konta usługi Azure AD do autoryzowania dostępu do danych w magazynie obiektów Blob.
+> W przykładach w tym artykule przyjęto założenie, że tożsamość została uwierzytelniona `AzCopy login` przy użyciu polecenia. AzCopy następnie używa konta usługi Azure AD do autoryzacji dostępu do danych w usłudze BLOB Storage.
 >
-> Jeśli wolisz używać tokenu Sygnatury dostępu Współdzielonego do autoryzowania dostępu do danych obiektów blob, możesz dołączyć ten token do adresu URL zasobu w każdym poleceniu AzCopy.
+> Jeśli wolisz używać tokenu SAS do autoryzacji dostępu do danych obiektów blob, możesz dołączyć ten token do adresu URL zasobu w każdym poleceniu AzCopy.
 >
 > Na przykład: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
 
-### <a name="authorize-with-aws-s3"></a>Autoryzuj z AWS S3
+### <a name="authorize-with-aws-s3"></a>Autoryzuj przy użyciu AWS S3
 
-Zbierz klucz dostępu AWS i tajny klucz dostępu, a następnie ustaw następujące zmienne środowiskowe:
+Zbierz klucz dostępu AWS i klucz dostępu tajnego, a następnie ustaw następujące zmienne środowiskowe:
 
 | System operacyjny | Polecenie  |
 |--------|-----------|
 | **Windows** | `set AWS_ACCESS_KEY_ID=<access-key>`<br>`set AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
-| **Macos** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
+| **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
 ## <a name="copy-objects-directories-and-buckets"></a>Kopiowanie obiektów, katalogów i zasobników
 
-AzCopy używa interfejsu API [adresu URL Put Block From,](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) dzięki czemu dane są kopiowane bezpośrednio między AWS S3 a serwerami magazynu. Te operacje kopiowania nie używają przepustowości sieci komputera.
+AzCopy korzysta z interfejsu API [Put Block z adresu URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) , więc dane są kopiowane bezpośrednio między AWS S3 i serwerami magazynu. Te operacje kopiowania nie korzystają z przepustowości sieci komputera.
 
 > [!IMPORTANT]
-> Ta funkcja jest obecnie dostępna w wersji zapoznawczej. Jeśli zdecydujesz się usunąć dane z zasobników S3 po operacji kopiowania, przed usunięciem danych upewnij się, że dane zostały poprawnie skopiowane na konto magazynu.
+> Ta funkcja jest obecnie w wersji zapoznawczej. Jeśli zdecydujesz się na usunięcie danych z pakietów S3 po operacji kopiowania, upewnij się, że dane zostały prawidłowo skopiowane na konto magazynu przed usunięciem danych.
 
 > [!TIP]
-> Przykłady w tej sekcji ujęć argumenty ścieżki z pojedynczymi cudzysłowami (''). Użyj pojedynczych cudzysłowów we wszystkich powłokach poleceń z wyjątkiem powłoki poleceń systemu Windows (cmd.exe). Jeśli używasz powłoki poleceń systemu Windows (cmd.exe), należy ująć argumenty ścieżki z podwójnymi cudzysłowami ("") zamiast pojedynczych cudzysłowów (').
+> W przykładach w tej sekcji zamieszczono argumenty Path z pojedynczymi cudzysłowami (' '). Używaj pojedynczych cudzysłowów we wszystkich powłokach poleceń z wyjątkiem powłoki poleceń systemu Windows (cmd. exe). Jeśli używasz powłoki poleceń systemu Windows (cmd. exe), ujmij argumenty ścieżki z podwójnymi cudzysłowami ("") zamiast pojedynczego cudzysłowu ("").
 
- Te przykłady działają również z kontami, które mają hierarchiczną przestrzeń nazw. [Dostęp do wielu protokołów w magazynie usługi Data Lake](../blobs/data-lake-storage-multi-protocol-access.md) `blob.core.windows.net`umożliwia użycie tej samej składni adresu URL ( ) na tych kontach. 
+ Te przykłady działają również z kontami, które mają hierarchiczną przestrzeń nazw. [Dostęp z użyciem protokołu wieloprotokołowego do Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) umożliwia używanie tej samej składni adresu`blob.core.windows.net`URL () na tych kontach. 
 
 ### <a name="copy-an-object"></a>Kopiowanie obiektu
 
-Użyj tej samej składni adresu URL (`blob.core.windows.net`) dla kont, które mają hierarchiczną przestrzeń nazw.
+Użyj tej samej składni adresu URL`blob.core.windows.net`() dla kont, które mają hierarchiczną przestrzeń nazw.
 
 |    |     |
 |--------|-----------|
-| **Składni** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
-| **Przykład** | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
+| **Obowiązuje** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
+| **Przyklad** | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
 | **Przykład** (hierarchiczna przestrzeń nazw) | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
 
 > [!NOTE]
-> Przykłady w tym artykule używają adresów URL w stylu ścieżki `http://s3.amazonaws.com/<bucket-name>`dla zasobników AWS S3 (na przykład: ). 
+> Przykłady w tym artykule używają adresów URL w stylu ścieżki dla zasobników AWS S3 (na przykład `http://s3.amazonaws.com/<bucket-name>`:). 
 >
-> Można również użyć wirtualnych adresów URL w stylu `http://bucket.s3.amazonaws.com`hostowanym (na przykład: ). 
+> Możesz również użyć wirtualnych adresów URL w stylu hostowanym (na przykład: `http://bucket.s3.amazonaws.com`). 
 >
-> Aby dowiedzieć się więcej o wirtualnym hostingu wiader, zobacz [Virtual Hosting wiader]](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
+> Aby dowiedzieć się więcej na temat wirtualnego hostowania zasobników, zobacz [Virtual Hostinging datazasobniks]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
 
 ### <a name="copy-a-directory"></a>Kopiowanie katalogu
 
-Użyj tej samej składni adresu URL (`blob.core.windows.net`) dla kont, które mają hierarchiczną przestrzeń nazw.
+Użyj tej samej składni adresu URL`blob.core.windows.net`() dla kont, które mają hierarchiczną przestrzeń nazw.
 
 |    |     |
 |--------|-----------|
-| **Składni** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
-| **Przykład** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **Obowiązuje** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
+| **Przyklad** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 | **Przykład** (hierarchiczna przestrzeń nazw)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### <a name="copy-a-bucket"></a>Kopiowanie zasobnika
 
-Użyj tej samej składni adresu URL (`blob.core.windows.net`) dla kont, które mają hierarchiczną przestrzeń nazw.
+Użyj tej samej składni adresu URL`blob.core.windows.net`() dla kont, które mają hierarchiczną przestrzeń nazw.
 
 |    |     |
 |--------|-----------|
-| **Składni** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
-| **Przykład** | `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
+| **Obowiązuje** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
+| **Przyklad** | `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
 | **Przykład** (hierarchiczna przestrzeń nazw)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
-### <a name="copy-all-buckets-in-all-regions"></a>Kopiowanie wszystkich zasobników we wszystkich regionach
+### <a name="copy-all-buckets-in-all-regions"></a>Kopiuj wszystkie przedziały we wszystkich regionach
 
-Użyj tej samej składni adresu URL (`blob.core.windows.net`) dla kont, które mają hierarchiczną przestrzeń nazw.
+Użyj tej samej składni adresu URL`blob.core.windows.net`() dla kont, które mają hierarchiczną przestrzeń nazw.
 
 |    |     |
 |--------|-----------|
-| **Składni** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
-| **Przykład** | `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+| **Obowiązuje** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
+| **Przyklad** | `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
 | **Przykład** (hierarchiczna przestrzeń nazw)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
-### <a name="copy-all-buckets-in-a-specific-s3-region"></a>Kopiowanie wszystkich zasobników w określonym regionie S3
+### <a name="copy-all-buckets-in-a-specific-s3-region"></a>Kopiuj wszystkie zasobniki w określonym regionie S3
 
-Użyj tej samej składni adresu URL (`blob.core.windows.net`) dla kont, które mają hierarchiczną przestrzeń nazw.
+Użyj tej samej składni adresu URL`blob.core.windows.net`() dla kont, które mają hierarchiczną przestrzeń nazw.
 
 |    |     |
 |--------|-----------|
-| **Składni** | `azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
-| **Przykład** | `azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+| **Obowiązuje** | `azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
+| **Przyklad** | `azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
 | **Przykład** (hierarchiczna przestrzeń nazw)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ## <a name="handle-differences-in-object-naming-rules"></a>Obsługa różnic w regułach nazewnictwa obiektów
 
-Usługa AWS S3 ma inny zestaw konwencji nazewnictwa nazw zasobników w porównaniu z kontenerami obiektów blob platformy Azure. Możesz przeczytać o nich [tutaj](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules). Jeśli zdecydujesz się skopiować grupę zasobników do konta magazynu platformy Azure, operacja kopiowania może zakończyć się niepowodzeniem z powodu różnic nazewnictwa.
+AWS S3 ma inny zestaw konwencji nazewnictwa dla nazw zasobników w porównaniu do kontenerów obiektów blob platformy Azure. [Tutaj](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules)możesz przeczytać o nich. Jeśli zdecydujesz się na skopiowanie grupy zasobników na konto usługi Azure Storage, operacja kopiowania może zakończyć się niepowodzeniem z powodu różnic nazewnictwa.
 
-AzCopy obsługuje dwa z najczęstszych problemów, które mogą wystąpić; zasobników zawierających kropki i zasobniki zawierające kolejne łączniki. Nazwy zasobników usługi AWS S3 mogą zawierać okresy i kolejne łączniki, ale kontener na platformie Azure nie może. AzCopy zastępuje kropki myślnikami i kolejnymi myślnikami liczbą reprezentującą liczbę kolejnych łączników (Na przykład: wiadro o nazwie `my----bucket` staje się `my-4-bucket`. 
+AzCopy obsługuje dwa najczęstsze problemy, które mogą wystąpić; zasobniki zawierające okresy i przedziały, które zawierają kolejne łączniki. Nazwy zasobników AWS S3 mogą zawierać kropki i kolejne łączniki, ale nie może mieć kontenera na platformie Azure. AzCopy zastępuje okresy łącznikami i kolejne łączniki o liczbie reprezentującej liczbę kolejnych łączników (na przykład: zasobnik o nazwie `my----bucket` zmieni się `my-4-bucket`na. 
 
-Ponadto, jak AzCopy kopiuje pliki, sprawdza, czy kolizje nazewnictwa i próbuje je rozwiązać. Na przykład, jeśli istnieją zasobniki `bucket-name` `bucket.name`o nazwie i , AzCopy `bucket-name` rozpoznaje `bucket-name-2`zasobnik o nazwie `bucket.name` najpierw do, a następnie do .
+Ponadto, jako AzCopy kopiuje pliki, sprawdza, czy nadaje się kolizje nazw i próbuje je rozwiązać. Na przykład jeśli istnieją `bucket-name` zasobniki o nazwie i `bucket.name`, AzCopy rozpoznaje zasobnik o nazwie `bucket.name` pierwszy do `bucket-name` , a następnie do. `bucket-name-2`
 
-## <a name="handle-differences-in-object-metadata"></a>Obsługa różnic w metadanych obiektów
+## <a name="handle-differences-in-object-metadata"></a>Obsługa różnic w metadanych obiektu
 
-AWS S3 i Azure zezwalają na różne zestawy znaków w nazwach kluczy obiektów. Możesz przeczytać o znakach, które AWS S3 używa [tutaj](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). On the Azure side, blob object keys adhere to the naming rules for [C# identifiers](https://docs.microsoft.com/dotnet/csharp/language-reference/).
+AWS S3 i platforma Azure dopuszczają różne zestawy znaków w nazwach kluczy obiektów. Informacje o znakach, które AWS S3 używają tutaj, można znaleźć [tutaj](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). Po stronie platformy Azure klucze obiektów BLOB są zgodne z regułami nazewnictwa dla [identyfikatorów C#](https://docs.microsoft.com/dotnet/csharp/language-reference/).
 
-W ramach polecenia AzCopy `copy` można podać wartość opcjonalną `s2s-invalid-metadata-handle` flagę, która określa sposób obsługi plików, w których metadane pliku zawierają niezgodne nazwy kluczy. W poniższej tabeli opisano każdą wartość flagi.
+W ramach polecenia AzCopy `copy` można podać wartość opcjonalnej `s2s-invalid-metadata-handle` flagi, która określa, jak chcesz obsługiwać pliki, w których metadane pliku zawierają niezgodne nazwy kluczy. W poniższej tabeli opisano każdą wartość flagi.
 
 | Wartość flagi | Opis  |
 |--------|-----------|
-| **ExcludeIfInvalid (ExcludeIfInvalid)** | (Opcja domyślna) Metadane nie są uwzględniane w przesłanym obiekcie. AzCopy rejestruje ostrzeżenie. |
-| **FailIfInvalid (FailIfInvalid)** | Obiekty nie są kopiowane. AzCopy rejestruje błąd i zawiera ten błąd w liczniku nie powiodło się, który pojawia się w podsumowaniu transferu.  |
-| **RenameIfInvalid**  | AzCopy rozwiązuje nieprawidłowy klucz metadanych i kopiuje obiekt na platformę Azure przy użyciu pary wartości klucza metadanych rozwiązanych. Aby dowiedzieć się dokładnie, jakie kroki wykonuje AzCopy, aby zmienić nazwę kluczy obiektów, zobacz [sekcję Jak AzCopy zmienia nazwy klawiszy obiektów](#rename-logic) poniżej. Jeśli AzCopy nie może zmienić nazwy klucza, obiekt nie zostanie skopiowany. |
+| **ExcludeIfInvalid** | (Opcja domyślna) Metadane nie znajdują się w transferowanym obiekcie. AzCopy rejestruje ostrzeżenie. |
+| **FailIfInvalid** | Obiekty nie są kopiowane. AzCopy rejestruje błąd i zawiera ten błąd w liczniku niepowodzenia, który pojawia się w podsumowaniu transferu.  |
+| **RenameIfInvalid**  | AzCopy rozpoznaje nieprawidłowy klucz metadanych i kopiuje obiekt na platformę Azure przy użyciu pary wartość klucza metadanych rozpoznanych. Aby dokładnie dowiedzieć się, jakie kroki AzCopy, aby zmienić nazwy kluczy obiektów, zobacz sekcję [how AzCopy renames Object Keys](#rename-logic) poniżej. Jeśli AzCopy nie może zmienić nazwy klucza, obiekt nie będzie kopiowany. |
 
 <a id="rename-logic" />
 
-### <a name="how-azcopy-renames-object-keys"></a>Jak AzCopy zmienia nazwę kluczy obiektów
+### <a name="how-azcopy-renames-object-keys"></a>Jak AzCopy zmienia nazwy kluczy obiektów
 
 AzCopy wykonuje następujące kroki:
 
-1. Zastępuje nieprawidłowe znaki '_'.
+1. Zastępuje nieprawidłowe znaki znakiem "_".
 
-2. Dodaje ciąg `rename_` na początku nowego prawidłowego klucza.
+2. Dodaje ciąg `rename_` do początku nowego prawidłowego klucza.
 
-   Ten klucz będzie używany do zapisywania oryginalnej **wartości**metadanych .
+   Ten klucz zostanie użyty do zapisania oryginalnej **wartości**metadanych.
 
-3. Dodaje ciąg `rename_key_` na początku nowego prawidłowego klucza.
-   Ten klucz będzie używany do zapisywania oryginalnych metadanych nieprawidłowy **klucz**.
-   Ten klucz służy do próby odzyskania metadanych po stronie platformy Azure, ponieważ klucz metadanych jest zachowywany jako wartość w usłudze magazynu obiektów Blob.
+3. Dodaje ciąg `rename_key_` do początku nowego prawidłowego klucza.
+   Ten klucz zostanie użyty do zapisania oryginalnych metadanych nieprawidłowy **klucz**.
+   Możesz użyć tego klucza do wypróbowania i odzyskania metadanych na platformie Azure, ponieważ klucz metadanych jest zachowywany jako wartość w usłudze BLOB Storage.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Znajdź więcej przykładów w każdym z tych artykułów:
+Więcej przykładów znajdziesz w jednym z następujących artykułów:
 
 - [Wprowadzenie do narzędzia AzCopy](storage-use-azcopy-v10.md)
 
-- [Przesyłanie danych za pomocą pamięci masowej AzCopy i obiektów blob](storage-use-azcopy-blobs.md)
+- [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](storage-use-azcopy-blobs.md)
 
-- [Przesyłanie danych za pomocą AzCopy i przechowywania plików](storage-use-azcopy-files.md)
+- [Transferowanie danych za pomocą AzCopy i magazynu plików](storage-use-azcopy-files.md)
 
-- [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z programem AzCopy](storage-use-azcopy-configure.md)
+- [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)

@@ -1,73 +1,73 @@
 ---
-title: Przenoszenie sieciowej grupy zabezpieczeń platformy Azure do innego regionu platformy Azure przy użyciu programu Azure PowerShell
-description: Użyj szablonu usługi Azure Resource Manager, aby przenieść grupę zabezpieczeń sieci platformy Azure z jednego regionu platformy Azure do drugiego przy użyciu programu Azure PowerShell.
+title: Przenoszenie sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) platformy Azure do innego regionu platformy Azure przy użyciu Azure PowerShell
+description: Użyj szablonu Azure Resource Manager, aby przenieść grupę zabezpieczeń sieci platformy Azure z jednego regionu świadczenia usługi Azure do innego przy użyciu Azure PowerShell.
 author: asudbring
 ms.service: virtual-network
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: allensu
 ms.openlocfilehash: 0cbd8f61cb1b4cb8eae6b30625fb3039ff75adde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75641472"
 ---
-# <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>Przenoszenie sieciowej grupy zabezpieczeń platformy Azure do innego regionu przy użyciu programu Azure PowerShell
+# <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>Przenoszenie sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) platformy Azure do innego regionu przy użyciu Azure PowerShell
 
-Istnieją różne scenariusze, w których chcesz przenieść istniejące cele zabezpieczeń z jednego regionu do drugiego. Na przykład można utworzyć sieciowej grupy zabezpieczeń z tej samej konfiguracji i reguł zabezpieczeń do testowania. Można również przenieść nsg do innego regionu w ramach planowania odzyskiwania po awarii.
+Istnieją różne scenariusze, w których należy przenieść istniejące sieciowych grup zabezpieczeń z jednego regionu do innego. Na przykład możesz chcieć utworzyć sieciowej grupy zabezpieczeń z tą samą konfiguracją i regułami zabezpieczeń na potrzeby testowania. Możesz również przenieść sieciowej grupy zabezpieczeń do innego regionu w ramach planowania odzyskiwania po awarii.
 
-Nie można przenosić grup zabezpieczeń platformy Azure z jednego regionu do drugiego. Można jednak użyć szablonu usługi Azure Resource Manager do wyeksportowania istniejących reguł konfiguracji i zabezpieczeń sieciowej grupy zabezpieczeń.  Następnie można zorganizować zasób w innym regionie, eksportując grupę zabezpieczeń do szablonu, modyfikując parametry zgodne z regionem docelowym, a następnie wdrażając szablon w nowym regionie.  Aby uzyskać więcej informacji na temat Menedżera zasobów i szablonów, zobacz [Eksportowanie grup zasobów do szablonów](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
+Grup zabezpieczeń platformy Azure nie można przenosić z jednego regionu do innego. Można jednak użyć szablonu Azure Resource Manager, aby wyeksportować istniejące reguły konfiguracji i zabezpieczeń sieciowej grupy zabezpieczeń.  Następnie można przemieścić zasób w innym regionie, eksportując sieciowej grupy zabezpieczeń do szablonu, modyfikując parametry w celu dopasowania do regionu docelowego, a następnie wdrożyć szablon w nowym regionie.  Aby uzyskać więcej informacji na temat Menedżer zasobów i szablonów, zobacz [Eksportowanie grup zasobów do szablonów](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Upewnij się, że grupa zabezpieczeń sieci platformy Azure znajduje się w regionie platformy Azure, z którego chcesz przenieść.
+- Upewnij się, że grupa zabezpieczeń sieci platformy Azure znajduje się w regionie świadczenia usługi Azure, z którego chcesz przenieść.
 
-- Nie można przenosić grup zabezpieczeń sieci platformy Azure między regionami.  Musisz skojarzyć nową szkoliwę grupy ndsg z zasobami w regionie docelowym.
+- Nie można przenosić grup zabezpieczeń sieci platformy Azure między regionami.  Należy skojarzyć nowe sieciowej grupy zabezpieczeń z zasobami w regionie docelowym.
 
-- Aby wyeksportować konfigurację sieciowej grupy zabezpieczeń i wdrożyć szablon w celu utworzenia sieciowej grupy zabezpieczeń w innym regionie, musisz mieć rolę współautora sieci lub wyższą.
+- Aby wyeksportować konfigurację sieciowej grupy zabezpieczeń i wdrożyć szablon w celu utworzenia sieciowej grupy zabezpieczeń w innym regionie, musisz mieć rolę współautor sieci lub wyższą.
    
-- Zidentyfikuj układ sieci źródłowej i wszystkie zasoby, których aktualnie używasz. Ten układ obejmuje między innymi moduły równoważenia obciążenia, publiczne adresy IP i sieci wirtualne.
+- Zidentyfikuj układ sieci źródłowej i wszystkie aktualnie używane zasoby. Ten układ obejmuje, ale nie jest ograniczony do modułów równoważenia obciążenia, publicznych adresów IP i sieci wirtualnych.
 
-- Sprawdź, czy subskrypcja platformy Azure umożliwia tworzenie grup zabezpieczeń w regionie docelowym, który jest używany. Skontaktuj się z pomocą techniczną, aby włączyć wymagany limit przydziału.
+- Sprawdź, czy subskrypcja platformy Azure umożliwia tworzenie sieciowych grup zabezpieczeń w regionie docelowym, który jest używany. Skontaktuj się z pomocą techniczną, aby włączyć wymagany limit przydziału.
 
-- Upewnij się, że subskrypcja ma wystarczającą ilość zasobów do obsługi dodatku nsgs dla tego procesu.  Zobacz [Azure subscription and service limits, quotas, and constraints (Limity, przydziały i ograniczenia usługi i subskrypcji platformy Azure)](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Upewnij się, że Twoja subskrypcja ma wystarczającą ilość zasobów, aby obsłużyć Dodawanie sieciowych grup zabezpieczeń dla tego procesu.  Zobacz [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits) (Limity, przydziały i ograniczenia usługi i subskrypcji platformy Azure).
 
 
-## <a name="prepare-and-move"></a>Przygotowanie i przeniesienie
-Poniższe kroki pokazują, jak przygotować grupę zabezpieczeń sieci do przenoszenia reguły konfiguracji i zabezpieczeń przy użyciu szablonu Menedżera zasobów i przenieść reguły konfiguracji sieciowej grupy zabezpieczeń i zabezpieczeń do regionu docelowego przy użyciu programu Azure PowerShell.
+## <a name="prepare-and-move"></a>Przygotowywanie i przenoszenie
+Poniższe kroki pokazują, jak przygotować grupę zabezpieczeń sieci dla reguły konfiguracji i zabezpieczeń przenieść przy użyciu szablonu Menedżer zasobów i przenieść reguły konfiguracji i zabezpieczeń sieciowej grupy zabezpieczeń do regionu docelowego przy użyciu Azure PowerShell.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="export-the-template-and-deploy-from-a-script"></a>Eksportowanie szablonu i wdrażanie ze skryptu
+### <a name="export-the-template-and-deploy-from-a-script"></a>Eksportowanie szablonu i wdrażanie go ze skryptu
 
-1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) i postępuj zgodnie ze wskazówkami wyświetlanymi na ekranie:
+1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-2. Uzyskaj identyfikator zasobu sieciowej grupy zabezpieczeń, którą chcesz przenieść do regionu docelowego, i umieść ją w zmiennej przy użyciu [get-AzNetworkSecurityGroup:](https://docs.microsoft.com/powershell/module/az.network/get-aznetworksecuritygroup?view=azps-2.6.0)
+2. Uzyskaj identyfikator zasobu sieciowej grupy zabezpieczeń, który chcesz przenieść do regionu docelowego i umieść go w zmiennej przy użyciu polecenia [Get-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/get-aznetworksecuritygroup?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $sourceNSGID = (Get-AzNetworkSecurityGroup -Name <source-nsg-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Wyeksportuj źródłową grupę sieciową sieciowej do pliku .json do katalogu, w którym wykona się polecenie [Export-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0)
+3. Wyeksportuj Źródło sieciowej grupy zabezpieczeń do pliku JSON do katalogu, w którym wykonujesz polecenie [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceNSGID -IncludeParameterDefaultValue
    ```
 
-4. Pobrany plik zostanie nazwany na cześć grupy zasobów, z którego został wyeksportowany.  Znajdź plik, który został wyeksportowany z polecenia o nazwie ** \<nazwa grupy zasobów>.json** i otwórz go w wybranym edytorze:
+4. Pobrany plik zostanie nazwany po grupie zasobów, z której został wyeksportowany zasób.  Znajdź plik, który został wyeksportowany z polecenia o nazwie ** \<Resource-Group-Name>. JSON** i otwórz go w wybranym edytorze:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
    ```
 
-5. Aby edytować parametr nazwy grupy nsg, zmień właściwość **defaultValue** nazwy źródłowej grupy nsg na nazwę docelowej grupy ndg, upewnij się, że nazwa znajduje się w cudzysłowie:
+5. Aby edytować parametr nazwy sieciowej grupy zabezpieczeń, Zmień właściwość **DefaultValue** źródłowej nazwy sieciowej grupy zabezpieczeń na nazwę elementu docelowego sieciowej grupy zabezpieczeń, upewnij się, że nazwa jest cudzysłowem:
     
     ```json
             {
@@ -83,7 +83,7 @@ Poniższe kroki pokazują, jak przygotować grupę zabezpieczeń sieci do przeno
     ```
 
 
-6. Aby edytować region docelowy, w którym zostaną przeniesione reguły konfiguracji i zabezpieczeń sieciowej grupy zabezpieczeń, zmień właściwość **lokalizacji** w obszarze **zasoby:**
+6. Aby edytować region docelowy, w którym zostaną przeniesione reguły konfiguracji i zabezpieczeń sieciowej grupy zabezpieczeń, Zmień właściwość **Location** w obszarze **zasoby**:
 
     ```json
             "resources": [
@@ -99,16 +99,16 @@ Poniższe kroki pokazują, jak przygotować grupę zabezpieczeń sieci do przeno
             }
     ```
   
-7. Aby uzyskać kody lokalizacji regionu, można użyć polecenia cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) programu Azure PowerShell, uruchamiając następujące polecenie:
+7. Aby uzyskać kody lokalizacji regionu, możesz użyć polecenia cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) programu Azure PowerShell, uruchamiając następujące polecenie:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     
     ```
-8. Można również zmienić inne parametry w ** \<nazwie grupy zasobów>.json,** jeśli wybierzesz i są opcjonalne w zależności od wymagań:
+8. W przypadku wybrania opcji i opcjonalnych w zależności od wymagań można także zmienić inne parametry w ** \<nazwie Resource-Group-Name>. JSON** :
 
-    * **Reguły zabezpieczeń** — można edytować reguły wdrożone w docelowej grupie zabezpieczeń, dodając lub usuwając reguły do sekcji **securityRules** w pliku ** \<>.json nazwa grupy zasobów:**
+    * **Reguły zabezpieczeń** — można edytować, które reguły są wdrażane w docelowym sieciowej grupy zabezpieczeń, dodając lub usuwając reguły do sekcji **securityRules** w pliku ** \<Resource-Group-Name>. JSON** :
 
         ```json
            "resources": [
@@ -144,7 +144,7 @@ Poniższe kroki pokazują, jak przygotować grupę zabezpieczeń sieci do przeno
             
         ```
 
-        Aby zakończyć dodawanie lub usuwanie reguł w docelowej grupie sieciowej sieciowej, należy również edytować typy reguł niestandardowych na końcu ** \<pliku>.json** w formacie poniższego przykładu:
+        Aby ukończyć Dodawanie lub usuwanie reguł w docelowym sieciowej grupy zabezpieczeń, należy również edytować niestandardowe typy reguł na końcu pliku ** \<Resource-Group-Name>. JSON** w formacie poniższego przykładu:
 
         ```json
            {
@@ -171,15 +171,15 @@ Poniższe kroki pokazują, jak przygotować grupę zabezpieczeń sieci do przeno
             }
         ```
 
-9. Zapisz ** \<plik>.json nazwa grupy zasobów.**
+9. Zapisz plik ** \<Resource-Group-Name>. JSON** .
 
-10. Utwórz grupę zasobów w regionie docelowym dla docelowej sieciowej grupy roboczej, która ma zostać wdrożona przy użyciu [new-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
+10. Utwórz grupę zasobów w regionie docelowym dla sieciowej grupy zabezpieczeń docelowego do wdrożenia przy użyciu polecenia [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. Wdrażanie edytowanego ** \<pliku>.json w** grupie zasobów utworzonej w poprzednim kroku przy użyciu [funkcji New-AzResourceGroupDeployment:](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)
+11. Wdróż edytowany ** \<plik Resource-Group-Name>. JSON** w grupie zasobów utworzonej w poprzednim kroku przy użyciu polecenia [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -187,7 +187,7 @@ Poniższe kroki pokazują, jak przygotować grupę zabezpieczeń sieci do przeno
     
     ```
 
-12. Aby sprawdzić, czy zasoby zostały utworzone w regionie docelowym, należy użyć [get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) i [Get-AzNetworkSecurityGroup:](https://docs.microsoft.com/powershell/module/az.network/get-aznetworksecuritygroup?view=azps-2.6.0)
+12. Aby sprawdzić, czy zasoby zostały utworzone w regionie docelowym, użyj polecenie [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) i [Get-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/get-aznetworksecuritygroup?view=azps-2.6.0):
     
     ```azurepowershell-interactive
 
@@ -203,7 +203,7 @@ Poniższe kroki pokazują, jak przygotować grupę zabezpieczeń sieci do przeno
 
 ## <a name="discard"></a>Odrzuć 
 
-Po wdrożeniu, jeśli chcesz rozpocząć od nowa lub odrzucić grupę sieciowej w miejscu docelowym, usuń grupę zasobów, która została utworzona w miejscu docelowym, a przeniesiona grupa sieciowej grupy sieciowej zostanie usunięta.  Aby usunąć grupę zasobów, użyj [usuń azResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+Jeśli po wdrożeniu chcesz zacząć od początku lub odrzucić sieciowej grupy zabezpieczeń w elemencie docelowym, Usuń grupę zasobów, która została utworzona w miejscu docelowym, a przeniesiona sieciowej grupy zabezpieczeń zostanie usunięta.  Aby usunąć grupę zasobów, użyj polecenie [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 
 ```azurepowershell-interactive
 
@@ -213,7 +213,7 @@ Remove-AzResourceGroup -Name <target-resource-group-name>
 
 ## <a name="clean-up"></a>Czyszczenie
 
-Aby zatwierdzić zmiany i zakończyć przenoszenie sieciowej grupy zabezpieczeń, usuń źródłową grupę sieciowej grupy zabezpieczeń lub zasobów, użyj [usuń-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) lub [Remove-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/remove-aznetworksecuritygroup?view=azps-2.6.0):
+Aby zatwierdzić zmiany i zakończyć przenoszenie sieciowej grupy zabezpieczeń, Usuń źródło sieciowej grupy zabezpieczeń lub grupę zasobów, użyj [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) lub [Remove-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/remove-aznetworksecuritygroup?view=azps-2.6.0):
 
 ```azurepowershell-interactive
 
@@ -229,7 +229,7 @@ Remove-AzNetworkSecurityGroup -Name <source-nsg-name> -ResourceGroupName <source
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przeniesiono grupę zabezpieczeń sieci platformy Azure z jednego regionu do drugiego i oczyściłeś zasoby źródłowe.  Aby dowiedzieć się więcej na temat przenoszenia zasobów między regionami i odzyskiwania po awarii na platformie Azure, zobacz:
+W tym samouczku przeniesiono grupę zabezpieczeń sieci platformy Azure z jednego regionu do innego i wyczyszczono zasoby źródłowe.  Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyskiwaniem po awarii na platformie Azure, zobacz:
 
 
 - [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

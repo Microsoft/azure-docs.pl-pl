@@ -9,49 +9,49 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: d88fcfc4d3e073bf544f2ca0f4d01dbe305b45da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75775513"
 ---
 # <a name="direct-peering-walkthrough"></a>Przewodnik po bezpośredniej komunikacji równorzędnej
 
-W tej sekcji opisano kroki, które należy wykonać, aby skonfigurować komunikację bezpośrednią komunikacji równorzędnej i zarządzać nią.
+W tej sekcji opisano kroki, które należy wykonać w celu skonfigurowania bezpośredniej komunikacji równorzędnej i zarządzania nią.
 
-## <a name="create-a-direct-peering"></a>Tworzenie komunikacji równorzędnej bezpośredniej
+## <a name="create-a-direct-peering"></a>Tworzenie bezpośredniej komunikacji równorzędnej
 > [!div class="mx-imgBorder"]
-> ![Bezpośredni przepływ pracy komunikacji równorzędnej i stany połączenia](./media/direct-peering.png)
+> ![Bezpośredni przepływ pracy komunikacji równorzędnej i Stany połączeń](./media/direct-peering.png)
 
-Aby aprowizować komunikację równorzędną direct należy wykonać następujące kroki:
-1. Przejrzyj [zasady komunikacji równorzędnej](https://peering.azurewebsites.net/peering) firmy Microsoft, aby zrozumieć wymagania dotyczące komunikacji bezpośredniej komunikacji równorzędnej.
-1. Postępuj zgodnie z instrukcjami w [Tworzenie lub modyfikowanie direct komunikacji równorzędnej,](howto-direct-powershell.md) aby przesłać żądanie komunikacji równorzędnej.
-1. Po przesłaniu żądania komunikacji równorzędnej firma Microsoft skontaktuje się z użytkownikiem przy użyciu zarejestrowanego adresu e-mail użytkownika w celu przekazania usługi LOA (Letter of Authorization) lub w celu uzyskania innych informacji.
-1. Po zatwierdzeniu żądania komunikacji równorzędnej stan połączenia zmienia się na inicjowanie obsługi administracyjnejStarted.
-1. Musisz:
-    1. kompletne okablowanie zgodnie z LOA
-    1. (opcjonalnie) wykonać test łącza za pomocą 169.254.0.0/16
-    1. skonfigurować sesję BGP, a następnie powiadomić nas.
-1. Microsoft przepisów sesji BGP z odmów wszystkich zasad i sprawdź poprawność end-to-end.
-1. Jeśli się powiedzie, otrzymasz powiadomienie, że stan połączenia komunikacji równorzędnej jest aktywny.
-1. Ruch będzie następnie dozwolony przez nowe komunikacji równorzędnej.
+Aby można było zainicjować bezpośrednią komunikację równorzędną, należy wykonać następujące czynności:
+1. Przejrzyj [zasady komunikacji równorzędnej](https://peering.azurewebsites.net/peering) firmy Microsoft, aby poznać wymagania dotyczące bezpośredniej komunikacji równorzędnej.
+1. Postępuj zgodnie z instrukcjami w temacie [Tworzenie lub modyfikowanie bezpośredniej komunikacji równorzędnej](howto-direct-powershell.md) w celu przesłania żądania komunikacji równorzędnej.
+1. Po przesłaniu żądania komunikacji równorzędnej firma Microsoft skontaktuje się z Tobą przy użyciu zarejestrowanego adresu e-mail w celu udostępnienia DOWANIU (list autoryzacji) lub innych informacji.
+1. Gdy żądanie komunikacji równorzędnej zostanie zatwierdzone, stan połączenia zmieni się na ProvisioningStarted.
+1. Należy:
+    1. Ukończ okablowanie zgodnie z DOWANIU
+    1. (opcjonalnie) wykonaj test łącza za pomocą 169.254.0.0/16
+    1. Skonfiguruj sesję BGP, a następnie powiadom nas.
+1. Firma Microsoft inicjuje sesję protokołu BGP z opcją Odmów wszystkich zasad i walidacji na całej trasie.
+1. Jeśli powiedzie się, otrzymasz powiadomienie, że stan połączenia komunikacji równorzędnej jest aktywny.
+1. Ruch będzie dozwolony przez nową komunikację równorzędną.
 
-Należy zauważyć, że stany połączeń nie należy mylić ze standardowymi stanami sesji [BGP.](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)
+Należy pamiętać, że stan połączenia nie należy mylić ze standardowymi Stanami sesji [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) .
 
 ## <a name="convert-a-legacy-direct-peering-to-azure-resource"></a>Konwertowanie starszej bezpośredniej komunikacji równorzędnej na zasób platformy Azure
-Aby przekonwertować starsze bezpośrednie komunikacji równorzędnej do zasobu platformy Azure, należy wykonać następujące kroki:
-1. Postępuj zgodnie z instrukcjami w [obszarze Konwertuj starszy bezpośrednią komunikację równorzędną na zasób platformy Azure](howto-legacy-direct-powershell.md)
-1. Po przesłaniu żądania konwersji firma Microsoft przejrzy żądanie i skontaktuje się z Tobą w razie potrzeby.
-1. Po zatwierdzeniu zostanie wyświetlony bezpośredni element równorzędny ze stanem połączenia jako Aktywny.
+Aby przekonwertować starszą bezpośrednią komunikację równorzędną na zasób platformy Azure, należy wykonać następujące czynności:
+1. Postępuj zgodnie z instrukcjami w temacie [konwertowanie starszej bezpośredniej komunikacji równorzędnej na zasób platformy Azure](howto-legacy-direct-powershell.md)
+1. Po przesłaniu żądania konwersji firma Microsoft sprawdzi żądanie i skontaktuje się z Tobą w razie potrzeby.
+1. Po zatwierdzeniu zostanie wyświetlona bezpośrednia Komunikacja równorzędna ze stanem połączenia jako aktywny.
 
-## <a name="deprovision-direct-peering"></a>Usuwanie obsługi równorzędnej bezpośredniej obsługi administracyjnej
-Skontaktuj się z [zespołem komunikacji równorzędnej firmy Microsoft,](mailto:peering@microsoft.com) aby anulować komunikację równorzędność bezpośrednią.
+## <a name="deprovision-direct-peering"></a>Anulowanie aprowizacji bezpośredniej komunikacji równorzędnej
+Skontaktuj się z zespołem [komunikacji równorzędnej firmy Microsoft](mailto:peering@microsoft.com) w celu anulowania aprowizacji bezpośredniej komunikacji równorzędnej.
 
-Gdy direct peering jest ustawiony na deprovision, zobaczysz stan połączenia jako **PendingRemove**
+Po ustawieniu bezpośredniej komunikacji równorzędnej na potrzeby anulowania aprowizacji stan połączenia zostanie wyświetlony jako **PendingRemove**
 
 > [!NOTE]
-> Jeśli uruchomisz polecenie cmdlet programu PowerShell, aby usunąć bezpośrednie komunikacji równorzędnej, gdy connectionstate jest inicjowanie obsługi administracyjnejstarted lub inicjowania obsługi inicjowaniaZupełnione operacja zakończy się niepowodzeniem.
+> Jeśli uruchamiasz polecenie cmdlet programu PowerShell w celu usunięcia bezpośredniej komunikacji równorzędnej, gdy ConnectionState jest ProvisioningStarted lub ProvisioningCompleted, operacja zakończy się niepowodzeniem.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [wymaganiach wstępnych do skonfigurowania komunikacji równorzędnej z firmą Microsoft](prerequisites.md).
+* Dowiedz się więcej o [wymaganiach wstępnych dotyczących konfigurowania komunikacji równorzędnej z firmą Microsoft](prerequisites.md).

@@ -1,6 +1,6 @@
 ---
-title: Administracja Menedżera migawek StorSimple | Dokumenty firmy Microsoft
-description: Zawiera omówienie i łącza do więcej informacji na temat zadań administracyjnych i przepływów pracy programu StorSimple Snapshot Manager.
+title: StorSimple Snapshot Manager administrowanie | Microsoft Docs
+description: Zawiera omówienie i linki do dodatkowych informacji na temat zadań administracyjnych i przepływów pracy StorSimple Snapshot Manager.
 services: storsimple
 documentationcenter: NA
 author: twooley
@@ -15,50 +15,50 @@ ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: twooley
 ms.openlocfilehash: b8fe87a2df633af310bc661308813a60987e77d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75933279"
 ---
-# <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Do administrowania rozwiązaniem StorSimple za pomocą Menedżera migawek StorSimple
+# <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Korzystanie z StorSimple Snapshot Manager do administrowania rozwiązaniem StorSimple
 
 ## <a name="overview"></a>Omówienie
-StorSimple Snapshot Manager to przystawka programu Microsoft Management Console (MMC), która upraszcza ochronę danych i zarządzanie kopiami zapasowymi w środowisku Microsoft Azure StorSimple. Dzięki StorSimple Snapshot Manager możesz zarządzać danymi usługi Microsoft Azure StorSimple w centrum danych i w chmurze jako pojedyncze zintegrowane rozwiązanie pamięci masowej, upraszczając w ten sposób procesy tworzenia kopii zapasowych i obniżając koszty.
+StorSimple Snapshot Manager jest przystawką programu Microsoft Management Console (MMC), która upraszcza ochronę danych i zarządzanie kopiami zapasowymi w środowisku Microsoft Azure StorSimple. Dzięki StorSimple Snapshot Manager możesz zarządzać danymi Microsoft Azure StorSimple w centrum danych i w chmurze jako jednym zintegrowanym rozwiązaniu magazynu, co upraszcza proces tworzenia kopii zapasowych i obniżanie kosztów.
 
-Centralna konsola zarządzania StorSimple Snapshot Manager umożliwia tworzenie spójnych kopii zapasowych danych lokalnych i w chmurze w czasie. Na przykład można użyć konsoli do:
+Centralna konsola zarządzania StorSimple Snapshot Manager umożliwia tworzenie spójnych kopii zapasowych w danym momencie w danym momencie. Można na przykład użyć konsoli programu, aby:
 
-* Konfigurowanie woluminów, ich utworzenie kopii zapasowej i usuwanie.
-* Skonfiguruj grupy woluminów, aby upewnić się, że kopie zapasowe danych są spójne z aplikacjami.
-* Zarządzanie zasadami tworzenia kopii zapasowych, tak aby kopia zapasowa danych była archiwiza w określonym harmonogramie.
-* Tworzenie niezależnych kopii danych, które mogą być przechowywane w chmurze i używane do odzyskiwania po awarii.
+* Konfigurowanie, tworzenie kopii zapasowych i usuwanie woluminów.
+* Skonfiguruj grupy woluminów, aby upewnić się, że kopia zapasowa danych jest spójna z aplikacją.
+* Zarządzanie zasadami tworzenia kopii zapasowych, aby utworzyć kopię zapasową danych zgodnie z ustalonym harmonogramem.
+* Twórz niezależne kopie danych, które mogą być przechowywane w chmurze i używane do odzyskiwania po awarii.
 
-Ten artykuł zawiera łącza do samouczków opisujących StorSimple Snapshot Manager i jak go używać do wykonywania zadań administracyjnych systemu i przepływów pracy.
+Ten artykuł zawiera linki do samouczków opisujących StorSimple Snapshot Manager i sposobu ich używania do kończenia zadań administracyjnych i przepływów pracy związanych z administracją systemu.
 
-* Aby uzyskać więcej informacji na temat składników i architektury Menedżera migawek StorSimple, zobacz [Co to jest Menedżer migawek StorSimple?](storsimple-what-is-snapshot-manager.md) 
-* Aby pobrać StorSimple Snapshot Manager, przejdź do [StorSimple Snapshot Manager strony pobierania](https://www.microsoft.com/download/details.aspx?id=44220).
-* W przypadku procedur wdrażania programu StorSimple Snapshot Manager przejdź do [programu Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+* Aby uzyskać więcej informacji o składnikach i architekturze StorSimple Snapshot Manager, zobacz [co to jest StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md) 
+* Aby pobrać StorSimple Snapshot Manager, przejdź do [strony pobierania Snapshot Manager StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
+* Aby zapoznać się z procedurami wdrażania StorSimple Snapshot Manager, przejdź do pozycji [Wdróż StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 > [!NOTE]
-> Nie można używać Menedżera migawek StorSimple do zarządzania macierzami wirtualnymi usługi Microsoft Azure StorSimple (nazywanymi również lokalnymi urządzeniami wirtualnymi StorSimple).
+> Nie można użyć Snapshot Manager StorSimple do zarządzania Microsoft Azure StorSimplemi macierzami wirtualnymi (znanymi również jako StorSimple lokalne urządzenia wirtualne).
 
 
-## <a name="storsimple-snapshot-manager-tasks-and-workflows"></a>StorSimple Migawka — zadania i przepływy pracy
-Menedżer migawek StorSimple służy do monitorowania bieżących, zaplanowanych i ukończonych zadań tworzenia kopii zapasowych oraz zarządzania nimi. Ponadto StorSimple Snapshot Manager udostępnia katalog do 64 ukończonych kopii zapasowych. Za pomocą katalogu można znaleźć i przywrócić woluminy lub pojedyncze pliki. 
+## <a name="storsimple-snapshot-manager-tasks-and-workflows"></a>StorSimple Snapshot Manager zadania i przepływy pracy
+Snapshot Manager StorSimple służy do monitorowania bieżących, zaplanowanych i zakończonych zadań tworzenia kopii zapasowych oraz zarządzania nimi. Ponadto StorSimple Snapshot Manager udostępnia wykaz do 64 ukończonych kopii zapasowych. Wykazu można używać do znajdowania i przywracania woluminów lub pojedynczych plików. 
 
-| JEŚLI CHCESZ TO ZROBIĆ... | UŻYJ TEGO SAMOUCZKA... |
+| JEŚLI CHCESZ TO ZROBIĆ... | SKORZYSTAJ Z TEGO SAMOUCZKA... |
 |:--- |:--- |
-| Dowiedz się więcej o Menedżerze migawek StorSimple |[Co to jest StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md) |
-| Zainstaluj Menedżera migawek StorSimple<br>Ponowne instalowanie Menedżera migawek StorSimple<br>Usuń Menedżera migawek StorSimple |[Wdrażanie Menedżera migawek StorSimple](storsimple-snapshot-manager-deployment.md) |
-| Użyj menu i funkcji Menedżera migawek StorSimple:<ul><li>Pasek menu</li><li>Pasek narzędzi</li><li>Okienko zakresu</li><li>Okienko Wyniki</li><li>Okienko Akcje</li><li>Nawigacja za pomocą klawiatury i skróty</li></ul> |[Interfejs użytkownika Menedżera migawek StorSimple](storsimple-use-snapshot-manager.md) |
-| Użyj typowych funkcji programu MMC zawartych w Menedżerze migawek StorSimple:<ul><li>Widok</li><li>Nowe okno w tym miejscu</li><li>Odświeżanie</li><li>Lista eksportu</li><li>Pomoc</li></ul> |[Używanie akcji menu programu MMC w Menedżerze migawek StorSimple](storsimple-snapshot-manager-mmc-menu.md) |
-| Dodawanie lub zamienianie urządzenia<br>Łączenie urządzenia<br>Weryfikowanie importowanych grup woluminów<br>Odświeżanie podłączonych urządzeń<br>Uwierzytelnianie urządzenia<br>Wyświetlanie szczegółów urządzenia<br>Usuwanie konfiguracji urządzenia<br>Zmienianie hasła urządzenia<br>Zastępowanie nieudanego urządzenia<br> |[Użyj Menedżera migawek StorSimple do łączenia urządzeń StorSimple i zarządzania nimi](storsimple-snapshot-manager-manage-devices.md) |
-| Mocowanie woluminów<br>Wyświetlanie informacji o woluminach<br>Usuwanie woluminu<br>Ponowne przeskanowywki<br>Konfigurowanie i konfigurowanie kopii zapasowej woluminu podstawowego<br>Konfigurowanie i tworzenie kopii zapasowych woluminu z wiercem lustrzanym dynamicznym |[Wyświetlanie woluminów i zarządzanie nimi za pomocą Menedżera migawek StorSimple](storsimple-snapshot-manager-manage-volumes.md) |
-| Wyświetlanie grup woluminów<br>Tworzenie grupy woluminów<br>3.<br>Edytowanie grupy woluminów<br>Usuwanie grupy woluminów |[Tworzenie grup woluminów i zarządzanie nimi za pomocą Menedżera migawek StorSimple](storsimple-snapshot-manager-manage-volume-groups.md) |
-| Tworzenie zasad kopii zapasowych <br>Edytowanie zasad tworzenia kopii zapasowych<br>Usuwanie zasad tworzenia kopii zapasowych |[Tworzenie zasad tworzenia kopii zapasowych i zarządzanie nimi za pomocą Menedżera migawek StorSimple](storsimple-snapshot-manager-manage-backup-policies.md) |
-| Wyświetlanie zaplanowanych zadań tworzenia kopii zapasowych i zarządzanie nimi<br>Wyświetlanie ostatnich zadań tworzenia kopii zapasowych i zarządzanie nimi<br>Wyświetlanie aktualnie uruchomionych zadań tworzenia kopii zapasowych i zarządzanie nimi |[Użyj Menedżera migawek StorSimple, aby wyświetlać zadania tworzenia kopii zapasowych i zarządzać nimi](storsimple-snapshot-manager-manage-backup-jobs.md) |
-| Przywracanie woluminu<br>Klonowanie grupy woluminów lub woluminów<br>Usuwanie kopii zapasowej<br>Odzyskiwanie pliku<br>Przywracanie bazy danych Menedżera migawek StorSimple |[Zarządzanie katalogiem kopii zapasowych za pomocą Menedżera migawek StorSimple](storsimple-snapshot-manager-manage-backup-catalog.md) |
+| Dowiedz się więcej o StorSimple Snapshot Manager |[Co to jest StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md) |
+| Zainstaluj StorSimple Snapshot Manager<br>Zainstaluj ponownie program StorSimple Snapshot Manager<br>Usuń StorSimple Snapshot Manager |[Wdróż StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md) |
+| Użyj StorSimple Snapshot Manager menu i funkcje:<ul><li>Pasek menu</li><li>Pasek narzędzi</li><li>Okienko zakresu</li><li>Okienko wyników</li><li>Okienko akcje</li><li>Nawigacja i skróty klawiaturowe</li></ul> |[Interfejs użytkownika Snapshot Manager StorSimple](storsimple-use-snapshot-manager.md) |
+| Użyj wspólnych funkcji programu MMC zawartych w StorSimple Snapshot Manager:<ul><li>Widok</li><li>Nowe okno w tym miejscu</li><li>Odświeżanie</li><li>Eksportuj listę</li><li>Pomoc</li></ul> |[Użyj akcji menu programu MMC w StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md) |
+| Dodawanie lub zastępowanie urządzenia<br>Łączenie urządzenia<br>Sprawdź zaimportowane grupy woluminów<br>Odśwież podłączone urządzenia<br>Uwierzytelnianie urządzenia<br>Wyświetlanie szczegółów urządzenia<br>Usuń konfigurację urządzenia<br>Zmiana hasła urządzenia<br>Zastępowanie urządzenia zakończonego niepowodzeniem<br> |[Używanie Snapshot Manager StorSimple do nawiązywania połączeń z urządzeniami StorSimple i zarządzania nimi](storsimple-snapshot-manager-manage-devices.md) |
+| Zainstaluj woluminy<br>Wyświetl informacje o woluminach<br>Usuwanie woluminu<br>Skanuj ponownie woluminy<br>Konfigurowanie i tworzenie kopii zapasowej woluminu podstawowego<br>Konfigurowanie i tworzenie kopii zapasowej dynamicznego woluminu dublowanego |[Używanie Snapshot Manager StorSimple do wyświetlania woluminów i zarządzania nimi](storsimple-snapshot-manager-manage-volumes.md) |
+| Wyświetl grupy woluminów<br>Utwórz grupę woluminów<br>Tworzenie kopii zapasowej grupy woluminów<br>Edytowanie grupy woluminów<br>Usuń grupę woluminów |[Tworzenie grup woluminów i zarządzanie nimi za pomocą StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volume-groups.md) |
+| Tworzenie zasad kopii zapasowych <br>Edytowanie zasad kopii zapasowych<br>Usuwanie zasad kopii zapasowych |[Tworzenie zasad tworzenia kopii zapasowych i zarządzanie nimi za pomocą StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-policies.md) |
+| Wyświetlanie zaplanowanych zadań tworzenia kopii zapasowych i zarządzanie nimi<br>Wyświetl ostatnie zadania tworzenia kopii zapasowych i zarządzaj nimi<br>Wyświetlaj aktualnie uruchomione zadania tworzenia kopii zapasowych i zarządzaj nimi |[Używanie Snapshot Manager StorSimple do wyświetlania zadań tworzenia kopii zapasowych i zarządzania nimi](storsimple-snapshot-manager-manage-backup-jobs.md) |
+| Przywróć wolumin<br>Klonowanie woluminu lub grupy woluminów<br>Usuń kopię zapasową<br>Odzyskiwanie pliku<br>Przywracanie bazy danych StorSimple Snapshot Manager |[Zarządzanie wykazem kopii zapasowych przy użyciu Snapshot Manager StorSimple](storsimple-snapshot-manager-manage-backup-catalog.md) |
 
 ## <a name="next-steps"></a>Następne kroki
-[Pobierz StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
+[Pobierz Snapshot Manager StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 

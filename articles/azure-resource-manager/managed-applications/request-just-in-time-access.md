@@ -1,44 +1,44 @@
 ---
 title: Żądanie dostępu just in time
-description: W tym artykule opisano, jak wydawcy aplikacji zarządzanych platformy Azure żądają dostępu just-in-time do aplikacji zarządzanej.
+description: Opisuje, w jaki sposób wydawcy Azure Managed Applications żądania dostępu just in Time do zarządzanej aplikacji.
 author: MSEvanhi
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: 7f475774828bcaecd471e13de994b156041323ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651386"
 ---
-# <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Włączanie i żądanie dostępu just-in-time dla aplikacji zarządzanych platformy Azure
+# <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Włącz i Żądaj dostępu just in Time do Azure Managed Applications
 
-Konsumenci aplikacji zarządzanej mogą być niechętni do udzielenia stałego dostępu do zarządzanej grupy zasobów. Jako wydawca aplikacji menedżera możesz preferować, aby konsumenci wiedzieli dokładnie, kiedy trzeba uzyskać dostęp do zarządzanych zasobów. Aby zapewnić konsumentom większą kontrolę nad udzielaniem dostępu do zasobów zarządzanych, usługa Azure Managed Applications udostępnia funkcję o nazwie dostęp just-in-time (JIT), która jest obecnie w wersji zapoznawczej.
+Odbiorcy aplikacji zarządzanej mogą być zniechęcić w celu udzielenia użytkownikowi stałego dostępu do zarządzanej grupy zasobów. Jako Wydawca aplikacji Menedżera możesz preferować, aby klienci wiedzieli się dokładnie, gdy trzeba uzyskać dostęp do zarządzanych zasobów. Aby zapewnić konsumentom większą kontrolę nad udzieleniem dostępu do zarządzanych zasobów, Azure Managed Applications zapewnia funkcję o nazwie dostęp just-in-Time (JIT), która jest obecnie dostępna w wersji zapoznawczej.
 
-Dostęp JIT umożliwia żądanie podwyższonego dostępu do zasobów aplikacji zarządzanej w celu rozwiązywania problemów lub konserwacji. Zawsze masz dostęp tylko do odczytu do zasobów, ale przez określony okres możesz mieć większy dostęp.
+Dostęp JIT umożliwia żądanie dostępu z podwyższonym poziomem uprawnień do zasobów aplikacji zarządzanej w celu rozwiązywania problemów lub konserwacji. Zawsze masz dostęp tylko do odczytu do zasobów, ale przez określony okres możesz mieć większy dostęp.
 
-Przepływ pracy w celu przyznania dostępu wynosi:
+Przepływ pracy do udzielania dostępu to:
 
-1. Dodaj aplikację zarządzaną do portalu marketplace i określ, że dostęp JIT jest dostępny.
+1. Dodaj aplikację zarządzaną do portalu Marketplace i określ, że dostęp JIT jest dostępny.
 
-1. Podczas wdrażania konsument umożliwia dostęp JIT dla tego wystąpienia aplikacji zarządzanej.
+1. Podczas wdrażania klient umożliwia dostęp JIT dla tego wystąpienia aplikacji zarządzanej.
 
-1. Po wdrożeniu konsument może zmienić ustawienia dostępu JIT.
+1. Po wdrożeniu klient może zmienić ustawienia dostępu JIT.
 
-1. Wyślij żądanie dostępu, gdy trzeba rozwiązać lub zaktualizować zasoby zarządzane.
+1. Wysłano żądanie dostępu, gdy trzeba rozwiązać problemy lub zaktualizować zarządzane zasoby.
 
-1. Konsument zatwierdza Twoje żądanie.
+1. Odbiorca zatwierdza Twoje żądanie.
 
-W tym artykule skupiono się na działaniach podejmowanych przez wydawców w celu umożliwienia dostępu JIT i przesyłania żądań. Aby dowiedzieć się więcej o zatwierdzaniu żądań dostępu JIT, zobacz [Zatwierdzanie dostępu just-in-time w aplikacjach zarządzanych platformy Azure.](approve-just-in-time-access.md)
+Ten artykuł koncentruje się na akcjach podejmowanych przez wydawców w celu włączenia dostępu JIT i przesyłania żądań. Aby dowiedzieć się więcej o zatwierdzaniu żądań dostępu JIT, zobacz [zatwierdzanie dostępu just in Time w Azure Managed Applications](approve-just-in-time-access.md).
 
-## <a name="add-jit-access-step-to-ui"></a>Dodawanie kroku dostępu JIT do interfejsu użytkownika
+## <a name="add-jit-access-step-to-ui"></a>Dodaj krok dostępu JIT do interfejsu użytkownika
 
-Plik CreateUiDefinition.json jest dokładnie taki sam, jak plik interfejsu użytkownika utworzony dla stałego dostępu, z tą różnicą, że należy dołączyć krok, który umożliwia konsumentom włączenie dostępu JIT. Aby dowiedzieć się więcej o publikowaniu pierwszej oferty zarządzanych aplikacji w portalu Azure Marketplace, zobacz [Usługi Azure Managed Applications w portalu Marketplace](publish-marketplace-app.md).
+Plik CreateUiDefinition. JSON jest dokładnie taki sam jak plik interfejsu użytkownika tworzony na potrzeby stałego dostępu, z wyjątkiem tego, że należy uwzględnić krok, który umożliwia klientom włączenie dostępu JIT. Aby dowiedzieć się więcej o publikowaniu pierwszej oferty zarządzanej aplikacji w portalu Azure Marketplace, zobacz [Azure Managed Applications w portalu Marketplace](publish-marketplace-app.md).
 
-Aby obsługiwać możliwości JIT dla oferty, dodaj następującą zawartość do pliku CreateUiDefinition.json:
+Aby zapewnić obsługę funkcji JIT dla oferty, Dodaj następującą zawartość do pliku CreateUiDefinition. JSON:
 
-W "krokach":
+W obszarze "kroki":
 
 ```json
 {
@@ -59,7 +59,7 @@ W "krokach":
 }
 ```
  
-W "wyjściach":
+W obszarze "dane wyjściowe":
 
 ```json
 "jitAccessPolicy": "[steps('jitConfiguration').jitConfigurationControl]"
@@ -68,48 +68,48 @@ W "wyjściach":
 > [!NOTE]
 > Dostęp JIT jest w wersji zapoznawczej. Schemat konfiguracji JIT może ulec zmianie w przyszłych iteracjach.
 
-## <a name="enable-jit-access"></a>Włączanie dostępu JIT
+## <a name="enable-jit-access"></a>Włącz dostęp JIT
 
-Podczas definiowania oferty na rynku upewnij się, że umożliwiasz dostęp JIT.
+Podczas definiowania oferty w portalu Marketplace upewnij się, że włączono dostęp JIT.
 
 1. Zaloguj się do [portalu publikowania partnerów w chmurze](https://cloudpartner.azure.com).
 
-1. Podaj wartości do publikowania aplikacji zarządzanej w portalu Marketplace. Wybierz **tak,** aby **włączyć dostęp JIT?**
+1. Podaj wartości, aby opublikować zarządzaną aplikację w portalu Marketplace. Wybierz opcję **tak** , aby **włączyć dostęp JIT?**
 
-   ![Włącz dostęp just-in-time](./media/request-just-in-time-access/marketplace-enable.png)
+   ![Włącz dostęp just in Time](./media/request-just-in-time-access/marketplace-enable.png)
 
-Dodano krok konfiguracji JIT do interfejsu użytkownika i włączono dostęp JIT w ofercie portalu Marketplace. Gdy konsumenci wdrażają aplikację zarządzaną, mogą [włączyć dostęp JIT dla swojego wystąpienia](approve-just-in-time-access.md#enable-during-deployment).
+Dodano krok konfiguracji JIT do interfejsu użytkownika i włączono dostęp JIT w ofercie Marketplace. Gdy użytkownicy wdrażają aplikację zarządzaną, mogą [włączyć dostęp JIT dla swojego wystąpienia](approve-just-in-time-access.md#enable-during-deployment).
 
 ## <a name="request-access"></a>Żądanie dostępu
 
-Gdy trzeba uzyskać dostęp do zasobów zarządzanych konsumenta, należy wysłać żądanie określonej roli, czasu i czasu trwania. Następnie konsument musi zatwierdzić żądanie.
+Gdy musisz uzyskać dostęp do zarządzanych zasobów konsumenta, Wyślij żądanie dotyczące określonej roli, godziny i czasu trwania. Użytkownik musi następnie zatwierdzić żądanie.
 
 Aby wysłać żądanie dostępu JIT:
 
-1. Wybierz **JIT Access** dla zarządzanej aplikacji, do której chcesz uzyskać dostęp.
+1. Wybierz **dostęp JIT** dla aplikacji zarządzanej, do której chcesz uzyskać dostęp.
 
-1. Wybierz **pozycję Kwalifikujące się role**i wybierz pozycję **Aktywuj** w kolumnie AKCJA dla żądanej roli.
+1. Wybierz pozycję **kwalifikujące się role**i wybierz pozycję **Aktywuj** w kolumnie Akcja dla wybranej roli.
 
    ![Aktywuj żądanie dostępu](./media/request-just-in-time-access/send-request.png)
 
-1. W formularzu **Aktywuj rolę** wybierz godzinę rozpoczęcia i czas trwania roli, aby twoja rola była aktywna. Wybierz **pozycję Aktywuj,** aby wysłać żądanie.
+1. W formularzu **Uaktywnij rolę** wybierz czas rozpoczęcia i czas trwania roli, która ma być aktywna. Wybierz pozycję **Aktywuj** , aby wysłać żądanie.
 
    ![Aktywuj dostęp](./media/request-just-in-time-access/activate-access.png) 
 
-1. Wyświetl powiadomienia, aby zobaczyć, że nowe żądanie JIT jest pomyślnie wysyłane do konsumenta.
+1. Wyświetl powiadomienia, aby zobaczyć, że nowe żądanie JIT zostało pomyślnie wysłane do konsumenta.
 
    ![Powiadomienie](./media/request-just-in-time-access/in-progress.png)
 
    Teraz musisz poczekać, aż konsument [zatwierdzi Twoje żądanie](approve-just-in-time-access.md#approve-requests).
 
-1. Aby wyświetlić stan wszystkich żądań JIT dla aplikacji zarządzanej, wybierz **JIT Access** i **Historia żądań**.
+1. Aby wyświetlić stan wszystkich żądań JIT dla aplikacji zarządzanej, wybierz pozycję **dostęp JIT** i **historię żądań**.
 
-   ![Stan widoku](./media/request-just-in-time-access/view-status.png)
+   ![Wyświetl stan](./media/request-just-in-time-access/view-status.png)
 
 ## <a name="known-issues"></a>Znane problemy
 
-Główny identyfikator konta żądającego dostępu JIT musi być jawnie uwzględniony w definicji aplikacji zarządzanej. Konto nie może być uwzględnione tylko za pośrednictwem grupy, która jest określona w pakiecie. To ograniczenie zostanie ustalone w przyszłej wersji.
+Identyfikator podmiotu zabezpieczeń konta żądającego dostępu JIT musi być jawnie uwzględniony w definicji aplikacji zarządzanej. Konto nie może zostać dołączone tylko za pomocą grupy określonej w pakiecie. To ograniczenie zostanie naprawione w przyszłym wydaniu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o zatwierdzaniu żądań dostępu JIT, zobacz [Zatwierdzanie dostępu just-in-time w aplikacjach zarządzanych platformy Azure.](approve-just-in-time-access.md)
+Aby dowiedzieć się więcej o zatwierdzaniu żądań dostępu JIT, zobacz [zatwierdzanie dostępu just in Time w Azure Managed Applications](approve-just-in-time-access.md).

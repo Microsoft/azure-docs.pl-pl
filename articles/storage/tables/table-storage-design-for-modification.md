@@ -1,6 +1,6 @@
 ---
-title: Projektowanie magazynu tabel platformy Azure do modyfikacji danych | Dokumenty firmy Microsoft
-description: Projektowanie tabel do modyfikacji danych w magazynie tabel platformy Azure.
+title: Projektowanie magazynu tabel platformy Azure pod kątem modyfikacji danych | Microsoft Docs
+description: Projektowanie tabel do modyfikacji danych w usłudze Azure Table Storage.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -9,43 +9,43 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: c95be7afae5c0a84c06b691c8225f32f2aa68260
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75771550"
 ---
 # <a name="design-for-data-modification"></a>Projektowanie pod kątem modyfikacji danych
-W tym artykule koncentruje się na zagadnienia projektowe do optymalizacji wstawia, aktualizacje i usuwa. W niektórych przypadkach należy ocenić kompromis między projektami, które optymalizują zapytania względem projektów, które optymalizują modyfikację danych, tak jak w projektach dla relacyjnych baz danych (chociaż techniki zarządzania kompromisami projektowymi są w relacyjnej bazie danych). W sekcji Wzorce projektowania tabel opisano niektóre szczegółowe wzorce projektowe dla usługi tabeli i wyróżnia niektóre te kompromisy. W praktyce okaże się, że wiele projektów zoptymalizowanych pod kątem wykonywania zapytań jednostek również działa dobrze do modyfikowania jednostek.  
+Ten artykuł koncentruje się na zagadnieniach projektowych dotyczących optymalizacji operacji wstawiania, aktualizacji i usuwania. W niektórych przypadkach należy oszacować różnice między projektami, które optymalizują się w celu wykonywania zapytań dotyczących projektów, które optymalizują się pod kątem modyfikacji danych, tak samo jak w przypadku projektów relacyjnych baz danych (chociaż techniki zarządzania projektami są inne w relacyjnej bazie danych). W sekcjach wzorów projektowania tabeli opisano niektóre szczegółowe wzorce projektowe dla Table service i wyróżniają niektóre z nich. W ramach tego problemu okaże się, że wiele projektów zoptymalizowanych pod kątem wykonywania zapytań dotyczących jednostek również dobrze sprawdza się w przypadku modyfikowania jednostek.  
 
-## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>Optymalizacja wydajności operacji wstawiania, aktualizowania i usuwania
-Aby zaktualizować lub usunąć jednostkę, musisz mieć możliwość jej zidentyfikowania przy użyciu **partitionKey** i **RowKey** wartości. W związku z tym wybór **PartitionKey** i **RowKey** do modyfikowania jednostek powinny spełniać podobne kryteria do wyboru do obsługi zapytań punktowych, ponieważ chcesz zidentyfikować jednostki tak efektywnie, jak to możliwe. Nie chcesz używać nieefektywne partycji lub tabeli skanowania, aby zlokalizować jednostkę w celu odnajdywać **PartitionKey** i **RowKey** wartości trzeba zaktualizować lub usunąć go.  
+## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>Optymalizowanie wydajności operacji wstawiania, aktualizowania i usuwania
+Aby zaktualizować lub usunąć jednostkę, musi być możliwe jej zidentyfikowanie przy użyciu wartości **PartitionKey** i **RowKey** . W związku z tym wybór opcji **PartitionKey** i **RowKey** w celu zmodyfikowania jednostek powinien spełniać podobne kryteria, aby obsługiwały zapytania dotyczące punktów, ponieważ chcemy identyfikować jednostki tak efektywnie, jak to możliwe. Nie chcesz korzystać z niewydajnej partycji lub skanowania tabeli, aby zlokalizować jednostkę w celu odnalezienia wartości **PartitionKey** i **RowKey** , które należy zaktualizować lub usunąć.  
 
-Następujące wzorce w sekcji Wzorce projektowania tabeli są adres optymalizacji wydajności lub wstawiania, aktualizowania i usuwania operacji:  
+Następujące wzorce w wzorach projektu tabeli sekcji dotyczą optymalizacji wydajności lub operacji wstawiania, aktualizowania i usuwania:  
 
-* [Wzorzec usuwania dużych ilości](table-storage-design-patterns.md#high-volume-delete-pattern) — umożliwia usunięcie dużej liczby jednostek przez przechowywanie wszystkich jednostek do jednoczesnego usuwania w ich osobnej tabeli; usuwasz encje, usuwając tabelę.  
-* [Wzorzec serii danych](table-storage-design-patterns.md#data-series-pattern) — przechowuj pełną serię danych w jednej jednostce, aby zminimalizować liczbę żądań.  
-* [Szeroki wzorzec jednostek](table-storage-design-patterns.md#wide-entities-pattern) — użyj wielu jednostek fizycznych do przechowywania jednostek logicznych z więcej niż 252 właściwościami.  
-* [Wzorzec dużych elementów](table-storage-design-patterns.md#large-entities-pattern) — służy do przechowywania dużych wartości właściwości za pomocą magazynu obiektów blob.  
+* [Duże Usuwanie woluminu wzorzec](table-storage-design-patterns.md#high-volume-delete-pattern) — umożliwia usunięcie dużej liczby jednostek przez zapisanie wszystkich jednostek do jednoczesnego usunięcia w oddzielnej tabeli. obiekty można usunąć, usuwając tabelę.  
+* [Wzorzec serii danych](table-storage-design-patterns.md#data-series-pattern) — Przechowaj kompletne serie danych w pojedynczej jednostce, aby zminimalizować liczbę wysyłanych żądań.  
+* [Wzorzec szerokiej jednostki](table-storage-design-patterns.md#wide-entities-pattern) — używanie wielu jednostek fizycznych do przechowywania jednostek logicznych z więcej niż 252 właściwościami.  
+* [Wzorzec dużych jednostek](table-storage-design-patterns.md#large-entities-pattern) — Użyj magazynu obiektów BLOB do przechowywania dużych wartości właściwości.  
 
-## <a name="ensure-consistency-in-your-stored-entities"></a>Zapewnij spójność przechowywanych jednostek
-Innym kluczowym czynnikiem, który wpływa na wybór kluczy do optymalizacji modyfikacji danych jest zapewnienie spójności przy użyciu transakcji niepodzielnych. EGT można używać tylko do działania na jednostkach przechowywanych w tej samej partycji.  
+## <a name="ensure-consistency-in-your-stored-entities"></a>Zapewnianie spójności przechowywanych jednostek
+Drugim czynnikiem, który ma wpływ na wybór kluczy do optymalizacji modyfikacji danych, jest sposób zapewnienia spójności przy użyciu transakcji niepodzielnych. Elementu EGT można używać tylko do obsługi jednostek przechowywanych w tej samej partycji.  
 
-Następujące wzorce w [artykule Wzorce projektowania tabeli](table-storage-design-patterns.md) dotyczą zarządzania spójnością:  
+W poniższych wzorcach [wzorców projektu tabeli](table-storage-design-patterns.md) artykułów adres zarządzania spójnością:  
 
-* [Wewnątrzpoziomowy wzorzec indeksu pomocniczego](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) — przechowuj wiele kopii każdej jednostki przy użyciu różnych wartości **Klawisza Wiersza** (w tej samej partycji), aby umożliwić szybkie i wydajne wyszukiwanie i alternatywne zamówienia sortowania przy użyciu różnych wartości **RowKey.**  
-* [Wzorzec indeksu pomocniczego między partycjami](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) — przechowuj wiele kopii każdej jednostki przy użyciu różnych wartości RowKey w oddzielnych partycjach lub w oddzielnych tabelach, aby umożliwić szybkie i wydajne wyszukiwanie i alternatywne zamówienia sortowania przy użyciu różnych wartości **RowKey.**  
-* [Ostatecznie spójny wzorzec transakcji](table-storage-design-patterns.md#eventually-consistent-transactions-pattern) — włącz ostatecznie spójne zachowanie w granicach partycji lub granice systemu magazynu przy użyciu kolejek platformy Azure.
-* [Wzorzec jednostek indeksu](table-storage-design-patterns.md#index-entities-pattern) — obsługa jednostek indeksu w celu umożliwienia efektywnego wyszukiwania, które zwracają listy jednostek.  
-* [Wzorzec denormalizacji](table-storage-design-patterns.md#denormalization-pattern) — łączenie powiązanych danych w jednej jednostce, aby umożliwić pobranie wszystkich potrzebnych danych za pomocą kwerendy punktowej.  
-* [Wzorzec serii danych](table-storage-design-patterns.md#data-series-pattern) — przechowuj pełną serię danych w jednej jednostce, aby zminimalizować liczbę żądań.  
+* [Wzorzec indeksu pomocniczego wewnątrz partycji](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) — przechowywanie wielu kopii każdej jednostki przy użyciu różnych wartości **RowKey** (w tej samej partycji), aby umożliwić szybkie i wydajne wyszukiwanie oraz alternatywne zamówienia sortowania przy użyciu różnych wartości **RowKey** .  
+* [Wzorzec indeksu pomocniczego między partycjami](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) — przechowywanie wielu kopii każdej jednostki przy użyciu różnych wartości RowKey w oddzielnych partycjach lub w oddzielnych tabelach, aby umożliwić szybkie i wydajne wyszukiwanie oraz alternatywne zamówienia sortowania przy użyciu różnych wartości **RowKey** .  
+* [Wzorzec ostatecznie spójnych transakcji](table-storage-design-patterns.md#eventually-consistent-transactions-pattern) — Włącz ostatecznie spójne zachowanie między granicami partycji lub granicami systemu magazynu za pomocą kolejek platformy Azure.
+* [Indeks jednostek indeksu](table-storage-design-patterns.md#index-entities-pattern) — utrzymuje jednostki indeksu, aby umożliwić efektywne wyszukiwanie, które zwracają listy jednostek.  
+* [Wzorzec denormalizacji](table-storage-design-patterns.md#denormalization-pattern) — połącz powiązane dane ze sobą w pojedynczej jednostce, aby umożliwić pobieranie wszystkich potrzebnych danych przy użyciu pojedynczego punktu zapytania.  
+* [Wzorzec serii danych](table-storage-design-patterns.md#data-series-pattern) — Przechowaj kompletne serie danych w pojedynczej jednostce, aby zminimalizować liczbę wysyłanych żądań.  
 
-Aby uzyskać informacje o transakcjach grupy jednostek, zobacz sekcję [Transakcje grupy jednostek](table-storage-design.md#entity-group-transactions).  
+Informacje o transakcjach grupy jednostek można znaleźć w sekcji dotyczącej [transakcji grupy jednostek](table-storage-design.md#entity-group-transactions).  
 
-## <a name="ensure-your-design-for-efficient-modifications-facilitates-efficient-queries"></a>Zadbaj o to, by twój projekt zapewniał wydajne modyfikacje, ułatwiające efektywne zapytania
-W wielu przypadkach projekt efektywnego wykonywania zapytań powoduje wydajne modyfikacje, ale zawsze należy ocenić, czy jest to przypadek dla określonego scenariusza. Niektóre wzorce w artykule [Wzorce projektowania tabel](table-storage-design-patterns.md) jawnie oceniają kompromisy między jednostkami kwerendy i modyfikujące i zawsze należy wziąć pod uwagę liczbę każdego typu operacji.  
+## <a name="ensure-your-design-for-efficient-modifications-facilitates-efficient-queries"></a>Upewnij się, że projekt do wydajnej modyfikacji ułatwia wykonywanie wydajnych zapytań
+W wielu przypadkach projekt do wydajnego wykonywania zapytań umożliwia wydajne modyfikacje, ale zawsze należy sprawdzić, czy jest to przypadek dla konkretnego scenariusza. Niektóre wzorce w [wzorcach projektowych tabeli](table-storage-design-patterns.md) artykułów wyraźnie ocenią różnice między kwerendami i modyfikowaniem jednostek, a zawsze należy wziąć pod uwagę liczbę poszczególnych typów operacji.  
 
-Następujące wzorce w [artykule Wzorce projektowania tabeli](table-storage-design-patterns.md) dotyczą kompromisów między projektowaniem w celu efektywnego poszukiwania i projektowaniem w celu wydajnej modyfikacji danych:  
+Poniższe wzorce w [projekcie tabeli](table-storage-design-patterns.md) artykułów stanowią kompromis między projektowaniem dla wydajnych zapytań i projektowaniem do wydajnej modyfikacji danych:  
 
-* [Wzorzec klucza złożonego](table-storage-design-patterns.md#compound-key-pattern) — użyj złożonych wartości **RowKey,** aby umożliwić klientowi wyszukiwanie powiązanych danych za pomocą kwerendy z pojedynczym punktem.  
-* [Wzorzec wiersza dziennika](table-storage-design-patterns.md#log-tail-pattern) — pobieranie *n* jednostek ostatnio dodane do partycji przy użyciu **RowKey** wartość, która sortuje w odwrotnej kolejności daty i godziny.  
+* [Wzorzec klucza złożonego](table-storage-design-patterns.md#compound-key-pattern) — Użyj złożonych wartości **RowKey** , aby umożliwić klientowi wyszukiwanie powiązanych danych za pomocą pojedynczego punktu zapytania.  
+* [Wzorzec końca dziennika](table-storage-design-patterns.md#log-tail-pattern) — pobranie *n* jednostek, które zostały ostatnio dodane do partycji przy użyciu wartości **RowKey** , która jest sortowana w odwrotnej kolejności daty i godziny.  

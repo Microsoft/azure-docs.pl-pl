@@ -1,5 +1,5 @@
 ---
-title: 'Łączenie sieci wirtualnej z siecią wirtualną przy użyciu połączenia sieci wirtualnej z siecią wirtualną: narzędzie interfejsu wiersza polecenia platformy Azure'
+title: 'Łączenie sieci wirtualnej z siecią wirtualną przy użyciu połączenia Sieć wirtualna-sieć wirtualna: interfejs wiersza polecenia platformy Azure'
 description: Łączenie sieci wirtualnych przy użyciu połączenia sieć wirtualna-sieć wirtualna oraz interfejsu wiersza polecenia platformy Azure.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75834573"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -22,8 +22,8 @@ Ten artykuł pomoże Ci połączyć sieci wirtualne przy użyciu typu połączen
 Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu usługi Resource Manager i użyto w nich interfejsu wiersza polecenia platformy Azure. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Powershell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Narzędzia](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Łączenie różnych modeli wdrażania — witryna Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -67,7 +67,7 @@ W tym artykule przedstawiono dwie różne procedury tworzenia połączenia sieć
 
 W tym ćwiczeniu możesz łączyć konfiguracje lub po prostu wybrać tę, której chcesz używać. Wszystkie konfiguracje używają typu połączenia sieć wirtualna-sieć wirtualna. Ruch sieciowy przepływa między bezpośrednio połączonymi sieciami wirtualnymi. W tym ćwiczeniu ruch z sieci TestVNet4 nie jest kierowany do sieci TestVNet5.
 
-* [Sieci wirtualne, które znajdują się w tej samej subskrypcji:](#samesub) Kroki dla tej konfiguracji użyć TestVNet1 i TestVNet4.
+* [Sieci wirtualnych, które znajdują się w tej samej subskrypcji:](#samesub) W przypadku tej konfiguracji należy użyć sieci testvnet1 i sieci testvnet4.
 
   ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
@@ -269,7 +269,7 @@ W tym scenariuszu nawiązywane jest połączenie między sieciami wirtualnymi Te
 
 ### <a name="step-5---create-and-configure-testvnet1"></a><a name="TestVNet1diff"></a>Krok 5 — Tworzenie i konfigurowanie sieci TestVNet1
 
-Te instrukcje są kontynuacją kroków z poprzednich sekcji. Aby utworzyć i skonfigurować sieć TestVNet1 i bramę sieci VPN dla sieci TestVNet1, należy wykonać [krok 1](#Connect) i [2.](#TestVNet1) W przypadku tej konfiguracji nie trzeba tworzyć sieci TestVNet4 z poprzedniej sekcji, chociaż jeśli zostanie ona utworzona, nie będzie powodować żadnych konfliktów z tymi krokami. Po ukończeniu kroków 1 i 2 przejdź do kroku 6 (poniżej).
+Te instrukcje są kontynuacją kroków z poprzednich sekcji. Należy wykonać [krok 1](#Connect) i [krok 2](#TestVNet1) , aby utworzyć i skonfigurować sieci testvnet1 oraz VPN Gateway dla sieci testvnet1. W przypadku tej konfiguracji nie trzeba tworzyć sieci TestVNet4 z poprzedniej sekcji, chociaż jeśli zostanie ona utworzona, nie będzie powodować żadnych konfliktów z tymi krokami. Po ukończeniu kroków 1 i 2 przejdź do kroku 6 (poniżej).
 
 ### <a name="step-6---verify-the-ip-address-ranges"></a><a name="verifyranges"></a>Krok 6 — Weryfikowanie zakresów adresów IP
 
@@ -292,7 +292,7 @@ Podczas tworzenia dodatkowych połączeń, ważne jest, by sprawdzić, czy przes
 
 ### <a name="step-7---create-and-configure-testvnet5"></a><a name="TestVNet5"></a>Krok 7 — Tworzenie i konfigurowanie sieci TestVNet5
 
-Ten krok należy wykonać w kontekście nowej subskrypcji (Subskrypcja 5). Tę część procedury może wykonać administrator w innej organizacji, która jest właścicielem subskrypcji. Aby przełączać się `az account list --all` między subskrypcjami, użyj do listy `az account set --subscription <subscriptionID>` subskrypcji dostępnych dla Twojego konta, a następnie użyj, aby przełączyć się na subskrypcję, której chcesz użyć.
+Ten krok należy wykonać w kontekście nowej subskrypcji (Subskrypcja 5). Tę część procedury może wykonać administrator w innej organizacji, która jest właścicielem subskrypcji. Aby przełączać się `az account list --all` między subskrypcjami, użyj, aby wyświetlić listę subskrypcji dostępnych `az account set --subscription <subscriptionID>` dla Twojego konta, a następnie użyj opcji, aby przełączyć się na subskrypcję, której chcesz użyć.
 
 1. Upewnij się, czy nastąpiło połączenie z Subskrypcją 5, a następnie utwórz grupę zasobów.
 
@@ -331,7 +331,7 @@ Ten krok należy wykonać w kontekście nowej subskrypcji (Subskrypcja 5). Tę c
 
 ### <a name="step-8---create-the-connections"></a><a name="connections5"></a>Krok 8 — Tworzenie połączeń
 
-Ze względu na to, że bramy należą do różnych subskrypcji, zastosowano rozbicie na dwie sesje interfejsu wiersza polecenia oznaczone jako **[Subskrypcja 1]** i **[Subskrypcja 5]**. Aby przełączać się `az account list --all` między subskrypcjami, użyj do listy `az account set --subscription <subscriptionID>` subskrypcji dostępnych dla Twojego konta, a następnie użyj, aby przełączyć się na subskrypcję, której chcesz użyć.
+Ze względu na to, że bramy należą do różnych subskrypcji, zastosowano rozbicie na dwie sesje interfejsu wiersza polecenia oznaczone jako **[Subskrypcja 1]** i **[Subskrypcja 5]**. Aby przełączać się `az account list --all` między subskrypcjami, użyj, aby wyświetlić listę subskrypcji dostępnych `az account set --subscription <subscriptionID>` dla Twojego konta, a następnie użyj opcji, aby przełączyć się na subskrypcję, której chcesz użyć.
 
 1. **[Subskrypcja 1]** Zaloguj się i połącz z Subskrypcją 1. Uruchom następujące polecenie, aby uzyskać nazwę i identyfikator bramy z danych wyjściowych:
 

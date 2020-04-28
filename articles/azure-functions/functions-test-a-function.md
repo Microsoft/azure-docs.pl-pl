@@ -1,55 +1,55 @@
 ---
 title: Testowanie usługi Azure Functions
-description: Tworzenie zautomatyzowanych testów dla funkcji języka C# w programie Visual Studio i funkcji JavaScript w programie VS Code
+description: Utwórz testy automatyczne dla funkcji języka C# w programie Visual Studio i funkcji JavaScript w VS Code
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
 ms.openlocfilehash: a37fd886e1bc70226b2e54750540dfcb79ee5973
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75768881"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie testowania kodu w usłudze Azure Functions
 
-W tym artykule pokazano, jak utworzyć zautomatyzowane testy dla usługi Azure Functions. 
+W tym artykule przedstawiono sposób tworzenia zautomatyzowanych testów dla Azure Functions. 
 
-Testowanie całego kodu jest zalecane, jednak można uzyskać najlepsze wyniki przez zawijania logiki funkcji i tworzenia testów poza function. Logika abstrakcji od ogranicza function's wiersze kodu i pozwala Function być wyłącznie odpowiedzialny za wywoływanie innych klas lub modułów. W tym artykule pokazano jednak, jak utworzyć zautomatyzowane testy dla funkcji http i czasomierza wyzwalane.
+Zalecane jest przetestowanie całego kodu, jednak uzyskanie najlepszych wyników przez zapakowanie logiki funkcji i utworzenie testów poza funkcją może być możliwe. Logika abstrakcji ogranicza wiersze kodu funkcji i pozwala, aby funkcja była odpowiedzialna wyłącznie za wywoływanie innych klas lub modułów. W tym artykule przedstawiono jednak sposób tworzenia zautomatyzowanych testów względem funkcji wyzwalanych przez protokół HTTP i czasomierz.
 
-Następująca zawartość jest podzielona na dwie różne sekcje przeznaczone do kierowania różnych języków i środowisk. Możesz nauczyć się budować testy w:
+Następująca zawartość jest podzielona na dwie różne sekcje przeznaczone dla różnych języków i środowisk. Możesz dowiedzieć się, jak kompilować testy w:
 
-- [C# w programie Visual Studio z xUnit](#c-in-visual-studio)
-- [JavaScript w programie VS Code z programem Jest](#javascript-in-vs-code)
+- [Język C# w programie Visual Studio z xUnit](#c-in-visual-studio)
+- [Język JavaScript w VS Code za pomocą](#javascript-in-vs-code)
 
-Przykładowe repozytorium jest dostępne w [usłudze GitHub.](https://github.com/Azure-Samples/azure-functions-tests)
+Przykładowe repozytorium jest dostępne w witrynie [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
 ## <a name="c-in-visual-studio"></a>Język C# w programie Visual Studio
-W poniższym przykładzie opisano sposób tworzenia aplikacji funkcji języka C# w programie Visual Studio i uruchamiania i testów za pomocą [jednostki xUnit.](https://xunit.github.io)
+W poniższym przykładzie opisano sposób tworzenia aplikacji funkcji języka C# w programie Visual Studio i uruchamiania i testowania przy użyciu [xUnit](https://xunit.github.io).
 
-![Testowanie funkcji platformy Azure za pomocą języka C# w programie Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
+![Testowanie Azure Functions przy użyciu języka C# w programie Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>Konfiguracja
+### <a name="setup"></a>Konfigurowanie
 
-Aby skonfigurować środowisko, utwórz aplikację funkcji i testuj. Poniższe kroki ułatwiztwochowinie aplikacji i funkcji wymaganych do obsługi testów:
+Aby skonfigurować środowisko, Utwórz funkcję i aplikację testową. Poniższe kroki ułatwiają tworzenie aplikacji i funkcji wymaganych do obsługi testów:
 
-1. [Tworzenie nowej aplikacji Functions](./functions-create-first-azure-function.md) i nadawanie jej nazwy *Funkcje*
-2. [Utwórz funkcję HTTP na podstawie szablonu](./functions-create-first-azure-function.md) i nazwij ją *HttpTrigger*.
-3. [Utwórz funkcję czasomierza na podstawie szablonu](./functions-create-scheduled-function.md) i nazwij ją *TimerTrigger*.
-4. [Utwórz aplikację testu xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) w programie Visual Studio, klikając **polecenie File > New > Project > Visual C# > .NET Core > xUnit Test Project** i nazwij go *Functions.Test*. 
-5. Użyj NuGet, aby dodać odwołanie z aplikacji testowej do [pliku Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Odwołaj się do aplikacji *Functions* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) z aplikacji *Functions.Test.*
+1. [Utwórz nową aplikację funkcji](./functions-create-first-azure-function.md) i nadaj jej nazwę *Functions*
+2. [Utwórz funkcję http z szablonu](./functions-create-first-azure-function.md) i nadaj jej nazwę *HttpTrigger*.
+3. [Utwórz funkcję timer na podstawie szablonu](./functions-create-scheduled-function.md) i nadaj jej nazwę *TimerTrigger*.
+4. [Utwórz aplikację testową xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) w programie Visual Studio, klikając pozycję **plik > nowy > Project > Visual C# > .NET Core > xUnit test projektu** i nazwij go *Functions. test*. 
+5. Użyj NuGet, aby dodać odwołanie z aplikacji testowej do [Microsoft. AspNetCore. MVC](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+6. [Odwołuje się do aplikacji *Functions* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) z poziomu aplikacji *Functions. test* .
 
-### <a name="create-test-classes"></a>Tworzenie klas testowych
+### <a name="create-test-classes"></a>Utwórz klasy testowe
 
 Teraz, gdy aplikacje są tworzone, można utworzyć klasy używane do uruchamiania testów automatycznych.
 
-Każda funkcja przyjmuje [wystąpienie ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) do obsługi rejestrowania wiadomości. Niektóre testy albo nie rejestrują komunikatów lub nie dotyczą sposobu implementowania rejestrowania. Inne testy należy ocenić wiadomości rejestrowane, aby ustalić, czy test jest przekazywanie.
+Każda funkcja przyjmuje wystąpienie [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) do obsługi rejestrowania komunikatów. Niektóre testy nie rejestrują komunikatów lub nie mają żadnych obaw dotyczących sposobu zaimplementowania rejestrowania. Inne testy muszą mieć na celu sprawdzenie, czy test kończy się powodzeniem.
 
-Klasa `ListLogger` implementuje `ILogger` interfejs i przechowuje wewnętrzną listę komunikatów do oceny podczas testu.
+`ListLogger` Klasa implementuje `ILogger` interfejs i utrzymuje wewnętrzną listę komunikatów do oceny podczas testu.
 
-**Kliknij prawym przyciskiem myszy** aplikację *Functions.Test* i wybierz **pozycję Dodaj klasę >**, nazwij ją **NullScope.cs** i wprowadź następujący kod:
+**Kliknij prawym przyciskiem myszy** aplikację *Functions. test* i wybierz polecenie **Dodaj > Class**, nadaj jej nazwę **NullScope.cs** i wprowadź następujący kod:
 
 ```csharp
 using System;
@@ -67,7 +67,7 @@ namespace Functions.Tests
 }
 ```
 
-Następnie **kliknij prawym przyciskiem myszy** aplikację *Functions.Test* i wybierz **pozycję Dodaj klasę >**, nazwij ją **ListLogger.cs** i wprowadź następujący kod:
+Następnie **kliknij prawym przyciskiem myszy** aplikację *Functions. test* , a następnie wybierz pozycję **Dodaj > Class**, nadaj jej nazwę **ListLogger.cs** i wprowadź następujący kod:
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -103,17 +103,17 @@ namespace Functions.Tests
 }
 ```
 
-Klasa `ListLogger` implementuje następujące elementy członkowskie zgodnie `ILogger` z zakontraktowanym przez interfejs:
+`ListLogger` Klasa implementuje następujących członków zgodnie z `ILogger` umową Interface:
 
-- **BeginScope:** Zakresy dodać kontekst do rejestrowania. W takim przypadku test tylko wskazuje na statyczne wystąpienie w `NullScope` klasie, aby umożliwić działanie testu.
+- **BeginScope**: zakresy dodają kontekst do rejestrowania. W takim przypadku test tylko wskazuje na wystąpienie statyczne w klasie, `NullScope` aby zezwolić na działanie testu.
 
-- **IsEnabled**: Podana `false` jest wartość domyślna.
+- **IsEnabled**: podano wartość `false` domyślną.
 
-- **Dziennik:** Ta metoda używa `formatter` podanej funkcji do formatowania wiadomości, `Logs` a następnie dodaje wynikowy tekst do kolekcji.
+- **Dziennik**: Ta metoda używa podanej `formatter` funkcji do sformatowania wiadomości, a następnie dodania otrzymanego tekstu `Logs` do kolekcji.
 
-Kolekcja `Logs` jest wystąpieniem `List<string>` i jest inicjowany w konstruktorze.
+`Logs` Kolekcja jest wystąpieniem `List<string>` i jest inicjowana w konstruktorze.
 
-Następnie **kliknij prawym przyciskiem myszy** aplikację *Functions.Test* i wybierz **pozycję Dodaj klasę >**, nazwij ją **LoggerTypes.cs** i wprowadź następujący kod:
+Następnie **kliknij prawym przyciskiem myszy** aplikację *Functions. test* , a następnie wybierz pozycję **Dodaj > Class**, nadaj jej nazwę **LoggerTypes.cs** i wprowadź następujący kod:
 
 ```csharp
 namespace Functions.Tests
@@ -125,9 +125,9 @@ namespace Functions.Tests
     }
 }
 ```
-To wyliczenie określa typ rejestratora używanego przez testy. 
+To Wyliczenie określa typ rejestratora używany przez testy. 
 
-Następnie **kliknij prawym przyciskiem myszy** aplikację *Functions.Test* i wybierz **pozycję Dodaj klasę >**, nazwij ją **TestFactory.cs** i wprowadź następujący kod:
+Następnie **kliknij prawym przyciskiem myszy** aplikację *Functions. test* , a następnie wybierz pozycję **Dodaj > Class**, nadaj jej nazwę **TestFactory.cs** i wprowadź następujący kod:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -188,17 +188,17 @@ namespace Functions.Tests
     }
 }
 ```
-Klasa `TestFactory` implementuje następujące elementy członkowskie:
+`TestFactory` Klasa implementuje następujące elementy członkowskie:
 
-- **Dane:** Ta właściwość zwraca [iEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) kolekcji przykładowych danych. Pary wartości klucza reprezentują wartości, które są przekazywane do ciągu zapytania.
+- **Dane**: Ta właściwość zwraca kolekcję [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) przykładowych danych. Pary klucz wartość reprezentują wartości, które są przesyłane do ciągu zapytania.
 
-- **CreateDictionary**: Ta metoda akceptuje parę klucz/wartość jako `Dictionary` argumenty `QueryCollection` i zwraca nowy używany do tworzenia do reprezentowania wartości ciągu kwerendy.
+- **IsDictionary**: Ta metoda akceptuje parę klucz/wartość jako argumenty i zwraca nowy `Dictionary` użyty do utworzenia `QueryCollection` do reprezentowania wartości ciągu zapytania.
 
-- **UtwórzHttpRequest:** Ta metoda tworzy żądanie HTTP zainicjowane z podanymi parametrami ciągu zapytania.
+- Zdarzenie **: Ta**Metoda tworzy żądanie HTTP zainicjowane przy użyciu podanym parametrów ciągu zapytania.
 
-- **CreateLogger**: Na podstawie typu rejestratora ta metoda zwraca klasę rejestratora używaną do testowania. Śledzi `ListLogger` rejestrowane komunikaty dostępne do oceny w testach.
+- **Wyrejestrowania**: na podstawie typu rejestratora ta metoda zwraca klasę rejestratora używaną do testowania. `ListLogger` Śledzi zarejestrowane komunikaty dostępne do oceny w testach.
 
-Następnie **kliknij prawym przyciskiem myszy** aplikację *Functions.Test* i wybierz **pozycję Dodaj klasę >**, nazwij ją **FunctionsTests.cs** i wprowadź następujący kod:
+Następnie **kliknij prawym przyciskiem myszy** aplikację *Functions. test* , a następnie wybierz pozycję **Dodaj > Class**, nadaj jej nazwę **FunctionsTests.cs** i wprowadź następujący kod:
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -239,45 +239,45 @@ namespace Functions.Tests
     }
 }
 ```
-Członkami zaimplementowanymi w tej klasie są:
+Członkowie zaimplementowani w tej klasie są:
 
-- **Http_trigger_should_return_known_string:** Ten test tworzy żądanie z wartościami `name=Bill` ciągu zapytania do funkcji HTTP i sprawdza, czy zwracana jest oczekiwana odpowiedź.
+- **Http_trigger_should_return_known_string**: ten test tworzy żądanie z wartościami `name=Bill` ciągu zapytania dla funkcji http i sprawdza, czy jest zwracana oczekiwana odpowiedź.
 
-- **Http_trigger_should_return_string_from_member_data:** Ten test używa atrybutów xUnit do dostarczania przykładowych danych do funkcji HTTP.
+- **Http_trigger_should_return_string_from_member_data**: ten test używa atrybutów xUnit, aby zapewnić dane przykładowe do funkcji http.
 
-- **Timer_should_log_message:** Ten test tworzy wystąpienie `ListLogger` i przekazuje je do funkcji czasomierza. Po uruchomieniu funkcji, a następnie dziennik jest sprawdzany, aby upewnić się, że oczekiwany komunikat jest obecny.
+- **Timer_should_log_message**: ten test tworzy wystąpienie `ListLogger` i przekazuje je do funkcji timer. Po uruchomieniu funkcji, Dziennik zostanie sprawdzony w celu upewnienia się, że oczekiwany komunikat jest obecny.
 
-Jeśli chcesz uzyskać dostęp do ustawień aplikacji w testach, możesz użyć [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+Jeśli chcesz uzyskać dostęp do ustawień aplikacji w testach, możesz użyć metody [System. Environment. GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
 
 ### <a name="run-tests"></a>Uruchom testy
 
 Aby uruchomić testy, przejdź do **Eksploratora testów** i kliknij przycisk **Uruchom wszystkie**.
 
-![Testowanie funkcji platformy Azure za pomocą języka C# w programie Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
+![Testowanie Azure Functions przy użyciu języka C# w programie Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="debug-tests"></a>Testy debugowania
+### <a name="debug-tests"></a>Debuguj testy
 
-Aby debugować testy, ustaw punkt przerwania w teście, przejdź do **Eksploratora testów** i kliknij przycisk **Uruchom > debugowania ostatniego uruchomienia**.
+Aby debugować testy, ustaw punkt przerwania w teście, przejdź do **Eksploratora testów** i kliknij przycisk **Uruchom > Debuguj ostatnie uruchomienie**.
 
-## <a name="javascript-in-vs-code"></a>JavaScript w kodzie VS
+## <a name="javascript-in-vs-code"></a>Język JavaScript w VS Code
 
-W poniższym przykładzie opisano sposób tworzenia aplikacji Funkcji JavaScript w programie VS Code i uruchamiania i testów z [programem Jest](https://jestjs.io). Ta procedura używa [rozszerzenia funkcji kodu VS](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) do tworzenia usług Azure Functions.
+W poniższym przykładzie opisano sposób tworzenia aplikacji funkcji JavaScript w VS Code i uruchamiania oraz [testów za pomocą](https://jestjs.io). Ta procedura powoduje utworzenie Azure Functions za pomocą [rozszerzenia funkcji vs Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) .
 
-![Testowanie funkcji platformy Azure za pomocą języka JavaScript w programie VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
+![Testowanie Azure Functions przy użyciu języka JavaScript w programie VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>Konfiguracja
+### <a name="setup"></a>Konfigurowanie
 
-Aby skonfigurować środowisko, zaiwastuj nową aplikację Node.js w pustym folderze, uruchamiając go. `npm init`
+Aby skonfigurować środowisko, zainicjuj nową aplikację Node. js w pustym folderze, uruchamiając `npm init`polecenie.
 
 ```bash
 npm init -y
 ```
-Następnie zainstaluj program Jest, uruchamiając następujące polecenie:
+Następnie zainstaluj program za pomocą następującego polecenia:
 
 ```bash
 npm i jest
 ```
-Teraz zaktualizuj _plik package.json,_ aby zastąpić istniejące polecenie testu następującym poleceniem:
+Teraz Zaktualizuj plik _Package. JSON_ , aby zamienić istniejące polecenie testowe na następujące polecenie:
 
 ```bash
 "scripts": {
@@ -286,18 +286,18 @@ Teraz zaktualizuj _plik package.json,_ aby zastąpić istniejące polecenie test
 ```
 
 ### <a name="create-test-modules"></a>Tworzenie modułów testowych
-Po zainicjowaniu projektu można utworzyć moduły używane do uruchamiania testów automatycznych. Rozpocznij od utworzenia nowego folderu o nazwie *testowanie* do przechowywania modułów pomocy technicznej.
+Po zainicjowaniu projektu można utworzyć moduły używane do uruchamiania testów automatycznych. Zacznij od utworzenia nowego folderu o nazwie *test* w celu przechowywania modułów obsługi.
 
-W folderze *testowym* dodaj nowy plik, **nazwij go defaultContext.js**i dodaj następujący kod:
+W folderze *testowym* Dodaj nowy plik, nadaj mu nazwę **kontekst domyślny. js**, a następnie Dodaj następujący kod:
 
 ```javascript
 module.exports = {
     log: jest.fn()
 };
 ```
-Ten moduł kpi z funkcji *dziennika* do reprezentowania domyślnego kontekstu wykonywania.
+Ten moduł służy do makietowania funkcji *log* w celu reprezentowania domyślnego kontekstu wykonania.
 
-Następnie dodaj nowy plik, **nazwij go defaultTimer.js**i dodaj następujący kod:
+Następnie Dodaj nowy plik, nadaj mu nazwę **defaultTimer. js**, a następnie Dodaj następujący kod:
 
 ```javascript
 module.exports = {
@@ -305,9 +305,9 @@ module.exports = {
 };
 ```
 
-Ten moduł implementuje `IsPastDue` właściwość stanąć jest jako fałszywe wystąpienie czasomierza. Konfiguracje czasomierza, takie jak wyrażenia NCRONTAB, nie są tutaj wymagane, ponieważ uprząż testowa po prostu wywołuje funkcję bezpośrednio w celu przetestowania wyniku.
+Ten moduł implementuje `IsPastDue` właściwość, która ma stanowić wystąpienie fałszywego czasomierza. Konfiguracje czasomierza, takie jak wyrażenia NCRONTAB, nie są wymagane w tym miejscu, ponieważ zespół testów ma po prostu wywołanie funkcji bezpośrednio w celu przetestowania wyniku.
 
-Następnie użyj rozszerzenia VS Code Functions, aby [utworzyć nową funkcję HTTP JavaScript](/azure/javascript/tutorial-vscode-serverless-node-01) i nazwać ją *HttpTrigger*. Po utworzeniu funkcji dodaj nowy plik w tym samym folderze o nazwie **index.test.js**i dodaj następujący kod:
+Następnie użyj rozszerzenia funkcji VS Code, aby [utworzyć nową funkcję http języka JavaScript](/azure/javascript/tutorial-vscode-serverless-node-01) i nadaj jej nazwę *HttpTrigger*. Po utworzeniu funkcji Dodaj nowy plik do tego samego folderu o nazwie **index. test. js**i Dodaj następujący kod:
 
 ```javascript
 const httpFunction = require('./index');
@@ -325,9 +325,9 @@ test('Http trigger should return known text', async () => {
     expect(context.res.body).toEqual('Hello Bill');
 });
 ```
-Funkcja HTTP z szablonu zwraca ciąg "Hello" połączony z nazwą podana w ciągu zapytania. Ten test tworzy fałszywe wystąpienie żądania i przekazuje je do funkcji HTTP. Test sprawdza, czy metoda *dziennika* jest wywoływana raz, a zwrócony tekst jest równy "Hello Bill".
+Funkcja HTTP z szablonu zwraca ciąg "Hello" połączonego z nazwą podaną w ciągu zapytania. Ten test tworzy fałszywe wystąpienie żądania i przekazuje je do funkcji HTTP. Test sprawdza, czy metoda *log* jest wywoływana jednokrotnie, a zwracany tekst jest równy "Hello Bill".
 
-Następnie użyj rozszerzenia VS Code Functions, aby utworzyć nową funkcję timera JavaScript i nazwać ją *TimerTrigger*. Po utworzeniu funkcji dodaj nowy plik w tym samym folderze o nazwie **index.test.js**i dodaj następujący kod:
+Następnie użyj rozszerzenia funkcji VS Code, aby utworzyć nową funkcję czasomierza JavaScript i nadaj jej nazwę *TimerTrigger*. Po utworzeniu funkcji Dodaj nowy plik do tego samego folderu o nazwie **index. test. js**i Dodaj następujący kod:
 
 ```javascript
 const timerFunction = require('./index');
@@ -339,20 +339,20 @@ test('Timer trigger should log message', () => {
     expect(context.log.mock.calls.length).toBe(1);
 });
 ```
-Funkcja czasomierza z szablonu rejestruje komunikat na końcu treści funkcji. Ten test zapewnia, że funkcja *dziennika* jest wywoływana raz.
+Funkcja Timer z szablonu rejestruje komunikat na końcu treści funkcji. Ten test zapewnia jednokrotne wywołanie funkcji *log* .
 
 ### <a name="run-tests"></a>Uruchom testy
-Aby uruchomić testy, naciśnij **klawisze CTRL + ~,** aby otworzyć okno polecenia, i uruchom `npm test`:
+Aby uruchomić testy, naciśnij **klawisze CTRL + ~** , aby otworzyć okno wiersza polecenia, a `npm test`następnie uruchom polecenie:
 
 ```bash
 npm test
 ```
 
-![Testowanie funkcji platformy Azure za pomocą języka JavaScript w programie VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
+![Testowanie Azure Functions przy użyciu języka JavaScript w programie VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="debug-tests"></a>Testy debugowania
+### <a name="debug-tests"></a>Debuguj testy
 
-Aby debugować testy, dodaj następującą konfigurację do pliku *launch.json:*
+Aby debugować testy, Dodaj następującą konfigurację do pliku *Launch. JSON* :
 
 ```json
 {
@@ -368,11 +368,11 @@ Aby debugować testy, dodaj następującą konfigurację do pliku *launch.json:*
 }
 ```
 
-Następnie ustaw punkt przerwania w teście i naciśnij **klawisz F5**.
+Następnie ustaw punkt przerwania w teście i naciśnij klawisz **F5**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy już wiesz, jak pisać automatyczne testy dla swoich funkcji, kontynuuj z tymi zasobami:
+Teraz, gdy wiesz już, jak pisać zautomatyzowane testy dla swoich funkcji, przejdź do następujących zasobów:
 - [Ręczne uruchamianie funkcji niewyzwalanej przez protokół HTTP](./functions-manually-run-non-http.md)
-- [Obsługa błędów usług Azure Functions](./functions-bindings-error-pages.md)
+- [Obsługa błędów Azure Functions](./functions-bindings-error-pages.md)
 - [Debugowanie lokalnego wyzwalacza siatki zdarzeń funkcji platformy Azure](./functions-debug-event-grid-trigger-local.md)

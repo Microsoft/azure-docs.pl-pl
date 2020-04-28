@@ -1,24 +1,24 @@
 ---
 title: Odwołanie do artefaktu szablonu
-description: Zawiera przykład artefaktu szablonu wdrożenia dla aplikacji zarządzanych platformy Azure.
+description: Zawiera przykład artefaktu szablonu wdrożenia dla Azure Managed Applications.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 2bc0017d71e159ac490041494bcf37db035ef421
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651464"
 ---
-# <a name="reference-deployment-template-artifact"></a>Odwołanie: Artefakt szablonu wdrożenia
+# <a name="reference-deployment-template-artifact"></a>Odwołanie: artefakt szablonu wdrożenia
 
-Ten artykuł jest odwołaniem do artefaktu *mainTemplate.json* w aplikacjach zarządzanych platformy Azure. Aby uzyskać więcej informacji na temat tworzenia szablonu wdrożenia, zobacz [Szablony usługi Azure Resource Manager](../templates/template-syntax.md).
+Ten artykuł jest odwołaniem do artefaktu *mainTemplate. JSON* w Azure Managed Applications. Aby uzyskać więcej informacji na temat tworzenia szablonu wdrożenia, zobacz [Azure Resource Manager templates](../templates/template-syntax.md).
 
 ## <a name="deployment-template"></a>Szablon wdrożenia
 
-Poniżej przedstawiono przykład pliku *mainTemplate.json* dla aplikacji zarządzanych platformy Azure:
+Poniższy kod JSON przedstawia przykład pliku *mainTemplate. JSON* dla Azure Managed Applications:
 
 ```json
 {
@@ -189,6 +189,6 @@ Poniżej przedstawiono przykład pliku *mainTemplate.json* dla aplikacji zarząd
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Samouczek: Tworzenie aplikacji zarządzanej przy niestandardowych akcjach i zasobach](tutorial-create-managed-app-with-custom-provider.md)
-- [Odwołanie: Artefakt elementów interfejsu użytkownika](reference-createuidefinition-artifact.md)
-- [Odwołanie: Zobacz artefakt definicji](reference-view-definition-artifact.md)
+- [Samouczek: Tworzenie aplikacji zarządzanej z niestandardowymi akcjami i zasobami](tutorial-create-managed-app-with-custom-provider.md)
+- [Odwołanie: artefakt elementów interfejsu użytkownika](reference-createuidefinition-artifact.md)
+- [Reference: artefakt definicji widoku](reference-view-definition-artifact.md)
