@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 454278f0f45a73ec99f52d3f7e9e0c5ce95ecf7a
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: f208119ce80d6b728030ea96f13d6c3d0375e74a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133287"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182943"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Zarządzanie standardem Azure DDoS Protection przy użyciu Azure Portal
 
@@ -39,7 +39,7 @@ Tworzenie więcej niż jednego planu nie jest wymagane w przypadku większości 
 
 1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu Azure Portal.
 2. Wyszukaj *DDoS*. Po pojawieniu się **planu ochrony DDoS** w wynikach wyszukiwania zaznacz je.
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 4. Wprowadź lub wybierz własne wartości albo wprowadź lub wybierz poniższe przykładowe wartości, a następnie wybierz pozycję **Utwórz**:
 
     |Ustawienie        |Wartość                                              |
@@ -241,4 +241,4 @@ Aby włączyć ochronę DDoS dla sieci wirtualnej, konto musi również mieć pr
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Tworzenie i stosowanie [zasad platformy Azure](policy-samples.md) dla sieci wirtualnych
+- Tworzenie i przypisywanie [Azure Policy definicje](policy-samples.md) dla sieci wirtualnych

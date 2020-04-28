@@ -1,6 +1,6 @@
 ---
-title: Logowanie się bez hasła (wersja zapoznawcza) — usługa Azure Active Directory
-description: Włączanie logowania się bez użycia hasła do usługi Azure AD przy użyciu kluczy zabezpieczeń FIDO2 (wersja zapoznawcza)
+title: Logowanie za klucz zabezpieczeń bezhasło (wersja zapoznawcza) — Azure Active Directory
+description: Włącz logowanie za pomocą klucza zabezpieczeń bezhasła do usługi Azure AD przy użyciu kluczy zabezpieczeń FIDO2 (wersja zapoznawcza)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,99 +12,99 @@ manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 066ab7892bed6e7505e7ee114ff37a7850ef5c9b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81450925"
 ---
-# <a name="enable-passwordless-security-key-sign-in-preview"></a>Włączanie logowania bez hasła (wersja zapoznawcza)
+# <a name="enable-passwordless-security-key-sign-in-preview"></a>Włącz logowanie przy użyciu klucza zabezpieczeń bezhasło (wersja zapoznawcza)
 
-W przypadku przedsiębiorstw, które używają haseł już dziś i mają wspólne środowisko komputera, klucze zabezpieczeń zapewniają pracownikom bezproblemowy sposób uwierzytelniania bez wprowadzania nazwy użytkownika lub hasła. Klucze zabezpieczeń zapewniają pracownikom większą produktywność i zapewniają lepsze bezpieczeństwo.
+W przypadku przedsiębiorstw korzystających dzisiaj z haseł i mających udostępnione środowisko komputera klucze zabezpieczeń umożliwiają bezproblemowe uwierzytelnianie procesów roboczych bez wprowadzania nazwy użytkownika lub hasła. Klucze zabezpieczeń zapewniają lepszą produktywność dla pracowników i mają lepsze zabezpieczenia.
 
-Ten dokument koncentruje się na włączaniu uwierzytelniania bez hasła opartego na kluczach zabezpieczeń. Na końcu tego artykułu będzie można zalogować się do aplikacji opartych na sieci Web za pomocą konta usługi Azure AD przy użyciu klucza zabezpieczeń FIDO2.
+Ten dokument koncentruje się na włączaniu uwierzytelniania bezhaseł opartego na kluczu zabezpieczeń. Na końcu tego artykułu będzie można zalogować się do aplikacji sieci Web za pomocą konta usługi Azure AD przy użyciu klucza zabezpieczeń FIDO2.
 
 |     |
 | --- |
-| Klucze zabezpieczeń FIDO2 są publiczną funkcją podglądu usługi Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawców, zobacz [Dodatkowe warunki użytkowania w wersji Zapoznawczej platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Klucze zabezpieczeń FIDO2 są publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zapoznawczych Microsoft Azure|
 |     |
 
 ## <a name="requirements"></a>Wymagania
 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
-- [Połączona wersja zapoznawcza rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md)
-- Kompatybilne [klucze zabezpieczeń FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
-- Sieć WebAuthN wymaga systemu Windows 10 w wersji 1809 lub nowszej**
+- [Wersja zapoznawcza rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md)
+- Zgodne [FIDO2 klucze zabezpieczeń](concept-authentication-passwordless.md#fido2-security-keys)
+- WebAuthN wymaga systemu Windows 10 w wersji 1809 lub nowszej * *
 
-Aby używać kluczy zabezpieczeń do logowania się do aplikacji i usług sieci Web, musisz mieć przeglądarkę obsługującą protokół WebAuthN. Należą do nich Microsoft Edge, Chrome, Firefox i Safari.
+Aby używać kluczy zabezpieczeń do logowania się do usługi Web Apps i usług, musisz mieć przeglądarkę obsługującą protokół WebAuthN. Obejmują one programy Microsoft Edge, Chrome, Firefox i Safari.
 
-## <a name="prepare-devices-for-preview"></a>Przygotowywanie urządzeń do podglądu
+## <a name="prepare-devices-for-preview"></a>Przygotuj urządzenia do wersji zapoznawczej
 
-Urządzenia przyłączone do usługi Azure AD, z którymi pilotujesz, muszą działać w systemie Windows 10 w wersji 1809 lub nowszej. Najlepsze środowisko jest w systemie Windows 10 w wersji 1903 lub nowszej.
+Urządzenia przyłączone do usługi Azure AD, które są pilotażowe, muszą korzystać z systemu Windows 10 w wersji 1809 lub nowszej. Najlepszym rozwiązaniem jest system Windows 10 w wersji 1903 lub nowszej.
 
-Hybrydowe urządzenia przyłączone do usługi Azure AD muszą działać w kompilacji niejawnego programu testów systemu Windows 10 18945 lub nowszej.
+Hybrydowe urządzenia dołączone do usługi Azure AD muszą uruchamiać kompilację niejawnego programu testów systemu Windows 10 18945 lub nowszą.
 
-## <a name="enable-passwordless-authentication-method"></a>Włącz metodę uwierzytelniania bez hasła
+## <a name="enable-passwordless-authentication-method"></a>Włącz metodę uwierzytelniania bezhasła
 
 ### <a name="enable-the-combined-registration-experience"></a>Włącz połączone środowisko rejestracji
 
-Funkcje rejestracji metod uwierzytelniania bez hasła opierają się na połączonej funkcji rejestracji. Postępuj zgodnie z instrukcjami zawartymi w artykule [Włączanie połączonej rejestracji informacji o zabezpieczeniach (wersja zapoznawcza)](howto-registration-mfa-sspr-combined.md), aby włączyć rejestrację połączoną.
+Funkcje rejestracji dla metod uwierzytelniania bezhaseł polegają na funkcji rejestracji połączonej. Wykonaj kroki opisane w artykule [Włączanie rejestracji informacji o zabezpieczeniach połączonych (wersja zapoznawcza)](howto-registration-mfa-sspr-combined.md), aby umożliwić rejestrację połączoną.
 
 ### <a name="enable-fido2-security-key-method"></a>Włącz metodę klucza zabezpieczeń FIDO2
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Przejdź do zasad**metody uwierzytelniania** > **zabezpieczeń** >  **usługi Azure Active Directory** > **Zasady metody uwierzytelniania (Wersja zapoznawcza)**.
-1. W obszarze metoda **KLUCZ ZABEZPIECZEŃ FIDO2**wybierz następujące opcje:
-   1. **Włącz** — Tak lub Nie
-   1. **Cel** — wszyscy użytkownicy lub wybierz użytkowników
+1. Przejdź do **Azure Active Directory** > **Security** > **metodami** > uwierzytelniania zabezpieczeń**Metoda uwierzytelniania (wersja zapoznawcza)**.
+1. W obszarze **klucz zabezpieczeń metody FIDO2**wybierz następujące opcje:
+   1. **Włącz** — tak lub nie
+   1. **Cel** — wszyscy użytkownicy lub wybrani użytkownicy
 1. **Zapisz** konfigurację.
 
-## <a name="user-registration-and-management-of-fido2-security-keys"></a>Rejestracja i zarządzanie kluczami bezpieczeństwa FIDO2 przez użytkownika
+## <a name="user-registration-and-management-of-fido2-security-keys"></a>Rejestracja użytkownika i zarządzanie kluczami zabezpieczeń FIDO2
 
-1. Przejdź do [https://myprofile.microsoft.com](https://myprofile.microsoft.com)pliku .
-1. Zaloguj się, jeśli jeszcze nie.
-1. Kliknij pozycję **Informacje zabezpieczające**.
-   1. Jeśli użytkownik ma już co najmniej jedną zarejestrowaną metodę uwierzytelniania wieloskładnikowego platformy Azure, może natychmiast zarejestrować klucz zabezpieczeń FIDO2.
-   1. Jeśli nie mają co najmniej jednej metody uwierzytelniania wieloskładnikowego platformy Azure, muszą dodać jedną.
-1. Dodaj klucz zabezpieczeń FIDO2, klikając pozycję **Dodaj metodę** i wybierając pozycję **Klawisz zabezpieczeń**.
-1. Wybierz **urządzenie USB** lub urządzenie **NFC**.
-1. Przygotuj klucz i wybierz pozycję **Dalej**.
-1. Pojawi się okno i poprosi użytkownika o utworzenie/wprowadzenie kodu PIN dla klucza zabezpieczeń, a następnie wykonanie wymaganego gestu dla klucza, biometrycznego lub dotykowego.
-1. Użytkownik zostanie zwrócony do połączonego środowiska rejestracji i poproszony o podanie znaczącej nazwy klucza, dzięki czemu użytkownik może zidentyfikować, który z nich ma wiele. Kliknij przycisk **Dalej**.
-1. Kliknij **przycisk Gotowe,** aby zakończyć proces.
+1. Przejdź do [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+1. Zaloguj się, jeśli jeszcze nie zostało to zrobione.
+1. Kliknij pozycję **informacje zabezpieczające**.
+   1. Jeśli użytkownik ma już zarejestrowaną co najmniej jedną metodę Multi-Factor Authentication platformy Azure, może natychmiast zarejestrować klucz zabezpieczeń FIDO2.
+   1. Jeśli nie zarejestrowano co najmniej jednej metody Multi-Factor Authentication platformy Azure, należy dodać ją.
+1. Dodaj klucz zabezpieczeń FIDO2, klikając pozycję **Dodaj metodę** i wybierając pozycję **klucz zabezpieczeń**.
+1. Wybierz **urządzenie USB** lub **urządzenie NFC**.
+1. Przygotuj swój klucz i wybierz pozycję **dalej**.
+1. Zostanie wyświetlone pole i poproszenie użytkownika o utworzenie/wprowadzenie numeru PIN dla klucza zabezpieczeń, a następnie przeprowadzenie wymaganego gestu dla klucza, biometrycznego lub dotykowego.
+1. Użytkownik zostanie odesłany do połączonego środowiska rejestracji i zostanie poproszony o podanie zrozumiałej nazwy klucza, aby użytkownik mógł określić, który z nich ma wiele. Kliknij przycisk **Dalej**.
+1. Kliknij pozycję **gotowe** , aby zakończyć proces.
 
-## <a name="sign-in-with-passwordless-credential"></a>Logowanie się przy użyciu poświadczeń bez hasła
+## <a name="sign-in-with-passwordless-credential"></a>Zaloguj się przy użyciu poświadczeń bez hasła
 
-W poniższym przykładzie użytkownik aprowizować już swój klucz zabezpieczeń FIDO2. Użytkownik może zalogować się w internecie za pomocą klucza zabezpieczeń FIDO2 wewnątrz obsługiwanej przeglądarki w systemie Windows 10 w wersji 1809 lub nowszej.
+W przykładzie poniżej Użytkownik zainicjowano już swój klucz zabezpieczeń FIDO2. Użytkownik może zdecydować się na zalogowanie się w sieci Web przy użyciu klucza zabezpieczeń FIDO2 w obsługiwanej przeglądarce w systemie Windows 10 w wersji 1809 lub nowszej.
 
-![Logowanie do klucza zabezpieczeń Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
+![Logowanie do klucza zabezpieczeń w przeglądarce Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 
 ## <a name="troubleshooting-and-feedback"></a>Rozwiązywanie problemów i opinie
 
-Jeśli chcesz udostępnić opinię lub napotkasz problemy podczas wyświetlania podglądu tej funkcji, udostępnij za pośrednictwem aplikacji Centrum opinii systemu Windows, wykonując następujące czynności:
+Jeśli chcesz udostępnić opinię lub napotkać problemy podczas wyświetlania podglądu tej funkcji, Udostępnij za pośrednictwem aplikacji centrum opinii o systemie Windows, wykonując następujące czynności:
 
-1. Uruchom **Centrum opinii** i upewnij się, że się zalogowałeś.
-1. Prześlij opinię w następującej kategorii:
-   - Kategoria: Bezpieczeństwo i prywatność
+1. Uruchom **centrum opinii** i upewnij się, że użytkownik jest zalogowany.
+1. Prześlij opinię poniżej następującej kategoryzacji:
+   - Kategoria: zabezpieczenia i prywatność
    - Podkategoria: FIDO
-1. Aby przechwycić dzienniki, użyj **opcji,** aby ponownie utworzyć problem
+1. Aby przechwytywać dzienniki, użyj opcji, aby **ponownie utworzyć mój problem**
 
 ## <a name="known-issues"></a>Znane problemy
 
-### <a name="security-key-provisioning"></a>Inicjowanie obsługi administracyjnej kluczy zabezpieczeń
+### <a name="security-key-provisioning"></a>Inicjowanie obsługi kluczy zabezpieczeń
 
-Administrator inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej kluczy zabezpieczeń nie jest dostępna w publicznej wersji zapoznawczej.
+W publicznej wersji zapoznawczej nie jest dostępna obsługa administracyjna i dezaktywowanie kluczy zabezpieczeń przez administratora.
 
 ### <a name="upn-changes"></a>Zmiany nazwy UPN
 
-Pracujemy nad obsługą funkcji, która umożliwia zmianę sieci UPN na hybrydowych urządzeniach przyłączonych do usługi Azure AD i przyłączonych do usługi Azure AD. Jeśli numer UPN użytkownika ulegnie zmianie, nie można już modyfikować kluczy zabezpieczeń FIDO2 w celu uwzględnienia tej zmiany. Rozdzielczość jest zresetować urządzenie i użytkownik musi ponownie zarejestrować.
+Pracujemy nad obsługą funkcji, która umożliwia zmianę nazwy UPN na przyłączonych do mnie hybrydowych urządzeniach usługi Azure AD i przyłączonych do usługi Azure AD. W przypadku zmiany nazwy UPN użytkownika nie można już modyfikować kluczy zabezpieczeń FIDO2, aby uwzględnić zmianę. Rozwiązanie polega na zresetowaniu urządzenia i ponownym zarejestrowaniu użytkownika.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Klucz zabezpieczeń FIDO2 Windows 10 zaloguj się](howto-authentication-passwordless-security-key-windows.md)
+[Logowanie do klucza zabezpieczeń FIDO2 systemu Windows 10](howto-authentication-passwordless-security-key-windows.md)
 
 [Włączanie uwierzytelniania FIDO2 w zasobach lokalnych](howto-authentication-passwordless-security-key-on-premises.md)
 
-[Dowiedz się więcej o rejestracji urządzenia](../devices/overview.md)
+[Dowiedz się więcej o rejestrowaniu urządzeń](../devices/overview.md)
 
-[Dowiedz się więcej o uwierzytelnianiu wieloskładnikowym platformy Azure](../authentication/howto-mfa-getstarted.md)
+[Dowiedz się więcej o usłudze Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

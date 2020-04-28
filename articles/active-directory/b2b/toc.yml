@@ -17,7 +17,7 @@
       items:
         - name: Zapraszanie zbiorcze za pośrednictwem programu PowerShell
           href: bulk-invite-powershell.md
-        - name: Zapraszanie zbiorcze za pośrednictwem portalu (wersja zapoznawcza)
+        - name: Zapraszanie zbiorcze za pośrednictwem portalu
           href: tutorial-bulk-invite.md
         - name: Wymuszanie uwierzytelniania wieloskładnikowego
           href: b2b-tutorial-require-mfa.md
