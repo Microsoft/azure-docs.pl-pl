@@ -1,6 +1,6 @@
 ---
 title: Włączanie logowania jednokrotnego dla aplikacji wielodostępnej
-description: Wskazówki dla niezależnych dostawców oprogramowania dotyczące integracji z usługą Azure active Directory
+description: Wskazówki dla niezależnych dostawców oprogramowania na potrzeby integracji z usługą Azure Active Directory
 services: active-directory
 author: barbaraselden
 manager: CelesteDG
@@ -13,52 +13,52 @@ ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4c89a83ade6305579e700afb86f0b9e3aca2695e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67795178"
 ---
-# <a name="enable-single-sign-on-for-your-multi-tenant-application"></a>Włączanie logowania jednokrotnego dla aplikacji wielodostępnych  
+# <a name="enable-single-sign-on-for-your-multi-tenant-application"></a>Włącz logowanie jednokrotne dla aplikacji wielodostępnych  
 
-Jeśli oferujesz aplikację do użytku przez inne firmy za pośrednictwem zakupu lub subskrypcji, można udostępnić aplikację klientom w ramach ich własnych dzierżaw platformy Azure. Jest to nazywane tworzeniem aplikacji wielodostępnych. Aby zapoznać się z omówieniem tej koncepcji, zobacz [Aplikacje wielodostępne na platformie Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) i [najem w usłudze Azure Active Directory](../develop/single-and-multi-tenant-apps.md).
+W przypadku oferowania aplikacji do użytku przez inne firmy za pomocą zakupu lub subskrypcji możesz udostępnić swoją aplikację klientom w ramach swoich dzierżaw platformy Azure. Jest to tzw. Tworzenie aplikacji z wieloma dzierżawcami. Aby zapoznać się z omówieniem tego pojęcia, zobacz wielodostępne [aplikacje na platformie Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) i [dzierżawę w Azure Active Directory](../develop/single-and-multi-tenant-apps.md).
 
 ## <a name="what-is-single-sign-on"></a>Co to jest logowanie jednokrotne
 
-Logowanie jednokrotne (Logowanie jednokrotne) zwiększa bezpieczeństwo i wygodę, gdy użytkownicy logują się do aplikacji przy użyciu usługi Azure Active Directory i innych tożsamości. Gdy aplikacja jest włączona jako logowania do logowania, użytkownicy nie trzeba wprowadzać oddzielnych poświadczeń, aby uzyskać dostęp do tej aplikacji. Aby uzyskać pełne wyjaśnienie logowania jednokrotnego. [Zobacz: Logowanie jednokrotne w usłudze Azure Active Directory](what-is-single-sign-on.md).
+Logowanie jednokrotne (SSO) zwiększa bezpieczeństwo i wygodę, gdy użytkownicy logują się do aplikacji przy użyciu Azure Active Directory i innych tożsamości. Gdy aplikacja jest włączona z logowaniem jednokrotnym, użytkownicy nie muszą wprowadzać oddzielnych poświadczeń w celu uzyskania dostępu do tej aplikacji. Pełne wyjaśnienie logowania jednokrotnego. [Zobacz Logowanie jednokrotne do aplikacji w Azure Active Directory](what-is-single-sign-on.md).
 
-## <a name="why-enable-single-sign-on-in-your-application"></a>Dlaczego warto włączyć logowanie jednokrotne w aplikacji?
+## <a name="why-enable-single-sign-on-in-your-application"></a>Dlaczego należy włączyć logowanie jednokrotne w aplikacji?
 
-Istnieje wiele zalet włączania sso w aplikacji wielodostępnych. Po włączeniu syt lubi...
+Istnieje wiele korzyści, aby włączyć logowanie jednokrotne w aplikacji wielodostępnej. Po włączeniu logowania jednokrotnego dla aplikacji:
 
-* Aplikacja może być wyświetlana w portalu Azure Marketplace, gdzie aplikacja jest wykrywalna przez miliony organizacji korzystających z usługi Azure Active Directory.
+* Twoja aplikacja może zostać wyświetlona w portalu Azure Marketplace, w którym aplikacja jest wykrywana przez miliony organizacji przy użyciu Azure Active Directory.
   * Umożliwia klientom szybkie konfigurowanie aplikacji za pomocą usługi Azure AD.
 
-* Aplikację można odnajdować w Galerii aplikacji usługi Office 365, programie Office 365 App Launcher oraz w usłudze Microsoft Search w Office.com
+* Aplikację można odnaleźć w galerii aplikacji pakietu Office 365, uruchamiania aplikacji pakietu Office 365 i w ramach wyszukiwania firmy Microsoft w witrynie Office.com
 
-* Aplikacja może używać interfejsu API REST programu Microsoft Graph, aby uzyskać dostęp do danych, które zwiększają produktywność użytkownika, która jest dostępna w programie Microsoft Graph.
+* Aplikacja może korzystać z interfejsu API REST Microsoft Graph, aby uzyskać dostęp do danych, które są dyskami o wydajności użytkowników, które są dostępne w Microsoft Graph.
 
-* Zmniejszasz koszty pomocy technicznej, ułatwiając klientom.
-  * Dokumentacja specyficzna dla aplikacji współtworzyła z zespołem usługi Azure AD dla naszych wspólnych klientów ułatwia przyjęcie.
-  * Jeśli jedno kliknięcie jest włączone, administratorzy IT klientów nie muszą uczyć się konfigurowania aplikacji do użytku w organizacji.
+* Możesz zmniejszyć koszty pomocy technicznej, ułatwiając klientom korzystanie z nich.
+  * Dokumentacja specyficzna dla aplikacji z zespołem usługi Azure AD dla naszych wzajemnych klientów upraszcza wdrażanie.
+  * Jeśli włączono Logowanie jednokrotne, Administratorzy IT klientów nie muszą dowiedzieć się, jak skonfigurować aplikację do użycia w organizacji.
 
-* Zapewniasz swoim klientom możliwość całkowitego zarządzania uwierzytelnianiem i autoryzacją tożsamości pracowników i gości.
+* Klienci mogą w całości zarządzać uwierzytelnianiem i autoryzacją tożsamości pracowników i Gości.
 
-  * Umieszczenie wszystkich odpowiedzialność za zarządzanie kontem i zgodność z klientem tych tożsamości.
+  * Zapewnienie odpowiedzialności za zarządzanie kontami i zgodność z właścicielem tych tożsamości przez klienta.
 
-  * Zapewnienie możliwości włączania lub wyłączania funkcji SSO dla określonych dostawców tożsamości, grup lub użytkowników w celu zaspokojenia ich potrzeb biznesowych.
+  * Zapewnienie możliwości włączenia lub wyłączenia logowania jednokrotnego dla określonych dostawców tożsamości, grup lub użytkowników w celu spełnienia potrzeb firmy.
 
-* Zwiększasz zbywalność i adoewalność. Wiele dużych organizacji wymaga, aby ich pracownicy mieli bezproblemowe środowisko logowania jednokrotnego we wszystkich aplikacjach. Ułatwienie obsługi SSO jest ważne.
+* Zwiększ swój poziom rynkowy i jego przyjęcie. Wiele dużych organizacji wymaga, aby (lub zależy) pracownicy mogli bezproblemowo korzystać z logowania jednokrotnego we wszystkich aplikacjach. Łatwe tworzenie logowania jednokrotnego.
 
-* Zmniejszasz tarcie użytkowników końcowych, co może zwiększyć użycie użytkowników końcowych i zwiększyć przychody.
+* Zmniejszenie liczby użytkowników końcowych, co może zwiększyć użycie użytkowników końcowych i zwiększyć przychody.
 
 ## <a name="how-to-enable-single-sign-on-in-your-published-application"></a>Jak włączyć logowanie jednokrotne w opublikowanej aplikacji
 
-1. [Wybierz odpowiedni protokół federacyjny dla aplikacji wielodostępnej](isv-choose-multi-tenant-federation.md).
-1. Implementowanie sytuowania sytuacyjnego w aplikacji
+1. [Wybierz właściwy protokół federacyjny dla aplikacji](isv-choose-multi-tenant-federation.md)wielodostępnej.
+1. Implementowanie logowania jednokrotnego w aplikacji
    - Zobacz [wskazówki dotyczące wzorców uwierzytelniania](../develop/v2-app-types.md)
-   - Zobacz [przykłady kodu usługi Azure active Directory](../develop/sample-v2-code.md) dla protokołów OIDC i OAuth
+   - Zobacz [przykłady kodu usługi Azure Active Directory](../develop/sample-v2-code.md) dla protokołów OIDC i OAuth
 1. [Tworzenie dzierżawy platformy Azure](isv-tenant-multi-tenant-app.md) i testowanie aplikacji
-1. [Tworzenie i publikowanie dokumentacji SSO w witrynie](isv-create-sso-documentation.md).
-1. [Prześlij listę aplikacji](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) i skontaktuj się z firmą Microsoft, aby utworzyć dokumentację w witrynie firmy Microsoft.
-1. [Dołącz do sieci partnerów firmy Microsoft (bezpłatnie) i utwórz plan rynkowy.](https://partner.microsoft.com/en-us/explore/commercial#gtm)
+1. [Utwórz i Opublikuj dokumentację logowania jednokrotnego w witrynie](isv-create-sso-documentation.md).
+1. [Prześlij swoją listę aplikacji](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) i partnera do firmy Microsoft, aby utworzyć dokumentację witryny firmy Microsoft.
+1. [Dołącz do Microsoft Partner Network (bezpłatnie) i Utwórz plan na rynku](https://partner.microsoft.com/en-us/explore/commercial#gtm).

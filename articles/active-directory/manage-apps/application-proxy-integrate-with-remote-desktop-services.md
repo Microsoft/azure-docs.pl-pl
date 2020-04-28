@@ -1,6 +1,6 @@
 ---
-title: Publikowanie pulpitu zdalnego za pomocą serwera proxy aplikacji usługi Azure AD | Dokumenty firmy Microsoft
-description: Obejmuje podstawowe informacje o łącznikach serwera proxy aplikacji usługi Azure AD.
+title: Publikowanie Pulpit zdalny z aplikacja usługi Azure AD serwerem proxy | Microsoft Docs
+description: Obejmuje podstawowe informacje dotyczące łączników usługi Azure serwer proxy aplikacji usługi Azure AD.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,125 +17,125 @@ ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67108466"
 ---
-# <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publikowanie pulpitu zdalnego za pomocą serwera proxy aplikacji usługi Azure AD
+# <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publikowanie Pulpit zdalny przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
-Usługa pulpitu zdalnego i serwer proxy aplikacji usługi Azure AD współpracują ze sobą, aby zwiększyć produktywność pracowników, którzy są poza siecią firmową. 
+Usługa Pulpit zdalny i platforma Azure serwer proxy aplikacji usługi Azure AD współdziałać w celu poprawy produktywności pracowników, którzy znajdują się poza siecią firmową. 
 
-Odbiorcami przeznaczonymi dla tego artykułu są:
-- Klienci bieżącego serwera proxy aplikacji, którzy chcą oferować użytkownikom końcowym więcej aplikacji, publikując aplikacje lokalne za pośrednictwem usług pulpitu zdalnego.
-- Obecni klienci usług pulpitu zdalnego, którzy chcą zmniejszyć obszar ataku ich wdrożenia przy użyciu serwera proxy aplikacji usługi Azure AD. W tym scenariuszu udostępnia ograniczony zestaw kontroli weryfikacji dwuetapowej i dostępu warunkowego do rds.
+Zaznaczeni odbiorcy tego artykułu:
+- Bieżąca klienci proxy aplikacji, którzy chcą zaoferować więcej aplikacji użytkownikom końcowym, publikując aplikacje lokalne za pomocą Usługi pulpitu zdalnego.
+- Bieżąca Usługi pulpitu zdalnego klientów, którzy chcą zmniejszyć powierzchnię ataku na ich wdrożenie przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD. W tym scenariuszu podano ograniczony zestaw weryfikacji dwuetapowych i kontroli dostępu warunkowego do usług pulpitu zdalnego.
 
-## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Jak serwer proxy aplikacji pasuje do standardowego wdrożenia usług pulpitu zdalnego
+## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Jak serwer proxy aplikacji jest dopasowany do standardowego wdrożenia usług RDS
 
-Standardowe wdrożenie usług pulpitu zdalnego obejmuje różne usługi roli pulpitu zdalnego uruchomione w systemie Windows Server. Patrząc na [architekturę Usług pulpitu zdalnego,](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture)istnieje wiele opcji wdrażania. W przeciwieństwie do innych opcji wdrażania usług pulpitu zdalnego [wdrożenie usługi RDS za pomocą serwera proxy aplikacji usługi Azure AD](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (pokazanego na poniższym diagramie) ma stałe połączenie wychodzące z serwera z uruchomiona usługą łącznika. Inne wdrożenia pozostawiają otwarte połączenia przychodzące za pośrednictwem modułu równoważenia obciążenia.
+Standardowe wdrożenie usług pulpitu zdalnego obejmuje różne usługi ról Pulpit zdalny działających w systemie Windows Server. Analizując [architekturę usługi pulpitu zdalnego](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture), dostępnych jest wiele opcji wdrażania. W przeciwieństwie do innych opcji wdrażania usług pulpitu zdalnego, [wdrożenie usług pulpitu zdalnego za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (pokazane na poniższym diagramie) ma trwałe połączenie wychodzące z serwera, na którym działa usługa łącznika. Inne wdrożenia opuszczają otwarte połączenia przychodzące za pomocą modułu równoważenia obciążenia.
 
-![Serwer proxy aplikacji znajduje się między maszyną wirtualną RDS a publicznym internetem](./media/application-proxy-integrate-with-remote-desktop-services/rds-with-app-proxy.png)
+![Serwer proxy aplikacji znajduje się między maszyną wirtualną usług pulpitu zdalnego i publicznym Internetem](./media/application-proxy-integrate-with-remote-desktop-services/rds-with-app-proxy.png)
 
-We wdrożeniu usług pulpitu zdalnego rola sieci Web usług pulpitu zdalnego i rola bramy usług pulpitu zdalnego są uruchamiane na komputerach z dostępem do Internetu. Te punkty końcowe są widoczne z następujących powodów:
-- Usługa RD Web udostępnia użytkownikowi publiczny punkt końcowy do logowania się i wyświetlania różnych lokalnych aplikacji i pulpitów, do których mogą uzyskać dostęp. Po wybraniu zasobu połączenie RDP jest tworzone przy użyciu aplikacji macierzystej w os.
-- Brama usług pulpitu zdalnego pojawia się na zdjęciu, gdy użytkownik uruchamia połączenie RDP. Brama usług pulpitu zdalnego obsługuje zaszyfrowany ruch RDP przychodzący przez Internet i tłumaczy go na serwer lokalny, z którego użytkownik się łączy. W tym scenariuszu ruch odbierany przez bramę usług pulpitu zdalnego pochodzi z serwera proxy aplikacji usługi Azure AD.
+We wdrożeniu RDS rola sieci Web usług pulpitu zdalnego i rola bramy usług pulpitu zdalnego są uruchamiane na maszynach z Internetem. Te punkty końcowe są ujawniane z następujących powodów:
+- Witryna sieci Web usług pulpitu zdalnego udostępnia użytkownikowi publiczny punkt końcowy logowania i wyświetla różne aplikacje lokalne oraz pulpity, do których mają dostęp. Po wybraniu zasobu połączenie RDP jest tworzone przy użyciu aplikacji natywnej w systemie operacyjnym.
+- Brama usług pulpitu zdalnego znajduje się na obrazie, gdy użytkownik uruchomi połączenie RDP. Brama usług pulpitu zdalnego obsługuje szyfrowany ruch RDP przez Internet i tłumaczy je na serwer lokalny, z którym łączy się użytkownik. W tym scenariuszu ruch odebrany przez bramę usług pulpitu zdalnego pochodzi z usługi Azure serwer proxy aplikacji usługi Azure AD.
 
 >[!TIP]
->Jeśli usługi RDS nie zostały wcześniej wdrożone lub chcesz uzyskać więcej informacji przed rozpoczęciem, dowiedz się, jak [bezproblemowo wdrażać usługi RDS za pomocą usługi Azure Resource Manager i azure marketplace.](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure)
+>Jeśli usługa RDS nie została wdrożona wcześniej lub chcesz uzyskać więcej informacji przed rozpoczęciem, Dowiedz się, jak [bezproblemowo wdrożyć usługę RDS przy użyciu Azure Resource Manager i witryny Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
 
 ## <a name="requirements"></a>Wymagania
 
-- Użyj klienta innego niż klient sieci Web pulpitu zdalnego, ponieważ klient sieci web nie obsługuje serwera proxy aplikacji.
+- Użyj klienta innego niż Pulpit zdalny klienta sieci Web, ponieważ klient sieci Web nie obsługuje serwera proxy aplikacji.
 
-- Punkty końcowe sieci Web usług pulpitu zdalnego i bramy usług pulpitu zdalnego muszą znajdować się na tym samym komputerze i ze wspólnym katalogiem głównym. Bramy sieci Web i usług pulpitu zdalnego są publikowane jako pojedyncza aplikacja z serwerem proxy aplikacji, dzięki czemu można mieć środowisko logowania jednokrotnego między dwiema aplikacjami.
+- Punkty końcowe bramy sieci Web i pulpitu zdalnego usług pulpitu zdalnego muszą znajdować się na tym samym komputerze i ze wspólnym katalogiem głównym. Brama usług pulpitu zdalnego i sieci Web jest publikowana jako pojedyncza aplikacja z serwerem proxy aplikacji, dzięki czemu można korzystać z logowania jednokrotnego między tymi dwiema aplikacjami.
 
-- Serwer proxy aplikacji powinien już zostać [wdrożony](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure)i [włączony](application-proxy-add-on-premises-application.md).
+- Powinien już być [wdrożony RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure)i [włączony serwer proxy aplikacji](application-proxy-add-on-premises-application.md).
 
-- W tym scenariuszu założono, że użytkownicy końcowi przechodzą przez program Internet Explorer na pulpitach systemu Windows 7 lub Windows 10, które łączą się za pośrednictwem strony sieci Web usług pulpitu zdalnego. Jeśli chcesz obsługiwać inne systemy operacyjne, zobacz [Obsługa innych konfiguracji klienta](#support-for-other-client-configurations).
+- W tym scenariuszu przyjęto założenie, że użytkownicy końcowi przechodzą przez program Internet Explorer na komputerach z systemem Windows 7 lub Windows 10, które łączą się za pomocą tej strony Jeśli potrzebujesz obsłużyć inne systemy operacyjne, zobacz [Obsługa innych konfiguracji klienta](#support-for-other-client-configurations).
 
-- Podczas publikowania sieci Web usług pulpitu zdalnego zaleca się używanie tej samej wewnętrznej i zewnętrznej sieci FQDN. Jeśli wewnętrzne i zewnętrzne nazwy FQDN są różne, należy wyłączyć tłumaczenie nagłówka żądania, aby uniknąć odbierania nieprawidłowych łączy przez klienta. 
+- W przypadku publikowania w sieci Web usług pulpitu zdalnego zaleca się używanie tej samej wewnętrznej i zewnętrznej nazwy FQDN. Jeśli wewnętrzne i zewnętrzne nazwy FQDN różnią się od siebie, należy wyłączyć tłumaczenie nagłówka żądania, aby uniknąć otrzymywania nieprawidłowych linków przez klienta. 
 
-- W programie Internet Explorer włącz dodatek RDS ActiveX.
+- W programie Internet Explorer Włącz dodatek ActiveX usług pulpitu zdalnego.
 
-- W przypadku przepływu wstępnego uwierzytelniania usługi Azure AD użytkownicy mogą łączyć się tylko z zasobami opublikowanymi w okienku **RemoteApp i Pulpity.** Użytkownicy nie mogą połączyć się z pulpitem za pomocą okienka **Połącz ze zdalnym komputerem.**
+- W przypadku przepływu wstępnego uwierzytelniania usługi Azure AD użytkownicy mogą łączyć się tylko z zasobami opublikowanymi w okienku **RemoteApp i pulpitów** . Użytkownicy nie mogą łączyć się z pulpitem za pomocą okienka **Połącz z komputerem zdalnym** .
 
-## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Wdrażanie wspólnego scenariusza usług rds i serwera proxy aplikacji
+## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Wdrażanie wspólnego scenariusza usług RDS i serwera proxy aplikacji
 
-Po skonfigurowaniu usług RDS i usługi Azure AD Application Proxy dla środowiska, wykonaj kroki, aby połączyć dwa rozwiązania. W tych krokach można przejść do publikowania dwóch punktów końcowych usług pulpitu zdalnego (rd Web i rd Gateway) jako aplikacji, a następnie kierowania ruchem na usługi RDS w celu przejścia przez serwer proxy aplikacji.
+Po skonfigurowaniu usług pulpitu zdalnego i serwer proxy aplikacji usługi Azure AD platformy Azure dla danego środowiska wykonaj kroki, aby połączyć te dwa rozwiązania. Te kroki umożliwiają opublikowanie dwóch punktów końcowych usług pulpitu zdalnego opartych na sieci Web (Brama sieci Web i usług pulpitu zdalnego) jako aplikacji, a następnie kierowanie ruchu na pulpicie RDS w celu przechodzenia przez serwer proxy aplikacji.
 
 ### <a name="publish-the-rd-host-endpoint"></a>Publikowanie punktu końcowego hosta usług pulpitu zdalnego
 
-1. [Opublikuj nową aplikację serwera proxy aplikacji](application-proxy-add-on-premises-application.md) z następującymi wartościami:
-   - Wewnętrzny adres `https://\<rdhost\>.com/`URL: , gdzie `\<rdhost\>` jest wspólny katalog główny współużytkuje sieć Web usług pulpitu zdalnego i bramę usług pulpitu zdalnego.
-   - Zewnętrzny adres URL: to pole jest wypełniane automatycznie na podstawie nazwy aplikacji, ale można je zmodyfikować. Użytkownicy przejdą do tego adresu URL podczas uzyskiwania dostępu do usług pulpitu zdalnego.
-   - Metoda wstępnej uwierzytelniania: usługa Azure Active Directory
-   - Tłumaczenie nagłówków adresów URL: Nie
-2. Przypisz użytkowników do opublikowanej aplikacji RD. Upewnij się, że wszyscy mają dostęp do RDS, zbyt.
-3. Pozostaw metodę logowania jednokrotnego dla aplikacji jako **azure ad logowania jednokrotnego wyłączone**. Użytkownicy są proszeni o uwierzytelnienie raz w usłudze Azure AD i raz w sieci Web usług pulpitu zdalnego, ale mają logowanie jednokrotne do bramy usług pulpitu zdalnego.
-4. Wybierz **pozycję Azure Active Directory**, a następnie **rejestracje aplikacji**. Wybierz aplikację z listy.
-5. W obszarze **Zarządzaj**wybierz pozycję **Znakowanie**.
-6. Zaktualizuj pole **ADRESU URL strony głównej,** aby wskazywało punkt końcowy sieci Web usług pulpitu zdalnego (np. `https://\<rdhost\>.com/RDWeb`
+1. [Opublikuj nową aplikację serwera proxy aplikacji](application-proxy-add-on-premises-application.md) o następujących wartościach:
+   - Wewnętrzny adres URL `https://\<rdhost\>.com/`:, `\<rdhost\>` gdzie jest wspólnym katalogiem głównym usług pulpitu zdalnego sieci Web i bramy usług pulpitu zdalnego.
+   - Zewnętrzny adres URL: to pole jest wypełniane automatycznie na podstawie nazwy aplikacji, ale można ją modyfikować. Użytkownicy będą przechodzić do tego adresu URL, gdy uzyskują dostęp do usług pulpitu zdalnego.
+   - Metoda wstępnego uwierzytelniania: Azure Active Directory
+   - Tłumaczenie nagłówków adresów URL: nie
+2. Przypisz użytkowników do opublikowanej aplikacji usług pulpitu zdalnego. Upewnij się, że wszyscy mieli również dostęp do usług pulpitu zdalnego.
+3. Pozostaw metodę logowania jednokrotnego dla aplikacji, ponieważ logowanie jednokrotne w **usłudze Azure AD jest wyłączone**. Użytkownicy są monitowani o jednokrotne uwierzytelnienie w usłudze Azure AD i w sieci Web do usług pulpitu zdalnego, ale mają Logowanie jednokrotne do bramy usług pulpitu zdalnego.
+4. Wybierz **Azure Active Directory**, a następnie **rejestracje aplikacji**. Wybierz aplikację z listy.
+5. W obszarze **Zarządzaj**wybierz opcję **znakowanie**.
+6. Zaktualizuj pole **adres URL strony głównej** , aby wskazywało punkt końcowy sieci Web usług `https://\<rdhost\>.com/RDWeb`pulpitu zdalnego (na przykład).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Bezpośredni ruch RDS do serwera proxy aplikacji
 
-Połącz się z wdrożeniem usług pulpitu zdalnego jako administrator i zmień nazwę serwera bramy usług pulpitu zdalnego dla wdrożenia. Ta konfiguracja gwarantuje, że połączenia przechodzą przez usługę serwera proxy aplikacji usługi Azure AD.
+Połącz się z wdrożeniem usług pulpitu zdalnego jako administrator i Zmień nazwę serwera bramy usług pulpitu zdalnego dla wdrożenia. Ta konfiguracja zapewnia, że połączenia przechodzą przez usługę serwer proxy aplikacji usługi Azure AD platformy Azure.
 
-1. Połącz się z serwerem usług PULPITU zdalnego z rolą brokera połączeń usług pulpitu zdalnego.
-2. Uruchom **Menedżera serwera**.
-3. Wybierz **pozycję Usługi pulpitu zdalnego** z okienka po lewej stronie.
+1. Nawiąż połączenie z serwerem RDS z uruchomioną rolą brokera połączeń usług pulpitu zdalnego.
+2. Uruchom **Menedżer serwera**.
+3. Wybierz **usługi pulpitu zdalnego** z okienka po lewej stronie.
 4. Wybierz pozycję **Przegląd**.
-5. W sekcji Omówienie wdrażania wybierz menu rozwijane i wybierz polecenie **Edytuj właściwości wdrażania**.
-6. Na karcie Brama usług pulpitu zdalnego zmień pole **Nazwa serwera** na zewnętrzny adres URL ustawiony dla punktu końcowego hosta usług pulpitu zdalnego w serwerze proxy aplikacji.
-7. Zmień pole **Metody logowania** na **Uwierzytelnianie hasłem**.
+5. W sekcji Przegląd wdrożenia wybierz menu rozwijane i wybierz polecenie **Edytuj właściwości wdrożenia**.
+6. Na karcie Brama usług pulpitu zdalnego Zmień pole **Nazwa serwera** na zewnętrzny adres URL ustawiony dla punktu końcowego hosta usług pulpitu zdalnego w serwerze proxy aplikacji.
+7. Zmień wartość pola **metoda logowania** na **uwierzytelnianie hasła**.
 
-   ![Ekran Właściwości wdrażania na usługach RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
+   ![Ekran właściwości wdrożenia na serwerze RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
-8. Uruchom to polecenie dla każdej kolekcji. Wymień * \<swoją swojąukę i\> * * \<proxyfrontendurl\> * własnymi informacjami. To polecenie umożliwia logowanie jednokrotne między usługą RD Web i bramą usług pulpitu zdalnego i optymalizuje wydajność:
+8. Uruchom to polecenie dla każdej kolekcji. Zastąp * \<yourcollectionname\> * i * \<proxyfrontendurl\> * własnymi informacjami. To polecenie umożliwia logowanie jednokrotne między usługami pulpitu zdalnego sieci Web i bramą usług pulpitu zdalnego, a następnie optymalizuje wydajność:
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
    ```
 
-   **Na przykład:**
+   **Przykład:**
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
    >[!NOTE]
-   >Powyższe polecenie używa backtick w "'nrequire".
+   >Powyższe polecenie używa znacznika "nrequire".
 
-9. Aby zweryfikować modyfikację niestandardowych właściwości RDP, a także wyświetlić zawartość pliku RDP, który zostanie pobrany z rdweb dla tej kolekcji, uruchom następujące polecenie:
+9. Aby sprawdzić modyfikację niestandardowych właściwości protokołu RDP, a także wyświetlić zawartość pliku RDP, która zostanie pobrana z RDWeb dla tej kolekcji, uruchom następujące polecenie:
     ```
     (get-wmiobject -Namespace root\cimv2\terminalservices -Class Win32_RDCentralPublishedRemoteDesktop).RDPFileContents
     ```
 
-Teraz, po skonfigurowaniu pulpitu zdalnego, usługi Azure AD Application Proxy przejął jako składnik usług PULPITU ZDALNEGO. Można usunąć inne publiczne punkty końcowe skierowane do Internetu na komputerach z siecią Rd Web i bramą usług pulpitu zdalnego.
+Po skonfigurowaniu Pulpit zdalny usługa Azure serwer proxy aplikacji usługi Azure AD została przejęta jako składnik usług pulpitu zdalnego dostępny z Internetu. Pozostałe publiczne punkty końcowe dostępne z Internetu można usunąć na maszynach sieci Web usług pulpitu zdalnego i bramy usług pulpitu zdalnego.
 
 ## <a name="test-the-scenario"></a>Testowanie scenariusza
 
-Przetestuj scenariusz za pomocą programu Internet Explorer na komputerze z systemem Windows 7 lub 10.
+Przetestuj scenariusz w programie Internet Explorer na komputerze z systemem Windows 7 lub 10.
 
-1. Przejdź do skonfigurowany zewnętrzny adres URL lub znajdź aplikację w [panelu MyApps](https://myapps.microsoft.com).
-2. Zostaniesz poproszony o uwierzytelnienie w usłudze Azure Active Directory. Użyj konta przypisanego do aplikacji.
-3. Zostaniesz poproszony o uwierzytelnienie w sieci Web usług pulpitu zdalnego.
-4. Po pomyślnym zakończeniu uwierzytelniania RDS można wybrać odpowiedni pulpit lub aplikację i rozpocząć pracę.
+1. Przejdź do skonfigurowanego zewnętrznego adresu URL lub Znajdź swoją aplikację w [panelu Moje aplikacje](https://myapps.microsoft.com).
+2. Zostanie wyświetlony monit o uwierzytelnienie w Azure Active Directory. Użyj konta przypisanego do aplikacji.
+3. Zostanie wyświetlony monit o uwierzytelnienie w sieci Web usług pulpitu zdalnego.
+4. Po pomyślnym uwierzytelnieniu usług pulpitu zdalnego możesz wybrać odpowiedni pulpit lub aplikację i rozpocząć pracę.
 
 ## <a name="support-for-other-client-configurations"></a>Obsługa innych konfiguracji klienta
 
-Konfiguracja opisana w tym artykule jest dla użytkowników w systemie Windows 7 lub 10, z programem Internet Explorer oraz dodatkiem RDS ActiveX. Jeśli jednak zajdzie taka potrzeba, możesz obsługiwać inne systemy operacyjne lub przeglądarki. Różnica polega na metodzie uwierzytelniania, której używasz.
+Konfiguracja zakreślona w tym artykule dotyczy użytkowników systemu Windows 7 lub 10 z programem Internet Explorer oraz dodatku ActiveX usług pulpitu zdalnego. W razie potrzeby można jednak obsługiwać inne systemy operacyjne lub przeglądarki. Różnica dotyczy używanej metody uwierzytelniania.
 
 | Metoda uwierzytelniania | Obsługiwana konfiguracja klienta |
 | --------------------- | ------------------------------ |
-| Wstępne uwierzytelnianie    | Windows 7/10 przy użyciu dodatku Internet Explorer + RDS ActiveX |
-| Przekazywanie | Każdy inny system operacyjny obsługujący aplikację Pulpit zdalny firmy Microsoft |
+| Wstępne uwierzytelnianie    | Windows 7/10 z dodatkiem ActiveX programu Internet Explorer i usług pulpitu zdalnego |
+| Kazują | Każdy inny system operacyjny, który obsługuje aplikację Pulpit zdalny Microsoft |
 
-Przepływ uwierzytelniania wstępnego oferuje więcej korzyści zabezpieczeń niż przepływ przekazywania. Za pomocą uwierzytelniania wstępnego można używać funkcji uwierzytelniania usługi Azure AD, takich jak logowanie jednokrotne, dostęp warunkowy i weryfikacja dwuetapowa dla zasobów lokalnych. Upewnij się również, że tylko uwierzytelniony ruch dociera do twojej sieci.
+Przepływ przed uwierzytelnianiem oferuje większe korzyści z zabezpieczeń niż przepływ przekazywania. Za pomocą wstępnego uwierzytelniania można używać funkcji uwierzytelniania usługi Azure AD, takich jak logowanie jednokrotne, dostęp warunkowy i weryfikacja dwuetapowa dla zasobów lokalnych. Należy również upewnić się, że tylko ruch uwierzytelniony dociera do sieci.
 
-Aby użyć uwierzytelniania przekazywanego, istnieją tylko dwie modyfikacje kroków wymienionych w tym artykule:
-1. W [ujmowanie punktu końcowego hosta usług pulpitu zdalnego](#publish-the-rd-host-endpoint) krok 1 ustaw metodę preauthentication na **Przekazywanie**.
-2. W [bezpośrednim ruchu RDS do serwera proxy aplikacji](#direct-rds-traffic-to-application-proxy)całkowicie pomiń krok 8.
+Aby można było korzystać z uwierzytelniania przekazującego, istnieją tylko dwa modyfikacje kroków wymienionych w tym artykule:
+1. W obszarze [publikowanie punktu końcowego hosta usług pulpitu zdalnego](#publish-the-rd-host-endpoint) krok 1 ustaw metodę wstępnego uwierzytelniania na **przekazywanie**.
+2. W obszarze [bezpośredni ruch RDS do serwera proxy aplikacji](#direct-rds-traffic-to-application-proxy)Pomiń całkowicie krok 8.
 
 ## <a name="next-steps"></a>Następne kroki
 
 [Włączanie dostępu zdalnego do programu SharePoint przy użyciu serwera proxy aplikacji usługi Azure AD](application-proxy-integrate-with-sharepoint-server.md)  
-[Zagadnienia dotyczące zabezpieczeń dotyczące zdalnego uzyskiwania dostępu do aplikacji przy użyciu serwera proxy aplikacji usługi Azure AD](application-proxy-security.md)
+[Zagadnienia dotyczące zabezpieczeń dotyczące zdalnego uzyskiwania dostępu do aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-security.md)

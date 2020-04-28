@@ -1,6 +1,6 @@
 ---
-title: 'Usługa Azure AD Connect: odwołanie do programu PowerShell adconnectivitytools | Dokumenty firmy Microsoft'
-description: Ten dokument zawiera informacje referencyjne dla modułu programu ADConnectivityTools.psm1 PowerShell.
+title: 'Azure AD Connect: ADConnectivityTools programu PowerShell | Microsoft Docs'
+description: Ten dokument zawiera informacje referencyjne dotyczące modułu programu PowerShell ADConnectivityTools. PSM1.
 author: billmath
 manager: daveba
 ms.service: active-directory
@@ -11,21 +11,21 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66473788"
 ---
-# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Usługa Azure AD Connect: odwołanie do programu PowerShell adconnectivitytools
+# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: ADConnectivityTools programu PowerShell
 
-Poniższa dokumentacja zawiera informacje referencyjne dla modułu programu AdConnectivityTools.psm1 PowerShell, który jest dołączony do usługi Azure AD Connect.
+Poniższa dokumentacja zawiera informacje dotyczące modułu PowerShell ADConnectivityTools. PSM1, który jest dołączony do Azure AD Connect.
 
-## <a name="confirm-dnsconnectivity"></a>Potwierdź-DnsConnectivity
+## <a name="confirm-dnsconnectivity"></a>Potwierdź — DnsConnectivity
 
 ### <a name="synopsis"></a>STRESZCZENIE
 
-Wykrywa lokalne problemy z systemem Dns.
+Wykrywa lokalne problemy z usługą DNS.
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -35,8 +35,8 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 
 ### <a name="description"></a>OPIS
 
-Uruchamia lokalne testy łączności dns.
-Aby skonfigurować łącznik usługi Active Directory, użytkownik musi mieć zarówno rozpoznawanie nazw dla lasu, z jakim próbuje się połączyć, jak i na kontrolerach domeny skojarzonych z tym lasem.
+Uruchamia lokalne testy łączności DNS.
+Aby skonfigurować łącznik Active Directory, użytkownik musi mieć zarówno nazwę resolutionthe dla lasu, do którego próbuje nawiązać połączenie, jak i kontrolery domeny skojarzone z tym lasem.
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -56,7 +56,7 @@ Confirm-DnsConnectivity -Forest "TEST.CONTOSO.COM"
 
 #### <a name="-forest"></a>-Las
 
-Określa nazwę lasu, na który chcesz przetestować.
+Określa nazwę lasu, dla którego ma zostać przetestowany.
 
 ```yml
 Type: String
@@ -70,9 +70,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-dcs"></a>-Kontrolery domeny
+#### <a name="-dcs"></a>-DC
 
-Określ kontrolery domeny, z się przetestować.
+Określ kontrolery domeny do przetestowania.
 
 ```yml
 Type: Array
@@ -88,8 +88,8 @@ Accept wildcard characters: False
 
 #### <a name="-returnresultaspsobject"></a>-ReturnResultAsPSObject
 
-Zwraca wynik tej diagnozy w postaci PSObject.
-Nie jest to konieczne podczas ręcznej interakcji z tym narzędziem.
+Zwraca wynik tej diagnostyki w postaci PSObject.
+Niepotrzebne podczas ręcznej interakcji z tym narzędziem.
 
 ```yml
 Type: SwitchParameter
@@ -106,9 +106,9 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>Typowe parametry
 
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="confirm-forestexists"></a>Potwierdź-ForestExists
+## <a name="confirm-forestexists"></a>Potwierdź — ForestExists
 
 ### <a name="synopsis"></a>STRESZCZENIE
 
@@ -122,7 +122,7 @@ Confirm-ForestExists [-Forest] <String> [<CommonParameters>]
 
 ### <a name="description"></a>OPIS
 
-Wysyła kwerendy do serwera DNS dla adresów IP skojarzonych z lasem.
+Wysyła zapytanie do serwera DNS o adresy IP skojarzone z lasem.
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -136,7 +136,7 @@ Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 
 #### <a name="-forest"></a>-Las
 
-Określa nazwę lasu, na który chcesz przetestować.
+Określa nazwę lasu, dla którego ma zostać przetestowany.
 
 ```yml
 Type: String
@@ -153,23 +153,23 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>Typowe parametry
 
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="confirm-functionallevel"></a>Potwierdź-FunkcjonalnyPoziom
+## <a name="confirm-functionallevel"></a>Potwierdź — FunctionalLevel
 
 ### <a name="synopsis"></a>STRESZCZENIE
 
-Weryfikuje poziom funkcjonalności lasu AD.
+Weryfikuje poziom funkcjonalności lasu usługi AD.
 
 ### <a name="syntax"></a>SKŁADNIA
 
-#### <a name="samaccount"></a>Konto SamAccount
+#### <a name="samaccount"></a>SamAccount
 
 ```
 Confirm-FunctionalLevel -Forest <String> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-#### <a name="forestfqdn"></a>Leśnafqdn
+#### <a name="forestfqdn"></a>ForestFQDN
 
 ```
 Confirm-FunctionalLevel -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
@@ -177,8 +177,8 @@ Confirm-FunctionalLevel -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCrede
 
 ### <a name="description"></a>OPIS
 
-Sprawdza, czy poziom funkcjonalności lasu usługi AD jest równy lub większy niż dana minadforestversion (WindowsServer2003).
-Można zażądać konta (domena\nazwa użytkownika) i hasła.
+Sprawdza, czy poziom funkcjonalności lasu usługi AD jest równy lub większy niż określony MinAdForestVersion (WindowsServer2003).
+Można zażądać konta (domena \ nazwa_użytkownika) i hasła.
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -205,7 +205,7 @@ Confirm-FunctionalLevel -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCre
 #### <a name="-forest"></a>-Las
 
 Las docelowy.
-Wartością domyślną jest Las aktualnie zalogowanego użytkownika.
+Wartość domyślna to Las aktualnie zalogowanego użytkownika.
 
 ```yml
 Type: String
@@ -221,7 +221,7 @@ Accept wildcard characters: False
 
 #### <a name="-forestfqdn"></a>-ForestFQDN
 
-Docelowy obiekt ForestfQDN.
+Docelowy obiekt ForestFQDN.
 
 ```yml
 Type: Forest
@@ -237,7 +237,7 @@ Accept wildcard characters: False
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
-Funkcja użyje poświadczeń użytkownika, który jest aktualnie zalogowany na komputerze, zamiast żądać niestandardowych poświadczeń od użytkownika.
+Funkcja użyje poświadczeń użytkownika, który jest aktualnie zalogowany na komputerze, zamiast żądać poświadczeń niestandardowych od użytkownika.
 
 ```yml
 Type: SwitchParameter
@@ -254,13 +254,13 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>Typowe parametry
 
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="confirm-networkconnectivity"></a>Potwierdzanie połączeń sieciowych
+## <a name="confirm-networkconnectivity"></a>Potwierdź — NetworkConnectivity
 
 ### <a name="synopsis"></a>STRESZCZENIE
 
-Wykrywa problemy z łącznością sieci lokalnej.
+Wykrywa problemy z łącznością sieciową.
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -270,10 +270,10 @@ Confirm-NetworkConnectivity [-DCs] <Array> [-SkipDnsPort] [-ReturnResultAsPSObje
 
 ### <a name="description"></a>OPIS
 
-Uruchamia testy łączności sieci lokalnej.
+Uruchamia testy łączności z siecią lokalną.
 
-W przypadku testów sieci lokalnej usługa AAD Connect musi mieć możliwość komunikowania się z nazwanymi kontrolerami domeny na portach 53 (DNS), 88 (Kerberos) i 389 (LDAP) Większość organizacji uruchamia system DNS na kontrolerach domeny, dlatego ten test jest obecnie zintegrowany.
-Port 53 należy pominąć, jeśli określono inny serwer DNS.
+W przypadku testów sieci lokalnych usługa AAD Connect musi mieć możliwość komunikowania się z nazwanymi kontrolerami domeny w portach 53 (DNS), 88 (Kerberos) i 389 (LDAP) Większość organizacji uruchamia system DNS w swoich kontrolerach domeny, co oznacza, że ten test jest obecnie zintegrowany.
+Jeśli określono inny serwer DNS, należy pominąć port 53.
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -291,9 +291,9 @@ Confirm-NetworkConnectivity -DCs "MYDC1.CONTOSO.COM","MYDC2.CONTOSO.COM" -Verbos
 
 ### <a name="parameters"></a>PARAMETRY
 
-#### <a name="-dcs"></a>-Kontrolery domeny
+#### <a name="-dcs"></a>-DC
 
-Określ kontrolery domeny, z się przetestować.
+Określ kontrolery domeny do przetestowania.
 
 ```yml
 Type: Array
@@ -309,8 +309,8 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Jeśli użytkownik nie korzysta z usług DNS dostarczanych przez witrynę USŁUGI AD / kontroler domeny logowania, może chcieć pominąć sprawdzanie portu 53.
-Użytkownik musi nadal być w stanie rozpoznać _.ldap._tcp. \<forestfqdn\> w celu pomyślnego pomyślnego wykonania konfiguracji łącznika usługi Active Directory.
+Jeśli użytkownik nie korzysta z usług DNS udostępnianych przez witrynę usługi AD/kontroler domeny logowania, może chcieć pominąć sprawdzanie portu 53.
+Użytkownik musi nadal mieć możliwość rozpoznania _. LDAP. _tcp. \<forestfqdn\> , aby konfiguracja łącznika Active Directory powiodła się.
 
 ```yml
 Type: SwitchParameter
@@ -326,8 +326,8 @@ Accept wildcard characters: False
 
 #### <a name="-returnresultaspsobject"></a>-ReturnResultAsPSObject
 
-Zwraca wynik tej diagnozy w postaci PSObject.
-Nie jest to konieczne podczas ręcznej interakcji z tym narzędziem.
+Zwraca wynik tej diagnostyki w postaci PSObject.
+Niepotrzebne podczas ręcznej interakcji z tym narzędziem.
 
 ```yml
 Type: SwitchParameter
@@ -344,9 +344,9 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>Typowe parametry
 
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="confirm-targetsarereachable"></a>Potwierdzanie celówReachable
+## <a name="confirm-targetsarereachable"></a>Potwierdź — TargetsAreReachable
 
 ### <a name="synopsis"></a>STRESZCZENIE
 
@@ -360,7 +360,7 @@ Confirm-TargetsAreReachable [-Forest] <String> [-DCs] <Array> [<CommonParameters
 
 ### <a name="description"></a>OPIS
 
-Uruchamia testy "ping" (czy komputer może dotrzeć do komputera docelowego za pośrednictwem sieci i/lub Internetu)
+Uruchamia testy "ping" (czy komputer może nawiązać połączenie z komputerem docelowym za pomocą sieci i/lub Internetu)
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -380,7 +380,7 @@ Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 
 #### <a name="-forest"></a>-Las
 
-Określa nazwę lasu, na który chcesz przetestować.
+Określa nazwę lasu, dla którego ma zostać przetestowany.
 
 ```yml
 Type: String
@@ -394,9 +394,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-dcs"></a>-Kontrolery domeny
+#### <a name="-dcs"></a>-DC
 
-Określ kontrolery domeny, z się przetestować.
+Określ kontrolery domeny do przetestowania.
 
 ```yml
 Type: Array
@@ -413,23 +413,23 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>Typowe parametry
 
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="confirm-validdomains"></a>Potwierdzanie-Prawidłowośćdomy
+## <a name="confirm-validdomains"></a>Potwierdź — ValidDomains
 
 ### <a name="synopsis"></a>STRESZCZENIE
 
-Sprawdzanie, czy domeny w uzyskanej nazwy FQDN lasu są osiągalne
+Sprawdź, czy domeny w uzyskanym FQDN lesie są dostępne
 
 ### <a name="syntax"></a>SKŁADNIA
 
-#### <a name="samaccount"></a>Konto SamAccount
+#### <a name="samaccount"></a>SamAccount
 
 ```
 Confirm-ValidDomains [-Forest <String>] [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-#### <a name="forestfqdn"></a>Leśnafqdn
+#### <a name="forestfqdn"></a>ForestFQDN
 
 ```
 Confirm-ValidDomains -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
@@ -437,8 +437,8 @@ Confirm-ValidDomains -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredenti
 
 ### <a name="description"></a>OPIS
 
-Sprawdź, czy wszystkie domeny w uzyskanej nazwy FQDN lasu są osiągalne, próbując pobrać DomainGuid i DomainDN.
-Można zażądać konta (domena\nazwa użytkownika) i hasła.
+Sprawdź, czy wszystkie domeny w uzyskanym FQDN lesie są osiągalne, próbując pobrać DomainGuid i DomainDN.
+Można zażądać konta (domena \ nazwa_użytkownika) i hasła.
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -480,7 +480,7 @@ Accept wildcard characters: False
 
 #### <a name="-forestfqdn"></a>-ForestFQDN
 
-Docelowy obiekt ForestfQDN.
+Docelowy obiekt ForestFQDN.
 
 ```yml
 Type: Forest
@@ -496,7 +496,7 @@ Accept wildcard characters: False
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
-Funkcja użyje poświadczeń użytkownika, który jest aktualnie zalogowany na komputerze, zamiast żądać niestandardowych poświadczeń od użytkownika.
+Funkcja użyje poświadczeń użytkownika, który jest aktualnie zalogowany na komputerze, zamiast żądać poświadczeń niestandardowych od użytkownika.
 
 ```yml
 Type: SwitchParameter
@@ -513,9 +513,9 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>Typowe parametry
 
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="confirm-validenterpriseadmincredentials"></a>Potwierdź-ValidEnterpriseAdminCredentials
+## <a name="confirm-validenterpriseadmincredentials"></a>Potwierdź — ValidEnterpriseAdminCredentials
 
 ### <a name="synopsis"></a>STRESZCZENIE
 
@@ -529,8 +529,8 @@ Confirm-ValidEnterpriseAdminCredentials [-RunWithCurrentlyLoggedInUserCredential
 
 ### <a name="description"></a>OPIS
 
-Wyszukiwanie, jeśli podany użytkownik ma poświadczenia administratora przedsiębiorstwa.
-Można zażądać konta (domena\nazwa użytkownika) i hasła.
+Wyszukuje, czy podany użytkownik ma poświadczenia administratora przedsiębiorstwa.
+Można zażądać konta (domena \ nazwa_użytkownika) i hasła.
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -550,7 +550,7 @@ Confirm-ValidEnterpriseAdminCredentials -RunWithCurrentlyLoggedInUserCredentials
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
-Funkcja użyje poświadczeń użytkownika, który jest aktualnie zalogowany na komputerze, zamiast żądać niestandardowych poświadczeń od użytkownika.
+Funkcja użyje poświadczeń użytkownika, który jest aktualnie zalogowany na komputerze, zamiast żądać poświadczeń niestandardowych od użytkownika.
 
 ```yml
 Type: SwitchParameter
@@ -567,13 +567,13 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>Typowe parametry
 
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
 ## <a name="get-domainfqdndata"></a>Get-DomainFQDNData
 
 ### <a name="synopsis"></a>STRESZCZENIE
 
-Pobiera domainfqdn z połączenia konta i hasła.
+Pobiera DomainFQDN z kombinacji konta i hasła.
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -585,8 +585,8 @@ Get-DomainFQDNData [[-DomainFQDNDataType] <String>] [-RunWithCurrentlyLoggedInUs
 ### <a name="description"></a>OPIS
 
 Próbuje uzyskać obiekt domainFQDN z podanych poświadczeń.
-Jeśli domainFQDN jest prawidłowy, DomainFQDNName lub RootDomainName zostaną zwrócone, w zależności od wyboru użytkownika.
-Można zażądać konta (domena\nazwa użytkownika) i hasła.
+Jeśli domainFQDN jest prawidłowy, zostanie zwrócona wartość DomainFQDNName lub RootDomainName w zależności od wybranej opcji użytkownika.
+Można zażądać konta (domena \ nazwa_użytkownika) i hasła.
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -607,7 +607,7 @@ Get-DomainFQDNData -DomainFQDNDataType RootDomainName -RunWithCurrentlyLoggedInU
 #### <a name="-domainfqdndatatype"></a>-DomainFQDNDataType
 
 Żądany rodzaj danych, które zostaną pobrane.
-Obecnie ograniczone do "DomainFQDNName" lub "RootDomainName".
+Obecnie ograniczona do "DomainFQDNName" lub "RootDomainName".
 
 ```yml
 Type: String
@@ -623,7 +623,7 @@ Accept wildcard characters: False
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
-Funkcja użyje poświadczeń użytkownika, który jest aktualnie zalogowany na komputerze, zamiast żądać niestandardowych poświadczeń od użytkownika.
+Funkcja użyje poświadczeń użytkownika, który jest aktualnie zalogowany na komputerze, zamiast żądać poświadczeń niestandardowych od użytkownika.
 
 ```yml
 Type: SwitchParameter
@@ -656,13 +656,13 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>Typowe parametry
 
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
 ## <a name="get-forestfqdn"></a>Get-ForestFQDN
 
 ### <a name="synopsis"></a>STRESZCZENIE
 
-Pobiera forestfqdn z kombinacji konta i hasła.
+Pobiera ForestFQDN z kombinacji konta i hasła.
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -672,8 +672,8 @@ Get-ForestFQDN [-Forest] <String> [-RunWithCurrentlyLoggedInUserCredentials] [<C
 
 ### <a name="description"></a>OPIS
 
-Próby uzyskania ForestFQDN z podanych poświadczeń.
-Można zażądać konta (domena\nazwa użytkownika) i hasła.
+Próbuje uzyskać ForestFQDN z podanych poświadczeń.
+Można zażądać konta (domena \ nazwa_użytkownika) i hasła.
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -709,7 +709,7 @@ Accept wildcard characters: False
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
-Funkcja użyje poświadczeń użytkownika, który jest aktualnie zalogowany na komputerze, zamiast żądać niestandardowych poświadczeń od użytkownika.
+Funkcja użyje poświadczeń użytkownika, który jest aktualnie zalogowany na komputerze, zamiast żądać poświadczeń niestandardowych od użytkownika.
 
 ```yml
 Type: SwitchParameter
@@ -726,13 +726,13 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>Typowe parametry
 
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
 ## <a name="start-connectivityvalidation"></a>Start-ConnectivityValidation
 
 ### <a name="synopsis"></a>STRESZCZENIE
 
-Funkcja główna.
+Funkcja Main.
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -771,11 +771,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-autocreateconnectoraccount"></a>-AutoCreateConnectorKontat
+#### <a name="-autocreateconnectoraccount"></a>-AutoCreateConnectorAccount
 
-W przypadku instalacji niestandardowych: Flaga, która jest $True, jeśli użytkownik wybrał "Utwórz nowe konto usługi AD" w oknie Konto lasu usługi AD kreatora usługi AADConnect.
-$False, jeśli użytkownik wybierze opcję "Użyj istniejącego konta USŁUGI AD".
-W przypadku instalacji ekspresowych: Wartość tej zmiennej musi być $True dla instalacji ekspresowych.
+W przypadku instalacji niestandardowych: Flaga $True, jeśli użytkownik wybrał opcję "Utwórz nowe konto usługi AD" w oknie konto lasu usługi AD kreatora AADConnect.
+$False, jeśli użytkownik wybrał opcję "Użyj istniejącego konta usługi AD".
+W przypadku instalacji ekspresowych: wartość tej zmiennej musi być $True dla instalacji ekspresowej.
 
 ```yml
 Type: Boolean
@@ -791,7 +791,7 @@ Accept wildcard characters: False
 
 #### <a name="-username"></a>-UserName
 
-Parametr, który wstępnie wypełnia pole Nazwa użytkownika, gdy wymagane są poświadczenia użytkownika.
+Parametr, który wstępnie wypełnia pole username, gdy wymagane są poświadczenia użytkownika.
 
 ```yml
 Type: String
@@ -808,13 +808,13 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>Typowe parametry
 
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
 ## <a name="start-networkconnectivitydiagnosistools"></a>Start-NetworkConnectivityDiagnosisTools
 
 ### <a name="synopsis"></a>STRESZCZENIE
 
-Główna funkcja testów łączności sieciowej.
+Funkcja Main dla testów łączności sieciowej.
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -826,7 +826,7 @@ Start-NetworkConnectivityDiagnosisTools [[-Forest] <String>] [-Credentials] <PSC
 
 ### <a name="description"></a>OPIS
 
-Uruchamia testy łączności sieci lokalnej.
+Uruchamia testy łączności z siecią lokalną.
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -862,8 +862,8 @@ Accept wildcard characters: False
 
 #### <a name="-credentials"></a>-Poświadczenia
 
-Nazwa użytkownika i hasło użytkownika, który jest uruchomiony test.
-Wymaga tego samego poziomu uprawnień, który jest wymagany do uruchomienia kreatora Azure AD Connect.
+Nazwa użytkownika i hasło użytkownika, na którym uruchomiono test.
+Wymaga tego samego poziomu uprawnień, który jest wymagany do uruchomienia Kreatora Azure AD Connect.
 
 ```yml
 Type: PSCredential
@@ -879,7 +879,7 @@ Accept wildcard characters: False
 
 #### <a name="-logfilelocation"></a>-LogFileLocation
 
-Określa lokalizację pliku dziennika, który będzie zawierał dane wyjściowe tej funkcji.
+Określa lokalizację pliku dziennika, który będzie zawierać dane wyjściowe tej funkcji.
 
 ```yml
 Type: String
@@ -893,9 +893,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-dcs"></a>-Kontrolery domeny
+#### <a name="-dcs"></a>-DC
 
-Określ kontrolery domeny, z się przetestować.
+Określ kontrolery domeny do przetestowania.
 
 ```yml
 Type: Array
@@ -911,7 +911,7 @@ Accept wildcard characters: False
 
 #### <a name="-displayinformativemessage"></a>-DisplayInformativeMessage
 
-Flaga, która umożliwia wyświetlanie komunikatu o celu tej funkcji.
+Flaga umożliwiająca wyświetlanie komunikatu o przeznaczeniu tej funkcji.
 
 ```yml
 Type: SwitchParameter
@@ -927,8 +927,8 @@ Accept wildcard characters: False
 
 #### <a name="-returnresultaspsobject"></a>-ReturnResultAsPSObject
 
-Zwraca wynik tej diagnozy w postaci PSObject.
-Nie jest konieczne określenie podczas ręcznej interakcji z tym narzędziem.
+Zwraca wynik tej diagnostyki w postaci PSObject.
+Nie trzeba określać podczas ręcznej interakcji z tym narzędziem.
 
 ```yml
 Type: SwitchParameter
@@ -945,7 +945,7 @@ Accept wildcard characters: False
 #### <a name="-validcredentials"></a>-ValidCredentials
 
 Wskazuje, czy poświadczenia wpisane przez użytkownika są prawidłowe.
-Nie jest konieczne określenie podczas ręcznej interakcji z tym narzędziem.
+Nie trzeba określać podczas ręcznej interakcji z tym narzędziem.
 
 ```yml
 Type: SwitchParameter
@@ -962,4 +962,4 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>Typowe parametry
 
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.

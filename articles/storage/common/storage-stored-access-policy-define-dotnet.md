@@ -1,6 +1,6 @@
 ---
-title: Definiowanie zasad dostępu przechowywanego za pomocą usługi .NET — Usługa Azure Storage
-description: Dowiedz się, jak zdefiniować zasady dostępu przechowywanego przy użyciu biblioteki klienta platformy .NET.
+title: Definiowanie przechowywanych zasad dostępu przy użyciu platformy .NET — Azure Storage
+description: Dowiedz się, jak definiować przechowywane zasady dostępu przy użyciu biblioteki klienckiej .NET.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,17 +10,17 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 272d676d0a5a55262b1c68d0bae9a9ab229df72c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68990743"
 ---
-# <a name="define-a-stored-access-policy-with-net"></a>Definiowanie zasad dostępu przechowywanego za pomocą platformy .NET
+# <a name="define-a-stored-access-policy-with-net"></a>Definiowanie przechowywanych zasad dostępu za pomocą platformy .NET
 
-Zasady dostępu przechowywanego zapewniają dodatkowy poziom kontroli nad sygnaturami dostępu współdzielonego na poziomie usługi (SAS) po stronie serwera. Definiowanie zasad dostępu przechowywanego służy do grupowania podpisów dostępu współdzielonego i zapewnienia dodatkowych ograniczeń dla podpisów dostępu współdzielonego, które są powiązane przez zasady. Za pomocą zasad dostępu przechowywanego można zmienić godzinę rozpoczęcia, czas wygaśnięcia lub uprawnienia dostępu Współdzielonego lub odwołać go po jego wystawieniu.
+Przechowywane zasady dostępu zapewniają dodatkowy poziom kontroli nad sygnaturami dostępu współdzielonego na poziomie usług (SAS) po stronie serwera. Zdefiniowanie przechowywanych zasad dostępu służy do grupowania sygnatur dostępu współdzielonego i zapewnienia dodatkowych ograniczeń dla sygnatur dostępu współdzielonego, które są powiązane z zasadami. Za pomocą przechowywanych zasad dostępu można zmienić czas rozpoczęcia, czas wygaśnięcia lub uprawnienia dla SAS lub odwołać je po wydaniu.
   
- Następujące zasoby magazynu obsługują przechowywane zasady dostępu:  
+ Następujące zasoby magazynu obsługują zasady dostępu przechowywane:  
   
 - Kontenery obiektów blob  
 - Udziały plików  
@@ -28,13 +28,13 @@ Zasady dostępu przechowywanego zapewniają dodatkowy poziom kontroli nad sygnat
 - Tabele  
   
 > [!NOTE]
-> Zasady dostępu przechowywanego w kontenerze mogą być skojarzone z podpisem dostępu współdzielonego przyznającego uprawnienia do samego kontenera lub do obiektów blob, które zawiera. Podobnie zasady dostępu przechowywanego w udziale plików mogą być skojarzone z podpisem dostępu współdzielonego przyznającego uprawnienia do samego udziału lub do plików, które zawiera.  
+> Przechowywane zasady dostępu w kontenerze mogą być skojarzone z podpisem dostępu współdzielonego w celu przyznania mu uprawnień do samego kontenera lub do obiektów blob, które zawiera. Podobnie przechowywane zasady dostępu w udziale plików mogą być kojarzone z podpisem dostępu współdzielonego lub do plików, które zawiera.  
 >
-> Przechowywane zasady dostępu są obsługiwane tylko dla usługi SAS. Przechowywane zasady dostępu nie są obsługiwane dla sygnatury dostępu Współdzielonego konta lub sygnatury dostępu współdzielonego delegowania użytkowników.  
+> Zasady dostępu przechowywane są obsługiwane tylko dla SAS usługi. Przechowywane zasady dostępu nie są obsługiwane w przypadku kont SAS lub delegowania uprawnień użytkowników dla konta.  
 
 ## <a name="create-a-stored-access-policy"></a>Tworzenie zasad dostępu przechowywanego
 
-Poniższy kod tworzy zasady dostępu przechowywane w kontenerze. Za pomocą zasad dostępu można określić ograniczenia dla usługi Sygnatury dostępu Współdzielonego w kontenerze lub jego obiektach blob.
+Poniższy kod tworzy zasady dostępu przechowywane w kontenerze. Zasad dostępu można użyć do określenia ograniczeń dla SAS usługi w kontenerze lub jego obiektach Blob.
 
 ```csharp
 private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer container, string policyName)
@@ -58,8 +58,8 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
 }
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-- [Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage przy użyciu sygnatur dostępu współdzielonego (SAS)](storage-sas-overview.md)
+- [Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](storage-sas-overview.md)
 - [Definiowanie przechowywanych zasad dostępu](/rest/api/storageservices/define-stored-access-policy)
 

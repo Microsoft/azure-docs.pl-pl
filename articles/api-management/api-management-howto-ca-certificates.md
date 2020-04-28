@@ -1,5 +1,5 @@
 ---
-title: Dodawanie niestandardowego certyfikatu urzędu certyfikacji — usługa Azure API Management | Dokumenty firmy Microsoft
+title: Dodawanie niestandardowego certyfikatu urzędu certyfikacji — Azure API Management | Microsoft Docs
 description: Dowiedz się, jak dodać niestandardowy certyfikat urzędu certyfikacji w usłudze Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 21d5869f2bcdfb6383b6ef89869d8098135ea7ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70073600"
 ---
-# <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Jak dodać niestandardowy certyfikat urzędu certyfikacji w usłudze Azure API Management
+# <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Jak dodać niestandardowy certyfikat urzędu certyfikacji na platformie Azure API Management
 
-Usługa Azure API Management umożliwia instalowanie certyfikatów urzędu certyfikacji na komputerze wewnątrz zaufanych magazynów certyfikatów głównych i pośrednich. Ta funkcja powinna być używana, jeśli usługi wymagają niestandardowego certyfikatu urzędu certyfikacji.
+Usługa Azure API Management umożliwia instalowanie certyfikatów urzędu certyfikacji na komputerze wewnątrz zaufanych głównych i pośrednich magazynów certyfikatów. Ta funkcja powinna być używana, jeśli usługi wymagają niestandardowego certyfikatu urzędu certyfikacji.
 
-W tym artykule pokazano, jak zarządzać certyfikatami urzędu certyfikacji wystąpienia usługi usługi Azure API Management w witrynie Azure portal.
+W tym artykule przedstawiono sposób zarządzania certyfikatami urzędu certyfikacji wystąpienia usługi Azure API Management w Azure Portal.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -33,17 +33,17 @@ W tym artykule pokazano, jak zarządzać certyfikatami urzędu certyfikacji wyst
 
 ![Dodawanie certyfikatów urzędu certyfikacji](media/api-management-howto-ca-certificates/00.png)
 
-Wykonaj poniższe czynności, aby przekazać nowy certyfikat urzędu certyfikacji. Jeśli nie utworzono jeszcze wystąpienia usługi zarządzanie interfejsami API, zobacz samouczek [Tworzenie wystąpienia usługi zarządzania interfejsami API](get-started-create-service-instance.md).
+Postępuj zgodnie z poniższymi instrukcjami, aby przekazać nowy certyfikat urzędu certyfikacji. Jeśli jeszcze nie utworzono wystąpienia usługi API Management, zobacz samouczek [Tworzenie wystąpienia usługi API Management](get-started-create-service-instance.md).
 
-1. Przejdź do wystąpienia usługi Azure API Management w witrynie Azure portal.
+1. Przejdź do wystąpienia usługi Azure API Management w Azure Portal.
 
-2. Z menu wybierz **certyfikaty urzędu** certyfikacji.
+2. Z menu wybierz opcję **certyfikaty urzędu certyfikacji** .
 
 3. Kliknij przycisk **+ Dodaj**.  
 
     ![Dodawanie certyfikatów urzędu certyfikacji](media/api-management-howto-ca-certificates/01.png)  
 
-4. Wyszukaj certyfikat i zdecyduj o magazynie certyfikatów. Potrzebny jest tylko klucz publiczny, więc hasło nie jest wymagane.
+4. Wyszukaj certyfikat i wybierz magazyn certyfikatów. Wymagany jest tylko klucz publiczny, dlatego hasło nie jest wymagane.
 
     ![Dodawanie certyfikatów urzędu certyfikacji](media/api-management-howto-ca-certificates/02.png)  
 
@@ -52,11 +52,11 @@ Wykonaj poniższe czynności, aby przekazać nowy certyfikat urzędu certyfikacj
     ![Dodawanie certyfikatów urzędu certyfikacji](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
-> Certyfikat urzędu certyfikacji można `New-AzApiManagementSystemCertificate` przekazać za pomocą polecenia programu Powershell.
+> Certyfikat urzędu certyfikacji można przekazać za pomocą polecenia `New-AzApiManagementSystemCertificate` programu PowerShell.
 
 ## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>Usuwanie certyfikatu klienta
 
-Aby usunąć certyfikat, kliknij menu kontekstowe **...** i wybierz polecenie **Usuń** obok certyfikatu.
+Aby usunąć certyfikat, **kliknij menu kontekstowe, a** następnie wybierz pozycję **Usuń** obok certyfikatu.
 
 ![Usuwanie certyfikatów urzędu certyfikacji](media/api-management-howto-ca-certificates/04.png)  
 

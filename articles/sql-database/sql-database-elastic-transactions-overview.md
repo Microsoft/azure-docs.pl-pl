@@ -1,6 +1,6 @@
 ---
 title: Transakcje rozproszone w bazach danych w chmurze
-description: Omówienie transakcji elastycznej bazy danych za pomocą bazy danych SQL azure
+description: Przegląd transakcji Elastic Database z Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,42 +12,42 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 3ca3e9074f28d66068d49b80915e98600759d9be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68568279"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transakcje rozproszone w bazach danych w chmurze
 
-Transakcje elastycznej bazy danych dla usługi Azure SQL Database (SQL DB) umożliwiają uruchamianie transakcji obejmujących kilka baz danych w bazie danych SQL. Transakcje elastycznej bazy danych dla bazy danych SQL DB są dostępne dla aplikacji .NET przy użyciu ADO .NET i integrują się ze znanym doświadczeniem programowania przy użyciu klas [System.Transaction.](https://msdn.microsoft.com/library/system.transactions.aspx) Aby uzyskać bibliotekę, zobacz [.NET Framework 4.6.1 (Instalator sieci Web)](https://www.microsoft.com/download/details.aspx?id=49981).
+Transakcje Elastic Database dla Azure SQL Database (SQL DB) umożliwiają uruchamianie transakcji obejmujących kilka baz danych w bazie danych SQL. Transakcje Elastic Database dla bazy danych SQL są dostępne dla aplikacji .NET przy użyciu programu ADO .NET i integrują się z znanym środowiskiem programistycznym korzystającym z klas [System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Aby uzyskać bibliotekę, zobacz [.NET Framework 4.6.1 (Instalator sieci Web)](https://www.microsoft.com/download/details.aspx?id=49981).
 
-Lokalnie taki scenariusz zwykle wymagane uruchamianie koordynatora transakcji rozproszonych firmy Microsoft (MSDTC). Ponieważ usługa MSDTC nie jest dostępna dla aplikacji Platformy jako usługi na platformie Azure, możliwość koordynowania transakcji rozproszonych została teraz bezpośrednio zintegrowana z bazą danych SQL. Aplikacje mogą łączyć się z dowolnej bazy danych SQL, aby uruchomić transakcje rozproszone, a jedna z baz danych będzie w sposób przejrzysty koordynować transakcji rozproszonych, jak pokazano na poniższym rysunku. 
+W środowisku lokalnym taki scenariusz zwykle wymaga uruchomienia usługi Microsoft Distributed Transaction Coordinator (MSDTC). Ponieważ usługa MSDTC nie jest dostępna dla aplikacji platformy jako usługi na platformie Azure, możliwość skoordynowania transakcji rozproszonych została teraz zintegrowana bezpośrednio z bazą danych SQL. Aplikacje mogą łączyć się z dowolnymi SQL Database do uruchamiania transakcji rozproszonych, a jedna z baz danych w sposób niewidoczny dla użytkownika koordynuje transakcję rozproszoną, jak pokazano na poniższej ilustracji. 
 
-  ![Transakcje rozproszone z usługą Azure SQL Database przy użyciu transakcji elastycznej bazy danych ][1]
+  ![Transakcje rozproszone z Azure SQL Database przy użyciu transakcji Elastic Database ][1]
 
 ## <a name="common-scenarios"></a>Typowe scenariusze
 
-Transakcje elastycznej bazy danych dla bazy danych SQL umożliwiają aplikacjom wprowadzanie zmian atomowych w danych przechowywanych w kilku różnych bazach danych SQL. Wersja zapoznawcza koncentruje się na środowiskach programistycznych po stronie klienta w językach C# i .NET. Środowisko po stronie serwera przy użyciu języka T-SQL jest planowane na późniejszy czas.  
-Transakcje elastycznej bazy danych są przeznaczone dla następujących scenariuszy:
+Transakcje Elastic Database dla usługi SQL DB umożliwiają aplikacjom wprowadzanie niepodzielnych zmian danych przechowywanych w kilku różnych bazach danych SQL. Wersja zapoznawcza koncentruje się na środowiskach deweloperskich po stronie klienta w językach C# i .NET. Środowisko pracy po stronie serwera przy użyciu języka T-SQL jest planowane w późniejszym czasie.  
+Transakcje Elastic Database są przeznaczone dla następujących scenariuszy:
 
-* Aplikacje z wieloma bazami danych na platformie Azure: w tym scenariuszu dane są przesyłane pionowo między kilka baz danych w bazie danych SQL, tak aby różne rodzaje danych znajdują się w różnych bazach danych. Niektóre operacje wymagają zmian w danych, które są przechowywane w dwóch lub więcej baz danych. Aplikacja używa transakcji elastycznej bazy danych do koordynowania zmian w bazach danych i zapewnienia niepodzielności.
-* Aplikacje bazy danych podzielonej na s podzielonej na partycje na platformie Azure: w tym scenariuszu warstwa danych używa [biblioteki klienta elastycznej bazy danych](sql-database-elastic-database-client-library.md) lub samorozdzielania do poziomej partycjonowania danych w wielu bazach danych w bazie danych SQL. Jednym z widocznych przypadków użycia jest konieczność wykonywania zmian niepodzielnych dla podzielonej aplikacji wielodostępnych, gdy zmiany obejmują dzierżawców. Pomyśl na przykład o transferze z jednej dzierżawy do drugiej, oba miejsca w różnych bazach danych. Drugi przypadek jest szczegółowe dzielenia na fragmenty, aby zaspokoić potrzeby pojemności dla dużej dzierżawy, co z kolei zazwyczaj oznacza, że niektóre operacje niepodzielne musi rozciągać się na kilka baz danych używanych dla tej samej dzierżawy. Trzeci przypadek jest niepodzielne aktualizacje danych referencyjnych, które są replikowane w bazach danych. Atomic, transacted, operacje wzdłuż tych linii mogą być teraz koordynowane w kilku bazach danych przy użyciu wersji zapoznawczej.
-  Transakcje elastycznej bazy danych używają zatwierdzania dwufazowego, aby zapewnić niepodzielność transakcji między bazami danych. Jest to dobre dopasowanie do transakcji, które obejmują mniej niż 100 baz danych naraz w ramach jednej transakcji. Limity te nie są wymuszane, ale należy się spodziewać wydajności i wskaźników powodzenia dla transakcji elastycznej bazy danych, aby cierpieć po przekroczeniu tych limitów.
+* Aplikacje z wieloma bazami danych na platformie Azure: w tym scenariuszu dane są partycjonowane w pionie w wielu bazach danych w bazie danych SQL, w taki sposób, że różnego rodzaju dane znajdują się w różnych baz danych. Niektóre operacje wymagają zmian danych przechowywanych w co najmniej dwóch bazach danych. Aplikacja używa transakcji Elastic Database do koordynowania zmian w bazach danych i zapewniania niepodzielności.
+* Podzielonej na fragmenty bazy danych na platformie Azure: w tym scenariuszu warstwa danych używa [biblioteki klienta Elastic Database](sql-database-elastic-database-client-library.md) lub fragmentowania w poziomie, aby podzielić dane między wiele baz danych w bazie danych SQL. Jednym z widocznych przypadków użycia jest konieczność wykonywania niepodzielnych zmian w podzielonej na fragmenty aplikacji wielodostępnej, gdy zmiany obejmują dzierżawców. Pomyśl o wystąpieniu transferu między dzierżawcami, które znajdują się w różnych bazach danych. Drugi przypadek jest szczegółowym fragmentowania w celu uwzględnienia potrzeb związanych z pojemnością dla dużej dzierżawy, co z kolei oznacza, że niektóre operacje niepodzielne muszą być rozciągane między kilka baz danych używanych dla tej samej dzierżawy. Trzecia sprawa jest niepodzielnymi aktualizacjami odwołań do danych replikowanych między bazami danych. Niepodzielna, transakcyjna, operacje w tych wierszach, można teraz koordynować w kilku bazach danych przy użyciu wersji zapoznawczej.
+  Transakcje elastycznej bazy danych korzystają z dwufazowego zatwierdzania, aby zapewnić niepodzielność transakcji między bazami danych. Jest to dobre dopasowanie w przypadku transakcji obejmujących mniej niż 100 baz danych jednocześnie w ramach jednej transakcji. Te limity nie są wymuszane, ale jeden z nich powinien oczekiwać wydajności i częstotliwości sukcesów dla transakcji Elastic Database, gdy przekraczają te limity.
 
 ## <a name="installation-and-migration"></a>Instalacja i migracja
 
-Możliwości transakcji elastycznej bazy danych w bazie danych SQL są dostarczane za pośrednictwem aktualizacji bibliotek .NET System.Data.dll i System.Transactions.dll. Biblioteki DLL zapewniają, że zatwierdzanie dwufazowe jest używane w razie potrzeby w celu zapewnienia niepodzielności. Aby rozpocząć tworzenie aplikacji przy użyciu transakcji elastycznej bazy danych, należy zainstalować [program .NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) lub nowszą wersję. Po uruchomieniu na wcześniejszej wersji platformy .NET, transakcje nie będą podwyższać do transakcji rozproszonych i wyjątek zostanie zgłoszony.
+Możliwości transakcji Elastic Database w usłudze SQL DB są udostępniane za pomocą aktualizacji bibliotek .NET system. Data. dll i system. Transactions. dll. Biblioteki DLL zapewniają, że dwufazowe zatwierdzanie jest używane w razie potrzeby w celu zapewnienia niepodzielności. Aby rozpocząć tworzenie aplikacji przy użyciu transakcji Elastic Database, zainstaluj [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) lub nowszą wersję. W przypadku uruchomienia w starszej wersji programu .NET Framework transakcje nie będą poddawane promocji do transakcji rozproszonej i zostanie zgłoszony wyjątek.
 
-Po instalacji można użyć rozproszonych interfejsów API transakcji w system.Transactions z połączeniami z bazą danych SQL. Jeśli masz istniejące aplikacje MSDTC przy użyciu tych interfejsów API, po prostu odbuduj istniejące aplikacje dla platformy .NET 4.6 po zainstalowaniu struktury 4.6.1. Jeśli twoje projekty docelowe .NET 4.6, będą automatycznie używać zaktualizowanych bibliotek DLL z nowej wersji frameworka i rozproszonych wywołań interfejsu API transakcji w połączeniu z połączeniami z bazy danych SQL zakończy się pomyślnie.
+Po zakończeniu instalacji można używać interfejsów API transakcji rozproszonych w programie System. Transactions z połączeniami z bazą danych SQL. Jeśli masz istniejące aplikacje usługi MSDTC korzystające z tych interfejsów API, po zainstalowaniu przeglądarki 4.6.1 należy po prostu ponownie skompilować istniejące aplikacje dla programu .NET 4,6. Jeśli projekty są przeznaczone dla platformy .NET 4,6, będą automatycznie używały zaktualizowanych bibliotek DLL z nowej wersji platformy i wywołań interfejsu API transakcji rozproszonych w połączeniu z połączeniami z bazą danych SQL.
 
-Należy pamiętać, że transakcje elastycznej bazy danych nie wymagają instalowania usługi MSDTC. Zamiast tego transakcje elastycznej bazy danych są zarządzane bezpośrednio przez i w ramach bazy danych SQL. To znacznie upraszcza scenariusze chmury, ponieważ wdrożenie usługi MSDTC nie jest konieczne do używania transakcji rozproszonych z bazą danych SQL. W sekcji 4 opisano bardziej szczegółowo, jak wdrożyć transakcje elastycznej bazy danych i wymaganą platformę .NET wraz z aplikacjami w chmurze na platformie Azure.
+Pamiętaj, że transakcje Elastic Database nie wymagają instalacji usługi MSDTC. Zamiast tego transakcje Elastic Database są bezpośrednio zarządzane przez program i w ramach bazy danych SQL. Znacznie upraszcza to scenariusze w chmurze, ponieważ wdrożenie usługi MSDTC nie jest konieczne do korzystania z transakcji rozproszonych z bazą danych SQL. Sekcja 4 wyjaśnia bardziej szczegółowo, jak wdrażać transakcje Elastic Database i wymagane środowisko .NET Framework razem z aplikacjami w chmurze na platformie Azure.
 
-## <a name="development-experience"></a>Doświadczenie w rozwoju
+## <a name="development-experience"></a>Środowisko programistyczne
 
-### <a name="multi-database-applications"></a>Aplikacje z wieloma bazami danych
+### <a name="multi-database-applications"></a>Aplikacje z obsługą kilku baz danych
 
-Poniższy przykładowy kod używa znanego środowiska programowania z .NET System.Transactions. TransactionScope Klasa ustanawia transakcji otoczenia w .NET. ("Transakcja otoczenia" to transakcja, która działa w bieżącym wątku.) Wszystkie połączenia otwarte w ramach TransactionScope uczestniczyć w transakcji. Jeśli uczestniczą różne bazy danych, transakcja jest automatycznie podwyższone do transakcji rozproszonej. Wynik transakcji jest kontrolowany przez ustawienie zakresu, aby zakończyć, aby wskazać zatwierdzenie.
+Następujący przykładowy kod używa znanego środowiska programistycznego w programie .NET system. Transactions. Klasa TransactionScope tworzy otaczającą transakcję w programie .NET. ("Otoczenia transakcji" to ten, który znajduje się w bieżącym wątku). Wszystkie połączenia otwarte w ramach elementu TransactionScope biorą udział w transakcji. W przypadku korzystania z różnych baz danych transakcja zostanie automatycznie podwyższona do transakcji rozproszonej. Wynik transakcji jest kontrolowany przez ustawienie zakresu do ukończenia, aby wskazać zatwierdzenie.
 
     using (var scope = new TransactionScope())
     {
@@ -72,7 +72,7 @@ Poniższy przykładowy kod używa znanego środowiska programowania z .NET Syste
 
 ### <a name="sharded-database-applications"></a>Aplikacje bazy danych podzielonej na fragmenty
 
-Transakcje elastycznej bazy danych dla bazy danych SQL DB obsługują również koordynowanie transakcji rozproszonych, w przypadku których używana jest metoda OpenConnectionForKey biblioteki klienta elastycznej bazy danych do otwierania połączeń dla warstwy danych skalowanych w poziomie. Należy wziąć pod uwagę przypadki, w których należy zagwarantować spójność transakcyjną dla zmian w kilku różnych wartości klucza dzielenia na fragmenty. Połączenia z fragmentami obsługującymi różne wartości klucza dzielenia na fragmenty są brokerowane przy użyciu funkcji OpenConnectionForKey. W ogólnym przypadku połączenia mogą być do różnych fragmentów, takie jak zapewnienie gwarancji transakcyjnych wymaga transakcji rozproszonej. Poniższy przykład kodu ilustruje to podejście. Przyjęto założenie, że zmienna o nazwie mapy niezależnego fragmentu jest używana do reprezentowania mapy niezależnego fragmentu z biblioteki klienta elastycznej bazy danych:
+Transakcje Elastic Database dla bazy danych SQL obsługują również koordynowanie transakcji rozproszonych w przypadku używania metody OpenConnectionForKey biblioteki klienta Elastic Database do otwierania połączeń dla warstwy danych skalowanych w poziomie. Rozważ przypadki, w których należy zagwarantowanie spójności transakcyjnej dla zmian w kilku różnych wartościach klucza fragmentowania. Połączenia z fragmentów hostowania różnych wartości klucza fragmentowania są obsługiwane przez brokera przy użyciu OpenConnectionForKey. W ogólnym przypadku połączenia mogą być różne fragmentów w taki sposób, że zapewnienie transakcyjnych gwarancji wymaga transakcji rozproszonej. Poniższy przykład kodu ilustruje to podejście. Przyjęto założenie, że zmienna o nazwie shardmap jest używana do reprezentowania mapy fragmentu z biblioteki klienta Elastic Database:
 
     using (var scope = new TransactionScope())
     {
@@ -96,13 +96,13 @@ Transakcje elastycznej bazy danych dla bazy danych SQL DB obsługują również 
     }
 
 
-## <a name="net-installation-for-azure-cloud-services"></a>Instalacja platformy .NET dla usług w chmurze platformy Azure
+## <a name="net-installation-for-azure-cloud-services"></a>Instalacja platformy .NET dla usługi Azure Cloud Services
 
-Platforma Azure oferuje kilka ofert do obsługi aplikacji platformy .NET. Porównanie różnych ofert jest dostępne w [porównaniu usługi Azure App Service, usług w chmurze i maszyn wirtualnych.](/azure/architecture/guide/technology-choices/compute-decision-tree) Jeśli system operacyjny gościa oferty jest mniejszy niż .NET 4.6.1 wymagane dla transakcji elastycznych, należy uaktualnić systemu operacyjnego gościa do 4.6.1. 
+Platforma Azure oferuje kilka ofert do hostowania aplikacji platformy .NET. Porównanie różnych ofert jest dostępne w ramach [porównania Azure App Service, Cloud Services i Virtual Machines](/azure/architecture/guide/technology-choices/compute-decision-tree). Jeśli system operacyjny gościa oferty jest mniejszy niż .NET 4.6.1 wymagany dla transakcji elastycznych, musisz uaktualnić system operacyjny gościa do 4.6.1. 
 
-W przypadku usług Azure App Services uaktualnienia do systemu operacyjnego gościa nie są obecnie obsługiwane. W przypadku maszyn wirtualnych platformy Azure wystarczy zalogować się do maszyny wirtualnej i uruchomić instalator dla najnowszej platformy .NET. W przypadku usług w chmurze azure należy uwzględnić instalację nowszej wersji platformy .NET do zadań uruchamiania wdrożenia. Pojęcia i kroki są udokumentowane w [install .NET w roli usługi w chmurze](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
+W przypadku usługi Azure App Services uaktualnienia do systemu operacyjnego gościa nie są obecnie obsługiwane. W przypadku usługi Azure Virtual Machines wystarczy zalogować się do maszyny wirtualnej i uruchomić Instalatora w celu uzyskania najnowszej wersji programu .NET Framework. W przypadku usługi Azure Cloud Services należy dołączyć instalację nowszej wersji platformy .NET do zadań uruchamiania danego wdrożenia. Koncepcje i kroki są udokumentowane w temacie [Instalowanie programu .NET w ramach roli usługi w chmurze](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
-Należy zauważyć, że instalator dla platformy .NET 4.6.1 może wymagać więcej tymczasowego magazynu podczas procesu uruchamiania w usługach w chmurze platformy Azure niż instalator dla platformy .NET 4.6. Aby zapewnić pomyślną instalację, należy zwiększyć tymczasowe miejsce do magazynowania usługi w chmurze platformy Azure w pliku ServiceDefinition.csdef w sekcji LocalResources i ustawieniach środowiska zadania uruchamiania, jak pokazano w poniższym przykładzie:
+Należy pamiętać, że Instalator programu .NET 4.6.1 może wymagać więcej tymczasowego magazynu podczas procesu uruchamiania w usługach Azure Cloud Services niż Instalator programu .NET 4,6. Aby zapewnić pomyślną instalację, należy zwiększyć tymczasowy magazyn dla usługi w chmurze platformy Azure w pliku ServiceDefinition. csdef w sekcji LocalResources i ustawieniach środowiska zadania uruchamiania, jak pokazano w następującym przykładzie:
 
     <LocalResources>
     ...
@@ -127,37 +127,37 @@ Należy zauważyć, że instalator dla platformy .NET 4.6.1 może wymagać więc
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Moduł usługi PowerShell Azure Resource Manager jest nadal obsługiwany przez usługę Azure SQL Database, ale wszystkie przyszłe prace rozwojowe są przeznaczone dla modułu Az.Sql. Aby uzyskać następujące polecenia cmdlet, zobacz [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty dla poleceń w module Az i w modułach AzureRm są zasadniczo identyczne.
+> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
 
-Transakcje elastycznej bazy danych są obsługiwane na różnych serwerach bazy danych SQL w bazie danych SQL Azure. Gdy transakcje przekraczają granice serwera bazy danych SQL, serwery uczestniczące muszą najpierw zostać wprowadzone w relację wzajemnej komunikacji. Po nawiązaniu relacji komunikacyjnej każda baza danych na dowolnym z dwóch serwerów może uczestniczyć w transakcjach elastycznych z bazami danych z innego serwera. W przypadku transakcji obejmujących więcej niż dwa serwery bazy danych SQL należy nawiązać relację komunikacyjną dla dowolnej pary serwerów bazy danych SQL.
+Transakcje Elastic Database są obsługiwane na różnych serwerach SQL Database w Azure SQL Database. Gdy transakcje przecinają się między SQL Database serwera, najpierw muszą zostać wprowadzone do wzajemnej relacji komunikacji. Po ustanowieniu relacji komunikacji każda baza danych na jednym z tych dwóch serwerów może uczestniczyć w transakcjach elastycznych z bazami danych z innego serwera. W przypadku transakcji obejmujących więcej niż dwa serwery SQL Database relacja komunikacji musi być stosowane dla dowolnej pary serwerów SQL Database.
 
-Aby zarządzać relacjami komunikacyjnymi między serwerami dla transakcji elastycznej bazy danych, należy użyć następujących poleceń cmdlet programu PowerShell:
+Użyj następujących poleceń cmdlet programu PowerShell do zarządzania relacjami komunikacji między serwerami dla transakcji Elastic Database:
 
-* **New-AzSqlServerCommunicationLink**: Użyj tego polecenia cmdlet, aby utworzyć nową relację komunikacji między dwoma serwerami bazy danych SQL w bazie danych SQL Azure. Relacja jest symetryczna, co oznacza, że oba serwery mogą inicjować transakcje z innym serwerem.
-* **Get-AzSqlServerCommunicationLink:** Użyj tego polecenia cmdlet, aby pobrać istniejące relacje komunikacyjne i ich właściwości.
-* **Usuń—AzSqlServerCommunicationLink**: Użyj tego polecenia cmdlet, aby usunąć istniejącą relację komunikacyjną. 
+* **New-AzSqlServerCommunicationLink**: Użyj tego polecenia cmdlet, aby utworzyć nową relację komunikacji między dwoma serwerami SQL Database w Azure SQL Database. Relacja jest symetryczna, co oznacza, że oba serwery mogą inicjować transakcje z innym serwerem.
+* **Get-AzSqlServerCommunicationLink**: Użyj tego polecenia cmdlet, aby pobrać istniejące relacje komunikacji i ich właściwości.
+* **Remove-AzSqlServerCommunicationLink**: Użyj tego polecenia cmdlet, aby usunąć istniejącą relację komunikacji. 
 
 ## <a name="monitoring-transaction-status"></a>Monitorowanie stanu transakcji
 
-Użyj dynamicznych widoków zarządzania (DMV) w bazie danych SQL, aby monitorować stan i postęp bieżących transakcji elastycznej bazy danych. Wszystkie dmvs związane z transakcjami są istotne dla transakcji rozproszonych w bazy danych SQL. Odpowiednią listę dmv można znaleźć tutaj: [Widoki dynamicznego zarządzania związane z transakcjami i funkcje (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+Użyj dynamicznych widoków zarządzania (widoków DMV) w usłudze SQL DB, aby monitorować stan i postęp trwających transakcji Elastic Database. Wszystkie widoków DMV związane z transakcjami są istotne dla transakcji rozproszonych w bazie danych SQL. Odpowiednią listę widoków DMV można znaleźć tutaj: [powiązane z transakcją dynamiczne widoki zarządzania i funkcje (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
 
-Te dmvs są szczególnie przydatne:
+Te widoków DMV są szczególnie przydatne:
 
-* **sys.dm\_transakcje tran\_\_active**: Wyświetla listę aktualnie aktywnych transakcji i ich statusu. Kolumna UOW (Unit Of Work) może identyfikować różne transakcje podrzędne, które należą do tej samej transakcji rozproszonej. Wszystkie transakcje w ramach tej samej transakcji rozproszonej mają tę samą wartość UOW. Więcej informacji można znaleźć w [dokumentacji DMV.](https://msdn.microsoft.com/library/ms174302.aspx)
-* **sys.dm transakcji\_bazy\_\_danych trans:** Zawiera dodatkowe informacje o transakcjach, takie jak umieszczenie transakcji w dzienniku. Więcej informacji można znaleźć w [dokumentacji DMV.](https://msdn.microsoft.com/library/ms186957.aspx)
-* **sys.dm\_blokady\_tran:** Zawiera informacje o blokadach, które są obecnie w posiadaniu bieżących transakcji. Więcej informacji można znaleźć w [dokumentacji DMV.](https://msdn.microsoft.com/library/ms190345.aspx)
+* **aktywne\_transakcje\_sys.DM\_przeładunku**: Wyświetla aktualnie aktywne transakcje i ich stan. Kolumna "jednostka pracy" może identyfikować różne transakcje podrzędne należące do tej samej transakcji rozproszonej. Wszystkie transakcje w ramach tej samej transakcji rozproszonej mają tę samą wartość JEDNOSTKowy. Aby uzyskać więcej informacji, zobacz [dokumentację DMV](https://msdn.microsoft.com/library/ms174302.aspx) .
+* **transakcje\_bazy\_danych\_sys.DM przeładunku**: zawiera dodatkowe informacje o transakcjach, takich jak umieszczanie transakcji w dzienniku. Aby uzyskać więcej informacji, zobacz [dokumentację DMV](https://msdn.microsoft.com/library/ms186957.aspx) .
+* **blokady\_sys.DM: zawiera informacje o blokadach, które są obecnie przechowywane przez bieżące transakcje.\_** Aby uzyskać więcej informacji, zobacz [dokumentację DMV](https://msdn.microsoft.com/library/ms190345.aspx) .
 
 ## <a name="limitations"></a>Ograniczenia
 
-Następujące ograniczenia mają obecnie zastosowanie do transakcji elastycznej bazy danych w bazie danych SQL:
+Obecnie obowiązują następujące ograniczenia dotyczące transakcji Elastic Database w usłudze SQL DB:
 
-* Obsługiwane są tylko transakcje w bazach danych w bazie danych SQL. Inni dostawcy zasobów [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) i bazy danych poza bazą danych SQL nie mogą uczestniczyć w transakcjach elastycznej bazy danych. Oznacza to, że transakcje elastycznej bazy danych nie mogą rozciągać się na lokalnym programie SQL Server i usłudze Azure SQL Database. W przypadku transakcji rozproszonych w środowisku lokalnym należy nadal używać usługi MSDTC. 
-* Obsługiwane są tylko transakcje koordynowane przez klienta z aplikacji .NET. Obsługa po stronie serwera dla T-SQL, takich jak BEGIN DISTRIBUTED TRANSACTION jest planowane, ale nie jest jeszcze dostępna. 
-* Transakcje w usługach WCF nie są obsługiwane. Na przykład masz WCF metody usługi, która wykonuje transakcję. Załączanie wywołania w zakresie transakcji zakończy się niepowodzeniem jako [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
+* Obsługiwane są tylko transakcje między bazami danych w usłudze SQL DB. Inni dostawcy zasobów ( [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) ) i bazy danych poza bazą danych SQL nie mogą uczestniczyć w transakcjach Elastic Database. Oznacza to, że transakcje Elastic Database nie mogą rozciągać się w zależności od SQL Server lokalnych i Azure SQL Database. W przypadku transakcji rozproszonych w środowisku lokalnym Kontynuuj korzystanie z usługi MSDTC. 
+* Obsługiwane są tylko transakcje skoordynowane przez klienta z aplikacji .NET. Obsługa po stronie serwera dla języka T-SQL, taka jak Rozpocznij transakcję rozproszoną, jest planowana, ale nie jest jeszcze dostępna. 
+* Transakcje w ramach usług WCF nie są obsługiwane. Na przykład masz metodę usługi WCF, która wykonuje transakcję. Załączenie wywołania w ramach zakresu transakcji zakończy się niepowodzeniem jako [System. ServiceModel. ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W przypadku pytań, skontaktuj się z nami na [forum bazy danych SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) i dla żądań funkcji, dodaj je do forum opinii bazy danych [SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Aby uzyskać odpowiedzi na pytania, skontaktuj się z nami na [forum SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) i o żądaniach dotyczących funkcji, Dodaj je do [forum SQL Database Opinie](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png

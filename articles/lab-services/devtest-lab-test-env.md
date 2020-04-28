@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z laboratoriów testowych usługi Azure DevTest dla środowisk testowych maszyn wirtualnych i paas | Dokumenty firmy Microsoft
-description: Dowiedz się, jak używać usługi Azure DevTest Labs dla scenariuszy środowiska testowego maszyny Wirtualnej i PaaS.
+title: Używanie Azure DevTest Labs dla środowisk testowych i PaaS Microsoft Docs
+description: Dowiedz się, jak używać Azure DevTest Labs na potrzeby scenariuszy środowiska testowego maszyn wirtualnych i PaaS.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: c6b458091a8e5e22cca55d401e89e5e13bcf9de9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60623186"
 ---
-# <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Korzystanie z laboratoriów testowych usługi Azure DevTest dla środowisk testowych maszyn wirtualnych i paas
+# <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Używanie Azure DevTest Labs dla środowisk testowych i PaaS
 
 Usługi Azure DevTest Labs możesz używać do wdrażania wielu kluczowych scenariuszy, ale podstawowy scenariusz polega na używaniu usługi DevTest Labs do hostowania maszyn dla testerów. 
 
@@ -28,125 +28,125 @@ W tym scenariuszu usługa DevTest Labs zapewnia następujące korzyści:
 
 - Testerzy mogą przetestować najnowszą wersję swoich aplikacji dzięki możliwości szybkiej aprowizacji środowisk systemów Windows i Linux przy użyciu szablonów wielokrotnego użytku i artefaktów.
 - Testerzy mogą skalować w górę swoje testowane obciążenie, aprowizując wielu agentów testowych.
-- Administratorzy mogą kontrolować koszty, zapewniając, że:
-  - Testerzy nie mogą uzyskać więcej maszyn wirtualnych, niż potrzebują.
+- Administratorzy mogą kontrolować koszty, upewniając się, że:
+  - Testerzy nie mogą uzyskać więcej maszyn wirtualnych niż potrzebują.
   - Maszyny wirtualne są zamykane, gdy nie są używane.
 
-![Korzystanie z laboratoriów DevTest do szkolenia](./media/devtest-lab-developer-lab/devtest-lab-developer-lab.png)
+![Korzystanie z DevTest Labs na potrzeby szkoleń](./media/devtest-lab-developer-lab/devtest-lab-developer-lab.png)
 
-W tym artykule dowiesz się o różnych funkcjach programu Azure DevTest Labs używanych do spełnienia wymagań testera i szczegółowych krokach, które należy wykonać w celu skonfigurowania laboratorium.
+Ten artykuł zawiera informacje o różnych funkcjach Azure DevTest Labs używanych do spełnienia wymagań testera i szczegółowych czynności, które należy wykonać w celu skonfigurowania laboratorium.
 
-## <a name="implementing-test-environments-with-azure-devtest-labs"></a>Wdrażanie środowisk testowych za pomocą usługi Azure DevTest Labs
+## <a name="implementing-test-environments-with-azure-devtest-labs"></a>Implementowanie środowisk testowych przy użyciu Azure DevTest Labs
 1. **Tworzenie laboratorium** 
    
-    Laboratoria są punktem wyjścia w laboratorium devtest platformy Azure. Po utworzeniu laboratorium można wykonywać zadania, takie jak dodawanie użytkowników (testerów) do laboratorium, ustawianie zasad kontroli kosztów, definiowanie obrazów maszyn wirtualnych, które można tworzyć szybko i więcej.  
+    Laboratoria są punktem początkowym w Azure DevTest Labs. Po utworzeniu laboratorium można wykonać zadania, takie jak dodawanie użytkowników (testerów) do laboratorium, Ustawianie zasad w celu kontrolowania kosztów, definiowania obrazów maszyn wirtualnych, które mogą szybko tworzyć i nie tylko.  
    
     Dowiedz się więcej, klikając linki w poniższej tabeli:
    
    | Zadanie | Omawiane zagadnienia |
    | --- | --- |
-   | [Tworzenie laboratorium w usłudze Azure DevTest Labs](devtest-lab-create-lab.md) |Dowiedz się, jak utworzyć laboratorium w laboratorium usługi Azure DevTest Labs w witrynie Azure portal. |
-2. **Tworzenie maszyn wirtualnych w ciągu kilku minut przy użyciu gotowych obrazów z portalu Marketplace i obrazów niestandardowych** 
+   | [Tworzenie laboratorium w usłudze Azure DevTest Labs](devtest-lab-create-lab.md) |Dowiedz się, jak utworzyć laboratorium w Azure DevTest Labs w Azure Portal. |
+2. **Tworzenie maszyn wirtualnych w kilka minut przy użyciu gotowych obrazów z portalu Marketplace i obrazów niestandardowych** 
    
-    Możesz wybrać gotowe obrazy z szerokiej gamy obrazów w portalu Azure Marketplace i udostępnić je w laboratorium. Jeśli gotowe obrazy nie spełniają twoich wymagań, możesz utworzyć obraz niestandardowy, tworząc maszynę wirtualną laboratorium przy użyciu gotowego obrazu z witryny Azure Marketplace, instalując całe potrzebne oprogramowanie i zapisując maszynę wirtualną jako obraz niestandardowy w laboratorium.
+    Możesz wybrać gotowe obrazy z wielu obrazów w portalu Azure Marketplace i udostępnić je w laboratorium. Jeśli gotowe obrazy nie spełniają Twoich wymagań, możesz utworzyć niestandardowy obraz, tworząc maszynę wirtualną laboratorium przy użyciu gotowego obrazu z witryny Azure Marketplace, instalując wszystkie wymagane oprogramowanie i zapisując maszynę wirtualną jako obraz niestandardowy w laboratorium.
 
-    Jeśli będziesz używać obrazów niestandardowych, rozważ użycie fabryki obrazów do tworzenia i rozpowszechniania obrazów. Fabryka obrazów to rozwiązanie konfiguracji jako kodu, które regularnie tworzy i dystrybuuje skonfigurowane obrazy automatycznie. Pozwala to zaoszczędzić czas wymagany do ręcznego skonfigurowania systemu po utworzeniu maszyny Wirtualnej z podstawowym systemem operacyjnym.
+    Jeśli będziesz używać obrazów niestandardowych, rozważ użycie fabryki obrazu do tworzenia i dystrybuowania obrazów. Fabryka obrazów to rozwiązanie typu "Konfiguracja jako kod", które regularnie kompiluje i dystrybuuje skonfigurowane obrazy automatycznie. Pozwala to zaoszczędzić czas wymagany do ręcznego skonfigurowania systemu po utworzeniu maszyny wirtualnej przy użyciu podstawowego systemu operacyjnego.
   
     Dowiedz się więcej, klikając linki w poniższej tabeli:
    
    | Zadanie | Omawiane zagadnienia |
    | --- | --- |
-   | [Konfigurowanie obrazów z witryny Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Dowiedz się, jak umieszczać obrazy w portalu Azure Marketplace na białej liście, udostępniając do wyboru tylko te obrazy, które chcesz uzyskać dla testerów.|
-   | [Tworzenie obrazu niestandardowego](devtest-lab-create-template.md) |Utwórz obraz niestandardowy, wstępnie instalując potrzebne oprogramowanie, aby testerzy mogli szybko utworzyć maszynę wirtualną przy użyciu niestandardowego obrazu.|
-   | [Dowiedz się więcej o fabryce obrazów](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Obejrzyj film, w którego opisano sposób konfigurowania fabryki obrazów i korzystania z niej.|
+   | [Konfigurowanie obrazów z witryny Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Dowiedz się, w jaki sposób można dozwolonych obrazy w portalu Azure Marketplace i udostępniać je tylko wybranym dla testerów.|
+   | [Tworzenie obrazu niestandardowego](devtest-lab-create-template.md) |Utwórz niestandardowy obraz, instalując wstępnie wymagane oprogramowanie, dzięki czemu testerzy mogą szybko utworzyć maszynę wirtualną przy użyciu obrazu niestandardowego.|
+   | [Informacje o fabryce obrazu](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Obejrzyj wideo, w którym opisano sposób konfigurowania fabryki obrazów i korzystania z niej.|
 
 3. **Tworzenie szablonów wielokrotnego użytku dla maszyn testowych** 
    
-    Formuła w laboratorium devtest azure to lista wartości właściwości domyślnych używanych do tworzenia maszyny Wirtualnej. Formułę można utworzyć w laboratorium, wybierając obraz, rozmiar maszyny Wirtualnej (kombinację procesora CPU i pamięci RAM) oraz sieć wirtualną. Każdy tester może zobaczyć formułę w laboratorium i użyć jej do utworzenia maszyny Wirtualnej. 
+    Formuła w Azure DevTest Labs jest listą domyślnych wartości właściwości używanych do tworzenia maszyny wirtualnej. Można utworzyć formułę w laboratorium przez wybranie obrazu, rozmiaru maszyny wirtualnej (kombinacji procesora i pamięci RAM) oraz sieci wirtualnej. Każdy tester może zobaczyć formułę w laboratorium i użyć jej do utworzenia maszyny wirtualnej. 
    
     Dowiedz się więcej, klikając linki w poniższej tabeli:
    
    | Zadanie | Omawiane zagadnienia |
    | --- | --- |
-   | [Zarządzanie formułami DevTest Labs w celu tworzenia maszyn wirtualnych](devtest-lab-manage-formulas.md) |Dowiedz się, jak utworzyć formułę, podnosząc obraz, rozmiar maszyny Wirtualnej (kombinacja procesora i pamięci RAM) oraz sieć wirtualną.|
+   | [Zarządzanie formułami DevTest Labs w celu tworzenia maszyn wirtualnych](devtest-lab-manage-formulas.md) |Dowiedz się, jak utworzyć formułę, wybierając obraz, rozmiar maszyny wirtualnej (kombinację procesora CPU i pamięci RAM) oraz sieci wirtualnej.|
 
-3. **Tworzenie środowisk testowych wielu maszyn wirtualnych** 
+3. **Tworzenie środowisk testowych z obsługą wielu maszyn wirtualnych** 
    
-    Za pomocą szablonów usługi Azure Resource Manager można zdefiniować infrastrukturę i konfigurację rozwiązania platformy Azure i wielokrotnie wdrażać wiele testowych maszyn wirtualnych w spójnym stanie.
+    Za pomocą szablonów Azure Resource Manager można zdefiniować infrastrukturę i konfigurację rozwiązania platformy Azure oraz wielokrotnie wdrożyć wiele testowych maszyn wirtualnych w spójnym stanie.
 
-    Zasoby usługi Azure PaaS mogą być aprowistyczne w środowisku za pomocą szablonu Menedżera zasobów i wyświetlane w śledzeniu kosztów. Automatyczne zamykanie maszyny Wirtualnej nie ma jednak zastosowania do zasobów PaaS.
+    Zasoby PaaS platformy Azure mogą być obsługiwane w środowisku z szablonu Menedżer zasobów i pojawiają się w obszarze śledzenia kosztów. Jednak automatyczne zamknięcie maszyny wirtualnej nie dotyczy zasobów PaaS.
 
     Dowiedz się więcej, klikając linki w poniższej tabeli:
    
    | Zadanie | Omawiane zagadnienia |
    | --- | --- |
-   | [Tworzenie środowisk z wieloma maszynami wirtualnymi i zasobów PaaS za pomocą szablonów usługi Azure Resource Manager](devtest-lab-create-environment-from-arm.md) |Dowiedz się, jak wdrożyć wiele maszyn wirtualnych w spójnym stanie dla środowiska testowego.|
+   | [Tworzenie środowisk z wieloma maszynami wirtualnymi i zasobów PaaS za pomocą szablonów usługi Azure Resource Manager](devtest-lab-create-environment-from-arm.md) |Dowiedz się, w jaki sposób można wdrożyć wiele maszyn wirtualnych w spójnym stanie dla środowiska testowego.|
 
-4. **Tworzenie artefaktów w celu umożliwienia elastycznego dostosowywania maszyn wirtualnych**
+4. **Utwórz artefakty umożliwiające elastyczne dostosowywanie maszyny wirtualnej**
 
-   Artefakty są używane do wdrażania i konfigurowania aplikacji po zainicjowaniu obsługi administracyjnej maszyny Wirtualnej. Artefakty mogą być:
+   Artefakty służą do wdrażania i konfigurowania aplikacji po zainicjowaniu obsługi maszyny wirtualnej. Artefakty mogą być następujące:
 
-   - Narzędzia, które chcesz zainstalować na maszynie Wirtualnej — takie jak agenci, Fiddler i Visual Studio.
-   - Akcje, które chcesz uruchomić na maszynie Wirtualnej — takie jak klonowanie repozytorium.
+   - Narzędzia, które chcesz zainstalować na maszynie wirtualnej, takie jak agenci, programu Fiddler i Visual Studio.
+   - Akcje, które mają zostać uruchomione na maszynie wirtualnej, takie jak klonowanie repozytorium.
    - Aplikacje, które chcesz przetestować.
 
-   Wiele artefaktów jest już dostępnych po wyjęciu z pudełka. Jeśli jednak chcesz uzyskać więcej dostosowywania do konkretnych potrzeb, możesz utworzyć własne artefakty niestandardowe.
+   Wiele artefaktów jest już dostępnych jako gotowe do użycia. Ale jeśli potrzebujesz więcej dostosowań dla konkretnych potrzeb, możesz utworzyć własne artefakty niestandardowe.
 
    Dowiedz się więcej, klikając linki w poniższej tabeli:
    
    | Zadanie | Omawiane zagadnienia |
    | --- | --- |
-   | [Tworzenie niestandardowych artefaktów dla maszyny Wirtualnej DevTest Labs](devtest-lab-artifact-author.md) |Tworzenie własnych artefaktów niestandardowych dla maszyn wirtualnych w laboratorium.|
-   | [Dodawanie repozytorium Git do przechowywania artefaktów niestandardowych i szablonów usługi Azure Resource Manager do użycia w laboratoriach usługi Azure DevTest](devtest-lab-add-artifact-repo.md) |Dowiedz się, jak przechowywać niestandardowe artefakty we własnym prywatnym repozytorium Git.|
+   | [Tworzenie niestandardowych artefaktów dla maszyny wirtualnej DevTest Labs](devtest-lab-artifact-author.md) |Utwórz własne artefakty niestandardowe dla maszyn wirtualnych w laboratorium.|
+   | [Dodawanie repozytorium git do przechowywania niestandardowych artefaktów i szablonów Azure Resource Manager do użycia w programie Azure DevTest Labs](devtest-lab-add-artifact-repo.md) |Dowiedz się, jak przechowywać niestandardowe artefakty w swoim prywatnym repozytorium git.|
 
-5. **Kontrola kosztów**
+5. **Kontrolowanie kosztów**
    
-    Usługi Azure DevTest Labs umożliwia ustawienie zasad w laboratorium, aby określić maksymalną liczbę maszyn wirtualnych, które mogą być tworzone przez testera w laboratorium. 
+    Azure DevTest Labs pozwala ustawić zasady w laboratorium, aby określić maksymalną liczbę maszyn wirtualnych, które mogą zostać utworzone przez testera w laboratorium. 
    
-    Jeśli zespół testowy ma ustawiony harmonogram pracy i chcesz zatrzymać wszystkie maszyny wirtualne o określonej porze dnia, a następnie automatycznie ponownie uruchomić je następnego dnia, można łatwo to osiągnąć, ustawiając zasady automatycznego zamykania i automatycznego uruchamiania w laboratorium. 
+    Jeśli zespół testowy ma harmonogram pracy i chcesz zatrzymać wszystkie maszyny wirtualne w określonym czasie dnia, a następnie automatycznie uruchomić je ponownie, można to zrobić, ustawiając zasady automatycznego zamykania i automatycznego uruchamiania w laboratorium. 
    
-    Na koniec po zakończeniu tworzenia aplikacji można usunąć wszystkie maszyny wirtualne naraz, uruchamiając jeden skrypt programu PowerShell. 
+    Na koniec po zakończeniu opracowywania aplikacji można usunąć wszystkie maszyny wirtualne jednocześnie, uruchamiając jeden skrypt programu PowerShell. 
    
     Dowiedz się więcej, klikając linki w poniższej tabeli:
    
    | Zadanie | Omawiane zagadnienia |
    | --- | --- |
    | [Definiowanie zasad laboratorium](devtest-lab-set-lab-policy.md) |Kontroluj koszty, ustawiając zasady w laboratorium. |
-   | [Usuwanie wszystkich maszyn wirtualnych w laboratorium przy użyciu skryptu programu PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Usuń wszystkie laboratoria w jednej operacji po zakończeniu testowania.|
+   | [Usuń wszystkie maszyny wirtualne laboratorium przy użyciu skryptu programu PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Usuń wszystkie laboratoria w ramach jednej operacji, gdy testowanie zostało zakończone.|
 
 1. **Dodawanie sieci wirtualnej do laboratorium** 
    
-    DevTest Labs tworzy nową sieć wirtualną (VNET) za każdym razem, gdy tworzone jest laboratorium. Jeśli skonfigurowano własną sieć wirtualną — na przykład za pomocą usługi ExpressRoute lub sieci VPN lokacji do lokacji — można dodać tę sieć wirtualną do ustawień sieci wirtualnej w laboratorium, tak aby była dostępna podczas tworzenia maszyn wirtualnych.
+    Podczas tworzenia laboratorium DevTest Labs tworzy nową sieć wirtualną (VNET). Jeśli skonfigurowano własną sieć wirtualną — na przykład przy użyciu usługi ExpressRoute lub sieci VPN typu lokacja-lokacja — możesz dodać tę sieć wirtualną do ustawień sieci wirtualnej laboratorium, aby była dostępna podczas tworzenia maszyn wirtualnych.
 
-    Ponadto istnieje artefakt sprzężenia domeny usługi Azure Active Directory, który łączy maszynę wirtualną z domeną podczas tworzenia maszyny wirtualnej. 
+    Ponadto istnieje dostępny Azure Active Directory artefaktu przyłączania do domeny, który przyłącza maszynę wirtualną do domeny podczas tworzenia maszyny wirtualnej. 
    
     Dowiedz się więcej, klikając linki w poniższej tabeli:
    
    | Zadanie | Omawiane zagadnienia |
    | --- | --- |
-   | [Konfigurowanie sieci wirtualnej w laboratorium devtest platformy Azure](devtest-lab-configure-vnet.md) |Dowiedz się, jak skonfigurować sieć wirtualną w laboratorium devtest azure przy użyciu witryny Azure portal.|
+   | [Konfigurowanie sieci wirtualnej w Azure DevTest Labs](devtest-lab-configure-vnet.md) |Dowiedz się, jak skonfigurować sieć wirtualną w Azure DevTest Labs przy użyciu Azure Portal.|
 
-6. **Udostępnianie laboratorium każdemu testerowi**
+6. **Udostępnij laboratorium każdemu testerowi**
    
-    Labs można uzyskać bezpośrednio za pomocą łącza, które można udostępnić testerom. Nie muszą nawet mieć konta platformy Azure, o ile mają [konto Microsoft.](devtest-lab-faq.md#what-is-a-microsoft-account) Testerzy nie widzą maszyn wirtualnych utworzonych przez innych testerów.  
+    Do laboratoriów można uzyskać dostęp bezpośrednio przy użyciu linku współużytkowanego z testerami. Nie muszą oni nawet mieć konta platformy Azure, o ile ma [konto Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account). Testerzy nie mogą zobaczyć maszyn wirtualnych utworzonych przez innych testerów.  
    
     Dowiedz się więcej, klikając linki w poniższej tabeli:
    
    | Zadanie | Omawiane zagadnienia |
    | --- | --- |
-   | [Dodawanie testera do laboratorium w laboratorium usługi Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Użyj witryny Azure portal, aby dodać testerów do laboratorium.|
-   | [Dodawanie testerów do laboratorium przy użyciu skryptu programu PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Użyj programu PowerShell, aby zautomatyzować dodawanie testerów do laboratorium. |
-   | [Uzyskaj link do laboratorium](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Dowiedz się, jak testerzy mogą bezpośrednio uzyskiwać dostęp do laboratorium za pośrednictwem hiperłącza.|
+   | [Dodawanie testera do laboratorium w Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Użyj Azure Portal, aby dodać testerów do laboratorium.|
+   | [Dodawanie testerów do laboratorium przy użyciu skryptu programu PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Za pomocą programu PowerShell można zautomatyzować Dodawanie testerów do laboratorium. |
+   | [Uzyskaj link do laboratorium](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Dowiedz się, w jaki sposób testerzy mogą bezpośrednio uzyskiwać dostęp do laboratorium za pośrednictwem hiperlinku.|
 
-7. **Automatyzacja tworzenia laboratorium dla większej liczby zespołów** 
+7. **Automatyzowanie tworzenia laboratorium dla większej liczby zespołów** 
    
-    Tworzenie laboratorium, w tym ustawienia niestandardowe, można zautomatyzować, tworząc szablon Menedżera zasobów i używając go do tworzenia identycznych laboratoriów wielokrotnie. 
+    Możesz zautomatyzować tworzenie laboratorium, w tym ustawienia niestandardowe, tworząc szablon Menedżer zasobów i używając go do ponownego tworzenia identycznych laboratoriów. 
    
     Dowiedz się więcej, klikając linki w poniższej tabeli:
    
    | Zadanie | Omawiane zagadnienia |
    | --- | --- |
-   | [Tworzenie laboratorium przy użyciu szablonu Menedżera zasobów](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Tworzenie laboratoriów w laboratoriach devtest platformy Azure przy użyciu szablonów Menedżera zasobów. |
+   | [Tworzenie laboratorium przy użyciu szablonu Menedżer zasobów](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Twórz laboratoria w Azure DevTest Labs przy użyciu szablonów Menedżer zasobów. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

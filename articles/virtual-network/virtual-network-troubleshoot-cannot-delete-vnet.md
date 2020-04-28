@@ -1,5 +1,5 @@
 ---
-title: Nie można usunąć sieci wirtualnej na platformie Azure | Dokumenty firmy Microsoft
+title: Nie można usunąć sieci wirtualnej na platformie Azure | Microsoft Docs
 description: Dowiedz się, jak rozwiązać problem polegający na tym, że nie można usunąć sieci wirtualnej na platformie Azure.
 services: virtual-network
 documentationcenter: na
@@ -15,82 +15,82 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 2d427a8b40fcb537801ce76aae6bc32fcda3a307
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71056921"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Rozwiązywanie problemów: nie można usunąć sieci wirtualnej na platformie Azure
 
-Podczas próby usunięcia sieci wirtualnej na platformie Microsoft Azure mogą pojawić się błędy. Ten artykuł zawiera kroki rozwiązywania problemów ułatwiające rozwiązanie tego problemu. 
+Podczas próby usunięcia sieci wirtualnej w Microsoft Azure mogą pojawić się błędy. W tym artykule opisano kroki rozwiązywania problemów, które ułatwiają rozwiązanie tego problemu. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="troubleshooting-guidance"></a>Wskazówki dotyczące rozwiązywania problemów 
 
-1. [Sprawdź, czy brama sieci wirtualnej jest uruchomiona w sieci wirtualnej](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
-2. [Sprawdź, czy brama aplikacji jest uruchomiona w sieci wirtualnej](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
-3. [Sprawdź, czy usługa domenowa Active Directory azure jest włączona w sieci wirtualnej](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
+1. [Sprawdź, czy Brama sieci wirtualnej jest uruchomiona w sieci wirtualnej](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
+2. [Sprawdź, czy Brama aplikacji jest uruchomiona w sieci wirtualnej](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
+3. [Sprawdź, czy w sieci wirtualnej jest włączona usługa Azure Active Directory Domain](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
 4. [Sprawdź, czy sieć wirtualna jest połączona z innym zasobem](#check-whether-the-virtual-network-is-connected-to-other-resource).
 5. [Sprawdź, czy maszyna wirtualna jest nadal uruchomiona w sieci wirtualnej](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
-6. [Sprawdź, czy sieć wirtualna utknęła w migracji](#check-whether-the-virtual-network-is-stuck-in-migration).
+6. [Sprawdź, czy sieć wirtualna jest zablokowana](#check-whether-the-virtual-network-is-stuck-in-migration).
 
 ## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 
-### <a name="check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network"></a>Sprawdzanie, czy brama sieci wirtualnej jest uruchomiona w sieci wirtualnej
+### <a name="check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network"></a>Sprawdź, czy Brama sieci wirtualnej jest uruchomiona w sieci wirtualnej
 
 Aby usunąć sieć wirtualną, należy najpierw usunąć bramę sieci wirtualnej.
 
-W przypadku klasycznych sieci wirtualnych przejdź do strony **Przegląd** klasycznej sieci wirtualnej w witrynie Azure portal. W sekcji **Połączenia sieci VPN,** jeśli brama jest uruchomiona w sieci wirtualnej, zostanie wyświetlony adres IP bramy. 
+W przypadku klasycznych sieci wirtualnych przejdź do strony **Przegląd** klasycznej sieci wirtualnej w Azure Portal. Jeśli Brama jest uruchomiona w sieci wirtualnej, w sekcji **połączenia sieci VPN** zostanie wyświetlony adres IP bramy. 
 
-![Sprawdzanie, czy brama jest uruchomiona](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
+![Sprawdź, czy brama jest uruchomiona](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
-W przypadku sieci wirtualnych przejdź do strony **Przegląd** sieci wirtualnej. Sprawdź, **czy podłączone urządzenia** nie mają bramy sieci wirtualnej.
+W przypadku sieci wirtualnych przejdź do strony **Przegląd** sieci wirtualnej. Sprawdź **połączone urządzenia** dla bramy sieci wirtualnej.
 
-![Sprawdź podłączone urządzenie](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+![Sprawdź połączone urządzenie](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
-Zanim usuniesz bramę, najpierw usuń wszystkie obiekty **Połączenia** w bramie. 
+Przed usunięciem bramy należy najpierw usunąć wszystkie obiekty **połączenia** w bramie. 
 
-### <a name="check-whether-an-application-gateway-is-running-in-the-virtual-network"></a>Sprawdzanie, czy brama aplikacji jest uruchomiona w sieci wirtualnej
+### <a name="check-whether-an-application-gateway-is-running-in-the-virtual-network"></a>Sprawdź, czy Brama aplikacji jest uruchomiona w sieci wirtualnej
 
-Przejdź do strony **Przegląd** sieci wirtualnej. Sprawdź, czy masz dostęp do bramy **aplikacji.**
+Przejdź do strony **Przegląd** sieci wirtualnej. Sprawdź **podłączone urządzenia** dla bramy aplikacji.
 
-![Sprawdź podłączone urządzenie](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![Sprawdź połączone urządzenie](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
-Jeśli istnieje brama aplikacji, należy ją usunąć, zanim będzie można usunąć sieć wirtualną.
+Jeśli istnieje Brama aplikacji, należy ją usunąć przed usunięciem sieci wirtualnej.
 
-### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Sprawdzanie, czy usługa domenowa Active Directory platformy Azure jest włączona w sieci wirtualnej
+### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Sprawdź, czy w sieci wirtualnej jest włączona usługa Azure Active Directory Domain
 
-Jeśli usługa domenowa Active Directory jest włączona i połączona z siecią wirtualną, nie można usunąć tej sieci wirtualnej. 
+Jeśli usługa domena usługi Active Directory jest włączona i połączona z siecią wirtualną, nie można usunąć tej sieci wirtualnej. 
 
-![Sprawdź podłączone urządzenie](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
+![Sprawdź połączone urządzenie](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Aby wyłączyć usługę, zobacz [Wyłączanie usług domenowych Active Directory platformy Azure przy użyciu witryny Azure portal](../active-directory-domain-services/delete-aadds.md).
+Aby wyłączyć usługę, zobacz temat [wyłączanie Azure Active Directory Domain Services przy użyciu Azure Portal](../active-directory-domain-services/delete-aadds.md).
 
-### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Sprawdzanie, czy sieć wirtualna jest połączona z innym zasobem
+### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Sprawdź, czy sieć wirtualna jest połączona z innym zasobem
 
-Sprawdź, czy łącza obwodów, połączenia i komunikacja równorzędna sieci wirtualnej. Każda z nich może spowodować niepowodzenie usuwania sieci wirtualnej. 
+Sprawdź, czy istnieją linki obwodów, połączenia i Komunikacja równorzędna sieci wirtualnych. Którekolwiek z nich może spowodować niepowodzenie usuwania sieci wirtualnej. 
 
 Zalecana kolejność usuwania jest następująca:
 
 1. Połączenia bramy
 2. Bramy
-3. Ips
-4. Komunikacja równorzędna sieci wirtualnej
-5. Środowisko usługi aplikacji (ASE)
+3. Adresy IP
+4. Wirtualne sieci równorzędne
+5. App Service Environment (ASE)
 
-### <a name="check-whether-a-virtual-machine-is-still-running-in-the-virtual-network"></a>Sprawdzanie, czy maszyna wirtualna jest nadal uruchomiona w sieci wirtualnej
+### <a name="check-whether-a-virtual-machine-is-still-running-in-the-virtual-network"></a>Sprawdź, czy maszyna wirtualna jest nadal uruchomiona w sieci wirtualnej
 
 Upewnij się, że żadna maszyna wirtualna nie znajduje się w sieci wirtualnej.
 
-### <a name="check-whether-the-virtual-network-is-stuck-in-migration"></a>Sprawdzanie, czy sieć wirtualna utknęła w migracji
+### <a name="check-whether-the-virtual-network-is-stuck-in-migration"></a>Sprawdź, czy sieć wirtualna jest zablokowana
 
-Jeśli sieć wirtualna utknęła w stanie migracji, nie można jej usunąć. Uruchom następujące polecenie, aby przerwać migrację, a następnie usuń sieć wirtualną.
+Jeśli sieć wirtualna jest zablokowana w stanie migracji, nie można jej usunąć. Uruchom następujące polecenie, aby przerwać migrację, a następnie usuń sieć wirtualną.
 
     Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wirtualna sieć platformy Azure](virtual-networks-overview.md)
+- [Virtual Network platformy Azure](virtual-networks-overview.md)
 - [Często zadawane pytania dotyczące sieci wirtualnych platformy Azure](virtual-networks-faq.md)

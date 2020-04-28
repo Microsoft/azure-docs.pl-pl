@@ -1,6 +1,6 @@
 ---
-title: Zabezpieczenia fizyczne modułu HSM — dedykowany moduł HSM platformy Azure | Dokumenty firmy Microsoft
-description: Informacje o fizycznym bezpieczeństwie urządzeń HSM dedykowanych platformy Azure w centrach danych
+title: Zabezpieczenia fizyczne modułu HSM — dedykowany moduł HSM platformy Azure | Microsoft Docs
+description: Informacje o zabezpieczeniach fizycznych urządzeń z dedykowanym modułem HSM platformy Azure w centrach danych
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -13,50 +13,50 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70881032"
 ---
-# <a name="azure-dedicated-hsm-physical-security"></a>Zabezpieczenia fizyczne dedykowanego modułu HSM platformy Azure
+# <a name="azure-dedicated-hsm-physical-security"></a>Dedykowane zabezpieczenia fizyczne modułu HSM platformy Azure
 
-Dedykowany moduł HSM platformy Azure pomaga spełnić zaawansowane wymagania dotyczące zabezpieczeń magazynu kluczy. Jest zarządzany zgodnie z rygorystycznymi praktykami bezpieczeństwa w całym cyklu życia, aby zaspokoić potrzeby klientów.
+Dedykowany moduł HSM platformy Azure pomaga spełnić zaawansowane wymagania dotyczące zabezpieczeń dla magazynu kluczy. Jest on zarządzany zgodnie ze ścisłymi praktykami w zakresie zabezpieczeń w całym cyklu życia, aby zaspokoić potrzeby klientów.
 
-## <a name="security-through-procurement"></a>Bezpieczeństwo dzięki zaopatrzeniu
+## <a name="security-through-procurement"></a>Zabezpieczenia za poorednictwem zakupów
 
-Firma Microsoft śledzi proces bezpiecznego zaopatrzenia. Zarządzamy łańcuchem opieki i zapewniamy, że konkretne urządzenie zamówione i wysłane jest urządzeniem docierającym do naszych centrów danych. Urządzenia znajdują się w plastikowych plecach typu manipulacje. Są one przechowywane w bezpiecznym miejscu do momentu uruchomienia w galerii danych centrum danych.  Stojaki zawierające urządzenia HSM są uważane za duży wpływ na działalność (HBI). Urządzenia są zablokowane i pod nadzorem wideo przez cały czas z przodu i z tyłu.
+Firma Microsoft postępuje zgodnie z bezpiecznym procesem zaopatrzenia. Zarządzamy łańcuchem opieki i upewnij się, że określone urządzenie zostało uporządkowane i dostarczone, gdy urządzenie dociera do naszych centrów danych. Urządzenia znajdują się w odwrocie do zdarzeń z tworzywa sztucznego. Są one przechowywane w bezpiecznym obszarze magazynu, dopóki nie zostaną przełączone do galerii danych centrum danych.  Stojaki zawierające urządzenia HSM są uważane za duże znaczenie biznesowe (HBI). Urządzenia są zablokowane i pod nadzorem wideo przez cały czas i z tyłu.
 
-## <a name="security-through-deployment"></a>Bezpieczeństwo dzięki wdrożeniu
+## <a name="security-through-deployment"></a>Zabezpieczenia przy użyciu wdrożenia
 
-Moduły HSM są instalowane w stojakach wraz z powiązanymi składnikami sieciowymi. Po zainstalowaniu muszą być skonfigurowane, zanim zostaną udostępnione jako część usługi Azure Dedicated HSM. To działanie konfiguracji jest wykonywane przez pracowników firmy Microsoft, którzy przeszli sprawdzanie w tle. Administracja "Just In Time" (JIT) służy do ograniczania dostępu tylko do odpowiednich pracowników i tylko przez czas, w którego dostęp jest potrzebny. Procedury i systemy również zapewnić, że wszystkie działania związane z urządzeniami HSM jest rejestrowany.
+Sprzętowych modułów zabezpieczeń są instalowane w stojakach wraz ze skojarzonymi składnikami sieciowymi. Po zainstalowaniu należy je skonfigurować przed udostępnieniem ich jako części dedykowanej usługi HSM platformy Azure. To działanie konfiguracyjne jest wykonywane przez pracowników firmy Microsoft, którzy zostali poddaną kontroli w tle. Administracja "just in Time" (JIT) służy do ograniczania dostępu tylko do odpowiednich pracowników i tylko wtedy, gdy wymagany jest dostęp. Używane procedury i systemy zapewniają również, że wszystkie działania związane z urządzeniami HSM są rejestrowane.
 
-## <a name="security-in-operations"></a>Bezpieczeństwo w operacjach
+## <a name="security-in-operations"></a>Zabezpieczenia w operacjach
 
-Moduły HSM są urządzeniami sprzętowymi (rzeczywisty moduł HSM jest kartą PCI w urządzeniu), więc możliwe jest, że mogą wystąpić problemy z poziomem komponentu. Potencjalne problemy obejmują między innymi awarie wentylatorów i zasilaczy. Ten typ zdarzenia będzie wymagać konserwacji lub przerwy / naprawy działania, aby zastąpić wszelkie składniki wymienialne.
+Sprzętowych modułów zabezpieczeń są urządzeniami sprzętowymi (rzeczywistym modułem HSM w urządzeniu), dzięki czemu możliwe jest, że mogą wystąpić problemy na poziomie składnika. Potencjalne problemy obejmują między innymi awarie wentylatorów i zasilaczy. Ten typ zdarzenia wymaga konserwacji lub przerwania/naprawy, aby zastąpić wszelkie wymieniane składniki.
 
-### <a name="component-replacement"></a>Wymiana komponentów
+### <a name="component-replacement"></a>Zastąpienie składnika
 
-Po udostępnienie urządzenia i pod zarządzaniem klientem, zasilacz z możliwością wymiany podczas pracy jest jedynym składnikiem, które zostaną zastąpione. Ten składnik znajduje się poza granicą zabezpieczeń i nie powoduje zdarzenia sabotażu. System sprzedaży biletów służy do autoryzowania inżyniera firmy Microsoft w celu uzyskania dostępu do tylnej części stelaża HBI. Podczas przetwarzania biletu wystawiany jest tymczasowy klucz fizyczny. Ten klucz daje inżynierowi dostęp do urządzenia i umożliwia im wymianę składnika, którego dotyczy problem. Każdy inny dostęp (czyli spowodowanie zdarzenia sabotażu) zostanie wykonany, gdy urządzenie nie zostanie przydzielone klientowi, minimalizując w ten sposób ryzyko bezpieczeństwa i dostępności.  
+Po zainicjowaniu obsługi urządzenia i w obszarze zarządzania klientami można wymienić tylko te składniki. Ten składnik znajduje się poza granicą zabezpieczeń i nie powoduje naruszenia zdarzenia. System obsługi biletów służy do autoryzowania inżyniera firmy Microsoft w celu uzyskania dostępu do tyłu stojaka HBI. Po przetworzeniu biletu zostanie wystawiony tymczasowy klucz fizyczny. Ten klucz zapewnia inżynierowi dostęp do urządzenia i umożliwia im wymianę składnika, którego to dotyczy. Każdy inny dostęp (to znaczy spowodowanie naruszenia zdarzenia) zostałby wykonany, gdy urządzenie nie zostanie przydzielono klientowi, co minimalizuje ryzyko związane z bezpieczeństwem i dostępnością.  
 
-### <a name="device-replacement"></a>Wymiana urządzenia
+### <a name="device-replacement"></a>Zastępowanie urządzenia
 
-W przypadku całkowitej awarii urządzenia jest przestrzegany proces podobny do tego, który jest używany podczas awarii składnika. Jeśli klient nie jest w stanie zerować urządzenia lub urządzenie jest w nieznanym stanie, urządzenia z łożyskiem danych zostaną usunięte i umieszczone w pojemniku do niszczenia w stojaku. Urządzenia umieszczone w koszu zostaną zniszczone w sposób kontrolowany i bezpieczny. Żadne urządzenia z danymi z stelaża HBI nie pozostawią centrum danych firmy Microsoft.
+W przypadku łącznego błędu urządzenia następuje proces podobny do tego, który jest używany podczas awarii składnika. Jeśli klient nie może zeroize urządzenia lub urządzenie jest w nieznanym stanie, urządzenia z danymi zostaną usunięte i umieszczone w pojemniku niszczenia w stojaku. Urządzenia umieszczone w pojemniku zostaną zniszczone w sposób kontrolowany i bezpieczny. Żadne urządzenia z danymi z stojaka HBI nie opuszczą centrum danych firmy Microsoft.
 
-### <a name="other-rack-access-activities"></a>Inne działania związane z dostępem do szafy rack
+### <a name="other-rack-access-activities"></a>Inne działania dotyczące dostępu do stojaka
 
-Jeśli inżynier firmy Microsoft musi uzyskać dostęp do stelaża używanego przez urządzenia HSM (na przykład konserwacja urządzeń sieciowych), w celu uzyskania dostępu do bezpiecznego stelaża HBI zostaną użyte standardowe procedury zabezpieczeń. Dostęp do nich będzie podlegał nadzorowi wideo. Urządzenia HSM są weryfikowane zgodnie [z poziomem 3 FIPS 140-2,](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf) więc każdy nieautoryzowany dostęp do urządzeń HSM zostanie zasygnalizowany klientowi, a dane zostaną zerowane.
+Jeśli inżynier firmy Microsoft musi uzyskać dostęp do stojaka używanego przez urządzenia HSM (na przykład konserwacja urządzenia sieciowego), w celu uzyskania dostępu do HBI bezpiecznego stojaka zostaną użyte standardowe procedury zabezpieczeń. Cały dostęp będzie objęty nadzorem wideo. Urządzenia HSM są weryfikowane na [poziomie standardu FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf) , dzięki czemu każdy nieautoryzowany dostęp do urządzeń HSM zostanie zasygnalizowane klientowi, a dane zostaną wyzerowane.
 
 ## <a name="logical-level-security-considerations"></a>Zagadnienia dotyczące zabezpieczeń na poziomie logicznym
 
-Moduły HSM są aprowidzone do sieci wirtualnej utworzonej przez klienta. Jest to prywatna przestrzeń adresowa IUP klienta.  Ta konfiguracja zapewnia cenne izolacji poziom sieci logicznej i zapewnia dostęp tylko przez klienta. Oznacza to, że wszystkie kontrole zabezpieczeń poziomu logicznego są obowiązkiem klienta.
+Sprzętowych modułów zabezpieczeń są obsługiwane w sieci wirtualnej utworzonej przez klienta. To jest prywatna przestrzeń adresowa IUP klienta.  Ta konfiguracja zapewnia cenną izolację poziomu sieci logicznej i zapewnia dostęp tylko dla klienta. Wynika to z tego, że wszystkie kontrole zabezpieczeń na poziomie logicznym są odpowiedzialne za klienta.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zaleca się, aby wszystkie kluczowe pojęcia usługi, takie jak wysoka dostępność i zabezpieczenia i możliwości obsługi, na przykład, są dobrze rozumiane przed inicjowania obsługi administracyjnej urządzenia, projektowania aplikacji lub wdrażania.
+Zaleca się, aby wszystkie kluczowe pojęcia dotyczące usługi, takie jak wysoka dostępność i bezpieczeństwo i możliwości obsługi, były dobrze zrozumiałe przed zainicjowaniem obsługi urządzeń, projektem lub wdrożeniem aplikacji.
 
 * [Wysoka dostępność](high-availability.md)
-* [Obsługa sieci](networking.md)
+* [Networking](networking.md)
 * [Możliwości obsługi](supportability.md)
-* [Monitorowania](monitoring.md)
-* [Architektura wdrażania](deployment-architecture.md)
+* [Monitorowanie](monitoring.md)
+* [Architektura wdrożenia](deployment-architecture.md)

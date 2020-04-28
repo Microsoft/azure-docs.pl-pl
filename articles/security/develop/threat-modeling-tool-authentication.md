@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 1bef73e6be4bdbe8828e1d20ea6e684759984627
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72244629"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Ramka zabezpieczeń: uwierzytelnianie | Środki zaradcze 
@@ -38,7 +38,7 @@ ms.locfileid: "72244629"
 | **Azure AD** | <ul><li>[Używaj standardowych scenariuszy uwierzytelniania obsługiwanych przez Azure Active Directory](#authn-aad)</li><li>[Zastąp domyślną pamięć podręczną tokenów ADAL skalowalną alternatywą](#adal-scalable)</li><li>[Upewnij się, że TokenReplayCache jest używany do zapobiegania powtarzaniu tokenów uwierzytelniania ADAL](#tokenreplaycache-adal)</li><li>[Korzystanie z bibliotek ADAL do zarządzania żądaniami tokenów od klientów OAuth2 do usługi AAD (lub w lokalnej usłudze AD)](#adal-oauth2)</li></ul> |
 | **Brama pola IoT** | <ul><li>[Uwierzytelnianie urządzeń łączących się z bramą pola](#authn-devices-field)</li></ul> |
 | **Brama usługi IoT Cloud** | <ul><li>[Upewnij się, że urządzenia łączące się z bramą w chmurze są uwierzytelniane](#authn-devices-cloud)</li><li>[Użyj poświadczeń uwierzytelniania dla urządzenia](#authn-cred)</li></ul> |
-| **Azure Storage** | <ul><li>[Upewnij się, że tylko wymagane kontenery i obiekty blob mają anonimowy dostęp do odczytu](#req-containers-anon)</li><li>[Udzielanie ograniczonego dostępu do obiektów w usłudze Azure Storage przy użyciu SAS lub SAP](#limited-access-sas)</li></ul> |
+| **Usługa Azure Storage** | <ul><li>[Upewnij się, że tylko wymagane kontenery i obiekty blob mają anonimowy dostęp do odczytu](#req-containers-anon)</li><li>[Udzielanie ograniczonego dostępu do obiektów w usłudze Azure Storage przy użyciu SAS lub SAP](#limited-access-sas)</li></ul> |
 
 ## <a name="consider-using-a-standard-authentication-mechanism-to-authenticate-to-web-application"></a><a id="standard-authn-web-app"></a>Rozważ użycie standardowego mechanizmu uwierzytelniania do uwierzytelniania w aplikacji sieci Web
 

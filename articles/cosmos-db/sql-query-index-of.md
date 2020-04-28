@@ -1,6 +1,6 @@
 ---
-title: INDEX_OF w języku zapytań usługi Azure Cosmos DB
-description: Dowiedz się więcej o INDEX_OF funkcji systemu SQL w usłudze Azure Cosmos DB.
+title: INDEX_OF w języku zapytań Azure Cosmos DB
+description: Dowiedz się więcej na temat funkcji systemu SQL INDEX_OF w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 50e489fdf57398d486b07944782ecbb3fd1d6a43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71350992"
 ---
-# <a name="index_of-azure-cosmos-db"></a>INDEX_OF (Usługa Azure Cosmos DB)
+# <a name="index_of-azure-cosmos-db"></a>INDEX_OF (Azure Cosmos DB)
  Zwraca pozycję początkową pierwszego wystąpienia drugiego ciągu wyrażenia w ramach pierwszego określonego wyrażenia ciągu lub wartość -1, jeśli ciąg nie zostanie znaleziony.  
   
 ## <a name="syntax"></a>Składnia
@@ -26,20 +26,20 @@ INDEX_OF(<str_expr1>, <str_expr2> [, <numeric_expr>])
 ## <a name="arguments"></a>Argumenty
   
 *str_expr1*  
-   Jest wyrażeniem ciągu, które ma być przeszukiwane.  
+   Jest wyrażeniem ciągu do przeszukania.  
   
 *str_expr2*  
-   Jest wyrażeniem ciągu do wyszukania.  
+   Jest wyrażeniem ciągu, które ma zostać wyszukane.  
 
-*numeric_expr* Opcjonalne wyrażenie liczbowe, które ustawia pozycję, w której rozpocznie się wyszukiwanie. Pierwsza pozycja w *str_expr1* wynosi 0. 
+*numeric_expr* Opcjonalne wyrażenie liczbowe ustawiające pozycję, o której rozpocznie się wyszukiwanie. Pierwsza pozycja w *str_expr1* jest równa 0. 
   
-## <a name="return-types"></a>Typy zwrotów
+## <a name="return-types"></a>Typy zwracane
   
   Zwraca wyrażenie liczbowe.  
   
 ## <a name="examples"></a>Przykłady
   
-  Poniższy przykład zwraca indeks różnych podciągów wewnątrz "abc".  
+  Poniższy przykład zwraca indeks różnych podciągów w ciągu "ABC".  
   
 ```sql
 SELECT INDEX_OF("abc", "ab") AS i1, INDEX_OF("abc", "b") AS i2, INDEX_OF("abc", "c") AS i3 
@@ -53,6 +53,6 @@ SELECT INDEX_OF("abc", "ab") AS i1, INDEX_OF("abc", "b") AS i2, INDEX_OF("abc", 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Funkcje ciągów usługi Azure Cosmos DB](sql-query-string-functions.md)
-- [Funkcje systemowe Usługi Azure Cosmos DB](sql-query-system-functions.md)
+- [Azure Cosmos DB funkcje ciągów](sql-query-string-functions.md)
+- [Azure Cosmos DB funkcje systemowe](sql-query-system-functions.md)
 - [Wprowadzenie do usługi Azure Cosmos DB](introduction.md)

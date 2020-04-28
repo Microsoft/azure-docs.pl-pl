@@ -1,6 +1,6 @@
 ---
-title: Ocenianie dużej liczby maszyn wirtualnych funkcji Hyper V w celu migracji na platformę Azure za pomocą usługi Azure Migrate | Dokumenty firmy Microsoft
-description: W tym artykule opisano sposób oceny dużej liczby maszyn wirtualnych funkcji Hyper-V do migracji na platformę Azure przy użyciu usługi Azure Migrate.
+title: Ocenianie dużej liczby maszyn wirtualnych funkcji Hyper-V na potrzeby migracji na platformę Azure za pomocą Azure Migrate | Microsoft Docs
+description: Opisuje sposób oceny dużej liczby maszyn wirtualnych funkcji Hyper-V na potrzeby migracji na platformę Azure przy użyciu usługi Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
@@ -8,81 +8,81 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
 ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70279437"
 ---
-# <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Ocena dużej liczby maszyn wirtualnych funkcji Hyper-V w celu migracji na platformę Azure
+# <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Ocenianie dużej liczby maszyn wirtualnych funkcji Hyper-V na potrzeby migracji na platformę Azure
 
-W tym artykule opisano sposób oceny dużej liczby lokalnych maszyn wirtualnych funkcji Hyper V do migracji na platformę Azure przy użyciu narzędzia oceny migracji serwera azure.
+W tym artykule opisano sposób oceny dużej liczby lokalnych maszyn wirtualnych funkcji Hyper-V na potrzeby migracji na platformę Azure przy użyciu narzędzia do oceny serwera Azure Migrate.
 
-[Usługa Azure Migrate](migrate-services-overview.md) udostępnia centrum narzędzi ułatwiających odnajdywanie, ocenę i migrację aplikacji, infrastruktury i obciążeń na platformę Microsoft Azure. Centrum zawiera narzędzia migracji platformy Azure i oferty niezależnych dostawców oprogramowania innych firm (ISV). 
+[Azure Migrate](migrate-services-overview.md) udostępnia centrum narzędzi, które ułatwiają odnajdywanie, ocenianie i Migrowanie aplikacji, infrastruktury i obciążeń do Microsoft Azure. Centrum obejmuje narzędzia Azure Migrate i oferty niezależnych dostawców oprogramowania (ISV) innych firm. 
 
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 > [!div class="checklist"]
-> * Plan oceny na dużą skalę.
-> * Skonfiguruj uprawnienia platformy Azure i przygotuj funkcji Hyper-V do oceny.
-> * Utwórz projekt migracji platformy Azure i utwórz ocenę.
-> * Przejrzyj ocenę zgodnie z planem migracji.
+> * Zaplanuj ocenę na dużą skalę.
+> * Konfigurowanie uprawnień platformy Azure i przygotowanie funkcji Hyper-V do oceny.
+> * Utwórz projekt Azure Migrate i Utwórz ocenę.
+> * Zapoznaj się z oceną zgodnie z planem migracji.
 
 
 > [!NOTE]
-> Jeśli chcesz wypróbować dowód koncepcji, aby ocenić kilka maszyn wirtualnych przed oceną na dużą skalę, postępuj zgodnie z naszą [serią samouczków](tutorial-prepare-hyper-v.md)
+> Jeśli chcesz wypróbować ocenę koncepcji, aby ocenić kilka maszyn wirtualnych przed oceną na dużą skalę, postępuj zgodnie z naszymi [seriami samouczków](tutorial-prepare-hyper-v.md)
 
-## <a name="plan-for-assessment"></a>Plan oceny
+## <a name="plan-for-assessment"></a>Planowanie oceny
 
-Podczas planowania oceny dużej liczby maszyn wirtualnych funkcji Hyper-V, istnieje kilka rzeczy, o których trzeba pomyśleć:
+Planując ocenę dużej liczby maszyn wirtualnych funkcji Hyper-V, istnieje kilka rzeczy, które należy wziąć pod uwagę:
 
-- **Planowanie projektów migracji platformy Azure:** dowiedz się, jak wdrożyć projekty migracji platformy Azure. Jeśli na przykład centra danych znajdują się w różnych lokalizacjach geograficznych lub musisz przechowywać metadane odnajdywania, oceny lub migracji w innej lokalizacji geograficznej, może być konieczne wiele projektów.
-- **Planowanie urządzeń:** Usługa Azure Migrate używa lokalnego urządzenia migracji platformy Azure, wdrożonego jako maszyna wirtualna funkcji Hyper-V, do ciągłego odnajdywania maszyn wirtualnych do oceny i migracji. Urządzenie monitoruje zmiany w środowisku, takie jak dodawanie maszyn wirtualnych, dysków lub kart sieciowych. Wysyła również metadane i dane dotyczące wydajności na ich temat na platformie Azure. Musisz dowiedzieć się, ile urządzeń do wdrożenia.
+- **Planowanie Azure Migrate projektów**: informacje na temat wdrażania projektów Azure Migrate. Na przykład jeśli centra danych znajdują się w różnych lokalizacje geograficzneach lub chcesz przechowywać metadane związane z odnajdywaniem, oceną lub migracją w innej lokalizacji geograficznej, może być konieczne przeprowadzenie wielu projektów.
+- **Planowanie urządzeń**: Azure Migrate używa lokalnego urządzenia Azure Migrate, wdrożonego jako maszyna wirtualna funkcji Hyper-V, w celu ciągłego odnajdywania maszyn wirtualnych na potrzeby oceny i migracji. Urządzenie monitoruje zmiany środowiska, takie jak dodawanie maszyn wirtualnych, dysków lub kart sieciowych. Wysyła również metadane i dane dotyczące wydajności na platformie Azure. Należy ustalić liczbę urządzeń do wdrożenia.
 
 
 ## <a name="planning-limits"></a>Limity planowania
  
-Użyj limitów podsumowanych w tej tabeli do planowania.
+Użyj limitów podsumowania w tej tabeli w celu zaplanowania.
 
-**Planowania** | **Limity**
+**Planowanie** | **Limity**
 --- | --- 
-**Projekty migracji platformy Azure** | Ocena do 35 000 maszyn wirtualnych w projekcie.
-**Urządzenie usługi Azure Migrate** | Urządzenie może wykryć do 5000 maszyn wirtualnych.<br/> Urządzenie może łączyć się z maksymalnie 300 hostami funkcji Hyper-V.<br/> Urządzenie można skojarzyć tylko z jednym projektem migracji platformy Azure.<br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem migracji platformy Azure. <br/><br/> 
-**Grupa** | W jednej grupie można dodać maksymalnie 35 000 maszyn wirtualnych.
-**Ocena migracji platformy Azure** | W jednej ocenie można ocenić do 35 000 maszyn wirtualnych.
+**Projekty Azure Migrate** | Oceń do 35 000 maszyn wirtualnych w projekcie.
+**Urządzenie usługi Azure Migrate** | Urządzenie może wykryć do 5000 maszyn wirtualnych.<br/> Urządzenie może połączyć się z maksymalnie 300 hostami funkcji Hyper-V.<br/> Urządzenie może być skojarzone tylko z pojedynczym projektem Azure Migrate.<br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem Azure Migrate. <br/><br/> 
+**Grupa** | W jednej grupie możesz dodać maksymalnie 35 000 maszyn wirtualnych.
+**Ocena Azure Migrate** | W ramach jednej oceny można ocenić do 35 000 maszyn wirtualnych.
 
 
 
-## <a name="other-planning-considerations"></a>Inne kwestie związane z planowaniem
+## <a name="other-planning-considerations"></a>Inne zagadnienia związane z planowaniem
 
-- Aby rozpocząć odnajdowanie z urządzenia, należy wybrać każdy host funkcji Hyper-V. 
-- Jeśli używasz środowiska wielodostępnego, obecnie nie można odnajdywać tylko maszyn wirtualnych należących do określonej dzierżawy. 
+- Aby rozpocząć odnajdywanie z urządzenia, należy wybrać każdego hosta funkcji Hyper-V. 
+- W przypadku korzystania ze środowiska z wieloma dzierżawcami nie można obecnie wykryć tylko maszyn wirtualnych należących do określonej dzierżawy. 
 
 ## <a name="prepare-for-assessment"></a>Przygotowanie do oceny
 
-Przygotuj platformę Azure i funkcji Hyper-V do oceny serwera. 
+Przygotuj platformę Azure i funkcję Hyper-V do oceny serwera. 
 
 1. Sprawdź [wymagania i ograniczenia dotyczące obsługi funkcji Hyper-V](migrate-support-matrix-hyper-v.md).
-2. Konfigurowanie uprawnień do interakcji z kontem Azure w celu interakcji z programem Azure Migrate
-3. Przygotowywanie hostów funkcji Hyper-V i maszyn wirtualnych
+2. Skonfiguruj uprawnienia dla Twojego konta platformy Azure, aby móc korzystać z Azure Migrate
+3. Przygotowywanie hostów i maszyn wirtualnych funkcji Hyper-V
 
-Postępuj zgodnie z instrukcjami w [tym samouczku,](tutorial-prepare-hyper-v.md) aby skonfigurować te ustawienia.
+Aby skonfigurować te ustawienia, postępuj zgodnie z instrukcjami podanymi w [tym samouczku](tutorial-prepare-hyper-v.md) .
 
 ## <a name="create-a-project"></a>Tworzenie projektu
 
-Zgodnie z wymaganiami planowania wykonaj następujące czynności:
+Zgodnie z wymaganiami dotyczącymi planowania wykonaj następujące czynności:
 
-1. Tworzenie projektów migracji platformy Azure.
-2. Dodaj narzędzie oceny programu Azure Migrate Server do projektów.
+1. Utwórz projekty Azure Migrate.
+2. Dodaj narzędzie do oceny serwera Azure Migrate do projektów.
 
 [Dowiedz się więcej](how-to-add-tool-first-time.md)
 
 ## <a name="create-and-review-an-assessment"></a>Tworzenie i przeglądanie oceny
 
-1. Tworzenie ocen dla maszyn wirtualnych funkcji Hyper-V.
-1. Przegląd ocen w ramach przygotowań do planowania migracji.
+1. Utwórz oceny dla maszyn wirtualnych funkcji Hyper-V.
+1. Zapoznaj się z ocenami w temacie przygotowanie do planowania migracji.
 
-[Dowiedz się więcej](tutorial-assess-hyper-v.md) o tworzeniu i recenzowaniu ocen.
+[Dowiedz się więcej](tutorial-assess-hyper-v.md) o tworzeniu i przeglądaniu ocen.
     
 
 ## <a name="next-steps"></a>Następne kroki
@@ -90,9 +90,9 @@ Zgodnie z wymaganiami planowania wykonaj następujące czynności:
 W tym artykule opisano następujące zagadnienia:
  
 > [!div class="checklist"] 
-> * Planowane skalowanie ocen migracji platformy Azure dla maszyn wirtualnych z programem Hyper-V
-> * Przygotowana platforma Azure i funkcja Hyper-V do oceny
-> * Utworzono projekt migracji platformy Azure i uruchomiono oceny
-> * Dokonano przeglądu ocen w ramach przygotowań do migracji.
+> * Planowane skalowanie Azure Migrate ocen dotyczących maszyn wirtualnych funkcji Hyper-V
+> * Przygotowano platformę Azure i funkcję Hyper-V do oceny
+> * Utworzono projekt Azure Migrate i uruchomiono oceny
+> * Przegląd ocen w przygotowaniu do migracji.
 
-Dowiedz [się, jak](concepts-assessment-calculation.md) obliczane są oceny i jak [modyfikować oceny](how-to-modify-assessment.md)
+Teraz [Dowiedz się, jak](concepts-assessment-calculation.md) są obliczane oceny i jak [modyfikować oceny](how-to-modify-assessment.md)

@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
 ms.openlocfilehash: a368f5c66d5a44faa23a726343d74489024185e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72177736"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK dla interfejsu API SQL: pobieranie i informacje o wersji
@@ -35,12 +35,12 @@ ms.locfileid: "72177736"
 |---|---|
 |**Pobieranie zestawu SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
 |**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API platformy .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
-|**Przykłady**|[Przykłady kodu platformy .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
-|**Rozpoczęcie pracy**|[Wprowadzenie do zestawu SDK platformy Azure Cosmos DB .NET](sql-api-get-started.md)|
+|**Samples**|[Przykłady kodu platformy .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
+|**Wprowadzenie**|[Wprowadzenie do zestawu SDK platformy Azure Cosmos DB .NET](sql-api-get-started.md)|
 |**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Bieżąca obsługiwana platforma**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
-## <a name="release-notes"></a>Informacje o wersji
+## <a name="release-notes"></a>Uwagi do wersji
 
 > [!NOTE]
 > Jeśli używasz .NET Framework, zapoznaj się z najnowszą wersją 3. x [zestawu .NET SDK](sql-api-sdk-dotnet-standard.md), która jest przeznaczona dla .NET Standard. 
@@ -51,6 +51,6 @@ ms.locfileid: "72177736"
 ## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) . 
 

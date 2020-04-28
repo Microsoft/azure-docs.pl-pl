@@ -1,6 +1,6 @@
 ---
-title: 'Usługa Azure AD Connect: Co to jest moduł programu ADConnectivityTool PowerShell | Dokumenty firmy Microsoft'
-description: W tym dokumencie przedstawiono nowy moduł programu ADConnectivity PowerShell i sposób, w jaki można go używać do rozwiązywania problemów.
+title: 'Azure AD Connect: co to jest moduł ADConnectivityTool programu PowerShell | Microsoft Docs'
+description: Ten dokument zawiera wprowadzenie do nowego modułu programu ADConnectivity PowerShell i sposobu jego użycia w celu ułatwienia rozwiązywania problemów.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,64 +12,64 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd5340cd8c802df4ffbe0207b5401d2fee4e207e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "64571112"
 ---
-# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Rozwiązywanie problemów z łącznością usługi Azure AD za pomocą modułu ADConnectivityTool PowerShell
+# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Rozwiązywanie problemów z łącznością z usługą Azure AD za pomocą modułu ADConnectivityTool PowerShell
 
-Narzędzie ADConnectivity jest modułem programu PowerShell, który jest używany w jednym z następujących:
+Narzędzie ADConnectivity jest modułem programu PowerShell, który jest używany w jednej z następujących czynności:
 
-- Podczas instalacji, gdy problem z łącznością sieciową uniemożliwia pomyślne sprawdzenie poprawności poświadczeń usługi Active Directory podanych przez użytkownika w Kreatorze.
-- Opublikuj instalację przez użytkownika, który wywołuje funkcje z sesji programu PowerShell.
+- Podczas instalacji, gdy problem z łącznością sieciową uniemożliwia pomyślne sprawdzenie poprawności poświadczeń Active Directory przez użytkownika w kreatorze.
+- Po instalacji przez użytkownika, który wywołuje funkcje z sesji programu PowerShell.
 
-Narzędzie znajduje się w pliku: **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 
+Narzędzie znajduje się w folderze: **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool. PSM1** 
 
 ## <a name="adconnectivitytool-during-installation"></a>ADConnectivityTool podczas instalacji
 
-Na stronie **Połącz katalogi** w Kreatorze usługi Azure AD Connect, jeśli wystąpi problem z siecią, narzędzie ADConnectivityTool automatycznie użyje jednej ze swoich funkcji, aby określić, co się dzieje.  Można rozważyć następujące problemy z siecią:
+Na stronie **łączenie katalogów** w Kreatorze Azure AD Connect, jeśli wystąpi problem z siecią, ADConnectivityTool automatycznie użyje jednej z funkcji, aby określić, co się dzieje.  W przypadku problemów z siecią mogą być brane pod uwagę następujące problemy:
 
-- Nazwa lasu, który podał użytkownik, została wpisana nieprawidłowo lub powiedziała, że Forest nie istnieje 
-- Port UDP 389 jest zamknięty w kontrolerach domeny skojarzonych z lasem dostarczonym przez użytkownika
-- Poświadczenia podane w oknie "Konto lasu usługi AD" nie mają uprawnień do pobierania kontrolerów domeny skojarzonych z lasem docelowym
-- Każdy z portów TCP 53, 88 lub 389 jest zamknięty w kontrolerach domeny skojarzonych z lasem, który użytkownik podał 
-- Zarówno port (lub porty TCP) UDP 389, jak i TCP są zamknięte
-- Nie można rozpoznać systemu DNS dla podanych kontrolerów domeny Forest i\lub skojarzonych z nim kontrolerów domeny
+- Nazwa lasu podana przez użytkownika została nieprawidłowo wpisana lub wymieniony Las nie istnieje 
+- Port UDP 389 jest zamknięty na kontrolerach domeny skojarzonych z lasem udostępnionym przez użytkownika
+- Poświadczenia podane w oknie "konto lasu AD" nie mają uprawnień do pobierania kontrolerów domeny skojarzonych z lasem docelowym
+- Każdy z portów TCP 53, 88 lub 389 jest zamknięty na kontrolerach domeny skojarzonych z lasem udostępnionym przez użytkownika 
+- Porty UDP 389 i port TCP (lub portów) są zamknięte
+- Nie można rozpoznać systemu DNS dla podanego lasu and\or skojarzonego z nim kontrolerów domeny
 
-Za każdym razem, gdy którykolwiek z tych problemów zostanie znaleziony, w Kreatorze AADConnect zostanie wyświetlony powiązany komunikat o błędzie:
+Za każdym razem, gdy zostaną znalezione jakiekolwiek z tych problemów, w Kreatorze AADConnect zostanie wyświetlony powiązany komunikat o błędzie:
 
 
-![Błąd](media/how-to-connect-adconnectivitytools/error1.png)
+![Error](media/how-to-connect-adconnectivitytools/error1.png)
 
-Na przykład podczas próby dodania katalogu na ekranie **Połącz katalogi** usługa Azure AD Connect musi to zweryfikować i oczekuje, że będzie można komunikować się z kontrolerem domeny za pomocą portu 389.  Jeśli nie, zobaczymy błąd, który jest pokazany na powyższym zrzucie ekranu.  
+Na przykład, gdy próbujemy dodać katalog na ekranie **Połącz katalogi** , Azure AD Connect musi on sprawdzić i oczekiwać, że może komunikować się z kontrolerem domeny przez port 389.  Jeśli nie, zostanie wyświetlony komunikat o błędzie, który jest wyświetlany na powyższym zrzucie ekranu.  
 
-Co faktycznie dzieje się w tle, jest to, że usługa Azure AD Connect wywołuje `Start-NetworkConnectivityDiagnosisTools` funkcję.  Ta funkcja jest wywoływana, gdy sprawdzanie poprawności poświadczeń kończy się niepowodzeniem z powodu problemu z łącznością sieciową.
+To właśnie zdarza się w tle, ponieważ Azure AD Connect wywołuje `Start-NetworkConnectivityDiagnosisTools` funkcję.  Ta funkcja jest wywoływana, gdy weryfikacja poświadczeń nie powiedzie się z powodu problemu z łącznością sieciową.
 
-Na koniec szczegółowy plik dziennika jest generowany za każdym razem, gdy narzędzie jest wywoływane z kreatora. Dziennik znajduje się w **pliku C:\ProgramData\AADConnect\ADConnectivityTool-\<\<data> - czas>.log**
+Na koniec, po każdym wywołaniu narzędzia z kreatora zostanie wygenerowany szczegółowy plik dziennika. Dziennik znajduje się w **\<C:\ProgramData\AADConnect\ADConnectivityTool-Data>-\<Time>. log**
 
 ## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools po instalacji
-Po zainstalowaniu usługi Azure AD Connect można użyć dowolnej z funkcji modułu ADConnectivityTools PowerShell.  
+Po zainstalowaniu Azure AD Connect można użyć dowolnej funkcji w module ADConnectivityTools PowerShell.  
 
-Informacje referencyjne dotyczące funkcji można [ADConnectivityTools Reference](reference-connect-adconnectivitytools.md) znaleźć w
+Informacje referencyjne dotyczące funkcji można znaleźć w [dokumentacji ADConnectivityTools](reference-connect-adconnectivitytools.md)
 
 ### <a name="start-connectivityvalidation"></a>Start-ConnectivityValidation
 
-Będziemy wywoływać tę **funkcję,** ponieważ można ją wywołać ręcznie tylko po zaimportowaniu pliku ADConnectivityTool.psm1 do programu PowerShell. 
+Zamierzamy wywołać tę funkcję, **ponieważ może ona** zostać wywołana ręcznie po zaimportowaniu ADConnectivityTool. Psm1 do programu PowerShell. 
 
-Ta funkcja wykonuje tę samą logikę, którą uruchamia Kreator połączenia usługi Azure AD w celu sprawdzenia poprawności podanych poświadczeń usługi AD.  Jednak zapewnia znacznie bardziej szczegółowe wyjaśnienie problemu i sugerowane rozwiązanie. 
+Ta funkcja wykonuje tę samą logikę, która jest uruchamiana przez kreatora Azure AD Connect, aby sprawdzić poprawność podanych poświadczeń usługi AD.  Zapewnia to jednak bardziej szczegółowe wyjaśnienie problemu i sugerowane rozwiązanie. 
 
-Sprawdzanie poprawności łączności składa się z następujących kroków:
--   Pobierz obiekt FQDN domeny (w pełni kwalifikowana nazwa domeny)
--   Sprawdź, czy jeśli użytkownik wybierze opcję "Utwórz nowe konto USŁUGI AD", poświadczenia te należą do grupy Administratorzy przedsiębiorstwa
--   Pobierz obiekt ZNU WLE
+Weryfikacja łączności obejmuje następujące kroki:
+-   Pobierz nazwę FQDN domeny (w pełni kwalifikowana nazwa domeny)
+-   Sprawdź, czy jeśli użytkownik wybrał opcję "Utwórz nowe konto usługi AD", te poświadczenia należą do grupy administratorów przedsiębiorstwa
+-   Pobierz obiekt nazwy FQDN lasu
 -   Upewnij się, że co najmniej jedna domena skojarzona z wcześniej uzyskanym obiektem FQDN lasu jest osiągalna
--   Sprawdź, czy poziom funkcjonalności lasu to Windows Server 2003 lub wyższy.
+-   Sprawdź, czy poziom funkcjonalności lasu to Windows Server 2003 lub nowszy.
 
 Użytkownik będzie mógł dodać katalog, jeśli wszystkie te akcje zostały wykonane pomyślnie.
 
-Jeśli użytkownik uruchamia tę funkcję po rozwiązaniu problemu (lub jeśli w ogóle nie występuje problem), dane wyjściowe wskażą, że użytkownik powróci do Kreatora usługi Azure AD Connect i spróbuj ponownie wstawić poświadczenia.
+Jeśli użytkownik uruchamia tę funkcję po rozwiązaniu problemu (lub jeśli w ogóle nie istnieje żaden problem), dane wyjściowe będą wskazywać, że użytkownik powróci do kreatora Azure AD Connect i spróbuje ponownie wstawić poświadczenia.
 
 
 

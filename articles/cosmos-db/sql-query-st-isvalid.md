@@ -1,6 +1,6 @@
 ---
-title: ST_ISVALID w języku zapytań usługi Azure Cosmos DB
-description: Dowiedz się więcej o ST_ISVALID funkcji systemu SQL w usłudze Azure Cosmos DB.
+title: ST_ISVALID w języku zapytań Azure Cosmos DB
+description: Dowiedz się więcej na temat funkcji systemu SQL ST_ISVALID w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8fbddbe82ae13585b8259a66dffaeef8024baf5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71349364"
 ---
-# <a name="st_isvalid-azure-cosmos-db"></a>ST_ISVALID (Usługa Azure Cosmos DB)
+# <a name="st_isvalid-azure-cosmos-db"></a>ST_ISVALID (Azure Cosmos DB)
  Zwraca wartość logiczną wskazującą, czy określone wyrażenie GeoJSON typu Point, Polygon lub LineString jest nieprawidłowe.  
   
 ## <a name="syntax"></a>Składnia
@@ -26,19 +26,19 @@ ST_ISVALID(<spatial_expr>)
 ## <a name="arguments"></a>Argumenty
   
 *spatial_expr*  
-   Jest wyrażeniem Punkt GeoJSON, Wielokąt lub Sznurek liniowy.  
+   Jest wyrażeniem GEOJSON, wielokątem lub LineString.  
   
-## <a name="return-types"></a>Typy zwrotów
+## <a name="return-types"></a>Typy zwracane
   
   Zwraca wyrażenie logiczne.  
   
 ## <a name="examples"></a>Przykłady
   
-  W poniższym przykładzie pokazano, jak sprawdzić, czy punkt jest prawidłowy przy użyciu ST_VALID.  
+  Poniższy przykład pokazuje, jak sprawdzić, czy punkt jest prawidłowy przy użyciu ST_VALID.  
   
-  Na przykład ten punkt ma wartość szerokości geograficznej, która nie jest w prawidłowym zakresie wartości [-90, 90], więc kwerenda zwraca false.  
+  Na przykład ten punkt ma wartość szerokości geograficznej, która nie znajduje się w prawidłowym zakresie wartości [-90, 90], dlatego zapytanie zwraca wartość false.  
   
-  W przypadku wielokątów specyfikacja GeoJSON wymaga, aby ostatnia podana para współrzędnych była taka sama jak pierwsza, aby utworzyć zamknięty kształt. Punkty w wielokątach muszą być określone w kolejności odwrotnej do ruchu wskazówek zegara. Wielokąt określony w kolejności zgodnie z ruchem wskazówek zegara reprezentuje odwrotność regionu w nim.  
+  W przypadku wielokątów Specyfikacja GEOJSON wymaga, aby podana para współrzędnych była taka sama jak pierwsza, aby utworzyć kształt zamknięty. Punkty w obrębie wielokąta muszą być określone w kolejności licznika w prawo. Wielokąt określony w kolejności w prawo oznacza odwrotność regionu w nim.  
   
 ```sql
 SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b 
@@ -52,6 +52,6 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Funkcje przestrzenne usługi Azure Cosmos DB](sql-query-spatial-functions.md)
-- [Funkcje systemowe Usługi Azure Cosmos DB](sql-query-system-functions.md)
+- [Funkcje przestrzenne Azure Cosmos DB](sql-query-spatial-functions.md)
+- [Azure Cosmos DB funkcje systemowe](sql-query-system-functions.md)
 - [Wprowadzenie do usługi Azure Cosmos DB](introduction.md)

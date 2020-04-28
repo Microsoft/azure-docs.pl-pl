@@ -1,5 +1,5 @@
 ---
-title: Tworzenie & kwerendy usługi Azure Data Lake Analytics — witryna Azure portal
+title: Utwórz Azure Data Lake Analytics kwerendy & — Azure Portal
 description: Tworzenie konta usługi Data Lake Analytics i przesyłanie zadania w języku U-SQL przy użyciu witryny Azure Portal.
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,10 +9,10 @@ ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.openlocfilehash: 46da3750e4d0ac78c5fd9df91ae37670e541302d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71315755"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Rozpoczynanie pracy z usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal
@@ -26,23 +26,23 @@ Przed rozpoczęciem tego samouczka musisz dysponować **subskrypcją platformy A
 
 ## <a name="create-a-data-lake-analytics-account"></a>Tworzenie konta Data Lake Analytics
 
-Teraz utworzysz usługę Data Lake Analytics i konto usługi Azure Data Lake Storage Gen1 w tym samym czasie.  Ten krok jest prosty i jego wykonanie zajmuje tylko około 60 sekund.
+Teraz utworzysz Data Lake Analytics i konto Azure Data Lake Storage Gen1 w tym samym czasie.  Ten krok jest prosty i jego wykonanie zajmuje tylko około 60 sekund.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Kliknij **pozycję Utwórz zasób** >  **Data + Analytics** > **Data Lake Analytics**.
+2. Kliknij pozycję **Utwórz zasób** >  **dane + analiza** > **Data Lake Analytics**.
 3. Wybierz wartości dla następujących elementów:
    * **Nazwa**: nazwa konta usługi Data Lake Analytics (dozwolone są tylko małe litery i cyfry).
    * **Subskrypcja**: wybierz subskrypcję platformy Azure używaną na potrzeby konta usługi Analytics.
    * **Grupa zasobów**. Wybierz istniejącą grupę zasobów platformy Azure lub utwórz nową.
    * **Lokalizacja**. Wybierz centrum danych platformy Azure na potrzeby konta usługi Data Lake Analytics.
-   * **Data Lake Storage Gen1**: Postępuj zgodnie z instrukcją, aby utworzyć nowe konto Data Lake Storage Gen1 lub wybierz istniejące. 
+   * **Data Lake Storage Gen1**: Postępuj zgodnie z instrukcjami, aby utworzyć nowe konto Data Lake Storage Gen1 lub Wybierz istniejące. 
 4. Opcjonalnie wybierz warstwę cenową dla konta usługi Data Lake Analytics.
 5. Kliknij przycisk **Utwórz**. 
 
 
 ## <a name="your-first-u-sql-script"></a>Pierwszy skrypt U-SQL
 
-Poniższy tekst to bardzo prosty skrypt U-SQL. Wszystko, co robi, to zdefiniować mały zestaw danych w skrypcie, a następnie zapisać `/data.csv`ten zestaw danych do domyślnego konta Data Lake Storage Gen1 jako plik o nazwie .
+Poniższy tekst to bardzo prosty skrypt U-SQL. Wszystko to definiuje niewielki zestaw danych w skrypcie, a następnie zapisuje ten zestaw danych do domyślnego konta Data Lake Storage Gen1 jako plik o nazwie `/data.csv`.
 
 ```
 @a  = 
@@ -63,9 +63,9 @@ OUTPUT @a
 2. Wklej tekst powyższego skryptu U-SQL. Wprowadź nazwę zadania. 
 3. Wybierz przycisk **Prześlij**, aby uruchomić zadanie.   
 4. Monitoruj **Stan** zadania i zaczekaj, aż zmieni się na **Powodzenie**.
-5. Wybierz kartę **Dane,** a następnie wybierz kartę **Wyjścia.** Wybierz plik wyjściowy o nazwie `data.csv` i wyświetl dane wyjściowe.
+5. Wybierz kartę **dane** , a następnie wybierz kartę **wyniki** . Wybierz plik wyjściowy o nazwie `data.csv` i Wyświetl dane wyjściowe.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * Aby rozpocząć tworzenie aplikacji w języku U-SQL, zobacz artykuł [Tworzenie skryptów U-SQL przy użyciu narzędzi Data Lake Tools dla Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * Aby dowiedzieć się więcej o języku U-SQL, zobacz [Wprowadzenie do języka U-SQL w usłudze Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).

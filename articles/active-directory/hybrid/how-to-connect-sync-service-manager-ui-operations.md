@@ -1,6 +1,6 @@
 ---
-title: Operacje programu Azure AD Connect z usługą Service Service Manager | Dokumenty firmy Microsoft
-description: Poznaj kartę Operacje w menedżerze usługi Synchronizacja usługi Azure AD Connect.
+title: Operacje Synchronization Service Manager Azure AD Connect | Microsoft Docs
+description: Zapoznaj się z kartą operacje w Synchronization Service Manager Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,36 +18,36 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 474000d1d4d7e1358682d1421125d482e3782049
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60381430"
 ---
-# <a name="using-the-sync-service-manager-operations-tab"></a>Korzystanie z karty Operacje menedżera usług synchronizacji
+# <a name="using-the-sync-service-manager-operations-tab"></a>Korzystanie z karty operacje Service Manager synchronizacji
 
-![Menedżer usługi synchronizacji](./media/how-to-connect-sync-service-manager-ui-operations/operations.png)
+![Service Manager synchronizacji](./media/how-to-connect-sync-service-manager-ui-operations/operations.png)
 
-Karta operacje pokazuje wyniki z najnowszych operacji. Ta karta jest kluczem do zrozumienia i rozwiązywania problemów.
+Na karcie operacje są wyświetlane wyniki najnowszych operacji. Ta karta jest kluczem do zrozumienia i rozwiązywania problemów.
 
-## <a name="understand-the-information-visible-in-the-operations-tab"></a>Opis informacji widocznych na karcie operacje
-Górna połowa pokazuje wszystkie biegi w porządku chronologicznym. Domyślnie dziennik operacji przechowuje informacje o ostatnich siedmiu dniach, ale to ustawienie można zmienić za pomocą [harmonogramu](how-to-connect-sync-feature-scheduler.md). Chcesz wyszukać dowolny przebieg, który nie pokazuje stanu sukcesu. Sortowanie można zmienić, klikając nagłówki.
+## <a name="understand-the-information-visible-in-the-operations-tab"></a>Informacje widoczne na karcie operacje
+Górna połowa przedstawia wszystkie uruchomienia w kolejności chronologicznej. Domyślnie dziennik operacji przechowuje informacje o ciągu ostatnich siedmiu dni, ale to ustawienie można zmienić przy użyciu [harmonogramu](how-to-connect-sync-feature-scheduler.md). Chcesz wyszukać dowolny przebieg, który nie pokazuje stanu sukcesu. Sortowanie można zmienić, klikając nagłówki.
 
-**Kolumna Stan** jest najważniejszą informacją i pokazuje najpoważniejszy problem dla przebiegu. Oto krótkie podsumowanie najczęstszych stanów w kolejności priorytetu do zbadania (gdzie * wskazać kilka możliwych ciągów błędów).
+Kolumna **stan** jest najważniejszymi informacjami i pokazuje najbardziej poważny problem w przypadku uruchomienia. Oto krótkie podsumowanie najbardziej typowych stanów w kolejności, w której ma zostać zbadane (gdzie * wskazuje kilka możliwych ciągów błędów).
 
 | Stan | Komentarz |
 | --- | --- |
-| zatrzymana-\* |Nie można ukończyć biegu. Na przykład, jeśli system zdalny jest w dół i nie można się z nim skontaktować. |
-| limit zatrzymanego błędu |Istnieje ponad 5000 błędów. Przebieg został automatycznie wstrzymany z powodu dużej liczby błędów. |
-| zakończone-\*-błędy |Przebieg zakończony, ale istnieją błędy (mniej niż 5000), które powinny być badane. |
-| zakończone-\*-ostrzeżenia |Przebieg został zakończony, ale niektóre dane nie są w oczekiwanym stanie. Jeśli masz błędy, ten komunikat jest zwykle tylko objawem. Dopóki nie zostaną uwzględnione błędy, nie należy badać ostrzeżenia. |
-| powodzenie |Żadnych problemów. |
+| przerwać\* |Nie można ukończyć przebiegu. Na przykład jeśli system zdalny nie działa i nie można się z nim skontaktować. |
+| Zatrzymano — limit błędów |Występuje więcej niż 5 000 błędów. Przebieg został automatycznie zatrzymany z powodu dużej liczby błędów. |
+| ukończono —\*błędy |Ukończono przebieg, ale wystąpiły błędy (mniej niż 5 000), które powinny zostać zbadane. |
+| ukończone —\*ostrzeżenia |Przebieg został ukończony, ale niektóre dane nie są w oczekiwanym stanie. Jeśli występują błędy, ten komunikat jest zazwyczaj tylko objawem. Dopóki nie zostaną rozkierowane błędy, nie należy badać ostrzeżeń. |
+| powodzenie |Brak problemów. |
 
-Po wybraniu wiersza, dolnej aktualizacji, aby wyświetlić szczegóły tego uruchomienia. Po lewej stronie dołu może być lista z napisem **Krok #**. Ta lista jest wyświetlana tylko wtedy, gdy w lesie znajduje się wiele domen, w których każda domena jest reprezentowana przez krok. Nazwę domeny można znaleźć pod nagłówkiem **Partycja**. W obszarze **Statystyki synchronizacji**można znaleźć więcej informacji na temat liczby przetworzonych zmian. Możesz kliknąć łącza, aby uzyskać listę zmienionych obiektów. Jeśli masz obiekty z błędami, te błędy są wyświetlane w obszarze **Błędy synchronizacji**.
+Po wybraniu wiersza Dolna aktualizacja pokazuje szczegóły tego uruchomienia. Na końcu z lewej strony możesz wyświetlić listę z informacją o **kroku #**. Ta lista pojawia się tylko wtedy, gdy w lesie istnieje wiele domen, w których każda domena jest reprezentowana przez krok. Nazwę domeny można znaleźć pod **partycją**nagłówka. W obszarze **Statystyka synchronizacji**można znaleźć więcej informacji na temat liczby przetworzonych zmian. Możesz kliknąć linki, aby uzyskać listę zmienionych obiektów. Jeśli masz obiekty z błędami, te błędy są wyświetlane w obszarze **Błędy synchronizacji**.
 
-Aby uzyskać więcej informacji, zobacz [rozwiązywanie problemów z obiektem, który nie jest synchronizowany](tshoot-connect-object-not-syncing.md)
+Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z obiektem, który nie jest synchronizowany](tshoot-connect-object-not-syncing.md)
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o konfiguracji [synchronizacji usługi Azure AD Connect.](how-to-connect-sync-whatis.md)
+Dowiedz się więcej o konfiguracji [synchronizacji Azure AD Connect](how-to-connect-sync-whatis.md) .
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md).

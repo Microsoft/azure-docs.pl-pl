@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60456854"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Używanie programu Storage Explorer z usługą Azure File Storage
@@ -31,7 +31,7 @@ Do wykonania kroków opisanych w tym artykule konieczne jest wykonanie kroków z
 
 - [Pobieranie i instalowanie Eksploratora usługi Storage](https://www.storageexplorer.com/)
 
-- [Łączenie się z kontem lub usługą magazynu platformy Azure](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Nawiązywanie połączenia z kontem lub usługą Azure Storage](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>Tworzenie udziału plików
 
@@ -207,19 +207,19 @@ Poniższe kroki ilustrują zarządzanie plikami (i folderami) w udziale plików.
 
         ![Dodawanie plików](media/vs-azure-tools-storage-explorer-files/image19.png)
 
-        d. Wybierz **pozycję Przekaż**.
+        c. Wybierz pozycję **Przekaż**.
 
     - **Przekazywanie folderu do udziału plików**
         
-        a. Na pasku narzędzi głównego okienka wybierz pozycję **Przekaż**, a następnie **przekaż folder** z menu rozwijanego.
+        a. Na pasku narzędzi okienka głównego wybierz pozycję **Przekaż**, a następnie **Przekaż folder** z menu rozwijanego.
 
         ![Menu Przekaż folder](media/vs-azure-tools-storage-explorer-files/image20.png)
 
         b. W oknie dialogowym **Przekazywanie folderu** wybierz przycisk wielokropka (**...**) po prawej stronie pola tekstowego **Folder**, aby wybrać folder, którego zawartość chcesz przekazać.
 
-        d. Opcjonalnie określ folder docelowy, do którego zawartość wybranego folderu zostanie przekazana. Jeśli folder docelowy nie istnieje, zostanie on utworzony.
+        c. Opcjonalnie określ folder docelowy, do którego zawartość wybranego folderu zostanie przekazana. Jeśli folder docelowy nie istnieje, zostanie on utworzony.
 
-        d. Wybierz **pozycję Przekaż**.
+        d. Wybierz pozycję **Przekaż**.
 
     - **Pobieranie pliku na komputer lokalny**
         
@@ -227,9 +227,9 @@ Poniższe kroki ilustrują zarządzanie plikami (i folderami) w udziale plików.
         
         b. Na pasku narzędzi okienka głównego wybierz pozycję **Pobierz**.
         
-        d. W oknie dialogowym **Określanie lokalizacji, w której zapisać pobrany plik** określ lokalizację, w której ma zostać zapisany pobrany plik, oraz nazwę tego pliku.
+        c. W oknie dialogowym **Określanie lokalizacji, w której zapisać pobrany plik** określ lokalizację, w której ma zostać zapisany pobrany plik, oraz nazwę tego pliku.
 
-        d. Wybierz **pozycję Zapisz**.
+        d. Wybierz pozycję **Zapisz**.
 
     - **Otwieranie pliku na komputerze lokalnym**
         
@@ -237,7 +237,7 @@ Poniższe kroki ilustrują zarządzanie plikami (i folderami) w udziale plików.
         
         b.  Na pasku narzędzi okienka głównego wybierz pozycję **Otwórz**.
         
-        d.  Plik zostanie pobrany i otwarty przy użyciu aplikacji skojarzonej z typem pliku źródłowego.
+        c.  Plik zostanie pobrany i otwarty przy użyciu aplikacji skojarzonej z typem pliku źródłowego.
 
     - **Kopiowanie pliku do Schowka**
 
@@ -245,7 +245,7 @@ Poniższe kroki ilustrują zarządzanie plikami (i folderami) w udziale plików.
 
         b. Na pasku narzędzi okienka głównego wybierz pozycję **Kopiuj**.
 
-        d. W lewym okienku przejdź do innego udziału plików i kliknij go dwukrotnie, aby wyświetlić go w okienku głównym.
+        c. W lewym okienku przejdź do innego udziału plików i kliknij go dwukrotnie, aby wyświetlić go w okienku głównym.
 
         d. Na pasku narzędzi okienka głównego wybierz pozycję **Wklej**, aby utworzyć kopię pliku.
 
@@ -255,7 +255,7 @@ Poniższe kroki ilustrują zarządzanie plikami (i folderami) w udziale plików.
 
         b. Na pasku narzędzi okienka głównego wybierz pozycję **Usuń**.
 
-        d. Wybierz pozycję **Tak** w oknie dialogowym potwierdzenia.
+        c. Wybierz pozycję **Tak** w oknie dialogowym potwierdzenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
-title: ławka azcopy | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera informacje referencyjne dla polecenia azcopy bench.
+title: AzCopy | Microsoft Docs
+description: Ten artykuł zawiera informacje referencyjne na temat polecenia AzCopy kanapie.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,31 +9,31 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 8570bce87aeea5473b4aadf9bd30bc0a648a6f0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72518306"
 ---
 # <a name="azcopy-bench"></a>azcopy bench
 
-Uruchamia wskaźnik wydajności, przekazując dane testowe do określonego miejsca docelowego. Dane testowe są generowane automatycznie.
+Uruchamia wzorzec wydajności, przekazując dane testowe do określonego miejsca docelowego. Dane testowe są generowane automatycznie.
 
-Polecenie benchmark uruchamia ten sam proces przesyłania co "copy", z tą różnicą, że:
+Polecenie testu porównawczego uruchamia ten sam proces przekazywania co "Copy", z tą różnicą, że:
 
-  - Nie ma parametru źródłowego.  Polecenie wymaga tylko docelowego adresu URL. W bieżącej wersji ten docelowy adres URL musi odwoływać się do kontenera obiektów blob.
+  - Brak parametru źródłowego.  Polecenie wymaga tylko docelowego adresu URL. W bieżącej wersji ten docelowy adres URL musi odwoływać się do kontenera obiektów BLOB.
   
-  - Ładunek jest opisany przez parametry wiersza polecenia, które kontrolują, ile plików jest generowanych automatycznie i jak duże są. Proces generowania odbywa się w całości w pamięci. Dysk nie jest używany.
+  - Ładunek jest opisywany przez parametry wiersza polecenia, które kontrolują, ile plików jest generowanych automatycznie i jak duże są. Proces generacji odbywa się w całości w pamięci. Dysk nie jest używany.
   
-  - Obsługiwane są tylko niektóre z parametrów opcjonalnych, które są dostępne dla polecenia copy.
+  - Obsługiwane jest tylko kilka opcjonalnych parametrów, które są dostępne dla polecenia copy.
   
-  - Dodatkowa diagnostyka jest mierzona i zgłaszana.
+  - Dodatkowa Diagnostyka jest mierzona i raportowana.
   
-  - Domyślnie przesyłane dane są usuwane po zakończeniu przebiegu testu.
+  - Domyślnie transferowane dane są usuwane na końcu przebiegu testu.
 
-Tryb porównawczy automatycznie dostroi się do liczby równoległych połączeń TCP, które zapewniają maksymalną przepustowość. Na końcu zostanie wyświetlony ten numer. Aby zapobiec automatycznemu dostrajaniu, ustaw zmienną środowiskową AZCOPY_CONCURRENCY_VALUE na określoną liczbę połączeń.
+Tryb testu porównawczego automatycznie dostosowuje się do liczby równoległych połączeń TCP, które dają maksymalną przepływność. Ten numer zostanie wyświetlony na końcu. Aby zapobiec autodostrajania, należy ustawić zmienną środowiskową AZCOPY_CONCURRENCY_VALUE na określoną liczbę połączeń.
 
-Obsługiwane są wszystkie typy uwierzytelniania. Jednak najbardziej wygodne podejście do analizy porównawczej jest zazwyczaj do tworzenia pustego kontenera z tokenem sygnatury dostępu Współdzielonego i używać uwierzytelniania sygnatury dostępu Współdzielonego.
+Obsługiwane są wszystkie standardowe typy uwierzytelniania. Jednak najbardziej wygodnym podejściem do korzystania z testów porównawczych jest zwykle utworzenie pustego kontenera z tokenem SAS i użycie uwierzytelniania SAS.
 
 ## <a name="examples"></a>Przykłady
 
@@ -41,42 +41,42 @@ Obsługiwane są wszystkie typy uwierzytelniania. Jednak najbardziej wygodne pod
 azcopy bench [destination] [flags]
 ```
 
-Przeprowadzić test porównawczy z parametrami domyślnymi (odpowiedni dla sieci porównawczych o przekątnych do 1 Gb/s):
+Uruchom test testu porównawczego z domyślnymi parametrami (odpowiednie dla sieci testowych do 1 GB/s):
 
-- azcopy ławka "https://[account].blob.core.windows.net/[container]? <SAS>"
+- AzCopy "https://[Account]. blob. Core. Windows. NET/[Container]? <SAS>"
 
-Uruchom test porównawczy, który przesyła 100 plików, każdy o rozmiarze 2 GiB: (odpowiedni do analizy porównawczej w szybkiej sieci, np. 10 Gb/s):'
+Uruchom test testu porównawczego, który przekazuje 100 plików, każdy 2 GiB w rozmiarze: (odpowiednie dla tworzenia wzorców w szybkiej sieci, np. 10 GB/s): "
 
-- azcopy ławka "https://[account].blob.core.windows.net/[container]? <SAS>" --file-count 100 --size-per-file 2G
+- AzCopy "https://[Account]. blob. Core. Windows. NET/[Container]? <SAS>" --File-Count 100--size-na-File 2G
 
-Tak samo jak powyżej, ale użyj 50 000 plików, każdy rozmiar 8 MiB i obliczyć ich skróty MD5 (w taki sam sposób, w jaki flaga --put-md5 robi to w poleceniu copy). Celem --put-md5 podczas analizy porównawczej jest sprawdzenie, czy obliczenia MD5 wpływają na przepływność dla wybranej liczby i rozmiaru plików:
+Tak samo jak powyżej, ale używaj plików 50 000, każdy 8 MiB w rozmiarze i obliczy ich skróty MD5 (w taki sam sposób, że flaga--Put-MD5 wykonuje to w poleceniu Copy). Przeznaczenie---MD5, gdy test porównawczy ma na celu sprawdzenie, czy obliczanie MD5 wpływa na przepływność dla wybranej liczby plików i rozmiaru:
 
-- azcopy ławka "https://[account].blob.core.windows.net/[container]? <SAS>" --file-count 50000 --size-per-file 8M --put-md5
+- AzCopy "https://[Account]. blob. Core. Windows. NET/[Container]? <SAS>" --File-Count 50000--size-na-File 8 M--Put-MD5
 
 ## <a name="options"></a>Opcje
 
-**Ciąg typu --blob** definiuje typ obiektu blob w miejscu docelowym. Służy do zezwalania na porównywanie różnych typów obiektów blob. Identyczny z tym samym parametrem w poleceniu copy (domyślnie "Detect").
+**--ciąg typu BLOB** definiuje typ obiektu BLOB w miejscu docelowym. Służy do zezwalania na testy porównawcze różnych typów obiektów BLOB. Identyczny z tym samym parametrem-nazwanym w poleceniu Copy (domyślnie "Detect").
 
-**--block-size-mb** float Użyj tego rozmiaru bloku (określonego w MiB). Wartość domyślna jest obliczana automatycznie na podstawie rozmiaru pliku. Dopuszczalne są ułamki dziesiętne - np. Identyczne z tym samym parametrem w poleceniu copy.
+**--rozmiar bloku-MB** zmiennoprzecinkowy Użyj tego rozmiaru bloku (określonego w MIB). Wartość domyślna jest obliczana automatycznie na podstawie rozmiaru pliku. Dozwolone są ułamki dziesiętne — np. 0,25. Identyczny z tym samym parametrem-nazwanym w poleceniu Copy.
 
-**--delete-test-data**  Jeśli to prawda, dane porównawcze zostaną usunięte po zakończeniu testu porównawczego.  Ustaw go na false, jeśli chcesz zachować dane w miejscu docelowym - na przykład, aby użyć ich do testów ręcznych poza trybem testu porównawczego (domyślna wartość true).
+**--delete-Test-Data**  W przypadku wartości true dane testu porównawczego zostaną usunięte na końcu przebiegu testu porównawczego.  Ustaw wartość false, jeśli chcesz przechowywać dane w miejscu docelowym — na przykład, aby użyć go do ręcznego testowania poza trybem testowym (wartość domyślna to true).
 
-**--file-count** uint Liczba automatycznie wygenerowanych plików danych do użycia (domyślnie 100).
+**--File-Count-** liczba automatycznie generowanych plików danych do użycia (domyślnie 100).
 
-**-h, --pomoc**  Pomoc na ławce
+**-h,--pomoc**  Pomoc dla kanap
 
-**--log-level** string Zdefiniuj szczegółowość dziennika dla pliku dziennika, dostępne poziomy: INFO (wszystkie żądania/odpowiedzi), OSTRZEŻENIE (powolne odpowiedzi), ERROR (tylko żądania nieudane) i NONE (brak dzienników wyjściowych). (domyślnie "INFO")
+**--ciąg na poziomie dziennika** definiuje szczegółowość dziennika dla pliku dziennika, dostępne poziomy: info (wszystkie żądania/odpowiedzi), ostrzeżenie (wolne odpowiedzi), błąd (tylko Nieudane żądania) i brak (bez dzienników wyjściowych). (wartość domyślna: "INFO")
 
-**--put-md5**  Utwórz skrót MD5 każdego pliku i zapisz skrót jako właściwość Content-MD5 docelowego obiektu blob/file. (Domyślnie skrót NIE jest tworzony). Identyczne z tym samym parametrem w poleceniu copy.
+**--Put-MD5**  Utwórz skrót MD5 każdego pliku i Zapisz skrót jako właściwość Content-MD5 docelowego obiektu blob/pliku. (Domyślnie skrót nie jest tworzony). Identyczny z tym samym parametrem-nazwanym w poleceniu Copy.
 
-**--size-per-file** string Rozmiar każdego automatycznie wygenerowanego pliku danych. Musi być numerem bezpośrednio po K, M lub G. Np. 12k lub 200G (domyślnie "250M").
+**--** rozmiar ciągu pliku dla każdego automatycznie generowanego pliku danych. Musi być liczbą bezpośrednio, po której następuje K, M lub G. na przykład. 12k lub 200G (domyślnie "250M").
 
 ## <a name="options-inherited-from-parent-commands"></a>Opcje dziedziczone z poleceń nadrzędnych
 
-**--cap-mbps uint32**  Limity szybkości transferu w megabitach na sekundę. Przepływność moment po chwili może się nieznacznie różnić od limitu. Jeśli ta opcja jest ustawiona na zero lub jest pomijana, przepływność nie jest ograniczona.
+**--Cap-MB/s UInt32**  Szybkość transferu w megabitach na sekundę. Przepływność czasu na chwilę może się nieco różnić od końca. Jeśli ta opcja jest ustawiona na zero lub zostanie pominięta, przepływność nie zostanie ograniczona.
 
-**--output-type** string Format wyjścia polecenia. Do wyboru są: tekst, json. Wartością domyślną jest "text". (domyślny "tekst").
+**--** format ciągu typu danych wyjściowych polecenia. Dostępne opcje to: text, JSON. Wartość domyślna to "text". (domyślny "tekst").
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [azcopy](storage-ref-azcopy.md)

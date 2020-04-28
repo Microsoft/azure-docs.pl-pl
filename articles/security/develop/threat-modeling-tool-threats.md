@@ -1,6 +1,6 @@
 ---
-title: Zagrożenia — narzędzie Microsoft Threat Modeling Tool — Azure | Dokumenty firmy Microsoft
-description: Strona kategorii zagrożeń dla narzędzia Microsoft Threat Modeling Tool zawierająca kategorie dla wszystkich narażonych wygenerowanych zagrożeń.
+title: Zagrożenia — Microsoft Threat Modeling Tool na platformie Azure | Microsoft Docs
+description: Strona kategorii zagrożeń dla Microsoft Threat Modeling Tool zawierającej kategorie wszystkich narażonych zagrożeń.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,37 +16,37 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: eb006482b851e9094b82ec3d0753b74c05296994
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68727827"
 ---
-# <a name="microsoft-threat-modeling-tool-threats"></a>Zagrożenia związane z narzędziem do modelowania zagrożeń firmy Microsoft
+# <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft Threat Modeling Tool zagrożenia
 
-Narzędzie do modelowania zagrożeń jest podstawowym elementem cyklu życia programu Microsoft Security Development (SDL). Umożliwia architektom oprogramowania wczesne identyfikowanie i łagodzenie potencjalnych problemów z zabezpieczeniami, gdy są one stosunkowo łatwe i opłacalne do rozwiązania. W rezultacie znacznie zmniejsza całkowity koszt rozwoju. Ponadto zaprojektowaliśmy narzędzie z myślą o ekspertach niezwiązanych z bezpieczeństwem, ułatwiając modelowanie zagrożeń wszystkim deweloperom, zapewniając jasne wskazówki dotyczące tworzenia i analizowania modeli zagrożeń.
+Threat Modeling Tool jest elementem podstawowym Microsoft Security Development Lifecycle (SDL). Dzięki temu architektom oprogramowania można szybko identyfikować i ograniczać potencjalne problemy z zabezpieczeniami, gdy są one stosunkowo proste i ekonomiczne do rozwiązania. W efekcie znacznie zmniejsza łączny koszt rozwoju. Ponadto zaprojektowano narzędzie z ekspertami nienależącymi do zabezpieczeń, co sprawia, że modelowanie zagrożeń jest łatwiejsze dla wszystkich deweloperów, oferując jasne wskazówki dotyczące tworzenia i analizowania modeli zagrożeń.
 
-> Odwiedź narzędzie do **[modelowania zagrożeń,](threat-modeling-tool.md)** aby rozpocząć już dziś!
+> Odwiedź **[Threat Modeling Tool](threat-modeling-tool.md)** , aby zacząć już dzisiaj!
 
-Narzędzie do modelowania zagrożeń pomaga odpowiedzieć na niektóre pytania, takie jak poniższe:
+Threat Modeling Tool pomaga odpowiedzieć na niektóre pytania, takie jak poniższe poniżej:
 
 * Jak osoba atakująca może zmienić dane uwierzytelniania?
 * Jaki jest wpływ, jeśli osoba atakująca może odczytać dane profilu użytkownika?
-* Co się stanie, jeśli odmówiono dostępu do bazy danych profilu użytkownika?
+* Co się stanie w przypadku odmowy dostępu do bazy danych profilu użytkownika?
 
-## <a name="stride-model"></a>Model KROK
+## <a name="stride-model"></a>Model kroków
 
-Aby lepiej pomóc w formułowaniu tego rodzaju spiczastych pytań, firma Microsoft używa modelu STRIDE, który kategoryzuje różne typy zagrożeń i upraszcza ogólne konwersacje dotyczące zabezpieczeń.
+Aby lepiej pomóc w formułowaniu tych rodzajów pytań, firma Microsoft korzysta z modelu KROKowego, który klasyfikuje różne typy zagrożeń i upraszcza ogólne konwersacje w zakresie zabezpieczeń.
 
 | Kategoria | Opis |
 | -------- | ----------- |
-| **Fałszowanie zawartości** | Polega na nielegalnym dostępie, a następnie użyciu informacji uwierzytelniających innego użytkownika, takich jak nazwa użytkownika i hasło |
-| **Manipulowanie** | Obejmuje złośliwą modyfikację danych. Przykłady obejmują nieautoryzowane zmiany wprowadzone w danych trwałych, takie jak dane przechowywane w bazie danych, oraz zmianę danych przesyłanych między dwoma komputerami za pośrednictwem otwartej sieci, takiej jak Internet |
-| **Odrzucenie** | Skojarzony z użytkownikami, którzy odmawiają wykonywania akcji bez innych stron, które mają jakikolwiek sposób udowodnić inaczej — na przykład użytkownik wykonuje nielegalną operację w systemie, który nie ma możliwości śledzenia zabronionych operacji. Non-Repudiation odnosi się do zdolności systemu do przeciwdziałania zagrożeniom odrzucenia. Na przykład użytkownik, który kupuje element może być musiał podpisać dla towaru po otrzymaniu. Dostawca może następnie użyć podpisanego potwierdzenia jako dowodu, że użytkownik otrzymał pakiet |
-| **Ujawnianie informacji** | Polega na ekspozycji informacji na osoby, które nie powinny mieć do nich dostępu , na przykład zdolność użytkowników do odczytu pliku, do którego nie otrzymali dostępu, lub zdolność intruza do odczytywania danych przesyłanych między dwoma komputerami. |
-| **Odmowa usługi** | Ataki typu "odmowa usługi" (DoS) odmawiają usługi prawidłowym użytkownikom — na przykład przez tymczasowe lub bezużyteczne lub bezużyteczne dla serwera sieci Web. Należy chronić przed niektórymi rodzajami zagrożeń DoS po prostu w celu zwiększenia dostępności i niezawodności systemu |
-| **Podniesienie uprawnień** | Nieuprzywilejowany użytkownik uzyskuje uprzywilejowany dostęp, a tym samym ma wystarczający dostęp do naruszenia lub zniszczenia całego systemu. Podniesienie uprawnień zagrożeń obejmują sytuacje, w których atakujący skutecznie przeniknął wszystkie mechanizmy obronne systemu i stał się częścią zaufanego systemu, niebezpieczna sytuacja rzeczywiście |
+| **Fałszowanie zawartości** | Polega na niedozwolonym dostępie, a następnie użyciu informacji o uwierzytelnianiu innego użytkownika, takich jak nazwa użytkownika i hasło. |
+| **Manipulowanie** | Obejmuje złośliwe modyfikacje danych. Przykładami mogą być nieautoryzowane zmiany wprowadzone do trwałych danych, takie jak przechowywane w bazie danych, oraz zmiana danych w miarę ich przepływu między dwoma komputerami za pośrednictwem otwartej sieci, na przykład Internetu. |
+| **Rzuca** | Powiązane z użytkownikami, którzy odmówią wykonania akcji bez innych stron mających na celu udowodnienie inaczej — na przykład użytkownik wykonuje niedozwoloną operację w systemie, który nie ma możliwości śledzenia zabronionych operacji. Odrzucanie odnosi się do zdolności systemu do licznika zagrożeń odrzucania. Na przykład użytkownik, który kupuje element, może chcieć podpisać element po otrzymaniu. Dostawca może następnie użyć podpisanego potwierdzenia jako dowodu, że użytkownik otrzymał pakiet |
+| **Ujawnianie informacji** | Obejmuje narażenie informacji osobom, które nie powinny mieć do nich dostępu — na przykład możliwość odczytywania przez użytkowników pliku, do którego nie udzielił dostępu, lub zdolności intruza do odczytu danych przesyłanych między dwoma komputerami |
+| **Odmowa usługi** | Ataki typu "odmowa usługi" (DoS) odmawiają usłudze prawidłowym użytkownikom — na przykład przez udostępnienie serwera sieci Web w sposób tymczasowy lub niezdatny do użytku. Należy chronić przed pewnymi rodzajami zagrożeń systemu DoS po prostu, aby zwiększyć dostępność i niezawodność usługi |
+| **Podniesienie uprawnień** | Użytkownik nieuprzywilejowany uzyskuje dostęp uprzywilejowany i w związku z tym ma wystarczający dostęp do naruszenia lub zniszczenia całego systemu. Podniesienie poziomu zagrożeń związanych z uprawnieniami obejmuje te sytuacje, w których osoba atakująca skutecznie przełączyła wszystkie zabezpieczenia systemu i staje się częścią zaufanego systemu, w rzeczywistości niebezpiecznej sytuacji. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do **[łagodzenia środków ograniczających narzędzia do modelowania zagrożeń,](threat-modeling-tool-mitigations.md)** aby dowiedzieć się, jak można ograniczyć te zagrożenia za pomocą platformy Azure.
+Kontynuuj, aby **[Threat Modeling Tool środki zaradcze](threat-modeling-tool-mitigations.md)** , aby poznać różne sposoby ograniczania tych zagrożeń na platformie Azure.

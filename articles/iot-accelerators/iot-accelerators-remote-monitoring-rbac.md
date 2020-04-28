@@ -1,6 +1,6 @@
 ---
-title: Kontrola dostępu do zdalnego monitorowania — Platforma Azure | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera informacje o tym, jak skonfigurować formanty dostępu oparte na rolach (RBAC) w akceleratorze rozwiązań do zdalnego monitorowania
+title: Kontrola dostępu zdalnego do monitorowania — Azure | Microsoft Docs
+description: Ten artykuł zawiera informacje na temat sposobu konfigurowania kontroli dostępu opartej na rolach (RBAC) w akceleratorze rozwiązania do zdalnego monitorowania
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,27 +9,27 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67203154"
 ---
-# <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurowanie kontroli dostępu opartych na rolach w akceleratorze rozwiązań zdalnego monitorowania
+# <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurowanie kontroli dostępu opartej na rolach w akceleratorze rozwiązania do zdalnego monitorowania
 
-Ten artykuł zawiera informacje dotyczące konfigurowania formantów dostępu opartych na rolach w akceleratorze rozwiązań do zdalnego monitorowania. Formanty dostępu oparte na rolach umożliwiają ograniczenie dostępu poszczególnych użytkowników do określonych funkcji rozwiązania.
+Ten artykuł zawiera informacje dotyczące sposobu konfigurowania kontroli dostępu opartej na rolach w akceleratorze rozwiązania do monitorowania zdalnego. Kontrola dostępu oparta na rolach umożliwia ograniczenie dostępu poszczególnych użytkowników do określonych funkcji w rozwiązaniu.
 
 ## <a name="default-settings"></a>Ustawienia domyślne
 
-Podczas pierwszego wdrażania rozwiązania do zdalnego monitorowania istnieją dwie role: **Administrator** i **Tylko do odczytu**.
+Podczas pierwszego wdrożenia rozwiązania do zdalnego monitorowania istnieją dwie role: **administrator** i **tylko do odczytu**.
 
-Każdy użytkownik w roli **administrator** ma pełny dostęp do rozwiązania, w tym następujące uprawnienia poniżej. Użytkownik w roli **Tylko do odczytu** będzie miał dostęp tylko do wyświetlania rozwiązania.
+Każdy użytkownik w roli **administratora** ma pełny dostęp do rozwiązania, w tym poniższe następujące uprawnienia. Użytkownik w roli **tylko do odczytu** będzie miał dostęp tylko do tego rozwiązania.
 
 | Uprawnienie            | Administrator | Tylko do odczytu |
 |----------------       |-------|-----------|
-| Zobacz rozwiązanie         | Tak   | Tak       |
-| Aktualizowanie alarmów         | Tak   | Nie        |
-| Usuwanie alarmów         | Tak   | Nie        |
+| Wyświetl rozwiązanie         | Tak   | Tak       |
+| Aktualizuj alarmy         | Tak   | Nie        |
+| Usuń alarmy         | Tak   | Nie        |
 | Tworzenie urządzeń        | Tak   | Nie        |
 | Aktualizowanie urządzeń        | Tak   | Nie        |
 | Usuwanie urządzeń        | Tak   | Nie        |
@@ -37,67 +37,67 @@ Każdy użytkownik w roli **administrator** ma pełny dostęp do rozwiązania, w
 | Aktualizowanie grup urządzeń  | Tak   | Nie        |
 | Usuwanie grup urządzeń  | Tak   | Nie        |
 | Tworzenie reguł          | Tak   | Nie        |
-| Aktualizuj reguły          | Tak   | Nie        |
-| Usuń reguły          | Tak   | Nie        |
+| Reguły aktualizacji          | Tak   | Nie        |
+| Usuwanie reguł          | Tak   | Nie        |
 | Tworzenie zadań           | Tak   | Nie        |
-| Aktualizowanie zarządzania kartą SIM | Tak   | Nie        |
+| Aktualizowanie zarządzania SIM | Tak   | Nie        |
 
-Domyślnie użytkownik, który wdrożył rozwiązanie, jest automatycznie przypisywany roli **administratora** i jest właścicielem aplikacji usługi Azure Active Directory. Jako właściciel aplikacji możesz przypisać role innym użytkownikom za pośrednictwem witryny Azure portal. Jeśli chcesz, aby inny użytkownik przypisał role w rozwiązaniu, muszą one również być ustawione jako właściciel aplikacji w witrynie Azure portal.
+Domyślnie użytkownik, który wdrożył rozwiązanie, ma automatycznie przypisaną rolę **administratora** i jest właścicielem aplikacji Azure Active Directory. Jako właściciel aplikacji można przypisać role do innych użytkowników za pomocą Azure Portal. Jeśli chcesz, aby inny użytkownik przypisał role w rozwiązaniu, należy również ustawić jako właściciela aplikacji w Azure Portal.
 
 > [!NOTE]
-> Użytkownik, który wdrożył rozwiązanie jest **jedyną osobą,** która może wyświetlić go natychmiast po jego utworzeniu. Aby udzielić innym dostępu do wyświetlania aplikacji jako roli Tylko do odczytu, Administrator lub Rola niestandardowa, zobacz poniższe wskazówki dotyczące dodawania lub usuwania użytkowników.
+> Użytkownik, który wdrożył rozwiązanie, jest **jedyną osobą** , która może ją wyświetlić bezpośrednio po utworzeniu. Aby udzielić innym dostępu do wyświetlania aplikacji jako tylko do odczytu, administratora lub roli niestandardowej, zobacz poniższe wskazówki dotyczące dodawania lub usuwania użytkowników.
 
 ## <a name="add-or-remove-users"></a>Dodawanie lub usuwanie użytkowników
 
-Jako właściciel aplikacji usługi Azure Active Directory możesz użyć witryny Azure Portal, aby dodać lub usunąć użytkownika do roli z rozwiązania do zdalnego monitorowania. Poniższe kroki używają [aplikacji przedsiębiorstwa usługi Azure Active Directory,](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) która została utworzona podczas wdrażania rozwiązania do zdalnego monitorowania.
+Jako właściciel aplikacji Azure Active Directory możesz użyć Azure Portal do dodania lub usunięcia użytkownika do roli z rozwiązania do zdalnego monitorowania. W poniższych krokach użyto [aplikacji Azure Active Directory Enterprise](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) , która została utworzona podczas wdrażania rozwiązania do monitorowania zdalnego.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Sprawdź, czy [użytkownik znajduje się w katalogu,](../active-directory/fundamentals/add-users-azure-active-directory.md) którego używasz. Wybrano katalog do użycia po zalogowaniu się do [witryny akceleratorów rozwiązań IoT platformy Microsoft Azure.](https://www.azureiotsolutions.com/Accelerators) Nazwa katalogu jest widoczna w prawym górnym rogu [strony](https://www.azureiotsolutions.com/Accelerators).
+1. Sprawdź, czy [użytkownik znajduje się w katalogu](../active-directory/fundamentals/add-users-azure-active-directory.md) , którego używasz. Należy wybrać katalog, który ma być używany podczas logowania do witryny [Microsoft Azure IoT Solution Accelerator](https://www.azureiotsolutions.com/Accelerators) . Nazwa katalogu jest widoczna w prawym górnym rogu [strony](https://www.azureiotsolutions.com/Accelerators).
 
-1. Znajdź **aplikację Enterprise** dla rozwiązania w witrynie Azure portal. Tam przefiltruj listę, ustawiając **typ aplikacji** na **Wszystkie aplikacje**. Wyszukaj aplikację według nazwy aplikacji. Nazwa aplikacji to nazwa rozwiązania do zdalnego monitorowania. Na poniższym zrzucie ekranu nazwy wyświetlane rozwiązania i aplikacji są **contoso-rm4**.
+1. Znajdź **aplikację dla przedsiębiorstw** dla swojego rozwiązania w Azure Portal. Przefiltruj listę, ustawiając **Typ aplikacji** na **wszystkie aplikacje**. Wyszukaj aplikację według nazwy aplikacji. Nazwa aplikacji jest nazwą Twojego rozwiązania do monitorowania zdalnego. Na poniższym zrzucie ekranu nazwa wyświetlana rozwiązania i aplikacji to **contoso-RM4**.
 
     ![Aplikacja dla przedsiębiorstw](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
 
-1. Sprawdź, czy jesteś właścicielem aplikacji, klikając aplikację, a następnie klikając pozycję **Właściciele**. Na poniższym zrzucie ekranu **administrator contoso** jest właścicielem aplikacji **contoso-rm4:**
+1. Sprawdź, czy jesteś właścicielem aplikacji, klikając aplikację, a następnie klikając pozycję **właściciele**. Na poniższym zrzucie ekranu **administrator contoso** jest właścicielem aplikacji **contoso-RM4** :
 
     ![Właściciele](media/iot-accelerators-remote-monitoring-rbac/owners.png)
 
-    Jeśli nie jesteś właścicielem, musisz poprosić istniejącego właściciela o dodanie Cię do listy. Tylko właściciele mogą przypisywać role aplikacji, takie jak **Administrator** lub **Tylko do odczytu,** innym użytkownikom.
+    Jeśli nie jesteś właścicielem, musisz poprosił istniejącego właściciela, aby dodał Cię do listy. Tylko właściciele mogą przypisywać role aplikacji, takie jak **administrator** , lub **tylko do odczytu** dla innych użytkowników.
 
 1. Aby wyświetlić listę użytkowników przypisanych do ról w aplikacji, kliknij pozycję **Użytkownicy i grupy**.
 
-1. Aby dodać użytkownika, kliknij przycisk **+ Dodaj użytkownika**, a następnie kliknij pozycję **Użytkownicy i grupy, opcję Brak zaznaczone,** aby wybrać użytkownika z katalogu.
+1. Aby dodać użytkownika, kliknij pozycję **+ Dodaj użytkownika**, a następnie kliknij pozycję **Użytkownicy i grupy, brak wybranych** do wybrania użytkownika z katalogu.
 
-1. Aby przypisać użytkownika do roli, kliknij pozycję **Wybierz rolę, Opcję Brak zaznaczone** i wybierz dla użytkownika rolę **Administrator** lub **Tylko do odczytu.** Kliknij **pozycję Zaznacz**, a następnie kliknij pozycję **Przypisz**.
+1. Aby przypisać użytkownika do roli, kliknij pozycję **Wybierz rolę, brak wybranych** i wybierz dla użytkownika rolę **administratora** lub **tylko do odczytu** . Kliknij pozycję **Wybierz**, a następnie kliknij pozycję **Przypisz**.
 
     ![Wybór roli](media/iot-accelerators-remote-monitoring-rbac/selectrole.png)
 
-1. Użytkownik może teraz uzyskać dostęp do rozwiązania zdalnego monitorowania z uprawnieniami zdefiniowanymi przez rolę.
+1. Użytkownik może teraz uzyskiwać dostęp do rozwiązania do zdalnego monitorowania z uprawnieniami zdefiniowanymi przez rolę.
 
-1. Użytkownicy z aplikacji można usunąć na stronie **Użytkownicy i grupy** w portalu.
+1. Użytkowników z aplikacji można usunąć na stronie **Użytkownicy i grupy** w portalu.
 
 ## <a name="create-a-custom-role"></a>Tworzenie roli niestandardowej
 
-Rozwiązanie do zdalnego monitorowania obejmuje role **Administrator** i **Tylko do odczytu,** gdy jest po raz pierwszy wdrożony. Można dodać role niestandardowe z różnymi zestawami uprawnień. Aby zdefiniować rolę niestandardową, należy:
+Rozwiązanie do monitorowania zdalnego obejmuje **administratora** i **tylko do odczytu** ról podczas jego pierwszego wdrożenia. Można dodawać role niestandardowe z różnymi zestawami uprawnień. Aby zdefiniować rolę niestandardową, należy:
 
-- Dodaj nową rolę do aplikacji w witrynie Azure portal.
-- Zdefiniuj zasady dla nowej roli w mikrousługi uwierzytelniania i autoryzacji.
-- Zaktualizuj internetowy interfejs użytkownika rozwiązania.
+- Dodaj nową rolę do aplikacji w Azure Portal.
+- Zdefiniuj zasady dla nowej roli w mikrousłudze uwierzytelniania i autoryzacji.
+- Zaktualizuj interfejs użytkownika sieci Web rozwiązania.
 
-### <a name="define-a-custom-role-in-the-azure-portal"></a>Definiowanie roli niestandardowej w witrynie Azure portal
+### <a name="define-a-custom-role-in-the-azure-portal"></a>Zdefiniuj rolę niestandardową w Azure Portal
 
-W poniższych krokach opisano sposób dodawania roli do aplikacji w usłudze Azure Active Directory. W tym przykładzie utworzysz nową rolę, która umożliwia członkom tworzenie, aktualizowanie i usuwanie urządzeń w rozwiązaniu zdalnego monitorowania.
+Poniższe kroki zawierają opis sposobu dodawania roli do aplikacji w Azure Active Directory. W tym przykładzie utworzysz nową rolę, która umożliwia członkom tworzenie, aktualizowanie i usuwanie urządzeń w rozwiązaniu do zdalnego monitorowania.
 
-1. Znajdź **rejestrację aplikacji** dla rozwiązania w witrynie Azure portal. Nazwa aplikacji to nazwa rozwiązania do zdalnego monitorowania. Na poniższym zrzucie ekranu nazwy wyświetlane rozwiązania i aplikacji są **contoso-rm4**.
+1. Znajdź w Azure Portal **rejestrację aplikacji** dla Twojego rozwiązania. Nazwa aplikacji jest nazwą Twojego rozwiązania do monitorowania zdalnego. Na poniższym zrzucie ekranu nazwa wyświetlana rozwiązania i aplikacji to **contoso-RM4**.
 
     ![Rejestracja aplikacji](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
-1. Wybierz aplikację, a następnie kliknij przycisk **Manifest**. Możesz zobaczyć dwie istniejące [role aplikacji](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) zdefiniowane dla aplikacji:
+1. Wybierz aplikację, a następnie kliknij pozycję **manifest**. Można wyświetlić dwie istniejące [role aplikacji](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) zdefiniowane dla aplikacji:
 
     ![Wyświetl manifest](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
-1. Edytuj manifest, aby dodać rolę o nazwie **ManageDevices,** jak pokazano w poniższym urywek. Potrzebny jest unikatowy ciąg, taki jak identyfikator GUID dla nowego identyfikatora roli. Nowy identyfikator GUID można wygenerować za pomocą usługi, takiej jak [generator identyfikatorów GUID online:](https://www.guidgenerator.com/)
+1. Edytuj manifest, aby dodać rolę o nazwie **ManageDevices** , jak pokazano w poniższym fragmencie kodu. Potrzebujesz unikatowego ciągu, takiego jak identyfikator GUID dla nowego identyfikatora roli. Nowy identyfikator GUID można wygenerować za pomocą usługi, takiej jak [Generator identyfikatora GUID online](https://www.guidgenerator.com/):
 
     ```json
     "appRoles": [
@@ -136,13 +136,13 @@ W poniższych krokach opisano sposób dodawania roli do aplikacji w usłudze Azu
 
     Zapisz zmiany.
 
-### <a name="define-a-policy-for-the-new-role"></a>Definiowanie zasad dla nowej roli
+### <a name="define-a-policy-for-the-new-role"></a>Zdefiniuj zasady dla nowej roli
 
-Po dodaniu roli do aplikacji w witrynie Azure portal, należy zdefiniować zasady w [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) dla roli, która przypisuje uprawnienia potrzebne do zarządzania urządzeniami.
+Po dodaniu roli do aplikacji w Azure Portal należy zdefiniować zasady w pliku [Roles. JSON](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) dla roli, która przypisuje uprawnienia wymagane do zarządzania urządzeniami.
 
-1. Sklonuj repozytorium [mikrousług monitorowania zdalnego](https://github.com/Azure/remote-monitoring-services-dotnet) z usługi GitHub na komputerze lokalnym.
+1. Sklonuj repozytorium [mikrousług monitorowania zdalnego z usługi](https://github.com/Azure/remote-monitoring-services-dotnet) GitHub na komputerze lokalnym.
 
-1. Edytuj plik **eru/Services/data/policies/roles.json,** aby dodać zasady dotyczące roli **ManageDevices,** jak pokazano w poniższym urywek. Wartości **identyfikatora** i **roli** muszą być zgodne z definicją roli w manifeście aplikacji z poprzedniej sekcji. Lista dozwolonych akcji umożliwia innej osobie w roli **ManageDevices** tworzenie, aktualizowanie i usuwanie urządzeń podłączonych do rozwiązania:
+1. Edytuj plik **AUTH/Services/Data/Policy/role. JSON** , aby dodać zasady dla roli **ManageDevices** , jak pokazano w poniższym fragmencie kodu. Wartości **ID** i **role** muszą być zgodne z definicją roli w manifeście aplikacji z poprzedniej sekcji. Lista dozwolonych akcji umożliwia komuś w roli **ManageDevices** tworzenie, aktualizowanie i usuwanie urządzeń podłączonych do rozwiązania:
 
     ```json
     {
@@ -184,11 +184,11 @@ Po dodaniu roli do aplikacji w witrynie Azure portal, należy zdefiniować zasad
     }
     ```
 
-1. Po zakończeniu edytowania **pliku Usługi/data/policies/roles.json** należy przebudować i ponownie wdrożyć mikrousługi uwierzytelniania i autoryzacji do akceleratora rozwiązań.
+1. Po zakończeniu edycji pliku **Services/Data/policies/Roles. JSON** należy ponownie skompilować i wdrożyć mikrousługę uwierzytelniania i autoryzacji do akceleratora rozwiązania.
 
-### <a name="how-the-web-ui-enforces-permissions"></a>Jak internetowy interfejs użytkownika wymusza uprawnienia
+### <a name="how-the-web-ui-enforces-permissions"></a>Jak interfejs użytkownika sieci Web wymusza uprawnienia
 
-Internetowy interfejs użytkownika używa [mikrousług uwierzytelniania i autoryzacji,](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) aby określić, jakie akcje użytkownik może podjąć i jakie formanty są widoczne w interfejsie użytkownika. Na przykład jeśli rozwiązanie jest wywoływane **contoso-rm4**, interfejs użytkownika sieci web pobiera listę dozwolonych akcji dla bieżącego użytkownika, wysyłając następujące żądanie:
+Interfejs użytkownika sieci Web używa [mikrousługi uwierzytelniania i autoryzacji](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) , aby określić akcje, które użytkownik może wykonać i jakie kontrolki są widoczne w interfejsie użytkownika. Na przykład jeśli rozwiązanie ma nazwę **contoso-RM4**, interfejs użytkownika sieci Web pobiera listę dozwolonych akcji dla bieżącego użytkownika, wysyłając następujące żądanie:
 
 ```http
 http://contoso-rm4.azurewebsites.net/v1/users/current
@@ -197,7 +197,7 @@ X-Source: true
 Authorization: Bearer <JWT Token from ADAL>
 ```
 
-Dla użytkownika o nazwie **Menedżer urządzeń** w **manageDevices** roli odpowiedź zawiera następujące JSON w treści:
+W przypadku użytkownika o nazwie **Menedżer urządzeń** w roli **ManageDevices** odpowiedź zawiera następujący kod JSON w treści:
 
 ```json
 {
@@ -212,7 +212,7 @@ Dla użytkownika o nazwie **Menedżer urządzeń** w **manageDevices** roli odpo
 }
 ```
 
-Poniższy fragment kodu z [deviceDelete.js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/pages/devices/flyouts/deviceDelete/deviceDelete.js) w [interfejsie użytkownika sieci Web](https://github.com/Azure/pcs-remote-monitoring-webui/) pokazuje, jak uprawnienia są wymuszane deklaratywnie:
+Poniższy fragment kodu z [deviceDelete. js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/pages/devices/flyouts/deviceDelete/deviceDelete.js) w [interfejsie użytkownika sieci Web](https://github.com/Azure/pcs-remote-monitoring-webui/) pokazuje, w jaki sposób uprawnienia są wymuszane deklaratywnie:
 
 ```json
 <FlyoutContent>
@@ -224,13 +224,13 @@ Poniższy fragment kodu z [deviceDelete.js](https://github.com/Azure/pcs-remote-
 </FlyoutContent>
 ```
 
-Aby uzyskać więcej informacji, zobacz [Chronione składniki](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/shared/protected/README.md). Można zdefiniować dodatkowe uprawnienia w pliku [authModel.js.](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/services/models/authModels.js)
+Aby uzyskać więcej informacji, zobacz [składniki chronione](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/shared/protected/README.md). Można zdefiniować dodatkowe uprawnienia w pliku [authModel. js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/services/models/authModels.js) .
 
-### <a name="how-the-microservices-enforce-permissions"></a>Jak mikrousług wymuszaj uprawnienia
+### <a name="how-the-microservices-enforce-permissions"></a>Jak są wymuszane uprawnienia dla mikrousług
 
-Mikrousługi również sprawdzić uprawnienia do ochrony przed nieautoryzowanymi żądaniami interfejsu API. Gdy mikrousługa odbiera żądanie interfejsu API, dekoduje i sprawdza poprawność tokenu JWT, aby uzyskać identyfikator użytkownika i uprawnienia skojarzone z rolą użytkownika.
+Mikrousługi sprawdzają także uprawnienia do ochrony przed nieautoryzowanymi żądaniami interfejsu API. Gdy mikrousługa otrzymuje żądanie interfejsu API, dekoduje i weryfikuje token JWT w celu uzyskania identyfikatora użytkownika i uprawnień skojarzonych z rolą użytkownika.
 
-Następujący fragment kodu z pliku [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) w [mikrousługach Usługi IoTHub Manager](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager)pokazuje, jak uprawnienia są wymuszane:
+Poniższy fragment kodu z pliku [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) w [mikrousłudze IoTHub Manager](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager)pokazuje, jak są wymuszane uprawnienia:
 
 ```csharp
 [HttpDelete("{id}")]
@@ -243,11 +243,11 @@ public async Task DeleteAsync(string id)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule dowiesz się, jak formanty dostępu oparte na rolach są implementowane w akceleratorze rozwiązań zdalnego monitorowania.
+W tym artykule przedstawiono sposób implementacji kontroli dostępu opartej na rolach w akceleratorze rozwiązania do zdalnego monitorowania.
 
-Zobacz [Konfigurowanie kontrolek dostępu dla Eksploratora Usługi Time Series Insights,](iot-accelerators-remote-monitoring-rbac-tsi.md) aby uzyskać informacje na temat zarządzania dostępem do eksploratora Usługi Time Series Insights w akceleratorze rozwiązań do zdalnego monitorowania.
+Zobacz [Konfigurowanie kontroli dostępu dla eksploratora Time Series Insights,](iot-accelerators-remote-monitoring-rbac-tsi.md) Aby uzyskać informacje na temat zarządzania dostępem do Eksploratora Time Series Insights w akceleratorze rozwiązania do zdalnego monitorowania.
 
-Aby uzyskać więcej informacji koncepcyjnych dotyczących akceleratora rozwiązań do zdalnego monitorowania, zobacz [Architektura zdalnego monitorowania](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Aby uzyskać więcej informacji o pojęciach dotyczących akceleratora rozwiązania do monitorowania zdalnego, zobacz [Architektura zdalnego monitorowania](iot-accelerators-remote-monitoring-sample-walkthrough.md) .
 
-Aby uzyskać więcej informacji na temat dostosowywania rozwiązania do zdalnego monitorowania, zobacz [Dostosowywanie i ponowne wdrożenie mikrousług](iot-accelerators-microservices-example.md)
+Aby uzyskać więcej informacji na temat dostosowywania rozwiązania do monitorowania zdalnego, zobacz [Dostosowywanie i ponowne wdrażanie mikrousługi](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

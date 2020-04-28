@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie przekazywania plików za pomocą portalu Azure | Dokumenty firmy Microsoft
-description: Jak korzystać z witryny Azure portal, aby skonfigurować centrum IoT hub, aby włączyć przekazywanie plików z podłączonych urządzeń. Zawiera informacje dotyczące konfigurowania docelowego konta magazynu platformy Azure.
+title: Użyj Azure Portal, aby skonfigurować przekazywanie plików | Microsoft Docs
+description: Używanie Azure Portal do konfigurowania Centrum IoT Hub w celu umożliwienia przekazywania plików z połączonych urządzeń. Zawiera informacje o konfigurowaniu docelowego konta usługi Azure Storage.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
 ms.openlocfilehash: bd7cc37b8fc81fc9d4109826743f2243913d0604
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60735057"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Konfigurowanie przekazywania plików w usłudze IoT Hub przy użyciu witryny Azure Portal
@@ -21,36 +21,36 @@ ms.locfileid: "60735057"
 
 ## <a name="file-upload"></a>Przekazywanie plików
 
-Aby użyć [funkcji przekazywania plików w centrum IoT Hub,](iot-hub-devguide-file-upload.md)należy najpierw skojarzyć konto usługi Azure Storage z centrum. Wybierz **opcję Przekazywanie plików,** aby wyświetlić listę właściwości przekazywania plików dla modyfikowanego centrum IoT Hub.
+Aby skorzystać z [funkcji przekazywania plików w IoT Hub](iot-hub-devguide-file-upload.md), musisz najpierw skojarzyć konto usługi Azure Storage z centrum. Wybierz pozycję **Przekaż plik** , aby wyświetlić listę właściwości przekazywania plików dla Centrum IoT, które jest modyfikowane.
 
-![Wyświetlanie ustawień przekazywania plików w centrum IoT w portalu](./media/iot-hub-configure-file-upload/file-upload-settings.png)
+![Wyświetlanie ustawień przekazywania plików IoT Hub w portalu](./media/iot-hub-configure-file-upload/file-upload-settings.png)
 
-* **Kontener magazynu:** Użyj witryny Azure Portal, aby wybrać kontener obiektów blob na koncie usługi Azure Storage w bieżącej subskrypcji platformy Azure, aby skojarzyć z centrum IoT Hub. W razie potrzeby można utworzyć konto usługi Azure Storage w kontenerze **konta magazynu** i obiektu blob na **kontenerach.** Usługa IoT Hub automatycznie generuje identyfikatory URI sygnatury dostępu Współdzielonego z uprawnieniami do zapisu do tego kontenera obiektów blob dla urządzeń do użycia podczas przekazywania plików.
+* **Kontener magazynu**: Użyj Azure Portal, aby wybrać kontener obiektów BLOB na koncie usługi Azure Storage w bieżącej subskrypcji platformy Azure, aby skojarzyć go z IoT Hub. W razie potrzeby możesz utworzyć konto usługi Azure Storage w bloku **konta magazynu** i kontenera obiektów BLOB w bloku **kontenerów** . IoT Hub automatycznie generuje identyfikatory URI SAS z uprawnieniami do zapisu w tym kontenerze obiektów BLOB dla urządzeń, które będą używane podczas przekazywania plików.
 
-   ![Wyświetlanie kontenerów magazynu do przekazywania plików w portalu](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
+   ![Wyświetlanie kontenerów magazynu na potrzeby przekazywania plików w portalu](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
 
-* **Otrzymuj powiadomienia o przesłanych plikach**: Włącz lub wyłącz powiadomienia o przekazywaniu plików za pomocą przełącznika.
+* **Odbieraj powiadomienia dla przekazanych plików**: Włącz lub Wyłącz powiadomienia przekazywania plików za pośrednictwem przełącznika.
 
-* **Czas wygaśnięcia SAS:** To ustawienie jest czas wygaśnięcia identyfikatorów URI sygnatury dostępu Współdzielonego zwróconych do urządzenia przez centrum IoT Hub. Domyślnie ustawiona na jedną godzinę, ale można dostosować do innych wartości za pomocą suwaka.
+* Czas **wygaśnięcia sygnatury dostępu współdzielonego**: to ustawienie jest czasem wygaśnięcia identyfikatorów URI sygnatury dostępu współdzielonego zwróconego do urządzenia przez IoT Hub. Domyślnie ustawione na jedną godzinę, ale można je dostosować do innych wartości przy użyciu suwaka.
 
-* **Domyślne czasy powiadomienia**o pliku: Czas wygaśnięcia powiadomienia o przekazywaniu pliku przed jego wygaśnięciem. Domyślnie ustawiona na jeden dzień, ale można dostosować do innych wartości za pomocą suwaka.
+* **Ustawienia powiadomień o pliku domyślny czas wygaśnięcia**: godzina wygaśnięcia powiadomienia o przekazaniu pliku przed jego wygaśnięciem. Ustaw na jeden dzień domyślnie, ale można go dostosować do innych wartości przy użyciu suwaka.
 
-* **Maksymalna liczba dostarczenia powiadomień o plikach:** liczba prób dostarczenia powiadomienia o przekazywaniu pliku przez centrum IoT Hub. Domyślnie ustawiona wartość 10, ale można ją dostosować do innych wartości za pomocą suwaka.
+* **Maksymalna liczba dostaw powiadomień o pliku**: liczba prób dostarczenia przez IoT Hub powiadomienia o przekazaniu pliku. Domyślnie ustawione na 10, ale można je dostosować do innych wartości przy użyciu suwaka.
 
-   ![Konfigurowanie przekazywania plików w centrum IoT w portalu](./media/iot-hub-configure-file-upload/file-upload-selected-container.png)
+   ![Konfigurowanie przekazywania plików IoT Hub w portalu](./media/iot-hub-configure-file-upload/file-upload-selected-container.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat możliwości przekazywania plików usługi IoT Hub, zobacz [Przekazywanie plików z urządzenia](iot-hub-devguide-file-upload.md) w przewodniku dla deweloperów usługi IoT Hub.
+Aby uzyskać więcej informacji o możliwościach przekazywania plików IoT Hub, zobacz [przekazywanie plików z urządzenia](iot-hub-devguide-file-upload.md) w przewodniku dewelopera IoT Hub.
 
-Skorzystaj z tych łączy, aby dowiedzieć się więcej o zarządzaniu usługą Azure IoT Hub:
+Skorzystaj z poniższych linków, aby dowiedzieć się więcej o zarządzaniu usługą Azure IoT Hub:
 
 * [Zbiorcze zarządzanie urządzeniami IoT](iot-hub-bulk-identity-mgmt.md)
-* [Metryki usługi IoT Hub](iot-hub-metrics.md)
+* [Metryki IoT Hub](iot-hub-metrics.md)
 * [Monitorowanie operacji](iot-hub-operations-monitoring.md)
 
-Aby dokładniej zbadać możliwości usługi IoT Hub, zobacz:
+Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz:
 
-* [Przewodnik dla deweloperów usługi IoT Hub](iot-hub-devguide.md)
+* [Przewodnik dla deweloperów IoT Hub](iot-hub-devguide.md)
 * [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 * [Zabezpiecz swoje rozwiązanie IoT od podstaw](../iot-fundamentals/iot-security-ground-up.md)

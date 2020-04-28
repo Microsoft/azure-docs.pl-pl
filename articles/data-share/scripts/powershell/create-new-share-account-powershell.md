@@ -1,6 +1,6 @@
 ---
-title: 'Skrypt programu PowerShell: tworzenie nowego konta udziału danych platformy Azure | Dokumenty firmy Microsoft'
-description: Ten skrypt programu PowerShell tworzy nowe konto udziału danych.
+title: 'Skrypt programu PowerShell: Tworzenie nowego konta udziału danych platformy Azure | Microsoft Docs'
+description: Ten skrypt programu PowerShell tworzy nowe konto udostępniania danych.
 services: data-share
 author: joannapea
 ms.service: data-share
@@ -10,15 +10,15 @@ ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: c3852dd5f1d3d3df8a982716ce5dab9426782869
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70307271"
 ---
-# <a name="use-powershell-to-create-a-data-share-account-in-azure"></a>Tworzenie konta udziału danych na platformie Azure za pomocą programu PowerShell
+# <a name="use-powershell-to-create-a-data-share-account-in-azure"></a>Tworzenie konta udziału danych na platformie Azure przy użyciu programu PowerShell
 
-Ten skrypt programu PowerShell tworzy nowe konto udziału danych. 
+Ten skrypt programu PowerShell tworzy nowe konto udostępniania danych. 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -38,11 +38,11 @@ W tym skrypcie użyto następujących poleceń:
 
 | Polecenie | Uwagi |
 |---|---|
-| [Konto New-AzDataShareAccount](/powershell/module/az.datashare/new-azdatashareaccount?view=azps-2.6.0) | Tworzy konto udziału danych. |
+| [New-AzDataShareAccount](/powershell/module/az.datashare/new-azdatashareaccount?view=azps-2.6.0) | Tworzy konto udostępniania danych. |
 |||
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Dodatkowe przykłady skryptów programu PowerShell udostępniania danych platformy Azure można znaleźć w [przykładach programu PowerShell udostępniania danych platformy Azure.](../../samples-powershell.md)
+Dodatkowe przykłady skryptów programu PowerShell dotyczące udziałów danych platformy Azure można znaleźć w [przykładach programu PowerShell w udziale danych platformy Azure](../../samples-powershell.md).

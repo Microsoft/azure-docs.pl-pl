@@ -1,6 +1,6 @@
 ---
-title: Tworzenie niestandardowego obrazu laboratorium usługi Azure DevTest labs na maszynie wirtualnej | Dokumenty firmy Microsoft
-description: Dowiedz się, jak utworzyć obraz niestandardowy w laboratoriach devtest platformy Azure z aprowizowana maszyna wirtualna przy użyciu witryny Azure portal
+title: Tworzenie niestandardowego obrazu Azure DevTest Labs na podstawie maszyny wirtualnej | Microsoft Docs
+description: Dowiedz się, jak utworzyć niestandardowy obraz w Azure DevTest Labs z zainicjowanej maszyny wirtualnej przy użyciu Azure Portal
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 07f3b60b9218f74bb3a778daa27f31687c4538b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60868503"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Tworzenie obrazu niestandardowego z poziomu maszyny wirtualnej
@@ -27,41 +27,41 @@ ms.locfileid: "60868503"
 
 ## <a name="step-by-step-instructions"></a>Instrukcje krok po kroku
 
-Można utworzyć obraz niestandardowy z aprowizowana maszyna wirtualna, a następnie użyć tego obrazu niestandardowego do tworzenia identycznych maszyn wirtualnych. W poniższych krokach pokazano, jak utworzyć obraz niestandardowy z maszyny Wirtualnej:
+Można utworzyć obraz niestandardowy na podstawie zainicjowanej maszyny wirtualnej, a następnie użyć tego obrazu niestandardowego do utworzenia identycznych maszyn wirtualnych. Poniższe kroki ilustrują sposób tworzenia obrazu niestandardowego z poziomu maszyny wirtualnej:
 
-1. Zaloguj się do [Portalu Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Zaloguj się w witrynie [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Wybierz **pozycję Wszystkie usługi**, a następnie wybierz z listy pozycję **DevTest Labs.**
+1. Wybierz pozycję **wszystkie usługi**, a następnie z listy wybierz pozycję **DevTest Labs** .
 
-1. Z listy laboratoriów wybierz żądane laboratorium.  
+1. Z listy laboratoriów wybierz odpowiednie laboratorium.  
 
-1. W głównym okienku laboratorium wybierz pozycję **Moje maszyny wirtualne**.
+1. W okienku głównym laboratorium wybierz pozycję **moje maszyny wirtualne**.
  
-1. W okienku **Moje maszyny wirtualne** wybierz maszynę wirtualną, z której chcesz utworzyć obraz niestandardowy.
+1. W okienku **moje maszyny wirtualne** wybierz maszynę wirtualną, z której chcesz utworzyć niestandardowy obraz.
 
-1. W okienku zarządzania maszyny Wirtualnej wybierz pozycję **Utwórz obraz niestandardowy (VHD)**.
+1. W okienku zarządzanie maszyną wirtualną wybierz pozycję **Utwórz obraz niestandardowy (VHD)**.
 
-    ![Tworzenie niestandardowego elementu menu obrazu](./media/devtest-lab-create-template/create-custom-image.png)
+    ![Utwórz niestandardowy element menu obrazu](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. W okienku **Obraz niestandardowy** wprowadź nazwę i opis obrazu niestandardowego. Te informacje są wyświetlane na liście baz podczas tworzenia maszyny Wirtualnej. Obraz niestandardowy będzie zawierał dysk systemu operacyjnego i wszystkie dyski danych dołączone do maszyny wirtualnej.
+1. W okienku **obraz niestandardowy** wprowadź nazwę i opis obrazu niestandardowego. Te informacje są wyświetlane na liście baz danych podczas tworzenia maszyny wirtualnej. Obraz niestandardowy będzie zawierać dysk systemu operacyjnego i wszystkie dyski z danymi dołączone do maszyny wirtualnej.
 
     ![Tworzenie niestandardowego okienka obrazu](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. Wybierz, czy sysprep został uruchomiony na maszynie Wirtualnej. Jeśli sysprep nie został uruchomiony na maszynie Wirtualnej, określ, czy sysprep ma być uruchamiany na maszynie Wirtualnej podczas tworzenia obrazu niestandardowego.
+1. Wybierz, czy program Sysprep został uruchomiony na maszynie wirtualnej. Jeśli program Sysprep nie został uruchomiony na maszynie wirtualnej, określ, czy program Sysprep ma być uruchamiany na maszynie wirtualnej po utworzeniu obrazu niestandardowego.
 
-1. Po zakończeniu wybierz **przycisk OK,** aby utworzyć obraz niestandardowy.
+1. Po zakończeniu tworzenia obrazu niestandardowego wybierz **przycisk OK** .
 
-Po kilku minutach obraz niestandardowy jest tworzony i jest przechowywany wewnątrz konta magazynu laboratorium. Gdy użytkownik laboratorium chce utworzyć nową maszynę wirtualną, obraz jest dostępny na liście obrazów podstawowych.
+Po kilku minutach obraz niestandardowy zostanie utworzony i będzie przechowywany w ramach konta magazynu laboratorium. Gdy użytkownik laboratorium chce utworzyć nową maszynę wirtualną, obraz jest dostępny na liście obrazów podstawowych.
 
-![Obraz niestandardowy dostępny na liście obrazów podstawowych](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+![Niestandardowy obraz dostępny na liście obrazów podstawowych](./media/devtest-lab-create-template/custom-image-available-as-base.png)
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a>Podobne posty na blogu
+## <a name="related-blog-posts"></a>Powiązane wpisy w blogu
 
-- [Niestandardowe obrazy lub formuły?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Kopiowanie obrazów niestandardowych między laboratoriami devtest platformy Azure](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Obrazy niestandardowe lub formuły?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Kopiowanie obrazów niestandardowych między Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Następne kroki
 

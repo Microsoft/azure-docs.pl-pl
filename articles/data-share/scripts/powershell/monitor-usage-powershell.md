@@ -1,5 +1,5 @@
 ---
-title: 'Skrypt programu PowerShell: monitorowanie użycia udziału danych platformy Azure | Dokumenty firmy Microsoft'
+title: 'Skrypt programu PowerShell: monitorowanie użycia udziału danych platformy Azure | Microsoft Docs'
 description: Ten skrypt programu PowerShell pobiera metryki użycia wysłanego udziału danych.
 services: data-share
 author: joannapea
@@ -10,15 +10,15 @@ ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: 0a4084d309dd0160970f1c03540705b310eb8e75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70307204"
 ---
-# <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>Monitorowanie użycia wysłanego udziału danych za pomocą programu PowerShell
+# <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>Monitorowanie użycia wysłanego udziału danych przy użyciu programu PowerShell
 
-Ten skrypt programu PowerShell monitoruje użycie danych, wymieniając synchronizacje wysłanego udziału danych i uzyskując szczegóły określonej synchronizacji.
+Ten skrypt programu PowerShell monitoruje użycie danych przez wystawienie synchronizacji wysłanego udziału danych i uzyskanie szczegółowych informacji o określonej synchronizacji.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -44,12 +44,12 @@ W tym skrypcie użyto następujących poleceń:
 
 | Polecenie | Uwagi |
 |---|---|
-| [Synchronizacja Get-AzDataShare](/powershell/module/az.datashare/get-azdatasharesynchronization?view=azps-2.6.0) | Lista synchronizacji w udziale. |
-| [Szczegóły programu Get-AzDataShareSynchronization](/powershell/module/az.datashare/get-azdatasharesynchronizationdetail?view=azps-2.6.0) | Pobiera szczegóły synchronizacji synchronizacji udziału. |
+| [Get-AzDataShareSynchronization](/powershell/module/az.datashare/get-azdatasharesynchronization?view=azps-2.6.0) | Wyświetl listę synchronizacji w udziale. |
+| [Get-AzDataShareSynchronizationDetails](/powershell/module/az.datashare/get-azdatasharesynchronizationdetail?view=azps-2.6.0) | Pobiera szczegóły synchronizacji synchronizacji udziału. |
 |||
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Dodatkowe przykłady skryptów programu PowerShell udostępniania danych platformy Azure można znaleźć w [przykładach programu PowerShell udostępniania danych platformy Azure.](../../samples-powershell.md)
+Dodatkowe przykłady skryptów programu PowerShell dotyczące udziałów danych platformy Azure można znaleźć w [przykładach programu PowerShell w udziale danych platformy Azure](../../samples-powershell.md).

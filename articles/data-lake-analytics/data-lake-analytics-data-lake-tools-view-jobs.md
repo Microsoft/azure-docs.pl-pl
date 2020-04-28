@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z widoku & zadania przeglądarki zadań — usługa Azure Data Lake Analytics
-description: W tym artykule opisano sposób korzystania z zadań Przeglądarki zadań i widoku zadań dla usługi Azure Data Lake Analytics.
+title: Użyj przeglądarki zadań & widoku zadań — Azure Data Lake Analytics
+description: W tym artykule opisano, jak używać przeglądarki zadań i widoku zadań dla Azure Data Lake Analytics zadań.
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
@@ -8,165 +8,165 @@ ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
 ms.openlocfilehash: 2d33a6ec5ff6b687913914e9433b85765aaa7aec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71309947"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Use Job Browser and Job View for Azure Data Lake Analytics (Korzystanie z przeglądarki zadań i widoku zadań dla usługi Azure Data Lake Analytics)
-Archiwum usługi Usługi Azure Data Lake Analytics przesłane zadania w magazynie zapytań. W tym artykule dowiesz się, jak znaleźć historyczne informacje o zadaniach za pomocą przeglądarki zadań i widoku zadań w usłudze Azure Data Lake Tools for Visual Studio. 
+Usługi Azure Data Lake Analytics archiwizują przesłane zadania w magazynie zapytań. W tym artykule dowiesz się, jak używać przeglądarki zadań i widoku zadań w Azure Data Lake Tools for Visual Studio, aby znaleźć historyczne informacje o zadaniu. 
 
-Domyślnie usługa Data Lake Analytics archiwizuje zadania przez 30 dni. Okres wygaśnięcia można skonfigurować z witryny Azure portal, konfigurując dostosowane zasady wygasania. Nie będzie można uzyskać dostępu do informacji o pracy po wygaśnięciu. 
+Domyślnie usługa Data Lake Analytics archiwizuje zadania przez 30 dni. Okres ważności można skonfigurować na podstawie Azure Portal przez skonfigurowanie niestandardowych zasad wygasania. Po wygaśnięciu nie będzie można uzyskać dostępu do informacji o zadaniu. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Zobacz [Wymagania wstępne usługi Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
+Zobacz [Data Lake Tools for Visual Studio — wymagania wstępne](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Otwórz przeglądarkę zadań
-Uzyskaj dostęp do przeglądarki zadań za pośrednictwem **Eksploratora serwera>usługi Azure>Data Lake Analytics>zadaniach** w programie Visual Studio.  Za pomocą przeglądarki zadań można uzyskać dostęp do magazynu zapytań konta usługi Data Lake Analytics. Przeglądarka zadań wyświetla magazyn zapytań po lewej stronie, z informacjami o podstawowym o pracę, a po prawej widok zadania ze szczegółowymi informacjami o pracy.
+Dostęp do przeglądarki zadań za pośrednictwem **Eksplorator serwera>Azure>Data Lake Analytics>zadań** w programie Visual Studio.  Korzystając z przeglądarki zadań, można uzyskać dostęp do magazynu zapytań konta Data Lake Analytics. W przeglądarce zadań po lewej stronie jest wyświetlany magazyn zapytań zawierający podstawowe informacje o zadaniu i widok zadania po prawej stronie zawierające szczegółowe informacje o zadaniu.
 
 ## <a name="job-view"></a>Widok zadania
-Widok zadania zawiera szczegółowe informacje o zadaniu. Aby otworzyć zadanie, można dwukrotnie kliknąć zadanie w przeglądarce zadań lub otworzyć je z menu Usługi Data Lake, klikając pozycję Widok zadania. Powinno zostać wyświetlone okno dialogowe wypełnione adresem URL zadania.
+Widok zadania przedstawia szczegółowe informacje o zadaniu. Aby otworzyć zadanie, kliknij dwukrotnie zadanie w przeglądarce zadań lub otwórz je w menu Data Lake, klikając pozycję Widok zadania. Powinno zostać wyświetlone okno dialogowe z adresem URL zadania.
 
-![Przeglądarka zadań programu Data Lake Tools](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view.png)
+![Przeglądarka zadań Data Lake Tools programu Visual Studio](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view.png)
 
 Widok zadania zawiera:
 
 * Podsumowanie zadania
   
-    Odśwież widok zadania, aby wyświetlić najnowsze informacje o uruchomionych zadaniach.
+    Odśwież widok zadania, aby wyświetlić nowsze informacje o uruchomionych zadaniach.
   
-  * Stan zadania (wykres):
+  * Stan zadania (Graf):
     
-      Stan zadania określa fazy zadania:
+      Stan zadania przedstawia etapy zadania:
     
-      ![Stan faz zadań usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
+      ![Stan faz zadania Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
-    * Przygotowanie: Prześlij skrypt do chmury, kompilując i optymalizując skrypt za pomocą usługi kompilacji.
-    * W kolejce: Zadania są umieszczane w kolejce, gdy oczekują na wystarczającą ilość zasobów lub zadania przekraczają maksymalną liczbę równoczesnych zadań na ograniczenie konta. Ustawienie priorytetu określa kolejność zadań w kolejce — im mniejsza liczba, tym wyższy priorytet.
-    * Działa: zadanie jest faktycznie uruchomione na koncie Usługi Data Lake Analytics.
-    * Finalizowanie: Zadanie jest zakończone (na przykład finalizowanie pliku).
+    * Przygotowywanie: Przekaż skrypt do chmury, kompilując i optymalizując skrypt za pomocą usługi kompilacji.
+    * W kolejce: zadania są umieszczane w kolejce, gdy oczekują na wystarczającą ilość zasobów lub zadania przekraczają maksymalną liczbę współbieżnych zadań na konto. Ustawienie priorytetu Określa sekwencję zadań w kolejce — niższy numer, tym wyższy priorytet.
+    * Uruchomiono: zadanie jest w rzeczywistości uruchomione na koncie Data Lake Analytics.
+    * Finalizowanie: zadanie zostało zakończone (na przykład finalizowanie pliku).
       
-      Zadanie może zakończyć się niepowodzeniem w każdej fazie. Na przykład błędy kompilacji w fazie Przygotowywanie, błędy limitu czasu w fazie kolejkowania i błędy wykonywania w fazie uruchamiania itp.
-  * Podstawowe informacje
+      Zadanie może zakończyć się niepowodzeniem w każdej fazie. Na przykład błędy kompilacji w fazie przygotowywania, błędy przekroczenia limitu czasu w fazie kolejkowanej oraz błędy wykonywania w fazie wykonywania itd.
+  * Informacje podstawowe
     
-      Podstawowe informacje o pracy są wyświetlane w dolnej części panelu Podsumowanie zadań.
+      Podstawowe informacje o zadaniu są wyświetlane w dolnej części panelu podsumowanie zadania.
     
-      ![Stan faz zadań usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
+      ![Stan faz zadania Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
-    * Wynik zadania: Powiodło się lub nie powiodło się. Zadanie może zakończyć się niepowodzeniem w każdej fazie.
-    * Całkowity czas trwania: Czas zegara ściennego (czas trwania) między czasem przesyłania a czasem zakończenia.
-    * Całkowity czas obliczeń: Suma każdego czasu wykonania wierzchołka, można uznać go za czas, że zadanie jest wykonywane tylko w jednym wierzchołku. Więcej informacji na temat wierzchołków można znaleźć w wierzchołku.
-    * Czas przesyłania/rozpoczęcia/zakończenia: czas, w którym usługa Data Lake Analytics otrzymuje przesyłanie/rozpoczyna uruchamianie zadania/kończy zadanie pomyślnie lub nie.
-    * Kompilacja/Kolejkowane/Uruchomione: Czas zegara ściennego spędzony podczas fazy przygotowywania/kolejkowania/uruchamiania.
-    * Konto: konto Usługi Data Lake Analytics używane do uruchamiania zadania.
-    * Autor: Użytkownik, który przesłał zadanie, może to być konto prawdziwej osoby lub konto systemowe.
-    * Priorytet: Priorytet zadania. Im mniejsza liczba, tym wyższy priorytet. Wpływa tylko na sekwencję zadań w kolejce. Ustawienie wyższego priorytetu nie wywłaszcza uruchomionych zadań.
-    * Równoległość: żądana maksymalna liczba równoczesnych jednostek analizy usługi Azure Data Lake (ADLAU), aka wierzchołków. Obecnie jeden wierzchołek jest równy jednej maszynie wirtualnej z dwoma rdzeniami wirtualnymi i sześcioma GB pamięci RAM, chociaż można go uaktualnić w przyszłych aktualizacjach usługi Data Lake Analytics.
-    * Bajty w lewo: bajty, które muszą być przetwarzane do czasu zakończenia zadania.
-    * Bajty odczytu/zapisu: Bajty, które zostały odczytane/zapisane od czasu rozpoczęcia pracy zadania.
-    * Wierzchołki całkowite: Zadanie jest podzielone na wiele części pracy, każdy element pracy jest nazywany wierzchołkiem. Ta wartość opisuje, ile części pracy składa się z zadania. Wierzchołek można uznać za podstawową jednostkę procesu, aka Azure Data Lake Analytics Unit (ADLAU) i wierzchołki mogą być uruchamiane w równoległości. 
-    * Zakończone/Uruchomione/Nie powiodło się: Liczba zakończonych/uruchomionych/nieudanych wierzchołków. Wierzchołki mogą zakończyć się niepowodzeniem z powodu błędów kodu użytkownika i systemu, ale system ponawia próby nie powiodło się vertices automatycznie kilka razy. Jeśli wierzchołek nadal nie powiedzie się po ponowieniu próby, całe zadanie zakończy się niepowodzeniem.
-* Wykres zadań
+    * Wynik zadania: powodzenie lub niepowodzenie. Zadanie może zakończyć się niepowodzeniem w każdej fazie.
+    * Łączny czas trwania: czas zegara ściany (czas trwania) między przesłaniem czasu a czasem zakończenia.
+    * Łączny czas obliczeń: suma każdego czasu wykonywania wierzchołka, można go traktować jako godzinę wykonywania zadania w tylko jednym wierzchołku. Zapoznaj się z sumą wierzchołków, aby uzyskać więcej informacji o wierzchołku.
+    * Godzina przesłania/rozpoczęcia/zakończenia: czas, w którym usługa Data Lake Analytics otrzymuje zadanie przesłaniania/uruchomienia zadania lub kończy zadanie pomyślnie.
+    * Kompilacja/kolejkowanie/uruchamianie: czas zegara ściany spędzony w fazie przygotowywania/kolejkowane/uruchomione.
+    * Konto: konto Data Lake Analytics używane do uruchamiania zadania.
+    * Autor: użytkownik, który przesłał zadanie, może być kontem osoby rzeczywistej lub kontem systemowym.
+    * Priorytet: priorytet zadania. Im niższa wartość, tym wyższy priorytet. Ma to wpływ tylko na sekwencję zadań w kolejce. Ustawienie wyższego priorytetu nie powoduje przełożonego uruchomionych zadań.
+    * Równoległość: żądana Maksymalna liczba współbieżnych Azure Data Lake Analytics jednostek (ADLAUs), aliasów. Obecnie jeden wierzchołek jest równy jednej maszynie wirtualnej z dwoma rdzeniami wirtualnymi i sześć GB pamięci RAM, chociaż może to zostać uaktualnione w przyszłości Data Lake Analytics aktualizacje.
+    * Bajty pozostawione: bajty, które muszą zostać przetworzone do momentu ukończenia zadania.
+    * Bajty do odczytu/zapisu: Bajty odczytane/zapisywana od momentu uruchomienia zadania.
+    * Łączna liczba wierzchołków: zadanie jest podzielone na wiele elementów pracy, każda część pracy jest nazywana wierzchołkiem. Ta wartość opisuje, ile elementów pracy składa się z zadania. Można rozważyć użycie wierzchołka jako podstawowej jednostki procesu, aliasu Azure Data Lake Analytics Unit (ADLAU), a wierzchołków można uruchamiać równolegle. 
+    * Zakończono/uruchomiono/niepowodzenie — liczba wierzchołków ukończonych/uruchomionych/zakończonych niepowodzeniem. Wierzchołki mogą kończyć się niepowodzeniem z powodu błędów kodu użytkownika i systemu, ale automatyczne ponawianie prób w systemie nie powiodło się. Jeśli wierzchołk nadal nie powiedzie się po ponowieniu próby, całe zadanie zakończy się niepowodzeniem.
+* Wykres zadania
   
-    Skrypt U-SQL reprezentuje logikę przekształcania danych wejściowych do danych wyjściowych. Skrypt jest kompilowany i zoptymalizowany do planu wykonania fizycznego w fazie przygotowywania. Wykres zadania jest pokazanie planu wykonania fizycznego.  Poniższy diagram ilustruje proces:
+    Skrypt U-SQL reprezentuje logikę przekształcania danych wejściowych z danymi wyjściowymi. Skrypt jest kompilowany i zoptymalizowany pod kątem fizycznego planu wykonywania w fazie przygotowywania. Wykres zadania polega na wyświetleniu fizycznego planu wykonania.  Na poniższym diagramie przedstawiono proces:
   
-    ![Stan faz zadań usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
+    ![Stan faz zadania Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
   
-    Praca jest podzielona na wiele prac. Każdy element pracy jest nazywany wierzchołkiem. Wierzchołki są zgrupowane jako Super wierzchołek (aka etap) i wizualizowane jako wykres zadania. Zielone tabliczki sceniczne na wykresie zadań pokazują etapy.
+    Zadanie jest podzielone na wiele elementów pracy. Każda część pracy nazywa się wierzchołkiem. Wierzchołki są pogrupowane jako indeks górny (czyli etap) i wizualizowane jako Graf zadań. W wykresach zadań zielonych etapów są wyświetlane etapy.
   
-    Każdy wierzchołek na etapie wykonuje ten sam rodzaj pracy z różnymi fragmentami tych samych danych. Na przykład jeśli masz plik z jednym tb danych i istnieją setki wierzchołków odczytu z niego, każdy z nich jest czytanie fragmentu. Wierzchołki te są zgrupowane na tym samym etapie i wykonują tę samą pracę na różnych fragmentach tego samego pliku wejściowego.
+    Każdy wierzchołek w fazie ma ten sam rodzaj pracy z różnymi fragmentami tych samych danych. Na przykład, jeśli masz plik z jedną TB danych, a z niego odczytane są setki wierzchołków, każda z nich odczytuje fragment. Te wierzchołki są pogrupowane w tym samym etapie i działają na różnych fragmentach tego samego pliku wejściowego.
   
   * <a name="state-information"></a>Informacje o etapie
     
-      Na danym etapie niektóre liczby są wyświetlane na plakacie.
+      W konkretnym etapie niektóre liczby są widoczne w plakietki.
     
-      ![Etap wykresu zadania usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage.png)
+      ![Etap wykresu zadań Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage.png)
     
-    * SV1 Extract: Nazwa etapu, nazwany przez liczbę i metodę operacji.
-    * 84 wierzchołki: Całkowita liczba wierzchołków na tym etapie. Rysunek wskazuje, ile części pracy jest podzielonych na tym etapie.
-    * 12,90 s/wierzchołek: Średni czas wykonywania wierzchołków dla tego etapu. Ta liczba jest obliczana przez SUMĘ (każdy czas wykonania wierzchołka) / (całkowita liczba wierzchołków). Oznacza to, że jeśli można przypisać wszystkie wierzchołki wykonywane w równoległości, cały etap jest zakończona w 12,90 s. Oznacza to również, że jeśli cała praca na tym etapie jest wykonywana szeregowo, koszt będzie #vertices * czasu AVG.
-    * 850 895 wierszy zapisanych: Całkowita liczba wierszy napisana na tym etapie.
-    * R/W: Ilość danych odczytanych/zapisanych na tym etapie w bajtach.
-    * Kolory: Kolory są używane na stole montażowym w celu wskazania innego stanu wierzchołka.
+    * SV1 Wyodrębnij: Nazwa etapu, nazwana przez liczbę i metodę operacji.
+    * 84 wierzchołki: Łączna liczba wierzchołków na tym etapie. Ilustracja wskazuje, ile fragmentów pracy jest podzielony na ten etap.
+    * 12,90 s/wierzchołek: Średni czas wykonywania wierzchołka dla tego etapu. Ten rysunek jest obliczany według SUM (każdy czas wykonywania wierzchołka)/(całkowita liczba wierzchołków). Co oznacza, że można przypisać wszystkie wierzchołki wykonane równolegle, cały etap zostanie ukończony w 12,90 s. Oznacza to również, że wszystkie prace w tym etapie są wykonywane sekwencyjnie, a koszt będzie #vertices * średni czas.
+    * 850 895 wierszy: całkowita liczba wierszy zapisywana w tym etapie.
+    * R/W: ilość danych do odczytu/zapisu w tym etapie w bajtach.
+    * Kolory: kolory są używane na etapie, aby wskazać inny stan wierzchołka.
       
-      * Zielony oznacza, że wierzchołek zakończy się pomyślnie.
-      * Pomarańczowy wskazuje, że wierzchołek jest ponowiony. Ponowiony wierzchołek nie powiódł się, ale został ponowiony automatycznie i pomyślnie przez system, a ogólny etap został zakończony pomyślnie. Jeśli wierzchołek został ponownie ponowiony, ale nadal nie powiódł się, kolor zmieni kolor na czerwony, a całe zadanie nie powiodło się.
-      * Czerwony oznacza, że nie powiodło się, co oznacza, że pewien wierzchołek został ponowiony kilka razy przez system, ale nadal nie powiodło się. W tym scenariuszu powoduje, że całe zadanie zakończy się niepowodzeniem.
-      * Niebieski oznacza, że pewien wierzchołek jest uruchomiony.
-      * Biały oznacza, że wierzchołek to Oczekiwanie. Wierzchołek może czekać na zaplanowane, gdy adlau staje się dostępny lub może czekać na dane wejściowe, ponieważ jego dane wejściowe mogą nie być gotowe.
+      * Zielony wskazuje, że wierzchołek zakończył się pomyślnie.
+      * Pomarańczowy wskazuje, że wierzchołk jest ponawiany. Ponowienie próby nie powiodło się, ale jest automatycznie ponawiane i powiodło przez system, a ogólny etap został ukończony pomyślnie. Jeśli wierzchołek ponawia próbę, ale nadal się nie powiodło, kolor zmieni się na czerwony, a całe zadanie zakończyło się niepowodzeniem.
+      * Czerwony oznacza niepowodzenie, co oznacza, że niektóre wierzchołki zostały powtórzone kilka razy przez system, ale nadal nie powiodły się. Ten scenariusz powoduje niepowodzenie całego zadania.
+      * Niebieska oznacza, że jest uruchomiony określony wierzchołek.
+      * Biały wskazuje, że wierzchołk jest oczekiwany. Wierzchołk może oczekiwać na zaplanowanie, gdy ADLAU stanie się dostępny, lub może czekać na dane wejściowe, ponieważ dane wejściowe mogą nie być gotowe.
       
-      Więcej szczegółów na stole montażowym można znaleźć, najeżdżając kursorem myszy o jeden stan:
+      Więcej szczegółów na temat etapu można znaleźć, aktywując wskaźnik myszy według jednego stanu:
       
-      ![Szczegóły etapu pracy usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
-  * Wierzchołki: Opisuje szczegóły wierzchołków, na przykład, ile wierzchołków w sumie, ile wierzchołków zostały ukończone, są one nie powiodło się lub nadal uruchomione/oczekiwania, itp.
-  * Dane odczytu krzyżowego / intra pod: Pliki i dane są przechowywane w wielu zasobnikach w rozproszonym systemie plików. Wartość w tym miejscu opisuje, ile danych zostało odczytywanych w tym samym zasobniku lub zasobniku krzyżowym.
-  * Całkowity czas obliczeń: Suma każdego czasu wykonania wierzchołka na etapie, można uznać go za czas, jaki zajmie, jeśli wszystkie prace na etapie jest wykonywana tylko w jednym wierzchołku.
-  * Dane i wiersze napisane/odczytane: Wskazuje, ile danych lub wierszy zostało odczytanych/zapisanych lub które muszą zostać odczytane.
-  * Błędy odczytu wierzchołków: W tym artykule opisano, ile wierzchołków nie powiodło się podczas odczytu danych.
-  * Zduplikowane wierzchołki odrzuca: Jeśli wierzchołek działa zbyt wolno, system może zaplanować wiele wierzchołków, aby uruchomić ten sam element pracy. Reducjoneracyjne wierzchołki zostaną odrzucone po pomyślnym zakończeniu jednego z wierzchołków. Zduplikowane wierzchołki odrzuca rejestruje liczbę wierzchołków, które są odrzucane jako duplikacji na stole montażowym.
-  * Revocations wierzchołka: Wierzchołek został pomyślnie, ale uzyskać ponownie później z niektórych powodów. Na przykład jeśli wierzchołek niższego rzędu utraci pośrednie dane wejściowe, poprosi o ponowne uruchomienie wierzchołka nadrzędnego.
-  * Wykonania harmonogramu wierzchołków: Całkowity czas, przez który zostały zaplanowane wierzchołki.
-  * Odczyt danych Min/Average/Max Vertex: Minimum/średnia/maksimum każdego odczytu wierzchołków danych.
-  * Czas trwania: Zegar ścienny trwa etap, musisz załadować profil, aby zobaczyć tę wartość.
+      ![Szczegóły etapu wykresu zadań Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
+  * Wierzchołki: opisuje szczegóły wierzchołków, na przykład, ile wierzchołków łącznie, ile wierzchołków zostało ukończonych, czy nie zakończyły się powodzeniem, czy nadal działają/czekają itd.
+  * Odczyt danych — dane krzyżowe/wewnętrzne: pliki i dane są przechowywane w wielu zasobnikach w rozproszonym systemie plików. Wartość w tym miejscu opisuje, jak dużo danych zostało odczytanych w tym samym lub krzyżowo.
+  * Łączny czas obliczeń: suma każdego czasu wykonania wierzchołka na etapie, można go traktować jako czas, gdy wszystkie prace na etapie są wykonywane tylko w jednym wierzchołku.
+  * Dane i wiersze zapisywane/odczytane: wskazuje, ile danych lub wierszy zostało odczytanych/zapisanych lub muszą zostać odczytane.
+  * Błędy odczytu wierzchołka: opisuje, ile wierzchołków zakończyło się niepowodzeniem podczas odczytu danych.
+  * Odrzucenia duplikatów wierzchołka: Jeśli wierzchołk jest zbyt wolny, system może zaplanować wiele wierzchołków, aby uruchomić tę samą część pracy. Wierzchołki odnoszące się zostaną odrzucone po pomyślnym ukończeniu jednego z wierzchołków. Odrzucanie duplikatów wierzchołków rejestruje liczbę wierzchołków, które są odrzucane jako duplikaty na etapie.
+  * Odwołania wierzchołka: wierzchołek zakończył się powodzeniem, ale ponownie rozpocznij później z pewnych przyczyn. Na przykład, jeśli wierzchołek podrzędny utraci pośrednie dane wejściowe, zostanie poproszony wierzchołka nadrzędnego o ponowne uruchomienie.
+  * Wykonywanie harmonogramu wierzchołków: łączny czas zaplanowanych wierzchołków.
+  * Minimalny/średni/maksymalny odczyt danych wierzchołka: wartość minimalna/średnia/maksymalna każdego wierzchołka odczytu danych.
+  * Czas trwania: Czas zegarowy, który zajmie etap, należy załadować profil, aby wyświetlić tę wartość.
   * Odtwarzanie zadania
     
-      Usługa Data Lake Analytics uruchamia zadania i archiwizuje wierzchołki uruchomione informacje o zadaniach, takie jak czas uruchamiania, zatrzymywany, niewiedzy i sposób ich ponownego ponawianiu itp. Wszystkie informacje są automatycznie rejestrowane w magazynie zapytań i przechowywane w jego profilu zadania. Profil zadania można pobrać za pośrednictwem "Profilu obciążenia" w widoku zadania, a po pobraniu profilu zadania można wyświetlić odtwarzanie zadań.
+      Data Lake Analytics uruchamia zadania i archiwizuje wierzchołki, w których są uruchomione informacje o zadaniach, takie jak kiedy wierzchołki są uruchomione, zatrzymane, zakończone niepowodzeniem i jak są ponawiane itd. Wszystkie informacje są automatycznie rejestrowane w magazynie zapytań i przechowywane w jego profilu zadań. Profil zadania można pobrać przy użyciu okna "Załaduj profil" w widoku zadań. po pobraniu profilu zadania można wyświetlić odtwarzanie zadania.
     
-      Odtwarzanie zadań jest uosobieniem wizualizacji tego, co wydarzyło się w klastrze. Pomaga obserwować postęp wykonywania zadań i wizualnie wykrywać anomalie wydajności i wąskie gardła w bardzo krótkim czasie (zwykle mniej niż 30s).
-  * Wyświetlacz mapy ciepła zadania 
+      Odtwarzanie zadań to epitomea Wizualizacja informacji o tym, co się stało w klastrze. Ułatwia to monitorowanie postępów wykonywania zadań i wizualne wykrywanie anomalii wydajności oraz wąskich gardeł w bardzo krótkim czasie (mniejszym niż 30 s zazwyczaj).
+  * Wyświetlanie mapy cieplnej zadania 
     
-      Mapę cieplną zadania można wybrać za pomocą listy rozwijanej Wyświetl w wykresie zadań. 
+      Mapę ciepła zadań można wybrać za pomocą listy rozwijanej wyświetlanej w grafie zadania. 
     
-      ![Wyświetlanie mapy stosu zadań usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-display.png)
+      ![Wyświetlanie mapy sterty grafu zadania Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-display.png)
     
-      Pokazuje mapę cieplną we/wy, czas i przepływność zadania, dzięki której można znaleźć miejsce, w którym zadanie spędza większość czasu lub czy twoja praca jest zadaniem granicznym we/wy i tak dalej.
+      Pokazuje on mapę operacji we/wy, czas i przepływność cieplną zadania, za pomocą którego można sprawdzić, gdzie zadanie spędza większość czasu, lub czy zadanie jest zadaniem granicy we/wy itd.
     
-      ![Przykład mapy stosu zadań usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
+      ![Przykład mapy sterty grafu zadania Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
     
-    * Postęp: Postęp wykonywania zadania, zobacz Informacje w informacjach o etapie.
-    * Odczyt/zapis danych: Mapa cieplna wszystkich danych odczytanych/zapisanych na każdym etapie.
-    * Czas obliczania: Mapa cieplna SUMA (każdy czas wykonywania wierzchołków), można wziąć pod uwagę to, jak długo zajęłoby, jeśli wszystkie prace na etapie jest wykonywana tylko z 1 wierzchołkiem.
-    * Średni czas wykonywania na węzeł: Mapa cieplna SUMA (każdy czas wykonywania wierzchołka) / (Liczba wierzchołków). Co oznacza, że jeśli można przypisać wszystkie wierzchołki wykonywane w równoległości, cały etap zostanie wykonany w tym przedziale czasu.
-    * Przepustowość wejścia/wyjścia: Mapa cieplna przepływności wejścia/wyjścia każdego etapu, można potwierdzić, czy zadanie jest zadaniem związanym we/wy za pomocą tego.
-* Operacje metadanych
+    * Postęp: postęp wykonywania zadania, zobacz informacje w sekcji etap.
+    * Odczyt/zapis danych: Mapa cieplna całkowitej ilości danych odczytywanych/zapisywana na każdym etapie.
+    * Czas obliczeń: Mapa cieplna SUM (w każdym czasie wykonywania wierzchołka), którą można wziąć pod uwagę, jak długo będzie trwać, jeśli wszystkie prace na etapie zostaną wykonane z tylko 1 wierzchołkiem.
+    * Średni czas wykonywania na węzeł: Mapa cieplna SUM (w każdym czasie wykonywania wierzchołka)/(numer wierzchołka). Co oznacza, że można przypisać wszystkie wierzchołki wykonywane równolegle, cały etap zostanie wykonany w tym przedziale czasowym.
+    * Przepływność wejścia/wyjścia: Mapa cieplna przepływności wejścia/wyjścia każdego etapu, można potwierdzić, czy zadanie to zadanie powiązane we/wy.
+* Operacje na metadanych
   
-    W skrypcie U-SQL można wykonywać niektóre operacje metadanych, takie jak tworzenie bazy danych, upuszczanie tabeli itp. Te operacje są wyświetlane w operacji metadanych po kompilacji. Można znaleźć potwierdzenia, tworzenie jednostek, upuszczanie jednostek tutaj.
+    Niektóre operacje na metadanych można wykonywać w skrypcie U-SQL, takich jak tworzenie bazy danych, usuwanie tabeli itp. Te operacje są wyświetlane w operacji metadanych po kompilacji. W tym miejscu możesz znaleźć potwierdzenia, utworzyć jednostki, usunąć jednostki.
   
-    ![Operacje metadanych usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
+    ![Operacje na metadanych widoku zadania Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
 * Historia stanu
   
-    Historia stanu jest również wizualizowane w podsumowaniu zadań, ale można uzyskać więcej szczegółów tutaj. Szczegółowe informacje można znaleźć, na przykład podczas przygotowywania zadania, umieszczania w kolejce, uruchamiania, zakończenia. Można również znaleźć, ile razy zadanie zostało skompilowane (CcsAttempts: 1), kiedy jest zadanie wysyłane do klastra faktycznie (Szczegóły: Wysyłanie zadania do klastra), itp.
+    Historia stanu jest również wizualizowana w podsumowaniu zadań, ale więcej informacji można znaleźć tutaj. Można znaleźć szczegółowe informacje, takie jak czas przygotowania zadania, do kolejki, rozpoczęcia pracy i zakończenia. Można również sprawdzić, ile razy zadanie zostało skompilowane (CcsAttempts: 1), gdy zadanie zostało wysłane do klastra w rzeczywistości (szczegóły: wysyłanie zadania do klastra) itp.
   
-    ![Historia stanu zadania usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-state-history.png)
+    ![Historia stanu widoku Azure Data Lake Analytics zadania](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-state-history.png)
 * Diagnostyka
   
-    Narzędzie automatycznie diagnozuje wykonywanie zadań. Otrzymasz alerty, gdy wystąpią pewne błędy lub problemy z wydajnością w zadaniach. Pamiętaj, że aby uzyskać pełne informacje tutaj, musisz pobrać profil. 
+    Narzędzie automatycznie diagnozuje wykonywanie zadania. Alerty zostaną odebrane w przypadku wystąpienia błędów lub problemów z wydajnością w zadaniach. Należy pamiętać, że należy pobrać profil, aby uzyskać pełne informacje w tym miejscu. 
   
-    ![Diagnostyka widoku zadań usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-diagnostics.png)
+    ![Diagnostyka widoku zadania Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-diagnostics.png)
   
-  * Ostrzeżenia: W tym miejscu pojawia się alert z ostrzeżeniem kompilatora. Możesz kliknąć łącze "x issue(s)", aby uzyskać więcej szczegółów po wyświetleniu alertu.
-  * Wierzchołek działa zbyt długo: Jeśli w wierzchołku zabraknie czasu (powiedzmy 5 godzin), problemy zostaną znalezione tutaj.
-  * Użycie zasobów: Jeśli przydzielono więcej lub za mało równoległości niż potrzeba, problemy zostaną znalezione tutaj. Ponadto można kliknąć użycie zasobów, aby wyświetlić więcej szczegółów i wykonać scenariusze warunkowe, aby znaleźć lepszą alokację zasobów (aby uzyskać więcej szczegółów, zobacz ten przewodnik).
-  * Sprawdzanie pamięci: Jeśli dowolny wierzchołek używa więcej niż 5 GB pamięci, problemy zostaną znalezione tutaj. Wykonanie zadania może zostać zabite przez system, jeśli zużywa więcej pamięci niż ograniczenie systemu.
+  * Ostrzeżenia: alert jest wyświetlany tutaj z ostrzeżeniem kompilatora. Możesz kliknąć link "x Issues" (problemy), aby uzyskać więcej szczegółów po wyświetleniu alertu.
+  * Zbyt długi przebieg wierzchołka: Jeśli którykolwiek z wierzchołków zostanie uruchomiony (powiedzie 5 godzin), w tym miejscu zostaną znalezione problemy.
+  * Użycie zasobów: w przypadku przydzielenia większej lub niewystarczającej liczby równoległej niż jest to konieczne, można znaleźć tutaj problemy. Możesz również kliknąć pozycję użycie zasobów, aby wyświetlić więcej szczegółów i wykonać scenariusze co do tego, aby znaleźć lepszą alokację zasobów (więcej informacji można znaleźć w tym przewodniku).
+  * Sprawdzanie pamięci: Jeśli którykolwiek z wierzchołków korzysta z więcej niż 5 GB pamięci, w tym miejscu zostaną znalezione problemy. Wykonanie zadania może zostać przerwane przez system, jeśli zużywa więcej pamięci niż ograniczenie systemowe.
 
 ## <a name="job-detail"></a>Szczegóły zadania
-Szczegóły zadania zawiera szczegółowe informacje o zadaniu, w tym skrypt, zasoby i widok wykonywania wierzchołka.
+Szczegóły zadania przedstawia szczegółowe informacje o zadaniu, w tym o skrypcie, zasobach i widoku wykonywania wierzchołków.
 
-![Szczegóły zadania usługi Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-details.png)
+![Szczegóły zadania Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-details.png)
 
 * Skrypt
   
-    Skrypt U-SQL zadania jest przechowywany w magazynie zapytań. Można wyświetlić oryginalny skrypt U-SQL i ponownie przesłać go w razie potrzeby.
-* Resources
+    Skrypt U-SQL zadania jest przechowywany w magazynie zapytań. Możesz wyświetlić oryginalny skrypt U-SQL i ponownie przesłać go, jeśli jest to konieczne.
+* Zasoby
   
-    Można znaleźć dane wyjściowe kompilacji zadań przechowywane w magazynie zapytań za pośrednictwem zasobów. Na przykład można znaleźć "algebra.xml", który jest używany do pokazu wykresu zadania, zestawy, które zarejestrowałeś, itp.
-* Widok wykonania wierzchołka
+    Dane wyjściowe kompilacji zadania przechowywane w magazynie zapytań można znaleźć za pomocą zasobów. Na przykład można znaleźć "algebry. xml", który jest używany do wyświetlania grafu zadania, zarejestrowanych zestawów itd.
+* Widok wykonywania wierzchołka
   
-    Pokazuje szczegóły wykonania wierzchołków. Profil zadania archiwizuje każdy dziennik wykonywania wierzchołków, taki jak całkowita liczba danych odczytu/zapisu, środowiska uruchomieniowego, stanu itp. Dzięki temu widokowi możesz uzyskać więcej szczegółów na temat sposobu, w jaki przebiegła praca. Aby uzyskać więcej informacji, zobacz [Użyj widoku wykonywania wierzchołków w narzędziach usługi Data Lake dla programu Visual Studio.](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+    Pokazuje szczegóły wykonania wierzchołków. Profil zadania archiwizuje każdy dziennik wykonywania wierzchołków, taki jak całkowita ilość danych odczytywanych/zapisywana, środowisko uruchomieniowe, stan itp. Za pomocą tego widoku możesz uzyskać więcej szczegółowych informacji na temat sposobu uruchomienia zadania. Aby uzyskać więcej informacji, zobacz [Korzystanie z widoku wykonywania wierzchołka w Data Lake narzędzia dla programu Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby rejestrować informacje diagnostyczne, zobacz [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Dostęp do dzienników diagnostycznych usługi Azure Data Lake Analytics)
 * Aby uzyskać informacje na temat bardziej złożonego zapytania, zobacz temat [Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-* Aby użyć widoku wykonywania wierzchołków, zobacz [Używanie widoku wykonywania wierzchołków w narzędziach usługi Data Lake dla programu Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+* Aby użyć widoku wykonywania wierzchołków, zobacz [Korzystanie z widoku wykonywania wierzchołka w Data Lake narzędzia dla programu Visual Studio.](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 

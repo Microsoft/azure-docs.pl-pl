@@ -1,6 +1,6 @@
 ---
-title: Uaktualnianie usługi Azure IoT Hub | Dokumenty firmy Microsoft
-description: Zmień warstwę cen i skalowania usługi IoT Hub, aby uzyskać więcej funkcji obsługi wiadomości i zarządzania urządzeniami.
+title: Uaktualnianie usługi Azure IoT Hub | Microsoft Docs
+description: Zmień Cennik i warstwę skalowania IoT Hub, aby uzyskać więcej możliwości zarządzania wiadomościami i urządzeniami.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,50 +9,50 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 96c3a7b2cfda23f173f4caeff4fb7a92b1ddc438
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61440237"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Jak uaktualnić centrum IoT
 
-Wraz z rozwojem rozwiązania IoT usługa Azure IoT Hub jest gotowa do skalowania w górę. Usługa Azure IoT Hub oferuje dwie warstwy, podstawowe (B) i standardowe (S), aby pomieścić klientów, którzy chcą korzystać z różnych funkcji. W każdej warstwie są trzy rozmiary (1, 2 i 3), które określają liczbę wiadomości, które mogą być wysyłane każdego dnia.
+Wraz z rozwojem rozwiązania IoT usługa Azure IoT Hub jest gotowa do ułatwienia skalowania w górę. Usługa Azure IoT Hub oferuje dwie warstwy: podstawowe (B) i standardowe, aby pomieścić klientów, którzy chcą korzystać z różnych funkcji. W każdej warstwie są trzy rozmiary (1, 2 i 3) określające liczbę komunikatów, które mogą być wysyłane każdego dnia.
 
-Jeśli masz więcej urządzeń i potrzebujesz więcej funkcji, możesz dostosować centrum IoT hub do własnych potrzeb:
+Jeśli masz więcej urządzeń i potrzebujesz więcej możliwości, istnieją trzy sposoby dostosowania Centrum IoT Hub do własnych potrzeb:
 
-* Dodaj jednostki w centrum IoT hub. Na przykład każda dodatkowa jednostka w centrum IoT B1 umożliwia dodatkowe 400 000 wiadomości dziennie.
+* Dodawanie jednostek w centrum IoT Hub. Na przykład każda dodatkowa jednostka w obszarze B1 IoT Hub zezwala na dodatkowe 400 000 komunikatów dziennie.
 
-* Zmień rozmiar centrum IoT Hub. Na przykład migracji z warstwy B1 do warstwy B2, aby zwiększyć liczbę komunikatów, które każda jednostka może obsługiwać dziennie.
+* Zmień rozmiar Centrum IoT. Na przykład Migruj z warstwy B1 do warstwy B2, aby zwiększyć liczbę komunikatów, które każda jednostka może obsłużyć dziennie.
 
-* Uaktualnij do wyższej warstwy. Na przykład uaktualnić z warstwy B1 do warstwy S1, aby uzyskać dostęp do zaawansowanych funkcji o tej samej pojemności obsługi wiadomości.
+* Uaktualnij do wyższego poziomu. Na przykład uaktualnienie z warstwy B1 do warstwy S1 w celu uzyskania dostępu do zaawansowanych funkcji z tą samą pojemnością obsługi wiadomości.
 
-Wszystkie te zmiany mogą wystąpić bez przerywania istniejących operacji.
+Te zmiany mogą wystąpić bez przerywania istniejących operacji.
 
-Jeśli chcesz obniżyć poziom usługi IoT Hub, możesz usunąć jednostki i zmniejszyć rozmiar centrum IoT hub, ale nie można obniżyć do niższej warstwy. Na przykład można przejść z warstwy S2 do warstwy S1, ale nie z warstwy S2 do poziomu B1. Tylko jeden typ [wersji Iot Hub](https://azure.microsoft.com/pricing/details/iot-hub/) w warstwie można wybrać dla usługi IoT Hub. Na przykład można utworzyć Centrum IoT z wieloma jednostkami S1, ale nie z mieszanką jednostek z różnych wersji, takich jak S1 i B3 lub S1 i S2.
+Jeśli chcesz obniżyć wersję Centrum IoT Hub, możesz usunąć jednostki i zmniejszyć rozmiar Centrum IoT, ale nie możesz zmienić warstwy na niższą. Na przykład można przenieść z warstwy S2 do warstwy S1, ale nie z warstwy S2 do warstwy B1. Na IoT Hub można wybrać tylko jeden typ [wersji Centrum IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/) w warstwie. Można na przykład utworzyć IoT Hub z wieloma jednostkami S1, ale nie z różnymi jednostkami, takimi jak S1 i B3, lub S1 i S2.
 
-Te przykłady mają na celu pomóc zrozumieć, jak dostosować centrum IoT hub w miarę zmian rozwiązania. Aby uzyskać szczegółowe informacje na temat możliwości każdej warstwy, należy zawsze zapoznać się z [cennikiem usługi Azure IoT Hub.](https://azure.microsoft.com/pricing/details/iot-hub/)
+Te przykłady mają na celu ułatwienie zrozumienia sposobu dostosowywania Centrum IoT w miarę wprowadzania zmian w rozwiązaniu. Aby uzyskać szczegółowe informacje o możliwościach poszczególnych warstw, zawsze należy zapoznać się z [cennikiem usługi Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-## <a name="upgrade-your-existing-iot-hub"></a>Uaktualnianie istniejącego centrum IoT
+## <a name="upgrade-your-existing-iot-hub"></a>Uaktualnianie istniejącego Centrum IoT Hub
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com/) i przejdź do centrum IoT Hub.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) i przejdź do centrum IoT Hub.
 
-2. Wybierz **Cennik i skalę**.
+2. Wybierz pozycję **Cennik i skala**.
 
    ![Ceny i skala](./media/iot-hub-upgrade/pricing-scale.png)
 
-3. Aby zmienić warstwę centrum, wybierz **pozycję Cennik i warstwa skalowania**. Wybierz nową warstwę, a następnie kliknij **przycisk Wybierz**.
+3. Aby zmienić warstwę dla centrum, wybierz pozycję **Cennik i warstwa skalowania**. Wybierz nową warstwę, a następnie kliknij pozycję **Wybierz**.
 
    ![Warstwa cenowa i warstwa skali](./media/iot-hub-upgrade/select-tier.png)
 
-4. Aby zmienić liczbę jednostek w centrum, wprowadź nową wartość w obszarze **Jednostki Usługi IoT Hub**.
+4. Aby zmienić liczbę jednostek w centrum, wprowadź nową wartość w obszarze **jednostki IoT Hub**.
 
 5. Wybierz przycisk **Zapisz**, aby zapisać zmiany.
 
-Centrum IoT jest teraz dostosowane, a konfiguracje pozostają niezmienione.
+Twoje Centrum IoT jest teraz dostosowane, a konfiguracje nie są zmieniane.
 
-Maksymalny limit partycji dla centrum IoT warstwy podstawowej i centrum IoT w warstwie standardowej wynosi 32. Większość centrów IoT potrzebuje tylko 4 partycji. Limit partycji jest wybierany podczas tworzenia usługi IoT Hub i odnosi się do komunikatów urządzenia do chmury do liczby jednoczesnych czytników tych wiadomości. Ta wartość pozostaje niezmieniona podczas migracji z warstwy podstawowej do warstwy standardowej.
+Maksymalny limit partycji IoT Hub warstwy Podstawowa i IoT Hub to 32. Większość centrów IoT potrzebuje tylko 4 partycji. Limit partycji jest wybierany podczas tworzenia IoT Hub i wiąże komunikaty z urządzenia do chmury z liczbą jednoczesnych czytników tych komunikatów. Ta wartość pozostaje niezmieniona podczas migracji z warstwy Podstawowa do warstwy Standardowa.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Uzyskaj więcej informacji o [tym, jak wybrać odpowiednią warstwę Usługi IoT Hub](iot-hub-scaling.md).
+Uzyskaj więcej szczegółowych informacji [na temat wybierania odpowiedniej warstwy IoT Hub](iot-hub-scaling.md).

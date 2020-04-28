@@ -1,6 +1,6 @@
 ---
-title: Wprowadzenie — narzędzie Microsoft Threat Modeling Tool — Azure | Dokumenty firmy Microsoft
-description: Jest to głębszy przegląd podkreślając narzędzie do modelowania zagrożeń w akcji.
+title: Wprowadzenie-Microsoft Threat Modeling Tool — Azure | Microsoft Docs
+description: To omówienie z dokładniejszym wyróżnieniem Threat Modeling Tool w działaniu.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,132 +16,132 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 1454826095bcced9b20935405c0befd5a1ed1ddd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68728324"
 ---
-# <a name="getting-started-with-the-threat-modeling-tool"></a>Wprowadzenie do narzędzia do modelowania zagrożeń
+# <a name="getting-started-with-the-threat-modeling-tool"></a>Wprowadzenie do Threat Modeling Tool
 
-Narzędzie Microsoft Threat Modeling Tool 2018 zostało wydane jako GA we wrześniu 2018 r. jako bezpłatne **[narzędzie click-to-download](https://aka.ms/threatmodelingtool)**. Zmiana mechanizmu dostawy pozwala nam wypychać najnowsze ulepszenia i poprawki błędów do klientów za każdym razem, gdy otwierają narzędzie, ułatwiając konserwację i korzystanie.
-W tym artykule przedstawiono proces rozpoczynania pracy z podejściem do modelowania zagrożeń SDL firmy Microsoft i pokazano, jak używać tego narzędzia do opracowywania modeli wielkich zagrożeń jako szkieletu procesu zabezpieczeń.
+Microsoft Threat Modeling Tool 2018 został uwolniony jako **[rozbrany](https://aka.ms/threatmodelingtool)** we wrześniu 2018 w ramach bezpłatnego kliknięcia. Zmiana mechanizmu dostarczania pozwala nam na wypchnięcie najnowszych ulepszeń i poprawek błędów do klientów za każdym razem, gdy otwierają one narzędzie, ułatwiając ich konserwację i używanie.
+W tym artykule opisano proces rozpoczynania pracy z podejściem do modelowania zagrożeń SDL firmy Microsoft i pokazano, jak używać narzędzia do tworzenia modeli doskonałych zagrożeń jako szkieletu procesu zabezpieczeń.
 
-Ten artykuł opiera się na istniejącej wiedzy na temat metody modelowania zagrożeń SDL. Aby uzyskać szybki przegląd, zobacz **[Aplikacje sieci Web modelowania zagrożeń](https://msdn.microsoft.com/library/ms978516.aspx)** i zarchiwizowana wersja **[funkcji Odkrywanie wad zabezpieczeń przy użyciu](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** artykułu MSDN podejścia STRIDE opublikowanego w 2006 r.
+Ten artykuł jest oparty na istniejącej znajomości podejścia do modelowania zagrożeń SDL. Aby zapoznać się z krótkim przeglądem, zapoznaj się z artykułami dotyczącymi **[modelowania zagrożeń](https://msdn.microsoft.com/library/ms978516.aspx)** i zarchiwizowaną wersją niezwiązanych z zabezpieczeniami, korzystając z artykułu MSDN z **[podejściem z etapem](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** opublikowanym w 2006.
 
-Aby szybko podsumować, podejście obejmuje tworzenie diagramu, identyfikowanie zagrożeń, łagodzenie ich i sprawdzanie poprawności każdego łagodzenia. Oto diagram, który podkreśla ten proces:
+Aby szybko podsumowywać, podejście obejmuje tworzenie diagramu, identyfikowanie zagrożeń, łagodzenie ich i sprawdzanie poprawności poszczególnych środków zaradczych. Oto diagram, który podświetla ten proces:
 
 ![Proces SDL](./media/threat-modeling-tool-getting-started/sdlapproach.png)
 
 ## <a name="starting-the-threat-modeling-process"></a>Uruchamianie procesu modelowania zagrożeń
 
-Po uruchomieniu narzędzia do modelowania zagrożeń zauważysz kilka rzeczy, co widać na rysunku:
+Po uruchomieniu Threat Modeling Tool zauważysz kilka rzeczy, jak widać na zdjęciu:
 
 ![Pusta strona początkowa](./media/threat-modeling-tool-feature-overview/tmtstart.png)
 
-### <a name="threat-model-section"></a>Sekcja Modelu zagrożenia
+### <a name="threat-model-section"></a>Sekcja modelu zagrożeń
 
 | Składnik                                   | Szczegóły                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Przycisk Opinie, Sugestie i Problemy** | Zabierze Cię na **[forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)** dla wszystkich rzeczy SDL. Daje możliwość zapoznania się z tym, co robią inni użytkownicy, wraz z obejściem i zaleceniami. Jeśli nadal nie możesz znaleźć tego, czego tmtextsupport@microsoft.com szukasz, wyślij wiadomość e-mail do naszego zespołu pomocy technicznej, aby Ci pomóc                                                                                                                            |
-| **Tworzenie modelu**                          | Otwiera pustą kanwę, aby narysować diagram. Upewnij się, że wybierzesz szablon, którego chcesz użyć dla swojego modelu                                                                                                                                                                                                                                                                                                                                                                       |
-| **Szablon dla nowych modeli**                 | Przed utworzeniem modelu należy wybrać szablon do użycia. Nasz główny szablon to szablon modelu zagrożeń platformy Azure, który zawiera wzorniki, zagrożenia i środki zaradcze specyficzne dla platformy Azure. W przypadku modeli ogólnych wybierz bazę wiedzy TM SDL z menu rozwijanego. Chcesz utworzyć własny szablon lub przesłać nowy szablon dla wszystkich użytkowników? Aby dowiedzieć się więcej, zapoznaj się ze stroną GitHub **[repozytorium szablonów](https://github.com/Microsoft/threat-modeling-templates)**                              |
-| **Otwieranie modelu**                            | <p>Otwiera wcześniej zapisane modele zagrożeń. Funkcja Ostatnio otwarte modele jest świetna, jeśli chcesz otworzyć najnowsze pliki. Po najechaniu kursorem na zaznaczenie znajdziesz 2 sposoby otwierania modeli:</p><p><ul><li>Otwórz z tego komputera – klasyczny sposób otwierania pliku przy użyciu pamięci lokalnej</li><li>Otwieranie z usługi OneDrive — zespoły mogą używać folderów w usłudze OneDrive do zapisywania i udostępniania wszystkich modeli zagrożeń w jednej lokalizacji, aby zwiększyć produktywność i współpracę</li></ul></p> |
-| **Wprowadzenie — przewodnik**                   | Otwiera stronę główną **[narzędzia Microsoft Threat Modeling Tool](threat-modeling-tool.md)**                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Przycisk opinii, sugestie i problemy** | Obejmuje **[forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)** dla wszystkich elementów SDL. Dzięki temu można zapoznać się z możliwościami wykonywania innych użytkowników, a także obejść i zaleceń. Jeśli nadal nie możesz znaleźć tego, czego szukasz, Wyślij tmtextsupport@microsoft.com wiadomość e-mail do naszego zespołu pomocy technicznej, aby Ci pomóc                                                                                                                            |
+| **Tworzenie modelu**                          | Otwiera pustą kanwę do rysowania diagramu. Upewnij się, że wybierasz szablon, którego chcesz użyć dla modelu                                                                                                                                                                                                                                                                                                                                                                       |
+| **Szablon dla nowych modeli**                 | Musisz wybrać szablon, który ma być używany przed utworzeniem modelu. Naszym głównym szablonem jest szablon modelu zagrożeń platformy Azure, który zawiera wzorniki, zagrożenia i środki związane z platformą Azure. W przypadku modeli ogólnych wybierz bazę wiedzy SDL TM z menu rozwijanego. Chcesz utworzyć własny szablon lub przesłać nowy dla wszystkich użytkowników? Zapoznaj się z naszą stroną **[repozytorium szablonów](https://github.com/Microsoft/threat-modeling-templates)** w serwisie GitHub, aby dowiedzieć się więcej                              |
+| **Otwórz model**                            | <p>Otwiera poprzednio zapisane modele zagrożeń. Funkcja ostatnio otwieranych modeli jest doskonałym rozwiązaniem, jeśli musisz otworzyć najnowsze pliki. Po umieszczeniu wskaźnika myszy na zaznaczeniu znajdziesz dwa sposoby otwierania modeli:</p><p><ul><li>Otwórz z tego komputera — klasyczny sposób otwierania pliku przy użyciu magazynu lokalnego</li><li>Otwórz w usłudze OneDrive — zespoły mogą korzystać z folderów w usłudze OneDrive, aby zapisywać i udostępniać wszystkie modele zagrożeń w jednej lokalizacji, aby zwiększyć produktywność i współpracę</li></ul></p> |
+| **Wprowadzenie — przewodnik**                   | Otwiera **[Microsoft Threat Modeling Tool](threat-modeling-tool.md)** stronę główną                                                                                                                                                                                                                                                                                                                                                                                            |
 
-### <a name="template-section"></a>Sekcja Szablon
+### <a name="template-section"></a>Sekcja szablonu
 
 | Składnik               | Szczegóły                                                                                                                                                          |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Utwórz nowy szablon** | Otwiera pusty szablon do wykorzystania. Jeśli nie masz rozległej wiedzy w zakresie tworzenia szablonów od podstaw, zalecamy tworzenie na podstawie istniejących |
+| **Utwórz nowy szablon** | Otwiera pusty szablon do kompilowania. Jeśli nie masz rozległej wiedzy na temat tworzenia szablonów od podstaw, zalecamy skompilowanie z istniejących |
 | **Otwórz szablon**       | Otwiera istniejące szablony, aby wprowadzić zmiany                                                                                                              |
 
-Zespół narzędzia do modelowania zagrożeń stale pracuje nad poprawą funkcjonalności i doświadczenia narzędzia. Kilka drobnych zmian może mieć miejsce w ciągu roku, ale wszystkie główne zmiany wymagają przepisać w przewodniku. Często się z nim odwołuje, aby upewnić się, że otrzymujesz najnowsze ogłoszenia.
+Zespół Threat Modeling Tool ciągle pracuje nad ulepszeniem funkcjonalności narzędzi i środowiska. Niektóre drobne zmiany mogą mieć miejsce w ciągu roku, ale wszystkie istotne zmiany wymagają ponownego zapisu w przewodniku. Często zapoznaj się z nim, aby upewnić się, że otrzymujesz najnowsze anonse.
 
-## <a name="building-a-model"></a>Tworzenie modelu
+## <a name="building-a-model"></a>Kompilowanie modelu
 
 W tej sekcji obserwujemy:
 
-- Cristina (programista)
-- Ricardo (kierownik programu) i
-- Ashish (tester)
+- Cristina (deweloper)
+- Ricardo (Menedżer programu) i
+- Ashish (Tester)
 
-Przechodzą przez proces opracowywania swojego pierwszego modelu zagrożenia.
+Przechodzą przez proces opracowywania pierwszego modelu zagrożeń.
 
-> Ricardo: Cześć Cristina, pracowałem nad schematem modelu zagrożenia i chciałem się upewnić, że mamy szczegóły w prawo. Czy możesz mi pomóc spojrzeć na to?
-> Cristina: Absolutnie. Spójrzmy na przykład.
-> Ricardo otwiera narzędzie i dzieli się swoim ekranem z Cristiną.
+> Ricardo: Witaj Cristina, pracowałem na diagramie modelu zagrożeń i chciałem upewnić się, że mamy odpowiednie szczegóły. Czy mogę Ci pomóc w przeszukiwaniu?
+> Cristina: absolutnie. Spójrzmy na przykład.
+> Ricardo otwiera narzędzie i udostępnia swój ekran z Cristina.
 
-![Podstawowy model zagrożenia](./media/threat-modeling-tool-feature-overview/basictmt.png)
+![Podstawowy model zagrożeń](./media/threat-modeling-tool-feature-overview/basictmt.png)
 
-> Cristina: Ok, wygląda prosto, ale można mnie przez to?
-> Ricardo: Jasne! Oto podział:
-> - Nasz ludzki użytkownik jest rysowany jako jednostka zewnętrzna — kwadrat
-> - Wysyłają polecenia na nasz serwer www — krąg
-> - Serwer sieci Web przegląda bazę danych (dwa równoległe linie)
+> Cristina: OK, wygląda prosta, ale czy można go przeszukać?
+> Ricardo: Upewnij się! Poniżej przedstawiono podział:
+> - Nasz użytkownik ludzki jest rysowany jako jednostka zewnętrzna — kwadrat
+> - Wysyłają one polecenia do serwera sieci Web — koło
+> - Serwer sieci Web korzysta z bazy danych (dwie równoległe linie)
 
-Co Ricardo właśnie pokazał Cristina jest DFD, skrót od **[Data Flow Diagram](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Narzędzie do modelowania zagrożeń umożliwia użytkownikom określenie granic zaufania, wskazywanych czerwonymi kropkowanymi liniami, aby pokazać, gdzie różne jednostki mają kontrolę. Na przykład administratorzy IT wymagają systemu usługi Active Directory do celów uwierzytelniania, więc usługa Active Directory znajduje się poza ich kontrolą.
+Co Ricardo tylko Cristina to DPD, krótki dla **[diagramu przepływu danych](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Threat Modeling Tool pozwala użytkownikom na określenie granic zaufania wskazanych czerwono kropkowanymi liniami, aby pokazać, gdzie różne jednostki są w formancie. Na przykład Administratorzy IT wymagają systemu Active Directory na potrzeby uwierzytelniania, dlatego Active Directory jest poza kontrolą.
 
-> Cristina: Wygląda na to, że jest to dla mnie słuszne. A co z zagrożeniami?
-> Ricardo: Pozwólcie, że wam pokażę.
+> Cristina: Wygląda na to, że od razu do mnie. Jakie są zagrożenia?
+> Ricardo: Pozwól mi wyświetlić użytkownika.
 
 ## <a name="analyzing-threats"></a>Analizowanie zagrożeń
 
-Po kliknięciu na widok analizy z wyboru menu ikony (plik z lupą), jest on przejmujący do listy wygenerowanych zagrożeń Narzędzie do modelowania zagrożeń znalezione na podstawie domyślnego szablonu, który używa podejścia SDL o nazwie **[STRIDE (Spoofing, Manipulacji, Ujawnienie informacji, Odrzucenie, Odmowa usługi i podniesienie uprawnień)](https://en.wikipedia.org/wiki/STRIDE_(security))**. Chodzi o to, że oprogramowanie jest pod przewidywalnym zestawem zagrożeń, które można znaleźć za pomocą tych 6 kategorii.
+Po kliknięciu widoku analizy z menu ikony (plik z powiększaniem), zostaje on przełączony do listy wygenerowanych zagrożeń znalezionych przez Threat Modeling Tool na podstawie szablonu domyślnego, który używa podejścia SDL o nazwie **[krok (fałszowanie, manipulowanie, ujawnienie informacji, odmowa usługi i podniesienie uprawnień)](https://en.wikipedia.org/wiki/STRIDE_(security))**. Pomysłem jest to, że oprogramowanie znajduje się w przewidywalnym zbiorze zagrożeń, które można znaleźć za pomocą tych 6 kategorii.
 
-Takie podejście jest jak zabezpieczenie domu poprzez zapewnienie, że każde drzwi i okno mają mechanizm blokujący przed dodaniem systemu alarmowego lub pościgiem za złodziejem.
+Takie podejście przypomina ochronę domu przez upewnienie się, że każde drzwi i okna mają mechanizm blokowania przed dodaniem systemu alarmów lub kartach po złodziej będzie.
 
-![Podstawowe zagrożenia](./media/threat-modeling-tool-getting-started/basicthreats.png)
+![Zagrożenia podstawowe](./media/threat-modeling-tool-getting-started/basicthreats.png)
 
-Ricardo rozpoczyna się od wybrania pierwszego elementu na liście. Oto, co się dzieje:
+Ricardo rozpoczyna się od wybrania pierwszego elementu na liście. Oto co się dzieje:
 
-Po pierwsze, interakcja między tymi dwoma wzornikami jest wzmocniona
+Po pierwsze interakcja między dwoma wzornikami zostaje ulepszona
 
 ![Interakcja](./media/threat-modeling-tool-getting-started/interaction.png)
 
-Po drugie, dodatkowe informacje o zagrożeniu pojawiają się w oknie Właściwości zagrożenia
+Po drugie, dodatkowe informacje o zagrożeniu pojawiają się w okno Właściwości zagrożeń
 
 ![Informacje o interakcji](./media/threat-modeling-tool-getting-started/interactioninfo.png)
 
-Wygenerowane zagrożenie pomaga mu zrozumieć potencjalne wady konstrukcyjne. Kategoryzacja STRIDE daje mu wyobrażenie o potencjalnych wektorach ataku, podczas gdy dodatkowy opis mówi mu dokładnie, co jest nie tak, wraz z potencjalnymi sposobami złagodzenia go. Może używać edytowalnych pól do pisania notatek w szczegółach uzasadnienia lub zmieniania ocen priorytetów w zależności od paska błędów w organizacji.
+Wygenerowane zagrożenie pomaga zrozumieć potencjalne wady projektu. Kategoryzacja kroków daje im pomysł na potencjalną replikę ataków, podczas gdy dodatkowy opis informuje o tym dokładnie, co jest niewłaściwe, oraz potencjalne sposoby jego rozwiązania. Może używać edytowalnych pól, aby pisać uwagi w szczegółach uzasadnienia lub zmienić priorytety klasyfikacji w zależności od paska błędów swojej organizacji.
 
-Szablony platformy Azure mają dodatkowe szczegóły, aby pomóc użytkownikom zrozumieć nie tylko, co jest nie tak, ale także jak to naprawić, dodając opisy, przykłady i hiperłącza do dokumentacji specyficznej dla platformy Azure.
+Szablony platformy Azure zawierają dodatkowe szczegółowe informacje ułatwiające użytkownikom zapoznanie się nie tylko z nieprawidłowymi, ale również sposobami ich naprawy poprzez dodanie opisów, przykładów i hiperlinków do dokumentacji dotyczącej platformy Azure.
 
-Opis uświadomił mu znaczenie dodania mechanizmu uwierzytelniania, aby zapobiec fałszowaniu użytkowników, ujawniając pierwsze zagrożenie, nad którym należy pracować. Kilka minut do dyskusji z Cristina, zrozumieli znaczenie wdrażania kontroli dostępu i ról. Ricardo wypełnił kilka szybkich notatek, aby upewnić się, że zostały one wdrożone.
+W opisie zawarto istotnie dodać mechanizm uwierzytelniania uniemożliwiający sfałszowanie użytkowników, ujawnianie pierwszego zagrożenia, nad którym należy pracować. Kilka minut w dyskusji z Cristina, rozumieją znaczenie implementowania kontroli dostępu i ról. Ricardo wypełnić niektóre szybkie notatki, aby upewnić się, że zostały zaimplementowane.
 
-Gdy Ricardo zajął się zagrożeniami w ramach ujawniania informacji, zdał sobie sprawę, że plan kontroli dostępu wymaga pewnych kont tylko do odczytu do generowania audytu i raportu. Zastanawiał się, czy to powinno być nowe zagrożenie, ale środki zaradcze były takie same, więc zauważył zagrożenie odpowiednio.
-Myślał również o ujawnieniu informacji nieco bardziej i zdał sobie sprawę, że taśmy kopii zapasowych będą wymagały szyfrowania, zadania dla zespołu operacyjnego.
+W miarę jak Ricardo się do zagrożeń w ramach ujawnienia informacji, plan kontroli dostępu wymagał niektórych kont tylko do odczytu na potrzeby inspekcji i generowania raportów. Zastanawiał się, czy powinien to być nowe zagrożenie, ale środki zaradcze były takie same, więc zanotowano odpowiednie zagrożenie.
+Uważa również, że informacje o ujawnieniu informacji są nieco większe i zostały zrealizowane, że taśmy kopii zapasowych wymagały szyfrowania, a zadanie dla zespołu operacji.
 
-Zagrożenia nie dotyczy projektu ze względu na istniejące środki zaradcze lub gwarancje zabezpieczeń można zmienić na "Nie dotyczy" z listy rozwijanej Stan. Istnieją trzy inne opcje: Nie rozpoczęty - domyślny wybór, Badanie potrzeb - używany do śledzenia elementów i Złagodzony - gdy jest w pełni pracował.
+Zagrożenia nie mają zastosowania do projektu ze względu na istniejące środki zaradcze lub gwarancje bezpieczeństwa można zmienić na "nie dotyczy" z listy rozwijanej stan. Istnieją trzy inne opcje: nie uruchomiono — wybór domyślny, wymaganie badania — używane do wykonywania działań na elementach i skorygowane — gdy jest on w pełni działał.
 
-## <a name="reports--sharing"></a>Udostępnianie raportów &
+## <a name="reports--sharing"></a>Raporty & udostępniania
 
-Gdy Ricardo przechodzi przez listę z Cristina i dodaje ważne notatki, łagodzenia / uzasadnienia, priorytet i zmiany stanu, wybiera Raporty -> Tworzenie pełnego raportu -> Zapisz raport, który drukuje miły raport dla niego przejść z kolegami w celu zapewnienia odpowiedniej pracy bezpieczeństwa jest realizowany.
+Gdy Ricardo przechodzi przez listę z Cristina i dodaje ważne uwagi, środki zaradcze/uzasadnienia, zmiany priorytetu i stanu, wybiera raporty — > Utwórz pełny raport — > Zapisz raport, który drukuje raport o całkiem, aby przeszedł do współpracowników, aby upewnić się, że zaimplementowano odpowiednią pracę w zabezpieczeniach.
 
 ![Informacje o interakcji](./media/threat-modeling-tool-feature-overview/report.png)
 
-Jeśli Ricardo chce udostępnić plik, może to łatwo zrobić, zapisując je na koncie usługi OneDrive w swojej organizacji. Gdy to zrobi, może skopiować link do dokumentu i udostępnić go swoim kolegom. 
+Jeśli Ricardo chce udostępnić plik, można to łatwo zrobić, zapisując konto w usłudze OneDrive swojej organizacji. Gdy robi to, może skopiować link do dokumentu i udostępnić go współpracownikom. 
 
 ## <a name="threat-modeling-meetings"></a>Spotkania modelowania zagrożeń
 
-Kiedy Ricardo wysłał swój model zagrożenia do swojego kolegi za pomocą OneDrive, Ashish, tester, był underwhelmed. Wydawało się, że Ricardo i Cristina brakowało sporo ważnych przypadkach rogu, które mogą być łatwo zagrożone. Jego sceptycyzm jest uzupełnieniem modeli zagrożeń.
+Gdy Ricardo wysłał swój model zagrożeń do swojego współpracownika przy użyciu usługi OneDrive, Ashish, tester Underwhelmed. Zdarza się, że Ricardo i Cristina nie pozostały w kilku ważnych przypadkach narożnych, co może być łatwo naruszone. Skepticism to uzupełnienie modeli zagrożeń.
 
-W tym scenariuszu, po Ashish przejął model zagrożeń, wezwał do dwóch spotkań modelowania zagrożeń: jedno spotkanie do synchronizacji procesu i przejść przez diagramy, a następnie drugie spotkanie do przeglądu zagrożeń i sign-off.
+W tym scenariuszu po przeprowadzeniu Ashish przez model zagrożeń jest on wywoływany dla dwóch spotkań modelowania zagrożeń: jedno spotkanie do synchronizacji procesu i przechodzenie przez diagramy, a następnie drugie spotkanie na potrzeby przeglądu zagrożeń i wylogowania.
 
-W pierwszym spotkaniu Ashish spędził 10 minut na przejściu wszystkich przez proces modelowania zagrożeń SDL. Następnie podciągnął schemat modelu zagrożeń i zaczął szczegółowo go wyjaśniać. W ciągu pięciu minut zidentyfikowano ważny brakujący składnik.
+W pierwszym spotkaniu Ashish poświęcone 10 minutom na przechodzenie przez proces modelowania zagrożeń SDL. Następnie ściąga Diagram modelu zagrożeń i rozpoczął jego szczegółowo wyjaśnienie. W ciągu pięciu minut zidentyfikowano ważny brakujący składnik.
 
-Kilka minut później Ashish i Ricardo wdali się w rozszerzoną dyskusję na temat tego, jak zbudowano serwer www. Nie był to idealny sposób na przebieg spotkania, ale wszyscy w końcu zgodzili się, że wczesne odkrycie rozbieżności pozwoli im zaoszczędzić czas w przyszłości.
+Kilka minut później, Ashish i Ricardo przygotowano do przedłużonej dyskusji na temat tworzenia serwera sieci Web. Nie było idealnym sposobem na kontynuację spotkania, ale wszyscy ostatecznie zgodziły się na wykrycie niezgodności, aby zaoszczędzić czas w przyszłości.
 
-Podczas drugiego spotkania zespół przeszedł przez zagrożenia, omówił kilka sposobów rozwiązania ich i podpisał się na modelu zagrożenia. Sprawdzili dokument w kontroli źródła i kontynuowali rozwój.
+W drugim spotkaniu zespół przeprowadził przez zagrożenia, omawiając różne sposoby ich rozwiązywania i wylogowania w modelu zagrożeń. Sprawdzają dokumenty w kontroli źródła i kontynuują tworzenie.
 
-## <a name="thinking-about-assets"></a>Myślenie o aktywach
+## <a name="thinking-about-assets"></a>Zasoby dotyczące zasobów
 
-Niektórzy czytelnicy, którzy mają zagrożenie modelowane może zauważyć, że nie rozmawialiśmy o aktywach w ogóle. Odkryliśmy, że wielu inżynierów oprogramowania rozumie swoje oprogramowanie lepiej niż rozumieją pojęcie zasobów i jakie zasoby mogą być zainteresowane przez osobę atakującą.
+Niektórzy czytelnicy z modelem zagrożeń mogą zauważyć, że nie poznamy jeszcze informacji o zasobach. Wykryliśmy, że wielu inżynierów oprogramowania znają swoje oprogramowanie lepiej niż rozumieją pojęcie zasobów i jakie zasoby mogą być zainteresowane przez osobę atakującą.
 
-Jeśli zamierzasz grozić modelem domu, możesz zacząć od myślenia o swojej rodzinie, niezastąpionych zdjęciach lub cennych dziełach sztuki. Być może zaczniesz od zastanowienia się nad tym, kto może się włamać i obecny system zabezpieczeń. Możesz też zacząć od uwzględnienia fizycznych cech, takich jak basen lub ganek. Są one analogiczne do myślenia o zasobach, atakujących lub projektowaniu oprogramowania. Każde z tych trzech podejść działa.
+Jeśli zamierzasz utworzyć model zagrożenia, możesz zacząć od zamyślenia o swojej rodzinie, przechowywania niemożliwych zdjęciach lub cennej kompozycji. Może się okazać, że zastanawiasz się, kto może przerwać pracę i bieżący system zabezpieczeń. Można też zacząć od uwzględnienia funkcji fizycznych, takich jak Pula lub Porch przedniej. Są one analogiczne do zastanawiania się nad zasobami, osobami atakującymi lub projektem oprogramowania. Dowolna z tych trzech podejścia zadziałała.
 
-Podejście do modelowania zagrożeń, które tutaj przedstawiliśmy, jest znacznie prostsze niż to, co firma Microsoft robiła w przeszłości. Odkryliśmy, że podejście do projektowania oprogramowania działa dobrze dla wielu zespołów. Mamy nadzieję, że to twoje.
+Podejście do modelowania zagrożeń przedstawione tutaj jest znacznie prostsze niż w przeszłości przez firmę Microsoft. Okazało się, że podejście do projektowania oprogramowania działa dobrze dla wielu zespołów. Mamy nadzieję, że to ty.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wyślij swoje pytania, uwagi tmtextsupport@microsoft.comi wątpliwości do . **[Pobierz](https://aka.ms/threatmodelingtool)** narzędzie do modelowania zagrożeń, aby rozpocząć.
+Wyślij swoje pytania, komentarze i wątpliwości do tmtextsupport@microsoft.comprogramu. **[Pobierz](https://aka.ms/threatmodelingtool)** Threat Modeling Tool, aby rozpocząć pracę.

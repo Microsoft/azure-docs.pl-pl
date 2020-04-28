@@ -1,5 +1,5 @@
 ---
-title: Tworzenie & kwerendy usługi Azure Data Lake Analytics — Program PowerShell
+title: Tworzenie & kwerendy Azure Data Lake Analytics — PowerShell
 description: Tworzenie konta usługi Data Lake Analytics i przesyłanie zadania w języku U-SQL przy użyciu programu Azure PowerShell.
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,17 +9,17 @@ ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.openlocfilehash: 8b176434ce450382cc6463e7d21d341a74581ed8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71316607"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Wprowadzenie do pracy z usługą Azure Data Lake Analytics przy użyciu programu Azure PowerShell
 
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Dowiedz się, jak za pomocą programu Azure PowerShell tworzyć konta usługi Azure Data Lake Analytics, a następnie przesyłać i uruchamiać zadania U-SQL. Aby uzyskać więcej informacji na temat usługi Data Lake Analytics, zobacz [omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
+Dowiedz się, jak za pomocą programu Azure PowerShell tworzyć konta usługi Azure Data Lake Analytics, a następnie przesyłać i uruchamiać zadania U-SQL. Aby uzyskać więcej informacji na temat Data Lake Analytics, zobacz [Azure Data Lake Analytics Omówienie](data-lake-analytics-overview.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -126,7 +126,7 @@ Pobierz plik wyjściowy przy użyciu polecenia `Export-AdlStoreItem`.
 Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * Aby wyświetlić ten samouczek przy użyciu innych narzędzi, kliknij odpowiedni selektor karty w górnej części strony.
 * Aby dowiedzieć się więcej o języku U-SQL, zobacz [Wprowadzenie do języka U-SQL w usłudze Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).

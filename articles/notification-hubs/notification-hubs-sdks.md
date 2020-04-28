@@ -1,6 +1,6 @@
 ---
-title: Zestaw SDK usług Azure Notification Hubs
-description: Lista dostępnych zestawów SDK usług Azure Notification Hubs
+title: Zestawy SDK Notification Hubs platformy Azure
+description: Lista dostępnych zestawów SDK Notification Hubs platformy Azure
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -15,27 +15,27 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/14/2019
 ms.openlocfilehash: 8a4b05c0ee76aca07fd740a16a76a634727504e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71213024"
 ---
-# <a name="azure-notification-hubs-sdks"></a>Zestaw SDK usług Azure Notification Hubs
+# <a name="azure-notification-hubs-sdks"></a>Zestawy SDK Notification Hubs platformy Azure
 
-Firmy Microsoft i firmy trzecie publikują zestawY SDK dla centrów powiadomień platformy Azure. Repozytoria firmy Microsoft dla systemów Android, iOS i .NET zawierają również przykładowe aplikacje dla każdej platformy docelowej.
+Zestawy SDK publikowania dla usługi Azure Notification Hubs firmy Microsoft i innych firm. Repozytoria firmy Microsoft dla systemów Android, iOS i .NET zawierają także przykładowe aplikacje dla każdej platformy docelowej.
 
 | SDK            | Wydawca      |
 | -------------- | -------------- |
-| [Serwer NET](https://github.com/Azure/azure-notificationhubs-dotnet) | Microsoft |
+| [Serwer .NET](https://github.com/Azure/azure-notificationhubs-dotnet) | Microsoft |
 | [Android](https://github.com/Azure/azure-notificationhubs-android)  |Microsoft |
-| [Apache Cordova](https://github.com/derek82511/cordova-azure-notification-hubs) | Strona trzecia |
+| [Apache Cordova](https://github.com/derek82511/cordova-azure-notification-hubs) | Inne firmy |
 | [iOS](https://github.com/Azure/azure-notificationhubs-ios) |Microsoft |
 | [Serwer Java](https://github.com/Azure/azure-notificationhubs-java-backend) |Microsoft |
-| [Nodejs](https://github.com/Azure/azure-sdk-for-node) | Microsoft |
-| [Reaguj natywne](https://github.com/CatalystCode/react-native-azurenotificationhub) | Strona trzecia |
+| [NodeJS](https://github.com/Azure/azure-sdk-for-node) | Microsoft |
+| [Zareaguj na natywny](https://github.com/CatalystCode/react-native-azurenotificationhub) | Inne firmy |
 
 > [!Note]
-> Firma Microsoft nie ponosi odpowiedzialności za jakość, przydatność ani wsparcie rozwiązań innych firm.
+> Firma Microsoft nie ponosi odpowiedzialności za jakość, użyteczność ani pomoc techniczną dla jakichkolwiek rozwiązań innych firm.
 
-Poinformuj nas o tym, jeśli zaginął.
+Poinformuj nas o tym, czy nie ma żadnego z nich.

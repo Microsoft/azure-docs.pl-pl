@@ -15,24 +15,24 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 4a947c01d63e3842ead91481e480024a54380144
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "69015050"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu witryny Azure Portal
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Sprawdź najnowszą wersję usługi [Media Services w wersji 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji z wersji 2 do v3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi do dostarczania zawartości wideo na żądanie za pomocą aplikacji usługi Azure Media Services w witrynie Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do ukończenia tego samouczka są niezbędne następujące elementy:
 
-* Konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz [Jak utworzyć konto usługi Media Services](media-services-portal-create-account.md).
+* Konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Konto usługi Media Services. Aby utworzyć konto Media Services, zobacz [jak utworzyć konto Media Services](media-services-portal-create-account.md).
 
 W tym samouczku opisano następujące zadania:
 
@@ -51,9 +51,9 @@ Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scen
 
 Aby uruchomić punkt końcowy przesyłania strumieniowego:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
-2. Wybierz **pozycję Ustawienia** > **przesyłania strumieniowego punktów końcowych**. 
-3. Wybierz domyślny punkt końcowy przesyłania strumieniowego. Zostanie wyświetlonych okno **SZCZEGÓŁY PUNKTU KOŃCOWEGO DOMYŚLNEGO PRZESYŁANIA STRUMIENIOWEGO.**
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Wybierz kolejno pozycje **Ustawienia** > **przesyłanie strumieniowe punkty końcowe**. 
+3. Wybierz domyślny punkt końcowy przesyłania strumieniowego. Zostanie wyświetlone okno **szczegóły domyślnego punktu końcowego przesyłania strumieniowego** .
 4. Wybierz ikonę **Uruchom**.
 5. Wybierz ikonę **Zapisz**.
 
@@ -61,7 +61,7 @@ Aby uruchomić punkt końcowy przesyłania strumieniowego:
 Aby przesłać strumieniowo pliki wideo przy użyciu usługi Media Services, musisz przekazać źródłowe pliki wideo, zakodować je do wielokrotnych szybkości transmisji bitów, a następnie opublikować wynik. Pierwszy krok został omówiony w tej sekcji. 
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
-2. Wybierz **pozycję Zasoby ustawień** > **Assets**. Następnie wybierz przycisk **Przekaż**.
+2. Wybierz pozycję **Ustawienia** > **zasoby**. Następnie wybierz przycisk **Przekaż**.
    
     ![Przekazywanie plików](./media/media-services-portal-vod-get-started/media-services-upload.png)
    
@@ -84,14 +84,14 @@ Aby skorzystać z dynamicznego tworzenia pakietów, musisz zakodować swoje plik
 Aby zakodować zawartość przy użyciu procesora Media Encoder Standard w witrynie Azure Portal:
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
-2. Wybierz **pozycję Zasoby ustawień** > **Assets**. Wybierz element zawartości, który chcesz zakodować.
+2. Wybierz pozycję **Ustawienia** > **zasoby**. Wybierz element zawartości, który chcesz zakodować.
 3. Wybierz przycisk **Koduj**.
 4. W okienku **Kodowanie elementu zawartości** wybierz procesor **Media Encoder Standard** i ustawienia wstępne. Aby uzyskać informacje o ustawieniach wstępnych, zobacz [Auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) (Automatyczne generowanie drabiny szybkości transmisji bitów) i [Task presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Ustawienia wstępne zadań procesora Media Encoder Standard). Ważne jest, aby wybrać ustawienia wstępne, które będą najlepiej działać dla wejściowego pliku wideo. Na przykład: jeśli wejściowy plik wideo ma rozdzielczość 1920 &#215; 1080 pikseli, można użyć ustawienia wstępnego **Wielokrotna szybkość transmisji bitów H264 1080p**. Jeśli masz wideo w niskiej rozdzielczości (640 &#215; 360), ustawienie wstępne **Wielokrotna szybkość transmisji bitów H264 1080p** nie powinno być używane.
    
    Aby ułatwić sobie zarządzanie zasobami, możesz poddać edycji nazwę wyjściowego elementu zawartości i nazwę zadania.
    
    ![Kodowanie elementów zawartości](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Wybierz **pozycję Utwórz**.
+5. Wybierz przycisk **Utwórz**.
 
 ### <a name="monitor-encoding-job-progress"></a>Monitorowanie postępu zadania kodowania
 Aby monitorować postęp zadania kodowania, kliknij u góry strony pozycję **Ustawienia**, a następnie wybierz pozycję **Zadania**.
@@ -104,7 +104,7 @@ Aby podać użytkownikowi adres URL, który może służyć do odtwarzania strum
 * **Lokalizatory przesyłania strumieniowego (OnDemandOrigin)**. Lokalizatory przesyłania strumieniowego służą do adaptacyjnego przesyłania strumieniowego. Przykłady adaptacyjnego przesyłania strumieniowego to HLS, Smooth Streaming i MPEG-DASH. Aby utworzyć lokalizator przesyłania strumieniowego, element zawartości musi zawierać plik ism. 
 * **Lokalizatory progresywne (sygnatura dostępu współdzielonego)**. Lokalizatory progresywne służą do dostarczania wideo przy użyciu pobierania progresywnego.
 
-Aby utworzyć adres URL przesyłania strumieniowego HLS, dołącz *(format=m3u8-aapl)* do adresu URL:
+Aby utworzyć adres URL przesyłania strumieniowego HLS, Dołącz *(format = M3U8-AAPL)* do adresu URL:
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
@@ -132,7 +132,7 @@ Aby zaktualizować datę wygaśnięcia lokalizatora, możesz użyć [interfejsu 
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Aby opublikować element zawartości za pomocą portalu
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
-2. Wybierz **pozycję Zasoby ustawień** > **Assets**. Wybierz element zawartości, który chcesz opublikować.
+2. Wybierz pozycję **Ustawienia** > **zasoby**. Wybierz element zawartości, który chcesz opublikować.
 3. Wybierz przycisk **Publikuj**.
 4. Wybierz typ lokalizatora.
 5. Wybierz pozycję **Dodaj**.

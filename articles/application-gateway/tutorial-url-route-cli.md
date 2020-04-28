@@ -1,6 +1,6 @@
 ---
-title: Rozsyłanie ruchu internetowego na podstawie adresu URL — interfejs wiersza polecenia platformy Azure
-description: W tym artykule dowiesz się, jak kierować ruch internetowy na podstawie adresu URL do określonych skalowalnych pul serwerów korzystających z interfejsu wiersza polecenia platformy Azure.
+title: Kierowanie ruchu internetowego na podstawie adresu URL — interfejs wiersza polecenia platformy Azure
+description: W tym artykule dowiesz się, jak kierować ruchem internetowym na podstawie adresu URL do określonych skalowalnych pul serwerów za pomocą interfejsu wiersza polecenia platformy Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,15 +9,15 @@ ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68688177"
 ---
-# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Rozsyłanie ruchu internetowego na podstawie adresu URL przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Kierowanie ruchu internetowego na podstawie adresu URL przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Jako administrator IT zarządzający ruchem internetowym chcesz pomóc swoim klientom lub użytkownikom w jak najszybszym uzyskaniu potrzebnych im informacji. Jednym ze sposobów zoptymalizowania ich środowiska jest skierowanie różnych rodzajów ruchu internetowego do różnych zasobów serwera. W tym artykule pokazano, jak używać interfejsu wiersza polecenia platformy Azure do konfigurowania i konfigurowania routingu bramy aplikacji dla różnych typów ruchu z aplikacji. Następnie, na podstawie adresu URL, routing kieruje ruch do różnych pul serwerów.
+Jako administrator IT zarządzający ruchem internetowym chcesz pomóc swoim klientom lub użytkownikom w jak najszybszym uzyskaniu potrzebnych im informacji. Jednym ze sposobów zoptymalizowania ich środowiska jest skierowanie różnych rodzajów ruchu internetowego do różnych zasobów serwera. W tym artykule pokazano, jak skonfigurować i skonfigurować Routing Application Gateway dla różnych typów ruchu z aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure. Następnie, na podstawie adresu URL, routing kieruje ruch do różnych pul serwerów.
 
 ![Przykład routingu adresów URL](./media/tutorial-url-route-cli/scenario.png)
 
@@ -31,13 +31,13 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Tworzenie zestawów skalowania dla poszczególnych pul umożliwiających ich automatycznie skalowanie
 > * Uruchamianie testu sprawdzającego, czy różne typy ruchu trafiają do poprawnych pul
 
-Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [programu Azure PowerShell](tutorial-url-route-powershell.md) lub [witryny Azure Portal.](create-url-route-portal.md)
+Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure PowerShell](tutorial-url-route-powershell.md) lub [Azure Portal](create-url-route-portal.md).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować i używać interfejsu wiersza polecenia lokalnie, ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -184,7 +184,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Tworzenie zestawów skalowania maszyn wirtualnych
 
-W tym artykule utworzysz trzy zestawy skalowania maszyny wirtualnej, które obsługują trzy utworzone pule wewnętrznej bazy danych. Utworzysz zestawy skalowania o nazwach *myvmss1*, *myvmss2* i *myvmss3*. Każdy zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, na których instaluje się serwer NGINX.
+W tym artykule opisano tworzenie trzech zestawów skalowania maszyn wirtualnych, które obsługują trzy utworzone pule zaplecza. Utworzysz zestawy skalowania o nazwach *myvmss1*, *myvmss2* i *myvmss3*. Każdy zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, na których instaluje się serwer NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -236,7 +236,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Aby uzyskać publiczny adres IP bramy aplikacji, użyj polecenia az network public-ip show. Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Takie jak `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm`, lub .
+Aby uzyskać publiczny adres IP bramy aplikacji, użyj polecenia az network public-ip show. Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Takie jak, `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm`, lub `http://40.121.222.19:8080/video/test.htm`.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -248,11 +248,11 @@ az network public-ip show \
 
 ![Testowanie podstawowego adresu URL w bramie aplikacji](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-Zmień adres URL na&lt;http:// adres&gt;IP:8080/images/test.html, zastępując swój adres &lt;IP&gt;dla adresu IP, a powinieneś zobaczyć coś takiego jak na poniższym przykładzie:
+Zmień adres URL na http://&lt;IP-address&gt;: 8080/images/test.html, zastępując adres IP adresem &lt;IP&gt;i powinien wyglądać podobnie do następującego przykładu:
 
 ![Testowanie adresu URL obrazów w bramie aplikacji](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-Zmień adres URL na&lt;http:// adres&gt;IP:8080/video/test.html, zastępując swój adres &lt;IP&gt;dla adresu IP i powinieneś zobaczyć coś podobnego do poniższego przykładu.
+Zmień adres URL na http://&lt;IP-address&gt;: 8080/Video/test.html, zastępując adres IP adresem &lt;IP&gt;i powinien wyglądać podobnie do poniższego przykładu.
 
 ![Testowanie adresu URL wideo w bramie aplikacji](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 

@@ -1,92 +1,92 @@
 ---
-title: Grupowanie maszyn do oceny za pomocą usługi Azure Migrate | Dokumenty firmy Microsoft
-description: W tym artykule opisano sposób grupowania maszyn przed uruchomieniem oceny za pomocą usługi Azure Migrate.
+title: Grupuj maszyny do oceny przy użyciu Azure Migrate | Microsoft Docs
+description: Opisuje sposób grupowania maszyn przed uruchomieniem oceny w usłudze Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
 ms.openlocfilehash: 13c640d25265b2663520ef7ab203b0b0a33829e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68301706"
 ---
 # <a name="create-a-group-for-assessment"></a>Tworzenie grupy do oceny
 
-W tym artykule opisano sposób tworzenia grup maszyn do oceny za pomocą usługi Azure Migrate: Server Assessment.
+W tym artykule opisano sposób tworzenia grup maszyn do oceny przy użyciu Azure Migrate: Ocena serwera.
 
-[Usługa Azure Migrate](migrate-services-overview.md) ułatwia migrację na platformę Azure. Usługa Azure Migrate udostępnia scentralizowane centrum do śledzenia odnajdowania, oceny i migracji lokalnej infrastruktury, aplikacji i danych na platformę Azure. Centrum udostępnia narzędzia platformy Azure do oceny i migracji, a także oferty niezależnych dostawców oprogramowania innych firm (ISV). 
+[Azure Migrate](migrate-services-overview.md) ułatwia Migrowanie do platformy Azure. Azure Migrate udostępnia scentralizowany centrum do śledzenia odnajdywania, oceny i migracji lokalnej infrastruktury, aplikacji i danych na platformę Azure. Centrum udostępnia narzędzia platformy Azure do oceny i migracji, a także oferty niezależnych dostawców oprogramowania (ISV) innych firm. 
 
-## <a name="grouping-machines"></a>Maszyny grupujące
+## <a name="grouping-machines"></a>Grupowanie maszyn
 
-Zbierasz maszyny do grup, aby ocenić, czy nadają się do migracji na platformę Azure i uzyskać dla nich rozmiary platformy Azure i szacowanie kosztów. Istnieje kilka sposobów tworzenia grup:
+Należy zebrać maszyny do grup, aby ocenić, czy są one odpowiednie do migracji na platformę Azure, i uzyskać dla nich szacunki dotyczące rozmiarów i kosztów platformy Azure. Istnieje kilka sposobów tworzenia grup:
 
-- Jeśli znasz maszyny, które muszą być migrowane razem, można ręcznie utworzyć grupę w usłudze Azure Migrate.
-- Jeśli nie masz pewności co do maszyn, które muszą być zgrupowane, można użyć funkcji wizualizacji zależności w usłudze Azure Migrate do tworzenia grup. 
+- W przypadku znajomości maszyn, które muszą zostać zmigrowane wspólnie, można ręcznie utworzyć grupę w Azure Migrate.
+- Jeśli nie masz pewności o maszynach, które muszą być zgrupowane razem, możesz użyć funkcji wizualizacji zależności w Azure Migrate, aby utworzyć grupy. 
 
 > [!NOTE]
 > Funkcja wizualizacji zależności nie jest dostępna na platformie Azure Government.
 
 ## <a name="create-a-group-manually"></a>Ręczne tworzenie grupy
 
-Grupę można utworzyć w tym samym czasie, w której [jest tworzęna ocena](how-to-create-assessment.md).
+Można utworzyć grupę w tym samym czasie, w którym można [utworzyć ocenę](how-to-create-assessment.md).
 
 Jeśli chcesz utworzyć grupę ręcznie poza tworzeniem oceny, wykonaj następujące czynności:
 
-1. W **przeglądzie**> projektu migracji platformy Azure kliknij pozycję **Oceń i migruj serwery**. W **usłudze Azure Migrate: Ocena serwera**kliknij pozycję **Grupy**
-    - Jeśli nie dodano jeszcze narzędzia Do oceny migracji platformy Azure: Serwer, kliknij, aby go dodać. [Dowiedz się więcej](how-to-assess.md).
-    - Jeśli projekt migracji platformy Azure nie został jeszcze utworzony, [dowiedz się więcej](how-to-add-tool-first-time.md).
+1. W > projekcie Azure Migrate **Przegląd**kliknij pozycję **Oceń i Przeprowadź migrację serwerów**. W **Azure Migrate: Ocena serwera**, kliknij przycisk **grupy**
+    - Jeśli nie dodano jeszcze Azure Migrate: Narzędzie do oceny serwera, kliknij, aby je dodać. [Dowiedz się więcej](how-to-assess.md).
+    - Jeśli projekt Azure Migrate nie został jeszcze utworzony, [Dowiedz się więcej](how-to-add-tool-first-time.md).
 
-    ![Zaznaczanie grup](./media/how-to-create-a-group/select-groups.png)
+    ![Wybieranie grup](./media/how-to-create-a-group/select-groups.png)
 
-2. Kliknij ikonę **Grupuj.**
-3. W **obszarze Tworzenie grupy**określ nazwę grupy, a w nazwie **urządzenia**wybierz urządzenie migracji platformy Azure używane do odnajdowania komputera.
-1. Z listy maszyn wybierz maszyny, które chcesz dodać do grupy > **Utwórz**.
+2. Kliknij ikonę **grupy** .
+3. W obszarze **Tworzenie grupy**Określ nazwę grupy, a w polu **Nazwa urządzenia**wybierz urządzenie Azure Migrate, którego używasz do odnajdywania maszyn.
+1. Z listy maszyna wybierz maszyny, które chcesz dodać do grupy > **utworzyć**.
 
     ![Tworzenie grupy:](./media/how-to-create-a-group/create-group.png)
 
-Teraz można użyć tej grupy podczas [tworzenia oceny](how-to-create-assessment.md).
+Tej grupy można teraz używać podczas [tworzenia oceny](how-to-create-assessment.md).
 
-## <a name="refine-a-group-with-dependency-mapping"></a>Uściślanie grupy z mapowaniem zależności
+## <a name="refine-a-group-with-dependency-mapping"></a>Uściślij grupę z mapowaniem zależności
 
-Mapowanie zależności ułatwia wizualizację zależności między komputerami. Mapowanie zależności jest zazwyczaj używane, gdy chcesz ocenić grupy komputerów o wyższym poziomie zaufania.
-- To pomaga do krzyżowego sprawdzania zależności komputera, przed uruchomieniem oceny. 
-- Pomaga również skutecznie zaplanować migrację na platformę Azure, zapewniając, że nic nie pozostaje w tyle, a tym samym unikając niespodziewanych awarii podczas migracji.
-- Można odkryć współzależne systemy, które muszą migrować razem i określić, czy uruchomiony system nadal obsługuje użytkowników, czy jest kandydatem do likwidacji zamiast migracji.
+Mapowanie zależności ułatwia wizualizację zależności między maszynami. Mapowanie zależności jest zazwyczaj stosowane, gdy chcesz ocenić grupy maszyn o wyższym poziomie zaufania.
+- Ułatwia ona sprawdzanie zależności między maszynami, przed uruchomieniem oceny. 
+- Ułatwia ona również efektywne planowanie migracji na platformę Azure, zapewniając, że nic nie pozostało w tle i w ten sposób unikając awarii podczas migracji.
+- Można odkrywać systemy zależne, które muszą być migrowane razem, oraz sprawdzić, czy uruchomiony system nadal obsługuje użytkowników, czy też jest kandydatem do likwidowania zamiast migracji.
 
-Jeśli masz już [skonfigurowane mapowanie zależności](how-to-create-group-machine-dependencies.md)i chcesz uściślić istniejącą grupę, wykonaj następujące czynności:
+Jeśli [skonfigurowano już mapowanie zależności](how-to-create-group-machine-dependencies.md)i chcesz udoskonalić istniejącą grupę, wykonaj następujące czynności:
 
-1. Na karcie **Serwery** w obszarze **Azure Migrate: Server Assessment (Migracja serwera:** — kafelek — grupa danych) kliknij pozycję **Grupy**.
-2. Kliknij grupę, którą chcesz zawęzić.
-    - Jeśli nie skonfigurowałeś jeszcze mapowania zależności, kolumna **Zależności** będzie wyświetlać stan **wymaga instalacji.** Dla każdej maszyny Wirtualnej, dla której chcesz wizualizować zależności, kliknij pozycję **Wymaga instalacji**. Zainstaluj kilka agentów na każdej maszynie wirtualnej, zanim będzie można mapować zależności komputera. [Dowiedz się więcej](how-to-create-group-machine-dependencies.md).
+1. Na karcie **serwery** w **Azure Migrate: serwer oceny serwera** , kliknij przycisk **grupy**.
+2. Kliknij grupę, którą chcesz udoskonalić.
+    - Jeśli nie skonfigurowano jeszcze mapowania zależności, w kolumnie **zależności** zostanie wyświetlony stan **wymaga instalacji** . Dla każdej maszyny wirtualnej, dla której chcesz wizualizować zależności, kliknij pozycję **wymaga instalacji**. Przed zamapowaniem zależności maszyn można zainstalować kilku agentów na każdej maszynie wirtualnej. [Dowiedz się więcej](how-to-create-group-machine-dependencies.md).
 
-        ![Dodawanie mapowania zależności](./media/how-to-create-a-group/add-dependency-mapping.png)
+        ![Dodaj mapowanie zależności](./media/how-to-create-a-group/add-dependency-mapping.png)
 
-    - Jeśli masz już skonfigurowane mapowanie zależności, na stronie grupy kliknij pozycję **Wyświetl zależności,** aby otworzyć mapę zależności grupy.
+    - Jeśli skonfigurowano już mapowanie zależności, na stronie Grupa kliknij pozycję **Wyświetl zależności** , aby otworzyć mapę zależności grupy.
 
-3. Po kliknięciu przycisku **Wyświetl zależności**mapa zależności grupy pokazuje następujące elementy:
+3. Po kliknięciu pozycji **Wyświetl zależności**Mapa zależności grupy pokazuje następujące elementy:
 
-    - Połączenia TCP przychodzące (klientów) i wychodzące (serwery) do i ze wszystkich komputerów w grupie, na których są zainstalowane agenci zależności.
-    - Maszyny zależne, które nie mają zainstalowanych agentów zależności, są pogrupowane według numerów portów.
-    - Maszyny zależne z zainstalowanymi agentami zależności są wyświetlane jako oddzielne pola.
-    - Procesy uruchomione wewnątrz maszyny. Rozwiń każde pole maszyny, aby wyświetlić procesy.
-    - Właściwości komputera (w tym FQDN, system operacyjny, adres MAC). Kliknij każde pole maszyny, aby wyświetlić szczegóły.
+    - Ruch przychodzący (klientów) i ruch wychodzący (serwery) TCP do i ze wszystkich maszyn w grupie, w których zainstalowano agentów zależności.
+    - Maszyny zależne, na których nie zainstalowano agentów zależności, są pogrupowane według numerów portów.
+    - Komputery zależne z zainstalowanymi agentami zależności są wyświetlane jako oddzielne pola.
+    - Procesy działające na maszynie. Rozwiń wszystkie pola maszyn, aby wyświetlić procesy.
+    - Właściwości maszyny (w tym nazwa FQDN, system operacyjny, adres MAC). Kliknij każde pole komputera, aby wyświetlić szczegóły.
 
-4. Aby wyświetlić zależności w wybranym przedziale czasu, zmodyfikuj zakres czasu (domyślnie godzinę), określając daty rozpoczęcia i zakończenia lub czas trwania.
+4. Aby wyświetlić zależności w przedziale czasu, należy zmodyfikować zakres czasu (domyślnie godzinę), określając daty rozpoczęcia i zakończenia lub czas trwania.
 
     > [!NOTE]
-    > Zakres czasu może wynosić do godziny. Jeśli potrzebujesz dłuższego zasięgu, użyj [usługi Azure Monitor, aby zbadać dane zależne](how-to-create-group-machine-dependencies.md) przez dłuższy okres.
+    > Zakres czasu może być maksymalnie godzinę. Jeśli potrzebujesz dłuższego zakresu, użyj [Azure monitor do wykonywania zapytań dotyczących danych zależnych](how-to-create-group-machine-dependencies.md) przez dłuższy czas.
 
-5. Po zidentyfikowaniu zależności, które chcesz dodać lub usunąć z grupy, można zmodyfikować grupę. Użyj klawiszy Ctrl+Kliknij, aby dodać lub usunąć maszyny z grupy.
+5. Po zidentyfikowaniu zależności, które chcesz dodać do grupy lub usunąć z niej, można zmodyfikować grupę. Naciśnij klawisz Ctrl i kliknij, aby dodać lub usunąć maszyny z grupy.
 
-    - Można dodawać tylko maszyny, które zostały odkryte.
-    - Dodawanie i usuwanie maszyn unieważnia wcześniejsze oceny dla grupy.
+    - Można dodawać tylko odnalezione maszyny.
+    - Dodawanie i usuwanie maszyn unieważnia przeszłe oceny dla grupy.
     - Opcjonalnie można utworzyć nową ocenę podczas modyfikowania grupy.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak skonfigurować i używać [mapowania zależności](how-to-create-group-machine-dependencies.md) do tworzenia grup wysokiego zaufania.
+Dowiedz się, jak skonfigurować [Mapowanie zależności](how-to-create-group-machine-dependencies.md) i używać ich do tworzenia grup o wysokim poziomie pewności.
 

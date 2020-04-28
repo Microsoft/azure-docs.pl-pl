@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
 ms.openlocfilehash: 35c81f023726803fb2346d68ae783fdfe124143f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72177705"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Zestaw .NET Core SDK usługi Azure Cosmos DB dla interfejsu API SQL: informacje o wersji i zasoby
@@ -35,12 +35,12 @@ ms.locfileid: "72177705"
 |---|---|
 |**Pobieranie zestawu SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
 |**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API platformy .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
-|**Przykłady**|[Przykłady kodu platformy .NET](sql-api-dotnet-samples.md)|
-|**Rozpoczęcie pracy**|[Wprowadzenie do Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
+|**Samples**|[Przykłady kodu platformy .NET](sql-api-dotnet-samples.md)|
+|**Wprowadzenie**|[Wprowadzenie do Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
 |**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Bieżąca obsługiwana platforma**|[.NET Standard 1,6 i .NET Standard 1,5](https://www.nuget.org/packages/NETStandard.Library)|
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 > [!NOTE]
 > W przypadku korzystania z platformy .NET Core zapoznaj się z najnowszą wersją 3. x [zestawu SDK platformy .NET](sql-api-sdk-dotnet-standard.md), która jest przeznaczona dla .NET Standard. 

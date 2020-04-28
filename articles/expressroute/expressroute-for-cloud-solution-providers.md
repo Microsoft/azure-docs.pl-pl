@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
 ms.openlocfilehash: a3bd48f32dfcee1a666ff842cfcab2384a5459ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67849258"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>Usługa ExpressRoute dla dostawców rozwiązań w chmurze (CSP)
@@ -31,7 +31,7 @@ Firma Microsoft Azure oferuje coraz więcej usług, które można zaoferować kl
 Firma Microsoft udostępnia dostawcom CSP interfejsy API do zarządzania subskrypcjami klientów Azure przez umożliwienie programowej integracji z ich systemami zarządzania usługami. Obsługiwane funkcje zarządzania można znaleźć [tutaj](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Zarządzanie zasobami Microsoft Azure
-Umowa z klientem określa, jak będzie zarządzana subskrypcja. Dostawca CSP może bezpośrednio zarządzać tworzeniem i obsługą zasobów lub klient może zachować kontrolę nad subskrypcją Microsoft Azure i tworzyć zasoby Azure zgodnie z zapotrzebowaniem. Jeśli klient zarządza tworzeniem zasobów w ramach subskrypcji platformy Microsoft Azure, użyje jednego z dwóch modeli: modelu *"Connect-Through"* lub modelu *"Direct-To".* Te modele zostały szczegółowo opisane w poniższych sekcjach.  
+Umowa z klientem określa, jak będzie zarządzana subskrypcja. Dostawca CSP może bezpośrednio zarządzać tworzeniem i obsługą zasobów lub klient może zachować kontrolę nad subskrypcją Microsoft Azure i tworzyć zasoby Azure zgodnie z zapotrzebowaniem. Jeśli klient zarządza tworzeniem zasobów w ramach subskrypcji Microsoft Azure, użyje jednego z dwóch modeli: "*connect-through*" model lub "*Direct-to*". Te modele zostały szczegółowo opisane w poniższych sekcjach.  
 
 ### <a name="connect-through-model"></a>Model typu „połącz przez”
 ![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/connect-through.png)  

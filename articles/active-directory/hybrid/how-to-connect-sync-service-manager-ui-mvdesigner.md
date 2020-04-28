@@ -1,6 +1,6 @@
 ---
-title: Projektant MV usługi Azure AD Connect | Dokumenty firmy Microsoft
-description: Poznaj kartę Projektant metaverse w menedżerze usługi Synchronizacja usługi Azure AD Connect.
+title: Projektant Azure AD Connect MV | Microsoft Docs "
+description: Zapoznaj się z kartą programu Metaverse Designer w Synchronization Service Manager Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,19 +18,19 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d08454a0ad87adb97037517579f11ab976280425
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60381383"
 ---
-# <a name="sync-service-manager-metaverse-designer"></a>Projektant metaverse menedżera usługi synchronizacji
+# <a name="sync-service-manager-metaverse-designer"></a>Synchronizuj Service Manager narzędzia do odczytu
 
-![Menedżer usługi synchronizacji](./media/how-to-connect-sync-service-manager-ui-mvdesigner/mvdesigner.png)
+![Service Manager synchronizacji](./media/how-to-connect-sync-service-manager-ui-mvdesigner/mvdesigner.png)
 
-Dla większości klientów nie ma tu nic do skonfigurowania.
+W przypadku większości klientów nie ma niczego do skonfigurowania.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o konfiguracji [synchronizacji usługi Azure AD Connect.](how-to-connect-sync-whatis.md)
+Dowiedz się więcej o konfiguracji [synchronizacji Azure AD Connect](how-to-connect-sync-whatis.md) .
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md).

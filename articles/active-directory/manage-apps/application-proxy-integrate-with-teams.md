@@ -1,6 +1,6 @@
 ---
-title: Uzyskiwanie dostępu do aplikacji proxy aplikacji usługi Azure AD w zespołach | Dokumenty firmy Microsoft
-description: Użyj serwera proxy aplikacji usługi Azure AD, aby uzyskać dostęp do aplikacji lokalnej za pośrednictwem usługi Microsoft Teams.
+title: Dostęp do aplikacja usługi Azure AD aplikacji serwera proxy w programie Teams | Microsoft Docs
+description: Użyj usługi Azure serwer proxy aplikacji usługi Azure AD, aby uzyskać dostęp do aplikacji lokalnej za pomocą programu Microsoft Teams.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,43 +17,43 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 037e005993a54e525560571a6d893197af99b6a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67807773"
 ---
-# <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Uzyskiwanie dostępu do aplikacji lokalnych za pośrednictwem usługi Microsoft Teams
+# <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Uzyskiwanie dostępu do aplikacji lokalnych przy użyciu zespołów Microsoft Teams
 
-Usługa Azure Active Directory Application Proxy zapewnia logowanie jednokrotne do aplikacji lokalnych bez względu na to, gdzie jesteś. Usługa Microsoft Teams usprawnia współpracę w jednym miejscu. Integracja tych dwóch oznacza, że użytkownicy mogą być produktywni z członkami zespołu w każdej sytuacji.
+Serwer proxy aplikacji usługi Azure Active Directory umożliwia logowanie jednokrotne do aplikacji lokalnych niezależnie od tego, gdzie jesteś. Zespoły firmy Microsoft usprawniają współpracę w jednym miejscu. Integracja obu siebie oznacza, że użytkownicy mogą pracować z członkami zespołu w każdej sytuacji.
 
-Użytkownicy mogą dodawać aplikacje w chmurze do swoich kanałów usługi Teams [za pomocą kart,](https://support.office.com/article/Video-Using-Tabs-7350a03e-017a-4a00-a6ae-1c9fe8c497b3?ui=en-US&rs=en-US&ad=US)ale co z witrynami programu SharePoint lub narzędziem planowania hostowanymi lokalnie? Serwer proxy aplikacji jest rozwiązaniem. Mogą dodawać aplikacje publikowane za pośrednictwem serwera proxy aplikacji do swoich kanałów przy użyciu tych samych zewnętrznych adresów URL, których zawsze używają do zdalnego uzyskiwania dostępu do swoich aplikacji. A ponieważ serwer proxy aplikacji uwierzytelnia się za pośrednictwem usługi Azure Active Directory, użytkownicy otrzymują środowisko logowania jednokrotnego.
+Użytkownicy mogą dodawać aplikacje w chmurze do swoich kanałów zespołów [przy użyciu kart](https://support.office.com/article/Video-Using-Tabs-7350a03e-017a-4a00-a6ae-1c9fe8c497b3?ui=en-US&rs=en-US&ad=US), ale co z witrynami programu SharePoint lub narzędziem do planowania, które są hostowane lokalnie? Serwer proxy aplikacji to rozwiązanie. Mogą dodawać aplikacje opublikowane za pośrednictwem serwera proxy aplikacji do swoich kanałów przy użyciu tych samych zewnętrznych adresów URL, które są zawsze używane do zdalnego dostępu do swoich aplikacji. Ponieważ serwer proxy aplikacji uwierzytelnia się za pomocą Azure Active Directory, użytkownicy uzyskują funkcję logowania jednokrotnego.
 
 ## <a name="install-the-application-proxy-connector-and-publish-your-app"></a>Instalowanie łącznika serwera proxy aplikacji i publikowanie aplikacji
 
-Jeśli jeszcze tego nie zrobiłeś, [skonfiguruj serwer proxy aplikacji dla dzierżawy i zainstaluj łącznik](application-proxy-add-on-premises-application.md). Następnie [opublikuj lokalną aplikację](application-proxy-add-on-premises-application.md) dostępu zdalnego. Podczas publikowania aplikacji zanotuj zewnętrzny adres URL, ponieważ jest on używany do dodawania aplikacji do aplikacji Teams.
+Jeśli jeszcze tego nie zrobiono, [Skonfiguruj serwer proxy aplikacji dla dzierżawy i Zainstaluj łącznik](application-proxy-add-on-premises-application.md). Następnie [Opublikuj aplikację lokalną](application-proxy-add-on-premises-application.md) pod kątem dostępu zdalnego. Gdy publikujesz aplikację, zanotuj zewnętrzny adres URL, ponieważ jest on używany do dodawania aplikacji do zespołów.
 
-Jeśli aplikacje zostały już opublikowane, ale nie pamiętasz ich zewnętrznych adresów URL, poszukaj ich w [witrynie Azure portal](https://portal.azure.com). Zaloguj się, a następnie przejdź do**aplikacji** >  **Azure Active Directory** > Enterprise**Wszystkie aplikacje** > wybrać aplikację > **proxy aplikacji**.
+Jeśli masz już opublikowane aplikacje, ale nie pamiętasz zewnętrznych adresów URL, zapoznaj się z nimi w [Azure Portal](https://portal.azure.com). Zaloguj się, a następnie przejdź do **Azure Active Directory** > **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > wybierz aplikację > **serwerze proxy aplikacji**.
 
-## <a name="add-your-app-to-teams"></a>Dodawanie aplikacji do aplikacji Teams
+## <a name="add-your-app-to-teams"></a>Dodawanie aplikacji do zespołów
 
-Po opublikowaniu aplikacji za pośrednictwem serwera proxy aplikacji poinformuj użytkowników, że mogą dodać ją jako kartę bezpośrednio w swoich kanałach usługi Teams, a następnie aplikacja jest dostępna dla wszystkich w zespole do użycia. Poproś ich, aby postępowali zgodnie z tymi trzema krokami:
+Po opublikowaniu aplikacji za pomocą serwera proxy aplikacji Powiadom użytkowników, że mogą dodać ją jako kartę bezpośrednio w swoich kanałach zespołów, a następnie aplikacja jest dostępna dla wszystkich członków zespołu. Wykonaj następujące trzy kroki:
 
-1. Przejdź do kanału Zespoły, w którym **+** chcesz dodać tę aplikację, a następnie wybierz, aby dodać kartę.
+1. Przejdź do kanału Teams, w którym chcesz dodać tę aplikację, a **+** następnie wybierz pozycję, aby dodać kartę.
 
-   ![Wybierz + , aby dodać kartę w aplikacji Teams](./media/application-proxy-integrate-with-teams/add-tab.png)
+   ![Wybierz pozycję +, aby dodać kartę w zespołach](./media/application-proxy-integrate-with-teams/add-tab.png)
 
-1. Wybierz **pozycję Witryna sieci Web** z opcji karty.
+1. Wybierz pozycję **Witryna sieci Web** na karcie Opcje.
 
-   ![Wybieranie witryny sieci Web na ekranie karty Dodawanie](./media/application-proxy-integrate-with-teams/website.png)
+   ![Wybierz witrynę internetową z ekranu Dodaj kartę](./media/application-proxy-integrate-with-teams/website.png)
 
 1. Nadaj karcie nazwę i ustaw adres URL zewnętrznego adresu URL serwera proxy aplikacji.
 
-   ![Nadaj karcie nazwę i dodaj zewnętrzny adres URL](./media/application-proxy-integrate-with-teams/tab-name-url.png)
+   ![Nazwij kartę i Dodaj zewnętrzny adres URL](./media/application-proxy-integrate-with-teams/tab-name-url.png)
 
-Gdy jeden z członków zespołu doda kartę, jest ona wyświetlana wszystkim w kanale. Wszyscy użytkownicy, którzy mają dostęp do aplikacji, uzyskują dostęp do logowania jednokrotnego z poświadczeniami używanymi przez nich w usłudze Microsoft Teams. Wszyscy użytkownicy, którzy nie mają dostępu do aplikacji, mogą zobaczyć kartę w aplikacji Teams, ale są blokowani, dopóki nie przyznasz im uprawnień do aplikacji lokalnej i opublikowanej wersji aplikacji w portalu Azure.
+Gdy jeden z członków zespołu doda kartę, zostanie ona wyświetlona dla wszystkich użytkowników w kanale. Wszyscy użytkownicy, którzy mają dostęp do aplikacji, uzyskują dostęp do logowania jednokrotnego przy użyciu poświadczeń używanych przez program Microsoft Teams. Wszyscy użytkownicy, którzy nie mają dostępu do aplikacji, mogą widzieć kartę w zespołach, ale są Zablokowani do momentu udzielenia im uprawnień do aplikacji lokalnej i Azure Portal opublikowanej wersji aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [publikować lokalne witryny programu SharePoint](application-proxy-integrate-with-sharepoint-server.md) za pomocą serwera proxy aplikacji.
-- Skonfiguruj aplikacje tak, aby [używały domen niestandardowych](application-proxy-configure-custom-domain.md) dla ich zewnętrznego adresu URL.
+- Dowiedz się, jak [publikować lokalne witryny programu SharePoint](application-proxy-integrate-with-sharepoint-server.md) przy użyciu serwera proxy aplikacji.
+- Skonfiguruj aplikacje tak, aby korzystały z [domen niestandardowych](application-proxy-configure-custom-domain.md) dla ich zewnętrznego adresu URL.

@@ -1,6 +1,6 @@
 ---
 title: Dołączanie nowego urządzenia z systemem Windows 10 przy użyciu usługi Azure AD podczas pierwszego uruchomienia | Microsoft Docs
-description: Jak użytkownicy mogą skonfigurować przyłączenie usługi Azure AD podczas środowiska po wyjęciu z pudełka.
+description: Jak użytkownicy mogą konfigurować usługę Azure AD JOIN w trakcie korzystania z funkcji.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 384157828e9c816b150e40bf3f09b74578c4a98e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67482099"
 ---
 # <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Samouczek: dołączanie nowego urządzenia z systemem Windows 10 przy użyciu usługi Azure AD podczas pierwszego uruchomienia
@@ -39,7 +39,7 @@ W tym samouczku dowiesz się, jak dołączyć urządzenie do usługi Azure AD po
 
 Aby dołączyć urządzenie z systemem Windows 10, należy skonfigurować usługę rejestracji urządzeń, aby umożliwić rejestrowanie urządzeń. Oprócz posiadania uprawnień do dołączania urządzeń w dzierżawie usługi Azure AD musisz mieć mniej zarejestrowanych urządzeń niż skonfigurowane maksimum. Aby uzyskać więcej informacji, zobacz [konfigurowanie ustawień urządzenia](device-management-azure-portal.md#configure-device-settings).
 
-Ponadto, jeśli dzierżawa jest federacyjna, dostawca tożsamości MUSI obsługiwać punkt końcowy nazwy użytkownika/hasła WS-Fed i WS-Trust. Może to być wersja 1.3 lub 2005. Ta obsługa protokołu jest wymagana zarówno do przyłączenia urządzenia do usługi Azure AD, jak i zalogowania się do urządzenia za pomocą hasła.
+Ponadto, jeśli dzierżawa jest federacyjna, dostawca tożsamości MUSI obsługiwać punkt końcowy nazwy użytkownika/hasła WS-Fed i WS-Trust. Może to być wersja 1.3 lub 2005. Ta obsługa protokołu jest wymagana w celu dołączenia urządzenia do usługi Azure AD i zalogowania się na urządzeniu przy użyciu hasła.
 
 ## <a name="joining-a-device"></a>Dołączanie urządzenia
 

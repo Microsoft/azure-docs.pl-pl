@@ -1,6 +1,6 @@
 ---
-title: Zarejestruj bieżącego użytkownika do powiadomień wypychanych za pomocą interfejsu API sieci Web | Dokumenty firmy Microsoft
-description: Dowiedz się, jak żądać rejestracji powiadomień wypychanych w aplikacji systemu iOS za pomocą usługi Azure Notification Hubs podczas rejestracji wykonywanej przez ASP.NET interfejsu API sieci Web.
+title: Rejestrowanie bieżącego użytkownika na potrzeby powiadomień wypychanych przy użyciu interfejsu API sieci Web | Microsoft Docs
+description: Dowiedz się, jak zażądać rejestracji powiadomień wypychanych w aplikacji dla systemu iOS przy użyciu usługi Azure Notification Hubs, gdy rejestracja odbywa się za pomocą interfejsu API sieci Web ASP.NET.
 services: notification-hubs
 documentationcenter: ios
 author: sethmanheim
@@ -17,42 +17,42 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 3fec04a1a45f8b154e27a1e5303e44111f4cb421
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71211876"
 ---
-# <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Zarejestruj bieżącego użytkownika do powiadomień wypychanych za pomocą ASP.NET
+# <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Rejestrowanie bieżącego użytkownika na potrzeby powiadomień wypychanych przy użyciu ASP.NET
 
 > [!div class="op_single_selector"]
 > * [iOS](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 
 ## <a name="overview"></a>Omówienie
 
-W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych w usłudze Azure Notification Hubs, gdy rejestracja jest wykonywana przez ASP.NET interfejsu API sieci Web. W tym temacie rozszerza samouczek [Powiadom użytkowników o Centra powiadomień]. Aby utworzyć uwierzytelnioną usługę mobilną, musisz już wykonać wymagane kroki w tym samouczku. Aby uzyskać więcej informacji na temat scenariusza powiadamiania użytkowników, zobacz [Powiadamianie użytkowników za pomocą Centrów powiadomień].
+W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych za pomocą usługi Azure Notification Hubs, gdy rejestracja odbywa się za pomocą interfejsu API sieci Web ASP.NET. Ten temat rozszerza samouczek o [poinformowanie użytkowników o Notification Hubs]. Aby utworzyć uwierzytelnioną usługę mobilną, należy wcześniej wykonać czynności opisane w tym samouczku. Aby uzyskać więcej informacji na temat scenariusza powiadamiania użytkowników, zobacz [Powiadamianie użytkowników za pomocą Notification Hubs].
 
 ## <a name="update-your-app"></a>Aktualizowanie aplikacji
 
-1. W MainStoryboard_iPhone.storyboard dodaj następujące składniki z biblioteki obiektów:
+1. W MainStoryboard_iPhone. scenorys Dodaj następujące składniki z biblioteki obiektów:
 
-   * **Etykieta**: "Wypychanie do użytkownika za pomocą centrów powiadomień"
-   * **Etykieta**: "InstallationId"
-   * **Etykieta**: "Użytkownik"
-   * **Pole tekstowe:**"Użytkownik"
-   * **Etykieta**: "Hasło"
-   * **Pole tekstowe:**"Hasło"
-   * **Przycisk**: "Zaloguj się"
+   * **Label**: "push to User with Notification Hubs"
+   * **Etykieta**: "Identyfikator InstallationID"
+   * **Etykieta**: "użytkownik"
+   * **Pole tekstowe**: "użytkownik"
+   * **Etykieta**: "hasło"
+   * **Pole tekstowe**: "hasło"
+   * **Przycisk**: "login"
 
      W tym momencie scenorys wygląda następująco:
 
      ![][0]
 
-2. W edytorze asystenta utwórz gniazda dla wszystkich przełączonych formantów i zadzwoń do nich, połącz pola tekstowe z kontrolerem widoku (pełnomocnik) i utwórz **akcję** dla przycisku **logowania.**
+2. W edytorze asystenta Utwórz opcje dla wszystkich przełączników przełączanych i Wywołaj je, Połącz pola tekstowe z kontrolerem widoku (delegat) i Utwórz **akcję** dla przycisku **Zaloguj** .
 
     ![][1]
 
-    Plik BreakingNewsViewController.h powinien teraz zawierać następujący kod:
+    Plik BreakingNewsViewController. h powinien teraz zawierać następujący kod:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UILabel *installationId;
@@ -61,13 +61,13 @@ W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych w us
 
     - (IBAction)login:(id)sender;
     ```
-3. Utwórz klasę `DeviceInfo`o nazwie i skopiuj następujący kod do sekcji interfejsu pliku DeviceInfo.h:
+3. Utwórz klasę o nazwie `DeviceInfo`i skopiuj następujący kod do sekcji Interface pliku DEVICEINFO. h:
 
     ```objc
     @property (readonly, nonatomic) NSString* installationId;
     @property (nonatomic) NSData* deviceToken;
     ```
-4. Skopiuj następujący kod w sekcji implementacji pliku DeviceInfo.m:
+4. Skopiuj następujący kod w sekcji implementacji pliku DeviceInfo. m:
 
     ```objc
     @synthesize installationId = _installationId;
@@ -101,12 +101,12 @@ W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych w us
     }
     ```
 
-5. W pliku PushToUserAppDelegate.h dodaj następującą właściwość singleton:
+5. W PushToUserAppDelegate. h Dodaj następującą właściwość pojedynczą:
 
     ```objc
     @property (strong, nonatomic) DeviceInfo* deviceInfo;
     ```
-6. W `didFinishLaunchingWithOptions` metodzie w PushToUserAppDelegate.m dodaj następujący kod:
+6. W `didFinishLaunchingWithOptions` metodzie w PushToUserAppDelegate. m Dodaj następujący kod:
 
     ```objc
     self.deviceInfo = [[DeviceInfo alloc] init];
@@ -114,8 +114,8 @@ W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych w us
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     ```
 
-    Pierwszy wiersz inicjuje `DeviceInfo` singleton. Drugi wiersz rozpoczyna rejestrację powiadomień wypychanych, która jest już obecna, jeśli zostało już ukończone samouczek [Wprowadzenie do powiadomień z centrum powiadomień.]
-7. W aplikacji PushToUserAppDelegate.m `didRegisterForRemoteNotificationsWithDeviceToken` zaimplementuj metodę w aplikacji AppDelegate i dodaj następujący kod:
+    Pierwszy wiersz inicjuje `DeviceInfo` pojedynczą. Drugi wiersz rozpoczyna rejestrację powiadomień wypychanych, która już istnieje, jeśli już ukończono samouczek wprowadzenie do [Notification Hubs] .
+7. W PushToUserAppDelegate. m Zaimplementuj metodę `didRegisterForRemoteNotificationsWithDeviceToken` w AppDelegate i Dodaj następujący kod:
 
     ```objc
     self.deviceInfo.deviceToken = deviceToken;
@@ -124,9 +124,9 @@ W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych w us
     Spowoduje to ustawienie tokenu urządzenia dla żądania.
 
    > [!NOTE]
-   > W tym momencie nie powinno być żadnego innego kodu w tej metodzie. Jeśli masz już wywołanie `registerNativeWithDeviceToken` metody, która została dodana po zakończeniu samouczek [Wprowadzenie do centrów powiadomień,](notification-hubs-ios-apple-push-notification-apns-get-started.md) musisz skomentować lub usunąć to wywołanie.
+   > W tym momencie nie powinno być żadnych innych kodów w tej metodzie. Jeśli masz już wywołanie `registerNativeWithDeviceToken` metody, która została dodana po zakończeniu [pracy z](notification-hubs-ios-apple-push-notification-apns-get-started.md) samouczkiem wprowadzenie do Notification Hubs, musisz dodać komentarz lub usunąć to wywołanie.
 
-8. W `PushToUserAppDelegate.m` pliku dodaj następującą metodę obsługi:
+8. W `PushToUserAppDelegate.m` pliku Dodaj następującą metodę obsługi:
 
     ```objc
     * (void) application:(UIApplication *) application didReceiveRemoteNotification:(NSDictionary *)userInfo {
@@ -138,9 +138,9 @@ W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych w us
     }
     ```
 
-    Ta metoda wyświetla alert w interfejsie użytkownika, gdy aplikacja odbiera powiadomienia, gdy jest uruchomiona.
+    Ta metoda wyświetla alert w interfejsie użytkownika, gdy aplikacja otrzymuje powiadomienia, gdy jest uruchomiona.
 
-9. Otwórz `PushToUserViewController.m` plik i zwróć klawiaturę w następującej implementacji:
+9. Otwórz `PushToUserViewController.m` plik i Przywróć klawiaturę w następującej implementacji:
 
     ```objc
     - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
@@ -151,21 +151,21 @@ W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych w us
     }
     ```
 
-10. W `viewDidLoad` metodzie `PushToUserViewController.m` w pliku zaiwówniaj etykietę w `installationId` następujący sposób:
+10. W `viewDidLoad` metodzie w `PushToUserViewController.m` pliku, zainicjuj `installationId` etykietę w następujący sposób:
 
     ```objc
     DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
     Self.installationId.text = deviceInfo.installationId;
     ```
 
-11. Dodaj następujące właściwości w `PushToUserViewController.m`interfejsie w:
+11. Dodaj następujące właściwości w interfejsie w `PushToUserViewController.m`:
 
     ```objc
     @property (readonly) NSOperationQueue* downloadQueue;
     - (NSString*)base64forData:(NSData*)theData;
     ```
 
-12. Następnie dodaj następującą implementację:
+12. Następnie Dodaj następującą implementację:
 
     ```objc
     - (NSOperationQueue *)downloadQueue {
@@ -211,7 +211,7 @@ W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych w us
     }
     ```
 
-13. Skopiuj `login` następujący kod do metody obsługi utworzonej przez XCode:
+13. Skopiuj następujący kod do metody `login` obsługi utworzonej przez Xcode:
 
     ```objc
     DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
@@ -246,9 +246,9 @@ W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych w us
     }];
     ```
 
-    Ta metoda pobiera identyfikator instalacji i kanał powiadomień wypychanych i wysyła go, wraz z typem urządzenia, do uwierzytelnionej metody interfejsu API sieci Web, która tworzy rejestrację w Centrach powiadomień. Ten internetowy interfejs API został zdefiniowany w [obszarze Powiadamianie użytkowników za pomocą centrów powiadomień].
+    Ta metoda pobiera zarówno identyfikator instalacji, jak i kanał dla powiadomień wypychanych i wysyła je wraz z typem urządzenia do metody uwierzytelnionego interfejsu API sieci Web, która tworzy rejestrację w Notification Hubs. Ten internetowy interfejs API został zdefiniowany w obszarze [Powiadamianie użytkowników o Notification Hubs].
 
-Teraz, gdy aplikacja kliencka została zaktualizowana, wróć do [powiadamiania użytkowników za pomocą centrów powiadomień] i zaktualizuj usługę mobilną, aby wysyłać powiadomienia za pomocą Centrów powiadomień.
+Teraz, gdy aplikacja kliencka została zaktualizowana, Wróć do okna [Powiadamianie użytkowników o Notification Hubs] i aktualizowanie usługi mobilnej w celu wysyłania powiadomień przy użyciu Notification Hubs.
 
 <!-- Anchors. -->
 
@@ -257,5 +257,5 @@ Teraz, gdy aplikacja kliencka została zaktualizowana, wróć do [powiadamiania 
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Powiadamianie użytkowników za pomocą Centrów powiadomień]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-[Wprowadzenie do centrów powiadomień]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Powiadamianie użytkowników za pomocą Notification Hubs]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Wprowadzenie do Notification Hubs]: notification-hubs-ios-apple-push-notification-apns-get-started.md

@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71c342ede77349b3f6c22093e5877ad5f5ce6549
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67807681"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Instrukcje: Wdrażanie rozszerzenia panelu dostępu dla programu Internet Explorer przy użyciu zasad grupy
@@ -37,7 +37,7 @@ Rozszerzenie panelu dostępu jest również dostępne dla [przeglądarki Chrome]
 
 ## <a name="step-1-create-the-distribution-point"></a>Krok 1. Tworzenie punktu dystrybucji
 
-Najpierw należy umieścić pakiet Instalatora w lokalizacji sieciowej, do której mają dostęp komputery, na których chcesz zdalnie zainstalować rozszerzenie. W tym celu wykonaj następujące kroki:
+Najpierw należy umieścić pakiet Instalatora w lokalizacji sieciowej, do której mają dostęp komputery, na których chcesz zdalnie zainstalować rozszerzenie. W tym celu wykonaj następujące czynności:
 
 1. Zaloguj się na serwerze jako administrator.
 1. W oknie **Menedżer serwera** przejdź do pozycji **pliki i usługi magazynu**.

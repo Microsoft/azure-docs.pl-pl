@@ -1,6 +1,6 @@
 ---
-title: Omówienie zarządzania urządzeniami za pomocą usługi Azure IoT Hub | Dokumenty firmy Microsoft
-description: Omówienie zarządzania urządzeniami w usłudze Azure IoT Hu — wzorce cyklu życia urządzeń i zarządzania urządzeniami w przedsiębiorstwie, takie jak ponowne uruchomienie, przywrócenie ustawień fabrycznych, aktualizacja oprogramowania układowego, konfiguracja, bliźniacze urządzenia, zapytania, zadania.
+title: Omówienie zarządzania urządzeniami za pomocą usługi Azure IoT Hub | Microsoft Docs
+description: Omówienie zarządzania urządzeniami w usłudze Azure IoT hu — cykl życia i zarządzanie urządzeniami w przedsiębiorstwie, takie jak, ponowne uruchamianie, Resetowanie do ustawień fabrycznych, aktualizacja oprogramowania układowego, konfiguracja, bliźniaczych reprezentacji urządzeń, zapytania i zadania.
 author: bzurcher
 ms.service: iot-hub
 services: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
 ms.openlocfilehash: bdc55af23568b5785a831e81f352400c728c902e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60400990"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Omówienie zarządzania urządzeniami za pomocą usługi IoT Hub
@@ -46,7 +46,7 @@ Kluczowym elementem procesu tworzenia prawidłowo działającego rozwiązania Io
 
 * **Obsługa wielu ról**: obsługa unikatowych przepływów pracy i procesów ról operacji IoT jest niezwykle ważna. Pracownicy operacyjni muszą zachować zgodność z ograniczeniami wewnętrznych działów IT.  Muszą również znaleźć niezawodne sposoby udostępniania nadzorcom i innym osobom odpowiedzialnym za zarządzanie informacji dotyczących odpowiednich operacji na urządzeniach.
 
-## <a name="device-lifecycle"></a>Cykl życia urządzenia
+## <a name="device-lifecycle"></a>Cykl wsparcia technicznego urządzenia
 Istnieje zestaw ogólnych etapów zarządzania urządzeniami, które są wspólne dla wszystkich projektów IoT. W usłudze Azure IoT istnieje pięć etapów cyklu życia urządzenia:
 
 ![Pięć faz cyklu życia urządzenia usługi Azure IoT: planowanie, aprowizowanie, konfigurowanie, monitorowanie, wycofywanie](./media/iot-hub-device-management-overview/image5.png)
@@ -55,63 +55,63 @@ W każdym z tych pięciu etapów istnieje kilka wymagań dotyczących operatora 
 
 * **Planowanie**: umożliwienie operatorom utworzenia schematu metadanych urządzenia, który pozwoli na łatwe oraz dokładne wykonanie zapytania dotyczącego grupy urządzeń i użycie jej na potrzeby zbiorczych operacji zarządzania. Bliźniaczej reprezentacji urządzenia można użyć do przechowywania metadanych tego urządzenia w postaci tagów i właściwości.
   
-    *Dalsza część tekstu*: 
+    *Dalsze odczytywanie*: 
     * [Wprowadzenie do zarządzania bliźniaczymi reprezentacjami urządzeń](iot-hub-node-node-twin-getstarted.md)
     * [Opis bliźniaczych reprezentacji urządzeń](iot-hub-devguide-device-twins.md)
-    * [Jak korzystać z właściwości bliźniaczej reprezentacji urządzenia](tutorial-device-twins.md)
-    * [Najważniejsze wskazówki dotyczące konfiguracji urządzenia w ramach rozwiązania IoT](iot-hub-configuration-best-practices.md)
+    * [Jak korzystać z właściwości sznurka urządzenia](tutorial-device-twins.md)
+    * [Najlepsze rozwiązania dotyczące konfiguracji urządzeń w ramach rozwiązania IoT](iot-hub-configuration-best-practices.md)
 
 * **Aprowizacja**: bezpieczna aprowizacja nowych urządzeń w usłudze IoT Hub oraz umożliwienie operatorom natychmiastowego wykrywania możliwości urządzeń.  Za pomocą rejestru tożsamości usługi IoT Hub można tworzyć elastyczne tożsamości i poświadczenia urządzeń. Aprowizacja może być wykonywana zbiorczo przy użyciu zadania. Możliwe jest tworzenie urządzeń w taki sposób, aby raportowały swoje możliwości i warunki za pośrednictwem właściwości urządzeń w bliźniaczej reprezentacji urządzenia.
   
-    *Dalsza część tekstu*: 
+    *Dalsze odczytywanie*: 
     * [Zarządzanie tożsamościami urządzeń](iot-hub-devguide-identity-registry.md)
-    * [Masowe zarządzanie tożsamościami urządzeń](iot-hub-bulk-identity-mgmt.md)
-    * [Jak korzystać z właściwości bliźniaczej reprezentacji urządzenia](tutorial-device-twins.md)
-    * [Najważniejsze wskazówki dotyczące konfiguracji urządzenia w ramach rozwiązania IoT](iot-hub-configuration-best-practices.md)
+    * [Zbiorcze Zarządzanie tożsamościami urządzeń](iot-hub-bulk-identity-mgmt.md)
+    * [Jak korzystać z właściwości sznurka urządzenia](tutorial-device-twins.md)
+    * [Najlepsze rozwiązania dotyczące konfiguracji urządzeń w ramach rozwiązania IoT](iot-hub-configuration-best-practices.md)
     * [Usługa Azure IoT Hub Device Provisioning](https://azure.microsoft.com/documentation/services/iot-dps)
 
 * **Konfigurowanie**: ułatwienie zbiorczego stosowania zmian konfiguracji i aktualizacji oprogramowania układowego na urządzeniach przy zachowaniu kondycji i bezpieczeństwa. Wykonaj te operacje zarządzania urządzeniami zbiorczo, używając odpowiednich właściwości lub bezpośrednich metod i zadań emisji.
   
-    *Dalsza część tekstu*:
-    * [Jak korzystać z właściwości bliźniaczej reprezentacji urządzenia](tutorial-device-twins.md)
+    *Dalsze odczytywanie*:
+    * [Jak korzystać z właściwości sznurka urządzenia](tutorial-device-twins.md)
     * [Konfigurowanie i monitorowanie urządzeń IoT na dużą skalę](iot-hub-auto-device-config.md)
-    * [Najważniejsze wskazówki dotyczące konfiguracji urządzenia w ramach rozwiązania IoT](iot-hub-configuration-best-practices.md)
+    * [Najlepsze rozwiązania dotyczące konfiguracji urządzeń w ramach rozwiązania IoT](iot-hub-configuration-best-practices.md)
 
 * **Monitorowanie**: monitorowanie ogólnej kondycji kolekcji urządzeń i stanu trwających operacji w celu ostrzegania operatorów o problemach, które mogą wymagać ich uwagi.  Zastosuj bliźniaczą reprezentacją urządzenia, aby umożliwić urządzeniom raportowanie w czasie rzeczywistym warunków pracy i stanu operacji aktualizacji. Twórz zaawansowane raporty pulpitu nawigacyjnego, które służą do udostępniania najważniejszych w danym momencie problemów przy użyciu zapytań bliźniaczych reprezentacji urządzeń.
   
-    *Dalsza część tekstu*: 
-    * [Jak korzystać z właściwości bliźniaczej reprezentacji urządzenia](tutorial-device-twins.md)
-    * [Język zapytań usługi IoT Hub dla bliźniaczych bliźniąt urządzeń, zadań i routingu wiadomości](iot-hub-devguide-query-language.md)
+    *Dalsze odczytywanie*: 
+    * [Jak korzystać z właściwości sznurka urządzenia](tutorial-device-twins.md)
+    * [IoT Hub język zapytań dla bliźniaczych reprezentacji urządzeń, zadań i routingu komunikatów](iot-hub-devguide-query-language.md)
     * [Konfigurowanie i monitorowanie urządzeń IoT na dużą skalę](iot-hub-auto-device-config.md)
-    * [Najważniejsze wskazówki dotyczące konfiguracji urządzenia w ramach rozwiązania IoT](iot-hub-configuration-best-practices.md)
+    * [Najlepsze rozwiązania dotyczące konfiguracji urządzeń w ramach rozwiązania IoT](iot-hub-configuration-best-practices.md)
 
-* **Wycofanie:** Wymień lub likwiduj urządzenia po awarii, cyklu uaktualniania lub po zakończeniu okresu istnienia usługi.  Użyj bliźniaczej reprezentacji urządzenia, aby zarządzać informacjami o urządzeniu, jeśli trwa zastępowanie urządzenia fizycznego lub jeśli jest ono archiwizowane w przypadku wycofywania. Za pomocą rejestru tożsamości usługi IoT Hub można bezpiecznie odwołać tożsamości i poświadczenia urządzeń.
+* **Wycofywanie**: zastępowanie lub likwidowanie urządzeń po awarii, cyklu uaktualniania lub po zakończeniu okresu istnienia usługi.  Użyj bliźniaczej reprezentacji urządzenia, aby zarządzać informacjami o urządzeniu, jeśli trwa zastępowanie urządzenia fizycznego lub jeśli jest ono archiwizowane w przypadku wycofywania. Za pomocą rejestru tożsamości usługi IoT Hub można bezpiecznie odwołać tożsamości i poświadczenia urządzeń.
   
-    *Dalsza część tekstu*: 
-    * [Jak korzystać z właściwości bliźniaczej reprezentacji urządzenia](tutorial-device-twins.md)
+    *Dalsze odczytywanie*: 
+    * [Jak korzystać z właściwości sznurka urządzenia](tutorial-device-twins.md)
     * [Zarządzanie tożsamościami urządzeń](iot-hub-devguide-identity-registry.md)
 
 ## <a name="device-management-patterns"></a>Wzorce zarządzania urządzeniami
 
 Usługa IoT Hub udostępnia przedstawiony poniżej zestaw wzorców zarządzania urządzeniami. W [samouczkach dotyczących zarządzania urządzeniami](iot-hub-node-node-device-management-get-started.md) znajduje się bardziej szczegółowy opis sposobu rozszerzenia tych wzorców w celu dopasowania ich do danego scenariusza oraz sposobu projektowania nowych wzorców na podstawie tych szablonów podstawowych.
 
-* **Ponowne uruchomienie:** Aplikacja zaplecza informuje urządzenie za pomocą metody bezpośredniej, że zainicjowała ponowne uruchomienie komputera.  Urządzenie aktualizuje stan ponownego uruchomienia urządzenia za pomocą zgłoszonych właściwości.
+* **Ponowny rozruch**: aplikacja zaplecza informuje urządzenie za pośrednictwem metody bezpośredniej o zainicjowaniu ponownego uruchomienia.  Urządzenie aktualizuje stan ponownego uruchomienia urządzenia za pomocą zgłoszonych właściwości.
   
     ![Ilustracja dotycząca wzorca ponownego uruchamiania zarządzania urządzeniami](./media/iot-hub-device-management-overview/reboot-pattern.png)
 
-* **Przywrócenie ustawień fabrycznych:** Aplikacja zaplecza informuje urządzenie za pomocą metody bezpośredniej, że zainicjowała przywrócenie ustawień fabrycznych. Urządzenie aktualizuje stan resetowania urządzenia do ustawień fabrycznych za pomocą zgłoszonych właściwości.
+* **Resetowanie do ustawień fabrycznych**: aplikacja zaplecza informuje urządzenie za pośrednictwem metody bezpośredniej o zainicjowaniu resetowania do ustawień fabrycznych. Urządzenie aktualizuje stan resetowania urządzenia do ustawień fabrycznych za pomocą zgłoszonych właściwości.
   
     ![Ilustracja dotycząca wzorca resetowania urządzenia do ustawień fabrycznych zarządzania urządzeniami](./media/iot-hub-device-management-overview/facreset-pattern.png)
 
-* **Konfiguracja:** Aplikacja zaplecza używa żądanych właściwości do konfigurowania oprogramowania uruchomionego na urządzeniu. Urządzenie aktualizuje stan konfiguracji urządzenia za pomocą zgłoszonych właściwości.
+* **Konfiguracja**: aplikacja zaplecza korzysta z odpowiednich właściwości w celu skonfigurowania oprogramowania działającego na urządzeniu. Urządzenie aktualizuje stan konfiguracji urządzenia za pomocą zgłoszonych właściwości.
   
     ![Ilustracja dotycząca wzorca konfiguracji zarządzania urządzeniami](./media/iot-hub-device-management-overview/configuration-pattern.png)
 
-* **Aktualizacja oprogramowania układowego:** Aplikacja zaplecza używa automatycznej konfiguracji zarządzania urządzeniami, aby wybrać urządzenia do odbierania aktualizacji, poinformować urządzenia, gdzie można znaleźć aktualizację, oraz monitorować proces aktualizacji. Urządzenie inicjuje wieloetapowy proces pobierania, weryfikowania i stosowania obrazu oprogramowania układowego, a następnie ponowne uruchomienie urządzenia przed ponownym połączeniem z usługą IoT Hub. W trakcie tego wieloetapowego procesu urządzenie używa zgłoszonych właściwości do zaktualizowania postępu i stanu urządzenia.
+* **Aktualizacja oprogramowania układowego**: aplikacja zaplecza używa automatycznej konfiguracji zarządzania urządzeniami, aby wybrać urządzenia do odebrania aktualizacji, określić urządzenia, na których ma zostać znaleziona aktualizacja, oraz monitorować proces aktualizacji. Urządzenie inicjuje wieloetapowy proces pobierania, weryfikowania i stosowania obrazu oprogramowania układowego, a następnie ponownego uruchamiania urządzenia przed ponownym nawiązaniem połączenia z usługą IoT Hub. W trakcie tego wieloetapowego procesu urządzenie używa zgłoszonych właściwości do zaktualizowania postępu i stanu urządzenia.
   
     ![Ilustracja dotycząca wzorca aktualizacji oprogramowania układowego zarządzania urządzeniami](media/iot-hub-device-management-overview/fwupdate-pattern.png)
 
-* **Raportowanie postępu i stanu:** zaplecze rozwiązania uruchamia zapytania bliźniaczej reprezentacji urządzenia, na zestaw urządzeń, aby raportować stan i postęp akcji uruchomionych na urządzeniach.
+* **Raportowanie postępu i stanu**: zaplecze rozwiązania uruchamia zapytania o pojedynczej urządzeniu, w zestawie urządzeń, w celu raportowania stanu i postępu akcji wykonywanych na urządzeniach.
   
     ![Ilustracja dotycząca postępu i stanu raportowania zarządzania urządzeniami](./media/iot-hub-device-management-overview/report-progress-pattern.png)
 

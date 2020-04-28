@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie urządzenia usługi Azure Data Box Edge | Dokumenty firmy Microsoft
-description: W tym artykule opisano, jak używać witryny Azure portal i lokalnego interfejsu użytkownika sieci web do monitorowania usługi Azure Data Box Edge.
+title: Monitoruj urządzenie Azure Data Box Edge | Microsoft Docs
+description: Opisuje sposób używania Azure Portal i lokalnego interfejsu użytkownika sieci Web do monitorowania Azure Data Box Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,36 +9,36 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 188f5c6cfbb4650ad1ff767955d064f8e0c3cb70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60756756"
 ---
-# <a name="monitor-your-azure-data-box-edge"></a>Monitorowanie usługi Azure Data Box Edge
+# <a name="monitor-your-azure-data-box-edge"></a>Monitoruj Azure Data Box Edge
 
-W tym artykule opisano sposób monitorowania usługi Azure Data Box Edge. Aby monitorować urządzenie, można użyć witryny Azure portal lub lokalnego interfejsu użytkownika sieci web. Użyj witryny Azure Portal, aby wyświetlać zdarzenia urządzenia, konfigurować alerty i zarządzać nimi oraz wyświetlać metryki. Użyj lokalnego interfejsu użytkownika sieci Web na urządzeniu fizycznym, aby wyświetlić stan sprzętu różnych składników urządzenia.
+W tym artykule opisano sposób monitorowania Azure Data Box Edge. Aby monitorować urządzenie, możesz użyć Azure Portal lub lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal, aby wyświetlić zdarzenia dotyczące urządzeń, skonfigurować alerty i zarządzać nimi oraz wyświetlić metryki. Użyj lokalnego interfejsu użytkownika sieci Web na urządzeniu fizycznym, aby wyświetlić stan sprzętu różnych składników urządzeń.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
-> * Wyświetlanie zdarzeń urządzenia i odpowiednich alertów
-> * Wyświetlanie stanu sprzętu składników urządzenia
-> * Wyświetlanie danych o pojemności i transakcjach dla urządzenia
+> * Wyświetlanie zdarzeń urządzeń i odpowiadających im alertów
+> * Wyświetlanie stanu sprzętu dla składników urządzenia
+> * Wyświetlanie metryk pojemności i transakcji dla urządzenia
 > * Konfigurowanie alertów i zarządzanie nimi
 
-## <a name="view-device-events"></a>Wyświetlanie zdarzeń urządzenia
+## <a name="view-device-events"></a>Wyświetl zdarzenia urządzenia
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-device-events.md)]
 
-## <a name="view-hardware-status"></a>Wyświetlanie stanu sprzętu
+## <a name="view-hardware-status"></a>Wyświetl stan sprzętu
 
-Aby wyświetlić stan sprzętu składników urządzenia, należy wykonać następujące kroki w lokalnym interfejsie użytkownika sieci Web.
+Wykonaj następujące kroki w lokalnym interfejsie użytkownika sieci Web, aby wyświetlić stan sprzętu składników urządzenia.
 
-1. Połącz się z lokalnym interfejsem użytkownika w sieci Web urządzenia.
-2. Przejdź do **stanu konserwacji > sprzętu**. Można wyświetlić kondycję różnych składników urządzenia.
+1. Nawiąż połączenie z lokalnym interfejsem użytkownika sieci Web urządzenia.
+2. Przejdź do pozycji **konserwacja > stan sprzętu**. Można wyświetlić kondycję różnych składników urządzeń.
 
-    ![Wyświetlanie stanu sprzętu](media/data-box-edge-monitor/view-hardware-status.png)
+    ![Wyświetl stan sprzętu](media/data-box-edge-monitor/view-hardware-status.png)
 
 ## <a name="view-metrics"></a>Wyświetlanie metryk
 

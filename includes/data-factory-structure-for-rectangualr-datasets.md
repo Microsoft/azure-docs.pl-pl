@@ -18,7 +18,7 @@ Każda kolumna zawiera następujące właściwości:
 
 | Właściwość | Opis | Wymagany |
 | --- | --- | --- |
-| name |Nazwa kolumny. |Tak |
+| name |Nazwa kolumny. |Yes |
 | type |Typ danych kolumny. Zobacz sekcję konwersji typów poniżej, aby uzyskać więcej informacji na temat tego, kiedy należy określić informacje o typie |Nie |
 | kultura |.NET na podstawie kultury, która ma być używana, gdy typ jest określony i jest typu .NET Datetime lub Datetimeoffset. Wartość domyślna to "en-us". |Nie |
 | format |Ciąg formatu, który ma być używany, gdy typ jest określony i jest typu .NET Datetime lub Datetimeoffset. |Nie |

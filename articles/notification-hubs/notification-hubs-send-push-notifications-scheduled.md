@@ -1,9 +1,9 @@
 ---
-title: Jak wysyłać zaplanowane powiadomienia | Dokumenty firmy Microsoft
-description: W tym temacie opisano przy użyciu zaplanowanych powiadomień z centrum powiadomień platformy Azure.
+title: Wysyłanie powiadomień zaplanowanych | Microsoft Docs
+description: W tym temacie opisano używanie zaplanowanych powiadomień z usługą Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
-keywords: powiadomienia wypychania,powiadomienia wypychające,planowanie powiadomień wypychanych
+keywords: powiadomienia wypychane, powiadomienia wypychane, planowanie powiadomień wypychanych
 author: sethmanheim
 manager: femila
 editor: jwargo
@@ -18,33 +18,33 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: ef5eedaa903480ae670f9bc48d0af89744a99d22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71213005"
 ---
-# <a name="how-to-send-scheduled-notifications"></a>Jak: Wysyłanie zaplanowanych powiadomień
+# <a name="how-to-send-scheduled-notifications"></a>Instrukcje: wysyłanie powiadomień zaplanowanych
 
-Jeśli masz scenariusz, w którym chcesz wysłać powiadomienie w pewnym momencie w przyszłości, ale nie mają łatwy sposób, aby wybudzić kod zaplecza, aby wysłać powiadomienie. Centra powiadomień warstwy standardowej obsługują funkcję, która umożliwia planowanie powiadomień do siedmiu dni w przyszłości.
+Jeśli masz scenariusz, w którym chcesz wysłać powiadomienie w pewnym momencie w przyszłości, ale nie masz łatwego sposobu na wznowienie kodu zaplecza w celu wysłania powiadomienia. Centra powiadomień warstwy standardowej obsługują funkcję, która umożliwia planowanie powiadomień do siedmiu dni w przyszłości.
 
 
 ## <a name="schedule-your-notifications"></a>Planowanie powiadomień
-Podczas wysyłania powiadomienia, po prostu użyj [ `ScheduledNotification` klasy](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) w centrum powiadomień SDK, jak pokazano w poniższym przykładzie:
+Podczas wysyłania powiadomienia po prostu Użyj [ `ScheduledNotification` klasy](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) w zestawie SDK Notification Hubs, jak pokazano w następującym przykładzie:
 
 ```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
 var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
 ```
 
-## <a name="cancel-scheduled-notifications"></a>Anulowanie zaplanowanych powiadomień
-Ponadto można anulować wcześniej zaplanowane powiadomienie za pomocą jego notificationId:
+## <a name="cancel-scheduled-notifications"></a>Anuluj zaplanowane powiadomienia
+Ponadto możesz anulować wcześniej zaplanowane powiadomienie przy użyciu jego notificationId:
 
 ```csharp
 await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 ```
 
-Nie ma ograniczeń co do liczby zaplanowanych powiadomień, które możesz wysłać.
+Nie ma ograniczeń dotyczących liczby zaplanowanych powiadomień, które można wysłać.
 
 ## <a name="next-steps"></a>Następne kroki
 

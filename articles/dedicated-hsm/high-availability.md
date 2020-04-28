@@ -1,6 +1,6 @@
 ---
-title: Wysoka dostępność — dedykowany moduł HSM platformy Azure | Dokumenty firmy Microsoft
-description: Przykład wysokiej dostępności modułu HSM usługi Azure i podstawowe zagadnienia
+title: Wysoka dostępność — dedykowany moduł HSM platformy Azure | Microsoft Docs
+description: Przykład wysokiej dostępności dedykowanego modułu HSM platformy Azure i podstawowe zagadnienia
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -13,33 +13,33 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 536ef62acad900090924598edfa45450b2a8c951
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70882251"
 ---
-# <a name="azure-dedicated-hsm-high-availability"></a>Wysoka dostępność dedykowanego modułu HSM platformy Azure
+# <a name="azure-dedicated-hsm-high-availability"></a>Dedykowana wysoka dostępność platformy Azure
 
-Usługa Azure Dedicated HSM jest oparta na centrach danych firmy Microsoft o wysokiej dostępności. Jednak wszystkie wysoko dostępne centrum danych jest narażone na zlokalizowane awarie i w ekstremalnych okolicznościach awarie na poziomie regionalnym. Firma Microsoft wdraża urządzenia HSM w różnych centrach danych w regionie, aby upewnić się, że inicjowanie obsługi administracyjnej wielu urządzeń nie prowadzi do udostępniania przez te urządzenia pojedynczego stojaka. Kolejny poziom wysokiej dostępności można osiągnąć, parując te moduły HSM w centrach danych w regionie przy użyciu funkcji grupy gemalto ha. Istnieje również możliwość parowania urządzeń między regionami w celu rozwiązania regionalnej pracy awaryjnej w sytuacji odzyskiwania po awarii. Dzięki tej wielowarstwowej konfiguracji o wysokiej dostępności każda awaria urządzenia zostanie automatycznie zaadresowana, aby aplikacje działały. Wszystkie centra danych mają również zapasowe urządzenia i składniki na miejscu, dzięki czemu każde nieudane urządzenie można wymienić w odpowiednim czasie.
+Dedykowany moduł HSM platformy Azure jest przypięty przez centra danych o wysokiej dostępności firmy Microsoft. Jednak każde centrum danych o wysokiej dostępności jest podatne na zlokalizowane awarie i w skrajnych okolicznościach, w przypadku awarii poziomu regionalnego. Firma Microsoft wdraża urządzenia HSM w różnych centrach danych w regionie w celu zapewnienia, że obsługa wielu urządzeń nie prowadzi do udostępniania jednego stojaka. Dodatkowy poziom wysokiej dostępności można osiągnąć, kojarząc te sprzętowych modułów zabezpieczeń w centrach danych w regionie przy użyciu funkcji grupy HA firmy Gemalto. Istnieje również możliwość sparowania urządzeń w różnych regionach w celu rozbudowy regionalnego trybu failover w sytuacji odzyskiwania po awarii. Dzięki tej konfiguracji wielowarstwowej wysokiej dostępności dowolny błąd urządzenia zostanie automatycznie rozkierowany do działania aplikacji. Wszystkie centra danych mają również urządzenia zapasowe i składniki w lokacji, tak aby wszystkie urządzenia, które uległy awarii, mogły zostać zastąpione w odpowiednim czasie.
 
 ## <a name="high-availability-example"></a>Przykład wysokiej dostępności
 
-Informacje na temat konfigurowania urządzeń HSM pod kątem wysokiej dostępności na poziomie oprogramowania znajdują się w "Przewodniku administracyjnym sieci 500 000 000 000 000 000 000 000 000 000 000 000 000 000 000 000 000 000 Ten dokument jest dostępny na [stronie GEMALTO HSM .](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/)
+Informacje na temat konfigurowania urządzeń HSM w celu zapewnienia wysokiej dostępności na poziomie oprogramowania są dostępne w podręczniku administratora firmy Gemalto Luna Network HSM. Ten dokument jest dostępny na [stronie modułu HSM firmy Gemalto](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).
 
-Na poniższym diagramie przedstawiono architekturę o wysokiej dostępności. Używa wielu urządzeń w regionie i wielu urządzeń sparowanych w oddzielnym regionie. Ta architektura używa co najmniej czterech urządzeń HSM i składników sieci wirtualnej.
+Na poniższym diagramie przedstawiono architekturę o wysokiej dostępności. Używa wielu urządzeń w regionie i wielu urządzeń sparowanych w osobnym regionie. W tej architekturze są stosowane co najmniej cztery urządzenia HSM i wirtualne składniki sieciowe.
 
 ![Diagram wysokiej dostępności](media/high-availability/high-availability.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zaleca się, aby wszystkie kluczowe pojęcia usługi, takie jak wysoka dostępność i zabezpieczenia, były dobrze rozumiane przed inicjowania obsługi administracyjnej urządzenia i projektowania aplikacji lub wdrażania.
-Dalsze tematy na poziomie koncepcji:
+Zaleca się, aby wszystkie kluczowe pojęcia dotyczące usługi, takie jak wysoka dostępność i zabezpieczenia, były dobrze zrozumiałe przed zainicjowaniem obsługi urządzeń oraz projektem lub wdrożeniem aplikacji.
+Dalsze tematy dotyczące poziomu koncepcji:
 
-* [Architektura wdrażania](deployment-architecture.md)
+* [Architektura wdrożenia](deployment-architecture.md)
 * [Zabezpieczenia fizyczne](physical-security.md)
-* [Obsługa sieci](networking.md)
+* [Networking](networking.md)
 * [Możliwości obsługi](supportability.md)
-* [Monitorowania](monitoring.md)
+* [Monitorowanie](monitoring.md)
 
-Szczegółowe informacje na temat konfigurowania urządzeń HSM w celu zapewnienia wysokiej dostępności można znaleźć w portalu obsługi klienta Gemalto dla przewodników dla administratorów oraz w sekcji 6.
+Aby uzyskać szczegółowe informacje dotyczące konfigurowania urządzeń HSM pod kątem wysokiej dostępności, zapoznaj się z sekcją firmy Gemalto Customer Support Portal dla przewodników administratora i zobacz sekcję 6.

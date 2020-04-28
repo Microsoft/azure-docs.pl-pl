@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie wyjątkami — narzędzie Microsoft Threat Modeling Tool — Azure | Dokumenty firmy Microsoft
-description: zagrożeniach ujawnionych w narzędziu do modelowania zagrożeń
+title: Zarządzanie wyjątkami-Microsoft Threat Modeling Tool na platformie Azure | Microsoft Docs
+description: środki zaradcze dla zagrożeń ujawnionych w Threat Modeling Tool
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,32 +16,32 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: b8fad566b54ab645660011ad3188394b6f8190b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68728074"
 ---
-# <a name="security-frame-exception-management--mitigations"></a>Ramka zabezpieczeń: Zarządzanie wyjątkami | Czynniki 
+# <a name="security-frame-exception-management--mitigations"></a>Ramka zabezpieczeń: Zarządzanie wyjątkami | Środki zaradcze 
 | Produkt/usługa | Artykuł |
 | --------------- | ------- |
-| **WCF** | <ul><li>[WCF- Nie dołączaj węzła serviceDebug w pliku konfiguracyjnym](#servicedebug)</li><li>[WCF- Nie dołączaj węzła serviceMetadata w pliku konfiguracyjnym](#servicemetadata)</li></ul> |
-| **Interfejs API sieci Web** | <ul><li>[Upewnij się, że prawidłowa obsługa wyjątków odbywa się w ASP.NET interfejsie API sieci Web](#exception)</li></ul> |
-| **Aplikacja internetowa** | <ul><li>[Nie ujawniaj szczegółów zabezpieczeń w komunikatach o błędach](#messages)</li><li>[Implementowanie strony domyślnej obsługi błędów](#default)</li><li>[Ustawianie metody wdrażania na sprzedaż detaliczną w usługach IIS](#deployment)</li><li>[Wyjątki powinny zakończyć się niepowodzeniem](#fail)</li></ul> |
+| **WCF** | <ul><li>[WCF — nie dołączaj węzła serviceDebug w pliku konfiguracyjnym](#servicedebug)</li><li>[WCF — nie dołączaj węzła ServiceMetadata w pliku konfiguracji](#servicemetadata)</li></ul> |
+| **Interfejs API sieci Web** | <ul><li>[Upewnij się, że w interfejsie API sieci Web ASP.NET zainstalowano odpowiednią obsługę wyjątków](#exception)</li></ul> |
+| **Aplikacja sieci Web** | <ul><li>[Nie ujawniaj szczegółów zabezpieczeń w komunikatach o błędach](#messages)</li><li>[Zaimplementuj domyślną stronę obsługi błędów](#default)</li><li>[Ustaw metodę wdrażania na sprzedaż detaliczną w usługach IIS](#deployment)</li><li>[Wyjątki powinny być bezpiecznie bezpieczne](#fail)</li></ul> |
 
-## <a name="wcf--do-not-include-servicedebug-node-in-configuration-file"></a><a id="servicedebug"></a>WCF- Nie dołączaj węzła serviceDebug w pliku konfiguracyjnym
+## <a name="wcf--do-not-include-servicedebug-node-in-configuration-file"></a><a id="servicedebug"></a>WCF — nie dołączaj węzła serviceDebug w pliku konfiguracyjnym
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | WCF | 
 | **Faza SDL**               | Kompilacja |  
-| **Odpowiednie technologie** | Ogólny, NET Framework 3 |
+| **Odpowiednie technologie** | Ogólne, NET Framework 3 |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Wzmacnianie Królestwa](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
-| **Kroki** | Usługi Windows Communication Framework (WCF) można skonfigurować w celu udostępnienia informacji debugowania. Informacje debugowania nie powinny być używane w środowiskach produkcyjnych. Tag `<serviceDebug>` określa, czy funkcja informacji debugowania jest włączona dla usługi WCF. Jeśli atrybut includeExceptionDetailInFaults jest ustawiona na true, informacje o wyjątku z aplikacji zostaną zwrócone do klientów. Osoby atakujące mogą wykorzystać dodatkowe informacje uzyskane z debugowania danych wyjściowych do instalowania ataków ukierunkowanych na platformę, bazę danych lub inne zasoby używane przez aplikację. |
+| **Dokumentacja**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [wzmacnianie Królestwa](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
+| **Czynnooci** | Usługi Windows Communication Framework (WCF) można skonfigurować tak, aby ujawniać informacje o debugowaniu. Informacje o debugowaniu nie powinny być używane w środowiskach produkcyjnych. `<serviceDebug>` Tag określa, czy funkcja informacji debugowania jest włączona dla usługi WCF. Jeśli atrybut includeExceptionDetailInFaults ma wartość true, informacje o wyjątku z aplikacji zostaną zwrócone do klientów. Osoby atakujące mogą korzystać z dodatkowych informacji uzyskanych od debugowania danych wyjściowych w celu instalacji ataków przeznaczonych dla platformy, bazy danych lub innych zasobów używanych przez aplikację. |
 
 ### <a name="example"></a>Przykład
-Następujący plik `<serviceDebug>` konfiguracyjny zawiera znacznik: 
+Następujący plik konfiguracji zawiera `<serviceDebug>` Tag: 
 ```
 <configuration> 
 <system.serviceModel> 
@@ -51,20 +51,20 @@ Następujący plik `<serviceDebug>` konfiguracyjny zawiera znacznik:
 <serviceDebug includeExceptionDetailInFaults=""True"" httpHelpPageEnabled=""True""/> 
 ... 
 ```
-Wyłącz informacje debugowania w usłudze. Można to osiągnąć, usuwając `<serviceDebug>` znacznik z pliku konfiguracyjnego aplikacji. 
+Wyłącz informacje o debugowaniu w usłudze. Można to osiągnąć przez usunięcie `<serviceDebug>` znacznika z pliku konfiguracyjnego aplikacji. 
 
-## <a name="wcf--do-not-include-servicemetadata-node-in-configuration-file"></a><a id="servicemetadata"></a>WCF- Nie dołączaj węzła serviceMetadata w pliku konfiguracyjnym
+## <a name="wcf--do-not-include-servicemetadata-node-in-configuration-file"></a><a id="servicemetadata"></a>WCF — nie dołączaj węzła ServiceMetadata w pliku konfiguracji
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | WCF | 
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
-| **Atrybuty**              | Ogólny, NET Framework 3 |
-| **Odwołania**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Wzmacnianie Królestwa](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
-| **Kroki** | Publiczne ujawnianie informacji o usłudze może zapewnić atakującym cenny wgląd w sposób, w jaki mogą wykorzystać tę usługę. Tag `<serviceMetadata>` włącza funkcję publikowania metadanych. Metadane usługi mogą zawierać poufne informacje, które nie powinny być publicznie dostępne. Co najmniej zezwalaj zaufanym użytkownikom na dostęp do metadanych i upewnij się, że niepotrzebne informacje nie są udostępniane. Jeszcze lepiej, całkowicie wyłączyć możliwość publikowania metadanych. Bezpieczna konfiguracja WCF `<serviceMetadata>` nie będzie zawierać tagu. |
+| **Atrybuty**              | Ogólne, NET Framework 3 |
+| **Dokumentacja**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [wzmacnianie Królestwa](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
+| **Czynnooci** | Publiczne udostępnianie informacji o usłudze może zapewnić atakującemu cenne wgląd w sposób, w jaki mogą wykorzystać usługę. `<serviceMetadata>` Tag włącza funkcję publikowania metadanych. Metadane usługi mogą zawierać poufne informacje, które nie powinny być publicznie dostępne. Co najmniej należy zezwolić zaufanym użytkownikom na dostęp do metadanych i upewnić się, że niepotrzebne informacje nie są ujawniane. Jeszcze lepiej można całkowicie wyłączyć możliwość publikowania metadanych. Bezpieczna konfiguracja usługi WCF nie będzie zawierać `<serviceMetadata>` znacznika. |
 
-## <a name="ensure-that-proper-exception-handling-is-done-in-aspnet-web-api"></a><a id="exception"></a>Upewnij się, że prawidłowa obsługa wyjątków odbywa się w ASP.NET interfejsie API sieci Web
+## <a name="ensure-that-proper-exception-handling-is-done-in-aspnet-web-api"></a><a id="exception"></a>Upewnij się, że w interfejsie API sieci Web ASP.NET zainstalowano odpowiednią obsługę wyjątków
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -72,11 +72,11 @@ Wyłącz informacje debugowania w usłudze. Można to osiągnąć, usuwając `<s
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | MVC 5, MVC 6 |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Obsługa wyjątków w ASP.NET interfejsu API sieci Web,](https://www.asp.net/web-api/overview/error-handling/exception-handling) [sprawdzanie poprawności modelu w ASP.NET interfejsie API sieci Web](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
-| **Kroki** | Domyślnie większość nieprzechośniętych wyjątków w ASP.NET interfejsie API sieci Web jest tłumaczona na odpowiedź HTTP z kodem stanu`500, Internal Server Error`|
+| **Dokumentacja**              | [Obsługa wyjątków w interfejsie API sieci web ASP.NET](https://www.asp.net/web-api/overview/error-handling/exception-handling), [Walidacja modelu w interfejsie api sieci Web ASP.NET](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **Czynnooci** | Domyślnie większość nieprzechwyconych wyjątków w interfejsie Web API ASP.NET są tłumaczone na odpowiedź HTTP z kodem stanu`500, Internal Server Error`|
 
 ### <a name="example"></a>Przykład
-Aby kontrolować kod stanu zwracany `HttpResponseException` przez interfejs API, można użyć, jak pokazano poniżej: 
+Aby kontrolować kod stanu zwracany przez interfejs API, można `HttpResponseException` użyć, jak pokazano poniżej: 
 ```csharp
 public Product GetProduct(int id)
 {
@@ -90,7 +90,7 @@ public Product GetProduct(int id)
 ```
 
 ### <a name="example"></a>Przykład
-Aby uzyskać dalszą kontrolę `HttpResponseMessage` nad odpowiedzią na wyjątek, klasa może być używana w sposób pokazany poniżej: 
+Aby uzyskać więcej kontroli nad odpowiedzią na wyjątek `HttpResponseMessage` , można użyć klasy, jak pokazano poniżej: 
 ```csharp
 public Product GetProduct(int id)
 {
@@ -107,10 +107,10 @@ public Product GetProduct(int id)
     return item;
 }
 ```
-Aby złapać nieobsługiwały wyjątki, które nie są typu, `HttpResponseException`można użyć filtrów wyjątków. Filtry wyjątków `System.Web.Http.Filters.IExceptionFilter` implementują interfejs. Najprostszym sposobem, aby napisać filtr wyjątku `System.Web.Http.Filters.ExceptionFilterAttribute` jest pochodzić z klasy i zastąpić OnException metody. 
+Aby przechwytywać Nieobsłużone wyjątki, które nie są typu `HttpResponseException`, można użyć filtrów wyjątków. Filtry wyjątków implementują `System.Web.Http.Filters.IExceptionFilter` interfejs. Najprostszym sposobem pisania filtru wyjątków jest pochodna `System.Web.Http.Filters.ExceptionFilterAttribute` klasy i przesłonięcie metody onException. 
 
 ### <a name="example"></a>Przykład
-Oto filtr, który `NotImplementedException` konwertuje wyjątki `501, Not Implemented`na kod stanu HTTP: 
+Oto filtr, który konwertuje `NotImplementedException` wyjątki na kod `501, Not Implemented`stanu http: 
 ```csharp
 namespace ProductStore.Filters
 {
@@ -133,12 +133,12 @@ namespace ProductStore.Filters
 ```
 
 Istnieje kilka sposobów rejestrowania filtru wyjątków interfejsu API sieci Web:
-- Przez działanie
-- Według sterownika
+- Według akcji
+- Według kontrolera
 - Globalnie
 
 ### <a name="example"></a>Przykład
-Aby zastosować filtr do określonej akcji, dodaj filtr jako atrybut do akcji: 
+Aby zastosować filtr do określonej akcji, Dodaj filtr jako atrybut do akcji: 
 ```csharp
 public class ProductsController : ApiController
 {
@@ -150,7 +150,7 @@ public class ProductsController : ApiController
 }
 ```
 ### <a name="example"></a>Przykład
-Aby zastosować filtr do wszystkich akcji `controller`w programie , dodaj filtr `controller` jako atrybut do klasy: 
+Aby zastosować filtr do wszystkich akcji w `controller`, Dodaj filtr jako atrybut do `controller` klasy: 
 
 ```csharp
 [NotImplExceptionFilter]
@@ -161,14 +161,14 @@ public class ProductsController : ApiController
 ```
 
 ### <a name="example"></a>Przykład
-Aby zastosować filtr globalnie do wszystkich kontrolerów interfejsu API `GlobalConfiguration.Configuration.Filters` sieci Web, dodaj wystąpienie filtru do kolekcji. Filtry wyjątków w tej kolekcji dotyczą dowolnej akcji kontrolera interfejsu API sieci Web. 
+Aby zastosować filtr globalnie do wszystkich kontrolerów internetowego interfejsu API, Dodaj wystąpienie filtru do `GlobalConfiguration.Configuration.Filters` kolekcji. Filtry wyjątków w tej kolekcji mają zastosowanie do dowolnej akcji kontrolera interfejsu API sieci Web. 
 ```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
 ### <a name="example"></a>Przykład
-W przypadku sprawdzania poprawności modelu stan modelu można przekazać do metody CreateErrorResponse, jak pokazano poniżej: 
+Aby można było zweryfikować model, stan modelu może być przekazana do metody CreateErrorResponse, jak pokazano poniżej: 
 ```csharp
 public HttpResponseMessage PostProduct(Product item)
 {
@@ -180,7 +180,7 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-Sprawdź łącza w sekcji referencje, aby uzyskać dodatkowe informacje na temat wyjątkowej obsługi i sprawdzania poprawności modelu w ASP.NET web API 
+Zapoznaj się z linkami w sekcji References, aby uzyskać dodatkowe informacje o wyjątkowej obsłudze i weryfikacji modelu w interfejsie API sieci Web ASP.NET 
 
 ## <a name="do-not-expose-security-details-in-error-messages"></a><a id="messages"></a>Nie ujawniaj szczegółów zabezpieczeń w komunikatach o błędach
 
@@ -190,32 +190,10 @@ Sprawdź łącza w sekcji referencje, aby uzyskać dodatkowe informacje na temat
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
-| **Kroki** | <p>Ogólne komunikaty o błędach są dostarczane bezpośrednio do użytkownika bez uwzględnienia poufnych danych aplikacji. Przykłady poufnych danych obejmują:</p><ul><li>Nazwy serwerów</li><li>Parametry połączeń</li><li>Nazwy użytkownika</li><li>Hasła</li><li>Procedury SQL</li><li>Szczegóły dynamicznych błędów SQL</li><li>Śledzenie stosu i wiersze kodu</li><li>Zmienne przechowywane w pamięci</li><li>Lokalizacje dysków i folderów</li><li>Punkty instalacji aplikacji</li><li>Ustawienia konfiguracji hosta</li><li>Inne szczegóły dotyczące aplikacji wewnętrznej</li></ul><p>Zalewkowanie wszystkich błędów w aplikacji i dostarczanie ogólnych komunikatów o błędach, a także włączanie błędów niestandardowych w ramach usług IIS pomoże zapobiec ujawnieniu informacji. Sql Server bazy danych i .NET obsługi wyjątków, wśród innych architektur obsługi błędów, są szczególnie pełne i bardzo przydatne do złośliwego użytkownika profilowania aplikacji. Nie należy bezpośrednio wyświetlać zawartość klasy pochodzące z .NET Exception klasy i upewnij się, że masz prawidłowe obsługi wyjątków, tak aby nieoczekiwany wyjątek nie jest przypadkowo wywoływane bezpośrednio do użytkownika.</p><ul><li>Dostarczanie ogólnych komunikatów o błędach bezpośrednio do użytkownika, które abstrakcyjne od określonych szczegółów znalezionych bezpośrednio w komunikacie o wyjątku/błędzie</li><li>Nie należy wyświetlać zawartości klasy wyjątku .NET bezpośrednio użytkownikowi</li><li>Zalewka wszystkich komunikatów o błędach i w razie potrzeby poinformować użytkownika za pośrednictwem ogólnego komunikatu o błędzie wysłanego do klienta aplikacji</li><li>Nie należy udostępniać zawartość Exception klasy bezpośrednio do użytkownika, `.ToString()`zwłaszcza zwraca wartość z , lub wartości Message lub StackTrace właściwości. Bezpiecznie rejestruj te informacje i wyświetlaj użytkownikowi bardziej nieszkodliwy komunikat</li></ul>|
+| **Dokumentacja**              | Nie dotyczy  |
+| **Czynnooci** | <p>Ogólne komunikaty o błędach są podawane bezpośrednio użytkownikowi, bez uwzględnienia poufnych danych aplikacji. Przykładowe dane poufne to:</p><ul><li>Nazwy serwerów</li><li>Parametry połączeń</li><li>Nazw użytkowników</li><li>Hasła</li><li>Procedury SQL</li><li>Szczegóły dynamicznych błędów SQL</li><li>Ślad stosu i wiersze kodu</li><li>Zmienne przechowywane w pamięci</li><li>Lokalizacje dysków i folderów</li><li>Punkty instalacji aplikacji</li><li>Ustawienia konfiguracji hosta</li><li>Inne szczegóły wewnętrznej aplikacji</li></ul><p>Zablokowanie wszystkich błędów w aplikacji i dostarczenie ogólnych komunikatów o błędach, a także włączenie niestandardowych błędów w ramach usług IIS uniemożliwi ujawnienie informacji. SQL Server baza danych i obsługa wyjątków platformy .NET, między innymi architektura obsługi błędów, są szczególnie pełne i niezwykle przydatne w przypadku złośliwego użytkownika profilowania aplikacji. Nie wyświetlaj bezpośrednio zawartości klasy pochodzącej od klasy wyjątków .NET i upewnij się, że masz prawidłową obsługę wyjątków, aby nieoczekiwany wyjątek nie został przypadkowo podniesiony bezpośrednio do użytkownika.</p><ul><li>Dostarczanie ogólnych komunikatów o błędach bezpośrednio do użytkownika, które są określone przez streszczenie szczegółowych informacji bezpośrednio w komunikacie wyjątku/komunikatu o błędzie</li><li>Nie wyświetlaj zawartości klasy wyjątku platformy .NET bezpośrednio dla użytkownika</li><li>Zalewka wszystkich komunikatów o błędach i w razie potrzeby poinformowania użytkownika za pośrednictwem ogólnego komunikatu o błędzie wysyłanego do klienta aplikacji</li><li>Nie ujawniaj zawartości klasy wyjątku bezpośrednio użytkownikowi, szczególnie wartości zwracanej z `.ToString()`, lub wartości właściwości Message lub ślad stosu. Bezpiecznie Rejestruj te informacje i wyświetlaj bardziej niewielkiej ilości komunikat dla użytkownika</li></ul>|
 
-## <a name="implement-default-error-handling-page"></a><a id="default"></a>Implementowanie strony domyślnej obsługi błędów
-
-| Tytuł                   | Szczegóły      |
-| ----------------------- | ------------ |
-| **Składnik**               | Aplikacja internetowa | 
-| **Faza SDL**               | Kompilacja |  
-| **Odpowiednie technologie** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Okno dialogowe Edytowanie ustawień stron błędów ASP.NET](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Kroki** | <p>Gdy aplikacja ASP.NET ulegnie awarii i spowoduje błąd serwera wewnętrznego HTTP/1.x 500 lub konfiguracja funkcji (taka jak filtrowanie żądań) uniemożliwia wyświetlenie strony, zostanie wygenerowany komunikat o błędzie. Administratorzy mogą wybrać, czy aplikacja powinna wyświetlać przyjazny komunikat do klienta, szczegółowy komunikat o błędzie do klienta lub szczegółowy komunikat o błędzie tylko do localhost. Tag `<customErrors>` w web.config ma trzy tryby:</p><ul><li>**W dniu:** Określa, że błędy niestandardowe są włączone. Jeśli nie określono atrybutu defaultRedirect, użytkownicy zobaczą błąd ogólny. Błędy niestandardowe są wyświetlane klientom zdalnym i hostowi lokalnemu</li><li>**Wył.:** Określa, że błędy niestandardowe są wyłączone. Szczegółowe błędy ASP.NET są wyświetlane klientom zdalnym i lokalnemu hostowi</li><li>**RemoteOnly:** Określa, że błędy niestandardowe są wyświetlane tylko klientom zdalnym i że ASP.NET błędy są wyświetlane hostowi lokalnemu. Jest to wartość domyślna</li></ul><p>Otwórz `web.config` plik dla aplikacji/witryny i upewnij się, `<customErrors mode="On" />` że tag został zdefiniowany. `<customErrors mode="RemoteOnly" />`</p>|
-
-## <a name="set-deployment-method-to-retail-in-iis"></a><a id="deployment"></a>Ustawianie metody wdrażania na sprzedaż detaliczną w usługach IIS
-
-| Tytuł                   | Szczegóły      |
-| ----------------------- | ------------ |
-| **Składnik**               | Aplikacja internetowa | 
-| **Faza SDL**               | wdrażania |  
-| **Odpowiednie technologie** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Element wdrażania (schemat ustawień ASP.NET)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
-| **Kroki** | <p>Przełącznik `<deployment retail>` jest przeznaczony do użytku przez produkcyjne serwery IIS. Ten przełącznik służy do pomocy aplikacjom w uruchamianiu z najlepszą możliwą wydajnością i jak najmniejszymi możliwymi wyciekami informacji o zabezpieczeniach, wyłączając możliwość generowania danych wyjściowych śledzenia na stronie, wyłączając możliwość wyświetlania szczegółowych komunikatów o błędach użytkowników końcowych i wyłączenie przełącznika debugowania.</p><p>Często razy przełączniki i opcje, które są skoncentrowane na deweloperze, takie jak śledzenie żądań nie powiodło się i debugowanie, są włączone podczas aktywnego rozwoju. Zaleca się, aby metoda wdrażania na dowolnym serwerze produkcyjnym była ustawiona na sprzedaż detaliczną. otwórz plik machine.config i `<deployment retail="true" />` upewnij się, że pozostaje ustawiony na true.</p>|
-
-## <a name="exceptions-should-fail-safely"></a><a id="fail"></a>Wyjątki powinny zakończyć się niepowodzeniem
+## <a name="implement-default-error-handling-page"></a><a id="default"></a>Zaimplementuj domyślną stronę obsługi błędów
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -223,8 +201,30 @@ Sprawdź łącza w sekcji referencje, aby uzyskać dodatkowe informacje na temat
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Bezpieczna porażka](https://www.owasp.org/index.php/Fail_securely) |
-| **Kroki** | Aplikacja powinna zakończyć się niepowodzeniem. Każda metoda, która zwraca wartość logiczną, na podstawie której podjęto pewną decyzję, powinna mieć blok wyjątków starannie utworzony. Istnieje wiele błędów logicznych, z powodu których problemy z zabezpieczeniami pełzają, gdy blok wyjątku jest napisany niedbale.|
+| **Dokumentacja**              | [Okno dialogowe Edytowanie ustawień stron błędów ASP.NET](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
+| **Czynnooci** | <p>Gdy aplikacja ASP.NET kończy się niepowodzeniem i powoduje błąd wewnętrzny serwera HTTP/1. x 500 lub Konfiguracja funkcji (na przykład filtrowanie żądań) uniemożliwia wyświetlenie strony, zostanie wygenerowany komunikat o błędzie. Administratorzy mogą określić, czy aplikacja powinna wyświetlać przyjazny komunikat do klienta, szczegółowy komunikat o błędzie do klienta lub szczegółowy komunikat o błędzie tylko do hosta lokalnego. `<customErrors>` Tag w pliku Web. config ma trzy tryby:</p><ul><li>**W dniu:** Określa, że błędy niestandardowe są włączone. Jeśli żaden atrybut defaultRedirect nie zostanie określony, użytkownicy zobaczą błąd ogólny. Błędy niestandardowe są wyświetlane dla klientów zdalnych i do hosta lokalnego.</li><li>**Wyłączone:** Określa, że błędy niestandardowe są wyłączone. Szczegółowe błędy ASP.NET są widoczne dla klientów zdalnych i do hosta lokalnego</li><li>**RemoteOnly:** Określa, że błędy niestandardowe są wyświetlane tylko dla klientów zdalnych, a błędy ASP.NET są wyświetlane na hoście lokalnym. Jest to wartość domyślna</li></ul><p>Otwórz `web.config` plik dla aplikacji/lokacji i upewnij się, że tag ma `<customErrors mode="RemoteOnly" />` albo `<customErrors mode="On" />` zdefiniowane.</p>|
+
+## <a name="set-deployment-method-to-retail-in-iis"></a><a id="deployment"></a>Ustaw metodę wdrażania na sprzedaż detaliczną w usługach IIS
+
+| Tytuł                   | Szczegóły      |
+| ----------------------- | ------------ |
+| **Składnik**               | Aplikacja internetowa | 
+| **Faza SDL**               | Wdrożenie |  
+| **Odpowiednie technologie** | Ogólny |
+| **Atrybuty**              | Nie dotyczy  |
+| **Dokumentacja**              | [Element wdrożenia (Schemat ustawień ASP.NET)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
+| **Czynnooci** | <p>`<deployment retail>` Przełącznik jest przeznaczony do użytku przez produkcyjne serwery usług IIS. Ten przełącznik służy do uruchamiania aplikacji z najlepszą możliwą wydajnością i minimalnymi wyciekami informacji o zabezpieczeniach przez wyłączenie możliwości tworzenia przez aplikację danych wyjściowych śledzenia na stronie, wyłączenie możliwości wyświetlania szczegółowych komunikatów o błędach dla użytkowników końcowych i wyłączenie przełącznika debugowania.</p><p>Często, przełączniki i opcje, które są skoncentrowane na deweloperach, takie jak śledzenie nieudanych żądań i debugowanie, są włączane podczas aktywnego programowania. Zaleca się, aby Metoda wdrożenia na dowolnym serwerze produkcyjnym była ustawiona na sprzedaż detaliczną. Otwórz plik Machine. config i upewnij się, `<deployment retail="true" />` że jest ustawiony na wartość true.</p>|
+
+## <a name="exceptions-should-fail-safely"></a><a id="fail"></a>Wyjątki powinny być bezpiecznie bezpieczne
+
+| Tytuł                   | Szczegóły      |
+| ----------------------- | ------------ |
+| **Składnik**               | Aplikacja internetowa | 
+| **Faza SDL**               | Kompilacja |  
+| **Odpowiednie technologie** | Ogólny |
+| **Atrybuty**              | Nie dotyczy  |
+| **Dokumentacja**              | [Bezpieczne niepowodzenie](https://www.owasp.org/index.php/Fail_securely) |
+| **Czynnooci** | Aplikacja powinna być bezpiecznie niemożliwa. Każda metoda zwracająca wartość logiczną, na podstawie której podejmowana jest pewna decyzja, powinna być starannie utworzona w bloku wyjątków. Istnieje wiele błędów logicznych, z powodu których problemy związane z zabezpieczeniami są wystawiane, gdy blok wyjątku jest zapisywana carelessly.|
 
 ### <a name="example"></a>Przykład
 ```csharp
@@ -267,4 +267,4 @@ Sprawdź łącza w sekcji referencje, aby uzyskać dodatkowe informacje na temat
             }
         }
 ```
-Powyższa metoda zawsze zwróci True, jeśli wystąpi jakiś wyjątek. Jeśli użytkownik końcowy udostępnia nieprawidłowo sformułowany adres URL, `Uri()` który jest przestrzegany przez przeglądarkę, ale konstruktor nie, spowoduje to zgłosić wyjątek, a ofiara zostanie przejmiony prawidłowym, ale zniekształcony adres URL. 
+Powyższa metoda zawsze zwróci wartość true, jeśli wystąpi jakiś wyjątek. Jeśli użytkownik końcowy poda nieprawidłowo sformułowany adres URL, jest to, że przeglądarka, ale `Uri()` nie, zostanie zgłoszony wyjątek, a ofiara zostanie pobrana za prawidłowy, ale nieprawidłowo sformułowany adres URL. 

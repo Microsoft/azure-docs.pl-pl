@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72801882"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Wdrażanie usługi Azure Data Catalog — podejście i proces
@@ -54,7 +54,7 @@ Oto kilka porad ułatwiających zdefiniowanie wizji:
 
 Poniżej przedstawiono przykładową wizję dla planu wdrożenia usługi Data Catalog w fikcyjnej firmie o nazwie Adventure Works:
 
-**Usługa Azure Data Catalog** umożliwia zespołowi Adventure Works Finance współpracę nad kluczowymi źródłami danych, dzięki czemu każdy członek zespołu może łatwo znaleźć i korzystać z potrzebnych danych i może dzielić się swoją wiedzą z całym zespołem.
+**Azure Data Catalog** to zespół firmy Adventure Works Finance do współpracy z kluczowymi źródłami danych, dzięki czemu każdy członek zespołu może łatwo znajdować potrzebne dane i korzystać z nich, a także udostępniać swoją wiedzę zespołowi jako całości.
 
 Po zdefiniowaniu wizji należy zidentyfikować odpowiedni projekt pilotażowy dla usługi Data Catalog. Ogólnie rzecz biorąc, istnieje kilka scenariuszy dotyczących usługi Data Catalog, dlatego w następnej sekcji znajdują się wskazówki pomagające zidentyfikować odpowiednie przypadki użycia.
 
@@ -69,7 +69,7 @@ Poniżej przedstawiono kilka wskazówek dotyczących identyfikowania przypadków
 * **Zdefiniuj cele zespołu** — jak zespół osiąga swoje cele? Nie skupiaj się jeszcze na usłudze Data Catalog, ponieważ na tym etapie należy zachować obiektywność. Pamiętaj, że chodzi o wyniki biznesowe, nie technologię.
 * **Zdefiniuj problem biznesowy** — jakie problemy dotyczące znajdowania i poznawania zasobów danych napotyka zespół? Na przykład informacje o ważnych źródłach danych mogą znajdować się w skoroszytach programu Excel w folderze sieciowym, a zespół może poświęcać dużo czasu na ich odnalezienie.
 * **Zrozum kulturę przyjmowania zmian przez zespół** — wiele problemów wdrożeniowych jest spowodowanych oporem przed zmianą, a nie z implementacją nowego narzędzia. To, jak zespół reaguje na zmianę, jest ważne podczas identyfikowania przypadków użycia, ponieważ istniejący proces może być stosowany, dlatego że „zawsze tak to robiliśmy” lub „jeśli coś nie jest popsute, to po co to naprawiać?”. Wdrażanie nowego narzędzia lub procesu jest zawsze najłatwiejsze, gdy osoby, których dotyczy zmiana, rozumieją korzyści z niej płynące i doceniają wagę problemów, które należy rozwiązać.
-* **Zachowaj koncentrację na zasobach danych** — omawiając problemy biznesowe, z którymi boryka się zespół, musisz "przeciąć chwasty" i skupić się na tym, co jest istotne dla skuteczniejszego wykorzystania zasobów danych przedsiębiorstwa.
+* **Pamiętaj, aby skoncentrować się na zasobach danych** — w przypadku omawiania problemów z firmą w zespole, musisz "pociąć przez chwasty" i skupić się na tym, co jest istotne w celu bardziej wydajnego wykorzystywania zasobów danych przedsiębiorstwa.
 
 Oto niektóre przypadki użycia związane z usługą Data Catalog:
 
@@ -91,7 +91,7 @@ Plan pilotażowy powinien wprowadzać stopniowo cele biznesowe, które chcesz os
 
 ### <a name="target-the-right-team"></a>Wybieranie właściwego zespołu docelowego
 
-Podczas wybierania projektu pilotażowego wybierz zespół z najbardziej atrakcyjnymi scenariuszami, które rozwiązują istniejący problem biznesowy. Przykład: analityczka biznesowa tworzy raporty z bazy danych programu SQL Server. Problem polega na tym, że dowiedzieli się o źródle danych dopiero po rozmowie z kilkoma kolegami. Na koniec, po marnowaniu czasu, próbując znaleźć źródła danych do użycia, dowiedzieli się o skoroszycie programu Excel, który zawiera opis każdego źródła danych. Chociaż skoroszyt programu Excel odpowiednio opisuje potrzebne tabele, szybko znaleźliby te źródła danych, gdyby zostały zarejestrowane i o których adnotacjach w **usłudze Azure Data Catalog**.
+Podczas wybierania projektu pilotażowego wybierz zespół z najbardziej atrakcyjnymi scenariuszami, które rozwiązują istniejący problem biznesowy. Przykład: analityczka biznesowa tworzy raporty z bazy danych programu SQL Server. Problem polega na tym, że po rozmowie z kilkoma współpracownikami zapoznają się ze źródłem danych. Na koniec po upływie czasu podczas próby znalezienia źródeł danych, które mają być używane, znaleziono informacje o skoroszycie programu Excel, który zawiera opis każdego źródła danych. Chociaż skoroszyt programu Excel jest odpowiednio opisany dla tabel, których potrzebują, można szybko znaleźć te źródła danych, jeśli zostały zarejestrowane i dodane adnotacje w **Azure Data Catalog**.
 
 ### <a name="identify-data-heroes"></a>Identyfikowanie bohaterów danych
 
@@ -101,7 +101,7 @@ Pierwszy projekt pilotażowy powinien mieć kilka osób, które generują dane i
 
 **Konsumenci danych** to osoby z doświadczeniem w wykorzystywaniu danych do rozwiązywania problemów biznesowych. Na przykład Irena jest analityczką biznesową i korzysta ze źródeł danych Adventure Works w programie SQL Server do analizy danych.
 
-Jednym z problemów biznesowych, które rozwiązuje usługa **Azure Data Catalog**, jest połączenie **producentów danych** z **konsumentami danych**. Robi to, służąc jako centralne repozytorium informacji o źródłach danych przedsiębiorstwa. Przy użyciu usługi Data Catalog Dominik rejestruje źródła danych Adventure Works i programu SQL Server. Korzystając z crowdsourcingu, każdy użytkownik, który odnajduje to źródło danych, może dzielić się swoimi opiniami na temat danych, oprócz używania danych, które odkryli. Na przykład Irena odnajduje źródła danych przez wyszukiwanie w wykazie i udostępnia swoją specjalistyczną wiedzę o danych.  Teraz inni użytkownicy w organizacji korzystają z udostępnionej wiedzy, przeszukując wykaz danych.
+Jednym z problemów biznesowych, które rozwiązuje usługa **Azure Data Catalog**, jest połączenie **producentów danych** z **konsumentami danych**. Robi to, służąc jako centralne repozytorium informacji o źródłach danych przedsiębiorstwa. Przy użyciu usługi Data Catalog Dominik rejestruje źródła danych Adventure Works i programu SQL Server. Przy użyciu crowdsourcing każdy użytkownik, który odnajduje to źródło danych, może udostępniać swoje opinie dotyczące danych, a także korzystać z danych, które zostały odnalezione. Na przykład Irena odnajduje źródła danych przez wyszukiwanie w wykazie i udostępnia swoją specjalistyczną wiedzę o danych.  Teraz inni użytkownicy w organizacji korzystają z udostępnionej wiedzy, przeszukując wykaz danych.
 
 * Aby dowiedzieć się więcej na temat rejestrowania źródeł danych, zobacz [Register data sources](data-catalog-get-started.md) (Rejestrowanie źródeł danych).
 * Aby dowiedzieć się więcej na temat odnajdywania źródeł danych, zobacz [Search data sources](data-catalog-get-started.md) (Wyszukiwanie źródeł danych).
@@ -116,7 +116,7 @@ W następnej sekcji opisano przykładowy projekt z firmy Adventure Works.
 
 ### <a name="an-example-project"></a>Przykładowy projekt
 
-W tym przykładzie Irena, analityczka biznesowa, tworzy raporty dla swojego zespołu przy użyciu danych z bazy danych programu SQL Server. Problem polega na tym, że dowiedzieli się o źródle danych dopiero po rozmowie z kilkoma kolegami. Szybko znaleźliby te źródła danych, gdyby zostały zarejestrowane i oznaczone w centralnej lokalizacji, takiej jak **usługa Azure Data Catalog.**
+W tym przykładzie Irena, analityczka biznesowa, tworzy raporty dla swojego zespołu przy użyciu danych z bazy danych programu SQL Server. Problem polega na tym, że po rozmowie z kilkoma współpracownikami zapoznają się ze źródłem danych. Te źródła danych można szybko znaleźć, jeśli zostały zarejestrowane i adnotacje w centralnej lokalizacji, takiej jak **Azure Data Catalog**.
 
 Aby zilustrować, jak łatwo Irena i jej zespół mogą znaleźć źródła danych wysokiej wartości, użyj narzędzia rejestracji źródła danych do wypełnienia wykazu informacjami (metadanymi) o źródłach danych. W ten sposób informacje o bazie danych są dostępne dla zespołu i przedsiębiorstwa, a nie tylko kilku osób. Gdy źródła danych są zarejestrowane w usłudze Data Catalog, Irena i jej zespół mogą łatwo z nich korzystać. Wynikiem jest bardziej kompleksowy i adekwatny wykaz danych dla jej zespołu i całego przedsiębiorstwa. W miarę jak coraz więcej zespołów zaczyna korzystać z usługi Data Catalog, źródła danych biznesowych stają się łatwiejsze do znalezienia i użycia, umożliwiając wykształcenie kultury skoncentrowanej na danych, zapewniającej lepsze ich wykorzystanie.
 

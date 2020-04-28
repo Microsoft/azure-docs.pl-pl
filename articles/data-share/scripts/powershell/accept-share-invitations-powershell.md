@@ -1,5 +1,5 @@
 ---
-title: 'Skrypt programu PowerShell: Akceptowanie zaproszenia z udziału danych platformy Azure | Dokumenty firmy Microsoft'
+title: 'Skrypt programu PowerShell: Akceptowanie zaproszenia z udziału danych platformy Azure | Microsoft Docs'
 description: Ten skrypt programu PowerShell akceptuje zaproszenia z istniejącego udziału danych.
 services: data-share
 author: joannapea
@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: 246e3550650dfd458b4aeecda3b5b7733e49f017
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70307327"
 ---
-# <a name="use-powershell-to-accept-a-data-share-invitation"></a>Akceptowanie zaproszenia do udostępniania danych za pomocą programu PowerShell
+# <a name="use-powershell-to-accept-a-data-share-invitation"></a>Akceptowanie zaproszenia udziału danych przy użyciu programu PowerShell
 
 Ten skrypt programu PowerShell akceptuje zaproszenia wysyłane do konsumenta.
 
@@ -42,13 +42,13 @@ W tym skrypcie użyto następujących poleceń:
 
 | Polecenie | Uwagi |
 |---|---|
-| [Get-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | Pobierz i wystaw zaproszenia do udostępniania danych wysłanych. |
-| [Nowa subskrypcja AzDataShareSubscription](/powershell/module/az.datashare/get-azdatasharesubscription?view=azps-2.6.0) | Utwórz subskrypcję udziału danych. |
+| [Get-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | Uzyskaj i wyświetlaj wysłane zaproszenia do udziału danych. |
+| [New-AzDataShareSubscription](/powershell/module/az.datashare/get-azdatasharesubscription?view=azps-2.6.0) | Utwórz subskrypcję udziału danych. |
 |||
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Dodatkowe przykłady skryptów programu PowerShell udostępniania danych platformy Azure można znaleźć w [przykładach programu PowerShell udostępniania danych platformy Azure.](../../samples-powershell.md)
+Dodatkowe przykłady skryptów programu PowerShell dotyczące udziałów danych platformy Azure można znaleźć w [przykładach programu PowerShell w udziale danych platformy Azure](../../samples-powershell.md).
 

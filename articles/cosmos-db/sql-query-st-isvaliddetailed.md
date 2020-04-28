@@ -1,6 +1,6 @@
 ---
-title: ST_ISVALIDDETAILED w języku zapytań usługi Azure Cosmos DB
-description: Dowiedz się więcej o ST_ISVALIDDETAILED funkcji systemu SQL w usłudze Azure Cosmos DB.
+title: ST_ISVALIDDETAILED w języku zapytań Azure Cosmos DB
+description: Dowiedz się więcej na temat funkcji systemu SQL ST_ISVALIDDETAILED w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9e640c223c2fef844b9b53e1f4afa3a5d398c8c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71349356"
 ---
-# <a name="st_isvaliddetailed-azure-cosmos-db"></a>ST_ISVALIDDETAILED (Usługa Azure Cosmos DB)
+# <a name="st_isvaliddetailed-azure-cosmos-db"></a>ST_ISVALIDDETAILED (Azure Cosmos DB)
  Zwraca wartość JSON zawierającą wartość logiczną, jeśli określone wyrażenie GeoJSON typu Point, Polygon lub LineString jest prawidłowe, a jeśli jest nieprawidłowe, dodatkowo zwraca przyczynę jako wartość ciągu.  
   
 ## <a name="syntax"></a>Składnia
@@ -26,15 +26,15 @@ ST_ISVALIDDETAILED(<spatial_expr>)
 ## <a name="arguments"></a>Argumenty
   
 *spatial_expr*  
-   Jest wyrażeniem punktu lub wielokąta GeoJSON.  
+   Jest punktem GeoJSON lub wyrażeniem wielokąta.  
   
-## <a name="return-types"></a>Typy zwrotów
+## <a name="return-types"></a>Typy zwracane
   
-  Zwraca wartość JSON zawierającą wartość logiczną, jeśli określone wyrażenie punktowe lub wielokątne GeoJSON jest prawidłowe, a jeśli jest nieprawidłowe, dodatkowo przyczyna jako wartość ciągu.  
+  Zwraca wartość JSON zawierającą wartość logiczną, jeśli określony punkt GeoJSON lub wyrażenie wielokąta jest prawidłowe i jeśli jest nieprawidłowy, dodatkowo jako wartość ciągu.  
   
 ## <a name="examples"></a>Przykłady
   
-  Poniższy przykład jak sprawdzić ważność (ze szczegółami) za pomocą . `ST_ISVALIDDETAILED`  
+  W poniższym przykładzie pokazano, jak sprawdzić ważność (ze szczegółami `ST_ISVALIDDETAILED`) przy użyciu polecenia.  
   
 ```sql
 SELECT ST_ISVALIDDETAILED({   
@@ -56,6 +56,6 @@ SELECT ST_ISVALIDDETAILED({
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Funkcje przestrzenne usługi Azure Cosmos DB](sql-query-spatial-functions.md)
-- [Funkcje systemowe Usługi Azure Cosmos DB](sql-query-system-functions.md)
+- [Funkcje przestrzenne Azure Cosmos DB](sql-query-spatial-functions.md)
+- [Azure Cosmos DB funkcje systemowe](sql-query-system-functions.md)
 - [Wprowadzenie do usługi Azure Cosmos DB](introduction.md)

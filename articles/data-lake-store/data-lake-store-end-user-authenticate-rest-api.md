@@ -1,6 +1,6 @@
 ---
-title: 'Uwierzytelnianie użytkowników końcowych: interfejs API REST z usługą Azure Data Lake Storage Gen1 przy użyciu usługi Azure Active Directory | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak osiągnąć uwierzytelnianie użytkowników końcowych za pomocą usługi Azure Data Lake Storage Gen1 przy użyciu usługi Azure Active Directory przy użyciu interfejsu API REST
+title: 'Uwierzytelnianie użytkowników końcowych: interfejs API REST z Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak uzyskać uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory przy użyciu interfejsu API REST
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60877826"
 ---
-# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Uwierzytelnianie użytkowników końcowych za pomocą usługi Azure Data Lake Storage Gen1 przy użyciu interfejsu API REST
+# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 korzystania z interfejsu API REST
 > [!div class="op_single_selector"]
 > * [Korzystanie z języka Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Korzystanie z zestawu SDK dla platformy .NET](data-lake-store-end-user-authenticate-net-sdk.md)
@@ -27,20 +27,20 @@ ms.locfileid: "60877826"
 > 
 >  
 
-W tym artykule dowiesz się, jak używać interfejsu API REST do uwierzytelniania użytkowników końcowych za pomocą usługi Azure Data Lake Storage Gen1. Aby uzyskać uwierzytelnianie między usługami przy użyciu usługi Lake Storage Gen1 przy użyciu interfejsu API REST, zobacz [Uwierzytelnianie usługi do usługi przy użyciu usługi Lake Storage Gen1 przy użyciu interfejsu API REST](data-lake-store-service-to-service-authenticate-rest-api.md).
+Ten artykuł zawiera informacje na temat korzystania z interfejsu API REST w celu uwierzytelniania użytkowników końcowych przy użyciu Azure Data Lake Storage Gen1. Aby uzyskać uwierzytelnianie między usługami Data Lake Storage Gen1 przy użyciu interfejsu API REST, zobacz Uwierzytelnianie między usługami i usługą [Data Lake Storage Gen1 przy użyciu interfejsu API REST](data-lake-store-service-to-service-authenticate-rest-api.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Utwórz "natywną" aplikację usługi Azure Active Directory**. Kroki w uwierzytelnianiu użytkowników końcowych za [pomocą usługi Data Lake Storage Gen1 przy użyciu usługi Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Utwórz Azure Active Directory aplikację "native"**. Należy wykonać czynności opisane w temacie [uwierzytelnianie użytkowników końcowych z Data Lake Storage Gen1 przy użyciu Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **[cURL](https://curl.haxx.se/)**. W tym artykule użyto cURL, aby zademonstrować, jak wykonać wywołania interfejsu API REST na koncie Data Lake Storage Gen1.
+* **[zwinięcie](https://curl.haxx.se/)**. W tym artykule opisano sposób tworzenia wywołań interfejsu API REST na koncie Data Lake Storage Gen1.
 
 ## <a name="end-user-authentication"></a>Uwierzytelnianie użytkowników końcowych
-Uwierzytelnianie użytkowników końcowych jest zalecane podejście, jeśli chcesz, aby użytkownik zalogował się do aplikacji przy użyciu usługi Azure AD. Aplikacja może uzyskać dostęp do zasobów platformy Azure z tym samym poziomem dostępu, co zalogowany użytkownik. Użytkownik musi okresowo podawać swoje poświadczenia, aby aplikacja zachowała dostęp.
+Zaleca się, aby użytkownik mógł zalogować się do aplikacji przy użyciu usługi Azure AD. Aplikacja może uzyskiwać dostęp do zasobów platformy Azure z takim samym poziomem dostępu jak zalogowany użytkownik. Użytkownik musi okresowo podawać poświadczenia, aby aplikacja mogła zachować dostęp.
 
-Wynik logowania użytkownika końcowego jest, że aplikacja otrzymuje token dostępu i token odświeżania. Token dostępu zostanie dołączony do każdego żądania złożonego do usługi Data Lake Storage Gen1 lub Data Lake Analytics i jest domyślnie ważny przez jedną godzinę. Token odświeżania może służyć do uzyskania nowego tokenu dostępu i jest on ważny przez maksymalnie dwa tygodnie domyślnie, jeśli jest używany regularnie. Można użyć dwóch różnych metod logowania użytkownika końcowego.
+Wynik posiadania logowania użytkownika końcowego polega na tym, że aplikacja uzyskuje token dostępu i token odświeżania. Token dostępu jest dołączany do każdego żądania wykonanego do Data Lake Storage Gen1 lub Data Lake Analytics i jest domyślnie ważny przez jedną godzinę. Tokenu odświeżania można użyć, aby uzyskać nowy token dostępu i jest on ważny przez maksymalnie dwa tygodnie domyślnie, jeśli jest używany regularnie. Możesz użyć dwóch różnych metod logowania użytkownika końcowego.
 
 W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszystkie operacje są wykonywane w kontekście zalogowanego użytkownika. Wykonaj poniższe czynności:
 
@@ -49,13 +49,13 @@ W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszys
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
    > [!NOTE]
-   > Identyfikator \<REDIRECT-URI> musi być zakodowany na potrzeby adresu URL. Tak więc, https://localhost `https%3A%2F%2Flocalhost`dla , użyj )
+   > Identyfikator \<REDIRECT-URI> musi być zakodowany na potrzeby adresu URL. Tak więc, https://localhostfor, `https%3A%2F%2Flocalhost`use)
 
     Na potrzeby tego samouczka możesz zastąpić symbole zastępcze w powyższym adresie URL i wkleić go w pasku adresu przeglądarki sieci web. Nastąpi przekierowanie w celu uwierzytelniania przy użyciu identyfikatora logowania do platformy Azure. Gdy pomyślnie się zalogujesz, odpowiedź zostanie wyświetlona na pasku adresu przeglądarki. Odpowiedź będzie miała następujący format:
 
         http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
 
-2. Przechwyć kod autoryzacji z odpowiedzi. W tym samouczku można skopiować kod autoryzacji z paska adresu przeglądarki sieci web i przekazać go w żądaniu POST do punktu końcowego tokenu, jak pokazano w następującym urywek:
+2. Przechwyć kod autoryzacji z odpowiedzi. Na potrzeby tego samouczka można skopiować kod autoryzacji z paska adresu przeglądarki sieci Web i przekazać go w żądaniu POST do punktu końcowego tokenu, jak pokazano w poniższym fragmencie kodu:
 
         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
         -F redirect_uri=<REDIRECT-URI> \
@@ -69,11 +69,11 @@ W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszys
    > 
    > 
 
-3. Odpowiedź jest obiektem JSON, który zawiera token `"access_token": "<ACCESS_TOKEN>"`dostępu (na przykład) `"refresh_token": "<REFRESH_TOKEN>"`i token odświeżania (na przykład). Aplikacja używa tokenu dostępu podczas uzyskiwania dostępu do usługi Azure Data Lake Storage Gen1 i tokenu odświeżania, aby uzyskać inny token dostępu po wygaśnięciu tokenu dostępu.
+3. Odpowiedź jest obiektem JSON, który zawiera token dostępu (na przykład `"access_token": "<ACCESS_TOKEN>"`) i token odświeżania (na przykład `"refresh_token": "<REFRESH_TOKEN>"`). Aplikacja używa tokenu dostępu podczas uzyskiwania dostępu do Azure Data Lake Storage Gen1 i tokenu odświeżania, aby uzyskać inny token dostępu po wygaśnięciu tokenu dostępu.
 
         {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":    "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
 
-4. Po wygaśnięciu tokenu dostępu można zażądać nowego tokenu dostępu przy użyciu tokenu odświeżania, jak pokazano w następującym urywek:
+4. Po wygaśnięciu tokenu dostępu można zażądać nowego tokenu dostępu przy użyciu tokenu odświeżania, jak pokazano w poniższym fragmencie kodu:
 
         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
              -F grant_type=refresh_token \
@@ -84,8 +84,8 @@ W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszys
 Więcej informacji na temat interakcyjnego uwierzytelniania użytkownika zawiera temat [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx) (Przepływ udzielania kodu autoryzacji).
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule dowiesz się, jak używać uwierzytelniania usługi do usługi do uwierzytelniania przy użyciu usługi Azure Data Lake Storage Gen1 przy użyciu interfejsu API REST. Teraz można spojrzeć na następujące artykuły, które mówią o tym, jak używać interfejsu API REST do pracy z usługą Azure Data Lake Storage Gen1.
+W tym artykule pokazano, jak za pomocą uwierzytelniania między usługami uwierzytelniać się za pomocą usługi Azure Data Lake Storage Gen1 przy użyciu interfejsu API REST. Teraz możesz zapoznać się z następującymi artykułami dotyczącymi korzystania z interfejsu API REST w celu pracy z Azure Data Lake Storage Gen1.
 
-* [Operacje zarządzania kontami w usłudze Data Lake Storage Gen1 przy użyciu interfejsu REST API](data-lake-store-get-started-rest-api.md)
-* [Operacje danych w usłudze Data Lake Storage Gen1 przy użyciu interfejsu REST API](data-lake-store-data-operations-rest-api.md)
+* [Operacje zarządzania kontem na Data Lake Storage Gen1 przy użyciu interfejsu API REST](data-lake-store-get-started-rest-api.md)
+* [Operacje na danych na Data Lake Storage Gen1 przy użyciu interfejsu API REST](data-lake-store-data-operations-rest-api.md)
 

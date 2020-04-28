@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 8a4012d204b6dafa1233e4ce3d878590120be47d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60640229"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Skalowanie aplikacji ASP.NET Core SignalR za pomocą usługi Azure SignalR Service
 
 ## <a name="developing-signalr-apps"></a>Tworzenie aplikacji SignalR
 
-Obecnie istnieją [dwie wersje](https://docs.microsoft.com/aspnet/core/signalr/version-differences) SignalR, których można używać z aplikacjami internetowymi: SignalR dla ASP.NET i ASP.NET Core SignalR, który jest najnowszą wersją. Usługa Azure SignalR Service jest usługą zarządzaną przez platformę Azure, zbudowaną na podstawie biblioteki ASP.NET Core SignalR.
+Obecnie istnieją [dwie wersje](https://docs.microsoft.com/aspnet/core/signalr/version-differences) sygnalizującego, których można używać z aplikacjami sieci Web: sygnalizujący for ASP.NET, i ASP.NET Core sygnalizujący, który jest najnowszą wersją. Usługa Azure SignalR Service jest usługą zarządzaną przez platformę Azure, zbudowaną na podstawie biblioteki ASP.NET Core SignalR.
 
 ASP.NET Core SignalR to ponownie napisana poprzednia wersja tej biblioteki. W związku z tym biblioteka ASP.NET Core SignalR nie jest zgodna z wcześniejszą wersją biblioteki SignalR. Interfejsy API i działanie różnią się. Zestaw ASP.NET Core SignalR SDK jest zgodny ze specyfikacją .NET Standard, więc nadal można z niego korzystać z programem .NET Framework. Należy jednak używać nowych interfejsów API zamiast starych. Jeśli używasz biblioteki SignalR i chcesz przejść na bibliotekę ASP.NET Core SignalR lub usługę Azure SignalR Service, musisz zmodyfikować swój kod tak, aby uwzględnić różnice w interfejsach API.
 

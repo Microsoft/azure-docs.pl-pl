@@ -1,6 +1,6 @@
 ---
-title: Uruchamianie zapytań podstawowych apache w usłudze Azure HDInsight z usługą Apache Phoenix
-description: Dowiedz się, jak używać apache zeppelin do uruchamiania zapytań Apache Base w Phoenix.
+title: Uruchamianie kwerend Apache Base w usłudze Azure HDInsight przy użyciu Apache Phoenix
+description: Dowiedz się, jak używać oprogramowania Apache Zeppelin do uruchamiania zapytań platformy Apache Base z Phoenix.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,44 +9,44 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: 28eeb446e55213f1ffa0a638878f6432fd15a05a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72392243"
 ---
-# <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Użyj Apache Zeppelin do uruchamiania zapytań Apache Phoenix przez Apache HBase w usłudze Azure HDInsight
+# <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Korzystanie z programu Apache Zeppelin do uruchamiania zapytań Apache Phoenix w usłudze Apache HBase w usłudze Azure HDInsight
 
-Apache Phoenix to otwarta, masowo równoległa relacyjna warstwa bazy danych zbudowana na HBase. Phoenix umożliwia używanie sql jak zapytania za pośrednictwem HBase. Phoenix używa sterowników JDBC pod spodem, aby umożliwić tworzenie, usuwanie, zmienianie tabel SQL, indeksów, widoków i sekwencji.  Phoenix można również użyć do aktualizowania wierszy pojedynczo i zbiorczo. Phoenix używa kompilacji natywnej NOSQL, a nie przy użyciu MapReduce do kompilowania zapytań, umożliwiając tworzenie aplikacji o małym opóźnieniu na bazie HBase.
+Apache Phoenix to "open source", wysoce równoległa warstwa relacyjnej bazy danych oparta na HBase. Phoenix umożliwia korzystanie z zapytań SQL, takich jak zapytania w HBase. Phoenix korzysta ze sterowników JDBC, aby umożliwić tworzenie, usuwanie, modyfikowanie tabel SQL, indeksów, widoków i sekwencji.  Możesz również użyć Phoenix, aby aktualizować wiersze osobno i zbiorczo. Phoenix używa kompilacji natywnej NOSQL zamiast używania MapReduce do kompilowania zapytań, co umożliwia tworzenie aplikacji o niskich opóźnieniach na HBase.
 
-Apache Zeppelin to notes internetowy typu open source, który umożliwia tworzenie opartych na danych, opartych na współpracy dokumentów przy użyciu interaktywnej analizy danych i języków takich jak SQL i Scala. Pomaga deweloperom danych & analityków danych opracowywać, organizować, wykonywać i udostępniać kod do manipulowania danymi. Umożliwia wizualizację wyników bez odwoływania się do wiersza polecenia lub konieczności szczegółów klastra.
+Apache Zeppelin to oparty na sieci Web Notes typu "open source", który umożliwia tworzenie opartych na danych, wspólnych dokumentów przy użyciu interakcyjnej analizy danych i języków, takich jak SQL i Scala. Pomaga ona deweloperom danych & naukowcom danych opracowywać, organizować, wykonywać i udostępniać kod na potrzeby manipulowania danymi. Pozwala to na wizualizację wyników bez odwoływania się do wiersza polecenia lub wymaganie szczegółowych informacji o klastrze.
 
-Użytkownicy HDInsight mogą używać Apache Zeppelin do wykonywania zapytań o tabele Phoenix. Apache Zeppelin jest zintegrowany z klastrem HDInsight i nie ma żadnych dodatkowych kroków, aby go użyć. Wystarczy utworzyć notes Zeppelin z interpreterem JDBC i rozpocząć pisanie zapytań Phoenix SQL
+Użytkownicy usługi HDInsight mogą używać oprogramowania Apache Zeppelin do wykonywania zapytań dotyczących tabel w Phoenix. Usługa Apache Zeppelin jest zintegrowana z klastrem usługi HDInsight i nie ma dodatkowych kroków, które należy wykonać. Po prostu Utwórz Notes Zeppelin z interpreterem JDBC i zacznij pisać zapytania SQL w Phoenix
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Klaster Apache HBase w programie HDInsight. Zobacz [Wprowadzenie do apache HBase](./apache-hbase-tutorial-get-started-linux.md).
+Klaster Apache HBase w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="create-an-apache-zeppelin-note"></a>Tworzenie notatki Apache Zeppelin
 
-1. Zamień `CLUSTERNAME` na nazwę klastra `https://CLUSTERNAME.azurehdinsight.net/zeppelin`w następującym adresie URL . Następnie wprowadź adres URL w przeglądarce internetowej. Wprowadź nazwę użytkownika i hasło logowania do klastra.
+1. Zamień `CLUSTERNAME` na nazwę klastra w następującym adresie URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin`. Następnie wprowadź adres URL w przeglądarce sieci Web. Wprowadź nazwę użytkownika i hasło logowania do klastra.
 
 1. Na stronie Zeppelin wybierz pozycję **Utwórz nową notatkę**.
 
-    ![Interaktywne zapytanie HDInsight zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png)
+    ![Zapytanie interaktywne Zeppelin usługi HDInsight](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png)
 
 1. W oknie dialogowym **Tworzenie nowej notatki** wpisz lub wybierz następujące wartości:
 
-    - Uwaga Nazwa: Wprowadź nazwę notatki.
-    - Domyślny interpreter: Wybierz **jdbc** z listy rozwijanej.
+    - Nazwa komentarza: Wprowadź nazwę notatki.
+    - Interpreter domyślny: wybierz pozycję **JDBC** z listy rozwijanej.
 
-    Następnie wybierz **pozycję Utwórz notatkę**.
+    Następnie wybierz pozycję **Utwórz notatkę**.
 
-1. Upewnij się, że nagłówek notesu pokazuje stan połączenia. Jest oznaczona zieloną kropką w prawym górnym rogu.
+1. Upewnij się, że nagłówek notesu pokazuje połączony stan. Jest ona oznaczona zieloną kropką w prawym górnym rogu.
 
-    ![Stan notebooka Zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Stan notebooka Zeppelin")
+    ![Stan notesu Zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Stan notesu Zeppelin")
 
-1. Utwórz tabelę bazy danych HBase. Wprowadź następujące polecenie, a następnie naciśnij **klawisze Shift + Enter**:
+1. Utwórz tabelę HBase. Wprowadź następujące polecenie, a następnie naciśnij klawisze **SHIFT + ENTER**:
 
     ```sql
     %jdbc(phoenix)
@@ -56,9 +56,9 @@ Klaster Apache HBase w programie HDInsight. Zobacz [Wprowadzenie do apache HBase
     );
     ```
 
-    Instrukcja **%jdbc(phoenix)** w pierwszym wierszu informuje notes o użyciu interpretera Phoenix JDBC.
+    Instrukcja **% JDBC (Phoenix)** w pierwszym wierszu instruuje Notes, aby korzystał z interpretera JDBC w Phoenix.
 
-1. Wyświetlanie utworzonych tabel.
+1. Wyświetl utworzone tabele.
 
     ```sql
     %jdbc(phoenix)
@@ -75,21 +75,21 @@ Klaster Apache HBase w programie HDInsight. Zobacz [Wprowadzenie do apache HBase
     UPSERT INTO dbo.Company (name, company_id) VALUES('Apache', 2);
     ```
 
-1. Kwerenda tabeli.
+1. Zbadaj tabelę.
 
     ```sql
     %jdbc(phoenix)
     SELECT * FROM dbo.Company;
     ```
 
-1. Usuwanie rekordu.
+1. Usuń rekord.
 
     ```sql
     %jdbc(phoenix)
     DELETE FROM dbo.Company WHERE COMPANY_ID=1;
     ```
 
-1. Upuść stół.
+1. Usuń tabelę.
 
     ```sql
     %jdbc(phoenix)
@@ -98,5 +98,5 @@ Klaster Apache HBase w programie HDInsight. Zobacz [Wprowadzenie do apache HBase
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Apache Phoenix obsługuje teraz zeppelin w usłudze Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2018/08/17/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight/)
-- [Apache Phoenix gramatyka](https://phoenix.apache.org/language/index.html)
+- [Apache Phoenix teraz obsługuje Zeppelin w usłudze Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2018/08/17/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight/)
+- [Apache Phoenix gramatyki](https://phoenix.apache.org/language/index.html)

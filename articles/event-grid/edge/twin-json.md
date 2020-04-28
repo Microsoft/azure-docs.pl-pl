@@ -1,6 +1,6 @@
 ---
-title: Bliźniaczy moduł — usługa Azure Event Grid IoT Edge | Dokumenty firmy Microsoft
-description: Konfiguracja za pomocą modułu Twin.
+title: Dwuosiowy moduł Azure Event Grid IoT Edge | Microsoft Docs
+description: Konfiguracja za pośrednictwem sznurka modułu.
 author: HiteshMadan
 manager: rajarv
 ms.author: himad
@@ -10,25 +10,25 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 5c23b9ef280a4a4e3458d279ecf060d2e3d50295
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72992147"
 ---
-# <a name="module-twin-json-schema"></a>Podwójny schemat JSON modułu
+# <a name="module-twin-json-schema"></a>Schemat JSON
 
-Usługa Event Grid on IoT Edge integruje się z ekosystemem usługi IoT Edge i obsługuje tworzenie tematów i subskrypcji za pośrednictwem modułu Bliźniaczego. Raportuje również bieżący stan wszystkich tematów i subskrypcji zdarzeń do zgłoszonych właściwości na module Twin.
+Event Grid na IoT Edge integruje się z ekosystemem IoT Edge i obsługuje tworzenie tematów i subskrypcji za pośrednictwem sznurka modułowego. Raport przedstawia także bieżący stan wszystkich tematów i subskrypcji zdarzeń do raportowanych właściwości na sznurze modułu.
 
 > [!WARNING]
-> Ze względu na ograniczenia w ekosystemie usługi IoT Edge wszystkie elementy tablicy w poniższym przykładzie json zostały zakodowane jako ciągi json. Zobacz `EventSubscription.Filter.EventTypes` `EventSubscription.Filter.AdvancedFilters` i klucze w poniższym przykładzie.
+> Ze względu na ograniczenia w ekosystemie IoT Edge wszystkie elementy tablicy w poniższym przykładzie JSON zostały zakodowane jako ciągi JSON. Zobacz `EventSubscription.Filter.EventTypes` i `EventSubscription.Filter.AdvancedFilters` klucze w poniższym przykładzie.
 
-## <a name="desired-properties-json"></a>Żądane właściwości JSON
+## <a name="desired-properties-json"></a>Dane JSON żądanych właściwości
 
-* Wartość każdej pary klucz-wartość w sekcji tematów ma dokładnie ten sam schemat `Topic.Properties` JSON, który jest używany w interfejsie API podczas tworzenia tematów.
-* Wartość każdej pary klucz-wartość w **eventSubscriptions** sekcji ma dokładnie ten sam schemat `EventSubscription.Properties` json, który jest używany w interfejsie API podczas tworzenia tematów.
-* Aby usunąć temat, ustaw `null` jego wartość we właściwościach żądanych.
-* Usuwanie subskrypcji zdarzeń za pośrednictwem żądanych właściwości nie jest obsługiwane.
+* Wartość każdej pary klucz-wartość w sekcji Tematy ma dokładnie ten sam schemat JSON, który jest używany przez `Topic.Properties` interfejs API podczas tworzenia tematów.
+* Wartość każdej pary klucz-wartość w sekcji **EventSubscriptions** ma dokładnie ten sam schemat JSON, który jest używany przez `EventSubscription.Properties` interfejs API podczas tworzenia tematów.
+* Aby usunąć temat, ustaw jego wartość na `null` w polu właściwości wymagane.
+* Usuwanie subskrypcji zdarzeń przy użyciu żądanych właściwości nie jest obsługiwane.
 
 ```json
 {
@@ -79,13 +79,13 @@ Usługa Event Grid on IoT Edge integruje się z ekosystemem usługi IoT Edge i o
 }
 ```
 
-## <a name="reported-properties-json"></a>Zgłoszone właściwości JSON
+## <a name="reported-properties-json"></a>Zgłoszono kod JSON właściwości
 
-Zgłoszona sekcja właściwości bliźniaczej reprezentacji modułu zawiera następujące informacje:
+Sekcja raportowane właściwości sznurka modułu zawiera następujące informacje:
 
-* Zestaw tematów i subskrypcji, które istnieją w magazynie modułu
-* Wszelkie błędy napotkane podczas tworzenia żądanych tematów/subskrypcji zdarzeń
-* Wszelkie błędy rozruchu (takie jak żądane właściwości analizowania JSON nie powiodły się)
+* Zestaw tematów i subskrypcji istniejących w sklepie modułu
+* Wszystkie błędy napotkane podczas tworzenia żądanych tematów/subskrypcji zdarzeń
+* Wszelkie błędy rozruchowe (takie jak analiza JSON żądanych właściwości nie powiodło się)
 
 ```json
 {

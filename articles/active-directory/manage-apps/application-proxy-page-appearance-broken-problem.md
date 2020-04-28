@@ -1,6 +1,6 @@
 ---
-title: Strona aplikacji nie jest wyświetlana poprawnie dla aplikacji Proxy aplikacji | Dokumenty firmy Microsoft
-description: Wskazówki, gdy strona nie jest wyświetlana poprawnie w aplikacji proxy aplikacji, która została zintegrowana z usługą Azure AD
+title: Strona aplikacji nie jest poprawnie wyświetlana dla aplikacji serwera proxy aplikacji | Microsoft Docs
+description: Wskazówki dotyczące nieprawidłowego wyświetlania strony w aplikacji serwera proxy aplikacji zintegrowanej z usługą Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,28 +16,28 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13e73f0ed56648ce162f00d6df5e7b86a922ca01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68381416"
 ---
-# <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Strona aplikacji nie jest wyświetlana poprawnie dla aplikacji proxy aplikacji
+# <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Strona aplikacji nie jest wyświetlana prawidłowo dla aplikacji serwera proxy aplikacji
 
-Ten artykuł ułatwia rozwiązywanie problemów z aplikacjami serwera proxy aplikacji usługi Azure Active Directory podczas przechodzenia do strony, ale coś na stronie nie wygląda poprawnie.
+Ten artykuł pomaga w rozwiązywaniu problemów z serwer proxy aplikacji usługi Azure Active Directory aplikacjami podczas przechodzenia do strony, ale coś na stronie nie wygląda poprawnie.
 
 ## <a name="overview"></a>Omówienie
-Podczas publikowania aplikacji proxy aplikacji tylko strony w katalogu głównym są dostępne podczas uzyskiwania dostępu do aplikacji. Jeśli strona nie jest wyświetlana poprawnie, w głównym wewnętrznym adresie URL używanym dla aplikacji może brakować niektórych zasobów strony. Aby rozwiązać, upewnij się, że zostały opublikowane *wszystkie* zasoby dla strony jako część aplikacji.
+Po opublikowaniu aplikacji serwera proxy aplikacji podczas uzyskiwania dostępu do aplikacji są dostępne tylko strony znajdujące się w katalogu głównym. Jeśli strona nie jest wyświetlana prawidłowo, wewnętrzny adres URL używany przez aplikację może nie zawierać niektórych zasobów strony. Aby rozwiązać ten problem, upewnij się, że *wszystkie* zasoby strony zostały opublikowane jako część aplikacji.
 
-Możesz sprawdzić, czy brakujące zasoby to problem, otwierając moduł śledzenia sieci (na przykład narzędzia Fiddler lub F12 w programie Internet Explorer/Microsoft Edge), ładując stronę i wyszukując błędy 404. Oznacza to, że strony obecnie nie można znaleźć i że trzeba je opublikować.
+Aby sprawdzić, czy brak zasobów jest problemem, można otworzyć narzędzie do śledzenia sieci (na przykład programu Fiddler lub F12 Tools in Internet Explorer/Microsoft Edge), załadować stronę i wyszukać błędy 404. Oznacza to, że aktualnie nie można znaleźć stron i należy je opublikować.
 
-Na przykład w tym przypadku załóżmy, że opublikowano `http://myapps/expenses`aplikację wydatków przy użyciu `http://myapps/style.css`wewnętrznego adresu URL, ale aplikacja używa arkusza stylów . W takim przypadku arkusz stylów nie jest publikowany w aplikacji, więc ładowanie aplikacji wydatków zgłosić błąd 404 podczas próby załadowania style.css. W tym przykładzie problem został rozwiązany przez opublikowanie `http://myapp/`aplikacji przy wewnętrznym adresie URL .
+Przykładem takiej sytuacji jest założenie, że aplikacja wydatków została opublikowana przy użyciu wewnętrznego adresu `http://myapps/expenses`URL, ale aplikacja korzysta z arkusza `http://myapps/style.css`stylów. W takim przypadku arkusz stylów nie jest publikowany w aplikacji, więc załadowanie aplikacji wydatków Zgłoś błąd 404 podczas próby załadowania pliku style. css. W tym przykładzie problem został rozwiązany przez opublikowanie aplikacji z wewnętrznym adresem URL `http://myapp/`.
 
-## <a name="problems-with-publishing-as-one-application"></a>Problemy z publikowaniem jako jedna aplikacja
+## <a name="problems-with-publishing-as-one-application"></a>Problemy z publikowaniem jako jednej aplikacji
 
-Jeśli nie jest możliwe opublikowanie wszystkich zasobów w ramach tej samej aplikacji, należy opublikować wiele aplikacji i włączyć łącza między nimi.
+Jeśli nie jest możliwe opublikowanie wszystkich zasobów w ramach tej samej aplikacji, należy opublikować wiele aplikacji i włączyć linki między nimi.
 
-Aby to zrobić, zalecamy użycie rozwiązania [domen niestandardowych.](application-proxy-configure-custom-domain.md) Jednak to rozwiązanie wymaga posiadania certyfikatu dla domeny, a aplikacje używają w pełni kwalifikowanych nazw domen (FQDN). Aby uzyskać inne opcje, zobacz rozwiązywanie problemów z [dokumentacją przerwanych łączy](application-proxy-page-links-broken-problem.md).
+W tym celu zalecamy korzystanie z rozwiązania [domen niestandardowych](application-proxy-configure-custom-domain.md) . To rozwiązanie wymaga jednak posiadania certyfikatu dla domeny, a Twoje aplikacje używają w pełni kwalifikowanych nazw domen (FQDN). Inne opcje można znaleźć w [dokumentacji Rozwiązywanie uszkodzonych linków](application-proxy-page-links-broken-problem.md).
 
 ## <a name="next-steps"></a>Następne kroki
 [Publikowanie aplikacji przy użyciu serwera proxy aplikacji usługi Azure AD](application-proxy-add-on-premises-application.md)

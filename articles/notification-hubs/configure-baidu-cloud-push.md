@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie usługi Baidu Cloud Push w centrach powiadomień platformy Azure | Dokumenty firmy Microsoft
+title: Konfigurowanie wypychania w chmurze Baidu na platformie Azure Notification Hubs | Microsoft Docs
 description: Dowiedz się, jak skonfigurować ustawienia Baidu dla centrum powiadomień platformy Azure.
 services: notification-hubs
 author: sethmanheim
@@ -12,31 +12,31 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 759e35ba353f470ea3abc5f5d4182fa2b2ea0e73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71212519"
 ---
-# <a name="deprecated-configure-baidu-cloud-push-settings-for-a-notification-hub-in-the-azure-portal"></a>Przestarzałe: konfigurowanie ustawień baidu cloud push dla centrum powiadomień w witrynie Azure portal
+# <a name="deprecated-configure-baidu-cloud-push-settings-for-a-notification-hub-in-the-azure-portal"></a>Przestarzałe: Skonfiguruj ustawienia wypychania w chmurze Baidu dla centrum powiadomień w Azure Portal
 
-W tym artykule pokazano, jak skonfigurować ustawienia usługi Baidu Cloud Push dla centrum powiadomień platformy Azure przy użyciu witryny Azure portal.
+W tym artykule opisano sposób konfigurowania ustawień wypychania w chmurze Baidu dla centrum powiadomień platformy Azure przy użyciu Azure Portal.
 
 > [!IMPORTANT]
 > Ten samouczek jest przestarzały. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Jeśli centrum powiadomień nie zostało jeszcze utworzone, utwórz je teraz. Aby uzyskać więcej informacji, zobacz [Tworzenie centrum powiadomień platformy Azure w witrynie Azure portal](create-notification-hub-portal.md). 
+Jeśli nie utworzono jeszcze centrum powiadomień, utwórz je teraz. Aby uzyskać więcej informacji, zobacz [Tworzenie centrum powiadomień platformy Azure w Azure Portal](create-notification-hub-portal.md). 
 
 ## <a name="configure-baidu-cloud-push"></a>Konfigurowanie usługi Baidu Cloud Push
-Poniższa procedura umożliwia skonfigurowanie ustawień Baidu Cloud Push dla centrum powiadomień:
+Poniższa procedura zawiera instrukcje dotyczące konfigurowania ustawień wypychania w chmurze Baidu dla centrum powiadomień:
 
-1. W witrynie Azure portal na stronie **Centrum powiadomień** wybierz polecenie **Baidu (Android China)** w menu po lewej stronie. 
-2. Wprowadź **klucz api uzyskany** z konsoli Baidu w projekcie wypychania w chmurze Baidu. 
-3. Wprowadź **tajny klucz** uzyskany z konsoli Baidu w projekcie wypychania w chmurze Baidu. 
-4. Wybierz **pozycję Zapisz**. 
+1. Na Azure Portal na stronie **centrum powiadomień** wybierz pozycję **Baidu (Android China)** w menu po lewej stronie. 
+2. Wprowadź **klucz interfejsu API** uzyskany z konsoli Baidu w projekcie powiadomienia wypychane w chmurze Baidu. 
+3. Wprowadź **klucz tajny** uzyskany z konsoli Baidu w projekcie powiadomienia wypychane w chmurze Baidu. 
+4. Wybierz pozycję **Zapisz**. 
 
-    ![Zrzut ekranu przedstawiający centra powiadomień, który pokazuje konfigurację Baidu (Android China) dla powiadomień wypychanych](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
+    ![Zrzut ekranu przedstawiający Notification Hubs, w którym jest wyświetlana konfiguracja Baidu (Android China) dla powiadomień wypychanych](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać samouczek z instrukcjami krok po kroku dotyczącymi przekazywania powiadomień do Baidu przy użyciu usługi Azure Notification Hubs i Baidu Cloud Push, zobacz [Wprowadzenie do centrów powiadomień przy użyciu baidu](notification-hubs-baidu-china-android-notifications-get-started.md).
+Aby zapoznać się z samouczkiem zawierającym instrukcje krok po kroku dotyczące wypychania powiadomień do usługi Baidu przy użyciu usług Azure Notification Hubs i Baidu Cloud push, zobacz Wprowadzenie [do Notification Hubs przy użyciu Baidu](notification-hubs-baidu-china-android-notifications-get-started.md).

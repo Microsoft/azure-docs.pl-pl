@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z interfejsu wiersza polecenia platformy Azure w celu rozpoczęcia korzystania z usługi Azure Data Lake Storage Gen1 | Dokumenty firmy Microsoft
-description: Tworzenie konta Gen1 magazynu usługi Data Lake i wykonywanie podstawowych operacji za pomocą interfejsu wiersza polecenia platformy Azure
+title: Użyj interfejsu wiersza polecenia platformy Azure, aby rozpocząć pracę z usługą Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Tworzenie konta Data Lake Storage Gen1 i wykonywanie podstawowych operacji przy użyciu interfejsu wiersza polecenia platformy Azure
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60885350"
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Wprowadzenie do usługi Azure Data Lake Store przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Wprowadzenie do Azure Data Lake Store przy użyciu interfejsu wiersza polecenia platformy Azure
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
-> * [Powershell](data-lake-store-get-started-powershell.md)
+> * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
-Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure do tworzenia konta usługi Azure Data Lake Storage Gen1 i wykonywania podstawowych operacji, takich jak tworzenie folderów, przekazywanie i pobieranie plików danych, usuwanie konta itp. Aby uzyskać więcej informacji na temat usługi Data Lake Storage Gen1, zobacz [Omówienie gen1 magazynu aplikacji Data Lake](data-lake-store-overview.md).
+Dowiedz się, jak utworzyć konto Azure Data Lake Storage Gen1 przy użyciu interfejsu wiersza polecenia platformy Azure i wykonać podstawowe operacje, takie jak tworzenie folderów, przekazywanie i pobieranie plików danych, usuwanie konta itp. Aby uzyskać więcej informacji na temat Data Lake Storage Gen1, zobacz [omówienie Data Lake Storage Gen1](data-lake-store-overview.md).
 
-Interfejs wiersza polecenia platformy Azure to środowisko wiersza polecenia platformy Azure do zarządzania jej zasobami. Można go używać w systemach macOS, Linux i Windows. Aby uzyskać więcej informacji, zobacz [Omówienie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure). Można również spojrzeć na [odwołanie interfejsu wiersza polecenia usługi Azure Data Lake Storage Gen1](https://docs.microsoft.com/cli/azure/dls) dla pełnej listy poleceń i składni.
+Interfejs wiersza polecenia platformy Azure to środowisko wiersza polecenia platformy Azure do zarządzania jej zasobami. Można go używać w systemach macOS, Linux i Windows. Aby uzyskać więcej informacji, zobacz [Omówienie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure). Aby uzyskać pełną listę poleceń i składnię, można także zapoznać się z dokumentacją [interfejsu wiersza polecenia Azure Data Lake Storage Gen1](https://docs.microsoft.com/cli/azure/dls) .
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -38,11 +38,11 @@ Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dy
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Interfejsu wiersza polecenia platformy Azure** — instrukcje można znaleźć w witrynie [Azure CLI.](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* **Interfejs wiersza polecenia platformy Azure** — zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) , aby uzyskać instrukcje.
 
 ## <a name="authentication"></a>Uwierzytelnianie
 
-W tym artykule użyto prostszego podejścia do uwierzytelniania w u źródła danych Usługi Storage Gen1, w którym logujesz się jako użytkownik końcowy. Poziom dostępu do konta i systemu plików Usługi Data Lake Storage Gen1 jest następnie regulowany poziomem dostępu zalogowanego użytkownika. Istnieją jednak również inne podejścia do uwierzytelniania za pomocą usługi Data Lake Storage Gen1, które są **uwierzytelnianiem użytkowników końcowych** lub **uwierzytelnianiem usługi**do usługi. Instrukcje i dodatkowe informacje na temat uwierzytelniania można znaleźć w następujących artykułach: [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Uwierzytelnianie użytkowników końcowych) lub [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md) (Uwierzytelnianie między usługami).
+W tym artykule jest stosowane prostsze podejście uwierzytelniania z Data Lake Storage Gen1, w którym logujesz się jako użytkownik końcowy. Poziom dostępu do konta Data Lake Storage Gen1 i systemu plików podlega następnie poziom dostępu zalogowanego użytkownika. Istnieją jednak również inne podejścia do uwierzytelniania za pomocą Data Lake Storage Gen1, które są **uwierzytelnianiem użytkowników końcowych** lub **uwierzytelnianiem**między usługami. Instrukcje i dodatkowe informacje na temat uwierzytelniania można znaleźć w następujących artykułach: [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Uwierzytelnianie użytkowników końcowych) lub [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md) (Uwierzytelnianie między usługami).
 
 
 ## <a name="log-in-to-your-azure-subscription"></a>Logowanie się do subskrypcji platformy Azure
@@ -61,7 +61,7 @@ W tym artykule użyto prostszego podejścia do uwierzytelniania w u źródła da
     az account set --subscription <subscription id> 
     ```
 
-## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Tworzenie konta usługi Azure Data Storage Gen1
+## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Utwórz konto Azure Data Lake Storage Gen1
 
 1. Utwórz nową grupę zasobów. W poniższym poleceniu podaj wartości parametrów, których chcesz użyć. Jeśli nazwa lokalizacji zawiera spacje, umieść ją w cudzysłowie. Na przykład „Wschodnie stany USA 2”. 
    
@@ -75,22 +75,22 @@ W tym artykule użyto prostszego podejścia do uwierzytelniania w u źródła da
     az dls account create --account mydatalakestoragegen1 --resource-group myresourcegroup
     ```
 
-## <a name="create-folders-in-a-data-lake-storage-gen1-account"></a>Tworzenie folderów na koncie Gen1 magazynu usługi Data Lake
+## <a name="create-folders-in-a-data-lake-storage-gen1-account"></a>Tworzenie folderów na koncie Data Lake Storage Gen1
 
-Foldery można tworzyć w ramach konta usługi Azure Data Lake Storage Gen1 do zarządzania i przechowywania danych. Użyj następującego polecenia, aby utworzyć folder o nazwie **mynewfolder** w katalogu głównym konta Data Lake Storage Gen1.
+Możesz tworzyć foldery na koncie Azure Data Lake Storage Gen1, aby zarządzać danymi i ich przechowywać. Użyj następującego polecenia, aby utworzyć folder o nazwie **mojnowyfolder** w katalogu głównym konta Data Lake Storage Gen1.
 
 ```azurecli
 az dls fs create --account mydatalakestoragegen1 --path /mynewfolder --folder
 ```
 
 > [!NOTE]
-> Parametr `--folder` gwarantuje, że polecenie utworzy folder. Jeśli ten parametr nie jest obecny, polecenie tworzy pusty plik o nazwie mynewfolder w katalogu głównym konta Data Lake Storage Gen1.
+> Parametr `--folder` gwarantuje, że polecenie utworzy folder. Jeśli ten parametr nie jest obecny, polecenie tworzy pusty plik o nazwie mojnowyfolder w katalogu głównym konta Data Lake Storage Gen1.
 > 
 >
 
 ## <a name="upload-data-to-a-data-lake-storage-gen1-account"></a>Przekazywanie danych do konta Data Lake Storage Gen1
 
-Dane można przesyłać do usługi Data Lake Storage Gen1 bezpośrednio na poziomie głównym lub do folderu utworzonego na koncie. Poniższe fragmenty kodu przedstawiają sposób przekazywania przykładowych danych do folderu (**mojnowyfolder**), który został utworzony w poprzedniej sekcji.
+Dane można przekazać do Data Lake Storage Gen1 bezpośrednio na poziomie głównym lub do folderu utworzonego w ramach konta. Poniższe fragmenty kodu przedstawiają sposób przekazywania przykładowych danych do folderu (**mojnowyfolder**), który został utworzony w poprzedniej sekcji.
 
 Jeśli szukasz przykładowych danych do przekazania, możesz pobrać folder **Ambulance Data** z [repozytorium Git usługi Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Pobierz plik i zapisz go w katalogu lokalnym na komputerze, na przykład C:\sampledata\.
 
@@ -104,9 +104,9 @@ az dls fs upload --account mydatalakestoragegen1 --source-path "C:\SampleData\Am
 >
 
 
-## <a name="list-files-in-a-data-lake-storage-gen1-account"></a>Lista plików na koncie Data Lake Storage Gen1
+## <a name="list-files-in-a-data-lake-storage-gen1-account"></a>Wyświetlanie listy plików na koncie Data Lake Storage Gen1
 
-Użyj następującego polecenia, aby wyświetlić listę plików na koncie Gen1 magazynu usługi Data Lake.
+Użyj poniższego polecenia, aby wyświetlić listę plików na koncie Data Lake Storage Gen1.
 
 ```azurecli
 az dls fs list --account mydatalakestoragegen1 --path /mynewfolder
@@ -132,7 +132,7 @@ Dane wyjściowe będą mieć postać podobną do następującej:
         }
     ]
 
-## <a name="rename-download-and-delete-data-from-a-data-lake-storage-gen1-account"></a>Zmienianie nazw, pobieranie i usuwanie danych z konta Usługi Data Lake Storage Gen1 
+## <a name="rename-download-and-delete-data-from-a-data-lake-storage-gen1-account"></a>Zmienianie nazwy, pobieranie i usuwanie danych z konta Data Lake Storage Gen1 
 
 * **Aby zmienić nazwę pliku**, użyj następującego polecenia:
   
@@ -163,9 +163,9 @@ Dane wyjściowe będą mieć postać podobną do następującej:
     az dls fs delete --account mydatalakestoragegen1 --path /mynewfolder --recurse
     ```
 
-## <a name="work-with-permissions-and-acls-for-a-data-lake-storage-gen1-account"></a>Praca z uprawnieniami i listami ACL dla konta Gen1 magazynu usługi Data Lake
+## <a name="work-with-permissions-and-acls-for-a-data-lake-storage-gen1-account"></a>Współpraca z uprawnieniami i listami ACL dla konta Data Lake Storage Gen1
 
-W tej sekcji dowiesz się, jak zarządzać listami ACL i uprawnieniami przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać szczegółowe omówienie sposobu implementacji list ACL w usłudze Azure Data Lake Storage Gen1, zobacz [Kontrola dostępu w usłudze Azure Data Lake Storage Gen1](data-lake-store-access-control.md).
+W tej sekcji dowiesz się, jak zarządzać listami ACL i uprawnieniami przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać szczegółową dyskusję na temat sposobu implementowania list ACL w Azure Data Lake Storage Gen1, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen1](data-lake-store-access-control.md).
 
 * **Aby zaktualizować właściciela pliku/folderu**, użyj następującego polecenia:
 
@@ -223,8 +223,8 @@ W tej sekcji dowiesz się, jak zarządzać listami ACL i uprawnieniami przy uży
     az dls fs access remove-all --account mydatalakestoragegen1 --path /mynewfolder
     ```
     
-## <a name="delete-a-data-lake-storage-gen1-account"></a>Usuwanie konta Gen1 magazynu usługi Data Lake
-Użyj następującego polecenia, aby usunąć konto Gen1 magazynu usługi Data Lake.
+## <a name="delete-a-data-lake-storage-gen1-account"></a>Usuwanie konta Data Lake Storage Gen1
+Użyj poniższego polecenia, aby usunąć konto Data Lake Storage Gen1.
 
 ```azurecli
 az dls account delete --account mydatalakestoragegen1
@@ -233,7 +233,7 @@ az dls account delete --account mydatalakestoragegen1
 Po wyświetleniu monitu wpisz **Y**, aby usunąć konto.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Korzystanie z usługi Azure Data Lake Storage Gen1 dla wymagań dotyczących dużych zbiorów danych](data-lake-store-data-scenarios.md) 
+* [Użyj Azure Data Lake Storage Gen1, aby uzyskać wymagania dotyczące danych Big Data](data-lake-store-data-scenarios.md) 
 * [Zabezpieczanie danych w usłudze Data Lake Storage 1. generacji](data-lake-store-secure-data.md)
-* [Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Użyj Azure Data Lake Analytics z Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Korzystanie z usługi Azure HDInsight z usługą Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

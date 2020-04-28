@@ -1,7 +1,7 @@
 ---
-title: Przepływ pracy przy użyciu podpisów dostępu współdzielonego
+title: Przepływ pracy korzystający z sygnatur dostępu współdzielonego
 titleSuffix: Microsoft Genomics
-description: W tym artykule pokazano, jak przesłać przepływ pracy do usługi Microsoft Genomics przy użyciu sygnatur dostępu współdzielonego zamiast kluczy kont magazynu.
+description: W tym artykule pokazano, jak przesłać przepływ pracy do usługi Microsoft Genomics przy użyciu sygnatur dostępu współdzielonego (SAS) zamiast kluczy konta magazynu.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
 ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72248583"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Przesyłanie przepływu pracy do usługi Microsoft Genomics przy użyciu sygnatury dostępu współdzielonego zamiast klucza konta magazynu 
 
-W tym artykule pokazano, jak przesłać przepływ pracy do usługi Microsoft Genomics przy użyciu pliku config.txt zawierającego [sygnatury dostępu współdzielonego zamiast](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) kluczy kont magazynu. Ta funkcja może być przydatna, jeśli występują obawy związane z bezpieczeństwem dotyczące klucza konta magazynu widocznego w pliku config.txt. 
+W tym artykule pokazano, jak przesłać przepływ pracy do usługi Microsoft Genomics przy użyciu pliku config. txt zawierającego [sygnatury dostępu współdzielonego (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) zamiast kluczy konta magazynu. Ta funkcja może być przydatna, jeśli występują obawy związane z bezpieczeństwem dotyczące klucza konta magazynu widocznego w pliku config.txt. 
 
-W tym artykule założono, że użytkownik zainstalował i uruchomił klienta `msgen` oraz że zna sposób korzystania z usługi Azure Storage. Jeśli pomyślnie przesłano przepływ pracy przy użyciu podanych przykładowych danych, można przystąpić do kontynuowania tego artykułu. 
+W tym artykule założono, że użytkownik zainstalował i uruchomił klienta `msgen` oraz że zna sposób korzystania z usługi Azure Storage. Jeśli przepływ pracy został pomyślnie przesłany przy użyciu dostarczonych przykładowych danych, możesz kontynuować pracę z tym artykułem. 
 
 ## <a name="what-is-a-sas"></a>Co to jest sygnatura dostępu współdzielonego?
 [Sygnatura dostępu współdzielonego (SAS, shared access signature)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) zapewnia delegowany dostęp do zasobów w ramach konta magazynu. Za pomocą sygnatury dostępu współdzielonego możesz udzielić dostępu do zasobów w ramach konta magazynu bez udostępniania kluczy konta. Jest to najbardziej istotna kwestia związana z używaniem sygnatur dostępu współdzielonego w aplikacjach — są one bezpiecznym sposobem udostępniania zasobów magazynu bez narażania kluczy konta.
@@ -53,10 +53,10 @@ Istnieją dwa sposoby na utworzenie tokenu sygnatury dostępu współdzielonego:
 
 Zakres sygnatury dostępu współdzielonego dla plików wejściowych powinien być ograniczony do określonego pliku wejściowego (obiekt blob). Aby utworzyć token sygnatury dostępu współdzielonego, postęp zgodnie z [tymi instrukcjami](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). Po utworzeniu sygnatury dostępu współdzielonego zostanie udostępniony pełny adres URL z ciągiem zapytania oraz sam ciąg zapytania — możliwe jest skopiowanie tych elementów z ekranu.
 
- ![Eksplorator magazynu SAS genomiki](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Eksplorator magazynu SAS genomiki")
+ ![Eksplorator usługi Storage genomiki SAS](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Eksplorator usługi Storage genomiki SAS")
 
 
-### <a name="set-up-create-a-sas-programmatically"></a>Konfigurowanie: tworzenie sygnatury dostępu Współdzielonego programowo
+### <a name="set-up-create-a-sas-programmatically"></a>Konfiguracja: programowe tworzenie SAS
 
 Aby utworzyć sygnaturę dostępu współdzielonego przy użyciu zestawu SDK usługi Azure Storage, zapoznaj się z istniejącą dokumentacją w kilku językach, w tym [.NET](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) i [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
@@ -66,7 +66,7 @@ Aby utworzyć sygnaturę dostępu współdzielonego bez używania zestawu SDK, c
 ## <a name="add-the-sas-to-the-configtxt-file"></a>Dodawanie sygnatury dostępu współdzielonego do pliku config.txt
 Aby uruchomić przepływ pracy za pomocą usługi Microsoft Genomics przy użyciu ciągu zapytania sygnatury dostępu współdzielonego, przeprowadź edycję pliku config.txt w celu usunięcia kluczy z pliku config.txt. Następnie w przedstawiony sposób dołącz ciąg zapytania sygnatury dostępu współdzielonego (rozpoczynający się od znaku `?`) do nazwy kontenera danych wyjściowych. 
 
-![Genomika SAS config](./media/quickstart-input-sas/genomics-sas-config.png "Genomika SAS config")
+![Konfiguracja sygnatury dostępu współdzielonego](./media/quickstart-input-sas/genomics-sas-config.png "Konfiguracja sygnatury dostępu współdzielonego")
 
 Użyj klienta języka Python usługi Microsoft Genomics, aby przesłać przepływ pracy przy użyciu następującego polecenia, dołączając odpowiedni ciąg zapytania sygnatury dostępu współdzielonego do poszczególnych nazw wejściowych obiektów blob:
 
@@ -77,7 +77,7 @@ msgen submit -f [full path to your config file] -b1 [name of your first paired e
 ### <a name="if-adding-the-input-file-names-to-the-configtxt-file"></a>W przypadku dodawania nazw plików wejściowych do pliku config.txt
 Alternatywnie możliwe jest dodanie sparowanych plików odczytów końcowych bezpośrednio do pliku config.txt z tokenami zapytania sygnatur dostępu współdzielonego dołączanymi w następujący sposób:
 
-![Genomika SAS config blobnames](./media/quickstart-input-sas/genomics-sas-config-blobnames.png "Genomika SAS config blobnames")
+![Genomics konfiguracji SAS](./media/quickstart-input-sas/genomics-sas-config-blobnames.png "Genomics konfiguracji SAS")
 
 W tym przypadku użyj klienta języka Python usługi Microsoft Genomics, aby przesłać przepływ pracy przy użyciu następującego polecenia, pomijając polecenia `-b1` i `-b2`:
 

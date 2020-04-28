@@ -1,7 +1,7 @@
 ---
 title: Przesyłanie przepływu pracy przy użyciu wielu danych wejściowych
 titleSuffix: Microsoft Genomics
-description: W tym artykule pokazano, jak przesłać przepływ pracy do usługi Microsoft Genomics, jeśli plik wejściowy zawiera wiele plików FASTQ lub BAM z tego samego przykładu.
+description: W tym artykule pokazano, jak przesłać przepływ pracy do usługi Microsoft Genomics, jeśli plik wejściowy ma wiele plików FASTQ lub BAM z tego samego przykładu.
 services: genomics
 ms.service: genomics
 author: grhuynh
@@ -10,19 +10,19 @@ ms.author: grhuynh
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.openlocfilehash: b426015906a8e17674123c0c3ad2fccb9c43798f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72248568"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Przesyłanie przepływu pracy przy użyciu wielu danych wejściowych z tej samej próbki
 
-W tym artykule pokazano, jak przesłać przepływ pracy do usługi Microsoft Genomics, jeśli plik wejściowy zawiera wiele plików FASTQ lub BAM **pochodzących z tego samego przykładu**. Na przykład w przypadku uruchomienia **tej samej próbki** w wielu pasmach w sekwenserze mógłby on zwrócić parę plików FASTQ dla każdego pasma. Zamiast łączyć te pliki FASTQ przed dopasowywaniem i wywoływaniem wariantów, można bezpośrednio przesłać wszystkie te dane wejściowe do klienta `msgen`. Dane wyjściowe z klienta `msgen` stanowiłyby **pojedynczy zestaw** plików, obejmujący pliki bam, bai i vcf. 
+W tym artykule pokazano, jak przesłać przepływ pracy do usługi Microsoft Genomics, jeśli plik wejściowy ma wiele plików FASTQ lub BAM **pochodzących z tego samego przykładu**. Na przykład w przypadku uruchomienia **tej samej próbki** w wielu pasmach w sekwenserze mógłby on zwrócić parę plików FASTQ dla każdego pasma. Zamiast łączyć te pliki FASTQ przed dopasowywaniem i wywoływaniem wariantów, można bezpośrednio przesłać wszystkie te dane wejściowe do klienta `msgen`. Dane wyjściowe z klienta `msgen` stanowiłyby **pojedynczy zestaw** plików, obejmujący pliki bam, bai i vcf. 
 
 Należy jednak pamiętać, że **nie można** mieszać plików FASTQ i BAM podczas tego samego przesyłania. Ponadto **nie** można przesłać wielu plików FASTQ ani BAM od wielu osób. 
 
-W tym artykule założono, że użytkownik zainstalował i uruchomił klienta `msgen` oraz że zna sposób korzystania z usługi Azure Storage. Jeśli pomyślnie przesłano przepływ pracy przy użyciu podanych przykładowych danych, można przystąpić do kontynuowania tego artykułu. 
+W tym artykule założono, że użytkownik zainstalował i uruchomił klienta `msgen` oraz że zna sposób korzystania z usługi Azure Storage. Jeśli przepływ pracy został pomyślnie przesłany przy użyciu dostarczonych przykładowych danych, możesz kontynuować pracę z tym artykułem. 
 
 
 ## <a name="multiple-bam-files"></a>Wiele plików BAM

@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z łącznością między maszynami wirtualnymi platformy Azure | Dokumenty firmy Microsoft
-description: Dowiedz się, jak rozwiązać problemy z łącznością między maszynami wirtualnymi platformy Azure.
+title: Rozwiązywanie problemów z łącznością między maszynami wirtualnymi platformy Azure | Microsoft Docs
+description: Dowiedz się, jak rozwiązywać problemy z łącznością między maszynami wirtualnymi platformy Azure.
 services: virtual-network
 documentationcenter: na
 author: chadmath
@@ -15,67 +15,67 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: ab3ae45081ecc481cb90af8961174e23c86e84b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71056817"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Rozwiązywanie problemów z łącznością między maszynami wirtualnymi platformy Azure
 
-Mogą wystąpić problemy z łącznością między maszynami wirtualnymi platformy Azure (maszyny wirtualne). Ten artykuł zawiera kroki rozwiązywania problemów ułatwiające rozwiązanie tego problemu. 
+Mogą wystąpić problemy z łącznością między maszynami wirtualnymi platformy Azure. W tym artykule opisano kroki rozwiązywania problemów, które ułatwiają rozwiązanie tego problemu. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="symptom"></a>Objaw
 
-Jedna maszyna wirtualna platformy Azure nie może połączyć się z inną maszyną wirtualną platformy Azure.
+Jedna maszyna wirtualna platformy Azure nie może nawiązać połączenia z inną maszyną wirtualną platformy Azure.
 
 ## <a name="troubleshooting-guidance"></a>Wskazówki dotyczące rozwiązywania problemów 
 
-1. [Sprawdzanie, czy karta sieciowa jest nieprawidłowo skonfigurowana](#step-1-check-whether-nic-is-misconfigured)
-2. [Sprawdzanie, czy ruch sieciowy jest blokowany przez nsg lub UDR](#step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr)
-3. [Sprawdzanie, czy ruch sieciowy jest blokowany przez zaporę maszyn wirtualnych](#step-3-check-whether-network-traffic-is-blocked-by-vm-firewall)
-4. [Sprawdzanie, czy aplikacja lub usługa maszyny Wirtualnej nasłuchuje na porcie](#step-4-check-whether-vm-app-or-service-is-listening-on-the-port)
-5. [Sprawdź, czy problem jest spowodowany przez SNAT](#step-5-check-whether-the-problem-is-caused-by-snat)
-6. [Sprawdzanie, czy ruch jest blokowany przez listy kontroli dostępu dla klasycznej maszyny Wirtualnej](#step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm)
-7. [Sprawdzanie, czy punkt końcowy jest tworzony dla klasycznej maszyny Wirtualnej](#step-7-check-whether-the-endpoint-is-created-for-the-classic-vm)
-8. [Spróbuj połączyć się z udziałem sieciowym maszyny Wirtualnej](#step-8-try-to-connect-to-a-vm-network-share)
-9. [Sprawdź łączność Inter-Vnet](#step-9-check-inter-vnet-connectivity)
+1. [Sprawdź, czy karta sieciowa jest nieprawidłowo skonfigurowana](#step-1-check-whether-nic-is-misconfigured)
+2. [Sprawdź, czy ruch sieciowy jest blokowany przez sieciowej grupy zabezpieczeń czy UDR](#step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr)
+3. [Sprawdź, czy ruch sieciowy jest blokowany przez zaporę maszyny wirtualnej](#step-3-check-whether-network-traffic-is-blocked-by-vm-firewall)
+4. [Sprawdź, czy aplikacja lub usługa maszyny wirtualnej nasłuchuje na porcie](#step-4-check-whether-vm-app-or-service-is-listening-on-the-port)
+5. [Sprawdź, czy problem jest spowodowany przez](#step-5-check-whether-the-problem-is-caused-by-snat)
+6. [Sprawdź, czy ruch jest blokowany przez listy ACL dla klasycznej maszyny wirtualnej](#step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm)
+7. [Sprawdź, czy punkt końcowy został utworzony dla klasycznej maszyny wirtualnej](#step-7-check-whether-the-endpoint-is-created-for-the-classic-vm)
+8. [Próba nawiązania połączenia z udziałem sieciowym maszyny wirtualnej](#step-8-try-to-connect-to-a-vm-network-share)
+9. [Sprawdź łączność między sieciami wirtualnymi](#step-9-check-inter-vnet-connectivity)
 
 ## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 
-Wykonaj następujące kroki, aby rozwiązać problem. Po wykonaniu każdego kroku sprawdź, czy problem został rozwiązany. 
+Wykonaj następujące kroki, aby rozwiązać problem. Po ukończeniu każdego kroku Sprawdź, czy problem został rozwiązany. 
 
-### <a name="step-1-check-whether-nic-is-misconfigured"></a>Krok 1: Sprawdź, czy karta sieciowa jest nieprawidłowo skonfigurowana
+### <a name="step-1-check-whether-nic-is-misconfigured"></a>Krok 1. sprawdzenie, czy karta sieciowa jest nieprawidłowo skonfigurowana
 
-Wykonaj kroki opisane w [obszarze Jak zresetować interfejs sieciowy dla maszyny Wirtualnej systemu Windows platformy Azure](../virtual-machines/windows/reset-network-interface.md). 
+Wykonaj kroki opisane w temacie [jak zresetować interfejs sieciowy dla maszyny wirtualnej platformy Azure z systemem Windows](../virtual-machines/windows/reset-network-interface.md). 
 
 Jeśli problem występuje po zmodyfikowaniu interfejsu sieciowego (NIC), wykonaj następujące kroki:
 
-**Maszyny wirtualne z wieloma kartami sieciowymi**
+**Maszyny wirtualne z obsługą wiele kart sieciowych**
 
 1. Dodaj kartę sieciową.
-2. Rozwiązać problemy w złej karty sieciowej lub usunąć złe KARTY SIECIOWE.  Następnie ponownie dodaj kartę sieciową.
+2. Usuń problemy z niewłaściwej karty sieciowej lub wyjmij nieprawidłową kartę sieciową.  Następnie ponownie Dodaj kartę sieciową.
 
-Aby uzyskać więcej informacji, zobacz [Dodawanie interfejsów sieciowych do maszyn wirtualnych lub ich usuwanie](virtual-network-network-interface-vm.md).
+Aby uzyskać więcej informacji, zobacz [Dodawanie interfejsów sieciowych do lub usuwanie z maszyn wirtualnych](virtual-network-network-interface-vm.md).
 
 **Maszyna wirtualna z jedną kartą sieciową** 
 
-- [Ponowne wdrożenie maszyny Wirtualnej systemu Windows](../virtual-machines/windows/redeploy-to-new-node.md)
-- [Ponowne wdrożenie maszyny Wirtualnej z systemem Linux](../virtual-machines/linux/redeploy-to-new-node.md)
+- [Ponowne wdrażanie maszyny wirtualnej z systemem Windows](../virtual-machines/windows/redeploy-to-new-node.md)
+- [Ponowne wdrażanie maszyny wirtualnej z systemem Linux](../virtual-machines/linux/redeploy-to-new-node.md)
 
-### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Krok 2: Sprawdź, czy ruch sieciowy jest zablokowany przez nsg lub UDR
+### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Krok 2. Sprawdzanie, czy ruch sieciowy jest blokowany przez sieciowej grupy zabezpieczeń czy UDR
 
-Użyj [weryfikacji przepływu IP obserwatora sieciowego](../network-watcher/network-watcher-ip-flow-verify-overview.md) i [rejestrowania przepływu sieciowej sieciowej,](../network-watcher/network-watcher-nsg-flow-logging-overview.md) aby ustalić, czy istnieje network security group (NSG) lub trasa zdefiniowana przez użytkownika (UDR), która zakłóca przepływ ruchu.
+Użyj [Network Watcher sprawdzenia przepływu IP](../network-watcher/network-watcher-ip-flow-verify-overview.md) i [rejestrowania przepływu sieciowej grupy zabezpieczeń](../network-watcher/network-watcher-nsg-flow-logging-overview.md) , aby określić, czy istnieje sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) lub trasa zdefiniowana przez użytkownika (UDR), która zakłóca przepływ ruchu.
 
-### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Krok 3: Sprawdzanie, czy ruch sieciowy jest blokowany przez zaporę maszyn wirtualnych
+### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Krok 3. sprawdzenie, czy ruch sieciowy jest blokowany przez zaporę maszyny wirtualnej
 
-Wyłącz zaporę, a następnie przetestuj wynik. Jeśli problem został rozwiązany, sprawdź ustawienia zapory, a następnie ponownie włącz zaporę.
+Wyłącz zaporę, a następnie przetestuj wynik. Jeśli problem został rozwiązany, sprawdź ustawienia zapory, a następnie ponownie Włącz zaporę.
 
-### <a name="step-4-check-whether-vm-app-or-service-is-listening-on-the-port"></a>Krok 4: Sprawdź, czy aplikacja lub usługa maszyny Wirtualnej nasłuchuje na porcie
+### <a name="step-4-check-whether-vm-app-or-service-is-listening-on-the-port"></a>Krok 4. Sprawdzanie, czy aplikacja lub usługa maszyny wirtualnej nasłuchuje na porcie
 
-Można użyć jednej z następujących metod, aby sprawdzić, czy aplikacja maszyny Wirtualnej lub usługa nasłuchuje na porcie.
+Możesz użyć jednej z następujących metod, aby sprawdzić, czy aplikacja lub usługa maszyny wirtualnej nasłuchuje na porcie.
 
 - Uruchom następujące polecenia, aby sprawdzić, czy serwer nasłuchuje na tym porcie.
 
@@ -87,27 +87,27 @@ Można użyć jednej z następujących metod, aby sprawdzić, czy aplikacja masz
 
     netstat -l
 
-- Uruchom polecenie **telnet** na samej maszynie wirtualnej, aby przetestować port. Jeśli test zakończy się niepowodzeniem, aplikacja lub usługa nie jest skonfigurowana do nasłuchiwać na tym porcie.
+- Uruchom polecenie **Telnet** na maszynie wirtualnej, aby przetestować port. Jeśli test zakończy się niepowodzeniem, aplikacja lub usługa nie jest skonfigurowana do nasłuchiwania na tym porcie.
 
-### <a name="step-5-check-whether-the-problem-is-caused-by-snat"></a>Krok 5: Sprawdź, czy problem jest spowodowany przez SNAT
+### <a name="step-5-check-whether-the-problem-is-caused-by-snat"></a>Krok 5. Sprawdź, czy problem jest spowodowany przez przyłączeniem do niego
 
-W niektórych scenariuszach maszyna wirtualna jest umieszczana za rozwiązaniem równoważenia obciążenia, które ma zależność od zasobów poza platformą Azure. W tych scenariuszach, jeśli występują sporadyczne problemy z połączeniem, problem może być spowodowany [wyczerpaniem portu SNAT](../load-balancer/load-balancer-outbound-connections.md). Aby rozwiązać ten problem, należy utworzyć adres VIP (lub ILPIP dla klasyków) dla każdej maszyny wirtualnej, która znajduje się za modułem równoważenia obciążenia i bezpieczne z NSG lub ACL. 
+W niektórych scenariuszach maszyna wirtualna jest umieszczona za rozwiązaniem równoważenia obciążenia, które ma zależność od zasobów poza platformą Azure. W tych scenariuszach, jeśli wystąpią sporadyczne problemy z połączeniem, problem może być spowodowany [wyczerpaniem portów](../load-balancer/load-balancer-outbound-connections.md). Aby rozwiązać ten problem, Utwórz adres VIP (lub ILPIP dla klasycznej) dla każdej maszyny wirtualnej, która znajduje się za modułem równoważenia obciążenia, i Zabezpiecz z sieciowej grupy zabezpieczeń lub listą ACL. 
 
-### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Krok 6: Sprawdź, czy ruch jest blokowany przez listy kontroli dostępu dla klasycznej maszyny Wirtualnej
+### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Krok 6. Sprawdzanie, czy ruch jest blokowany przez listy ACL dla klasycznej maszyny wirtualnej
 
-Lista kontroli dostępu (ACL) zapewnia możliwość selektywnego zezwalania lub odrzucania ruchu dla punktu końcowego maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Zarządzanie acl w punkcie końcowym](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
+Lista kontroli dostępu (ACL) zapewnia możliwość selektywnego zezwalania na ruch lub odmawiania go dla punktu końcowego maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Zarządzanie listą ACL w punkcie końcowym](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
-### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Krok 7: Sprawdź, czy punkt końcowy jest tworzony dla klasycznej maszyny Wirtualnej
+### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Krok 7. Sprawdzanie, czy punkt końcowy został utworzony dla klasycznej maszyny wirtualnej
 
-Wszystkie maszyny wirtualne utworzone na platformie Azure przy użyciu klasycznego modelu wdrażania mogą automatycznie komunikować się za pośrednictwem kanału sieci prywatnej z innymi maszynami wirtualnymi w tej samej usłudze w chmurze lub w sieci wirtualnej. Jednak komputery w innych sieciach wirtualnych wymagają punktów końcowych do kierowania przychodzącego ruchu sieciowego do maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Jak skonfigurować punkty końcowe](../virtual-machines/windows/classic/setup-endpoints.md).
+Wszystkie maszyny wirtualne utworzone na platformie Azure przy użyciu klasycznego modelu wdrażania mogą automatycznie komunikować się za pośrednictwem kanału sieci prywatnej z innymi maszynami wirtualnymi w tej samej usłudze w chmurze lub sieci wirtualnej. Jednak komputery w innych sieciach wirtualnych wymagają punktów końcowych, aby skierować ruch sieciowy przychodzący do maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [jak skonfigurować punkty końcowe](../virtual-machines/windows/classic/setup-endpoints.md).
 
-### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Krok 8: Spróbuj połączyć się z udziałem sieciowym maszyny Wirtualnej
+### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Krok 8. próba nawiązania połączenia z udziałem sieciowym maszyny wirtualnej
 
-Jeśli nie można połączyć się z udziałem sieciowym maszyny Wirtualnej, problem może być spowodowany przez niedostępne karty sieciowe w maszynie wirtualnej. Aby usunąć niedostępne karty sieciowe, zobacz [Jak usunąć niedostępne karty sieciowe](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
+Jeśli nie można nawiązać połączenia z udziałem sieciowym maszyn wirtualnych, problem może być spowodowany przez niedostępne karty sieciowe w maszynie wirtualnej. Aby usunąć niedostępne karty sieciowe, zobacz [Jak usunąć niedostępne karty sieciowe](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
 
-### <a name="step-9-check-inter-vnet-connectivity"></a>Krok 9: Sprawdź łączność Inter-Vnet
+### <a name="step-9-check-inter-vnet-connectivity"></a>Krok 9. Sprawdzanie łączności między sieciami wirtualnymi
 
-Użyj [network watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) i [NSG Flow Logging,](../network-watcher/network-watcher-nsg-flow-logging-overview.md) aby ustalić, czy istnieje nsg lub UDR, który zakłóca przepływ ruchu. W tym miejscu można również sprawdzić [konfigurację](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections)inter-vnet.
+Użyj [Network Watcher sprawdzenia przepływu IP](../network-watcher/network-watcher-ip-flow-verify-overview.md) i [rejestrowania przepływu sieciowej grupy zabezpieczeń](../network-watcher/network-watcher-nsg-flow-logging-overview.md) , aby określić, czy istnieje sieciowej grupy zabezpieczeń lub UDR, które zakłócają przepływ ruchu. W [tym miejscu](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections)możesz również sprawdzić konfigurację sieci wirtualnej.
 
 ### <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Skontaktuj się z pomocą techniczną.
 Jeśli nadal potrzebujesz pomocy, [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), aby szybko rozwiązać problem.

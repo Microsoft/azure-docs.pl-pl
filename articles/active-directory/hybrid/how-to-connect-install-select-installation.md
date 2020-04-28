@@ -1,6 +1,6 @@
 ---
-title: 'Usługa Azure AD Connect: wybierz typ instalacji | Dokumenty firmy Microsoft'
-description: W tym temacie opisano, jak wybrać typ instalacji, który ma być używany w usłudze Azure AD Connect
+title: 'Azure AD Connect: Wybierz typ instalacji | Microsoft Docs'
+description: W tym temacie omówiono sposób wybierania typu instalacji do użycia w Azure AD Connect
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,62 +17,62 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 90a624a6b3b4696899af0d8606f653df260cc201
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60348284"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Wybieranie typu instalacji do użycia dla programu Azure AD Connect
-Usługa Azure AD Connect ma dwa typy instalacji dla nowej instalacji: ekspresowe i dostosowane. W tym temacie można zdecydować, której opcji użyć podczas instalacji.
+Azure AD Connect ma dwa typy instalacji dla nowej instalacji: Express i dostosowane. Ten temat ułatwia określenie opcji, która ma być używana podczas instalacji.
 
 ## <a name="express"></a>Express
-Express jest najczęstszą opcją i jest używany przez około 90% wszystkich nowych instalacji. Został on zaprojektowany w celu zapewnienia konfiguracji, która działa dla najbardziej typowych scenariuszy klienta.
+Express jest najbardziej powszechną opcją i jest używany przez około 90% wszystkich nowych instalacji. Została zaprojektowana w celu zapewnienia konfiguracji, która działa w przypadku najczęściej spotykanych scenariuszy klientów.
 
-Zakłada się, że:
+Przyjęto założenie:
 
-- Masz jeden las usługi Active Directory lokalnie.
+- Istnieje pojedynczy las Active Directory lokalnie.
 - Masz konto administratora przedsiębiorstwa, którego możesz użyć do instalacji.
-- W lokalnej usłudze Active Directory jest mniej niż 100 000 obiektów.
+- W Active Directory lokalnym znajdują się mniej niż 100 000 obiektów.
 
-Otrzymujesz:
+Uzyskasz:
 
-- [Synchronizacja skrótu haseł](how-to-connect-password-hash-synchronization.md) z lokalnego do usługi Azure AD dla logowania jednokrotnego.
+- [Synchronizacja skrótów haseł](how-to-connect-password-hash-synchronization.md) z lokalnego do usługi Azure AD w celu logowania jednokrotnego.
 - Konfiguracja, która synchronizuje [użytkowników, grupy, kontakty i komputery z systemem Windows 10](concept-azure-ad-connect-sync-default-configuration.md).
-- Synchronizacja wszystkich kwalifikujących się obiektów we wszystkich domenach i we wszystkich systemach organizacyjnych.
+- Synchronizacja wszystkich kwalifikujących się obiektów we wszystkich domenach i we wszystkich jednostkach organizacyjnych.
 - [Automatyczne uaktualnianie](how-to-connect-install-automatic-upgrade.md) jest włączone, aby upewnić się, że zawsze używasz najnowszej dostępnej wersji.
 
-Opcje, w których nadal można korzystać z expressu:
+Opcje, w których można nadal korzystać z programu Express:
 
-- Jeśli nie chcesz synchronizować wszystkich układów organizacyjnych, nadal możesz używać expressu, a na ostatniej stronie odznacz **Rozpocznij proces synchronizacji...***. Następnie uruchom ponownie kreatora instalacji i zmień procesory w [opcjach konfiguracji](how-to-connect-installation-wizard.md#customize-synchronization-options) i włącz zaplanowaną synchronizację.
-- Chcesz włączyć jedną z funkcji w usłudze Azure AD Premium, takich jak zapisywanie hasła. Najpierw przejdź przez express, aby zakończyć początkową instalację. Następnie uruchom ponownie kreatora instalacji i zmień [opcje konfiguracji](how-to-connect-installation-wizard.md#customize-synchronization-options).
+- Jeśli nie chcesz synchronizować wszystkich jednostek organizacyjnych, nadal możesz użyć programu Express i na ostatniej stronie, usuń zaznaczenie * * Rozpocznij proces synchronizacji... * * *. Następnie ponownie uruchom Kreatora instalacji i Zmień jednostki organizacyjne w [opcjach konfiguracji](how-to-connect-installation-wizard.md#customize-synchronization-options) i Włącz zaplanowaną synchronizację.
+- Chcesz włączyć jedną z funkcji w Azure AD — wersja Premium, takich jak zapisywanie zwrotne haseł. Najpierw przejdź przez Express, aby zakończyć instalację początkową. Następnie ponownie uruchom Kreatora instalacji i Zmień [Opcje konfiguracji](how-to-connect-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Niestandardowy
-Dostosowana ścieżka umożliwia o wiele więcej opcji niż ekspresowe. Powinien być używany we wszystkich przypadkach, gdy konfiguracja opisana w poprzedniej sekcji dla express nie jest reprezentatywna dla organizacji.
+Dostosowana ścieżka umożliwia korzystanie z większej liczby opcji niż Express. Powinna być używana we wszystkich przypadkach, w których konfiguracja opisana w poprzedniej sekcji dla Express nie jest reprezentatywna dla organizacji.
 
 Zastosowania:
 
-- Nie masz dostępu do konta administratora przedsiębiorstwa w usłudze Active Directory.
-- Masz więcej niż jeden las lub planujesz zsynchronizować więcej niż jeden las w przyszłości.
-- Domeny w lesie są niedostępne z serwera Connect.
-- Planujesz używać uwierzytelniania federacji lub przekazywania do logowania się użytkownika.
-- Masz więcej niż 100 000 obiektów i musisz użyć pełnego programu SQL Server.
-- Planujesz używać filtrowania opartego na grupach, a nie tylko filtrowania opartego na domenie lub u przedu.
+- Nie masz dostępu do konta administratora przedsiębiorstwa w Active Directory.
+- Masz więcej niż jeden las lub planujesz zsynchronizowanie więcej niż jednego lasu w przyszłości.
+- Domeny w lesie nie są dostępne z serwera Connect.
+- Zamierzasz używać uwierzytelniania federacyjnego lub przekazującego na potrzeby logowania użytkownika.
+- Masz więcej niż 100 000 obiektów i musisz użyć pełnego SQL Server.
+- Planujesz użycie filtrowania opartego na grupach i nie tylko filtrowania opartego na domenie lub jednostce organizacyjnej.
 
 ## <a name="upgrade-from-dirsync"></a>Uaktualnianie przy użyciu narzędzia DirSync
-Jeśli obecnie używasz programu DirSync, wykonaj kroki opisane w [programie Upgrade from DirSync,](how-to-dirsync-upgrade-get-started.md) aby uaktualnić istniejącą konfigurację. Dostępne są dwie różne opcje uaktualnienia:
+Jeśli używasz obecnie narzędzia DirSync, postępuj zgodnie z instrukcjami w sekcji [Uaktualnianie z narzędzia DirSync](how-to-dirsync-upgrade-get-started.md) , aby uaktualnić istniejącą konfigurację. Dostępne są dwie różne opcje uaktualniania:
 
-- Uaktualnienie w miejscu, aby zainstalować connect na tym samym serwerze.
-- Wdrożenie równoległe w celu zainstalowania connect na nowym serwerze, gdy istniejący serwer DirSync jest nadal operacyjny.
+- Uaktualnianie w miejscu do instalacji programu Connect na tym samym serwerze.
+- Wdrożenie równoległe w celu zainstalowania połączenia na nowym serwerze, gdy nadal działa istniejący serwer DirSync.
 
-## <a name="upgrade-from-azure-ad-sync"></a>Uaktualnianie z usługi Azure AD Sync
-Jeśli obecnie używasz usługi Azure AD Sync, możesz wykonać [te same kroki,](how-to-upgrade-previous-version.md) co podczas uaktualniania z jednej wersji Connect do nowszej. Dostępne są dwie różne opcje uaktualnienia:
+## <a name="upgrade-from-azure-ad-sync"></a>Uaktualnij z Azure AD Sync
+Jeśli obecnie używasz Azure AD Sync, możesz wykonać te [same czynności](how-to-upgrade-previous-version.md) co w przypadku uaktualniania z jednej wersji programu do nowszej. Dostępne są dwie różne opcje uaktualniania:
 
-- Uaktualnienie w miejscu, aby zainstalować connect na tym samym serwerze.
-- Migracja wahadłowa w celu zainstalowania connect na nowym serwerze, gdy istniejący serwer usługi Azure AD Sync jest nadal operacyjny.
+- Uaktualnianie w miejscu do instalacji programu Connect na tym samym serwerze.
+- Zasięg — migracja w celu zainstalowania połączenia na nowym serwerze, gdy istniejący serwer Azure AD Sync nadal działa.
 
-## <a name="migrate-from-fim2010-or-mim2016"></a>Migracja z FIM2010 lub MIM2016
-Jeśli obecnie używasz programu Forefront Identity Manager 2010 lub Microsoft Identity Manager 2016 z usługą Azure AD Connector, jedyną opcją jest migracja. Wykonaj kroki opisane w [swing-migration](how-to-upgrade-previous-version.md#swing-migration). W krokach zastąp wszelkie wzmianki o usłudze Azure AD Sync na PROGRAM FIM2010/MIM2016.
+## <a name="migrate-from-fim2010-or-mim2016"></a>Migrowanie z FIM2010 lub programie MIM2016
+Jeśli obecnie używasz programu Forefront Identity Manager 2010 lub Microsoft Identity Manager 2016 z łącznikiem usługi Azure AD, jedyną opcją jest migracja. Wykonaj kroki opisane w sekcji [zasięg migracji](how-to-upgrade-previous-version.md#swing-migration). W tych krokach Zastąp wszelkie wzmianki Azure AD Sync z FIM2010/programie MIM2016.
 
 ## <a name="next-steps"></a>Następne kroki
-W zależności od wybranej opcji użyj tabeli zawartości po lewej stronie, aby znaleźć artykuł ze szczegółowymi krokami.
+W zależności od opcji wybranej do użycia Użyj spisu treści po lewej stronie, aby znaleźć artykuł z szczegółowymi krokami.

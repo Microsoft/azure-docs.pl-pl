@@ -1,6 +1,6 @@
 ---
-title: Uaktualnienie do serwera proxy aplikacji usługi Azure AD | Dokumenty firmy Microsoft
-description: Wybierz rozwiązanie proxy, które jest najlepsze w przypadku uaktualniania z usługi Microsoft Forefront lub Unified Access Gateway.
+title: Uaktualnianie do usługi Azure serwer proxy aplikacji usługi Azure AD | Microsoft Docs
+description: Wybierz, które rozwiązanie proxy jest najlepsze w przypadku uaktualniania z programu Microsoft Forefront lub ujednoliconej bramy dostępu.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,49 +17,49 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4790dc7ebeeee3407e89bcf38d7e3f25699ed328
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67108405"
 ---
 # <a name="compare-remote-access-solutions"></a>Porównywanie rozwiązań dostępu zdalnego
 
-Usługa Azure Active Directory Application Proxy to jedno z dwóch rozwiązań dostępu zdalnego, które oferuje firma Microsoft. Drugi to serwer proxy aplikacji sieci Web, wersja lokalna. Te dwa rozwiązania zastępują wcześniejsze produkty oferowane przez firmę Microsoft: Microsoft Forefront Threat Management Gateway (TMG) i Unified Access Gateway (UAG). Ten artykuł służy do zrozumienia, jak te cztery rozwiązania porównują się ze sobą. Dla tych z Was, którzy nadal korzystają z przestarzałych rozwiązań TMG lub UAG, użyj tego artykułu, aby zaplanować migrację do jednego z serwera proxy aplikacji. 
+Serwer proxy aplikacji usługi Azure Active Directory jest jednym z dwóch rozwiązań dostępu zdalnego oferowanych przez firmę Microsoft. Druga to serwer proxy aplikacji sieci Web, wersja lokalna. Te dwa rozwiązania zastępują wcześniejsze produkty oferowane przez firmę Microsoft: Microsoft Forefront Threat Management Gateway (TMG) i Unified Access Gateway (UAG). Skorzystaj z tego artykułu, aby zrozumieć, jak te cztery rozwiązania porównują ze sobą. Aby nadal korzystać z przestarzałych rozwiązań TMG lub UAG, Skorzystaj z tego artykułu w celu zaplanowania migracji do jednego z serwerów proxy aplikacji. 
 
 
 ## <a name="feature-comparison"></a>Porównanie funkcji
 
-Ta tabela służy do zrozumienia, jak brama zarządzania zagrożeniami (TMG), brama ujednoliconego dostępu (UAG), serwer proxy aplikacji sieci Web (WAP) i serwer proxy aplikacji usługi Azure AD (AP) są ze sobą porównywane.
+Skorzystaj z tej tabeli, aby zrozumieć, jak Brama zarządzania zagrożeniami (TMG), Unified Access Gateway (UAG), serwer proxy aplikacji sieci Web (WAP) i usługa Azure serwer proxy aplikacji usługi Azure AD (AP) porównują się ze sobą.
 
-| Funkcja | Tmg | Uag | WAP | Interfejs API |
+| Funkcja | TMG | UAG | WAP | Interfejs API |
 | ------- | --- | --- | --- | --- |
 | Uwierzytelnianie certyfikatu | Tak | Tak | - | - |
 | Selektywne publikowanie aplikacji przeglądarki | Tak | Tak | Tak | Tak |
-| Preauthentication i logowanie jednokrotne | Tak | Tak | Tak | Tak | 
+| Wstępne uwierzytelnianie i logowanie jednokrotne | Tak | Tak | Tak | Tak | 
 | Zapora warstwy 2/3 | Tak | Tak | - | - |
-| Możliwości serwera proxy do przodu | Tak | - | - | - |
+| Przekazywanie możliwości serwera proxy | Tak | - | - | - |
 | Możliwości sieci VPN | Tak | Tak | - | - |
-| Obsługa bogatego protokołu | - | Tak | Tak, jeśli działa na HTTP | Tak, jeśli działa na HTTP lub za pośrednictwem bramy pulpitu zdalnego |
-| Służy jako serwer proxy usługi ADFS | - | Tak | Tak | - |
-| Jeden portal dostępu do aplikacji | - | Tak | - | Tak |
+| Obsługa zaawansowanych protokołów | - | Tak | Tak, w przypadku uruchamiania za pośrednictwem protokołu HTTP | Tak, w przypadku uruchamiania za pośrednictwem protokołu HTTP lub za pośrednictwem bramy Pulpit zdalny |
+| Służy jako serwer proxy usług ADFS | - | Tak | Tak | - |
+| Jeden portal na potrzeby dostępu do aplikacji | - | Tak | - | Tak |
 | Tłumaczenie łącza treści odpowiedzi | Tak | Tak | - | Tak | 
-| Uwierzytelnianie za pomocą nagłówków | - | Tak | - | Tak, z PingAccess | 
+| Uwierzytelnianie z nagłówkami | - | Tak | - | Tak, z PingAccess | 
 | Zabezpieczenia w skali chmury | - | - | - | Tak | 
 | Dostęp warunkowy | - | Tak | - | Tak |
-| Brak komponentów w strefie zdemilitaryzowanej (DMZ) | - | - | - | Tak |
+| Brak składników w strefie zdemilitaryzowana (DMZ) | - | - | - | Tak |
 | Brak połączeń przychodzących | - | - | - | Tak |
 
-W większości scenariuszy zaleca się usługi Azure AD Application Proxy jako nowoczesne rozwiązanie. Serwer proxy aplikacji sieci Web jest preferowany tylko w scenariuszach, które wymagają serwera proxy dla usług AD FS i nie można używać domen niestandardowych w usłudze Azure Active Directory. 
+W przypadku większości scenariuszy zalecamy korzystanie z platformy Azure serwer proxy aplikacji usługi Azure AD jako nowoczesnego rozwiązania. Serwer proxy aplikacji sieci Web jest preferowany tylko w scenariuszach, które wymagają serwera proxy dla AD FS i nie można używać domen niestandardowych w programie Azure Active Directory. 
 
-Usługa Azure AD Application Proxy oferuje unikatowe korzyści w porównaniu do podobnych produktów, w tym:
+Usługa Azure serwer proxy aplikacji usługi Azure AD oferuje unikatowe korzyści w porównaniu do podobnych produktów, w tym:
 
-- Rozszerzanie usługi Azure AD na zasoby lokalne
-   - Bezpieczeństwo i ochrona w skali chmury
-   - Funkcje, takie jak dostęp warunkowy i uwierzytelnianie wieloskładnikowe, są łatwe do
-- Brak komponentów w strefie zdemilitaryzowanej
-- Nie są wymagane połączenia przychodzące
-- Jeden panel dostępu, do który użytkownicy mogą przejść dla wszystkich swoich aplikacji, w tym aplikacji O365, scalonej usługi Azure AD SaaS i lokalnych aplikacji sieci Web. 
+- Rozszerzanie usługi Azure AD do zasobów lokalnych
+   - Zabezpieczenia i ochrona w skali chmury
+   - Funkcje, takie jak dostęp warunkowy i Multi-Factor Authentication, można łatwo włączyć
+- Brak składników w strefie zdemilitaryzowana
+- Nie są wymagane żadne połączenia przychodzące
+- Jeden panel dostępu, do którego użytkownicy mogą przejść dla wszystkich swoich aplikacji, w tym usługi O365, zintegrowane aplikacje SaaS w usłudze Azure AD i lokalne aplikacje sieci Web. 
 
 
 ## <a name="next-steps"></a>Następne kroki

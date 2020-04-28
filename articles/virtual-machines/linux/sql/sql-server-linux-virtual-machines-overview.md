@@ -13,10 +13,10 @@ ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: d376672336845958fb6434a78177f42aca938229
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70081970"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Omówienie programu SQL Server na maszynach wirtualnych platformy Azure (system Linux)
@@ -65,15 +65,15 @@ Po skonfigurowaniu programu SQL Server w systemie Linux zainstaluj pakiet aparat
 
 * [Wprowadzenie do usługi Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
-### <a name="networking"></a>Obsługa sieci
+### <a name="networking"></a>Networking
 
-* [Omówienie sieci wirtualnej](../../../virtual-network/virtual-networks-overview.md)
+* [Przegląd Virtual Network](../../../virtual-network/virtual-networks-overview.md)
 * [Adresy IP na platformie Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Tworzenie w pełni kwalifikowanej nazwy domeny w witrynie Azure Portal](../portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 
-* [Dokumentacja programu SQL Server on Linux](https://docs.microsoft.com/sql/linux)
+* [Dokumentacja SQL Server on Linux](https://docs.microsoft.com/sql/linux)
 * [Porównanie usługi Azure SQL Database](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
 
 ## <a name="next-steps"></a>Następne kroki

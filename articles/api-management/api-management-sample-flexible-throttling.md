@@ -1,6 +1,6 @@
 ---
 title: Advanced request throttling with Azure API Management (Zaawansowane ograniczanie żądań za pomocą usługi Azure API Management)
-description: Dowiedz się, jak tworzyć i stosować elastyczne zasady ograniczania przydziałów i szybkości za pomocą usługi Azure API Management.
+description: Dowiedz się, jak tworzyć i stosować elastyczne zasady ograniczania limitów przydziału i szybkości za pomocą usługi Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -15,27 +15,27 @@ ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
 ms.openlocfilehash: 467d9cee74567fc0d19031773415675ae7c51818
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71066768"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Advanced request throttling with Azure API Management (Zaawansowane ograniczanie żądań za pomocą usługi Azure API Management)
-Możliwość ograniczania przychodzących żądań jest kluczową rolą usługi Azure API Management. Kontrolując liczbę żądań lub całkowitą liczbę przesłanych żądań/danych, usługa API Management umożliwia dostawcom interfejsu API ochronę interfejsów API przed nadużyciami i tworzenie wartości dla różnych warstw produktów interfejsu API.
+Możliwość ograniczania żądań przychodzących jest kluczową rolą usługi Azure API Management. Kontrolując częstotliwość żądań lub łączne żądania/przesyłane dane, API Management umożliwia dostawcom interfejsu API ochronę swoich interfejsów API przed nadużyciami i tworzenie wartości dla różnych warstw produktu interfejsu API.
 
-## <a name="product-based-throttling"></a>Ograniczanie przepustowości na podstawie produktu
-Do tej pory możliwości ograniczania szybkości zostały ograniczone do zakresu do określonej subskrypcji produktu, zdefiniowanej w witrynie Azure portal. Jest to przydatne dla dostawcy interfejsu API do stosowania limitów na deweloperów, którzy zarejestrowali się do korzystania z ich interfejsu API, jednak nie pomaga, na przykład, w ograniczaniu poszczególnych użytkowników końcowych interfejsu API. Jest możliwe, że dla pojedynczego użytkownika aplikacji dewelopera do korzystania z całego przydziału, a następnie uniemożliwić innym klientom dewelopera możliwość korzystania z aplikacji. Ponadto kilku klientów, którzy mogą generować dużą liczbę żądań, może ograniczyć dostęp do okazjonalnych użytkowników.
+## <a name="product-based-throttling"></a>Ograniczanie na podstawie produktu
+Do tej pory możliwości ograniczania przepustowości zostały ograniczone do zakresu określonej subskrypcji produktu zdefiniowanej w Azure Portal. Jest to przydatne w przypadku, gdy dostawca interfejsu API stosuje limity dla deweloperów, którzy zarejestrowali się w celu korzystania z interfejsu API, ale nie jest to pomocne, na przykład w przypadku ograniczania indywidualnych użytkowników końcowych interfejsu API. Istnieje możliwość, że dla jednego użytkownika aplikacji dewelopera będzie można wykorzystać cały przydział, a następnie uniemożliwić innym klientom dewelopera korzystanie z aplikacji. Ponadto kilku klientów, którzy mogą generować duże ilości żądań, mogą ograniczyć dostęp do użytkowników okazjonalnych.
 
-## <a name="custom-key-based-throttling"></a>Ograniczanie na podstawie klucza niestandardowego
+## <a name="custom-key-based-throttling"></a>Ograniczanie oparte na kluczach niestandardowych
 
 > [!NOTE]
-> Zasady `rate-limit-by-key` `quota-by-key` i zasady nie są dostępne w warstwie Zużycie usługi Azure API Management. 
+> Zasady `rate-limit-by-key` i `quota-by-key` nie są dostępne w ramach warstwy zużycia usługi Azure API Management. 
 
-Nowe zasady [limit stawki po kluczu](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) i [przydział po kluczu](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) zapewniają bardziej elastyczne rozwiązanie do kontroli ruchu. Te nowe zasady umożliwiają definiowanie wyrażeń w celu identyfikowania kluczy, które są używane do śledzenia użycia ruchu. Sposób, w jaki to działa, jest najłatwiejsze zilustrowane przykładem. 
+Nowe zasady [Rate-limit-by-Key](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) i [Quote według klucza](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) zapewniają bardziej elastyczne rozwiązanie do kontroli ruchu. Te nowe zasady umożliwiają definiowanie wyrażeń w celu identyfikowania kluczy, które są używane do śledzenia użycia ruchu sieciowego. Sposób, w jaki to działa, jest najłatwiejszym zilustrowanym przykładem. 
 
 ## <a name="ip-address-throttling"></a>Ograniczanie adresów IP
-Poniższe zasady ograniczają adres IP jednego klienta tylko do 10 wywołań co minutę, w sumie 1 000 000 wywołań i 10 000 kilobajtów przepustowości miesięcznie. 
+Poniższe zasady ograniczają pojedynczy adres IP klienta tylko do 10 wywołań co minutę z łączną liczbą wywołań 1 000 000 i 10 000 KB przepustowości miesięcznie. 
 
 ```xml
 <rate-limit-by-key  calls="10"
@@ -48,10 +48,10 @@ Poniższe zasady ograniczają adres IP jednego klienta tylko do 10 wywołań co 
           counter-key="@(context.Request.IpAddress)" />
 ```
 
-Jeśli wszyscy klienci w Internecie używali unikatowego adresu IP, może to być skuteczny sposób ograniczenia użycia przez użytkownika. Jest jednak prawdopodobne, że wielu użytkowników udostępnia jeden publiczny adres IP ze względu na dostęp do Internetu za pośrednictwem urządzenia NAT. Mimo to dla interfejsów API, które umożliwiają nieuwierzyty dostęp `IpAddress` może być najlepszym rozwiązaniem.
+Jeśli wszyscy klienci w Internecie użyły unikatowego adresu IP, może to być efektywny sposób ograniczania użycia przez użytkownika. Jednak prawdopodobnie wielu użytkowników współużytkuje jeden publiczny adres IP z powodu uzyskiwania dostępu do Internetu za pośrednictwem urządzenia NAT. Pomimo tego dla interfejsów API, które zezwalają na dostęp `IpAddress` nieuwierzytelnionym, może być najlepszą opcją.
 
 ## <a name="user-identity-throttling"></a>Ograniczanie tożsamości użytkownika
-Jeśli użytkownik końcowy jest uwierzytelniony, następnie klucz ograniczania przepustowości mogą być generowane na podstawie informacji, które jednoznacznie identyfikuje tego użytkownika.
+W przypadku uwierzytelnienia użytkownika końcowego klucz ograniczenia przepustowości może zostać wygenerowany na podstawie informacji, które jednoznacznie identyfikują tego użytkownika.
 
 ```xml
 <rate-limit-by-key calls="10"
@@ -59,13 +59,13 @@ Jeśli użytkownik końcowy jest uwierzytelniony, następnie klucz ograniczania 
     counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
 ```
 
-W tym przykładzie pokazano, jak wyodrębnić nagłówek autoryzacji, przekonwertować go na `JWT` obiekt i użyć tematu tokenu do zidentyfikowania użytkownika i użycia go jako klucza ograniczającego szybkość. Jeśli tożsamość użytkownika jest `JWT` przechowywana w jednym z innych oświadczeń, ta wartość może być używana w jego miejscu.
+W tym przykładzie pokazano, jak wyodrębnić nagłówek autoryzacji, przekonwertować go na `JWT` obiekt i użyć podmiotu tokenu, aby zidentyfikować użytkownika i użyć go jako klucza ograniczającego szybkość. Jeśli tożsamość użytkownika jest przechowywana w `JWT` postaci jako jednego z innych oświadczeń, ta wartość może zostać użyta w swoim miejscu.
 
 ## <a name="combined-policies"></a>Połączone zasady
-Mimo że nowe zasady ograniczania przepustowości zapewniają większą kontrolę niż istniejące zasady ograniczania przepustowości, nadal istnieje wartość łącząca obie możliwości. Ograniczanie według klucza subskrypcji produktu[(Ogranicz szybkość wywołania według subskrypcji](/azure/api-management/api-management-access-restriction-policies#LimitCallRate) i [Ustaw przydział użycia według subskrypcji)](/azure/api-management/api-management-access-restriction-policies#SetUsageQuota)to świetny sposób na umożliwienie zarabiania na interfejsie API przez ładowanie na podstawie poziomów użycia. Drobniejsze kontroli jest w stanie przepustnicy przez użytkownika jest komplementarne i zapobiega zachowanie jednego użytkownika z degradacji doświadczenia innego. 
+Mimo że nowe zasady ograniczania przepustowości zapewniają większą kontrolę niż istniejące zasady ograniczania przepustowości, wciąż łączą się funkcje. Ograniczanie według klucza subskrypcji produktu ([ograniczanie liczby wywołań przez subskrypcję](/azure/api-management/api-management-access-restriction-policies#LimitCallRate) i [Ustawianie przydziału użycia przez subskrypcję](/azure/api-management/api-management-access-restriction-policies#SetUsageQuota)) to doskonały sposób na umożliwienie zarabiając interfejsu API przez naliczanie opłat na podstawie poziomów użycia. Dokładniejsza kontrola nad możliwością ograniczania przez użytkownika jest uzupełniana i uniemożliwia zachowanie jednego użytkownika z obniżania wydajności innego. 
 
-## <a name="client-driven-throttling"></a>Ograniczanie przepustowości z napędem klienta
-Gdy klucz ograniczania jest zdefiniowany przy użyciu [wyrażenia zasad,](/azure/api-management/api-management-policy-expressions)to dostawca interfejsu API wybiera sposób ograniczania przepustowości. Jednak deweloper może chcieć kontrolować, jak rate ograniczyć własnych klientów. Może to być włączone przez dostawcę interfejsu API, wprowadzając niestandardowy nagłówek, aby umożliwić aplikacji klienckiej dewelopera do komunikowania klucza do interfejsu API.
+## <a name="client-driven-throttling"></a>Ograniczanie przepustowości przez klienta
+Gdy klucz ograniczenia jest zdefiniowany przy użyciu [wyrażenia zasad](/azure/api-management/api-management-policy-expressions), jest to dostawca interfejsu API, który wybiera zakres ograniczania. Jednak deweloper może chcieć kontrolować sposób, w jaki klasyfikują swoich klientów. Może to być możliwe przez dostawcę interfejsu API przez wprowadzenie niestandardowego nagłówka, aby umożliwić aplikacji klienckiej dewelopera komunikowanie się z kluczem do interfejsu API.
 
 ```xml
 <rate-limit-by-key calls="100"
@@ -73,11 +73,11 @@ Gdy klucz ograniczania jest zdefiniowany przy użyciu [wyrażenia zasad,](/azure
           counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
 ```
 
-Dzięki temu aplikacji klienckiej dewelopera, aby wybrać, jak chcą utworzyć klucz ograniczania szybkości. Deweloperzy klienta można utworzyć własne warstwy stawek przez przydzielanie zestawów kluczy do użytkowników i obracanie użycia klucza.
+Dzięki temu aplikacja kliencka programisty może wybrać, w jaki sposób chcesz utworzyć klucz ograniczający szybkość. Deweloperzy klientów mogą tworzyć własne warstwy stawki, przydzielając zestawy kluczy do użytkowników i obracając użycie klucza.
 
 ## <a name="summary"></a>Podsumowanie
-Usługa Azure API Management zapewnia ograniczanie szybkości i kwotowania w celu ochrony i zwiększenia wartości usługi interfejsu API. Nowe zasady ograniczania przepustowości z niestandardowymi regułami zakresu umożliwiają lepszą kontrolę nad tymi zasadami, aby umożliwić klientom tworzenie jeszcze lepszych aplikacji. Przykłady w tym artykule zademonstrować użycie tych nowych zasad przez produkcję szybkości ograniczania kluczy z adresami IP klienta, tożsamości użytkownika i wartości wygenerowane przez klienta. Istnieje jednak wiele innych części wiadomości, które mogą być używane, takie jak agent użytkownika, fragmenty ścieżki adresu URL, rozmiar wiadomości.
+Usługa Azure API Management oferuje funkcję ograniczania szybkości i oferty do ochrony i dodawania wartości do usługi interfejsu API. Nowe zasady ograniczania przepustowości z niestandardowymi regułami określania zakresu umożliwiają dokładniejszą kontrolę nad tymi zasadami, aby umożliwić klientom tworzenie jeszcze lepszych aplikacji. W przykładach w tym artykule przedstawiono sposób korzystania z tych nowych zasad przez klucze ograniczające szybkość produkcji z wykorzystaniem adresów IP klientów, tożsamości użytkowników i wartości generowanych przez klientów. Istnieje jednak wiele innych części komunikatu, których można użyć, takich jak agent użytkownika, fragmenty ścieżek adresów URL, rozmiar wiadomości.
 
 ## <a name="next-steps"></a>Następne kroki
-Prześlij nam swoją opinię jako problem z gitHubem na ten temat. Byłoby wspaniale usłyszeć o innych potencjalnych kluczowych wartości, które były logicznym wyborem w scenariuszach.
+Przekaż nam swoją opinię jako problem z usługą GitHub dotyczącą tego tematu. Warto dowiedzieć się więcej na temat innych potencjalnych wartości kluczowych, które były logiczną wyborem w scenariuszach.
 

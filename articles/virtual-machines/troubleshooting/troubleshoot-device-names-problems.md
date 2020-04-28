@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów ze zmianami nazw urządzeń maszyn wirtualnych z systemem Linux na platformie Azure | Dokumenty firmy Microsoft
+title: Rozwiązywanie problemów z nazwami urządzeń maszyny wirtualnej z systemem Linux na platformie Azure | Microsoft Docs
 description: Wyjaśnia, dlaczego nazwy urządzeń maszyn wirtualnych z systemem Linux zmieniają się i jak rozwiązać problem.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,42 +15,42 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71058201"
 ---
-# <a name="troubleshoot-linux-vm-device-name-changes"></a>Rozwiązywanie problemów ze zmianami nazwy urządzenia maszyny Wirtualnej w systemie Linux
+# <a name="troubleshoot-linux-vm-device-name-changes"></a>Rozwiązywanie problemów ze zmianami nazw urządzeń maszyny wirtualnej z systemem Linux
 
-W tym artykule wyjaśniono, dlaczego nazwy urządzeń zmieniają się po ponownym uruchomieniu maszyny Wirtualnej systemu Linux lub ponownym podmociniu dysków z danymi. Artykuł zawiera również rozwiązania tego problemu.
+W tym artykule wyjaśniono, dlaczego nazwy urządzeń są zmieniane po ponownym uruchomieniu maszyny wirtualnej z systemem Linux lub dołączeniu dysków danych. Artykuł zawiera również rozwiązania tego problemu.
 
 ## <a name="symptoms"></a>Objawy
-Podczas uruchamiania maszyn wirtualnych z systemem Linux na platformie Microsoft Azure mogą wystąpić następujące problemy:
+Podczas uruchamiania maszyn wirtualnych z systemem Linux w Microsoft Azure mogą wystąpić następujące problemy:
 
-- Maszyna wirtualna nie uruchamia się po ponownym uruchomieniu.
-- Gdy dyski danych są odłączane i ponownie podłączane, nazwy urządzeń dyskowych są zmieniane.
-- Aplikacja lub skrypt, który odwołuje się do dysku przy użyciu nazwy urządzenia, kończy się niepowodzeniem, ponieważ nazwa urządzenia została zmieniona.
+- Rozruch maszyny wirtualnej nie powiedzie się po ponownym uruchomieniu.
+- Po odłączeniu i odłączeniu dysków danych nazwy urządzeń dyskowych są zmieniane.
+- Aplikacja lub skrypt odwołujący się do dysku przy użyciu nazwy urządzenia nie powiedzie się, ponieważ zmieniono nazwę urządzenia.
 
 ## <a name="cause"></a>Przyczyna
 
-Ścieżki urządzeń w systemie Linux nie są gwarantowane, aby być spójne podczas ponownego uruchamiania. Nazwy urządzeń składają się z głównych cyfr (liter) i pomniejszych. Gdy sterownik urządzenia magazynującego Linuksa wykryje nowe urządzenie, kierowca przypisuje do urządzenia główne i pomocnicze numery z dostępnego zakresu. Po usunięciu urządzenia numery urządzeń są zwalniane do ponownego użycia.
+Ścieżki urządzeń w systemie Linux nie są gwarantowane w przypadku ponownych uruchomień. Nazwy urządzeń składają się z numerów głównych (liter) i liczb pomocniczych. Gdy sterownik urządzenia magazynującego systemu Linux wykryje nowe urządzenie, sterownik przypisze do urządzenia wartości główne i pomocnicze z dostępnego zakresu. Po usunięciu urządzenia numery urządzeń są zwalniane do ponownego użycia.
 
-Problem występuje, ponieważ skanowanie urządzenia w systemie Linux jest zaplanowane przez podsystem SCSI odbywa się asynchronicznie. W rezultacie nazwa ścieżki urządzenia może się różnić w zależności od ponownego uruchomienia.
+Ten problem występuje, ponieważ w systemie Linux zaplanowano zaplanowanie asynchronicznego działania przez podsystem SCSI. W efekcie nazwa ścieżki urządzenia może się różnić w zależności od ponownych uruchomień.
 
 ## <a name="solution"></a>Rozwiązanie
 
-Aby rozwiązać ten problem, użyj nazewnictwa trwałego. Istnieją cztery sposoby używania nazewnictwa trwałego: według etykiety systemu plików, identyfikatora UUID, identyfikatora lub ścieżki. Zaleca się używanie etykiety systemu plików lub UUID dla maszyn wirtualnych z systemem Azure Linux.
+Aby rozwiązać ten problem, Użyj trwałego nazewnictwa. Istnieją cztery metody używania trwałego nazewnictwa: według etykiety systemu plików, identyfikatora UUID lub ścieżki. Zalecamy używanie etykiety systemu plików lub identyfikatora UUID dla maszyn wirtualnych z systemem Linux.
 
-Większość dystrybucji zapewnia `fstab` parametry **nofail** lub **nobootwait.** Te parametry umożliwiają uruchomienie systemu, gdy dysk nie może zamontować podczas uruchamiania. Więcej informacji na temat tych parametrów można znaleźć w dokumentacji dystrybucji. Aby uzyskać informacje na temat konfigurowania maszyny Wirtualnej z systemem Linux do używania UUID podczas dodawania dysku z danymi, zobacz [Łączenie się z maszyną wirtualną z systemem Linux](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk)w celu zainstalowania nowego dysku .
+Większość dystrybucji zapewnia `fstab` parametry **nofail** lub **nobootwait** . Te parametry umożliwiają rozruch systemu w przypadku niepowodzenia instalacji dysku podczas uruchamiania. Zapoznaj się z dokumentacją dystrybucji, aby uzyskać więcej informacji o tych parametrach. Aby uzyskać informacje na temat konfigurowania maszyny wirtualnej z systemem Linux do używania identyfikatora UUID podczas dodawania dysku danych, zobacz [nawiązywanie połączenia z maszyną wirtualną z systemem Linux w celu zainstalowania nowego dysku](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
-Gdy agent systemu Azure Linux jest zainstalowany na maszynie Wirtualnej, agent używa reguł Udev do konstruowania zestawu dowiązań symbolicznych w ramach /dev/disk/azure path. Aplikacje i skrypty używają reguł Udev do identyfikowania dysków dołączonych do maszyny Wirtualnej, wraz z typem dysku i LUN dysku.
+Gdy Agent systemu Linux platformy Azure jest zainstalowany na maszynie wirtualnej, agent używa reguł udev do konstruowania zestawu linków symbolicznych pod ścieżką/dev/Disk/Azure. Aplikacje i skrypty używają reguł udev do identyfikowania dysków dołączonych do maszyny wirtualnej, a także typu dysku i jednostek LUN dysku.
 
-Jeśli twój fstab został już edytowany w taki sposób, że maszyna wirtualna nie uruchamia się i nie można ssh do maszyny wirtualnej, można użyć [konsoli szeregowej maszyny Wirtualnej,](./serial-console-linux.md) aby przejść do [trybu pojedynczego użytkownika](./serial-console-grub-single-user-mode.md) i zmodyfikować fstab.
+Jeśli użytkownik edytuje już fstab w taki sposób, że maszyna wirtualna nie jest uruchamiana i nie można przeprowadzić połączenia SSH z maszyną wirtualną, można użyć [konsoli szeregowej maszyny wirtualnej](./serial-console-linux.md) w celu przejścia do [trybu jednego użytkownika](./serial-console-grub-single-user-mode.md) i zmodyfikowania fstab.
 
-### <a name="identify-disk-luns"></a>Identyfikowanie sieci LUN dysków
+### <a name="identify-disk-luns"></a>Identyfikowanie jednostek LUN dysku
 
-Aplikacje używają LUN, aby znaleźć wszystkie podłączone dyski i skonstruować dowiązania symboliczne. Agent systemu Azure Linux zawiera reguły Udev, które konfigurują łącza symboliczne z jednostki LUN do urządzeń:
+Aplikacje używają jednostek LUN do znajdowania wszystkich dołączonych dysków i konstruowania linków symbolicznych. Agent systemu Azure Linux zawiera reguły udev, które konfigurują linki symboliczne z jednostki LUN do urządzeń:
 
     $ tree /dev/disk/azure
 
@@ -67,7 +67,7 @@ Aplikacje używają LUN, aby znaleźć wszystkie podłączone dyski i skonstruow
         ├── lun1-part2 -> ../../../sdd2
         └── lun1-part3 -> ../../../sdd3
 
-Informacje o jednostce LUN z konta `lsscsi` gościa systemu Linux są pobierane za pomocą lub podobnego narzędzia:
+Informacje o numerze LUN z konta gościa systemu Linux `lsscsi` są pobierane za pomocą programu lub podobnego narzędzia:
 
       $ sudo lsscsi
 
@@ -81,7 +81,7 @@ Informacje o jednostce LUN z konta `lsscsi` gościa systemu Linux są pobierane 
 
       [5:0:0:1] disk Msft Virtual Disk 1.0 /dev/sdd
 
-Informacje o jednostce LUN gościa są używane z metadanymi subskrypcji platformy Azure w celu zlokalizowania dysku VHD w usłudze Azure Storage zawierającego dane partycji. Na przykład można użyć `az` interfejsu wiersza polecenia:
+Informacje o jednostce LUN gościa są używane w metadanych subskrypcji platformy Azure w celu zlokalizowania wirtualnego dysku twardego w usłudze Azure Storage, który zawiera dane partycji. Można na przykład użyć `az` interfejsu wiersza polecenia:
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
     [
@@ -111,9 +111,9 @@ Informacje o jednostce LUN gościa są używane z metadanymi subskrypcji platfor
       }
     ]
 
-### <a name="discover-filesystem-uuids-by-using-blkid"></a>Odnajduj identyfikatory UUID systemu plików przy użyciu blkid
+### <a name="discover-filesystem-uuids-by-using-blkid"></a>Odnajdź Identyfikatory UUID systemu plików przy użyciu blkid
 
-Aplikacje i skrypty `blkid`odczytywać dane wyjściowe lub podobne źródła informacji, do konstruowania dowiązań symbolicznych w /dev path. Dane wyjściowe pokazują identyfikatory UUID wszystkich dysków podłączonych do maszyny Wirtualnej i skojarzonego z nimi pliku urządzenia:
+Aplikacje i skrypty odczytują dane wyjściowe `blkid`lub podobne źródła informacji, aby skonstruować linki symboliczne w ścieżce/dev. Dane wyjściowe pokazują Identyfikatory UUID wszystkich dysków dołączonych do maszyny wirtualnej i ich skojarzony plik urządzenia:
 
     $ sudo blkid -s UUID
 
@@ -122,7 +122,7 @@ Aplikacje i skrypty `blkid`odczytywać dane wyjściowe lub podobne źródła inf
     /dev/sdb1: UUID="176250df-9c7c-436f-94e4-d13f9bdea744"
     /dev/sdc1: UUID="b0048738-4ecc-4837-9793-49ce296d2692"
 
-Reguły Udev agenta systemu Azure Linux konstruują zestaw dowiązań symbolicznych w ścieżce /dev/disk/azure:
+Reguły udev agenta systemu Azure Linux konstruują zestaw linków symbolicznych w ścieżce/dev/Disk/Azure:
 
     $ ls -l /dev/disk/azure
 
@@ -132,28 +132,28 @@ Reguły Udev agenta systemu Azure Linux konstruują zestaw dowiązań symboliczn
     lrwxrwxrwx 1 root root  9 Jun  2 23:17 root -> ../../sda
     lrwxrwxrwx 1 root root 10 Jun  2 23:17 root-part1 -> ../../sda1
 
-Aplikacje używają łączy do identyfikowania urządzenia dysku rozruchowego i dysku zasobu (efemerycznego). Na platformie Azure aplikacje powinny wyglądać w /dev/disk/azure/root-part1 lub /dev/disk/azure-resource-part1 ścieżek do odnajdowania tych partycji.
+Aplikacje używają linków do identyfikowania urządzenia dysku rozruchowego i dysku zasobów (tymczasowych). Na platformie Azure aplikacje powinny odszukać ścieżki/dev/Disk/Azure/root-part1 lub/dev/Disk/Azure-Resource-part1, aby odnaleźć te partycje.
 
-Wszystkie dodatkowe partycje `blkid` z listy znajdują się na dysku danych. Aplikacje utrzymują identyfikator UUID dla tych partycji i używają ścieżki do odnajdowania nazwy urządzenia w czasie wykonywania:
+Wszystkie dodatkowe partycje z `blkid` listy znajdują się na dysku z danymi. Aplikacje utrzymują identyfikator UUID dla tych partycji i używają ścieżki do odnajdywania nazwy urządzenia w czasie wykonywania:
 
     $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
 
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
 
-### <a name="get-the-latest-azure-storage-rules"></a>Pobierz najnowsze reguły usługi Azure Storage
+### <a name="get-the-latest-azure-storage-rules"></a>Pobieranie najnowszych reguł usługi Azure Storage
 
-Aby uzyskać najnowsze reguły usługi Azure Storage, uruchom następujące polecenia:
+Aby uzyskać najnowsze zasady usługi Azure Storage, uruchom następujące polecenia:
 
     # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
     # sudo udevadm trigger --subsystem-match=block
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 Aby uzyskać więcej informacji zobacz następujące artykuły:
 
-- [Ubuntu: Korzystanie z UUID](https://help.ubuntu.com/community/UsingUUID)
-- [Czerwony kapelusz: Trwałe nazewnictwo](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
-- [Linux: Co uuids może zrobić dla Ciebie](https://www.linux.com/news/what-uuids-can-do-you)
-- [Udev: Wprowadzenie do zarządzania urządzeniami w nowoczesnym systemie Linux](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
+- [Ubuntu: używanie identyfikatora UUID](https://help.ubuntu.com/community/UsingUUID)
+- [Red Hat: trwałe nazewnictwo](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
+- [Linux: jakie Identyfikatory UUID mogą wykonywać](https://www.linux.com/news/what-uuids-can-do-you)
+- [Udev: wprowadzenie do zarządzania urządzeniami w nowoczesnych systemach Linux](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 

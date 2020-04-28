@@ -1,5 +1,5 @@
 ---
-title: Problemy z odblokowaniem dysku na dysku w usłudze Azure Data Box Disk | Dokumenty firmy Microsoft
+title: Azure Data Box Disk Rozwiązywanie problemów dotyczących odblokowywania dysków | Microsoft Docs
 description: W tym artykule opisano sposób rozwiązywania problemy z usługą Azure Data Box Disk.
 services: databox
 author: alkohli
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 06/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 02cbf64261bbfbf50561e1b7466b46b27b688e0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67148285"
 ---
-# <a name="troubleshoot-disk-unlocking-issues-in-azure-data-box-disk"></a>Rozwiązywanie problemów z odblokowywaniem dysku na dysku usługi Azure Data Box
+# <a name="troubleshoot-disk-unlocking-issues-in-azure-data-box-disk"></a>Rozwiązywanie problemów dotyczących odblokowywania dysków w Azure Data Box Disk
 
-Ten artykuł dotyczy dysku microsoft azure data box i opisuje przepływy pracy używane do rozwiązywania problemów podczas korzystania z narzędzia odblokowywania. 
+Ten artykuł ma zastosowanie do Microsoft Azure Data Box Disk i opisuje przepływy pracy służące do rozwiązywania problemów podczas korzystania z narzędzia do odblokowywania. 
 
 
 <!--## Query activity logs
@@ -38,39 +38,39 @@ To figure out who accessed the **Device credentials** blade, you can query the A
 | Could not unlock or verify any volumes. Contact Microsoft Support.  <br><br>Za pomocą narzędzia nie można odblokować lub sprawdzić żadnego zablokowanego dysku. | Narzędzie nie mogło odblokować żadnego z zablokowanych dysków przy użyciu podanego klucza dostępu. Skontaktuj się z pomocą techniczną firmy Microsoft, aby uzyskać informacje o kolejnych krokach.                                                |
 | Following volumes are unlocked and verified. <br>Volume drive letters: E:<br>Could not unlock any volumes with the following passkeys: werwerqomnf, qwerwerqwdfda <br><br>Narzędzie odblokowało niektóre dyski i wyświetla listę liter dysków, które udało się odblokować, i tych, których nie udało się odblokować.| Częściowe powodzenie. Nie udało się odblokować niektórych dysków przy użyciu podanego klucza dostępu. Skontaktuj się z pomocą techniczną firmy Microsoft, aby uzyskać informacje o kolejnych krokach. |
 | Could not find locked volumes. Verify disk received from Microsoft is connected properly and is in locked state.          | Narzędzie nie odnajduje żadnych zablokowanych dysków. Dyski są już odblokowane lub nie zostały wykryte. Upewnij się, że dyski są podłączone i zablokowane.                                                           |
-| Fatal error: Invalid parameter<br>Parameter name: invalid_arg<br>USAGE:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Example: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Example: DataBoxDiskUnlock /SystemCheck<br>Example: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.<br>/Help:           This option provides help on cmdlet usage and examples.<br>/SystemCheck:    This option checks if your system meets the requirements to run the tool.<br><br>Press any key to exit. | Wprowadzono nieprawidłowy parametr. Jedynymi dozwolonymi parametrami są /SystemCheck, /PassKey i /Help.|
+| Fatal error: Invalid parameter<br>Parameter name: invalid_arg<br>USAGE:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Example: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Example: DataBoxDiskUnlock /SystemCheck<br>Example: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.<br>/Help:           This option provides help on cmdlet usage and examples.<br>/SystemCheck:    This option checks if your system meets the requirements to run the tool.<br><br>Press any key to exit. | Wprowadzono nieprawidłowy parametr. Jedyne dozwolone parametry to/SystemCheck,/PassKey i/help.|
 
 
-## <a name="unlock-issues-for-disks-when-using-a-windows-client"></a>Odblokowywanie problemów z dyskami podczas korzystania z klienta systemu Windows
+## <a name="unlock-issues-for-disks-when-using-a-windows-client"></a>Odblokuj problemy dotyczące dysków podczas korzystania z klienta systemu Windows
 
-W tej sekcji opisano niektóre z najważniejszych problemów napotykanych podczas wdrażania dysku data box podczas korzystania z klienta systemu Windows do kopiowania danych.
+W tej sekcji przedstawiono niektóre najczęstsze problemy występujące podczas wdrażania Data Box Disk podczas korzystania z klienta systemu Windows do kopiowania danych.
 
-### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problem: Nie można odblokować dysku z funkcji BitLocker
+### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problem: nie można odblokować dysku na podstawie funkcji BitLocker
  
-**Spowodować** 
+**Może** 
 
-Użyto hasła w oknie dialogowym Funkcji BitLocker i próbie odblokowania dysku za pomocą okna dialogowego odblokowywanie dysków funkcji BitLocker. To by nie zadziałało.
+W oknie dialogowym funkcji BitLocker użyto hasła i próba odblokowania dysku za pośrednictwem okna dialogowego dysków odblokowywania funkcją BitLocker. Nie będzie to zadziałało.
 
 **Rozdzielczość**
 
-Aby odblokować dyski pól danych, należy użyć narzędzia Odblokowywanie dysków pola danych i podać hasło z witryny Azure portal. Aby uzyskać więcej informacji, przejdź do [samouczka: Rozpakuj, połącz się i odblokuj dysk azure data box](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
+Aby odblokować dyski urządzenie Data Box, należy użyć narzędzia odblokowywanie Data Box Disk i podać hasło w Azure Portal. Aby uzyskać więcej informacji, przejdź do [samouczka: rozpakowywanie, łączenie i odblokowywanie Azure Data Box Disk](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
  
-### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problem: nie można odblokować ani zweryfikować niektórych woluminów. Contact Microsoft Support.
+### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problem: nie można odblokować lub zweryfikować niektórych woluminów. Contact Microsoft Support.
  
-**Spowodować**
+**Może**
 
-W dzienniku błędów może zostać wyświetlony następujący błąd i nie można odblokować ani zweryfikować niektórych woluminów.
+W dzienniku błędów może zostać wyświetlony następujący błąd i nie będzie można odblokować ani zweryfikować niektórych woluminów.
 
 `Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
  
-Oznacza to, że prawdopodobnie brakuje odpowiedniej wersji programu Windows PowerShell na kliencie systemu Windows.
+Oznacza to, że najkorzystniej brakuje odpowiedniej wersji programu Windows PowerShell na kliencie systemu Windows.
 
 **Rozdzielczość**
 
-Można zainstalować [program Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) i ponowić próbę wykonania operacji.
+Możesz zainstalować program [Windows PowerShell](https://www.microsoft.com/download/details.aspx?id=54616) w wersji 5,0 i ponownie wykonać operację.
  
-Jeśli nadal nie możesz odblokować woluminów, skopiuj dzienniki z folderu, w którego znajduje się narzędzie Odblokowywanie dysków pola danych, i [skontaktuj się z pomocą techniczną firmy Microsoft](data-box-disk-contact-microsoft-support.md).
+Jeśli nadal nie możesz odblokować woluminów, Skopiuj dzienniki z folderu, w którym znajduje się narzędzie do odblokowywania Data Box Disk i [Pomoc techniczna firmy Microsoft kontaktów](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [rozwiązywać problemy z sprawdzaniem poprawności](data-box-disk-troubleshoot.md).
+- Dowiedz się, jak [rozwiązywać problemy z walidacją](data-box-disk-troubleshoot.md).

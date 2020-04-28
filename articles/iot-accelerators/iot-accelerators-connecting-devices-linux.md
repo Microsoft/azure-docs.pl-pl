@@ -1,6 +1,6 @@
 ---
-title: Aprowizuj urządzenia z systemem Linux do zdalnego monitorowania w języku C — Azure | Dokumenty firmy Microsoft
-description: W tym artykule opisano sposób podłączania urządzenia do akceleratora rozwiązań zdalnego monitorowania przy użyciu aplikacji napisanej w języku C działającej w systemie Linux.
+title: Udostępnianie urządzeń z systemem Linux do zdalnego monitorowania w języku C-Azure | Microsoft Docs
+description: Opisuje sposób podłączenia urządzenia do akceleratora rozwiązania do monitorowania zdalnego przy użyciu aplikacji w języku C działającej w systemie Linux.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,47 +9,47 @@ ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: dobett
 ms.openlocfilehash: 91d4eda566c8b534daa10c62637db28ccb01bbb6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61454502"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Podłącz urządzenie do akceleratora rozwiązań do zdalnego monitorowania (Linux)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Łączenie urządzenia z akceleratorem rozwiązania do zdalnego monitorowania (Linux)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-W tym samouczku pokazano, jak podłączyć rzeczywiste urządzenie do akceleratora rozwiązań zdalnego monitorowania.
+W tym samouczku pokazano, jak podłączyć rzeczywiste urządzenie do akceleratora rozwiązania do monitorowania zdalnego.
 
-Podobnie jak w przypadku większości osadzonych aplikacji, które działają na urządzeniach z ograniczeniami, kod klienta dla aplikacji urządzenia jest zapisywany w języku C. W tym samouczku tworzysz aplikację na komputerze z systemem Ubuntu (Linux).
+Podobnie jak w przypadku większości aplikacji osadzonych, które działają na urządzeniach z ograniczeniami, kod klienta aplikacji urządzenia jest zapisywana w C. W tym samouczku utworzysz aplikację na maszynie z systemem Ubuntu (Linux).
 
 Jeśli wolisz symulować urządzenie, zobacz [Tworzenie i testowanie nowego symulowanego urządzenia](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym przewodniku, potrzebujesz urządzenia z systemem Ubuntu w wersji 15.04 lub nowszej. Przed kontynuowaniem [skonfiguruj środowisko programistyczne Linuksa](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux).
+Aby wykonać kroki opisane w tym przewodniku, musisz mieć urządzenie z systemem Ubuntu w wersji 15,04 lub nowszej. Przed kontynuowaniem [Skonfiguruj środowisko deweloperskie systemu Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux).
 
-## <a name="view-the-code"></a>Zobacz kod
+## <a name="view-the-code"></a>Wyświetl kod
 
-[Przykładowy kod](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) użyty w tym przewodniku jest dostępny w repozytorium Zestawów SDK języka Azure IoT C GitHub.
+[Przykładowy kod](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) używany w tym przewodniku jest dostępny w repozytorium GitHub usługi Azure IoT C SDK.
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>Pobierz kod źródłowy i przygotuj projekt
 
-Aby przygotować projekt, sklonuj lub pobierz [repozytorium zestawów SDK C usługi Azure IoT](https://github.com/Azure/azure-iot-sdk-c) z usługi GitHub.
+Aby przygotować projekt, Sklonuj lub Pobierz [repozytorium Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) z serwisu GitHub.
 
-Próbka znajduje się w folderze **próbki/roztwory/remote_monitoring_client.**
+Przykład znajduje się w folderze **Samples/Solutions/remote_monitoring_client** .
 
-Otwórz plik **remote_monitoring.c** w folderze **samples/solutions/remote_monitoring_client** w edytorze tekstu.
+Otwórz plik **remote_monitoring. c** w folderze **Samples/Solutions/remote_monitoring_client** w edytorze tekstów.
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
 ## <a name="build-and-run-the-application"></a>Kompilowanie i uruchamianie aplikacji
 
-W poniższych krokach opisano, jak używać *CMake* do tworzenia aplikacji klienckiej. Aplikacja klienta zdalnego monitorowania jest zbudowany jako część procesu kompilacji dla SDK.
+W poniższych krokach opisano sposób użycia programu *CMAKE* do skompilowania aplikacji klienckiej. Aplikacja kliencka do monitorowania zdalnego jest skompilowana jako część procesu kompilacji zestawu SDK.
 
-1. Edytuj plik **remote_monitoring.c,** aby `<connectionstring>` zastąpić ciąg połączenia urządzenia, który został odnotowany na początku tego przewodnika instruktora po dodaniu urządzenia do akceleratora rozwiązań.
+1. Edytuj plik **remote_monitoring. c** , aby zastąpić `<connectionstring>` parametrami połączenia urządzenia zanotowanymi na początku tego przewodnika po dodaniu urządzenia do akceleratora rozwiązania.
 
-1. Przejdź do katalogu głównego sklonowanej kopii [repozytorium sdek sdek sedek SDKs usługi Azure IoT](https://github.com/Azure/azure-iot-sdk-c) C i uruchom następujące polecenia w celu utworzenia aplikacji klienckiej:
+1. Przejdź do głównej sklonowanej kopii repozytorium [repozytorium SDK usługi Azure IoT C](https://github.com/Azure/azure-iot-sdk-c) i uruchom następujące polecenia, aby skompilować aplikację kliencką:
 
     ```sh
     mkdir cmake
@@ -58,13 +58,13 @@ W poniższych krokach opisano, jak używać *CMake* do tworzenia aplikacji klien
     make
     ```
 
-1. Uruchom aplikację kliencką i wyślij dane telemetryczne do usługi IoT Hub:
+1. Uruchom aplikację kliencką i Wyślij dane telemetryczne do IoT Hub:
 
     ```sh
     ./samples/solutions/remote_monitoring_client/remote_monitoring_client
     ```
 
-    Konsola wyświetla komunikaty w następujący sposób:
+    W konsoli programu są wyświetlane komunikaty jako:
 
     - Aplikacja wysyła przykładowe dane telemetryczne do akceleratora rozwiązania.
     - Odpowiada na metody wywoływane z pulpitu nawigacyjnego rozwiązania.

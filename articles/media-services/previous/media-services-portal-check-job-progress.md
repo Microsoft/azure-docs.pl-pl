@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie postępu zadań kodowania za pomocą witryny Azure portal
-description: W tym samouczku otrzymasz od użytkownika kroki monitorowania postępu zadania przy użyciu witryny Azure portal.
+title: Monitoruj postęp zadania kodowania za pomocą Azure Portal
+description: Ten samouczek przeprowadzi Cię przez kroki monitorowania postępu zadania przy użyciu Azure Portal.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 86c91582256261d701dc3c73b1bdfdcb6002f6e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "64867221"
 ---
-# <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitorowanie postępu zadań kodowania za pomocą witryny Azure portal
+# <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitoruj postęp zadania kodowania za pomocą Azure Portal
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Sprawdź najnowszą wersję usługi [Media Services w wersji 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji z wersji 2 do v3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Omówienie
 
-Podczas uruchamiania zadań często wymaga się sposobu śledzenia postępu zadania. 
+Podczas uruchamiania zadań często potrzebny jest sposób śledzenia postępów zadań. 
 
 Aby monitorować postęp zadania kodowania, kliknij pozycję **Ustawienia** (w górnej części strony), a następnie wybierz pozycję **Zadania**.
 
@@ -39,7 +39,7 @@ Możesz kliknąć zadanie, aby wyświetlić więcej szczegółów.
 ![Stanowiska](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Po zakończeniu zadania kodowania można publikować i odtwarzać zasoby, jak opisano [tutaj.](media-services-portal-publish.md)
+Po wykonaniu zadania kodowania można opublikować i odtworzyć zasoby, zgodnie z opisem w [tym miejscu](media-services-portal-publish.md).
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

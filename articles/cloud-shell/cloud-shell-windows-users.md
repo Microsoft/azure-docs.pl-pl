@@ -1,5 +1,5 @@
 ---
-title: Usługa Azure Cloud Shell dla użytkowników systemu Windows | Dokumenty firmy Microsoft
+title: Azure Cloud Shell dla użytkowników systemu Windows | Microsoft Docs
 description: Przewodnik dla użytkowników, którzy nie znają systemów Linux
 services: azure
 documentationcenter: ''
@@ -15,31 +15,31 @@ ms.topic: article
 ms.date: 08/03/2018
 ms.author: damaerte
 ms.openlocfilehash: 4fc4f6523eb19294cabdf6b5b910dd346a877502
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67204141"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>Program PowerShell w usłudze Azure Cloud Shell dla użytkowników systemu Windows
 
-W maju 2018 r. [ogłoszono](https://azure.microsoft.com/blog/pscloudshellrefresh/) zmiany w programie PowerShell w usłudze Azure Cloud Shell.
-Środowisko programu PowerShell w usłudze Azure Cloud Shell uruchamia teraz [program PowerShell Core 6](https://github.com/powershell/powershell) w środowisku systemu Linux.
-Dzięki tej zmianie mogą występować pewne różnice w doświadczeniu programu PowerShell w usłudze Cloud Shell w porównaniu z oczekiwanymi w programie Windows PowerShell.
+W maju 2018 zmiany zostały [ogłoszone](https://azure.microsoft.com/blog/pscloudshellrefresh/) w programie PowerShell w Azure Cloud Shell.
+Środowisko PowerShell w Azure Cloud Shell teraz uruchamia program [PowerShell Core 6](https://github.com/powershell/powershell) w środowisku systemu Linux.
+W przypadku tej zmiany mogą wystąpić pewne różnice w działaniu programu PowerShell w Cloud Shell porównaniu z oczekiwaniami w środowisku programu Windows PowerShell.
 
-## <a name="file-system-case-sensitivity"></a>Wielkość liter w systemie plików
+## <a name="file-system-case-sensitivity"></a>Rozróżnianie wielkości liter systemu plików
 
-W systemie Windows jest niewrażliwy na wielkość liter, podczas gdy w systemie Linux system plików jest rozróżniany.
-Wcześniej `file.txt` i `FILE.txt` były uważane za ten sam plik, ale teraz są one uważane za różne pliki.
-W systemie plików należy `tab-completing` używać odpowiedniej obudowy.
-W programie PowerShell `tab-completing` określone środowiska, takie jak nazwy poleceń cmdlet, parametry i wartości, nie są rozróżniane wielkość liter.
+W systemie plików w systemie Windows nie jest rozróżniana wielkość liter, a w systemie Linux system plików uwzględnia wielkość liter.
+Wcześniej `file.txt` i `FILE.txt` zostały uznane za ten sam plik, ale teraz są uważane za różne pliki.
+`tab-completing` W systemie plików należy użyć odpowiedniej wielkości liter.
+W określonych środowiskach programu PowerShell, `tab-completing` takich jak nazwy poleceń cmdlet, parametry i wartości, nie jest rozróżniana wielkość liter.
 
-## <a name="windows-powershell-aliases-vs-linux-utilities"></a>Aliasy programu Windows PowerShell i narzędzia systemu Linux
+## <a name="windows-powershell-aliases-vs-linux-utilities"></a>Aliasy programu Windows PowerShell a narzędzia systemu Linux
 
-Niektóre istniejące aliasy programu PowerShell mają takie same nazwy `cat`jak`ls` `sort`wbudowane polecenia Linuksa, takie jak , , , `sleep`itp. W programie PowerShell Core 6 usunięto aliasy, które zderzają się z wbudowanymi poleceniami systemu Linux.
-Poniżej znajdują się typowe aliasy, które zostały usunięte, a także ich równoważne polecenia:  
+Niektóre istniejące aliasy programu PowerShell mają takie same nazwy jak wbudowane polecenia systemu Linux, takie `cat`jak`ls`, `sort` `sleep`,, itd. W programie PowerShell Core 6 aliasy, które kolidują z wbudowanymi poleceniami systemu Linux, zostały usunięte.
+Poniżej znajdują się popularne aliasy, które zostały usunięte, a także ich równoważne polecenia:  
 
-|Usunięto alias   |Równoważne polecenie   |
+|Usunięty alias   |Równoważne polecenie   |
 |---|---|
 |`cat`    | `Get-Content` |
 |`curl`   | `Invoke-WebRequest` |
@@ -51,22 +51,22 @@ Poniżej znajdują się typowe aliasy, które zostały usunięte, a także ich r
 |`sort`   | `Sort-Object` |
 |`wget`   | `Invoke-WebRequest` |
 
-## <a name="persisting-home"></a>Utrzymujące się $HOME
+## <a name="persisting-home"></a>Utrwalanie $HOME
 
-Wcześniej użytkownicy mogli utrwalić tylko skrypty i inne pliki na dysku w chmurze.
-Teraz $HOME katalogu użytkownika jest również zachowywane w sesjach.
+Wcześniej użytkownicy mogą utrwalać skrypty i inne pliki na dysku w chmurze.
+Teraz katalog $HOME użytkownika jest również utrwalany między sesjami.
 
 ## <a name="powershell-profile"></a>Profil programu PowerShell
 
 Domyślnie profil programu PowerShell użytkownika nie jest tworzony.
-Aby utworzyć profil, `PowerShell` utwórz `$HOME/.config`katalog w obszarze .
+Aby utworzyć profil, Utwórz `PowerShell` katalog w obszarze. `$HOME/.config`
 
 ```azurepowershell-interactive
 mkdir (Split-Path $profile.CurrentUserAllHosts)
 ```
 
-W `$HOME/.config/PowerShell`obszarze , można utworzyć `profile.ps1` pliki `Microsoft.PowerShell_profile.ps1`profilowe - i/lub .
+W `$HOME/.config/PowerShell`obszarze można utworzyć pliki profilów — `profile.ps1` i/lub. `Microsoft.PowerShell_profile.ps1`
 
 ## <a name="whats-new-in-powershell-core-6"></a>Co nowego w programie PowerShell Core 6
 
-Aby uzyskać więcej informacji na temat nowości w programie PowerShell Core 6, odwołaj się do [dokumentów programu PowerShell](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) i wpisu w blogu Wprowadzenie do programu [PowerShell Core.](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/)
+Aby uzyskać więcej informacji na temat Nowości w programie PowerShell Core 6, zapoznaj się z dokumentacją programu [PowerShell](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) i [wprowadzenie za pomocą wpisu w blogu programu PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) .

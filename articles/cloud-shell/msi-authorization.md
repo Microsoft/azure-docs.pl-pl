@@ -1,6 +1,6 @@
 ---
-title: Używanie tożsamości zarządzanych dla zasobów w usłudze Azure Cloud Shell
-description: Uwierzytelnij kod za pomocą usługi MSI w usłudze Azure Cloud Shell
+title: Korzystanie z tożsamości zarządzanych dla zasobów w Azure Cloud Shell
+description: Uwierzytelnianie kodu przy użyciu pliku MSI w Azure Cloud Shell
 services: azure
 author: maertendMSFT
 ms.author: damaerte
@@ -11,24 +11,24 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/14/2018
 ms.openlocfilehash: a5d49a16324a5a97f4a0507f9abf47ea602ea072
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72328716"
 ---
-# <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Używanie tożsamości zarządzanych dla zasobów platformy Azure w usłudze Azure Cloud Shell
+# <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Korzystanie z tożsamości zarządzanych dla zasobów platformy Azure w Azure Cloud Shell
 
-Usługa Azure Cloud Shell obsługuje autoryzację z zarządzanymi tożsamościami dla zasobów platformy Azure. Skorzystaj z tej usługi, aby pobrać tokeny dostępu, aby bezpiecznie komunikować się z usługami platformy Azure.
+Azure Cloud Shell obsługuje autoryzację z tożsamościami zarządzanymi dla zasobów platformy Azure. Użyj tej metody, aby pobrać tokeny dostępu w celu bezpiecznego komunikowania się z usługami platformy Azure.
 
 ## <a name="about-managed-identities-for-azure-resources"></a>Informacje o tożsamościach zarządzanych dla zasobów platformy Azure
-Typowym wyzwaniem podczas tworzenia aplikacji w chmurze jest sposób bezpiecznego zarządzania poświadczeniami, które muszą znajdować się w kodzie do uwierzytelniania w usługach w chmurze. W usłudze Cloud Shell może być konieczne uwierzytelnienie pobierania z usługi Key Vault dla poświadczeń, które mogą być potrzebne do skryptu.
+Typowym wyzwaniem podczas kompilowania aplikacji w chmurze jest sposób bezpiecznego zarządzania poświadczeniami, które muszą znajdować się w kodzie do uwierzytelniania w usługach w chmurze. W Cloud Shell może być konieczne uwierzytelnienie pobierania z Key Vault w celu uzyskania poświadczeń, które może potrzebować skrypt.
 
-Tożsamości zarządzane dla zasobów platformy Azure upraszcza rozwiązanie tego problemu, nadając usługom platformy Azure automatycznie zarządzaną tożsamość w usłudze Azure Active Directory (Azure AD). Za pomocą tej tożsamości można uwierzytelnić się w dowolnej usłudze obsługującej uwierzytelnianie usługi Azure AD, w tym w usłudze Key Vault, bez konieczności przechowywania poświadczeń w kodzie.
+Zarządzane tożsamości dla zasobów platformy Azure ułatwiają rozwiązanie tego problemu, dzięki czemu usługi platformy Azure są automatycznie zarządzane tożsamości w Azure Active Directory (Azure AD). Za pomocą tej tożsamości można uwierzytelnić się w dowolnej usłudze obsługującej uwierzytelnianie usługi Azure AD, w tym w usłudze Key Vault, bez konieczności przechowywania poświadczeń w kodzie.
 
-## <a name="acquire-access-token-in-cloud-shell"></a>Uzyskaj token dostępu w usłudze Cloud Shell
+## <a name="acquire-access-token-in-cloud-shell"></a>Uzyskiwanie tokenu dostępu w Cloud Shell
 
-Wykonaj następujące polecenia, aby ustawić token dostępu MSI `access_token`jako zmienną środowiskową.
+Wykonaj następujące polecenia, `access_token`aby ustawić token dostępu MSI jako zmienną środowiskową.
 ```
 response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
 access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
@@ -37,14 +37,14 @@ echo The MSI access token is $access_token
 
 ## <a name="handling-token-expiration"></a>Obsługa wygaśnięcia tokenu
 
-Lokalny podsystem MSI buforuje tokeny. W związku z tym można wywołać go tak często, jak chcesz i na-the-wire wywołania wyników usługi Azure AD tylko wtedy, gdy:
-- miss pamięci podręcznej występuje z powodu braku tokenu w pamięci podręcznej
+Lokalny podsystem MSI buforuje tokeny. W związku z tym możesz wywoływać ją tak często, jak chcesz, a połączenie w usłudze Azure AD jest wykonywane tylko wtedy, gdy:
+- Chybienia w pamięci podręcznej występuje z powodu braku tokenu w pamięci podręcznej
 - token wygasł
 
-Jeśli buforujesz token w kodzie, należy przygotować do obsługi scenariuszy, w których zasób wskazuje, że token wygasł.
+Jeśli w kodzie zostanie zbuforowany token, należy przygotować się do obsługi scenariuszy, w których zasób wskazuje, że token wygasł.
 
-Aby obsłużyć błędy tokenów, odwiedź [stronę MSI dotyczącą zwijania tokenów dostępu MSI.](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling)
+Aby obsłużyć błędy tokenu, odwiedź [stronę MSI dotyczącą przystawiania tokenów dostępu MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling).
 
 ## <a name="next-steps"></a>Następne kroki
 [Dowiedz się więcej o MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)  
-[Pobieranie tokenów dostępu od maszyn wirtualnych MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)
+[Uzyskiwanie tokenów dostępu z maszyn wirtualnych MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)

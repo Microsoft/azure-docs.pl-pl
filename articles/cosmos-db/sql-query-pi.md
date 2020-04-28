@@ -1,6 +1,6 @@
 ---
-title: Pi w języku zapytań usługi Azure Cosmos DB
-description: Dowiedz się więcej o funkcji systemu SQL PI w usłudze Azure Cosmos DB.
+title: PI w Azure Cosmos DB języku zapytań
+description: Dowiedz się więcej o funkcji systemowej PI w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 27832008e8922e339a648985192a58b111555bc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71349655"
 ---
-# <a name="pi-azure-cosmos-db"></a>PI (Usługa Azure Cosmos DB)
+# <a name="pi-azure-cosmos-db"></a>PI (Azure Cosmos DB)
  Zwraca stałą wartość liczby PI.  
   
 ## <a name="syntax"></a>Składnia
@@ -23,13 +23,13 @@ ms.locfileid: "71349655"
 PI ()  
 ```  
    
-## <a name="return-types"></a>Typy zwrotów
+## <a name="return-types"></a>Typy zwracane
   
   Zwraca wyrażenie liczbowe.  
   
 ## <a name="examples"></a>Przykłady
   
-  Poniższy przykład zwraca `PI`wartość .  
+  Poniższy przykład zwraca wartość `PI`.  
   
 ```sql
 SELECT PI() AS pi 
@@ -43,6 +43,6 @@ SELECT PI() AS pi
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Funkcje matematyczne Usługi Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funkcje systemowe Usługi Azure Cosmos DB](sql-query-system-functions.md)
+- [Funkcje matematyczne Azure Cosmos DB](sql-query-mathematical-functions.md)
+- [Azure Cosmos DB funkcje systemowe](sql-query-system-functions.md)
 - [Wprowadzenie do usługi Azure Cosmos DB](introduction.md)

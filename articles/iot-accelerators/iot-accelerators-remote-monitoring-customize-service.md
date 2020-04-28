@@ -1,6 +1,6 @@
 ---
-title: Dodawanie usługi do interfejsu użytkownika rozwiązania do zdalnego monitorowania — Azure | Dokumenty firmy Microsoft
-description: W tym artykule pokazano, jak dodać nową usługę do interfejsu użytkownika sieci web akceleratora rozwiązania zdalnego monitorowania.
+title: Dodawanie usługi do interfejsu użytkownika rozwiązania do monitorowania zdalnego — Azure | Microsoft Docs
+description: W tym artykule opisano sposób dodawania nowej usługi do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,81 +9,81 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61447050"
 ---
-# <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Dodawanie usługi niestandardowej do interfejsu użytkownika sieci Web akceleratora rozwiązań do zdalnego monitorowania
+# <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Dodawanie niestandardowej usługi do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego
 
-W tym artykule pokazano, jak dodać nową usługę do interfejsu użytkownika sieci web akceleratora rozwiązania zdalnego monitorowania. W artykule opisano:
+W tym artykule opisano sposób dodawania nowej usługi do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego. W tym artykule opisano:
 
 - Jak przygotować lokalne środowisko programistyczne.
 - Jak dodać nową usługę do interfejsu użytkownika sieci Web.
 
-Przykładowa usługa w tym artykule zawiera dane dla siatki, że [Dodaj siatkę niestandardową do interfejsu użytkownika sieci web akceleratora rozwiązania zdalnego monitorowania sieci Web](iot-accelerators-remote-monitoring-customize-grid.md) pokazuje, jak dodać.
+Przykładowa usługa w tym artykule zawiera dane dla siatki, które [dodają niestandardową siatkę do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego](iot-accelerators-remote-monitoring-customize-grid.md) , który pokazuje, jak dodać.
 
-W aplikacji React usługa zazwyczaj współdziała z usługą zaplecza. Przykłady w akcelerator rozwiązania zdalnego monitorowania obejmują usługi, które współdziałają z menedżerem centrum IoT i mikrousługami konfiguracji.
+W aplikacji reagującej usługa zazwyczaj współdziała z usługą zaplecza. Przykłady w akceleratorze rozwiązania do monitorowania zdalnego obejmują usługi, które współpracują z menedżerem IoT Hub i mikrousługami konfiguracji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym przewodniku, na lokalnym komputerze deweloperskim należy zainstalować następujące oprogramowanie:
+Aby wykonać kroki opisane w tym przewodniku, musisz zainstalować następujące oprogramowanie na lokalnym komputerze deweloperskim:
 
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-Przed kontynuowaniem należy wykonać kroki opisane na stronie Dodawanie niestandardowego do artykułu instrukcje dotyczące [interfejsu użytkownika sieci web akceleratora rozwiązania zdalnego monitorowania.](iot-accelerators-remote-monitoring-customize-page.md)
+Przed kontynuowaniem należy wykonać kroki opisane w artykule [Dodawanie niestandardowej strony do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego](iot-accelerators-remote-monitoring-customize-page.md) .
 
 ## <a name="add-a-service"></a>Dodawanie usługi
 
-Aby dodać usługę do interfejsu użytkownika sieci Web, należy dodać pliki źródłowe definiujące usługę i zmodyfikować niektóre istniejące pliki, aby uwrażliwić internetowy interfejs użytkownika o nowej usłudze.
+Aby dodać usługę do interfejsu użytkownika sieci Web, należy dodać pliki źródłowe, które definiują usługę, i zmodyfikować niektóre istniejące pliki, aby interfejs użytkownika sieci Web miał świadomość nowej usługi.
 
-### <a name="add-the-new-files-that-define-the-service"></a>Dodawanie nowych plików definiujących usługę
+### <a name="add-the-new-files-that-define-the-service"></a>Dodawanie nowych plików, które definiują usługę
 
-Aby rozpocząć, folder **src/instruktaż/usługi** zawiera pliki definiujące prostą usługę:
+Aby rozpocząć pracę, folder **src/Instruktaż/Services** zawiera pliki, które definiują prostą usługę:
 
-**przykładService.js**
+**exampleService. js**
 
 [!code-javascript[Example service](~/remote-monitoring-webui/src/walkthrough/services/exampleService.js?name=service "Example service")]
 
-Aby dowiedzieć się więcej o tym, jak usługi są implementowane, zobacz [Wprowadzenie do programowania reaktywnego, którego brakowało.](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)
+Aby dowiedzieć się więcej o sposobie implementacji usług, zobacz [wprowadzenie do aktywnego programowania](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754).
 
-**model/przykładModels.js**
+**Model/exampleModels. js**
 
 [!code-javascript[Example model](~/remote-monitoring-webui/src/walkthrough/services/models/exampleModels.js?name=models "Example model")]
 
-Skopiuj **przykładService.js** do folderu **src/services** i skopiuj **exampleModels.js** do folderu **src/services/models.**
+Skopiuj **exampleService. js** do folderu **src/Services** i skopiuj **exampleModels. js** do folderu **src/Services/models** .
 
-Zaktualizuj plik **index.js** w folderze **src/services,** aby wyeksportować nową usługę:
+Zaktualizuj plik **index. js** w folderze **src/Services** w celu wyeksportowania nowej usługi:
 
 ```js
 export * from './exampleService';
 ```
 
-Zaktualizuj plik **index.js** w folderze **src/services/models,** aby wyeksportować nowy model:
+Zaktualizuj plik **index. js** w folderze **src/Services/models** , aby wyeksportować nowy model:
 
 ```js
 export * from './exampleModels';
 ```
 
-### <a name="set-up-the-calls-to-the-service-from-the-store"></a>Konfigurowanie wywołań do usługi ze sklepu
+### <a name="set-up-the-calls-to-the-service-from-the-store"></a>Konfigurowanie wywołań usługi ze sklepu
 
-Aby rozpocząć, folder **src/walkthrough/store/reducers** zawiera reduktor próbek:
+Aby rozpocząć pracę, folder **src/Przewodnik/sklep/ograniczenia** zawiera przykładowy składnik:
 
-**przykładReducer.js**
+**exampleReducer. js**
 
 [!code-javascript[Example reducer](~/remote-monitoring-webui/src/walkthrough/store/reducers/exampleReducer.js?name=reducer "Example reducer")]
 
-**Kopiuj przykładReducer.js** do folderu **src/store/reducers.**
+Skopiuj **exampleReducer. js** do folderu **src/Store/redukuje** .
 
-Aby dowiedzieć się więcej o reduktorze i **epics**, zobacz [redux-observable](https://redux-observable.js.org/).
+Aby dowiedzieć się więcej o obniżyć i **epiki**, zobacz [Redux](https://redux-observable.js.org/).
 
 ### <a name="configure-the-middleware"></a>Konfigurowanie oprogramowania pośredniczącego
 
-Aby skonfigurować oprogramowanie pośredniczące, dodaj reduktor do pliku **rootReducer.js** w folderze **src/store:**
+Aby skonfigurować oprogramowanie pośredniczące, Dodaj program do pliku **rootReducer. js** w folderze **src/Store** :
 
 ```js
 import { reducer as exampleReducer } from './reducers/exampleReducer';
@@ -97,7 +97,7 @@ const rootReducer = combineReducers({
 });
 ```
 
-Dodaj etyki do pliku **rootEpics.js** w folderze **src/store:**
+Dodaj epiki do pliku **rootEpics. js** w folderze **src/Store** :
 
 ```js
 import { epics as exampleEpics } from './reducers/exampleReducer';
@@ -114,8 +114,8 @@ const epics = [
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule dowiesz się o dostępnych zasobach ułatwiające dodawanie lub dostosowywanie usług w interfejsie użytkownika sieci Web w akceleratorze rozwiązań do zdalnego monitorowania.
+Ten artykuł zawiera informacje o dostępnych zasobach, które ułatwiają dodawanie i dostosowywanie usług w interfejsie użytkownika sieci Web w akceleratorze rozwiązania do zdalnego monitorowania.
 
-Teraz zdefiniowano usługę, następnym krokiem jest [dodanie siatki niestandardowej do interfejsu użytkownika sieci web akceleratora rozwiązania zdalnego monitorowania,](iot-accelerators-remote-monitoring-customize-grid.md) który wyświetla dane zwrócone przez usługę.
+Po zdefiniowaniu usługi, następnym krokiem jest [dodanie siatki niestandardowej do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego](iot-accelerators-remote-monitoring-customize-grid.md) , który wyświetla dane zwrócone przez usługę.
 
-Aby uzyskać więcej informacji koncepcyjnych dotyczących akceleratora rozwiązań do zdalnego monitorowania, zobacz [Architektura zdalnego monitorowania](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Aby uzyskać więcej informacji o pojęciach dotyczących akceleratora rozwiązania do monitorowania zdalnego, zobacz [Architektura zdalnego monitorowania](iot-accelerators-remote-monitoring-sample-walkthrough.md).

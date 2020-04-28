@@ -1,6 +1,6 @@
 ---
 title: Operacje agregacji w tabelach interfejsu API Cassandra usługi Azure Cosmos DB z platformy Spark
-description: W tym artykule omówiono podstawowe operacje agregacji względem tabel interfejsu API usługi Azure Cosmos DB Cassandra firmy Spark
+description: W tym artykule opisano podstawowe operacje agregacji w odniesieniu do tabel Azure Cosmos DB interfejs API Cassandra z platformy Spark
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 4fbb86f4fbda9b8e521f7465bb8bb3d18602ca13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60894190"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Operacje agregacji w tabelach interfejsu API Cassandra usługi Azure Cosmos DB z platformy Spark 
@@ -20,9 +20,9 @@ ms.locfileid: "60894190"
 W tym artykule opisano podstawowe operacje agregacji w odniesieniu do tabel interfejsu API Cassandra usługi Azure Cosmos DB z platformy Spark. 
 
 > [!NOTE]
-> Filtrowanie po stronie serwera i agregacja po stronie serwera nie jest obecnie obsługiwana w interfejsie API Cassandra usługi Azure Cosmos DB.
+> Filtrowanie po stronie serwera i agregacja po stronie serwera nie są obecnie obsługiwane w interfejs API Cassandra Azure Cosmos DB.
 
-## <a name="cassandra-api-configuration"></a>Konfiguracja interfejsu API Cassandra
+## <a name="cassandra-api-configuration"></a>Konfiguracja interfejs API Cassandra
 
 ```scala
 import org.apache.spark.sql.cassandra._
@@ -48,7 +48,7 @@ spark.conf.set("spark.cassandra.concurrent.reads", "512")
 spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
-## <a name="sample-data-generator"></a>Przykładowy generator danych
+## <a name="sample-data-generator"></a>Generator przykładowych danych
 
 ```scala
 // Generate a simple dataset containing five values
@@ -67,39 +67,39 @@ booksDF.write
   .save()
 ```
 
-## <a name="count-operation"></a>Operacja zliczanie
+## <a name="count-operation"></a>Liczba operacji
 
 
-### <a name="rdd-api"></a>RDD API
+### <a name="rdd-api"></a>INTERFEJS API RDD
 
 ```scala
 sc.cassandraTable("books_ks", "books").count
 ```
 
-**Dane wyjściowe:**
+**Rozdzielczości**
 ```
 res48: Long = 5
 ```
 
-### <a name="dataframe-api"></a>Interfejs API dla ram danych
+### <a name="dataframe-api"></a>Interfejs API Dataframe
 
-Wliczanie do ram danych nie jest obecnie obsługiwane.  W poniższym przykładzie pokazano, jak wykonać liczbę ram danych po upośnieniu dataframe do pamięci jako obejście.
+Liczba elementów dataframes nie jest obecnie obsługiwana.  W poniższym przykładzie pokazano, jak wykonać liczbę ramek Dataframe po utrwaleniu ramki danych do pamięci jako obejście.
 
-Wybierz [opcję pamięci masowej]( https://spark.apache.org/docs/2.2.0/rdd-programming-guide.html#which-storage-level-to-choose) z następujących dostępnych opcji, aby uniknąć problemów z "braku pamięci":
+Wybierz [opcję magazynu]( https://spark.apache.org/docs/2.2.0/rdd-programming-guide.html#which-storage-level-to-choose) z następujących dostępnych opcji, aby uniknąć problemów z brakiem pamięci:
 
-* MEMORY_ONLY: Jest to domyślna opcja przechowywania. Przechowuje RDD jako deserializowane obiekty Java w śnigodce. Jeśli RDD nie mieści się w pamięci, niektóre partycje nie będą buforowane i są ponownie komputowane w locie za każdym razem, gdy są potrzebne.
+* MEMORY_ONLY: jest to opcja magazynu domyślnego. Przechowuje RDD jako deserializowane obiekty języka Java w JVM. Jeśli RDD nie mieszczą się w pamięci, niektóre partycje nie będą przechowywane w pamięci podręcznej i są ponownie obliczane na bieżąco za każdym razem, gdy są one zbędne.
 
-* MEMORY_AND_DISK: Przechowuje RDD jako deserializowane obiekty Java w dżomie JVM. Jeśli rdd nie mieści się w pamięci, należy przechowywać partycje, które nie mieszczą się na dysku, a gdy jest to wymagane, odczytać je z lokalizacji, w których są przechowywane.
+* MEMORY_AND_DISK: przechowuje RDD jako deserializowane obiekty języka Java w JVM. Jeśli RDD nie mieszczą się w pamięci, należy przechowywać partycje, które nie mieszczą się na dysku, i w razie potrzeby należy je odczytać z lokalizacji, w której są przechowywane.
 
-* MEMORY_ONLY_SER (Java/Scala): Przechowuje RDD jako szeregowane obiekty Java - tablicę jedno bajtową na partycję. Ta opcja jest efektywna w porównaniu z obiektami deserializowanymi, szczególnie w przypadku korzystania z szybkiego serializatora, ale bardziej obciążające procesor cpu do odczytu.
+* MEMORY_ONLY_SER (Java/Scala): przechowuje RDD jako serializowane obiekty języka Java — jednobajtowa tablica na partycję. Ta opcja jest wydajnym miejscem w porównaniu z odszeregowanymi obiektami, szczególnie w przypadku korzystania z szybkiego serializatora, ale większa intensywność procesora do odczytu.
 
-* MEMORY_AND_DISK_SER (Java/Scala): Ta opcja pamięci masowej jest podobna do MEMORY_ONLY_SER, jedyną różnicą jest to, że rozlewa partycje, które nie mieszczą się w pamięci dysku, zamiast ponownie komponować je, gdy są potrzebne.
+* MEMORY_AND_DISK_SER (Java/Scala): Ta opcja magazynu jest taka sama jak MEMORY_ONLY_SER, jedyną różnicą jest to, że rozłożenie partycji, które nie mieszczą się w pamięci dyskowej, zamiast ich przetwarzania w razie konieczności.
 
-* DISK_ONLY: Przechowuje partycje RDD tylko na dysku.
+* DISK_ONLY: przechowuje partycje RDD tylko na dysku.
 
-* MEMORY_ONLY_2, MEMORY_AND_DISK_2...: Taki sam jak powyższe poziomy, ale replikuje każdą partycję w dwóch węzłach klastra.
+* MEMORY_ONLY_2, MEMORY_AND_DISK_2...: takie same jak powyżej poziomów, ale replikuje każdą partycję w dwóch węzłach klastra.
 
-* OFF_HEAP (eksperymentalne): Podobnie jak MEMORY_ONLY_SER, ale przechowuje dane w pamięci poza stertą i wymaga pamięci off-heap, aby włączyć z wyprzedzeniem. 
+* OFF_HEAP (wersja eksperymentalna): podobna do MEMORY_ONLY_SER, ale przechowuje dane w pamięci poza stertą i wymaga wcześniejszego włączenia pamięci poza stertą. 
 
 ```scala
 //Workaround
@@ -134,20 +134,20 @@ select book_author, count(*) as count from books_vw group by book_author;
 select count(*) from books_vw;
 ```
 
-## <a name="average-operation"></a>Średnia praca
+## <a name="average-operation"></a>Operacja średnia
 
-### <a name="rdd-api"></a>RDD API
+### <a name="rdd-api"></a>INTERFEJS API RDD
 
 ```scala
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Double) => c).mean
 ```
 
-**Dane wyjściowe:**
+**Rozdzielczości**
 ```
 res24: Double = 16.016000175476073
 ```
 
-### <a name="dataframe-api"></a>Interfejs API dla ram danych
+### <a name="dataframe-api"></a>Interfejs API Dataframe
 
 ```scala
 spark
@@ -159,7 +159,7 @@ spark
   .show
 ```
 
-**Dane wyjściowe:**
+**Rozdzielczości**
 ```
 +------------------+
 |   avg(book_price)|
@@ -173,25 +173,25 @@ spark
 ```sql
 select avg(book_price) from books_vw;
 ```
-**Dane wyjściowe:**
+**Rozdzielczości**
 ```
 16.016000175476073
 ```
 
-## <a name="min-operation"></a>Min.
+## <a name="min-operation"></a>Minimalna operacja
 
-### <a name="rdd-api"></a>RDD API
+### <a name="rdd-api"></a>INTERFEJS API RDD
 
 ```scala
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Float) => c).min
 ```
 
-**Dane wyjściowe:**
+**Rozdzielczości**
 ```
 res31: Float = 11.33
 ```
 
-### <a name="dataframe-api"></a>Interfejs API dla ram danych
+### <a name="dataframe-api"></a>Interfejs API Dataframe
 
 ```scala
 spark
@@ -203,7 +203,7 @@ spark
   .show
 ```
 
-**Dane wyjściowe:**
+**Rozdzielczości**
 ```
 +---------------+
 |min(book_price)|
@@ -218,20 +218,20 @@ spark
 select min(book_price) from books_vw;
 ```
 
-**Dane wyjściowe:**
+**Rozdzielczości**
 ```
 11.33
 ```
 
-## <a name="max-operation"></a>Maksymalna obsługa
+## <a name="max-operation"></a>Maksymalna operacja
 
-### <a name="rdd-api"></a>RDD API
+### <a name="rdd-api"></a>INTERFEJS API RDD
 
 ```scala
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Float) => c).max
 ```
 
-### <a name="dataframe-api"></a>Interfejs API dla ram danych
+### <a name="dataframe-api"></a>Interfejs API Dataframe
 
 ```scala 
 spark
@@ -243,7 +243,7 @@ spark
   .show
 ```
 
-**Dane wyjściowe:**
+**Rozdzielczości**
 ```
 +---------------+
 |max(book_price)|
@@ -257,25 +257,25 @@ spark
 ```sql
 select max(book_price) from books_vw;
 ```
-**Dane wyjściowe:**
+**Rozdzielczości**
 ```
 22.45
 ```
 
-## <a name="sum-operation"></a>Operacja suma
+## <a name="sum-operation"></a>Suma operacji
 
-### <a name="rdd-api"></a>RDD API
+### <a name="rdd-api"></a>INTERFEJS API RDD
 
 ```scala
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Float) => c).sum
 ```
 
-**Dane wyjściowe:**
+**Rozdzielczości**
 ```
 res46: Double = 80.08000087738037
 ```
 
-### <a name="dataframe-api"></a>Interfejs API dla ram danych
+### <a name="dataframe-api"></a>Interfejs API Dataframe
 
 ```scala
 spark
@@ -286,7 +286,7 @@ spark
   .agg(sum("book_price"))
   .show
 ```
-**Dane wyjściowe:**
+**Rozdzielczości**
 ```
 +-----------------+
 |  sum(book_price)|
@@ -301,28 +301,28 @@ spark
 select sum(book_price) from books_vw;
 ```
 
-**Dane wyjściowe:**
+**Rozdzielczości**
 ```
 80.08000087738037
 ```
 
-## <a name="top-or-comparable-operation"></a>Najwyższa lub porównywalna operacja
+## <a name="top-or-comparable-operation"></a>Operacja Top lub porównywalna
 
-### <a name="rdd-api"></a>RDD API
+### <a name="rdd-api"></a>INTERFEJS API RDD
 
 ```scala
 val readCalcTopRDD = sc.cassandraTable("books_ks", "books").select("book_name","book_price").sortBy(_.getFloat(1), false)
 readCalcTopRDD.zipWithIndex.filter(_._2 < 3).collect.foreach(println)
 //delivers the first top n items without collecting the rdd to the driver.
 ```
-**Dane wyjściowe:**
+**Rozdzielczości**
 ```
 (CassandraRow{book_name: A sign of four, book_price: 22.45},0)
 (CassandraRow{book_name: The adventures of Sherlock Holmes, book_price: 19.83},1)
 (CassandraRow{book_name: The memoirs of Sherlock Holmes, book_price: 14.22},2)
 readCalcTopRDD: org.apache.spark.rdd.RDD[com.datastax.spark.connector.CassandraRow] = MapPartitionsRDD[430] at sortBy at command-2371828989676374:1
 ```
-### <a name="dataframe-api"></a>Interfejs API dla ram danych
+### <a name="dataframe-api"></a>Interfejs API Dataframe
 
 ```scala
 import org.apache.spark.sql.functions._
@@ -341,7 +341,7 @@ readBooksDF.explain
 readBooksDF.show
 ```
 
-**Dane wyjściowe:**
+**Rozdzielczości**
 ```
 == Physical Plan ==
 TakeOrderedAndProject(limit=3, orderBy=[book_price#1840 DESC NULLS LAST], output=[book_name#1839,book_price#1840])
@@ -368,4 +368,4 @@ select book_name,book_price from books_vw order by book_price desc limit 3;
 
 Aby wykonać operacje kopiowania tabeli, zobacz:
 
-* [Operacje kopiowania tabeli](cassandra-spark-table-copy-ops.md)
+* [Operacje kopiowania tabel](cassandra-spark-table-copy-ops.md)

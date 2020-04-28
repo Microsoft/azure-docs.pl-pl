@@ -1,6 +1,6 @@
 ---
-title: Pobierz metryki wydajności & wykonywania zapytań SQL
-description: Dowiedz się, jak pobrać metryki wykonywania zapytań SQL i profil wydajności zapytań SQL żądań usługi Azure Cosmos DB.
+title: Pobierz metryki wykonywania & wydajności zapytań SQL
+description: Dowiedz się, jak pobrać metryki wykonywania zapytań SQL i profilować wydajność zapytań SQL dotyczących żądań Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: girobins
 ms.openlocfilehash: 48b9a67de5c870a187ee008bd97265760ca6c341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70998365"
 ---
-# <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Pobierz metryki wykonywania zapytań SQL i analizuj wydajność kwerend przy użyciu pliku .NET SDK
+# <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Pobieranie metryk wykonywania zapytań SQL i analizowanie wydajności zapytań przy użyciu zestawu .NET SDK
 
-W tym artykule przedstawiono sposób profilowania wydajności zapytań SQL w usłudze Azure Cosmos DB. To profilowanie można `QueryMetrics` wykonać za pomocą pobranego z .NET SDK i jest szczegółowo tutaj. [QueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) jest silnie wpisany obiekt z informacjami o wykonywaniu kwerendy wewnętrznej bazy danych. Te metryki są bardziej szczegółowo opisane w artykule [Tune Query Performance.](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics)
+W tym artykule przedstawiono, jak profilować wydajność zapytań SQL na Azure Cosmos DB. To profilowanie można wykonać przy `QueryMetrics` użyciu pobranego z zestawu .NET SDK i szczegółowo tutaj. [QueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) jest obiektem o jednoznacznie określonym typie z informacjami o wykonaniu zapytania wewnętrznej bazy danych. Te metryki są szczegółowo opisane w artykule [dostrajanie wydajności zapytań](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) .
 
-## <a name="set-the-feedoptions-parameter"></a>Ustawianie parametru FeedOptions
+## <a name="set-the-feedoptions-parameter"></a>Ustaw parametr FeedOptions
 
-Wszystkie przeciążenia [documentclient.CreateDocumentQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) przyjmują opcjonalny parametr [FeedOptions.](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) Ta opcja umożliwia dostrojenie i sparametryzację wykonywania kwerend. 
+Wszystkie przeciążenia dla [DocumentClient. CreateDocumentQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) przyjmują opcjonalny parametr [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) . Ta opcja umożliwia precyzyjne i sparametryzowane wykonywanie zapytań. 
 
-Aby zebrać metryki wykonywania zapytań SQL, należy ustawić parametr [PopulateQueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) w [plikach FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) na `true`. Ustawienie `PopulateQueryMetrics` na true sprawi, `FeedResponse` że będzie `QueryMetrics`tak, że będzie zawierać odpowiednie . 
+Aby zebrać metryki wykonywania zapytania SQL, należy ustawić parametr [PopulateQueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) w [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) na `true`. Ustawienie `PopulateQueryMetrics` wartości true spowoduje, że `FeedResponse` będzie zawierać odpowiednie. `QueryMetrics` 
 
-## <a name="get-query-metrics-with-asdocumentquery"></a>Pobierz metryki zapytań z AsDocumentQuery()
-Poniższy przykładowy kod pokazuje, jak pobrać metryki podczas korzystania z [asDocumentQuery()](https://msdn.microsoft.com/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) metoda:
+## <a name="get-query-metrics-with-asdocumentquery"></a>Pobierz metryki zapytania za pomocą AsDocumentQuery ()
+Poniższy przykład kodu pokazuje, jak pobrać metryki przy użyciu metody [AsDocumentQuery ()](https://msdn.microsoft.com/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) :
 
 ```csharp
 // Initialize this DocumentClient and Collection
@@ -60,9 +60,9 @@ while (documentQuery.HasMoreResults)
     }
 }
 ```
-## <a name="aggregating-querymetrics"></a>Agregowanie metryk zapytań
+## <a name="aggregating-querymetrics"></a>Agregowanie QueryMetrics
 
-W poprzedniej sekcji należy zauważyć, że było wiele wywołań [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) metody. Każde wywołanie `FeedResponse` zwróciło obiekt, `QueryMetrics`który ma słownik ; jeden dla każdej kontynuacji kwerendy. W poniższym przykładzie `QueryMetrics` pokazano, jak zagregować te przy użyciu LINQ:
+W poprzedniej sekcji należy zauważyć, że wystąpiły wiele wywołań metody [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) . Każde wywołanie zwróciło `FeedResponse` obiekt, który ma słownik `QueryMetrics`; jeden dla każdej kontynuacji zapytania. Poniższy przykład pokazuje, jak agregować te `QueryMetrics` elementy przy użyciu LINQ:
 
 ```csharp
 List<QueryMetrics> queryMetricsList = new List<QueryMetrics>();
@@ -82,9 +82,9 @@ QueryMetrics aggregatedQueryMetrics = queryMetricsList.Aggregate((curr, acc) => 
 Console.WriteLine(aggregatedQueryMetrics);
 ```
 
-## <a name="grouping-query-metrics-by-partition-id"></a>Grupowanie metryk kwerendy według identyfikatora partycji
+## <a name="grouping-query-metrics-by-partition-id"></a>Grupowanie metryk zapytania według identyfikatora partycji
 
-Identyfikator partycji `QueryMetrics` można pogrupować według identyfikatora partycji. Grupowanie według identyfikatora partycji pozwala sprawdzić, czy określona partycja powoduje problemy z wydajnością w porównaniu do innych. W poniższym przykładzie `QueryMetrics` pokazano, jak grupować z LINQ:
+Można grupować `QueryMetrics` według identyfikatora partycji. Grupowanie według identyfikatora partycji pozwala sprawdzić, czy określona partycja powoduje problemy z wydajnością w porównaniu z innymi. Poniższy przykład pokazuje, jak grupować `QueryMetrics` przy użyciu LINQ:
 
 ```csharp
 List<KeyValuePair<string, QueryMetrics>> partitionedQueryMetrics = new List<KeyValuePair<string, QueryMetrics>>();
@@ -113,9 +113,9 @@ foreach(IGrouping<string, KeyValuePair<string, QueryMetrics>> grouping in groupe
 }
 ```
 
-## <a name="linq-on-documentquery"></a>LINQ na DocumentQuery
+## <a name="linq-on-documentquery"></a>LINQ w DocumentQuery
 
-Można również uzyskać `FeedResponse` z LINQ Kwerendy przy użyciu `AsDocumentQuery()` metody:
+Możesz również pobrać `FeedResponse` z zapytania LINQ przy użyciu `AsDocumentQuery()` metody:
 
 ```csharp
 IDocumentQuery<Document> linqQuery = client.CreateDocumentQuery(collection.SelfLink, feedOptions)
@@ -129,7 +129,7 @@ IReadOnlyDictionary<string, QueryMetrics> queryMetrics = feedResponse.QueryMetri
 
 ## <a name="expensive-queries"></a>Drogie zapytania
 
-Można przechwycić jednostki żądania używane przez każdą kwerendę do zbadania kosztownych zapytań lub kwerend, które zużywają wysoką przepływność. Opłatę za żądanie można uzyskać za pomocą `FeedResponse`właściwości [RequestCharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) w pliku . Aby dowiedzieć się więcej o tym, jak uzyskać opłatę za żądanie za pomocą witryny Azure portal i różnych zestawów SDK, zobacz [artykuł o oliczce jednostki żądania.](find-request-unit-charge.md)
+Jednostki żądań używane przez poszczególne zapytania można przechwytywać, aby badać kosztowne zapytania lub zapytania, które zużywają wysoką przepływność. Opłaty za żądania można uzyskać przy użyciu właściwości [RequestCharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) w `FeedResponse`. Aby dowiedzieć się więcej o tym, jak uzyskać opłaty za żądanie przy użyciu Azure Portal i różnych zestawów SDK, zobacz artykuł [Znajdowanie opłaty za jednostkę żądania](find-request-unit-charge.md) .
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -146,9 +146,9 @@ while (documentQuery.HasMoreResults)
 }
 ```
 
-## <a name="get-the-query-execution-time"></a>Pobierz czas wykonywania kwerendy
+## <a name="get-the-query-execution-time"></a>Pobierz czas wykonywania zapytania
 
-Podczas obliczania czasu wymaganego do wykonania kwerendy po stronie klienta, upewnij `ExecuteNextAsync` się, że zawiera tylko czas, aby wywołać metodę, a nie inne części bazy kodu. Tylko te wywołania pomagają w obliczaniu, jak długo trwa wykonywanie kwerendy, jak pokazano w poniższym przykładzie:
+Podczas obliczania czasu wymaganego do wykonania zapytania po stronie klienta upewnij się, że jest tylko czas wywoływania `ExecuteNextAsync` metody, a nie inne części bazy kodu. Tylko te wywołania pomagają w obliczaniu czasu wykonywania zapytania, jak pokazano w następującym przykładzie:
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -166,11 +166,11 @@ while (documentQuery.HasMoreResults)
 DoSomeLogging(queryExecutionTimeEndToEndTotal.Elapsed);
 ```
 
-## <a name="scan-queries-commonly-slow-and-expensive"></a>Skanowanie zapytań (często powolnych i kosztownych)
+## <a name="scan-queries-commonly-slow-and-expensive"></a>Zapytania skanowania (często powolne i kosztowne)
 
-Kwerenda skanowania odwołuje się do kwerendy, która nie była obsługiwana przez indeks, z powodu którego wiele dokumentów są ładowane przed zwróceniem zestawu wyników.
+Zapytanie skanowania odwołuje się do zapytania, które nie zostało obsłużone przez indeks, z powodu załadowania wielu dokumentów przed zwróceniem zestawu wyników.
 
-Poniżej znajduje się przykład kwerendy skanowania:
+Poniżej znajduje się przykład zapytania skanowania:
 
 ```sql
 SELECT VALUE c.description 
@@ -178,7 +178,7 @@ FROM   c
 WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
 ```
 
-Filtr tej kwerendy używa funkcji systemowej UPPER, która nie jest obsługiwana z indeksu. Wykonywanie tej kwerendy względem dużej kolekcji spowodowało powstanie następujących metryk kwerendy dla pierwszej kontynuacji:
+Filtr tego zapytania używa górnej funkcji systemu, która nie jest obsługiwana przez indeks. Wykonanie tego zapytania względem dużej kolekcji wygenerowało następujące metryki zapytań podczas pierwszej kontynuacji:
 
 ```
 QueryMetrics
@@ -213,15 +213,15 @@ Retrieved Document Count                 :          60,951
 Retrieved Document Size                  :     399,998,938 bytes
 ```
 
-W tej kwerendzie załadowano 60 951 dokumentów, których liczba wyniosła 399 998 938 bajtów. Ładowanie tej liczby bajtów powoduje wysokie koszty lub obciążenie jednostkowe żądania. Wykonanie kwerendy zajmuje również dużo czasu, co jest jasne z właściwością całkowitego czasu spędzonego:
+To zapytanie załadowało 60 951 dokumentów, które łączą 399 998 938 bajtów. Załadowanie tej wielu bajtów skutkuje wysokim kosztem lub opłatą jednostkową żądania. Wykonanie zapytania jest również czasochłonne, co oznacza, że jest jasne i łączny czas spędzony:
 
 ```
 Total Query Execution Time               :        4,500.34 milliseconds
 ```
 
-Co oznacza, że wykonanie kwerendy trwało 4,5 sekundy (i była to tylko jedna kontynuacja).
+Oznacza to, że wykonanie zapytania zajęło 4,5 sekund (i była tylko jedną kontynuacją).
 
-Aby zoptymalizować tę przykładną kwerendę, należy unikać użycia UPPER w filtrze. Zamiast tego, gdy dokumenty są `c.description` tworzone lub aktualizowane, wartości muszą być wstawiane we wszystkich wielkich literach. Następnie kwerenda staje się: 
+Aby zoptymalizować to przykładowe zapytanie, należy unikać używania górnej części filtra. Zamiast tego podczas tworzenia lub aktualizowania `c.description` dokumentów należy wstawiać wszystkie wielkie litery. Następnie zapytanie będzie: 
 
 ```sql
 SELECT VALUE c.description 
@@ -229,15 +229,15 @@ FROM   c
 WHERE c.description = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
 ```
 
-Ta kwerenda może być teraz obsługiwana z indeksu.
+To zapytanie jest teraz możliwe do doręczania z indeksu.
 
-Aby dowiedzieć się więcej o wydajności kwerendy dostrajania, zobacz artykuł [Dostrajanie wydajności kwerendy.](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics)
+Aby dowiedzieć się więcej na temat dostrajania wydajności zapytań, zobacz artykuł [dostrajanie wydajności zapytań](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) .
 
 ## <a name="references"></a><a id="References"></a>Dokumentacja
 
 - [Azure Cosmos DB SQL specification (Specyfikacja języka SQL w usłudze Azure Cosmos DB)](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-- [Json](https://json.org/)
+- [JSON](https://json.org/)
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
 
 ## <a name="next-steps"></a>Następne kroki

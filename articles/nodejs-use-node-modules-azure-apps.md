@@ -1,6 +1,6 @@
 ---
-title: Praca z modułami Node.js
-description: Dowiedz się, jak pracować z modułami Node.js podczas korzystania z usługi Azure App Service lub usług w chmurze.
+title: Praca z modułami Node. js
+description: Dowiedz się, jak korzystać z modułów Node. js podczas korzystania z Azure App Service lub Cloud Services.
 services: ''
 documentationcenter: nodejs
 author: rloutlaw
@@ -15,77 +15,77 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
 ms.openlocfilehash: 61be6bcd957a4e81147d5ef472b8f850e5605e41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70309272"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Using Node.js Modules with Azure applications (Używanie modułów Node.js z aplikacjami platformy Azure)
-Ten dokument zawiera wskazówki dotyczące korzystania z modułów Node.js z aplikacjami hostowanymi na platformie Azure. Zawiera wskazówki dotyczące zapewnienia, że aplikacja używa określonej wersji modułu, a także przy użyciu modułów natywnych z platformą Azure.
+Ten dokument zawiera wskazówki dotyczące używania modułów Node. js z aplikacjami hostowanymi na platformie Azure. Zawiera on wskazówki dotyczące zapewnienia, że aplikacja korzysta z określonej wersji modułu, a także przy użyciu modułów macierzystych z platformą Azure.
 
-Jeśli znasz już przy użyciu node.js modułów, **package.json** i **npm-shrinkwrap.json** plików, następujące informacje zawiera krótkie podsumowanie tego, co zostało omówione w tym artykule:
+Jeśli wiesz już, jak korzystać z modułów Node. js, **Package. JSON** i **npm-shrinkwrap. JSON** , następujące informacje zawierają krótkie podsumowanie dotyczące tego artykułu:
 
-* Usługa Azure App Service rozumie pliki **package.json** i **npm-shrinkwrap.json** i może instalować moduły na podstawie wpisów w tych plikach.
+* Azure App Service rozumie pliki **Package. JSON** i **npm-shrinkwrap. JSON** oraz mogą instalować moduły na podstawie wpisów w tych plikach.
 
-* Usługi w chmurze platformy Azure oczekuje, że wszystkie moduły mają być zainstalowane w środowisku deweloperskim, a katalog **modułów węzłów\_** zostanie dołączony jako część pakietu wdrażania. Możliwe jest włączenie obsługi instalowania modułów przy użyciu plików **package.json** lub **npm-shrinkwrap.json** w usługach w chmurze; Jednak ta konfiguracja wymaga dostosowania skryptów domyślnych używanych przez projekty usługi w chmurze. Na przykład jak skonfigurować to środowisko, zobacz [Zadanie uruchamiania platformy Azure do uruchomienia instalacji npm, aby uniknąć wdrażania modułów węzłów](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
-
-> [!NOTE]
-> Maszyny wirtualne platformy Azure nie są omówione w tym artykule, ponieważ środowisko wdrażania na maszynie wirtualnej zależy od systemu operacyjnego hostowanego przez maszynę wirtualną.
-> 
-> 
-
-## <a name="nodejs-modules"></a>Moduły node.js
-Moduły są ładowalne pakiety JavaScript, które zapewniają określone funkcje dla aplikacji. Moduły są zwykle instalowane za pomocą narzędzia wiersza polecenia **npm,** jednak niektóre moduły (takie jak moduł http) są dostarczane jako część podstawowego pakietu Node.js.
-
-Po zainstalowaniu modułów są one przechowywane w katalogu **modułów węzłów\_** w katalogu głównym struktury katalogów aplikacji. Każdy moduł w katalogu **modułów węzłów\_** zachowuje swój własny katalog, który zawiera wszystkie moduły, od których zależy, a to zachowanie powtarza się dla każdego modułu aż do łańcucha zależności. To środowisko pozwala każdemu zainstalowanemu modułowi mieć własne wymagania dotyczące wersji dla modułów, od których zależy, jednak może to spowodować dość dużą strukturę katalogów.
-
-Wdrażanie katalogu **modułów węzłów\_** w ramach aplikacji zwiększa rozmiar wdrożenia w porównaniu z użyciem pliku **package.json** lub **npm-shrinkwrap.json;** jednak gwarantuje, że wersje modułów używanych w produkcji są takie same jak moduły używane w rozwoju.
-
-### <a name="native-modules"></a>Moduły natywne
-Podczas gdy większość modułów to po prostu pliki JavaScript w postaci zwykłego tekstu, niektóre moduły są obrazami binarnymi specyficznymi dla platformy. Moduły te są kompilowane w czasie instalacji, zwykle przy użyciu Języka Python i node-gyp. Ponieważ usługi w chmurze platformy Azure polegają na folderze **modułów węzłów\_** wdrażanym jako część aplikacji, każdy moduł macierzysty dołączony do zainstalowanych modułów powinien działać w usłudze w chmurze, o ile został zainstalowany i skompilowany w systemie dewelopera systemu Windows.
-
-Usługa Azure App Service nie obsługuje wszystkich modułów natywnych i może zakończyć się niepowodzeniem podczas kompilowania modułów z określonymi wymaganiami wstępnymi. Podczas gdy niektóre popularne moduły, takie jak MongoDB, mają opcjonalne zależności natywnych i działają dobrze bez nich, dwa obejścia okazały się skuteczne w prawie wszystkich dostępnych obecnie modułach natywnych:
-
-* Uruchom **instalację npm** na komputerze z systemem Windows, na który są zainstalowane wszystkie wymagania wstępne modułu macierzystego. Następnie wdrożyć folder **utworzonych modułów\_węzłów** jako część aplikacji do usługi Azure App Service.
-
-  * Przed kompilacją sprawdź, czy lokalna instalacja node.js ma pasującą architekturę, a wersja jest jak najbardziej zbliżona do tej używanej na platformie Azure (bieżące wartości można sprawdzić w czasie wykonywania z właściwości **process.arch** i **process.version**).
-
-* Usługa Azure App Service można skonfigurować do wykonywania skryptów niestandardowe bash lub powłoki podczas wdrażania, co daje możliwość wykonywania poleceń niestandardowych i precyzyjnie skonfigurować sposób **instalacji npm** jest uruchamiany. Aby uzyskać film przedstawiający sposób konfigurowania tego środowiska, zobacz [Niestandardowe skrypty wdrażania witryny sieci Web z programem Kudu](https://azure.microsoft.com/resources/videos/custom-web-site-deployment-scripts-with-kudu/).
-
-### <a name="using-a-packagejson-file"></a>Korzystanie z pliku package.json
-
-Plik **package.json** jest sposobem określenia zależności najwyższego poziomu, których wymaga aplikacja, aby platforma hostingowa mogła zainstalować zależności, zamiast wymagać uwzględnienia folderu **modułów węzłów\_** w ramach wdrożenia. Po wdrożeniu aplikacji polecenie **npm install** jest używane do analizowanie pliku **package.json** i instalowanie wszystkich wymienionych zależności.
-
-Podczas tworzenia programu można użyć parametrów **--save**, **--save-dev**lub **--save-optional** podczas instalowania modułów, aby automatycznie dodać wpis dla modułu do pliku **package.json.** Aby uzyskać więcej informacji, zobacz [npm-install](https://docs.npmjs.com/cli/install).
-
-Jednym z potencjalnych problemów z plikiem **package.json** jest to, że określa tylko wersję dla zależności najwyższego poziomu. Każdy zainstalowany moduł może lub nie może określić wersję modułów, od których zależy, a więc jest możliwe, że może skończyć się z innym łańcuchem zależności niż używany w rozwoju.
+* Usługa Azure Cloud Services oczekuje, że wszystkie moduły zostaną zainstalowane w środowisku deweloperskim, a **katalog\_modułów węzła** , który ma zostać dołączony jako część pakietu wdrożeniowego. Można włączyć obsługę instalowania modułów przy użyciu plików **Package. JSON** lub **npm-shrinkwrap. JSON** na Cloud Services; Ta konfiguracja wymaga jednak dostosowania domyślnych skryptów używanych przez projekty usługi w chmurze. Aby zapoznać się z przykładem sposobu konfigurowania tego środowiska, zobacz [zadanie uruchamiania platformy Azure, aby uruchomić instalację npm, aby uniknąć wdrożenia modułów węzłów](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
 
 > [!NOTE]
-> Podczas wdrażania w usłudze Azure App Service, jeśli plik <b>package.json</b> odwołuje się do modułu macierzystego może pojawić się błąd podobny do następującego przykładu podczas publikowania aplikacji przy użyciu git:
-> 
-> npm ERR! module-name@0.6.0install: 'node-gyp configure build'
-> 
-> npm ERR! 'cmd "/c" "node-gyp configure build"' nie powiodło się z 1
+> W tym artykule nie omówiono Virtual Machines platformy Azure, ponieważ środowisko wdrażania na maszynie wirtualnej jest zależne od systemu operacyjnego hostowanego przez maszynę wirtualną.
 > 
 > 
 
-### <a name="using-a-npm-shrinkwrapjson-file"></a>Korzystanie z pliku npm-shrinkwrap.json
-Plik **npm-shrinkwrap.json** jest próbą rozwiązania ograniczeń przechowywania wersji modułu pliku **package.json.** Plik **package.json** zawiera tylko wersje dla modułów najwyższego poziomu, plik **npm-shrinkwrap.json** zawiera wymagania dotyczące wersji dla pełnego łańcucha zależności modułu.
+## <a name="nodejs-modules"></a>Moduły Node. js
+Moduły są załadowanymi pakietami języka JavaScript, które zapewniają konkretne funkcje aplikacji. Moduły są zwykle instalowane przy użyciu narzędzia wiersza polecenia **npm** , ale niektóre moduły (takie jak moduł http) są dostarczane jako część podstawowego pakietu Node. js.
 
-Gdy aplikacja jest gotowa do produkcji, można zablokować wymagania dotyczące wersji i utworzyć plik **npm-shrinkwrap.json** za pomocą polecenia **npm shrinkwrap.** To polecenie użyje wersji aktualnie zainstalowanych w folderze **modułów węzłów\_** i zapisze te wersje do pliku **npm-shrinkwrap.json.** Po wdrożeniu aplikacji w środowisku hostingu polecenie **npm install** służy do analizowania pliku **npm-shrinkwrap.json** i instalowania wszystkich wymienionych zależności. Aby uzyskać więcej informacji, zobacz [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap).
+Po zainstalowaniu modułów są one przechowywane w katalogu **modułów węzła\_** w katalogu głównym struktury katalogu aplikacji. Każdy moduł w katalogu **modułów\_węzła** zachowuje swój własny katalog, który zawiera moduły, od których jest zależna, a to zachowanie powtarza się dla każdego modułu, tak jak w przypadku łańcucha zależności. W tym środowisku każdy zainstalowany moduł ma własne wymagania dotyczące wersji dla modułów, od których zależy, jednak może to spowodować powstanie dużej struktury katalogów.
+
+Wdrożenie katalogu **modułów\_węzła** w ramach aplikacji zwiększa rozmiar wdrożenia w porównaniu z użyciem pliku **Package. JSON** lub **npm-shrinkwrap. JSON** ; jednak gwarantuje to, że wersje modułów używanych w środowisku produkcyjnym są takie same jak moduły używane podczas opracowywania.
+
+### <a name="native-modules"></a>Moduły macierzyste
+Chociaż większość modułów ma zwykłe pliki JavaScript, niektóre moduły są obrazami binarnymi specyficznymi dla platformy. Te moduły są kompilowane w czasie instalacji, zazwyczaj przy użyciu języka Python i Node-GYP. Ponieważ platforma Azure Cloud Services korzysta z **folderu\_modułów węzła** wdrażanego w ramach aplikacji, każdy moduł macierzysty dołączony jako część zainstalowanych modułów powinien współpracować w usłudze w chmurze, o ile został zainstalowany i skompilowany w systemie Windows Development.
+
+Azure App Service nie obsługuje wszystkich modułów macierzystych i może się nie powieść podczas kompilowania modułów z określonymi wymaganiami wstępnymi. Chociaż niektóre popularne moduły, takie jak MongoDB, mają opcjonalne zależności natywne i pracują bez nich, dwa obejścia zostały pomyślnie sprawdzone z niemal wszystkimi dostępnymi modułami macierzystymi:
+
+* Uruchom **instalację npm** na komputerze z systemem Windows, na którym zainstalowano wszystkie wymagania wstępne modułu macierzystego. Następnie wdróż utworzony folder **modułów węzła\_** jako część aplikacji do Azure App Service.
+
+  * Przed kompilacją upewnij się, że lokalna instalacja środowiska Node. js ma zgodną architekturę, a wersja jest możliwie najbliżej tej, która jest używana na platformie Azure (bieżące wartości można sprawdzić w środowisku uruchomieniowym z poziomu **procesu właściwości. Arch** i **Process. Version**).
+
+* Azure App Service można skonfigurować do wykonywania niestandardowych skryptów bash lub powłoki podczas wdrażania, co daje możliwość wykonywania poleceń niestandardowych i precyzyjnego konfigurowania sposobu uruchamiania **instalacji npm** . Aby obejrzeć film wideo przedstawiający sposób konfigurowania tego środowiska, zobacz [niestandardowe skrypty wdrażania witryny sieci Web za pomocą kudu](https://azure.microsoft.com/resources/videos/custom-web-site-deployment-scripts-with-kudu/).
+
+### <a name="using-a-packagejson-file"></a>Korzystanie z pliku Package. JSON
+
+Plik **Package. JSON** jest sposobem na określenie zależności najwyższego poziomu wymaganych przez aplikację, aby platforma hostingu mogła zainstalować zależności, zamiast wymagać dołączenia folderu **modułów węzła\_** w ramach wdrożenia. Po wdrożeniu aplikacji polecenie **npm Install** służy do analizowania pliku **Package. JSON** i instalowania wszystkich wymienionych zależności.
+
+Podczas programowania można użyć parametrów **--Save**, **--Save-dev**lub **--Save-Optional** podczas instalowania modułów, aby automatycznie dodać wpis do pliku **Package. JSON** . Aby uzyskać więcej informacji, zobacz [npm-Install](https://docs.npmjs.com/cli/install).
+
+Jednym z potencjalnych problemów z plikiem **Package. JSON** jest określenie tylko wersji dla zależności najwyższego poziomu. Każdy zainstalowany moduł może lub nie może określić wersji modułów, od których jest zależna, i dlatego istnieje możliwość, że można utworzyć inny łańcuch zależności niż używany podczas opracowywania.
 
 > [!NOTE]
-> Podczas wdrażania w usłudze Azure App Service, jeśli plik <b>npm-shrinkwrap.json</b> odwołuje się do modułu macierzystego, podczas publikowania aplikacji przy użyciu gita może zostać wyświetlony błąd podobny do następującego przykładu:
+> W przypadku wdrażania do Azure App Service, jeśli plik <b>Package. JSON</b> odwołuje się do modułu macierzystego, w przypadku publikowania aplikacji za pomocą narzędzia Git może zostać wyświetlony błąd podobny do poniższego:
 > 
-> npm ERR! module-name@0.6.0install: 'node-gyp configure build'
+> npm błąd! module-name@0.6.0Zainstaluj: "Node-GYP Configure build"
 > 
-> npm ERR! 'cmd "/c" "node-gyp configure build"' nie powiodło się z 1
+> npm błąd! polecenie "cmd"/c "" Node-GYP Configure build "" nie powiodło się z 1
+> 
+> 
+
+### <a name="using-a-npm-shrinkwrapjson-file"></a>Korzystanie z pliku NPM-shrinkwrap. JSON
+Plik **npm-shrinkwrap. JSON** jest próbą rozwiązania ograniczeń wersji modułu pliku **Package. JSON** . Plik **Package. JSON** zawiera tylko wersje modułów najwyższego poziomu, plik **npm-shrinkwrap. JSON** zawiera wymagania dotyczące wersji pełnego łańcucha zależności modułu.
+
+Gdy aplikacja jest gotowa do produkcji, można zablokować wymagania dotyczące wersji i utworzyć plik **npm-shrinkwrap. JSON** przy użyciu polecenia **npm shrinkwrap** . To polecenie spowoduje użycie wersji aktualnie zainstalowanych w folderze **modułów węzła\_** i zapisanie tych wersji w pliku **npm-shrinkwrap. JSON** . Po wdrożeniu aplikacji w środowisku hostingu polecenie **npm Install** służy do analizowania pliku **npm-shrinkwrap. JSON** i instalowania wszystkich wymienionych zależności. Aby uzyskać więcej informacji, zobacz [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap).
+
+> [!NOTE]
+> W przypadku wdrażania do Azure App Service, jeśli plik <b>npm-shrinkwrap. JSON</b> odwołuje się do modułu macierzystego, po opublikowaniu aplikacji przy użyciu narzędzia Git może zostać wyświetlony błąd podobny do poniższego:
+> 
+> npm błąd! module-name@0.6.0Zainstaluj: "Node-GYP Configure build"
+> 
+> npm błąd! polecenie "cmd"/c "" Node-GYP Configure build "" nie powiodło się z 1
 > 
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy zrozumiesz, jak korzystać z modułów Node.js z platformą Azure, dowiedz się, jak [określić wersję Node.js](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [utworzyć i wdrożyć aplikację internetową Node.js](app-service/app-service-web-get-started-nodejs.md)oraz [Jak używać interfejsu wiersza polecenia platformy Azure dla komputerów Mac i Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
+Teraz, gdy rozumiesz, jak używać modułów Node. js z platformą Azure, Dowiedz się, jak [określić wersję środowiska Node. js](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [skompilować i wdrożyć aplikację sieci Web w języku Node. js](app-service/app-service-web-get-started-nodejs.md)oraz [jak korzystać z interfejsu wiersza polecenia platformy Azure dla systemów Mac i Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
 Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowiska Node.js](/azure/javascript/).
 

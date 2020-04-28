@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów — usługa Azure Event Grid IoT Edge | Dokumenty firmy Microsoft
-description: Rozwiązywanie problemów w siatce zdarzeń w umyw ioT edge.
+title: Rozwiązywanie problemów — Azure Event Grid IoT Edge | Microsoft Docs
+description: Rozwiązywanie problemów w Event Grid na IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,19 +10,19 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 95181d0eb23d5956b2c6af52c77f85714b107345
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73100154"
 ---
 # <a name="common-issues"></a>Typowe problemy
 
-Jeśli występują problemy z używaniem usługi Azure Event Grid w usłudze IoT Edge w twoim środowisku, użyj tego artykułu jako przewodnika do rozwiązywania problemów i rozwiązywania problemów.
+Jeśli wystąpią problemy z używaniem Azure Event Grid na IoT Edge w danym środowisku, użyj tego artykułu jako przewodnika w celu rozwiązywania problemów i rozwiązania problemu.
 
-## <a name="view-event-grid-module-logs"></a>Wyświetlanie dzienników modułów siatki zdarzeń
+## <a name="view-event-grid-module-logs"></a>Wyświetlanie dzienników modułu Event Grid
 
-Aby rozwiązać problem, może być konieczne dostęp do dzienników modułów usługi Event Grid. Aby to zrobić, na maszynie Wirtualnej, na której moduł jest wdrażany, uruchom następujące polecenie:
+Aby rozwiązać problem, może być konieczne uzyskanie dostępu do dzienników modułu Event Grid. Aby to zrobić, na maszynie wirtualnej, na której wdrożono moduł, uruchom następujące polecenie:
 
 W systemie Windows
 
@@ -30,7 +30,7 @@ W systemie Windows
 docker -H npipe:////./pipe/iotedge_moby_engine container logs eventgridmodule
 ```
 
-Na Linuksie,
+W systemie Linux
 
 ```sh
 sudo docker logs eventgridmodule
@@ -38,13 +38,13 @@ sudo docker logs eventgridmodule
 
 ## <a name="unable-to-make-https-requests"></a>Nie można wykonać żądań HTTPS
 
-* Najpierw upewnij się, że moduł siatki zdarzeń ma **przychodzących:serverAuth:tlsPolicy** **ustawiona** na **ścisłe**lub włączone .
+* Najpierw upewnij się, że moduł Event Grid ma **przychodzące: obiektu ServerAuth: tlsPolicy** ustawiony na wartość **Strict** lub **Enabled**.
 
-* Jeśli jego komunikacji moduł do modułu, upewnij się, że dokonujesz wywołania na porcie **4438** i nazwa modułu pasuje do tego, co jest wdrażane. 
+* W przypadku komunikacji między modułami upewnij się, że nastąpi wywołanie na porcie **4438** , a nazwa modułu pasuje do wdrożonego elementu. 
 
-  Na przykład, jeśli moduł Event Grid został wdrożony z nazwą **eventgridmodule,** adres URL powinien być **https://eventgridmodule:4438**. Upewnij się, że obudowa i numer portu są poprawne.
+  Na przykład, jeśli moduł Event Grid został wdrożony o nazwie **eventgridmodule** , adres URL powinien być **https://eventgridmodule:4438**adresem. Upewnij się, że wielkość liter i numer portu są poprawne.
     
-* Jeśli pochodzi z modułu nienawiązanego do IoT, upewnij się, że port siatki zdarzeń jest mapowany na komputerze hosta podczas wdrażania, na przykład,
+* Jeśli jest to moduł inny niż IoT, upewnij się, że port Event Grid jest mapowany na maszynę hosta podczas wdrażania na przykład.
 
     ```json
     "HostConfig": {
@@ -60,13 +60,13 @@ sudo docker logs eventgridmodule
 
 ## <a name="unable-to-make-http-requests"></a>Nie można wykonać żądań HTTP
 
-* Najpierw upewnij się, że moduł siatki zdarzeń ma **przychodzących:serverAuth:tlsPolicy** **ustawiona** na włączone lub **wyłączone**.
+* Najpierw upewnij się, że moduł Event Grid ma **przychodzący: obiektu ServerAuth: tlsPolicy** ustawiony na wartość **Enabled** lub **Disabled**.
 
-* Jeśli jego komunikacji moduł do modułu, upewnij się, że dokonujesz wywołania na porcie **5888** i nazwa modułu pasuje do tego, co jest wdrażane. 
+* W przypadku komunikacji między modułami upewnij się, że nastąpi wywołanie na porcie **5888** , a nazwa modułu pasuje do wdrożonego elementu. 
 
-  Na przykład, jeśli moduł Event Grid został wdrożony z nazwą **eventgridmodule,** adres URL powinien być **http://eventgridmodule:5888**. Upewnij się, że obudowa i numer portu są poprawne.
+  Na przykład, jeśli moduł Event Grid został wdrożony o nazwie **eventgridmodule** , adres URL powinien być **http://eventgridmodule:5888**adresem. Upewnij się, że wielkość liter i numer portu są poprawne.
     
-* Jeśli pochodzi z modułu nienawiązanego do IoT, upewnij się, że port siatki zdarzeń jest mapowany na komputerze hosta podczas wdrażania, na przykład,
+* Jeśli jest to moduł inny niż IoT, upewnij się, że port Event Grid jest mapowany na maszynę hosta podczas wdrażania na przykład.
 
     ```json
     "HostConfig": {
@@ -80,32 +80,32 @@ sudo docker logs eventgridmodule
     }
     ```
 
-## <a name="certificate-chain-was-issued-by-an-authority-thats-not-trusted"></a>Łańcuch certyfikatów został wydany przez urząd, który nie jest zaufany
+## <a name="certificate-chain-was-issued-by-an-authority-thats-not-trusted"></a>Łańcuch certyfikatów został wystawiony przez urząd, który nie jest zaufany
 
-Domyślnie moduł Siatki zdarzeń jest skonfigurowany do uwierzytelniania klientów z certyfikatem wystawionym przez demon zabezpieczeń IoT Edge. Upewnij się, że klient przedstawia certyfikat, który jest zakorzeniony w tym łańcuchu.
+Domyślnie moduł Event Grid jest skonfigurowany do uwierzytelniania klientów przy użyciu certyfikatu wystawionego przez demona zabezpieczeń IoT Edge. Upewnij się, że klient przedstawia certyfikat, który jest katalogiem głównym tego łańcucha.
 
-Klasa **IoTSecurity** w [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) pokazuje, jak pobrać certyfikaty z demona IoT Edge Security i używać go do konfigurowania połączeń wychodzących.
+Klasa **IoTSecurity** w [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) programie pokazuje, jak pobrać certyfikaty z demona zabezpieczeń IoT Edge i użyć go do skonfigurowania wywołań wychodzących.
 
-Jeśli jest to środowisko nieprodukcyjne, można wyłączyć uwierzytelnianie klienta. Szczegółowe informacje na ten temat można znaleźć w stronie o [zabezpieczeniach i uwierzytelnianiu.](security-authentication.md)
+Jeśli jest to Środowisko nieprodukcyjne, można wyłączyć uwierzytelnianie klienta. Aby uzyskać szczegółowe informacje o tym, jak to zrobić [, zobacz Zabezpieczenia i uwierzytelnianie](security-authentication.md) .
 
-## <a name="debug-events-not-received-by-subscriber"></a>Zdarzenia debugowania nie odebrane przez subskrybenta
+## <a name="debug-events-not-received-by-subscriber"></a>Zdarzenia debugowania nieodebrane przez subskrybenta
 
-Typowe powody to:
+Typowymi przyczynami tego są:
 
-* Zdarzenie nigdy nie zostało pomyślnie zaksięgowane. Kod stanu HTTP 200(OK) powinien zostać odebrany podczas księgowania zdarzenia w module siatki zdarzeń.
+* Zdarzenie nigdy nie zostało pomyślnie ogłoszone. W przypadku wysyłania zdarzenia do modułu Event Grid należy otrzymać kod StatusCode protokołu HTTP o wartości 200 (OK).
 
-* Sprawdź subskrypcję wydarzenia, aby zweryfikować:
+* Sprawdź subskrypcję zdarzeń, aby sprawdzić:
     * Adres URL punktu końcowego jest prawidłowy
-    * Wszelkie filtry w subskrypcji nie powodują zdarzenia do "upuszczenia".
+    * Wszystkie filtry w subskrypcji nie powodują powstania zdarzenia "upuszczone".
 
 * Sprawdź, czy moduł subskrybenta jest uruchomiony
 
-* Zaloguj się do maszyny Wirtualnej, gdzie moduł siatki zdarzeń jest wdrażany i wyświetlić jego dzienniki.
+* Zaloguj się do maszyny wirtualnej, na której wdrożono moduł Event Grid i Wyświetl jego dzienniki.
 
-* Włącz rejestrowanie na dostarczanie, ustawiając **broker:logDeliverySuccess=true** i ponownie rozmieszczając moduł siatki zdarzeń i ponowiając próbę żądania. Włączenie rejestrowania na dostawę może mieć wpływ na przepływność i opóźnienie, więc po zakończeniu debugowania nasze zalecenie jest, aby włączyć to z powrotem do **brokera:logDeliverySuccess=false** i ponownego rozmieszczenia modułu siatki zdarzeń.
+* Włącz rejestrowanie dostarczania na podstawie ustawienia **brokera: logDeliverySuccess = true** i ponownego wdrażania modułu Event Grid i ponawiania próby żądania. Włączenie rejestrowania na dostarczenie może mieć wpływ na przepływność i opóźnienie, dlatego po zakończeniu debugowania należy włączyć tę opcję z powrotem do **brokera: logDeliverySuccess = false** i ponowne wdrożenie modułu Event Grid.
 
-* Włącz metryki, ustawiając **metryki:reportertype=console** i ponownie wdrożyć moduł siatki zdarzeń. Wszelkie operacje po tym spowoduje metryki są rejestrowane na konsoli modułu siatki zdarzeń, które mogą służyć do dalszego debugowania. Naszym zaleceniem jest włączenie metryk tylko do debugowania i po zakończeniu, aby je wyłączyć, ustawiając **metryki:reportertype=none** i ponownie rozmieszczając moduł siatki zdarzeń.
+* Włącz metryki, ustawiając **metryki: reportertype = konsola** i Wdróż ponownie moduł Event Grid. Wszelkie operacje po tej operacji spowodują, że metryki są rejestrowane na konsoli modułu Event Grid, które mogą być używane do dalszej analizy. Nasze zalecenie polega na włączeniu metryk tylko dla debugowania, a po jej zakończeniu, aby ją wyłączyć przez ustawienie **metryk: reportertype = none** i ponowne wdrożenie modułu Event Grid.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zgłoś wszelkie problemy, sugestie dotyczące korzystania [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues)z siatki zdarzeń w uwolniku IoT edge pod adresem .
+Zgłoś wszelkie problemy, sugestie dotyczące używania Event Grid w IoT Edge [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues).

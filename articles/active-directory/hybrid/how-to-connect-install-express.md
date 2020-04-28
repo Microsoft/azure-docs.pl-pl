@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24143f8c94a294da90be84bacfe633db0cd24f85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60244489"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Rozpoczynanie pracy z programem Azure AD Connect przy użyciu ustawień ekspresowych
@@ -37,10 +37,10 @@ Możesz zobaczyć te czynności w praktyce, korzystając z sekcji [Filmy wideo](
 3. Na ekranie powitalnym zaznacz pole wyrażenia zgody na warunki licencji i kliknij pozycję **Kontynuuj**.  
 4. Na ekranie Ustawienia ekspresowe kliknij polecenie **Użyj ustawień ekspresowych**.  
    ![Wprowadzenie do programu Azure AD Connect](./media/how-to-connect-install-express/express.png)
-5. Na ekranie Łączenie z usługą Azure AD wprowadź nazwę użytkownika i hasło administratora globalnego usługi Azure AD. Kliknij przycisk **alej**.  
+5. Na ekranie Łączenie z usługą Azure AD wprowadź nazwę użytkownika i hasło administratora globalnego usługi Azure AD. Kliknij przycisk **Dalej**.  
    ![Łączenie z usługą Azure AD](./media/how-to-connect-install-express/connectaad.png)  
    Jeśli wystąpi błąd lub problemy z łącznością, zobacz [Rozwiązywanie problemów z łącznością](tshoot-connect-connectivity.md).
-6. Na ekranie Łączenie z usługami AD DS wprowadź nazwę użytkownika i hasło konta administratora przedsiębiorstwa. Możesz wprowadzić domenę w formacie NetBios lub FQDN, czyli FABRIKAM\administrator lub fabrikam.com\administrator. Kliknij przycisk **alej**.  
+6. Na ekranie Łączenie z usługami AD DS wprowadź nazwę użytkownika i hasło konta administratora przedsiębiorstwa. Możesz wprowadzić domenę w formacie NetBios lub FQDN, czyli FABRIKAM\administrator lub fabrikam.com\administrator. Kliknij przycisk **Dalej**.  
    ![Łączenie z usługami AD DS](./media/how-to-connect-install-express/connectad.png)
 7. Strona [**Konfiguracja logowania w usłudze Azure AD**](plan-connect-user-signin.md#azure-ad-sign-in-configuration) będzie wyświetlana tylko w przypadku, gdy nie ukończono [weryfikowania domen](../active-directory-domains-add-azure-portal.md) w ramach [wymagań wstępnych](how-to-connect-install-prerequisites.md).
    ![Niezweryfikowane domeny](./media/how-to-connect-install-express/unverifieddomain.png)  
@@ -71,7 +71,7 @@ Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Az
 
 ## <a name="related-documentation"></a>Dokumentacja pokrewna
 
-| Temat | Link |
+| Temat | Łącze |
 | --- | --- |
 | Omówienie programu Azure AD Connect | [Integrowanie katalogów lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)
 | Instalowanie przy użyciu ustawień dostosowanych | [Niestandardowa instalacja programu Azure AD Connect](how-to-connect-install-custom.md) |

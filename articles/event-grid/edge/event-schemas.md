@@ -1,6 +1,6 @@
 ---
-title: Schematy zdarzeń — usługa Azure Event Grid IoT Edge | Dokumenty firmy Microsoft
-description: Schematy zdarzeń w siatce zdarzeń na krawędzi IoT.
+title: Schematy zdarzeń — Azure Event Grid IoT Edge | Microsoft Docs
+description: Schematy zdarzeń w Event Grid na IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,28 +10,28 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73242471"
 ---
 # <a name="event-schemas"></a>Schematy zdarzeń
 
-Moduł Event Grid akceptuje i dostarcza zdarzenia w formacie JSON. Obecnie istnieją trzy schematy, które są obsługiwane przez siatkę zdarzeń: -
+Moduł Event Grid akceptuje i dostarcza zdarzenia w formacie JSON. Obecnie istnieją trzy schematy obsługiwane przez Event Grid:-
 
 * **EventGridSchema**
-* **CustomSchema (CustomSchema)**
-* **ChmuraEventSchema**
+* **CustomSchema**
+* **CloudEventSchema**
 
-Można skonfigurować schemat, który wydawca musi być zgodny podczas tworzenia tematu. Jeśli nie określono, domyślnie **eventgridschema**. Zdarzenia, które nie są zgodne z oczekiwanym schematem zostaną odrzucone.
+Można skonfigurować schemat, który musi być zgodny z wydawcą podczas tworzenia tematu. Jeśli nie zostanie określony, wartość domyślna to **EventGridSchema**. Zdarzenia, które nie są zgodne z oczekiwanym schematem, zostaną odrzucone.
 
-Subskrybenci mogą również skonfigurować schemat, w którym chcą zdarzenia dostarczane. Jeśli nie określono, domyślnie jest schemat tematu.
+Subskrybenci mogą również skonfigurować schemat, w którym mają zostać dostarczone zdarzenia. Jeśli nie zostanie określony, wartością domyślną jest schemat tematu.
 Obecnie schemat dostarczania subskrybenta musi być zgodny ze schematem wejściowym tematu. 
 
 ## <a name="eventgrid-schema"></a>Schemat EventGrid
 
-Schemat EventGrid składa się z zestawu wymaganych właściwości, które jednostka publikowania musi być zgodna. Każdy wydawca musi wypełnić pola najwyższego poziomu.
+Schemat EventGrid składa się z zestawu wymaganych właściwości, z którymi jednostka publikowania musi być zgodna. Każdy Wydawca musi wypełnić pola najwyższego poziomu.
 
 ```json
 [
@@ -56,12 +56,12 @@ Wszystkie zdarzenia mają następujące dane najwyższego poziomu:
 
 | Właściwość | Typ | Wymagany | Opis |
 | -------- | ---- | ----------- |-----------
-| temat | ciąg | Nie | Powinien pasować do tematu, na którym jest publikowany. Usługa Event Grid wypełnia go nazwą tematu, na którym jest publikowana, jeśli nie jest określona. |
+| temat | ciąg | Nie | Powinien być zgodny z tematem, na którym został opublikowany. Event Grid wypełnia ją nazwą tematu, na którym jest publikowana, jeśli nie została określona. |
 | Temat | ciąg | Tak | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
-| Eventtype | ciąg | Tak | Typ zdarzenia dla tego źródła zdarzenia, na przykład BlobCreated. |
-| eventTime | ciąg | Tak | Czas, w której zdarzenie jest generowane na podstawie czasu UTC dostawcy. |
+| Klasę | ciąg | Tak | Typ zdarzenia dla tego źródła zdarzeń, na przykład BlobCreated. |
+| eventTime | ciąg | Tak | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | ID | ciąg | Nie | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Nie | Służy do przechwytywania danych zdarzeń, które są specyficzne dla jednostki publikowania. |
+| dane | obiekt | Nie | Służy do przechwytywania danych zdarzeń specyficznych dla jednostki publikowania. |
 | dataVersion | ciąg | Tak | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Nie | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 
@@ -85,13 +85,13 @@ Wszystkie zdarzenia mają następujące dane najwyższego poziomu:
 
 ## <a name="customevent-schema"></a>Schemat CustomEvent
 
-W schemacie niestandardowym nie ma żadnych właściwości obowiązkowych, które są wymuszane, takie jak schemat EventGrid. Jednostka publikowania może całkowicie kontrolować schemat zdarzeń. Zapewnia maksymalną elastyczność i umożliwia scenariusze, w których masz już system oparty na zdarzeniach i chcesz ponownie użyć istniejących zdarzeń i/lub nie chcesz być powiązany z określonym schematem.
+W schemacie niestandardowym nie ma obowiązkowych właściwości, które są wymuszane jak schemat EventGrid. Jednostka publikowania może całkowicie sterować schematem zdarzeń. Zapewnia ona maksymalną elastyczność i umożliwia scenariusze, w których już istnieje system oparty na zdarzeniach i chce ponownie używać istniejących zdarzeń i/lub nie mają być powiązane z określonym schematem.
 
 ### <a name="custom-schema-properties"></a>Niestandardowe właściwości schematu
 
-Brak właściwości obowiązkowych. Określenie ładunku zależy od jednostki publikowania.
+Brak obowiązkowych właściwości. Aby określić ładunek, należy do jednostki publikowania.
 
-### <a name="example--custom-schema-event"></a>Przykład — Zdarzenie schematu niestandardowego
+### <a name="example--custom-schema-event"></a>Przykład: niestandardowe zdarzenie schematu
 
 ```json
 [
@@ -106,13 +106,13 @@ Brak właściwości obowiązkowych. Określenie ładunku zależy od jednostki pu
 
 ## <a name="cloudevent-schema"></a>Schemat CloudEvent
 
-Oprócz powyższych schematów usługa Event Grid natywnie obsługuje zdarzenia w [schemacie JSON CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md). CloudEvents to otwarta specyfikacja opisująca dane zdarzeń. Upraszcza współdziałanie, zapewniając wspólny schemat zdarzeń do publikowania i zużywanie zdarzeń. Jest częścią [CNCF](https://www.cncf.io/) i obecnie dostępna wersja jest 1.0-rc1.
+Oprócz powyższych schematów Event Grid natywnie obsługuje zdarzenia w [schemacie JSON CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md). CloudEvents to otwarta Specyfikacja dla opisywania danych zdarzenia. Upraszcza to współdziałanie, dostarczając Typowy schemat zdarzeń do publikowania i zużywania zdarzeń. Jest częścią [CNCF](https://www.cncf.io/) , a obecnie dostępna wersja to 1,0-RC1.
 
 ### <a name="cloudevent-schema-properties"></a>Właściwości schematu CloudEvent
 
-Zapoznaj się [ze specyfikacją CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md#3-envelope) na temat właściwości koperty obowiązkowej.
+Zapoznaj się ze [specyfikacją CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md#3-envelope) we właściwościach obowiązkowej koperty.
 
-### <a name="example--cloud-event"></a>Przykład — zdarzenie w chmurze
+### <a name="example--cloud-event"></a>Przykład — wydarzenie w chmurze
 ```json
 [{
        "id": "1807",

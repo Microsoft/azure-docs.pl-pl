@@ -1,6 +1,6 @@
 ---
-title: Funkcje sprawdzania typów w języku kwerend usługi Azure Cosmos DB
-description: Dowiedz się więcej o sprawdzaniu funkcji systemu SQL w usłudze Azure Cosmos DB.
+title: Funkcje sprawdzania typu w Azure Cosmos DB języku zapytań
+description: Dowiedz się więcej o funkcji sprawdzania systemu w programie SQL Server w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,21 +8,21 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: cac8be4c39737ca209653532d00375c8c9bee48e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71349077"
 ---
-# <a name="type-checking-functions-azure-cosmos-db"></a>Funkcje sprawdzania typów (usługa Azure Cosmos DB)
+# <a name="type-checking-functions-azure-cosmos-db"></a>Funkcje sprawdzania typu (Azure Cosmos DB)
 
-Funkcje sprawdzania typu umożliwiają sprawdzenie typu wyrażenia w kwerendzie SQL. Za pomocą funkcji sprawdzania typu można określić typy właściwości w elementach w locie, gdy są one zmienne lub nieznane. 
+Funkcje sprawdzania typu umożliwiają sprawdzanie typu wyrażenia w zapytaniu SQL. Za pomocą funkcji sprawdzania typu można określić typy właściwości w obrębie elementów na bieżąco, gdy są one zmienne lub nieznane. 
 
 ## <a name="functions"></a>Funkcje
 
-Oto tabela obsługiwanych wbudowanych funkcji sprawdzania typu:
+Oto tabela obsługiwanych wbudowanych funkcji sprawdzania typów:
 
-Następujące funkcje obsługują sprawdzanie typu względem wartości wejściowych, a każda z nich zwraca wartość logiczną.  
+Następujące funkcje obsługują sprawdzanie typu względem wartości wejściowych, a każdy zwraca wartość logiczną.  
   
 ||||  
 |-|-|-|  
@@ -33,7 +33,7 @@ Następujące funkcje obsługują sprawdzanie typu względem wartości wejściow
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Funkcje systemowe Usługi Azure Cosmos DB](sql-query-system-functions.md)
+- [Azure Cosmos DB funkcje systemowe](sql-query-system-functions.md)
 - [Wprowadzenie do usługi Azure Cosmos DB](introduction.md)
 - [Funkcje zdefiniowane przez użytkownika](sql-query-udfs.md)
 - [Agregacje](sql-query-aggregates.md)
