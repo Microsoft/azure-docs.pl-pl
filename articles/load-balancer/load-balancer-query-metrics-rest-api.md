@@ -1,7 +1,7 @@
 ---
-title: Pobieranie metryk za pomocą interfejsu API REST
+title: Pobieranie metryk przy użyciu interfejsu API REST
 titleSuffix: Azure Load Balancer
-description: W tym artykule rozpocznij korzystanie z interfejsów API rest platformy Azure do zbierania metryk kondycji i użycia dla modułu Azure Load Balancer.
+description: W tym artykule Zacznij korzystać z interfejsów API REST platformy Azure, aby zbierać metryki dotyczące kondycji i użycia dla Azure Load Balancer.
 services: sql-database
 author: asudbring
 manager: KumudD
@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: allensu
 ms.openlocfilehash: 760ec8a945ab88b63dde2de75f5354818facf4f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74225254"
 ---
-# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Pobierz metryki użycia modułu równoważenia obciążenia przy użyciu interfejsu API REST
+# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Uzyskiwanie metryk użycia Load Balancer przy użyciu interfejsu API REST
 
-Zbieranie liczby bajtów przetworzonych przez [standardowy moduł równoważenia obciążenia](/azure/load-balancer/load-balancer-standard-overview) przez interwał czasu przy użyciu [interfejsu API rest platformy Azure](/rest/api/azure/).
+Zbierz liczbę bajtów przetworzonych przez [Usługa Load Balancer w warstwie Standardowa](/azure/load-balancer/load-balancer-standard-overview) przez przedział czasu przy użyciu [interfejsu API REST platformy Azure](/rest/api/azure/).
 
-Pełna dokumentacja referencyjna i dodatkowe przykłady interfejsu API REST są dostępne w [odwołaniu rest usługi Azure Monitor.](/rest/api/monitor) 
+Kompletna dokumentacja referencyjna i dodatkowe przykłady dla interfejsu API REST są dostępne w temacie [Azure monitor REST](/rest/api/monitor). 
 
 ## <a name="build-the-request"></a>Tworzenie żądania
 
-Użyj następującego żądania GET, aby zebrać [metrykę ByteCount](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) ze standardowego modułu równoważenia obciążenia. 
+Użyj następującego żądania GET, aby zebrać [metrykę byteCount](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) z usługa Load Balancer w warstwie Standardowa. 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -45,20 +45,20 @@ Wymagane są następujące nagłówki:
 | Nazwa | Opis |
 | :--- | :---------- |
 | subscriptionId | Identyfikator subskrypcji, który identyfikuje subskrypcję platformy Azure. Jeśli masz wiele subskrypcji, zobacz [Praca z wieloma subskrypcjami](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
-| resourceGroupName | Nazwa grupy zasobów zawierającej zasób. Tę wartość można uzyskać z interfejsu API usługi Azure Resource Manager, interfejsu wiersza polecenia lub portalu. |
-| loadBalancerName | Nazwa modułu równoważenia obciążenia platformy Azure. |
-| nazwy metryki | Oddzielona przecinkami lista prawidłowych [wskaźników modułu równoważenia obciążenia](/azure/load-balancer/load-balancer-standard-diagnostics). |
-| api-version | Wersja interfejsu API do użycia dla żądania.<br /><br /> Ten dokument obejmuje `2018-01-01`wersję api, zawartą w powyższym adresie URL.  |
-| Timespan | Czas kwerendy. Jest to ciąg o następującym formacie `startDateTime_ISO/endDateTime_ISO`. Ten opcjonalny parametr jest ustawiony na zwracanie danych o wartości dnia w przykładzie. |
+| resourceGroupName | Nazwa grupy zasobów zawierającej zasób. Tę wartość można uzyskać za pomocą interfejsu API Azure Resource Manager, interfejsu wiersza polecenia lub portalu. |
+| loadBalancerName | Nazwa Azure Load Balancer. |
+| nazwy metryk | Rozdzielana przecinkami lista prawidłowych [metryk Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |
+| api-version | Wersja interfejsu API do użycia dla żądania.<br /><br /> Ten dokument obejmuje interfejs API- `2018-01-01`Version uwzględniony w powyższym adresie URL.  |
+| zakres czasu | Przedział czasu zapytania. Jest to ciąg o następującym formacie `startDateTime_ISO/endDateTime_ISO`. Ten opcjonalny parametr ma ustawioną wartość zwracającą wartość dnia w przykładzie. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Treść żądania
 
-Dla tej operacji nie jest potrzebna żadna treść żądania.
+Żadna treść żądania nie jest wymagana dla tej operacji.
 
 ## <a name="handle-the-response"></a>Obsługa odpowiedzi
 
-Kod stanu 200 jest zwracany po pomyślnym pomyślnym powrocie listy wartości metryki. Pełna lista kodów błędów jest dostępna w [dokumentacji referencyjnej](/rest/api/monitor/metrics/list#errorresponse).
+Kod stanu 200 jest zwracany, gdy lista wartości metryk zostanie zwrócona pomyślnie. Pełną listę kodów błędów można znaleźć w [dokumentacji referencyjnej](/rest/api/monitor/metrics/list#errorresponse).
 
 ## <a name="example-response"></a>Przykładowa odpowiedź 
 

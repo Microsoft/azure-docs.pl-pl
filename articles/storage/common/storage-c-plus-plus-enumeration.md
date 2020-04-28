@@ -1,6 +1,6 @@
 ---
-title: Wyświetlanie listy zasobów usługi Azure Storage za pomocą biblioteki klienta języka C++
-description: Dowiedz się, jak używać wyświetlania wyświetlania interfejsów API listy w bibliotece klienta usługi Microsoft Azure Storage dla języka C++ do wyliczanie kontenerów, obiektów blob, kolejek, tabel i encji.
+title: Wyświetlanie listy zasobów usługi Azure Storage za pomocą biblioteki klienckiej języka C++
+description: Dowiedz się, jak wyliczyć kontenery, obiekty blob, kolejki, tabele i jednostki za pomocą interfejsów API listy w Microsoft Azure Storageej bibliotece klienta języka C++.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 01/23/2017
@@ -9,32 +9,32 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
 ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74269447"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Generowanie listy zasobów usługi Azure Storage w języku C++
 
-Operacje wyświetlania są kluczem do wielu scenariuszy rozwoju za pomocą usługi Azure Storage. W tym artykule opisano, jak najbardziej efektywnie wyliczyć obiekty w usłudze Azure Storage przy użyciu listy interfejsów API dostarczonych w bibliotece klienta usługi Microsoft Azure Storage dla języka C++.
+Tworzenie list operacji jest kluczem do wielu scenariuszy programistycznych w usłudze Azure Storage. W tym artykule opisano sposób najbardziej wydajnego wyliczania obiektów w usłudze Azure Storage przy użyciu listy interfejsów API, które znajdują się w bibliotece klienta Microsoft Azure Storage dla języka C++.
 
 > [!NOTE]
-> Ten przewodnik dotyczy biblioteki klienta usługi Azure Storage dla języka C++ w wersji 2.x, która jest dostępna za pośrednictwem [NuGet](https://www.nuget.org/packages/wastorage) lub [GitHub.](https://github.com/Azure/azure-storage-cpp)
+> Ten przewodnik dotyczy biblioteki klienta usługi Azure Storage dla języka C++ w wersji 2. x, który jest dostępny za pośrednictwem programu [NuGet](https://www.nuget.org/packages/wastorage) lub [GitHub](https://github.com/Azure/azure-storage-cpp).
 
-Biblioteka klienta magazynu zawiera wiele metod do listy lub zapytania obiektów w usłudze Azure Storage. W tym artykule omiń następujące scenariusze:
+Biblioteka klienta usługi Storage zawiera wiele metod tworzenia listy obiektów lub wykonywania względem nich zapytań w usłudze Azure Storage. Ten artykuł dotyczy następujących scenariuszy:
 
-* Wyświetlanie kontenerów na koncie
-* Lista obiektów blob w katalogu kontenerów lub wirtualnych obiektów blob
-* Lista kolejek na koncie
-* Wyświetlanie tabel na koncie
-* Encje kwerend w tabeli
+* Wyświetlanie listy kontenerów na koncie
+* Wyświetlanie listy obiektów BLOB w kontenerze lub wirtualnym katalogu obiektów BLOB
+* Wyświetlanie listy kolejek na koncie
+* Wyświetlanie listy tabel na koncie
+* Zapytanie jednostek w tabeli
 
-Każda z tych metod jest pokazana przy użyciu różnych przeciążeń dla różnych scenariuszy.
+Każda z tych metod jest pokazywana przy użyciu różnych przeciążeń dla różnych scenariuszy.
 
-## <a name="asynchronous-versus-synchronous"></a>Asynchroniczne a synchroniczne
+## <a name="asynchronous-versus-synchronous"></a>Asynchroniczna a synchroniczna
 
-Ponieważ biblioteka klienta magazynu dla języka C++ jest zbudowana na [podstawie biblioteki REST języka C++,](https://github.com/Microsoft/cpprestsdk)z natury obsługujemy operacje asynchroniczne przy użyciu [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Przykład:
+Ponieważ Biblioteka klienta usługi Storage dla języka C++ jest oparta na [bibliotece REST języka c++](https://github.com/Microsoft/cpprestsdk), nie obsługujemy operacji asynchronicznych za pomocą programu [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Przykład:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -49,20 +49,20 @@ list_blob_item_segment list_blobs_segmented(const continuation_token& token) con
 }
 ```
 
-Jeśli pracujesz z wieloma aplikacjami lub usługami wątkowymi, zaleca się używanie asynchronizowanych interfejsów API bezpośrednio zamiast tworzenia wątku do wywoływania interfejsów API synchronizacji, co znacząco wpływa na wydajność.
+Jeśli pracujesz z wieloma aplikacjami lub usługami wątkowości, zalecamy bezpośrednie używanie asynchronicznych interfejsów API zamiast tworzenia wątku do wywoływania interfejsów API synchronizacji, co znacznie wpływa na wydajność.
 
-## <a name="segmented-listing"></a>Aukcja segmentowa
+## <a name="segmented-listing"></a>Lista segmentów
 
-Skala magazynu w chmurze wymaga listy podzielonej na segmenty. Na przykład można mieć ponad milion obiektów blob w kontenerze obiektów blob platformy Azure lub ponad miliard jednostek w tabeli platformy Azure. Nie są to liczby teoretyczne, ale rzeczywiste przypadki użycia klienta.
+Skala magazynu w chmurze wymaga wyświetlania segmentów. Na przykład możesz mieć ponad milion obiektów BLOB w kontenerze obiektów blob platformy Azure lub za pośrednictwem miliarda jednostek w tabeli platformy Azure. Nie są to liczby teoretyczne, ale prawdziwe przypadki użycia klientów.
 
-Dlatego niepraktyczne jest wyświetlanie listy wszystkich obiektów w jednej odpowiedzi. Zamiast tego można wyświetlić listę obiektów przy użyciu stronicowania. Każdy z interfejsów API aukcji ma *przeciążenie segmentowe.*
+W związku z tym nie można wyświetlić listy wszystkich obiektów w pojedynczej odpowiedzi. Zamiast tego można wyświetlić listę obiektów przy użyciu stronicowania. Każdy z interfejsów API zawiera *segmenty* przeciążenia.
 
-Odpowiedź dla operacji aukcji segmentacji obejmuje:
+Odpowiedź na operację tworzenia segmentów z segmentacją obejmuje:
 
-* *_segment*, który zawiera zestaw wyników zwróconych dla pojedynczego wywołania do zestawu API listy.
-* *continuation_token*, który jest przekazywany do następnego połączenia w celu uzyskania następnej strony wyników. Gdy nie ma więcej wyników do zwrócenia, token kontynuacji jest null.
+* *_segment*, który zawiera zestaw wyników zwróconych dla pojedynczego wywołania interfejsu API wyświetlania.
+* *continuation_token*, która jest przenoszona do następnego wywołania w celu uzyskania następnej strony wyników. Gdy nie ma więcej wyników do zwrócenia, token kontynuacji ma wartość null.
 
-Na przykład typowe wywołanie listy wszystkich obiektów blob w kontenerze może wyglądać jak poniższy fragment kodu. Kod jest dostępny w naszych [przykładach:](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp)
+Na przykład typowe wywołanie listy wszystkich obiektów BLOB w kontenerze może wyglądać podobnie jak w poniższym fragmencie kodu. Kod jest dostępny w naszych [przykładach](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
 
 ```cpp
 // List blobs in the blob container
@@ -87,7 +87,7 @@ do
 while (!token.empty());
 ```
 
-Należy zauważyć, że liczba wyników zwracanych na stronie może być kontrolowana przez parametr *max_results* w przeciążeniu każdego interfejsu API, na przykład:
+Należy zauważyć, że liczba wyników zwróconych na stronie może być kontrolowana przez parametr *max_results* w przypadku przeciążenia poszczególnych interfejsów API, na przykład:
 
 ```cpp
 list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
@@ -95,15 +95,15 @@ list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, boo
     const blob_request_options& options, operation_context context)
 ```
 
-Jeśli parametr *max_results* nie zostanie określony, domyślna maksymalna wartość maksymalnie 5000 wyników zostanie zwrócona na jednej stronie.
+Jeśli parametr *max_results* nie zostanie określony, domyślna wartość maksymalna do 5000 wyników zostanie zwrócona na jednej stronie.
 
-Należy również zauważyć, że kwerenda względem usługi Azure Table Storage może zwracać żadnych rekordów lub mniej rekordów niż wartość *parametru max_results,* który został określony, nawet jeśli token kontynuacji nie jest pusty. Jednym z powodów może być, że kwerenda nie może zakończyć się w ciągu pięciu sekund. Tak długo, jak token kontynuacji nie jest pusty, kwerenda powinna być kontynuowana, a kod nie należy zakładać rozmiar wyników segmentu.
+Należy również zauważyć, że zapytanie w usłudze Azure Table Storage może zwracać Brak rekordów lub mniejszą liczbę rekordów niż wartość parametru *max_results* określonego przez użytkownika, nawet jeśli token kontynuacji nie jest pusty. Jedną z przyczyn może być to, że zapytanie nie zostało wykonane w ciągu pięciu sekund. Tak długo, jak token kontynuacji nie jest pusty, zapytanie powinno być kontynuowane, a Twój kod nie powinien przyjąć rozmiaru wyników segmentu.
 
-Zalecany wzorzec kodowania dla większości scenariuszy jest podzielony na segmenty, który zapewnia wyraźny postęp aukcji lub kwerendy i jak usługa reaguje na każde żądanie. Szczególnie w przypadku aplikacji lub usług języka C++ kontrola niższego poziomu postępu listy może pomóc kontrolować pamięć i wydajność.
+Zalecany wzorzec kodowania dla większości scenariuszy to lista segmentów, która zapewnia jawny postęp tworzenia listy lub wykonywania zapytań oraz jak usługa odpowiada na każde żądanie. Szczególnie w przypadku aplikacji lub usług C++ kontrola nad postępem działania może pomóc w kontroli ilości pamięci i wydajności.
 
-## <a name="greedy-listing"></a>Chciwy aukcji
+## <a name="greedy-listing"></a>Lista zachłanne
 
-Starsze wersje biblioteki klienta magazynu dla języka C++ (wersje 0.5.0 Wersja zapoznawcza i starsze) zawierały niesegmentowane interfejsy API aukcji dla tabel i kolejek, jak w poniższym przykładzie:
+Wcześniejsze wersje biblioteki klienta usługi Storage dla języka C++ (wersje 0.5.0 wersja zapoznawcza i starsze) zawierają interfejsy API wyświetlania segmentów dla tabel i kolejek, jak w poniższym przykładzie:
 
 ```cpp
 std::vector<cloud_table> list_tables(const utility::string_t& prefix) const;
@@ -111,13 +111,13 @@ std::vector<table_entity> execute_query(const table_query& query) const;
 std::vector<cloud_queue> list_queues() const;
 ```
 
-Metody te zostały zaimplementowane jako otoki segmentowanych interfejsów API. Dla każdej odpowiedzi na listę segmentów kod dołączał wyniki do wektora i zwracał wszystkie wyniki po zeskanowaniu pełnych kontenerów.
+Te metody zostały zaimplementowane jako otoki interfejsów API z segmentacją. Dla każdej odpowiedzi na listę segmentów kod dołącza wyniki do wektora i zwrócił wszystkie wyniki po przeskanowaniu pełnych kontenerów.
 
-Takie podejście może działać, gdy konto magazynu lub tabela zawiera niewielką liczbę obiektów. Jednak wraz ze wzrostem liczby obiektów wymagana pamięć może wzrosnąć bez ograniczeń, ponieważ wszystkie wyniki pozostały w pamięci. Jedna operacja aukcji może zająć bardzo dużo czasu, podczas którego rozmówca nie miał informacji o jego postępach.
+Takie podejście może być możliwe, gdy konto magazynu lub tabela zawiera niewielką liczbę obiektów. Jednak ze wzrostem liczby obiektów wymagana ilość pamięci może wzrosnąć bez ograniczenia, ponieważ wszystkie wyniki pozostawały w pamięci. Jedna operacja tworzenia listy może zająć bardzo dużo czasu, podczas gdy obiekt wywołujący nie miał informacji o postępie.
 
-Te chciwi wyświetlania interfejsów API listy w zestawie SDK nie istnieją w środowisku C#, Java lub JavaScript Node.js. Aby uniknąć potencjalnych problemów z używaniem tych chciwych interfejsów API, usunęliśmy je w wersji 0.6.0 Preview.
+Te zachłanne listy interfejsów API w zestawie SDK nie istnieją w środowisku C#, Java lub JavaScript Node. js. Aby uniknąć potencjalnych problemów z korzystaniem z tych interfejsów API zachłanne, firma Microsoft usunęła je w wersji zapoznawczej 0.6.0.
 
-Jeśli kod wywołuje te chciwi interfejsów API:
+Jeśli kod wywołuje te interfejsy API zachłanne:
 
 ```cpp
 std::vector<azure::storage::table_entity> entities = table.execute_query(query);
@@ -127,7 +127,7 @@ for (auto it = entities.cbegin(); it != entities.cend(); ++it)
 }
 ```
 
-Następnie należy zmodyfikować kod, aby użyć interfejsów API aukcji segmentowej:
+Następnie należy zmodyfikować kod, aby używać interfejsów API z segmentami:
 
 ```cpp
 azure::storage::continuation_token token;
@@ -143,23 +143,23 @@ do
 } while (!token.empty());
 ```
 
-Określając parametr *max_results* segmentu, można zrównoważyć liczbę żądań i użycie pamięci, aby spełnić wymagania dotyczące wydajności aplikacji.
+Określając parametr *max_results* segmentu, można zrównoważyć liczbę żądań i użycie pamięci, aby spełnić zagadnienia dotyczące wydajności aplikacji.
 
-Ponadto jeśli używasz segmentowych wyświetlania wyświetlania interfejsów API, ale przechowujesz dane w kolekcji lokalnej w stylu "chciwy", zdecydowanie zalecamy również refaktoryzowanie kodu do obsługi przechowywania danych w lokalnej kolekcji ostrożnie na dużą skalę.
+Ponadto, jeśli korzystasz z interfejsów API z segmentacją, ale przechowujesz dane w kolekcji lokalnej w stylu "zachłanne", zdecydowanie zalecamy również ponowne użycie kodu do obsługi przechowywania danych w lokalnej kolekcji.
 
-## <a name="lazy-listing"></a>Aukcja leniwa
+## <a name="lazy-listing"></a>Lista z opóźnieniem
 
-Chociaż chciwy aukcji podniesione potencjalne problemy, jest to wygodne, jeśli nie ma zbyt wiele obiektów w kontenerze.
+Mimo że lista zachłanne zgłosiła potencjalne problemy, jest to wygodne, jeśli w kontenerze nie ma zbyt wielu obiektów.
 
-Jeśli używasz również C# lub Oracle Java SDK, należy zapoznać się z modelu programowania wyliczanego, który oferuje leniwy styl aukcji, gdzie dane w określonym przesunięcie jest pobierana tylko wtedy, gdy jest to wymagane. W języku C++ szablon oparty na iteratorze również zapewnia podobne podejście.
+Jeśli używasz również zestawów SDK języka C# lub Oracle Java, należy zapoznać się z wyliczalnym modelem programowania, który oferuje listę w stylu z opóźnieniem, w której dane z określonego przesunięcia są pobierane tylko wtedy, gdy jest to wymagane. W języku C++, szablon oparty na iteratorze zapewnia również podobne podejście.
 
-Typowy interfejs API z leniwą listą, **używający list_blobs** jako przykładu, wygląda następująco:
+Typowy interfejs API aukcji z opóźnieniem, przy użyciu **list_blobs** na przykład wygląda następująco:
 
 ```cpp
 list_blob_item_iterator list_blobs() const;
 ```
 
-Typowy fragment kodu, który używa wzorca aukcji z opóźnieniem może wyglądać następująco:
+Typowy fragment kodu, który używa wzorca aukcji z opóźnieniem, może wyglądać następująco:
 
 ```cpp
 // List blobs in the blob container
@@ -177,28 +177,28 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 }
 ```
 
-Należy pamiętać, że z opóźnieniem aukcji jest dostępna tylko w trybie synchroniczowym.
+Należy zauważyć, że lista z opóźnieniem jest dostępna tylko w trybie synchronicznym.
 
-W porównaniu z chciwą aukcją, leniwa aukcja pobiera dane tylko wtedy, gdy jest to konieczne. W ramach okładek pobiera dane z usługi Azure Storage tylko wtedy, gdy następny iterator przenosi się do następnego segmentu. W związku z tym użycie pamięci jest kontrolowane z ograniczonym rozmiarem, a operacja jest szybka.
+W porównaniu z listą zachłanne, lista z opóźnieniem pobiera dane tylko w razie potrzeby. W obszarze okładek pobiera dane z usługi Azure Storage tylko wtedy, gdy następny iterator przechodzi do następnego segmentu. W związku z tym użycie pamięci jest kontrolowane z ograniczonym rozmiarem, a operacja jest szybka.
 
-Interfejsy API z listą z opóźnieniem są zawarte w bibliotece klienta magazynu dla języka C++ w wersji 2.2.0.
+Interfejsy API listy z opóźnieniem są zawarte w bibliotece klienta usługi Storage dla języka C++ w wersji 2.2.0.
 
 ## <a name="conclusion"></a>Podsumowanie
 
-W tym artykule omówiliśmy różne przeciążenia do wyświetlania wyświetlania interfejsów API dla różnych obiektów w bibliotece klienta magazynu dla języka C++ . Podsumowując:
+W tym artykule omówiono różne przeciążenia dotyczące wyświetlania listy interfejsów API dla różnych obiektów w bibliotece klienta usługi Storage dla języka C++. Podsumowując:
 
-* Interfejsy API asynchronii są zdecydowanie zalecane w wielu scenariuszach wątków.
-* Lista segmentowa jest zalecana w większości scenariuszy.
-* Z opóźnieniem aukcji znajduje się w bibliotece jako wygodne otoki w scenariuszach synchronicznych.
-* Chciwy aukcji nie jest zalecane i został usunięty z biblioteki.
+* Asynchroniczne interfejsy API są zdecydowanie zalecane w scenariuszach obejmujących wiele wątków.
+* Lista segmentów jest zalecana w przypadku większości scenariuszy.
+* Lista z opóźnieniem jest udostępniana w bibliotece jako wygodna otoka w scenariuszach synchronicznych.
+* Lista zachłanne nie jest zalecana i została usunięta z biblioteki.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat usługi Azure Storage i biblioteki klienta dla języka C++, zobacz następujące zasoby.
+Aby uzyskać więcej informacji na temat usługi Azure Storage i biblioteki klienckiej dla języka C++, zobacz następujące zasoby.
 
-* [Jak korzystać z magazynu obiektów Blob z języka C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Jak korzystać z magazynu tabel z języka C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+* [Jak używać Blob Storage z C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Jak używać Table Storage z C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Jak używać usługi Queue Storage z poziomu języka C++](../storage-c-plus-plus-how-to-use-queues.md)
-* [Biblioteka klienta usługi Azure Storage dla dokumentacji interfejsu API języka C++.](https://azure.github.io/azure-storage-cpp/)
+* [Biblioteka klienta usługi Azure Storage dla interfejsu API języka C++.](https://azure.github.io/azure-storage-cpp/)
 * [Blog zespołu usługi Azure Storage](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Dokumentacja usługi Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
