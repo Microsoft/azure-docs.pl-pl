@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 298c99d44328dc79db1722b450ad74c3929d0c12
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
-ms.translationtype: MT
+ms.openlocfilehash: 6a816f2235fa5356f2300255ec9d2fb2b315acf7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114439"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190320"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników
 
@@ -562,13 +562,13 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z produ
 | **WorkerID**  |  EmployeeID | **Tak** | Zapisywane tylko w przypadku tworzenia |
 | **PreferredNameData**    |  CN    |   |   Zapisywane tylko w przypadku tworzenia |
 | **SelectUniqueValue (join ("\@", join (".", \[FirstName\], \[LastName\]), "contoso.com"), join ("\@", join (".", Mid (\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), join ("\@", join (".", Mid (\[FirstName\], 1, 2), \[LastName\]), "contoso.com")**   | userPrincipalName     |     | Zapisywane tylko w przypadku tworzenia 
-| **Zastąp (Mid (Replace\[(\]UserID,,)\[\\\\/\\\\\\\\\\\\\[(\\\\ :\\\]\\\\\\\\ \\\|\\\\=\\\\,\\\\+\\\\\*\\\\? \\\\\\) ",," ",,,), 1, 20),," ([.) \\ &lt; \\ \\ &gt; \] \*File:///\\ \$.) *$)", , "", , )**      |    sAMAccountName            |     |         Zapisywane tylko w przypadku tworzenia |
+| `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Zapisywane tylko w przypadku tworzenia |
 | **Switch (\[aktywny\],, "0", "true", "1", "false")** |  accountDisabled      |     | Utwórz i zaktualizuj |
 | **Imię**   | givenName       |     |    Utwórz i zaktualizuj |
 | **Nazwisko**   |   sn   |     |  Utwórz i zaktualizuj |
 | **PreferredNameData**  |  displayName |     |   Utwórz i zaktualizuj |
 | **Przedsiębiorstwo**         | company   |     |  Utwórz i zaktualizuj |
-| **SupervisoryOrganization**  | department  |     |  Utwórz i zaktualizuj |
+| **SupervisoryOrganization**  | działu,  |     |  Utwórz i zaktualizuj |
 | **ManagerReference**   | manager  |     |  Utwórz i zaktualizuj |
 | **BusinessTitle**   |  title     |     |  Utwórz i zaktualizuj | 
 | **AddressLineData**    |  streetAddress  |     |   Utwórz i zaktualizuj |
@@ -752,7 +752,7 @@ Po zakończeniu konfiguracji aplikacji inicjowania obsługi dla programu Workday
 
 1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone**.
 
-2. Kliknij pozycję **Zapisz**.
+2. Kliknij przycisk **Zapisz**.
 
 3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie produktu Workday. 
 
@@ -1276,7 +1276,7 @@ Aby to zmienić, należy użyć programu [Workday Studio](https://community.work
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 
-9. Kliknij przycisk **OK**.
+9. Wybierz przycisk **OK**.
 
 10. W okienku **żądanie** wklej poniższy kod XML. Ustaw **EMPLOYEE_ID** identyfikator pracownika rzeczywistego użytkownika w dzierżawie platformy Workday. Ustaw wartość **WD: Version** do wersji WWS, która ma zostać użyta. Wybierz użytkownika, który ma atrybut wypełniony, który ma zostać wyodrębniony.
 

@@ -1,52 +1,52 @@
 ---
-title: Optymalizacja pod kątem programowania i testowania w usłudze Azure Cosmos DB
-description: W tym artykule wyjaśniono, jak usługa Azure Cosmos DB oferuje wiele opcji tworzenia i testowania usługi za darmo.
+title: Optymalizacja pod kątem programowania i testowania w Azure Cosmos DB
+description: W tym artykule wyjaśniono, jak Azure Cosmos DB oferuje wiele opcji tworzenia i testowania usługi bezpłatnie.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
-ms.openlocfilehash: d2ca7b7e4b637802df6a78c2493e3cc088f09881
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 3fe5ea98f8db633eed7ce4e2c0ac0cafa56408ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246684"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194520"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Optymalizacja kosztów tworzenia i testowania w usłudze Azure Cosmos DB
 
-W tym artykule opisano różne opcje korzystania z usługi Azure Cosmos DB do tworzenia i testowania bezpłatnie, a także technik optymalizacji kosztów w projektowaniu lub testowaniu kont.
+W tym artykule opisano różne opcje umożliwiające korzystanie z Azure Cosmos DB na potrzeby tworzenia i testowania bez ponoszenia kosztów, a także technik optymalizacji kosztów na kontach deweloperskich i testowych.
 
-## <a name="azure-cosmos-db-emulator-locally-downloadable-version"></a>Emulator usługi Azure Cosmos DB (wersja do pobrania lokalnie)
+## <a name="azure-cosmos-db-emulator-locally-downloadable-version"></a>Emulator Azure Cosmos DB (wersja do pobrania lokalnego)
 
-[Emulator usługi Azure Cosmos DB](local-emulator.md) to lokalna wersja do pobrania, która naśladuje usługę w chmurze usługi Azure Cosmos DB. Można napisać i przetestować kod, który używa interfejsów API usługi Azure Cosmos DB, nawet jeśli nie masz połączenia sieciowego i bez ponoszenia żadnych kosztów. Emulator usługi Azure Cosmos DB zapewnia środowisko lokalne do celów programisty z wysoką wiernością usługi w chmurze. Możesz tworzyć i testować aplikację lokalnie, bez tworzenia subskrypcji platformy Azure. Gdy będziesz gotowy do wdrożenia aplikacji w chmurze, zaktualizuj parametry połączenia, aby połączyć się z punktem końcowym usługi Azure Cosmos DB w chmurze, nie są potrzebne żadne inne modyfikacje. Można również [skonfigurować potok ciągłej integracji/ciągłego wdrażania za pomocą zadania kompilacji emulatora usługi Azure Cosmos DB](tutorial-setup-ci-cd.md) w usłudze Azure DevOps w celu uruchamiania testów. Możesz rozpocząć, odwiedzając artykuł [emulatora usługi Azure Cosmos DB.](local-emulator.md)
+[Azure Cosmos DB emulator](local-emulator.md) to lokalna wersja do pobrania, która naśladuje Azure Cosmos DB usługi w chmurze. Możesz pisać i testować kod, który używa interfejsów API Azure Cosmos DB, nawet jeśli nie masz połączenia sieciowego i nie poniesiesz żadnych kosztów. Emulator Azure Cosmos DB zapewnia środowisko lokalne do celów deweloperskich z wysoką dokładnością do usługi w chmurze. Możesz tworzyć i testować aplikację lokalnie, bez tworzenia subskrypcji platformy Azure. Gdy wszystko będzie gotowe do wdrożenia aplikacji w chmurze, zaktualizuj parametry połączenia w celu nawiązania połączenia z punktem końcowym Azure Cosmos DB w chmurze, a żadne inne modyfikacje nie są wymagane. Możesz również skonfigurować potok ciągłej integracji/ciągłego wdrażania [za pomocą zadania kompilacji emulatora Azure Cosmos DB](tutorial-setup-ci-cd.md) w usłudze Azure DevOps, aby uruchomić testy. Możesz zacząć od odwiedzenia artykułu [emulatora Azure Cosmos DB](local-emulator.md) .
 
-## <a name="azure-cosmos-db-free-tier"></a>Warstwa bezpłatna usługi Azure Cosmos DB 
-Warstwa bezpłatna usługi Azure Cosmos DB ułatwia uruchamianie, opracowywanie i testowanie aplikacji, a nawet bezpłatne uruchamianie małych obciążeń produkcyjnych. Gdy warstwa bezpłatna jest włączona na koncie, otrzymasz pierwsze 400 RU/s i 5 GB miejsca na koncie za darmo. Można również utworzyć udostępnionej bazy danych przepływności z 25 kontenerów, które współużytkują 400 RU/s na poziomie bazy danych, wszystkie objęte warstwy bezpłatnej (limit 5 udostępnionych baz danych przepływności na koncie warstwy bezpłatnej). Warstwa bezpłatna trwa przez czas nieokreślony przez cały okres istnienia konta i zawiera wszystkie [zalety i funkcje](introduction.md#key-benefits) zwykłego konta usługi Azure Cosmos DB, w tym nieograniczoną ilość miejsca do magazynowania i przepływności (RU/s), łata, wysoką dostępność, globalną dystrybucję pod klucz we wszystkich regionach platformy Azure i inne. Możesz mieć maksymalnie jedno bezpłatne konto warstwy na subskrypcję platformy Azure i musisz wyrazić zgodę podczas tworzenia konta. Aby rozpocząć, [utwórz nowe konto z włączoną warstwą bezpłatną](create-cosmosdb-resources-portal.md). Więcej szczegółów można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+## <a name="azure-cosmos-db-free-tier"></a>Azure Cosmos DB warstwy Bezpłatna
+
+Azure Cosmos DB bezpłatna warstwa ułatwia rozpoczęcie pracy, opracowywanie i testowanie aplikacji, a nawet uruchamianie niewielkich obciążeń produkcyjnych. Po włączeniu warstwy Bezpłatna na koncie uzyskasz pierwsze 400 RU/s i 5 GB miejsca do magazynowania w ramach konta. Istnieje również możliwość utworzenia udostępnionej bazy danych przepływności z 25 kontenerami, które współużytkują 400 RU/s na poziomie bazy danych, z uwzględnieniem warstwy Bezpłatna (ograniczenie 5 udostępnionych baz danych przepływności na koncie w warstwie Bezpłatna). Bezpłatna warstwa obowiązuje przez okres istnienia konta i zawiera wszystkie [zalety i funkcje](introduction.md#key-benefits) regularnego konta Azure Cosmos DB, w tym nieograniczony magazyn i przepływność (ru/s), umowy SLA, wysoką dostępność, gotowe Global Distribution we wszystkich regionach świadczenia usługi Azure i innych. W ramach każdej subskrypcji platformy Azure można korzystać z maksymalnie jednego konta warstwy bezpłatnej i musi on być w trakcie tworzenia konta. Aby rozpocząć, [Utwórz nowe konto w Azure Portal z włączoną bezpłatną warstwą](create-cosmosdb-resources-portal.md) lub Użyj [szablonu ARM](manage-sql-with-resource-manager.md#free-tier). Więcej szczegółów można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Wypróbuj usługę Azure Cosmos DB bezpłatnie
 
-[Wypróbuj usługę Azure Cosmos DB za darmo](https://azure.microsoft.com/try/cosmosdb/) to bezpłatne środowisko, które umożliwia eksperymentowanie z usługą Azure Cosmos DB w chmurze bez konieczności logowania się do konta platformy Azure lub korzystania z karty kredytowej. Konta try usługi Azure Cosmos DB są dostępne przez ograniczony czas, obecnie 30 dni. Możesz je odnowić w dowolnym momencie. Wypróbuj konta usługi Azure Cosmos DB ułatwia ocenę usługi Azure Cosmos DB, tworzenie i testowanie aplikacji lub korzystanie z przewodników Szybki start lub samouczków. Można również utworzyć prezentację, przeprowadzić testy jednostkowe, a nawet utworzyć konto wieloregionowe i uruchomić na nim aplikację bez ponoszenia żadnych kosztów. Na koncie Try Azure Cosmos DB możesz mieć jedną udostępnioną bazę danych przepływności z maksymalnie 25 kontenerami i 20 000 przepływności lub jeden kontener z maksymalnie 5000 usługami RU/s. Aby rozpocząć, zobacz [Wypróbuj usługę Azure Cosmos DB, aby uzyskać bezpłatną](https://azure.microsoft.com/try/cosmosdb/) stronę.
+Usługa [Azure Cosmos DB bezpłatnie](https://azure.microsoft.com/try/cosmosdb/) jest bezpłatnym doświadczeniem, który pozwala na eksperymentowanie z Azure Cosmos DB w chmurze bez konieczności rejestrowania się w ramach konta platformy Azure lub korzystania z karty kredytowej. Konta usługi try Azure Cosmos DB są dostępne przez ograniczony czas, obecnie przez 30 dni. Można je odnowić w dowolnym momencie. Wypróbuj Azure Cosmos DB konta ułatwiają ocenę Azure Cosmos DB, kompilowanie i testowanie aplikacji oraz korzystanie z przewodników Szybki Start i samouczków. Możesz również utworzyć demonstrację, przeprowadzić testy jednostkowe, a nawet utworzyć konto wieloregionowe i uruchomić na nim aplikację bez ponoszenia kosztów. Na koncie try Azure Cosmos DB można mieć jedną udostępnioną bazę danych przepływności z maksymalnie 25 kontenerami i 20 000 RU/s przepływności lub jeden kontener z maksymalnie 5000 RU/s. Aby rozpocząć, zobacz sekcję [wypróbuj Azure Cosmos DB dla bezpłatnej](https://azure.microsoft.com/try/cosmosdb/) strony.
 
 ## <a name="azure-free-account"></a>Bezpłatne konto platformy Azure
 
-Usługa Azure Cosmos DB jest uwzględniona w [bezpłatnym koncie platformy Azure,](https://azure.microsoft.com/free)które oferuje bezpłatne środki i zasoby platformy Azure przez określony czas. W szczególności dla usługi Azure Cosmos DB to bezpłatne konto oferuje 5 GB pamięci masowej i 400 procesorów administracyjnych aprowizowanej przepływności przez cały rok. To środowisko umożliwia każdemu deweloperowi łatwe testowanie funkcji usługi Azure Cosmos DB lub integrowanie go z innymi usługami platformy Azure bez żadnych kosztów. Dzięki bezpłatnemu kontu platformy Azure otrzymasz środki w wysokości 200 USD do wydania w ciągu pierwszych 30 dni. Opłata nie zostanie naliczona, nawet jeśli zaczniesz korzystać z usług, dopóki nie zdecydujesz się na uaktualnienie. Aby rozpocząć, odwiedź stronę [bezpłatnego konta platformy Azure.](https://azure.microsoft.com/free)
+Azure Cosmos DB jest uwzględniona na [koncie bezpłatnej platformy Azure](https://azure.microsoft.com/free), które oferuje bezpłatnie środki na korzystanie z platformy Azure i za pewien czas. W odniesieniu do Azure Cosmos DB to bezpłatne konto oferuje 5 GB pamięci masowej i 400 jednostek ru przepływności dla całego roku. Dzięki temu każdy deweloper może łatwo przetestować funkcje Azure Cosmos DB lub zintegrować ją z innymi usługami platformy Azure bez ponoszenia kosztów. Bezpłatne konto platformy Azure pozwala uzyskać środki na korzystanie z $200 USD za pierwsze 30 dni. Opłata nie zostanie naliczona, nawet jeśli zaczniesz korzystać z usług, dopóki nie zdecydujesz się na uaktualnienie. Aby rozpocząć, odwiedź stronę [bezpłatnego konta platformy Azure](https://azure.microsoft.com/free) .
 
 ## <a name="use-shared-throughput-databases"></a>Korzystanie z udostępnionych baz danych przepływności
 
-W [udostępnionej bazie danych przepływności](set-throughput.md#set-throughput-on-a-database)wszystkie kontenery wewnątrz bazy danych współużytkują aprowizowaną przepływność (RU/s) bazy danych. Na przykład jeśli aprowizujesz bazę danych z 400 RU/s i mają cztery kontenery, wszystkie cztery kontenery będą współużytkować 400 RU/s. W środowisku deweloperskim lub testowym, w którym każdy kontener może być dostępny rzadziej, a zatem wymagają mniej niż minimum 400 ru/s, umieszczenie kontenerów w bazie danych przepływności udostępnionej może pomóc zoptymalizować koszt. 
+W [udostępnionej bazie danych przepływności](set-throughput.md#set-throughput-on-a-database)wszystkie kontenery wewnątrz bazy danych współużytkują zainicjowaną przepływność (ru/s) bazy danych. Jeśli na przykład baza danych zostanie zainicjowana z 400 RU/s i ma cztery kontenery, wszystkie cztery kontenery będą współużytkować 400 RU/s. W środowisku deweloperskim lub testowym, w którym można uzyskać dostęp do każdego kontenera rzadziej i w ten sposób wymagać mniejszej niż minimum 400 RU/s, umieszczenie kontenerów w udostępnionej bazie danych przepływności może pomóc zoptymalizować koszt.
 
-Załóżmy na przykład, że konto dewelopera lub testu ma cztery kontenery. Jeśli utworzysz cztery kontenery z dedykowaną przepustowością (minimum 400 RU/s), łączna wartość RU/s wyniesie 1600 RU/s. Natomiast jeśli utworzysz udostępnioną bazę danych przepływności (minimum 400 RU/s) i umieścisz tam kontenery, łączna wartość RU/s wyniesie tylko 400 ru/s. Ogólnie rzecz biorąc udostępnione bazy danych przepływności są idealne dla scenariuszy, w których nie potrzebujesz gwarantowanej przepływności w dowolnym kontenerze.  Dowiedz się więcej o [udostępnionych bazach danych przepływności.](set-throughput.md#set-throughput-on-a-database)
+Załóżmy na przykład, że Twoje konto deweloperskie lub testowe ma cztery kontenery. Jeśli utworzysz cztery kontenery z dedykowaną przepływność (minimum 400 RU/s), Łączna liczba RU/s będzie 1600 RU/s. Natomiast w przypadku utworzenia udostępnionej bazy danych przepływności (minimum 400 RU/s) i umieszczenia w niej kontenerów łączna liczba jednostek RU/s będzie wynosić tylko 400 RU/s. Ogólnie udostępniona baza danych przepływności doskonale nadaje się do scenariuszy, w których nie jest wymagana gwarantowana przepływność na żadnym konkretnym kontenerze.  Dowiedz się więcej o [udostępnionych bazach danych przepływności.](set-throughput.md#set-throughput-on-a-database)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz rozpocząć korzystanie z emulatora lub bezpłatnych kont usługi Azure Cosmos DB z następującymi artykułami:
+Możesz rozpocząć korzystanie z emulatora lub bezpłatnych kont Azure Cosmos DB z następującymi artykułami:
 
-* Dowiedz się więcej o [optymalizacji pod kątem rozwoju i testowania](optimize-dev-test.md)
-* Dowiedz się więcej o [opisie rachunku za usługę Azure Cosmos DB](understand-your-bill.md)
-* Dowiedz się więcej o [optymalizacji kosztów przepływności](optimize-cost-throughput.md)
-* Dowiedz się więcej o [optymalizacji kosztów magazynowania](optimize-cost-storage.md)
-* Dowiedz się więcej o [optymalizacji kosztów odczytów i zapisów](optimize-cost-reads-writes.md)
-* Dowiedz się więcej o [optymalizacji kosztów zapytań](optimize-cost-queries.md)
-* Dowiedz się więcej o [optymalizowaniu kosztów wieloregionowych kont usługi Azure Cosmos](optimize-cost-regions.md)
-
+* Dowiedz się więcej [na temat optymalizacji na potrzeby programowania i testowania](optimize-dev-test.md)
+* Dowiedz się więcej o [zrozumieniu Azure Cosmos DB rachunku](understand-your-bill.md)
+* Dowiedz się więcej na temat [optymalizowania kosztu przepływności](optimize-cost-throughput.md)
+* Dowiedz się więcej o [optymalizowaniu kosztów magazynu](optimize-cost-storage.md)
+* Dowiedz się więcej o [optymalizowaniu kosztów operacji odczytu i zapisu](optimize-cost-reads-writes.md)
+* Dowiedz się więcej o [optymalizowaniu kosztów zapytań](optimize-cost-queries.md)
+* Dowiedz się więcej [na temat optymalizowania kosztów kont usługi Azure Cosmos w wielu regionach](optimize-cost-regions.md)

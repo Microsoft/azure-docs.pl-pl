@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: a1674f51d5b877a1296e9a457c6acf61a507c82e
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: ed14d3fb1cd3d9d8af37088811ce62b050778a95
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82131375"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189807"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń
 
@@ -51,7 +51,7 @@ Dzienniki przepływu są źródłem prawdy dla całej aktywności sieciowej w ś
 - Dzienniki są zbierane za pomocą platformy Azure i nie mają wpływu na zasoby klientów ani wydajność sieci.
 - Dzienniki są zapisywane w formacie JSON i pokazują przepływy wychodzące i przychodzące dla każdej reguły sieciowej grupy zabezpieczeń.
 - Każdy rekord dziennika zawiera interfejs sieciowy (karta sieciowa), do którego odnosi się ten przepływ, do 5 informacji o spójnej kolekcji, & decyzja o ruchu (tylko wersja 2). Szczegółowe informacje znajdują się w poniższym _formacie dziennika_ .
-- Dzienniki przepływu mają funkcję przechowywania umożliwiającą automatyczne usuwanie dzienników do roku po ich utworzeniu
+- Dzienniki przepływu mają funkcję przechowywania, która umożliwia automatyczne usuwanie dzienników do roku po ich utworzeniu. **Uwaga**: przechowywanie jest dostępne tylko w przypadku korzystania z [kont magazynu ogólnego przeznaczenia w wersji 2 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
 
 **Kluczowe pojęcia**
 
@@ -365,13 +365,13 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 ## <a name="troubleshooting-common-issues"></a>Rozwiązywanie typowych problemów
 
-### <a name="i-could-not-enable-nsg-flow-logs"></a>**Nie mogę włączyć dzienników przepływu sieciowych grup zabezpieczeń**
+**Nie mogę włączyć dzienników przepływu sieciowych grup zabezpieczeń**
 
 - Dostawca zasobów **Microsoft. Insights** nie jest zarejestrowany
 
 Jeśli wystąpił błąd _AuthorizationFailed_ lub _GatewayAuthenticationFailed_, być może nie włączono dostawcy zasobów Microsoft Insights w subskrypcji. [Postępuj zgodnie z instrukcjami](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#register-insights-provider) , aby włączyć dostawcę usługi Microsoft Insights.
 
-### <a name="i-have-enabled-nsg-flow-logs-but-do-not-see-data-in-my-storage-account"></a>**Dzienniki przepływu sieciowych grup zabezpieczeń zostały włączone, ale nie widzę danych na moim koncie magazynu**
+**Dzienniki przepływu sieciowych grup zabezpieczeń zostały włączone, ale nie widzę danych na moim koncie magazynu**
 
 - **Godzina konfiguracji**
 
@@ -381,21 +381,21 @@ Dzienniki przepływu sieciowej grupy zabezpieczeń mogą zostać wyświetlone na
 
 Czasami dzienniki nie są wyświetlane, ponieważ maszyny wirtualne nie są aktywne lub istnieją filtry nadrzędne w bramie aplikacji lub innych urządzeniach, które blokują ruch do sieciowych grup zabezpieczeń.
 
-### <a name="i-want-to-automate-nsg-flow-logs"></a>**Chcę zautomatyzować dzienniki przepływu sieciowej grupy zabezpieczeń**
+**Chcę zautomatyzować dzienniki przepływu sieciowej grupy zabezpieczeń**
 
 Obsługa automatyzacji za pomocą szablonów ARM nie jest obecnie dostępna dla dzienników przepływów sieciowych grup zabezpieczeń. Przeczytaj [anons funkcji](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) , aby uzyskać więcej informacji.
 
 ## <a name="faq"></a>Często zadawane pytania
 
-### <a name="what-does-nsg-flow-logs-do"></a>**Co robią dzienniki przepływu sieciowej grupy zabezpieczeń?**
+**Co robią dzienniki przepływu sieciowej grupy zabezpieczeń?**
 
 Zasoby sieciowe platformy Azure można łączyć i zarządzać nimi za pomocą [sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](https://docs.microsoft.com/azure/virtual-network/security-overview). Dzienniki przepływu sieciowej grupy zabezpieczeń umożliwiają rejestrowanie 5-informacje o przepływie krotki na cały ruch przez sieciowych grup zabezpieczeń. Dzienniki nieprzetworzonych przepływów są zapisywane na koncie usługi Azure Storage, z poziomu którego mogą być przetwarzane, analizowane, badane lub eksportowane zgodnie z wymaganiami.
 
-### <a name="does-using-flow-logs-impact-my-network-latency-or-performance"></a>**Czy korzystanie z dzienników przepływów ma wpływ na opóźnienie sieci lub wydajność?**
+**Czy korzystanie z dzienników przepływów ma wpływ na opóźnienie sieci lub wydajność?**
 
 Dane dzienników przepływów są zbierane poza ścieżką ruchu sieciowego i w związku z tym nie wpływają na przepływność lub opóźnienia sieci. Można tworzyć i usuwać dzienniki przepływów bez ryzyka związanego z wydajnością sieci.
 
-### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-firewall"></a>**Jak mogę użyć dzienników przepływu sieciowej grupy zabezpieczeń z kontem magazynu za zaporą?**
+**Jak mogę użyć dzienników przepływu sieciowej grupy zabezpieczeń z kontem magazynu za zaporą?**
 
 Aby użyć konta magazynu za zaporą, musisz podać wyjątek dla zaufanych usług firmy Microsoft, aby uzyskać dostęp do konta magazynu:
 
@@ -407,11 +407,11 @@ Aby użyć konta magazynu za zaporą, musisz podać wyjątek dla zaufanych usłu
 
 Możesz sprawdzić dzienniki magazynu po kilku minutach — powinna być widoczna zaktualizowana sygnatura czasowa lub utworzony nowy plik JSON.
 
-### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-service-endpoint"></a>**Jak mogę użyć dzienników przepływu sieciowej grupy zabezpieczeń z kontem magazynu za punktem końcowym usługi?**
+**Jak mogę użyć dzienników przepływu sieciowej grupy zabezpieczeń z kontem magazynu za punktem końcowym usługi?**
 
 Dzienniki przepływu sieciowej grupy zabezpieczeń są zgodne z punktami końcowymi usługi, bez konieczności dodatkowej konfiguracji. Zapoznaj się z [samouczkiem dotyczącym włączania punktów końcowych usługi](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) w sieci wirtualnej.
 
-### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>**Jaka jest różnica między dziennikami przepływów w wersjach 1 & 2?**
+**Jaka jest różnica między dziennikami przepływów w wersjach 1 & 2?**
 
 Dzienniki przepływów w wersji 2 wprowadzają koncepcję _stanu przepływu_ & przechowuje informacje o transmitowanych bajtach i pakietach. [Przeczytaj więcej](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)
 

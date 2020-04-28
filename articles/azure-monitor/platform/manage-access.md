@@ -1,31 +1,31 @@
 ---
-title: Zarządzanie obszarami roboczymi usługi Log Analytics w usłudze Azure Monitor | Dokumenty firmy Microsoft
-description: Można zarządzać dostępem do danych przechowywanych w obszarze roboczym usługi Log Analytics w usłudze Azure Monitor przy użyciu uprawnień zasobu, obszaru roboczego lub poziomu tabeli. W tym artykule opisano sposób ukończenia.
+title: Zarządzanie obszarami roboczymi Log Analytics w Azure Monitor | Microsoft Docs
+description: Możesz zarządzać dostępem do danych przechowywanych w obszarze roboczym Log Analytics w Azure Monitor przy użyciu zasobów, obszaru roboczego lub uprawnień na poziomie tabeli. W tym artykule szczegółowo opisano, jak to zrobić.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: b8d7f995997b828c2323b3e6934b97354c2f8c8b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1e86317999a34e4ab4cb94f93fb788e3e7314cea
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255247"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193058"
 ---
-# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Zarządzanie dostępem do danych dziennika i obszarów roboczych w usłudze Azure Monitor
+# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Zarządzanie dostępem do danych dziennika i obszarów roboczych w Azure Monitor
 
-Usługa Azure Monitor przechowuje dane [dziennika](data-platform-logs.md) w obszarze roboczym usługi Log Analytics. Obszar roboczy jest kontenerem, który zawiera informacje o danych i konfiguracji. Aby zarządzać dostępem do danych dziennika, należy wykonać różne zadania administracyjne związane z obszarem roboczym.
+Azure Monitor przechowuje dane [dzienników](data-platform-logs.md) w obszarze roboczym log Analytics. Obszar roboczy to kontener zawierający dane i informacje o konfiguracji. Aby zarządzać dostępem do danych dziennika, należy wykonać różne zadania administracyjne związane z obszarem roboczym.
 
-W tym artykule wyjaśniono, jak zarządzać dostępem do dzienników i administrować obszarami roboczymi, które je zawierają, w tym jak udzielić dostępu do: 
+W tym artykule wyjaśniono, jak zarządzać dostępem do dzienników i administrować obszarami roboczymi, które je zawierają, w tym w jaki sposób udzielić dostępu do: 
 
 * Obszar roboczy przy użyciu uprawnień obszaru roboczego.
-* Użytkownicy, którzy potrzebują dostępu do rejestrowania danych z określonych zasobów przy użyciu kontroli dostępu opartej na rolach platformy Azure (RBAC).
-* Użytkownicy, którzy potrzebują dostępu do rejestrowania danych w określonej tabeli w obszarze roboczym przy użyciu usługi Azure RBAC.
+* Użytkownicy, którzy potrzebują dostępu do danych dzienników z określonych zasobów przy użyciu kontroli dostępu opartej na rolach (RBAC) na platformie Azure.
+* Użytkownicy, którzy potrzebują dostępu do danych dziennika w określonej tabeli w obszarze roboczym przy użyciu funkcji RBAC platformy Azure.
 
 ## <a name="configure-access-control-mode"></a>Konfigurowanie trybu kontroli dostępu
 
-Można wyświetlić [tryb kontroli dostępu](design-logs-deployment.md) skonfigurowany w obszarze roboczym z witryny Azure portal lub za pomocą programu Azure PowerShell.  To ustawienie można zmienić za pomocą jednej z następujących obsługiwanych metod:
+[Tryb kontroli dostępu](design-logs-deployment.md) skonfigurowany w obszarze roboczym można wyświetlić z poziomu Azure Portal lub Azure PowerShell.  To ustawienie można zmienić przy użyciu jednej z następujących obsługiwanych metod:
 
 * Azure Portal
 
@@ -35,39 +35,39 @@ Można wyświetlić [tryb kontroli dostępu](design-logs-deployment.md) skonfigu
 
 ### <a name="from-the-azure-portal"></a>Z witryny Azure Portal
 
-Bieżący tryb kontroli dostępu do obszaru roboczego można wyświetlić na stronie **Przegląd** obszaru roboczego w menu **obszaru roboczego usługi Log Analytics.**
+Bieżący tryb kontroli dostępu obszaru roboczego można wyświetlić na stronie **Przegląd** obszaru roboczego w menu **log Analytics obszaru roboczego** .
 
 ![Wyświetlanie trybu kontroli dostępu do obszaru roboczego](media/manage-access/view-access-control-mode.png)
 
-1. Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal.azure.com).
-1. W witrynie Azure portal wybierz obszary robocze usługi Log Analytics > obszaru roboczego.
+1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
+1. W Azure Portal wybierz pozycję Log Analytics obszary robocze > obszarze roboczym.
 
 To ustawienie można zmienić na stronie **Właściwości** obszaru roboczego. Zmiana ustawienia zostanie wyłączona, jeśli nie masz uprawnień do konfigurowania obszaru roboczego.
 
-![Zmienianie trybu dostępu do obszaru roboczego](media/manage-access/change-access-control-mode.png)
+![Zmień tryb dostępu obszaru roboczego](media/manage-access/change-access-control-mode.png)
 
 ### <a name="using-powershell"></a>Korzystanie z programu PowerShell
 
-Użyj następującego polecenia, aby sprawdzić tryb kontroli dostępu dla wszystkich obszarów roboczych w subskrypcji:
+Użyj następującego polecenia, aby przeanalizować tryb kontroli dostępu dla wszystkich obszarów roboczych w subskrypcji:
 
 ```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions}
 ```
 
-Dane wyjściowe powinny przypominać następujące dane:
+Dane wyjściowe powinny wyglądać podobnie do następujących:
 
 ```
 DefaultWorkspace38917: True
 DefaultWorkspace21532: False
 ```
 
-Wartość `False` oznacza, że obszar roboczy jest skonfigurowany w trybie dostępu kontekstowego obszaru roboczego.  Wartość `True` oznacza, że obszar roboczy jest skonfigurowany w trybie dostępu kontekstu zasobów.
+Wartość `False` oznacza, że obszar roboczy jest skonfigurowany z trybem dostępu do kontekstu obszaru roboczego.  Wartość `True` oznacza, że obszar roboczy jest skonfigurowany z trybem dostępu do kontekstu zasobów.
 
 > [!NOTE]
-> Jeśli obszar roboczy jest zwracany bez wartości logicznej i jest `False` pusty, jest to również zgodne z wynikami wartości.
+> Jeśli obszar roboczy jest zwracany bez wartości logicznej i jest pusty, jest również zgodny z wynikami `False` wartości.
 >
 
-Użyj następującego skryptu, aby ustawić tryb kontroli dostępu dla określonego obszaru roboczego na uprawnienie kontekst zasobu:
+Użyj poniższego skryptu, aby ustawić tryb kontroli dostępu dla określonego obszaru roboczego na uprawnienie do kontekstu zasobu:
 
 ```powershell
 $WSName = "my-workspace"
@@ -79,7 +79,7 @@ else
 Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properties -Force
 ```
 
-Użyj następującego skryptu, aby ustawić tryb kontroli dostępu dla wszystkich obszarów roboczych w subskrypcji do uprawnienia kontekstu zasobu:
+Poniższy skrypt służy do ustawiania trybu kontroli dostępu dla wszystkich obszarów roboczych w ramach subskrypcji do uprawnienia kontekstu zasobu:
 
 ```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
@@ -93,14 +93,14 @@ Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 
 ### <a name="using-a-resource-manager-template"></a>Używanie szablonu usługi Resource Manager
 
-Aby skonfigurować tryb dostępu w szablonie usługi Azure Resource Manager, ustaw flagę funkcji **enableLogAccessUsingOnlyResourcePermissions** w obszarze roboczym na jedną z następujących wartości.
+Aby skonfigurować tryb dostępu w szablonie Azure Resource Manager, Ustaw flagę funkcji **enableLogAccessUsingOnlyResourcePermissions** w obszarze roboczym na jedną z następujących wartości.
 
-* **false**: Ustaw uprawnienia obszaru roboczego do kontekstu. Jest to ustawienie domyślne, jeśli flaga nie jest ustawiona.
-* **true**: Ustaw uprawnienia kontekstu zasobu do kontekstu.
+* **false**: Ustaw obszar roboczy na uprawnienia kontekstu obszaru roboczego. Jest to ustawienie domyślne, jeśli flaga nie jest ustawiona.
+* **prawda**: Ustaw obszar roboczy na uprawnienia do zasobów.
 
 ## <a name="manage-access-using-workspace-permissions"></a>Zarządzanie dostępem przy użyciu uprawnień obszaru roboczego
 
-Każdy obszar roboczy może mieć skojarzone z nim wiele kont, a każde konto może mieć dostęp do wielu obszarów roboczych. Program Access jest zarządzany przy użyciu [dostępu opartego na rolach platformy Azure.](../../role-based-access-control/role-assignments-portal.md)
+Z każdym obszarem roboczym może być skojarzonych wiele kont, a każde konto może mieć dostęp do wielu obszarów roboczych. Dostęp jest zarządzany przy użyciu [dostępu opartego na rolach na platformie Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Następujące działania również wymagają uprawnień platformy Azure:
 
@@ -111,16 +111,16 @@ Następujące działania również wymagają uprawnień platformy Azure:
 | Wyświetlanie danych w kafelkach rozwiązań *Backup* i *Site Recovery* | Administrator/współadministrator | Uzyskuje dostęp do zasobów wdrożonych przy użyciu klasycznego modelu wdrażania |
 | Tworzenie obszaru roboczego w witrynie Azure Portal | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 | Wyświetlanie podstawowych właściwości obszaru roboczego i wprowadzanie bloku obszaru roboczego w portalu | `Microsoft.OperationalInsights/workspaces/read` ||
-| Dzienniki kwerend przy użyciu dowolnego interfejsu | `Microsoft.OperationalInsights/workspaces/query/read` ||
-| Dostęp do wszystkich typów dzienników przy użyciu kwerend | `Microsoft.OperationalInsights/workspaces/query/*/read` ||
-| Uzyskiwanie dostępu do określonej tabeli dziennika | `Microsoft.OperationalInsights/workspaces/query/<table_name>/read` ||
-| Odczytywanie kluczy obszaru roboczego w celu umożliwienia wysyłania dzienników do tego obszaru roboczego | `Microsoft.OperationalInsights/workspaces/sharedKeys/action` ||
+| Wykonywanie zapytań dzienników przy użyciu dowolnego interfejsu | `Microsoft.OperationalInsights/workspaces/query/read` ||
+| Dostęp do wszystkich typów dzienników przy użyciu zapytań | `Microsoft.OperationalInsights/workspaces/query/*/read` ||
+| Dostęp do określonej tabeli dziennika | `Microsoft.OperationalInsights/workspaces/query/<table_name>/read` ||
+| Odczytaj klucze obszaru roboczego, aby umożliwić wysyłanie dzienników do tego obszaru roboczego | `Microsoft.OperationalInsights/workspaces/sharedKeys/action` ||
 
 ## <a name="manage-access-using-azure-permissions"></a>Zarządzanie dostępem przy użyciu uprawnień platformy Azure
 
-Aby udzielić dostępu do obszaru roboczego usługi Log Analytics przy użyciu uprawnień platformy Azure, wykonaj kroki opisane w części [Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](../../role-based-access-control/role-assignments-portal.md). Na przykład role niestandardowe można znaleźć [w przykładowych rolach niestandardowych](#custom-role-examples)
+Aby udzielić dostępu do obszaru roboczego usługi Log Analytics przy użyciu uprawnień platformy Azure, wykonaj kroki opisane w części [Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](../../role-based-access-control/role-assignments-portal.md). Przykład ról niestandardowych można znaleźć w temacie [przykład role niestandardowe](#custom-role-examples)
 
-Platforma Azure ma dwie wbudowane role użytkowników dla obszarów roboczych usługi Log Analytics:
+Platforma Azure ma dwie wbudowane role użytkowników dla Log Analytics obszarów roboczych:
 
 * Czytelnik usługi Log Analytics
 * Współautor usługi Log Analytics
@@ -130,26 +130,26 @@ Członkowie roli *Czytelnik usługi Log Analytics* mogą wykonywać następując
 * Wyświetlanie i wyszukiwanie wszystkich monitorowanych danych
 * Wyświetlanie ustawień monitorowania, w tym konfiguracji diagnostyki platformy Azure, dla wszystkich zasobów platformy Azure
 
-Rola czytnika analizy dzienników obejmuje następujące akcje platformy Azure:
+Rola czytelnika Log Analytics obejmuje następujące działania platformy Azure:
 
 | Typ    | Uprawnienie | Opis |
 | ------- | ---------- | ----------- |
-| Akcja | `*/read`   | Możliwość wyświetlania wszystkich zasobów platformy Azure i konfiguracji zasobów. Obejmuje wyświetlanie następujących elementów: <br> Stan rozszerzenia maszyny wirtualnej <br> Konfiguracja diagnostyki platformy Azure dla zasobów <br> Wszystkie właściwości i ustawienia wszystkich zasobów. <br> W przypadku obszarów roboczych umożliwia pełne nieograniczone uprawnienia do odczytu ustawień obszaru roboczego i wykonywania kwerendy na dane. Zobacz więcej szczegółowych opcji powyżej. |
-| Akcja | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Przestarzałe, nie ma potrzeby przypisywania ich do użytkowników. |
-| Akcja | `Microsoft.OperationalInsights/workspaces/search/action` | Przestarzałe, nie ma potrzeby przypisywania ich do użytkowników. |
+| Akcja | `*/read`   | Możliwość wyświetlania wszystkich zasobów i konfiguracji zasobów platformy Azure. Obejmuje wyświetlanie następujących elementów: <br> Stan rozszerzenia maszyny wirtualnej <br> Konfiguracja diagnostyki platformy Azure dla zasobów <br> Wszystkie właściwości i ustawienia wszystkich zasobów. <br> W przypadku obszarów roboczych umożliwia pełne nieograniczone uprawnienia do odczytywania ustawień obszaru roboczego i wykonywania zapytań dotyczących danych. Zobacz bardziej szczegółowe opcje powyżej. |
+| Akcja | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Przestarzałe, nie trzeba ich przypisywać do użytkowników. |
+| Akcja | `Microsoft.OperationalInsights/workspaces/search/action` | Przestarzałe, nie trzeba ich przypisywać do użytkowników. |
 | Akcja | `Microsoft.Support/*` | Możliwość otwierania zgłoszeń do pomocy technicznej |
-|Inne | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Zapobiega odczytowi klucza obszaru roboczego wymaganego do korzystania z interfejsu API zbierania danych i instalowania agentów. Uniemożliwia to użytkownikowi dodawanie nowych zasobów do obszaru roboczego |
+|Inne | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Uniemożliwia odczytywanie klucza obszaru roboczego wymaganego do korzystania z interfejsu API zbierania danych i instalowania agentów. Zapobiega to dodawaniu przez użytkownika nowych zasobów do obszaru roboczego |
 
 Członkowie roli *Współautor usługi Log Analytics* mogą wykonywać następujące czynności:
 
-* Zawiera wszystkie uprawnienia *roli czytnika usługi Log Analytics Reader,* umożliwiając użytkownikowi odczytanie wszystkich danych monitorowania
-* Tworzenie i konfigurowanie kont automatyzacji
+* Obejmuje wszystkie uprawnienia *roli czytelnik log Analytics*, co umożliwia użytkownikowi odczytywanie wszystkich danych monitorowania
+* Tworzenie i Konfigurowanie kont usługi Automation
 * Dodawanie i usuwanie rozwiązań do zarządzania
 
     > [!NOTE]
-    > Aby pomyślnie wykonać dwie ostatnie akcje, to uprawnienie musi zostać przyznane na poziomie grupy zasobów lub subskrypcji.
+    > Aby pomyślnie wykonać ostatnie dwie akcje, należy przyznać to uprawnienie na poziomie grupy zasobów lub subskrypcji.
 
-* Odczytanie kluczy konta magazynu
+* Odczytaj klucze konta magazynu
 * Konfigurowanie kolekcji dzienników z usługi Azure Storage
 * Edytowanie ustawień monitorowania dla zasobów platformy Azure, w tym:
   * Dodawanie rozszerzenia do maszyn wirtualnych
@@ -158,17 +158,17 @@ Członkowie roli *Współautor usługi Log Analytics* mogą wykonywać następuj
 > [!NOTE]
 > Możliwości dodania rozszerzenia do maszyny wirtualnej możesz użyć, aby zyskać pełną kontrolę nad maszyną wirtualną.
 
-Rola współautora usługi Log Analytics obejmuje następujące akcje platformy Azure:
+Rola współautor Log Analytics obejmuje następujące działania platformy Azure:
 
 | Uprawnienie | Opis |
 | ---------- | ----------- |
-| `*/read`     | Możliwość wyświetlania wszystkich zasobów i konfiguracji zasobów. Obejmuje wyświetlanie następujących elementów: <br> Stan rozszerzenia maszyny wirtualnej <br> Konfiguracja diagnostyki platformy Azure dla zasobów <br> Wszystkie właściwości i ustawienia wszystkich zasobów. <br> W przypadku obszarów roboczych umożliwia pełne nieograniczone uprawnienia do odczytu ustawienia obszaru roboczego i wykonywania kwerendy na danych. Zobacz więcej szczegółowych opcji powyżej. |
+| `*/read`     | Możliwość wyświetlania wszystkich zasobów i konfiguracji zasobów. Obejmuje wyświetlanie następujących elementów: <br> Stan rozszerzenia maszyny wirtualnej <br> Konfiguracja diagnostyki platformy Azure dla zasobów <br> Wszystkie właściwości i ustawienia wszystkich zasobów. <br> W przypadku obszarów roboczych umożliwia pełne nieograniczone uprawnienia do odczytu ustawienia obszaru roboczego i wykonywania zapytań dotyczących danych. Zobacz bardziej szczegółowe opcje powyżej. |
 | `Microsoft.Automation/automationAccounts/*` | Możliwość tworzenia i konfigurowania kont usługi Azure Automation, w tym dodawania i edytowania elementów runbook |
 | `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Dodawanie, aktualizowanie i usuwanie rozszerzeń maszyn wirtualnych, w tym rozszerzenia Microsoft Monitoring Agent oraz rozszerzenia OMS Agent for Linux |
 | `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Wyświetlanie klucza konta magazynu. Wymagane do skonfigurowania usługi Log Analytics w celu odczytu dzienników z kont magazynów platformy Azure |
 | `Microsoft.Insights/alertRules/*` | Dodawanie, aktualizowanie i usuwanie reguł alertu |
 | `Microsoft.Insights/diagnosticSettings/*` | Dodawanie, aktualizowanie i usuwanie ustawień diagnostycznych dla zasobów platformy Azure |
-| `Microsoft.OperationalInsights/*` | Dodawanie, aktualizowanie i usuwanie konfiguracji obszarów roboczych usługi Log Analytics. Aby edytować zaawansowane ustawienia `Microsoft.OperationalInsights/workspaces/write`obszaru roboczego, użytkownik potrzebuje . |
+| `Microsoft.OperationalInsights/*` | Dodawanie, aktualizowanie i usuwanie konfiguracji dla obszarów roboczych Log Analytics. Aby edytować zaawansowane ustawienia obszaru roboczego, wymagane `Microsoft.OperationalInsights/workspaces/write`przez użytkownika. |
 | `Microsoft.OperationsManagement/*` | Dodawanie i usuwanie rozwiązań do zarządzania |
 | `Microsoft.Resources/deployments/*` | Tworzenie i usuwanie wdrożeń. Wymagane w celu dodawania i usuwania rozwiązań, obszarów roboczych oraz kont usługi Automation |
 | `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Tworzenie i usuwanie wdrożeń. Wymagane w celu dodawania i usuwania rozwiązań, obszarów roboczych oraz kont usługi Automation |
@@ -181,74 +181,74 @@ Za pomocą następujących ról możesz udzielić użytkownikom dostępu w róż
 * Grupa zasobów — dostęp do wszystkich obszarów roboczych w grupie zasobów
 * Zasób — dostęp tylko do określonego obszaru roboczego
 
-Zaleca się wykonywanie przydziałów na poziomie zasobu (obszaru roboczego), aby zapewnić dokładną kontrolę dostępu. Za pomocą [ról niestandardowych](../../role-based-access-control/custom-roles.md) możesz utworzyć role z określonymi, wymaganymi uprawnieniami.
+Zalecamy wykonywanie przypisań na poziomie zasobów (w obszarze roboczym) w celu zapewnienia dokładnej kontroli dostępu. Za pomocą [ról niestandardowych](../../role-based-access-control/custom-roles.md) możesz utworzyć role z określonymi, wymaganymi uprawnieniami.
 
 ### <a name="resource-permissions"></a>Uprawnienia zasobów
 
-Gdy użytkownicy kwerendy dzienniki z obszaru roboczego przy użyciu dostępu kontekstu zasobów, będą mieli następujące uprawnienia do zasobu:
+Gdy użytkownicy wykonują zapytania dotyczące dzienników z obszaru roboczego przy użyciu dostępu do kontekstu zasobów, będą mieć następujące uprawnienia do zasobu:
 
 | Uprawnienie | Opis |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Przykłady:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Możliwość wyświetlania wszystkich danych dziennika dla zasobu.  |
-| `Microsoft.Insights/diagnosticSettings/write` | Możliwość konfigurowania ustawienia diagnostyki w celu umożliwienia konfigurowania dzienników dla tego zasobu. |
+| `Microsoft.Insights/diagnosticSettings/write` | Możliwość skonfigurowania ustawień diagnostycznych w celu zezwolenia na Konfigurowanie dzienników dla tego zasobu. |
 
-`/read`uprawnienie jest zwykle przyznawane z roli, która _\*_ zawiera _ \*/read lub_ uprawnienia, takie jak wbudowane role [czytnika](../../role-based-access-control/built-in-roles.md#reader) i [współautora.](../../role-based-access-control/built-in-roles.md#contributor) Role niestandardowe, które zawierają określone akcje lub dedykowane wbudowane role mogą nie zawierać tego uprawnienia.
+`/read`uprawnienie jest zazwyczaj udzielane z roli obejmującej _ \*/Read lub_ _\*_ uprawnienia, takie jak wbudowane [czytniki](../../role-based-access-control/built-in-roles.md#reader) i role [współautor](../../role-based-access-control/built-in-roles.md#contributor) . Role niestandardowe zawierające określone akcje lub dedykowane role wbudowane mogą nie uwzględniać tego uprawnienia.
 
-Zobacz [Definiowanie kontroli dostępu dla tabeli](#table-level-rbac) poniżej, jeśli chcesz utworzyć inną kontrolę dostępu dla różnych tabel.
+Zobacz [Definiowanie kontroli dostępu dla tabel](#table-level-rbac) poniżej, jeśli chcesz utworzyć inną kontrolę dostępu dla różnych tabel.
 
 ## <a name="custom-role-examples"></a>Przykłady ról niestandardowych
 
-1. Aby udzielić użytkownikowi dostępu do danych dziennika z ich zasobów, wykonaj następujące czynności:
+1. Aby udzielić użytkownikowi dostępu do danych dziennika z zasobów, wykonaj następujące czynności:
 
-    * Konfigurowanie trybu kontroli dostępu do obszaru roboczego w celu **używania uprawnień do obszaru roboczego lub zasobu**
+    * Konfigurowanie trybu kontroli dostępu do obszaru roboczego w celu **używania uprawnień obszaru roboczego lub zasobu**
 
-    * Udziel `*/read` `Microsoft.Insights/logs/*/read` użytkownikom lub uprawnień do ich zasobów. Jeśli są już przypisane roli [czytnika analizy dziennika](../../role-based-access-control/built-in-roles.md#reader) w obszarze roboczym, jest to wystarczające.
+    * Przyznaj `*/read` użytkownikom `Microsoft.Insights/logs/*/read` lub uprawnienia do ich zasobów. Jeśli przypisano już rolę [czytnika log Analytics](../../role-based-access-control/built-in-roles.md#reader) w obszarze roboczym, wystarczy.
 
-2. Aby udzielić użytkownikowi dostępu do danych dziennika z ich zasobów i skonfigurować swoje zasoby do wysyłania dzienników do obszaru roboczego, wykonaj następujące czynności:
+2. Aby udzielić użytkownikowi dostępu do danych dziennika z zasobów i skonfigurować zasoby do wysyłania dzienników do obszaru roboczego, wykonaj następujące czynności:
 
-    * Konfigurowanie trybu kontroli dostępu do obszaru roboczego w celu **używania uprawnień do obszaru roboczego lub zasobu**
+    * Konfigurowanie trybu kontroli dostępu do obszaru roboczego w celu **używania uprawnień obszaru roboczego lub zasobu**
 
-    * Udziel użytkownikom następujących uprawnień do `Microsoft.OperationalInsights/workspaces/read` `Microsoft.OperationalInsights/workspaces/sharedKeys/action`obszaru roboczego: i . Dzięki tym uprawnieniom użytkownicy nie mogą wykonywać żadnych zapytań na poziomie obszaru roboczego. Mogą one tylko wyliczyć obszar roboczy i używać go jako miejsce docelowe dla ustawień diagnostycznych lub konfiguracji agenta.
+    * Przyznaj użytkownikom następujące uprawnienia w obszarze roboczym `Microsoft.OperationalInsights/workspaces/read` : `Microsoft.OperationalInsights/workspaces/sharedKeys/action`i. Przy użyciu tych uprawnień użytkownicy nie mogą wykonywać żadnych zapytań na poziomie obszaru roboczego. Można wyliczyć ten obszar roboczy i użyć go jako miejsca docelowego dla ustawień diagnostycznych lub konfiguracji agenta.
 
-    * Udziel użytkownikom następujących uprawnień `Microsoft.Insights/logs/*/read` do `Microsoft.Insights/diagnosticSettings/write`swoich zasobów: i . Jeśli są już przypisane [log Analytics roli współautora,](../../role-based-access-control/built-in-roles.md#contributor) przypisane `*/read` roli czytelnika lub przyznane uprawnienia do tego zasobu, to jest wystarczające.
+    * Udziel użytkownikom następujących uprawnień do swoich zasobów: `Microsoft.Insights/logs/*/read` i. `Microsoft.Insights/diagnosticSettings/write` Jeśli przypisano już rolę [współautor log Analytics](../../role-based-access-control/built-in-roles.md#contributor) , przypisano rolę czytelnika lub udzielono `*/read` uprawnień do tego zasobu, wystarczy.
 
-3. Aby udzielić użytkownikowi dostępu do danych dziennika z ich zasobów bez możliwości odczytywania zdarzeń zabezpieczeń i wysyłania danych, wykonaj następujące czynności:
+3. Aby udzielić użytkownikowi dostępu do danych dziennika z zasobów bez możliwości odczytywania zdarzeń zabezpieczeń i wysyłania danych, wykonaj następujące czynności:
 
-    * Konfigurowanie trybu kontroli dostępu do obszaru roboczego w celu **używania uprawnień do obszaru roboczego lub zasobu**
+    * Konfigurowanie trybu kontroli dostępu do obszaru roboczego w celu **używania uprawnień obszaru roboczego lub zasobu**
 
-    * Udziel użytkownikom następujących uprawnień `Microsoft.Insights/logs/*/read`do swoich zasobów: .
+    * Udziel użytkownikom następujących uprawnień do swoich zasobów: `Microsoft.Insights/logs/*/read`.
 
-    * Dodaj następującą nonaction, aby uniemożliwić użytkownikom `Microsoft.Insights/logs/SecurityEvent/read`odczytanie typu SecurityEvent: . NonAction ma taką samą rolę niestandardową jak akcja,`Microsoft.Insights/logs/*/read`która zapewnia uprawnienie do odczytu ( ). Jeśli użytkownik nieodłączne akcji odczytu z innej roli, która jest przypisana do tego zasobu lub do subskrypcji lub grupy zasobów, będą mogli odczytać wszystkie typy dzienników. Jest to również prawdą, jeśli dziedziczą `*/read`, które istnieją na przykład z reader lub współautora roli.
+    * Dodaj następującą akcję nieactionową, aby uniemożliwić użytkownikom odczytywanie typu SecurityEvent `Microsoft.Insights/logs/SecurityEvent/read`:. Akcja nie powinna znajdować się w tej samej roli niestandardowej, co akcja, która zapewnia uprawnienia do`Microsoft.Insights/logs/*/read`odczytu (). Jeśli użytkownik zauważał akcję odczytu z innej roli przypisanej do tego zasobu lub subskrypcji lub grupy zasobów, może odczytywać wszystkie typy dzienników. Jest to również prawdziwe, Jeśli dziedziczą `*/read`, która istnieje na przykład z rolą czytelnik lub współautor.
 
-4. Aby udzielić użytkownikowi dostępu do danych dziennika z ich zasobów i odczytać wszystkie logowania usługi Azure AD i odczytać dane dziennika rozwiązania usługi Update Management z obszaru roboczego, wykonaj następujące czynności:
+4. Aby udzielić użytkownikowi dostępu do danych dziennika z zasobów i odczytywać wszystkie logowania do usługi Azure AD i odczytywać Update Management dane dziennika rozwiązania z obszaru roboczego, wykonaj następujące czynności:
 
-    * Konfigurowanie trybu kontroli dostępu do obszaru roboczego w celu **używania uprawnień do obszaru roboczego lub zasobu**
+    * Konfigurowanie trybu kontroli dostępu do obszaru roboczego w celu **używania uprawnień obszaru roboczego lub zasobu**
 
-    * Udziel użytkownikom następujących uprawnień do obszaru roboczego: 
+    * Przyznaj użytkownikom następujące uprawnienia w obszarze roboczym: 
 
-        * `Microsoft.OperationalInsights/workspaces/read`– wymagane, aby użycie można wyliczyć obszar roboczy i otworzyć blok obszaru roboczego w witrynie Azure portal
-        * `Microsoft.OperationalInsights/workspaces/query/read`– wymagane dla każdego użytkownika, który może wykonywać zapytania
-        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`– aby móc odczytywać dzienniki logowania usługi Azure AD
-        * `Microsoft.OperationalInsights/workspaces/query/Update/read`– aby móc czytać dzienniki rozwiązań do zarządzania aktualizacjami
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read`– aby móc czytać dzienniki rozwiązań do zarządzania aktualizacjami
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read`– aby móc czytać dzienniki zarządzania aktualizacjami
-        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`– wymagane, aby móc korzystać z rozwiązania zarządzania aktualizacjami
-        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`– wymagane, aby móc korzystać z rozwiązania zarządzania aktualizacjami
+        * `Microsoft.OperationalInsights/workspaces/read`— wymagane, aby użytkownik mógł wyliczyć obszar roboczy i otworzyć blok obszaru roboczego w Azure Portal
+        * `Microsoft.OperationalInsights/workspaces/query/read`— wymagane przez każdego użytkownika, który może wykonywać zapytania
+        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`— Aby móc odczytywać dzienniki logowania usługi Azure AD
+        * `Microsoft.OperationalInsights/workspaces/query/Update/read`— Aby można było odczytać dzienniki rozwiązań Update Management
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read`— Aby można było odczytać dzienniki rozwiązań Update Management
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read`— Aby można było odczytać dzienniki zarządzania aktualizacjami
+        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`— wymagane jest, aby można było używać rozwiązania Update Management
+        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`— wymagane jest, aby można było używać rozwiązania Update Management
 
-    * Udziel użytkownikom następujących uprawnień `*/read`do swoich zasobów: , `Microsoft.Insights/logs/*/read`przypisanych do roli Czytelnika lub . 
+    * Udziel użytkownikom następujących uprawnień do swoich zasobów: `*/read`, przypisanych do roli czytelnik lub. `Microsoft.Insights/logs/*/read` 
 
-## <a name="table-level-rbac"></a>Poziom tabeli RBAC
+## <a name="table-level-rbac"></a>Kontrola RBAC na poziomie tabeli
 
-**Poziom tabeli RBAC** umożliwia definiowanie bardziej szczegółowe kontroli danych w obszarze roboczym usługi Log Analytics oprócz innych uprawnień. Ten formant umożliwia definiowanie określonych typów danych, które są dostępne tylko dla określonego zestawu użytkowników.
+Kontrolka **RBAC na poziomie tabeli** umożliwia zdefiniowanie bardziej szczegółowej kontroli danych w obszarze roboczym log Analytics oprócz innych uprawnień. Ta kontrolka umożliwia definiowanie określonych typów danych, które są dostępne tylko dla określonego zestawu użytkowników.
 
-Zaimplementuj kontrolę dostępu do tabeli za pomocą [ról niestandardowych platformy Azure,](../../role-based-access-control/custom-roles.md) aby udzielić dostępu do określonych [tabel](../log-query/logs-structure.md) w obszarze roboczym. Te role są stosowane do obszarów roboczych z [trybami kontroli dostępu](design-logs-deployment.md#access-control-mode) w kontekście obszaru roboczego lub kontekstu zasobu, niezależnie od trybu [dostępu](design-logs-deployment.md#access-mode)użytkownika.
+Aby udzielić dostępu do określonych [tabel](../log-query/logs-structure.md) w obszarze roboczym, zaimplementuj kontrolę dostępu do tabel przy użyciu [ról niestandardowych platformy Azure](../../role-based-access-control/custom-roles.md) . Te role są stosowane do obszarów roboczych z [trybami kontroli dostępu](design-logs-deployment.md#access-control-mode) do kontekstu obszaru roboczego lub zasobu, niezależnie od [trybu dostępu](design-logs-deployment.md#access-mode)użytkownika.
 
-Utwórz [rolę niestandardową](../../role-based-access-control/custom-roles.md) z następującymi akcjami, aby zdefiniować dostęp do kontroli dostępu do tabeli.
+Utwórz [niestandardową rolę](../../role-based-access-control/custom-roles.md) z poniższymi akcjami, aby zdefiniować dostęp do kontroli dostępu do tabeli.
 
-* Aby udzielić dostępu do tabeli, dołącz ją do sekcji **Akcje** definicji roli. Aby odjąć dostęp od **dozwolonych akcji,** należy uwzględnić go w sekcji **NotActions.**
-* Aby określić wszystkie tabele, użyj opcji Microsoft.OperationalInsights/workspaces/query/* .
+* Aby udzielić dostępu do tabeli, Uwzględnij ją w sekcji **Akcje** w definicji roli. Aby odjąć dostęp od dozwolonych **akcji**, należy uwzględnić go w **sekcji** noactions.
+* Użyj Microsoft. OperationalInsights/Workspaces/Query/*, aby określić wszystkie tabele.
 
-Na przykład, aby utworzyć rolę z dostępem do _pulsu_ i _AzureActivity_ tabel, należy utworzyć rolę niestandardową przy użyciu następujących akcji:
+Na przykład aby utworzyć rolę z dostępem do tabel _pulsu_ i _Azure_ , Utwórz rolę niestandardową przy użyciu następujących akcji:
 
 ```
 "Actions":  [
@@ -259,7 +259,7 @@ Na przykład, aby utworzyć rolę z dostępem do _pulsu_ i _AzureActivity_ tabel
   ],
 ```
 
-Aby utworzyć rolę z dostępem tylko do tabeli _SecurityBaseline,_ utwórz rolę niestandardową przy użyciu następujących akcji:
+Aby utworzyć rolę mającą dostęp tylko do tabeli _SecurityBaseline_ , Utwórz rolę niestandardową przy użyciu następujących akcji:
 
 ```
 "Actions":  [
@@ -271,9 +271,9 @@ Aby utworzyć rolę z dostępem tylko do tabeli _SecurityBaseline,_ utwórz rol�
 
 ### <a name="custom-logs"></a>Niestandardowe dzienniki
 
- Dzienniki niestandardowe są tworzone ze źródeł danych, takich jak dzienniki niestandardowe i interfejs API modułu zbierającego dane HTTP. Najprostszym sposobem zidentyfikowania typu dziennika jest sprawdzenie tabel wymienionych w obszarze [Dzienniki niestandardowe w schemacie dziennika](../log-query/get-started-portal.md#understand-the-schema).
+ Dzienniki niestandardowe są tworzone na podstawie źródeł danych, takich jak dzienniki niestandardowe i interfejs API modułu zbierającego dane HTTP. Najprostszym sposobem identyfikacji typu dziennika jest sprawdzenie tabel wymienionych w obszarze [dzienniki niestandardowe w schemacie dziennika](../log-query/get-started-portal.md#understand-the-schema).
 
- Nie można udzielić dostępu do poszczególnych dzienników niestandardowych, ale można udzielić dostępu do wszystkich dzienników niestandardowych. Aby utworzyć rolę z dostępem do wszystkich dzienników niestandardowych, utwórz rolę niestandardową przy użyciu następujących akcji:
+ Nie można udzielić dostępu do poszczególnych dzienników niestandardowych, ale można udzielić dostępu do wszystkich dzienników niestandardowych. Aby utworzyć rolę mającą dostęp do wszystkich dzienników niestandardowych, Utwórz rolę niestandardową przy użyciu następujących akcji:
 
 ```
 "Actions":  [
@@ -282,20 +282,20 @@ Aby utworzyć rolę z dostępem tylko do tabeli _SecurityBaseline,_ utwórz rol�
     "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
 ],
 ```
-Alternatywne podejście do zarządzania dostępem do dzienników niestandardowych jest przypisanie ich do zasobu platformy Azure i zarządzanie dostępem przy użyciu paradygmatu kontekstu zasobów. Aby użyć tej metody, należy uwzględnić identyfikator zasobu, określając go w nagłówku [x-ms-AzureResourceId,](data-collector-api.md#request-headers) gdy dane są pochłoane do usługi Log Analytics za pośrednictwem [interfejsu API modułu zbierającego dane HTTP](data-collector-api.md). Identyfikator zasobu musi być prawidłowy i mieć do niego zastosowane reguły dostępu. Po spożyciu dzienników są one dostępne dla osób z dostępem do odczytu do zasobu, jak wyjaśniono w tym miejscu.
+Alternatywnym podejściem do zarządzania dostępem do dzienników niestandardowych jest przypisanie ich do zasobu platformy Azure i zarządzanie dostępem przy użyciu modelu kontekstu zasobów. Aby użyć tej metody, należy dołączyć identyfikator zasobu przez określenie go w nagłówku [x-MS-AzureResourceId](data-collector-api.md#request-headers) , gdy dane są pozyskiwane do log Analytics za pośrednictwem [interfejsu API modułu zbierającego dane http](data-collector-api.md). Identyfikator zasobu musi być prawidłowy i mieć do niego zastosowane reguły dostępu. Po pozyskaniu dzienników są one dostępne dla osób z dostępem do odczytu do zasobu, jak wyjaśniono tutaj.
 
-Czasami dzienniki niestandardowe pochodzą ze źródeł, które nie są bezpośrednio skojarzone z określonym zasobem. W takim przypadku należy utworzyć grupę zasobów tylko do zarządzania dostępem do tych dzienników. Grupa zasobów nie ponosi żadnych kosztów, ale daje prawidłowy identyfikator zasobu, aby kontrolować dostęp do dzienników niestandardowych. Na przykład, jeśli określona zapora wysyła dzienniki niestandardowe, utwórz grupę zasobów o nazwie "MyFireWallLogs" i upewnij się, że żądania interfejsu API zawierają identyfikator zasobu "MyFireWallLogs". Rekordy dziennika zapory są następnie dostępne tylko dla użytkowników, którym przyznano dostęp do MyFireWallLogs lub osób z pełnym dostępem do obszaru roboczego.          
+Czasami dzienniki niestandardowe pochodzą ze źródeł, które nie są bezpośrednio skojarzone z określonym zasobem. W takim przypadku należy utworzyć grupę zasobów tylko w celu zarządzania dostępem do tych dzienników. Grupa zasobów nie wiąże się z żadnym kosztem, ale zapewnia prawidłowy identyfikator zasobu do kontrolowania dostępu do dzienników niestandardowych. Na przykład jeśli określona Zapora wysyła dzienniki niestandardowe, Utwórz grupę zasobów o nazwie "MyFireWallLogs" i upewnij się, że żądania interfejsu API zawierają identyfikator zasobu "MyFireWallLogs". Rekordy dziennika zapory są następnie dostępne tylko dla użytkowników, którym udzielono dostępu do MyFireWallLogs lub z pełnymi prawami dostępu do obszaru roboczego.          
 
 ### <a name="considerations"></a>Zagadnienia do rozważenia
 
-* Jeśli użytkownikowi zostanie przyznane globalne uprawnienie do odczytu ze standardowymi rolami programu Reader lub Współautor, które zawierają akcję _ \*/read,_ zastąpi kontrolę dostępu dla tabeli i zapewni im dostęp do wszystkich danych dziennika.
-* Jeśli użytkownikowi udzielono dostępu dla tabeli, ale nie ma innych uprawnień, będą mogli uzyskać dostęp do danych dziennika z interfejsu API, ale nie z witryny Azure portal. Aby zapewnić dostęp z witryny Azure portal, użyj log analytics reader jako jego roli podstawowej.
-* Administratorzy subskrypcji będą mieli dostęp do wszystkich typów danych, niezależnie od innych ustawień uprawnień.
-* Właściciele obszarów roboczych są traktowani jak każdy inny użytkownik do kontroli dostępu dla każdej tabeli.
-* Zalecamy przypisywanie ról grupom zabezpieczeń zamiast poszczególnym użytkownikom w celu zmniejszenia liczby przypisań. Pomoże to również w skonfigurowaniu i zweryfikowaniu dostępu przy użyciu istniejących narzędzi do zarządzania grupami.
+* Jeśli użytkownik otrzymuje globalne uprawnienie do odczytu ze standardowym czytnikiem lub rolą współautor, które zawiera akcję _ \*/Read_ , zastąpi kontrolę dostępu do tabeli i przekaże im dostęp do wszystkich danych dziennika.
+* Jeśli użytkownik uzyska dostęp do tabeli, ale nie ma żadnych innych uprawnień, może uzyskać dostęp do danych dziennika z interfejsu API, ale nie z Azure Portal. Aby zapewnić dostęp z Azure Portal, Użyj czytnika Log Analytics jako roli podstawowej.
+* Administratorzy subskrypcji będą mieć dostęp do wszystkich typów danych, niezależnie od innych ustawień uprawnień.
+* Właściciele obszarów roboczych są traktowani jak każdy inny użytkownik do kontroli dostępu do tabeli.
+* Zalecamy przypisanie ról do grup zabezpieczeń zamiast poszczególnych użytkowników w celu zmniejszenia liczby przypisań. Ułatwi to również korzystanie z istniejących narzędzi do zarządzania grupami w celu konfigurowania i weryfikowania dostępu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz [Omówienie agenta usługi Log Analytics,](../../azure-monitor/platform/log-analytics-agent.md) aby zbierać dane z komputerów w centrum danych lub w innym środowisku chmury.
+* Zobacz [Omówienie agenta log Analytics](../../azure-monitor/platform/log-analytics-agent.md) , aby zebrać dane z komputerów w centrum danych lub w innym środowisku chmury.
 
-* Zobacz [Zbieranie danych o maszynach wirtualnych platformy Azure](../../azure-monitor/learn/quick-collect-azurevm.md) w celu skonfigurowania zbierania danych z maszyn wirtualnych platformy Azure.
+* Aby skonfigurować zbieranie danych z maszyn wirtualnych platformy Azure, zobacz [zbieranie danych o maszynach wirtualnych platformy Azure](../../azure-monitor/learn/quick-collect-azurevm.md) .

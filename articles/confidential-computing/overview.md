@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: b52af8f41f32c224fd7c4fa0f5c539b23d231f49
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: ae98325d98df1ac8a06e0c0bc950d89cc6b77eda
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149305"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192267"
 ---
 # <a name="confidential-computing-on-azure"></a>Dane poufne na platformie Azure
 
@@ -28,7 +28,8 @@ Dane poufne platformy Azure umożliwiają izolowanie poufnych danych podczas prz
 ## <a name="overview"></a>Omówienie
 <p><p>
 
-> [!VIDEO https://www.youtube.com/embed/Qu6sP0XDMU8]
+
+> [!VIDEO https://www.youtube.com/embed/rT6zMOoLEqI]
 
 Wiemy, że Zabezpieczanie danych w chmurze jest ważne. Znamy Twoje problemy. Oto kilka pytań, które mogą być używane przez naszych klientów podczas przemieszczania poufnych obciążeń do chmury: 
 
@@ -76,7 +77,7 @@ W przypadku maszyn wirtualnych z danymi poufnymi na platformie Azure część sp
 
 ![Model maszyny wirtualnej](media/overview/hardware-backed-enclave.png)
 
-Usługa Azure poufnej infrastruktury obliczeniowej składa się z specjalistycznej jednostki SKU maszyn wirtualnych. Te maszyny wirtualne działają na procesorach Intel przy użyciu funkcji Software Extension Guard (Intel SGX). [Procesor Intel SGX](https://intel.com/sgx) to składnik, który umożliwia zwiększonej ochrony, którą ponosi poufne dane. 
+Usługa Azure poufnej infrastruktury obliczeniowej składa się z specjalistycznej jednostki SKU maszyn wirtualnych. Te maszyny wirtualne działają na procesorach Intel z rozszerzeniem Guard (SGX). [Procesor Intel SGX](https://intel.com/sgx) to składnik, który umożliwia zwiększonej ochrony, którą ponosi poufne dane. 
 
 Obecnie platforma Azure oferuje [DCsv2ą](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) platformę opartą na technologii Intel SGX na potrzeby tworzenia sprzętowych enklawy. Można tworzyć bezpieczne aplikacje oparte na enklawy do uruchamiania w serii DCsv2 maszyn wirtualnych w celu ochrony danych aplikacji i używanego kodu. 
 

@@ -6,13 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
+ms.custom: seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 7112c3cb1555d3b34e52301e92e21c1bf3601c86
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 41482af619ad94ee059fc11a74581fa30c2e7011
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82148355"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190235"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Samouczek: tworzenie klastrów Apache Hadoop na żądanie w usłudze HDInsight przy użyciu Azure Data Factory
 
@@ -202,7 +203,7 @@ W tym artykule opisano konfigurowanie działania programu Hive w celu utworzenia
 
     ![Tworzenie Azure Data Factory przy użyciu Azure Portal](./media/hdinsight-hadoop-create-linux-clusters-adf/azure-portal-create-data-factory.png "Tworzenie Azure Data Factory przy użyciu Azure Portal")
 
-4. Wybierz pozycję **Utwórz**. Tworzenie fabryki danych może potrwać od 2 do 4 minut.
+4. Wybierz przycisk **Utwórz**. Tworzenie fabryki danych może potrwać od 2 do 4 minut.
 
 5. Po utworzeniu fabryki danych otrzymasz powiadomienie o **pomyślnym wdrożeniu** za pomocą przycisku **Przejdź do zasobu** .  Wybierz pozycję **Przejdź do zasobu** , aby otworzyć widok domyślny Data Factory.
 

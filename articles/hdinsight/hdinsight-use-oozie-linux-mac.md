@@ -6,13 +6,14 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 3c4f6afe56f592c99a8d8fc4949bdfb9aab3d336
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
-ms.translationtype: MT
+ms.openlocfilehash: 93eddcd8ed0dae6ac6f010dce2e138fc018a06fa
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106665"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190660"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Definiowanie i uruchamianie przepływu pracy w opartej na systemie Linux usłudze Azure HDInsight za pomocą programu Apache Oozie z narzędziem Apache Hadoop
 
@@ -494,7 +495,7 @@ Interfejs użytkownika sieci Web Oozie zapewnia internetowy widok stanu zadań O
 
    * Stan zadania
    * Definicja zadania
-   * Konfigurowanie
+   * Konfiguracja
    * Wykres akcji w zadaniu
    * Dzienniki dla zadania
 

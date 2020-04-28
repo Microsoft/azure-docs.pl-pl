@@ -4,14 +4,14 @@ description: Jak utworzyć wystąpienie pamięci podręcznej platformy Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: efa9037b345cdfc5f165e9c5e0c1831ea97b52ed
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 4ff31ca6a171beece1672802367f08768676efbc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106495"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195013"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Tworzenie pamięci podręcznej platformy Azure HPC
 
@@ -29,7 +29,7 @@ W obszarze **Szczegóły usługi**Ustaw nazwę pamięci podręcznej i inne atryb
 
 * Lokalizacja — wybierz jeden z [obsługiwanych regionów](hpc-cache-overview.md#region-availability).
 * Sieć wirtualna — możesz wybrać istniejącą lub utworzyć nową sieć wirtualną.
-* Podsieć — wybierz lub Utwórz podsieć z co najmniej 64 adresami IP (/24), które będą używane tylko dla tego wystąpienia pamięci podręcznej platformy Azure HPC.
+* Podsieć — wybierz lub Utwórz podsieć z co najmniej 64 adresami IP (/24). Ta podsieć musi być używana tylko dla tego wystąpienia pamięci podręcznej platformy Azure HPC.
 
 ## <a name="set-cache-capacity"></a>Ustawianie pojemności pamięci podręcznej
 <!-- referenced from GUI - update aka.ms link if you change this header text -->
@@ -47,13 +47,13 @@ Wybierz jedną z dostępnych wartości przepływności i rozmiar pamięci podrę
 
 Należy pamiętać, że Rzeczywista szybkość transferu danych zależy od obciążenia, szybkości sieci i typu miejsca docelowego magazynu. Wybrane wartości ustawiają maksymalną przepływność dla całego systemu pamięci podręcznej, ale niektóre z nich są używane do zadań dodatkowych. Na przykład jeśli klient żąda pliku, który nie jest już przechowywany w pamięci podręcznej, lub jeśli plik jest oznaczony jako przestarzały, pamięć podręczna będzie używać niektórych przepływności do pobrania z magazynu zaplecza.
 
-Pamięć podręczna platformy Azure HPC zarządza, które pliki są buforowane i wstępnie załadowane, aby zmaksymalizować szybkość trafień pamięci podręcznej. Zawartość pamięci podręcznej jest stale oceniana i pliki są przenoszone do magazynu długoterminowego, gdy są one rzadziej używane. Wybierz rozmiar pamięci podręcznej, który może wygodnie przechowywać aktywny zestaw plików roboczych z dodatkowym miejscem dla metadanych i innych obciążeń.
+Pamięć podręczna platformy Azure HPC zarządza, które pliki są buforowane i wstępnie załadowane, aby zmaksymalizować szybkość trafień pamięci podręcznej. Zawartość pamięci podręcznej jest stale oceniana, a pliki są przenoszone do magazynu długoterminowego, gdy są one rzadziej używane. Wybierz rozmiar pamięci podręcznej, który może wygodnie przechowywać aktywny zestaw plików roboczych, a także dodatkowe miejsce dla metadanych i innych obciążeń.
 
 ![zrzut ekranu strony zmiany wielkości pamięci podręcznej](media/hpc-cache-create-capacity.png)
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Włącz szyfrowanie Azure Key Vault (opcjonalnie)
 
-Jeśli pamięć podręczna znajduje się w regionie, który obsługuje zarządzane przez klienta klucze szyfrowania, zostanie wyświetlona strona **klucze szyfrowania dysku** między kartami **pamięci podręcznej** a **tagami** . Od czasu publikacji ta opcja jest obsługiwana w regionach Wschodnie stany USA, Południowo-środkowe stany USA i zachodnie stany USA 2.
+Jeśli pamięć podręczna znajduje się w regionie, który obsługuje zarządzane przez klienta klucze szyfrowania, zostanie wyświetlona strona **klucze szyfrowania dysku** między kartami **pamięci podręcznej** a **tagami** . W czasie publikacji ta opcja jest obsługiwana w regionach Wschodnie stany USA, Południowo-środkowe stany USA i zachodnie stany USA 2.
 
 Jeśli chcesz zarządzać kluczami szyfrowania używanymi z magazynem pamięci podręcznej, podaj informacje o Azure Key Vault na stronie **kluczy szyfrowania dysku** . Magazyn kluczy musi znajdować się w tym samym regionie i w tej samej subskrypcji co pamięć podręczna.
 

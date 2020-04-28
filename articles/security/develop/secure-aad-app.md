@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
-ms.openlocfilehash: 58deae64bdde27580b85b00a1c87ba115e24478a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 5b04bbbbe5425e65f3ed4ff82d9700dec6dd2c39
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159902"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188331"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Opracowywanie bezpiecznej aplikacji dla aplikacji usługi Azure AD
 ## <a name="overview"></a>Omówienie
@@ -35,7 +35,7 @@ W opracowywaniu i wdrażaniu tej aplikacji dowiesz się, jak
 - Wdróż aplikację internetową platformy Azure, która jest dedykowana izolowana od dostępu do zapory frontonu. 
 - Utwórz i skonfiguruj wystąpienie usługi Azure Application Gateway przy użyciu zapory korzystającej z OWASP 10 najważniejszych zestawów reguł. 
 - Włącz szyfrowanie danych podczas przesyłania i w spoczynku przy użyciu usług platformy Azure. 
-- Skonfiguruj usługę Azure Policy i Security Center, aby oszacować compliancies. 
+- Skonfiguruj Azure Policy i centrum zabezpieczeń, aby oszacować zgodność. 
 
 Po utworzeniu i wdrożeniu tej aplikacji skonfigurujesz następującą przykładową aplikację internetową wraz z opisanymi przez siebie środkami konfiguracji i zabezpieczeń.
 
@@ -484,7 +484,7 @@ Wróć do ekranu dostęp warunkowy.
    3. Wybierz użytkowników lub grupy, dla których chcesz włączyć usługę MFA.
    4. W obszarze **kontroli dostępu**wybierz kartę **Grant (Udziel** ), a następnie wybierz opcję **Wymagaj uwierzytelniania wieloskładnikowego** (i inne ustawienia, jeśli chcesz).
 
-   ![Wymaganie usługi MFA](./media/secure-aad-app/ad-mfa-conditional-add.png)
+   ![Wymaganie uwierzytelniania wieloskładnikowego](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
    Zasady można włączyć, zaznaczając pole wyboru w górnej części ekranu lub na karcie **dostęp warunkowy** . Gdy zasady są włączone, użytkownicy potrzebują uwierzytelniania wieloskładnikowego w celu zalogowania się do portalu.
 

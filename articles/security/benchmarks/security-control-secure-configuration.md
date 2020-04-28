@@ -1,5 +1,5 @@
 ---
-title: Kontrola zabezpieczeń platformy Azure — bezpieczna konfiguracja
+title: Kontrola zabezpieczeń Azure — bezpieczna konfiguracja
 description: Bezpieczna konfiguracja kontroli zabezpieczeń platformy Azure
 author: msmbaldwin
 ms.service: security
@@ -7,196 +7,196 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bfa16f59155e420209ab6370056a7c612b5327e4
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: e3d43239dabe75bc2b25319945c2c6b08d726d2a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759045"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193109"
 ---
-# <a name="security-control-secure-configuration"></a>Kontrola bezpieczeństwa: bezpieczna konfiguracja
+# <a name="security-control-secure-configuration"></a>Kontrola zabezpieczeń: Konfiguracja zabezpieczona
 
-Ustanawiaj, wdrażaj i aktywnie zarządzaj (śledź, raportuj, popraw) konfigurację zabezpieczeń zasobów platformy Azure, aby uniemożliwić osobom atakującym wykorzystywanie zagrożonych usług i ustawień.
+Ustanów, Implementuj i aktywnie Zarządzaj (śledź, Przetwarzaj, Popraw) konfigurację zabezpieczeń zasobów platformy Azure, aby uniemożliwić osobom atakującym wykorzystanie zagrożonych usług i ustawień.
 
-## <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Ustanawianie bezpiecznych konfiguracji dla wszystkich zasobów platformy Azure
+## <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
 | 7.1 | 5.1 | Klient |
 
-Aliasy zasad platformy Azure umożliwia tworzenie zasad niestandardowych w celu inspekcji lub wymuszenia konfiguracji zasobów platformy Azure. Można również użyć wbudowanych definicji zasad platformy Azure.
+Użyj aliasów Azure Policy, aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji zasobów platformy Azure. Możesz również użyć wbudowanych definicji Azure Policy.
 
-Ponadto usługa Azure Resource Manager ma możliwość eksportowania szablonu w języku JavaScript Object Notation (JSON), który powinien zostać sprawdzony, aby upewnić się, że konfiguracje spełniają / przekraczają wymagania dotyczące zabezpieczeń dla twojej organizacji.
+Ponadto Azure Resource Manager ma możliwość eksportowania szablonu w JavaScript Object Notation (JSON), który powinien zostać sprawdzony, aby upewnić się, że konfiguracje spełniają/przekroczą wymagania dotyczące zabezpieczeń organizacji.
 
-Można również użyć zaleceń z usługi Azure Security Center jako linii bazowej bezpiecznej konfiguracji dla zasobów platformy Azure.
+Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii bazowej konfiguracji dla zasobów platformy Azure.
 
-- [Jak wyświetlić dostępne aliasy zasad platformy Azure](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszania zgodności](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-- [Eksport pojedynczych i wielozasóbowych do szablonu w witrynie Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+- [Eksport jednego i kilku zasobów do szablonu w Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
 
-- [Zalecenia dotyczące zabezpieczeń - przewodnik referencyjny](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](https://docs.microsoft.com/azure/security-center/recommendations-reference)
 
-## <a name="72-establish-secure-operating-system-configurations"></a>7.2: Ustanawianie bezpiecznych konfiguracji systemów operacyjnych
+## <a name="72-establish-secure-operating-system-configurations"></a>7,2: Ustanów bezpieczne konfiguracje systemów operacyjnych
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
 | 7.2 | 5.1 | Klient |
 
-Użyj zaleceń usługi Azure Security Center, aby zachować konfiguracje zabezpieczeń na wszystkich zasobach obliczeniowych.  Ponadto można użyć niestandardowych obrazów systemu operacyjnego lub konfiguracji stanu usługi Azure Automation State w celu ustanowienia konfiguracji zabezpieczeń systemu operacyjnego wymaganego przez organizację.
+Użyj zaleceń Azure Security Center, aby zachować konfiguracje zabezpieczeń we wszystkich zasobach obliczeniowych.  Ponadto możesz użyć niestandardowych obrazów systemu operacyjnego lub Azure Automation konfiguracji stanu, aby określić konfigurację zabezpieczeń systemu operacyjnego wymaganego przez organizację.
 
-- [Jak monitorować zalecenia usługi Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+- [Jak monitorować zalecenia dotyczące Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
 
-- [Zalecenia dotyczące zabezpieczeń - przewodnik referencyjny](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](https://docs.microsoft.com/azure/security-center/recommendations-reference)
 
-- [Omówienie konfiguracji stanu automatyzacji platformy Azure](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
+- [Przegląd konfiguracji stanu Azure Automation](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
 
-- [Przekazywanie dysku wirtualnego i używanie jej do tworzenia nowych maszyn wirtualnych z systemem Windows na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed)
+- [Przekazywanie wirtualnego dysku twardego i używanie go do tworzenia nowych maszyn wirtualnych z systemem Windows na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed)
 
-- [Tworzenie maszyny Wirtualnej systemu Linux na dysku niestandardowym za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd)
+- [Tworzenie maszyny wirtualnej z systemem Linux na podstawie dysku niestandardowego przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd)
 
-## <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Obsługa bezpiecznych konfiguracji zasobów platformy Azure
+## <a name="73-maintain-secure-azure-resource-configurations"></a>7,3: obsługa bezpiecznych konfiguracji zasobów platformy Azure
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
 | 7.3 | 5.2 | Klient |
 
-Użyj zasad platformy Azure [odmów] i [wdrożyć, jeśli nie istnieje], aby wymusić bezpieczne ustawienia w zasobach platformy Azure.  Ponadto można użyć szablonów usługi Azure Resource Manager do obsługi konfiguracji zabezpieczeń zasobów platformy Azure wymaganych przez organizację. 
+Aby wymusić bezpieczne ustawienia w ramach zasobów platformy Azure, użyj Azure Policy [Odmów] i [Wdróż, jeśli nie istnieje].  Ponadto możesz użyć szablonów Azure Resource Manager, aby zachować konfigurację zabezpieczeń zasobów platformy Azure wymaganych przez organizację. 
 
-- [Opis efektów zasad platformy Azure](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Zrozumienie efektów Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 
 - [Tworzenie zasad i zarządzanie nimi w celu wymuszania zgodności](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-- [Omówienie szablonów usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Przegląd szablonów Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
 
-## <a name="74-maintain-secure-operating-system-configurations"></a>7.4: Obsługa bezpiecznych konfiguracji systemów operacyjnych
+## <a name="74-maintain-secure-operating-system-configurations"></a>7,4: Zachowaj konfiguracje bezpiecznego systemu operacyjnego
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7.4 | 5.2 | Udostępnione |
+| 7.4 | 5.2 | Shared |
 
-Postępuj zgodnie z zaleceniami usługi Azure Security Center dotyczącymi przeprowadzania ocen luk w zabezpieczeniach zasobów obliczeniowych platformy Azure.  Ponadto można użyć szablonów usługi Azure Resource Manager, obrazów niestandardowych systemów operacyjnych lub konfiguracji stanu usługi Azure Automation State, aby zachować konfigurację zabezpieczeń systemu operacyjnego wymaganą przez organizację.   Szablony maszyn wirtualnych firmy Microsoft w połączeniu z konfiguracją żądanego stanu automatyzacji usługi Azure może pomóc w spełnianiu i utrzymywaniu wymagań dotyczących zabezpieczeń. 
+Postępuj zgodnie z zaleceniami Azure Security Center na temat przeprowadzania ocen luk w zabezpieczeniach dotyczących zasobów obliczeniowych platformy Azure.  Ponadto można używać szablonów Azure Resource Manager, niestandardowych obrazów systemu operacyjnego lub konfiguracji stanu Azure Automation, aby zachować konfigurację zabezpieczeń systemu operacyjnego wymaganego przez organizację.   Szablony maszyn wirtualnych firmy Microsoft połączone z Azure Automation konfiguracją żądanego stanu mogą pomóc w spotkaniu i utrzymaniu wymagań w zakresie zabezpieczeń. 
 
-Należy również pamiętać, że obrazy maszyn wirtualnych w portalu Azure Marketplace opublikowane przez firmę Microsoft są zarządzane i obsługiwane przez firmę Microsoft. 
+Należy również pamiętać, że obrazy maszyn wirtualnych portalu Azure Marketplace opublikowane przez firmę Microsoft są zarządzane i obsługiwane przez firmę Microsoft. 
 
-- [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach usługi Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
 
-- [Jak utworzyć maszynę wirtualną platformy Azure na podstawie szablonu usługi Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+- [Jak utworzyć maszynę wirtualną platformy Azure na podstawie szablonu Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
 
-- [Omówienie konfiguracji stanu automatyzacji platformy Azure](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
+- [Przegląd konfiguracji stanu Azure Automation](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
 
-- [Tworzenie maszyny wirtualnej systemu Windows w witrynie Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+- [Tworzenie maszyny wirtualnej z systemem Windows w Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
-- [Informacje o pobieraniu szablonu maszyny Wirtualnej](https://docs.microsoft.com/azure/virtual-machines/windows/download-template)
+- [Informacje na temat pobierania szablonu maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/windows/download-template)
 
 - [Przykładowy skrypt do przekazania wirtualnego dysku twardego na platformę Azure i utworzenia nowej maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
-## <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Bezpieczne przechowywanie konfiguracji zasobów platformy Azure
+## <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: bezpiecznie przechowuj konfigurację zasobów platformy Azure
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
 | 7,5 | 5.3 | Klient |
 
-Użyj usługi Azure DevOps, aby bezpiecznie przechowywać kod i zarządzać nim, takich jak niestandardowe zasady platformy Azure, szablony usługi Azure Resource Manager i skrypty konfiguracji żądanego stanu. Aby uzyskać dostęp do zasobów, którymi zarządzasz w usłudze Azure DevOps, można udzielić lub odmówić uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w usłudze Azure Active Directory (Azure AD), jeśli są zintegrowane z usługą Azure DevOps lub usługą Active Directory, jeśli są zintegrowane z usługą TFS.
+Za pomocą usługi Azure DevOps bezpiecznie przechowuj swój kod, taki jak niestandardowe zasady platformy Azure, szablony Azure Resource Manager i skrypty konfiguracji żądanego stanu, i zarządzaj nimi. Aby uzyskać dostęp do zasobów zarządzanych w usłudze Azure DevOps, można udzielić lub odmówić uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w Azure Active Directory (Azure AD) w przypadku integracji z usługą Azure DevOps lub Active Directory w przypadku integracji z programem TFS.
 
 - [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Uprawnienia i grupy w usłudze Azure DevOps — informacje](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+- [Informacje o uprawnieniach i grupach na platformie Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
 
-## <a name="76-securely-store-custom-operating-system-images"></a>7.6: Bezpieczne przechowywanie obrazów niestandardowych systemów operacyjnych
+## <a name="76-securely-store-custom-operating-system-images"></a>7,6: bezpieczne przechowywanie niestandardowych obrazów systemu operacyjnego
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7.6 | 5.3 | Klient |
+| 7,6 | 5.3 | Klient |
 
-Jeśli używasz obrazów niestandardowych, użyj kontroli dostępu opartej na rolach (RBAC), aby upewnić się, że tylko autoryzowani użytkownicy mogą uzyskiwać dostęp do obrazów. Za pomocą udostępnionej galerii obrazów można udostępniać obrazy różnym użytkownikom, jednostkom usług lub grupom usług AD w organizacji.  W przypadku obrazów kontenerów należy przechowywać je w rejestrze kontenerów platformy Azure i korzystać z narzędzia RBAC, aby upewnić się, że tylko autoryzowani użytkownicy mogą uzyskiwać dostęp do obrazów.  
+W przypadku używania obrazów niestandardowych należy użyć kontroli dostępu opartej na rolach (RBAC), aby zapewnić dostęp do obrazów tylko autoryzowanym użytkownikom. Za pomocą udostępnionej galerii obrazów możesz udostępnić swoje obrazy innym użytkownikom, podmiotom usług lub grupom usługi AD w organizacji.  W przypadku obrazów kontenerów Zapisz je w Azure Container Registry i Skorzystaj z RBAC, aby zapewnić dostęp do obrazów tylko autoryzowanym użytkownikom.  
 
-- [Opis rbac na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+- [Zrozumienie RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-- [Opis RBAC dla rejestru kontenerów](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- [Opis RBAC dla Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 
-- [Jak skonfigurować rbac na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+- [Jak skonfigurować RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
-- [Udostępnione galerii obrazów omówienie](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
+- [Omówienie galerii obrazów udostępnionych](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
 
-## <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7: Wdrażanie narzędzi do zarządzania konfiguracją dla zasobów platformy Azure
+## <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: Wdrażanie narzędzi do zarządzania konfiguracją dla zasobów platformy Azure
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7.7 | 5.4 | Klient |
+| 7,7 | 5.4 | Klient |
 
-Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla zasobów platformy Azure przy użyciu zasad platformy Azure. Aliasy zasad platformy Azure umożliwia tworzenie zasad niestandardowych w celu inspekcji lub wymuszenia konfiguracji sieci zasobów platformy Azure. Można również korzystać z wbudowanych definicji zasad związanych z określonych zasobów.  Ponadto można użyć usługi Azure Automation do wdrażania zmian konfiguracji.
+Zdefiniuj i Implementuj standardowe konfiguracje zabezpieczeń dla zasobów platformy Azure przy użyciu Azure Policy. Użyj aliasów Azure Policy, aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci zasobów platformy Azure. Mogą również korzystać z wbudowanych definicji zasad związanych z konkretnymi zasobami.  Ponadto można użyć Azure Automation do wdrożenia zmian konfiguracji.
 
-- [Jak skonfigurować zasady platformy Azure i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 - [Jak używać aliasów](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
-## <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8: Wdrażanie narzędzi do zarządzania konfiguracją dla systemów operacyjnych
+## <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: Wdrażanie narzędzi do zarządzania konfiguracją dla systemów operacyjnych
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7.8 | 5.4 | Klient |
+| 7,8 | 5.4 | Klient |
 
-Konfiguracja stanu automatyzacji platformy Azure to usługa zarządzania konfiguracją dla węzłów konfiguracji żądanego stanu (DSC) w dowolnej chmurze lub lokalnym centrum danych. Można łatwo przywkłędować maszyny, przypisać im deklaratywnych konfiguracji i wyświetlić raporty pokazujące zgodność każdej maszyny do określonego stanu. 
+Azure Automation konfiguracja stanu to usługa zarządzania konfiguracją dla węzłów konfiguracji żądanego stanu (DSC) w dowolnym chmurze lub lokalnym centrum danych. Można łatwo dołączać maszyny, przypisywać do nich konfiguracje deklaracyjne i wyświetlać raporty pokazujące zgodność poszczególnych maszyn z wybranym określonym stanem. 
 
-- [Maszyny dołączające do zarządzania przez konfigurację stanu automatyzacji platformy Azure](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+- [Dołączanie maszyn w celu zarządzania przez Azure Automation konfigurację stanu](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
 
-## <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9: Wdrażanie automatycznego monitorowania konfiguracji zasobów platformy Azure
+## <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: Zaimplementuj automatyczne monitorowanie konfiguracji dla zasobów platformy Azure
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7.9 | 5.5 | Klient |
+| 7,9 | 5,5 | Klient |
 
-Użyj usługi Azure Security Center do wykonywania skanowania według planu bazowego dla zasobów platformy Azure.  Ponadto użyj zasad platformy Azure do ostrzegania i inspekcji konfiguracji zasobów platformy Azure.
+Użyj Azure Security Center, aby przeprowadzić skanowanie linii bazowej dla zasobów platformy Azure.  Ponadto należy używać Azure Policy do powiadamiania i inspekcji konfiguracji zasobów platformy Azure.
 
-- [Jak korygować zalecenia w usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+- [Jak skorygować zalecenia w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
 
-## <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Wdrożenie automatycznego monitorowania konfiguracji systemów operacyjnych
+## <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7,10: Zaimplementuj automatyczne monitorowanie konfiguracji dla systemów operacyjnych
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7.10 | 5.5 | Klient |
+| 7,10 | 5,5 | Klient |
 
-Usługa Azure Security Center służy do skanowania według planu bazowego dla systemu operacyjnego i ustawień platformy Docker dla kontenerów.
+Użyj Azure Security Center, aby przeprowadzić skanowanie linii bazowej dla ustawień systemu operacyjnego i platformy Docker dla kontenerów.
 
 - [Omówienie rekomendacji dotyczących kontenera usługi Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-container-recommendations)
 
-## <a name="711-manage-azure-secrets-securely"></a>7.11: Bezpieczne zarządzanie wpisami tajnymi platformy Azure
+## <a name="711-manage-azure-secrets-securely"></a>7,11: bezpieczne zarządzanie wpisami tajnymi platformy Azure
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7.11 | 13.1 | Klient |
+| 7,11 | 13,1 | Klient |
 
-Użyj tożsamości usługi zarządzanej w połączeniu z usługą Azure Key Vault, aby uprościć i zabezpieczyć zarządzanie tajne dla aplikacji w chmurze.
+Użyj tożsamość usługi zarządzanej w połączeniu z Azure Key Vault, aby uprościć i zabezpieczyć tajne Zarządzanie aplikacjami w chmurze.
 
-- [Jak zintegrować się z tożsamościami zarządzanymi platformy Azure](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
+- [Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
 
-- [Jak utworzyć przechowalnię kluczy](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+- [Jak utworzyć Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-- [Jak zapewnić uwierzytelnianie usługi Key Vault z tożsamością zarządzaną](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej](https://docs.microsoft.com/azure/key-vault/managed-identity)
 
-## <a name="712-manage-identities-securely-and-automatically"></a>7.12: Bezpieczne i automatyczne zarządzanie tożsamościami
+## <a name="712-manage-identities-securely-and-automatically"></a>7,12: bezpieczne i automatyczne zarządzanie tożsamościami
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7.12 | 4.1 | Klient |
+| 7,12 | 4.1 | Klient |
 
-Użyj tożsamości zarządzanych, aby zapewnić usługi platformy Azure z automatycznie zarządzaną tożsamością w usłudze Azure AD. Tożsamości zarządzane umożliwia uwierzytelnianie do dowolnej usługi, która obsługuje uwierzytelnianie usługi Azure AD, w tym Usługi Key Vault, bez żadnych poświadczeń w kodzie.
+Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automatyczną tożsamość zarządzaną w usłudze Azure AD. Tożsamości zarządzane umożliwiają uwierzytelnianie w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Key Vault, bez żadnych poświadczeń w kodzie.
 
 - [Jak skonfigurować tożsamości zarządzane](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
 
-## <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Wyeliminuj niezamierzone narażenie na poświadczenia
+## <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminowanie nieprzewidzianego narażenia na poświadczenia
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7.13 | 18.1, 18.7 | Klient |
+| 7,13 | 18,1, 18,7 | Klient |
 
-Zaimplementuj skaner poświadczeń w celu zidentyfikowania poświadczeń w kodzie. Skaner poświadczeń będzie również zachęcać do przenoszenia wykrytych poświadczeń do bezpieczniejszych lokalizacji, takich jak Usługa Azure Key Vault. 
+Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przemieszczania odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault. 
 
-- [Jak skonfigurować Skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.html)
+- [Jak skonfigurować skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz następną kontrolę zabezpieczeń: [Ochrona przed złośliwym oprogramowaniem](security-control-malware-defense.md)
+- Zobacz następną kontrolę zabezpieczeń: [obrona złośliwego oprogramowania](security-control-malware-defense.md)

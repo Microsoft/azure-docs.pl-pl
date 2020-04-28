@@ -1,40 +1,40 @@
 ---
-title: Pozyskiwania danych pamięci podręcznej HPC platformy Azure — msrsync
-description: Jak używać msrsync do przenoszenia danych do miejsca docelowego magazynu obiektów Blob w pamięci podręcznej HPC usługi Azure
+title: Pobieranie danych z pamięci podręcznej platformy Azure HPC — msrsync
+description: Jak używać msrsync do przenoszenia danych do docelowego magazynu obiektów BLOB w pamięci podręcznej platformy Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 4f8863d706d623d613ac156cf202c3b7b12f2ae0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e0442b6aa1404ae5f57445179979496faa09863
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74168430"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194979"
 ---
-# <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Pozyskiwania danych pamięci podręcznej HPC platformy Azure — metoda msrsync
+# <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Pobieranie danych z pamięci podręcznej platformy Azure HPC — Metoda msrsync
 
-Ten artykuł zawiera szczegółowe instrukcje dotyczące używania ``msrsync`` narzędzia do kopiowania danych do kontenera magazynu obiektów Blob platformy Azure do użycia z pamięcią podręczną HPC usługi Azure.
+Ten artykuł zawiera szczegółowe instrukcje dotyczące korzystania z ``msrsync`` narzędzia do kopiowania danych do kontenera usługi Azure Blob Storage w celu użycia z pamięcią podręczną platformy Azure HPC.
 
-Aby dowiedzieć się więcej o przenoszeniu danych do magazynu obiektów Blob dla pamięci podręcznej HPC platformy Azure, przeczytaj artykuł [Przenoszenie danych do magazynu obiektów Blob platformy Azure.](hpc-cache-ingest.md)
+Aby dowiedzieć się więcej na temat przenoszenia danych do magazynu obiektów BLOB w pamięci podręcznej platformy Azure HPC, przeczytaj temat [przenoszenie danych do usługi Azure Blob Storage](hpc-cache-ingest.md).
 
-Narzędzie ``msrsync`` może służyć do przenoszenia danych do miejsca docelowego magazynu zaplecza dla pamięci podręcznej HPC platformy Azure. To narzędzie zostało zaprojektowane w celu optymalizacji ``rsync`` wykorzystania przepustowości przez uruchomienie wielu procesów równoległych. Jest on dostępny w https://github.com/jbd/msrsyncGitHub w .
+``msrsync`` Narzędzie to może służyć do przenoszenia danych do miejsca docelowego magazynu zaplecza dla pamięci podręcznej platformy Azure HPC. To narzędzie służy do optymalizowania użycia przepustowości przez uruchamianie wielu procesów ``rsync`` równoległych. Jest on dostępny w witrynie GitHub https://github.com/jbd/msrsyncpod adresem.
 
-``msrsync``dzieli katalog źródłowy na oddzielne "zasobniki", ``rsync`` a następnie uruchamia poszczególne procesy na każdym zasobniku.
+``msrsync``dzieli Katalog źródłowy na oddzielne "zasobniki", a następnie uruchamia poszczególne ``rsync`` procesy w każdym przedziale.
 
-Wstępne testy przy użyciu czterordzeniowej maszyny Wirtualnej wykazały najlepszą wydajność podczas korzystania z 64 procesów. Użyj ``msrsync`` opcji, ``-p`` aby ustawić liczbę procesów na 64.
+Testowanie wstępne przy użyciu maszyny wirtualnej z czterema rdzeniami wykazało najlepszą wydajność podczas korzystania z 64 procesów. Użyj ``msrsync`` opcji ``-p`` , aby ustawić liczbę procesów na 64.
 
-Należy ``msrsync`` zauważyć, że można zapisywać tylko do i z woluminów lokalnych. Źródło i miejsce docelowe muszą być dostępne jako instalacje lokalne na stacji roboczej użytej do wydania polecenia.
+Należy pamiętać ``msrsync`` , że można pisać tylko do i z woluminów lokalnych. Źródło i miejsce docelowe muszą być dostępne jako instalacje lokalne na stacji roboczej używanej do wydawania polecenia.
 
-Postępuj zgodnie z ``msrsync`` tymi instrukcjami, aby użyć do wypełniania magazynu obiektów blob platformy Azure za pomocą pamięci podręcznej HPC usługi Azure:
+Postępuj zgodnie z poniższymi instrukcjami, aby ``msrsync`` wypełnić usługę Azure Blob Storage za pomocą pamięci podręcznej platformy Azure HPC:
 
-1. Zainstaluj ``msrsync`` i jego wymagania wstępne``rsync`` (i Python 2.6 lub nowsza)
-1. Określ całkowitą liczbę plików i katalogów do skopiowania.
+1. Instalacja ``msrsync`` i jej wymagania wstępne``rsync`` (i środowisko Python 2,6 lub nowsze)
+1. Określ łączną liczbę plików i katalogów, które mają zostać skopiowane.
 
-   Na przykład użyj ``prime.py`` narzędzia ```prime.py --directory /path/to/some/directory``` z argumentami <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>(dostępnego przez pobranie ).
+   Na przykład użyj narzędzia ``prime.py`` z argumentami ```prime.py --directory /path/to/some/directory``` (dostępne przez pobranie <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
 
-   Jeśli nie ``prime.py``używasz, można obliczyć liczbę ``find`` elementów za pomocą narzędzia GNU w następujący sposób:
+   Jeśli nie korzystasz z programu ``prime.py``, możesz obliczyć liczbę elementów za pomocą narzędzia ``find`` GNU w następujący sposób:
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
@@ -42,14 +42,14 @@ Postępuj zgodnie z ``msrsync`` tymi instrukcjami, aby użyć do wypełniania ma
    find <path> |wc -l                 # (counts both)
    ```
 
-1. Podziel liczbę elementów przez 64, aby określić liczbę elementów na proces. Użyj tego numeru ``-f`` z opcją, aby ustawić rozmiar zasobników po uruchomieniu polecenia.
+1. Podziel liczbę elementów na 64, aby określić liczbę elementów w procesie. Użyj tej liczby z ``-f`` opcją, aby ustawić rozmiar zasobników po uruchomieniu polecenia.
 
-1. Wydaj ``msrsync`` polecenie kopiowania plików:
+1. Wydaj polecenie ``msrsync`` , aby skopiować pliki:
 
    ```bash
    msrsync -P --stats -p64 -f<ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   Na przykład to polecenie jest przeznaczone do przenoszenia 11 000 plików w 64 procesach z /test/source-repozytorium do /mnt/hpccache/repozytorium:
+   Na przykład to polecenie jest przeznaczone do przenoszenia plików 11 000 w procesach 64 z/test/Source-Repository do/mnt/hpccache/Repository:
 
    ``mrsync -P --stats -p64 -f170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/hpccache/repository``

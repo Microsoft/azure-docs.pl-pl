@@ -1,51 +1,51 @@
 ---
-title: Uaktualnienie aplikacji sieci szkieletowej usługi przy użyciu programu PowerShell
-description: W tym artykule ominia doświadczenie wdrażania aplikacji sieci szkieletowej usług, zmienianie kodu i wdrażanie uaktualnienia przy użyciu programu PowerShell.
+title: Service Fabric uaktualniania aplikacji przy użyciu programu PowerShell
+description: W tym artykule omówiono środowisko wdrażania aplikacji Service Fabric, zmiany kodu i wdrażania uaktualnienia przy użyciu programu PowerShell.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: b113b5a1042518e3b0d86e53796c5fe49afed418
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d277df6959ea3e7985514f81faed520f163c6012
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426782"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195888"
 ---
-# <a name="service-fabric-application-upgrade-using-powershell"></a>Uaktualnienie aplikacji sieci szkieletowej usług przy użyciu programu PowerShell
+# <a name="service-fabric-application-upgrade-using-powershell"></a>Service Fabric uaktualniania aplikacji przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
-> * [Powershell](service-fabric-application-upgrade-tutorial-powershell.md)
+> * [Narzędzia](service-fabric-application-upgrade-tutorial-powershell.md)
 > * [Visual Studio](service-fabric-application-upgrade-tutorial.md)
 > 
 > 
 
 <br/>
 
-Najczęściej używane i zalecane podejście uaktualnienia jest monitorowane uaktualnienie stopniowe.  Usługa Azure Service Fabric monitoruje kondycję aplikacji uaktualniane na podstawie zestawu zasad kondycji. Po uaktualnieniu domeny aktualizacji (UD) sieci szkieletowej usług ocenia kondycję aplikacji i przechodzi do następnej domeny aktualizacji lub nie powiedzie się uaktualnienie w zależności od zasad kondycji.
+Najczęściej używane i zalecane podejście do uaktualniania to monitorowane uaktualnienie stopniowe.  Usługa Azure Service Fabric monitoruje kondycję uaktualnianej aplikacji na podstawie zestawu zasad dotyczących kondycji. Po uaktualnieniu domeny aktualizacji (UD) program Service Fabric szacuje kondycję aplikacji, a następnie przechodzi do następnej domeny aktualizacji lub nie przejdzie do uaktualnienia w zależności od zasad dotyczących kondycji.
 
-Monitorowane uaktualnienie aplikacji można wykonać przy użyciu zarządzanych lub natywnych interfejsów API, programu PowerShell, interfejsu wiersza polecenia platformy Azure, języka Java lub REST. Aby uzyskać instrukcje dotyczące wykonywania uaktualnienia przy użyciu programu Visual Studio, zobacz [Uaktualnianie aplikacji przy użyciu programu Visual Studio](service-fabric-application-upgrade-tutorial.md).
+Uaktualnienie monitorowanej aplikacji można wykonać przy użyciu zarządzanych lub natywnych interfejsów API, programu PowerShell, interfejsu wiersza polecenia platformy Azure, środowiska Java lub REST. Aby uzyskać instrukcje dotyczące przeprowadzania uaktualnienia przy użyciu programu Visual Studio, zobacz [Uaktualnianie aplikacji przy użyciu programu Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-W przypadku uaktualnień stopniowych monitorowanych przez sieć usług administrator aplikacji może skonfigurować zasady oceny kondycji używane przez sieć szkieletową usług do określenia, czy aplikacja jest w dobrej kondycji. Ponadto administrator może skonfigurować akcję, która ma zostać podjęta, gdy ocena kondycji nie powiedzie się (na przykład wykonanie automatycznego wycofywania). W tej sekcji przechodzi przez monitorowane uaktualnienie dla jednego z przykładów SDK, który używa programu PowerShell. 
+Przy Service Fabric monitorowanych uaktualnień stopniowych administrator aplikacji może skonfigurować zasady oceny kondycji, których Service Fabric używa do określenia, czy aplikacja jest w dobrej kondycji. Ponadto administrator może skonfigurować akcję, która ma zostać podjęta w przypadku niepowodzenia oceny kondycji (na przykład podczas automatycznego wycofywania). W tej sekcji przedstawiono monitorowane uaktualnienie dla jednego z przykładów zestawu SDK korzystającego z programu PowerShell. 
 
-## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Krok 1: Tworzenie i wdrażanie przykładu obiektów wizualnych
-Skompiluj i opublikuj aplikację, klikając prawym przyciskiem myszy projekt aplikacji **VisualObjectsApplication** i wybierając polecenie **Publikuj.**  Aby uzyskać więcej informacji, zobacz [samouczek uaktualniania aplikacji sieci szkieletowej usług](service-fabric-application-upgrade-tutorial.md).  Alternatywnie można użyć programu PowerShell do wdrożenia aplikacji.
+## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Krok 1. Kompilowanie i wdrażanie przykładu obiektów wizualnych
+Skompiluj i Opublikuj aplikację, klikając prawym przyciskiem myszy projekt aplikacji, **VisualObjectsApplication** i wybierając polecenie **Publikuj** .  Aby uzyskać więcej informacji, zobacz [Samouczek dotyczący uaktualniania aplikacji Service Fabric](service-fabric-application-upgrade-tutorial.md).  Alternatywnie możesz użyć programu PowerShell do wdrożenia aplikacji.
 
 > [!NOTE]
-> Zanim którekolwiek z poleceń sieci szkieletowej usług może być używane w programie `Connect-ServiceFabricCluster` PowerShell, należy najpierw połączyć się z klastrem przy użyciu polecenia cmdlet. Podobnie zakłada się, że klaster został już skonfigurowany na komputerze lokalnym. Zobacz artykuł dotyczący [konfigurowania środowiska programistycznego sieci szkieletowej](service-fabric-get-started.md)usług .
+> Przed użyciem dowolnego polecenia Service Fabric w programie PowerShell należy najpierw nawiązać połączenie z klastrem przy użyciu `Connect-ServiceFabricCluster` polecenia cmdlet. Podobnie zakłada się, że klaster został już skonfigurowany na komputerze lokalnym. Zapoznaj się z artykułem dotyczącym [konfigurowania Service Fabric środowiska deweloperskiego](service-fabric-get-started.md).
 > 
 > 
 
-Po nakręceniu projektu w programie Visual Studio można użyć polecenia Programu PowerShell [Copy-ServiceFabricApplicationPackage,](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) aby skopiować pakiet aplikacji do magazynu imagestore. Jeśli chcesz zweryfikować pakiet aplikacji lokalnie, użyj polecenia cmdlet [Test-ServiceFabricApplicationPackage.](/powershell/module/servicefabric/test-servicefabricapplicationpackage) Następnym krokiem jest zarejestrowanie aplikacji w czasie wykonywania sieci szkieletowej usług przy użyciu polecenia cmdlet [Register-ServiceFabricApplicationType.](/powershell/module/servicefabric/register-servicefabricapplicationtype) Poniższym krokiem jest uruchomienie wystąpienia aplikacji przy użyciu polecenia cmdlet [aplikacji New-ServiceFabricApplication.](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)  Te trzy kroki są analogiczne do korzystania z elementu menu **Wdrażanie** w programie Visual Studio.  Po zakończeniu inicjowania obsługi administracyjnej należy wyczyścić skopiowany pakiet aplikacji z magazynu obrazów w celu zmniejszenia zasobów zużytych.  Jeśli typ aplikacji nie jest już wymagane, powinny być wyrejestrowane z tego samego powodu. Aby uzyskać więcej [informacji, zobacz Wdrażanie i usuwanie aplikacji przy użyciu programu PowerShell.](service-fabric-application-upgrade-tutorial-powershell.md)
+Po skompilowaniu projektu w programie Visual Studio można użyć polecenia programu PowerShell [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) , aby skopiować pakiet aplikacji do magazynu ImageStore. Jeśli chcesz zweryfikować pakiet aplikacji lokalnie, użyj polecenia cmdlet [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) . Następnym krokiem jest zarejestrowanie aplikacji w środowisku uruchomieniowym Service Fabric przy użyciu polecenia cmdlet [register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype) . Poniższy krok polega na uruchomieniu wystąpienia aplikacji za pomocą polecenia cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) .  Te trzy kroki są analogiczne do użycia elementu menu **Wdróż** w programie Visual Studio.  Po zakończeniu aprowizacji należy wyczyścić skopiowany pakiet aplikacji z magazynu obrazów, aby zmniejszyć ilość używanych zasobów.  Jeśli typ aplikacji nie jest już wymagany, powinien zostać wyrejestrowany z tego samego powodu. Aby uzyskać więcej informacji [, zobacz Wdrażanie i usuwanie aplikacji przy użyciu programu PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) .
 
-Teraz można użyć [Eksploratora sieci szkieletowej usług, aby wyświetlić klaster i aplikację](service-fabric-visualizing-your-cluster.md). Aplikacja ma usługę sieci web, do których można nawigować w programie Internet Explorer, wpisując [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) na pasku adresu.  Na ekranie powinny być widoczne pewne pływające obiekty wizualne.  Ponadto można użyć [Get-ServiceFabricApplication,](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) aby sprawdzić stan aplikacji.
+Teraz można użyć Service Fabric Explorer, [Aby wyświetlić klaster i aplikację](service-fabric-visualizing-your-cluster.md). Aplikacja ma usługę sieci Web, do której można przejść w programie Internet Explorer, wpisując `http://localhost:8081/visualobjects` na pasku adresu.  Na ekranie powinny być widoczne przepływające obiekty wizualne.  Ponadto można użyć polecenie [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) , aby sprawdzić stan aplikacji.
 
-## <a name="step-2-update-the-visual-objects-sample"></a>Krok 2: Aktualizowanie przykładu obiektów wizualnych
-Można zauważyć, że w wersji, która została wdrożona w kroku 1, obiekty wizualne nie obracają się. Uaktualnijmy tę aplikację do tej, w której obiekty wizualne również się obracają.
+## <a name="step-2-update-the-visual-objects-sample"></a>Krok 2. Aktualizacja przykładu obiektów wizualnych
+Można zauważyć, że w wersji, która została wdrożona w kroku 1, obiekty wizualne nie są obracane. Uaktualnimy tę aplikację do jednego miejsca, w którym obiekty wizualne również są obracane.
 
-Wybierz projekt VisualObjects.ActorService w rozwiązaniu VisualObjects i otwórz plik StatefulVisualObjectActor.cs. W tym pliku przejdź `MoveObject`do metody `this.State.Move()`, comment `this.State.Move(true)`out i uncomment . Ta zmiana obraca obiekty po uaktualnieniu usługi.
+Wybierz projekt VisualObjects. ActorService w ramach rozwiązania VisualObjects i Otwórz plik StatefulVisualObjectActor.cs. W tym pliku przejdź do metody `MoveObject`, Skomentuj i Usuń `this.State.Move()`komentarz. `this.State.Move(true)` Ta zmiana powoduje obrócenie obiektów po uaktualnieniu usługi.
 
-Musimy również zaktualizować plik *ServiceManifest.xml* (w obszarze PackageRoot) projektu **VisualObjects.ActorService**. Zaktualizuj *CodePackage* i wersję usługi do wersji 2.0 oraz odpowiednie wiersze w pliku *ServiceManifest.xml.*
-Opcji *Edycji manifestu* programu Visual Studio można użyć po kliknięciu prawym przyciskiem myszy rozwiązania, aby wprowadzić zmiany w pliku manifestu.
+Należy również zaktualizować plik *servicemanifest. XML* (w obszarze PackageRoot) projektu **VisualObjects. ActorService**. Zaktualizuj *CodePackage* i wersję usługi do 2,0 oraz odpowiadające im wiersze w pliku *servicemanifest. XML* .
+Możesz użyć opcji *Edytuj pliki manifestu* programu Visual Studio po kliknięciu prawym przyciskiem myszy rozwiązania, aby zmienić plik manifestu.
 
-Po wjedniejszce manifest powinien wyglądać następująco (wyróżnione fragmenty pokazują zmiany):
+Po wprowadzeniu zmian manifest powinien wyglądać podobnie do następującego (wyróżnione fragmenty pokazują zmiany):
 
 ```xml
 <ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
@@ -53,7 +53,7 @@ Po wjedniejszce manifest powinien wyglądać następująco (wyróżnione fragmen
 <CodePackageName="Code" Version="2.0">
 ```
 
-Teraz *plik ApplicationManifest.xml* (znaleziony w ramach projektu **VisualObjects** w ramach rozwiązania **VisualObjects)** jest aktualizowany do wersji 2.0 projektu **VisualObjects.ActorService.** Ponadto wersja aplikacji jest aktualizowana do wersji 2.0.0.0 z wersji 1.0.0.0. *ApplicationManifest.xml* powinien wyglądać następująco:
+Teraz plik *ApplicationManifest. XML* (znajdujący się w projekcie **VisualObjects** w ramach rozwiązania **VisualObjects** ) został zaktualizowany do wersji 2,0 projektu **VisualObjects. ActorService** . Ponadto wersja aplikacji jest aktualizowana pod kątem 2.0.0.0 z 1.0.0.0. *ApplicationManifest. XML* powinien wyglądać podobnie do następującego fragmentu kodu:
 
 ```xml
 <ApplicationManifestxmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -61,16 +61,16 @@ Teraz *plik ApplicationManifest.xml* (znaleziony w ramach projektu **VisualObjec
  <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
 
-Teraz skompiluj projekt, wybierając tylko projekt **ActorService,** a następnie klikając prawym przyciskiem myszy i wybierając opcję **Kompilacja** w programie Visual Studio. Jeśli wybierzesz **Przebuduj wszystkie**, należy zaktualizować wersje dla wszystkich projektów, ponieważ kod uległby zmianie. Następnie zapakujmy zaktualizowaną aplikację, klikając prawym przyciskiem myszy ***visualobjectsApplication***, wybierając menu sieci szkieletowej usług i wybierając **pozycję Pakiet**. Ta akcja tworzy pakiet aplikacji, który można wdrożyć.  Zaktualizowana aplikacja jest gotowa do wdrożenia.
+Teraz Skompiluj projekt, wybierając tylko projekt **ActorService** , a następnie klikając prawym przyciskiem myszy i wybierając opcję **kompilacji** w programie Visual Studio. W przypadku wybrania opcji **Kompiluj ponownie wszystkie**należy zaktualizować wersje dla wszystkich projektów, ponieważ kod zostałby zmieniony. Następnie Spakuj zaktualizowaną aplikację, klikając prawym przyciskiem myszy pozycję ***VisualObjectsApplication***, wybierając menu Service Fabric i wybierając pozycję **pakiet**. Ta akcja powoduje utworzenie pakietu aplikacji, który można wdrożyć.  Zaktualizowana aplikacja jest gotowa do wdrożenia.
 
-## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Krok 3: Zdecyduj o zasadach dotyczących zdrowia i parametrach aktualizacji
-Zapoznaj się z [parametrami uaktualniania aplikacji](service-fabric-application-upgrade-parameters.md) i [procesem uaktualniania,](service-fabric-application-upgrade.md) aby dobrze zrozumieć różne parametry uaktualnienia, limity czasu i zastosowane kryterium kondycji. W tym instruktażu kryterium oceny kondycji usługi jest ustawione na wartości domyślne (i zalecane), co oznacza, że wszystkie usługi i wystąpienia powinny być *w dobrej kondycji* po uaktualnieniu.  
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Krok 3. podjęcie decyzji dotyczącej zasad dotyczących kondycji i parametrów uaktualnienia
+Zapoznaj się z [parametrami uaktualniania aplikacji](service-fabric-application-upgrade-parameters.md) i [procesem uaktualniania](service-fabric-application-upgrade.md) , aby uzyskać dobrą wiedzę na temat różnych parametrów uaktualniania, przekroczeń czasu i stosowanego kryterium kondycji. W tym instruktażu kryterium oceny kondycji usługi jest ustawione na wartość domyślną (i zalecaną), co oznacza, że wszystkie usługi i wystąpienia powinny być w *dobrej kondycji* po uaktualnieniu.  
 
-Jednak zwiększmy *HealthCheckStableDuration* do 180 sekund (tak, że usługi są w dobrej kondycji przez co najmniej 120 sekund przed uaktualnienie przechodzi do następnej domeny aktualizacji).  Ustawmy również *UpgradeDomainTimeout* na 1200 sekund i *UpgradeTimeout* na 3000 sekund.
+Należy jednak zwiększyć *HealthCheckStableDuration* do 180 sekund (aby zapewnić kondycję usług przez co najmniej 120 sekund, zanim uaktualnienie przejdzie do następnej domeny aktualizacji).  Można również ustawić *UpgradeDomainTimeout* na 1200 sekund i *UpgradeTimeout* na 3000 sekund.
 
-Na koniec ustawmy również *UpgradeFailureAction* do wycofania. Ta opcja wymaga sieci szkieletowej usług, aby wycofać aplikację do poprzedniej wersji, jeśli napotka żadnych problemów podczas uaktualniania. W związku z tym podczas uruchamiania uaktualnienia (w kroku 4) określono następujące parametry:
+Na koniec Przypuśćmy również ustawienie *UpgradeFailureAction* do wycofania. Ta opcja wymaga Service Fabric wycofania aplikacji do poprzedniej wersji, jeśli wystąpią problemy podczas uaktualniania. W tym celu podczas uruchamiania uaktualnienia (w kroku 4) są określone następujące parametry:
 
-FailureAction = Wycofywanie
+FailureAction = wycofywanie
 
 HealthCheckStableDurationSec = 180
 
@@ -78,59 +78,59 @@ UpgradeDomainTimeoutSec = 1200
 
 UpgradeTimeout = 3000
 
-## <a name="step-4-prepare-application-for-upgrade"></a>Krok 4: Przygotowanie aplikacji do uaktualnienia
-Teraz aplikacja jest zbudowana i gotowa do uaktualnienia. Jeśli otworzysz okno programu PowerShell jako administrator i [wpiszesz Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps), powinieneś poinformować, że jest to typ aplikacji 1.0.0.0 **VisualObjects,** który został wdrożony.  
+## <a name="step-4-prepare-application-for-upgrade"></a>Krok 4. Przygotowywanie aplikacji do uaktualnienia
+Teraz aplikacja została skompilowana i gotowa do uaktualnienia. Jeśli otworzysz okno programu PowerShell jako administrator i wpisz polecenie [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps), powinieneś poinformować, że jest to typ aplikacji 1.0.0.0 of **VisualObjects** , który został wdrożony.  
 
-Pakiet aplikacji jest przechowywany pod następującą ścieżką względną, w której nieskompresowano zestawu SDK sieci szkieletowej usług — *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. W tym katalogu należy znaleźć folder "Pakiet", w którym przechowywany jest pakiet aplikacji. Sprawdź sygnatury czasowe, aby upewnić się, że jest to najnowsza kompilacja (może być konieczne zmodyfikowanie ścieżek odpowiednio również).
+Pakiet aplikacji jest przechowywany w następującej ścieżce względnej, w której został odkompresowany Service Fabric SDK- *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Folder "Package" powinien znajdować się w tym katalogu, w którym jest przechowywany pakiet aplikacji. Sprawdź sygnatury czasowe, aby upewnić się, że jest to najnowsza kompilacja (może zajść potrzeba zmodyfikowania odpowiednich ścieżek).
 
-Teraz skopiujmy zaktualizowany pakiet aplikacji do magazynu obrazów sieci szkieletowej usług (gdzie pakiety aplikacji są przechowywane przez sieci szkieletowej usług). Parametr *ApplicationPackagePathInImageStore* informuje sieci szkieletowej usług, gdzie można znaleźć pakiet aplikacji. Umieściliśmy zaktualizowaną aplikację w "VisualObjects\_V2" z następującym poleceniem (może być konieczne ponowne zmodyfikowanie ścieżek).
+Teraz Skopiuj zaktualizowany pakiet aplikacji do Service Fabric magazynu ImageStore (gdzie pakiety aplikacji są przechowywane przez Service Fabric). Parametr *ApplicationPackagePathInImageStore* Service Fabric informuje, gdzie można znaleźć pakiet aplikacji. Zaktualizowana aplikacja została umieszczona w "VisualObjects\_v2" przy użyciu następującego polecenia (konieczne może być odpowiednie zmodyfikowanie ścieżek).
 
 ```powershell
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package -ApplicationPackagePathInImageStore "VisualObjects\_V2"
 ```
 
-Następnym krokiem jest zarejestrowanie tej aplikacji w sieci szkieletowej usług, które można wykonać za pomocą [polecenia Register-ServiceFabricApplicationType:](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)
+Następnym krokiem jest zarejestrowanie tej aplikacji za pomocą Service Fabric, które można wykonać za pomocą polecenia [register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) :
 
 ```powershell
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects\_V2"
 ```
 
-Jeśli poprzednie polecenie nie powiedzie się, jest prawdopodobne, że trzeba odbudować wszystkie usługi. Jak wspomniano w kroku 2, może być również trzeba zaktualizować wersję webservice, jak również.
+Jeśli poprzednie polecenie nie powiedzie się, prawdopodobnie trzeba będzie ponownie skompilować wszystkie usługi. Jak wspomniano w kroku 2, konieczne może być również zaktualizowanie wersji usługi WebService.
 
-Zaleca się usunięcie pakietu aplikacji po pomyślnym zarejestrowaniu aplikacji.  Usuwanie pakietów aplikacji z magazynu obrazów zwalnia zasoby systemowe.  Utrzymywanie nieużywanych pakietów aplikacji zużywa magazyn dysku i prowadzi do problemów z wydajnością aplikacji.
+Zaleca się usunięcie pakietu aplikacji po pomyślnym zarejestrowaniu aplikacji.  Usuwanie pakietów aplikacji z magazynu obrazów zwalnia zasoby systemowe.  Utrzymywanie nieużywanych pakietów aplikacji zużywa magazyn dyskowy i prowadzi do problemów z wydajnością aplikacji.
 
 ```powershell
 Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore "VisualObjects\_V2" -ImageStoreConnectionString fabric:ImageStore
 ```
 
-## <a name="step-5-start-the-application-upgrade"></a>Krok 5: Rozpocznij uaktualnienie aplikacji
-Teraz wszyscy jesteśmy ustawione, aby rozpocząć uaktualnienie aplikacji za pomocą [polecenia Start-ServiceFabricApplicationUplicationUpgrade:](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps)
+## <a name="step-5-start-the-application-upgrade"></a>Krok 5. uruchomienie uaktualniania aplikacji
+Teraz wszystko jest ustawione, aby rozpocząć uaktualnianie aplikacji za pomocą polecenia [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) :
 
 ```powershell
 Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -ApplicationTypeVersion 2.0.0.0 -HealthCheckStableDurationSec 60 -UpgradeDomainTimeoutSec 1200 -UpgradeTimeout 3000   -FailureAction Rollback -Monitored
 ```
 
 
-Nazwa aplikacji jest taka sama, jak została opisana w pliku *ApplicationManifest.xml.* Usługa Sieci szkieletowej używa tej nazwy, aby zidentyfikować, która aplikacja jest coraz uaktualniony. Jeśli ustawisz limity czasu jako zbyt krótkie, może wystąpić komunikat o błędzie informujący o problemie. Zapoznaj się z sekcją rozwiązywania problemów lub zwiększ limity czasu.
+Nazwa aplikacji jest taka sama, jak została opisana w pliku *ApplicationManifest. XML* . Service Fabric używa tej nazwy do identyfikowania aplikacji, która ma zostać uaktualniona. Jeśli limit czasu jest za krótki, może wystąpić komunikat o błędzie informujący o problemie. Zapoznaj się z sekcją Rozwiązywanie problemów lub Zwiększ limit czasu.
 
-Teraz w miarę postępu uaktualniania aplikacji można go monitorować za pomocą Eksploratora sieci szkieletowej usług lub za pomocą polecenia [Get-ServiceFabricApplicationUplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) PowerShell: 
+Teraz, gdy Uaktualnianie aplikacji jest realizowane, można monitorować je za pomocą Service Fabric Explorer lub przy użyciu polecenia programu PowerShell [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) : 
 
 ```powershell
 Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects
 ```
 
-W ciągu kilku minut stan, który został nadany przy użyciu poprzedniego polecenia programu PowerShell, powinien określać, że wszystkie domeny aktualizacji zostały uaktualnione (ukończone). I powinno się okazać, że obiekty wizualne w oknie przeglądarki zaczęły się obracać!
+W ciągu kilku minut stan uzyskany za pomocą powyższego polecenia programu PowerShell powinien określać, że wszystkie domeny aktualizacji zostały uaktualnione (ukończono). Należy się dowiedzieć, że obiekty wizualne w oknie przeglądarki zostały rozpoczęte.
 
-Możesz spróbować uaktualnić z wersji 2 do wersji 3 lub z wersji 2 do wersji 1 jako ćwiczenie. Przejście z wersji 2 do wersji 1 jest również uważane za uaktualnienie. Graj z limitami czasu i polityką zdrowotną, aby się z nimi zapoznać. Podczas wdrażania w klastrze platformy Azure parametry muszą być odpowiednio ustawione. Dobrze jest ustawić limity czasu zachowawczo.
+Możesz spróbować uaktualnić wersję 2 do wersji 3 lub z wersji 2 do wersji 1 jako ćwiczenie. Przejście z wersji 2 do wersji 1 jest również uznawane za uaktualnienie. Twórz aplikacje, korzystając z limitów czasu i zasad dotyczących kondycji, aby je znać. W przypadku wdrażania w klastrze platformy Azure parametry muszą być odpowiednio skonfigurowane. Dobrym sposobem jest ustawienie limitów czasu.
 
 ## <a name="next-steps"></a>Następne kroki
-[Uaktualnianie aplikacji przy użyciu programu Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez uaktualnienie aplikacji przy użyciu programu Visual Studio.
+[Uaktualnianie aplikacji przy użyciu programu Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez proces uaktualniania aplikacji przy użyciu programu Visual Studio.
 
 Kontroluj sposób uaktualniania aplikacji przy użyciu [parametrów uaktualnienia](service-fabric-application-upgrade-parameters.md).
 
-Upewnij się, że uaktualnienia aplikacji są zgodne, ucząc się, jak używać [serializacji danych.](service-fabric-application-upgrade-data-serialization.md)
+Aby uaktualnić aplikacje, należy się upewnić, jak używać [serializacji danych](service-fabric-application-upgrade-data-serialization.md).
 
-Dowiedz się, jak korzystać z zaawansowanych funkcji podczas uaktualniania aplikacji, odwołując się do [tematów zaawansowanych](service-fabric-application-upgrade-advanced.md).
+Dowiedz się, jak korzystać z zaawansowanych funkcji podczas uaktualniania aplikacji, odwołując się do [zaawansowanych tematów](service-fabric-application-upgrade-advanced.md).
 
-Rozwiąż typowe problemy w uaktualnieniach aplikacji, odwołując się do kroków [rozwiązywania problemów z uaktualnieniami aplikacji](service-fabric-application-upgrade-troubleshooting.md).
+Rozwiązywanie typowych problemów dotyczących uaktualnień aplikacji, w odniesieniu do kroków w [temacie Troubleshooting Upgrades Applications](service-fabric-application-upgrade-troubleshooting.md).
 

@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 2bd9430fc6f48d72faa2c1850af0bb8432a7c5f5
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: e9cb691ef60f612672078a9ef84db904c79cbc87
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149504"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189449"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Często zadawane pytania dotyczące usługi Azure poufnego przetwarzania
 
@@ -47,7 +47,7 @@ Jeśli problem z platformą Azure nie został rozwiązany w tym artykule, odwied
 
 1. **Jaka jest różnica między maszynami wirtualnymi serii DCsv2 i kontrolerów domeny?**
 
-   Maszyny wirtualne z serii DC działają na starszych, 6-rdzeniowych procesorach Intel z SGX. Mają one mniej całkowitą pamięć, mniej pamięci sygnatury EPC (enklawy strony) i są dostępne w mniej regionów. Te maszyny wirtualne są dostępne tylko w regionach Wschodnie stany USA i Europa Zachodnia są dostępne w dwóch rozmiarach: Standard_DC2s i Standard_DC4s. Nie będą one znajdować się w stanie GA i mogą być wdrażane tylko w ramach wystąpienia portalu Marketplace w przypadku [maszyn wirtualnych z serii DC [wersja zapoznawcza]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview)
+   Maszyny wirtualne z serii DC działają na starszym 6-rdzeniowych procesorach Intel z technologią Intel SGX. Mają one mniej całkowitą pamięć, mniej pamięci sygnatury EPC (enklawy strony) i są dostępne w mniej regionów. Te maszyny wirtualne są dostępne tylko w regionach Wschodnie stany USA i Europa Zachodnia są dostępne w dwóch rozmiarach: Standard_DC2s i Standard_DC4s. Nie będą one znajdować się w stanie GA i mogą być wdrażane tylko w ramach wystąpienia portalu Marketplace w przypadku [maszyn wirtualnych z serii DC [wersja zapoznawcza]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview)
 
 1. **Czy maszyny wirtualne DCsv2 są dostępne globalnie?**
 

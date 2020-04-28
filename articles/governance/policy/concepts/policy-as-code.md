@@ -1,35 +1,35 @@
 ---
 title: Projektowanie przepływów pracy typu zasady jako kod
-description: Dowiedz się, jak projektować przepływy pracy, aby wdrożyć definicje zasad platformy Azure jako kod i automatycznie zweryfikować zasoby.
+description: Dowiedz się, jak projektować przepływy pracy, aby wdrożyć definicje Azure Policy jako kod i automatycznie sprawdzać poprawność zasobów.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0914ba6510c9d2ef87d3f83417f97340d42c8bce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd77fdd4011c3e1e83f8dfa9f30045bb72881c25
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74267276"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187736"
 ---
 # <a name="design-policy-as-code-workflows"></a>Projektowanie przepływów pracy typu zasady jako kod
 
-W miarę postępów w podróży z cloud governance, należy przejść od ręcznego zarządzania każdą definicją zasad w witrynie Azure portal lub za pośrednictwem różnych zestawów SDK do czegoś łatwiejszego w zarządzaniu i powtarzalne w skali przedsiębiorstwa. Dwa dominujące podejścia do zarządzania systemami na dużą skalę w chmurze to:
+W miarę postępów związanych z zarządzaniem chmurą należy zmienić ręczną procedurę zarządzania wszystkimi definicjami zasad w Azure Portal lub za pośrednictwem różnych zestawów SDK, aby łatwiej zarządzać i powtarzać się w skali przedsiębiorstwa. Dwa z dominujących metod zarządzania systemami na dużą skalę w chmurze to:
 
-- Infrastruktura jako kod: Praktyka traktowania zawartości, która definiuje środowiska, wszystko od szablonów Usługi Resource Manager do definicji zasad platformy Azure do planów platformy Azure, jako kod źródłowy.
-- DevOps: Związek ludzi, procesów i produktów, aby umożliwić ciągłe dostarczanie wartości naszym użytkownikom końcowym.
+- Infrastruktura jako kod: praktyczne traktowanie zawartości definiującej Twoje środowiska, wszystko to z szablonów Menedżer zasobów, aby Azure Policy definicje do planów platformy Azure, jako kod źródłowy.
+- DevOps: związek osób, procesów i produktów, aby umożliwić ciągłe dostarczanie wartości naszym użytkownikom końcowym.
 
-Polityka jako Kodeks jest połączeniem tych pomysłów. Zasadniczo zachowaj definicje zasad w kontroli źródła i za każdym razem, gdy zostanie wniesiena zmiana, przetestuj i sprawdź poprawność tej zmiany. Jednak nie powinien to być zakres zaangażowania zasad z infrastruktury jako kod lub DevOps.
+Zasady jako kod to kombinacja tych pomysłów. Zasadniczo należy zachować definicje zasad w kontroli źródła i za każdym razem, gdy zmiana została wprowadzona, przetestować i zweryfikować tę zmianę. Jednak nie powinno to być stopień zaangażowania zasad z infrastrukturą jako kodem lub DevOps.
 
-Krok sprawdzania poprawności powinien być również składnikiem innych ciągłej integracji lub ciągłego wdrażania przepływów pracy. Przykłady obejmują wdrażanie środowiska aplikacji lub infrastruktury wirtualnej. Dzięki temu, że usługa Azure Policy jest wczesnym składnikiem procesu kompilacji i wdrażania, zespoły aplikacji i operacji odnajdują, czy ich zmiany nie są związane z skargą, na długo przed tym, zanim będzie za późno i podejmują próbę wdrożenia w produkcji.
+Krok walidacji powinien również być składnikiem innych przepływów pracy ciągłej integracji i ciągłego wdrażania. Przykłady obejmują wdrażanie środowiska aplikacji lub infrastruktury wirtualnej. Dzięki wykorzystaniu Azure Policy sprawdzać poprawność wczesnego składnika procesu kompilacji i wdrożenia, zespoły aplikacji i operacji wykrywają, czy ich zmiany nie są reklamacją, długo przed upływem zbyt późno i podejmują próbę wdrożenia w środowisku produkcyjnym.
 
 ## <a name="workflow-overview"></a>Omówienie przepływu pracy
 
-Zalecany ogólny przepływ pracy zasad jako kod wygląda następująco:
+Zalecany ogólny przepływ pracy zasad jako kod wygląda jak na tym diagramie:
 
-![Omówienie przepływu pracy zasady jako kodu](../media/policy-as-code/policy-as-code-workflow.png)
+:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Omówienie zasad jako przepływu pracy w kodzie" border="false":::
 
 ### <a name="create-and-update-policy-definitions"></a>Tworzenie i aktualizowanie definicji zasad
 
-Definicje zasad są tworzone przy użyciu JSON i przechowywane w kontroli źródła. Każda zasada ma własny zestaw plików, takich jak parametry, reguły i parametry środowiska, które powinny być przechowywane w tym samym folderze. Poniższa struktura jest zalecanym sposobem utrzymania definicji zasad w kontroli źródła.
+Definicje zasad są tworzone przy użyciu formatu JSON i przechowywane w kontroli źródła. Każda zasada ma swój własny zestaw plików, taki jak parametry, reguły i parametry środowiska, które powinny być przechowywane w tym samym folderze. Następująca struktura jest zalecanym sposobem utrzymywania definicji zasad w kontroli źródła.
 
 ```text
 .
@@ -53,11 +53,11 @@ Definicje zasad są tworzone przy użyciu JSON i przechowywane w kontroli źród
 |
 ```
 
-Po dodaniu nowej zasady lub zaktualizowaniu istniejącej, przepływ pracy powinien automatycznie zaktualizować definicję zasad na platformie Azure. Testowanie nowej lub zaktualizowanej definicji zasad odbywa się w późniejszym kroku.
+Po dodaniu nowych zasad lub zaktualizowaniu istniejącego, przepływ pracy powinien automatycznie aktualizować definicję zasad na platformie Azure. Przetestowanie nowej lub zaktualizowanej definicji zasad znajduje się w późniejszym kroku.
 
 ### <a name="create-and-update-initiative-definitions"></a>Tworzenie i aktualizowanie definicji inicjatywy
 
-Podobnie inicjatywy mają własny plik JSON i powiązane pliki, które powinny być przechowywane w tym samym folderze. Definicja inicjatywy wymaga, aby definicja zasad już istniała, więc nie można jej utworzyć ani zaktualizować, dopóki źródło zasad nie zostanie zaktualizowane w formancie źródła, a następnie zaktualizowane na platformie Azure. Poniższa struktura jest zalecanym sposobem utrzymania definicji inicjatywy w kontroli źródła:
+Podobnie inicjatywy mają własny plik JSON i powiązane pliki, które powinny być przechowywane w tym samym folderze. Definicja inicjatywy wymaga, aby definicja zasad już istnieje, dlatego nie można jej utworzyć ani zaktualizować, dopóki źródło zasad nie zostanie zaktualizowane w kontroli źródła, a następnie zaktualizowane na platformie Azure. Następująca struktura jest zalecanym sposobem utrzymywania definicji inicjatyw w kontroli źródła:
 
 ```text
 .
@@ -81,53 +81,53 @@ Podobnie inicjatywy mają własny plik JSON i powiązane pliki, które powinny b
 |
 ```
 
-Podobnie jak definicje zasad podczas dodawania lub aktualizowania istniejącej inicjatywy, przepływ pracy powinien automatycznie aktualizować definicję inicjatywy na platformie Azure. Testowanie nowej lub zaktualizowanej definicji inicjatywy odbywa się w późniejszym kroku.
+Podobnie jak w przypadku definicji zasad, podczas dodawania lub aktualizowania istniejącej inicjatywy przepływ pracy powinien automatycznie aktualizować definicję inicjatywy na platformie Azure. Przetestowanie nowej lub zaktualizowanej definicji inicjatywy znajduje się w późniejszym kroku.
 
-### <a name="test-and-validate-the-updated-definition"></a>Testowanie i sprawdzanie poprawności zaktualizowanej definicji
+### <a name="test-and-validate-the-updated-definition"></a>Testowanie i weryfikowanie zaktualizowanej definicji
 
-Po automatyzacji podjęła nowo utworzone lub zaktualizowane definicje zasad lub inicjatywy i dokonał aktualizacji do obiektu na platformie Azure, nadszedł czas, aby przetestować zmiany, które zostały wprowadzone. Albo zasady lub inicjatywy, które są częścią powinny być następnie przypisane do zasobów w środowisku najdalej od produkcji. To środowisko jest zazwyczaj _Dev_.
+Gdy usługa Automation przestała nowo utworzone lub zaktualizowane definicje zasad lub inicjatyw i wykona aktualizację obiektu na platformie Azure, czas na przetestowanie wprowadzonych zmian zostanie przeprowadzony. Zasady lub inicjatywy, które są częścią, powinny następnie być przypisane do zasobów w środowisku najdalej z produkcji. To środowisko jest zwykle _deweloperskie_.
 
-Przypisanie należy użyć [enforcementMode](./assignment-structure.md#enforcement-mode) _wyłączone,_ tak aby tworzenie zasobów i aktualizacje nie są blokowane, ale istniejące zasoby są nadal kontrolowane pod kątem zgodności z definicją zaktualizowanych zasad. Nawet w przypadku enforcementMode zaleca się, że zakres przydziału jest albo grupy zasobów lub subskrypcji, która jest specjalnie używana do sprawdzania poprawności zasad.
+Przypisanie powinno używać [wymuszania](./assignment-structure.md#enforcement-mode) _wyłączone_ , tak aby tworzenie i aktualizowanie zasobów nie było blokowane, ale istniejące zasoby nadal są poddawane inspekcji pod kątem zgodności ze zaktualizowaną definicją zasad. Nawet w przypadku wymuszania, zaleca się, aby zakres przypisania był grupą zasobów lub subskrypcją, która jest używana do sprawdzania poprawności zasad.
 
 > [!NOTE]
-> Chociaż tryb wymuszania jest pomocny, nie zastępuje dokładnie testowania definicji zasad w różnych warunkach. Definicja zasad powinna być `PUT` `PATCH` testowana za pomocą wywołań interfejsu API REST, zgodnych i niezgodnych zasobów oraz przypadków brzegowych, takich jak właściwość, w których brakuje właściwości w zasobie.
+> Tryb wymuszania jest przydatny, ale nie zastępuje dokładnego testowania definicji zasad w różnych warunkach. Definicja zasad powinna być testowana przy użyciu `PUT` wywołań `PATCH` interfejsu API REST, zgodnych i niezgodnych zasobów oraz przypadków brzegowych, takich jak brak właściwości w zasobie.
 
-Po wdrożeniu przypisania użyj zestawu SDK zasad, aby [uzyskać dane zgodności](../how-to/get-compliance-data.md) dla nowego przypisania. Środowisko używane do testowania zasad i przypisań powinno mieć zarówno zgodne, jak i niezgodne zasoby. Podobnie jak dobry test jednostkowy dla kodu, chcesz przetestować, że zasoby są zgodnie z oczekiwaniami i że nie masz również fałszywych alarmów lub fałszywych negatywów. Jeśli testujesz i sprawdzasz poprawność tylko dla tego, czego oczekujesz, może wystąpić nieoczekiwany i niezidentyfikowany wpływ zasad. Aby uzyskać więcej informacji, zobacz [Ocenianie wpływu nowej zasady platformy Azure](./evaluate-impact.md).
+Po wdrożeniu przypisania Użyj zestawu SDK zasad, aby [uzyskać dane zgodności](../how-to/get-compliance-data.md) dla nowego przypisania. Środowisko używane do testowania zasad i przypisań powinno mieć zarówno zgodne, jak i niezgodne zasoby. Podobnie jak w przypadku dobrego testu jednostkowego dla kodu, należy przetestować, czy zasoby są zgodne z oczekiwaniami, a także nie mają fałszywych wartości fałszywie dodatnich lub fałszywych. W przypadku testowania i weryfikowania tylko tego, czego oczekujesz, może wystąpić nieoczekiwany i niezidentyfikowany wpływ zasad. Aby uzyskać więcej informacji, zobacz [ocenę wpływu nowej definicji Azure Policy](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Włączanie zadań korygowania
 
-Jeśli sprawdzanie poprawności przypisania spełnia oczekiwania, następnym krokiem jest sprawdzenie poprawności korygowania.
-Zasady, które używają [deployIfNotExists](./effects.md#deployifnotexists) lub [modyfikacji](./effects.md#modify) mogą zostać przekształcone w zadanie korygowania i popraw zasoby ze stanu niezgodnego.
+Jeśli walidacja przypisania spełnia oczekiwania, następnym krokiem jest zweryfikowanie korekty.
+Zasady korzystające z usługi [deployIfNotExists](./effects.md#deployifnotexists) lub [Modify](./effects.md#modify) mogą być uwzględniane w zadaniu korygowania i poprawiać zasoby z niezgodnego stanu.
 
-Pierwszym krokiem do wykonania tej zasady jest przyznanie przypisania zasad przypisaniem roli zdefiniowanym w definicji zasad. To przypisanie roli daje przypisania zasad zarządzanych tożsamości wystarczających praw do wprowadzania niezbędnych zmian, aby zasób zgodny.
+Pierwszym krokiem do wykonania tej czynności jest przyznanie przypisania zasad zdefiniowanego w definicji zasad. To przypisanie roli umożliwia zarządzanie tożsamością przez przypisanie zasad wystarczających uprawnień, aby wprowadzić wymagane zmiany w celu uzyskania zgodności zasobów.
 
-Gdy przypisanie zasad ma odpowiednie prawa, użyj zestawu SDK zasad, aby wyzwolić zadanie korygowania względem zestawu zasobów, o których wiadomo, że są niezgodne. Przed przystąpieniem do tych zadań należy wykonać trzy testy:
+Gdy przypisanie zasad ma odpowiednie prawa, użyj zestawu SDK zasad, aby wyzwolić zadanie korygowania względem zestawu zasobów, które są znane jako niezgodne. Przed kontynuowaniem należy wykonać trzy testy w odniesieniu do tych skorygowanych zadań:
 
-- Sprawdzanie, czy zadanie korygowania zostało pomyślnie ukończone
-- Uruchom ocenę zasad, aby zobaczyć, że wyniki zgodności zasad są aktualizowane zgodnie z oczekiwaniami
-- Uruchom test jednostki środowiska względem zasobów bezpośrednio, aby sprawdzić poprawność ich właściwości uległy zmianie
+- Sprawdź, czy zadanie korygowania zostało ukończone pomyślnie
+- Uruchom ocenę zasad, aby zobaczyć, że wyniki zgodności z zasadami są aktualizowane zgodnie z oczekiwaniami
+- Uruchom test jednostkowy środowiska w odniesieniu do zasobów bezpośrednio, aby sprawdzić, czy zmieniono ich właściwości
 
-Testowanie zarówno zaktualizowanych wyników oceny zasad, jak i środowiska bezpośrednio potwierdza, że zadania korygujące zmieniły to, czego oczekiwano i że definicja zasad spowodowała zmianę zgodności zgodnie z oczekiwaniami.
+Testowanie zarówno zaktualizowanych wyników oceny zasad, jak i środowiska bezpośrednio zapewniają potwierdzenie, że zadania korygowania uległy zmianie, czego oczekuje się i że definicja zasad wykazała zmianę zgodności zgodnie z oczekiwaniami.
 
-### <a name="update-to-enforced-assignments"></a>Aktualizacja do wymuszonych przydziałów
+### <a name="update-to-enforced-assignments"></a>Aktualizuj, aby wymuszać przypisania
 
-Po zakończeniu wszystkich bramek sprawdzania poprawności zaktualizuj przypisanie, aby użyć **enforcementMode** _włączonego_. Ta zmiana powinna być początkowo dokonana w tym samym środowisku, z dala od produkcji. Po zatwierdzeniu tego środowiska jako działające zgodnie z oczekiwaniami, zmiana powinna być następnie zakres obejmują następne środowisko i tak dalej, dopóki zasady są wdrażane w zasobach produkcyjnych.
+Po zakończeniu wszystkich bram walidacji zaktualizuj przypisanie, aby używać _włączonego_elementu **wymuszania** . Ta zmiana powinna zostać początkowo wprowadzona w tym samym środowisku poza środowiskiem produkcyjnym. Po sprawdzeniu poprawności tego środowiska zgodnie z oczekiwaniami należy zmienić zakres, aby uwzględnić następne środowisko i tak dalej, dopóki zasady nie zostaną wdrożone w zasobach produkcyjnych.
 
-## <a name="process-integrated-evaluations"></a>Procesy zintegrowanych ocen
+## <a name="process-integrated-evaluations"></a>Przetwarzaj zintegrowane oceny
 
-Ogólny przepływ pracy dla zasad jako kod jest do opracowywania i wdrażania zasad i inicjatyw w środowisku na dużą skalę. Jednak ocena zasad powinna być częścią procesu wdrażania dla każdego przepływu pracy, który wdraża lub tworzy zasoby na platformie Azure, takich jak wdrażanie aplikacji lub uruchamianie szablonów Menedżera zasobów w celu utworzenia infrastruktury.
+Ogólny przepływ pracy dla zasad jako kod służy do opracowywania i wdrażania zasad oraz inicjatyw w środowisku na dużą skalę. Jednak Ocena zasad powinna być częścią procesu wdrażania dla każdego przepływu pracy, który wdraża lub tworzy zasoby na platformie Azure, takie jak wdrażanie aplikacji lub uruchamianie szablonów Menedżer zasobów w celu utworzenia infrastruktury.
 
-W takich przypadkach po wdrożeniu aplikacji lub infrastruktury odbywa się do subskrypcji testowej lub grupy zasobów, oceny zasad należy wykonać dla tego zakresu sprawdzania sprawdzania poprawności wszystkich istniejących zasad i inicjatyw. Chociaż mogą być skonfigurowane jako **enforcementMode** _wyłączone_ w takim środowisku, warto wiedzieć wcześnie, jeśli wdrożenie aplikacji lub infrastruktury jest z naruszeniem definicji zasad wcześnie. Ta ocena zasad powinna zatem być krokiem w tych przepływach pracy i nie wdrożenia, które tworzą niezgodne zasoby.
+W takich przypadkach po wdrożeniu aplikacji lub infrastruktury w ramach subskrypcji testowej lub grupy zasobów należy przeprowadzić ocenę dla tego zakresu, sprawdzając sprawdzanie poprawności wszystkich istniejących zasad i inicjatyw. Chociaż mogą być skonfigurowane jako **wymuszenia** _wyłączone_ w takim środowisku, warto szybko wiedzieć, czy wdrożenie aplikacji lub infrastruktury ma na celu wczesne naruszenie definicji zasad. W związku z tym Ocena zasad powinna być krokiem w tych przepływach pracy i wdrożeniami zakończonymi niezgodnością.
 
 ## <a name="review"></a>Przegląd
 
-W tym artykule opisano ogólny przepływ pracy dla zasad jako kod, a także gdzie ocena zasad powinna być częścią innych przepływów pracy wdrażania. Ten przepływ pracy może być używany w dowolnym środowisku, które obsługuje kroki skryptowe i automatyzacji na podstawie wyzwalaczy.
+W tym artykule opisano ogólny przepływ pracy dla zasad jako kod, a także miejsce oceny zasad, które powinny być częścią innych przepływów pracy wdrożenia. Tego przepływu pracy można użyć w dowolnym środowisku, które obsługuje wykonywanie kroków skryptowych i automatyzację na podstawie wyzwalaczy.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [strukturze definicji zasad](./definition-structure.md).
-- Dowiedz się więcej o [strukturze przypisywania zasad](./assignment-structure.md).
-- Dowiedz się, jak [programowo tworzyć zasady](../how-to/programmatically-create.md).
-- Dowiedz się, jak [uzyskać dane dotyczące zgodności](../how-to/get-compliance-data.md).
-- Dowiedz się, jak [korygować niezgodne zasoby](../how-to/remediate-resources.md).
-- Sprawdź, czym jest grupa zarządzania, [organizuj swoje zasoby za pomocą grup zarządzania platformy Azure](../../management-groups/overview.md).
+- Dowiedz się więcej na temat [struktury przypisywania zasad](./assignment-structure.md).
+- Dowiedz się, jak [programowo utworzyć zasady](../how-to/programmatically-create.md).
+- Dowiedz się, jak [uzyskać dane zgodności](../how-to/get-compliance-data.md).
+- Dowiedz się, jak [skorygować niezgodne zasoby](../how-to/remediate-resources.md).
+- Zapoznaj się z informacjami o tym, czym jest Grupa zarządzania, aby [zorganizować swoje zasoby za pomocą grup zarządzania platformy Azure](../../management-groups/overview.md).

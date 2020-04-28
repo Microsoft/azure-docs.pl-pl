@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: d68019a499b81ffbe40ba42e0b3edb7dab562844
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: b2394c580b871105fee84d63c478c3c490b56a0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133572"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191927"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalowanie notesu Jupyter na komputerze i nawiązywanie połączenia z usługą Apache Spark w usłudze HDInsight
 
@@ -74,7 +74,7 @@ Pobierz [Instalatora Anaconda](https://www.anaconda.com/download/) na platformę
     |PySpark|`jupyter-kernelspec install sparkmagic/kernels/pysparkkernel`|
     |PySpark3|`jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel`|
 
-1. Element opcjonalny. Wprowadź poniższe polecenie, aby włączyć rozszerzenie serwera:
+1. Opcjonalny. Wprowadź poniższe polecenie, aby włączyć rozszerzenie serwera:
 
     ```cmd
     jupyter serverextension enable --py sparkmagic

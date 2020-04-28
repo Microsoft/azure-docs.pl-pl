@@ -1,101 +1,101 @@
 ---
-title: Rozwiązywanie problemów z powolną tworzeniem kopii zapasowych plików i folderów
-description: Zawiera wskazówki dotyczące rozwiązywania problemów ułatwiające diagnozowanie przyczyn problemów z wydajnością usługi Azure Backup
+title: Rozwiązywanie problemów z powolnej kopii zapasowej plików i folderów
+description: Zawiera wskazówki dotyczące rozwiązywania problemów ułatwiające zdiagnozowanie przyczyny problemów z wydajnością Azure Backup
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 6c650ee735ffcdd50f4361a867fa592f4965ab68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e669a68794a8622bb4a2fa55b206153717fd772
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408695"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187906"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Rozwiązywanie problemów związanych z powolnym tworzeniem kopii zapasowych plików i folderów w usłudze Azure Backup
 
-Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów, które pomagają zdiagnozować przyczynę powolnej wydajności tworzenia kopii zapasowych dla plików i folderów podczas korzystania z usługi Azure Backup. Podczas tworzenia kopii zapasowej plików za pomocą agenta usługi Azure Backup proces tworzenia kopii zapasowej może trwać dłużej niż oczekiwano. Opóźnienie to może być spowodowane przez co najmniej jedną z następujących czynności:
+Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów ułatwiające zdiagnozowanie przyczyny niskiej wydajności kopii zapasowych plików i folderów w przypadku korzystania z Azure Backup. W przypadku tworzenia kopii zapasowej plików przy użyciu agenta Azure Backup proces tworzenia kopii zapasowej może trwać dłużej niż oczekiwano. Ta wartość opóźnienia może być spowodowana przez jedną lub więcej z następujących czynności:
 
-* [Istnieją wąskie gardła wydajności na komputerze, który jest archiwizowana.](#cause1)
-* [Inny proces lub oprogramowanie antywirusowe zakłóca proces tworzenia kopii zapasowej platformy Azure.](#cause2)
-* [Agent kopii zapasowej jest uruchomiony na maszynie wirtualnej platformy Azure (VM).](#cause3)  
-* [Kopie zapasowe dużej liczby (milionów) plików.](#cause4)
+* [Na komputerze, na którym jest tworzona kopia zapasowa, istnieją wąskie gardła wydajności.](#cause1)
+* [Inny proces lub oprogramowanie antywirusowe zakłóca proces Azure Backup.](#cause2)
+* [Agent kopii zapasowej jest uruchomiony na maszynie wirtualnej platformy Azure.](#cause3)  
+* [Wykonujesz kopię zapasową dużej liczby plików (miliony).](#cause4)
 
-Przed rozpoczęciem rozwiązywania problemów zaleca się pobranie i zainstalowanie [najnowszego agenta usługi Azure Backup](https://aka.ms/azurebackup_agent). Często aktualizujemy agenta kopii zapasowej, aby rozwiązać różne problemy, dodać funkcje i zwiększyć wydajność.
+Przed rozpoczęciem rozwiązywania problemów zalecamy pobranie i zainstalowanie [najnowszego agenta Azure Backup](https://aka.ms/azurebackup_agent). Udostępniamy częste aktualizacje agenta kopii zapasowej, aby rozwiązać różne problemy, dodać funkcje i zwiększyć wydajność.
 
-Firma Microsoft zdecydowanie zaleca również przejrzenie [często zadawanych pytań dotyczących usługi Azure Backup,](backup-azure-backup-faq.md) aby upewnić się, że nie występują żadne z typowych problemów z konfiguracją.
+Zdecydowanie zalecamy także przejrzenie [często zadawanych pytań dotyczących usługi Azure Backup](backup-azure-backup-faq.md) , aby upewnić się, że nie występują żadne typowe problemy z konfiguracją.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="cause-backup-job-running-in-unoptimized-mode"></a>Przyczyna: Zadanie tworzenia kopii zapasowej uruchomione w trybie nieoptymalizowanym
+## <a name="cause-backup-job-running-in-unoptimized-mode"></a>Przyczyna: zadanie tworzenia kopii zapasowej działa w trybie niezoptymalizowanym
 
-* Agent MARS może uruchomić zadanie tworzenia kopii zapasowej w **trybie zoptymalizowanym** przy użyciu dziennika zmiany numeru USN (numer sekwencyjny aktualizacji) lub **trybu nieoptymalizowanego,** sprawdzając zmiany w katalogach lub plikach, skanując cały wolumin.
-* Tryb nieoptymalizowany jest powolny, ponieważ agent musi skanować każdy plik na woluminie i porównywać je z metadanymi, aby określić zmienione pliki.
-* Aby to sprawdzić, otwórz **szczegóły zadania** z konsoli agenta MARS i sprawdź stan, aby sprawdzić, czy jest **wyświetlany komunikat Przesyłanie danych (nieoptymalizowanych, może zająć więcej czasu),** jak pokazano poniżej:
+* Agent MARS może uruchomić zadanie tworzenia kopii zapasowej w **trybie zoptymalizowanym** przy użyciu numeru USN (numer sekwencyjny aktualizacji) lub w **trybie niezoptymalizowanym** , sprawdzając zmiany w katalogach lub plikach przez skanowanie całego woluminu.
+* Tryb niezoptymalizowany działa wolno, ponieważ Agent programu musi skanować każdy plik w woluminie i porównać go z metadanymi w celu określenia zmienionych plików.
+* Aby to sprawdzić, Otwórz **szczegóły zadania** z konsoli agenta Mars i sprawdź stan, aby sprawdzić, czy mówi **, że dane są transferowane (niezoptymalizowane, może upłynąć więcej czasu)** , jak pokazano poniżej:
 
-    ![Bieganie w trybie nieoptymalizowanym](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
+    ![Uruchamianie w trybie niezoptymalizowanym](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
 
-* Następujące warunki mogą spowodować uruchomienie zadania kopii zapasowej w trybie nieoptymalizowanym:
-  * Pierwsza kopia zapasowa (znana również jako replikacja początkowa) będzie zawsze uruchamiana w trybie nieoptymalizowanym
-  * Jeśli poprzednie zadanie tworzenia kopii zapasowej nie powiedzie się, następne zaplanowane zadanie tworzenia kopii zapasowej zostanie uruchomione jako nieoptymizowane.
+* Następujące warunki mogą spowodować uruchomienie zadania tworzenia kopii zapasowej w trybie niezoptymalizowanym:
+  * Pierwsza kopia zapasowa (znana również jako replikacja początkowa) będzie zawsze uruchamiana w trybie niezoptymalizowanym
+  * Jeśli poprzednie zadanie tworzenia kopii zapasowej zakończy się niepowodzeniem, następne zaplanowane zadanie tworzenia kopii zapasowej zostanie uruchomione jako niezoptymalizowane.
 
 <a id="cause1"></a>
 
-## <a name="cause-performance-bottlenecks-on-the-computer"></a>Przyczyna: Wąskie gardła wydajności na komputerze
+## <a name="cause-performance-bottlenecks-on-the-computer"></a>Przyczyna: wąskie gardła wydajności na komputerze
 
-Wąskie gardła na komputerze, na który jest utworzona kopia zapasowa, mogą powodować opóźnienia. Na przykład zdolność komputera do odczytu lub zapisu na dysku lub dostępna przepustowość do wysyłania danych przez sieć może powodować wąskie gardła.
+Wąskie gardła na komputerze, którego kopia zapasowa jest tworzona, mogą spowodować opóźnienia. Na przykład komputer może odczytywać lub zapisywać dane na dysku albo dostępną przepustowość do przesyłania danych za pośrednictwem sieci, mogą spowodować wąskie gardła.
 
-System Windows udostępnia wbudowane narzędzie o nazwie [Monitor wydajności](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Perfmon) do wykrywania tych wąskich gardeł.
+System Windows udostępnia wbudowane narzędzie o nazwie [Performance Monitor](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (PerfMon) do wykrywania tych wąskich gardeł.
 
-Oto kilka liczników wydajności i zakresów, które mogą być pomocne w diagnozowaniu wąskich gardeł w celu uzyskania optymalnych kopii zapasowych.
+Poniżej przedstawiono niektóre liczniki wydajności i zakresy, które mogą być przydatne w diagnozowaniu wąskich gardeł dla optymalnych kopii zapasowych.
 
 | Licznik | Stan |
 | --- | --- |
-| Dysk logiczny (dysk fizyczny)--%bezczynny |* 100% bezczynny do 50% bezczynny = Zdrowy</br>* 49% bezczynnie do 20% bezczynnie = Ostrzeżenie lub Monitor</br>* 19% bezczynności do 0% bezczynności = Krytyczne lub poza specyfikacją |
-| Dysk logiczny (dysk fizyczny)--%Avg. Disk Sec odczyt lub zapis |* 0,001 ms do 0,015 ms = Zdrowy</br>* 0,015 ms do 0,025 ms = Ostrzeżenie lub Monitor</br>* 0,026 ms lub dłużej = Krytyczne lub poza specyfikacją |
-| Dysk logiczny (dysk fizyczny) - bieżąca długość kolejki dysku (dla wszystkich wystąpień) |80 próśb na ponad 6 minut |
-| Pamięć — pula bajtów niestronicowanych |* Mniej niż 60% spożywanego basenu = Zdrowe<br>* 61% do 80% zużytej puli = Ostrzeżenie lub Monitor</br>* Większa niż 80% puli zużyte = Krytyczne lub Out of Spec |
-| Pamięć — stronicowanych bajtów puli |* Mniej niż 60% spożywanego basenu = Zdrowe</br>* 61% do 80% zużytej puli = Ostrzeżenie lub Monitor</br>* Większa niż 80% puli zużyte = Krytyczne lub Out of Spec |
-| Pamięć — dostępne megabajty |* 50% wolnej pamięci dostępnej lub więcej = Zdrowy</br>* 25% wolnej pamięci = Monitor</br>* 10% wolnej pamięci = Ostrzeżenie</br>* Mniej niż 100 MB lub 5% wolnej pamięci dostępne = Krytyczne lub Poza specyfikacją |
-| Procesor —\%czas procesora (wszystkie wystąpienia) |* Mniej niż 60% zużyte = Zdrowe</br>* 61% do 90% zużyte = Monitor lub przestroga</br>* 91% do 100% zużyte = Krytyczne |
+| Dysk logiczny (dysk fizyczny) — czas bezczynności (%) |* 100% bezczynności do 50% bezczynności = w dobrej kondycji</br>* 49% bezczynności do 20% bezczynności = ostrzeżenie lub monitor</br>* 19% bezczynności do 0% bezczynności = krytyczne lub poza specyfikacją |
+| Dysk logiczny (dysk fizyczny) — średni czas odczytu lub zapisu dysku w s |* 0,001 MS do 0,015 MS = dobra kondycja</br>* 0,015 MS do 0,025 MS = ostrzeżenie lub monitor</br>* 0,026 MS lub dłużej = krytyczne lub poza specyfikacją |
+| Dysk logiczny (dysk fizyczny) — bieżąca długość kolejki dysku (dla wszystkich wystąpień) |80 żądań przez ponad 6 minut |
+| Pamięć — Bajty puli niestronicowanej |* Mniej niż 60% używanej puli = dobra kondycja<br>* 61% do 80% używanej puli = ostrzeżenie lub monitor</br>* Większe niż 80% zużywane przez pulę = krytyczne lub poza specyfikacją |
+| Pamięć — bajty w puli stronicowanej |* Mniej niż 60% używanej puli = dobra kondycja</br>* 61% do 80% używanej puli = ostrzeżenie lub monitor</br>* Większe niż 80% zużywane przez pulę = krytyczne lub poza specyfikacją |
+| Pamięć — dostępne megabajty |* 50% wolnej pamięci jest dostępne lub więcej = dobra kondycja</br>* 25% dostępnej wolnej pamięci = monitor</br>* 10% dostępnej wolnej pamięci = ostrzeżenie</br>* Mniej niż 100 MB lub 5% dostępnej wolnej pamięci = krytyczne lub poza specyfikacją |
+| Procesor — czas\%procesora (wszystkie wystąpienia) |* Mniejsze niż 60% zużyte = w dobrej kondycji</br>* od 61% do 90% zużyte = monitor lub przestroga</br>* 91% do 100% zużyte = krytyczny |
 
 > [!NOTE]
-> Jeśli okaże się, że infrastruktura jest winowajcą, zaleca się defragmentacji dysków regularnie dla lepszej wydajności.
+> Jeśli określisz, że infrastruktura jest przyczynaa, zalecamy regularne defragmentowanie dysków w celu zapewnienia lepszej wydajności.
 >
 >
 
 <a id="cause2"></a>
 
-## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Przyczyna: Inny proces lub oprogramowanie antywirusowe zakłócające usługę Azure Backup
+## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Przyczyna: inny proces lub oprogramowanie antywirusowe zakłócające działanie Azure Backup
 
-Widzieliśmy kilka wystąpień, w których inne procesy w systemie Windows mają negatywny wpływ na wydajność procesu agenta usługi Azure Backup. Na przykład jeśli używasz agenta usługi Azure Backup i innego programu do tworzenia kopii zapasowych danych lub jeśli oprogramowanie antywirusowe jest uruchomione i ma blokadę plików, które mają być archiwizowane, wiele blokad plików może spowodować rywalizację. W tej sytuacji kopia zapasowa może zakończyć się niepowodzeniem lub zadanie może trwać dłużej niż oczekiwano.
+Zaobserwowano kilka wystąpień, w których inne procesy w systemie Windows mają negatywny wpływ na wydajność procesu agenta Azure Backup. Na przykład, jeśli używasz agenta Azure Backup i innego programu do tworzenia kopii zapasowych danych lub jeśli oprogramowanie antywirusowe jest uruchomione i ma blokadę plików, których kopia zapasowa ma zostać utworzona, wiele blokad dla plików może spowodować rywalizację. W takiej sytuacji tworzenie kopii zapasowej może zakończyć się niepowodzeniem lub zadanie może trwać dłużej niż oczekiwano.
 
-Najlepszym zaleceniem w tym scenariuszu jest wyłączenie innego programu do tworzenia kopii zapasowych, aby sprawdzić, czy zmienia się czas wykonywania kopii zapasowej agenta usługi Azure Backup. Zazwyczaj upewniając się, że wiele zadań tworzenia kopii zapasowych nie są uruchomione w tym samym czasie jest wystarczające, aby zapobiec ich wpływ na siebie nawzajem.
+Najlepszym zaleceniem w tym scenariuszu jest wyłączenie innego programu do tworzenia kopii zapasowych, aby sprawdzić, czy czas tworzenia kopii zapasowej dla agenta Azure Backup ulega zmianie. Zwykle w celu zapewnienia, że wiele zadań tworzenia kopii zapasowych nie jest uruchomionych w tym samym czasie, wystarczy, aby zapobiec wpływowi ich na siebie nawzajem.
 
 W przypadku programów antywirusowych zaleca się wykluczenie następujących plików i lokalizacji:
 
-* C:\Pliki programów\Agent usług odzyskiwania platformy Microsoft Azure\bin\cbengine.exe jako proces
-* C:\Pliki programów\Agent usług odzyskiwania platformy Microsoft Azure\ foldery
-* Lokalizacja zdrapania (jeśli nie używasz standardowej lokalizacji)
+* C:\Program Files\Microsoft Azure Recovery Services Agent\bin\cbengine.exe jako proces
+* C:\Program Files\Microsoft Azure Recovery Services Agent \ foldery
+* Lokalizacja zapasowa (jeśli nie używasz lokalizacji standardowej)
 
 <a id="cause3"></a>
 
-## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Przyczyna: Agent kopii zapasowej uruchomiony na maszynie wirtualnej platformy Azure
+## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Przyczyna: Agent kopii zapasowej działający na maszynie wirtualnej platformy Azure
 
-Jeśli korzystasz z agenta kopii zapasowej na maszynie Wirtualnej, wydajność będzie mniejsza niż po uruchomieniu go na komputerze fizycznym. Jest to oczekiwane ze względu na ograniczenia we/wy.  Można jednak zoptymalizować wydajność, przełączając dyski danych, których kopię zapasową jest w usłudze Azure Premium Storage. Pracujemy nad rozwiązaniem tego problemu, a poprawka będzie dostępna w przyszłej wersji.
+Jeśli na maszynie wirtualnej jest uruchomiony agent kopii zapasowej, wydajność będzie wolniejsza niż podczas uruchamiania na komputerze fizycznym. Jest to oczekiwane ze względu na ograniczenia liczby IOPS.  Można jednak zoptymalizować wydajność, przełączając dyski danych, których kopie zapasowe są tworzone w usłudze Azure Premium Storage. Pracujemy nad rozwiązaniem tego problemu, a poprawka będzie dostępna w przyszłej wersji.
 
 <a id="cause4"></a>
 
-## <a name="cause-backing-up-a-large-number-millions-of-files"></a>Przyczyna: Tworzenie kopii zapasowych dużej liczby (milionów) plików
+## <a name="cause-backing-up-a-large-number-millions-of-files"></a>Przyczyna: wykonywanie kopii zapasowej dużej liczby (milionów) plików
 
-Przenoszenie dużej ilości danych zajmie więcej czasu niż przeniesienie mniejszej ilości danych. W niektórych przypadkach czas tworzenia kopii zapasowej jest związany nie tylko z rozmiarem danych, ale także z liczbą plików lub folderów. Jest to szczególnie ważne, gdy miliony małych plików (kilka bajtów do kilku kilobajtów) są archiwizowane.
+Przeniesienie dużej ilości danych zajmie więcej czasu niż przeniesienie mniejszej ilości danych. W niektórych przypadkach czas tworzenia kopii zapasowej jest związany z nie tylko rozmiarem danych, ale również liczbą plików lub folderów. Jest to szczególnie ważne, gdy tworzona jest kopia zapasowa milionów małych plików (kilka bajtów do kilku kilobajtów).
 
-To zachowanie występuje, ponieważ podczas tworzenia kopii zapasowej danych i przenoszenia ich na platformę Azure platforma Azure jednocześnie kataloguje pliki. W niektórych rzadkich scenariuszach operacja katalogu może trwać dłużej niż oczekiwano.
+Takie zachowanie występuje, ponieważ podczas tworzenia kopii zapasowej danych i przechodzenia do platformy Azure, platforma Azure jednocześnie wykazuje pliki. W niektórych rzadkich scenariuszach operacja katalogu może trwać dłużej niż oczekiwano.
 
-Następujące wskaźniki mogą pomóc w zrozumieniu wąskiego gardła i odpowiednio pracować nad kolejnymi krokami:
+Następujące wskaźniki mogą pomóc zrozumieć wąskie gardło i odpowiednio wykonać kolejne kroki:
 
-* **Interfejs użytkownika pokazuje postęp transferu danych**. Dane są nadal przesyłane. Przepustowość sieci lub rozmiar danych może powodować opóźnienia.
-* **Interfejs użytkownika nie pokazuje postępu transferu danych**. Otwórz dzienniki znajdujące się pod adresem C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, a następnie sprawdź wpis FileProvider::EndData w dziennikach. Ten wpis oznacza, że transfer danych został zakończony i operacja katalogu ma miejsce. Nie anuluj zadań tworzenia kopii zapasowej. Zamiast tego poczekaj trochę dłużej, aż operacja katalogu zakończy się. Jeśli problem będzie się powtarzał, skontaktuj się z [pomocą techniczną platformy Azure](https://portal.azure.com/#create/Microsoft.Support).
+* **Interfejs użytkownika pokazuje postęp transferu danych**. Dane nadal są transferowane. Przepustowość sieci lub rozmiar danych może powodować opóźnienia.
+* **Interfejs użytkownika nie pokazuje postępu transferu danych**. Otwórz dzienniki zlokalizowane w folderze C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, a następnie sprawdź wpis FileProvider:: EndData w dziennikach. Ten wpis oznacza, że proces transferu danych zakończył pracę i jest wykonywane działanie katalogu. Nie Anuluj zadań tworzenia kopii zapasowej. Zamiast tego poczekaj chwilę na zakończenie operacji katalogu. Jeśli problem będzie się powtarzać, skontaktuj się z [pomocą techniczną platformy Azure](https://portal.azure.com/#create/Microsoft.Support).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Typowe pytania dotyczące tworzenia kopii zapasowych plików i folderów](backup-azure-file-folder-backup-faq.md)
+* [Często zadawane pytania dotyczące tworzenia kopii zapasowych plików i folderów](backup-azure-file-folder-backup-faq.md)

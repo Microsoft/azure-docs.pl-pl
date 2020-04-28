@@ -1,70 +1,72 @@
 ---
-title: Co-jeśli (Wersja zapoznawcza) wdrożenia szablonu
-description: Określ, jakie zmiany nastąpią w zasobach przed wdrożeniem szablonu usługi Azure Resource Manager.
+title: Template deployment co zrobić (wersja zapoznawcza)
+description: Przed wdrożeniem szablonu Azure Resource Manager Ustal, jakie zmiany będą miały miejsce w swoich zasobach.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/27/2020
 ms.author: jgao
-ms.openlocfilehash: b8e94d0b4f364e2873dfc21792a67f11c33483bf
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: b5b19bf9d630230fbdb8cec41cc77718bbbb4585
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010192"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192386"
 ---
-# <a name="arm-template-deployment-what-if-operation-preview"></a>Co do jeśli— wdrożenie szablonu ARM (wersja zapoznawcza)
+# <a name="arm-template-deployment-what-if-operation-preview"></a>Wdrażanie szablonu ARM — operacja, którą należy wykonać (wersja zapoznawcza)
 
-Przed wdrożeniem szablonu usługi Azure Resource Manager (ARM) można wyświetlić podgląd zmian, które nastąpią. Usługa Azure Resource Manager zapewnia operację co jeśli, aby zobaczyć, jak zasoby zmienią się po wdrożeniu szablonu. Operacja co jeśli nie wprowadzać żadnych zmian w istniejących zasobach. Zamiast tego przewiduje zmiany, jeśli określony szablon jest wdrażany.
+Przed wdrożeniem szablonu Azure Resource Manager (ARM) możesz chcieć wyświetlić podgląd zmian, które zostaną wykonane. Azure Resource Manager zapewnia operację działania warunkowego, która pozwala zobaczyć, jak zasoby zmienią się w przypadku wdrożenia szablonu. Operacja działania warunkowego nie wprowadza żadnych zmian w istniejących zasobach. Zamiast tego przewiduje zmiany w przypadku wdrożenia określonego szablonu.
 
 > [!NOTE]
-> Operacja co jeśli jest obecnie w wersji zapoznawczej. W wersji zapoznawczej wyniki mogą czasami pokazać, że zasób zmieni się, gdy faktycznie nie nastąpi żadna zmiana. Pracujemy nad ograniczeniem tych problemów, ale potrzebujemy Twojej pomocy. Prosimy o zgłoszenie [https://aka.ms/whatifissues](https://aka.ms/whatifissues)tych problemów na poziomie .
+> Operacja działania warunkowego jest obecnie w wersji zapoznawczej. W wersji zapoznawczej wyniki mogą czasami wskazywać, że zasób ulegnie zmianie, gdy nie zostanie wykonana żadna zmiana. Pracujemy nad zmniejszeniem tych problemów, ale potrzebujemy pomocy. Zgłoś te problemy pod adresem [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
-Można użyć operacji co jeśli z poleceniami programu PowerShell lub operacjami interfejsu API REST.
+Operacji działania warunkowego można użyć z poleceniami programu PowerShell lub operacjami interfejsu API REST.
 
-## <a name="install-powershell-module"></a>Instalowanie modułu programu PowerShell
+## <a name="install-powershell-module"></a>Zainstaluj moduł programu PowerShell
 
-Aby użyć co jeśli w programie PowerShell, zainstaluj wersję zapoznawczą modułu Az.Resources z galerii programu PowerShell.
+Aby użyć co zrobić w programie PowerShell, musisz mieć program PowerShell Core (6. x lub 7. x). Jeśli masz program PowerShell 5. x lub starszy, [Zaktualizuj swoją wersję programu PowerShell](/powershell/scripting/install/installing-powershell).
 
-### <a name="install-preview-version"></a>Instalowanie wersji zapoznawczej
+Po upewnieniu się, że masz poprawną wersję programu PowerShell, Zainstaluj wersję zapoznawczą modułu AZ. resources z galerii programu PowerShell.
 
-Aby zainstalować moduł podglądu, należy użyć:
+### <a name="install-preview-version"></a>Wersja zapoznawcza instalacji
+
+Aby zainstalować moduł w wersji zapoznawczej, użyj:
 
 ```powershell
 Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
 ```
 
-### <a name="uninstall-alpha-version"></a>Odinstaluj wersję alfa
+### <a name="uninstall-alpha-version"></a>Odinstaluj wersję Alpha
 
-Jeśli wcześniej zainstalowano wersję alfa modułu co do-jeśli, odinstaluj ten moduł. Wersja alfa była dostępna tylko dla użytkowników, którzy zarejestrowali się we wczesnej wersji zapoznawczej. Jeśli ta wersja zapoznawcza nie została zainstalowana, możesz pominąć tę sekcję.
+Jeśli wcześniej zainstalowano wersję Alpha modułu warunkowego, należy odinstalować ten moduł. Wersja Alpha była dostępna tylko dla użytkowników, którzy zarejestrowali się w celu uzyskania wczesnej wersji zapoznawczej. Jeśli ta wersja zapoznawcza nie została zainstalowana, można pominąć tę sekcję.
 
 1. Uruchom program PowerShell jako administrator.
-1. Sprawdź zainstalowane wersje modułu Az.Resources.
+1. Sprawdź zainstalowane wersje modułu AZ. resources.
 
    ```powershell
    Get-InstalledModule -Name Az.Resources -AllVersions | select Name,Version
    ```
 
-1. Jeśli masz zainstalowaną wersję z numerem wersji w formacie **2.x.x-alpha,** odinstaluj tę wersję.
+1. Jeśli masz zainstalowaną wersję z numerem wersji w formacie **2. x. x-Alpha**, Odinstaluj tę wersję.
 
    ```powershell
    Uninstall-Module Az.Resources -RequiredVersion 2.0.1-alpha5 -AllowPrerelease
    ```
 
-1. Wyrejestruj repozytorium co jeśli użyte do zainstalowania wersji zapoznawczej.
+1. Wyrejestrowanie repozytorium warunkowego, które zostało użyte do zainstalowania wersji zapoznawczej.
 
    ```powershell
    Unregister-PSRepository -Name WhatIfRepository
    ```
 
-Możesz użyć co jeśli.
+Wszystko jest gotowe do użycia.
 
 ## <a name="see-results"></a>Zobacz wyniki
 
-W programie PowerShell dane wyjściowe zawierają wyniki oznaczone kolorami, które ułatwią wyświetlanie różnych typów zmian.
+W programie PowerShell dane wyjściowe zawierają wyniki kodowane kolorami, które pomagają zobaczyć różne typy zmian.
 
-![Wdrożenie szablonu Menedżera zasobów co do operacji fullresourcepayload i typy zmian](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+![Wdrożenie szablonu Menedżer zasobów operacji fullresourcepayload i typów zmian](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
-Dane wyjściowe tekstu to:
+Tekst wyjściowy to:
 
 ```powershell
 Resource and property changes are indicated with these symbols:
@@ -93,57 +95,57 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 Resource changes: 1 to modify.
 ```
 
-## <a name="what-if-commands"></a>Polecenia co do jeśli
+## <a name="what-if-commands"></a>Polecenia warunkowe
 
-Można użyć interfejsu Azure PowerShell lub interfejsu API REST platformy Azure dla operacji co jeśli.
+Do operacji działania warunkowego można użyć zarówno Azure PowerShell, jak i interfejsu API REST platformy Azure.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, dodaj parametr przełącznika `-Whatif` do polecenia wdrażania.
+Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, Dodaj parametr `-Whatif` Switch do polecenia Deployment.
 
 * `New-AzResourceGroupDeployment -Whatif`dla wdrożeń grup zasobów
 * `New-AzSubscriptionDeployment -Whatif`i `New-AzDeployment -Whatif` dla wdrożeń na poziomie subskrypcji
 
-Można też użyć `-Confirm` parametru switch, aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrażania.
+Można też użyć parametru `-Confirm` Switch, aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrożenia.
 
 * `New-AzResourceGroupDeployment -Confirm`dla wdrożeń grup zasobów
 * `New-AzSubscriptionDeployment -Confirm`i `New-AzDeployment -Confirm` dla wdrożeń na poziomie subskrypcji
 
-Poprzednie polecenia zwracają podsumowanie tekstu, które można ręcznie sprawdzić. Aby uzyskać obiekt, który można programowo sprawdzić pod kątem zmian, należy użyć:
+Powyższe polecenia zwracają podsumowanie tekstu, które można ręcznie sprawdzić. Aby uzyskać obiekt, który można programowo sprawdzić pod kątem zmian, użyj:
 
 * `$results = Get-AzResourceGroupDeploymentWhatIfResult`dla wdrożeń grup zasobów
-* `$results = Get-AzSubscriptionDeploymentWhatIfResult`lub `$results = Get-AzDeploymentWhatIfResult` dla wdrożeń na poziomie subskrypcji
+* `$results = Get-AzSubscriptionDeploymentWhatIfResult`lub `$results = Get-AzDeploymentWhatIfResult` w przypadku wdrożeń na poziomie subskrypcji
 
 ### <a name="azure-rest-api"></a>Interfejs API REST platformy Azure
 
-W przypadku interfejsu API REST należy użyć:
+W przypadku interfejsu API REST wykonaj następujące czynności:
 
-* [Wdrożenia — co zrobić w przypadku](/rest/api/resources/deployments/whatif) wdrożeń grup zasobów
-* [Wdrożenia — co zrobić, jeśli w zakresie subskrypcji](/rest/api/resources/deployments/whatifatsubscriptionscope) dla wdrożeń na poziomie subskrypcji
+* [Wdrożenia — What If](/rest/api/resources/deployments/whatif) do wdrożeń grup zasobów
+* [Wdrożenia — What If w zakresie subskrypcji](/rest/api/resources/deployments/whatifatsubscriptionscope) dla wdrożeń na poziomie subskrypcji
 
-## <a name="change-types"></a>Zmienianie typów
+## <a name="change-types"></a>Zmień typy
 
-Operacja co do-jeśli zawiera listę sześciu różnych typów zmian:
+Operacja działania warunkowego zawiera listę sześciu różnych typów zmian:
 
-- **Utwórz:** Zasób obecnie nie istnieje, ale jest zdefiniowany w szablonie. Zasób zostanie utworzony.
+- **Utwórz**: zasób nie istnieje, ale jest zdefiniowany w szablonie. Zasób zostanie utworzony.
 
-- **Usuń:** Ten typ zmiany ma zastosowanie tylko w przypadku korzystania [z trybu pełnego](deployment-modes.md) wdrożenia. Zasób istnieje, ale nie jest zdefiniowany w szablonie. W trybie kompletnym zasób zostanie usunięty. Tylko zasoby, które [obsługują usuwanie trybu pełnego](complete-mode-deletion.md) są uwzględnione w tym typie zmiany.
+- **Usuń**: ten typ zmiany stosuje się tylko w przypadku korzystania z [trybu kompletnego](deployment-modes.md) dla wdrożenia. Zasób istnieje, ale nie jest zdefiniowany w szablonie. W przypadku trybu kompletnego zasób zostanie usunięty. Ten typ zmiany obejmuje tylko zasoby [obsługujące usuwanie w trybie pełnym](complete-mode-deletion.md) .
 
-- **Ignoruj:** Zasób istnieje, ale nie jest zdefiniowany w szablonie. Zasób nie zostanie wdrożony ani zmodyfikowany.
+- **Ignoruj**: zasób istnieje, ale nie jest zdefiniowany w szablonie. Zasób nie zostanie wdrożony ani zmodyfikowany.
 
-- **NoChange:** Zasób istnieje i jest zdefiniowany w szablonie. Zasób zostanie ponownie rozmieszczony, ale właściwości zasobu nie ulegnie zmianie. Ten typ zmiany jest zwracany, `FullResourcePayloads`gdy [format wyników](#result-format) jest ustawiony na , który jest wartością domyślną.
+- **NOCHANGE**: zasób istnieje i jest zdefiniowany w szablonie. Zasób zostanie wdrożony ponownie, ale właściwości zasobu nie ulegną zmianie. Ten typ zmiany jest zwracany, gdy [ResultFormat](#result-format) jest ustawiona `FullResourcePayloads`na wartość, która jest wartością domyślną.
 
-- **Modyfikuj**: Zasób istnieje i jest zdefiniowany w szablonie. Zasób zostanie ponownie rozmieszczony, a właściwości zasobu ulegnie zmianie. Ten typ zmiany jest zwracany, `FullResourcePayloads`gdy [format wyników](#result-format) jest ustawiony na , który jest wartością domyślną.
+- **Modyfikacja**: zasób istnieje i jest zdefiniowany w szablonie. Zasób zostanie wdrożony ponownie, a właściwości zasobu zmienią się. Ten typ zmiany jest zwracany, gdy [ResultFormat](#result-format) jest ustawiona `FullResourcePayloads`na wartość, która jest wartością domyślną.
 
-- **Wdrażanie:** Zasób istnieje i jest zdefiniowany w szablonie. Zasób zostanie ponownie rozmieszczony. Właściwości zasobu mogą lub nie mogą ulec zmianie. Operacja zwraca ten typ zmiany, gdy nie ma wystarczającej ilości informacji, aby określić, czy wszystkie właściwości ulegnie zmianie. Ten warunek jest widoczny tylko wtedy, `ResourceIdOnly`gdy [format wynikowy](#result-format) jest ustawiony na .
+- **Wdróż**: zasób istnieje i jest zdefiniowany w szablonie. Zasób zostanie wdrożony ponownie. Właściwości zasobu mogą lub nie mogą się zmieniać. Operacja zwraca ten typ zmiany, jeśli nie ma wystarczających informacji, aby określić, czy zmiany zostaną zmienione. Ten warunek jest wyświetlany tylko wtedy, gdy [ResultFormat](#result-format) jest `ResourceIdOnly`ustawiony na.
 
 ## <a name="result-format"></a>Format wyniku
 
-Można kontrolować poziom szczegółów, który jest zwracany o przewidywanych zmian. W poleceniach wdrażania`New-Az*Deployment`( ), użyj **parametru -WhatIfResultFormat.** W poleceniach obiektu programowego (`Get-Az*DeploymentWhatIf`) należy użyć parametru **ResultFormat.**
+Można kontrolować poziom szczegółowości zwracanych informacji o przewidywanych zmianach. W poleceniach wdrażania (`New-Az*Deployment`) Użyj parametru **-WhatIfResultFormat** . W poleceniach obiektów programistycznych`Get-Az*DeploymentWhatIf`() Użyj parametru **ResultFormat** .
 
-Ustaw parametr formatu na **FullResourcePayloads,** aby uzyskać listę zasobów, które zostaną zmienić i szczegóły dotyczące właściwości, które zostaną zmienić. Ustaw parametr **formatu resourceidonly,** aby uzyskać listę zasobów, które zostaną zmienić. Wartością domyślną jest **FullResourcePayloads**.  
+Ustaw parametr format na **FullResourcePayloads** , aby uzyskać listę zasobów, które zostaną zmienione i szczegółowe informacje o właściwościach, które zostaną zmienione. Ustaw parametr format na **ResourceIdOnly** , aby uzyskać listę zasobów, które zostaną zmienione. Wartość domyślna to **FullResourcePayloads**.  
 
-Następujące wyniki pokazują dwa różne formaty wyjściowe:
+Poniższe Wyniki pokazują dwa różne formaty danych wyjściowych:
 
 - Pełne ładunki zasobów
 
@@ -189,11 +191,11 @@ Następujące wyniki pokazują dwa różne formaty wyjściowe:
   Resource changes: 1 to deploy.
   ```
 
-## <a name="run-what-if-operation"></a>Uruchamianie operacji co do jeśli
+## <a name="run-what-if-operation"></a>Uruchom operację wykonywania czynności
 
 ### <a name="set-up-environment"></a>Konfigurowanie środowiska
 
-Aby zobaczyć, jak działa co jeśli, uruchamiajmy kilka testów. Najpierw wdrożyć [szablon, który tworzy sieć wirtualną](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.json). Użyjesz tej sieci wirtualnej, aby przetestować sposób zgłaszania zmian przez co jeśli.
+Aby zobaczyć, jak działa działanie, Uruchommy kilka testów. Najpierw Wdróż [szablon, który tworzy sieć wirtualną](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.json). Ta sieć wirtualna będzie używana do testowania, w jaki sposób zmiany są raportowane przez co to jest.
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -206,7 +208,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="test-modification"></a>Modyfikacja testu
 
-Po zakończeniu wdrażania można przystąpić do testowania operacji co jeśli. Tym razem wdrożyć [szablon, który zmienia sieć wirtualną](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Brakuje jednego z oryginalnych tagów, podsieć została usunięta, a prefiks adresu został zmieniony.
+Po zakończeniu wdrażania możesz sprawdzić, czy operacja co należy wykonać. Ten czas wdraża [szablon, który zmienia sieć wirtualną](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Brak jednego z oryginalnych tagów, podsieć została usunięta, a prefiks adresu został zmieniony.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -215,11 +217,11 @@ New-AzResourceGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```
 
-Wyjście co-jeśli wydaje się podobne do:
+Dane wyjściowe, które są wyświetlane podobnie:
 
-![Dane wyjściowe operacji usługi Resource Manager, które można wykonać, jeśli](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+![Wdrożenie szablonu Menedżer zasobów dane wyjściowe operacji](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
-Dane wyjściowe tekstu to:
+Tekst wyjściowy to:
 
 ```powershell
 Resource and property changes are indicated with these symbols:
@@ -248,15 +250,15 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 Resource changes: 1 to modify.
 ```
 
-Uwaga w górnej części danych wyjściowych, że kolory są zdefiniowane w celu wskazania typu zmian.
+Zwróć uwagę na początku, że kolory są zdefiniowane, aby wskazać typ zmian.
 
-U dołu danych wyjściowych zostanie usunięty tag Owner. Prefiks adresu został zmieniony z 10.0.0.0/16 na 10.0.0.0/15. Usunięto podsieć o nazwie podsieć001. Pamiętaj, że te zmiany nie zostały faktycznie wdrożone. Zostanie wyświetlony podgląd zmian, które nastąpią po wdrożeniu szablonu.
+W dolnej części danych wyjściowych widać, że właściciel tagu został usunięty. Prefiks adresu został zmieniony z 10.0.0.0/16 na 10.0.0.0/15. Podsieć o nazwie subnet001 została usunięta. Pamiętaj, że te zmiany nie zostały faktycznie wdrożone. Zobaczysz Podgląd zmian, które nastąpią w przypadku wdrożenia szablonu.
 
-Niektóre właściwości, które są wymienione jako usunięte faktycznie nie zmieni. Właściwości mogą być niepoprawnie zgłaszane jako usunięte, gdy nie są one w szablonie, ale są automatycznie ustawiane podczas wdrażania jako wartości domyślne. Wynik ten jest uważany za "hałas" w odpowiedzi co jeśli. Ostateczny wdrożony zasób będzie miał ustawione wartości właściwości. W miarę dojrzewania operacji co jeśli te właściwości zostaną odfiltrowane z wyniku.
+Niektóre z właściwości, które są wymienione jako usunięte, nie ulegną zmianie. Właściwości mogą być nieprawidłowo zgłaszane jako usunięte, jeśli nie znajdują się w szablonie, ale są automatycznie ustawiane podczas wdrażania jako wartości domyślne. Ten wynik jest uznawany za "szum" w odpowiedzi "co jeśli". Ostatecznie wdrożony zasób będzie miał wartości ustawione dla właściwości. Zgodnie z oczekiwaniami, te właściwości zostaną odfiltrowane z wyniku.
 
-## <a name="programmatically-evaluate-what-if-results"></a>Programowo oceniaj wyniki, które
+## <a name="programmatically-evaluate-what-if-results"></a>Programowo Oceń wyniki
 
-Teraz programowo oceńmy wyniki warunkowe, ustawiając polecenie na zmienną.
+Teraz można programowo oszacować wyniki działania warunkowego, ustawiając polecenie na zmienną.
 
 ```azurepowershell
 $results = Get-AzResourceGroupDeploymentWhatIfResult `
@@ -264,7 +266,7 @@ $results = Get-AzResourceGroupDeploymentWhatIfResult `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```
 
-Możesz zobaczyć podsumowanie każdej zmiany.
+Można zobaczyć podsumowanie każdej zmiany.
 
 ```azurepowershell
 foreach ($change in $results.Changes)
@@ -275,9 +277,9 @@ foreach ($change in $results.Changes)
 
 ## <a name="confirm-deletion"></a>Potwierdzenie usunięcia
 
-Operacja co-jeśli obsługuje przy użyciu [trybu wdrażania](deployment-modes.md). Po ustawieniu trybu ukończenia zasoby, których nie ma w szablonie, są usuwane. W poniższym przykładzie wdraża [szablon, który nie ma zasobów zdefiniowanych](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) w trybie kompletnym.
+Operacja działania warunkowego obsługuje używanie [trybu wdrożenia](deployment-modes.md). Po ustawieniu na tryb kompletny zasoby, które nie znajdują się w szablonie, są usuwane. W poniższym przykładzie wdrożono [szablon, który nie zawiera żadnych zasobów zdefiniowanych](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) w trybie kompletnym.
 
-Aby wyświetlić podgląd zmian przed `-Confirm` wdrożeniem szablonu, użyj parametru przełącznika z poleceniem wdrażania. Jeśli zmiany są zgodnie z oczekiwaniami, upewnij się, że chcesz, aby wdrożenie zostało ukończone.
+Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, użyj `-Confirm` parametru Switch z poleceniem Deployment. Jeśli zmiany są zgodnie z oczekiwaniami, potwierdź, że wdrożenie ma zostać ukończone.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -287,11 +289,11 @@ New-AzResourceGroupDeployment `
   -Mode Complete
 ```
 
-Ponieważ w szablonie nie zdefiniowano żadnych zasobów, a tryb wdrażania jest ustawiony na ukończenie, sieć wirtualna zostanie usunięta.
+Ponieważ żadne zasoby nie są zdefiniowane w szablonie, a Tryb wdrożenia jest ustawiony na ukończono, Sieć wirtualna zostanie usunięta.
 
-![Zakończenie trybu wdrażania szablonu menedżera zasobów co jeśli jest w trybie wdrażania wyjściowego](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
+![Wdrożenie szablonu Menedżer zasobów wykonywanie trybu wdrożenia danych wyjściowych operacji](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
 
-Dane wyjściowe tekstu to:
+Tekst wyjściowy to:
 
 ```powershell
 Resource and property changes are indicated with this symbol:
@@ -318,10 +320,10 @@ Are you sure you want to execute the deployment?
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
 ```
 
-Zostaną wyświetlają oczekiwane zmiany i można potwierdzić, że chcesz wdrożenia do uruchomienia.
+Zobaczysz oczekiwane zmiany i można potwierdzić, że chcesz, aby wdrożenie zostało uruchomione.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Jeśli zauważysz nieprawidłowe wyniki z wersji zapoznawczej [https://aka.ms/whatifissues](https://aka.ms/whatifissues)co-jeśli, zgłoś problemy w pliku .
-- Aby wdrożyć szablony za pomocą programu Azure PowerShell, zobacz [Wdrażanie zasobów za pomocą szablonów ARM i programu Azure PowerShell](deploy-powershell.md).
-- Aby wdrożyć szablony z pomocą REST, zobacz [Wdrażanie zasobów za pomocą szablonów ARM i interfejsu API REST Menedżera zasobów](deploy-rest.md).
+- Jeśli zauważysz nieprawidłowe wyniki z wersji zapoznawczej rozwiązania tego problemu, zgłoś problemy pod adresem [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+- Aby wdrożyć szablony z Azure PowerShell, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i Azure PowerShell](deploy-powershell.md).
+- Aby wdrożyć szablony przy użyciu usługi REST, zobacz [wdrażanie zasobów za pomocą szablonów ARM i interfejs API REST Menedżer zasobów](deploy-rest.md).

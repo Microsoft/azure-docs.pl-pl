@@ -1,16 +1,16 @@
 ---
-title: 'Samouczek: Tworzenie niestandardowej definicji zasad'
-description: W tym samouczku tworzysz niestandardową definicję zasad dla usługi Azure Policy, aby wymusić niestandardowe reguły biznesowe dotyczące zasobów platformy Azure.
+title: 'Samouczek: Tworzenie definicji zasad niestandardowych'
+description: W tym samouczku utworzysz niestandardową definicję zasad Azure Policy, aby wymusić niestandardowe reguły biznesowe dla zasobów platformy Azure.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a1eb8abcfbf7513b4620f66c0a7fdbd288f8705
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238944"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190711"
 ---
-# <a name="tutorial-create-a-custom-policy-definition"></a>Samouczek: Tworzenie niestandardowej definicji zasad
+# <a name="tutorial-create-a-custom-policy-definition"></a>Samouczek: Tworzenie definicji zasad niestandardowych
 
 Niestandardowa definicja zasad umożliwia klientom definiowanie własnych reguł dotyczących korzystania z platformy Azure. Te reguły często wymuszają:
 
@@ -33,7 +33,7 @@ Proces tworzenia zasad niestandardowych obejmuje następujące kroki:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="identify-requirements"></a>Określanie wymagań
 
@@ -44,11 +44,11 @@ Ważne jest, aby przed utworzeniem definicji zasad poznać przeznaczenie zasad. 
 
 Wymagania powinny wyraźnie definiować zarówno „poprawne”, jak i „zakazane” stany zasobów.
 
-Chociaż zdefiniowaliśmy oczekiwany stan zasobu, nie zdefiniowaliśmy jeszcze, co chcemy zrobić z niezgodnymi zasobami. Usługa Azure Policy obsługuje szereg [efektów](../concepts/effects.md). W tym samouczku zdefiniujemy wymaganie biznesowe, które zakazuje tworzenia zasobów, jeśli nie są one zgodne z regułami firmy. Aby osiągnąć ten cel, użyjemy efektu [Deny](../concepts/effects.md#deny) (Odmów). Chcemy również mieć możliwość wstrzymania zasad dla określonych przypisań. Dlatego użyjemy efektu [Disabled](../concepts/effects.md#disabled) (Wyłączone) i określimy go jako [parametr](../concepts/definition-structure.md#parameters) w definicji zasad.
+Chociaż zdefiniowaliśmy oczekiwany stan zasobu, nie zdefiniowaliśmy jeszcze, co chcemy zrobić z niezgodnymi zasobami. Azure Policy obsługuje wiele [efektów](../concepts/effects.md). W tym samouczku zdefiniujemy wymaganie biznesowe, które zakazuje tworzenia zasobów, jeśli nie są one zgodne z regułami firmy. Aby osiągnąć ten cel, użyjemy efektu [Deny](../concepts/effects.md#deny) (Odmów). Chcemy również mieć możliwość wstrzymania zasad dla określonych przypisań. Dlatego użyjemy efektu [Disabled](../concepts/effects.md#disabled) (Wyłączone) i określimy go jako [parametr](../concepts/definition-structure.md#parameters) w definicji zasad.
 
 ## <a name="determine-resource-properties"></a>Określanie właściwości zasobów
 
-Na podstawie wymagań biznesowych zasób platformy Azure do inspekcji za pomocą usługi Azure Policy jest kontem magazynu. Jednak nie znamy właściwości do użycia w definicji zasad. Usługa Azure Policy ocenia reprezentację JSON zasobu, więc musimy zrozumieć właściwości dostępne w tym zasobie.
+Zgodnie z wymaganiami biznesowymi zasób platformy Azure do inspekcji przy użyciu Azure Policy jest kontem magazynu. Jednak nie znamy właściwości do użycia w definicji zasad. Azure Policy oblicza względem reprezentacji JSON zasobu, dlatego musimy zrozumieć właściwości dostępne dla tego zasobu.
 
 Istnieje wiele sposobów określania właściwości zasobu platformy Azure. Omówimy każdy z nich na potrzeby tego samouczka:
 
@@ -60,9 +60,9 @@ Istnieje wiele sposobów określania właściwości zasobu platformy Azure. Omó
   - Dokumentacja szablonu
 - Eksplorator zasobów Azure
 
-### <a name="view-resources-in-vs-code-extension"></a>Wyświetlanie zasobów w rozszerzeniu kodu VS
+### <a name="view-resources-in-vs-code-extension"></a>Wyświetl zasoby w VS Code rozszerzeniu
 
-[Rozszerzenie kodu vs](../how-to/extension-for-vscode.md#search-for-and-view-resources) może służyć do przeglądania zasobów w środowisku i zobacz Resource Manager właściwości dla każdego zasobu.
+[Rozszerzenia vs Code](../how-to/extension-for-vscode.md#search-for-and-view-resources) można użyć do przeglądania zasobów w środowisku i wyświetlania właściwości Menedżer zasobów poszczególnych zasobów.
 
 ### <a name="resource-manager-templates"></a>Szablony usługi Resource Manager
 
@@ -71,9 +71,9 @@ Istnieje wiele sposobów określania właściwości zasobu platformy Azure. Omó
 #### <a name="existing-resource-in-the-portal"></a>Istniejący zasób w portalu
 
 Najprostszym sposobem na znalezienie właściwości jest przyjrzenie się istniejącemu zasobowi tego samego typu. Zasoby już skonfigurowane za pomocą ustawienia, które ma być wymuszane, służą także do porównywania wartości.
-Spójrz na stronę **Szablon eksportu** (w obszarze **Ustawienia)** w witrynie Azure portal dla tego określonego zasobu.
+Przyjrzyj się stronie **Eksportuj szablon** (w obszarze **ustawienia**) w Azure Portal dla tego konkretnego zasobu.
 
-![Strona eksportu szablonu dla istniejącego zasobu](../media/create-custom-policy-definition/export-template.png)
+:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Eksportuj stronę szablonu do istniejącego zasobu" border="false":::
 
 Wykonanie tego działania dla konta magazynu spowoduje wyświetlenie szablonu podobnego do następującego przykładu:
 
@@ -168,9 +168,9 @@ Istnieje kilka sposobów określenia aliasów dla zasobu platformy Azure. Omówi
 - Azure PowerShell
 - Azure Resource Graph
 
-### <a name="get-aliases-in-vs-code-extension"></a>Pobierz aliasy w rozszerzeniu kodu VS
+### <a name="get-aliases-in-vs-code-extension"></a>Pobierz aliasy w VS Code rozszerzeniu
 
-Rozszerzenie zasad platformy Azure dla rozszerzenia kodu vs ułatwia przeglądanie zasobów i [odnajdywanie aliasów.](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties)
+Rozszerzenie Azure Policy dla rozszerzenia VS Code ułatwia przeglądanie zasobów i [odnajdywanie aliasów](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
@@ -200,7 +200,7 @@ Podobnie jak w przypadku interfejsu wiersza polecenia platformy Azure, w wynikac
 
 ### <a name="azure-resource-graph"></a>Azure Resource Graph
 
-[Azure Resource Graph](../../resource-graph/overview.md) to usługa, która udostępnia inną metodę znajdowania właściwości zasobów platformy Azure. Tutaj przedstawiono przykładowe zapytanie umożliwiające przejrzenie pojedynczego konta magazynu przy użyciu usługi Resource Graph:
+[Azure Resource Graph](../../resource-graph/overview.md) to usługa, która zapewnia inną metodę znajdowania właściwości zasobów platformy Azure. Tutaj przedstawiono przykładowe zapytanie umożliwiające przejrzenie pojedynczego konta magazynu przy użyciu usługi Resource Graph:
 
 ```kusto
 Resources
@@ -216,7 +216,7 @@ az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' |
 Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Wyniki są podobne do wyników uzyskanych za pomocą szablonów usługi Resource Manager i usługi Azure Resource Explorer. Jednak wyniki programu Azure Resource Graph mogą również zawierać szczegóły [aliasu,](../concepts/definition-structure.md#aliases) _rzutując_ tablicę _aliasów:_
+Wyniki są podobne do wyników uzyskanych za pomocą szablonów usługi Resource Manager i usługi Azure Resource Explorer. Jednak wyniki wykresu zasobów platformy Azure mogą również zawierać szczegóły [aliasu](../concepts/definition-structure.md#aliases) przez _projekcję_ tablicy _aliasów_ :
 
 ```kusto
 Resources
@@ -315,7 +315,7 @@ Tutaj przedstawiono przykładowe dane wyjściowe dla konta magazynu dotyczące a
 }
 ```
 
-Usługa Azure Resource Graph może być używana za pośrednictwem [usługi Cloud Shell,](https://shell.azure.com)dzięki czemu jest to szybki i łatwy sposób eksplorowania właściwości zasobów.
+Wykres zasobów platformy Azure może być używany w [Cloud Shell](https://shell.azure.com), co umożliwia szybkie i łatwe Eksplorowanie właściwości zasobów.
 
 ## <a name="determine-the-effect-to-use"></a>Określanie efektu do użycia
 

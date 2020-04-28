@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 02/28/2020
-ms.openlocfilehash: 427a3fbebe858d50d774ebfa7de4576985135abf
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 476f265d9658d08ef62647e707c0594af8cda480
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82099176"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192029"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH
 
@@ -233,4 +233,4 @@ Jeśli konto SSH jest zabezpieczone przy użyciu __kluczy SSH__, upewnij się, �
 
 * [Use SSH tunneling with HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) (Używanie tunelowania SSH z usługą HDInsight)
 * [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node) (Używanie węzłów krawędzi w usłudze HDInsight)
-* [Korzystanie z punktu połączenia usługi HDInsight](./use-scp.md)
+* [Korzystanie z polecenia SCP z usługą HDInsight](./use-scp.md)

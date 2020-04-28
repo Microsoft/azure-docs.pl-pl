@@ -1,16 +1,16 @@
 ---
 title: Konfigurowanie środowiska deweloperskiego w systemie macOS
-description: Zainstaluj środowisko uruchomieniowe, zestaw SDK i narzędzia oraz utwórz lokalny klaster projektowy. Po zakończeniu tej konfiguracji będziesz gotowy do tworzenia aplikacji w systemie macOS.
+description: Zainstaluj środowisko uruchomieniowe, zestaw SDK i narzędzia oraz utwórz lokalny klaster projektowy. Po ukończeniu tej konfiguracji będziesz gotowy do kompilowania aplikacji w witrynie macOS.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: e278bcedc48226a59f258ad7d7064fa224737496
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: c7e2d556c4fb8bebc0b75bdf9d4c209c27f86971
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81308985"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193398"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurowanie środowiska projektowego w systemie Mac OS X
 > [!div class="op_single_selector"]
@@ -44,11 +44,11 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    Możesz zaktualizować te ustawienia bezpośrednio w pliku daemon.json w ścieżce instalacji platformy Docker. Ustawienia konfiguracji demona można bezpośrednio zmodyfikować w programie Docker. Wybierz **ikonę platformy Docker**, a następnie wybierz pozycje **Preferencje** > **Demon** > **Zaawansowane**.
+    Możesz zaktualizować te ustawienia bezpośrednio w pliku daemon.json w ścieżce instalacji platformy Docker. Ustawienia konfiguracji demona można modyfikować bezpośrednio w programie Docker. Wybierz **ikonę platformy Docker**, a następnie wybierz pozycje **Preferencje** > **Demon** > **Zaawansowane**.
     
     >[!NOTE]
     >
-    >Zaleca się modyfikowanie demona bezpośrednio w docker, ponieważ lokalizacja pliku daemon.json może się różnić w zależności od komputera. Przykład: ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >Zaleca się zmodyfikowanie demona bezpośrednio w Docker, ponieważ lokalizacja pliku demo. JSON może się różnić od maszyny do komputera. Przykład: ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
     >[!TIP]
@@ -101,7 +101,7 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. Rozpoczęcie klastra zajmie chwilę. Gdy jest uruchomiony, można wyświetlić dzienniki za pomocą następującego polecenia lub [http://localhost:19080](http://localhost:19080)przejść do pulpitu nawigacyjnego, aby wyświetlić kondycję klastrów:
+5. Uruchomienie klastra zajmie trochę czasu. Gdy jest uruchomiony, można wyświetlić dzienniki przy użyciu poniższego polecenia lub przejść do pulpitu nawigacyjnego, aby wyświetlić kondycję `http://localhost:19080`klastrów:
 
     ```bash 
     docker logs sftestcluster
@@ -166,8 +166,8 @@ Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletów, które u
     ```
 
     > [!IMPORTANT]
-    > Bieżące `brew cask install java` wersje mogą instalować nowszą wersję JDK.
-    > Pamiętaj, aby zainstalować JDK 8.
+    > Bieżące wersje programu `brew cask install java` mogą instalować nowszą wersję programu JDK.
+    > Pamiętaj, aby zainstalować program JDK 8.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Wdrażanie aplikacji na komputerze Mac z poziomu terminalu
 

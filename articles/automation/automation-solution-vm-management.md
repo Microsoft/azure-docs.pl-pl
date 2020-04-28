@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 10c66ba175484d8b95f26ef9330753151a92969b
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 631c9b37cf1fec0d39c3c362c6bc303a576d6b7c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106036"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187334"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Uruchamianie/zatrzymywanie maszyn wirtualnych w rozwiązaniu off-godzinnym w Azure Automation
 
@@ -148,7 +148,7 @@ Poniższa tabela zawiera listę zmiennych utworzonych na koncie usługi Automati
 >[!NOTE]
 >Dla zmiennej `External_WaitTimeForVMRetryInSeconds`wartość domyślna została zaktualizowana z 600 do 2100. 
 
-We wszystkich scenariuszach `External_Start_ResourceGroupNames`zmienne, `External_Stop_ResourceGroupNames`i `External_ExcludeVMNames` są niezbędne do określania docelowych maszyn wirtualnych, z wyjątkiem list maszyn wirtualnych rozdzielonych przecinkami dla elementów Runbook **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**i **ScheduledStartStop_Parent** . Oznacza to, że maszyny wirtualne muszą należeć do docelowych grup zasobów, aby akcje uruchamiania i zatrzymywania zostały wykonane. Logika działa podobnie do usługi Azure Policy, w której można kierować do subskrypcji lub grupy zasobów, a akcje są dziedziczone przez nowo utworzone maszyny wirtualne. Takie podejście pozwala uniknąć konieczności utrzymania oddzielnego harmonogramu dla każdej maszyny wirtualnej i zarządzanie rozpoczęciem i zatrzymaniem w skali.
+We wszystkich scenariuszach `External_Start_ResourceGroupNames`zmienne, `External_Stop_ResourceGroupNames`i `External_ExcludeVMNames` są niezbędne do określania docelowych maszyn wirtualnych, z wyjątkiem list maszyn wirtualnych rozdzielonych przecinkami dla elementów Runbook **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**i **ScheduledStartStop_Parent** . Oznacza to, że maszyny wirtualne muszą należeć do docelowych grup zasobów, aby akcje uruchamiania i zatrzymywania zostały wykonane. Logika działa podobnie jak Azure Policy, w którym można kierować do subskrypcji lub grupy zasobów, a akcje są dziedziczone przez nowo utworzone maszyny wirtualne. Takie podejście pozwala uniknąć konieczności utrzymania oddzielnego harmonogramu dla każdej maszyny wirtualnej i zarządzanie rozpoczęciem i zatrzymaniem w skali.
 
 ### <a name="schedules"></a>Harmonogramy
 

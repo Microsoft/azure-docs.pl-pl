@@ -1,211 +1,211 @@
 ---
-title: Stan systemu i ochrona odzysku bez metalu
-description: Użyj usługi Azure Backup Server, aby wykonać kopię zapasową stanu systemu i zapewnić ochronę odzyskiwania bez systemu operacyjnego (BMR).
+title: System i ochrona przed odzyskiwaniem bez systemu operacyjnego
+description: Użyj Azure Backup Server, aby utworzyć kopię zapasową stanu systemu i zapewnić ochronę przed odzyskiwaniem od zera (BMR).
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 358a1c96d598788170993fc48e60daae2b6b036c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bab55ca607e0641ea0cc597de686f3abbb387598
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505881"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192369"
 ---
-# <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Tworzenie kopii zapasowych stanu systemu i przywracanie gołego systemu za pomocą serwera kopii zapasowych platformy Azure
+# <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Tworzenie kopii zapasowej stanu systemu i przywracanie na komputerach bez systemu operacyjnego przy użyciu Azure Backup Server
 
-Usługa Azure Backup Server zapewnia kopię zapasową stanu systemu i zapewnia ochronę odzyskiwania bez systemu operacyjnego (BMR).
+Azure Backup Server Tworzenie kopii zapasowej stanu systemu i zapewnia ochronę bez systemu operacyjnego (BMR).
 
-* **Kopia zapasowa stanu systemu:** Kopie zapasowe plików systemu operacyjnego. Ta kopia zapasowa umożliwia odzyskanie po uruchomieniu komputera, ale pliki systemowe i rejestr zostaną utracone. Kopia zapasowa stanu systemu zawiera następujące elementy:
+* **Kopia zapasowa stanu systemu**: tworzy kopie zapasowe plików systemu operacyjnego. Ta kopia zapasowa umożliwia odzyskanie, gdy komputer zostanie uruchomiony, ale pliki systemowe i rejestr zostaną utracone. Kopia zapasowa stanu systemu obejmuje następujące elementy:
   * Element członkowski domeny: pliki rozruchowe, baza danych rejestracji klasy COM+, rejestr
-  * Kontroler domeny: usługa Active Directory systemu Windows Server (NTDS), pliki rozruchowe, baza danych rejestracji klas COM+, rejestr, wolumin systemowy (SYSVOL)
-  * Komputer z uruchomień usług klastrowania: metadane serwera klastra
-  * Komputer uruchamiany usługi certyfikatów: dane certyfikatu
-* **Kopia zapasowa typu bare-metal:** Kopie zapasowe plików systemu operacyjnego i wszystkich danych na woluminach krytycznych, z wyjątkiem danych użytkownika. Z definicji kopia zapasowa BMR zawiera kopię zapasową stanu systemu. Zapewnia ochronę, gdy komputer nie uruchamia się i trzeba odzyskać wszystko.
+  * Kontroler domeny: Windows Server Active Directory (NTDS), pliki rozruchowe, baza danych rejestracji klasy COM+, rejestr, wolumin systemowy (SYSVOL)
+  * Komputer z uruchomionymi usługami klastra: metadane serwera klastra
+  * Komputer z uruchomionymi usługami certyfikatów: dane certyfikatu
+* **Kopia zapasowa bez systemu**operacyjnego: tworzy kopie zapasowe plików systemów operacyjnych i wszystkich danych na woluminach krytycznych, z wyjątkiem danych użytkownika. Zgodnie z definicją kopia zapasowa BMR obejmuje kopię zapasową stanu systemu. Zapewnia ochronę, gdy komputer nie zostanie uruchomiony i konieczne będzie odzyskanie wszystkiego.
 
-W poniższej tabeli podsumowano, co można zrobić z kopii zapasowej i odzyskać. Aby uzyskać informacje o wersjach aplikacji, które mogą chronić stan systemu i bmr, zobacz [Co wykonuje kopia zapasowa usługi Azure Backup Server?](backup-mabs-protection-matrix.md).
+Poniższa tabela zawiera podsumowanie informacji o tym, co można utworzyć i odzyskać. Aby uzyskać informacje o wersjach aplikacji, których stan systemu i BMR mogą być chronione, zobacz [co to jest Azure Backup Server kopia zapasowa?](backup-mabs-protection-matrix.md).
 
-|Tworzenie kopii zapasowych|Problem|Odzyskiwanie z kopii zapasowej serwera kopii zapasowej platformy Azure|Odzyskiwane z kopii zapasowej stanu systemu|BMR|
+|Backup|Problem|Odzyskaj z kopii zapasowej Azure Backup Server|Odzyskiwane z kopii zapasowej stanu systemu|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**Dane pliku**<br /><br />Regularne tworzenie kopii zapasowej danych<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracone dane pliku|Tak|Nie|Nie|
-|**Dane pliku**<br /><br />Kopia zapasowa danych plików serwera kopii zapasowych platformy Azure<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|Nie|Tak|Tak|
-|**Dane pliku**<br /><br />Kopia zapasowa danych plików serwera kopii zapasowych platformy Azure<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (woluminy danych nienaruszone)|Nie|Nie|Tak|
-|**Dane pliku**<br /><br />Kopia zapasowa danych plików serwera kopii zapasowych platformy Azure<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (utracone woluminy danych)|Tak|Nie|Tak<br /><br />BMR, a następnie regularne odzyskiwanie kopii zapasowych danych plików|
-|**Dane programu SharePoint**<br /><br />Tworzenie kopii zapasowej danych farmy przez serwer kopii zapasowych platformy Azure<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracona witryna, listy, elementy listy, dokumenty|Tak|Nie|Nie|
-|**Dane programu SharePoint**<br /><br />Tworzenie kopii zapasowej danych farmy przez serwer kopii zapasowych platformy Azure<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|Nie|Tak|Tak|
-|**Dane programu SharePoint**<br /><br />Tworzenie kopii zapasowej danych farmy przez serwer kopii zapasowych platformy Azure<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Odzyskiwanie po awarii|Nie|Nie|Nie|
-|Windows Server 2012 R2 Hyper-V<br /><br />Kopia zapasowa serwera kopii zapasowej usługi Azure Server hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracona maszyna wirtualna|Tak|Nie|Nie|
-|Funkcja Hyper-V<br /><br />Kopia zapasowa serwera kopii zapasowej usługi Azure Server hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Uszkodzony lub utracony system operacyjny|Nie|Tak|Tak|
-|Funkcja Hyper-V<br /><br />Kopia zapasowa serwera kopii zapasowej usługi Azure Server hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracony host funkcji Hyper-V (nieuszkodzone maszyny wirtualne)|Nie|Nie|Tak|
-|Funkcja Hyper-V<br /><br />Kopia zapasowa serwera kopii zapasowej usługi Azure Server hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracony host funkcji Hyper-V (utracone maszyny wirtualne)|Nie|Nie|Tak<br /><br />BMR, po którym następuje regularne odzyskiwanie usługi Azure Backup Server|
-|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji usługi Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracone dane aplikacji|Tak|Nie|Nie|
-|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji usługi Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|Nie|Tak|Tak|
-|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji usługi Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (nieuszkodzone dzienniki transakcji i baz danych)|Nie|Nie|Tak|
-|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji usługi Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (utracone dzienniki transakcji i baz danych)|Nie|Nie|Tak<br /><br />Odzyskiwanie BMR, a następnie regularne odzyskiwanie usługi Azure Backup Server|
+|**Dane pliku**<br /><br />Azure Backup Server kopii zapasowej danych plików<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|Nie|Tak|Tak|
+|**Dane pliku**<br /><br />Azure Backup Server kopii zapasowej danych plików<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (nienaruszone woluminy danych)|Nie|Nie|Tak|
+|**Dane pliku**<br /><br />Azure Backup Server kopii zapasowej danych plików<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (utracone woluminy danych)|Tak|Nie|Tak<br /><br />BMR, a następnie regularne odzyskiwanie kopii zapasowej danych plików|
+|**Dane programu SharePoint**<br /><br />Azure Backup Server kopii zapasowej danych farmy<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracona witryna, listy, elementy listy, dokumenty|Tak|Nie|Nie|
+|**Dane programu SharePoint**<br /><br />Azure Backup Server kopii zapasowej danych farmy<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|Nie|Tak|Tak|
+|**Dane programu SharePoint**<br /><br />Azure Backup Server kopii zapasowej danych farmy<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Odzyskiwanie po awarii|Nie|Nie|Nie|
+|Windows Server 2012 R2 Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracona maszyna wirtualna|Tak|Nie|Nie|
+|Funkcja Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Uszkodzony lub utracony system operacyjny|Nie|Tak|Tak|
+|Funkcja Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracony host funkcji Hyper-V (nieuszkodzone maszyny wirtualne)|Nie|Nie|Tak|
+|Funkcja Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracony host funkcji Hyper-V (utracone maszyny wirtualne)|Nie|Nie|Tak<br /><br />BMR, po którym następuje regularne odzyskiwanie Azure Backup Server|
+|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracone dane aplikacji|Tak|Nie|Nie|
+|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|Nie|Tak|Tak|
+|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (nieuszkodzone dzienniki transakcji i baz danych)|Nie|Nie|Tak|
+|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (utracone dzienniki transakcji i baz danych)|Nie|Nie|Tak<br /><br />Odzyskiwanie BMR, po którym następuje regularne odzyskiwanie Azure Backup Server|
 
 ## <a name="how-system-state-backup-works"></a>Jak działa tworzenie kopii zapasowej stanu systemu
 
-Po uruchomieniu kopii zapasowej stanu systemu serwer kopii zapasowej komunikuje się z programem Kopia zapasowa systemu Windows Server w celu zażądania kopii zapasowej stanu systemu serwera. Domyślnie serwer kopii zapasowych i kopia zapasowa systemu Windows Server korzystają z dysku, na który ma najwięcej wolnego miejsca. Informacje o tym dysku są zapisywane w pliku *PSDataSourceConfig.xml.* 
+Po uruchomieniu kopii zapasowej stanu systemu serwer zapasowy komunikuje się z Kopia zapasowa systemu Windows Server, aby zażądać kopii zapasowej stanu systemu serwera. Domyślnie serwer zapasowy i Kopia zapasowa systemu Windows Server korzystają z dysku z największą ilością wolnego miejsca. Informacje o tym dysku są zapisywane w pliku *plik psdatasourceconfig. XML* .
 
-Można dostosować dysk używany przez serwer kopii zapasowej do tworzenia kopii zapasowej stanu systemu: 
+Można dostosować dysk wykorzystywany przez serwer kopii zapasowej do tworzenia kopii zapasowej stanu systemu:
 
-1. Na chronionym serwerze przejdź do *folderu C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources*. 
-1. Otwórz plik *PSDataSourceConfig.xml* do edycji. 
-1. Zmień \<wartość FilesToProtect\> dla litery dysku. 
-1. Zapisz i zamknij plik. 
+1. Na serwerze chronionym przejdź do *folderu C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources*.
+1. Otwórz plik *plik psdatasourceconfig. XML* do edycji.
+1. Zmień wartość \<FilesToProtect\> dla litery dysku.
+1. Zapisz i zamknij plik.
 
-Jeśli grupa ochrony jest ustawiona w celu ochrony stanu systemu komputera, uruchom sprawdzanie spójności. Jeśli alert jest generowany, wybierz pozycję **Modyfikuj grupę ochrony** w alertie, a następnie wypełnij strony kreatora. Następnie uruchom kolejną kontrolę spójności.
+Jeśli grupa ochrony jest ustawiona na ochronę stanu systemu komputera, Uruchom sprawdzanie spójności. W przypadku wygenerowania alertu wybierz pozycję **Modyfikuj grupę ochrony** w alercie, a następnie wypełnij strony kreatora. Następnie uruchom kolejną kontrolę spójności.
 
-Jeśli serwer ochrony znajduje się w klastrze, dysk klastrowy może zostać wybrany jako dysk, na który ma najwięcej wolnego miejsca. Jeśli własność tego dysku zostanie przełączona do innego węzła i uruchomi się kopia zapasowa stanu systemu, dysk jest niedostępny, a kopia zapasowa nie powiedzie się. W tym scenariuszu zmodyfikuj *plik PSDataSourceConfig.xml,* aby wskazać dysk lokalny.
+Jeśli serwer ochrony znajduje się w klastrze, dysk klastra może być wybrany jako dysk z największą ilością wolnego miejsca. Jeśli własność stacji jest przełączana do innego węzła i uruchomienia kopii zapasowej stanu systemu, dysk jest niedostępny i wykonywanie kopii zapasowej nie powiedzie się. W tym scenariuszu zmodyfikuj *plik psdatasourceconfig. XML* , aby wskazywał na dysk lokalny.
 
-Następnie program Kopia zapasowa systemu Windows Server tworzy folder o nazwie *WindowsImageBackup* w katalogu głównym folderu przywracania. Gdy kopia zapasowa systemu Windows Server tworzy kopię zapasową, wszystkie dane są umieszczane w tym folderze. Po zakończeniu tworzenia kopii zapasowej plik jest przesyłany do komputera serwera kopii zapasowych. Zanotuj następujące informacje:
+Następnie Kopia zapasowa systemu Windows Server tworzy folder o nazwie *WindowsImageBackup* w katalogu głównym folderu przywracania. Ponieważ Kopia zapasowa systemu Windows Server tworzy kopię zapasową, wszystkie dane zostaną umieszczone w tym folderze. Po zakończeniu tworzenia kopii zapasowej plik jest przesyłany do komputera serwera kopii zapasowej. Zanotuj następujące informacje:
 
-* Ten folder i jego zawartość nie są czyszczone po zakończeniu tworzenia kopii zapasowej lub transferu. Najlepszym sposobem, aby myśleć o tym jest to, że miejsce jest zarezerwowane dla następnego czasu zakończenia kopii zapasowej.
-* Folder jest tworzony dla każdej kopii zapasowej. Sygnatura czasu i daty odzwierciedla godzinę ostatniej kopii zapasowej stanu systemu.
+* Ten folder i jego zawartość nie są czyszczone po zakończeniu wykonywania kopii zapasowej lub transferu. Najlepszym sposobem na to, że miejsce jest zarezerwowane przy następnym zakończeniu tworzenia kopii zapasowej.
+* Folder jest tworzony dla każdej kopii zapasowej. Sygnatura czasowa i daty odzwierciedlają czas ostatniej kopii zapasowej stanu systemu.
 
 ## <a name="how-bmr-backup-works"></a>Jak działa kopia zapasowa BMR
 
-W przypadku usługi BMR (w tym kopii zapasowej stanu systemu) zadanie tworzenia kopii zapasowej jest zapisywane bezpośrednio w udziale na komputerze z serwerem kopii zapasowych. Nie jest zapisywany w folderze na chronionym serwerze.
+W przypadku BMR (w tym kopii zapasowej stanu systemu) zadanie tworzenia kopii zapasowej jest zapisywane bezpośrednio w udziale na komputerze serwera kopii zapasowej. Nie jest on zapisywany w folderze na serwerze chronionym.
 
-Serwer kopii zapasowych wywołuje program Kopia zapasowa systemu Windows Server i udostępnia wolumin repliki dla tej kopii zapasowej BMR. W takim przypadku nie wymaga programu Kopia zapasowa systemu Windows Server do korzystania z dysku, który ma najwięcej wolnego miejsca. Zamiast tego używa udziału, który został utworzony dla zadania.
+Wywołania serwera kopii zapasowej Kopia zapasowa systemu Windows Server i udostępniają wolumin repliki dla tej kopii zapasowej BMR. W takim przypadku nie wymaga Kopia zapasowa systemu Windows Server na dysku z największą ilością wolnego miejsca. Zamiast tego używa udziału, który został utworzony dla tego zadania.
 
-Po zakończeniu tworzenia kopii zapasowej plik jest przesyłany do komputera serwera kopii zapasowych. Dzienniki są przechowywane w *języku C:\Windows\Logs\WindowsServerBackup*.
+Po zakończeniu tworzenia kopii zapasowej plik jest przesyłany do komputera serwera kopii zapasowej. Dzienniki są przechowywane w *C:\Windows\Logs\WindowsServerBackup*.
 
 ## <a name="prerequisites-and-limitations"></a>Wymagania wstępne i ograniczenia
 
-* Bmr nie jest obsługiwany dla komputerów z systemem Windows Server 2003 ani dla komputerów z klienckim systemem operacyjnym.
+* BMR nie jest obsługiwane w przypadku komputerów z systemem Windows Server 2003 lub na komputerach z systemem operacyjnym klienta.
 
 * Nie można używać jednocześnie ochrony BMR i stanu systemu dla komputera znajdującego się w różnych grupach ochrony.
 
-* Komputer z serwerem kopii zapasowych nie może chronić się dla bmr.
+* Komputer serwera kopii zapasowej nie może chronić samego siebie dla BMR.
 
-* Krótkoterminowa ochrona przed taśmą (dysk na taśmę lub D2T) nie jest obsługiwana dla BMR. Obsługiwane jest długoterminowe przechowywanie na taśmie (dysk na dysk na taśmę lub D2D2T).
+* Krótkoterminowa ochrona na taśmie (dysk na taśmę lub D2T) nie jest obsługiwana dla BMR. Obsługa magazynu długoterminowego na taśmie (dysk na taśmę lub D2D2T) jest obsługiwana.
 
-* Aby uzyskać ochronę BMR, kopia zapasowa systemu Windows Server musi być zainstalowana na chronionym komputerze.
+* W przypadku ochrony BMR należy zainstalować na komputerze chronionym Kopia zapasowa systemu Windows Server.
 
-* W przypadku ochrony BMR, w przeciwieństwie do ochrony stanu systemu, serwer kopii zapasowych nie ma wymagań dotyczących miejsca na chronionym komputerze. Kopia zapasowa systemu Windows Server bezpośrednio przesyła kopie zapasowe na komputer serwera kopii zapasowych. Zadanie transferu kopii zapasowej nie jest wyświetlane w widoku **Zadania** serwera kopii zapasowych.
+* Dla ochrony BMR, w przeciwieństwie do ochrony stanu systemu, serwer kopii zapasowych nie ma wymagań dotyczących miejsca na komputerze chronionym. Kopia zapasowa systemu Windows Server bezpośrednio przesyła kopie zapasowe do komputera serwera kopii zapasowej. Zadanie transferu kopii zapasowej nie jest wyświetlane w widoku **zadań** serwera kopii zapasowej.
 
-* Serwer kopii zapasowych rezerwuje 30 GB miejsca na woluminie repliki dla bmr. Przydział miejsca można zmienić na stronie **Alokacja dysku** w Kreatorze modyfikowania grupy ochrony. Można też użyć polecenia cmdlet programu Get-DatasourceDiskAllocation i Set-DatasourceDiskAllocation PowerShell. Na woluminie punktu odzyskiwania ochrony BMR wymaga około 6 GB dla przechowywania pięciu dni.
+* Serwer kopii zapasowych rezerwuje 30 GB miejsca na woluminie repliki dla BMR. Przydział tego miejsca można zmienić na stronie **alokacja dysku** w Kreatorze modyfikowania grupy ochrony. Można też użyć poleceń cmdlet Get-DatasourceDiskAllocation i Set-DatasourceDiskAllocation programu PowerShell. Na woluminie punktu odzyskiwania ochrona BMR wymaga około 6 GB do przechowywania przez pięć dni.
   * Nie można zmniejszyć rozmiaru woluminu repliki do mniej niż 15 GB.
-  * Serwer kopii zapasowej nie oblicza rozmiaru źródła danych BMR. Zakłada 30 GB dla wszystkich serwerów. Zmień wartość na podstawie rozmiaru kopii zapasowych BMR, których oczekujesz w swoim środowisku. Można z grubsza obliczyć rozmiar kopii zapasowej BMR jako sumę zużytego miejsca na wszystkich woluminach krytycznych. Woluminy krytyczne = wolumin rozruchowy + wolumin systemowy + dane o stanie systemu hostingu woluminów, takie jak usługa Active Directory.
+  * Serwer kopii zapasowej nie oblicza rozmiaru źródła danych BMR. Założono 30 GB dla wszystkich serwerów. Zmień wartość na podstawie rozmiaru BMR kopii zapasowych oczekiwanych w danym środowisku. Można w przybliżeniu obliczyć rozmiar kopii zapasowej BMR jako sumę zajętego miejsca na wszystkich woluminach krytycznych. Woluminy krytyczne = wolumin rozruchowy + wolumin systemowy + dane stanu systemu hostingu woluminu, takie jak Active Directory.
 
-* Jeśli zmienisz ochronę stanu systemu na ochronę BMR, ochrona BMR wymaga mniej miejsca na *woluminie punktu odzyskiwania*. Jednak dodatkowe miejsce na woluminie nie jest odzyskiwał. Rozmiar woluminu można zmniejszyć ręcznie na stronie **Modyfikowanie alokacji dysku** Kreatora modyfikowania grupy ochrony. Można też użyć polecenia cmdlet programu Get-DatasourceDiskAllocation i Set-DatasourceDiskAllocation PowerShell.
+* W przypadku zmiany z ochrony stanu systemu na ochronę BMR ochrona BMR będzie wymagać mniejszej ilości miejsca na *woluminie punktu odzyskiwania*. Jednak dodatkowe miejsce na woluminie nie jest odzyskiwane. Rozmiar woluminu można zmniejszyć ręcznie na stronie **Modyfikuj przydział dysku** w Kreatorze modyfikowania grupy ochrony. Można też użyć poleceń cmdlet Get-DatasourceDiskAllocation i Set-DatasourceDiskAllocation programu PowerShell.
 
-    Jeśli zmienisz ochronę stanu systemu na ochronę BMR, ochrona BMR wymaga więcej miejsca na *woluminie repliki*. Głośność zostanie automatycznie rozszerzona. Jeśli chcesz zmienić domyślne alokacje miejsca, użyj polecenia cmdlet programu PowerShell Modify-DiskAllocation.
+    W przypadku zmiany z ochrony stanu systemu na ochronę BMR ochrona BMR będzie wymagać więcej miejsca na *woluminie repliki*. Wolumin zostanie automatycznie rozszerzony. Jeśli chcesz zmienić domyślne alokacje miejsca, użyj polecenia cmdlet Modify-DiskAllocation programu PowerShell.
 
-* Jeśli zmienisz ochronę BMR na ochronę stanu systemu, potrzebujesz więcej miejsca na woluminie punktu odzyskiwania. Serwer kopii zapasowej może próbować automatycznie zwiększyć wolumin. Jeśli pula magazynu nie ma wystarczającej ilości miejsca, występuje błąd.
+* W przypadku zmiany z ochrony BMR na ochronę stanu systemu należy zwiększyć ilość miejsca na woluminie punktu odzyskiwania. Serwer kopii zapasowej może próbować automatycznie zwiększyć wolumin. Jeśli pula magazynów nie ma wystarczającej ilości miejsca, wystąpi błąd.
 
-    Jeśli zmienisz ochronę BMR na ochronę stanu systemu, potrzebujesz miejsca na chronionym komputerze. Potrzebne jest miejsce, ponieważ ochrona stanu systemu najpierw zapisuje replikę na komputerze lokalnym, a następnie przenosi replikę na komputer serwera kopii zapasowej.
+    W przypadku zmiany z ochrony BMR na ochronę stanu systemu należy mieć miejsce na komputerze chronionym. Musisz mieć miejsce, ponieważ ochrona stanu systemu najpierw zapisuje replikę na komputerze lokalnym, a następnie przesyła replikę na komputer serwera kopii zapasowej.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-1. **Wdrażanie serwera kopii zapasowych platformy Azure**. Sprawdź, czy serwer kopii zapasowej jest poprawnie wdrożony. Aby uzyskać więcej informacji, zobacz:
-    * [Wymagania systemowe dla usługi Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
+1. **Wdróż Azure Backup Server**. Sprawdź, czy serwer kopii zapasowej został poprawnie wdrożony. Aby uzyskać więcej informacji, zobacz:
+    * [Wymagania systemowe Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
     * [Macierz ochrony serwera kopii zapasowych](backup-mabs-protection-matrix.md)
 
-1. **Skonfiguruj magazyn**. Dane kopii zapasowej można przechowywać na dysku, na taśmie i w chmurze za pomocą platformy Azure. Aby uzyskać więcej informacji, zobacz [Przygotowywanie przechowywania danych](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage).
+1. **Skonfiguruj magazyn**. Dane kopii zapasowej można przechowywać na dysku, na taśmie i w chmurze przy użyciu platformy Azure. Aby uzyskać więcej informacji, zobacz [Przygotowywanie magazynu danych](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage).
 
-1. **Skonfiguruj agenta ochrony**. Zainstaluj agenta ochrony na komputerze, którego chcesz zrobić, aby uzyskać jego utworzenie. Aby uzyskać więcej informacji, zobacz [Wdrażanie agenta ochrony programu DPM](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent).
+1. **Skonfiguruj agenta ochrony**. Zainstaluj agenta ochrony na komputerze, którego kopię zapasową chcesz utworzyć. Aby uzyskać więcej informacji, zobacz [wdrażanie agenta ochrony programu DPM](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent).
 
 ## <a name="back-up-system-state-and-bare-metal"></a>Tworzenie kopii zapasowej stanu systemu i kompletnego stanu systemu
 
-Aby przywrócić zapas stanu systemu i gołego metalu:
+Aby utworzyć kopię zapasową stanu systemu i bez systemu operacyjnego:
 
-1. Aby otworzyć Kreatora tworzenia nowej grupy ochrony, w konsoli Administratora serwera kopii zapasowych wybierz pozycję**Akcje** >  **ochrony** > **Utwórz grupę ochrony**.
+1. Aby otworzyć Kreator nowej grupy ochrony tworzenia, w Konsola administratora serwer zapasowy wybierz pozycję**Akcje** >  **ochrony** > **Utwórz grupę ochrony**.
 
-1. Na stronie **Wybierz typ grupy ochrony** wybierz pozycję **Serwery**, a następnie wybierz pozycję **Dalej**.
+1. Na stronie **Wybierz typ grupy ochrony** wybierz pozycję **serwery**, a następnie wybierz przycisk **dalej**.
 
-1. Na stronie **Wybieranie członków grupy** rozwiń komputer, a następnie wybierz **bmr** lub **stan systemu**.
+1. Na stronie **Wybierz członków grupy** rozwiń komputer, a następnie wybierz pozycję **BMR** lub **stan systemu**.
 
-    Pamiętaj, że nie można chronić zarówno BMR, jak i stanu systemu dla tego samego komputera w różnych grupach. Ponadto po wybraniu bmr stan systemu jest automatycznie włączony. Aby uzyskać więcej informacji, zobacz [Wdrażanie grup ochrony](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups).
+    Należy pamiętać, że nie można włączyć ochrony zarówno BMR, jak i stanu systemu na tym samym komputerze w różnych grupach. Ponadto w przypadku wybrania opcji BMR stan systemu jest automatycznie włączany. Aby uzyskać więcej informacji, zobacz [wdrażanie grup ochrony](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups).
 
-1. Na stronie **Wybierz metodę ochrony danych** wybierz sposób obsługi krótkoterminowej kopii zapasowej i długoterminowej kopii zapasowej. 
+1. Na stronie **Wybierz metodę ochrony danych** wybierz sposób obsługi krótkoterminowej kopii zapasowej i długoterminowej kopii zapasowej.
 
-    Tworzenie kopii zapasowej krótkoterminowej jest zawsze na dysku pierwszy, z opcją tworzenia kopii zapasowej z dysku na platformie Azure przy użyciu usługi Azure Backup (krótkoterminowe lub długoterminowe). Alternatywą dla długoterminowej kopii zapasowej w chmurze jest skonfigurowanie długoterminowej kopii zapasowej na autonomicznym urządzeniu taśmowym lub bibliotece taśm połączonych z serwerem kopii zapasowych.
+    Krótkoterminowe kopie zapasowe zawsze są na dysku, z opcją tworzenia kopii zapasowych z dysku na platformę Azure przy użyciu Azure Backup (krótkoterminowe lub długoterminowe). Alternatywą dla długoterminowej kopii zapasowej w chmurze jest skonfigurowanie długoterminowej kopii zapasowej na autonomicznym urządzeniu taśmowym lub w bibliotece taśm połączonej z serwerem kopii zapasowych.
 
-1. Na stronie **Wybierz cele krótkoterminowe** wybierz sposób utworzenia kopii zapasowej do magazynu krótkoterminowego na dysku:
-    * W polu **Retencja zakres**wybierz, jak długo dane mają być utrzymywane na dysku.
-    * W przypadku **częstotliwości synchronizacji**wybierz częstotliwość uruchamiania przyrostowej kopii zapasowej na dysku. Jeśli nie chcesz ustawiać interwału tworzenia kopii zapasowych, możesz wybrać **opcję Tuż przed punktem odzyskiwania**. Serwer kopii zapasowej uruchomi ekspresową pełną kopię zapasową tuż przed zaplanowaniem każdego punktu odzyskiwania.
+1. Na stronie **Wybierz cele krótkoterminowe** wybierz sposób tworzenia kopii zapasowych do krótkoterminowego przechowywania na dysku:
+    * W obszarze **Zakres przechowywania**Określ, jak długo mają być przechowywane dane na dysku.
+    * W obszarze **częstotliwość synchronizacji**Określ, jak często mają być uruchamiane przyrostowe kopie zapasowe na dysku. Jeśli nie chcesz ustawiać interwału kopii zapasowych, możesz wybrać opcję **tuż przed punktem odzyskiwania**. Serwer kopii zapasowej będzie uruchamiał ekspresową pełną kopię zapasową tuż przed zaplanowaniem każdego punktu odzyskiwania.
 
-1. Jeśli chcesz przechowywać dane na taśmie do długoterminowego przechowywania, a następnie na stronie **Określ cele długoterminowe,** wybierz, jak długo przechowywać dane taśmy (od 1 do 99 lat).
-    1. W przypadku **opcji Częstotliwość tworzenia kopii zapasowych**wybierz częstotliwość uruchamiania kopii zapasowej na taśmie. Częstotliwość jest oparta na wybranym zakresie przechowywania:
-        * Gdy zakres retencji wynosi od 1 do 99 lat, można uzupełnić zapasy zapasowe codziennie, co tydzień, co dwa tygodnie, co miesiąc, co kwartał, pół roku lub rocznie.
-        * Gdy zakres retencji wynosi od 1 do 11 miesięcy, można uzupełnić zapasy zapasowe codziennie, co tydzień, co dwa tygodnie lub co miesiąc.
-        * Gdy zakres retencji wynosi od 1 do 4 tygodni, można uzupełnić zapasy zapasowe codziennie lub co tydzień.
+1. Jeśli chcesz przechowywać dane na taśmie w celu przechowywania długoterminowego, na stronie **Określ cele długoterminowe** wybierz, jak długo chcesz przechowywać dane na taśmie (od 1 do 99 lat).
+    1. Aby uzyskać **częstotliwość tworzenia kopii zapasowych**, wybierz częstotliwość wykonywania kopii zapasowej na taśmie. Częstotliwość zależy od wybranego zakresu przechowywania:
+        * Gdy zakres przechowywania wynosi od 1 do 99 lat, można utworzyć kopię zapasową codziennie, co tydzień, co dwa tygodnie, co miesiąc, co kwartał, co pół roku lub co rok.
+        * Gdy zakres przechowywania wynosi od 1 do 11 miesięcy, można utworzyć kopię zapasową codziennie, co tydzień, co dwa tygodnie lub co miesiąc.
+        * Gdy zakres przechowywania wynosi od 1 do 4 tygodni, można utworzyć kopię zapasową codziennie lub co tydzień.
 
-    1. Na stronie **Wybieranie szczegółów taśmy i biblioteki** wybierz taśmę i bibliotekę do użycia. Wybierz również, czy dane mają być kompresowane i szyfrowane.
+    1. Na stronie **Wybieranie szczegółów taśmy i biblioteki** wybierz taśmę i bibliotekę do użycia. Należy również określić, czy dane mają być kompresowane i szyfrowane.
 
-1. Na stronie **Przejrzyj alokację dysku** przejrzyj miejsce na dysku puli magazynów, które jest dostępne dla grupy ochrony.
+1. Na stronie **Przejrzyj przydział dysku** Przejrzyj miejsce na dysku w puli magazynów dostępne dla grupy ochrony.
 
-    * **Całkowity rozmiar danych** to rozmiar danych, których chcesz poprzeć.
-    * **Miejsce na dysku, które ma być aprowizowane na serwerze kopii zapasowej platformy Azure,** to miejsce zalecane przez serwer kopii zapasowej dla grupy ochrony. Serwer kopii zapasowych używa tych ustawień, aby wybrać idealny wolumin kopii zapasowej. Opcje woluminu kopii zapasowej można edytować w **szczegółach alokacji dysku**.
-    * W przypadku obciążeń w menu rozwijanym wybierz preferowaną pamięć masową. Edycja zmienia wartości pozycji **Całkowita ilość miejsca dla magazynu** i **Wolne miejsce w magazynie** w okienku **Dostępny magazyn dyskowy**. Niedoprowizowana przestrzeń to ilość miejsca, którą serwer kopii zapasowej sugeruje dodać do woluminu, aby zapewnić płynne tworzenie kopii zapasowych.
+    * **Łączny rozmiar danych** to rozmiar danych, dla których chcesz utworzyć kopię zapasową.
+    * **Miejsce na dysku, które ma zostać zainicjowane w Azure Backup Server** jest miejscem zalecanym dla grupy ochrony przez serwer kopii zapasowych. Serwer kopii zapasowych używa tych ustawień, aby wybrać idealny wolumin kopii zapasowej. Można edytować opcje woluminu kopii zapasowej w obszarze **szczegóły alokacji dysku**.
+    * W przypadku obciążeń, w menu rozwijanym wybierz preferowany magazyn. Edycja zmienia wartości pozycji **Całkowita ilość miejsca dla magazynu** i **Wolne miejsce w magazynie** w okienku **Dostępny magazyn dyskowy**. Zajęte miejsce to ilość miejsca w magazynie, którą serwer kopii zapasowej sugeruje do dodania do woluminu, aby zapewnić płynne kopie zapasowe.
 
-1. Na stronie **Wybierz metodę tworzenia repliki** wybierz sposób obsługi początkowej replikacji pełnych danych. 
+1. Na stronie **Wybierz metodę tworzenia repliki** wybierz sposób obsługi początkowej replikacji pełnej danych.
 
-    Jeśli zdecydujesz się na replikację za pośrednictwem sieci, zaleca się wybranie godziny poza szczytem. W przypadku dużych ilości danych lub warunków sieciowych, które są mniej niż optymalne, należy rozważyć replikację danych w trybie offline przy użyciu nośników wymiennych.
+    Jeśli zdecydujesz się na replikację za pośrednictwem sieci, zalecamy wybranie czasu poza godzinami szczytu. W przypadku dużych ilości danych lub warunków sieci, które są mniejsze niż optymalne, należy rozważyć replikację danych w trybie offline za pomocą nośników wymiennych.
 
-1. Na stronie **Wybieranie opcji sprawdzania spójności** wybierz sposób automatyzacji kontroli spójności. 
+1. Na stronie **Wybierz opcje sprawdzania spójności** wybierz sposób automatyzacji sprawdzania spójności.
 
-    Sprawdzanie można uruchomić tylko wtedy, gdy dane repliki staną się niespójne lub zgodnie z harmonogramem. Jeśli nie chcesz konfigurować automatycznego sprawdzania spójności, możesz w dowolnym momencie uruchomić ręczne sprawdzanie. Aby uruchomić ręczne sprawdzanie, w obszarze **Ochrona** konsoli administratora serwera kopii zapasowych kliknij prawym przyciskiem myszy grupę ochrony, a następnie wybierz polecenie **Sprawdź spójność**.
+    Można uruchomić sprawdzanie tylko wtedy, gdy dane repliki staną się niespójne lub zgodnie z harmonogramem. Jeśli nie chcesz konfigurować automatycznego sprawdzania spójności, w dowolnym momencie możesz uruchomić sprawdzanie ręczne. Aby uruchomić sprawdzanie ręczne, w obszarze **Ochrona** serwera zapasowego Konsola administratora kliknij prawym przyciskiem myszy grupę ochrony, a następnie wybierz polecenie **Przeprowadź sprawdzanie spójności**.
 
-1. Jeśli zdecydujesz się wykonać kopię zapasową w chmurze przy użyciu usługi Azure Backup, na stronie **Określ dane ochrony online** wybierz obciążenia, których kopię zapasową chcesz utworzyć na platformie Azure.
+1. Jeśli chcesz utworzyć kopię zapasową w chmurze przy użyciu Azure Backup, na stronie **Określ dane ochrony w trybie online** wybierz obciążenia, których kopię zapasową chcesz utworzyć na platformie Azure.
 
-1. Na stronie **Określ harmonogram tworzenia kopii zapasowych** w trybie online wybierz, jak często przyrostowo utworzyć kopię zapasową na platformie Azure. 
+1. Na stronie **Określanie harmonogramu tworzenia kopii zapasowych online** wybierz, jak często mają być wykonywane przyrostowe kopie zapasowe na platformie Azure.
 
-    Można zaplanować wykonywanie kopii zapasowych codziennie, w tygodniu, miesiącu i roku. Można również wybrać godzinę i datę, z którą mają być uruchamiane kopie zapasowe. Kopie zapasowe mogą być tworzone maksymalnie dwa razy dziennie. Za każdym razem, gdy uruchamia się kopia zapasowa, punkt odzyskiwania danych jest tworzony na platformie Azure na podstawie kopii danych kopii zapasowej przechowywanych na dysku serwera kopii zapasowej.
+    Można zaplanować uruchamianie kopii zapasowych codziennie, tygodnia, miesiąca i roku. Możesz również wybrać godzinę i datę, z których mają być uruchamiane kopie zapasowe. Kopie zapasowe mogą być tworzone maksymalnie dwa razy dziennie. Za każdym razem, gdy wykonywana jest kopia zapasowa, punkt odzyskiwania danych jest tworzony na platformie Azure na podstawie kopii kopii zapasowej przechowywanych na dysku serwera zapasowego.
 
-1. Na stronie **Określ zasady przechowywania w trybie online** wybierz sposób przechowywania punktów odzyskiwania utworzonych na podstawie codziennych, tygodniowych, miesięcznych i 5 000 kopii zapasowych na platformie Azure.
+1. Na stronie **Określanie zasad przechowywania online** wybierz, jak punkty odzyskiwania tworzone na podstawie kopii zapasowych codziennie, co tydzień, co miesiąc i co roku są przechowywane na platformie Azure.
 
-1. Na stronie **Wybierz replikację online** wybierz sposób początkowej pełnej replikacji danych. 
+1. Na stronie **Wybierz replikację online** wybierz, jak następuje początkowa pełna replikacja danych.
 
-    Można replikować za pośrednictwem sieci lub kopii zapasowej w trybie offline (rozmieszczanie w trybie offline). Kopia zapasowa w trybie offline korzysta z funkcji importu platformy Azure. Aby uzyskać więcej informacji, zobacz [Przepływ pracy tworzenia kopii zapasowych w trybie offline w usłudze Azure Backup](offline-backup-azure-data-box.md).
+    Można replikować za pośrednictwem sieci lub tworzyć kopie zapasowe w trybie offline (w trybie offline). Kopia zapasowa offline używa funkcji importowania platformy Azure. Aby uzyskać więcej informacji, zobacz [przepływ pracy kopii zapasowej offline w Azure Backup](offline-backup-azure-data-box.md).
 
-1. Na stronie **Podsumowanie** przejrzyj ustawienia. Po wybraniu opcji **Utwórz grupę**nastąpi początkowa replikacja danych. Po zakończeniu replikacji danych na stronie **Stan** stan grupy ochrony jest **ok**. Następnie kopie zapasowe są nachyli zgodnie z ustawieniami grupy ochrony.
+1. Na stronie **Podsumowanie** przejrzyj ustawienia. Po wybraniu opcji **Utwórz grupę**następuje Replikacja początkowa danych. Po zakończeniu replikacji danych na stronie **stan** Grupa ochrony ma stan **OK**. Kopie zapasowe są następnie wykonywane zgodnie z ustawieniami grupy ochrony.
 
 ## <a name="recover-system-state-or-bmr"></a>Odzyskiwanie stanu systemu lub odzyskiwanie systemu od zera (BMR)
 
-Możliwe jest odzyskanie systemu od zera (BMR) lub odzyskanie stanu systemu w lokalizacji sieciowej. Jeśli wykonasz kopię zapasową bmr, użyj środowiska odzyskiwania systemu Windows (WinRE), aby uruchomić system i podłączyć go do sieci. Użyj narzędzia Kopia zapasowa systemu Windows Server, aby odzyskać informacje z lokalizacji sieciowej. Jeśli wykonasz kopię zapasową stanu systemu, po prostu użyj programu Kopia zapasowa systemu Windows Server, aby odzyskać dane z lokalizacji sieciowej.
+Możliwe jest odzyskanie systemu od zera (BMR) lub odzyskanie stanu systemu w lokalizacji sieciowej. Jeśli utworzono kopię zapasową BMR, użyj środowiska odzyskiwania systemu Windows (WinRE) do uruchomienia systemu i nawiązania połączenia z siecią. Użyj narzędzia Kopia zapasowa systemu Windows Server, aby odzyskać informacje z lokalizacji sieciowej. Jeśli utworzono kopię zapasową stanu systemu, po prostu Użyj Kopia zapasowa systemu Windows Server do odzyskania z lokalizacji sieciowej.
 
 ### <a name="restore-bmr"></a>Przywracanie systemu od zera (BMR)
 
-Aby uruchomić odzyskiwanie na komputerze z serwerem kopii zapasowych:
+Aby uruchomić odzyskiwanie na komputerze serwera kopii zapasowej:
 
-1. W okienku **Odzyskiwanie** znajdź komputer, który chcesz odzyskać. Następnie wybierz **opcję Odzyskiwanie bezgłowego**.
+1. W okienku **odzyskiwanie** Znajdź komputer, który chcesz odzyskać. Następnie wybierz pozycję **odzyskiwanie systemu od zera**.
 
-1. Dostępne punkty odzyskiwania są pogrubione w kalendarzu. Wybierz datę i godzinę punktu odzyskiwania, którego chcesz użyć.
+1. Dostępne punkty odzyskiwania są pogrubione w kalendarzu. Wybierz datę i godzinę dla punktu odzyskiwania, którego chcesz użyć.
 
-1. Na stronie **Wybierz typ odzyskiwania** wybierz pozycję **Kopiuj do folderu sieciowego**.
+1. Na stronie **Wybierz typ odzyskiwania** wybierz opcję **Kopiuj do folderu sieciowego**.
 
-1. Na stronie **Określanie miejsca docelowego** wybierz miejsce docelowe dla skopiowanych danych. 
+1. Na stronie **Określanie miejsca docelowego** wybierz lokalizację docelową dla kopiowanych danych.
 
-    Pamiętaj, że miejsce docelowe musi mieć wystarczająco dużo miejsca na dane. Zaleca się utworzenie nowego folderu dla miejsca docelowego.
+    Należy pamiętać, że miejsce docelowe musi mieć wystarczającą ilość miejsca na dane. Zalecamy utworzenie nowego folderu dla miejsca docelowego.
 
-1. Na stronie **Określanie opcji odzyskiwania** wybierz ustawienia zabezpieczeń. Następnie wybierz, czy migawki sprzętowe oparte na sieci magazynowej (SAN) mają być używane do szybszego odzyskiwania. Ta opcja jest dostępna tylko wtedy, gdy:
-    * Masz san, który zapewnia tę funkcję. 
-    * Klon można utworzyć i podzielić, aby można go było zapisywać.
-    * Komputer chroniony i komputer z serwerem kopii zapasowych są podłączone do tej samej sieci.
+1. Na stronie **Określanie opcji odzyskiwania** wybierz ustawienia zabezpieczeń. Następnie wybierz, czy chcesz korzystać z migawek sprzętowych opartych na sieci magazynowania (SAN), aby szybciej odzyskiwać dane. Ta opcja jest dostępna tylko wtedy, gdy:
+    * Masz dostęp do sieci SAN, która zapewnia tę funkcjonalność.
+    * Można utworzyć i podzielić klon, aby umożliwić jego zapisywanie.
+    * Komputer chroniony i serwer zapasowy są połączone z tą samą siecią.
 
-1. Konfigurowanie opcji powiadomień. 
-1. Na stronie **Potwierdzenie** wybierz pozycję **Odzyskaj**.
+1. Skonfiguruj opcje powiadomień.
+1. Na stronie **potwierdzenie** wybierz pozycję **Odzyskaj**.
 
 Aby skonfigurować lokalizację udziału:
 
 1. W lokalizacji przywracania przejdź do folderu, w którym znajduje się kopia zapasowa.
 
-1. Udostępnij folder, który jest jeden poziom powyżej *WindowsImageBackup* tak, aby katalog główny folderu udostępnionego jest *WindowsImageBackup* folderu. 
+1. Udostępnij folder, który znajduje się na poziomie powyżej *WindowsImageBackup* , tak aby katalogiem głównym folderu udostępnionego był folder *WindowsImageBackup* .
 
-    Jeśli nie udostępnisz tego folderu, funkcja przywracania nie znajdzie kopii zapasowej. Aby połączyć się za pomocą WinRE, potrzebujesz udziału, do którego można uzyskać dostęp w WinRE z poprawnym adresem IP i poświadczeniami.
+    Jeśli ten folder nie jest udostępniany, polecenie Restore nie odnajdzie kopii zapasowej. Aby nawiązać połączenie przy użyciu środowiska WinRE, musisz mieć udział, do którego można uzyskać dostęp w programie WinRE przy użyciu poprawnego adresu IP i poświadczeń.
 
 Aby przywrócić system:
 
-1. Uruchom komputer, na którym chcesz przywrócić obraz, używając dysku DVD systemu Windows dla przywracania systemu.
+1. Uruchom komputer, na którym chcesz przywrócić obraz, przy użyciu dysku DVD systemu Windows dla przywracanego systemu.
 
-1. Na pierwszej stronie sprawdź ustawienia języka i ustawień regionalnych. Na stronie **Instalacja** wybierz pozycję **Napraw komputer**.
+1. Na pierwszej stronie Sprawdź ustawienia języka i ustawień regionalnych. Na stronie **Instalacja** wybierz opcję **Napraw komputer**.
 
-1. Na stronie **Opcje odzyskiwania systemu** wybierz pozycję **Przywróć komputer przy użyciu obrazu systemu utworzonego wcześniej**.
+1. Na stronie **Opcje odzyskiwania systemu** wybierz pozycję **Przywróć komputer przy użyciu utworzonego wcześniej obrazu systemu**.
 
-1. Na stronie **Wybieranie kopii zapasowej obrazu systemu** wybierz pozycję Wybierz obraz >  **systemowy****Zaawansowane** > **wyszukiwanie obrazu systemowego w sieci**. Jeśli pojawi się ostrzeżenie, wybierz przycisk **Tak**. Przejdź do ścieżki udziału, wprowadź poświadczenia, a następnie wybierz punkt odzyskiwania. System skanuje w poszukiwaniu określonych kopii zapasowych, które są dostępne w tym punkcie odzyskiwania. Wybierz punkt odzyskiwania, którego chcesz użyć.
+1. Na stronie **Wybierz kopię zapasową obrazu systemu** wybierz pozycję **Wybierz obraz** > systemu**Zaawansowane** > **Wyszukiwanie obrazu systemu w sieci**. Jeśli zostanie wyświetlone ostrzeżenie, wybierz pozycję **tak**. Przejdź do ścieżki udziału, wprowadź poświadczenia, a następnie wybierz punkt odzyskiwania. System skanuje w poszukiwaniu określonych kopii zapasowych, które są dostępne w tym punkcie odzyskiwania. Wybierz punkt odzyskiwania, którego chcesz użyć.
 
-1. Na stronie **Wybieranie sposobu przywracania kopii zapasowej** wybierz pozycję **Formatuj i ponownie losuj dyski**. Na następnej stronie sprawdź ustawienia.
+1. Na stronie **Wybierz sposób przywracania kopii zapasowej** wybierz opcję **Formatuj dyski i ponownie Podziel na partycje**. Na następnej stronie Sprawdź ustawienia.
 
 1. Aby rozpocząć przywracanie, wybierz pozycję **Zakończ**. Wymagane jest ponowne uruchomienie.
 
@@ -213,50 +213,50 @@ Aby przywrócić system:
 
 Aby uruchomić odzyskiwanie na serwerze kopii zapasowej:
 
-1. W okienku **Odzyskiwanie** znajdź komputer, który chcesz odzyskać, a następnie wybierz pozycję **Odzyskiwanie systemu operacyjnego .**
+1. W okienku **odzyskiwanie** Znajdź komputer, który chcesz odzyskać, a następnie wybierz pozycję **odzyskiwanie systemu od zera**.
 
-1. Dostępne punkty odzyskiwania są pogrubione w kalendarzu. Wybierz datę i godzinę punktu odzyskiwania, którego chcesz użyć.
+1. Dostępne punkty odzyskiwania są pogrubione w kalendarzu. Wybierz datę i godzinę dla punktu odzyskiwania, którego chcesz użyć.
 
-1. Na stronie **Wybierz typ odzyskiwania** wybierz pozycję **Kopiuj do folderu sieciowego**.
+1. Na stronie **Wybierz typ odzyskiwania** wybierz opcję **Kopiuj do folderu sieciowego**.
 
-1. Na stronie **Określanie miejsca docelowego** wybierz miejsce kopiowania danych. 
+1. Na stronie **określ miejsce docelowe** wybierz miejsce, do którego mają zostać skopiowane dane.
 
-    Pamiętaj, że wybrane miejsce docelowe musi mieć wystarczająco dużo miejsca na dane. Zaleca się utworzenie nowego folderu dla miejsca docelowego.
+    Należy pamiętać, że wybrana lokalizacja docelowa musi mieć wystarczającą ilość miejsca na dane. Zalecamy utworzenie nowego folderu dla miejsca docelowego.
 
-1. Na stronie **Określanie opcji odzyskiwania** wybierz ustawienia zabezpieczeń. Następnie wybierz, czy mają być używane migawki sprzętowe oparte na sieci SAN w celu szybszego odzyskiwania. Ta opcja jest dostępna tylko wtedy, gdy: 
-    * Masz san, który zapewnia tę funkcję.
-    * Klon można utworzyć i podzielić, aby można go było zapisywać. 
-    * Chroniony komputer i serwer serwera kopii zapasowych są połączone z tą samą siecią.
+1. Na stronie **Określanie opcji odzyskiwania** wybierz ustawienia zabezpieczeń. Następnie wybierz, czy chcesz korzystać z migawek sprzętowych opartych na sieci SAN, aby szybciej odzyskiwać dane. Ta opcja jest dostępna tylko wtedy, gdy:
+    * Masz dostęp do sieci SAN, która zapewnia tę funkcjonalność.
+    * Można utworzyć i podzielić klon, aby umożliwić jego zapisywanie.
+    * Komputer chroniony i serwer zapasowy są połączone z tą samą siecią.
 
-1. Konfigurowanie opcji powiadomień. 
-1. Na stronie **Potwierdzenie** wybierz pozycję **Odzyskaj**.
+1. Skonfiguruj opcje powiadomień.
+1. Na stronie **potwierdzenie** wybierz pozycję **Odzyskaj**.
 
-Aby uruchomić kopię zapasową systemu Windows Server:
+Aby uruchomić Kopia zapasowa systemu Windows Server:
 
-1. Wybierz **akcje** > **Odzyskaj** > **ten serwer** > **dalej**.
+1. Wybierz pozycję **Akcje** > **Odzyskaj** > **ten serwer** > **dalej**.
 
-1. Wybierz **pozycję Inny serwer**, wybierz stronę **Określ typ lokalizacji,** a następnie wybierz pozycję **Zdalny folder udostępniony**. Wprowadź ścieżkę do folderu zawierającego punkt odzyskiwania.
+1. Wybierz **inny serwer**, wybierz stronę **Określ typ lokalizacji** , a następnie wybierz pozycję **zdalny folder udostępniony**. Wprowadź ścieżkę do folderu, który zawiera punkt odzyskiwania.
 
-1. Na stronie **Wybierz typ odzyskiwania** wybierz pozycję Stan **systemu**.
+1. Na stronie **Wybieranie typu odzyskiwania** wybierz pozycję **stan systemu**.
 
-1. Na stronie **Wybierz lokalizację dla odzyskiwania stanu systemu** wybierz pozycję Lokalizacja **oryginalna**.
+1. Na stronie **Wybieranie lokalizacji dla odzyskiwania stanu systemu** wybierz opcję **Oryginalna lokalizacja**.
 
-1. Na stronie **Potwierdzenie** wybierz pozycję **Odzyskaj**. 
+1. Na stronie **potwierdzenie** wybierz pozycję **Odzyskaj**.
 
-1. Po przywróceniu uruchom ponownie serwer.
+1. Po przywróceniu należy ponownie uruchomić serwer.
 
-Można również uruchomić przywracanie stanu systemu w wierszu polecenia: 
+Można również uruchomić przywracanie stanu systemu w wierszu polecenia:
 
-1. Uruchom program Kopia zapasowa systemu Windows Server na komputerze, który chcesz odzyskać. 
+1. Uruchom Kopia zapasowa systemu Windows Server na komputerze, który chcesz odzyskać.
 
-1. Aby uzyskać identyfikator wersji, w wierszu polecenia wprowadź:
+1. Aby uzyskać wersję identyfikator, w wierszu polecenia wpisz:
 
    ```wbadmin get versions -backuptarget \<servername\sharename\>```
 
-1. Użyj identyfikatora wersji, aby uruchomić przywracanie stanu systemu. W wierszu polecenia wprowadź: 
+1. Użyj identyfikatora wersji, aby uruchomić przywracanie stanu systemu. W wierszu polecenia wprowadź:
 
     ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
 
-1. Potwierdź, że chcesz rozpocząć odzyskiwanie. Proces można zobaczyć w oknie wiersza polecenia. Tworzony jest dziennik przywracania. 
+1. Potwierdź, że chcesz rozpocząć odzyskiwanie. Proces można zobaczyć w oknie wiersza polecenia. Tworzony jest dziennik przywracania.
 
-1. Po przywróceniu uruchom ponownie serwer.
+1. Po przywróceniu należy ponownie uruchomić serwer.

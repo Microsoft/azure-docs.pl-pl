@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 50752dfefae1aab28e0b7e51d8c94cf5f04a5099
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 90e8aa4da88542648bec612553282ffe11b09eda
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149312"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192284"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Szybki Start: Wdrażanie maszyny wirtualnej do obliczania poufnej platformy Azure w portalu Marketplace
 
@@ -21,7 +21,7 @@ Rozpocznij pracę z usługą Azure poufnego przetwarzania przy użyciu witryny A
 
 Ten samouczek jest zalecany, jeśli chcesz szybko rozpocząć wdrażanie poufnej maszyny wirtualnej. Maszyny wirtualne są uruchamiane na specjalnym sprzęcie i wymagają określonych danych wejściowych konfiguracji do uruchomienia zgodnie z oczekiwaniami. Oferta portalu Marketplace opisana w tym przewodniku szybki start ułatwia wdrażanie, ograniczając dane wprowadzane przez użytkownika.
 
-Jeśli interesuje się wdrożenie poufnej maszyny wirtualnej obliczeniowej z większą konfiguracją niestandardową, wykonaj [czynności opisane w temacie Azure Portal poufnego wdrożenia maszyny wirtualnej.](quick-create-portal.md)
+Jeśli interesuje się wdrożenie poufnej maszyny wirtualnej obliczeniowej z większą konfiguracją niestandardową, wykonaj [czynności opisane w temacie Azure Portal poufne wdrożenia maszyn wirtualnych](quick-create-portal.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

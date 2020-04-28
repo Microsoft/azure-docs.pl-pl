@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: Integracja wielu zasobów programu Immersive Reader'
+title: 'Samouczek: Integrowanie wielu zasobów czytnika immersyjny'
 titleSuffix: Azure Cognitive Services
-description: W tym samouczku utworzysz aplikację Node.js, która uruchamia program Immersive Reader przy użyciu wielu zasobów programu Immersive Reader.
+description: W tym samouczku utworzysz aplikację Node. js, która uruchamia czytnik immersyjny przy użyciu wielu zasobów czytnika.
 author: skamal
 manager: nitinme
 ms.service: cognitive-services
@@ -9,32 +9,32 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
-ms.openlocfilehash: 3912d55b13f3977818e8d898efa651ffeb1a798a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f68112095bc8a8fd9bcc1bd67ff77827d6d00fd7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76046275"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195625"
 ---
-# <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Samouczek: Integracja wielu zasobów programu Immersive Reader
+# <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Samouczek: Integrowanie wielu zasobów czytnika immersyjny
 
-W [przeglądzie](./overview.md)dowiedziałeś się o tym, czym jest Immersive Reader i jak wdraża sprawdzone techniki poprawy rozumienia czytania dla osób uczących się języków, nowych czytelników i uczniów z różnicami w uczeniu się. W programie [Node.js Quickstart](./quickstart-nodejs.md)opisano, jak korzystać z programu Immersive Reader z jednym zasobem. W tym samouczku opisano, jak zintegrować wiele zasobów immersive reader w tej samej aplikacji. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+W [przeglądzie](./overview.md)zawarto informacje na temat tego, co to jest czytnik immersyjny i w jaki sposób implementuje sprawdzone techniki w celu zwiększenia czytelności dla osób uczące się, nowych czytelników i studentów z różnicami w nauce. W [przewodniku szybki start środowiska Node. js](./quickstart-nodejs.md)pokazano, jak używać czytnika immersyjny z pojedynczym zasobem. W tym samouczku opisano sposób integrowania wielu zasobów czytnika immersyjny w tej samej aplikacji. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie wielu zasobów programu Immersive Reader w istniejącej grupie zasobów
-> * Uruchom czytnik Immersive Reader przy użyciu wielu zasobów
+> * Tworzenie wielu zasobów czytnika immersyjny w istniejącej grupie zasobów
+> * Uruchamianie czytnika immersyjny przy użyciu wielu zasobów
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Postępuj zgodnie z [przewodnikiem Szybki start,](./quickstart-nodejs.md) aby utworzyć aplikację internetową, która uruchamia program Immersive Reader z nodejs. W tym przewodniku Szybki start można skonfigurować jeden zasób programu Immersive Reader. Będziemy budować na szczycie tego w tym samouczku.
+* Postępuj zgodnie z [przewodnikiem Szybki Start](./quickstart-nodejs.md) , aby utworzyć aplikację sieci Web, która uruchamia czytnik immersyjny z NodeJS. Ten przewodnik Szybki Start umożliwia skonfigurowanie pojedynczego zasobu czytnika immersyjny. Na tym samouczku utworzymy wszystko.
 
-## <a name="create-the-immersive-reader-resources"></a>Tworzenie zasobów programu Immersive Reader
+## <a name="create-the-immersive-reader-resources"></a>Tworzenie zasobów czytnika immersyjny
 
-Postępuj zgodnie [z tymi instrukcjami,](./how-to-create-immersive-reader.md) aby utworzyć każdy zasób programu Immersive Reader. Skrypt **Create-ImmersiveReaderResource** `ResourceName`ma `ResourceSubdomain`, `ResourceLocation` i jako parametry. Powinny one być unikatowe dla każdego tworzonego zasobu. Pozostałe parametry powinny być takie same, jak podczas konfigurowania pierwszego zasobu programu Immersive Reader. W ten sposób każdy zasób może być połączony z tą samą grupą zasobów platformy Azure i aplikacją usługi Azure AD.
+Postępuj zgodnie z [tymi instrukcjami](./how-to-create-immersive-reader.md) , aby utworzyć każdy zasób czytnika immersyjny. Skrypt **Create-ImmersiveReaderResource** ma `ResourceName`parametry, `ResourceSubdomain`i `ResourceLocation` . Te powinny być unikatowe dla każdego tworzonego zasobu. Pozostałe parametry powinny być takie same jak użyte podczas konfigurowania pierwszego zasobu czytnika immersyjny. W ten sposób każdy zasób może być połączony z tą samą grupą zasobów platformy Azure i aplikacją usługi Azure AD.
 
-W poniższym przykładzie pokazano, jak utworzyć dwa zasoby, jeden w WestUS i inny w U. EastUS. Zwróć uwagę na `ResourceName` `ResourceSubdomain`unikalne `ResourceLocation`wartości dla , i .
+W poniższym przykładzie pokazano, jak utworzyć dwa zasoby, jeden w zachodnich i drugi na wschodnim Wschodzie. Zwróć uwagę na unikatowe wartości `ResourceName`parametrów `ResourceSubdomain`, i `ResourceLocation`.
 
 ```azurepowershell-interactive
 Create-ImmersiveReaderResource
@@ -62,11 +62,11 @@ Create-ImmersiveReaderResource
   -AADAppClientSecret <AAD_APP_CLIENT_SECRET>
 ```
 
-## <a name="add-resources-to-environment-configuration"></a>Dodawanie zasobów do konfiguracji środowiska
+## <a name="add-resources-to-environment-configuration"></a>Dodaj zasoby do konfiguracji środowiska
 
-W przewodniku Szybki start utworzono plik `TenantId` `ClientId`konfiguracji `ClientSecret`środowiska `Subdomain` zawierający program , i parametry. Ponieważ wszystkie zasoby używają tej samej aplikacji usługi Azure AD, `ClientId`możemy `ClientSecret`użyć tych samych wartości dla `TenantId`programu , i . Jedyną zmianą, która musi zostać wytypo dokonywać listy każdej poddomeny dla każdego zasobu.
+W samouczku szybki start utworzono plik konfiguracji środowiska zawierający `TenantId`parametry, `ClientId`, `ClientSecret`i. `Subdomain` Ponieważ wszystkie zasoby korzystają z tej samej aplikacji usługi Azure AD, można użyć tych samych wartości dla `TenantId`, `ClientId`i. `ClientSecret` Jedyną zmianą, którą należy wykonać, jest wyświetlenie listy każdej poddomeny dla każdego zasobu.
 
-Nowy plik __.env__ powinien teraz wyglądać następująco:
+Nowy plik __ENV__ powinien teraz wyglądać podobnie do poniższego:
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -76,11 +76,11 @@ SUBDOMAIN_WUS={YOUR_WESTUS_SUBDOMAIN}
 SUBDOMAIN_EUS={YOUR_EASTUS_SUBDOMAIN}
 ```
 
-Pamiętaj, aby nie zatwierdzać tego pliku do kontroli źródła, ponieważ zawiera on wpisy tajne, które nie powinny być upublicznione.
+Nie należy zatwierdzić tego pliku w kontroli źródła, ponieważ zawiera on klucze tajne, które nie powinny być publiczne.
 
-Następnie zmodyfikujemy plik _routes\index.js,_ który utworzyliśmy w celu obsługi naszych wielu zasobów. Zastąp jego zawartość następującym kodem.
+Następnie zmodyfikujemy plik _routes\index.js_ , który został utworzony w celu obsługi naszych wielu zasobów. Zastąp jego zawartość następującym kodem.
 
-Podobnie jak poprzednio, ten kod tworzy punkt końcowy interfejsu API, który uzyskuje token uwierzytelniania usługi Azure AD przy użyciu hasła jednostkowego usługi. Tym razem umożliwia użytkownikowi określenie lokalizacji zasobu i przekazanie jej jako parametru zapytania. Następnie zwraca obiekt zawierający token i odpowiednią poddomenę.
+Jak wcześniej, ten kod tworzy punkt końcowy interfejsu API, który uzyskuje token uwierzytelniania usługi Azure AD przy użyciu hasła nazwy głównej usługi. Tym razem umożliwia użytkownikowi określenie lokalizacji zasobu i przekazanie jej jako parametru zapytania. Następnie zwraca obiekt zawierający token i odpowiednią poddomenę.
 
 ```javascript
 var express = require('express');
@@ -143,11 +143,11 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
 module.exports = router;
 ```
 
-Punkt końcowy interfejsu API **getimmersivereaderlaunchparams** powinien być zabezpieczony za jakąś formą uwierzytelniania (na przykład [OAuth),](https://oauth.net/2/)aby uniemożliwić nieautoryzowanym użytkownikom uzyskanie tokenów do użycia w usłudze Immersive Reader i rozliczeniach; że praca wykracza poza zakres tego samouczka.
+Punkt końcowy interfejsu API **getimmersivereaderlaunchparams** powinien być zabezpieczony za pomocą uwierzytelniania (na przykład [OAuth](https://oauth.net/2/)), aby uniemożliwić nieautoryzowanym użytkownikom uzyskanie tokenów, które mają być używane z usługą czytnika danych immersyjny i rozliczeniami. Ta praca wykracza poza zakres tego samouczka.
 
-## <a name="launch-the-immersive-reader-with-sample-content"></a>Uruchom czytnik Immersive Reader z przykładową zawartością
+## <a name="launch-the-immersive-reader-with-sample-content"></a>Uruchom czytnik immersyjny z przykładową zawartością
 
-1. Otwórz _views\index.mops_i zastąp jego zawartość następującym kodem. Ten kod wypełnia stronę próbką i dodaje dwa przyciski uruchamiające program Immersive Reader. Jeden do uruchomienia Immersive Reader dla zasobu EastUS, a drugi dla zasobu WestUS.
+1. Otwórz _views\index.Pug_i Zastąp jego zawartość następującym kodem. Ten kod wypełnia stronę z niepewną przykładową zawartością i dodaje dwa przyciski, które uruchamiają czytnik immersyjny. Jeden do uruchamiania czytnika immersyjny dla zasobu wschodniego i drugiego dla zasobu Zachodnie.
 
     ```pug
     doctype html
@@ -252,15 +252,15 @@ Punkt końcowy interfejsu API **getimmersivereaderlaunchparams** powinien być z
         }
     ```
 
-3. Nasza aplikacja internetowa jest już gotowa. Uruchom aplikację, uruchamiając:
+3. Nasza aplikacja sieci Web jest teraz gotowa. Uruchom aplikację, uruchamiając:
 
     ```bash
     npm start
     ```
 
-4. Otwórz przeglądarkę i [http://localhost:3000](http://localhost:3000)przejdź do pliku . Powyższe treści powinny być widoczne na stronie. Kliknij przycisk **EastUS Immersive Reader** lub **WestUS Immersive Reader,** aby uruchomić czytnik Immersive Reader przy użyciu odpowiednich zasobów.
+4. Otwórz przeglądarkę i przejdź do `http://localhost:3000`. Na stronie powinna zostać wyświetlona powyższa zawartość. Kliknij przycisk czytnika w trybie **immersyjny** **lub, aby uruchomić czytnik immersyjny** przy użyciu odpowiednich zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Poznaj [immersyjny moduł SDK czytnika](https://github.com/microsoft/immersive-reader-sdk) i [immersyjny moduł SDK czytnika](./reference.md)
-* Wyświetlanie przykładów kodu w [usłudze GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)
+* Poznaj [zestaw SDK czytnika immersyjny](https://github.com/microsoft/immersive-reader-sdk) i [Kompendium zestawu SDK czytnika immersyjny](./reference.md)
+* Wyświetl przykłady kodu w witrynie [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)

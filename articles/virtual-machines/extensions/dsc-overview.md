@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: c03487b100ddb066416072c6c06773890db86e0a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115316"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188539"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Wprowadzenie do procedury obsługi rozszerzenia Azure Desired State Configuration
 
@@ -188,7 +188,7 @@ Portal zbiera następujące dane wejściowe:
 
 - **Argumenty konfiguracji**: Jeśli funkcja konfiguracji przyjmuje argumenty, wprowadź je w tym miejscu w formacie **argumentName1 = wartość1, argumentName2 = wartość2**. Ten format jest innym formatem, w którym argumenty konfiguracji są akceptowane w poleceniach cmdlet programu PowerShell lub szablonach Menedżer zasobów.
 
-- **Plik PSD1 danych konfiguracji**: to pole jest opcjonalne. Jeśli konfiguracja wymaga pliku danych konfiguracji w programie. psd1, użyj tego pola, aby wybrać pole danych i przekazać je do magazynu obiektów BLOB użytkownika. Plik danych konfiguracji jest zabezpieczony przez token sygnatury dostępu współdzielonego w magazynie obiektów BLOB.
+- **Plik PSD1 danych konfiguracji**: konfiguracja wymaga pliku danych konfiguracji w. PSD1, użyj tego pola, aby wybrać plik danych i przekazać go do magazynu obiektów BLOB użytkownika. Plik danych konfiguracji jest zabezpieczony przez token sygnatury dostępu współdzielonego w magazynie obiektów BLOB.
 
 - **Wersja WMF**: określa wersję programu Windows Management Framework (WMF), która ma zostać zainstalowana na maszynie wirtualnej. Ustawienie tej właściwości na Najnowsza spowoduje zainstalowanie najnowszej wersji programu WMF. Obecnie jedyne możliwe wartości tej właściwości to 4,0, 5,0, 5,1 i najnowsze. Te możliwe wartości podlegają aktualizacjom. Wartość domyślna to **Najnowsza**.
 

@@ -1,61 +1,61 @@
 ---
 title: Poziomy spójności i interfejsy API usługi Azure Cosmos DB
-description: Opis mapowania poziomu spójności między różnymi interfejsami API w usłudze Azure Cosmos DB i Apache Cassandra, MongoDB
+description: Zrozumienie mapowania poziomu spójności między różnymi interfejsami API w Azure Cosmos DB i Apache Cassandra, MongoDB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: ef7d032d37105549ff7b05f85b953cd420954602
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2851968b102bdcbae95a81352439f39f5837020b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131472"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191791"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Poziomy spójności i interfejsy API usługi Azure Cosmos DB
 
-Usługa Azure Cosmos DB zapewnia natywną obsługę interfejsów API zgodnych z protokołem przewodowym dla popularnych baz danych. Należą do nich MongoDB, Apache Cassandra, Gremlin i Azure Table Storage. Te bazy danych nie oferują dokładnie zdefiniowanych modeli spójności ani gwarancji opartych na umowy SLA dla poziomów spójności. Zazwyczaj zapewniają one tylko podzbiór pięciu modeli spójności oferowanych przez usługę Azure Cosmos DB. 
+Azure Cosmos DB zapewnia natywną obsługę interfejsów API zgodnych z protokołem przewodowym dla popularnych baz danych. Obejmują one MongoDB, Apache Cassandra, Gremlin i Azure Table Storage. Te bazy danych nie oferują precyzyjnie zdefiniowanych modeli spójności ani gwarancji objętych umową SLA dla poziomów spójności. Zwykle zapewniają tylko podzestaw pięciu modeli spójności oferowanych przez Azure Cosmos DB. 
 
-Podczas korzystania z interfejsu API SQL, interfejsu API gremlin i interfejsu API tabeli używany jest domyślny poziom spójności skonfigurowany na koncie usługi Azure Cosmos. 
+W przypadku korzystania z interfejsu API SQL, interfejsu API Gremlin i interfejs API tabel, używany jest domyślny poziom spójności skonfigurowany na koncie usługi Azure Cosmos. 
 
-Podczas korzystania z interfejsu API Cassandra lub interfejsu API usługi Azure Cosmos DB dla mongodb, aplikacje uzyskać pełny zestaw poziomów spójności oferowanych przez Apache Cassandra i MongoDB, odpowiednio, z jeszcze większą spójność i trwałość gwarancji. W tym dokumencie przedstawiono odpowiednie poziomy spójności usługi Azure Cosmos DB dla poziomów spójności Apache Cassandra i MongoDB.
+W przypadku korzystania z interfejsu API interfejs API Cassandra lub Azure Cosmos DB dla MongoDB aplikacje uzyskają pełny zestaw poziomów spójności oferowanych przez Apache Cassandra i MongoDB, a nawet silniejsze gwarancje spójności i trwałości. W tym dokumencie przedstawiono odpowiednie Azure Cosmos DB poziomów spójności dla poziomów spójności Apache Cassandra i MongoDB.
 
-## <a name="mapping-between-apache-cassandra-and-azure-cosmos-db-consistency-levels"></a><a id="cassandra-mapping"></a>Mapowanie między poziomami spójności Usługi Apache Cassandra i Usługi Azure Cosmos DB
+## <a name="mapping-between-apache-cassandra-and-azure-cosmos-db-consistency-levels"></a><a id="cassandra-mapping"></a>Mapowanie między Cassandra Apache i Azure Cosmos DB poziomów spójności
 
-W przeciwieństwie do usługi Azure Cosmos DB Apache Cassandra nie zapewnia natywnie precyzyjnie zdefiniowanych gwarancji spójności.  Zamiast tego Apache Cassandra zapewnia poziom spójności zapisu i poziom spójności odczytu, aby włączyć wysokiej dostępności, spójności i opóźnienia kompromisów. Podczas korzystania z interfejsu API Cassandra usługi Azure Cosmos DB: 
+W przeciwieństwie do Azure Cosmos DB technologia Apache Cassandra nie zapewnia natywnej dokładnej kontroli spójności.  Zamiast tego Apache Cassandra zapewnia poziom spójności zapisu i poziom spójności odczytu, aby zapewnić wysoką dostępność, spójność i wady opóźnienia. W przypadku korzystania z interfejs API Cassandra Azure Cosmos DB: 
 
-* Poziom spójności zapisu Apache Cassandra jest mapowany na domyślny poziom spójności skonfigurowany na koncie usługi Azure Cosmos. Spójność dla operacji zapisu (CL) nie można zmienić na podstawie żądania.
+* Poziom spójności zapisu usługi Apache Cassandra jest mapowany na domyślny poziom spójności skonfigurowany na koncie usługi Azure Cosmos. Nie można zmienić spójności operacji zapisu (CL) dla poszczególnych żądań.
 
-* Usługa Azure Cosmos DB będzie dynamicznie mapować poziom spójności odczytu określony przez sterownik klienta Cassandra do jednego z poziomów spójności usługi Azure Cosmos DB skonfigurowanych dynamicznie na żądanie odczytu. 
+* Azure Cosmos DB dynamicznie mapuje poziom spójności odczytu określony przez sterownik klienta Cassandra na jeden z Azure Cosmos DB poziomów spójności skonfigurowanych dynamicznie na żądanie odczytu. 
 
-W poniższej tabeli przedstawiono, jak natywne poziomy spójności Cassandra są mapowane do poziomów spójności usługi Azure Cosmos DB podczas korzystania z interfejsu API Cassandra:  
+W poniższej tabeli przedstawiono, jak natywne poziomy spójności Cassandra są mapowane na poziomy spójności Azure Cosmos DB podczas korzystania interfejs API Cassandra:  
 
 [![Mapowanie modelu spójności Cassandra](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
-## <a name="mapping-between-mongodb-and-azure-cosmos-db-consistency-levels"></a><a id="mongo-mapping"></a>Mapowanie między poziomami spójności usługi MongoDB i Usługi Azure Cosmos DB
+## <a name="mapping-between-mongodb-and-azure-cosmos-db-consistency-levels"></a><a id="mongo-mapping"></a>Mapowanie między MongoDB i Azure Cosmos DB poziomów spójności
 
-W przeciwieństwie do usługi Azure Cosmos DB natywnej bazy danych MongoDB nie zapewnia dokładnie zdefiniowane gwarancje spójności. Zamiast tego natywne MongoDB umożliwia użytkownikom skonfigurować następujące gwarancje spójności: problem zapisu, problem odczytu i isMaster dyrektywy — do kierowania operacji odczytu do replik podstawowych lub pomocniczych, aby osiągnąć żądany poziom spójności. 
+W przeciwieństwie do Azure Cosmos DB, natywny MongoDB nie zapewnia precyzyjnie zdefiniowanych gwarancji spójności. Zamiast tego natywny MongoDB umożliwia użytkownikom skonfigurowanie następujących gwarancji spójności: uwagi dotyczące zapisu, Odczyt i dyrektywa IsMaster — aby skierować operacje odczytu do replik podstawowych lub pomocniczych w celu osiągnięcia żądanego poziomu spójności. 
 
-Podczas korzystania z interfejsu API usługi Azure Cosmos DB dla mongodb sterownik MongoDB traktuje region zapisu jako replikę podstawową i wszystkie inne regiony są odczytywane repliki. Można wybrać region skojarzony z kontem usługi Azure Cosmos jako replika podstawowa. 
+W przypadku korzystania z interfejsu API Azure Cosmos DB dla MongoDB, sterownik MongoDB traktuje region zapisu jako replikę podstawową i wszystkie pozostałe regiony są odczytywane z repliki. Możesz wybrać region skojarzony z kontem usługi Azure Cosmos jako replikę podstawową. 
 
-Podczas korzystania z interfejsu API usługi Azure Cosmos DB dla mongodb:
+Podczas korzystania z interfejsu API Azure Cosmos DB dla MongoDB:
 
-* Problem zapisu jest mapowany na domyślny poziom spójności skonfigurowany na koncie usługi Azure Cosmos.
+* Problem dotyczący zapisu jest mapowany na domyślny poziom spójności skonfigurowany na koncie usługi Azure Cosmos.
  
-* Usługa Azure Cosmos DB będzie dynamicznie mapować problem odczytu określony przez sterownik klienta mongodb do jednego z poziomów spójności usługi Azure Cosmos DB, który jest skonfigurowany dynamicznie na żądanie odczytu.  
+* Azure Cosmos DB dynamicznie mapuje problem odczytu określony przez sterownik klienta MongoDB na jeden z Azure Cosmos DB poziomów spójności skonfigurowanych dynamicznie na żądanie odczytu.  
 
-* Możesz dodawać adnotacje do określonego regionu skojarzonego z kontem usługi Azure Cosmos jako "Master", czyniąc region jako pierwszy region zapisywalny. 
+* Można dodać adnotacje do określonego regionu skojarzonego z kontem usługi Azure Cosmos jako "Master", tworząc region jako pierwszy zapisywalny region. 
 
-W poniższej tabeli przedstawiono, jak natywne problemy z zapisem/odczytem usługi MongoDB są mapowane na poziomy spójności usługi Azure Cosmos podczas korzystania z interfejsu API usługi Azure Cosmos DB dla usługi MongoDB:
+W poniższej tabeli pokazano, w jaki sposób natywne zagadnienia dotyczące zapisu/odczytu MongoDB są mapowane na poziomy spójności usługi Azure Cosmos w przypadku korzystania z interfejsu API Azure Cosmos DB dla MongoDB:
 
-[![Mapowanie modelu spójności mongodb](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+[![Mapowanie modelu spójności MongoDB](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o poziomach spójności i zgodności między interfejsami API bazy danych usługi Azure Cosmos z interfejsami API typu open source. Zobacz następujące artykuły:
+Przeczytaj więcej na temat poziomów spójności i zgodności między interfejsami API Azure Cosmos DB przy użyciu interfejsów API Open Source. Zobacz następujące artykuły:
 
-* [Kompromisy w zakresie dostępności i wydajności dla różnych poziomów spójności](consistency-levels-tradeoffs.md)
-* [Funkcje mongodb obsługiwane przez interfejs API usługi Azure Cosmos DB dla mongodb](mongodb-feature-support.md)
-* [Funkcje Apache Cassandra obsługiwane przez interfejs API Cassandra usługi Azure Cosmos DB](cassandra-support.md)
+* [Wady dostępności i wydajności dla różnych poziomów spójności](consistency-levels-tradeoffs.md)
+* [Funkcje MongoDB obsługiwane przez interfejs API Azure Cosmos DB dla MongoDB](mongodb-feature-support.md)
+* [Funkcje Apache Cassandra obsługiwane przez Azure Cosmos DB interfejs API Cassandra](cassandra-support.md)

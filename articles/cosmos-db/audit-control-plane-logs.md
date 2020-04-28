@@ -4,14 +4,14 @@ description: Dowiedz się, jak przeprowadzać inspekcję operacji płaszczyzny k
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 04/23/2020
 ms.author: sngun
-ms.openlocfilehash: 32dd598b8fc62c0ec68f86f95b02f9f3d98cedd2
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: d380e4c025b35f0000e13c62422d54dc10079524
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116302"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192871"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Jak przeprowadzić inspekcję Azure Cosmos DB operacji na płaszczyźnie kontroli
 

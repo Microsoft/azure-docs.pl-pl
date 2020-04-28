@@ -2,23 +2,23 @@
 title: Szablon z zasobami zależnymi
 description: Dowiedz się, jak utworzyć szablon usługi Azure Resource Manager z wieloma zasobami, a także jak wdrożyć go przy użyciu witryny Azure Portal
 author: mumian
-ms.date: 04/10/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e589fa8ae5627746ec1f04e2098a7b592f00dc24
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: cf876d3c7c100f001ba81082d792e81a777c7315
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684940"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193041"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Samouczek: Tworzenie szablonów ARM z zasobami zależnymi
 
-Dowiedz się, jak utworzyć szablon usługi Azure Resource Manager (ARM) w celu wdrożenia wielu zasobów i skonfigurowania kolejności wdrażania. Po utworzeniu szablonu można wdrożyć szablon przy użyciu powłoki chmury z witryny Azure portal.
+Dowiedz się, jak utworzyć szablon Azure Resource Manager (ARM), aby wdrożyć wiele zasobów i skonfigurować kolejność wdrażania. Po utworzeniu szablonu należy wdrożyć szablon przy użyciu Cloud Shell z Azure Portal.
 
-Instrukcje w tym samouczku pozwalają utworzyć konto magazynu, maszynę wirtualną, sieć wirtualną oraz niektóre inne zasoby zależne. Niektórych zasobów nie można wdrożyć, dopóki nie istnieje inny zasób. Przykładowo nie można utworzyć maszyny wirtualnej, jeżeli nie istnieje konto magazynu i interfejs sieciowy. Relację tę definiuje się, ustawiając jeden zasób jako zależny od innych zasobów. Usługa Resource Manager ocenia zależności pomiędzy zasobami i wdraża je w kolejności opartej na zależności. Gdy zasoby nie zależą od siebie nawzajem, usługa Resource Manager wdraża je równolegle. Aby uzyskać więcej informacji, zobacz [Definiowanie kolejności wdrażania zasobów w szablonach ARM](./define-resource-dependency.md).
+Instrukcje w tym samouczku pozwalają utworzyć konto magazynu, maszynę wirtualną, sieć wirtualną oraz niektóre inne zasoby zależne. Niektórych zasobów nie można wdrożyć, dopóki nie istnieje inny zasób. Przykładowo nie można utworzyć maszyny wirtualnej, jeżeli nie istnieje konto magazynu i interfejs sieciowy. Relację tę definiuje się, ustawiając jeden zasób jako zależny od innych zasobów. Usługa Resource Manager ocenia zależności pomiędzy zasobami i wdraża je w kolejności opartej na zależności. Gdy zasoby nie zależą od siebie nawzajem, usługa Resource Manager wdraża je równolegle. Aby uzyskać więcej informacji, zobacz [Definiowanie kolejności wdrażania zasobów w usłudze ARM](./define-resource-dependency.md).
 
-![Diagram kolejności wdrażania zasobów zależnych od szablonu menedżera zasobów Menedżera zasobów](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
+![Diagram kolejności wdrażania zależnych zasobów szablonu Menedżer zasobów](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 Ten samouczek obejmuje następujące zadania:
 
@@ -27,26 +27,26 @@ Ten samouczek obejmuje następujące zadania:
 > * Eksplorowanie szablonu
 > * Wdrożenie szablonu
 
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Tworzenie szablonów ARM za pomocą programu Visual Studio](use-vs-code-to-create-template.md).
+* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [używanie Visual Studio Code do tworzenia szablonów ARM](use-vs-code-to-create-template.md).
 * Aby zwiększyć bezpieczeństwo, użyj wygenerowanego hasła dla konta administratora maszyny wirtualnej. Poniżej przedstawiono przykład służący do generowania hasła:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Usługa Azure Key Vault została zaprojektowana w celu ochrony kluczy kryptograficznych i innych wpisów tajnych. Aby uzyskać więcej informacji, zobacz [Samouczek: Integrowanie usługi Azure Key Vault we wdrażaniu szablonu ARM](./template-tutorial-use-key-vault.md). Zalecamy również aktualizowanie hasła co trzy miesiące.
+    Usługa Azure Key Vault została zaprojektowana w celu ochrony kluczy kryptograficznych i innych wpisów tajnych. Aby uzyskać więcej informacji, zobacz [Samouczek: integrowanie Azure Key Vault w wdrożeniu szablonu ARM](./template-tutorial-use-key-vault.md). Zalecamy również aktualizowanie hasła co trzy miesiące.
 
 ## <a name="open-a-quickstart-template"></a>Otwieranie szablonu szybkiego startu
 
-Szablony szybki start platformy Azure to repozytorium szablonów ARM. Zamiast tworzyć szablon od podstaw, możesz znaleźć szablon przykładowy i zmodyfikować go. Szablon używany w tym samouczku nazywa się [Wdrożenie prostej maszyny wirtualnej z systemem Windows](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM. Zamiast tworzyć szablon od podstaw, możesz znaleźć szablon przykładowy i zmodyfikować go. Szablon używany w tym samouczku nazywa się [Wdrożenie prostej maszyny wirtualnej z systemem Windows](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. W programie Visual Studio Code wybierz pozycję **Plik**>**otwórz plik**.
+1. W obszarze Visual Studio Code wybierz pozycję **plik**>**Otwórz plik**.
 2. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
 
     ```url
@@ -54,7 +54,7 @@ Szablony szybki start platformy Azure to repozytorium szablonów ARM. Zamiast tw
     ```
 
 3. Wybierz pozycję **Open (Otwórz)**, aby otworzyć plik.
-4. Wybierz **opcję Zapisz plik,**>**Save As** aby zapisać kopię pliku na komputerze lokalnym o nazwie **azuredeploy.json**.
+4. Wybierz pozycję **plik**>**Zapisz jako,** aby zapisać kopię pliku na komputerze lokalnym przy użyciu nazwy **azuredeploy. JSON**.
 
 ## <a name="explore-the-template"></a>Eksplorowanie szablonu
 
@@ -69,16 +69,16 @@ Podczas eksplorowania szablonu w tej sekcji spróbuj odpowiedzieć na następuj�
 
     ![Szablony usługi Azure Resource Manager w programie Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
-    Szablon definiuje sześć zasobów:
+    Istnieje sześć zasobów zdefiniowanych przez szablon:
 
-   * [**Microsoft.Storage/storageKonta .**](/azure/templates/Microsoft.Storage/storageAccounts)
-   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
-   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
-   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
-   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
-   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft. Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft. Network/adresów publicipaddress**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft. Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft. COMPUTE/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
-     Warto przejrzeć odwołanie do szablonu przed dostosowaniem szablonu.
+     Warto zapoznać się z dokumentacją szablonu przed przystąpieniem do dostosowywania szablonu.
 
 1. Rozwiń pierwszy zasób. Jest to konto magazynu. Porównaj definicję zasobu z [odwołaniem do szablonu](/azure/templates/Microsoft.Storage/storageAccounts).
 
@@ -90,13 +90,13 @@ Podczas eksplorowania szablonu w tej sekcji spróbuj odpowiedzieć na następuj�
 
 1. Rozwiń trzeci zasób. Typ zasobu to `Microsoft.Network/networkSecurityGroups`. Porównaj definicję zasobu z [odwołaniem do szablonu](/azure/templates/microsoft.network/networksecuritygroups).
 
-    ![Definicja sieciowej grupy zabezpieczeń szablonów szablonów usługi Azure Resource Manager w programie Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
+    ![Visual Studio Code szablon Azure Resource Manager szablonów grup zabezpieczeń sieci](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
 
 1. Rozwiń czwarty zasób. Typ zasobu to `Microsoft.Network/virtualNetworks`:
 
-    ![Visual Studio Code Usługi Azure Resource Manager szablony zależyOn](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
+    ![Visual Studio Code Azure Resource Manager szablonów dependsOn sieci wirtualnej](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    Element dependsOn umożliwia zdefiniowanie jednego zasobu jako zasobu zależnego od jednego lub większej liczby zasobów. Ten zasób zależy od innego zasobu:
+    Element dependsOn umożliwia zdefiniowanie jednego zasobu jako zasobu zależnego od jednego lub większej liczby zasobów. Ten zasób zależy od jednego innego zasobu:
 
     * `Microsoft.Network/networkSecurityGroups`
 
@@ -118,9 +118,33 @@ Poprzez określenie zależności usługa Resource Manager efektywnie wdraża roz
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-1. Postępuj zgodnie z instrukcjami w [Deploy szablon,](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) aby otworzyć powłokę chmury i przekazać poprawiony szablon.
+1. Zaloguj się do [Azure Cloud Shell](https://shell.azure.com)
+
+1. Wybierz preferowane środowisko, wybierając opcję **PowerShell** lub **bash** (dla interfejsu wiersza polecenia) w lewym górnym rogu.  Po przełączeniu wymagane jest ponowne uruchomienie powłoki.
+
+    ![Azure Portal Cloud Shell przekazywania pliku](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
+
+1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Zobacz poprzedni zrzut ekranu. Wybierz zapisany wcześniej plik. Po przekazaniu pliku można użyć polecenia **ls** i **Cat** polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
 
 1. Uruchom następujący skrypt programu PowerShell, aby wdrożyć szablon.
+
+    # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    echo "Enter the virtual machine admin username:" &&
+    read adminUsername &&
+    echo "Enter the DNS label prefix:" &&
+    read dnsLabelPrefix &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location $location &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters adminUsername=$adminUsername dnsLabelPrefix=$dnsLabelPrefix
+    ```
+
+    # <a name="powershell"></a>[Narzędzia](#tab/PowerShell)
 
     ```azurepowershell
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
@@ -141,19 +165,7 @@ Poprzez określenie zależności usługa Resource Manager efektywnie wdraża roz
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. Uruchom następujące polecenie programu PowerShell, aby wyświetlić nowo utworzoną maszynę wirtualną:
-
-    ```azurepowershell
-    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
-    $resourceGroupName = "${projectName}rg"
-    $vmName = "SimpleWinVM"
-
-    Get-AzVM -Name $vmName -ResourceGroupName $resourceGroupName
-    
-    Write-Host "Press [ENTER] to continue ..."
-    ```
-
-    Nazwa maszyny wirtualnej jest zakodowana jako **SimpleWinVM** wewnątrz szablonu.
+    ---
 
 1. Nawiąż połączenie RDP z maszyną wirtualną, aby sprawdzić, czy została pomyślnie utworzona.
 
@@ -161,14 +173,14 @@ Poprzez określenie zależności usługa Resource Manager efektywnie wdraża roz
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 
-1. W witrynie Azure portal wybierz **grupę zasobów** z lewego menu.
+1. Z Azure Portal z menu po lewej stronie wybierz pozycję **Grupa zasobów** .
 2. Wprowadź nazwę grupy zasobów w polu **Filtruj według nazwy**.
-3. Wybierz nazwę grupy zasobów. Zobaczysz w sumie sześć zasobów w grupie zasobów.
-4. Wybierz **pozycję Usuń grupę zasobów** z górnego menu.
+3. Wybierz nazwę grupy zasobów. Zobaczysz łącznie sześć zasobów w grupie zasobów.
+4. W górnym menu wybierz pozycję **Usuń grupę zasobów** .
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono i wdrożono szablon, aby utworzyć maszynę wirtualną, sieć wirtualną i zasoby zależne. Aby dowiedzieć się, jak używać skryptów wdrażania do wykonywania operacji przed/po wdrożeniu, zobacz:
+W tym samouczku utworzono i wdrożono szablon, aby utworzyć maszynę wirtualną, sieć wirtualną i zasoby zależne. Aby dowiedzieć się, jak używać skryptów wdrażania do wykonywania operacji wykonywanych przed i po wdrożeniu, zobacz:
 
 > [!div class="nextstepaction"]
 > [Używanie skryptu wdrażania](./template-tutorial-deployment-script.md)

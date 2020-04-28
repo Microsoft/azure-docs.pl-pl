@@ -1,6 +1,6 @@
 ---
 title: Co to jest Azure Security Center? | Microsoft Docs
-description: Na tej stronie opisano najważniejsze zalety usługi Security Center — odnajdowanie stanu zabezpieczeń i ulepszanie go za pomocą zasobów w chmurze i zasobów przedwzmowych.
+description: Na tej stronie opisano Security Center kluczowe korzyści — odnajdywanie stanu zabezpieczeń i ulepszanie go z pokryciem zasobów w chmurze i Premium.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: d2e7e157156a4049a5db37b1d5c0e02773adbcc3
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: a02abd931dddd410882dd67a73a5b5fab6dc8cf9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879551"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194894"
 ---
 # <a name="what-is-azure-security-center"></a>Co to jest Centrum zabezpieczeń Azure?
 
@@ -29,7 +29,7 @@ Utrzymywanie bezpieczeństwa zasobów to wspólna odpowiedzialność dostawcy us
 
 Azure Security Center rozwiązuje trzy najbardziej pilne problemy związane z zabezpieczeniami:
 
--   **Szybko zmieniające się obciążenia —** to zarówno siła, jak i wyzwanie chmury. Z jednej strony przed użytkownikami końcowymi otwiera się więcej możliwości. Z drugiej jednak pojawia się problem — jak sprawić, by ciągle zmieniające się usługi, które tworzą i wykorzystują użytkownicy, spełniały standardy bezpieczeństwa i były zgodne z najlepszymi rozwiązaniami dotyczącymi bezpieczeństwa?
+-   **Szybkie zmienianie obciążeń** — jest to siła i wyzwanie dla chmury. Z jednej strony przed użytkownikami końcowymi otwiera się więcej możliwości. Z drugiej jednak pojawia się problem — jak sprawić, by ciągle zmieniające się usługi, które tworzą i wykorzystują użytkownicy, spełniały standardy bezpieczeństwa i były zgodne z najlepszymi rozwiązaniami dotyczącymi bezpieczeństwa?
 
 -   **Coraz bardziej zaawansowane ataki** — wszędzie tam, gdzie pracujesz, ataki stają się coraz bardziej wyrafinowane. Trzeba zabezpieczyć pracę w chmurze publicznej, która jest połączona z Internetem, co sprawia, że jest jeszcze bardziej narażona na ataki w przypadku braku zastosowania najlepszych zabezpieczeń.
 
@@ -37,11 +37,11 @@ Azure Security Center rozwiązuje trzy najbardziej pilne problemy związane z za
 
 Aby sprostać tym wyzwaniom, Security Center oferuje narzędzia umożliwiające:
 
--   **Wzmocnienie postawy zabezpieczeń:** Centrum zabezpieczeń ocenia środowisko i pozwala zrozumieć stan zasobów oraz ich bezpieczeństwo.
+-   **Wzmocnienie stan zabezpieczeń**: Security Center ocenia środowisko i umożliwia zrozumienie stanu zasobów oraz tego, czy są one bezpieczne.
 
--   **Ochrona przed zagrożeniami:** Centrum zabezpieczeń ocenia obciążenia i podnosi zalecenia dotyczące zapobiegania zagrożeniom i alerty zabezpieczeń.
+-   **Ochrona przed zagrożeniami**: Security Center ocenia obciążenia i wywołuje zalecenia dotyczące zapobiegania zagrożeniom oraz alerty zabezpieczeń.
 
--   **Uzyskaj bezpieczeństwo szybciej:** w Centrum zabezpieczeń wszystko odbywa się w chmurze. Dzięki natywnej integracji wdrożenie usługi Security Center jest łatwe i zapewnia automatyczne aprowizowanie i ochronę w ramach usług platformy Azure.
+-   **Szybsza ochrona**: w Security Center wszystko jest wykonywane w szybkości chmury. Dzięki natywnej integracji wdrożenie usługi Security Center jest łatwe i zapewnia automatyczne aprowizowanie i ochronę w ramach usług platformy Azure.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
@@ -49,9 +49,9 @@ Aby sprostać tym wyzwaniom, Security Center oferuje narzędzia umożliwiające:
 
 Ponieważ usługa Security Center jest częścią platformy Azure, usługi PaaS na platformie Azure — w tym Service Fabric, bazy danych SQL i konta magazynu — są monitorowane i chronione przez usługę Security Center bez konieczności każdorazowego wdrażania.
 
-Ponadto usługa Security Center chroni serwery i maszyny wirtualne platformy innych niż platformy Azure w chmurze lub lokalnie, zarówno dla serwerów Windows, jak i Linux, instalując na nich agenta usługi Log Analytics. Maszyny wirtualne Azure są automatycznie aprowizowane w usłudze Security Center.
+Ponadto program Security Center chroni serwery spoza platformy Azure i maszyny wirtualne w chmurze lub lokalnie, w przypadku serwerów z systemami Windows i Linux, instalując na nich agenta Log Analytics. Maszyny wirtualne Azure są automatycznie aprowizowane w usłudze Security Center.
 
-Zdarzenia zebrane z agentów i platformy Azure są skorelowane w aparat analizy zabezpieczeń, aby zapewnić dostosowane zalecenia (zadania hartowania), które należy wykonać, aby upewnić się, że obciążenia są bezpieczne i alerty zabezpieczeń. Alerty należy badać jak najszybciej, aby upewnić się, że nie dochodzi do złośliwych ataków na działające obciążenia.
+Zdarzenia zbierane od agentów i z platformy Azure są skorelowane w aparacie analizy zabezpieczeń, aby zapewnić dostosowane zalecenia (zadania z ograniczeniami funkcjonalności), które należy wykonać, aby upewnić się, że obciążenia są bezpieczne i alerty zabezpieczeń. Alerty należy badać jak najszybciej, aby upewnić się, że nie dochodzi do złośliwych ataków na działające obciążenia.
 
 Po włączeniu usługi Security Center zasady zabezpieczeń wbudowane w usługę Security Center są odzwierciedlane w usłudze Azure Policy jako wbudowana inicjatywa w kategorii Security Center. Wbudowana inicjatywa jest automatycznie przypisywana do wszystkich subskrypcji zarejestrowanych w usłudze Security Center (w warstwach Bezpłatna lub Standardowa). Wbudowana inicjatywa zawiera tylko zasady inspekcji. Aby uzyskać więcej informacji na temat zasad usługi Security Center w usłudze Azure Policy, zobacz [Praca z zasadami zabezpieczeń](tutorial-security-policy.md).
 
@@ -61,15 +61,15 @@ Usługa Azure Security Center umożliwia zwiększanie poziomu bezpieczeństwa. O
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Zarządzanie zasadami zabezpieczeń oraz zgodnością w organizacji
 
-Podstawową sprawą jest zapewnienie, że działające obciążenia są bezpieczne. Aby to osiągnąć, trzeba wdrożyć dostosowane zasady zabezpieczeń. Ponieważ wszystkie zasady w usłudze Security Center są oparte na formantach zasad platformy Azure, otrzymujesz pełny zakres i elastyczność **światowej klasy rozwiązania zasad.** W usłudze Security Center można ustawić uruchamianie zasad bezpieczeństwa na poziomie grupy zarządzania, subskrypcji lub nawet dla jednego dzierżawcy.
+Podstawową sprawą jest zapewnienie, że działające obciążenia są bezpieczne. Aby to osiągnąć, trzeba wdrożyć dostosowane zasady zabezpieczeń. Ze względu na to, że wszystkie zasady w Security Center są zbudowane na podstawie Azure Policy kontrolek, uzyskuje się pełen zakres i elastyczność **rozwiązania światowej klasy**. W usłudze Security Center można ustawić uruchamianie zasad bezpieczeństwa na poziomie grupy zarządzania, subskrypcji lub nawet dla jednego dzierżawcy.
 
 ![Pulpit nawigacyjny usługi Security Center](media/security-center-intro/sc-dashboard.png)
 
-Usługa Security Center ułatwia **identyfikację subskrypcji it w tle**. Sprawdzając subskrypcje oznaczone na pulpicie nawigacyjnym etykietą **Nieobjęte**, można dowiedzieć się natychmiast, że zostały utworzone nowe subskrypcje, i upewnić się, że są objęte zasadami oraz chronione przez usługę Azure Security Center.
+Security Center pomaga **identyfikować subskrypcje IT w tle**. Sprawdzając subskrypcje oznaczone na pulpicie nawigacyjnym etykietą **Nieobjęte**, można dowiedzieć się natychmiast, że zostały utworzone nowe subskrypcje, i upewnić się, że są objęte zasadami oraz chronione przez usługę Azure Security Center.
 
 ![Pulpit nawigacyjny z zasadami w usłudze Security Center](media/security-center-intro/sc-policy-dashboard.png)
 
-Zaawansowane funkcje monitorowania w umykarze zabezpieczeń umożliwiają również **śledzenie zgodności i zarządzania nimi w czasie.** **Ogólna zgodność** zapewnia miarę, jak bardzo subskrypcje są zgodne z zasadami skojarzonymi z obciążeniem. 
+Zaawansowane możliwości monitorowania w Security Center umożliwiają również **śledzenie zgodności i zarządzania oraz zarządzanie nimi**wraz z upływem czasu. **Ogólna zgodność** zapewnia miarę zgodności subskrypcji z zasadami związanymi z obciążeniem. 
 
 ![Zasady w usłudze Security Center w czasie](media/security-center-intro/sc-policy-time.png)
 
@@ -77,13 +77,13 @@ Zaawansowane funkcje monitorowania w umykarze zabezpieczeń umożliwiają równi
 
 Usługa Security Center ciągle wykrywa nowe zasoby wdrażane w różnych obciążeniach i ocenia, czy są one skonfigurowane zgodnie z najlepszymi rozwiązaniami w zakresie zabezpieczeń. Zasoby, które nie spełniają tego wymogu, są oznaczane, a przy tym generowana jest lista zaleceń z określonymi priorytetami. Zalecenia wskazują, co należy zrobić, aby chronić maszyny.
 
-Jednym z najpotężniejszych narzędzi Security Center zapewnia ciągłe monitorowanie stanu zabezpieczeń sieci jest **mapa sieci**. Mapa umożliwia wyświetlenie topologii obciążeń, aby sprawdzić, czy każdy węzeł jest odpowiednio skonfigurowany. Można zobaczyć, jak węzły są połączone, co pomaga blokować niechciane połączenia, które mogą potencjalnie ułatwić osobie atakującej dostanie się do sieci.
+Jednym z najbardziej zaawansowanych narzędzi Security Center zapewnia stałe monitorowanie stanu zabezpieczeń sieci to **Mapa sieciowa**. Mapa umożliwia wyświetlenie topologii obciążeń, aby sprawdzić, czy każdy węzeł jest odpowiednio skonfigurowany. Można zobaczyć, jak węzły są połączone, co pomaga blokować niechciane połączenia, które mogą potencjalnie ułatwić osobie atakującej dostanie się do sieci.
 
 ![Mapa sieci w usłudze Security Center](media/security-center-intro/sc-net-map.png)
 
-Usługa Security Center ułatwia ograniczanie alertów zabezpieczeń o jeden krok, dodając **wynik secure.** Bezpieczne wyniki są teraz skojarzone z każdym zaleceniem, które otrzymujesz, aby pomóc Ci zrozumieć, jak ważne jest każde zalecenie dla ogólnej postawy zabezpieczeń. Ma to kluczowe znaczenie dla umożliwienia **priorytetowego określania priorytetów prac nad bezpieczeństwem.**
+Security Center upraszczają alerty zabezpieczeń w jednym kroku, przez dodanie **bezpiecznego wyniku**. Ważne oceny są teraz skojarzone z każdym zaleceń, które otrzymujesz, aby pomóc zrozumieć, w jaki sposób ważna jest ogólna stan zabezpieczeń. Jest to kluczowe znaczenie w umożliwieniu **określania priorytetów pracy w zabezpieczeniach**.
 
-![Bezpieczny wynik centrum zabezpieczeń](media/security-center-intro/sc-secure-score.png)
+![Security Center zabezpieczonych wyników](media/security-center-intro/sc-secure-score.png)
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Optymalizacja i zwiększanie bezpieczeństwa dzięki konfigurowaniu zalecanych środków kontroli
 
@@ -107,9 +107,9 @@ Ochrona przed zagrożeniami w usłudze Security Center obejmuje kompleksową ana
 
 ![Zalecenie usługi Security Center dotyczące ataku](media/security-center-intro/sc-attack-recommendation.png)
 
-### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integracja z zaawansowaną ochroną przed zagrożeniami w usłudze Microsoft Defender
+### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integracja z usługą Microsoft Defender Advanced Threat Protection
 
-Usługa Security Center obejmuje automatyczną, natywną integrację z zaawansowaną ochroną przed zagrożeniami w usłudze Microsoft Defender. Oznacza to, że bez żadnej konfiguracji komputery z systemem Windows i Linux są w pełni zintegrowane z zaleceniami i ocenami usługi Security Center.
+Security Center obejmuje automatyczną, natywną integrację z usługą Microsoft Defender Advanced Threat Protection. Oznacza to, że bez żadnej konfiguracji maszyny z systemami Windows i Linux są w pełni zintegrowane z zaleceniami i ocenami Security Center.
 
 Ponadto usługa Security Center pozwala zautomatyzować zasady kontroli aplikacji w środowisku serwera. Funkcje adaptacyjnego sterowania aplikacjami w usłudze Security Center umożliwiają włączenie kompleksowego tworzenia listy dozwolonych aplikacji na serwerach z systemem Windows. Nie musisz tworzyć reguł i sprawdzać naruszeń, ponieważ wszystko odbywa się automatycznie.
 
@@ -127,13 +127,13 @@ Usługa Security Center pomaga ograniczyć narażenie na ataki siłowe. Ogranicz
 
 Usługa Security Center obejmuje funkcje, które ułatwiają wykonywanie automatycznej klasyfikacji danych w Azure SQL. Możesz także uzyskać oceny potencjalnych luk w zabezpieczeniach w usługach Azure SQL i Storage oraz zalecenia dotyczące sposobu rozwiązania tych problemów.
 
-### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Ochrona obciążeń IoT i chmury hybrydowej
+### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Ochrona obciążeń związanych z chmurą IoT i hybrydową
 
-Usługa Azure Security Center for IoT (Internet of Things) upraszcza ochronę obciążenia hybrydowego, zapewniając ujednoliconą widoczność i kontrolę, adaptacyjną ochronę przed zagrożeniami oraz inteligentną ochronę przed zagrożeniami i reagowanie między obciążeniami działającymi na platformie edge, lokalnie, na platformie Azure i w innych chmurach. Aby uzyskać więcej informacji, zobacz [Centrum zabezpieczeń platformy Azure dla IoT](https://docs.microsoft.com/azure/asc-for-iot/).
+Azure Security Center IoT (Internet rzeczy) upraszczają hybrydową ochronę obciążenia, zapewniając ujednoliconą widoczność i kontrolę, adaptacyjne zapobieganie zagrożeniom oraz inteligentną ochronę przed zagrożeniami i odpowiedzi w ramach obciążeń działających na urządzeniach brzegowych, lokalnych, na platformie Azure oraz w innych chmurach. Aby uzyskać więcej informacji, zobacz [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Szybsze osiągnięcie bezpieczeństwa
 
-Natywna integracja z platformą Azure (w tym usługi Azure Policy i dzienniki usługi Azure Monitor) w połączeniu z bezproblemową integracją z innymi rozwiązaniami zabezpieczeń firmy Microsoft, takimi jak Microsoft Cloud App Security i Windows Defender Advanced Threat Protection, zapewnia kompleksowe rozwiązanie zabezpieczające, a także proste wdrażanie i wdrażanie.
+Natywna integracja platformy Azure (w tym Azure Policy i dzienników Azure Monitor) z bezproblemową integracją z innymi rozwiązaniami zabezpieczeń firmy Microsoft, takimi jak Microsoft Cloud App Security i usługa Windows Defender Advanced Threat Protection, należy się upewnić, że rozwiązanie zabezpieczeń jest kompleksowe, a także proste do dołączenia.
 
 Ponadto można rozszerzyć pełne rozwiązanie poza platformę Azure na obciążenia działające w innych chmurach, jak i w lokalnych centrach danych.
 
@@ -147,6 +147,6 @@ Rozbudowane kolekcje dzienników — dzienniki z systemów Windows i Linux są w
 
 - Do rozpoczęcia pracy z usługą Security Center jest wymagana subskrypcja platformy Microsoft Azure. Jeśli nie masz subskrypcji, możesz zarejestrować się, aby uzyskać dostęp do [bezpłatnej wersji próbnej](https://azure.microsoft.com/free/).
 
-- Bezpłatna warstwa cenowa usługi Security Center jest włączona we wszystkich bieżących subskrypcjach platformy Azure po raz pierwszy odwiedzić pulpit nawigacyjny Usługi Azure Security Center w witrynie Azure Portal lub jeśli jest włączona programowo za pośrednictwem interfejsu API. Aby korzystać z zaawansowanych funkcji zarządzania zabezpieczeniami i wykrywania zagrożeń, należy uaktualnić do standardowej warstwy cenowej. Warstwa standardowa może być wypróbowana za darmo przez 30 dni. Aby uzyskać więcej informacji, zobacz [stronę z cennikiem usługi Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+- Bezpłatna warstwa cenowa Security Center jest włączona we wszystkich bieżących subskrypcjach platformy Azure, gdy po raz pierwszy odwiedzasz pulpit nawigacyjny Azure Security Center w witrynie Azure Portal lub włączono programowo za pośrednictwem interfejsu API. Aby skorzystać z zaawansowanych możliwości zarządzania zabezpieczeniami i wykrywania zagrożeń, należy przeprowadzić uaktualnienie do warstwy cenowej standardowa. Za 30 dni można bezpłatnie próbować korzystać z warstwy Standardowa. Aby uzyskać więcej informacji, zobacz [stronę z cennikiem usługi Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-- Jeśli chcesz teraz włączyć standard usługi Security Center, przewodnik [Szybki start: Dołączanie subskrypcji platformy Azure do standardu Usługi Security Center](security-center-get-started.md) przeprowadzi Cię przez te kroki.
+- Jeśli wszystko jest gotowe do włączenia Security Center w warstwie Standardowa, [Przewodnik Szybki Start: dołączanie subskrypcji platformy Azure do Security Center Standard](security-center-get-started.md) przeprowadzi Cię przez kolejne kroki.

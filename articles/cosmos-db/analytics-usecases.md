@@ -1,76 +1,76 @@
 ---
-title: Przypadki użycia dla wbudowanej analizy za pomocą usługi Azure Cosmos DB.
-description: Dowiedz się, jak korzystać z wbudowanej analizy z usługą Azure Cosmos DB w różnych przypadkach użycia.
+title: Przypadki użycia dla wbudowanej analizy z Azure Cosmos DB.
+description: Dowiedz się, jak używać wbudowanych analiz z Azure Cosmos DB w różnych przypadkach użycia.
 author: markjbrown
 ms.author: mjbrown
 ms.topic: conceptual
 ms.service: cosmos-db
-ms.date: 09/26/2019
+ms.date: 04/20/2020
 ms.reviewer: sngun
-ms.openlocfilehash: adf1db2d737de7004b5ab71c8e0e44d61d1da8c9
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 9b1c3435222ada52c01f21c2c242dc886f566a81
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768522"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192854"
 ---
-# <a name="use-cases-for-built-in-analytics-with-azure-cosmos-db"></a>Przypadki użycia dla wbudowanej analizy za pomocą usługi Azure Cosmos DB
+# <a name="use-cases-for-built-in-analytics-with-azure-cosmos-db"></a>Przypadki użycia dla wbudowanej analizy z Azure Cosmos DB
 
-Następujące przypadki użycia można osiągnąć przy użyciu wbudowanej analizy za pomocą platformy Apache Spark w usłudze Azure Cosmos DB:
+Następujące przypadki użycia można osiągnąć przy użyciu wbudowanej analizy z Apache Spark w Azure Cosmos DB:
 
 ## <a name="htap-scenarios"></a>Scenariusze HTAP
 
-Wbudowana analiza w usłudze Azure Cosmos DB może służyć do:
+Wbudowana analiza w Azure Cosmos DB może służyć do:
 
-* Wykrywanie oszustw podczas przetwarzania transakcji.
-* Udostępniaj rekomendacje kupującym podczas przeglądania sklepu ECommerce.
-* Ostrzegaj operatorów o zbliżającej się awarii krytycznego elementu produkcji.
-* Twórz szybki i użyteczny wgląd, osadzając analizy w czasie rzeczywistym bezpośrednio na danych operacyjnych.
+* Wykrywaj oszustwo podczas przetwarzania transakcji.
+* Podaj zalecenia do Kupujący podczas przeglądania magazynu handlu elektronicznego.
+* Operatorzy alertów w przypadku nieoczekiwanej awarii krytycznego sprzętu produkcyjnego.
+* Szybko Twórz szczegółowe dane umożliwiające podejmowanie działań, osadzając analizy w czasie rzeczywistym bezpośrednio na danych operacyjnych.
 
-Usługa Azure Cosmos DB obsługuje scenariusze hybrydowego przetwarzania transakcyjnego/analitycznego (HTAP) przy użyciu natywnie wbudowanej platformy Spark apache. Usługa Azure Cosmos DB usuwa separację operacyjną i analityczną, która jest dostępna w przypadku tradycyjnych systemów.
+Azure Cosmos DB obsługuje scenariusze hybrydowego przetwarzania transakcyjnego/analitycznego (HTAP) przy użyciu natywnie wbudowanego Apache Spark. Azure Cosmos DB usuwa separacje i analityczne, które są dostarczane z tradycyjnymi systemami.
 
-## <a name="globally-distributed-data-lake-without-requiring-any-etl"></a>Globalnie rozproszone jezioro danych bez konieczności
+## <a name="globally-distributed-data-lake-without-requiring-any-etl"></a>Globalnie dystrybuowana Usługa Data Lake bez konieczności używania ETL
 
-Dzięki natywnie wbudowanej aplikacji Apache Spark usługa Azure Cosmos DB zapewnia szybki, prosty i skalowalny sposób tworzenia globalnie rozproszonego źródła danych, które zapewnia pojedynczy obraz systemu. Globalnie rozproszone dane wielo modelowe eliminują konieczność inwestowania w drogie potoki i skale ETL na żądanie, rewolucjonizując sposób, w jaki zespoły danych analizują swoje zestawy danych.
+Korzystając z natywnie wbudowanej Apache Spark, Azure Cosmos DB zapewnia szybki, prosty i skalowalny sposób tworzenia globalnie rozproszonej platformy Data Lake, która zapewnia pojedynczy obraz systemu. Globalnie dystrybuowane dane wielomodelowe eliminują potrzebę inwestowania w kosztowne potoki ETL i skalować je na żądanie, revolutionizing w sposób, w jaki zespoły danych analizują zestawy danych.
 
-## <a name="time-series-analytics-over-historic-data"></a>Analiza szeregów czasowych nad danymi historycznymi
+## <a name="time-series-analytics-over-historic-data"></a>Analiza szeregów czasowych dla danych historycznych
 
-W niektórych przypadkach może być konieczne udzielenie odpowiedzi na pytania na podstawie danych w określonym momencie w czasie w przypadku zdarzeń zakończonych w przeszłości. Na przykład, aby uzyskać liczbę stanów działania CRM w określonym dniu. Jeśli raport został uruchomiony tydzień temu, liczba stanów będzie taka, jak na stanach każdego działania w tym momencie. Prowadzenie tego samego sprawozdania dzisiaj daje liczbę działań, których statusy są takie, jakie są dzisiaj, które mogą ulec zmianie od zeszłego tygodnia, ponieważ przechodzą przez ich cykl życia od otwartego do zamkniętego. Tak, należy raport na migawki na każdym etapie cyklu życia sprawy.
+W niektórych przypadkach może być konieczne udzielenie odpowiedzi na pytania na podstawie danych, jak w określonym punkcie czasu, w przypadku zdarzeń zakończonych w przeszłości. Na przykład, aby uzyskać liczbę stanów działania CRM w określonym dniu. Jeśli raport został uruchomiony w tygodniu temu, liczba Stanów będzie taka sama jak stan poszczególnych działań w tym momencie. Uruchomienie tego samego raportu spowoduje udostępnienie liczby działań, których Stany są aktualne, które mogły ulec zmianie od ostatniego tygodnia, ponieważ przechodzą przez cykl życia od otwarcia do zamknięcia. Dlatego należy zgłosić migawkę na każdym etapie cyklu życia sprawy.
 
-Dzięki usłudze Azure Cosmos DB użytkownicy mają możliwość zaimplementowania koncepcji podróży w czasie, możliwość wykonywania zapytań i uruchamiania analizy danych retrospektywnie i pytania o wygląd danych w określonym punkcie czasu w historii. Oznacza to, że użytkownicy mogą łatwo przeglądać zarówno bieżące, jak i historyczne widoki danych i uruchamiać na nich analizę.
+Dzięki Azure Cosmos DB użytkownicy mogą wdrożyć koncepcję czasu podróży, dzięki czemu można wykonywać zapytania i uruchamiać analizę danych z mocą wsteczną oraz uzyskać informacje na temat sposobu, w jaki dane są oglądane w określonym punkcie czasu w historii. Oznacza to, że użytkownicy mogą łatwo wyświetlać zarówno bieżące, jak i historyczne widoki danych, a następnie uruchamiać na nich analizy.
 
-## <a name="globally-distributed-machine-learning-and-ai"></a>Globalnie rozproszone uczenie maszynowe i ai
+## <a name="globally-distributed-machine-learning-and-ai"></a>Globalnie rozproszona usługa Machine Learning i AI
 
-Ponieważ firmy zmagają się z szybko rosnącą ilością danych i rosnącą różnorodnością typów i formatów danych, możliwość uzyskania głębszych i dokładniejszych informacji staje się prawie niemożliwa w skali petabajtów na całym świecie. Dzięki natywnie wbudowanej platformie Apache Spark usługa Azure Cosmos DB zapewnia globalnie rozproszoną platformę analityczną, która oferuje obszerną bibliotekę algorytmów uczenia maszynowego. Interaktywnych notesów Jupyter można używać do tworzenia i szkolenia modeli oraz funkcji zarządzania klastrami. Te możliwości umożliwiają aprowizowanie wysoce dostrojonych i autoelastyczna klastrów Platformy Spark na żądanie.
+Ponieważ firmy będą konkurować o z szybko rosnącą ilością danych i rozszerzają różne typy danych i formaty, możliwość uzyskania dokładniejszych i dokładniejszych informacji na skalę petabajtów na całym świecie. Korzystając z natywnie wbudowanej Apache Spark, Azure Cosmos DB oferuje globalnie dystrybuowaną platformę analityczną, która oferuje szeroką gamę algorytmów uczenia maszynowego. Interaktywnych notesów Jupyter można używać do tworzenia i uczenia modeli oraz funkcji zarządzania klastrami. Te funkcje umożliwiają udostępnianie wysoce dostrojonych i elastycznych samochodów Spark na żądanie.
 
-## <a name="deep-learning-on-multi-model-globally-distributed-data"></a>Głębokie uczenie na wielosmodelowych danych rozproszonych globalnie
+## <a name="deep-learning-on-multi-model-globally-distributed-data"></a>Szczegółowa nauka dla wielomodelowych danych dystrybuowanych globalnie
 
-Uczenie głębokie to idealny sposób na dostarczanie rozwiązań do analizy predykcyjnej dużych zbiorów danych w miarę wzrostu ilości i złożoności danych. Dzięki głębokiemu uczeniu firmy mogą wykorzystać moc nieustrukturyzowanych i częściowo ustrukturyzowanych danych, aby dostarczać przypadki użycia, które wykorzystują techniki, takie jak AI, przetwarzanie języka naturalnego i inne.
+Uczenie głębokie to idealny sposób zapewnienia rozwiązań do analizy predykcyjnej danych Big Data, jak ilość danych i złożoność nadal rośnie. Dzięki głębokiej uczeniu firmy mogą korzystać z możliwości danych bez struktury i z częściową strukturą w celu dostarczania przypadków użycia wykorzystujących takie techniki jak AI, przetwarzanie języka naturalnego i inne.
 
-## <a name="reporting-integrating-with-power-apps-power-bi"></a>Raportowanie (integrowanie się z aplikacjami power, usługa Power BI)
+## <a name="reporting-integrating-with-power-apps-power-bi"></a>Raportowanie (Integrowanie z aplikacjami zaawansowanymi, Power BI)
 
-Usługa Power BI udostępnia interaktywne wizualizacje z możliwością samoobsługowej analizy biznesowej, umożliwiając użytkownikom końcowym samodzielne tworzenie raportów i pulpitów nawigacyjnych. Korzystając z wbudowanego łącznika platformy Spark, można połączyć program Power BI Desktop z klastrami Platformy Spark apache w usłudze Azure Cosmos DB. Ten łącznik umożliwia użycie zapytania bezpośredniego do odciążania przetwarzania do platformy Apache Spark w usłudze Azure Cosmos DB, co jest doskonałe, gdy masz ogromną ilość danych, które nie chcesz ładować do usługi Power BI lub gdy chcesz przeprowadzić analizę w czasie zbliżonym do rzeczywistego.
+Power BI udostępnia interaktywne wizualizacje z funkcjami analizy biznesowej samoobsługowych, co umożliwia użytkownikom końcowym samodzielne tworzenie raportów i pulpitów nawigacyjnych. Korzystając z wbudowanego łącznika Spark, można połączyć Power BI Desktop z klastrami Apache Spark w Azure Cosmos DB. Ten łącznik umożliwia użycie zapytania bezpośredniego do odciążenia przetwarzania do Apache Spark w Azure Cosmos DB, co jest doskonałe w przypadku dużej ilości danych, które nie mają być ładowane do Power BI lub gdy chcesz przeprowadzić analizę niemal w czasie rzeczywistym.
 
-## <a name="iot-analytics-at-global-scale"></a>Analiza IoT w skali globalnej
+## <a name="iot-analytics-at-global-scale"></a>Analiza IoT na skalę globalną
 
-Dane generowane przez rosnące czujniki sieciowe zapewniają bezprecedensowy wgląd w wcześniej nieprzezroczyste systemy i procesy. Kluczem jest znalezienie użytecznych spostrzeżeń w tym potoku informacji, niezależnie od tego, gdzie urządzenia IoT są dystrybuowane na całym świecie. Usługa Azure Cosmos DB umożliwia firmom IOT analizowanie czujników o dużej prędkości i danych szeregów czasowych w czasie rzeczywistym w dowolnym miejscu na świecie. Pozwala wykorzystać prawdziwą wartość połączonego świata, aby zapewnić lepsze doświadczenia klientów, wydajność operacyjną i nowe możliwości uzyskania przychodów.
+Dane generowane przez zwiększenie czujników sieci zapewniają niezrównaną widoczność wcześniej nieprzezroczystych systemów i procesów. Kluczem jest znalezienie szczegółowych informacji z możliwością podejmowania działań w tym torrentu, niezależnie od tego, gdzie urządzenia IoT są rozproszone na całym świecie. Azure Cosmos DB umożliwia firmom IOT analizowanie czujnika wysokiej prędkości i danych szeregów czasowych w czasie rzeczywistym w dowolnym miejscu na całym świecie. Pozwala to na wykorzystanie prawdziwej wartości połączonego świata w celu zapewnienia ulepszonego środowiska klienta, efektywności operacyjnej i nowych możliwości przychodów.
 
 ## <a name="stream-processing-and-event-analytics"></a>Przetwarzanie strumienia i analiza zdarzeń 
 
-Od plików dziennika po dane z czujników , firmy coraz częściej muszą radzić sobie z "strumieniami" danych. Te dane docierają w stałym strumieniu, często z wielu źródeł jednocześnie. Chociaż jest to możliwe do przechowywania tych strumieni danych na dysku i analizować je retrospektywnie, czasami może być rozsądne lub ważne do przetwarzania i działania na danych, jak nadejdzie. Na przykład strumienie danych związanych z transakcjami finansowymi mogą być przetwarzane w czasie rzeczywistym w celu zidentyfikowania i odrzucenia potencjalnie oszukańczych transakcji.
+Z plików dziennika do danych czujników, firmy coraz częściej mają potrzebę poradzić sobie z "strumieniami" danych. Te dane docierają do stałego strumienia, często z wielu źródeł jednocześnie. Chociaż jest możliwe, że te strumienie danych są przechowywane na dysku i przeanalizowane z mocą wsteczną, może być czasem rozsądne lub ważne, aby przetwarzać i podejmować działania dotyczące danych w miarę ich odbierania. Na przykład strumienie danych związanych z transakcjami finansowymi można przetwarzać w czasie rzeczywistym w celu identyfikowania i odrzucania potencjalnie fałszywych transakcji.
 
-## <a name="interactive-analytics"></a>Interaktywna analityka
+## <a name="interactive-analytics"></a>Interaktywna analiza
 
-Oprócz uruchamiania wstępnie zdefiniowanych zapytań w celu tworzenia statycznych pulpitów nawigacyjnych dla sprzedaży, produktywności lub cen akcji, możesz interaktywnie eksplorować dane. Interaktywna analiza pozwala zadawać pytania, przeglądać wyniki, zmieniać pytanie początkowe na podstawie odpowiedzi lub pogłębiać wyniki. Apache Spark w usłudze Azure Cosmos DB obsługuje interaktywne zapytania, szybko odpowiadając i dostosowując się.
+Oprócz uruchamiania wstępnie zdefiniowanych zapytań w celu tworzenia statycznych pulpitów nawigacyjnych do sprzedaży, produktywności lub cen giełdowych możesz chcieć interaktywnie eksplorować dane. Interaktywna analiza umożliwia zadawanie pytań, wyświetlanie wyników, zmianę początkowego pytania na podstawie odpowiedzi lub dokładniejsze przechodzenie do wyników. Apache Spark w Azure Cosmos DB obsługuje interaktywne zapytania przez szybkie reagowanie i adaptację.
 
-## <a name="data-exploration-using-jupyter-notebooks"></a>Eksploracja danych przy użyciu notebooków Jupyter
+## <a name="data-exploration-using-jupyter-notebooks"></a>Eksploracja danych przy użyciu notesów Jupyter
 
-Jeśli masz nowy zestaw danych, przed zapoznaniem się z uruchomionymi modelami i testami, musisz sprawdzić swoje dane. Innymi słowy, należy przeprowadzić analizę danych odkrywczych. Eksploracja danych może stanowić podstawę do podjęcia kilku decyzji. Na przykład można znaleźć szczegóły, takie jak metody, które są odpowiednie do użycia w danych, czy dane spełniają określone założenia modelowania, czy dane powinny być czyszczone, zrestrukturyzowane itp. Korzystając z natywnie wbudowanych notesów Jupyter i platformy Apache Spark usługi Azure Cosmos DB, można wykonać szybką i skuteczną analizę danych eksploracyjnych na danych transakcyjnych i analitycznych.
+Jeśli masz nowy zestaw danych, przed szczegółowe do uruchamiania modeli i testów musisz sprawdzić dane. Innymi słowy, należy przeprowadzić analizę danych. Eksploracja danych może informować kilka decyzji. Na przykład można znaleźć szczegółowe informacje, takie jak metody, które są odpowiednie do użycia w danych, niezależnie od tego, czy dane są zgodne z pewnymi założeniami modelowania, czy dane mają być czyszczone, poddane restrukturyzacji itd. Korzystając Azure Cosmos DB z natywnie wbudowanych notesów Jupyter i Apache Spark, można szybko i wydajnie analizować dane w firmie i danych analitycznych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć pracę z tymi przypadkami użycia w następnej wiadomości, przejdź do następujących artykułów:
+Aby rozpocząć pracę z tymi przypadkami użycia, przejdź do następujących artykułów:
 
-* [Wbudowane notesy Jupyter w usłudze Azure Cosmos DB](cosmosdb-jupyter-notebooks.md)
+* [Wbudowane notesy Jupyter w Azure Cosmos DB](cosmosdb-jupyter-notebooks.md)
 * [Jak włączyć notesy dla kont usługi Azure Cosmos](enable-notebooks.md)
 * [Tworzenie notesu do analizowania i wizualizowania danych](create-notebook-visualize-data.md)

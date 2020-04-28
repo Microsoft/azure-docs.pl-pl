@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/09/2020
-ms.openlocfilehash: e27b65346ba8d48e36d080d66754db9605259e2b
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 87c3e2439d1b4bef4a58663e3ea06d8bb7cb9b19
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82144418"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192539"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Jakie składniki Apache Hadoop i wersje są dostępne w usłudze HDInsight?
 
@@ -57,7 +57,7 @@ Wersje składników skojarzone z wersjami klastra usługi HDInsight są wymienio
 
 Wersje składników środowiska Hadoop skojarzone z wersjami klastra usługi HDInsight mogą ulec zmianie przy użyciu aktualizacji usługi HDInsight. Aby sprawdzić składniki usługi Hadoop i sprawdzić, które wersje są używane dla klastra, użyj interfejsu API REST Ambari. Polecenie **GetComponentInformation** pobiera informacje o składnikach usługi. Aby uzyskać szczegółowe informacje, zobacz [dokumentację usługi Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-### <a name="release-notes"></a>Informacje o wersji
+### <a name="release-notes"></a>Uwagi do wersji
 
 Zobacz [Informacje o wersji usługi HDInsight](hdinsight-release-notes.md) , aby uzyskać dodatkowe informacje o wersji dotyczące najnowszych wersji usługi HDInsight.
 
@@ -77,8 +77,8 @@ W poniższej tabeli wymieniono wersje usługi HDInsight, które są dostępne w 
 
 | Wersja usługi HDInsight | System operacyjny maszyny wirtualnej | Data wydania | Data wygaśnięcia pomocy technicznej | Data wycofania | Wysoka dostępność |  Dostępność w Azure Portal |
 | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 |Ubuntu 16.0.4 LTS |Wrzesień 24, 2018 | | |Yes |Yes |
-| HDInsight 3,6 |Ubuntu 16.0.4 LTS |4 kwietnia 2017 | 31 grudnia 2020 |31 grudnia 2020 |Yes |Yes |
+| HDInsight 4.0 |Ubuntu 16.0.4 LTS |Wrzesień 24, 2018 | | |Tak |Tak |
+| HDInsight 3,6 |Ubuntu 16.0.4 LTS |4 kwietnia 2017 | 31 grudnia 2020 |31 grudnia 2020 |Tak |Tak |
 
 Platforma Spark 2,1, 2,2 & Kafka 1,0 wygaśnie 30 czerwca 2020.
 
@@ -91,14 +91,14 @@ W poniższej tabeli wymieniono wersje usługi HDInsight, które **nie są** dost
 
 | Wersja usługi HDInsight | Wersja HDP | System operacyjny maszyny wirtualnej | Data wydania | Data wygaśnięcia pomocy technicznej | Data wycofania | Wysoka dostępność |  Dostępność Azure Portal |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3,5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 września 2016 |5 września 2017 |28 czerwca 2018 |Yes |Nie |
-| HDInsight 3,4 |HDP 2,4 |Ubuntu 14.0.4 LTS |29 marca 2016 |29 grudnia 2016 |9 stycznia 2018 r. |Yes |Nie |
-| HDInsight 3,3 |HDP 2,3 |Windows Server 2012 R2 |2 grudnia 2015 |27 czerwca 2016 r. |31 lipca 2018 r. |Yes |Nie |
-| HDInsight 3,3 |HDP 2,3 |Ubuntu 14.0.4 LTS |2 grudnia 2015 |27 czerwca 2016 r. |31 lipca 2017 |Yes |Nie |
-| HDInsight 3,2 |HDP 2,2 |Ubuntu 12,04 LTS lub Windows Server 2012 R2 |18 lutego 2015 |1 marca 2016 |1 kwietnia 2017 r. |Yes |Nie |
-| HDInsight 3,1 |HDP 2,1 |Windows Server 2012 R2 |24 czerwca 2014 |18 maja 2015 |30 czerwca 2016 |Yes |Nie |
-| HDInsight 3,0 |HDP 2,0 |Windows Server 2012 R2 |11 lutego 2014 |17 września 2014 |30 czerwca 2015 |Yes |Nie |
-| HDInsight 2,1 |HDP 1,3 |Windows Server 2012 R2 |28 października 2013 |12 maja 2014 |31 maja 2015 |Yes |Nie |
+| HDInsight 3,5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 września 2016 |5 września 2017 |28 czerwca 2018 |Tak |Nie |
+| HDInsight 3,4 |HDP 2,4 |Ubuntu 14.0.4 LTS |29 marca 2016 |29 grudnia 2016 |9 stycznia 2018 r. |Tak |Nie |
+| HDInsight 3,3 |HDP 2,3 |Windows Server 2012 R2 |2 grudnia 2015 |27 czerwca 2016 r. |31 lipca 2018 r. |Tak |Nie |
+| HDInsight 3,3 |HDP 2,3 |Ubuntu 14.0.4 LTS |2 grudnia 2015 |27 czerwca 2016 r. |31 lipca 2017 |Tak |Nie |
+| HDInsight 3,2 |HDP 2,2 |Ubuntu 12,04 LTS lub Windows Server 2012 R2 |18 lutego 2015 |1 marca 2016 |1 kwietnia 2017 r. |Tak |Nie |
+| HDInsight 3,1 |HDP 2,1 |Windows Server 2012 R2 |24 czerwca 2014 |18 maja 2015 |30 czerwca 2016 |Tak |Nie |
+| HDInsight 3,0 |HDP 2,0 |Windows Server 2012 R2 |11 lutego 2014 |17 września 2014 |30 czerwca 2015 |Tak |Nie |
+| HDInsight 2,1 |HDP 1,3 |Windows Server 2012 R2 |28 października 2013 |12 maja 2014 |31 maja 2015 |Tak |Nie |
 | HDInsight 1,6 |HDP 1,1 | |28 października 2013 |26 kwietnia 2014 |31 maja 2015 |Nie |Nie |
 
 > [!NOTE]  

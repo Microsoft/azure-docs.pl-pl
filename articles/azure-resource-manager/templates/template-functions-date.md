@@ -1,39 +1,39 @@
 ---
-title: Funkcje szablonu - data
-description: W tym artykule opisano funkcje używane w szablonie usługi Azure Resource Manager do pracy z datami.
+title: Funkcje szablonu — Data
+description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pracy z datami.
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: 364b41e9e92cb248a7bd2fac5a41eb535adbf440
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.date: 04/27/2020
+ms.openlocfilehash: 0c31b26361a262a502b2a9e0fb068391846cab4b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084791"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192301"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funkcje daty dla szablonów ARM
 
-Menedżer zasobów udostępnia następujące funkcje do pracy z datami w szablonach usługi Azure Resource Manager (ARM):
+Menedżer zasobów udostępnia następujące funkcje do pracy z datami w szablonach Azure Resource Manager (ARM):
 
 * [dateTimeAdd](#datetimeadd)
-* [Utcnow](#utcnow)
+* [utcNow](#utcnow)
 
 ## <a name="datetimeadd"></a>dateTimeAdd
 
 `dateTimeAdd(base, duration, [format])`
 
-Dodaje czas trwania do wartości podstawowej. Oczekuje się formatu ISO 8601.
+Dodaje czas trwania do wartości podstawowej. Oczekiwano formatu ISO 8601.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| base | Yes | ciąg | Wartość data początkowatime dla dodania. Użyj [formatu sygnatury czasowej ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
-| czas trwania | Yes | ciąg | Wartość czasu, aby dodać do podstawy. Może to być wartość ujemna. Użyj [formatu czasu trwania ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| format | Nie | ciąg | Format wyjściowy dla wyniku daty. Jeśli nie podano, używany jest format wartości podstawowej. Użyj [ciągów w formacie standardowym](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [ciągów formatu niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| base | Tak | ciąg | Wartość daty i godziny dla dodania. Użyj [formatu znacznika czasu ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
+| czas trwania | Tak | ciąg | Wartość czasu, która ma zostać dodana do bazy. Może być wartością ujemną. Użyj [formatu czasu trwania ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| format | Nie | ciąg | Format danych wyjściowych dla wyniku daty i godziny. Jeśli nie zostanie podany, zostanie użyty format wartości podstawowej. Użyj [standardowych ciągów formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [niestandardowych ciągów formatu](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Wartość datetime, która wynika z dodania wartości czasu trwania do wartości podstawowej.
+Wartość daty/godziny, która wynika z dodania wartości czasu trwania do wartości podstawowej.
 
 ### <a name="examples"></a>Przykłady
 
@@ -72,15 +72,15 @@ Poniższy przykładowy szablon pokazuje różne sposoby dodawania wartości czas
 }
 ```
 
-Gdy poprzedni szablon jest wdrażany z `2020-04-07 14:53:14Z`czasem bazowym , dane wyjściowe są następujące:
+Gdy poprzedni szablon zostanie wdrożony z czasem podstawowym programu `2020-04-07 14:53:14Z`, dane wyjściowe są następujące:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| add3Years | Ciąg | 4.07.2023 14:53:14 |
-| odejmowanie9Dni | Ciąg | 29.03.2020 14:53:14 |
-| dodaj 1godzina | Ciąg | 4.07.2020 15:53:14 |
+| add3Years | String | 4/7/2023 2:53:14 PM |
+| subtract9Days | String | 3/29/2020 2:53:14 PM |
+| add1Hour | String | 4/7/2020 3:53:14 PM |
 
-Następny przykładowy szablon pokazuje, jak ustawić godzinę rozpoczęcia dla harmonogramu automatyzacji.
+Następny przykładowy szablon pokazuje, jak ustawić godzinę rozpoczęcia harmonogramu automatyzacji.
 
 ```json
 {
@@ -134,33 +134,33 @@ Następny przykładowy szablon pokazuje, jak ustawić godzinę rozpoczęcia dla 
 }
 ```
 
-## <a name="utcnow"></a>Utcnow
+## <a name="utcnow"></a>utcNow
 
 `utcNow(format)`
 
-Zwraca bieżącą (UTC) wartość datetime w określonym formacie. Jeśli nie podano żadnego formatu, używany jest format ISO 8601 (yyyyMMddTHHmmssZ). **Ta funkcja może być używana tylko w wartości domyślnej parametru.**
+Zwraca bieżącą wartość daty/godziny w określonym formacie. Jeśli format nie jest podany, używany jest format ISO 8601 (yyyyMMddTHHmmssZ). **Tej funkcji można użyć tylko w wartości domyślnej dla parametru.**
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| format |Nie |ciąg |Wartość zakodowana w identyfikatorze URI do konwersji na ciąg. Użyj [ciągów w formacie standardowym](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [ciągów formatu niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Nie |ciąg |Zakodowana wartość identyfikatora URI w celu przekonwertowania na ciąg. Użyj [standardowych ciągów formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [niestandardowych ciągów formatu](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Uwagi
 
-Tej funkcji można używać tylko w wyrażeniu dla domyślnej wartości parametru. Użycie tej funkcji w dowolnym miejscu w szablonie zwraca błąd. Funkcja nie jest dozwolona w innych częściach szablonu, ponieważ zwraca inną wartość za każdym razem, gdy jest wywoływana. Wdrożenie tego samego szablonu o tych samych parametrach nie będzie niezawodnie dawać takie same wyniki.
+Tej funkcji można użyć tylko w wyrażeniu dla wartości domyślnej parametru. Użycie tej funkcji w dowolnym miejscu w szablonie powoduje zwrócenie błędu. Funkcja nie jest dozwolona w innych częściach szablonu, ponieważ zwraca inną wartość za każdym razem, gdy jest wywoływana. Wdrożenie tego samego szablonu z tymi samymi parametrami nie da niezawodnego wygenerowania tych samych wyników.
 
-Jeśli [użyjesz opcji, aby ponownie wdrożyć wcześniejsze pomyślne wdrożenie](rollback-on-error.md), a wcześniejsze wdrożenie zawiera parametr, który używa utcNow, parametr nie jest ponownie oceniony. Zamiast tego wartość parametru z wcześniejszego wdrożenia jest automatycznie ponownie w wdrożeniu wycofywania.
+Jeśli zostanie użyta [opcja ponownego wdrożenia wcześniejszego pomyślnego wdrożenia](rollback-on-error.md), a wcześniejsze wdrożenie zawiera parametr, który używa UtcNow, parametr nie zostanie ponownie oceniony. Zamiast tego wartość parametru z wcześniejszego wdrożenia zostanie automatycznie ponownie użyta w ramach wdrożenia wycofywania.
 
-Należy zachować ostrożność ponownego rozmieszczenia szablonu, który opiera się na funkcji utcNow dla wartości domyślnej. Po ponownym wedniesieniu i nie podasz wartości parametru, funkcja jest ponownie indeksowana. Jeśli chcesz zaktualizować istniejący zasób, a nie utworzyć nowy, przekaż wartość parametru z wcześniejszego wdrożenia.
+Należy zachować ostrożność wdrażania szablonu, który opiera się na funkcji utcNow dla wartości domyślnej. Po ponownym wdrożeniu i niepodaniu wartości parametru funkcja jest ponownie Szacowana. Jeśli chcesz zaktualizować istniejący zasób zamiast tworzyć nowe, przekaż wartość parametru z wcześniejszego wdrożenia.
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Bieżąca wartość datatime UTC.
+Bieżąca wartość DateTime czasu UTC.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykładowy szablon przedstawia różne formaty dla wartości datetime.
+Poniższy przykładowy szablon pokazuje różne formaty wartości daty i godziny.
 
 ```json
 {
@@ -199,15 +199,15 @@ Poniższy przykładowy szablon przedstawia różne formaty dla wartości datetim
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu różnią się dla każdego wdrożenia, ale będą podobne do:
+Dane wyjściowe z powyższego przykładu różnią się w zależności od wdrożenia, ale będą podobne do następujących:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| utcOutput (Polski) | ciąg | 20190305T175318Z |
+| utcOutput | ciąg | 20190305T175318Z |
 | utcShortOutput | ciąg | 03/05/2019 |
 | utcCustomOutput | ciąg | 3 5 |
 
-W następnym przykładzie pokazano, jak używać wartości z funkcji podczas ustawiania wartości znacznika.
+W następnym przykładzie pokazano, jak używać wartości z funkcji podczas ustawiania wartości tagu.
 
 ```json
 {
@@ -242,3 +242,7 @@ W następnym przykładzie pokazano, jak używać wartości z funkcji podczas ust
     }
 }
 ```
+
+## <a name="next-steps"></a>Następne kroki
+
+* Opis sekcji w szablonie Azure Resource Manager można znaleźć w temacie [Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).

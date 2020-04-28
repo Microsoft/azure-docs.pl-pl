@@ -1,19 +1,19 @@
 ---
-title: Tworzenie niezawodnej aplikacji Java dla usług Azure Service Fabric w systemie Linux
+title: Tworzenie aplikacji Java dla niezawodnych aktorów platformy Azure Service Fabric w systemie Linux
 description: Dowiedz się, jak utworzyć i wdrożyć aplikację Java z elementami Reliable Actors usługi Service Fabric w ciągu pięciu minut.
 ms.topic: conceptual
 ms.date: 06/18/2018
-ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d09666bad7b4e03b8598191d99a9db717c277d4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458165"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193568"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Tworzenie pierwszej aplikacji Java z interfejsem Reliable Actors usługi Service Fabric w systemie Linux
 > [!div class="op_single_selector"]
 > * [Java — Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [C# — Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
@@ -204,22 +204,22 @@ Wdrażanie skompilowanej aplikacji przebiega tak samo jak w przypadku innych apl
 
 Parametry tych poleceń można znaleźć w manifestach wygenerowanych w pakiecie aplikacji.
 
-Po wdrożeniu aplikacji otwórz przeglądarkę i przejdź do narzędzia [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) pod adresem [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+Po wdrożeniu aplikacji otwórz przeglądarkę i przejdź do narzędzia [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) pod adresem `http://localhost:19080/Explorer`.
 Następnie rozwiń węzeł **Aplikacje** i zwróć uwagę, że istnieje teraz wpis dla danego typu aplikacji i inny wpis dla pierwszego wystąpienia tego typu.
 
 > [!IMPORTANT]
-> Aby wdrożyć aplikację do bezpiecznego klastra systemu Linux na platformie Azure, należy skonfigurować certyfikat, aby sprawdzić poprawność aplikacji w czasie wykonywania sieci szkieletowej usług. W ten sposób umożliwia usługi Reliable Actors do komunikowania się z podstawowych interfejsów API środowiska uruchomieniowego sieci szkieletowej usług. Aby dowiedzieć się więcej, zobacz [Konfigurowanie aplikacji Niezawodne usługi do uruchamiania w klastrach systemu Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Aby wdrożyć aplikację do bezpiecznego klastra z systemem Linux na platformie Azure, musisz skonfigurować certyfikat w celu weryfikacji aplikacji przy użyciu środowiska uruchomieniowego Service Fabric. Dzięki temu usługi Reliable Actors mogą komunikować się z podstawowymi interfejsami API środowiska uruchomieniowego Service Fabric. Aby dowiedzieć się więcej, zobacz [Konfigurowanie aplikacji Reliable Services do uruchamiania w klastrach systemu Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Uruchamianie klienta testowego i przechodzenie w tryb failover
 Aktorzy nie pełnią samodzielnie żadnej funkcji. Wymagają wysyłania do nich komunikatów przez inną usługę lub innego klienta. Szablon aktora zawiera prosty skrypt testowy, którego można użyć do interakcji z usługą aktora.
 
 > [!Note]
-> Klient testowy używa ActorProxy klasy do komunikowania się z aktorami, które muszą działać w ramach tego samego klastra jako usługi aktora lub współużytkować tę samą przestrzeń adresu IP.  Klienta testowego można uruchomić na tym samym komputerze co klaster lokalnego rozwoju.  Aby komunikować się z podmiotami w klastrze zdalnym, należy jednak wdrożyć bramę w klastrze, która obsługuje komunikację zewnętrzną z podmiotami.
+> Klient testowy używa klasy ActorProxy do komunikacji z aktorami, które muszą być uruchamiane w ramach tego samego klastra, co usługa aktora, lub współużytkować tę samą przestrzeń adresów IP.  Klienta testowego można uruchomić na tym samym komputerze co lokalny klaster projektowy.  Jednak aby komunikować się z aktorami w klastrze zdalnym, należy wdrożyć bramę w klastrze, która obsługuje komunikację zewnętrzną z aktorami.
 
 1. Uruchom skrypt za pomocą narzędzia kontrolnego, aby wyświetlić dane wyjściowe usługi aktora.  Skrypt testowy wywołuje metodę `setCountAsync()` dla aktora w celu zwiększenia wartości licznika, wywołuje metodę `getCountAsync()` dla aktora w celu pobrania nowej wartości licznika i wyświetla tę wartość w konsoli.
 
-   W przypadku systemu MAC OS X należy skopiować folder HelloWorldTestClient do jakiejś lokalizacji wewnątrz kontenera, uruchamiając następujące polecenia dodatkowe.    
+   W przypadku systemu MAC OS X należy skopiować folder HelloWorldTestClient do lokalizacji wewnątrz kontenera, uruchamiając następujące polecenia dodatkowe.    
     
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
@@ -232,7 +232,7 @@ Aktorzy nie pełnią samodzielnie żadnej funkcji. Wymagają wysyłania do nich 
     watch -n 1 ./testclient.sh
     ```
 
-2. W narzędziu Service Fabric Explorer zlokalizuj węzeł, w którym znajduje się replika podstawowa usługi aktora. Na poniższym zrzucie ekranu jest to węzeł 3. Replika podstawowa usługi obsługuje operacje odczytu i zapisu.  Zmiany w stanie usługi są następnie replikowane do replik pomocniczych, uruchomione w węzłach 0 i 1 na poniższym zrzucie ekranu.
+2. W narzędziu Service Fabric Explorer zlokalizuj węzeł, w którym znajduje się replika podstawowa usługi aktora. Na poniższym zrzucie ekranu jest to węzeł 3. Replika podstawowa usługi obsługuje operacje odczytu i zapisu.  Zmiany stanu usługi są następnie replikowane do replik pomocniczych, uruchomione w węzłach 0 i 1 na poniższym zrzucie ekranu.
 
     ![Znajdowanie repliki podstawowej w narzędziu Service Fabric Explorer][sfx-primary]
 

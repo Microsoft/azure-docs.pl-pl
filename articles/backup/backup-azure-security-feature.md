@@ -1,124 +1,124 @@
 ---
 title: Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe
-description: Dowiedz się, jak korzystać z funkcji zabezpieczeń w usłudze Azure Backup w celu zwiększenia bezpieczeństwa kopii zapasowych
+description: Dowiedz się, jak używać funkcji zabezpieczeń w programie Azure Backup, aby tworzyć kopie zapasowe bardziej bezpieczne
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 7213f26493a118c2cb32f8f9935b4954176b99a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24dc108ce4d9c991b1e062c0435b38a63899a249
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586397"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186774"
 ---
-# <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funkcje zabezpieczeń ułatwiające ochronę hybrydowych kopii zapasowych korzystających z usługi Azure Backup
+# <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe, które używają Azure Backup
 
-Obawy dotyczące problemów z bezpieczeństwem, takich jak złośliwe oprogramowanie, ransomware i włamania, są coraz większe. Te problemy z bezpieczeństwem mogą być kosztowne, zarówno pod względem pieniędzy, jak i danych. Aby zabezpieczyć się przed takimi atakami, usługa Azure Backup udostępnia teraz funkcje zabezpieczeń ułatwiające ochronę hybrydowych kopii zapasowych. W tym artykule opisano, jak włączyć i korzystać z tych funkcji przy użyciu agenta usług Azure Recovery Services i usługi Azure Backup Server. Między innymi są to następujące funkcje:
+Problemy dotyczące zabezpieczeń, takie jak złośliwe oprogramowanie, programy wymuszającego okup i wtargnięcie, zwiększają się. Te problemy z zabezpieczeniami mogą być kosztowne, w odniesieniu do pieniędzy i danych. Aby ochronić przed takimi atakami, Azure Backup teraz zapewnia funkcje zabezpieczeń, które ułatwiają ochronę hybrydowych kopii zapasowych. W tym artykule opisano sposób włączania i używania tych funkcji przy użyciu agenta Recovery Services platformy Azure i Azure Backup Server. Między innymi są to następujące funkcje:
 
-- **Zapobieganie**. Dodatkowa warstwa uwierzytelniania jest dodawana za każdym razem, gdy wykonywana jest operacja krytyczna, taka jak zmiana hasła. Ta weryfikacja ma na celu zapewnienie, że takie operacje mogą być wykonywane tylko przez użytkowników, którzy mają prawidłowe poświadczenia platformy Azure.
-- **Alerty**. Powiadomienie e-mail jest wysyłane do administratora subskrypcji za każdym razem, gdy wykonywana jest krytyczna operacja, taka jak usuwanie danych kopii zapasowej. Ten e-mail gwarantuje, że użytkownik zostanie szybko powiadomiony o takich działaniach.
-- **Odzyskiwanie**. Usunięte dane kopii zapasowej są przechowywane przez dodatkowe 14 dni od daty usunięcia. Zapewnia to możliwość odzyskania danych w danym okresie czasu, więc nie ma utraty danych, nawet jeśli dojdzie do ataku. Ponadto większa liczba minimalnych punktów odzyskiwania są utrzymywane w celu ochrony przed uszkodzonymi danymi.
-
-> [!NOTE]
-> Funkcje zabezpieczeń nie powinny być włączone, jeśli używasz infrastruktury jako usługi (IaaS) kopii zapasowej maszyny Wirtualnej. Te funkcje nie są jeszcze dostępne dla kopii zapasowej maszyny Wirtualnej IaaS, więc włączenie ich nie będzie miało żadnego wpływu. Funkcje zabezpieczeń powinny być włączone tylko wtedy, gdy używasz: <br/>
->  * **Agent kopii zapasowej platformy Azure**. Minimalna wersja agenta 2.0.9052. Po włączeniu tych funkcji należy uaktualnić do tej wersji agenta, aby wykonać operacje krytyczne. <br/>
->  * **Serwer kopii zapasowych platformy Azure**. Minimalny agent usługi Azure Backup w wersji 2.0.9052 z aktualizacją 1 serwera kopii zapasowych platformy Azure. <br/>
->  * **System Center Data Protection Manager**. Minimalny agent usługi Azure Backup w wersji 2.0.9052 z menedżerem ochrony danych 2012 R2 UR12 lub Menedżerem ochrony danych 2016 UR2. <br/>
-
+- **Zapobieganie**. Dodatkowa warstwa uwierzytelniania jest dodawana zawsze wtedy, gdy jest wykonywane krytyczne operacje, takie jak zmiana hasła. Ta weryfikacja polega na zapewnieniu, że operacje te mogą być wykonywane tylko przez użytkowników, którzy mają prawidłowe poświadczenia platformy Azure.
+- **Generowanie alertów**. Powiadomienie e-mail jest wysyłane do administratora subskrypcji po każdym wystąpieniu krytycznej operacji, takiej jak usuwanie danych kopii zapasowej. Ta wiadomość e-mail gwarantuje, że użytkownik będzie powiadamiany szybko o takich akcjach.
+- **Odzyskiwanie**. Usunięte dane kopii zapasowej są przechowywane przez dodatkowe 14 dni od daty usunięcia. Zapewnia to możliwość odzyskania danych w danym okresie, dzięki czemu nie ma utraty danych, nawet jeśli wystąpi atak. Ponadto do ochrony przed uszkodzeniem danych są utrzymywane większą liczbę punktów odzyskiwania.
 
 > [!NOTE]
-> Te funkcje są dostępne tylko dla magazynu usług odzyskiwania. Wszystkie nowo utworzone magazyny usług odzyskiwania mają te funkcje domyślnie włączone. W przypadku istniejących magazynów usług odzyskiwania użytkownicy włączają te funkcje, wykonując kroki wymienione w poniższej sekcji. Po włączeniu funkcji mają one zastosowanie do wszystkich komputerów agenta usług odzyskiwania, wystąpień serwera kopii zapasowych platformy Azure i serwerów Menedżera ochrony danych zarejestrowanych w przechowalni. Włączenie tego ustawienia jest działaniem jednorazowym i nie można wyłączyć tych funkcji po ich włączeniu.
+> Nie należy włączać funkcji zabezpieczeń, jeśli jest używana kopia zapasowa maszyny wirtualnej usługi IaaS (Infrastructure as a Service). Te funkcje nie są jeszcze dostępne do tworzenia kopii zapasowych maszyn wirtualnych IaaS, dlatego włączenie ich nie będzie miało żadnego wpływu. Funkcje zabezpieczeń powinny być włączone tylko wtedy, gdy są używane: <br/>
+>
+> - **Agent Azure Backup**. Minimalna wersja agenta: 2.0.9052. Po włączeniu tych funkcji należy przeprowadzić uaktualnienie do tej wersji agenta, aby wykonać krytyczne operacje. <br/>
+> - **Azure Backup Server**. Minimalna wersja agenta Azure Backup: 2.0.9052 z aktualizacją Azure Backup Server Update 1. <br/>
+> - **Data Protection Manager programu System Center**. Minimalna wersja agenta Azure Backup: 2.0.9052 z Data Protection Manager 2012 R2 UR12 lub Data Protection Manager 2016 UR2. <br/>
+
+> [!NOTE]
+> Te funkcje są dostępne tylko dla magazynu Recovery Services. Wszystkie nowo utworzone magazyny Recovery Services mają domyślnie włączone te funkcje. W przypadku istniejących magazynów Recovery Services Użytkownicy włączają te funkcje, wykonując kroki opisane w poniższej sekcji. Po włączeniu funkcji mają one zastosowanie do wszystkich komputerów agentów Recovery Services, wystąpień Azure Backup Server i serwerów Data Protection Manager zarejestrowanych w magazynie. Włączenie tego ustawienia jest akcją jednorazową i nie można wyłączyć tych funkcji po ich włączeniu.
 >
 
 ## <a name="enable-security-features"></a>Włączanie funkcji zabezpieczeń.
 
-Jeśli tworzysz magazyn usług odzyskiwania, możesz użyć wszystkich funkcji zabezpieczeń. Jeśli pracujesz z istniejącym magazynem, włącz funkcje zabezpieczeń, wykonując następujące kroki:
+Jeśli tworzysz magazyn Recovery Services, możesz użyć wszystkich funkcji zabezpieczeń. Jeśli pracujesz z istniejącym magazynem, Włącz funkcje zabezpieczeń, wykonując następujące czynności:
 
-1. Zaloguj się do witryny Azure portal przy użyciu poświadczeń platformy Azure.
-2. Wybierz **pozycję Przeglądaj**i wpisz polecenie **Usługi odzyskiwania**.
+1. Zaloguj się do Azure Portal przy użyciu poświadczeń platformy Azure.
+2. Wybierz pozycję **Przeglądaj**, a następnie wpisz **Recovery Services**.
 
-    ![Zrzut ekranu przedstawiający opcję Przeglądania portalu Azure](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
+    ![Zrzut ekranu przedstawiający opcję Azure Portal Browse](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
-    Zostanie wyświetlona lista magazynów usługi Recovery Services. Z tej listy wybierz przechowalnię. Zostanie otwarty pulpit nawigacyjny wybranego magazynu.
-3. Z listy elementów wyświetlanych pod przechowalnią w obszarze **Ustawienia**kliknij pozycję **Właściwości**.
+    Zostanie wyświetlona lista magazynów usługi Recovery Services. Z tej listy wybierz magazyn. Zostanie otwarty pulpit nawigacyjny wybranego magazynu.
+3. Z listy elementów, które pojawiają się w magazynie, w obszarze **Ustawienia**kliknij pozycję **Właściwości**.
 
-    ![Zrzut ekranu przedstawiający opcje przechowalni usług odzyskiwania](./media/backup-azure-security-feature/vault-list-properties.png)
+    ![Zrzut ekranu przedstawiający opcje magazynu Recovery Services](./media/backup-azure-security-feature/vault-list-properties.png)
 4. W obszarze **Ustawienia zabezpieczeń**kliknij pozycję **Aktualizuj**.
 
-    ![Zrzut ekranu przedstawiający właściwości magazynu usług odzyskiwania](./media/backup-azure-security-feature/security-settings-update.png)
+    ![Zrzut ekranu przedstawiający właściwości magazynu Recovery Services](./media/backup-azure-security-feature/security-settings-update.png)
 
-    Łącze aktualizacji otwiera blok **Ustawienia zabezpieczeń,** który zawiera podsumowanie funkcji i umożliwia ich włączenie.
-5. Z listy **rozwijanej Czy skonfigurowano uwierzytelnianie wieloskładnikowe platformy Azure?**, wybierz wartość, aby potwierdzić, jeśli włączono [uwierzytelnianie wieloskładnikowe platformy Azure](../active-directory/authentication/multi-factor-authentication.md). Jeśli jest włączona, zostaniesz poproszony o uwierzytelnienie z innego urządzenia (na przykład telefonu komórkowego) podczas logowania się do witryny Azure portal.
+    Link aktualizacji otwiera blok **Ustawienia zabezpieczeń** , który zawiera podsumowanie funkcji i umożliwia ich włączenie.
+5. Z listy rozwijanej **zostały skonfigurowane Multi-Factor Authentication platformy Azure?** wybierz wartość, aby potwierdzić, że [usługa Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)została włączona. Jeśli jest włączona, zostanie wyświetlony monit o uwierzytelnienie z innego urządzenia (na przykład telefonu komórkowego) podczas logowania się do Azure Portal.
 
-   Podczas wykonywania operacji krytycznych w kopii zapasowej, należy wprowadzić kod PIN zabezpieczeń, dostępne w witrynie Azure portal. Włączenie uwierzytelniania wieloskładnikowego platformy Azure dodaje warstwę zabezpieczeń. Tylko autoryzowani użytkownicy z prawidłowymi poświadczeniami platformy Azure i uwierzytelnieni z drugiego urządzenia mogą uzyskać dostęp do witryny Azure portal.
-6. Aby zapisać ustawienia zabezpieczeń, wybierz pozycję **Włącz** i kliknij przycisk **Zapisz**. Możesz wybrać **włącz** tylko po wybraniu wartości z listy **Czy skonfigurowano uwierzytelnianie wieloskładnikowe platformy Azure** w poprzednim kroku.
+   W przypadku wykonywania krytycznych operacji w usłudze Backup należy wprowadzić numer PIN zabezpieczeń, który jest dostępny na Azure Portal. Włączenie usługi Azure Multi-Factor Authentication powoduje dodanie warstwy zabezpieczeń. Dostęp do Azure Portal mają tylko autoryzowani użytkownicy z prawidłowymi poświadczeniami platformy Azure i uwierzytelniani z drugiego urządzenia.
+6. Aby zapisać ustawienia zabezpieczeń, wybierz pozycję **Włącz** , a następnie kliknij przycisk **Zapisz**. Możesz wybrać opcję **Włącz** tylko po wybraniu wartości z listy czy **skonfigurować usługę Azure Multi-Factor Authentication?** w poprzednim kroku.
 
-    ![Zrzut ekranu przedstawiający ustawienia zabezpieczeń](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
+    ![Zrzut ekranu ustawień zabezpieczeń](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
-## <a name="recover-deleted-backup-data"></a>Odzyskiwanie usuniętych danych kopii zapasowej
+## <a name="recover-deleted-backup-data"></a>Odzyskaj usunięte dane kopii zapasowej
 
-Kopia zapasowa zachowuje usunięte dane kopii zapasowej przez dodatkowe 14 dni i nie usuwa ich natychmiast po wykonaniu operacji **Zatrzymaj kopię zapasową z usunięciem danych kopii zapasowej.** Aby przywrócić te dane w okresie 14 dni, należy wykonać następujące kroki, w zależności od tego, czego używasz:
+Usługa Backup zachowuje usunięte dane kopii zapasowej przez dodatkowe 14 dni i nie usuwa go natychmiast po wykonaniu operacji **zatrzymywania tworzenia kopii zapasowej z usuwaniem danych** . Aby przywrócić te dane w ciągu 14 dni, wykonaj następujące czynności, w zależności od tego, czego używasz:
 
-Dla użytkowników **agenta usług Azure Recovery Services:**
+Dla użytkowników **usługi Azure Recovery Services Agent** :
 
-1. Jeśli komputer, na którym miały miejsce tworzenie kopii zapasowych, jest nadal dostępny, należy ponownie chronić usunięte źródła danych i użyć [odzyskiwanie danych na tym samym komputerze](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) w usłudze Azure Recovery Services, aby odzyskać dane ze wszystkich starych punktów odzyskiwania.
-2. Jeśli ten komputer nie jest dostępny, użyj [funkcji Odzyskaj na komputerze alternatywnym,](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) aby uzyskać te dane za pomocą innego komputera usług Azure Recovery Services.
+1. Jeśli komputer, na którym wykonywane są kopie zapasowe, nadal jest dostępny, ponownie Włącz ochronę usuniętych źródeł danych i użyj funkcji [Odzyskaj dane na tym samym komputerze](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) w usłudze Azure Recovery Services, aby odzyskać ze wszystkich starych punktów odzyskiwania.
+2. Jeśli ten komputer jest niedostępny, użyj funkcji [Odzyskaj do alternatywnej maszyny](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) , aby użyć innego komputera z usługą Azure Recovery Services, aby uzyskać te dane.
 
-Dla użytkowników **serwera kopii zapasowych platformy Azure:**
+Dla **Azure Backup Server** użytkowników:
 
-1. Jeśli serwer, na którym występowały kopie zapasowe, jest nadal dostępny, należy ponownie chronić usunięte źródła danych i użyć funkcji **Odzyskaj dane,** aby odzyskać dane ze wszystkich starych punktów odzyskiwania.
-2. Jeśli ten serwer nie jest dostępny, użyj [recover data z innego serwera kopii zapasowej platformy Azure,](backup-azure-alternate-dpm-server.md) aby użyć innego wystąpienia serwera kopii zapasowej platformy Azure, aby uzyskać te dane.
+1. Jeśli serwer, na którym wykonywane są kopie zapasowe, nadal jest dostępny, ponownie Włącz ochronę usuniętych źródeł danych i użyj funkcji **Odzyskaj dane** , aby odzyskać ze wszystkich starych punktów odzyskiwania.
+2. Jeśli ten serwer jest niedostępny, użyj funkcji [Odzyskaj dane z innego Azure Backup Server](backup-azure-alternate-dpm-server.md) , aby użyć innego wystąpienia Azure Backup Server w celu uzyskania tych danych.
 
-Dla użytkowników **Programu Data Protection Manager:**
+Dla **Data Protection Manager** użytkowników:
 
-1. Jeśli serwer, na którym występowały kopie zapasowe, jest nadal dostępny, należy ponownie chronić usunięte źródła danych i użyć funkcji **Odzyskaj dane,** aby odzyskać dane ze wszystkich starych punktów odzyskiwania.
-2. Jeśli ten serwer nie jest dostępny, użyj [dodaj zewnętrznego programu DPM,](backup-azure-alternate-dpm-server.md) aby uzyskać te dane za pomocą innego serwera Menedżera ochrony danych.
+1. Jeśli serwer, na którym wykonywane są kopie zapasowe, nadal jest dostępny, ponownie Włącz ochronę usuniętych źródeł danych i użyj funkcji **Odzyskaj dane** , aby odzyskać ze wszystkich starych punktów odzyskiwania.
+2. Jeśli ten serwer nie jest dostępny [, do pobrania tych danych Użyj innego](backup-azure-alternate-dpm-server.md) serwera Data Protection Manager.
 
-## <a name="prevent-attacks"></a>Zapobieganie atakom
+## <a name="prevent-attacks"></a>Zapobiegaj atakom
 
-Dodano kontrole, aby upewnić się, że tylko prawidłowi użytkownicy mogą wykonywać różne operacje. Obejmują one dodanie dodatkowej warstwy uwierzytelniania i utrzymanie minimalnego zakresu przechowywania do celów odzyskiwania.
+Dodano testy, aby upewnić się, że tylko Prawidłowi użytkownicy mogą wykonywać różne operacje. Obejmują one Dodawanie dodatkowej warstwy uwierzytelniania i utrzymywanie minimalnego zakresu przechowywania na potrzeby odzyskiwania.
 
 ### <a name="authentication-to-perform-critical-operations"></a>Uwierzytelnianie w celu wykonywania operacji krytycznych
 
-W ramach dodawania dodatkowej warstwy uwierzytelniania dla operacji krytycznych zostanie wyświetlony monit o wprowadzenie numeru PIN zabezpieczeń podczas wykonywania **operacji Zatrzymaj ochronę za pomocą operacji Usuń dane** i Zmień **hasło.**
+W ramach dodawania dodatkowej warstwy uwierzytelniania dla operacji krytycznych zostanie wyświetlony monit o wprowadzenie zabezpieczającego numeru PIN **w przypadku przetrzymywania ochrony przy użyciu operacji usuwania danych** i **zmiany hasła** .
 
 > [!NOTE]
 >
-> Obecnie pin zabezpieczeń nie jest obsługiwany dla ochrony zatrzymania z usuń dane dla **programów** DPM i MABS.
+> Obecnie zabezpieczający numer PIN nie jest obsługiwany w przypadku **zatrzymywania ochrony przy użyciu usuwania danych** dla programu DPM i serwera usługi MAB.
 
-Aby otrzymać ten kod PIN:
+Aby odebrać ten numer PIN:
 
-1. Zaloguj się do Portalu Azure.
-2. Przejdź do właściwości**ustawień** >  **magazynu** > usług odzyskiwania **.**
-3. W obszarze **Kod PIN zabezpieczeń**kliknij pozycję **Generuj**. Spowoduje to otwarcie bloku zawierającego kod PIN, który ma zostać wprowadzony w interfejsie użytkownika agenta usług Azure Recovery Services.
-    Ten kod PIN jest ważny tylko przez pięć minut i jest generowany automatycznie po tym okresie.
+1. Zaloguj się do witryny Azure Portal.
+2. Przejdź do **Recovery Services** > **Settings** > **Właściwości**ustawień magazynu.
+3. W obszarze **zabezpieczający numer PIN**kliknij przycisk **Generuj**. Spowoduje to otwarcie bloku zawierającego numer PIN, który ma zostać wprowadzony w interfejsie użytkownika agenta usługi Azure Recovery Services.
+    Ten kod PIN jest prawidłowy tylko przez pięć minut i jest generowany automatycznie po upływie tego okresu.
 
-### <a name="maintain-a-minimum-retention-range"></a>Utrzymanie minimalnego zakresu retencji
+### <a name="maintain-a-minimum-retention-range"></a>Utrzymywanie minimalnego zakresu przechowywania
 
-Aby upewnić się, że zawsze dostępna jest prawidłowa liczba punktów odzyskiwania, dodano następujące kontrole:
+Aby upewnić się, że zawsze jest dostępna prawidłowa liczba punktów odzyskiwania, dodano następujące sprawdzenia:
 
-- W przypadku dziennego przechowywania należy wykonać co najmniej **siedem** dni przechowywania.
-- W przypadku tygodniowego przechowywania należy wykonać co najmniej **cztery** tygodnie retencji.
-- W przypadku miesięcznego zatrzymania należy wykonać co najmniej **trzy** miesiące zatrzymania.
-- W przypadku rocznego zatrzymania należy wykonać co najmniej **jeden** rok zatrzymania.
+- W przypadku codziennego przechowywania należy wykonać co najmniej **siedem** dni przechowywania.
+- W przypadku przechowywania cotygodniowego należy wykonać co najmniej **cztery** tygodnie przechowywania.
+- W przypadku przechowywania miesięcznego należy wykonać co najmniej **trzy** miesiące przechowywania.
+- W przypadku przechowywania corocznego należy wykonać co najmniej **jeden** rok przechowywania.
 
-## <a name="notifications-for-critical-operations"></a>Powiadomienia o operacjach krytycznych
+## <a name="notifications-for-critical-operations"></a>Powiadomienia dla operacji krytycznych
 
-Zazwyczaj po wykonaniu operacji krytycznej administrator subskrypcji otrzymuje powiadomienie e-mail ze szczegółami dotyczącymi operacji. Dodatkowe adresaci wiadomości e-mail dla tych powiadomień można skonfigurować przy użyciu witryny Azure portal.
+Zazwyczaj w przypadku wykonywania operacji krytycznej administrator subskrypcji otrzymuje powiadomienie e-mail z informacjami o tej operacji. Można skonfigurować dodatkowych adresatów wiadomości e-mail dla tych powiadomień przy użyciu Azure Portal.
 
-Funkcje zabezpieczeń wymienione w tym artykule zapewniają mechanizmy obronne przed atakami ukierunkowanymi. Co ważniejsze, jeśli dojdzie do ataku, te funkcje umożliwiają odzyskanie danych.
+Funkcje zabezpieczeń wymienione w tym artykule zapewniają mechanizmy obrony przed skierowanymi atakami. Co ważniejsze, jeśli wystąpi atak, te funkcje zapewniają możliwość odzyskania danych.
 
 ## <a name="troubleshooting-errors"></a>Rozwiązywanie problemów z błędami
 
 | Operacja | Szczegóły błędu | Rozwiązanie |
 | --- | --- | --- |
-| Zmiana zasad |Nie można zmodyfikować zasad tworzenia kopii zapasowej. Błąd: bieżąca operacja nie powiodła się z powodu błędu usługi wewnętrznej [0x29834]. Ponów próbę wykonania operacji po pewnym czasie. Jeśli problem będzie nadal występować, skontaktuj się z działem pomocy technicznej firmy Microsoft. |**Spowodować:**<br/>Ten błąd pojawia się, gdy ustawienia zabezpieczeń są włączone, spróbuj zmniejszyć zakres przechowywania poniżej minimalnych wartości określonych powyżej i jesteś na nieobsługiwaniu wersji (obsługiwane wersje są określone w pierwszej notatce tego artykułu). <br/>**Zalecane działanie:**<br/> W takim przypadku należy ustawić okres przechowywania powyżej określonego minimalnego okresu przechowywania (siedem dni dla dnia, cztery tygodnie w tygodniu, trzy tygodnie w ujęciu miesięcznym lub jeden rok w skali roku), aby kontynuować aktualizacje związane z zasadami. Opcjonalnie preferowanym podejściem byłoby zaktualizowanie agenta kopii zapasowej, serwera kopii zapasowych platformy Azure i/lub ur programu DPM w celu wykorzystania wszystkich aktualizacji zabezpieczeń. |
-| Zmień hasło |Wprowadzony kod PIN zabezpieczeń jest nieprawidłowy. (ID: 100130) Podaj poprawny kod PIN zabezpieczeń, aby wykonać tę operację. |**Spowodować:**<br/> Ten błąd pojawia się po wprowadzeniu nieprawidłowego lub wygasłego numeru PIN zabezpieczeń podczas wykonywania operacji krytycznych (takich jak hasło zmiany). <br/>**Zalecane działanie:**<br/> Aby wykonać operację, należy wprowadzić prawidłowy kod PIN zabezpieczeń. Aby uzyskać numer PIN, zaloguj się do witryny Azure portal i przejdź do usługi Recovery Services > ustawienia > właściwości > generowania numeru PIN zabezpieczeń. Użyj tego numeru PIN, aby zmienić hasło. |
-| Zmień hasło |Operacja nie powiodła się. Identyfikator: 120002 |**Spowodować:**<br/>Ten błąd pojawia się, gdy ustawienia zabezpieczeń są włączone, spróbuj zmienić hasło i jesteś na nieobsługiwce (prawidłowe wersje określone w pierwszej notatce tego artykułu).<br/>**Zalecane działanie:**<br/> Aby zmienić hasło, należy najpierw zaktualizować agenta kopii zapasowej do minimalnej wersji minimum 2.0.9052, serwera usługi Azure Backup do minimalnej aktualizacji 1 i/lub programu DPM do minimalnej wartości DPM 2012 R2 UR12 lub DPM 2016 UR2 (łącza pobierania poniżej), a następnie wprowadź prawidłowy numer PIN zabezpieczeń. Aby uzyskać numer PIN, zaloguj się do witryny Azure portal i przejdź do usługi Recovery Services > ustawienia > właściwości > generowania numeru PIN zabezpieczeń. Użyj tego numeru PIN, aby zmienić hasło. |
+| Zmiana zasad |Nie można zmodyfikować zasad tworzenia kopii zapasowych. Błąd: bieżąca operacja nie powiodła się z powodu wewnętrznego błędu usługi [0x29834]. Spróbuj ponownie wykonać operację po pewnym czasie. Jeśli problem będzie nadal występować, skontaktuj się z działem pomocy technicznej firmy Microsoft. |**Może**<br/>Ten błąd pojawia się, gdy ustawienia zabezpieczeń są włączone, spróbuj zmniejszyć zakres przechowywania poniżej wartości minimalnej określonych powyżej, a użytkownik jest w wersji nieobsługiwanej (obsługiwane wersje są określone w pierwszej notatce tego artykułu). <br/>**Zalecana akcja:**<br/> W takim przypadku należy ustawić okres przechowywania powyżej minimalnego podanego okresu przechowywania (siedem dni dziennie, czterech tygodni przez tydzień, trzy tygodnie przez rok i rok), aby kontynuować aktualizacje związane z zasadami. Opcjonalnie, preferowanym podejściem jest zaktualizowanie agenta kopii zapasowej, Azure Backup Server i/lub UR w celu wykorzystania wszystkich aktualizacji zabezpieczeń. |
+| Zmień hasło |Wprowadzony numer PIN zabezpieczeń jest niepoprawny. (IDENTYFIKATOR: 100130) Podaj poprawny zabezpieczający numer PIN, aby ukończyć tę operację. |**Może**<br/> Ten błąd jest dostarczany po wprowadzeniu nieprawidłowego lub wygasłego numeru PIN zabezpieczeń podczas wykonywania operacji krytycznej (np. zmiany hasła). <br/>**Zalecana akcja:**<br/> Aby ukończyć tę operację, musisz wprowadzić prawidłowy zabezpieczający numer PIN. Aby uzyskać numer PIN, zaloguj się do Azure Portal i przejdź do Recovery Services magazynu > ustawienia > właściwości > Generuj zabezpieczający numer PIN. Użyj tego numeru PIN, aby zmienić hasło. |
+| Zmień hasło |Operacja nie powiodła się. IDENTYFIKATOR: 120002 |**Może**<br/>Ten błąd pojawia się, gdy ustawienia zabezpieczeń są włączone, spróbuj zmienić hasło i używasz wersji nieobsługiwanej (prawidłowe wersje określone w pierwszej notatce tego artykułu).<br/>**Zalecana akcja:**<br/> Aby zmienić hasło, należy najpierw zaktualizować agenta kopii zapasowej do minimalnej minimalnej wersji: 2.0.9052, Azure Backup Server do aktualizacji minimalnej 1 i/lub DPM do minimum DPM 2012 R2 UR12 lub DPM 2016 UR2 (Pobierz linki poniżej), a następnie wprowadzić prawidłowy zabezpieczający numer PIN. Aby uzyskać numer PIN, zaloguj się do Azure Portal i przejdź do Recovery Services magazynu > ustawienia > właściwości > Generuj zabezpieczający numer PIN. Użyj tego numeru PIN, aby zmienić hasło. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wprowadzenie do magazynu usług Azure Recovery Services,](backup-azure-vms-first-look-arm.md) aby włączyć te funkcje.
-- [Pobierz najnowszy agent usług Odzyskiwania platformy Azure,](https://aka.ms/azurebackup_agent) aby chronić komputery z systemem Windows i chronić dane kopii zapasowej przed atakami.
-- [Pobierz najnowszy serwer kopii zapasowych platformy Azure,](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3) aby chronić obciążenia i chronić dane kopii zapasowej przed atakami.
-- [Pobierz program UR12 for System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) lub [pobierz program UR2 dla Menedżera ochrony danych w usłudze System Center 2016,](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) aby chronić obciążenia i chronić dane kopii zapasowych przed atakami.
+- [Rozpocznij pracę z magazynem usługi Azure Recovery Services](backup-azure-vms-first-look-arm.md) , aby włączyć te funkcje.
+- [Pobierz najnowszego agenta Recovery Services platformy Azure](https://aka.ms/azurebackup_agent) , aby chronić komputery z systemem Windows i zabezpieczyć dane kopii zapasowej przed atakami.
+- [Pobierz najnowszą Azure Backup Server,](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3) aby pomóc w ochronie obciążeń i zabezpieczyć dane kopii zapasowej przed atakami.
+- [Pobierz UR12 dla programu System center 2012 Data Protection Manager R2](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) lub [Pobierz UR2 dla programu system Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) , aby pomóc w ochronie obciążeń i zabezpieczyć dane kopii zapasowej przed atakami.
