@@ -289,7 +289,7 @@ Parametr modułu jest definiowany przy użyciu elementu podrzędnego **Arg** sek
     * Wartość logiczna
     * Podzielone na kategorie
     * Ciąg
-    * Label
+    * Etykieta
     * Funkcja
     * Wynik
     * Wszystkie

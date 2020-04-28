@@ -1,5 +1,5 @@
 ---
-title: Często zadawane pytania dotyczące bramy sieci VPN platformy Azure
+title: Azure VPN Gateway — często zadawane pytania
 description: Brama sieci VPN — często zadawane pytania Często zadawane pytania dotyczące połączeń obejmujących wiele lokalizacji, połączeń w konfiguracji hybrydowej oraz bram usługi VPN Gateway w usłudze Microsoft Azure Virtual Network.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: yushwang
 ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79279886"
 ---
 # <a name="vpn-gateway-faq"></a>Brama sieci VPN — często zadawane pytania
@@ -30,7 +30,7 @@ Tak.
 
 Można nawiązać połączenie z wieloma lokalizacjami za pomocą programu Windows PowerShell oraz interfejsów API REST Azure. Zobacz sekcję często zadawanych pytań dotyczących [połączeń obejmujących wiele lokacji i połączeń między sieciami wirtualnymi](#V2VMulti).
 
-### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>Czy konfiguracja bramy sieci VPN jako aktywnej jako aktywnej jest to dodatkowe koszty?
+### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>Czy istnieje dodatkowy koszt konfigurowania bramy sieci VPN jako aktywne-aktywne?
 
 Nie. 
 
@@ -42,13 +42,13 @@ Obsługiwane są następujące połączenia obejmujące wiele lokalizacji:
 * Punkt-lokacja — połączenie sieci VPN nawiązywane za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol) lub IKE v2. To połączenie nie wymaga urządzenia VPN. Aby uzyskać więcej informacji, zobacz [Punkt-lokacja](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * Sieć wirtualna-sieć wirtualna — tego typu połączenie odpowiada konfiguracji typu lokacja-lokacja. Połączenie typu sieć wirtualna-sieć wirtualna to połączenie sieci VPN nawiązywane za pośrednictwem protokołu IPsec (IKE v1 i IKE v2). To połączenie nie wymaga urządzenia VPN. Aby uzyskać więcej informacji, zobacz [Sieć wirtualna-sieć wirtualna](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Obejmujące wiele lokacji — konfiguracja typu lokacja-lokacja, która pozwala połączyć wiele lokacji lokalnych z siecią wirtualną. Aby uzyskać więcej informacji, zobacz [Wiele lokacji](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
-* Usługa ExpressRoute — usługa ExpressRoute to prywatne połączenie z platformą Azure z sieci WAN, a nie połączenie sieci VPN za pośrednictwem publicznego Internetu. Więcej informacji zawierają tematy [ExpressRoute — opis techniczny](../expressroute/expressroute-introduction.md) i [Usługa ExpressRoute — często zadawane pytania](../expressroute/expressroute-faqs.md).
+* ExpressRoute – ExpressRoute to połączenie prywatne z platformą Azure z sieci WAN, a nie połączenia sieci VPN przez publiczny Internet. Więcej informacji zawierają tematy [ExpressRoute — opis techniczny](../expressroute/expressroute-introduction.md) i [Usługa ExpressRoute — często zadawane pytania](../expressroute/expressroute-faqs.md).
 
 Aby uzyskać więcej informacji na temat połączeń bramy sieci VPN, zobacz artykuł [VPN Gateway — informacje](vpn-gateway-about-vpngateways.md).
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>Jaka jest różnica między połączeniem typu lokacja-lokacja i połączeniem typu punkt-lokacja?
 
-Konfiguracje **lokacja-lokacja** (tunel VPN protokołu IPsec/IKE) dotyczą połączenia między lokalizacją lokalną a platformą Azure. Oznacza to, że z poziomu dowolnego lokalnego komputera możesz połączyć się z dowolną maszyną wirtualną lub wystąpieniem roli w ramach sieci wirtualnej, w zależności od wybranej konfiguracji routingu i uprawnień. To rozwiązanie doskonale sprawdza się w przypadku zawsze dostępnych połączeń obejmujących wiele lokalizacji; jest to także dobry wybór w przypadku konfiguracji hybrydowych. Ten typ połączenia jest oparty na urządzeniu VPN (sprzętowym lub programowym) z protokołem IPsec, które musi zostać wdrożone na granicy sieci. Aby utworzyć połączenie tego typu, musisz mieć zewnętrznie skierowany adres IPv4.
+Konfiguracje **lokacja-lokacja** (tunel VPN protokołu IPsec/IKE) dotyczą połączenia między lokalizacją lokalną a platformą Azure. Oznacza to, że z poziomu dowolnego lokalnego komputera możesz połączyć się z dowolną maszyną wirtualną lub wystąpieniem roli w ramach sieci wirtualnej, w zależności od wybranej konfiguracji routingu i uprawnień. To rozwiązanie doskonale sprawdza się w przypadku zawsze dostępnych połączeń obejmujących wiele lokalizacji; jest to także dobry wybór w przypadku konfiguracji hybrydowych. Ten typ połączenia jest oparty na urządzeniu VPN (sprzętowym lub programowym) z protokołem IPsec, które musi zostać wdrożone na granicy sieci. Aby utworzyć połączenie tego typu, musisz mieć adres IPv4 dostępny zewnętrznie.
 
 Konfiguracje **punkt-lokacja** (VPN z protokołem SSTP) umożliwiają połączenie się z pojedynczego komputera znajdującego się w dowolnym miejscu z innym dowolnym miejscem w sieci wirtualnej. Korzystają z wewnętrznego klienta VPN systemu Windows. W ramach konfiguracji typu punkt-lokacja należy zainstalować certyfikat i pakiet konfiguracji klienta VPN, który zawiera ustawienia umożliwiające komputerowi połączenie się z dowolną maszyną wirtualną lub wystąpieniem roli w ramach sieci wirtualnej. Doskonale sprawdzają się podczas nawiązywania połączenia z siecią wirtualną spoza obszaru organizacji. To także dobra opcja w sytuacji braku dostępu do sprzętu VPN lub adresu IPv4 dostępnego z zewnątrz, które są wymagane w przypadku połączeń typu lokacja-lokacja.
 
@@ -68,15 +68,15 @@ Bramy oparte na zasadach wdrażają sieci VPN oparte na zasadach. Sieci VPN opar
 
 Bramy oparte na trasach wdrażają sieci VPN oparte na trasach. Sieci VPN oparte na trasach używają „tras” w funkcji przesyłania dalej IP lub tabeli routingu do kierowania pakietów do odpowiednich interfejsów tuneli. W dalszej kolejności interfejsy tuneli szyfrują lub odszyfrowują pakiety wchodzące do tuneli lub wychodzące z nich. Zasady lub selektor ruchu dla sieci VPN opartych na trasach są skonfigurowane jako każdy z każdym (lub symbole wieloznaczne).
 
-### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Czy mogę zaktualizować bramę sieci VPN opartą na zasadach do opartej na trasach?
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Czy mogę zaktualizować bramę sieci VPN opartą na zasadach, aby była oparta na trasach?
 
 Nie.Nie można zmienić typu bramy sieci wirtualnej platformy Azure z opartej na zasadach na opartą na trasach ani w inny sposób. Bramę należy usunąć i utworzyć ponownie. Cały taki proces zajmie około 60 minut. Adres IP bramy ani klucz wstępny (PSK) nie zostaną zachowane.
 1. Usuń wszystkie połączenia skojarzone z bramą do usunięcia.
 1. Usuń bramę:
-   - [Portal Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+   - [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
    - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
    - [Azure PowerShell — klasyczny](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Utwórz nową bramę typu i ukończ konfigurację sieci VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
+1. [Utwórz nową bramę żądanego typu i Ukończ konfigurację sieci VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Czy potrzebuję podsieci „GatewaySubnet”?
 
@@ -90,15 +90,15 @@ Nie.
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>Czy można użyć adresu IP bramy sieci VPN przed jej utworzeniem?
 
-Bramy strefowe i strefowe (jednostki SKU bramy, które mają _nazwę AZ)_ opierają się na publicznym zasobie IP platformy _SKU standardU SKU._ Publiczne zasoby IP usługi Azure Standard SKU muszą używać metody alokacji statycznej. W związku z tym będziesz mieć publiczny adres IP dla bramy sieci VPN, jak tylko utworzyć standardowy publiczny zasób IP jednostki SKU, który ma być używany dla niego.
+Bramy strefowo nadmiarowych i stref (jednostki SKU bramy, które mają _AZ_ w nazwie) są zależne od standardowego zasobu adresu IP platformy Azure o _standardowej jednostce SKU_ . Zasoby publicznych adresów IP jednostki SKU platformy Azure w warstwie Standardowa muszą używać metody alokacji statycznej. W związku z tym będziesz mieć publiczny adres IP dla bramy sieci VPN zaraz po utworzeniu zasobu publicznego adresu IP jednostki SKU, którego zamierzasz używać.
 
-W przypadku bram niezbędnych strefowych i niestalnych (jednostek SKU bramy, które _nie_ mają _AZ_ w nazwie), nie można uzyskać adresu IP bramy sieci VPN przed jej utworzeniem. Adres IP zmienia się tylko wtedy, gdy usuniesz i ponownie utworzysz bramę sieci VPN.
+W przypadku bram nadmiarowych i niestrefowych (jednostki SKU bramy, które _nie_ _mają nazwy_ ) nie można uzyskać adresu IP bramy sieci VPN przed jego utworzeniem. Adres IP zmienia się tylko w przypadku usunięcia i ponownego utworzenia bramy sieci VPN.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>Czy mogę zażądać przypisania statycznego publicznego adresu IP do mojej bramy sieci VPN?
 
-Jak wspomniano powyżej, bramy strefowe i strefowe (jednostki SKU bramy, które mają _AZ_ w nazwie) opierają się na standardowym zasób ip platformy _SKU_ Azure. Publiczne zasoby IP usługi Azure Standard SKU muszą używać metody alokacji statycznej.
+Jak wspomniano powyżej, strefy nadmiarowe i bramy strefowe (jednostki SKU bramy, które _AZ_ w nazwie) są zależne od standardowego zasobu adresu IP platformy Azure w _warstwie Standardowa_ . Zasoby publicznych adresów IP jednostki SKU platformy Azure w warstwie Standardowa muszą używać metody alokacji statycznej.
 
-W przypadku bram niezwałkowych i niestalnych (jednostek SKU bramy, które _nie_ mają _AZ_ w nazwie), obsługiwane jest tylko dynamiczne przypisywanie adresów IP. Nie oznacza to jednak, że adres IP zmienia się po jego przypisaniu do bramy sieci VPN. Zmiana adresu IP bramy sieci VPN jest tylko wtedy, gdy brama jest usuwana, a następnie ponownie tworzona. Publiczny adres IP bramy sieci VPN nie zmienia się po zmianie rozmiaru, zresetowaniu lub zakończeniu innych wewnętrznych przeglądów i uaktualnień bramy sieci VPN.
+W przypadku bram nadmiarowych i niestrefowych (jednostki SKU bramy, które _nie_ _mają nazwy_ ), obsługiwane jest tylko dynamiczne przypisywanie adresów IP. Nie oznacza to jednak, że adres IP zmienia się po przypisaniu go do bramy sieci VPN. Jedyna zmiana adresu IP bramy sieci VPN polega na tym, że brama została usunięta, a następnie ponownie utworzona. Publiczny adres IP bramy sieci VPN nie zmienia się w przypadku zmiany rozmiaru, zresetowania lub przeprowadzenia innej wewnętrznej konserwacji i uaktualnień bramy sieci VPN.
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>W jaki sposób następuje uwierzytelnienie tunelu VPN?
 
@@ -131,11 +131,11 @@ Tak. Zobacz [Configure force tunneling](vpn-gateway-about-forced-tunneling.md) (
 
 Tak, można wdrożyć własne bramy lub serwery sieci VPN na platformie Azure, korzystając z portalu Azure Marketplace lub tworząc własne routery sieci VPN. W sieci wirtualnej należy skonfigurować trasy zdefiniowane przez użytkownika, aby upewnić się, że ruch jest prawidłowo przekierowywany między sieciami lokalnymi i podsieciami sieci wirtualnej.
 
-### <a name="why-are-certain-ports-opened-on-my-virtual-network-gateway"></a><a name="gatewayports"></a>Dlaczego niektóre porty są otwierane w mojej bramie sieci wirtualnej?
+### <a name="why-are-certain-ports-opened-on-my-virtual-network-gateway"></a><a name="gatewayports"></a>Dlaczego niektóre porty są otwarte w mojej bramie sieci wirtualnej?
 
 Są one wymagane do komunikacji infrastruktury platformy Azure. Są one zabezpieczone (zablokowane) z użyciem certyfikatów Azure. Bez prawidłowych certyfikatów podmioty zewnętrzne, w tym klienci tych bram, nie będą mieć możliwości wywarcia jakiegokolwiek wpływu na te punkty końcowe.
 
-Brama sieci wirtualnej jest zasadniczo urządzeniem wielorodzowym z jedną kartą sieciową dotykającą prywatną siecią klienta i jedną kartą sieciową skierowaną do sieci publicznej. Podmioty infrastruktury platformy Azure nie mogą korzystać z sieci prywatnych klientów z przyczyn związanych z zachowaniem zgodności, w związku z czym muszą korzystać z publicznych punktów końcowych do komunikacji w ramach infrastruktury. Publiczne punkty końcowe są okresowo skanowane w ramach inspekcji zabezpieczeń platformy Azure.
+Brama sieci wirtualnej to zasadniczo urządzenie z wieloma adresami z jedną kartą sieciową, które umożliwia połączenie z siecią prywatną klienta, oraz jedną kartę sieciową dodaną do usługi publicznej. Podmioty infrastruktury platformy Azure nie mogą korzystać z sieci prywatnych klientów z przyczyn związanych z zachowaniem zgodności, w związku z czym muszą korzystać z publicznych punktów końcowych do komunikacji w ramach infrastruktury. Publiczne punkty końcowe są okresowo skanowane w ramach inspekcji zabezpieczeń platformy Azure.
 
 ### <a name="more-information-about-gateway-types-requirements-and-throughput"></a>Więcej informacji na temat typów, wymagań i przepływności bram
 
@@ -169,9 +169,9 @@ W ramach konfiguracji typu lokacja-lokacja obejmującej wiele lokalizacji obsłu
 
 Inne rozwiązania o charakterze oprogramowania pełniącego rolę sieci VPN powinny współpracować z bramą, o ile są one zgodne ze standardowymi implementacjami protokołu IPsec stosowanymi w branży. W celu uzyskania pomocy technicznej oraz instrukcji konfiguracji należy skontaktować się z dostawcą oprogramowania.
 
-## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>Jak zmienić typ uwierzytelniania dla połączeń typu punkt-lokacja?
+## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>Jak mogę zmienić typ uwierzytelniania dla połączeń typu punkt-lokacja?
 
-Metodę uwierzytelniania połączeń typu punkt-lokacja można zmienić, przechodząc do sekcji **Konfiguracja typu punkt-lokacja** w bramie sieci VPN i sprawdzając żądany przycisk opcji. Bieżące opcje to **certyfikat platformy Azure, uwierzytelnianie RADIUS i usługa Azure Active Directory**. Należy pamiętać, że obecni klienci **mogą nie być w stanie połączyć się** po zmianie, dopóki nowy profil nie zostanie pobrany i skonfigurowany na kliencie.
+Metodę uwierzytelniania dla połączeń punkt-lokacja można zmienić, przechodząc do sekcji **Konfiguracja punktu do lokacji** w obszarze VPN Gateway i sprawdzając żądany przycisk radiowy. Bieżące opcje to **certyfikat platformy Azure, uwierzytelnianie usługi RADIUS i Azure Active Directory**. Należy pamiętać, że bieżący klienci **mogą nie być w stanie nawiązać połączenia** po zmianie, dopóki nowy profil nie zostanie pobrany i skonfigurowany na kliencie.
 
 ## <a name="point-to-site-using-native-azure-certificate-authentication"></a><a name="P2S"></a>Punkt-lokacja przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure
 
@@ -199,7 +199,7 @@ Przekazywanie ruchu za pośrednictwem bramy sieci VPN platformy Azure przy użyc
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Czy platforma Azure generuje taki sam klucz wstępny protokołu IPsec/IKE dla wszystkich połączeń sieci VPN dla danej sieci wirtualnej?
 
-Nie. Platforma Azure domyślnie generuje różne klucze wstępne dla różnych połączeń sieci VPN. Można jednak użyć interfejsu API REST lub polecenia cmdlet Set VPN Gateway Key programu PowerShell, aby ustawić preferowaną wartość klucza. Klucz musi być drukowane znaki ASCII.
+Nie. Platforma Azure domyślnie generuje różne klucze wstępne dla różnych połączeń sieci VPN. Można jednak użyć interfejsu API REST lub polecenia cmdlet Set VPN Gateway Key programu PowerShell, aby ustawić preferowaną wartość klucza. Klucz musi mieć drukowalne znaki ASCII.
 
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>Czy przy większej liczbie połączeń VPN typu lokacja-lokacja można uzyskać większą przepustowość niż przy pojedynczej sieci wirtualnej?
 
@@ -243,7 +243,7 @@ Nie. Przez bramę sieci wirtualnej przechodzi tylko ruch, którego docelowy adre
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="virtual-network-faq"></a><a name="faq"></a>Sieć wirtualna – często zadawane pytania
+## <a name="virtual-network-faq"></a><a name="faq"></a>Virtual Network często zadawane pytania
 
 Dodatkowe informacje dotyczące sieci wirtualnej można znaleźć w artykule [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md) (Sieć wirtualna — często zadawane pytania).
 
@@ -252,4 +252,4 @@ Dodatkowe informacje dotyczące sieci wirtualnej można znaleźć w artykule [Vi
 * Więcej informacji o usłudze VPN Gateway można znaleźć w artykule [VPN Gateway — informacje](vpn-gateway-about-vpngateways.md).
 * Aby uzyskać więcej informacji o ustawieniach konfiguracji bramy VPN Gateway, zobacz temat [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md) (Informacje o ustawieniach konfiguracji bramy VPN Gateway).
 
-**"OpenVPN" jest znakiem towarowym firmy OpenVPN Inc.**
+**"OpenVPN" jest znakiem towarowym OpenVPN Inc.**

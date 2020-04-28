@@ -1,6 +1,6 @@
 ---
-title: Kondycja i prywatność użytkowników usługi Azure AD Connect | Dokumenty firmy Microsoft
-description: W tym dokumencie opisano prywatność użytkowników za pomocą usługi Azure AD Connect Health.
+title: Azure AD Connect Health i prywatność użytkowników | Microsoft Docs
+description: W tym dokumencie opisano prywatność użytkowników przy użyciu Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,87 +16,87 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58cddcde71e6e86b9abe07eb4200f13ad55ea659
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79253665"
 ---
-# <a name="user-privacy-and-azure-ad-connect-health"></a>Prywatność użytkowników i kondycja usługi Azure AD Connect 
+# <a name="user-privacy-and-azure-ad-connect-health"></a>Prywatność użytkowników i Azure AD Connect Health 
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
->Ten artykuł dotyczy usługi Azure AD Connect Health i prywatności użytkowników.  Aby uzyskać informacje na temat usługi Azure AD Connect i prywatności użytkowników, zobacz artykuł [tutaj](reference-connect-user-privacy.md).
+>Ten artykuł dotyczy Azure AD Connect Health i poufności użytkowników.  Informacje dotyczące Azure AD Connect i prywatności użytkowników znajdują się w [tym](reference-connect-user-privacy.md)artykule.
 
-## <a name="user-privacy-classification"></a>Klasyfikacja prywatności użytkowników
-Usługa Azure AD Connect Health należy do kategorii **procesora danych** klasyfikacji RODO. Jako potok podmiotu przetwarzającego dane usługa świadczy usługi przetwarzania danych dla kluczowych partnerów i konsumentów końcowych. Usługa Azure AD Connect Health nie generuje danych użytkownika i nie ma niezależnej kontroli nad tym, jakie dane osobowe są zbierane i jak są używane. Pobieranie danych, agregacja, analiza i raportowanie w usłudze Azure AD Connect Health są oparte na istniejących danych lokalnych. 
+## <a name="user-privacy-classification"></a>Klasyfikacja prywatności użytkownika
+Azure AD Connect Health znajduje się w kategorii **procesor danych** klasyfikacji Rodo. Jako potok przetwarzający dane Usługa udostępnia usługi przetwarzania danych klientom najważniejszych partnerów i klientów końcowych. Azure AD Connect Health nie generuje danych użytkownika i nie ma niezależnej kontroli nad tym, jakie dane osobowe są zbierane i jak są wykorzystywane. Pobieranie, agregacja, analiza i raportowanie danych w Azure AD Connect Health są oparte na istniejących danych lokalnych. 
 
 ## <a name="data-retention-policy"></a>Zasady przechowywania danych
-Usługa Azure AD Connect Health nie generuje raportów, nie przeprowadza analizy ani nie dostarcza szczegółowych informacji po 30 dniach. W związku z tym usługi Azure AD Connect Health nie przechowuje, przetwarzać ani przechowywać żadnych danych poza 30 dni. Ten projekt jest zgodny z przepisami RODO, przepisami dotyczącymi zgodności z przepisami firmy Microsoft dotyczącymi prywatności i zasadami przechowywania danych usługi Azure AD. 
+Azure AD Connect Health nie generuje raportów, nie przeprowadza analizy ani nie udostępnia szczegółowych informacji poza 30 dni. W związku z tym Azure AD Connect Health nie przechowują, przetwarzają ani nie przechowują danych dłużej niż 30 dni. Ten projekt jest zgodny z przepisami Rodo, regulacjami zgodności ochrony prywatności firmy Microsoft i zasadami przechowywania danych usługi Azure AD. 
 
-Serwery z aktywnymi **danymi usługi kondycji nie są aktualne** alerty o **błędach** przez ponad 30 kolejnych dni sugerują, że żadne dane nie osiągnęły Connect Health w tym przedziale czasu. Te serwery zostaną wyłączone i nie będą wyświetlane w portalu Connect Health. Aby ponownie włączyć serwery, należy odinstalować i [ponownie zainstalować agenta kondycji](how-to-connect-health-agent-install.md). Należy pamiętać, że nie dotyczy to **ostrzeżeń** o tym samym typie alertu. Ostrzeżenia wskazują, że na serwerze, na który użytkownik jest powiadamiany, brakuje danych częściowych. 
+Dane dotyczące serwerów z aktywną **usługą kondycji są nieaktualne** w **przypadku alertów** z ponad 30 kolejnych dni sugerują, że żadne dane nie dotarły do usługi Connect Health w tym okresie. Te serwery zostaną wyłączone i nie będą wyświetlane w portalu programu Connect Health. Aby ponownie włączyć serwery, należy odinstalować i [ponownie zainstalować agenta kondycji](how-to-connect-health-agent-install.md). Należy pamiętać, że nie dotyczy to **ostrzeżeń** z tym samym typem alertu. Ostrzeżenia wskazują, że na serwerze z alertami nie ma częściowych danych. 
  
-## <a name="disable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Wyłączanie zbierania i monitorowania danych w usłudze Azure AD Connect Health
-Usługa Azure AD Connect Health umożliwia zatrzymanie zbierania danych dla każdego monitorowanego serwera lub wystąpienia monitorowanej usługi. Na przykład można zatrzymać zbieranie danych dla poszczególnych serwerów ADFS (Active Directory Federation Services), które są monitorowane przy użyciu usługi Azure AD Connect Health. Można również zatrzymać zbieranie danych dla całego wystąpienia usługi ADFS, które jest monitorowane przy użyciu usługi Azure AD Connect Health. Gdy zdecydujesz się to zrobić, odpowiednie serwery są usuwane z portalu usługi Azure AD Connect Health, po zatrzymaniu zbierania danych. 
+## <a name="disable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Wyłącz zbieranie i monitorowanie danych w Azure AD Connect Health
+Azure AD Connect Health umożliwia zatrzymanie zbierania danych dla każdego pojedynczego monitorowanego serwera lub wystąpienia monitorowanej usługi. Można na przykład zatrzymać zbieranie danych dla poszczególnych serwerów usług AD FS (Active Directory Federation Services) monitorowanych przy użyciu Azure AD Connect Health. Możesz również zatrzymać zbieranie danych dla całego wystąpienia usług ADFS, które jest monitorowane przy użyciu Azure AD Connect Health. Po wybraniu tej opcji odpowiednie serwery zostaną usunięte z portalu Azure AD Connect Health po zatrzymaniu zbierania danych. 
 
 >[!IMPORTANT]
-> Aby usunąć monitorowane serwery z usługi Azure AD Connect Health, potrzebujesz uprawnień administratora globalnego usługi Azure AD lub roli współautora w rbac.
+> Aby usunąć monitorowane serwery z Azure AD Connect Health, musisz mieć uprawnienia administratora globalnego usługi Azure AD lub roli współautor w RBAC.
 >
-> Usuwanie wystąpienia serwera lub usługi z usługi Azure AD Connect Health nie jest działaniem odwracalnym. 
+> Usuwanie wystąpienia serwera lub usługi z Azure AD Connect Health nie jest akcją odwracalną. 
 
-### <a name="what-to-expect"></a>Czego się spodziewać?
-W przypadku zatrzymania zbierania i monitorowania danych dla poszczególnych monitorowanych serwerów lub wystąpienia monitorowanej usługi należy zwrócić uwagę na następujące kwestie:
+### <a name="what-to-expect"></a>Czego można oczekiwać?
+Jeśli zatrzymasz zbieranie i monitorowanie danych dla pojedynczego monitorowanego serwera lub wystąpienia monitorowanej usługi, zwróć uwagę na następujące kwestie:
 
-- Po usunięciu wystąpienia monitorowanej usługi wystąpienie jest usuwane z listy usługi monitorowania usługi Azure AD Connect Health w portalu. 
-- Po usunięciu monitorowanego serwera lub wystąpienia monitorowanej usługi agent kondycji NIE jest odinstalowywana ani usuwana z serwerów. Agent kondycji jest skonfigurowany do wysyłania danych do usługi Azure AD Connect Health. Należy ręcznie odinstalować agenta kondycji na wcześniej monitorowanych serwerach.
-- Jeśli agent kondycji nie został odinstalowany przed wykonaniem tego kroku, na serwerach związanych z agentem kondycji mogą wystąpić zdarzenia błędów.
-- Wszystkie dane należące do wystąpienia monitorowanej usługi są usuwane zgodnie z zasadami przechowywania danych platformy Microsoft Azure.
+- Po usunięciu wystąpienia monitorowanej usługi wystąpienie zostanie usunięte z listy Azure AD Connect Health monitorowania usługi w portalu. 
+- Po usunięciu monitorowanego serwera lub wystąpienia monitorowanej usługi Agent kondycji nie zostanie odinstalowany ani usunięty z serwerów. Agent kondycji jest skonfigurowany tak, aby nie wysyłał danych do Azure AD Connect Health. Należy ręcznie odinstalować agenta kondycji na wcześniej monitorowanych serwerach.
+- Jeśli Agent kondycji nie został odinstalowany przed wykonaniem tego kroku, mogą pojawić się zdarzenia błędów na serwerach związanych z agentem kondycji.
+- Wszystkie dane należące do wystąpienia monitorowanej usługi zostaną usunięte zgodnie z zasadami przechowywania danych Microsoft Azure.
 
 ### <a name="disable-data-collection-and-monitoring-for-an-instance-of-a-monitored-service"></a>Wyłączanie zbierania i monitorowania danych dla wystąpienia monitorowanej usługi
-Zobacz, [jak usunąć wystąpienie usługi z usługi Azure AD Connect Health](how-to-connect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).
+Zobacz [Jak usunąć wystąpienie usługi z Azure AD Connect Health](how-to-connect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).
 
-### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>Wyłączanie zbierania i monitorowania danych dla monitorowanego serwera
-Zobacz, [jak usunąć serwer z usługi Azure AD Connect Health](how-to-connect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
+### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>Wyłącz zbieranie i monitorowanie danych dla monitorowanego serwera
+Zobacz [Jak usunąć serwer z Azure AD Connect Health](how-to-connect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
 
-### <a name="disable-data-collection-and-monitoring-for-all-monitored-services-in-azure-ad-connect-health"></a>Wyłącz zbieranie i monitorowanie danych dla wszystkich monitorowanych usług w usłudze Azure AD Connect Health
-Usługa Azure AD Connect Health udostępnia również opcję zatrzymania zbierania danych **wszystkich** zarejestrowanych usług w dzierżawie. Przed podjęciem akcji zalecamy staranne rozważenie i pełne potwierdzenie wszystkich administratorów globalnych. Po rozpoczęciu procesu usługa Connect Health przestanie odbierać, przetwarzać i zgłaszać wszelkie dane wszystkich usług. Istniejące dane w usłudze Connect Health będą przechowywane przez okres nie dłużej niż 30 dni.
-Jeśli chcesz zatrzymać zbieranie danych określonego serwera, wykonaj kroki w celu usunięcia określonych serwerów. Aby zatrzymać zbieranie danych w sposób dzierżawy, wykonaj następujące kroki, aby zatrzymać zbieranie danych i usunąć wszystkie usługi dzierżawy.
+### <a name="disable-data-collection-and-monitoring-for-all-monitored-services-in-azure-ad-connect-health"></a>Wyłącz zbieranie i monitorowanie danych dla wszystkich monitorowanych usług w Azure AD Connect Health
+Azure AD Connect Health udostępnia również opcję zatrzymania zbierania danych przez **wszystkie** zarejestrowane usługi w dzierżawie. Przed podjęciem działania Zalecamy dokładne rozważenie i pełne potwierdzenie wszystkich administratorów globalnych. Po rozpoczęciu procesu program Connect Health przestanie odbierać, przetwarzać i zgłaszać wszystkie dane wszystkich usług. Istniejące dane w usłudze Connect Health będą przechowywane przez nie dłużej niż 30 dni.
+Jeśli chcesz zatrzymać zbieranie danych określonego serwera, wykonaj kroki opisane w sekcji Usuwanie określonych serwerów. Aby zatrzymać zbieranie danych dzierżawy, wykonaj następujące kroki, aby zatrzymać zbieranie danych i usunąć wszystkie usługi dzierżawy.
 
-1. Kliknij ustawienia **ogólne** w konfiguracji w głównym bloku. 
-2. Kliknij przycisk **Zatrzymaj zbieranie danych** w górnej części bloku. Inne opcje ustawień konfiguracji dzierżawy zostaną wyłączone po uruchomieniu procesu.  
+1. Kliknij pozycję **Ustawienia ogólne** w obszarze Konfiguracja w bloku głównym. 
+2. Kliknij przycisk **Zatrzymaj zbieranie danych** w górnej części bloku. Inne opcje ustawień konfiguracji dzierżawy zostaną wyłączone po rozpoczęciu procesu.  
  
-   ![Zatrzymywać zbieranie danych](./media/reference-connect-health-user-privacy/gdpr4.png)
+   ![Zatrzymaj zbieranie danych](./media/reference-connect-health-user-privacy/gdpr4.png)
   
-3. Upewnij się, że lista wbudowanych usług, których dotyczy zatrzymanie kolekcji danych. 
-4. Wprowadź dokładną nazwę dzierżawy, aby włączyć przycisk Akcji **Usuń**
-5. Kliknij **przycisk Usuń,** aby wyzwolić usunięcie wszystkich usług. Connect Health przestanie odbierać, przetwarzać, zgłaszać wszelkie dane wysyłane z wbudowanych usług. Cały proces może potrwać do 24 godzin. Należy zauważyć, że ten krok nie jest odwracalny. 
-6. Po zakończeniu procesu nie będzie już żadnych zarejestrowanych usług w Connect Health. 
+3. Upewnij się, że lista dołączanych usług ma wpływ na zatrzymywanie zbierania danych. 
+4. Wprowadź dokładną nazwę dzierżawy, aby włączyć przycisk **Usuń** akcję
+5. Kliknij przycisk **Usuń** , aby wyzwolić usunięcie wszystkich usług. Program Connect Health przestanie odbierać, przetwarzać i zgłaszać dane wysyłane z usług dołączanych. Cały proces może potrwać do 24 godzin. Należy zauważyć, że ten krok nie jest odwracalny. 
+6. Po zakończeniu procesu w programie Connect Health nie będą widoczne żadne zarejestrowane usługi. 
 
    ![Po zatrzymaniu zbierania danych](./media/reference-connect-health-user-privacy/gdpr5.png)
 
-## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Ponowne włączanie zbierania i monitorowania danych w usłudze Azure AD Connect Health
-Aby ponownie włączyć monitorowanie w usłudze Azure AD Connect Health dla wcześniej usuniętej monitorowaną usługą, należy odinstalować i [ponownie zainstalować agenta kondycji](how-to-connect-health-agent-install.md) na wszystkich serwerach.
+## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Ponownie Włącz zbieranie i monitorowanie danych w Azure AD Connect Health
+Aby ponownie włączyć monitorowanie w Azure AD Connect Health dla wcześniej usuniętej usługi monitorowanej, należy odinstalować i [ponownie zainstalować agenta kondycji](how-to-connect-health-agent-install.md) na wszystkich serwerach.
 
-### <a name="re-enable-data-collection-and-monitoring-for-all-monitored-services"></a>Ponowne włączanie gromadzenia i monitorowania danych dla wszystkich monitorowanych usług
+### <a name="re-enable-data-collection-and-monitoring-for-all-monitored-services"></a>Ponownie Włącz zbieranie i monitorowanie danych dla wszystkich monitorowanych usług
 
-Zbieranie danych w obszarze dzierżawy można wznowić w usłudze Azure AD Connect Health. Przed podjęciem akcji zalecamy staranne rozważenie i pełne potwierdzenie wszystkich administratorów globalnych.
+Zbieranie danych dla dzierżawców może zostać wznowione w Azure AD Connect Health. Przed podjęciem działania Zalecamy dokładne rozważenie i pełne potwierdzenie wszystkich administratorów globalnych.
 
 >[!IMPORTANT]
-> Poniższe kroki będą dostępne po 24 godzinach wyłączania akcji.
-> Po włączeniu zbierania danych przedstawione dane dotyczące wglądu i monitorowania w programie Connect Health nie będą wyświetlane żadne starsze dane zebrane wcześniej. 
+> Poniższe kroki będą dostępne po 24 godzinach działania wyłączenia.
+> Po włączeniu zbierania danych informacje o danych szczegółowych i monitorowaniu w programie Connect Health nie będą zawierać żadnych starszych danych zebranych przed. 
 
-1. Kliknij ustawienia **ogólne** w konfiguracji w głównym bloku. 
+1. Kliknij pozycję **Ustawienia ogólne** w obszarze Konfiguracja w bloku głównym. 
 2. Kliknij przycisk **Włącz zbieranie danych** w górnej części bloku. 
  
    ![Włączanie zbierania danych](./media/reference-connect-health-user-privacy/gdpr6.png)
  
-3. Wprowadź dokładną nazwę dzierżawy, aby aktywować przycisk **Włącz.**
-4. Kliknij przycisk **Włącz,** aby udzielić uprawnień do zbierania danych w usłudze Connect Health. Zmiana zostanie wkrótce zastosowana. 
-5. Postępuj zgodnie z [procesem instalacji,](how-to-connect-health-agent-install.md) aby ponownie zainstalować agenta na serwerach, które mają być monitorowane, a usługi będą obecne w portalu.  
+3. Podaj dokładną nazwę dzierżawy, aby aktywować przycisk **Włącz** .
+4. Kliknij przycisk **Włącz** , aby udzielić uprawnienia do zbierania danych w usłudze Connect Health. Zmiana zostanie wkrótce zastosowana. 
+5. Postępuj zgodnie z [procesem instalacji](how-to-connect-health-agent-install.md) , aby ponownie zainstalować agenta na monitorowanych serwerach, a usługi będą obecne w portalu.  
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Zapoznaj się z zasadami zachowania poufności firmy Microsoft w Centrum zaufania](https://www.microsoft.com/trustcenter)
-* [Usługa Azure AD Connect i prywatność użytkowników](reference-connect-user-privacy.md)
+* [Zapoznaj się z zasadami zachowania poufności informacji firmy Microsoft w centrum zaufania](https://www.microsoft.com/trustcenter)
+* [Azure AD Connect i prywatność użytkowników](reference-connect-user-privacy.md)
 

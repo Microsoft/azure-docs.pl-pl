@@ -52,7 +52,7 @@ Azure Advisor will utilize intelligence regarding your Azure blob storage object
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Jak uzyskać dostęp do zaleceń dotyczących kosztów w usłudze Azure Advisor
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. Wyszukaj i wybierz [**Doradcę**](https://aka.ms/azureadvisordashboard) z dowolnej strony.
 

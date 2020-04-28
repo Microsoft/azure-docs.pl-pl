@@ -1,6 +1,6 @@
 ---
-title: 'Usługa Azure AD Connect: Kolejne kroki i sposób zarządzania usługą Azure AD Connect | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak rozszerzyć domyślną konfigurację i zadania operacyjne dla usługi Azure AD Connect.
+title: 'Azure AD Connect: Następne kroki i sposób zarządzania Azure AD Connect | Microsoft Docs'
+description: Dowiedz się, jak zwiększyć domyślną konfigurację i zadania operacyjne dla Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,72 +17,72 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261296"
 ---
-# <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Kolejne kroki i jak zarządzać usługą Azure AD Connect
-Procedury operacyjne opisane w tym artykule można dostosować usługę Azure Active Directory (Azure AD) Connect do potrzeb i wymagań organizacji.  
+# <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Następne kroki i sposób zarządzania Azure AD Connect
+Korzystając z procedur operacyjnych w tym artykule, można dostosować program Azure Active Directory (Azure AD) Connect, aby spełniał potrzeby i wymagania organizacji.  
 
 ## <a name="add-additional-sync-admins"></a>Dodawanie dodatkowych administratorów synchronizacji
-Domyślnie tylko użytkownik, który wykonał instalację i administratorzy lokalni, mogą zarządzać zainstalowanym aparatem synchronizacji. Aby dodatkowe osoby mogły uzyskać dostęp do aparatu synchronizacji i zarządzać nim, znajdź grupę o nazwie ADSyncAdmins na serwerze lokalnym i dodaj je do tej grupy.
+Domyślnie tylko użytkownik, który wykonał instalację i Administratorzy lokalni, może zarządzać zainstalowanym aparatem synchronizacji. Aby dodatkowe osoby mogły uzyskać dostęp do aparatu synchronizacji i zarządzać nim, zlokalizuj grupę o nazwie ADSyncAdmins na serwerze lokalnym i Dodaj ją do tej grupy.
 
-## <a name="assign-licenses-to-azure-ad-premium-and-enterprise-mobility-suite-users"></a>Przypisywanie licencji użytkownikom usługi Azure AD Premium i Enterprise Mobility Suite
-Teraz, gdy użytkownicy zostali zsynchronizowani z chmurą, musisz przypisać im licencję, aby mogli rozpocząć prace nad aplikacjami w chmurze, takimi jak Office 365.
+## <a name="assign-licenses-to-azure-ad-premium-and-enterprise-mobility-suite-users"></a>Przypisywanie licencji do Azure AD — wersja Premium i użytkowników pakietu Enterprise Mobility Suite
+Teraz, gdy użytkownicy zostali zsynchronizowani z chmurą, należy przypisać im licencję, aby umożliwić im przechodzenie do aplikacji w chmurze, takich jak Office 365.
 
-### <a name="to-assign-an-azure-ad-premium-or-enterprise-mobility-suite-license"></a>Aby przypisać licencję pakietu Azure AD Premium lub Enterprise Mobility Suite
+### <a name="to-assign-an-azure-ad-premium-or-enterprise-mobility-suite-license"></a>Aby przypisać licencję na Azure AD — wersja Premium lub pakiet Enterprise Mobility Suite
 
-1. Zaloguj się do witryny Azure portal jako administrator.
+1. Zaloguj się do Azure Portal jako administrator.
 2. W obszarze po lewej stronie wybierz pozycję **Active Directory**.
-3. Na stronie **Usługi Active Directory** kliknij dwukrotnie katalog zawierający użytkowników, których chcesz skonfigurować.
+3. Na stronie **Active Directory** kliknij dwukrotnie katalog zawierający użytkowników, których chcesz skonfigurować.
 4. W górnej części strony katalogu wybierz pozycję **Licencje**.
-5. Na stronie **Licencje** wybierz pozycję **Active Directory Premium** lub **Enterprise Mobility Suite**, a następnie kliknij pozycję **Przypisz**.
+5. Na stronie **licencje** wybierz pozycję **Active Directory Premium** lub **Enterprise Mobility Suite**, a następnie kliknij przycisk **Przypisz**.
 6. W oknie dialogowym wybierz użytkowników, do których chcesz przypisać licencje, a następnie kliknij ikonę znacznika wyboru, aby zapisać zmiany.
 
 ## <a name="verify-the-scheduled-synchronization-task"></a>Weryfikowanie zaplanowanego zadania synchronizacji
-Użyj witryny Azure portal, aby sprawdzić stan synchronizacji.
+Użyj Azure Portal, aby sprawdzić stan synchronizacji.
 
-### <a name="to-verify-the-scheduled-synchronization-task"></a>Aby zweryfikować zaplanowane zadanie synchronizacji
-1. Zaloguj się do witryny Azure portal jako administrator.
+### <a name="to-verify-the-scheduled-synchronization-task"></a>Aby zweryfikować zadanie zaplanowanej synchronizacji
+1. Zaloguj się do Azure Portal jako administrator.
 2. W obszarze po lewej stronie wybierz pozycję **Active Directory**.
 3. Po lewej stronie wybierz pozycję **Azure AD Connect**
-4. U góry strony zanotuj ostatnią synchronizację.
+4. W górnej części strony Zwróć uwagę na ostatnią synchronizację.
 
 ![Czas synchronizacji katalogu](./media/how-to-connect-post-installation/verify2.png)
 
 ## <a name="start-a-scheduled-synchronization-task"></a>Uruchamianie zaplanowanego zadania synchronizacji
-Jeśli chcesz uruchomić zadanie synchronizacji, możesz to zrobić, wykonaj:
+Jeśli konieczne jest uruchomienie zadania synchronizacji, można to zrobić, wykonując następujące czynności:
 
-1. Kliknij dwukrotnie skrót pulpitu usługi Azure AD Connect, aby uruchomić kreatora.
-2. Kliknij **pozycję Konfiguruj**.
-3. Na ekranie zadania wybierz **opcje Dostosowywania synchronizacji** i kliknij przycisk **Dalej**
+1. Kliknij dwukrotnie skrót Azure AD Connect pulpicie, aby uruchomić kreatora.
+2. Kliknij przycisk **Konfiguruj**.
+3. Na ekranie zadania wybierz **Opcje Dostosuj synchronizację** i kliknij przycisk **dalej** .
 4. Wprowadzanie poświadczeń usługi Azure AD
-5. Kliknij przycisk **alej**. Kliknij przycisk **alej**.  Kliknij przycisk **alej**.
-5.  Na ekranie **Gotowe do skonfigurowania** upewnij się, że pole **Rozpocznij proces synchronizacji po zakończeniu konfiguracji jest zaznaczone.**
-6.  Kliknij **pozycję Konfiguruj**.
+5. Kliknij przycisk **Dalej**. Kliknij przycisk **Dalej**.  Kliknij przycisk **Dalej**.
+5.  Na ekranie **gotowy do konfiguracji** upewnij się, że jest zaznaczone pole wyboru **Rozpocznij proces synchronizacji po zakończeniu konfiguracji** .
+6.  Kliknij przycisk **Konfiguruj**.
 
-Aby uzyskać więcej informacji na temat harmonogramu synchronizacji usługi Azure AD Connect, zobacz [Harmonogram łączy usługi Azure AD](how-to-connect-sync-feature-scheduler.md).
+Aby uzyskać więcej informacji na temat harmonogramu synchronizacji Azure AD Connect, zobacz [Azure AD Connect Scheduler](how-to-connect-sync-feature-scheduler.md).
 
-## <a name="additional-tasks-available-in-azure-ad-connect"></a>Dodatkowe zadania dostępne w usłudze Azure AD Connect
-Po początkowej instalacji usługi Azure AD Connect zawsze można ponownie uruchomić kreatora ze strony początkowej usługi Azure AD Connect lub skrótu pulpitu.  Można zauważyć, że przechodząc przez kreatora ponownie zapewnia kilka nowych opcji w postaci dodatkowych zadań.  
+## <a name="additional-tasks-available-in-azure-ad-connect"></a>Dodatkowe zadania dostępne w Azure AD Connect
+Po wstępnej instalacji Azure AD Connect można zawsze uruchomić ponownie Kreatora ze strony startowej Azure AD Connect lub skrótu pulpitu.  Zobaczysz, że przechodzenie przez kreatora ponownie zawiera nowe opcje w postaci dodatkowych zadań.  
 
-Poniższa tabela zawiera podsumowanie tych zadań i krótki opis każdego zadania.
+Poniższa tabela zawiera podsumowanie tych zadań i krótkie opisy poszczególnych zadań.
 
 ![Lista dodatkowych zadań](./media/how-to-connect-post-installation/addtasks2.png)
 
 | Dodatkowe zadanie | Opis |
 | --- | --- |
 |**Ustawienia prywatności**|Zobacz, jakie dane telemetryczne są udostępniane firmie Microsoft.|
-|**Wyświetlanie bieżącej konfiguracji**|Wyświetl bieżące rozwiązanie usługi Azure AD Connect.  Obejmuje to ustawienia ogólne, zsynchronizowane katalogi i ustawienia synchronizacji. |
-| **Dostosowywanie opcji synchronizacji** |Zmień bieżącą konfigurację, na przykład dodając dodatkowe lasy usługi Active Directory do konfiguracji lub włączając opcje synchronizacji, takie jak odtworzenia danych użytkownika, grupy, urządzenia lub hasła. |
-|**Konfigurowanie opcji urządzenia**|Dostępne opcje urządzenia do synchronizacji|
-|**Odśwież schemat katalogu**|Umożliwia dodawanie nowych lokalnych obiektów katalogu do synchronizacji|
-|**Konfigurowanie trybu przemieszczania** |Informacje o stole montażowym, które nie są natychmiast synchronizowane i nie są eksportowane do usługi Azure AD lub lokalnej usługi Active Directory.  Za pomocą tej funkcji można wyświetlić podgląd synchronizacji przed ich wystąpieniem. |
-|**Zmienianie logowania użytkownika**|Zmienianie metody uwierzytelniania używanej przez użytkowników do logowania|
-|**Zarządzanie federacją**|Zarządzanie infrastrukturą usług AD FS, odnawianie certyfikatów i dodawanie serwerów usług AD FS|
-|**Rozwiązywanie problemów**|Pomoc dotycząca rozwiązywania problemów z usługą Azure AD Connect|
+|**Wyświetl bieżącą konfigurację**|Wyświetl bieżące rozwiązanie Azure AD Connect.  Dotyczy to ustawień ogólnych, synchronizowanych katalogów i ustawień synchronizacji. |
+| **Dostosuj opcje synchronizacji** |Zmień bieżącą konfigurację, taką jak dodanie do konfiguracji dodatkowych lasów Active Directory lub włączenie opcji synchronizacji, takich jak użytkownik, Grupa, urządzenie lub zapisywanie zwrotne haseł. |
+|**Konfiguruj opcje urządzenia**|Opcje urządzenia dostępne do synchronizacji|
+|**Odśwież schemat katalogu**|Umożliwia dodawanie nowych obiektów katalogów lokalnych na potrzeby synchronizacji|
+|**Konfigurowanie trybu przejściowego** |Informacje o etapie, które nie są natychmiast synchronizowane i nie są eksportowane do usługi Azure AD lub Active Directory lokalnych.  Korzystając z tej funkcji, można wyświetlić podgląd synchronizacji przed ich wystąpieniem. |
+|**Zmień Logowanie użytkownika**|Zmień metodę uwierzytelniania używaną przez użytkowników do logowania|
+|**Zarządzaj Federacją**|Zarządzanie infrastrukturą AD FS, Odnawianie certyfikatów i Dodawanie serwerów AD FS|
+|**Rozwiązywanie problemów**|Pomoc dotycząca rozwiązywania problemów Azure AD Connect|
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [integrując tożsamości lokalne z usługą Azure Active Directory.](whatis-hybrid-identity.md)
+Dowiedz się więcej [na temat integrowania tożsamości lokalnych z Azure Active Directory](whatis-hybrid-identity.md).

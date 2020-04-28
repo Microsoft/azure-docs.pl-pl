@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów z synchronizacją skrótów haseł za pomocą synchronizacji usługi Azure AD Connect | Dokumenty firmy Microsoft
+title: Rozwiązywanie problemów z synchronizacją skrótów haseł za pomocą synchronizacji Azure AD Connect | Microsoft Docs
 description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z synchronizacją skrótów haseł.
 services: active-directory
 documentationcenter: ''
@@ -17,194 +17,194 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79253548"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Rozwiązywanie problemów z synchronizacją skrótów haseł za pomocą usługi synchronizacji programu Azure AD Connect
 
-W tym temacie przedstawiono instrukcje dotyczące rozwiązywania problemów z synchronizacją skrótów haseł. Jeśli hasła nie są synchronizowane zgodnie z oczekiwaniami, może to być dla podzbioru użytkowników lub dla wszystkich użytkowników.
+Ten temat zawiera instrukcje dotyczące rozwiązywania problemów z synchronizacją skrótów haseł. Jeśli hasła nie są synchronizowane zgodnie z oczekiwaniami, może to być zarówno dla podzbioru użytkowników, jak i dla wszystkich użytkowników.
 
-W przypadku wdrożenia usługi Azure Active Directory (Azure AD) Connect w wersji 1.1.614.0 lub później użyj zadania rozwiązywania problemów w kreatorze, aby rozwiązać problemy z synchronizacją skrótów haseł:
+W przypadku programu Azure Active Directory (Azure AD) Połącz wdrożenie z wersją 1.1.614.0 lub późniejszą, Użyj zadania rozwiązywania problemów w kreatorze, aby rozwiązać problemy z synchronizacją skrótów haseł:
 
-* Jeśli masz problem, w którym nie hasła są synchronizowane, zapoznaj się [z Brak haseł są synchronizowane: rozwiąż problem za pomocą sekcji zadań rozwiązywania problemów.](#no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task)
+* Jeśli masz problem z niezsynchronizowaniem haseł, zapoznaj się z komunikatem [nie są synchronizowane żadne hasła: Rozwiązywanie problemów za pomocą sekcji zadanie rozwiązywania problemów](#no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task) .
 
-* Jeśli masz problem z poszczególnymi obiektami, zapoznaj się [z One obiekt nie synchronizuje haseł: rozwiąż problem za pomocą sekcji zadań rozwiązywania problemów.](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task)
+* Jeśli wystąpi problem z poszczególnymi obiektami, zapoznaj się z jednym z nich, aby [nie synchronizować haseł: Rozwiązywanie problemów za pomocą sekcji zadanie rozwiązywania problemów](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task) .
 
-W przypadku wdrażania w wersji 1.1.524.0 lub nowszej istnieje diagnostyczne polecenie cmdlet, którego można użyć do rozwiązywania problemów z synchronizacją skrótów haseł:
+W przypadku wdrożenia z wersją 1.1.524.0 lub nowszą istnieje diagnostyczne polecenie cmdlet, którego można użyć do rozwiązywania problemów z synchronizacją skrótów haseł:
 
-* Jeśli masz problem, w którym nie hasła są synchronizowane, zapoznaj się [z Brak haseł są synchronizowane: rozwiąż problem przy użyciu sekcji polecenia cmdlet diagnostyczne.](#no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet)
+* Jeśli masz problem z niezsynchronizowaniem haseł, zapoznaj się z komunikatem [nie są synchronizowane żadne hasła: Rozwiązywanie problemów za pomocą diagnostycznej sekcji poleceń cmdlet](#no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet) .
 
-* Jeśli masz problem z poszczególnych obiektów, odnoszą się do [One obiekt nie synchronizuje hasła: rozwiąż problem przy użyciu sekcji polecenia cmdlet diagnostyczne.](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet)
+* Jeśli występuje problem z poszczególnymi obiektami, zapoznaj się z jednym z nich, aby [nie synchronizować haseł: Rozwiązywanie problemów przy użyciu diagnostycznej sekcji poleceń cmdlet](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet) .
 
-W przypadku starszych wersji wdrożenia usługi Azure AD Connect:
+W przypadku starszych wersji Azure AD Connect wdrożenia:
 
-* Jeśli masz problem, w którym nie hasła są synchronizowane, zapoznaj się [z Sekcji Nie hasła są synchronizowane: ręczne rozwiązywanie problemów](#no-passwords-are-synchronized-manual-troubleshooting-steps) sekcji.
+* Jeśli masz problem z niezsynchronizowaniem haseł, zapoznaj się z sekcją [nie są synchronizowane żadne hasła: ręczne kroki rozwiązywania problemów](#no-passwords-are-synchronized-manual-troubleshooting-steps) .
 
-* Jeśli masz problem z poszczególnymi obiektami, zapoznaj się [z sekcją One object nie synchronizuje haseł: ręczne kroki rozwiązywania problemów.](#one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps)
+* Jeśli wystąpi problem z poszczególnymi obiektami, zapoznaj się z jednym z nich, aby [nie synchronizować haseł: ręczne kroki rozwiązywania problemów](#one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps) .
 
 
 
-## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task"></a>Żadne hasła nie są synchronizowane: rozwiązywanie problemów przy użyciu zadania rozwiązywania problemów
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task"></a>Żadne hasła nie są synchronizowane: Rozwiązywanie problemów za pomocą zadania rozwiązywania problemów
 
-Za pomocą zadania rozwiązywania problemów można ustalić, dlaczego nie są synchronizowane żadne hasła.
+Możesz użyć zadania rozwiązywania problemów, aby ustalić, dlaczego hasła nie są synchronizowane.
 
 > [!NOTE]
-> Zadanie rozwiązywania problemów jest dostępne tylko dla usługi Azure AD Connect w wersji 1.1.614.0 lub nowszej.
+> Zadanie rozwiązywania problemów jest dostępne tylko dla Azure AD Connect w wersji 1.1.614.0 lub nowszej.
 
 ### <a name="run-the-troubleshooting-task"></a>Uruchamianie zadania rozwiązywania problemów
 
-Aby rozwiązać problemy, w których nie są synchronizowane żadne hasła:
+Aby rozwiązać problemy, gdy nie są synchronizowane żadne hasła:
 
-1. Otwórz nową sesję programu Windows PowerShell na serwerze usługi Azure AD Connect z opcją **Uruchom jako administrator.**
+1. Otwórz nową sesję środowiska Windows PowerShell na serwerze Azure AD Connect przy użyciu opcji **Uruchom jako administrator** .
 
-2. Uruchom `Set-ExecutionPolicy RemoteSigned` `Set-ExecutionPolicy Unrestricted`lub .
+2. Uruchom `Set-ExecutionPolicy RemoteSigned` system `Set-ExecutionPolicy Unrestricted`lub.
 
-3. Uruchom kreatora usługi Azure AD Connect.
+3. Uruchom Kreatora Azure AD Connect.
 
-4. Przejdź do strony **Zadania dodatkowe,** wybierz pozycję **Rozwiązywanie problemów**i kliknij przycisk **Dalej**.
+4. Przejdź do strony **dodatkowe zadania** , wybierz pozycję **Rozwiązywanie problemów**, a następnie kliknij przycisk **dalej**.
 
-5. Na stronie Rozwiązywanie problemów kliknij przycisk **Uruchom,** aby uruchomić menu rozwiązywania problemów w programie PowerShell.
+5. Na stronie Rozwiązywanie problemów kliknij przycisk **Uruchom** , aby uruchomić menu Rozwiązywanie problemów w programie PowerShell.
 
-6. W menu głównym wybierz pozycję **Rozwiązywanie problemów z synchronizacją skrótów haseł**.
+6. W menu głównym wybierz pozycję **Rozwiązywanie problemów synchronizacja skrótów haseł**.
 
-7. W menu podrzędnym wybierz **opcję Synchronizacja skrótów haseł w ogóle nie działa**.
+7. W podmenu wybierz opcję **Synchronizacja skrótów haseł nie działa wcale**.
 
-### <a name="understand-the-results-of-the-troubleshooting-task"></a>Opis wyników zadania rozwiązywania problemów
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>Zrozumienie wyników zadania rozwiązywania problemów
 
-Zadanie rozwiązywania problemów wykonuje następujące kontrole:
+Zadanie rozwiązywania problemów wykonuje następujące sprawdzenia:
 
-* Sprawdza, czy funkcja synchronizacji skrótu haseł jest włączona dla dzierżawy usługi Azure AD.
+* Sprawdza, czy funkcja synchronizacji skrótów haseł jest włączona dla dzierżawy usługi Azure AD.
 
-* Sprawdza, czy serwer usługi Azure AD Connect nie jest w trybie przemieszczania.
+* Sprawdza, czy serwer Azure AD Connect nie jest w trybie przejściowym.
 
-* Dla każdego istniejącego lokalnego łącznika usługi Active Directory (który odpowiada istniejącemu lasowi usługi Active Directory):
+* Dla każdego istniejącego lokalnego łącznika Active Directory (który odnosi się do istniejącego lasu Active Directory):
 
-   * Sprawdza, czy funkcja synchronizacji skrótu hasła jest włączona.
+   * Sprawdza, czy funkcja synchronizacji skrótów haseł jest włączona.
    
-   * Wyszukuje zdarzenia pulsu synchronizacji skrótu hasła w dziennikach zdarzeń aplikacji systemu Windows.
+   * Wyszukuje zdarzenia pulsu synchronizacji skrótów haseł w dziennikach zdarzeń aplikacji systemu Windows.
 
-   * Dla każdej domeny usługi Active Directory w ramach lokalnego łącznika usługi Active Directory:
+   * Dla każdej domeny Active Directory w ramach łącznika on-premises Active Directory:
 
-      * Sprawdza, czy domena jest osiągalna z serwera usługi Azure AD Connect.
+      * Sprawdza, czy domena jest osiągalna z serwera Azure AD Connect.
 
-      * Sprawdza, czy konta Usług domenowych Active Directory (AD DS) używane przez lokalny łącznik usługi Active Directory mają poprawną nazwę użytkownika, hasło i uprawnienia wymagane do synchronizacji skrótów haseł.
+      * Sprawdza, czy konta Active Directory Domain Services (AD DS) używane przez łącznik On-Premises Active Directory ma poprawną nazwę użytkownika, hasło i uprawnienia wymagane do synchronizacji skrótów haseł.
 
-Na poniższym diagramie przedstawiono wyniki polecenia cmdlet dla topologii usługi Active Directory z jedną domeną w środowisku lokalnym:
+Na poniższym diagramie przedstawiono wyniki polecenia cmdlet dla jednodomenowej topologii Active Directoryowej:
 
-![Dane wyjściowe diagnostyczne synchronizacji skrótów haseł](./media/tshoot-connect-password-hash-synchronization/phsglobalgeneral.png)
+![Dane wyjściowe diagnostyki dla synchronizacji skrótów haseł](./media/tshoot-connect-password-hash-synchronization/phsglobalgeneral.png)
 
 W pozostałej części tej sekcji opisano konkretne wyniki, które są zwracane przez zadanie i odpowiednie problemy.
 
-#### <a name="password-hash-synchronization-feature-isnt-enabled"></a>Funkcja synchronizacji skrótu hasła nie jest włączona
+#### <a name="password-hash-synchronization-feature-isnt-enabled"></a>Funkcja synchronizacji skrótów haseł nie jest włączona
 
-Jeśli synchronizacja skrótów haseł nie została włączona przy użyciu kreatora usługi Azure AD Connect, zwracany jest następujący błąd:
+Jeśli synchronizacja skrótów haseł nie została włączona przy użyciu kreatora Azure AD Connect, zwracany jest następujący błąd:
 
-![synchronizacja skrótu hasła nie jest włączona](./media/tshoot-connect-password-hash-synchronization/phsglobaldisabled.png)
+![Synchronizacja skrótów haseł nie jest włączona](./media/tshoot-connect-password-hash-synchronization/phsglobaldisabled.png)
 
-#### <a name="azure-ad-connect-server-is-in-staging-mode"></a>Serwer usługi Azure AD Connect jest w trybie przemieszczania
+#### <a name="azure-ad-connect-server-is-in-staging-mode"></a>Serwer Azure AD Connect jest w trybie przejściowym
 
-Jeśli serwer usługi Azure AD Connect jest w trybie przemieszczania, synchronizacja skrótów haseł jest tymczasowo wyłączona i zwracany jest następujący błąd:
+Jeśli serwer Azure AD Connect jest w trybie przejściowym, synchronizacja skrótów haseł jest tymczasowo wyłączona i zwracany jest następujący błąd:
 
-![Serwer usługi Azure AD Connect jest w trybie przemieszczania](./media/tshoot-connect-password-hash-synchronization/phsglobalstaging.png)
+![Serwer Azure AD Connect jest w trybie przejściowym](./media/tshoot-connect-password-hash-synchronization/phsglobalstaging.png)
 
-#### <a name="no-password-hash-synchronization-heartbeat-events"></a>Brak zdarzeń pulsu synchronizacji skrótu hasła
+#### <a name="no-password-hash-synchronization-heartbeat-events"></a>Brak zdarzeń pulsu synchronizacji skrótów haseł
 
-Każdy lokalny łącznik usługi Active Directory ma swój własny kanał synchronizacji skrótów haseł. Po ustanowieniu kanału synchronizacji skrótu hasła i nie ma żadnych zmian hasła do zsynchronizowania, zdarzenie pulsu (EventId 654) jest generowany raz na 30 minut w obszarze Dziennika zdarzeń aplikacji systemu Windows. Dla każdego lokalnego łącznika usługi Active Directory polecenie cmdlet wyszukuje odpowiednie zdarzenia pulsu w ciągu ostatnich trzech godzin. Jeśli nie zostanie znalezione żadne zdarzenie pulsu, zwracany jest następujący błąd:
+Każdy lokalny łącznik Active Directory ma własny kanał synchronizacji skrótów haseł. Po nawiązaniu kanału synchronizacji skrótów haseł, gdy nie zostaną zsynchronizowane żadne zmiany hasła, zdarzenie pulsu (EventId 654) jest generowane co 30 minut w dzienniku zdarzeń aplikacji systemu Windows. Dla każdego lokalnego łącznika Active Directory polecenie cmdlet wyszukuje odpowiednie zdarzenia pulsu w ciągu ostatnich trzech godzin. Jeśli nie zostanie znalezione żadne zdarzenie pulsu, zostanie zwrócony następujący błąd:
 
-![Brak zdarzenia synchronizacji skrótu hasła](./media/tshoot-connect-password-hash-synchronization/phsglobalnoheartbeat.png)
+![Brak zdarzenia pulsu synchronizacji skrótów haseł](./media/tshoot-connect-password-hash-synchronization/phsglobalnoheartbeat.png)
 
-#### <a name="ad-ds-account-does-not-have-correct-permissions"></a>Konto usług AD DS nie ma poprawnych uprawnień
+#### <a name="ad-ds-account-does-not-have-correct-permissions"></a>Konto AD DS nie ma prawidłowych uprawnień
 
-Jeśli konto usług AD DS używane przez lokalny łącznik usługi Active Directory do synchronizowania skrótów haseł nie ma odpowiednich uprawnień, zwracany jest następujący błąd:
+Jeśli użycie konta AD DS, które jest używane przez łącznik On-Premises Active Directory do synchronizowania skrótów haseł nie ma odpowiednich uprawnień, zwracany jest następujący błąd:
 
-![Niepoprawne poświadczenia](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
+![Nieprawidłowe poświadczenie](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
-#### <a name="incorrect-ad-ds-account-username-or-password"></a>Nieprawidłowa nazwa użytkownika lub hasło konta usług AD DS
+#### <a name="incorrect-ad-ds-account-username-or-password"></a>Nieprawidłowa nazwa użytkownika lub hasło konta AD DS
 
-Jeśli konto usług AD DS używane przez lokalny łącznik usługi Active Directory do synchronizowania skrótów haseł ma nieprawidłową nazwę użytkownika lub hasło, zwracany jest następujący błąd:
+Jeśli użycie konta AD DS przez łącznika on-premises Active Directory do synchronizowania skrótów haseł ma niepoprawną nazwę użytkownika lub hasło, zostanie zwrócony następujący błąd:
 
-![Niepoprawne poświadczenia](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectcredential.png)
+![Nieprawidłowe poświadczenie](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectcredential.png)
 
 
 
-## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task"></a>Jeden obiekt nie synchronizuje haseł: rozwiązywanie problemów przy użyciu zadania rozwiązywania problemów
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task"></a>Jeden z obiektów nie synchronizuje haseł: Rozwiązywanie problemów przy użyciu zadania rozwiązywania problemów
 
-Za pomocą zadania rozwiązywania problemów można ustalić, dlaczego jeden obiekt nie synchronizuje haseł.
+Możesz użyć zadania rozwiązywania problemów, aby określić, dlaczego jeden obiekt nie synchronizuje haseł.
 
 > [!NOTE]
-> Zadanie rozwiązywania problemów jest dostępne tylko dla usługi Azure AD Connect w wersji 1.1.614.0 lub nowszej.
+> Zadanie rozwiązywania problemów jest dostępne tylko dla Azure AD Connect w wersji 1.1.614.0 lub nowszej.
 
-### <a name="run-the-diagnostics-cmdlet"></a>Uruchamianie polecenia cmdlet diagnostyki
+### <a name="run-the-diagnostics-cmdlet"></a>Uruchom polecenie cmdlet diagnostyki
 
 Aby rozwiązać problemy z określonym obiektem użytkownika:
 
-1. Otwórz nową sesję programu Windows PowerShell na serwerze usługi Azure AD Connect z opcją **Uruchom jako administrator.**
+1. Otwórz nową sesję środowiska Windows PowerShell na serwerze Azure AD Connect przy użyciu opcji **Uruchom jako administrator** .
 
-2. Uruchom `Set-ExecutionPolicy RemoteSigned` `Set-ExecutionPolicy Unrestricted`lub .
+2. Uruchom `Set-ExecutionPolicy RemoteSigned` system `Set-ExecutionPolicy Unrestricted`lub.
 
-3. Uruchom kreatora usługi Azure AD Connect.
+3. Uruchom Kreatora Azure AD Connect.
 
-4. Przejdź do strony **Zadania dodatkowe,** wybierz pozycję **Rozwiązywanie problemów**i kliknij przycisk **Dalej**.
+4. Przejdź do strony **dodatkowe zadania** , wybierz pozycję **Rozwiązywanie problemów**, a następnie kliknij przycisk **dalej**.
 
-5. Na stronie Rozwiązywanie problemów kliknij przycisk **Uruchom,** aby uruchomić menu rozwiązywania problemów w programie PowerShell.
+5. Na stronie Rozwiązywanie problemów kliknij przycisk **Uruchom** , aby uruchomić menu Rozwiązywanie problemów w programie PowerShell.
 
-6. W menu głównym wybierz pozycję **Rozwiązywanie problemów z synchronizacją skrótów haseł**.
+6. W menu głównym wybierz pozycję **Rozwiązywanie problemów synchronizacja skrótów haseł**.
 
-7. W menu podrzędnym wybierz **opcję Hasło nie jest synchronizowane dla określonego konta użytkownika**.
+7. W podmenu wybierz pozycję **hasło nie jest zsynchronizowane dla określonego konta użytkownika**.
 
-### <a name="understand-the-results-of-the-troubleshooting-task"></a>Opis wyników zadania rozwiązywania problemów
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>Zrozumienie wyników zadania rozwiązywania problemów
 
-Zadanie rozwiązywania problemów wykonuje następujące kontrole:
+Zadanie rozwiązywania problemów wykonuje następujące sprawdzenia:
 
-* Sprawdza stan obiektu usługi Active Directory w przestrzeni łącznika usługi Active Directory, Metaverse i przestrzeni łącznika usługi Azure AD.
+* Bada stan obiektu Active Directory w przestrzeni łącznika Active Directory, Metaverse i Azure AD Connector.
 
-* Sprawdza, czy istnieją reguły synchronizacji z synchronizacją skrótów haseł włączone i stosowane do obiektu usługi Active Directory.
+* Sprawdza, czy istnieją reguły synchronizacji z włączoną synchronizacją skrótów haseł i stosowane do obiektu Active Directory.
 
-* Próbuje pobrać i wyświetlić wyniki ostatniej próby zsynchronizowania hasła do obiektu.
+* Próbuje pobrać i wyświetlić wyniki ostatniej próby synchronizacji hasła dla obiektu.
 
-Na poniższym diagramie przedstawiono wyniki polecenia cmdlet podczas rozwiązywania problemów z synchronizacją skrótów haseł dla pojedynczego obiektu:
+Na poniższym diagramie przedstawiono wyniki polecenia cmdlet w przypadku rozwiązywania problemów z synchronizacją skrótów haseł dla pojedynczego obiektu:
 
-![Wyjście diagnostyczne synchronizacji skrótu hasła — pojedynczy obiekt](./media/tshoot-connect-password-hash-synchronization/phssingleobjectgeneral.png)
+![Dane wyjściowe diagnostyki dla synchronizacji skrótów haseł — pojedynczy obiekt](./media/tshoot-connect-password-hash-synchronization/phssingleobjectgeneral.png)
 
 W pozostałej części tej sekcji opisano konkretne wyniki zwrócone przez polecenie cmdlet i odpowiednie problemy.
 
-#### <a name="the-active-directory-object-isnt-exported-to-azure-ad"></a>Obiekt usługi Active Directory nie jest eksportowany do usługi Azure AD
+#### <a name="the-active-directory-object-isnt-exported-to-azure-ad"></a>Obiekt Active Directory nie został wyeksportowany do usługi Azure AD
 
-synchronizacja skrótu haseł dla tego lokalnego konta usługi Active Directory kończy się niepowodzeniem, ponieważ w dzierżawie usługi Azure AD nie ma odpowiedniego obiektu. Zwracany jest następujący błąd:
+Synchronizacja skrótów haseł dla tego konta Active Directory lokalnego nie powiodła się, ponieważ nie ma odpowiedniego obiektu w dzierżawie usługi Azure AD. Zwracany jest następujący błąd:
 
 ![Brak obiektu usługi Azure AD](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnotexported.png)
 
 #### <a name="user-has-a-temporary-password"></a>Użytkownik ma hasło tymczasowe
 
-Obecnie usługa Azure AD Connect nie obsługuje synchronizowania haseł tymczasowych z usługą Azure AD. Hasło jest uważane za tymczasowe, jeśli opcja **Zmień hasło przy następnym logowaniu** jest ustawiona na lokalnym użytkowniku usługi Active Directory. Zwracany jest następujący błąd:
+Obecnie Azure AD Connect nie obsługuje synchronizowania haseł tymczasowych z usługą Azure AD. Hasło jest uznawane za tymczasowe, jeśli opcja **Zmień hasło przy następnym logowaniu** jest ustawiona na lokalnym Active Directory użytkownika. Zwracany jest następujący błąd:
 
-![Hasło tymczasowe nie jest eksportowane](./media/tshoot-connect-password-hash-synchronization/phssingleobjecttemporarypassword.png)
+![Nie wyeksportowano hasła tymczasowego](./media/tshoot-connect-password-hash-synchronization/phssingleobjecttemporarypassword.png)
 
 #### <a name="results-of-last-attempt-to-synchronize-password-arent-available"></a>Wyniki ostatniej próby synchronizacji hasła nie są dostępne
 
-Domyślnie usługa Azure AD Connect przechowuje wyniki prób synchronizacji skrótów haseł przez siedem dni. Jeśli dla wybranego obiektu usługi Active Directory nie są dostępne żadne wyniki, zwracane jest następujące ostrzeżenie:
+Domyślnie Azure AD Connect przechowuje wyniki synchronizacji skrótów haseł przez siedem dni. Jeśli dla wybranego obiektu Active Directory nie są dostępne żadne wyniki, zostanie zwrócone następujące ostrzeżenie:
 
-![Wyjście diagnostyczne dla pojedynczego obiektu - brak historii synchronizacji hasła](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnohistory.png)
+![Dane wyjściowe diagnostyki dla pojedynczego obiektu — brak historii synchronizacji haseł](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnohistory.png)
 
 
 
-## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Nie są synchronizowane żadne hasła: rozwiązywanie problemów przy użyciu polecenia cmdlet diagnostycznego
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Żadne hasła nie są synchronizowane: Rozwiązywanie problemów za pomocą diagnostycznego polecenia cmdlet
 
-Można użyć `Invoke-ADSyncDiagnostics` polecenia cmdlet, aby dowiedzieć się, dlaczego nie hasła są synchronizowane.
+Za pomocą polecenia cmdlet `Invoke-ADSyncDiagnostics` można ustalić, dlaczego żadne hasła nie są synchronizowane.
 
 > [!NOTE]
-> Polecenie `Invoke-ADSyncDiagnostics` cmdlet jest dostępne tylko dla usługi Azure AD Connect w wersji 1.1.524.0 lub nowszej.
+> `Invoke-ADSyncDiagnostics` Polecenie cmdlet jest dostępne tylko dla Azure AD Connect w wersji 1.1.524.0 lub nowszej.
 
-### <a name="run-the-diagnostics-cmdlet"></a>Uruchamianie polecenia cmdlet diagnostyki
+### <a name="run-the-diagnostics-cmdlet"></a>Uruchom polecenie cmdlet diagnostyki
 
-Aby rozwiązać problemy, w których nie są synchronizowane żadne hasła:
+Aby rozwiązać problemy, gdy nie są synchronizowane żadne hasła:
 
-1. Otwórz nową sesję programu Windows PowerShell na serwerze usługi Azure AD Connect z opcją **Uruchom jako administrator.**
+1. Otwórz nową sesję środowiska Windows PowerShell na serwerze Azure AD Connect przy użyciu opcji **Uruchom jako administrator** .
 
-2. Uruchom `Set-ExecutionPolicy RemoteSigned` `Set-ExecutionPolicy Unrestricted`lub .
+2. Uruchom `Set-ExecutionPolicy RemoteSigned` system `Set-ExecutionPolicy Unrestricted`lub.
 
 3. Uruchom polecenie `Import-Module ADSyncDiagnostics`.
 
@@ -212,20 +212,20 @@ Aby rozwiązać problemy, w których nie są synchronizowane żadne hasła:
 
 
 
-## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Jeden obiekt nie synchronizuje haseł: rozwiązywanie problemów przy użyciu polecenia cmdlet diagnostycznego
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Jeden z obiektów nie synchronizuje haseł: Rozwiązywanie problemów przy użyciu diagnostycznego polecenia cmdlet
 
-Polecenia `Invoke-ADSyncDiagnostics` cmdlet można użyć do ustalenia, dlaczego jeden obiekt nie synchronizuje haseł.
+Za pomocą polecenia cmdlet `Invoke-ADSyncDiagnostics` można określić, dlaczego jeden obiekt nie synchronizuje haseł.
 
 > [!NOTE]
-> Polecenie `Invoke-ADSyncDiagnostics` cmdlet jest dostępne tylko dla usługi Azure AD Connect w wersji 1.1.524.0 lub nowszej.
+> `Invoke-ADSyncDiagnostics` Polecenie cmdlet jest dostępne tylko dla Azure AD Connect w wersji 1.1.524.0 lub nowszej.
 
-### <a name="run-the-diagnostics-cmdlet"></a>Uruchamianie polecenia cmdlet diagnostyki
+### <a name="run-the-diagnostics-cmdlet"></a>Uruchom polecenie cmdlet diagnostyki
 
-Aby rozwiązać problemy, w których żadne hasła nie są synchronizowane dla użytkownika:
+Aby rozwiązać problemy, gdy żadne hasła nie są synchronizowane dla użytkownika:
 
-1. Otwórz nową sesję programu Windows PowerShell na serwerze usługi Azure AD Connect z opcją **Uruchom jako administrator.**
+1. Otwórz nową sesję środowiska Windows PowerShell na serwerze Azure AD Connect przy użyciu opcji **Uruchom jako administrator** .
 
-2. Uruchom `Set-ExecutionPolicy RemoteSigned` `Set-ExecutionPolicy Unrestricted`lub .
+2. Uruchom `Set-ExecutionPolicy RemoteSigned` system `Set-ExecutionPolicy Unrestricted`lub.
 
 3. Uruchom polecenie `Import-Module ADSyncDiagnostics`.
 
@@ -245,128 +245,128 @@ Aby rozwiązać problemy, w których żadne hasła nie są synchronizowane dla u
 
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>Żadne hasła nie są synchronizowane: ręczne kroki rozwiązywania problemów
 
-Wykonaj następujące kroki, aby ustalić, dlaczego nie są synchronizowane żadne hasła:
+Wykonaj następujące kroki, aby określić, dlaczego hasła nie są synchronizowane:
 
-1. Czy serwer Connect jest w [trybie przejściowym?](how-to-connect-sync-staging-server.md) Serwer w trybie przejściowym nie synchronizuje żadnych haseł.
+1. Czy serwer Connect jest w [trybie przejściowym](how-to-connect-sync-staging-server.md)? Serwer w trybie przejściowym nie synchronizuje żadnych haseł.
 
-2. Uruchom skrypt w sekcji [Uzyskaj stan ustawień synchronizacji haseł.](#get-the-status-of-password-sync-settings) Zawiera przegląd konfiguracji synchronizacji haseł.  
+2. Uruchom skrypt w sekcji [pobieranie stanu ustawień synchronizacji haseł](#get-the-status-of-password-sync-settings) . Zawiera omówienie konfiguracji synchronizacji haseł.  
 
     ![Dane wyjściowe skryptu programu PowerShell z ustawień synchronizacji haseł](./media/tshoot-connect-password-hash-synchronization/psverifyconfig.png)  
 
-3. Jeśli funkcja nie jest włączona w usłudze Azure AD lub jeśli stan kanału synchronizacji nie jest włączony, uruchom Kreatora instalacji Połącz. Wybierz **pozycję Dostosuj opcje synchronizacji**i usuń zaznaczenie opcji synchronizacji hasła. Ta zmiana tymczasowo wyłącza tę funkcję. Następnie uruchom ponownie kreatora i włącz ponownie synchronizację haseł. Uruchom skrypt ponownie, aby sprawdzić, czy konfiguracja jest poprawna.
+3. Jeśli ta funkcja nie jest włączona w usłudze Azure AD lub jeśli stan kanału synchronizacji nie jest włączony, uruchom Kreatora instalacji programu Connect. Wybierz opcję **Dostosuj opcje synchronizacji**i usuń zaznaczenie opcji Synchronizacja haseł. Ta zmiana tymczasowo wyłącza funkcję. Następnie ponownie uruchom kreatora i ponownie Włącz synchronizację haseł. Uruchom ponownie skrypt, aby sprawdzić, czy konfiguracja jest poprawna.
 
-4. Poszukaj w dzienniku zdarzeń błędów. Poszukaj następujących zdarzeń, które wskazywałyby na problem:
-    * Źródło: Identyfikator "Synchronizacja katalogów": 0, 611, 652, 655 Jeśli widzisz te zdarzenia, masz problem z łącznością. Komunikat dziennika zdarzeń zawiera informacje o lesie, w którym występuje problem. Aby uzyskać więcej informacji, zobacz [Problem z łącznością](#connectivity problem).
+4. Sprawdź błędy w dzienniku zdarzeń. Poszukaj następujących zdarzeń, co może wskazywać na problem:
+    * Źródło: "Synchronizacja katalogów" Identyfikator: 0, 611, 652, 655, Jeśli zobaczysz te zdarzenia, wystąpił problem z połączeniem. Komunikat dziennika zdarzeń zawiera informacje o lesie, w którym występuje problem. Aby uzyskać więcej informacji, zobacz [problem z łącznością](#connectivity problem).
 
-5. Jeśli nie widzisz pulsu lub jeśli nic więcej nie zadziałało, uruchom [uruchom wyzwalacz pełną synchronizację wszystkich haseł](#trigger-a-full-sync-of-all-passwords). Uruchom skrypt tylko raz.
+5. Jeśli nie widzisz pulsu lub nic innego nie działało, uruchom [wyzwalanie pełnej synchronizacji wszystkich haseł](#trigger-a-full-sync-of-all-passwords). Uruchom skrypt tylko raz.
 
-6. Zobacz sekcję Rozwiązywanie problemów z jednym obiektem, który nie synchronizuje haseł.
+6. Zapoznaj się z sekcją Rozwiązywanie problemów z jednym obiektem, który nie synchronizuje haseł.
 
 ### <a name="connectivity-problems"></a>Problemy z łącznością
 
-Czy masz łączność z usługą Azure AD?
+Czy masz połączenie z usługą Azure AD?
 
-Czy konto ma wymagane uprawnienia do odczytywania skrótów haseł we wszystkich domenach? Jeśli zainstalowano connect przy użyciu ustawień ekspresowych, uprawnienia powinny być już poprawne. 
+Czy konto ma wymagane uprawnienia do odczytu skrótów haseł we wszystkich domenach? Jeśli zainstalowano program Connect przy użyciu ustawień ekspresowych, uprawnienia powinny być już poprawne. 
 
-Jeśli użyto instalacji niestandardowej, ustaw uprawnienia ręcznie, wykonując następujące czynności:
+Jeśli użyto instalacji niestandardowej, Ustaw uprawnienia ręcznie, wykonując następujące czynności:
     
-1. Aby znaleźć konto używane przez łącznik usługi Active Directory, uruchom **Menedżera usług synchronizacji**. 
+1. Aby znaleźć konto używane przez łącznik Active Directory, Rozpocznij **Synchronization Service Manager**. 
  
-2. Przejdź do **programu Łączniki**, a następnie wyszukaj lokalnego lasu usługi Active Directory, którego dotyczy problem. 
+2. Przejdź do **łączników**, a następnie wyszukaj lokalny Las Active Directory, którego dotyczy problem. 
  
-3. Zaznacz łącznik, a następnie kliknij przycisk **Właściwości**. 
+3. Wybierz łącznik, a następnie kliknij przycisk **Właściwości**. 
  
-4. Przejdź do **funkcji Połącz z lasem usługi Active Directory**.  
+4. Przejdź do obszaru **łączenie z Active Directory lasu**.  
     
-    ![Konto używane przez łącznik usługi Active Directory](./media/tshoot-connect-password-hash-synchronization/connectoraccount.png)  
+    ![Konto używane przez łącznik Active Directory](./media/tshoot-connect-password-hash-synchronization/connectoraccount.png)  
     Zanotuj nazwę użytkownika i domenę, w której znajduje się konto.
     
-5. Uruchom **program Active Directory Użytkownicy i komputery,** a następnie sprawdź, czy znalezione wcześniej konto ma ustawione uprawnienia obserwowania w katalogu głównym wszystkich domen w lesie:
+5. Uruchom **Active Directory Użytkownicy i komputery**, a następnie sprawdź, czy konto, które zostało znalezione wcześniej, ma ustawione uprawnienia przestrzegania w katalogu głównym wszystkich domen w lesie:
     * Replikowanie zmian w katalogu
-    * Wszystkie zmiany katalogu replikacji
+    * Replikuj wszystkie zmiany katalogu
 
-6. Czy kontrolery domeny są dostępne dla usługi Azure AD Connect? Jeśli serwer Connect nie może połączyć się ze wszystkimi kontrolerami domeny, **skonfiguruj tylko preferowany kontroler domeny**.  
+6. Czy kontrolery domeny są osiągalne dla Azure AD Connect? Jeśli serwer Connect nie może połączyć się ze wszystkimi kontrolerami domeny, należy skonfigurować **tylko preferowany kontroler domeny**.  
     
-    ![Kontroler domeny używany przez łącznik usługi Active Directory](./media/tshoot-connect-password-hash-synchronization/preferreddc.png)  
+    ![Kontroler domeny używany przez łącznik Active Directory](./media/tshoot-connect-password-hash-synchronization/preferreddc.png)  
     
-7. Wróć do **Menedżera usług synchronizacji** i **skonfiguruj partycję katalogu**. 
+7. Wróć do **Synchronization Service Manager** i **Skonfiguruj partycję katalogu**. 
  
-8. Zaznacz domenę w **obszarze Wybierz partycje katalogu**, zaznacz pole wyboru Tylko **używaj preferowanych kontrolerów domeny,** a następnie kliknij przycisk **Konfiguruj**. 
+8. W obszarze **Wybierz partycje katalogu**zaznacz domenę, zaznacz pole wyboru **Użyj tylko preferowanych kontrolerów domeny** , a następnie kliknij przycisk **Konfiguruj**. 
 
-9. Na liście wprowadź kontrolery domeny, które Connect powinny używać do synchronizacji haseł. Ta sama lista jest również używana do importu i eksportu. Wykonaj te czynności dla wszystkich domen.
+9. Na liście wprowadź kontrolery domeny, które mają być używane do synchronizacji haseł. Ta sama lista jest również używana do importowania i eksportowania. Wykonaj te kroki dla wszystkich domen.
 
-10. Jeśli skrypt pokazuje, że nie ma pulsu, uruchom skrypt w [Wyzwalacz pełną synchronizację wszystkich haseł](#trigger-a-full-sync-of-all-passwords).
+10. Jeśli skrypt pokazuje, że nie ma pulsu, uruchom skrypt w [Wyzwól pełną synchronizację wszystkich haseł](#trigger-a-full-sync-of-all-passwords).
 
-## <a name="one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps"></a>Jeden obiekt nie synchronizuje haseł: ręczne kroki rozwiązywania problemów
+## <a name="one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps"></a>Jeden z obiektów nie synchronizuje haseł: ręczne kroki rozwiązywania problemów
 
-Można łatwo rozwiązać problemy z synchronizacją skrótów haseł, przeglądając stan obiektu.
+Możesz łatwo rozwiązywać problemy z synchronizacją skrótów haseł, przeglądając stan obiektu.
 
-1. W **usłudze Active Directory Użytkownicy i komputery**wyszukaj użytkownika, a następnie sprawdź, czy pole wyboru Użytkownik musi **zmienić hasło przy następnym logowaniu.**  
+1. W **Active Directory Użytkownicy i komputery**, Wyszukaj użytkownika, a następnie sprawdź, czy pole wyboru **użytkownik musi zmienić hasło przy następnym logowaniu** jest wyczyszczone.  
 
-    ![Hasła produkcyjne usługi Active Directory](./media/tshoot-connect-password-hash-synchronization/adprodpassword.png)  
+    ![Active Directory wydajne hasła](./media/tshoot-connect-password-hash-synchronization/adprodpassword.png)  
 
-    Jeśli to pole wyboru jest zaznaczone, poproś użytkownika o zalogowanie się i zmianę hasła. Tymczasowe hasła nie są synchronizowane z usługą Azure AD.
+    Jeśli pole wyboru jest zaznaczone, poproszenie użytkownika o zalogowanie się i zmianę hasła. Tymczasowe hasła nie są synchronizowane z usługą Azure AD.
 
-2. Jeśli hasło wygląda poprawnie w usłudze Active Directory, postępuj zgodnie z nim w wyszukiwarce synchronizacji. Postępować zgodnie z użytkownikiem z lokalnej usługi Active Directory do usługi Azure AD, można sprawdzić, czy występuje błąd opisowy na obiekcie.
+2. Jeśli hasło jest poprawne w Active Directory, postępuj zgodnie z użytkownikiem w aparacie synchronizacji. Korzystając z Active Directory lokalnych w usłudze Azure AD, możesz sprawdzić, czy w obiekcie występuje błąd opisowy.
 
-    a. Uruchom [Menedżera usług synchronizacji](how-to-connect-sync-service-manager-ui.md).
+    a. Uruchom [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md).
 
-    b. Kliknij **pozycję Łączniki**.
+    b. Kliknij pozycję **Łączniki**.
 
-    d. Wybierz **łącznik usługi Active Directory,** w którym znajduje się użytkownik.
+    c. Wybierz **łącznik Active Directory** , w którym znajduje się użytkownik.
 
-    d. Wybierz **miejsce łącznika wyszukiwania**.
+    d. Wybierz pozycję **obszar łącznika wyszukiwania**.
 
-    e. W polu **Zakres** wybierz pozycję **DN lub Anchor**, a następnie wprowadź pełną liczbę danych DN użytkownika, którego dotyczy problem.
+    e. W polu **zakres** wybierz pozycję **nazwa wyróżniająca lub zakotwiczenie**, a następnie wprowadź pełną nazwę wyróżniającą użytkownika, którego chcesz rozwiązać.
 
-    ![Wyszukiwanie użytkownika w przestrzeni łącznika za pomocą nazwy DN](./media/tshoot-connect-password-hash-synchronization/searchcs.png)  
+    ![Wyszukaj użytkownika w obszarze łącznika z nazwą wyróżniającą](./media/tshoot-connect-password-hash-synchronization/searchcs.png)  
 
-    f. Znajdź użytkownika, którego szukasz, a następnie kliknij pozycję **Właściwości,** aby wyświetlić wszystkie atrybuty. Jeśli użytkownik nie znajduje się w wynikach wyszukiwania, sprawdź [reguły filtrowania](how-to-connect-sync-configure-filtering.md) i upewnij się, że [uruchomisz zastosuj i zweryfikuj zmiany,](how-to-connect-sync-configure-filtering.md#apply-and-verify-changes) aby użytkownik pojawił się w polu Połącz.
+    f. Znajdź użytkownika, którego szukasz, a następnie kliknij pozycję **Właściwości** , aby wyświetlić wszystkie atrybuty. Jeśli użytkownik nie znajduje się w wynikach wyszukiwania, zweryfikuj [reguły filtrowania](how-to-connect-sync-configure-filtering.md) i upewnij się, że zostały uruchomione polecenie [Zastosuj i Zweryfikuj zmiany](how-to-connect-sync-configure-filtering.md#apply-and-verify-changes) dla użytkownika, które mają być wyświetlane w obszarze Połącz.
 
-    g. Aby wyświetlić szczegóły synchronizacji hasła obiektu z ostatniego tygodnia, kliknij przycisk **Zaloguj**.  
+    g. Aby wyświetlić szczegóły synchronizacji haseł dla obiektu w ubiegłym tygodniu, kliknij przycisk **Dziennik**.  
 
     ![Szczegóły dziennika obiektów](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
-    Jeśli dziennik obiektów jest pusty, usługa Azure AD Connect nie może odczytać skrótu hasła z usługi Active Directory. Kontynuuj rozwiązywanie problemów z błędami łączności. Jeśli widzisz inną wartość niż **sukces,** zapoznaj się z tabelą w [dzienniku synchronizacji haseł](#password-sync-log).
+    Jeśli dziennik obiektów jest pusty, Azure AD Connect nie mógł odczytać skrótu hasła z Active Directory. Kontynuuj Rozwiązywanie problemów z błędami łączności. Jeśli zobaczysz inną wartość niż **powodzenie**, zapoznaj się z tabelą w [dzienniku synchronizacji haseł](#password-sync-log).
 
-    h. Zaznacz kartę **rodowód** i upewnij się, że co najmniej jedna reguła synchronizacji w kolumnie **PasswordSync** to **True**. W konfiguracji domyślnej nazwa reguły synchronizacji to **In from AD — User AccountEnabled**.  
+    h. Wybierz kartę **elementy** powiązane i upewnij się, że co najmniej jedna reguła synchronizacji w kolumnie **PasswordSync** ma **wartość true**. W domyślnej konfiguracji Nazwa reguły synchronizacji należy **do usługi AD-User AccountEnabled**.  
 
-    ![Informacje o rodowód użytkownika](./media/tshoot-connect-password-hash-synchronization/cspasswordsync.png)  
+    ![Informacje związane z użytkownikiem](./media/tshoot-connect-password-hash-synchronization/cspasswordsync.png)  
 
-    i. Kliknij **pozycję Właściwości obiektu Metaverse,** aby wyświetlić listę atrybutów użytkownika.  
+    i. Kliknij pozycję **właściwości obiektu metaverse** , aby wyświetlić listę atrybutów użytkownika.  
 
-    ![Informacje metaverse](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
+    ![Informacje o magazynie Metaverse](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
 
-    Sprawdź, czy nie ma żadnego atrybutu **cloudFiltered.** Upewnij się, że atrybuty domeny (domainFQDN i domainNetBios) mają oczekiwane wartości.
+    Sprawdź, czy nie ma atrybutu **cloudFiltered** . Upewnij się, że atrybuty domeny (domainFQDN i domainNetBios) mają oczekiwane wartości.
 
-    j. Kliknij kartę **Łączniki.** Upewnij się, że są widoczne łączniki zarówno lokalnej usługi Active Directory, jak i usługi Azure AD.
+    j. Kliknij kartę **Łączniki** . Upewnij się, że są widoczne łączniki zarówno dla Active Directory lokalnych, jak i usługi Azure AD.
 
-    ![Informacje metaverse](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
+    ![Informacje o magazynie Metaverse](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
 
-    k. Zaznacz wiersz reprezentujący usługę Azure AD, kliknij pozycję **Właściwości**, a następnie kliknij kartę **Rodowód.** Obiekt spacji łącznika powinien mieć regułę wychodzącą w kolumnie **PasswordSync** ustawioną na **True**. W konfiguracji domyślnej nazwa reguły synchronizacji to Out to **AAD — User Join**.  
+    k. Wybierz wiersz reprezentujący usługę Azure AD, kliknij pozycję **Właściwości**, a następnie kliknij **kartę elementy** powiązane. Obiekt przestrzeni łącznika powinien mieć regułę ruchu wychodzącego w kolumnie **PasswordSync** ustawioną na **wartość true**. W domyślnej konfiguracji Nazwa reguły synchronizacji jest **przyłączany do usługi AAD**.  
 
-    ![Okno dialogowe Właściwości obiektu obszaru łącznika](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
+    ![Okno dialogowe właściwości obiektu obszaru łącznika](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
 
-### <a name="password-sync-log"></a>Dziennik synchronizacji hasła
+### <a name="password-sync-log"></a>Dziennik synchronizacji haseł
 
-Kolumna stanu może mieć następujące wartości:
+Kolumna stan może mieć następujące wartości:
 
 | Stan | Opis |
 | --- | --- |
 | Powodzenie |Hasło zostało pomyślnie zsynchronizowane. |
-| Filtrowany przeztarget |Hasło jest ustawione na **Użytkownik musi zmienić hasło przy następnym logowaniu**. Hasło nie zostało zsynchronizowane. |
-| Połączenie Bez celu |Brak obiektu w metaverse lub w przestrzeni łącznika usługi Azure AD. |
-| Połączenie źródłoweNotPresent |W lokalnym pliku złącza usługi Active Directory nie znaleziono żadnego obiektu. |
-| TargetNotExportedToDirectory (Nierozprzemywający do reżyserii) |Obiekt w przestrzeni łącznika usługi Azure AD nie został jeszcze wyeksportowany. |
-| MigrowaneZnakowanie SzczegółysforMoreInfo |Wpis dziennika został utworzony przed kompilacją 1.0.9125.0 i jest wyświetlany w jego stanie starszej wersji. |
-| Błąd |Usługa zwróciła nieznany błąd. |
+| FilteredByTarget |Hasło jest ustawione na wartość **użytkownik musi zmienić hasło przy następnym logowaniu**. Hasło nie zostało zsynchronizowane. |
+| NoTargetConnection |Brak obiektów w magazynie Metaverse lub w przestrzeni łącznika usługi Azure AD. |
+| SourceConnectorNotPresent |Nie znaleziono obiektu w lokalnym obszarze łącznika Active Directory. |
+| TargetNotExportedToDirectory |Obiekt w obszarze łącznika usługi Azure AD nie został jeszcze wyeksportowany. |
+| MigratedCheckDetailsForMoreInfo |Wpis dziennika został utworzony przed kompilacją 1.0.9125.0 i jest wyświetlany w jego starszym stanie. |
+| Error |Usługa zwróciła nieznany błąd. |
 | Nieznane |Wystąpił błąd podczas próby przetworzenia partii skrótów haseł.  |
-| Brakwłasnybut |Określone atrybuty (na przykład skrót Kerberos) wymagane przez usługi domenowe usługi Azure AD domain services nie są dostępne. |
-| Ponawianie próbRequestedByTarget |Określone atrybuty (na przykład skrót Protokołu Kerberos) wymagane przez usługi domenowe usługi Azure AD nie były wcześniej dostępne. Podejmowana jest próba ponownej synchronizacji haszyszu hasła użytkownika. |
+| Brakattribute |Określone atrybuty (na przykład skrót protokołu Kerberos) wymagane przez Azure AD Domain Services są niedostępne. |
+| RetryRequestedByTarget |Określone atrybuty (na przykład skrót protokołu Kerberos) wymagane przez Azure AD Domain Services nie były wcześniej dostępne. Podjęto próbę ponownego zsynchronizowania skrótu hasła użytkownika. |
 
 ## <a name="scripts-to-help-troubleshooting"></a>Skrypty ułatwiające rozwiązywanie problemów
 
-### <a name="get-the-status-of-password-sync-settings"></a>Uzyskaj stan ustawień synchronizacji haseł
+### <a name="get-the-status-of-password-sync-settings"></a>Pobieranie stanu ustawień synchronizacji haseł
 
 ```powershell
 Import-Module ADSync
@@ -424,9 +424,9 @@ Write-Host
 #### <a name="trigger-a-full-sync-of-all-passwords"></a>Wyzwalanie pełnej synchronizacji wszystkich haseł
 
 > [!NOTE]
-> Uruchom ten skrypt tylko raz. Jeśli musisz uruchomić go więcej niż raz, problemem jest coś innego. Aby rozwiązać ten problem, skontaktuj się z pomocą techniczną firmy Microsoft.
+> Uruchom ten skrypt tylko raz. Jeśli musisz uruchomić go więcej niż raz, coś innego jest problem. Aby rozwiązać ten problem, skontaktuj się z pomocą techniczną firmy Microsoft.
 
-Pełną synchronizację wszystkich haseł można wyzwolić przy użyciu następującego skryptu:
+Możesz wyzwolić pełną synchronizację wszystkich haseł, używając następującego skryptu:
 
 ```powershell
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
@@ -444,6 +444,6 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Implementowanie synchronizacji skrótów haseł z synchronizacją usługi Azure AD Connect](how-to-connect-password-hash-synchronization.md)
-* [Usługa Azure AD Connect Sync: dostosowywanie opcji synchronizacji](how-to-connect-sync-whatis.md)
+* [Implementowanie synchronizacji skrótów haseł z synchronizacją Azure AD Connect](how-to-connect-password-hash-synchronization.md)
+* [Synchronizacja Azure AD Connect: Dostosowywanie opcji synchronizacji](how-to-connect-sync-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)

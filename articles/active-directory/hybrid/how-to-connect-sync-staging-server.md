@@ -1,6 +1,6 @@
 ---
-title: 'Synchronizacja usługi Azure AD Connect: zadania i zagadnienia operacyjne | Dokumenty firmy Microsoft'
-description: W tym temacie opisano zadania operacyjne dla synchronizacji usługi Azure AD Connect i sposób przygotowania do obsługi tego składnika.
+title: 'Azure AD Connect Sync: zadania operacyjne i zagadnienia | Microsoft Docs'
+description: W tym temacie opisano zadania operacyjne dla Azure AD Connect synchronizacji i przygotowania do obsługi tego składnika.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,116 +17,116 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261023"
 ---
-# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Usługa Azure AD Connect: serwer przemieszczania i odzyskiwanie po awarii
-Za pomocą serwera w trybie przejściowym można wprowadzać zmiany w konfiguracji i wyświetlać podgląd zmian przed uaktywnieniem serwera. Umożliwia również uruchomienie pełnego importu i pełnej synchronizacji, aby sprawdzić, czy wszystkie zmiany są oczekiwane przed wprowadzeniem tych zmian w środowisku produkcyjnym.
+# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: przemieszczanie serwera i odzyskiwania po awarii
+Gdy serwer jest w trybie przejściowym, można wprowadzić zmiany w konfiguracji i wyświetlić podgląd zmian przed rozpoczęciem aktywności serwera. Umożliwia również uruchomienie pełnego importu i pełnej synchronizacji w celu sprawdzenia, czy wszystkie zmiany są oczekiwane przed wprowadzeniem zmian w środowisku produkcyjnym.
 
 ## <a name="staging-mode"></a>Tryb przejściowy
-Tryb przemieszczania może być używany w kilku scenariuszach, w tym:
+Tryb przejściowy może być używany dla kilku scenariuszy, w tym:
 
 * Wysoka dostępność.
-* Przetestuj i wdrażaj nowe zmiany konfiguracji.
-* Przedstaw nowy serwer i likwiduj stary.
+* Testowanie i wdrażanie nowych zmian konfiguracji.
+* Wprowadź nowy serwer i likwidowanie Starego.
 
-Podczas instalacji można wybrać serwer, który ma być w **trybie przejściowym**. Ta akcja sprawia, że serwer jest aktywny do importu i synchronizacji, ale nie uruchamia żadnych eksportu. Serwer w trybie przejściowym nie jest uruchomiony synchronizacja hasła lub zapisywanie hasła, nawet jeśli te funkcje zostały wybrane podczas instalacji. Po wyłączeniu trybu przejściowego serwer rozpoczyna eksportowanie, włącza synchronizację haseł i włącza zapisywanie hasła.
+Podczas instalacji można wybrać serwer, który ma być w **trybie przejściowym**. Ta akcja powoduje, że serwer jest aktywny na potrzeby importowania i synchronizowania, ale nie uruchamia żadnych eksportów. Serwer w trybie przejściowym nie korzysta z synchronizacji haseł lub zapisywania zwrotnego haseł, nawet jeśli podczas instalacji zostały wybrane te funkcje. Po wyłączeniu trybu przejściowego serwer rozpocznie eksportowanie, włącza synchronizację haseł i włącza funkcję zapisywania zwrotnego haseł.
 
 > [!NOTE]
-> Załóżmy, że masz włączoną funkcję synchronizacji skrótów haseł usługi Azure AD Connect z włączoną synchronizacją haszyszu haseł. Po włączeniu trybu przejściowego serwer przestaje synchronizować zmiany hasła z lokalnej usługi AD. Po wyłączeniu trybu przejściowego serwer wznawia synchronizowanie zmian hasła od miejsca, w którym zostało ostatnio przerwane. Jeśli serwer pozostaje w trybie przejściowym przez dłuższy czas, może upłynąć trochę czasu, aby serwer zsynchronizowany wszystkie zmiany hasła, które wystąpiły w tym okresie.
+> Załóżmy, że masz Azure AD Connect z włączoną funkcją synchronizacji skrótów haseł. Po włączeniu trybu przejściowego serwer zatrzyma synchronizowanie zmian haseł z lokalnej usługi AD. Po wyłączeniu trybu przejściowego serwer wznawia synchronizowanie zmian haseł z miejsca, w którym zostało ono ostatnio pozostawione. Jeśli serwer pozostanie w trybie przejściowym przez dłuższy czas, może upłynąć trochę czasu, zanim serwer zsynchronizuje wszystkie zmiany haseł, które wystąpiły w danym okresie czasu.
 >
 >
 
-Nadal można wymusić eksport przy użyciu menedżera usług synchronizacji.
+Nadal można wymusić eksport za pomocą Menedżera usługi synchronizacji.
 
-Serwer w trybie przejściowym nadal otrzymuje zmiany z usługi Active Directory i usługi Azure AD i może szybko przejąć obowiązki innego serwera w przypadku awarii. Jeśli wprowadzasz zmiany konfiguracji na serwerze podstawowym, należy wprowadzić te same zmiany na serwerze w trybie przejściowym.
+Serwer w trybie przejściowym nadal otrzymuje zmiany z Active Directory i usługi Azure AD i może szybko przejąć obowiązki innego serwera w przypadku awarii. Jeśli wprowadzisz zmiany w konfiguracji na serwerze podstawowym, możesz wprowadzić te same zmiany na serwerze w trybie przejściowym.
 
-Dla tych z Was, którzy znają starsze technologie synchronizacji, tryb przemieszczania jest inny, ponieważ serwer ma własną bazę danych SQL. Ta architektura umożliwia serwer tryb przemieszczania, które mają być zlokalizowane w innym centrum danych.
+W przypadku osób z wiedzą na temat starszych technologii synchronizacji tryb przejściowy jest inny, ponieważ serwer ma własną bazę danych SQL. Ta architektura umożliwia zlokalizowanie serwera trybu przejściowego w innym centrum danych.
 
-### <a name="verify-the-configuration-of-a-server"></a>Sprawdzanie konfiguracji serwera
+### <a name="verify-the-configuration-of-a-server"></a>Weryfikowanie konfiguracji serwera
 Aby zastosować tę metodę, wykonaj następujące kroki:
 
 1. [Przygotowanie](#prepare)
 2. [Konfiguracja](#configuration)
-3. [Importowanie i synchronizowanie](#import-and-synchronize)
+3. [Importowanie i synchronizacja](#import-and-synchronize)
 4. [Sprawdź](#verify)
-5. [Przełączanie aktywnego serwera](#switch-active-server)
+5. [Przełącz aktywny serwer](#switch-active-server)
 
 #### <a name="prepare"></a>Przygotowanie
-1. Zainstaluj usługę Azure AD Connect, wybierz **tryb przemieszczania**i usuń zaznaczenie **synchronizacji początkowej** na ostatniej stronie kreatora instalacji. Ten tryb umożliwia ręczne uruchomienie aparatu synchronizacji.
-   ![Konfiguracja ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
-2. Zaloguj się/zaloguj się i z menu Start wybierz pozycję **Usługa synchronizacji**.
+1. Zainstaluj Azure AD Connect, wybierz **tryb przejściowy**i usuń zaznaczenie opcji **Rozpocznij synchronizację** na ostatniej stronie Kreatora instalacji. Ten tryb umożliwia ręczne uruchomienie aparatu synchronizacji.
+   ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
+2. Wyloguj się/Zaloguj się i z menu Start wybierz pozycję **usługa synchronizacji**.
 
-#### <a name="configuration"></a>Konfigurowanie
-Jeśli wprowadzono niestandardowe zmiany na serwerze podstawowym i chcesz porównać konfigurację z serwerem przejściowym, użyj [dokumentu konfiguracji usługi Azure AD Connect](https://github.com/Microsoft/AADConnectConfigDocumenter).
+#### <a name="configuration"></a>Konfiguracja
+Jeśli wprowadzono niestandardowe zmiany na serwerze podstawowym i chcesz porównać konfigurację z serwerem przemieszczania, użyj [Azure AD Connect documention Configuration](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
-#### <a name="import-and-synchronize"></a>Importowanie i synchronizowanie
-1. Wybierz **pozycję Łączniki**i wybierz pierwszy łącznik z **typem Usługi domenowe Active Directory**. Kliknij **pozycję Uruchom**, wybierz pozycję Pełny **import**i **OK**. Wykonaj następujące kroki dla wszystkich łączników tego typu.
-2. Wybierz łącznik z **typem usługi Azure Active Directory (Microsoft)**. Kliknij **pozycję Uruchom**, wybierz pozycję Pełny **import**i **OK**.
-3. Upewnij się, że karta Łączniki są nadal zaznaczone. Dla każdego łącznika z **typem Usługi domenowe Active Directory**kliknij pozycję **Uruchom**, wybierz pozycję **Synchronizacja delta**i **OK**.
-4. Wybierz łącznik z **typem usługi Azure Active Directory (Microsoft)**. Kliknij **pozycję Uruchom**, wybierz pozycję **Synchronizacja delta**i **OK**.
+#### <a name="import-and-synchronize"></a>Importowanie i synchronizacja
+1. Wybierz pozycję **Łączniki**i wybierz pierwszy łącznik z typem **Active Directory Domain Services**. Kliknij przycisk **Uruchom**, wybierz pozycję **pełny import**i przycisk **OK**. Wykonaj te kroki dla wszystkich łączników tego typu.
+2. Wybierz łącznik z typem **Azure Active Directory (Microsoft)**. Kliknij przycisk **Uruchom**, wybierz pozycję **pełny import**i przycisk **OK**.
+3. Upewnij się, że łączniki kart są nadal zaznaczone. Dla każdego łącznika z typem **Active Directory Domain Services**, kliknij przycisk **Uruchom**, wybierz pozycję **Synchronizacja różnicowa**i **przycisk OK**.
+4. Wybierz łącznik z typem **Azure Active Directory (Microsoft)**. Kliknij przycisk **Uruchom**, wybierz pozycję **Synchronizacja różnicowa**i przycisk **OK**.
 
-Masz teraz etapowe zmiany eksportu do usługi Azure AD i lokalnej usługi AD (jeśli używasz wdrożenia hybrydowego programu Exchange). Następne kroki umożliwiają sprawdzenie, co ma się zmienić przed faktycznym rozpoczęciem eksportu do katalogów.
+Teraz przygotowano zmiany w usłudze Azure AD i lokalnej usłudze AD (Jeśli korzystasz z wdrażania hybrydowego programu Exchange). Następne kroki umożliwiają sprawdzenie, co się zmieniło przed faktycznym rozpoczęciem eksportowania do katalogów.
 
 #### <a name="verify"></a>Weryfikuj
-1. Rozpocznij monit cmd i przejdź do`%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Uruchom: `csexport "Name of Connector" %temp%\export.xml /f:x` Nazwę łącznika można znaleźć w usłudze synchronizacji. Ma nazwę podobną do "contoso.com — AAD" dla usługi Azure AD.
-3. Uruchom: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` masz plik o nazwie %temp% o nazwie export.csv, który można zbadać w programie Microsoft Excel. Ten plik zawiera wszystkie zmiany, które mają zostać wyeksportowane.
-4. Wprowadzać niezbędne zmiany w danych lub konfiguracji i uruchomić te kroki ponownie (Import i Synchronizuj i weryfikuj), dopóki nie oczekuje się zmian, które mają zostać wyeksportowane.
+1. Uruchom wiersz polecenia cmd i przejdź do`%ProgramFiles%\Microsoft Azure AD Sync\bin`
+2. Uruchom: `csexport "Name of Connector" %temp%\export.xml /f:x` nazwę łącznika można znaleźć w usłudze synchronizacji. Ma nazwę podobną do "contoso.com — AAD" dla usługi Azure AD.
+3. Uruchom: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` masz plik w katalogu% Temp% o nazwie Export. csv, który można sprawdzić w programie Microsoft Excel. Ten plik zawiera wszystkie zmiany, które mają zostać wyeksportowane.
+4. Wprowadź niezbędne zmiany w danych lub konfiguracji, a następnie ponownie wykonaj te kroki (Zaimportuj i zsynchronizuj), dopóki nie zostaną oczekiwane zmiany, które mają zostać wyeksportowane.
 
-**Opis pliku export.csv** Większość pliku jest oczywista. Niektóre skróty, aby zrozumieć zawartość:
-* OMODT – Typ modyfikacji obiektu. Wskazuje, czy operacja na poziomie obiektu to Dodaj, Aktualizuj lub Usuń.
-* AMODT – Typ modyfikacji atrybutu. Wskazuje, czy operacja na poziomie atrybutu jest Dodaj, Aktualizuj lub usuń.
+**Informacje o pliku eksportu. csv** Większość plików nie wymaga wyjaśnień. Niektóre skróty do zrozumienia zawartości:
+* OMODT — typ modyfikacji obiektu. Wskazuje, czy operacja na poziomie obiektu jest dodawana, aktualizowana lub usuwana.
+* AMODT — typ modyfikacji atrybutu. Wskazuje, czy operacja na poziomie atrybutu jest dodawana, aktualizowana lub usuwana.
 
-**Pobieranie wspólnych identyfikatorów** Plik export.csv zawiera wszystkie zmiany, które mają zostać wyeksportowane. Każdy wiersz odpowiada zmianie dla obiektu w przestrzeni łącznika, a obiekt jest identyfikowany przez atrybut DN. Atrybut DN jest unikatowym identyfikatorem przypisanym do obiektu w przestrzeni łącznika. Jeśli masz wiele wierszy/zmian w export.csv do analizy, może być trudne do ustalenia, które obiekty zmiany są dla podstawie samego atrybutu DN. Aby uprościć proces analizowania zmian, użyj skryptu programu csanalyzer.ps1 PowerShell. Skrypt pobiera typowe identyfikatory (na przykład displayName, userPrincipalName) obiektów. Aby użyć skryptu:
-1. Skopiuj skrypt programu PowerShell z sekcji `csanalyzer.ps1` [CSAnalyzer](#appendix-csanalyzer) do pliku o nazwie .
-2. Otwórz okno programu PowerShell i przejdź do folderu, w którym utworzono skrypt programu PowerShell.
+**Pobierz typowe identyfikatory** Plik Export. CSV zawiera wszystkie zmiany, które mają zostać wyeksportowane. Każdy wiersz odpowiada zmianie obiektu w miejscu łącznika, a obiekt jest identyfikowany przez atrybut nazwy wyróżniającej. Atrybut nazwy wyróżniającej jest unikatowym identyfikatorem przypisanym do obiektu w obszarze łącznika. Jeśli masz wiele wierszy/zmian w pliku eksportu. CSV do przeanalizowania, może być trudne, aby ustalić, które obiekty są zmieniane na podstawie samego atrybutu nazwy wyróżniającej. Aby uprościć proces analizowania zmian, Użyj skryptu programu PowerShell csanalyzer. ps1. Skrypt pobiera typowe identyfikatory (na przykład displayName, userPrincipalName) obiektów. Aby użyć skryptu:
+1. Skopiuj skrypt programu PowerShell z sekcji [CSAnalyzer](#appendix-csanalyzer) do pliku o nazwie `csanalyzer.ps1`.
+2. Otwórz okno programu PowerShell i przejdź do folderu, w którym został utworzony skrypt programu PowerShell.
 3. Uruchom polecenie `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
-4. Masz teraz plik o nazwie **processedusers1.csv,** który można zbadać w programie Microsoft Excel. Należy zauważyć, że plik zawiera mapowanie z atrybutu DN do wspólnych identyfikatorów (na przykład displayName i userPrincipalName). Obecnie nie obejmuje rzeczywistych zmian atrybutów, które mają zostać wyeksportowane.
+4. Masz teraz plik o nazwie **processedusers1. csv** , który można sprawdzić w programie Microsoft Excel. Należy zauważyć, że plik udostępnia mapowanie z atrybutu DN do wspólnych identyfikatorów (na przykład displayName i userPrincipalName). Obecnie nie obejmuje to faktycznych zmian atrybutów, które mają zostać wyeksportowane.
 
-#### <a name="switch-active-server"></a>Przełączanie aktywnego serwera
-1. Na aktualnie aktywnym serwerze wyłącz serwer (DirSync/FIM/Azure AD Sync), aby nie eksportować do usługi Azure AD lub ustaw go w trybie przejściowym (Azure AD Connect).
-2. Uruchom kreatora instalacji na serwerze w **trybie przejściowym** i wyłącz **tryb przejściowy**.
-   ![Konfiguracja ReadyToConfigure](./media/how-to-connect-sync-staging-server/additionaltasks.png)
+#### <a name="switch-active-server"></a>Przełącz aktywny serwer
+1. Na aktualnie aktywnym serwerze Wyłącz serwer (DirSync/FIM/Azure AD Sync), aby nie eksportować go do usługi Azure AD lub ustawić go w trybie przejściowym (Azure AD Connect).
+2. Uruchom Kreatora instalacji na serwerze w **trybie przejściowym** i Wyłącz **tryb przejściowy**.
+   ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/additionaltasks.png)
 
 ## <a name="disaster-recovery"></a>Odzyskiwanie po awarii
-Częścią projektu implementacji jest zaplanowanie, co należy zrobić w przypadku awarii, w której tracisz serwer synchronizacji. Istnieją różne modele do wykorzystania i który z nich do wykorzystania zależy od kilku czynników, w tym:
+Częścią projektu implementacji jest zaplanowanie, co należy zrobić w przypadku awarii, w której utracisz serwer synchronizacji. Istnieją różne modele, z których jeden ma być używany, zależy od kilku czynników, takich jak:
 
-* Jaka jest twoja tolerancja na to, że nie można wprowadzać zmian w obiektach w usłudze Azure AD podczas przestoju?
-* Jeśli używasz synchronizacji haseł, czy użytkownicy akceptują, że muszą używać starego hasła w usłudze Azure AD w przypadku, gdy zmienią je lokalnie?
-* Czy masz zależność od operacji w czasie rzeczywistym, takich jak storcowania hasła?
+* Jaka jest tolerancja nie można wprowadzać zmian w obiektach w usłudze Azure AD podczas przestoju?
+* Jeśli używasz synchronizacji haseł, czy użytkownicy akceptują, że muszą używać starego hasła w usłudze Azure AD na wypadek, gdyby zmieniły się on lokalnie?
+* Czy masz zależność od operacji wykonywanych w czasie rzeczywistym, takich jak zapisywanie zwrotne haseł?
 
-W zależności od odpowiedzi na te pytania i zasad organizacji można zaimplementować jedną z następujących strategii:
+W zależności od odpowiedzi na te pytania i zasady organizacji można zaimplementować jedną z następujących strategii:
 
-* Odbuduj w razie potrzeby.
-* Mieć zapasowy serwer rezerwowy, znany jako **tryb przejściowy**.
+* Kompiluj ponownie, gdy jest to wymaganie.
+* Ma serwer zapasowy rezerwowy, nazywany **trybem przejściowym**.
 * Użyj maszyn wirtualnych.
 
-Jeśli nie używasz wbudowanej bazy danych SQL Express, należy również przejrzeć sekcję [wysokiej dostępności SQL.](#sql-high-availability)
+Jeśli nie używasz wbudowanej bazy danych SQL Express, należy również zapoznać się z sekcją [wysokiej dostępności SQL](#sql-high-availability) .
 
-### <a name="rebuild-when-needed"></a>Odbuduj w razie potrzeby
-Realną strategią jest zaplanowanie odbudowy serwera w razie potrzeby. Zwykle zainstalowanie aparatu synchronizacji i początkowego importu i synchronizacji można zakończyć w ciągu kilku godzin. Jeśli nie ma wolnego serwera, można tymczasowo użyć kontrolera domeny do hostowania aparatu synchronizacji.
+### <a name="rebuild-when-needed"></a>Kompiluj ponownie w razie konieczności
+Strategiczna strategia polega na zaplanowaniu odbudowy serwera w razie potrzeby. Zazwyczaj zainstalowanie aparatu synchronizacji i wykonanie wstępnego importu i synchronizacji może zakończyć się w ciągu kilku godzin. Jeśli nie jest dostępny serwer zapasowy, można tymczasowo użyć kontrolera domeny do hostowania aparatu synchronizacji.
 
-Serwer aparatu synchronizacji nie przechowuje żadnego stanu obiektów, dzięki czemu można przebudować bazę danych z danych w usłudze Active Directory i usłudze Azure AD. **SourceAnchor** atrybut jest używany do łączenia obiektów z lokalnego i chmury. Jeśli przebudowujesz serwer z istniejącymi obiektami lokalnie i chmurą, aparat synchronizacji ponownie dopasowuje te obiekty do siebie podczas ponownej instalacji. Elementy, które należy udokumentować i zapisać, to zmiany konfiguracji wprowadzone na serwerze, takie jak reguły filtrowania i synchronizacji. Te konfiguracje niestandardowe muszą zostać ponownie zastosowane przed rozpoczęciem synchronizacji.
+Serwer aparatu synchronizacji nie przechowuje żadnego stanu dotyczącego obiektów, dzięki czemu baza danych może zostać odbudowana na podstawie danych z Active Directory i usługi Azure AD. Atrybut **sourceAnchor** służy do przyłączania obiektów z lokalizacji lokalnej i w chmurze. W przypadku odbudowania serwera z istniejącymi obiektami w środowisku lokalnym i w chmurze, aparat synchronizacji dopasowuje te obiekty ponownie w przypadku ponownej instalacji. Elementy potrzebne do dokumentowania i zapisania to zmiany konfiguracji wprowadzone na serwerze, takie jak filtrowanie i reguły synchronizacji. Te konfiguracje niestandardowe należy zastosować ponownie przed rozpoczęciem synchronizowania.
 
-### <a name="have-a-spare-standby-server---staging-mode"></a>Mieć zapasowy serwer rezerwowy - tryb przejściowy
-Jeśli masz bardziej złożone środowisko, zaleca się posiadanie co najmniej jednego serwera rezerwowego. Podczas instalacji można włączyć serwer w **trybie przejściowym**.
+### <a name="have-a-spare-standby-server---staging-mode"></a>Posiadanie zapasowego serwera rezerwy w trybie przejściowym
+Jeśli masz bardziej złożone środowisko, będzie zalecane posiadanie co najmniej jednego serwera rezerwowego. Podczas instalacji można włączyć **tryb przejściowy**serwera.
 
-Aby uzyskać więcej informacji, zobacz [tryb przemieszczania](#staging-mode).
+Aby uzyskać więcej informacji, zobacz [tryb przejściowy](#staging-mode).
 
 ### <a name="use-virtual-machines"></a>Korzystanie z maszyn wirtualnych
-Wspólną i obsługiwaną metodą jest uruchomienie aparatu synchronizacji na maszynie wirtualnej. W przypadku, gdy host ma problem, obraz z serwerem aparatu synchronizacji można migrować na inny serwer.
+Typową i obsługiwaną metodą jest uruchomienie aparatu synchronizacji w maszynie wirtualnej. Jeśli na hoście wystąpił problem, obraz z serwerem aparatu synchronizacji można migrować na inny serwer.
 
-### <a name="sql-high-availability"></a>Wysoka dostępność sql
-Jeśli nie używasz programu SQL Server Express, który jest dostarczany z usługą Azure AD Connect, należy również wziąć pod uwagę wysoką dostępność programu SQL Server. Obsługiwane rozwiązania o wysokiej dostępności obejmują klastrowanie SQL i AOA (grupy zawsze dostępne). Nieobsługiwały rozwiązania obejmują dublowanie.
+### <a name="sql-high-availability"></a>Wysoka dostępność SQL
+Jeśli nie używasz SQL Server Express, który jest dostarczany z Azure AD Connect, należy rozważyć wysoką dostępność dla SQL Server. Obsługiwane rozwiązania wysokiej dostępności obejmują klastrowanie SQL i AOA (zawsze włączone grupy dostępności). Nieobsługiwane rozwiązania obejmują dublowanie.
 
-Obsługa aoa SQL został dodany do usługi Azure AD Connect w wersji 1.1.524.0. Przed zainstalowaniem usługi Azure AD Connect należy włączyć usługę SQL AOA. Podczas instalacji usługa Azure AD Connect wykrywa, czy podane wystąpienie SQL jest włączone dla usługi SQL AOA, czy nie. Jeśli usługa SQL AOA jest włączona, usługa Azure AD Connect dodatkowo określa, czy usługa SQL AOA jest skonfigurowana do używania replikacji synchronicznego lub replikacji asynchronicznego. Podczas konfigurowania odbiornika grupy dostępności zaleca się ustawienie właściwości RegisterAllProvidersIP na 0. Dzieje się tak, ponieważ usługa Azure AD Connect obecnie używa klienta macierzystego SQL do łączenia się z klientem macierzystym SQL i SQL nie obsługuje użycia właściwości MultiSubNetFailover.
+Obsługa usługi SQL AOA została dodana do Azure AD Connect w wersji 1.1.524.0. Przed zainstalowaniem Azure AD Connect należy włączyć funkcję SQL AOA. Podczas instalacji program Azure AD Connect wykrywa, czy podane wystąpienie SQL jest włączone dla usługi SQL AOA, czy nie. Jeśli jest włączona funkcja SQL AOA, Azure AD Connect więcej, jeśli SQL AOA jest skonfigurowany do korzystania z replikacji synchronicznej lub asynchronicznej. Podczas konfigurowania odbiornika grupy dostępności zaleca się ustawienie wartości 0 dla właściwości RegisterAllProvidersIP. Dzieje się tak, ponieważ Azure AD Connect obecnie używa SQL Native Client do nawiązywania połączenia z serwerem SQL, a SQL Native Client nie obsługuje użycia właściwości MultiSubNetFailover.
 
 ## <a name="appendix-csanalyzer"></a>Dodatek CSAnalyzer
-Zobacz sekcję [sprawdź,](#verify) jak używać tego skryptu.
+Zapoznaj się z sekcją [Sprawdzanie](#verify) , jak korzystać z tego skryptu.
 
 ```
 Param(
@@ -268,7 +268,7 @@ $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeI
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-**Tematy omówienie**  
+**Tematy dotyczące omówienia**  
 
-* [Synchronizacja usługi Azure AD Connect: zrozumienie i dostosowywanie synchronizacji](how-to-connect-sync-whatis.md)  
+* [Azure AD Connect Sync: omówienie i dostosowanie synchronizacji](how-to-connect-sync-whatis.md)  
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)  

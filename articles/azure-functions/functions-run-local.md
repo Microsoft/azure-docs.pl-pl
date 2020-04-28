@@ -79,7 +79,7 @@ W poniższych krokach użyj npm, aby zainstalować narzędzia Core Tools w syste
 
 1. Jeśli nie planujesz używać [pakietów rozszerzeń,]zainstaluj [zestaw .NET Core 2.x SDK dla systemu Windows](https://www.microsoft.com/net/download/windows).
 
-# <a name="macos"></a>[Macos](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 Poniższe kroki za pomocą homebrew zainstalować narzędzia podstawowe w systemie macOS.
 
@@ -223,7 +223,7 @@ Wartości ustawień aplikacji funkcji można również odczytać w kodzie jako z
 * [Wstępnie skompilowany c#](functions-dotnet-class-library.md#environment-variables)
 * [Skrypt języka C# (csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
-* [Javascript](functions-reference-node.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
 Jeśli nie ustawiono prawidłowego [`AzureWebJobsStorage`] ciągu połączenia magazynu i emulator nie jest używany, wyświetlany jest następujący komunikat o błędzie:
 
@@ -322,7 +322,7 @@ Aby uruchomić projekt Functions, uruchom hosta Functions. Host włącza wyzwala
 ```
 func start --build
 ```
-# <a name="javascript"></a>[Javascript](#tab/node)
+# <a name="javascript"></a>[JavaScript](#tab/node)
 
 ```
 func start
@@ -567,7 +567,7 @@ Aby zgłosić żądanie błędu lub funkcji, [otwórz problem z gitHubem](https:
 <!-- LINKS -->
 
 [Podstawowe narzędzia funkcji platformy Azure]: https://www.npmjs.com/package/azure-functions-core-tools
-[Portal Azure]: https://portal.azure.com 
+[Azure Portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 ['AzureWebJobsStorage']: functions-app-settings.md#azurewebjobsstorage

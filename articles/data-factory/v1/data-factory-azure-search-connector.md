@@ -1,6 +1,6 @@
 ---
-title: Wypychanie danych do indeksu wyszukiwania przy użyciu usługi Data Factory
-description: Dowiedz się, jak wypychać dane do indeksu usługi Azure Cognitive Search przy użyciu usługi Azure Data Factory.
+title: Wypychanie danych do indeksu wyszukiwania przy użyciu Data Factory
+description: Dowiedz się więcej o sposobie wypychania danych do indeksu usługi Azure Wyszukiwanie poznawcze przy użyciu Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,116 +13,116 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281563"
 ---
-# <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Wypychanie danych do indeksu usługi Azure Cognitive Search przy użyciu usługi Azure Data Factory
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+# <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Wypychanie danych do indeksu Wyszukiwanie poznawcze platformy Azure przy użyciu Azure Data Factory
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](data-factory-azure-search-connector.md)
 > * [Wersja 2 (bieżąca wersja)](../connector-azure-search.md)
 
 > [!NOTE]
-> Ten artykuł dotyczy wersji 1 usługi Data Factory. Jeśli używasz bieżącej wersji usługi Data Factory, zobacz [łącznik usługi Azure Cognitive Search w wersji 2](../connector-azure-search.md).
+> Ten artykuł dotyczy wersji 1 usługi Data Factory. Jeśli używasz bieżącej wersji usługi Data Factory, zobacz [Azure wyszukiwanie poznawcze Connector w wersji 2](../connector-azure-search.md).
 
-W tym artykule opisano, jak używać działania kopiowania do wypychania danych z obsługiwanego magazynu danych źródłowych do indeksu usługi Azure Cognitive Search. Obsługiwane źródłowe magazyny danych są wymienione w kolumnie Źródło [obsługiwanych źródeł i pochłaniacze](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabeli. W tym artykule opiera się na [działaniach przenoszenia danych,](data-factory-data-movement-activities.md) który przedstawia ogólny przegląd przenoszenia danych z copy activity i obsługiwanych kombinacji magazynu danych.
+W tym artykule opisano sposób użycia działania kopiowania w celu wypychania danych z obsługiwanego źródłowego magazynu danych do indeksu Wyszukiwanie poznawcze platformy Azure. Obsługiwane źródłowe magazyny danych są wymienione w kolumnie Source w tabeli [obsługiwane źródła i ujścia](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . W tym artykule opisano informacje o [działaniach związanych z przenoszeniem danych](data-factory-data-movement-activities.md) , które przedstawia ogólne omówienie przenoszenia danych za pomocą działania kopiowania i obsługiwanych kombinacji magazynu danych.
 
 ## <a name="enabling-connectivity"></a>Włączanie łączności
-Aby umożliwić usługę Data Factory łączenie się z lokalnym magazynem danych, należy zainstalować bramę zarządzania danymi w środowisku lokalnym. Bramę można zainstalować na tym samym komputerze, na którym znajduje się źródłowy magazyn danych, lub na oddzielnym komputerze, aby uniknąć konkurowania o zasoby z magazynem danych.
+Aby umożliwić usłudze Data Factory łączenie się z lokalnym magazynem danych, należy zainstalować bramę Zarządzanie danymi w środowisku lokalnym. Bramę można zainstalować na tym samym komputerze, na którym znajduje się źródłowy magazyn danych lub na oddzielnej maszynie, aby uniknąć konkurowania zasobów z magazynem danych.
 
-Brama zarządzania danymi łączy lokalne źródła danych z usługami w chmurze w bezpieczny i zarządzany sposób. Aby uzyskać szczegółowe informacje na temat bramy zarządzania danymi, zobacz [Przenoszenie danych między środowiskiem lokalnym a chmurą.](data-factory-move-data-between-onprem-and-cloud.md)
+Usługa Zarządzanie danymi Gateway łączy lokalne źródła danych z usługami w chmurze w bezpieczny i zarządzany sposób. Szczegółowe informacje na temat bramy Zarządzanie danymi można znaleźć w artykule [przenoszenie danych między środowiskiem lokalnym i chmurą](data-factory-move-data-between-onprem-and-cloud.md) .
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potok z działaniem kopiowania, które wypycha dane z magazynu danych źródłowych do indeksu wyszukiwania przy użyciu różnych narzędzi/interfejsów API.
+Można utworzyć potok za pomocą działania kopiowania, które wypycha dane ze źródłowego magazynu danych do indeksu wyszukiwania przy użyciu różnych narzędzi/interfejsów API.
 
-Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania**. Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) w celu szybkiego instruktażu w sprawie tworzenia potoku przy użyciu kreatora kopiowania danych.
+Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania**. Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
 
-Do utworzenia potoku można również użyć następujących narzędzi: **Visual Studio**, **Azure PowerShell**, **szablon usługi Azure Resource Manager**, **.NET API**i REST **API**. Zobacz [Kopiowanie samouczka aktywności,](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) aby uzyskać instrukcje krok po kroku, aby utworzyć potok z działaniem kopiowania.
+Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio**, **Azure PowerShell**, **szablon Azure Resource Manager**, interfejs API **platformy .NET**i **interfejs API REST**. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
-Niezależnie od tego, czy są używane narzędzia, czy interfejsy API, wykonaj następujące kroki, aby utworzyć potok, który przenosi dane ze źródłowego magazynu danych do magazynu danych ujścia:
+Niezależnie od tego, czy używasz narzędzi, czy interfejsów API, wykonaj następujące kroki, aby utworzyć potok służący do przenoszenia danych ze źródłowego magazynu danych do magazynu danych ujścia:
 
-1. Tworzenie **połączonych usług** w celu połączenia magazynów danych wejściowych i wyjściowych z fabryką danych.
-2. Tworzenie **zestawów danych** do reprezentowania danych wejściowych i wyjściowych dla operacji kopiowania.
-3. Utwórz **potok** z działaniem kopiowania, które przyjmuje zestaw danych jako dane wejściowe i zestaw danych jako dane wyjściowe.
+1. Utwórz **połączone usługi** , aby połączyć magazyny danych wejściowych i wyjściowych z fabryką danych.
+2. Utwórz **zestawy** danych, aby reprezentować dane wejściowe i wyjściowe dla operacji kopiowania.
+3. Utwórz **potok** z działaniem kopiowania, które pobiera zestaw danych jako dane wejściowe i zestaw danych jako dane wyjściowe.
 
-Korzystając z kreatora, definicje JSON dla tych jednostek usługi Data Factory (połączone usługi, zestawy danych i potok) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/interfejsów API (z wyjątkiem interfejsu API platformy .NET), można zdefiniować te jednostki fabryki danych przy użyciu formatu JSON.  W przypadku przykładu z definicjami JSON dla jednostek usługi Data Factory, które są używane do kopiowania danych do indeksu wyszukiwania, zobacz [przykład JSON: Kopiowanie danych z lokalnego programu SQL Server do](#json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index) sekcji indeksu usługi Azure Cognitive Search w tym artykule.
+Gdy używasz Kreatora, definicje JSON dla tych Data Factory jednostek (połączone usługi, zestawy danych i potok) są automatycznie tworzone. Korzystając z narzędzi/interfejsów API (z wyjątkiem interfejsu API .NET), należy zdefiniować te Data Factory jednostki przy użyciu formatu JSON.  Aby uzyskać przykład z definicjami JSON dla Data Factory jednostek, które są używane do kopiowania danych do indeksu wyszukiwania, zobacz [przykład JSON: kopiowanie danych z SQL Server lokalnych do sekcji indeksu wyszukiwanie poznawcze platformy Azure](#json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index) w tym artykule.
 
-Poniższe sekcje zawierają szczegółowe informacje o właściwościach JSON, które są używane do definiowania jednostek fabryki danych specyficznych dla indeksu wyszukiwania:
+Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSON, które są używane do definiowania jednostek Data Factory specyficznych dla indeksu wyszukiwania:
 
-## <a name="linked-service-properties"></a>Połączone właściwości usługi
+## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 
-Poniższa tabela zawiera opisy elementów JSON, które są specyficzne dla usługi połączonej usługi Azure Cognitive Search.
+Poniższa tabela zawiera opisy elementów JSON, które są specyficzne dla połączonej usługi Wyszukiwanie poznawcze platformy Azure.
 
 | Właściwość | Opis | Wymagany |
 | -------- | ----------- | -------- |
-| type | Właściwość typu musi być ustawiona na: **AzureSearch**. | Tak |
-| url | adres URL usługi wyszukiwania. | Tak |
-| key | Klucz administratora usługi wyszukiwania. | Tak |
+| type | Właściwość Type musi mieć wartość: **AzureSearch**. | Tak |
+| url | Adres URL usługi wyszukiwania. | Tak |
+| key | Klucz administratora dla usługi wyszukiwania. | Tak |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 
-Aby uzyskać pełną listę sekcji i właściwości, które są dostępne do definiowania zestawów danych, zobacz artykuł [Tworzenie zestawów danych.](data-factory-create-datasets.md) Sekcje, takie jak struktura, dostępność i zasady zestawu danych JSON są podobne dla wszystkich typów zestawów danych. Sekcja **typeProperties** jest inna dla każdego typu zestawu danych. Sekcja typeProperties dla zestawu danych typu **AzureSearchIndex** ma następujące właściwości:
+Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępne do definiowania zestawów danych, zobacz artykuł [Tworzenie zestawów danych](data-factory-create-datasets.md) . Sekcje, takie jak struktura, dostępność i zasady JSON zestawu danych, są podobne dla wszystkich typów zestawów danych. Sekcja **typeProperties** jest inna dla każdego typu zestawu danych. Sekcja typeProperties zestawu danych typu **AzureSearchIndex** ma następujące właściwości:
 
 | Właściwość | Opis | Wymagany |
 | -------- | ----------- | -------- |
-| type | Właściwość typu musi być ustawiona na **AzureSearchIndex**.| Tak |
-| nazwa indeksu | Nazwa indeksu wyszukiwania. Fabryka danych nie tworzy indeksu. Indeks musi istnieć w usłudze Azure Cognitive Search. | Tak |
+| type | Właściwość Type musi być ustawiona na wartość **AzureSearchIndex**.| Tak |
+| indexName | Nazwa indeksu wyszukiwania. Data Factory nie tworzy indeksu. Indeks musi istnieć na platformie Azure Wyszukiwanie poznawcze. | Tak |
 
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
-Aby uzyskać pełną listę sekcji i właściwości, które są dostępne do definiowania działań, zobacz [Tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, tabele danych wejściowych i wyjściowych oraz różne zasady są dostępne dla wszystkich typów działań. Mając na uwadze, właściwości dostępne w sekcji typeProperties różnią się w zależności od typu działania. W przypadku działania kopiowania różnią się one w zależności od typów źródeł i pochłaniacze.
+Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępne do definiowania działań, zobacz artykuł [Tworzenie potoków](data-factory-create-pipelines.md) . Właściwości takie jak nazwa, opis, tabele wejściowe i wyjściowe oraz różne zasady są dostępne dla wszystkich typów działań. Natomiast właściwości dostępne w sekcji typeProperties różnią się w zależności od typu działania. W przypadku działania kopiowania różnią się w zależności od typów źródeł i ujścia.
 
-W przypadku działania kopiowania, gdy ujście jest typu **AzureSearchIndexSink,** następujące właściwości są dostępne w sekcji typeProperties:
+W przypadku działania kopiowania, gdy ujścia ma typ **AzureSearchIndexSink**, w sekcji typeProperties są dostępne następujące właściwości:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagany |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior (Zachowanie zapisu) | Określa, czy dokument ma być scalany, czy zamieniany, gdy dokument już istnieje w indeksie. Zobacz [WriteBehavior właściwości](#writebehavior-property).| Scalanie (domyślnie)<br/>Upload| Nie |
-| Rozmiar writebatchsize | Przekazuje dane do indeksu wyszukiwania, gdy rozmiar buforu osiągnie writeBatchSize. Zobacz [WriteBatchSize właściwość,](#writebatchsize-property) aby uzyskać szczegółowe informacje. | od 1 do 1000. Wartość domyślna to 1000. | Nie |
+| WriteBehavior | Określa, czy należy scalić lub zamienić, gdy dokument już istnieje w indeksie. Zobacz [Właściwość WriteBehavior](#writebehavior-property).| Scal (domyślnie)<br/>Upload| Nie |
+| WriteBatchSize | Przekazuje dane do indeksu wyszukiwania, gdy rozmiar buforu osiągnie writeBatchSize. Aby uzyskać szczegółowe informacje, zobacz [Właściwość WriteBatchSize](#writebatchsize-property) . | od 1 do 1 000. Wartość domyślna to 1000. | Nie |
 
-### <a name="writebehavior-property"></a>WriteBehavior właściwość
-Usługa AzureSearchSink upserts podczas zapisywania danych. Innymi słowy podczas pisania dokumentu, jeśli klucz dokumentu już istnieje w indeksie wyszukiwania, usługa Azure Cognitive Search aktualizuje istniejący dokument, zamiast zgłaszać wyjątek konfliktu.
+### <a name="writebehavior-property"></a>Właściwość WriteBehavior
+AzureSearchSink upserts podczas zapisywania danych. Innymi słowy podczas pisania dokumentu, jeśli klucz dokumentu istnieje już w indeksie wyszukiwania, usługa Azure Wyszukiwanie poznawcze aktualizuje istniejący dokument zamiast zgłaszania wyjątku konfliktu.
 
-Usługa AzureSearchSink udostępnia następujące dwa zachowania upsert (przy użyciu narzędzia AzureSearch SDK):
+AzureSearchSink udostępnia następujące dwa zachowania upsert (przy użyciu zestawu SDK AzureSearch):
 
-- **Scalanie**: połącz wszystkie kolumny w nowym dokumencie z istniejącą. W przypadku kolumn o wartości null w nowym dokumencie wartość w istniejącym jest zachowywana.
-- **Przekaż**: Nowy dokument zastępuje istniejący. W przypadku kolumn niewymienione w nowym dokumencie wartość jest ustawiona na wartość null, niezależnie od tego, czy w istniejącym dokumencie jest wartość inną niż null.
+- **Scalanie**: Połącz wszystkie kolumny w nowym dokumencie z istniejącym elementem. W przypadku kolumn o wartości null w nowym dokumencie jest zachowywana wartość w istniejącej.
+- **Przekazywanie**: nowy dokument zastępuje istniejący. W przypadku kolumn nieokreślonych w nowym dokumencie wartość jest ustawiana na wartość null niezależnie od tego, czy w istniejącym dokumencie istnieje wartość inna niż null.
 
-Domyślnym zachowaniem jest **Scalanie**.
+Zachowanie domyślne jest **scalane**.
 
-### <a name="writebatchsize-property"></a>WriteBatchSize Właściwość
-Usługa Azure Cognitive Search obsługuje zapisywanie dokumentów jako partii. Partia może zawierać od 1 do 1000 akcji. Akcja obsługuje jeden dokument do wykonania operacji przekazywania/scalania.
+### <a name="writebatchsize-property"></a>Właściwość WriteBatchSize
+Usługa Azure Wyszukiwanie poznawcze obsługuje pisanie dokumentów jako partii. Zadanie wsadowe może zawierać od 1 do 1 000 akcji. Akcja obsługuje jeden dokument, aby wykonać operację przekazywania/scalania.
 
-### <a name="data-type-support"></a>Obsługa typów danych
-W poniższej tabeli określono, czy typ danych usługi Azure Cognitive Search jest obsługiwany, czy nie.
+### <a name="data-type-support"></a>Obsługa typu danych
+W poniższej tabeli określono, czy typ danych Wyszukiwanie poznawcze platformy Azure jest obsługiwany.
 
-| Typ danych usługi Azure Cognitive Search | Obsługiwane w usłudze Azure Cognitive Search Sink |
+| Typ danych Wyszukiwanie poznawcze platformy Azure | Obsługiwane w usłudze Azure Wyszukiwanie poznawcze sink |
 | ---------------------- | ------------------------------ |
-| Ciąg | Tak |
+| String | Tak |
 | Int32 | Tak |
 | Int64 | Tak |
 | Double | Tak |
-| Wartość logiczna | Tak |
-| DataTimeOffset (Zestaw danych) | Tak |
+| Boolean | Tak |
+| DataTimeOffset | Tak |
 | Tablica ciągów | Nie |
-| GeografiaPunkt | Nie |
+| GeographyPoint względem | Nie |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index"></a>Przykład JSON: kopiowanie danych z lokalnego programu SQL Server do indeksu usługi Azure Cognitive Search
+## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index"></a>Przykład JSON: kopiowanie danych z SQL Server lokalnych do usługi Azure Wyszukiwanie poznawcze index
 
-W poniższej próbce przedstawiono:
+Poniższy przykład pokazuje:
 
 1. Połączona usługa typu [AzureSearch](#linked-service-properties).
 2. Połączona usługa typu [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties).
-3. Wejściowy [zestaw danych](data-factory-create-datasets.md) typu [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
+3. Wejściowy [zestaw danych](data-factory-create-datasets.md) typu [SqlServer](data-factory-sqlserver-connector.md#dataset-properties).
 4. Wyjściowy [zestaw danych](data-factory-create-datasets.md) typu [AzureSearchIndex](#dataset-properties).
-4. [Potok](data-factory-create-pipelines.md) z działaniem kopiowania, który używa [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) i [AzureSearchIndexSink](#copy-activity-properties).
+4. [Potok](data-factory-create-pipelines.md) z działaniem kopiowania, który używa elementu [sqlsource](data-factory-sqlserver-connector.md#copy-activity-properties) i [AzureSearchIndexSink](#copy-activity-properties).
 
-Przykładowy kopiuje dane szeregów czasowych z lokalnej bazy danych programu SQL Server do wyszukiwania indeksu co godzinę. Właściwości JSON używane w tym przykładzie są opisane w sekcjach następujących po próbkach.
+Przykład kopiuje dane szeregów czasowych z lokalnej bazy danych SQL Server do wyszukiwania indeksów co godzinę. Właściwości JSON używane w tym przykładzie są opisane w sekcjach poniżej przykładów.
 
-W pierwszej kolejności skonfiguruj bramę zarządzania danymi na komputerze lokalnym. Instrukcje znajdują się w [ruchomych danych między lokalizacjami lokalnymi i](data-factory-move-data-between-onprem-and-cloud.md) w chmurze artykułu.
+Pierwszym krokiem jest skonfigurowanie bramy zarządzania danymi na maszynie lokalnej. Instrukcje dotyczą [przemieszczania danych między lokalizacjami lokalnymi i artykułami w chmurze](data-factory-move-data-between-onprem-and-cloud.md) .
 
-**Usługa połączona usługi Azure Cognitive Search:**
+**Połączona usługa Azure Wyszukiwanie poznawcze:**
 
 ```JSON
 {
@@ -137,7 +137,7 @@ W pierwszej kolejności skonfiguruj bramę zarządzania danymi na komputerze lok
 }
 ```
 
-**Usługa połączona z programem SQL Server**
+**SQL Server połączona usługa**
 
 ```JSON
 {
@@ -152,11 +152,11 @@ W pierwszej kolejności skonfiguruj bramę zarządzania danymi na komputerze lok
 }
 ```
 
-**Zestaw danych wejściowych programu SQL Server**
+**SQL Server wejściowy zestaw danych**
 
-W przykładzie przyjęto założenie, że utworzono tabelę "MyTable" w programie SQL Server i zawiera kolumnę o nazwie "timestampcolumn" dla danych szeregów czasowych. Można wysyłać kwerendy za pośrednictwem wielu tabel w tej samej bazie danych przy użyciu pojedynczego zestawu danych, ale dla zestawu danych musi być używana pojedyncza tabelaName typeProperty zestawu danych.
+W przykładzie przyjęto założenie, że utworzono tabelę "MyTable" w SQL Server i zawiera kolumnę o nazwie "timestampcolumn" dla danych szeregów czasowych. Można wykonywać zapytania dotyczące wielu tabel w tej samej bazie danych przy użyciu jednego zestawu danych, ale dla tabeli dataset typeProperty należy użyć pojedynczej tabeli.
 
-Ustawienie "zewnętrzne": "true" informuje usługę Data Factory, że zestaw danych jest zewnętrzny dla fabryki danych i nie jest produkowany przez działanie w fabryce danych.
+Ustawienie "External": "true" informuje Data Factory usługę, że zestaw danych jest zewnętrzny względem fabryki danych i nie jest tworzony przez działanie w fabryce danych.
 
 ```JSON
 {
@@ -183,9 +183,9 @@ Ustawienie "zewnętrzne": "true" informuje usługę Data Factory, że zestaw dan
 }
 ```
 
-**Zestaw danych wyjściowych usługi Azure Cognitive Search:**
+**Zestaw danych wyjściowych usługi Azure Wyszukiwanie poznawcze:**
 
-Przykładowy kopiuje dane do indeksu usługi Azure Cognitive Search o nazwie **produkty**. Fabryka danych nie tworzy indeksu. Aby przetestować przykład, należy utworzyć indeks o tej nazwie. Utwórz indeks wyszukiwania z taką samą liczbą kolumn, jak w wejściowym zestawie danych. Nowe wpisy są dodawane do indeksu wyszukiwania co godzinę.
+Przykład kopiuje dane do indeksu Wyszukiwanie poznawcze platformy Azure o nazwie **Products**. Data Factory nie tworzy indeksu. Aby przetestować przykład, Utwórz indeks o tej nazwie. Utwórz indeks wyszukiwania z taką samą liczbą kolumn jak w zestawie danych wejściowych. Nowe wpisy są dodawane do indeksu wyszukiwania co godzinę.
 
 ```JSON
 {
@@ -204,9 +204,9 @@ Przykładowy kopiuje dane do indeksu usługi Azure Cognitive Search o nazwie **p
 }
 ```
 
-**Kopiowanie działania w potoku ze źródłem SQL i ujściem indeksu usługi Azure Cognitive Search:**
+**Działanie kopiowania w potoku za pomocą źródła SQL i ujścia indeksu Wyszukiwanie poznawcze Azure:**
 
-Potok zawiera działanie kopiowania, który jest skonfigurowany do korzystania z wejściowych i wyjściowych zestawów danych i jest zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** jest ustawiony na **SqlSource** i typ **ujścia** jest ustawiony na **AzureSearchIndexSink**. Kwerenda SQL określona dla właściwości **SqlReaderQuery** wybiera dane w ciągu ostatniej godziny do skopiowania.
+Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma ustawioną wartość **sqlsource** , a typ **ujścia** to **AzureSearchIndexSink**. Zapytanie SQL określone dla właściwości **SqlReaderQuery** wybiera dane w ciągu ostatniej godziny do skopiowania.
 
 ```JSON
 {
@@ -255,7 +255,7 @@ Potok zawiera działanie kopiowania, który jest skonfigurowany do korzystania z
 }
 ```
 
-Jeśli kopiujesz dane z magazynu danych w `executionLocation` chmurze do usługi Azure Cognitive Search, właściwość jest wymagana. Poniższy fragment kodu JSON pokazuje zmiany potrzebne `typeProperties` w obszarze Działanie kopiowania jako przykład. Sprawdź [sekcję Kopiuj dane między magazynami danych w chmurze,](data-factory-data-movement-activities.md#global) aby uzyskać obsługiwane wartości i więcej szczegółów.
+W przypadku kopiowania danych z magazynu danych w chmurze do usługi Azure Wyszukiwanie poznawcze `executionLocation` właściwość jest wymagana. Poniższy fragment kodu JSON pokazuje zmianę potrzebną w ramach działania `typeProperties` kopiowania jako przykładu. Sprawdź opcję [Kopiuj dane między magazynami danych w chmurze](data-factory-data-movement-activities.md#global) , aby poznać obsługiwane wartości i więcej szczegółów.
 
 ```JSON
 "typeProperties": {
@@ -271,7 +271,7 @@ Jeśli kopiujesz dane z magazynu danych w `executionLocation` chmurze do usługi
 
 
 ## <a name="copy-from-a-cloud-source"></a>Kopiowanie ze źródła w chmurze
-Jeśli kopiujesz dane z magazynu danych w `executionLocation` chmurze do usługi Azure Cognitive Search, właściwość jest wymagana. Poniższy fragment kodu JSON pokazuje zmiany potrzebne `typeProperties` w obszarze Działanie kopiowania jako przykład. Sprawdź [sekcję Kopiuj dane między magazynami danych w chmurze,](data-factory-data-movement-activities.md#global) aby uzyskać obsługiwane wartości i więcej szczegółów.
+W przypadku kopiowania danych z magazynu danych w chmurze do usługi Azure Wyszukiwanie poznawcze `executionLocation` właściwość jest wymagana. Poniższy fragment kodu JSON pokazuje zmianę potrzebną w ramach działania `typeProperties` kopiowania jako przykładu. Sprawdź opcję [Kopiuj dane między magazynami danych w chmurze](data-factory-data-movement-activities.md#global) , aby poznać obsługiwane wartości i więcej szczegółów.
 
 ```JSON
 "typeProperties": {
@@ -285,12 +285,12 @@ Jeśli kopiujesz dane z magazynu danych w `executionLocation` chmurze do usługi
 }
 ```
 
-Można również mapować kolumny z źródłowego zestawu danych na kolumny z zestawu danych ujścia w definicji działania kopiowania. Aby uzyskać szczegółowe informacje, zobacz [Mapowanie kolumn zestawu danych w usłudze Azure Data Factory](data-factory-map-columns.md).
+Można również mapować kolumny ze źródłowego zestawu danych do kolumn z zestawu danych ujścia w definicji działania kopiowania. Aby uzyskać szczegółowe informacje, zobacz [Mapowanie kolumn zestawu danych w Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Wydajności i dostosowywanie
-Zobacz [przewodnik wydajności i dostrajania działania kopiowania,](data-factory-copy-activity-performance.md) aby dowiedzieć się więcej o kluczowych czynnikach, które wpływają na wydajność przenoszenia danych (Działanie kopiowania) i na różne sposoby optymalizacji.
+Zapoznaj się z [przewodnikiem dotyczącym wydajności i dostrajania działania kopiowania](data-factory-copy-activity-performance.md) , aby poznać kluczowe czynniki wpływające na wydajność przenoszenia danych (działanie kopiowania) i różne sposoby jego optymalizacji.
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:
 
-* [Kopiuj samouczek działania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) dla krok po kroku instrukcje dotyczące tworzenia potoku z copy activity.
+* [Samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) zawiera instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania.

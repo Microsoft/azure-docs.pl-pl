@@ -1,7 +1,7 @@
 ---
-title: Definiowanie profilu technicznego sprawdzania poprawności w zasadach niestandardowych
+title: Zdefiniuj profil techniczny weryfikacji w zasadach niestandardowych
 titleSuffix: Azure AD B2C
-description: Sprawdzanie poprawności oświadczeń przy użyciu profilu technicznego sprawdzania poprawności w zasadach niestandardowych w usłudze Azure Active Directory B2C.
+description: Sprawdź poprawność oświadczeń w ramach zasad niestandardowych w Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,17 +12,17 @@ ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 1eaf159149bb353b1cf0474aad5bc233decddc5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481572"
 ---
-# <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiowanie profilu technicznego sprawdzania poprawności w zasadach niestandardowych usługi Azure Active Directory B2C
+# <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny weryfikacji w zasadach niestandardowych Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Profil techniczny sprawdzania poprawności jest zwykłym profilem technicznym z dowolnego protokołu, takiego jak [usługa Azure Active Directory](active-directory-technical-profile.md) lub [interfejs API REST](restful-technical-profile.md). Profil techniczny sprawdzania poprawności zwraca oświadczenia wyjściowe lub zwraca 4xx kod stanu HTTP z następującymi danymi. Aby uzyskać więcej informacji, zobacz [zwracany komunikat o błędzie](restful-technical-profile.md#returning-error-message)
+Profil techniczny weryfikacji jest zwykłym profilem technicznym z dowolnego protokołu, takiego jak [Azure Active Directory](active-directory-technical-profile.md) lub [interfejs API REST](restful-technical-profile.md). Profil techniczny weryfikacji zwraca oświadczenia wyjściowe lub zwraca kod stanu HTTP 4xx z poniższymi danymi. Aby uzyskać więcej informacji, zobacz [zwracany komunikat o błędzie](restful-technical-profile.md#returning-error-message)
 
 ```JSON
 {
@@ -32,60 +32,60 @@ Profil techniczny sprawdzania poprawności jest zwykłym profilem technicznym z 
 }
 ```
 
-Zakres oświadczeń danych wyjściowych profilu technicznego sprawdzania poprawności jest ograniczony do [samodzielnie potwierdzonego profilu technicznego,](self-asserted-technical-profile.md) który wywołuje profil techniczny sprawdzania poprawności i jego profile techniczne sprawdzania poprawności. Jeśli chcesz użyć oświadczeń danych wyjściowych w następnym kroku aranżacji, dodaj oświadczenia wyjściowe do samodzielnie potwierdzonego profilu technicznego, który wywołuje profil techniczny sprawdzania poprawności.
+Zakres oświadczeń wyjściowych w profilu technicznym weryfikacji jest ograniczony do [profilu technicznego z własnym](self-asserted-technical-profile.md) potwierdzeniem, który wywołuje profil techniczny weryfikacji, oraz jego profile techniczne weryfikacji. Jeśli chcesz użyć oświadczeń wyjściowych w następnym kroku aranżacji, Dodaj dane wyjściowe oświadczeń do profilu technicznego z własnym potwierdzeniem, który wywoła profil techniczny weryfikacji.
 
-Sprawdzanie poprawności profili technicznych są wykonywane w sekwencji, które pojawiają się w **ValidationTechnicalProfiles** elementu. Można skonfigurować w profilu technicznym sprawdzania poprawności, czy wykonywanie kolejnych profilów technicznych sprawdzania poprawności należy kontynuować, jeśli profil techniczny sprawdzania poprawności zgłasza błąd lub zakończy się pomyślnie.
+Profile techniczne weryfikacji są wykonywane w kolejności, w której pojawiają się w elemencie **ValidationTechnicalProfiles** . Konfigurację można skonfigurować w profilu technicznym weryfikacji, niezależnie od tego, czy wykonanie kolejnych walidacji profilów technicznych powinno być kontynuowane, gdy weryfikacja profilu technicznego zgłasza błąd lub powiedzie się.
 
-Profil techniczny sprawdzania poprawności może być warunkowo wykonane na podstawie warunków wstępnych zdefiniowanych w **ValidationTechnicalProfile** elementu. Na przykład można sprawdzić, czy istnieje określone oświadczenie lub czy oświadczenie jest równe lub nie do określonej wartości.
+Profil techniczny weryfikacji można wykonać warunkowo na podstawie warunków wstępnych zdefiniowanych w elemencie **ValidationTechnicalProfile** . Można na przykład sprawdzić, czy określone zgłoszenie istnieje lub czy nie jest równe określonej wartości.
 
-Samodzielnie potwierdzony profil techniczny może zdefiniować profil techniczny sprawdzania poprawności, który ma być używany do sprawdzania poprawności niektórych lub wszystkich jego oświadczeń wyjściowych. Wszystkie oświadczenia wejściowe przywołanego profilu technicznego muszą znajdować się w oświadczeń wyjściowych profilu technicznego weryfikacji odwołującej się do tego.
+Profil techniczny z własnym potwierdzeniem może definiować profil techniczny weryfikacji, który będzie używany do sprawdzania poprawności niektórych lub wszystkich oświadczeń wyjściowych. Wszystkie oświadczenia wejściowe profilu technicznego, do którego istnieje odwołanie, muszą pojawić się w oświadczeniach wyjściowych profilu technicznego weryfikacji odwołania.
 
 > [!NOTE]
-> Tylko samodzielnie potwierdzone profile techniczne mogą używać profilów technicznych sprawdzania poprawności. Jeśli chcesz sprawdzić poprawność oświadczeń danych wyjściowych z nie-samodzielnie potwierdzonych profilów technicznych, należy rozważyć użycie dodatkowego kroku aranżacji w podróży użytkownika, aby pomieścić profil techniczny odpowiedzialny za sprawdzanie poprawności.
+> Tylko własne profile techniczne mogą korzystać z weryfikacji profilów technicznych. Aby sprawdzić poprawność danych wyjściowych z niepotwierdzonych profilów technicznych, należy rozważyć użycie dodatkowego kroku aranżacji w podróży użytkownika w celu uwzględnienia profilu technicznego odpowiedzialnego za weryfikację.
 
-## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles (Profesorowie technologii)
+## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
 Element **ValidationTechnicalProfiles** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| ValidationTechnicalProfile (Profiltechniczny) | 1:n | Profil techniczny, który ma być używany do sprawdzania poprawności niektórych lub wszystkich oświadczeń wyjściowych odwołującego się do profilu technicznego. |
+| ValidationTechnicalProfile | 1: n | Profil techniczny służący do sprawdzania poprawności niektórych lub wszystkich oświadczeń wyjściowych odwołującego się do profilu technicznego. |
 
 Element **ValidationTechnicalProfile** zawiera następujący atrybut:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Identyfikator odwołania | Tak | Identyfikator profilu technicznego już zdefiniowany w zasadach lub zasadach nadrzędnych. |
-|Continueonerror|Nie| Wskazanie, czy sprawdzanie poprawności kolejnych profili technicznych sprawdzania poprawności należy kontynuować, jeśli ten profil techniczny sprawdzania poprawności powoduje błąd. Możliwe `true` wartości: `false` lub (domyślnie, przetwarzanie dalszych profili sprawdzania poprawności zostanie zatrzymane i zwrócony błąd). |
-|ContinueOnSukces | Nie | Wskazując, czy sprawdzanie poprawności kolejnych profili sprawdzania poprawności należy kontynuować, jeśli ten profil techniczny sprawdzania poprawności powiedzie się. Możliwe `true` wartości: `false`lub . Wartość domyślna to `true`, co oznacza, że przetwarzanie dalszych profili sprawdzania poprawności będzie kontynuowane. |
+| Identyfikator odwołania | Tak | Identyfikator profilu technicznego jest już zdefiniowany w zasadach lub zasadach nadrzędnych. |
+|ContinueOnError|Nie| Wskazuje, czy sprawdzanie poprawności wszelkich kolejnych weryfikacji profilów technicznych powinno być kontynuowane, jeśli ten profil techniczny tego sprawdzania poprawności zgłosi błąd. Możliwe wartości: `true` lub `false` (domyślnie przetwarzanie dalszych profilów weryfikacji zostanie zatrzymane i zostanie zwrócony błąd). |
+|ContinueOnSuccess | Nie | Wskazuje, czy sprawdzanie poprawności wszelkich kolejnych profilów weryfikacji powinno być kontynuowane, jeśli ten profil techniczny zostanie pomyślnie zakończony. Możliwe wartości: `true` lub `false`. Wartość domyślna to `true`, co oznacza, że przetwarzanie dalszych profilów weryfikacji będzie kontynuowane. |
 
 Element **ValidationTechnicalProfile** zawiera następujący element:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| Warunki wstępne | 0:1 | Lista warunków wstępnych, które muszą być spełnione dla profilu technicznego sprawdzania poprawności do wykonania. |
+| Warunki wstępne | 0:1 | Lista warunków wstępnych, które muszą być spełnione, aby można było wykonać walidację profilu technicznego. |
 
-Element **Warunek wstępny** zawiera następujący atrybut:
+Element **Conditional** zawiera następujący atrybut:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| `Type` | Tak | Typ sprawdzania lub kwerendy do wykonania dla warunku wstępnego. Albo `ClaimsExist` jest określony w celu zapewnienia, że akcje powinny być wykonywane, jeśli `ClaimEquals` określone oświadczenia istnieją w bieżącym zestawie oświadczeń użytkownika lub określono, że akcje powinny być wykonywane, jeśli istnieje określone oświadczenie, a jego wartość jest równa określonej wartości. |
-| `ExecuteActionsIf` | Tak | Wskazuje, czy akcje w warunku wstępnym powinny być wykonywane, jeśli test jest true lub false. |
+| `Type` | Tak | Typ sprawdzenia lub zapytania do wykonania dla warunku wstępnego. `ClaimsExist` Określono, że akcje mają być wykonywane, jeśli określone oświadczenia istnieją w bieżącym zestawie oświadczeń użytkownika lub `ClaimEquals` Jeśli określono, że akcje należy wykonać, jeśli istnieje określone oświadczenie, a jego wartość jest równa określonej wartości. |
+| `ExecuteActionsIf` | Tak | Wskazuje, czy akcje w warunku wstępnym mają być wykonywane, jeśli test ma wartość true lub false. |
 
-**Element Warunek wstępny** zawiera następujące elementy:
+Element **Conditional** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| Wartość | 1:n | Dane, które są używane przez czek. Jeśli typem tego `ClaimsExist`wyboru jest to pole, to pole określa ClaimTypeReferenceId do kwerendy. Jeśli typem czeku jest `ClaimEquals`to pole , to pole określa ClaimTypeReferenceId do kwerendy. Podczas gdy inny element wartości zawiera wartość, która ma być zaznaczona.|
-| Akcja | 1:1 | Akcja, która powinna zostać podjęta, jeśli sprawdzanie warunku wstępnego w ramach kroku aranżacji jest true. Wartość **akcji** jest ustawiona `SkipThisValidationTechnicalProfile`na . Określa, że skojarzony profil techniczny sprawdzania poprawności nie powinien być wykonywany. |
+| Wartość | 1: n | Dane, które są używane przez sprawdzanie. Jeśli typ tego sprawdzenia to `ClaimsExist`, to pole określa ClaimTypeReferenceId do zapytania. Jeśli typ sprawdzenia to `ClaimEquals`, to pole określa ClaimTypeReferenceId do zapytania. Gdy inny element wartości zawiera wartość, która ma zostać sprawdzona.|
+| Akcja | 1:1 | Akcja, która powinna zostać podjęta, jeśli sprawdzanie warunków wstępnych w ramach kroku aranżacji ma wartość true. Wartość **akcji** jest ustawiona na `SkipThisValidationTechnicalProfile`. Określa, że skojarzony profil techniczny weryfikacji nie powinien być wykonywany. |
 
 ### <a name="example"></a>Przykład
 
-W poniższym przykładzie użyto tych profilów technicznych sprawdzania poprawności:
+W poniższym przykładzie są stosowane następujące profile techniczne weryfikacji:
 
-1. Pierwszy profil techniczny sprawdzania poprawności sprawdza poświadczenia użytkownika i nie jest kontynuowany, jeśli wystąpi błąd, taki jak nieprawidłowa nazwa użytkownika lub złe hasło.
-2. Następny profil techniczny sprawdzania poprawności, nie jest wykonywany, jeśli oświadczenie userType nie istnieje `Partner`lub jeśli wartość userType jest . Profil techniczny sprawdzania poprawności próbuje odczytać profil użytkownika z wewnętrznej bazy danych klienta i kontynuować, jeśli wystąpi błąd, takich jak usługa interfejsu API REST nie jest dostępna lub błąd wewnętrzny.
-3. Ostatni profil techniczny sprawdzania poprawności, nie jest wykonywany, jeśli oświadczenie userType nie istnieje `Customer`lub jeśli wartość userType jest . Profil techniczny sprawdzania poprawności próbuje odczytać profil użytkownika z wewnętrznej bazy danych partnera i kontynuuje, jeśli wystąpi błąd, takich jak usługa interfejsu API REST nie jest dostępna lub błąd wewnętrzny.
+1. Pierwszy zweryfikowany profil techniczny sprawdza poświadczenia użytkownika i nie kontynuuje działania w przypadku wystąpienia błędu, takiego jak Nieprawidłowa nazwa użytkownika lub nieprawidłowe hasło.
+2. Następny weryfikacyjny profil techniczny nie jest wykonywany, jeśli nie istnieje, lub jeśli wartość parametru UserType jest `Partner`równa. Profil techniczny weryfikacji próbuje odczytać profil użytkownika z wewnętrznej bazy danych klienta i kontynuować w przypadku wystąpienia błędu, takiego jak usługa interfejsu API REST niedostępna lub wystąpił błąd wewnętrzny.
+3. Ostatni zweryfikowany profil techniczny nie jest wykonywany, jeśli nie istnieje, lub jeśli wartość parametru UserType jest `Customer`równa. Profil techniczny weryfikacji próbuje odczytać profil użytkownika z wewnętrznej bazy danych partnera i kontynuuje działanie w przypadku wystąpienia błędu, takiego jak usługa interfejsu API REST niedostępna lub wystąpił błąd wewnętrzny.
 
 ```XML
 <ValidationTechnicalProfiles>

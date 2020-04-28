@@ -1,7 +1,7 @@
 ---
-title: Uzyskiwanie dostępu do dzienników inspekcji i przeglądanie ich
+title: Dostęp do dzienników inspekcji i ich przeglądanie
 titleSuffix: Azure AD B2C
-description: Jak uzyskać dostęp do dzienników inspekcji usługi Azure AD B2C programowo i w witrynie Azure portal.
+description: Jak uzyskać dostęp do dzienników inspekcji Azure AD B2C programowo i w Azure Portal.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -13,94 +13,94 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 83086fa2cb96eba423b9111134a0406d7256821f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79264221"
 ---
-# <a name="accessing-azure-ad-b2c-audit-logs"></a>Uzyskiwanie dostępu do dzienników inspekcji usługi Azure AD B2C
+# <a name="accessing-azure-ad-b2c-audit-logs"></a>Uzyskiwanie dostępu do dzienników inspekcji Azure AD B2C
 
-Usługa Azure Active Directory B2C (Azure AD B2C) emituje dzienniki inspekcji zawierające informacje o aktywności dotyczące zasobów B2C, wystawionych tokenów i dostępu administratora. Ten artykuł zawiera krótkie omówienie informacji dostępnych w dziennikach inspekcji i instrukcje dotyczące uzyskiwania dostępu do tych danych dla dzierżawy usługi Azure AD B2C.
+Azure Active Directory B2C (Azure AD B2C) emituje dzienniki inspekcji zawierające informacje o działaniu dotyczące zasobów B2C, wystawionych tokenów i dostępu administratora. Ten artykuł zawiera krótkie omówienie informacji dostępnych w dziennikach inspekcji i instrukcje dotyczące uzyskiwania dostępu do tych danych dla dzierżawy Azure AD B2C.
 
-Zdarzenia dziennika inspekcji są zachowywane tylko przez **siedem dni**. Zaplanuj pobranie i przechowywanie dzienników przy użyciu jednej z poniższych metod, jeśli potrzebujesz dłuższego okresu przechowywania.
+Zdarzenia dziennika inspekcji są przechowywane tylko przez **siedem dni**. Zaplanuj pobieranie i przechowywanie dzienników przy użyciu jednej z metod przedstawionych poniżej, jeśli potrzebujesz dłuższego okresu przechowywania.
 
 > [!NOTE]
-> Nie widać logowania użytkowników dla poszczególnych aplikacji usługi Azure AD B2C w sekcji **Użytkownicy** **usługi Azure Active Directory** lub stron Usługi Azure **AD B2C** w witrynie Azure Portal. Zdarzenia logowania tam pokazać aktywność użytkownika, ale nie można skorelować z powrotem do aplikacji B2C, że użytkownik zalogowany do. Należy użyć dzienników inspekcji do tego, jak wyjaśniono w dalszej części tego artykułu.
+> Nie widzisz logowania użytkownika dla poszczególnych aplikacji Azure AD B2C w sekcji **użytkownicy** **Azure Active Directory** lub **Azure AD B2C** stron w Azure Portal. Zdarzenia logowania wyświetlają aktywność użytkownika, ale nie mogą być skorelowane z powrotem do aplikacji B2C, do której użytkownik zalogował się. Należy użyć dzienników inspekcji dla tego programu, jak wyjaśniono dalsze w tym artykule.
 
-## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Przegląd działań dostępnych w kategorii B2C dzienników audytu
+## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Przegląd działań dostępnych w kategorii B2C dzienników inspekcji
 
 Kategoria **B2C** w dziennikach inspekcji zawiera następujące typy działań:
 
 |Typ działania |Opis  |
 |---------|---------|
-|Autoryzacja |Działania dotyczące autoryzacji użytkownika dostępu do zasobów B2C (na przykład administrator uzyskujący dostęp do listy zasad B2C).         |
-|Katalog |Działania związane z atrybutami katalogu pobierane, gdy administrator loguje się przy użyciu witryny Azure portal. |
-|Aplikacja | Tworzenie, odczytywanie, aktualizowanie i usuwanie (CRUD) operacji w aplikacjach B2C. |
-|Klucz |Operacje CRUD na kluczach przechowywanych w kontenerze kluczy B2C. |
-|Zasób |crud na zasobach B2C. Na przykład zasady i dostawców tożsamości.
-|Uwierzytelnianie |Sprawdzanie poprawności poświadczeń użytkownika i wystawienie tokenu.|
+|Autoryzacja |Działania dotyczące autoryzacji użytkownika w celu uzyskania dostępu do zasobów B2C (na przykład administratorów uzyskujących dostęp do listy zasad B2C).         |
+|Katalog |Działania związane z atrybutami katalogu pobrane, gdy administrator zaloguje się przy użyciu Azure Portal. |
+|Aplikacja | Tworzenie, odczytywanie, aktualizowanie i usuwanie (CRUD) operacji na aplikacjach B2C. |
+|Key |Operacje CRUD na kluczach przechowywanych w kontenerze kluczy B2C. |
+|Zasób |CRUD operacji na zasobach B2C. Na przykład zasady i dostawcy tożsamości.
+|Uwierzytelnianie |Weryfikowanie poświadczeń użytkownika i wystawianie tokenów.|
 
-Informacje na temat działań CRUD obiektu użytkownika można znaleźć w kategorii **Katalog podstawowy.**
+W przypadku działań CRUD obiektów użytkownika zapoznaj się z kategorią **katalogu podstawowego** .
 
 ## <a name="example-activity"></a>Przykładowe działanie
 
-Ten przykładowy obraz z witryny Azure portal pokazuje dane przechwycone, gdy użytkownik loguje się za pomocą zewnętrznego dostawcy tożsamości, w tym przypadku Facebook:
+Ten przykładowy obraz z Azure Portal przedstawia dane przechwycone, gdy użytkownik loguje się przy użyciu zewnętrznego dostawcy tożsamości, w tym przypadku w serwisie Facebook:
 
-![Przykład strony Szczegóły aktywności dziennika inspekcji w witrynie Azure portal](./media/view-audit-logs/audit-logs-example.png)
+![Przykład strony szczegółów działania dziennika inspekcji w Azure Portal](./media/view-audit-logs/audit-logs-example.png)
 
-Panel szczegółów działania zawiera następujące istotne informacje:
+Panel szczegóły działania zawiera następujące informacje:
 
 |Sekcja|Pole|Opis|
 |-------|-----|-----------|
-| Działanie | Nazwa | Jakie działania miały miejsce. Na przykład *Rozejmij id_token do aplikacji*, która kończy rzeczywiste logowanie użytkownika. |
-| Zainicjowane przez (aktor) | ObjectId | **Identyfikator obiektu** aplikacji B2C, do których użytkownik się loguje. Ten identyfikator nie jest widoczny w witrynie Azure portal, ale jest dostępny za pośrednictwem interfejsu API programu Microsoft Graph. |
-| Zainicjowane przez (aktor) | Spn | **Identyfikator aplikacji** B2C, do których użytkownik się loguje. |
-| Elementy docelowe | ObjectId | **Identyfikator obiektu** użytkownika, który się loguje. |
-| Dodatkowe szczegóły | TenantId | **Identyfikator dzierżawy** dzierżawy usługi Azure AD B2C. |
-| Dodatkowe szczegóły | PolicyId | **Identyfikator zasad** przepływu użytkownika (zasady) używany do logowania użytkownika. |
-| Dodatkowe szczegóły | ApplicationId | **Identyfikator aplikacji** B2C, do których użytkownik się loguje. |
+| Działanie | Nazwa | Jakie działanie miało miejsce. Na przykład *Wystawić id_token aplikacji*, która zawiera rzeczywiste Logowanie użytkownika. |
+| Zainicjowane przez (aktor) | ObjectId | **Identyfikator obiektu** aplikacji B2C, w której loguje się użytkownik. Ten identyfikator nie jest widoczny w Azure Portal, ale jest dostępny za pośrednictwem interfejsu API Microsoft Graph. |
+| Zainicjowane przez (aktor) | SPN | **Identyfikator aplikacji** B2C, w której loguje się użytkownik. |
+| Elementy docelowe | ObjectId | **Identyfikator obiektu** użytkownika, który loguje się. |
+| Dodatkowe szczegóły | TenantId | **Identyfikator dzierżawy** dzierżawy Azure AD B2C. |
+| Dodatkowe szczegóły | PolicyId | **Identyfikator zasad** przepływu użytkownika (zasady) używany do podpisywania użytkownika w programie. |
+| Dodatkowe szczegóły | ApplicationId | **Identyfikator aplikacji** B2C, w której loguje się użytkownik. |
 
-## <a name="view-audit-logs-in-the-azure-portal"></a>Wyświetlanie dzienników inspekcji w witrynie Azure portal
+## <a name="view-audit-logs-in-the-azure-portal"></a>Wyświetlanie dzienników inspekcji w Azure Portal
 
-Portal Azure zapewnia dostęp do zdarzeń dziennika inspekcji w dzierżawie usługi Azure AD B2C.
+Azure Portal zapewnia dostęp do zdarzeń dziennika inspekcji w dzierżawie Azure AD B2C.
 
-1. Logowanie się do [witryny Azure portal](https://portal.azure.com)
-1. Przełącz się do katalogu zawierającego dzierżawę usługi Azure AD B2C, a następnie przejdź do **usługi Azure AD B2C.**
-1. W obszarze **Działania** w menu po lewej stronie wybierz pozycję **Inspekcja dzienników**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com)
+1. Przejdź do katalogu, który zawiera Azure AD B2C dzierżawy, a następnie przejdź do **Azure AD B2C**.
+1. W obszarze **działania** w menu po lewej stronie wybierz pozycję **dzienniki inspekcji**.
 
-Zostanie wyświetlona lista zdarzeń aktywności zarejestrowanych w ciągu ostatnich siedmiu dni.
+Zostanie wyświetlona lista zdarzeń działania zarejestrowanych w ciągu ostatnich siedmiu dni.
 
-![Przykładowy filtr z dwoma zdarzeniami aktywności w witrynie Azure portal](./media/view-audit-logs/audit-logs-example-filter.png)
+![Przykładowy filtr z dwoma zdarzeniami działania w Azure Portal](./media/view-audit-logs/audit-logs-example-filter.png)
 
-Dostępnych jest kilka opcji filtrowania, w tym:
+Dostępne są kilka opcji filtrowania, w tym:
 
-* **Typ zasobu działania** — filtrowanie według typów działań wyświetlanych w tabeli w sekcji [Omówienie dostępnych działań.](#overview-of-activities-available-in-the-b2c-category-of-audit-logs)
-* **Data** — filtruj zakres dat wyświetlanych działań.
+* **Typ zasobu działania** — filtr według typów działań przedstawionych w tabeli w sekcji [Omówienie dostępnych działań](#overview-of-activities-available-in-the-b2c-category-of-audit-logs) .
+* **Data** — filtruje zakres dat wyświetlanych działań.
 
-Jeśli wybierzesz wiersz na liście, zostaną wyświetlone szczegóły działania dla zdarzenia.
+Po wybraniu wiersza na liście zostaną wyświetlone szczegóły działania dla zdarzenia.
 
-Aby pobrać listę zdarzeń aktywności w pliku wartości oddzielonych przecinkami (CSV), wybierz **pobierz**.
+Aby pobrać listę zdarzeń działania w pliku wartości rozdzielanych przecinkami (CSV), wybierz pozycję **Pobierz**.
 
-## <a name="get-audit-logs-with-the-azure-ad-reporting-api"></a>Pobierz dzienniki inspekcji za pomocą interfejsu API raportowania usługi Azure AD
+## <a name="get-audit-logs-with-the-azure-ad-reporting-api"></a>Pobieranie dzienników inspekcji za pomocą interfejsu API raportowania usługi Azure AD
 
-Dzienniki inspekcji są publikowane w tym samym potoku co inne działania usługi Azure Active Directory, dzięki czemu można uzyskać do nich dostęp za pośrednictwem [interfejsu API raportowania usługi Azure Active Directory.](https://docs.microsoft.com/graph/api/directoryaudit-list) Aby uzyskać więcej informacji, zobacz [Wprowadzenie do interfejsu API raportowania usługi Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
+Dzienniki inspekcji są publikowane w tym samym potoku co inne działania dotyczące Azure Active Directory, dzięki czemu można uzyskać do nich dostęp za pomocą [interfejsu API raportowania Azure Active Directory](https://docs.microsoft.com/graph/api/directoryaudit-list). Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z interfejsem API raportowania Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
 
-### <a name="enable-reporting-api-access"></a>Włączanie raportowania dostępu do interfejsu API
+### <a name="enable-reporting-api-access"></a>Włącz dostęp do interfejsu API raportowania
 
-Aby zezwolić na dostęp oparty na skryptach lub aplikacjach do interfejsu API raportowania usługi Azure AD, potrzebujesz aplikacji zarejestrowanej w dzierżawie usługi Azure AD B2C z następującymi uprawnieniami interfejsu API. Można włączyć te uprawnienia do istniejącej rejestracji aplikacji w dzierżawie B2C lub utworzyć nowy specjalnie do użytku z automatyzacją dziennika inspekcji.
+Aby zezwolić na dostęp skryptowy lub oparty na aplikacji do interfejsu API raportowania usługi Azure AD, potrzebna jest aplikacja zarejestrowana w dzierżawie Azure AD B2C przy użyciu następujących uprawnień interfejsu API. Można włączyć te uprawnienia do istniejącej rejestracji aplikacji w ramach dzierżawy usługi B2C lub utworzyć nowy, przeznaczony do użycia z automatyzacją dzienników inspekcji.
 
-* Microsoft Graph > uprawnienia aplikacji > AuditLog > AuditLog.Read.All
+* Microsoft Graph > uprawnienia aplikacji > AuditLog > AuditLog. Read. All
 
-Wykonaj kroki opisane w poniższym artykule, aby zarejestrować aplikację z wymaganymi uprawnieniami:
+Wykonaj kroki opisane w następującym artykule, aby zarejestrować aplikację z wymaganymi uprawnieniami:
 
-[Zarządzanie usługą Azure AD B2C za pomocą programu Microsoft Graph](microsoft-graph-get-started.md)
+[Zarządzanie Azure AD B2C przy użyciu Microsoft Graph](microsoft-graph-get-started.md)
 
-Po zarejestrowaniu aplikacji z odpowiednimi uprawnieniami, zobacz sekcji skrypt programu PowerShell w dalszej części tego artykułu na przykład, jak można uzyskać zdarzenia aktywności za pomocą skryptu.
+Po zarejestrowaniu aplikacji z odpowiednimi uprawnieniami zapoznaj się z sekcją skryptu programu PowerShell w dalszej części tego artykułu, aby zapoznać się z przykładem, jak można uzyskać zdarzenia dotyczące aktywności za pomocą skryptu.
 
 ### <a name="access-the-api"></a>Dostęp do interfejsu API
 
-Aby pobrać zdarzenia dziennika inspekcji usługi Azure AD B2C `B2C` za pośrednictwem interfejsu API, filtruj dzienniki w kategorii. Aby filtrować według kategorii, należy użyć parametru `filter` ciągu kwerendy podczas wywoływania punktu końcowego interfejsu API raportowania usługi Azure AD.
+Aby pobrać Azure AD B2C zdarzenia dziennika inspekcji za pośrednictwem interfejsu API, przefiltruj `B2C` dzienniki w kategorii. Aby filtrować według kategorii, użyj parametru `filter` ciągu zapytania podczas wywoływania punktu końcowego interfejsu API raportowania usługi Azure AD.
 
 ```HTTP
 https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
@@ -108,9 +108,9 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByServi
 
 ### <a name="powershell-script"></a>Skrypt programu PowerShell
 
-Poniższy skrypt programu PowerShell zawiera przykład sposobu wykonywania zapytań o interfejs API raportowania usługi Azure AD. Po kwerendzie interfejsu API, drukuje zarejestrowane zdarzenia do standardowego wyjścia, a następnie zapisuje dane wyjściowe JSON do pliku.
+Poniższy skrypt programu PowerShell przedstawia przykład sposobu wykonywania zapytania dotyczącego interfejsu API raportowania usługi Azure AD. Po wykonaniu zapytania dotyczącego interfejsu API program drukuje zarejestrowane zdarzenia do wyjścia standardowego, a następnie zapisuje dane wyjściowe JSON do pliku.
 
-Możesz wypróbować ten skrypt w [usłudze Azure Cloud Shell](overview.md). Należy zaktualizować go za pomocą identyfikatora aplikacji, klucza tajnego klienta i nazwy dzierżawy usługi Azure AD B2C.
+Możesz wypróbować ten skrypt w [Azure Cloud Shell](overview.md). Pamiętaj, aby zaktualizować go przy użyciu identyfikatora aplikacji, klucza tajnego klienta oraz nazwy dzierżawy Azure AD B2C.
 
 ```powershell
 # This script requires an application registration that's granted Microsoft Graph API permission
@@ -156,7 +156,7 @@ if ($oauth.access_token -ne $null) {
 }
 ```
 
-Oto reprezentacja JSON przykładowego zdarzenia działania pokazanego wcześniej w artykule:
+Oto reprezentacja danych JSON przykładowego zdarzenia działania wyświetlonego wcześniej w artykule:
 
 ```JSON
 {
@@ -223,4 +223,4 @@ Oto reprezentacja JSON przykładowego zdarzenia działania pokazanego wcześniej
 
 ## <a name="next-steps"></a>Następne kroki
 
-Można zautomatyzować inne zadania administracyjne, na przykład [zarządzać kontami użytkowników usługi Azure AD B2C za pomocą programu Microsoft Graph](manage-user-accounts-graph-api.md).
+Można zautomatyzować inne zadania administracyjne, na przykład [zarządzać kontami użytkowników Azure AD B2C przy użyciu Microsoft Graph](manage-user-accounts-graph-api.md).

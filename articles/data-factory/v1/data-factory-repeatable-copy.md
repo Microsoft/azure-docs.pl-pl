@@ -1,6 +1,6 @@
 ---
-title: Powtarzalna kopia w fabryce danych platformy Azure
-description: Dowiedz się, jak uniknąć duplikatów, nawet jeśli plasterek, który kopiuje dane, jest uruchamiany więcej niż jeden raz.
+title: Powtórzona kopia w Azure Data Factory
+description: Dowiedz się, jak uniknąć duplikowania, mimo że plasterek, który kopiuje dane, jest uruchamiany więcej niż raz.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,21 +13,21 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281147"
 ---
-# <a name="repeatable-copy-in-azure-data-factory"></a>Powtarzalna kopia w fabryce danych platformy Azure
+# <a name="repeatable-copy-in-azure-data-factory"></a>Powtórzona kopia w Azure Data Factory
 
-## <a name="repeatable-read-from-relational-sources"></a>Powtarzalny odczyt ze źródeł relacyjnych
-Podczas kopiowania danych z relacyjnych magazynów danych należy pamiętać o powtarzalności, aby uniknąć niezamierzonych wyników. W usłudze Azure Data Factory można ponownie uruchomić plasterek ręcznie. Można również skonfigurować zasady ponawiania dla zestawu danych, tak aby plasterek został ponownie uruchomny w przypadku wystąpienia błędu. Gdy plasterek jest uruchamiany ponownie w obu przypadkach, należy upewnić się, że te same dane są odczytywane bez względu na to, ile razy jest uruchamiany plasterek.  
+## <a name="repeatable-read-from-relational-sources"></a>Powtarzanie odczytu ze źródeł relacyjnych
+Podczas kopiowania danych z magazynów danych relacyjnych należy mieć na uwadze powtarzalność, aby uniknąć niezamierzonych wyników. W Azure Data Factory można ręcznie uruchomić ponownie wycinka. Możesz również skonfigurować zasady ponawiania dla zestawu danych, aby wycinek był uruchamiany ponownie w przypadku wystąpienia błędu. Gdy wycinek jest uruchamiany ponownie w dowolny sposób, należy się upewnić, że te same dane są odczytywane niezależnie od tego, ile razy jest uruchomiony plasterek.  
  
 > [!NOTE]
-> Poniższe przykłady są dla usługi Azure SQL, ale mają zastosowanie do dowolnego magazynu danych, który obsługuje prostokątne zestawy danych. Może być wymagane dostosowanie **typu** źródła i właściwości **kwerendy** (na przykład: kwerenda zamiast sqlReaderQuery) dla magazynu danych.   
+> Poniższe przykłady są przeznaczone dla usługi Azure SQL, ale mają zastosowanie do każdego magazynu danych, który obsługuje prostokątne zestawy DataSet. Może być konieczne dostosowanie **typu** źródła i właściwości **zapytania** (na przykład: Query zamiast sqlReaderQuery) dla magazynu danych.   
 
-Zazwyczaj podczas odczytu ze sklepów relacyjnych chcesz odczytać tylko dane odpowiadające tego wycinka. Sposobem na to byłoby przy użyciu windowstart i WindowEnd zmiennych systemowych dostępnych w usłudze Azure Data Factory. Przeczytaj o zmiennych i funkcji w usłudze Azure Data Factory tutaj w [fabryce danych platformy Azure — funkcje i zmienne systemowe](data-factory-functions-variables.md) artykułu. Przykład: 
+Zazwyczaj podczas odczytywania z magazynów relacyjnych należy odczytywać tylko dane odpowiadające temu wycinkowi. W tym celu można użyć zmiennych systemowych WindowStart i WindowEnd dostępnych w Azure Data Factory. Przeczytaj o zmiennych i funkcjach w Azure Data Factory tym miejscu w artykule [Azure Data Factory-Functions i zmienne systemowe](data-factory-functions-variables.md) . Przykład: 
 
 ```json
 "source": {
@@ -35,9 +35,9 @@ Zazwyczaj podczas odczytu ze sklepów relacyjnych chcesz odczytać tylko dane od
     "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
 },
 ```
-Ta kwerenda odczytuje dane, które mieści się w zakresie czasu trwania plasterka (WindowStart -> WindowEnd) z tabeli MyTable. Ponowne uruchomienie tego plasterka również zawsze upewnij się, że te same dane są odczytywane. 
+To zapytanie odczytuje dane, które mieszczą się w zakresie czasu trwania wycinków (WindowStart-> WindowEnd) z tabeli MyTable. Ponowne uruchomienie tego wycinka zawsze gwarantuje, że te same dane są odczytywane. 
 
-W innych przypadkach można przeczytać całą tabelę i można zdefiniować sqlReaderQuery w następujący sposób:
+W innych przypadkach może być konieczne odczytanie całej tabeli i określenie sqlReaderQuery w następujący sposób:
 
 ```json
 "source": 
@@ -47,10 +47,10 @@ W innych przypadkach można przeczytać całą tabelę i można zdefiniować sql
 },
 ```
 
-## <a name="repeatable-write-to-sqlsink"></a>Powtarzalny zapis do SqlSink
-Podczas kopiowania danych do **programu Azure SQL/SQL Server** z innych magazynów danych należy pamiętać o powtarzalności, aby uniknąć niezamierzonych wyników. 
+## <a name="repeatable-write-to-sqlsink"></a>Powtarzalny zapis do obiektu sqlsink
+Podczas kopiowania danych do **usługi Azure SQL/SQL Server** z innych magazynów danych należy mieć na uwadze powtarzalność, aby uniknąć niezamierzonych wyników. 
 
-Podczas kopiowania danych do bazy danych programu Azure SQL/SQL Server działanie dołącza dane do tabeli ujścia domyślnie. Załóżmy, że kopiujesz dane z pliku CSV (wartości oddzielone przecinkami) zawierającego dwa rekordy do poniższej tabeli w bazie danych programu Azure SQL/SQL Server. Po uruchomieniu plasterka dwa rekordy są kopiowane do tabeli SQL. 
+Podczas kopiowania danych do bazy danych Azure SQL/SQL Server, działanie Copy domyślnie dołącza dane do tabeli sink. Załóżmy, że kopiujesz dane z pliku CSV (wartości rozdzielane przecinkami) zawierającego dwa rekordy do poniższej tabeli w bazie danych Azure SQL/SQL Server. Po uruchomieniu wycinka te dwa rekordy są kopiowane do tabeli SQL. 
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -59,7 +59,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-Załóżmy, że znaleziono błędy w pliku źródłowym i zaktualizowano ilość Down Tube z 2 do 4. Po ponownym uruchomienia plasterka danych dla tego okresu ręcznie, znajdziesz dwa nowe rekordy dołączone do bazy danych programu Azure SQL/SQL Server. W tym przykładzie przyjęto założenie, że żadna z kolumn w tabeli nie ma ograniczenia klucza podstawowego.
+Załóżmy, że znaleziono błędy w pliku źródłowym i Zaktualizowano ilość rury w dół z 2 do 4. Po ręcznym ponownym uruchomieniu wycinka danych dla tego okresu znajdziesz dwa nowe rekordy dołączone do bazy danych Azure SQL/SQL Server. W tym przykładzie przyjęto założenie, że żadna z kolumn w tabeli nie ma ograniczenia PRIMARY KEY.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -70,10 +70,10 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Aby uniknąć tego zachowania, należy określić semantycę UPSERT przy użyciu jednego z następujących dwóch mechanizmów:
+Aby uniknąć tego zachowania, należy określić semantykę UPSERT przy użyciu jednego z następujących dwóch mechanizmów:
 
-### <a name="mechanism-1-using-sqlwritercleanupscript"></a>Mechanizm 1: używanie sqlWriterCleanupScript
-Za pomocą właściwości **sqlWriterCleanupScript** można oczyścić dane z tabeli ujścia przed wstawieniem danych po uruchomieniu plasterka. 
+### <a name="mechanism-1-using-sqlwritercleanupscript"></a>Mechanizm 1: korzystanie z sqlWriterCleanupScript
+Możesz użyć właściwości **sqlWriterCleanupScript** , aby oczyścić dane z tabeli ujścia przed wstawieniem danych po uruchomieniu wycinka. 
 
 ```json
 "sink":  
@@ -83,7 +83,7 @@ Za pomocą właściwości **sqlWriterCleanupScript** można oczyścić dane z ta
 }
 ```
 
-Po uruchomieniu plasterka skrypt oczyszczania jest uruchamiany najpierw w celu usunięcia danych odpowiadających wycinku z tabeli SQL. Działanie kopiowania następnie wstawia dane do tabeli SQL. Jeśli plasterek zostanie ponownie uruchomienia, ilość zostanie zaktualizowana zgodnie z potrzebami.
+Po uruchomieniu wycinka skrypt czyszczący jest uruchamiany w pierwszej kolejności, aby usunąć dane odnoszące się do wycinka z tabeli SQL. Działanie kopiowania wstawia dane do tabeli SQL. Jeśli wycinek zostanie ponownie uruchomiony, ilość jest aktualizowana zgodnie z potrzebami.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -92,7 +92,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Załóżmy, że rekord podkładki płaskiej zostanie usunięty z oryginalnego pliku csv. Następnie ponowne uruchomienie plasterka dałoby następujący wynik: 
+Załóżmy, że rekord płaskich spryskiwaczy został usunięty z oryginalnego woluminu CSV. Następnie ponowne uruchomienie wycinka spowoduje wygenerowanie następującego wyniku: 
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -100,20 +100,20 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Działanie kopiowania uruchomiło skrypt oczyszczania, aby usunąć odpowiednie dane dla tego plasterka. Następnie odczytuje dane wejściowe z pliku csv (który następnie zawierał tylko jeden rekord) i wstawił go do tabeli. 
+Działanie kopiowania uruchomiło skrypt oczyszczania, aby usunąć odpowiednie dane dla tego wycinka. Następnie odczytuje dane wejściowe z woluminu CSV (który zawiera tylko jeden rekord) i wstawiono je do tabeli. 
 
-### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>Mechanizm 2: przy użyciu plasterkaIdentifierColumnName
+### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>Mechanizm 2: korzystanie z sliceIdentifierColumnName
 > [!IMPORTANT]
-> Obecnie sliceIdentifierColumnName nie jest obsługiwany dla usługi Azure SQL Data Warehouse. 
+> Obecnie sliceIdentifierColumnName nie jest obsługiwane w przypadku Azure SQL Data Warehouse. 
 
-Drugi mechanizm do osiągnięcia powtarzalności jest poprzez dedykowane kolumny (sliceIdentifierColumnName) w tabeli docelowej. Ta kolumna będzie używana przez usługę Azure Data Factory, aby zapewnić synchronizację miejsca docelowego ze źródłem i miejscem docelowym. To podejście działa, gdy istnieje elastyczność w zmienianiu lub definiowaniu docelowego schematu tabeli SQL. 
+Drugim mechanizmem do osiągnięcia powtarzalności jest posiadanie dedykowanej kolumny (sliceIdentifierColumnName) w tabeli docelowej. Ta kolumna powinna być używana przez Azure Data Factory, aby zapewnić synchronizację źródła i miejsca docelowego. Takie podejście działa, gdy istnieje elastyczność zmiany lub definiowania docelowego schematu tabeli SQL. 
 
-Ta kolumna jest używana przez usługę Azure Data Factory do celów powtarzalności, a w procesie usługi Azure Data Factory nie wprowadza żadnych zmian schematu w tabeli. Sposób korzystania z tego podejścia:
+Ta kolumna jest używana przez Azure Data Factory do powtarzalności, a w Azure Data Factory procesu nie wprowadza żadnych zmian schematu do tabeli. Sposób użycia tej metody:
 
-1. Zdefiniuj kolumnę typu **binarny (32)** w docelowej tabeli SQL. Nie powinno być żadnych ograniczeń w tej kolumnie. Nazwijmy tę kolumnę jako AdfSliceIdentifier w tym przykładzie.
+1. Zdefiniuj kolumnę typu **Binary (32)** w docelowej tabeli SQL. Ta kolumna nie powinna zawierać żadnych ograniczeń. Nadaj nazwę tej kolumnie jako AdfSliceIdentifier w tym przykładzie.
 
 
-    Tabela źródło:
+    Tabela źródłowa:
 
     ```sql
     CREATE TABLE [dbo].[Student](
@@ -143,13 +143,13 @@ Ta kolumna jest używana przez usługę Azure Data Factory do celów powtarzalno
     }
     ```
 
-Usługa Azure Data Factory wypełnia tę kolumnę zgodnie z potrzebą zapewnienia synchronizacji miejsca docelowego ze źródłem i miejscem docelowym. Wartości tej kolumny nie powinny być używane poza tym kontekstem. 
+Azure Data Factory wypełnia tę kolumnę zgodnie z potrzebami, aby upewnić się, że źródłowa i docelowa pozostała synchronizacja. Wartości tej kolumny nie należy używać poza tym kontekstem. 
 
-Podobnie jak w przypadku mechanizmu 1, działanie kopiowania automatycznie czyści dane dla danego plasterka z docelowej tabeli SQL. Następnie wstawia dane ze źródła do tabeli docelowej. 
+Podobnie jak mechanizm 1, działanie Copy automatycznie czyści dane dla danego wycinka z docelowej tabeli SQL. Następnie wstawia dane ze źródła do tabeli docelowej. 
 
 ## <a name="next-steps"></a>Następne kroki
-Przejrzyj następujące artykuły łącznika, które dla kompletnych przykładów JSON: 
+Zapoznaj się z następującymi artykułami dotyczącymi łączników, które zawierają kompletne przykłady kodu JSON: 
 
 - [Azure SQL Database](data-factory-azure-sql-connector.md)
-- [Magazyn danych SQL platformy Azure](data-factory-azure-sql-data-warehouse-connector.md)
+- [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,14 +9,14 @@ ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 608b148dc3929065df44530da65e695df19be03e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79486152"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Czy protokół BGP jest obsługiwany na wszystkich jednostkach SKU bramy sieci VPN platformy Azure?
-Usługa BGP jest obsługiwana we wszystkich jednostkach SKU usługi Azure VPN Gateawy z wyjątkiem podstawowej jednostki SKU.
+Protokół BGP jest obsługiwany przez wszystkie jednostki SKU usługi Azure VPN Gateawy z wyjątkiem podstawowej jednostki SKU.
 
 ### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways"></a>Czy można użyć protokołu BGP z bramą sieci VPN platformy Azure opartej na zasadach?
 Nie, protokół BGP jest obsługiwany tylko przez bramy sieci VPN opartych na trasach.
@@ -24,8 +24,8 @@ Nie, protokół BGP jest obsługiwany tylko przez bramy sieci VPN opartych na tr
 ### <a name="can-i-use-private-asns-autonomous-system-numbers"></a>Czy można użyć prywatnych numerów ASN (numery systemu autonomicznego)?
 Tak, można użyć własnych publicznych lub prywatnych numerów ASN dla sieci lokalnych i sieci wirtualnych platformy Azure.
 
-### <a name="can-i-use-32-bit-4-byte-asns-autonomous-system-numbers"></a>Czy mogę używać 32-bitowych (4-bajtowych) numerów ASN (autonomicznych numerów systemu)?
-Tak, bramy sieci VPN platformy Azure obsługują teraz 32-bitowe (4-bajtowe) sieci ASN. Użyj programu PowerShell/CLI/SDK do skonfigurowania przy użyciu asnu w formacie dziesiętnym.
+### <a name="can-i-use-32-bit-4-byte-asns-autonomous-system-numbers"></a>Czy mogę użyć 32-bitowego (4-bajtowego) WPW (numery systemu autonomicznego)?
+Tak. bramy sieci VPN platformy Azure obsługują teraz 32-bitowe (4-bajtowe) WPW. Użyj programu PowerShell/interfejsu wiersza polecenia/SDK, aby skonfigurować użycie numeru ASN w formacie dziesiętnym.
 
 ### <a name="are-there-asns-reserved-by-azure"></a>Czy istnieją numery ASN zarezerwowane przez platformę Azure?
 Tak, następujące numery ASN są zarezerwowane przez platformę Azure zarówno dla wewnętrznej, jak i zewnętrznej komunikacji równorzędnej:
@@ -40,12 +40,12 @@ Tak, następujące numery ASN zostały [zarezerwowane przez organizację IANA](h
 
 23456, 64496-64511, 65535–65551 i 429496729
 
-### <a name="what-private-asns-can-i-use"></a>Jakich prywatnych sieci ASN mogę używać?
-Użyteczny zakres prywatnych sieci ASN, które mogą być używane, to:
+### <a name="what-private-asns-can-i-use"></a>Jakiego prywatnego WPW można użyć?
+Użyteczny zakres prywatnych numerów ASN, których można użyć, to:
 
 * 64512-65514, 65521-65534
 
-Te sieci ASN nie są zarezerwowane przez IANA lub Azure do użytku i dlatego mogą być używane do przypisywania do bramy sieci VPN platformy Azure.
+Te WPW nie są zarezerwowane przez organizację IANA lub platformę Azure do użytku, dlatego mogą być używane do przypisywania do VPN Gateway platformy Azure.
 
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>Czy można użyć tego samego numeru ASN zarówno dla lokalnych sieci VPN, jak sieci wirtualnych platformy Azure?
 Nie, należy przypisać różne numery ASN sieciom lokalnym i sieciom wirtualnym platformy Azure, jeśli są łączone za pomocą protokołu BGP. Bramy sieci VPN platformy Azure mają przypisany domyślny numer ASN 65515, niezależnie od tego, czy protokół BGP jest włączony dla łączności między różnymi lokalizacjami firmy. Można zastąpić to ustawienie domyślne, przypisując inny numer ASN podczas tworzenia bramy sieci VPN, lub zmienić numer ASN po utworzeniu bramy. Konieczne będzie przypisanie lokalnych numerów ASN do odpowiednich bram sieci lokalnej platformy Azure.
@@ -57,7 +57,7 @@ Brama sieci VPN będzie anonsować następujące trasy na urządzeniach lokalnyc
 * Prefiksy adresów dla każdej bramy sieci lokalnej podłączonej do bramy sieci VPN platformy Azure
 * Trasy zostały uzyskane na podstawie innych sesji równorzędnych protokołu BGP podłączonych do bramy sieci VPN platformy Azure **z wyjątkiem trasy domyślnej lub tras nakładających się dla dowolnego prefiksu sieci wirtualnej**.
 
-### <a name="how-many-prefixes-can-i-advertise-to-azure-vpn-gateway"></a>Ile prefiksów można anonsować bramie sieci VPN platformy Azure?
+### <a name="how-many-prefixes-can-i-advertise-to-azure-vpn-gateway"></a>Ile prefiksów można anonsować do usługi Azure VPN Gateway?
 Obsługujemy do 4000 prefiksów. Sesja protokołu BGP zostanie przerwana, jeśli liczba prefiksów przekroczy limit.
 
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Czy można anonsować trasę domyślną (0.0.0.0/0) do bram sieci VPN platformy Azure?
@@ -78,7 +78,7 @@ Tak, protokołu BGP można użyć do połączeń zarówno między różnymi loka
 Tak, dla tej samej bramy sieci VPN platformy Azure można łączyć zarówno połączenia protokołu BGP, jak i połączenia innych protokołów.
 
 ### <a name="does-azure-vpn-gateway-support-bgp-transit-routing"></a>Czy brama sieci VPN platformy Azure obsługuje routing tranzytowy protokołu BGP?
-Tak, routing tranzytowy protokołu BGP jest obsługiwany, ale bramy sieci VPN platformy Azure **nie** anonsują tras domyślnych do innych elementów równorzędnych protokołu BGP. Aby włączyć routing tranzytowy dla wielu bram sieci VPN platformy Azure, należy włączyć protokół BGP dla wszystkich pośrednich połączeń między sieciami wirtualnymi. Aby uzyskać więcej informacji, zobacz [Informacje o BGP](../articles/vpn-gateway/vpn-gateway-bgp-overview.md).
+Tak, routing tranzytowy protokołu BGP jest obsługiwany, ale bramy sieci VPN platformy Azure **nie** anonsują tras domyślnych do innych elementów równorzędnych protokołu BGP. Aby włączyć routing tranzytowy dla wielu bram sieci VPN platformy Azure, należy włączyć protokół BGP dla wszystkich pośrednich połączeń między sieciami wirtualnymi. Aby uzyskać więcej informacji, zobacz [Informacje o](../articles/vpn-gateway/vpn-gateway-bgp-overview.md)protokole BGP.
 
 ### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>Czy można mieć więcej niż jeden tunel między bramą sieci VPN platformy Azure i lokalną siecią użytkownika?
 Tak, można utworzyć więcej niż jeden tunel VPN S2S między bramą sieci VPN platformy Azure i siecią lokalną. Należy pamiętać, że wszystkie te tunele będą uwzględniane w łącznej liczbie tuneli dla bram sieci VPN platformy Azure oraz że należy włączyć protokół w obydwu tunelach.
@@ -92,10 +92,10 @@ Tak, ale co najmniej jedna z bram sieci wirtualnej musi mieć konfigurację akty
 Tak. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Jakiego adresu używa brama sieci VPN platformy Azure dla adresu IP elementu równorzędnego protokołu BGP?
-Brama sieci VPN platformy Azure przydzieli jeden adres IP z zakresu GatewaySubnet dla bram sieci VPN w trybie aktywnym w trybie gotowości lub dwa adresy IP dla bram sieci VPN aktywnych aktywnych. Rzeczywisty adres(y) adresów IP BGP(y) można uzyskać przy użyciu programu PowerShell (Get-AzVirtualNetworkGateway, poszukaj właściwości "bgpPeeringAddress" lub w portalu Azure (w obszarze "Konfigurowanie BGP ASN" właściwości na stronie konfiguracji bramy).
+Brama sieci VPN platformy Azure przydzieli pojedynczy adres IP z zakresu GatewaySubnet w przypadku bram sieci VPN z aktywną gotowością lub dwóch adresów IP dla bram sieci VPN aktywnych i aktywnych. Możesz uzyskać rzeczywiste adresy IP BGP przydzielone za pomocą programu PowerShell (Get-AzVirtualNetworkGateway, poszukaj właściwości "bgpPeeringAddress") lub w Azure Portal (w obszarze "Konfigurowanie protokołu BGP ASN" na stronie Konfiguracja bramy).
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>Jakie są wymagania dotyczące adresów IP elementów równorzędnych protokołu BGP na urządzeniu sieci VPN użytkownika?
-Lokalny adres równorzędny BGP **NIE MOŻE** być taki sam jak publiczny adres IP urządzenia sieci VPN lub przestrzeni adresowej sieci wirtualnej bramy sieci VPN. Na urządzeniu sieci VPN należy użyć innego adresu IP dla adresu IP elementu równorzędnego protokołu BGP. Może to być adres przypisany do interfejsu sprzężenia zwrotnego na urządzeniu, ale należy pamiętać, że nie może być to adres APIPA (169.254.x.x). Ten adres należy określić w odpowiedniej bramie sieci lokalnej reprezentującej daną lokalizację.
+Adres lokalnego elementu równorzędnego protokołu BGP **nie może** być taki sam jak publiczny adres IP urządzenia sieci VPN lub przestrzeń adresowa wirtualnej VPN Gateway. Na urządzeniu sieci VPN należy użyć innego adresu IP dla adresu IP elementu równorzędnego protokołu BGP. Może to być adres przypisany do interfejsu sprzężenia zwrotnego na urządzeniu, ale należy pamiętać, że nie może być to adres APIPA (169.254.x.x). Ten adres należy określić w odpowiedniej bramie sieci lokalnej reprezentującej daną lokalizację.
 
 ### <a name="what-should-i-specify-as-my-address-prefixes-for-the-local-network-gateway-when-i-use-bgp"></a>Co należy określić jako prefiksy adresów użytkownika dla bramy sieci lokalnej w przypadku korzystania z protokołu BGP?
 Brama sieci lokalnej platformy Azure określa początkowe prefiksy adresów dla sieci lokalnej. W przypadku protokołu BGP należy przydzielić prefiks hosta (prefiks /32) adresu IP elementu równorzędnego protokołu BGP jako przestrzeń adresów dla danej sieci lokalnej. Jeśli adresem IP elementu równorzędnego protokołu BGP jest 10.52.255.254, należy określić adres „10.52.255.254/32” jako przestrzeń adresów sieci lokalnej dla bramy sieci lokalnej reprezentującej tę sieć lokalną. Należy tak postąpić, aby brama sieci VPN platformy Azure ustanawiała sesję protokołu BGP przez tunel sieci VPN S2S.

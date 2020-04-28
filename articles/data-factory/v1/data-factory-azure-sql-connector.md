@@ -1,6 +1,6 @@
 ---
-title: Kopiowanie danych do/z bazy danych SQL usługi Azure
-description: Dowiedz się, jak kopiować dane do/z usługi Azure SQL Database przy użyciu usługi Azure Data Factory.
+title: Kopiuj dane do/z Azure SQL Database
+description: Informacje o kopiowaniu danych do/z Azure SQL Database przy użyciu Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,99 +13,99 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7fc0b2822195d952c2a4f9c02bf3758c0e2b809a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260503"
 ---
-# <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure SQL Database przy użyciu usługi Azure Data Factory
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+# <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Kopiowanie danych do i z Azure SQL Database przy użyciu Azure Data Factory
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](data-factory-azure-sql-connector.md)
 > * [Wersja 2 (bieżąca wersja)](../connector-azure-sql-database.md)
 
 > [!NOTE]
-> Ten artykuł dotyczy wersji 1 usługi Data Factory. Jeśli używasz bieżącej wersji usługi Data Factory, zobacz [łącznik bazy danych SQL azure w wersji 2](../connector-azure-sql-database.md).
+> Ten artykuł dotyczy wersji 1 usługi Data Factory. Jeśli używasz bieżącej wersji usługi Data Factory, zapoznaj się z tematem [Azure SQL Database Connector w wersji 2](../connector-azure-sql-database.md).
 
-W tym artykule wyjaśniono, jak używać działania kopiowania w usłudze Azure Data Factory do przenoszenia danych do i z bazy danych SQL azure. Opiera się na [działaniach przenoszenia danych,](data-factory-data-movement-activities.md) który przedstawia ogólny przegląd przenoszenia danych z działaniem kopiowania.
+W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do przenoszenia danych do i z Azure SQL Database. Jest on używany w artykule dotyczącym [przenoszenia danych](data-factory-data-movement-activities.md) , który przedstawia ogólne omówienie przenoszenia danych za pomocą działania kopiowania.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
-Dane można kopiować **z usługi Azure SQL Database** do następujących magazynów danych:
+Dane **z Azure SQL Database** można kopiować do następujących magazynów danych:
 
 [!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
 
-Dane z następujących magazynów danych można **skopiować do bazy danych SQL Azure:**
+Dane z następujących magazynów danych można kopiować **do Azure SQL Database**:
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
-## <a name="supported-authentication-type"></a>Typ obsługiwanego uwierzytelniania
-Łącznik bazy danych SQL usługi Azure obsługuje uwierzytelnianie podstawowe.
+## <a name="supported-authentication-type"></a>Obsługiwany typ uwierzytelniania
+Łącznik Azure SQL Database obsługuje uwierzytelnianie podstawowe.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potok z działaniem kopiowania, który przenosi dane do/z bazy danych SQL Azure przy użyciu różnych narzędzi/interfejsów API.
+Można utworzyć potok z działaniem kopiowania, które przenosi dane do/z Azure SQL Database przy użyciu różnych narzędzi/interfejsów API.
 
-Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania**. Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) w celu szybkiego instruktażu w sprawie tworzenia potoku przy użyciu kreatora kopiowania danych.
+Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania**. Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
 
-Do utworzenia potoku można również użyć następujących narzędzi: **Visual Studio**, **Azure PowerShell**, **szablon usługi Azure Resource Manager**, **.NET API**i REST **API**. Zobacz [Kopiowanie samouczka aktywności,](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) aby uzyskać instrukcje krok po kroku, aby utworzyć potok z działaniem kopiowania.
+Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio**, **Azure PowerShell**, **szablon Azure Resource Manager**, interfejs API **platformy .NET**i **interfejs API REST**. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
-Niezależnie od tego, czy są używane narzędzia, czy interfejsy API, wykonaj następujące kroki, aby utworzyć potok, który przenosi dane ze źródłowego magazynu danych do magazynu danych ujścia:
+Niezależnie od tego, czy używasz narzędzi, czy interfejsów API, wykonaj następujące kroki, aby utworzyć potok służący do przenoszenia danych ze źródłowego magazynu danych do magazynu danych ujścia:
 
-1. Tworzenie **fabryki danych**. Fabryka danych może zawierać jeden lub więcej potoków.
-2. Tworzenie **połączonych usług** w celu połączenia magazynów danych wejściowych i wyjściowych z fabryką danych. Na przykład w przypadku kopiowania danych z magazynu obiektów blob platformy Azure do bazy danych SQL platformy Azure utworzysz dwie połączone usługi, aby połączyć konto usługi Azure storage i bazę danych SQL platformy Azure z fabryką danych. Właściwości usługi połączone, które są specyficzne dla usługi Azure SQL Database, zobacz [sekcję właściwości usługi połączone.](#linked-service-properties)
-3. Tworzenie **zestawów danych** do reprezentowania danych wejściowych i wyjściowych dla operacji kopiowania. W przykładzie wymienionym w ostatnim kroku utworzysz zestaw danych, aby określić kontener obiektu blob i folder zawierający dane wejściowe. I utworzyć inny zestaw danych, aby określić tabelę SQL w bazie danych SQL platformy Azure, która przechowuje dane skopiowane z magazynu obiektów blob. Właściwości zestawu danych, które są specyficzne dla usługi Azure Data Lake Store, zobacz [sekcję właściwości zestawu danych.](#dataset-properties)
-4. Utwórz **potok** z działaniem kopiowania, które przyjmuje zestaw danych jako dane wejściowe i zestaw danych jako dane wyjściowe. W przykładzie wspomniano wcześniej, należy użyć BlobSource jako źródło i SqlSink jako ujście dla działania kopiowania. Podobnie, jeśli kopiujesz z usługi Azure SQL Database do usługi Azure Blob Storage, używasz SqlSource i BlobSink w działania kopiowania. Aby uzyskać właściwości działania kopiowania, które są specyficzne dla usługi Azure SQL Database, zobacz [sekcję właściwości działania kopiowania.](#copy-activity-properties) Aby uzyskać szczegółowe informacje na temat używania magazynu danych jako źródła lub ujścia, kliknij łącze w poprzedniej sekcji dla magazynu danych.
+1. Utwórz **fabrykę danych**. Fabryka danych może zawierać jeden lub więcej potoków.
+2. Utwórz **połączone usługi** , aby połączyć magazyny danych wejściowych i wyjściowych z fabryką danych. Na przykład jeśli kopiujesz dane z usługi Azure Blob Storage do bazy danych Azure SQL, utworzysz dwie połączone usługi, aby połączyć konto usługi Azure Storage i bazę danych SQL Azure z fabryką danych. Aby uzyskać właściwości połączonej usługi, które są specyficzne dla Azure SQL Database, zobacz sekcję [Właściwości połączonej usługi](#linked-service-properties) .
+3. Utwórz **zestawy** danych, aby reprezentować dane wejściowe i wyjściowe dla operacji kopiowania. W przykładzie opisanym w ostatnim kroku utworzysz zestaw danych, aby określić kontener obiektów blob i folder zawierający dane wejściowe. Ponadto utworzysz kolejny zestaw danych, aby określić tabelę SQL w bazie danych SQL Azure, która zawiera dane skopiowane z magazynu obiektów BLOB. Dla właściwości zestawu danych, które są specyficzne dla Azure Data Lake Store, zobacz sekcję [Właściwości zestawu danych](#dataset-properties) .
+4. Utwórz **potok** z działaniem kopiowania, które pobiera zestaw danych jako dane wejściowe i zestaw danych jako dane wyjściowe. W powyższym przykładzie użyto BlobSource jako źródła i obiektu sqlsink jako ujścia dla działania kopiowania. Podobnie, jeśli kopiujesz z Azure SQL Database do Blob Storage platformy Azure, użyjesz sqlsource i wartość blobsink w działaniu kopiowania. Aby uzyskać właściwości działania kopiowania, które są specyficzne dla Azure SQL Database, zobacz sekcję [właściwości działania kopiowania](#copy-activity-properties) . Aby uzyskać szczegółowe informacje na temat używania magazynu danych jako źródła lub ujścia, kliknij link w poprzedniej sekcji dla magazynu danych.
 
-Korzystając z kreatora, definicje JSON dla tych jednostek usługi Data Factory (połączone usługi, zestawy danych i potok) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/interfejsów API (z wyjątkiem interfejsu API platformy .NET), można zdefiniować te jednostki fabryki danych przy użyciu formatu JSON. W przypadku przykładów z definicjami JSON dla jednostek usługi Data Factory, które są używane do kopiowania danych do/z bazy danych SQL azure, zobacz [sekcję przykładów JSON](#json-examples-for-copying-data-to-and-from-sql-database) w tym artykule.
+Gdy używasz Kreatora, definicje JSON dla tych Data Factory jednostek (połączone usługi, zestawy danych i potok) są automatycznie tworzone. Korzystając z narzędzi/interfejsów API (z wyjątkiem interfejsu API .NET), należy zdefiniować te Data Factory jednostki przy użyciu formatu JSON. Przykłady zawierające definicje JSON dla Data Factory jednostek, które są używane do kopiowania danych do/z Azure SQL Database, zobacz sekcję [przykłady JSON](#json-examples-for-copying-data-to-and-from-sql-database) w tym artykule.
 
-Poniższe sekcje zawierają szczegółowe informacje o właściwościach JSON, które są używane do definiowania jednostek usługi Data Factory specyficznych dla usługi Azure SQL Database:
+Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSON, które są używane do definiowania Data Factory jednostek specyficznych dla Azure SQL Database:
 
-## <a name="linked-service-properties"></a>Połączone właściwości usługi
-Usługa połączona z usługą Azure SQL łączy bazę danych SQL platformy Azure z fabryką danych. Poniższa tabela zawiera opis elementów JSON specyficznych dla usługi połączonej sql platformy Azure.
+## <a name="linked-service-properties"></a>Właściwości połączonej usługi
+Połączona usługa Azure SQL łączy bazę danych SQL Azure z fabryką danych. Poniższa tabela zawiera opis elementów JSON specyficznych dla połączonej usługi Azure SQL.
 
 | Właściwość | Opis | Wymagany |
 | --- | --- | --- |
-| type |Właściwość typu musi być ustawiona na: **AzureSqlDatabase** |Tak |
-| Parametry połączenia |Określ informacje potrzebne do nawiązania połączenia z wystąpieniem bazy danych SQL platformy Azure dla właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. |Tak |
+| type |Właściwość Type musi mieć wartość: **AzureSqlDatabase** |Tak |
+| Parametry połączenia |Określ informacje, które są konieczne do nawiązania połączenia z wystąpieniem Azure SQL Database dla właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. |Tak |
 
 > [!IMPORTANT]
-> Skonfiguruj [zaporę bazy danych usługi Azure SQL,](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) aby [umożliwić usługom platformy Azure dostęp do serwera](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Ponadto w przypadku kopiowania danych do usługi Azure SQL Database spoza platformy Azure, w tym z lokalnych źródeł danych z bramą fabryki danych, skonfiguruj odpowiedni zakres adresów IP dla komputera, który wysyła dane do bazy danych SQL Azure.
+> Skonfiguruj [Azure SQL Database zaporą](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) serwera bazy danych, aby [umożliwić usługom platformy Azure dostęp do serwera](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Ponadto, jeśli kopiujesz dane do Azure SQL Database spoza platformy Azure, w tym z lokalnych źródeł danych za pomocą bramy usługi Data Factory, skonfiguruj odpowiedni zakres adresów IP dla maszyny wysyłającej dane do Azure SQL Database.
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
-Aby określić zestaw danych do reprezentowania danych wejściowych lub wyjściowych w bazie danych SQL platformy Azure, należy ustawić właściwość typu zestawu danych na: **AzureSqlTable**. Ustaw właściwość **linkedServiceName** zestawu danych na nazwę usługi połączonej SQL platformy Azure.
+Aby określić zestaw danych do reprezentowania danych wejściowych lub wyjściowych w bazie danych Azure SQL, należy ustawić Właściwość Type zestawu danych na: **wartość azuresqltable**. Ustaw właściwość **linkedServiceName** zestawu danych na nazwę połączonej usługi Azure SQL.
 
-Aby uzyskać pełną listę sekcji & właściwości dostępnych do definiowania zestawów danych, zobacz artykuł [Tworzenie zestawów danych.](data-factory-create-datasets.md) Sekcje, takie jak struktura, dostępność i zasady zestawu danych JSON są podobne dla wszystkich typów zestawów danych (Azure SQL, Azure blob, tabela platformy Azure itp.).
+Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania zestawów danych, zobacz artykuł [Tworzenie zestawów danych](data-factory-create-datasets.md) . Sekcje, takie jak struktura, dostępność i zasady JSON zestawu danych są podobne dla wszystkich typów zestawu danych (Azure SQL, Azure Blob, Azure Table itp.).
 
-Sekcja typeProperties jest inna dla każdego typu zestawu danych i zawiera informacje o lokalizacji danych w magazynie danych. Sekcja **typeProperties** dla zestawu danych typu **AzureSqlTable** ma następujące właściwości:
+Sekcja typeProperties jest inna dla każdego typu zestawu danych i zawiera informacje dotyczące lokalizacji danych w magazynie danych. Sekcja **typeProperties** zestawu danych typu **wartość azuresqltable** ma następujące właściwości:
 
 | Właściwość | Opis | Wymagany |
 | --- | --- | --- |
-| tableName |Nazwa tabeli lub widoku w wystąpieniu usługi Azure SQL Database, do których odwołuje się usługa połączona. |Tak |
+| tableName |Nazwa tabeli lub widoku w wystąpieniu Azure SQL Database, do którego odwołuje się połączona usługa. |Tak |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
-Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania działań, zobacz [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, tabele danych wejściowych i wyjściowych oraz zasady są dostępne dla wszystkich typów działań.
+Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania działań, zobacz artykuł [Tworzenie potoków](data-factory-create-pipelines.md) . Właściwości, takie jak nazwa, opis, tabele wejściowe i wyjściowe, oraz zasady są dostępne dla wszystkich typów działań.
 
 > [!NOTE]
-> Działanie kopiowania zajmuje tylko jedno dane wejściowe i generuje tylko jedno dane wyjściowe.
+> Działanie kopiowania przyjmuje tylko jedno wejście i generuje tylko jedno wyjście.
 
-Mając na uwadze, właściwości dostępne w sekcji **typeProperties** działania różnią się w zależności od typu działania. W przypadku działania kopiowania różnią się one w zależności od typów źródeł i pochłaniacze.
+Natomiast właściwości dostępne w sekcji **typeProperties** działania różnią się w zależności od typu działania. W przypadku działania kopiowania różnią się w zależności od typów źródeł i ujścia.
 
-Jeśli przenosisz dane z bazy danych SQL platformy Azure, typ źródła w działaniu kopiowania jest ustawiany na **SqlSource.** Podobnie, jeśli przenosisz dane do bazy danych SQL platformy Azure, typ ujścia w działaniu kopiowania jest ustawiony na **SqlSink**. Ta sekcja zawiera listę właściwości obsługiwanych przez SqlSource i SqlSink.
+Jeśli przenosisz dane z bazy danych Azure SQL, ustaw typ źródła w działaniu Kopiuj na **sqlsource**. Podobnie, Jeśli przenosisz dane do bazy danych Azure SQL, należy ustawić typ ujścia w działaniu Copy na **sqlsink**. Ta sekcja zawiera listę właściwości obsługiwanych przez element sqlsource i sqlsink.
 
-### <a name="sqlsource"></a>Źródło sqlsource
-W działaniu kopiowania, gdy źródłem jest typ **SqlSource,** następujące właściwości są dostępne w sekcji **typeProperties:**
+### <a name="sqlsource"></a>Wartość sqlsource
+W działaniu kopiowania, gdy źródłem jest typ **sqlsource**, w sekcji **typeProperties** są dostępne następujące właściwości:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagany |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Użyj kwerendy niestandardowej, aby odczytać dane. |Ciąg zapytania SQL. Przykład: `select * from MyTable`. |Nie |
-| nazwa sqlReaderStoredProcedureName |Nazwa procedury składowanej, która odczytuje dane z tabeli źródłowej. |Nazwa procedury składowanej. Ostatnia instrukcja SQL musi być instrukcją SELECT w procedurze składowanej. |Nie |
-| przechowywaneParametryprocedure |Parametry procedury składowanej. |Pary nazwy/wartości. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. |Nie |
+| sqlReaderQuery |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Przykład: `select * from MyTable`. |Nie |
+| sqlReaderStoredProcedureName |Nazwa procedury składowanej, która odczytuje dane z tabeli źródłowej. |Nazwa procedury składowanej. Ostatnia instrukcja SQL musi być instrukcją SELECT w procedurze składowanej. |Nie |
+| storedProcedureParameters |Parametry procedury składowanej. |Pary nazwa/wartość. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. |Nie |
 
-Jeśli **sqlReaderQuery** jest określony dla SqlSource, copy activity uruchamia tę kwerendę względem źródła bazy danych SQL Azure, aby uzyskać dane. Alternatywnie można określić procedurę składowaną, określając **sqlReaderStoredProcedureName** i **storedProcedureParameters** (jeśli procedura składowana przyjmuje parametry).
+Jeśli **sqlReaderQuery** jest określony dla elementu sqlsource, działanie Copy uruchamia to zapytanie względem źródła Azure SQL Database, aby uzyskać dane. Alternatywnie można określić procedurę składowaną, określając **sqlReaderStoredProcedureName** i **storedProcedureParameters** (Jeśli procedura składowana pobiera parametry).
 
-Jeśli nie określisz sqlReaderQuery lub sqlReaderStoredProcedureName, kolumny zdefiniowane w sekcji struktury zestawu danych JSON`select column1, column2 from mytable`są używane do tworzenia kwerendy ( ) do uruchamiania w bazie danych SQL Azure. Jeśli definicja zestawu danych nie ma struktury, wszystkie kolumny są wybierane z tabeli.
+Jeśli nie określisz opcji sqlReaderQuery ani sqlReaderStoredProcedureName, kolumny zdefiniowane w sekcji Struktura JSON zestawu danych są używane do tworzenia zapytania (`select column1, column2 from mytable`) w celu uruchomienia względem Azure SQL Database. Jeśli definicja zestawu danych nie ma struktury, wszystkie kolumny są wybierane z tabeli.
 
 > [!NOTE]
-> Korzystając z **programu sqlReaderStoredProcedureName,** nadal należy określić wartość właściwości **tableName** w zestawie danych JSON. Nie ma jednak żadnych weryfikacji wykonywane dla tej tabeli.
+> W przypadku korzystania z **sqlReaderStoredProcedureName**, nadal trzeba określić wartość właściwości **TableName** w kodzie JSON zestawu danych. Nie przeprowadzono żadnych operacji sprawdzania poprawności dla tej tabeli, chociaż.
 >
 >
 
@@ -141,20 +141,20 @@ END
 GO
 ```
 
-### <a name="sqlsink"></a>SqlSink (w języku sql)
-**SqlSink** obsługuje następujące właściwości:
+### <a name="sqlsink"></a>Ujściem element sqlsink
+**Obiekt sqlsink** obsługuje następujące właściwości:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagany |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Czas oczekiwania na zakończenie operacji wstawiania partii przed jej limitem czasu. |Timespan<br/><br/> Przykład: "00:30:00" (30 minut). |Nie |
+| writeBatchTimeout |Czas oczekiwania na zakończenie operacji wstawiania partii przed upływem limitu czasu. |zakres czasu<br/><br/> Przykład: "00:30:00" (30 minut). |Nie |
 | writeBatchSize |Wstawia dane do tabeli SQL, gdy rozmiar buforu osiągnie writeBatchSize. |Liczba całkowita (liczba wierszy) |Nie (domyślnie: 10000) |
-| sqlWriterCleanupScript |Określ kwerendę dla działania kopiowania, aby wykonać takie, że dane określonego plasterka są czyszczone. Aby uzyskać więcej informacji, zobacz [powtarzalną kopię](#repeatable-copy). |Instrukcja kwerendy. |Nie |
-| sliceIdentifierColumnName |Określ nazwę kolumny działania kopiowania, aby wypełnić automatycznie wygenerowanym identyfikatorem plasterka, który jest używany do czyszczenia danych określonego plasterka podczas ponownego uruchomienia. Aby uzyskać więcej informacji, zobacz [powtarzalną kopię](#repeatable-copy). |Nazwa kolumny z typem danych binarnym(32). |Nie |
-| nazwa sqlWriterStoredProcedureName |Nazwa procedury składowanej, która określa sposób stosowania danych źródłowych do tabeli docelowej, na przykład do wykonywania upserts lub przekształcania przy użyciu własnej logiki biznesowej. <br/><br/>Uwaga ta procedura **składowana będzie wywoływana na partię**. Jeśli chcesz wykonać operację, która działa tylko raz i nie ma nic wspólnego z `sqlWriterCleanupScript` danymi źródłowymi, np. |Nazwa procedury składowanej. |Nie |
-| przechowywaneParametryprocedure |Parametry procedury składowanej. |Pary nazwy/wartości. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. |Nie |
-| sqlWriterTableType (Typ tabeli maszyn sqlWriterTableType) |Określ nazwę typu tabeli, która ma być używana w procedurze składowanej. Działanie kopiowania sprawia, że dane są dostępne w tabeli tymczasowej z tego typu tabeli. Kod procedury składowanej można następnie scalić dane kopiowane z istniejącymi danymi. |Nazwa typu tabeli. |Nie |
+| sqlWriterCleanupScript |Określ zapytanie dla działania kopiowania, które ma zostać wykonane, aby dane określonego wycinka zostały oczyszczone. Aby uzyskać więcej informacji, zobacz [powtórzona kopia](#repeatable-copy). |Instrukcja zapytania. |Nie |
+| sliceIdentifierColumnName |Określ nazwę kolumny dla działania kopiowania, która ma zostać wypełniona automatycznie wygenerowaną identyfikatorem wycinka, która jest używana do czyszczenia danych określonego wycinka po ponownym uruchomieniu. Aby uzyskać więcej informacji, zobacz [powtórzona kopia](#repeatable-copy). |Nazwa kolumny kolumny zawierającej dane typu binary (32). |Nie |
+| sqlWriterStoredProcedureName |Nazwa procedury składowanej, która definiuje sposób zastosowania danych źródłowych do tabeli docelowej, np. w celu przeprowadzenia upserts lub przekształcenia przy użyciu własnej logiki biznesowej. <br/><br/>Należy zauważyć, że ta procedura składowana zostanie **wywołana na partię**. Jeśli chcesz wykonać operację, która jest uruchamiana tylko raz i nie ma nic do zrobienia z danymi źródłowymi, np. Delete/ `sqlWriterCleanupScript` Truncate, use Property. |Nazwa procedury składowanej. |Nie |
+| storedProcedureParameters |Parametry procedury składowanej. |Pary nazwa/wartość. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. |Nie |
+| sqlWriterTableType |Określ nazwę typu tabeli, która ma zostać użyta w procedurze składowanej. Działanie kopiowania sprawia, że dane są dostępne w tabeli tymczasowej z tym typem tabeli. Kod procedury składowanej może następnie scalić dane kopiowane z istniejącymi danymi. |Nazwa typu tabeli. |Nie |
 
-#### <a name="sqlsink-example"></a>Przykład SqlSink
+#### <a name="sqlsink-example"></a>Przykład obiektu sqlsink
 
 ```JSON
 "sink": {
@@ -171,21 +171,21 @@ GO
 }
 ```
 
-## <a name="json-examples-for-copying-data-to-and-from-sql-database"></a>Przykłady JSON do kopiowania danych do i z bazy danych SQL
-Poniższe przykłady zawierają przykładowe definicje JSON, których można użyć do utworzenia potoku przy użyciu [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) lub programu Azure [PowerShell.](data-factory-copy-activity-tutorial-using-powershell.md) Pokazują one, jak skopiować dane do i z usługi Azure SQL Database i usługi Azure Blob Storage. Jednak dane mogą być kopiowane **bezpośrednio** z dowolnego źródła do dowolnego ujścia podane [w tym miejscu](data-factory-data-movement-activities.md#supported-data-stores-and-formats) przy użyciu działania kopiowania w usłudze Azure Data Factory.
+## <a name="json-examples-for-copying-data-to-and-from-sql-database"></a>Przykłady JSON kopiowania danych do i z SQL Database
+W poniższych przykładach przedstawiono przykładowe definicje JSON, których można użyć do utworzenia potoku przy użyciu [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) lub [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Pokazują one sposób kopiowania danych do i z Azure SQL Database i Blob Storage platformy Azure. Można jednak skopiować dane **bezpośrednio** z dowolnego źródła do dowolnego ujścia w [tym miejscu](data-factory-data-movement-activities.md#supported-data-stores-and-formats) za pomocą działania kopiowania w Azure Data Factory.
 
-### <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>Przykład: Kopiowanie danych z usługi Azure SQL Database do obiektu blob platformy Azure
-To samo definiuje następujące jednostki fabryki danych:
+### <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>Przykład: kopiowanie danych z Azure SQL Database do obiektu blob platformy Azure
+Ten sam definiuje następujące jednostki Data Factory:
 
 1. Połączona usługa typu [AzureSqlDatabase](#linked-service-properties).
 2. Połączona usługa typu [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. Wejściowy [zestaw danych](data-factory-create-datasets.md) typu [AzureSqlTable](#dataset-properties).
-4. Wyjściowy [zestaw danych](data-factory-create-datasets.md) typu Azure [Blob](data-factory-azure-blob-connector.md#dataset-properties).
-5. [Potok](data-factory-create-pipelines.md) z działaniem kopiowania, który używa [SqlSource](#copy-activity-properties) i [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+3. Wejściowy [zestaw danych](data-factory-create-datasets.md) typu [wartość azuresqltable](#dataset-properties).
+4. Wyjściowy [zestaw danych](data-factory-create-datasets.md) typu [Azure Blob](data-factory-azure-blob-connector.md#dataset-properties).
+5. [Potok](data-factory-create-pipelines.md) z działaniem kopiowania, który używa elementu [sqlsource](#copy-activity-properties) i [wartość blobsink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Przykładowy kopiuje dane szeregów czasowych (co godzinę, codziennie itp.) z tabeli w bazie danych SQL platformy Azure do obiektu blob co godzinę. Właściwości JSON używane w tych próbkach są opisane w sekcjach następujących po próbkach.
+Przykład kopiuje dane szeregów czasowych (co godzinę, codziennie itd.) z tabeli w usłudze Azure SQL Database do obiektu BLOB co godzinę. Właściwości JSON używane w tych przykładach są opisane w sekcjach poniżej przykładów.
 
-**Usługa połączona z usługą Azure SQL Database:**
+**Azure SQL Database połączona usługa:**
 
 ```JSON
 {
@@ -198,9 +198,9 @@ Przykładowy kopiuje dane szeregów czasowych (co godzinę, codziennie itp.) z t
   }
 }
 ```
-Zobacz sekcję Azure SQL Linked Service, aby uzyskać listę właściwości obsługiwanych przez tę usługę połączone.
+Zapoznaj się z sekcją połączonej usługi Azure SQL, aby uzyskać listę właściwości obsługiwanych przez tę połączoną usługę.
 
-**Usługa połączona z magazynem obiektów Blob platformy Azure:**
+**Połączona usługa Azure Blob Storage:**
 
 ```JSON
 {
@@ -213,14 +213,14 @@ Zobacz sekcję Azure SQL Linked Service, aby uzyskać listę właściwości obs�
   }
 }
 ```
-Zobacz artykuł [obiektu Blob platformy Azure,](data-factory-azure-blob-connector.md#azure-storage-linked-service) aby uzyskać listę właściwości obsługiwanych przez tę połączone usługi.
+Listę właściwości obsługiwanych przez tę połączoną usługę znajdziesz w artykule dotyczącym [obiektów blob platformy Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) .
 
 
-**Zestaw danych wejściowych SQL platformy Azure:**
+**Zestaw danych wejściowych usługi Azure SQL:**
 
 W przykładzie przyjęto założenie, że utworzono tabelę "MyTable" w usłudze Azure SQL i zawiera kolumnę o nazwie "timestampcolumn" dla danych szeregów czasowych.
 
-Ustawienie "zewnętrzne": "true" informuje usługę Azure Data Factory, że zestaw danych jest zewnętrzny dla fabryki danych i nie jest produkowany przez działanie w fabryce danych.
+Ustawienie "External": "true" informuje usługę Azure Data Factory, że zestaw danych jest zewnętrzny względem fabryki danych i nie jest tworzony przez działanie w fabryce danych.
 
 ```JSON
 {
@@ -247,11 +247,11 @@ Ustawienie "zewnętrzne": "true" informuje usługę Azure Data Factory, że zest
 }
 ```
 
-Zobacz sekcję właściwości typu zestawu danych SQL platformy Azure, aby uzyskać listę właściwości obsługiwanych przez ten typ zestawu danych.
+Zobacz sekcję właściwości typu zestawu danych usługi Azure SQL, aby zapoznać się z listą właściwości obsługiwanych przez ten typ zestawu danych.
 
-**Zestaw danych wyjściowych obiektów blob platformy Azure:**
+**Wyjściowy zestaw danych obiektów blob platformy Azure:**
 
-Dane są zapisywane w nowym obiekcie blob co godzinę (częstotliwość: godzina, interwał: 1). Ścieżka folderu obiektu blob jest dynamicznie oceniana na podstawie czasu rozpoczęcia przetwarzanego plasterka. Ścieżka folderu używa części czasu rozpoczęcia z roku, miesiąca, dnia i godziny.
+Dane są zapisywane w nowym obiekcie blob co godzinę (częstotliwość: godzina, interwał: 1). Ścieżka folderu dla obiektu BLOB jest obliczana dynamicznie na podstawie czasu rozpoczęcia przetwarzanego wycinka. Ścieżka folderu używa części roku, miesiąca, dnia i godziny rozpoczęcia.
 
 ```JSON
 {
@@ -308,11 +308,11 @@ Dane są zapisywane w nowym obiekcie blob co godzinę (częstotliwość: godzina
   }
 }
 ```
-Zobacz sekcję [właściwości typu zestawu danych obiektów Blob platformy Azure,](data-factory-azure-blob-connector.md#dataset-properties) aby uzyskać listę właściwości obsługiwanych przez ten typ zestawu danych.
+Zobacz sekcję [właściwości typu zestawu danych obiektów blob platformy Azure](data-factory-azure-blob-connector.md#dataset-properties) , aby uzyskać listę właściwości obsługiwanych przez ten typ zestawu danych.
 
-**Działanie kopiowania w potoku ze źródłem SQL i ujściem obiektu Blob:**
+**Działanie kopiowania w potoku ze źródłem SQL i obiektem BLOB:**
 
-Potok zawiera działanie kopiowania, który jest skonfigurowany do korzystania z wejściowych i wyjściowych zestawów danych i jest zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** jest ustawiony na **SqlSource** i typ **ujścia** jest ustawiony na **BlobSink**. Kwerenda SQL określona dla właściwości **SqlReaderQuery** wybiera dane w ciągu ostatniej godziny do skopiowania.
+Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma ustawioną wartość **sqlsource** , a typ **ujścia** to **wartość blobsink**. Zapytanie SQL określone dla właściwości **SqlReaderQuery** wybiera dane w ciągu ostatniej godziny do skopiowania.
 
 ```JSON
 {
@@ -360,24 +360,24 @@ Potok zawiera działanie kopiowania, który jest skonfigurowany do korzystania z
   }
 }
 ```
-W przykładzie **sqlReaderQuery** jest określony dla SqlSource. Działanie kopiowania uruchamia tę kwerendę względem źródła bazy danych SQL azure, aby uzyskać dane. Alternatywnie można określić procedurę składowaną, określając **sqlReaderStoredProcedureName** i **storedProcedureParameters** (jeśli procedura składowana przyjmuje parametry).
+W przykładzie **sqlReaderQuery** jest określony dla elementu sqlsource. Działanie kopiowania uruchamia to zapytanie względem źródła Azure SQL Database, aby uzyskać dane. Alternatywnie można określić procedurę składowaną, określając **sqlReaderStoredProcedureName** i **storedProcedureParameters** (Jeśli procedura składowana pobiera parametry).
 
-Jeśli nie określisz sqlReaderQuery lub sqlReaderStoredProcedureName, kolumny zdefiniowane w sekcji struktury zestawu danych JSON są używane do tworzenia kwerendy do uruchomienia względem usługi Azure SQL Database. Na przykład: `select column1, column2 from mytable`. Jeśli definicja zestawu danych nie ma struktury, wszystkie kolumny są wybierane z tabeli.
+Jeśli nie określisz opcji sqlReaderQuery ani sqlReaderStoredProcedureName, kolumny zdefiniowane w sekcji Struktura JSON elementu DataSet są używane do tworzenia zapytania do uruchomienia względem Azure SQL Database. Na przykład: `select column1, column2 from mytable`. Jeśli definicja zestawu danych nie ma struktury, wszystkie kolumny są wybierane z tabeli.
 
-Zobacz sekcji [Źródło sql](#sqlsource) i [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) listę właściwości obsługiwanych przez SqlSource i BlobSink.
+Zobacz sekcję [Źródło SQL](#sqlsource) i [wartość blobsink](data-factory-azure-blob-connector.md#copy-activity-properties) , aby uzyskać listę właściwości obsługiwanych przez sqlsource i wartość blobsink.
 
-### <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>Przykład: Kopiowanie danych z obiektu blob platformy Azure do bazy danych SQL usługi Azure
-Przykład definiuje następujące jednostki fabryki danych:
+### <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>Przykład: Kopiuj dane z obiektu blob platformy Azure do Azure SQL Database
+Przykład definiuje następujące jednostki Data Factory:
 
 1. Połączona usługa typu [AzureSqlDatabase](#linked-service-properties).
 2. Połączona usługa typu [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. Wejściowy [zestaw danych](data-factory-create-datasets.md) typu [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. Wyjściowy [zestaw danych](data-factory-create-datasets.md) typu [AzureSqlTable](#dataset-properties).
-5. [Potok](data-factory-create-pipelines.md) z copy działania, który używa [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) i [SqlSink](#copy-activity-properties).
+4. Wyjściowy [zestaw danych](data-factory-create-datasets.md) typu [wartość azuresqltable](#dataset-properties).
+5. [Potok](data-factory-create-pipelines.md) z działaniem kopiowania korzystającym z [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) i [sqlsink](#copy-activity-properties).
 
-Przykładowy kopiuje dane szeregów czasowych (co godzinę, codziennie itp.) z obiektu blob platformy Azure do tabeli w bazie danych SQL platformy Azure co godzinę. Właściwości JSON używane w tych próbkach są opisane w sekcjach następujących po próbkach.
+Przykład kopiuje dane szeregów czasowych (co godzinę, codziennie itd.) z usługi Azure BLOB do tabeli w usłudze Azure SQL Database co godzinę. Właściwości JSON używane w tych przykładach są opisane w sekcjach poniżej przykładów.
 
-**Usługa połączona z usługą Azure SQL:**
+**Połączona usługa Azure SQL:**
 
 ```JSON
 {
@@ -390,9 +390,9 @@ Przykładowy kopiuje dane szeregów czasowych (co godzinę, codziennie itp.) z o
   }
 }
 ```
-Zobacz sekcję Azure SQL Linked Service, aby uzyskać listę właściwości obsługiwanych przez tę usługę połączone.
+Zapoznaj się z sekcją połączonej usługi Azure SQL, aby uzyskać listę właściwości obsługiwanych przez tę połączoną usługę.
 
-**Usługa połączona z magazynem obiektów Blob platformy Azure:**
+**Połączona usługa Azure Blob Storage:**
 
 ```JSON
 {
@@ -405,12 +405,12 @@ Zobacz sekcję Azure SQL Linked Service, aby uzyskać listę właściwości obs�
   }
 }
 ```
-Zobacz artykuł [obiektu Blob platformy Azure,](data-factory-azure-blob-connector.md#azure-storage-linked-service) aby uzyskać listę właściwości obsługiwanych przez tę połączone usługi.
+Listę właściwości obsługiwanych przez tę połączoną usługę znajdziesz w artykule dotyczącym [obiektów blob platformy Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) .
 
 
-**Zestaw danych wejściowych obiektów Blob platformy Azure:**
+**Zestaw danych wejściowych obiektów blob platformy Azure:**
 
-Dane są pobierane z nowego obiektu blob co godzinę (częstotliwość: godzina, interwał: 1). Ścieżka folderu i nazwa pliku obiektu blob są dynamicznie oceniane na podstawie czasu rozpoczęcia wycinka, który jest przetwarzany. Ścieżka folderu używa części roku, miesiąca i dnia czasu rozpoczęcia i nazwy pliku, która używa części godzinowej godziny rozpoczęcia. "external": ustawienie "true" informuje usługę Data Factory, że ta tabela jest zewnętrzna dla fabryki danych i nie jest wytwarzana przez działanie w fabryce danych.
+Dane są pobierane z nowego obiektu BLOB co godzinę (częstotliwość: godzina, interwał: 1). Ścieżka folderu i nazwa pliku obiektu BLOB są dynamicznie oceniane na podstawie czasu rozpoczęcia przetwarzanego wycinka. Ścieżka folderu używa części Year, month i Day czasu rozpoczęcia i nazwy pliku używa części godziny godziny rozpoczęcia. ustawienie "External": "true" informuje usługę Data Factory, że ta tabela jest zewnętrzna z fabryką danych i nie jest generowana przez działanie w fabryce danych.
 
 ```JSON
 {
@@ -476,11 +476,11 @@ Dane są pobierane z nowego obiektu blob co godzinę (częstotliwość: godzina,
   }
 }
 ```
-Zobacz sekcję [właściwości typu zestawu danych obiektów Blob platformy Azure,](data-factory-azure-blob-connector.md#dataset-properties) aby uzyskać listę właściwości obsługiwanych przez ten typ zestawu danych.
+Zobacz sekcję [właściwości typu zestawu danych obiektów blob platformy Azure](data-factory-azure-blob-connector.md#dataset-properties) , aby uzyskać listę właściwości obsługiwanych przez ten typ zestawu danych.
 
-**Zestaw danych wyjściowych bazy danych SQL usługi Azure:**
+**Azure SQL Database wyjściowy zestaw danych:**
 
-Przykładowy kopie dane do tabeli o nazwie "MyTable" w usłudze Azure SQL. Utwórz tabelę w usłudze Azure SQL z taką samą liczbą kolumn, jak oczekujesz, że plik CSV obiektów blob będzie zawierać. Nowe wiersze są dodawane do tabeli co godzinę.
+Przykład kopiuje dane do tabeli o nazwie "MyTable" w usłudze Azure SQL. Utwórz tabelę w usłudze Azure SQL o tej samej liczbie kolumn, która będzie zawierała plik CSV. Nowe wiersze są dodawane do tabeli co godzinę.
 
 ```JSON
 {
@@ -498,11 +498,11 @@ Przykładowy kopie dane do tabeli o nazwie "MyTable" w usłudze Azure SQL. Utwó
   }
 }
 ```
-Zobacz sekcję właściwości typu zestawu danych SQL platformy Azure, aby uzyskać listę właściwości obsługiwanych przez ten typ zestawu danych.
+Zobacz sekcję właściwości typu zestawu danych usługi Azure SQL, aby zapoznać się z listą właściwości obsługiwanych przez ten typ zestawu danych.
 
-**Działanie kopiowania w potoku ze źródłem obiektów Blob i ujściem SQL:**
+**Działanie kopiowania w potoku ze źródłem obiektów blob i obiektem SQL:**
 
-Potok zawiera działanie kopiowania, który jest skonfigurowany do korzystania z wejściowych i wyjściowych zestawów danych i jest zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** jest ustawiony na **BlobSource** i typ **ujścia** jest ustawiony na **SqlSink**.
+Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **BlobSource** , a typ **ujścia** to **sqlsink**.
 
 ```JSON
 {
@@ -550,12 +550,12 @@ Potok zawiera działanie kopiowania, który jest skonfigurowany do korzystania z
   }
 }
 ```
-Zobacz sekcji [Zlewnik sql](#sqlsink) i [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) listy właściwości obsługiwanych przez SqlSink i BlobSource.
+Zobacz sekcję [ujścia SQL](#sqlsink) i [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) , aby uzyskać listę właściwości obsługiwanych przez obiekty sqlsink i BlobSource.
 
 ## <a name="identity-columns-in-the-target-database"></a>Kolumny tożsamości w docelowej bazie danych
 Ta sekcja zawiera przykład kopiowania danych z tabeli źródłowej bez kolumny tożsamości do tabeli docelowej z kolumną tożsamości.
 
-**Tabela źródło:**
+**Tabela źródłowa:**
 
 ```SQL
 create table dbo.SourceTbl
@@ -574,7 +574,7 @@ create table dbo.TargetTbl
     age int
 )
 ```
-Należy zauważyć, że tabela docelowa ma kolumnę tożsamości.
+Zwróć uwagę, że tabela docelowa ma kolumnę tożsamości.
 
 **Definicja JSON zestawu danych źródłowych**
 
@@ -596,7 +596,7 @@ Należy zauważyć, że tabela docelowa ma kolumnę tożsamości.
     }
 }
 ```
-**Definicja JSON docelowego zestawu danych**
+**Definicja JSON zestawu danych docelowych**
 
 ```JSON
 {
@@ -621,61 +621,61 @@ Należy zauważyć, że tabela docelowa ma kolumnę tożsamości.
 }
 ```
 
-Należy zauważyć, że jako źródło i tabela docelowa mają inny schemat (obiekt docelowy ma dodatkową kolumnę z tożsamością). W tym scenariuszu należy określić **właściwość struktury** w definicji docelowego zestawu danych, która nie zawiera kolumny tożsamości.
+Zwróć uwagę, że jako tabela źródłowa i docelowa mają różne schematy (element docelowy ma dodatkową kolumnę z tożsamością). W tym scenariuszu należy określić właściwość **Structure** w definicji docelowego zestawu danych, która nie zawiera kolumny tożsamości.
 
-## <a name="invoke-stored-procedure-from-sql-sink"></a>Wywoływanie procedury składowanej z ujścia SQL
-Na przykład wywoływania procedury składowanej z ujścia SQL w działaniu kopiowania potoku, zobacz [Wywoływanie procedury składowanej dla ujścia SQL w artykule działania kopiowania.](data-factory-invoke-stored-procedure-from-copy-activity.md)
+## <a name="invoke-stored-procedure-from-sql-sink"></a>Wywołaj procedurę składowaną z ujścia SQL
+Aby zapoznać się z przykładem wywoływania procedury składowanej ze ujścia bazy danych SQL w działaniu kopiowania potoku, zobacz [wywoływanie procedury składowanej dla UJŚCIA SQL w artykule działanie kopiowania](data-factory-invoke-stored-procedure-from-copy-activity.md) .
 
-## <a name="type-mapping-for-azure-sql-database"></a>Mapowanie typów dla bazy danych SQL usługi Azure
-Jak wspomniano w [działaniach przenoszenia danych](data-factory-data-movement-activities.md) artykuł Kopiowanie działania wykonuje automatyczne konwersje typów z typów źródłowych do typów ujścia z następującym podejściem 2-etapowym:
+## <a name="type-mapping-for-azure-sql-database"></a>Mapowanie typu dla Azure SQL Database
+Jak wspomniano w artykule [działania związane z przenoszeniem danych](data-factory-data-movement-activities.md) , działanie kopiowania wykonuje konwersje typów automatycznych z typów źródłowych do typów ujścia z następującymi krokami:
 
-1. Konwertowanie z natywnych typów źródeł na typ .NET
-2. Konwertowanie z typu .NET na natywny typ ujścia
+1. Konwertuj z natywnych typów źródła na typ .NET
+2. Konwertuj z typu .NET na natywny typ ujścia
 
-Podczas przenoszenia danych do i z usługi Azure SQL Database następujące mapowania są używane z typu SQL do typu .NET i odwrotnie. Mapowanie jest takie samo jak mapowanie typów danych programu SQL Server dla ADO.NET.
+Podczas przemieszczania danych do i z Azure SQL Database następujące mapowania są używane z typu SQL do typu .NET i na odwrót. Mapowanie jest takie samo jak mapowanie typu danych SQL Server ADO.NET.
 
-| Typ aparatu bazy danych programu SQL Server | Typ programu .NET Framework |
+| Typ aparatu bazy danych SQL Server | Typ programu .NET Framework |
 | --- | --- |
 | bigint |Int64 |
-| binarny |Bajt[] |
-| bit |Wartość logiczna |
-| char |Ciąg, Char[] |
+| binarny |Byte [] |
+| bit |Boolean |
+| char |String, Char [] |
 | date |DateTime |
 | Datetime (data/godzina) |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |Datetimeoffset |
+| DateTimeOffset |DateTimeOffset |
 | Wartość dziesiętna |Wartość dziesiętna |
-| Atrybut FILESTREAM (varbinary(max)) |Bajt[] |
+| FILESTREAM — atrybut (varbinary (max)) |Byte [] |
 | Liczba zmiennoprzecinkowa |Double |
-| image |Bajt[] |
+| image |Byte [] |
 | int |Int32 |
 | pieniędzy |Wartość dziesiętna |
-| nchar |Ciąg, Char[] |
-| Ntext |Ciąg, Char[] |
+| nchar |String, Char [] |
+| ntext |String, Char [] |
 | numeryczne |Wartość dziesiętna |
-| nvarchar |Ciąg, Char[] |
-| rzeczywiste |Single |
-| Rowversion |Bajt[] |
+| nvarchar |String, Char [] |
+| liczba rzeczywista |Single |
+| rowversion |Byte [] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Wartość dziesiętna |
-| Sql_variant |Obiekt * |
-| tekst |Ciąg, Char[] |
+| sql_variant |Stream |
+| tekst |String, Char [] |
 | time |przedział_czasu |
-| sygnatura czasowa |Bajt[] |
+| sygnatura czasowa |Byte [] |
 | tinyint |Byte |
 | uniqueidentifier |Guid (identyfikator GUID) |
-| varbinary |Bajt[] |
-| varchar |Ciąg, Char[] |
+| varbinary |Byte [] |
+| varchar |String, Char [] |
 | xml |Xml |
 
 ## <a name="map-source-to-sink-columns"></a>Mapowanie źródła do kolumn ujścia
-Aby dowiedzieć się więcej o mapowaniu kolumn w źródłowym zestawie danych na kolumny w zestawie danych ujścia, zobacz [Mapowanie kolumn zestawu danych w usłudze Azure Data Factory](data-factory-map-columns.md).
+Aby dowiedzieć się więcej na temat mapowania kolumn w źródłowym zestawie danych na kolumny w datadataset, zobacz [Mapowanie kolumn zestawu danych w Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="repeatable-copy"></a>Powtarzalna kopia
-Podczas kopiowania danych do bazy danych programu SQL Server działanie kopiowania domyślnie dołącza dane do tabeli ujścia. Zamiast tego należy wykonać program UPSERT, zobacz powtarzalny zapis w artykule [SqlSink.](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink)
+## <a name="repeatable-copy"></a>Powtórzona kopia
+Podczas kopiowania danych do bazy danych SQL Server działanie Copy domyślnie dołącza dane do tabeli sink. Aby wykonać UPSERT zamiast tego, zobacz [powtarzalny zapis w artykule sqlsink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) .
 
-Podczas kopiowania danych z relacyjnych magazynów danych należy pamiętać o powtarzalności, aby uniknąć niezamierzonych wyników. W usłudze Azure Data Factory można ponownie uruchomić plasterek ręcznie. Można również skonfigurować zasady ponawiania dla zestawu danych, tak aby plasterek został ponownie uruchomny w przypadku wystąpienia błędu. Gdy plasterek jest uruchamiany ponownie w obu przypadkach, należy upewnić się, że te same dane są odczytywane bez względu na to, ile razy jest uruchamiany plasterek. Zobacz [Powtarzalny odczyt ze źródeł relacyjnych](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Podczas kopiowania danych z magazynów danych relacyjnych należy mieć na uwadze powtarzalność, aby uniknąć niezamierzonych wyników. W Azure Data Factory można ręcznie uruchomić ponownie wycinka. Możesz również skonfigurować zasady ponawiania dla zestawu danych, aby wycinek był uruchamiany ponownie w przypadku wystąpienia błędu. Gdy wycinek jest uruchamiany ponownie w dowolny sposób, należy się upewnić, że te same dane są odczytywane niezależnie od tego, ile razy jest uruchomiony plasterek. Zobacz [powtarzanie odczytu ze źródeł relacyjnych](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-## <a name="performance-and-tuning"></a>Wydajność i strojenie
-Zobacz [Kopiowanie wydajności działania & dostrajania przewodnika,](data-factory-copy-activity-performance.md) aby dowiedzieć się więcej o kluczowych czynnikach, które wpływają na wydajność przenoszenia danych (Copy Activity) w usłudze Azure Data Factory i na różne sposoby optymalizacji.
+## <a name="performance-and-tuning"></a>Wydajność i dostrajanie
+Zobacz [Przewodnik dostrajania wydajności & działania kopiowania](data-factory-copy-activity-performance.md) , aby poznać kluczowe czynniki wpływające na wydajność przenoszenia danych (działanie kopiowania) w Azure Data Factory i różne sposoby jego optymalizacji.

@@ -1,5 +1,5 @@
 ---
-title: Serwer usługi Azure MFA i usługa Active Directory — usługa Azure Active Directory
+title: Serwer usługi Azure MFA i Active Directory — Azure Active Directory
 description: Opis sposobu integracji serwera Azure Multi-Factor Authentication z usługą Active Directory, w wyniku której możliwa jest synchronizacja katalogów.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fceaa203944074b0c3fcf5cb6254f1e87ac16cba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79480984"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integracja katalogu między serwerem Azure MFA i usługą Active Directory
@@ -24,16 +24,16 @@ ms.locfileid: "79480984"
 Sekcja Integracja katalogu serwera usługi Azure MFA umożliwia przeprowadzenie integracji z usługą Active Directory lub innym katalogiem LDAP. Pozwala ona skonfigurować atrybuty w celu ich dostosowania do schematu katalogu oraz ustawić automatyczną synchronizację użytkowników.
 
 > [!IMPORTANT]
-> Od 1 lipca 2019 r. firma Microsoft nie będzie już oferować serwera usługi MFA dla nowych wdrożeń. Nowi klienci, którzy chcieliby wymagać uwierzytelniania wieloskładnikowego od swoich użytkowników, powinni korzystać z uwierzytelniania wieloskładnikowego platformy Azure w chmurze. Obecni klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i wygenerować poświadczenia aktywacji w zwykły sposób.
+> Od 1 lipca 2019 firma Microsoft nie będzie już oferować serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego od użytkowników, powinni korzystać z usługi Azure Multi-Factor Authentication opartej na chmurze. Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i generować poświadczenia aktywacji w zwykły sposób.
 
 ## <a name="settings"></a>Ustawienia
 
 Domyślnie serwer usługi Azure Multi-Factor Authentication (MFA) jest skonfigurowany pod kątem importowania lub synchronizowania użytkowników z usługi Active Directory.  Karta Integracja katalogu pozwala zastąpić domyślne zachowanie i utworzyć powiązanie z innym katalogiem LDAP, katalogiem ADAM lub określonym kontrolerem domeny usługi Active Directory.  Umożliwia także korzystanie z uwierzytelniania LDAP w odniesieniu do serwera proxy protokołu LDAP lub do powiązania protokołu LDAP jako obiektu docelowego usługi RADIUS, uwierzytelniania wstępnego w ramach uwierzytelniania IIS lub uwierzytelniania podstawowego dla portalu użytkownika.  W poniższej tabeli opisano poszczególne ustawienia.
 
-![Edytowanie konfiguracji protokołu LDAP na serwerze usługi MFA](./media/howto-mfaserver-dir-ad/dirint.png)
+![Edytowanie konfiguracji LDAP na serwerze usługi MFA](./media/howto-mfaserver-dir-ad/dirint.png)
 
 > [!NOTE]
-> Integracja katalogów nie jest gwarantowana do pracy z katalogami innymi niż Usługi domenowe Active Directory.
+> Integracja katalogów nie gwarantuje pracy z katalogami innymi niż Active Directory Domain Services.
 
 | Funkcja | Opis |
 | --- | --- |
@@ -47,7 +47,7 @@ W poniższej tabeli opisano ustawienia konfiguracji LDAP.
 
 | Funkcja | Opis |
 | --- | --- |
-| Serwer |Wprowadź nazwę hosta lub adres IP serwera z uruchomionym katalogiem LDAP.  Serwer zapasowy można także określić osobno, oddzielając go średnikiem. <br>Uwaga: Gdy typem powiązania jest SSL (TLS), wymagana jest w pełni kwalifikowana nazwa hosta. |
+| Serwer |Wprowadź nazwę hosta lub adres IP serwera z uruchomionym katalogiem LDAP.  Serwer zapasowy można także określić osobno, oddzielając go średnikiem. <br>Uwaga: Jeśli typ powiązania to SSL (TLS), wymagana jest w pełni kwalifikowana nazwa hosta. |
 | Podstawowa nazwa wyróżniająca |Wprowadź nazwę wyróżniającą obiektu podstawowego katalogu, z którego będą uruchamiane wszystkie zapytania katalogu.  Na przykład: dc=abc,dc=com. |
 | Typ powiązania — zapytania |Wybierz odpowiedni typ powiązania do użycia podczas tworzenia powiązań w celu przeprowadzania wyszukiwań w katalogu LDAP.  Ten typ jest wykorzystywany do importowania, synchronizacji oraz rozpoznania nazw użytkowników. <br><br>  Anonimowe — jest tworzone anonimowe powiązanie.  Powiązana nazwa wyróżniająca oraz powiązane hasło nie są używane.  Użycie tej metody jest możliwe tylko wtedy, gdy katalog LDAP umożliwia tworzenie anonimowych powiązań i jeśli uprawnienia zezwalają na przesyłanie zapytań dotyczących odpowiednich rekordów i atrybutów.  <br><br> Proste — powiązana nazwa wyróżniająca oraz powiązane hasło są przekazywane jako zwykły tekst w celu utworzenia powiązania z katalogiem LDAP.  Ta opcja jest przeznaczona do celów testowych. Umożliwia sprawdzenie, czy można połączyć się z serwerem i czy konto powiązania może uzyskać odpowiedni dostęp. Po zainstalowaniu odpowiedniego certyfikatu, należy używać typu SSL.  <br><br> SSL — powiązana nazwa wyróżniająca oraz powiązane hasło są szyfrowane z użyciem protokołu SSL w celu utworzenia powiązania z katalogiem LDAP.  Zainstaluj lokalny certyfikat, któremu ufa katalog LDAP.  <br><br> Windows — powiązana nazwa użytkownika oraz powiązane hasło są używane do bezpiecznego połączenia z kontrolerem domeny usługi Active Directory lub katalogiem ADAM.  Jeśli pole Powiązana nazwa użytkownika pozostanie puste, do powiązania zostanie użyte konto, do którego zalogował się użytkownik. |
 | Typ powiązania — uwierzytelnienia |Wybierz typ powiązania odpowiedni do użycia podczas przeprowadzania uwierzytelniania powiązania LDAP.  Zobacz opisy typów powiązań w obszarze Typ powiązania — zapytania.  Dzięki temu możliwe jest na przykład użycie anonimowego powiązania w odniesieniu do zapytań i korzystanie z powiązania SSL w celu zabezpieczenia uwierzytelnień powiązania LDAP. |
@@ -70,17 +70,17 @@ Usługa Azure Multi-Factor Authentication zapewnia dostęp do następujących tr
 
 ## <a name="attributes"></a>Atrybuty
 
-Atrybuty można w razie potrzeby dostosować pod kątem określonego katalogu.  Pozwala to na dodawanie atrybutów niestandardowych oraz dostosowanie synchronizacji wyłącznie pod kątem określonych atrybutów. Użyj nazwy atrybutu zdefiniowanego w schemacie katalogu dla wartości każdego pola atrybutu. Poniższa tabela zawiera dodatkowe informacje na temat każdej funkcji.
+Atrybuty można w razie potrzeby dostosować pod kątem określonego katalogu.  Pozwala to na dodawanie atrybutów niestandardowych oraz dostosowanie synchronizacji wyłącznie pod kątem określonych atrybutów. Użyj nazwy atrybutu zgodnie z definicją w schemacie katalogu dla wartości każdego pola atrybutu. Poniższa tabela zawiera dodatkowe informacje na temat każdej funkcji.
 
 Atrybuty mogą być wprowadzane ręcznie i nie muszą odpowiadać atrybutom na liście.
 
-![Dostosowywanie atrybutów integracji katalogów na serwerze usługi MFA](./media/howto-mfaserver-dir-ad/dirint3.png)
+![Dostosowywanie atrybutów integracji katalogów na serwerze MFA](./media/howto-mfaserver-dir-ad/dirint3.png)
 
 | Funkcja | Opis |
 | --- | --- |
 | Unikatowy identyfikator |Wprowadź nazwę atrybutu, która pełni rolę unikatowego identyfikatora rekordów kontenera, grupy zabezpieczeń i użytkowników.  W katalogu Active Directory jest to zazwyczaj wartość elementu objectGUID. Inne implementacje katalogu LDAP mogą używać wartości entryUUID lub podobnej.  Wartość domyślna to objectGUID. |
 | Typ unikatowego identyfikatora |Wybierz typ atrybutu unikatowego identyfikatora.  W katalogu Active Directory atrybut objectGUID ma typ GUID. Inne implementacje katalogu LDAP mogą używać typu tablicy bajtowej znaków ASCII lub ciągu.  Wartość domyślna to GUID. <br><br>Poprawne ustawienie tego typu jest istotne, ponieważ elementy synchronizacji są przywoływane przy użyciu ich unikatowych identyfikatorów. Typ unikatowego identyfikatora jest używany do bezpośredniego odnajdywania obiektu w katalogu.  Ustawienie typu ciągu w przypadku, gdy wartość jest przechowywana w katalogu jako tablica bajtowa znaków ASCII, uniemożliwia prawidłową synchronizację. |
-| Nazwa wyróżniająca |Wprowadź nazwę atrybutu, który zawiera nazwę wyróżniającą każdego z rekordów.  W katalogu Active Directory jest to zazwyczaj atrybut distinguishedName. Inne implementacje katalogu LDAP mogą używać atrybutu entryDN lub podobnego.  Wartość domyślna to distinguishedName. <br><br>Jeśli atrybut zawierający tylko nazwę wyróżniającą nie istnieje, można użyć atrybutu ścieżka reklam.  Część „LDAP://\<serwer\>/” ścieżki jest automatycznie usuwana, co pozwala uzyskać samą nazwę wyróżniającą obiektu. |
+| Nazwa wyróżniająca |Wprowadź nazwę atrybutu, który zawiera nazwę wyróżniającą każdego z rekordów.  W katalogu Active Directory jest to zazwyczaj atrybut distinguishedName. Inne implementacje katalogu LDAP mogą używać atrybutu entryDN lub podobnego.  Wartość domyślna to distinguishedName. <br><br>Jeśli nie istnieje atrybut zawierający tylko nazwę wyróżniającą, można użyć atrybutu ścieżki AD.  Część „LDAP://\<serwer\>/” ścieżki jest automatycznie usuwana, co pozwala uzyskać samą nazwę wyróżniającą obiektu. |
 | Nazwa kontenera |Wprowadź nazwę atrybutu, który zawiera nazwę w rekordzie kontenera.  Wartość tego atrybutu jest wyświetlana w hierarchii kontenera podczas importowania pozycji z katalogu Active Directory lub dodawania elementów do synchronizacji.  Wartość domyślna to name. <br><br>Jeśli różne kontenery używają różnych atrybutów dla swoich nazw, rozdziel poszczególne atrybuty nazw kontenera średnikami.  Pierwszy atrybut nazwy kontenera znaleziony w obiekcie kontenera pełni rolę jego nazwy wyświetlanej. |
 | Nazwa grupy zabezpieczeń |Wprowadź nazwę atrybutu, który zawiera nazwę w rekordzie grupy zabezpieczeń.  Wartość tego atrybutu jest wyświetlana na liście grupy zabezpieczeń podczas importowania pozycji z katalogu Active Directory lub dodawania elementów do synchronizacji.  Wartość domyślna to name. |
 | Nazwa użytkownika |Wprowadź nazwę atrybutu, który zawiera nazwę użytkownika w rekordzie użytkownika.  Wartość tego atrybutu jest używana jako nazwa użytkownika serwera usługi Multi-Factor Authentication.  Drugi atrybut może zostać określony jako atrybut zapasowy względem pierwszego.  Drugi atrybut jest używany tylko wtedy, gdy pierwszy atrybut nie zawiera wartości użytkownika.  Wartości domyślne to userPrincipalName i sAMAccountName. |
@@ -103,7 +103,7 @@ Atrybuty mogą być wprowadzane ręcznie i nie muszą odpowiadać atrybutom na l
 | Wewnętrzny |Wprowadź nazwę atrybutu, który zawiera numer wewnętrzny w rekordzie użytkownika.  Wartość pola numeru wewnętrznego jest używana wyłącznie dla podstawowego numeru telefonu.  Pole jest domyślnie puste. <br><br>Jeśli nie określono atrybutu Wewnętrzny, numer wewnętrzny można uwzględnić w atrybucie numeru telefonu. W takim przypadku poprzedź rozszerzenie znakiem „x”, aby zostało poprawnie przeanalizowane.  Na przykład wartość 555-123-4567 x890 zostanie zinterpretowana jako numer telefonu 555-123-4567 i numer wewnętrzny 890. |
 | Przycisk Przywróć domyślne |Kliknij przycisk **Przywróć domyślne**, aby przywrócić wartości domyślne wszystkich atrybutów.  Ustawienia domyślne powinny działać prawidłowo z normalnym schematem usługi Active Directory lub ADAM. |
 
-Aby edytować atrybuty, kliknij pozycję **Edytuj** na karcie Atrybuty.  Spowoduje to wyświetlenie okna, w którym można edytować atrybuty. Wybierz przycisk **...** obok dowolnego atrybutu, aby otworzyć okno, w którym można określić atrybuty do wyświetlenia.
+Aby edytować atrybuty, kliknij przycisk **Edytuj** na karcie Atrybuty.  Spowoduje to wyświetlenie okna, w którym można edytować atrybuty. Wybierz przycisk **...** obok dowolnego atrybutu, aby otworzyć okno, w którym można określić atrybuty do wyświetlenia.
 
 ![Edytowanie mapowania atrybutów katalogu na serwerze usługi MFA](./media/howto-mfaserver-dir-ad/dirint4.png)
 
@@ -117,7 +117,7 @@ Usługa Multi-Factor Auth ADSync wykorzystuje rozszerzenie serwera DirSync LDAP 
 
 Jeśli katalog LDAP obsługuje narzędzie DirSync i jest skonfigurowany do jego używania, sondowanie w poszukiwaniu zmian w zakresie użytkowników i grup zabezpieczeń będzie działać tak samo, jak w przypadku katalogu Active Directory.  Jeśli katalog LDAP nie obsługuje kontrolki DirSync, podczas każdego cyklu ma miejsce pełna synchronizacja.
 
-![Synchronizacja obiektów katalogu z serwerem usługi MFA](./media/howto-mfaserver-dir-ad/dirint5.png)
+![Synchronizacja obiektów katalogu z serwerem MFA](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 Poniższa tabela zawiera dodatkowe informacje na temat każdego ustawienia na karcie Synchronizacja.
 
@@ -143,8 +143,8 @@ Przyciski Przenieś w górę i Przenieś w dół umożliwiają administratorowi 
 > [!TIP]
 > Po usunięciu elementów synchronizacji należy przeprowadzić pełną synchronizację.  Po określeniu kolejności elementów synchronizacji należy przeprowadzić pełną synchronizację.  Kliknij przycisk **Synchronizuj teraz**, aby przeprowadzić pełną synchronizację.
 
-## <a name="multi-factor-authentication-servers"></a>Serwery uwierzytelniania wieloskładnikowego
+## <a name="multi-factor-authentication-servers"></a>Serwery Multi-Factor Authentication
 
-Dodatkowe serwery uwierzytelniania wieloskładnikowego mogą być skonfigurowane tak, aby służyły jako zapasowy serwer proxy RADIUS, serwer proxy LDAP lub uwierzytelnianie usług IIS. Konfiguracja synchronizacji jest współdzielona przez wszystkich agentów. Jednak tylko jeden z tych agentów może mieć uruchomić usługę serwera uwierzytelniania wieloskładnikowego. Ta karta umożliwia wybranie serwera uwierzytelniania wieloskładnikowego, który powinien być włączony do synchronizacji.
+Dodatkowe serwery Multi-Factor Authentication można skonfigurować w taki sposób, aby służyć jako zapasowy serwer proxy usługi RADIUS, serwer proxy LDAP lub uwierzytelnianie usług IIS. Konfiguracja synchronizacji jest współdzielona przez wszystkich agentów. Jednak tylko jeden z tych agentów może mieć uruchomioną usługę Multi-Factor Authentication Server. Na tej karcie można wybrać serwer Multi-Factor Authentication, który ma być włączony do synchronizacji.
 
-![Powiązane serwery uwierzytelniania wieloskładnikowego](./media/howto-mfaserver-dir-ad/dirint6.png)
+![Powiązane serwery Multi-Factor Authentication](./media/howto-mfaserver-dir-ad/dirint6.png)

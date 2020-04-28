@@ -1,6 +1,6 @@
 ---
-title: Dodawanie lub usuwanie użytkowników — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Instrukcje dotyczące dodawania nowych użytkowników lub usuwania istniejących użytkowników przy użyciu usługi Azure Active Directory.
+title: Dodawanie lub usuwanie użytkowników — Azure Active Directory | Microsoft Docs
+description: Instrukcje dotyczące dodawania nowych użytkowników lub usuwania istniejących użytkowników przy użyciu Azure Active Directory.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -14,95 +14,95 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d72616422934501e042375edfb10a25aa27c527
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79262115"
 ---
-# <a name="add-or-delete-users-using-azure-active-directory"></a>Dodawanie lub usuwanie użytkowników przy użyciu usługi Azure Active Directory
+# <a name="add-or-delete-users-using-azure-active-directory"></a>Dodawanie lub usuwanie użytkowników przy użyciu Azure Active Directory
 
-Dodaj nowych użytkowników lub usuń istniejących użytkowników z organizacji usługi Azure Active Directory (Azure AD). Aby dodawać lub usuwać użytkowników, musisz być administratorem użytkownika lub administratorem globalnym.
+Dodaj nowych użytkowników lub Usuń istniejących użytkowników z organizacji usługi Azure Active Directory (Azure AD). Aby dodać lub usunąć użytkowników, musisz być administratorem użytkownika lub administratorem globalnym.
 
 ## <a name="add-a-new-user"></a>Dodawanie nowego użytkownika
 
-Możesz utworzyć nowego użytkownika za pomocą portalu usługi Azure Active Directory.
+Nowy użytkownik można utworzyć przy użyciu portalu Azure Active Directory.
 
-Aby dodać nowego użytkownika, wykonaj następujące czynności:
+Aby dodać nowego użytkownika, wykonaj następujące kroki:
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com/) jako administrator użytkownika w organizacji.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako administrator użytkownika w organizacji.
 
-1. Wyszukaj i wybierz *usługę Azure Active Directory* z dowolnej strony.
+1. Wyszukaj i wybierz *Azure Active Directory* z dowolnej strony.
 
-1. Wybierz **pozycję Użytkownicy**, a następnie wybierz pozycję **Nowy użytkownik**.
+1. Wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **nowy użytkownik**.
 
-    ![Dodawanie użytkownika za pośrednictwem użytkowników — wszyscy użytkownicy w usłudze Azure AD](media/add-users-azure-active-directory/add-user-in-users-all-users.png)
+    ![Dodawanie użytkownika przez użytkowników — wszyscy użytkownicy w usłudze Azure AD](media/add-users-azure-active-directory/add-user-in-users-all-users.png)
 
-1. Na stronie **Użytkownik** wprowadź informacje dla tego użytkownika:
+1. Na stronie **użytkownik** wprowadź informacje dla tego użytkownika:
 
-   - **Nazwa**. Wymagany. Imię i nazwisko nowego użytkownika. Na przykład *Mary Parker*.
+   - **Nazwa**. Wymagany. Imię i nazwisko nowego użytkownika. Na przykład, *Maria Parker*.
 
    - **Nazwa użytkownika**. Wymagany. Nazwa użytkownika nowego użytkownika. Na przykład `mary@contoso.com`.
 
-     Część domeny nazwy użytkownika musi używać początkowej domyślnej nazwy domeny, *contoso.com* * \<nazwy domeny>.onmicrosoft.com*lub niestandardowej nazwy domeny, takiej jak contoso.com . Aby uzyskać więcej informacji na temat tworzenia niestandardowej nazwy domeny, zobacz [Dodawanie niestandardowej nazwy domeny przy użyciu portalu Azure Active Directory](add-custom-domain.md).
+     Część domeny nazwa użytkownika musi używać początkowej domyślnej nazwy domeny, * \<NazwaDomeny>. onmicrosoft.com*lub niestandardowej nazwy domeny, takiej jak *contoso.com*. Aby uzyskać więcej informacji na temat tworzenia niestandardowej nazwy domeny, zobacz [Dodawanie niestandardowej nazwy domeny za pomocą portalu Azure Active Directory](add-custom-domain.md).
 
-   - **Grupy**. Opcjonalnie można dodać użytkownika do jednej lub więcej istniejących grup. Można również dodać użytkownika do grup w późniejszym czasie. Aby uzyskać więcej informacji na temat dodawania użytkowników do grup, zobacz [Tworzenie grupy podstawowej i dodawanie członków przy użyciu usługi Azure Active Directory](active-directory-groups-create-azure-portal.md).
+   - **Grupy**. Opcjonalnie możesz dodać użytkownika do jednej lub kilku istniejących grup. Możesz również dodać użytkownika do grup w późniejszym czasie. Aby uzyskać więcej informacji na temat dodawania użytkowników do grup, zobacz [Tworzenie grupy podstawowej i Dodawanie członków przy użyciu Azure Active Directory](active-directory-groups-create-azure-portal.md).
 
-   - **Rola katalogu:** Jeśli potrzebujesz uprawnień administracyjnych usługi Azure AD dla użytkownika, możesz dodać je do roli usługi Azure AD. Użytkownik można przypisać do administratora globalnego lub co najmniej jednej z ról administratora ograniczonego w usłudze Azure AD. Aby uzyskać więcej informacji na temat przypisywania ról, zobacz [Jak przypisać role do użytkowników](active-directory-users-assign-role-azure-portal.md).
+   - **Rola katalogu**: Jeśli wymagane są uprawnienia administracyjne usługi Azure AD dla użytkownika, można je dodać do roli usługi Azure AD. Użytkownika można przypisać do administratora globalnego lub co najmniej jednej z ograniczonych ról administratora w usłudze Azure AD. Aby uzyskać więcej informacji na temat przypisywania ról, zobacz [Jak przypisać role do użytkowników](active-directory-users-assign-role-azure-portal.md).
 
-   - **Informacje o**zadaniu : Możesz dodać więcej informacji o użytkowniku tutaj lub zrobić to później. Aby uzyskać więcej informacji na temat dodawania informacji o użytkowniku, zobacz [Jak dodać lub zmienić informacje o profilu użytkownika](active-directory-users-profile-azure-portal.md).
+   - **Informacje o zadaniu**: więcej informacji o użytkowniku można dodać tutaj lub później. Aby uzyskać więcej informacji na temat dodawania informacji o użytkowniku, zobacz [jak dodać lub zmienić informacje o profilu użytkownika](active-directory-users-profile-azure-portal.md).
 
-1. Skopiuj automatycznie wygenerowane hasło podane w polu **Hasło.** Musisz podać to hasło do użytkownika, aby zalogować się po raz pierwszy.
+1. Skopiuj automatycznie generowane hasło podane w polu **hasło** . Musisz podać to hasło użytkownikowi, aby zalogować się po raz pierwszy.
 
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
-Użytkownik jest tworzony i dodawany do organizacji usługi Azure AD.
+Użytkownik zostanie utworzony i dodany do organizacji usługi Azure AD.
 
 ## <a name="add-a-new-guest-user"></a>Dodawanie nowego użytkownika-gościa
 
-Możesz również zaprosić nowego użytkownika-gościa do współpracy z organizacją, wybierając **pozycję Zaproś użytkownika** ze strony **Nowy użytkownik.** Jeśli ustawienia współpracy zewnętrznej w organizacji są skonfigurowane w taki sposób, że możesz zapraszać gości, użytkownik otrzyma wiadomość e-mail z zaproszeniem, które musi zaakceptować, aby rozpocząć współpracę. Aby uzyskać więcej informacji na temat zapraszania użytkowników do współpracy B2B, zobacz [Zapraszanie użytkowników B2B do usługi Azure Active Directory](../b2b/add-users-administrator.md)
+Możesz również zaprosić nowego użytkownika-gościa do współpracy z organizacją, wybierając pozycję **Zaproś użytkownika** na stronie **nowego użytkownika** . Jeśli ustawienia współpracy zewnętrznej w organizacji są skonfigurowane tak, aby można było zapraszać Gości, użytkownik otrzyma wiadomość e-mail z zaproszeniem, które musi zaakceptować, aby rozpocząć współpracę. Aby uzyskać więcej informacji na temat zapraszania użytkowników współpracy B2B, zobacz [Zapraszanie użytkowników B2B do Azure Active Directory](../b2b/add-users-administrator.md)
 
-## <a name="add-a-consumer-user"></a>Dodawanie użytkownika konsumenckiego
+## <a name="add-a-consumer-user"></a>Dodawanie użytkownika odbiorcy
 
-Mogą istnieć scenariusze, w których chcesz ręcznie utworzyć konta konsumentów w katalogu B2C usługi Azure Active Directory (Azure AD B2C). Aby uzyskać więcej informacji na temat tworzenia kont konsumenckich, zobacz [Tworzenie i usuwanie użytkowników konsumenckich w usłudze Azure AD B2C](../../active-directory-b2c/manage-users-portal.md).
+Mogą istnieć scenariusze, w których chcesz ręcznie utworzyć konta konsumentów w katalogu Azure Active Directory B2C (Azure AD B2C). Aby uzyskać więcej informacji na temat tworzenia kont klientów, zobacz [Tworzenie i usuwanie użytkowników konsumentów w Azure AD B2C](../../active-directory-b2c/manage-users-portal.md).
 
 ## <a name="add-a-new-user-within-a-hybrid-environment"></a>Dodawanie nowego użytkownika w środowisku hybrydowym
 
-Jeśli masz środowisko z usługą Azure Active Directory (chmura) i windows server Active Directory (lokalnie), możesz dodać nowych użytkowników, synchronizując istniejące dane konta użytkownika. Aby uzyskać więcej informacji na temat środowisk hybrydowych i użytkowników, zobacz [Integrowanie katalogów lokalnych z usługą Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+Jeśli masz środowisko z zarówno Azure Active Directory (Cloud), jak i Active Directory systemu Windows Server (lokalnie), możesz dodać nowych użytkowników, synchronizując istniejące dane konta użytkownika. Aby uzyskać więcej informacji na temat środowisk hybrydowych i użytkowników, zobacz [integrowanie katalogów lokalnych z Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="delete-a-user"></a>Usuwanie użytkownika
 
-Istniejącego użytkownika można usunąć za pomocą portalu usługi Azure Active Directory.
+Istniejącego użytkownika można usunąć przy użyciu portalu Azure Active Directory.
 
-Aby usunąć użytkownika, wykonaj następujące czynności:
+Aby usunąć użytkownika, wykonaj następujące kroki:
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com/) przy użyciu konta administratora użytkownika dla organizacji.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta administratora użytkownika w organizacji.
 
-1. Wyszukaj i wybierz *usługę Azure Active Directory* z dowolnej strony.
+1. Wyszukaj i wybierz *Azure Active Directory* z dowolnej strony.
 
-1. Wyszukaj i wybierz użytkownika, którego chcesz usunąć z dzierżawy usługi Azure AD. Na przykład _Mary Parker_.
+1. Wyszukaj i wybierz użytkownika, który chcesz usunąć z dzierżawy usługi Azure AD. Na przykład, _Maria Parker_.
 
 1. Wybierz pozycję **Usuń użytkownika**.
 
-    ![Użytkownicy — strona Wszyscy użytkownicy z wyróżnioną pozycją Usuń użytkownika](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
+    ![Użytkownicy — wszyscy użytkownicy z wyróżnioną pozycją Usuń użytkownika](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
-Użytkownik zostanie usunięty i nie pojawi się już na stronie **Użytkownicy — Wszyscy użytkownicy.** Użytkownik może być widoczny na stronie **Usunięci użytkownicy** przez następne 30 dni i może zostać przywrócony w tym czasie. Aby uzyskać więcej informacji na temat przywracania użytkownika, zobacz [Przywracanie lub usuwanie ostatnio usuniętego użytkownika przy użyciu usługi Azure Active Directory](active-directory-users-restore.md).
+Użytkownik zostanie usunięty i nie będzie już wyświetlany na stronie **Użytkownicy — wszyscy użytkownicy** . Użytkownik może być widoczny na stronie **usunięci użytkownicy** przez następne 30 dni i może zostać przywrócony w tym czasie. Aby uzyskać więcej informacji o przywracaniu użytkownika, zobacz [przywracanie lub usuwanie ostatnio usuniętego użytkownika przy użyciu Azure Active Directory](active-directory-users-restore.md).
 
-Po usunięciu użytkownika wszelkie licencje używane przez użytkownika są udostępniane innym użytkownikom.
+Po usunięciu użytkownika wszystkie licencje używane przez użytkownika są udostępniane innym użytkownikom.
 
 >[!Note]
->Za pomocą usługi Windows Server Active Directory należy zaktualizować tożsamość, informacje kontaktowe lub informacje o zadaniach dla użytkowników, których źródłem uprawnień jest usługa Active Directory systemu Windows Server. Po zakończeniu aktualizacji należy poczekać na zakończenie następnego cyklu synchronizacji, zanim zobaczysz zmiany.
+>Aby zaktualizować tożsamość, informacje kontaktowe lub informacje o zadaniu dla użytkowników, których źródłem urzędu jest Active Directory Windows Server, należy użyć Active Directory systemu Windows Server. Po zakończeniu aktualizacji należy poczekać na zakończenie następnego cyklu synchronizacji, zanim zobaczysz zmiany.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po dodaniu użytkowników można wykonać następujące podstawowe procesy:
+Po dodaniu użytkowników można wykonywać następujące podstawowe procesy:
 
-- [Dodawanie lub zmienianie informacji o profilu](active-directory-users-profile-azure-portal.md)
+- [Dodawanie lub zmiana informacji o profilu](active-directory-users-profile-azure-portal.md)
 
 - [Przypisywanie ról do użytkowników](active-directory-users-assign-role-azure-portal.md)
 
 - [Tworzenie grupy podstawowej i dodawanie członków](active-directory-groups-create-azure-portal.md)
 
-- [Praca z grupami dynamicznymi i użytkownikami](../users-groups-roles/groups-create-rule.md)
+- [Współpraca z grupami dynamicznymi i użytkownikami](../users-groups-roles/groups-create-rule.md)
 
-Można też wykonywać inne zadania zarządzania użytkownikami, takie jak [dodawanie użytkowników-gości z innego katalogu](../b2b/what-is-b2b.md) lub [przywracanie usuniętego użytkownika.](active-directory-users-restore.md) Aby uzyskać więcej informacji na temat innych dostępnych akcji, zobacz [Dokumentacja zarządzania użytkownikami usługi Azure Active Directory](../users-groups-roles/index.yml).
+Można też wykonywać inne zadania zarządzania użytkownikami, takie jak [Dodawanie użytkowników-Gości z innego katalogu](../b2b/what-is-b2b.md) lub [Przywracanie usuniętego użytkownika](active-directory-users-restore.md). Aby uzyskać więcej informacji na temat innych dostępnych akcji, zobacz [Azure Active Directory dokumentacja dotycząca zarządzania użytkownikami](../users-groups-roles/index.yml).

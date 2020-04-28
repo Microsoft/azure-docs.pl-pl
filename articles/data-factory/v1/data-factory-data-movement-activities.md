@@ -1,6 +1,6 @@
 ---
-title: Przenoszenie danych przy użyciu działania kopiowania
-description: 'Dowiedz się więcej o przenoszeniu danych w potokach usługi Data Factory: migracja danych między magazynami w chmurze oraz między magazynem lokalnym a magazynem w chmurze. Użyj działania kopiowania.'
+title: Przenoszenie danych za pomocą działania kopiowania
+description: 'Dowiedz się więcej na temat przenoszenia danych w potokach Data Factory: migracja danych między magazynami w chmurze a magazynem lokalnym i magazynem w chmurze. Użyj działania kopiowania.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,55 +13,55 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281888"
 ---
-# <a name="move-data-by-using-copy-activity"></a>Przenoszenie danych przy użyciu działania kopiowania
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+# <a name="move-data-by-using-copy-activity"></a>Przenoszenie danych za pomocą działania kopiowania
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](data-factory-data-movement-activities.md)
 > * [Wersja 2 (bieżąca wersja)](../copy-activity-overview.md)
 
 > [!NOTE]
-> Ten artykuł dotyczy wersji 1 usługi Data Factory. Jeśli używasz bieżącej wersji usługi Data Factory, zobacz [Kopiowanie aktywności w wersji 2](../copy-activity-overview.md).
+> Ten artykuł dotyczy wersji 1 usługi Data Factory. Jeśli używasz bieżącej wersji usługi Data Factory, zobacz [działanie Copy in v2](../copy-activity-overview.md).
 
 ## <a name="overview"></a>Omówienie
-W usłudze Azure Data Factory można użyć funkcji Kopiuj aktywność do kopiowania danych między magazynami danych w chmurze i w chmurze. Po skopiowaniu danych można je dalej przekształcać i analizować. Za pomocą funkcji Kopiuj działanie można również opublikować wyniki transformacji i analizy dla analizy biznesowej (BI) i zużycia aplikacji.
+W Azure Data Factory można użyć działania kopiowania do kopiowania danych między lokalnymi i magazynami danych w chmurze. Po skopiowaniu danych można je przeanalizować i analizować. Możesz również użyć działania kopiowania, aby opublikować wyniki transformacji i analizy dla analizy biznesowej i użycia aplikacji.
 
 ![Rola działania kopiowania](media/data-factory-data-movement-activities/copy-activity.png)
 
-Działanie kopiowania jest obsługiwane przez bezpieczną, niezawodną, skalowalną i [globalnie dostępną usługę.](#global) Ten artykuł zawiera szczegółowe informacje na temat przenoszenia danych w fabryce danych i działania kopiowania.
+Działanie kopiowania jest obsługiwane przez bezpieczną, niezawodną, skalowalną i [globalnie dostępną usługę](#global). Ten artykuł zawiera szczegółowe informacje na temat przenoszenia danych w ramach działania Data Factory i kopiowania.
 
-Najpierw zobaczmy, jak następuje migracja danych między dwoma magazynami danych w chmurze oraz między lokalnym magazynem danych a magazynem danych w chmurze.
+Najpierw zobaczmy, jak migracja danych odbywa się między dwoma magazynami danych w chmurze, a między lokalnym magazynem danych i magazynem danych w chmurze.
 
 > [!NOTE]
-> Aby dowiedzieć się więcej o działaniach w ogóle, zobacz [Opis potoków i działań](data-factory-create-pipelines.md).
+> Aby uzyskać ogólne informacje na temat działań, zobacz [Opis potoków i działań](data-factory-create-pipelines.md).
 >
 >
 
 ### <a name="copy-data-between-two-cloud-data-stores"></a>Kopiowanie danych między dwoma magazynami danych w chmurze
-Gdy magazyny danych źródłowych i ujścia znajdują się w chmurze, aktywność kopiowania przechodzi przez następujące etapy, aby skopiować dane ze źródła do ujścia. Usługa, która zasila działanie kopiowania:
+Gdy magazyny danych źródła i ujścia znajdują się w chmurze, działania kopiowania przechodzą przez następujące etapy w celu skopiowania danych ze źródła do ujścia. Usługa, która ma uprawnienia do kopiowania:
 
 1. Odczytuje dane z magazynu danych źródłowych.
-2. Wykonuje serializację/deserializację, kompresję/dekompresję, mapowanie kolumn i konwersję typów. Wykonuje te operacje na podstawie konfiguracji wejściowego zestawu danych, wyjściowego zestawu danych i działania kopiowania.
-3. Zapisuje dane do docelowego magazynu danych.
+2. Wykonuje serializacji/deserializacji, kompresję/dekompresowanie, Mapowanie kolumn i konwersję typu. Wykonuje te operacje na podstawie konfiguracji wejściowego zestawu danych, wyjściowego zestawu danych i działania kopiowania.
+3. Zapisuje dane w docelowym magazynie danych.
 
-Usługa automatycznie wybiera optymalny region do wykonania przenoszenia danych. Ten region jest zwykle najbliżej magazynu danych ujścia.
+Usługa automatycznie wybiera optymalny region do przeprowadzenia przenoszenia danych. Ten region jest zwykle najbliżej magazynu danych ujścia.
 
 ![Kopiowanie z chmury do chmury](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
 
-### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Kopiowanie danych między lokalnym magazynem danych a magazynem danych w chmurze
-Aby bezpiecznie przenosić dane między lokalnym magazynem danych a magazynem danych w chmurze, zainstaluj bramę zarządzania danymi na komputerze lokalnym. Brama zarządzania danymi jest agentem, który umożliwia hybrydowe przenoszenie i przetwarzanie danych. Można go zainstalować na tym samym komputerze co sam magazyn danych lub na oddzielnym komputerze, który ma dostęp do magazynu danych.
+### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Kopiowanie danych między lokalnym magazynem danych i magazynem danych w chmurze
+Aby bezpiecznie przenosić dane między lokalnym magazynem danych i magazynem danych w chmurze, należy zainstalować bramę Zarządzanie danymi na maszynie lokalnej. Brama Zarządzanie danymi to Agent, który umożliwia przenoszenie i przetwarzanie danych hybrydowych. Można go zainstalować na tym samym komputerze co magazyn danych lub na oddzielnym komputerze, który ma dostęp do magazynu danych.
 
-W tym scenariuszu brama zarządzania danymi wykonuje serializacji/deserializacji, kompresji/dekompresji, mapowania kolumn i konwersji typu. Dane nie przepływają za pośrednictwem usługi Azure Data Factory. Zamiast tego brama zarządzania danymi bezpośrednio zapisuje dane do magazynu docelowego.
+W tym scenariuszu Brama Zarządzanie danymi wykonuje operacje serializacji/deserializacji, kompresję/dekompresor, Mapowanie kolumn i konwersję typów. Dane nie przepływają przez usługę Azure Data Factory. Zamiast tego Zarządzanie danymi Brama bezpośrednio zapisuje dane w magazynie docelowym.
 
-![Kopiowanie lokalnie do chmury](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
+![Kopiowanie z lokalizacji lokalnej do chmury](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
 
-Zobacz [Przenoszenie danych między lokalnymi i chmurowymi magazynami danych,](data-factory-move-data-between-onprem-and-cloud.md) aby uzyskać informacje na temat wprowadzenia i instruktażu. Zobacz [Brama zarządzania danymi, aby](data-factory-data-management-gateway.md) uzyskać szczegółowe informacje na temat tego agenta.
+Zobacz [przenoszenie danych między lokalnymi i magazynami danych w chmurze,](data-factory-move-data-between-onprem-and-cloud.md) aby zapoznać się z wprowadzeniem i instruktażem. Aby uzyskać szczegółowe informacje o tym agencie, zobacz [Zarządzanie danymi Gateway](data-factory-data-management-gateway.md) .
 
-Można również przenieść dane z/do obsługiwanych magazynów danych, które są hostowane na maszynach wirtualnych usługi Azure IaaS przy użyciu bramy zarządzania danymi. W takim przypadku można zainstalować bramę zarządzania danymi na tej samej maszynie wirtualnej co sam magazyn danych lub na osobnej maszynie wirtualnej, która ma dostęp do magazynu danych.
+Możesz również przenieść dane z/do obsługiwanych magazynów danych, które są hostowane na maszynach wirtualnych IaaS platformy Azure za pomocą bramy Zarządzanie danymi. W takim przypadku można zainstalować bramę Zarządzanie danymi na tej samej maszynie wirtualnej, w której znajduje się sam magazyn danych, lub na oddzielnej maszynie wirtualnej, która ma dostęp do magazynu danych.
 
 ## <a name="supported-data-stores-and-formats"></a>Obsługiwane magazyny i formaty danych
 Działanie kopiowania w usłudze Data Factory kopiuje dane z magazynu danych źródła do magazynu danych ujścia. Usługa Data Factory obsługuje następujące magazyny danych. Dane z dowolnego źródła można zapisać do dowolnego ujścia. Kliknij magazyn danych, aby dowiedzieć się, jak kopiować dane do i z tego magazynu.
@@ -75,24 +75,24 @@ Działanie kopiowania w usłudze Data Factory kopiuje dane z magazynu danych źr
 > Magazyny danych oznaczone znakiem * mogą być konfigurowane lokalnie lub w usłudze Azure IaaS i wymagają zainstalowania [bramy zarządzania danymi](data-factory-data-management-gateway.md) na maszynie lokalnej lub w usłudze Azure IaaS.
 
 ### <a name="supported-file-formats"></a>Obsługiwane formaty plików
-Za pomocą funkcji Kopiuj aktywność można **kopiować pliki w stanie** przebywania między dwoma magazynami danych opartymi na plikach, można pominąć [sekcję formatu](data-factory-create-datasets.md) zarówno w definicjach wejściowych, jak i wyjściowych zestawów danych. Dane są kopiowane wydajnie bez serializacji/deserializacji.
+Możesz użyć działania kopiowania, aby **skopiować pliki** między dwoma magazynami danych opartymi na plikach, można pominąć [sekcję format](data-factory-create-datasets.md) w definicjach zestawu danych wejściowych i wyjściowych. Dane są kopiowane efektywnie bez serializacji/deserializacji.
 
-Działanie kopiowania odczytuje również z plików i zapisuje je w określonych formatach: **Tekst, JSON, Avro, ORC i Parkiet**oraz kodek kompresji **GZip, Deflate, BZip2 i ZipDeflate.** Zobacz [Obsługiwane formaty plików i kompresji ze szczegółami.](data-factory-supported-file-and-compression-formats.md)
+Działanie Copy odczytuje również dane z i zapisuje je w plikach w określonych formatach: Avro **Text, JSON,, Orc i Parquet**oraz kompresji kodery-dekoder w formacie **gzip, Wklęśnięcie, BZip2 i ZipDeflate** . Zobacz [obsługiwane formaty plików i kompresji](data-factory-supported-file-and-compression-formats.md) ze szczegółami.
 
-Na przykład można wykonać następujące działania kopiowania:
+Można na przykład wykonać następujące działania kopiowania:
 
-* Kopiowanie danych w lokalnym programie SQL Server i zapisywanie w usłudze Azure Data Lake Store w formacie ORC.
-* Skopiuj pliki w formacie CSV z lokalnego systemu plików i zapisuj do obiektu Blob platformy Azure w formacie Avro.
-* Skopiuj spakowane pliki z lokalnego systemu plików i rozpakować, a następnie wyląduj w magazynie usługi Azure Data Lake Store.
-* Kopiowanie danych w formacie csv (Skompresowany tekst GZip) z usługi Azure Blob i zapis do usługi Azure SQL Database.
+* Skopiuj dane do SQL Server lokalnego i Zapisz je w Azure Data Lake Store w formacie ORC.
+* Skopiuj pliki w formacie tekstu (CSV) z lokalnego systemu plików i Zapisz do obiektu blob platformy Azure w formacie Avro.
+* Skopiuj pliki spakowane z lokalnego systemu plików, a następnie zdekompresuj je do Azure Data Lake Store.
+* Skopiuj dane w formacie tekstu skompresowanego (CSV) z obiektu blob platformy Azure i Zapisz je w Azure SQL Database.
 
-## <a name="globally-available-data-movement"></a><a name="global"></a>Globalnie dostępne przenoszenie danych
-Usługa Azure Data Factory jest dostępna tylko w zachodnich stanach USA, wschodnich stanach USA i europie północnej. Jednak usługa, która zasila działanie kopiowania jest dostępna globalnie w następujących regionach i regionach geograficznych. Globalnie dostępna topologia zapewnia efektywne przenoszenie danych, które zwykle pozwala uniknąć przeskoków między regionami. Aby uzyskać informacje o dostępności fabryki danych i przenoszenia danych w regionie, zobacz [Usługi według regionów.](https://azure.microsoft.com/regions/#services)
+## <a name="globally-available-data-movement"></a><a name="global"></a>Dostępne globalnie przenoszenie danych
+Azure Data Factory jest dostępna tylko w regionach zachodnie stany USA, Wschodnie stany USA i Europa Północna. Jednak usługa, która ma uprawnienia do kopiowania, jest dostępna globalnie w następujących regionach i lokalizacje geograficzne. Topologia dostępna globalnie zapewnia wydajne przenoszenie danych, które zwykle pozwala uniknąć przeskoków między regionami. Zapoznaj się z tematem [usługi według regionów](https://azure.microsoft.com/regions/#services) , aby uzyskać dostęp do Data Factory i przenoszenia danych w regionie.
 
 ### <a name="copy-data-between-cloud-data-stores"></a>Kopiowanie danych między magazynami danych w chmurze
-Gdy magazyny danych źródłowych i magazynów ujścia znajdują się w chmurze, usługa Data Factory używa wdrożenia usługi w regionie, który znajduje się najbliżej ujścia w tej samej lokalizacji geograficznej, aby przenieść dane. Mapę można znaleźć w poniższej tabeli:
+Gdy magazyny danych źródła i ujścia znajdują się w chmurze, Data Factory używa wdrożenia usługi w regionie, który znajduje się najbliżej ujścia w tej samej lokalizacji geograficznej, aby przenieść dane. Mapę można znaleźć w poniższej tabeli:
 
-| Geografia docelowych magazynów danych | Region docelowego magazynu danych | Region używany do przenoszenia danych |
+| Lokalizacja docelowa docelowych magazynów danych | Region docelowego magazynu danych | Region używany do przenoszenia danych |
 |:--- |:--- |:--- |
 | Stany Zjednoczone | Wschodnie stany USA | Wschodnie stany USA |
 | &nbsp; | Wschodnie stany USA 2 | Wschodnie stany USA 2 |
@@ -121,27 +121,27 @@ Gdy magazyny danych źródłowych i magazynów ujścia znajdują się w chmurze,
 | Korea | Korea Środkowa | Korea Środkowa |
 | &nbsp; | Korea Południowa | Korea Środkowa |
 
-Alternatywnie można jawnie wskazać region usługi Data Factory, który ma być `executionLocation` używany do `typeProperties`wykonywania kopii, określając właściwość w obszarze Działanie kopiowania . Obsługiwane wartości dla tej właściwości są wymienione w powyższym regionie używane dla kolumny **przenoszenia danych.** Zanotuj, że dane przechodzą przez ten region za pośrednictwem sieci podczas kopiowania. Na przykład, aby skopiować między magazynami `"executionLocation": "Japan East"` platformy Azure w Korei, można określić, aby trasy przez region Japonii (zobacz [przykładowy JSON](#by-using-json-scripts) jako odwołanie).
+Alternatywnie można jawnie wskazać region usługi Data Factory, który ma być używany do wykonywania kopii, określając `executionLocation` właściwość w obszarze działanie `typeProperties`kopiowania. Obsługiwane wartości dla tej właściwości są wymienione w powyższym **regionie używanym do przenoszenia danych** . Zwróć uwagę na to, że dane przechodzą przez ten region przez sieć podczas kopiowania. Na przykład, aby skopiować między sklepami z platformą Azure w Korei `"executionLocation": "Japan East"` , możesz określić, aby przekierować do regionu Japonii (zobacz [przykładowy kod JSON](#by-using-json-scripts) jako odwołanie).
 
 > [!NOTE]
-> Jeśli region docelowego magazynu danych nie znajduje się na poprzedniej liście lub niewykrywalny, domyślnie działanie `executionLocation` kopiowania kończy się niepowodzeniem zamiast przechodzić przez region alternatywny, chyba że zostanie określony. Lista obsługiwanych regionów zostanie rozszerzona w czasie.
+> Jeśli region docelowego magazynu danych nie znajduje się na poprzedniej liście lub nie można go wykryć, domyślnie działanie kopiowania kończy się niepowodzeniem zamiast przechodzenia przez region alternatywny, `executionLocation` chyba że jest określony. Lista obsługiwanych regionów zostanie rozszerzona z upływem czasu.
 >
 
-### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Kopiowanie danych między lokalnym magazynem danych a magazynem danych w chmurze
-Gdy dane są kopiowane między lokalnymi (lub maszynami wirtualnymi platformy Azure/IaaS) i magazynami w chmurze, [brama zarządzania danymi](data-factory-data-management-gateway.md) wykonuje przenoszenie danych na komputerze lokalnym lub maszynie wirtualnej. Dane nie przepływa przez usługę w chmurze, chyba że używasz możliwości [kopiowania etapowego.](data-factory-copy-activity-performance.md#staged-copy) W takim przypadku dane przepływa przez przemieszczania magazynu obiektów Blob platformy Azure, zanim zostanie zapisany w magazynie danych ujścia.
+### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Kopiowanie danych między lokalnym magazynem danych i magazynem danych w chmurze
+Gdy dane są kopiowane między środowiskiem lokalnym (lub maszynami wirtualnymi platformy Azure/IaaS) i magazynami w chmurze, usługa [Zarządzanie danymi Gateway](data-factory-data-management-gateway.md) wykonuje przenoszenie danych na maszynie lokalnej lub maszynie wirtualnej. Dane nie przepływają przez usługę w chmurze, chyba że używana jest możliwość [kopiowania etapowego](data-factory-copy-activity-performance.md#staged-copy) . W takim przypadku dane są przesyłane przez przemieszczanie magazynu obiektów blob platformy Azure przed jego zapisaniem w magazynie danych ujścia.
 
-## <a name="create-a-pipeline-with-copy-activity"></a>Tworzenie potoku z działaniem kopiowania
-Potok z funkcją Kopiowania można utworzyć na kilka sposobów:
+## <a name="create-a-pipeline-with-copy-activity"></a>Tworzenie potoku za pomocą działania kopiowania
+Potok z działaniem kopiowania można utworzyć na kilka sposobów:
 
 ### <a name="by-using-the-copy-wizard"></a>Za pomocą Kreatora kopiowania
-Kreator kopiowania fabrycznego danych pomaga utworzyć potok z działaniem kopiowania. Ten potok umożliwia kopiowanie danych z obsługiwanych źródeł do miejsc docelowych bez pisania definicji *JSON* dla połączonych usług, zestawów danych i potoków. Szczegółowe informacje na temat kreatora można znaleźć w [Kreatorze kopiowania](data-factory-copy-wizard.md) w fabryce danych.  
+Kreator kopiowania Data Factory ułatwia utworzenie potoku za pomocą działania kopiowania. Ten potok umożliwia kopiowanie danych z obsługiwanych źródeł do miejsc docelowych *bez zapisywania definicji JSON* dla połączonych usług, zestawów danych i potoków. Szczegółowe informacje na temat Kreatora można znaleźć w temacie [Data Factory Copy Wizard](data-factory-copy-wizard.md) .  
 
 ### <a name="by-using-json-scripts"></a>Za pomocą skryptów JSON
-Edytor fabryki danych w programie Visual Studio lub azure PowerShell służy do tworzenia definicji JSON dla potoku (przy użyciu działania kopiowania). Następnie można go wdrożyć, aby utworzyć potok w fabryce danych. Zobacz [samouczek: Użyj działania kopiowania w potoku usługi Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) dla samouczka z instrukcjami krok po kroku.    
+Możesz użyć edytora Data Factory w programie Visual Studio lub Azure PowerShell, aby utworzyć definicję JSON dla potoku (za pomocą działania kopiowania). Następnie można wdrożyć go w celu utworzenia potoku w Data Factory. Zobacz Samouczek: Aby zapoznać się z instrukcjami krok po kroku, [Użyj działania kopiowania w potoku Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .    
 
-Właściwości JSON (takie jak nazwa, opis, tabele danych wejściowych i wyjściowych oraz zasady) są dostępne dla wszystkich typów działań. Właściwości, które są `typeProperties` dostępne w sekcji działania różnią się w zależności od typu działania.
+Właściwości JSON (takie jak nazwa, opis, tabele wejściowe i wyjściowe oraz zasady) są dostępne dla wszystkich typów działań. Właściwości, które są dostępne w `typeProperties` sekcji działania, różnią się w zależności od typu działania.
 
-W przypadku działania `typeProperties` kopiowania sekcja różni się w zależności od typów źródeł i pochłaniacza. Kliknij źródło/ujście w sekcji [Obsługiwane źródła i pochłaniacze,](#supported-data-stores-and-formats) aby dowiedzieć się więcej o właściwościach typu obsługiwanych przez działanie kopiowania dla tego magazynu danych.
+W przypadku działania kopiowania `typeProperties` sekcja różni się w zależności od typów źródeł i ujścia. Kliknij element Źródło/ujścia w sekcji [obsługiwane źródła i ujścia](#supported-data-stores-and-formats) , aby poznać właściwości typu obsługiwane przez działanie kopiowania dla tego magazynu danych.
 
 Oto przykładowa definicja JSON:
 
@@ -186,30 +186,30 @@ Oto przykładowa definicja JSON:
   }
 }
 ```
-Harmonogram zdefiniowany w zestawie danych wyjściowych określa, kiedy działanie jest uruchamiane (na przykład: **dzienna**, częstotliwość jako **dzień**i interwał jako **1**). Działanie kopiuje dane z wejściowego zestawu danych **(źródła)** do wyjściowego zestawu danych **(sink).**
+Harmonogram zdefiniowany w wyjściowym zestawie danych określa, kiedy działa działanie (na przykład: **codziennie**, częstotliwość jako **dzień**i interwał jako **1**). Działanie kopiuje dane z wejściowego zestawu danych (**Źródło**) do wyjściowego zestawu danych (**ujścia**).
 
-Można określić więcej niż jeden zestaw danych wejściowych do działania kopiowania. Są one używane do weryfikacji zależności przed uruchomieniem działania. Jednak tylko dane z pierwszego zestawu danych są kopiowane do docelowego zestawu danych. Aby uzyskać więcej informacji, zobacz [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md).  
+Można określić więcej niż jeden wejściowy zestaw danych do działania kopiowania. Są one używane do weryfikowania zależności przed uruchomieniem działania. Jednak tylko dane z pierwszego zestawu danych są kopiowane do docelowego zestawu danych. Aby uzyskać więcej informacji, zobacz [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md).  
 
 ## <a name="performance-and-tuning"></a>Wydajności i dostosowywanie
-Zobacz [przewodnik wydajności i dostrajania działania kopiowania,](data-factory-copy-activity-performance.md)który opisuje kluczowe czynniki wpływające na wydajność przenoszenia danych (działanie kopiowania) w usłudze Azure Data Factory. Zawiera również listę obserwowanych wydajności podczas testowania wewnętrznego i omówiono różne sposoby optymalizacji wydajności działania kopiowania.
+Zobacz [Przewodnik dotyczący wydajności i dostrajania działania kopiowania](data-factory-copy-activity-performance.md), który opisuje kluczowe czynniki wpływające na wydajność przenoszenia danych (działanie kopiowania) w Azure Data Factory. Zawiera również listę obserwowanych osiągów podczas testów wewnętrznych i omawia różne sposoby optymalizacji wydajności działania kopiowania.
 
 ## <a name="fault-tolerance"></a>Odporność na uszkodzenia
-Domyślnie działanie kopiowania zatrzyma kopiowanie danych i zwracanie błędów w przypadku wystąpienia niezgodnych danych między źródłem a ujściem; podczas gdy można jawnie skonfigurować pominąć i rejestrować niezgodne wiersze i tylko skopiować te zgodne dane, aby kopia powiodła się. Zobacz odporność na [uszkodzenia działania kopiowania](data-factory-copy-activity-fault-tolerance.md) na więcej szczegółów.
+Domyślnie działanie kopiowania spowoduje zatrzymanie kopiowania danych i zwrócenie błędu w przypadku wystąpienia niezgodnych danych między źródłem i ujściam; Mimo że można jawnie skonfigurować program, aby pominąć i zarejestrować niezgodne wiersze i skopiować te zgodne dane, aby kopie powiodło się. Zobacz [odporność na błędy działania kopiowania](data-factory-copy-activity-fault-tolerance.md) , aby uzyskać więcej szczegółów.
 
 ## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
-Zobacz [zagadnienia dotyczące zabezpieczeń](data-factory-data-movement-security-considerations.md), który opisuje infrastrukturę zabezpieczeń, że usługi przenoszenia danych w usłudze Azure Data Factory używać do zabezpieczania danych.
+Zapoznaj się z [zagadnieniami](data-factory-data-movement-security-considerations.md)dotyczącymi zabezpieczeń, które opisują infrastrukturę zabezpieczeń, która w Azure Data Factory używać usług przenoszenia danych w celu zabezpieczania danych.
 
 ## <a name="scheduling-and-sequential-copy"></a>Planowanie i kopiowanie sekwencyjne
-Zobacz [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) szczegółowe informacje na temat sposobu planowania i wykonywania działa w fabryce danych. Istnieje możliwość uruchamiania wielu operacji kopiowania jeden po drugim w sposób sekwencyjny/uporządkowany. Zobacz sekcję [Kopiuj sekwencyjnie.](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)
+Zapoznaj się z tematem [Planowanie i wykonywanie,](data-factory-scheduling-and-execution.md) Aby uzyskać szczegółowe informacje o tym, jak planowanie i wykonywanie działa w Data Factory. Istnieje możliwość uruchomienia wielu operacji kopiowania jeden po drugim w sekwencyjny/uporządkowany sposób. Zapoznaj się z sekcją [Kopiuj sekwencyjnie](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) .
 
 ## <a name="type-conversions"></a>Konwersje typu
-Różne magazyny danych mają różne systemy typu macierzystego. Działanie kopiowania wykonuje automatyczne konwersje typów z typów źródłowych do typów ujścia z następującym podejściem dwuetapowym:
+Różne magazyny danych mają różne systemy typów natywnych. Działanie kopiowania wykonuje konwersje typów automatycznych z typów źródłowych na typy obiektów ujścia z następującymi krokami:
 
-1. Konwertuj z natywnych typów źródeł na typ .NET.
-2. Konwertuj z typu .NET na typ ujścia macierzystego.
+1. Konwertuj z natywnych typów źródła na typ .NET.
+2. Konwertuj z typu .NET na natywny typ ujścia.
 
-Mapowanie z systemu typu macierzystego do typu .NET dla magazynu danych znajduje się w odpowiednim artykule magazynu danych. (Kliknij określone łącze w tabeli Obsługiwane magazyny danych). Za pomocą tych mapowań można określić odpowiednie typy podczas tworzenia tabel, dzięki czemu działanie kopiowania wykonuje odpowiednie konwersje.
+Mapowanie z systemu typu natywnego na typ .NET dla magazynu danych znajduje się w odpowiednim artykule magazynu danych. (Kliknij określone łącze w tabeli obsługiwane magazyny danych). Można użyć tych mapowań do określenia odpowiednich typów podczas tworzenia tabel, tak że działanie Copy wykonuje odpowiednie konwersje.
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby dowiedzieć się więcej o działaniu kopiowania, zobacz [Kopiowanie danych z magazynu obiektów Blob platformy Azure do bazy danych SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-* Aby dowiedzieć się więcej o przenoszeniu danych z lokalnego magazynu danych do magazynu danych w chmurze, zobacz [Przenoszenie danych z lokalnego do magazynu danych w chmurze.](data-factory-move-data-between-onprem-and-cloud.md)
+* Aby dowiedzieć się więcej o działaniu kopiowania, zobacz [Kopiowanie danych z usługi Azure Blob Storage do Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* Aby dowiedzieć się więcej na temat przenoszenia danych z lokalnego magazynu danych do magazynu danych w chmurze, zobacz [przenoszenie danych z lokalnych do magazynów danych w chmurze](data-factory-move-data-between-onprem-and-cloud.md).

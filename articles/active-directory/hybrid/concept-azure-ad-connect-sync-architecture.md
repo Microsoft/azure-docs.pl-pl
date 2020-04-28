@@ -1,6 +1,6 @@
 ---
-title: 'Synchronizacja usługi Azure AD Connect: opis architektury — Platforma Azure'
-description: W tym temacie opisano architekturę synchronizacji usługi Azure AD Connect i wyjaśniono używane terminy.
+title: 'Azure AD Connect Sync: zrozumienie architektury — Azure'
+description: W tym temacie opisano architekturę Azure AD Connect Sync i wyjaśniono używane terminy.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,247 +17,247 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261621"
 ---
-# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Synchronizacja usługi Azure AD Connect: opis architektury
-W tym temacie omówiono podstawową architekturę synchronizacji usługi Azure AD Connect. Pod wieloma względami jest podobny do swoich poprzedników MIIS 2003, ILM 2007 i FIM 2010. Synchronizacja usługi Azure AD Connect to ewolucja tych technologii. Jeśli znasz którąkolwiek z tych wcześniejszych technologii, treść tego tematu będzie również znana. Jeśli jesteś nowy w synchronizacji, to ten temat jest dla Ciebie. Nie jest jednak wymaganiem, aby poznać szczegóły tego tematu, aby odnieść sukces w tworzeniu dostosowań do synchronizacji usługi Azure AD Connect (o nazwie aparat synchronizacji w tym temacie).
+# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Synchronizacja Azure AD Connect: zrozumienie architektury
+W tym temacie omówiono podstawową architekturę synchronizacji Azure AD Connect. W wielu aspektach jest podobny do jego poprzedników MIIS 2003, ILM 2007 i FIM 2010. Azure AD Connect synchronizacja jest ewolucją tych technologii. Jeśli znasz już każdą z tych wcześniejszych technologii, zawartość tego tematu będzie również znana. Jeśli dopiero zaczynasz synchronizację, ten temat jest dla Ciebie. Nie jest jednak wymagane, aby poznać szczegóły tego tematu, aby można było pomyślnie dostosowywać Azure AD Connect synchronizacji (nazywany aparatem synchronizacji w tym temacie).
 
 ## <a name="architecture"></a>Architektura
-Aparat synchronizacji tworzy zintegrowany widok obiektów, które są przechowywane w wielu połączonych źródłach danych i zarządza informacjami o tożsamości w tych źródłach danych. Ten zintegrowany widok jest określany przez informacje o tożsamości pobrane z połączonych źródeł danych i zestaw reguł, które określają sposób przetwarzania tych informacji.
+Aparat synchronizacji tworzy Zintegrowany widok obiektów, które są przechowywane w wielu połączonych źródłach danych i zarządza informacjami o tożsamościach w tych źródłach danych. Ten widok zintegrowany jest określany przez informacje o tożsamości pobrane z połączonych źródeł danych oraz zestaw reguł, które określają sposób przetwarzania tych informacji.
 
 ### <a name="connected-data-sources-and-connectors"></a>Połączone źródła danych i łączniki
-Aparat synchronizacji przetwarza informacje o tożsamości z różnych repozytoriów danych, takich jak usługa Active Directory lub baza danych programu SQL Server. Każde repozytorium danych, które organizuje swoje dane w formacie przypominającym bazę danych i które zapewnia standardowe metody dostępu do danych, jest potencjalnym kandydatem źródła danych dla aparatu synchronizacji. Repozytoria danych, które są synchronizowane przez aparat synchronizacji są nazywane **połączonymi źródłami danych** lub **połączonymi katalogami** (CD).
+Aparat synchronizacji przetwarza informacje o tożsamościach z różnych repozytoriów danych, takich jak Active Directory lub SQL Server Database. Każde repozytorium danych, które organizuje dane w formacie podobnym do bazy danych i zapewnia standardowe metody dostępu do danych, jest potencjalnym kandydatem źródła danych dla aparatu synchronizacji. Repozytoria danych, które są synchronizowane przez aparat synchronizacji, są nazywane **połączonymi źródłami danych** lub **katalogami podłączonymi** (CD).
 
-Aparat synchronizacji hermetyzuje interakcję z połączonym źródłem danych w module o nazwie **Connector**. Każdy typ połączonego źródła danych ma określony łącznik. Łącznik tłumaczy wymaganą operację na format, który rozumie połączone źródło danych.
+Aparat synchronizacji hermetyzuje interakcje z połączonym źródłem danych w module nazywanym **łącznikiem**. Każdy typ połączonego źródła danych ma określony łącznik. Łącznik tłumaczy wymaganą operację na format zrozumiały dla połączonego źródła danych.
 
-Łączniki wywołania interfejsu API do wymiany informacji o tożsamości (zarówno odczytu i zapisu) z połączonym źródłem danych. Istnieje również możliwość dodania łącznika niestandardowego przy użyciu rozszerzalnej struktury łączności. Na poniższej ilustracji pokazano, jak łącznik łączy połączone źródło danych z aparatem synchronizacji.
+Łączniki tworzą wywołania interfejsu API do wymiany informacji o tożsamości (zarówno do odczytu i zapisu) z połączonym źródłem danych. Istnieje również możliwość dodania łącznika niestandardowego za pomocą rozszerzalnej struktury łączności. Na poniższej ilustracji pokazano, jak łącznik nawiązuje połączenie z połączonym źródłem danych z aparatem synchronizacji.
 
-![Łuk 1](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
+![Arch1](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
 
-Dane mogą przepływać w obu kierunkach, ale nie mogą przepływać jednocześnie w obu kierunkach. Innymi słowy łącznik można skonfigurować tak, aby umożliwić przepływ danych z połączonego źródła danych w celu zsynchronizowania aparatu lub z aparatu synchronizacji do połączonego źródła danych, ale tylko jedna z tych operacji może wystąpić w dowolnym momencie dla jednego obiektu i atrybutu. Kierunek może być różny dla różnych obiektów i dla różnych atrybutów.
+Dane mogą przepływać w dowolnym kierunku, ale nie mogą przepływać jednocześnie w obu kierunkach. Innymi słowy, łącznik można skonfigurować w taki sposób, aby dane mogły być przesyłane z połączonego źródła danych do aparatu synchronizacji lub z aparatu synchronizacji do połączonego źródła danych, ale tylko jedna z tych operacji może wystąpić w jednym czasie dla jednego obiektu i atrybutu. Kierunek może być różny dla różnych obiektów i dla różnych atrybutów.
 
-Aby skonfigurować łącznik, należy określić typy obiektów, które mają zostać zsynchronizowane. Określenie typów obiektów definiuje zakres obiektów, które są uwzględnione w procesie synchronizacji. Następnym krokiem jest wybranie atrybutów do synchronizacji, który jest znany jako lista dołączania atrybutów. Te ustawienia można zmienić w dowolnym momencie w odpowiedzi na zmiany w regułach biznesowych. Korzystając z kreatora instalacji usługi Azure AD Connect, te ustawienia są skonfigurowane dla Ciebie.
+Aby skonfigurować łącznik, należy określić typy obiektów, które mają zostać zsynchronizowane. Określenie typów obiektów definiuje zakres obiektów uwzględnionych w procesie synchronizacji. Następnym krokiem jest wybranie atrybutów do zsynchronizowania, które są znane jako lista dołączania do atrybutów. Te ustawienia można zmienić w dowolnym momencie w reakcji na zmiany reguł firmy. W przypadku korzystania z Kreatora instalacji Azure AD Connect te ustawienia są konfigurowane.
 
-Aby wyeksportować obiekty do połączonego źródła danych, lista dołączania atrybutów musi zawierać co najmniej minimalne atrybuty wymagane do utworzenia określonego typu obiektu w połączonym źródle danych. Na przykład atrybut **sAMAccountName** musi zostać uwzględniony na liście dołączania atrybutów, aby wyeksportować obiekt użytkownika do usługi Active Directory, ponieważ wszystkie obiekty użytkownika w usłudze Active Directory muszą mieć zdefiniowany atrybut **sAMAccountName.** Ponownie kreator instalacji wykonuje tę konfigurację za Ciebie.
+Aby wyeksportować obiekty do połączonego źródła danych, lista dołączania atrybutów musi zawierać co najmniej minimalne atrybuty wymagane do utworzenia określonego typu obiektu w połączonym źródle danych. Na przykład atrybut **sAMAccountName** musi być uwzględniony na liście dołączania atrybutów do eksportowania obiektu użytkownika do Active Directory, ponieważ wszystkie obiekty użytkownika w Active Directory muszą mieć zdefiniowany atrybut **sAMAccountName** . Ponownie Kreator instalacji wykonuje tę konfigurację.
 
-Jeśli połączone źródło danych używa składników konstrukcyjnych, takich jak partycje lub kontenery do organizowania obiektów, można ograniczyć obszary w połączonym źródle danych, które są używane dla danego rozwiązania.
+Jeśli połączone źródło danych używa składników strukturalnych, takich jak partycje lub kontenery do organizowania obiektów, można ograniczyć obszary w połączonym źródle danych, które są używane dla danego rozwiązania.
 
-### <a name="internal-structure-of-the-sync-engine-namespace"></a>Wewnętrzna struktura obszaru nazw aparatu synchronizacji
-Cały obszar nazw aparatu synchronizacji składa się z dwóch obszarów nazw, które przechowują informacje o tożsamości. Dwie przestrzenie nazw to:
+### <a name="internal-structure-of-the-sync-engine-namespace"></a>Wewnętrzna struktura przestrzeni nazw aparatu synchronizacji
+Cała przestrzeń nazw aparatu synchronizacji składa się z dwóch przestrzeni nazw, w których przechowywane są informacje o tożsamości. Dwie przestrzenie nazw:
 
 * Przestrzeń łącznika (CS)
 * Metaverse (MV)
 
-**Przestrzeń łącznika** jest obszarem przejściowym, który zawiera reprezentacje wyznaczonych obiektów z połączonego źródła danych i atrybuty określone na liście dołączania atrybutów. Aparat synchronizacji używa przestrzeni łącznika, aby określić, co zmieniło się w połączonym źródle danych i na etapie zmian przychodzących. Aparat synchronizacji używa również miejsca łącznika do wystawiania zmian wychodzących do eksportu do połączonego źródła danych. Aparat synchronizacji zachowuje różne przestrzeni łącznika jako obszar przemieszczania dla każdego łącznika.
+**Przestrzeń łącznika** jest obszarem przejściowym, który zawiera reprezentacje wyznaczonych obiektów z połączonego źródła danych i atrybutów określonych na liście dołączania atrybutów. Aparat synchronizacji używa przestrzeni łącznika, aby określić, co zostało zmienione w połączonym źródle danych i przemieścić zmiany przychodzące. Aparat synchronizacji używa również przestrzeni łącznika, aby przemieścić wychodzące zmiany eksportu do połączonego źródła danych. Aparat synchronizacji utrzymuje odrębne miejsce łącznika jako obszar przejściowy dla każdego łącznika.
 
-Korzystając z obszaru przemieszczania, aparat synchronizacji pozostaje niezależny od połączonych źródeł danych i nie ma na nie wpływu ich dostępność i dostępność. W rezultacie można przetwarzać informacje o tożsamości w dowolnym momencie przy użyciu danych w obszarze przemieszczania. Aparat synchronizacji może żądać tylko zmian wprowadzonych wewnątrz połączonego źródła danych od czasu zakończenia ostatniej sesji komunikacyjnej lub wypchnąć tylko zmiany informacji o tożsamości, których podłączone źródło danych nie zostało jeszcze odebrane, co zmniejsza sieć między aparatem synchronizacji a podłączonym źródłem danych.
+Za pomocą obszaru przejściowego aparat synchronizacji pozostaje niezależny od połączonych źródeł danych i nie ma wpływ na ich dostępność i dostęp. W związku z tym można w dowolnym momencie przetworzyć informacje o tożsamości przy użyciu danych w obszarze przejściowym. Aparat synchronizacji może zażądać tylko zmian wprowadzonych w połączonym źródle danych od momentu zakończenia ostatniej sesji komunikacji lub wypchnąć tylko zmiany informacji o tożsamości, które nie otrzymały połączonego źródła danych, co zmniejsza ruch sieciowy między aparatem synchronizacji i połączonym źródłem danych.
 
-Ponadto aparat synchronizacji przechowuje informacje o stanie wszystkich obiektów, które etapy w przestrzeni łącznika. Po odebraniu nowych danych aparat synchronizacji zawsze ocenia, czy dane zostały już zsynchronizowane.
+Ponadto aparat synchronizacji przechowuje informacje o stanie wszystkich obiektów, które etapuje w przestrzeni łącznika. Po odebraniu nowych danych aparat synchronizacji zawsze sprawdza, czy dane zostały już zsynchronizowane.
 
-**Metaverse** to obszar magazynu, który zawiera zagregowane informacje o tożsamości z wielu połączonych źródeł danych, zapewniając jeden globalny, zintegrowany widok wszystkich połączonych obiektów. Obiekty Metaverse są tworzone na podstawie informacji o tożsamości pobieranych z połączonych źródeł danych oraz zestawu reguł, które umożliwiają dostosowanie procesu synchronizacji.
+**Metaverse** to obszar przechowywania zawierający zagregowane informacje o tożsamości z wielu połączonych źródeł danych, co zapewnia jeden globalny, Zintegrowany widok wszystkich połączonych obiektów. Obiekty Metaverse są tworzone na podstawie informacji o tożsamości, które są pobierane z połączonych źródeł danych, oraz zestawu reguł, które umożliwiają dostosowanie procesu synchronizacji.
 
-Na poniższej ilustracji przedstawiono obszar nazw obszaru łącznika i obszar nazw metaverse w silniku synchronizacji.
+Na poniższej ilustracji przedstawiono przestrzeń nazw obszaru łącznika i przestrzeń nazw Metaverse w aparacie synchronizacji.
 
-![Łuk2](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
+![Arch2](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
 
-## <a name="sync-engine-identity-objects"></a>Synchronizowanie obiektów tożsamości aparatu
-Obiekty w aparatie synchronizacji są reprezentacjami obiektów w połączonym źródle danych lub zintegrowanego widoku, który aparat synchronizacji ma z tych obiektów. Każdy obiekt aparatu synchronizacji musi mieć unikatowy identyfikator (GUID). Identyfikatory GUID zapewniają integralność danych i ekspresowe relacje między obiektami.
+## <a name="sync-engine-identity-objects"></a>Obiekty tożsamości aparatu synchronizacji
+Obiekty w aparacie synchronizacji są reprezentacją obu obiektów w połączonym źródle danych lub widoku zintegrowanego, który aparat synchronizacji ma dla tych obiektów. Każdy obiekt aparatu synchronizacji musi mieć unikatowy identyfikator globalny (GUID). Identyfikatory GUID zapewniają integralność danych i bezpośrednie relacje między obiektami.
 
-### <a name="connector-space-objects"></a>Obiekty przestrzeni łączników
-Gdy aparat synchronizacji komunikuje się z połączonym źródłem danych, odczytuje informacje o tożsamości w połączonym źródle danych i używa tych informacji do utworzenia reprezentacji obiektu tożsamości w przestrzeni łącznika. Nie można tworzyć ani usuwać tych obiektów indywidualnie. Można jednak ręcznie usunąć wszystkie obiekty w przestrzeni łącznika.
+### <a name="connector-space-objects"></a>Obiekty przestrzeni łącznika
+Gdy aparat synchronizacji komunikuje się z połączonym źródłem danych, odczytuje informacje o tożsamości w połączonym źródle danych i używa tych informacji do utworzenia reprezentacji obiektu Identity w przestrzeni łącznika. Nie można tworzyć ani usuwać tych obiektów pojedynczo. Można jednak ręcznie usunąć wszystkie obiekty w przestrzeni łącznika.
 
-Wszystkie obiekty w przestrzeni łącznika mają dwa atrybuty:
+Wszystkie obiekty w obszarze łącznika mają dwa atrybuty:
 
 * Unikatowy identyfikator globalny (GUID)
-* Nazwa wyróżniająca (znana również jako DN)
+* Nazwa wyróżniająca (znana także jako nazwa DN)
 
-Jeśli połączone źródło danych przypisuje do obiektu unikatowy atrybut, obiekty w przestrzeni łącznika mogą mieć również atrybut zakotwiczenia. Atrybut zakotwiczenia jednoznacznie identyfikuje obiekt w połączonym źródle danych. Aparat synchronizacji używa zakotwiczenia, aby zlokalizować odpowiednią reprezentację tego obiektu w połączonym źródle danych. Aparat synchronizacji zakłada, że zakotwiczenie obiektu nigdy nie zmienia się w okresie istnienia obiektu.
+Jeśli połączone źródło danych przypisze unikatowy atrybut do obiektu, obiekty w przestrzeni łącznika mogą także mieć atrybut zakotwiczenia. Atrybut zakotwiczenia jednoznacznie identyfikuje obiekt w połączonym źródle danych. Aparat synchronizacji używa kotwicy do lokalizowania odpowiedniej reprezentacji tego obiektu w połączonym źródle danych. Aparat synchronizacji zakłada, że zakotwiczenie obiektu nigdy nie ulega zmianie w okresie istnienia obiektu.
 
-Wiele łączników używa znanego unikatowego identyfikatora do automatycznego generowania zakotwiczenia dla każdego obiektu podczas importowania. Na przykład łącznik usługi Active Directory używa atrybutu **objectGUID** dla zakotwiczenia. W przypadku połączonych źródeł danych, które nie zawierają jasno zdefiniowanego unikatowego identyfikatora, można określić generowanie zakotwiczenia jako część konfiguracji łącznika.
+Wiele łączników używa znanego unikatowego identyfikatora do automatycznego generowania kotwic dla każdego obiektu podczas importowania. Na przykład łącznik Active Directory używa atrybutu **objectGUID** dla zakotwiczenia. W przypadku połączonych źródeł danych, które nie zapewniają jasno zdefiniowanego unikatowego identyfikatora, można określić generację zakotwiczenia w ramach konfiguracji łącznika.
 
-W takim przypadku zakotwiczenie jest zbudowany z jednego lub więcej unikatowych atrybutów typu obiektu, z których żaden nie zmienia się i który jednoznacznie identyfikuje obiekt w przestrzeni łącznika (na przykład numer pracownika lub identyfikator użytkownika).
+W takim przypadku zakotwiczenie jest zbudowane z jednego lub więcej unikatowych atrybutów typu obiektu, a nie żadnych zmian i jednoznacznie identyfikuje obiekt w przestrzeni łącznika (na przykład numer pracownika lub identyfikator użytkownika).
 
-Obiekt spacji łącznika może być jedną z następujących czynności:
+Obiekt przestrzeni łącznika może mieć jedną z następujących wartości:
 
 * Obiekt przemieszczania
 * Symbol zastępczy
 
 ### <a name="staging-objects"></a>Obiekty przemieszczania
-Obiekt przemieszczania reprezentuje wystąpienie typów obiektów wyznaczonych z połączonego źródła danych. Oprócz identyfikatora GUID i nazwy wyróżniającej obiekt przemieszczania zawsze ma wartość, która wskazuje typ obiektu.
+Obiekt przemieszczania reprezentuje wystąpienie wywskazanych typów obiektów z połączonego źródła danych. Oprócz identyfikatora GUID i nazwy wyróżniającej, obiekt przemieszczania zawsze ma wartość wskazującą typ obiektu.
 
-Obiekty przemieszczania, które zostały zaimportowane zawsze mają wartość dla atrybutu anchor. Obiekty przemieszczania, które zostały niedawno aprowizowany przez aparat synchronizacji i są w trakcie tworzenia w połączonym źródle danych nie mają wartości dla atrybutu anchor.
+Zaimportowane obiekty przemieszczania zawsze mają wartość dla atrybutu zakotwiczenia. Obiekty przemieszczania, które były nowo obsługiwane przez aparat synchronizacji i są w trakcie tworzenia w połączonym źródle danych, nie mają wartości atrybutu zakotwiczenia.
 
-Obiekty przemieszczania również nosić bieżące wartości atrybutów biznesowych i informacji operacyjnych potrzebnych przez aparat synchronizacji do wykonywania procesu synchronizacji. Informacje operacyjne obejmują flagi wskazujące typ aktualizacji, które są przemieszczane na obiekcie przemieszczania. Jeśli obiekt przemieszczania otrzymał nowe informacje o tożsamości z połączonego źródła danych, które nie zostało jeszcze przetworzone, obiekt zostanie oznaczony jako **oczekujący na import**. Jeśli obiekt przemieszczania zawiera nowe informacje o tożsamości, które nie zostały jeszcze wyeksportowane do połączonego źródła danych, jest oflagowany jako **oczekujący na eksport**.
+Obiekty przejściowe zawierają również bieżące wartości atrybutów firmy oraz informacje operacyjne, które są konieczne przez aparat synchronizacji do przeprowadzenia procesu synchronizacji. Informacje operacyjne obejmują flagi wskazujące typ aktualizacji, które są przemieszczane w obiekcie przemieszczania. Jeśli obiekt przemieszczania otrzymał nowe informacje o tożsamości od połączonego źródła danych, które nie zostało jeszcze przetworzone, obiekt zostanie oflagowany jako **oczekujące na import**. Jeśli obiekt przemieszczania zawiera nowe informacje o tożsamości, które nie zostały jeszcze wyeksportowane do połączonego źródła danych, są oflagowane jako **oczekujące na eksport**.
 
-Obiekt przemieszczania może być obiektem importu lub obiektem eksportu. Aparat synchronizacji tworzy obiekt importu przy użyciu informacji o obiektach otrzymanych z podłączonego źródła danych. Gdy aparat synchronizacji odbiera informacje o istnieniu nowego obiektu, który pasuje do jednego z typów obiektów wybranych w łączniku, tworzy obiekt importu w przestrzeni łącznika jako reprezentację obiektu w połączonym źródle danych.
+Obiekt przemieszczania może być obiektem importu lub obiektem eksportu. Aparat synchronizacji tworzy obiekt importu przy użyciu informacji o obiekcie odebranych z połączonego źródła danych. Gdy aparat synchronizacji otrzymuje informacje o istnieniu nowego obiektu, który jest zgodny z jednym z typów obiektów zaznaczonych w łączniku, tworzy obiekt importu w przestrzeni łącznika jako reprezentację obiektu w połączonym źródle danych.
 
-Na poniższej ilustracji przedstawiono obiekt importu reprezentujący obiekt w połączonym źródle danych.
+Na poniższej ilustracji przedstawiono obiekt importu, który reprezentuje obiekt w połączonym źródle danych.
 
-![Łuk 3](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
+![Arch3](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
 
-Aparat synchronizacji tworzy obiekt eksportu przy użyciu informacji o obiekcie w metaverse. Obiekty eksportu są eksportowane do połączonego źródła danych podczas następnej sesji komunikacyjnej. Z punktu widzenia aparatu synchronizacji obiekty eksportu nie istnieją jeszcze w połączonym źródle danych. W związku z tym atrybut zakotwiczenia dla obiektu eksportu nie jest dostępny. Po odebraniu obiektu z aparatu synchronizacji połączone źródło danych tworzy unikatową wartość dla atrybutu zakotwiczenia obiektu.
+Aparat synchronizacji tworzy obiekt eksportu przy użyciu informacji o obiekcie w magazynie Metaverse. Eksportuj obiekty do połączonego źródła danych podczas następnej sesji komunikacji. Z perspektywy aparatu synchronizacji obiekty eksportu nie istnieją jeszcze w połączonym źródle danych. W związku z tym atrybut kotwicy dla obiektu eksportu nie jest dostępny. Po odebraniu obiektu z aparatu synchronizacji połączone źródło danych tworzy unikatową wartość dla atrybutu zakotwiczenia obiektu.
 
-Na poniższej ilustracji pokazano, jak obiekt eksportu jest tworzony przy użyciu informacji o tożsamości w metaverse.
+Na poniższej ilustracji przedstawiono sposób tworzenia obiektu eksportu przy użyciu informacji o tożsamości w obiekcie Metaverse.
 
-![Łuk4](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
+![Arch4](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
 
-Aparat synchronizacji potwierdza eksport obiektu przez ponowneimportowanie obiektu z podłączonego źródła danych. Obiekty eksportu stają się obiektami importu, gdy aparat synchronizacji odbiera je podczas następnego importowania z tego połączonego źródła danych.
+Aparat synchronizacji potwierdza eksport obiektu przez ponowne zaimportowanie obiektu z połączonego źródła danych. Eksportowanie obiektów staje się obiektami importu, gdy aparat synchronizacji otrzymuje je podczas następnego importowania z tego połączonego źródła danych.
 
 ### <a name="placeholders"></a>Symbole zastępcze
-Aparat synchronizacji używa płaskiej przestrzeni nazw do przechowywania obiektów. Jednak niektóre połączone źródła danych, takie jak usługa Active Directory, używają hierarchicznego obszaru nazw. Aby przekształcić informacje z hierarchicznego obszaru nazw w płaską przestrzeń nazw, aparat synchronizacji używa symboli zastępczych do zachowania hierarchii.
+Aparat synchronizacji używa płaskiej przestrzeni nazw do przechowywania obiektów. Jednak niektóre połączone źródła danych, takie jak Active Directory, używają hierarchicznej przestrzeni nazw. Aby przekształcić informacje z hierarchicznej przestrzeni nazw w płaską przestrzeń nazw, aparat synchronizacji używa symboli zastępczych, aby zachować hierarchię.
 
-Każdy symbol zastępczy reprezentuje składnik (na przykład jednostkę organizacyjną) nazwy hierarchicznej obiektu, który nie został zaimportowany do aparatu synchronizacji, ale jest wymagany do konstruowania nazwy hierarchicznej. Wypełniają one przerwy utworzone przez odwołania w połączonym źródle danych do obiektów, które nie są obiektami przemieszczania w przestrzeni łącznika.
+Każdy symbol zastępczy reprezentuje składnik (na przykład jednostkę organizacyjną) nazwy hierarchicznej obiektu, która nie została zaimportowana do aparatu synchronizacji, ale jest wymagana do skonstruowania nazwy hierarchicznej. Wypełniają one przerwy utworzone przez odwołania w połączonym źródle danych do obiektów, które nie są obiektami tymczasowymi w przestrzeni łącznika.
 
-Aparat synchronizacji używa również symboli zastępczych do przechowywania obiektów, do których istnieją odwołania, które nie zostały jeszcze zaimportowane. Na przykład, jeśli synchronizacja jest skonfigurowana tak, aby zawierała atrybut menedżera dla obiektu *Abbie Spencer,* a odebrana wartość jest obiektem, który nie został jeszcze zaimportowany, takim jak *CN=Lee Sperry,CN=Users,DC=fabrikam,DC=com*, informacje menedżera są przechowywane jako symbole zastępcze w przestrzeni łącznika. Jeśli obiekt menedżera zostanie później zaimportowany, obiekt zastępczy jest zastępowany przez obiekt przemieszczania reprezentujący menedżera.
+Aparat synchronizacji używa również symboli zastępczych do przechowywania obiektów, do których istnieją odwołania, które nie zostały jeszcze zaimportowane. Na przykład jeśli synchronizacja została skonfigurowana tak, aby obejmowała atrybut Manager dla obiektu *Abbie Spencer* , a odebrana wartość jest obiektem, który nie został jeszcze zaimportowany, na przykład *CN = Lewandowski Sperry, CN = users, DC = Fabrikam, DC = com*, informacje o Menedżerze są przechowywane jako symbole zastępcze w obszarze łącznika. Jeśli obiekt Menedżera zostanie zaimportowany później, obiekt zastępczy zostanie zastąpiony przez obiekt przemieszczania, który reprezentuje Menedżera.
 
 ### <a name="metaverse-objects"></a>Obiekty Metaverse
-Obiekt metaverse zawiera widok zagregowany, który aparat synchronizacji ma obiektów przemieszczania w przestrzeni łącznika. Aparat synchronizacji tworzy obiekty metaverse przy użyciu informacji w obiektach importu. Kilka obiektów przestrzeni łącznika może być połączonych z pojedynczym obiektem metaverse, ale obiekt przestrzeni łącznika nie może być połączony z więcej niż jednym obiektem metaverse.
+Obiekt Metaverse zawiera widok zagregowany, który aparat synchronizacji ma obiekty przejściowe w przestrzeni łącznika. Aparat synchronizacji tworzy obiekty Metaverse przy użyciu informacji w obszarze Importuj obiekty. Kilka obiektów przestrzeni łącznika można połączyć z pojedynczym obiektem Metaverse, ale obiekt przestrzeni łącznika nie może być połączony z więcej niż jednym obiektem Metaverse.
 
-Nie można ręcznie tworzyć ani usuwać obiektów metaverse. Aparat synchronizacji automatycznie usuwa obiekty metaverse, które nie mają łącza do żadnego obiektu przestrzeni łącznika w przestrzeni łącznika.
+Nie można ręcznie utworzyć lub usunąć obiektów Metaverse. Aparat synchronizacji automatycznie usuwa obiekty Metaverse, które nie mają linku do żadnego obiektu obszaru łącznika w obszarze łącznika.
 
-Aby mapować obiekty w połączonym źródle danych na odpowiedni typ obiektu w metaverse, aparat synchronizacji udostępnia rozszerzalny schemat ze wstępnie zdefiniowanym zestawem typów obiektów i skojarzonymi atrybutami. Można tworzyć nowe typy obiektów i atrybuty dla obiektów metaverse. Atrybuty mogą być jednowącjonowane lub wielowartościowe, a typy atrybutów mogą być ciągami znaków, odwołań, liczb i wartości logicznych.
+Aby zmapować obiekty w ramach połączonego źródła danych na odpowiedni typ obiektu w ramach Metaverse, aparat synchronizacji zapewnia rozszerzalny schemat ze wstępnie zdefiniowanym zestawem typów obiektów i skojarzonymi atrybutami. Można tworzyć nowe typy obiektów i atrybuty dla obiektów Metaverse. Atrybuty mogą być jednowartościowe lub wielowartościowe, a typy atrybutów mogą być ciągami, odwołaniami, numerami i wartościami logicznymi.
 
-### <a name="relationships-between-staging-objects-and-metaverse-objects"></a>Relacje między obiektami przemieszczania i obiektów metaverse
-W obszarze nazw aparatu synchronizacji przepływ danych jest włączony przez relację łącza między obiektami przejściowymi a obiektami metaverse. Obiekt przemieszczania połączony z obiektem metaverse jest nazywany **połączonym obiektem** (lub **obiektem łącznika).** Obiekt przemieszczania, który nie jest połączony z obiektem metaverse, jest nazywany **obiektem rozłącznym** (lub **obiektem rozłączacza).** Terminy połączone i rozłączone są preferowane, aby nie mylić z łącznikami odpowiedzialnymi za importowanie i eksportowanie danych z połączonego katalogu.
+### <a name="relationships-between-staging-objects-and-metaverse-objects"></a>Relacje między obiektami przemieszczania i obiektami Metaverse
+W przestrzeni nazw aparatu synchronizacji przepływ danych jest włączany przez relację linku między obiektami przemieszczania i obiektami Metaverse. Obiekt przemieszczania połączony z obiektem Metaverse jest nazywany **obiektem przyłączonym** (lub **obiektem łącznika**). Obiekt przemieszczania, który nie jest połączony z obiektem Metaverse, jest nazywany **odłączonym obiektem** (lub **obiektem odłączania**). Warunki przyłączone i odłączone są preferowane, aby nie mylić z łącznikami odpowiedzialnymi za Importowanie i eksportowanie danych z podłączonego katalogu.
 
-Symbole zastępcze nigdy nie są połączone z obiektem metaverse
+Symbole zastępcze nigdy nie są połączone z obiektem Metaverse
 
-Połączony obiekt składa się z obiektu przemieszczania i jego połączonej relacji z pojedynczym obiektem metaverse. Połączone obiekty służą do synchronizowania wartości atrybutów między obiektem przestrzeni łącznika a obiektem metaverse.
+Przyłączony obiekt składa się z obiektu przemieszczania i jego połączonej relacji z pojedynczym obiektem Metaverse. Przyłączone obiekty są używane do synchronizowania wartości atrybutów między obiektem przestrzeni łącznika a obiektem Metaverse.
 
-Gdy obiekt przemieszczania staje się połączony obiekt podczas synchronizacji, atrybuty mogą przepływać między obiektem przemieszczania i obiektu metaverse. Przepływ atrybutów jest dwukierunkowy i jest konfigurowany przy użyciu reguł atrybutu importu i reguł atrybutów eksportu.
+Gdy obiekt przemieszczania stanie się obiektem przyłączonym podczas synchronizacji, atrybuty mogą przepływać między obiektem przemieszczania a obiektem Metaverse. Przepływ atrybutu jest dwukierunkowy i jest konfigurowany przy użyciu reguł atrybutów importu i eksportu reguł atrybutów.
 
-Pojedynczy obiekt spacji łącznika może być połączony tylko z jednym obiektem metaverse. Jednak każdy obiekt metaverse może być połączony z wieloma obiektami przestrzeni łączników w tym samym lub w różnych przestrzeniach łączników, jak pokazano na poniższej ilustracji.
+Pojedynczy obiekt przestrzeni łącznika można połączyć tylko z jednym obiektem Metaverse. Jednak każdy obiekt Metaverse może być połączony z wieloma obiektami przestrzeni łącznika w tym samym lub w różnych miejscach łączników, jak pokazano na poniższej ilustracji.
 
-![Łuk 5](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
+![Arch5](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
 
-Połączona relacja między obiektem przemieszczania a obiektem metaverse jest trwała i może zostać usunięta tylko przez określone reguły.
+Połączona relacja między obiektem przemieszczania i obiektem Metaverse jest trwała i może zostać usunięta tylko przez określone zasady.
 
-Odłączony obiekt jest obiektem przemieszczania, który nie jest połączony z żadnym obiektem metaverse. Wartości atrybutów odłączony obiekt nie są przetwarzane dalej w metaverse. Wartości atrybutów odpowiedniego obiektu w połączonym źródle danych nie są aktualizowane przez aparat synchronizacji.
+Odłączony obiekt jest obiektem przejściowym, który nie jest połączony z żadnym obiektem Metaverse. Wartości atrybutów odłączonego obiektu nie są przetwarzane w ramach elementu Metaverse. Wartości atrybutów odpowiedniego obiektu w połączonym źródle danych nie są aktualizowane przez aparat synchronizacji.
 
-Za pomocą odłączonych obiektów, można przechowywać informacje o tożsamości w silniku synchronizacji i przetwarzać go później. Utrzymywanie obiektu przemieszczania jako odłączony obiekt w przestrzeni łącznika ma wiele zalet. Ponieważ system już wystawił wymagane informacje o tym obiekcie, nie jest konieczne ponowne utworzenie reprezentacji tego obiektu podczas następnego importowania z połączonego źródła danych. W ten sposób aparat synchronizacji zawsze ma pełną migawkę połączonego źródła danych, nawet jeśli nie ma bieżącego połączenia z połączonym źródłem danych. Odłączone obiekty mogą być konwertowane na połączone obiekty i odwrotnie, w zależności od reguł, które określisz.
+Za pomocą odłączonych obiektów można przechowywać informacje o tożsamościach w aparacie synchronizacji i przetwarzać je później. Przechowywanie obiektu przemieszczania jako obiektu rozłączonego w przestrzeni łącznika ma wiele zalet. Ponieważ System przygotował już wymagane informacje dotyczące tego obiektu, nie jest konieczne ponowne utworzenie reprezentacji tego obiektu podczas kolejnego importowania z połączonego źródła danych. W ten sposób aparat synchronizacji zawsze ma kompletną migawkę połączonego źródła danych, nawet jeśli nie istnieje bieżące połączenie z połączonym źródłem danych. Odłączone obiekty mogą być konwertowane na połączone obiekty i na odwrót, w zależności od określonych reguł.
 
-Obiekt importu jest tworzony jako obiekt rozłączny. Obiekt eksportu musi być obiektem sprzężonym. Logika systemowa wymusza tę regułę i usuwa każdy obiekt eksportu, który nie jest obiektem sprzężonym.
+Obiekt importu jest tworzony jako odłączony obiekt. Obiekt eksportu musi być obiektem przyłączonym. Logika systemu wymusza tę regułę i usuwa każdy obiekt eksportu, który nie jest przyłączonym obiektem.
 
 ## <a name="sync-engine-identity-management-process"></a>Proces zarządzania tożsamościami aparatu synchronizacji
-Proces zarządzania tożsamościami kontroluje sposób aktualizowanie informacji o tożsamości między różnymi połączonymi źródłami danych. Zarządzanie tożsamościami odbywa się w trzech procesach:
+Proces zarządzania tożsamościami kontroluje sposób aktualizowania informacji o tożsamości między różnymi połączonymi źródłami danych. Zarządzanie tożsamościami odbywa się w trzech procesach:
 
 * Import
 * Synchronizacja
 * Eksportowanie
 
-Podczas procesu importowania aparat synchronizacji ocenia przychodzące informacje o tożsamości z połączonego źródła danych. Po wykryciu zmian tworzy nowe obiekty tymczasowe lub aktualizuje istniejące obiekty tymczasowe w przestrzeni łącznika do synchronizacji.
+Podczas procesu importowania aparat synchronizacji szacuje informacje o tożsamości przychodzące z połączonego źródła danych. Po wykryciu zmian program tworzy nowe obiekty przemieszczania lub aktualizuje istniejące obiekty tymczasowe w obszarze łącznika w celu synchronizacji.
 
-Podczas procesu synchronizacji aparat synchronizacji aktualizuje metaverse, aby odzwierciedlić zmiany, które wystąpiły w przestrzeni łącznika i aktualizuje przestrzeń łącznika, aby odzwierciedlić zmiany, które wystąpiły w metaverse.
+W trakcie procesu synchronizacji aparat synchronizacji aktualizuje funkcję Metaverse w celu odzwierciedlenia zmian, które wystąpiły w miejscu łącznika i aktualizuje przestrzeń łącznika w celu odzwierciedlenia zmian, które wystąpiły w magazynie Metaverse.
 
-Podczas procesu eksportowania aparat synchronizacji wypycha zmiany, które są przemieszczane w obiektach przejściowych i które są oflagowane jako oczekujące na eksport.
+W trakcie procesu eksportowania aparat synchronizacji wypychanie zmian, które są przemieszczane w obiektach przemieszczania i są oflagowane jako oczekujące na eksport.
 
-Na poniższej ilustracji pokazano, gdzie każdy z procesów występuje jako przepływy informacji o tożsamości z jednego połączonego źródła danych do innego.
+Na poniższej ilustracji przedstawiono, gdzie każdy proces występuje, gdy informacje o tożsamości są przesyłane z jednego połączonego źródła danych do innego.
 
-![Łuk6](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
+![Arch6](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
 
-### <a name="import-process"></a>Proces importowania
-Podczas procesu importowania aparat synchronizacji ocenia aktualizacje informacji o tożsamości. Aparat synchronizacji porównuje informacje o tożsamości otrzymane z połączonego źródła danych z informacjami o tożsamości obiektu przemieszczania i określa, czy obiekt przemieszczania wymaga aktualizacji. Jeśli konieczne jest zaktualizowanie obiektu przemieszczania o nowe dane, obiekt przemieszczania jest oflagowany jako oczekujący import.
+### <a name="import-process"></a>Importuj proces
+Podczas procesu importowania aparat synchronizacji szacuje aktualizacje informacji o tożsamości. Aparat synchronizacji porównuje informacje o tożsamości otrzymane z połączonego źródła danych z informacjami o tożsamości dla obiektu przemieszczania i określa, czy obiekt przemieszczania wymaga aktualizacji. Jeśli konieczne jest zaktualizowanie obiektu przemieszczania przy użyciu nowych danych, obiekt przemieszczania jest oflagowany jako oczekujące na import.
 
-Przez obiekty przemieszczania w przestrzeni łącznika przed synchronizacją, aparat synchronizacji może przetwarzać tylko informacje o tożsamości, które uległy zmianie. Proces ten zapewnia następujące korzyści:
+Według obiektów przemieszczania w przestrzeni łącznika przed synchronizacją aparat synchronizacji może przetwarzać tylko informacje o tożsamości, które uległy zmianie. Ten proces zapewnia następujące korzyści:
 
-* **Wydajna synchronizacja**. Ilość danych przetwarzanych podczas synchronizacji jest zminimalizowana.
-* **Efektywna ponowna synchronizacja**. Można zmienić sposób, w jaki aparat synchronizacji przetwarza informacje o tożsamości bez ponownego połączenia aparatu synchronizacji ze źródłem danych.
-* **Możliwość podglądu synchronizacji**. Można wyświetlić podgląd synchronizacji, aby sprawdzić, czy założenia dotyczące procesu zarządzania tożsamościami są poprawne.
+* **Wydajna synchronizacja**. Ilość danych przetworzonych podczas synchronizacji jest zminimalizowana.
+* **Wydajna ponowna synchronizacja**. Można zmienić sposób, w jaki aparat synchronizacji przetwarza informacje o tożsamości bez ponownego łączenia aparatu synchronizacji ze źródłem danych.
+* **Możliwość synchronizacji wersji zapoznawczej**. Możesz wyświetlić podgląd synchronizacji, aby sprawdzić, czy założono, że założenia procesu zarządzania tożsamościami są poprawne.
 
-Dla każdego obiektu określonego w łączniku aparat synchronizacji najpierw próbuje zlokalizować reprezentację obiektu w przestrzeni łącznika łącznika. Aparat synchronizacji sprawdza wszystkie obiekty tymczasowe w przestrzeni łącznika i próbuje znaleźć odpowiedni obiekt przemieszczania, który ma pasujący atrybut zakotwiczenia. Jeśli żaden istniejący obiekt przemieszczania nie ma pasującego atrybutu zakotwiczenia, aparat synchronizacji próbuje znaleźć odpowiedni obiekt przemieszczania o tej samej nazwie wyróżniającej.
+Dla każdego obiektu określonego w łączniku, aparat synchronizacji najpierw próbuje zlokalizować reprezentację obiektu w przestrzeni łącznika łącznika. Aparat synchronizacji bada wszystkie obiekty tymczasowe w przestrzeni łącznika i próbuje znaleźć odpowiedni obiekt przemieszczania, który ma pasujący atrybut kotwicy. Jeśli żaden istniejący obiekt tymczasowy nie ma pasującego atrybutu kotwicy, aparat synchronizacji próbuje znaleźć odpowiedni obiekt tymczasowy o tej samej nazwie wyróżniającej.
 
-Gdy aparat synchronizacji znajdzie obiekt przemieszczania, który pasuje do nazwy wyróżniającej, ale nie przez kotwicę, występuje następujące zachowanie specjalne:
+Gdy aparat synchronizacji odnajdzie obiekt przemieszczania, który pasuje do nazwy wyróżniającej, ale nie przez zakotwiczenie, wystąpi następujące specjalne zachowanie:
 
-* Jeśli obiekt znajdujący się w przestrzeni łącznika nie ma kotwicy, aparat synchronizacji usuwa ten obiekt z przestrzeni łącznika i oznacza obiekt metaverse, z który jest połączony jako **ponowną inicjowanie obsługi administracyjnej przy następnym uruchomieniu synchronizacji**. Następnie tworzy nowy obiekt importu.
-* Jeśli obiekt znajdujący się w przestrzeni łącznika ma kotwicę, aparat synchronizacji zakłada, że nazwa tego obiektu została zmieniona lub usunięta w połączonym katalogu. Przypisuje tymczasową, nową nazwę wyróżniającą dla obiektu przestrzeni łącznika, dzięki czemu może on wystawiać obiekt przychodzący. Stary obiekt staje się następnie **przejściowy,** czekając na łącznika, aby zaimportować zmianę nazwy lub usunięcie, aby rozwiązać sytuację.
+* Jeśli obiekt znajdujący się w obszarze łącznika nie ma zakotwiczenia, aparat synchronizacji usuwa ten obiekt z obszaru łącznika i oznaczy obiekt Metaverse, z którym jest on połączony, przy **następnym uruchomieniu synchronizacji**. Następnie tworzy nowy obiekt importu.
+* Jeśli obiekt znajdujący się w obszarze łącznika ma zakotwiczenie, aparat synchronizacji założono, że w połączonym katalogu zmieniono nazwę tego obiektu lub został on usunięty. Przypisuje tymczasową, nową nazwę wyróżniającą dla obiektu obszaru łącznika, aby można było przygotować obiekt przychodzący. Stary obiekt stanie się **chwilą**, oczekiwanie na zaimportowanie lub usunięcie tego łącznika w celu rozwiązania problemu.
 
-Jeśli aparat synchronizacji lokalizuje obiekt przemieszczania, który odpowiada obiektowi określonemu w łączniku, określa, jakiego rodzaju zmiany do zastosowania. Na przykład aparat synchronizacji może zmienić nazwę lub usunąć obiekt w połączonym źródle danych lub może tylko zaktualizować wartości atrybutów obiektu.
+Jeśli aparat synchronizacji lokalizuje obiekt przemieszczania, który odnosi się do obiektu określonego w łączniku, określa, jakiego rodzaju zmiany należy zastosować. Na przykład aparat synchronizacji może zmienić nazwę lub usunąć obiekt w połączonym źródle danych lub zaktualizować wartości atrybutów obiektu.
 
-Obiekty przemieszczania ze zaktualizowanymi danymi są oznaczone jako oczekujące na import. Dostępne są różne typy oczekujących importów. W zależności od wyniku procesu importowania obiekt przemieszczania w przestrzeni łącznika ma jeden z następujących typów importu oczekujących:
+Obiekty przejściowe ze zaktualizowanymi danymi są oznaczane jako oczekujące na import. Dostępne są różne typy oczekujących operacji importowania. W zależności od wyniku procesu importowania, obiekt przemieszczania w przestrzeni łącznika ma jeden z następujących oczekujących typów importu:
 
-* **Brak**. Żadne zmiany do żadnego atrybutów obiektu przemieszczania są dostępne. Aparat synchronizacji nie oznacza tego typu jako oczekującego importu.
-* **Dodaj**. Obiekt przemieszczania jest nowym obiektem importu w przestrzeni łącznika. Aparat synchronizacji oznacza ten typ jako oczekujący import do dodatkowego przetwarzania w metaverse.
-* **Aktualizacja**. Aparat synchronizacji znajduje odpowiedni obiekt przemieszczania w przestrzeni łącznika i oznacza ten typ jako oczekujący import, dzięki czemu aktualizacje atrybutów mogą być przetwarzane w metaverse. Aktualizacje obejmują zmianę nazwy obiektu.
-* **Usuń**plik . Aparat synchronizacji znajduje odpowiedni obiekt przemieszczania w przestrzeni łącznika i oznacza ten typ jako oczekujący import, dzięki czemu połączony obiekt może zostać usunięty.
-* **Usuń/Dodaj**. Aparat synchronizacji znajduje odpowiedni obiekt przemieszczania w przestrzeni łącznika, ale typy obiektów nie są zgodne. W takim przypadku modyfikacja usuwania i dodawania jest przemieszczana. Modyfikacja delete-add wskazuje aparatowi synchronizacji, że musi nastąpić pełna ponowna synchronizacja tego obiektu, ponieważ różne zestawy reguł mają zastosowanie do tego obiektu po zmianie typu obiektu.
+* **Brak**. Nie są dostępne żadne zmiany w żadnym z atrybutów obiektu przemieszczania. Aparat synchronizacji nie Oflaguj tego typu jako oczekującego importu.
+* **Dodaj**. Obiekt przemieszczania jest nowym obiektem importu w przestrzeni łącznika. Aparat synchronizacji flaguje ten typ jako oczekujący na dodatkowe przetwarzanie w magazynie Metaverse.
+* **Aktualizacja**. Aparat synchronizacji odnajduje odpowiedni obiekt tymczasowy w obszarze łącznika i flaguje ten typ jako oczekujące na import, aby aktualizacje atrybutów mogły być przetwarzane w magazynie Metaverse. Aktualizacje obejmują zmianę nazwy obiektu.
+* **Usuń**. Aparat synchronizacji odnajduje odpowiedni obiekt tymczasowy w obszarze łącznika i flaguje ten typ jako oczekujące na import, aby można było usunąć przyłączony obiekt.
+* **Usuń/Dodaj**. Aparat synchronizacji odnajduje odpowiedni obiekt tymczasowy w przestrzeni łącznika, ale typy obiektów nie są zgodne. W takim przypadku przygotowana jest modyfikacja usuwania dodawania. Modyfikacja usuwania dodawania wskazuje aparatowi synchronizacji, że musi wystąpić pełna ponowna synchronizacja tego obiektu, ponieważ różne zestawy reguł stosują się do tego obiektu, gdy zmieniany jest typ obiektu.
 
-Ustawiając oczekujący stan importu obiektu przemieszczania, można znacznie zmniejszyć ilość danych przetwarzanych podczas synchronizacji, ponieważ w ten sposób system może przetwarzać tylko te obiekty, które mają zaktualizowane dane.
+Ustawiając stan oczekującego importu obiektu przemieszczania, można zmniejszyć znacznie ilość danych przetworzonych podczas synchronizacji, ponieważ dzięki temu system może przetwarzać tylko te obiekty, które mają zaktualizowane dane.
 
 ### <a name="synchronization-process"></a>Proces synchronizacji
 Synchronizacja składa się z dwóch powiązanych procesów:
 
-* Synchronizacja przychodząca, gdy zawartość metaverse jest aktualizowana przy użyciu danych w przestrzeni łącznika.
-* Synchronizacja wychodząca, gdy zawartość przestrzeni łącznika jest aktualizowana przy użyciu danych w metaverse.
+* Synchronizacja ruchu przychodzącego, gdy zawartość programu Metaverse jest aktualizowana przy użyciu danych w obszarze łącznika.
+* Synchronizacja wychodząca, gdy zawartość obszaru łącznika jest aktualizowana przy użyciu danych w magazynie Metaverse.
 
-Korzystając z informacji przemieszczanych w przestrzeni łącznika, proces synchronizacji przychodzącej tworzy w metawerecie zintegrowany widok danych przechowywanych w połączonych źródłach danych. Wszystkie obiekty przejściowe lub tylko te z oczekującymi informacjami o imporcie są agregowane, w zależności od konfiguracji reguł.
+Przy użyciu informacji przemieszczonych w obszarze łącznika proces synchronizacji ruchu przychodzącego tworzy w obiekcie Metaverse Zintegrowany widok danych przechowywanych w połączonych źródłach danych. Wszystkie obiekty tymczasowe lub tylko te z oczekującymi informacjami o imporcie są agregowane w zależności od sposobu konfiguracji reguł.
 
-Proces synchronizacji ruchu wychodzącego aktualizuje obiekty eksportujące po zmianie obiektów metaverse.
+Proces synchronizacji danych wychodzących aktualizuje obiekty eksportu po zmianie obiektów Metaverse.
 
-Synchronizacja przychodząca tworzy widok zintegrowany w metawersum informacji o tożsamości, które są odbierane z połączonych źródeł danych. Aparat synchronizacji może przetwarzać informacje o tożsamości w dowolnym momencie przy użyciu najnowszych informacji o tożsamości, które ma z podłączonego źródła danych.
+Synchronizacja ruchu przychodzącego powoduje utworzenie zintegrowanego widoku w magazynie Metaverse informacji o tożsamości, które są odbierane z połączonych źródeł danych. Aparat synchronizacji może w dowolnym momencie przetwarzać informacje o tożsamości przy użyciu najnowszych informacji o tożsamości, które pochodzą z połączonego źródła danych.
 
 **Synchronizacja ruchu przychodzącego**
 
-Synchronizacja przychodząca obejmuje następujące procesy:
+Synchronizacja ruchu przychodzącego obejmuje następujące procesy:
 
-* **Provision (nazywany** również **projekcji,** jeśli jest ważne, aby odróżnić ten proces od inicjowania obsługi administracyjnej synchronizacji wychodzącej). Aparat synchronizacji tworzy nowy obiekt metaverse na podstawie obiektu przemieszczania i łączy je. Inicjacja jest operacją na poziomie obiektu.
-* **Dołącz**. Aparat synchronizacji łączy obiekt przemieszczania z istniejącym obiektem metaverse. Sprzężenie jest operacją na poziomie obiektu.
-* **Importuj przepływ atrybutów**. Aparat synchronizacji aktualizuje wartości atrybutów, zwane przepływem atrybutów, obiektu w metaverse. Importuj przepływ atrybutów jest operacją na poziomie atrybutu, która wymaga łącza między obiektem przemieszczania a obiektem metaverse.
+* **Inicjowanie** obsługi administracyjnej (nazywanej również **projekcją** , jeśli ważne jest odróżnienie tego procesu od aprowizacji synchronizacji wychodzącej). Aparat synchronizacji tworzy nowy obiekt Metaverse oparty na obiekcie przemieszczania i łączy je. Inicjowanie obsługi administracyjnej jest operacją na poziomie obiektu.
+* **Dołącz**. Aparat synchronizacji łączy obiekt przemieszczania z istniejącym obiektem Metaverse. Sprzężenie jest operacją na poziomie obiektu.
+* **Importuj przepływ atrybutów**. Aparat synchronizacji aktualizuje wartości atrybutów, nazywane przepływem atrybutu, obiektu w obiekcie Metaverse. Importowanie przepływu atrybutów jest operacją na poziomie atrybutu, która wymaga połączenia między obiektem przemieszczania i obiektem Metaverse.
 
-Provision provision jest jedynym procesem, który tworzy obiekty w metaverse. Aprower dotyczy tylko obiektów importu, które są odłączone obiekty. Podczas inicjowania obsługi administracyjnej aparat synchronizacji tworzy obiekt metaverse, który odpowiada typowi obiektu importu i ustanawia łącze między obu obiektami, tworząc w ten sposób połączony obiekt.
+Inicjowanie obsługi jest jedynym procesem, który tworzy obiekty w obiekcie Metaverse. Inicjowanie obsługi dotyczy tylko obiektów importu, które są odłączone. Podczas aprowizacji aparat synchronizacji tworzy obiekt Metaverse, który odnosi się do typu obiektu obiektu importu i ustanawia połączenie między obydwoma obiektami, tworząc w ten sposób przyłączony obiekt.
 
-Proces sprzężenia ustanawia również łącze między obiektami importu i obiektem metaverse. Różnica między sprzężenia i aprowizysk jest, że proces sprzężenia wymaga, aby obiekt importu są połączone z istniejącym obiektem metaverse, gdzie proces inicjowania tworzy nowy obiekt metaverse.
+Proces dołączania ustanawia także łącze między obiektami importu i obiektem Metaverse. Różnica między przyłączaniem i udostępnianiem polega na tym, że proces przyłączania wymaga, aby obiekt importu był połączony z istniejącym obiektem Metaverse, gdzie proces udostępniania tworzy nowy obiekt Metaverse.
 
-Aparat synchronizacji próbuje połączyć obiekt importu z obiektem metaverse przy użyciu kryteriów określonych w konfiguracji reguły synchronizacji.
+Aparat synchronizacji próbuje dołączyć obiekt importu do obiektu metaverse przy użyciu kryteriów określonych w konfiguracji reguły synchronizacji.
 
-Podczas inicjowania obsługi administracyjnej i sprzężenia procesów aparat synchronizacji łączy odłączony obiekt do obiektu metaverse, dzięki czemu są połączone. Po zakończeniu tych operacji na poziomie obiektu aparat synchronizacji może zaktualizować wartości atrybutów skojarzonego obiektu metaverse. Ten proces jest nazywany przepływem atrybutów importu.
+W trakcie procesów aprowizacji i przyłączania aparat synchronizacji łączy rozłączny obiekt z obiektem Metaverse, a następnie dołącza do nich. Po zakończeniu tych operacji na poziomie obiektów aparat synchronizacji może zaktualizować wartości atrybutów skojarzonego obiektu Metaverse. Ten proces jest nazywany przepływem atrybutu importu.
 
-Import przepływu atrybutów występuje na wszystkich obiektach importu, które zawierają nowe dane i są połączone z obiektem metaverse.
+Przepływ atrybutów importowania występuje na wszystkich obiektach importu, które zawierają nowe dane i są połączone z obiektem Metaverse.
 
-**Synchronizacja ruchu wychodzącego**
+**Synchronizacja wychodząca**
 
-Synchronizacja wychodząca aktualizuje obiekty eksportujące, gdy obiekt metaverse zmienia się, ale nie jest usuwany. Celem synchronizacji wychodzącej jest ocena, czy zmiany obiektów metaverse wymagają aktualizacji obiektów przemieszczania w przestrzeni łącznika. W niektórych przypadkach zmiany mogą wymagać aktualizacji obiektów przemieszczania we wszystkich przestrzeniach łączników. Obiekty przemieszczania, które zostały zmienione są oflagowane jako oczekujące eksportu, dzięki czemu ich eksportowania obiektów. Te obiekty eksportu są później wypychane do połączonego źródła danych podczas procesu eksportowania.
+Synchronizacja wychodząca aktualizacji eksportuje obiekty, gdy obiekt Metaverse zostanie zmieniony, ale nie został usunięty. Celem synchronizacji danych wychodzących jest oszacowanie, czy zmiany w obiektach Metaverse wymagają aktualizacji obiektów przejściowych w miejscach łączników. W niektórych przypadkach zmiany mogą wymagać aktualizacji obiektów przemieszczania we wszystkich miejscach łączników. Obiekty przemieszczania, które są zmieniane, są oflagowane jako oczekujące na wywóz, co umożliwia ich eksportowanie obiektów. Te obiekty eksportu są później przekazywane do połączonego źródła danych podczas procesu eksportowania.
 
 Synchronizacja wychodząca ma trzy procesy:
 
 * **Inicjowanie obsługi**
-* **Anulowanie obsługi administracyjnej**
-* **Eksportowanie przepływu atrybutów**
+* **Anulowania obsługi**
+* **Eksportuj przepływ atrybutów**
 
-Inicjowania obsługi administracyjnej i anulowania obsługi administracyjnej są zarówno operacji na poziomie obiektu. Anulowanie obsługi administracyjnej zależy od inicjowania obsługi administracyjnej, ponieważ tylko inicjowanie obsługi administracyjnej może go zainicjować. Anulowanie obsługi administracyjnej jest wyzwalane, gdy inicjowanie obsługi administracyjnej usuwa łącze między obiektem metaverse a obiektem eksportu.
+Inicjowanie obsługi administracyjnej i cofanie aprowizacji to operacje na poziomie obiektów. Anulowanie aprowizacji zależy od zainicjowania obsługi, ponieważ może ją inicjować tylko inicjowanie obsługi administracyjnej. Anulowanie aprowizacji jest wyzwalane po usunięciu powiązania między obiektem Metaverse a obiektem eksportu.
 
-Inicjowanie obsługi administracyjnej jest zawsze wyzwalane, gdy zmiany są stosowane do obiektów w metaverse. Po wprowadzeniu zmian w obiektach metaverse aparat synchronizacji może wykonywać dowolne z następujących zadań w ramach procesu inicjowania obsługi administracyjnej:
+Inicjowanie obsługi jest zawsze wyzwalane, gdy zmiany są stosowane do obiektów w obiekcie Metaverse. Po wprowadzeniu zmian w obiektach Metaverse aparat synchronizacji może wykonać dowolne z następujących zadań w ramach procesu aprowizacji:
 
-* Utwórz połączone obiekty, w których obiekt metaverse jest połączony z nowo utworzonym obiektem eksportu.
-* Zmień nazwę połączonego obiektu.
-* Rozłączyć łącza między obiektem metaverse i obiektami przemieszczania, tworząc obiekt rozłączony.
+* Utwórz przyłączone obiekty, gdzie obiekt Metaverse jest połączony z nowo utworzonym obiektem eksportu.
+* Zmień nazwę przyłączonego obiektu.
+* Rozłącz linki między obiektem Metaverse i obiektami przemieszczania, tworząc rozłączny obiekt.
 
-Jeśli inicjowanie obsługi administracyjnej wymaga aparatu synchronizacji, aby utworzyć nowy obiekt łącznika, obiekt przemieszczania, do którego jest połączony obiekt metaverse jest zawsze obiektem eksportu, ponieważ obiekt nie istnieje jeszcze w połączonym źródle danych.
+Jeśli Inicjowanie obsługi wymaga aparatu synchronizacji do utworzenia nowego obiektu łącznika, obiekt przemieszczania, do którego jest połączony obiekt Metaverse, jest zawsze obiektem eksportu, ponieważ obiekt nie istnieje jeszcze w połączonym źródle danych.
 
-Jeśli inicjowanie obsługi administracyjnej wymaga aparatu synchronizacji do odłączenia sprzężone obiektu, tworząc obiekt rozłączony, deprovisioning jest wyzwalany. Proces anulowania obsługi administracyjnej usuwa obiekt.
+Jeśli obsługa administracyjna wymaga aparatu synchronizacji do odłączenia przyłączonego obiektu, utworzenie odłączonego obiektu powoduje wyzwolenie anulowania aprowizacji. Proces anulowania aprowizacji usuwa obiekt.
 
-Podczas anulowania obsługi administracyjnej usunięcie obiektu eksportu nie powoduje fizycznego usunięcia obiektu. Obiekt jest oflagowany jako **usunięty**, co oznacza, że operacja usuwania jest przemieszczana na obiekcie.
+Podczas anulowania aprowizacji usuwanie obiektu eksportu nie powoduje fizycznego usunięcia obiektu. Obiekt jest oflagowany jako **usunięty**, co oznacza, że operacja usuwania jest przygotowana do obiektu.
 
-Przepływ atrybutów eksportu występuje również podczas procesu synchronizacji wychodzącej, podobnie jak przepływ atrybutów importu podczas synchronizacji przychodzącej. Przepływ atrybutów Eksportu występuje tylko między obiektami metaverse i eksportu, które są połączone.
+Przepływ atrybutu eksportu występuje również w procesie synchronizacji danych wychodzących, podobnie jak w przypadku synchronizacji ruchu przychodzącego przez przepływ atrybutów importu. Przepływ atrybutu eksportu występuje tylko między obiektami Metaverse i eksportu, które są sprzężone.
 
 ### <a name="export-process"></a>Proces eksportowania
-Podczas procesu eksportowania aparat synchronizacji sprawdza wszystkie obiekty eksportu, które są oflagowane jako oczekujące na eksport w przestrzeni łącznika, a następnie wysyła aktualizacje do połączonego źródła danych.
+W procesie eksportu aparat synchronizacji bada wszystkie obiekty eksportu, które są oflagowane jako oczekujące na eksport w obszarze łącznika, a następnie wysyła aktualizacje do połączonego źródła danych.
 
-Aparat synchronizacji można określić powodzenie eksportu, ale nie może wystarczająco określić, że proces zarządzania tożsamościami jest zakończony. Obiekty w połączonym źródle danych zawsze mogą być zmieniane przez inne procesy. Ponieważ aparat synchronizacji nie ma trwałego połączenia z połączonym źródłem danych, nie jest wystarczające, aby przyjąć założenia dotyczące właściwości obiektu w połączonym źródle danych tylko na podstawie pomyślnego powiadomienia o wyeksportu.
+Aparat synchronizacji może ustalić pomyślne eksporty, ale nie może ustalić, czy proces zarządzania tożsamościami został ukończony. Obiekty w połączonym źródle danych zawsze mogą być zmieniane przez inne procesy. Ponieważ aparat synchronizacji nie ma trwałego połączenia z połączonym źródłem danych, nie wystarcza do wprowadzania założeń o właściwościach obiektu w połączonym źródle danych, które są oparte tylko na pomyślnym wyeksportowaniu powiadomienia.
 
-Na przykład proces w połączonym źródle danych może zmienić atrybuty obiektu z powrotem na ich oryginalne wartości (oznacza to, że połączone źródło danych może zastąpić wartości natychmiast po wypchnięciu danych przez aparat synchronizacji i pomyślnym zastosowaniu w podłączonego źródła danych).
+Na przykład proces w połączonym źródle danych może zmienić atrybuty obiektu z powrotem do ich oryginalnych wartości (to oznacza, że połączone źródło danych może zastąpić wartości bezpośrednio po wypchnięciu danych przez aparat synchronizacji i pomyślnie zastosowanym w połączonym źródle danych).
 
-Aparat synchronizacji przechowuje informacje o stanie eksportu i importu dla każdego obiektu przemieszczania. Jeśli wartości atrybutów, które są określone na liście dołączania atrybutów uległy zmianie od czasu ostatniego eksportu, magazyn stanu importu i eksportu umożliwia aparatowi synchronizacji odpowiednie reagowanie. Aparat synchronizacji używa procesu importowania do potwierdzenia wartości atrybutów, które zostały wyeksportowane do połączonego źródła danych. Porównanie importowanych i wyeksportowanych informacji, jak pokazano na poniższej ilustracji, umożliwia aparatowi synchronizacji ustalenie, czy eksport zakończył się pomyślnie, czy też musi zostać powtórzony.
+Aparat synchronizacji przechowuje informacje o stanie eksportu i importu dotyczące każdego obiektu przemieszczania. Jeśli wartości atrybutów, które są określone na liście dołączania atrybutów od ostatniego eksportu, magazyn importu i eksportu umożliwiają aparatowi synchronizacji odpowiednio reagować. Aparat synchronizacji używa procesu importowania do potwierdzania wartości atrybutów, które zostały wyeksportowane do połączonego źródła danych. Porównanie zaimportowanych i eksportowanych informacji, jak pokazano na poniższej ilustracji, umożliwia aparatowi synchronizacji ustalenie, czy eksport zakończył się powodzeniem, czy też musi być powtórzony.
 
-![Łuk 7](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
+![Arch7](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
 
-Na przykład jeśli aparat synchronizacji eksportuje atrybut C, który ma wartość 5, do połączonego źródła danych, przechowuje C = 5 w pamięci stanu eksportu. Każdy dodatkowy eksport tego obiektu powoduje próbę ponownego wyeksportowania C=5 do połączonego źródła danych, ponieważ aparat synchronizacji zakłada, że ta wartość nie została uporczywie zastosowana do obiektu (to jest, chyba że ostatnio zaimportowano inną wartość z obiektu połączonego źródła danych). Pamięć eksportu jest czyszczona po odebraniu C=5 podczas operacji importowania obiektu.
+Na przykład jeśli aparat synchronizacji eksportuje atrybut C, który ma wartość 5, do połączonego źródła danych, przechowuje C = 5 w pamięci stanu eksportu. Każdy dodatkowy eksport tego obiektu spowoduje ponowne wypróbowanie eksportu C = 5 do połączonego źródła danych, ponieważ aparat synchronizacji zakłada, że ta wartość nie została trwale zastosowana do obiektu (to jest, chyba że inna wartość została ostatnio zaimportowana z połączonego źródła danych). Pamięć eksportu jest czyszczona po odebraniu C = 5 podczas operacji importowania obiektu.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o konfiguracji [synchronizacji usługi Azure AD Connect.](how-to-connect-sync-whatis.md)
+Dowiedz się więcej o konfiguracji [synchronizacji Azure AD Connect](how-to-connect-sync-whatis.md) .
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md).
 

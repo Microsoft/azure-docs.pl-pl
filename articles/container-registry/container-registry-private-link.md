@@ -291,7 +291,7 @@ W poniższych krokach założono, że masz już sieć wirtualną i podsieć skon
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    |**Obsługa sieci**| |
+    |**Networking**| |
     | Sieć wirtualna| Wybierz sieć wirtualną, w której jest wdrożona maszyna wirtualna, na przykład *myDockerVMVNET*. |
     | Podsieć | Wybierz podsieć, taką jak *myDockerVMSubnet,* w której jest wdrażana maszyna wirtualna. |
     |**Prywatna integracja z systemem DNS**||

@@ -1,6 +1,6 @@
 ---
-title: Jak filtrować zdarzenia dla usługi Azure Event Grid
-description: W tym artykule pokazano, jak filtrować zdarzenia (według typu zdarzenia, według tematu, przez operatorów i dane itp.) podczas tworzenia subskrypcji usługi Event Grid.
+title: Jak filtrować zdarzenia dla Azure Event Grid
+description: W tym artykule przedstawiono sposób filtrowania zdarzeń (według typu zdarzenia, według operatorów i danych itp.) podczas tworzenia subskrypcji Event Grid.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 63a5cdbff79af52d9f96cf410a820c6cfc530066
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79454027"
 ---
-# <a name="filter-events-for-event-grid"></a>Filtrowanie zdarzeń dla siatki zdarzeń
+# <a name="filter-events-for-event-grid"></a>Filtruj zdarzenia dla Event Grid
 
-W tym artykule pokazano, jak filtrować zdarzenia podczas tworzenia subskrypcji usługi Event Grid. Aby dowiedzieć się więcej o opcjach filtrowania zdarzeń, zobacz [Opis filtrowania zdarzeń w przypadku subskrypcji usługi Event Grid](event-filtering.md).
+W tym artykule przedstawiono sposób filtrowania zdarzeń podczas tworzenia subskrypcji Event Grid. Aby dowiedzieć się więcej na temat opcji filtrowania zdarzeń, zobacz [Omówienie filtrowania zdarzeń dla subskrypcji Event Grid](event-filtering.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="filter-by-event-type"></a>Filtrowanie według typu zdarzenia
+## <a name="filter-by-event-type"></a>Filtruj według typu zdarzenia
 
-Podczas tworzenia subskrypcji usługi Event Grid można określić [typy zdarzeń,](event-schema.md) które mają być wysyłane do punktu końcowego. Przykłady w tej sekcji tworzą subskrypcje zdarzeń dla grupy zasobów, `Microsoft.Resources.ResourceWriteFailure` `Microsoft.Resources.ResourceWriteSuccess`ale ograniczają zdarzenia wysyłane do i . Jeśli potrzebujesz większej elastyczności podczas filtrowania zdarzeń według typów zdarzeń, zobacz Filtrowanie według zaawansowanych operatorów i pól danych.
+Podczas tworzenia subskrypcji Event Grid można określić [typy zdarzeń](event-schema.md) do wysłania do punktu końcowego. Przykłady w tej sekcji tworzą subskrypcje zdarzeń dla grupy zasobów, ale ograniczają zdarzenia, które są wysyłane do `Microsoft.Resources.ResourceWriteFailure` i `Microsoft.Resources.ResourceWriteSuccess`. Jeśli potrzebujesz większej elastyczności podczas filtrowania zdarzeń według typów zdarzeń, zobacz filtrowanie według zaawansowanych operatorów i pól danych.
 
-W przypadku programu PowerShell należy użyć tego parametru `-IncludedEventType` podczas tworzenia subskrypcji.
+W przypadku programu PowerShell Użyj `-IncludedEventType` parametru podczas tworzenia subskrypcji.
 
 ```powershell
 $includedEventTypes = "Microsoft.Resources.ResourceWriteFailure", "Microsoft.Resources.ResourceWriteSuccess"
@@ -36,7 +36,7 @@ New-AzEventGridSubscription `
   -IncludedEventType $includedEventTypes
 ```
 
-W przypadku interfejsu `--included-event-types` wiersza polecenia platformy Azure należy użyć tego parametru. W poniższym przykładzie użyto interfejsu wiersza polecenia platformy Azure w powłoce Bash:
+W przypadku interfejsu wiersza polecenia platformy `--included-event-types` Azure Użyj parametru. W poniższym przykładzie pokazano użycie interfejsu wiersza polecenia platformy Azure w bash Shell:
 
 ```azurecli
 includedEventTypes="Microsoft.Resources.ResourceWriteFailure Microsoft.Resources.ResourceWriteSuccess"
@@ -48,7 +48,7 @@ az eventgrid event-subscription create \
   --included-event-types $includedEventTypes
 ```
 
-W przypadku szablonu Menedżera `includedEventTypes` zasobów użyj właściwości.
+Dla szablonu Menedżer zasobów Użyj `includedEventTypes` właściwości.
 
 ```json
 "resources": [
@@ -77,11 +77,11 @@ W przypadku szablonu Menedżera `includedEventTypes` zasobów użyj właściwoś
 ]
 ```
 
-## <a name="filter-by-subject"></a>Filtrowanie według tematu
+## <a name="filter-by-subject"></a>Filtruj według tematu
 
-Zdarzenia można filtrować według tematu w danych zdarzenia. Można określić wartość dopasowaną do początku lub końca tematu. Jeśli potrzebujesz większej elastyczności podczas filtrowania zdarzeń według tematu, zobacz Filtrowanie według zaawansowanych operatorów i pól danych.
+Zdarzenia można filtrować według tematu w danych zdarzenia. Możesz określić wartość do dopasowania na początku lub na końcu tematu. Jeśli potrzebujesz większej elastyczności podczas filtrowania zdarzeń według tematu, zobacz filtrowanie według zaawansowanych operatorów i pól danych.
 
-W poniższym przykładzie programu PowerShell należy utworzyć subskrypcję zdarzeń, która filtruje według początku tematu. Parametr służy `-SubjectBeginsWith` do ograniczania zdarzeń do zdarzeń dla określonego zasobu. Identyfikator zasobu sieciowej grupy zabezpieczeń jest przekazywalny.
+W poniższym przykładzie programu PowerShell utworzysz subskrypcję zdarzeń, która jest filtrowana według początku tematu. Należy użyć parametru `-SubjectBeginsWith` , aby ograniczyć zdarzenia do określonych zasobów. Należy przekazać identyfikator zasobu sieciowej grupy zabezpieczeń.
 
 ```powershell
 $resourceId = (Get-AzResource -ResourceName demoSecurityGroup -ResourceGroupName myResourceGroup).ResourceId
@@ -93,7 +93,7 @@ New-AzEventGridSubscription `
   -SubjectBeginsWith $resourceId
 ```
 
-Następny przykład programu PowerShell tworzy subskrypcję magazynu obiektów blob. Ogranicza zdarzenia do tych z tematem, który kończy się na `.jpg`.
+Następny przykład programu PowerShell tworzy subskrypcję magazynu obiektów BLOB. Ogranicza zdarzenia do tych elementów za pomocą podmiotu kończącego `.jpg`się na.
 
 ```powershell
 $storageId = (Get-AzStorageAccount -ResourceGroupName myResourceGroup -AccountName $storageName).Id
@@ -105,7 +105,7 @@ New-AzEventGridSubscription `
   -SubjectEndsWith ".jpg"
 ```
 
-W poniższym przykładzie interfejsu wiersza polecenia platformy Azure należy utworzyć subskrypcję zdarzeń, która filtruje według początku tematu. Parametr służy `--subject-begins-with` do ograniczania zdarzeń do zdarzeń dla określonego zasobu. Identyfikator zasobu sieciowej grupy zabezpieczeń jest przekazywalny.
+W poniższym przykładzie interfejsu wiersza polecenia platformy Azure utworzysz subskrypcję zdarzeń, która jest filtrowana według początku tematu. Należy użyć parametru `--subject-begins-with` , aby ograniczyć zdarzenia do określonych zasobów. Należy przekazać identyfikator zasobu sieciowej grupy zabezpieczeń.
 
 ```azurecli
 resourceId=$(az resource show --name demoSecurityGroup --resource-group myResourceGroup --resource-type Microsoft.Network/networkSecurityGroups --query id --output tsv)
@@ -117,7 +117,7 @@ az eventgrid event-subscription create \
   --subject-begins-with $resourceId
 ```
 
-Następny przykład interfejsu wiersza polecenia platformy Azure tworzy subskrypcję magazynu obiektów blob. Ogranicza zdarzenia do tych z tematem, który kończy się na `.jpg`.
+Następny przykład interfejsu wiersza polecenia platformy Azure tworzy subskrypcję magazynu obiektów BLOB. Ogranicza zdarzenia do tych elementów za pomocą podmiotu kończącego `.jpg`się na.
 
 ```azurecli
 storageid=$(az storage account show --name $storageName --resource-group myResourceGroup --query id --output tsv)
@@ -129,7 +129,7 @@ az eventgrid event-subscription create \
   --subject-ends-with ".jpg"
 ```
 
-W poniższym przykładzie szablonu Menedżera zasobów należy utworzyć subskrypcję zdarzeń, która filtruje według początku tematu. Właściwości służy `subjectBeginsWith` do ograniczania zdarzeń do zdarzeń dla określonego zasobu. Identyfikator zasobu sieciowej grupy zabezpieczeń jest przekazywalny.
+W poniższym przykładzie szablonu Menedżer zasobów utworzysz subskrypcję zdarzeń, która jest filtrowana według początku tematu. `subjectBeginsWith` Właściwość służy do ograniczania liczby zdarzeń do określonych zasobów. Należy przekazać identyfikator zasobu sieciowej grupy zabezpieczeń.
 
 ```json
 "resources": [
@@ -155,7 +155,7 @@ W poniższym przykładzie szablonu Menedżera zasobów należy utworzyć subskry
 ]
 ```
 
-Następny przykład szablonu Menedżera zasobów tworzy subskrypcję magazynu obiektów blob. Ogranicza zdarzenia do tych z tematem, który kończy się na `.jpg`.
+Następny przykład szablonu Menedżer zasobów tworzy subskrypcję magazynu obiektów BLOB. Ogranicza zdarzenia do tych elementów za pomocą podmiotu kończącego `.jpg`się na.
 
 ```json
 "resources": [
@@ -183,13 +183,13 @@ Następny przykład szablonu Menedżera zasobów tworzy subskrypcję magazynu ob
 
 ## <a name="filter-by-operators-and-data"></a>Filtrowanie według operatorów i danych
 
-Aby uzyskać większą elastyczność filtrowania, można użyć operatorów i właściwości danych do filtrowania zdarzeń.
+Aby zapewnić większą elastyczność filtrowania, można użyć operatorów i właściwości danych do filtrowania zdarzeń.
 
-### <a name="subscribe-with-advanced-filters"></a>Subskrybuj zaawansowane filtry
+### <a name="subscribe-with-advanced-filters"></a>Subskrybowanie filtrów zaawansowanych
 
-Aby dowiedzieć się więcej o operatorach i kluczach, których można używać do filtrowania zaawansowanego, zobacz [Filtrowanie zaawansowane](event-filtering.md#advanced-filtering).
+Aby dowiedzieć się więcej na temat operatorów i kluczy, których można użyć do filtrowania zaawansowanego, zobacz [filtrowanie zaawansowane](event-filtering.md#advanced-filtering).
 
-Te przykłady tworzą temat niestandardowy. Subskrybują temat niestandardowy i filtrują według wartości w obiekcie danych. Zdarzenia, które mają właściwość color ustawioną na niebieską, czerwoną lub zieloną, są wysyłane do subskrypcji.
+W tych przykładach opisano tworzenie tematu niestandardowego. Subskrybują temat niestandardowy i filtrują według wartości w obiekcie danych. Zdarzenia, które mają Właściwość Color ustawioną na niebieską, czerwoną lub zieloną, są wysyłane do subskrypcji.
 
 W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
 
@@ -234,9 +234,9 @@ New-AzEventGridSubscription `
   -AdvancedFilter @($AdvFilter1)
 ```
 
-### <a name="test-filter"></a>Filtr testowy
+### <a name="test-filter"></a>Filtr testu
 
-Aby przetestować filtr, wyślij zdarzenie z polem koloru ustawionym na zielony. Ponieważ zielony jest jedną z wartości w filtrze, zdarzenie jest dostarczane do punktu końcowego.
+Aby przetestować filtr, Wyślij zdarzenie z polem koloru ustawionym na zielony. Ponieważ zielona jest jedną z wartości w filtrze, zdarzenie jest dostarczane do punktu końcowego.
 
 W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
 
@@ -275,7 +275,7 @@ $body = "["+(ConvertTo-Json $htbody)+"]"
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-Aby przetestować scenariusz, w którym zdarzenie nie jest wysyłane, wyślij zdarzenie z polem koloru ustawionym na żółty. Żółty nie jest jedną z wartości określonych w subskrypcji, więc zdarzenie nie jest dostarczane do subskrypcji.
+Aby przetestować scenariusz, w którym zdarzenie nie jest wysyłane, Wyślij zdarzenie z polem koloru ustawionym na żółty. Żółty nie jest jedną z wartości określonych w subskrypcji, więc zdarzenie nie jest dostarczane do subskrypcji.
 
 W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
 
@@ -306,6 +306,6 @@ Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-ke
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać informacje dotyczące monitorowania dostaw zdarzeń, zobacz [Monitorowanie dostarczania komunikatów w sieci zdarzeń](monitor-event-delivery.md).
-* Aby uzyskać więcej informacji na temat klucza uwierzytelniania, zobacz [Zabezpieczenia i uwierzytelnianie w siatce zdarzeń](security-authentication.md).
-* Aby uzyskać więcej informacji na temat tworzenia subskrypcji usługi Azure Event Grid, zobacz [schemat subskrypcji usługi Event Grid](subscription-creation-schema.md).
+* Aby uzyskać informacje na temat monitorowania dostarczania zdarzeń, zobacz [monitorowanie Event Grid dostarczania komunikatów](monitor-event-delivery.md).
+* Aby uzyskać więcej informacji na temat klucza uwierzytelniania, zobacz [Event Grid zabezpieczenia i uwierzytelnianie](security-authentication.md).
+* Aby uzyskać więcej informacji na temat tworzenia subskrypcji Azure Event Grid, zobacz [Event Grid schematu subskrypcji](subscription-creation-schema.md).

@@ -16,7 +16,7 @@ ms.author: wieastbu
 ms.custom: fasttrack-new
 ms.openlocfilehash: 55acea360de11c5fcc699d65daf92cf24dfd691d
 ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79475480"
@@ -166,7 +166,7 @@ Otwórz blok usługi Azure AD B2C w portalu i wykonaj następujące kroki.
    > Teraz interfejs API funkcji jest wdrożony i należy zgłosić 401 odpowiedzi, jeśli nie podano poprawny klucz i należy zwrócić dane, gdy zostanie wyświetlone prawidłowe żądanie.
    > Dodano dodatkowe zabezpieczenia obrony w EasyAuth, konfigurując opcję "Zaloguj się za pomocą usługi Azure AD" do obsługi nieuwierzytywanych żądań. Należy pamiętać, że spowoduje to zmianę zachowania nieautoryzowanego żądania między aplikacją funkcji wewnętrznej bazy danych a funkcją Frontend SPA, ponieważ EasyAuth wyda przekierowanie 302 do usługi AAD zamiast odpowiedzi nie autoryzowanej 401, poprawimy to przy użyciu zarządzania interfejsami API później.
    > Nadal nie stosujemy zabezpieczeń IP, jeśli masz prawidłowy klucz i token OAuth2, każdy może to wywołać z dowolnego miejsca - najlepiej, jeśli chcemy wymusić wszystkie żądania przyjść za pośrednictwem zarządzania interfejsami API.
-   > Jeśli używasz warstwy zużycia usługi API Management, nie będzie można wykonać tej blokady przez adres VIP, ponieważ nie ma dedykowanego statycznego adresu IP dla tej warstwy, musisz polegać na metodzie blokowania wywołań interfejsu API za pośrednictwem udostępnionego klucza funkcji tajnej , więc kroki 11-13 nie będą możliwe.
+   > Jeśli używasz warstwy zużycia usługi API Management, nie będzie można wykonać tej blokady przez adres VIP, ponieważ nie ma dedykowanego statycznego adresu IP dla tej warstwy, musisz polegać na metodzie blokowania wywołań interfejsu API za pośrednictwem udostępnionego klucza funkcji tajnej, więc kroki 11-13 nie będą możliwe.
 
 1. Zamykanie bloku "Uwierzytelnianie/ autoryzacja" 
 1. Wybierz opcję "Sieć", a następnie wybierz "Ograniczenia dostępu"
@@ -174,7 +174,7 @@ Otwórz blok usługi Azure AD B2C w portalu i wykonaj następujące kroki.
 1. Jeśli chcesz nadal wchodzić w interakcje z portalem funkcji i wykonać poniższe opcjonalne kroki, należy również dodać własny publiczny adres IP lub zakres CIDR.
 1. Gdy na liście pojawi się wpis zezwalania, platforma Azure dodaje regułę niejawnego odrzucania, aby zablokować wszystkie inne adresy. 
 
-Do panelu Ograniczenia IP należy dodać sformatowane w formacie CIDR bloki adresów. When you need to add a single address such as the API Management VIP, you need to add it in the format xx.xx.xx.xx.
+Do panelu Ograniczenia IP należy dodać sformatowane w formacie CIDR bloki adresów. Jeśli trzeba dodać jeden adres, taki jak ADRES VIP zarządzania interfejsem API, należy dodać go w formacie xx.xx.xx.xx.
 
    > [!NOTE]
    > Teraz interfejs API funkcji nie powinny być wywoływane z dowolnego miejsca innego niż za pośrednictwem zarządzania interfejsem API lub adres.

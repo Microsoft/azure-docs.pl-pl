@@ -1,6 +1,6 @@
 ---
-title: Ustawienia plików cookie serwera proxy aplikacji — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Usługa Azure Active Directory (Azure AD) ma dostęp i sesyjne pliki cookie do uzyskiwania dostępu do aplikacji lokalnych za pośrednictwem serwera proxy aplikacji. Z tego artykułu dowiesz się, jak używać i konfigurować ustawienia plików cookie.
+title: Ustawienia plików cookie serwera proxy aplikacji — Azure Active Directory | Microsoft Docs
+description: Azure Active Directory (Azure AD) zawiera pliki cookie dostępu i sesji do uzyskiwania dostępu do aplikacji lokalnych za pomocą serwera proxy aplikacji. W tym artykule opisano sposób używania i konfigurowania ustawień plików cookie.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,46 +13,46 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bcedb24a0efdbabaaef150fc3d5aff07d210ce23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481368"
 ---
-# <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Ustawienia plików cookie dotyczące uzyskiwania dostępu do aplikacji lokalnych w usłudze Azure Active Directory
+# <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Ustawienia plików cookie do uzyskiwania dostępu do aplikacji lokalnych w Azure Active Directory
 
-Usługa Azure Active Directory (Azure AD) ma dostęp i sesyjne pliki cookie do uzyskiwania dostępu do aplikacji lokalnych za pośrednictwem serwera proxy aplikacji. Dowiedz się, jak korzystać z ustawień plików cookie serwera proxy aplikacji. 
+Azure Active Directory (Azure AD) zawiera pliki cookie dostępu i sesji do uzyskiwania dostępu do aplikacji lokalnych za pomocą serwera proxy aplikacji. Dowiedz się, jak używać ustawień plików cookie serwera proxy aplikacji. 
 
 ## <a name="what-are-the-cookie-settings"></a>Jakie są ustawienia plików cookie?
 
-[Serwer proxy aplikacji](application-proxy.md) używa następujących ustawień dostępu i plików cookie sesji.
+[Serwer proxy aplikacji](application-proxy.md) używa następujących ustawień dostępu i pliku cookie sesji.
 
-| Ustawienie pliku cookie | Domyślne | Opis | Zalecenia |
+| Ustawienie pliku cookie | Domyślny | Opis | Zalecenia |
 | -------------- | ------- | ----------- | --------------- |
-| Użyj pliku cookie tylko HTTP | **Nie** | **Tak** umożliwia serwerowi proxy aplikacji dołączanie flagi HTTPOnly w nagłówkach odpowiedzi HTTP. Ta flaga zapewnia dodatkowe korzyści w zakresie zabezpieczeń, na przykład uniemożliwia kopiowanie lub modyfikowanie plików cookie skryptów po stronie klienta (CSS).<br></br><br></br>Zanim obsługujemy ustawienie tylko http, serwer proxy aplikacji szyfrował i przesyłał pliki cookie za pośrednictwem zabezpieczonego kanału TLS w celu ochrony przed modyfikacją. | Użyj **tak** ze względu na dodatkowe korzyści związane z zabezpieczeniami.<br></br><br></br>Użyj **nie** dla klientów lub agentów użytkowników, którzy wymagają dostępu do pliku cookie sesji. Na przykład użyj **nie** dla klienta RDP lub MTSC, który łączy się z serwerem bramy usług pulpitu zdalnego za pośrednictwem serwera proxy aplikacji.|
-| Użyj bezpiecznego pliku cookie | **Nie** | **Tak** umożliwia serwerowi proxy aplikacji dołączanie flagi Secure w nagłówkach odpowiedzi HTTP. Bezpieczne pliki cookie zwiększają bezpieczeństwo, przesyłając pliki cookie za pośrednictwem zabezpieczonego kanału TLS, takiego jak HTTPS. Zapobiega to obserwowaniu plików cookie przez osoby nieupoważnione z powodu transmisji pliku cookie w postaci zwykłego tekstu. | Użyj **tak** ze względu na dodatkowe korzyści związane z zabezpieczeniami.|
-| Używaj trwałego pliku cookie | **Nie** | **Tak** pozwala Serwerowi Proxy aplikacji ustawić pliki cookie dostępu, aby nie wygasały po zamknięciu przeglądarki internetowej. Trwałość trwa do wygaśnięcia tokenu dostępu lub do czasu, gdy użytkownik ręcznie usunie trwałe pliki cookie. | Użyj **nie** ze względu na ryzyko bezpieczeństwa związane z utrzymaniem uwierzytelnienia użytkowników.<br></br><br></br>Sugerujemy użycie tylko **tak** dla starszych aplikacji, które nie mogą udostępniać plików cookie między procesami. Lepiej zaktualizować aplikację, aby obsługiwać udostępnianie plików cookie między procesami zamiast używać trwałych plików cookie. Na przykład może być potrzebne trwałe pliki cookie, aby umożliwić użytkownikowi otwieranie dokumentów pakietu Office w widoku eksploratora z witryny programu SharePoint. Bez trwałych plików cookie ta operacja może zakończyć się niepowodzeniem, jeśli pliki cookie dostępu nie są udostępniane między przeglądarką, procesem eksploratora i procesem pakietu Office. |
+| Użyj pliku cookie tylko HTTP | **Nie** | **Wartość tak** umożliwia serwerowi proxy aplikacji dołączenie flagi HTTPOnly w nagłówkach odpowiedzi HTTP. Ta flaga zapewnia dodatkowe korzyści z zabezpieczeń, na przykład uniemożliwiają kopiowanie lub modyfikowanie plików cookie przez skrypty po stronie klienta.<br></br><br></br>Przed udostępnieniem ustawienia tylko protokołu HTTP serwer proxy aplikacji zaszyfrowany i przesyłający pliki cookie za pośrednictwem zabezpieczonego kanału TLS w celu ochrony przed modyfikacją. | Użyj **tak** ze względu na dodatkowe korzyści z zabezpieczeń.<br></br><br></br>**Nie** należy używać klientów ani agentów użytkowników, którzy wymagają dostępu do pliku cookie sesji. Na przykład użyj **nie** dla klienta RDP lub MTSC, który łączy się z serwerem bramy pulpit zdalny za pomocą serwera proxy aplikacji.|
+| Użyj bezpiecznego pliku cookie | **Nie** | **Wartość tak** umożliwia serwerowi proxy aplikacji uwzględnienie bezpiecznej flagi w nagłówkach odpowiedzi HTTP. Zabezpieczanie plików cookie zwiększa bezpieczeństwo przez przesyłanie plików cookie za pośrednictwem bezpiecznego kanału TLS, takiego jak HTTPS. Zapobiega to zastępowaniu plików cookie przez nieautoryzowane strony ze względu na przesłanie pliku cookie w postaci zwykłego tekstu. | Użyj **tak** ze względu na dodatkowe korzyści z zabezpieczeń.|
+| Używaj trwałego pliku cookie | **Nie** | **Wartość tak** umożliwia serwerowi proxy aplikacji ustawianie plików cookie dostępu, które nie wygasną po zamknięciu przeglądarki sieci Web. Trwałość obowiązuje do momentu wygaśnięcia tokenu dostępu lub do momentu ręcznego usunięcia trwałych plików cookie przez użytkownika. | **Nie** należy używać ze względu na zagrożenie bezpieczeństwa związane z uwierzytelnianiem użytkowników.<br></br><br></br>Sugerujemy używanie **tak** dla starszych aplikacji, które nie mogą udostępniać plików cookie między procesami. Lepiej jest zaktualizować swoją aplikację, aby obsługiwała udostępnianie plików cookie między procesami zamiast korzystać z trwałych plików cookie. Można na przykład potrzebować trwałych plików cookie, aby użytkownicy mogli otwierać dokumenty pakietu Office w widoku Eksploratora z witryny programu SharePoint. Bez trwałych plików cookie ta operacja może zakończyć się niepowodzeniem, jeśli pliki cookie dostępu nie są współużytkowane przez przeglądarkę, proces Eksploratora i proces biura. |
 
-## <a name="samesite-cookies"></a>Pliki cookie samesite
-Począwszy od wersji Chrome 80, a ostatecznie w przeglądarkach wykorzystujących Chromium, pliki cookie, które nie określają atrybutu [SameSite,](https://web.dev/samesite-cookies-explained) będą traktowane tak, jakby były ustawione na **SameSite=Lax**. Atrybut SameSite deklaruje, w jaki sposób pliki cookie powinny być ograniczone do kontekstu tej samej witryny. Po ustawieniu na Lax, plik cookie jest tylko do wysyłania do tej samej witryny żądań lub nawigacji najwyższego poziomu. Jednak serwer proxy aplikacji wymaga, aby te pliki cookie były zachowywane w kontekście strony trzeciej, aby użytkownicy byli prawidłowo zalogowali się podczas sesji. W związku z tym wprowadzamy aktualizacje dostępu serwera proxy aplikacji i sesyjnych plików cookie, aby uniknąć negatywnego wpływu tej zmiany. Aktualizacje obejmują:
+## <a name="samesite-cookies"></a>Pliki cookie SameSite
+Począwszy od wersji Chrome 80 i ostatecznie w przeglądarkach wykorzystujących chrom, pliki cookie, które nie określają atrybutu [SameSite](https://web.dev/samesite-cookies-explained) , będą traktowane tak, jakby były ustawione na **SameSite = swobodny**. Atrybut SameSite deklaruje, jak pliki cookie powinny być ograniczone do kontekstu w tym samym miejscu. Po ustawieniu na swobodny plik cookie jest wysyłany tylko do tych samych żądań witryny lub nawigacji najwyższego poziomu. Jednak serwer proxy aplikacji wymaga zachowania tych plików cookie w kontekście innej firmy, aby zapewnić użytkownikom prawidłowe logowanie w trakcie sesji. Z tego powodu wprowadzamy aktualizacje plików cookie dostępu do serwera proxy aplikacji i sesji w celu uniknięcia niekorzystnego wpływu na tę zmianę. Aktualizacje obejmują:
 
-* Ustawianie atrybutu **SameSite** na **Brak**. Dzięki temu dostęp do serwera proxy aplikacji i pliki cookie sesji mają być poprawnie wysyłane w kontekście strony trzeciej.
-* Ustawienie **opcji Użyj bezpiecznego pliku cookie** na domyślne użycie opcji **Tak.** Chrome wymaga również plików cookie, aby określić flagę Secure lub zostanie ona odrzucona. Ta zmiana będzie miała zastosowanie do wszystkich istniejących aplikacji opublikowanych za pośrednictwem serwera proxy aplikacji. Należy pamiętać, że pliki cookie dostępu serwera proxy aplikacji zawsze były ustawione na Bezpieczne i przesyłane tylko za pośrednictwem protokołu HTTPS. Ta zmiana będzie miała zastosowanie tylko do plików cookie sesji.
+* Ustawianie atrybutu **SameSite** na **none**. Pozwala to na prawidłowe wysyłanie plików cookie do serwera proxy aplikacji i sesji w kontekście innej firmy.
+* Ustawienie opcji **Użyj bezpiecznego pliku cookie** do użycia **tak** jako domyślnego. Program Chrome wymaga również plików cookie, aby można było określić flagę Secure lub zostanie odrzucona. Ta zmiana będzie miała zastosowanie do wszystkich istniejących aplikacji publikowanych za poorednictwem serwera proxy aplikacji. Należy pamiętać, że pliki cookie dostępu do serwera proxy aplikacji mają zawsze ustawioną wartość Secure i są przesyłane tylko za pośrednictwem protokołu HTTPS. Ta zmiana będzie dotyczyć tylko plików cookie sesji.
 
-Te zmiany w plikach cookie serwera proxy aplikacji zostaną wprowadzone w ciągu najbliższych kilku tygodni przed datą wydania Chrome 80.
+Te zmiany w plikach cookie aplikacji są uwzględniane w ciągu następnych kilku tygodni przed datą wydania Chrome 80.
 
-Ponadto jeśli aplikacja zaplecza ma pliki cookie, które muszą być dostępne w kontekście strony trzeciej, należy wyraźnie wyrazić zgodę, zmieniając aplikację, aby używać SameSite=None dla tych plików cookie. Serwer proxy aplikacji tłumaczy nagłówek Set-Cookie na jego adresy URL i będzie respektować ustawienia tych plików cookie ustawionych przez aplikację zaplecza.
+Ponadto, jeśli aplikacja zaplecza zawiera pliki cookie, które muszą być dostępne w kontekście innej firmy, należy jawnie zadecydować o zmianie aplikacji tak, aby korzystała z SameSite = None dla tych plików cookie. Serwer proxy aplikacji tłumaczy nagłówek Set-cookie na jego adresy URL i uwzględni ustawienia dla tych plików cookie ustawionych przez aplikację zaplecza.
 
 
 
-## <a name="set-the-cookie-settings---azure-portal"></a>Ustawianie ustawień plików cookie — Witryna Azure portal
-Aby ustawić ustawienia plików cookie za pomocą witryny Azure portal:
+## <a name="set-the-cookie-settings---azure-portal"></a>Ustawianie ustawień plików cookie — Azure Portal
+Aby ustawić ustawienia plików cookie przy użyciu Azure Portal:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). 
-2. Przejdź do **aplikacji** > **Azure Active Directory** >Enterprise Wszystkie **aplikacje**.
-3. Wybierz aplikację, dla której chcesz włączyć ustawienie pliku cookie.
-4. Kliknij **pozycję Pełnomocnik aplikacji**.
-5. W obszarze **Ustawienia dodatkowe**ustaw ustawienie pliku cookie na **Tak** lub **Nie**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
+2. Przejdź do **Azure Active Directory** > **Enterprise applications** aplikacje>dla przedsiębiorstw **wszystkie aplikacje**.
+3. Wybierz aplikację, dla której chcesz włączyć ustawienie plików cookie.
+4. Kliknij pozycję **serwer proxy aplikacji**.
+5. W obszarze **Ustawienia dodatkowe**Ustaw dla ustawienia plik cookie **wartość tak** lub **nie**.
 6. Aby zastosować zmiany, kliknij pozycję **Zapisz**. 
 
 ## <a name="view-current-cookie-settings---powershell"></a>Wyświetlanie bieżących ustawień plików cookie — PowerShell
@@ -65,9 +65,9 @@ Get-AzureADApplicationProxyApplication -ObjectId <ObjectId> | fl *
 
 ## <a name="set-cookie-settings---powershell"></a>Ustawianie ustawień plików cookie — PowerShell
 
-W następujących poleceniach programu ```<ObjectId>``` PowerShell jest ObjectId aplikacji. 
+W następujących poleceniach programu PowerShell ```<ObjectId>``` jest identyfikatorem objectid aplikacji. 
 
-**Plik cookie tylko do protokołu http** 
+**Plik cookie dotyczący tylko protokołu http** 
 
 ```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $true 

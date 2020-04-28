@@ -1,6 +1,6 @@
 ---
-title: Ukrywanie lub usuwanie pakietu dostępu w zarządzaniu uprawnieniami — usługa Azure AD
-description: Dowiedz się, jak ukryć lub usunąć pakiet dostępu w zarządzaniu uprawnieniami usługi Azure Active Directory.
+title: Ukrywanie lub usuwanie pakietu dostępu w usłudze zarządzania prawami — Azure AD
+description: Dowiedz się, jak ukryć lub usunąć pakiet dostępu w Azure Active Directory Zarządzanie uprawnieniami.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,53 +17,53 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf410db5a483fc4f5d9efc1a6bd5c6202694ef4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261998"
 ---
-# <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Ukrywanie lub usuwanie pakietu dostępu w zarządzaniu uprawnieniami usługi Azure AD
+# <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Ukrywanie lub usuwanie pakietu dostępu w usłudze Azure AD uprawnienia do zarządzania
 
-Pakiety dostępu są domyślnie wykrywalne. Oznacza to, że jeśli zasady zezwalają użytkownikowi na żądanie pakietu dostępu, automatycznie zobaczą pakiet dostępu wymieniony w portalu Mój dostęp. Można jednak zmienić ustawienie **Ukryte,** tak aby pakiet dostępu nie był wymieniony w portalu Mój dostęp użytkownika.
+Pakiety dostępu są domyślnie odnajdywane. Oznacza to, że jeśli zasady zezwalają użytkownikowi na żądanie pakietu dostępu, automatycznie zobaczą pakiet dostępu wymieniony w portalu mojego dostępu. Ustawienie **ukrywane** można jednak zmienić tak, aby pakiet dostępu nie był wyświetlany na liście Portal użytkownika mojego dostępu.
 
 W tym artykule opisano sposób ukrywania lub usuwania pakietu dostępu.
 
-## <a name="change-the-hidden-setting"></a>Zmienianie ustawienia Ukryte
+## <a name="change-the-hidden-setting"></a>Zmień ustawienie ukrywane
 
-Wykonaj następujące kroki, aby zmienić **ukryte** ustawienie dla pakietu dostępu.
+Wykonaj następujące kroki, aby zmienić ustawienie **ukryte** dla pakietu dostępu.
 
-**Rola wstępna:** Administrator globalny, administrator użytkownika, właściciel katalogu lub menedżer pakietów programu Access
+**Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu lub Menedżer pakietów dostępu
 
-1. W witrynie Azure portal kliknij pozycję **Usługa Azure Active Directory,** a następnie kliknij pozycję **Zarządzanie tożsamościami**.
+1. W Azure Portal kliknij pozycję **Azure Active Directory** , a następnie kliknij pozycję **Zarządzanie tożsamościami**.
 
-1. W menu po lewej stronie kliknij pozycję **Pakiety programu Access,** a następnie otwórz pakiet dostępu.
+1. W menu po lewej stronie kliknij pozycję **pakiety dostępu** , a następnie otwórz pakiet dostępu.
 
-1. Na stronie Przegląd kliknij pozycję **Edytuj**.
+1. Na stronie Przegląd kliknij przycisk **Edytuj**.
 
-1. Ustaw ustawienie **Ukryte.**
+1. Ustaw ustawienie **ukryte** .
 
-    Jeśli ustawiona jest liczba **nie,** pakiet dostępu zostanie wyświetlony w portalu Mój dostęp użytkownika.
+    Jeśli ustawisz wartość **nie**, pakiet dostępu zostanie wyświetlony w portalu dostępu użytkownika.
 
-    Jeśli ustawiona jest opcja **Tak,** pakiet dostępu nie zostanie wyświetlony w portalu Mój dostęp użytkownika. Jedynym sposobem, w jaki użytkownik może wyświetlić pakiet dostępu, jest to, że ma **bezpośrednie łącze portalu Mój dostęp** do pakietu dostępu. Aby uzyskać więcej informacji, zobacz [Udostępnianie łącza, aby zażądać pakietu dostępu](entitlement-management-access-package-settings.md).
+    W przypadku wybrania **opcji tak**pakiet dostępu nie będzie wyświetlany w portalu dostępu użytkownika. Jedynym sposobem wyświetlania pakietu dostępu przez użytkownika jest to, że użytkownik ma **link bezpośredniego dostępu Portal** do pakietu dostępu. Aby uzyskać więcej informacji, zobacz [udostępnianie linku do żądania pakietu dostępu](entitlement-management-access-package-settings.md).
 
 ## <a name="delete-an-access-package"></a>Usuwanie pakietu dostępu
 
-Pakiet dostępu można usunąć tylko wtedy, gdy nie ma aktywnych przypisań użytkowników. Wykonaj następujące kroki, aby usunąć pakiet dostępu.
+Pakiet dostępu można usunąć tylko wtedy, gdy nie ma aktywnych przypisań użytkownika. Wykonaj następujące kroki, aby usunąć pakiet dostępu.
 
-**Rola wstępna:** Administrator globalny, administrator użytkownika, właściciel katalogu lub menedżer pakietów programu Access
+**Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu lub Menedżer pakietów dostępu
 
-1. W witrynie Azure portal kliknij pozycję **Usługa Azure Active Directory,** a następnie kliknij pozycję **Zarządzanie tożsamościami**.
+1. W Azure Portal kliknij pozycję **Azure Active Directory** , a następnie kliknij pozycję **Zarządzanie tożsamościami**.
 
-1. W menu po lewej stronie kliknij pozycję **Pakiety programu Access,** a następnie otwórz pakiet dostępu.
+1. W menu po lewej stronie kliknij pozycję **pakiety dostępu** , a następnie otwórz pakiet dostępu.
 
-1. W menu po lewej stronie kliknij pozycję **Przydziały** i usuń dostęp dla wszystkich użytkowników.
+1. W menu po lewej stronie kliknij pozycję **przypisania** i Usuń dostęp dla wszystkich użytkowników.
 
-1. W menu po lewej stronie kliknij pozycję **Przegląd,** a następnie kliknij pozycję **Usuń**.
+1. W menu po lewej stronie kliknij pozycję **Przegląd** , a następnie kliknij pozycję **Usuń**.
 
-1. W wyświetlonym komunikacie o usunięciu kliknij przycisk **Tak**.
+1. W wyświetlonym komunikacie Usuń kliknij przycisk **tak**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wyświetlanie, dodawanie i usuwanie przypisań dla pakietu dostępu](entitlement-management-access-package-assignments.md)
+- [Wyświetlanie, Dodawanie i usuwanie przypisań dla pakietu dostępu](entitlement-management-access-package-assignments.md)
 - [Wyświetlanie raportów i dzienników](entitlement-management-reports.md)

@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z obiektem, który nie jest synchronizowany z usługą Azure Active Directory | Dokumenty firmy Microsoft
-description: Rozwiązywanie problemów z obiektem, który nie jest synchronizowany z usługą Azure Active Directory.
+title: Rozwiązywanie problemów z obiektem, który nie jest synchronizowany z Azure Active Directory | Microsoft Docs "
+description: Rozwiązywanie problemów z obiektem, który nie jest synchronizowany z Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,197 +17,197 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79253535"
 ---
-# <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Rozwiązywanie problemów z obiektem, który nie jest synchronizowany z usługą Azure Active Directory
+# <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Rozwiązywanie problemów z obiektem, który nie jest synchronizowany z Azure Active Directory
 
-Jeśli obiekt nie jest synchronizowany zgodnie z oczekiwaniami z usługą Microsoft Azure Active Directory (Azure AD), może to być spowodowane kilkoma przyczynami. Jeśli otrzymałeś wiadomość e-mail z błędem z usługi Azure AD lub zostanie wyświetlony błąd w usłudze Azure AD Connect Health, zamiast tego przeczytaj [błędy rozwiązywania problemów podczas synchronizacji.](tshoot-connect-sync-errors.md) Ale jeśli rozwiązujesz problem, w którym obiekt nie znajduje się w usłudze Azure AD, ten artykuł jest dla Ciebie. Opisano w nim, jak znaleźć błędy w lokalnej synchronizacji składnika usługi Azure AD Connect.
+Jeśli obiekt nie jest synchronizowany zgodnie z oczekiwaniami Microsoft Azure Active Directory (Azure AD), może to być z kilku powodów. Jeśli otrzymasz komunikat o błędzie z usługi Azure AD lub wystąpił błąd w Azure AD Connect Health, podczas synchronizacji zapoznaj się [z błędami rozwiązywania problemów](tshoot-connect-sync-errors.md) . Ale w przypadku rozwiązywania problemów z tym, że obiekt nie znajduje się w usłudze Azure AD, ten artykuł jest dla Ciebie. Opisano w nim, jak znaleźć błędy w składniku lokalnym Azure AD Connect synchronizacji.
 
 >[!IMPORTANT]
->W przypadku wdrażania usługi Azure AD Connect w wersji 1.1.749.0 lub nowszej, użyj [zadania rozwiązywania problemów](tshoot-connect-objectsync.md) w kreatorze, aby rozwiązać problemy z synchronizacją obiektów. 
+>W przypadku wdrażania Azure AD Connect w wersji 1.1.749.0 lub nowszej Użyj [zadania rozwiązywania problemów](tshoot-connect-objectsync.md) w kreatorze, aby rozwiązać problemy z synchronizacją obiektów. 
 
 ## <a name="synchronization-process"></a>Proces synchronizacji
 
-Zanim zbadamy problemy z synchronizacją, zapoznajmy się z procesem synchronizacji usługi Azure AD Connect:
+Przed zbadaniem problemów z synchronizacją zapoznaj się z procesem synchronizacji Azure AD Connect:
 
-  ![Diagram procesu synchronizacji usługi Azure AD Connect](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
+  ![Diagram procesu synchronizacji Azure AD Connect](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
 
 ### <a name="terminology"></a>**Terminologia**
 
-* **CS:** Spacja łącznika, tabela w bazie danych
+* **CS:** Przestrzeń łącznika, tabela w bazie danych
 * **MV:** Metaverse, tabela w bazie danych
 
 ### <a name="synchronization-steps"></a>**Kroki synchronizacji**
-Proces synchronizacji obejmuje następujące kroki:
+Proces synchronizowania obejmuje następujące kroki:
 
-1. **Import z usługi AD:** Obiekty usługi Active Directory są wprowadzane do cs usługi Active Directory.
+1. **Importuj z usługi AD:** Active Directory obiektów do Active Directory CS.
 
-2. **Importowanie z usługi Azure AD:** Obiekty usługi Azure AD są wprowadzane do usługi Azure AD CS.
+2. **Importuj z usługi Azure AD:** Obiekty usługi Azure AD są umieszczane w usłudze Azure AD CS.
 
-3. **Synchronizacja:** Reguły synchronizacji ruchu przychodzącego i reguły synchronizacji ruchu wychodzącego są uruchamiane w kolejności liczby pierwszeństwa, od dolnej do wyższej. Aby wyświetlić reguły synchronizacji, przejdź do Edytora reguł synchronizacji z aplikacji klasycznych. Reguły synchronizacji przychodzącej wprowadzają dane z CS do MV. Reguły synchronizacji ruchu wychodzącego przenoszą dane z MV do CS.
+3. **Synchronizacja:** Reguły synchronizacji ruchu przychodzącego i reguły synchronizacji danych wychodzących są uruchamiane w kolejności według numeru pierwszeństwa, od niższego do wyższego. Aby wyświetlić reguły synchronizacji, przejdź do edytora reguł synchronizacji z aplikacji klasycznych. Reguły synchronizacji ruchu przychodzącego przyjmują dane z CS do MV. Reguły synchronizacji wychodzącej przenosiją dane z MV do CS.
 
-4. **Eksport do usługi AD:** Po synchronizacji obiekty są eksportowane z usługi Cs usługi Active Directory do usługi Active Directory.
+4. **Eksportuj do usługi AD:** Po zsynchronizowaniu obiekty są eksportowane z Active Directory CS do Active Directory.
 
-5. **Eksportowanie do usługi Azure AD:** Po synchronizacji obiekty są eksportowane z usługi Azure AD CS do usługi Azure AD.
+5. **Eksportuj do usługi Azure AD:** Po zsynchronizowaniu obiekty są eksportowane z usługi Azure AD CS do usługi Azure AD.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Aby znaleźć błędy, spójrz na kilka różnych miejsc, w następującej kolejności:
+Aby znaleźć błędy, spójrz na kilka różnych miejsc w następującej kolejności:
 
-1. Operacja [rejestruje,](#operations) aby znaleźć błędy zidentyfikowane przez aparat synchronizacji podczas importu i synchronizacji.
-2. [Miejsce łącznika](#connector-space-object-properties) w celu znalezienia brakujących obiektów i błędów synchronizacji.
-3. [Metaverse,](#metaverse-object-properties) aby znaleźć problemy związane z danymi.
+1. [Dzienniki operacji](#operations) , aby znaleźć błędy zidentyfikowane przez aparat synchronizacji podczas importowania i synchronizowania.
+2. [Przestrzeń łącznika](#connector-space-object-properties) , w której mają zostać znalezione brakujące obiekty i błędy synchronizacji.
+3. Funkcja [Metaverse](#metaverse-object-properties) do znajdowania problemów związanych z danymi.
 
-Uruchom [Menedżera usług synchronizacji](how-to-connect-sync-service-manager-ui.md) przed rozpoczęciem tych kroków.
+Rozpocznij [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md) przed rozpoczęciem wykonywania tych kroków.
 
 ## <a name="operations"></a>Operacje
-Karta **Operacje** w programie Service Manager synchronizacji umożliwia rozpoczęcie rozwiązywania problemów. Ta karta pokazuje wyniki z najnowszych operacji. 
+Karta **operacje** w Synchronization Service Manager jest miejscem, w którym należy rozpocząć rozwiązywanie problemów. Na tej karcie są wyświetlane wyniki najnowszych operacji. 
 
-![Zrzut ekranu przedstawiający Menedżera usług synchronizacji z wybraną kartą Operacje](./media/tshoot-connect-object-not-syncing/operations.png)  
+![Zrzut ekranu przedstawiający Synchronization Service Manager, z wybraną kartą operacje](./media/tshoot-connect-object-not-syncing/operations.png)  
 
-W górnej połowie karty **Operacje** są wyświetlane wszystkie przebiegi w porządku chronologicznym. Domyślnie dziennik operacji przechowuje informacje o ostatnich siedmiu dniach, ale to ustawienie można zmienić za pomocą [harmonogramu](how-to-connect-sync-feature-scheduler.md). Poszukaj dowolnego uruchomienia, który nie pokazuje stanu **sukcesu.** Sortowanie można zmienić, klikając nagłówki.
+W górnej połowie karty **operacje** są wyświetlane wszystkie uruchomienia w kolejności chronologicznej. Domyślnie dziennik operacji przechowuje informacje o ciągu ostatnich siedmiu dni, ale to ustawienie można zmienić przy użyciu [harmonogramu](how-to-connect-sync-feature-scheduler.md). Poszukaj dowolnego przebiegu, który nie pokazuje stanu **sukcesu** . Sortowanie można zmienić, klikając nagłówki.
 
-Kolumna **Stan** zawiera najważniejsze informacje i pokazuje najpoważniejszy problem dla przebiegu. Oto krótkie podsumowanie najczęstszych stanów w kolejności priorytetu badania (gdzie * wskazuje kilka możliwych ciągów błędów).
+Kolumna **stan** zawiera najważniejsze informacje i pokazuje najbardziej poważny problem z uruchomieniem. Poniżej przedstawiono krótkie podsumowanie najbardziej typowych stanów w kolejności sprawdzania priorytetu (gdzie * wskazuje kilka możliwych ciągów błędów).
 
 | Stan | Komentarz |
 | --- | --- |
-| zatrzymana** |Nie można ukończyć biegu. Może się tak zdarzyć, na przykład, jeśli system zdalny jest w dół i nie można skontaktować się z nim. |
-| limit zatrzymanego błędu |Istnieje ponad 5000 błędów. Przebieg został automatycznie wstrzymany z powodu dużej liczby błędów. |
-| zakończone-\*-błędy |Przebieg zakończony, ale istnieją błędy (mniej niż 5000), które powinny być badane. |
-| zakończone-\*-ostrzeżenia |Przebieg zakończony, ale niektóre dane nie są w oczekiwanym stanie. Jeśli masz błędy, ten komunikat jest zwykle tylko objawem. Nie badaj ostrzeżeń, dopóki nie zostaną uwzględnione błędy. |
-| powodzenie |Żadnych problemów. |
+| Zatrzymano-* |Nie można zakończyć przebiegu. Może się tak zdarzyć, jeśli na przykład system zdalny nie działa i nie można się z nim skontaktować. |
+| Zatrzymano — limit błędów |Występuje więcej niż 5 000 błędów. Przebieg został automatycznie zatrzymany z powodu dużej liczby błędów. |
+| ukończono —\*błędy |Przebieg został ukończony, ale wystąpiły błędy (mniej niż 5 000), które powinny zostać zbadane. |
+| ukończone —\*ostrzeżenia |Przebieg został ukończony, ale niektóre dane nie są w oczekiwanym stanie. Jeśli występują błędy, ten komunikat jest zazwyczaj tylko objawem. Nie Badaj ostrzeżeń, dopóki nie zostaną rozkierowane błędy. |
+| powodzenie |Brak problemów. |
 
-Po wybraniu wiersza w dolnej części karty **Operacje** jest aktualizowana, aby wyświetlić szczegóły tego uruchomienia. Po lewej stronie tego obszaru może znajdować się lista zatytułowana **Krok #**. Ta lista jest wyświetlana tylko wtedy, gdy masz wiele domen w lesie, a każda domena jest reprezentowana przez krok. Nazwę domeny można znaleźć pod nagłówkiem **Partycja**. W nagłówku **Statystyka synchronizacji** można znaleźć więcej informacji na temat liczby przetworzonych zmian. Wybierz łącza, aby uzyskać listę zmienionych obiektów. Jeśli masz obiekty z błędami, te błędy są wyświetlane w nagłówku **Błędy synchronizacji.**
+Po zaznaczeniu wiersza Dolna część karty **operacje** zostanie zaktualizowana, aby wyświetlić szczegóły tego uruchomienia. Po lewej stronie tego obszaru może istnieć lista o tytule **krok nr**. Ta lista jest wyświetlana tylko w przypadku, gdy w lesie znajduje się wiele domen, a każda z nich jest reprezentowana przez krok. Nazwę domeny można znaleźć pod **partycją**nagłówka. W nagłówku **statystyki synchronizacji** można znaleźć więcej informacji na temat liczby przetworzonych zmian. Wybierz linki, aby uzyskać listę zmienionych obiektów. Jeśli masz obiekty z błędami, te błędy są wyświetlane pod nagłówkiem **Błędy synchronizacji** .
 
-### <a name="errors-on-the-operations-tab"></a>Błędy na karcie Operacje
-W przypadku wystąpienia błędów program Menedżer usług synchronizacji pokazuje zarówno obiekt w błędzie, jak i sam błąd jako łącza, które dostarczają więcej informacji.
+### <a name="errors-on-the-operations-tab"></a>Błędy na karcie operacje
+Gdy występują błędy, Synchronization Service Manager pokazuje zarówno obiekt z błędami, jak i sam błąd jako linki, które zawierają więcej informacji.
 
-![Zrzut ekranu przedstawiający błędy w Menedżerze usług synchronizacji](./media/tshoot-connect-object-not-syncing/errorsync.png)  
-Zacznij od wybrania ciągu błędu. (Na poprzednim rysunku ciąg błędu jest **wywołany przez sync-rule-error-function.)** Po raz pierwszy przedstawiono przegląd obiektu. Aby wyświetlić rzeczywisty błąd, wybierz **opcję Śledzenie stosu**. Ten ślad zawiera informacje na poziomie debugowania o błędzie.
+![Zrzut ekranu przedstawiający błędy w Synchronization Service Manager](./media/tshoot-connect-object-not-syncing/errorsync.png)  
+Zacznij od wybrania ciągu błędu. (Na powyższym rysunku ciąg błędu to **Sync-Rule-Error-Function-wyzwolone**). Najpierw przedstawiono przegląd obiektu. Aby wyświetlić faktyczny błąd, wybierz pozycję **ślad stosu**. Ten ślad zawiera informacje na poziomie debugowania dotyczące błędu.
 
-Kliknij prawym przyciskiem myszy pole **Informacje o stosie połączeń,** kliknij polecenie **Zaznacz wszystko**, a następnie wybierz polecenie **Kopiuj**. Następnie skopiuj stos i spójrz na błąd w ulubionym edytorze, takim jak Notatnik.
+Kliknij prawym przyciskiem myszy pole **Informacje o stosie wywołań** , kliknij pozycję **Zaznacz wszystko**, a następnie wybierz polecenie **Kopiuj**. Następnie skopiuj stos i sprawdź błąd w ulubionym edytorze, np. w Notatniku.
 
-Jeśli błąd pochodzi z **SyncRulesEngine**, informacje o stosie wywołań najpierw wyświetla wszystkie atrybuty obiektu. Przewiń w dół, aż zobaczysz nagłówek **InnerException =>**.  
+Jeśli błąd jest z **SyncRulesEngine**, informacje stosu wywołań najpierw wyświetlają wszystkie atrybuty obiektu. Przewiń w dół do momentu, gdy zobaczysz nagłówek **InnerException =>**.  
 
-  ![Zrzut ekranu przedstawiający Menedżera usług synchronizacji, przedstawiający informacje o błędzie pod nagłówkiem InnerException =>](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)
+  ![Zrzut ekranu przedstawiający Synchronization Service Manager, w którym są wyświetlane informacje o błędzie w obszarze nagłówek InnerException =>](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)
   
-Wiersz po nagłówku pokazuje błąd. Na powyższej ilustracji błąd pochodzi z niestandardowej reguły synchronizacji utworzonej przez program Fabrikam.
+Wiersz po nagłówku pokazuje błąd. Na powyższym rysunku Wystąpił błąd pochodzący z niestandardowej reguły synchronizacji utworzonej przez firmę fabrikam.
 
-Jeśli błąd nie daje wystarczającej ilości informacji, nadszedł czas, aby spojrzeć na same dane. Zaznacz łącze z identyfikatorem obiektu i kontynuuj rozwiązywanie problemów z [importowanym obiektem przestrzeni łącznika](#cs-import).
+Jeśli błąd nie daje wystarczającej ilości informacji, czas na wyświetlenie danych. Wybierz łącze z identyfikatorem obiektu i kontynuuj rozwiązywanie problemów z [zaimportowanym obiektem łącznika](#cs-import).
 
 ## <a name="connector-space-object-properties"></a>Właściwości obiektu obszaru łącznika
-Jeśli [**na**](#operations) karcie Operacje nie są wyświetlane żadne błędy, postępuj zgodnie z obiektem spacji łącznika z usługi Active Directory do metaverse do usługi Azure AD. W tej ścieżce należy znaleźć, gdzie jest problem.
+Jeśli na karcie [**operacje**](#operations) nie są wyświetlane żadne błędy, postępuj zgodnie z obiektem przestrzeń łącznika z Active Directory do magazynu Metaverse do usługi Azure AD. W tej ścieżce należy znaleźć miejsce problemu.
 
 ### <a name="searching-for-an-object-in-the-cs"></a>Wyszukiwanie obiektu w CS
 
-W Menedżerze usług synchronizacji wybierz **pozycję Łączniki**, wybierz łącznik usługi Active Directory i wybierz pozycję **Obszar łącznika wyszukiwania**.
+W Synchronization Service Manager wybierz pozycję **Łączniki**, wybierz łącznik Active Directory, a następnie wybierz pozycję **obszar łącznika wyszukiwania**.
 
-W polu **Zakres** wybierz **rdn,** jeśli chcesz wyszukać atrybut CN, lub wybierz **pozycję DN lub kotwicę,** gdy chcesz wyszukać atrybut **distinguishedName.** Wprowadź wartość i wybierz **pozycję Wyszukaj**. 
+W polu **zakres** wybierz pozycję **RDN** , jeśli chcesz wyszukać atrybut CN, lub wybierz **nazwę wyróżniającą lub zakotwiczenie** , aby wyszukać atrybut **odróżnionyname** . Wprowadź wartość i wybierz pozycję **Wyszukaj**. 
  
-![Zrzut ekranu przedstawiający wyszukiwanie przestrzeni łączników](./media/tshoot-connect-object-not-syncing/cssearch.png)  
+![Zrzut ekranu przedstawiający wyszukiwanie w miejscu łącznika](./media/tshoot-connect-object-not-syncing/cssearch.png)  
 
-Jeśli nie znajdziesz szukany obiekt, być może został on odfiltrowany za pomocą [filtrowania opartego na domenie](how-to-connect-sync-configure-filtering.md#domain-based-filtering) lub [filtrowania opartego na UU.](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) Aby sprawdzić, czy filtrowanie jest skonfigurowane zgodnie z oczekiwaniami, przeczytaj [artykuł Synchronizacja usługi Azure AD Connect: Konfigurowanie filtrowania](how-to-connect-sync-configure-filtering.md).
+Jeśli nie znajdziesz szukanego obiektu, być może został on przefiltrowany przy użyciu [filtrowania opartego na domenie](how-to-connect-sync-configure-filtering.md#domain-based-filtering) lub [filtrowania opartego na jednostce organizacyjnej](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering). Aby sprawdzić, czy filtrowanie jest skonfigurowane zgodnie z oczekiwaniami, Odczytaj [Azure AD Connect synchronizacji: Skonfiguruj filtrowanie](how-to-connect-sync-configure-filtering.md).
 
-Można wykonać inne przydatne wyszukiwanie, wybierając usługę Azure AD Connector. W polu **Zakres** wybierz pozycję **Oczekujące importowanie**, a następnie zaznacz pole wyboru **Dodaj.** To wyszukiwanie zapewnia wszystkie zsynchronizowane obiekty w usłudze Azure AD, które nie mogą być skojarzone z obiektem lokalnym.  
+Możesz wykonać inne przydatne wyszukiwanie, wybierając łącznik usługi Azure AD. W polu **zakres** wybierz pozycję **oczekujące na import**, a następnie zaznacz pole wyboru **Dodaj** . To wyszukiwanie umożliwia wyszukanie wszystkich zsynchronizowanych obiektów w usłudze Azure AD, które nie mogą być skojarzone z obiektem lokalnym.  
 
-![Zrzut ekranu przedstawiający sieroty w wyszukiwaniu przestrzeni łączników](./media/tshoot-connect-object-not-syncing/cssearchorphan.png) 
+![Zrzut ekranu oddzielony w przeszukiwaniu miejsca łącznika](./media/tshoot-connect-object-not-syncing/cssearchorphan.png) 
  
-Obiekty te zostały utworzone przez inny aparat synchronizacji lub aparat synchronizacji z inną konfiguracją filtrowania. Te obiekty osierocone nie są już zarządzane. Przejrzyj tę listę i rozważ usunięcie tych obiektów przy użyciu poleceń cmdlet [programu Azure AD PowerShell.](https://aka.ms/aadposh)
+Te obiekty zostały utworzone przez inny aparat synchronizacji lub aparat synchronizacji z inną konfiguracją filtrowania. Te oddzielone obiekty nie są już zarządzane. Przejrzyj tę listę i Rozważ usunięcie tych obiektów przy użyciu poleceń cmdlet [programu PowerShell usługi Azure AD](https://aka.ms/aadposh) .
 
 ### <a name="cs-import"></a>Import CS
-Po otwarciu obiektu CS u góry znajduje się kilka kart. Karta **Importuj** zawiera dane przemieszczane po zaimportowaniu.  
+Po otwarciu obiektu CS istnieje kilka kart u góry. Karta **Importowanie** przedstawia dane, które są przemieszczane po zaimportowaniu.  
 
-![Zrzut ekranu przedstawiający okno Właściwości obiektu obszaru łącznika z wybraną kartą Importuj](./media/tshoot-connect-object-not-syncing/csobject.png)    
+![Zrzut ekranu przedstawiający obiekt przestrzeni łącznika okno Właściwości z wybraną kartą importowania](./media/tshoot-connect-object-not-syncing/csobject.png)    
 
-**Kolumna Stara wartość** pokazuje, co jest obecnie przechowywane w connect, a **kolumna Nowa wartość** pokazuje, co zostało odebrane z systemu źródłowego i nie zostało jeszcze zastosowane. Jeśli występuje błąd w obiekcie, zmiany nie są przetwarzane.
+W kolumnie **stara wartość** są wyświetlane dane, które są obecnie przechowywane w programie Connect, a w kolumnie **Nowa wartość** są wyświetlane dane odebrane z systemu źródłowego i nie zostały jeszcze zastosowane. Jeśli wystąpi błąd w obiekcie, zmiany nie zostaną przetworzone.
 
-Karta **Błąd synchronizacji** jest widoczna w oknie **Właściwości obiektu obszaru łącznika** tylko wtedy, gdy występuje problem z obiektem. Aby uzyskać więcej informacji, zapoznaj się [z instrukcjami rozwiązywania problemów z błędami synchronizacji na karcie **Operacje** ](#errors-on-the-operations-tab).
+Karta **błąd synchronizacji** jest widoczna w oknie **właściwości obiektu obszaru łącznika** tylko wtedy, gdy występuje problem z obiektem. Aby uzyskać więcej informacji, zapoznaj się z tematem [Rozwiązywanie problemów z błędami synchronizacji na karcie **operacje** ](#errors-on-the-operations-tab).
 
-![Zrzut ekranu przedstawiający kartę Błąd synchronizacji we właściwościach obiektu obszaru łącznika](./media/tshoot-connect-object-not-syncing/cssyncerror.png)  
+![Zrzut ekranu przedstawiający kartę błąd synchronizacji w obiekcie przestrzeni łącznika okno Właściwości](./media/tshoot-connect-object-not-syncing/cssyncerror.png)  
 
-### <a name="cs-lineage"></a>Rodowód CS
-Karta **Rodowód** w oknie **Właściwości obiektu spacji łącznika** pokazuje, jak obiekt spacji łącznika jest powiązany z obiektem metaverse. Można zobaczyć, kiedy łącznik ostatnio zaimportował zmianę z podłączonego systemu i jakie reguły zostały zastosowane do wypełniania danych w metaverse.  
+### <a name="cs-lineage"></a>Elementy powiązane z CS
+Na **karcie elementy** w oknie **właściwości obiektu obszaru łącznika** pokazuje, jak obiekt przestrzeni łącznika jest powiązany z obiektem Metaverse. Możesz zobaczyć, kiedy łącznik ostatnio zaimportował zmianę z podłączonego systemu i które reguły zastosowały się do wypełniania danych w magazynie Metaverse.  
 
-![Zrzut ekranu przedstawiający kartę Rodowód we właściwościach obiektu obszaru łącznika](./media/tshoot-connect-object-not-syncing/cslineage.png)  
+![Zrzut ekranu przedstawiający kartę elementy w obiekcie przestrzeni łącznika okno Właściwości](./media/tshoot-connect-object-not-syncing/cslineage.png)  
 
-Na powyższej ilustracji kolumna **Akcja** przedstawia regułę synchronizacji przychodzącej z akcją **Provision**. Oznacza to, że tak długo, jak ten obiekt spacji łącznika jest obecny, obiekt metaverse pozostaje. Jeśli na liście reguł synchronizacji zamiast tego jest wyświetlana reguła synchronizacji ruchu wychodzącego z akcją **Provision,** ten obiekt jest usuwany po usunięciu obiektu metaverse.  
+Na powyższym rysunku kolumna **Akcja** zawiera regułę synchronizacji ruchu przychodzącego z **zainicjowaną**akcją. Oznacza to, że o ile ten obiekt przestrzeni łącznika jest obecny, obiekt Metaverse pozostaje. Jeśli zamiast tego lista reguł synchronizacji zawiera regułę synchronizacji wychodzącej z akcją **udostępniania** , ten obiekt jest usuwany po usunięciu obiektu Metaverse.  
 
-![Zrzut ekranu przedstawiający okno rodowód na karcie Rodowód we właściwościach obiektu obszaru łącznika](./media/tshoot-connect-object-not-syncing/cslineageout.png)  
+![Zrzut ekranu przedstawiający okno elementu zależnego na karcie elementy w obiekcie przestrzeni łącznika okno Właściwości](./media/tshoot-connect-object-not-syncing/cslineageout.png)  
 
-Na powyższej ilustracji można również zobaczyć w kolumnie **PasswordSync,** że przestrzeń łącznika przychodzącego może przyczynić się do zmian w haśle, ponieważ jedna reguła synchronizacji ma wartość **Prawda**. To hasło jest wysyłane do usługi Azure AD za pośrednictwem reguły ruchu wychodzącego.
+Na powyższym rysunku można także zobaczyć w kolumnie **PasswordSync** , że przestrzeń łącznika przychodzącego może współtworzyć zmiany hasła, ponieważ jedna reguła synchronizacji ma wartość **true**. To hasło jest wysyłane do usługi Azure AD za pomocą reguły ruchu wychodzącego.
 
-Na karcie **Rodowód** możesz przejść do metaverse, wybierając polecenie [**Metaverse Object Properties**](#mv-attributes).
+**Z poziomu karty elementy** powiązane można przejść do obiektu metaverse, wybierając pozycję [**właściwości obiektów Metaverse**](#mv-attributes).
 
 ### <a name="preview"></a>Wersja zapoznawcza
-W lewym dolnym rogu okna **Właściwości obiektu obszaru łącznika** znajduje się przycisk **Podgląd.** Wybierz ten przycisk, aby otworzyć stronę **Podgląd,** na której można zsynchronizować pojedynczy obiekt. Ta strona jest przydatna, jeśli rozwiązujesz niektóre niestandardowe reguły synchronizacji i chcesz zobaczyć wpływ zmiany na pojedynczy obiekt. Możesz wybrać **pełną synchronizację** lub **synchronizację delta**. Można również wybrać **opcję Generuj podgląd,** który zachowuje tylko zmianę w pamięci. Lub wybierz **opcję Zatwierdzj podgląd**, który aktualizuje metaverse i etapy wszystkie zmiany do docelowych przestrzeni łączników.  
+W lewym dolnym rogu okna **właściwości obiektu obszaru łącznika** jest przycisk **Podgląd** . Wybierz ten przycisk, aby otworzyć stronę **podglądu** , na której można zsynchronizować pojedynczy obiekt. Ta strona jest przydatna, jeśli rozwiązywasz problemy z niestandardowymi regułami synchronizacji i chcesz zobaczyć wpływ zmiany na pojedynczy obiekt. Można wybrać **pełną synchronizację** lub **synchronizację Delta**. Możesz również wybrać opcję **Generuj Podgląd**, która zachowuje tylko zmiany w pamięci. Lub wybierz **Podgląd zatwierdzania**, która aktualizuje funkcję Metaverse i etapy wszystkie zmiany do miejsc łączników docelowych.  
 
-![Zrzut ekranu przedstawiający stronę Podgląd z wybraną wybraną wybraną wybraną wybraną wybraną w](./media/tshoot-connect-object-not-syncing/preview.png)  
+![Zrzut ekranu strony podglądu z wybraną pozycją Rozpocznij podgląd](./media/tshoot-connect-object-not-syncing/preview.png)  
 
-W podglądzie można sprawdzić obiekt i zobaczyć, która reguła zastosowana dla określonego przepływu atrybutów.  
+W wersji zapoznawczej można sprawdzić obiekt i sprawdzić, która reguła została zastosowana do określonego przepływu atrybutu.  
 
-![Zrzut ekranu przedstawiający stronę Podgląd z wyświetlaniem przepływu atrybutów importu](./media/tshoot-connect-object-not-syncing/previewresult.png)
+![Zrzut ekranu strony podglądu pokazujący przepływ atrybutu importu](./media/tshoot-connect-object-not-syncing/previewresult.png)
 
 ### <a name="log"></a>Log
-Obok przycisku **Podgląd** wybierz przycisk **Zaloguj,** aby otworzyć stronę **Dziennik.** Tutaj możesz zobaczyć stan synchronizacji haseł i historię. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z synchronizacją skrótów haseł z synchronizacją usługi Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
+Obok przycisku **Podgląd** wybierz przycisk **Dziennik** , aby otworzyć stronę **Dziennik** . W tym miejscu można zobaczyć stan i historię synchronizacji haseł. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z synchronizacją skrótów haseł z synchronizacją Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
 
-## <a name="metaverse-object-properties"></a>Właściwości obiektu Metaverse
-Zazwyczaj lepiej jest rozpocząć wyszukiwanie ze źródła obszaru łącznika usługi Active Directory. Ale można również rozpocząć wyszukiwanie od metaverse.
+## <a name="metaverse-object-properties"></a>Właściwości obiektu metaverse
+Zwykle lepiej jest rozpocząć wyszukiwanie ze źródłowej przestrzeni łącznika Active Directory. Możesz również rozpocząć wyszukiwanie z poziomu Metaverse.
 
 ### <a name="searching-for-an-object-in-the-mv"></a>Wyszukiwanie obiektu w MV
-W Menedżerze usług synchronizacji wybierz **metaverse search**, jak na poniższym rysunku. Utwórz kwerendę, która znajduje użytkownika. Wyszukaj typowe atrybuty, takie jak **accountName** (**sAMAccountName**) i **userPrincipalName**. Aby uzyskać więcej informacji, zobacz [Wyszukiwanie Metaverse menedżera usług synchronizacji](how-to-connect-sync-service-manager-ui-mvsearch.md).
+W Synchronization Service Manager wybierz pozycję **Wyszukiwanie**w trybie Metaverse, jak na poniższej ilustracji. Utwórz zapytanie, które wie, że znajduje użytkownika. Wyszukaj typowe atrybuty, takie jak **AccountName** (**sAMAccountName**) i **userPrincipalName**. Aby uzyskać więcej informacji, zobacz [synchronizacja Service Manager funkcji wyszukiwania Metaverse](how-to-connect-sync-service-manager-ui-mvsearch.md).
 
-![Zrzut ekranu przedstawiający Menedżera usług synchronizacji z wybraną kartą Wyszukiwanie metaverse](./media/tshoot-connect-object-not-syncing/mvsearch.png)  
+![Zrzut ekranu przedstawiający Synchronization Service Manager z wybraną kartą wyszukiwania Metaverse](./media/tshoot-connect-object-not-syncing/mvsearch.png)  
 
-W oknie **Wyniki wyszukiwania** kliknij obiekt.
+W oknie **wyniki wyszukiwania** kliknij obiekt.
 
-Jeśli nie znalazłeś obiektu, nie osiągnął jeszcze metaverse. Kontynuuj wyszukiwanie obiektu w [przestrzeni łączników](#connector-space-object-properties)usługi Active Directory . Jeśli obiekt zostanie znaleziony w przestrzeni łączników usługi Active Directory, może wystąpić błąd synchronizacji, który blokuje dojście obiektu do metaverse lub może zostać zastosowany filtr zakresu reguł synchronizacji.
+Jeśli obiekt nie został odnaleziony, nie osiągnął jeszcze Metaverse. Kontynuuj wyszukiwanie obiektu w [obszarze łącznika](#connector-space-object-properties)Active Directory. Jeśli odnajdziesz obiekt w obszarze łącznika Active Directory, może wystąpić błąd synchronizacji, który blokuje obiekt z przychodzącymi do Metaverse lub filtr określania zakresu reguł synchronizacji.
 
 ### <a name="object-not-found-in-the-mv"></a>Nie znaleziono obiektu w MV
-Jeśli obiekt znajduje się w cs usługi Active Directory, ale nie jest obecny w MV, stosuje się filtr zakresu. Aby przyjrzeć się filtrowi zakresu, przejdź do menu aplikacji na pulpicie i wybierz pozycję **Edytor reguł synchronizacji**. Filtruj reguły mające zastosowanie do obiektu, dostosowując poniższy filtr.
+Jeśli obiekt znajduje się w Active Directory CS, ale nie występuje w MV, zostanie zastosowany filtr zakresu. Aby sprawdzić filtr określania zakresu, przejdź do menu aplikacji klasycznej i wybierz pozycję **Edytor reguł synchronizacji**. Odfiltruj reguły odpowiednie dla obiektu, dostosowując Poniższy filtr.
 
-  ![Zrzut ekranu przedstawiający Edytor reguł synchronizacji z wyszukiwaniem reguł synchronizacji przychodzącej](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
+  ![Zrzut ekranu edytora reguł synchronizacji, pokazujący wyszukiwanie reguł synchronizacji ruchu przychodzącego](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
 
-Wyświetl każdą regułę na liście z góry i sprawdź **filtr Zakresu**. W poniższym filtrze zakresu, jeśli wartość **isCriticalSystemObject** jest null lub FALSE lub pusta, jest w zakresie.
+Przejrzyj wszystkie reguły na liście powyżej i sprawdź **Filtr określania zakresu**. W poniższym filtrze określania zakresu, jeśli wartość **isCriticalSystemObject** jest równa null lub FAŁSZ lub pusta, znajduje się w zakresie.
 
-  ![Zrzut ekranu przedstawiający filtr zakresu w wyszukiwaniu reguł synchronizacji przychodzącej](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
+  ![Zrzut ekranu przedstawiający filtr określania zakresu w wyszukiwaniu reguły synchronizacji ruchu przychodzącego](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
 
-Przejdź do listy [atrybutów CS Import](#cs-import) i sprawdź, który filtr blokuje przejście obiektu do MV. Lista **atrybutów Spacja łącznika** będzie wyświetlać tylko atrybuty inne niż null i niepuste. Na przykład jeśli **isCriticalSystemObject** nie pojawi się na liście, wartość tego atrybutu jest null lub puste.
+Przejdź do listy atrybutów [importu CS](#cs-import) i sprawdź, który filtr blokuje obiekt od przejścia do MV. Lista atrybutów **obszaru łącznika** będzie zawierać tylko atrybuty inne niż null i niepuste. Na przykład jeśli **isCriticalSystemObject** nie pojawia się na liście, wartość tego atrybutu jest zerowa lub pusta.
 
 ### <a name="object-not-found-in-the-azure-ad-cs"></a>Nie znaleziono obiektu w usłudze Azure AD CS
-Jeśli obiekt nie jest obecny w przestrzeni łącznika usługi Azure AD, ale jest obecny w MV, spójrz na filtr zakresu reguł wychodzących odpowiedniego miejsca łącznika i dowiedzieć się, czy obiekt jest odfiltrowany, ponieważ [atrybuty MV](#mv-attributes) nie spełniają kryteriów.
+Jeśli obiekt nie występuje w miejscu łącznika usługi Azure AD, ale znajduje się w MV, spójrz na filtr określania zakresu reguł ruchu wychodzącego odpowiadającego mu miejsca łącznika i sprawdź, czy obiekt jest odfiltrowany, ponieważ [atrybuty MV](#mv-attributes) nie spełniają kryteriów.
 
-Aby przyjrzeć się filtrowi zakresu ruchu wychodzącego, wybierz odpowiednie reguły dla obiektu, dostosowując filtr poniżej. Wyświetl każdą regułę i przyjrzyj się odpowiedniej wartości [atrybutu MV.](#mv-attributes)
+Aby przyjrzeć się filtrowi zakresu wychodzącego, wybierz odpowiednie reguły dla obiektu, dostosowując Poniższy filtr. Wyświetl każdą regułę i sprawdź odpowiadającą jej wartość [atrybutu MV](#mv-attributes) .
 
-  ![Zrzut ekranu przedstawiający wyszukiwanie reguł synchronizacji ruchu wychodzącego w Edytorze reguł synchronizacji](./media/tshoot-connect-object-not-syncing/outboundfilter.png)
+  ![Zrzut ekranu przedstawiający reguły synchronizacji danych wychodzących wyszukiwanie w Edytorze reguł synchronizacji](./media/tshoot-connect-object-not-syncing/outboundfilter.png)
 
 
 ### <a name="mv-attributes"></a>Atrybuty MV
-Na karcie **Atrybuty** można zobaczyć wartości i współtworzyć je łączniki.  
+Na karcie **atrybuty** są widoczne wartości i łączniki, które zostały przez niego utworzone.  
 
-![Zrzut ekranu przedstawiający okno Właściwości obiektu Metaverse z wybraną kartą Atrybuty](./media/tshoot-connect-object-not-syncing/mvobject.png)  
+![Zrzut ekranu przedstawiający obiekt Metaverse okno Właściwości, z wybraną kartą atrybuty](./media/tshoot-connect-object-not-syncing/mvobject.png)  
 
-Jeśli obiekt nie jest synchronizowany, zadaj następujące pytania dotyczące stanów atrybutów w metaverse:
-- Czy atrybut **cloudFiltered** jest obecny i ustawiony na **True?** Jeśli tak jest, został odfiltrowany zgodnie z krokami [filtrowania opartego na atrybutach](how-to-connect-sync-configure-filtering.md#attribute-based-filtering).
-- Czy źródło **atrybutuAnchor** jest obecny? Jeśli nie, czy masz topologię lasu zasobów konta? Jeśli obiekt jest identyfikowany jako połączona skrzynka pocztowa (atrybut **msExchRecipientTypeDetails** ma wartość **2),** **sourceAnchor** jest przekazywał przez las z włączonym kontem usługi Active Directory. Upewnij się, że konto główne zostało poprawnie zaimportowane i zsynchronizowane. Konto główne musi być wymienione wśród [łączników](#mv-connectors) obiektu.
+Jeśli obiekt nie jest synchronizowany, zapoznaj się z poniższymi pytaniami dotyczącymi Stanów atrybutów w obiekcie Metaverse:
+- Czy atrybut **cloudFiltered** jest obecny i ma ustawioną **wartość PRAWDA**? Jeśli tak, zostało ono przefiltrowane zgodnie z krokami [filtrowania opartego na atrybutach](how-to-connect-sync-configure-filtering.md#attribute-based-filtering).
+- Czy atrybut **sourceAnchor** jest obecny? Jeśli nie, czy masz topologię lasu zasobów konta? Jeśli obiekt jest identyfikowany jako połączona Skrzynka pocztowa (atrybut **msExchRecipientTypeDetails** ma wartość **2**), **sourceAnchor** jest tworzony przez las z włączonym kontem Active Directory. Upewnij się, że konto główne zostało zaimportowane i zsynchronizowane prawidłowo. Główne konto musi znajdować się na liście [łączników](#mv-connectors) dla obiektu.
 
-### <a name="mv-connectors"></a>Złącza MV
-Na karcie **Łączniki** są wyświetlane wszystkie spacje łączników, które mają reprezentację obiektu. 
+### <a name="mv-connectors"></a>MV — łączniki
+Na karcie **Łączniki** są wyświetlane wszystkie miejsca łączników, które mają reprezentację obiektu. 
  
-![Zrzut ekranu przedstawiający okno Właściwości obiektu Metaverse z wybraną kartą Łączniki](./media/tshoot-connect-object-not-syncing/mvconnectors.png)  
+![Zrzut ekranu przedstawiający obiekt Metaverse okno Właściwości, z wybraną kartą łączniki](./media/tshoot-connect-object-not-syncing/mvconnectors.png)  
 
-Powinieneś mieć łącznik do:
+Należy mieć łącznik, aby:
 
-- Każdy las usługi Active Directory, w których jest reprezentowany użytkownik. Reprezentacja ta może zawierać **foreignSecurityPrincipals** i **Contact** obiektów.
+- Każdy Las Active Directory jest reprezentowany przez użytkownika. Ta reprezentacja może obejmować obiekty **foreignSecurityPrincipals** i **Contact** .
 - Łącznik w usłudze Azure AD.
 
-Jeśli brakuje łącznika do usługi Azure AD, przejrzyj sekcję [atrybutów MV,](#mv-attributes) aby sprawdzić kryteria inicjowania obsługi administracyjnej usługi Azure AD.
+Jeśli nie masz łącznika z usługą Azure AD, zapoznaj się z sekcją [atrybuty MV](#mv-attributes) , aby sprawdzić kryteria udostępniania w usłudze Azure AD.
 
-Na karcie **Łączniki** można również przejść do [obiektu spacji łączników](#connector-space-object-properties). Zaznacz wiersz i kliknij pozycję **Właściwości**.
+Na karcie **Łączniki** możesz również przejść do [obiektu spacja łącznika](#connector-space-object-properties). Zaznacz wiersz i kliknij pozycję **Właściwości**.
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [synchronizacji usługi Azure AD Connect](how-to-connect-sync-whatis.md).
+- Dowiedz się więcej o [Azure AD Connect synchronizacji](how-to-connect-sync-whatis.md).
 - Dowiedz się więcej o [tożsamości hybrydowej](whatis-hybrid-identity.md).

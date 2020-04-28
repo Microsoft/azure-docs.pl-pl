@@ -1,6 +1,6 @@
 ---
-title: 'Synchronizacja usługi Azure AD Connect: harmonogram | Dokumenty firmy Microsoft'
-description: W tym temacie opisano wbudowaną funkcję harmonogramu w synchronizacji usługi Azure AD Connect.
+title: 'Azure AD Connect Sync: Scheduler | Microsoft Docs'
+description: W tym temacie opisano wbudowaną funkcję harmonogramu w programie Azure AD Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,116 +17,116 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261075"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronizacja programu Azure AD Connect: Harmonogram
-W tym temacie opisano wbudowany harmonogram w synchronizacji usługi Azure AD Connect (aparat synchronizacji).
+W tym temacie opisano wbudowany harmonogram w programie Azure AD Connect Sync (aparat synchronizacji).
 
-Ta funkcja została wprowadzona w kompilacji 1.1.105.0 (wydana w lutym 2016).
+Ta funkcja została wprowadzona w programie build 1.1.105.0 (wydano luty 2016).
 
 ## <a name="overview"></a>Omówienie
-Synchronizacja usługi Azure AD Connect synchronizuje zmiany zachodzące w katalogu lokalnym przy użyciu harmonogramu. Istnieją dwa procesy harmonogramu, jeden do synchronizacji haseł i drugi dla zadań synchronizacji i konserwacji obiektów/atrybutów. Ten temat obejmuje ten ostatni.
+Synchronizacja Azure AD Connect zsynchronizuj zmiany w katalogu lokalnym przy użyciu harmonogramu. Istnieją dwa procesy harmonogramu — jeden do synchronizacji haseł i drugi do zadań synchronizacji obiektów/atrybutów i obsługi. Ten temat obejmuje te ostatnie.
 
-We wcześniejszych wersjach harmonogram dla obiektów i atrybutów był zewnętrzny do aparatu synchronizacji. Do wyzwolenia procesu synchronizacji użyto harmonogramu zadań systemu Windows lub oddzielnej usługi systemu Windows. Harmonogram jest z 1.1 zwalnia wbudowany do aparatu synchronizacji i pozwalają na pewne dostosowanie. Nowa domyślna częstotliwość synchronizacji wynosi 30 minut.
+We wcześniejszych wersjach harmonogram dla obiektów i atrybutów był zewnętrzny względem aparatu synchronizacji. Używa harmonogramu zadań systemu Windows lub oddzielnej usługi systemu Windows, aby wyzwolić proces synchronizacji. Harmonogram jest z wbudowanymi wersjami 1,1 do aparatu synchronizacji i zezwalają na dostosowanie. Nowa domyślna częstotliwość synchronizacji to 30 minut.
 
 Harmonogram jest odpowiedzialny za dwa zadania:
 
 * **Cykl synchronizacji**. Proces importowania, synchronizowania i eksportowania zmian.
-* **Zadania konserwacyjne**. Odnawianie kluczy i certyfikatów dla usługi resetowania hasła i rejestracji urządzeń (DRS). Przeczyść stare wpisy w dzienniku operacji.
+* **Zadania konserwacji**. Odnawianie kluczy i certyfikatów do resetowania haseł i usługi rejestracji urządzeń (DRS). Przeczyść stare wpisy w dzienniku operacji.
 
-Sam harmonogram jest zawsze uruchomiony, ale można go skonfigurować tak, aby uruchamiał tylko jedno lub żadne z tych zadań. Na przykład jeśli trzeba mieć własny proces cyklu synchronizacji, można wyłączyć to zadanie w harmonogramie, ale nadal uruchomić zadanie konserwacji.
+Sam harmonogram jest zawsze uruchomiony, ale można go skonfigurować tak, aby uruchamiał tylko jedno lub żadne z tych zadań. Na przykład jeśli musisz mieć własny proces cyklu synchronizacji, możesz wyłączyć to zadanie w harmonogramie, ale nadal uruchomić zadanie obsługi.
 
 ## <a name="scheduler-configuration"></a>Konfiguracja harmonogramu
-Aby wyświetlić bieżące ustawienia konfiguracji, przejdź `Get-ADSyncScheduler`do programu PowerShell i uruchom program . To pokazuje coś takiego obrazu:
+Aby wyświetlić bieżące ustawienia konfiguracji, przejdź do programu PowerShell i uruchom `Get-ADSyncScheduler`polecenie. Przedstawiono tutaj następujący obraz:
 
-![GetSyncScheduler ( GetSyncScheduler )](./media/how-to-connect-sync-feature-scheduler/getsynccyclesettings2016.png)
+![GetSyncScheduler](./media/how-to-connect-sync-feature-scheduler/getsynccyclesettings2016.png)
 
-Jeśli zostanie wyświetlony **polecenie synchronizacja lub polecenie cmdlet nie jest dostępne** po uruchomieniu tego polecenia cmdlet, moduł programu PowerShell nie jest ładowany. Ten problem może się zdarzyć, jeśli uruchomisz usługę Azure AD Connect na kontrolerze domeny lub na serwerze z wyższymi poziomami ograniczeń programu PowerShell niż ustawienia domyślne. Jeśli widzisz ten błąd, `Import-Module ADSync` uruchom, aby udostępnić polecenie cmdlet.
+Jeśli po uruchomieniu tego polecenia cmdlet zobaczysz **polecenie Synchronizuj, lub polecenie cmdlet nie jest dostępne** , moduł programu PowerShell nie zostanie załadowany. Przyczyną tego problemu może być uruchomienie Azure AD Connect na kontrolerze domeny lub na serwerze z wyższymi poziomami ograniczeń programu PowerShell niż ustawienia domyślne. Jeśli ten błąd jest wyświetlany, uruchom `Import-Module ADSync` polecenie, aby wyświetlić dostępne polecenia cmdlet.
 
-* **AllowedSyncCycleInterval**. Najkrótszy przedział czasu między cyklami synchronizacji dozwolonymi przez usługę Azure AD. Nie można synchronizować częściej niż to ustawienie i nadal być obsługiwane.
-* **CurrentlyEffectiveSyncCycleInterval**. Aktualnie obowiązuje harmonogram. Ma taką samą wartość jak CustomizedSyncInterval (jeśli jest ustawiona), jeśli nie jest częstszy niż AllowedSyncInterval. Jeśli używasz kompilacji przed 1.1.281 i zmienisz CustomizedSyncCycleInterval, ta zmiana zacznie obowiązywać po następnym cyklu synchronizacji. Od kompilacji 1.1.281 zmiana wchodzi w życie natychmiast.
-* **CustomizedSyncCycleInterval**. Jeśli chcesz, aby harmonogram był uruchamiany z dowolną inną częstotliwością niż domyślne 30 minut, skonfiguruj to ustawienie. Na powyższym zdjęciu harmonogram został ustawiony do uruchamiania co godzinę. Jeśli to ustawienie zostanie ustawione na wartość niższą niż AllowedSyncInterval, zostanie użyte to ostatnie.
-* **NextSyncCyclePolicyType**. Delta lub Początkowe. Określa, czy następne uruchomienie powinno przetwarzać tylko zmiany różnicowe, czy następne uruchomienie powinno wykonać pełny import i synchronizację. Te ostatnie ponownie przetworzyłyby również wszelkie nowe lub zmienione zasady.
-* **NextSyncCycleStartTimeInUTC**. Następnym razem, gdy harmonogram uruchamia następny cykl synchronizacji.
-* **PurgeRunHistoryInterval**. Dzienniki operacji czasu powinny być przechowywane. Te dzienniki można przejrzeć w menedżerze usługi synchronizacji. Domyślnie te dzienniki są rejestrowane przez 7 dni.
-* **SyncCycleEnabled**. Wskazuje, czy harmonogram jest uruchomiony procesów importu, synchronizacji i eksportu w ramach jego działania.
-* **MaintenanceEnabled**. Pokazuje, czy proces konserwacji jest włączony. Aktualizuje certyfikaty/klucze i czyści dziennik operacji.
-* **StagingModeEnabled**. Pokazuje, czy [tryb przemieszczania](how-to-connect-sync-staging-server.md) jest włączony. Jeśli to ustawienie jest włączone, powoduje pomijanie eksportu z uruchamiania, ale nadal uruchomić import i synchronizację.
-* **HarmonogramSuspended**. Ustaw przez Connect podczas uaktualniania, aby tymczasowo zablokować uruchamianie harmonogramu.
+* **AllowedSyncCycleInterval**. Najkrótszy odstęp czasu między cyklami synchronizacji dozwolonymi przez usługę Azure AD. Nie można synchronizować częściej niż to ustawienie i nadal jest obsługiwane.
+* **CurrentlyEffectiveSyncCycleInterval**. Harmonogram aktualnie działa. Ma taką samą wartość jak CustomizedSyncInterval (jeśli jest ustawiona), jeśli nie jest częściej niż AllowedSyncInterval. Jeśli używasz kompilacji przed 1.1.281 i zmienisz CustomizedSyncCycleInterval, ta zmiana zacznie obowiązywać po kolejnym cyklu synchronizacji. Od kompilacji 1.1.281 zmiana zacznie obowiązywać natychmiast.
+* **CustomizedSyncCycleInterval**. Jeśli chcesz, aby harmonogram był uruchamiany z inną częstotliwością niż domyślna 30 minut, skonfiguruj to ustawienie. Na powyższym rysunku harmonogram został ustawiony tak, aby był uruchamiany co godzinę. W przypadku ustawienia tego ustawienia na wartość niższą niż AllowedSyncInterval, ta ostatnia zostanie użyta.
+* **NextSyncCyclePolicyType**. Różnicowe lub początkowe. Określa, czy następny przebieg powinien przetwarzać zmiany różnicowe, czy też następne uruchomienie powinno wykonać pełny import i synchronizację. Spowoduje to również przetworzenie ponownie wszystkich nowych lub zmienionych reguł.
+* **NextSyncCycleStartTimeInUTC**. Następnym razem, gdy harmonogram zacznie następnym cyklem synchronizacji.
+* **PurgeRunHistoryInterval**. Należy zachować dzienniki operacji czasu. Te dzienniki można przejrzeć w Menedżerze usługi synchronizacji. Domyślnie te dzienniki są przechowywane przez 7 dni.
+* **SyncCycleEnabled**. Wskazuje, czy w ramach operacji w harmonogramie działają procesy importowania, synchronizowania i eksportowania.
+* **MaintenanceEnabled**. Pokazuje, czy proces konserwacji jest włączony. Aktualizuje ona certyfikaty/klucze i Przeczyszcza dziennik operacji.
+* **StagingModeEnabled**. Pokazuje, czy [tryb przejściowy](how-to-connect-sync-staging-server.md) jest włączony. Jeśli to ustawienie jest włączone, program pomija operacje eksportowania z uruchomionym programem, ale nadal uruchamia Importowanie i synchronizację.
+* **SchedulerSuspended**. Ustawiane przez połączenie podczas uaktualniania w celu tymczasowego blokowania uruchamiania harmonogramu.
 
-Niektóre z tych ustawień `Set-ADSyncScheduler`można zmienić za pomocą pliku . Można zmodyfikować następujące parametry:
+Niektóre z tych ustawień można zmienić za pomocą `Set-ADSyncScheduler`programu. Następujące parametry można modyfikować:
 
-* DostosowaneŁączaowanie cyklisynkowych
-* Następny Typ polityki cyklisynkowych
-* Przeczyszczanie HistoriaInterwalna
+* CustomizedSyncCycleInterval
+* NextSyncCyclePolicyType
+* PurgeRunHistoryInterval
 * SyncCycleEnabled
-* KonserwacjaWładna
+* MaintenanceEnabled
 
-We wcześniejszych kompilacjach usługi Azure AD Connect **isStagingModeEnabled** został ujawniony w usłudze Set-ADSyncScheduler. Nie jest **obsługiwane,** aby ustawić tę właściwość. Właściwość **SchedulerSuspended** powinna być modyfikowana tylko przez Connect. Nie jest **obsługiwane,** aby ustawić to bezpośrednio z programem PowerShell.
+We wcześniejszych kompilacjach Azure AD Connect **isStagingModeEnabled** został ujawniony w Set-ADSyncScheduler. Ustawienie tej właściwości nie jest **obsługiwane** . Właściwość **SchedulerSuspended** powinna być modyfikowana tylko przez połączenie. To ustawienie nie jest **obsługiwane** bezpośrednio w programie PowerShell.
 
-Konfiguracja harmonogramu jest przechowywana w usłudze Azure AD. Jeśli masz serwer przejściowy, wszelkie zmiany na serwerze podstawowym mają również wpływ na serwer przejściowy (z wyjątkiem IsStagingModeEnabled).
+Konfiguracja harmonogramu jest przechowywana w usłudze Azure AD. W przypadku serwera przejściowego jakakolwiek zmiana na serwerze podstawowym ma wpływ na serwer przejściowy (z wyjątkiem IsStagingModeEnabled).
 
-### <a name="customizedsynccycleinterval"></a>DostosowaneŁączaowanie cyklisynkowych
-Składni:`Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
-d - dni, HH - godziny, mm - minuty, ss - sekundy
+### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
+Obowiązuje`Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
+d-dni, GG godziny, mm-min, SS-s
 
 Przykład: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
-Zmienia harmonogram do uruchamiania co 3 godziny.
+Zmienia harmonogram uruchamiania co 3 godziny.
 
 Przykład: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
-Zmiany zmieniają harmonogram do uruchamiania codziennie.
+Zmiany zmieniają harmonogram uruchamiania codziennie.
 
 ### <a name="disable-the-scheduler"></a>Wyłączanie harmonogramu  
-Jeśli musisz wprowadzić zmiany konfiguracji, chcesz wyłączyć harmonogram. Na przykład podczas [konfigurowania filtrowania](how-to-connect-sync-configure-filtering.md) lub [wprowadzania zmian w regułach synchronizacji](how-to-connect-sync-change-the-configuration.md).
+Jeśli musisz wprowadzić zmiany w konfiguracji, chcesz wyłączyć harmonogram. Na przykład podczas [konfigurowania filtrowania](how-to-connect-sync-configure-filtering.md) lub [wprowadzania zmian w regułach synchronizacji](how-to-connect-sync-change-the-configuration.md).
 
-Aby wyłączyć harmonogram, `Set-ADSyncScheduler -SyncCycleEnabled $false`uruchom program .
+Aby wyłączyć harmonogram, uruchom `Set-ADSyncScheduler -SyncCycleEnabled $false`polecenie.
 
 ![Wyłączanie harmonogramu](./media/how-to-connect-sync-feature-scheduler/schedulerdisable.png)
 
-Po wprowadzeniu zmian nie zapomnij ponownie włączyć harmonogramu za `Set-ADSyncScheduler -SyncCycleEnabled $true`pomocą pliku .
+Po wprowadzeniu zmian nie zapomnij ponownie włączyć harmonogramu przy użyciu `Set-ADSyncScheduler -SyncCycleEnabled $true`programu.
 
-## <a name="start-the-scheduler"></a>Uruchamianie harmonogramu
-Harmonogram jest domyślnie uruchamiany co 30 minut. W niektórych przypadkach można uruchomić cykl synchronizacji między zaplanowanymi cyklami lub musisz uruchomić inny typ.
+## <a name="start-the-scheduler"></a>Uruchom Harmonogram
+Harmonogram jest domyślnie uruchamiany co 30 minut. W niektórych przypadkach może być konieczne uruchomienie cyklu synchronizacji między planowanymi cyklami lub uruchomienie innego typu.
 
 ### <a name="delta-sync-cycle"></a>Cykl synchronizacji różnicowej
-Cykl synchronizacji różnicowej obejmuje następujące kroki:
+Cykl synchronizacji delty obejmuje następujące kroki:
 
 
-- Import delta na wszystkich złączach
-- Synchronizacja delta na wszystkich złączach
-- Eksport na wszystkich łącznikach
+- Import Delta na wszystkich łącznikach
+- Synchronizacja różnicowa na wszystkich łącznikach
+- Eksportuj na wszystkich łącznikach
 
-### <a name="full-sync-cycle"></a>Pełny cykl synchronizacji
+### <a name="full-sync-cycle"></a>Cykl pełnej synchronizacji
 Pełny cykl synchronizacji obejmuje następujące kroki:
 
-- Pełny import na wszystkich złączach
-- Pełna synchronizacja na wszystkich złączach
-- Eksport na wszystkich łącznikach
+- Pełny import na wszystkich łącznikach
+- Pełna synchronizacja wszystkich łączników
+- Eksportuj na wszystkich łącznikach
 
-Może to być pilna zmiana, która musi zostać natychmiast zsynchronizowana, dlatego musisz ręcznie uruchomić cykl. 
+Może się zdarzyć, że masz pilną zmianę, która musi zostać natychmiast zsynchronizowana, co jest potrzebne do ręcznego uruchomienia cyklu. 
 
-Jeśli chcesz ręcznie uruchomić cykl synchronizacji, uruchom program `Start-ADSyncSyncCycle -PolicyType Delta`PowerShell .
+Jeśli musisz ręcznie uruchomić cykl synchronizacji, uruchom `Start-ADSyncSyncCycle -PolicyType Delta`polecenie z programu PowerShell.
 
-Aby zainicjować pełny cykl `Start-ADSyncSyncCycle -PolicyType Initial` synchronizacji, uruchom z monitu programu PowerShell.   
+Aby zainicjować cykl pełnej synchronizacji, uruchom `Start-ADSyncSyncCycle -PolicyType Initial` polecenie w wierszu polecenia programu PowerShell.   
 
-Uruchamianie pełnego cyklu synchronizacji może być bardzo czasochłonne, przeczytaj następną sekcję, aby przeczytać, jak zoptymalizować ten proces.
+Uruchamianie pełnego cyklu synchronizacji może być bardzo czasochłonne. Przeczytaj następną sekcję, aby zapoznać się z tematem Optymalizacja tego procesu.
 
 ### <a name="sync-steps-required-for-different-configuration-changes"></a>Kroki synchronizacji wymagane dla różnych zmian konfiguracji
-Różne zmiany konfiguracji wymagają różnych kroków synchronizacji, aby upewnić się, że zmiany są poprawnie stosowane do wszystkich obiektów.
+Różne zmiany konfiguracji wymagają różnych kroków synchronizacji, aby upewnić się, że zmiany są poprawnie zastosowane do wszystkich obiektów.
 
 - Dodano więcej obiektów lub atrybutów do zaimportowania z katalogu źródłowego (przez dodanie/zmodyfikowanie reguł synchronizacji)
-    - Pełny import jest wymagany w łączniku dla tego katalogu źródłowego
+    - Na łączniku dla tego katalogu źródłowego jest wymagany pełny import
 - Wprowadzono zmiany w regułach synchronizacji
-    - Pełna synchronizacja jest wymagana w łączniku dla zmienionych reguł synchronizacji
-- Zmieniono [filtrowanie,](how-to-connect-sync-configure-filtering.md) aby uwzględnić inną liczbę obiektów
-    - Pełny import jest wymagany w łączniku dla każdego łącznika usługi AD, chyba że używasz filtrowania opartego na atrybutach na podstawie atrybutów, które są już importowane do aparatu synchronizacji
+    - Na łączniku wymagana jest pełna synchronizacja dla zmienionych reguł synchronizacji
+- Zmieniono [filtrowanie](how-to-connect-sync-configure-filtering.md) , aby uwzględnić inną liczbę obiektów
+    - Na łączniku dla każdego łącznika usługi AD jest wymagany pełny import, chyba że jest używane filtrowanie oparte na atrybutach na podstawie atrybutów, które są już importowane do aparatu synchronizacji
 
-### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Dostosowywanie cyklu synchronizacji przebiegało zgodnie z właściwą kombinacją kroków Delta i Pełna synchronizacja
-Aby uniknąć uruchamiania pełnego cyklu synchronizacji, można oznaczyć określone łączniki, aby uruchomić pełny krok przy użyciu następujących poleceń cmdlet.
+### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Dostosowanie cyklu synchronizacji polega na tym, że został uruchomiony właściwy kombinacja różnic między etapami i pełną synchronizacją
+Aby uniknąć uruchomienia pełnego cyklu synchronizacji, można oznaczyć określone łączniki, aby uruchomić pełny krok przy użyciu następujących poleceń cmdlet.
 
 `Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullImportRequired $true`
 
@@ -134,13 +134,13 @@ Aby uniknąć uruchamiania pełnego cyklu synchronizacji, można oznaczyć okre�
 
 `Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
 
-Przykład: Jeśli wprowadzono zmiany w regułach synchronizacji łącznika "Las usługi AD A", które nie wymagają żadnych nowych atrybutów do zaimportowania, należy uruchomić następujące polecenia cmdlet, aby uruchomić cykl synchronizacji różnicowej, który również wykonał krok pełnej synchronizacji dla tego łącznika.
+Przykład: Jeśli wprowadzono zmiany w regułach synchronizacji łącznika "AD Forest A", które nie wymagają żadnych nowych atrybutów do zaimportowania, uruchom następujące polecenia cmdlet, aby uruchomić cykl synchronizacji różnicowej, który również przeprowadził krok pełnej synchronizacji dla tego łącznika.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
 
 `Start-ADSyncSyncCycle -PolicyType Delta`
 
-Przykład: Jeśli wprowadzono zmiany w regułach synchronizacji łącznika "Las usługi AD A", tak aby teraz wymagały one zaimportowania nowego atrybutu, należy uruchomić następujące polecenia cmdlet, aby uruchomić cykl synchronizacji różnicowej, który również wykonał pełny import, krok pełnej synchronizacji dla tego łącznika.
+Przykład: w przypadku wprowadzenia zmian w regułach synchronizacji łącznika "AD Forest A", aby teraz wymagały importowania nowego atrybutu, uruchom następujące polecenia cmdlet, aby uruchomić cykl synchronizacji różnicowej, który również ukończył pełny krok importu, pełną synchronizację dla tego łącznika.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
 
@@ -150,61 +150,61 @@ Przykład: Jeśli wprowadzono zmiany w regułach synchronizacji łącznika "Las 
 
 
 ## <a name="stop-the-scheduler"></a>Zatrzymaj harmonogram
-Jeśli harmonogram jest obecnie uruchomiony cykl synchronizacji, może być konieczne jego zatrzymanie. Na przykład po uruchomieniu kreatora instalacji i zostanie wyświetlony ten błąd:
+Jeśli harmonogram jest aktualnie uruchomiony w cyklu synchronizacji, może być konieczne jego zatrzymanie. Na przykład jeśli uruchomisz kreatora instalacji i wystąpi ten błąd:
 
 ![SyncCycleRunningError](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
 
-Gdy cykl synchronizacji jest uruchomiony, nie można wprowadzać zmian konfiguracji. Można poczekać, aż harmonogram zakończy proces, ale można również zatrzymać go, dzięki czemu można wprowadzić zmiany natychmiast. Zatrzymanie bieżącego cyklu nie jest szkodliwe i oczekujące zmiany są przetwarzane przy następnym uruchomieniu.
+Gdy cykl synchronizacji jest uruchomiony, nie można wprowadzać zmian w konfiguracji. Możesz poczekać, aż harmonogram zakończy proces, ale możesz również zatrzymać go, aby można było natychmiast wprowadzić zmiany. Zatrzymywanie bieżącego cyklu nie jest szkodliwe i oczekujące zmiany są przetwarzane z następnym uruchomieniem.
 
-1. Zacznij od poinformowania harmonogramu o zatrzymaniu bieżącego cyklu za pomocą polecenia cmdlet programu PowerShell `Stop-ADSyncSyncCycle`.
-2. Jeśli używasz kompilacji przed 1.1.281, a następnie zatrzymanie harmonogramu nie zatrzymuje bieżącego łącznika z jego bieżącego zadania. Aby wymusić zatrzymanie łącznika, należy ![podjąć następujące czynności: StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
-   * Uruchom **usługę synchronizacji** z menu Start. Przejdź do **łączników**, wyróżnij łącznik ze stanem **Uruchomiony**i wybierz **pozycję Zatrzymaj** z akcji.
+1. Zacznij od poinformowania harmonogramu, aby zatrzymał bieżący cykl przy `Stop-ADSyncSyncCycle`użyciu polecenia cmdlet programu PowerShell.
+2. Jeśli używasz kompilacji przed 1.1.281, zatrzymanie harmonogramu nie zatrzyma bieżącego łącznika z jego bieżącego zadania. Aby wymusić zatrzymanie łącznika, wykonaj następujące czynności: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+   * Uruchom **usługę synchronizacji** z menu Start. Przejdź do **łączników**, podświetl łącznik z **uruchomionym**stanem i wybierz pozycję **Zatrzymaj** w akcjach.
 
-Harmonogram jest nadal aktywny i uruchamia się ponownie przy następnej okazji.
+Harmonogram jest nadal aktywny i zostanie uruchomiony ponownie przy następnej okazji.
 
 ## <a name="custom-scheduler"></a>Harmonogram niestandardowy
-Polecenia cmdlet opisane w tej sekcji są dostępne tylko w kompilacji [1.1.130.0](reference-connect-version-history.md#111300) i nowszych.
+Polecenia cmdlet udokumentowane w tej sekcji są dostępne tylko w kompilacjach [1.1.130.0](reference-connect-version-history.md#111300) i nowszych.
 
-Jeśli wbudowany harmonogram nie spełnia wymagań, można zaplanować łączniki przy użyciu programu PowerShell.
+Jeśli wbudowany harmonogram nie spełnia wymagań użytkownika, można zaplanować łączniki przy użyciu programu PowerShell.
 
-### <a name="invoke-adsyncrunprofile"></a>Wywoływanie-ADSyncRunProfile
-Profil łącznika można uruchomić w ten sposób:
+### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
+Profil łącznika można uruchomić w następujący sposób:
 
 ```
 Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
 ```
 
-Nazwy używane dla [nazw łączników](how-to-connect-sync-service-manager-ui-connectors.md) i [nazw profilów uruchamiania](how-to-connect-sync-service-manager-ui-connectors.md#configure-run-profiles) można znaleźć w interfejsie [użytkownika programu Synchronizacja menedżera usług](how-to-connect-sync-service-manager-ui.md).
+Nazwy, które mają być używane w [nazwach łączników](how-to-connect-sync-service-manager-ui-connectors.md) i [nazwy profilów uruchamiania](how-to-connect-sync-service-manager-ui-connectors.md#configure-run-profiles) , można znaleźć w [interfejsie użytkownika Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md).
 
-![Wywołaj profil uruchamiania](./media/how-to-connect-sync-feature-scheduler/invokerunprofile.png)  
+![Wywołaj przebieg profilu](./media/how-to-connect-sync-feature-scheduler/invokerunprofile.png)  
 
-Polecenie `Invoke-ADSyncRunProfile` cmdlet jest synchroniczne, oznacza to, że nie zwraca kontroli, dopóki łącznik nie zakończy operację, pomyślnie lub z błędem.
+`Invoke-ADSyncRunProfile` Polecenie cmdlet jest synchroniczne, czyli nie zwraca kontroli, dopóki łącznik nie ukończy operacji, pomyślnie lub z powodu błędu.
 
-Podczas planowania łączników zaleca się zaplanowanie ich w następującej kolejności:
+Po zaplanowaniu łączników zaleca się zaplanowanie ich w następującej kolejności:
 
-1. (Pełna/Delta) Importowanie z katalogów lokalnych, takich jak usługa Active Directory
-2. (Pełna/Delta) Importowanie z usługi Azure AD
-3. (Pełna/Delta) Synchronizacja z katalogów lokalnych, takich jak usługa Active Directory
-4. (Pełna/Delta) Synchronizacja z usługi Azure AD
-5. Eksportowanie do usługi Azure AD
-6. Eksportowanie do katalogów lokalnych, takich jak usługa Active Directory
+1. (Pełne/różnicowe) Importuj z katalogów lokalnych, takich jak Active Directory
+2. (Pełne/różnicowe) Importuj z usługi Azure AD
+3. (Pełne/różnicowe) Synchronizacja z katalogów lokalnych, takich jak Active Directory
+4. (Pełne/różnicowe) Synchronizacja z usługi Azure AD
+5. Eksportuj do usługi Azure AD
+6. Eksportuj do katalogów lokalnych, takich jak Active Directory
 
-W tej kolejności jest jak wbudowany harmonogram uruchamia łączniki.
+Ta kolejność polega na tym, jak wbudowany harmonogram uruchamia łączniki.
 
-### <a name="get-adsyncconnectorrunstatus"></a>Stan Połączenia Get-AD
-Można również monitorować aparat synchronizacji, aby sprawdzić, czy jest zajęty lub bezczynny. To polecenie cmdlet zwraca pusty wynik, jeśli aparat synchronizacji jest bezczynny i nie działa łącznik. Jeśli łącznik jest uruchomiony, zwraca nazwę łącznika.
+### <a name="get-adsyncconnectorrunstatus"></a>Get-ADSyncConnectorRunStatus
+Możesz również monitorować aparat synchronizacji, aby sprawdzić, czy jest on zajęty lub bezczynny. To polecenie cmdlet zwraca pusty wynik, jeśli aparat synchronizacji jest w stanie bezczynności i nie jest uruchomiony łącznik. Jeśli łącznik jest uruchomiony, zwraca nazwę łącznika.
 
 ```
 Get-ADSyncConnectorRunStatus
 ```
 
 ![Stan uruchomienia łącznika](./media/how-to-connect-sync-feature-scheduler/getconnectorrunstatus.png)  
-Na powyższym rysunku pierwsza linia pochodzi ze stanu, w którym aparat synchronizacji jest bezczynny. Drugi wiersz od momentu uruchomienia usługi Azure AD Connector.
+Na powyższym rysunku pierwszy wiersz pochodzi z stanu, w którym aparat synchronizacji jest bezczynny. Drugi wiersz od momentu uruchomienia łącznika usługi Azure AD.
 
 ## <a name="scheduler-and-installation-wizard"></a>Kreator harmonogramu i instalacji
-Po uruchomieniu kreatora instalacji harmonogram zostanie tymczasowo zawieszony. To zachowanie jest, ponieważ zakłada się, że zmiany konfiguracji i te ustawienia nie mogą być stosowane, jeśli aparat synchronizacji jest aktywnie uruchomiony. Z tego powodu kreator instalacji nie należy pozostawiać otwartego kreatora instalacji, ponieważ uniemożliwia on aparatowi synchronizacji wykonywanie jakichkolwiek akcji synchronizacji.
+W przypadku uruchomienia Kreatora instalacji harmonogram jest tymczasowo zawieszony. Dzieje się tak, ponieważ zakłada się, że wprowadzono zmiany w konfiguracji i nie można zastosować tych ustawień, jeśli aparat synchronizacji aktywnie działa. Z tego powodu nie należy pozostawiać otwartego Kreatora instalacji, ponieważ uniemożliwia aparatowi synchronizacji wykonywanie akcji synchronizacji.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o konfiguracji [synchronizacji usługi Azure AD Connect.](how-to-connect-sync-whatis.md)
+Dowiedz się więcej o konfiguracji [synchronizacji Azure AD Connect](how-to-connect-sync-whatis.md) .
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md).
