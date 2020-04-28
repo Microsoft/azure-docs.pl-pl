@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: acf1195616d45b155445604ef0204528e5f7ca03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183868"
 ---
-Dane w locie:
+W przypadku danych w locie:
 
-- Standard TLS 1.2 jest używany do danych, które przemieszczają się między urządzeniem a platformą Azure. Nie ma rezerwowego do TLS 1.1 i wcześniej. Komunikacja agenta zostanie zablokowana, jeśli TLS 1.2 nie jest obsługiwany. TLS 1.2 jest również wymagany do zarządzania portalem i SDK.
-- Gdy klienci uzyskują dostęp do urządzenia za pośrednictwem lokalnego internetowego interfejsu użytkownika przeglądarki, standardowy protokół TLS 1.2 jest używany jako domyślny bezpieczny protokół.
+- Standard TLS 1,2 służy do przesyłania danych między urządzeniem i platformą Azure. Nie istnieje powrót do protokołu TLS 1,1 i jego wcześniejszych wersji. Komunikacja agentów zostanie zablokowana, jeśli protokół TLS 1,2 nie jest obsługiwany. Protokół TLS 1,2 jest również wymagany w przypadku zarządzania portalem i zestawem SDK.
+- Gdy klienci uzyskują dostęp do urządzenia za pomocą lokalnego interfejsu użytkownika sieci Web w przeglądarce, jako domyślny protokół TLS jest używany standard Secure Protocol 1,2.
 
-    - Najlepszym rozwiązaniem jest skonfigurowanie przeglądarki do używania protokołu TLS 1.2.
-    - Jeśli przeglądarka nie obsługuje protokołu TLS 1.2, można użyć protokołu TLS 1.1 lub TLS 1.0.
-- Zaleca się używanie SMB 3.0 z szyfrowaniem do ochrony danych podczas kopiowania ich z serwerów danych.
+    - Najlepszym rozwiązaniem jest skonfigurowanie przeglądarki do korzystania z protokołu TLS 1,2.
+    - Jeśli przeglądarka nie obsługuje protokołu TLS 1,2, można użyć protokołu TLS 1,1 lub TLS 1,0.
+- Zalecamy użycie protokołu SMB 3,0 z szyfrowaniem w celu ochrony danych podczas kopiowania ich z serwerów danych.

@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 8acb75f1cac83595da88a4a5ffa33102136266f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67183257"
 ---
-## <a name="how-to-use-additional-twilio-services"></a><a name="AdditionalServices"></a>Jak: Korzystanie z dodatkowych usług usługi Twilio
-Oprócz przykładów pokazanych w tym miejscu usługa Twilio oferuje interfejsy API oparte na sieci Web, których można użyć do wykorzystania dodatkowych funkcji usługi Twilio z aplikacji platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [dokumentację interfejsu API usługi Twilio][twilio_api_documentation].
+## <a name="how-to-use-additional-twilio-services"></a><a name="AdditionalServices"></a>Instrukcje: korzystanie z dodatkowych usług Twilio Services
+Oprócz przykładów przedstawionych tutaj Twilio oferuje interfejsy API oparte na sieci Web, których można użyć do korzystania z dodatkowych funkcji Twilio z aplikacji platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [dokumentację interfejsu API Twilio][twilio_api_documentation].
 
 ## <a name="next-steps"></a><a name="NextSteps"></a>Następne kroki
-Teraz, gdy znasz podstawy usługi Twilio, skorzystaj z tych łączy, aby dowiedzieć się więcej:
+Teraz, gdy znasz już podstawy usługi Twilio, Skorzystaj z poniższych linków, aby dowiedzieć się więcej:
 
-* [Wskazówki dotyczące zabezpieczeń usługi TWILIO][twilio_security_guidelines]
-* [Instrukcje usługi Twilio i przykładowy kod][twilio_howtos]
-* [Samouczki szybki start usługi Twilio][twilio_quickstarts] 
-* [Twilio w usłudze GitHub][twilio_on_github]
-* [Porozmawiaj z pomocą techniczną usługi Twilio][twilio_support]
+* [Wytyczne dotyczące zabezpieczeń Twilio][twilio_security_guidelines]
+* [Twilio HowTos i przykładowy kod][twilio_howtos]
+* [Samouczki szybkiego startu Twilio][twilio_quickstarts] 
+* [Twilio w serwisie GitHub][twilio_on_github]
+* [Porozmawiaj z pomocą techniczną Twilio][twilio_support]
 
 [twilio_api_documentation]: http://www.twilio.com/api
 [twilio_security_guidelines]: http://www.twilio.com/docs/security

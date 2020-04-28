@@ -1,5 +1,5 @@
 ---
-title: Obsługa protokołu HTTP/2 w usłudze Azure CDN | Dokumenty firmy Microsoft
+title: Obsługa protokołu HTTP/2 w Azure CDN | Microsoft Docs
 description: Dowiedz się więcej o obsłudze protokołu HTTP/2 i sieci CDN.
 services: cdn
 documentationcenter: ''
@@ -14,36 +14,36 @@ ms.topic: article
 ms.date: 5/04/2017
 ms.author: ril
 ms.openlocfilehash: 703623e3f7f314d87417458f3f9a218dfdf45427
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67849970"
 ---
-# <a name="http2-support-in-azure-cdn"></a>Obsługa protokołu HTTP/2 w usłudze Azure CDN
+# <a name="http2-support-in-azure-cdn"></a>Obsługa protokołu HTTP/2 w Azure CDN
 
-HTTP/2 jest główną wersją http/1.1\. Zapewnia szybszą wydajność sieci Web, krótszy czas reakcji i lepsze środowisko użytkownika, przy jednoczesnym zachowaniu znanych metod HTTP, kodów stanu i semantyki. Chociaż protokół HTTP/2 jest przeznaczony do pracy z protokołem HTTP i HTTPS, wiele klienckich przeglądarek internetowych obsługuje tylko protokół HTTP/2 za pośrednictwem protokołu TLS.
+HTTP/2 to główna wersja protokołu HTTP/1.1 \. Zapewnia to szybszą wydajność sieci Web, krótszy czas odpowiedzi i ulepszone środowisko użytkownika przy zachowaniu znanych metod HTTP, kodów stanu i semantyki. Mimo że protokół HTTP/2 jest przeznaczony do pracy z protokołami HTTP i HTTPS, wiele przeglądarek sieci Web klienta obsługuje tylko protokół HTTP/2 za pośrednictwem protokołu TLS.
 
-### <a name="http2-benefits"></a>Korzyści http/2
+### <a name="http2-benefits"></a>Korzyści z protokołu HTTP/2
 
-Korzyści z HTTP/2 obejmują:
+Zalety protokołu HTTP/2 obejmują:
 
 *   **Multipleksowanie i współbieżność**
 
-    Przy użyciu protokołu HTTP 1.1, wykonywanie wielu żądań zasobów wymaga wielu połączeń TCP, a każde połączenie ma obciążenie wydajności związane z nim. Protokół HTTP/2 umożliwia żądanie wielu zasobów w przypadku jednego połączenia TCP.
+    Przy użyciu protokołu HTTP 1,1 wykonanie wielu żądań zasobów wymaga wielu połączeń TCP, a każde połączenie ma powiązane z nim obciążenie. Protokół HTTP/2 umożliwia żądanie wielu zasobów na jednym połączeniu TCP.
 
-*   **Kompresja nagłówka**
+*   **Kompresowanie nagłówka**
 
-    Przez kompresję nagłówków HTTP dla obsługiwanych zasobów, czas na przewodowym jest znacznie zmniejszona.
+    Dzięki kompresji nagłówków HTTP dla obsługiwanych zasobów czas w sieci jest zmniejszany znacznie.
 
 *   **Zależności strumienia**
 
-    Zależności strumienia pozwalają klientowi wskazać serwerowi, które zasoby mają priorytet.
+    Zależności strumienia umożliwiają klientowi wskazanie serwera, którego zasoby mają priorytet.
 
 
 ## <a name="http2-browser-support"></a>Obsługa przeglądarki HTTP/2
 
-Wszystkie główne przeglądarki zaimplementowały obsługę HTTP/2 w swoich aktualnych wersjach. Nieobjęte przeglądarkami automatycznie powrócą do protokołu HTTP/1.1.
+Wszystkie główne przeglądarki wdrożyły obsługę protokołu HTTP/2 w ich bieżących wersjach. Nieobsługiwane przeglądarki automatycznie powracają do protokołu HTTP/1.1.
 
 |Przeglądarka|Minimalna wersja|
 |-------------|------------|
@@ -53,18 +53,18 @@ Wszystkie główne przeglądarki zaimplementowały obsługę HTTP/2 w swoich akt
 |Opera| 32|
 |Safari| 9|
 
-## <a name="enabling-http2-support-in-azure-cdn"></a>Włączanie obsługi protokołu HTTP/2 w usłudze Azure CDN
+## <a name="enabling-http2-support-in-azure-cdn"></a>Włączanie obsługi protokołu HTTP/2 w Azure CDN
 
-Obecnie obsługa protokołu HTTP/2 jest aktywna dla wszystkich profilów usługi Azure CDN. Nie są wymagane żadne dalsze działania ze strony klientów.
+Obecnie obsługa protokołu HTTP/2 jest aktywna dla wszystkich profilów Azure CDN. Od klientów nie są wymagane żadne dalsze działania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zobaczyć korzyści z HTTP/2 w akcji, zobacz [to demo z Akamai](https://http2.akamai.com/demo).
+Aby zobaczyć zalety protokołu HTTP/2 w działaniu, zobacz [ten pokaz z Akamai](https://http2.akamai.com/demo).
 
-Aby dowiedzieć się więcej o http/2, odwiedź następujące zasoby:
+Więcej informacji na temat protokołu HTTP/2 można znaleźć w następujących zasobach:
 
-*   [Strona główna specyfikacji HTTP/2](https://http2.github.io/)
-*   [Oficjalne często zadawane pytania dotyczące protokołu HTTP/2](https://http2.github.io/faq/)
-*   [Akamai HTTP/2 informacje](https://http2.akamai.com/)
+*   [Strona główna specyfikacji protokołu HTTP/2](https://http2.github.io/)
+*   [Oficjalne pytania dotyczące protokołu HTTP/2](https://http2.github.io/faq/)
+*   [Informacje dotyczące protokołu HTTP/2 Akamai](https://http2.akamai.com/)
 
-Aby dowiedzieć się więcej o dostępnych funkcjach usługi Azure CDN, zobacz [Omówienie usługi Azure CDN](https://azure.microsoft.com/documentation/articles/cdn-overview/).
+Aby dowiedzieć się więcej o dostępnych funkcjach Azure CDN, zobacz [omówienie Azure CDN](https://azure.microsoft.com/documentation/articles/cdn-overview/).

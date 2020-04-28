@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 886fa6c088f2fbabb3d3ba1cd0b15bbc488784f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183050"
 ---
 **Aby pobrać skrypty konfiguracji urządzenia sieci VPN:**
@@ -27,7 +27,7 @@ W zależności od używanego urządzenia sieci VPN, może być możliwe pobranie
 
 - Aby uzyskać linki do ustawień konfiguracji urządzeń, zobacz [Zweryfikowane urządzenia sieci VPN](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Linki do ustawień konfiguracji urządzeń zostały podane na zasadzie największej staranności. Zawsze najlepiej jest skontaktować się z producentem urządzenia, aby uzyskać najnowsze informacje o konfiguracji. Na liście pokazano wersje, które przetestowaliśmy. Jeśli Twój system operacyjny nie znajduje się na tej liście, dana wersja nadal może być zgodna. Skontaktuj się z producentem urządzenia, aby sprawdzić, czy wersja systemu operacyjnego urządzenia sieci VPN jest zgodna.
 
-- Aby zapoznać się z omówieniem konfiguracji urządzenia sieci VPN, zobacz [omówienie konfiguracji urządzenia sieci VPN](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
+- Aby zapoznać się z omówieniem konfiguracji urządzeń sieci VPN, zobacz [Omówienie konfiguracji urządzeń sieci VPN](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
 
 - Aby uzyskać informacje na temat edytowania przykładów konfiguracji urządzeń, zobacz [Edytowanie przykładów](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#editing).
 

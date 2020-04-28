@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: iot-accelerators
 author: dominicbetts
 ms.service: iot-accelerators
@@ -9,17 +9,17 @@ ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: a58e408feadd10e6dbc9d6878b82a4d045918ea6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68781479"
 ---
-## <a name="access-the-virtual-machine"></a>Dostęp do maszyny wirtualnej
+## <a name="access-the-virtual-machine"></a>Uzyskaj dostęp do maszyny wirtualnej
 
-W poniższych krokach użyj interfejsu wiersza polecenia platformy Azure w usłudze Azure Cloud Shell. Jeśli wolisz, możesz [zainstalować interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) na komputerze deweloperskim i uruchomić polecenia lokalnie.
+Poniższe kroki używają interfejsu wiersza polecenia platformy Azure w Azure Cloud Shell. Jeśli wolisz, możesz [zainstalować interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) na swoim komputerze deweloperskim i uruchomić polecenie lokalnie.
 
-Poniższe kroki pokazują, jak skonfigurować maszynę wirtualną platformy Azure, aby umożliwić dostęp **SSH.** Kroki pokazane zakładać, że nazwa wybrana dla akceleratora rozwiązania jest **contoso-simulation** - zastąpić tę wartość nazwą wdrożenia:
+Poniższe kroki pokazują, jak skonfigurować maszynę wirtualną platformy Azure w celu zezwalania na dostęp za pomocą protokołu **SSH** . W wyświetlonych krokach przyjęto założenie, że wybrana nazwa akceleratora rozwiązania to **contoso-symulacja** — Zamień tę wartość na nazwę wdrożenia:
 
 1. Wyświetl listę zawartości grupy zasobów zawierającej zasoby akceleratora rozwiązań:
 
@@ -27,26 +27,26 @@ Poniższe kroki pokazują, jak skonfigurować maszynę wirtualną platformy Azur
     az resource list -g contoso-simulation -o table
     ```
 
-    Zanotuj nazwę maszyny wirtualnej, publiczny adres IP i grupę zabezpieczeń sieci — te wartości są potrzebne później.
+    Zanotuj nazwę maszyny wirtualnej, publiczny adres IP i grupę zabezpieczeń sieci — te wartości będą potrzebne później.
 
-1. Zaktualizuj sieciową grupę zabezpieczeń, aby zezwolić na dostęp do SSH. Następujące polecenie zakłada, że nazwa sieciowej grupy zabezpieczeń to **contoso-simulation-nsg** — zastępuje tę wartość nazwą sieciowej grupy zabezpieczeń:
+1. Zaktualizuj grupę zabezpieczeń sieci, aby umożliwić dostęp SSH. Następujące polecenie zakłada, że nazwa sieciowej grupy zabezpieczeń to **contoso-symulacja-sieciowej grupy zabezpieczeń** --zastępuje tę wartość nazwą sieciowej grupy zabezpieczeń:
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
-    Włącz dostęp SSH tylko podczas testowania i rozwoju. Jeśli włączysz SSH, [należy wyłączyć go ponownie tak szybko, jak to możliwe](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#disable-rdpssh-access-to-virtual-machines).
+    Włącz dostęp SSH tylko podczas testowania i programowania. W przypadku włączenia protokołu SSH należy [go ponownie wyłączyć najszybciej, jak to możliwe](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#disable-rdpssh-access-to-virtual-machines).
 
-1. Zaktualizuj hasło dla konta **użytkownika platformy azure** na maszynie wirtualnej do hasła, które znasz. Po uruchomieniu następującego polecenia wybierz własne hasło:
+1. Zaktualizuj hasło do konta usługi **azureuser** na maszynie wirtualnej, aby poznać hasło, które znasz. Po uruchomieniu następującego polecenia wybierz własne hasło:
 
     ```azurecli-interactive
     az vm user update --name vm-vikxv --username azureuser --password YOURSECRETPASSWORD  -g contoso-simulation
     ```
 
-1. Znajdź publiczny adres IP maszyny wirtualnej. Następujące polecenie zakłada, że nazwa maszyny wirtualnej to **vm-vikxv** — zastąpić tę wartość nazwą maszyny wirtualnej, na którą wcześniej zanotowano:
+1. Znajdź publiczny adres IP maszyny wirtualnej. Następujące polecenie zakłada, że nazwa maszyny wirtualnej to **VM-vikxv** --zastępuje tę wartość nazwą maszyny wirtualnej, która została wcześniej zanotowana:
 
     ```azurecli-interactive
     az vm list-ip-addresses --name vm-vikxv -g contoso-simulation -o table
     ```
 
-    Zanotuj publiczny adres IP maszyny wirtualnej.
+    Zanotuj publiczny adres IP swojej maszyny wirtualnej.

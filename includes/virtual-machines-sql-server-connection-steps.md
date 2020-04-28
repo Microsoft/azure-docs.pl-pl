@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183172"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Otwieranie portów TCP w zaporze systemu Windows dla domyślnego wystąpienia aparatu bazy danych
 1. Nawiąż połączenie z maszyną wirtualną przy użyciu pulpitu zdalnego. Aby uzyskać szczegółowe instrukcje dotyczące nawiązywania połączenia z maszyną wirtualną, zobacz [Otwieranie maszyny wirtualnej SQL przy użyciu pulpitu zdalnego](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
-2. Po zalogowaniu się na ekranie startowym wpisz **ww.msc**, a następnie naciśnij klawisz ENTER.
+2. Po zalogowaniu się na ekranie startowym wpisz **WF. msc**, a następnie naciśnij klawisz ENTER.
    
     ![Uruchamianie programu zapory](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
 3. W obszarze **Zapora systemu Windows z zabezpieczeniami zaawansowanymi** w okienku po lewej stronie kliknij prawym przyciskiem myszy pozycję **Reguły ruchu przychodzącego**, a następnie kliknij pozycję **Nowa reguła** w okienku akcji.
@@ -23,7 +23,7 @@ ms.locfileid: "67183172"
 5. W oknie dialogowym **Protokół i porty** użyj domyślnej wartości **TCP**. Następnie w polu **Określone porty lokalne** wpisz numer portu wystąpienia aparatu bazy danych (**1433** dla wystąpienia domyślnego lub wybrany numer dla portu prywatnego w kroku punktu końcowego).
    
     ![Port TCP 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
-6. Kliknij przycisk **alej**.
+6. Kliknij przycisk **Dalej**.
 7. W oknie dialogowym **Akcja** wybierz pozycję **Zezwalaj na połączenie**, a następnie kliknij przycisk **Dalej**.
    
     **Uwaga dotycząca zabezpieczeń**: Wybranie opcji **Zezwalaj na połączenie, jeśli jest bezpieczne** może zapewnić większe bezpieczeństwo. Wybierz tę opcję, jeśli chcesz skonfigurować dodatkowe opcje zabezpieczeń w środowisku.
@@ -55,7 +55,7 @@ Aparat bazy danych programu SQL Server nie może korzystać z uwierzytelniania s
 1. Po nawiązaniu połączenia z maszyną wirtualną wpisz na stronie startowej ciąg **SQL Server Management Studio** i kliknij wybraną ikonę.
    
     Podczas pierwszego uruchomienia program Management Studio musi utworzyć środowisko użytkowników programu Management Studio. Może to potrwać kilka chwil.
-2. Program Management Studio wyświetli okno dialogowe **Łączenie z serwerem**. W polu **Nazwa serwera** wpisz nazwę maszyny wirtualnej, którą chcesz połączyć z silnikiem bazy danych przy użyciu Eksploratora obiektów. Zamiast nazwy maszyny wirtualnej możesz także użyć wartości **(lokalny)** lub jednej kropki jako **Nazwa serwera**. Wybierz **pozycję Uwierzytelnianie systemu Windows**i pozostaw ***your_VM_name\your_local_administrator*** w polu Nazwa **użytkownika.** Kliknij pozycję **Połącz**.
+2. Program Management Studio wyświetli okno dialogowe **Łączenie z serwerem**. W polu **Nazwa serwera** wpisz nazwę maszyny wirtualnej, którą chcesz połączyć z silnikiem bazy danych przy użyciu Eksploratora obiektów. Zamiast nazwy maszyny wirtualnej możesz także użyć wartości **(lokalny)** lub jednej kropki jako **Nazwa serwera**. Wybierz pozycję **uwierzytelnianie systemu Windows**i pozostaw ***your_VM_name \ your_local_administrator*** w polu **Nazwa użytkownika** . Kliknij pozycję **Połącz**.
    
     ![Łączenie z serwerem](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. W Eksploratorze obiektów programu SQL Server Management Studio kliknij prawym przyciskiem myszy nazwę wystąpienia programu SQL Server (nazwę maszyny wirtualnej), a następnie kliknij pozycję **Właściwości**.

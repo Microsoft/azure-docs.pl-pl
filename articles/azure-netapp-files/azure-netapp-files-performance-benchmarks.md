@@ -1,6 +1,6 @@
 ---
-title: Wyniki testów porównawczych wydajności dla plików NetApp platformy Azure | Dokumenty firmy Microsoft
-description: W tym artykule opisano wyniki testów porównawczych wydajności dla plików NetApp platformy Azure na poziomie woluminu.
+title: Wyniki testu porównawczego wydajności dla Azure NetApp Files | Microsoft Docs
+description: Opisuje wyniki testów porównawczych wydajności dla Azure NetApp Files na poziomie woluminu.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,81 +15,81 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: b-juche
 ms.openlocfilehash: 1d6b43110046f26d8c8070b19587366588eee7b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68881755"
 ---
 # <a name="performance-benchmark-test-results-for-azure-netapp-files"></a>Wyniki testu wydajności dla usługi Azure NetApp Files
 
-W tym artykule opisano wyniki testów porównawczych wydajności dla plików NetApp platformy Azure na poziomie woluminu. 
+W tym artykule opisano wyniki testów porównawczych wydajności dla Azure NetApp Files na poziomie woluminu. 
 
-## <a name="sample-application-used-for-the-tests"></a>Przykładowa aplikacja używana do badań
+## <a name="sample-application-used-for-the-tests"></a>Przykładowa aplikacja używana do testów
 
-Testy wydajności zostały uruchomione przy użyciu przykładowej aplikacji przy użyciu plików NetApp platformy Azure. Aplikacja posiada następujące cechy: 
+Testy wydajności zostały uruchomione z przykładową aplikacją przy użyciu Azure NetApp Files. Aplikacja ma następujące cechy: 
 
-* Aplikacja oparta na systemie Linux stworzona z myślą o chmurze
-* Możliwość skalowania liniowo z dodanymi maszynami wirtualnymi (VM) w celu zwiększenia mocy obliczeniowej w razie potrzeby
-* Wymaga szybkiej dostępności jeziora danych
-* Ma wzorce we/wy, które są czasami losowe, a czasami sekwencyjne 
-    * Losowy wzorzec wymaga małych opóźnień dla dużych ilości we/wy. 
-    * Sekwencyjny wzorzec wymaga dużych ilości przepustowości. 
+* Aplikacja oparta na systemie Linux skompilowana dla chmury
+* Może skalować liniowo przy użyciu dodanych maszyn wirtualnych, aby zwiększyć moc obliczeniową w razie potrzeby
+* Wymaga szybkiego ułatwienia dostępu w usłudze Data Lake
+* Ma wzorce we/wy, które czasami losowo i czasami sekwencyjne 
+    * Wzorzec losowy wymaga małych opóźnień dla dużych ilości operacji we/wy. 
+    * Wzorzec sekwencyjny wymaga dużej ilości przepustowości. 
 
 ## <a name="about-the-workload-generator"></a>Informacje o generatorze obciążenia
 
-Wyniki pochodzą z plików podsumowania Vdbench. [Vdbench](https://www.oracle.com/technetwork/server-storage/vdbench-downloads-1901681.html) to narzędzie wiersza polecenia, które generuje obciążenia we/wy dysku w celu sprawdzania poprawności wydajności magazynu. Używana konfiguracja klient-serwer jest skalowalna.  Zawiera pojedynczy mieszany master/klient i 14 dedykowanych maszyn wirtualnych klienta.
+Wyniki pochodzą z plików podsumowania Vdbench. [Vdbench](https://www.oracle.com/technetwork/server-storage/vdbench-downloads-1901681.html) to narzędzie wiersza polecenia, które generuje obciążenia we/wy dysku umożliwiające sprawdzenie wydajności magazynu. Używana konfiguracja klienta programu jest skalowalna.  Obejmuje pojedynczy wzorzec mieszany/klienta oraz 14 dedykowanych maszyn wirtualnych klienta.
 
 ## <a name="about-the-tests"></a>Informacje o testach
 
-Testy zostały zaprojektowane w celu zidentyfikowania limitów, które może mieć przykładowa aplikacja i czas odpowiedzi, który krzywe do granic.  
+Testy zostały zaprojektowane tak, aby identyfikować limity, które mogą mieć przykładową aplikację, oraz czas odpowiedzi, który jest Krzywy do limitów.  
 
-Przeprowadzono następujące testy: 
+Uruchomiono następujące testy: 
 
-* 100% 8-KiB losowy odczyt
-* 100% 8-KiB losowy zapis
-* 100% 64-KiB odczyt sekwencyjny
-* 100% 64-KiB zapis sekwencyjny
-* 50% 64-KiB odczyt sekwencyjny, 50% 64-KiB sekwencyjnego zapisu
-* 50% 8-KiB losowy odczyt, 50% 8-KiB losowy zapis
+* 100% 8 — KiB losowy odczyt
+* 100% 8 — KiB losowy zapis
+* 100% 64-KiB sekwencyjny odczyt
+* 100% 64-KiB sekwencyjny zapis
+* 50% 64-KiB sekwencyjny odczyt, 50% 64-KiB sekwencyjny zapis
+* 50% 8 — KiB losowy odczyt, 50% 8 — KiB losowy zapis
 
 ## <a name="bandwidth"></a>Przepustowość
 
-Usługa Azure NetApp Files oferuje wiele [poziomów usług.](azure-netapp-files-service-levels.md) Każdy poziom usług oferuje inną przepustowość na TiB aprowizowanego pojemności (przydział woluminu). Limit przepustowości dla woluminu jest aprowizowany na podstawie kombinacji poziomu usługi i przydziału woluminu. Limit przepustowości jest tylko jednym z czynników przy określaniu rzeczywistej ilości przepływności, która zostanie zrealizowana.  
+Azure NetApp Files oferuje wiele [poziomów usług](azure-netapp-files-service-levels.md). Każdy poziom usług oferuje różną przepustowość na TiB dyspozycyjności (przydział woluminu). Limit przepustowości dla woluminu jest inicjowany na podstawie kombinacji poziomu usługi i limitu przydziału woluminu. Limit przepustowości jest tylko jednym czynnikiem określającym rzeczywistą ilość przepływności, która zostanie zrealizowana.  
 
-Obecnie 4500 MiB jest najwyższą przepustowością, która została osiągnięta przez obciążenie w stosunku do pojedynczego woluminu podczas testowania.  W przypadku poziomu usług Premium przydział woluminu 70,31 TiB zapewni wystarczającą przepustowość, aby zrealizować tę przepustowość według poniższych obliczeń: 
+Obecnie 4 500 MiB jest największą przepływność osiągniętą przez obciążenie dla pojedynczego woluminu w ramach testowania.  W przypadku użycia poziomu usługi Premium przydział woluminu 70,31 TiB będzie zapewniać wystarczającą przepustowość do realizacji tej przepływności zgodnie z poniższym obliczeniem: 
 
 ![Formuła przepustowości](../media/azure-netapp-files/azure-netapp-files-bandwidth-formula.png)
 
 ![Przydział i poziom usług](../media/azure-netapp-files/azure-netapp-files-quota-service-level.png)
 
-## <a name="throughput-intensive-workloads"></a>Obciążenia wymagające dużej przepustowości
+## <a name="throughput-intensive-workloads"></a>Obciążenia intensywnie korzystające z przepływności
 
-W teście przepływności użyto vdbench i kombinacji maszyn wirtualnych magazynu 12xD32s V3. Objętość próbki w badaniu osiągnęła następujące liczby przepływności:
+Używany test przepływności Vdbench i kombinacja maszyn wirtualnych magazynu 12xD32s v3. Przykładowy wolumin w teście osiągnął następujące numery przepływności:
 
 ![Test przepływności](../media/azure-netapp-files/azure-netapp-files-throughput-test.png)
 
-## <a name="io-intensive-workloads"></a>Obciążenia intensywnie korzystające z we/wy
+## <a name="io-intensive-workloads"></a>Duże obciążenia we/wy
 
-W teście we/wy wykorzystano vdbench i kombinację maszyn wirtualnych magazynu 12xD32s V3. Objętość próbki w badaniu osiągnęła następujące liczby we/wy:
+Test we/wy użył Vdbench oraz kombinacji maszyn wirtualnych magazynu 12xD32s v3. Przykładowy wolumin w teście osiągnął następujące numery we/wy:
 
 ![Test we/wy](../media/azure-netapp-files/azure-netapp-files-io-test.png)
 
 ## <a name="latency"></a>Opóźnienie
 
-Odległość między testowymi maszynami wirtualnymi a woluminem plików NetApp platformy Azure ma wpływ na wydajność we/wy.  Poniższy wykres porównuje krzywe odpowiedzi We/Wy w porównaniu do krzywych odpowiedzi opóźnienia dla dwóch różnych zestawów maszyn wirtualnych.  Jeden zestaw maszyn wirtualnych znajduje się w pobliżu usługi Azure NetApp Files, a drugi jest dalej.  Zwiększone opóźnienie dla dalszego zestawu maszyn wirtualnych ma wpływ na ilość usług We/Wy osiągnięte na danym poziomie równoległości.  Niezależnie od tego odczyty względem woluminu mogą przekraczać 300 000 we/wy, jak pokazano poniżej: 
+Odległość między testowymi maszynami wirtualnymi a woluminem Azure NetApp Files ma wpływ na wydajność operacji we/wy.  Na poniższym wykresie porównano krzywe IOPS i odpowiedzi na opóźnienia dla dwóch różnych zestawów maszyn wirtualnych.  Jeden zestaw maszyn wirtualnych jest bliski Azure NetApp Files, a drugi jeszcze więcej.  Zwiększone opóźnienie dla dalszych zestawów maszyn wirtualnych ma wpływ na liczbę operacji we/wy osiągniętą na danym poziomie równoległości.  Niezależnie od tego, odczyty na woluminie mogą przekraczać 300 000 operacji we/wy, jak pokazano poniżej: 
 
 ![Badanie opóźnienia](../media/azure-netapp-files/azure-netapp-files-latency-study.png)
 
 ## <a name="summary"></a>Podsumowanie
 
-Obciążenia zależne od opóźnień (bazy danych) mogą mieć czas odpowiedzi o jedną milisekundę. Wydajność transakcyjna może wynosić ponad 300k we/wy dla pojedynczego woluminu.
+Obciążenia zależne od opóźnienia (bazy danych) mogą mieć jeden milisekund czasu odpowiedzi. Wydajność transakcyjna może przekraczać 300 tysięcy pozycji IOPS dla pojedynczego woluminu.
 
-Aplikacje zależne od przepływności (do przesyłania strumieniowego i obrazowania) mogą mieć przepustowość 4.5GiB/s.
+Aplikacje zależne od przepływności (do przesyłania strumieniowego i tworzenia obrazów) mogą mieć przepływność GiB/s.
 
 ## <a name="example-scripts"></a>Przykładowe skrypty
 
-Poniższe przykładowe skrypty są tylko w celu demonstracji.  Nie są one wykorzystywane do celów produkcyjnych.  
+Poniższe przykładowe skrypty są przeznaczone tylko do celów demonstracyjnych.  Nie są one używane do celów produkcyjnych.  
 
     #
     #This script makes the following assumptions about the environment

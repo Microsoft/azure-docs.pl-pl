@@ -1,6 +1,6 @@
 ---
-title: 'Skrypt programu PowerShell: dodawanie zestawu danych obiektów blob do udziału danych platformy Azure | Dokumenty firmy Microsoft'
-description: Ten skrypt programu PowerShell dodaje zestaw danych obiektu blob do istniejącego udziału.
+title: 'Skrypt programu PowerShell: Dodawanie zestawu danych obiektów BLOB do udziału danych platformy Azure | Microsoft Docs'
+description: Ten skrypt programu PowerShell dodaje zestaw danych obiektów BLOB do istniejącego udziału.
 services: data-share
 author: joannapea
 ms.service: data-share
@@ -10,15 +10,15 @@ ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: 95a10b112c9f6448c437f20ee95f808632a31d2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70307301"
 ---
-# <a name="use-powershell-to-create-a-data-share-in-azure"></a>Tworzenie udziału danych na platformie Azure za pomocą programu PowerShell
+# <a name="use-powershell-to-create-a-data-share-in-azure"></a>Tworzenie udziału danych na platformie Azure przy użyciu programu PowerShell
 
-Ten skrypt programu PowerShell dodaje zestaw danych obiektu blob do istniejącego udziału danych.
+Ten skrypt programu PowerShell dodaje zestaw danych obiektów BLOB do istniejącego udziału.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -44,11 +44,11 @@ W tym skrypcie użyto następujących poleceń:
 
 | Polecenie | Uwagi |
 |---|---|
-| [Zestaw danych new-AzDataShareData](/powershell/module/az.datashare/new-azdatasharedataset?view=azps-2.6.0) | Dodaje zestaw danych do udziału danych. |
+| [New-AzDataShareDataSet](/powershell/module/az.datashare/new-azdatasharedataset?view=azps-2.6.0) | Dodaje zestaw danych do udziału danych. |
 |||
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Dodatkowe przykłady skryptów programu PowerShell udostępniania danych platformy Azure można znaleźć w [przykładach programu PowerShell udostępniania danych platformy Azure.](../../samples-powershell.md)
+Dodatkowe przykłady skryptów programu PowerShell dotyczące udziałów danych platformy Azure można znaleźć w [przykładach programu PowerShell w udziale danych platformy Azure](../../samples-powershell.md).

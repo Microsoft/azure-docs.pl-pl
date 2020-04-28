@@ -5,36 +5,36 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 760bb5b62e9bba9b7a83f99760f7fe5d8c399dfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183182"
 ---
-1. W Menedżerze klastrów trybu failover rozwiń węzeł **Role**, a następnie wyróżnij grupę dostępności.  
+1. W Menedżer klastra trybu failover rozwiń węzeł **role**, a następnie wybierz grupę dostępności.  
 
-2. Na karcie **Zasoby** kliknij prawym przyciskiem myszy nazwę odbiornika, a następnie kliknij polecenie **Właściwości**.
+2. Na karcie **zasoby** kliknij prawym przyciskiem myszy nazwę odbiornika, a następnie kliknij polecenie **Właściwości**.
 
-3. Kliknij kartę **Zależności.** Jeśli na liście znajduje się wiele zasobów, sprawdź, czy adresy IP mają zależności LUB, a nie i.  
+3. Kliknij kartę **zależności** . Jeśli na liście znajduje się wiele zasobów, sprawdź, czy adresy IP mają zależności lub, nie i.  
 
 4. Kliknij przycisk **OK**.
 
-5. Kliknij prawym przyciskiem myszy nazwę odbiornika, a następnie kliknij polecenie **Przetwórdź w trybie online**.
+5. Kliknij prawym przyciskiem myszy nazwę odbiornika, a następnie kliknij polecenie **Przełącz do trybu online**.
 
-6. Po udostępnieniu odbiornika na karcie **Zasoby** kliknij prawym przyciskiem myszy grupę dostępności, a następnie kliknij polecenie **Właściwości**.
+6. Gdy odbiornik jest w trybie online, na karcie **zasoby** kliknij prawym przyciskiem myszy grupę dostępności, a następnie kliknij polecenie **Właściwości**.
    
     ![Konfigurowanie zasobu grupy dostępności](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
 
-7. Utwórz zależność od zasobu nazwy odbiornika (nie nazwę zasobów adresów IP), a następnie kliknij przycisk **OK**.
+7. Utwórz zależność od zasobu nazwy odbiornika (nie nazwy zasobów adresów IP), a następnie kliknij przycisk **OK**.
    
-    ![Dodawanie zależności od nazwy odbiornika](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
+    ![Dodaj zależność od nazwy odbiornika](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
 
-8. Uruchom program SQL Server Management Studio, a następnie połącz się z repliką podstawową.
+8. Rozpocznij SQL Server Management Studio, a następnie połącz się z repliką podstawową.
 
-9. Przejdź do funkcji **AlwaysOn High** > **Availability Availability Groups** > **\<AvailabilityGroupName\>** > **Availability Group Listeners**.  
-    Powinna być wyświetlana nazwa odbiornika utworzona w Menedżerze klastrów trybu failover.
+9. Przejdź do pozycji zawsze włączone**grupy** > **\<\>** dostępności **o najwyższej dostępności** > AvailabilityGroupName > **.**  
+    Powinna zostać wyświetlona nazwa odbiornika utworzona w Menedżer klastra trybu failover.
 
 10. Kliknij prawym przyciskiem myszy nazwę odbiornika, a następnie kliknij polecenie **Właściwości**.
 
-11. W polu **Port** określ numer portu dla odbiornika grupy dostępności, używając $EndpointPort, które były używane wcześniej (w tym samouczku wartość domyślna 1433 była domyślna), a następnie kliknij przycisk **OK**.
+11. W polu **port** Określ numer portu dla odbiornika grupy dostępności przy użyciu użytej wcześniej $EndpointPort (w tym samouczku 1433 jest to ustawienie domyślne), a następnie kliknij przycisk **OK**.
 

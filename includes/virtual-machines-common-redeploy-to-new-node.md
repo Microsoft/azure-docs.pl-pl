@@ -5,26 +5,26 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 1c3996c3f40da496af0cd795d0873864667a1f19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183236"
 ---
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
-1. Wybierz maszynę wirtualną, którą chcesz ponownie wdrożyć, a następnie wybierz przycisk *Ponownie wdrożyć* w *ustawieniach* bloku. Może być konieczne przewinięcie w dół, aby wyświetlić sekcję **Pomoc techniczna i rozwiązywanie problemów** zawierającą przycisk "Ponownie wdrożyć", jak w poniższym przykładzie:
+1. Wybierz maszynę wirtualną, którą chcesz ponownie wdrożyć, a następnie wybierz przycisk *Wdróż* ponownie w bloku *Ustawienia* . Może być konieczne przewinięcie w dół, aby wyświetlić sekcję **Obsługa i rozwiązywanie problemów** , która zawiera przycisk "redeploy", jak w poniższym przykładzie:
    
-    ![Blok maszyny Wirtualnej platformy Azure](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
-2. Aby potwierdzić operację, wybierz przycisk *Ponownie wdrożyć:*
+    ![Blok maszyny wirtualnej platformy Azure](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
+2. Aby potwierdzić operację, wybierz przycisk *Wdróż* ponownie:
    
-    ![Ponowne rozmieszczanie bloku maszyny Wirtualnej](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
-3. **Stan** maszyny Wirtualnej zmienia się na *aktualizacja,* gdy maszyna wirtualna przygotowuje się do ponownego rozmieszczenia, jak pokazano w poniższym przykładzie:
+    ![Ponowne wdrażanie bloku maszyny wirtualnej](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
+3. **Stan** maszyny wirtualnej zmieni się na *zaktualizowanie* , ponieważ maszyna wirtualna przygotowuje się do ponownego wdrożenia, jak pokazano w następującym przykładzie:
    
-    ![Aktualizacja maszyny Wirtualnej](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
-4. **Stan** następnie zmienia się *na Uruchamianie* jako maszyna wirtualna uruchamia się na nowym hoście platformy Azure, jak pokazano w poniższym przykładzie:
+    ![Aktualizowanie maszyny wirtualnej](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
+4. **Stan** zmieni się na *rozpoczynając* od uruchomienia maszyny wirtualnej na nowym hoście platformy Azure, jak pokazano w następującym przykładzie:
    
-    ![Maszyna wirtualna od początku](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
-5. Po zakończeniu procesu rozruchu maszyna wirtualna **stan** powraca do *uruchomionego,* wskazując, że maszyna wirtualna została pomyślnie ponownie rozmieszczona:
+    ![Uruchamianie maszyny wirtualnej](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
+5. Po zakończeniu procesu rozruchu przez maszynę wirtualną **stan** zostanie zwrócony do *uruchomionego*, co oznacza, że maszyna wirtualna została pomyślnie wdrożona ponownie:
    
-    ![Maszyna wirtualna uruchomiona](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
+    ![Uruchomiona maszyna wirtualna](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
 

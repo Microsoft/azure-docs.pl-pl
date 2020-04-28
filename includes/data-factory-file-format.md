@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 29be95a53004070753ca742cd8d76ca9d8384ea0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70166756"
 ---
 ## <a name="specifying-formats"></a>Określanie formatów
@@ -17,7 +17,7 @@ Usługa Azure Data Factory obsługuje następujące typy formatów:
 * [Format tekstu](#specifying-textformat)
 * [Format JSON](#specifying-jsonformat)
 * [Format Avro](#specifying-avroformat)
-* [ORC Format](#specifying-orcformat)
+* [Format ORC](#specifying-orcformat)
 * [Format Parquet](#specifying-parquetformat)
 
 ### <a name="specifying-textformat"></a>Określanie formatu TextFormat
@@ -33,7 +33,7 @@ Jeśli chcesz analizować pliki tekstowe lub zapisywać dane w formacie tekstu, 
 | encodingName |Określa nazwę kodowania. |Prawidłowa nazwa kodowania. Zobacz [właściwość Encoding.EncodingName](/dotnet/api/system.text.encoding). Przykład: windows-1250 lub shift_jis. Wartość **domyślna** to **UTF-8**. |Nie |
 | firstRowAsHeader |Określa, czy pierwszy wiersz ma być traktowany jako nagłówek. W przypadku zestawu danych wejściowych usługa Data Factory odczytuje pierwszy wiersz jako nagłówek. W przypadku zestawu danych wyjściowych usługa Data Factory zapisuje pierwszy wiersz jako nagłówek. <br/><br/>Aby uzyskać przykładowe scenariusze, zobacz sekcję [Scenariusze użycia właściwości `firstRowAsHeader` oraz `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |True<br/>**False (domyślnie)** |Nie |
 | skipLineCount |Wskazuje liczbę wierszy do pominięcia podczas odczytywania danych z plików wejściowych. Jeśli określono zarówno właściwość skipLineCount, jak i firstRowAsHeader, najpierw zostaną pominięte wiersze, a następnie zostaną odczytane informacje nagłówka z pliku wejściowego. <br/><br/>Aby uzyskać przykładowe scenariusze, zobacz sekcję [Scenariusze użycia właściwości `firstRowAsHeader` oraz `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Liczba całkowita |Nie |
-| treatEmptyAsNull |Określa, czy ciąg pusty lub o wartości null ma być traktowany jako wartość null podczas odczytu danych z pliku wejściowego. |**True (domyślnie)**<br/>False |Nie |
+| treatEmptyAsNull |Określa, czy ciąg pusty lub o wartości null ma być traktowany jako wartość null podczas odczytu danych z pliku wejściowego. |**True (domyślnie)**<br/>Fałsz |Nie |
 
 #### <a name="textformat-example"></a>Przykład formatu TextFormat
 W poniższym przykładzie przedstawiono niektóre właściwości formatu TextFormat.
@@ -69,7 +69,7 @@ Aby użyć właściwości `escapeChar` zamiast `quoteChar`, zastąp wiersz z wł
 * Kopiujesz dane z pliku tekstowego i chcesz pominąć kilka początkowych wierszy, które nie zawierają żadnych danych bądź informacji nagłówka. Określ właściwość `skipLineCount`, aby wskazać liczbę wierszy do pominięcia. Jeśli pozostała część pliku zawiera wiersz nagłówka, możesz również określić właściwość `firstRowAsHeader`. Jeśli określono zarówno właściwość `skipLineCount`, jak i `firstRowAsHeader`, najpierw zostaną pominięte wiersze, a następnie zostaną odczytane informacje nagłówka z pliku wejściowego
 
 ### <a name="specifying-jsonformat"></a>Określanie formatu JsonFormat
-Aby **zaimportować/wyeksportować pliki JSON jako — do/z usługi Azure Cosmos DB**, zobacz [Sekcję Importuj/eksportuj dokumenty JSON](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) w łączniku usługi Azure Cosmos DB ze szczegółami.
+Aby **importować/eksportować pliki JSON do/z Azure Cosmos DB**, zobacz sekcję [Importowanie/Eksportowanie dokumentów JSON](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) w łączniku Azure Cosmos DB ze szczegółami.
 
 Jeśli chcesz analizować pliki JSON lub zapisywać dane w formacie JSON, ustaw właściwość `format` `type` na wartość **JsonFormat**. Ponadto możesz określić następujące **opcjonalne** właściwości w sekcji `format`. Aby uzyskać informacje na temat sposobu konfigurowania, zobacz sekcję [Przykład formatu JsonFormat](#jsonformat-example).
 
@@ -78,7 +78,7 @@ Jeśli chcesz analizować pliki JSON lub zapisywać dane w formacie JSON, ustaw 
 | filePattern |Wskazuje wzorzec danych przechowywanych w każdym pliku JSON. Dozwolone wartości to: **setOfObjects** i **arrayOfObjects**. Wartością **domyślną** jest **setOfObjects**. Aby uzyskać szczegółowe informacje o tych wzorcach, zobacz sekcję [Wzorce plików JSON](#json-file-patterns). |Nie |
 | jsonNodeReference | Jeśli chcesz wykonać iterację i ekstrakcję danych z obiektów wewnątrz pola tablicy o tym samym wzorcu, określ ścieżkę JSON tej tablicy. Ta właściwość jest obsługiwana tylko podczas kopiowania danych z plików JSON. | Nie |
 | jsonPathDefinition | Określa wyrażenie ścieżki JSON dla każdego mapowania kolumny z niestandardową nazwą kolumny (musi zaczynać się małą literą). Ta właściwość jest obsługiwana tylko podczas kopiowania danych z plików JSON; dane możesz wyodrębnić z obiektu lub tablicy. <br/><br/> W przypadku pól obiektu głównego na początku użyj elementu głównego $. W przypadku pól wewnątrz tablicy wybranej przez właściwość `jsonNodeReference` najpierw podaj element tablicy. Aby uzyskać informacje na temat sposobu konfigurowania, zobacz sekcję [Przykład formatu JsonFormat](#jsonformat-example). | Nie |
-| encodingName |Określa nazwę kodowania. Aby uzyskać listę prawidłowych nazw kodowania, zobacz właściwość [Encoding.EncodingName](/dotnet/api/system.text.encoding). Na przykład: windows-1250 lub shift_jis. Wartość **domyślna** to: **UTF-8**. |Nie |
+| encodingName |Określa nazwę kodowania. Aby uzyskać listę prawidłowych nazw kodowania, zobacz właściwość [Encoding.EncodingName](/dotnet/api/system.text.encoding). Na przykład: windows-1250 lub shift_jis. Wartość **Domyślna** to: **UTF-8**. |Nie |
 | nestingSeparator |Znak używany do rozdzielania poziomów zagnieżdżenia. Wartość domyślna to „.” (kropka). |Nie |
 
 #### <a name="json-file-patterns"></a>Wzorce plików JSON
@@ -207,14 +207,14 @@ W tym przykładzie oczekiwany jest jeden główny obiekt JSON mapowany na pojedy
 ```
 i chcesz skopiować ją do tabeli usługi Azure SQL w następującym formacie przez wyodrębnienie danych z obiektu i tabeli:
 
-| id | deviceType | targetResourceType | identyfikator y gospodarowania zasobamiProcessRunId | occurrenceTime |
+| id | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
 Zestaw danych wejściowych typu **JsonFormat** jest zdefiniowany następująco: (częściowa definicja zawierająca tylko stosowne fragmenty). Więcej szczegółów:
 
 - Sekcja `structure` definiuje niestandardowe nazwy kolumn i odpowiedni typ danych podczas konwersji na dane tabelaryczne. Ta sekcja jest **opcjonalna**, o ile nie trzeba wykonać mapowania kolumn. Aby uzyskać bardziej szczegółowe informacje, zobacz sekcję Specifying structure definition for rectangular datasets (Określanie definicji struktury dla prostokątnych zestawów danych).
-- Właściwość `jsonPathDefinition` określa ścieżkę JSON dla każdej kolumny, wskazując, skąd mają zostać wyodrębnione dane. Aby skopiować dane z tablicy, można użyć **array[x].właściwość** wyodrębnić wartość danej właściwości z xth obiektu lub można użyć **array[*].właściwość,** aby znaleźć wartość z dowolnego obiektu zawierającego taką właściwość.
+- Właściwość `jsonPathDefinition` określa ścieżkę JSON dla każdej kolumny, wskazując, skąd mają zostać wyodrębnione dane. Aby skopiować dane z tablicy, można użyć **Array [x]. Property** do wyodrębnienia wartości danej właściwości z obiektu składni lub użyć **tablicy [*]. Właściwość** , aby znaleźć wartość z dowolnego obiektu zawierającego taką właściwość.
 
 ```json
 "properties": {

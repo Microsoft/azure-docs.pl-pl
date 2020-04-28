@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183184"
 ---
-Ważne jest, aby uświadomić sobie, że istnieją dwa sposoby konfigurowania odbiornika grupy dostępności na platformie Azure. Sposoby różnią się typem modułu równoważenia obciążenia platformy Azure używane podczas tworzenia odbiornika. W poniższej tabeli opisano różnice:
+Należy pamiętać, że istnieją dwa sposoby konfigurowania odbiornika grupy dostępności na platformie Azure. Metody te różnią się w zależności od typu modułu równoważenia obciążenia platformy Azure, który jest używany podczas tworzenia odbiornika. W poniższej tabeli opisano różnice:
 
-| Typ modułu równoważenia obciążenia | Wdrażanie | Zastosowania: |
+| Typ modułu równoważenia obciążenia | Implementacja | Zastosowania: |
 | --- | --- | --- |
-| **Zewnętrznych** |Używa *publicznego wirtualnego adresu IP* usługi w chmurze obsługującej maszyny wirtualne (maszyny wirtualne). |Należy uzyskać dostęp do odbiornika spoza sieci wirtualnej, w tym z Internetu. |
-| **Wewnętrznego** |Używa *wewnętrznego modułu równoważenia obciążenia* z adresem prywatnym dla odbiornika. |Dostęp do odbiornika można uzyskać tylko z tej samej sieci wirtualnej. Ten dostęp obejmuje sieć VPN typu lokacja-lokacja w scenariuszach hybrydowych. |
+| **Zewnętrznych** |Używa *publicznego wirtualnego adresu IP* usługi w chmurze, która hostuje maszyny wirtualne. |Musisz uzyskać dostęp do odbiornika spoza sieci wirtualnej, w tym z Internetu. |
+| **Wewnętrz** |Używa *wewnętrznego modułu równoważenia obciążenia* z prywatnym adresem odbiornika. |Dostęp do odbiornika można uzyskać tylko w ramach tej samej sieci wirtualnej. Ten dostęp obejmuje sieci VPN typu lokacja-lokacja w scenariuszach hybrydowych. |
 
 > [!IMPORTANT]
-> Dla odbiornika, który używa publicznego adresu VIP usługi w chmurze (zewnętrznego modułu równoważenia obciążenia), tak długo, jak klient, odbiornik i bazy danych znajdują się w tym samym regionie platformy Azure, nie będzie ponosić opłat wychodzących. W przeciwnym razie wszelkie dane zwracane za pośrednictwem odbiornika jest uważany za wyjście i jest naliczana z normalnymi szybkości transferu danych. 
+> W przypadku odbiornika korzystającego z publicznego adresu VIP usługi w chmurze (zewnętrznego modułu równoważenia obciążenia), o ile klient, odbiornik i bazy danych znajdują się w tym samym regionie świadczenia usługi Azure, nie zostaną naliczone opłaty za ruch wychodzący. W przeciwnym razie wszelkie dane zwrócone przez odbiornik są uznawane za wychodzące i jest naliczana według normalnych stawek za transfer danych. 
 > 
 > 
 
-Równoważenie obciążenia sieciowego można skonfigurować tylko w sieciach wirtualnych o zakresie regionalnym. Istniejące sieci wirtualne, które zostały skonfigurowane dla grupy koligacji, nie mogą używać równoważenia obciążenia sieciowego. Aby uzyskać więcej informacji, zobacz [Omówienie wewnętrznego modułu równoważenia obciążenia](../articles/load-balancer/load-balancer-internal-overview.md).
+ILB można skonfigurować tylko w sieciach wirtualnych z zakresem regionalnym. Istniejące sieci wirtualne, które zostały skonfigurowane dla grupy koligacji, nie mogą używać elementu ILB. Aby uzyskać więcej informacji, zobacz temat [Omówienie wewnętrznego modułu równoważenia obciążenia](../articles/load-balancer/load-balancer-internal-overview.md).
 

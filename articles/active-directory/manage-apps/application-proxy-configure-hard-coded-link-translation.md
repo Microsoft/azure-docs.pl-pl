@@ -1,6 +1,6 @@
 ---
-title: Tłumaczenie łączy i adresów URL usługi Azure AD App Proxy | Dokumenty firmy Microsoft
-description: Obejmuje podstawowe informacje o łącznikach serwera proxy aplikacji usługi Azure AD.
+title: Tłumaczenie linków i adresów URL aplikacja usługi Azure AD proxy | Microsoft Docs
+description: Obejmuje podstawowe informacje dotyczące łączników usługi Azure serwer proxy aplikacji usługi Azure AD.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,139 +17,139 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69533700"
 ---
-# <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Przekierowywanie łączy zakodowanych na stałe dla aplikacji opublikowanych za pomocą serwera proxy aplikacji usługi Azure AD
+# <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Przekieruj linki stałe dla aplikacji opublikowanych przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
-Usługa Azure AD Application Proxy udostępnia aplikacje lokalne użytkownikom zdalnym lub na własnych urządzeniach. Niektóre aplikacje zostały jednak opracowane z lokalnymi linkami osadzonymi w kodzie HTML. Te łącza nie działają poprawnie, gdy aplikacja jest używana zdalnie. Jeśli masz kilka aplikacji lokalnych wskazują na siebie, użytkownicy oczekują, że łącza będą nadal działać, gdy nie są w biurze. 
+Usługa Azure serwer proxy aplikacji usługi Azure AD udostępnia aplikacje lokalne użytkownikom zdalnie lub na ich własnych urządzeniach. Niektóre aplikacje zostały jednak opracowane przy użyciu lokalnych linków osadzonych w kodzie HTML. Te linki nie działają prawidłowo, gdy aplikacja jest używana zdalnie. Gdy masz kilka aplikacji lokalnych, użytkownicy oczekują linków do działania, gdy nie znajdują się one w biurze. 
 
-Najlepszym sposobem upewnienia się, że łącza działają tak samo zarówno w sieci firmowej, jak i poza nią, jest skonfigurowanie zewnętrznych adresów URL aplikacji tak, aby były takie same jak ich wewnętrzne adresy URL. Użyj [domen niestandardowych,](application-proxy-configure-custom-domain.md) aby skonfigurować zewnętrzne adresy URL, aby mieć nazwę domeny firmowej zamiast domyślnej domeny serwera proxy aplikacji.
+Najlepszym sposobem, aby upewnić się, że linki działają tak samo zarówno wewnątrz sieci firmowej, jak i poza nią, ma na celu skonfigurowanie zewnętrznych adresów URL aplikacji tak, aby były takie same jak wewnętrzne adresy URL. Użyj [domen niestandardowych](application-proxy-configure-custom-domain.md) , aby skonfigurować zewnętrzne adresy URL w celu posiadania firmowej nazwy domeny zamiast domyślnej domeny serwera proxy aplikacji.
 
 
-Jeśli nie można używać domen niestandardowych w dzierżawie, istnieje kilka innych opcji dostarczania tej funkcji. Wszystkie te są również zgodne z domenami niestandardowymi i sobą nawzajem, dzięki czemu można skonfigurować domeny niestandardowe i inne rozwiązania w razie potrzeby.
+Jeśli w dzierżawie nie można używać domen niestandardowych, istnieje kilka innych opcji zapewniających tę funkcję. Wszystkie z nich są również zgodne z domenami niestandardowymi i innymi, w razie potrzeby można skonfigurować niestandardowe domeny i inne rozwiązania.
 
 > [!NOTE]
-> Tłumaczenie linków nie jest obsługiwane dla zakodowanych wewnętrznych adresów URL generowanych za pomocą języka JavaScript.
+> Tłumaczenie linków nie jest obsługiwane w przypadku zakodowanych wewnętrznych adresów URL generowanych za poorednictwem języka JavaScript.
 
-**Opcja 1: Użyj zarządzanej przeglądarki lub przeglądarki Microsoft Edge** — to rozwiązanie ma zastosowanie tylko wtedy, gdy użytkownik zamierza zalecić lub zażądać, aby użytkownicy uzyskili dostęp do aplikacji za pośrednictwem zarządzanej przeglądarki usługi Intune lub przeglądarki Microsoft Edge. Będzie obsługiwać wszystkie opublikowane adresy URL. 
+**Opcja 1: użyj Managed Browser lub Microsoft Edge** — to rozwiązanie ma zastosowanie tylko wtedy, gdy planujesz lub zalecić użytkownikom dostęp do aplikacji za pomocą Intune Managed Browser lub przeglądarki Microsoft Edge. Będzie obsługiwać wszystkie opublikowane adresy URL. 
 
-**Opcja 2: Użyj rozszerzenia MyApps** — to rozwiązanie wymaga od użytkowników zainstalowania rozszerzenia przeglądarki po stronie klienta, ale będzie obsługiwać wszystkie opublikowane adresy URL i współpracuje z najpopularniejszymi przeglądarkami. 
+**Opcja 2: korzystanie z rozszerzenia moje aplikacje** — to rozwiązanie wymaga od użytkowników zainstalowania rozszerzenia przeglądarki po stronie klienta, ale będzie obsługiwać wszystkie opublikowane adresy URL i współpracuje z najpopularniejszymi przeglądarkami. 
 
-**Opcja 3: Użyj ustawienia tłumaczenia łącza** — jest to ustawienie po stronie administratora, które jest niewidoczne dla użytkowników. Jednak będzie obsługiwać tylko adresy URL w HTML i CSS.   
+**Opcja 3: Użyj ustawienia tłumaczenia linku** — jest to ustawienie po stronie administratora, które jest niewidoczne dla użytkowników. Będzie jednak obsługiwać tylko adresy URL w formacie HTML i CSS.   
 
-Te trzy funkcje utrzymują działanie linków bez względu na to, gdzie znajdują się użytkownicy. Jeśli masz aplikacje, które wskazują bezpośrednio na wewnętrzne punkty końcowe lub porty, możesz mapować te wewnętrzne adresy URL na opublikowane zewnętrzne adresy URL serwera proxy aplikacji. 
+Te trzy funkcje przechowują swoje linki niezależnie od tego, gdzie znajdują się użytkownicy. Jeśli masz aplikacje, które wskazują bezpośrednio na wewnętrzne punkty końcowe lub porty, możesz mapować te wewnętrzne adresy URL na opublikowane adresy URL serwera proxy aplikacji zewnętrznych. 
 
  
 > [!NOTE]
-> Ostatnia opcja jest dostępna tylko dla dzierżawców, którzy z jakiegokolwiek powodu nie mogą używać domen niestandardowych do posiadania tych samych wewnętrznych i zewnętrznych adresów URL dla swoich aplikacji. Przed włączeniem tej funkcji sprawdź, czy [domeny niestandardowe w usłudze Azure AD Application Proxy](application-proxy-configure-custom-domain.md) mogą działać. 
+> Ostatnia opcja dotyczy tylko dzierżawców, które z jakiegoś powodu nie mogą używać domen niestandardowych, aby mieć te same wewnętrzne i zewnętrzne adresy URL dla swoich aplikacji. Przed włączeniem tej funkcji Sprawdź, czy [w usłudze Azure serwer proxy aplikacji usługi Azure AD można korzystać z domen niestandardowych](application-proxy-configure-custom-domain.md) . 
 > 
-> Lub jeśli aplikacją, którą musisz skonfigurować za pomocą tłumaczenia łączy, jest sharepoint, zobacz [Konfigurowanie mapowań dostępu alternatywnego dla programu SharePoint 2013,](https://technet.microsoft.com/library/cc263208.aspx) aby uzyskać inne podejście do łączy mapowania. 
+> Lub, jeśli aplikacja, którą chcesz skonfigurować przy użyciu translacji łączy, to SharePoint, zobacz [Konfigurowanie mapowań dostępu alternatywnego dla programu sharepoint 2013](https://technet.microsoft.com/library/cc263208.aspx) , aby uzyskać inne podejście do mapowania linków. 
 
  
-### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>Opcja 1: Zarządzana przeglądarka usługi Intune i integracja z przeglądarką Microsoft Edge 
+### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>Opcja 1: Intune Managed Browser i integracja z programem Microsoft Edge 
 
-Za pomocą zarządzanej przeglądarki usługi Intune lub przeglądarki Microsoft Edge można dalej chronić aplikację i zawartość. Aby użyć tego rozwiązania, należy wymagać/zalecać użytkownikom dostęp do aplikacji za pośrednictwem zarządzanej przeglądarki usługi Intune. Wszystkie wewnętrzne adresy URL opublikowane za pomocą serwera proxy aplikacji zostaną rozpoznane przez zarządzaną przeglądarkę i przekierowane do odpowiedniego zewnętrznego adresu URL. Gwarantuje to, że wszystkie zakodowane wewnętrzne adresy URL działają, a jeśli użytkownik przejdzie do przeglądarki i bezpośrednio wpisuje wewnętrzny adres URL, działa nawet wtedy, gdy użytkownik jest zdalny.  
+Możesz użyć Intune Managed Browser lub Microsoft Edge, aby zapewnić lepszą ochronę aplikacji i zawartości. Aby można było korzystać z tego rozwiązania, należy wymagać/zalecać użytkownikom dostęp do aplikacji za pomocą Intune Managed Browser. Wszystkie wewnętrzne adresy URL opublikowane przy użyciu serwera proxy aplikacji zostaną rozpoznane przez Managed Browser i przekierowane do odpowiedniego zewnętrznego adresu URL. Gwarantuje to, że wszystkie zakodowane wewnętrzne adresy URL działają i jeśli użytkownik przejdzie do przeglądarki i bezpośrednio wpisze wewnętrzny adres URL, działa nawet wtedy, gdy użytkownik jest zdalny.  
 
-Aby dowiedzieć się więcej, w tym jak skonfigurować tę opcję, zapoznaj się z dokumentacją [przeglądarki zarządzanej.](https://docs.microsoft.com/intune/app-configuration-managed-browser)  
+Aby dowiedzieć się więcej, w tym o sposobie konfigurowania tej opcji, zapoznaj się z dokumentacją [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) .  
 
-### <a name="option-2-myapps-browser-extension"></a>Opcja 2: Rozszerzenie przeglądarki MyApps 
+### <a name="option-2-myapps-browser-extension"></a>Opcja 2: rozszerzenie przeglądarki Moje aplikacje 
 
-Dzięki rozszerzeniu przeglądarki MyApps wszystkie wewnętrzne adresy URL opublikowane za pomocą serwera proxy aplikacji są rozpoznawane przez rozszerzenie i przekierowywane do odpowiedniego zewnętrznego adresu URL. Dzięki temu wszystkie zakodowane wewnętrzne adresy URL działają, a jeśli użytkownik przejdzie do paska adresu przeglądarki i bezpośrednio wpisuje wewnętrzny adres URL, działa nawet wtedy, gdy użytkownik jest zdalny.  
+Dzięki rozszerzeniu przeglądarki Moje aplikacje wszystkie wewnętrzne adresy URL opublikowane przy użyciu serwera proxy aplikacji są rozpoznawane przez rozszerzenie i przekierowywane do odpowiedniego zewnętrznego adresu URL. Gwarantuje to, że wszystkie zakodowane wewnętrzne adresy URL działają i jeśli użytkownik przechodzi do paska adresu przeglądarki i bezpośrednio wpisze wewnętrzny adres URL, działa nawet wtedy, gdy użytkownik jest zdalny.  
 
-Aby korzystać z tej funkcji, użytkownik musi pobrać rozszerzenie i być zalogowany. Nie ma innej konfiguracji potrzebnej administratorom ani użytkownikom. 
+Aby użyć tej funkcji, użytkownik musi pobrać rozszerzenie i być zalogowany. Dla administratorów lub użytkowników nie jest wymagana żadna inna konfiguracja. 
 
-Aby dowiedzieć się więcej, w tym jak skonfigurować tę opcję, zapoznaj się z dokumentacją [rozszerzenia przeglądarki MyApps.](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension)
+Aby dowiedzieć się więcej, w tym o sposobie konfigurowania tej opcji, zobacz dokumentację [rozszerzenia przeglądarki Moje aplikacje](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) .
 
-### <a name="option-3-link-translation-setting"></a>Opcja 3: Ustawienie tłumaczenia łączy 
+### <a name="option-3-link-translation-setting"></a>Opcja 3: łączenie ustawienia tłumaczenia 
 
-Gdy tłumaczenie łączy jest włączone, usługa Proxy aplikacji przeszukuje kod HTML i CSS w poszukiwaniu opublikowanych łączy wewnętrznych i tłumaczy je, aby użytkownicy mogli uzyskać nieprzerwane działanie. Korzystanie z rozszerzenia przeglądarki MyApps jest preferowane do ustawienia tłumaczenia linków, ponieważ daje użytkownikom bardziej wydajne wrażenia.
+Po włączeniu translacji łączy usługa serwera proxy aplikacji przeszukuje kod HTML i CSS w poszukiwaniu opublikowanych linków wewnętrznych i tłumaczy je tak, aby użytkownicy mogli korzystać z nieprzerwanego środowiska. Korzystanie z rozszerzenia przeglądarki Moje aplikacje jest preferowane dla ustawienia tłumaczenia linku, ponieważ zapewnia użytkownikom bardziej wydajne środowisko.
 
 > [!NOTE]
-> Jeśli używasz opcji 2 lub 3, tylko jeden z nich powinien być włączony w czasie.
+> Jeśli używasz opcji 2 lub 3, tylko jeden z nich powinien być włączony w danym momencie.
 
 ## <a name="how-link-translation-works"></a>Jak działa tłumaczenie linków
 
-Po uwierzytelnieniu serwer proxy przekazuje dane aplikacji użytkownikowi, serwer proxy aplikacji skanuje aplikację w poszukiwaniu linków zakodowanych na stałe i zastępuje je odpowiednimi, opublikowanymi zewnętrznymi adresami URL.
+Po uwierzytelnieniu, gdy serwer proxy przekazuje dane aplikacji do użytkownika, serwer proxy aplikacji skanuje aplikację pod kątem linków stałe i zastępuje je odpowiednimi opublikowanymi zewnętrznymi adresami URL.
 
-Serwer proxy aplikacji zakłada, że aplikacje są zakodowane w UTF-8. Jeśli tak nie jest, określ typ kodowania w nagłówku odpowiedzi http, na przykład `Content-Type:text/html;charset=utf-8`.
+Serwer proxy aplikacji zakłada, że aplikacje są kodowane w formacie UTF-8. Jeśli tak się nie dzieje, określ typ kodowania w nagłówku odpowiedzi HTTP, np `Content-Type:text/html;charset=utf-8`..
 
-### <a name="which-links-are-affected"></a>Których linków dotyczy problem?
+### <a name="which-links-are-affected"></a>Na jakie linki są one modyfikowane?
 
-Funkcja tłumaczenia łączy wyszukuje tylko łącza, które znajdują się w tagach kodu w treści aplikacji. Serwer proxy aplikacji ma osobną funkcję tłumaczenia plików cookie lub adresów URL w nagłówkach. 
+Funkcja tłumaczenia łączy wyszukuje tylko linki, które znajdują się w tagach kodu w treści aplikacji. Serwer proxy aplikacji ma osobną funkcję do tłumaczenia plików cookie lub adresów URL w nagłówkach. 
 
-Istnieją dwa typowe typy łączy wewnętrznych w aplikacjach lokalnych:
+Istnieją dwa popularne typy linków wewnętrznych w aplikacjach lokalnych:
 
-- **Względne łącza wewnętrzne** wskazujące zasób udostępniony `/claims/claims.html`w lokalnej strukturze plików, takie jak . Te łącza automatycznie działają w aplikacjach, które są publikowane za pośrednictwem serwera proxy aplikacji i nadal działają z tłumaczeniem łącza lub bez niego. 
-- **Zakodowane łącza wewnętrzne** z kodami `http://expenses` twardymi do `http://expenses/logo.jpg`innych aplikacji lokalnych, takich jak lub opublikowane pliki, takie jak . Funkcja tłumaczenia łączy działa na twardych łączach wewnętrznych i zmienia je w taki sposób, aby wskazywały zewnętrzne adresy URL, przez które muszą przechodzić użytkownicy zdalni.
+- **Względne linki wewnętrzne** wskazujące na zasób udostępniony w strukturze plików lokalnych, takich `/claims/claims.html`jak. Te linki automatycznie pracują w aplikacjach publikowanych za pomocą serwera proxy aplikacji i nadal pracują z tłumaczeniem linków lub bez niego. 
+- **Stałe wewnętrzne linki** do innych aplikacji lokalnych, takich jak `http://expenses` lub opublikowanych plików, `http://expenses/logo.jpg`takich jak. Funkcja tłumaczenia łączy działa na łączach wewnętrznych stałe i zmienia je w taki sposób, aby wskazywały zewnętrzne adresy URL, do których użytkownicy zdalni muszą przejść.
 
-Pełna lista tagów kodu HTML, które serwer proxy aplikacji obsługuje tłumaczenie linków, obejmują:
+Kompletna lista tagów kodu HTML, które serwer proxy aplikacji obsługuje tłumaczenie linków dla:
 * a
 * dźwięk
 * base
 * button
 * div
 * Osadź
-* Formularza
+* seryjn
 * ramowe
-* Głowy
+* MTP
 * html
 * iframe
 * img
 * wejście
 * połącz
-* Menuitem
-* Meta
+* elementem
+* odpowiada
 * obiekt
 * skrypt
 * source
 * śledź
 * wideo
 
-Ponadto w CSS atrybut URL jest również tłumaczony.
+Ponadto w obszarze CSS atrybut adresu URL jest również tłumaczony.
 
-### <a name="how-do-apps-link-to-each-other"></a>W jaki sposób aplikacje łączą się ze sobą?
+### <a name="how-do-apps-link-to-each-other"></a>Jak aplikacje łączą się ze sobą?
 
-Tłumaczenie łącza jest włączone dla każdej aplikacji, dzięki czemu masz kontrolę nad środowiska użytkownika na poziomie poszczególnych aplikacji. Włącz tłumaczenie linków dla aplikacji, jeśli chcesz, aby łącza *z* tej aplikacji zostały przetłumaczone, a nie łącza *do* tej aplikacji. 
+Tłumaczenie linków jest włączone dla każdej aplikacji, dzięki czemu masz kontrolę nad czynnościami użytkownika na poziomie aplikacji. Włącz tłumaczenie łączy dla aplikacji, jeśli chcesz, aby linki *z* tej aplikacji były tłumaczone, a nie linki *do* tej aplikacji. 
 
-Załóżmy na przykład, że masz trzy aplikacje opublikowane za pośrednictwem serwera proxy aplikacji, które wszystkie łączą się ze sobą: korzyści, wydatki i podróże. Istnieje czwarta aplikacja, Opinie, która nie jest publikowana za pośrednictwem serwera proxy aplikacji.
+Załóżmy na przykład, że masz trzy aplikacje publikowane przy użyciu serwera proxy aplikacji, które łączą się ze sobą: korzyści, wydatki i podróże. Istnieje czwarta aplikacja, która nie jest publikowana za pomocą serwera proxy aplikacji.
 
-Po włączeniu tłumaczenia łączy dla aplikacji Korzyści łącza do wydatków i podróży są przekierowywane do zewnętrznych adresów URL tych aplikacji, ale łącze do opinii nie jest przekierowywane, ponieważ nie ma zewnętrznego adresu URL. Linki z wydatków i podróży z powrotem do korzyści nie działają, ponieważ tłumaczenie linku nie zostało włączone dla tych dwóch aplikacji.
+Po włączeniu tłumaczenia linków dla aplikacji korzyści linki do wydatków i podróży są przekierowywane do zewnętrznych adresów URL dla tych aplikacji, ale link do opinii nie zostanie przekierowany z powodu braku zewnętrznego adresu URL. Linki z wydatków i podróż z powrotem do korzyści nie działają, ponieważ nie włączono tłumaczenia linków dla tych dwóch aplikacji.
 
-![Linki z korzyści do innych aplikacji, gdy tłumaczenie linku jest włączone](./media/application-proxy-configure-hard-coded-link-translation/one_app.png)
+![Linki od korzyści do innych aplikacji po włączeniu translacji łączy](./media/application-proxy-configure-hard-coded-link-translation/one_app.png)
 
 ### <a name="which-links-arent-translated"></a>Które linki nie są tłumaczone?
 
-Aby zwiększyć wydajność i bezpieczeństwo, niektóre łącza nie są tłumaczone:
+Aby zwiększyć wydajność i bezpieczeństwo, niektóre linki nie są tłumaczone:
 
-- Linki nie wewnątrz tagów kodu. 
-- Linki nie w HTML lub CSS. 
-- Linki w formacie zakodowanym w adresie URL.
-- Linki wewnętrzne otwarte z innych programów. Linki wysyłane za pośrednictwem poczty e-mail lub wiadomości błyskawicznej lub zawarte w innych dokumentach nie będą tłumaczone. Użytkownicy muszą wiedzieć, aby przejść do zewnętrznego adresu URL.
+- Linki poza tagami kodu. 
+- Linki, które nie są w formacie HTML ani CSS. 
+- Linki w formacie z kodowaniem URL.
+- Linki wewnętrzne otwarte z innych programów. Linki wysyłane za pośrednictwem poczty e-mail lub wiadomości błyskawicznych lub zawarte w innych dokumentach nie będą tłumaczone. Użytkownicy muszą wiedzieć, aby przejść do zewnętrznego adresu URL.
 
-Jeśli chcesz obsługiwać jeden z tych dwóch scenariuszy, użyj tych samych wewnętrznych i zewnętrznych adresów URL zamiast tłumaczenia łącza.  
+Jeśli potrzebujesz obsługi jednego z tych dwóch scenariuszy, Użyj tych samych wewnętrznych i zewnętrznych adresów URL zamiast tłumaczenia linków.  
 
-## <a name="enable-link-translation"></a>Włączanie tłumaczenia łączy
+## <a name="enable-link-translation"></a>Włącz tłumaczenie linków
 
-Rozpoczęcie tłumaczenia linków jest tak proste, jak kliknięcie przycisku:
+Wprowadzenie do tłumaczenia linków jest tak proste, jak kliknięcie przycisku:
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) jako administrator.
-2. Przejdź do **usługi Azure Active Directory** > **Enterprise applications** > **Wszystkie aplikacje** > wybrać aplikację, którą chcesz zarządzać > **proxy aplikacji**.
-3. **Obróć translate adresy URL w treści aplikacji** do **Tak**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator.
+2. Przejdź do pozycji **Azure Active Directory** > **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > wybierz aplikację, którą chcesz zarządzać > **serwerem proxy aplikacji**.
+3. Włącz opcję **tłumaczenie adresów URL w treści aplikacji** na **wartość tak**.
 
-   ![Wybierz tak, aby przetłumaczyć adresy URL w treści aplikacji](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
+   ![Wybierz opcję tak, aby przetłumaczyć adresy URL w treści aplikacji](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
 4. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 
-Teraz, gdy użytkownicy uzyskują dostęp do tej aplikacji, serwer proxy automatycznie skanuje w poszukiwaniu wewnętrznych adresów URL, które zostały opublikowane za pośrednictwem serwera proxy aplikacji w dzierżawie.
+Teraz, gdy użytkownicy uzyskują dostęp do tej aplikacji, serwer proxy automatycznie przeskanuje pod kątem wewnętrznych adresów URL, które zostały opublikowane za pomocą serwera proxy aplikacji w dzierżawie.
 
-## <a name="send-feedback"></a>Przesyłanie opinii
+## <a name="send-feedback"></a>Wyślij opinię
 
-Chcemy, aby Twoja pomoc działała dla wszystkich Twoich aplikacji. Wyszukujemy ponad 30 tagów w HTML i CSS. Jeśli masz przykład wygenerowanych łączy, które nie są tłumaczone, wyślij fragment kodu do [opinii serwera proxy aplikacji](mailto:aadapfeedback@microsoft.com). 
+Chcemy, aby Twoja funkcja działała we wszystkich aplikacjach. Przeszukiwane są ponad 30 tagów w formacie HTML i CSS. Jeśli masz przykład wygenerowanych linków, które nie są tłumaczone, Wyślij fragment kodu do [opinii serwera proxy aplikacji](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Następne kroki
-[Używanie domen niestandardowych z serwerem proxy aplikacji usługi Azure AD,](application-proxy-configure-custom-domain.md) aby mieć ten sam wewnętrzny i zewnętrzny adres URL
+[Używanie domen niestandardowych w usłudze Azure serwer proxy aplikacji usługi Azure AD](application-proxy-configure-custom-domain.md) w celu posiadania tego samego wewnętrznego i zewnętrznego adresu URL
 
-[Konfigurowanie mapowania dostępu alternatywnego dla programu SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
+[Konfigurowanie mapowań dostępu alternatywnego dla programu SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

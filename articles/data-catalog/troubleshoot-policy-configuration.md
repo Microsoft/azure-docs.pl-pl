@@ -1,39 +1,39 @@
 ---
-title: Jak rozwiązywać problemy z wykazem danych platformy Azure
-description: W tym artykule opisano typowe problemy z rozwiązywaniem problemów z zasobami usługi Azure Data Catalog.
+title: Jak rozwiązywać problemy z Azure Data Catalog
+description: W tym artykule opisano typowe problemy związane z rozwiązywaniem problemów dotyczących zasobów Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: troubleshooting
 ms.date: 08/01/2019
 ms.openlocfilehash: 84bd14f8ae18527b4f6e9d8509a12555baec8771
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68879551"
 ---
 # <a name="troubleshooting-azure-data-catalog"></a>Rozwiązywanie problemów z usługą Azure Data Catalog
 
-W tym artykule opisano typowe problemy z rozwiązywaniem problemów z zasobami usługi Azure Data Catalog. 
+W tym artykule opisano typowe problemy związane z rozwiązywaniem problemów dotyczących zasobów Azure Data Catalog. 
 
 ## <a name="functionality-limitations"></a>Ograniczenia funkcjonalności
 
-Podczas korzystania z usługi Azure Data Catalog następujące funkcje są ograniczone:
+W przypadku korzystania z Azure Data Catalog następujące funkcje są ograniczone:
 
-- Konta z **typem Guest Role** nie są obsługiwane. Nie można dodawać kont gości jako użytkowników usługi Azure Data [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com)Catalog, a użytkownicy-goście nie mogą korzystać z portalu w pliku .
+- Konta typu **rola gościa** nie są obsługiwane. Nie można dodać kont Gości jako użytkowników Azure Data Catalog, a użytkownicy-Goście nie mogą korzystać z portalu [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com)pod adresem.
 
-- Tworzenie zasobów usługi Azure Data Catalog przy użyciu szablonów usługi Azure Resource Manager lub poleceń programu Azure PowerShell nie jest obsługiwane.
+- Tworzenie Azure Data Catalog zasobów przy użyciu szablonów Azure Resource Manager lub poleceń Azure PowerShell nie jest obsługiwane.
 
-- Nie można przenosić zasobu usługi Azure Data Catalog między dzierżawami platformy Azure.
+- Nie można przenieść zasobu Azure Data Catalog między dzierżawami platformy Azure.
 
 ## <a name="azure-active-directory-policy-configuration"></a>Konfiguracja zasad usługi Azure Active Directory
 
-W niektórych sytuacjach po zalogowaniu się w portalu usługi Azure Data Catalog przy próbie logowania się za pomocą narzędzia do rejestracji źródła danych występuje komunikat o błędzie, który uniemożliwia logowanie. Ten błąd może wystąpić, gdy użytkownik jest w sieci firmowej lub gdy łączysz się spoza sieci firmowej.
+W niektórych sytuacjach po zalogowaniu się w portalu usługi Azure Data Catalog przy próbie logowania się za pomocą narzędzia do rejestracji źródła danych występuje komunikat o błędzie, który uniemożliwia logowanie. Ten błąd może wystąpić w przypadku korzystania z sieci firmowej lub połączenia spoza sieci firmowej.
 
 Narzędzie rejestracji używa *uwierzytelniania formularzy* do weryfikowania logowania użytkowników w usłudze Azure Active Directory. Aby logowanie się powiodło, administrator usługi Azure Active Directory musi włączyć uwierzytelnianie formularzy za pomocą *globalnych zasad uwierzytelniania*.
 
-Pozwoli to na włączenie uwierzytelniania oddzielnie dla połączeń intranetowych i ekstranetowych, jak pokazano na poniższej ilustracji. Jeśli uwierzytelnianie formularzy nie jest włączone dla sieci, z której nawiązujesz połączenie, mogą wystąpić błędy logowania.
+Pozwoli to na włączenie uwierzytelniania oddzielnie dla połączeń intranetowych i ekstranetowych, jak pokazano na poniższej ilustracji. Błędy logowania mogą wystąpić, jeśli uwierzytelnianie formularzy nie jest włączone dla sieci, z której jest nawiązywane połączenie.
 
  ![Globalne zasady uwierzytelniania usługi Azure Active Directory](./media/troubleshoot-policy-configuration/global-auth-policy.png)
 

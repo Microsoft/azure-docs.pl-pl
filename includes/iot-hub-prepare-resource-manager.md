@@ -5,18 +5,18 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 4eb794fa35164e3f86a5e3d6f67d446321f91f0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67133076"
 ---
-## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Przygotowanie do uwierzytelniania żądań usługi Azure Resource Manager
-Należy uwierzytelnić wszystkie operacje wykonywane na zasobach przy użyciu [usługi Azure Resource Manager][lnk-authenticate-arm] z usługą Azure Active Directory (AD). Najprostszym sposobem skonfigurowania tego jest użycie programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Przygotowywanie do uwierzytelniania żądań Azure Resource Manager
+Musisz uwierzytelnić wszystkie operacje wykonywane na zasobach przy użyciu [Azure Resource Manager][lnk-authenticate-arm] z Azure Active Directory (AD). Najprostszym sposobem konfiguracji jest użycie programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-Zainstaluj [polecenia cmdlet programu Azure PowerShell][lnk-powershell-install] przed kontynuowaniem.
+Przed kontynuowaniem zainstaluj [Azure PowerShell polecenia cmdlet][lnk-powershell-install] .
 
-Poniższe kroki pokazują, jak skonfigurować uwierzytelnianie hasłem dla aplikacji AD przy użyciu programu PowerShell. Polecenia te można uruchamiać w standardowej sesji programu PowerShell.
+Poniższe kroki pokazują, jak skonfigurować uwierzytelnianie hasła dla aplikacji usługi AD przy użyciu programu PowerShell. Te polecenia można uruchomić w standardowej sesji programu PowerShell.
 
 1. Zaloguj się do subskrypcji platformy Azure przy użyciu następującego polecenia:
 
@@ -24,44 +24,44 @@ Poniższe kroki pokazują, jak skonfigurować uwierzytelnianie hasłem dla aplik
     Connect-AzAccount
     ```
 
-1. Jeśli masz wiele subskrypcji platformy Azure, zalogowanie się na platformie Azure zapewnia dostęp do wszystkich subskrypcji platformy Azure skojarzonych z poświadczeniami. Użyj następującego polecenia, aby wyświetlić listę subskrypcji platformy Azure dostępnych do użycia:
+1. Jeśli masz wiele subskrypcji platformy Azure, zalogowanie się na platformie Azure spowoduje przyznanie dostępu do wszystkich subskrypcji platformy Azure skojarzonych z poświadczeniami. Użyj następującego polecenia, aby wyświetlić listę dostępnych subskrypcji platformy Azure do użycia:
 
     ```powershell
     Get-AzSubscription
     ```
 
-    Użyj następującego polecenia, aby wybrać subskrypcję, której chcesz użyć do uruchomienia poleceń do zarządzania centrum IoT Hub. Można użyć nazwy subskrypcji lub identyfikatora z danych wyjściowych poprzedniego polecenia:
+    Użyj poniższego polecenia, aby wybrać subskrypcję, która ma być używana do uruchamiania poleceń zarządzania centrum IoT. Można użyć nazwy subskrypcji lub identyfikatora z danych wyjściowych poprzedniego polecenia:
 
     ```powershell
     Select-AzSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
-2. Zanotuj identyfikator i **identyfikator subskrypcji.** **TenantId** Będą one potrzebne później.
-3. Utwórz nową aplikację usługi Azure Active Directory przy użyciu następującego polecenia, zastępując posiadaczy miejsc:
+2. Zanotuj swój **TenantId** i identyfikator **subskrypcji**. Będą one potrzebne później.
+3. Utwórz nową aplikację Azure Active Directory przy użyciu następującego polecenia, zastępując posiadaczy miejsc:
    
-   * **{Nazwa wyświetlana}:** nazwa wyświetlana aplikacji, taka jak **MySampleApp**
-   * **{Adres URL strony głównej}:** adres URL strony głównej aplikacji, taki jak **http:\//mysampleapp/home**. Ten adres URL nie musi wskazywać prawdziwej aplikacji.
+   * **{Display Name}:** nazwa wyświetlana aplikacji, taka jak **MySampleApp**
+   * **{Adres URL strony głównej}:** adres URL strony głównej aplikacji, na przykład **http:\//mysampleapp/Home**. Ten adres URL nie musi wskazywać prawdziwej aplikacji.
    * **{Identyfikator aplikacji}:** Unikatowy identyfikator, taki jak **http:\//mysampleapp**. Ten adres URL nie musi wskazywać prawdziwej aplikacji.
-   * **{Hasło}:** Hasło używane do uwierzytelniania za pomocą aplikacji.
+   * **{Password}:** Hasło używane do uwierzytelniania w aplikacji.
      
      ```powershell
      $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
      New-AzADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
-4. Zanotuj **identyfikator applicationid** utworzonej aplikacji. Potrzebujesz tego później.
-5. Utwórz nową jednostkę usługi za pomocą następującego polecenia, zastępując **{MyApplicationId}** **identyfikatorem aplikacji** z poprzedniego kroku:
+4. Zanotuj **Identyfikator aplikacji utworzony** przez Ciebie. Będzie on potrzebny później.
+5. Utwórz nową nazwę główną usługi przy użyciu następującego polecenia, zastępując element **{MyApplicationId}** identyfikatorem **aplikacji** z poprzedniego kroku:
    
     ```powershell
     New-AzADServicePrincipal -ApplicationId {MyApplicationId}
     ```
-6. Skonfiguruj przypisanie roli za pomocą następującego polecenia, zastępując **{MyApplicationId}** identyfikatorem **aplikacji**.
+6. Skonfiguruj przypisanie roli przy użyciu następującego polecenia, zastępując element **{MyApplicationId}** identyfikatorem Twojej **aplikacji**.
    
     ```powershell
     New-AzRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
 
-Zakończono tworzenie aplikacji usługi Azure AD, która umożliwia uwierzytelnianie z niestandardowej aplikacji języka C#. Potrzebne są następujące wartości w dalszej części tego samouczka:
+Teraz można utworzyć aplikację usługi Azure AD, która umożliwia uwierzytelnianie z poziomu niestandardowej aplikacji w języku C#. W dalszej części tego samouczka potrzebne są następujące wartości:
 
 * TenantId
 * SubscriptionId

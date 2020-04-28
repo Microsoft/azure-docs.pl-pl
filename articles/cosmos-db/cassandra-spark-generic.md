@@ -1,6 +1,6 @@
 ---
-title: Praca z interfejsem API Cassandra usługi Azure Cosmos DB firmy Spark
-description: Ten artykuł jest stroną główną integracji interfejsu API usługi Cosmos DB Cassandra z platformy Spark.
+title: Praca z Azure Cosmos DB interfejs API Cassandra z platformy Spark
+description: Ten artykuł jest główną stroną Cosmos DB interfejs API Cassandra integrację z platformą Spark.
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -9,55 +9,55 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: cb34ea44c069f067d13a6480531a94a1a515f380
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70241240"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Łączenie z interfejsem API Cassandra usługi Azure Cosmos DB za pomocą platformy Spark
 
-Ten artykuł jest jednym z serii artykułów na temat integracji interfejsu API usługi Azure Cosmos DB Cassandra z platformy Spark. Artykuły obejmują łączność, operacje języka DDL(DDL) definicji danych, podstawowe operacje języka DML (Data Manipulation Language) i zaawansowaną integrację interfejsu API usługi Azure Cosmos DB Cassandra z platformy Spark. 
+Ten artykuł jest jednym z serii artykułów na Azure Cosmos DB interfejs API Cassandra integrację z platformą Spark. Artykuły obejmują operacje łączności i języka definicji danych (DDL), operacje języka Basic Data-Language (DML) i zaawansowane Azure Cosmos DB interfejs API Cassandra integrację z platformą Spark. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* [Aprowizuj konto interfejsu API usługi Azure Cosmos DB Cassandra.](create-cassandra-dotnet.md#create-a-database-account)
+* [Zainicjuj obsługę konta interfejs API Cassandra Azure Cosmos DB.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Aprowizuj wybrane środowisko platformy Spark [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Inne].
+* Zainicjuj wybór środowiska Spark [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Inne].
 
-## <a name="dependencies-for-connectivity"></a>Zależności dla łączności
-* **Złącze Iskry dla Cassandra:** Łącznik platformy Spark jest używany do łączenia się z interfejsem API Cassandra usługi Azure Cosmos DB.  Identyfikowanie i używanie wersji łącznika znajdującej się w [centrum Maven,]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) która jest zgodna z wersjami Spark i Scala środowiska Spark.
+## <a name="dependencies-for-connectivity"></a>Zależności dotyczące łączności
+* **Łącznik platformy Spark dla Cassandra:** Łącznik platformy Spark jest używany do nawiązywania połączenia z interfejs API Cassandra Azure Cosmos DB.  Zidentyfikuj i użyj wersji łącznika znajdującego się w [Maven centrali]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) , która jest zgodna z wersjami platformy Spark i Scala w środowisku systemu.
 
-* **Biblioteka pomocnicza usługi Azure Cosmos DB dla interfejsu API Cassandra:** Oprócz łącznika platformy Spark potrzebna jest inna biblioteka o nazwie [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) z usługi Azure Cosmos DB. Ta biblioteka zawiera niestandardowe ustawienia fabryczne połączenia i ponawiania prób klas zasad.
+* **Azure Cosmos DB bibliotekę pomocnika dla interfejs API Cassandra:** Oprócz łącznika Spark potrzebna jest inna Biblioteka o nazwie [Azure-Cosmos-Cassandra-Spark-Helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) z Azure Cosmos DB. Ta biblioteka zawiera niestandardową fabrykę połączeń i klasy zasad ponawiania.
 
-  Zasady ponawiania próby w usłudze Azure Cosmos DB są skonfigurowane do obsługi wyjątków kodu stanu HTTP 429("Request Rate Large"). Interfejs API Cassandra usługi Azure Cosmos DB tłumaczy te wyjątki na przeciążone błędy w protokole macierzystym Cassandra i można ponowić próbę z wycofywaniem. Ponieważ usługa Azure Cosmos DB używa aprowizowanego modelu przepływności, wyjątki ograniczające szybkość żądania występują, gdy zwiększa się szybkość transferu danych przychodzących/wychodzących. Zasady ponawiania próby chroni zadania iskrzenie przed skoki danych, które na chwilę przekraczają przepływności przydzielone dla kontenera.
+  Zasady ponawiania w Azure Cosmos DB są skonfigurowane do obsługi wyjątków HTTP Code 429 ("Request rate Large"). Azure Cosmos DB interfejs API Cassandra tłumaczy te wyjątki na przeciążone błędy w protokole natywnym Cassandra i można ponowić próbę z powrotem. Ponieważ Azure Cosmos DB używa modelu przepływności z obsługą administracyjną, liczba wyjątków ograniczania żądań występuje po zwiększeniu szybkości transferu danych przychodzących/wychodzących. Zasady ponawiania chronią zadania platformy Spark względem danych, które znacznie przekraczają przepływność przydzieloną dla kontenera.
 
   > [!NOTE] 
-  > Zasady ponawiania próby mogą chronić zadania iskrzenie przed chwilowymi skokami. Jeśli nie skonfigurowano wystarczającej liczby procesorów RU wymaganych do uruchomienia obciążenia, zasady ponawiania nie ma zastosowania, a klasa zasad ponawiania próby ponownie wykręć wyjątek.
+  > Zasady ponawiania mogą chronić zadania platformy Spark wyłącznie przy użyciu tylko przyrostów czasu. Jeśli nie skonfigurowano wystarczającej liczby jednostek ru wymaganych do uruchomienia obciążenia, zasady ponawiania nie mają zastosowania, a Klasa zasad ponawiania generuje wyjątek.
 
-* **Szczegóły połączenia konta usługi Azure Cosmos DB:** Nazwa konta interfejsu API platformy Azure Cassandra, punkt końcowy konta i klucz.
+* **Szczegóły połączenia z kontem Azure Cosmos DB:** Nazwa konta usługi Azure interfejs API Cassandra, punkt końcowy konta i klucz.
     
-## <a name="spark-connector-throughput-configuration-parameters"></a>Parametry konfiguracji przepływności łącznika platformy Spark
+## <a name="spark-connector-throughput-configuration-parameters"></a>Parametry konfiguracji przepływności łącznika Spark
 
-W poniższej tabeli wymieniono parametry konfiguracji konfiguracji specyficzne dla interfejsu API usługi Azure Cosmos DB Cassandra dostarczone przez łącznik. Aby uzyskać szczegółową listę wszystkich parametrów konfiguracji, zobacz stronę [odwołania do konfiguracji](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) repozytorium GitHub łącznika Spark Cassandra.
+W poniższej tabeli wymieniono Azure Cosmos DB specyficzne dla interfejs API Cassandra parametry konfiguracji przepływności dostarczone przez łącznik. Aby uzyskać szczegółową listę wszystkich parametrów konfiguracji, zobacz stronę [Informacje o konfiguracji](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) repozytorium usługi Spark Cassandra Connector.
 
 | **Nazwa właściwości** | **Wartość domyślna** | **Opis** |
 |---------|---------|---------|
-| spark.cassandra.output.batch.size.rows |  1 |Liczba wierszy na pojedynczą partię. Ustaw ten parametr na 1. Ten parametr jest używany do osiągnięcia wyższej przepływności dla dużych obciążeń. |
-| spark.cassandra.connection.connections_per_executor_max  | Brak | Maksymalna liczba połączeń na węzeł na wykonawcę. 10*n odpowiada 10 połączeń na węzeł w klastrze cassandra n-węzła. Tak więc, jeśli potrzebujesz 5 połączeń na węzeł na wykonawca dla klastra Cassandra 5 węzłów, należy ustawić tę konfigurację na 25. Zmodyfikuj tę wartość na podstawie stopnia równoległości lub liczby executors, dla których są skonfigurowane zadania spark.   |
-| spark.cassandra.output.concurrent.writes  |  100 | Definiuje liczbę zapisów równoległych, które mogą wystąpić na wykonawcę. Ponieważ ustawisz "batch.size.rows" na 1, upewnij się, że odpowiednio skalujesz tę wartość. Zmodyfikuj tę wartość na podstawie stopnia równoległości lub przepływności, które chcesz osiągnąć dla obciążenia. |
-| spark.cassandra.concurrent.reads |  512 | Definiuje liczbę odczytów równoległych, które mogą wystąpić na wykonawcę. Zmodyfikuj tę wartość na podstawie stopnia równoległości lub przepływności, którą chcesz osiągnąć dla obciążenia  |
-| spark.cassandra.output.throughput_mb_per_sec  | Brak | Definiuje całkowitą przepływność zapisu na wykonawcę. Ten parametr może służyć jako górny limit przepływności zadania iskrzenie i oprzeć go na aprowizowanej przepływności kontenera usługi Cosmos.   |
-| spark.cassandra.input.reads_per_sec| Brak   | Definiuje całkowitą przepływność odczytu na wykonawcę. Ten parametr może służyć jako górny limit przepływności zadania iskrzenie i oprzeć go na aprowizowanej przepływności kontenera usługi Cosmos.  |
-| spark.cassandra.output.batch.grouping.buffer.size |  1000  | Określa liczbę partii na pojedyncze zadanie iskrowe, które mogą być przechowywane w pamięci przed wysłaniem do api Cassandra |
-| spark.cassandra.connection.keep_alive_ms | 60000 | Określa okres czasu, do którego nieużywane połączenia są dostępne. | 
+| Spark. Cassandra. Output. Batch. size. Rows |  1 |Liczba wierszy na pojedynczą partię. Ustaw ten parametr na 1. Ten parametr służy do osiągnięcia wyższej przepływności dla dużych obciążeń. |
+| Spark. Cassandra. Connection. connections_per_executor_max  | Brak | Maksymalna liczba połączeń na węzeł na wykonawcę. 10 * n jest odpowiednikiem 10 połączeń na węzeł w klastrze Cassandra n węzła. Dlatego, jeśli wymagane jest 5 połączeń na węzeł każdego wykonawcy dla klastra Cassandra z 5 węzłów, należy ustawić tę konfigurację na 25. Zmodyfikuj tę wartość na podstawie stopnia równoległości lub liczby modułów wykonujących, dla których skonfigurowano zadania platformy Spark.   |
+| Spark. Cassandra. Output. współbieżne. zapisy  |  100 | Określa liczbę zapisów równoległych, które mogą wystąpić na wykonawcę. Ponieważ ustawiasz wartość "Batch. size. Rows" na 1, pamiętaj o tym, aby odpowiednio skalować ją w górę. Zmodyfikuj tę wartość na podstawie stopnia równoległości lub przepływności, która ma zostać osiągnięta dla obciążenia. |
+| Spark. Cassandra. współbieżne. odczyty |  512 | Określa liczbę odczytów równoległych, które mogą wystąpić na wykonawcę. Modyfikuj tę wartość na podstawie stopnia równoległości lub przepływności, która ma zostać osiągnięta dla obciążenia  |
+| Spark. Cassandra. Output. throughput_mb_per_sec  | Brak | Określa łączną przepustowość zapisu na wykonawcę. Ten parametr może służyć jako górny limit przepływności zadania platformy Spark i opierał się na zainicjowanej przepływności dla kontenera Cosmos.   |
+| Spark. Cassandra. Input. reads_per_sec| Brak   | Definiuje łączną przepływność odczytu na wykonawcę. Ten parametr może służyć jako górny limit przepływności zadania platformy Spark i opierał się na zainicjowanej przepływności dla kontenera Cosmos.  |
+| Spark. Cassandra. Output. Batch. Group. Buffer. size |  1000  | Definiuje liczbę partii dla pojedynczego zadania platformy Spark, które mogą być przechowywane w pamięci przed wysłaniem do interfejs API Cassandra |
+| Spark. Cassandra. Connection. keep_alive_ms | 60000 | Określa okres czasu, do którego są dostępne nieużywane połączenia. | 
 
-Dostosuj przepływność i stopień równoległości tych parametrów na podstawie obciążenia oczekiwanego dla zadań platformy spark i przepływności, która została aprowizowana dla konta usługi Cosmos DB.
+Dostosuj przepływność i stopień równoległości tych parametrów na podstawie obciążenia, które są oczekiwane dla zadań platformy Spark, i przepływności zainicjowanej dla konta Cosmos DB.
 
-## <a name="connecting-to-azure-cosmos-db-cassandra-api-from-spark"></a>Łączenie się z interfejsem API Cassandra usługi Azure Cosmos DB z platformy Spark
+## <a name="connecting-to-azure-cosmos-db-cassandra-api-from-spark"></a>Nawiązywanie połączenia z usługą Azure Cosmos DB interfejs API Cassandra z platformy Spark
 
-### <a name="cqlsh"></a>cqlsh ( cqlsh )
-Poniższe polecenia szczegółowo jak połączyć się z interfejsem API Cassandra usługi Azure CosmosDB z cqlsh.  Jest to przydatne do sprawdzania poprawności podczas uruchamiania za pośrednictwem przykładów w spark.<br>
-**Z Linuksa/Uniksa/Maca:**
+### <a name="cqlsh"></a>cqlsh
+W poniższych poleceniach szczegółowo opisano sposób nawiązywania połączenia z usługą Azure CosmosDB interfejs API Cassandra z cqlsh.  Jest to przydatne w przypadku sprawdzania poprawności w trakcie wykonywania przykładów w platformie Spark.<br>
+**W systemie Linux/Unix/Mac:**
 
 ```bash
 export SSL_VERSION=TLSv1_2
@@ -65,23 +65,23 @@ export SSL_VALIDATE=false
 cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.azure.com 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl
 ```
 
-### <a name="1--azure-databricks"></a>1. Usługa Azure Databricks
-W tym artykule opisano aprowizacji klastra usługi Azure Databricks, konfiguracji klastra do łączenia się z interfejsem API Cassandra usługi Azure Cosmos DB i kilku przykładowych notesów, które obejmują operacje DDL, operacje DML i inne.<BR>
-[Praca z interfejsem API Cassandra usługi Azure Cosmos DB z witryny Databricks](cassandra-spark-databricks.md)<BR>
+### <a name="1--azure-databricks"></a>1. Azure Databricks
+W poniższym artykule omówiono Inicjowanie obsługi klastrów Azure Databricks, konfigurację klastra w celu nawiązania połączenia z Azure Cosmos DB interfejs API Cassandra oraz kilka przykładowych notesów, które obejmują operacje DDL, operacje DML i nie tylko.<BR>
+[Współpraca z Azure Cosmos DB interfejs API Cassandra z usługi Azure datakostks](cassandra-spark-databricks.md)<BR>
   
-### <a name="2--azure-hdinsight-spark"></a>2. Platforma Azure HDInsight-Spark
-W tym artykule opisano usługę HDinsight-Spark, inicjowanie obsługi administracyjnej, konfigurację klastra do łączenia się z interfejsem API Cassandra usługi Azure Cosmos DB i kilka przykładowych notesów obejmujących operacje DDL, operacje DML i inne.<BR>
-[Praca z interfejsem API Cassandra usługi Azure Cosmos DB z usługi Azure HDInsight-Spark](cassandra-spark-hdinsight.md)
+### <a name="2--azure-hdinsight-spark"></a>2. usługa Azure HDInsight — platforma Spark
+Poniższy artykuł dotyczy usługi HDinsight-Spark, aprowizacji, konfiguracji klastra do łączenia się z Azure Cosmos DB interfejs API Cassandra i kilku przykładowych notesów, które obejmują operacje DDL, operacje DML i nie tylko.<BR>
+[Korzystanie z Azure Cosmos DB interfejs API Cassandra z usługi Azure HDInsight — Spark](cassandra-spark-hdinsight.md)
  
-### <a name="3--spark-environment-in-general"></a>3. Środowisko iskrowe w ogóle
-Podczas gdy powyższe sekcje były specyficzne dla usług PaaS opartych na platformie Azure Spark, ta sekcja obejmuje wszystkie ogólne środowisko platformy Spark.  Zależności łącznika, importy i konfiguracja sesji platformy Spark są opisane poniżej. Sekcja "Następne kroki" obejmuje przykłady kodu dla operacji DDL, operacji DML i innych.  
+### <a name="3--spark-environment-in-general"></a>3. środowisko Spark ogólnie
+Chociaż powyższe sekcje dotyczyły usług PaaS opartych na platformie Azure Spark, w tej sekcji omówiono wszystkie ogólne środowisko Spark.  Poniżej opisano szczegółowo zależności łączników, Importy i konfigurację sesji Spark. W sekcji "następne kroki" omówiono przykłady kodu dla operacji DDL, operacji DML i innych.  
 
 #### <a name="connector-dependencies"></a>Zależności łącznika:
 
-1. Dodaj współrzędne maven, aby uzyskać [łącznik Cassandra dla platformy Spark](cassandra-spark-generic.md#dependencies-for-connectivity)
-2. Dodawanie współrzędnych maven dla [biblioteki pomocniczej usługi Azure Cosmos DB](cassandra-spark-generic.md#dependencies-for-connectivity) dla interfejsu API Cassandra
+1. Dodaj współrzędne Maven, aby uzyskać [Łącznik Cassandra dla platformy Spark](cassandra-spark-generic.md#dependencies-for-connectivity)
+2. Dodaj współrzędne Maven dla [Azure Cosmos DB biblioteki pomocniczej](cassandra-spark-generic.md#dependencies-for-connectivity) dla interfejs API Cassandra
 
-#### <a name="imports"></a>Przywozu:
+#### <a name="imports"></a>Importowania
 
 ```scala
 import org.apache.spark.sql.cassandra._
@@ -93,7 +93,7 @@ import com.datastax.spark.connector.cql.CassandraConnector
 import com.microsoft.azure.cosmosdb.cassandra
 ```
 
-#### <a name="spark-session-configuration"></a>Konfiguracja sesji iskierki:
+#### <a name="spark-session-configuration"></a>Konfiguracja sesji platformy Spark:
 
 ```scala
 //Connection-related
@@ -115,12 +115,12 @@ spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 
 ## <a name="next-steps"></a>Następne kroki
 
-W poniższych artykułach pokazano integrację platformy Spark z interfejsem API Cassandra usługi Azure Cosmos DB. 
+W poniższych artykułach przedstawiono integrację platformy Spark z usługą Azure Cosmos DB interfejs API Cassandra. 
  
 * [Operacje DDL](cassandra-spark-ddl-ops.md)
-* [Tworzenie/wstawianie operacji](cassandra-spark-create-ops.md)
+* [Operacje tworzenia/wstawiania](cassandra-spark-create-ops.md)
 * [Operacje odczytu](cassandra-spark-read-ops.md)
 * [Operacje upsert](cassandra-spark-upsert-ops.md)
-* [Usuwanie operacji](cassandra-spark-delete-ops.md)
+* [Operacje usuwania](cassandra-spark-delete-ops.md)
 * [Operacje agregacji](cassandra-spark-aggregation-ops.md)
-* [Operacje kopiowania tabeli](cassandra-spark-table-copy-ops.md)
+* [Operacje kopiowania tabel](cassandra-spark-table-copy-ops.md)

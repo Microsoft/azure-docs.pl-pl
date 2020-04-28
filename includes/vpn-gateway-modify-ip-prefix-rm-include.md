@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 13089a2514229c5c5bc7b40d9447719247b23405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183068"
 ---
 ### <a name="to-modify-local-network-gateway-ip-address-prefixes---no-gateway-connection"></a><a name="noconnection"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej — brak połączenia bramy
@@ -33,14 +33,14 @@ Aby dodać dodatkowe prefiksy adresów:
 
 Aby usunąć prefiksy adresów:
 
-  Opuść prefiksy, które nie są już potrzebne. W tym przykładzie nie potrzebujemy już prefiksu 10.101.2.0/24 (z poprzedniego przykładu), więc zaktualizujemy bramę sieci lokalnej, z wyłączeniem tego prefiksu.
+  Opuść prefiksy, które nie są już potrzebne. W tym przykładzie nie potrzebujemy już prefiksu 10.101.2.0/24 (z poprzedniego przykładu), więc aktualizujemy bramę sieci lokalnej, z wyłączeniem tego prefiksu.
 
 1. Ustaw wartość zmiennej dla klasy LocalNetworkGateway.
 
    ```azurepowershell-interactive
    $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
    ```
-2. Ustaw bramę ze zaktualizowanymi prefiksami.
+2. Ustaw bramę z zaktualizowanymi prefiksami.
 
    ```azurepowershell-interactive
    Set-AzLocalNetworkGateway -LocalNetworkGateway $local `

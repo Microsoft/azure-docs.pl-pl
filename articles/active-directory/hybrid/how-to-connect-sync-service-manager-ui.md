@@ -1,6 +1,6 @@
 ---
-title: 'Synchronizacja usługi Azure AD Connect: interfejs użytkownika programu Service Manager synchronizacji | Dokumenty firmy Microsoft'
-description: Dowiedz się, że program Synchronizacja Service Manager dla usługi Azure AD Connect.
+title: 'Azure AD Connect Sync: Synchronization Service Manager interfejs użytkownika | Microsoft Docs'
+description: Poznaj Synchronization Service Manager Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,25 +18,25 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3a03b2320caa7facc04f589993907ab9b3a7703
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60381539"
 ---
-# <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Wprowadzenie do interfejsu użytkownika usługi Azure AD Connect
+# <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Wprowadzenie do interfejsu użytkownika Synchronization Service Manager Azure AD Connect
 
-![Menedżer usługi synchronizacji](./media/how-to-connect-sync-service-manager-ui/ssmui.png)
+![Service Manager synchronizacji](./media/how-to-connect-sync-service-manager-ui/ssmui.png)
 
-Interfejs **użytkownika programu Synchronizacja programu Service Manager** służy do konfigurowania bardziej zaawansowanych aspektów aparatu synchronizacji i do widzenia aspektów operacyjnych usługi.
+Interfejs użytkownika **Synchronization Service Manager** służy do konfigurowania bardziej zaawansowanych aspektów aparatu synchronizacji oraz do wyświetlania aspektów operacyjnych usługi.
 
-Uruchom interfejs **użytkownika menedżera usług synchronizacji** z menu Start. Nosi nazwę **Usługa synchronizacji** i można go znaleźć w grupie **Usługi Azure AD Connect.**  
-![Menedżer usługi synchronizacji](./media/how-to-connect-sync-service-manager-ui/startmenu.png)
+Uruchom interfejs użytkownika **Synchronization Service Manager** z menu Start. Ma nazwę **usługa synchronizacji** i znajduje się w grupie **Azure AD Connect** .  
+![Service Manager synchronizacji](./media/how-to-connect-sync-service-manager-ui/startmenu.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o interfejsie użytkownika programu Synchronizacja Menedżera usług, w tym [na kartach Operacje,](how-to-connect-sync-service-manager-ui-operations.md) [Łączniki,](how-to-connect-sync-service-manager-ui-connectors.md) [Projektant metaverse](how-to-connect-sync-service-manager-ui-mvdesigner.md)i [Wyszukiwanie Metaverse.](how-to-connect-sync-service-manager-ui-mvsearch.md)
+Dowiedz się więcej na temat interfejsu użytkownika Synchronization Service Manager, w tym [operacji](how-to-connect-sync-service-manager-ui-operations.md), [łączników](how-to-connect-sync-service-manager-ui-connectors.md), [projektanta Metaverse](how-to-connect-sync-service-manager-ui-mvdesigner.md)i kart [wyszukiwania Metaverse](how-to-connect-sync-service-manager-ui-mvsearch.md) .
 
-Dowiedz się więcej o konfiguracji [synchronizacji usługi Azure AD Connect.](how-to-connect-sync-whatis.md)
+Dowiedz się więcej o konfiguracji [synchronizacji Azure AD Connect](how-to-connect-sync-whatis.md) .
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md).

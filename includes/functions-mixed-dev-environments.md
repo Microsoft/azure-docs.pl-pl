@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: functions
 author: ggailey777
 ms.service: azure-functions
@@ -9,11 +9,11 @@ ms.date: 06/27/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 1c790d2d0086b929daf3bdf5afe72917fd89dede
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67608295"
 ---
 >[!IMPORTANT]  
-> Nie mieszaj lokalnego rozwoju z rozwojem portalu w tej samej aplikacji funkcji. Podczas tworzenia i publikowania funkcji z projektu lokalnego, nie należy próbować zachować lub zmodyfikować kod projektu w portalu.
+> Nie mieszaj środowiska lokalnego z programowaniem w portalu w tej samej aplikacji funkcji. Podczas tworzenia i publikowania funkcji z projektu lokalnego nie należy próbować obsługiwać ani modyfikować kodu projektu w portalu.

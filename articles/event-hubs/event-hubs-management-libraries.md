@@ -1,6 +1,6 @@
 ---
-title: Biblioteki zarządzania — Usługi Azure Event Hubs| Dokumenty firmy Microsoft
-description: Ten artykuł zawiera informacje na temat biblioteki, której można używać do zarządzania obszarami nazw i encjami usługi Azure Event Hubs z platformy .NET.
+title: Biblioteki zarządzania — Event Hubs platformy Azure | Microsoft Docs
+description: Ten artykuł zawiera informacje na temat biblioteki, która służy do zarządzania przestrzeniami nazw i jednostkami usługi Azure Event Hubs z poziomu platformy .NET.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -11,35 +11,35 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 431fe04461f422274697d1e91c4b56e914ce2d4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60746662"
 ---
 # <a name="event-hubs-management-libraries"></a>Biblioteki zarządzania usługi Event Hubs
 
-Biblioteki zarządzania usługi Azure Event Hubs umożliwiają dynamiczne aprowizowanie obszarów nazw i jednostek centrum zdarzeń. Ten dynamiczny charakter umożliwia złożone wdrożenia i scenariusze obsługi wiadomości, dzięki czemu można programowo określić, jakie jednostki do aprowizowania. Te biblioteki są obecnie dostępne dla platformy .NET.
+Za pomocą bibliotek zarządzania usługi Azure Event Hubs można dynamicznie zainicjować obsługę administracyjną Event Hubs przestrzeni nazw i jednostek. Ten dynamiczny charakter umożliwia złożone wdrożenia i scenariusze obsługi komunikatów, dzięki czemu można programowo określić, jakie jednostki należy udostępnić. Te biblioteki są obecnie dostępne dla platformy .NET.
 
 ## <a name="supported-functionality"></a>Obsługiwane funkcje
 
-* Tworzenie, aktualizowanie, usuwanie obszaru nazw
-* Tworzenie, aktualizowanie, usuwanie centrów zdarzeń
-* Tworzenie, aktualizowanie, usuwanie grup odbiorców
+* Tworzenie, aktualizowanie, usuwanie przestrzeni nazw
+* Tworzenie, aktualizowanie, usuwanie Event Hubs
+* Tworzenie, aktualizowanie, usuwanie grupy odbiorców
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć korzystanie z bibliotek zarządzania usługi Event Hubs, należy uwierzytelnić się za pomocą usługi Azure Active Directory (AAD). Usługa AAD wymaga uwierzytelnienia jako jednostki usługi, która zapewnia dostęp do zasobów platformy Azure. Aby uzyskać informacje dotyczące tworzenia jednostki usługi, zobacz jeden z następujących artykułów:  
+Aby rozpocząć korzystanie z bibliotek zarządzania Event Hubs, należy uwierzytelnić się za pomocą usługi Azure Active Directory (AAD). Usługa AAD wymaga uwierzytelniania jako nazwy głównej usługi, która zapewnia dostęp do zasobów platformy Azure. Aby uzyskać informacje na temat tworzenia nazwy głównej usługi, zobacz jeden z następujących artykułów:  
 
-* [Użyj witryny Azure Portal do tworzenia aplikacji i jednostki usługi Active Directory, która może uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Użyj Azure Portal, aby utworzyć Active Directory aplikację i nazwę główną usługi, które mogą uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Use Azure PowerShell to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell)](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Use Azure CLI to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu interfejsu wiersza polecenia platformy Azure)](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-Te samouczki zapewniają `AppId` (identyfikator klienta), `TenantId`i `ClientSecret` (klucz uwierzytelniania), z których wszystkie są używane do uwierzytelniania przez biblioteki zarządzania. Musisz mieć uprawnienia **Właściciela** dla grupy zasobów, w której chcesz uruchomić.
+Te samouczki zapewniają `AppId` (identyfikator klienta), `TenantId`i `ClientSecret` (klucz uwierzytelniania), które są używane do uwierzytelniania przez biblioteki zarządzania. Użytkownik musi mieć uprawnienia **właściciela** do grupy zasobów, w której ma zostać uruchomione.
 
-## <a name="programming-pattern"></a>Wzór programowania
+## <a name="programming-pattern"></a>Wzorzec programowania
 
-Wzorzec do manipulowania dowolnym zasobem Centrum zdarzeń jest zgodny ze wspólnym protokołem:
+Wzorzec służący do manipulowania dowolnym zasobem Event Hubs jest następujący:
 
 1. Uzyskaj token z usługi AAD przy użyciu `Microsoft.IdentityModel.Clients.ActiveDirectory` biblioteki.
     ```csharp
@@ -74,5 +74,5 @@ Wzorzec do manipulowania dowolnym zasobem Centrum zdarzeń jest zgodny ze wspól
     ```
 
 ## <a name="next-steps"></a>Następne kroki
-* [Przykład zarządzania siecią .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
-* [Dokumentacja microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 
+* [Przykład zarządzania .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
+* [Dokumentacja Microsoft. Azure. Management. EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 

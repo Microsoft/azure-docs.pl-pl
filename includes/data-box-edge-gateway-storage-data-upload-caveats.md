@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 02/21/2019
 ms.author: alkohli
 ms.openlocfilehash: 8c87e14071b3bb40421ab655c172df739570e295
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183686"
 ---
-Następujące zastrzeżenia dotyczą danych w miarę przenoszenia na platformę Azure.
+Poniższe zastrzeżenia dotyczą danych w miarę ich przenoszenia na platformę Azure.
 
-- Sugerujemy, że więcej niż jedno urządzenie nie powinno zapisywać do tego samego kontenera.
-- Jeśli masz istniejący obiekt platformy Azure (na przykład obiekt blob lub plik) w chmurze o takiej samej nazwie jak obiekt, który jest kopiowany, urządzenie zastąpi plik w chmurze.
-- Hierarchia pustych katalogów (bez żadnych plików) utworzona w folderach udostępniania nie jest przekazywała do kontenerów obiektów blob.
-- Dane można kopiować za pomocą przeciągania i upuszczania za pomocą Eksploratora plików lub za pomocą wiersza polecenia. Jeśli łączny rozmiar kopiowanych plików jest większy niż 10 GB, zalecamy użycie programu do kopiowania zbiorczego, takiego jak Robocopy lub rsync. Narzędzia kopiowania zbiorczego ponowić próbę operacji kopiowania dla błędów przerywanych i zapewniają dodatkową odporność.
-- Jeśli udział skojarzony z kontenerem magazynu Platformy Azure przekaże obiekty blob, które nie pasują do typu obiektów blob zdefiniowanych dla udziału w momencie tworzenia, takie obiekty blob nie są aktualizowane. Na przykład można utworzyć blokowy udział obiektu blob na urządzeniu. Skojarz udział z istniejącym kontenerem chmury, który ma obiekty blob strony. Odśwież ten udział, aby pobrać pliki. Zmodyfikuj niektóre odświeżone pliki, które są już przechowywane jako obiekty blob stron w chmurze. Zostaną wyświetlane błędy przesyłania.
+- Sugerujemy, aby więcej niż jedno urządzenie nie było zapisywać w tym samym kontenerze.
+- Jeśli masz istniejący obiekt platformy Azure (np. obiekt BLOB lub plik) w chmurze o takiej samej nazwie jak kopiowany obiekt, urządzenie zastąpi plik w chmurze.
+- Pusta hierarchia katalogów (bez plików) utworzonych w obszarze foldery udostępniania nie została przekazana do kontenerów obiektów BLOB.
+- Dane można skopiować za pomocą przeciągania i upuszczania w Eksploratorze plików lub za pomocą wiersza polecenia. Jeśli zagregowany rozmiar kopiowanych plików jest większy niż 10 GB, zalecamy użycie programu do kopiowania zbiorczego, takiego jak Robocopy lub rsync. Narzędzia kopiowania zbiorczego ponawiają operację kopiowania w przypadku sporadycznych błędów i zapewniają dodatkową odporność.
+- Jeśli udział skojarzony z kontenerem usługi Azure Storage przekazuje obiekty blob, które nie pasują do typu obiektów BLOB zdefiniowanych dla udziału w czasie tworzenia, wówczas takie obiekty blob nie są aktualizowane. Na przykład utworzysz na urządzeniu udział blokowy obiekt BLOB. Skojarz udział z istniejącym kontenerem chmury, który ma stronicowe obiekty blob. Odśwież ten udział, aby pobrać pliki. Zmodyfikuj niektóre odświeżone pliki, które są już przechowywane jako stronicowe obiekty blob w chmurze. Zobaczysz błędy przekazywania.

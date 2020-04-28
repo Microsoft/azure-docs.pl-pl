@@ -1,6 +1,6 @@
 ---
-title: Fizyczne bezpieczeństwo centrów danych platformy Azure — Microsoft Azure | Dokumenty firmy Microsoft
-description: W tym artykule opisano, co firma Microsoft robi, aby zabezpieczyć centra danych platformy Azure, w tym infrastrukturę fizyczną, zabezpieczenia i oferty zgodności.
+title: Fizyczne zabezpieczenia centrów danych platformy Azure — Microsoft Azure | Microsoft Docs
+description: W tym artykule opisano, co firma Microsoft zabezpiecza centra danych platformy Azure, w tym infrastrukturę fizyczną, zabezpieczenia i oferty zgodności.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,76 +16,76 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 634f89b3123902d981ad07dd1404315387104322
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68726724"
 ---
-# <a name="azure-facilities-premises-and-physical-security"></a>Obiekty platformy Azure, pomieszczenia i zabezpieczenia fizyczne
-W tym artykule opisano, co firma Microsoft robi, aby zabezpieczyć infrastrukturę platformy Azure.
+# <a name="azure-facilities-premises-and-physical-security"></a>Funkcje platformy Azure, lokalne i zabezpieczenia fizyczne
+W tym artykule opisano, co firma Microsoft zabezpiecza infrastruktury platformy Azure.
 
 ## <a name="datacenter-infrastructure"></a>Infrastruktura centrum danych
-Platforma Azure składa się z [globalnie rozproszonej infrastruktury centrum danych,](https://azure.microsoft.com/global-infrastructure/)obsługującej tysiące usług online i obejmującej ponad 100 wysoce bezpiecznych obiektów na całym świecie.
+Platforma Azure składa się z [globalnej rozproszonej infrastruktury centrów](https://azure.microsoft.com/global-infrastructure/)danych, wspierając tysiące usługi online i obejmujących ponad 100 wysoce zabezpieczonych udogodnień na całym świecie.
 
-Infrastruktura została zaprojektowana tak, aby przybliżać aplikacje użytkownikom na całym świecie, zachowując miejsce zamieszkania danych i oferując kompleksowe opcje zgodności i odporności dla klientów. Platforma Azure ma 52 regiony na całym świecie i jest dostępna w 140 krajach/regionach.
+Infrastruktura została zaprojektowana w celu zapewnienia bliższych aplikacji użytkownikom na całym świecie, zachowywania miejsca zamieszkania i zapewniania kompleksowych opcji dotyczących zgodności i odporności klientów. Platforma Azure ma 52 regionów na całym świecie i jest dostępna w 140 krajach/regionach.
 
-Region to zestaw centrów danych, które są połączone za pośrednictwem ogromnej i odpornej sieci. Sieć domyślnie obejmuje dystrybucję zawartości, równoważenie obciążenia, nadmiarowość i szyfrowanie. Dzięki większej liczbie regionów globalnych niż jakikolwiek inny dostawca chmury platforma Azure zapewnia elastyczność wdrażania aplikacji tam, gdzie ich potrzebujesz.
+Region to zestaw centrów danych, które są połączone za pośrednictwem dużej i odpornej sieci. Sieć zawiera domyślnie dystrybucję zawartości, równoważenie obciążenia, nadmiarowość i szyfrowanie. W przypadku więcej regionów globalnych niż każdy inny dostawca usług w chmurze platforma Azure zapewnia elastyczność wdrażania aplikacji, w których są one potrzebne.
 
-Regiony platformy Azure są zorganizowane w regiony geograficzne. Geografia platformy Azure zapewnia, że wymagania dotyczące rezydencji danych, suwerenności, zgodności i odporności są przestrzegane w granicach geograficznych.
+Regiony platformy Azure są zorganizowane w lokalizacje geograficzne. Lokalizacja geograficzna platformy Azure zapewnia, że wymagania dotyczące miejsca zamieszkania, suwerenności, zgodności i odporności są honorowane w granicach geograficznych.
 
-Obszary geograficzne umożliwiają klientom, którzy mają określone potrzeby związane z rezydencją danych i zgodnością, przechowywanie ich danych i aplikacji w bliskim sąsiedztwie. Obszary geograficzne są odporne na uszkodzenia, aby wytrzymać całkowitą awarię regionu, dzięki połączeniu z dedykowaną infrastrukturą sieciową o dużej pojemności.
+Obszary geograficzne umożliwiają klientom, którzy mają określone potrzeby związane z rezydencją danych i zgodnością, przechowywanie ich danych i aplikacji w bliskim sąsiedztwie. Lokalizacje geograficzne są odporne na uszkodzenia, aby przetrzymywać pełną awarię regionu, poprzez połączenie z dedykowaną infrastrukturą sieciową o dużej pojemności.
 
-Strefy dostępności są fizycznie oddzielne lokalizacje w regionie platformy Azure. Każda strefa dostępności składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. Strefy dostępności umożliwiają uruchamianie aplikacji o znaczeniu krytycznym o wysokiej dostępności i replikacji z małymi opóźnieniami.
+Strefy dostępności są fizycznie oddzielone w regionie świadczenia usługi Azure. Każda strefa dostępności składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. Strefy dostępności umożliwiają uruchamianie kluczowych dla działalności aplikacji z wysoką dostępnością i replikacją o małym opóźnieniu.
 
-Na poniższej ilustracji pokazano, jak globalna infrastruktura platformy Azure paruje regiony i strefy dostępności w obrębie tej samej granicy rezydencji danych, aby uzyskać wysoką dostępność, odzyskiwanie po awarii i tworzenie kopii zapasowych.
+Na poniższej ilustracji przedstawiono sposób, w jaki strefa globalna infrastruktury platformy Azure i strefy dostępności w ramach tej samej granicy danych miejsca zamieszkania na potrzeby wysokiej dostępności, odzyskiwania po awarii i tworzenia kopii zapasowych.
 
-![Diagram przedstawiający granicę rezydencji danych](./media/physical-security/data-residency-boundary.png)
+![Diagram przedstawiający granicę miejsca zamieszkania danych](./media/physical-security/data-residency-boundary.png)
 
-Geograficznie rozproszone centra danych umożliwiają firmie Microsoft bliskość klientów, zmniejszenie opóźnień w sieci i umożliwienie geograficznie nadmiarowej kopii zapasowej i pracy awaryjnej.
+Rozproszone geograficznie centra danych umożliwiają firmie Microsoft zbliżenie się do klientów, zmniejszenie opóźnienia sieci i umożliwienie tworzenia kopii zapasowych i pracy awaryjnej geograficznie nadmiarowej.
 
 ## <a name="physical-security"></a>Zabezpieczenia fizyczne
-Firma Microsoft projektuje, tworzy i obsługuje centra danych w sposób ściśle kontrolujący fizyczny dostęp do obszarów, w których przechowywane są dane. Firma Microsoft rozumie znaczenie ochrony danych i dokłada wszelkich starań, aby pomóc w zabezpieczeniu centrów danych zawierających dane. W firmie Microsoft mamy cały dział poświęcony projektowaniu, tworzeniu i obsłudze obiektów fizycznych obsługujących platformę Azure. Ten zespół jest inwestowany w utrzymanie najnowocześniejszych zabezpieczeń fizycznych.
+Firma Microsoft opracowuje, kompiluje i zarządza centrami danych w sposób umożliwiający ścisłą kontrolę dostępu fizycznego do obszarów, w których są przechowywane dane. Firma Microsoft rozumie znaczenie ochrony danych i pomaga w zabezpieczeniu centrów danych zawierających dane. Mamy cały dział firmy Microsoft poświęcony na projektowanie, kompilowanie i obsługiwanie fizycznych udogodnień pomocniczych platformy Azure. Ten zespół jest inwestowany z zachowaniem bezpieczeństwa fizycznego.
 
-Firma Microsoft przyjmuje warstwowe podejście do zabezpieczeń fizycznych, aby zmniejszyć ryzyko uzyskania przez nieautoryzowanych użytkowników fizycznego dostępu do danych i zasobów centrum danych. Centra danych zarządzane przez firmę Microsoft mają rozbudowane warstwy ochrony: zatwierdzanie dostępu na obwodzie obiektu, na obwodzie budynku, wewnątrz budynku i na piętrze centrum danych. Warstwy zabezpieczeń fizycznych to:
+Firma Microsoft podejmuje warstwowe podejście do zabezpieczeń fizycznych, aby zmniejszyć ryzyko nieautoryzowanego dostępu użytkowników do danych i zasobów centrum. Centra danych zarządzane przez firmę Microsoft mają rozbudowane warstwy ochrony: zatwierdzanie dostępu na granicach budynku, na obrzeżach konstrukcyjnych, wewnątrz budynku i w podłogi centrum danych. Warstwy zabezpieczeń fizycznych są następujące:
 
-- **Żądanie dostępu i zatwierdzenie.** Należy zażądać dostępu przed przybyciem do centrum danych. Musisz podać ważne uzasadnienie biznesowe wizyty, takie jak zgodność lub inspekcja. Wszystkie żądania są zatwierdzane na zasadzie konieczności dostępu przez pracowników firmy Microsoft. Podstawa dostępu do potrzeb pomaga utrzymać liczbę osób potrzebnych do wykonania zadania w centrach danych do minimum. Po udzielieniu uprawnień przez firmę Microsoft osoba fizyczna ma dostęp tylko do dyskretnego obszaru wymaganego centrum danych, na podstawie zatwierdzonego uzasadnienia biznesowego. Uprawnienia są ograniczone do określonego okresu czasu, a następnie wygasają.
+- **Żądanie dostępu i zatwierdzenie.** Przed przystąpieniem do centrum danych należy uzyskać dostęp. Musisz podać prawidłowe uzasadnienie biznesowe dla odwiedzania, takie jak w celach zgodności lub inspekcji. Wszystkie żądania są zatwierdzane przez pracowników firmy Microsoft jako wymagające dostępu. Konieczność dostępu pozwala zachować liczbę osób potrzebnych do wykonania zadania w centrach danych do minimum. Po udzieleniu uprawnień przez firmę Microsoft osoba indywidualna ma dostęp tylko do osobnego obszaru centrum danych, na podstawie zatwierdzonego uzasadnienia biznesowego. Uprawnienia są ograniczone do określonego czasu, a następnie wygasają.
 
-- **obwodu obiektu.** Po dotarciu do centrum danych musisz przejść przez dobrze zdefiniowany punkt dostępu. Zazwyczaj wysokie ogrodzenia wykonane ze stali i betonu obejmują każdy centymetr obwodu. Wokół centrów danych znajdują się kamery, a zespół bezpieczeństwa cały czas monitoruje ich filmy.
+- **Obwód obiektu.** Po dojściu do centrum danych wymagane jest przechodzenie przez dobrze zdefiniowany punkt dostępu. Zazwyczaj wysokie ogrodzenia ze stali i betonu obejmują każdy centymetr obwodu. Istnieją kamery wokół centrów danych, a zespół ds. zabezpieczeń monitoruje swoje wideo przez cały czas.
 
-- **Wejście do budynku.** Wejście do centrum danych jest obsadzone przez profesjonalnych pracowników ochrony, którzy przeszli rygorystyczne szkolenia i kontrole przeszłości. Ci funkcjonariusze ochrony również rutynowo patrolują centrum danych i monitorują filmy z kamer wewnątrz centrum danych przez cały czas.
+- **Tworzenie wejścia.** Wejście centrum danych jest personelem specjalistów ds. bezpieczeństwa, którzy przeszedł rygorystyczne szkolenia i kontrole w tle. Tacy funkcjonariusze zabezpieczeń również rutynowie deklarują centrum danych i monitorują wideo z kamer w centrum danych.
 
-- **Wewnątrz budynku.** Po wejściu do budynku należy przekazać uwierzytelnianie dwuskładnikowe z danymi biometrycznymi, aby kontynuować przechodzenie przez centrum danych. Jeśli twoja tożsamość zostanie zweryfikowana, można wprowadzić tylko część centrum danych, do której masz zatwierdzony dostęp. Możesz tam przebywać tylko przez czas zatwierdzony.
+- **Wewnątrz budynku.** Po wprowadzeniu budynku należy przekazać uwierzytelnianie dwuskładnikowe przy użyciu biometrii, aby kontynuować przechodzenie przez centrum danych. Jeśli tożsamość została zweryfikowana, możesz wprowadzić tylko część centrum danych, do której użytkownik ma dostęp. Możesz pozostać na bieżąco tylko przez czas zatwierdzenia.
 
-- **Podłoga centrum danych.** Na podłogę, na którą masz zgodę, do wejścia, wpuszczono tylko podłogę. Wymagane jest przejście pełnego badania przesiewowego wykrywania metali. Aby zmniejszyć ryzyko nieautoryzowanego wprowadzania lub opuszczania centrum danych bez naszej wiedzy, tylko zatwierdzone urządzenia mogą dostać się do podłogi centrum danych. Ponadto kamery wideo monitorują przód i tył każdego stojaka serwerowego. Po wyjściu z podłogi centrum danych ponownie należy przejść przez pełne przesiewanie wykrywania metali. Aby opuścić centrum danych, musisz przejść przez dodatkowe skanowanie zabezpieczeń.
+- **Piętro centrum danych.** Użytkownik jest dozwolony tylko na podłogę, która została zatwierdzona do wprowadzenia. Wymagane jest przekazanie pełnego ekranu wykrywania metali ciała. Aby zmniejszyć ryzyko braku nieautoryzowanych danych wprowadzających lub opuszczających centrum dane bez naszej wiedzy, tylko zatwierdzone urządzenia mogą przełączać się do podłogi centrum danych. Ponadto kamery wideo monitorują przód i tył każdego stojaka serwera. Gdy opuszczasz podłogę z centrum danych, ponownie musisz przejść przez pełny ekran wykrywania metali ciała. Aby opuścić centrum danych, musisz przejść przez dodatkowe skanowanie zabezpieczeń.
 
-Firma Microsoft wymaga od odwiedzających, aby po wyjeździe z dowolnego obiektu firmy Microsoft przekazyli odznaki.
+Firma Microsoft wymaga od odwiedzających wydawania znaczków przy wyjściu z dowolnej funkcji firmy Microsoft.
 
 ## <a name="physical-security-reviews"></a>Przeglądy zabezpieczeń fizycznych
-Okresowo przeprowadzamy fizyczne przeglądy zabezpieczeń obiektów, aby upewnić się, że centra danych prawidłowo spełniają wymagania zabezpieczeń platformy Azure. Personel dostawcy hostingu centrum danych nie zapewnia zarządzania usługami platformy Azure. Personel nie może zalogować się do systemów platformy Azure i nie ma fizycznego dostępu do pokoju kolokacji platformy Azure i klatek.
+Okresowo przeprowadzamy przeglądy zabezpieczeń fizycznych obiektów, aby upewnić się, że centra danych prawidłowo zapoznają się z wymaganiami dotyczącymi zabezpieczeń platformy Azure. Personel dostawcy hostingu centrum danych nie udostępnia usługi Azure Service Management. Pracownicy nie mogą zalogować się do systemów Azure i nie mają fizycznego dostępu do pokoju i klatek kolokacji platformy Azure.
 
-## <a name="data-bearing-devices"></a>Urządzenia do opatrzonych danymi
-Firma Microsoft korzysta z najlepszych procedur i rozwiązania do wycierania [zgodnego ze standardem NIST 800-88.](https://csrc.nist.gov/publications/detail/sp/800-88/archive/2006-09-01) W przypadku dysków twardych, których nie można wyczyścić, używamy procesu niszczenia, który je niszczy i uniemożliwia odzyskanie informacji. Ten proces niszczenia może być rozpad, strzęp, sproszkować lub spalać. Określamy środki zbycia w zależności od rodzaju środka trwałego. Przechowujemy zapisy zniszczenia.  
+## <a name="data-bearing-devices"></a>Urządzenia z danymi
+Firma Microsoft stosuje procedury najlepszych rozwiązań i wyczyszczone rozwiązanie [zgodne ze standardem NIST 800-88](https://csrc.nist.gov/publications/detail/sp/800-88/archive/2006-09-01). W przypadku dysków twardych, które nie mogą zostać wyczyszczone, używamy procesu niszczenia, który niszczy go i renderuje odzyskiwanie informacji niemożliwe. Ten proces niszczenia może mieć na celu rozintegrację, Shred, rozpylanie lub spalanie. Określamy sposób usuwania w zależności od typu elementu zawartości. Zachowujemy rekordy zniszczenia.  
 
-## <a name="equipment-disposal"></a>Utylizacja sprzętu
-Po zakończeniu eksploatacji systemu personel operacyjny firmy Microsoft przestrzega rygorystycznych procedur obsługi danych i usuwania sprzętu, aby upewnić się, że sprzęt zawierający dane użytkownika nie jest udostępniany niezaufanym stronom. Używamy bezpiecznego podejścia do usuwania dysków twardych, które go obsługują. W przypadku dysków twardych, których nie można wyczyścić, używamy procesu niszczenia, który niszczy dysk i uniemożliwia odzyskiwanie informacji. Ten proces niszczenia może być rozpad, strzęp, sproszkować lub spalać. Określamy środki zbycia w zależności od rodzaju środka trwałego. Przechowujemy zapisy zniszczenia. Wszystkie usługi platformy Azure korzystają z zatwierdzonych usług przechowywania multimediów i zarządzania usuwaniem.
+## <a name="equipment-disposal"></a>Usuwanie sprzętu
+Po zakończeniu okresu istnienia systemu pracownicy operacyjni firmy Microsoft stosują rygorystyczne procedury obsługi danych i usuwania sprzętu, aby zapewnić, że sprzęt zawierający dane nie zostanie udostępniony niezaufanym stronom. Używamy bezpiecznego podejścia do usuwania dysków twardych, które je obsługują. W przypadku dysków twardych, które nie mogą zostać wyczyszczone, używamy procesu niszczenia, który niszczy dysk i renderuje odzyskiwanie informacji niemożliwe. Ten proces niszczenia może mieć na celu rozintegrację, Shred, rozpylanie lub spalanie. Określamy sposób usuwania w zależności od typu elementu zawartości. Zachowujemy rekordy zniszczenia. Wszystkie usługi platformy Azure korzystają z zatwierdzonych usług zarządzania magazynem i utylizacją multimediów.
 
 ## <a name="compliance"></a>Zgodność
-Projektujemy infrastrukturę platformy Azure i zarządzamy nią, aby spełnić szeroki zestaw międzynarodowych i branżowych standardów zgodności, takich jak ISO 27001, HIPAA, FedRAMP, SOC 1 i SOC 2. Spełniamy również normy specyficzne dla kraju lub regionu, w tym Australia IRAP, UK G-Cloud i Singapur MTCS. Rygorystyczne audyty innych firm, takie jak te przeprowadzane przez British Standards Institute, weryfikują przestrzeganie ścisłych kontroli bezpieczeństwa, które nakazują te normy.
+Firma Microsoft organizuje infrastrukturę platformy Azure i zarządza nią w celu spełnienia szerokiego zestawu międzynarodowych i branżowych standardów zgodności, takich jak ISO 27001, HIPAA, FedRAMP, SOC 1 i SOC 2. Spełniamy również standardy dotyczące kraju lub regionu, w tym Australia IRAP, BRYTYJSKIe G-Cloud i Singapur MTCS. Rygorystyczne audyty innych firm, takie jak te wykonywane przez Instytut Normalizacyjny brytyjskiej, weryfikują przestrzeganie ścisłych kontroli bezpieczeństwa obowiązujących w tych standardach.
 
-Aby uzyskać pełną listę standardów zgodności, których przestrzega platforma Azure, zobacz [oferty zgodności.](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+Aby zapoznać się z pełną listą standardów zgodności, które są zgodne z platformą Azure, zobacz [oferty zgodności](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o tym, co firma Microsoft robi, aby zabezpieczyć infrastrukturę platformy Azure, zobacz:
+Aby dowiedzieć się więcej na temat tego, co firma Microsoft pomaga w zabezpieczeniu infrastruktury platformy Azure, zobacz:
 
 - [Dostępność infrastruktury platformy Azure](infrastructure-availability.md)
-- [Składniki i granice systemu informacyjnego platformy Azure](infrastructure-components.md)
+- [Składniki i granice systemu informacji platformy Azure](infrastructure-components.md)
 - [Architektura sieci platformy Azure](infrastructure-network.md)
 - [Sieć produkcyjna platformy Azure](production-network.md)
-- [Funkcje zabezpieczeń usługi Azure SQL Database](infrastructure-sql.md)
-- [Operacje produkcyjne i zarządzanie platformą Azure](infrastructure-operations.md)
+- [Azure SQL Database funkcje zabezpieczeń](infrastructure-sql.md)
+- [Operacje produkcyjne platformy Azure i zarządzanie nimi](infrastructure-operations.md)
 - [Monitorowanie infrastruktury platformy Azure](infrastructure-monitoring.md)
 - [Integralność infrastruktury platformy Azure](infrastructure-integrity.md)
-- [Ochrona danych klientów platformy Azure](protection-customer-data.md)
+- [Ochrona danych klienta platformy Azure](protection-customer-data.md)
 
 

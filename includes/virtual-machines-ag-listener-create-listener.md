@@ -5,47 +5,47 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 394b242ab46da7821f77e8d008836753f4e358e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183180"
 ---
-W tym kroku ręcznie utworzysz odbiornik grupy dostępności w Menedżerze klastrów trybu failover i programie SQL Server Management Studio.
+W tym kroku ręcznie utworzysz odbiornik grupy dostępności w Menedżer klastra trybu failover i SQL Server Management Studio.
 
-1. Otwórz Menedżera klastrów trybu failover z węzła obsługującego replikę podstawową.
+1. Otwórz Menedżer klastra trybu failover z węzła, który hostuje replikę podstawową.
 
-2. Wybierz węzeł **Sieci,** a następnie zanotuj nazwę sieci klastra. Ta nazwa jest używana w zmiennej $ClusterNetworkName w skrypcie programu PowerShell.
+2. Wybierz węzeł **sieci** , a następnie zanotuj nazwę sieci klastra. Ta nazwa jest używana w zmiennej $ClusterNetworkName w skrypcie programu PowerShell.
 
-3. Rozwiń nazwę klastra, a następnie kliknij pozycję **Role**.
+3. Rozwiń węzeł Nazwa klastra, a następnie kliknij pozycję **role**.
 
-4. W okienku **Role** kliknij prawym przyciskiem myszy nazwę grupy dostępności, a następnie wybierz polecenie Dodaj**punkt dostępu klienta** **zasobów** > .
+4. W okienku **role** kliknij prawym przyciskiem myszy nazwę grupy dostępności, a następnie wybierz pozycję **Dodaj zasób** > **Klient punkt dostępu**.
    
     ![Dodawanie punktu dostępu klienta dla grupy dostępności](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
 
-5. W polu **Nazwa** utwórz nazwę tego nowego odbiornika, kliknij przycisk **Dalej** dwa razy, a następnie kliknij przycisk **Zakończ**.  
-    W tym momencie nie należy przewprowadzić odbiornika ani zasobu do trybu online.
+5. W polu **Nazwa** Utwórz nazwę dla nowego odbiornika, kliknij przycisk **dalej** dwa razy, a następnie kliknij przycisk **Zakończ**.  
+    W tym momencie nie należy przenosić odbiornika ani zasobu do trybu online.
 
-6. Kliknij kartę **Zasoby,** a następnie rozwiń utworzony właśnie punkt dostępu klienta. 
-    Zostanie wyświetlony zasób adresu IP dla każdej sieci klastra w klastrze. Jeśli jest to rozwiązanie tylko do platformy Azure, wyświetlany jest tylko jeden zasób adresu IP.
+6. Kliknij kartę **zasoby** , a następnie rozwiń właśnie utworzony punkt dostępu klienta. 
+    Zostanie wyświetlony zasób adres IP dla każdej sieci klastra w klastrze. Jeśli jest to rozwiązanie wyłącznie platformy Azure, zostanie wyświetlony tylko jeden zasób adresu IP.
 
 7. Wykonaj jedną z następujących czynności:
    
    * Aby skonfigurować rozwiązanie hybrydowe:
      
-        a. Kliknij prawym przyciskiem myszy zasób adresu IP odpowiadający podsieci lokalnej, a następnie wybierz polecenie **Właściwości**. Zanotuj nazwę adresu IP i nazwę sieci.
+        a. Kliknij prawym przyciskiem myszy zasób adresu IP, który odpowiada lokalnej podsieci, a następnie wybierz polecenie **Właściwości**. Zanotuj nazwę adresu IP i nazwę sieci.
    
-        b. Wybierz **statyczny adres IP**, przypisz nieużyny adres IP, a następnie kliknij przycisk **OK**.
+        b. Wybierz pozycję **statyczny adres IP**, przypisz nieużywany adres IP, a następnie kliknij przycisk **OK**.
  
-   * Aby skonfigurować rozwiązanie tylko dla platformy Azure:
+   * Aby skonfigurować rozwiązanie tylko do platformy Azure:
 
         a. Kliknij prawym przyciskiem myszy zasób adresu IP odpowiadający podsieci platformy Azure, a następnie wybierz polecenie **Właściwości**.
        
        > [!NOTE]
-       > Jeśli później detektor nie przejdzie do trybu online z powodu sprzecznego adresu IP wybranego przez protokół DHCP, można skonfigurować prawidłowy statyczny adres IP w tym oknie właściwości.
+       > Jeśli odbiornik później nie przejdzie do trybu online z powodu konfliktu adresów IP wybranego przez usługę DHCP, można skonfigurować prawidłowy statyczny adres IP w tym oknie właściwości.
        > 
        > 
 
-       b. W tym samym oknie właściwości **adresu IP** zmień nazwę **adresu IP**.  
-        Ta nazwa jest używana w zmiennej $IPResourceName skryptu programu PowerShell. Jeśli rozwiązanie obejmuje wiele sieci wirtualnych platformy Azure, powtórz ten krok dla każdego zasobu IP.
+       b. W tym samym oknie właściwości **adresu IP** Zmień **nazwę adresu IP**.  
+        Ta nazwa jest używana w zmiennej $IPResourceName skryptu programu PowerShell. Jeśli rozwiązanie obejmuje wiele sieci wirtualnych platformy Azure, Powtórz ten krok dla każdego zasobu IP.
 

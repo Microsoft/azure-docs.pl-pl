@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie sieci wirtualnej w laboratoriach devtest platformy Azure | Dokumenty firmy Microsoft
-description: Dowiedz się, jak skonfigurować istniejącą sieć wirtualną i podsieć i używać ich na maszynie Wirtualnej w laboratoriach devtest azure
+title: Konfigurowanie sieci wirtualnej w Azure DevTest Labs | Microsoft Docs
+description: Dowiedz się, jak skonfigurować istniejącą sieć wirtualną i podsieć, a następnie używać ich w maszynie wirtualnej z Azure DevTest Labs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,59 +15,59 @@ ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 6cf3d2f82c98a3caab47ff48a600316747932b72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70390032"
 ---
-# <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Konfigurowanie sieci wirtualnej w laboratorium devtest platformy Azure
-Jak wyjaśniono w artykule [Dodaj maszynę wirtualną do laboratorium](devtest-lab-add-vm.md), podczas tworzenia maszyny Wirtualnej w laboratorium, można określić skonfigurowaną sieć wirtualną. Na przykład może być konieczne uzyskiwać dostęp do zasobów firmy corpnet z maszyn wirtualnych przy użyciu sieci wirtualnej, która została skonfigurowana za pomocą usługi ExpressRoute lub sieci VPN lokacja-lokacja.
+# <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Konfigurowanie sieci wirtualnej w Azure DevTest Labs
+Jak wyjaśniono w artykule [Dodawanie maszyny wirtualnej do laboratorium](devtest-lab-add-vm.md), podczas tworzenia maszyny wirtualnej w laboratorium można określić skonfigurowaną sieć wirtualną. Na przykład może być konieczne uzyskanie dostępu do zasobów Corpnet z maszyn wirtualnych przy użyciu sieci wirtualnej, która została skonfigurowana za pomocą usługi ExpressRoute lub sieci VPN typu lokacja-lokacja.
 
-W tym artykule wyjaśniono, jak dodać istniejącą sieć wirtualną do ustawień sieci wirtualnej laboratorium, aby była dostępna do wyboru podczas tworzenia maszyn wirtualnych.
+W tym artykule wyjaśniono, jak dodać istniejącą sieć wirtualną do ustawień Virtual Network laboratorium, aby umożliwić wybór podczas tworzenia maszyn wirtualnych.
 
 > [!NOTE]
-> Aby dowiedzieć się więcej o kosztach związanych z usługą Azure Virtual Network, zobacz [Cennik dla sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md#pricing).
+> Aby dowiedzieć się więcej o kosztach związanych z usługą Virtual Network platformy Azure, zobacz [Cennik usługi azure Virtual Network](../virtual-network/virtual-networks-overview.md#pricing).
 
-## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Konfigurowanie sieci wirtualnej dla laboratorium przy użyciu portalu Azure
-Poniższe kroki przebiegają przez dodawanie istniejącej sieci wirtualnej (i podsieci) do laboratorium, dzięki czemu może być używana podczas tworzenia maszyny Wirtualnej w tym samym laboratorium. 
+## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Skonfiguruj sieć wirtualną dla laboratorium przy użyciu Azure Portal
+Poniższe kroki przeprowadzą Cię przez proces dodawania istniejącej sieci wirtualnej (i podsieci) do laboratorium, aby można było go użyć podczas tworzenia maszyny wirtualnej w tym samym laboratorium. 
 
-1. Zaloguj się do [Portalu Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Wybierz **pozycję Wszystkie usługi**, a następnie wybierz z listy pozycję **DevTest Labs.**
-1. Z listy laboratoriów wybierz żądane laboratorium. 
-1. W głównym okienku laboratorium wybierz pozycję **Konfiguracja i zasady**.
+1. Zaloguj się w witrynie [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Wybierz pozycję **wszystkie usługi**, a następnie z listy wybierz pozycję **DevTest Labs** .
+1. Z listy laboratoriów wybierz odpowiednie laboratorium. 
+1. W okienku głównym laboratorium wybierz pozycję **Konfiguracja i zasady**.
 
-    ![Dostęp do konfiguracji i zasad laboratorium](./media/devtest-lab-configure-vnet/policies-menu.png)
-1. W sekcji **ZASOBY ZEWNĘTRZNE** wybierz pozycję **Sieci wirtualne**. Zostanie wyświetlona lista sieci wirtualnych skonfigurowanych dla bieżącego laboratorium, a także domyślna sieć wirtualna utworzona dla laboratorium. 
+    ![Uzyskiwanie dostępu do konfiguracji i zasad laboratorium](./media/devtest-lab-configure-vnet/policies-menu.png)
+1. W sekcji **Zasoby zewnętrzne** wybierz pozycję **sieci wirtualne**. Zostanie wyświetlona lista sieci wirtualnych skonfigurowanych dla bieżącego laboratorium, a także domyślna Sieć wirtualna utworzona dla laboratorium. 
 1. Wybierz pozycję **+ Dodaj**.
    
     ![Dodawanie istniejącej sieci wirtualnej do laboratorium](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
 1. W okienku **Sieć wirtualna** wybierz pozycję **[Wybierz sieć wirtualną]**.
    
-    ![Wybieranie istniejącej sieci wirtualnej](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
-1. W okienku **Wybierz sieć wirtualną** wybierz żądaną sieć wirtualną. Zostanie wyświetlona lista przedstawiająca wszystkie sieci wirtualne, które znajdują się w tym samym regionie w subskrypcji co laboratorium.
-1. Po wybraniu sieci wirtualnej zostaniesz przywrócony do okienka **Sieć wirtualna.** Wybierz podsieć na liście u dołu.
+    ![Wybierz istniejącą sieć wirtualną](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
+1. W okienku **Wybierz sieć wirtualną** wybierz żądaną sieć wirtualną. Zostanie wyświetlona lista przedstawiająca wszystkie sieci wirtualne, które znajdują się w tym samym regionie w ramach subskrypcji jako laboratorium.
+1. Po wybraniu sieci wirtualnej nastąpi powrót do okienka **Sieć wirtualna** . Wybierz podsieć na liście u dołu.
 
     ![Lista podsieci](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
     
-    Zostanie wyświetlone okienko Podsieć laboratorium.
+    Zostanie wyświetlone okienko podsieć laboratorium.
 
-    ![Okienko podsieci Laboratorium](./media/devtest-lab-configure-vnet/lab-subnet.png)
+    ![Okienko podsieci laboratorium](./media/devtest-lab-configure-vnet/lab-subnet.png)
      
-   - Określ **nazwę podsieci Laboratorium**.
-   - Aby zezwolić na użycie podsieci podczas tworzenia maszyn wirtualnych w laboratorium, wybierz opcję **Użyj w tworzeniu maszyny wirtualnej**.
-   - Aby włączyć [udostępniony publiczny adres IP,](devtest-lab-shared-ip.md)wybierz pozycję Włącz udostępniony publiczny adres **IP**.
-   - Aby zezwolić na publiczne adresy IP w podsieci, wybierz pozycję **Zezwalaj na publiczne tworzenie adresów IP**.
-   - W polu **Maksymalna liczba maszyn wirtualnych na użytkownika** określ maksymalną liczbę maszyn wirtualnych na użytkownika dla każdej podsieci. Jeśli chcesz mieć nieograniczoną liczbę maszyn wirtualnych, pozostaw to pole puste.
-1. Wybierz **przycisk OK,** aby zamknąć okienko Podsieć laboratorium.
-1. Wybierz **pozycję Zapisz,** aby zamknąć okienko sieci wirtualnej.
+   - Określ **nazwę podsieci laboratorium**.
+   - Aby zezwolić na używanie podsieci podczas tworzenia maszyny wirtualnej laboratorium, wybierz opcję **Użyj podczas tworzenia maszyny wirtualnej**.
+   - Aby włączyć [współużytkowany publiczny adres IP](devtest-lab-shared-ip.md), wybierz opcję **Włącz udostępniony publiczny IP**.
+   - Aby zezwolić na publiczne adresy IP w podsieci, wybierz opcję **Zezwalaj na tworzenie publicznego adresu IP**.
+   - W polu **Maksymalna liczba maszyn wirtualnych na użytkownika** Określ maksymalną liczbę maszyn wirtualnych na użytkownika dla każdej podsieci. Jeśli chcesz mieć nieograniczoną liczbę maszyn wirtualnych, pozostaw to pole puste.
+1. Wybierz **przycisk OK** , aby zamknąć okienko podsieć laboratorium.
+1. Wybierz pozycję **Zapisz** , aby zamknąć okienko Sieć wirtualna.
 
-Teraz, gdy sieć wirtualna jest skonfigurowana, można ją wybrać podczas tworzenia maszyny Wirtualnej. Aby zobaczyć, jak utworzyć maszynę wirtualną i określić sieć wirtualną, zapoznaj się z [artykułem Dodaj maszynę wirtualną do laboratorium](devtest-lab-add-vm.md). 
+Teraz, gdy sieć wirtualna jest skonfigurowana, można ją wybrać podczas tworzenia maszyny wirtualnej. Aby dowiedzieć się, jak utworzyć MASZYNę wirtualną i określić sieć wirtualną, zapoznaj się z artykułem [Dodaj maszynę wirtualną do laboratorium](devtest-lab-add-vm.md). 
 
-[Dokumentacja sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network) platformy Azure zawiera więcej informacji na temat korzystania z sieci wirtualnych, w tym sposobu konfigurowania sieci wirtualnej i zarządzania nią oraz łączenia jej z siecią lokalną.
+[Dokumentacja Virtual Network](https://docs.microsoft.com/azure/virtual-network) platformy Azure zawiera więcej informacji o sposobach korzystania z programu sieci wirtualnych, w tym o sposobie konfigurowania sieci wirtualnej i zarządzania nią oraz łączenia jej z siecią lokalną.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Po dodaniu żądanej sieci wirtualnej do laboratorium następnym krokiem jest [dodanie maszyny wirtualnej do laboratorium.](devtest-lab-add-vm.md)
+Po dodaniu odpowiedniej sieci wirtualnej do laboratorium, następnym krokiem jest [dodanie maszyny wirtualnej do laboratorium](devtest-lab-add-vm.md).
 

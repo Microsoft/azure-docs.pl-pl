@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 87fd6b626efb60c7fc7ec8896f2c3758ae5cc33c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67183038"
 ---
 ### <a name="app-service-plan"></a>Plan usługi App Service
-Tworzy plan usługi do obsługi aplikacji sieci web. Podać nazwę planu za pośrednictwem **hostingPlanName** parametru. Lokalizacja planu jest tą samą lokalizacją, która jest używana dla grupy zasobów. Warstwa cenowa i rozmiar pracownika są określone w parametrach **sku** i **workerSize**
+Tworzy plan usługi do hostowania aplikacji sieci Web. Należy podać nazwę planu za pomocą parametru **hostingPlanName** . Lokalizacja planu jest taka sama jak lokalizacja używana dla grupy zasobów. Warstwa cenowa i rozmiar procesu roboczego są określone w parametrach **SKU** i **workerSize**
 
     {
       "apiVersion": "2015-08-01",

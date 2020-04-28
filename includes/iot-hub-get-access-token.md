@@ -5,16 +5,16 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 7f7dc1483002c2bdfe3227a8aade8dbf2a8da417
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70803010"
 ---
-## <a name="obtain-an-azure-resource-manager-token"></a>Uzyskiwanie tokenu usługi Azure Resource Manager
-Usługa Azure Active Directory musi uwierzytelniać wszystkie zadania wykonywane na zasobach przy użyciu usługi Azure Resource Manager. W przykładzie pokazanym w tym miejscu użyto uwierzytelniania hasłem, w przypadku innych podejść zobacz [Uwierzytelnianie żądań usługi Azure Resource Manager][lnk-authenticate-arm].
+## <a name="obtain-an-azure-resource-manager-token"></a>Uzyskaj token Azure Resource Manager
+Azure Active Directory musi uwierzytelnić wszystkie zadania wykonywane na zasobach przy użyciu Azure Resource Manager. W poniższym przykładzie jest stosowane uwierzytelnianie hasła dla innych metod zobacz [uwierzytelnianie Azure Resource Manager żądania][lnk-authenticate-arm].
 
-1. Dodaj następujący kod do **Main** metody w Program.cs pobrać token z usługi Azure AD przy użyciu identyfikatora aplikacji i hasła.
+1. Dodaj następujący kod do metody **Main** w programie program.cs, aby pobrać token z usługi Azure AD przy użyciu identyfikatora aplikacji i hasła.
    
     ```csharp
     var authContext = new AuthenticationContext(string.Format  
@@ -29,14 +29,14 @@ Usługa Azure Active Directory musi uwierzytelniać wszystkie zadania wykonywane
       return;
     }
     ```
-2. Utwórz **Obiekt ResourceManagementClient,** który używa tokenu, dodając następujący kod na końcu **Metody głównej:**
+2. Utwórz obiekt **ResourceManagementClient** , który używa tokenu, dodając następujący kod na końcu metody **Main** :
    
     ```csharp
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
-3. Utwórz lub uzyskaj odwołanie do używanej grupy zasobów:
+3. Utwórz lub uzyskaj odwołanie do grupy zasobów, której używasz:
    
     ```csharp
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,

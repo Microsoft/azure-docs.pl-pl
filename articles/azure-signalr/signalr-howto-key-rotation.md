@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 133edc64ac2f858a397a4a184c24497dae8af333
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67565723"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Jak obrócić klucz dostępu do usługi Azure SignalR Service
@@ -23,7 +23,7 @@ Ze względu na wymogi bezpieczeństwa i zgodności należy regularnie wymieniać
 
 ## <a name="regenerate-access-keys"></a>Generowanie ponowne kluczy dostępu
 
-1. Przejdź do [witryny Azure portal](https://portal.azure.com/)i zaloguj się przy użyciu poświadczeń.
+1. Przejdź do [Azure Portal](https://portal.azure.com/)i zaloguj się przy użyciu swoich poświadczeń.
 
 1. Znajdź sekcję **Klucze** wystąpienia usługi Azure SignalR Service dotyczącą kluczy, które chcesz wygenerować ponownie.
 
@@ -59,4 +59,4 @@ W tym przewodniku opisano sposób generowania ponownego kluczy dostępu. Przejd�
 > [Integracja z tożsamością platformy ASP.NET Core](./signalr-concept-authenticate-oauth.md)
 
 > [!div class="nextstepaction"]
-> [Tworzenie aplikacji w czasie rzeczywistym bezserwerowej za pomocą uwierzytelniania](./signalr-tutorial-authenticate-azure-functions.md)
+> [Tworzenie aplikacji bezserwerowej w czasie rzeczywistym z uwierzytelnianiem](./signalr-tutorial-authenticate-azure-functions.md)

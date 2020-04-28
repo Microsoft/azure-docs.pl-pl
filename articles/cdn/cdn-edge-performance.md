@@ -1,6 +1,6 @@
 ---
-title: Analizowanie wydajności węzła brzegowego w usłudze Azure CDN | Dokumenty firmy Microsoft
-description: Analizowanie wydajności węzła brzegowego w sieci CDN platformy Microsoft Azure. Edge Performance Analytics zapewnia szczegółowy ruch informacyjny i wykorzystanie przepustowości dla sieci CDN.
+title: Analizowanie wydajności węzła brzegowego w Azure CDN | Microsoft Docs
+description: Analizowanie wydajności węzłów brzegowych w Microsoft Azure sieci CDN. Usługa Edge wydajność Analytics zapewnia szczegółowe informacje o ruchu i przepustowości dla sieci CDN.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: b8a65d4ae6aaac78e642c851a66b745a940fa0ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67593897"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analizowanie wydajności węzła brzegowego w usłudze Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Omówienie
-Analiza wydajności krawędzi zapewnia szczegółowy ruch informacyjny i wykorzystanie przepustowości dla sieci CDN. Informacje te mogą być następnie używane do generowania trendów statystycznych, które pozwalają uzyskać wgląd w sposób buforowania zasobów i dostarczane do klientów. To z kolei pozwala na stworzenie strategii optymalizacji dostarczania treści i określenie, jakie problemy należy rozwiązać, aby lepiej wykorzystać sieć CDN. W rezultacie nie tylko będziesz w stanie poprawić wydajność dostarczania danych, ale także będziesz w stanie obniżyć koszty cdn.
+Usługa Edge wydajność Analytics zapewnia szczegółowe informacje o ruchu i przepustowości dla sieci CDN. Te informacje mogą być następnie używane do generowania statystyk trendów, które umożliwiają uzyskanie wglądu w sposób buforowania i dostarczania zasobów do klientów. Dzięki temu można utworzyć strategię optymalizacji dostarczania zawartości i określić, jakie problemy należy zastosować, aby lepiej wykorzystać sieć CDN. W efekcie nie tylko będzie można poprawić wydajność dostarczania danych, ale będzie można również zmniejszyć koszty usługi CDN.
 
 > [!NOTE]
 > Wszystkie raporty używają notacji UTC/GMT podczas określania daty/godziny.
@@ -33,94 +33,94 @@ Analiza wydajności krawędzi zapewnia szczegółowy ruch informacyjny i wykorzy
 > 
 
 ## <a name="reports-and-log-collection"></a>Raporty i zbieranie dzienników
-Dane aktywności usługi CDN muszą być zbierane przez moduł Analizy wydajności krawędzi, zanim będzie mógł generować raporty na jej temat. Ten proces zbierania danych występuje raz dziennie i obejmuje działanie, które miało miejsce w ciągu poprzedniego dnia. Oznacza to, że statystyki raportu reprezentują próbkę statystyk dnia w czasie, gdy był przetwarzany i niekoniecznie zawierają pełny zestaw danych dla bieżącego dnia. Podstawową funkcją tych sprawozdań jest ocena wydajności. Nie powinny one być używane do celów rozliczeniowych ani do dokładnych statystyk liczbowych.
+Aby można było generować raporty na ten temat, dane działania sieci CDN muszą być zbierane przez moduł analiz wydajności programu Edge. Ten proces zbierania odbywa się raz dziennie i obejmuje aktywność, która miała miejsce w ciągu poprzedniego dnia. Oznacza to, że statystyki raportu przedstawiają przykład statystyk dnia w momencie przetworzenia i niekoniecznie zawierają pełny zestaw danych dla bieżącego dnia. Podstawową funkcją tych raportów jest Ocena wydajności. Nie powinny być używane na potrzeby rozliczeń ani dokładnej statystyki liczbowej.
 
 > [!NOTE]
-> Nieprzetworzone dane, z których są generowane raporty analityczne wydajności krawędzi, są dostępne przez co najmniej 90 dni.
+> Dane pierwotne, z których są generowane raporty analityczne wydajności Edge, są dostępne przez co najmniej 90 dni.
 > 
 > 
 
 ## <a name="dashboard"></a>Pulpit nawigacyjny
-Pulpit nawigacyjny Edge Performance Analytics śledzi bieżący i historyczny ruch cdn za pomocą wykresu i statystyk. Ten pulpit nawigacyjny służy do wykrywania najnowszych i długoterminowych trendów dotyczących wydajności ruchu sieci CDN na koncie.
+Pulpit nawigacyjny analizy wydajności brzegowej śledzi bieżący i historyczny ruch w sieci CDN za pomocą wykresu i statystyk. Ten pulpit nawigacyjny służy do wykrywania ostatnich i długoterminowych trendów związanych z wydajnością ruchu w sieci CDN dla konta.
 
 Ten pulpit nawigacyjny składa się z:
 
-* Interaktywny wykres, który umożliwia wizualizację kluczowych metryk i trendów.
-* Oś czasu, która zapewnia poczucie długoterminowych wzorców dla kluczowych metryk i trendów.
-* Kluczowe dane i informacje statystyczne na temat tego, jak nasza sieć CDN poprawia ruch w witrynie, mierzoną ogólną wydajnością, użyciem i wydajnością.
+* Interaktywny wykres, który umożliwia wizualizację najważniejszych metryk i trendów.
+* Oś czasu, która stanowi sens długoterminowych wzorców dla najważniejszych metryk i trendów.
+* Kluczowe metryki i informacje statystyczne na temat tego, jak nasza sieć CDN zwiększa ruch w lokacji mierzony przez ogólną wydajność, użycie i wydajność.
 
-### <a name="accessing-the-edge-performance-dashboard"></a>Uzyskiwanie dostępu do pulpitu nawigacyjnego wydajności krawędzi
-1. W bloku profilu sieci CDN kliknij przycisk **Zarządzaj.**
+### <a name="accessing-the-edge-performance-dashboard"></a>Uzyskiwanie dostępu do pulpitu nawigacyjnego wydajności Edge
+1. W bloku profil usługi CDN kliknij przycisk **Zarządzaj** .
    
-    ![Przycisk zarządzania łatami profilu CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
+    ![Przycisk zarządzania bloku profilu usługi CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
-    Zostanie otwarty portal zarządzania siecią CDN.
-2. Umieść wskaźnik myszy na karcie **Analytics,** a następnie umieść wskaźnik myszy na **wysu wysu wysu wysu wysuwu Edge Performance Analytics.**  Kliknij **pulpit nawigacyjny**.
+    Zostanie otwarty portal zarządzania sieci CDN.
+2. Zatrzymaj wskaźnik myszy na karcie **Analiza** , a następnie umieść kursor nad menu wysuwanym **Analiza wydajności Edge** .  Kliknij pozycję **pulpit nawigacyjny**.
    
-    Zostanie wyświetlony pulpit nawigacyjny analizy węzła krawędzi.
+    Zostanie wyświetlony pulpit nawigacyjny analizy węzłów brzegowych.
 
 ### <a name="chart"></a>Wykres
-Pulpit nawigacyjny zawiera wykres, który śledzi metrykę w okresie wybranym na osi czasu, która pojawia się bezpośrednio pod nim.  Oś czasu, która wykresy do ostatnich dwóch lat aktywności sieci CDN jest wyświetlany bezpośrednio pod wykresem.
+Pulpit nawigacyjny zawiera wykres, który śledzi metrykę w określonym czasie wybranym na osi czasu wyświetlanej bezpośrednio poniżej.  Oś czasu, w której wykresy do ostatnich dwóch lat działania sieci CDN są wyświetlane bezpośrednio pod wykresem.
 
-#### <a name="using-the-chart"></a>Korzystanie z wykresu
-* Domyślnie wskaźnik wydajności pamięci podręcznej w ciągu ostatnich 30 dni zostanie na wykresie.
-* Ten wykres jest generowany na podstawie danych zestawianych codziennie.
-* Najechanie kursorem na dzień na wykresie liniowym wskazuje datę i wartość danych w tym dniu.
-* Kliknij przycisk Wyróżnij weekendy, aby przełączyć na wykres nakładkę jasnoszarych pionowych słupków przedstawiających weekendy. Ten typ nakładki jest przydatny do identyfikowania wzorców ruchu w weekendy.
-* Kliknij pozycję Wyświetl rok temu, aby przełączyć nakładkę aktywności z poprzedniego roku w tym samym okresie na wykres. Ten typ porównania zapewnia wgląd w długoterminowe wzorce użycia sieci CDN. W prawym górnym rogu wykresu znajduje się legenda wskazująca kod koloru dla każdego wykresu liniowego.
+#### <a name="using-the-chart"></a>Używanie wykresu
+* Domyślnie zostanie wyszukana stawka wydajności pamięci podręcznej z ostatnich 30 dni.
+* Ten wykres jest generowany na podstawie danych sortowanych codziennie.
+* Umieszczenie wskaźnika myszy na wykresie liniowym oznacza datę i wartość metryki dla tej daty.
+* Kliknij pozycję Wyróżnij weekendy, aby włączyć nakładanie się szarych pionowych słupków, które reprezentują weekendy na wykresie. Ten typ nakładki jest przydatny do identyfikowania wzorców ruchu w weekendy.
+* Kliknij pozycję Wyświetl rok temu, aby przełączyć nakładkę działania poprzedniego roku na wykres. Ten typ porównania zapewnia wgląd w długoterminowe wzorce użycia usługi CDN. Prawy górny róg wykresu zawiera legendę wskazującą kod koloru dla każdego wykresu liniowego.
 
 #### <a name="updating-the-chart"></a>Aktualizowanie wykresu
-* Zakres czasu: Wykonaj jedną z następujących czynności:
-  * Wybierz żądany region na osi czasu. Wykres zostanie zaktualizowany o dane odpowiadające wybranemu okresowi.
-  * Kliknij dwukrotnie wykres, aby wyświetlić wszystkie dostępne dane historyczne maksymalnie do dwóch lat.
-* Metryka: kliknij ikonę wykresu wyświetlaną obok żądanej metryki. Wykres i oś czasu zostaną odświeżone z danymi dla odpowiedniej metryki.
+* Zakres czasu: wykonaj jedną z następujących czynności:
+  * Wybierz żądany region na osi czasu. Wykres zostanie zaktualizowany o dane odnoszące się do wybranego przedziału czasu.
+  * Kliknij dwukrotnie wykres, aby wyświetlić wszystkie dostępne dane historyczne maksymalnie przez dwa lata.
+* Metryka: kliknij ikonę wykresu widoczną obok żądanej metryki. Wykres i oś czasu zostaną odświeżone przy użyciu danych dla odpowiedniej metryki.
 
-### <a name="key-metrics-and-statistics"></a>Kluczowe dane i statystyki
-#### <a name="efficiency-metrics"></a>Wskaźniki wydajności
-Celem tych metryk jest sprawdzenie, czy można poprawić wydajność pamięci podręcznej. Główne korzyści wynikające z wydajności pamięci podręcznej to:
+### <a name="key-metrics-and-statistics"></a>Kluczowe metryki i statystyki
+#### <a name="efficiency-metrics"></a>Metryki wydajności
+Te metryki mają na celu sprawdzenie, czy można zwiększyć wydajność pamięci podręcznej. Najważniejsze korzyści wynikające z wydajności pamięci podręcznej to:
 
-* Mniejsze obciążenie serwera pochodzenia, co może prowadzić do:
-  * Lepsza wydajność serwera www.
-  * Niższe koszty operacyjne.
-* Ulepszone przyspieszenie dostarczania danych, ponieważ więcej żądań będą obsługiwane bezpośrednio z sieci CDN.
+* Zmniejszone obciążenie na serwerze źródłowym, co może prowadzić do:
+  * Lepsza wydajność serwera sieci Web.
+  * Zmniejszone koszty operacyjne.
+* Ulepszone przyspieszenie dostarczania danych, ponieważ kolejne żądania będą obsługiwane bezpośrednio z sieci CDN.
 
 | Pole | Opis |
 | --- | --- |
-| Wydajność pamięci podręcznej |Wskazuje procent przesyłanych danych, które zostały wyświetlone z pamięci podręcznej. Ta metryka mierzy, kiedy buforowana wersja żądanej zawartości była obsługiwana bezpośrednio z sieci CDN (serwerów brzegowych) do żądań (np. przeglądarka internetowa) |
-| Współczynnik trafień |Wskazuje procent żądań, które zostały doręczone z pamięci podręcznej. Ta metryka mierzy, gdy buforowana wersja żądanej zawartości była obsługiwana bezpośrednio z sieci CDN (serwerów brzegowych) do żądań (np. przeglądarki sieci Web). |
-| % bajtów zdalnych — brak konfiguracji pamięci podręcznej |Wskazuje procent ruchu, który był obsługiwany z serwerów pochodzenia do sieci CDN (serwerów brzegowych), która nie będzie buforowana w wyniku funkcji Bypass Cache (Aparat reguł HTTP). |
-| % bajtów zdalnych — wygasła pamięć podręczna |Wskazuje procent ruchu, który był obsługiwany z serwerów pochodzenia do sieci CDN (serwerów brzegowych) w wyniku ponownego oceny nieaktualną zawartości. |
+| Wydajność pamięci podręcznej |Wskazuje procent transferu danych, który został obsłużony z pamięci podręcznej. Ta Metryka mierzy, kiedy buforowana wersja żądanej zawartości została obsłużona bezpośrednio z sieci CDN (serwerów brzegowych) do zleceniodawców (np. przeglądarka sieci Web). |
+| Współczynnik trafień |Wskazuje procent żądań, które zostały obsłużone z pamięci podręcznej. Ta Metryka mierzy, kiedy buforowana wersja żądanej zawartości została obsłużona bezpośrednio z sieci CDN (serwerów brzegowych) do zleceniodawców (np. przeglądarka sieci Web). |
+| % Bajtów zdalnych — brak konfiguracji pamięci podręcznej |Wskazuje procent ruchu, który został obsłużony z serwerów pochodzenia do sieci CDN (serwerów brzegowych), które nie będą buforowane w wyniku funkcji pomijania pamięci podręcznej (aparat reguł HTTP). |
+| % liczby bajtów zdalnych — wygasła pamięć podręczna |Wskazuje procent ruchu, który został obsłużony z serwerów pochodzenia do sieci CDN (serwery brzegowe) w wyniku nieodświeżonej ponownej weryfikacji zawartości. |
 
 #### <a name="usage-metrics"></a>Metryki użycia
-Celem tych wskaźników jest zapewnienie wglądu w następujące środki cięcia kosztów:
+Celem tych metryk jest zapewnienie wglądu w następujące miary dotyczące kosztów wycinania:
 
-* Minimalizacja kosztów operacyjnych za pośrednictwem sieci CDN.
-* Zmniejszenie wydatków sieci CDN dzięki wydajności pamięci podręcznej i kompresji.
+* Minimalizacja kosztów operacyjnych przez sieć CDN.
+* Zmniejszenie wydatków usługi CDN dzięki wydajności pamięci podręcznej i kompresji.
 
 > [!NOTE]
-> Numery woluminów ruchu reprezentują ruch, który był używany w obliczeniach współczynników i wartości procentowych i mogą pokazywać tylko część całkowitego ruchu dla klientów o dużej liczbie.
+> Numery woluminów ruchu reprezentują ruch, który był używany w obliczeniach współczynników i wartości procentowych, i może zawierać tylko część całkowitego ruchu dla klientów o dużej pojemności.
 > 
 > 
 
 | Pole | Opis |
 | --- | --- |
-| Ave Bajty na zewnątrz |Wskazuje średnią liczbę bajtów przesłanych dla każdego żądania obsługiwanego przez sieć CDN (serwery brzegowe) do osoby żądającej (np. przeglądarka internetowa). |
-| Brak szybkości bajtów konfiguracji pamięci podręcznej |Wskazuje procent ruchu obsługiwanego z sieci CDN (serwerów brzegowych) do żądacza (np. przeglądarki sieci web), który nie zostanie buforowany z powodu funkcji Bypass Cache. |
-| Szybkość skompresowanego bajtu |Wskazuje procent ruchu wysyłanego z sieci CDN (serwerów brzegowych) do osób żądającej (np. przeglądarki internetowej) w skompresowanym formacie. |
-| Bajty na zewnątrz |Wskazuje ilość danych w bajtach, które zostały dostarczone z sieci CDN (serwerów brzegowych) do osoby żądającej (np. przeglądarki sieci Web). |
-| Bajty w |Wskazuje ilość danych w bajtach wysyłanych przez osoby żądającej (np. przeglądarkę internetową) do sieci CDN (serwerów brzegowych). |
-| Pilot bajtów |Wskazuje ilość danych w bajtach wysyłanych z sieci CDN i serwerów pochodzenia klienta do sieci CDN (serwerów brzegowych). |
+| Wypełnianie bajtów |Wskazuje średnią liczbę bajtów przesłanych dla każdego żądania obsługiwanego z sieci CDN (serwerów brzegowych) do osoby żądającej (np. przeglądarki sieci Web). |
+| Brak szybkości bajtów konfiguracji pamięci podręcznej |Wskazuje procent ruchu obsługiwanego z sieci CDN (serwery brzegowe) do osoby żądającej (np. przeglądarki sieci Web), która nie będzie buforowana z powodu funkcji pomijania pamięci podręcznej. |
+| Szybkość kompresji bajtów |Wskazuje procent ruchu wysyłanego z sieci CDN (serwery brzegowe) do osoby żądającej (np. przeglądarki sieci Web) w formacie skompresowanym. |
+| Bajtów out |Wskazuje ilość danych (w bajtach) dostarczonych z sieci CDN (serwerów brzegowych) do osoby żądającej (np. przeglądarki sieci Web). |
+| Bajty w |Wskazuje ilość danych (w bajtach) wysyłanych z zleceniodawców (np. przeglądarka sieci Web) do usługi CDN (serwery brzegowe). |
+| Bajty zdalne |Wskazuje ilość danych (w bajtach) wysyłanych z serwerów sieci CDN i klientów do sieci CDN (serwerów brzegowych). |
 
 #### <a name="performance-metrics"></a>Metryki wydajności
 Celem tych metryk jest śledzenie ogólnej wydajności sieci CDN dla ruchu.
 
 | Pole | Opis |
 | --- | --- |
-| Szybkość transferu |Wskazuje średnią szybkość, z jaką zawartość została przeniesiona z sieci CDN do osoby żądawczej. |
-| Czas trwania |Wskazuje średni czas, w milisekundach, zajęło dostarczenie zasobu do osoby żądawczej (np. przeglądarki sieci web). |
-| Szybkość skompresowanego żądania |Wskazuje procent trafień, które zostały dostarczone z sieci CDN (serwerów brzegowych) do żądacza (np. przeglądarki internetowej) w skompresowanym formacie. |
-| 4xx Poziom błędu |Wskazuje procent trafień, które wygenerowały kod stanu 4xx. |
-| 5xx Poziom błędu |Wskazuje procent trafień, które wygenerowały kod stanu 5xx. |
+| Szybkość transferu |Wskazuje średnią szybkość, z jaką zawartość została przeniesiona z sieci CDN do osoby żądającej. |
+| Czas trwania |Wskazuje średni czas (w milisekundach), jaki zajęło dostarczenie zasobu do zleceniodawcy (np. przeglądarki sieci Web). |
+| Szybkość żądania kompresji |Wskazuje procent trafień, które zostały dostarczone z sieci CDN (serwery brzegowe) do osoby żądającej (np. przeglądarki sieci Web) w formacie skompresowanym. |
+| Współczynnik błędów 4xx |Wskazuje procent trafień, które wygenerowały kod stanu 4xx. |
+| Współczynnik błędów 5xx |Wskazuje procent trafień, które wygenerowały kod stanu 5xx. |
 | Trafienia |Wskazuje liczbę żądań dotyczących zawartości sieci CDN. |
 
 #### <a name="secure-traffic-metrics"></a>Metryki bezpiecznego ruchu
@@ -128,64 +128,64 @@ Celem tych metryk jest śledzenie wydajności sieci CDN dla ruchu HTTPS.
 
 | Pole | Opis |
 | --- | --- |
-| Bezpieczna wydajność pamięci podręcznej |Wskazuje procent danych przesyłanych dla żądań HTTPS, które zostały wyświetlone z pamięci podręcznej. Ta metryka mierzy, gdy buforowana wersja żądanej zawartości była obsługiwana bezpośrednio z sieci CDN (serwerów brzegowych) do żądań (np. przeglądarki sieci Web) za pośrednictwem protokołu HTTPS. |
-| Bezpieczna szybkość transferu |Wskazuje średnią szybkość przesyłania zawartości z sieci CDN (serwerów brzegowych) do osób żądającej (np. serwerów sieci web) za pośrednictwem protokołu HTTPS. |
-| Średni czas trwania bezpiecznego |Wskazuje średni czas, w milisekundach, zajęło dostarczenie zasobu do osoby żądawczej (np. przeglądarki sieci web) za pośrednictwem protokołu HTTPS. |
+| Wydajność bezpiecznej pamięci podręcznej |Wskazuje procent danych przesłanych dla żądań HTTPS, które zostały obsłużone z pamięci podręcznej. Ta Metryka mierzy, kiedy buforowana wersja żądanej zawartości została obsłużona bezpośrednio z sieci CDN (serwerów brzegowych) do zleceniodawców (np. przeglądarka sieci Web) za pośrednictwem protokołu HTTPS. |
+| Szybkość bezpiecznego transferu |Wskazuje średnią szybkość przesyłania zawartości z sieci CDN (serwerów brzegowych) do osoby żądającej (np. serwerów sieci Web) za pośrednictwem protokołu HTTPS. |
+| Średni bezpieczny czas trwania |Wskazuje średni czas (w milisekundach), jaki zajęło dostarczenie zasobu do żądającego (np. przeglądarki sieci Web) za pośrednictwem protokołu HTTPS. |
 | Bezpieczne trafienia |Wskazuje liczbę żądań HTTPS dla zawartości usługi CDN. |
-| Bezpieczne bajty |Wskazuje ilość ruchu HTTPS w bajtach, które zostały dostarczone z sieci CDN (serwerów brzegowych) do żądacza (np. przeglądarki sieci web). |
+| Bezpieczne bajty wychodzące |Wskazuje ilość ruchu HTTPS w bajtach, która została dostarczona z sieci CDN (serwerów brzegowych) do osoby żądającej (np. przeglądarki sieci Web). |
 
 ## <a name="reports"></a>Raporty
-Każdy raport w tym module zawiera wykres i statystyki dotyczące wykorzystania przepustowości i ruchu dla różnych typów metryk (np. kody stanu HTTP, kody stanu pamięci podręcznej, adres URL żądania itp.). Te informacje mogą służyć do zagłębiania się w sposób, w jaki zawartość jest obsługiwana klientom i dostroić zachowanie sieci CDN w celu zwiększenia wydajności dostarczania danych.
+Każdy raport w tym module zawiera wykres i statystyki dotyczące użycia przepustowości i ruchu dla różnych typów metryk (np. kody stanu HTTP, kody stanu pamięci podręcznej, adres URL żądania itp.). Te informacje mogą być używane do bardziej szczegółowych informacji na temat sposobu dostarczania zawartości do klientów i dostrajania zachowania usługi CDN w celu zwiększenia wydajności tworzenia danych.
 
-### <a name="accessing-the-edge-performance-reports"></a>Uzyskiwanie dostępu do raportów wydajności krawędzi
-1. W bloku profilu sieci CDN kliknij przycisk **Zarządzaj.**
+### <a name="accessing-the-edge-performance-reports"></a>Uzyskiwanie dostępu do raportów o wydajności brzegowej
+1. W bloku profil usługi CDN kliknij przycisk **Zarządzaj** .
    
-    ![Przycisk zarządzania łatami profilu CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
+    ![Przycisk zarządzania bloku profilu usługi CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
-    Zostanie otwarty portal zarządzania siecią CDN.
-2. Umieść wskaźnik myszy na karcie **Analytics,** a następnie umieść wskaźnik myszy na **wysu wysu wysu wysu wysuwu Edge Performance Analytics.**  Kliknij **duży obiekt HTTP**.
+    Zostanie otwarty portal zarządzania sieci CDN.
+2. Zatrzymaj wskaźnik myszy na karcie **Analiza** , a następnie umieść kursor nad menu wysuwanym **Analiza wydajności Edge** .  Kliknij opcję **duży obiekt http**.
    
-    Zostanie wyświetlony ekran raportów analizy węzła krawędzi.
+    Zostanie wyświetlony ekran Raporty analizy węzłów brzegowych.
 
 | Raport | Opis |
 | --- | --- |
-| Podsumowanie dzienne |Umożliwia wyświetlanie dziennych trendów ruchu w określonym przedziale czasu. Każdy pasek na tym wykresie reprezentuje określoną datę. Rozmiar paska wskazuje całkowitą liczbę trafień, które miały miejsce w tym dniu. |
-| Podsumowanie godzinowe |Umożliwia wyświetlanie trendów ruchu godzinowego w określonym przedziale czasu. Każdy pasek na tym wykresie reprezentuje jedną godzinę w określonym dniu. Rozmiar paska wskazuje całkowitą liczbę trafień, które wystąpiły w tej godzinie. |
-| Protokoły |Wyświetla podział ruchu między protokołami HTTP i HTTPS. Wykres pierścieniowy wskazuje procent trafień, które wystąpiły dla każdego typu protokołu. |
-| Metody HTTP |Pozwala szybko zorientować się, które metody HTTP są używane do żądania danych. Zazwyczaj najbardziej typowe metody żądania HTTP są GET, HEAD i POST. Wykres pierścieniowy wskazuje procent trafień, które wystąpiły dla każdego typu metody żądania HTTP. |
-| adresy URL |Zawiera wykres, który wyświetla 10 pierwszych żądanych adresów URL. Dla każdego adresu URL zostanie wyświetlony pasek. Wysokość paska wskazuje, ile trafień, które wygenerował dany adres URL w okresie objętym raportem. Statystyki 100 żądanych adresów URL są wyświetlane bezpośrednio pod tym wykresem. |
-| CNA |Zawiera wykres, który wyświetla 10 najlepszych CNAMEs używane do żądania zasobów w przedziale czasowym raportu. Statystyki dla 100 najlepszych żądanych CNAME są wyświetlane bezpośrednio pod tym wykresem. |
-| Pochodzenia |Zawiera wykres, który wyświetla 10 najlepszych serwerów CDN lub serwerów pochodzenia klienta, z których żądano zasobów przez określony czas. Statystyki dla 100 pierwszych żądanych serwerów CDN lub serwerów pochodzenia klienta są wyświetlane bezpośrednio pod tym wykresem. Serwery pochodzenia klienta są identyfikowane przez nazwę zdefiniowaną w opcji Nazwa katalogu. |
-| GeoOkipów |Pokazuje, jaka część ruchu jest kierowana przez określony punkt obecności (POP). Trzyliterowy skrót reprezentuje pop w naszej sieci CDN. |
-| Klienci |Zawiera wykres, który wyświetla 10 najlepszych klientów, którzy zażądali zasobów w określonym czasie. Na potrzeby tego raportu wszystkie żądania, które pochodzą z tego samego adresu IP są uważane za pochodzące od tego samego klienta. Statystyki dla 100 najlepszych klientów są wyświetlane bezpośrednio pod tym wykresem. Ten raport jest przydatny do określania wzorców aktywności pobierania dla najlepszych klientów. |
-| Stany pamięci podręcznej |Zawiera szczegółowy podział zachowania pamięci podręcznej, które mogą ujawniać podejścia do poprawy ogólnego środowiska użytkownika końcowego. Ponieważ najwyższa wydajność pochodzi z trafień pamięci podręcznej, można zoptymalizować szybkość dostarczania danych, minimalizując chybienia pamięci podręcznej i wygasłe trafienia pamięci podręcznej. |
-| BRAK Szczegóły |Zawiera wykres, który wyświetla 10 pierwszych adresów URL dla zasobów, dla których świeżość zawartości pamięci podręcznej nie została sprawdzona przez określony czas. Statystyki 100 najlepszych adresów URL dla tego typu zasobów są wyświetlane bezpośrednio pod tym wykresem. |
-| CONFIG_NOCACHE szczegóły |Zawiera wykres, który wyświetla 10 pierwszych adresów URL dla zasobów, które nie zostały buforowane z powodu konfiguracji sieci CDN klienta. Te typy zasobów były obsługiwane bezpośrednio z serwera pochodzenia. Statystyki 100 najlepszych adresów URL dla tego typu zasobów są wyświetlane bezpośrednio pod tym wykresem. |
-| UNCACHEABLE Szczegóły |Zawiera wykres, który wyświetla 10 pierwszych adresów URL dla zasobów, których nie można buforować z powodu danych nagłówka żądania. Statystyki 100 najlepszych adresów URL dla tego typu zasobów są wyświetlane bezpośrednio pod tym wykresem. |
-| TCP_HIT szczegóły |Zawiera wykres, który wyświetla 10 pierwszych adresów URL dla zasobów, które są obsługiwane natychmiast z pamięci podręcznej. Statystyki 100 najlepszych adresów URL dla tego typu zasobów są wyświetlane bezpośrednio pod tym wykresem. |
-| TCP_MISS szczegóły |Zawiera wykres, który wyświetla 10 pierwszych adresów URL dla zasobów, które mają stan pamięci podręcznej TCP_MISS. Statystyki 100 najlepszych adresów URL dla tego typu zasobów są wyświetlane bezpośrednio pod tym wykresem. |
-| TCP_EXPIRED_HIT szczegóły |Zawiera wykres, który wyświetla 10 pierwszych adresów URL dla starych zasobów, które zostały wyświetlone bezpośrednio z punktu obecności. Statystyki 100 najlepszych adresów URL dla tego typu zasobów są wyświetlane bezpośrednio pod tym wykresem. |
-| TCP_EXPIRED_MISS szczegóły |Zawiera wykres, który wyświetla 10 pierwszych adresów URL dla starych zasobów, dla których nowa wersja musiała zostać pobrana z serwera pochodzenia. Statystyki 100 najlepszych adresów URL dla tego typu zasobów są wyświetlane bezpośrednio pod tym wykresem. |
-| TCP_CLIENT_REFRESH_MISS szczegóły |Zawiera wykres słupkowy, który wyświetla 10 pierwszych adresów URL dla zasobów zostały pobrane z serwera pochodzenia z powodu żądania braku pamięci podręcznej od klienta. Statystyki 100 najlepszych adresów URL dla tego typu żądań są wyświetlane bezpośrednio poniżej tego wykresu. |
-| Typy żądań klienta |Wskazuje typ żądań, które zostały wykonane przez klientów HTTP (np. przeglądarek). Ten raport zawiera wykres pierścieniowy, który zapewnia poczucie, jak żądania są obsługiwane. Informacje o przepustowości i ruchu dla każdego typu żądania są wyświetlane poniżej wykresu. |
-| Agent użytkownika |Zawiera wykres słupkowy przedstawiający 10 najlepszych agentów użytkowników, którzy za pośrednictwem naszej sieci CDN żądają twoich treści. Zazwyczaj agentem użytkownika jest przeglądarka internetowa, odtwarzacz multimedialny lub przeglądarka telefonu komórkowego. Statystyki dla 100 najlepszych agentów użytkowników są wyświetlane bezpośrednio poniżej tego wykresu. |
-| Kierujących |Zawiera wykres słupkowy przedstawiający 10 najważniejszych osób odsyłających do treści dostępnych za pośrednictwem naszej sieci CDN. Zazwyczaj strona odsyłacza jest adresem URL strony internetowej lub zasobu, który łączy się z zawartością. Szczegółowe informacje znajdują się poniżej wykresu dla 100 najlepszych osób odsyłaczy. |
-| Typy kompresji |Zawiera wykres pierścieniowy, który dzieli żądane zasoby według tego, czy zostały skompresowane przez nasze serwery brzegowe. Procent skompresowanych zasobów jest podzielony według typu używanej kompresji. Szczegółowe informacje znajdują się poniżej wykresu dla każdego typu kompresji i stanu. |
-| Typy plików |Zawiera wykres słupkowy, który wyświetla 10 najlepszych typów plików, które zostały wymagane za pośrednictwem naszej sieci CDN dla Twojego konta. Na potrzeby tego raportu typ pliku jest definiowany przez rozszerzenie nazwy pliku zasobu i typ nośnika internetowego (np. \[tekst\].html/html \[ \[\],\].htm text/html , .aspx text/html itp.). Szczegółowe informacje znajdują się poniżej wykresu dla 100 najlepszych typów plików. |
-| Unikatowe pliki |Zawiera wykres, który kreśli całkowitą liczbę unikatowych zasobów, które zostały żądane w określonym dniu w określonym czasie. |
-| Podsumowanie umajne tokenu |Zawiera wykres kołowy, który zawiera szybki przegląd tego, czy żądane zasoby były chronione przez uwierzytelnianie oparte na tokenie. Zasoby chronione są wyświetlane na wykresie zgodnie z wynikami ich próby uwierzytelnienia. |
-| Szczegóły odmowy tokenu Auth |Zawiera wykres słupkowy, który umożliwia wyświetlanie 10 pierwszych żądań, które zostały odrzucone z powodu uwierzytelniania opartego na tokenie. |
-| Kody odpowiedzi HTTP |Zawiera podział kodów stanu HTTP (np. 200 OK, 403 Zabronione, 404 Nie znaleziono, itp.), które zostały dostarczone do klientów HTTP przez nasze serwery brzegowe. Wykres kołowy pozwala szybko ocenić, w jaki sposób zasoby zostały wyświetlone. Szczegółowe dane statystyczne są dostarczane dla każdego kodu odpowiedzi poniżej wykresu. |
-| 404 Błędy |Zawiera wykres słupkowy, który umożliwia wyświetlanie 10 pierwszych żądań, które spowodowały kod odpowiedzi 404 Nie znaleziono. |
-| 403 Błędy |Zawiera wykres słupkowy, który umożliwia wyświetlanie 10 pierwszych żądań, które spowodowały kod odpowiedzi 403 Zabronione. Kod zakazanej odpowiedzi 403 występuje, gdy żądanie zostanie odrzucone przez serwer pochodzenia klienta lub serwer brzegowy w naszym pop. |
-| 4xx Błędy |Zawiera wykres słupkowy, który umożliwia wyświetlanie 10 pierwszych żądań, które spowodowały kod odpowiedzi w zakresie 400. Wyłączone z tego raportu są 403 Nie znaleziono i 404 Zakazane kody odpowiedzi. Zazwyczaj kod odpowiedzi 4xx występuje, gdy żądanie zostanie odrzucone w wyniku błędu klienta. |
-| 504 Błędy |Zawiera wykres słupkowy, który umożliwia wyświetlanie 10 pierwszych żądań, które spowodowały kod odpowiedzi limitu czasu bramy 504. Kod odpowiedzi limitu czasu bramy 504 występuje, gdy wystąpi limit czasu, gdy serwer proxy HTTP próbuje komunikować się z innym serwerem. W przypadku naszej sieci CDN kod odpowiedzi limitu czasu bramy 504 zazwyczaj występuje, gdy serwer brzegowy nie może nawiązać komunikacji z serwerem pochodzenia klienta. |
-| 502 Błędy |Zawiera wykres słupkowy, który umożliwia wyświetlanie 10 pierwszych żądań, które spowodowały kod odpowiedzi 502 Bad Gateway. Kod odpowiedzi bad gateway 502 występuje, gdy wystąpi błąd protokołu HTTP między serwerem a serwerem proxy HTTP. W przypadku naszej sieci CDN kod odpowiedzi 502 Bad Gateway zazwyczaj występuje, gdy serwer pochodzenia klienta zwraca nieprawidłową odpowiedź na serwer brzegowy. Odpowiedź jest nieprawidłowa, jeśli nie może być przeanalizowana lub jeśli jest niekompletna. |
-| 5xx Błędy |Zawiera wykres słupkowy, który umożliwia wyświetlanie 10 pierwszych żądań, które spowodowały kod odpowiedzi w zakresie 500.  Z tego raportu wyłączone są kody odpowiedzi 502 Bad Gateway i 504 Gateway Timeout. |
+| Podsumowanie dzienne |Umożliwia wyświetlanie codziennych trendów ruchu w określonym przedziale czasu. Każdy pasek na tym grafie reprezentuje konkretną datę. Rozmiar słupka wskazuje całkowitą liczbę trafień, które wystąpiły w tym dniu. |
+| Podsumowanie godzinowe |Umożliwia wyświetlanie trendów ruchu godzinowego w określonym przedziale czasu. Każdy pasek na tym grafie reprezentuje godzinę w określonym dniu. Rozmiar paska wskazuje całkowitą liczbę trafień, które wystąpiły w ciągu tej godziny. |
+| Protokoły |Przedstawia podział ruchu między protokołami HTTP i HTTPS. Wykres pierścieniowy wskazuje procent trafień, które wystąpiły dla każdego typu protokołu. |
+| Metody HTTP |Umożliwia szybkie wykrywanie metod protokołu HTTP używanych do żądania danych. Zazwyczaj najczęstszymi metodami żądania HTTP są GET, głowy i POST. Wykres pierścieniowy wskazuje procent trafień, które wystąpiły dla każdego typu metody żądania HTTP. |
+| Adresy URL |Zawiera wykres przedstawiający 10 pierwszych żądanych adresów URL. Wyświetlany jest pasek dla każdego adresu URL. Wysokość paska wskazuje liczbę trafień generowanych przez określony adres URL w przedziale czasu, który jest objęty raportem. Statystyki dla najpopularniejszych adresów URL 100 są wyświetlane bezpośrednio poniżej tego grafu. |
+| Rekordy CNAME |Zawiera wykres, który wyświetla 10 rekordów CNAME używanych do żądania zasobów w przedziale czasu raportu. Statystyki dla najpopularniejszych 100 żądanych rekordów CNAME są wyświetlane bezpośrednio poniżej tego grafu. |
+| Źródła |Zawiera wykres przedstawiający 10 najważniejszych serwerów sieci CDN lub klientów, z których żądano zasobów w określonym przedziale czasu. Dane statystyczne dla najważniejszych 100 żądanych serwerów sieci CDN lub klientów pochodzenia są wyświetlane bezpośrednio poniżej tego grafu. Serwery pochodzenia klientów są identyfikowane za pomocą nazwy zdefiniowanej w opcji Nazwa katalogu. |
+| Geograficzne punkty obecności |Pokazuje, jaka część ruchu sieciowego jest kierowana przez konkretny punkt obecności (POP). Trzyliterowy skrót reprezentuje punkt obecności w sieci CDN. |
+| Klienci |Zawiera wykres przedstawiający 10 najważniejszych klientów, którzy żądają zasobów w określonym przedziale czasu. Na potrzeby tego raportu wszystkie żądania pochodzące z tego samego adresu IP są uważane za z tego samego klienta. Statystyki dla najważniejszych klientów 100 są wyświetlane bezpośrednio poniżej tego grafu. Ten raport jest przydatny do określania wzorców działania pobierania dla najważniejszych klientów. |
+| Stany pamięci podręcznej |Zawiera szczegółowy podział zachowania pamięci podręcznej, które może ujawnić podejścia do poprawy ogólnego środowiska użytkownika końcowego. Ze względu na to, że najszybsza wydajność jest większa od trafień pamięci podręcznej, można zoptymalizować szybkość dostarczania danych przez zminimalizowanie chybień pamięci podręcznej i wygasłych |
+| Brak szczegółów |Zawiera wykres przedstawiający 10 najważniejszych adresów URL dla zasobów, dla których świeżość zawartości pamięci podręcznej nie została sprawdzona w określonym przedziale czasu. Statystyki dla najpopularniejszych adresów URL 100 dla tych typów zasobów są wyświetlane bezpośrednio poniżej tego wykresu. |
+| Szczegóły CONFIG_NOCACHE |Zawiera wykres przedstawiający 10 najważniejszych adresów URL dla zasobów, które nie zostały zapisane w pamięci podręcznej ze względu na konfigurację sieci CDN klienta. Te typy zasobów zostały obsłużone bezpośrednio z serwera pochodzenia. Statystyki dla najpopularniejszych adresów URL 100 dla tych typów zasobów są wyświetlane bezpośrednio poniżej tego wykresu. |
+| Szczegóły niebuforowane |Zawiera wykres przedstawiający 10 najpopularniejszych adresów URL dla zasobów, których nie można było przetworzyć w pamięci podręcznej ze względu na dane nagłówka żądania. Statystyki dla najpopularniejszych adresów URL 100 dla tych typów zasobów są wyświetlane bezpośrednio poniżej tego wykresu. |
+| Szczegóły TCP_HIT |Zawiera wykres przedstawiający 10 najpopularniejszych adresów URL dla zasobów, które są obsługiwane bezpośrednio z pamięci podręcznej. Statystyki dla najpopularniejszych adresów URL 100 dla tych typów zasobów są wyświetlane bezpośrednio poniżej tego wykresu. |
+| Szczegóły TCP_MISS |Zawiera wykres przedstawiający 10 najważniejszych adresów URL dla zasobów, które mają stan pamięci podręcznej TCP_MISS. Statystyki dla najpopularniejszych adresów URL 100 dla tych typów zasobów są wyświetlane bezpośrednio poniżej tego wykresu. |
+| Szczegóły TCP_EXPIRED_HIT |Zawiera wykres przedstawiający 10 najpopularniejszych adresów URL dla starych zasobów, które zostały obsłużone bezpośrednio z punktu obecności. Statystyki dla najpopularniejszych adresów URL 100 dla tych typów zasobów są wyświetlane bezpośrednio poniżej tego wykresu. |
+| Szczegóły TCP_EXPIRED_MISS |Zawiera wykres przedstawiający 10 najpopularniejszych adresów URL dla starych zasobów, dla których należy pobrać nową wersję z serwera pochodzenia. Statystyki dla najpopularniejszych adresów URL 100 dla tych typów zasobów są wyświetlane bezpośrednio poniżej tego wykresu. |
+| Szczegóły TCP_CLIENT_REFRESH_MISS |Zawiera wykres słupkowy przedstawiający 10 najważniejszych adresów URL dla elementów zawartości pobranych z serwera pochodzenia z powodu żądania braku pamięci podręcznej od klienta. Statystyki dla najpopularniejszych adresów URL 100 dla tego typu żądań są wyświetlane bezpośrednio poniżej tego wykresu. |
+| Typy żądań klienta |Wskazuje typ żądań wykonanych przez klientów HTTP (np. przeglądarki). Ten raport zawiera wykres pierścieniowy, który stanowi sens, w jaki sposób są obsługiwane żądania. Informacje o przepustowości i ruchu dla każdego typu żądania są wyświetlane poniżej wykresu. |
+| Agent użytkownika |Zawiera wykres słupkowy przedstawiający 10 najlepszych agentów użytkowników, którzy zażądają zawartości za pomocą naszej sieci CDN. Zazwyczaj agent użytkownika to przeglądarka sieci Web, odtwarzacz multimedialny lub przeglądarka telefonu komórkowego. Statystyki dla najważniejszych agentów użytkownika 100 są wyświetlane bezpośrednio poniżej tego wykresu. |
+| Przywołujących |Zawiera wykres słupkowy przedstawiający 10 najważniejszych odsprzedawców do zawartości, do której uzyskuje się dostęp za pomocą naszej sieci CDN. Zazwyczaj odwołujący jest adres URL strony sieci Web lub zasobu, który łączy się z zawartością. Szczegółowe informacje znajdują się poniżej wykresu dla pierwszych odsprzedawców 100. |
+| Typy kompresji |Zawiera wykres pierścieniowy, który dzieli żądane zasoby na podstawie tego, czy zostały one skompresowane przez serwery brzegowe. Wartość procentowa skompresowanych zasobów jest dzielona na typ używanej kompresji. Szczegółowe informacje znajdują się poniżej wykresu dla każdego typu i stanu kompresji. |
+| Typy plików |Zawiera wykres słupkowy, który wyświetla 10 najważniejszych typów plików, których zażądano za pomocą usługi CDN dla Twojego konta. Na potrzeby tego raportu typ pliku jest definiowany przez rozszerzenie nazwy pliku zasobu i typ \[nośnika internetowego (np. html text/html\],. htm \[text/html\],. aspx \[text/html\]itp.). Szczegółowe informacje znajdują się poniżej grafu dla najpopularniejszych typów plików 100. |
+| Unikatowe pliki |Zawiera wykres przedstawiający łączną liczbę unikatowych zasobów, które zażądały w określonym dniu w określonym przedziale czasu. |
+| Podsumowanie uwierzytelniania tokenu |Zawiera wykres kołowy, który zawiera krótkie omówienie tego, czy żądane zasoby były chronione za pomocą uwierzytelniania opartego na tokenach. Chronione zasoby są wyświetlane na wykresie zgodnie z wynikami podejmowanych prób uwierzytelnienia. |
+| Szczegóły Odmów autoryzacji tokenu |Zawiera wykres słupkowy, który umożliwia wyświetlanie 10 najważniejszych żądań, które zostały odrzucone z powodu uwierzytelniania opartego na tokenach. |
+| Kody odpowiedzi HTTP |Zawiera podział kodów stanu HTTP (np. 200 OK, 403 zabronione, nie znaleziono 404 itp.), które zostały dostarczone do klientów HTTP przez serwery brzegowe. Wykres kołowy umożliwia szybkie ocenianie sposobu, w jaki zostały obsłużone zasoby. Szczegółowe dane statystyczne są dostępne dla każdego kodu odpowiedzi poniżej grafu. |
+| błędy 404 |Zawiera wykres słupkowy, który umożliwia wyświetlanie 10 najważniejszych żądań, które spowodowały, że nie znaleziono 404 kodu odpowiedzi. |
+| Błędy 403 |Zawiera wykres słupkowy, który umożliwia wyświetlenie 10 najważniejszych żądań, które spowodowały niedozwolony kod odpowiedzi 403. Niedozwolony kod odpowiedzi 403 występuje, gdy żądanie jest odrzucane przez serwer pochodzenia klienta lub serwer graniczny w naszym wyskakującym okienku. |
+| Błędy 4xx |Zawiera wykres słupkowy, który umożliwia wyświetlenie 10 pierwszych żądań, które spowodowały kod odpowiedzi w zakresie 400. Wykluczone z tego raportu to 403 nie znaleziono i 404 niedozwolonych kodów odpowiedzi. Zazwyczaj kod odpowiedzi 4xx występuje, gdy żądanie jest odrzucane w wyniku błędu klienta. |
+| Błędy 504 |Zawiera wykres słupkowy, który umożliwia wyświetlenie 10 najważniejszych żądań, które spowodowały przekroczenie limitu czasu odpowiedzi bramy 504. Kod odpowiedzi z przekroczeniem limitu czasu bramy 504 występuje po upływie limitu czasu, gdy serwer proxy HTTP próbuje komunikować się z innym serwerem. W przypadku naszej sieci CDN kod odpowiedzi na limit czasu bramy 504 zwykle występuje, gdy serwer graniczny nie może nawiązać komunikacji z serwerem pochodzenia klienta. |
+| Błędy 502 |Zawiera wykres słupkowy, który umożliwia wyświetlenie 10 najważniejszych żądań, które spowodowały niewłaściwy kod odpowiedzi bramy 502. 502 nieprawidłowy kod odpowiedzi bramy występuje, gdy wystąpi awaria protokołu HTTP między serwerem i serwerem proxy HTTP. W przypadku naszej sieci CDN niewłaściwy kod odpowiedzi bramy 502 zwykle występuje, gdy serwer pochodzenia klienta zwróci nieprawidłową odpowiedź na serwer graniczny. Odpowiedź jest nieprawidłowa, jeśli nie można jej przeanalizować lub jeśli jest niepełna. |
+| Błędy 5xx |Zawiera wykres słupkowy, który umożliwia wyświetlenie 10 pierwszych żądań, które spowodowały kod odpowiedzi w zakresie 500.  Wykluczone z tego raportu to 502 niewłaściwe kody odpowiedzi bramy i bramy 504. |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Omówienie usługi Azure CDN](cdn-overview.md)
-* [Statystyki w czasie rzeczywistym w sieci CDN platformy Microsoft Azure](cdn-real-time-stats.md)
+* [Statystyki w czasie rzeczywistym w usłudze Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł](cdn-rules-engine.md)
 * [Zaawansowane raporty HTTP](cdn-advanced-http-reports.md)
 

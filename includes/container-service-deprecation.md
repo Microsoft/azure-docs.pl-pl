@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: iainfou
 ms.openlocfilehash: c7a34256bff46247ed6c97bc2931942f631bbf09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183783"
 ---
 > [!WARNING]
->  **Usługa kontenera azure (ACS) jest przestarzałe. Żadne nowe funkcje nie są dodawane do acs. Wszystkie interfejsy API, środowisko portalu, polecenia interfejsu wiersza polecenia i dokumentacji są oznaczone jako przestarzałe.**
+>  **Azure Container Service (ACS) jest przestarzały. Do usługi ACS nie są dodawane żadne nowe funkcje ani funkcje. Wszystkie interfejsy API, środowisko portalu, polecenia i dokumentacja interfejsu CLI są oznaczone jako przestarzałe.**
 >
 > Aby uzyskać więcej informacji, zobacz [ogłoszenie o zakończeniu obsługi usługi Azure Container Service w witrynie Azure.com](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/).
 >
-> Zaleca się wdrożenie jednego z następujących rozwiązań portalu Azure Marketplace:
+> Zalecamy wdrożenie jednego z następujących rozwiązań w witrynie Azure Marketplace:
 >
-> * Mezosfera DC/OS
->   * [Przedsiębiorstwo](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.enterprise-dcos?tab=Overview)
->   * [Wydanie Open Source](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.dcos?tab=overview)
+> * Mesosphere DC/OS
+>   * [Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.enterprise-dcos?tab=Overview)
+>   * [Wersja Open Source](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.dcos?tab=overview)
 >
-> Jeśli chcesz używać usługi Kubernetes, zobacz [Usługa Azure Kubernetes](https://docs.microsoft.com/azure/aks).
+> Jeśli chcesz używać Kubernetes, zobacz [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks).

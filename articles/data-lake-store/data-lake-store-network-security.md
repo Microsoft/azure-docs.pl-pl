@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60612702"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integracja z siecią wirtualną w usłudze Azure Data Lake Storage Gen1
@@ -81,7 +81,7 @@ Dostępne opcje to między innymi:
   
 - Dane plików i folderów na koncie usługi Data Lake Storage Gen1 z włączoną integracją z siecią wirtualną nie są dostępne z poziomu portalu. To ograniczenie dotyczy również dostępu z poziomu maszyny wirtualnej znajdującej się w tej sieci wirtualnej oraz czynności takich jak korzystanie z Eksploratora danych. Czynności związane z zarządzaniem kontem będą nadal działać. Dane plików i folderów na koncie usługi Data Lake Storage z włączoną integracją z siecią wirtualną są dostępne z poziomu wszystkich zasobów poza portalem. Te zasoby obejmują dostęp za pomocą zestawów SDK, skryptów programu PowerShell i innych usług platformy Azure, gdy nie pochodzą z portalu. 
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Krok 1. Konfigurowanie sieci wirtualnej pod kątem korzystania z punktu końcowego usługi Azure AD
 
@@ -128,7 +128,7 @@ Dostępne opcje to między innymi:
 
     ![Wybieranie sieci wirtualnej i podsieci](media/data-lake-store-network-security/config-adls-3.png)
 
-6.  Upewnij się, że wybrane sieci wirtualne i podsieci są wyświetlane prawidłowo na liście. Wybierz **pozycję Zapisz**.
+6.  Upewnij się, że wybrane sieci wirtualne i podsieci są wyświetlane prawidłowo na liście. Wybierz pozycję **Zapisz**.
 
     ![Zapisywanie nowej reguły](media/data-lake-store-network-security/config-adls-4.png)
 

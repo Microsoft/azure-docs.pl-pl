@@ -1,6 +1,6 @@
 ---
-title: Jak korzystać z magazynu obiektów (Blob) z platformy Xamarin | Dokumenty firmy Microsoft
-description: Biblioteka klienta usługi Azure Storage dla platformy Xamarin umożliwia deweloperom tworzenie aplikacji dla systemów iOS, Android i Ze Sklepu Windows za pomocą natywnych interfejsów użytkownika. W tym samouczku pokazano, jak używać platformy Xamarin do tworzenia aplikacji korzystającej z magazynu obiektów Blob platformy Azure.
+title: Jak używać magazynu obiektów (BLOB) z platformy Xamarin | Microsoft Docs
+description: Biblioteka klienta usługi Azure Storage dla środowiska Xamarin umożliwia deweloperom tworzenie aplikacji w sklepie dla systemów iOS, Android i Windows przy użyciu natywnych interfejsów użytkownika. W tym samouczku pokazano, jak utworzyć aplikację korzystającą z usługi Azure Blob Storage za pomocą platformy Xamarin.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 05/11/2017
@@ -8,15 +8,15 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 8a1c91c8a8a59af26386e70e68e7c4fd93f5eaa9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68726336"
 ---
-# <a name="how-to-use-blob-storage-from-xamarin"></a>Jak korzystać z magazynu obiektów Blob z platformy Xamarin
+# <a name="how-to-use-blob-storage-from-xamarin"></a>Jak używać Blob Storage z platformy Xamarin
 
-Xamarin umożliwia deweloperom używać udostępnionej bazy kodu Języka C# do tworzenia aplikacji dla systemów iOS, Android i Ze Sklepu Windows za pomocą natywnych interfejsów użytkownika. W tym samouczku pokazano, jak używać magazynu obiektów Blob platformy Azure za pomocą aplikacji platformy Xamarin. Jeśli chcesz dowiedzieć się więcej o usłudze Azure Storage, przed zagłębieniem się w kod, zobacz [Wprowadzenie do usługi Microsoft Azure Storage](../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Platforma Xamarin umożliwia deweloperom użycie udostępnionej bazy kodu w języku C# do tworzenia aplikacji w sklepie dla systemów iOS, Android i Windows przy użyciu natywnych interfejsów użytkownika. W tym samouczku pokazano, jak używać usługi Azure Blob Storage z aplikacją platformy Xamarin. Jeśli chcesz dowiedzieć się więcej na temat usługi Azure Storage, przed wprowadzeniem do kodu, zobacz [wprowadzenie do Microsoft Azure Storage](../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -24,20 +24,20 @@ Xamarin umożliwia deweloperom używać udostępnionej bazy kodu Języka C# do t
 
 ## <a name="create-a-new-xamarin-application"></a>Tworzenie nowej aplikacji platformy Xamarin
 
-W tym samouczku będziemy tworzyć aplikację, która jest przeznaczona dla systemów Android, iOS i Windows. Ta aplikacja po prostu utworzyć kontener i przekazać obiekt blob do tego kontenera. Będziemy używać programu Visual Studio w systemie Windows, ale te same nauki mogą być stosowane podczas tworzenia aplikacji przy użyciu programu Xamarin Studio w systemie macOS.
+W tym samouczku utworzysz aplikację, która jest przeznaczona dla systemów Android, iOS i Windows. Ta aplikacja spowoduje po prostu utworzenie kontenera i przekazanie obiektu BLOB do tego kontenera. Będziemy korzystać z programu Visual Studio w systemie Windows, ale te same informacje mogą być stosowane podczas tworzenia aplikacji przy użyciu Xamarin Studio w macOS.
 
-Aby utworzyć aplikację, wykonaj następujące czynności:
+Wykonaj następujące kroki, aby utworzyć aplikację:
 
-1. Jeśli jeszcze tego nie zrobiłeś, pobierz i zainstaluj [xamarin dla programu Visual Studio](https://www.xamarin.com/download).
-2. Otwórz program Visual Studio i utwórz pustą aplikację (przenośna natywna): **plik > nowy > project > cross-platform > pusta aplikacja (natywna przenośna).**
-3. Kliknij prawym przyciskiem myszy rozwiązanie w okienku Eksplorator rozwiązań i wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**. Wyszukaj **system WindowsAzure.Storage** i zainstaluj najnowszą stabilną wersję dla wszystkich projektów w rozwiązaniu.
-4. Skompiluj i uruchom swój projekt.
+1. Jeśli jeszcze tego nie zrobiono, Pobierz i zainstaluj platformę [Xamarin dla programu Visual Studio](https://www.xamarin.com/download).
+2. Otwórz program Visual Studio i Utwórz pustą aplikację (natywną przenośną): **File > New > Project > dla wielu Platform > pusta aplikacja (natywna przenośna)**.
+3. W okienku Eksplorator rozwiązań kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**. Wyszukaj **windowsazure. Storage** i zainstaluj najnowszą stabilną wersję dla wszystkich projektów w rozwiązaniu.
+4. Skompiluj i Uruchom projekt.
 
-Teraz powinieneś mieć aplikację, która pozwala na kliknięcie przycisku, który zwiększa licznik.
+Teraz powinna być dostępna aplikacja, która pozwala na kliknięcie przycisku, który zwiększa licznik.
 
-## <a name="create-container-and-upload-blob"></a>Tworzenie kontenera i przekazywanie obiektów blob
+## <a name="create-container-and-upload-blob"></a>Tworzenie kontenera i przekazywanie obiektu BLOB
 
-Następnie w `(Portable)` ramach projektu dodasz kod `MyClass.cs`do pliku . Ten kod tworzy kontener i przekazuje obiekt blob do tego kontenera. `MyClass.cs`powinny wyglądać następująco:
+Następnie w obszarze `(Portable)` projektu dodasz kod do `MyClass.cs`. Ten kod tworzy kontener i przekazuje obiekt BLOB do tego kontenera. `MyClass.cs`powinien wyglądać następująco:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -76,11 +76,11 @@ namespace XamarinApp
 }
 ```
 
-Pamiętaj, aby zastąpić "your_account_name_here" i "your_account_key_here" rzeczywistą nazwą konta i kluczem konta.
+Pamiętaj, aby zastąpić ciąg "your_account_name_here" i "your_account_key_here" rzeczywistą nazwą konta i kluczem konta.
 
-Wszystkie projekty dotyczące systemów iOS, Android i Windows Phone mają odwołania do projektu przenośnego , co oznacza, że możesz napisać cały udostępniony kod w jednym miejscu i używać go we wszystkich projektach. Teraz można dodać następujący wiersz kodu do każdego projektu, aby rozpocząć korzystanie z:`MyClass.performBlobOperation()`
+Wszystkie projekty dla systemów iOS, Android i Windows Phone zawierają odwołania do Twojego przenośnego projektu — co oznacza, że można napisać cały współużytkowany kod w jednym miejscu i używać go we wszystkich projektach. Teraz możesz dodać następujący wiersz kodu do każdego projektu, aby rozpocząć korzystanie z zalet:`MyClass.performBlobOperation()`
 
-### <a name="xamarinappdroid--mainactivitycs"></a>XamarinApp.Droid > MainActivity.cs
+### <a name="xamarinappdroid--mainactivitycs"></a>XamarinApp. Droid > MainActivity.cs
 
 ```csharp
 using Android.App;
@@ -116,7 +116,7 @@ namespace XamarinApp.Droid
 }
 ```
 
-### <a name="xamarinappios--viewcontrollercs"></a>XamarinApp.iOS > ViewController.cs
+### <a name="xamarinappios--viewcontrollercs"></a>XamarinApp. iOS > ViewController.cs
 
 ```csharp
 using System;
@@ -163,7 +163,7 @@ namespace XamarinApp.iOS
 }
 ```
 
-### <a name="xamarinappwinphone--mainpagexaml--mainpagexamlcs"></a>XamarinApp.WinPhone > MainPage.xaml > MainPage.xaml.cs
+### <a name="xamarinappwinphone--mainpagexaml--mainpagexamlcs"></a>XamarinApp. WinPhone > MainPage. XAML > MainPage.xaml.cs
 
 ```csharp
 using Windows.UI.Xaml.Controls;
@@ -231,18 +231,18 @@ namespace XamarinApp.WinPhone
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Teraz można uruchomić tę aplikację w emulatorze systemu Android lub Windows Phone. Można również uruchomić tę aplikację w emulatorze systemu iOS, ale będzie to wymagało komputera Mac. Szczegółowe instrukcje dotyczące tego, jak to zrobić, zapoznaj się z dokumentacją [dotyczącą łączenia programu Visual Studio z komputerem Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
+Teraz możesz uruchomić tę aplikację w emulatorze systemu Android lub Windows Phone. Możesz również uruchomić tę aplikację w emulatorze systemu iOS, ale będzie to wymagało komputera Mac. Szczegółowe instrukcje na ten temat można znaleźć w dokumentacji dotyczącej [łączenia programu Visual Studio z komputerem Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
-Po uruchomieniu aplikacji utworzy kontener `mycontainer` na koncie magazynu. Powinien zawierać obiekt blob, `myblob`który ma `Hello, world!`tekst, . Można to sprawdzić za pomocą [Eksploratora magazynu platformy Microsoft Azure](https://storageexplorer.com/).
+Po uruchomieniu aplikacji zostanie utworzony kontener `mycontainer` na koncie magazynu. Powinien zawierać obiekt BLOB, `myblob`który zawiera tekst,. `Hello, world!` Można to sprawdzić przy użyciu [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com/).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dowiesz się, jak utworzyć aplikację między platformami w platformie Xamarin, która używa usługi Azure Storage, w szczególności koncentrując się na jednym scenariuszu w magazynie obiektów blob. Jednak można zrobić o wiele więcej nie tylko magazyn obiektów Blob, ale także z tabeli, plików i magazynu kolejek. Aby dowiedzieć się więcej, zapoznaj się z poniższym artykułem:
+W tym samouczku pokazano, jak utworzyć międzyplatformową aplikację w programie Xamarin, która korzysta z usługi Azure Storage, a w każdym scenariuszu w Blob Storage. Można jednak wykonać wiele więcej, nie tylko Blob Storage, ale również z tabelą, plikiem i Queue Storage. Aby dowiedzieć się więcej, zapoznaj się z następującymi artykułami:
 
 * [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md)
 * [Wprowadzenie do usługi Azure Files](../files/storage-files-introduction.md)
 * [Tworzenie oprogramowania dla usługi Azure Files przy użyciu platformy .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-* [Wprowadzenie do usługi Azure Queue storage przy użyciu platformy .NET](../queues/storage-dotnet-how-to-use-queues.md)
+* [Rozpoczynanie pracy z usługą Azure queue storage przy użyciu platformy .NET](../queues/storage-dotnet-how-to-use-queues.md)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -9,30 +9,30 @@ ms.date: 12/14/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 9e4f2e355240ba8682cbe9f86f2be94e7dd0d92d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70032345"
 ---
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-Aby utworzyć jednostkę usługi z dostępem do rejestru kontenerów, uruchom następujący skrypt w [usłudze Azure Cloud Shell](../articles/cloud-shell/overview.md) lub lokalnej instalacji [interfejsu wiersza polecenia platformy Azure.](/cli/azure/install-azure-cli) Skrypt jest sformatowany dla powłoki Bash.
+Aby utworzyć jednostkę usługi z dostępem do rejestru kontenerów, uruchom następujący skrypt w [Azure Cloud Shell](../articles/cloud-shell/overview.md) lub lokalnej instalacji [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Skrypt jest sformatowany dla powłoki bash.
 
-Przed uruchomieniem skryptu `ACR_NAME` należy zaktualizować zmienną o nazwie rejestru kontenerów. Wartość `SERVICE_PRINCIPAL_NAME` musi być unikatowa w dzierżawie usługi Azure Active Directory. Jeśli zostanie wyświetlony`'http://acr-service-principal' already exists.`błąd " ", określ inną nazwę jednostki usługi.
+Przed uruchomieniem skryptu należy zaktualizować `ACR_NAME` zmienną za pomocą nazwy rejestru kontenerów. `SERVICE_PRINCIPAL_NAME` Wartość musi być unikatowa w ramach dzierżawy Azure Active Directory. Jeśli zostanie wyświetlony błąd "`'http://acr-service-principal' already exists.`", określ inną nazwę dla jednostki usługi.
 
-Opcjonalnie można zmodyfikować `--role` wartość w poleceniu [az ad sp create-for-rbac,][az-ad-sp-create-for-rbac] jeśli chcesz udzielić różnych uprawnień. Aby uzyskać pełną listę ról, zobacz [Role i uprawnienia ACR](https://github.com/Azure/acr/blob/master/docs/roles-and-permissions.md).
+Opcjonalnie możesz zmodyfikować `--role` wartość w polecenia [AZ AD Sp Create-for-RBAC][az-ad-sp-create-for-rbac] , jeśli chcesz przyznać różne uprawnienia. Aby uzyskać pełną listę ról, zobacz [ACR ról i uprawnień](https://github.com/Azure/acr/blob/master/docs/roles-and-permissions.md).
 
-Po uruchomieniu skryptu należy zanotować **identyfikator** i **hasło**jednostki usługi. Po uzyskaniu jego poświadczeń można skonfigurować aplikacje i usługi do uwierzytelniania w rejestrze kontenerów jako podmiotu usługi.
+Po uruchomieniu skryptu Zanotuj **Identyfikator** i **hasło**jednostki usługi. Po uzyskaniu poświadczeń można skonfigurować aplikacje i usługi do uwierzytelniania w rejestrze kontenerów jako nazwę główną usługi.
 
 <!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh -->
 [!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
 
-### <a name="use-an-existing-service-principal"></a>Używanie istniejącego podmiotu usługi
+### <a name="use-an-existing-service-principal"></a>Użyj istniejącej nazwy głównej usługi
 
-Aby udzielić rejestru dostęp do istniejącej jednostki usługi, należy przypisać nową rolę do jednostki usługi. Podobnie jak w przypadku tworzenia nowego podmiotu usługi, można przyznać ściąganie, wypychanie i ściąganie oraz dostęp do właściciela, między innymi.
+Aby udzielić dostępu do rejestru do istniejącej nazwy głównej usługi, należy przypisać nową rolę do jednostki usługi. Podobnie jak w przypadku tworzenia nowej jednostki usługi, można przyznać dostęp do ściągania, wypychania i ściągania oraz dostępu właściciela, między innymi.
 
-Poniższy skrypt używa [polecenia tworzenia przypisania roli az][az-role-assignment-create] w celu przyznania `SERVICE_PRINCIPAL_ID` uprawnień *ściągania* podmiotowi usługi określonemu w zmiennej. Dostosuj `--role` wartość, jeśli chcesz udzielić innego poziomu dostępu.
+Poniższy skrypt używa polecenia [AZ role przypisanie Create][az-role-assignment-create] , aby przyznać uprawnienia *ściągnięcia* do jednostki usługi określonej w `SERVICE_PRINCIPAL_ID` zmiennej. Dostosuj wartość `--role` , jeśli chcesz udzielić innego poziomu dostępu.
 
 
 <!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-assign-role/service-principal-assign-role.sh -->

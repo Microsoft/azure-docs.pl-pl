@@ -1,6 +1,6 @@
 ---
-title: Model kosztów dla plików NetApp platformy Azure | Dokumenty firmy Microsoft
-description: W tym artykule opisano model kosztów dla usługi Azure NetApp Files do zarządzania wydatkami z usługi.
+title: Model kosztów dla Azure NetApp Files | Microsoft Docs
+description: Opisuje model kosztów Azure NetApp Files do zarządzania wydatkami z usługi.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,80 +15,80 @@ ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: b-juche
 ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70995115"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Model kosztów usługi Azure NetApp Files 
 
-Opis modelu kosztów dla usługi Azure NetApp Files ułatwia zarządzanie wydatkami z usługi.
+Zrozumienie modelu kosztów Azure NetApp Files ułatwia zarządzanie wydatkami z usługi.
 
-## <a name="calculation-of-capacity-consumption"></a>Obliczanie zużycia zdolności produkcyjnych
+## <a name="calculation-of-capacity-consumption"></a>Obliczanie zużycia pojemności
 
-Usługa Azure NetApp Files jest rozliczana z aprowizowanego pojemność magazynu.  Aprowizowana pojemność jest przydzielana przez tworzenie puli pojemności.  Pule pojemności są rozliczane na podstawie $/provisioned-GiB/month w odstępach godzinowych. Minimalny rozmiar dla pojedynczej puli pojemności wynosi 4 TiB, a pule pojemności można następnie rozszerzyć w przyrostach 1-TiB. Woluminy są tworzone w pulach pojemności.  Każdemu woluminowi jest przypisywany przydział, który zmniejsza się z pojemności aprowizacji pukonom. Przydział, który można przypisać do woluminów, waha się od co najmniej 100 GiB do maksymalnie 100 TiB.  
+Opłaty za Azure NetApp Files są naliczane zgodnie z zaalokowanej pojemności magazynu.  Przydzielone pojemności są alokowane przez utworzenie pul pojemności.  Pule pojemności są rozliczane na podstawie wartości $/provisioned-GiB/month w przyrostach godzinowych. Minimalny rozmiar puli o pojedynczej pojemności to 4 TiB, a pule pojemności mogą zostać następnie rozwinięte w przyrostach 1-TiB. Woluminy są tworzone w ramach pul pojemności.  Każdy wolumin ma przypisany przydział, który zmniejsza się od pojemności alokowanej do puli. Przydział, który może być przypisany do woluminów z zakresu od minimum do 100 GiB, do maksymalnie 100 TiB.  
 
-W przypadku aktywnej objętości zużycie zdolności produkcyjnych względem przydziału opiera się na pojemności logicznej (skutecznej).
+W przypadku aktywnego woluminu użycie wydajności w stosunku do przydziału jest oparte na logicznej (efektywnej) pojemności.
 
-Jeśli rzeczywiste zużycie pojemności woluminu przekracza jego przydział magazynowania, wolumin może nadal rosnąć. Zapisy będą nadal dozwolone, o ile rzeczywisty rozmiar woluminu jest mniejszy niż limit systemowy (100 TiB).  
+Jeśli rzeczywiste zużycie pojemności woluminu przekracza limit przydziału magazynu, wolumin może nadal rosnąć. Operacje zapisu będą nadal dozwolone, o ile rzeczywisty rozmiar woluminu będzie mniejszy niż limit systemu (100 TiB).  
 
-Całkowita wykorzystana zdolność produkcyjna w puli zdolności produkcyjnych w stosunku do jej aprowizowana kwota jest sumą większej z przypisanego przydziału lub rzeczywistego zużycia wszystkich woluminów w puli: 
+Łączna ilość użytej pojemności w puli pojemności do jej alokowanej kwoty to suma większej liczby przypisanych przydziałów lub rzeczywistego zużycia wszystkich woluminów w puli: 
 
-   ![Obliczanie całkowitej wykorzystanej zdolności produkcyjnej](../media/azure-netapp-files/azure-netapp-files-total-used-capacity.png)
+   ![Obliczanie łącznej wydajności](../media/azure-netapp-files/azure-netapp-files-total-used-capacity.png)
 
-Poniższy diagram ilustruje te pojęcia.  
-* Mamy pulę pojemności z 4 TiB aproważnej pojemności.  Pula zawiera trzy woluminy.  
-    * Tom 1 jest przypisany przydział 2 TiB i ma 800 GiB zużycia.  
-    * Tom 2 jest przypisany do przydziału 1 TiB i ma 100 GiB zużycia.  
-    * Tom 3 jest przypisany przydział 500 GiB, ale ma 800 GiB zużycia (overage).  
-* Pula pojemności jest mierzona dla 4 TiB pojemności (kwota aprowizowana).  
-    3.8 Zużywa się moc TiB (2 TiB i 1 TiB kontyngentu z tomów 1 i 2 oraz 800 GiB rzeczywistego zużycia dla objętości 3). I 200 GiB zdolności pozostaje.
+Na poniższym diagramie przedstawiono te koncepcje.  
+* Mamy pulę pojemności z 4 TiB pojemnością administracyjną.  Pula zawiera trzy woluminy.  
+    * Do woluminu 1 przypisano limit przydziału równy 2 TiB i ma 800 GiB zużycia.  
+    * Wolumin 2 ma przypisany limit 1 TiB i ma 100 GiB zużycia.  
+    * Do woluminu 3 przypisano limit przydziału 500 GiB, ale ma 800 GiB zużycia (nadwyżki).  
+* Pula pojemności jest naliczana za 4 TiB pojemności (zainicjowana ilość).  
+    3,8 TiB pojemności (2 TiB i 1 TiB przydziału z woluminów 1 i 2 oraz 800 GiB rzeczywiste zużycie dla woluminu 3). I 200 GiB pojemności.
 
    ![Pula pojemności z trzema woluminami](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
 
-## <a name="overage-in-capacity-consumption"></a>Nadmierna wydajność  
+## <a name="overage-in-capacity-consumption"></a>Nadwyżkowe użycie pojemności  
 
-Gdy całkowita pojemność używanej puli przekracza jego pojemność aprowizowana, zapisy danych są nadal dozwolone.  Po okresie prolongaty (jedna godzina), jeśli wykorzystana pojemność puli nadal przekracza jej aprowizowana pojemność, rozmiar puli zostanie automatycznie zwiększony w przyrostach 1 TiB, dopóki aprowizowana pojemność nie będzie większa niż całkowita wykorzystana pojemność.  Na przykład na powyższej ilustracji, jeśli tom 3 nadal rośnie, a rzeczywiste zużycie osiągnie 1,2 TiB, a następnie po okresie prolongaty pula zostanie automatycznie przesunięta się na 5 TiB.  W rezultacie pojemność puli aprowizowana (5 TiB) przekracza używaną pojemność (4,2 TiB).  
+Jeśli całkowita używana pojemność puli przekroczy swoją zainicjowaną pojemność, operacje zapisu danych są nadal dozwolone.  Po upływie okresu prolongaty (1 godzina), jeśli używana pojemność puli nadal przekracza swoją zainicjowaną pojemność, rozmiar puli zostanie automatycznie zwiększony w przyrostach 1 TiB, dopóki pojemność nie zostanie osiągnięta.  Na przykład na powyższej ilustracji, jeśli wolumin 3 zostanie powiększony, a rzeczywiste zużycie osiągnie 1,2 TiB, wówczas po okresie prolongaty rozmiar puli zostanie automatycznie zmieniony na 5 TiB.  W efekcie pojemność puli zainicjowanej (5 TiB) przekracza użytą pojemność (4,2 TiB).  
 
-## <a name="manual-changes-of-the-pool-size"></a>Ręczne zmiany rozmiaru basenu  
+## <a name="manual-changes-of-the-pool-size"></a>Ręczne zmiany rozmiaru puli  
 
-Można ręcznie zwiększyć lub zmniejszyć rozmiar puli. Obowiązują jednak następujące ograniczenia:
-* Minimalne i maksymalne limity usług  
-    Zobacz artykuł o [limitach zasobów](azure-netapp-files-resource-limits.md).
-* Przyrost 1-TiB po początkowym minimalnym zakupie 4-TiB
-* Minimalny przyrost rozliczeń o jedną godzinę
-* Rozmiar puli aprowizacji nie może być zmniejszona do mniej niż całkowita liczba wykorzystanych w puli.
+Rozmiar puli można ręcznie zwiększyć lub zmniejszyć. Jednak obowiązują następujące ograniczenia:
+* Minimalne i maksymalne limity usługi  
+    Zobacz artykuł dotyczący [limitów zasobów](azure-netapp-files-resource-limits.md).
+* Przyrost 1 TiB po początkowym minimalnym zakupie 4-TiB
+* Minimalny przyrost rozliczania dla jednej godziny
+* Rozmiar puli aprowizacji nie może zostać zmniejszony do wartości mniejszej niż całkowita użyta w puli.
 
-## <a name="behavior-of-maximum-size-pool-overage"></a>Zachowanie maksymalnej wielkości przekroju puli   
+## <a name="behavior-of-maximum-size-pool-overage"></a>Zachowanie nadwyżkowe w puli o maksymalnym rozmiarze   
 
-Maksymalny rozmiar puli pojemności, do której można utworzyć lub zmienić jego rozmiar, wynosi 500 TiB.  Gdy całkowita ilość zużytej pojemności w puli pojemności przekracza 500 TiB, wystąpią następujące sytuacje:
-* Zapisy danych będą nadal dozwolone (jeśli objętość jest poniżej maksymalnej wartości systemu 100 TiB).
-* Po godzinnym okresie prolongaty pula zostanie automatycznie przesięknięta w przyrostach 1-TiB, dopóki pojemność aprowizowana puli nie przekroczy całkowitej używanej pojemności.
-* Dodatkowe aprowizowanych i rozliczanych pojemności puli przekraczającej 500 TiB nie można użyć do przypisania przydziału woluminu. Nie można również użyć do rozszerzenia limitów QoS wydajności.  
-    Zobacz [poziomy usług](azure-netapp-files-service-levels.md) dotyczące limitów wydajności i rozmiaru QoS.
+Maksymalny rozmiar puli pojemności, którą można utworzyć lub zmienić jej rozmiar to 500 TiB.  Gdy całkowita użyta pojemność w puli pojemności przekracza 500 TiB, zostaną wykonane następujące sytuacje:
+* Zapisy danych będą nadal dozwolone (jeśli wolumin jest niższy niż maksymalny 100 TiB).
+* Po upływie 1-godzinnego okresu prolongaty rozmiar puli zostanie automatycznie zmieniony w przyrostach TiB, dopóki alokacja puli nie przekracza całkowitej używanej pojemności.
+* Do przypisywania przydziału woluminu nie można używać dodatkowej i rozliczanej pojemności puli, która przekracza 500 TiB. Nie można go również użyć do rozwinięcia limitów QoS wydajności.  
+    Zobacz [poziomy usługi](azure-netapp-files-service-levels.md) dotyczące limitów wydajności i ustalania wielkości QoS.
 
-Poniższy diagram ilustruje następujące pojęcia:
-* Mamy pulę pojemności z warstwą pamięci masowej Premium i pojemnością 500 TiB. Pula zawiera dziewięć tomów.
-    * Woluminom od 1 do 8 przypisano przydział 60 TiB każdy.  Całkowita zużyta pojemność wynosi 480 TiB.  
-        Każdy wolumin ma limit QoS 3,75 GiB/s przepustowości (60 TiB * 64 MiB/s).  
-    * Tom 9 jest przypisany przydział 20 TiB.  
-        Tom 9 ma limit QoS 1,25 GiB/s przepustowości (20 TiB * 64 MiB/s).
-* Tom 9 jest scenariuszem przeceniania. Ma 25 TiB rzeczywistego zużycia.  
-    * Po godzinnym okresie prolongaty pula pojemności zostanie przesuń na 505 TiB.  
-        Oznacza to, że całkowita zużyta pojemność = 8 * 60-TiB przydział dla woluminów od 1 do 8 i 25 TiB rzeczywistego zużycia dla woluminu 9.
-    * Pojemność naliczona wynosi 505 TiB.
-    * Nie można zwiększyć przydziału woluminu dla woluminu 9 (ponieważ całkowity przydział przypisany dla puli nie może przekraczać 500 TiB).
-    * Dodatkowa przepustowość QoS może nie być przypisana (ponieważ całkowita wartość QoS dla puli jest nadal oparta na 500 TiB).
+Poniższy diagram ilustruje następujące koncepcje:
+* Mamy pulę pojemności w warstwie Premium Storage i 500-TiB pojemność. Pula zawiera dziewięć woluminów.
+    * Woluminy od 1 do 8 są przypisane do 60 TiB każdy.  Całkowita użyta pojemność to 480 TiB.  
+        Każdy wolumin ma limit QoS wynoszący 3,75 GiB/s przepływności (60 TiB * 64 MiB/s).  
+    * Do woluminu 9 przypisano limit 20 TiB.  
+        Wolumin 9 ma limit QoS 1,25 GiB/s przepływności (20 TiB * 64 MiB/s).
+* Wolumin 9 jest scenariuszem nadwyżkowym. Ma 25 TiB rzeczywistego zużycia.  
+    * Po upływie okresu prolongaty o jednej godzinie rozmiar puli pojemności zostanie zmieniony na 505 TiB.  
+        Oznacza to, że łączna zużyta pojemność = 8 * 60-TiB przydziału dla woluminów od 1 do 8 i 25 TiB rzeczywistego zużycia dla woluminu 9.
+    * Rozliczane zdolności produkcyjne to 505 TiB.
+    * Nie można zwiększyć przydziału woluminu dla woluminu 9 (ponieważ łączny przydział puli nie może przekraczać 500 TiB).
+    * Nie można przypisać dodatkowej przepływności QoS (ponieważ całkowita jakość usług QoS dla puli nadal jest oparta na 500 TiB).
 
    ![Pula pojemności z dziewięcioma woluminami](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-nine-vols.png)
 
-## <a name="capacity-consumption-of-snapshots"></a>Zużycie pojemności migawek 
+## <a name="capacity-consumption-of-snapshots"></a>Użycie pojemności migawek 
 
-Zużycie pojemności migawek w usłudze Azure NetApp Files jest naliczane od przydziału woluminu nadrzędnego.  W rezultacie współudzi to samo stawki rozliczeniowe co pula pojemności, do której należy wolumin.  Jednak w przeciwieństwie do woluminu aktywnego zużycie migawki jest mierzone na podstawie zużywanej zdolności przyrostowej.  Migawki plików NetApp platformy Azure mają charakter różnicowy. W zależności od szybkości zmiany danych migawki często zużywają znacznie mniejszą pojemność niż pojemność logiczna aktywnego woluminu. Załóżmy na przykład, że masz migawkę woluminu 500-GiB, który zawiera tylko 10 GiB danych różnicowych. Pojemność, która jest obciążona przydziałem woluminu dla tej migawki będzie 10 GiB, a nie 500 GiB. 
+Użycie pojemności migawek w Azure NetApp Files jest obciążane opłatami za przydział woluminu nadrzędnego.  W związku z tym ma taką samą stawkę rozliczania co Pula pojemności, do której należy wolumin.  Jednak, w przeciwieństwie do aktywnego woluminu, użycie migawek jest mierzone na podstawie zużywanej pojemności.  Migawki Azure NetApp Files są zróżnicowane. W zależności od współczynnika zmian danych migawki często zużywają znacznie mniejszą pojemność niż pojemność logiczna woluminu aktywnego. Załóżmy na przykład, że masz migawkę woluminu 500-GiB, która zawiera tylko 10 GiB danych różnicowych. Pojemność, która jest naliczana względem limitu przydziału woluminu dla tej migawki, wynosi 10 GiB, nie 500 GiB. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Strona z cennikiem usługi Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
+* [Strona cennika Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Poziomy usług dla usługi Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Limity zasobów dla usługi Azure NetApp Files](azure-netapp-files-resource-limits.md)

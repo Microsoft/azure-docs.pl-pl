@@ -1,8 +1,8 @@
 ---
-title: Prywatność użytkowników i bezproblemowe logowanie usługi Azure AD bez umowy | Dokumenty firmy Microsoft
-description: Ten artykuł dotyczy bezproblemowego logowania jednokrotnego usługi Azure Active Directory (Azure AD) i zgodności z RODO.
+title: Prywatność użytkowników i bezproblemowe logowanie jednokrotne w usłudze Azure AD | Microsoft Docs
+description: W tym artykule poznasz Azure Active Directory (Azure AD) bezproblemowe logowanie jednokrotne i zgodność Rodo.
 services: active-directory
-keywords: co to jest Usługa Azure AD Connect, RODO, wymagane składniki dla usługi Azure AD, logowania jednokrotnego, logowania jednokrotnego
+keywords: Co to jest Azure AD Connect, Rodo, wymagane składniki usługi Azure AD, logowanie jednokrotne i logowanie jednokrotne
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9311c1060b953e87f163cb482db14cdd43f50d3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60242109"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Prywatność użytkownika i bezproblemowe logowanie jednokrotne do usługi Azure AD
@@ -30,25 +30,25 @@ ms.locfileid: "60242109"
 ## <a name="overview"></a>Omówienie
 
 
-Bezproblemowe logowanie usługi Azure AD zawiera następujący typ dziennika, który może zawierać dane osobowe: 
+Bezproblemowy Logowanie jednokrotne w usłudze Azure AD tworzy następujący typ dziennika, który może zawierać dane osobowe: 
 
-- Pliki dziennika śledzenia usługi Azure AD Connect.
+- Pliki dziennika śledzenia Azure AD Connect.
 
-Zwiększ prywatność użytkowników w celu bezproblemowego logowania jednokrotnego na dwa sposoby:
+Zwiększ prywatność użytkowników w celu zapewnienia bezproblemowego logowania jednokrotnego na dwa sposoby:
 
-1.  Na żądanie, wyodrębnić dane dla osoby i usunąć dane z tej osoby z instalacji.
+1.  Na żądanie Wyodrębnij dane dla osoby i Usuń z nich dane z tej osoby.
 2.  Upewnij się, że żadne dane nie są przechowywane dłużej niż 48 godzin.
 
-Zdecydowanie zalecamy drugą opcję, ponieważ łatwiej jest zaimplementować i utrzymać. Zobacz następujące instrukcje dla każdego typu dziennika:
+Zdecydowanie zalecamy, aby druga opcja była łatwiejsza do wdrożenia i konserwacji. Zobacz następujące instrukcje dla każdego typu dziennika:
 
-### <a name="delete-azure-ad-connect-trace-log-files"></a>Usuwanie plików dziennika śledzenia usługi Azure AD Connect
+### <a name="delete-azure-ad-connect-trace-log-files"></a>Usuń pliki dziennika śledzenia Azure AD Connect
 
-Sprawdź zawartość folderu **%ProgramData%\AADConnect** i usuń zawartość dziennika śledzenia **(trace-\*.log** files) tego folderu w ciągu 48 godzin od zainstalowania lub uaktualnienia usługi Azure AD Connect lub zmodyfikowania bezproblemowej konfiguracji logowania jednokrotnego, ponieważ ta akcja może tworzyć dane objęte RODO.
+Sprawdź zawartość folderu **%ProgramData%\AADConnect** i Usuń zawartość dziennika śledzenia (pliki**Trace\*-. log** ) tego folderu w ciągu 48 godzin od zainstalowania lub uaktualnienia Azure AD Connect lub zmodyfikowania bezproblemowej konfiguracji logowania jednokrotnego, ponieważ ta akcja może utworzyć dane objęte Rodo.
 
 >[!IMPORTANT]
->Nie usuwaj pliku **PersistedState.xml** w tym folderze, ponieważ ten plik jest używany do utrzymania stanu poprzedniej instalacji usługi Azure AD Connect i jest używany po zakończeniu instalacji uaktualnienia. Ten plik nigdy nie będzie zawierał żadnych danych o osobie i nigdy nie powinien zostać usunięty.
+>Nie usuwaj pliku **PersistedState. XML** w tym folderze, ponieważ ten plik jest używany do zachowywania stanu poprzedniej instalacji Azure AD Connect i jest używany podczas instalacji uaktualnienia. Ten plik nigdy nie będzie zawierał żadnych danych dotyczących osoby i nigdy nie powinien być usunięty.
 
-Można przejrzeć i usunąć te pliki dziennika śledzenia przy użyciu Eksploratora Windows lub użyć następującego skryptu programu PowerShell do wykonania niezbędnych akcji:
+Możesz przejrzeć i usunąć te pliki dzienników śledzenia za pomocą Eksploratora Windows lub użyć następującego skryptu programu PowerShell, aby wykonać niezbędne czynności:
 
 ```powershell
 $Files = ((Get-Item -Path "$env:programdata\aadconnect\trace-*.log").VersionInfo).FileName 
@@ -58,16 +58,16 @@ Foreach ($file in $Files) {
 }
 ```
 
-Zapisz skrypt w pliku z ". PS1". Uruchom ten skrypt w razie potrzeby.
+Zapisz skrypt w pliku z ". Rozszerzenie PS1. Uruchom ten skrypt zgodnie z wymaganiami.
 
-Aby dowiedzieć się więcej o powiązanych wymaganiach RODO usługi Azure AD Connect, zobacz [ten artykuł](reference-connect-user-privacy.md).
+Aby dowiedzieć się więcej o powiązanych Azure AD Connect wymaganiach Rodo, zobacz [ten artykuł](reference-connect-user-privacy.md).
 
-### <a name="note-about-domain-controller-logs"></a>Uwaga dotycząca dzienników kontrolera domeny
+### <a name="note-about-domain-controller-logs"></a>Uwaga na temat dzienników kontrolera domeny
 
-Jeśli rejestrowanie inspekcji jest włączone, ten produkt może generować dzienniki zabezpieczeń dla kontrolerów domeny. Aby dowiedzieć się więcej na temat konfigurowania zasad inspekcji, przeczytaj ten [artykuł](https://technet.microsoft.com/library/dd277403.aspx).
+W przypadku włączenia rejestrowania inspekcji ten produkt może generować dzienniki zabezpieczeń dla kontrolerów domeny. Aby dowiedzieć się więcej o konfigurowaniu zasad inspekcji, przeczytaj ten [artykuł](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zapoznaj się z zasadami zachowania poufności firmy Microsoft w Centrum zaufania](https://www.microsoft.com/trustcenter)
-  - [**Rozwiązywanie problemów**](tshoot-connect-sso.md) — dowiedz się, jak rozwiązać typowe problemy z tą funkcją.
-  - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) — do składania nowych żądań funkcji.
+* [Zapoznaj się z zasadami zachowania poufności informacji firmy Microsoft w centrum zaufania](https://www.microsoft.com/trustcenter)
+  - [**Rozwiązywanie problemów**](tshoot-connect-sso.md) — Dowiedz się, jak rozwiązywać typowe problemy z funkcją.
+  - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) — w przypadku zgłaszania nowych żądań funkcji.

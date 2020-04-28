@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie automatycznej skali wystąpienia usługi Azure API Management | Dokumenty firmy Microsoft
+title: Konfigurowanie automatycznego skalowania wystąpienia usługi Azure API Management | Microsoft Docs
 description: W tym temacie opisano sposób konfigurowania zachowania skalowania automatycznego dla wystąpienia usługi Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -12,122 +12,122 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 8c1c96fdb1f4f42c7592791881b855f74d411171
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70018292"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Automatyczne skalowanie wystąpienia usługi Azure API Management  
 
-Wystąpienie usługi Usługi Azure API Management można skalować automatycznie na podstawie zestawu reguł. To zachowanie można włączyć i skonfigurować za pośrednictwem usługi Azure Monitor i jest obsługiwane tylko w warstwach **Standardowa** i **Premium** usługi Azure API Management.
+Wystąpienie usługi Azure API Management można skalować automatycznie na podstawie zestawu reguł. To zachowanie można włączyć i skonfigurować za pomocą Azure Monitor i jest obsługiwane tylko w warstwach **standardowa** i **Premium** usługi Azure API Management.
 
-W artykule przechodzi przez proces konfigurowania skalowania automatycznego i sugeruje optymalną konfigurację reguł skalowania automatycznego.
+Artykuł przeprowadzi Cię przez proces konfigurowania automatycznego skalowania i sugeruje optymalną konfigurację reguł skalowania automatycznego.
 
 > [!NOTE]
-> Usługa api Management w warstwie **Zużycie** skaluje się automatycznie na podstawie ruchu — bez konieczności dodatkowej konfiguracji.
+> Usługa API Management w warstwie **zużycia** jest skalowana automatycznie na podstawie ruchu — bez konieczności dodatkowej konfiguracji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki z tego artykułu, należy:
+Aby wykonać kroki opisane w tym artykule, musisz:
 
 + Mieć aktywną subskrypcję platformy Azure.
-+ Mieć wystąpienie usługi Azure API Management. Aby uzyskać więcej informacji, zobacz [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
-+ Poznaj pojęcie [pojemności wystąpienia](api-management-capacity.md)usługi Azure API Management .
-+ Opis [ręcznego procesu skalowania wystąpienia usługi Azure API Management,](upgrade-and-scale.md)w tym konsekwencji kosztów.
++ Posiadanie wystąpienia usługi Azure API Management. Aby uzyskać więcej informacji, zobacz [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
++ Zrozumienie koncepcji [pojemności wystąpienia usługi Azure API Management](api-management-capacity.md).
++ Poznaj [proces ręcznego skalowania wystąpienia API Management platformy Azure](upgrade-and-scale.md), w tym konsekwencje dotyczące kosztów.
 
 [!INCLUDE [premium-standard.md](../../includes/api-management-availability-premium-standard.md)]
 
-## <a name="azure-api-management-autoscale-limitations"></a>Ograniczenia skalowania automatycznego usługi Azure API Management
+## <a name="azure-api-management-autoscale-limitations"></a>Ograniczenia skalowania automatycznego w usłudze Azure API Management
 
-Niektóre ograniczenia i konsekwencje decyzji skalowania należy wziąć pod uwagę przed skonfigurowaniem zachowania skalowania automatycznego.
+Przed skonfigurowaniem zachowania skalowania automatycznego należy wziąć pod uwagę pewne ograniczenia i konsekwencje podjęcia decyzji dotyczących skalowania.
 
-+ Skalowanie automatyczne można włączyć tylko dla **warstwy Standardowa** i **Premium** usługi Azure API Management.
++ Skalowanie automatyczne można włączyć tylko dla warstw **standardowa** i **Premium** usługi Azure API Management.
 + Warstwy cenowe określają również maksymalną liczbę jednostek dla wystąpienia usługi.
 + Proces skalowania zajmie co najmniej 20 minut.
-+ Jeśli usługa jest zablokowana przez inną operację, żądanie skalowania zakończy się niepowodzeniem i ponowi próbę automatycznie.
-+ W przypadku usługi z wdrożeń wieloregionalnych tylko jednostki w **lokalizacji podstawowej** mogą być skalowane. Jednostek w innych lokalizacjach nie można skalować.
++ Jeśli usługa jest zablokowana przez inną operację, żądanie skalowania zakończy się niepowodzeniem i zostanie ponowione automatycznie.
++ W przypadku usługi z wdrożeniami wieloregionalnymi można skalować tylko jednostki w **lokalizacji podstawowej** . Nie można skalować jednostek w innych lokalizacjach.
 
-## <a name="enable-and-configure-autoscale-for-azure-api-management-service"></a>Włączanie i konfigurowanie skalowania automatycznego dla usługi Azure API Management
+## <a name="enable-and-configure-autoscale-for-azure-api-management-service"></a>Włączanie i Konfigurowanie automatycznego skalowania dla usługi Azure API Management
 
-Wykonaj poniższe czynności, aby skonfigurować skalowanie automatyczne dla usługi Azure API Management:
+Wykonaj poniższe kroki, aby skonfigurować automatyczne skalowanie dla usługi Azure API Management:
 
-1. Przejdź do **wystąpienia monitoruj** w witrynie Azure portal.
+1. Przejdź do **monitorowania** wystąpienia w Azure Portal.
 
     ![Azure Monitor](media/api-management-howto-autoscale/01.png)
 
-2. Wybierz **opcję Skalowanie automatyczne** z menu po lewej stronie.
+2. Wybierz pozycję **Skalowanie automatyczne** z menu po lewej stronie.
 
-    ![Zasób automatycznej skali usługi Azure Monitor](media/api-management-howto-autoscale/02.png)
+    ![Azure Monitor zasób automatycznego skalowania](media/api-management-howto-autoscale/02.png)
 
 3. Znajdź usługę Azure API Management na podstawie filtrów w menu rozwijanych.
-4. Wybierz żądane wystąpienie usługi Usługi Azure API Management.
-5. W nowo otwartej sekcji kliknij przycisk **Włącz skalowanie automatyczne.**
+4. Wybierz żądane wystąpienie usługi Azure API Management.
+5. W nowo otwartym obszarze kliknij przycisk **Włącz automatyczne skalowanie** .
 
-    ![Automatyczne skalowanie monitora platformy Azure](media/api-management-howto-autoscale/03.png)
+    ![Włączanie automatycznego skalowania Azure Monitor](media/api-management-howto-autoscale/03.png)
 
-6. W sekcji **Reguły** kliknij przycisk **+ Dodaj regułę**.
+6. W sekcji **reguły** kliknij pozycję **+ Dodaj regułę**.
 
-    ![Reguła dodawania automatycznego skalowania monitora platformy Azure](media/api-management-howto-autoscale/04.png)
+    ![Reguła dodawania automatycznego skalowania Azure Monitor](media/api-management-howto-autoscale/04.png)
 
 7. Zdefiniuj nową regułę skalowania w poziomie.
 
-   Na przykład reguła skalowania w poziomie może wyzwolić dodanie jednostki usługi Azure API Management, gdy średnia metryka pojemności w ciągu ostatnich 30 minut przekracza 80%. Poniższa tabela zawiera konfigurację takiej reguły.
+   Na przykład reguła skalowania w poziomie może wyzwolić dodanie jednostki API Management platformy Azure, gdy Metryka średniej wydajności w ciągu ostatnich 30 minut przekroczy 80%. Poniższa tabela zawiera konfigurację dla takiej reguły.
 
     | Parametr             | Wartość             | Uwagi                                                                                                                                                                                                                                                                           |
     |-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Źródło metryki         | Bieżący zasób  | Zdefiniuj regułę na podstawie bieżących metryk zasobów usługi Azure API Management.                                                                                                                                                                                                     |
+    | Źródło metryki         | Bieżący zasób  | Zdefiniuj regułę na podstawie bieżących metryk zasobów API Management platformy Azure.                                                                                                                                                                                                     |
     | *Kryteria*            |                   |                                                                                                                                                                                                                                                                                 |
     | Agregacja czasu      | Średnia           |                                                                                                                                                                                                                                                                                 |
-    | Nazwa metryki           | Pojemność          | Metryka pojemności to metryka usługi Azure API Management odzwierciedlającya użycie zasobów wystąpienia usługi Azure API Management.                                                                                                                                                            |
+    | Nazwa metryki           | Pojemność          | Metryka wydajności to metryka usługi Azure API Management, która odzwierciedla użycie zasobów wystąpienia usługi Azure API Management.                                                                                                                                                            |
     | Statystyka ziarna czasu  | Średnia           |                                                                                                                                                                                                                                                                                 |
     | Operator              | Większe niż      |                                                                                                                                                                                                                                                                                 |
-    | Próg             | 80%               | Próg dla metryki zdolności produkcyjnej uśredniony.                                                                                                                                                                                                                                 |
-    | Czas trwania (w minutach) | 30                | Okres, aby uśrednić metrykę pojemności nad jest specyficzne dla wzorców użycia. Im dłuższy jest okres, tym gładsza będzie reakcja - przerywane kolce będą miały mniejszy wpływ na decyzję o skali w poziomie. Jednak będzie również opóźnić wyzwalacz skalowania w poziomie. |
+    | Próg             | 80%               | Próg metryki średniej wydajności.                                                                                                                                                                                                                                 |
+    | Czas trwania (w minutach) | 30                | Wartość przedziału czasu do średniej metryki wydajności jest specyficzna dla wzorców użycia. Im dłuższy czas polega na tym, że wygładzanie reakcji będzie nieprzerwanie wpływać na decyzje skalowalne w poziomie. Jednak również opóźnia wyzwalacz skalowalny w poziomie. |
     | *Akcja*              |                   |                                                                                                                                                                                                                                                                                 |
     | Operacja             | Zwiększ licznik o |                                                                                                                                                                                                                                                                                 |
-    | Liczba wystąpień        | 1                 | Skalowanie w poziomie wystąpienia usługi Azure API Management przez 1 jednostkę.                                                                                                                                                                                                                          |
-    | Czas schładzania (minuty)   | 60                | Skalowanie w poziomie usługi Azure API Management zajmuje co najmniej 20 minut. W większości przypadków okres schładzania wynoszący 60 minut uniemożliwia wyzwalanie wielu skalowanych wyjęć.                                                                                                  |
+    | Liczba wystąpień        | 1                 | Skaluj wystąpienie API Management platformy Azure o 1 jednostkę.                                                                                                                                                                                                                          |
+    | Czas schładzania (minuty)   | 60                | Skalowanie w poziomie usługi Azure API Management trwa co najmniej 20 minut. W większości przypadków okres chłodzenia o 60 minut uniemożliwia wyzwolenie wielu skalowania w poziomie.                                                                                                  |
 
-8. Kliknij **przycisk Dodaj,** aby zapisać regułę.
+8. Kliknij przycisk **Dodaj** , aby zapisać regułę.
 
-    ![Reguła skalowania w poziomie usługi Azure Monitor](media/api-management-howto-autoscale/05.png)
+    ![Reguła skalowania w poziomie Azure Monitor](media/api-management-howto-autoscale/05.png)
 
-9. Kliknij ponownie na **+ Dodaj regułę**.
+9. Kliknij ponownie pozycję **+ Dodaj regułę**.
 
-    Tym razem należy zdefiniować skalę reguły. Zapewni to, że zasoby nie są marnowane, gdy zmniejsza się użycie interfejsów API.
+    Tym razem należy zdefiniować regułę skalowania w poziomie. Dzięki temu zasoby nie są tracone, gdy użycie interfejsów API zmniejszy się.
 
-10. Zdefiniuj nową skalę w regule.
+10. Zdefiniuj nową regułę skalowania w poziomie.
 
-    Na przykład skala w regule może wyzwolić usunięcie jednostki usługi Azure API Management, gdy średnia metryka pojemności w ciągu ostatnich 30 minut była niższa niż 35%. Poniższa tabela zawiera konfigurację takiej reguły.
+    Na przykład reguła skalowania może wyzwolić usunięcie jednostki API Management platformy Azure, gdy Metryka średniej wydajności w ciągu ostatnich 30 minut była mniejsza niż 35%. Poniższa tabela zawiera konfigurację dla takiej reguły.
 
     | Parametr             | Wartość             | Uwagi                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
     |-----------------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Źródło metryki         | Bieżący zasób  | Zdefiniuj regułę na podstawie bieżących metryk zasobów usługi Azure API Management.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+    | Źródło metryki         | Bieżący zasób  | Zdefiniuj regułę na podstawie bieżących metryk zasobów API Management platformy Azure.                                                                                                                                                                                                                                                                                                                                                                                                                         |
     | *Kryteria*            |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | Agregacja czasu      | Średnia           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | Nazwa metryki           | Pojemność          | Taka sama metryka, jak ta używana dla reguły skalowania w poziomie.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+    | Nazwa metryki           | Pojemność          | Taka sama Metryka jak wartość użyta w regule skalowania w poziomie.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
     | Statystyka ziarna czasu  | Średnia           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | Operator              | Mniejsze niż         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | Próg             | 35%               | Podobnie jak reguła skalowania w poziomie, ta wartość w dużej mierze zależy od wzorców użycia usługi Azure API Management. |
-    | Czas trwania (w minutach) | 30                | Taką samą wartość jak ta używana dla reguły skalowania w poziomie.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+    | Próg             | 35%               | Podobnie jak reguła skalowania w poziomie, ta wartość jest intensywnie zależna od wzorców użytkowania API Management platformy Azure. |
+    | Czas trwania (w minutach) | 30                | Taka sama jak wartość użyta w regule skalowania w poziomie.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | *Akcja*              |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | Operacja             | Zmniejsz licznik o | W przeciwieństwie do tego, co zostało użyte do reguły skalowania w poziomie.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-    | Liczba wystąpień        | 1                 | Taką samą wartość jak ta używana dla reguły skalowania w poziomie.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-    | Czas schładzania (minuty)   | 90                | Skala powinna być bardziej konserwatywna niż skala w poziomie, więc okres schładzać powinien być dłuższy.                                                                                                                                                                                                                                                                                                                                                                                                    |
+    | Operacja             | Zmniejsz licznik o | Przeciwieństwem do tego, co zostało użyte w regule skalowania w poziomie.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+    | Liczba wystąpień        | 1                 | Taka sama jak wartość użyta w regule skalowania w poziomie.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+    | Czas schładzania (minuty)   | 90                | Skalowanie w poziomie powinno być bardziej ostrożne niż skalowanie w poziomie, dlatego okres chłodzenia powinien być dłuższy.                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-11. Kliknij **przycisk Dodaj,** aby zapisać regułę.
+11. Kliknij przycisk **Dodaj** , aby zapisać regułę.
 
-    ![Skalowanie usługi Azure Monitor w regule](media/api-management-howto-autoscale/06.png)
+    ![Reguła skalowania Azure Monitor](media/api-management-howto-autoscale/06.png)
 
-12. Ustaw **maksymalną** liczbę jednostek usługi Azure API Management.
+12. Ustaw **maksymalną** liczbę jednostek API Management platformy Azure.
 
     > [!NOTE]
-    > Usługa Azure API Management ma limit jednostek, do które wystąpienie można skalować w poziomie. Limit zależy od warstwy usług.
+    > Usługa Azure API Management ma limit jednostek, do których wystąpienie można skalować w poziomie. Limit zależy od warstwy usług.
 
-    ![Skalowanie usługi Azure Monitor w regule](media/api-management-howto-autoscale/07.png)
+    ![Reguła skalowania Azure Monitor](media/api-management-howto-autoscale/07.png)
 
-13. Kliknij przycisk **Zapisz**. Skalowanie automatyczne zostało skonfigurowane.
+13. Kliknij przycisk **Zapisz**. Twoje Skalowanie automatyczne zostało skonfigurowane.
 
 ## <a name="next-steps"></a>Następne kroki
 

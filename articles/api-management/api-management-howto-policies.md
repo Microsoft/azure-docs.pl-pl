@@ -1,6 +1,6 @@
 ---
-title: Zasady w usłudze Azure API Management | Dokumenty firmy Microsoft
-description: Dowiedz się, jak tworzyć, edytować i konfigurować zasady w usłudze API Management.
+title: Zasady na platformie Azure API Management | Microsoft Docs
+description: Dowiedz się, jak tworzyć, edytować i konfigurować zasady w programie API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,32 +13,32 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70072303"
 ---
 # <a name="policies-in-azure-api-management"></a>Zasady w usłudze Azure API Management
 
-W usłudze Azure API Management (APIM) zasady są zaawansowana funkcja systemu, które umożliwiają wydawcy, aby zmienić zachowanie interfejsu API za pomocą konfiguracji. Zasady są kolekcją instrukcji, które są wykonywane sekwencyjnie na żądanie lub odpowiedź interfejsu API. Popularne instrukcje obejmują konwersję formatu z XML do JSON i ograniczenie szybkości połączeń w celu ograniczenia liczby połączeń przychodzących od dewelopera. Wiele innych zasad jest dostępnych po wyjęciu z pudełka.
+W przypadku usługi Azure API Management (APIM) zasady stanowią zaawansowaną funkcję systemu, która umożliwia wydawcy zmianę zachowania interfejsu API za pomocą konfiguracji. Zasady są zbiorem instrukcji, które są wykonywane sekwencyjnie na żądanie lub odpowiedź interfejsu API. Popularne instrukcje obejmują konwersję formatu z XML do JSON i ograniczanie szybkości wywołań, aby ograniczyć liczbę wywołań przychodzących od dewelopera. Dostępnych jest wiele innych zasad.
 
-Zasady są stosowane wewnątrz bramy, która znajduje się między konsumentem interfejsu API a zarządzanym interfejsem API. Brama odbiera wszystkie żądania i zwykle przekazuje je w stanie zapytania do bazowego interfejsu API. Jednak zasady mogą stosować zmiany zarówno do żądania przychodzącego i odpowiedzi wychodzącej.
+Zasady są stosowane w ramach bramy, która znajduje się między klientem interfejsu API i zarządzanym interfejsem API. Brama odbiera wszystkie żądania i zwykle przekazuje je w niezmienionej postaci do bazowego interfejsu API. Jednak zasady mogą stosować zmiany zarówno do żądania przychodzącego, jak i do odpowiedzi wychodzącej.
 
 Wyrażenia zasad mogą służyć jako wartości atrybutów lub wartości tekstowe w dowolnej z zasad usługi API Management, o ile w zasadach nie określono inaczej. Niektóre zasady, np. [Przepływ sterowania][Control flow] i [Ustawianie zmiennej][Set variable], są oparte na wyrażeniach zasad. Aby uzyskać więcej informacji, zobacz tematy [Advanced policies][Advanced policies] (Zaawansowane zasady) i [Policy expressions][Policy expressions] (Wyrażenia zasad).
 
-## <a name="understanding-policy-configuration"></a><a name="sections"> </a>Opis konfiguracji zasad
+## <a name="understanding-policy-configuration"></a><a name="sections"> </a>Omówienie konfiguracji zasad
 
-Definicja zasad jest prostym dokumentem XML, który opisuje sekwencję instrukcji przychodzących i wychodzących. Kod XML można edytować bezpośrednio w oknie definicji. Lista instrukcji jest dostarczana po prawej stronie, a instrukcje mające zastosowanie do bieżącego zakresu są włączone i wyróżnione.
+Definicja zasad to prosty dokument XML, który opisuje sekwencję przychodzących i wychodzących instrukcji. KOD XML można edytować bezpośrednio w oknie definicji. Lista instrukcji jest podawana po prawej stronie, a instrukcje mające zastosowanie do bieżącego zakresu są włączone i wyróżnione.
 
-Kliknięcie włączonej instrukcji spowoduje dodanie odpowiedniego kodu XML w lokalizacji kursora w widoku definicji. 
+Kliknięcie instrukcji Enabled spowoduje dodanie odpowiedniego kodu XML w lokalizacji kursora w widoku definicji. 
 
 > [!NOTE]
-> Jeśli zasady, które chcesz dodać, nie są włączone, upewnij się, że jesteś w odpowiednim zakresie dla tej zasady. Każda instrukcja zasad jest przeznaczona do użytku w określonych zakresach i sekcjach zasad. Aby przejrzeć sekcje zasad i zakresy zasad, sprawdź sekcję **Użycie** dla tej zasady w sekcji [Odwołanie do zasad][Policy Reference].
+> Jeśli zasady, które chcesz dodać, nie są włączone, upewnij się, że jesteś w prawidłowym zakresie dla tych zasad. Każda instrukcja zasad jest przeznaczona do użycia w określonych zakresach i sekcjach zasad. Aby zapoznać się z sekcjami zasad i zakresami zasad, należy zapoznać się z sekcją **użycie** tych zasad w temacie [Informacje o zasadach][Policy Reference].
 > 
 > 
 
-Konfiguracja jest podzielona `backend` `outbound`na `on-error` `inbound`, , i . Seria określonych instrukcji zasad jest wykonywana w kolejności dla żądania i odpowiedzi.
+Konfiguracja jest podzielona na `inbound`, `backend`, `outbound`, i `on-error`. Seria określonych instrukcji zasad jest wykonywana w celu żądania i odpowiedzi.
 
 ```xml
 <policies>
@@ -58,25 +58,25 @@ Konfiguracja jest podzielona `backend` `outbound`na `on-error` `inbound`, , i . 
 </policies> 
 ```
 
-Jeśli wystąpi błąd podczas przetwarzania żądania, wszystkie pozostałe `inbound`kroki `backend`w `outbound` , lub sekcje są pomijane i `on-error` wykonywanie przeskakuje do instrukcji w sekcji. Umieszczając instrukcje zasad `on-error` w sekcji można przejrzeć `context.LastError` błąd przy użyciu właściwości, sprawdzić `set-body` i dostosować odpowiedź na błąd przy użyciu zasad i skonfigurować, co się stanie, jeśli wystąpi błąd. Istnieją kody błędów dla wbudowanych kroków i błędów, które mogą wystąpić podczas przetwarzania instrukcji zasad. Aby uzyskać więcej informacji, zobacz [Obsługa błędów w zasadach zarządzania interfejsami API](/azure/api-management/api-management-error-handling-policies).
+Jeśli wystąpi błąd podczas przetwarzania żądania, wszystkie pozostałe kroki w `inbound`sekcjach, `backend`lub `outbound` są pomijane, a wykonywanie przechodzi do instrukcji w `on-error` sekcji. Umieszczając instrukcje zasad w `on-error` sekcji, można sprawdzić błąd przy użyciu `context.LastError` właściwości, sprawdzić i dostosować odpowiedź na błąd przy użyciu `set-body` zasad i skonfigurować działanie w przypadku wystąpienia błędu. Istnieją kody błędów dla wbudowanych kroków i dla błędów, które mogą wystąpić podczas przetwarzania instrukcji zasad. Aby uzyskać więcej informacji, zobacz [Obsługa błędów w zasadach API Management](/azure/api-management/api-management-error-handling-policies).
 
 ## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Jak skonfigurować zasady
 
-Aby uzyskać informacje dotyczące konfigurowania zasad, zobacz [Ustawianie lub edytowanie zasad](set-edit-policies.md).
+Aby uzyskać informacje na temat konfigurowania zasad, zobacz [Ustawianie lub edytowanie zasad](set-edit-policies.md).
 
-## <a name="policy-reference"></a>Referencje dotyczące zasad
+## <a name="policy-reference"></a>Dokumentacja zasad
 
-Pełna lista instrukcji dotyczących zasad i ich ustawień można znaleźć w [przypadku odwołania do zasad.](api-management-policy-reference.md)
+Aby zapoznać się z pełną listą instrukcji zasad i ich ustawień, zobacz [Informacje o zasadach](api-management-policy-reference.md) .
 
 ## <a name="policy-samples"></a>Przykłady zasad
 
-Zobacz [przykłady zasad,](policy-samples.md) aby uzyskać więcej przykładów kodu.
+Zobacz [przykłady zasad](policy-samples.md) , aby uzyskać więcej przykładów kodu.
 
 ## <a name="examples"></a>Przykłady
 
 ### <a name="apply-policies-specified-at-different-scopes"></a>Stosowanie zasad określonych w różnych zakresach
 
-Jeśli masz zasady na poziomie globalnym i zasady skonfigurowane dla interfejsu API, a następnie za każdym razem, gdy ten konkretny interfejs API jest używany obie zasady zostaną zastosowane. Zarządzanie interfejsem API umożliwia deterministyczne porządkowanie połączonych instrukcji zasad za pośrednictwem elementu podstawowego. 
+Jeśli masz zasady na poziomie globalnym i skonfigurowano zasady dla interfejsu API, za każdym razem, gdy zostanie użyty określony interfejs API, zostaną zastosowane obie zasady. API Management umożliwia deterministyczne porządkowanie instrukcji połączonych zasad za pośrednictwem elementu podstawowego. 
 
 ```xml
 <policies>
@@ -88,15 +88,15 @@ Jeśli masz zasady na poziomie globalnym i zasady skonfigurowane dla interfejsu 
 </policies>
 ```
 
-W powyższej definicji `cross-domain` zasad przykładowej instrukcja będzie wykonywana przed wszelkimi `find-and-replace` wyższymi zasadami, po których z kolei następuje zasada. 
+W powyższej przykładowej definicji zasad `cross-domain` , instrukcja zostanie wykonana przed wszystkimi wyższymi zasadami, które byłyby po kolei przestrzegane przez `find-and-replace` zasady. 
 
-### <a name="restrict-incoming-requests"></a>Ograniczanie żądań przychodzących
+### <a name="restrict-incoming-requests"></a>Ogranicz żądania przychodzące
 
-Aby dodać nową instrukcję, aby ograniczyć przychodzące żądania do określonych adresów IP, umieść kursor tylko wewnątrz zawartości elementu `inbound` XML i kliknij instrukcję **Ogranicz adresy IP wywołującego.**
+Aby dodać nową instrukcję, aby ograniczyć żądania przychodzące do określonych adresów IP, umieść kursor bezpośrednio wewnątrz zawartości elementu `inbound` XML i kliknij instrukcję **Ogranicz wywołania IP wywołującego** .
 
 ![Zasady ograniczeń][policies-restrict]
 
-Spowoduje to dodanie fragmentu kodu XML do `inbound` elementu, który zawiera wskazówki dotyczące konfigurowania instrukcji.
+Spowoduje to dodanie fragmentu kodu XML do `inbound` elementu, który zawiera wskazówki dotyczące sposobu konfigurowania instrukcji.
 
 ```xml
 <ip-filter action="allow | forbid">
@@ -105,7 +105,7 @@ Spowoduje to dodanie fragmentu kodu XML do `inbound` elementu, który zawiera ws
 </ip-filter>
 ```
 
-Aby ograniczyć przychodzące żądania i zaakceptować tylko te z adresu IP 1.2.3.4, zmodyfikuj kod XML w następujący sposób:
+Aby ograniczyć żądania przychodzące i akceptować tylko te z adresu IP 1.2.3.4, zmodyfikuj kod XML w następujący sposób:
 
 ```xml
 <ip-filter action="allow">
@@ -117,8 +117,8 @@ Aby ograniczyć przychodzące żądania i zaakceptować tylko te z adresu IP 1.2
 
 Aby uzyskać więcej informacji na temat pracy z zasadami, zobacz:
 
-+ [Przekształcanie interfejsów API](transform-api.md)
-+ [Odwołanie do zasad](api-management-policy-reference.md) dla pełnej listy oświadczeń zasad i ich ustawień
++ [Przekształć interfejsy API](transform-api.md)
++ [Dokumentacja zasad](api-management-policy-reference.md) pełna lista instrukcji zasad i ich ustawień
 + [Przykłady zasad](policy-samples.md)   
 
 [Policy Reference]: api-management-policy-reference.md

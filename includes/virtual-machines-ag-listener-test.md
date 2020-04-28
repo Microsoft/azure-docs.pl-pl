@@ -5,27 +5,27 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183176"
 ---
-W tym kroku można przetestować odbiornik grupy dostępności przy użyciu aplikacji klienckiej, która jest uruchomiona w tej samej sieci.
+W tym kroku przetestujesz odbiornik grupy dostępności przy użyciu aplikacji klienckiej uruchomionej w tej samej sieci.
 
-Łączność klienta ma następujące wymagania:
+Łączność z klientem ma następujące wymagania:
 
-* Połączenia klienta z odbiornikiem muszą pochodzić z komputerów, które znajdują się w innej usłudze w chmurze niż ta, która obsługuje repliki dostępności zawsze włączone.
-* Jeśli repliki always on znajdują się w różnych podsieciach, klienci muszą określić *MultisubnetFailover=True* w ciągu połączenia. Ten warunek powoduje równoległe próby połączenia replik w różnych podsieciach. Ten scenariusz obejmuje międzyregionów zawsze na dostępność wdrożenia grupy.
+* Połączenia klienta z odbiornikiem muszą pochodzić z maszyn, które znajdują się w innej usłudze w chmurze niż ta, która obsługuje zawsze włączone repliki dostępności.
+* Jeśli zawsze włączone repliki znajdują się w różnych podsieciach, klienci muszą określić *MultiSubnetFailover = true* w parametrach połączenia. Ten warunek powoduje próby połączenia równoległego z replikami w różnych podsieciach. W tym scenariuszu uwzględniono wdrożenie grupy dostępności obejmujące wiele regionów.
 
-Jednym z przykładów jest połączenie z odbiornikiem z jednej z maszyn wirtualnych w tej samej sieci wirtualnej platformy Azure (ale nie jeden, który obsługuje replikę). Łatwym sposobem ukończenia tego testu jest próba połączenia programu SQL Server Management Studio z detektorem grupy dostępności. Inną prostą metodą jest uruchomienie [programu SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx)w następujący sposób:
+Jednym z przykładu jest połączenie się z odbiornikiem z jednej z maszyn wirtualnych w tej samej sieci wirtualnej platformy Azure (ale nie na jednej z nich, która obsługuje replikę). Prostym sposobem przeprowadzenia tego testu jest próba nawiązania połączenia SQL Server Management Studio z odbiornikiem grupy dostępności. Inną prostą metodą jest uruchomienie pliku [sqlcmd. exe](https://technet.microsoft.com/library/ms162773.aspx)w następujący sposób:
 
     sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
 
 > [!NOTE]
-> Jeśli wartość EndpointPort wynosi *1433*, nie jest wymagane, aby określić go w wywołaniu. Poprzednie wywołanie zakłada również, że komputer kliencki jest przyłączony do tej samej domeny i że obiekt wywołujący otrzymał uprawnienia do bazy danych przy użyciu uwierzytelniania systemu Windows.
+> Jeśli EndpointPort wartość to *1433*, nie trzeba określać jej w wywołaniu. W poprzednim wywołaniu założono również, że komputer kliencki jest przyłączony do tej samej domeny, a obiekt wywołujący przyznał uprawnienia do bazy danych przy użyciu uwierzytelniania systemu Windows.
 > 
 > 
 
-Podczas testowania odbiornika, należy wykonać w stan failover grupy dostępności, aby upewnić się, że klienci mogą łączyć się z odbiornikiem w pracy awaryjnej.
+Podczas testowania odbiornika upewnij się, że grupa dostępności jest przełączana w tryb failover, aby upewnić się, że klienci mogą łączyć się z odbiornikiem w trybie awaryjnym.
 

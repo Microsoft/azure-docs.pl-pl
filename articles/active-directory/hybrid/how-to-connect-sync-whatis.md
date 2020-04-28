@@ -1,6 +1,6 @@
 ---
-title: 'Synchronizacja usługi Azure AD Connect: zrozumienie i dostosowywanie synchronizacji | Dokumenty firmy Microsoft'
-description: W tym artykule wyjaśniono, jak działa synchronizacja usługi Azure AD Connect i jak dostosować.
+title: 'Azure AD Connect Sync: omówienie i dostosowanie synchronizacji | Microsoft Docs'
+description: Wyjaśnia, jak działa synchronizacja Azure AD Connect i jak je dostosować.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,54 +17,54 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3b87f40d75d4045155e7dd953dc76ffd9de2b34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60348743"
 ---
-# <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Synchronizacja usługi Azure AD Connect: zrozumienie i dostosowywanie synchronizacji
-Usługi synchronizacji usługi Azure Active Directory Connect (synchronizacja usługi Azure AD Connect) są głównym składnikiem usługi Azure AD Connect. Zajmuje się wszystkie operacje, które są związane z synchronizacji danych tożsamości między środowiskiem lokalnym i usługi Azure AD. Synchronizacja usługi Azure AD Connect jest następcą programu DirSync, Usługi Azure AD Sync i menedżera tożsamości forefront z skonfigurowanym łącznikiem usługi Azure Active Directory.
+# <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect Sync: omówienie i dostosowanie synchronizacji
+Usługi synchronizacji Azure Active Directory Connect (Azure AD Connect Sync) są głównym składnikiem Azure AD Connect. Zajmuje ona wszystkie operacje związane z synchronizacją danych tożsamości między środowiskiem lokalnym i usługą Azure AD. Azure AD Connect Sync to następca narzędzi DirSync, Azure AD Sync i Forefront Identity Manager z skonfigurowanym łącznikiem Azure Active Directory.
 
-Ten temat jest domem dla **synchronizacji usługi Azure AD Connect** (nazywany także **aparatem synchronizacji)** i zawiera listę łączy do wszystkich innych tematów z nim związanych. Aby uzyskać łącza do usługi Azure AD Connect, zobacz [Integrowanie tożsamości lokalnych z usługą Azure Active Directory.](whatis-hybrid-identity.md)
+Ten temat jest domem dla **Azure AD Connect synchronizacji** (nazywanego także **aparatem synchronizacji**) i zawiera linki do wszystkich innych tematów związanych z nim. Aby uzyskać linki do Azure AD Connect, zobacz [integrowanie tożsamości lokalnych z Azure Active Directory](whatis-hybrid-identity.md).
 
-Usługa synchronizacji składa się z dwóch składników, lokalnego składnika **synchronizacji usługi Azure AD Connect** i strony usługi w usłudze Azure AD o nazwie usługa **synchronizacji usługi Azure AD Connect.**
+Usługa synchronizacji składa się z dwóch składników, składnika **synchronizacji Azure AD Connect** lokalnego i usługi w usłudze Azure AD o nazwie **usługa synchronizacji Azure AD Connect**.
 
-## <a name="azure-ad-connect-sync-topics"></a>Tematy synchronizacji usługi Azure AD Connect
-| Temat | Co obejmuje i kiedy czytać |
+## <a name="azure-ad-connect-sync-topics"></a>Tematy dotyczące synchronizacji Azure AD Connect
+| Temat | Co obejmuje i kiedy należy przeczytać |
 | --- | --- |
-| **Podstawy synchronizacji usługi Azure AD Connect** | |
-| [Opis architektury](concept-azure-ad-connect-sync-architecture.md) |Dla tych z Was, którzy są nowicjuszami w silniku synchronizacji i chcą dowiedzieć się o architekturze i używanych terminach. |
-| [Koncepcje techniczne](how-to-connect-sync-technical-concepts.md) |Krótka wersja tematu architektury i pokrótce wyjaśnia użyte terminy. |
-| [Topologie obsługiwane w programie Azure AD Connect](plan-connect-topologies.md) |W tym artykule opisano różne topologie i scenariusze obsługuje aparat synchronizacji. |
+| **Podstawy synchronizacji Azure AD Connect** | |
+| [Opis architektury](concept-azure-ad-connect-sync-architecture.md) |Dla osób, które są nowe dla aparatu synchronizacji i chcą poznać architekturę i używane terminy. |
+| [Koncepcje techniczne](how-to-connect-sync-technical-concepts.md) |Krótka wersja tematu architektura i krótkie objaśnienie użytych terminów. |
+| [Topologie obsługiwane w programie Azure AD Connect](plan-connect-topologies.md) |Opisuje różne topologie i scenariusze obsługiwane przez aparat synchronizacji. |
 | **Konfiguracja niestandardowa** | |
-| [Ponowne uruchamianie kreatora instalacji](how-to-connect-installation-wizard.md) |W tym artykule wyjaśniono, jakie opcje są dostępne po ponownym uruchomieniu kreatora instalacji usługi Azure AD Connect. |
-| [Omówienie aprowizacji deklaratywnej](concept-azure-ad-connect-sync-declarative-provisioning.md) |Opisuje model konfiguracji o nazwie deklaratywny inicjowania obsługi administracyjnej. |
-| [Opis wyrażenia inicjowania obsługi administracyjnej deklaratywnej](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) |Opisuje składnię języka wyrażeń używanego w deklaratywnym inicjowaniu obsługi administracyjnej. |
-| [Opis konfiguracji domyślnej](concept-azure-ad-connect-sync-default-configuration.md) |W tym artykule opisano reguły gotowe do użycia i konfigurację domyślną. Opisano również, jak reguły współpracują ze sobą dla scenariuszy gotowych do pracy. |
-| [Opis użytkowników i kontaktów](concept-azure-ad-connect-sync-user-and-contacts.md) |Kontynuuje poprzedni temat i opisuje, jak konfiguracja dla użytkowników i kontaktów działa razem, w szczególności w środowisku wielolesowym. |
-| [Jak wprowadzić zmiany w konfiguracji domyślnej](how-to-connect-sync-change-the-configuration.md) |Przeprowadzi Cię przez jak dokonać typowej zmiany konfiguracji do przepływów atrybutów. |
-| [Najlepsze rozwiązania dotyczące zmieniania konfiguracji domyślnej](how-to-connect-sync-best-practices-changing-default-configuration.md) |Ograniczenia obsługi i wprowadzania zmian w konfiguracji out-of-box. |
-| [Konfigurowanie filtrowania](how-to-connect-sync-configure-filtering.md) |W tym artykule opisano różne opcje ograniczania, które obiekty są synchronizowane z usługą Azure AD i krok po kroku, jak skonfigurować te opcje. |
+| [Ponowne uruchamianie Kreatora instalacji](how-to-connect-installation-wizard.md) |Wyjaśnia, jakie opcje są dostępne po ponownym uruchomieniu Kreatora instalacji Azure AD Connect. |
+| [Omówienie aprowizacji deklaratywnej](concept-azure-ad-connect-sync-declarative-provisioning.md) |Opisuje model konfiguracji o nazwie deklaracyjne Inicjowanie obsługi. |
+| [Opis wyrażeń związanych z aprowizacją deklaratywną](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) |Opisuje składnię języka wyrażeń używanego w aprowizacji deklaracyjnej. |
+| [Opis konfiguracji domyślnej](concept-azure-ad-connect-sync-default-configuration.md) |Zawiera opis reguł out-of-Box i konfiguracji domyślnej. Opisuje również sposób, w jaki reguły współpracują ze sobą, aby można było korzystać ze swoich scenariuszy. |
+| [Informacje o użytkownikach i kontaktach](concept-azure-ad-connect-sync-user-and-contacts.md) |Kontynuuje działanie w poprzednim temacie i opisuje, w jaki sposób Konfiguracja użytkowników i kontaktów działa razem, w szczególności w środowisku z obsługą kilku lasów. |
+| [Jak wprowadzić zmianę konfiguracji domyślnej](how-to-connect-sync-change-the-configuration.md) |Przeprowadzi Cię przez proces wykonywania typowej zmiany konfiguracji przepływów atrybutów. |
+| [Najlepsze rozwiązania dotyczące zmieniania konfiguracji domyślnej](how-to-connect-sync-best-practices-changing-default-configuration.md) |Obsługa ograniczeń i wprowadzanie zmian w konfiguracji wstępnej. |
+| [Konfigurowanie filtrowania](how-to-connect-sync-configure-filtering.md) |Opisuje różne opcje dotyczące sposobu ograniczania, które obiekty są synchronizowane z usługą Azure AD, oraz krok po kroku, jak skonfigurować te opcje. |
 | **Funkcje i scenariusze** | |
-| [Zapobieganie przypadkowemu usuwaniu](how-to-connect-sync-feature-prevent-accidental-deletes.md) |W tym artykule opisano *funkcję zapobiegania przypadkowym usuwaniom* i sposób jej konfigurowania. |
+| [Zapobieganie przypadkowemu usuwaniu](how-to-connect-sync-feature-prevent-accidental-deletes.md) |Opisuje funkcję *zapobiegania przypadkowemu usuwaniu* i konfigurowania jej. |
 | [Scheduler](how-to-connect-sync-feature-scheduler.md) |Opisuje wbudowany harmonogram, który importuje, synchronizuje i eksportuje dane. |
-| [Implementowanie synchronizacji skrótów haseł](how-to-connect-password-hash-synchronization.md) |W tym artykule opisano, jak działa synchronizacja haseł, jak zaimplementować oraz jak obsługiwać i rozwiązywać problemy. |
-| [Zapisywanie zwrotne urządzeń](how-to-connect-device-writeback.md) |W tym artykule opisano, jak działa stornia zwrotnego urządzenia w usłudze Azure AD Connect. |
-| [Rozszerzenia katalogów](how-to-connect-sync-feature-directory-extensions.md) |W tym artykule opisano sposób rozszerzania schematu usługi Azure AD o własne atrybuty niestandardowe. |
-| [Office 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) |W tym artykule opisano sposób umieszczania zasobów usługi Office 365 użytkownika w tym samym regionie co użytkownik. |
+| [Implementowanie synchronizacji skrótów haseł](how-to-connect-password-hash-synchronization.md) |Opisuje sposób działania synchronizacji haseł, sposobu wdrażania i sposobu działania oraz rozwiązywania problemów. |
+| [Zapisywanie zwrotne urządzeń](how-to-connect-device-writeback.md) |Opisuje sposób działania funkcji zapisywania zwrotnego urządzeń w Azure AD Connect. |
+| [Rozszerzenia katalogów](how-to-connect-sync-feature-directory-extensions.md) |Opisuje, jak zwiększyć schemat usługi Azure AD przy użyciu własnych atrybutów niestandardowych. |
+| [Pakiet Office 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) |Zawiera opis sposobu umieszczania zasobów pakietu Office 365 użytkownika w tym samym regionie, w którym znajduje się użytkownik. |
 | **Usługa synchronizacji** | |
-| [Funkcje usługi synchronizacji programu Azure AD Connect](how-to-connect-syncservice-features.md) |Zawiera opis strony usługi synchronizacji i jak zmienić ustawienia synchronizacji w usłudze Azure AD. |
-| [Odporność atrybutów duplikatów](how-to-connect-syncservice-duplicate-attribute-resiliency.md) |W tym artykule opisano, jak włączyć i używać **userPrincipalName** i **proxyAddresses** zduplikowane wartości atrybutów odporności. |
+| [Funkcje usługi synchronizacji programu Azure AD Connect](how-to-connect-syncservice-features.md) |Zawiera opis strony usługi synchronizacji oraz sposobu zmiany ustawień synchronizacji w usłudze Azure AD. |
+| [Odporność na zduplikowane atrybuty](how-to-connect-syncservice-duplicate-attribute-resiliency.md) |Opisuje sposób włączania i używania wartości właściwości **userPrincipalName** i **proxyAddresses** duplikatów atrybutów. |
 | **Operacje i interfejs użytkownika** | |
-| [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md) |Zawiera opis interfejsu użytkownika menedżera usług synchronizacji, w tym [karty Operacje,](how-to-connect-sync-service-manager-ui-operations.md) [Łączniki,](how-to-connect-sync-service-manager-ui-connectors.md) [Projektant metaverse](how-to-connect-sync-service-manager-ui-mvdesigner.md)i [Wyszukiwanie metaverse.](how-to-connect-sync-service-manager-ui-mvsearch.md) |
-| [Zadania operacyjne i zagadnienia](how-to-connect-sync-operations.md) |W tym artykule opisano problemy operacyjne, takie jak odzyskiwanie po awarii. |
+| [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md) |Opisuje interfejs użytkownika Synchronization Service Manager, w tym [operacje](how-to-connect-sync-service-manager-ui-operations.md), [Łączniki](how-to-connect-sync-service-manager-ui-connectors.md), [projektanta Metaverse](how-to-connect-sync-service-manager-ui-mvdesigner.md)i karty [wyszukiwania Metaverse](how-to-connect-sync-service-manager-ui-mvsearch.md) . |
+| [Zadania operacyjne i zagadnienia](how-to-connect-sync-operations.md) |Opisuje problemy operacyjne, takie jak odzyskiwanie po awarii. |
 | **Jak...** | |
-| [Resetowanie konta usługi Azure AD](how-to-connect-azureadaccount.md) |Jak zresetować poświadczenia konta usługi używanego do łączenia się z synchronizacji usługi Azure AD Connect z usługą Azure AD. |
-| **Więcej informacji i referencje** | |
-| [Porty](reference-connect-ports.md) |Wyświetla listę portów, które należy otworzyć między aparatem synchronizacji a katalogami lokalnymi i usługą Azure AD. |
-| [Atrybuty synchronizowane z usługą Azure Active Directory](reference-connect-sync-attributes-synchronized.md) |Wyświetla listę wszystkich atrybutów synchronizowanych między lokalną usługą AD i usługą Azure AD. |
-| [Informacje ogólne o funkcjach](reference-connect-sync-functions-reference.md) |Wyświetla listę wszystkich funkcji dostępnych w deklaratywnej inicjowania obsługi administracyjnej. |
+| [Zresetuj konto usługi Azure AD](how-to-connect-azureadaccount.md) |Jak zresetować poświadczenia konta usługi używanego do łączenia się z Azure AD Connect synchronizacji z usługą Azure AD. |
+| **Więcej informacji i odwołań** | |
+| [Porty](reference-connect-ports.md) |Wyświetla listę portów, które należy otworzyć między aparatem synchronizacji i lokalnymi katalogami i usługą Azure AD. |
+| [Atrybuty synchronizowane z usługą Azure Active Directory](reference-connect-sync-attributes-synchronized.md) |Wyświetla wszystkie atrybuty synchronizowane między lokalną usługą AD i usługą Azure AD. |
+| [Informacje o funkcjach](reference-connect-sync-functions-reference.md) |Wyświetla listę wszystkich funkcji dostępnych w ramach aprowizacji deklaracyjnej. |
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)

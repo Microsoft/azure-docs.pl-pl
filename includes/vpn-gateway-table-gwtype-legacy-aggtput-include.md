@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,13 +9,13 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9734859c0bf22201c146e5d8a220f3146f6051c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183121"
 ---
-W poniższej tabeli przedstawiono typy bram i szacowaną agregowaną przepływność według jednostek SKU bramy. Ta tabela dotyczy Menedżera zasobów i klasycznych modeli wdrażania. 
+W poniższej tabeli przedstawiono typy bram i szacowaną agregowaną przepływność według jednostek SKU bramy. Ta tabela ma zastosowanie do Menedżer zasobów i klasycznych modeli wdrażania. 
 
 Ceny różnych jednostek SKU bramy są różne. Aby uzyskać więcej informacji, zobacz temat [VPN Gateway — cennik](https://azure.microsoft.com/pricing/details/vpn-gateway).
 
@@ -38,4 +38,4 @@ Zwróć uwagę, że w tej tabeli nie przedstawiono jednostki SKU bramy UltraPerf
 
 (5) Połączenia usługi VPN Gateway typu lokacja do lokacji (S2S) aktywne-aktywne nie są obsługiwane w ramach tej jednostki SKU. Połączenie typu aktywne-aktywne jest obsługiwane tylko dla jednostki SKU o wysokiej wydajności.
 
-(6) Podstawowa jednostka SKU jest przestarzała do użytku z programem ExpressRoute.
+(6) podstawowa jednostka SKU jest przestarzała do użycia z ExpressRoute.

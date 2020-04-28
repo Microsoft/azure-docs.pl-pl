@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie odzyskiwania witryny platformy Azure | Dokumenty firmy Microsoft
-description: Monitorowanie i rozwiązywanie problemów z replikacją usługi Azure Site Recovery przy użyciu portalu
+title: Monitoruj Azure Site Recovery | Microsoft Docs
+description: Monitorowanie i rozwiązywanie problemów z Azure Site Recovery replikacji i operacji przy użyciu portalu
 author: raynew
 manager: carmonm
 ms.service: site-recovery
@@ -8,177 +8,177 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
 ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68717346"
 ---
 # <a name="monitor-site-recovery"></a>Monitorowanie usługi Site Recovery
 
-W tym artykule dowiesz się, jak monitorować usługę Azure [Site Recovery](site-recovery-overview.md), korzystając z wbudowanego monitorowania usługi Site Recovery.  Możesz monitorować:
+W tym artykule dowiesz się, jak monitorować usługę Azure [Site Recovery](site-recovery-overview.md)przy użyciu Site Recovery nieskompilowanego monitorowania.  Można monitorować:
 
-- Kondycja i stan maszyn replikowanych przez usługę Site Recovery
-- Test stanu pracy awaryjnej maszyn.
+- Kondycja i stan maszyn replikowanych przez Site Recovery
+- Test stanu trybu failover dla maszyn.
 - Problemy i błędy wpływające na konfigurację i replikację.
 - Składniki infrastruktury, takie jak serwery lokalne.
 
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-Przed rozpoczęciem warto przejrzeć [typowe pytania dotyczące monitorowania.](monitoring-common-questions.md)
+Przed rozpoczęciem warto zapoznać się z [typowymi pytaniami monitorowania](monitoring-common-questions.md) .
 
-## <a name="monitor-in-the-dashboard"></a>Monitor w pulpicie nawigacyjnym
+## <a name="monitor-in-the-dashboard"></a>Monitorowanie na pulpicie nawigacyjnym
 
-1. W przechowalni kliknij pozycję **Przegląd**. Pulpit nawigacyjny usług odzyskiwania konsoliduje wszystkie informacje o monitorowaniu przechowalni w jednej lokalizacji. Istnieją strony dla usługi Site Recovery i usługi Azure Backup i można przełączać się między nimi.
+1. W magazynie kliknij pozycję **Przegląd**. Pulpit nawigacyjny Recovery Services konsoliduje wszystkie informacje monitorowania dla magazynu w jednej lokalizacji. Istnieją strony dla obu Site Recovery i usługi Azure Backup, a także można przełączać się między nimi.
 
-    ![Pulpit nawigacyjny odzyskiwania witryny](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
+    ![Pulpit nawigacyjny Site Recovery](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
 
-2. Na pulpicie nawigacyjnym przejdź do różnych obszarów. 
+2. Na pulpicie nawigacyjnym przejdź do szczegółów różnych obszarów. 
 
-    ![Pulpit nawigacyjny odzyskiwania witryny](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
+    ![Pulpit nawigacyjny Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
-3. W **folderze Elementy replikowane**kliknij pozycję **Wyświetl wszystko,** aby wyświetlić wszystkie serwery w przechowalni.
-4. Kliknij szczegóły stanu w każdej sekcji, aby przejść do szczegółów.
-5. W **widoku Infrastruktura**sortuj informacje o monitorowaniu według typu replikowanej maszyny.
+3. W obszarze **zreplikowane elementy**kliknij pozycję **Wyświetl wszystko** , aby wyświetlić wszystkie serwery w magazynie.
+4. Kliknij Szczegóły stanu w każdej sekcji, aby przejść do szczegółów.
+5. W **widoku infrastruktura**Sortuj informacje o monitorowaniu według typu maszyn, które są replikowane.
 
-## <a name="monitor-replicated-items"></a>Monitorowanie elementów replikowanych
+## <a name="monitor-replicated-items"></a>Monitoruj zreplikowane elementy
 
-W **przypadku elementów replikowanych**należy monitorować kondycję wszystkich komputerów w przechowalni, na których włączona jest replikacja.
+W obszarze **zreplikowane elementy**Monitoruj kondycję wszystkich maszyn w magazynie, dla których włączono replikację.
 
 **Stan** | **Szczegóły**
 --- | ---
-W dobrej kondycji | Replikacja postępuje normalnie. Nie wykryto żadnych objawów błędu ani ostrzeżenia.
+Dobra kondycja | Replikacja postępuje normalnie. Nie wykryto błędów ani ostrzeżeń ostrzegawczych.
 Ostrzeżenie | Wykryto co najmniej jeden objaw ostrzegawczy, który może mieć wpływ na replikację.
-Krytyczny | Wykryto co najmniej jeden krytyczny błąd replikacji.<br/><br/> Te symptomy błędu są zazwyczaj wskaźniki, które replikacji zatrzymany lub nie postępuje tak szybko, jak szybkość zmiany danych.
-Nie dotyczy | Serwery, które obecnie nie powinny być replikowane. Może to obejmować maszyny, które zostały przejęte awaryjnie.
+Krytyczny | Wykryto co najmniej jeden krytyczny błąd replikacji.<br/><br/> Te objawy błędów są zwykle wskaźnikami, które zablokowały replikację lub nie postępują tak szybko, jak szybkość zmiany danych.
+Nie dotyczy | Serwery, które nie są aktualnie oczekiwane na replikację. Mogą to być maszyny, które zostały przełączone w tryb failover.
 
-## <a name="monitor-test-failovers"></a>Monitorowanie pracy awaryjnej testu
+## <a name="monitor-test-failovers"></a>Monitoruj test pracy w trybie failover
 
-W **przypadku niepowodzenia testu trybu failover**należy monitorować stan trybu failover dla maszyn w magazynie.
+W przypadku **powodzenia testów trybu failover**monitoruj stan trybu failover dla maszyn w magazynie.
 
-- Zaleca się uruchomienie testowego trybu failover na zreplikowanych komputerach co najmniej raz na sześć miesięcy. Jest to sposób, aby sprawdzić, czy praca awaryjna działa zgodnie z oczekiwaniami, bez zakłócania środowiska produkcyjnego. 
-- Test pracy awaryjnej jest uważany za pomyślny dopiero po pomyślnym zakończeniu oczyszczania po pracy awaryjnej i po zakończeniu pracy awaryjnej.
+- Zalecamy uruchomienie testowej pracy w trybie failover na replikowanych maszynach co najmniej raz na sześć miesięcy. Jest to sposób, aby sprawdzić, czy tryb failover działa zgodnie z oczekiwaniami, bez zakłócania pracy w środowisku produkcyjnym. 
+- Test pracy w trybie failover jest uznawany za pomyślny dopiero po pomyślnym zakończeniu przejścia w tryb failover i po przejściu po awarii.
 
 **Stan** | **Szczegóły**
 --- | ---
-Zalecany test | Maszyny, które nie przeszły testu w pracy awaryjnej, ponieważ ochrona została włączona.
-Wykonano pomyślnie | Maszyny z lub bardziej udanych testów awaryjnych.
-Nie dotyczy | Maszyny, które obecnie nie kwalifikują się do testu w pracy awaryjnej. Na przykład maszyny, które są w pracy awaryjnej, mają początkowej replikacji/testu pracy awaryjnej/pracy awaryjnej w toku.
+Zalecany test | Maszyny, które nie miały testowego przejścia w tryb failover, ponieważ włączono ochronę.
+Wykonane pomyślnie | Maszyny z lub więcej pomyślnych testów trybu failover.
+Nie dotyczy | Maszyny, które aktualnie nie kwalifikują się do testowej pracy w trybie failover. Na przykład maszyny, które są przełączone w tryb failover, mają w toku replikację początkową/test pracy awaryjnej/trybu failover.
 
 ## <a name="monitor-configuration-issues"></a>Monitorowanie problemów z konfiguracją
 
-W **przypadku problemów z konfiguracją**należy monitorować wszelkie problemy, które mogą mieć wpływ na pomyślne przejęcie konta awaryjnego.
+W obszarze **problemy z konfiguracją**należy monitorować wszelkie problemy, które mogą mieć wpływ na możliwość pomyślnego przełączenia w tryb failover.
 
-- Problemy z konfiguracją (z wyjątkiem dostępności aktualizacji oprogramowania) są wykrywane przez okresową operację walidatora, która jest domyślnie uruchamiana co 12 godzin. Operację walidatora można wymusić natychmiastowe uruchomienie, klikając ikonę odświeżania obok nagłówka sekcji **Problemy z konfiguracją.**
-- Kliknij linki, aby uzyskać więcej informacji. W przypadku problemów dotyczących określonych maszyn **kliknięcie wymagają uwagi** w kolumnie **Konfiguracje docelowe.** Szczegóły obejmują zalecenia dotyczące korygowania.
+- Problemy z konfiguracją (z wyjątkiem dostępności aktualizacji oprogramowania) są wykrywane przez okresową operację sprawdzania poprawności, która domyślnie jest uruchamiana co 12 godzin. Można wymusić natychmiastowe uruchomienie operacji modułu sprawdzania poprawności, klikając ikonę odświeżenia obok nagłówka sekcji **problemy z konfiguracją** .
+- Kliknij linki, aby uzyskać więcej szczegółów. W przypadku problemów mających wpływ na określone maszyny kliknij pozycję **wymaga uwagi** w kolumnie **konfiguracje docelowe** . Szczegóły obejmują zalecenia dotyczące korygowania.
 
 **Stan** | **Szczegóły**
 --- | ---
-Brakujące konfiguracje | Brakuje niezbędnego ustawienia, takiego jak sieć odzyskiwania lub grupa zasobów.
-Brakujące zasoby | Określonego zasobu nie można odnaleźć lub nie jest dostępny w ramach subskrypcji. Na przykład zasób został usunięty lub zmigrowany. Monitorowane zasoby obejmowały docelową grupę zasobów, docelową sieć wirtualną/podsieć, konto magazynu dziennika/docelowego, zestaw dostępności docelowej, docelowy adres IP.
-Przydział subskrypcji |  Saldo przydziału dostępnego zasobu subskrypcji jest porównywane z saldem potrzebnym do awaryjnego nad wszystkimi komputerami w przechowalni.<br/><br/> Jeśli nie ma wystarczającej ilości zasobów, zgłaszane jest niewystarczające saldo przydziału.<br/><br/> Przydziały są monitorowanie liczby rdzeni maszyny Wirtualnej, liczba rdzeni rodziny maszyn wirtualnych, karty interfejsu sieciowego (NIC) liczba.
+Brakujące konfiguracje | Brak wymaganego ustawienia, takiego jak sieć odzyskiwania lub Grupa zasobów.
+Brakujące zasoby | Nie można znaleźć określonego zasobu lub nie jest on dostępny w subskrypcji. Na przykład zasób został usunięty lub poddany migracji. Monitorowane zasoby obejmują docelową grupę zasobów, docelową sieć wirtualną/podsieć, dziennik/docelowe konto magazynu, docelowy zestaw dostępności, docelowy adres IP.
+Przydział subskrypcji |  Saldo dostępnego przydziału zasobów subskrypcji jest porównywane z saldem wymaganym do przełączenia wszystkich maszyn w magazynie w tryb failover.<br/><br/> Jeśli nie ma wystarczającej ilości zasobów, zostanie zgłoszony niewystarczający bilans przydziału.<br/><br/> Przydziały są monitorowaniem liczby rdzeni maszyn wirtualnych, liczba rdzeni rodziny maszyn wirtualnych, liczba kart sieciowych (NIC).
 Aktualizacje oprogramowania | Dostępność nowych aktualizacji oprogramowania oraz informacje o wygasających wersjach oprogramowania.
 
 
-## <a name="monitor-errors"></a>Monitorowanie błędów
+## <a name="monitor-errors"></a>Monitoruj błędy
 
-W **podsumowaniu błędów**należy monitorować aktualnie aktywne objawy błędu, które mogą mieć wpływ na replikację serwerów w przechowalni, i monitorować liczbę komputerów, których dotyczy problem.
+W obszarze **Podsumowanie błędów**Monitoruj obecnie aktywne objawy błędów, które mogą mieć wpływ na replikację serwerów w magazynie, oraz monitoruj liczbę maszyn, których dotyczy problem.
 
-- Błędy wpływające na składniki infrastruktury lokalnej są wyświetlane na początku sekcji. Na przykład nieotrzymanie pulsu od dostawcy odzyskiwania witryny azure na lokalnym serwerze konfiguracji lub hosta funkcji Hyper-V.
-- Następnie wyświetlane są symptomy błędu replikacji wpływające na replikowane serwery.
-- Wpisy tabeli są sortowane według kolejności zmniejszania ważności błędu, a następnie przez zmniejszenie kolejności zliczania komputerów, których dotyczy problem.
-- Liczba serwerów, których dotyczy problem, jest użytecznym sposobem zrozumienia, czy pojedynczy podstawowy problem może mieć wpływ na wiele komputerów. Na przykład usterka sieci może potencjalnie mieć wpływ na wszystkie maszyny, które replikują się na platformie Azure. 
-- Na jednym serwerze może wystąpić wiele błędów replikacji. W takim przypadku każdy symptom błędu zlicza ten serwer na liście serwerów, których dotyczy problem. Po rozwiązaniu problemu parametry replikacji poprawiają się, a błąd jest usuwany z komputera.
+- Błędy mające wpływ na składniki infrastruktury lokalnej są wyświetlane na początku sekcji. Na przykład Nieodebranie pulsu od dostawcy Azure Site Recovery na lokalnym serwerze konfiguracji lub hoście funkcji Hyper-V.
+- Następnie są wyświetlane objawy błędu replikacji wpływające na serwery replikowane.
+- Pozycje tabeli są sortowane według malejącej kolejności ważności błędów, a następnie przez zmniejszenie kolejności liczby maszyn, na które wpływa.
+- Liczba serwerów, których to dotyczy, to przydatny sposób, aby zrozumieć, czy jeden z podstawowych problemów może mieć wpływ na wiele maszyn. Na przykład błąd sieci może mieć wpływ na wszystkie maszyny, które są replikowane do platformy Azure. 
+- Na jednym serwerze może wystąpić wiele błędów replikacji. W takim przypadku każdy objaw błędu liczy ten serwer na liście serwerów, których to dotyczy. Po rozwiązaniu problemu należy poprawić parametry replikacji, a na komputerze zostanie wyczyszczony błąd.
 
 ## <a name="monitor-the-infrastructure"></a>Monitoruj infrastrukturę.
 
-W **widoku infrastruktura**należy monitorować składniki infrastruktury zaangażowane w replikację i kondycję łączności między serwerami a usługami platformy Azure.
+W **widoku infrastruktura**Monitoruj składniki infrastruktury objęte replikacją i kondycję łączności między serwerami i usługami platformy Azure.
 
 - Zielona linia wskazuje, że połączenie jest w dobrej kondycji.
-- Czerwona linia z ikoną nałożonegospodarze wskazuje na istnienie jednego lub więcej symptomów błędu, które wpływają na łączność.
--  Umieść wskaźnik myszy na ikonie błędu, aby wyświetlić błąd i liczbę elementów, na które ma wpływ. Kliknij ikonę filtruj listę elementów, na które ma wpływ.
+- Czerwona linia ze zastąpioną ikoną błędu wskazuje istnienie jednego lub kilku objawów błędów, które mają wpływ na łączność.
+-  Umieść wskaźnik myszy nad ikoną błędu, aby wyświetlić błąd i liczbę jednostek, których dotyczy problem. Kliknij ikonę filtrowanej listy jednostek, których dotyczy problem.
 
-    ![Widok infrastruktury odzyskiwania lokacji (przechowalnia)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
+    ![Widok infrastruktury Site Recovery (magazyn)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
 ### <a name="tips-for-monitoring-the-infrastructure"></a>Wskazówki dotyczące monitorowania infrastruktury
 
-- Upewnij się, że składniki infrastruktury lokalnej (serwer konfiguracji, serwery przetwarzania, serwery VMM, hosty funkcji Hyper-V, maszyny VMware) są uruchomione w najnowszych wersjach dostawcy odzyskiwania witryny i/lub agentów.
-- Aby użyć wszystkich funkcji w widoku infrastruktury, należy uruchomić [update pakiet zbiorczy 22](https://support.microsoft.com/help/4072852) dla tych składników.
-- Aby użyć widoku infrastruktury, wybierz odpowiedni scenariusz replikacji w swoim środowisku. Można przejść do szczegółów w widoku, aby uzyskać więcej informacji. W poniższej tabeli przedstawiono, które scenariusze są reprezentowane.
+- Upewnij się, że lokalne składniki infrastruktury (serwer konfiguracji, serwery przetwarzania, serwery VMM, hosty funkcji Hyper-V, maszyny VMware) używają najnowszych wersji dostawcy Site Recovery i/lub agentów.
+- Aby korzystać ze wszystkich funkcji w widoku infrastruktury, należy uruchomić [pakiet zbiorczy aktualizacji 22](https://support.microsoft.com/help/4072852) dla tych składników.
+- Aby skorzystać z widoku infrastruktura, wybierz odpowiedni scenariusz replikacji w danym środowisku. Aby uzyskać więcej informacji, możesz przejść do szczegółów w widoku. W poniższej tabeli przedstawiono, które scenariusze są reprezentowane.
 
-    **Scenariusz** | **Stan**  | **Widok dostępny?**
+    **Scenariusz** | **Stan**  | **Wyświetlić dostępne?**
     --- |--- | ---
     **Replikacja między lokacjami lokalnymi** | Wszystkie stany | Nie 
-    **Replikacja maszyny Wirtualnej platformy Azure między regionami platformy Azure**  | Replikacja włączona/replikacja początkowa w toku | Tak
-    **Replikacja maszyny Wirtualnej platformy Azure między regionami platformy Azure** | Niepowodzenie po awarii/powrót po awarii | Nie   
+    **Replikacja maszyny wirtualnej platformy Azure między regionami platformy Azure**  | Replikacja włączona/replikacja początkowa w toku | Tak
+    **Replikacja maszyny wirtualnej platformy Azure między regionami platformy Azure** | Przełączenie w tryb failover/powrót po awarii | Nie   
     **Replikacja z programu VMware do platformy Azure** | Replikacja włączona/replikacja początkowa w toku | Tak     
-    **Replikacja z programu VMware do platformy Azure** | Niepowodzenie/niepowodzenie z powrotem | Nie      
-    **Replikacja funkcji Hyper-V do platformy Azure** | Niepowodzenie/niepowodzenie z powrotem | Nie
+    **Replikacja z programu VMware do platformy Azure** | Przełączenie w tryb failover/powrót po awarii | Nie      
+    **Replikacja funkcji Hyper-V do platformy Azure** | Przełączenie w tryb failover/powrót po awarii | Nie
 
-- Aby wyświetlić widok infrastruktury dla pojedynczego urządzenia replikującego, w menu przechowalni kliknij polecenie **Elementy replikowane**i wybierz serwer.  
+- Aby wyświetlić widok infrastruktura dla pojedynczej maszyny replikowanej, w menu magazyn kliknij pozycję **zreplikowane elementy**i wybierz serwer.  
 
 
 
 
 ## <a name="monitor-recovery-plans"></a>Monitorowanie planów odzyskiwania
 
-W **planach odzyskiwania**monitoruj liczbę planów, twórz nowe plany i modyfikuj istniejące.  
+W obszarze **plany odzyskiwania**Monitoruj liczbę planów, twórz nowe plany i Modyfikuj istniejące.  
 
 ## <a name="monitor-jobs"></a>Monitorowanie zadań
 
-W **zadaniach**monitoruj stan operacji odzyskiwania lokacji.
+W obszarze **zadania**monitoruj stan Site Recovery operacji.
 
-- Większość operacji w usłudze Azure Site Recovery są wykonywane asynchronicznie, z zadania śledzenia tworzone i używane do śledzenia postępu operacji. 
-- Obiekt zadania ma wszystkie informacje potrzebne do śledzenia stanu i postępu operacji. 
+- Większość operacji w Azure Site Recovery są wykonywane asynchronicznie, a zadanie śledzenia jest tworzone i używane do śledzenia postępu operacji. 
+- Obiekt zadania zawiera wszystkie informacje potrzebne do śledzenia stanu i postęp operacji. 
 
 Monitoruj zadania w następujący sposób:
 
-1. W sekcji pulpit nawigacyjny > **zadania** można wyświetlić podsumowanie zadań, które zostały ukończone, są w toku lub oczekują na dane wejściowe w ciągu ostatnich 24 godzin. Możesz kliknąć dowolny stan, aby uzyskać więcej informacji na temat odpowiednich zadań.
-2. Kliknij **pozycję Wyświetl wszystkie,** aby wyświetlić wszystkie zadania w ciągu ostatnich 24 godzin.
+1. W sekcji **zadania** > pulpitu nawigacyjnego można zobaczyć podsumowanie zadań zakończonych, w toku lub oczekiwanie na dane wejściowe w ciągu ostatnich 24 godzin. Możesz kliknąć dowolny stan, aby uzyskać więcej informacji na temat odpowiednich zadań.
+2. Kliknij pozycję **Wyświetl wszystko** , aby wyświetlić wszystkie zadania w ciągu ostatnich 24 godzin.
 
     > [!NOTE]
-    > Informacje o zadaniach można również uzyskać z menu przechowalni > **zadania odzyskiwania witryny**. 
+    > Możesz również uzyskać dostęp do informacji o zadaniu z menu magazynowego > **zadania Site Recovery**. 
 
-2. Na **liście Zadania odzyskiwania lokacji** wyświetlana jest lista zadań. W górnym menu można uzyskać szczegółowe informacje o błędach dla określonych zadań, filtrować listę zadań na podstawie określonych kryteriów i eksportować wybrane szczegóły zadania do programu Excel.
-3. Można przejść do szczegółów zadania, klikając je. 
+2. Na liście **zadania Site Recovery** zostanie wyświetlona lista zadań. W górnym menu możesz uzyskać szczegółowe informacje o błędach dla konkretnych zadań, filtrować listę zadań na podstawie określonych kryteriów i wyeksportować wybrane szczegóły zadania do programu Excel.
+3. Aby przejść do szczegółów zadania, kliknij je. 
 
 ## <a name="monitor-virtual-machines"></a>Monitorowanie maszyn wirtualnych
 
-W **przypadku elementów replikowanych**pobierz listę zreplikowanych maszyn. 
-    ![Widok listy elementów replikowanych w odzyskiwaniu witryny](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
+W obszarze **zreplikowane elementy**Pobierz listę replikowanych maszyn. 
+    ![Widok listy zreplikowanych elementów Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
-2. Można wyświetlać i filtrować informacje. W menu akcji u góry można wykonywać akcje dla określonego komputera, w tym uruchamianie pracy awaryjnej testu lub wyświetlanie określonych błędów.
-3. Kliknij **kolumny,** aby wyświetlić dodatkowe kolumny, Na przykład, aby wyświetlić celowy, problemy z konfiguracją docelowych i błędy replikacji.
-4. Kliknij **przycisk Filtr,** aby wyświetlić informacje na podstawie określonych parametrów, takich jak kondycja replikacji lub określone zasady replikacji.
-5. Kliknij prawym przyciskiem myszy komputer, aby zainicjować operacje, takie jak test pracy awaryjnej dla niego lub wyświetlić określone szczegóły błędu skojarzone z nim.
+2. Można wyświetlać i filtrować informacje. W menu Akcja u góry można wykonać akcje dla konkretnej maszyny, w tym uruchamianie testowej pracy w trybie failover lub wyświetlanie określonych błędów.
+3. Kliknij pozycję **kolumny** , aby wyświetlić dodatkowe kolumny, na przykład aby pokazać cel punktu odzyskiwania, problemy z konfiguracją docelową i błędy replikacji.
+4. Kliknij przycisk **Filtruj** , aby wyświetlić informacje na podstawie określonych parametrów, takich jak kondycja replikacji lub określone zasady replikacji.
+5. Kliknij prawym przyciskiem myszy maszynę, aby zainicjować operacje, takie jak testowanie pracy w trybie failover lub wyświetlanie określonych szczegółów błędu skojarzonych z nim.
 6. Kliknij maszynę, aby przejść do szczegółów. Szczegóły obejmują:
-   - **Informacje o replikacji**: Bieżący stan i kondycja urządzenia.
-   - **Cel punktu** odzyskiwania (punkt odzyskiwania): bieżący cel punktu odzyskiwania dla maszyny wirtualnej i czas, w którym cel punktu odzyskiwania został ostatnio obliczony.
-   - **Punkty odzyskiwania:** Najnowsze dostępne punkty odzyskiwania dla maszyny.
-   - **Gotowość do pracy awaryjnej:** Wskazuje, czy test pracy awaryjnej został uruchomiony dla komputera, wersja agenta uruchomiona na komputerze (dla maszyn z uruchomione usługi mobilności) i wszelkie problemy z konfiguracją.
-   - **Błędy**: Lista symptomów błędu replikacji aktualnie obserwowanych na komputerze oraz możliwe przyczyny/działania.
-   - **Zdarzenia**: Chronologiczna lista ostatnich zdarzeń wpływających na maszynę. Szczegóły błędu pokazuje aktualnie obserwowalne objawy błędu, podczas gdy zdarzenia są historycznym zapisem problemów, które miały wpływ na maszynę.
-   - **Widok infrastruktury:** pokazuje stan infrastruktury dla scenariusza, gdy maszyny są replikowane na platformę Azure.
+   - **Informacje o replikacji**: bieżący stan i kondycja maszyny.
+   - **RPO** (cel punktu odzyskiwania): bieżący punkt odzyskiwania maszyny wirtualnej oraz godzina ostatniego obliczenia punktu odzyskiwania.
+   - **Punkty odzyskiwania**: Najnowsze dostępne punkty odzyskiwania dla maszyny.
+   - **Gotowość do pracy w trybie failover**: wskazuje, czy dla maszyny uruchomiono test pracy w trybie failover, czy wersja agenta uruchomiona na komputerze (dla maszyn z uruchomioną usługą mobilności) oraz problemy z konfiguracją.
+   - **Błędy**: Lista objawów błędów replikacji aktualnie zaobserwowanych na komputerze i możliwych przyczyn/akcji.
+   - **Zdarzenia**: chronologiczna lista ostatnich zdarzeń, które mają wpływ na maszynę. Szczegóły błędu przedstawia widoczne objawy błędów, natomiast zdarzenia są historycznym rekordem problemów, które mają wpływ na maszynę.
+   - **Widok infrastruktury**: pokazuje stan infrastruktury dla scenariusza, gdy maszyny są replikowane na platformę Azure.
 
-     ![Szczegóły/omówienie elementu replikowanego w odzyskiwaniu witryny](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+     ![Site Recovery szczegóły zreplikowanego elementu/przegląd](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 ## <a name="subscribe-to-email-notifications"></a>Subskrybowanie powiadomień e-mail
 
-Możesz subskrybować otrzymywanie powiadomień e-mail o tych krytycznych zdarzeniach:
+Możesz subskrybować otrzymywanie powiadomień e-mail dotyczących tych krytycznych zdarzeń:
  
-- Stan krytyczny dla maszyny replikowanej.
-- Brak łączności między składnikami infrastruktury lokalnej a usługą Site Recovery. Łączność między funkcją Odzysk lokacji a serwerami lokalnymi zarejestrowanymi w przechowalni jest wykrywana przy użyciu mechanizmu pulsu.
+- Stan krytyczny dla zreplikowanej maszyny.
+- Brak łączności między składnikami infrastruktury lokalnej a usługą Site Recovery. Wykrywanie połączeń między Site Recovery i lokalnymi serwerami zarejestrowanymi w magazynie jest wykrywane przy użyciu mechanizmu pulsu.
 - Awarie trybu failover.
 
-Zapisz się w następujący sposób:
+Subskrybuj w następujący sposób:
 
-W sekcji **Monitorowanie** > przechowalni kliknij pozycję **Zdarzenia odzyskiwania witryny**.
+W sekcji **monitorowanie** > magazynu kliknij pozycję **zdarzenia Site Recovery**.
 1. Kliknij pozycję **Powiadomienia e-mail**.
-1. W **obszarze Powiadomienie e-mail**włącz powiadomienia i określ, do kogo chcesz wysłać. Możesz wysyłać do wszystkich administratorów subskrypcji powiadomienia i opcjonalnie określone adresy e-mail.
+1. W obszarze **powiadomienia e-mail**Włącz opcję powiadomienia i określ, do kogo wysyłać. Możesz wysyłać do wszystkich administratorów subskrypcji, aby otrzymywać powiadomienia i opcjonalnie określone adresy e-mail.
 
     ![Powiadomienia e-mail](./media/site-recovery-monitor-and-troubleshoot/email.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dowiedz się więcej o](monitor-log-analytics.md) monitorowaniu odzyskiwania witryny za pomocą usługi Azure Monitor.
+[Dowiedz się więcej o](monitor-log-analytics.md) monitorowaniu Site Recovery z Azure monitor.

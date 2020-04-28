@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4e262c9e5bb88e77bc9c09853c06f4cdb41eedaa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183424"
 ---
-## <a name="preparing-for-updates"></a>Przygotowanie do aktualizacji
-Przed skanowaniem i zastosowaniem aktualizacji należy wykonać następujące kroki:
+## <a name="preparing-for-updates"></a>Przygotowywanie do aktualizacji
+Przed przeskanowaniem i zastosowaniem aktualizacji należy wykonać następujące czynności:
 
-1. Zrób migawkę danych urządzenia w chmurze.
-2. Upewnij się, że kontroler stałych adresów IP są rutowalne i może łączyć się z Internetem. Te stałe ustawienia IP będą używane do obsługi aktualizacji urządzenia. Można to przetestować, uruchamiając następujące polecenie cmdlet na każdym kontrolerze z interfejsu programu Windows PowerShell urządzenia:
+1. Wykonaj migawkę w chmurze danych urządzenia.
+2. Upewnij się, że stałe adresy IP kontrolera są rutowane i mogą łączyć się z Internetem. Te stałe adresy IP będą używane do obsługi aktualizacji urządzenia. Można to sprawdzić, uruchamiając następujące polecenie cmdlet na każdym kontrolerze z interfejsu programu Windows PowerShell urządzenia:
    
      `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network>`
    
@@ -39,5 +39,5 @@ Przed skanowaniem i zastosowaniem aktualizacji należy wykonać następujące kr
         HCSNODE0  204.79.197.200  204.79.197.200
         HCSNODE0  204.79.197.200  204.79.197.200
 
-Po pomyślnym zakończeniu tych ręcznych kontroli wstępnych można przystąpić do skanowania i instalowania aktualizacji.
+Po pomyślnym wykonaniu tych czynności ręcznych wstępne sprawdzanie można przeprowadzić skanowanie i zainstalowanie aktualizacji.
 

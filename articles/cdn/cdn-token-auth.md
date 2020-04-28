@@ -1,6 +1,6 @@
 ---
-title: Zabezpieczanie zasobów usługi Azure cdn za pomocą uwierzytelniania tokenów| Dokumenty firmy Microsoft
-description: Dowiedz się, jak używać uwierzytelniania tokenów do bezpiecznego dostępu do zasobów usługi Azure CDN.
+title: Zabezpieczanie zasobów Azure CDN przy użyciu uwierzytelniania tokenów | Microsoft Docs
+description: Dowiedz się, jak za pomocą uwierzytelniania tokenów zabezpieczyć dostęp do zasobów Azure CDN.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -15,58 +15,58 @@ ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
 ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67593389"
 ---
-# <a name="securing-azure-cdn-assets-with-token-authentication"></a>Zabezpieczanie zasobów usługi Azure cdn za pomocą uwierzytelniania tokenów
+# <a name="securing-azure-cdn-assets-with-token-authentication"></a>Zabezpieczanie zasobów Azure CDN przy użyciu uwierzytelniania tokenów
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Omówienie
 
-Uwierzytelnianie tokenu to mechanizm, który umożliwia uniemożliwienie sieci dostarczania zawartości platformy Azure (CDN) obsługi zasobów nieautoryzowanym klientom. Uwierzytelnianie tokenu jest zazwyczaj wykonywane w celu zapobiegania *hotlinking* zawartości, w którym inna witryna sieci Web, takich jak tablica wiadomości, używa zasobów bez zgody. Hotlinking może mieć wpływ na koszty dostarczania treści. Włączenie uwierzytelniania tokenów w sieci CDN, żądania są uwierzytelniane przez serwer brzegowy usługi CDN, zanim sieć CDN dostarczy zawartość. 
+Uwierzytelnianie tokenu jest mechanizmem, który pozwala zapobiegać wykorzystaniu zasobów przez usługę Azure Content Delivery Network (CDN) dla nieautoryzowanych klientów. Uwierzytelnianie tokenu jest zwykle wykonywane w celu zapobieżenia *hotlinking* zawartości, w której inna witryna sieci Web, taka jak tablica komunikatów, używa swoich zasobów bez uprawnień. Hotlinking może mieć wpływ na koszty dostarczania zawartości. Przez włączenie uwierzytelniania tokenu w sieci CDN, żądania są uwierzytelniane przez serwer brzegowy usługi CDN, zanim Usługa CDN dostarczy zawartość. 
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Uwierzytelnianie tokenu sprawdza, czy żądania są generowane przez zaufaną witrynę, wymagając, aby żądania zawierały wartość tokenu zawierającą zakodowane informacje o żądającym. Zawartość jest obsługiwana żądający tylko wtedy, gdy zakodowane informacje spełniają wymagania; w przeciwnym razie żądania są odrzucane. Wymagania można skonfigurować przy użyciu co najmniej jednego z następujących parametrów:
+Uwierzytelnianie tokenu weryfikuje, czy żądania są generowane przez zaufaną witrynę przez wymaganie, aby żądania zawierały wartość tokenu, która przechowuje zakodowane informacje o żądającym. Zawartość jest obsługiwana dla żądającego tylko wtedy, gdy zakodowane informacje spełniają wymagania. w przeciwnym razie żądania są odrzucane. Wymagania można skonfigurować przy użyciu co najmniej jednego z następujących parametrów:
 
-- Kraj: Zezwalaj lub odrzucaj żądania pochodzące z krajów/regionów określonych w [ich kodzie kraju](/previous-versions/azure/mt761717(v=azure.100)).
-- ADRES URL: zezwalaj tylko na żądania zgodne z określonym zasobem lub ścieżką.
-- Host: Zezwalaj lub odrzucaj żądania korzystające z określonych hostów w nagłówku żądania.
-- Odsyłacz: Zezwalaj lub odmów żądania od określonego strony odsyłacza.
+- Kraj: Zezwalanie lub odrzucanie żądań pochodzących z krajów/regionów określonych przez [kod kraju](/previous-versions/azure/mt761717(v=azure.100)).
+- URL: Zezwalaj tylko na żądania zgodne z określonym zasobem lub ścieżką.
+- Host: Zezwalanie lub odmawianie żądań, które używają określonych hostów w nagłówku żądania.
+- Odwołujący: Zezwalaj lub Odmów żądania od określonego odwołującego.
 - Adres IP: Zezwalaj tylko na żądania pochodzące z określonego adresu IP lub podsieci IP.
-- Protokół: Zezwalaj lub odrzucaj żądania na podstawie protokołu używanego do żądania zawartości.
-- Czas wygaśnięcia: Przypisz datę i okres, aby upewnić się, że łącze pozostaje ważne tylko przez ograniczony okres czasu.
+- Protokół: Zezwalanie lub odmawianie żądań na podstawie protokołu używanego do żądania zawartości.
+- Czas wygaśnięcia: Przypisz datę i okres, aby upewnić się, że link jest prawidłowy tylko dla ograniczonego okresu.
 
-Aby uzyskać więcej informacji, zobacz szczegółowe przykłady konfiguracji dla każdego parametru w [konfigurowaniu uwierzytelniania tokenów](#setting-up-token-authentication).
+Aby uzyskać więcej informacji, Zobacz szczegółowe przykłady konfiguracji dla każdego parametru podczas [konfigurowania uwierzytelniania tokenu](#setting-up-token-authentication).
 
 >[!IMPORTANT] 
-> Jeśli autoryzacja tokenu jest włączona dla dowolnej ścieżki na tym koncie, tryb standardowej pamięci podręcznej jest jedynym trybem, który może być używany do buforowania ciągów zapytań. Aby uzyskać więcej informacji, zobacz [Control Azure CDN caching behavior with query strings](cdn-query-string-premium.md) (Sterowanie zachowaniem buforowania usługi CDN za pomocą ciągów zapytań).
+> Jeśli autoryzacja tokenu jest włączona dla dowolnej ścieżki na tym koncie, tryb pamięci podręcznej jest jedynym trybem, który może być używany do buforowania ciągu zapytania. Aby uzyskać więcej informacji, zobacz [Control Azure CDN caching behavior with query strings](cdn-query-string-premium.md) (Sterowanie zachowaniem buforowania usługi CDN za pomocą ciągów zapytań).
 
 ## <a name="reference-architecture"></a>Architektura referencyjna
 
-Na poniższym diagramie przepływu pracy opisano, jak sieć CDN używa uwierzytelniania tokenu do pracy z aplikacją sieci web.
+Poniższy diagram przepływu pracy opisuje sposób, w jaki usługa CDN używa uwierzytelniania tokenu do pracy z aplikacją sieci Web.
 
-![Przepływ pracy uwierzytelniania tokenów sieci CDN](./media/cdn-token-auth/cdn-token-auth-workflow2.png)
+![Przepływ pracy uwierzytelniania tokenu sieci CDN](./media/cdn-token-auth/cdn-token-auth-workflow2.png)
 
-## <a name="token-validation-logic-on-cdn-endpoint"></a>Logika sprawdzania poprawności tokenu w punkcie końcowym usługi CDN
+## <a name="token-validation-logic-on-cdn-endpoint"></a>Logika walidacji tokenu w punkcie końcowym usługi CDN
     
-Poniższy schemat blokowy opisuje, jak usługa Azure CDN sprawdza poprawność żądania klienta, gdy uwierzytelnianie tokenu jest skonfigurowane w punkcie końcowym usługi CDN.
+Poniższy schemat blokowy opisuje, jak Azure CDN sprawdza poprawność żądania klienta, gdy uwierzytelnianie tokenu jest skonfigurowane w punkcie końcowym usługi CDN.
 
-![Logika sprawdzania poprawności tokenu usługi CDN](./media/cdn-token-auth/cdn-token-auth-validation-logic.png)
+![Logika walidacji tokenu sieci CDN](./media/cdn-token-auth/cdn-token-auth-validation-logic.png)
 
 ## <a name="setting-up-token-authentication"></a>Konfigurowanie uwierzytelniania tokenu
 
-1. Z [witryny Azure portal](https://portal.azure.com)przejdź do profilu usługi CDN, a następnie wybierz pozycję **Zarządzaj,** aby uruchomić dodatkowy portal.
+1. W [Azure Portal](https://portal.azure.com)przejdź do swojego profilu CDN, a następnie wybierz pozycję **Zarządzaj** , aby uruchomić dodatkowy Portal.
 
-    ![Przycisk Zarządzanie profilem CDN](./media/cdn-token-auth/cdn-manage-btn.png)
+    ![Przycisk zarządzania profilem CDN](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Umieść wskaźnik myszy na **dużym obszarze HTTP,** a następnie wybierz pozycję **Auth tokenu** w wysu na stronie wysuwu. Następnie można skonfigurować klucz szyfrowania i parametry szyfrowania w następujący sposób:
+2. Umieść kursor na **dużym formacie http**, a następnie wybierz pozycję **uwierzytelnianie tokenu** w menu wysuwanym. Następnie można skonfigurować klucz szyfrowania i parametry szyfrowania w następujący sposób:
 
-   1. Utwórz jeden lub więcej kluczy szyfrowania. W kluczu szyfrowania rozróżniana jest wielkość liter i może zawierać dowolną kombinację znaków alfanumerycznych. Inne typy znaków, w tym spacje, nie są dozwolone. Maksymalna długość wynosi 250 znaków. Aby upewnić się, że klucze szyfrowania są losowe, zaleca się ich utworzenie za pomocą [narzędzia OpenSSL](https://www.openssl.org/). 
+   1. Utwórz jeden lub więcej kluczy szyfrowania. Klucz szyfrowania uwzględnia wielkość liter i może zawierać dowolną kombinację znaków alfanumerycznych. Wszystkie inne typy znaków, w tym spacje, są niedozwolone. Maksymalna długość to 250 znaków. Aby upewnić się, że klucze szyfrowania są losowo, zaleca się ich utworzenie za pomocą [Narzędzia OpenSSL](https://www.openssl.org/). 
 
       Narzędzie OpenSSL ma następującą składnię:
 
@@ -76,21 +76,21 @@ Poniższy schemat blokowy opisuje, jak usługa Azure CDN sprawdza poprawność �
 
       ```OpenSSL> rand -hex 32``` 
 
-      Aby uniknąć przestojów, należy utworzyć klucz podstawowy i klucz kopii zapasowej. Klucz kopii zapasowej zapewnia nieprzerwany dostęp do zawartości podczas aktualizacji klucza podstawowego.
+      Aby uniknąć przestoju, należy utworzyć klucz podstawowy i zapasowy. Klucz kopii zapasowej zapewnia nieprzerwany dostęp do zawartości w przypadku aktualizowania klucza podstawowego.
     
-   2. Wprowadź unikatowy klucz szyfrowania w polu **Klucz podstawowy** i opcjonalnie wprowadź klucz kopii zapasowej w polu Klucz **kopii zapasowej.**
+   2. Wprowadź unikatowy klucz szyfrowania w polu **klucz podstawowy** i opcjonalnie wprowadź klucz kopii zapasowej w polu **klucz kopii zapasowej** .
 
-   3. Wybierz minimalną wersję szyfrowania dla każdego klucza z listy **Minimalna wersja szyfrowania,** a następnie wybierz pozycję **Aktualizuj:**
-      - **Wersja 2:** Wskazuje, że klucz może służyć do generowania tokenów w wersji 2.0 i 3.0. Tej opcji należy używać tylko w przypadku przejścia ze starszego klucza szyfrowania w wersji 2.0 do klucza w wersji 3.0.
-      - **V3**: (Zalecane) Wskazuje, że klucz może być używany tylko do generowania tokenów w wersji 3.0.
+   3. Wybierz minimalną wersję szyfrowania dla każdego klucza z listy **minimalna wersja szyfrowania** , a następnie wybierz pozycję **Aktualizuj**:
+      - **V2**: wskazuje, że klucz może być używany do generowania tokenów w wersji 2,0 i 3,0. Tej opcji należy użyć tylko w przypadku przejścia ze starszego klucza szyfrowania 2,0 do wersji 3,0.
+      - **V3**: (zalecane) wskazuje, że klucz może być używany tylko do generowania tokenów w wersji 3,0.
 
-      ![Klucz konfiguracji tokenu CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+      ![Klucz instalacji uwierzytelniania tokenu usługi CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. Użyj narzędzia szyfrowania, aby skonfigurować parametry szyfrowania i wygenerować token. Za pomocą narzędzia do szyfrowania można zezwalać lub odrzucać żądania na podstawie czasu wygaśnięcia, kraju/regionu, strony odsyłacza, protokołu i adresu IP klienta (w dowolnej kombinacji). Chociaż nie ma limitu liczby i kombinacji parametrów, które mogą być łączone w celu utworzenia tokenu, całkowita długość tokenu jest ograniczona do 512 znaków. 
+   4. Użyj narzędzia Szyfruj, aby skonfigurować parametry szyfrowania i wygenerować token. Za pomocą narzędzia do szyfrowania można zezwalać na żądania lub odmawiać żądań na podstawie czasu wygaśnięcia, kraju/regionu, odwołującego się, protokołu i adresu IP klienta (w dowolnej kombinacji). Chociaż nie ma żadnego limitu liczby i kombinacji parametrów, które można łączyć w celu utworzenia tokenu, łączna długość tokenu jest ograniczona do 512 znaków. 
 
-      ![Narzędzie szyfrowania sieci CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+      ![Narzędzie szyfrowania CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
-      Wprowadź wartości co najmniej jednego z następujących parametrów szyfrowania w sekcji **Narzędzie szyfrowania:** 
+      Wprowadź wartości dla co najmniej jednego z następujących parametrów szyfrowania w sekcji **Narzędzia do szyfrowania** : 
 
       > [!div class="mx-tdCol2BreakAll"] 
       > <table>
@@ -100,103 +100,103 @@ Poniższy schemat blokowy opisuje, jak usługa Azure CDN sprawdza poprawność �
       > </tr>
       > <tr>
       >    <td><b>ec_expire</b></td>
-      >    <td>Przypisuje czas wygaśnięcia do tokenu, po którym token wygasa. Żądania przesłane po upływie czasu są odrzucane. Ten parametr używa sygnatury czasowej Uniksa, która jest oparta na `1/1/1970 00:00:00 GMT`liczbie sekund od standardowej epoce Uniksa . (Za pomocą narzędzi online można konwertować czas standardowy i czas Uniksa).> 
-      >    Na przykład, jeśli chcesz, aby `12/31/2016 12:00:00 GMT`token wygaśnie w `1483185600`, wprowadź wartość sygnatury czasowej Uniksa, . 
+      >    <td>Przypisuje do tokenu czas wygaśnięcia, po upływie którego token wygasa. Żądania przesłane po upłynięciu czasu wygaśnięcia zostaną odrzucone. Ten parametr używa sygnatury czasowej systemu UNIX, która jest oparta na liczbie sekund od czasu standardowej epoki systemu UNIX `1/1/1970 00:00:00 GMT`. (Narzędzia online można użyć do konwersji między czasem standardowym i czasem systemu UNIX).> 
+      >    Na przykład jeśli chcesz, aby token wygaśnie `12/31/2016 12:00:00 GMT`, wprowadź wartość w polu sygnatura czasowa systemu `1483185600`UNIX. 
       > </tr>
       > <tr>
       >    <td><b>ec_url_allow</b></td> 
-      >    <td>Umożliwia dostosowanie tokenów do określonego zasobu lub ścieżki. Ogranicza dostęp do żądań, których adres URL zaczyna się od określonej ścieżki względnej. W adresach URL rozróżniana jest wielkość liter. Wprowadź wiele ścieżek, oddzielając każdą ścieżkę przecinkiem; nie należy dodawać spacji. W zależności od wymagań można skonfigurować różne wartości, aby zapewnić inny poziom dostępu.> 
-      >    Na przykład dla `http://www.mydomain.com/pictures/city/strasbourg.png`adresu URL te żądania są dozwolone dla następujących wartości wejściowych: 
+      >    <td>Umożliwia dostosowanie tokenów do określonego zasobu lub ścieżki. Ogranicza dostęp do żądań, których adres URL zaczyna się od określonej ścieżki względnej. Adresy URL są rozróżniane wielkości liter. Wprowadź wiele ścieżek, oddzielając poszczególne ścieżki przecinkami; Nie dodawaj spacji. W zależności od wymagań można skonfigurować różne wartości w celu zapewnienia różnego poziomu dostępu.> 
+      >    Na przykład dla adresu URL `http://www.mydomain.com/pictures/city/strasbourg.png`te żądania są dozwolone dla następujących wartości wejściowych: 
       >    <ul>
-      >       <li>Wartość `/`wejściowa: Wszystkie żądania są dozwolone.</li>
-      >       <li>Wartość `/pictures`wejściowa, dozwolone są następujące żądania: <ul>
+      >       <li>Wartość `/`wejściowa: dozwolone są wszystkie żądania.</li>
+      >       <li>Wartość `/pictures`wejściowa są dozwolone następujące żądania: <ul>
       >          <li>`http://www.mydomain.com/pictures.png`</li>
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>Wartość `/pictures/`wejściowa: Dozwolone `/pictures/` są tylko żądania zawierające ścieżkę. Na przykład `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
-      >       <li>Wartość `/pictures/city/strasbourg.png`wejściowa: Dozwolone są tylko żądania dla tej konkretnej ścieżki i zasobu.</li>
+      >       <li>Wartość `/pictures/`wejściowa: dozwolone są tylko `/pictures/` żądania zawierające ścieżkę. Na przykład `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+      >       <li>Wartość `/pictures/city/strasbourg.png`wejściowa: dozwolone są tylko żądania dla tej konkretnej ścieżki i elementu zawartości.</li>
       >    </ul>
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Zezwala tylko na żądania pochodzące z jednego lub więcej określonych krajów/regionów. Żądania pochodzące ze wszystkich innych krajów/regionów są odrzucane. Użyj dwuliterowego [kodu kraju ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) dla każdego kraju i oddziel każdy z nich przecinkiem; nie należy dodawać spacji. Na przykład, jeśli chcesz zezwolić na dostęp tylko `US,FR`ze Stanów Zjednoczonych i Francji, wprowadź .</td>
+      >    <td>Zezwala tylko na żądania pochodzące z co najmniej jednego określonego kraju/regionu. Żądania pochodzące ze wszystkich innych krajów/regionów są odrzucane. Użyj dwuliterowego [kodu ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) dla każdego kraju i rozdziel je przecinkami; Nie dodawaj odstępu. Na przykład jeśli chcesz zezwolić na dostęp tylko z Stany Zjednoczone i Francji, wprowadź `US,FR`wartość.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Odrzuca żądania, które pochodzą z jednego lub więcej określonych krajów/regionów. Żądania pochodzące ze wszystkich innych krajów/regionów są dozwolone. Implementacja jest taka sama jak <b>parametr ec_country_allow.</b> Jeśli kod kraju jest obecny zarówno w parametrach <b>ec_country_allow,</b> jak i <b>ec_country_deny,</b> pierwszeństwo ma parametr <b>ec_country_allow.</b></td>
+      >    <td>Odrzuca żądania pochodzące z co najmniej jednego określonego kraju/regionu. Żądania pochodzące ze wszystkich innych krajów/regionów są dozwolone. Implementacja jest taka sama jak parametr <b>ec_country_allow</b> . Jeśli w parametrach <b>ec_country_allow</b> i <b>ec_country_deny</b> występuje kod kraju, pierwszeństwo ma parametr <b>ec_country_allow</b> .</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>
-      >    <td>Zezwala tylko na żądania od określonego strony odsyłacza. Strona odsyłacza identyfikuje adres URL strony sieci web połączonej z żądanym zasobem. Nie należy dołączać protokołu do wartości parametru.> 
+      >    <td>Zezwala tylko na żądania od określonego odwołującego. Odwołujący identyfikuje adres URL strony sieci Web, która jest połączona z żądanym zasobem. Nie dołączaj protokołu do wartości parametru.> 
       >    Dozwolone są następujące typy danych wejściowych:
       >    <ul>
       >       <li>Nazwa hosta lub nazwa hosta i ścieżka.</li>
-      >       <li>Wiele osób odsyłaczy. Aby dodać wiele odsyłaczy, należy oddzielić każdy odsyłający przecinkiem; nie należy dodawać spacji. Jeśli określisz wartość odsyłacza, ale informacje odsyłający nie są wysyłane w żądaniu ze względu na konfigurację przeglądarki, żądanie jest domyślnie odrzucane.</li> 
-      >       <li>Żądania z brakującymi lub pustymi informacjami odsyłającymi. Domyślnie parametr <b>ec_ref_allow</b> blokuje tego typu żądania. Aby zezwolić na te żądania, wprowadź tekst "brak" lub wprowadź pustą wartość (używając przecinka końcowego).</li> 
-      >       <li>Poddomen. Aby zezwolić na poddomeny,\*wprowadź gwiazdkę ( ). Na przykład, aby zezwolić na `contoso.com`wszystkie `*.contoso.com`poddomeny , wprowadź .</li>
+      >       <li>Wielu odwołujących się. Aby dodać wielu odwołujących, oddziel każdy odwołujący przecinkami; Nie dodawaj odstępu. W przypadku określenia wartości odwołującej, ale informacje o odmowie nie są wysyłane w żądaniu z powodu konfiguracji przeglądarki, żądanie jest domyślnie odrzucane.</li> 
+      >       <li>Żądania z brakującymi lub pustymi informacjami o odwołującym się. Domyślnie parametr <b>ec_ref_allow</b> blokuje te typy żądań. Aby zezwolić na te żądania, wprowadź tekst "Brak" lub wprowadź wartość pustą (przy użyciu końcowego przecinka).</li> 
+      >       <li>Poddomen. Aby zezwolić na poddomeny, Wprowadź gwiazdkę (\*). Na przykład, aby zezwolić na wszystkie poddomeny `contoso.com`, wprowadź. `*.contoso.com`</li>
       >    </ul> 
-      >    Na przykład, aby zezwolić `www.contoso.com`na dostęp do `contoso2.com`żądań z , wszystkie poddomeny w obszarze , i żądania z pustymi lub brakującymi punktami odsyłającymi, wprowadź `www.contoso.com,*.contoso.com,missing`.</td>
+      >    Na przykład, aby zezwolić na dostęp do żądań `www.contoso.com`z, wszystkie poddomeny w `contoso2.com`obszarze i żądania z pustymi lub brakującymi odwołującymi `www.contoso.com,*.contoso.com,missing`, wprowadź.</td>
       > </tr>
       > <tr> 
       >    <td><b>ec_ref_deny</b></td>
-      >    <td>Odrzuca żądania od określonego strony odsyłacza. Implementacja jest taka sama jak <b>parametr ec_ref_allow.</b> Jeśli polecenie jest obecny zarówno w <b>ec_ref_allow</b> i <b>ec_ref_deny</b> parametrów, <b>parametr ec_ref_allow</b> ma pierwszeństwo.</td>
+      >    <td>Odrzuca żądania od określonego odwołującego. Implementacja jest taka sama jak parametr <b>ec_ref_allow</b> . Jeśli odwołujący występuje zarówno w <b>ec_ref_allow</b> , jak i <b>ec_ref_deny</b> , parametr <b>ec_ref_allow</b> ma pierwszeństwo.</td>
       > </tr>
       > <tr> 
       >    <td><b>ec_proto_allow</b></td> 
-      >    <td>Zezwala tylko na żądania z określonego protokołu. Prawidłowe `http`wartości `https`to `http,https`, lub .</td>
+      >    <td>Zezwala tylko na żądania z określonego protokołu. Prawidłowe wartości to `http`, `https`, lub `http,https`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_proto_deny</b></td>
-      >    <td>Odrzuca żądania z określonego protokołu. Implementacja jest taka sama jak <b>parametr ec_proto_allow.</b> Jeśli protokół jest obecny zarówno w <b>parametrach ec_proto_allow,</b> jak i <b>ec_proto_deny,</b> pierwszeństwo ma parametr <b>ec_proto_allow.</b></td>
+      >    <td>Odrzuca żądania od określonego protokołu. Implementacja jest taka sama jak parametr <b>ec_proto_allow</b> . Jeśli protokół jest obecny zarówno w <b>ec_proto_allow</b> , jak i <b>ec_proto_deny</b> , parametr <b>ec_proto_allow</b> ma pierwszeństwo.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_clientip</b></td>
-      >    <td>Ogranicza dostęp do adresu IP określonego żądania. Obsługiwane są zarówno IPV4, jak i IPV6. Można określić adres IP pojedynczego żądania lub adresy IP skojarzone z określoną podsiecią. Na przykład `11.22.33.0/22` zezwala na żądania z adresów IP 11.22.32.1 do 11.22.35.254.</td>
+      >    <td>Ogranicza dostęp do określonego adresu IP osoby żądającej. Obsługiwane są zarówno adresy IPV4, jak i IPV6. Można określić pojedynczy adres IP lub adresy IP żądania skojarzone z określoną podsiecią. Na przykład `11.22.33.0/22` zezwala na żądania z adresów IP 11.22.32.1 do 11.22.35.254.</td>
       > </tr>
       > </table>
 
-   5. Po zakończeniu wprowadzania wartości parametrów szyfrowania wybierz klucz do szyfrowania (jeśli utworzono klucz podstawowy i klucz kopii zapasowej) z listy **Klucz do szyfrowania.**
+   5. Po zakończeniu wprowadzania wartości parametrów szyfrowania wybierz klucz do zaszyfrowania (Jeśli utworzono podstawowy i klucz kopii zapasowej) z **klucza do szyfrowania** listy.
     
-   6. Wybierz wersję szyfrowania z listy **Wersja szyfrowania:** **V2** dla wersji 2 lub **V3** dla wersji 3 (zalecane). 
+   6. Wybierz wersję szyfrowania z listy **wersja szyfrowania** : **v2** dla wersji 2 lub **v3** dla wersji 3 (zalecane). 
 
-   7. Wybierz **przycisk Szyfruj,** aby wygenerować token.
+   7. Wybierz pozycję **Szyfruj** , aby wygenerować token.
 
-      Po wygenerowaniu tokenu jest on wyświetlany w polu **Wygenerowany token.** Aby użyć tokenu, dołącz go jako ciąg zapytania na końcu pliku w ścieżce adresu URL. Na przykład `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+      Po wygenerowaniu tokenu zostanie on wyświetlony w polu **wygenerowany token** . Aby użyć tokenu, dołącz go jako ciąg zapytania do końca pliku w ścieżce adresu URL. Na przykład `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-   8. Opcjonalnie należy przetestować token za pomocą narzędzia odszyfrowywania, dzięki czemu można wyświetlić parametry tokenu. Wklej wartość tokenu w polu **Token do odszyfrowania.** Wybierz klucz szyfrowania używany z listy **Klucz do odszyfrowania,** a następnie wybierz pozycję **Odszyfruj**.
+   8. Opcjonalnie Przetestuj token za pomocą narzędzia deszyfrującego, aby można było wyświetlić parametry tokenu. Wklej wartość tokenu w polu **token do odszyfrowania** . Wybierz klucz szyfrowania do użycia z listy **klucz do odszyfrowania** , a następnie wybierz opcję **Odszyfruj**.
 
-      Po odszyfrowaniu tokenu jego parametry są wyświetlane w polu **Parametry oryginalne.**
+      Gdy token zostanie odszyfrowany, jego parametry są wyświetlane w polu **pierwotne parametry** .
 
-   9. Opcjonalnie dostosuj typ kodu odpowiedzi, który jest zwracany po odrzuceniu żądania. Wybierz **pozycję Włączone**, a następnie wybierz kod odpowiedzi z listy Kod **odpowiedzi.** **Nazwa nagłówka** jest automatycznie ustawiana na **Lokalizacja**. Wybierz **pozycję Zapisz,** aby zaimplementować nowy kod odpowiedzi. W przypadku niektórych kodów odpowiedzi należy również wprowadzić adres URL strony błędu w polu **Wartość nagłówka.** Domyślnie wybierany jest kod odpowiedzi **403** (Zabronione). 
+   9. Opcjonalnie można dostosować typ kodu odpowiedzi, który jest zwracany w przypadku odrzucenia żądania. Wybierz opcję **włączone**, a następnie wybierz kod odpowiedzi z listy **kod odpowiedzi** . **Nazwa nagłówka** jest automatycznie ustawiana na **lokalizację**. Wybierz pozycję **Zapisz** , aby zaimplementować nowy kod odpowiedzi. W przypadku niektórych kodów odpowiedzi należy również wprowadzić adres URL strony błędu w polu **wartość nagłówka** . Kod odpowiedzi **403** (zabroniony) jest domyślnie wybrany. 
 
-3. W obszarze **Duży HTTP**wybierz pozycję **Aparat reguł**. Aparat reguł służy do definiowania ścieżek, aby zastosować funkcję, włączyć funkcję uwierzytelniania tokenu i włączyć dodatkowe możliwości związane z uwierzytelnianiem tokenu. Aby uzyskać więcej informacji, zobacz [Odwołanie do aparatu reguł](cdn-rules-engine-reference.md).
+3. W obszarze **http Large**wybierz pozycję **aparat reguł**. Aparat reguł służy do definiowania ścieżek do zastosowania funkcji, włączania funkcji uwierzytelniania tokenu i włączania dodatkowych funkcji związanych z uwierzytelnianiem tokenu. Aby uzyskać więcej informacji, zobacz temat [Informacje o aparacie reguł](cdn-rules-engine-reference.md).
 
-   1. Wybierz istniejącą regułę lub utwórz nową regułę, aby zdefiniować zasób lub ścieżkę, do której chcesz zastosować uwierzytelnianie tokenu. 
-   2. Aby włączyć uwierzytelnianie tokenu w regule, wybierz pozycję **[Auth tokenu](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** z listy **Funkcje,** a następnie wybierz pozycję **Włączone**. Wybierz **opcję Aktualizuj,** jeśli aktualizujesz regułę, lub **Dodaj** regułę.
+   1. Wybierz istniejącą regułę lub Utwórz nową regułę, aby zdefiniować element zawartości lub ścieżkę, dla której chcesz zastosować uwierzytelnianie tokenu. 
+   2. Aby włączyć uwierzytelnianie tokenu dla reguły, wybierz pozycję **[uwierzytelnianie tokenu](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** z listy **funkcje** , a następnie wybierz pozycję **włączone**. Wybierz pozycję **Aktualizuj** w przypadku aktualizowania reguły lub **Dodaj** , jeśli tworzysz regułę.
         
-      ![Zasady cdn uwierzytelniania tokenu aparatu włączyć przykład](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
+      ![Przykład włączenia uwierzytelniania tokenu aparatu reguł sieci CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. W engine reguł można również włączyć dodatkowe funkcje związane z uwierzytelnianiem tokenu. Aby włączyć dowolną z następujących funkcji, wybierz ją z listy **Funkcje,** a następnie wybierz pozycję **Włączone**.
+4. W aparacie reguł można także włączyć dodatkowe funkcje związane z uwierzytelnianiem tokenu. Aby włączyć dowolne z następujących funkcji, wybierz je z listy **funkcje** , a następnie wybierz pozycję **włączone**.
     
-   - **[Kod odmowy auth token:](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** Określa typ odpowiedzi, która jest zwracana do użytkownika, gdy żądanie zostanie odrzucone. Reguły ustawione w tym miejscu zastępują kod odpowiedzi ustawiony w sekcji **Niestandardowa obsługa odmowy** na stronie uwierzytelniania opartego na tokenie.
+   - **[Kod odmowy uwierzytelniania tokenu](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)**: określa typ odpowiedzi zwracanej do użytkownika, gdy żądanie zostanie odrzucone. Reguły ustawione w tym miejscu zastępują kod odpowiedzi ustawiony w sekcji **Niestandardowa obsługa odmowy** na stronie uwierzytelniania opartego na tokenach.
 
-   - **[Wielkość adresu URL auth ignoruje token:](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** Określa, czy adres URL używany do sprawdzania poprawności tokenu jest rozróżniany.
+   - **[Wielkość liter w adresie URL ignorowania uwierzytelniania tokenu](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)**: określa, czy adres URL używany do sprawdzania poprawności tokenu jest uwzględniana wielkość liter.
 
-   - **[Parametr Auth Token:](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** Zmienia nazwę parametru ciągu zapytania auth tokenu, który pojawia się w żądanym adresie URL. 
+   - **[Parametr uwierzytelniania tokenu](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)**: zmienia nazwę parametru ciągu zapytania uwierzytelniania tokenu, który pojawia się w ŻĄDANYm adresie URL. 
         
-     ![Przykład ustawień uwierzytelniania tokenu aparatu CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
+     ![Przykład ustawień uwierzytelniania tokenu aparatu reguł sieci CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 
-5. Token można dostosować, uzyskując dostęp do kodu źródłowego w [usłudze GitHub.](https://github.com/VerizonDigital/ectoken)
-   Dostępne języki obejmują:
+5. Token można dostosować, uzyskując dostęp do kodu źródłowego w usłudze [GitHub](https://github.com/VerizonDigital/ectoken).
+   Dostępne języki to:
     
    - C
    - C#
    - PHP
-   - Perl
+   - Języku
    - Java
    - Python 
 
-## <a name="azure-cdn-features-and-provider-pricing"></a>Funkcje usługi Azure CDN i ceny dostawców
+## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN funkcje i Cennik dostawcy
 
-Aby uzyskać informacje o funkcjach, zobacz [Funkcje produktu usługi Azure CDN](cdn-features.md). Aby uzyskać informacje o cenach, zobacz [Cennik sieci dostarczania zawartości](https://azure.microsoft.com/pricing/details/cdn/).
+Aby uzyskać informacje o funkcjach, zobacz [Azure CDN funkcje produktu](cdn-features.md). Aby uzyskać informacje o cenach, zobacz [Cennik usługi Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).

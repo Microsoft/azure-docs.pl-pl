@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie usługą Azure Data Lake Analytics przy użyciu narzędzia Azure Java SDK
-description: W tym artykule opisano sposób używania narzędzia Azure Java SDK do pisania aplikacji, które zarządzają zadaniami usługi Data Lake Analytics, źródłami danych & użytkownikami.
+title: Zarządzanie Azure Data Lake Analytics przy użyciu zestawu Azure Java SDK
+description: W tym artykule opisano, jak używać zestawu Azure Java SDK do pisania aplikacji, które zarządzają Data Lake Analytics zadaniami, źródłami danych & użytkownikami.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -10,28 +10,28 @@ ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: b8c7d2ba1c782c3b6ae3034d6a9aab5eb19be954
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70813643"
 ---
-# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Zarządzanie usługą Azure Data Lake Analytics przy użyciu aplikacji Java
+# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Zarządzanie Azure Data Lake Analytics przy użyciu aplikacji Java
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-W tym artykule opisano sposób zarządzania kontami usługi Azure Data Lake Analytics, źródłami danych, użytkownikami i zadaniami przy użyciu aplikacji napisanej przy użyciu narzędzia Azure Java SDK. 
+W tym artykule opisano sposób zarządzania kontami Azure Data Lake Analytics, źródłami danych, użytkownikami i zadaniami za pomocą aplikacji zapisaną przy użyciu zestawu Azure Java SDK. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Zestaw Java Development Kit (JDK) 8** (przy użyciu wersji Java 1.8).
-* **IntelliJ** lub innego odpowiedniego środowiska programistycznego Java. Instrukcje zawarte w tym dokumencie używają technologii IntelliJ.
-* Tworzenie aplikacji usługi Azure Active Directory (AAD) i pobieranie jej **identyfikatora klienta**, **identyfikatora dzierżawy** i **klucza**. Aby uzyskać więcej informacji o aplikacjach usługi AAD i instrukcje na temat uzyskiwania identyfikatora klienta, zobacz [Create Active Directory application and service principal using portal](../active-directory/develop/howto-create-service-principal-portal.md) (Tworzenie aplikacji i głównej nazwy usługi Active Directory przy użyciu portalu). Identyfikator URI i klucz odpowiedzi jest dostępny w portalu po utworzeniu aplikacji i wygenerowaniu klucza.
+* **Java Development Kit (JDK) 8** (przy użyciu języka Java w wersji 1,8).
+* **IntelliJ** lub inne odpowiednie środowisko programistyczne Java. Instrukcje przedstawione w tym dokumencie używają IntelliJ.
+* Tworzenie aplikacji usługi Azure Active Directory (AAD) i pobieranie jej **identyfikatora klienta**, **identyfikatora dzierżawy** i **klucza**. Aby uzyskać więcej informacji o aplikacjach usługi AAD i instrukcje na temat uzyskiwania identyfikatora klienta, zobacz [Create Active Directory application and service principal using portal](../active-directory/develop/howto-create-service-principal-portal.md) (Tworzenie aplikacji i głównej nazwy usługi Active Directory przy użyciu portalu). Identyfikator URI i klucz odpowiedzi są dostępne w portalu po utworzeniu aplikacji i wygenerowaniu klucza.
 
-## <a name="authenticating-using-azure-active-directory"></a>Uwierzytelnianie przy użyciu usługi Azure Active Directory
+## <a name="authenticating-using-azure-active-directory"></a>Uwierzytelnianie za pomocą Azure Active Directory
 
-Kod po urywek zawiera kod do **uwierzytelniania nieinterakcyjnego,** gdzie aplikacja udostępnia własne poświadczenia.
+Poniższy fragment kodu zawiera kod służący do uwierzytelniania **nieinterakcyjnego** , w którym aplikacja udostępnia własne poświadczenia.
 
 ## <a name="create-a-java-application"></a>Tworzenie aplikacji Java
-1. Otwórz intellij i utwórz projekt Java przy użyciu szablonu **aplikacji wiersza polecenia.**
+1. Otwórz IntelliJ i Utwórz projekt Java za pomocą szablonu **aplikacji wiersza polecenia** .
 2. Kliknij prawym przyciskiem myszy projekt po lewej stronie ekranu, a następnie kliknij pozycję **Add Framework Support** (Dodaj obsługę struktury). Wybierz pozycję **Maven** i kliknij przycisk **OK**.
 3. Otwórz nowo utworzony plik **„pom.xml”** i dodaj poniższy fragment tekstu między tagami **\</version >** i **\</project >**:
 
@@ -76,9 +76,9 @@ Kod po urywek zawiera kod do **uwierzytelniania nieinterakcyjnego,** gdzie aplik
 </dependencies>
 ```
 
-Przejdź do **sekcji Ustawienia > plików > > wdrożeniu > kompilacji**>. Wybierz **opcję Narzędzia kompilacji > Maven > importowanie**. Następnie zaznacz **opcję Importuj projekty Maven automatycznie**.
+Przejdź do **ustawień > plików > kompilacja > wykonywania > wdrożenia**. Wybierz pozycję **narzędzia kompilacji > Maven > zaimportować**. Następnie zaznacz pole wyboru **Importuj projekty Maven automatycznie**.
 
-Otwórz `Main.java` i zastąp istniejący blok kodu następującym kodem:
+Otwórz `Main.java` i Zastąp istniejący blok kodu następującym kodem:
 
 ```java
 import com.microsoft.azure.CloudException;
@@ -307,7 +307,7 @@ public class Main {
 }
 ```
 
-Podaj wartości parametrów wywoływane we fragmentie kodu:
+Podaj wartości parametrów wywoływanych we fragmencie kodu:
 * `localFolderPath`
 * `_adlaAccountName`
 * `_adlsAccountName`

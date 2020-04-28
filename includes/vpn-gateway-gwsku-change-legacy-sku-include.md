@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,15 +9,15 @@ ms.date: 03/15/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c232e1ce183c6935d625b5bc9987a4981865ae4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183111"
 ---
-Jeśli pracujesz z modelem wdrażania Menedżera zasobów, możesz zmienić na nowe jednostki SKU bramy. Po zmianie z starszej jednostki SKU bramy na nową jednostkę SKU należy usunąć istniejącą bramę sieci VPN i utworzyć nową bramę sieci VPN.
+Jeśli pracujesz z modelem wdrażania Menedżer zasobów, możesz przejść do nowych jednostek SKU bramy. W przypadku zmiany ze starszej jednostki SKU bramy na nową jednostkę SKU należy usunąć istniejącą bramę sieci VPN i utworzyć nową bramę sieci VPN.
 
-Przepływu pracy:
+Utworzonego
 
 1. Usuń wszystkie połączenia z bramą sieci wirtualnej.
 2. Usuń starą bramę sieci VPN.
@@ -29,7 +29,7 @@ Przepływu pracy:
 
 Zagadnienia do rozważenia:
 
-* Aby przejść do nowych jednostek SKU, brama sieci VPN musi znajdować się w modelu wdrażania Menedżera zasobów.
-* Jeśli masz klasyczną bramę sieci VPN, musisz nadal używać starszych starszych jednostek SKU dla tej bramy, jednak można zmienić rozmiar między starszymi jednostkami SKU. Nie można zmienić na nowe jednostki SKU.
-* Będziesz mieć przestoje łączności po zmianie z starszej jednostki SKU na nową jednostkę SKU.
-* Po zmianie na nową jednostkę SKU bramy zmieni się publiczny adres IP bramy sieci VPN. Dzieje się tak, nawet jeśli określisz ten sam publiczny obiekt adresu IP, który był wcześniej używany.
+* Aby przejść do nowych jednostek SKU, Brama sieci VPN musi znajdować się w Menedżer zasobów model wdrażania.
+* Jeśli korzystasz z klasycznej bramy sieci VPN, musisz nadal używać starszych starszych jednostek SKU dla tej bramy, jednak można zmienić rozmiar między starszymi jednostkami SKU. Nie można zmienić nowych jednostek SKU.
+* Podczas zmiany ze starszej wersji SKU na nową jednostkę SKU będziesz mieć problemy z łącznością.
+* W przypadku zmiany na nową jednostkę SKU bramy zostanie zmieniony publiczny adres IP bramy sieci VPN. Dzieje się tak nawet w przypadku określenia tego samego obiektu publicznego adresu IP, który był wcześniej używany.

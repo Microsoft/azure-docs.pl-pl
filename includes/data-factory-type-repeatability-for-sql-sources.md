@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 24bb7a1fcb1569922fb34034fb3c0d003cdd7061
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183698"
 ---
 ## <a name="repeatability-during-copy"></a>Powtarzalność podczas kopiowania
-Podczas kopiowania danych do usługi Azure SQL/SQL Server z innych magazynów danych należy pamiętać o powtarzalności, aby uniknąć niezamierzonych wyników. 
+Podczas kopiowania danych do usługi Azure SQL/SQL Server z innych magazynów danych jeden musi mieć na uwadze powtarzalność, aby uniknąć niezamierzonych wyników. 
 
-Podczas kopiowania danych do bazy danych programu Azure SQL/SQL Server, aktywność kopiowania domyślnie dołączy zestaw danych do tabeli ujścia domyślnie. Na przykład podczas kopiowania danych ze źródła pliku CSV (dane wartości oddzielonych przecinkami) zawierającego dwa rekordy do bazy danych programu Azure SQL/SQL Server, tak wygląda tabela:
+Podczas kopiowania danych do usługi Azure SQL/SQL Server Database, działanie Copy domyślnie dołącza zestaw danych do tabeli sink. Na przykład podczas kopiowania danych z woluminu CSV (dane z wartościami rozdzielanymi przecinkami) zawierającego dwa rekordy do bazy danych Azure SQL/SQL Server, jest to wygląd tabeli:
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -23,7 +23,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-Załóżmy, że znaleziono błędy w pliku źródłowym i zaktualizowano ilość Down Tube z 2 do 4 w pliku źródłowym. Po ponownym uruchomieniu plasterek danych dla tego okresu, znajdziesz dwa nowe rekordy dołączone do bazy danych programu Azure SQL/SQL Server. Poniżej założono, że żadna z kolumn w tabeli nie ma ograniczenia klucza podstawowego.
+Załóżmy, że znaleziono błędy w pliku źródłowym i Zaktualizowano ilość rury w dół z 2 do 4 w pliku źródłowym. Po ponownym uruchomieniu wycinka danych dla tego okresu znajdziesz dwa nowe rekordy dołączone do bazy danych Azure SQL/SQL Server. Poniżej założono, że żadna z kolumn w tabeli nie ma ograniczenia PRIMARY KEY.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -34,15 +34,15 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Aby tego uniknąć, należy określić semantycę UPSERT, korzystając z jednego z poniższych mechanizmów 2 podanych poniżej.
+Aby tego uniknąć, należy określić semantykę UPSERT przy użyciu jednego z poniższych dwóch mechanizmów wymienionych poniżej.
 
 > [!NOTE]
-> Plasterek można ponownie uruchomić automatycznie w usłudze Azure Data Factory zgodnie z określonymi zasadami ponawiania.
+> Wycinek można automatycznie uruchomić ponownie w Azure Data Factory zgodnie z określonymi zasadami ponawiania.
 > 
 > 
 
 ### <a name="mechanism-1"></a>Mechanizm 1
-Można wykorzystać **właściwość sqlWriterCleanupScript,** aby najpierw wykonać akcję oczyszczania po uruchomieniu plasterka. 
+Możesz użyć właściwości **sqlWriterCleanupScript** , aby najpierw wykonać akcję oczyszczania po uruchomieniu wycinka. 
 
 ```json
 "sink":  
@@ -52,9 +52,9 @@ Można wykorzystać **właściwość sqlWriterCleanupScript,** aby najpierw wyko
 }
 ```
 
-Skrypt oczyszczania zostanie wykonany najpierw podczas kopiowania dla danego plasterka, który usunie dane z tabeli SQL odpowiadające tego wycinka. Działanie zostanie następnie wstawione dane do tabeli SQL. 
+Skrypt czyszczący zostanie wykonany w pierwszej kolejności podczas kopiowania dla danego wycinka, co spowoduje usunięcie danych z tabeli SQL odpowiadającej temu wycinkowi. Działanie spowoduje następnie wstawienie danych do tabeli SQL. 
 
-Jeśli plasterek jest teraz ponownie uruchomiony, okaże się, że ilość jest aktualizowana zgodnie z potrzebami.
+Jeśli wycinek jest teraz ponownie uruchamiany, ilość będzie aktualizowana zgodnie z potrzebami.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -63,24 +63,24 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Załóżmy, że rekord podkładki płaskiej zostanie usunięty z oryginalnego pliku csv. Następnie ponowne uruchomienie plasterka dałoby następujący wynik: 
+Załóżmy, że rekord płaskich spryskiwaczy został usunięty z oryginalnego woluminu CSV. Następnie ponowne uruchomienie wycinka spowoduje wygenerowanie następującego wyniku: 
 
 ```
 ID    Product        Quantity    ModifiedDate
 ...    ...            ...            ...
 7     Down Tube    4            2015-05-01 00:00:00
 ```
-Nic nowego nie trzeba było robić. Działanie kopiowania uruchomiło skrypt oczyszczania, aby usunąć odpowiednie dane dla tego plasterka. Następnie odczytuje dane wejściowe z csv (który następnie zawierał tylko 1 rekord) i wstawił go do tabeli. 
+Nie trzeba niczego robić. Działanie kopiowania uruchomiło skrypt oczyszczania, aby usunąć odpowiednie dane dla tego wycinka. Następnie odczytuje dane wejściowe z woluminu CSV (który zawiera tylko 1 rekord) i wstawiono je do tabeli. 
 
 ### <a name="mechanism-2"></a>Mechanizm 2
 > [!IMPORTANT]
-> sliceIdentifierColumnName nie jest obecnie obsługiwana dla usługi Azure SQL Data Warehouse. 
+> sliceIdentifierColumnName nie jest w tej chwili obsługiwana w przypadku Azure SQL Data Warehouse. 
 
-Innym mechanizmem do osiągnięcia powtarzalności jest posiadanie dedykowanej kolumny (**sliceIdentifierColumnName**) w tabeli docelowej. Ta kolumna będzie używana przez usługę Azure Data Factory, aby zapewnić synchronizację miejsca docelowego ze źródłem i miejscem docelowym. To podejście działa, gdy istnieje elastyczność w zmienianiu lub definiowaniu docelowego schematu tabeli SQL. 
+Innym mechanizmem do osiągnięcia powtarzalności jest posiadanie dedykowanej kolumny (**sliceIdentifierColumnName**) w tabeli docelowej. Ta kolumna powinna być używana przez Azure Data Factory, aby zapewnić synchronizację źródła i miejsca docelowego. Takie podejście działa, gdy istnieje elastyczność zmiany lub definiowania docelowego schematu tabeli SQL. 
 
-Ta kolumna będzie używana przez usługę Azure Data Factory do celów powtarzalności, a w procesie usługi Azure Data Factory nie będzie wprowadzać żadnych zmian schematu w tabeli. Sposób korzystania z tego podejścia:
+Ta kolumna będzie używana przez Azure Data Factory do celów powtarzalności, a w Azure Data Factory procesu nie wprowadza żadnych zmian schematu w tabeli. Sposób użycia tej metody:
 
-1. Zdefiniuj kolumnę typu binarny (32) w docelowej tabeli SQL. Nie powinno być żadnych ograniczeń w tej kolumnie. Nazwijmy tę kolumnę jako "ColumnForADFuseOnly" w tym przykładzie.
+1. Zdefiniuj kolumnę typu binary (32) w docelowej tabeli SQL. Ta kolumna nie powinna zawierać żadnych ograniczeń. Nadaj nazwę tej kolumnie jako "ColumnForADFuseOnly" w tym przykładzie.
 2. Użyj go w działaniu kopiowania w następujący sposób:
    
     ```json
@@ -92,7 +92,7 @@ Ta kolumna będzie używana przez usługę Azure Data Factory do celów powtarza
     }
     ```
 
-Usługa Azure Data Factory wypełni tę kolumnę zgodnie z potrzebą zapewnienia synchronizacji miejsca docelowego ze źródłem i miejscem docelowym. Wartości tej kolumny nie powinny być używane poza tym kontekście przez użytkownika. 
+Azure Data Factory wypełni tę kolumnę zgodnie z potrzebami, aby upewnić się, że źródło i miejsce docelowe pozostają zsynchronizowane. Wartości tej kolumny nie należy używać poza tym kontekstem przez użytkownika. 
 
-Podobnie jak w przypadku mechanizmu 1, działanie kopiowania automatycznie najpierw oczyści dane dla danego plasterka z docelowej tabeli SQL, a następnie uruchomi działanie kopiowania normalnie, aby wstawić dane ze źródła do miejsca docelowego dla tego plasterka. 
+Podobnie jak w przypadku mechanizmu 1, działanie Copy automatycznie wyczyści dane dla danego wycinka z docelowej tabeli SQL, a następnie uruchomi działanie kopiowania w normalny sposób, aby wstawić dane ze źródła do miejsca docelowego dla tego wycinka. 
 

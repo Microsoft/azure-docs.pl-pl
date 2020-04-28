@@ -1,6 +1,6 @@
 ---
-title: Edytowanie informacji o grupie — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Instrukcje dotyczące edytowania informacji o grupie przy użyciu usługi Azure Active Directory.
+title: Edytuj informacje o grupie — Azure Active Directory | Microsoft Docs
+description: Instrukcje dotyczące edytowania informacji o grupach przy użyciu Azure Active Directory.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -14,46 +14,46 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc06abca08b2522ac57552e85f7c1bac3ef854af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68561876"
 ---
-# <a name="edit-your-group-information-using-azure-active-directory"></a>Edytowanie informacji o grupie przy użyciu usługi Azure Active Directory
+# <a name="edit-your-group-information-using-azure-active-directory"></a>Edytuj informacje o grupie za pomocą Azure Active Directory
 
-Korzystając z usługi Azure Active Directory (Azure AD), można edytować ustawienia grupy, w tym aktualizować jej nazwę, opis lub typ członkostwa.
+Za pomocą Azure Active Directory (Azure AD) można edytować ustawienia grupy, w tym aktualizując jej nazwę, opis lub typ członkostwa.
 
 ## <a name="to-edit-your-group-settings"></a>Aby edytować ustawienia grupy
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu konta administratora globalnego dla katalogu.
 
-2. Wybierz **pozycję Azure Active Directory**, a następnie wybierz pozycję **Grupy**.
+2. Wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **grupy**.
 
-    Zostanie **wyświetlona** strona Grupy — wszystkie grupy z wyświetlaniem wszystkich aktywnych grup.
+    Zostanie wyświetlona strona **grupy — wszystkie grupy** , w której wyświetlane są wszystkie aktywne grupy.
 
-3. Na stronie **Grupy — wszystkie grupy** wpisz w polu **Wyszukiwania** jak najwięcej nazwy grupy. Na potrzeby tego artykułu szukamy **zasad MDM —** grupa Zachód.
+3. Na stronie **grupy — wszystkie grupy** wpisz dowolną część nazwy grupy, którą można znaleźć w polu **wyszukiwania** . Na potrzeby tego artykułu wyszukiwana jest Grupa **zasad zarządzania urządzeniami przenośnymi** .
 
-    Wyniki wyszukiwania są wyświetlane w polu **Wyszukiwania,** aktualizując się podczas wpisywania większej liczby znaków.
+    Wyniki wyszukiwania są wyświetlane w polu **wyszukiwania** , co pozwala aktualizować w miarę wpisywania więcej znaków.
 
-    ![Strona Wszystkie grupy z tekstem wyszukiwania w polu Wyszukiwania](media/active-directory-groups-settings-azure-portal/search-for-specific-group.png)
+    ![Strona wszystkie grupy z tekstem wyszukiwania w polu wyszukiwania](media/active-directory-groups-settings-azure-portal/search-for-specific-group.png)
 
-4. Wybierz **zasadę MDM**grupy - Zachód , a następnie wybierz **polecenie Właściwości** z obszaru **Zarządzanie.**
+4. Wybierz pozycję **zasady grupy MDM — zachód**, a następnie wybierz pozycję **Właściwości** w obszarze **Zarządzaj** .
 
-    ![Strona Przegląd grupy z wyróżnioną opcją Członka i informacjami](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![Strona przeglądu grupy z wyróżnioną opcją elementu członkowskiego i informacjami](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
-5. W razie potrzeby zaktualizuj informacje o **ustawieniach ogólnych,** w tym:
+5. Zaktualizuj ogólne informacje o **ustawieniach** , w tym:
 
-    ![Ustawienia właściwości grupy](media/active-directory-groups-settings-azure-portal/group-properties-settings.png)
+    ![Ustawienia właściwości dla grupy](media/active-directory-groups-settings-azure-portal/group-properties-settings.png)
 
-    - **Nazwa grupy.** Edytuj istniejącą nazwę grupy.
+    - **Nazwa grupy.** Edytuj nazwę istniejącej grupy.
     
-    - **Opis grupy.** Edytuj istniejący opis grupy.
+    - **Opis grupy.** Edytuj opis istniejącej grupy.
 
-    - **Typ grupy.** Nie można zmienić typu grupy po jej utworzeniu. Aby zmienić **typ grupy,** należy usunąć grupę i utworzyć nową.
+    - **Typ grupy.** Nie można zmienić typu grupy po jej utworzeniu. Aby zmienić **Typ grupy**, należy usunąć grupę i utworzyć nową.
     
-    - **Typ członkostwa.** Zmień typ członkostwa. Aby uzyskać więcej informacji na temat różnych dostępnych typów członkostwa, zobacz [Jak: Tworzenie grupy podstawowej i dodawanie członków za pomocą portalu Usługi Azure Active Directory](active-directory-groups-create-azure-portal.md).
+    - **Typ członkostwa.** Zmień typ członkostwa. Aby uzyskać więcej informacji o różnych dostępnych typach członkostwa, zobacz [How to: Create a podstawową grupę i Dodawanie członków przy użyciu portalu Azure Active Directory](active-directory-groups-create-azure-portal.md).
     
-    - **Identyfikator obiektu.** Nie można zmienić identyfikatora obiektu, ale można go skopiować do użycia w poleceniach programu PowerShell dla grupy. Aby uzyskać więcej informacji na temat używania poleceń cmdlet programu PowerShell, zobacz [Polecenia cmdlet usługi Azure Active Directory dotyczące konfigurowania ustawień grupy](../users-groups-roles/groups-settings-v2-cmdlets.md).
+    - **Identyfikator obiektu.** Nie można zmienić identyfikatora obiektu, ale można skopiować go do użycia w poleceniach programu PowerShell dla grupy. Aby uzyskać więcej informacji na temat używania poleceń cmdlet programu PowerShell, zobacz [Azure Active Directory polecenia cmdlet do konfigurowania ustawień grupy](../users-groups-roles/groups-settings-v2-cmdlets.md).
 
 ## <a name="next-steps"></a>Następne kroki
 Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.

@@ -1,51 +1,51 @@
 ---
-title: Przykłady deweloperów usługi Azure Data Catalog
-description: Ten artykuł zawiera omówienie dostępnych przykładów deweloperów dla interfejsu API REST wykazu danych.
+title: Przykłady dla deweloperów Azure Data Catalog
+description: Ten artykuł zawiera omówienie dostępnych przykładów dla deweloperów dla interfejsu API REST Data Catalog.
 ms.service: data-catalog
 author: JasonWHowell
 ms.author: jasonh
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 7d0e27802745dda62f87e412053650907e9b812c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68950155"
 ---
-# <a name="azure-data-catalog-developer-samples"></a>Przykłady deweloperów usługi Azure Data Catalog
+# <a name="azure-data-catalog-developer-samples"></a>Przykłady dla deweloperów Azure Data Catalog
 
-Rozpocznij tworzenie aplikacji usługi Azure Data Catalog przy użyciu interfejsu API REST wykazu danych. Interfejs API REST wykazu danych jest interfejsem API opartym na rest, który zapewnia programowy dostęp do zasobów wykazu danych do rejestrowania, dodawać adnotacje i przeszukiwania zasobów danych programowo.
+Zacznij opracowywać aplikacje Azure Data Catalog przy użyciu interfejsu API REST Data Catalog. Interfejs API REST Data Catalog to interfejs API oparty na protokole REST, który zapewnia programistyczny dostęp do zasobów Data Catalog do programowego rejestrowania, dodawania adnotacji i wyszukiwania zasobów danych.
 
-## <a name="samples-available-on-githubcom"></a>Próbki dostępne na GitHub.com
+## <a name="samples-available-on-githubcom"></a>Przykłady dostępne na GitHub.com
 
 * [Rozpoczynanie pracy z usługą Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/)
   
-   W przykładzie wprowadzenie pokazano, jak uwierzytelnić się za pomocą usługi Azure AD, aby zarejestrować, przeszukać i usunąć zasób danych przy użyciu interfejsu API REST wykazu danych.
+   Przykład wprowadzenie pokazuje, jak uwierzytelniać się za pomocą usługi Azure AD w celu rejestrowania, wyszukiwania i usuwania zasobów danych przy użyciu interfejsu API REST Data Catalog.
    
-* [Wprowadzenie do usługi Azure Data Catalog przy użyciu jednostki usługi](https://github.com/Azure-Samples/data-catalog-dotnet-service-principal-get-started/)
+* [Wprowadzenie do Azure Data Catalog przy użyciu nazwy głównej usługi](https://github.com/Azure-Samples/data-catalog-dotnet-service-principal-get-started/)
 
-   W tym przykładzie pokazano, jak zarejestrować, wyszukać i usunąć zasób danych przy użyciu interfejsu API REST wykazu danych. W tym przykładzie użyto uwierzytelniania jednostki usługi.
+   Ten przykład pokazuje, jak zarejestrować, wyszukiwać i usuwać zasób danych przy użyciu interfejsu API REST Data Catalog. Ten przykład używa uwierzytelniania jednostki usługi.
 
-* [Narzędzie Importuj/eksportuj dla usługi Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-import-export/)
+* [Narzędzie Import/Export dla Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-import-export/)
 
-   W tym przykładzie pokazano, jak używać interfejsu API REST wykazu danych do pobierania zasobów z usługi Azure Data Catalog i serializacji ich do pliku. Pokazuje również, jak wziąć zestaw zasobów serializowanych jako JSON i wypchnąć je do katalogu. Obsługuje eksportowanie podzbioru katalogu przy użyciu kwerendy wyszukiwania.
+   Ten przykład pokazuje, jak za pomocą interfejsu API REST Data Catalog pobrać zasoby z Azure Data Catalog i serializować je do pliku. Przedstawiono w nim również, jak utworzyć zestaw zasobów serializowany w formacie JSON i wypchnąć je do katalogu. Obsługuje ona eksportowanie podzestawu katalogu przy użyciu zapytania wyszukiwania.
 
-* [Rejestrowanie zbiorcze i dodawanie adnotacji w wykazie danych platformy Azure](https://github.com/Azure-Samples/data-catalog-dotnet-excel-register-data-assets/)
+* [Rejestruj zbiorczo i Adnotuj w Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-excel-register-data-assets/)
   
-   W tym przykładzie pokazano, jak zbiorczo rejestrować zasoby danych ze skoroszytu programu Excel przy użyciu interfejsu API REST wykazu danych i otwartego pliku XML.
+   Ten przykład pokazuje, jak przeprowadzić zbiorczą rejestrację zasobów danych ze skoroszytu programu Excel przy użyciu interfejsu API REST Data Catalog i otworzyć plik XML.
   
-* [Zbiorcze terminy glosariusza importu do wykazu danych platformy Azure](https://github.com/Azure-Samples/data-catalog-bulk-import-glossary/)
+* [Importuj zbiorczo terminy słownika do Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-bulk-import-glossary/)
 
-   W tym przykładzie pokazano, jak zaimportować terminy glosariusza z plików CSV do słowniczka ADC.
+   Ten przykład pokazuje, jak zaimportować terminy słownika z plików CSV do słownika ADC.
 
-* [Zbiorcze importowanie relacji do usługi Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-bulk-import-relationship/)
+* [Importuj zbiorczo relacje do Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-bulk-import-relationship/)
 
-   W tym przykładzie pokazano, jak programowo importować informacje o relacji z pliku CSV do wykazu danych.
+   Ten przykład pokazuje, jak programowo zaimportować informacje o relacji z pliku CSV do wykazu danych.
 
-* [Publikowanie relacji w wykazie danych platformy Azure](https://github.com/Azure-Samples/data-catalog-dotnet-publish-relationships/)
+* [Publikuj relacje w Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-publish-relationships/)
 
-   W tym przykładzie pokazano, jak programowo publikować informacje o relacji do katalogu danych.
+   Ten przykład pokazuje, jak programowo publikować informacje o relacji do wykazu danych.
    
 ## <a name="next-steps"></a>Następne kroki
-[Odwołanie interfejsu API REST usługi Azure Data Catalog](/rest/api/datacatalog/)
+[Dokumentacja interfejsu API REST Azure Data Catalog](/rest/api/datacatalog/)

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,21 +9,21 @@ ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: ddab6927044ce638e50ff3ad79aa3c35d046c820
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "69520866"
 ---
-W poniższych krokach użyto następującej konfiguracji:
+Następująca konfiguracja została użyta w poniższych krokach:
 
   | | |
   |---|---|
   |Computer (Komputer)| Ubuntu Server 18.04|
-  |Zależności| strongSwan (silnySwan) |
+  |Zależności| Klient strongswan |
 
 
-Użyj następujących poleceń, aby zainstalować wymaganą konfigurację strongSwan:
+Użyj następujących poleceń, aby zainstalować wymaganą konfigurację klient strongswan:
 
 ```
 sudo apt install strongswan

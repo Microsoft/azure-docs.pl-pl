@@ -1,7 +1,7 @@
 ---
-title: Odczytywanie danych tabeli interfejsu API cassandra przy użyciu platformy Spark
+title: Odczytywanie danych tabeli interfejs API Cassandra przy użyciu platformy Spark
 titleSufix: Azure Cosmos DB
-description: W tym artykule opisano sposób odczytywania danych z tabel interfejsu API Cassandra w usłudze Azure Cosmos DB.
+description: W tym artykule opisano sposób odczytywania danych z tabel interfejs API Cassandra w Azure Cosmos DB.
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 01a9582062d8eb0d039473a03901fc83fe179020
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60893404"
 ---
-# <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Odczytywanie danych z tabel interfejsu API usługi Azure Cosmos DB Cassandra przy użyciu platformy Spark
+# <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Odczytywanie danych z Azure Cosmos DB interfejs API Cassandra tabelach przy użyciu platformy Spark
 
- W tym artykule opisano sposób odczytywania danych przechowywanych w interfejsie API Cassandra usługi Azure Cosmos DB z platformy Spark.
+ W tym artykule opisano sposób odczytywania danych przechowywanych w Azure Cosmos DB interfejs API Cassandra z platformy Spark.
 
-## <a name="cassandra-api-configuration"></a>Konfiguracja interfejsu API Cassandra
+## <a name="cassandra-api-configuration"></a>Konfiguracja interfejs API Cassandra
 ```scala
 import org.apache.spark.sql.cassandra._
 //Spark connector
@@ -46,9 +46,9 @@ spark.conf.set("spark.cassandra.concurrent.reads", "512")
 spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
-## <a name="dataframe-api"></a>Interfejs API dla ram danych
+## <a name="dataframe-api"></a>Interfejs API Dataframe
 
-### <a name="read-table-using-sessionreadformat-command"></a>Przeczytaj tabelę za pomocą polecenia session.read.format
+### <a name="read-table-using-sessionreadformat-command"></a>Odczytaj tabelę przy użyciu polecenia Session. Read. format
 
 ```scala
 val readBooksDF = sqlContext
@@ -60,13 +60,13 @@ val readBooksDF = sqlContext
 readBooksDF.explain
 readBooksDF.show
 ```
-### <a name="read-table-using-sparkreadcassandraformat"></a>Odczyt tabeli przy użyciu pliku spark.read.cassandraFormat 
+### <a name="read-table-using-sparkreadcassandraformat"></a>Odczytaj tabelę przy użyciu platformy Spark. Read. cassandraFormat 
 
 ```scala
 val readBooksDF = spark.read.cassandraFormat("books", "books_ks", "").load()
 ```
 
-### <a name="read-specific-columns-in-table"></a>Odczytywanie określonych kolumn w tabeli
+### <a name="read-specific-columns-in-table"></a>Odczytaj określone kolumny w tabeli
 
 ```scala
 val readBooksDF = spark
@@ -83,7 +83,7 @@ readBooksDF.show
 
 ### <a name="apply-filters"></a>Stosowanie filtrów
 
-Obecnie predykatu pushdown nie jest obsługiwany, poniższe przykłady odzwierciedlają filtrowanie po stronie klienta. 
+Obecnie przekazywanie predykatu nie jest obsługiwane, poniższe przykłady odzwierciedlają filtrowanie po stronie klienta. 
 
 ```scala
 val readBooksDF = spark
@@ -103,15 +103,15 @@ readBooksDF.explain
 readBooksDF.show
 ```
 
-## <a name="rdd-api"></a>RDD API
+## <a name="rdd-api"></a>INTERFEJS API RDD
 
-### <a name="read-table"></a>Przeczytaj tabelę
+### <a name="read-table"></a>Odczytaj tabelę
 ```scala
 val bookRDD = sc.cassandraTable("books_ks", "books")
 bookRDD.take(5).foreach(println)
 ```
 
-### <a name="read-specific-columns-in-table"></a>Odczytywanie określonych kolumn w tabeli
+### <a name="read-specific-columns-in-table"></a>Odczytaj określone kolumny w tabeli
 
 ```scala
 val booksRDD = sc.cassandraTable("books_ks", "books").select("book_id","book_name").cache
@@ -120,7 +120,7 @@ booksRDD.take(5).foreach(println)
 
 ## <a name="sql-views"></a>Widoki SQL 
 
-### <a name="create-a-temporary-view-from-a-dataframe"></a>Tworzenie widoku tymczasowego z ramki danych
+### <a name="create-a-temporary-view-from-a-dataframe"></a>Tworzenie widoku tymczasowego na podstawie ramki danych
 
 ```scala
 spark
@@ -130,7 +130,7 @@ spark
   .load.createOrReplaceTempView("books_vw")
 ```
 
-### <a name="run-queries-against-the-view"></a>Uruchamianie kwerend względem widoku
+### <a name="run-queries-against-the-view"></a>Uruchom zapytania względem widoku
 
 ```sql
 select * from books_vw where book_pub_year > 1891
@@ -138,10 +138,10 @@ select * from books_vw where book_pub_year > 1891
 
 ## <a name="next-steps"></a>Następne kroki
 
-Poniżej przedstawiono dodatkowe artykuły dotyczące pracy z interfejsem API Cassandra usługi Azure Cosmos DB z platformy Spark:
+Poniżej znajdują się dodatkowe artykuły dotyczące pracy z Azure Cosmos DB interfejs API Cassandra z platformy Spark:
  
  * [Operacje upsert](cassandra-spark-upsert-ops.md)
- * [Usuwanie operacji](cassandra-spark-delete-ops.md)
+ * [Operacje usuwania](cassandra-spark-delete-ops.md)
  * [Operacje agregacji](cassandra-spark-aggregation-ops.md)
- * [Operacje kopiowania tabeli](cassandra-spark-table-copy-ops.md)
+ * [Operacje kopiowania tabel](cassandra-spark-table-copy-ops.md)
 
