@@ -1,6 +1,6 @@
 ---
-title: Łączenie się z maszyną wirtualną programu SQL Server na platformie Azure (klasyczny) | Dokumenty firmy Microsoft
-description: Dowiedz się, jak połączyć się z programem SQL Server uruchomionym na maszynie wirtualnej na platformie Azure. W tym temacie użyto klasycznego modelu wdrażania. Scenariusze różnią się w zależności od konfiguracji sieci i lokalizacji klienta.
+title: Nawiązywanie połączenia z maszyną wirtualną SQL Server na platformie Azure (wersja klasyczna) | Microsoft Docs
+description: Dowiedz się, jak nawiązać połączenie z usługą SQL Server działającą na maszynie wirtualnej na platformie Azure. W tym temacie jest stosowany klasyczny model wdrażania. Scenariusze różnią się w zależności od konfiguracji sieci i lokalizacji klienta.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -17,85 +17,85 @@ ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 1c2d5ae5d85624ea172eb9a95d4086dd71287c4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75978202"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Łączenie z maszyną wirtualną programu SQL Server na platformie Azure (wdrażanie klasyczne)
 > [!div class="op_single_selector"]
-> * [Menedżer zasobów](../sql/virtual-machines-windows-sql-connect.md)
+> * [Resource Manager](../sql/virtual-machines-windows-sql-connect.md)
 > * [Wdrożenie klasyczne](../classic/sql-connect.md)
 > 
 > 
 
 ## <a name="overview"></a>Omówienie
-W tym temacie opisano sposób łączenia się z wystąpieniem programu SQL Server uruchomionym na maszynie wirtualnej platformy Azure. Obejmuje ona niektóre [ogólne scenariusze łączności,](#connection-scenarios) a następnie zawiera [szczegółowe kroki konfigurowania łączności programu SQL Server w maszynie Wirtualnej platformy Azure.](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)
+W tym temacie opisano sposób nawiązywania połączenia z wystąpieniem SQL Server uruchomionym na maszynie wirtualnej platformy Azure. Obejmuje ona niektóre [Ogólne scenariusze łączności](#connection-scenarios) , a następnie zawiera [szczegółowe instrukcje dotyczące konfigurowania łączności SQL Server na maszynie wirtualnej platformy Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 > [!IMPORTANT] 
-> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Menedżer zasobów i Klasyczny](../../../azure-resource-manager/management/deployment-models.md). W tym artykule opisano przy użyciu modelu wdrażania klasycznego. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Jeśli używasz maszyn wirtualnych Menedżera zasobów, zobacz [Łączenie się z maszyną wirtualną programu SQL Server na platformie Azure przy użyciu Menedżera zasobów](../sql/virtual-machines-windows-sql-connect.md).
+> Platforma Azure ma dwa różne modele wdrażania służące do tworzenia zasobów i pracy z nimi: [Menedżer zasobów i klasyczne](../../../azure-resource-manager/management/deployment-models.md). W tym artykule opisano korzystanie z klasycznego modelu wdrażania. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Jeśli używasz maszyn wirtualnych Menedżer zasobów, zobacz [nawiązywanie połączenia z maszyną wirtualną SQL Server na platformie Azure przy użyciu Menedżer zasobów](../sql/virtual-machines-windows-sql-connect.md).
 
 ## <a name="connection-scenarios"></a>Scenariusze połączeń
-Sposób, w jaki klient łączy się z programem SQL Server uruchomionym na maszynie wirtualnej, różni się w zależności od lokalizacji klienta i konfiguracji maszyny/sieci. Scenariusze obejmują:
+Sposób, w jaki klient nawiązuje połączenie z SQL Server uruchomionym na maszynie wirtualnej, różni się w zależności od lokalizacji klienta i konfiguracji komputera/sieci. Scenariusze obejmują:
 
-* [Łączenie się z programem SQL Server w tej samej usłudze w chmurze](#connect-to-sql-server-in-the-same-cloud-service)
-* [Łączenie się z programem SQL Server przez Internet](#connect-to-sql-server-over-the-internet)
-* [Łączenie się z programem SQL Server w tej samej sieci wirtualnej](#connect-to-sql-server-in-the-same-virtual-network)
+* [Połącz z SQL Server w tej samej usłudze w chmurze](#connect-to-sql-server-in-the-same-cloud-service)
+* [Nawiązywanie połączenia z SQL Server za pośrednictwem Internetu](#connect-to-sql-server-over-the-internet)
+* [Połącz z SQL Server w tej samej sieci wirtualnej](#connect-to-sql-server-in-the-same-virtual-network)
 
 > [!NOTE]
-> Przed nawiązaniem połączenia z dowolną z tych metod należy wykonać [kroki opisane w tym artykule, aby skonfigurować łączność](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
+> Przed nawiązaniem połączenia z dowolną z tych metod, należy wykonać [kroki opisane w tym artykule, aby skonfigurować łączność](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 > 
 > 
 
-### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Łączenie się z programem SQL Server w tej samej usłudze w chmurze
-Wiele maszyn wirtualnych można utworzyć w tej samej usłudze w chmurze. Aby zrozumieć ten scenariusz maszyn wirtualnych, zobacz [Jak połączyć maszyny wirtualne z siecią wirtualną lub usługą w chmurze](/previous-versions/azure/virtual-machines/windows/classic/connect-vms-classic#connect-vms-in-a-standalone-cloud-service). W tym scenariuszu klient na jednej maszynie wirtualnej próbuje połączyć się z programem SQL Server uruchomionym na innej maszynie wirtualnej w tej samej usłudze w chmurze.
+### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Połącz z SQL Server w tej samej usłudze w chmurze
+W tej samej usłudze w chmurze można utworzyć wiele maszyn wirtualnych. Aby zrozumieć ten scenariusz maszyn wirtualnych, zobacz [jak połączyć maszyny wirtualne z siecią wirtualną lub usługą w chmurze](/previous-versions/azure/virtual-machines/windows/classic/connect-vms-classic#connect-vms-in-a-standalone-cloud-service). W tym scenariuszu klient na jednej maszynie wirtualnej próbuje nawiązać połączenie z usługą SQL Server działającą na innej maszynie wirtualnej w tej samej usłudze w chmurze.
 
-W tym scenariuszu można połączyć się przy użyciu **nazwy** maszyny Wirtualnej (również wyświetlane jako **nazwa komputera** lub **nazwa hosta** w portalu). Jest to nazwa podana dla maszyny Wirtualnej podczas tworzenia. Na przykład jeśli nazwano maszynę wirtualną SQL **mysqlvm,** maszyna wirtualna klienta w tej samej usłudze w chmurze może użyć następującego ciągu połączenia do połączenia:
+**W tym** scenariuszu można nawiązać połączenie przy użyciu **nazwy** maszyny wirtualnej (podanej **także w portalu** ). Jest to nazwa podana dla maszyny wirtualnej podczas jej tworzenia. Jeśli na przykład nazwa maszyny wirtualnej SQL **mysqlvm**, maszyna wirtualna w tej samej usłudze w chmurze może użyć następujących parametrów połączenia do nawiązania połączenia:
 
     "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-### <a name="connect-to-sql-server-over-the-internet"></a>Łączenie się z programem SQL Server przez Internet
-Jeśli chcesz połączyć się z aparatem bazy danych programu SQL Server z Internetu, musisz utworzyć punkt końcowy maszyny wirtualnej dla przychodzącej komunikacji TCP. Ten krok konfiguracji platformy Azure kieruje przychodzący ruch portowy TCP do portu TCP, który jest dostępny dla maszyny wirtualnej.
+### <a name="connect-to-sql-server-over-the-internet"></a>Nawiązywanie połączenia z SQL Server za pośrednictwem Internetu
+Jeśli chcesz nawiązać połączenie z aparatem bazy danych SQL Server z Internetu, musisz utworzyć punkt końcowy maszyny wirtualnej dla przychodzącej komunikacji TCP. Ten krok konfiguracji platformy Azure powoduje kierowanie przychodzącego ruchu portów TCP do portu TCP, który jest dostępny dla maszyny wirtualnej.
 
-Aby połączyć się przez Internet, należy użyć nazwy DNS maszyny Wirtualnej i numeru portu punktu końcowego maszyny Wirtualnej (skonfigurowany w dalszej części tego artykułu). Aby znaleźć nazwę DNS, przejdź do witryny Azure portal i wybierz pozycję **Maszyny wirtualne (klasyczne).** Następnie wybierz maszynę wirtualną. **Nazwa DNS** jest wyświetlana w sekcji **Przegląd.**
+Aby nawiązać połączenie za pośrednictwem Internetu, należy użyć nazwy DNS i numeru portu punktu końcowego maszyny wirtualnej (skonfigurowany w dalszej części tego artykułu). Aby znaleźć nazwę DNS, przejdź do Azure Portal i wybierz pozycję **maszyny wirtualne (klasyczne)**. Następnie wybierz swoją maszynę wirtualną. **Nazwa DNS** jest wyświetlana w sekcji **Przegląd** .
 
-Rozważmy na przykład klasyczną maszynę wirtualną o nazwie **mysqlvm** z nazwą DNS **mysqlvm7777.cloudapp.net** i punktem końcowym maszyny Wirtualnej **57500**. Przy założeniu, że prawidłowo skonfigurowana łączność, do uzyskania dostępu do maszyny wirtualnej z dowolnego miejsca w Internecie można użyć następującego ciągu połączenia:
+Rozważmy na przykład klasyczną maszynę wirtualną o nazwie **mysqlvm** z nazwą DNS **mysqlvm7777.cloudapp.NET** i punktem końcowym maszyny wirtualnej **57500**. Przy założeniu prawidłowo skonfigurowanej łączności następujące parametry połączenia mogą służyć do uzyskiwania dostępu do maszyny wirtualnej z dowolnego miejsca w Internecie:
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Mimo że ten ciąg połączenia umożliwia łączność dla klientów przez Internet, nie oznacza to, że każdy może połączyć się z programem SQL Server. Klienci zewnętrzni muszą mieć prawidłową nazwę użytkownika i hasło. Aby uzyskać dodatkowe zabezpieczenia, nie należy używać dobrze znanego portu 1433 dla publicznego punktu końcowego maszyny wirtualnej. A jeśli to możliwe, należy rozważyć dodanie listy ACL w punkcie końcowym, aby ograniczyć ruch tylko do klientów, na których zezwalasz. Aby uzyskać instrukcje dotyczące używania list ACL z punktami końcowymi, zobacz [Zarządzanie listą ACL w punkcie końcowym](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
+Chociaż te parametry połączenia umożliwiają łączność klientów przez Internet, nie oznacza to, że każdy może nawiązać połączenie z SQL Server. Klienci zewnętrzni muszą mieć poprawną nazwę użytkownika i hasło. Aby uzyskać dodatkowe zabezpieczenia, nie używaj dobrze znanego portu 1433 dla punktu końcowego publicznej maszyny wirtualnej. A jeśli to możliwe, rozważ dodanie listy ACL w punkcie końcowym, aby ograniczyć ruch tylko do klientów, którym zezwalasz. Aby uzyskać instrukcje dotyczące korzystania z list ACL z punktami końcowymi, zobacz [Zarządzanie listą kontroli dostępu w punkcie końcowym](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
 > [!NOTE]
-> Korzystając z tej techniki do komunikowania się z programem SQL Server, wszystkie dane wychodzące z centrum danych platformy Azure podlegają [normalnej cenie za wychodzące transfery danych](https://azure.microsoft.com/pricing/details/data-transfers/).
+> W przypadku korzystania z tej techniki w celu komunikowania się z SQL Server wszystkie dane wychodzące z centrum danych platformy Azure podlegają normalnym [cennikowi wychodzących transferów](https://azure.microsoft.com/pricing/details/data-transfers/).
 > 
 > 
 
-### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>Łączenie się z programem SQL Server w tej samej sieci wirtualnej
-[Sieć wirtualna](../../../virtual-network/virtual-networks-overview.md) umożliwia dodatkowe scenariusze. Maszyny wirtualne można łączyć w tej samej sieci wirtualnej, nawet jeśli te maszyny wirtualne istnieją w różnych usługach w chmurze. A dzięki [sieci VPN typu lokacja lokacja](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)można utworzyć architekturę hybrydową, która łączy maszyny wirtualne z sieciami i komputerami lokalnymi.
+### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>Połącz z SQL Server w tej samej sieci wirtualnej
+[Virtual Network](../../../virtual-network/virtual-networks-overview.md) umożliwia wykonywanie dodatkowych scenariuszy. Możesz połączyć maszyny wirtualne w tej samej sieci wirtualnej, nawet jeśli te maszyny wirtualne znajdują się w różnych usługach w chmurze. Za pomocą [sieci VPN typu lokacja-lokacja](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)można utworzyć architekturę hybrydową, która łączy maszyny wirtualne z lokalnymi sieciami i maszynami.
 
-Sieci wirtualne umożliwiają również dołączanie maszyn wirtualnych platformy Azure do domeny. Łączenie się z domeną jest jedynym sposobem użycia uwierzytelniania systemu Windows za pomocą programu SQL Server. Inne scenariusze połączeń wymagają uwierzytelniania SQL z nazwami użytkowników i hasłami.
+Sieci wirtualne umożliwiają również dołączanie maszyn wirtualnych platformy Azure do domeny. Przyłączanie do domeny jest jedynym sposobem korzystania z uwierzytelniania systemu Windows z SQL Server. Inne scenariusze połączeń wymagają uwierzytelniania SQL z nazwami użytkowników i hasłami.
 
-Jeśli planujesz skonfigurować środowisko domeny i uwierzytelnianie systemu Windows, nie trzeba konfigurować publicznego punktu końcowego ani uwierzytelniania SQL i logowania. W tym scenariuszu można połączyć się z wystąpieniem programu SQL Server, określając nazwę maszyny Wirtualnej programu SQL Server w ciągu połączenia. W poniższym przykładzie przyjęto założenie, że uwierzytelnianie systemu Windows zostało skonfigurowane i że użytkownikowi udzielono dostępu do wystąpienia programu SQL Server.
+Jeśli planujesz skonfigurowanie środowiska domeny i uwierzytelniania systemu Windows, nie musisz konfigurować publicznego punktu końcowego ani uwierzytelniania i logowania SQL. W tym scenariuszu można nawiązać połączenie z wystąpieniem SQL Server, określając nazwę maszyny wirtualnej SQL Server w parametrach połączenia. W poniższym przykładzie przyjęto założenie, że uwierzytelnianie systemu Windows zostało skonfigurowane i że użytkownik uzyskał dostęp do wystąpienia SQL Server.
 
     "Server=mysqlvm;Integrated Security=true"
 
-## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Kroki konfigurowania łączności programu SQL Server na maszynie Wirtualnej platformy Azure
-W poniższych krokach pokazano, jak połączyć się z wystąpieniem programu SQL Server za pośrednictwem Internetu przy użyciu programu SQL Server Management Studio (SSMS). Jednak te same kroki dotyczą udostępnienia maszyny wirtualnej programu SQL Server dla aplikacji, działającej lokalnie i na platformie Azure.
+## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Kroki konfigurowania SQL Server łączności na maszynie wirtualnej platformy Azure
+Poniższe kroki pokazują, jak nawiązać połączenie z wystąpieniem SQL Server za pośrednictwem Internetu przy użyciu SQL Server Management Studio (SSMS). Jednak te same kroki mają zastosowanie do udostępnienia SQL Server maszynie wirtualnej dla aplikacji, działającej zarówno lokalnie, jak i na platformie Azure.
 
-Przed nawiązaniem połączenia z wystąpieniem programu SQL Server z innej maszyny Wirtualnej lub Internetu należy wykonać następujące zadania:
+Aby można było połączyć się z wystąpieniem SQL Server z innej maszyny wirtualnej lub z Internetu, należy wykonać następujące zadania:
 
-* [Tworzenie punktu końcowego TCP dla maszyny wirtualnej](#create-a-tcp-endpoint-for-the-virtual-machine)
+* [Utwórz punkt końcowy TCP dla maszyny wirtualnej](#create-a-tcp-endpoint-for-the-virtual-machine)
 * [Otwieranie portów TCP w zaporze systemu Windows](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
 * [Konfigurowanie programu SQL Server do nasłuchiwania w protokole TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
 * [Konfigurowanie programu SQL Server do uwierzytelniania w trybie mieszanym](#configure-sql-server-for-mixed-mode-authentication)
 * [Tworzenie identyfikatora logowania do uwierzytelniania w programie SQL Server](#create-sql-server-authentication-logins)
-* [Określanie nazwy DNS maszyny wirtualnej](#determine-the-dns-name-of-the-virtual-machine)
+* [Określ nazwę DNS maszyny wirtualnej](#determine-the-dns-name-of-the-virtual-machine)
 * [Nawiązywanie połączenia z aparatem bazy danych z innego komputera](#connect-to-the-database-engine-from-another-computer)
 
-Ścieżka połączenia jest podsumowana na poniższym diagramie:
+Ścieżka połączenia jest podsumowana przez następujący Diagram:
 
-![Łączenie się z maszyną wirtualną programu SQL Server](../../../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
+![Nawiązywanie połączenia z maszyną wirtualną SQL Server](../../../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
 
 [!INCLUDE [Connect to SQL Server in a VM Classic TCP Endpoint](../../../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
 
@@ -104,11 +104,11 @@ Przed nawiązaniem połączenia z wystąpieniem programu SQL Server z innej masz
 [!INCLUDE [Connect to SQL Server in a VM Classic Steps](../../../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli planujesz również używać alwayson dostępności grup dla wysokiej dostępności i odzyskiwania po awarii, należy rozważyć wdrożenie odbiornika. Klienci bazy danych łączą się z odbiornikiem, a nie bezpośrednio z jednym z wystąpień programu SQL Server. Odbiornik kieruje klientów do repliki podstawowej w grupie dostępności. Aby uzyskać więcej informacji, zobacz [Konfigurowanie odbiornika równoważenia obciążenia dla grup dostępności AlwaysOn na platformie Azure](../classic/ps-sql-int-listener.md).
+Jeśli planujesz również używać Zawsze włączone grupy dostępności do zapewnienia wysokiej dostępności i odzyskiwania po awarii, należy rozważyć implementację odbiornika. Klienci bazy danych nawiązują połączenie z odbiornikiem, a nie bezpośrednio z jednym z wystąpień SQL Server. Odbiornik kieruje klientów do repliki podstawowej w grupie dostępności. Aby uzyskać więcej informacji, zobacz [Konfigurowanie odbiornika ILB na potrzeby zawsze włączone grupy dostępności na platformie Azure](../classic/ps-sql-int-listener.md).
 
-Ważne jest, aby przejrzeć wszystkie najlepsze rozwiązania dotyczące zabezpieczeń dla programu SQL Server uruchomionego na maszynie wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [Zagadnienia dotyczące zabezpieczeń programu SQL Server w usłudze Azure Virtual Machines](../sql/virtual-machines-windows-sql-security.md).
+Ważne jest zapoznanie się ze wszystkimi najlepszymi rozwiązaniami w zakresie zabezpieczeń dotyczącymi SQL Server uruchomionych na maszynie wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [Zagadnienia dotyczące zabezpieczeń programu SQL Server w usłudze Azure Virtual Machines](../sql/virtual-machines-windows-sql-security.md).
 
 [Zbadaj ścieżkę szkoleniową](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) dla programu SQL Server na maszynach wirtualnych Azure. 
 
-Aby zapoznać się z innymi tematami związanymi z uruchamianiem programu SQL Server na maszynach wirtualnych platformy Azure, zobacz [SQL Server na maszynach wirtualnych platformy Azure.](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
+Aby poznać inne tematy związane z uruchamianiem SQL Server na maszynach wirtualnych platformy Azure, zobacz [SQL Server na platformie azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
