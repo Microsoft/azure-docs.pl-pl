@@ -1,6 +1,6 @@
 ---
-title: Twórz zapasy i odzyskuj konta za pomocą aplikacji Microsoft Authenticator — Azure AD
-description: Dowiedz się, jak zrobić kopię zapasową i odzyskać poświadczenia kopii zapasowej konta za pomocą aplikacji Microsoft Authenticator.
+title: Tworzenie kopii zapasowych i odzyskiwanie kont przy użyciu aplikacji Microsoft Authenticator — Azure AD
+description: Dowiedz się, jak utworzyć kopię zapasową poświadczeń konta kopii zapasowej i odzyskać je za pomocą aplikacji Microsoft Authenticator.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,135 +12,135 @@ ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 2ac761355fc528fe3e4b4b5f05ee0a6e317ff99a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78298000"
 ---
-# <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Tworzenie kopii zapasowych i odzyskiwanie poświadczeń konta przy użyciu aplikacji Microsoft Authenticator
+# <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Tworzenie kopii zapasowej i odzyskiwanie poświadczeń konta przy użyciu aplikacji Microsoft Authenticator
 
 **Dotyczy:**
 
-- urządzenia z systemem iOS z systemem 5.7.0 lub nowszym
+- urządzenia z systemem iOS w wersji 5.7.0 lub nowszej
 
-- Urządzenia z Androidem z systemem 6.6.0 lub nowszym
+- Urządzenia z systemem Android w wersji 6.6.0 lub nowszej
 
-Aplikacja Microsoft Authenticator łączy w sobie poświadczenia konta i powiązane ustawienia aplikacji, takie jak kolejność kont, w chmurze. Po wykonaniu kopii zapasowej można również użyć aplikacji do odzyskania informacji na nowym urządzeniu, potencjalnie unikając zablokowania lub konieczności ponownego tworzenia kont.
+Aplikacja Microsoft Authenticator tworzy kopię zapasową poświadczeń konta i powiązanych ustawień aplikacji, takich jak kolejność kont, w chmurze. Po utworzeniu kopii zapasowej można również użyć aplikacji do odzyskania informacji na nowym urządzeniu, co może uniknąć zablokowania lub konieczności ponownego tworzenia kont.
 
-Każda lokalizacja magazynu kopii zapasowej wymaga jednego osobistego konta Microsoft, podczas gdy system iOS wymaga również konta iCloud. W tej jednej lokalizacji może być przechowywanych wiele kont. Możesz na przykład mieć konto osobiste, konto służbowe lub szkolne oraz osobiste konto inne niż Microsoft, takie jak facebook, Google itd.
+Każda lokalizacja magazynu kopii zapasowych wymaga posiadania jednego osobistego konto Microsoft, natomiast w systemie iOS wymagane jest również konto usługi iCloud. W tej pojedynczej lokalizacji może być przechowywanych wiele kont. Można na przykład korzystać z konta osobistego, konta służbowego i osobistego, niekonto Microsoftowego, takiego jak Facebook, Google i tak dalej.
 
 > [!IMPORTANT]
-> Przechowywane są tylko dane osobowe i dane uwierzytelniające do konta innej firmy, które obejmują nazwę użytkownika i kod weryfikacyjny konta, który jest wymagany do udowodnienia Twojej tożsamości. Nie przechowujemy żadnych innych informacji powiązanych z Twoimi kontami, w tym wiadomości e-mail ani plików. Nie kojarzymy również ani nie udostępniamy Twoich kont w żaden sposób ani z żadnym innym produktem lub usługą. I wreszcie, twój administrator IT nie otrzyma żadnych informacji o żadnym z tych kont.
+> Przechowywane są tylko poświadczenia konta użytkownika osobistego i innych firm, w tym nazwa użytkownika i kod weryfikacyjny konta, który jest wymagany w celu potwierdzenia tożsamości. Nie przechowujemy żadnych innych informacji skojarzonych z kontami, w tym wiadomości e-mail i plików. Nie kojarzą również ani nie udostępniamy kont w żaden sposób ani z żadnym innym produktem lub usługą. Ponadto administrator IT nie uzyska żadnych informacji o żadnym z tych kont.
 
-## <a name="back-up-your-account-credentials"></a>Czeliczenie kopii zapasowych danych logowania do konta
+## <a name="back-up-your-account-credentials"></a>Tworzenie kopii zapasowej poświadczeń konta
 
-Aby można było mieć możliwość utworzenia kopii zapasowej poświadczeń, musisz mieć:
+Aby można było utworzyć kopię zapasową poświadczeń, należy dysponować:
 
-- Osobiste [konto Microsoft](https://account.microsoft.com/account) działa jako konto odzyskiwania.
+- Osobista [konto Microsoft](https://account.microsoft.com/account) do działania jako konto odzyskiwania.
 
-- **Tylko w przypadku systemu iOS** musisz mieć [konto iCloud](https://www.icloud.com/) dla rzeczywistej lokalizacji magazynu.
+- **Tylko w przypadku systemu iOS** musisz mieć [konto usługi iCloud](https://www.icloud.com/) dla rzeczywistej lokalizacji magazynu.
 
-### <a name="to-turn-on-cloud-backup-for-ios-devices"></a>Aby włączyć tworzenie kopii zapasowych w chmurze dla urządzeń z systemem iOS
+### <a name="to-turn-on-cloud-backup-for-ios-devices"></a>Aby włączyć usługę kopia zapasowa w chmurze dla urządzeń z systemem iOS
 
-- Na urządzeniu z systemem iOS wybierz pozycję **Ustawienia**, wybierz **pozycję Kopia zapasowa**, a następnie włącz **kopię zapasową iCloud**.
+- Na urządzeniu z systemem iOS wybierz pozycję **Ustawienia**, wybierz pozycję **kopia zapasowa**, a następnie włącz opcję **kopia zapasowa iCloud**.
 
-    Dane uwierzytelniające konta są archiwizowane na koncie iCloud.
+    Kopie zapasowe poświadczeń konta są tworzone na koncie usługi iCloud.
 
-    ![Ekran ustawień systemu iOS z wyświetlaniem ustawień kopii zapasowej iCloud](./media/user-help-auth-app-backup-recovery/backup-and-recovery-turn-on.png)
+    ![ekran ustawień systemu iOS, przedstawiający lokalizację ustawień kopii zapasowych w usłudze iCloud](./media/user-help-auth-app-backup-recovery/backup-and-recovery-turn-on.png)
 
-### <a name="to-turn-on-cloud-backup-for-android-devices"></a>Aby włączyć tworzenie kopii zapasowych w chmurze dla urządzeń z systemem Android
+### <a name="to-turn-on-cloud-backup-for-android-devices"></a>Aby włączyć usługę kopia zapasowa w chmurze dla urządzeń z systemem Android
 
-- Na urządzeniu z Androidem wybierz **pozycję Ustawienia**, wybierz pozycję **Kopia zapasowa**, a następnie włącz **kopię zapasową w chmurze**.
+- Na urządzeniu z systemem Android wybierz pozycję **Ustawienia**, wybierz pozycję **kopia zapasowa**, a następnie włącz opcję **kopia zapasowa w chmurze**.
 
-    Poświadczenia konta są archiwizowane na koncie w chmurze.
+    Kopie zapasowe poświadczeń konta są tworzone na koncie w chmurze.
 
-    ![Ekran ustawień systemu Android z wyświetlaniem lokalizacji ustawień kopii zapasowej](./media/user-help-auth-app-backup-recovery/backup-and-recovery-turn-on-android.png)
+    ![Ekran ustawień systemu Android, pokazujący lokalizację ustawień kopii zapasowej](./media/user-help-auth-app-backup-recovery/backup-and-recovery-turn-on-android.png)
 
-## <a name="recover-your-account-credentials-on-your-new-device"></a>Odzyskiwanie danych logowania do konta na nowym urządzeniu
+## <a name="recover-your-account-credentials-on-your-new-device"></a>Odzyskaj poświadczenia konta na nowym urządzeniu
 
-Poświadczenia konta można odzyskać z konta w chmurze, ale najpierw upewnij się, że odzyskane konto nie istnieje w aplikacji Microsoft Authenticator. Jeśli na przykład odzyskiwasz osobiste konto Microsoft, upewnij się, że nie masz już osobistego konta Microsoft skonfigurowanego w aplikacji uwierzytelniającego. Ta kontrola jest ważna, więc możemy mieć pewność, że nie nadpisujemy ani nie wymazyjemy istniejącego konta przez pomyłkę.
+Możesz odzyskać poświadczenia konta z konta w chmurze, ale najpierw musisz się upewnić, że konto, które jest odzyskiwane, nie istnieje w aplikacji Microsoft Authenticator. Na przykład w przypadku odzyskiwania konto Microsoft osobistych należy upewnić się, że nie masz już konto Microsoft osobistych skonfigurowanych w aplikacji uwierzytelniania. To sprawdzenie jest ważne, aby upewnić się, że nie zastąpisz ani nie wymazuje istniejącego konta przez pomyłkę.
 
 ### <a name="to-recover-your-information"></a>Aby odzyskać informacje
 
-1. Na urządzeniu przenośnym otwórz aplikację Microsoft Authenticator i wybierz pozycję **Rozpocznij odzyskiwanie** od dołu ekranu.
+1. Na urządzeniu przenośnym Otwórz aplikację Microsoft Authenticator i wybierz pozycję **Rozpocznij odzyskiwanie** w dolnej części ekranu.
 
     ![Aplikacja Microsoft Authenticator, pokazująca, gdzie kliknąć przycisk Rozpocznij odzyskiwanie](./media/user-help-auth-app-backup-recovery/backup-and-recovery-begin-recovery.png)
 
-2. Zaloguj się do konta odzyskiwania przy użyciu tego samego osobistego konta Microsoft, którego użyto podczas procesu tworzenia kopii zapasowej.
+2. Zaloguj się do konta odzyskiwania przy użyciu tego samego osobistego konto Microsoft użytego podczas procesu tworzenia kopii zapasowej.
 
-    Poświadczenia konta zostaną odzyskane na nowym urządzeniu.
+    Poświadczenia konta zostaną odzyskane do nowego urządzenia.
 
-Po zakończeniu odzyskiwania można zauważyć, że osobiste kody weryfikacyjne konta Microsoft w aplikacji Microsoft Authenticator różnią się między starymi i nowymi telefonami. Kody są różne, ponieważ każde urządzenie ma własne unikatowe poświadczenia, ale oba są prawidłowe i działają podczas logowania się przy użyciu skojarzonego telefonu.
+Po zakończeniu odzyskiwania możesz zauważyć, że własne kody weryfikacyjne konto Microsoft w aplikacji Microsoft Authenticator są różne dla starych i nowych telefonów. Kody są różne, ponieważ każde urządzenie ma własne unikatowe poświadczenia, ale oba są prawidłowe i pracują podczas logowania przy użyciu skojarzonego telefonu.
 
-## <a name="recover-additional-accounts-requiring-more-verification"></a>Odzyskiwanie dodatkowych kont wymagających większej weryfikacji
+## <a name="recover-additional-accounts-requiring-more-verification"></a>Odzyskaj dodatkowe konta wymagające większej weryfikacji
 
-Jeśli korzystasz z powiadomień push na kontach osobistych lub służbowych, otrzymasz alert na ekranie z informacją, że musisz podać dodatkową weryfikację, zanim odzyskasz swoje informacje. Ponieważ powiadomienia wypychane wymagają użycia poświadczeń, które są powiązane z określonym urządzeniem i nigdy nie są wysyłane za pośrednictwem sieci, należy udowodnić swoją tożsamość przed utworzeniem poświadczeń na urządzeniu.
+Jeśli używasz powiadomień wypychanych z kontami osobistymi lub służbowymi, otrzymasz alert na ekranie z informacją, że musisz podać dodatkową weryfikację, aby móc odzyskać informacje. Ponieważ powiadomienia wypychane wymagają użycia poświadczeń powiązanych z określonym urządzeniem i nigdy nie są wysyłane przez sieć, przed utworzeniem poświadczeń na urządzeniu należy potwierdzić swoją tożsamość.
 
-W przypadku osobistych kont Microsoft możesz udowodnić swoją tożsamość, wprowadzając hasło wraz z alternatywnym numerem e-mail lub numerem telefonu. W przypadku kont służbowych należy zeskanować kod QR podany przez dostawcę konta.
+W przypadku osobistych kont Microsoft można potwierdzić swoją tożsamość, wprowadzając hasło i alternatywny adres e-mail lub numer telefonu. W przypadku kont służbowych należy zeskanować kod QR przyznany przez dostawcę konta.
 
-### <a name="to-provide-additional-verification-for-personal-accounts"></a>Zapewnienie dodatkowej weryfikacji kont osobistych
+### <a name="to-provide-additional-verification-for-personal-accounts"></a>Aby zapewnić dodatkową weryfikację kont osobistych
 
-1. Na ekranie **Konta** aplikacji Microsoft Authenticator wybierz konto, które chcesz odzyskać. Na urządzeniu z Androidem wybierz strzałkę obok konta, które chcesz odzyskać.
+1. Na ekranie **konta** aplikacji Microsoft Authenticator wybierz konto, które chcesz odzyskać. Na urządzeniu z systemem Android wybierz strzałkę obok konta, które chcesz odzyskać.
 
-    ![Aplikacja Microsoft Authenticator, pokazująca dostępne konta ze skojarzonymi strzałkami rozwijanym](./media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png)
+    ![Aplikacja Microsoft Authenticator, pokazująca dostępne konta z powiązanymi strzałkami listy rozwijanej](./media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png)
 
-    Na urządzeniu z systemem iOS naciśnij konto, które chcesz odzyskać, aby otworzyć widok pełnoekranowy konta.
+    Na urządzeniu z systemem iOS naciśnij konto, które chcesz odzyskać, aby otworzyć widok pełny ekran konta.
 
-    ![Aplikacja Microsoft Authenticator, pokazująca dostępne konta ze skojarzonymi strzałkami rozwijanym](./media/user-help-auth-app-backup-recovery/ios-select-account-to-recover.png)
+    ![Aplikacja Microsoft Authenticator, pokazująca dostępne konta z powiązanymi strzałkami listy rozwijanej](./media/user-help-auth-app-backup-recovery/ios-select-account-to-recover.png)
 
-2. Zaloguj się, aby odzyskać konto. Na urządzeniu z Androidem wybierz pozycję **Zaloguj się, aby odzyskać**.
+2. Zaloguj się, aby odzyskać konto. Na urządzeniu z systemem Android wybierz pozycję **Zaloguj się, aby odzyskać**.
 
-    ![Aplikacja Microsoft Authenticator do wprowadzania informacji logowania w systemie Android](./media/user-help-auth-app-backup-recovery/backup-and-recovery-sign-in.png)
+    ![Microsoft Authenticator aplikacji, aby wprowadzić informacje logowania w systemie Android](./media/user-help-auth-app-backup-recovery/backup-and-recovery-sign-in.png)
 
-    Na urządzeniu z systemem iOS naciśnij kafelek konta, który chcesz odzyskać, a następnie naciśnij opcję logowania i odzyskiwania. Następnie wpisz hasło, a następnie potwierdź swój adres e-mail lub numer telefonu jako dodatkowy plik verification.unt.
+    Na urządzeniu z systemem iOS naciśnij kafelek konta, który chcesz odzyskać, a następnie naciśnij opcję, aby zalogować się i odzyskać. Następnie wpisz hasło, a następnie potwierdź swój adres e-mail lub numer telefonu jako dodatkową weryfikację. telefonicznej.
 
-    ![Aplikacja Microsoft Authenticator do wprowadzania informacji logowania w systemie iOS](./media/user-help-auth-app-backup-recovery/ios-sign-in-to-recover.png)
+    ![Microsoft Authenticator aplikacji, aby wprowadzić informacje logowania w systemie iOS](./media/user-help-auth-app-backup-recovery/ios-sign-in-to-recover.png)
 
-### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>Zapewnienie dodatkowej weryfikacji kont służbowych lub szkolnych
+### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>Aby zapewnić dodatkową weryfikację dla kont służbowych
 
-1. Zaloguj się, aby odzyskać konto. Na urządzeniu z Androidem wybierz pozycję **Zaloguj się, aby odzyskać**.
+1. Zaloguj się, aby odzyskać konto. Na urządzeniu z systemem Android wybierz pozycję **Zaloguj się, aby odzyskać**.
 
-    ![Aplikacja Microsoft Authenticator odzyskuje konto służbowe w systemie Android](./media/user-help-auth-app-backup-recovery/backup-and-recovery-additional-accts.png)
+    ![Microsoft Authenticator odzyskania konta służbowego w systemie Android przez aplikację](./media/user-help-auth-app-backup-recovery/backup-and-recovery-additional-accts.png)
 
-    Na urządzeniu z systemem iOS stuknij konto, które chcesz odzyskać, aby otworzyć widok całego ekranu konta.
+    Na urządzeniu z systemem iOS naciśnij konto, którego chcesz odzyskać, aby otworzyć widok pełny ekran konta.
 
-    ![Aplikacja Microsoft Authenticator odzyskuje konto służbowe w systemie iOS](./media/user-help-auth-app-backup-recovery/ios-recover-work-or-school-account.png)
+    ![Microsoft Authenticator odzyskać konto służbowe w systemie iOS przy użyciu aplikacji](./media/user-help-auth-app-backup-recovery/ios-recover-work-or-school-account.png)
 
-2. Możesz użyć kodu QR, aby odzyskać konto. Wybierz **opcję Skanuj kod QR, aby odzyskać,** a następnie zeskanuj kod QR.
+2. Możesz użyć kodu QR do odzyskania konta. Wybierz opcję **Skanuj kod QR do odzyskania**, a następnie Zeskanuj kod QR.
 
     W systemie Android:
 
-    ![Aplikacja Microsoft Authenticator na Androida, umożliwiająca skanowanie kodu QR](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
+    ![Aplikacja Microsoft Authenticator w systemie Android, umożliwiająca skanowanie kodu QR](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
-    W uos:
+    W systemie iOS:
 
-    ![Aplikacja Microsoft Authenticator w systemie iOS, umożliwiająca skanowanie kodu QR](./media/user-help-auth-app-backup-recovery/ios-scan-qr-code.png)
+    ![Microsoft Authenticator aplikacji w systemie iOS, co pozwala na skanowanie kodu QR](./media/user-help-auth-app-backup-recovery/ios-scan-qr-code.png)
 
     >[!NOTE]
-    >Aby uzyskać więcej informacji o kodach QR i jak je uzyskać, zobacz Wprowadzenie do [aplikacji Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) lub [Konfigurowanie informacji zabezpieczających do korzystania z aplikacji uwierzytelniającego](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app)na podstawie tego, czy administrator włączył informacje zabezpieczające.
+    >Aby uzyskać więcej informacji na temat kodów QR i sposobu ich uzyskania, zobacz [Rozpoczynanie pracy z aplikacją Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) lub [Konfigurowanie informacji zabezpieczających do korzystania z aplikacji Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app)w zależności od tego, czy administrator włączył informacje zabezpieczające.
     >
-    >Jeśli po raz pierwszy konfigurujesz aplikację Microsoft Authenticator, może pojawić się monit z pytaniem, czy zezwolić aplikacji na dostęp do aparatu (iOS), czy zezwolić aplikacji na robienia zdjęć i nagrywania wideo (Android). Musisz wybrać **opcję Zezwalaj,** aby aplikacja uwierzytelniającego mogła uzyskać dostęp do aparatu, aby zrobić zdjęcie kodu QR w następnym kroku. Jeśli nie zezwolisz na aparat, nadal możesz skonfigurować aplikację uwierzytelniacza, ale musisz ręcznie dodać informacje o kodzie. Aby uzyskać informacje dotyczące ręcznego dodawania kodu, zobacz [Ręczne dodawanie konta do aplikacji](user-help-auth-app-add-account-manual.md).
+    >Jeśli konfigurujesz aplikację Microsoft Authenticator po raz pierwszy, może zostać wyświetlony monit z pytaniem, czy zezwolić aplikacji na dostęp do aparatu (iOS), czy zezwolić aplikacji na wykonywanie zdjęć i nagrywanie wideo (Android). Musisz wybrać opcję **Zezwól** , aby aplikacja Authenticator mogła uzyskać dostęp do Twojego aparatu, aby w następnym kroku uzyskać zdjęcie kodu QR. Jeśli nie zezwolisz na korzystanie z aparatu, nadal możesz skonfigurować aplikację uwierzytelniającej, ale musisz ręcznie dodać informacje o kodzie. Aby dowiedzieć się, jak ręcznie dodać kod, zobacz temat [Ręczne dodawanie konta do aplikacji](user-help-auth-app-add-account-manual.md).
 
-## <a name="troubleshoot-backup-and-recovery-problems"></a>Rozwiązywanie problemów z tworzeniem kopii zapasowych i odzyskiwaniem danych
+## <a name="troubleshoot-backup-and-recovery-problems"></a>Rozwiązywanie problemów z tworzeniem kopii zapasowej i odzyskiwaniem
 
 Istnieje kilka powodów, dla których kopia zapasowa może być niedostępna
 
-- **Zmiana systemów operacyjnych**: Kopia zapasowa jest przechowywana w usłudze iCloud dla systemu iOS oraz w dostawcy pamięci masowej w chmurze firmy Microsoft dla systemu Android. Oznacza to, że kopia zapasowa jest niedostępna, jeśli przełączasz się między urządzeniami z systemem Android i iOS. Jeśli dokonasz zmiany, musisz ręcznie odtworzyć swoje konta w aplikacji Microsoft Authenticator.
+- **Zmiana systemów operacyjnych**: kopia zapasowa jest przechowywana w usłudze iCloud dla systemu iOS i w dostawcy magazynu w chmurze firmy Microsoft dla systemu Android. Oznacza to, że kopia zapasowa jest niedostępna w przypadku przełączania między urządzeniami z systemem Android i iOS. W przypadku wprowadzenia przełącznika należy ręcznie utworzyć ponownie konta w aplikacji Microsoft Authenticator.
 
-- **Problemy z siecią:** jeśli występują problemy związane z siecią, upewnij się, że masz połączenie z siecią i poprawnie zalogowano się na swoje konto.
+- **Problemy z siecią**: Jeśli występują problemy związane z siecią, upewnij się, że masz połączenie z siecią i prawidłowo zarejestrowano się na swoim koncie.
 
-- **Problemy z kontem:** jeśli występują problemy związane z kontem, upewnij się, że zalogowano się poprawnie na swoje konto. W przypadku systemu iOS oznacza to, że musisz zalogować się do usługi iCloud przy użyciu tego samego konta AppleID co iPhone.
+- **Problemy z kontem**: Jeśli występują problemy związane z kontem, upewnij się, że użytkownik jest prawidłowo zalogowany na swoim koncie. W przypadku systemu iOS oznacza to, że użytkownik musi być zalogowany w usłudze iCloud przy użyciu tego samego konta usługi AppleID, co Twój telefon iPhone.
 
-- **Przypadkowe usunięcie:** możliwe, że konto kopii zapasowej zostało usunięte z poprzedniego urządzenia lub podczas zarządzania kontem magazynu w chmurze. W tej sytuacji należy ręcznie odtworzyć konto w aplikacji.
+- **Przypadkowe usunięcie**: możliwe, że konto kopii zapasowej zostało usunięte z poprzedniego urządzenia lub w trakcie zarządzania kontem magazynu w chmurze. W takiej sytuacji należy ręcznie utworzyć ponownie konto w ramach aplikacji.
 
-- **Istniejące konta microsoft authenticator:** jeśli konta zostały już skonfigurowane w aplikacji Microsoft Authenticator, aplikacja nie będzie mogła odzyskać kopii zapasowych kont. Zapobieganie odzyskiwania pomaga upewnić się, że dane konta nie są zastępowane nieaktuanych informacji. W tej sytuacji należy usunąć wszystkie istniejące informacje o koncie z istniejących kont skonfigurowane w aplikacji Authenticator, zanim będzie można odzyskać kopię zapasową.
+- **Istniejące konta Microsoft Authenticator**: Jeśli już skonfigurowano konta w aplikacji Microsoft Authenticator, aplikacja nie będzie mogła odzyskać kont kopii zapasowej. Uniemożliwianie odzyskiwania pomaga upewnić się, że szczegóły konta nie są zastępowane nieaktualnymi informacjami. W takiej sytuacji należy usunąć wszelkie istniejące informacje o koncie z istniejących kont skonfigurowanych w aplikacji uwierzytelniania, zanim będzie możliwe odzyskanie kopii zapasowej.
 
-- **Kopia zapasowa jest nieaktualna:** Jeśli informacje o kopii zapasowej są nieaktualne, może zostać poproszony o odświeżenie informacji przez ponowne zalogowanie się na konto Microsoft Recovery. Twoje konto odzyskiwania jest osobistym kontem Microsoft używanym początkowo do przechowywania kopii zapasowej. Jeśli wymagane jest zalogowanie się, na menu lub pasku akcji pojawi się czerwona kropka lub wykrzyknik z monitem o zalogowanie się w celu zakończenia przywracania kopii zapasowej. Po wybraniu ikony zostanie wyświetlony monit o ponowne zalogowanie się w celu zaktualizowania informacji.
+- **Kopia zapasowa jest nieaktualna**: Jeśli informacje o kopii zapasowej są nieaktualne, może zostać wyświetlony monit o odświeżenie informacji przez ponowne zalogowanie się do konta odzyskiwania firmy Microsoft. Konto odzyskiwania to osobisty konto Microsoft używany początkowo do przechowywania kopii zapasowej. Jeśli jest wymagane logowanie, zobaczysz czerwoną kropkę w menu lub pasku akcji lub zobaczysz wykrzyknik z monitem o zalogowanie się, aby zakończyć przywracanie z kopii zapasowej. Po wybraniu ikony zostanie wyświetlony monit o ponowne zalogowanie się w celu zaktualizowania informacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po utworzeniu kopii zapasowej i odzyskaniu poświadczeń konta na nowym urządzeniu możesz nadal używać aplikacji Microsoft Authenticator do weryfikacji tożsamości. Aby uzyskać więcej informacji, zobacz [Logowanie się do kont przy użyciu aplikacji Microsoft Authenticator](user-help-sign-in.md).
+Teraz, po wykonaniu kopii zapasowej i odzyskaniu poświadczeń konta na nowym urządzeniu, możesz nadal używać aplikacji Microsoft Authenticator, aby zweryfikować swoją tożsamość. Aby uzyskać więcej informacji, zobacz [Logowanie do kont przy użyciu aplikacji Microsoft Authenticator](user-help-sign-in.md).
 
 ## <a name="related-articles"></a>Pokrewne artykuły:
 

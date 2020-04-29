@@ -1,5 +1,5 @@
 ---
-title: Raport ryzykownych logów w portalu | Dokumenty firmy Microsoft
+title: Raport dotyczący ryzykownych logowań w portalu | Microsoft Docs
 description: Dowiedz się więcej o raporcie dotyczącym ryzykownych logowań w portalu usługi Azure Active Directory
 services: active-directory
 author: MarkusVi
@@ -16,19 +16,19 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b77486064139895799ac5a48327377154f75da6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273834"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Raport dotyczący ryzykownych logowań w portalu usługi Azure Active Directory
 
-Usługa Azure Active Directory (Azure AD) wykrywa podejrzane akcje związane z kontami użytkowników. Dla każdej wykrytej akcji tworzony jest rekord zwany **wykrywaniem ryzyka.** Aby uzyskać więcej informacji, zobacz [wykrywanie ryzyka usługi Azure AD](concept-risk-events.md). 
+Azure Active Directory (Azure AD) wykrywa podejrzane akcje powiązane z kontami użytkowników. Dla każdej wykrytej akcji tworzony jest rekord nazywany **wykryciem ryzyka** . Aby uzyskać więcej informacji, zobacz [wykrywanie ryzyka w usłudze Azure AD](concept-risk-events.md). 
 
 Dostęp do raportów zabezpieczeń można uzyskać z poziomu witryny [Azure Portal](https://portal.azure.com), wybierając blok **Azure Active Directory**, a następnie przechodząc do sekcji **Zabezpieczenia**. 
 
-Istnieją dwa różne raporty zabezpieczeń, które są obliczane na podstawie wykrywania ryzyka:
+Istnieją dwa różne raporty dotyczące zabezpieczeń, które są obliczane na podstawie wykrycia ryzyka:
 
 - **Ryzykowne logowania** — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika.
 
@@ -36,41 +36,41 @@ Istnieją dwa różne raporty zabezpieczeń, które są obliczane na podstawie w
 
 ![Ryzykowne logowania](./media/concept-risky-sign-ins/10.png)
 
-Aby dowiedzieć się, jak skonfigurować zasady wyzwalające te wykrywanie ryzyka, zobacz [Jak skonfigurować zasady dotyczące ryzyka użytkownika](../identity-protection/howto-user-risk-policy.md).  
+Aby dowiedzieć się, jak skonfigurować zasady wyzwalające te wykrycia ryzyka, zobacz [jak skonfigurować zasady ryzyka dla użytkowników](../identity-protection/howto-user-risk-policy.md).  
 
-## <a name="who-can-access-the-risky-sign-ins-report"></a>Kto może uzyskać dostęp do raportu ryzykownych logów?
+## <a name="who-can-access-the-risky-sign-ins-report"></a>Kto może uzyskać dostęp do raportu dotyczącego ryzykownych logowań?
 
-Raporty ryzykownych logów są dostępne dla użytkowników w następujących rolach:
+Raporty dotyczące ryzykownych logowań są dostępne dla użytkowników w następujących rolach:
 
 - Administrator zabezpieczeń
 - Administrator globalny
 - Czytelnik zabezpieczeń
 
-Aby dowiedzieć się, jak przypisać role administracyjne do użytkownika w usłudze Azure Active Directory, zobacz [Wyświetlanie i przypisywanie ról administratora w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
+Aby dowiedzieć się, jak przypisać role administracyjne do użytkownika w Azure Active Directory, zobacz [Wyświetlanie i przypisywanie ról administratorów w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
 
 ## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do raportu zabezpieczeń?  
 
 Wszystkie wersje usługi Azure AD zapewniają ryzykowne raporty logowania. Jednak poziom szczegółowości raportu zależy od wersji: 
 
-- W **bezpłatnej wersji usługi Azure Active Directory**otrzymasz listę ryzykownych logów. 
+- W **wersji Azure Active Directory — wersja bezpłatna**otrzymujesz listę ryzykownych logowań. 
 
-- Ponadto wersja **usługi Azure Active Directory Premium 1** umożliwia zbadanie niektórych podstawowych wykrywania ryzyka, które zostały wykryte dla każdego raportu. 
+- Ponadto wersja **Azure Active Directory — wersja Premium 1** umożliwia sprawdzenie niektórych podstawowych wykryć ryzyka, które zostały wykryte dla każdego raportu. 
 
-- Wersja **usługi Azure Active Directory Premium 2** zawiera najbardziej szczegółowe informacje na temat wszystkich podstawowych wykrywania ryzyka, a także umożliwia konfigurowanie zasad zabezpieczeń, które automatycznie reagują na skonfigurowane poziomy ryzyka.
+- Wersja **Azure Active Directory — wersja Premium 2** zapewnia najbardziej szczegółowe informacje na temat wszystkich wykrytych zagrożeń, a także umożliwia konfigurowanie zasad zabezpieczeń, które automatycznie reagują na skonfigurowane poziomy ryzyka.
 
-## <a name="risky-sign-ins-report-for-azure-ad-free-edition"></a>Raport ryzykownych logów dla bezpłatnej wersji usługi Azure AD
+## <a name="risky-sign-ins-report-for-azure-ad-free-edition"></a>Raport dotyczący ryzykownych logowań dla bezpłatnej wersji usługi Azure AD
 
-Bezpłatna wersja usługi Azure AD zawiera listę ryzykownych logów, które zostały wykryte dla użytkowników. Każdy rekord zawiera następujące atrybuty:
+Wersja Bezpłatna usługi Azure AD udostępnia listę ryzykownych logowań wykrytych dla użytkowników. Każdy rekord zawiera następujące atrybuty:
 
-- **Użytkownik** — nazwa użytkownika, który był używany podczas operacji logowania.
-- **ADRES IP** — adres IP urządzenia używanego do łączenia się z usługą Azure Active Directory.
-- **Lokalizacja** — lokalizacja używana do łączenia się z usługą Azure Active Directory. Jest to najlepsze przybliżenie wysiłku na podstawie śladów, danych rejestru, odwrotnego wyszukiwania i innych informacji.
+- **User** — nazwa użytkownika, która była używana podczas operacji logowania.
+- **IP** — adres IP urządzenia, który został użyty do nawiązania połączenia z Azure Active Directory.
+- **Lokalizacja** — lokalizacja użyta do nawiązania połączenia z Azure Active Directory. Jest to najlepszy sposób zbliżania się na podstawie śladów, danych rejestru, wstecznego wyszukiwania i innych informacji.
 - **Godzina logowania** — godzina, o której przeprowadzono logowanie
 - **Stan** — stan logowania
 
 ![Ryzykowne logowania](./media/concept-risky-sign-ins/01.png)
 
-Na podstawie badania ryzykownego logowania można przekazać opinię do usługi Azure AD, wykonując następujące akcje:
+W oparciu o badanie ryzykownego logowania można przekazać informacje zwrotne do usługi Azure AD, wykonując następujące czynności:
 
 - Rozwiąż
 - Oznacz jako wynik fałszywie dodatni
@@ -79,37 +79,37 @@ Na podstawie badania ryzykownego logowania można przekazać opinię do usługi 
 
 ![Ryzykowne logowania](./media/concept-risky-sign-ins/21.png)
 
-Ten raport zawiera również możliwość:
+Ten raport udostępnia również opcję:
 
 - Wyszukiwania zasobów
 - Pobierania danych raportu
 
 ![Ryzykowne logowania](./media/concept-risky-sign-ins/93.png)
 
-## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Raport o ryzykownych logowaniach dla wersji premium usługi Azure AD
+## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Raport dotyczący ryzykownych logowań dla wersji Premium usługi Azure AD
 
-Raport ryzykownych logów w wersjach premium usługi Azure AD zapewnia:
+Raport dotyczący ryzykownych logowań w wersjach Premium usługi Azure AD oferuje następujące informacje:
 
-- Zagregowane informacje o [wykrytych typach wykrywania ryzyka.](concept-risk-events.md) W **przypadku usługi Azure AD Premium P1 edition**wykrycie, które nie są objęte licencją, jest wyświetlane jako wykrywanie ryzyka **Zaloguj się z wykrytym dodatkowym ryzykiem.** Dzięki **wersji Azure AD Premium P2**otrzymujesz najbardziej szczegółowe informacje o wszystkich podstawowych wykrywaniach.
+- Zagregowane informacje na temat [typów wykrywania ryzyka](concept-risk-events.md) , które zostały wykryte. W przypadku **wersji Azure AD — wersja Premium P1**wykryte wykrywania, które nie są objęte licencją, są wyświetlane w przypadku wykrycia ryzyka podczas **logowania przy użyciu dodatkowego ryzyka**. Za pomocą **Azure AD — wersja Premium P2**można uzyskać najbardziej szczegółowe informacje na temat wszystkich podstawowych wykryć.
 
 - Opcja pobrania raportu
 
 ![Ryzykowne logowania](./media/concept-risky-sign-ins/456.png)
 
-Po wybraniu wykrywania ryzyka zostanie wyświetlany szczegółowy widok raportu dla tego wykrywania ryzyka, który umożliwia:
+Po wybraniu wykrywania ryzyka zostanie wyświetlony szczegółowy widok raportu dla tego wykrywania ryzyka, który umożliwia:
 
 - Skonfigurowanie [zasad podejmowania działań naprawczych dotyczących ryzyka związanego z użytkownikiem](../identity-protection/howto-user-risk-policy.md).  
 
-- Przejrzyj oś czasu wykrywania wykrywania ryzyka  
+- Przejrzyj oś czasu wykrywania w celu wykrycia ryzyka  
 
 - Przejrzyj listę użytkowników, dla których wykryto to wykrywanie ryzyka
 
-- Ręcznie zamknij wykrywanie ryzyka. 
+- Ręczne zamykanie wykrywania ryzyka. 
 
 ![Ryzykowne logowania](./media/concept-risky-sign-ins/457.png)
 
 > [!IMPORTANT]
-> Czasami wykrywanie ryzyka może być wykrywane bez odpowiedniego wpisu logowania w [raporcie logowania](concept-sign-ins.md). Jest tak, ponieważ ochrona tożsamości ocenia ryzyko zarówno **dla logowania interakcyjne,** jak i **nieinterakcyjne,** podczas gdy raport logowania pokazuje tylko interaktywne logowania.
+> Czasami może się okazać, że wykrywanie ryzyka nie ma odpowiedniego wpisu logowania w [raporcie logowania](concept-sign-ins.md). Wynika to z faktu, że usługa Identity Protection szacuje ryzyko dla logowania **interaktywnego** i **nieinterakcyjnego** , podczas gdy raport logowania zawiera tylko interakcyjne logowania.
 
 Po wybraniu użytkownika jest dla niego wyświetlany szczegółowy widok raportu, który umożliwia wykonanie następujących czynności:
 
@@ -119,12 +119,12 @@ Po wybraniu użytkownika jest dla niego wyświetlany szczegółowy widok raportu
 
 - Odrzucanie wszystkich zdarzeń.
 
-- Zbadaj zgłoszone wykrywanie ryzyka dla użytkownika. 
+- Zbadaj zgłoszone wykrywania ryzyka dla użytkownika. 
 
 ![Ryzykowne logowania](./media/concept-risky-sign-ins/324.png)
 
 Aby zbadać wykrywanie ryzyka, wybierz jeden z listy.  
-Spowoduje to otwarcie **details** bloku dla tego wykrywania ryzyka. Na **szczegóły** bloku, masz możliwość ręcznego zamknięcia wykrywania ryzyka lub ponownie aktywować ręcznie zamknięte wykrywanie ryzyka. 
+Spowoduje to otwarcie bloku **szczegóły** tego wykrywania ryzyka. W bloku **szczegóły** jest dostępna opcja ręcznego zamknięcia wykrywania ryzyka lub ponownego aktywowania ręcznie zamkniętego wykrywania ryzyka. 
 
 ![Ryzykowne logowania](./media/concept-risky-sign-ins/325.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Wprowadzenie do uwierzytelniania usługi Azure AD przy użyciu portalu Azure| Dokumenty firmy Microsoft
-description: Dowiedz się, jak korzystać z witryny Azure Portal w celu uzyskania dostępu do uwierzytelniania usługi Azure Active Directory (Azure AD) w celu korzystania z interfejsu API usługi Azure Media Services.
+title: Wprowadzenie do uwierzytelniania w usłudze Azure AD przy użyciu Azure Portal | Microsoft Docs
+description: Dowiedz się, w jaki sposób używać Azure Portal do uzyskiwania dostępu do uwierzytelniania Azure Active Directory (Azure AD) w celu korzystania z interfejsu API Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,59 +14,59 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: ee04fa7120f5510d703d72e662036f4fe952cd66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78330672"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Wprowadzenie do uwierzytelniania usługi Azure AD przy użyciu witryny Azure Portal
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Sprawdź najnowszą wersję usługi [Media Services w wersji 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji z wersji 2 do v3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
-Dowiedz się, jak korzystać z witryny Azure Portal w celu uzyskania dostępu do uwierzytelniania usługi Azure Active Directory (Azure AD) w celu uzyskania dostępu do interfejsu API usługi Azure Media Services.
+Dowiedz się, jak za pomocą Azure Portal uzyskać dostęp do uwierzytelniania Azure Active Directory (Azure AD) w celu uzyskania dostępu do interfejsu API Azure Media Services.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure. Jeśli nie masz konta, zacznij od [bezpłatnej wersji próbnej platformy Azure.](https://azure.microsoft.com/pricing/free-trial/) 
-- Konto usługi Media Services. Aby uzyskać więcej informacji, zobacz [Tworzenie konta usługi Azure Media Services przy użyciu witryny Azure Portal](media-services-portal-create-account.md).
+- Konto platformy Azure. Jeśli nie masz konta, Zacznij od [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Konto usługi Media Services. Aby uzyskać więcej informacji, zobacz [Tworzenie konta Azure Media Services przy użyciu Azure Portal](media-services-portal-create-account.md).
 
-Podczas korzystania z uwierzytelniania usługi Azure AD w usłudze Azure Media Services dostępne są dwie opcje uwierzytelniania:
+W przypadku korzystania z uwierzytelniania usługi Azure AD z usługą Azure Media Services dostępne są dwie opcje uwierzytelniania:
 
-- **Uwierzytelnianie jednostkowe usługi**. Uwierzytelnij usługę. Aplikacje, które często używają tej metody uwierzytelniania są aplikacje, które uruchamiają usługi demona, usługi warstwy środkowej lub zaplanowane zadania: aplikacje sieci web, aplikacje funkcji, aplikacje logiki, interfejsy API lub mikrousługi.
-- **Uwierzytelnianie użytkownika**. Uwierzytelnij osobę, która korzysta z aplikacji do interakcji z zasobami usługi Media Services. Interaktywna aplikacja powinna najpierw monitować użytkownika o poświadczenia. Przykładem jest aplikacja konsoli zarządzania używana przez autoryzowanych użytkowników do monitorowania zadań kodowania lub przesyłania strumieniowego na żywo. 
+- **Uwierzytelnianie nazwy głównej usługi**. Uwierzytelnianie usługi. Aplikacje, które często używają tej metody uwierzytelniania, to aplikacje, które uruchamiają usługi demonów, usługi warstwy środkowej lub zaplanowane zadania: aplikacje sieci Web, aplikacje funkcji, Aplikacje logiki, interfejsy API lub mikrousługi.
+- **Uwierzytelnianie użytkownika**. Uwierzytelnij osobę, która korzysta z aplikacji, aby korzystać z zasobów Media Services. Aplikacja interaktywna powinna najpierw monitować użytkownika o poświadczenia. Przykładem jest aplikacja konsoli zarządzania używana przez autoryzowanych użytkowników do monitorowania zadań kodowania lub przesyłania strumieniowego na żywo. 
 
 ## <a name="access-the-media-services-api"></a>Uzyskiwanie dostępu do interfejsu API usługi Media Services
 
-Ta strona umożliwia wybranie metody uwierzytelniania, której chcesz użyć do nawiązania połączenia z interfejsem API. Strona zawiera również wartości potrzebne do połączenia z interfejsem API.
+Ta strona umożliwia wybranie metody uwierzytelniania, która ma być używana do nawiązywania połączenia z interfejsem API. Na stronie znajdują się również wartości potrzebne do nawiązania połączenia z interfejsem API.
 
-1. W [witrynie Azure portal](https://portal.azure.com/)wybierz swoje konto usługi Media Services.
-2. Wybierz sposób łączenia się z interfejsem API usługi Media Services.
-3. W obszarze **Połącz z interfejsem API usługi Media Services**wybierz wersję interfejsu API usługi Media Services, z którą chcesz się połączyć.
+1. W [Azure Portal](https://portal.azure.com/)wybierz swoje konto Media Services.
+2. Wybierz sposób nawiązywania połączenia z interfejsem API Media Services.
+3. W obszarze **Połącz z interfejsem api Media Services**wybierz Media Services wersję interfejsu API, z którą chcesz nawiązać połączenie.
 
-## <a name="service-principal-authentication--recommended"></a>Uwierzytelnianie jednostkowe usługi (zalecane)
+## <a name="service-principal-authentication--recommended"></a>Uwierzytelnianie jednostki usługi (zalecane)
 
-Uwierzytelnia usługę przy użyciu aplikacji usługi Azure Active Directory (Azure AD) i klucz tajny. Jest to zalecane dla wszystkich usług warstwy środkowej wywołujących interfejs API usługi Media Services. Przykładami są aplikacje sieci Web, funkcje, aplikacje logiki, interfejsy API i mikrousług. Jest to zalecana metoda uwierzytelniania.
+Uwierzytelnia usługę przy użyciu aplikacji Azure Active Directory (Azure AD) i wpisu tajnego. Jest to zalecane w przypadku wszystkich usług warstwy środkowej wywołujących interfejs API Media Services. Przykłady to Web Apps, funkcje, Logic Apps, interfejsy API i mikrousługi. Jest to zalecana metoda uwierzytelniania.
 
-### <a name="manage-your-azure-ad-app-and-secret"></a>Zarządzanie aplikacją usługi Azure AD i kluczem tajnym
+### <a name="manage-your-azure-ad-app-and-secret"></a>Zarządzanie aplikacją i wpisem tajnym usługi Azure AD
 
-Sekcja **Zarządzaj aplikacją AAD i kluczem tajnym** umożliwia wybranie lub utworzenie nowej aplikacji usługi Azure AD i wygenerowanie klucza tajnego. Ze względów bezpieczeństwa klucz tajny nie może być wyświetlany po zamknięciu bloku. Aplikacja używa identyfikatora aplikacji i klucza tajnego do uwierzytelniania, aby uzyskać prawidłowy token dla usług multimedialnych.
+Sekcja **Zarządzaj swoją aplikacją i wpisem tajnym usługi AAD** pozwala wybrać lub utworzyć nową aplikację usługi Azure AD i wygenerować wpis tajny. Ze względów bezpieczeństwa nie można wyświetlić wpisu tajnego, gdy blok zostanie zamknięty. Aplikacja używa identyfikatora aplikacji i klucza tajnego do uwierzytelniania w celu uzyskania prawidłowego tokenu dla usługi Media Services.
 
-Upewnij się, że masz wystarczające uprawnienia do rejestrowania aplikacji w dzierżawie usługi Azure AD i przypisywania aplikacji do roli w subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [Wymagane uprawnienia](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+Upewnij się, że masz wystarczające uprawnienia do zarejestrowania aplikacji w dzierżawie usługi Azure AD i przypisania aplikacji do roli w ramach subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [wymagane uprawnienia](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-### <a name="connect-to-media-services-api"></a>Łączenie się z interfejsem API usługi Media Services
+### <a name="connect-to-media-services-api"></a>Nawiązywanie połączenia z interfejsem API Media Services
 
-**Interfejs API connect to Media Services** zawiera wartości używane do łączenia aplikacji jednostkowej usługi. Można uzyskać wartości tekstowe lub skopiować bloki JSON lub XML.
+**Interfejs API łączenia z usługą Media Services** zapewnia wartości używane do łączenia aplikacji głównej usługi. Możesz uzyskać wartości tekstowe lub skopiować bloki JSON lub XML.
 
 ## <a name="user-authentication"></a>Uwierzytelnianie użytkowników
 
-Ta opcja może służyć do uwierzytelniania pracownika lub członka usługi Azure Active Directory, który używa aplikacji do interakcji z zasobami usługi Media Services. Interaktywna aplikacja powinna najpierw monitować użytkownika o poświadczenia użytkownika. Ta metoda uwierzytelniania powinna być używana tylko dla aplikacji zarządzania.
+Tej opcji można użyć do uwierzytelnienia pracownika lub członka Azure Active Directory, który korzysta z aplikacji w celu współdziałania z zasobami Media Services. Aplikacja interaktywna powinna najpierw monitować użytkownika o podanie poświadczeń użytkownika. Tej metody uwierzytelniania należy używać tylko w przypadku aplikacji do zarządzania.
 
-### <a name="connect-to-media-services-api"></a>Łączenie się z interfejsem API usługi Media Services
+### <a name="connect-to-media-services-api"></a>Nawiązywanie połączenia z interfejsem API Media Services
 
-Skopiuj poświadczenia, aby połączyć aplikację użytkownika z sekcji Interfejs API połącz z **usługą Media Services.** Można uzyskać wartości tekstowe lub skopiować bloki JSON lub XML.
+Skopiuj swoje poświadczenia, aby połączyć aplikację użytkownika z sekcji **nawiązywanie połączenia z usługą Media Services API** . Możesz uzyskać wartości tekstowe lub skopiować bloki JSON lub XML.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zacznij od [przesyłania plików na swoje konto](media-services-portal-upload-files.md).
+Rozpocznij pracę z [przekazywaniem plików na konto](media-services-portal-upload-files.md).

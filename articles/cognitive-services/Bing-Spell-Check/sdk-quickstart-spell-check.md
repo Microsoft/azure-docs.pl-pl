@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: sprawdzanie pisowni za pomocą sdk sprawdzania pisowni Bing dla języka C #'
+title: 'Szybki Start: sprawdzanie pisowni przy użyciu zestawu SDK sprawdzanie pisowni Bing dla języka C #'
 titleSuffix: Azure Cognitive Services
 description: Rozpocznij korzystanie z interfejsu API REST sprawdzania pisowni Bing, aby sprawdzać pisownię i poprawność gramatyczną.
 services: cognitive-services
@@ -11,22 +11,22 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.openlocfilehash: 1cda7032d5bfe58e9f8bcbdb8b18dd597a691441
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273529"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Szybki start: sprawdzanie pisowni za pomocą sdk sprawdzania pisowni Bing dla języka C #
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Szybki Start: sprawdzanie pisowni przy użyciu zestawu SDK sprawdzanie pisowni Bing dla języka C #
 
 Ten przewodnik Szybki start umożliwia rozpoczęcie sprawdzania pisowni za pomocą zestawu SDK sprawdzania pisowni Bing dla języka C#. Mimo że funkcja sprawdzania pisowni Bing ma interfejs API REST zgodny z większością języków programowania, zestaw SDK umożliwia łatwe zintegrowanie tej usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/SpellCheck).
 
 ## <a name="application-dependencies"></a>Zależności aplikacji
 
-* Dowolna wersja [programu Visual Studio 2017 lub nowszej](https://visualstudio.microsoft.com/downloads/).
+* Dowolna wersja programu [Visual Studio 2017 lub nowszego](https://visualstudio.microsoft.com/downloads/).
 * [Pakiet NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck) sprawdzania pisowni Bing
 
-Aby dodać pakiet SDK sprawdzania pisowni Bing do projektu, wybierz pozycję **Zarządzaj pakietami NuGet** z **Eksploratora rozwiązań** w programie Visual Studio. Dodaj pakiet `Microsoft.Azure.CognitiveServices.Language.SpellCheck`. Ten pakiet instaluje również następujące zależności:
+Aby dodać zestaw sprawdzanie pisowni Bing SDK do projektu, wybierz pozycję **Zarządzaj pakietami NuGet** z **Eksplorator rozwiązań** w programie Visual Studio. Dodaj pakiet `Microsoft.Azure.CognitiveServices.Language.SpellCheck`. Ten pakiet instaluje również następujące zależności:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
@@ -81,7 +81,7 @@ Aby dodać pakiet SDK sprawdzania pisowni Bing do projektu, wybierz pozycję **Z
     }
     ```
 
-3. Uzyskaj pierwszą sugerowaną korektę, jeśli istnieje. Wydrukuj wynik sugestii i sugerowane słowo. 
+3. Pobierz pierwszą sugerowaną poprawkę, jeśli istnieje. Wydrukuj ocenę sugestii i sugerowany wyraz. 
 
     ```csharp
     var suggestions = firstspellCheckResult.Suggestions;
@@ -96,7 +96,7 @@ Aby dodać pakiet SDK sprawdzania pisowni Bing do projektu, wybierz pozycję **Z
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Skompiluj i uruchom swój projekt. Jeśli używasz programu Visual Studio, naciśnij **klawisz F5,** aby debugować plik.
+Skompiluj i Uruchom projekt. Jeśli używasz programu Visual Studio, naciśnij klawisz **F5** , aby debugować plik.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -104,4 +104,4 @@ Skompiluj i uruchom swój projekt. Jeśli używasz programu Visual Studio, naci�
 > [Tworzenie jednostronicowej aplikacji internetowej](tutorials/spellcheck.md)
 
 - [Czym jest interfejs API sprawdzania pisowni Bing?](overview.md)
-- [Przewodnik referencyjny sprawdzania pisowni w ujmowaniu języka C#](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)
+- [Przewodnik dotyczący podręcznika sprawdzanie pisowni Bing C# SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)

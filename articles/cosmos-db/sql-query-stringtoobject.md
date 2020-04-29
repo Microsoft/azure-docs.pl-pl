@@ -1,6 +1,6 @@
 ---
-title: StringToObject w języku kwerendy usługi Azure Cosmos DB
-description: Dowiedz się więcej o funkcji systemu SQL StringToObject w usłudze Azure Cosmos DB.
+title: StringToObject w języku zapytań Azure Cosmos DB
+description: Dowiedz się więcej o funkcji StringToObject systemu SQL w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: c3e61d1efe20910d84ef4ff583d74982b3ea9f3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78296385"
 ---
-# <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (usługa Azure Cosmos DB)
- Zwraca wyrażenie przetłumaczone na obiekt. Jeśli nie można przetłumaczyć wyrażenia, zwraca niezdefiniowane.  
+# <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
+ Zwraca wyrażenie przetłumaczone na obiekt. Jeśli wyrażenia nie można przetłumaczyć, funkcja zwraca wartość undefined.  
   
 ## <a name="syntax"></a>Składnia
   
@@ -26,17 +26,17 @@ StringToObject(<str_expr>)
 ## <a name="arguments"></a>Argumenty
   
 *str_expr*  
-   Jest wyrażeniem ciągu, które ma być analizowane jako wyrażenie obiektu JSON. Należy zauważyć, że wartości zagnieżdżonych ciągów muszą być zapisywane z cudzysłowami podwójnymi, aby były prawidłowe. Aby uzyskać szczegółowe informacje na temat formatu JSON, zobacz [json.org](https://json.org/)  
+   Jest wyrażeniem ciągu, które ma być analizowane jako wyrażenie obiektu JSON. Należy zauważyć, że zagnieżdżone wartości ciągu muszą być zapisywane z podwójnymi cudzysłowami, aby były prawidłowe. Aby uzyskać szczegółowe informacje o formacie JSON, zobacz [JSON.org](https://json.org/)  
   
-## <a name="return-types"></a>Typy zwrotów
+## <a name="return-types"></a>Typy zwracane
   
   Zwraca wyrażenie obiektu lub niezdefiniowane.  
   
 ## <a name="examples"></a>Przykłady
   
-  W poniższym `StringToObject` przykładzie pokazano, jak zachowuje się w różnych typach. 
+  Poniższy przykład pokazuje, jak `StringToObject` działa w różnych typach. 
   
- Poniżej przedstawiono przykłady z prawidłowym wejściem.
+ Poniżej przedstawiono przykłady z prawidłowymi danymi wejściowymi.
 
 ```sql
 SELECT 
@@ -55,10 +55,10 @@ Tutaj znajduje się zestaw wyników.
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
 
- Poniżej przedstawiono przykłady z nieprawidłowym wprowadzaniem danych.
-Mimo że są one prawidłowe w ramach kwerendy, nie będą analizować prawidłowe obiekty. Ciągi w ciągu obiektu muszą być albo\\zmienione\\"{ "a ":\\"str\\"}" lub otaczający cytat musi być pojedynczy '{"a": "str"}'.
+ Poniżej przedstawiono przykłady z nieprawidłowymi danymi wejściowymi.
+Mimo że są one prawidłowe w ramach zapytania, nie będą analizowane pod kątem prawidłowych obiektów. Ciągi w\\ciągu obiektu muszą mieć wartość ucieczki "{" a\\":\\" str\\"}" lub otaczające cudzysłowy muszą być pojedynczym ciągiem "{" a ":" str "}".
 
-Pojedyncze cudzysłowy otaczające nazwy właściwości są nieprawidłowe JSON.
+Pojedyncze cudzysłowy otaczające nazwy właściwości nie są prawidłowymi formatami JSON.
 
 ```sql
 SELECT 
@@ -71,7 +71,7 @@ Tutaj znajduje się zestaw wyników.
 [{}]
 ```  
 
-Nazwy właściwości bez otaczających cudzysłowów nie są prawidłowe JSON.
+Nazwy właściwości bez otaczających cudzysłowów nie są prawidłowymi formatami JSON.
 
 ```sql
 SELECT 
@@ -84,9 +84,9 @@ Tutaj znajduje się zestaw wyników.
 [{}]
 ``` 
 
-Poniżej przedstawiono przykłady z nieprawidłowym wprowadzaniem danych.
+Poniżej przedstawiono przykłady z nieprawidłowymi danymi wejściowymi.
 
- Wyrażenie przekazane zostanie przeanalizowane jako obiekt JSON; te dane wejściowe nie są do oceny typu obiektu i w ten sposób zwraca niezdefiniowane.
+ Przesłane wyrażenie zostanie przeanalizowane jako obiekt JSON; te dane wejściowe nie są oceniane do typu Object i w rezultacie zwracają niezdefiniowane.
 
 ```sql
 SELECT 
@@ -106,10 +106,10 @@ SELECT
 
 ## <a name="remarks"></a>Uwagi
 
-Ta funkcja systemu nie będzie korzystać z indeksu.
+Ta funkcja systemowa nie będzie używać indeksu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Funkcje ciągów usługi Azure Cosmos DB](sql-query-string-functions.md)
-- [Funkcje systemowe Usługi Azure Cosmos DB](sql-query-system-functions.md)
+- [Azure Cosmos DB funkcje ciągów](sql-query-string-functions.md)
+- [Azure Cosmos DB funkcje systemowe](sql-query-system-functions.md)
 - [Wprowadzenie do usługi Azure Cosmos DB](introduction.md)

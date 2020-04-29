@@ -9,17 +9,17 @@ ms.date: 03/05/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5190804180612e885b226f9b00d82b8d2f528a8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78668350"
 ---
 >[!NOTE]
->Ciężko pracujemy nad dodaniem kolejnych regionów. Po dodaniu regionu dodamy go do tej listy.
+>Pracujemy nad dodaniem dodatkowych regionów. Po dodaniu regionu dodamy go do tej listy.
 >
 
-**Americas**
+**Południowej**
 * Brazylia Południowa
 * Kanada Środkowa
 * Środkowe stany USA
@@ -52,8 +52,8 @@ ms.locfileid: "78668350"
 * Indie Zachodnie
 
 **Bliski Wschód i Afryka**
-* Republika Południowej Afryki Północ
-* Zjednoczone Emiraty Zjednoczone Emiraty Zjednoczone Emiraty Zjednoczone Emiraty Zjednoczone Emirat
+* Północna Republika Południowej Afryki
+* Środkowy Zjednoczone Emiraty Arabskie
 
 **Azure Government**
 * US DoD (region środkowy)

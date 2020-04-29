@@ -1,7 +1,7 @@
 ---
-title: Microsoft Threat Modeling Tool wydanie 4/9/2019
+title: Microsoft Threat Modeling Tool wersja 4/9/2019
 titleSuffix: Azure
-description: Dokumentowanie informacji o wersji narzędzia do modelowania zagrożeń
+description: Dokumentowanie informacji o wersji dla narzędzia do modelowania zagrożeń
 author: jegeib
 ms.author: jegeib
 ms.service: security
@@ -9,52 +9,52 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 59d385ba7de5bf7bceae4dc8ddadbca813046094
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78269728"
 ---
-# <a name="threat-modeling-tool-update-release-71604081---492019"></a>Aktualizacja narzędzia do modelowania zagrożeń 7.1.60408.1 - 4/9/2019
+# <a name="threat-modeling-tool-update-release-71604081---492019"></a>Threat Modeling Tool Update Release 7.1.60408.1 — 4/9/2019
 
-Wersja 7.1.60408.1 narzędzia Microsoft Threat Modeling Tool (TMT) została wydana 9 kwietnia 2019 r. i zawiera następujące zmiany:
+Wersja 7.1.60408.1 Microsoft Threat Modeling Tool (TMT) została wydana w kwietniu 9 2019 i zawiera następujące zmiany:
 
-- Nowe wzorniki dla usługi Azure Key Vault i usługi Azure Traffic Manager
-- Numer wersji TMT jest teraz wyświetlany na ekranie głównym
-- Zaktualizowano łącza pomocy technicznej
+- Nowe wzorniki dla Azure Key Vault i platformy Azure Traffic Manager
+- TMT numer wersji jest teraz pokazywany na ekranie głównym
+- Linki pomocy technicznej zostały zaktualizowane
 - Poprawki błędów
 
 ## <a name="feature-changes"></a>Zmiany funkcji
 
-### <a name="new-stencils-for-azure-key-vault-and-azure-traffic-manager"></a>Nowe wzorniki dla usługi Azure Key Vault i usługi Azure Traffic Manager
+### <a name="new-stencils-for-azure-key-vault-and-azure-traffic-manager"></a>Nowe wzorniki dla Azure Key Vault i platformy Azure Traffic Manager
 
-![Wzornik magazynu kluczy platformy Azure](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
+![Wzornik Azure Key Vault](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
 
-Nowe wzorniki i zagrożenia dla usługi Azure Key Vault i usługi Azure Traffic Manager zostały dodane do zestawu wzorników platformy Azure. Podczas otwierania modeli na podstawie zestawu wzorników platformy Azure użytkownicy zostaną poproszeni o zaktualizowanie szablonu skojarzonego z modelem. Aktualizowanie modelu opartego na zestawie wzorników platformy Azure można również zainicjować ręcznie przy użyciu polecenia "Zastosuj szablon" w menu "Plik" i ponownego zastosowania najnowszego pliku usługi Azure Cloud Services.tb7.
+Nowe wzorniki i zagrożenia dla Azure Key Vault i Traffic Manager platformy Azure zostały dodane do zestawu wzorników platformy Azure. Podczas otwierania modeli opartych na zestawie wzorników platformy Azure użytkownicy otrzymają monit o zaktualizowanie szablonu skojarzonego z modelem. Aktualizowanie modelu opartego na zestawie wzorników platformy Azure można również zainicjować ręcznie przy użyciu polecenia "Zastosuj szablon" w menu "plik" i ponownie zastosować najnowszą wersję pliku Cloud Services. tb7 systemu Azure.
 
-### <a name="tmt-version-number-is-now-shown-on-the-home-screen"></a>Numer wersji TMT jest teraz wyświetlany na ekranie głównym
+### <a name="tmt-version-number-is-now-shown-on-the-home-screen"></a>TMT numer wersji jest teraz pokazywany na ekranie głównym
 
-Wersja klienta narzędzia do modelowania zagrożeń jest teraz wyświetlana na ekranie głównym aplikacji dla ułatwienia dostępu.
+Wersja klienta Threat Modeling Tool jest teraz wyświetlana na ekranie głównym aplikacji w celu ułatwienia dostępu.
 
-![Wzornik magazynu kluczy platformy Azure](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
+![Wzornik Azure Key Vault](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
 
-### <a name="support-links-have-been-updated"></a>Zaktualizowano łącza pomocy technicznej
+### <a name="support-links-have-been-updated"></a>Linki pomocy technicznej zostały zaktualizowane
 
-Wszystkie linki pomocy technicznej w ramach narzędzia [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) zostały zaktualizowane, aby kierować użytkowników do, a nie do forum MSDN.
+Wszystkie linki pomocy technicznej w narzędziu zostały zaktualizowane w celu przekierowania [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) użytkownikom do forum MSDN.
 
 ## <a name="system-requirements"></a>Wymagania systemowe
 
 - Obsługiwane systemy operacyjne
-  - [Rocznicowa aktualizacja systemu Microsoft Windows 10 lub nowsza](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97)
-- Wymagana wersja .NET
-  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) lub nowsze
+  - [Rocznicowa Aktualizacja systemu Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) lub nowsza wersja
+- Wymagana wersja platformy .NET
+  - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) lub nowszy
 - Wymagania dodatkowe
-  - Do otrzymywania aktualizacji narzędzia oraz szablonów wymagane jest połączenie z Internetem.
+  - Do otrzymywania aktualizacji narzędzia oraz szablonów są wymagane połączenia z Internetem.
 
-## <a name="documentation-and-feedback"></a>Dokumentacja i informacje zwrotne
+## <a name="documentation-and-feedback"></a>Dokumentacja i opinie
 
-- Dokumentacja narzędzia do modelowania zagrożeń znajduje się na [docs.microsoft.com](threat-modeling-tool.md)i zawiera informacje [o użyciu narzędzia.](threat-modeling-tool-getting-started.md)
+- Dokumentacja Threat Modeling Tool znajduje się w witrynie [docs.Microsoft.com](threat-modeling-tool.md)i zawiera informacje na [temat korzystania z narzędzia](threat-modeling-tool-getting-started.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Pobierz najnowszą wersję [narzędzia Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).
+Pobierz najnowszą wersję [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

@@ -1,7 +1,7 @@
 ---
 title: Jak wybrać algorytm uczenia maszynowego
 titleSuffix: Azure Machine Learning
-description: Jak wybrać algorytmy usługi Azure Machine Learning do nadzorowanego i nienadzorowanego uczenia się w eksperymentach klastrowania, klasyfikacji lub regresji.
+description: Jak wybrać algorytmy Azure Machine Learning dla nadzorowanych i nienadzorowanych uczenia się w przypadku eksperymentów, klasyfikacji lub regresji.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,116 +11,116 @@ ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 03/05/2020
 ms.openlocfilehash: e0482bac9569a834adf3e1cdef2b3f702980eac0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78328667"
 ---
-# <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Jak wybrać algorytmy dla usługi Azure Machine Learning
+# <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Jak wybrać algorytmy dla Azure Machine Learning
 
-Typowe pytanie brzmi:"Jaki algorytm uczenia maszynowego powinienem używać?" Wybrany algorytm zależy przede wszystkim od dwóch różnych aspektów scenariusza nauki o danych:
+Typowym pytaniem jest "którego algorytmu uczenia maszynowego należy użyć?". Wybrany algorytm zależy głównie od dwóch różnych aspektów scenariusza analizy danych:
 
- - **Co chcesz zrobić ze swoimi danymi?** W szczególności, jakie jest pytanie biznesowe, na które chcesz odpowiedzieć, ucząc się na podstawie przeszłych danych?
+ - **Co chcesz zrobić z danymi?** Co to jest pytanie biznesowe, na które chcesz odpowiedzieć na podstawie przeszłych danych?
 
- - **Jakie są wymagania scenariusza nauki o danych?** W szczególności, co to jest dokładność, czas szkolenia, liniowość, liczba parametrów i liczba funkcji, które obsługuje rozwiązanie?
+ - **Jakie są wymagania scenariusza analizy danych?** W odróżnieniu od tego, jaka jest dokładność, czas uczenia, liniowość, liczba parametrów i liczba funkcji obsługiwanych przez rozwiązanie?
 
- ![Zagadnienia dotyczące wyboru algorytmów: Co chcesz wiedzieć? Jakie są wymagania dotyczące scenariusza?](./media/how-to-select-algorithms/how-to-select-algorithms.png)
+ ![Zagadnienia dotyczące wybierania algorytmów: co chcesz wiedzieć? Jakie są wymagania dotyczące scenariusza?](./media/how-to-select-algorithms/how-to-select-algorithms.png)
 
-## <a name="business-scenarios-and-the-machine-learning-algorithm-cheat-sheet"></a>Scenariusze biznesowe i arkusz kodu algorytmu uczenia maszynowego
+## <a name="business-scenarios-and-the-machine-learning-algorithm-cheat-sheet"></a>Scenariusze biznesowe i arkusz Machine Learning Ściągawka algorytmu
 
-[Arkusz ściągawki algorytmu usługi Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri) pomaga w pierwszej analizie: Co chcesz zrobić z **danymi?** W arkuszu ściągawki algorytmu uczenia maszynowego poszukaj zadania, które chcesz wykonać, a następnie znajdź algorytm [projektanta usługi Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri) dla rozwiązania do analizy predykcyjnej. 
+[Arkusz Azure Machine Learning Ściągawka Algorithm](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri) pomaga z pierwszym uwzględnieniem: **co chcesz zrobić z danymi**? Na Ściągawka algorytmu Machine Learning, Wyszukaj zadanie, które chcesz wykonać, a następnie Znajdź algorytm [Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri) dla rozwiązania do analizy predykcyjnej. 
 
-Projektant uczenia maszynowego oferuje kompleksowe portfolio algorytmów, takich jak [wieloklasowy las decyzyjny,](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) [systemy rekomendacji,](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-recommender?WT.mc_id=docs-article-lazzeri) [regresja sieci neuronowej,](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) [wieloklasowa sieć neuronowa](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri)i [klastrowanie k-means.](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) Każdy algorytm jest przeznaczony do rozwiązania innego typu problemu uczenia maszynowego. Zobacz [algorytm projektanta uczenia maszynowego i odwołanie do modułu,](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri) aby uzyskać pełną listę wraz z dokumentacją dotyczącą działania każdego algorytmu i sposobu dostrajania parametrów w celu optymalizacji algorytmu.
+Program Machine Learning Designer zapewnia kompleksowy portfel algorytmów, takich jak [Las decyzyjny wieloklasowe](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri), [systemy rekomendacji](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-recommender?WT.mc_id=docs-article-lazzeri), [regresja sieci neuronowych](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri), [wieloklasowa sieć neuronowych](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri)i [K-oznacza klastrowanie](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri). Każdy algorytm jest przeznaczony do rozwiązywania innego typu problemu uczenia maszynowego. Aby uzyskać pełną listę wraz z dokumentacją dotyczącą sposobu działania poszczególnych algorytmów i sposobu dostrajania parametrów w celu optymalizacji algorytmu, zobacz Opis [algorytmu Machine Learning projektanta i odwołania do modułu](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri) .
 
 > [!NOTE]
-> Aby pobrać arkusz kodu algorytmu uczenia maszynowego, przejdź do [arkusza kodu algorytmu uczenia maszynowego platformy Azure.](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri)
+> Aby pobrać arkusz ściągawkay algorytmu uczenia maszynowego, przejdź do [arkusza Ściągawka (algorytm usługi Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri)).
 > 
 > 
 
-Wraz ze wskazówkami w arkuszu kodu algorytmu uczenia maszynowego azure, należy pamiętać o innych wymaganiach podczas wybierania algorytmu uczenia maszynowego dla rozwiązania. Poniżej przedstawiono dodatkowe czynniki, które należy wziąć pod uwagę, takie jak dokładność, czas szkolenia, liniowość, liczba parametrów i liczba funkcji.
+Wraz ze wskazówkami Azure Machine Learning w arkuszu Ściągawka Algorithm, pamiętaj o innych wymaganiach podczas wybierania algorytmu uczenia maszynowego dla rozwiązania. Poniżej znajdują się dodatkowe czynniki, które należy wziąć pod uwagę, takie jak dokładność, czas uczenia, liniowość, liczba parametrów i liczba funkcji.
 
-## <a name="additional-requirements-for-a-data-science-scenario"></a>Dodatkowe wymagania dotyczące scenariusza nauki o danych
+## <a name="additional-requirements-for-a-data-science-scenario"></a>Dodatkowe wymagania dotyczące scenariusza analizy danych
 
 Gdy wiesz, co chcesz zrobić z danymi, musisz określić dodatkowe wymagania dotyczące rozwiązania. 
 
-Dokonuj wyborów i ewentualnie kompromisów dla następujących wymagań:
+Wprowadź opcje i ewentualne wady, które są dostępne dla następujących wymagań:
 
-- Dokładność
+- Odpowiedni
 - Czas trenowania
-- Liniowości
+- Liniowość
 - Liczba parametrów
 - Liczba funkcji
 
-## <a name="accuracy"></a>Dokładność
+## <a name="accuracy"></a>Odpowiedni
 
-Dokładność uczenia maszynowego mierzy skuteczność modelu jako proporcję rzeczywistych wyników do wszystkich przypadków. W projektancie uczenia maszynowego [moduł Oceniaj model](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri) oblicza zestaw standardowych metryk oceny branżowej. Za pomocą tego modułu można zmierzyć dokładność przeszkolonego modelu.
+Dokładność w uczeniu maszynowym mierzy efektywność modelu jako stosunek rzeczywistych wyników do łącznej liczby przypadków. W programie Machine Learning Designer [moduł oceny modelu](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri) oblicza zestaw metryk oceny standardowej w branży. Ten moduł służy do mierzenia dokładności nauczonego modelu.
 
-Uzyskanie możliwie najdokładniejszej odpowiedzi nie zawsze jest konieczne. Czasami przybliżenie jest odpowiednie, w zależności od tego, do czego chcesz go używać. W takim przypadku możesz znacznie skrócić czas przetwarzania, trzymając się bardziej przybliżonych metod. Przybliżone metody również naturalnie mają tendencję do unikania overfitting.
+Uzyskanie najdokładniejszej możliwej odpowiedzi nie zawsze jest konieczne. Czasami przybliżenie jest wystarczające, w zależności od tego, czego chcesz używać. W takim przypadku może być możliwe skrócenie czasu przetwarzania przez naklejenie do bardziej przybliżonych metod. Przybliżone metody również są w naturalny sposób zadbać o uniknięcie przerastania.
 
-Istnieją trzy sposoby użycia modułu Oceń model:
+Istnieją trzy sposoby używania modułu szacowania modelu:
 
-- Generowanie wyników na danych treningowych w celu oceny modelu
-- Generowanie wyników w modelu, ale porównać te wyniki z wynikami na zarezerwowanym zestawie testów
-- Porównaj wyniki dla dwóch różnych, ale powiązanych modeli, używając tego samego zestawu danych
+- Generuj wyniki na danych szkoleniowych, aby oszacować model
+- Generuj wyniki na modelu, ale Porównaj te wyniki z wynikami w zestawie testów zarezerwowanych
+- Porównanie wyników dla dwóch różnych, ale powiązanych modeli, przy użyciu tego samego zestawu danych
 
-Aby uzyskać pełną listę metryk i podejść, których można użyć do oceny dokładności modeli uczenia maszynowego, zobacz [Ocena modułu modelu](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri).
+Aby uzyskać pełną listę metryk i metod, których można użyć do obliczenia dokładności modeli uczenia maszynowego, zobacz temat [Oceń model modułu](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="training-time"></a>Czas trenowania
 
-W uczeniu nadzorowanym szkolenie oznacza używanie danych historycznych do tworzenia modelu uczenia maszynowego, który minimalizuje błędy. Liczba minut lub godzin niezbędnych do szkolenia modelu różni się znacznie między algorytmami. Czas szkolenia jest często ściśle związany z dokładnością; jeden zazwyczaj towarzyszy drugiemu. 
+W szkole nadzorowanej uczenie się to przy użyciu danych historycznych do kompilowania modelu uczenia maszynowego, który minimalizuje błędy. Liczba minut lub godzin koniecznych do uczenia modelu różni się bardzo znaczącą różnicą między algorytmami. Czas uczenia jest często ściśle związany z dokładnością; zwykle jest to jedna z nich. 
 
-Ponadto niektóre algorytmy są bardziej wrażliwe na liczbę punktów danych niż inne. Można wybrać określony algorytm, ponieważ masz ograniczenie czasu, zwłaszcza gdy zestaw danych jest duży.
+Ponadto niektóre algorytmy są bardziej czułe na liczbę punktów danych niż inne. Można wybrać konkretny algorytm, ponieważ obowiązuje ograniczenie czasu, szczególnie w przypadku dużego zestawu danych.
 
-W projektancie usługi Machine Learning tworzenie i używanie modelu uczenia maszynowego jest zazwyczaj procesem trzyetapowym:
+W programie Machine Learning Designer Tworzenie modelu uczenia maszynowego i korzystanie z niego jest zwykle procesem trójwymiarowym:
 
-1.  Skonfiguruj model, wybierając określony typ algorytmu, a następnie definiując jego parametry lub hiperparametry. 
+1.  Skonfiguruj model, wybierając określony typ algorytmu, a następnie definiując jego parametry lub parametr. 
 
-2.  Podaj zestaw danych, który jest oznaczony etykietą i ma dane zgodne z algorytmem. Połącz dane i model z [modułem Train Model](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/train-model?WT.mc_id=docs-article-lazzeri).
+2.  Podaj zestaw danych, który ma etykietę i zawiera dane zgodne z algorytmem. Połącz zarówno dane, jak i model, aby przeprowadzić [Uczenie modułu modelu](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/train-model?WT.mc_id=docs-article-lazzeri).
 
-3.  Po zakończeniu szkolenia użyj przeszkolonego modelu z jednym z [modułów oceniania,](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/score-model?WT.mc_id=docs-article-lazzeri) aby przewidywać nowe dane.
+3.  Po zakończeniu szkolenia Użyj przeszkolonego modelu z jednym z [modułów oceniania](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/score-model?WT.mc_id=docs-article-lazzeri) , aby tworzyć przewidywania dotyczące nowych danych.
 
-## <a name="linearity"></a>Liniowości
+## <a name="linearity"></a>Liniowość
 
-Liniowość w statystykach i uczeniu maszynowym oznacza, że istnieje liniowa zależność między zmienną a stałą w zestawie danych. Na przykład algorytmy klasyfikacji liniowej zakładają, że klasy mogą być oddzielone linią prostą (lub jej analogową o wyższym wymiarze).
+Liniowość statystyk i uczenie maszynowe oznacza, że istnieje liniowa relacja między zmienną i stałą w zestawie danych. Na przykład algorytmy klasyfikacji liniowej zakładają, że klasy mogą być oddzielone linią prostą (lub bardziej trójwymiarową metodą analogową).
 
-Wiele algorytmów uczenia maszynowego korzysta z liniowości. W projektancie usługi Azure Machine Learning obejmują one: 
+Wiele algorytmów uczenia maszynowego wykorzystuje liniowość. W programie Azure Machine Learning Designer obejmują: 
 
 - [Wieloklasowa regresja logistyczna](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri)
-- [Regresja logistyczna dwuklasowa](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri)
-- [Obsługuje maszyny wektorowe](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri)  
+- [Regresja logistyczna dla dwóch klas](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri)
+- [Obsługa maszyn wektorowych](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri)  
 
-Algorytmy regresji liniowej zakładają, że trendy danych przebiegają zgodnie z linią prostą. To założenie nie jest złe dla niektórych problemów, ale dla innych zmniejsza dokładność. Pomimo ich wad, algorytmy liniowe są popularne jako pierwsza strategia. Wydają się być algorytmicznie proste i szybkie do pociągu.
+Algorytmy regresji liniowej zakładają, że trendy danych są zgodne z prostą linią. To założenie nie jest złe w przypadku niektórych problemów, ale dla innych osób zmniejsza dokładność. Pomimo ich wad, algorytmy liniowe są popularne jako pierwsza strategia. Są one algorithmically proste i szybkie do uczenia się.
 
 ![Granica klasy nieliniowej](./media/how-to-select-algorithms/nonlinear-class-boundary.png)
 
-***Granica klasy nieliniowej:*** *Poleganie na algorytmie klasyfikacji liniowej spowodowałoby niską dokładność.*
+***Nieliniowa granica klasy***: *poleganie na algorytmie klasyfikacji liniowej spowodowałoby niską dokładność.*
 
 ![Dane z trendem nieliniowym](./media/how-to-select-algorithms/nonlinear-trend.png)
 
-***Dane z trendem nieliniowym:*** *Użycie metody regresji liniowej wygenerowałoby znacznie większe błędy niż jest to konieczne.*
+***Dane z trendem nieliniowym***: *użycie metody regresji liniowej spowoduje wygenerowanie znacznie większych błędów niż jest to konieczne.*
 
 ## <a name="number-of-parameters"></a>Liczba parametrów
 
-Parametry to pokrętła, które naukowiec danych włącza podczas konfigurowania algorytmu. Są to liczby, które wpływają na zachowanie algorytmu, takie jak tolerancja błędów lub liczba iteracji lub opcje między wariantami zachowania algorytmu. Czas szkolenia i dokładność algorytmu mogą czasami być wrażliwe na uzyskanie tylko odpowiednie ustawienia. Zazwyczaj algorytmy z dużą liczbą parametrów wymagają najwięcej prób i błędów, aby znaleźć dobrą kombinację.
+Parametry są pokrętłami, które są włączane przez analityka danych podczas konfigurowania algorytmu. Są to liczby, które mają wpływ na zachowanie algorytmu, takie jak odporność na błędy lub liczba iteracji, lub opcje między wariantami zachowania algorytmu. Czas uczenia i dokładność algorytmu mogą czasami być wrażliwe na uzyskanie tylko odpowiednich ustawień. Zazwyczaj algorytmy o dużej liczbie parametrów wymagają największej wersji próbnej i błędu, aby znaleźć dobrą kombinację.
 
-Alternatywnie istnieje [tune model hyperparameters moduł](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/tune-model-hyperparameters?WT.mc_id=docs-article-lazzeri) w projektancie uczenia maszynowego: Celem tego modułu jest określenie optymalnych hiperparametrów dla modelu uczenia maszynowego. Moduł tworzy i testuje wiele modeli przy użyciu różnych kombinacji ustawień. Porównuje metryki we wszystkich modelach, aby uzyskać kombinacje ustawień. 
+Istnieje również możliwość, że [moduł strojenia modelu](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/tune-model-hyperparameters?WT.mc_id=docs-article-lazzeri) jest w programie Machine Learning Designer: celem tego modułu jest określenie optymalnych parametrów dla modelu uczenia maszynowego. Moduł kompiluje i testuje wiele modeli przy użyciu różnych kombinacji ustawień. Porównuje metryki dla wszystkich modeli w celu uzyskania kombinacji ustawień. 
 
-Chociaż jest to świetny sposób, aby upewnić się, że masz spanned przestrzeni parametru, czas wymagany do szkolenia modelu zwiększa wykładniczo z liczbą parametrów. Plusem jest to, że posiadanie wielu parametrów zazwyczaj wskazuje, że algorytm ma większą elastyczność. Często osiąga bardzo dobrą dokładność, pod warunkiem, że można znaleźć odpowiednią kombinację ustawień parametrów.
+Chociaż jest to świetny sposób, aby upewnić się, że połączono miejsce parametru, czas wymagany do uczenia modelu rośnie wykładniczo z liczbą parametrów. Do góry jest, że wiele parametrów zwykle wskazuje, że algorytm ma większą elastyczność. Często można uzyskać bardzo dobrą dokładność, pod warunkiem znalezienia odpowiedniej kombinacji ustawień parametrów.
 
 ## <a name="number-of-features"></a>Liczba funkcji
 
-W uczeniu maszynowym funkcja jest wymierną zmienną zjawiska, które próbujesz przeanalizować. W przypadku niektórych typów danych liczba funkcji może być bardzo duża w porównaniu z liczbą punktów danych. Często ma to miejsce w przypadku genetyki lub danych tekstowych. 
+W uczeniu maszynowym funkcja jest zmienną wymierną zjawiska, którą próbujesz analizować. W przypadku niektórych typów danych liczba funkcji może być bardzo duża w porównaniu do liczby punktów danych. Często dzieje się tak w przypadku danych genetycznych lub tekstowych. 
 
-Wiele funkcji może bagno niektóre algorytmy uczenia się, dzięki czemu czas szkolenia niewykonasię długo. [Obsługuje maszyny wektorowe](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) są szczególnie dobrze dostosowane do scenariuszy z dużą liczbą funkcji. Z tego powodu były one używane w wielu aplikacjach, od pobierania informacji do klasyfikacji tekstu i obrazu. Maszyny wektorowe wsparcia mogą być używane zarówno do klasyfikacji i regresji zadań.
+Wiele funkcji może ją przeciążyć niektóre algorytmy uczenia, co wydłuża czas uczenia unfeasibly. [Maszyny wektorowe obsługi](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) są szczególnie dostosowane do scenariuszy o dużej liczbie funkcji. Z tego powodu zostały one użyte w wielu aplikacjach na podstawie pobierania informacji do klasyfikacji tekstu i obrazu. Maszyny wektorowe obsługi mogą służyć do zadań klasyfikacji i regresji.
 
-Wybór funkcji odnosi się do procesu stosowania testów statystycznych do danych wejściowych, biorąc pod uwagę określone dane wyjściowe. Celem jest określenie, które kolumny są bardziej predykcyjne danych wyjściowych. [Moduł wyboru funkcji oparty na filtrze](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/filter-based-feature-selection?WT.mc_id=docs-article-lazzeri) w projektancie uczenia maszynowego udostępnia wiele algorytmów wyboru funkcji do wyboru. Moduł zawiera metody korelacji, takie jak korelacja Pearsona i wartości chi-kwadrat.
+Wybór funkcji odnosi się do procesu zastosowania testów statystycznych do danych wejściowych, z uwzględnieniem określonych danych wyjściowych. Celem jest określenie, które kolumny są bardziej predykcyjne w danych wyjściowych. [Moduł wyboru funkcji oparty na filtrach](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/filter-based-feature-selection?WT.mc_id=docs-article-lazzeri) w programie Machine Learning Designer udostępnia wiele algorytmów wyboru funkcji do wyboru. Moduł zawiera metody korelacji, takie jak korelacja Pearsona i wartości chi-kwadrat.
 
-[Moduł Ważność funkcji permutacji](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/permutation-feature-importance?WT.mc_id=docs-article-lazzeri) można również użyć do obliczenia zestawu wyników ważności funkcji dla zestawu danych. Następnie można wykorzystać te wyniki, aby ułatwić określenie najlepszych funkcji do użycia w modelu.
+Można również użyć [modułu ważności funkcji permutacji](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/permutation-feature-importance?WT.mc_id=docs-article-lazzeri) do obliczenia zestawu ocen ważności funkcji dla zestawu danych. Następnie można wykorzystać te wyniki, aby pomóc w ustaleniu najlepszych funkcji do użycia w modelu.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
- - [Dowiedz się więcej o projektancie usługi Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-designer?WT.mc_id=docs-article-lazzeri)
- - Opisy wszystkich algorytmów uczenia maszynowego dostępnych w projektancie usługi Azure Machine Learning można znaleźć w części [Algorytm projektanta usługi Machine Learning i informacje o module](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri)
- - Aby poznać związek między uczeniem głębokim, uczeniem maszynowym i sią, zobacz [Uczenie głębokie a uczenie maszynowe](https://docs.microsoft.com/azure/machine-learning/service/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri)
+ - [Dowiedz się więcej o programie Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/service/concept-designer?WT.mc_id=docs-article-lazzeri)
+ - Opisy wszystkich algorytmów uczenia maszynowego dostępnych w projektancie Azure Machine Learning można znaleźć w temacie [Machine Learning projektanta i dokumentacja modułu](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri)
+ - Aby poznać relacje między uczeniem szczegółowym, uczeniem maszynowym i AI, zobacz [uczenie głębokie a Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri)

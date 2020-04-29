@@ -1,7 +1,7 @@
 ---
-title: Usługa szyfrowania drm usługi Azure Media Services i dostarczania licencji
+title: Azure Media Services szyfrowanie DRM i usługa dostarczania licencji
 titleSuffix: Azure Media Services
-description: Dowiedz się, jak używać dynamicznego szyfrowania DRM i usługi dostarczania licencji do dostarczania strumieni zaszyfrowanych za pomocą licencji Microsoft PlayReady, Google Widevine lub Apple FairPlay.
+description: Dowiedz się, jak korzystać z szyfrowania dynamicznego DRM i usługi dostarczania licencji, aby dostarczać strumienie szyfrowane za pomocą licencji firmy Microsoft PlayReady, Google Widevine lub Apple FairPlay.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -16,35 +16,35 @@ ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 14ba5f270138db22a76fd697b264046e22577427
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79086731"
 ---
-# <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Samouczek: Korzystanie z usługi szyfrowania dynamicznego i dostarczania licencji DRM
+# <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Samouczek: używanie dynamicznego szyfrowania DRM i usługi dostarczania licencji
 
 > [!NOTE]
-> Mimo że w tym samouczku użyto przykładów [zestawu .NET SDK,](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) ogólne kroki są takie same dla [interfejsu API REST,](https://docs.microsoft.com/rest/api/media/liveevents) [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)lub innych [obsługiwanych zestawu SDK.](media-services-apis-overview.md#sdks)
+> Mimo że w tym samouczku są używane przykłady [zestawu SDK dla platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , ogólne kroki są takie same dla [interfejsu API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
-Usługa Azure Media Services umożliwia dostarczanie strumieni zaszyfrowanych za pomocą licencji Microsoft PlayReady, Google Widevine i Apple FairPlay. Aby uzyskać szczegółowe wyjaśnienie, zobacz [Ochrona zawartości za pomocą szyfrowania dynamicznego](content-protection-overview.md).
+Usługa Azure Media Services umożliwia dostarczanie strumieni zaszyfrowanych za pomocą licencji Microsoft PlayReady, Google Widevine i Apple FairPlay. Szczegółowe wyjaśnienie zawiera temat [Ochrona zawartości przy użyciu szyfrowania dynamicznego](content-protection-overview.md).
 
-Usługa Media Services zapewnia również usługę dostarczania licencji PlayReady, Widevine i FairPlay DRM. Gdy użytkownik zażąda zawartości chronionej przez drm, aplikacja odtwarzacza żąda licencji z usługi licencji Media Services. Jeśli aplikacja odtwarzacza jest autoryzowana, usługa licencji usługi Media Services wystawia graczowi licencję. Licencja zawiera klucz odszyfrowujący, który może zostać użyty przez odtwarzacz klienta do odszyfrowania i strumieniowego przesyłania zawartości.
+Media Services udostępnia również usługi do dostarczania licencji platformy PlayReady, Widevine i FairPlay. Gdy użytkownik zażąda zawartości chronionej za pomocą technologii DRM, aplikacja odtwarzacza żąda licencji z usługi licencjonowania Media Services. Jeśli aplikacja odtwarzacza zostanie autoryzowana, usługa licencjonowania Media Services wystawia licencję dla odtwarzacza. Licencja zawiera klucz odszyfrowujący, który może zostać użyty przez odtwarzacz klienta do odszyfrowania i strumieniowego przesyłania zawartości.
 
 Ten artykuł jest oparty na przykładzie [szyfrowania przy użyciu technologii DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM).
 
 Opisany w tym artykule przykład generuje następujący wynik:
 
-![Usługa AMS z wideo chronionym przez drm w usłudze Azure Media Player](./media/protect-with-drm/ams_player.png)
+![Wskaźnik AMS z chronionym przez DRM wideo w Azure Media Player](./media/protect-with-drm/ams_player.png)
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie przekształcenia kodowania.
+> * Utwórz transformację kodowania.
 > * Ustawianie klucza podpisywania używanego na potrzeby weryfikacji tokenu.
 > * Ustaw wymagania dotyczące zasad klucza zawartości.
-> * Utwórz lokalizator przesyłania strumieniowego z określonymi zasadami przesyłania strumieniowego.
-> * Utwórz adres URL używany do odtwarzania pliku.
+> * Utwórz StreamingLocator z określonymi zasadami przesyłania strumieniowego.
+> * Utwórz adres URL służący do odtwarzania pliku.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,11 +53,11 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 Do ukończenia tego samouczka są niezbędne następujące elementy:
 
 * Zapoznanie się z artykułem [Content protection overview (Omówienie ochrony zawartości)](content-protection-overview.md).
-* Zapoznaj się z [systemem ochrony zawartości multi-DRM projektu z kontrolą dostępu](design-multi-drm-system-with-access-control.md).
+* Zapoznaj się z tematem [Projektowanie systemu ochrony zawartości z użyciem technologii wielowątkowości z kontrolą dostępu](design-multi-drm-system-with-access-control.md).
 * Zainstalowanie narzędzia Visual Studio Code lub Visual Studio.
 * Utworzenie nowego konta usługi Azure Media Services zgodnie z opisem w [tym przewodniku Szybki start](create-account-cli-quickstart.md).
 * Uzyskanie poświadczeń potrzebnych do korzystania z interfejsów API usługi Media Services przez wykonanie kroków [uzyskiwania dostęp do interfejsów API](access-api-cli-how-to.md).
-* Ustaw odpowiednie wartości w pliku konfiguracji aplikacji (appsettings.json).
+* Ustaw odpowiednie wartości w pliku konfiguracyjnym aplikacji (appSettings. JSON).
 
 ## <a name="download-code"></a>Pobieranie kodu
 
@@ -70,23 +70,23 @@ Sklonuj repozytorium GitHub zawierające pełny przykład dla platformy .NET opi
 Przykład szyfrowania za pomocą technologii DRM znajduje się w folderze [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM).
 
 > [!NOTE]
-> Przykład tworzy unikatowe zasoby przy każdym uruchomieniu aplikacji. Zazwyczaj będzie ponownie używać istniejących zasobów, takich jak przekształcenia i zasady (jeśli istniejące zasoby mają wymagane konfiguracje).
+> Przykład tworzy unikatowe zasoby przy każdym uruchomieniu aplikacji. Zazwyczaj należy ponownie używać istniejących zasobów, takich jak transformacje i zasady (Jeśli istniejący zasób ma wymagane konfiguracje).
 
 ## <a name="start-using-media-services-apis-with-net-sdk"></a>Rozpoczynanie korzystania z interfejsów API usługi Media Services przy użyciu zestawu .NET SDK
 
-Aby rozpocząć korzystanie z interfejsów API usługi Media Services z .NET, należy utworzyć obiekt **AzureMediaServicesClient.** Aby utworzyć obiekt, należy podać poświadczenia wymagane do nawiązania połączenia z platformą Azure przez klienta przy użyciu usługi Azure AD. W kodzie sklonowanym na początku tego artykułu funkcja **GetCredentialsAsync** tworzy obiekt ServiceClientCredentials na podstawie poświadczeń podanych w lokalnym pliku konfiguracji.
+Aby rozpocząć korzystanie z interfejsów API Media Services z platformą .NET, Utwórz obiekt **AzureMediaServicesClient** . Aby utworzyć obiekt, należy podać poświadczenia wymagane do nawiązania połączenia z platformą Azure przez klienta przy użyciu usługi Azure AD. W kodzie sklonowanym na początku tego artykułu funkcja **GetCredentialsAsync** tworzy obiekt ServiceClientCredentials na podstawie poświadczeń podanych w lokalnym pliku konfiguracji.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateMediaServicesClient)]
 
 ## <a name="create-an-output-asset"></a>Tworzenie zasobu wyjściowego  
 
-[Zasób](assets-concept.md) wyjściowy przechowuje wynik zadania kodowania.  
+Wyjściowy element [zawartości](assets-concept.md) przechowuje wynik zadania kodowania.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateOutputAsset)]
 
 ## <a name="get-or-create-an-encoding-transform"></a>Pobieranie lub tworzenie obiektu Transform kodowania
 
-Podczas tworzenia nowego wystąpienia obiektu [Transform](transforms-jobs-concept.md) należy określić, jakie dane wyjściowe ma ono tworzyć. Wymagany parametr jest `transformOutput` obiektem, jak pokazano w poniższym kodzie. Każdy obiekt TransformOutput zawiera element **Preset**. Element Preset zawiera szczegółowe instrukcje operacji przetwarzania wideo i/lub dźwięku używanych do wygenerowania wymaganego obiektu TransformOutput. Przykład opisany w tym artykule używa wbudowanego elementu Preset o nazwie **AdaptiveStreaming**. Preset koduje wejściowy obraz wideo do automatycznie generowanej drabiny szybkości transmisji bitów (pary o rozdzielczości bitrate) na podstawie rozdzielczości wejściowej i szybkości transmisji bitów, a także tworzy pliki ISO MP4 z wideo H.264 i dźwiękiem AAC odpowiadającym każdej parze o rozdzielczości bitrate. 
+Podczas tworzenia nowego wystąpienia obiektu [Transform](transforms-jobs-concept.md) należy określić, jakie dane wyjściowe ma ono tworzyć. Wymagany parametr jest `transformOutput` obiektem, jak pokazano w poniższym kodzie. Każdy obiekt TransformOutput zawiera element **Preset**. Element Preset zawiera szczegółowe instrukcje operacji przetwarzania wideo i/lub dźwięku używanych do wygenerowania wymaganego obiektu TransformOutput. Przykład opisany w tym artykule używa wbudowanego elementu Preset o nazwie **AdaptiveStreaming**. Ustawienie wstępne koduje wejściowe wideo do automatycznie generowanej (par rozdzielczości szybkości transmisji bitów) w oparciu o rozdzielczość wejścia i szybkość transmisji bitów, a następnie tworzy pliki MP4 ISO z wideo H. 264 i AAC audio odpowiadające każdej parze rozdzielczości szybkości transmisji bitów. 
 
 Przed utworzeniem nowego obiektu **Transform** należy najpierw sprawdzić, czy taki obiekt już istnieje, używając metody **Get**, tak jak przedstawiono w poniższym kodzie.  W przypadku usługi Media Services 3 metody **Get** wywołane dla obiektów zwracają **wartość null**, jeśli obiekt nie istnieje (sprawdzana jest nazwa bez uwzględniania wielkości liter).
 
@@ -94,33 +94,33 @@ Przed utworzeniem nowego obiektu **Transform** należy najpierw sprawdzić, czy 
 
 ## <a name="submit-job"></a>Przesyłanie zadania
 
-Jak wspomniano powyżej, obiekt **Transform** jest przepisem, a obiekt [Job](transforms-jobs-concept.md) to rzeczywiste żądanie skierowane do usługi Media Services i mające na celu zastosowanie obiektu **Transform** do określonej wejściowej zawartości wideo lub dźwiękowej. **Zadanie** określa informacje, takie jak lokalizacja wejściowego wideo i lokalizacja danych wyjściowych.
+Jak wspomniano powyżej, obiekt **Transform** jest przepisem, a obiekt [Job](transforms-jobs-concept.md) to rzeczywiste żądanie skierowane do usługi Media Services i mające na celu zastosowanie obiektu **Transform** do określonej wejściowej zawartości wideo lub dźwiękowej. **Zadanie** określa informacje na przykład o lokalizacji wejściowego wideo i lokalizacji danych wyjściowych.
 
-W tym samouczku tworzymy dane wejściowe zadania na podstawie pliku, który jest pozyskiwany bezpośrednio z [źródłowego adresu URL HTTPs](job-input-from-http-how-to.md).
+W tym samouczku utworzysz dane wejściowe zadania na podstawie pliku, który jest pobierany bezpośrednio ze [źródłowego adresu URL https](job-input-from-http-how-to.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#SubmitJob)]
 
 ## <a name="wait-for-the-job-to-complete"></a>Oczekiwanie na zakończenie zadania
 
-Zadanie zajmuje trochę czasu. Gdy tak się stanie, chcesz otrzymywać powiadomienia. Poniższy przykład kodu pokazuje, jak sondować usługę pod kątem stanu **zadania**. Sondowanie nie jest zalecane najlepsze rozwiązanie dla aplikacji produkcyjnych ze względu na potencjalne opóźnienie. Jeśli sondowanie będzie nadużywane w ramach konta, może zostać ograniczone. Deweloperzy zamiast niego powinni używać usługi Event Grid. Zobacz [Kierowanie zdarzeń do niestandardowego internetowego punktu końcowego](job-state-events-cli-how-to.md).
+Ukończenie zadania trwa jakiś czas. Gdy tak jest, chcesz otrzymywać powiadomienia. Poniższy przykład kodu pokazuje, jak sondować usługę pod kątem stanu **zadania**. Sondowanie nie jest zalecanym najlepszym rozwiązaniem w przypadku aplikacji produkcyjnych ze względu na potencjalne opóźnienia. Jeśli sondowanie będzie nadużywane w ramach konta, może zostać ograniczone. Deweloperzy zamiast niego powinni używać usługi Event Grid. Zobacz [Kierowanie zdarzeń do niestandardowego internetowego punktu końcowego](job-state-events-cli-how-to.md).
 
-**Zadanie** zwykle przechodzi przez następujące stany: **Scheduled (Zaplanowane)**, **Queued (W kolejce)**, **Processing (Przetwarzane)**, **Finished (Zakończone)** (stan końcowy). Jeśli zadanie natknie się na błąd, pojawi się **komunikat Błąd.** Jeśli zadanie jest w trakcie anulowania, otrzymasz **Canceling** i **Canceled** po zakończeniu.
+**Zadanie** zwykle przechodzi przez następujące stany: **Scheduled (Zaplanowane)**, **Queued (W kolejce)**, **Processing (Przetwarzane)**, **Finished (Zakończone)** (stan końcowy). Jeśli w zadaniu wystąpi błąd, zostanie wyświetlony stan **błędu** . Jeśli zadanie jest w trakcie jego anulowania, po zakończeniu zostanie **anulowane** i **usunięte** .
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
 ## <a name="create-a-content-key-policy"></a>Tworzenie zasad klucza zawartości
 
-Klucz zawartości zapewnia bezpieczny dostęp do elementów zawartości. Podczas szyfrowania zawartości za pomocą drm należy utworzyć [zasady klucza zawartości.](content-key-policy-concept.md) Zasady konfiguruje sposób dostarczania klucza zawartości do klientów końcowych. Klucz zawartości jest skojarzony z lokalizatorem przesyłania strumieniowego. Usługa Media Services udostępnia również usługę dostarczania kluczy, która dostarcza klucze szyfrowania i licencje do autoryzowanych użytkowników.
+Klucz zawartości zapewnia bezpieczny dostęp do elementów zawartości. Należy utworzyć [zasady klucza zawartości](content-key-policy-concept.md) podczas szyfrowania zawartości przy użyciu funkcji DRM. Zasady umożliwiają skonfigurowanie sposobu dostarczania klucza zawartości do klientów końcowych. Klucz zawartości jest skojarzony z lokalizatorem przesyłania strumieniowego. Usługa Media Services udostępnia również usługę dostarczania kluczy, która dostarcza klucze szyfrowania i licencje do autoryzowanych użytkowników.
 
-Należy ustawić wymagania (ograniczenia) zasad **klucza zawartości,** które muszą być spełnione, aby dostarczyć klucze z określoną konfiguracją. W tym przykładzie ustawimy następujące konfiguracje i wymagania:
+Należy ustawić wymagania (ograniczenia) dotyczące **zasad kluczy zawartości** , które muszą zostać spełnione, aby dostarczyć klucze z określoną konfiguracją. W tym przykładzie ustawimy następujące konfiguracje i wymagania:
 
-* Konfigurowanie
+* Konfiguracja
 
-    Licencje [PlayReady](playready-license-template-overview.md) i [Widevine](widevine-license-template-overview.md) są skonfigurowane tak, aby można było dostarczać je przy użyciu usługi dostarczania licencji w usłudze Media Services. Mimo że ta przykładowa aplikacja nie konfiguruje licencji [FairPlay,](fairplay-license-overview.md) zawiera metodę, której można użyć do skonfigurowania fairplay. Konfigurację FairPlay można dodać jako inną opcję.
+    Licencje [PlayReady](playready-license-template-overview.md) i [Widevine](widevine-license-template-overview.md) są skonfigurowane tak, aby można było dostarczać je przy użyciu usługi dostarczania licencji w usłudze Media Services. Mimo że ta Przykładowa aplikacja nie konfiguruje licencji [FairPlay](fairplay-license-overview.md) , zawiera metodę, której można użyć do skonfigurowania FairPlay. Konfigurację FairPlay można dodać jako inną opcję.
 
 * Ograniczenie
 
-    Aplikacja ustawia ograniczenie typu tokenu JSON Web Token (JWT) dla zasad.
+    Aplikacja ustawia ograniczenie typu tokenu token sieci Web JSON (JWT) dla zasad.
 
 Gdy odtwarzacz żąda strumienia, usługa Media Services używa wybranego klucza do dynamicznego szyfrowania zawartości. Aby odszyfrować strumień, odtwarzacz żąda klucza z usługi dostarczania kluczy. Aby określić, czy użytkownik został autoryzowany do otrzymywania klucza, usługa ocenia zasady kluczy zawartości, które wybrano dla klucza.
 
@@ -128,35 +128,35 @@ Gdy odtwarzacz żąda strumienia, usługa Media Services używa wybranego klucza
 
 ## <a name="create-a-streaming-locator"></a>Tworzenie lokalizatora przesyłania strumieniowego
 
-Po zakończeniu kodowania i ustawieniu zasad kluczy zawartości następnym krokiem jest udostępnienie klientom w wyjściowym elemencie zawartości pliku wideo, który można odtwarzać. Film udostępnia się w dwóch krokach:
+Po zakończeniu kodowania i ustawieniu zasad kluczy zawartości następnym krokiem jest udostępnienie klientom w wyjściowym elemencie zawartości pliku wideo, który można odtwarzać. Film wideo jest dostępny w dwóch krokach:
 
 1. Utwórz [lokalizator przesyłania strumieniowego](streaming-locators-concept.md).
 2. Utworzenie adresów URL przesyłania strumieniowego, których klienci mogą używać.
 
-Proces tworzenia **lokalizatora przesyłania strumieniowego** jest nazywany publikowaniem. Domyślnie **lokalizator przesyłania strumieniowego** jest prawidłowy natychmiast po wywołaniu interfejsu API. Trwa do momentu usunięcia, chyba że skonfigurujesz opcjonalne godziny rozpoczęcia i zakończenia.
+Proces tworzenia **lokalizatora przesyłania strumieniowego** jest nazywany publikowaniem. Domyślnie **lokalizator przesyłania strumieniowego** jest ważny natychmiast po wykonaniu wywołań interfejsu API. Obowiązuje do momentu jego usunięcia, chyba że zostanie skonfigurowany opcjonalny czas rozpoczęcia i zakończenia.
 
-Podczas tworzenia **lokalizatora przesyłania strumieniowego**należy `StreamingPolicyName`określić żądany plik . W tym samouczku używamy jednej ze wstępnie zdefiniowanych zasad przesyłania strumieniowego, która informuje usługę Azure Media Services, jak opublikować zawartość do przesyłania strumieniowego. W tym przykładzie ustawiamy element StreamingLocator.StreamingPolicyName na zasady „Predefined_MultiDrmCencStreaming”. Stosowane są szyfrowanie PlayReady i Widevine, a klucz jest dostarczany do klienta odtwarzania na podstawie skonfigurowanych licencji DRM. Jeśli chcesz także zaszyfrować strumień przy użyciu metody CBCS (FairPlay), użyj zasad „Predefined_MultiDrmStreaming”.
+Podczas tworzenia **lokalizatora przesyłania strumieniowego**należy określić odpowiednią `StreamingPolicyName`wartość. W tym samouczku korzystamy z jednej ze wstępnie zdefiniowanych zasad przesyłania strumieniowego, która informuje Azure Media Services jak opublikować zawartość do przesyłania strumieniowego. W tym przykładzie ustawiamy element StreamingLocator.StreamingPolicyName na zasady „Predefined_MultiDrmCencStreaming”. Są stosowane szyfrowanie PlayReady i Widevine, a klucz jest dostarczany do klienta odtwarzania na podstawie skonfigurowanych licencji DRM. Jeśli chcesz także zaszyfrować strumień przy użyciu metody CBCS (FairPlay), użyj zasad „Predefined_MultiDrmStreaming”.
 
 > [!IMPORTANT]
-> W przypadku korzystania z niestandardowych [zasad przesyłania strumieniowego](streaming-policy-concept.md) należy zaprojektować ograniczony zestaw takich zasad dla konta usługi Media Service i używać ich ponownie dla obiektów StreamingLocator zawsze, gdy są potrzebne takie same opcje szyfrowania i protokoły. Konto usługi Media Service jest objęte limitem przydziału dotyczącym liczby pozycji elementu StreamingPolicy. Nie należy tworzyć nowy StreamingPolicy dla każdego StreamingLocator.
+> W przypadku korzystania z niestandardowych [zasad przesyłania strumieniowego](streaming-policy-concept.md) należy zaprojektować ograniczony zestaw takich zasad dla konta usługi Media Service i używać ich ponownie dla obiektów StreamingLocator zawsze, gdy są potrzebne takie same opcje szyfrowania i protokoły. Konto usługi Media Service jest objęte limitem przydziału dotyczącym liczby pozycji elementu StreamingPolicy. Nie należy tworzyć nowych StreamingPolicy dla każdego StreamingLocatoru.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateStreamingLocator)]
 
 ## <a name="get-a-test-token"></a>Pobieranie tokenu testowego
 
-W tym samouczku określamy zasady klucza zawartości z ograniczenie dotyczącym tokenu. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Usługi Media Services obsługuje tokeny w formatach [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) i to, co konfigurujemy w przykładzie.
+W tym samouczku określamy zasady klucza zawartości z ograniczenie dotyczącym tokenu. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Media Services obsługuje tokeny w formatach [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) i to, co konfigurujemy w przykładzie.
 
-Element ContentKeyIdentifierClaim jest używany w zasadach ContentKeyPolicy, co oznacza, że token przedstawiany usłudze dostarczania kluczy musi zawierać identyfikator ContentKey. W przykładzie nie określamy klucza zawartości podczas tworzenia lokalizatora przesyłania strumieniowego, system tworzy dla nas losowy klucz. Aby wygenerować token testowy, musimy uzyskać ContentKeyId umieścić w ContentKeyIdentifierClaim oświadczenia.
+Element ContentKeyIdentifierClaim jest używany w zasadach ContentKeyPolicy, co oznacza, że token przedstawiany usłudze dostarczania kluczy musi zawierać identyfikator ContentKey. W przykładzie nie podasz klucza zawartości podczas tworzenia lokalizatora przesyłania strumieniowego, system tworzy losowo jeden dla nas. W celu wygenerowania tokenu testowego musimy uzyskać ContentKeyId do umieszczenia w ContentKeyIdentifierClaim.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetToken)]
 
 ## <a name="build-a-streaming-url"></a>Tworzenie adresu URL przesyłania strumieniowego
 
-Teraz, po utworzeniu obiektu [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), możesz pobrać adresy URL przesyłania strumieniowego. Aby utworzyć adres URL, należy połączyć nazwę hosta [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) i ścieżkę **lokalizatora przesyłania strumieniowego.** W tym przykładzie jest używany *domyślny* **punkt końcowy przesyłania strumieniowego**. Po pierwszym utworzeniu konta usługi Media Service ten *domyślny* **punkt końcowy przesyłania strumieniowego** będzie zatrzymany, więc należy wywołać metodę **Start**.
+Teraz, po utworzeniu obiektu [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), możesz pobrać adresy URL przesyłania strumieniowego. Aby utworzyć adres URL, należy połączyć nazwę hosta [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) i ścieżkę **lokalizatora przesyłania strumieniowego** . W tym przykładzie jest używany *domyślny* **punkt końcowy przesyłania strumieniowego**. Po pierwszym utworzeniu konta usługi Media Service ten *domyślny* **punkt końcowy przesyłania strumieniowego** będzie zatrzymany, więc należy wywołać metodę **Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
-Po uruchomieniu aplikacji zostanie wyświetlony następujący ekran:
+Po uruchomieniu aplikacji zobaczysz następujący ekran:
 
 ![Ochrona przy użyciu technologii DRM](./media/protect-with-drm/playready_encrypted_url.png)
 
@@ -164,7 +164,7 @@ Można otworzyć przeglądarkę i wkleić wynikowy adres URL, aby uruchomić str
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Oczyszczanie zasobów na koncie usługi Media Services
 
-Ogólnie rzecz biorąc należy oczyścić wszystko z wyjątkiem obiektów, które planujesz ponownie użyć (zazwyczaj będziesz ponownie używać przekształceń, streamingLocators i tak dalej). Jeśli chcesz, aby twoje konto było czyste po eksperymentowaniu, usuń zasoby, których nie zamierzasz ponownie używać. Na przykład poniższy kod usuwa zadania:
+Ogólnie rzecz biorąc, należy oczyścić wszystko z wyjątkiem obiektów, które są planowane do ponownego użycia (zazwyczaj spowoduje to ponowne użycie przekształceń, StreamingLocators itd.). Jeśli chcesz, aby Twoje konto było czyste po eksperymentie, Usuń zasoby, których nie planujesz ponownie używać. Na przykład poniższy kod usuwa zadania:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 
@@ -180,15 +180,15 @@ az group delete --name amsResourceGroup
 
 ## <a name="additional-notes"></a>Uwagi dodatkowe
 
-* Widevine jest usługą świadczoną przez Google Inc. i podlega warunkom korzystania z usługi oraz Polityce prywatności Firmy Google, Inc.
+* Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, przekazuj opinie, otrzyj aktualizacje
+## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, Przekaż opinię, uzyskaj aktualizacje
 
-Zapoznaj się z artykułem [społeczności usługi Azure Media Services,](media-services-community.md) aby zobaczyć różne sposoby zadawania pytań, przekazywania opinii i otrzymywać aktualizacje dotyczące usługi Media Services.
+Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Wyewidencjonuj
 
 > [!div class="nextstepaction"]
-> [Ochrona za pomocą AES-128](protect-with-aes128.md)
+> [Ochrona za pomocą algorytmu AES-128](protect-with-aes128.md)

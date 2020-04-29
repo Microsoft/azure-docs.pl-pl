@@ -1,6 +1,6 @@
 ---
-title: Eksportowanie szablonu usługi Azure Stream Analytics dla usługi Azure Resource Manager
-description: W tym artykule opisano sposób eksportowania szablonu usługi Azure Resource Manager dla zadania usługi Azure Stream Analytics.
+title: Eksportowanie szablonu Azure Resource Manager zadania Azure Stream Analytics
+description: W tym artykule opisano sposób eksportowania szablonu Azure Resource Manager dla zadania Azure Stream Analytics.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -8,59 +8,59 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 52ea7b45d0dcdb3ae16b8212557ba6ab3344ff15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78968936"
 ---
-# <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Eksportowanie szablonu usługi Azure Stream Analytics dla usługi Azure Resource Manager
+# <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Eksportowanie szablonu Azure Resource Manager zadania Azure Stream Analytics
 
-[Szablony usługi Azure Resource Manager](../azure-resource-manager/templates/overview.md) umożliwiają implementowanie infrastruktury jako kodu. Szablon jest plikiem notacji obiektu JavaScript (JSON), który definiuje infrastrukturę i konfigurację zasobów. Należy określić zasoby do wdrożenia i właściwości dla tych zasobów.
+[Szablony Azure Resource Manager](../azure-resource-manager/templates/overview.md) umożliwiają wdrożenie infrastruktury jako kodu. Szablon jest plikiem JavaScript Object Notation (JSON), który definiuje infrastrukturę i konfigurację dla zasobów. Należy określić zasoby do wdrożenia i właściwości dla tych zasobów.
 
-Możesz ponownie wdrożyć zadanie usługi Azure Stream Analytics, eksportując szablon usługi Azure Resource Manager.
+Możesz ponownie wdrożyć zadanie Azure Stream Analytics, eksportując szablon Azure Resource Manager.
 
-## <a name="open-a-job-in-vs-code"></a>Otwieranie zadania w programie VS Code
+## <a name="open-a-job-in-vs-code"></a>Otwórz zadanie w VS Code
 
-Przed eksportem szablonu należy najpierw otworzyć istniejące zadanie usługi Stream Analytics w programie Visual Studio Code. 
+Przed wyeksportowaniem szablonu należy najpierw otworzyć istniejące zadanie Stream Analytics w Visual Studio Code. 
 
-Aby wyeksportować zadanie do projektu lokalnego, znajdź zadanie, które chcesz wyeksportować w **Eksploratorze analizy strumienia** w witrynie Azure portal. Na stronie **Kwerenda** wybierz pozycję **Otwórz w programie Visual Studio**. Następnie wybierz opcję **Visual Studio Code**.
+Aby wyeksportować zadanie do projektu lokalnego, zlokalizuj zadanie, które chcesz wyeksportować w **eksploratorze Stream Analytics** w Azure Portal. Na stronie **zapytanie** wybierz pozycję **Otwórz w programie Visual Studio**. Następnie wybierz pozycję **Visual Studio Code**.
 
-![Otwórz zadanie usługi Stream Analytics w programie Visual Studio Code](./media/resource-manager-export/open-job-vs-code.png)
+![Otwórz zadanie Stream Analytics w Visual Studio Code](./media/resource-manager-export/open-job-vs-code.png)
 
-Aby uzyskać więcej informacji na temat używania programu Visual Studio Code do zarządzania zadaniami usługi Stream Analytics, zobacz [Szybki start kodu programu Visual Studio](quick-create-vs-code.md).
+Aby uzyskać więcej informacji na temat korzystania z Visual Studio Code do zarządzania zadaniami Stream Analytics, zobacz [Przewodnik Szybki Start](quick-create-vs-code.md)dotyczący usługi Visual Studio Code.
 
 ## <a name="compile-the-script"></a>Kompilowanie skryptu 
 
-Następnym krokiem jest skompilowanie skryptu zadania do szablonu usługi Azure Resource Manager. Przed skompilowanie skryptu upewnij się, że zadanie ma co najmniej jedno dane wejściowe i jedno dane wyjściowe skonfigurowane. Jeśli nie jest skonfigurowane żadne dane wejściowe lub wyjściowe, należy najpierw skonfigurować dane wejściowe i wyjściowe.
+Następnym krokiem jest skompilowanie skryptu zadania do szablonu Azure Resource Manager. Przed skompilowaniem skryptu upewnij się, że dla zadania wprowadzono co najmniej jedno wejście i jedno wyjście. Jeśli nie skonfigurowano danych wejściowych lub wyjściowych, musisz najpierw skonfigurować dane wejściowe i wyjściowe.
 
-1. W programie Visual Studio Code przejdź do pliku *Transformation.asaql* zadania.
+1. W Visual Studio Code przejdź do pliku *transformacji. asaql* zadania.
 
-   ![Plik Transformation.asaql w kodzie programu Visual Studio](./media/resource-manager-export/transformation-asaql.png)
+   ![Plik transformacji. asaql w Visual Studio Code](./media/resource-manager-export/transformation-asaql.png)
 
-1. Kliknij prawym przyciskiem myszy plik *Transformation.asaql* i wybierz polecenie **ASA: Compile Script** z menu.
+1. Kliknij prawym przyciskiem myszy plik *transformacji. asaql* i wybierz pozycję **ASA: Kompiluj skrypt** z menu.
 
-1. Należy zauważyć, że folder **Wdrażanie** pojawia się w obszarze roboczym usługi Stream Analytics.
+1. Zwróć uwagę, że folder **Deploy** pojawia się w obszarze roboczym zadania Stream Analytics.
 
-1. Zapoznaj się z *plikiem JobTemplate.json,* który jest szablonem usługi Azure Resource Management używanym do wdrażania.
+1. Zapoznaj się z plikiem *JobTemplate. JSON* , który jest szablonem usługi Azure Resource Management używanym do wdrożenia.
 
-## <a name="complete-the-parameters-file"></a>Uzupełnij plik parametrów
+## <a name="complete-the-parameters-file"></a>Ukończ plik parametrów
 
-Następnie należy ukończyć plik parametrów szablonu usługi Azure Resource Management.
+Następnie uzupełnij plik parametrów szablonu zarządzania zasobami platformy Azure.
 
-1. Otwórz plik *JobTemplate.parameters.json* znajdujący się w folderze **Wdrażanie** obszaru roboczego usługi Stream Analytics w programie Visual Studio Code.
+1. Otwórz plik *JobTemplate. Parameters. JSON* znajdujący się w folderze **Deploy** obszaru roboczego zadania Stream Analytics w Visual Studio Code.
 
-1. Należy zauważyć, że klucze wejściowe i wyjściowe mają wartość null. Zastąp wartości null rzeczywistymi kluczami dostępu dla zasobów wejściowych i wyjściowych.
+1. Zauważ, że klucze wejściowe i wyjściowe mają wartość null. Zamień wartości null na rzeczywiste klucze dostępu dla zasobów wejściowych i wyjściowych.
 
 1. Zapisz plik parametrów.
 
 ## <a name="deploy-using-templates"></a>Wdrażanie przy użyciu szablonów
 
-Możesz przystąpić do wdrażania zadania usługi Azure Stream Analytics przy użyciu szablonów usługi Azure Resource Manager wygenerowanych w poprzedniej sekcji.
+Możesz przystąpić do wdrażania zadania Azure Stream Analytics przy użyciu szablonów Azure Resource Manager wygenerowanych w poprzedniej sekcji.
 
-W oknie programu PowerShell uruchom następujące polecenie. Pamiętaj, aby ponownie wykonać pliki *ResourceGroupName*, *TemplateFile*i *TemplateParameterFile* z rzeczywistą nazwą grupy zasobów oraz pełne ścieżki plików do plików *JobTemplate.json* i *JobTemplate.parameters.json* w **folderze Wdrażanie** obszaru roboczego zadania.
+W oknie programu PowerShell uruchom następujące polecenie. Pamiętaj, aby reaplce *ResourceGroupName*, *TemplateFile*i *TemplateParameterFile* z rzeczywistą nazwą grupy zasobów i pełną ścieżkę pliku do plików *JobTemplate. JSON* i *JobTemplate. Parameters. JSON* w **folderze Deploy** w obszarze roboczym zadania.
 
-Jeśli nie masz skonfigurowany program Azure PowerShell, wykonaj kroki opisane w [module Zainstaluj program Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Jeśli nie masz skonfigurowanego Azure PowerShell, wykonaj kroki opisane w temacie [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName "<your resource group>" -TemplateFile "<path to JobTemplate.json>" -TemplateParameterFile "<path to JobTemplate.parameters.json>"
@@ -68,6 +68,6 @@ New-AzResourceGroupDeployment -ResourceGroupName "<your resource group>" -Templa
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Testowanie zadań usługi Azure Stream Analytics lokalnie przy użyciu danych wejściowych na żywo przy użyciu kodu programu Visual Studio](visual-studio-code-local-run-live-input.md)
+* [Przetestuj Azure Stream Analytics zadania lokalnie z danymi wejściowymi na żywo przy użyciu Visual Studio Code](visual-studio-code-local-run-live-input.md)
 
-* [Poznaj zadania usługi Azure Stream Analytics za pomocą kodu programu Visual Studio (wersja zapoznawcza)](visual-studio-code-explore-jobs.md)
+* [Eksplorowanie Azure Stream Analytics zadań z Visual Studio Code (wersja zapoznawcza)](visual-studio-code-explore-jobs.md)

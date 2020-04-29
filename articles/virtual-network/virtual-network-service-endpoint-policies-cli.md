@@ -1,6 +1,6 @@
 ---
-title: Ograniczanie eksfiltracji danych do usługi Azure Storage — interfejsu wiersza polecenia platformy Azure
-description: W tym artykule dowiesz się, jak ograniczyć i ograniczyć eksfiltrację danych sieci wirtualnej do zasobów usługi Azure Storage za pomocą zasad punktu końcowego usługi sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Ograniczanie eksfiltracji danych do usługi Azure Storage — interfejs wiersza polecenia platformy Azure
+description: W tym artykule dowiesz się, jak ograniczyć i ograniczyć eksfiltracji danych sieci wirtualnej do zasobów usługi Azure Storage za pomocą zasad punktu końcowego usługi sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: rdhillon
@@ -18,26 +18,26 @@ ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: e01af052a936403162115965f2dc5b3ad46dd9cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78271183"
 ---
-# <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Zarządzanie eksfiltracją danych na kontach usługi Azure Storage za pomocą zasad punktu końcowego usługi sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Zarządzanie eksfiltracjiami danych na kontach usługi Azure Storage za pomocą zasad punktu końcowego usług sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Zasady punktu końcowego usługi sieci wirtualnej umożliwiają stosowanie kontroli dostępu do kont usługi Azure Storage z poziomu sieci wirtualnej za pośrednictwem punktów końcowych usługi. Jest to klucz do zabezpieczania obciążeń, zarządzania kontami magazynu są dozwolone i gdzie eksfiltracja danych jest dozwolona.
+Zasady punktu końcowego usługi sieci wirtualnej umożliwiają stosowanie kontroli dostępu do kont usługi Azure Storage z poziomu sieci wirtualnej za pośrednictwem punktów końcowych usługi. Jest to klucz służący do zabezpieczania obciążeń, zarządzania tym, jakie konta magazynu są dozwolone i gdzie eksfiltracji danych jest dozwolony.
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-* Utwórz sieć wirtualną i dodaj podsieć.
-* Włącz punkt końcowy usługi dla usługi Azure Storage.
-* Utwórz dwa konta usługi Azure Storage i zezwalaj na dostęp do sieci z podsieci utworzonej powyżej.
+* Utwórz sieć wirtualną i Dodaj podsieć.
+* Włącz punkt końcowy usługi Azure Storage.
+* Utwórz dwa konta usługi Azure Storage i zezwól na dostęp sieciowy do niego z podsieci utworzonej powyżej.
 * Utwórz zasady punktu końcowego usługi, aby zezwolić na dostęp tylko do jednego z kont magazynu.
-* Wdrażanie maszyny wirtualnej (VM) w podsieci.
+* Wdróż maszynę wirtualną w podsieci.
 * Potwierdź dostęp do dozwolonego konta magazynu z podsieci.
-* Potwierdzenie dostępu jest odmowa do konta magazynu niedozwolone z podsieci.
+* Upewnij się, że dostęp do konta magazynu niedozwolonego z podsieci zostanie odrzucony.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -53,7 +53,7 @@ az group create \
   --location eastus
 ```
 
-Utwórz sieć wirtualną za pomocą jednej podsieci z [siecią wirtualną AZ .](/cli/azure/network/vnet)
+Utwórz sieć wirtualną z jedną podsiecią za pomocą [AZ Network VNET Create](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -66,7 +66,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>Włączanie punktu końcowego usługi 
 
-W tym przykładzie punkt końcowy usługi dla *microsoft.storage* jest tworzony dla podsieci *Private:* 
+W tym przykładzie jest tworzony punkt końcowy usługi *Microsoft. Storage* dla podsieci *Private*: 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -79,7 +79,7 @@ az network vnet subnet create \
 
 ## <a name="restrict-network-access-for-a-subnet"></a>Ograniczanie dostępu sieciowego dla podsieci
 
-Utwórz grupę zabezpieczeń sieci [z nsg sieci az create](/cli/azure/network/nsg). Poniższy przykład tworzy grupę zabezpieczeń sieci o nazwie *myNsgPrivate*.
+Utwórz sieciową grupę zabezpieczeń za pomocą [AZ Network sieciowej grupy zabezpieczeń Create](/cli/azure/network/nsg). Poniższy przykład tworzy sieciową grupę zabezpieczeń o nazwie *myNsgPrivate*.
 
 ```azurecli-interactive
 az network nsg create \
@@ -87,7 +87,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-Skojarz grupę zabezpieczeń sieci z *podsiecią prywatną* z [aktualizacją podsieci sieci AZ](/cli/azure/network/vnet/subnet). Poniższy przykład kojarzy grupę zabezpieczeń sieci *myNsgPrivate* z *podsiecią prywatną:*
+Skojarz sieciową grupę zabezpieczeń z podsiecią *prywatną* przy użyciu [AZ Network VNET Subnet Update](/cli/azure/network/vnet/subnet). Poniższy przykład kojarzy sieciową grupę zabezpieczeń *myNsgPrivate* z podsiecią *prywatną* :
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -97,7 +97,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-Tworzenie reguł zabezpieczeń za pomocą [reguły nsg sieci az create](/cli/azure/network/nsg/rule). Następująca zasada umożliwia dostęp wychodzący do publicznych adresów IP przypisanych do usługi Azure Storage: 
+Utwórz reguły zabezpieczeń za pomocą [AZ Network sieciowej grupy zabezpieczeń Rule Create](/cli/azure/network/nsg/rule). Reguła, która następuje po umożliwieniu dostępu wychodzącego do publicznych adresów IP przypisanych do usługi Azure Storage: 
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -114,7 +114,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Każda siećowa grupa zabezpieczeń zawiera kilka [domyślnych reguł zabezpieczeń](security-overview.md#default-security-rules). Reguła, która następuje, zastępuje domyślną regułę zabezpieczeń, która umożliwia dostęp wychodzący do wszystkich publicznych adresów IP. Opcja `destination-address-prefix "Internet"` odmawia dostępu wychodzącego do wszystkich publicznych adresów IP. Poprzednia reguła zastępuje tę regułę ze względu na jej wyższy priorytet, który umożliwia dostęp do publicznych adresów IP usługi Azure Storage.
+Każda sieciowa Grupa zabezpieczeń zawiera kilka [domyślnych reguł zabezpieczeń](security-overview.md#default-security-rules). Reguła, która następuje, zastępuje domyślną regułę zabezpieczeń, która zezwala na dostęp wychodzący do wszystkich publicznych adresów IP. `destination-address-prefix "Internet"` Opcja powoduje odmowę dostępu wychodzącego do wszystkich publicznych adresów IP. Poprzednia reguła zastępuje tę regułę z powodu wyższego priorytetu, co umożliwia dostęp do publicznych adresów IP usługi Azure Storage.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -131,7 +131,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Poniższa reguła umożliwia ruch SSH przychodzący do podsieci z dowolnego miejsca. Reguła zastępuje domyślną regułę zabezpieczeń, która zakazuje całego ruchu przychodzącego z Internetu. SSH jest dozwolone do podsieci, dzięki czemu łączność może być testowany w późniejszym kroku.
+Poniższa reguła umożliwia ruch SSH ruchu przychodzącego do podsieci z dowolnego miejsca. Reguła zastępuje domyślną regułę zabezpieczeń, która zakazuje całego ruchu przychodzącego z Internetu. Protokół SSH jest dozwolony w podsieci, aby można było przetestować łączność w późniejszym kroku.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -148,13 +148,13 @@ az network nsg rule create \
   --destination-port-range "22"
 ```
 
-## <a name="restrict-network-access-to-azure-storage-accounts"></a>Ograniczanie dostępu do sieci do kont usługi Azure Storage
+## <a name="restrict-network-access-to-azure-storage-accounts"></a>Ograniczanie dostępu sieciowego do kont usługi Azure Storage
 
-W tej sekcji wymieniono kroki, aby ograniczyć dostęp do sieci dla konta usługi Azure Storage z danej podsieci w sieci wirtualnej za pośrednictwem punktu końcowego usługi.
+W tej sekcji przedstawiono procedurę ograniczenia dostępu do sieci dla konta usługi Azure Storage z danej podsieci w sieci wirtualnej za pośrednictwem punktu końcowego usługi.
 
 ### <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Utwórz dwa konta magazynu platformy Azure przy [tworzeniu konta magazynu az](/cli/azure/storage/account).
+Utwórz dwa konta usługi Azure Storage za pomocą [AZ Storage account Create](/cli/azure/storage/account).
 
 ```azurecli-interactive
 storageAcctName1="allowedstorageacc"
@@ -174,7 +174,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-Po utworzeniu kont magazynu pobierz parametry połączenia dla kont magazynu do zmiennej z [az storage account show-connection-string](/cli/azure/storage/account). Ciąg połączenia jest używany do tworzenia udziału plików w późniejszym kroku.
+Po utworzeniu kont magazynu Pobierz parametry połączenia dla kont magazynu do zmiennej za pomocą [AZ Storage account show-Connection-String](/cli/azure/storage/account). Parametry połączenia są używane do tworzenia udziału plików w późniejszym kroku.
 
 ```azurecli-interactive
 saConnectionString1=$(az storage account show-connection-string \
@@ -190,7 +190,7 @@ saConnectionString2=$(az storage account show-connection-string \
   --out tsv)
 ```
 
-<a name="account-key"></a>Wyświetl zawartość zmiennej i zanotuj wartość **klawisza AccountKey** zwróconego w danych wyjściowych, ponieważ jest on używany w późniejszym kroku.
+<a name="account-key"></a>Wyświetl zawartość zmiennej i zwróć uwagę na wartość **AccountKey** zwracaną w danych wyjściowych, ponieważ jest ona używana w późniejszym kroku.
 
 ```azurecli-interactive
 echo $saConnectionString1
@@ -200,7 +200,7 @@ echo $saConnectionString2
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Tworzenie udziału plików w ramach konta magazynu
 
-Utwórz udział plików na koncie magazynu za pomocą [az storage share create](/cli/azure/storage/share). W późniejszym kroku ten udział plików jest instalowany w celu potwierdzenia dostępu do sieci.
+Utwórz udział plików na koncie magazynu za pomocą [AZ Storage Share Create](/cli/azure/storage/share). W późniejszym kroku ten udział plików jest instalowany w celu potwierdzenia dostępu do sieci.
 
 ```azurecli-interactive
 az storage share create \
@@ -214,9 +214,9 @@ az storage share create \
   --connection-string $saConnectionString2 > /dev/null
 ```
 
-### <a name="deny-all-network-access-to-the-storage-account"></a>Odmów wszelkiego dostępu sieciowego do konta magazynu
+### <a name="deny-all-network-access-to-the-storage-account"></a>Odmowa dostępu przez sieć do konta magazynu
 
-Domyślnie konta magazynu akceptują połączenia sieciowe od klientów w dowolnej sieci. Aby ograniczyć dostęp do wybranych sieci, zmień akcję domyślną na *Odmów* z [aktualizacją konta magazynu az](/cli/azure/storage/account). Kiedy dostęp sieciowy jest blokowany, konto magazynu nie jest dostępne z żadnej sieci.
+Domyślnie konta magazynu akceptują połączenia sieciowe od klientów w dowolnej sieci. Aby ograniczyć dostęp do wybranych sieci, Zmień domyślną akcję na *Odmów* przy użyciu [AZ Storage account Update](/cli/azure/storage/account). Kiedy dostęp sieciowy jest blokowany, konto magazynu nie jest dostępne z żadnej sieci.
 
 ```azurecli-interactive
 az storage account update \
@@ -230,9 +230,9 @@ az storage account update \
   --default-action Deny
 ```
 
-### <a name="enable-network-access-from-virtual-network-subnet"></a>Włączanie dostępu do sieci z podsieci sieci wirtualnej
+### <a name="enable-network-access-from-virtual-network-subnet"></a>Włącz dostęp sieciowy z podsieci sieci wirtualnej
 
-Zezwalaj na dostęp sieciowy do konta magazynu z podsieci *prywatnej* z [dodaniem reguły sieciowej konta magazynu AZ](/cli/azure/storage/account/network-rule).
+Zezwalaj na dostęp sieciowy do konta magazynu z podsieci *prywatnej* za pomocą [AZ Storage account Network-Rule Add](/cli/azure/storage/account/network-rule).
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -248,11 +248,11 @@ az storage account network-rule add \
   --subnet Private
 ```
 
-## <a name="apply-policy-to-allow-access-to-valid-storage-account"></a>Stosowanie zasad w celu umożliwienia dostępu do prawidłowego konta magazynu
+## <a name="apply-policy-to-allow-access-to-valid-storage-account"></a>Zastosuj zasady, aby zezwolić na dostęp do prawidłowego konta magazynu
 
-Zasady punktu końcowego usługi Azure są dostępne tylko dla usługi Azure Storage. Dlatego włączymy punkt końcowy usługi dla *microsoft.storage* w tej podsieci dla tej przykładowej konfiguracji.
+Zasady punktu końcowego usługi platformy Azure są dostępne tylko dla usługi Azure Storage. Dlatego będziemy włączać punkt końcowy usługi dla *Microsoft. Storage* w tej podsieci na potrzeby tego przykładowego Instalatora.
 
-Zasady punktu końcowego usługi są stosowane w punktach końcowych usługi. Rozpoczniemy od utworzenia zasad punktu końcowego usługi. Następnie utworzymy definicje zasad w ramach tych zasad dla kont usługi Azure Storage, które mają być umieszczane na białej liście dla tej podsieci
+Zasady punktu końcowego usługi są stosowane za pośrednictwem punktów końcowych usługi. Zaczniemy od utworzenia zasad punktu końcowego usługi. Następnie utworzymy definicje zasad w ramach tych zasad dla kont usługi Azure Storage, które będą listy dozwolonych dla tej podsieci
 
 Tworzenie zasad punktu końcowego usługi
 
@@ -263,13 +263,13 @@ az network service-endpoint policy create \
   --location eastus
 ```
 
-Zapisz identyfikator URI zasobu dla dozwolonego konta magazynu w zmiennej. Przed wykonaniem poniższego polecenia * \<zastąp identyfikator subskrypcji>* rzeczywistą wartością identyfikatora subskrypcji.
+Zapisz identyfikator URI zasobu dla dozwolonego konta magazynu w zmiennej. Przed wykonaniem poniższego polecenia Zastąp * \<Identyfikator subskrypcji>* wartością rzeczywistą identyfikatora subskrypcji.
 
 ```azurecli-interactive
 $serviceResourceId="/subscriptions/<your-subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/allowedstorageacc"
 ```
 
-Tworzenie & dodawanie definicji zasad umożliwiających zezwalanie na powyższe konto usługi Azure Storage do zasad punktu końcowego usługi
+Utwórz & dodać definicję zasad umożliwiającą powyższenie konta usługi Azure Storage do zasad punktu końcowego usług
 
 ```azurecli-interactive
 az network service-endpoint policy-definition create \
@@ -280,7 +280,7 @@ az network service-endpoint policy-definition create \
   --service-resources $serviceResourceId
 ```
 
-Aktualizowanie podsieci sieci wirtualnej w celu skojarzenia z nią zasad punktu końcowego usługi utworzonego w poprzednim kroku
+I zaktualizuj podsieć sieci wirtualnej, która ma zostać skojarzona z nią zasadami punktu końcowego usługi utworzonymi w poprzednim kroku
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -295,9 +295,9 @@ az network vnet subnet update \
 
 ### <a name="create-the-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Aby przetestować dostęp sieciowy do konta magazynu, należy wdrożyć maszynę wirtualną w podsieci.
+Aby przetestować dostęp sieciowy do konta magazynu, Wdróż maszynę wirtualną w podsieci.
 
-Utwórz maszynę wirtualną w podsieci *prywatnej* z [az vm create](/cli/azure/vm). Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.
+Utwórz maszynę wirtualną w podsieci *prywatnej* przy użyciu [AZ VM Create](/cli/azure/vm). Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -309,53 +309,53 @@ az vm create \
   --generate-ssh-keys
 ```
 
-W ciągu kilku minut zostanie utworzona maszyna wirtualna. Po utworzeniu, należy wziąć pod uwagę **publicIpAddress** w danych wyjściowych zwróconych. Ten adres jest używany do uzyskiwania dostępu do maszyny Wirtualnej z Internetu w późniejszym kroku.
+W ciągu kilku minut zostanie utworzona maszyna wirtualna. Po utworzeniu należy zanotować **publicIpAddress** w zwróconym danych wyjściowych. Ten adres jest używany w celu uzyskania dostępu do maszyny wirtualnej z Internetu w późniejszym kroku.
 
 ### <a name="confirm-access-to-storage-account"></a>Potwierdzanie dostępu do konta magazynu
 
-SSH do maszyny wirtualnej *myVmPrivate.* Zastąp * \<publicIpAddress>* publicznym adresem IP maszyny wirtualnej *myVmPrivate.*
+Użyj protokołu SSH do maszyny wirtualnej *myVmPrivate* . Zastąp * \<publicIpAddress>* publicznym adresem IP maszyny wirtualnej *myVmPrivate* .
 
 ```bash 
 ssh <publicIpAddress>
 ```
 
-Tworzenie folderu dla punktu instalacji:
+Utwórz folder dla punktu instalacji:
 
 ```bash
 sudo mkdir /mnt/MyAzureFileShare1
 ```
 
-Zainstaluj udział plików platformy Azure w utworzonym katalogu. Przed wykonaniem polecenia poniżej zastąp * \<>klucz do przechowywania* klucza o wartości *AccountKey* od **$saConnectionString1**.
+Zainstaluj udział plików platformy Azure w utworzonym katalogu. Przed wykonaniem poniższego polecenia Zastąp * \<klucz Storage-Key>* wartością *AccountKey* z **$saConnectionString 1**.
 
 ```bash
 sudo mount --types cifs //allowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare1 --options vers=3.0,username=allowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Zostanie wyświetlony `user@myVmPrivate:~$` monit. Pomyślnie zainstalowany udział plików platformy Azure w */mnt/MyAzureFileShare*.
+Zostanie wyświetlony `user@myVmPrivate:~$` monit. Udział plików platformy Azure został pomyślnie zainstalowany do */mnt/MyAzureFileShare*.
 
 ### <a name="confirm-access-is-denied-to-storage-account"></a>Potwierdzanie odmowy dostępu do konta magazynu
 
-Z tej samej maszyny Wirtualnej *myVmPrivate*, utworzyć katalog dla punktu instalacji:
+Na tej samej maszynie wirtualnej *myVmPrivate*Utwórz katalog dla punktu instalacji:
 
 ```bash
 sudo mkdir /mnt/MyAzureFileShare2
 ```
 
-Spróbuj zainstalować udział plików platformy Azure z konta magazynu *notallowedstorageacc* do utworzonego katalogu. W tym artykule założono, że wdrożono najnowszą wersję Ubuntu. Jeśli używasz wcześniejszych wersji Ubuntu, zobacz [Mount on Linux,](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) aby uzyskać dodatkowe instrukcje dotyczące montażu udziałów plików. 
+Podjęto próbę zainstalowania udziału plików platformy Azure z konta magazynu *notallowedstorageacc* w utworzonym katalogu. W tym artykule przyjęto założenie, że wdrożono najnowszą wersję programu Ubuntu. Jeśli używasz wcześniejszych wersji programu Ubuntu, zobacz [Instalowanie w systemie Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , aby uzyskać dodatkowe instrukcje dotyczące instalowania udziałów plików. 
 
-Przed wykonaniem polecenia poniżej zastąp * \<>klucz do przechowywania* klucza o wartości *AccountKey* z **$saConnectionString2**.
+Przed wykonaniem poniższego polecenia Zastąp * \<>klucz magazynu* i wartość *AccountKey* z **$saConnectionString 2**.
 
 ```bash
 sudo mount --types cifs //notallowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare2 --options vers=3.0,username=notallowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Odmowa dostępu i zostanie `mount error(13): Permission denied` wyświetlony błąd, ponieważ to konto magazynu nie znajduje się na liście dozwolonych zasad punktu końcowego usługi zastosowanej do podsieci. 
+Odmowa dostępu i pojawienie się `mount error(13): Permission denied` błędu, ponieważ to konto magazynu nie znajduje się na liście dozwolonych zasad punktu końcowego usługi, które zostały zastosowane do podsieci. 
 
-Zamknij sesję SSH na maszynie *wirtualnej myVmPublic.*
+Wyjdź z sesji SSH na maszynę wirtualną *myVmPublic* .
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie jest już potrzebne, użyj [az group delete,](/cli/azure) aby usunąć grupę zasobów i wszystkie zasoby, które zawiera.
+Gdy nie jest już potrzebne, użyj [AZ Group Delete](/cli/azure) , aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -363,4 +363,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule zastosowano zasady punktu końcowego usługi za pośrednictwem punktu końcowego usługi sieci wirtualnej platformy Azure do usługi Azure Storage. Utworzono konta usługi Azure Storage i ograniczony dostęp do sieci tylko do niektórych kont magazynu (a tym samym odmówiono innych) z podsieci sieci wirtualnej. Aby dowiedzieć się więcej o zasadach punktu końcowego usług, zobacz [Omówienie zasad dotyczących punktów końcowych usług](virtual-network-service-endpoint-policies-overview.md).
+W tym artykule zastosowano zasady punktu końcowego usługi za pośrednictwem punktu końcowego usługi sieci wirtualnej platformy Azure do usługi Azure Storage. Konta usługi Azure Storage zostały utworzone i ograniczono dostęp do sieci tylko do określonych kont magazynu (i w ten sposób odmówiono innym) z podsieci sieci wirtualnej. Aby dowiedzieć się więcej na temat zasad punktu końcowego usługi, zobacz [Omówienie zasad punktów końcowych usługi](virtual-network-service-endpoint-policies-overview.md).

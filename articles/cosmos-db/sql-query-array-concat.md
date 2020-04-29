@@ -1,6 +1,6 @@
 ---
-title: ARRAY_CONCAT w języku zapytań usługi Azure Cosmos DB
-description: Dowiedz się, jak funkcja systemu SQL Array Concat w usłudze Azure Cosmos DB zwraca tablicę, która jest wynikiem łączenia dwóch lub więcej wartości tablic
+title: ARRAY_CONCAT w języku zapytań Azure Cosmos DB
+description: Dowiedz się więcej na temat sposobu, w jaki tablica concat funkcja SQL system w Azure Cosmos DB zwraca tablicę, która jest wynikiem łączenia dwóch lub więcej wartości tablicy
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8f2b37181e5d743809bb1f60be4056cb4442a8d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78295882"
 ---
-# <a name="array_concat-azure-cosmos-db"></a>ARRAY_CONCAT (Usługa Azure Cosmos DB)
+# <a name="array_concat-azure-cosmos-db"></a>ARRAY_CONCAT (Azure Cosmos DB)
  Zwraca tablicę, która jest wynikiem połączenia co najmniej dwóch wartości tablicy.  
   
 ## <a name="syntax"></a>Składnia
@@ -26,15 +26,15 @@ ARRAY_CONCAT (<arr_expr1>, <arr_expr2> [, <arr_exprN>])
 ## <a name="arguments"></a>Argumenty
   
 *arr_expr*  
-   Jest wyrażeniem tablicy do łączenia z innymi wartościami. Funkcja `ARRAY_CONCAT` wymaga co najmniej dwóch *arr_expr* argumentów.  
+   To wyrażenie tablicowe umożliwiające połączenie z innymi wartościami. `ARRAY_CONCAT` Funkcja wymaga co najmniej dwóch argumentów *arr_expr* .  
   
-## <a name="return-types"></a>Typy zwrotów
+## <a name="return-types"></a>Typy zwracane
   
   Zwraca wyrażenie tablicy.  
   
 ## <a name="examples"></a>Przykłady
   
-  Poniższy przykład, jak łączyć dwie tablice.  
+  Poniższy przykład przedstawia sposób łączenia dwóch tablic.  
   
 ```sql
 SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat 
@@ -48,10 +48,10 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
   
 ## <a name="remarks"></a>Uwagi
 
-Ta funkcja systemu nie będzie korzystać z indeksu.
+Ta funkcja systemowa nie będzie używać indeksu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Funkcje macierzy Usługi Azure Cosmos DB](sql-query-array-functions.md)
-- [Funkcje systemowe Usługi Azure Cosmos DB](sql-query-system-functions.md)
+- [Funkcje tablicowe Azure Cosmos DB](sql-query-array-functions.md)
+- [Azure Cosmos DB funkcje systemowe](sql-query-system-functions.md)
 - [Wprowadzenie do usługi Azure Cosmos DB](introduction.md)

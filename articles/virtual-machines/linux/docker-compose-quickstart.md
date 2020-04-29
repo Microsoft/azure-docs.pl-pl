@@ -1,39 +1,39 @@
 ---
 title: Korzystanie z narzędzia Docker Compose
-description: Jak zainstalować i używać platformy Docker i compose na maszynach wirtualnych systemu Linux za pomocą interfejsu wiersza polecenia platformy Azure.
+description: Jak zainstalować i używać platformy Docker i tworzyć maszyny wirtualne z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cynthn
 ms.openlocfilehash: 434a3ef8c9bc1738252d59a5dca5bec16d85e45e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78970303"
 ---
-# <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Wprowadzenie do platformy Docker i compose w celu zdefiniowania i uruchomienia aplikacji z wieloma kontenerami na platformie Azure
-Za pomocą [compose](https://github.com/docker/compose), można użyć prostego pliku tekstowego do zdefiniowania aplikacji składającej się z wielu kontenerów platformy Docker. Następnie należy rozkręcić aplikację w jednym poleceniu, które wykonuje wszystko, aby wdrożyć zdefiniowane środowisko. Na przykład w tym artykule pokazano, jak szybko skonfigurować blog WordPress z wewnętrznej bazy danych SQL bazy danych MariaDB na maszynie wirtualnej Ubuntu. Można również użyć compose do konfigurowania bardziej złożonych aplikacji.
+# <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Wprowadzenie do platformy Docker i redagowanie w celu zdefiniowania i uruchomienia aplikacji wielokontenera na platformie Azure
+Dzięki [redagowaniu](https://github.com/docker/compose)można użyć prostego pliku tekstowego do zdefiniowania aplikacji składającej się z wielu kontenerów platformy Docker. Następnie można uruchomić aplikację w pojedynczym poleceniu, które wykonuje wszystkie czynności w celu wdrożenia określonego środowiska. Na przykład w tym artykule pokazano, jak szybko skonfigurować blog WordPress z bazą danych SQL zaplecza MariaDB na maszynie wirtualnej Ubuntu. Można również użyć opcji Zredaguj, aby skonfigurować bardziej złożone aplikacje.
 
-Ten artykuł został ostatnio przetestowany w dniu 14.02.2019 przy użyciu [usługi Azure Cloud Shell](https://shell.azure.com/bash) i interfejsu [wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) w wersji 2.0.58.
+Ten artykuł został ostatnio przetestowany w dniu 2/14/2019 przy użyciu [Azure Cloud Shell](https://shell.azure.com/bash) i [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) w wersji 2.0.58.
 
-## <a name="create-docker-host-with-azure-cli"></a>Tworzenie hosta platformy Docker za pomocą interfejsu wiersza polecenia platformy Azure
-Zainstaluj najnowszą [platformę Cli platformy Azure](/cli/azure/install-az-cli2) i zaloguj się do konta platformy Azure przy użyciu [logowania az.](/cli/azure/reference-index)
+## <a name="create-docker-host-with-azure-cli"></a>Tworzenie hosta Docker przy użyciu interfejsu wiersza polecenia platformy Azure
+Zainstaluj najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) i zaloguj się na konto platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index).
 
-Najpierw utwórz grupę zasobów dla środowiska platformy Docker z [utworzeniem grupy AZ](/cli/azure/group). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w lokalizacji *eastus:*
+Najpierw utwórz grupę zasobów dla środowiska Docker za pomocą [AZ Group Create](/cli/azure/group). Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
 
 ```azurecli-interactive
 az group create --name myDockerGroup --location eastus
 ```
 
-Utwórz plik o nazwie *cloud-init.txt* i wklej następującą konfigurację. Wprowadź `sensible-editor cloud-init.txt`, aby utworzyć plik i wyświetlić listę dostępnych edytorów. 
+Utwórz plik o nazwie *Cloud-init. txt* i wklej następującą konfigurację. Wprowadź `sensible-editor cloud-init.txt`, aby utworzyć plik i wyświetlić listę dostępnych edytorów. 
 
 ```yaml
 #include https://get.docker.com
 ```
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). Użyj parametru `--custom-data` do przekazania w pliku konfiguracji cloud-init. Podaj pełną ścieżkę do pliku konfiguracji *cloud-init.txt*, jeśli plik został zapisany poza aktualnym katalogiem roboczym. Poniższy przykład tworzy maszynę wirtualną o nazwie *myDockerVM* i otwiera port 80 do ruchu sieci web.
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). Użyj parametru `--custom-data` do przekazania w pliku konfiguracji cloud-init. Podaj pełną ścieżkę do pliku konfiguracji *cloud-init.txt*, jeśli plik został zapisany poza aktualnym katalogiem roboczym. Poniższy przykład tworzy maszynę wirtualną o nazwie *myDockerVM* i otwiera port 80 do ruchu w sieci Web.
 
 ```azurecli-interactive
 az vm create \
@@ -52,32 +52,32 @@ Utworzenie maszyny wirtualnej, zainstalowanie pakietów i uruchomienie aplikacji
 
                  
 
-## <a name="install-compose"></a>Instalowanie compose
+## <a name="install-compose"></a>Instalowanie redagowania
 
 
-SSH do nowej maszyny Wirtualnej hosta platformy Docker. Podaj swój własny adres IP.
+Użyj protokołu SSH do nowej maszyny wirtualnej hosta platformy Docker. Podaj własny adres IP.
 
 ```bash
 ssh azureuser@10.10.111.11
 ```
 
-Zainstaluj compose na maszynie wirtualnej.
+Zainstaluj tworzenie na maszynie wirtualnej.
 
 ```bash
 sudo apt install docker-compose
 ```
 
 
-## <a name="create-a-docker-composeyml-configuration-file"></a>Tworzenie pliku konfiguracyjnego docker-compose.yml
-Utwórz `docker-compose.yml` plik konfiguracji, aby zdefiniować kontenery platformy Docker do uruchomienia na maszynie wirtualnej. Plik określa obraz do uruchomienia na każdym kontenerze, niezbędne zmienne środowiskowe i zależności, porty i łącza między kontenerami. Aby uzyskać szczegółowe informacje na temat składni pliku yml, zobacz [Redagowanie odwołania do pliku](https://docs.docker.com/compose/compose-file/).
+## <a name="create-a-docker-composeyml-configuration-file"></a>Utwórz plik konfiguracji Docker-Compose. yml
+Utwórz plik `docker-compose.yml` konfiguracji w celu zdefiniowania kontenerów platformy Docker do uruchomienia na maszynie wirtualnej. Plik określa obraz do uruchomienia dla każdego kontenera, niezbędne zmienne środowiskowe i zależności, porty i linki między kontenerami. Aby uzyskać szczegółowe informacje na temat składni pliku YML, zobacz [redagowanie pliku dokumentacja](https://docs.docker.com/compose/compose-file/).
 
-Utwórz plik *docker-compose.yml.* Użyj ulubionego edytora tekstu, aby dodać niektóre dane do pliku. Poniższy przykład tworzy plik z `sensible-editor` monitem o wybranie edytora, którego chcesz użyć.
+Utwórz plik *Docker-Compose. yml* . Użyj swojego ulubionego edytora tekstu, aby dodać dane do pliku. Poniższy przykład tworzy plik z monitem `sensible-editor` o wybranie edytora, którego chcesz użyć.
 
 ```bash
 sensible-editor docker-compose.yml
 ```
 
-Wklej poniższy przykład do pliku docker compose. Ta konfiguracja używa obrazów z [rejestru DockerHub](https://registry.hub.docker.com/_/wordpress/) do zainstalowania WordPress (open source blogów i system zarządzania treścią) i połączone zaplecza bazy danych MARIADB SQL. Wprowadź własną *MYSQL_ROOT_PASSWORD*.
+Wklej poniższy przykład do pliku Docker Compose. Ta konfiguracja używa obrazów z [rejestru DockerHub](https://registry.hub.docker.com/_/wordpress/) , aby zainstalować WordPress (blog typu open source i system zarządzania zawartością) oraz połączonej zaplecza usługi SQL Database MariaDB. Wprowadź własne *MYSQL_ROOT_PASSWORD*.
 
 ```yml
 wordpress:
@@ -93,14 +93,14 @@ db:
     MYSQL_ROOT_PASSWORD: <your password>
 ```
 
-## <a name="start-the-containers-with-compose"></a>Uruchom kontenery za pomocą compose
-W tym samym katalogu co plik *docker-compose.yml* uruchom następujące polecenie (w zależności `docker-compose` od `sudo`środowiska może być konieczne uruchomienie):
+## <a name="start-the-containers-with-compose"></a>Uruchamianie kontenerów za pomocą redagowania
+W tym samym katalogu, w którym znajduje się plik *Docker-Compose. yml* , uruchom następujące polecenie (w zależności od używanego środowiska, może być konieczne `docker-compose` uruchomienie `sudo`polecenia using):
 
 ```bash
 sudo docker-compose up -d
 ```
 
-To polecenie uruchamia kontenery platformy Docker określone w *pliku docker-compose.yml*. Wykonanie tego kroku zajmuje minutę lub dwie. Zobaczysz dane wyjściowe podobne do następujących:
+To polecenie powoduje uruchomienie kontenerów platformy Docker określonych w *Docker-Compose. yml*. Wykonanie tego kroku trwa minutę lub dwa. Zobaczysz dane wyjściowe podobne do następujących:
 
 ```
 Creating wordpress_db_1...
@@ -109,7 +109,7 @@ Creating wordpress_wordpress_1...
 ```
 
 
-Aby sprawdzić, czy kontenery `sudo docker-compose ps`są w górę, wpisz . Powinny zostać wyświetlone informacje podobne do następujących:
+Aby sprawdzić, czy kontenery są aktualne, `sudo docker-compose ps`wpisz polecenie. Powinny zostać wyświetlone informacje podobne do następujących:
 
 ```
         Name                       Command               State         Ports
@@ -118,12 +118,12 @@ azureuser_db_1          docker-entrypoint.sh mysqld      Up      3306/tcp
 azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/tcp
 ```
 
-Teraz możesz połączyć się z WordPress bezpośrednio na maszynie wirtualnej na porcie 80. Otwórz przeglądarkę internetową i wprowadź nazwę adresu IP maszyny wirtualnej. Powinieneś teraz zobaczyć ekran startowy WordPress, gdzie możesz zakończyć instalację i rozpocząć pracę z aplikacją.
+Teraz możesz połączyć się z platformą WordPress bezpośrednio na maszynie wirtualnej na porcie 80. Otwórz przeglądarkę internetową i wprowadź nazwę adresu IP maszyny wirtualnej. Powinien zostać wyświetlony ekran startowy WordPress, w którym można ukończyć instalację i zacząć korzystać z aplikacji.
 
 ![Ekran startowy WordPress](./media/docker-compose-quickstart/wordpressstart.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Zapoznaj się z [odwołaniem do wiersza polecenia Redpose](https://docs.docker.com/compose/reference/) i [podręcznikiem użytkownika,](https://docs.docker.com/compose/) aby uzyskać więcej przykładów tworzenia i wdrażania aplikacji z wieloma kontenerami.
-* Użyj szablonu usługi Azure Resource Manager, własnego lub szablonu wniesionego przez [społeczność,](https://azure.microsoft.com/documentation/templates/)aby wdrożyć maszynę wirtualną platformy Azure za pomocą platformy Docker i aplikacji skonfigurowanej za pomocą aplikacji Compose. Na [przykład, Wdrażanie bloga WordPress z szablonem Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) używa platformy Docker i Compose do szybkiego wdrażania WordPress z zapleczem MySQL na maszynie wirtualnej Ubuntu.
-* Spróbuj zintegrować docker Compose z klastrem Rój platformy Docker. Zobacz [Korzystanie z komponowania z roju](https://docs.docker.com/compose/swarm/) dla scenariuszy.
+* Zapoznaj się z [informacjami dotyczącymi](https://docs.docker.com/compose/) tworzenia i wdrażania aplikacji z wieloma kontenerami w [wierszu polecenia redagowania](https://docs.docker.com/compose/reference/) .
+* Aby wdrożyć maszynę wirtualną platformy Azure z platformą Docker i skonfigurować aplikację przy użyciu narzędzia do [tworzenia, użyj](https://azure.microsoft.com/documentation/templates/)szablonu Azure Resource Manager, własnego lub jednego z nich. Na przykład, [wdrażanie blogu WordPress z szablonem platformy Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) korzysta z platformy Docker i tworzenie, aby szybko wdrożyć platformę WordPress z zapleczem MySQL na maszynie wirtualnej Ubuntu.
+* Spróbuj zintegrować Docker Compose z klastrem Docker Swarm. Zapoznaj [się z tematem using with Swarm](https://docs.docker.com/compose/swarm/) for scenariusze.
 

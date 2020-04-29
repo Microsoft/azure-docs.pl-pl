@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: tworzenie strony internetowej z funkcją wyszukiwania niestandardowego — wyszukiwanie niestandardowe Bing'
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak skonfigurować niestandardowe wystąpienie wyszukiwania Bing i zintegrować go ze stroną sieci Web za pomocą tego samouczka.
+description: Dowiedz się, jak skonfigurować niestandardowe wystąpienie wyszukiwania Bing i zintegrować je ze stroną sieci Web za pomocą tego samouczka.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943908"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Samouczek: tworzenie strony internetowej z funkcją wyszukiwania niestandardowego
@@ -34,8 +34,8 @@ Wykonane zadania:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Aby skorzystać z samouczka, potrzebny jest klucz subskrypcji interfejsu API wyszukiwania niestandardowego Bing.  Aby uzyskać klucz, [utwórz zasób wyszukiwania niestandardowego Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) w witrynie Azure Portal. można również użyć [klucza próbnego](https://azure.microsoft.com/try/cognitive-services).
-- Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017 lub nowszego, możesz pobrać **bezpłatną** [wersję społeczności programu Visual Studio 2019](https://www.visualstudio.com/downloads/)i korzystać z niej.
+- Aby skorzystać z samouczka, potrzebny jest klucz subskrypcji interfejsu API wyszukiwania niestandardowego Bing.  Aby uzyskać klucz, [Utwórz zasób wyszukiwanie niestandardowe Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) w Azure Portal. Możesz również użyć [klucza próbnego](https://azure.microsoft.com/try/cognitive-services).
+- Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017 lub nowszego, możesz pobrać i korzystać **bezpłatnie** z programu [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Tworzenie wystąpienia wyszukiwania niestandardowego
 
@@ -45,9 +45,9 @@ Aby utworzyć wystąpienie wyszukiwania niestandardowego Bing:
   
 2. Przejdź do [portalu](https://customsearch.ai) wyszukiwania niestandardowego.  
   
-3. Zaloguj się do portalu przy użyciu konta Microsoft (MSA). Jeśli nie masz msa, kliknij pozycję **Utwórz konto Microsoft**. Jeśli po raz pierwszy korzystasz z portalu, poprosi o uprawnienia dostępu do Twoich danych. Kliknij **przycisk Tak**.  
+3. Zaloguj się do portalu przy użyciu konta Microsoft (MSA). Jeśli nie masz konta MSA, kliknij przycisk **utwórz konto Microsoft**. Jeśli korzystasz z portalu po raz pierwszy, zostanie wyświetlony zapytanie o uprawnienia dostępu do danych. Kliknij przycisk **tak**.  
   
-4. Po zalogowaniu się kliknij pozycję **New custom search** (Nowe wyszukiwanie niestandardowe). W oknie **Utwórz nowe niestandardowe wystąpienie wyszukiwania** wprowadź nazwę, która ma znaczenie i opisuje typ zawartości zwracanej przez wyszukiwanie. Nazwę można zmienić w dowolnym momencie.  
+4. Po zalogowaniu się kliknij pozycję **New custom search** (Nowe wyszukiwanie niestandardowe). W oknie **Tworzenie nowego wystąpienia wyszukiwania niestandardowego** wprowadź nazwę zrozumiałą i opisującą typ zawartości zwracanej przez wyszukiwanie. Nazwę można zmienić w dowolnym momencie.  
   
    ![Zrzut ekranu pola Create a new custom search instance (Tworzenie nowego wystąpienia wyszukiwania niestandardowego)](../media/newCustomSrch.png)  
   
@@ -79,7 +79,7 @@ Aby wykluczyć wyniki z określonych witryn internetowych lub adresów URL, doda
 
 ## <a name="add-pinned-entries"></a>Dodawanie wpisów przypiętych
 
-Aby przypiąć określoną stronę sieci Web u góry wyników wyszukiwania, dodaj stronę sieci Web i termin zapytania do karty **Przypięte.** Karta **Przypięte** zawiera listę par stron sieci Web i terminów kwerend, które określają stronę sieci Web, która jest wyświetlana jako wynik u góry dla określonej kwerendy. Strona sieci Web jest przypięta tylko wtedy, gdy ciąg zapytania użytkownika pasuje do ciągu zapytania pin na podstawie warunku dopasowania pinezki. W wyszukiwaniach będą wyświetlane tylko indeksowane strony internetowe. Aby uzyskać więcej informacji, zobacz [Define your custom view (Definiowanie widoku niestandardowego)](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
+Aby przypiąć określoną stronę sieci Web na początku wyników wyszukiwania, Dodaj stronę sieci Web i termin zapytania do **przypiętej** karty. **Przypięta** karta zawiera listę par terminów na stronie sieci Web i zapytań, które określają stronę sieci Web wyświetlaną jako górny wynik konkretnego zapytania. Strona sieci Web jest przypięta tylko wtedy, gdy ciąg zapytania użytkownika pasuje do ciągu zapytania kodu PIN na podstawie warunku dopasowania numeru PIN. W wyszukiwaniach będą wyświetlane tylko indeksowane strony internetowe. Aby uzyskać więcej informacji, zobacz [Define your custom view (Definiowanie widoku niestandardowego)](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. Na stronie **Configuration** (Konfiguracja) kliknij kartę **Pinned** (Przypięte) i wprowadź stronę internetową oraz termin zapytania strony internetowej, które mają być zwracane jako najlepszy wynik.  
   

@@ -1,7 +1,7 @@
 ---
-title: Pozyskiwania danych za pomocą usługi Azure Data Factory
+title: Pozyskiwanie danych przy użyciu usługi Azure Data Factory
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak utworzyć potok pozyskiwania danych za pomocą usługi Azure Data Factory.
+description: Dowiedz się, jak utworzyć potok pozyskiwania danych za pomocą Azure Data Factory.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,92 +12,92 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.openlocfilehash: 5b4ed40048aab815397c9726098880b2125b732c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78274790"
 ---
-# <a name="data-ingestion-with-azure-data-factory"></a>Pozyskiwania danych za pomocą usługi Azure Data Factory
+# <a name="data-ingestion-with-azure-data-factory"></a>Pozyskiwanie danych przy użyciu usługi Azure Data Factory
 
-W tym artykule dowiesz się, jak utworzyć potok pozyskiwania danych za pomocą usługi Azure Data Factory (ADF). Ten potok służy do pozyskiwania danych do użytku z usługą Azure Machine Learning. Usługa Azure Data Factory umożliwia łatwe wyodrębnianie, przekształcanie i ładowanie danych (ETL). Po przekształceniu i załadowaniu danych do magazynu można go użyć do uczenia modeli uczenia maszynowego.
+W tym artykule dowiesz się, jak utworzyć potok pozyskiwania danych z użyciem Azure Data Factory (ADF). Ten potok służy do pozyskiwania danych do użycia z Azure Machine Learning. Azure Data Factory umożliwia łatwe wyodrębnianie, przekształcanie i ładowanie danych (ETL). Gdy dane zostaną przekształcone i załadowane do magazynu, mogą służyć do uczenia modeli uczenia maszynowego.
 
-Proste przetwarzanie danych może być obsługiwane za pomocą natywnych działań ADF i instrumentów, takich jak [przepływ danych.](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity) Jeśli chodzi o bardziej skomplikowanych scenariuszy, dane mogą być przetwarzane za pomocą kodu niestandardowego. Na przykład kod Języka Python lub R.
+Prostą transformację danych można obsługiwać przy użyciu natywnych działań i instrumentów ADF, takich jak [przepływ danych](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity). Gdy jest to bardziej skomplikowane scenariusze, dane mogą być przetwarzane z niestandardowym kodem. Na przykład kod Python lub R.
 
-Istnieje kilka typowych technik korzystania z usługi Azure Data Factory do przekształcania danych podczas pozyskiwania. Każda technika ma plusy i minusy, które określają, czy jest to dobre dopasowanie do konkretnego przypadku użycia:
+Istnieje kilka typowych technik używania Azure Data Factory do przekształcania danych podczas pozyskiwania. Każda Technika ma wady i wady, które określają, czy jest to dobre dopasowanie do określonego przypadku użycia:
 
 | Technika | Zalety | Wady |
 | ----- | ----- | ----- |
-| ADF + funkcje platformy Azure | Małe opóźnienia, obliczenia bezserwerowe</br>Funkcje stanowe</br>Funkcje wielokrotnego pożyciem | Tylko dobre do krótkotrwałego przetwarzania |
-| ADF + komponent niestandardowy | Przetwarzanie równoległe na dużą skalę</br>Nadaje się do ciężkich algorytmów | Zawijanie kodu do pliku wykonywalnego</br>Złożoność obsługi zależności i we/wy |
-| ADF + notes usługi Azure Databricks | Apache Spark</br>Natywne środowisko Języka Python | Może być kosztowne</br>Tworzenie klastrów początkowo wymaga czasu i dodaje opóźnienia
+| ADF i Azure Functions | Małe opóźnienia, obliczanie bezserwerowe</br>Funkcje stanowe</br>Funkcje wielokrotnego użytku | Dobre tylko dla krótkich przebiegów przetwarzania |
+| ADF i składnik niestandardowy | Obliczenia równoległe na dużą skalę</br>Odpowiednie dla ciężkich algorytmów | Zawijanie kodu do pliku wykonywalnego</br>Złożoność obsługi zależności i operacji we/wy |
+| Podajnik APD i Azure Databricks Notes | Apache Spark</br>Natywne środowisko języka Python | Może być kosztowne</br>Trwa wstępne tworzenie klastrów i Dodawanie opóźnień
 
-## <a name="adf-with-azure-functions"></a>ADF z funkcjami platformy Azure
+## <a name="adf-with-azure-functions"></a>ADF za pomocą usługi Azure Functions
 
-![funkcja adf](media/how-to-data-ingest-adf/adf-function.png)
+![ADF — funkcja](media/how-to-data-ingest-adf/adf-function.png)
 
-Usługa Azure Functions umożliwia uruchamianie małych fragmentów kodu (funkcji) bez martwienia się o infrastrukturę aplikacji. W tej opcji dane są przetwarzane za pomocą niestandardowego kodu języka Python zawiniętego w funkcję platformy Azure. 
+Azure Functions umożliwia uruchamianie małych fragmentów kodu (funkcji) bez obaw o infrastrukturę aplikacji. W tej opcji dane są przetwarzane z niestandardowym kodem w języku Python opakowanym w funkcję platformy Azure. 
 
-Funkcja jest wywoływana z [aktywność funkcji platformy Azure ADF](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity). Takie podejście jest dobrym rozwiązaniem dla lekkich przekształceń danych. 
+Funkcja jest wywoływana za pomocą [działania funkcji Azure ADF](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity). To podejście jest dobrym rozwiązaniem w przypadku uproszczonych transformacji danych. 
 
-* Plusy:
-    * Dane są przetwarzane na komputerze bezserwerowym o stosunkowo małym opóźnieniu
-    * Potok usługi ADF może wywołać [trwałą funkcję platformy Azure,](/azure/azure-functions/durable/durable-functions-overview) która może implementować zaawansowany przepływ transformacji danych 
-    * Szczegóły transformacji danych są pobierane przez funkcję platformy Azure, która może być ponownie życiówka i wywoływana z innych miejsc
-* Minusy:
-    * Funkcje platformy Azure muszą zostać utworzone przed użyciem z podajnikem ADF
-    * Usługa Azure Functions jest dobra tylko do krótkotrwałego przetwarzania danych
+* Formaty
+    * Dane są przetwarzane w przypadku obliczeń bezserwerowych z stosunkowo małym opóźnieniem
+    * Potok ADF może wywołać [trwałą funkcję platformy Azure](/azure/azure-functions/durable/durable-functions-overview) , która może implementować zaawansowany przepływ transformacji danych 
+    * Szczegóły transformacji danych są wyodrębniane z funkcji platformy Azure, która może być ponownie używana i wywoływana z innych miejsc
+* Wada
+    * Azure Functions należy utworzyć przed użyciem z funkcją ADF
+    * Azure Functions jest dobre tylko w przypadku krótko działającego przetwarzania danych
 
-## <a name="adf-with-custom-component-activity"></a>Podajnik ADF z niestandardową aktywnością składnika
+## <a name="adf-with-custom-component-activity"></a>ADF z niestandardowym działaniem składników
 
-![adf-customcomponent](media/how-to-data-ingest-adf/adf-customcomponent.png)
+![ADF — customcomponent](media/how-to-data-ingest-adf/adf-customcomponent.png)
 
-W tej opcji dane są przetwarzane za pomocą niestandardowego kodu Języka Python zawiniętego w plik wykonywalny. Jest wywoływany z [działaniem składnika niestandardowego podajnika ADF](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity). Takie podejście jest lepiej dopasowane do dużych danych niż poprzednia technika.
+W tej opcji dane są przetwarzane z niestandardowym kodem w języku Python opakowanym w plik wykonywalny. Jest wywoływana z [niestandardowym działaniem składnika ADF](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity). To podejście jest lepszym rozwiązaniem w przypadku dużych ilości danych niż w przypadku poprzedniej techniki.
 
-* Plusy:
-    * Dane są przetwarzane w puli [usługi Azure Batch,](https://docs.microsoft.com/azure/batch/batch-technical-overview) która zapewnia obliczenia równoległe na dużą skalę i wysoką wydajność
-    * Może być używany do uruchamiania ciężkich algorytmów i przetwarzania znacznych ilości danych
-* Minusy:
-    * Pula usługi Azure Batch musi zostać utworzona przed użyciem z podajnikem ADF
-    * Ponad inżynierii związane z zawijania kodu Pythona do pliku wykonywalnego. Złożoność obsługi zależności i parametrów wejścia/wyjścia
+* Formaty
+    * Dane są przetwarzane w puli [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview) , która zapewnia dużą skalę obliczenia równoległe i o wysokiej wydajności
+    * Może służyć do uruchamiania ciężkich algorytmów i przetwarzania znaczących ilości danych
+* Wada
+    * Należy utworzyć pulę Azure Batch przed użyciem z funkcją ADF
+    * Za pośrednictwem inżynierii związanej z pakowaniem kodu w języku Python do pliku wykonywalnego. Złożoność obsługi zależności i parametrów wejściowych/wyjściowych
 
-## <a name="adf-with-azure-databricks-python-notebook"></a>Usługa ADF z notesem usługi Azure Databricks Python
+## <a name="adf-with-azure-databricks-python-notebook"></a>ADF z notesem Azure Databricks Python
 
-![adf-databricks](media/how-to-data-ingest-adf/adf-databricks.png)
+![ADF — datakosteks](media/how-to-data-ingest-adf/adf-databricks.png)
 
-[Usługa Azure Databricks](https://azure.microsoft.com/services/databricks/) to platforma analityczna oparta na platformie Apache Spark w chmurze firmy Microsoft.
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) to oparta na Apache Spark platforma analityczna w chmurze firmy Microsoft.
 
-W tej technice transformacja danych jest wykonywana przez [notes języka Python](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook), uruchomiony w klastrze usługi Azure Databricks. Jest to prawdopodobnie najbardziej typowe podejście, które wykorzystuje pełną moc usługi Azure Databricks. Jest przeznaczony do rozproszonego przetwarzania danych na dużą skalę.
+W tej metodzie transformacja danych jest wykonywana przez Notes języka [Python](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook), uruchomiony w klastrze Azure Databricks. Jest to prawdopodobnie najczęstsze podejście, które wykorzystuje pełną moc usługi Azure Databricks. Jest ona przeznaczona do rozproszonego przetwarzania danych na dużą skalę.
 
-* Plusy:
-    * Dane są przekształcane w najmocniejszą usługę platformy Azure przetwarzania danych, która jest wspierana przez środowisko Apache Spark
-    * Natywna obsługa Języka Python wraz z platformami i bibliotekami do nauki o danych, w tym TensorFlow, PyTorch i scikit-learn
-    * Nie ma potrzeby zawijania kodu Języka Python do funkcji lub modułów wykonywalnych. Kod działa tak, jak jest.
-* Minusy:
-    * Infrastruktura usługi Azure Databricks musi zostać utworzona przed użyciem z usługą ADF
-    * Może być kosztowne w zależności od konfiguracji usługi Azure Databricks
-    * Rozkręcenie klastrów obliczeniowych z trybu "zimnego" zajmuje trochę czasu, co powoduje duże opóźnienie w rozwiązaniu 
+* Formaty
+    * Dane są przekształcane w najbardziej zaawansowanej usłudze Azure Data Processing, która jest tworzona w oparciu o środowisko Apache Spark
+    * Natywna obsługa języka Python wraz z strukturami i bibliotekami analizy danych, w tym TensorFlow, PyTorch i scikit — uczenie się
+    * Nie ma potrzeby zawijania kodu w języku Python do funkcji lub modułów wykonywalnych. Kod działa zgodnie z oczekiwaniami.
+* Wada
+    * Należy utworzyć infrastrukturę Azure Databricks przed użyciem z funkcją ADF
+    * Może być kosztowne w zależności od konfiguracji Azure Databricks
+    * Odłączenie klastrów obliczeniowych od trybu "zimnego" zajmuje trochę czasu, co zapewnia duże opóźnienie dla rozwiązania 
     
 
-## <a name="consuming-data-in-azure-machine-learning-pipelines"></a>Korzystanie z danych w potokach usługi Azure Machine Learning
+## <a name="consuming-data-in-azure-machine-learning-pipelines"></a>Używanie danych w potokach Azure Machine Learning
 
-![zestaw danych aml](media/how-to-data-ingest-adf/aml-dataset.png)
+![AML — zestaw danych](media/how-to-data-ingest-adf/aml-dataset.png)
 
-Przekształcone dane z potoku usługi ADF są zapisywane w magazynie danych (takich jak obiekt blob platformy Azure). Usługa Azure Machine Learning może uzyskiwać dostęp do tych danych za pomocą [magazynów danych](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores) i [zestawów danych.](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets)
+Przekształcone dane z potoku ADF są zapisywane w magazynie danych (na przykład w przypadku obiektów blob platformy Azure). Azure Machine Learning mogą uzyskiwać dostęp do tych danych przy użyciu [magazynów](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores) i [zestawów danych](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
-Za każdym razem, gdy potok ADF jest uruchamiany, dane są zapisywane w innej lokalizacji w magazynie. Aby przekazać lokalizację do usługi Azure Machine Learning, potok usługi ADF wywołuje potok usługi Azure Machine Learning. Podczas wywoływania potoku ml lokalizacja danych i identyfikator uruchamiania są wysyłane jako parametry. Potok ml można następnie utworzyć magazyn danych/zestaw danych przy użyciu lokalizacji danych. 
+Za każdym razem, gdy zostanie uruchomiony potok ADF, dane są zapisywane w innej lokalizacji w magazynie. Aby przekazać lokalizację do Azure Machine Learning, potok ADF wywołuje potok Azure Machine Learning. Podczas wywoływania potoku ML Lokalizacja danych i identyfikator uruchomienia są wysyłane jako parametry. Potok ML może następnie utworzyć magazyn danych/zestaw danych przy użyciu tej lokalizacji. 
 
 > [!TIP]
-> Zestawy danych [obsługują przechowywanie wersji,](https://docs.microsoft.com/azure/machine-learning/how-to-version-track-datasets)dzięki czemu potok ml może zarejestrować nową wersję zestawu danych, która wskazuje najnowsze dane z potoku ADF.
+> Zestawy danych [obsługują przechowywanie wersji](https://docs.microsoft.com/azure/machine-learning/how-to-version-track-datasets), więc potok ml może zarejestrować nową wersję zestawu danych, która wskazuje najnowsze dane z potoku ADF.
 
-Gdy dane są dostępne za pośrednictwem magazynu danych lub zestawu danych, można go użyć do uczenia modelu uczenia ml. Proces szkolenia może być częścią tego samego potoku ml, który jest wywoływany z podajnika ADF. Lub może to być oddzielny proces, takich jak eksperymenty w notatniku Jupyter.
+Gdy dane są dostępne za pomocą magazynu danych lub zestawu danych, można użyć go do uczenia modelu ML. Proces uczenia może być częścią tego samego potoku ML, który jest wywoływany z ADF. Lub może to być oddzielny proces, taki jak eksperymentowanie w notesie Jupyter.
 
-Ponieważ zestawy danych obsługują przechowywanie wersji, a każde uruchomienie z potoku tworzy nową wersję, łatwo zrozumieć, która wersja danych została użyta do szkolenia modelu.
+Ponieważ zestawy danych obsługują przechowywanie wersji, a każdy przebieg z potoku tworzy nową wersję, można łatwo zrozumieć, która wersja dane została użyta do uczenia modelu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Uruchamianie notesu databricks w usłudze Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook)
-* [Uzyskiwanie dostępu do danych w usługach magazynu platformy Azure](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores)
-* [Trenuj modele z zestawami danych w usłudze Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets)
+* [Uruchamianie notesu datakostks w Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook)
+* [Dostęp do danych w usługach Azure Storage](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores)
+* [Uczenie modeli z zestawami danych w Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets)
 * [DevOps dla potoku pozyskiwania danych](https://docs.microsoft.com/azure/machine-learning/how-to-cicd-data-ingestion)
 

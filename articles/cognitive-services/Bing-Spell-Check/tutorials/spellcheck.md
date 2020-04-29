@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: uzyskiwanie wyników sprawdzania pisowni za pomocą interfejsu API sprawdzania pisowni Bing'
 titleSuffix: Azure Cognitive Services
-description: Ten samouczek służy do tworzenia strony sieci web, która wysyła zapytania do interfejsu API sprawdzania pisowni Bing i wyświetla wyniki.
+description: Ten samouczek służy do tworzenia strony sieci Web, która wysyła zapytania do interfejsu API sprawdzanie pisowni Bing i wyświetla wyniki.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: fa10ab5a4b1c69b359936edf91da767da08d2f98
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943093"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Samouczek: tworzenie klienta sprawdzania pisowni w postaci strony internetowej
@@ -29,7 +29,7 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skorzystać z samouczka, potrzebny jest klucz subskrypcji interfejsu API sprawdzania pisowni Bing. Jeśli go nie masz, [utwórz zasób sprawdzania pisowni bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7) w witrynie Azure portal. Można również użyć [klucza próbnego](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+Aby skorzystać z samouczka, potrzebny jest klucz subskrypcji interfejsu API sprawdzania pisowni Bing. Jeśli go nie masz, [Utwórz zasób sprawdzanie pisowni Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7) w Azure Portal. Możesz również użyć [klucza próbnego](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 
 ## <a name="create-a-new-web-page"></a>Tworzenie nowej strony internetowej
 
@@ -322,4 +322,4 @@ Otwórz utworzoną stronę internetową w przeglądarce. Gdy zostanie wyświetlo
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Wymagania dotyczące użytkowania i wyświetlania](../UseAndDisplayRequirements.md)
+> [Wymagania dotyczące użycia i wyświetlania](../UseAndDisplayRequirements.md)

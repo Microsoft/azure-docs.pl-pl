@@ -9,61 +9,61 @@ ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 427117fe47294a1db1fa8d3fa1e46ee1efb91b4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79128721"
 ---
 ## <a name="limitations"></a>Ograniczenia
 
-- Zestawy skalowania maszyny wirtualnej nie są obecnie obsługiwane na dedykowanych hostach.
-- Rozmiary i typy sprzętu dostępne dla dedykowanych hostów różnią się w zależności od regionu. Więcej informacji można znaleźć na [stronie z cennikiem hosta.](https://aka.ms/ADHPricing)
+- Zestawy skalowania maszyn wirtualnych nie są obecnie obsługiwane na dedykowanych hostach.
+- Rozmiary i typy sprzętu dostępne dla dedykowanych hostów różnią się w zależności od regionu. Więcej informacji można znaleźć na [stronie cennika](https://aka.ms/ADHPricing) hosta.
 
 ## <a name="create-a-host-group"></a>Tworzenie grupy hostów
 
-**Grupa hostów** to nowy zasób reprezentujący kolekcję dedykowanych hostów. Tworzysz grupę hostów w regionie i strefie dostępności i dodajesz do niej hosty. Podczas planowania wysokiej dostępności, istnieją dodatkowe opcje. Z dedykowanymi hostami można użyć jednej lub obu następujących opcji: 
-- Obejmuje wiele stref dostępności. W takim przypadku musisz mieć grupę hostów w każdej ze stref, których chcesz użyć.
-- Obejmują wiele domen błędów, które są mapowane do stojaków fizycznych. 
+**Grupa hostów** jest nowym zasobem, który reprezentuje kolekcję dedykowanych hostów. Można utworzyć grupę hostów w regionie i strefie dostępności, a następnie dodać do niej hosty. W przypadku planowania wysokiej dostępności dostępne są dodatkowe opcje. W przypadku dedykowanych hostów można użyć jednej lub obu następujących opcji: 
+- Obejmuje wiele stref dostępności. W takim przypadku konieczne jest posiadanie grupy hostów w każdej ze stref, które mają być używane.
+- Obejmuje wiele domen błędów, które są mapowane na stojaki fizyczne. 
  
-W obu przypadkach należy podać liczbę domen błędów dla grupy hosta. Jeśli nie chcesz obejmować domen błędów w grupie, użyj liczby domen błędów 1. 
+W obu przypadkach należy podać liczbę domen błędów dla grupy hostów. Jeśli nie chcesz obejmować domen błędów w grupie, użyj liczby domen błędów wynoszącej 1. 
 
-Można również zdecydować się na użycie zarówno stref dostępności, jak i domen błędów. 
+Możesz również zdecydować się na korzystanie ze stref dostępności i domen błędów. 
 
-W tym przykładzie utworzymy grupę hostów przy użyciu 1 strefy dostępności i 2 domen błędów. 
+W tym przykładzie utworzymy grupę hostów przy użyciu jednej strefy dostępności i dwóch domen błędów. 
 
 
-1. Otwórz [portal](https://portal.azure.com)Azure .
-1. Wybierz **pozycję Utwórz zasób** w lewym górnym rogu.
-1. Wyszukaj **grupę Host,** a następnie wybierz z wyników pozycję **Grupy hostów.**
-1. Na stronie **Grupy hostów** wybierz pozycję **Utwórz**.
-1. Wybierz subskrypcję, której chcesz użyć, a następnie wybierz pozycję **Utwórz nowy,** aby utworzyć nową grupę zasobów.
-1. Wpisz *myDedicatedHostsRG* jako **nazwę,** a następnie wybierz **przycisk OK**.
-1. W przypadku **nazwy grupy hostów**wpisz *myHostGroup*.
+1. Otwórz [Portal](https://portal.azure.com)Azure.
+1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu.
+1. Wyszukaj **grupę hostów** , a następnie wybierz z wyników pozycję **grupy hostów** .
+1. Na stronie **grupy hostów** wybierz pozycję **Utwórz**.
+1. Wybierz subskrypcję, której chcesz użyć, a następnie wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów.
+1. Wpisz *myDedicatedHostsRG* jako **nazwę** , a następnie wybierz przycisk **OK**.
+1. W obszarze **Nazwa grupy hostów**wpisz element *webhost*.
 1. W obszarze **Lokalizacja**wybierz pozycję **Wschodnie stany USA**.
-1. Aby uzyskać **opcję Strefa dostępności,** wybierz **1**.
-1. W przypadku **liczby domen błędów**wybierz **2**.
-1. Wybierz **pozycję Przejrzyj + utwórz,** a następnie poczekaj na weryfikację.
-1. Po wyświetleniu komunikatu **O przekazaniu weryfikacji** wybierz pozycję **Utwórz,** aby utworzyć grupę hostów.
+1. W **obszarze strefa dostępności**wybierz pozycję **1**.
+1. W obszarze **liczba domen błędów**wybierz pozycję **2**.
+1. Wybierz pozycję **Przegląd + Utwórz** , a następnie zaczekaj na weryfikację.
+1. Po wyświetleniu komunikatu **zweryfikowana weryfikacja** wybierz pozycję **Utwórz** , aby utworzyć grupę hostów.
 
-Utworzenie grupy hosta powinno zająć tylko kilka chwil.
+Utworzenie grupy hostów może trwać zaledwie kilka minut.
 
 ## <a name="create-a-dedicated-host"></a>Tworzenie dedykowanego hosta
 
-Teraz utwórz dedykowanego hosta w grupie hosta. Oprócz nazwy hosta, należy podać jednostkę SKU dla hosta. Jednostka SKU hosta przechwytuje obsługiwaną serię maszyn wirtualnych, a także generowanie sprzętu dla dedykowanego hosta.
+Teraz Utwórz dedykowanego hosta w grupie hostów. Oprócz nazwy hosta, należy podać jednostkę SKU dla hosta. Jednostka SKU hosta przechwytuje obsługiwaną serię maszyn wirtualnych oraz generowanie sprzętu dla dedykowanego hosta.
 
-Aby uzyskać więcej informacji na temat jednostek SKU hosta i cen, zobacz [Cennik hosta dedykowanego platformy Azure](https://aka.ms/ADHPricing).
+Aby uzyskać więcej informacji o jednostkach SKU i cenach hosta, zobacz [Cennik dedykowanego hosta platformy Azure](https://aka.ms/ADHPricing).
 
-Jeśli ustawisz liczbę domen błędów dla grupy hostów, zostaniesz poproszony o określenie domeny błędów dla hosta.  
+Jeśli ustawisz liczbę domen błędów dla grupy hostów, zostanie wyświetlony monit o określenie domeny błędów dla hosta.  
 
-1. Wybierz **pozycję Utwórz zasób** w lewym górnym rogu.
-1. Wyszukaj **dedykowanego hosta,** a następnie wybierz **dedykowane hosty** z wyników.
-1. Na stronie **Dedykowane hosty** wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu.
+1. Wyszukaj **dedykowanego hosta** , a następnie wybierz pozycję **dedykowane hosty** na podstawie wyników.
+1. Na stronie **hosty dedykowane** wybierz pozycję **Utwórz**.
 1. Wybierz subskrypcję, której chcesz użyć.
-1. Wybierz *myDedicatedHostsRG* jako **grupę zasobów**.
-1. W **szczegółach instancji**wpisz *myHost* dla **nazwy** i wybierz *wschodnie stany USA* dla lokalizacji.
-1. W **obszarze Profil sprzętu**wybierz pozycję *Standardowa rodzina Es3 — typ 1* dla rodziny **Rozmiar**, wybierz *myHostGroup* dla **grupy Host,** a następnie wybierz *1* dla **domeny usterki**. Pozostaw wartości domyślne dla pozostałych pól.
-1. Po zakończeniu wybierz **pozycję Przejrzyj + utwórz** i poczekaj na sprawdzenie poprawności.
-1. Po wyświetleniu komunikatu **O przekazaniu weryfikacji** wybierz pozycję **Utwórz,** aby utworzyć hosta.
+1. Wybierz pozycję *myDedicatedHostsRG* jako **grupę zasobów**.
+1. W obszarze **szczegóły wystąpienia**wpisz wartość *webhost* dla **nazwy** i wybierz pozycję *Wschodnie stany USA* dla lokalizacji.
+1. W **obszarze Profil sprzętu**wybierz pozycję *rodzina Es3* , a następnie w polu **rodzina rozmiarów**wybierz pozycję Moja **Grupa** , a następnie wybierz pozycję *1* dla **domeny błędów**. *myHostGroup* Pozostaw wartości domyślne pozostałych pól.
+1. Gdy wszystko będzie gotowe, wybierz pozycję **Przegląd + Utwórz** i poczekaj na weryfikację.
+1. Po wyświetleniu komunikatu **zweryfikowana weryfikacja** wybierz pozycję **Utwórz** , aby utworzyć hosta.
 
 

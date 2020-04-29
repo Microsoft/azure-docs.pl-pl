@@ -1,8 +1,8 @@
 ---
-title: Ustawianie limitu czasu braku aktywności na poziomie katalogu dla użytkowników witryny Azure Portal | Dokumenty firmy Microsoft
-description: Administratorzy mogą wymusić maksymalny czas bezczynność przed wylogowywane. Zasady limitu czasu braku aktywności jest ustawiona na poziomie katalogu.
+title: Ustaw limit czasu braku aktywności na poziomie katalogu dla użytkowników Azure Portal | Microsoft Docs
+description: Administratorzy mogą wymusić maksymalny czas bezczynności przed wylogowaniem sesji. Zasady limitu czasu bezczynności są ustawiane na poziomie katalogu.
 services: azure-portal
-keywords: ustawienia, limit czasu
+keywords: Ustawienia, limit czasu
 author: mgblythe
 ms.author: mblythe
 ms.date: 02/10/2020
@@ -10,40 +10,40 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: e27135d09da7060f2a948e37f6026fe66fbef5b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79096611"
 ---
-# <a name="set-directory-level-inactivity-timeout"></a>Ustawianie limitu czasu braku aktywności na poziomie katalogu
+# <a name="set-directory-level-inactivity-timeout"></a>Ustaw limit czasu nieaktywności poziomu katalogu
 
-Ustawienie limitu czasu braku aktywności pomaga chronić zasoby przed nieautoryzowanym dostępem, jeśli użytkownicy zapomną zabezpieczyć swoją stację roboczą. Gdy użytkownik był bezczynny przez pewien czas, ich sesji witryny azure portal jest automatycznie wylogowywane. Administratorzy w [roli Administrator globalny](../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) mogą wymusić maksymalny czas bezczynny przed wylogowywane. Ustawienie limitu czasu braku aktywności ma zastosowanie na poziomie katalogu. Aby uzyskać więcej informacji o katalogach, zobacz [Omówienie Usług domenowych Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+Ustawienie limitu czasu bezczynności pomaga chronić swoje zasoby przed nieautoryzowanym dostępem, jeśli użytkownicy zapomnią zabezpieczyć swoją stację roboczą. Gdy użytkownik jest bezczynny przez pewien czas, sesja Azure Portal zostanie wylogowana automatycznie. Administratorzy w [roli administratora globalnego](../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) mogą wymusić maksymalny czas bezczynności przed wylogowaniem sesji. Ustawienie limitu czasu nieaktywności dotyczy poziomu katalogu. Aby uzyskać więcej informacji o katalogach, zobacz [Active Directory Domain Services Omówienie](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
-## <a name="configure-the-inactive-timeout-setting"></a>Konfigurowanie nieaktywnego limitu czasu
+## <a name="configure-the-inactive-timeout-setting"></a>Skonfiguruj ustawienie nieaktywnego limitu czasu
 
-Jeśli jesteś administratorem globalnym i chcesz wymusić ustawienie limitu czasu bezczynności dla wszystkich użytkowników witryny Azure portal, wykonaj następujące kroki:
+Jeśli jesteś administratorem globalnym i chcesz wymusić ustawienie limitu czasu bezczynności dla wszystkich użytkowników Azure Portal, wykonaj następujące czynności:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-2. Wybierz **pozycję Ustawienia** z globalnego nagłówka strony.
-3. Zaznacz tekst łącza **Skonfiguruj limit czasu poziomu katalogu**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Wybierz pozycję **Ustawienia** z globalnego nagłówka strony.
+3. Wybierz pozycję tekst linku **Skonfiguruj limit czasu na poziomie katalogu**.
 
-    ![Zrzut ekranu przedstawiający ustawienia portalu z wyróżnionym tekstem łącza](./media/admin-timeout/settings.png)
+    ![Zrzut ekranu przedstawiający ustawienia portalu z wyróżnionym tekstem linku](./media/admin-timeout/settings.png)
 
-4. Zostanie otwarta nowa strona. Na stronie **Konfigurowanie limitu czasu braku aktywności na poziomie katalogu** wybierz pozycję Włącz limit czasu **bezczynności poziomu katalogu dla portalu Azure,** aby włączyć to ustawienie.
-5. Następnie wprowadź **godziny** i **minuty,** aby uzyskać maksymalny czas, przez jaki użytkownik może być bezczynny przed automatycznym wylogowywane.
+4. Zostanie otwarta nowa strona. Na stronie **Konfiguruj limit czasu braku aktywności na poziomie katalogu** wybierz opcję **Włącz limit czasu bezczynności dla Azure Portal** , aby włączyć ustawienie.
+5. Następnie wprowadź **godziny** i **minuty** maksymalnego czasu, przez jaki użytkownik może być bezczynny, zanim sesja zostanie wylogowana automatycznie.
 6. Wybierz przycisk **Zastosuj**.
 
-    ![Zrzut ekranu przedstawiający stronę w celu ustawienia limitu czasu braku aktywności na poziomie katalogu](./media/admin-timeout/configure.png)
+    ![Zrzut ekranu przedstawiający stronę służącą do ustawiania limitu czasu nieaktywności poziomu katalogu](./media/admin-timeout/configure.png)
 
-Aby potwierdzić, że zasady limitu czasu braku aktywności są ustawione poprawnie, wybierz **pozycję Powiadomienia** z nagłówka strony globalnej. Sprawdź, czy na liście znajduje się powiadomienie o powodzeniu.
+Aby upewnić się, że zasady limitu czasu bezczynności są ustawione prawidłowo, wybierz pozycję **powiadomienia** z globalnego nagłówka strony. Sprawdź, czy na liście znajduje się powiadomienie o powodzeniu.
 
-  ![Zrzut ekranu przedstawiający pomyślny komunikat z powiadomieniem o przesunie limitu czasu braku aktywności na poziomie katalogu](./media/admin-timeout/confirmation.png)
+  ![Zrzut ekranu przedstawiający pomyślne powiadomienie o pomyślnym przekroczeniu limitu czasu nieaktywności na poziomie katalogu](./media/admin-timeout/confirmation.png)
 
-Ustawienie staje się skuteczne dla nowych sesji. Nie będzie ona miała zastosowania od razu do wszystkich użytkowników, którzy są już zalogowane.
+Ustawienie zacznie obowiązywać w przypadku nowych sesji. Nie będzie od razu stosowana dla wszystkich użytkowników, którzy są już zalogowani.
 
 > [!NOTE]
-> Jeśli administrator globalny skonfigurował ustawienie limitu czasu na poziomie katalogu, użytkownicy mogą zastąpić zasady i ustawić własny nieaktywny czas wylogowania. Jednak użytkownik musi wybrać przedział czasu, który jest mniejszy niż to, co jest ustawione na poziomie katalogu przez administratora globalnego.
+> Jeśli administrator globalny skonfigurował ustawienie limitu czasu poziomu katalogu, użytkownicy mogą przesłonić zasady i ustawić własne nieaktywne okresy wylogowania. Użytkownik musi jednak wybrać przedział czasu, który jest mniejszy niż ustawiony na poziomie katalogu przez administratora globalnego.
 >
 
 ## <a name="next-steps"></a>Następne kroki

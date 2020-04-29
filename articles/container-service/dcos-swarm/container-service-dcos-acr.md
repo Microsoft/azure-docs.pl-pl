@@ -10,10 +10,10 @@ ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
 ms.openlocfilehash: 9e69b66c7cee5a6e012ad7ed2477556fa840bfb5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78402071"
 ---
 # <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(PRZESTARZAŁE) Wdrażanie aplikacji przy użyciu usługi ACR z klastrem DC/OS
@@ -127,7 +127,7 @@ Utwórz kontener na podstawie obrazu Ubuntu.
 docker run ubuntu --name base-image
 ```
 
-Teraz przechwyć kontener do nowego obrazu. Nazwa obrazu musi zawierać `loginServer` nazwę rejestru kontenerów w `loginServer/imageName`formacie .
+Teraz przechwyć kontener do nowego obrazu. Nazwa obrazu musi zawierać `loginServer` nazwę rejestru kontenerów z formatem. `loginServer/imageName`
 
 ```console
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo

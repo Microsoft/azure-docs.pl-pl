@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: panel SDK mowy dla platformy .NET Framework (Windows) — usługa mowy'
+title: 'Szybki Start: zestaw Speech SDK dla .NET Framework (Windows) Konfiguracja platformy — usługa mowy'
 titleSuffix: Azure Cognitive Services
-description: Ten przewodnik służy do konfigurowania platformy dla języka C# w obszarze .NET Framework for Windows za pomocą zestawu SDK usługi mowy.
+description: Skorzystaj z tego przewodnika, aby skonfigurować platformę dla języka C# w obszarze .NET Framework dla systemu Windows z zestawem SDK usługi Speech Service.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
 ms.openlocfilehash: a09b969ee3e11aeb04f338cf035b21b5da9bd952
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78925398"
 ---
-W tym przewodniku pokazano, jak zainstalować pakiet [SDK mowy](~/articles/cognitive-services/speech-service/speech-sdk.md) dla platformy .NET Framework (Windows). Jeśli chcesz tylko nazwa pakietu, aby rozpocząć `Install-Package Microsoft.CognitiveServices.Speech` na własną rękę, uruchom w konsoli NuGet.
+W tym przewodniku przedstawiono sposób instalowania [zestawu Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) dla .NET Framework (Windows). Jeśli chcesz, aby nazwa pakietu została już uruchomiona, uruchom `Install-Package Microsoft.CognitiveServices.Speech` polecenie w konsoli programu NuGet.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -27,65 +27,65 @@ Ten przewodnik Szybki start wymaga następujących elementów:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
-## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Tworzenie projektu programu Visual Studio i instalowanie pakietu SDK mowy
+## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Tworzenie projektu programu Visual Studio i Instalowanie zestawu Speech SDK
 
-Należy zainstalować [pakiet NuGet zestawu SDK mowy,](https://aka.ms/csspeech/nuget) dzięki czemu można odwoływać się do niego w kodzie. Aby to zrobić, może być najpierw konieczne utworzenie projektu **helloworld.** Jeśli masz już projekt z dostępnym obciążeniem **deweloperskim pulpitu .NET,** możesz użyć tego projektu i przejść do [programu Korzystanie z Menedżera pakietów NuGet w celu zainstalowania zestawu SDK mowy.](#use-nuget-package-manager-to-install-the-speech-sdk)
+Musisz zainstalować [pakiet NuGet zestawu Speech SDK](https://aka.ms/csspeech/nuget) , aby można było odwołać się do niego w kodzie. Aby to zrobić, konieczne może być utworzenie projektu **HelloWorld** . Jeśli masz już projekt z udostępnionym obciążeniem **programu .NET Desktop** , możesz użyć tego projektu i przejść do korzystania z [Menedżera pakietów NuGet w celu zainstalowania zestawu Speech SDK](#use-nuget-package-manager-to-install-the-speech-sdk).
 
-### <a name="create-helloworld-project"></a>Tworzenie projektu helloworld
+### <a name="create-helloworld-project"></a>Utwórz projekt HelloWorld
 
 1. Otwórz program Visual Studio 2019.
 
-1. W oknie Start wybierz pozycję **Utwórz nowy projekt**. 
+1. W oknie uruchamiania wybierz pozycję **Utwórz nowy projekt**. 
 
-1. W oknie **Utwórz nowy projekt** wybierz pozycję **Aplikacja konsoli (.NET Framework),** a następnie wybierz pozycję **Dalej**.
+1. W oknie **Tworzenie nowego projektu** wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
 
-1. W oknie **Konfigurowanie nowego projektu** wprowadź *helloworld* w **programie Project name**, wybierz lub utwórz ścieżkę katalogu w aplikacji **Lokalizacja**, a następnie wybierz pozycję **Utwórz**.
+1. W oknie **Konfigurowanie nowego projektu** wprowadź wartość *HelloWorld* w polu **Nazwa projektu**, wybierz lub Utwórz ścieżkę katalogu w **lokalizacji**, a następnie wybierz pozycję **Utwórz**.
 
-1. Na pasku menu programu Visual Studio wybierz pozycję **Narzędzia** > **Pobierz narzędzia i funkcje**, który otwiera Instalator programu Visual Studio i wyświetla okno dialogowe **Modyfikowanie.**
+1. Na pasku menu programu Visual Studio wybierz kolejno pozycje **Narzędzia** > **Pobierz narzędzia i funkcje**, które otwiera Instalator programu Visual Studio i wyświetla okno dialogowe **Modyfikowanie** .
 
-1. Sprawdź, czy dostępne jest obciążenie **programistyczne dla komputerów stacjonarnych .NET.** Jeśli obciążenie nie zostało zainstalowane, zaznacz pole wyboru obok niego, a następnie wybierz pozycję **Modyfikuj,** aby rozpocząć instalację. Pobranie i zainstalowanie tego składnika może potrwać kilka minut.
+1. Sprawdź, czy jest dostępne obciążenie **Programowanie aplikacji klasycznych dla platformy .NET** . Jeśli obciążenie nie zostało zainstalowane, zaznacz pole wyboru obok niego, a następnie wybierz pozycję **Modyfikuj** , aby rozpocząć instalację. Pobranie i zainstalowanie tego składnika może potrwać kilka minut.
 
-   Jeśli pole wyboru obok pozycji **Programowanie pulpitu .NET** jest już zaznaczone, wybierz pozycję **Zamknij,** aby zakończyć okno dialogowe.
+   Jeśli pole wyboru obok pozycji **Programowanie aplikacji klasycznych platformy .NET** jest już zaznaczone, wybierz pozycję **Zamknij** , aby zamknąć okno dialogowe.
 
    ![Włącz pakiet roboczy Programowanie aplikacji klasycznych dla platformy .NET](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
 1. Zamknij Instalator programu Visual Studio.
 
-### <a name="use-nuget-package-manager-to-install-the-speech-sdk"></a>Instalowanie zestawu SDK mowy za pomocą Menedżera pakietów NuGet
+### <a name="use-nuget-package-manager-to-install-the-speech-sdk"></a>Instalowanie zestawu Speech SDK przy użyciu Menedżera pakietów NuGet
 
-1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **helloworld,** a następnie wybierz pozycję **Zarządzaj pakietami NuGet,** aby wyświetlić Menedżera pakietów NuGet.
+1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **HelloWorld** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet** , aby wyświetlić Menedżera pakietów NuGet.
 
    ![Menedżer pakietów NuGet](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
-1. W prawym górnym rogu znajdź pole rozwijane **Źródło pakietu** i **`nuget.org`** upewnij się, że jest zaznaczone.
+1. W prawym górnym rogu Znajdź pole listy rozwijanej **Źródło pakietu** i upewnij się, że **`nuget.org`** jest zaznaczone.
 
 1. W lewym górnym rogu wybierz pozycję **Przeglądaj**.
 
-1. W polu wyszukiwania wpisz *microsoft.CognitiveServices.Speech* i wybierz pozycję **Wprowadź**.
+1. W polu wyszukiwania wpisz *Microsoft. CognitiveServices. Speech* i wybierz **Enter**.
 
-1. W wynikach wyszukiwania wybierz pakiet **Microsoft.CognitiveServices.Speech,** a następnie wybierz pozycję **Zainstaluj,** aby zainstalować najnowszą stabilną wersję.
+1. Z wyników wyszukiwania wybierz pakiet **Microsoft. CognitiveServices. Speech** , a następnie wybierz pozycję **Zainstaluj** , aby zainstalować najnowszą stabilną wersję.
 
-   ![Zainstaluj pakiet Microsoft.CognitiveServices.Speech NuGet](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
+   ![Zainstaluj pakiet NuGet Microsoft. CognitiveServices. Speech](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
 
 1. Zaakceptuj wszystkie umowy i licencje, aby rozpocząć instalację.
 
-   Po zainstalowaniu pakietu w oknie **Konsoli Menedżera pakietów** pojawi się potwierdzenie.
+   Po zainstalowaniu pakietu w oknie **konsola Menedżera pakietów** zostanie wyświetlone potwierdzenie.
 
 ### <a name="choose-target-architecture"></a>Wybieranie architektury docelowej
 
-Aby utworzyć i uruchomić aplikację konsoli, należy utworzyć konfigurację platformy odpowiadającą architekturze komputera.
+Aby skompilować i uruchomić aplikację konsolową, Utwórz konfigurację platformy zgodną z architekturą komputera.
 
-1. Na pasku menu wybierz pozycję **Build** > **Configuration Manager**. Zostanie wyświetlone okno dialogowe **Menedżer konfiguracji.**
+1. Na pasku menu wybierz kolejno opcje **Kompiluj** > **Configuration Manager**. Zostanie wyświetlone okno dialogowe **Configuration Manager** .
 
-   ![Okno dialogowe Menedżer konfiguracji](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+   ![Okno dialogowe Configuration Manager](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 
-1. Z listy rozwijanej **Platformy aktywnego rozwiązania** wybierz pozycję **Nowy**. Zostanie wyświetlone okno dialogowe **Nowa platforma rozwiązania.**
+1. W polu listy rozwijanej **platforma aktywnego rozwiązania** wybierz pozycję **Nowy**. Zostanie wyświetlone okno dialogowe **Nowa platforma rozwiązania** .
 
-1. W polu rozwijany **Typ lub wybierz nową platformę:**
-   - Jeśli korzystasz z 64-bitowego systemu Windows, wybierz **x64**.
-   - Jeśli korzystasz z 32-bitowego systemu Windows, wybierz **x86**.
+1. W polu **Typ lub wybierz nową platformę z** listy rozwijanej:
+   - Jeśli korzystasz z 64-bitowego systemu Windows, wybierz pozycję **x64**.
+   - Jeśli korzystasz z 32-bitowego systemu Windows, wybierz pozycję **x86**.
 
-1. Wybierz **przycisk OK,** a następnie **zamknij**.
+1. Wybierz przycisk **OK** , a następnie **Zamknij**.
 
 ## <a name="next-steps"></a>Następne kroki
 

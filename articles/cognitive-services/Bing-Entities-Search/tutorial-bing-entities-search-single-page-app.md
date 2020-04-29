@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: jednostronicowa aplikacja internetowa korzystająca z wyszukiwania jednostek Bing'
 titleSuffix: Azure Cognitive Services
-description: W tym samouczku pokazano, jak używać interfejsu API wyszukiwania jednostek Bing w aplikacji sieci Web jednostronicowej.
+description: W tym samouczku pokazano, jak używać interfejs API wyszukiwania jednostek Bing w jednostronicowej aplikacji sieci Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943132"
 ---
 # <a name="tutorial-single-page-web-app"></a>Samouczek: jednostronicowa aplikacja internetowa
@@ -58,7 +58,7 @@ W tym samouczku omówimy tylko wybrane części kodu źródłowego. Pełny kod �
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać wraz z samouczka, potrzebujesz kluczy subskrypcji dla interfejsu API wyszukiwania Bing i interfejsu API map Bing. Jeśli ich nie masz, możesz użyć [klucza próbnego](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) i [podstawowego klucza Mapy Bing.](https://www.microsoft.com/maps/create-a-bing-maps-key)
+Aby wykonać kroki opisane w samouczku, musisz dysponować kluczami subskrypcji dla interfejsu API Wyszukiwanie Bing i interfejsu API Maps usługi Bing. Jeśli ich nie masz, możesz użyć [klucza próbnego](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) i [podstawowego klucza mapy usługi Bing](https://www.microsoft.com/maps/create-a-bing-maps-key).
 
 ## <a name="app-components"></a>Składniki aplikacji
 
@@ -90,7 +90,7 @@ Kod HTML zawiera także podziały (tagi `<div>`) tam, gdzie są wyświetlane wyn
 
 Aby uniknąć konieczności umieszczania kluczy subskrypcji interfejsu API wyszukiwania Bing oraz interfejsu API usługi Mapy Bing w kodzie, używamy magazynu trwałego przeglądarki do przechowywania klucza. Jeśli żaden klucz nie został zapisany, wyświetlamy monit o jego wprowadzenie i zapisujemy go do późniejszego użycia. W przypadku późniejszego odrzucenia klucza przez interfejs API unieważniamy przechowywany klucz, aby użytkownikowi został ponownie wyświetlony monit podczas następnego wyszukiwania.
 
-Definiujemy funkcje `storeValue` i `retrieveValue`, które używają obiektu `localStorage` (jeśli przeglądarka go obsługuje) lub pliku cookie. Nasza funkcja `getSubscriptionKey()` używa tych funkcji do przechowywania i pobierania klucza użytkownika. Można użyć globalnego punktu końcowego poniżej lub niestandardowego punktu końcowego [poddomeny](../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w witrynie Azure portal dla zasobu.
+Definiujemy funkcje `storeValue` i `retrieveValue`, które używają obiektu `localStorage` (jeśli przeglądarka go obsługuje) lub pliku cookie. Nasza funkcja `getSubscriptionKey()` używa tych funkcji do przechowywania i pobierania klucza użytkownika. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
 
 ```javascript
 // cookie names for data we store
@@ -167,7 +167,7 @@ Pole `mapquery` nie jest obsługiwane przez funkcję `bingSearchOptions()`, poni
 
 ## <a name="obtaining-a-location"></a>Uzyskiwanie lokalizacji
 
-Interfejs API map Bing oferuje [ `locationQuery` metodę,](//msdn.microsoft.com/library/ff701711.aspx)której używamy do znajdowania szerokości i długości geograficznej lokalizacji wprowadzonej przez użytkownika. Te współrzędne są następnie przekazywane do interfejsu API wyszukiwania jednostek Bing z żądaniem użytkownika. W wynikach wyszukiwania priorytet mają jednostki i miejsca znajdujące się blisko określonej lokalizacji.
+Interfejs API usługi mapy Bing oferuje [ `locationQuery` metodę](//msdn.microsoft.com/library/ff701711.aspx), która służy do znajdowania szerokości i długości geograficznej lokalizacji, którą wprowadzi użytkownik. Te współrzędne są następnie przekazywane do interfejsu API wyszukiwania jednostek Bing z żądaniem użytkownika. W wynikach wyszukiwania priorytet mają jednostki i miejsca znajdujące się blisko określonej lokalizacji.
 
 Nie można uzyskać dostępu do interfejsu API usługi Mapy Bing przy użyciu zwykłego zapytania `XMLHttpRequest` w aplikacji internetowej, ponieważ ta usługa nie obsługuje zapytań między źródłami. Na szczęście usługa obsługuje dane JSONP („P” oznacza uzupełnione; ang. „padded”). Odpowiedź JSONP jest standardową odpowiedzią JSON opakowaną w wywołanie funkcji. Żądanie jest wykonywane przez wstawienie w dokumencie przy użyciu tagu `<script>`. (Ładowanie skryptów nie podlega zasadom zabezpieczeń przeglądarki).
 
@@ -550,7 +550,7 @@ Podczas korzystania z aplikacji samouczka pozostaw okno polecenia otwarte, ponie
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Odwołanie do interfejsu API wyszukiwania jednostek usługi Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Informacje interfejs API wyszukiwania jednostek Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
 
 > [!div class="nextstepaction"]
 > [Dokumentacja interfejsu API usługi Mapy Bing](//msdn.microsoft.com/library/dd877180.aspx)

@@ -1,6 +1,6 @@
 ---
-title: Konserwacja predykcyjna dla przemysłu lotniczego za pomocą platformy Azure — proces nauki o danych zespołu
-description: Diagram architektury konserwacji predykcyjnej szablonu rozwiązania dla przemysłu lotniczego, użyteczności publicznej, transportu.
+title: Konserwacja predykcyjna dla platformy Aerospace przy użyciu procesu nauki danych zespołu na platformie Azure
+description: Diagram architektury przeprowadzenia konserwacji predykcyjnej dotyczący szablonu rozwiązania dla platformy Aerospace, narzędzi, transportu.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.openlocfilehash: 8fae4255a577e7744fa045ef3da4ee5b784ed6b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79088026"
 ---
-# <a name="architecture-of-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Architektura szablonu rozwiązania do konserwacji predykcyjnej w przemyśle lotniczym
-Poniższy diagram zawiera przegląd architektury [szablonu rozwiązania do konserwacji predykcyjnej.](https://gallery.cortanaanalytics.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1)
+# <a name="architecture-of-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Architektura szablonu rozwiązania do konserwacji predykcyjnej w programie Aerospace
+Poniższy diagram zawiera omówienie architektury [szablonu rozwiązania do konserwacji predykcyjnej](https://gallery.cortanaanalytics.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1).
 
-Możesz pobrać pełnowymiarową wersję diagramu tutaj: [Diagram architektury: Szablon rozwiązania do konserwacji predykcyjnej](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
+W tym miejscu możesz pobrać pełną wersję diagramu: [diagram architektury: szablon rozwiązania do konserwacji predykcyjnej](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 ![Diagram architektury szablonu rozwiązania do konserwacji predykcyjnej][image]
 

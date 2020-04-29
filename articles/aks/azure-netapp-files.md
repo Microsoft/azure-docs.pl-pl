@@ -1,55 +1,55 @@
 ---
-title: Integruj pliki NetApp platformy Azure z usługą Azure Kubernetes
-description: Dowiedz się, jak zintegrować pliki NetApp platformy Azure z usługą Azure Kubernetes
+title: Integracja Azure NetApp Files z usługą Azure Kubernetes Service
+description: Dowiedz się, jak zintegrować Azure NetApp Files z usługą Azure Kubernetes Service
 services: container-service
 author: zr-msft
 ms.topic: article
 ms.date: 09/26/2019
 ms.author: zarhoads
 ms.openlocfilehash: 1c4996df66d475c63110e3d2797f55598fd85b8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273751"
 ---
-# <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integruj pliki NetApp platformy Azure z usługą Azure Kubernetes
+# <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integracja Azure NetApp Files z usługą Azure Kubernetes Service
 
-[Usługa Azure NetApp Files][anf] to usługa magazynu plików klasy korporacyjnej o wysokiej wydajności, działająca na platformie Azure. W tym artykule pokazano, jak zintegrować pliki NetApp platformy Azure z usługą Azure Kubernetes Service (AKS).
+[Azure NetApp Files][anf] to oparta na platformie Azure usługa magazynu plików o wysokiej wydajności, działająca na mocy klasy korporacyjnej. W tym artykule pokazano, jak zintegrować Azure NetApp Files z usługą Azure Kubernetes Service (AKS).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zobacz szybki start usługi AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub za pomocą portalu [Azure.][aks-quickstart-portal]
+W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
 > [!IMPORTANT]
-> Klaster AKS musi również znajdować się [w regionie obsługującym pliki NetApp platformy Azure.][anf-regions]
+> Klaster AKS musi również znajdować się [w regionie, który obsługuje Azure NetApp Files][anf-regions].
 
-Potrzebne są również zainstalowane i skonfigurowane i skonfigurowane narzędzia Azure CLI w wersji 2.0.59 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
+Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
 ### <a name="limitations"></a>Ograniczenia
 
-Podczas korzystania z plików NetApp usługi Azure obowiązują następujące ograniczenia:
+W przypadku korzystania z Azure NetApp Files są stosowane następujące ograniczenia:
 
-* Usługa Azure NetApp Files jest dostępna tylko [w wybranych regionach platformy Azure.][anf-regions]
-* Aby można było korzystać z usługi Azure NetApp Files, należy uzyskać dostęp do usługi Azure NetApp Files. Aby ubiegać się o dostęp, można użyć [formularza przesyłania listy oczekujących plików Usługi Azure NetApp][anf-waitlist]. Nie można uzyskać dostępu do usługi Azure NetApp Files, dopóki nie otrzymasz oficjalnego e-maila z potwierdzeniem od zespołu plików NetApp platformy Azure.
-* Usługa Azure NetApp Files musi być utworzona w tej samej sieci wirtualnej co klaster AKS.
-* Po początkowym wdrożeniu klastra AKS obsługiwane jest tylko statyczne inicjowanie obsługi administracyjnej dla plików NetApp usługi Azure.
-* Aby korzystać z dynamicznego inicjowania obsługi administracyjnej za pomocą plików NetApp, należy zainstalować i skonfigurować [program NetApp Trident](https://netapp-trident.readthedocs.io/) w wersji 19.07 lub nowszej.
+* Azure NetApp Files jest dostępna tylko [w wybranych regionach świadczenia usługi Azure][anf-regions].
+* Przed użyciem Azure NetApp Files należy uzyskać dostęp do usługi Azure NetApp Files. Aby uzyskać dostęp do programu, można użyć [formularza Azure NetApp Files waitlist][anf-waitlist]. Nie możesz uzyskać dostępu do usługi Azure NetApp Files, dopóki nie otrzymasz oficjalnej wiadomości e-mail z zespołu Azure NetApp Files.
+* Usługa Azure NetApp Files musi zostać utworzona w tej samej sieci wirtualnej co klaster AKS.
+* Po początkowym wdrożeniu klastra AKS obsługiwane jest tylko statyczne Inicjowanie obsługi Azure NetApp Files.
+* Aby użyć dynamicznej obsługi administracyjnej z Azure NetApp Files, zainstaluj i skonfiguruj program [NetApp Trident](https://netapp-trident.readthedocs.io/) w wersji 19,07 lub nowszej.
 
-## <a name="configure-azure-netapp-files"></a>Konfigurowanie plików netapp platformy Azure
+## <a name="configure-azure-netapp-files"></a>Konfigurowanie Azure NetApp Files
 
 > [!IMPORTANT]
-> Aby można było zarejestrować dostawcę zasobów *Microsoft.NetApp,* należy wypełnić [formularz przesyłania listy oczekujących plików usługi Azure NetApp][anf-waitlist] dla subskrypcji. Nie można zarejestrować udostępnić zasób, dopóki nie otrzymasz oficjalnego e-maila z potwierdzeniem od zespołu plików NetApp Platformy Azure.
+> Przed zarejestrowaniem dostawcy zasobów *Microsoft. NetApp* należy wykonać [formularz Azure NetApp Files waitlist][anf-waitlist] w ramach subskrypcji. Nie można zarejestrować zasobu do momentu otrzymania oficjalnej wiadomości e-mail z potwierdzeniem z zespołu Azure NetApp Files.
 
-Zarejestruj dostawcę zasobów *Microsoft.NetApp:*
+Zarejestruj dostawcę zasobów *Microsoft. NetApp* :
 
 ```azurecli
 az provider register --namespace Microsoft.NetApp --wait
 ```
 
 > [!NOTE]
-> Może to zająć trochę czasu.
+> Ukończenie tej operacji może zająć trochę czasu.
 
-Podczas tworzenia konta NetApp platformy Azure do użytku z usługą AKS należy utworzyć konto w grupie zasobów **węzła.** Najpierw pobierz nazwę grupy zasobów za pomocą polecenia [az aks show][az-aks-show] i dodaj parametr kwerendy. `--query nodeResourceGroup` W poniższym przykładzie pobiera się grupę zasobów węzła dla klastra AKS o nazwie *myAKSCluster* o nazwie grupy zasobów *myResourceGroup:*
+Podczas tworzenia konta usługi Azure NetApp do użytku z usługą AKS należy utworzyć konto w grupie zasobów **węzła** . Najpierw Pobierz nazwę grupy zasobów za pomocą polecenia [AZ AKS show][az-aks-show] i Dodaj parametr `--query nodeResourceGroup` zapytania. Poniższy przykład pobiera grupę zasobów węzła dla klastra AKS o nazwie *myAKSCluster* w grupie *zasobów nazwa zasobu*:
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -59,7 +59,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeRes
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Utwórz konto usługi Azure NetApp Files w grupie zasobów **węzła** i w tym samym regionie co klaster AKS przy użyciu [konta az netappfiles .][az-netappfiles-account-create] Poniższy przykład tworzy konto o nazwie *myaccount1* w grupie zasobów *MC_myResourceGroup_myAKSCluster_eastus* i *regionie eastus:*
+Utwórz konto Azure NetApp Files w grupie zasobów **węzła** i w tym samym regionie co klaster AKS przy użyciu polecenia [AZ netappfiles Account Create][az-netappfiles-account-create]. Poniższy przykład tworzy konto o nazwie *myaccount1* w grupie zasobów *MC_myResourceGroup_myAKSCluster_eastus* i regionie *wschodniego* :
 
 ```azurecli
 az netappfiles account create \
@@ -68,7 +68,7 @@ az netappfiles account create \
     --account-name myaccount1
 ```
 
-Utwórz nową pulę pojemności przy użyciu [az netappfiles puli utworzyć][az-netappfiles-pool-create]. Poniższy przykład tworzy nową pulę pojemności o nazwie *mypool1* o rozmiarze 4 TB i poziomie usługi *Premium:*
+Utwórz nową pulę pojemności za pomocą polecenia [AZ netappfiles Pool Create][az-netappfiles-pool-create]. Poniższy przykład tworzy nową pulę pojemności o nazwie *mypool1* z 4 TB w rozmiarze i poziomie usługi *Premium* :
 
 ```azurecli
 az netappfiles pool create \
@@ -80,7 +80,7 @@ az netappfiles pool create \
     --service-level Premium
 ```
 
-Utwórz podsieć, [aby delegować do usługi Azure NetApp Files][anf-delegate-subnet] przy użyciu [sieci az sieci sieci tworzenia podsieci .][az-network-vnet-subnet-create] *Ta podsieć musi znajdować się w tej samej sieci wirtualnej co klaster AKS.*
+Utwórz podsieć, do której [chcesz delegować Azure NetApp Files][anf-delegate-subnet] przy użyciu polecenia [AZ Network VNET Subnet Create][az-network-vnet-subnet-create]. *Ta podsieć musi znajdować się w tej samej sieci wirtualnej co klaster AKS.*
 
 ```azurecli
 RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
@@ -95,7 +95,7 @@ az network vnet subnet create \
     --address-prefixes 10.0.0.0/28
 ```
 
-Utwórz wolumin przy użyciu [woluminu az netappfiles .][az-netappfiles-volume-create]
+Utwórz wolumin za pomocą polecenia [AZ netappfiles Volume Create][az-netappfiles-volume-create].
 
 ```azurecli
 RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
@@ -124,9 +124,9 @@ az netappfiles volume create \
     --protocol-types "NFSv3"
 ```
 
-## <a name="create-the-persistentvolume"></a>Tworzenie trwałegowolu
+## <a name="create-the-persistentvolume"></a>Tworzenie PersistentVolume
 
-Wyświetl szczegóły woluminu za pomocą [programu az netappfiles volume show][az-netappfiles-volume-show]
+Wyświetl szczegóły woluminu za pomocą polecenia [AZ netappfiles Volume show][az-netappfiles-volume-show]
 
 ```azurecli
 az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_ACCOUNT_NAME --pool-name $POOL_NAME --volume-name "myvol1"
@@ -148,7 +148,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-Utwórz `pv-nfs.yaml` definiujący persistentVolume. Zamień `path` *na creationToken* i `server` *ipAddress* z poprzedniego polecenia. Przykład:
+Utwórz element `pv-nfs.yaml` definiujący PersistentVolume. Zamień `path` na *CreationToken* i `server` z *adresem IP* z poprzedniego polecenia. Przykład:
 
 ```yaml
 ---
@@ -166,21 +166,21 @@ spec:
     path: /myfilepath2
 ```
 
-Zaktualizuj *serwer* i *ścieżkę* do wartości woluminu NFS (Network File System) utworzonego w poprzednim kroku. Utwórz persistentVolume za pomocą polecenia [zastosuj kubectl:][kubectl-apply]
+Zaktualizuj *serwer* i *ścieżkę* do wartości woluminu NFS (sieciowego systemu plików) utworzonego w poprzednim kroku. Utwórz PersistentVolume za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] :
 
 ```console
 kubectl apply -f pv-nfs.yaml
 ```
 
-Sprawdź *stan* persistentVolume jest *dostępna* za pomocą [polecenia kubectl describe:][kubectl-describe]
+Sprawdź, czy *stan* PersistentVolume jest *dostępny* za pomocą polecenia [polecenia kubectl opisywania][kubectl-describe] :
 
 ```console
 kubectl describe pv pv-nfs
 ```
 
-## <a name="create-the-persistentvolumeclaim"></a>Tworzenie persistentVolumeClaim
+## <a name="create-the-persistentvolumeclaim"></a>Tworzenie PersistentVolumeClaim
 
-Utwórz `pvc-nfs.yaml` definiujący persistentVolume. Przykład:
+Utwórz element `pvc-nfs.yaml` definiujący PersistentVolume. Przykład:
 
 ```yaml
 apiVersion: v1
@@ -196,21 +196,21 @@ spec:
       storage: 1Gi
 ```
 
-Utwórz persistentVolumeClaim za pomocą [polecenia zastosuj kubectl:][kubectl-apply]
+Utwórz PersistentVolumeClaim za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] :
 
 ```console
 kubectl apply -f pvc-nfs.yaml
 ```
 
-Sprawdź *stan* PersistentVolumeClaim jest *związany* za pomocą [polecenia kubectl describe:][kubectl-describe]
+Sprawdź, czy *stan* PersistentVolumeClaim jest *powiązany* przy użyciu polecenia [polecenia kubectl opisywania][kubectl-describe] :
 
 ```console
 kubectl describe pvc pvc-nfs
 ```
 
-## <a name="mount-with-a-pod"></a>Montaż z kapsułą
+## <a name="mount-with-a-pod"></a>Zainstaluj przy użyciu pod
 
-Utwórz `nginx-nfs.yaml` definiujący zasobnik, który używa PersistentVolumeClaim. Przykład:
+Utwórz element `nginx-nfs.yaml` a, który używa PersistentVolumeClaim. Przykład:
 
 ```yaml
 kind: Pod
@@ -234,19 +234,19 @@ spec:
       claimName: pvc-nfs
 ```
 
-Utwórz zasobnik za pomocą polecenia [zastosuj kubectl:][kubectl-apply]
+Utwórz pod za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] :
 
 ```console
 kubectl apply -f nginx-nfs.yaml
 ```
 
-Sprawdź, czy zasobnik jest *uruchomiony* za pomocą [polecenia kubectl describe:][kubectl-describe]
+Sprawdź, czy pod poleceniem jest *uruchomiony* program, używając polecenia [polecenia kubectl opisywania][kubectl-describe] :
 
 ```console
 kubectl describe pod nginx-nfs
 ```
 
-Sprawdź, czy wolumin został zamontowany w zasobniku za pomocą `df -h` [kubectl exec,][kubectl-exec] aby połączyć się z zasobnikiem, a następnie sprawdzić, czy wolumin jest zamontowany.
+Sprawdź, czy wolumin został zainstalowany w obszarze pod przy użyciu programu [polecenia kubectl exec][kubectl-exec] , aby nawiązać połączenie `df -h` z usługą pod warunkiem, aby sprawdzić, czy wolumin jest zainstalowany.
 
 ```console
 $ kubectl exec -it nginx-nfs -- bash
@@ -262,7 +262,7 @@ Filesystem             Size  Used Avail Use% Mounted on
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat plików NetApp platformy Azure, zobacz [Co to są pliki NetApp platformy Azure][anf]. Aby uzyskać więcej informacji na temat korzystania z systemu plików NFS z usługą AKS, zobacz [Ręczne tworzenie i używanie woluminu serwera linux (NFS) z usługą Azure Kubernetes Service (AKS)][aks-nfs].
+Aby uzyskać więcej informacji na temat Azure NetApp Files, zobacz [co to jest Azure NetApp Files][anf]. Aby uzyskać więcej informacji na temat korzystania z systemu plików NFS z AKS, zobacz [Ręczne tworzenie i używanie woluminu systemu plików NFS (sieciowego systemu plików) z systemem Linux za pomocą usługi Azure Kubernetes Service (AKS)][aks-nfs].
 
 
 [aks-quickstart-cli]: kubernetes-walkthrough.md

@@ -1,101 +1,101 @@
 ---
-title: Wdrażanie ibm db2 pureScale na platformie Azure
-description: Dowiedz się, jak wdrożyć przykładową architekturę używaną ostatnio do migracji przedsiębiorstwa ze środowiska IBM DB2 działającego na z/OS do ibm DB2 pureScale na platformie Azure.
+title: Wdrażanie programu IBM DB2 pureScale na platformie Azure
+description: Dowiedz się, jak wdrożyć przykładową architekturę ostatnio używanej do migrowania przedsiębiorstwa z środowiska IBM DB2 działającego w systemie z/OS do programu IBM DB2 pureScale na platformie Azure.
 author: njray
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: 98e912894a4d93a057a2f6a2153d0690deaed250
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78968896"
 ---
-# <a name="deploy-ibm-db2-purescale-on-azure"></a>Wdrażanie ibm db2 pureScale na platformie Azure
+# <a name="deploy-ibm-db2-purescale-on-azure"></a>Wdrażanie programu IBM DB2 pureScale na platformie Azure
 
-W tym artykule opisano sposób wdrażania [przykładowej architektury,](ibm-db2-purescale-azure.md) która została ostatnio użyta przez klienta korporacyjnego do migracji ze środowiska IBM DB2 działającego w systemie z/OS do ibm DB2 pureScale na platformie Azure.
+W tym artykule opisano, jak wdrożyć [przykładową architekturę](ibm-db2-purescale-azure.md) używaną ostatnio przez klienta w celu migrowania ze środowiska IBM DB2 działającego w systemie z/OS do programu IBM DB2 PureScale na platformie Azure.
 
-Aby wykonać kroki używane do migracji, zobacz skrypty instalacji w repozytorium [DB2onAzure](https://aka.ms/db2onazure) w usłudze GitHub. Skrypty te są oparte na architekturze dla typowego, średniej wielkości obciążenia przetwarzania transakcji online (OLTP).
+Aby wykonać kroki używane do migracji, zobacz Skrypty instalacji w repozytorium [DB2onAzure](https://aka.ms/db2onazure) w witrynie GitHub. Skrypty te są oparte na architekturze typowego, średniego obciążenia przetwarzania transakcji online (OLTP).
 
 ## <a name="get-started"></a>Wprowadzenie
 
-Aby wdrożyć tę architekturę, pobierz i uruchom skrypt deploy.sh znaleziony w repozytorium [DB2onAzure](https://aka.ms/db2onazure) w usłudze GitHub.
+Aby wdrożyć tę architekturę, Pobierz i uruchom skrypt deploy.sh znaleziony w repozytorium [DB2onAzure](https://aka.ms/db2onazure) w witrynie GitHub.
 
-Repozytorium posiada również skrypty do konfigurowania pulpitu nawigacyjnego Grafana. Za pomocą pulpitu nawigacyjnego można wysyłać zapytania do Prometeusza, systemu monitorowania i ostrzegania typu open source dołączonego do DB2.
+Repozytorium ma także skrypty do konfigurowania pulpitu nawigacyjnego usługi Grafana. Możesz użyć pulpitu nawigacyjnego do wysyłania zapytań do Prometheus, systemu monitorowania i alertów Open Source zawartych w programie DB2.
 
 > [!NOTE]
-> Skrypt deploy.sh na kliencie tworzy prywatne klucze SSH i przekazuje je do szablonu wdrożenia za pośrednictwem protokołu HTTPS. Aby zwiększyć bezpieczeństwo, zalecamy używanie [usługi Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) do przechowywania wpisów tajnych, kluczy i haseł.
+> Skrypt deploy.sh na kliencie tworzy prywatne klucze SSH i przekazuje je do szablonu wdrożenia za pośrednictwem protokołu HTTPS. W celu zapewnienia większego bezpieczeństwa zalecamy używanie [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) do przechowywania wpisów tajnych, kluczy i haseł.
 
-## <a name="how-the-deployment-script-works"></a>Jak działa skrypt wdrażania
+## <a name="how-the-deployment-script-works"></a>Jak działa skrypt wdrożenia
 
-Skrypt deploy.sh tworzy i konfiguruje zasoby platformy Azure dla tej architektury. Skrypt monituje o subskrypcję platformy Azure i maszyny wirtualne używane w środowisku docelowym, a następnie wykonuje następujące operacje:
+Skrypt deploy.sh tworzy i konfiguruje zasoby platformy Azure dla tej architektury. Skrypt poprosi o subskrypcję platformy Azure i maszyny wirtualne używane w środowisku docelowym, a następnie wykonuje następujące operacje:
 
--   Konfiguruje grupę zasobów, sieć wirtualną i podsieci na platformie Azure dla instalacji.
+-   Konfiguruje grupę zasobów, sieć wirtualną i podsieci na platformie Azure na potrzeby instalacji.
 
 -   Konfiguruje sieciowe grupy zabezpieczeń i SSH dla środowiska.
 
--   Konfiguruje wiele kart sieciowych zarówno w udostępnionym magazynie, jak i na maszynach wirtualnych db2 pureScale.
+-   Konfiguruje wiele kart sieciowych zarówno w magazynie udostępnionym, jak i na maszynach wirtualnych DB2 pureScale.
 
--   Tworzy udostępnione maszyny wirtualne magazynu. Jeśli używasz bezpośredniego miejsca do magazynowania lub innego rozwiązania magazynu, zobacz [Omówienie bezpośrednie miejsca do magazynowania](/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
+-   Tworzy maszyny wirtualne magazynu udostępnionego. Jeśli używasz Bezpośrednie miejsca do magazynowania lub innego rozwiązania do magazynowania, zobacz [bezpośrednie miejsca do magazynowania omówienie](/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
 
--   Tworzy maszynę wirtualną jumpbox.
+-   Tworzy maszynę wirtualną serwera przesiadkowego.
 
 -   Tworzy maszyny wirtualne DB2 pureScale.
 
--   Tworzy maszynę wirtualną świadka, która DB2 pureScale pings. Pomiń tę część wdrożenia, jeśli twoja wersja Db2 pureScale nie wymaga monitora.
+-   Tworzy maszynę wirtualną z monitorem, która pureScale polecenie ping. Pomiń tę część wdrożenia, jeśli Twoja wersja programu DB2 pureScale nie wymaga monitora.
 
--   Tworzy maszynę wirtualną systemu Windows do użycia do testowania, ale nie instaluje na niej niczego.
+-   Tworzy maszynę wirtualną z systemem Windows do użycia na potrzeby testowania, ale nie instaluje żadnych elementów.
 
-Następnie skrypty wdrażania skonfigurować sieci wirtualnego obszaru magazynu iSCSI (vSAN) dla udostępnionego magazynu na platformie Azure. W tym przykładzie iSCSI łączy się z klastrem magazynu udostępnionego. W oryginalnym rozwiązaniu dla klienta zastosowano GlusterFS. Jednak IBM nie obsługuje już tego podejścia. Aby utrzymać wsparcie ibm, należy użyć obsługiwanego systemu plików zgodnego z interfejsem iSCSI. Microsoft oferuje bezpośrednie miejsca do magazynowania (S2D) jako opcja.
+Następnie skrypty wdrażania konfigurują wirtualną sieć San (sieci vSAN) iSCSI dla magazynu udostępnionego na platformie Azure. W tym przykładzie iSCSI nawiązuje połączenie z udostępnionym klastrem magazynu. W oryginalnym rozwiązaniu klienta użyto GlusterFS. Jednak firma IBM nie obsługuje już tego podejścia. Aby zachować pomoc techniczną od firmy IBM, musisz użyć obsługiwanego systemu plików zgodnego z technologią iSCSI. Firma Microsoft oferuje Bezpośrednie miejsca do magazynowania (S2D) jako opcję.
 
-To rozwiązanie umożliwia również zainstalowanie obiektów docelowych iSCSI jako pojedynczego węzła systemu Windows. iSCSI udostępnia interfejs magazynu bloków udostępnionych za pomocą protokołu TCP/IP, który umożliwia procedurze konfiguracji db2 pureScale używanie interfejsu urządzenia do łączenia się z magazynem udostępnionym.
+To rozwiązanie udostępnia również opcję instalowania obiektów docelowych iSCSI jako pojedynczy węzeł systemu Windows. protokół iSCSI udostępnia udostępniony interfejs magazynu blokowego za pośrednictwem protokołu TCP/IP, który umożliwia procedury Instalatora programu DB2 pureScale używanie interfejsu urządzenia do nawiązywania połączenia z magazynem udostępnionym.
 
 Skrypty wdrażania uruchamiają następujące ogólne kroki:
 
-1.  Konfigurowanie udostępnionego klastra magazynu na platformie Azure. Ten krok obejmuje co najmniej dwa węzły systemu Linux.
+1.  Skonfiguruj udostępniony klaster magazynu na platformie Azure. Ten krok obejmuje co najmniej dwa węzły systemu Linux.
 
-2.  Skonfiguruj interfejs iSCSI Direct na docelowych serwerach systemu Linux dla udostępnionego klastra magazynu.
+2.  Skonfiguruj interfejs iSCSI Direct na docelowych serwerach z systemem Linux dla klastra magazynu udostępnionego.
 
-3.  Skonfiguruj inicjatora iSCSI na maszynach wirtualnych systemu Linux. Inicjator będzie uzyskiwać dostęp do udostępnionego klastra magazynu przy użyciu obiektu docelowego iSCSI. Aby uzyskać szczegółowe informacje na temat konfiguracji, zobacz [Jak skonfigurować cel i inicjatora iSCSI w systemie Linux](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) w dokumentacji RootUsers.
+3.  Skonfiguruj inicjator iSCSI na maszynach wirtualnych z systemem Linux. Inicjator będzie uzyskiwać dostęp do udostępnionego klastra magazynu przy użyciu obiektu docelowego iSCSI. Aby uzyskać szczegółowe informacje dotyczące instalacji, zobacz [jak skonfigurować obiekt docelowy iSCSI i inicjator w systemie Linux](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) w dokumentacji RootUsers.
 
 4.  Zainstaluj udostępnioną warstwę magazynu dla interfejsu iSCSI.
 
-Po utworzeniu urządzenia iSCSI przez skrypty ostatnim krokiem jest zainstalowanie programu DB2 pureScale. W ramach konfiguracji DB2 pureScale, [IBM Spectrum Scale](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0057167.html) (wcześniej znany jako GPFS) jest kompilowany i instalowany w klastrze GlusterFS. Ten klastrowany system plików umożliwia DB2 pureScale udostępnianie danych między maszynami wirtualnymi, które uruchamiają aparat DB2 pureScale. Więcej informacji można znaleźć w dokumentacji [ibm spectrum scale](https://www.ibm.com/support/knowledgecenter/en/STXKQY_4.2.0/ibmspectrumscale42_welcome.html) w witrynie IBM w sieci Web.
+Po utworzeniu urządzenia iSCSI przez skrypty ostatnim krokiem jest zainstalowanie programu DB2 pureScale. W ramach instalacji bazy danych DB2 pureScale w klastrze GlusterFS jest kompilowane i instalowana [Skala spektrum firmy IBM](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0057167.html) (dawniej znana jako GPFS). Ten klastrowany system plików umożliwia programowi DB2 pureScale współdzielenie danych między maszynami wirtualnymi, na których działa aparat programu DB2 pureScale. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [skalowania usługi IBM spektrum](https://www.ibm.com/support/knowledgecenter/en/STXKQY_4.2.0/ibmspectrumscale42_welcome.html) w witrynie sieci Web firmy IBM.
 
-## <a name="db2-purescale-response-file"></a>Plik odpowiedzi pureScale DB2
+## <a name="db2-purescale-response-file"></a>Plik odpowiedzi bazy danych DB2 pureScale
 
-Repozytorium GitHub zawiera plik DB2server.rsp, plik odpowiedzi (.rsp), który umożliwia wygenerowanie automatycznego skryptu dla instalacji DB2 pureScale. W poniższej tabeli wymieniono opcje DB2 pureScale używane do konfiguracji przez plik odpowiedzi. Plik odpowiedzi można dostosować w zależności od potrzeb w swoim środowisku.
+Repozytorium GitHub zawiera plik odpowiedzi DB2server. rsp, odpowiedź (. RSP), który umożliwia generowanie zautomatyzowanego skryptu instalacji programu DB2 pureScale. W poniższej tabeli wymieniono opcje pureScale programu DB2, których plik odpowiedzi używa do instalacji. Plik odpowiedzi można dostosować zgodnie z potrzebami środowiska.
 
 > [!NOTE]
-> Przykładowy plik odpowiedzi, DB2server.rsp, znajduje się w repozytorium [DB2onAzure](https://aka.ms/db2onazure) w usłudze GitHub. Jeśli używasz tego pliku, należy go edytować, zanim będzie mógł działać w twoim środowisku.
+> Przykładowy plik odpowiedzi DB2server. rsp znajduje się w repozytorium [DB2onAzure](https://aka.ms/db2onazure) w witrynie GitHub. Jeśli używasz tego pliku, musisz go zmodyfikować, zanim będzie można go użyć w Twoim środowisku.
 
 | Nazwa ekranu               | Pole                                        | Wartość                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Powitanie                   |                                              | Nowa instalacja                                                                                           |
-| Wybierz produkt          |                                              | DB2 wersja 11.1.3.3. Wersje serwerowe z DB2 pureScale                                              |
-| Konfigurowanie             | Katalog                                    | /data1/opt/ibm/db2/V11.1                                                                              |
-|                           | Wybierz typ instalacji                 | Typowe                                                                                               |
-|                           | Zgadzam się na warunki IBM                     | Zaznaczone                                                                                               |
+| Wybierz produkt          |                                              | 11.1.3.3 wersja programu DB2. Wersje serwera z programem DB2 pureScale                                              |
+| Konfiguracja             | Katalog                                    | /data1/opt/ibm/db2/V11.1                                                                              |
+|                           | Wybierz typ instalacji                 | Normalne                                                                                               |
+|                           | Akceptuję warunki firmy IBM                     | Zaznaczono                                                                                               |
 | Właściciel wystąpienia            | Istniejący użytkownik na przykład, nazwa użytkownika        | DB2sdin1                                                                                              |
-| Użytkownik ogrodzony               | Istniejący użytkownik, nazwa użytkownika                     | DB2sdfe1                                                                                              |
-| System plików klastra       | Ścieżka urządzenia partycji dysku udostępnionego            | /dev/dm-2                                                                                             |
-|                           | Punkt montażu                                  | /DB2sd\_1804a                                                                                         |
-|                           | Udostępniony dysk danych                         | /dev/dm-1                                                                                             |
+| Użytkownik z ogranicznikiem               | Istniejący użytkownik, nazwa użytkownika                     | DB2sdfe1                                                                                              |
+| System plików klastra       | Ścieżka urządzenia udostępnionego partycji dysku            | /dev/dm-2                                                                                             |
+|                           | Punkt instalacji                                  | /DB2sd\_1804a                                                                                         |
+|                           | Dysk udostępniony dla danych                         | /dev/dm-1                                                                                             |
 |                           | Punkt instalacji (dane)                           | /DB2fs/datafs1                                                                                        |
 |                           | Udostępniony dysk do dziennika                          | /dev/dm-0                                                                                             |
-|                           | Punkt instalacji (dziennik)                            | /DB2fs/logfs1                                                                                         |
-|                           | DB2 Cluster Services Tiebreaker. Ścieżka urządzenia | /dev/dm-3                                                                                             |
-| Lista hostów                 | d1 [eth1], d2 [eth1], cf1 [eth1], por2 [eth1] |                                                                                                       |
-|                           | Preferowany podstawowy mukowiscydozja                         | por1                                                                                                   |
-|                           | Preferowany wtórny mukowiscydozję                       | por2                                                                                                   |
-| Plik odpowiedzi i podsumowanie | pierwsza opcja                                 | Zainstaluj DB2 Server Edition z funkcją IBM DB2 pureScale i zapisz moje ustawienia w pliku odpowiedzi |
+|                           | Punkt instalacji (Dziennik)                            | /DB2fs/logfs1                                                                                         |
+|                           | Wczesnego usługi klastra DB2. Ścieżka urządzenia | /dev/dm-3                                                                                             |
+| Lista hostów                 | D1 [eth1], D2 [eth1], CF1 [eth1], CF2 [eth1] |                                                                                                       |
+|                           | Preferowany podstawowy CF                         | cf1                                                                                                   |
+|                           | Preferowany pomocniczy CF                       | cf2                                                                                                   |
+| Plik odpowiedzi i podsumowanie | Pierwsza opcja                                 | Zainstaluj wersję programu DB2 Server z funkcją IBM DB2 pureScale i Zapisz moje ustawienia w pliku odpowiedzi |
 |                           | Nazwa pliku odpowiedzi                           | /root/DB2server.rsp                                                                                   |
 
 ### <a name="notes-about-this-deployment"></a>Uwagi dotyczące tego wdrożenia
 
-- Wartości dla /dev-dm0, /dev-dm1, /dev-dm2 i /dev-dm3 mogą ulec zmianie po ponownym uruchomieniu na maszynie wirtualnej, na której odbywa się konfiguracja (d0 w skrypcie automatycznym). Aby znaleźć odpowiednie wartości, można wydać następujące polecenie przed zakończeniem pliku odpowiedzi na serwerze, na którym zostanie uruchomiony instalator:
+- Wartości/dev-dm0,/dev-DM1,/dev-DM2 i/dev-dm3 mogą ulec zmianie po ponownym uruchomieniu maszyny wirtualnej, w której odbywa się konfiguracja (D0 w skrypcie zautomatyzowanym). Aby znaleźć odpowiednie wartości, można wydać następujące polecenie przed ukończeniem pliku odpowiedzi na serwerze, na którym zostanie uruchomiona Instalator:
 
    ```
    [root\@d0 rhel]\# ls -als /dev/mapper
@@ -109,38 +109,38 @@ Repozytorium GitHub zawiera plik DB2server.rsp, plik odpowiedzi (.rsp), który u
    0 lrwxrwxrwx 1 root root 7 May 30 11:08 db2tieb -\> ../dm-3
    ```
 
-- Skrypty instalacyjne używają aliasów dla dysków iSCSI, dzięki czemu można łatwo znaleźć rzeczywiste nazwy.
+- Skrypty Instalatora używają aliasów dysków iSCSI, aby można było łatwo znaleźć rzeczywiste nazwy.
 
-- Gdy skrypt konfiguracji jest uruchamiany na d0, **/dev/dm-\* ** wartości mogą być różne na d1, cf0 i cf1. Różnica w wartościach nie wpływa na ustawienia pureScale DB2.
+- Gdy skrypt Instalatora jest uruchamiany w d0, wartości **/dev/DM-\* ** mogą być różne w odniesieniu do D1, cf0 i CF1. Różnica w wartości nie ma wpływu na konfigurację programu DB2 pureScale.
 
 ## <a name="troubleshooting-and-known-issues"></a>Znane problemy i rozwiązywanie problemów
 
-Repozytorium GitHub zawiera bazę wiedzy, którą utrzymują autorzy. Zawiera listę potencjalnych problemów, które możesz mieć, i rozwiązania, które możesz wypróbować. Na przykład znane problemy mogą się zdarzyć, gdy:
+Repozytorium GitHub zawiera bazę wiedzy, która jest utrzymywana przez autorów. Zawiera listę potencjalnych problemów, które mogą wystąpić, i rozwiązania, które można wypróbować. Na przykład, znane problemy mogą wystąpić w następujących przypadkach:
 
--   Próbujesz dotrzeć do adresu IP bramy.
+-   Próbujesz uzyskać dostęp do adresu IP bramy.
 
--   Kompilujesz Ogólną Licencję Publiczną (GPL).
+-   Kompilujesz ogólną licencję publiczną (GPL).
 
--   Uzgadnianie zabezpieczeń między hostami kończy się niepowodzeniem.
+-   Uzgadnianie zabezpieczeń między hostami nie powiodło się.
 
--   Instalator DB2 wykrywa istniejący system plików.
+-   Instalator programu DB2 wykrywa istniejący system plików.
 
--   Instalujesz program IBM Spectrum Scale ręcznie.
+-   Skalowanie w usłudze IBM spektrum jest ręczne.
 
--   Instalujesz DB2 pureScale, gdy ibm spectrum scale jest już utworzony.
+-   Instalujesz DB2 pureScale, gdy jest już utworzona Skala spektrum firmy IBM.
 
--   Usuwasz DB2 pureScale i IBM Spectrum Scale.
+-   Usuwasz skalę programu DB2 pureScale i IBM spektrum.
 
-Aby uzyskać więcej informacji na temat tych i innych znanych problemów, zobacz plik kb.md w repozytorium [DB2onAzure.](https://aka.ms/DB2onAzure)
+Aby uzyskać więcej informacji na temat tych i innych znanych problemów, zobacz plik kb.md w repozytorium [DB2onAzure](https://aka.ms/DB2onAzure) .
 
 ## <a name="next-steps"></a>Następne kroki
 
--   [Tworzenie wymaganych użytkowników dla instalacji funkcji pureScale DB2](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
+-   [Tworzenie wymaganych użytkowników dla instalacji funkcji programu DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 
--   [DB2icrt — polecenie Utwórz wystąpienie](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
+-   [DB2icrt — Utwórz wystąpienie polecenia](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
 
--   [Rozwiązanie danych klastrów o czystej skali DB2](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+-   [Rozwiązanie danych klastrów DB2 pureScale](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 
 -   [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
--   [Przewodnik po wirtualnym centrum danych azure i przeniesieniu](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
+-   [Przewodnik po podnoszenia i przesunięć wirtualnego centrum danych platformy Azure](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)

@@ -1,6 +1,6 @@
 ---
-title: IS_STRING w języku zapytań usługi Azure Cosmos DB
-description: Dowiedz się więcej o IS_STRING funkcji systemu SQL w usłudze Azure Cosmos DB.
+title: IS_STRING w języku zapytań Azure Cosmos DB
+description: Dowiedz się więcej na temat funkcji systemu SQL IS_STRING w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: a717f343b0f46522a3ce2bb56c32e3f15998d777
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78303770"
 ---
-# <a name="is_string-azure-cosmos-db"></a>IS_STRING (Usługa Azure Cosmos DB)
- Zwraca wartość logiczną wskazującą, czy typem określonego wyrażenia jest ciąg.  
+# <a name="is_string-azure-cosmos-db"></a>IS_STRING (Azure Cosmos DB)
+ Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest ciągiem.  
   
 ## <a name="syntax"></a>Składnia
   
@@ -25,16 +25,16 @@ IS_STRING(<expr>)
   
 ## <a name="arguments"></a>Argumenty
   
-*Expr*  
-   Czy dowolne wyrażenie.  
+*wyrażenie*  
+   To dowolne wyrażenie.  
   
-## <a name="return-types"></a>Typy zwrotów
+## <a name="return-types"></a>Typy zwracane
   
   Zwraca wyrażenie logiczne.  
   
 ## <a name="examples"></a>Przykłady
   
-  Poniższy przykład sprawdza obiekty JSON Boolean, liczba, ciąg, null, obiekt, tablica i niezdefiniowane typy za pomocą `IS_STRING` funkcji.  
+  Poniższy przykład sprawdza obiekty typu Boolean, Number, String, null, Object, Array i undefined przy użyciu `IS_STRING` funkcji.  
   
 ```sql
 SELECT   
@@ -55,10 +55,10 @@ SELECT
 
 ## <a name="remarks"></a>Uwagi
 
-Ta funkcja systemu będzie korzystać z [indeksu zakresu](index-policy.md#includeexclude-strategy).
+Ta funkcja systemowa będzie korzystać z [indeksu zakresu](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Funkcje sprawdzania typów Usługi Azure Cosmos DB](sql-query-type-checking-functions.md)
-- [Funkcje systemowe Usługi Azure Cosmos DB](sql-query-system-functions.md)
+- [Funkcje sprawdzania typu Azure Cosmos DB](sql-query-type-checking-functions.md)
+- [Azure Cosmos DB funkcje systemowe](sql-query-system-functions.md)
 - [Wprowadzenie do usługi Azure Cosmos DB](introduction.md)

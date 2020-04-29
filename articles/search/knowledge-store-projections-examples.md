@@ -1,7 +1,7 @@
 ---
-title: Definiowanie projekcji w magazynie wiedzy
+title: Definiowanie prognoz w sklepie z bazami danych
 titleSuffix: Azure Cognitive Search
-description: Przykłady typowych wzorców dotyczących sposobu projekcji wzbogaconych dokumentów do magazynu wiedzy do użytku z usługą Power BI lub Azure ML.
+description: Przykłady typowych wzorców dotyczących sposobu tworzenia projektów wzbogaconych w sklepie z bazami danych do użycia w Power BI lub platformie Azure ML.
 manager: eladz
 author: vkurpad
 ms.author: vikurpad
@@ -9,39 +9,39 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.openlocfilehash: 23c370289669c2dde4f8969a2921018cd0abc08c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943678"
 ---
-# <a name="knowledge-store-projections-how-to-shape-and-export-enrichments"></a>Prognozy magazynu wiedzy: Jak kształtować i eksportować wzbogacenia
+# <a name="knowledge-store-projections-how-to-shape-and-export-enrichments"></a>Projekcje magazynu wiedzy: jak kształtować i eksportować wzbogacania
 
 > [!IMPORTANT] 
-> Magazyn wiedzy jest obecnie w publicznej wersji zapoznawczej. Funkcja w wersji zapoznawczej jest dostarczana bez umowy dotyczącej poziomu usług i nie jest zalecana dla obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Interfejs [API REST w wersji 2019-05-06-Preview](search-api-preview.md) udostępnia funkcje w wersji zapoznawczej. Obecnie istnieje ograniczona obsługa portalu i nie ma obsługi sdk .NET.
+> Magazyn wiedzy jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2019-05-06 — wersja zapoznawcza](search-api-preview.md) zapewnia funkcje w wersji zapoznawczej. Dostępna jest obecnie ograniczona obsługa portalu i nie ma obsługi zestawu SDK platformy .NET.
 
-Projekcje są fizycznym wyrazem wzbogaconych dokumentów w magazynie wiedzy. Efektywne wykorzystanie wzbogaconych dokumentów wymaga struktury. W tym artykule poznasz zarówno strukturę, jak i relacje, ucząc się, jak tworzyć właściwości projekcji, a także jak powiązać dane między utworzonymi typami projekcji. 
+Projekcje to fizyczne wyrażenie ulepszonych dokumentów w sklepie z bazami danych. Efektywne korzystanie z ulepszonych dokumentów wymaga struktury. W tym artykule przedstawiono strukturę i relacje, uczenie się, jak tworzyć właściwości projekcji, a także sposób powiązania danych z tworzonych typów projekcji. 
 
-Aby utworzyć projekcję, należy kształtować dane przy użyciu [umiejętności Shaper,](cognitive-search-skill-shaper.md) aby utworzyć obiekt niestandardowy lub użyć składni kształtowania w linii wbudowanej w definicji projekcji. 
+Aby utworzyć projekcję, należy kształtować dane przy użyciu [umiejętności kształtu](cognitive-search-skill-shaper.md) , aby utworzyć obiekt niestandardowy lub użyć składni kształtowania wbudowanego w ramach definicji projekcji. 
 
-Kształt danych zawiera wszystkie dane, które mają być wyświetlane, utworzone jako hierarchia węzłów. W tym artykule przedstawiono kilka technik kształtowania danych, dzięki czemu mogą być rzutowane na struktury fizyczne, które sprzyjają raportowaniu, analizie lub przetwarzaniu podrzędnym. 
+Kształt danych zawiera wszystkie dane, które mają być przeznaczone do projektu, sformułowane jako hierarchia węzłów. W tym artykule przedstawiono kilka metod kształtowania danych, dzięki czemu można je projektować do struktur fizycznych, które współużytkują z raportowaniem, analizą lub przetwarzaniem podrzędnym. 
 
-Przykłady przedstawione w tym artykule można znaleźć w tym [przykładzie interfejsu API REST](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/projections/Projections%20Docs.postman_collection.json), który można pobrać i uruchomić w kliencie HTTP.
+Przykłady przedstawione w tym artykule można znaleźć w tym [przykładzie interfejsu API REST](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/projections/Projections%20Docs.postman_collection.json), który można pobrać i uruchomić w kliencie http.
 
 ## <a name="introduction-to-the-examples"></a>Wprowadzenie do przykładów
 
-Jeśli znasz [projekcje,](knowledge-store-projection-overview.md)przypomnij sobie, że istnieją trzy typy:
+Jeśli znasz [projekcje](knowledge-store-projection-overview.md), musisz odwołać się, że istnieją trzy typy:
 
 + Tabele
 + Obiekty
 + Pliki
 
-Projekcje tabel są przechowywane w usłudze Azure Table Storage. Rzuty obiektów i plików są zapisywane w magazynie obiektów blob, gdzie rzuty obiektów są zapisywane jako pliki JSON i mogą zawierać zawartość z dokumentu źródłowego, a także wszelkie dane wyjściowe umiejętności lub wzbogacenia. Potok wzbogacania można również wyodrębnić pliki binarne, takie jak obrazy, te pliki binarne są rzutowane jako rzuty plików. Gdy obiekt binarny jest rzutowany jako rzutowanie obiektu, tylko metadane skojarzone z nim są zapisywane jako obiekt blob JSON. 
+Projekcje tabeli są przechowywane w usłudze Azure Table Storage. Projekcje obiektów i plików są zapisywane w magazynie obiektów blob, gdzie projekcje obiektów są zapisywane jako pliki JSON i mogą zawierać zawartość z dokumentu źródłowego, a także wszelkie dane wyjściowe lub wzbogacania umiejętności. Potok wzbogacania umożliwia również wyodrębnienie plików binarnych, takich jak obrazy, te pliki binarne są rzutowane jako projekcje plików. Gdy obiekt binarny jest rzutowany jako projekcja obiektu, tylko metadane skojarzone z nim są zapisywane jako obiekt BLOB JSON. 
 
-Aby zrozumieć przecięcie między kształtowaniem danych i projekcjami, użyjemy następującego zestawu umiejętności jako podstawy do eksplorowania różnych konfiguracji. Ten zestaw umiejętności przetwarza nieprzetworzoną zawartość obrazu i tekstu. Prognozy zostaną zdefiniowane na podstawie zawartości dokumentu i wyników umiejętności, dla scenariuszy, które chcemy wspierać.
+Aby zrozumieć wspólną część między kształtami i projekcjami danych, użyjemy następującej zestawu umiejętności jako podstawy do eksplorowania różnych konfiguracji. Ta zestawu umiejętności przetwarza nieprzetworzoną zawartość obrazu i tekstu. Projekcje zostaną zdefiniowane na podstawie zawartości dokumentu i danych wyjściowych umiejętności dla scenariuszy, które chcemy obsługiwać.
 
 > [!IMPORTANT] 
-> Podczas eksperymentowania z projekcjami, warto [ustawić właściwość pamięci podręcznej indeksatora,](search-howto-incremental-index.md) aby zapewnić kontrolę kosztów. Edytowanie projekcji spowoduje, że cały dokument zostanie wzbogacony ponownie, jeśli pamięć podręczna indeksatora nie zostanie ustawiona. Po ustawieniu pamięci podręcznej i zaktualizowaniu tylko prognoz wykonania zestawu umiejętności dla wcześniej wzbogaconych dokumentów nie powodują żadnych nowych opłat za usługi Cognitive Services.
+> Podczas eksperymentowania z projekcjami warto [ustawić właściwość buforu indeksatora](search-howto-incremental-index.md) , aby zapewnić kontrolę kosztów. Edytowanie projekcji spowoduje, że cały dokument zostanie ponownie wzbogacony, jeśli nie zostanie ustawiona pamięć podręczna indeksatora. Gdy pamięć podręczna jest ustawiona i tylko projekcje zostały zaktualizowane, zestawu umiejętności wykonania dla wcześniej wzbogaconych dokumentów nie spowoduje żadnych nowych opłat Cognitive Services.
 
 ```json
 {
@@ -200,27 +200,27 @@ Aby zrozumieć przecięcie między kształtowaniem danych i projekcjami, użyjem
 }
 ```
 
-Za pomocą tego zestawu `knowledgeStore` umiejętności, z jego null jako `knowledgeStore` podstawa, nasz pierwszy przykład wypełnia obiekt, skonfigurowany z projekcji, które tworzą struktury danych tabelaryczne możemy użyć w innych scenariuszach. 
+Korzystając z tej zestawu umiejętności, z wartością `knowledgeStore` null, z pierwszego przykładu jest wypełniany `knowledgeStore` obiekt, skonfigurowany przy użyciu projekcji tworzących struktury danych tabelarycznych, których można użyć w innych scenariuszach. 
 
-## <a name="projecting-to-tables"></a>Rzutowanie do tabel
+## <a name="projecting-to-tables"></a>Projekcja do tabel
 
-Projekcja do tabel w usłudze Azure Storage jest przydatna do raportowania i analizy przy użyciu narzędzi, takich jak usługa Power BI. Usługa Power BI może odczytywać z tabel i odnajdywać relacje na podstawie kluczy generowanych podczas projekcji. Jeśli próbujesz utworzyć pulpit nawigacyjny, posiadanie powiązanych danych uprości to zadanie. 
+Projekcja do tabel w usłudze Azure Storage jest przydatna do raportowania i analizy przy użyciu narzędzi takich jak Power BI. Power BI może odczytywać z tabel i odnajdywać relacje na podstawie kluczy generowanych podczas projekcji. W przypadku próby utworzenia pulpitu nawigacyjnego, który ma powiązane dane, upraszcza to zadanie. 
 
-Załóżmy, że próbujemy zbudować pulpit nawigacyjny, na którym możemy wizualizować kluczowe frazy wyodrębnione z dokumentów jako chmurę słów. Aby utworzyć odpowiednią strukturę danych, możemy dodać umiejętność Shaper do zestawu umiejętności, aby utworzyć niestandardowy kształt zawierający szczegóły i kluczowe frazy specyficzne dla dokumentu. Niestandardowy kształt zostanie `pbiShape` wywołany w węźle `document` głównym.
+Załóżmy, że próbujemy skompilować pulpit nawigacyjny, w którym można wizualizować kluczowe frazy wyodrębnione z dokumentów jako chmurę programu Word. Aby utworzyć odpowiednią strukturę danych, można dodać umiejętność kształtu do zestawu umiejętności w celu utworzenia niestandardowego kształtu zawierającego szczegóły dotyczące określonego dokumentu i kluczowe frazy. Kształt niestandardowy zostanie wywołany `pbiShape` w węźle `document` głównym.
 
 > [!NOTE] 
-> Prognozy tabel są tabelami usługi Azure Storage, podlegami limitom magazynowania narzuconym przez usługę Azure Storage. Aby uzyskać więcej informacji, zobacz [limity magazynowania tabel](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). Warto wiedzieć, że rozmiar jednostki nie może przekraczać 1 MB i pojedyncza właściwość nie może być większa niż 64 KB. Te ograniczenia sprawiają, że tabele dobrym rozwiązaniem do przechowywania dużej liczby małych jednostek.
+> Projekcje tabeli są tabelami usługi Azure Storage, które podlegają limitom magazynu narzuconym przez usługę Azure Storage. Aby uzyskać więcej informacji, zobacz [limity magazynu tabel](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). Warto wiedzieć, że rozmiar jednostki nie może przekroczyć 1 MB, a jedna właściwość nie może być większa niż 64 KB. Te ograniczenia sprawiają, że tabele są dobrym rozwiązaniem do przechowywania dużej liczby małych jednostek.
 
-### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>Tworzenie niestandardowego kształtu za pomocą umiejętności Shaper
+### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>Tworzenie niestandardowego kształtu przy użyciu umiejętności kształtu
 
-Utwórz niestandardowy kształt, który można wyświetlać w magazynie tabel. Bez kształtu niestandardowego projekcja może odwoływać się tylko do jednego węzła (jedna projekcja na wyjście). Tworzenie kształtu niestandardowego umożliwia agregowanie różnych elementów w nową całość logiczną, która może być rzutowana jako pojedyncza tabela lub krojona i rozmieszczana w kolekcji tabel. 
+Utwórz niestandardowy kształt, który można projektować w usłudze Table Storage. Bez niestandardowego kształtu projekcja może odwoływać się tylko do jednego węzła (jedno rzutowanie na dane wyjściowe). Tworzenie niestandardowego kształtu pozwala agregować różne elementy w nowej logicznej całości, która może być rzutowana jako pojedyncza tabela lub przecięta i rozłożona w kolekcji tabel. 
 
-W tym przykładzie kształt niestandardowy łączy metadane i zidentyfikowane jednostki i frazy kluczowe. Obiekt jest `pbiShape` wywoływany i `/document`jest nadrzędny w obszarze . 
+W tym przykładzie kształt niestandardowy łączy metadane i identyfikuje jednostki i kluczowe frazy. Obiekt jest wywoływany `pbiShape` i ma element nadrzędny `/document`. 
 
 > [!IMPORTANT] 
-> Jednym z celów kształtowania jest zapewnienie, że wszystkie węzły wzbogacania są wyrażone w dobrze ukształtowanym JSON, który jest wymagany do projekcji w magazynie wiedzy. Jest to szczególnie ważne, gdy drzewo wzbogacania zawiera węzły, które nie są dobrze sformułowane JSON (na przykład, gdy wzbogacenie jest nadrzędne do pierwotnego jak ciąg).
+> Jednym z celów kształtowania jest upewnienie się, że wszystkie węzły wzbogacania są wyrażane w dobrze sformułowanym formacie JSON, który jest wymagany do projekcji w sklepie z bazami danych. Jest to szczególnie prawdziwe, gdy drzewo wzbogacania zawiera węzły, które nie są poprawnie sformułowane w formacie JSON (na przykład, gdy wzbogacanie jest nadrzędne dla elementu pierwotnego, takiego jak ciąg).
 >
-> Zwróć uwagę na dwa `KeyPhrases` `Entities`ostatnie węzły i . Są one zawijane w prawidłowy obiekt JSON z . `sourceContext` Jest to wymagane `keyphrases` `entities` jako i są wzbogacenia na prymitywy i muszą być konwertowane na prawidłowe JSON, zanim będą mogły być rzutowane.
+> Zwróć uwagę na ostatnie dwa węzły `KeyPhrases` i `Entities`. Są one opakowane w prawidłowy obiekt JSON przy użyciu `sourceContext`. Jest to wymagane w `keyphrases` `entities` przypadku wzbogacania elementów podstawowych i należy je przekonwertować na prawidłowy kod JSON, zanim będzie można go projekcją.
 >
 
 
@@ -289,7 +289,7 @@ W tym przykładzie kształt niestandardowy łączy metadane i zidentyfikowane je
 }
 ```
 
-Dodaj powyższą umiejętność Shaper do umiejętności. 
+Dodaj powyższą umiejętność kształtu do zestawu umiejętności. 
 
 ```json
     "name": "azureblob-skillset",
@@ -304,7 +304,7 @@ Dodaj powyższą umiejętność Shaper do umiejętności.
 }  
 ```
 
-Teraz, gdy mamy wszystkie dane potrzebne do projektu do tabel, zaktualizuj obiekt knowledgeStore za pomocą definicji tabel. W tym przykładzie mamy trzy tabele, `source` `generatedKeyName` zdefiniowane przez ustawienie `tableName`, i właściwości.
+Teraz, gdy mamy wszystkie dane, które są konieczne do projektu w tabelach, zaktualizuj obiekt knowledgeStore przy użyciu definicji tabeli. W tym przykładzie mamy trzy tabele zdefiniowane przez ustawienie `tableName`właściwości `source` i. `generatedKeyName`
 
 ```json
 "knowledgeStore" : {
@@ -335,41 +335,41 @@ Teraz, gdy mamy wszystkie dane potrzebne do projektu do tabel, zaktualizuj obiek
 }
 ```
 
-Możesz przetworzyć swoją pracę, wykonując następujące kroki:
+Możesz przetwarzać swoją służbę, wykonując następujące czynności:
 
-1. Ustaw ```storageConnectionString``` właściwość na prawidłowy parametry połączenia konta magazynu ogólnego przeznaczenia w wersji 2.  
+1. Ustaw ```storageConnectionString``` właściwość na prawidłowe parametry połączenia konta magazynu ogólnego przeznaczenia w wersji 2.  
 
-1. Zaktualizuj zestaw umiejętności, wystawiając żądanie PUT.
+1. Zaktualizuj zestawu umiejętności, wydając żądanie PUT.
 
-1. Po zaktualizowaniu zestawu umiejętności uruchom indeksator. 
+1. Po zaktualizowaniu zestawu umiejętności Uruchom indeksator. 
 
-Masz teraz projekcję roboczą z trzema tabelami. Importowanie tych tabel do usługi Power BI powinno spowodować automatyczne odnajdowanie relacji w usłudze Power BI.
+Masz już projekcję działającą z trzema tabelami. Zaimportowanie tych tabel do Power BI powinno spowodować Power BI automatycznego odnajdywania relacji.
 
-Przed przejściem do następnego przykładu, pozwala ponownie aspekty projekcji tabeli, aby zrozumieć mechanikę krojenia i odnoszących się danych.
+Przed przejściem do następnego przykładu program pozwala na odwiedzenie aspektów projekcji tabeli w celu zrozumienia Mechanics wycinków i odnoszących się do nich danych.
 
-### <a name="slicing"></a>Krojenie 
+### <a name="slicing"></a>Tworzenia wycinków 
 
-Krojenie jest techniką, która dzieli cały skonsolidowany kształt na części składowe. Wynik składa się z oddzielnych, ale powiązanych tabel, z którymi można pracować indywidualnie.
+Cięcie jest techniką dzielącą cały skonsolidowany kształt na części składowe. Wyniki składają się z oddzielnych, ale powiązanych tabel, z których można korzystać osobno.
 
-W przykładzie `pbiShape` znajduje się kształt skonsolidowany (lub węzeł wzbogacania). W definicji `pbiShape` projekcji jest pocięta na dodatkowe tabele, ```keyPhrases``` co ```Entities```umożliwia wyciągnięcie części kształtu i . W usłudze Power BI jest to przydatne, ponieważ wiele jednostek i kluczyOdz są skojarzone z każdym dokumentem, a otrzymasz więcej szczegółowych informacji, jeśli można zobaczyć jednostki i keyPhrases jako dane skategoryzowane.
+W przykładzie `pbiShape` jest to skonsolidowany kształt (lub węzeł wzbogacania). W definicji projekcji `pbiShape` jest podzielony na dodatkowe tabele, co pozwala na ściąganie części kształtu ```keyPhrases``` i. ```Entities``` W Power BI jest to przydatne w przypadku, gdy do każdego dokumentu są skojarzone wiele jednostek i frazy kluczowe i uzyskasz więcej szczegółowych informacji, jeśli można zobaczyć jednostki i frazy kluczowe jako dane skategoryzowane.
 
-Krojenie niejawnie generuje relację między tabelami ```generatedKeyName``` nadrzędnymi i podrzędnymi, używając tabeli nadrzędnej do utworzenia kolumny o tej samej nazwie w tabeli podrzędnej. 
+Cięcie niejawnie generuje relację między tabelami nadrzędnymi i podrzędnymi przy ```generatedKeyName``` użyciu w tabeli nadrzędnej w celu utworzenia kolumny o tej samej nazwie w tabeli podrzędnej. 
 
-### <a name="naming-relationships"></a>Nazywanie relacji
+### <a name="naming-relationships"></a>Relacje nazw
 
-Właściwości ```generatedKeyName``` ```referenceKeyName``` i są używane do powiązania danych między tabelami lub nawet między typami projekcji. Każdy wiersz w tabeli podrzędnej/projekcji ma właściwość skierowaną z powrotem do obiektu nadrzędnego. Nazwa kolumny lub właściwości w podrzędnym ```referenceKeyName``` jest z nadrzędnego. Gdy ```referenceKeyName``` usługa nie jest dostarczana, usługa ```generatedKeyName``` domyślnie go z nadrzędnego. 
+Właściwości ```generatedKeyName``` i ```referenceKeyName``` służą do powiązania danych w tabelach, a nawet w różnych typach projekcji. Każdy wiersz w podrzędnej tabeli/projekcji ma właściwość wskazującą z powrotem do elementu nadrzędnego. Nazwa kolumny lub właściwości w elemencie podrzędnym jest nazwą ```referenceKeyName``` z elementu nadrzędnego. Gdy nie ```referenceKeyName``` zostanie podany, usługa domyślnie przyjmowana jest wartość ```generatedKeyName``` z elementu nadrzędnego. 
 
-Usługa Power BI korzysta z tych wygenerowanych kluczy do odnajdywanie relacji w tabelach. Jeśli potrzebujesz kolumny w tabeli podrzędnej o ```referenceKeyName``` nazwie inaczej, ustaw właściwość w tabeli nadrzędnej. Jednym z przykładów ```generatedKeyName``` może być ustawienie jako identyfikator w tabeli pbiDocument i ```referenceKeyName``` jako DocumentID. Spowodowałoby to kolumny w pbiEntities i pbiKeyPhrases tabel zawierających identyfikator dokumentu o nazwie DocumentID.
+Power BI opiera się na tych generowanych kluczach w celu odnalezienia relacji w tabelach. Jeśli potrzebujesz kolumny w tabeli podrzędnej o nazwie inaczej, ustaw ```referenceKeyName``` właściwość w tabeli nadrzędnej. Przykładem może być ustawienie identyfikatora ```generatedKeyName``` AS w tabeli PbiDocument i ```referenceKeyName``` element DocumentID. Spowoduje to przepełnienie kolumny w tabelach pbiEntities i pbiKeyPhrases zawierających identyfikator dokumentu o nazwie element DocumentID.
 
-## <a name="projecting-to-objects"></a>Rzutowanie na obiekty
+## <a name="projecting-to-objects"></a>Projekcja do obiektów
 
-Rzuty obiektów nie mają tych samych ograniczeń co rzuty tabeli i lepiej nadają się do projekcji dużych dokumentów. W tym przykładzie rzut całego dokumentu na rzut obiektu. Rzuty obiektów są ograniczone do pojedynczego rzutowania w kontenerze i nie mogą być krojona.
+Projekcje obiektów nie mają tych samych ograniczeń co projekcje tabeli i są lepiej dopasowane do projekcji dużych dokumentów. W tym przykładzie cały dokument jest rzutowany na projekcję obiektu. Projekcje obiektów są ograniczone do jednego rzutu w kontenerze i nie można go wycinkować.
 
-Aby zdefiniować rzutowanie obiektu, ```objects``` użyjemy tablicy w rzutach. Nowy kształt można wygenerować za pomocą umiejętności Shaper lub użyć kształtowania wbudowanego rzutowania obiektu. Podczas gdy w przykładzie tabel pokazano podejście tworzenia kształtu i krojenia, w tym przykładzie pokazano użycie kształtowania wbudowanego. 
+Aby zdefiniować projekcję obiektu, będziemy używać ```objects``` tablicy w projekcjach. Można wygenerować nowy kształt przy użyciu umiejętności kształtu lub użyć wbudowanego kształtu projekcji obiektu. Chociaż przykładem tabeli przedstawiono podejście do tworzenia kształtu i rozdzielania, w tym przykładzie zademonstrowano użycie kształtu wbudowane. 
 
-Kształtowanie w linii to możliwość tworzenia nowego kształtu w definicji danych wejściowych do projekcji. Kształtowanie w linii tworzy anonimowy obiekt, który jest identyczny z `pbiShape`tym, co umiejętność Shaper będzie produkować (w naszym przypadku). Kształtowanie w linii jest przydatne, jeśli definiujesz kształt, którego nie zamierzasz używać ponownie.
+Kształtowanie wbudowane umożliwia tworzenie nowego kształtu w definicji wejść do projekcji. Kształtowanie wbudowane tworzy obiekt anonimowy, który jest identyczny jak umiejętność kształtu (w naszym przypadku `pbiShape`). Kształtowanie wbudowane jest przydatne w przypadku definiowania kształtu, którego nie planujesz użyć ponownie.
 
-Właściwość projections jest tablicą. W tym przykładzie dodajemy nowe wystąpienie projekcji do tablicy, gdzie definicja knowledgeStore zawiera rzutowania wbudowane. Podczas korzystania z projekcji wbudowanych można pominąć umiejętność Shaper.
+Właściwość projekcje jest tablicą. W tym przykładzie dodajemy nowe wystąpienie projekcji do tablicy, gdzie definicja knowledgeStore zawiera wbudowane projekcje. W przypadku korzystania z projekcji wbudowanych można pominąć umiejętność kształtu.
 
 ```json
 "knowledgeStore" : {
@@ -422,11 +422,11 @@ Właściwość projections jest tablicą. W tym przykładzie dodajemy nowe wyst�
     }
 ```
 
-## <a name="projecting-to-file"></a>Rzutowanie do pliku
+## <a name="projecting-to-file"></a>Projekcja do pliku
 
-Rzuty plików są obrazy, które są wyodrębniane z dokumentu źródłowego lub dane wyjściowe wzbogacenia, które mogą być rzutowane z procesu wzbogacania. Projekcje plików, podobnie jak projekcje obiektów, są implementowane jako obiekty blob w usłudze Azure Storage i zawierają obraz. 
+Projekcje plików to obrazy, które są wyodrębniane z dokumentu źródłowego lub dane wyjściowe wzbogacania, które mogą być rzutowane z procesu wzbogacania. Projekcje plików, podobnie jak projekcje obiektów, są implementowane jako obiekty blob w usłudze Azure Storage i zawierają obraz. 
 
-Aby wygenerować projekcję `files` pliku, używamy tablicy w obiekcie rzutowania. W tym przykładzie przedstawia wszystkie obrazy wyodrębnione z dokumentu do kontenera o nazwie `samplefile`.
+Aby wygenerować projekcję pliku, używamy `files` tablicy w obiekcie projekcji. Ten przykład dotyczy projektów wszystkich obrazów wyodrębnionych z dokumentu do kontenera o `samplefile`nazwie.
 
 ```json
 "knowledgeStore" : {
@@ -446,24 +446,24 @@ Aby wygenerować projekcję `files` pliku, używamy tablicy w obiekcie rzutowani
     }
 ```
 
-## <a name="projecting-to-multiple-types"></a>Projekcja na wiele typów
+## <a name="projecting-to-multiple-types"></a>Projekcja do wielu typów
 
-Bardziej złożony scenariusz może wymagać projektu zawartości między typami projekcji. Na przykład jeśli chcesz rzutować niektóre dane, takie jak frazy kluczowe i jednostki do tabel, zapisz wyniki OCR tekstu tekstu i układu jako obiekty, a następnie projektuj obrazy jako pliki. 
+Bardziej skomplikowany scenariusz może wymagać zaprojektowania zawartości dla różnych typów projekcji. Na przykład jeśli chcesz umieścić w projekcie pewne dane, takie jak kluczowe frazy i jednostki, Zapisz wyniki OCR tekstu i układu jako obiekty, a następnie Zaprojektuj obrazy jako pliki. 
 
 W tym przykładzie aktualizacje zestawu umiejętności obejmują następujące zmiany:
 
 1. Utwórz tabelę z wierszem dla każdego dokumentu.
-1. Utwórz tabelę związaną z tabelą dokumentu z każdą frazą kluczową zidentyfikowaną jako wiersz w tej tabeli.
-1. Utwórz tabelę powiązaną z tabelą dokumentów z każdą jednostką zidentyfikowaną jako wiersz w tej tabeli.
-1. Utwórz projekcję obiektu z tekstem układu dla każdego obrazu.
-1. Utwórz projekcję pliku, wyświetlając każdy wyodrębniony obraz.
-1. Utwórz tabelę odsyłacza zawierającą odwołania do tabeli dokumentów, projekcji obiektu z tekstem układu i projekcji pliku.
+1. Utwórz tabelę powiązaną z tabelą dokumentu z każdą frazą klucza identyfikowaną jako wiersz w tej tabeli.
+1. Utwórz tabelę powiązaną z tabelą dokumentów z każdą jednostką identyfikowaną jako wiersz w tej tabeli.
+1. Utwórz rzutowanie obiektu z tekstem układu dla każdego obrazu.
+1. Utwórz projekcję pliku, wystając każdy wyodrębniony obraz.
+1. Utwórz tabelę odsyłaczy, która zawiera odwołania do tabeli dokumentów, projekcji obiektów z tekstem układu i projekcją pliku.
 
-Zmiany te są odzwierciedlane w definicji knowledgeStore dalej w dół. 
+Zmiany te są odzwierciedlone w definicji knowledgeStore. 
 
-### <a name="shape-data-for-cross-projection"></a>Dane kształtu dla projekcji krzyżowej
+### <a name="shape-data-for-cross-projection"></a>Shape Data dla projekcji krzyżowej
 
-Aby uzyskać kształty potrzebne do tych projekcji, zacznij od dodania nowej umiejętności `crossProjection`Shaper, która tworzy kształtowany obiekt o nazwie . 
+Aby uzyskać potrzebne kształty dla projekcji, Zacznij od dodania nowej umiejętności kształtu, która tworzy obiekt w kształcie o nazwie `crossProjection`. 
 
 ```json
 {
@@ -532,9 +532,9 @@ Aby uzyskać kształty potrzebne do tych projekcji, zacznij od dodania nowej umi
 }
 ```
 
-### <a name="define-table-object-and-file-projections"></a>Definiowanie projekcji tabel, obiektów i plików
+### <a name="define-table-object-and-file-projections"></a>Definiowanie projekcji tabeli, obiektu i pliku
 
-Z skonsolidowanego obiektu crossProjection możemy podzielić obiekt na wiele tabel, przechwycić dane wyjściowe OCR jako obiekty blob, a następnie zapisać obraz jako pliki (również w magazynie obiektów Blob).
+W skonsolidowanym obiekcie crossProjection można wydzielić obiekt na wiele tabel, przechwycić dane wyjściowe OCR jako obiekty blob, a następnie zapisać obraz jako pliki (również w usłudze BLOB Storage).
 
 ```json
 "knowledgeStore" : {
@@ -591,17 +591,17 @@ Z skonsolidowanego obiektu crossProjection możemy podzielić obiekt na wiele ta
     }
 ```
 
-Rzuty obiektów wymagają nazwy kontenera dla każdej projekcji, rzutowania obiektów lub rzutowania plików nie mogą współużytkowania kontenera. 
+Projekcje obiektów wymagają nazwy kontenera dla każdego rzutu, projekcji obiektów lub projekcji plików nie mogą udostępniać kontenera. 
 
-### <a name="relationships-among-table-object-and-file-projections"></a>Relacje między projekcjami tabeli, obiektów i plików
+### <a name="relationships-among-table-object-and-file-projections"></a>Relacje między tabelami, obiektami i projekcjami plików
 
-W tym przykładzie przedstawiono również inną funkcję projekcji. Definiując wiele typów projekcji w tym samym obiekcie rzutowania, istnieje relacja wyrażona w obrębie i między różnymi typami (tabele, obiekty, pliki), co pozwala rozpocząć od wiersza tabeli dla dokumentu i znaleźć cały tekst OCR dla obrazów w tym dokumencie w rzutach obiektu. 
+Ten przykład wyróżnia również kolejną funkcję projekcji. Definiując wiele typów projekcji w obrębie tego samego obiektu projekcji, istnieje relacja wyrażona w obrębie różnych typów (tabel, obiektów, plików), co pozwala na rozpoczęcie od wiersza tabeli dla dokumentu i znalezienie całego tekstu OCR dla obrazów znajdujących się w tym dokumencie w projekcji obiektu. 
 
-Jeśli nie chcesz, aby dane były powiązane, zdefiniuj rzutowania w różnych obiektach rzutowania. Na przykład poniższy fragment kodu spowoduje, że tabele są powiązane, ale bez relacji między tabelami a rzutami tekstu obiektu (Tekst OCR). 
+Jeśli nie chcesz, aby dane były powiązane, zdefiniuj projekcje w różnych obiektach projekcji. Na przykład poniższy fragment kodu spowoduje powstanie powiązanych tabel, ale bez relacji między tabelami i projekcjami obiektu (tekst OCR). 
 
-Grupy rzutowania są przydatne, gdy chcesz wyświetlać te same dane w różnych kształtach dla różnych potrzeb. Na przykład grupa projekcji dla pulpitu nawigacyjnego usługi Power BI i inna grupa projekcji do przechwytywania danych używanych do uczenia modelu uczenia maszynowego opakowanego w umiejętności niestandardowe.
+Grupy projekcji są przydatne, gdy chcesz zaprojektować te same dane w różnych kształtach dla różnych potrzeb. Na przykład grupa projekcji dla pulpitu nawigacyjnego Power BI i inna grupa projekcji służąca do przechwytywania danych używanych do uczenia modelu uczenia maszynowego opakowanego w niestandardową umiejętność.
 
-Podczas tworzenia projekcji różnych typów najpierw generowane są rzuty plików i obiektów, a ścieżki są dodawane do tabel.
+Podczas kompilowania projekcji różnych typów w pierwszej kolejności są generowane projekcje plików i obiektów, a ścieżki są dodawane do tabel.
 
 ```json
 "knowledgeStore" : {
@@ -659,25 +659,25 @@ Podczas tworzenia projekcji różnych typów najpierw generowane są rzuty plik�
 
 ## <a name="common-issues"></a>Typowe problemy
 
-Podczas definiowania projekcji, istnieje kilka typowych problemów, które mogą powodować nieoczekiwane wyniki. Sprawdź te problemy, jeśli dane wyjściowe w magazynie wiedzy nie jest to, czego oczekujesz.
+Podczas definiowania projekcji istnieje kilka typowych problemów, które mogą spowodować nieoczekiwane wyniki. Sprawdź te problemy, jeśli dane wyjściowe w sklepie merytorycznym nie są oczekiwane.
 
-+ Nie kształtowanie wzbogacenia ciągów do prawidłowego JSON. Gdy ciągi są wzbogacone, na przykład `merged_content` wzbogacone frazami kluczowymi, wzbogacona `merged_content` właściwość jest reprezentowana jako element podrzędny w drzewie wzbogacania. Domyślna reprezentacja nie jest dobrze sformułowana JSON. Tak więc w czasie projekcji, upewnij się, aby przekształcić wzbogacenie w prawidłowy obiekt JSON o nazwie i wartości.
++ Nie kształtowanie wzbogacania ciągów w prawidłowy kod JSON. Gdy ciągi są wzbogacane, na przykład `merged_content` wzbogacone przy użyciu kluczowych fraz, wzbogacona właściwość jest reprezentowana jako element podrzędny `merged_content` w drzewie wzbogacania. Reprezentacja domyślna nie jest poprawnie sformułowanym plikiem JSON. Dlatego w czasie projekcji należy koniecznie przekształcić wzbogacanie w prawidłowy obiekt JSON o nazwę i wartość.
 
-+ Pomijając na ```/*``` końcu ścieżki źródłowej. Jeśli źródłem projekcji `/document/pbiShape/keyPhrases`jest , tablica fraz kluczowych jest rzutowana jako pojedynczy obiekt/wiersz. Zamiast tego ustaw ścieżkę `/document/pbiShape/keyPhrases/*` źródłową, aby uzyskać pojedynczy wiersz lub obiekt dla każdej z kluczowych fraz.
++ Pomijanie ```/*``` na końcu ścieżki źródłowej. Jeśli źródłem projekcji jest `/document/pbiShape/keyPhrases`, tablica fraz kluczy jest rzutowana jako pojedynczy obiekt/wiersz. Zamiast tego należy ustawić ścieżkę `/document/pbiShape/keyPhrases/*` źródłową, aby dać pojedynczy wiersz lub obiekt dla każdej frazy kluczowej.
 
-+ Błędy składni ścieżki. Selektory ścieżek są rozróżniane i mogą prowadzić do brakujących ostrzeżeń wejściowych, jeśli nie używasz dokładnej wielkości liter dla selektora.
++ Błędy składni ścieżki. Selektory ścieżek są rozróżniane wielkości liter i mogą prowadzić do brakujących ostrzeżeń wejściowych, jeśli nie używasz dokładnej wielkości liter.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przykłady w tym artykule zademonstrować typowe wzorce na sposób tworzenia projekcji. Teraz, gdy masz dobre zrozumienie pojęć, jesteś lepiej przygotowany do tworzenia prognoz dla konkretnego scenariusza.
+W przykładach w tym artykule przedstawiono typowe wzorce tworzenia projekcji. Teraz, gdy znasz już koncepcje, lepiej jest dowiedzieć się, jak tworzyć projekcje w konkretnym scenariuszu.
 
-Podczas eksplorowania nowych funkcji należy wziąć pod uwagę przyrostowe wzbogacenie jako następny krok. Przyrostowe wzbogacenie opiera się na buforowaniu, co pozwala na ponowne użycie wszelkich wzbogacenia, które w przeciwnym razie nie są dotknięte modyfikacją zestawu umiejętności. Jest to szczególnie przydatne w przypadku potoków, które obejmują OCR i analizy obrazu.
+Podczas eksplorowania nowych funkcji Rozważ możliwość wzbogacania przyrostowego jako kolejnego kroku. Zwiększanie przyrostowe jest oparte na pamięci podręcznej, dzięki czemu można ponownie wykorzystać wszelkie wzbogacania, w przypadku których modyfikacje zestawu umiejętności nie wpływają w inny sposób. Jest to szczególnie przydatne w przypadku potoków zawierających OCR i analizę obrazu.
 
 > [!div class="nextstepaction"]
 > [Wprowadzenie do przyrostowego wzbogacania i buforowania](cognitive-search-incremental-indexing-conceptual.md)
 
-Aby uzyskać przegląd projekcji, dowiedz się więcej o możliwościach, takich jak grupy i krojenie, oraz o tym, jak [definiujesz je w zestawie umiejętności](knowledge-store-projection-overview.md)
+Aby zapoznać się z omówieniem projekcji, Dowiedz się więcej o możliwościach, takich jak grupy i plasterki, oraz sposobie [ich definiowania w zestawu umiejętności](knowledge-store-projection-overview.md)
 
 > [!div class="nextstepaction"]
-> [Projekcje w magazynie wiedzy](knowledge-store-projection-overview.md)
+> [Projekcje w sklepie merytorycznym](knowledge-store-projection-overview.md)
 

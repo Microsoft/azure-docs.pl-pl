@@ -1,6 +1,6 @@
 ---
-title: Formanty sesji w zasadach dostępu warunkowego — usługa Azure Active Directory
-description: Co to są formanty sesji w zasadach dostępu warunkowego usługi Azure AD
+title: Kontrolki sesji w zasadach dostępu warunkowego — Azure Active Directory
+description: Co to są kontrolki sesji w zasadach dostępu warunkowego usługi Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,65 +12,65 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78671885"
 ---
 # <a name="conditional-access-session"></a>Dostęp warunkowy: sesja
 
-W ramach zasad dostępu warunkowego administrator może korzystać z formantów sesji, aby włączyć ograniczone środowisko w określonych aplikacjach w chmurze.
+W ramach zasad dostępu warunkowego administrator może korzystać z kontrolek sesji w celu włączenia ograniczonych środowisk w określonych aplikacjach w chmurze.
 
-![Zasady dostępu warunkowego z kontrolą dotacji wymagającą uwierzytelniania wieloskładnikowego](./media/concept-conditional-access-session/conditional-access-session.png)
+![Zasady dostępu warunkowego z kontrolką Grant wymagające uwierzytelniania wieloskładnikowego](./media/concept-conditional-access-session/conditional-access-session.png)
 
-## <a name="application-enforced-restrictions"></a>Ograniczenia wymuszone aplikacją
+## <a name="application-enforced-restrictions"></a>Wymuszone ograniczenia aplikacji
 
-Organizacje mogą używać tego formantu, aby wymagać usługi Azure AD do przekazywania informacji o urządzeniu do wybranych aplikacji w chmurze. Informacje o urządzeniu umożliwiają aplikacjom w chmurze poznanie, czy połączenie jest inicjowane ze zgodnego urządzenia, czy z urządzenia przyłączanego do domeny. Ta kontrolka obsługuje tylko usługi SharePoint Online i Exchange Online jako wybrane aplikacje w chmurze. Po wybraniu tej opcji aplikacja w chmurze używa informacji o urządzeniu, aby zapewnić użytkownikom, w zależności od stanu urządzenia, ograniczone lub pełne środowisko.
+Organizacje mogą używać tego formantu, aby wymagać od usługi Azure AD przekazywania informacji o urządzeniach do wybranych aplikacji w chmurze. Informacje o urządzeniu umożliwiają aplikacjom w chmurze dowiedzieć się, czy połączenie jest inicjowane z urządzenia zgodnego lub przyłączonego do domeny. Ta kontrolka obsługuje tylko usługi SharePoint Online i Exchange Online jako wybrane aplikacje w chmurze. Po wybraniu tej opcji aplikacja w chmurze korzysta z informacji o urządzeniu, aby zapewnić użytkownikom, w zależności od stanu urządzenia, z ograniczoną lub pełnym doświadczeniem.
 
-Aby uzyskać więcej informacji na temat używania i konfigurowania ograniczeń wymuszonych przez aplikację, zobacz następujące artykuły:
+Aby uzyskać więcej informacji o używaniu i konfigurowaniu ograniczeń wymuszonych przez aplikację, zobacz następujące artykuły:
 
 - [Włączanie ograniczonego dostępu za pomocą usługi SharePoint Online](/sharepoint/control-access-from-unmanaged-devices)
 - [Włączanie ograniczonego dostępu za pomocą usługi Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## <a name="conditional-access-application-control"></a>Kontrola aplikacji dostępu warunkowego
 
-Kontrola aplikacji dostępu warunkowego używa architektury odwrotnego serwera proxy i jest jednoznacznie zintegrowana z dostępem warunkowym usługi Azure AD. Dostęp warunkowy usługi Azure AD umożliwia wymuszanie kontroli dostępu w aplikacjach organizacji na podstawie określonych warunków. Warunki określają, kto (użytkownik lub grupa użytkowników) i jakie (które aplikacje w chmurze) i gdzie (które lokalizacje i sieci) zasady dostępu warunkowego jest stosowany do. Po określeniu warunków można kierować użytkowników do [usługi Microsoft Cloud App Security,](/cloud-app-security/what-is-cloud-app-security) gdzie można chronić dane za pomocą kontroli aplikacji dostępu warunkowego, stosując kontrolki dostępu i sesji.
+Kontrola dostępu warunkowego aplikacji używa architektury zwrotnego serwera proxy i jest unikatowo zintegrowany z dostępem warunkowym usługi Azure AD. Dostęp warunkowy usługi Azure AD umożliwia wymuszanie kontroli dostępu w aplikacjach organizacji na podstawie określonych warunków. Warunki definiują użytkowników lub grupę użytkowników oraz informacje o tym, co (w których aplikacjach w chmurze) oraz o tym, gdzie (które lokalizacje i sieci) są stosowane zasady dostępu warunkowego. Po ustaleniu warunków można kierować użytkowników do [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) , gdzie można chronić dane przy użyciu kontrola dostępu warunkowego aplikacji, stosując kontrolki dostępu i sesji.
 
-Kontrola dostępu warunkowego aplikacji umożliwia monitorowanie i kontrolowanie dostępu do aplikacji użytkowników i sesji w czasie rzeczywistym na podstawie zasad dostępu i sesji. Zasady dostępu i sesji są używane w portalu cloud app security w celu dalszego udoskonalania filtrów i ustawiania akcji, które należy podjąć u użytkownika. Dzięki zasadom dostępu i sesji można:
+Kontrola dostępu warunkowego aplikacji umożliwia monitorowanie i sterowanie dostępem aplikacji użytkowników w czasie rzeczywistym na podstawie zasad dostępu i sesji. Zasady dostępu i sesji są używane w portalu Cloud App Security, aby dokładniej modyfikować filtry i ustawiać akcje podejmowane przez użytkownika. Dzięki zasadom dostępu i sesji można:
 
-- Zapobiegaj eksfiltracji danych: można zablokować pobieranie, wycinanie, kopiowanie i drukowanie poufnych dokumentów na, na przykład, na urządzeniach niezarządzanych.
-- Ochrona podczas pobierania: Zamiast blokować pobieranie poufnych dokumentów, możesz wymagać, aby dokumenty były etykietowane i chronione za pomocą usługi Azure Information Protection. Ta akcja gwarantuje, że dokument jest chroniony, a dostęp użytkownika jest ograniczony w potencjalnie ryzykownej sesji.
-- Zapobiegaj przekazywaniu plików bez etykiety: Zanim poufny plik zostanie przekazany, rozpowszechniony i używany przez inne osoby, należy upewnić się, że plik ma właściwą etykietę i ochronę. Można upewnić się, że pliki bez etykiety z zawartością wrażliwą są blokowane przed przekazywaniem, dopóki użytkownik nie klasyfikuje zawartości.
-- Monitorowanie sesji użytkownika pod kątem zgodności: ryzykowni użytkownicy są monitorowani, gdy logują się do aplikacji, a ich akcje są rejestrowane z poziomu sesji. Można zbadać i przeanalizować zachowanie użytkownika, aby zrozumieć, gdzie i na jakich warunkach zasady sesji powinny być stosowane w przyszłości.
-- Zablokuj dostęp: możesz szczegółowo zablokować dostęp dla określonych aplikacji i użytkowników w zależności od kilku czynników ryzyka. Na przykład można je zablokować, jeśli używają certyfikatów klienta jako formy zarządzania urządzeniami.
-- Blokowanie działań niestandardowych: niektóre aplikacje mają unikatowe scenariusze, które niosą ze sobą ryzyko, na przykład wysyłanie wiadomości z poufnych treści w aplikacjach, takich jak Microsoft Teams lub Slack. W tego rodzaju scenariuszach można skanować wiadomości w poszukiwaniu poufnych treści i blokować je w czasie rzeczywistym.
+- Zapobieganie eksfiltracji danych: można zablokować pobieranie, wycinanie, kopiowanie i drukowanie poufnych dokumentów na przykład na urządzeniach niezarządzanych.
+- Ochrona przy pobieraniu: zamiast blokowania pobierania poufnych dokumentów, można wymagać, aby dokumenty były etykietowane i chronione przy użyciu Azure Information Protection. Ta akcja zapewnia ochronę dokumentu i dostęp użytkowników jest ograniczony do potencjalnie ryzykownej sesji.
+- Zapobiegaj przekazywaniu plików bez etykiet: przed przekazaniem poufnego pliku, rozpowszechnienym i używanym przez inne osoby ważne jest, aby upewnić się, że plik ma odpowiednią etykietę i ochronę. Można upewnić się, że pliki bez etykiet z poufną zawartością są blokowane przed przekazywaniem, dopóki użytkownik nie zaklasyfikuje zawartości.
+- Monitoruj sesje użytkowników pod kątem zgodności: Ryzykowni użytkownicy są monitorowani po zalogowaniu się do aplikacji, a ich akcje są rejestrowane w ramach sesji. Możesz zbadać i analizować zachowanie użytkowników, aby zrozumieć, gdzie i w jakich warunkach zasady sesji powinny być stosowane w przyszłości.
+- Blokuj dostęp: możesz szczegółowo blokować dostęp dla określonych aplikacji i użytkowników w zależności od kilku czynników ryzyka. Można na przykład zablokować je, jeśli używają certyfikatów klienta jako formy zarządzania urządzeniami.
+- Blokuj działania niestandardowe: niektóre aplikacje mają unikatowe scenariusze, które przenoszą ryzyko, na przykład wysyłanie komunikatów z poufną zawartością w aplikacjach, takich jak Microsoft Teams lub zapasowy. W tych rodzajach scenariuszy można skanować komunikaty pod kątem poufnej zawartości i blokować je w czasie rzeczywistym.
 
-Aby uzyskać więcej informacji, zobacz artykuł [Wdrażanie kontroli aplikacji dostępu warunkowego dla polecanych aplikacji](/cloud-app-security/proxy-deployment-aad).
+Aby uzyskać więcej informacji, zobacz artykuł [wdrażanie kontrola dostępu warunkowego aplikacji dla polecanych aplikacji](/cloud-app-security/proxy-deployment-aad).
 
-## <a name="sign-in-frequency-preview"></a>Częstotliwość logowania (podgląd)
+## <a name="sign-in-frequency-preview"></a>Częstotliwość logowania (wersja zapoznawcza)
 
-Częstotliwość logowania określa okres, w którym użytkownik zostanie poproszony o ponowne zalogowanie się podczas próby uzyskania dostępu do zasobu.
+Częstotliwość logowania określa czas, po którym użytkownik zostanie poproszony o ponowne zalogowanie przy próbie uzyskania dostępu do zasobu.
 
-Ustawienie częstotliwości logowania działa z aplikacjami, które zaimplementowały protokoły OAUTH2 lub OIDC zgodnie ze standardami. Większość natywnych aplikacji firmy Microsoft dla systemów Windows, Mac i Mobile, w tym następujące aplikacje sieci Web, jest zgodna z tym ustawieniem.
+Ustawienie częstotliwości logowania działa z aplikacjami, które mają wdrożone protokoły OAUTH2 lub OIDC zgodnie ze standardami. Większość aplikacji natywnych firmy Microsoft dla systemów Windows, Mac i Mobile, w tym z uwzględnieniem następujących aplikacji sieci Web, jest zgodnych z tym ustawieniem.
 
 - Word, Excel, PowerPoint Online
-- OneNote Online
+- OneNote online
 - Office.com
 - Portal administracyjny usługi O365
 - Exchange Online
-- Usługi SharePoint i OneDrive
-- Klient internetowy zespołów
+- Program SharePoint i usługa OneDrive
+- Klient sieci Web dla zespołów
 - Dynamics CRM Online
-- Portal Azure
+- Azure Portal
 
-Aby uzyskać więcej informacji, zobacz artykuł [Konfigurowanie zarządzania sesjami uwierzytelniania za pomocą programu Dostęp warunkowy](howto-conditional-access-session-lifetime.md#user-sign-in-frequency).
+Aby uzyskać więcej informacji, zobacz artykuł [Konfigurowanie zarządzania sesją uwierzytelniania przy użyciu dostępu warunkowego](howto-conditional-access-session-lifetime.md#user-sign-in-frequency).
 
-## <a name="persistent-browser-session-preview"></a>Trwała sesja przeglądarki (wersja zapoznawcza)
+## <a name="persistent-browser-session-preview"></a>Sesja trwałej przeglądarki (wersja zapoznawcza)
 
-Trwała sesja przeglądarki pozwala użytkownikom pozostać zalogowanym po zamknięciu i ponownym otwarciu okna przeglądarki.
+W trwałej sesji przeglądarki użytkownicy mogą pozostać zalogowani po zamknięciu i ponownym otwarciu okna przeglądarki.
 
-Aby uzyskać więcej informacji, zobacz artykuł [Konfigurowanie zarządzania sesjami uwierzytelniania za pomocą programu Dostęp warunkowy](howto-conditional-access-session-lifetime.md#persistence-of-browsing-sessions).
+Aby uzyskać więcej informacji, zobacz artykuł [Konfigurowanie zarządzania sesją uwierzytelniania przy użyciu dostępu warunkowego](howto-conditional-access-session-lifetime.md#persistence-of-browsing-sessions).
 
 ## <a name="next-steps"></a>Następne kroki
 

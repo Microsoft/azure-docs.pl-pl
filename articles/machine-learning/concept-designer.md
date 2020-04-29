@@ -1,7 +1,7 @@
 ---
-title: Tworzenie modeli ML z projektantem
+title: Tworzenie modeli ML przy użyciu narzędzia Projektant
 titleSuffix: Azure Machine Learning
-description: Dowiedz się więcej o terminach, pojęciach i przepływie pracy, który składa się na projektanta usługi Azure Machine Learning.
+description: Poznaj warunki, koncepcje i przepływ pracy, które tworzą projektanta dla Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,20 +10,20 @@ ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
 ms.openlocfilehash: 78a6e7fa8d030185f537136a3a2124d8bc59d808
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79037627"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Co to jest projektant usługi Azure Machine Learning (wersja zapoznawcza)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Projektant usługi Azure Machine Learning umożliwia wizualne łączenie [zestawów danych](#datasets) i [modułów](#module) na interaktywnej kanwie w celu tworzenia modeli uczenia maszynowego. Aby dowiedzieć się, jak rozpocząć pracę z projektantem, zobacz [Samouczek: Przewidywanie ceny samochodu z projektantem](tutorial-designer-automobile-price-train-score.md)
+Projektant Azure Machine Learning umożliwia wizualne łączenie [zestawów danych](#datasets) i [modułów](#module) na interaktywnej kanwie w celu tworzenia modeli uczenia maszynowego. Aby dowiedzieć się, jak rozpocząć pracę z projektantem, zobacz [Samouczek: przewidywanie ceny za samochód dla urządzeń przenośnych za pomocą projektanta](tutorial-designer-automobile-price-train-score.md)
 
-![Przykład projektanta usługi Azure Machine Learning](./media/concept-designer/designer-drag-and-drop.gif)
+![Przykład projektanta Azure Machine Learning](./media/concept-designer/designer-drag-and-drop.gif)
 
-Projektant używa [obszaru roboczego](concept-workspace.md) usługi Azure Machine Learning do organizowania zasobów udostępnionych, takich jak:
+Projektant używa [obszaru roboczego](concept-workspace.md) Azure Machine Learning do organizowania zasobów udostępnionych, takich jak:
 
 + [Potoki](#pipeline)
 + [Zestawy danych](#datasets)
@@ -32,108 +32,108 @@ Projektant używa [obszaru roboczego](concept-workspace.md) usługi Azure Machin
 + [Opublikowane potoki](#publish)
 + [Punkty końcowe w czasie rzeczywistym](#deploy)
 
-## <a name="model-training-and-deployment"></a>Szkolenie i wdrażanie modeli
+## <a name="model-training-and-deployment"></a>Modelowanie szkoleń i wdrożeń
 
-Projektant udostępnia wizualne kanwę do tworzenia, testowania i wdrażania modeli uczenia maszynowego. Z projektantem możesz:
+Projektant umożliwia wizualizację kanwy do kompilowania, testowania i wdrażania modeli uczenia maszynowego. Za pomocą projektanta można:
 
-+ Zestawy danych i [moduły przeciągania](#datasets) i upuszczania na kanwę. [modules](#module)
-+ Połącz moduły, aby utworzyć [projekt rurociągu](#pipeline-draft).
-+ Prześlij [przebieg potoku](#pipeline-run) przy użyciu zasobów obliczeniowych w obszarze roboczym usługi Azure Machine Learning.
-+ Konwertuj **potoki szkoleniowe** **na potoki wnioskowania**.
-+ [Opublikuj](#publish) potoki do **punktu końcowego potoku** REST, aby przesłać nowe przebiegi potoku z różnymi parametrami i zestawami danych.
-    + Opublikuj **potok szkoleniowy,** aby ponownie użyć jednego potoku do szkolenia wielu modeli podczas zmiany parametrów i zestawów danych.
-    + Opublikuj **potok wnioskowania partii,** aby prognozować nowe dane przy użyciu wcześniej uczonego modelu.
-+ [Wdrażanie](#deploy) **potoku wnioskowania w czasie rzeczywistym** do punktu końcowego w czasie rzeczywistym, aby przewidywać nowe dane w czasie rzeczywistym.
++ Przeciągnij i upuść [zestawy danych](#datasets) i [moduły](#module) na kanwę.
++ Połącz moduły ze sobą, aby utworzyć [wersję roboczą potoku](#pipeline-draft).
++ Prześlij [przebieg potoku](#pipeline-run) przy użyciu zasobów obliczeniowych w obszarze roboczym Azure Machine Learning.
++ Przekonwertuj **potoki szkoleniowe** na **potoki wnioskowania**.
++ [Opublikuj](#publish) potoki w **punkcie końcowym potoku** REST, aby przesłać nowe uruchomienia potoku z innymi parametrami i zestawami danych.
+    + Publikuj **potok szkoleniowy** , aby ponownie wykorzystać pojedynczy potok do uczenia wielu modeli przy zmianie parametrów i zestawów danych.
+    + Publikuj **potok wnioskowania o partiach** , aby przetworzyć prognozy dotyczące nowych danych przy użyciu wcześniej nauczonego modelu.
++ [Wdróż](#deploy) **potok wnioskowania** w czasie rzeczywistym do punktu końcowego w czasie rzeczywistym, aby przetworzyć prognozy dotyczące nowych danych w czasie rzeczywistym.
 
-![Diagram przepływu pracy do szkolenia, wnioskowania wsadowego i wnioskowania w czasie rzeczywistym w projektancie](./media/concept-designer/designer-workflow-diagram.png)
+![Diagram przepływu pracy na potrzeby szkoleń, wnioskowania partii i wnioskowania w czasie rzeczywistym w projektancie](./media/concept-designer/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Potok
 
-[Potok](concept-azure-machine-learning-architecture.md#ml-pipelines) składa się z zestawów danych i modułów analitycznych, które można połączyć ze sobą. Potoki mają wiele zastosowań: można wykonać potok, który trenuje jeden model lub taki, który trenuje wiele modeli. Można utworzyć potok, który sprawia, że prognoz w czasie rzeczywistym lub w partii lub utworzyć potok, który czyści tylko dane. Potoki umożliwiają ponowne wykorzystanie pracy i organizowanie projektów.
+[Potok](concept-azure-machine-learning-architecture.md#ml-pipelines) składa się z zestawów danych i modułów analitycznych, które łączą się ze sobą. Potoki mają wiele użycia: można utworzyć potok, który pociąga za sobą jeden model, lub jeden z wielu modeli. Można utworzyć potok, który dokonuje prognoz w czasie rzeczywistym lub w partii, lub utworzyć potok, który czyści dane. Potoki umożliwiają ponowne użycie pracy i zorganizowanie projektów.
 
-### <a name="pipeline-draft"></a>Wersja robocza rurociągu
+### <a name="pipeline-draft"></a>Wersja robocza potoku
 
-Podczas edytowania potoku w projektancie postęp jest zapisywany jako **wersja robocza potoku**. Pochylenia potoku można edytować w dowolnym momencie, dodając lub usuwając moduły, konfigurując obiekty docelowe obliczeń, tworząc parametry i tak dalej.
+Podczas edytowania potoku w projektancie postęp jest zapisywany jako **wersja robocza potoku**. Można edytować wersję roboczą potoku w dowolnym momencie przez dodanie lub usunięcie modułów, skonfigurowanie obiektów docelowych obliczeń, utworzenie parametrów itd.
 
 Prawidłowy potok ma następujące cechy:
 
 * Zestawy danych mogą łączyć się tylko z modułami.
 * Moduły mogą łączyć się tylko z zestawami danych lub innymi modułami.
-* Wszystkie porty wejściowe dla modułów muszą mieć pewne połączenie z przepływem danych.
+* Wszystkie porty wejściowe dla modułów muszą mieć połączenie z przepływem danych.
 * Należy ustawić wszystkie wymagane parametry dla każdego modułu.
 
-Gdy będziesz gotowy do uruchomienia wersji roboczej potoku, prześlij przebieg potoku.
+Gdy wszystko będzie gotowe do uruchomienia potoku, przesyłasz uruchomienie potoku.
 
-### <a name="pipeline-run"></a>Przebieg rurociągu
+### <a name="pipeline-run"></a>Uruchomienie potoku
 
-Za każdym razem, gdy uruchamiasz potok, konfiguracja potoku i jego wyniki są przechowywane w obszarze roboczym jako **uruchomienie potoku.** Można wrócić do dowolnego przebiegu potoku, aby sprawdzić go do celów rozwiązywania problemów lub inspekcji. **Sklonuj** przebieg potoku, aby utworzyć nową wersje roboczą potoku do edycji.
+Za każdym razem, gdy uruchamiasz potok, konfiguracja potoku i jego wyniki są przechowywane w obszarze roboczym jako **uruchomienie potoku**. Można wrócić do dowolnego uruchomienia potoku, aby sprawdzić go pod kątem rozwiązywania problemów lub inspekcji. **Sklonuj** uruchomienie potoku, aby utworzyć nową wersję roboczą potoku do edycji.
 
-Przebiegi potoku są pogrupowane w [eksperymenty](concept-azure-machine-learning-architecture.md#experiments) w celu zorganizowania historii uruchamiania. Eksperyment można ustawić dla każdego uruchomienia potoku. 
+Uruchomienia potoków są pogrupowane w [eksperymenty](concept-azure-machine-learning-architecture.md#experiments) w celu zorganizowania historii uruchamiania. Możesz ustawić eksperyment dla każdego uruchomienia potoku. 
 
 ## <a name="datasets"></a>Zestawy danych
 
-Zestaw danych uczenia maszynowego ułatwia dostęp do danych i pracę z nim. W projektancie znajduje się wiele przykładowych zestawów danych, z których można eksperymentować. Możesz [zarejestrować](how-to-create-register-datasets.md) więcej zestawów danych, zgodnie z potrzebami.
+Zestaw danych uczenia maszynowego ułatwia uzyskiwanie dostępu do danych i korzystanie z nich. W projektancie zawarto kilka przykładowych zestawów danych, za pomocą których można eksperymentować. W razie potrzeby możesz [zarejestrować](how-to-create-register-datasets.md) więcej zestawów danych.
 
 ## <a name="module"></a>Moduł
 
-Moduł jest algorytmem, który można wykonać na danych. Projektant ma wiele modułów, począwszy od funkcji transferu danych przychodzących do szkolenia, oceniania i sprawdzania poprawności procesów.
+Moduł jest algorytmem, który można wykonać na danych. Projektant ma wiele modułów niż funkcje transferu danych przychodzących do szkoleń, oceniania i procesów walidacji.
 
 Moduł może zawierać zestaw parametrów, za pomocą których można konfigurować wewnętrzne algorytmy modułu. Po wybraniu modułu na kanwie parametry tego modułu są wyświetlane w okienku Properties (Właściwości) po prawej stronie kanwy. Te parametry można modyfikować w okienku, aby dostosowywać model. Można ustawić zasoby obliczeniowe dla poszczególnych modułów w projektancie. 
 
 ![Właściwości modułu](./media/concept-designer/properties.png)
 
-Aby uzyskać pomoc w poruszaniu się po bibliotece dostępnych algorytmów uczenia maszynowego, zobacz [Omówienie odwołania do modułu algorytm &](algorithm-module-reference/module-reference.md)
+Aby uzyskać pomoc dotyczącą przechodzenia przez bibliotekę dostępnych algorytmów uczenia maszynowego, zobacz [algorytm & — informacje o module](algorithm-module-reference/module-reference.md)
 
 ## <a name="compute-resources"></a><a name="compute"></a>Zasoby obliczeniowe
 
-Użyj zasobów obliczeniowych z obszaru roboczego, aby uruchomić potok i hostować wdrożone modele jako punkty końcowe czasu rzeczywistego lub punkty końcowe potoku (dla wnioskowania wsadowego). Obsługiwane cele obliczeniowe to:
+Użyj zasobów obliczeniowych z obszaru roboczego, aby uruchomić potok i hostować wdrożone modele jako punkty końcowe w czasie rzeczywistym lub punkty końcowe potoku (na potrzeby wnioskowania wsadowego). Obsługiwane elementy docelowe obliczeń są następujące:
 
-| Docelowy zasób obliczeniowy | Szkolenia | wdrażania |
+| Docelowy zasób obliczeniowy | Szkolenia | Wdrożenie |
 | ---- |:----:|:----:|
-| Obliczenia usługi Azure Machine Learning | ✓ | |
+| Azure Machine Learning obliczeń | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Obiekty docelowe obliczeń są dołączone do [obszaru roboczego usługi Azure Machine Learning.](concept-workspace.md) Zarządzasz celami obliczeniowymi w obszarze roboczym w [usłudze Azure Machine Learning Studio (klasycznym).](https://ml.azure.com)
+Elementy docelowe obliczeń są dołączone do [obszaru roboczego Azure Machine Learning](concept-workspace.md). Obiektami docelowymi obliczeń można zarządzać w obszarze roboczym w [Azure Machine Learning Studio (klasyczny)](https://ml.azure.com).
 
-## <a name="deploy"></a>Wdrożenie
+## <a name="deploy"></a>Wdrażanie
 
-Aby przeprowadzić wnioskowanie w czasie rzeczywistym, należy wdrożyć potok jako **punkt końcowy w czasie rzeczywistym.** Punkt końcowy w czasie rzeczywistym tworzy interfejs między aplikacją zewnętrzną a modelem oceniania. Wywołanie punktu końcowego w czasie rzeczywistym zwraca wyniki prognozowania do aplikacji w czasie rzeczywistym. Aby nawiązać wywołanie punktu końcowego w czasie rzeczywistym, należy przekazać klucz interfejsu API, który został utworzony podczas wdrażania punktu końcowego. Punkt końcowy jest oparty na REST, popularnym wyborze architektury dla projektów programowania sieci web.
+Aby wykonać inferencing w czasie rzeczywistym, należy wdrożyć potok jako **punkt końcowy w czasie rzeczywistym**. Punkt końcowy w czasie rzeczywistym tworzy interfejs między aplikacją zewnętrzną a modelem oceniania. Wywołanie punktu końcowego w czasie rzeczywistym zwraca wyniki prognozowania do aplikacji w czasie rzeczywistym. Aby wykonać wywołanie do punktu końcowego w czasie rzeczywistym, należy przekazać klucz interfejsu API, który został utworzony podczas wdrażania punktu końcowego. Punkt końcowy jest oparty na pozostałej, popularnej architekturze dla projektów programowania w sieci Web.
 
-Punkty końcowe w czasie rzeczywistym muszą zostać wdrożone w klastrze usługi Azure Kubernetes.
+Punkty końcowe w czasie rzeczywistym muszą zostać wdrożone w klastrze usługi Azure Kubernetes Service.
 
-Aby dowiedzieć się, jak wdrożyć model, zobacz [Samouczek: Wdrażanie modelu uczenia maszynowego z projektantem.](tutorial-designer-automobile-price-deploy.md)
+Aby dowiedzieć się, jak wdrożyć model, zobacz [Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą projektanta](tutorial-designer-automobile-price-deploy.md).
 
 ## <a name="publish"></a>Publikowanie
 
-Można również opublikować potok do **punktu końcowego potoku**. Podobnie jak w przypadku punktu końcowego w czasie rzeczywistym, punkt końcowy potoku umożliwia przesyłanie nowych uruchomień potoku z aplikacji zewnętrznych przy użyciu wywołań REST. Jednak nie można wysyłać ani odbierać danych w czasie rzeczywistym przy użyciu punktu końcowego potoku.
+Możesz również opublikować potok w **punkcie końcowym potoku**. Podobnie jak w przypadku punktu końcowego w czasie rzeczywistym, punkt końcowy potoku umożliwia przesyłanie nowych uruchomień potoków z aplikacji zewnętrznych przy użyciu wywołań REST. Nie można jednak wysyłać ani odbierać danych w czasie rzeczywistym za pomocą punktu końcowego potoku.
 
-Opublikowane potoki są elastyczne, mogą być używane do szkolenia lub ponownego trenowania modeli, [wykonywania wnioskowania wsadowego,](how-to-run-batch-predictions-designer.md)przetwarzania nowych danych i wielu innych. Można opublikować wiele potoków do jednego punktu końcowego potoku i określić, która wersja potoku do uruchomienia.
+Opublikowane potoki są elastyczne, ale mogą być używane do uczenia lub ponownego uczenia modeli, [wykonywania zadań wsadowych inferencing](how-to-run-batch-predictions-designer.md), przetwarzania nowych danych i wiele innych. Można opublikować wiele potoków w jednym punkcie końcowym potoku i określić, która wersja potoku ma zostać uruchomiona.
 
-Opublikowany potok działa na zasoby obliczeniowe zdefiniowane w wersji roboczej potoku dla każdego modułu.
+Opublikowany potok jest uruchamiany na zasobach obliczeniowych zdefiniowanych w wersji roboczej potoku dla każdego modułu.
 
-Projektant tworzy ten sam [obiekt PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) co SDK.
+Projektant tworzy ten sam obiekt [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) , co zestaw SDK.
 
 
-## <a name="moving-from-the-visual-interface-to-the-designer"></a>Przejście z interfejsu wizualnego do projektanta
+## <a name="moving-from-the-visual-interface-to-the-designer"></a>Przechodzenie z interfejsu wizualizacji do projektanta
 
-Interfejs wizualny (wersja zapoznawcza) został zaktualizowany i jest teraz projektantem usługi Azure Machine Learning (wersja zapoznawcza). Projektant został prześliczony do użycia zaplecza opartego na potoku, który w pełni integruje się z innymi funkcjami usługi Azure Machine Learning. 
+Interfejs wizualny (wersja zapoznawcza) został zaktualizowany i jest teraz Azure Machine Learning projektanta (wersja zapoznawcza). Projektant został przeprojektowany tak, aby korzystał z zaplecza opartego na potoku, który jest w pełni zintegrowany z innymi funkcjami Azure Machine Learning. 
 
-W wyniku tych aktualizacji niektóre pojęcia i terminy dla interfejsu wizualnego zostały zmienione lub zmieniono jego nazwę. Zobacz poniższą tabelę najważniejszych zmian koncepcyjnych. 
+W wyniku tych aktualizacji niektóre koncepcje i terminy dla interfejsu wizualizacji zostały zmienione lub zmieniono ich nazwy. Zapoznaj się z poniższą tabelą, aby poznać najważniejsze zmiany pojęciowe. 
 
-| Koncepcja w projektancie | Poprzednio w interfejsie wizualnym |
+| Koncepcja projektanta | Wcześniej w interfejsie wizualizacji |
 | ---- |:----:|
-| Wersja robocza rurociągu | Experiment |
+| Wersja robocza potoku | Experiment |
 | Punkt końcowy w czasie rzeczywistym | Usługa sieci Web |
 
-### <a name="migrating-to-the-designer"></a>Migracja do projektanta
+### <a name="migrating-to-the-designer"></a>Migrowanie do projektanta
 
-Można konwertować istniejące eksperymenty interfejsu wizualnego i usług sieci web do potoków i punktów końcowych w czasie rzeczywistym w projektancie. Aby przeprowadzić migrację zasobów interfejsu wizualnego, należy wykonać następujące czynności:
+Istniejące eksperymenty interfejsu wizualizacji i usługi sieci Web można przekonwertować na potoki i punkty końcowe w czasie rzeczywistym w projektancie. Wykonaj następujące kroki, aby przeprowadzić migrację zasobów interfejsu wizualizacji:
 
 [!INCLUDE [migrate from the visual interface](../../includes/aml-vi-designer-migration.md)]
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Poznaj podstawy analizy predykcyjnej i uczenia maszynowego dzięki [samouczkowi: Przewidywanie ceny samochodów z projektantem](tutorial-designer-automobile-price-train-score.md)
-* Dowiedz się, jak zmodyfikować istniejące [przykłady projektanta,](samples-designer.md) aby dostosować je do swoich potrzeb.
+* Poznaj podstawy analizy predykcyjnej i uczenia maszynowego za pomocą [samouczka: przewidywanie ceny za samochód z użyciem projektanta](tutorial-designer-automobile-price-train-score.md)
+* Dowiedz się, jak modyfikować istniejące [przykłady projektanta](samples-designer.md) , aby dostosować je do swoich potrzeb.
 

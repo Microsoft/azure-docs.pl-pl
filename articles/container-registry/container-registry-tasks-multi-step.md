@@ -1,53 +1,53 @@
 ---
-title: Wieloetapowe zadanie tworzenia, testowania & obrazu poprawek
-description: Wprowadzenie do zadań wieloetapowych, funkcja zadań usługi ACR w rejestrze kontenerów platformy Azure, która zapewnia oparte na zadaniach przepływy pracy do tworzenia, testowania i poprawiania obrazów kontenerów w chmurze.
+title: Zadanie wieloetapowe umożliwiające kompilację, testowanie obrazu & poprawek
+description: Wprowadzenie do wieloetapowych zadań, funkcji ACR zadań w Azure Container Registry, które udostępniają przepływy pracy oparte na zadaniach służące do kompilowania, testowania i poprawiania obrazów kontenerów w chmurze.
 ms.topic: article
 ms.date: 03/28/2019
 ms.openlocfilehash: 0dcd38559d3f50715f982de4c9c80bfe9c6c8433
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78399699"
 ---
-# <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Uruchamianie wieloetapowych zadań kompilacji, testowania i instalowania poprawek w zadaniach usługi ACR
+# <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Uruchamianie wieloetapowych zadań kompilacji, testów i poprawek w zadaniach ACR
 
-Zadania wieloetapowe rozszerzają możliwości tworzenia i wypychania pojedynczego obrazu zadań ACR za pomocą wieloetapowych, wielowyjęzykowych przepływów pracy. Wykonywanie zadań wieloetapowych umożliwia tworzenie i wypychanie kilku obrazów szeregowo lub równolegle. Następnie uruchom te obrazy jako polecenia w ramach jednego uruchomienia zadania. Każdy krok definiuje operację kompilacji lub wypychania obrazu kontenera, a także może definiować wykonanie kontenera. Każdy krok w zadaniu wieloetapowym używa kontenera jako środowiska wykonywania.
+Zadania wieloetapowe zwiększają możliwość tworzenia i wypychania pojedynczych obrazów przez zadania ACR z wieloetapowymi przepływami pracy opartymi na wielu kontenerach. Zadania wieloetapowe służą do kompilowania i wypychania kilku obrazów, w serii lub równolegle. Następnie Uruchom te obrazy jako polecenia w ramach jednego zadania. Każdy krok definiuje kompilację lub operację wypychania obrazu kontenera, a także definiuje wykonywanie kontenera. Każdy krok w zadaniu wieloetapowym używa kontenera jako środowiska wykonawczego.
 
 > [!IMPORTANT]
 > Jeśli wcześniej utworzono zadania za pomocą wersji zapoznawczej przy użyciu polecenia `az acr build-task`, trzeba je utworzyć ponownie przy użyciu polecenia [az acr task][az-acr-task].
 
-Na przykład można uruchomić zadanie z krokami, które automatyzują następującą logikę:
+Na przykład można uruchomić zadanie z krokami, które automatyzują następujące logiki:
 
 1. Tworzenie obrazu aplikacji sieci Web
-1. Uruchamianie kontenera aplikacji sieci web
-1. Tworzenie obrazu testowego aplikacji sieci Web
-1. Uruchom kontener testowy aplikacji sieci web, który wykonuje testy dla uruchomionego kontenera aplikacji
-1. Jeśli testy zdają wyniki, skompiluj pakiet archiwum wykresu Helm
-1. Wykonywanie `helm upgrade` przy użyciu nowego pakietu archiwum wykresu Helm
+1. Uruchamianie kontenera aplikacji sieci Web
+1. Kompilowanie obrazu testowego aplikacji sieci Web
+1. Uruchom kontener testów aplikacji sieci Web, który wykonuje testy względem uruchomionego kontenera aplikacji
+1. Jeśli testy zachodzą, Kompiluj pakiet archiwum wykresów Helm
+1. Wykonaj `helm upgrade` przy użyciu nowego pakietu archiwum wykresów Helm
 
-Wszystkie kroki są wykonywane w ramach platformy Azure, odciążając pracę do zasobów obliczeniowych platformy Azure i zwalniając cię z zarządzania infrastrukturą. Oprócz rejestru kontenerów platformy Azure płacisz tylko za zasoby, których używasz. Aby uzyskać informacje na temat cen, zobacz sekcję **Kompilacja kontenerów** w [cenniku rejestru kontenerów platformy Azure][pricing].
+Wszystkie kroki są wykonywane w ramach platformy Azure, przeciążać zadania do zasobów obliczeniowych platformy Azure i zwalniać z zarządzania infrastrukturą. Oprócz usługi Azure Container Registry płacisz tylko za zasoby, których używasz. Aby uzyskać informacje na temat cen, zobacz sekcję **kompilacja kontenera** w artykule [Azure Container Registry][pricing].
 
 
 ## <a name="common-task-scenarios"></a>Typowe scenariusze zadań
 
-Zadania wieloetapowe umożliwiają scenariusze, takie jak następująca logika:
+Zadania wieloetapowe umożliwiają wykonywanie scenariuszy, takich jak następujące:
 
-* Tworzenie, oznaczanie i wypychanie jednego lub większej liczby obrazów kontenerów szeregowo lub równolegle.
-* Uruchamianie i przechwytywanie wyników testu jednostki i pokrycia kodu.
-* Uruchamianie i przechwytywanie testów funkcjonalnych. Zadania usługi ACR obsługuje uruchamianie więcej niż jednego kontenera, wykonując serię żądań między nimi.
-* Wykonywanie zadań, w tym kroki przed/księgowanie kompilacji obrazu kontenera.
-* Wdrażanie jednego lub więcej kontenerów z ulubionym aparatem wdrażania w środowisku docelowym.
+* Kompiluj, Otaguj i wypchnij jeden lub więcej obrazów kontenerów, w serii lub równolegle.
+* Uruchom i Przechwyć wyniki testu jednostkowego i pokrycia kodu.
+* Uruchom i Przechwyć testy funkcjonalne. Zadania ACR obsługują więcej niż jeden kontener, wykonując serię żądań między nimi.
+* Wykonywanie wykonywane z zadaniami, w tym etapy wstępnego/publikowania kompilacji obrazu kontenera.
+* Wdróż jeden lub więcej kontenerów z ulubionym aparatem wdrażania w środowisku docelowym.
 
-## <a name="multi-step-task-definition"></a>Wieloetapowa definicja zadania
+## <a name="multi-step-task-definition"></a>Wieloetapowa Definicja zadania
 
-Wieloetapowe zadanie w zadaniach usługi ACR jest definiowane jako seria kroków w pliku YAML. Każdy krok można określić zależności na pomyślne zakończenie jednego lub więcej poprzednich kroków. Dostępne są następujące typy kroków zadań:
+Zadanie wieloetapowe w zadaniach ACR jest zdefiniowane jako seria kroków w pliku YAML. Każdy krok może określać zależności po pomyślnym zakończeniu jednego lub kilku poprzednich kroków. Dostępne są następujące typy etapów zadań:
 
-* [`build`](container-registry-tasks-reference-yaml.md#build): Tworzenie jednego lub więcej `docker build` obrazów kontenerów przy użyciu znanej składni, szeregowo lub równolegle.
-* [`push`](container-registry-tasks-reference-yaml.md#push): Wypychanie utworzonych obrazów do rejestru kontenerów. Rejestry prywatne, takie jak usługa Azure Container Registry, są obsługiwane, podobnie jak publiczne centrum platformy Docker.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Uruchom kontener, tak aby mógł działać jako funkcja w kontekście uruchomionego zadania. Można przekazać parametry do kontenera `[ENTRYPOINT]`i określić właściwości, takie jak env, odłączyć i inne znane `docker run` parametry. Typ `cmd` kroku umożliwia testowanie jednostki i funkcjonalne, z równoczesnym wykonaniem kontenera.
+* [`build`](container-registry-tasks-reference-yaml.md#build): Kompiluj co najmniej jeden obraz kontenera przy użyciu `docker build` znanej składni, w serii lub równolegle.
+* [`push`](container-registry-tasks-reference-yaml.md#push): Wypychanie wbudowanych obrazów do rejestru kontenerów. Prywatne rejestry, takie jak Azure Container Registry, są obsługiwane przez publiczny koncentrator platformy Docker.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Uruchom kontener, aby mógł działać jako funkcja w kontekście uruchomionego zadania. Parametry można przekazać do kontenera `[ENTRYPOINT]`i określić właściwości, takie jak ENV, odłącz i inne znane `docker run` parametry. Typ `cmd` kroku umożliwia testowanie jednostkowe i funkcjonalne, przy jednoczesnym wykonywaniu kontenerów.
 
-Poniższe fragmenty kodu pokazują, jak połączyć te typy kroków zadań. Zadania wieloetapowe mogą być tak proste, jak tworzenie pojedynczego obrazu z pliku Dockerfile i wypychanie do rejestru, z plikiem YAML podobnym do:
+Poniższe fragmenty kodu pokazują, jak połączyć te typy kroków zadań. Zadania wieloetapowe mogą być tak proste, jak Kompilowanie pojedynczego obrazu z pliku dockerfile i wypychanie do rejestru przy użyciu pliku YAML podobnego do:
 
 ```yml
 version: v1.1.0
@@ -56,7 +56,7 @@ steps:
   - push: ["$Registry/hello-world:$ID"]
 ```
 
-Lub bardziej złożone, takie jak ta fikcyjna definicja wieloetapowa, która zawiera kroki kompilacji, testowania, pakietu helm i wdrażania helm (nie pokazano rejestru kontenerów i konfiguracji repozytorium Helma):
+Lub bardziej skomplikowane, takie jak fikcyjna wieloetapowa definicja, która obejmuje kroki kompilowania, testowania, Helm pakietu i wdrożenia Helm (nie podano konfiguracji kontenera kontenerów i repozytorium Helm):
 
 ```yml
 version: v1.1.0
@@ -79,21 +79,21 @@ steps:
   - cmd: $Registry/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image=$Registry/helloworld:$ID
 ```
 
-Zobacz [przykłady zadań](container-registry-tasks-samples.md) dla wieloetapowych zadań YAML plików i dockerfiles dla kilku scenariuszy.
+Zobacz [przykłady zadań](container-registry-tasks-samples.md) dla wieloetapowych zadań YAML pliki i wieloetapowe dockerfile dla kilku scenariuszy.
 
 ## <a name="run-a-sample-task"></a>Uruchamianie przykładowego zadania
 
-Zadania obsługują zarówno ręczne wykonywanie, nazywane "szybkim uruchomieniem", jak i automatyczne wykonywanie zatwierdzania git lub aktualizacji obrazu podstawowego.
+Zadania obsługują zarówno wykonywanie ręczne, nazywane "szybkim uruchamianiem", jak i zautomatyzowane wykonywanie przy zatwierdzaniu Git lub aktualizacji obrazu podstawowego.
 
-Aby uruchomić zadanie, należy najpierw zdefiniować kroki zadania w pliku YAML, a następnie wykonać polecenie interfejsu wiersza polecenia azure [az acr run][az-acr-run].
+Aby uruchomić zadanie, należy najpierw zdefiniować kroki zadania w pliku YAML, a następnie wykonać polecenie interfejsu wiersza polecenia platformy Azure [AZ ACR Run][az-acr-run].
 
-Oto przykładowe polecenie interfejsu wiersza polecenia platformy Azure, które uruchamia zadanie przy użyciu przykładowego pliku YAML zadania. Jego kroki kompilacji, a następnie wypchnąć obraz. Przed `\<acrName\>` uruchomieniem polecenia należy zaktualizować nazwę własnego rejestru kontenerów platformy Azure.
+Oto przykładowe polecenie interfejsu wiersza polecenia platformy Azure, które uruchamia zadanie przy użyciu przykładowego pliku YAML zadania. Jego kroki kompilują i wypychają obraz. Przed `\<acrName\>` uruchomieniem polecenia zaktualizuj nazwę własnego rejestru kontenerów platformy Azure.
 
 ```azurecli
 az acr run --registry <acrName> -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
-Po uruchomieniu zadania dane wyjściowe powinny wyświetlać postęp każdego kroku zdefiniowanego w pliku YAML. Na poniższym wyjściu kroki `acb_step_0` `acb_step_1`są wyświetlane jako i .
+Po uruchomieniu zadania wynik powinien zawierać postęp każdego kroku zdefiniowanego w pliku YAML. W poniższych danych wyjściowych kroki są wyświetlane jako `acb_step_0` i `acb_step_1`.
 
 ```azurecli
 az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
@@ -146,15 +146,15 @@ The following dependencies were found:
 Run ID: yd14 was successful after 19s
 ```
 
-Aby uzyskać więcej informacji na temat automatycznych kompilacji na zatwierdzanie Git lub aktualizacji obrazu podstawowego, zobacz [Automatyzacja kompilacji obrazów i](container-registry-tutorial-build-task.md) aktualizacja obrazu podstawowego tworzy artykuły [samouczka.](container-registry-tutorial-base-image-update.md)
+Aby uzyskać więcej informacji na temat zautomatyzowanych kompilacji w ramach zatwierdzenia Git lub aktualizacji obrazu podstawowego, zobacz artykuły z samouczkiem [Automatyzowanie](container-registry-tutorial-build-task.md) Kompilowanie obrazów i tworzenie [obrazów podstawowych](container-registry-tutorial-base-image-update.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wieloetapowe odwołanie do zadań i przykłady można znaleźć tutaj:
+Informacje o wieloetapowym odniesieniu do zadania i przykłady można znaleźć tutaj:
 
-* [Odwołanie do zadania](container-registry-tasks-reference-yaml.md) — typy kroków zadań, ich właściwości i użycie.
-* [Przykłady zadań](container-registry-tasks-samples.md) `task.yaml` — przykładowe i docker plików dla kilku scenariuszy, proste do złożonych.
-* [Repozytorium Cmd](https://github.com/AzureCR/cmd) — kolekcja kontenerów jako poleceń dla zadań ACR.
+* [Odwołanie do zadania](container-registry-tasks-reference-yaml.md) — typy etapów zadań, ich właściwości i użycie.
+* [Przykłady zadań](container-registry-tasks-samples.md) — przykład `task.yaml` i pliki platformy Docker dla kilku scenariuszy, proste do złożonej.
+* [Polecenie cmd repozytorium](https://github.com/AzureCR/cmd) — kolekcja kontenerów jako poleceń dla zadań ACR.
 
 <!-- IMAGES -->
 

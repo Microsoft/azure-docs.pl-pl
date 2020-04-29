@@ -1,6 +1,6 @@
 ---
-title: Migrowanie maszyn wirtualnych z systemem Linux do usługi Azure Premium Storage za pomocą usługi Azure Site Recovery
-description: Migruj istniejące maszyny wirtualne do usługi Azure Premium Storage przy użyciu usługi Site Recovery. Magazyn w wersji Premium oferuje wysokowydajną obsługę dysku o niskim opóźnieniu dla obciążeń intensywnie korzystających z we/wy uruchomionych na maszynach wirtualnych platformy Azure.
+title: Migrowanie maszyn wirtualnych z systemem Linux do usługi Azure Premium Storage z usługą Azure Site Recovery
+description: Przeprowadź migrację istniejących maszyn wirtualnych do usługi Azure Premium Storage przy użyciu Site Recovery. Premium Storage oferuje wysoką wydajność, obsługę dysków o niskich opóźnieniach dla obciążeń intensywnie korzystających z operacji we/wy działających na platformie Azure Virtual Machines.
 author: luywang
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -8,215 +8,215 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: 0d03c2df720a4e3ccf57fe0be00c2af4fcf72eb0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78944826"
 ---
-# <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrowanie do magazynu w wersji Premium przy użyciu usługi Azure Site Recovery
+# <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrowanie do Premium Storage przy użyciu Azure Site Recovery
 
-[Dyski SSD w wersji Azure w wersji Premium](disks-types.md) zapewniają wysoką wydajność obsługi dysków o niskim opóźnieniu dla maszyn wirtualnych (VM), które są uruchomione obciążenia intensywnie korzystające z we/wy. Ten przewodnik ułatwia migrację dysków maszyn wirtualnych ze standardowego konta magazynu na konto magazynu w wersji Premium przy użyciu [usługi Azure Site Recovery.](../../site-recovery/site-recovery-overview.md)
+[Usługa Azure Premium dysków SSD](disks-types.md) zapewnia obsługę dysków o wysokiej wydajności i małych opóźnieniach dla maszyn wirtualnych, na których działają duże obciążenia we/wy. Ten przewodnik ułatwia Migrowanie dysków maszyn wirtualnych z konta magazynu w warstwie Standardowa do konta magazynu w warstwie Premium przy użyciu [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
-Usługa Site Recovery to usługa platformy Azure, która przyczynia się do strategii ciągłości działania i odzyskiwania po awarii, organizując replikację lokalnych serwerów fizycznych i maszyn wirtualnych w chmurze (Azure) lub w pomocniczym centrum danych. Gdy wystąpią awarie w lokalizacji głównej, można przejść w stan fail over do lokalizacji dodatkowej, aby zachować aplikacje i obciążenia dostępne. Powrót po awarii do lokalizacji podstawowej po powrocie do normalnego działania. 
+Site Recovery to usługa platformy Azure, która przyczynia się do strategii zapewniania ciągłości działalności biznesowej i odzyskiwania po awarii przez organizowanie replikacji lokalnych serwerów fizycznych i maszyn wirtualnych do chmury (Azure) lub dodatkowego centrum danych. Gdy wystąpi awaria w lokalizacji głównej, nastąpi przełączenie w tryb failover do lokalizacji dodatkowej, aby zachować dostęp do aplikacji i obciążeń. Powrót po awarii do lokalizacji podstawowej powraca do normalnego działania. 
 
-Odzyskiwanie lokacji zapewnia testowanie pracy awaryjnej do obsługi ćwiczeń odzyskiwania po awarii bez wpływu na środowiska produkcyjne. Można uruchomić pracę awaryjną przy minimalnej utracie danych (w zależności od częstotliwości replikacji) w przypadku nieoczekiwanych awarii. W scenariuszu migracji do magazynu w ramach programu Premium można użyć [pracy awaryjnej w układzie Site Recovery](../../site-recovery/site-recovery-failover.md) do migracji dysków docelowych na konto magazynu w wersji premium.
+Site Recovery zapewnia test pracy w trybie failover w celu obsługi testów odzyskiwania po awarii bez wpływu na środowiska produkcyjne. Można uruchomić tryb failover z minimalną utratą danych (zależnie od częstotliwości replikacji) w przypadku nieoczekiwanych awarii. W scenariuszu migrowania do Premium Storage można użyć [trybu failover w Site Recovery](../../site-recovery/site-recovery-failover.md) do migrowania dysków docelowych do konta magazynu w warstwie Premium.
 
-Zaleca się migrację do magazynu w wersji Premium przy użyciu usługi Site Recovery, ponieważ ta opcja zapewnia minimalne przestoje. Ta opcja pozwala również uniknąć ręcznego wykonywania kopiowania dysków i tworzenia nowych maszyn wirtualnych. Funkcja Site Recovery będzie systematycznie kopiować dyski i tworzyć nowe maszyny wirtualne podczas pracy awaryjnej. 
+Zalecamy przeprowadzenie migracji do Premium Storage przy użyciu Site Recovery, ponieważ ta opcja zapewnia minimalny czas przestoju. Ta opcja zapobiega również ręcznym wykonywaniu kopiowania dysków i tworzeniu nowych maszyn wirtualnych. Site Recovery będzie systematycznie kopiować dyski i tworzyć nowe maszyny wirtualne podczas pracy w trybie failover. 
 
-Odzyskiwanie witryny obsługuje wiele typów pracy awaryjnej przy minimalnym lub żadnym przestoju. Aby zaplanować przestoje i oszacować utratę danych, zobacz [typy pracy awaryjnej w układzie Site Recovery](../../site-recovery/site-recovery-failover.md). Jeśli [przygotowujesz się do łączenia się z maszynami wirtualnymi platformy Azure po przełączeniu w stan failover,](../../site-recovery/vmware-walkthrough-overview.md)powinieneś mieć możliwość nawiązania połączenia z maszyną wirtualną platformy Azure przy użyciu protokołu RDP po przełączeniu w stan failover.
+Site Recovery obsługuje wiele typów trybu failover z minimalnym czasem przestoju lub bez niego. Aby zaplanować przestoje i oszacować utratę danych, zobacz [typy trybu failover w Site Recovery](../../site-recovery/site-recovery-failover.md). Jeśli [przygotowuje się do łączenia się z maszynami wirtualnymi platformy Azure po](../../site-recovery/vmware-walkthrough-overview.md)przejściu w tryb failover, po przejściu do trybu failover powinno być możliwe nawiązanie połączenia z maszyną wirtualną Azure
 
 ![Diagram odzyskiwania po awarii][1]
 
-## <a name="azure-site-recovery-components"></a>Składniki usługi Azure Site Recovery
+## <a name="azure-site-recovery-components"></a>Składniki Azure Site Recovery
 
-Te składniki odzyskiwania witryny są istotne dla tego scenariusza migracji:
+Poniższe składniki Site Recovery są istotne dla tego scenariusza migracji:
 
-* **Serwer konfiguracji** to maszyna wirtualna platformy Azure, która koordynuje komunikację i zarządza procesami replikacji i odzyskiwania danych. Na tej maszynie wirtualnej można uruchomić pojedynczy plik instalacyjny w celu zainstalowania serwera konfiguracji i dodatkowy składnik, zwany serwerem przetwarzania, jako bramę replikacji. Przeczytaj o [wymaganiach wstępnych serwera konfiguracji](../../site-recovery/vmware-walkthrough-overview.md). Serwer konfiguracji można skonfigurować tylko raz i można go używać do wszystkich migracji do tego samego regionu.
+* **Serwer konfiguracji** to maszyna wirtualna platformy Azure, która koordynuje komunikację i zarządza procesami replikacji i odzyskiwania danych. Na tej maszynie wirtualnej uruchamiasz jeden plik Instalatora, aby zainstalować serwer konfiguracji i dodatkowy składnik nazywany serwerem przetwarzania jako bramę replikacji. Przeczytaj o [wymaganiach wstępnych dotyczących serwera konfiguracji](../../site-recovery/vmware-walkthrough-overview.md). Serwer konfiguracji można skonfigurować tylko raz i można go użyć do wszystkich migracji do tego samego regionu.
 
-* **Serwer przetwarzania** jest bramą replikacji, która: 
+* **Serwer przetwarzania** to brama replikacji, która: 
 
-  1. Odbiera dane replikacji ze źródłowych maszyn wirtualnych.
-  2. Optymalizuje dane za pomocą buforowania, kompresji i szyfrowania.
+  1. Odbiera dane replikacji z źródłowych maszyn wirtualnych.
+  2. Optymalizuje dane z pamięci podręcznej, kompresji i szyfrowania.
   3. Wysyła dane do konta magazynu. 
 
-  Obsługuje również instalację wypychaną usługi mobilności do źródła maszyn wirtualnych i wykonuje automatyczne odnajdowanie źródłowych maszyn wirtualnych. Domyślny serwer przetwarzania jest zainstalowany na serwerze konfiguracji. Można wdrożyć dodatkowe autonomiczne serwery procesów, aby skalować wdrożenie. Przeczytaj o [najlepszych rozwiązaniach dotyczących wdrażania serwerów procesów](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) i [wdrażania dodatkowych serwerów procesów](../../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers). Serwer przetwarzania został skonfigurowany tylko raz i można go używać do wszystkich migracji do tego samego regionu.
+  Obsługuje ona również instalację wypychaną usługi mobilności na źródłowych maszynach wirtualnych i przeprowadza automatyczne odnajdowanie źródłowych maszyn wirtualnych. Domyślny serwer przetwarzania jest zainstalowany na serwerze konfiguracji. Aby skalować wdrożenie, można wdrożyć dodatkowe autonomiczne serwery procesów. Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi wdrażania serwera przetwarzania](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) i [wdrażania dodatkowych serwerów przetwarzania](../../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers). Serwer przetwarzania można skonfigurować tylko raz i można go użyć do wszystkich migracji do tego samego regionu.
 
-* **Usługa mobilności** jest składnikiem, który jest wdrażany na każdej standardowej maszynie wirtualnej, którą chcesz replikować. Przechwytuje zapisy danych na standardowej maszynie wirtualnej i przekazuje je do serwera przetwarzania. Przeczytaj o [wymaganiach wstępnych replikacji maszyny](../../site-recovery/vmware-walkthrough-overview.md).
+* **Usługa mobilności** to składnik wdrożony na każdej standardowej maszynie wirtualnej, która ma być replikowana. Przechwytuje dane zapisu na standardowej maszynie wirtualnej i przekazuje je do serwera przetwarzania. Przeczytaj o [wymaganiach wstępnych dotyczących replikowanych maszyn](../../site-recovery/vmware-walkthrough-overview.md).
 
-Ta grafika pokazuje, jak te składniki współdziałają:
+Ta ilustracja pokazuje, jak te składniki współdziałają:
 
-![Interakcja składników odzyskiwania witryny][15]
+![Interakcja składników Site Recovery][15]
 
 > [!NOTE]
-> Funkcja Odzysk lokacji nie obsługuje migracji dysków miejsca do magazynowania.
+> Site Recovery nie obsługuje migracji dysków funkcji miejsca do magazynowania.
 
-Aby uzyskać dodatkowe składniki dla innych scenariuszy, zobacz [architektura scenariusza](../../site-recovery/vmware-walkthrough-overview.md).
+Aby uzyskać dodatkowe składniki dla innych scenariuszy, zobacz [Architektura scenariusza](../../site-recovery/vmware-walkthrough-overview.md).
 
-## <a name="azure-essentials"></a>Podstawowe informacje o platformie Azure
+## <a name="azure-essentials"></a>Podstawowe informacje dotyczące platformy Azure
 
-Oto wymagania platformy Azure dla tego scenariusza migracji:
+Oto wymagania dotyczące platformy Azure dotyczące tego scenariusza migracji:
 
 * Subskrypcja platformy Azure.
-* Konto magazynu w wersji Premium platformy Azure do przechowywania replikowanych danych.
-* Sieć wirtualna platformy Azure, z którą maszyny wirtualne będą łączyć się podczas ich tworzenia w trybie failover. Sieć wirtualna platformy Azure musi znajdować się w tym samym regionie, w którym jest uruchamiana usługa Site Recovery.
-* Konto magazynu standardowego platformy Azure do przechowywania dzienników replikacji. Może to być to samo konto magazynu dla dysków maszyn wirtualnych, które są migrowane.
+* Konto usługi Azure Premium Storage do przechowywania replikowanych danych.
+* Sieć wirtualna platformy Azure, z którą maszyny wirtualne będą łączyć się podczas tworzenia w trybie failover. Sieć wirtualna platformy Azure musi znajdować się w tym samym regionie, w którym działa Site Recovery.
+* Konto magazynu w warstwie Standardowa na potrzeby przechowywania dzienników replikacji. Może to być to samo konto magazynu dla migrowanych dysków maszyn wirtualnych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Opis odpowiednich składników scenariusza migracji w poprzedniej sekcji.
-* Zaplanuj swój przestój, poznając informacje o [pracy awaryjnej w układzie Site Recovery](../../site-recovery/site-recovery-failover.md).
+* Zapoznaj się z odpowiednimi składnikami scenariusza migracji w poprzedniej sekcji.
+* Zaplanuj przestój, przepoznając [się z trybem failover w Site Recovery](../../site-recovery/site-recovery-failover.md).
 
-## <a name="setup-and-migration-steps"></a>Kroki konfiguracji i migracji
+## <a name="setup-and-migration-steps"></a>Kroki instalacji i migracji
 
-Za pomocą usługi Site Recovery można migrować maszyny wirtualne usługi Azure IaaS między regionami lub w tym samym regionie. Poniższe instrukcje są dostosowane do tego scenariusza migracji z artykułu [Replikuj maszyny wirtualne VMware lub serwery fizyczne na platformie Azure.](../../site-recovery/vmware-walkthrough-overview.md) Skorzystaj z linków, aby uzyskać szczegółowe kroki oprócz instrukcji w tym artykule.
+Za pomocą Site Recovery można migrować maszyny wirtualne IaaS platformy Azure między regionami lub w tym samym regionie. Poniższe instrukcje są dostosowane do tego scenariusza migracji z artykułu [replikowanie maszyn wirtualnych VMware lub serwerów fizycznych na platformę Azure](../../site-recovery/vmware-walkthrough-overview.md). Aby zapoznać się ze szczegółowymi instrukcjami zawartymi w tym artykule, Skorzystaj z linków.
 
-### <a name="step-1-create-a-recovery-services-vault"></a>Krok 1: Tworzenie magazynu usług odzyskiwania
+### <a name="step-1-create-a-recovery-services-vault"></a>Krok 1. Tworzenie magazynu Recovery Services
 
-1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
-2. Wybierz **pozycję Utwórz** > **kopię zapasową zarządzania** **zasobami** > i **odzyskiwanie witryn (OMS)**. Alternatywnie można wybrać **opcję Przeglądaj** > **dodatek do przechowalni** > usług odzyskiwania **.** 
-3. Określ region, do który będą replikowane maszyny wirtualne. Na potrzeby migracji w tym samym regionie wybierz region, w którym znajdują się źródłowe maszyny wirtualne i źródłowe konta magazynu. 
+1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
+2. Wybierz pozycję **Utwórz zasób** > **Zarządzanie** > **zapasami** i **Site Recovery (OMS)**. Alternatywnie możesz wybrać pozycję **Przeglądaj** > **Recovery Services magazyn** > **Dodaj**. 
+3. Określ region, do którego zostaną zreplikowane maszyny wirtualne. Na potrzeby migracji w tym samym regionie wybierz region, w którym źródłowe maszyny wirtualne i źródłowe konta magazynu są. 
 
-### <a name="step-2-choose-your-protection-goals"></a>Krok 2: Wybierz swoje cele ochrony 
+### <a name="step-2-choose-your-protection-goals"></a>Krok 2. Wybieranie celów ochrony 
 
-1. Na maszynie Wirtualnej, na której chcesz zainstalować serwer konfiguracji, otwórz [witrynę Azure portal](https://portal.azure.com).
-2. Przejdź do sekcji Ustawienia magazynu **usług odzyskiwania** > **Lokacja** > **recovery** > Krok**1: Przygotuj** > **cel ochrony**infrastruktury .
+1. Na maszynie wirtualnej, na której chcesz zainstalować serwer konfiguracji, Otwórz [Azure Portal](https://portal.azure.com).
+2. Przejdź do obszaru Recovery Services**Ustawienia** >  **magazynów** > **Site Recovery** > **krok 1: przygotowanie** > **celu ochrony**infrastruktury.
 
-   ![Przeglądanie okienka celu Ochrona][2]
+   ![Przeglądanie okienka cel ochrony][2]
 
-3. W obszarze **Cel Ochrony**na pierwszej liście rozwijanej wybierz pozycję **Na platformie Azure**. Na drugiej liście rozwijanej wybierz pozycję **Nie zwirtualizowany / Inne**, a następnie wybierz przycisk **OK**.
+3. W obszarze **cel ochrony**z pierwszej listy rozwijanej wybierz pozycję **na platformie Azure**. Z drugiej listy rozwijanej wybierz pozycję **niezwirtualizowane/inne**, a następnie wybierz przycisk **OK**.
 
-   ![Okienko celu ochrony z wypełnionymi polami][3]
+   ![Okienko cel ochrony z wypełnionymi polami][3]
 
-### <a name="step-3-set-up-the-source-environment-configuration-server"></a>Krok 3: Konfigurowanie środowiska źródłowego (serwer konfiguracji)
+### <a name="step-3-set-up-the-source-environment-configuration-server"></a>Krok 3. Konfigurowanie środowiska źródłowego (serwer konfiguracji)
 
-1. Pobierz **ujednoliconą instalację usługi Azure Site Recovery** i klucz rejestracji magazynu, przechodząc do okienek Przygotowywanie źródła**Dodawania serwera** w **infrastrukturze** > **Przygotowywania.** >  
+1. Pobierz **Azure Site Recovery ujednoliconą konfigurację** i klucz rejestracji magazynu, przechodząc do okienka **Przygotowanie infrastruktury** > **Przygotuj Źródło** > **Dodaj serwer** . 
  
-   Do uruchomienia ujednoliconej konfiguracji potrzebny jest klucz rejestracji magazynu. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
+   Do uruchomienia ujednoliconej konfiguracji potrzebny będzie klucz rejestracji magazynu. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
 
-   ![Przeglądanie okienka Dodawanie serwera][4]
+   ![Przeglądanie w okienku Dodawanie serwera][4]
 
-2. W okienku **Dodawanie serwera** dodaj serwer konfiguracji.
+2. W okienku **Dodawanie serwera** Dodaj serwer konfiguracji.
 
-   ![Okienko Dodawanie serwera z zaznaczonym serwerem konfiguracji][5]
+   ![Wybrano okienko Dodaj serwer z wybranym serwerem konfiguracji][5]
 
-3. Na maszynie Wirtualnej używanej jako serwer konfiguracji uruchom Instalatora ujednoliconego, aby zainstalować serwer konfiguracji i serwer przetwarzania. Możesz [przejść przez zrzuty ekranu,](../../site-recovery/vmware-walkthrough-overview.md) aby zakończyć instalację. Można zapoznać się z poniższymi zrzutami ekranu, aby uzyskać kroki określone dla tego scenariusza migracji.
+3. Na maszynie wirtualnej, która jest używana jako serwer konfiguracji, uruchom ujednoliconą konfigurację, aby zainstalować serwer konfiguracji i serwer przetwarzania. Aby ukończyć instalację, można [przewinąć zrzuty ekranu](../../site-recovery/vmware-walkthrough-overview.md) . Aby zapoznać się z krokami opisanymi w tym scenariuszu migracji, można odwołać się do poniższych zrzutów ekranu.
 
-   1. W **przed rozpoczęciem**wybierz pozycję Zainstaluj serwer konfiguracji i serwer **przetwarzania**.
+   1. W obszarze **przed rozpoczęciem**wybierz pozycję **Zainstaluj serwer konfiguracji i serwer przetwarzania**.
 
-      ![Przed rozpoczęciem strony][6]
+      ![Przed rozpoczęciem][6]
 
-   2. W **obszarze Rejestracja**przeglądaj i wybierz klucz rejestracji pobrany z przechowalni.
+   2. W obszarze **rejestracja**Przeglądaj i wybierz klucz rejestracji pobrany z magazynu.
 
       ![Strona rejestracji][7]
 
-   3. W obszarze **Szczegóły środowiska** wybierz, czy zamierzasz replikować maszyny wirtualne programu VMware. W tym scenariuszu migracji wybierz pozycję **Nie**.
+   3. W obszarze **Szczegóły środowiska** wybierz, czy zamierzasz replikować maszyny wirtualne programu VMware. W tym scenariuszu migracji wybierz pozycję **nie**.
 
-      ![Strona Szczegóły środowiska][8]
+      ![Strona szczegółów środowiska][8]
 
-4. Po zakończeniu instalacji wykonaj następujące czynności w oknie **Serwera konfiguracji odzyskiwania witryny platformy Microsoft Azure:**
+4. Po zakończeniu instalacji wykonaj następujące czynności w oknie **Microsoft Azure Site Recovery Configuration Server** :
  
-   1. Karta **Zarządzanie kontami** służy do tworzenia konta, którego program Site Recovery może używać do automatycznego odnajdowania. (W scenariuszu ochrony komputerów fizycznych konfigurowanie konta nie jest istotne, ale potrzebujesz co najmniej jednego konta, aby włączyć jeden z następujących kroków. W takim przypadku można nazwać konto i hasło jako dowolny.) 
-   2. Karta **Rejestracja przechowalni** służy do przekazywania pliku poświadczeń przechowalni.
+   1. Karta **Zarządzanie kontami** służy do tworzenia konta, za pomocą którego Site Recovery mogą być odnajdywane automatycznie. (W scenariuszu dotyczącym ochrony komputerów fizycznych skonfigurowanie konta nie ma znaczenia, ale musisz mieć co najmniej jedno konto, aby włączyć jeden z poniższych kroków. W takim przypadku można nazwać konto i hasło jako dowolne. 
+   2. Za pomocą karty **rejestracja w magazynie** Przekaż plik poświadczeń magazynu.
 
-      ![Karta Rejestracja przechowalni][9]
+      ![Karta Rejestracja w magazynie][9]
 
-### <a name="step-4-set-up-the-target-environment"></a>Krok 4: Konfigurowanie środowiska docelowego
+### <a name="step-4-set-up-the-target-environment"></a>Krok 4. Konfigurowanie środowiska docelowego
 
-Wybierz **opcję Przygotuj obiekt docelowy infrastruktury** > **Target**i określ model wdrażania, którego chcesz użyć dla maszyn wirtualnych po przeżycieniu awaryjnym. W zależności od scenariusza można wybrać **klasyczne** lub **Menedżer zasobów.**
+Wybierz pozycję **Przygotuj** > **miejsce docelowe**infrastruktury i określ model wdrażania, który ma być używany dla maszyn wirtualnych po przejściu w tryb failover. W zależności od danego scenariusza możesz wybrać opcję **klasyczne** lub **Menedżer zasobów**.
 
 ![Okienko docelowe][10]
 
 Usługa Site Recovery sprawdza, czy masz co najmniej jedno zgodne konto magazynu Azure i co najmniej jedną sieć platformy Azure. 
 
 > [!NOTE]
-> Jeśli używasz konta magazynu w wersji premium dla replikowanych danych, musisz skonfigurować dodatkowe standardowe konto magazynu do przechowywania dzienników replikacji.
+> Jeśli używasz konta usługi Premium Storage dla replikowanych danych, musisz skonfigurować dodatkowe konto magazynu w warstwie Standardowa do przechowywania dzienników replikacji.
 
-### <a name="step-5-set-up-replication-settings"></a>Krok 5: Konfigurowanie ustawień replikacji
+### <a name="step-5-set-up-replication-settings"></a>Krok 5. Konfigurowanie ustawień replikacji
 
-Aby sprawdzić, czy serwer konfiguracji został pomyślnie skojarzony z utworzonymi zasadami replikacji, wykonaj polecenie [Konfiguruj ustawienia replikacji](../../site-recovery/vmware-walkthrough-overview.md).
+Aby sprawdzić, czy serwer konfiguracji został pomyślnie skojarzony z zasadami replikacji, które tworzysz, postępuj zgodnie z [ustawieniami konfiguracji replikacji](../../site-recovery/vmware-walkthrough-overview.md).
 
-### <a name="step-6-plan-capacity"></a>Krok 6: Pojemność planu
+### <a name="step-6-plan-capacity"></a>Krok 6. Planowanie pojemności
 
-1. Użyj [planisty pojemności,](../../site-recovery/site-recovery-capacity-planner.md) aby dokładnie oszacować przepustowość sieci, pamięć masową i inne wymagania, aby spełnić twoje potrzeby związane z replikacją. 
-2. Po zakończeniu wybierz pozycję **Tak, zrobiłem to** w obszarze **Czy ukończyłeś planowanie pojemności?**.
+1. Użyj [planisty wydajności](../../site-recovery/site-recovery-capacity-planner.md) , aby dokładnie oszacować przepustowość sieci, magazyn i inne wymagania w celu spełnienia wymagań dotyczących replikacji. 
+2. Gdy wszystko będzie gotowe, wybierz pozycję **tak. czy zostało to zrobione** w ramach **planowania pojemności?**.
 
-   ![Pole do potwierdzenia ukończenia planowania zdolności produkcyjnych][11]
+   ![Pole umożliwiające potwierdzenie ukończenia planowania pojemności][11]
 
-### <a name="step-7-install-the-mobility-service-and-enable-replication"></a>Krok 7: Zainstaluj usługę mobilności i włącz replikację
+### <a name="step-7-install-the-mobility-service-and-enable-replication"></a>Krok 7. Instalowanie usługi mobilności i włączanie replikacji
 
-1. Można [wypchnąć instalację](../../site-recovery/vmware-walkthrough-overview.md) do źródłowych maszyn wirtualnych lub [ręcznie zainstalować usługę mobilności](../../site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md) na źródłowych maszynach wirtualnych. Wymagania dotyczące pchania instalacji i ścieżki instalatora ręcznego można znaleźć w podanym łączu. Jeśli wykonujesz instalację ręczną, może być konieczne użycie wewnętrznego adresu IP w celu znalezienia serwera konfiguracji.
+1. Możesz wybrać [wypychanie instalacji](../../site-recovery/vmware-walkthrough-overview.md) do źródłowych maszyn wirtualnych lub [ręcznie zainstalować usługę mobilności](../../site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md) na źródłowych maszynach wirtualnych. Wymaganie wypychania instalacji i ścieżki Instalatora ręcznego można znaleźć w podanym łączu. W przypadku przeprowadzania ręcznej instalacji może być konieczne użycie wewnętrznego adresu IP w celu znalezienia serwera konfiguracji.
 
-   ![Strona Szczegóły serwera konfiguracji][12]
+   ![Strona szczegółów serwera konfiguracji][12]
 
-   Maszyna wirtualna awaryjna będzie miała dwa dyski tymczasowe: jeden z podstawowej maszyny Wirtualnej, a drugi utworzony podczas inicjowania obsługi administracyjnej maszyny Wirtualnej w regionie odzyskiwania. Aby wykluczyć dysk tymczasowy przed replikacją, zainstaluj usługę mobilności przed włączeniem replikacji. Aby dowiedzieć się więcej o wykluczaniu dysku tymczasowego, zobacz [Wykluczanie dysków z replikacji](../../site-recovery/vmware-walkthrough-overview.md).
+   Maszyna wirtualna w trybie failover będzie miała dwa dyski tymczasowe: jedną z podstawowej maszyny wirtualnej i drugą utworzoną podczas aprowizacji maszyny wirtualnej w regionie odzyskiwania. Aby wykluczyć dysk tymczasowy przed replikacją, należy zainstalować usługę mobilności przed włączeniem replikacji. Aby dowiedzieć się więcej na temat wykluczania dysku tymczasowego, zobacz temat [wykluczanie dysków z replikacji](../../site-recovery/vmware-walkthrough-overview.md).
 
 2. Aby włączyć replikację:
-   1. Wybierz opcję **Replikuj** > **źródło**aplikacji . Po włączeniu replikacji po raz pierwszy wybierz **+Replikuj** w przechowalni, aby włączyć replikację dla dodatkowych maszyn.
-   2. W kroku 1 **skonfiguruj źródło** jako serwer przetwarzania.
-   3. W kroku 2 określ model wdrażania po pracy awaryjnej, konto magazynu w wersji premium do migracji, standardowe konto magazynu do zapisywania dzienników i sieć wirtualną, która nie powiedzie się.
-   4. W kroku 3 dodaj chronione maszyny wirtualne według adresu IP. (Aby go znaleźć, może być potrzebny wewnętrzny adres IP).
+   1. Wybierz pozycję **Replikuj** > **Źródło**aplikacji. Po włączeniu replikacji po raz pierwszy wybierz pozycję **+ Replikuj** w magazynie, aby włączyć replikację dla dodatkowych maszyn.
+   2. W kroku 1 Skonfiguruj **Źródło** jako serwer przetwarzania.
+   3. W kroku 2 Określ model wdrożenia po zakończeniu pracy w trybie failover, konto magazynu w warstwie Premium, do którego chcesz przeprowadzić migrację, konto magazynu w warstwie Standardowa w celu zapisania dzienników i niepowodzenie sieci wirtualnej.
+   4. W kroku 3 Dodaj chronione maszyny wirtualne według adresu IP. (Może być potrzebny wewnętrzny adres IP, aby je znaleźć).
    5. W kroku 4 skonfiguruj właściwości, wybierając konta, które zostały wcześniej skonfigurowane na serwerze przetwarzania.
-   6. W kroku 5 wybierz zasadę replikacji utworzoną wcześniej w sekcji "Krok 5: Konfigurowanie ustawień replikacji".
-   7. Kliknij przycisk **OK**.
+   6. W kroku 5 wybierz zasady replikacji utworzone wcześniej w sekcji "krok 5. Konfigurowanie ustawień replikacji".
+   7. Wybierz przycisk **OK**.
 
    > [!NOTE]
-   > Gdy maszyna wirtualna platformy Azure jest cofnięta i uruchomiona ponownie, nie ma żadnej gwarancji, że otrzyma ten sam adres IP. Jeśli adres IP serwera konfiguracji/serwera przetwarzania lub chronionych maszyn wirtualnych platformy Azure ulegnie zmianie, replikacja w tym scenariuszu może nie działać poprawnie.
+   > Po cofnięciu przydziału i ponownym uruchomieniu maszyny wirtualnej platformy Azure nie ma gwarancji, że będzie ona mieć ten sam adres IP. Jeśli adres IP serwera konfiguracji/serwera przetwarzania lub chronionych maszyn wirtualnych platformy Azure ulegnie zmianie, replikacja w tym scenariuszu może nie funkcjonować prawidłowo.
 
-   ![Włącz okienko replikacji z zaznaczoną wybraną wybraną wybraną wybraną][13]
+   ![Włącz okienko replikacji z wybranym źródłem][13]
 
-Podczas projektowania środowiska usługi Azure Storage zaleca się użycie oddzielnych kont magazynu dla każdej maszyny Wirtualnej w zestawie dostępności. Zaleca się przestrzeganie najlepszych rozwiązań w warstwie magazynu, aby [używać wielu kont magazynu dla każdego zestawu dostępności](../linux/manage-availability.md). Dystrybucja dysków maszyn wirtualnych na wiele kont magazynu pomaga zwiększyć dostępność magazynu i dystrybuuje we/wy w infrastrukturze magazynu platformy Azure.
+Podczas projektowania środowiska usługi Azure Storage zalecamy używanie osobnych kont magazynu dla każdej maszyny wirtualnej w zestawie dostępności. Zalecamy przestrzeganie najlepszych rozwiązań z warstwy magazynowania w celu [użycia wielu kont magazynu dla każdego zestawu dostępności](../linux/manage-availability.md). Dystrybuowanie dysków maszyn wirtualnych do wielu kont magazynu pomaga w zwiększeniu dostępności magazynu i rozproszeniu we/wy między infrastrukturą usługi Azure Storage.
 
-Jeśli maszyny wirtualne są w zestawie dostępności, zamiast replikowania dysków wszystkich maszyn wirtualnych do jednego konta magazynu, zdecydowanie zaleca się wielokrotne migrowanie wielu maszyn wirtualnych. W ten sposób maszyny wirtualne w tym samym zestawie dostępności nie współużytkują jedno konto magazynu. Okienko **Włącz replikację** służy do konfigurowania docelowego konta magazynu dla każdej maszyny Wirtualnej po jednym naraz.
+Jeśli maszyny wirtualne znajdują się w zestawie dostępności, a nie replikowania dysków wszystkich maszyn wirtualnych na jedno konto magazynu, zdecydowanie zalecamy Migrowanie wielu maszyn wirtualnych wiele razy. Dzięki temu maszyny wirtualne w tym samym zestawie dostępności nie współużytkują jednego konta magazynu. Za pomocą okienka **Włączanie replikacji** można skonfigurować docelowe konto magazynu dla każdej maszyny wirtualnej, po jednej naraz.
  
-Model wdrażania po pracy awaryjnej można wybrać zgodnie z potrzebami. Jeśli wybierzesz usługę Azure Resource Manager jako model wdrażania po pracy awaryjnej, można w trybie failmover maszyny Wirtualnej (Resource Manager) do maszyny Wirtualnej (Menedżer zasobów) lub można awaryjnie maszyny Wirtualnej (klasycznej) do maszyny wirtualnej (Menedżer zasobów).
+Możesz wybrać model wdrożenia po zakończeniu pracy w trybie failover zgodnie z potrzebami. W przypadku wybrania Azure Resource Manager jako modelu wdrożenia po zakończeniu pracy w trybie failover można przełączyć maszynę wirtualną (Menedżer zasobów) do maszyny wirtualnej (Menedżer zasobów) lub przełączyć ją w tryb failover na maszynę wirtualną (Menedżer zasobów).
 
-### <a name="step-8-run-a-test-failover"></a>Krok 8: Uruchamianie testu po awarii
+### <a name="step-8-run-a-test-failover"></a>Krok 8. Uruchamianie testu pracy w trybie failover
 
-Aby sprawdzić, czy replikacja jest zakończona, wybierz wystąpienie odzyskiwania witryny, a następnie wybierz pozycję **Ustawienia** > **elementów replikowanych**. Zostanie wyświetlony stan i procent procesu replikacji. 
+Aby sprawdzić, czy replikacja została ukończona, wybierz wystąpienie Site Recovery a następnie wybierz pozycję **Ustawienia** > **zreplikowane elementy**. Zobaczysz stan i procent procesu replikacji. 
 
-Po zakończeniu replikacji początkowej uruchom test pracy awaryjnej, aby sprawdzić poprawność strategii replikacji. Aby uzyskać szczegółowe kroki pracy awaryjnej testu, zobacz [Uruchamianie testowej pracy awaryjnej w odzyskiwaniu lokacji.](../../site-recovery/vmware-walkthrough-overview.md) 
+Po zakończeniu replikacji początkowej Uruchom test pracy w trybie failover, aby zweryfikować strategię replikacji. Aby zapoznać się ze szczegółowymi krokami testowego przełączania do trybu failover, zobacz [Uruchamianie testowej pracy w trybie failover w Site Recovery](../../site-recovery/vmware-walkthrough-overview.md). 
 
 > [!NOTE]
-> Przed uruchomieniem pracy awaryjnej upewnij się, że maszyny wirtualne i strategia replikacji spełniają wymagania. Aby uzyskać więcej informacji na temat uruchamiania pracy awaryjnej testu, zobacz [Testowanie pracy awaryjnej na platformie Azure w usłudze Site Recovery.](../../site-recovery/site-recovery-test-failover-to-azure.md)
+> Przed uruchomieniem dowolnego trybu failover upewnij się, że maszyny wirtualne i strategia replikacji spełniają wymagania. Aby uzyskać więcej informacji o uruchamianiu testowej pracy w trybie failover, zobacz [test pracy w trybie failover na platformie Azure w Site Recovery](../../site-recovery/site-recovery-test-failover-to-azure.md).
 
-Stan pracy awaryjnej testu można sprawdzić w*YOUR_FAILOVER_PLAN_NAME***zadania** >  **ustawień** > . W okienku można zobaczyć podział kroków i wyniki sukcesu/niepowodzenia. Jeśli test pracy awaryjnej nie powiedzie się w dowolnym kroku, wybierz krok, aby sprawdzić komunikat o błędzie. 
+Stan testu pracy w trybie failover można sprawdzić w obszarze **Ustawienia** > **zadania** > *YOUR_FAILOVER_PLAN_NAME*. W okienku można zobaczyć podział kroków i wyników powodzeń/niepowodzeń. Jeśli test pracy w trybie failover nie powiedzie się w dowolnym kroku, wybierz krok, aby sprawdzić komunikat o błędzie. 
 
-### <a name="step-9-run-a-failover"></a>Krok 9: Uruchamianie trybu failover
+### <a name="step-9-run-a-failover"></a>Krok 9. Uruchamianie trybu failover
 
-Po zakończeniu pracy awaryjnej testu uruchom przemijenie awaryjne, aby przeprowadzić migrację dysków do magazynu w wersji Premium i zreplikować wystąpienia maszyny Wirtualnej. Postępuj zgodnie ze szczegółowymi instrukcjami w [sprawie Uruchamianie trybu failover](../../site-recovery/site-recovery-failover.md#run-a-failover). 
+Po zakończeniu testowej pracy w trybie failover uruchom tryb failover, aby zmigrować dyski do Premium Storage i zreplikować wystąpienia maszyn wirtualnych. Postępuj zgodnie ze szczegółowymi instrukcjami w temacie [Uruchamianie trybu failover](../../site-recovery/site-recovery-failover.md#run-a-failover). 
 
-Pamiętaj, aby wybrać **opcję Zamknij maszyny wirtualne i zsynchronizować najnowsze dane**. Ta opcja określa, że usługa Site Recovery powinna próbować zamknąć chronione maszyny wirtualne i zsynchronizować dane, tak aby najnowsza wersja danych została przejęta awaryjnie. Jeśli nie wybierzesz tej opcji lub próba nie powiedzie się, przewijanie awaryjne będzie pochodzić z najnowszego dostępnego punktu odzyskiwania maszyny Wirtualnej. 
+Upewnij się, że wybrano opcję **Zamknij maszyny wirtualne i zsynchronizuj najnowsze dane**. Ta opcja określa, że Site Recovery powinna próbować zamknąć chronione maszyny wirtualne i zsynchronizować dane, aby Najnowsza wersja danych została przełączona w tryb failover. Jeśli ta opcja nie zostanie wybrana lub próba nie powiedzie się, przełączenie w tryb failover będzie możliwe z najnowszego dostępnego punktu odzyskiwania dla maszyny wirtualnej. 
 
-Usługa Site Recovery utworzy wystąpienie maszyny Wirtualnej, którego typ jest taki sam jak maszyna wirtualna obsługująca pamięć wirtualną w ramach magazynu w jakości Premium. Wydajność i cenę różnych wystąpień maszyn wirtualnych można sprawdzić, przechodząc do [ceny maszyn wirtualnych systemu Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) lub maszyn [wirtualnych systemu Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Site Recovery utworzy wystąpienie maszyny wirtualnej, którego typ jest taki sam jak lub podobny do maszyny wirtualnej obsługującej Premium Storage. Możesz sprawdzić wydajność i cenę różnych wystąpień maszyn wirtualnych, przechodząc do [Windows Virtual Machines cenach](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) lub [Linux Virtual Machines cenniku](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 ## <a name="post-migration-steps"></a>Kroki po migracji
 
-1. **Skonfiguruj replikowane maszyny wirtualne do zestawu dostępności, jeśli ma to zastosowanie.** Usługa Site Recovery nie obsługuje migracji maszyn wirtualnych wraz z zestawem dostępności. W zależności od wdrożenia replikowanej maszyny Wirtualnej wykonaj jedną z następujących czynności:
-   * Dla maszyny Wirtualnej utworzonej za pomocą klasycznego modelu wdrażania: Dodaj maszynę wirtualną do dostępności ustawionej w witrynie Azure portal. Aby uzyskać szczegółowe kroki, przejdź do [dodawania istniejącej maszyny wirtualnej do zestawu dostępności](../linux/classic/configure-availability-classic.md).
-   * Dla maszyny Wirtualnej utworzonej za pomocą modelu wdrażania Menedżera zasobów: Zapisz konfigurację maszyny wirtualnej, a następnie usuń i ponownie utwórz maszyny wirtualne w zestawie dostępności. Aby to zrobić, użyj skryptu w [set Azure Resource Manager Zestaw dostępności maszyny Wirtualnej](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Przed uruchomieniem tego skryptu sprawdź jego ograniczenia i zaplanuj przestoje.
+1. **Skonfiguruj zreplikowane maszyny wirtualne do zestawu dostępności, jeśli ma to zastosowanie**. Site Recovery nie obsługuje migrowania maszyn wirtualnych wraz z zestawem dostępności. W zależności od wdrożenia zreplikowanej maszyny wirtualnej wykonaj jedną z następujących czynności:
+   * W przypadku maszyny wirtualnej utworzonej za pomocą klasycznego modelu wdrażania: Dodaj maszynę wirtualną do zestawu dostępności w Azure Portal. Aby uzyskać szczegółowe instrukcje, przejdź do sekcji [Dodawanie istniejącej maszyny wirtualnej do zestawu dostępności](../linux/classic/configure-availability-classic.md).
+   * W przypadku maszyny wirtualnej utworzonej za pomocą Menedżer zasobów model wdrażania: Zapisz konfigurację maszyny wirtualnej, a następnie usuń i ponownie utwórz maszyny wirtualne w zestawie dostępności. Aby to zrobić, Użyj skryptu w [ustawieniu Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Przed uruchomieniem tego skryptu sprawdź jego ograniczenia i Zaplanuj przestoje.
 
-2. **Usuń stare maszyny wirtualne i dyski**. Upewnij się, że dyski premium są zgodne z dyskami źródłowymi i że nowe maszyny wirtualne pełnią tę samą funkcję co źródłowe maszyny wirtualne. Usuń maszynę wirtualną i usuń dyski z kont magazynu źródłowego w witrynie Azure portal. Jeśli występuje problem, w którym dysk nie jest usuwany, nawet jeśli maszyna wirtualna została usunięta, zobacz [Rozwiązywanie problemów z błędami usuwania zasobów magazynu](storage-resource-deletion-errors.md).
+2. **Usuń stare maszyny wirtualne i dyski**. Upewnij się, że dyski w warstwie Premium są spójne z dyskami źródłowymi i że nowe maszyny wirtualne wykonują tę samą funkcję co źródłowe maszyny wirtualne. Usuń maszynę wirtualną i Usuń dyski z kont magazynu źródłowego w Azure Portal. Jeśli wystąpi problem polegający na tym, że dysk nie został usunięty nawet po usunięciu maszyny wirtualnej, zobacz [Rozwiązywanie problemów z usuwaniem zasobów magazynu](storage-resource-deletion-errors.md).
 
-3. **Czyszczenie infrastruktury odzyskiwania witryny platformy Azure**. Jeśli odzysk lokacji nie jest już potrzebny, można wyczyścić jego infrastrukturę. Usuń elementy replikowane, serwer konfiguracji i zasady odzyskiwania, a następnie usuń magazyn usługi Azure Site Recovery.
+3. **Wyczyść infrastrukturę Azure Site Recovery**. Jeśli Site Recovery nie jest już potrzebne, można oczyścić jej infrastrukturę. Usuń zreplikowane elementy, serwer konfiguracji i zasady odzyskiwania, a następnie usuń Magazyn Azure Site Recovery.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 * [Monitorowanie i rozwiązywanie problemów z ochroną maszyn wirtualnych i serwerów fizycznych](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Forum odzyskiwania witryny platformy Microsoft Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
+* [Forum Site Recovery Microsoft Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W przypadku określonych scenariuszy migracji maszyn wirtualnych zobacz następujące zasoby:
+Aby zapoznać się z określonymi scenariuszami migrowania maszyn wirtualnych, zobacz następujące zasoby:
 
-* [Migrowanie maszyn wirtualnych platformy Azure między kontami magazynu](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Przekazywanie wirtualnego dysku twardego systemu Linux](upload-vhd.md)
-* [Migrowanie maszyn wirtualnych z usług Amazon AWS na platformę Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* [Migrowanie Virtual Machines platformy Azure między kontami magazynu](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
+* [Przekazywanie wirtualnego dysku twardego z systemem Linux](upload-vhd.md)
+* [Migrowanie Virtual Machines z usługi Amazon AWS do Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
-Ponadto zobacz następujące zasoby, aby dowiedzieć się więcej o usłudze Azure Storage i maszynach wirtualnych platformy Azure:
+Zobacz też następujące zasoby, aby dowiedzieć się więcej na temat usługi Azure Storage i platformy Azure Virtual Machines:
 
-* [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-* [Maszyny wirtualne platformy Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Usługa Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+* [Virtual Machines platformy Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Wybieranie typu dysku dla maszyn wirtualnych IaaS](disks-types.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png

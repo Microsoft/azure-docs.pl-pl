@@ -1,6 +1,6 @@
 ---
-title: Opis bliźniaczy modułów Usługi Azure IoT Hub | Dokumenty firmy Microsoft
-description: Przewodnik dla deweloperów — używanie bliźniąt modułów do synchronizowania danych o stanie i konfiguracji między usługą IoT Hub a urządzeniami
+title: Opis usługi Azure IoT Hub module bliźniaczych reprezentacji | Microsoft Docs
+description: Przewodnik dla deweloperów — Używanie modułu bliźniaczych reprezentacji do synchronizowania danych stanu i konfiguracji między IoT Hub i urządzeniami
 author: chrissie926
 ms.service: iot-hub
 services: iot-hub
@@ -8,54 +8,54 @@ ms.topic: conceptual
 ms.date: 02/01/2020
 ms.author: menchi
 ms.openlocfilehash: 5ef6c4de288a764abbe434c5d84fc99e154f7492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78303600"
 ---
-# <a name="understand-and-use-module-twins-in-iot-hub"></a>Opis i używanie bliźniąt modułów w Uirozie IoT Hub
+# <a name="understand-and-use-module-twins-in-iot-hub"></a>Zrozumienie i Używanie modułu bliźniaczych reprezentacji w IoT Hub
 
-W tym artykule przyjęto założenie, że najpierw przeczytałeś [artykuł Zrozum i użyj bliźniaczych urządzeń w Uorie IoT Hub.](iot-hub-devguide-device-twins.md) W Centrum IoT, w ramach każdej tożsamości urządzenia, można utworzyć maksymalnie 20 tożsamości modułu. Każda tożsamość modułu niejawnie generuje bliźniaczej reprezentacji modułu. Podobnie jak bliźniacze dane bliźniaczych reprezentacji urządzeń, bliźniacze moduły są dokumentami JSON, które przechowują informacje o stanie modułu, w tym metadane, konfiguracje i warunki. Usługa Azure IoT Hub przechowuje bliźniaczej reprezentacji modułu dla każdego modułu, który łączysz się z centrum IoT Hub. 
+W tym artykule przyjęto założenie, że zapoznaj [się z artykułem omówienie i użycie bliźniaczych reprezentacji urządzeń w IoT Hub](iot-hub-devguide-device-twins.md) . W IoT Hub w obszarze każdej tożsamości urządzenia można utworzyć maksymalnie 20 tożsamości modułów. Każda tożsamość modułu niejawnie generuje sznurek modułu. Podobnie jak w przypadku urządzeń bliźniaczych reprezentacji, moduł bliźniaczych reprezentacji to dokumenty JSON, które przechowują informacje o stanie modułu, w tym metadane, konfiguracje i warunki. Usługa Azure IoT Hub obsługuje sznurki modułu dla każdego modułu, z którym nawiążesz połączenie IoT Hub. 
 
-Po stronie urządzenia moduły SDK urządzenia usługi IoT Hub umożliwiają tworzenie modułów, w których każdy z nich otwiera niezależne połączenie z centrum IoT Hub. Ta funkcja umożliwia używanie oddzielnych obszarów nazw dla różnych składników na urządzeniu. Na przykład masz automat, który ma trzy różne czujniki. Każdy czujnik jest kontrolowany przez różne działy w Twojej firmie. Można utworzyć moduł dla każdego czujnika. W ten sposób każdy dział jest w stanie wysyłać zadania lub bezpośrednie metody tylko do kontrolowanego przez siebie czujnika, unikając konfliktów i błędów użytkownika.
+Po stronie urządzenia zestawy SDK urządzeń IoT Hub umożliwiają tworzenie modułów, w których każdy z nich otwiera niezależne połączenie z IoT Hub. Ta funkcja umożliwia korzystanie z oddzielnych obszarów nazw dla różnych składników na urządzeniu. Na przykład masz maszynę do sprzedaży z trzema różnymi czujnikami. Każdy czujnik jest kontrolowany przez różne działy w firmie. Moduł można utworzyć dla każdego czujnika. W ten sposób każdy dział może jedynie wysyłać zadania lub bezpośrednie metody do czujnika, który kontroluje, unikając konfliktów i błędów użytkowników.
 
- Tożsamość modułu i bliźniaczej reprezentacji modułu zapewniają takie same możliwości jak tożsamość urządzenia i bliźniaczej reprezentacji urządzenia, ale z większą szczegółowością. Ta drobna szczegółowość umożliwia urządzeniom, takim jak urządzenia oparte na systemie operacyjnym lub urządzenia układowe zarządzające wieloma składnikami, izolowanie konfiguracji i warunków dla każdego z tych składników. Bliźniacze dane bliźniacze tożsamości modułu i modułu zapewniają oddzielenie zarządzania problemów podczas pracy z urządzeniami IoT, które mają modułowe składniki oprogramowania. Naszym celem jest wspieranie wszystkich funkcji bliźniaczej reprezentacji urządzenia na poziomie bliźniaczej modułu przez podwójną ogólną dostępność modułu. 
+ Sznury i moduły modułu zapewniają takie same możliwości, jak tożsamość urządzenia i sznurki urządzeń, ale z większą szczegółowością. Ten bardziej szczegółowy stopień szczegółowości umożliwia urządzeniom opartym na systemie operacyjnym lub urządzeniom oprogramowania układowego zarządzanie wieloma składnikami, a także izolowanie konfiguracji i warunków dla każdego z tych składników. Tożsamość modułu i bliźniaczych reprezentacji modułów umożliwiają zarządzanie rozdzieleniem problemów podczas pracy z urządzeniami IoT, które mają modularne składniki oprogramowania. Zachęcamy do obsługi wszystkich funkcji przędzy dla urządzeń na poziomie niedostępności modułów przez dwuosiowy moduł. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 W tym artykule opisano:
 
-* Struktura modułu bliźniaczego: *tagi*, *pożądane* i *zgłoszone właściwości*.
-* Operacje, które moduły i zaplecze można wykonać na bliźniaczych modułów.
+* Struktura sznurka modułu: *Tagi*, *żądane* i *raportowane właściwości*.
+* Operacje, które moduły i zaplecza mogą wykonywać na module bliźniaczych reprezentacji.
 
-Aby uzyskać wskazówki dotyczące korzystania ze zgłoszonych właściwości, komunikatów z urządzenia do chmury lub przekazywania plików, zapoznaj się [ze wskazówkami dotyczącymi komunikacji](iot-hub-devguide-d2c-guidance.md) między urządzeniami a chmurą.
+Zapoznaj się ze [wskazówkami dotyczącymi komunikacji między urządzeniami i chmurą](iot-hub-devguide-d2c-guidance.md) , aby uzyskać wskazówki dotyczące korzystania z raportowanych właściwości, komunikatów przesyłanych z urządzeń do chmury lub przekazywania plików.
 
-Aby uzyskać wskazówki dotyczące korzystania z żądanych właściwości, metod bezpośrednich lub komunikatów z chmury do urządzenia, zapoznaj się [ze wskazówkami dotyczącymi komunikacji](iot-hub-devguide-c2d-guidance.md) z chmury do urządzenia.
+Zapoznaj się ze [wskazówkami dotyczącymi komunikacji między chmurą i urządzeniami](iot-hub-devguide-c2d-guidance.md) , aby uzyskać wskazówki dotyczące używania żądanych właściwości, metod bezpośrednich lub komunikatów z chmury do urządzenia.
 
-## <a name="module-twins"></a>Bliźnięta modułu
+## <a name="module-twins"></a>Moduł bliźniaczych reprezentacji
 
-Bliźniacze moduły przechowują informacje związane z modułem, które:
+Moduł bliźniaczych reprezentacji magazynu informacje dotyczące modułu, które:
 
-* Moduły na urządzeniu i IoT Hub można użyć do synchronizacji warunków modułu i konfiguracji.
+* Moduły na urządzeniu i IoT Hub mogą służyć do synchronizowania warunków i konfiguracji modułu.
 
-* Zaplecza rozwiązania można użyć do kwerendy i docelowe długotrwałe operacje.
+* Zaplecze rozwiązania może użyć do wykonywania zapytań i docelowych operacji długotrwałych.
 
-Cykl życia bliźniaczej reprezentacji modułu jest połączony z odpowiednią [tożsamością modułu](iot-hub-devguide-identity-registry.md). Moduły bliźniacze są niejawnie tworzone i usuwane, gdy tożsamość modułu jest tworzony lub usuwany w Centrum IoT Hub.
+Cykl życia wieloosiowego modułu jest połączony z odpowiadającą [tożsamością modułu](iot-hub-devguide-identity-registry.md). Moduły bliźniaczych reprezentacji są niejawnie tworzone i usuwane, gdy tożsamość modułu jest tworzona lub usuwana w IoT Hub.
 
-Bliźniacza reprezentacja modułu jest dokumentem JSON, który zawiera:
+Sznurki modułu jest dokumentem JSON, który zawiera:
 
-* **Tagi**. Sekcja dokumentu JSON, który rozwiązanie zaplecza można odczytać i zapisać do. Znaczniki nie są widoczne dla modułów na urządzeniu. Tagi są ustawiane do celów wykonywania zapytań.
+* **Tagi**. Sekcja dokumentu JSON, z której zaplecze rozwiązania może odczytywać i zapisywać dane. Tagi nie są widoczne dla modułów na urządzeniu. Tagi są ustawione na potrzeby wykonywania zapytań.
 
-* **Żądane właściwości**. Używane wraz ze zgłoszonymi właściwościami do synchronizowania konfiguracji lub warunków modułu. Zaplecze rozwiązania można ustawić żądane właściwości, a aplikacja modułu można je odczytać. Aplikacja modułu może również otrzymywać powiadomienia o zmianach w żądanych właściwościach.
+* **Żądane właściwości**. Używane wraz z raportowanymi właściwościami do synchronizacji konfiguracji lub warunków modułu. Zaplecze rozwiązania może ustawić żądane właściwości, a aplikacja modułu może je odczytać. Aplikacja modułu może również odbierać powiadomienia o zmianach w odpowiednich właściwościach.
 
-* **Zgłoszone właściwości**. Używane wraz z żądanymi właściwościami do synchronizowania konfiguracji lub warunków modułu. Aplikacja modułu można ustawić zgłaszane właściwości, a zaplecze rozwiązania można je odczytać i zbadać je.
+* **Raportowane właściwości**. Używane wraz z pożądanymi właściwościami do synchronizowania konfiguracji lub warunków modułu. Aplikacja modułu może ustawiać raportowane właściwości, a zaplecze rozwiązania może odczytywać i wysyłać do nich zapytania.
 
-* **Właściwości tożsamości modułu**. Katalog główny dokumentu JSON bliźniaczej modułu zawiera właściwości tylko do odczytu z odpowiedniej tożsamości modułu przechowywane w [rejestrze tożsamości](iot-hub-devguide-identity-registry.md).
+* **Właściwości tożsamości modułu**. Katalog główny dokumentu JSON modułu z sznurem zawiera właściwości tylko do odczytu z odpowiedniej tożsamości modułu przechowywanej w [rejestrze tożsamości](iot-hub-devguide-identity-registry.md).
 
-![Reprezentacja architektoniczna bliźniaczej reprezentacji urządzenia](./media/iot-hub-devguide-device-twins/module-twin.jpg)
+![Reprezentacja architektury urządzeń z architekturą](./media/iot-hub-devguide-device-twins/module-twin.jpg)
 
-W poniższym przykładzie pokazano bliźniaczej reprezentacji modułu JSON dokumentu:
+W poniższym przykładzie przedstawiono dokument JSON:
 
 ```json
 {
@@ -102,20 +102,20 @@ W poniższym przykładzie pokazano bliźniaczej reprezentacji modułu JSON dokum
 }
 ```
 
-W obiekcie głównym są właściwości tożsamości modułu `tags` i `reported` `desired` obiekty kontenera dla i obu i właściwości. `properties` Kontener zawiera niektóre elementy tylko`$metadata` `$etag`do `$version`odczytu ( , i ) opisane w [module bliźniaczych metadanych](iot-hub-devguide-module-twins.md#module-twin-metadata) i [optymistyczne współbieżności](iot-hub-devguide-device-twins.md#optimistic-concurrency) sekcje.
+W obiekcie głównym są właściwościami tożsamości modułu i obiektami kontenera dla `tags` i obu `reported` `desired` właściwości. `properties` Kontener zawiera elementy tylko do`$metadata`odczytu (, `$etag`i `$version`) opisane w [metadanych dwuosiowych modułu](iot-hub-devguide-module-twins.md#module-twin-metadata) i optymistycznych krokach [współbieżności](iot-hub-devguide-device-twins.md#optimistic-concurrency) .
 
-### <a name="reported-property-example"></a>Przykład zgłoszonej właściwości
+### <a name="reported-property-example"></a>Przykład raportowanej właściwości
 
-W poprzednim przykładzie bliźniaczej `batteryLevel` reprezentacji modułu zawiera właściwość, która jest zgłaszana przez aplikację modułu. Ta właściwość umożliwia wykonywanie zapytań i działanie na modułach na podstawie ostatnio zgłoszonego poziomu naładowania baterii. Inne przykłady obejmują możliwości modułu raportowania aplikacji modułu lub opcje łączności.
+W poprzednim przykładzie sznurek modułu zawiera `batteryLevel` właściwość, która jest raportowana przez aplikację modułu. Ta właściwość umożliwia wykonywanie zapytań i operowanie na modułach na podstawie ostatniego zgłoszonego poziomu baterii. Inne przykłady obejmują możliwości modułu raportowania aplikacji modułu lub opcje łączności.
 
 > [!NOTE]
-> Zgłoszone właściwości upraszczają scenariusze, w których zaplecze rozwiązania jest zainteresowany ostatnią znaną wartością właściwości. Użyj [komunikatów z urządzenia do chmury,](iot-hub-devguide-messages-d2c.md) jeśli zaplecze rozwiązania musi przetwarzać dane telemetryczne modułu w postaci sekwencji zdarzeń sygnatury czasowej, takich jak szeregi czasowe.
+> Raportowane właściwości upraszczają scenariusze, w których zaplecze rozwiązania jest zainteresowane ostatnią znaną wartością właściwości. Użyj [komunikatów z urządzenia do chmury](iot-hub-devguide-messages-d2c.md) , jeśli zaplecze rozwiązania musi przetworzyć dane telemetryczne modułu w postaci sekwencji zdarzeń z sygnaturami czasowymi, takich jak szeregi czasowe.
 
 ### <a name="desired-property-example"></a>Przykład żądanej właściwości
 
-W poprzednim przykładzie `telemetryConfig` bliźniaczej reprezentacji modułu żądane i zgłaszane właściwości są używane przez zaplecza rozwiązania i aplikacji modułu do synchronizacji konfiguracji telemetrii dla tego modułu. Przykład:
+W poprzednim przykładzie `telemetryConfig` pożądane i zgłoszone właściwości są używane przez zaplecze rozwiązania i aplikację modułu do synchronizacji konfiguracji telemetrii dla tego modułu. Przykład:
 
-1. Zaplecze rozwiązania ustawia żądaną właściwość z żądaną wartością konfiguracji. Oto część dokumentu z żądanym zestawem właściwości:
+1. Zaplecze rozwiązania ustawia odpowiednią właściwość o żądaną wartość konfiguracji. Poniżej znajduje się część dokumentu z żądanym zestawem właściwości:
 
     ```json
     ...
@@ -128,7 +128,7 @@ W poprzednim przykładzie `telemetryConfig` bliźniaczej reprezentacji modułu �
     ...
     ```
 
-2. Aplikacja modułu jest powiadamiany o zmianie natychmiast, jeśli podłączony lub przy pierwszym ponownym połączeniu. Następnie aplikacja modułu zgłasza zaktualizowaną konfigurację `status` (lub warunek błędu przy użyciu właściwości). Oto część zgłoszonych właściwości:
+2. Aplikacja modułu zostanie powiadomiona o zmianie natychmiast po powiązaniu połączenia lub przy pierwszym ponownym połączeniu. Aplikacja modułu zgłasza zaktualizowaną konfigurację (lub warunek błędu za pomocą `status` właściwości). Oto część raportowanych właściwości:
 
     ```json
     "reported": {
@@ -140,19 +140,19 @@ W poprzednim przykładzie `telemetryConfig` bliźniaczej reprezentacji modułu �
     }
     ```
 
-3. Zaplecza rozwiązania można śledzić wyniki operacji konfiguracji w wielu modułach, przez [wykonywanie zapytań](iot-hub-devguide-query-language.md) bliźniaczych modułu.
+3. Zaplecze rozwiązania może śledzić wyniki operacji konfiguracji w wielu modułach, wykonując [zapytania dotyczące](iot-hub-devguide-query-language.md) modułu bliźniaczych reprezentacji.
 
 > [!NOTE]
-> Powyższe fragmenty kodu są przykłady, zoptymalizowane pod kątem czytelności, jeden sposób kodowania konfiguracji modułu i jego stanu. Centrum IoT hub nie nakłada określonego schematu dla modułu twin pożądane i zgłaszane właściwości w bliźniaczych reprezentacji modułu.
+> Poprzednie fragmenty kodu są przykładami, zoptymalizowane pod kątem czytelności, w jednym ze sposobów kodowania konfiguracji modułu i jego stanu. IoT Hub nie nakłada określonego schematu dla odpowiedniej sieci i zgłosił właściwości w module bliźniaczych reprezentacji.
 > 
 > 
 
 ## <a name="back-end-operations"></a>Operacje zaplecza
-Zaplecze rozwiązania działa na bliźniaczej reprezentacji modułu przy użyciu następujących operacji niepodzielnych, udostępniane za pośrednictwem protokołu HTTPS:
+Zaplecze rozwiązania działa na sznurze module przy użyciu następujących operacji niepodzielnych udostępnianych za pośrednictwem protokołu HTTPS:
 
-* **Pobierz bliźniaczej reprezentacji modułu przez ID**. Ta operacja zwraca dokument bliźniaczej reprezentacji modułu, w tym znaczniki i żądane i zgłaszane właściwości systemu.
+* **Pobierz sznurki modułu według identyfikatora**. Ta operacja zwraca dokument z sznurem modułu, w tym Tagi i odpowiednie i zgłoszone właściwości systemu.
 
-* **Częściowo aktualizacja modułu bliźniaczego**. Ta operacja umożliwia zapleczu rozwiązania do częściowej aktualizacji tagów lub żądanych właściwości w bliźniaczej reprezentacji modułu. Częściowa aktualizacja jest wyrażona jako dokument JSON, który dodaje lub aktualizuje dowolną właściwość. Właściwości ustawione `null` na są usuwane. Poniższy przykład tworzy nową żądaną właściwość z `{"newProperty": "newValue"}`wartością, zastępuje istniejącą wartość `existingProperty` z `"otherNewValue"`, i usuwa . `otherOldProperty` Żadne inne zmiany nie są wprowadzane do istniejących żądanych właściwości lub tagów:
+* **Częściowo Aktualizuj sznurek modułu**. Ta operacja umożliwia zaplecze rozwiązania częściowo zaktualizować Tagi lub żądane właściwości w postaci sznurka modułu. Aktualizacja częściowa jest wyrażona jako dokument JSON, który dodaje lub aktualizuje każdą właściwość. Właściwości ustawione na `null` są usuwane. Poniższy przykład tworzy nową pożądaną właściwość o `{"newProperty": "newValue"}`wartości, zastępuje istniejącą wartość `existingProperty` z `"otherNewValue"`i usuwa. `otherOldProperty` Nie wprowadzono żadnych innych zmian do istniejących żądanych właściwości lub tagów:
 
     ```json
     {
@@ -168,32 +168,32 @@ Zaplecze rozwiązania działa na bliźniaczej reprezentacji modułu przy użyciu
     }
     ```
 
-* **Zamień żądane właściwości**. Ta operacja umożliwia rozwiązaniu zaplecze całkowicie zastąpić wszystkie istniejące żądane właściwości `properties/desired`i zastąpić nowy dokument JSON dla .
+* **Zastąp żądane właściwości**. Ta operacja umożliwia zapleczu rozwiązania całkowicie zastępowanie wszystkich istniejących żądanych właściwości i zastąpienie nowego dokumentu JSON `properties/desired`.
 
-* **Zamień znaczniki**. Ta operacja umożliwia rozwiązaniu zaplecze całkowicie zastąpić wszystkie istniejące znaczniki i `tags`zastąpić nowy dokument JSON.
+* **Zamień Tagi**. Ta operacja umożliwia zapleczu rozwiązania całkowicie zastępowanie wszystkich istniejących tagów i zastąpienie nowego dokumentu JSON `tags`.
 
-* **Otrzymuj podwójne powiadomienia**. Ta operacja umożliwia rozwiązanie zaplecza, aby otrzymywać powiadomienia, gdy bliźniaczej reprezentacji jest modyfikowany. Aby to zrobić, rozwiązanie IoT musi utworzyć trasę i ustawić źródło danych równe *twinChangeEvents*. Domyślnie nie są wysyłane żadne podwójne powiadomienia, oznacza to, że nie istnieją takie trasy. Jeśli szybkość zmiany jest zbyt wysoka lub z innych powodów, takich jak błędy wewnętrzne, Centrum IoT może wysłać tylko jedno powiadomienie, które zawiera wszystkie zmiany. W związku z tym jeśli aplikacja wymaga niezawodnej inspekcji i rejestrowania wszystkich stanów pośrednich, należy użyć komunikatów z urządzenia do chmury. Komunikat o powiadomieniu bliźniaczej zawiera właściwości i treść.
+* **Otrzymywanie powiadomień bliźniaczych**. Ta operacja umożliwia zaplecze rozwiązania powiadamianie o modyfikacji dwuosiowej. W tym celu Twoje rozwiązanie IoT musi utworzyć trasę i ustawić źródło danych równe *twinChangeEvents*. Domyślnie żadne powiadomienia o przędze nie są wysyłane, czyli nie ma takich tras. Jeśli współczynnik zmiany jest zbyt wysoki lub z innych przyczyn, takich jak błędy wewnętrzne, IoT Hub może wysłać tylko jedno powiadomienie zawierające wszystkie zmiany. W związku z tym, jeśli aplikacja wymaga niezawodnej inspekcji i rejestrowania wszystkich stanów pośrednich, należy użyć komunikatów z urządzenia do chmury. Wiadomość z powiadomieniem o przędzy obejmuje właściwości i treść.
 
   - Właściwości
 
     | Nazwa | Wartość |
     | --- | --- |
     Typ $content | application/json |
-    $iothub-enqueuedtime |  Czas wysłania powiadomienia |
-    źródło $iothub-message | twinChangeZdowyzowie |
-    Kodowanie $content | utf-8 |
+    $iothub — enqueuedtime |  Godzina wysłania powiadomienia |
+    $iothub-komunikat-Źródło | twinChangeEvents |
+    $content — kodowanie | UTF-8 |
     deviceId | Identyfikator urządzenia |
-    identyfikator modułu | Identyfikator modułu |
-    nazwa centrum | Nazwa Centrum IoT |
-    operationStamp | Sygnatura czasowa [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) |
-    schemat iothub-message | twinChangeNotification |
-    Optype | "replaceTwin" lub "updateTwin" |
+    moduleId | Identyfikator modułu |
+    hubName | Nazwa IoT Hub |
+    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) sygnatura czasowa operacji |
+    iothub — komunikat-schemat | twinChangeNotification |
+    opType | "replaceTwin" lub "updateTwin" |
 
     Właściwości systemu wiadomości są poprzedzone `$` symbolem.
 
   - Treść
         
-    Ta sekcja zawiera wszystkie zmiany bliźniaczej reprezentacji w formacie JSON. Używa tego samego formatu co łatka, z tą różnicą, że może zawierać wszystkie sekcje bliźniacze: tagi, properties.reported, properties.desired i że zawiera elementy "$metadata". Na przykład:
+    Ta sekcja zawiera wszystkie zmiany w formacie JSON. Używa tego samego formatu co poprawka, z różnicą, że może zawierać wszystkie sekcje sznurów: Tagi, właściwości. raportowane, właściwości. wymagane i że zawiera elementy "$metadata". Na przykład:
 
     ```json
     {
@@ -214,37 +214,37 @@ Zaplecze rozwiązania działa na bliźniaczej reprezentacji modułu przy użyciu
     }
     ```
 
-Wszystkie poprzednie operacje obsługują [optymistyczną współbieżność](iot-hub-devguide-device-twins.md#optimistic-concurrency) i wymagają uprawnienia **ServiceConnect,** zgodnie z definicją w artykule [Control Access to IoT Hub.](iot-hub-devguide-security.md)
+Wszystkie poprzednie operacje obsługują [optymistyczną współbieżność](iot-hub-devguide-device-twins.md#optimistic-concurrency) i wymagają uprawnienia **serviceconnect** , zgodnie z definicją w artykule [Kontrola dostępu do IoT Hub](iot-hub-devguide-security.md) artykułu.
 
-Oprócz tych operacji zaplecza rozwiązania można zbadać bliźniacze modułu przy użyciu [języka zapytań IoT Hub](iot-hub-devguide-query-language.md)podobne do JĘZYKA SQL.
+Oprócz tych operacji zaplecze rozwiązania może wysyłać zapytania do modułu bliźniaczych reprezentacji przy użyciu [języka zapytań IoT Hub](iot-hub-devguide-query-language.md), takich jak SQL.
 
-## <a name="module-operations"></a>Operacje modułów
+## <a name="module-operations"></a>Operacje modułu
 
-Aplikacja moduł działa na bliźniaczej reprezentacji modułu przy użyciu następujących operacji atomowych:
+Aplikacja modułu działa na sznurze module przy użyciu następujących operacji niepodzielnych:
 
-* **Pobierz bliźniaczej reprezentacji modułu**. Ta operacja zwraca dokument bliźniaczej reprezentacji modułu (w tym znaczniki i żądane i zgłoszone właściwości systemu) dla aktualnie podłączonego modułu.
+* **Pobierz sznurki modułu**. Ta operacja zwraca dokument sznurka modułu (w tym Tagi i żądane i zgłoszone właściwości systemu) dla aktualnie połączonego modułu.
 
-* **Częściowo zaktualizować zgłoszone właściwości**. Ta operacja umożliwia częściową aktualizację zgłoszonych właściwości aktualnie podłączonego modułu. Ta operacja używa tego samego formatu aktualizacji JSON, który rozwiązanie zaplecza używa do częściowej aktualizacji żądanych właściwości.
+* **Częściowo Zaktualizowano raportowane właściwości**. Ta operacja włącza częściową aktualizację zgłoszonych właściwości aktualnie połączonego modułu. Ta operacja używa tego samego formatu aktualizacji JSON, którego zaplecze rozwiązanie używa do częściowej aktualizacji żądanych właściwości.
 
-* **Obserwować żądane właściwości**. Aktualnie podłączony moduł można wybrać, aby otrzymywać powiadomienia o aktualizacjach żądanych właściwości, gdy się pojawią. Moduł otrzymuje taką samą formę aktualizacji (częściowej lub pełnej wymiany) wykonywane przez zaplecza rozwiązania.
+* **Obserwuj żądane właściwości**. Aktualnie połączony moduł może otrzymywać powiadomienia o aktualizacjach odpowiednich właściwości, gdy wystąpią. Moduł otrzymuje tę samą formę aktualizacji (częściowej lub pełnej) wykonywanej przez zaplecze rozwiązania.
 
-Wszystkie poprzednie operacje wymagają uprawnienia **ModuleConnect,** zgodnie z definicją w artykule [Control Access to IoT Hub.](iot-hub-devguide-security.md)
+Wszystkie poprzednie operacje wymagają uprawnienia **ModuleConnect** , zgodnie z definicją w artykule [kontrola dostępu do IoT Hub](iot-hub-devguide-security.md) artykułu.
 
-ZestawY [SDK urządzeń IoT platformy Azure](iot-hub-devguide-sdks.md) ułatwiają korzystanie z poprzednich operacji z wielu języków i platform.
+[Zestawy SDK urządzeń Azure IoT](iot-hub-devguide-sdks.md) ułatwiają używanie powyższych operacji z wielu języków i platform.
 
-## <a name="tags-and-properties-format"></a>Format znaczników i właściwości
+## <a name="tags-and-properties-format"></a>Formatowanie tagów i właściwości
 
-Znaczniki, żądane właściwości i zgłaszane właściwości są obiektami JSON z następującymi ograniczeniami:
+Tagi, żądane właściwości i raportowane właściwości są obiektami JSON z następującymi ograniczeniami:
 
-* **Klawisze:** Wszystkie klucze w obiektach JSON są rozróżniane 64 bajtów CIĄGI UNICODE UTF-8. Dozwolone znaki wykluczają znaki kontrolne UNICODE (segmenty `.`C0 `$`i C1) oraz , SP i .
+* **Klucze**: wszystkie klucze w obiektach JSON są zależne od wielkości liter 64 bajtów UTF-8 Unicode. Dozwolone znaki wykluczają znaki kontrolne UNICODE (segmenty C0 i `.`C1), oraz `$`SP i.
 
-* **Wartości:** Wszystkie wartości w obiektach JSON mogą być następujące typy JSON: logiczne, liczba, ciąg, obiekt. Tablice nie są dozwolone.
+* **Wartości**: wszystkie wartości w obiektach JSON mogą mieć następujące typy JSON: Boolean, Number, String, Object. Tablice są niedozwolone.
 
-    * Liczby całkowite mogą mieć minimalną wartość -4503599627370496 i maksymalną wartość 4503599627370495.
+    * Liczby całkowite mogą mieć minimalną wartość-4503599627370496 i maksymalną wartość 4503599627370495.
 
-    * Wartości ciągów są zakodowane w utrwalone w utrwalone utf-8 i mogą mieć maksymalną długość 512 bajtów.
+    * Wartości ciągów są kodowane w formacie UTF-8 i mogą mieć maksymalną długość 512 bajtów.
 
-* **Głębokość:** Wszystkie obiekty JSON w znacznikach, żądane i zgłaszane właściwości mogą mieć maksymalną głębokość 5. Na przykład prawidłowy jest następujący obiekt:
+* **Głębokość**: wszystkie obiekty JSON w tagach, żądanych i raportowanych właściwościach mogą mieć maksymalną głębokość wynoszącą 5. Na przykład następujący obiekt jest prawidłowy:
 
     ```json
     {
@@ -266,27 +266,27 @@ Znaczniki, żądane właściwości i zgłaszane właściwości są obiektami JSO
     }
     ```
 
-## <a name="module-twin-size"></a>Podwójny rozmiar modułu
+## <a name="module-twin-size"></a>Rozmiar sznurka modułu
 
-Centrum IoT Hub wymusza limit rozmiaru `tags`8 KB wartości i limit rozmiaru 32 KB na wartość `properties/desired` i `properties/reported`. Sumy te nie zawierają elementów `$etag` `$version`tylko `$metadata/$lastUpdated`do odczytu, takich jak , i .
+IoT Hub wymusza limit rozmiaru 8 KB dla wartości `tags`, a rozmiar 32 KB jest ograniczony do wartości `properties/desired` i. `properties/reported` Te sumy są wyłącznie poza elementami tylko do odczytu, `$etag`takimi `$version`jak, `$metadata/$lastUpdated`i.
 
-Rozmiar bliźniaczej reprezentacji oblicza się w następujący sposób:
+Rozmiar bliźniaczy jest obliczany w następujący sposób:
 
-* Dla każdej właściwości w dokumencie JSON Usługa IoT Hub oblicza zbiorczo i dodaje długość klucza i wartości właściwości.
+* Dla każdej właściwości w dokumencie JSON IoT Hub zbiorcze obliczenia i dodaje długość klucza i wartości właściwości.
 
-* Klucze właściwości są traktowane jako ciągi zakodowane w u. UTF8.
+* Klucze właściwości są uznawane za ciągi kodowane w formacie UTF8.
 
-* Proste wartości właściwości są traktowane jako ciągi kodowane zgodnie z UTF8, wartości liczbowe (8 bajtów) lub wartości logiczne (4 bajty).
+* Proste wartości właściwości są uznawane za ciągi kodowane w formacie UTF8, wartości liczbowe (8 bajtów) lub wartości logicznych (4 bajty).
 
-* Rozmiar ciągów zakodowanych w uiczonych w uiczonych w ułowieniu jest obliczany przez zliczanie wszystkich znaków, z wyjątkiem znaków kontrolnych UNICODE (segmenty C0 i C1).
+* Rozmiar ciągów zakodowanych w formacie UTF8 jest obliczany przez liczenie wszystkich znaków, z wyłączeniem znaków kontrolnych UNICODE (segmenty C0 i C1).
 
-* Złożone wartości właściwości (obiekty zagnieżdżone) są obliczane na podstawie agregacji rozmiaru kluczy właściwości i wartości właściwości, które zawierają.
+* Złożone wartości właściwości (obiekty zagnieżdżone) są obliczane na podstawie zagregowanego rozmiaru kluczy właściwości i wartości właściwości, które zawierają.
 
-Centrum IoT hub odrzuca z błędem wszystkie operacje, które mogłyby zwiększyć rozmiar tych dokumentów powyżej limitu.
+IoT Hub odrzuca z powodu błędu wszystkie operacje, które spowodują zwiększenie rozmiaru tych dokumentów powyżej limitu.
 
-## <a name="module-twin-metadata"></a>Podwójne metadane modułu
+## <a name="module-twin-metadata"></a>Metadane sznurka modułu
 
-Usługa IoT Hub zachowuje sygnaturę czasową ostatniej aktualizacji dla każdego obiektu JSON w modułu bliźniaczej reprezentacji żądanej i zgłoszonej właściwości. Sygnatury czasowe są w formacie UTC i zakodowane w formacie `YYYY-MM-DDTHH:MM:SS.mmmZ` [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) .
+IoT Hub utrzymuje sygnaturę czasową ostatniej aktualizacji dla każdego obiektu JSON w pożądanej przędze modułu i raportowane właściwości. Sygnatury czasowe są zakodowane w formacie `YYYY-MM-DDTHH:MM:SS.mmmZ`UTC i kodowane w [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) .
 Przykład:
 
 ```json
@@ -334,19 +334,19 @@ Przykład:
 }
 ```
 
-Te informacje są przechowywane na każdym poziomie (nie tylko po liściach struktury JSON), aby zachować aktualizacje, które usuwają klucze obiektów.
+Te informacje są przechowywane na każdym poziomie (nie tylko przed opuszczeniem struktury JSON), aby zachować aktualizacje, które usuwają klucze obiektów.
 
-## <a name="optimistic-concurrency"></a>Optymistyczna współbieżność
+## <a name="optimistic-concurrency"></a>Współbieżność optymistyczna
 
-Tagi, żądane i zgłaszane właściwości wszystkie obsługują optymistyczne współbieżności.
-Tagi mają ETag, zgodnie z [RFC7232](https://tools.ietf.org/html/rfc7232), który reprezentuje reprezentację JSON tagu. Można użyć tagów ETags w operacjach aktualizacji warunkowej z zaplecza rozwiązania, aby zapewnić spójność.
+Tagi, odpowiednie i raportowane właściwości All obsługują optymistyczną współbieżność.
+Tagi mają element ETag, jak na [RFC7232](https://tools.ietf.org/html/rfc7232), który reprezentuje reprezentację JSON znacznika. Aby zapewnić spójność, można użyć elementów ETag w operacjach aktualizacji warunkowej z zaplecza rozwiązania.
 
-Moduł bliźniaczej reprezentacji żądane i zgłaszane właściwości `$version` nie mają ETags, ale mają wartość, która jest gwarantowana przyrostowe. Podobnie jak eTag, wersja może służyć przez stronę aktualizacji, aby wymusić spójność aktualizacji. Na przykład aplikacja modułu dla zgłoszonej właściwości lub zaplecza rozwiązania dla żądanej właściwości.
+Pożądana sznurek modułu i zgłoszone właściwości nie mają elementów ETag, `$version` ale mają gwarantowaną wartość, która ma być przyrostowa. Podobnie jak w przypadku elementu ETag, wersja może być używana przez stronę aktualizacji w celu wymuszenia spójności aktualizacji. Na przykład aplikacja modułu dla raportowanej właściwości lub zaplecza rozwiązania dla żądanej właściwości.
 
-Wersje są również przydatne, gdy agent obserwujący (na przykład aplikacja modułu obserwująca żądane właściwości) musi uzgodnić wyścigi między wynikiem operacji pobierania a powiadomieniem o aktualizacji. Sekcja [Przepływ ponownego połączenia urządzenia](iot-hub-devguide-device-twins.md#device-reconnection-flow) zawiera więcej informacji. 
+Wersje są również przydatne, gdy Agent obserwowania (na przykład aplikacja modułu obserwowanie żądanych właściwości) musi uzgodnić Races między wynikiem operacji pobierania a powiadomieniem o aktualizacji. Sekcja [przepływu ponownego połączenia urządzenia](iot-hub-devguide-device-twins.md#device-reconnection-flow) zawiera więcej informacji. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby wypróbować niektóre pojęcia opisane w tym artykule, zobacz następujące samouczki Usługi IoT Hub:
+Aby wypróbować niektóre koncepcje opisane w tym artykule, zobacz następujące samouczki IoT Hub:
 
-* [Wprowadzenie do tożsamości modułu IoT Hub i bliźniaczej reprezentacji modułu przy użyciu zaplecza .NET i urządzenia .NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
+* [Wprowadzenie do IoT Hub tożsamość modułu i sznurki modułu przy użyciu zaplecza platformy .NET i urządzenia .NET](iot-hub-csharp-csharp-module-twin-getstarted.md)

@@ -8,16 +8,16 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 2c2d50da4328ff07c3d2fda4a8721839aa3aa6e7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78274051"
 ---
 # <a name="deprecated-run-applications-in-kubernetes"></a>(PRZESTARZAŁE) Uruchamianie aplikacji w usłudze Kubernetes
 
 > [!TIP]
-> Zaktualizowana wersja tego samouczka korzystającego z usługi Azure Kubernetes, zobacz [Samouczek: Uruchamianie aplikacji w usłudze Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-deploy-application.md).
+> Aby uzyskać zaktualizowaną wersję tego samouczka korzystającego z usługi Azure Kubernetes, zobacz [Samouczek: uruchamianie aplikacji w usłudze Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-deploy-application.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

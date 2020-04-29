@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure Data Box Edge zarządza użytkownikami | Dokumenty firmy Microsoft
-description: W tym artykule opisano, jak używać witryny Azure Portal do zarządzania użytkownikami w witrynie Azure Data Box Edge.
+title: Azure Data Box Edge zarządzać użytkownikami | Microsoft Docs
+description: Opisuje sposób używania Azure Portal do zarządzania użytkownikami w Azure Data Box Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: alkohli
 ms.openlocfilehash: 443ed983a0eec5dfd8f7a917fbc1440cd66c3db3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78946139"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>Korzystanie z witryny Azure Portal do zarządzania użytkownikami w witrynie Azure Data Box Edge
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>Użyj Azure Portal, aby zarządzać użytkownikami na Azure Data Box Edge
 
-W tym artykule opisano sposób zarządzania użytkownikami w usłudze Azure Data Box Edge. Usługę Azure Data Box Edge można zarządzać za pośrednictwem witryny Azure portal lub lokalnego interfejsu użytkownika sieci Web. Witryna Azure Portal umożliwia dodawanie, modyfikowanie i usuwanie użytkowników.
+W tym artykule opisano sposób zarządzania użytkownikami na Azure Data Box Edge. Azure Data Box Edge można zarządzać za pośrednictwem Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Witryna Azure Portal umożliwia dodawanie, modyfikowanie i usuwanie użytkowników.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -33,29 +33,29 @@ Użytkownicy mogą mieć prawo tylko do odczytu lub pełne uprawnienia. Jak suge
  - **Użytkownik z pełnymi uprawnieniami** — użytkownik lokalny z pełnym dostępem.
  - **Użytkownik z prawem tylko do odczytu** — użytkownik lokalny z dostępem tylko do odczytu. Ci użytkownicy są powiązani z udziałami, które umożliwiają wykonywanie operacji tylko do odczytu.
 
-Uprawnienia użytkownika są definiowane podczas jego tworzenia w czasie tworzenia udziału. Modyfikacja uprawnień na poziomie udziału nie jest obecnie obsługiwana.
+Uprawnienia użytkownika są definiowane podczas jego tworzenia w czasie tworzenia udziału. Modyfikowanie uprawnień na poziomie udziału nie jest obecnie obsługiwane.
 
 ## <a name="add-a-user"></a>Dodawanie użytkownika
 
 Wykonaj następujące czynności w witrynie Azure Portal, aby dodać użytkownika.
 
-1. W witrynie Azure portal przejdź do zasobu usługi Data Box Edge, a następnie przejdź do **strony Przegląd > użytkowników**. Wybierz **+ Dodaj użytkownika** na pasku poleceń.
+1. W Azure Portal przejdź do zasobu Data Box Edge, a następnie przejdź do **omówienia > użytkowników**. Wybierz pozycję **+ Dodaj użytkownika** na pasku poleceń.
 
-    ![Wybierz dodaj użytkownika](media/data-box-edge-manage-users/add-user-1.png)
+    ![Wybierz pozycję Dodaj użytkownika](media/data-box-edge-manage-users/add-user-1.png)
 
-2. Określ nazwę i hasło użytkownika, którego chcesz dodać. Potwierdź hasło i **wybierz**dodaj .
+2. Określ nazwę i hasło użytkownika, którego chcesz dodać. Potwierdź hasło i wybierz pozycję **Dodaj**.
 
     ![Określ nazwę użytkownika i hasło](media/data-box-edge-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
     > Oto użytkownicy zarezerwowani przez system, których nie należy używać: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
 
-3. Powiadomienie jest wyświetlane po rozpoczęciu i zakończeniu tworzenia użytkownika. Po utworzeniu użytkownika na pasku poleceń wybierz pozycję **Odśwież,** aby wyświetlić zaktualizowaną listę użytkowników.
+3. Powiadomienie jest wyświetlane po rozpoczęciu i zakończeniu tworzenia przez użytkownika. Po utworzeniu użytkownika na pasku poleceń wybierz pozycję **Odśwież** , aby wyświetlić zaktualizowaną listę użytkowników.
 
 
 ## <a name="modify-user"></a>Modyfikowanie harmonogramu
 
-Po utworzeniu użytkownika możesz zmienić przypisane do niego hasło. Wybierz z listy użytkowników. Wprowadź i potwierdź nowe hasło. Zapisz zmiany.
+Po utworzeniu użytkownika możesz zmienić przypisane do niego hasło. Wybierz z listy użytkowników. Wprowadź i Potwierdź nowe hasło. Zapisz zmiany.
  
 ![Modyfikowanie harmonogramu](media/data-box-edge-manage-users/modify-user-1.png)
 
@@ -65,7 +65,7 @@ Po utworzeniu użytkownika możesz zmienić przypisane do niego hasło. Wybierz 
 Wykonaj następujące czynności w witrynie Azure Portal, aby usunąć użytkownika.
 
 
-1. W witrynie Azure portal przejdź do zasobu usługi Data Box Edge, a następnie przejdź do **strony Przegląd > użytkowników**.
+1. W Azure Portal przejdź do zasobu Data Box Edge, a następnie przejdź do **omówienia > użytkowników**.
 
     ![Wybierz użytkownika do usunięcia](media/data-box-edge-manage-users/delete-user-1.png)
 

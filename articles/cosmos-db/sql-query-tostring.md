@@ -1,6 +1,6 @@
 ---
-title: Ciągowanie w języku kwerend usługi Azure Cosmos DB
-description: Dowiedz się więcej o funkcji systemu SQL ToString w usłudze Azure Cosmos DB.
+title: ToString w Azure Cosmos DB języku zapytań
+description: Dowiedz się więcej o funkcji ToString systemu SQL w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 293449b1616e7124245d91c647177b958006009e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78304263"
 ---
-# <a name="tostring-azure-cosmos-db"></a>ToString (usługa Azure Cosmos DB)
- Zwraca reprezentację ciągu wyrażenia skalarnego. 
+# <a name="tostring-azure-cosmos-db"></a>ToString (Azure Cosmos DB)
+ Zwraca ciąg reprezentujący wyrażenie skalarne. 
   
 ## <a name="syntax"></a>Składnia
   
@@ -25,16 +25,16 @@ ToString(<expr>)
   
 ## <a name="arguments"></a>Argumenty
   
-*Expr*  
-   Jest to wyrażenie skalarne.  
+*wyrażenie*  
+   Jest dowolnym wyrażeniem skalarnym.  
   
-## <a name="return-types"></a>Typy zwrotów
+## <a name="return-types"></a>Typy zwracane
   
   Zwraca wyrażenie ciągu.  
   
 ## <a name="examples"></a>Przykłady
   
-  W poniższym `ToString` przykładzie pokazano, jak zachowuje się w różnych typach.   
+  Poniższy przykład pokazuje, jak `ToString` działa w różnych typach.   
   
 ```sql
 SELECT 
@@ -53,11 +53,11 @@ SELECT
 ```json
 [{"str1": "1", "str2": "Hello World", "str3": "NaN", "str4": "Infinity", "str5": "false", "str6": "0.1234", "str7": "false"}]  
 ```  
- Biorąc pod uwagę następujące dane wejściowe:
+ Uwzględniając następujące dane wejściowe:
 ```json
 {"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
 ```    
- Poniższy przykład `ToString` pokazuje, jak można używać `CONCAT`z innymi funkcjami ciągu, takimi jak .   
+ Poniższy przykład pokazuje, jak `ToString` może być używany z innymi funkcjami ciągów, `CONCAT`takimi jak.   
  
 ```sql
 SELECT 
@@ -74,11 +74,11 @@ Tutaj znajduje się zestaw wyników.
 {"$1":"8999mg" }]
 
 ```  
-Biorąc pod uwagę następujące dane wejściowe.
+Uwzględniając poniższe dane wejściowe.
 ```json
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
-Poniższy przykład `ToString` pokazuje, jak można używać `REPLACE`z innymi funkcjami ciągu, takimi jak .   
+Poniższy przykład pokazuje, jak `ToString` może być używany z innymi funkcjami ciągów, `REPLACE`takimi jak.   
 ```sql
 SELECT 
     n.id AS nutrientID,
@@ -97,10 +97,10 @@ Tutaj znajduje się zestaw wyników.
 
 ## <a name="remarks"></a>Uwagi
 
-Ta funkcja systemu nie będzie korzystać z indeksu.
+Ta funkcja systemowa nie będzie używać indeksu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Funkcje ciągów usługi Azure Cosmos DB](sql-query-string-functions.md)
-- [Funkcje systemowe Usługi Azure Cosmos DB](sql-query-system-functions.md)
+- [Azure Cosmos DB funkcje ciągów](sql-query-string-functions.md)
+- [Azure Cosmos DB funkcje systemowe](sql-query-system-functions.md)
 - [Wprowadzenie do usługi Azure Cosmos DB](introduction.md)

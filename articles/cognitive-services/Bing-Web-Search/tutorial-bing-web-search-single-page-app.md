@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943874"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Samouczek: tworzenie aplikacji jednostronicowej przy użyciu interfejsu API wyszukiwania w sieci Web Bing
@@ -37,7 +37,7 @@ Do używania tej aplikacji wymagane jest konto w usłudze [Azure Cognitive Servi
 Składniki wymagane do uruchomienia aplikacji:
 
 * Środowisko Node.js 8 lub nowsze
-* Klucz subskrypcji interfejsu API wyszukiwania Bing. Jeśli go nie masz, [utwórz zasób wyszukiwania Bing w wersji 7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Można również użyć [klucza próbnego](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+* Klucz subskrypcji dla interfejsu API Wyszukiwanie Bing. Jeśli go nie masz, [Utwórz zasób wyszukiwanie Bing wersji 7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Możesz również użyć [klucza próbnego](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 ## <a name="get-the-source-code-and-install-dependencies"></a>Pobranie kodu źródłowego oraz instalowanie zależności
 
 Pierwszą czynnością jest sklonowanie repozytorium z kodem źródłowym przykładowej aplikacji.
@@ -127,7 +127,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-Opcja `SafeSearch` może być ustawiona na `strict`, `moderate` lub `off`, gdzie `moderate` będzie ustawieniem domyślnym dla interfejsu API wyszukiwania w sieci Web Bing. W tym formularzu użyto pola wyboru, które ma dwa stany: `strict` lub `moderate`.
+Opcja `SafeSearch` może być ustawiona na `strict`, `moderate` lub `off`, gdzie `moderate` będzie ustawieniem domyślnym dla interfejsu API wyszukiwania w sieci Web Bing. Ten formularz używa pola wyboru, które ma dwa stany: `strict` lub `moderate`.
 
 Jeśli zaznaczono którekolwiek pole wyboru **Podwyższ poziom**, parametr `answerCount` zostanie dodany do zapytania. Parametr `answerCount` jest wymagany w przypadku korzystania z parametru `promote`. W tym fragmencie kodu wartość została ustawiona na `9`, aby zwracać wszystkie dostępne typy wyników.
 > [!NOTE]

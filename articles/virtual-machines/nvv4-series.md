@@ -1,6 +1,6 @@
 ---
-title: Seria NVv4 — maszyny wirtualne platformy Azure
-description: Dane techniczne maszyn wirtualnych serii NVv4.
+title: NVv4 — seria Virtual Machines platformy Azure
+description: Specyfikacje dotyczące maszyn wirtualnych z serii NVv4.
 services: virtual-machines
 author: vikancha
 ms.service: virtual-machines
@@ -8,42 +8,42 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 0295ed7d44d64fcc1aeb68e1beaa37987b177edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273858"
 ---
 # <a name="nvv4-series"></a>Seria NVv4 
 
-Maszyny wirtualne serii NVv4 są obsługiwane przez procesory graficzne [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) i procesory AMD EPYC 7V12 (Rzym). Platforma Azure z serii NVv4 wprowadza maszyny wirtualne z częściowymi procesorami GPU. Wybierz odpowiednią maszynę wirtualną dla aplikacji graficznych akcelerowanych GPU i pulpitów wirtualnych, począwszy od 1/8 procesora graficznego z buforem 2 ramek GiB do pełnego procesora graficznego z buforem ramki 16 GiB. Maszyny wirtualne NVv4 obsługują obecnie tylko system operacyjny windowsa dla gości.
+Maszyny wirtualne z serii NVv4 są obsługiwane przez procesory [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPU i AMD EPYC 7V12 (Rzym). Dzięki serii NVv4 platforma Azure wprowadza maszyny wirtualne ze częściowym procesorami GPU. Wybierz maszynę wirtualną o odpowiednim rozmiarze dla przyspieszanych przez procesor GPU aplikacji graficznych i pulpitów wirtualnych, rozpoczynając od 1/8. procesora GPU z 2 GiB bufora klatek do pełnego procesora GPU z 16 GiB buforem ramek. NVv4 maszyny wirtualne obecnie obsługują tylko system operacyjny gościa systemu Windows.
 
 <br>
 
-Pamięć masowa w wersji premium: obsługiwane
+Premium Storage: obsługiwane
 
-Buforowanie magazynu w wersji Premium: obsługiwane
+Buforowanie Premium Storage: obsługiwane
 
-Migracja na żywo: nie jest obsługiwana
+Migracja na żywo: nieobsługiwane
 
-Aktualizacje zachowywania pamięci: nie są obsługiwane
+Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Pamięć GPU: GiB | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Pamięć procesora GPU: GiB | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 |
 | Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 8 | 4 |
 | Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 8 |
 | Standard_NV32as_v4 |32 |112 |704 | 1 | 16 | 32 | 8 |
 
-<sup>1</sup> maszyny wirtualne serii NVv4 są wyposażone w technologię multiwątników AMD Simultaneous
+<sup>1</sup> maszyny wirtualne z serii NVv4 — technologia wielowątkowego rozwiązania AMD
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="supported-operating-systems-and-drivers"></a>Obsługiwane systemy operacyjne i sterowniki
 
-Aby korzystać z możliwości procesorów GPU maszyn wirtualnych z serii Azure NVv4 z systemem Windows, należy zainstalować sterowniki procesora graficznego AMD.
+Aby skorzystać z możliwości procesora GPU dla maszyn wirtualnych z serii NVv4 platformy Azure z systemem Windows, należy zainstalować sterowniki procesora GPU AMD.
 
-Aby ręcznie zainstalować sterowniki procesorów graficznych AMD, zobacz [Konfiguracja sterowników GPU AMD serii N dla systemu Windows,](./windows/n-series-amd-driver-setup.md) aby uzyskać informacje o obsługiwanych systemach operacyjnych, sterownikach, instalacji i weryfikacji.
+Aby ręcznie zainstalować sterowniki procesora GPU AMD, zobacz [Instalator sterowników procesora GPU AMD dla systemu Windows](./windows/n-series-amd-driver-setup.md) w przypadku obsługiwanych systemów operacyjnych, sterowników, instalacji i kroków weryfikacyjnych.
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
@@ -56,4 +56,4 @@ Aby ręcznie zainstalować sterowniki procesorów graficznych AMD, zobacz [Konfi
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównywaniu wydajności obliczeniowej w jednostkach SKU platformy Azure.
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.

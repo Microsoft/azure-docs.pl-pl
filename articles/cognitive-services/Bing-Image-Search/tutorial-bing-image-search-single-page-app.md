@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 9227417d28eb09a322dd4757033ee62fee97d91c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943905"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Samouczek: tworzenie aplikacji jednostronicowej przy użyciu interfejsu API wyszukiwania obrazów Bing
@@ -40,7 +40,7 @@ Pełny kod źródłowy dla tego samouczka jest dostępny w serwisie [GitHub](htt
 
 ## <a name="manage-and-store-user-subscription-keys"></a>Przechowywanie kluczy subskrypcji użytkownika i zarządzanie nimi
 
-W tej aplikacji do przechowywania kluczy subskrypcji interfejsu API jest używany magazyn trwały przeglądarki internetowej. Jeśli żaden klucz nie jest przechowywany, strona internetowa wyświetli monit o podanie klucza użytkownika i zachowa go do późniejszego użytku. Jeśli klucz zostanie później odrzucony przez interfejs API, aplikacja usunie go z magazynu. W tym przykładzie użyto globalnego punktu końcowego. Można również użyć niestandardowego punktu końcowego [poddomeny](../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w witrynie Azure portal dla zasobu.
+W tej aplikacji do przechowywania kluczy subskrypcji interfejsu API jest używany magazyn trwały przeglądarki internetowej. Jeśli żaden klucz nie jest przechowywany, strona internetowa wyświetli monit o podanie klucza użytkownika i zachowa go do późniejszego użytku. Jeśli klucz zostanie później odrzucony przez interfejs API, aplikacja usunie go z magazynu. Ten przykład używa globalnego punktu końcowego. Możesz również użyć niestandardowego punktu końcowego [domeny](../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlanego w Azure Portal dla zasobu.
 
 
 Zdefiniuj funkcje `storeValue` i `retrieveValue` tak, aby używały obiektu `localStorage` (jeśli przeglądarka go obsługuje) lub pliku cookie.
@@ -386,7 +386,7 @@ Zasady zabezpieczeń przeglądarki (CORS) mogą powodować, że nagłówek `X-MS
 > [!NOTE]
 > W aplikacji internetowej w środowisku produkcyjnym należy mimo to wykonać to żądanie po stronie serwera. W przeciwnym razie należy dołączyć klucz interfejsu API wyszukiwania Bing do strony internetowej, aby był on dostępny dla każdego, kto wyświetli źródło. Płacisz za wszystkie użycia związane z Twoim kluczem subskrypcji interfejsu API, nawet za żądania wykonane przez osoby nieupoważnione, zatem ważne jest, aby nie ujawniać swojego klucza.
 
-W celach programistycznych możesz wykonywać żądania interfejsu API wyszukiwania w sieci Web Bing za pośrednictwem serwera proxy CORS. Odpowiedź z takiego serwera `Access-Control-Expose-Headers` proxy ma nagłówek, który umożliwia nagłówki odpowiedzi i udostępnia je do języka JavaScript.
+W celach programistycznych możesz wykonywać żądania interfejsu API wyszukiwania w sieci Web Bing za pośrednictwem serwera proxy CORS. Odpowiedź z takiego serwera proxy ma `Access-Control-Expose-Headers` nagłówek, który umożliwia nagłówki odpowiedzi i udostępnia je dla języka JavaScript.
 
 Zainstalowanie serwera proxy CORS w celu zezwolenia naszej aplikacji samouczka na dostęp do nagłówka identyfikatora klienta jest łatwe. Najpierw [zainstaluj platformę Node.js](https://nodejs.org/en/download/), jeśli jeszcze jej nie masz. Następnie wykonaj następujące polecenie w oknie polecenia:
 
@@ -407,6 +407,6 @@ Podczas korzystania z aplikacji samouczka pozostaw okno polecenia otwarte, ponie
 > [!div class="nextstepaction"]
 > [Wyodrębnianie szczegółów obrazu przy użyciu interfejsu API wyszukiwania obrazów Bing](tutorial-image-post.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Dokumentacja interfejsu API wyszukiwania obrazów Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

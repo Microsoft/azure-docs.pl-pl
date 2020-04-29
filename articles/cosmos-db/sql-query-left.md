@@ -1,6 +1,6 @@
 ---
-title: W lewo w języku kwerendy usługi Azure Cosmos DB
-description: Dowiedz się więcej o funkcji systemu SQL left w usłudze Azure Cosmos DB.
+title: Pozostało w Azure Cosmos DB języku zapytań
+description: Dowiedz się więcej o funkcji systemu SQL pozostałej w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 0eac35a91e4d5158335d6797d49a09f8f6f391e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78303753"
 ---
-# <a name="left-azure-cosmos-db"></a>PO LEWEJ (Usługa Azure Cosmos DB)
+# <a name="left-azure-cosmos-db"></a>Z lewej (Azure Cosmos DB)
  Zwraca lewą część ciągu z określoną liczbą znaków.  
   
 ## <a name="syntax"></a>Składnia
@@ -26,18 +26,18 @@ LEFT(<str_expr>, <num_expr>)
 ## <a name="arguments"></a>Argumenty
   
 *str_expr*  
-   Jest wyrażeniem ciągu, z wycięcie znaków.  
+   Jest wyrażeniem ciągu, z którego mają zostać wyodrębnione znaki.  
   
 *num_expr*  
    Jest wyrażeniem liczbowym określającym liczbę znaków.  
   
-## <a name="return-types"></a>Typy zwrotów
+## <a name="return-types"></a>Typy zwracane
   
   Zwraca wyrażenie ciągu.  
   
 ## <a name="examples"></a>Przykłady
   
-  Poniższy przykład zwraca lewą część "abc" dla różnych wartości długości.  
+  Poniższy przykład zwraca lewą część "ABC" dla różnych wartości długości.  
   
 ```sql
 SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2 
@@ -51,10 +51,10 @@ SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2
 
 ## <a name="remarks"></a>Uwagi
 
-Ta funkcja systemu będzie korzystać z [indeksu zakresu](index-policy.md#includeexclude-strategy).
+Ta funkcja systemowa będzie korzystać z [indeksu zakresu](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Funkcje ciągów usługi Azure Cosmos DB](sql-query-string-functions.md)
-- [Funkcje systemowe Usługi Azure Cosmos DB](sql-query-system-functions.md)
+- [Azure Cosmos DB funkcje ciągów](sql-query-string-functions.md)
+- [Azure Cosmos DB funkcje systemowe](sql-query-system-functions.md)
 - [Wprowadzenie do usługi Azure Cosmos DB](introduction.md)

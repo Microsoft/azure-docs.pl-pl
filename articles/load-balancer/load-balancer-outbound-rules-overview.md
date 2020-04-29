@@ -1,6 +1,6 @@
 ---
-title: Reguły ruchu wychodzącego — równoważenie obciążenia platformy Azure
-description: Dzięki tej ścieżce szkoleniowej zacznij używać reguł ruchu wychodzącego do definiowania wychodzących transtacji adresów sieciowych.
+title: Reguły ruchu wychodzącego — Azure Load Balancer
+description: Za pomocą tej ścieżki szkoleniowej Rozpocznij korzystanie z reguł ruchu wychodzącego w celu definiowania translacji adresów sieciowych dla ruchu wychodzącego.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,40 +13,40 @@ ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
 ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78304195"
 ---
-# <a name="load-balancer-outbound-rules"></a>Reguły przy balance balancer ruchu wychodzącego
+# <a name="load-balancer-outbound-rules"></a>Load Balancer reguły ruchu wychodzącego
 
-Moduł równoważenia obciążenia platformy Azure zapewnia łączność wychodzącą z sieci wirtualnej oprócz ruchu przychodzącego.  Reguły ruchu wychodzącego ułatwiają konfigurowanie publicznego [standardowego równoważenia obciążenia](load-balancer-standard-overview.md)wychodzącego translacji adresów sieciowych.  Masz pełną kontrolę deklaratywną nad łącznością wychodzącą, aby skalować i dostroić tę możliwość do określonych potrzeb.
+Azure Load Balancer zapewnia łączność wychodzącą z sieci wirtualnej oprócz ruchu przychodzącego.  Reguły ruchu wychodzącego ułatwiają konfigurowanie wychodzącej translacji adresów sieciowych [Usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md)publicznej.  Masz pełną kontrolę deklaratywną nad łącznością wychodzącą w celu skalowania i dostrajania tej możliwości do konkretnych potrzeb.
 
-![Reguły przy balance balancer ruchu wychodzącego](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
+![Load Balancer reguły ruchu wychodzącego](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
-W przypadku reguł ruchu wychodzącego można użyć modułu równoważenia obciążenia, aby: 
-- definiować wychodzący NAT od podstaw.
-- skalować i dostrajać zachowanie istniejącego wychodzącego translatora treści. 
+Load Balancer reguły ruchu wychodzącego umożliwiają: 
+- Zdefiniuj wychodzące NAT od podstaw.
+- skalowanie i dostrajanie zachowania istniejącego wychodzącego translatora adresów sieciowych. 
 
-Reguły ruchu wychodzącego umożliwiają kontrolowanie:
-- które maszyny wirtualne powinny być tłumaczone, na które publiczne adresy IP. 
-- jak [należy przydzielić wychodzące porty SNAT.](load-balancer-outbound-connections.md#snat)
-- protokoły, dla których można zapewnić tłumaczenie wychodzące.
-- jaki czas trwania ma być używany dla limitu czasu bezczynnego połączenia wychodzącego (4-120 minut).
-- czy wysłać reset TCP przy limit czasu bezczynnego
+Reguły ruchu wychodzącego umożliwiają sterowanie:
+- które maszyny wirtualne powinny być tłumaczone na które publiczne adresy IP. 
+- sposób przydzielenia [portów wychodzącego ruchu źródłowego](load-balancer-outbound-connections.md#snat) .
+- protokoły, dla których ma zostać przewidziane tłumaczenie wychodzące.
+- czas trwania okresu bezczynności połączenia wychodzącego (4-120 minut).
+- Czy należy wysyłać Resetowanie protokołu TCP po upływie limitu czasu bezczynności
 
-Reguły wychodzące rozwiń [scenariusz 2](load-balancer-outbound-connections.md#lb) w opisane w [artykule połączenia wychodzące](load-balancer-outbound-connections.md) i pierwszeństwo scenariusza pozostaje tak, jak jest.
+Reguły ruchu wychodzącego rozszerzają [Scenariusz 2](load-balancer-outbound-connections.md#lb) opisany w artykule [połączenia wychodzące](load-balancer-outbound-connections.md) , a priorytet scenariusza pozostaje taki, jak jest.
 
 ## <a name="outbound-rule"></a>Reguła ruchu wychodzącego
 
-Podobnie jak wszystkie reguły modułu równoważenia obciążenia, reguły ruchu wychodzącego są zgodne z tą samą znaną składnią, co równoważenie obciążenia i przychodzące reguły translatora nat:
+Podobnie jak w przypadku wszystkich reguł Load Balancer, reguły wychodzące mają taką samą znaną składnię jak równoważenie obciążenia i reguły NAT dla ruchu przychodzącego:
 
-**frontend** + **Pula** **parametrów** + wewnętrznej bazy danych
+**frontend** + **parameters** + **Pula zaplecza** parametrów frontonu
 
-Reguła ruchu wychodzącego konfiguruje wychodzący translator adresów sieciowych dla _wszystkich maszyn wirtualnych zidentyfikowanych przez pulę wewnętrznej bazy danych,_ które mają zostać przetłumaczone na _fronton_.  A _parametry_ zapewniają dodatkową szczegółową kontrolę nad wychodzącym algorytmem NAT.
+Reguła ruchu wychodzącego konfiguruje wychodzące NAT dla _wszystkich maszyn wirtualnych identyfikowanych przez pulę zaplecza_ , które mają zostać przetłumaczone na _fronton_.  I _Parametry_ zapewniają dodatkową kontrolę nad algorytmem NAT dla ruchu wychodzącego.
 
-Wersja interfejsu API "2018-07-01" zezwala na definicję reguły ruchu wychodzącego w następujący sposób:
+Wersja interfejsu API "2018-07-01" zezwala na strukturę definicji reguły ruchu wychodzącego w następujący sposób:
 
 ```json
       "outboundRules": [
@@ -62,70 +62,70 @@ Wersja interfejsu API "2018-07-01" zezwala na definicję reguły ruchu wychodzą
 ```
 
 >[!NOTE]
->Skuteczna konfiguracja wychodzącego translatora i sieci na rynku jest złożona ze wszystkich reguł wychodzących i równoważenia obciążenia. Reguły ruchu wychodzącego są przyrostowe do reguł równoważenia obciążenia. Przejrzyj [wyłączenie wychodzącego translatora adresów sieciowych dla reguły równoważenia obciążenia,](#disablesnat) aby zarządzać skutecznym wychodzącym tłumaczeniem NAT, gdy do maszyny wirtualnej stosuje się wiele reguł. Należy [wyłączyć wychodzące SNAT](#disablesnat) podczas definiowania reguły ruchu wychodzącego, który używa tego samego publicznego adresu IP jako reguły równoważenia obciążenia.
+>Obowiązująca Konfiguracja NAT dla ruchu wychodzącego jest złożona ze wszystkich reguł ruchu wychodzącego i reguł równoważenia obciążenia. Reguły ruchu wychodzącego są przyrostowe w regułach równoważenia obciążenia. Zapoznaj się z tematem [wyłączanie wychodzącego NAT dla reguły równoważenia obciążenia](#disablesnat) , aby zarządzać efektywnym wychodzącym TRANSLACJą NAT w przypadku zastosowania wielu reguł do maszyny wirtualnej. Podczas definiowania reguły ruchu wychodzącego, która używa tego samego publicznego adresu IP jako reguły równoważenia obciążenia, należy [wyłączyć wychodzące](#disablesnat) obiektu zasad sieciowych.
 
-### <a name="scale-outbound-nat-with-multiple-ip-addresses"></a><a name="scale"></a>Skalowanie wychodzącego translatora adresów SIECIowych przy użyciu wielu adresów IP
+### <a name="scale-outbound-nat-with-multiple-ip-addresses"></a><a name="scale"></a>Skalowanie ruchu wychodzącego NAT z wieloma adresami IP
 
-Podczas gdy reguły ruchu wychodzącego można używać tylko z jednym publicznym adresem IP, reguły wychodzące ułatwiają obciążenie konfiguracji skalowania wychodzącego translatora adresów sieciowych. Można użyć wielu adresów IP do planowania scenariuszy na dużą skalę i można użyć reguł wychodzących w celu [złagodzenia wzorców podatnych na wyczerpanie SNAT.](load-balancer-outbound-connections.md#snatexhaust)  
+Reguła ruchu wychodzącego może być używana z tylko jednym publicznym adresem IP, ale reguły ruchu wychodzącego ułatwiają skalowanie w ramach ruchu wychodzącego NAT. Można użyć wielu adresów IP do zaplanowania scenariuszy o dużej skali i można użyć reguł ruchu wychodzącego, aby wyeliminować wzorce podatności na ruch [wydechowy](load-balancer-outbound-connections.md#snatexhaust) .  
 
-Każdy dodatkowy adres IP dostarczony przez fronton zapewnia 64 000 portów tymczasowych dla modułu równoważenia obciążenia do użycia jako porty SNAT. Podczas gdy równoważenie obciążenia lub przychodzące reguły NAT mają pojedynczy frontend, reguła wychodząca rozszerza pojęcie frontend i umożliwia wiele frontendów na regułę.  Z wielu frontonów na regułę, ilość dostępnych portów SNAT jest mnożona z każdego publicznego adresu IP i duże scenariusze mogą być obsługiwane.
+Każdy dodatkowy adres IP dostarczony przez fronton zapewnia 64 000 portów tymczasowych Load Balancer do użycia jako portów protokołu integracyjnego. Mimo że reguły równoważenia obciążenia lub ruchu przychodzącego NAT mają jedną fronton, reguła wychodząca rozszerza koncepcję frontonu i zezwala na wiele frontonów dla każdej reguły.  W przypadku wielu frontonów dla każdej reguły liczba dostępnych portów adresów IP jest mnożona przy użyciu każdego publicznego adresu i można obsługiwać duże scenariusze.
 
-Ponadto można użyć [publicznego prefiksu IP](https://aka.ms/lbpublicipprefix) bezpośrednio z regułą wychodzącą.  Za pomocą publicznego prefiksu IP zapewnia łatwiejsze skalowanie i uproszczoną białą listę przepływów pochodzących z wdrożenia platformy Azure. Konfigurację ip wewnętrznej bazy danych można skonfigurować w zasobie Modułu równoważenia obciążenia, aby bezpośrednio odwoływać się do prefiksu publicznego adresu IP.  Dzięki temu wyłączna kontrola modułu równoważenia obciążenia nad publicznym prefiksem IP i reguła wychodząca automatycznie użyje wszystkich publicznych adresów IP zawartych w publicznym prefiksie IP dla połączeń wychodzących.  Każdy z adresów IP w zakresie publicznego prefiksu IP zapewnia 64 000 portów efemerycznych na adres IP dla modułu równoważenia obciążenia używanego jako porty SNAT.   
+Ponadto można użyć [publicznego prefiksu adresu IP](https://aka.ms/lbpublicipprefix) bezpośrednio z regułą wychodzącą.  Używanie publicznego prefiksu adresu IP zapewnia łatwiejsze skalowanie i uproszczone Wyświetlanie listy przepływów pochodzących ze wdrożenia platformy Azure. Konfigurację adresu IP frontonu można skonfigurować w ramach zasobu Load Balancer, aby odwoływać się bezpośrednio do prefiksu publicznego adresu IP.  Pozwala to Load Balancer wyłącznej kontroli nad publicznym prefiksem adresu IP, a reguła wychodząca automatycznie będzie używać wszystkich publicznych adresów IP zawartych w publicznym prefiksie adresu IP dla połączeń wychodzących.  Każdy adres IP należący do zakresu publicznego prefiksu adresu IP zapewnia 64 000 portów tymczasowych na adres IP, aby Load Balancer używać jako portów podzestawów adresów.   
 
-Nie można utworzyć pojedynczych publicznych zasobów adresów IP utworzonych na podstawie publicznego prefiksu IP podczas korzystania z tej opcji, ponieważ reguła wychodząca musi mieć pełną kontrolę nad publicznym prefiksem IP.  Jeśli potrzebujesz bardziej szczegółowej kontroli, można utworzyć pojedynczy zasób publicznego adresu IP z publicznego prefiksu IP i przypisać wiele publicznych adresów IP indywidualnie do frontendu reguły wychodzącej.
+W przypadku korzystania z tej opcji nie można utworzyć pojedynczych zasobów publicznego adresu IP, które są tworzone na podstawie tego publicznego prefiksu IP, ponieważ reguła ruchu wychodzącego musi mieć pełną kontrolę nad publicznym prefiksem adresu IP.  Jeśli potrzebujesz bardziej precyzyjnej kontroli, możesz utworzyć pojedynczy zasób publicznego adresu IP na podstawie prefiksu publicznego adresu IP i przypisać wiele publicznych adresów IP pojedynczo do frontonu reguły wychodzącej.
 
-### <a name="tune-snat-port-allocation"></a><a name="snatports"></a>Dostrajanie alokacji portów SNAT
+### <a name="tune-snat-port-allocation"></a><a name="snatports"></a>Dostrajanie alokacji portów dla współdzielonego
 
-Reguły ruchu wychodzącego umożliwiają dostrojenie [automatycznej alokacji portów SNAT na podstawie rozmiaru puli zaplecza](load-balancer-outbound-connections.md#preallocatedports) i przydzielenie więcej lub mniej niż zapewnia automatyczna alokacja portów SNAT.
+Możesz użyć reguł ruchu wychodzącego, aby dostroić [automatyczne przydzielanie portów adresów sieciowych w oparciu o rozmiar puli zaplecza](load-balancer-outbound-connections.md#preallocatedports) i przydzielić więcej lub mniej niż jest to automatyczna alokacja portu.
 
-Poniższy parametr służy do przydzielenia 10 000 portów SNAT na maszynę wirtualną (konfiguracja karty sieciowej.
+Użyj następującego parametru, aby przydzielić porty protokołu IPSec 10 000 na maszynę wirtualną (Konfiguracja IP karty sieciowej).
  
 
           "allocatedOutboundPorts": 10000
 
-Każdy publiczny adres IP ze wszystkich frontonów reguły ruchu wychodzącego współtworzy do 64 000 portów tymczasowych do użycia jako porty SNAT.  Moduł równoważenia obciążenia przydziela porty SNAT w wielokrotności 8. Jeśli podasz wartość nie podzielną przez 8, operacja konfiguracji zostanie odrzucona.  Jeśli spróbujesz przydzielić więcej portów SNAT niż są dostępne na podstawie liczby publicznych adresów IP, operacja konfiguracji zostanie odrzucona.  Na przykład jeśli przydzielić 10 000 portów na maszynę wirtualną i 7 maszyn wirtualnych w puli wewnętrznej bazy danych będzie współużytkować jeden publiczny adres IP, konfiguracja zostanie odrzucona (7 x 10 000 portów SNAT > 64 000 portów SNAT).  Można dodać więcej publicznych adresów IP do frontend reguły ruchu wychodzącego, aby włączyć scenariusz.
+Każdy publiczny adres IP ze wszystkich frontonów reguły wychodzącej współużytkuje do 64 000 tymczasowych portów do użycia jako porty protokołu reportowego.  Load Balancer przydziela porty przystawek adresów sieciowych w wielokrotnościach 8. Jeśli podano wartość, która nie jest podzielna przez 8, operacja konfiguracji zostanie odrzucona.  Jeśli podjęto próbę przydzielenia większej liczby portów ze standardem adresów IP, które są dostępne w oparciu o liczbę publicznych adresów, operacja konfiguracji zostanie odrzucona.  Na przykład w przypadku przydzielenia 10 000 portów na maszynę wirtualną i 7 maszyn wirtualnych w puli zaplecza współużytkują jeden publiczny 64 000 > 10 000 adres IP  Aby włączyć ten scenariusz, można dodać więcej publicznych adresów IP do frontonu reguły ruchu wychodzącego.
 
-Można przywrócić do [automatycznej alokacji portów SNAT na podstawie rozmiaru puli wewnętrznej bazy danych,](load-balancer-outbound-connections.md#preallocatedports) określając 0 dla liczby portów. W takim przypadku pierwsze 50 wystąpień maszyny Wirtualnej otrzyma 1024 porty, 51-100 wystąpień maszyn wirtualnych otrzyma 512 i tak dalej zgodnie z tabelą.
+Można przywrócić [automatyczną alokację portu na podstawie rozmiaru puli zaplecza](load-balancer-outbound-connections.md#preallocatedports) , określając 0 dla liczby portów. W takim przypadku pierwsze wystąpienia maszyn wirtualnych 50 będą mieć 1024 portów, a 51-100 wystąpienia maszyn wirtualnych otrzymają 512 i tak dalej, zgodnie z tabelą.
 
-### <a name="control-outbound-flow-idle-timeout"></a><a name="idletimeout"></a>Sterowanie limitem czasu bezczynności przepływu wychodzącego
+### <a name="control-outbound-flow-idle-timeout"></a><a name="idletimeout"></a>Kontrola limitu czasu bezczynności przepływu wychodzącego
 
-Reguły ruchu wychodzącego zapewniają parametr konfiguracji, aby kontrolować limit czasu bezczynności przepływu wychodzącego i dopasować go do potrzeb aplikacji.  Limity czasu bezczynnego ruchu wychodzącego domyślnie 4 minuty.  Parametr akceptuje wartość od 4 do 120 do określonej liczby minut dla limitu czasu bezczynności dla przepływów pasujących do tej konkretnej reguły.
+Reguły ruchu wychodzącego zapewniają parametr konfiguracji służący do kontrolowania limitu czasu bezczynności przepływu wychodzącego i dopasowania go do potrzeb aplikacji.  Domyślnie wychodzące limity czasu bezczynności to 4 minuty.  Parametr przyjmuje wartość od 4 do 120 do określonej liczby minut dla limitu czasu bezczynności dla przepływów pasujących do tej konkretnej reguły.
 
-Użyj następującego parametru, aby ustawić limit czasu bezczynność ruchu wychodzącego na 1 godzinę:
+Użyj następującego parametru, aby ustawić limit czasu bezczynności dla ruchu wychodzącego na 1 godzinę:
 
           "idleTimeoutInMinutes": 60
 
-### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a><a name="tcpreset"></a> Włączanie resetowania protokołu TCP przy przekroju czasu bezczynnego
+### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a><a name="tcpreset"></a> Włącz Resetowanie limitu czasu bezczynności dla protokołu TCP
 
-Domyślnym zachowaniem modułu równoważenia obciążenia jest dyskretne upuszczenie przepływu po osiągnięciu limitu czasu bezczynności wychodzącej.  Za pomocą parametru enableTCPReset można włączyć bardziej przewidywalne zachowanie aplikacji i kontrolować, czy w momencie braku limitu czasu bezczynności wychodzącego można wysłać dwukierunkowy reset TCP Reset (TCP RST). 
+Domyślnym zachowaniem Load Balancer jest odrzucanie przepływu w trybie dyskretnym, gdy osiągnięto limit czasu bezczynności wychodzący.  Za pomocą parametru enableTCPReset można włączyć bardziej przewidywalne zachowanie aplikacji i kontrolować, czy należy wysyłać dwukierunkowe Resetowanie protokołu TCP (TCP RST) w czasie poza limit czasu bezczynności ruchu wychodzącego. 
 
-Użyj następującego parametru, aby włączyć resetowanie TCP w regule ruchu wychodzącego:
+Użyj następującego parametru, aby włączyć Resetowanie protokołu TCP dla reguły ruchu wychodzącego:
 
            "enableTcpReset": true
 
-Przejrzyj [resetowanie TCP przy limitie czasu bezczynności,](https://aka.ms/lbtcpreset) aby uzyskać szczegółowe informacje, w tym dostępność regionu.
+Przejrzyj informacje [o limicie czasu bezczynności na potrzeby resetowania protokołu TCP](https://aka.ms/lbtcpreset) , co obejmuje dostępność regionów.
 
-### <a name="support-both-tcp-and-udp-transport-protocols-with-a-single-rule"></a><a name="proto"></a>Obsługa protokołów transportu TCP i UDP za pomocą jednej reguły
+### <a name="support-both-tcp-and-udp-transport-protocols-with-a-single-rule"></a><a name="proto"></a>Obsługa protokołów transportu TCP i UDP przy użyciu jednej reguły
 
-Prawdopodobnie będzie można użyć "Wszystkie" dla protokołu transportu reguły wychodzącej, ale można również zastosować regułę ruchu wychodzącego do określonego protokołu transportu, jak również, jeśli istnieje taka potrzeba.
+Prawdopodobnie chcesz użyć "All" dla protokołu transportowego reguły ruchu wychodzącego, ale możesz również zastosować regułę ruchu wychodzącego do określonego protokołu transportowego, a także w razie potrzeby.
 
 Użyj następującego parametru, aby ustawić protokół na TCP i UDP:
 
           "protocol": "All"
 
-### <a name="disable-outbound-nat-for-a-load-balancing-rule"></a><a name="disablesnat"></a>Wyłączanie wychodzącego translatora przechyłowego dla reguły równoważenia obciążenia
+### <a name="disable-outbound-nat-for-a-load-balancing-rule"></a><a name="disablesnat"></a>Wyłącz wychodzące NAT dla reguły równoważenia obciążenia
 
-Jak wspomniano wcześniej, reguły równoważenia obciążenia zapewniają automatyczne programowanie wychodzącego translatora nat. Jednak niektóre scenariusze korzyści lub wymagają, aby wyłączyć automatyczne programowanie wychodzącego TRANSLATORA przez regułę równoważenia obciążenia, aby umożliwić kontrolę lub uściślać zachowanie.  Reguły ruchu wychodzącego mają scenariusze, w których ważne jest, aby zatrzymać automatyczne wychodzące programowanie NAT.
+Jak wspomniano wcześniej, reguły równoważenia obciążenia zapewniają automatyczne Programowanie dla wychodzącego translatora adresów sieciowych. Jednak niektóre scenariusze mogą korzystać z funkcji automatycznego programowania wychodzącego NAT przez regułę równoważenia obciążenia, co pozwala na kontrolowanie lub Uściślanie zachowania.  Reguły ruchu wychodzącego mają scenariusze, które są ważne, aby zatrzymać automatyczne wychodzące programowanie NAT.
 
 Tego parametru można użyć na dwa sposoby:
-- Opcjonalne pomijanie przy użyciu przychodzącego adresu IP dla wychodzącego translatora adresów sieciowych.  Reguły ruchu wychodzącego są przyrostowe do równoważenia obciążenia reguł i z tym zestawem parametrów reguła wychodząca jest w kontroli.
+- Opcjonalne pomijanie przy użyciu przychodzącego adresu IP dla wychodzącego translatora adresów sieciowych.  Reguły ruchu wychodzącego są przyrostowe do reguł równoważenia obciążenia i z tym zestawem parametrów Reguła ruchu wychodzącego jest w formancie.
   
-- Dostrajanie wychodzących parametrów NAT adresu IP używanego jednocześnie do przychodzących i wychodzących.  Automatyczne wychodzące programowanie NAT musi być wyłączone, aby umożliwić przejęcie kontroli nad regułą ruchu wychodzącego.  Na przykład w celu zmiany alokacji portu SNAT adresu używanego również dla ruchu przychodzącego, ten parametr musi być ustawiony na true.  Jeśli spróbujesz użyć reguły ruchu wychodzącego do ponownego zdefiniowania parametrów adresu IP używanego również dla ruchu przychodzącego i nie zwolnisz wychodzącego programowania NAT reguły równoważenia obciążenia, operacja konfigurowania reguły ruchu wychodzącego zakończy się niepowodzeniem.
+- Dostosuj wychodzące parametry NAT adresu IP używanego do ruchu przychodzącego i wychodzącego jednocześnie.  Automatyczne wychodzące programowanie NAT musi być wyłączone, aby zezwolić regule wychodzącej na przejęcie kontroli.  Na przykład w celu zmiany alokacji portu podrzędnego adresu reportowego używany również dla ruchu przychodzącego ten parametr musi być ustawiony na wartość true.  Jeśli podjęto próbę użycia reguły wychodzącej w celu ponownego zdefiniowania parametrów adresu IP używanego do obsługi ruchu przychodzącego i nie wydano wychodzącego programowania NAT dla reguły równoważenia obciążenia, operacja konfigurowania reguły wychodzącej zakończy się niepowodzeniem.
 
 >[!IMPORTANT]
-> Maszyna wirtualna nie będzie miała łączności wychodzącej, jeśli ten parametr zostanie ustawiony na true i nie będzie miał reguły wychodzącej (lub [scenariusza publicznego adresu IP na poziomie wystąpienia](load-balancer-outbound-connections.md#ilpip) w celu zdefiniowania łączności wychodzącej.  Niektóre operacje maszyny Wirtualnej lub aplikacji może zależeć od dostępności łączności wychodzącej. Upewnij się, że rozumiesz zależności scenariusza i rozważyłeś wpływ wprowadzania tej zmiany.
+> Jeśli ustawisz ten parametr na wartość true, maszyna wirtualna nie będzie mogła mieć łączności wychodzącej (lub [scenariusza publicznego adresu IP na poziomie wystąpienia](load-balancer-outbound-connections.md#ilpip) ), aby zdefiniować łączność wychodzącą.  Niektóre operacje związane z maszyną wirtualną lub aplikacją mogą zależeć od dostępnego połączenia wychodzącego. Zadbaj o to, aby zrozumieć zależności danego scenariusza i wziąć pod uwagę wpływ wprowadzania tej zmiany.
 
-Przychodzących SNAT można wyłączyć w regule równoważenia obciążenia za pomocą tego parametru konfiguracji:
+Dla reguły równoważenia obciążenia można wyłączyć ruch wychodzący z tego parametru konfiguracji:
 
 ```json
       "loadBalancingRules": [
@@ -135,82 +135,82 @@ Przychodzących SNAT można wyłączyć w regule równoważenia obciążenia za 
       ]
 ```
 
-Parametr disableOutboundSNAT domyślnie ma wartość false, co oznacza, że **reguła** równoważenia obciążenia zapewnia automatyczny wychodzący nat jako lustrzane odbicie konfiguracji reguł równoważenia obciążenia.  
+Parametr disableOutboundSNAT ma wartość domyślną false, co oznacza, że reguła równoważenia **obciążenia zapewnia automatyczne** wychodzące NAT jako obraz lustrzany konfiguracji reguły równoważenia obciążenia.  
 
-Jeśli ustawisz disableOutboundSnat true w regule równoważenia obciążenia, reguła równoważenia obciążenia zwalnia kontrolę nad automatycznym wychodzącym programowaniem NAT.  Wychodzące SNAT w wyniku reguły równoważenia obciążenia jest wyłączona.
+Jeśli ustawisz wartość disableOutboundSnat na true w regule równoważenia obciążenia, reguła równoważenia obciążenia zwalnia kontrolę nad automatycznym wychodzącym programowaniem NAT.  Wychodzące przychodzącego ruchu sieciowego w wyniku reguły równoważenia obciążenia jest wyłączone.
 
-### <a name="reuse-existing-or-define-new-backend-pools"></a>Ponowne używanie istniejących lub definiowanie nowych pul zaplecza
+### <a name="reuse-existing-or-define-new-backend-pools"></a>Ponowne używanie istniejących lub Definiowanie nowych pul zaplecza
 
-Reguły ruchu wychodzącego nie wprowadzają nowej koncepcji definiowania grupy maszyn wirtualnych, do których reguła powinna mieć zastosowanie.  Zamiast tego ponownie użyć koncepcji puli wewnętrznej bazy danych, która jest również używana dla reguł równoważenia obciążenia. Można użyć tego, aby uprościć konfigurację, ponownie korzystając z istniejącej definicji puli wewnętrznej bazy danych lub tworząc ją specjalnie dla reguły wychodzącej.
+Reguły ruchu wychodzącego nie wprowadzają nowej koncepcji w celu zdefiniowania grupy maszyn wirtualnych, do których ma zostać zastosowana reguła.  Zamiast tego ponownie używają koncepcji puli zaplecza, która jest również używana w regułach równoważenia obciążenia. Można jej użyć do uproszczenia konfiguracji przez ponowne użycie istniejącej definicji puli zaplecza lub utworzenie jednej dla reguły wychodzącej.
 
 ## <a name="scenarios"></a>Scenariusze
 
-### <a name="groom-outbound-connections-to-a-specific-set-of-public-ip-addresses"></a><a name="groom"></a>Uwodzenie połączeń wychodzących z określonym zestawem publicznych adresów IP
+### <a name="groom-outbound-connections-to-a-specific-set-of-public-ip-addresses"></a><a name="groom"></a>Oczyść połączenia wychodzące do określonego zestawu publicznych adresów IP
 
-Reguła wychodząca służy do tworzenia funkcji wyboru połączeń wychodzących, które mają pochodzić z określonego zestawu publicznych adresów IP w celu ułatwienia scenariuszy umieszczania na białej liście.  Ten publiczny adres IP źródła może być taki sam, jak używany przez regułę równoważenia obciążenia lub inny zestaw publicznych adresów IP niż używany przez regułę równoważenia obciążenia.  
+Możesz użyć reguły ruchu wychodzącego, aby przetworzyć połączenia wychodzące w taki sposób, aby były wyświetlane z określonego zestawu publicznych adresów IP w celu ułatwienia listy dozwolonych scenariuszy.  Ten źródłowy publiczny adres IP może być taki sam, jak używany przez regułę równoważenia obciążenia lub inny zestaw publicznych adresów IP, niż jest używany przez regułę równoważenia obciążenia.  
 
-1. Tworzenie [publicznego prefiksu IP](https://aka.ms/lbpublicipprefix) (lub publicznych adresów IP z publicznego prefiksu IP)
+1. Tworzenie [publicznego prefiksu adresu IP](https://aka.ms/lbpublicipprefix) (lub publicznych adresów IP z prefiksu publicznego adresu IP)
 2. Tworzenie publicznej usługi Load Balancer w warstwie Standardowa
-3. Tworzenie frontendów odwołujących się do publicznego prefiksu IP (lub publicznych adresów IP), którego chcesz użyć
-4. Ponowne używanie puli zaplecza lub tworzenie puli zaplecza i umieszczanie maszyn wirtualnych w puli wewnętrznej bazy danych publicznego modułu równoważenia obciążenia
-5. Konfigurowanie reguły ruchu wychodzącego na publicznym równoważku obciążenia do programowania wychodzącego translatora treści dla tych maszyn wirtualnych przy użyciu frontendów
+3. Utwórz frontony odwołujące się do publicznego prefiksu IP (lub publicznych adresów IP), których chcesz użyć
+4. Użyj ponownie puli zaplecza lub Utwórz pulę zaplecza i umieść maszyny wirtualne w puli zaplecza Load Balancer publicznej
+5. Skonfiguruj regułę ruchu wychodzącego na Load Balancer publicznej w celu zaprogramowania wychodzącego translatora adresów sieciowych dla tych maszyn wirtualnych przy użyciu frontonów
    
-Jeśli nie chcesz, aby reguła równoważenia obciążenia była używana dla ruchu wychodzącego, należy [wyłączyć wychodzącą funkcję SNAT](#disablesnat) w regule równoważenia obciążenia.
+Jeśli nie chcesz, aby reguła równoważenia obciążenia była używana dla ruchu wychodzącego, należy [wyłączyć wychodzące elementu reźródłowego](#disablesnat) dla reguły równoważenia obciążenia.
 
-### <a name="modify-snat-port-allocation"></a><a name="modifysnat"></a>Modyfikowanie alokacji portów SNAT
+### <a name="modify-snat-port-allocation"></a><a name="modifysnat"></a>Modyfikuj przydział portu dla współdzielonego
 
-Reguły ruchu wychodzącego umożliwiają dostrojenie [automatycznej alokacji portów SNAT na podstawie rozmiaru puli zaplecza](load-balancer-outbound-connections.md#preallocatedports).
+Korzystając z reguł ruchu wychodzącego, można dostroić [automatyczną alokację portu z użyciem puli zaplecza](load-balancer-outbound-connections.md#preallocatedports).
 
-Na przykład jeśli masz dwie maszyny wirtualne współużytkujące jeden publiczny adres IP dla wychodzącego translatora adresów sieciowych, można zwiększyć liczbę portów SNAT przydzielonych z domyślnych portów 1024, jeśli występują wyczerpanie SNAT. Każdy publiczny adres IP może przyczynić się do 64 000 portów tymczasowych.  Jeśli skonfigurujesz regułę ruchu wychodzącego z pojedynczym frontendem publicznego adresu IP, możesz dystrybuować łącznie 64 000 portów SNAT do maszyn wirtualnych w puli wewnętrznej bazy danych.  W przypadku dwóch maszyn wirtualnych można przydzielić maksymalnie 32 000 portów SNAT z regułą wychodzącą (2x 32 000 = 64 000).
+Na przykład jeśli masz dwie maszyny wirtualne, które współużytkują jeden publiczny adres IP dla wychodzącego translatora adresów sieciowych, możesz zwiększyć liczbę portów przyznanych z domyślnych portów 1024, jeśli występuje wyczerpanie. Każdy publiczny adres IP może współtworzyć maksymalnie 64 000 portów tymczasowych.  W przypadku skonfigurowania reguły wychodzącej z jednym frontonem publicznego adresu IP można rozpowszechnić łącznie 64 000 portów do maszyn wirtualnych w puli zaplecza.  W przypadku dwóch maszyn wirtualnych maksymalnie 32 000 portów przydziałów adresów sieciowych można przydzielyć za pomocą reguły ruchu wychodzącego (2x 32 000 = 64 000).
 
-Przejrzyj [połączenia wychodzące](load-balancer-outbound-connections.md) i szczegóły dotyczące przydzielania i korzystania z portów [SNAT.](load-balancer-outbound-connections.md#snat)
+Przejrzyj [połączenia wychodzące](load-balancer-outbound-connections.md) i szczegółowe informacje dotyczące sposobu przydzielania i używania portów podłączania [adresów sieciowych](load-balancer-outbound-connections.md#snat) .
 
-### <a name="enable-outbound-only"></a><a name="outboundonly"></a>Włącz tylko ruch wychodzący
+### <a name="enable-outbound-only"></a><a name="outboundonly"></a>Włącz tylko wychodzące
 
-Za pomocą publicznego standardowego modułu równoważenia obciążenia można zapewnić wychodzący translator z osią wirtualną dla grupy maszyn wirtualnych. W tym scenariuszu można użyć reguły ruchu wychodzącego przez siebie, bez konieczności żadnych dodatkowych reguł.
+Aby zapewnić wychodzące NAT dla grupy maszyn wirtualnych, można użyć usługa Load Balancer w warstwie Standardowa publicznej. W tym scenariuszu można użyć reguły wychodzącej sama przez siebie bez potrzeby stosowania dodatkowych reguł.
 
-#### <a name="outbound-nat-for-vms-only-no-inbound"></a>Wychodzący translator z o.o. tylko dla maszyn wirtualnych (bez ruchu przychodzącego)
+#### <a name="outbound-nat-for-vms-only-no-inbound"></a>Wychodzące NAT tylko dla maszyn wirtualnych (bez ruchu przychodzącego)
 
-Zdefiniuj publiczny standardowy moduł równoważenia obciążenia, umieść maszyny wirtualne w puli wewnętrznej bazy danych i skonfiguruj regułę wychodzącą, aby zaprogramować wychodzący translator adresów NAT i oczyszczenie połączeń wychodzących pochodzących z określonego publicznego adresu IP. Można również użyć publicznego prefiksu IP upraszczaj białe listy źródła połączeń wychodzących.
+Zdefiniuj usługa Load Balancer w warstwie Standardowa publiczny, umieść maszyny wirtualne w puli zaplecza i skonfiguruj regułę ruchu wychodzącego w celu zaprogramowania wychodzących NAT i oczyść połączenia wychodzące z określonego publicznego adresu IP. Możesz również użyć publicznego prefiksu IP Uprość białe, aby wyświetlić listę źródeł połączeń wychodzących.
 
-1. Tworzenie publicznego standardowego modułu równoważenia obciążenia.
-2. Utwórz pulę wewnętrznej bazy danych i umieść maszyny wirtualne w puli wewnętrznej bazy danych publicznego modułu równoważenia obciążenia.
-3. Skonfiguruj regułę ruchu wychodzącego na publicznym równoważku obciążenia, aby zaprogramować wychodzący translator z prawa nawigacyjnego dla tych maszyn wirtualnych.
+1. Utwórz publiczną usługa Load Balancer w warstwie Standardowa.
+2. Utwórz pulę zaplecza i umieść maszyny wirtualne w puli zaplecza Load Balancer publicznej.
+3. Skonfiguruj regułę ruchu wychodzącego na Load Balancer publicznej w celu zaprogramowania wychodzącego translatora adresów sieciowych dla tych maszyn wirtualnych.
 
-#### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>Wychodzący translator z osią i nat dla wewnętrznych standardowych scenariuszy równoważenia obciążenia
+#### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>Wychodzące translatory adresów sieciowych dla wewnętrznych scenariuszy usługa Load Balancer w warstwie Standardowa
 
-W przypadku korzystania z wewnętrznego standardowego modułu równoważenia obciążenia wychodzący translator z treścią nie jest dostępny, dopóki łączność wychodząca nie zostanie jawnie zadeklarowana. Łączność wychodzącą można zdefiniować przy użyciu reguły ruchu wychodzącego w celu utworzenia łączności wychodzącej dla maszyn wirtualnych za wewnętrznym standardowym modułem równoważenia obciążenia za pomocą następujących kroków:
+W przypadku korzystania z usługa Load Balancer w warstwie Standardowa wewnętrznego, wychodzący NAT nie jest dostępny do momentu jawnego zadeklarowania łączności wychodzącej. Można zdefiniować łączność wychodzącą przy użyciu reguły ruchu wychodzącego, aby utworzyć łączność wychodzącą dla maszyn wirtualnych za wewnętrzną usługa Load Balancer w warstwie Standardowa, wykonując następujące kroki:
 
-1. Tworzenie publicznego standardowego modułu równoważenia obciążenia.
-2. Utwórz pulę wewnętrznej bazy danych i umieść maszyny wirtualne w puli wewnętrznej bazy danych publicznego modułu równoważenia obciążenia oprócz wewnętrznego modułu równoważenia obciążenia.
-3. Skonfiguruj regułę ruchu wychodzącego na publicznym równoważku obciążenia, aby zaprogramować wychodzący translator z prawa nawigacyjnego dla tych maszyn wirtualnych.
+1. Utwórz publiczną usługa Load Balancer w warstwie Standardowa.
+2. Utwórz pulę zaplecza i umieść maszyny wirtualne w puli zaplecza Load Balancer publicznej oprócz wewnętrznego Load Balancer.
+3. Skonfiguruj regułę ruchu wychodzącego na Load Balancer publicznej w celu zaprogramowania wychodzącego translatora adresów sieciowych dla tych maszyn wirtualnych.
 
-#### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Włączanie zarówno protokołów TCP, jak & UDP dla wychodzącego translatora adresów nat za pomocą publicznego standardowego modułu równoważenia obciążenia
+#### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Włącz protokoły UDP & protokołu TCP dla ruchu wychodzącego NAT z usługa Load Balancer w warstwie Standardowa publiczny
 
-- W przypadku korzystania z publicznego standardowego modułu równoważenia obciążenia automatyczne wychodzące programowanie NAT jest zgodne z protokołem transportu reguły równoważenia obciążenia.  
+- W przypadku korzystania z usługa Load Balancer w warstwie Standardowa publicznego automatyczne wychodzące programowanie NAT jest zgodne z protokołem transportu reguły równoważenia obciążenia.  
 
-   1. Wyłącz wychodzący SNAT w regule równoważenia obciążenia.
-   2. Skonfiguruj regułę ruchu wychodzącego na tym samym modułze równoważenia obciążenia.
-   3. Ponownie użyć puli wewnętrznej bazy danych już używane przez maszyny wirtualne.
-   4. Określ "protocol": "All" jako część reguły ruchu wychodzącego.
+   1. Wyłącz przychodzący magazyn danych w regule równoważenia obciążenia.
+   2. Skonfiguruj regułę wychodzącą na tym samym Load Balancer.
+   3. Ponownie Użyj puli zaplecza już używanej przez maszyny wirtualne.
+   4. Określ "Protokół": "All" jako część reguły ruchu wychodzącego.
 
-- Gdy używane są tylko przychodzące reguły NAT, nie podano wychodzącego translatora nat.
+- Gdy są używane tylko reguły NAT dla ruchu przychodzącego, nie jest dostarczany wychodzący translator adresów sieciowych.
 
-   1. Umieść maszyny wirtualne w puli wewnętrznej bazy danych.
-   2. Zdefiniuj jedną lub więcej konfiguracji IP frontoneka z publicznym adresem IP lub publicznym prefiksem IP.
-   3. Skonfiguruj regułę ruchu wychodzącego na tym samym modułze równoważenia obciążenia.
-   4. Określ "protokół": "Wszystkie" jako część reguły ruchu wychodzącego
+   1. Umieść maszyny wirtualne w puli zaplecza.
+   2. Zdefiniuj co najmniej jedną konfigurację adresu IP frontonu z publicznymi adresami IP lub prefiksem publicznego adresu IP.
+   3. Skonfiguruj regułę wychodzącą na tym samym Load Balancer.
+   4. Określ "Protocol": "All" jako część reguły ruchu wychodzącego
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Maksymalna liczba użytecznych portów tymczasowych na adres IP frontonu wynosi 64 000.
-- Zakres konfigurowalny wychodzący limit czasu bezczynności wynosi od 4 do 120 minut (240 do 7200 sekund).
-- Moduł równoważenia obciążenia nie obsługuje icmp dla wychodzącego translatora nat.
-- Reguły ruchu wychodzącego można zastosować tylko do podstawowej konfiguracji adresów IP karty sieciowej.  Obsługiwanych jest wiele kart sieciowych.
+- Maksymalna liczba użytecznych portów tymczasowych na adres IP frontonu to 64 000.
+- Zakres konfigurowalnego limitu czasu bezczynności wynosi od 4 do 120 minut (240 do 7200 sekund).
+- Load Balancer nie obsługuje protokołu ICMP dla wychodzącego translatora adresów sieciowych.
+- Reguły ruchu wychodzącego mogą być stosowane tylko do podstawowej konfiguracji adresu IP karty sieciowej.  Obsługiwane są wiele kart sieciowych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [używaniu modułu równoważenia obciążenia dla połączeń wychodzących](load-balancer-outbound-connections.md).
-- Dowiedz się więcej o [standardowym równoważącym obciążenia](load-balancer-standard-overview.md).
-- Dowiedz się więcej o [dwukierunkowym resetu TCP przy pomiełtwie limitu czasu](load-balancer-tcp-reset.md).
-- [Konfigurowanie reguł ruchu wychodzącego za pomocą interfejsu wiersza polecenia platformy Azure 2.0](configure-load-balancer-outbound-cli.md).
+- Dowiedz się więcej na temat korzystania z [Load Balancer dla połączeń wychodzących](load-balancer-outbound-connections.md).
+- Dowiedz się więcej na temat [Usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md).
+- Informacje o [dwukierunkowym resetowaniu protokołu TCP przy bezczynności](load-balancer-tcp-reset.md).
+- [Skonfiguruj reguły ruchu wychodzącego za pomocą interfejsu wiersza polecenia platformy Azure 2,0](configure-load-balancer-outbound-cli.md).

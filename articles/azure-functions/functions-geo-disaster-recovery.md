@@ -1,58 +1,58 @@
 ---
-title: Odzyskiwanie po awarii geograficznej usługi Azure Functions i wysoka dostępność
-description: Jak używać regionów geograficznych do nadmiarowości i pracy awaryjnej w usłudze Azure Functions.
+title: Azure Functions geograficznie — odzyskiwanie po awarii i wysoka dostępność
+description: Jak używać regionów geograficznych w celu zapewnienia nadmiarowości i przełączania do trybu failover w Azure Functions.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.openlocfilehash: 481a716bd6ced5c304da41c70fdcfc687b76661d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79080228"
 ---
-# <a name="azure-functions-geo-disaster-recovery"></a>Odzyskiwanie po awarii geograficznej usługi Azure Functions
+# <a name="azure-functions-geo-disaster-recovery"></a>Azure Functions geograficznie — odzyskiwanie po awarii
 
-Gdy całe regiony platformy Azure lub centra danych doświadczają przestojów, kluczowe znaczenie ma kontynuowanie przetwarzania w innym regionie.  W tym artykule wyjaśniono niektóre strategie, których można użyć do wdrożenia funkcji, aby umożliwić odzyskiwanie po awarii.
+Gdy cały region lub centra danych platformy Azure są nieprzerwane, ma kluczowe znaczenie dla obliczeń, które kontynuują przetwarzanie w innym regionie.  W tym artykule opisano niektóre strategie, których można użyć do wdrożenia funkcji w celu umożliwienia odzyskiwania po awarii.
 
 ## <a name="basic-concepts"></a>Podstawowe pojęcia
 
-Usługi Azure Functions są uruchamiane w określonym regionie.  Aby uzyskać wyższą dostępność, można wdrożyć te same funkcje w wielu regionach.  W wielu regionach funkcje mogą być uruchamiane w *wzorcu aktywnym/aktywnym* lub *aktywnym/pasywnym.*  
+Azure Functions uruchamiane w określonym regionie.  Aby uzyskać większą dostępność, można wdrożyć te same funkcje w wielu regionach.  W przypadku wielu regionów funkcje działające w wzorcu *aktywny/aktywny* lub we wzorcu *aktywny/pasywny* .  
 
-* Aktywny/aktywny. Oba regiony są aktywne i odbierające zdarzenia (zduplikowane lub rotacyjne). Aktywne/aktywne jest zalecane dla funkcji HTTPS w połączeniu z drzwiami frontowymi platformy Azure.
-* Aktywny/pasywny. Jeden region jest aktywny i odbiera zdarzenia, podczas gdy pomocniczy jest bezczynny.  Gdy jest to wymagane w pracy awaryjnej, region pomocniczy jest aktywowany i przejmuje przetwarzanie.  Jest to zalecane w przypadku funkcji innych niż HTTP, takich jak usługa Service Bus i Centra zdarzeń.
+* Aktywny/aktywny. Oba regiony są aktywne i pobierają zdarzenia (duplikowane lub obracane). Funkcja Active/Active jest zalecana dla funkcji HTTPS w połączeniu z usługami frontonu platformy Azure.
+* Aktywne/pasywne. Jeden region jest aktywny i otrzymuje zdarzenia, podczas gdy pomocniczy jest bezczynny.  Gdy jest wymagane przejście w tryb failover, region pomocniczy jest aktywowany i przetrwa przetwarzanie.  Jest to zalecane w przypadku funkcji innych niż HTTP, takich jak Service Bus i Event Hubs.
 
-Przeczytaj, jak [uruchamiać aplikacje w wielu regionach,](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) aby uzyskać więcej informacji na temat wdrożeń w wielu regionach.
+Przeczytaj, jak [uruchamiać aplikacje w wielu regionach](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) , aby uzyskać więcej informacji na temat wdrożeń z wieloma regionami.
 
-## <a name="activeactive-for-https-functions"></a>Aktywny/aktywny dla funkcji HTTPS
+## <a name="activeactive-for-https-functions"></a>Aktywne/aktywne dla funkcji HTTPS
 
-Aby osiągnąć aktywne/aktywne wdrożenia funkcji, wymaga pewnego składnika, który może koordynować zdarzenia między obu regionach.  W przypadku funkcji HTTPS ta koordynacja jest realizowana przy użyciu [drzwi ekwiomu azure.](../frontdoor/front-door-overview.md)  Usługi Azure Front Door mogą kierować i okrężne żądania HTTPS między wieloma funkcjami regionalnymi.  Okresowo sprawdza również kondycję każdego punktu końcowego.  Jeśli funkcja regionalna przestanie odpowiadać na kontrole kondycji, usługi Azure Front Door wyjmuje ją z rotacji i przekazuje ruch tylko do funkcji w dobrej kondycji.  
+Aby osiągnąć aktywne/aktywne wdrożenia funkcji, wymaga pewnego składnika, który może koordynować zdarzenia między obydwoma regionami.  W przypadku funkcji HTTPS Ta koordynacja jest realizowana przy użyciu [zewnętrznych drzwi platformy Azure](../frontdoor/front-door-overview.md).  Drzwi frontonu platformy Azure umożliwiają kierowanie żądań HTTPS i działanie okrężne między wieloma funkcjami regionalnymi.  Okresowo sprawdza również kondycję każdego punktu końcowego.  Jeśli funkcja regionalna przestanie odpowiadać na kontrolę kondycji, drzwi frontonu platformy Azure przestają ją na zewnątrz i przekazują ruch do funkcji w dobrej kondycji.  
 
-![Architektura drzwi i funkcji azure front door i function](media/functions-geo-dr/front-door.png)  
+![Architektura dla drzwi i funkcji platformy Azure](media/functions-geo-dr/front-door.png)  
 
 ## <a name="activeactive-for-non-https-functions"></a>Aktywne/aktywne dla funkcji innych niż HTTPS
 
-Nadal można uzyskać aktywne/aktywne wdrożenia dla funkcji innych niż HTTPS.  Należy jednak wziąć pod uwagę, jak oba regiony będą współdziałać lub koordynować ze sobą.  Jeśli wdrożono tę samą aplikację funkcji w dwóch regionach, z których każdy wyzwala w tej samej kolejce usługi Service Bus, będą działać jako konkurujący konsumenci w usuwaniu kolejki tej kolejki.  Chociaż oznacza to, że każda wiadomość jest przetwarzana tylko przez jedno z wystąpień, oznacza to również, że nadal istnieje jeden punkt awarii w pojedynczej usłudze Service Bus.  Jeśli wdrożysz dwie kolejki usługi Service Bus (jedna w regionie podstawowym, jedna w regionie pomocniczym) i dwie aplikacje funkcji wskazały na ich kolejkę regionu, wyzwanie pojawia się teraz w sposobie rozmieszczania wiadomości kolejki między dwoma regionami.  Często oznacza to, że każdy wydawca próbuje opublikować wiadomość w *obu* regionach, a każda wiadomość jest przetwarzana przez obie aktywne aplikacje funkcji.  Podczas gdy tworzy to aktywny/aktywny wzorzec, tworzy inne wyzwania związane z powielaniem obliczeń oraz kiedy i jak dane są konsolidowane.  Z tych powodów zaleca się wyzwalacze inne niż HTTPS do używania wzorca aktywnego/pasywnego.
+Nadal można uzyskać aktywne/aktywne wdrożenia dla funkcji innych niż HTTPS.  Należy jednak wziąć pod uwagę, w jaki sposób dwa regiony będą współdziałać ze sobą.  Jeśli ta sama aplikacja funkcji została wdrożona w dwóch regionach, każde wyzwalane w tej samej kolejce Service Bus będzie pełnić rolę konkurujących odbiorców w odniesieniu do tej kolejki.  Chociaż oznacza to, że każdy komunikat jest przetwarzany tylko przez jedno z wystąpień, oznacza to, że nadal istnieje single point of failure na pojedynczym Service Bus.  W przypadku wdrożenia dwóch kolejek Service Bus (jeden w regionie podstawowym, jeden w regionie pomocniczym), a dwie aplikacje funkcji wskazywane przez ich kolejkę regionów, wyzwanie teraz zawiera sposób dystrybuowania komunikatów w kolejce między tymi dwoma regionami.  Często oznacza to, że każdy wydawca próbuje opublikować komunikat w *obu* regionach, a każdy komunikat jest przetwarzany przez obie aktywne aplikacje funkcji.  Podczas tworzenia wzorca aktywnego/aktywnego powstaje inne wyzwania dotyczące duplikowania obliczeń oraz czasu, w którym dane są konsolidowane.  Z tego powodu zaleca się, aby wyzwalacze inne niż HTTPS korzystały ze wzorca aktywnego/pasywnego.
 
 ## <a name="activepassive-for-non-https-functions"></a>Aktywne/pasywne dla funkcji innych niż HTTPS
 
-Aktywne/pasywne zapewnia sposób tylko jednej funkcji do przetwarzania każdej wiadomości, ale zapewnia mechanizm awaryjnego do pomocniczego regionu w przypadku awarii.  Usługa Azure Functions współpracuje z [usługą Azure Service Bus geo recovery](../service-bus-messaging/service-bus-geo-dr.md) i azure event [hubs geo-recovery.](../event-hubs/event-hubs-geo-dr.md)
+Usługa Active/pasywna umożliwia tylko pojedynczej funkcji przetworzenie poszczególnych komunikatów, ale zapewnia mechanizm przełączenia w tryb failover do regionu pomocniczego w przypadku awarii.  Azure Functions działa wraz z [odzyskiwaniem geograficznym Azure Service Bus](../service-bus-messaging/service-bus-geo-dr.md) i odzyskiwaniem [geograficznym Event Hubs platformy Azure](../event-hubs/event-hubs-geo-dr.md).
 
-Przy użyciu usługi Azure Event Hubs wyzwala jako przykład, aktywny/pasywny wzorzec będzie obejmować następujące czynności:
+Użycie wyzwalaczy usługi Azure Event Hubs jako przykładu wzorzec aktywny/pasywny obejmuje następujące elementy:
 
-* Usługa Azure Event Hub wdrożona zarówno w regionie podstawowym, jak i pomocniczym.
-* Awaria geograficzna włączona do parowania centrum zdarzeń podstawowych i pomocniczych.  Spowoduje to również utworzenie "aliasu", którego można użyć do łączenia się z koncentratorami zdarzeń i przełączania się z podstawowego na pomocniczy bez zmiany informacji o połączeniu.
-* Aplikacje funkcyjne wdrożone zarówno w regionie podstawowym, jak i pomocniczym.
-* Aplikacje funkcji są wyzwalane na ciąg połączenia *bezpośredniego* (non-alias) dla jego odpowiedniego centrum zdarzeń. 
-* Wydawcy do centrum zdarzeń należy opublikować do ciągu połączenia aliasu. 
+* Usługa Azure Event Hub została wdrożona w regionie podstawowym i pomocniczym.
+* Geograficzna z włączonym awarią parowania podstawowego i pomocniczego centrum zdarzeń.  Powoduje to również utworzenie "aliasu", którego można użyć do nawiązania połączenia z centrami zdarzeń i przełączenia z podstawowego do pomocniczego bez zmiany informacji o połączeniu.
+* Aplikacje funkcji wdrożone w regionie podstawowym i pomocniczym.
+* Aplikacje funkcji są wyzwalane przez *bezpośrednie* (nie alias) parametry połączenia dla odpowiedniego centrum zdarzeń. 
+* Wydawcy do centrum zdarzeń powinni publikować w parametrach połączenia aliasu. 
 
-![Architektura przykładów aktywnych i pasywnych](media/functions-geo-dr/active-passive.png)
+![Przykładowa architektura aktywna-pasywna](media/functions-geo-dr/active-passive.png)
 
-Przed przełączeniem awaryjnym wydawcy wysyłający do udostępnionego aliasu będą kierować do centrum zdarzeń podstawowych.  Aplikacja funkcji podstawowej nasłuchuje wyłącznie centrum zdarzeń podstawowych.  Aplikacja funkcji pomocniczej będzie pasywna i bezczynna.  Po zainicjowaniu pracy awaryjnej wydawcy wysyłający do udostępnionego aliasu będą teraz kierowani do pomocniczego centrum zdarzeń.  Aplikacja funkcji pomocniczej stanie się teraz aktywna i rozpocznie wyzwalanie automatycznie.  Skuteczne przewijanie awaryjne do regionu pomocniczego można w całości kierować z Centrum zdarzeń, z funkcjami staje się aktywny tylko wtedy, gdy odpowiednie centrum zdarzeń jest aktywny.
+Przed przejściem w tryb failover wydawcy wysyłający do aliasu udostępnionego będą kierować do głównego centrum zdarzeń.  Podstawowa aplikacja funkcji nasłuchuje wyłącznie na podstawowym centrum zdarzeń.  Aplikacja funkcji pomocniczej będzie pasywna i bezczynna.  Po zainicjowaniu trybu failover wydawcy wysyłający do udostępnionego aliasu będą teraz kierowani do pomocniczego centrum zdarzeń.  Aplikacja funkcji pomocniczej stanie się teraz aktywna i rozpocznie automatyczne wyzwalanie.  Efektywne przejście w tryb failover do regionu pomocniczego może być prowadzone całkowicie z centrum zdarzeń, a funkcje stają się aktywne tylko wtedy, gdy odpowiednie centrum zdarzeń jest aktywne.
 
-Dowiedz się więcej o informacjach i zagadnieniach dotyczących pracy awaryjnej w [usłudze Service Bus](../service-bus-messaging/service-bus-geo-dr.md) i [centrach zdarzeń](../event-hubs/event-hubs-geo-dr.md).
+Zapoznaj się z informacjami i zagadnieniami dotyczącymi trybu failover w przypadku [Service Bus](../service-bus-messaging/service-bus-geo-dr.md) i [centrów zdarzeń](../event-hubs/event-hubs-geo-dr.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie drzwi y frontowej platformy Azure](../frontdoor/quickstart-create-front-door.md)
-* [Zagadnienia dotyczące trybu failover w centrach zdarzeń](../event-hubs/event-hubs-geo-dr.md#considerations)
+* [Utwórz drzwi frontonu platformy Azure](../frontdoor/quickstart-create-front-door.md)
+* [Zagadnienia dotyczące Event Hubs trybu failover](../event-hubs/event-hubs-geo-dr.md#considerations)

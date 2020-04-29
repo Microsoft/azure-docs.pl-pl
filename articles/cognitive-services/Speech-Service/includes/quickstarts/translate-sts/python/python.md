@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: Tłumaczenie mowy na mowę, Python - Usługa mowy'
+title: 'Szybki Start: Tłumaczenie mowy na mowę, Python-Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: chlandsi
 ms.openlocfilehash: 03042cef3e5b5fb4360223e3c804f1ed2e24c97f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78925846"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zanim zaczniesz, upewnij się, że:
+Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
-> * [Tworzenie zasobu mowy platformy Azure](../../../../get-started.md)
-> * [Konfigurowanie środowiska programistycznego i tworzenie pustego projektu](../../../../quickstarts/setup-platform.md?tabs=python)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../get-started.md)
+> * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=python)
 
 ## <a name="add-sample-code"></a>Dodawanie przykładowego kodu
 
@@ -90,17 +90,17 @@ Zanim zaczniesz, upewnij się, że:
 
 1. Zastąp ciąg `YourServiceRegion`[regionem](../../../../regions.md) skojarzonym z subskrypcją (na przykład `westus` w przypadku subskrypcji bezpłatnej wersji próbnej).
 
-1. Zapisz wprowadzone zmiany w `quickstart.py`pliku .
+1. Zapisz zmiany, które wprowadziłeś `quickstart.py`.
 
-## <a name="build-and-run-your-app"></a>Tworzenie i uruchamianie aplikacji
+## <a name="build-and-run-your-app"></a>Kompilowanie i uruchamianie aplikacji
 
-1. Uruchom próbkę z konsoli lub w ide:
+1. Uruchom próbkę z konsoli programu lub w środowisku IDE:
 
    ```
    python quickstart.py
    ```
 
-1. Wypowiedz zwrot lub zdanie w języku angielskim. Aplikacja przesyła mowę do usługi mowy, która tłumaczy i transkrybuje tekst (w tym przypadku do języka niemieckiego). Usługa mowy następnie wysyła syntetyzowany dźwięk i tekst z powrotem do aplikacji do wyświetlenia.
+1. Wypowiedz zwrot lub zdanie w języku angielskim. Aplikacja przesyła mowę do usługi mowy, która tłumaczy i przekształca na tekst (w tym przypadku do języka niemieckiego). Usługa mowy wysyła następnie dźwięk, a następnie tekst z powrotem do aplikacji do wyświetlenia.
 
    ```
    Say something...

@@ -1,6 +1,6 @@
 ---
-title: Tworzenie lokalizatora przesyłania strumieniowego i tworzenie adresów URL — Usługi Azure Media Services
-description: W tym artykule pokazano, jak utworzyć lokalizator przesyłania strumieniowego i utworzyć adresy URL.
+title: Tworzenie lokalizatora przesyłania strumieniowego i adresów URL kompilacji — Azure Media Services
+description: W tym artykule pokazano, jak utworzyć lokalizator przesyłania strumieniowego i adresy URL kompilacji.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,21 +12,21 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: 2972c60aa5874c21a6f7bce21020ad58b5f3b556
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78304565"
 ---
-# <a name="create-a-streaming-locator-and-build-urls"></a>Tworzenie lokalizatora przesyłania strumieniowego i tworzenie adresów URL
+# <a name="create-a-streaming-locator-and-build-urls"></a>Tworzenie lokalizatora przesyłania strumieniowego i adresów URL kompilacji
 
-W usłudze Azure Media Services, aby utworzyć adres URL przesyłania strumieniowego, należy najpierw utworzyć [lokalizator przesyłania strumieniowego](streaming-locators-concept.md). Następnie należy połącz nazwę hosta [punktu końcowego przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingendpoints) i ścieżkę **lokalizatora przesyłania strumieniowego.** W tym przykładzie jest używany *domyślny* **punkt końcowy przesyłania strumieniowego**. Podczas pierwszego tworzenia konta usługi media, ten *domyślny* **punkt końcowy przesyłania strumieniowego** będzie w stanie zatrzymania, więc musisz wywołać **Start,** aby rozpocząć przesyłanie strumieniowe.
+W Azure Media Services, aby utworzyć adres URL przesyłania strumieniowego, należy najpierw utworzyć [lokalizator przesyłania strumieniowego](streaming-locators-concept.md). Następnie można połączyć nazwę hosta [punktu końcowego przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingendpoints) i ścieżkę **lokalizatora przesyłania strumieniowego** . W tym przykładzie jest używany *domyślny* **punkt końcowy przesyłania strumieniowego**. Podczas pierwszego tworzenia konta usługi multimediów ten *domyślny* **punkt końcowy przesyłania strumieniowego** będzie w stanie zatrzymania, więc musisz wywołać polecenie **Rozpocznij** , aby rozpocząć przesyłanie strumieniowe.
 
-W tym artykule pokazano, jak utworzyć lokalizator przesyłania strumieniowego i utworzyć adres URL przesyłania strumieniowego przy użyciu javy i .NET SDK.
+W tym artykule pokazano, jak utworzyć lokalizator przesyłania strumieniowego i utworzyć adres URL przesyłania strumieniowego przy użyciu zestawów SDK języka Java i platformy .NET.
 
 ## <a name="prerequisite"></a>Wymagania wstępne 
 
-Podgląd [opakowania dynamicznego](dynamic-packaging-overview.md)
+Podgląd [dynamicznego tworzenia pakietów](dynamic-packaging-overview.md)
 
 ## <a name="java"></a>Java
 
@@ -85,7 +85,7 @@ private static List<String> getStreamingUrls(MediaManager manager, String resour
 }
 ```
 
-Zobacz przykład pełnego kodu: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
+Zobacz pełny kod przykład: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
 
 ## <a name="net"></a>.NET
 
@@ -158,9 +158,9 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 }
 ```
 
-Zobacz przykład pełnego kodu: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
+Zobacz pełny kod przykład: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Tworzenie filtrów za pomocą programu .NET](filters-dynamic-manifest-dotnet-howto.md)
 * [Tworzenie filtrów za pomocą wzorca REST](filters-dynamic-manifest-rest-howto.md)
@@ -168,4 +168,4 @@ Zobacz przykład pełnego kodu: [EncodingWithMESPredefinedPreset](https://github
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Chroń swoje treści za pomocą drm](protect-with-drm.md).
+[Ochrona zawartości za pomocą technologii DRM](protect-with-drm.md).

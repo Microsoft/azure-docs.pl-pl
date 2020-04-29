@@ -1,5 +1,5 @@
 ---
-title: Szybki start biblioteki klienta Java wyszukiwania w sieci Web usługi Bing
+title: wyszukiwanie w sieci Web Bing Java Client Library — Szybki Start
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: c204f8482d46d6586d490cb2bd3dd1a4cddac682
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78926054"
 ---
-Biblioteka klienta wyszukiwania sieci Web Bing ułatwia integrację wyszukiwania Bing w sieci Web z aplikacją Java. Z tego przewodnika Szybki start dowiesz się, jak wysłać żądanie, odebrać odpowiedź JSON oraz filtrować i analizować wyniki.
+Wyszukiwanie w sieci Web Bing Biblioteka kliencka ułatwia integrację wyszukiwanie w sieci Web Bing z aplikacją Java. Z tego przewodnika Szybki start dowiesz się, jak wysłać żądanie, odebrać odpowiedź JSON oraz filtrować i analizować wyniki.
 
-Chcesz zobaczyć kod teraz? Przykłady [bibliotek klienckich wyszukiwania Bing dla języka Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search) są dostępne w usłudze GitHub.
+Chcesz zobaczyć kod teraz? Przykłady dla [bibliotek klienckich wyszukiwanie Bing dla języka Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search) są dostępne w witrynie GitHub.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,9 +29,9 @@ Oto kilka rzeczy, które są potrzebne przed rozpoczęciem tego przewodnika Szyb
 
 [!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="create-a-project-and-set-up-your-pom-file"></a>Tworzenie projektu i konfigurowanie pliku POM
+## <a name="create-a-project-and-set-up-your-pom-file"></a>Utwórz projekt i Skonfiguruj plik pliku pom
 
-Utwórz nowy projekt w języku Java przy użyciu narzędzia Maven lub innego narzędzia do automatyzacji kompilacji. Zakładając, że używasz Maven, dodaj następujące wiersze do pliku [modelu obiektu projektu (POM).](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) Zamień wszystkie wystąpienia elementu `mainClass` swoją aplikacją.
+Utwórz nowy projekt w języku Java przy użyciu narzędzia Maven lub innego narzędzia do automatyzacji kompilacji. Przy założeniu, że używasz Maven, Dodaj następujące wiersze do pliku [Project Object Model (pliku POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) . Zamień wszystkie wystąpienia elementu `mainClass` swoją aplikacją.
 
 ```xml
 <build>
@@ -292,6 +292,6 @@ Pamiętaj, aby po zakończeniu pracy z tym projektem usunąć klucz subskrypcji 
 > [!div class="nextstepaction"]
 > [Przykłady dotyczące zestawu Java SDK dla usług Cognitive Services](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Dokumentacja zestawu Azure Java SDK](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)

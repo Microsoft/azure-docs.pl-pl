@@ -1,55 +1,55 @@
 ---
-title: Zarządzanie danymi za pomocą eksploratora usługi Azure Cosmos DB
-description: Eksplorator usługi Azure Cosmos DB to autonomiczny interfejs oparty na sieci Web, który umożliwia wyświetlanie danych przechowywanych w usłudze Azure Cosmos DB i zarządzanie nimi.
+title: Zarządzanie danymi za pomocą Eksploratora Azure Cosmos DB
+description: Azure Cosmos DB Explorer to autonomiczny interfejs oparty na sieci Web, który umożliwia wyświetlanie danych przechowywanych w Azure Cosmos DB i zarządzanie nimi.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dech
 ms.openlocfilehash: 57ba647ade45928f03cd7fb2b037642d5e4d52cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79096819"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Praca z danymi za pomocą eksploratora usługi Azure Cosmos 
 
-Eksplorator usługi Azure Cosmos DB to autonomiczny interfejs oparty na sieci Web, który umożliwia wyświetlanie danych przechowywanych w usłudze Azure Cosmos DB i zarządzanie nimi. Eksplorator usługi Azure Cosmos DB jest odpowiednikiem istniejącej karty **Eksploratora danych,** która jest dostępna w witrynie Azure portal podczas tworzenia konta usługi Azure Cosmos DB. Najważniejsze zalety eksploratora bazy danych usługi Azure Cosmos DB w stosunku do istniejącego Eksploratora danych to:
+Azure Cosmos DB Explorer to autonomiczny interfejs oparty na sieci Web, który umożliwia wyświetlanie danych przechowywanych w Azure Cosmos DB i zarządzanie nimi. Eksplorator Azure Cosmos DB jest odpowiednikiem istniejącej karty **Eksplorator danych** dostępnej w Azure Portal podczas tworzenia konta Azure Cosmos DB. Kluczowe zalety Eksploratora Azure Cosmos DB za pośrednictwem istniejącego Eksploratora danych są następujące:
 
-* Masz pełnoekranową nieruchomość do wyświetlania danych, uruchamiania zapytań, procedur przechowywanych, wyzwalaczy i wyświetlania ich wyników.  
+* Masz pełny ekran, aby wyświetlić dane, uruchamiać zapytania, procedury składowane, wyzwalacze i przeglądać ich wyniki.  
 
-* Możesz zapewnić tymczasowy lub stały dostęp do odczytu lub odczytu do konta bazy danych i jego kolekcji innym użytkownikom, którzy nie mają dostępu do witryny Azure portal lub subskrypcji.  
+* Możesz zapewnić tymczasowy lub stały dostęp do odczytu lub zapisu do konta bazy danych oraz jego kolekcje innym użytkownikom, którzy nie mają dostępu do Azure Portal lub subskrypcji.  
 
-* Wyniki kwerendy można udostępnić innym użytkownikom, którzy nie mają dostępu do witryny Azure portal lub subskrypcji.  
+* Wyniki zapytania można udostępniać innym użytkownikom, którzy nie mają dostępu do Azure Portal lub subskrypcji.  
 
-## <a name="access-azure-cosmos-db-explorer"></a>Dostęp do eksploratora usługi Azure Cosmos DB
+## <a name="access-azure-cosmos-db-explorer"></a>Dostęp do Eksploratora Azure Cosmos DB
 
-1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com/). 
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/). 
 
-2. Z **opcji Wszystkie zasoby**znajdź konto usługi Azure Cosmos DB i przejdź do niego, wybierz pozycję Klucze i skopiuj podstawowy ciąg **połączenia**.  
+2. W obszarze **wszystkie zasoby**Znajdź i przejdź do konta Azure Cosmos DB, wybierz pozycję klucze i skopiuj **podstawowe parametry połączenia**.  
 
-3. Przejdź https://cosmos.azure.com/do , wklej ciąg połączenia i wybierz **pozycję Połącz**. Za pomocą ciągu połączenia, można uzyskać dostęp do eksploratora usługi Azure Cosmos DB bez żadnych ograniczeń czasowych.  
+3. Przejdź do https://cosmos.azure.com/lokalizacji, wklej parametry połączenia i wybierz pozycję **Połącz**. Korzystając z parametrów połączenia, można uzyskać dostęp do Eksploratora Azure Cosmos DB bez żadnych limitów czasu.  
 
-   Jeśli chcesz zapewnić innym użytkownikom tymczasowy dostęp do konta usługi Azure Cosmos DB, możesz to zrobić przy użyciu adresów URL dostępu do odczytu i odczytu. 
+   Jeśli chcesz udostępnić innym użytkownikom tymczasowy dostęp do konta Azure Cosmos DB, możesz to zrobić za pomocą adresów URL odczytu i zapisu i odczytu. 
 
-4. Otwórz blok **Eksploratora danych,** wybierz pozycję **Otwórz pełny ekran**. W wyskakującym oknie dialogowym można wyświetlić dwa adresy URL dostępu — **Odczyt, zapis** i **odczyt.** Te adresy URL umożliwiają tymczasowe udostępnianie konta usługi Azure Cosmos DB innym użytkownikom. Dostęp do konta wygasa w ciągu 24 godzin, po czym można ponownie połączyć się przy użyciu nowego adresu URL dostępu lub ciągu połączenia. 
+4. Otwórz blok **Eksplorator danych** , wybierz pozycję **Otwórz pełny ekran**. W wyskakującym oknie dialogowym można wyświetlić dwa adresy URL dostępu — **Odczyt i zapis** i **Odczyt**. Te adresy URL umożliwiają tymczasowe udostępnianie konta Azure Cosmos DB innym użytkownikom. Dostęp do konta wygasa przez 24 godziny, po którym można ponownie nawiązać połączenie przy użyciu nowego adresu URL dostępu lub parametrów połączenia. 
 
-   **Odczyt i zapis** — gdy udostępniasz adres URL odczytu i zapisu innym użytkownikom, mogą wyświetlać i modyfikować bazy danych, kolekcje, kwerendy i inne zasoby skojarzone z tym kontem.
+   **Odczyt i zapis** — w przypadku udostępniania adresu URL do odczytu i zapisu innym użytkownikom użytkownicy mogą wyświetlać i modyfikować bazy danych, kolekcje, zapytania i inne zasoby skojarzone z tym konkretnym kontem.
 
-   **Odczyt** — gdy udostępniasz adres URL tylko do odczytu innym użytkownikom, mogą oni wyświetlać bazy danych, kolekcje, kwerendy i inne zasoby skojarzone z tym kontem. Na przykład jeśli chcesz udostępnić wyniki kwerendy swoim kolegom z zespołu, którzy nie mają dostępu do witryny Azure portal lub konta usługi Azure Cosmos DB, możesz podać im ten adres URL.
+   **Odczyt** — w przypadku udostępniania adresu URL tylko do odczytu innym użytkownikom mogą wyświetlać bazy danych, kolekcje, zapytania i inne zasoby skojarzone z tym konkretnym kontem. Na przykład jeśli chcesz udostępnić wyniki zapytania członkom zespołu, którzy nie mają dostępu do Azure Portal lub konta Azure Cosmos DB, możesz podać te adresy URL.
 
-   Wybierz typ dostępu, z którego chcesz otworzyć konto, i kliknij przycisk **Otwórz**. Po otwarciu eksploratora środowisko jest takie samo, jak w zakładce Eksplorator danych w witrynie Azure portal.   
+   Wybierz typ dostępu, za pomocą którego chcesz otworzyć konto, a następnie kliknij przycisk **Otwórz**. Po otwarciu Eksploratora środowisko działa tak samo, jak w przypadku korzystania z karty Eksplorator danych w Azure Portal.   
 
-   ![Otwórz eksploratora usługi Azure Cosmos DB](./media/data-explorer/open-data-explorer-with-access-url.png)
+   ![Otwórz Eksploratora Azure Cosmos DB](./media/data-explorer/open-data-explorer-with-access-url.png)
 
 ## <a name="known-issues"></a>Znane problemy
 
-Obecnie **środowisko Otwórz pełny ekran,** które umożliwia udostępnianie tymczasowego dostępu do odczytu i zapisu lub odczytu, nie jest jeszcze obsługiwane dla kont Azure Cosmos DB Gremlin i table API. Nadal można wyświetlić konta interfejsu API Gremlin i tabeli, przekazując ciąg połączenia do Eksploratora bazy danych usługi Azure Cosmos DB. 
+Obecnie **otwarte pełne środowisko ekranu** , które umożliwia udostępnianie tymczasowego dostępu do odczytu lub zapisu, nie jest jeszcze obsługiwane w przypadku kont Azure Cosmos DB Gremlin i interfejs API tabel. Nadal można wyświetlać konta Gremlin i interfejs API tabel, przekazując parametry połączenia do Eksploratora Azure Cosmos DB. 
 
-Obecnie wyświetlanie dokumentów zawierających UUID nie jest obsługiwane w Eksploratorze danych. Nie ma to wpływu na ładowanie kolekcji, tylko wyświetlanie pojedynczych dokumentów lub zapytań, które zawierają te dokumenty. Aby wyświetlić te dokumenty i zarządzać nimi, użytkownicy powinni nadal używać narzędzia, które zostało pierwotnie użyte do utworzenia tych dokumentów.
+Obecnie wyświetlanie dokumentów zawierających identyfikator UUID nie jest obsługiwane w Eksplorator danych. Nie ma to wpływu na ładowanie kolekcji, tylko Wyświetlanie pojedynczych dokumentów lub zapytań zawierających te dokumenty. Aby wyświetlić te dokumenty i zarządzać nimi, użytkownicy powinni nadal korzystać z narzędzia, które było pierwotnie używane do tworzenia tych dokumentów.
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy dowiesz się, jak rozpocząć pracę z Eksploratorem usługi Azure Cosmos DB w celu zarządzania danymi, możesz następnie:
+Teraz, kiedy wiesz już, jak rozpocząć pracę z programem Azure Cosmos DB Explorer, aby zarządzać danymi, dalej możesz:
 
-* Rozpocznij definiowanie [zapytań](sql-api-query-reference.md) przy użyciu składni SQL i [wykonuj programowanie po stronie serwera](stored-procedures-triggers-udfs.md) przy użyciu procedur przechowywanych, plików UDF, wyzwalaczy. 
+* Rozpocznij Definiowanie [zapytań](sql-api-query-reference.md) przy użyciu składni SQL i przeprowadzanie [programowania po stronie serwera](stored-procedures-triggers-udfs.md) za pomocą procedur składowanych, UDF i wyzwalaczy. 

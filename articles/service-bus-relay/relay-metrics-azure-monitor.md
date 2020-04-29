@@ -1,6 +1,6 @@
 ---
-title: Metryki usługi Azure Relay w usłudze Azure Monitor | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera informacje na temat sposobu korzystania z usługi Azure Monitor do monitorowania stanu usługi Azure Relay.
+title: Metryki Azure Relay w Azure Monitor | Microsoft Docs
+description: Ten artykuł zawiera informacje dotyczące monitorowania stanu Azure Relay za pomocą Azure Monitor.
 services: service-bus-relay
 documentationcenter: .NET
 author: spelluru
@@ -15,81 +15,81 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 159249e2c997e4c414127992b08a83b488281e46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273118"
 ---
-# <a name="azure-relay-metrics-in-azure-monitor"></a>Metryki usługi Azure Relay w usłudze Azure Monitor 
-Metryki usługi Azure Relay zapewniają stan zasobów w ramach subskrypcji platformy Azure. Za pomocą bogatego zestawu danych metryk można ocenić ogólną kondycję zasobów przekazu, nie tylko na poziomie obszaru nazw, ale także na poziomie jednostki. Te statystyki mogą być ważne, ponieważ pomagają one monitorować stan usługi Azure Relay. Metryki mogą również pomóc w rozwiązywaniu problemów z przyczynami źródłowymi bez konieczności kontaktowania się z pomocą techniczną platformy Azure.
+# <a name="azure-relay-metrics-in-azure-monitor"></a>Metryki Azure Relay w Azure Monitor 
+Metryki Azure Relay umożliwiają udostępnienie stanu zasobów w ramach subskrypcji platformy Azure. Dzięki bogatemu zestawowi danych metryk można ocenić ogólną kondycję zasobów przekazywania, nie tylko na poziomie przestrzeni nazw, ale również na poziomie jednostki. Te dane statystyczne mogą być ważne, ponieważ ułatwiają monitorowanie stanu Azure Relay. Metryki mogą również pomóc w rozwiązywaniu problemów dotyczących głównych przyczyn, bez konieczności kontaktowania się z pomocą techniczną platformy Azure.
 
-Usługa Azure Monitor udostępnia ujednolicone interfejsy użytkownika do monitorowania w różnych usługach platformy Azure. Aby uzyskać więcej informacji, zobacz [monitorowanie na platformie Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) i pobieranie [metryki usługi Azure Monitor z .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) próbki w usłudze GitHub.
+Azure Monitor zapewnia ujednolicone interfejsy użytkownika do monitorowania różnych usług platformy Azure. Aby uzyskać więcej informacji, zobacz [monitorowanie w Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) i [pobieranie metryk Azure monitor z przykładem platformy .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) w witrynie GitHub.
 
 > [!IMPORTANT]
-> Ten artykuł dotyczy tylko funkcji połączenia hybrydowe usługi Azure Relay, a nie do WCF Relay. 
+> Ten artykuł ma zastosowanie tylko do Połączenia hybrydowe funkcji Azure Relay, a nie do WCF Relay. 
 
-## <a name="access-metrics"></a>Dostęp do danych
+## <a name="access-metrics"></a>Metryki dostępu
 
-Usługa Azure Monitor udostępnia wiele sposobów dostępu do metryk. Można uzyskać dostęp do metryk za pośrednictwem [witryny Azure portal](https://portal.azure.com)lub użyć interfejsów API Usługi Azure Monitor (REST i .NET) i rozwiązań analitycznych, takich jak Pakiet zarządzania operacjami i centra zdarzeń. Aby uzyskać więcej informacji, zobacz [Monitorowanie danych zebranych przez usługę Azure Monitor](../azure-monitor/platform/data-platform.md).
+Azure Monitor zapewnia wiele sposobów uzyskiwania dostępu do metryk. Możesz uzyskać dostęp do metryk przy użyciu [Azure Portal](https://portal.azure.com)lub użyć interfejsów API Azure monitor (REST i .NET) oraz rozwiązań do analizy, takich jak pakiet Operations Management Suite i Event Hubs. Aby uzyskać więcej informacji, zobacz [monitorowanie danych zebranych przez Azure monitor](../azure-monitor/platform/data-platform.md).
 
-Metryki są domyślnie włączone i można uzyskać dostęp do ostatnich 30 dni danych. Jeśli chcesz zachować dane przez dłuższy okres czasu, możesz archiwizować dane metryk na koncie usługi Azure Storage. Jest to skonfigurowane w [ustawieniach diagnostycznych](../azure-monitor/platform/diagnostic-settings.md) w usłudze Azure Monitor.
+Metryki są domyślnie włączone i można uzyskać dostęp do najnowszych danych z ostatnich 30 dni. Jeśli chcesz zachować dane przez dłuższy czas, możesz zarchiwizować dane metryk na koncie usługi Azure Storage. Ta konfiguracja jest skonfigurowana w [ustawieniach diagnostycznych](../azure-monitor/platform/diagnostic-settings.md) w Azure monitor.
 
-## <a name="access-metrics-in-the-portal"></a>Dostęp do danych w portalu
+## <a name="access-metrics-in-the-portal"></a>Dostęp do metryk w portalu
 
-Metryki można monitorować w czasie w [witrynie Azure portal](https://portal.azure.com). W poniższym przykładzie pokazano, jak wyświetlić pomyślne żądania i przychodzące żądania na poziomie konta:
+Można monitorować metryki w czasie w [Azure Portal](https://portal.azure.com). Poniższy przykład pokazuje, jak wyświetlić pomyślne żądania i żądania przychodzące na poziomie konta:
 
 ![][1]
 
-Można również uzyskać dostęp do metryk bezpośrednio za pośrednictwem obszaru nazw. Aby to zrobić, wybierz obszar nazw, a następnie kliknij **Metryki **. 
+Możesz również uzyskać dostęp do metryk bezpośrednio za pośrednictwem przestrzeni nazw. Aby to zrobić, wybierz przestrzeń nazw, a następnie kliknij pozycję * * Metrics * *. 
 
-W przypadku metryk pomocniczych wymiarów należy filtrować z żądaną wartością wymiaru.
+W przypadku metryk obsługujących wymiary należy filtrować według żądanej wartości wymiaru.
 
 ## <a name="billing"></a>Rozliczenia
 
-Korzystanie z metryk w usłudze Azure Monitor jest obecnie bezpłatne w wersji zapoznawczej. Jeśli jednak używasz dodatkowych rozwiązań, które pochłonie dane metryki, mogą być rozliczane przez te rozwiązania. Na przykład są rozliczane przez usługę Azure Storage, jeśli archiwum danych metryk do konta usługi Azure Storage. Są również rozliczane przez dzienniki usługi Azure Monitor, jeśli przesyłasz strumieniowo dane metryk do dzienników usługi Azure Monitor w celu zaawansowanej analizy.
+Korzystanie z metryk w Azure Monitor jest obecnie bezpłatne w wersji zapoznawczej. Jeśli jednak korzystasz z dodatkowych rozwiązań, które pozyskają dane metryk, możesz obciążyć te rozwiązania. Na przykład w przypadku archiwizowania danych metryk na koncie usługi Azure Storage są naliczane opłaty za usługę Azure Storage. Opłaty są naliczane również za pomocą dzienników Azure Monitor, jeśli przesyłasz strumieniowo dane metryk do dzienników Azure Monitor w celu przeprowadzenia zaawansowanej analizy.
 
 Poniższe metryki zapewniają przegląd kondycji usługi. 
 
 > [!NOTE]
-> Jesteśmy przestarzałe kilka metryk, ponieważ są one przenoszone pod inną nazwą. Może to wymagać aktualizacji odwołań. Dane oznaczone słowem kluczowym "przestarzałe" nie będą obsługiwane w przyszłości.
+> Gdy są one przenoszone pod inną nazwę, jest przestarzałe kilka metryk. Może to wymagać aktualizacji odwołań. Metryki oznaczone słowem kluczowym "przestarzałe" nie będą obsługiwane do przodu.
 
-Wszystkie wartości metryk są wysyłane do usługi Azure Monitor co minutę. Ziarnistość czasu definiuje przedział czasu, dla którego są prezentowane wartości metryk. Obsługiwany przedział czasu dla wszystkich metryk usługi Azure Relay wynosi 1 minutę.
+Wszystkie wartości metryk są wysyłane do Azure Monitor co minutę. Stopień szczegółowości czasu określa przedział czasu, w którym są prezentowane wartości metryk. Obsługiwany przedział czasu dla wszystkich metryk Azure Relay wynosi 1 minutę.
 
 ## <a name="connection-metrics"></a>Metryki połączeń
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-| ListenerConnections-Sukces  | Liczba udanych połączeń odbiornika wykonane z usługi Azure Relay w określonym okresie. <br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|OdbiornikConnections-ClientError |Liczba błędów klienta w połączeniach odbiornika w określonym okresie.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|OdbiornikConnections-ServerError |Liczba błędów serwera w połączeniach odbiornika w określonym czasie.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|SenderConnections-Sukces |Liczba udanych połączeń nadawców nawiązanych w określonym okresie.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|SenderConnections-ClientError |Liczba błędów klienta w połączeniach nadawców w określonym okresie.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|SenderConnections-ServerError |Liczba błędów serwera w połączeniach nadawców w określonym czasie.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|Połączenia słuchaczy-TotalRequests |Całkowita liczba połączeń odbiornika w określonym okresie.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|Połączenia nadawców-TotalRequests |Żądania połączenia wysyłane przez nadawców w określonym czasie.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|ActiveConnections (Aktywne połączenia) |Liczba aktywnych połączeń. Ta wartość jest wartością punktu w czasie.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|AktywneListenery |Liczba aktywnych słuchaczy. Ta wartość jest wartością punktu w czasie.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|OdbiornikRozłącza |Liczba rozłączonych odbiorników w określonym czasie.<br/><br/> Jednostka: Bajty <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|SenderDisconnects |Liczba rozłączonych nadawców w określonym czasie.<br/><br/> Jednostka: Bajty <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
+| ListenerConnections — sukces  | Liczba pomyślnych połączeń odbiornika wykonanych w celu Azure Relay w określonym przedziale czasu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|ListenerConnections — błąd clienterror |Liczba błędów klienta w połączeniach odbiornika w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|ListenerConnections — błąd servererror |Liczba błędów serwera w połączeniach odbiornika w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|SenderConnections — sukces |Liczba pomyślnych połączeń nadawcy wykonanych w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|SenderConnections — błąd clienterror |Liczba błędów klienta w połączeniach nadawcy w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|SenderConnections — błąd servererror |Liczba błędów serwera w połączeniach nadawcy w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|ListenerConnections-TotalRequests |Całkowita liczba połączeń odbiornika w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|SenderConnections — TotalRequests |Żądania połączenia wykonywane przez nadawców w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|Połączeń ActiveConnections |Liczba aktywnych połączeń. Ta wartość jest wartością punktu w czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|ActiveListeners |Liczba aktywnych odbiorników. Ta wartość jest wartością punktu w czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|ListenerDisconnects |Liczba odłączonych odbiorników w określonym przedziale czasu.<br/><br/> Jednostka: bajty <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|SenderDisconnects |Liczba odłączonych nadawców w określonym przedziale czasu.<br/><br/> Jednostka: bajty <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 
 ## <a name="memory-usage-metrics"></a>Metryki użycia pamięci
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|BajtyPrzejstrzej |Liczba bajtów przeniesionych w określonym czasie.<br/><br/> Jednostka: Bajty <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
+|BytesTransferred |Liczba bajtów transferowanych w określonym przedziale czasu.<br/><br/> Jednostka: bajty <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 
-## <a name="metrics-dimensions"></a>Wymiary metryki
+## <a name="metrics-dimensions"></a>Wymiary metryk
 
-Usługa Azure Relay obsługuje następujące wymiary metryk w usłudze Azure Monitor. Dodawanie wymiarów do danych jest opcjonalne. Jeśli wymiary nie zostaną dodane, metryki są określane na poziomie obszaru nazw. 
+Azure Relay obsługuje następujące wymiary dla metryk w Azure Monitor. Dodawanie wymiarów do metryk jest opcjonalne. Jeśli nie dodasz wymiarów, metryki są określane na poziomie przestrzeni nazw. 
 
 |Nazwa wymiaru|Opis|
 | ------------------- | ----------------- |
-|Nazwa elementu| Usługa Azure Relay obsługuje jednostki obsługi wiadomości w obszarze nazw.|
+|EntityName| Azure Relay obsługuje jednostki obsługi komunikatów w przestrzeni nazw.|
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [omówienie monitorowania platformy Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+Zobacz [Omówienie monitorowania platformy Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 
 [1]: ./media/relay-metrics-azure-monitor/relay-monitor1.png
 

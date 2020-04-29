@@ -1,26 +1,26 @@
 ---
 title: Typowe polecenia interfejsu wiersza polecenia platformy Azure
-description: Poznaj niektóre typowe polecenia interfejsu wiersza polecenia platformy Azure, aby rozpocząć zarządzanie maszynami wirtualnymi w trybie usługi Azure Resource Manager
+description: Poznaj kilka typowych poleceń interfejsu wiersza polecenia platformy Azure, aby rozpocząć zarządzanie maszynami wirtualnymi w trybie Azure Resource Manager
 author: RicksterCDN
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: rclaus
 ms.openlocfilehash: 253f2ab1b192d22f43e4082766adf4ec4f86fe71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78969249"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Typowe polecenia interfejsu wiersza polecenia platformy Azure do zarządzania zasobami platformy Azure
 
-Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi w systemach macOS, Linux i Windows. W tym artykule opisano niektóre z najczęstszych poleceń do tworzenia maszyn wirtualnych (VM) i zarządzania nimi.
+Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi w systemach macOS, Linux i Windows. W tym artykule opisano niektóre typowe polecenia tworzenia maszyn wirtualnych i zarządzania nimi.
 
-Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli chcesz przeprowadzić uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Możesz również użyć [Cloud Shell](/azure/cloud-shell/quickstart) z przeglądarki.
+Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli musisz przeprowadzić uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Możesz również użyć [Cloud Shell](/azure/cloud-shell/quickstart) z przeglądarki.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Podstawowe polecenia usługi Azure Resource Manager w interfejsie wiersza polecenia platformy Azure
-Aby uzyskać bardziej szczegółową pomoc dotyczącą określonych przełączników i opcji wiersza `az <command> <subcommand> --help`polecenia, możesz użyć pomocy i opcji polecenia online, wpisując polecenie .
+Aby uzyskać bardziej szczegółową pomoc dotyczącą określonych przełączników wiersza polecenia i opcji, możesz użyć pomocy i opcji w trybie `az <command> <subcommand> --help`online, wpisując polecenie.
 
 ### <a name="create-vms"></a>Tworzenie maszyn wirtualnych
 | Zadanie | Polecenia interfejsu wiersza polecenia platformy Azure |
@@ -29,7 +29,7 @@ Aby uzyskać bardziej szczegółową pomoc dotyczącą określonych przełączni
 | Tworzenie maszyny wirtualnej z systemem Linux | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
 | Tworzenie maszyny wirtualnej z systemem Windows | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
 
-### <a name="manage-vm-state"></a>Zarządzanie stanem maszyny Wirtualnej
+### <a name="manage-vm-state"></a>Zarządzanie stanem maszyny wirtualnej
 | Zadanie | Polecenia interfejsu wiersza polecenia platformy Azure |
 | --- | --- |
 | Uruchamianie maszyny wirtualnej | `az vm start --resource-group myResourceGroup --name myVM` |
@@ -39,7 +39,7 @@ Aby uzyskać bardziej szczegółową pomoc dotyczącą określonych przełączni
 | Ponowne wdrażanie maszyny wirtualnej | `az vm redeploy --resource-group myResourceGroup --name myVM` |
 | Usuwanie maszyny wirtualnej | `az vm delete --resource-group myResourceGroup --name myVM` |
 
-### <a name="get-vm-info"></a>Uzyskaj informacje o maszynie wirtualnej
+### <a name="get-vm-info"></a>Pobierz informacje o maszynie wirtualnej
 | Zadanie | Polecenia interfejsu wiersza polecenia platformy Azure |
 | --- | --- |
 | Wyświetlanie listy maszyn wirtualnych | `az vm list` |
@@ -54,12 +54,12 @@ Aby uzyskać bardziej szczegółową pomoc dotyczącą określonych przełączni
 | Usuwanie dysku danych z maszyny wirtualnej | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
 | Zmienianie rozmiaru dysku | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
 | Tworzenie migawki dysku | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |
-| Tworzenie obrazu maszyny Wirtualnej | `az image create --resource-group myResourceGroup --source myVM --name myImage` |
-| Tworzenie maszyny wirtualnej na podstawie obrazu | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
+| Tworzenie obrazu maszyny wirtualnej | `az image create --resource-group myResourceGroup --source myVM --name myImage` |
+| Utwórz maszynę wirtualną na podstawie obrazu | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać dodatkowe przykłady poleceń interfejsu wiersza polecenia, zobacz [Tworzenie maszyn wirtualnych z systemem Linux i zarządzanie nimi za pomocą samouczka interfejsu wiersza polecenia platformy Azure.](tutorial-manage-vm.md)
+Aby uzyskać dodatkowe przykłady poleceń interfejsu wiersza polecenia, zobacz [Tworzenie maszyn wirtualnych z systemem Linux i zarządzanie nimi za pomocą samouczka interfejsu wiersza polecenia platformy Azure](tutorial-manage-vm.md) .
 
 
 

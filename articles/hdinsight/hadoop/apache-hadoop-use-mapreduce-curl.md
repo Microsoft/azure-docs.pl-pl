@@ -1,6 +1,6 @@
 ---
-title: Użyj MapReduce i Curl z Apache Hadoop w HDInsight - Azure
-description: Dowiedz się, jak zdalnie uruchamiać zadania MapReduce z Apache Hadoop w programie HDInsight za pomocą funkcji Curl.
+title: Korzystanie z MapReduce i Zwinięciea przy użyciu Apache Hadoop w usłudze HDInsight — Azure
+description: Dowiedz się, jak zdalnie uruchamiać zadania MapReduce z Apache Hadoop w usłudze HDInsight przy użyciu programu zwinięcie.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,37 +9,37 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
 ms.openlocfilehash: abc3cc8c526e37e18f1e67b109a9a8e15ff8c989
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302716"
 ---
-# <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Uruchamianie zadań MapReduce z Apache Hadoop na HDInsight przy użyciu REST
+# <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Uruchamianie zadań MapReduce za pomocą Apache Hadoop w usłudze HDInsight przy użyciu usługi REST
 
-Dowiedz się, jak używać interfejsu API REST interfejsu Api Apache Hive WebHCat do uruchamiania zadań MapReduce w programie Apache Hadoop w klastrze HDInsight. Curl służy do wykazania, jak można wchodzić w interakcje z HDInsight przy użyciu nieprzetworzonych żądań HTTP do uruchamiania mapreduce zadań.
+Dowiedz się, jak używać interfejsu API REST Apache Hive WebHCat do uruchamiania zadań MapReduce na Apache Hadoop w klastrze usługi HDInsight. Zwinięcie służy do zademonstrowania, w jaki sposób można korzystać z usługi HDInsight przy użyciu nieprzetworzonych żądań HTTP do uruchamiania zadań MapReduce.
 
 > [!NOTE]  
-> Jeśli jesteś już zaznajomiony z używaniem serwerów Hadoop opartych na systemie Linux, ale jesteś nowy w HDInsight, [zobacz, co musisz wiedzieć o apache Hadoop opartym na Linuksie w dokumencie HDInsight.](../hdinsight-hadoop-linux-information.md)
+> Jeśli masz już doświadczenie w korzystaniu z serwerów Hadoop opartych na systemie Linux, ale dopiero zaczynasz korzystać z usługi HDInsight, zapoznaj się z [informacjami o Apache Hadoop opartych na systemie Linux w](../hdinsight-hadoop-linux-information.md) dokumencie usługi HDInsight.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Klaster Apache Hadoop w programie HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu portalu Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
+* Klaster Apache Hadoop w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 Dostępne opcje:
-  * Program Windows PowerShell lub
-  * [Zwinąć](https://curl.haxx.se/) z [jq](https://stedolan.github.io/jq/)
+  * Windows PowerShell lub,
+  * [Zwinięcie](https://curl.haxx.se/) z [JQ](https://stedolan.github.io/jq/)
 
 ## <a name="run-a-mapreduce-job"></a>Uruchamianie zadania MapReduce
 
 > [!NOTE]  
-> Korzystając z funkcji Zwijanie lub innej komunikacji REST z webhcatem, należy uwierzytelnić żądania, podając nazwę użytkownika i hasło administratora klastra HDInsight. Należy użyć nazwy klastra jako części identyfikatora URI, który jest używany do wysyłania żądań do serwera.
+> W przypadku korzystania z zwinięcie lub innej komunikacji REST z WebHCat należy uwierzytelnić żądania, podając nazwę użytkownika i hasło administratora klastra usługi HDInsight. Należy użyć nazwy klastra jako części identyfikatora URI, który jest używany do wysyłania żądań do serwera.
 >
-> Interfejs API REST jest zabezpieczony przy użyciu [uwierzytelniania dostępu podstawowego.](https://en.wikipedia.org/wiki/Basic_access_authentication) Zawsze należy wysyłać żądania przy użyciu protokołu HTTPS, aby upewnić się, że poświadczenia są bezpiecznie wysyłane do serwera.
+> Interfejs API REST jest zabezpieczony przy użyciu [podstawowego uwierzytelniania dostępu](https://en.wikipedia.org/wiki/Basic_access_authentication). Należy zawsze tworzyć żądania przy użyciu protokołu HTTPS, aby upewnić się, że poświadczenia są bezpiecznie wysyłane do serwera.
 
 ### <a name="curl"></a>Narzędzie Curl
 
-1. Aby ułatwić obsługę, ustaw poniższe zmienne. W tym przykładzie jest oparty na środowisku systemu Windows, poprawić w razie potrzeby dla środowiska.
+1. Aby ułatwić sobie korzystanie z programu, Ustaw zmienne poniżej. Ten przykład jest oparty na środowisku systemu Windows, należy poprawić w miarę potrzeb w danym środowisku.
 
     ```cmd
     set CLUSTERNAME=
@@ -54,18 +54,18 @@ Dostępne opcje:
 
     W tym poleceniu są używane następujące parametry:
 
-   * **-u**: Wskazuje nazwę użytkownika i hasło użyte do uwierzytelnienia żądania
-   * **-G:** Wskazuje, że ta operacja jest żądaniem GET
+   * **-u**: wskazuje nazwę użytkownika i hasło używane do uwierzytelniania żądania
+   * **-G**: wskazuje, że ta operacja jest żądaniem Get
 
-   Początek identyfikatora URI, `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`jest taka sama dla wszystkich żądań.
+   Początek identyfikatora URI, `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`, jest taki sam dla wszystkich żądań.
 
-    Otrzymasz odpowiedź podobną do następującej JSON:
+    Otrzymasz odpowiedź podobną do następującej:
 
     ```output
     {"version":"v1","status":"ok"}
     ```
 
-1. Aby przesłać zadanie MapReduce, użyj następującego polecenia. W razie potrzeby zmodyfikuj ścieżkę do **jq.**
+1. Aby przesłać zadanie MapReduce, użyj następującego polecenia. W razie potrzeby zmodyfikuj ścieżkę do **JQ** .
 
     ```cmd
     curl -u admin:%PASSWORD% -d user.name=admin ^
@@ -75,19 +75,19 @@ Dostępne opcje:
     C:\HDI\jq-win64.exe .id
     ```
 
-    Koniec identyfikatora URI (/mapreduce/jar) informuje WebHCat, że to żądanie rozpoczyna zadanie MapReduce z klasy w pliku jar. W tym poleceniu są używane następujące parametry:
+    Koniec identyfikatora URI (/MapReduce/jar) informuje WebHCat, że to żądanie uruchamia zadanie MapReduce z klasy w pliku JAR. W tym poleceniu są używane następujące parametry:
 
-   * **-d** `-G` : nie jest używany, więc żądanie domyślnie do POST metody. `-d`określa wartości danych, które są wysyłane z żądaniem.
-     * **user.name**: Użytkownik, który uruchamia polecenie
-     * **jar**: Lokalizacja pliku jar, który zawiera klasę, która ma być uruchomiony
-     * **klasa**: Klasa zawierająca logikę MapReduce
-     * **arg**: Argumenty, które mają być przekazywane do zadania MapReduce. W takim przypadku wejściowy plik tekstowy i katalog, które są używane do
+   * **-d**: `-G` nie jest używany, dlatego żądanie jest domyślnie ustawiane jako metoda post. `-d`Określa wartości danych, które są wysyłane wraz z żądaniem.
+     * **User.Name**: użytkownik, który uruchamia polecenie
+     * **jar**: Lokalizacja pliku JAR, który zawiera klasę do uruchomienia
+     * **Klasa**: Klasa, która zawiera logikę MapReduce
+     * **ARG**: argumenty, które mają zostać przekazane do zadania MapReduce. W takim przypadku wejściowy plik tekstowy i katalog, które są używane na potrzeby danych wyjściowych
 
-    To polecenie powinno zwrócić identyfikator zadania, który może służyć do sprawdzania stanu zadania:
+    To polecenie powinno zwrócić identyfikator zadania, którego można użyć do sprawdzenia stanu zadania:
 
        job_1415651640909_0026
 
-1. Aby sprawdzić stan zadania, użyj następującego polecenia. Zastąp `JOBID` wartość wartości **rzeczywistej** zwróconej w poprzednim kroku. W razie potrzeby zmień lokalizację **jq.**
+1. Aby sprawdzić stan zadania, użyj następującego polecenia. Zastąp wartość wartością `JOBID` **rzeczywistą** zwróconą w poprzednim kroku. W razie konieczności Popraw lokalizację **JQ** .
 
     ```cmd
     set JOBID=job_1415651640909_0026
@@ -98,14 +98,14 @@ Dostępne opcje:
 
 ### <a name="powershell"></a>PowerShell
 
-1. Aby ułatwić obsługę, ustaw poniższe zmienne. Zamień `CLUSTERNAME` na rzeczywistą nazwę klastra. Wykonaj polecenie i wprowadź hasło logowania klastra po wyświetleniu monitu.
+1. Aby ułatwić sobie korzystanie z programu, Ustaw zmienne poniżej. Zastąp `CLUSTERNAME` wartość rzeczywistą nazwą klastra. Wykonaj polecenie i wprowadź hasło logowania klastra po wyświetleniu monitu.
 
     ```powershell
     $clusterName="CLUSTERNAME"
     $creds = Get-Credential -UserName admin -Message "Enter the cluster login password"
     ```
 
-1. Użyj następującego polecenia, aby sprawdzić, czy można połączyć się z klastrem HDInsight:
+1. Użyj następującego polecenia, aby sprawdzić, czy można nawiązać połączenie z klastrem usługi HDInsight:
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.net/templeton/v1/status" `
@@ -114,7 +114,7 @@ Dostępne opcje:
     $resp.Content
     ```
 
-    Otrzymasz odpowiedź podobną do następującej JSON:
+    Otrzymasz odpowiedź podobną do następującej:
 
     ```output
     {"version":"v1","status":"ok"}
@@ -139,14 +139,14 @@ Dostępne opcje:
     $jobID
     ```
 
-    Koniec identyfikatora URI (/mapreduce/jar) informuje WebHCat, że to żądanie rozpoczyna zadanie MapReduce z klasy w pliku jar. W tym poleceniu są używane następujące parametry:
+    Koniec identyfikatora URI (/MapReduce/jar) informuje WebHCat, że to żądanie uruchamia zadanie MapReduce z klasy w pliku JAR. W tym poleceniu są używane następujące parametry:
 
-    * **user.name**: Użytkownik, który uruchamia polecenie
-    * **jar**: Lokalizacja pliku jar, który zawiera klasę, która ma być uruchomiony
-    * **klasa**: Klasa zawierająca logikę MapReduce
-    * **arg**: Argumenty, które mają być przekazywane do zadania MapReduce. W takim przypadku wejściowy plik tekstowy i katalog, które są używane do
+    * **User.Name**: użytkownik, który uruchamia polecenie
+    * **jar**: Lokalizacja pliku JAR, który zawiera klasę do uruchomienia
+    * **Klasa**: Klasa, która zawiera logikę MapReduce
+    * **ARG**: argumenty, które mają zostać przekazane do zadania MapReduce. W takim przypadku wejściowy plik tekstowy i katalog, które są używane na potrzeby danych wyjściowych
 
-   To polecenie powinno zwrócić identyfikator zadania, który może służyć do sprawdzania stanu zadania:
+   To polecenie powinno zwrócić identyfikator zadania, którego można użyć do sprawdzenia stanu zadania:
 
        job_1415651640909_0026
 
@@ -167,17 +167,17 @@ Dostępne opcje:
 
 ### <a name="both-methods"></a>Obie metody
 
-1. Jeśli zadanie zostanie ukończone, `SUCCEEDED`zwracany stan to .
+1. Jeśli zadanie zostało zakończone, zwróconym stanem jest `SUCCEEDED`.
 
-1. Po zmianie stanu zadania na `SUCCEEDED`, można pobrać wyniki zadania z magazynu obiektów Blob platformy Azure. Parametr, `statusdir` który jest przekazywany z kwerendą zawiera lokalizację pliku wyjściowego. W tym przykładzie `/example/curl`lokalizacja to . Ten adres przechowuje dane wyjściowe zadania w `/example/curl`domyślnym magazynie klastrów w .
+1. Gdy stan zadania został zmieniony na `SUCCEEDED`, można pobrać wyniki zadania z usługi Azure Blob Storage. `statusdir` Parametr, który jest przesyłany przy użyciu zapytania, zawiera lokalizację pliku wyjściowego. W tym przykładzie lokalizacja to `/example/curl`. Ten adres przechowuje dane wyjściowe zadania w domyślnym magazynie klastrów w lokalizacji `/example/curl`.
 
-Można wyświetlić listę i pobrać te pliki przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Aby uzyskać więcej informacji na temat korzystania z interfejsu wiersza polecenia platformy Azure do pracy z magazynem obiektów Blob platformy Azure, zobacz [Szybki start: Tworzenie, pobieranie i listy obiektów blob za pomocą interfejsu wiersza polecenia platformy Azure.](../../storage/blobs/storage-quickstart-blobs-cli.md)
+Możesz wyświetlić i pobrać te pliki przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Aby uzyskać więcej informacji na temat korzystania z interfejsu wiersza polecenia platformy Azure do pracy z usługą Azure Blob Storage, zobacz [Szybki Start: Tworzenie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure](../../storage/blobs/storage-quickstart-blobs-cli.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać informacje o innych sposobach pracy z Hadoop w programie HDInsight:
+Aby uzyskać informacje o innych sposobach pracy z usługą Hadoop w usłudze HDInsight:
 
-* [Użyj MapReduce z Apache Hadoop na HDInsight](hdinsight-use-mapreduce.md)
-* [Użyj Apache Hive z Apache Hadoop na HDInsight](hdinsight-use-hive.md)
+* [Używanie MapReduce z usługą Apache Hadoop w usłudze HDInsight](hdinsight-use-mapreduce.md)
+* [Używanie Apache Hive z Apache Hadoop w usłudze HDInsight](hdinsight-use-hive.md)
 
-Aby uzyskać więcej informacji na temat interfejsu REST, który jest używany w tym artykule, zobacz [WebHCat Reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
+Aby uzyskać więcej informacji o interfejsie REST używanym w tym artykule, zobacz [odwołanie WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).

@@ -1,7 +1,7 @@
 ---
-title: Microsoft Threat Modeling Tool wydanie 11/1/2018
+title: Microsoft Threat Modeling Tool wersja 11/1/2018
 titleSuffix: Azure
-description: Dokumentowanie informacji o wersji narzędzia do modelowania zagrożeń
+description: Dokumentowanie informacji o wersji dla narzędzia do modelowania zagrożeń
 author: jegeib
 ms.author: jegeib
 ms.service: security
@@ -9,19 +9,19 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
 ms.openlocfilehash: 3d6057c729b2f3f9d7157e91656db1912422f168
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78269751"
 ---
 # <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Threat Modeling Tool, wersja aktualizacyjna 7.1.51023.1 — 2018-11-01
 
-Jak pierwotnie wspomniano w [informacjach o wersji GA,](threat-modeling-tool-releases-71509112.md)wydaliśmy aktualizację (7.1.51023.1) do narzędzia Microsoft Threat Modeling Tool, która będzie wymagać od użytkowników wersji preview (klienci w wersji zapoznawczej z wersją < 7.1.50911.2) do uaktualnienia do obsługiwanej wersji GA. Ta wersja nie zawiera żadnych nowych funkcji ani poprawek.
+Jak wspomniano wcześniej w [informacjach o wersji](threat-modeling-tool-releases-71509112.md), firma Microsoft udostępniła aktualizację (7.1.51023.1) do Microsoft Threat Modeling Tool, która będzie wymagała od użytkowników wersji zapoznawczej (wersja zapoznawcza klientów z wersją < 7.1.50911.2) w celu uaktualnienia do obsługiwanej wersji. Ta wersja nie zawiera żadnych nowych funkcji ani poprawek.
 
-- Użytkownicy wersji preview automatycznie pobierzą uaktualnienie po otwarciu klienta. Jeśli nie chcesz instalować nowej aktualizacji, wersja zapoznawcza narzędzia zostanie zamknięta.
-- Użytkownicy wersji GA narzędzia zostaną poproszeni o wybranie, czy chcą uaktualnić.
-- Użytkownicy wersji narzędzia z 2016 r. nie ulegnie to poprawie.
+- Użytkownicy wersji zapoznawczej będą automatycznie pobierać uaktualnienie, gdy klient zostanie otwarty. Jeśli zdecydujesz się nie instalować nowej aktualizacji, wersja zapoznawcza narzędzia zostanie zamknięta.
+- Użytkownicy wersji systemu, w której znajduje się wersja GA narzędzia, zostaną poproszeni o wybranie, czy mają być uaktualniane.
+- Nie wpłynie to na użytkowników wersji 2016 narzędzia.
 
 ## <a name="feature-changes"></a>Zmiany funkcji
 
@@ -31,15 +31,15 @@ Jak pierwotnie wspomniano w [informacjach o wersji GA,](threat-modeling-tool-rel
 
 - Obsługiwane systemy operacyjne
   - Microsoft Windows 10
-- Wymagana wersja .NET
+- Wymagana wersja platformy .NET
   - .NET 3.5.2
 - Wymagania dodatkowe
-  - Do otrzymywania aktualizacji narzędzia oraz szablonów wymagane jest połączenie z Internetem.
+  - Do otrzymywania aktualizacji narzędzia oraz szablonów są wymagane połączenia z Internetem.
 
-## <a name="documentation-and-feedback"></a>Dokumentacja i informacje zwrotne
+## <a name="documentation-and-feedback"></a>Dokumentacja i opinie
 
-- Dokumentacja narzędzia do modelowania zagrożeń znajduje się na [docs.microsoft.com](threat-modeling-tool.md)i zawiera informacje [o użyciu narzędzia.](threat-modeling-tool-getting-started.md)
+- Dokumentacja Threat Modeling Tool znajduje się w witrynie [docs.Microsoft.com](threat-modeling-tool.md)i zawiera informacje na [temat korzystania z narzędzia](threat-modeling-tool-getting-started.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Pobierz najnowszą wersję [narzędzia Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).
+Pobierz najnowszą wersję [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

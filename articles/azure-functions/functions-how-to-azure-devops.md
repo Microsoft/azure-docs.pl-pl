@@ -1,37 +1,37 @@
 ---
-title: Ciągłe aktualizowanie kodu aplikacji funkcji przy użyciu usługi Azure DevOps
-description: Dowiedz się, jak skonfigurować potok azure devops przeznaczony dla usług Azure Functions.
+title: Ciągle Aktualizuj kod aplikacji funkcji za pomocą usługi Azure DevOps
+description: Dowiedz się, jak skonfigurować potok Azure DevOps, który jest ukierunkowany na Azure Functions.
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 5e2fc8fb06248e2cdad9067c56647da6d9626b50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78255749"
 ---
-# <a name="continuous-delivery-by-using-azure-devops"></a>Ciągłe dostarczanie przy użyciu usługi Azure DevOps
+# <a name="continuous-delivery-by-using-azure-devops"></a>Ciągłe dostarczanie za pomocą usługi Azure DevOps
 
-Funkcję można automatycznie wdrożyć w aplikacji Usługi Azure Functions przy użyciu [usługi Azure Pipelines](/azure/devops/pipelines/).
+Funkcję można automatycznie wdrożyć w aplikacji Azure Functions przy użyciu [Azure Pipelines](/azure/devops/pipelines/).
 
 Dostępne są dwie opcje definiowania potoku:
 
-- **Plik YAML**: Plik YAML opisuje potok. Plik może mieć sekcję kroków kompilacji i sekcję wydania. Plik YAML musi znajdować się w tym samym repozytorium co aplikacja.
-- **Szablon:** Szablony to gotowe zadania, które budują lub wdrażają aplikację.
+- **Plik YAML**: plik YAML zawiera opis potoku. Plik może zawierać sekcję kroków kompilacji i sekcję dotyczącą wersji. Plik YAML musi znajdować się w tym samym repozytorium co aplikacja.
+- **Szablon**: szablony są gotowymi zadaniami, które kompilują lub wdrażają aplikację.
 
 ## <a name="yaml-based-pipeline"></a>Potok oparty na YAML
 
-Aby utworzyć potok oparty na YAML, najpierw skompiluj aplikację, a następnie wdrożyć aplikację.
+Aby utworzyć potok oparty na YAML, najpierw skompiluj aplikację, a następnie wdróż aplikację.
 
 ### <a name="build-your-app"></a>Kompiluj aplikację
 
-Sposób tworzenia aplikacji w potokach platformy Azure zależy od języka programowania aplikacji. Każdy język ma określone kroki kompilacji, które tworzą artefakt wdrożenia. Artefakt wdrożenia jest używany do wdrażania aplikacji funkcji na platformie Azure.
+Sposób kompilowania aplikacji w Azure Pipelines zależy od języka programowania aplikacji. Każdy język zawiera konkretne kroki kompilacji, które tworzą artefakt wdrożenia. Artefakt wdrożenia służy do wdrażania aplikacji funkcji na platformie Azure.
 
-# <a name="c"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[S\#](#tab/csharp)
 
-Do utworzenia pliku YAML w celu utworzenia aplikacji .NET można użyć następującego przykładu:
+Możesz użyć poniższego przykładu, aby utworzyć plik YAML w celu skompilowania aplikacji .NET:
 
 ```yaml
 pool:
@@ -60,9 +60,9 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Do utworzenia pliku YAML w celu utworzenia aplikacji JavaScript można użyć następującego przykładu:
+Możesz użyć poniższego przykładu, aby utworzyć plik YAML w celu skompilowania aplikacji JavaScript:
 
 ```yaml
 pool:
@@ -90,9 +90,9 @@ steps:
 
 # <a name="python"></a>[Python](#tab/python)
 
-Można użyć jednego z następujących przykładów, aby utworzyć plik YAML do tworzenia aplikacji dla określonej wersji języka Python. Python jest obsługiwany tylko dla aplikacji funkcyjnych działających w systemie Linux.
+Możesz użyć jednego z poniższych przykładów, aby utworzyć plik YAML w celu skompilowania aplikacji dla określonej wersji języka Python. Język Python jest obsługiwany tylko w przypadku aplikacji funkcji działających w systemie Linux.
 
-**Wersja 3.7**
+**Wersja 3,7**
 
 ```yaml
 pool:
@@ -121,7 +121,7 @@ steps:
     artifactName: 'drop'
 ```
 
-**Wersja 3.6**
+**Wersja 3,6**
 
 ```yaml
 pool:
@@ -150,9 +150,9 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Poniższy przykład służy do tworzenia pliku YAML do pakowania aplikacji programu PowerShell. Program PowerShell jest obsługiwany tylko dla systemu Windows Azure Functions.
+Możesz użyć poniższego przykładu, aby utworzyć plik YAML w celu spakowania aplikacji programu PowerShell. Program PowerShell jest obsługiwany tylko w przypadku Azure Functions systemu Windows.
 
 ```yaml
 pool:
@@ -174,11 +174,11 @@ steps:
 
 ### <a name="deploy-your-app"></a>Wdrażanie aplikacji
 
-W zależności od systemu operacyjnego hostingu należy dołączyć do pliku YAML jedną z następujących próbek YAML.
+W pliku YAML należy uwzględnić jeden z następujących przykładów YAML, w zależności od systemu operacyjnego hostingu.
 
 #### <a name="windows-function-app"></a>Aplikacja funkcji systemu Windows
 
-Do wdrożenia aplikacji funkcji systemu Windows można użyć następującego fragmentu kodu:
+Poniższego fragmentu kodu można użyć do wdrożenia aplikacji funkcji systemu Windows:
 
 ```yaml
 steps:
@@ -193,9 +193,9 @@ steps:
     #slotName: '<Slot name>'
 ```
 
-#### <a name="linux-function-app"></a>Aplikacja funkcji Linux
+#### <a name="linux-function-app"></a>Aplikacja funkcji systemu Linux
 
-Do wdrożenia aplikacji z funkcją systemu Linux można użyć następującego fragmentu kodu:
+Poniższego fragmentu kodu można użyć do wdrożenia aplikacji funkcji systemu Linux:
 
 ```yaml
 steps:
@@ -213,59 +213,59 @@ steps:
 
 ## <a name="template-based-pipeline"></a>Potok oparty na szablonie
 
-Szablony w usłudze Azure DevOps są wstępnie zdefiniowane grupy zadań, które kompilacji lub wdrażania aplikacji.
+Szablony na platformie Azure DevOps są wstępnie zdefiniowanymi grupami zadań, które kompilują lub wdrażają aplikację.
 
 ### <a name="build-your-app"></a>Kompiluj aplikację
 
-Sposób tworzenia aplikacji w potokach platformy Azure zależy od języka programowania aplikacji. Każdy język ma określone kroki kompilacji, które tworzą artefakt wdrożenia. Artefakt wdrożenia służy do aktualizowania aplikacji funkcji na platformie Azure.
+Sposób kompilowania aplikacji w Azure Pipelines zależy od języka programowania aplikacji. Każdy język zawiera konkretne kroki kompilacji, które tworzą artefakt wdrożenia. Artefakt wdrożenia służy do aktualizowania aplikacji funkcji na platformie Azure.
 
-Aby użyć wbudowanych szablonów kompilacji, podczas tworzenia nowego potoku kompilacji, wybierz pozycję **Użyj edytora klasycznego,** aby utworzyć potok przy użyciu szablonów projektanta.
+Aby używać wbudowanych szablonów kompilacji, podczas tworzenia nowego potoku kompilacji, wybierz opcję **Użyj klasycznego edytora** , aby utworzyć potok za pomocą szablonów projektanta.
 
-![Wybierz edytor klasyczny usługi Azure Pipelines](media/functions-how-to-azure-devops/classic-editor.png)
+![Wybierz Azure Pipelines klasycznego edytora](media/functions-how-to-azure-devops/classic-editor.png)
 
-Po skonfigurowaniu źródła kodu wyszukaj szablony kompilacji usługi Azure Functions. Wybierz szablon, który pasuje do twojego języka aplikacji.
+Po skonfigurowaniu źródła kodu poszukaj Azure Functions szablonów kompilacji. Wybierz szablon, który jest zgodny z językiem aplikacji.
 
-![Wybieranie szablonu kompilacji usług Azure Functions](media/functions-how-to-azure-devops/build-templates.png)
+![Wybierz szablon kompilacji Azure Functions](media/functions-how-to-azure-devops/build-templates.png)
 
-W niektórych przypadkach artefakty kompilacji mają określoną strukturę folderów. Może być konieczne zaznaczenie pola wyboru **Nazwa folderu głównego dołączania do archiwizacji ścieżek.**
+W niektórych przypadkach artefakty kompilacji mają określoną strukturę folderów. Może być konieczne wybranie pola wyboru **Nazwa folderu głównego dołączania do ścieżki archiwum** .
 
 ![Opcja dołączania nazwy folderu głównego](media/functions-how-to-azure-devops/prepend-root-folder.png)
 
 #### <a name="javascript-apps"></a>Aplikacje JavaScript
 
-Jeśli aplikacja JavaScript ma zależność od modułów natywnych systemu Windows, należy zaktualizować wersję puli agentów do **hostowanego programu VS2017**.
+Jeśli aplikacja JavaScript ma zależność od modułów macierzystych systemu Windows, należy zaktualizować wersję puli agentów do **hostowanej program VS2017**.
 
 ![Aktualizowanie wersji puli agentów](media/functions-how-to-azure-devops/change-agent.png)
 
 ### <a name="deploy-your-app"></a>Wdrażanie aplikacji
 
-Podczas tworzenia nowego potoku wydania wyszukaj szablon wydania usługi Azure Functions.
+Podczas tworzenia nowego potoku wydania Wyszukaj szablon Azure Functions wydania.
 
-![Wyszukiwanie szablonu wydania usługi Azure Functions](media/functions-how-to-azure-devops/release-template.png)
+![Wyszukaj szablon wydania Azure Functions](media/functions-how-to-azure-devops/release-template.png)
 
-Wdrażanie w gnieździe wdrażania nie jest obsługiwane w szablonie wydania.
+Wdrażanie w miejscu wdrożenia nie jest obsługiwane w szablonie zlecenia.
 
 ## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Tworzenie potoku kompilacji przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby utworzyć potok kompilacji na `az functionapp devops-pipeline create` platformie Azure, użyj [polecenia](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). Potok kompilacji jest tworzony do tworzenia i zwalniania wszelkich zmian kodu, które są wprowadzane w repozytorium. Polecenie generuje nowy plik YAML, który definiuje potok kompilacji i wydania, a następnie zatwierdza go do repozytorium. Wymagania wstępne dla tego polecenia zależą od lokalizacji kodu.
+Aby utworzyć potok kompilacji na platformie Azure, użyj `az functionapp devops-pipeline create` [polecenia](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). Potok kompilacji jest tworzony w celu kompilowania i zwalniania wszelkich zmian kodu wprowadzonych w repozytorium. Polecenie generuje nowy plik YAML, który definiuje potok kompilacji i wydania, a następnie zatwierdza go do repozytorium. Wymagania wstępne dotyczące tego polecenia zależą od lokalizacji kodu.
 
-- Jeśli kod znajduje się w usłudze GitHub:
+- Jeśli Twój kod znajduje się w serwisie GitHub:
 
-    - Musisz mieć uprawnienia **do zapisu** dla subskrypcji.
+    - Musisz mieć uprawnienia do **zapisu** dla Twojej subskrypcji.
 
     - Musisz być administratorem projektu w usłudze Azure DevOps.
 
-    - Musisz mieć uprawnienia do tworzenia tokenu dostępu osobistego GitHub (PAT), który ma wystarczające uprawnienia. Aby uzyskać więcej informacji, zobacz [Wymagania dotyczące uprawnień GItHub PAT.](https://aka.ms/azure-devops-source-repos)
+    - Musisz mieć uprawnienia do tworzenia osobistego tokenu dostępu usługi GitHub, który ma wystarczające uprawnienia. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące uprawnień w witrynie GitHub.](https://aka.ms/azure-devops-source-repos)
 
-    - Musisz mieć uprawnienia do zatwierdzania do gałęzi głównej w repozytorium GitHub, dzięki czemu można zatwierdzić automatyczniegenerowany plik YAML.
+    - Musisz mieć uprawnienia do zatwierdzania gałęzi głównej w repozytorium GitHub, aby można było zatwierdzić wygenerowany automatycznie plik YAML.
 
-- Jeśli kod znajduje się w repozytorium platformy Azure:
+- Jeśli Twój kod jest w Azure Repos:
 
-    - Musisz mieć uprawnienia **do zapisu** dla subskrypcji.
+    - Musisz mieć uprawnienia do **zapisu** dla Twojej subskrypcji.
 
     - Musisz być administratorem projektu w usłudze Azure DevOps.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się z [omówieniem usługi Azure Functions](functions-overview.md).
-- Przejrzyj [omówienie usługi Azure DevOps](/azure/devops/pipelines/).
+- Zapoznaj się z [omówieniem Azure Functions](functions-overview.md).
+- Zapoznaj się z [omówieniem usługi Azure DevOps](/azure/devops/pipelines/).

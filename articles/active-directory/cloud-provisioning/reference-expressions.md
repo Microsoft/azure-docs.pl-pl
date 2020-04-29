@@ -1,5 +1,5 @@
 ---
-title: Wyrażenia i odwołanie do funkcji w chmurze usługi Azure AD Connect
+title: Azure AD Connect wyrażeń aprowizacji w chmurze i odwołania do funkcji
 description: reference
 services: active-directory
 author: billmath
@@ -12,167 +12,167 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51c14fd7f427c29c47521a7355309e62ab2254ca
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78298619"
 ---
-# <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Pisanie wyrażeń mapowań atrybutów w usłudze Azure Active Directory
-Podczas konfigurowania inicjowania obsługi administracyjnej chmury, jednym z typów mapowań atrybutów, które można określić jest mapowanie wyrażeń. 
+# <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Pisanie wyrażeń mapowania atrybutów w Azure Active Directory
+Podczas konfigurowania aprowizacji w chmurze jednym z typów mapowań atrybutów, które można określić, jest mapowanie wyrażenia. 
 
-Mapowanie wyrażeń umożliwia dostosowanie atrybutów przy użyciu wyrażenia podobnego do skryptu.  Dzięki temu można przekształcić dane lokalne w nową lub inną wartość.  Na przykład można połączyć dwa atrybuty w jeden atrybut, ponieważ ten pojedynczy atrybut jest używany przez jedną z aplikacji w chmurze.
+Mapowanie wyrażenia umożliwia dostosowanie atrybutów przy użyciu wyrażenia przypominającego skrypt.  Dzięki temu można przekształcić dane lokalne w nową lub inną wartość.  Na przykład możesz chcieć połączyć dwa atrybuty w jeden atrybut, ponieważ ten pojedynczy atrybut jest używany przez jedną z aplikacji w chmurze.
 
-Poniższy dokument obejmie wyrażenia podobne do skryptu, które są używane do przekształcania danych.  To tylko część procesu.  Następnie należy użyć tego wyrażenia i umieścić go w żądaniu sieci web do dzierżawy.  Aby uzyskać więcej informacji na ten temat, zobacz [Przekształcenia](how-to-transformation.md)
+Następujący dokument obejmuje wyrażenia podobne do skryptu, które są używane do przekształcania danych.  Jest to tylko część procesu.  Następnie konieczne będzie użycie tego wyrażenia i umieszczenie go w żądaniu sieci Web w dzierżawie.  Aby uzyskać więcej informacji na temat, zobacz [przekształcenia](how-to-transformation.md)
 
 ## <a name="syntax-overview"></a>Omówienie składni
-Składnia wyrażeń dla mapowań atrybutów przypomina funkcje języka Visual Basic for Applications (VBA).
+Składnia wyrażeń dla mapowań atrybutów to Reminiscent of Visual Basic for Applications (VBA) Functions.
 
-* Całe wyrażenie musi być zdefiniowane w kategoriach funkcji, które składają się z nazwy, po której następują argumenty w nawiasach: <br>
-  *FunctionName(`<<argument 1>>``<<argument N>>`, )*
-* Możesz zagnieżdżać funkcje w sobie nawzajem. Przykład: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
+* Całe wyrażenie musi być zdefiniowane w zakresie funkcji, które składają się z nazwy, a następnie argumentów w nawiasach: <br>
+  *FunctionName (`<<argument 1>>`,`<<argument N>>`)*
+* Funkcje mogą być zagnieżdżane w innych. Przykład: <br> *FunctionOne (FunctionTwo (`<<argument1>>`))*
 * Można przekazać trzy różne typy argumentów do funkcji:
   
   1. Atrybuty, które muszą być ujęte w nawiasy kwadratowe. Na przykład: [attributeName]
-  2. Stałe ciągów, które muszą być ujęte w cudzysłowy. Na przykład: "Stany Zjednoczone"
-  3. Inne funkcje. Na przykład: FunctionOne(`<<argument1>>`,`<<argument2>>`FunctionTwo( ))
-* W przypadku stałych ciągów, jeśli potrzebujesz ukośnika odwrotnego ( \ ) lub cudzysłowu ( " ) w ciągu, musi on zostać zmieniony z symbolem ukośnika odwrotnego ( \ ). Na przykład: "Nazwa \\firmy:\\"Contoso ""
+  2. Stałe ciągów, które muszą być ujęte w podwójne cudzysłowy. Na przykład: "Stany Zjednoczone"
+  3. Inne funkcje. Na przykład: FunctionOne (`<<argument1>>`, FunctionTwo (`<<argument2>>`))
+* W przypadku stałych ciągów, jeśli potrzebujesz ukośnika odwrotnego (\) lub cudzysłowu (") w ciągu, musi to być znak ucieczki z symbolem ukośnika odwrotnego (\). Na przykład: "Nazwa firmy: \\" contoso\\""
 
 ## <a name="list-of-functions"></a>Lista funkcji
 | Lista funkcji | Opis |
 |-----|----|
-|[Append](#append)|Pobiera wartość ciągu źródłowego i dołącza sufiks na jego końcu.|
-|[BitAnd ( BitAnd )](#bitand)|Funkcja BitAnd ustawia określone bity na wartości.|
-|[Cbool](#cbool)|Funkcja CBool zwraca wartość logiczną na podstawie obliczonego wyrażenia|
-|[ConvertFromBase64](#convertfrombase64)|ConvertFromBase64 Funkcja konwertuje określoną wartość zakodowaną base64 na ciąg regularny.|
-|[ConvertToBase64](#converttobase64)|ConvertToBase64 Funkcja konwertuje ciąg do ciągu Base64 Unicode. |
-|[ConvertToUTF8Hex](#converttoutf8hex)|ConvertToUTF8Hex Funkcja konwertuje ciąg na wartość zakodowaną w hex UTF8.|
-|[Liczba](#count)|Funkcja Count zwraca liczbę elementów w atrybucie wielowartościowym|
-|[Cstr](#cstr)|Funkcja CStr konwertuje na typ danych ciągu.|
-|[DataFromNum](#datefromnum)|Funkcja DateFromNum konwertuje wartość w formacie daty usługi AD na typ DateTime.|
-|[DNComponent (Skomponent DN)](#dncomponent)|Funkcja DNComponent zwraca wartość określonego komponentu DN przechodzącego od lewej.|
-|[Błąd](#error)|Funkcja Error służy do zwracania błędu niestandardowego.|
-|[Formatdatetime](#formatdatetime) |Pobiera ciąg daty z jednego formatu i konwertuje go na inny format.| 
-|[Identyfikator guid](#guid)|Funkcja Guid generuje nowy losowy identyfikator GUID.|           
-|[Iif](#iif)|Funkcja IIF zwraca jeden z zestawu możliwych wartości na podstawie określonego warunku.|
-|[Instr](#instr)|InStr Funkcja znajduje pierwsze wystąpienie podciąg w ciągu.|
-|[Isnull](#isnull)|Jeśli wyrażenie ma wartość Null, funkcja IsNull zwraca wartość true.|
-|[IsNullOrEmpty ( IsNullOrEmpty )](#isnullorempty)|Jeśli wyrażenie ma wartość null lub pusty ciąg, funkcja IsNullOrEmpty zwraca wartość true.|         
-|[Ispresent](#ispresent)|Jeśli wyrażenie ma wartość ciągu, który nie jest null i nie jest pusty, a następnie IsPresent funkcja zwraca true.|    
-|[IsString (IsString)](#isstring)|Jeśli wyrażenie można ocenić do typu ciągu, a następnie IsString funkcja ocenia True.|
-|[Element](#item)|Funkcja Element zwraca jeden element z wielowartościowego ciągu/atrybutu.|
-|[Dołącz](#join) |Join() jest podobny do Append(), z tą różnicą, że może łączyć wiele wartości **ciągów źródłowych** w jeden ciąg, a każda wartość zostanie oddzielona ciągiem **separatora.**| 
-|[Lewej](#left)|Funkcja Left zwraca określoną liczbę znaków z lewej strony ciągu.|
-|[Połowie](#mid) |Zwraca podciąg wartości źródłowej. Podciąg to ciąg, który zawiera tylko niektóre znaki z ciągu źródłowego.|
-|[NormalizeDiakryty](#normalizediacritics)|Wymaga jednego argumentu ciągu. Zwraca ciąg, ale z dowolnymi znakami diakrytycznymi zastąpionymi równoważnymi znakami niekrytycznymi.|
-|[Not](#not) |Odwraca wartość logiczną **źródła**. Jeśli wartość **źródła** to "*True*", zwraca "*False*". W przeciwnym razie zwraca "*True*".| 
-|[Usuńduplika](#removeduplicates)|RemoveDuplicates Funkcja przyjmuje ciąg wielowartościowy i upewnij się, że każda wartość jest unikatowa.| 
-|[Zastąpić](#replace) |Zastępuje wartości w ciągu. | 
-|[Wybierz Wartość Nieoczyszka](#selectuniquevalue)|Wymaga co najmniej dwóch argumentów, które są regułami generowania unikatowych wartości zdefiniowanych przy użyciu wyrażeń. Funkcja ocenia każdą regułę, a następnie sprawdza wartość wygenerowaną pod kątem unikatowości w docelowej aplikacji/katalogu.| 
-|[Znak SingleAppRoleAssignment](#singleapproleassignment)|Zwraca pojedynczą przypisanie aplikacjiRoleAssignment z listy wszystkich appRoleAssignments przypisanych do użytkownika dla danej aplikacji.| 
-|[Split](#split)|Dzieli ciąg na tablicę wielowartościową, używając określonego znaku ogranicznika.|
-|[StringFromSID (WYD.](#stringfromsid)|Funkcja StringFromSid konwertuje tablicę bajtów zawierającą identyfikator zabezpieczeń na ciąg.| 
-|[StripSpaces (Przestrzenie ze striptizem](#stripspaces) |Usuwa wszystkie znaki spacji (" ") z ciągu źródłowego.| 
-|[Przełącznik](#switch)|Gdy wartość **źródłowa** jest zgodna z **kluczem,** zwraca **wartość** tego **klucza**. | 
-|[Tolower](#tolower)|Pobiera wartość ciągu *źródłowego* i konwertuje go na małe litery przy użyciu reguł kultury, które są określone.| 
-|[Toupper](#toupper)|Pobiera wartość ciągu *źródłowego* i konwertuje go na wielkie litery przy użyciu reguł kultury, które są określone.|
-|[Przycinanie](#trim)|Funkcja Przytnij usuwa białe spacje wiodące i końcowe z ciągu.|
-|[Word](#word)|Funkcja Word zwraca wyraz zawarty w ciągu, na podstawie parametrów opisujących ograniczniki do użycia i numer wyrazu do zwrócenia.|
+|[Append](#append)|Pobiera wartość ciągu źródłowego i dołącza jej sufiks do końca.|
+|[BitAnd](#bitand)|Funkcja BitAnd ustawia określoną liczbę bitów w wartości.|
+|[CBool](#cbool)|Funkcja CBool zwraca wartość logiczną opartą na obliczanym wyrażeniu|
+|[ConvertFromBase64](#convertfrombase64)|Funkcja ConvertFromBase64 konwertuje określoną zakodowaną wartość Base64 na zwykły ciąg.|
+|[ConvertToBase64](#converttobase64)|Funkcja ConvertToBase64 konwertuje ciąg na ciąg Unicode Base64. |
+|[ConvertToUTF8Hex](#converttoutf8hex)|Funkcja ConvertToUTF8Hex konwertuje ciąg na zakodowaną wartość szesnastkową UTF8.|
+|[Liczba](#count)|Funkcja count zwraca liczbę elementów w atrybucie wielowartościowym|
+|[CStr](#cstr)|Funkcja CStr konwertuje na typ danych ciągu.|
+|[DateFromNum](#datefromnum)|Funkcja DateFromNum konwertuje wartość w formacie daty usługi AD na typ DateTime.|
+|[DNComponent](#dncomponent)|Funkcja DNComponent zwraca wartość określonego składnika DN z lewej strony.|
+|[Błąd](#error)|Funkcja Error służy do zwrócenia błędu niestandardowego.|
+|[FormatDateTime](#formatdatetime) |Pobiera ciąg daty z jednego formatu i konwertuje go na inny format.| 
+|[IDENT](#guid)|Identyfikator GUID funkcji generuje nowy losowy identyfikator GUID.|           
+|[IIF](#iif)|Funkcja IIF zwraca jeden z zestawu możliwych wartości na podstawie określonego warunku.|
+|[InStr](#instr)|Funkcja InStr Znajdowanie pierwszego wystąpienia podciągu w ciągu.|
+|[IsNull](#isnull)|Jeśli wyrażenie daje w wyniku wartość null, Funkcja IsNull zwraca wartość true.|
+|[IsNullOrEmpty](#isnullorempty)|Jeśli wyrażenie ma wartość null lub jest pustym ciągiem, funkcja IsNullOrEmpty zwraca wartość true.|         
+|[Isobecne](#ispresent)|Jeśli wyrażenie daje w wyniku ciąg, który nie ma wartości null i nie jest pusty, funkcja isprezent zwraca wartość true.|    
+|[IsString](#isstring)|Jeśli wyrażenie może być szacowane do typu ciągu, funkcja IsString daje w wyniku wartość true.|
+|[Element](#item)|Funkcja Item zwraca jeden element z wielowartościowego ciągu/atrybutu.|
+|[Dołącz](#join) |Join () jest podobny do dołączania (), z tą różnicą, że może połączyć wiele wartości ciągu **źródłowego** w jeden ciąg, a każda wartość zostanie oddzielona przez ciąg **separatora** .| 
+|[Lewym](#left)|Funkcja Left Zwraca określoną liczbę znaków z lewej strony ciągu.|
+|[Mid](#mid) |Zwraca podciąg wartości źródłowej. Podciąg jest ciągiem zawierającym tylko niektóre znaki z ciągu źródłowego.|
+|[NormalizeDiacritics](#normalizediacritics)|Wymaga jednego argumentu ciągu. Zwraca ciąg, ale z dowolnymi znakami diakrytycznymi zastąpionymi odpowiednikami znaków niediakrytycznych.|
+|[Niemożliwe](#not) |Odwraca wartość logiczną **źródła**. Jeśli wartością **źródłową** jest "*true*", zwraca wartość "*false*". W przeciwnym razie zwraca wartość "*true*".| 
+|[RemoveDuplicates —](#removeduplicates)|Funkcja RemoveDuplicates — przyjmuje ciąg o wartości wielowartościowej i upewnij się, że każda wartość jest unikatowa.| 
+|[Stępować](#replace) |Zamienia wartości w ciągu. | 
+|[SelectUniqueValue](#selectuniquevalue)|Wymaga co najmniej dwóch argumentów, które są unikatowymi regułami generowania wartości zdefiniowanych przy użyciu wyrażeń. Funkcja oblicza każdą regułę, a następnie sprawdza wartość wygenerowaną w celu zapewnienia unikatowości w docelowej aplikacji/katalogu.| 
+|[SingleAppRoleAssignment](#singleapproleassignment)|Zwraca pojedynczy appRoleAssignment z listy wszystkich appRoleAssignments przypisanych do użytkownika dla danej aplikacji.| 
+|[Podziału](#split)|Dzieli ciąg na tablicę wielowartościową przy użyciu określonego znaku ogranicznika.|
+|[StringFromSID](#stringfromsid)|Funkcja StringFromSid konwertuje tablicę bajtową zawierającą identyfikator zabezpieczeń na ciąg.| 
+|[StripSpaces](#stripspaces) |Usuwa wszystkie znaki spacji ("") z ciągu źródłowego.| 
+|[Przełącznika](#switch)|Gdy wartość **źródłowa** jest zgodna z **kluczem**, zwraca **wartość** dla tego **klucza**. | 
+|[ToLower](#tolower)|Pobiera wartość ciągu *źródłowego* i konwertuje ją na małe litery przy użyciu określonych reguł kultury.| 
+|[ToUpper](#toupper)|Pobiera wartość ciągu *źródłowego* i konwertuje ją na wielkie litery przy użyciu określonych reguł kultury.|
+|[Trim](#trim)|Funkcja Trim usuwa wiodące i końcowe białe znaki z ciągu.|
+|[Word](#word)|Funkcja słowa zwraca słowo zawarte w ciągu, w oparciu o parametry opisujące ograniczniki do użycia i numer wyrazu do zwrócenia.|
 
 ---
 ### <a name="append"></a>Append
-**Funkcja:**<br> Dołącz(źródło, sufiks)
+**Funkcyjn**<br> Dołącz (Źródło, sufiks)
 
-**Opis:**<br> Pobiera wartość ciągu źródłowego i dołącza sufiks na jego końcu.
+**Opis:**<br> Pobiera wartość ciągu źródłowego i dołącza jej sufiks do końca.
 
-**Parametry:**<br> 
+**Wejściowe**<br> 
 
-   | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
+   | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **Źródła** |Wymagany |Ciąg |Zazwyczaj nazwa atrybutu z obiektu źródłowego. |
-   | **Sufiks** |Wymagany |Ciąg |Ciąg, który chcesz dołączyć na końcu wartości źródłowej. |
+   | **zewnętrz** |Wymagany |String |Zwykle nazwa atrybutu w obiekcie źródłowym. |
+   | **przedrostk** |Wymagany |String |Ciąg, który ma zostać dołączony do końca wartości źródłowej. |
 
 ---
-### <a name="bitand"></a>BitAnd ( BitAnd )
+### <a name="bitand"></a>BitAnd
 **Opis:**  
-Funkcja BitAnd ustawia określone bity na wartości.
+Funkcja BitAnd ustawia określoną liczbę bitów w wartości.
 
-**Składni:**  
+**Obowiązuje**  
 `num BitAnd(num value1, num value2)`
 
-* value1, value2: wartości liczbowe, które powinny być i'ed razem
+* wartość1, wartość2: wartości liczbowe, które powinny być AND'ed razem
 
-**Uwagi:**  
-Ta funkcja konwertuje oba parametry do reprezentacji binarnej i ustawia nieco na:
+**Uwagi**  
+Ta funkcja konwertuje oba parametry na reprezentację binarną i ustawia bit na:
 
-* 0 - jeśli jeden lub oba z odpowiadających im bitów *w wartości1* i *wartości2* są 0
-* 1 - jeśli oba odpowiednie bity są 1.
+* 0 — Jeśli jedna lub obie odpowiadające bity w *wartość1* i *wartość2* są równe 0
+* 1 — Jeśli obie odpowiadające bity są 1.
 
-Innymi słowy zwraca 0 we wszystkich przypadkach, z wyjątkiem sytuacji, gdy odpowiednie bity obu parametrów są 1.
+Innymi słowy zwraca 0 we wszystkich przypadkach, z wyjątkiem sytuacji, gdy odpowiadające im bity obu parametrów są 1.
 
 **Przykład:**  
  
  `BitAnd(&HF, &HF7)`</br>
- Zwraca wartość 7, ponieważ szesnastkowe wartości "F" i "F7" są obliczane do tej wartości.
+ Zwraca wartość 7, ponieważ w liczbie szesnastkowej "F" i "F7" można obliczyć tę wartości.
 
 ---
 
-### <a name="cbool"></a>Cbool
+### <a name="cbool"></a>CBool
 **Opis:**  
-Funkcja CBool zwraca wartość logiczną na podstawie obliczonego wyrażenia
+Funkcja CBool zwraca wartość logiczną opartą na obliczanym wyrażeniu
 
-**Składni:**  
+**Obowiązuje**  
 `bool CBool(exp Expression)`
 
-**Uwagi:**  
-Jeśli wyrażenie ma wartość inną niż zero, cBool zwraca true, w przeciwnym razie zwraca False.
+**Uwagi**  
+Jeśli wyrażenie daje w wyniku wartość różną od zera, Funkcja CBool zwraca wartość true, w przeciwnym razie zwraca wartość false.
 
 **Przykład:**  
 `CBool([attrib1] = [attrib2])`  
 
-Zwraca wartość True, jeśli oba atrybuty mają tę samą wartość.
+Zwraca wartość true, jeśli oba atrybuty mają tę samą wartość.
 
 ---
 ### <a name="convertfrombase64"></a>ConvertFromBase64
 **Opis:**  
-ConvertFromBase64 Funkcja konwertuje określoną wartość zakodowaną base64 na ciąg regularny.
+Funkcja ConvertFromBase64 konwertuje określoną zakodowaną wartość Base64 na zwykły ciąg.
 
-**Składni:**  
-`str ConvertFromBase64(str source)`- zakłada Unicode do kodowania  
+**Obowiązuje**  
+`str ConvertFromBase64(str source)`-zakłada, że kodowanie Unicode  
 `str ConvertFromBase64(str source, enum Encoding)`
 
-* źródło: Ciąg zakodowany base64  
+* Źródło: zakodowany ciąg Base64  
 * Kodowanie: Unicode, ASCII, UTF8
 
-**Przykład**  
+**Przyklad**  
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
 `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-Oba przykłady powracają "*Hello world!*"
+Oba przykłady zwracają "*Hello World!*"
 
 ---
 ### <a name="converttobase64"></a>ConvertToBase64
 **Opis:**  
-ConvertToBase64 Funkcja konwertuje ciąg do ciągu Base64 Unicode.  
-Konwertuje wartość tablicy liczb całkowitych na jej równoważną reprezentację ciągu, która jest zakodowana z podstawowych 64 cyfr.
+Funkcja ConvertToBase64 konwertuje ciąg na ciąg Unicode Base64.  
+Konwertuje wartość tablicy liczb całkowitych na równoważną reprezentację w postaci ciągu, która jest zakodowana przy użyciu cyfry Base-64.
 
-**Składni:**  
+**Obowiązuje**  
 `str ConvertToBase64(str source)`
 
 **Przykład:**  
 `ConvertToBase64("Hello world!")`  
-Zwraca wartość "SABlAGwAbVACAAdwBvAHIAbABkACEA"
+Zwraca wartość "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
 ---
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
 **Opis:**  
-ConvertToUTF8Hex Funkcja konwertuje ciąg na wartość zakodowaną w hex UTF8.
+Funkcja ConvertToUTF8Hex konwertuje ciąg na zakodowaną wartość szesnastkową UTF8.
 
-**Składni:**  
+**Obowiązuje**  
 `str ConvertToUTF8Hex(str source)`
 
-**Uwagi:**  
-Format wyjściowy tej funkcji jest używany przez usługę Azure Active Directory jako format atrybutu DN.
+**Uwagi**  
+Format danych wyjściowych tej funkcji jest używany przez Azure Active Directory jako format atrybutu nazwy wyróżniającej.
 
 **Przykład:**  
 `ConvertToUTF8Hex("Hello world!")`  
@@ -181,172 +181,172 @@ Zwraca 48656C6C6F20776F726C6421
 ---
 ### <a name="count"></a>Liczba
 **Opis:**  
-Funkcja Count zwraca liczbę elementów w atrybucie wielowartościowym
+Funkcja count zwraca liczbę elementów w atrybucie wielowartościowym
 
-**Składni:**  
+**Obowiązuje**  
 `num Count(mvstr attribute)`
 
 ---
-### <a name="cstr"></a>Cstr
+### <a name="cstr"></a>CStr
 **Opis:**  
 Funkcja CStr konwertuje na typ danych ciągu.
 
-**Składni:**  
+**Obowiązuje**  
 `str CStr(num value)`  
 `str CStr(ref value)`  
 `str CStr(bool value)`  
 
-* wartość: Może być wartością liczbową, atrybutem odwołania lub wartością logiczną.
+* wartość: może być wartością liczbową, atrybutem odwołania lub wartością logiczną.
 
 **Przykład:**  
 `CStr([dn])`  
-Może zwrócić "cn=Joe,dc=contoso,dc=com"
+Może zwrócić wartość "CN = Jan, DC = contoso, DC = com"
 
 ---
-### <a name="datefromnum"></a>DataFromNum
+### <a name="datefromnum"></a>DateFromNum
 **Opis:**  
 Funkcja DateFromNum konwertuje wartość w formacie daty usługi AD na typ DateTime.
 
-**Składni:**  
+**Obowiązuje**  
 `dt DateFromNum(num value)`
 
 **Przykład:**  
 `DateFromNum([lastLogonTimestamp])`  
 `DateFromNum(129699324000000000)`  
-Zwraca datetime reprezentujący 2012-01-01 23:00:00
+Zwraca datę i godzinę reprezentującą 2012-01-01 23:00:00
 
 ---
-### <a name="dncomponent"></a>DNComponent (Skomponent DN)
+### <a name="dncomponent"></a>DNComponent
 **Opis:**  
-Funkcja DNComponent zwraca wartość określonego komponentu DN przechodzącego od lewej.
+Funkcja DNComponent zwraca wartość określonego składnika DN z lewej strony.
 
-**Składni:**  
+**Obowiązuje**  
 `str DNComponent(ref dn, num ComponentNumber)`
 
-* dn: atrybut odniesienia do interpretacji
-* Numer składnika: Składnik w numerze DN do zwrócenia
+* DN: atrybut Reference do zinterpretowania
+* ComponentNumber: składnik w nazwie DN do zwrócenia
 
 **Przykład:**  
 `DNComponent(CRef([dn]),1)`  
-Jeśli dn jest "cn=Joe,ou=...", zwraca Joe
+Jeśli nazwa DN to "CN = Jan, OU =...", zwraca Jan
 
 ---
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 **Opis:**  
-Funkcja Error służy do zwracania błędu niestandardowego.
+Funkcja Error służy do zwrócenia błędu niestandardowego.
 
-**Składni:**  
+**Obowiązuje**  
 `void Error(str ErrorMessage)`
 
 **Przykład:**  
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
-Jeśli accountname atrybutu nie jest obecny, zgłosić błąd na obiekcie.
+Jeśli atrybut AccountName nie istnieje, zgłoś błąd w obiekcie.
 
 ---
-### <a name="formatdatetime"></a>Formatdatetime
-**Funkcja:**<br> FormatDateTime(źródło, inputFormat, outputFormat)
+### <a name="formatdatetime"></a>FormatDateTime
+**Funkcyjn**<br> FormatDateTime (Źródło, inputFormat, outputFormat)
 
 **Opis:**<br> Pobiera ciąg daty z jednego formatu i konwertuje go na inny format.
 
-**Parametry:**<br> 
+**Wejściowe**<br> 
 
-   | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
+   | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **Źródła** |Wymagany |Ciąg |Zazwyczaj nazwa atrybutu z obiektu źródłowego. |
-   | **inputFormat** |Wymagany |Ciąg |Oczekiwany format wartości źródłowej. Aby uzyskać obsługiwane formaty, zobacz [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-   | **wyjścieFormat** |Wymagany |Ciąg |Format daty wyjściowej. |
+   | **zewnętrz** |Wymagany |String |Zwykle nazwa atrybutu w obiekcie źródłowym. |
+   | **inputFormat** |Wymagany |String |Oczekiwany format wartości źródłowej. Obsługiwane formaty można znaleźć w [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)temacie. |
+   | **outputFormat** |Wymagany |String |Format daty wyjściowej. |
 
 ---
 ### <a name="guid"></a>Guid (identyfikator GUID)
 **Opis:**  
-Funkcja Guid generuje nowy losowy identyfikator GUID
+Identyfikator GUID funkcji generuje nowy losowy identyfikator GUID
 
-**Składni:**  
+**Obowiązuje**  
 `str Guid()`
 
 ---
-### <a name="iif"></a>Iif
+### <a name="iif"></a>IIF
 **Opis:**  
 Funkcja IIF zwraca jeden z zestawu możliwych wartości na podstawie określonego warunku.
 
-**Składni:**  
+**Obowiązuje**  
 `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
-* warunek: dowolna wartość lub wyrażenie, które można ocenić na wartość true lub false.
-* valueIfTrue: Jeśli warunek ma wartość true, zwracaną wartość.
-* valueIfFalse: Jeśli warunek ma wartość false, zwracaną wartość.
+* warunek: dowolna wartość lub wyrażenie, które może przyjąć wartość PRAWDA lub FAŁSZ.
+* valueIfTrue: Jeśli wynikiem warunku jest wartość true, zwrócona wartość.
+* valueIfFalse: Jeśli warunek ma wartość false, zwrócona wartość.
 
 **Przykład:**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
- Jeśli użytkownik jest stażystą, zwraca alias użytkownika z "t-" dodane na początku, w przeciwnym razie zwraca alias użytkownika, jak jest.
+ Jeśli użytkownik jest informatykiem, zwraca alias użytkownika ze znakiem "t-", który został dodany do początku tego elementu, w przeciwnym razie zwraca alias użytkownika.
 
 ---
-### <a name="instr"></a>Instr
+### <a name="instr"></a>InStr
 **Opis:**  
-Funkcja InStr znajduje pierwsze wystąpienie podciągu w ciągu
+Funkcja InStr Znajdowanie pierwszego wystąpienia podciągu w ciągu
 
-**Składni:**  
+**Obowiązuje**  
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
 `num InStr(str stringcheck, str stringmatch, num start , enum compare)`
 
 * stringcheck: ciąg do przeszukania
-* stringmatch: ciąg do znalezienia
-* start: pozycja początkowa, aby znaleźć podciąg
-* porównaj: vbTextCompare lub vbBinaryCompare
+* stringmatch: ciąg, który ma zostać znaleziony
+* Początek: pozycja początkowa, aby znaleźć podciąg
+* Porównanie: vbTextCompare lub vbBinaryCompare
 
-**Uwagi:**  
-Zwraca pozycję, w której znaleziono podciąg lub 0, jeśli nie znaleziono.
+**Uwagi**  
+Zwraca pozycję, w której znaleziono podciąg lub wartość 0, jeśli nie została znaleziona.
 
 **Przykład:**  
 `InStr("The quick brown fox","quick")`  
 Evalues do 5
 
 `InStr("repEated","e",3,vbBinaryCompare)`  
-Ocenia do 7
+Szacuje się w 7
 
 ---
-### <a name="isnull"></a>Isnull
+### <a name="isnull"></a>IsNull
 **Opis:**  
-Jeśli wyrażenie ma wartość Null, funkcja IsNull zwraca wartość true.
+Jeśli wyrażenie daje w wyniku wartość null, Funkcja IsNull zwraca wartość true.
 
-**Składni:**  
+**Obowiązuje**  
 `bool IsNull(var Expression)`
 
-**Uwagi:**  
-Dla atrybutu Null jest wyrażona przez brak atrybutu.
+**Uwagi**  
+W przypadku atrybutu wartość null jest wyrażana przez nieobecność atrybutu.
 
 **Przykład:**  
 `IsNull([displayName])`  
-Zwraca wartość True, jeśli atrybut nie jest obecny w CS lub MV.
+Zwraca wartość true, jeśli atrybut nie jest obecny w CS lub MV.
 
 ---
-### <a name="isnullorempty"></a>IsNullOrEmpty ( IsNullOrEmpty )
+### <a name="isnullorempty"></a>IsNullOrEmpty
 **Opis:**  
-Jeśli wyrażenie ma wartość null lub pusty ciąg, funkcja IsNullOrEmpty zwraca wartość true.
+Jeśli wyrażenie ma wartość null lub jest pustym ciągiem, funkcja IsNullOrEmpty zwraca wartość true.
 
-**Składni:**  
+**Obowiązuje**  
 `bool IsNullOrEmpty(var Expression)`
 
-**Uwagi:**  
-Dla atrybutu to ocenić True, jeśli atrybut jest nieobecny lub jest obecny, ale jest pusty ciąg.  
-Odwrotność tej funkcji nosi nazwę IsPresent.
+**Uwagi**  
+W przypadku atrybutu wynikiem tego jest wartość true, jeśli atrybut jest nieobecny lub jest obecny, ale jest ciągiem pustym.  
+Odwrotność tej funkcji ma nazwę isobecne.
 
 **Przykład:**  
 `IsNullOrEmpty([displayName])`  
-Zwraca wartość True, jeśli atrybut nie jest obecny lub jest pustym ciągiem w CS lub MV.
+Zwraca wartość true, jeśli atrybut nie jest obecny lub jest pustym ciągiem w CS lub MV.
 
 ---
-### <a name="ispresent"></a>Ispresent
+### <a name="ispresent"></a>Isobecne
 **Opis:**  
-Jeśli wyrażenie ma wartość ciągu, który nie jest null i nie jest pusty, a następnie IsPresent funkcja zwraca true.
+Jeśli wyrażenie daje w wyniku ciąg, który nie ma wartości null i nie jest pusty, funkcja isprezent zwraca wartość true.
 
-**Składni:**  
+**Obowiązuje**  
 `bool IsPresent(var expression)`
 
-**Uwagi:**  
-Odwrotność tej funkcji nosi nazwę IsNullOrEmpty.
+**Uwagi**  
+Odwrotność tej funkcji ma nazwę IsNullOrEmpty.
 
 **Przykład:**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
@@ -354,68 +354,68 @@ Odwrotność tej funkcji nosi nazwę IsNullOrEmpty.
 ---
 ### <a name="item"></a>Element
 **Opis:**  
-Funkcja Element zwraca jeden element z wielowartościowego ciągu/atrybutu.
+Funkcja Item zwraca jeden element z wielowartościowego ciągu/atrybutu.
 
-**Składni:**  
+**Obowiązuje**  
 `var Item(mvstr attribute, num index)`
 
-* atrybut: atrybut wielowartościowy
+* attribute: Atrybut wielowartościowy
 * index: indeks do elementu w ciągu wielowartościowym.
 
-**Uwagi:**  
-Funkcja Element jest przydatna wraz z Contains funkcji, ponieważ ta ostatnia funkcja zwraca indeks do elementu w atrybucie wielowartościowe.
+**Uwagi**  
+Funkcja Item jest przydatna razem z funkcją Contains, ponieważ Ostatnia funkcja zwraca indeks do elementu w atrybucie wielowartościowym.
 
-Zgłasza błąd, jeśli indeks jest poza granicami.
+Zgłasza błąd, jeśli indeks jest poza zakresem.
 
 **Przykład:**  
 `Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Zwraca podstawowy adres e-mail.
 
 ---
-### <a name="isstring"></a>IsString (IsString)
+### <a name="isstring"></a>IsString
 **Opis:**  
-Jeśli wyrażenie można ocenić do typu ciągu, a następnie IsString funkcja ocenia True.
+Jeśli wyrażenie może być szacowane do typu ciągu, funkcja IsString daje w wyniku wartość true.
 
-**Składni:**  
+**Obowiązuje**  
 `bool IsString(var expression)`
 
-**Uwagi:**  
-Służy do określenia, czy CStr() może zakończyć się pomyślnie, aby przeanalizować wyrażenie.
+**Uwagi**  
+Służy do określenia, czy CStr () może pomyślnie przeanalizować wyrażenie.
 
 ---
 ### <a name="join"></a>Join
-**Funkcja:**<br> Sprzężenie(separator, source1, source2, ...)
+**Funkcyjn**<br> Join (separator, Source1, SOURCE2,...)
 
-**Opis:**<br> Join() jest podobny do Append(), z tą różnicą, że może łączyć wiele wartości **ciągów źródłowych** w jeden ciąg, a każda wartość zostanie oddzielona ciągiem **separatora.**
+**Opis:**<br> Join () jest podobny do dołączania (), z tą różnicą, że może połączyć wiele wartości ciągu **źródłowego** w jeden ciąg, a każda wartość zostanie oddzielona przez ciąg **separatora** .
 
-Jeśli jedna z wartości źródłowych jest atrybutem wielowartościowym, każda wartość w tym atrybucie zostanie połączona, oddzielona wartością separatora.
+Jeśli jedna z wartości źródłowych jest atrybutem wielowartościowym, każda wartość w tym atrybucie zostanie przyłączona wspólnie, oddzielona przez wartość separatora.
 
-**Parametry:**<br> 
+**Wejściowe**<br> 
 
-   | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
+   | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **Separator** |Wymagany |Ciąg |Ciąg używany do oddzielania wartości źródłowych, gdy są one łączone w jeden ciąg. Może być "", jeśli separator nie jest wymagany. |
-   | **źródło1 ... sourceN** |Wymagana, zmienna liczba razy |Ciąg |Wartości ciągu, które mają być połączone ze sobą. |
+   | **rozdzielając** |Wymagany |String |Ciąg używany do oddzielania wartości źródłowych, gdy są one łączone w jeden ciąg. Może to być "", jeśli nie jest wymagany żaden separator. |
+   | **source1 ... sourceN** |Wymagana, zmienna liczba razy |String |Wartości ciągu, które mają być połączone ze sobą. |
 
 ---
 ### <a name="left"></a>Lewe
 **Opis:**  
-Funkcja Left zwraca określoną liczbę znaków z lewej strony ciągu.
+Funkcja Left Zwraca określoną liczbę znaków z lewej strony ciągu.
 
-**Składni:**  
+**Obowiązuje**  
 `str Left(str string, num NumChars)`
 
-* ciąg znaków: ciąg zwrotny znaków z
-* NumChars: liczba identyfikujący liczbę znaków do zwrócenia od początku (po lewej) ciągu
+* String: ciąg, z którego mają zostać zwrócone znaki
+* NumChars: numer identyfikujący liczbę znaków do zwrócenia od początku (po lewej) ciągu
 
-**Uwagi:**  
+**Uwagi**  
 Ciąg zawierający pierwsze znaki numChars w ciągu:
 
 * Jeśli numChars = 0, zwraca pusty ciąg.
-* Jeśli numChars < 0, zwraca ciąg wejściowy.
-* Jeśli ciąg ma wartość null, zwróć pusty ciąg.
+* Jeśli numChars < 0, zwracany ciąg wejściowy.
+* Jeśli ciąg ma wartość null, zwracany jest pusty ciąg.
 
-Jeśli ciąg zawiera mniej znaków niż liczba określona w numChars, zwracany jest ciąg identyczny z ciągiem (czyli zawierający wszystkie znaki w parametrze 1).
+Jeśli ciąg zawiera mniej znaków niż liczba określona w numChars, zwracany jest ciąg identyczny jak ciąg (czyli zawierający wszystkie znaki w parametrze 1).
 
 **Przykład:**  
 `Left("John Doe", 3)`  
@@ -423,351 +423,351 @@ Zwraca wartość `Joh`.
 
 ---
 ### <a name="mid"></a>Mid
-**Funkcja:**<br> Środek (źródło, początek, długość)
+**Funkcyjn**<br> Mid (Źródło, początek, długość)
 
-**Opis:**<br> Zwraca podciąg wartości źródłowej. Podciąg to ciąg, który zawiera tylko niektóre znaki z ciągu źródłowego.
+**Opis:**<br> Zwraca podciąg wartości źródłowej. Podciąg jest ciągiem zawierającym tylko niektóre znaki z ciągu źródłowego.
 
-**Parametry:**<br> 
+**Wejściowe**<br> 
 
-   | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
+   | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **Źródła** |Wymagany |Ciąg |Zazwyczaj nazwa atrybutu. |
-   | **Uruchomić** |Wymagany |liczba całkowita |Indeks w ciągu **źródłowym,** gdzie podciąg powinien się rozpocząć. Pierwszy znak w ciągu będzie miał indeks 1, drugi znak będzie miał indeks 2 i tak dalej. |
-   | **Długość** |Wymagany |liczba całkowita |Długość podciągu. Jeśli długość kończy się poza **ciągiem źródłowym,** funkcja zwróci podciąg z indeksu **startowego** do końca ciągu **źródłowego.** |
+   | **zewnętrz** |Wymagany |String |Zwykle nazwa atrybutu. |
+   | **Start** |Wymagany |liczba całkowita |Indeks w ciągu **źródłowym** , w którym powinien zostać uruchomiony podciąg. Pierwszy znak w ciągu będzie miał indeks 1, drugi znak będzie miał indeks 2 itd. |
+   | **Długość** |Wymagany |liczba całkowita |Długość podciągu. Jeśli długość kończy się poza ciągiem **źródłowym** , funkcja zwróci podciąg z **początkowego** indeksu do końca ciągu **źródłowego** . |
 
 ---
-### <a name="normalizediacritics"></a>NormalizeDiakryty
-**Funkcja:**<br> NormalizeDiacritics(źródło)
+### <a name="normalizediacritics"></a>NormalizeDiacritics
+**Funkcyjn**<br> NormalizeDiacritics (Źródło)
 
-**Opis:**<br> Wymaga jednego argumentu ciągu. Zwraca ciąg, ale z dowolnymi znakami diakrytycznymi zastąpionymi równoważnymi znakami niekrytycznymi. Zazwyczaj używane do konwertowania imion i nazwisk zawierających znaki diakrytyczne (znaki akcentujące) na wartości prawne, które mogą być używane w różnych identyfikatorach użytkowników, takich jak główne nazwy użytkowników, nazwy kont SAM i adresy e-mail.
+**Opis:**<br> Wymaga jednego argumentu ciągu. Zwraca ciąg, ale z dowolnymi znakami diakrytycznymi zastąpionymi odpowiednikami znaków niediakrytycznych. Zwykle używany do konwersji pierwszych nazw i ostatnich nazw zawierających znaki diakrytyczne (znaczniki akcentów) do wartości dozwolonych, które mogą być używane w różnych identyfikatorach użytkowników, takich jak główne nazwy użytkowników, nazwy kont SAM i adresy e-mail.
 
-**Parametry:**<br> 
+**Wejściowe**<br> 
 
-   | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
+   | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **Źródła** |Wymagany |Ciąg | Zwykle atrybut imienia lub nazwiska. |
+   | **zewnętrz** |Wymagany |String | Zwykle jest to atrybut imię i nazwisko. |
 
 ---
 ### <a name="not"></a>Not
-**Funkcja:**<br> Not(źródło)
+**Funkcyjn**<br> Nie (Źródło)
 
-**Opis:**<br> Odwraca wartość logiczną **źródła**. Jeśli wartość **źródła** to "*True*", zwraca "*False*". W przeciwnym razie zwraca "*True*".
+**Opis:**<br> Odwraca wartość logiczną **źródła**. Jeśli wartością **źródłową** jest "*true*", zwraca wartość "*false*". W przeciwnym razie zwraca wartość "*true*".
 
-**Parametry:**<br> 
+**Wejściowe**<br> 
 
-   | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
+   | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **Źródła** |Wymagany |Ciąg logiczny |Oczekiwane wartości **źródłowe** to "True" lub "False". |
+   | **zewnętrz** |Wymagany |Ciąg logiczny |Oczekiwane wartości **źródłowe** to "true" lub "false". |
 
 ---
-### <a name="removeduplicates"></a>Usuńduplika
+### <a name="removeduplicates"></a>RemoveDuplicates —
 **Opis:**  
-RemoveDuplicates Funkcja przyjmuje ciąg wielowartościowy i upewnij się, że każda wartość jest unikatowa.
+Funkcja RemoveDuplicates — przyjmuje ciąg o wartości wielowartościowej i upewnij się, że każda wartość jest unikatowa.
 
-**Składni:**  
+**Obowiązuje**  
 `mvstr RemoveDuplicates(mvstr attribute)`
 
 **Przykład:**  
 `RemoveDuplicates([proxyAddresses])`  
-Zwraca zdezynfekowany atrybut proxyAddress, w którym wszystkie zduplikowane wartości zostały usunięte.
+Zwraca oczyszczony atrybut proxyAddress, w którym wszystkie zduplikowane wartości zostały usunięte.
 
 ---
 ### <a name="replace"></a>Replace
-**Funkcja:**<br> Zamień(źródło, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, szablon)
+**Funkcyjn**<br> Replace (Source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, Template)
 
 **Opis:**<br>
-Zastępuje wartości w ciągu. Działa inaczej w zależności od podanych parametrów:
+Zamienia wartości w ciągu. Działa inaczej w zależności od podanych parametrów:
 
-* Gdy **oldValue** i **replacementValue** są dostarczane:
+* Gdy są podane **OldValue** i **replacementValue** :
   
-  * Zastępuje wszystkie wystąpienia **staregoValue** w **źródle** **z replacementValue**
-* Gdy **stareWartość** i **szablon** są dostarczane:
+  * Zamienia wszystkie wystąpienia wartości **OldValue** w **źródle** na **replacementValue**
+* Gdy jest udostępniana **OldValue** i **szablon** :
   
-  * Zastępuje wszystkie wystąpienia **starejWartość** w **szablonie** wartością **źródłową**
-* Gdy **regexPattern** i **replacementValue** są dostarczane:
+  * Zamienia wszystkie wystąpienia wartości **OldValue** w **szablonie** na wartość **Source**
+* Jeśli **regexPattern** i **replacementValue** są podane:
 
-  * Funkcja stosuje **wyrażenie regularnePattern** do ciągu **źródłowego** i można użyć nazw grup **replacementValue** odc.
-* Gdy **regexPattern**, **regexGroupName**, **replacementValue** są dostarczane:
+  * Funkcja stosuje **regexPattern** do ciągu **źródłowego** i można użyć nazw grup wyrażeń regularnych do konstruowania ciągu dla **replacementValue**
+* Gdy **regexPattern**, **regexGroupName**, **replacementValue** są podane:
   
-  * Funkcja stosuje **wyrażenie regularnePattern** do ciągu **źródłowego** i zastępuje wszystkie wartości pasujące **do wyrażenia regularnegoGroupName** z **replacementValue**
-* Gdy **regexPattern**, **regexGroupName**, **replacementAttributeName** są dostarczane:
+  * Funkcja stosuje **regexPattern** do ciągu **źródłowego** i zastępuje wszystkie wartości pasujące do **regexGroupName** **replacementValue**
+* Gdy **regexPattern**, **regexGroupName**, **replacementAttributeName** są podane:
   
-  * Jeśli **źródło** nie ma wartości, **zwracane** jest źródło
-  * Jeśli **źródło** ma wartość, funkcja stosuje **wyrażenie regularnePattern** do ciągu **źródłowego** i zastępuje wszystkie wartości pasujące **regexGroupName** z wartością skojarzoną z **replacementAttributeName**
+  * Jeśli **Źródło** nie ma wartości, zwracane jest **Źródło**
+  * Jeśli **Źródło** ma wartość, funkcja stosuje **regexPattern** do ciągu **źródłowego** i zastępuje wszystkie wartości pasujące do **regexGroupName** wartością skojarzoną z **replacementAttributeName**
 
-**Parametry:**<br> 
+**Wejściowe**<br> 
 
-   | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
+   | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **Źródła** |Wymagany |Ciąg |Zazwyczaj nazwa atrybutu z obiektu **źródłowego.** |
-   | **Oldvalue** |Optional (Opcjonalność) |Ciąg |Wartość do wymiany w **źródle** lub **szablonie**. |
-   | **regexPattern** |Optional (Opcjonalność) |Ciąg |Wzorzec regex dla wartości, która ma zostać zastąpiona w **źródle**. Lub, gdy używana jest **nazwa zastępczaPropertyName,** wzorzec wyodrębnić wartość z **replacementPropertyName**. |
-   | **nazwa grupy regex** |Optional (Opcjonalność) |Ciąg |Nazwa grupy wewnątrz **regexPattern**. Tylko wtedy, gdy używana jest **nazwa zastępczaPropertyName,** wyodrębnimy wartość tej grupy jako **replacementValue** z **replacementPropertyName**. |
-   | **wymianaValue** |Optional (Opcjonalność) |Ciąg |Nowa wartość, aby zastąpić stary. |
-   | **replacementAttributeName** |Optional (Opcjonalność) |Ciąg |Nazwa atrybutu, który ma być używany dla wartości zastępczej |
-   | **Szablonu** |Optional (Opcjonalność) |Ciąg |Gdy wartość **szablonu** jest podana, będziemy szukać **oldValue** wewnątrz szablonu i zastąpić go wartością **źródłową.** |
+   | **zewnętrz** |Wymagany |String |Zwykle nazwa atrybutu w obiekcie **źródłowym** . |
+   | **oldValue** |Optional |String |Wartość, która ma zostać zastąpiona w **źródle** lub **szablonie**. |
+   | **regexPattern** |Optional |String |Wzorzec wyrażenia regularnego dla wartości, która ma zostać zastąpiona w **źródle**. Lub, gdy **replacementPropertyName** jest używany, wzorzec wyodrębniania wartości z **replacementPropertyName**. |
+   | **regexGroupName** |Optional |String |Nazwa grupy w **regexPattern**. Tylko wtedy, gdy **replacementPropertyName** jest używany, wyodrębnimy wartość tej grupy jako **replacementValue** z **replacementPropertyName**. |
+   | **replacementValue** |Optional |String |Nowa wartość, aby zastąpić starą. |
+   | **replacementAttributeName** |Optional |String |Nazwa atrybutu, który ma być używany na potrzeby wartości zamiennej |
+   | **formularza** |Optional |String |Gdy zostanie podana wartość **szablonu** , poszukamy wartości **OldValue** wewnątrz szablonu i Zastąp ją wartością **Source** . |
 
 ---
-### <a name="selectuniquevalue"></a>Wybierz Wartość Nieoczyszka
-**Funkcja:**<br> SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, ...)
+### <a name="selectuniquevalue"></a>SelectUniqueValue
+**Funkcyjn**<br> SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, ...)
 
-**Opis:**<br> Wymaga co najmniej dwóch argumentów, które są regułami generowania unikatowych wartości zdefiniowanych przy użyciu wyrażeń. Funkcja ocenia każdą regułę, a następnie sprawdza wartość wygenerowaną pod kątem unikatowości w docelowej aplikacji/katalogu. Pierwszą znalezioną unikatową wartością będzie ta zwrócona. Jeśli wszystkie wartości już istnieją w docelowych, wpis zostanie zdeesowany i powód zostanie zarejestrowany w dziennikach inspekcji. Nie ma górnej granicy liczby argumentów, które mogą być dostarczone.
+**Opis:**<br> Wymaga co najmniej dwóch argumentów, które są unikatowymi regułami generowania wartości zdefiniowanych przy użyciu wyrażeń. Funkcja oblicza każdą regułę, a następnie sprawdza wartość wygenerowaną w celu zapewnienia unikatowości w docelowej aplikacji/katalogu. Pierwsza unikatowa wartość zostanie znaleziona. Jeśli wszystkie wartości istnieją już w miejscu docelowym, wpis zostanie zapisany w trybie Escrow, a powód zostanie zarejestrowany w dziennikach inspekcji. Nie ma górnej granicy liczby argumentów, które można dostarczyć.
 
 > [!NOTE]
-> - Jest to funkcja najwyższego poziomu, nie może być zagnieżdżona.
-> - Tej funkcji nie można zastosować do atrybutów, które mają pasujące pierwszeństwo.  
-> - Ta funkcja jest przeznaczona tylko do tworzenia wpisu. Podczas używania go z atrybutem ustaw właściwość **Zastosuj mapowanie** **na Tylko podczas tworzenia obiektu**.
-> - Ta funkcja jest obecnie obsługiwana tylko dla "Workday to Active Directory User Provisioning". Nie można używać z innymi aplikacjami inicjowania obsługi administracyjnej. 
+> - Jest to funkcja najwyższego poziomu, która nie może być zagnieżdżona.
+> - Nie można zastosować tej funkcji do atrybutów, które mają pasujące pierwszeństwo.  
+> - Ta funkcja jest przeznaczona tylko do użycia podczas tworzenia wpisów. Gdy jest używany z atrybutem, ustaw właściwość **Zastosuj mapowanie** na **tylko podczas tworzenia obiektu**.
+> - Ta funkcja jest obecnie obsługiwana tylko w przypadku "Workday, Active Directory aprowizacji użytkowników". Nie można jej używać z innymi aplikacjami aprowizacji. 
 
 
-**Parametry:**<br> 
+**Wejściowe**<br> 
 
-   | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
+   | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **uniqueValueRule1 ... uniqueValueRuleN** |Wymagane są co najmniej 2, nie |Ciąg | Lista unikatowych reguł generowania wartości do oceny. |
+   | **uniqueValueRule1 ... uniqueValueRuleN** |Wymagane są co najmniej 2, brak górnej granicy |String | Lista unikatowych reguł generowania wartości do obliczenia. |
 
 
 ---
-### <a name="singleapproleassignment"></a>Znak SingleAppRoleAssignment
-**Funkcja:**<br> SingleAppRoleAssignment([appRoleAssignments])
+### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
+**Funkcyjn**<br> SingleAppRoleAssignment ([appRoleAssignments])
 
-**Opis:**<br> Zwraca pojedynczą przypisanie aplikacjiRoleAssignment z listy wszystkich appRoleAssignments przypisanych do użytkownika dla danej aplikacji. Ta funkcja jest wymagana do konwersji appRoleAssignments obiektu do ciągu nazwy pojedynczej roli. Należy zauważyć, że najlepszym rozwiązaniem jest zapewnienie tylko jeden appRoleAssignment jest przypisany do jednego użytkownika w czasie, a jeśli wiele ról są przypisane ciąg roli zwracany może nie być przewidywalne. 
+**Opis:**<br> Zwraca pojedynczy appRoleAssignment z listy wszystkich appRoleAssignments przypisanych do użytkownika dla danej aplikacji. Ta funkcja jest wymagana do przekonwertowania obiektu appRoleAssignments na ciąg o pojedynczej nazwie roli. Należy pamiętać, że najlepszym rozwiązaniem jest upewnienie się, że tylko jedna appRoleAssignment jest przypisana do jednego użytkownika w danym momencie i Jeśli przypiszesz wiele ról, zwracany ciąg roli może nie być przewidywalny. 
 
-**Parametry:**<br> 
+**Wejściowe**<br> 
 
-  | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
+  | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
   |--- | --- | --- | --- |
-  | **[appRoleAssignments]** |Wymagany |Ciąg |**[appRoleAssignments]** obiekt. |
+  | **AppRoleAssignments** |Wymagany |String |**[appRoleAssignments]** obiekt. |
 
 ---
 ### <a name="split"></a>Podział
-**Funkcja:**<br> Split(źródło, ogranicznik)
+**Funkcyjn**<br> Split (Źródło, ogranicznik)
 
-**Opis:**<br> Dzieli ciąg na tablicę wielowartościową, używając określonego znaku ogranicznika.
+**Opis:**<br> Dzieli ciąg na tablicę wielowartościową przy użyciu określonego znaku ogranicznika.
 
-**Parametry:**<br> 
+**Wejściowe**<br> 
 
-   | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
+   | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **Źródła** |Wymagany |Ciąg |wartości **źródłowego** do aktualizacji. |
-   | **Ogranicznik** |Wymagany |Ciąg |Określa znak, który będzie używany do dzielenia ciągu (przykład: ",") |
+   | **zewnętrz** |Wymagany |String |wartość **źródłowa** do zaktualizowania. |
+   | **ogranicznik** |Wymagany |String |Określa znak, który będzie używany do dzielenia ciągu (przykład: ",") |
 
 ---
-### <a name="stringfromsid"></a>StringFromSid (Wyd.
+### <a name="stringfromsid"></a>StringFromSid
 **Opis:**  
-Funkcja StringFromSid konwertuje tablicę bajtów zawierającą identyfikator zabezpieczeń na ciąg.
+Funkcja StringFromSid konwertuje tablicę bajtową zawierającą identyfikator zabezpieczeń na ciąg.
 
-**Składni:**  
+**Obowiązuje**  
 `str StringFromSid(bin ObjectSID)`  
 
 ---
-### <a name="stripspaces"></a>StripSpaces (Przestrzenie ze striptizem
-**Funkcja:**<br> StripSpaces(źródło)
+### <a name="stripspaces"></a>StripSpaces
+**Funkcyjn**<br> StripSpaces (Źródło)
 
-**Opis:**<br> Usuwa wszystkie znaki spacji (" ") z ciągu źródłowego.
+**Opis:**<br> Usuwa wszystkie znaki spacji ("") z ciągu źródłowego.
 
-**Parametry:**<br> 
+**Wejściowe**<br> 
 
-   | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
+   | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **Źródła** |Wymagany |Ciąg |wartości **źródłowego** do aktualizacji. |
+   | **zewnętrz** |Wymagany |String |wartość **źródłowa** do zaktualizowania. |
 
 ---
 ### <a name="switch"></a>Przełącznik
-**Funkcja:**<br> Przełącznik(źródło, defaultValue, key1, value1, key2, value2, ...)
+**Funkcyjn**<br> Przełącznik (Źródło, DefaultValue, Klucz1, wartość1, klucz2, wartość2,...)
 
-**Opis:**<br> Gdy wartość **źródłowa** jest zgodna z **kluczem,** zwraca **wartość** tego **klucza**. Jeśli wartość **źródła** nie jest zgodna z żadnymi kluczami, zwraca **wartość domyślną**.  **Parametry** **klucza** i wartości muszą zawsze być w parach. Funkcja zawsze oczekuje parzyste liczby parametrów.
+**Opis:**<br> Gdy wartość **źródłowa** jest zgodna z **kluczem**, zwraca **wartość** dla tego **klucza**. Jeśli wartość **źródłowa** nie jest zgodna z żadnymi kluczami, zwraca wartość **DefaultValue**.  Parametry **klucza** i **wartości** muszą zawsze znajdować się w parach. Funkcja zawsze oczekuje parzystej liczby parametrów.
 
-**Parametry:**<br> 
+**Wejściowe**<br> 
 
-   | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
+   | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **Źródła** |Wymagany |Ciąg |**Wartość źródła** do sprawdzenia. |
-   | **Defaultvalue** |Optional (Opcjonalność) |Ciąg |Wartość domyślna, która ma być używana, gdy źródło nie pasuje do żadnych kluczy. Może być pustym ciągiem (""). |
-   | **key** |Wymagany |Ciąg |**Klucz** do porównania wartości **źródłowych** z. |
-   | **value** |Wymagany |Ciąg |Wartość zastępcza dla **źródła** pasującego do klucza. |
+   | **zewnętrz** |Wymagany |String |Wartość **źródłowa** do sprawdzenia. |
+   | **defaultValue** |Optional |String |Wartość domyślna, która ma być używana, jeśli źródło nie jest zgodne z żadnymi kluczami. Może być pustym ciągiem (""). |
+   | **głównych** |Wymagany |String |**Klucz** do porównywania wartości **źródłowej** z. |
+   | **value** |Wymagany |String |Wartość zastępcza dla **źródła** pasującego do klucza. |
 
 ---
-### <a name="tolower"></a>Tolower
-**Funkcja:**<br> ToLower(źródło, kultura)
+### <a name="tolower"></a>ToLower
+**Funkcyjn**<br> ToLower (Źródło, kultura)
 
-**Opis:**<br> Pobiera wartość ciągu *źródłowego* i konwertuje go na małe litery przy użyciu reguł kultury, które są określone. Jeśli nie określono żadnych informacji o *kulturze,* użyje ono kultury niezmiennej.
+**Opis:**<br> Pobiera wartość ciągu *źródłowego* i konwertuje ją na małe litery przy użyciu określonych reguł kultury. Jeśli nie określono informacji o *kulturze* , będzie ona używać niezmiennej kultury.
 
-**Parametry:**<br> 
+**Wejściowe**<br> 
 
-   | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
+   | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **Źródła** |Wymagany |Ciąg |Zazwyczaj nazwa atrybutu z obiektu źródłowego |
-   | **kultura** |Optional (Opcjonalność) |Ciąg |Format nazwy kultury na podstawie RFC 4646 to *languagecode2-country/regioncode2*, gdzie *languagecode2* jest dwuliterowym kodem języka, a *kod kraju/regionu2* jest dwuliterowym kodem subkultury. Przykłady obejmują ja-JP dla języka japońskiego (Japonia) i en-US dla języka angielskiego (Stany Zjednoczone). W przypadkach, gdy dwuliterowy kod języka nie jest dostępny, używany jest trzyliterowy kod pochodzący z iso 639-2.|
+   | **zewnętrz** |Wymagany |String |Zwykle nazwa atrybutu z obiektu źródłowego |
+   | **kultura** |Optional |String |Format nazwy kultury opartej na dokumencie RFC 4646 to *languagecode2-Country/regioncode2*, gdzie *languagecode2* to kod języka dwuliterowego i *kraj/regioncode2* to kod podkultury dwuliterowej. Przykłady obejmują ja-JP dla języka japońskiego (Japonia) i EN-US dla języka angielskiego (Stany Zjednoczone). W przypadkach, gdy kod języka dwuliterowego nie jest dostępny, używany jest trzyliterowy kod pochodzący z normy ISO 639-2.|
 
 ---
 
-### <a name="toupper"></a>Toupper
-**Funkcja:**<br> ToUpper(źródło, kultura)
+### <a name="toupper"></a>ToUpper
+**Funkcyjn**<br> ToUpper (Źródło, kultura)
 
-**Opis:**<br> Pobiera wartość ciągu *źródłowego* i konwertuje go na wielkie litery przy użyciu reguł kultury, które są określone. Jeśli nie określono żadnych informacji o *kulturze,* użyje ono kultury niezmiennej.
+**Opis:**<br> Pobiera wartość ciągu *źródłowego* i konwertuje ją na wielkie litery przy użyciu określonych reguł kultury. Jeśli nie określono informacji o *kulturze* , będzie ona używać niezmiennej kultury.
 
-**Parametry:**<br> 
+**Wejściowe**<br> 
 
-  | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
+  | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
   | --- | --- | --- | --- |
-  | **Źródła** |Wymagany |Ciąg |Zazwyczaj nazwa atrybutu z obiektu źródłowego. |
-  | **kultura** |Optional (Opcjonalność) |Ciąg |Format nazwy kultury na podstawie RFC 4646 to *languagecode2-country/regioncode2*, gdzie *languagecode2* jest dwuliterowym kodem języka, a *kod kraju/regionu2* jest dwuliterowym kodem subkultury. Przykłady obejmują ja-JP dla języka japońskiego (Japonia) i en-US dla języka angielskiego (Stany Zjednoczone). W przypadkach, gdy dwuliterowy kod języka nie jest dostępny, używany jest trzyliterowy kod pochodzący z iso 639-2.|
+  | **zewnętrz** |Wymagany |String |Zwykle nazwa atrybutu w obiekcie źródłowym. |
+  | **kultura** |Optional |String |Format nazwy kultury opartej na dokumencie RFC 4646 to *languagecode2-Country/regioncode2*, gdzie *languagecode2* to kod języka dwuliterowego i *kraj/regioncode2* to kod podkultury dwuliterowej. Przykłady obejmują ja-JP dla języka japońskiego (Japonia) i EN-US dla języka angielskiego (Stany Zjednoczone). W przypadkach, gdy kod języka dwuliterowego nie jest dostępny, używany jest trzyliterowy kod pochodzący z normy ISO 639-2.|
 
 ---
 
 ### <a name="trim"></a>Trim
 **Opis:**  
-Funkcja Przytnij usuwa białe spacje wiodące i końcowe z ciągu.
+Funkcja Trim usuwa wiodące i końcowe białe znaki z ciągu.
 
-**Składni:**  
+**Obowiązuje**  
 `str Trim(str value)`  
 
 **Przykład:**  
 `Trim(" Test ")`  
-Zwraca wartość "Test".
+Zwraca "test".
 
 `Trim([proxyAddresses])`  
-Usuwa spacje początkowe i końcowe dla każdej wartości w atrybucie proxyAddress.
+Usuwa spacje wiodące i końcowe dla każdej wartości w atrybucie proxyAddress.
 
 ---
 ### <a name="word"></a>Word
 **Opis:**  
-Funkcja Word zwraca wyraz zawarty w ciągu, na podstawie parametrów opisujących ograniczniki do użycia i numer wyrazu do zwrócenia.
+Funkcja słowa zwraca słowo zawarte w ciągu, w oparciu o parametry opisujące ograniczniki do użycia i numer wyrazu do zwrócenia.
 
-**Składni:**  
+**Obowiązuje**  
 `str Word(str string, num WordNumber, str delimiters)`
 
-* ciąg: ciąg, z który ma zwracać wyraz.
-* Numer Word: liczba identyfikujący numer wyrazu, który powinien zostać odesłany.
-* ograniczniki: ciąg reprezentujący ogranicznik(-y), który powinien być używany do identyfikowania wyrazów
+* String: ciąg, z którego ma zostać zwrócony wyraz.
+* WordNumber: numer identyfikujący, który numer wyrazu powinien zwrócić.
+* Ograniczniki: ciąg reprezentujący ograniczniki, które powinny być używane do identyfikowania wyrazów
 
-**Uwagi:**  
-Każdy ciąg znaków w ciągu oddzielony jednym ze znaków w ogranicznikach są identyfikowane jako słowa:
+**Uwagi**  
+Każdy ciąg znaków w ciągu rozdzielony przez jeden ze znaków w ogranicznikach jest identyfikowany jako wyrazy:
 
 * Jeśli liczba < 1, zwraca pusty ciąg.
 * Jeśli ciąg ma wartość null, zwraca pusty ciąg.
 
-Jeśli ciąg zawiera mniej niż słowa liczbowe lub ciąg nie zawiera żadnych słów zidentyfikowanych przez ograniczniki, zwracany jest pusty ciąg.
+Jeśli ciąg zawiera mniej niż liczbowe słowa lub ciąg nie zawiera słów identyfikowanych przez ograniczniki, zwracany jest pusty ciąg.
 
 **Przykład:**  
 `Word("The quick brown fox",3," ")`  
 Zwraca "brązowy"
 
 `Word("This,string!has&many separators",3,",!&#")`  
-Czy powrót "ma"
+Zwróci "ma"
 
 ## <a name="examples"></a>Przykłady
-### <a name="strip-known-domain-name"></a>Rozsyłanie znanej nazwy domeny
-Aby uzyskać nazwę użytkownika, musisz usunąć znaną nazwę domeny z wiadomości e-mail użytkownika. <br>
-Na przykład, jeśli domena jest "contoso.com", można użyć następującego wyrażenia:
+### <a name="strip-known-domain-name"></a>Nazwa znanego paska
+Aby uzyskać nazwę użytkownika, należy rozdzielić znaną nazwę domeny z wiadomości e-mail użytkownika. <br>
+Na przykład jeśli domena ma wartość "contoso.com", można użyć następującego wyrażenia:
 
-**Wyrażenie:** <br>
+**Wyrażenia** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
 
-**Przykładowe wejście / wyjście:** <br>
+**Przykładowe dane wejściowe/wyjściowe:** <br>
 
-* **WEJŚCIE** (poczta):john.doe@contoso.com" "
-* **WYJŚCIE:**"john.doe"
+* **Dane wejściowe** (poczta):john.doe@contoso.com""
+* **Wynik**: "Jan. Nowak"
 
-### <a name="append-constant-suffix-to-user-name"></a>Dołączanie stałego sufiksu do nazwy użytkownika
-Jeśli używasz piaskownicy Salesforce, może być konieczne dołączenie dodatkowego sufiksu do wszystkich nazw użytkowników przed ich synchronizacją.
+### <a name="append-constant-suffix-to-user-name"></a>Dołącz stały sufiks do nazwy użytkownika
+Jeśli używasz piaskownicy usługi Salesforce, może być konieczne dołączenie dodatkowego sufiksu do wszystkich nazw użytkowników przed ich synchronizacją.
 
-**Wyrażenie:** <br>
+**Wyrażenia** <br>
 `Append([userPrincipalName], ".test")`
 
-**Przykładowe wejście/wyjście:** <br>
+**Przykładowe dane wejściowe/wyjściowe:** <br>
 
-* **WEJŚCIE**: (userPrincipalName): "John.Doe@contoso.com"
-* **WYJŚCIE**:John.Doe@contoso.com.test" "
+* **Dane wejściowe**: (userPrincipalName):John.Doe@contoso.com""
+* **Wynik**: "John.Doe@contoso.com.test"
 
-### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Generowanie aliasu użytkownika przez łączenie części imienia i nazwiska
-Musisz wygenerować alias użytkownika, biorąc pierwsze 3 litery imienia użytkownika i pierwsze 5 liter nazwiska użytkownika.
+### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Generowanie aliasu użytkownika przez łączenie części imię i nazwisko
+Musisz wygenerować alias użytkownika, pobierając pierwsze 3 litery nazwiska użytkownika i pierwszych 5 liter w imieniu użytkownika.
 
-**Wyrażenie:** <br>
+**Wyrażenia** <br>
 `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
 
-**Przykładowe wejście/wyjście:** <br>
+**Przykładowe dane wejściowe/wyjściowe:** <br>
 
-* **INPUT** (givenName): "John"
-* **INPUT** (nazwisko): "Doe"
-* **WYJŚCIE:**"JohDoe"
+* **Dane wejściowe** (imię): "Jan"
+* **Dane wejściowe** (nazwisko): "Nowak"
+* **Dane wyjściowe**: "JohDoe"
 
-### <a name="remove-diacritics-from-a-string"></a>Usuwanie znaków diakrutycznych z ciągu
-Należy zastąpić znaki zawierające znaki akcentu równoważnymi znakami, które nie zawierają znaczników akcentu.
+### <a name="remove-diacritics-from-a-string"></a>Usuwanie znaków diakrytycznych z ciągu
+Należy zastąpić znaki zawierające znaki akcentu znakami równoważnymi, które nie zawierają znaków akcentu.
 
-**Wyrażenie:** <br>
-NormalizeDiacritics([givenName])
+**Wyrażenia** <br>
+NormalizeDiacritics ([podanąname])
 
-**Przykładowe wejście/wyjście:** <br>
+**Przykładowe dane wejściowe/wyjściowe:** <br>
 
-* **INPUT** (givenName): "Zoë"
-* **WYJŚCIE**: "Zoe"
+* **Dane wejściowe** (o podanej): "Zoë"
+* **Dane wyjściowe**: "Zoe"
 
-### <a name="split-a-string-into-a-multi-valued-array"></a>Dzielenie ciągu na tablicę o wielu wartościach
-Należy wziąć listę ciągów rozdzielanych przecinkami i podzielić je na tablicę, którą można podłączyć do atrybutu wielowartościowego, takiego jak atrybut Uprawnienia Zestawy uprawnień Salesforce. W tym przykładzie lista zestawów uprawnień została wypełniona w extensionAttribute5 w usłudze Azure AD.
+### <a name="split-a-string-into-a-multi-valued-array"></a>Dzielenie ciągu na tablicę wielowartościową
+Należy wykonać rozdzielaną przecinkami listę ciągów i podzielić je na tablicę, która może być podłączona do atrybutu wielowartościowego, takiego jak PermissionSets. W tym przykładzie lista zestawów uprawnień została wypełniona w extensionAttribute5 w usłudze Azure AD.
 
-**Wyrażenie:** <br>
-Split([extensionAttribute5], ",")
+**Wyrażenia** <br>
+Split ([extensionAttribute5], ",")
 
-**Przykładowe wejście/wyjście:** <br>
+**Przykładowe dane wejściowe/wyjściowe:** <br>
 
-* **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
-* **WYJŚCIE**: ["PermissionSetOne", "PermissionSetTwo"]
+* **Input** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **Output**: ["PermissionSetOne", "PermissionSetTwo"]
 
-### <a name="output-date-as-a-string-in-a-certain-format"></a>Data wyjściowa jako ciąg znaków w określonym formacie
-Chcesz wysłać daty do aplikacji SaaS w określonym formacie. <br>
-Na przykład chcesz sformatować daty servicenow.
+### <a name="output-date-as-a-string-in-a-certain-format"></a>Data wyjściowa jako ciąg w określonym formacie
+Chcesz wysyłać daty do aplikacji SaaS w określonym formacie. <br>
+Na przykład, chcesz sformatować daty dla usługi ServiceNow.
 
-**Wyrażenie:** <br>
+**Wyrażenia** <br>
 
 `FormatDateTime([extensionAttribute1], "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
 
-**Przykładowe wejście/wyjście:**
+**Przykładowe dane wejściowe/wyjściowe:**
 
-* **INPUT** (extensionAttribute1): "20150123105347.1Z"
-* **WYJŚCIE**: "2015-01-23"
+* **Wejście** (extensionAttribute1): "20150123105347.1 z"
+* **Dane wyjściowe**: "2015-01-23"
 
-### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Zastępowanie wartości na podstawie wstępnie zdefiniowanego zestawu opcji
+### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Zastąp wartość na podstawie wstępnie zdefiniowanego zestawu opcji
 
 Należy zdefiniować strefę czasową użytkownika na podstawie kodu stanu przechowywanego w usłudze Azure AD. <br>
-Jeśli kod stanu nie pasuje do żadnej ze wstępnie zdefiniowanych opcji, użyj domyślnej wartości "Australia/Sydney".
+Jeśli kod stanu nie jest zgodny z żadną ze wstępnie zdefiniowanych opcji, użyj wartości domyślnej "Australia/Sydney".
 
-**Wyrażenie:** <br>
+**Wyrażenia** <br>
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
-**Przykładowe wejście/wyjście:**
+**Przykładowe dane wejściowe/wyjściowe:**
 
-* **WEJŚCIE** (stan): "QLD"
-* **PRODUKCJA**: "Australia/Brisbane"
+* **Wejście** (stan): "Qld"
+* **Dane wyjściowe**: "Australia/Brisbane"
 
 ### <a name="replace-characters-using-a-regular-expression"></a>Zamienianie znaków przy użyciu wyrażenia regularnego
-Musisz znaleźć znaki pasujące do wartości wyrażenia regularnego i usunąć je.
+Musisz znaleźć znaki, które pasują do wartości wyrażenia regularnego, i usunąć je.
 
-**Wyrażenie:** <br>
+**Wyrażenia** <br>
 
-Zamień([mailNickname], "[a-zA-Z_]*", , "", ,
+Replace ([mailNickname],, "[a-za-Z_] *",, "",,)
 
-**Przykładowe wejście/wyjście:**
+**Przykładowe dane wejściowe/wyjściowe:**
 
-* **WEJŚCIE** (mailNickname: "john_doe72"
-* **WYJŚCIE:**"72"
+* **Dane wejściowe** (mailNickname: "john_doe72"
+* **Dane wyjściowe**: "72"
 
-### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Konwertowanie wygenerowanej wartości userPrincipalName (UPN) na małe
-W poniższym przykładzie wartość UPN jest generowana przez łączenie pól źródłowych PreferredFirstName i PreferredLastName, a funkcja ToLower działa na wygenerowanym ciągu w celu przekonwertowania wszystkich znaków na małe litery. 
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Konwertuj wygenerowaną wartość userPrincipalName (UPN) na małe litery
+W poniższym przykładzie wartość UPN jest generowana przez połączenie pól źródłowych PreferredFirstName i PreferredLastName, a funkcja ToLower działa na wygenerowanym ciągu, aby przekonwertować wszystkie znaki na małe litery. 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
 
-**Przykładowe wejście/wyjście:**
+**Przykładowe dane wejściowe/wyjściowe:**
 
-* **WEJŚCIE** (PreferredFirstName): "John"
-* **INPUT** (PreferredLastName): "Smith"
-* **WYJŚCIE**:john.smith@contoso.com" "
+* **Wejście** (PreferredFirstName): "Jan"
+* **Wejście** (PreferredLastName): "Smith"
+* **Wynik**: "john.smith@contoso.com"
 
-### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generowanie unikatowej wartości atrybutu userPrincipalName (UPN)
-Na podstawie imienia, drugiego imienia i nazwiska użytkownika należy wygenerować wartość atrybutu UPN i sprawdzić jego unikatowość w docelowym katalogu usługi AD przed przypisaniem tej wartości do atrybutu NAZWY UPN.
+### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generuj unikatową wartość atrybutu userPrincipalName (UPN)
+Na podstawie imienia i nazwiska użytkownika należy wygenerować wartość atrybutu UPN i sprawdzić jej unikatowość w docelowym katalogu usługi AD przed przypisaniem wartości do atrybutu UPN.
 
-**Wyrażenie:** <br>
+**Wyrażenia** <br>
 
     SelectUniqueValue( 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
@@ -775,13 +775,13 @@ Na podstawie imienia, drugiego imienia i nazwiska użytkownika należy wygenerow
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
     )
 
-**Przykładowe wejście/wyjście:**
+**Przykładowe dane wejściowe/wyjściowe:**
 
-* **WEJŚCIE** (PreferredFirstName): "John"
-* **INPUT** (PreferredLastName): "Smith"
-* **WYJŚCIE**:John.Smith@contoso.com" " jeśli John.Smith@contoso.com wartość UPN nie istnieje jeszcze w katalogu
-* **WYJŚCIE**:J.Smith@contoso.com" " jeśli John.Smith@contoso.com wartość UPN już istnieje w katalogu
-* **WYJŚCIE**:Jo.Smith@contoso.com" ", jeśli powyższe dwie wartości UPN już istnieją w katalogu
+* **Wejście** (PreferredFirstName): "Jan"
+* **Wejście** (PreferredLastName): "Smith"
+* **Wynik**: "John.Smith@contoso.com", John.Smith@contoso.com Jeśli wartość UPN nie istnieje już w katalogu
+* **Wynik**: "J.Smith@contoso.com", John.Smith@contoso.com Jeśli wartość UPN już istnieje w katalogu
+* **Wynik**: "Jo.Smith@contoso.com", jeśli powyższe dwie wartości nazwy UPN już istnieją w katalogu
 
 
 ## <a name="next-steps"></a>Następne kroki 
