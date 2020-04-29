@@ -1,30 +1,30 @@
 ---
-title: Łagodzenie walki z Z
-description: Opisuje techniki łagodzenia artefaktów walki z
+title: Ograniczanie efektu Z-fighting
+description: Opisuje techniki ograniczające artefakty do walki z
 author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.openlocfilehash: bc06deafe3f589fce9a9178fefdb22388254929d
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680455"
 ---
-# <a name="z-fighting-mitigation"></a>Łagodzenie walki z Z
+# <a name="z-fighting-mitigation"></a>Ograniczanie efektu Z-fighting
 
-Gdy dwie powierzchnie nakładają się na siebie, nie jest jasne, która z nich powinna być renderowana na drugiej. Wynik zmienia się nawet na piksel, co powoduje artefakty zależne od widoku. W związku z tym, gdy aparat lub siatka porusza się, te wzory migoczą zauważalnie. Ten artefakt nazywa *się z-walki*. W przypadku aplikacji AR i VR problem jest nasilany, ponieważ urządzenia montowane na głowie naturalnie zawsze się poruszają. Aby zapobiec funkcji łagodzenia dyskomfortu przeglądarki z-fighting jest dostępna w renderowaniu zdalnym platformy Azure.
+Gdy dwie powierzchnie nakładają się, nie jest jasne, które powinny być renderowane na drugim. Wynik jest nawet różny dla pikseli, co powoduje artefakty zależne od widoku. W związku z tym, gdy kamera lub siatka przesunie się, te wzorce migotają zauważalnie. Ten artefakt jest nazywany *z-walką*. W przypadku aplikacji AR i VR problem został wzmocniony, ponieważ urządzenia z zainstalowanym głową są zawsze przenoszone. Aby uniemożliwić podgląd niewygodną funkcję ograniczania ochrony przed walką z usługą Azure, zdalne renderowanie jest dostępne.
 
-## <a name="z-fighting-mitigation-modes"></a>Tryby łagodzenia walki z Z
+## <a name="z-fighting-mitigation-modes"></a>Tryby ograniczania do walki Z
 
-|Sytuacji                        | Wynik                               |
+|Istniał                        | Wynik                               |
 |---------------------------------|:-------------------------------------|
-|Regularne walki z z               |![Walki z Z](./media/zfighting-0.png)|
-|Włączono łagodzenie walki z Z    |![Walki z Z](./media/zfighting-1.png)|
-|Podświetlanie w szachownicy włączone|![Walki z Z](./media/zfighting-2.png)|
+|Regularna walka z               |![Walka Z](./media/zfighting-0.png)|
+|Ograniczenie do walki Z włączonymi ograniczeniami    |![Walka Z](./media/zfighting-1.png)|
+|Włączono podświetlanie szachownicy|![Walka Z](./media/zfighting-2.png)|
 
-Poniższy kod umożliwia łagodzenie walki z:
+Poniższy kod włącza środki zaradcze do walki z:
 
 ``` cs
 void EnableZFightingMitigation(AzureSession session, bool highlight)
@@ -40,29 +40,29 @@ void EnableZFightingMitigation(AzureSession session, bool highlight)
 ```
 
 > [!NOTE]
-> Łagodzenie walki z Z jest ustawieniem globalnym, które wpływa na wszystkie renderowane siatki.
+> Łagodzenie Z-walk jest ustawieniem globalnym, które ma wpływ na wszystkie renderowane siatki.
 
-## <a name="reasons-for-z-fighting"></a>Powody walki z z
+## <a name="reasons-for-z-fighting"></a>Przyczyny dotyczące walki z
 
-Walka z Z odbywa się głównie z dwóch powodów:
+Walka Z systemem odbywa się głównie z dwóch powodów:
 
-1. gdy powierzchnie znajdują się bardzo daleko od kamery, dokładność ich wartości głębokości ulega pogorszeniu, a wartości stają się nie do odróżnienia
-1. gdy powierzchnie w siatce fizycznie nakładają się na siebie
+1. gdy powierzchnie są bardzo daleko od aparatu, precyzja ich wartości głębokości obniży się, a wartości stają się niemożliwymi do odróżnienia
+1. gdy powierzchnie w sieci fizycznie nakładają się
 
-Pierwszy problem zawsze może się zdarzyć i jest trudny do wyeliminowania. Jeśli tak się stanie w aplikacji, upewnij się, że stosunek odległości *najbliższej płaszczyzny* do odległości *dalekiej płaszczyzny* jest tak niski, jak to praktyczne. Na przykład w pobliżu płaszczyzny w odległości 0,01 i dalekiej płaszczyzny w odległości 1000 spowoduje ten problem znacznie wcześniej, niż posiadanie w pobliżu płaszczyzny na 0,1 i dalekiej płaszczyzny w odległości 20.
+Pierwszy problem może się zawsze zdarzyć i trudno go wyeliminować. Jeśli tak się dzieje w aplikacji, upewnij się, że stosunek odległości *bliskiej płaszczyzny* do odległości o dużej *płaszczyźnie* jest niski jako praktyczny. Na przykład bliska płaszczyzna na odległość 0,01 i międzypłaszczyzna na odległość 1000 spowoduje utworzenie tego problemu znacznie wcześniej, niż w przypadku bliskiej płaszczyzny na 0,1 i na dalekiej płaszczyźnie na odległość 20.
 
-Drugim problemem jest wskaźnik źle autorstwa treści. W świecie rzeczywistym dwa obiekty nie mogą znajdować się w tym samym miejscu w tym samym czasie. W zależności od aplikacji użytkownicy mogą chcieć wiedzieć, czy nakładające się powierzchnie istnieją i gdzie się znajdują. Na przykład scena CAD budynku, która jest podstawą konstrukcji w świecie rzeczywistym, nie powinna zawierać fizycznie niemożliwych przecięć powierzchni. Aby umożliwić oględziny, dostępny jest tryb podświetlania, który wyświetla potencjalne walki z jako animowany wzór szachownicy.
+Drugi problem jest wskaźnikiem dla nieprawidłowo napisanej zawartości. W świecie rzeczywistym dwa obiekty nie mogą znajdować się w tym samym miejscu w tym samym czasie. W zależności od aplikacji użytkownicy mogą chcieć wiedzieć, czy nakładające się powierzchnie są dostępne i gdzie się znajdują. Na przykład scena CAD budynku, która jest podstawą dla budownictwa rzeczywistego, nie powinna zawierać fizycznie niemożliwych przecięć powierzchni. Aby można było przeprowadzić inspekcję wizualną, dostępny jest tryb wyróżniania, który wyświetla potencjalną ocenę z wizualizacji jako animowany wzór szachownicy.
 
 ## <a name="limitations"></a>Ograniczenia
 
-Pod warunkiem, że łagodzenie walki z jest najlepszym wysiłkiem. Nie ma gwarancji, że usuwa wszystkie z-walki. Ponadto automatycznie preferuje jedną powierzchnię nad drugą. Tak więc, gdy masz powierzchnie, które są zbyt blisko siebie, może się zdarzyć, że "zła" powierzchnia kończy się na górze. Częstym problemem jest to, że tekst i inne naklejki są stosowane do powierzchni. Dzięki łagodzeniu walki z umożliwiło te szczegóły mogą łatwo zniknąć.
+Zapewnione środki zaradcze z zakresu walki są najlepszym rozwiązaniem. Nie ma gwarancji, że usuwa wszystkie z walk. Również automatycznie preferuje jedną powierzchnię na innym. W ten sposób, gdy masz powierzchnie, które są zbyt blisko siebie, może się zdarzyć, że powierzchnia "niewłaściwa" zakończy się w górnej części. Typowym przypadkiem problemu jest to, że do powierzchni są stosowane teksty i inne licencje. W przypadku ograniczania środków z ograniczeniami do walki te szczegóły mogą być łatwo znikane.
 
 ## <a name="performance-considerations"></a>Zagadnienia dotyczące wydajności
 
-* Włączenie łagodzenia walki z wiąże się z niewielkim obciążeniem dla wydajności.
-* Dodatkowo włączenie nakładki walki z powoduje narzucanie nietrywialnego obciążenia wydajności, choć może się różnić w zależności od sceny.
+* Włączenie ograniczania do walki z niewielkim obciążeniem wiąże się ze zmniejszeniem wydajności.
+* Ponadto włączenie nakładki z-walką wiąże się z nieprostym obciążeniem wydajności, ale może się to różnić w zależności od sceny.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Tryby renderowania](../../concepts/rendering-modes.md)
-* [Ponowna proces opóźniania się w późnym etapie](late-stage-reprojection.md)
+* [Reprojekcja na późnym etapie](late-stage-reprojection.md)

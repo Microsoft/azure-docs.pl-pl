@@ -1,6 +1,6 @@
 ---
-title: Połącz się z sqlcmd
-description: Użyj narzędzia wiersza polecenia sqlcmd, aby połączyć się z pulą SQL synapse i wysyłać kwerendy.
+title: Nawiązywanie połączenia przy użyciu narzędzia sqlcmd
+description: Użyj narzędzia wiersza polecenia sqlcmd, aby nawiązać połączenie z pulą SQL Synapse i wysłać do niej zapytanie.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,31 +12,31 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 02157ca0d32d2347e50cc84a5c52e9c47b0f33b5
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745204"
 ---
-# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Połącz się z pulą SQL Synapse za pomocą sqlcmd
+# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Nawiązywanie połączenia z pulą SQL Synapse przy użyciu narzędzia sqlcmd
 
 > [!div class="op_single_selector"]
 >
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Uczenie maszynowe platformy Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Użyj narzędzia wiersza polecenia [sqlcmd][sqlcmd], aby połączyć się z pulą SQL i zbadać go.  
+Użyj narzędzia wiersza polecenia [sqlcmd] [sqlcmd], aby nawiązać połączenie z pulą SQL i zbadać ją.  
 
 ## <a name="1-connect"></a>1. Połącz
 
-Aby rozpocząć pracę z [sqlcmd][sqlcmd], otwórz wiersz polecenia i wprowadź **sqlcmd,** po którym następuje ciąg połączenia dla bazy danych puli SQL. Wymagane parametry połączenia to:
+Aby rozpocząć pracę z [sqlcmd] [sqlcmd], Otwórz wiersz polecenia i wprowadź polecenie **sqlcmd** , a następnie parametry połączenia dla bazy danych puli SQL. Wymagane parametry połączenia to:
 
 * **Serwer (-S):** serwer w postaci `<`nazwa_serwera`>`.database.windows.net
 * **Baza danych (-d):** nazwa bazy danych.
-* **Włącz identyfikatory cytowane (-I):** Cytoni identyfikatory muszą być włączone, aby połączyć się z wystąpieniem puli SQL.
+* **Włącz identyfikatory ujęte w cudzysłów (-I):** Identyfikatory w cudzysłowie muszą być włączone, aby można było połączyć się z wystąpieniem puli SQL.
 
 Aby użyć uwierzytelniania programu SQL Server, należy dodać parametry nazwy użytkownika/hasła:
 
@@ -62,7 +62,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > [!NOTE]
 > Musisz [włączyć uwierzytelnianie usługi Azure Active Directory](sql-data-warehouse-authentication.md), aby uwierzytelniać przy użyciu usługi Active Directory.
 
-## <a name="2-query"></a>2. Zapytanie
+## <a name="2-query"></a>2. zapytanie
 
 Po nawiązaniu połączenia można wydawać dowolne obsługiwane instrukcje języka Transact-SQL dotyczące wystąpienia.  W tym przykładzie zapytania są przesyłane w trybie interaktywnym.
 
@@ -85,4 +85,4 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat opcji dostępnych w sqlcmd, zobacz [sqlcmd dokumentacji](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Aby uzyskać więcej informacji o opcjach dostępnych w programie sqlcmd, zobacz [dokumentację narzędzia sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

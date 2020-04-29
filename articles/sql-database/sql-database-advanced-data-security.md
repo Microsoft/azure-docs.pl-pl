@@ -1,6 +1,6 @@
 ---
 title: Zaawansowane zabezpieczenia danych
-description: Dowiedz się więcej o funkcjach wykrywania i klasyfikowania poufnych danych, zarządzania lukami w zabezpieczeniach bazy danych i wykrywania nietypowych działań, które mogą wskazywać na zagrożenie dla bazy danych SQL platformy Azure.
+description: Informacje na temat funkcji odnajdywania i klasyfikowania poufnych danych, zarządzania lukami w bazie danych oraz wykrywania nietypowych działań, które mogą wskazywać na zagrożenie dla bazy danych SQL Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,69 +12,69 @@ manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
 ms.openlocfilehash: aed0bcb79dedf057c5943cea9f4b4399b2f630cb
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80677465"
 ---
-# <a name="advanced-data-security-for-azure-sql-database"></a>Zaawansowane zabezpieczenia danych dla usługi Azure SQL Database
+# <a name="advanced-data-security-for-azure-sql-database"></a>Zaawansowane zabezpieczenia danych dla Azure SQL Database
 
-Zaawansowane zabezpieczenia danych to ujednolicony pakiet dla zaawansowanych funkcji zabezpieczeń SQL. Obejmuje to funkcję wykrywania i klasyfikowania danych poufnych, uwidacznianie i korygowanie potencjalnych luk w zabezpieczeniach bazy danych oraz wykrywanie nietypowych działań, które mogą wskazywać, że baza danych jest zagrożona. Zapewnia ona pojedynczą lokalizację, w której można włączać te możliwości i zarządzać nimi.
+Zaawansowane zabezpieczenia danych to ujednolicony pakiet zaawansowanych funkcji zabezpieczeń SQL. Obejmuje to funkcję wykrywania i klasyfikowania danych poufnych, uwidacznianie i korygowanie potencjalnych luk w zabezpieczeniach bazy danych oraz wykrywanie nietypowych działań, które mogą wskazywać, że baza danych jest zagrożona. Zapewnia ona pojedynczą lokalizację, w której można włączać te możliwości i zarządzać nimi.
 
 ## <a name="overview"></a>Omówienie
 
-Zaawansowane zabezpieczenia danych (ADS) zapewniają zestaw zaawansowanych funkcji zabezpieczeń SQL, w tym odnajdowania danych & klasyfikacji, ocenie luk w zabezpieczeniach i zaawansowanej ochronie przed zagrożeniami.
+Usługa Advanced Data Security (ADS) oferuje zestaw zaawansowanych funkcji zabezpieczeń SQL, takich jak funkcja odnajdywania danych & klasyfikacji, oceny luk w zabezpieczeniach i zaawansowanej ochrony przed zagrożeniami.
 
-- [Odnajdowanie danych & Klasyfikacja](sql-database-data-discovery-and-classification.md) zapewnia możliwości wbudowane w usługę Azure SQL Database do odnajdowania, klasyfikowania, etykietowania & raportowania poufnych danych w bazach danych. Za jej pomocą można zapewniać wgląd w stan klasyfikacji bazy danych oraz śledzić dostęp do danych poufnych w bazie danych i poza jej granicami.
+- [Klasyfikacja & odnajdywania danych](sql-database-data-discovery-and-classification.md) udostępnia funkcje wbudowane w Azure SQL Database do odnajdywania, klasyfikowania i etykietowania & raportowania poufnych danych w bazach danych. Za jej pomocą można zapewniać wgląd w stan klasyfikacji bazy danych oraz śledzić dostęp do danych poufnych w bazie danych i poza jej granicami.
 - [Ocena luk w zabezpieczeniach](sql-vulnerability-assessment.md) to łatwa do skonfigurowania usługa umożliwiająca odnajdywanie i śledzenie potencjalnych luk w zabezpieczeniach bazy danych oraz pomagająca w ich usuwaniu. Zapewnia wgląd w stan zabezpieczeń i zapewnia kroki, które można wykonać w celu rozwiązania problemów z zabezpieczeniami oraz zwiększenia bezpieczeństwa bazy danych.
 - Usługa [Advanced Threat Protection](sql-database-threat-detection-overview.md) wykrywa nietypowe działania wskazujące na nieprawidłowe i potencjalnie szkodliwe próby uzyskania dostępu do bazy danych lub wykorzystania jej. Stale monitoruje Twoją bazę danych pod kątem podejrzanych działań i zapewnia natychmiastowe alerty zabezpieczeń dotyczące potencjalnych luk w zabezpieczeniach, ataków polegających na wstrzyknięciu kodu SQL oraz anomalii we wzorcach dostępu do bazy danych. Alerty usługi Advanced Threat Protection zawierają szczegółowe informacje o podejrzanych działaniach i zalecane czynności dotyczące sposobu badania i ograniczenia zagrożenia.
 
-Włącz usługę SQL ADS raz, aby włączyć wszystkie te dołączone funkcje. Za pomocą jednego kliknięcia można włączyć usługi ADS dla wszystkich baz danych na serwerze bazy danych SQL lub wystąpieniu zarządzanym. Włączanie ustawień ADS lub zarządzanie nimi wymaga przynależności do roli [menedżera zabezpieczeń SQL,](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) roli administratora bazy danych SQL lub roli administratora serwera SQL. 
+Aby włączyć wszystkie te funkcje, Włącz opcję SQL AD. Jednym kliknięciem można włączyć usługi AD dla wszystkich baz danych na serwerze SQL Database lub w zarządzanym wystąpieniu. Włączanie ustawień ADS lub zarządzanie nimi wymaga przynależności do roli [programu SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) , roli administratora bazy danych SQL lub roli administratora programu SQL Server. 
 
-Ceny ads są zgodne ze standardową warstwą usługi Azure Security Center, w której każdy chroniony serwer bazy danych SQL lub wystąpienie zarządzane jest liczone jako jeden węzeł. Nowo chronione zasoby kwalifikują się do bezpłatnej wersji próbnej warstwy standardowej centrum zabezpieczeń. Aby uzyskać więcej informacji, zobacz [stronę z cennikiem usługi Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Cennik programu ADS jest wyrównany do warstwy Standardowa Azure Security Center, w której każdy chroniony serwer SQL Database lub wystąpienie zarządzane jest liczony jako jeden węzeł. Nowo chronione zasoby kwalifikują się do bezpłatnej wersji próbnej Security Center warstwy Standardowa. Aby uzyskać więcej informacji, zobacz [stronę z cennikiem Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="getting-started-with-ads"></a>Wprowadzenie do ads
+## <a name="getting-started-with-ads"></a>Wprowadzenie z REKLAMami
 
-Poniższe kroki umożliwiają rozpoczęcie pracy z programem ADS.
+Poniższe kroki ułatwiają rozpoczęcie pracy z usługą ADS.
 
 ## <a name="1-enable-ads"></a>1. Włącz reklamy
 
-Włącz usługę ADS, przechodząc do **pozycji Zaawansowane zabezpieczenia danych** w nagłówku **Zabezpieczenia** serwera bazy danych SQL lub wystąpienia zarządzanego. Aby włączyć usługę ADS dla wszystkich baz danych na serwerze bazy danych lub wystąpieniu zarządzanym, kliknij pozycję **Włącz zaawansowane zabezpieczenia danych na serwerze**.
+Włącz reklamy, przechodząc do opcji **Zaawansowane zabezpieczenia danych** w obszarze nagłówka **zabezpieczenia** dla serwera SQL Database lub wystąpienia zarządzanego. Aby włączyć usługi AD dla wszystkich baz danych na serwerze bazy danych lub wystąpieniu zarządzanym, kliknij pozycję **Włącz zaawansowane zabezpieczenia danych na serwerze**.
 
 > [!NOTE]
-> Konto magazynu jest automatycznie tworzone i konfigurowane do przechowywania wyników skanowania **oceny luk w zabezpieczeniach.** Jeśli włączono już usługę ADS dla innego serwera w tej samej grupie zasobów i regionie, używane jest istniejące konto magazynu.
+> Konto magazynu jest automatycznie tworzone i konfigurowane do przechowywania wyników skanowania **oceny luk w zabezpieczeniach** . Jeśli już włączono usługi AD dla innego serwera w tej samej grupie zasobów i regionie, używane jest istniejące konto magazynu.
 
 ![Włącz reklamy](./media/sql-advanced-protection/enable_ads.png) 
 
 > [!NOTE]
-> Koszt usługi ADS jest wyrównany ze standardowymi cenami warstwy Azure Security Center za węzeł, gdzie węzeł jest całym serwerem bazy danych SQL lub wystąpieniem zarządzanym. W ten sposób płacisz tylko raz za ochronę wszystkich baz danych na serwerze bazy danych lub wystąpieniu zarządzanym za pomocą usługi ADS. Możesz wypróbować reklamy początkowo z bezpłatną wersję próbną.
+> Koszt reklam jest wyrównany przy użyciu cen warstwy Standardowa Azure Security Center na węzeł, gdzie węzeł jest całym serwerem SQL Database lub wystąpieniem zarządzanym. W ten sposób płacisz tylko raz na ochronę wszystkich baz danych na serwerze bazy danych lub wystąpieniu zarządzanym za pomocą reklam. Możesz bezpłatnie wypróbować reklamy, korzystając z bezpłatnej wersji próbnej.
 
-## <a name="2-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. Rozpocznij klasyfikowanie danych, śledzenie luk w zabezpieczeniach i badanie alertów o zagrożeniach
+## <a name="2-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. Rozpocznij klasyfikowanie danych, śledzenie luk w zabezpieczeniach i badanie alertów dotyczących zagrożeń
 
-Kliknij kartę **Odnajdowanie danych & Klasyfikacja,** aby wyświetlić zalecane poufne kolumny do klasyfikowania i klasyfikowania danych za pomocą trwałych etykiet czułości. Kliknij kartę Ocena luk w **zabezpieczeniach,** aby wyświetlić skany i raporty dotyczące luk w zabezpieczeniach i zarządzać nimi, a także śledzić stan zabezpieczeń. Jeśli odebrano alerty zabezpieczeń, kliknij kartę **Zaawansowanej ochrony przed zagrożeniami,** aby wyświetlić szczegóły alertów i wyświetlić skonsolidowany raport o wszystkich alertach w subskrypcji platformy Azure za pośrednictwem strony alertów zabezpieczeń usługi Azure Security Center.
+Kliknij kartę **& odnajdywania danych** , aby zobaczyć zalecane poufne kolumny do klasyfikowania i klasyfikowania danych za pomocą etykiet trwałych. Kliknij kartę **Ocena luk w zabezpieczeniach** , aby wyświetlić i zarządzać skanowaniem i raportami luk w zabezpieczeniach oraz śledzić schemacie zabezpieczeń. Jeśli alerty zabezpieczeń zostały odebrane, kliknij kartę **Zaawansowana ochrona przed zagrożeniami** , aby wyświetlić szczegóły alertów i wyświetlić skonsolidowany raport dotyczący wszystkich alertów w ramach subskrypcji platformy Azure za pośrednictwem strony alerty zabezpieczeń Azure Security Center.
 
-## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3. Zarządzanie ustawieniami ADS na serwerze bazy danych SQL lub wystąpieniu zarządzanym
+## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3. Zarządzanie ustawieniami reklamy na serwerze SQL Database lub zarządzanym wystąpieniem
 
-Aby wyświetlić ustawienia usługi ADS i zarządzać nimi, przejdź do pozycji **Zaawansowane zabezpieczenia danych** w nagłówku **Zabezpieczenia** serwera bazy danych SQL lub wystąpienia zarządzanego. Na tej stronie można włączyć lub wyłączyć usługę ADS oraz zmodyfikować ustawienia oceny luk w zabezpieczeniach i zaawansowanej ochrony przed zagrożeniami dla całego serwera bazy danych SQL lub wystąpienia zarządzanego.
+Aby wyświetlić ustawienia reklam i zarządzać nimi, przejdź do pozycji **Zaawansowane zabezpieczenia danych** w obszarze nagłówek **zabezpieczenia** dla serwera SQL Database lub wystąpienia zarządzanego. Na tej stronie można włączać lub wyłączać reklamy oraz modyfikować ustawienia oceny luk w zabezpieczeniach i zaawansowanej ochrony przed zagrożeniami dla całego serwera SQL Database lub wystąpienia zarządzanego.
 
 ![Ustawienia serwera](./media/sql-advanced-protection/server_settings.png) 
 
-## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Zarządzanie ustawieniami ADS dla bazy danych SQL
+## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Zarządzanie ustawieniami usługi AD dla bazy danych SQL
 
-Aby zastąpić ustawienia ADS dla określonej bazy danych, zaznacz pole wyboru **Włącz zaawansowane zabezpieczenia danych na poziomie bazy danych.** Tej opcji należy używać tylko wtedy, gdy istnieje określone wymaganie, aby otrzymywać oddzielne alerty zaawansowanej ochrony przed zagrożeniami lub wyniki oceny luk w zabezpieczeniach dla poszczególnych baz danych, zamiast lub oprócz alertów i wyników otrzymanych dla wszystkich baz danych na serwerze bazy danych lub wystąpieniu zarządzanym.
+Aby zastąpić ustawienia reklamy dla konkretnej bazy danych, zaznacz pole wyboru **Włącz zaawansowane zabezpieczenia danych na poziomie bazy danych** . Tej opcji należy używać tylko w przypadku, gdy istnieje szczególny wymóg otrzymywania osobnych alertów dotyczących zaawansowanej ochrony przed zagrożeniami lub oceny luk w zabezpieczeniach dla pojedynczej bazy danych zamiast alertów i odebranych wyników dla wszystkich baz danych na serwerze bazy danych lub wystąpieniu zarządzanym.
 
-Po wybraniu pola wyboru można następnie skonfigurować odpowiednie ustawienia dla tej bazy danych.
+Po zaznaczeniu pola wyboru można skonfigurować odpowiednie ustawienia dla tej bazy danych.
  
 ![Ustawienia bazy danych i zaawansowanej ochrony przed zagrożeniami](./media/sql-advanced-protection/database_threat_detection_settings.png) 
 
-Zaawansowane ustawienia zabezpieczeń danych serwera bazy danych lub wystąpienia zarządzanego można również uzyskać z okienka bazy danych ADS. Kliknij **pozycję Ustawienia** w głównym okienku ADS, a następnie kliknij pozycję Wyświetl ustawienia serwera **zaawansowanego zabezpieczenia danych**. 
+Zaawansowane ustawienia zabezpieczeń danych dla serwera bazy danych lub wystąpienia zarządzanego można również uzyskać z okienka baza danych usługi AD. W okienku główne reklamy kliknij pozycję **Ustawienia** , a następnie kliknij pozycję **Wyświetl zaawansowane ustawienia serwera zabezpieczeń danych**. 
 
 ![Ustawienia bazy danych](./media/sql-advanced-protection/database_settings.png) 
 
 ## <a name="next-steps"></a>Następne kroki 
 
-- Dowiedz się więcej o [klasyfikacji & odnajdowania danych](sql-database-data-discovery-and-classification.md) 
-- Dowiedz się więcej o [ocenie luk w zabezpieczeniach](sql-vulnerability-assessment.md) 
-- Dowiedz się więcej o [zaawansowanej ochronie przed zagrożeniami](sql-database-threat-detection.md)
-- Dowiedz się więcej o [usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Dowiedz się więcej na temat [klasyfikacji & odnajdywania danych](sql-database-data-discovery-and-classification.md) 
+- Dowiedz się więcej na temat [oceny luk w zabezpieczeniach](sql-vulnerability-assessment.md) 
+- Dowiedz się więcej na temat [zaawansowanej ochrony przed zagrożeniami](sql-database-threat-detection.md)
+- Dowiedz się więcej o [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

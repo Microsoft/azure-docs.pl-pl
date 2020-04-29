@@ -1,56 +1,56 @@
 ---
 title: Tryby renderowania
-description: Zawiera opis różnych trybów renderowania po stronie serwera
+description: Opisuje różne tryby renderowania po stronie serwera
 author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7f2b1031659864ae338bb0aa320c048ea23c21f3
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681703"
 ---
 # <a name="rendering-modes"></a>Tryby renderowania
 
-Zdalne renderowanie oferuje dwa główne tryby pracy: tryb **TileBasedComposition** i tryb **DepthBasedComposition.** Te tryby określają sposób rozmieszczenia obciążenia między wieloma procesorami GPU na serwerze. Tryb musi być określony w czasie połączenia i nie można go zmienić w czasie wykonywania.
+Renderowanie zdalne oferuje dwa główne tryby działania, tryb **TileBasedComposition** i tryb **DepthBasedComposition** . Te tryby określają sposób dystrybuowania obciążenia między wieloma procesorami GPU na serwerze. Tryb należy określić w czasie połączenia i nie można go zmienić w czasie wykonywania.
 
-Oba tryby mają zalety, ale także z nieodłącznymi ograniczeniami funkcji, więc wybranie najbardziej odpowiedniego trybu jest specyficzne dla przypadku użycia.
+Oba tryby są wyposażone w zalety, ale również z nieodłącznymi ograniczeniami funkcji, więc wybranie najbardziej odpowiedniego trybu jest zależne od przypadku użycia.
 
-## <a name="modes"></a>Tryby
+## <a name="modes"></a>Środka
 
-Oba tryby są teraz omówione bardziej szczegółowo.
+Dwa tryby są teraz omówione bardziej szczegółowo.
 
 ### <a name="tilebasedcomposition-mode"></a>Tryb "TileBasedComposition"
 
-W trybie **TileBasedComposition** każdy zaangażowany procesor GPU renderuje określone podkligle (kafelki) na ekranie. Główny procesor graficzny komponuje ostateczny obraz z kafelków, zanim zostanie wysłany jako klatka wideo do klienta. W związku z tym wszystkie procesory GPU wymagają tego samego zestawu zasobów do renderowania, więc załadowane zasoby muszą zmieścić się w pamięci pojedynczego procesora GPU.
+W trybie **TileBasedComposition** każdy związany z procesorem GPU renderuje określone podprostokąty (kafelki) na ekranie. Główny procesor GPU składa końcowy obraz z kafelków, zanim zostanie wysłany jako ramka wideo do klienta. W związku z tym wszystkie procesory GPU wymagają tego samego zestawu zasobów do renderowania, więc ładowane zasoby muszą pasować do pamięci pojedynczego procesora GPU.
 
-Jakość renderowania w tym trybie jest nieco lepsza niż w trybie **DepthBasedComposition,** ponieważ msaa może pracować nad pełnym zestawem geometrii dla każdego procesora GPU. Poniższy zrzut ekranu pokazuje, że antyaliasing działa poprawnie dla obu krawędzi również:
+Jakość renderowania w tym trybie jest nieco lepsza niż w trybie **DepthBasedComposition** , ponieważ MSAA może współdziałać z pełnym zestawem geometrii dla każdego procesora GPU. Poniższy zrzut ekranu pokazuje, że wygładzanie działa prawidłowo dla obu krawędzi:
 
-![MSAA w tileBasedComposition](./media/service-render-mode-quality.png)
+![MSAA w TileBasedComposition](./media/service-render-mode-quality.png)
 
-Ponadto w tym trybie każda część może być przełączona na przezroczysty materiał lub przełączana w tryb **przezroczystości** za pośrednictwem [hierarchicznego komponentu](../overview/features/override-hierarchical-state.md)
+Ponadto w tym trybie każda część może zostać przełączona do przezroczystego materiału lub przełączona w tryb **wyświetlania** przez [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md)
 
 ### <a name="depthbasedcomposition-mode"></a>Tryb "DepthBasedComposition"
 
-W trybie **DepthBasedComposition** każdy zaangażowany procesor GPU renderuje w rozdzielczości pełnoekranowej, ale tylko podzbiór siatek. Ostateczna kompozycja obrazu na głównym GPU dba o to, aby części były prawidłowo scalane zgodnie z informacjami o głębokości. Oczywiście ładunek pamięci jest rozprowadzany między procesorami GRAFICZNYmi, co pozwala na renderowanie modeli, które nie pasowałyby do pamięci pojedynczego procesora GPU.
+W trybie **DepthBasedComposition** każdy procesor GPU jest renderowany w pełnej rozdzielczości ekranu, ale tylko podzestaw siatki. Ostateczne składanie obrazów na głównym procesorze GPU wymaga, aby części zostały prawidłowo scalone zgodnie ze swoimi informacjami o głębokości. W naturalny sposób ładunek pamięci jest dystrybuowany między procesorami GPU, co pozwala na renderowanie modeli, które nie mieszczą się w pamięci jednego procesora GPU.
 
-Każdy procesor GPU używa msaa do antialias lokalnej zawartości. Jednak może istnieć nieodłączne aliasing między krawędziami z różnych procesorów GPU. Efekt ten jest złagodzony przez postprocessing ostatecznego obrazu, ale jakość MSAA jest jeszcze gorsza niż w trybie **TileBasedComposition.**
+Każdy pojedynczy procesor GPU używa technologii MSAA do AntiAlias zawartości lokalnej. Jednak może istnieć nieodłączne aliasowanie między krawędziami z różnych procesorów GPU. Ten efekt jest skorygowany przez dostosujesz końcowego obrazu, ale jakość technologii MSAA nadal jest gorsza niż w trybie **TileBasedComposition** .
 
-Artefakty MSAA są zilustrowane na ![poniższej ilustracji: MSAA in DepthBasedComposition](./media/service-render-mode-balanced.png)
+Artefakty MSAA są zilustrowane na poniższym obrazie ![: MSAA w DepthBasedComposition](./media/service-render-mode-balanced.png)
 
-Antialiasing działa prawidłowo między rzeźbą a kurtyną, ponieważ obie części są renderowane na tym samym GPU. Z drugiej strony krawędź między kurtyną a ścianą pokazuje aliasing, ponieważ te dwie części składają się z różnych procesorów graficznych.
+Antyaliasowanie działa prawidłowo między rzeźbami i Curtain, ponieważ obie części są renderowane na tym samym procesorze GPU. Z drugiej strony krawędzie między Curtain i ścianą pokazują pewne aliasy, ponieważ te dwie części składają się z różnych procesorów GPU.
 
-Największym ograniczeniem tego trybu jest to, że części geometrii nie mogą być dynamicznie przełączane na przezroczyste materiały, ani nie działa tryb **przezroczysty** dla [hierarchicznegostateoverridecomponent](../overview/features/override-hierarchical-state.md). Inne funkcje zastępowania stanu (kontur, odcień koloru, ...) działają jednak. Również materiały, które zostały oznaczone jako przezroczyste w czasie konwersji działają poprawnie w tym trybie.
+Największym ograniczeniem tego trybu jest, że części geometrii nie mogą być przełączane do przezroczystych materiałów dynamicznie ani nie działają w trybie **wyświetlania** przez [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md). Inne funkcje przesłaniania stanu (kontur, tinta koloru,...) działają, chociaż. Również materiały oznaczone jako przezroczyste w czasie konwersji działają prawidłowo w tym trybie.
 
 ### <a name="performance"></a>Wydajność
 
-Charakterystyka wydajności dla obu trybów różnią się w zależności od przypadku użycia i trudno jest u uzasadnienia lub przedstawić ogólne zalecenia. Jeśli nie jesteś ograniczony przez wyżej wymienione ograniczenia (pamięć lub przezroczystość/przezroczystość), zaleca się wypróbowanie obu trybów i monitorowanie wydajności przy użyciu różnych pozycji kamery.
+Charakterystyki wydajności obu trybów różnią się w zależności od przypadków użycia i trudno jest przyczynić się do uzyskania ogólnych zaleceń. Jeśli ograniczenia wymienione powyżej (pamięć lub przezroczystość/wyświetlanie) nie są ograniczone, zaleca się wypróbowanie obu trybów i monitorowanie wydajności przy użyciu różnych pozycji aparatu.
 
 ## <a name="setting-the-render-mode"></a>Ustawianie trybu renderowania
 
-Tryb renderowania używany na maszynie wirtualnej `AzureSession.ConnectToRuntime` zdalnego renderowania jest określony podczas za pośrednictwem pliku `ConnectToRuntimeParams`.
+Tryb renderowania używany przez maszynę wirtualną renderowania zdalnego jest określany `AzureSession.ConnectToRuntime` w trakcie `ConnectToRuntimeParams`za pośrednictwem.
 
 ```cs
 async void ExampleConnect(AzureSession session)
@@ -74,4 +74,4 @@ async void ExampleConnect(AzureSession session)
 ## <a name="next-steps"></a>Następne kroki
 
 * [Sesje](../concepts/sessions.md)
-* [Składnik zastępowania stanu hierarchicznego](../overview/features/override-hierarchical-state.md)
+* [Składnik przesłonięcia stanu hierarchicznego](../overview/features/override-hierarchical-state.md)

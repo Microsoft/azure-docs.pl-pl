@@ -1,43 +1,43 @@
 ---
 title: Odbicia nieba
-description: Opisuje sposób konfigurowania map środowiskowych dla odbić nieba
+description: Opisuje sposób konfigurowania map środowiska na potrzeby odbicia w przestrzeni powietrznej
 author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.openlocfilehash: 7316df7bcf78e3a154510e69116c288b2b293d4c
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680611"
 ---
 # <a name="sky-reflections"></a>Odbicia nieba
 
-W usłudze Azure Remote Rendering tekstura nieba jest używana do realistycznego oświetlenia obiektów. W przypadku aplikacji rozszerzonej rzeczywistości tekstura ta powinna przypominać rzeczywiste otoczenie, aby obiekty wydawały się przekonujące. W tym artykule opisano, jak zmienić teksturę nieba.
+W przypadku renderowania zdalnego na platformie Azure tekstura w przestrzenice do sieci jest używana do realistycznych obiektów. W przypadku aplikacji w rzeczywistości rozszerzonej ta tekstura powinna przypominać otoczenie w świecie rzeczywistym, aby obiekty były wyświetlane jako przekonujące. W tym artykule opisano, jak zmienić teksturę z przestrzenią.
 
 > [!NOTE]
-> Tekstura nieba jest również określana jako *mapa środowiska.* Terminy te są używane zamiennie.
+> Tekstura dla przestrzeni powietrznej jest również określana jako *Mapa środowiska*. Te warunki są używane zamiennie.
 
 ## <a name="object-lighting"></a>Oświetlenie obiektów
 
-Renderowanie zdalne platformy Azure wykorzystuje *renderowanie oparte fizycznie* (PBR) do realistycznych obliczeń oświetlenia. Chociaż możesz dodać [źródła światła](lights.md) do sceny, używanie dobrej tekstury nieba ma największy wpływ.
+Zdalne renderowanie na platformie Azure wykorzystuje *renderowanie oparte na fizycznie* (PBR) dla realistycznych obliczeń oświetlenia. Mimo że możesz dodać [źródła światła](lights.md) do swojej sceny, przy użyciu odpowiedniej tekstury w dobrej.
 
-Poniższe obrazy przedstawiają wyniki oświetlenia różnych powierzchni tylko z teksturą nieba:
+Poniższe obrazy pokazują wyniki oświetlenia różnych powierzchni tylko przy użyciu tekstury w postaci wartościowej:
 
-| Chropowatości  | 0                                        | 0,25                                          | 0,5                                          | 0,75                                          | 1                                          |
+| Niesztywność  | 0                                        | 0,25                                          | 0,5                                          | 0,75                                          | 1                                          |
 |:----------:|:----------------------------------------:|:---------------------------------------------:|:--------------------------------------------:|:---------------------------------------------:|:------------------------------------------:|
-| Niemetalowe  | ![Dielektryk0](media/dielectric-0.png)   | ![Park GreenPointPark](media/dielectric-0.25.png)  | ![Park GreenPointPark](media/dielectric-0.5.png)  | ![Park GreenPointPark](media/dielectric-0.75.png)  | ![Park GreenPointPark](media/dielectric-1.png)  |
-| Metal      | ![Park GreenPointPark](media/metallic-0.png)  | ![Park GreenPointPark](media/metallic-0.25.png)    | ![Park GreenPointPark](media/metallic-0.5.png)    | ![Park GreenPointPark](media/metallic-0.75.png)    | ![Park GreenPointPark](media/metallic-1.png)    |
+| Bez metalu  | ![Dielectric0](media/dielectric-0.png)   | ![GreenPointPark](media/dielectric-0.25.png)  | ![GreenPointPark](media/dielectric-0.5.png)  | ![GreenPointPark](media/dielectric-0.75.png)  | ![GreenPointPark](media/dielectric-1.png)  |
+| Metal      | ![GreenPointPark](media/metallic-0.png)  | ![GreenPointPark](media/metallic-0.25.png)    | ![GreenPointPark](media/metallic-0.5.png)    | ![GreenPointPark](media/metallic-0.75.png)    | ![GreenPointPark](media/metallic-1.png)    |
 
-Aby uzyskać więcej informacji na temat modelu oświetlenia, zobacz rozdział [materiałów.](../../concepts/materials.md)
+Aby uzyskać więcej informacji na temat modelu oświetlenia, zapoznaj się z rozdziałem [materiały](../../concepts/materials.md) .
 
 > [!IMPORTANT]
-> Renderowanie zdalne platformy Azure używa tekstury nieba tylko dla modeli oświetlenia. Nie czyni nieba tłem, ponieważ aplikacje Augmented Reality mają już odpowiednie tło - prawdziwy świat.
+> Funkcja renderowania zdalnego platformy Azure używa tekstury z przestrzenią kolorów tylko dla modeli oświetlenia. Nie renderuje ona przestrzeni powietrznej jako tła, ponieważ aplikacje w rzeczywistości rozszerzonej mają już prawidłowe tło — świecie rzeczywistym.
 
-## <a name="changing-the-sky-texture"></a>Zmiana tekstury nieba
+## <a name="changing-the-sky-texture"></a>Zmiana tekstury z przestrzenią
 
-Aby zmienić mapę środowiska, wystarczy [załadować teksturę](../../concepts/textures.md) i `SkyReflectionSettings`zmienić sesję:
+Aby zmienić mapę środowiska, wystarczy [załadować teksturę](../../concepts/textures.md) i zmienić jej `SkyReflectionSettings`:
 
 ``` cs
 LoadTextureAsync _skyTextureLoad = null;
@@ -66,54 +66,54 @@ void ChangeEnvironmentMap(AzureSession session)
 }
 ```
 
-Należy zauważyć, że `LoadTextureFromSASAsync` wariant jest używany powyżej, ponieważ wbudowana tekstura jest ładowana. W przypadku ładowania z [połączonych magazynów obiektów blob](../../how-tos/create-an-account.md#link-storage-accounts)użyj wariantu. `LoadTextureAsync`
+Należy zauważyć, `LoadTextureFromSASAsync` że wariant jest używany powyżej, ponieważ załadowana została wbudowana tekstura. W przypadku ładowania z [połączonych magazynów obiektów BLOB](../../how-tos/create-an-account.md#link-storage-accounts)Użyj `LoadTextureAsync` wariantu.
 
-## <a name="sky-texture-types"></a>Typy tekstur nieba
+## <a name="sky-texture-types"></a>Typy tekstury przestrzeni powietrznej
 
-Mapy środowiska można używać zarówno *[map modułowych,](https://en.wikipedia.org/wiki/Cube_mapping)* jak i *tekstur 2D.*
+Można użyć tekstury *[CubeMaps](https://en.wikipedia.org/wiki/Cube_mapping)* i *2D* jako mapy środowiska.
 
-Wszystkie tekstury muszą być w [obsługiwanym formacie tekstury.](../../concepts/textures.md#supported-texture-formats) Nie musisz dostarczać mipmaps dla tekstur nieba.
+Wszystkie tekstury muszą być w [obsługiwanym formacie tekstury](../../concepts/textures.md#supported-texture-formats). Nie musisz podawać tekstury mipmapy for.
 
-### <a name="cube-environment-maps"></a>Mapy środowiska sześcianu
+### <a name="cube-environment-maps"></a>Mapy środowiska modułu
 
-Dla odniesienia, oto nieopakowane cubemap:
+W odniesieniu do tego jest nieopakowany mapy sześciennej:
 
-![Nieopakowana mapa modułu](media/Cubemap-example.png)
+![Nieopakowany mapy sześciennej](media/Cubemap-example.png)
 
-`AzureSession.Actions.LoadTextureAsync` /  Użyj `LoadTextureFromSASAsync` `TextureType.CubeMap` z załadować cubemap tekstury.
+`AzureSession.Actions.LoadTextureAsync` /  Użyj `LoadTextureFromSASAsync` with `TextureType.CubeMap` , aby ładować tekstury mapy sześciennej.
 
 ### <a name="sphere-environment-maps"></a>Mapy środowiska sfery
 
-W przypadku korzystania z tekstury 2D jako mapy środowiska obraz musi znajdować się w [sferycznej przestrzeni współrzędnych.](https://en.wikipedia.org/wiki/Spherical_coordinate_system)
+W przypadku używania tekstury 2D jako mapy środowiska obraz musi znajdować się w [sferycznej przestrzeni współrzędnych](https://en.wikipedia.org/wiki/Spherical_coordinate_system).
 
-![Obraz nieba we współrzędnych sferycznych](media/spheremap-example.png)
+![Obraz w przestrzeni powietrznej we współrzędnych sferycznych](media/spheremap-example.png)
 
-Użyj `AzureSession.Actions.LoadTextureAsync` `TextureType.Texture2D` z do ładowania map sferycznych środowiska.
+Za `AzureSession.Actions.LoadTextureAsync` `TextureType.Texture2D` pomocą programu można ładować mapy środowiska sferycznego.
 
 ## <a name="built-in-environment-maps"></a>Wbudowane mapy środowiska
 
-Renderowanie zdalne platformy Azure udostępnia kilka wbudowanych map środowiska, które są zawsze dostępne. Wszystkie wbudowane mapy środowiska są cubemaps.
+Zdalne renderowanie na platformie Azure udostępnia kilka wbudowanych map środowiska, które są zawsze dostępne. Wszystkie wbudowane mapy środowiska są cubemapse.
 
 |Identyfikator                         | Opis                                              | Ilustracji                                                      |
 |-----------------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------:|
-|builtin://Autoshop                 | Różnorodność świateł paskowych, jasne oświetlenie podstawy wewnętrznej    | ![Autoshop](media/autoshop.png)
-|builtin://BoilerRoom               | Jasne oświetlenie wewnętrzne, wiele świateł okiennych      | ![Pokój kotłownia](media/boiler-room.png)
-|builtin://ColorfulStudio           | Światła w różnobarze w średnim świetle w pomieszczeniach  | ![KoloroweStudio](media/colorful-studio.png)
-|builtin://Hangar                   | Umiarkowanie jasne oświetlenie hali otoczenia                     | ![MałyGar](media/hangar.png)
-|builtin://IndustrialPipeAndValve   | Słabe ustawienie wewnętrzne z kontrastem jasnej ciemności              | ![PrzemysłowaPipeAndValve](media/industrial-pipe-and-valve.png)
-|builtin://Lebombo                  | Światło otoczenia w ciągu dnia, jasne światło w oknie     | ![Okręg wyborczy Lebombo](media/lebombo.png)
-|builtin://SataraNight              | Ciemne nocne niebo i ziemia z wieloma otaczającymi światłami   | ![SataraNocny](media/satara-night.png)
-|builtin://SunnyVondelpark          | Jasne światło słoneczne i kontrast cienia                      | ![Park SłonecznyVondelpark](media/sunny-vondelpark.png)
-|builtin://Syferfontein             | Jasne światło nieba z umiarkowanym oświetleniem gruntu            | ![Syferfontein ( Syferfontein )](media/syferfontein.png)
-|builtin://TearsOfSteelBridge       | Umiarkowanie zmienne słońce i cień                         | ![TearsOfSteelBridge (TearsOfSteelBridge)](media/tears-of-steel-bridge.png)
-|builtin://VeniceSunset             | Wieczorne światło zachodu słońca zbliżające się do zmierzchu                    | ![VeniceSunset](media/venice-sunset.png)
-|builtin://WhippleCreekRegionalPark | Jasne, bujnie zielone i białe odcienie światła, przyciemnione | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
-|builtin://WinterRiver              | W ciągu dnia z jasnym światłem terenu otoczenia                 | ![ZimowaRiver](media/winter-river.png)
-|builtin://DefaultSky               | Tak samo jak TearsOfSteelBridge                               | ![DefaultSky (Domyślnysky)](media/tears-of-steel-bridge.png)
+|builtin://Autoshop                 | Różne światełka, jasne oświetlenie podstawowe    | ![Autozakupy](media/autoshop.png)
+|builtin://BoilerRoom               | Jasne ustawienie oświetlenia, wiele świateł okna      | ![BoilerRoom](media/boiler-room.png)
+|builtin://ColorfulStudio           | Zróżnicuj kolorowe sygnalizatory w ustawieniu średniego oświetlenia lekkiego  | ![ColorfulStudio](media/colorful-studio.png)
+|builtin://Hangar                   | Średnio jasne światełko korytarza                     | ![SmallHangar](media/hangar.png)
+|builtin://IndustrialPipeAndValve   | Przyciemnij ustawienia wewnętrzne z kontrastem jasnym i ciemnym              | ![IndustrialPipeAndValve](media/industrial-pipe-and-valve.png)
+|builtin://Lebombo                  | Światło w otoczeniu Daytime, jasne oświetlenie obszaru okna     | ![Lebombo](media/lebombo.png)
+|builtin://SataraNight              | Ciemna noc i Ziemia z wieloma otaczającymi światłami   | ![SataraNight](media/satara-night.png)
+|builtin://SunnyVondelpark          | Jasne światło słoneczne i kontrast cień                      | ![SunnyVondelpark](media/sunny-vondelpark.png)
+|builtin://Syferfontein             | Jasne oświetlenie o umiarkowanej powierzchni            | ![Syferfontein](media/syferfontein.png)
+|builtin://TearsOfSteelBridge       | Średnio różne słońce i cieniowanie                         | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
+|builtin://VeniceSunset             | Jasne podejście Dusk                    | ![VeniceSunset](media/venice-sunset.png)
+|builtin://WhippleCreekRegionalPark | Jasne, Lush-zielone i białe światła, wyszarzone | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
+|builtin://WinterRiver              | Dzienne oświetlenie otoczenia                 | ![WinterRiver](media/winter-river.png)
+|builtin://DefaultSky               | Analogicznie jak TearsOfSteelBridge                               | ![DefaultSky](media/tears-of-steel-bridge.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Lampki](../../overview/features/lights.md)
+* [Światła](../../overview/features/lights.md)
 * [Materiały](../../concepts/materials.md)
 * [Tekstury](../../concepts/textures.md)
 * [Narzędzie wiersza polecenia TexConv](../../resources/tools/tex-conv.md)

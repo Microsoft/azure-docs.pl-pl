@@ -1,6 +1,6 @@
 ---
-title: Łączenie się z pulą SQL synapse
-description: Połącz się z pulą SQL.
+title: Łączenie z pulą SQL Synapse
+description: Połącz z pulą SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,32 +12,32 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e5c015751e8b0aeed7bd84086cc4f65c234fdb41
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745316"
 ---
-# <a name="connect-to-synapse-sql-pool"></a>Łączenie się z pulą SQL synapse
+# <a name="connect-to-synapse-sql-pool"></a>Łączenie z pulą SQL Synapse
 
-Połącz się z pulą SQL.
+Połącz z pulą SQL.
 
 ## <a name="find-your-server-name"></a>Znajdowanie nazwy serwera
 
-Nazwa serwera w poniższym przykładzie jest sqlpoolservername.database.windows.net. Aby znaleźć w pełni kwalifikowaną nazwę serwera:
+W poniższym przykładzie nazwa serwera to sqlpoolservername.database.windows.net. Aby znaleźć w pełni kwalifikowaną nazwę serwera:
 
-1. Przejdź do [witryny Azure portal](https://portal.azure.com).
-2. Kliknij **usługę Azure Synapse Analytics**.
-3. Kliknij pulę SQL, z którą chcesz się połączyć.
+1. Przejdź do [Azure Portal](https://portal.azure.com).
+2. Kliknij pozycję **Azure Synapse Analytics**.
+3. Kliknij pulę SQL, z którą chcesz nawiązać połączenie.
 4. Znajdź pełną nazwę serwera.
 
    ![Pełna nazwa serwera](media/sql-data-warehouse-connect-overview/server-connect.PNG)
 
 ## <a name="supported-drivers-and-connection-strings"></a>Obsługiwane sterowniki i parametry połączenia
 
-Pula SQL obsługuje [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)i [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Aby znaleźć najnowszą wersję i dokumentację, kliknij jeden z poprzednich sterowników.
+Pula SQL obsługuje [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [php](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)i [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Aby znaleźć najnowszą wersję i dokumentację, kliknij jeden z powyższych sterowników.
 
-Aby automatycznie wygenerować parametry połączenia dla sterownika, którego używasz z witryny Azure portal, kliknij **pokaż parametry połączenia bazy danych** z poprzedniego przykładu. Poniżej przedstawiono również przykłady parametrów połączenia dla każdego sterownika.
+Aby automatycznie wygenerować parametry połączenia dla sterownika, którego używasz z Azure Portal, kliknij pozycję **Pokaż parametry połączenia bazy danych** w poprzednim przykładzie. Poniżej przedstawiono również przykłady parametrów połączenia dla każdego sterownika.
 
 > [!NOTE]
 > Rozważ ustawienie limitu czasu połączenia na wartość 300 sekund, aby połączenie nie zostało zakończone mimo krótkich okresów niedostępności.
@@ -68,7 +68,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="connection-settings"></a>Ustawienia połączenia
 
-Pula SQL standaryzuje niektóre ustawienia podczas tworzenia połączenia i obiektu. Tych ustawień nie można zastąpić i obejmują one:
+Podczas łączenia i tworzenia obiektów w puli SQL jest przeprowadzana standaryzacja. Tych ustawień nie można zastąpić i obejmują one:
 
 | Ustawienia bazy danych | Wartość |
 |:--- |:--- |
@@ -79,4 +79,4 @@ Pula SQL standaryzuje niektóre ustawienia podczas tworzenia połączenia i obie
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby nawiązać połączenie i rozpocząć tworzenie zapytań przy użyciu programu Visual Studio, zobacz artykuł [Query with Visual Studio](sql-data-warehouse-query-visual-studio.md) (Wykonywanie zapytań przy użyciu programu Visual Studio). Aby dowiedzieć się więcej o opcjach uwierzytelniania, zobacz [Uwierzytelnianie w usłudze Azure Synapse Analytics](sql-data-warehouse-authentication.md).
+Aby nawiązać połączenie i rozpocząć tworzenie zapytań przy użyciu programu Visual Studio, zobacz artykuł [Query with Visual Studio](sql-data-warehouse-query-visual-studio.md) (Wykonywanie zapytań przy użyciu programu Visual Studio). Aby dowiedzieć się więcej na temat opcji uwierzytelniania, zobacz [uwierzytelnianie w usłudze Azure Synapse Analytics](sql-data-warehouse-authentication.md).

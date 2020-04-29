@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie narzędzia WAF
-description: Dowiedz się, jak skonfigurować zaporę aplikacji sieci web (WAF) przed środowiskiem usługi App Service za pomocą bramy aplikacji platformy Azure lub usługi WAF innej firmy.
+title: Konfigurowanie WAF
+description: Dowiedz się, jak skonfigurować zaporę aplikacji sieci Web (WAF) przed App Service Environment przy użyciu usługi Azure Application Gateway lub WAF innej firmy.
 author: ccompy
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.topic: tutorial
@@ -8,10 +8,10 @@ ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 987228c5cf0f5231006726718684528a777e92fd
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804473"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurowanie zapory aplikacji internetowych za pomocą środowiska App Service Environment
@@ -71,7 +71,7 @@ Kliknięcie karty **Usługi** umożliwia skonfigurowanie zapory aplikacji intern
 ![Zarządzanie — dodawanie usług][ManagementAddServices]
 
 > [!NOTE]
-> W zależności od tego, jak aplikacje są skonfigurowane i jakie funkcje są używane w środowisku usługi app service, należy przekazywać ruch dla portów TCP innych niż 80 i 443, na przykład, jeśli masz konfigurację protokołu IP TLS dla aplikacji usługi App Service. Listę portów używanych w środowiskach App Service Environment można znaleźć w sekcji dotyczącej portów sieciowych w [dokumentacji funkcji sterowania ruchem przychodzącym](app-service-app-service-environment-control-inbound-traffic.md).
+> W zależności od sposobu skonfigurowania aplikacji i używania funkcji w App Service Environment należy przekazywać ruch dla portów TCP innych niż 80 i 443, na przykład jeśli masz konfigurację protokołu IP TLS dla aplikacji App Service. Listę portów używanych w środowiskach App Service Environment można znaleźć w sekcji dotyczącej portów sieciowych w [dokumentacji funkcji sterowania ruchem przychodzącym](app-service-app-service-environment-control-inbound-traffic.md).
 > 
 > 
 

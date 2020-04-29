@@ -1,56 +1,56 @@
 ---
-title: Samouczek - dodawanie wyjść do szablonu
-description: Dodaj dane wyjściowe do szablonu usługi Azure Resource Manager, aby uprościć składnię.
+title: Samouczek — Dodawanie danych wyjściowych do szablonu
+description: Dodaj dane wyjściowe do szablonu Azure Resource Manager, aby uprościć składnię.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 2ee1a2c7037bde68b7858b57a03c78bd2016ff1c
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80743552"
 ---
-# <a name="tutorial-add-outputs-to-your-arm-template"></a>Samouczek: Dodawanie wyjść do szablonu ARM
+# <a name="tutorial-add-outputs-to-your-arm-template"></a>Samouczek: Dodawanie danych wyjściowych do szablonu ARM
 
-W tym samouczku dowiesz się, jak zwrócić wartość z szablonu usługi Azure Resource Manager (ARM). Dane wyjściowe są używane, gdy potrzebna jest wartość z wdrożonego zasobu. Ten samouczek trwa **7 minut.**
+W tym samouczku dowiesz się, jak zwrócić wartość z szablonu Azure Resource Manager (ARM). Dane wyjściowe są używane, gdy potrzebna jest wartość ze wdrożonego zasobu. Ukończenie tego samouczka trwa **7 minut** .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zalecamy [ukończenie samouczka o zmiennych](template-tutorial-add-variables.md), ale nie jest to wymagane.
+Zalecamy ukończenie [samouczka dotyczącego zmiennych](template-tutorial-add-variables.md), ale nie jest to wymagane.
 
-Musisz mieć program Visual Studio Code z rozszerzeniem Narzędzia Menedżera zasobów i azure powershell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [narzędzia szablonów](template-tutorial-create-first-template.md#get-tools).
+Musisz mieć Visual Studio Code z rozszerzeniem narzędzi Menedżer zasobów i Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Narzędzia szablonu](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-template"></a>Szablon recenzji
+## <a name="review-template"></a>Przejrzyj szablon
 
-Na końcu poprzedniego samouczka szablon miał następujący JSON:
+Na końcu poprzedniego samouczka szablon zawierał następujący kod JSON:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json":::
 
-Wdraża konto magazynu, ale nie zwraca żadnych informacji o koncie magazynu. Może być konieczne przechwycenie właściwości z nowego zasobu, aby były one dostępne później w celach informacyjnych.
+Wdraża konto magazynu, ale nie zwraca żadnych informacji o koncie magazynu. Może być konieczne przechwycenie właściwości z nowego zasobu, aby były one później dostępne do odwołania.
 
-## <a name="add-outputs"></a>Dodawanie wyjść
+## <a name="add-outputs"></a>Dodawanie danych wyjściowych
 
-Można użyć wyjść, aby zwrócić wartości z szablonu. Na przykład może być przydatne, aby uzyskać punkty końcowe dla nowego konta magazynu.
+Możesz użyć danych wyjściowych, aby zwrócić wartości z szablonu. Może być na przykład przydatne, aby uzyskać punkty końcowe dla nowego konta magazynu.
 
-W poniższym przykładzie wyróżniono zmianę szablonu, aby dodać wartość wyjściową. Skopiuj cały plik i zastąp szablon jego zawartością.
+Poniższy przykład podświetla zmianę szablonu, aby dodać wartość wyjściową. Skopiuj cały plik i Zastąp jego zawartość.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json" range="1-53" highlight="47-52":::
 
-Istnieje kilka ważnych elementów, aby pamiętać o wartości wyjściowej, którą dodałeś.
+Istnieją pewne ważne elementy, na które należy pamiętać o dodanej wartości wyjściowej.
 
-Typ zwracanej wartości jest ustawiany na **obiekt**, co oznacza, że zwraca obiekt JSON.
+Typ zwracanej wartości jest ustawiony na **Object**, co oznacza, że zwraca obiekt JSON.
 
-Używa funkcji [odwołania,](template-functions-resource.md#reference) aby uzyskać stan środowiska wykonawczego konta magazynu. Aby uzyskać stan środowiska wykonawczego zasobu, należy przekazać w nazwie lub identyfikator zasobu. W takim przypadku należy użyć tej samej zmiennej, która została użyta do utworzenia nazwy konta magazynu.
+Używa funkcji [Reference](template-functions-resource.md#reference) do uzyskiwania stanu środowiska uruchomieniowego konta magazynu. Aby uzyskać stan środowiska uruchomieniowego zasobu, należy przekazać nazwę lub identyfikator zasobu. W takim przypadku należy użyć tej samej zmiennej, która została użyta do utworzenia nazwy konta magazynu.
 
-Na koniec zwraca **właściwość primaryEndpoints** z konta magazynu
+Na koniec zwraca właściwość **obiektu** z konta magazynu
 
 ## <a name="deploy-template"></a>Wdrażanie szablonu
 
-Gotowe do wdrożenia szablonu i przyjrzeć się zwróconej wartości.
+Wszystko jest gotowe do wdrożenia szablonu i przeszukania zwracanej wartości.
 
-Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie przyjęto założenie, że ustawiono **zmienną templateFile** na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
+Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie założono, że ustawiono zmienną **TemplateFile** na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -65,7 +65,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby uruchomić to polecenie wdrażania, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
+Aby uruchomić to polecenie wdrożenia, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli
 az deployment group create \
@@ -77,7 +77,7 @@ az deployment group create \
 
 ---
 
-W danych wyjściowych dla polecenia wdrożenia zobaczysz obiekt podobny do poniższego przykładu tylko wtedy, gdy dane wyjściowe są w formacie JSON:
+W danych wyjściowych polecenia Deployment zobaczysz obiekt podobny do poniższego przykładu tylko wtedy, gdy dane wyjściowe są w formacie JSON:
 
 ```json
 {
@@ -91,31 +91,31 @@ W danych wyjściowych dla polecenia wdrożenia zobaczysz obiekt podobny do poni�
 ```
 
 > [!NOTE]
-> Jeśli wdrożenie nie powiodło się, użyj przełącznika **debugowania** z poleceniem wdrażania, aby wyświetlić dzienniki debugowania.  Można również użyć pełnego **przełącznika,** aby wyświetlić pełne dzienniki debugowania.
+> Jeśli wdrożenie nie powiodło się, użyj przełącznika **debugowania** z poleceniem wdrożenia, aby wyświetlić dzienniki debugowania.  Aby wyświetlić pełne dzienniki debugowania, można również użyć przełącznika **verbose** .
 
-## <a name="review-your-work"></a>Przejrzyj swoją pracę
+## <a name="review-your-work"></a>Przejrzyj swoją służbę
 
-Zrobiłeś wiele w ciągu ostatnich sześciu tutoriali. Poświęćmy chwilę, aby przejrzeć to, co zrobiłeś. Utworzono szablon z parametrami, które są łatwe do zapewnienia. Szablon jest wielokrotnego użytku w różnych środowiskach, ponieważ umożliwia dostosowanie i dynamicznie tworzy potrzebne wartości. Zwraca również informacje o koncie magazynu, które można użyć w skrypcie.
+Wykonano wiele ostatnich sześciu samouczków. Poświęć chwilę na zapoznanie się z tym, co zostało zrobione. Utworzono szablon z parametrami, które są łatwe do dostarczenia. Szablon jest wielokrotnego użytku w różnych środowiskach, ponieważ umożliwia dostosowanie i dynamiczne tworzenie wymaganych wartości. Zwraca również informacje o koncie magazynu, których można użyć w skrypcie.
 
 Teraz przyjrzyjmy się grupie zasobów i historii wdrażania.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. W menu po lewej stronie wybierz pozycję **Grupy zasobów**.
+1. Z menu po lewej stronie wybierz pozycję **grupy zasobów**.
 1. Wybierz grupę zasobów, do której została wdrożona.
-1. W zależności od czynności, które wykonasz, powinien mieć co najmniej jedno i być może kilka kont magazynu w grupie zasobów.
-1. W historii powinno być również kilka udanych wdrożeń. Wybierz to łącze.
+1. W zależności od wykonywanych czynności należy mieć co najmniej jedno konto magazynu w grupie zasobów.
+1. W historii należy również znaleźć kilka pomyślnych wdrożeń. Wybierz ten link.
 
    ![Wybierz wdrożenia](./media/template-tutorial-add-outputs/select-deployments.png)
 
 1. Wszystkie wdrożenia są widoczne w historii. Wybierz wdrożenie o nazwie **addoutputs**.
 
-   ![Pokaż historię wdrażania](./media/template-tutorial-add-outputs/show-history.png)
+   ![Pokaż historię wdrożenia](./media/template-tutorial-add-outputs/show-history.png)
 
-1. Można przejrzeć dane wejściowe.
+1. Możesz przejrzeć dane wejściowe.
 
    ![Pokaż dane wejściowe](./media/template-tutorial-add-outputs/show-inputs.png)
 
-1. Można przejrzeć dane wyjściowe.
+1. Możesz przejrzeć dane wyjściowe.
 
    ![Pokaż dane wyjściowe](./media/template-tutorial-add-outputs/show-outputs.png)
 
@@ -125,18 +125,18 @@ Teraz przyjrzyjmy się grupie zasobów i historii wdrażania.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli przechodzisz do następnego samouczka, nie musisz usuwać grupy zasobów.
+Jeśli przeniesiesz się do następnego samouczka, nie musisz usuwać grupy zasobów.
 
-Jeśli zatrzymujesz się teraz, możesz wyczyścić zasoby wdrożone przez usunięcie grupy zasobów.
+Jeśli zatrzymasz się teraz, możesz chcieć wyczyścić wdrożone zasoby, usuwając grupę zasobów.
 
-1. W witrynie Azure portal wybierz **grupę zasobów** z lewego menu.
+1. Z Azure Portal z menu po lewej stronie wybierz pozycję **Grupa zasobów** .
 2. Wprowadź nazwę grupy zasobów w polu **Filtruj według nazwy**.
 3. Wybierz nazwę grupy zasobów.
-4. Wybierz **pozycję Usuń grupę zasobów** z górnego menu.
+4. W górnym menu wybierz pozycję **Usuń grupę zasobów** .
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku dodano wartość zwracaną do szablonu. W następnym samouczku dowiesz się, jak wyeksportować szablon i użyć części tego wyeksportowanego szablonu w szablonie.
 
 > [!div class="nextstepaction"]
-> [Użyj wyeksportowanego szablonu](template-tutorial-export-template.md)
+> [Korzystanie z wyeksportowanego szablonu](template-tutorial-export-template.md)

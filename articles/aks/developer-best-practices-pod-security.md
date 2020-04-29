@@ -1,51 +1,51 @@
 ---
-title: Najważniejsze wskazówki dotyczące zabezpieczeń
+title: Najlepsze rozwiązania w zakresie zabezpieczeń
 titleSuffix: Azure Kubernetes Service
-description: Zapoznaj się z najlepszymi rozwiązaniami dla deweloperów dotyczących zabezpieczania zasobników w usłudze Azure Kubernetes (AKS)
+description: Poznaj najlepsze rozwiązania dla deweloperów dotyczące zabezpieczania zasobników w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 author: zr-msft
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
 ms.openlocfilehash: 1f093b5276ee7ab334043e57f97a108267c32c87
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804388"
 ---
-# <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Najważniejsze wskazówki dotyczące zabezpieczeń zasobników w usłudze Azure Kubernetes Service (AKS)
+# <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zabezpieczeń na platformie Azure Kubernetes Service (AKS)
 
-Podczas tworzenia i uruchamiania aplikacji w usłudze Azure Kubernetes Service (AKS) bezpieczeństwo zasobników jest kluczowym czynnikiem. Aplikacje powinny być zaprojektowane z myślą o zasadzie najmniejszej liczby wymaganych uprawnień. Zapewnienie bezpieczeństwa prywatnych danych jest najważniejsze dla klientów. Nie chcesz poświadczeń, takich jak parametry połączenia bazy danych, klucze lub wpisy tajne i certyfikaty udostępniane światu zewnętrznemu, gdzie osoba atakująca może skorzystać z tych wpisów tajnych do złośliwych celów. Nie dodawaj ich do kodu ani nie osadzaj w obrazach kontenerów. Takie podejście stworzyłoby ryzyko narażenia i ograniczyłoby możliwość obracania tych poświadczeń, ponieważ obrazy kontenerów będą musiały zostać przebudowane.
+Podczas opracowywania i uruchamiania aplikacji w usłudze Azure Kubernetes Service (AKS), bezpieczeństwo Twojego zasobnika jest kluczowym zagadnieniem. Aplikacje powinny być przeznaczone dla zasad minimalnej liczby wymaganych uprawnień. Bezpieczeństwo prywatnych danych jest na początku przeznaczone dla klientów. Nie chcesz, aby poświadczenia, takie jak parametry połączenia bazy danych, klucze lub wpisy tajne oraz certyfikaty ujawnione na świecie zewnętrznym, w którym osoba atakująca może wykorzystać te klucze tajne do złośliwych celów. Nie dodawaj ich do kodu ani nie osadzaj ich w obrazach kontenera. Takie podejście spowoduje utworzenie ryzyka związanego z narażeniem i ograniczenie możliwości przełączenia tych poświadczeń, ponieważ należy ponownie skompilować obrazy kontenerów.
 
-W tym artykule najważniejsze wskazówki koncentruje się na tym, jak zabezpieczyć zasobników w układzie AKS. Omawiane kwestie:
+Ten artykuł dotyczący najlepszych rozwiązań koncentruje się na sposobach zabezpieczania zespołów w AKS. Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Użyj kontekstu zabezpieczeń zasobnika, aby ograniczyć dostęp do procesów i usług lub eskalacji uprawnień
-> * Uwierzytelnij się przy użyciu innych zasobów platformy Azure przy użyciu tożsamości zarządzanych zasobników
-> * Żądaj i pobieraj poświadczenia z magazynu cyfrowego, takiego jak Usługa Azure Key Vault
+> * Użyj kontekstu zabezpieczeń pod, aby ograniczyć dostęp do procesów i usług lub eskalacji uprawnień
+> * Uwierzytelnianie za pomocą innych zasobów platformy Azure przy użyciu tożsamości zarządzanych
+> * Żądaj i pobieraj poświadczenia z magazynu cyfrowego, takiego jak Azure Key Vault
 
-Można również zapoznać się z najlepszymi rozwiązaniami w zakresie [zabezpieczeń klastra][best-practices-cluster-security] i [zarządzania obrazami kontenerów][best-practices-container-image-management].
+Można także zapoznać się z najlepszymi rozwiązaniami dotyczącymi [zabezpieczeń klastra][best-practices-cluster-security] i [zarządzania obrazami kontenerów][best-practices-container-image-management].
 
-## <a name="secure-pod-access-to-resources"></a>Bezpieczny dostęp zasobników do zasobów
+## <a name="secure-pod-access-to-resources"></a>Bezpieczny dostęp pod dostępem do zasobów
 
-**Wskazówki dotyczące najlepszych rozwiązań** — aby uruchomić jako inny użytkownik lub grupa i ograniczyć dostęp do podstawowych procesów i usług węzła, należy zdefiniować ustawienia kontekstu zabezpieczeń zasobników. Przypisz najmniejszą wymaganą liczbę uprawnień.
+**Wskazówki dotyczące najlepszych** rozwiązań — do uruchamiania jako inny użytkownik lub Grupa i ograniczania dostępu do podstawowych procesów i usług węzła, definiowania ustawień kontekstu zabezpieczeń. Przypisz wymaganą minimalną liczbę uprawnień.
 
-Aby aplikacje działały poprawnie, zasobniki powinny działać jako zdefiniowany użytkownik lub grupa, a nie jako *główny*. Dla `securityContext` zasobnika lub kontenera pozwala zdefiniować ustawienia, takie jak *runAsUser* lub *fsGroup,* aby przyjąć odpowiednie uprawnienia. Przypisz tylko wymagane uprawnienia użytkownika lub grupy i nie używaj kontekstu zabezpieczeń jako środka do przyjęcia dodatkowych uprawnień. *RunAsUser*, eskalacja uprawnień i inne ustawienia możliwości systemu Linux są dostępne tylko w węzłach i zasobnikach systemu Linux.
+Aby aplikacje działały prawidłowo, należy uruchomić jako zdefiniowany użytkownika lub grupę, a nie jako *element główny*. Dla elementu pod lub kontenera można zdefiniować ustawienia, takie jak *runAsUser* lub fsGroup, aby założyć odpowiednie uprawnienia. *fsGroup* `securityContext` Należy przypisać tylko wymagane uprawnienia użytkownika lub grupy, a nie użyć kontekstu zabezpieczeń jako środka do założenia dodatkowych uprawnień. Ustawienia *runAsUser*, eskalacji uprawnień i inne funkcje systemu Linux są dostępne tylko w węzłach i w systemach Linux.
 
-Po uruchomieniu jako użytkownik niekorzeń kontenerów nie można powiązać z portami uprzywilejowanymi w obszarze 1024. W tym scenariuszu usługi Kubernetes może służyć do ukrycia fakt, że aplikacja jest uruchomiona na określonym porcie.
+Jeśli użytkownik nie jest użytkownikiem głównym, kontenery nie mogą być powiązane z portami uprzywilejowanymi w obszarze 1024. W tym scenariuszu usługi Kubernetes Services mogą służyć do uzyskania informacji o tym, że aplikacja działa na określonym porcie.
 
-Kontekst zabezpieczeń zasobnika można również zdefiniować dodatkowe możliwości lub uprawnienia dostępu do procesów i usług. Można ustawić następujące typowe definicje kontekstu zabezpieczeń:
+Kontekst zabezpieczeń pod może również definiować dodatkowe możliwości lub uprawnienia do uzyskiwania dostępu do procesów i usług. Można ustawić następujące typowe definicje kontekstu zabezpieczeń:
 
-* **allowPrivilegeEscalation** definiuje, czy zasobnik może zakładać uprawnienia *główne.* Zaprojektuj aplikacje, aby to ustawienie było zawsze ustawione na *false*.
-* **Możliwości systemu Linux** umożliwiają zasobnikowi dostęp do podstawowych procesów węzłów. Należy zadbać o przypisanie tych możliwości. Przypisz najmniejszą liczbę wymaganych uprawnień. Aby uzyskać więcej informacji, zobacz [możliwości systemu Linux][linux-capabilities].
-* **Etykiety SELinux** to moduł bezpieczeństwa jądra Linuksa, który umożliwia definiowanie zasad dostępu dla usług, procesów i dostępu do systemu plików. Ponownie przypisz najmniejszą liczbę wymaganych uprawnień. Aby uzyskać więcej informacji, zobacz [Opcje SELinux w aplikacji Kubernetes][selinux-labels]
+* **allowPrivilegeEscalation** określa, czy pod warunkiem, że może przyjmować uprawnienia *root* . Zaprojektuj swoje aplikacje, aby to ustawienie było zawsze ustawione na *wartość false*.
+* **Możliwości systemu Linux** pozwalają na dostęp do węzła podstawowego węzłów. Weź pod uwagę możliwość przypisywania tych funkcji. Przypisz wymaganą minimalną liczbę uprawnień. Aby uzyskać więcej informacji, zobacz [możliwości systemu Linux][linux-capabilities].
+* **Etykiety SELinux** to moduł zabezpieczeń jądra systemu Linux, który umożliwia definiowanie zasad dostępu dla usług, procesów i dostępu do systemu plików. Należy ponownie przypisać najmniejszą liczbę wymaganych uprawnień. Aby uzyskać więcej informacji, zobacz [Opcje SELinux w Kubernetes][selinux-labels]
 
-Poniższy przykładowy manifest YAML zasobnika ustawia ustawienia kontekstu zabezpieczeń do zdefiniowania:
+W poniższym przykładzie manifestu YAML ustawia ustawienia kontekstu zabezpieczeń, aby zdefiniować:
 
-* Zasobnik działa jako identyfikator użytkownika *1000* i część identyfikatora grupy *2000*
+* Pod uruchomieniem jako identyfikator użytkownika *1000* i częścią grupy o identyfikatorze *2000*
 * Nie można eskalować uprawnień do użycia`root`
-* Umożliwia linuksowi dostęp do interfejsów sieciowych i zegara hosta w czasie rzeczywistym (sprzętowym)
+* Umożliwia funkcjom systemu Linux dostęp do interfejsów sieciowych i zegara czasu rzeczywistego hosta (sprzętu)
 
 ```yaml
 apiVersion: v1
@@ -64,49 +64,49 @@ spec:
         add: ["NET_ADMIN", "SYS_TIME"]
 ```
 
-Skontaktuj się z operatorem klastra, aby określić, jakich ustawień kontekstu zabezpieczeń potrzebujesz. Spróbuj zaprojektować aplikacje, aby zminimalizować dodatkowe uprawnienia i dostęp do zasobnika wymaga. Istnieją dodatkowe funkcje zabezpieczeń, aby ograniczyć dostęp przy użyciu AppArmor i seccomp (bezpieczne przetwarzanie), które mogą być implementowane przez operatorów klastra. Aby uzyskać więcej informacji, zobacz [Bezpieczny dostęp kontenera do zasobów][apparmor-seccomp].
+Aby określić, jakie ustawienia kontekstu zabezpieczeń są potrzebne, Pracuj z operatorem klastra. Spróbuj zaprojektować aplikacje w celu zminimalizowania dodatkowych uprawnień i uzyskania dostępu do programu. Dostępne są dodatkowe funkcje zabezpieczeń umożliwiające ograniczenie dostępu przy użyciu AppArmor i seccomp (Zabezpieczanie obliczeń), które mogą być implementowane przez operatorów klastra. Aby uzyskać więcej informacji, zobacz [bezpieczny dostęp do kontenera do zasobów][apparmor-seccomp].
 
-## <a name="limit-credential-exposure"></a>Ograniczanie ekspozycji poświadczeń
+## <a name="limit-credential-exposure"></a>Ogranicz ekspozycję poświadczeń
 
-**Wskazówki dotyczące najlepszych rozwiązań** — nie definiuj poświadczeń w kodzie aplikacji. Użyj tożsamości zarządzanych dla zasobów platformy Azure, aby umożliwić zasobnikowi żądanie dostępu do innych zasobów. Magazyn cyfrowy, taki jak Usługa Azure Key Vault, powinien być również używany do przechowywania i pobierania kluczy cyfrowych i poświadczeń. Pod tożsamości zarządzane jest przeznaczony do użytku tylko z zasobników systemu Linux i obrazów kontenerów.
+**Wskazówki dotyczące najlepszych** rozwiązań — nie Definiuj poświadczeń w kodzie aplikacji. Użyj zarządzanych tożsamości dla zasobów platformy Azure, aby umożliwić usłudze na żądanie dostępu do innych zasobów. Magazyn cyfrowy, taki jak Azure Key Vault, powinien również służyć do przechowywania i pobierania kluczy cyfrowych i poświadczeń. Tożsamości zarządzane pod są przeznaczone wyłącznie dla systemów Linux i obrazów kontenerów.
 
-Aby ograniczyć ryzyko udostępnienia poświadczeń w kodzie aplikacji, należy unikać używania poświadczeń stałych lub udostępnionych. Poświadczenia lub klucze nie powinny być uwzględniane bezpośrednio w kodzie. Jeśli te poświadczenia są widoczne, aplikacja musi zostać zaktualizowana i ponownie wyeszła. Lepszym rozwiązaniem jest nadajnienie zasobników własnej tożsamości i sposobu uwierzytelniania się lub automatycznego pobierania poświadczeń z cyfrowego magazynu.
+Aby ograniczyć ryzyko ujawnienia poświadczeń w kodzie aplikacji, należy unikać stosowania poświadczeń stałych lub udostępnionych. Poświadczeń lub kluczy nie należy uwzględniać bezpośrednio w kodzie. Jeśli te poświadczenia są ujawniane, aplikacja musi zostać zaktualizowana i wdrożona ponownie. Lepszym rozwiązaniem jest nadanie podstawom tożsamości i sposobu samodzielnego uwierzytelniania lub automatycznego pobierania poświadczeń z magazynu cyfrowego.
 
-Następujące [skojarzone projekty typu open source usługi AKS][aks-associated-projects] umożliwiają automatyczne uwierzytelnianie zasobników lub żądania poświadczeń i kluczy z cyfrowego magazynu:
+Następujące [skojarzone projekty typu open source AKS][aks-associated-projects] umożliwiają automatyczne uwierzytelnianie z magazynów lub zażądanie poświadczeń i kluczy z magazynu cyfrowego:
 
-* Tożsamości zarządzane dla zasobów platformy Azure i
-* Sterownik usługi Azure Key Vault FlexVol
+* Zarządzane tożsamości dla zasobów platformy Azure i
+* Sterownik FlexVol Azure Key Vault
 
-Skojarzone projekty open source usługi AKS nie są obsługiwane przez pomoc techniczną platformy Azure. Są one dostarczane w celu zebrania opinii i błędów od naszej społeczności. Projekty te nie są zalecane do użytku produkcyjnego.
+Skojarzone projekty open source AKS nie są obsługiwane przez pomoc techniczną platformy Azure. Są one dostarczane w celu zebrania opinii i usterek z naszej społeczności. Te projekty nie są zalecane do użycia w środowisku produkcyjnym.
 
-### <a name="use-pod-managed-identities"></a>Używanie tożsamości zarządzanych zasobników
+### <a name="use-pod-managed-identities"></a>Użyj tożsamości zarządzanych
 
-Tożsamość zarządzana dla zasobów platformy Azure umożliwia zasobnikowi uwierzytelnić się na usługach platformy Azure, które go obsługują, takich jak Magazyn lub SQL. Zasobnik jest przypisany do usługi Azure Identity, która umożliwia im uwierzytelnienie się w usłudze Azure Active Directory i odbieranie tokenu cyfrowego. Ten token cyfrowy można przedstawić innym usługom platformy Azure, które sprawdzają, czy zasobnik jest autoryzowany do uzyskiwania dostępu do usługi i wykonywania wymaganych akcji. Takie podejście oznacza, że nie są wymagane żadne wpisy tajne dla ciągów połączeń bazy danych, na przykład. Uproszczony przepływ pracy dla tożsamości zarządzanej zasobnika jest pokazany na poniższym diagramie:
+Zarządzana tożsamość zasobów platformy Azure pozwala na uwierzytelnianie pod względem usług platformy Azure, które go obsługują, takich jak Storage czy SQL. W obszarze jest przypisana tożsamość platformy Azure, która umożliwia im uwierzytelnianie Azure Active Directory i odbieranie cyfrowego tokenu. Ten token cyfrowy może być przedstawiony innym usługom platformy Azure, które sprawdzają, czy jest on autoryzowany do uzyskiwania dostępu do usługi i wykonując wymagane akcje. Takie podejście oznacza, że dla parametrów połączenia bazy danych nie są wymagane żadne wpisy tajne. Uproszczony przepływ pracy dotyczący tożsamości zarządzanej pod, jest przedstawiony na poniższym diagramie:
 
-![Uproszczony przepływ pracy dla tożsamości zarządzanej zasobnika na platformie Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
+![Uproszczony przepływ pracy dla tożsamości zarządzanej pod na platformie Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
 
-Przy użyciu tożsamości zarządzanej kod aplikacji nie musi zawierać poświadczeń, aby uzyskać dostęp do usługi, takiej jak usługa Azure Storage. Jak każdy zasobnik uwierzytelnia się z własną tożsamością, dzięki czemu można inspekcji i przeglądu dostępu. Jeśli aplikacja łączy się z innymi usługami platformy Azure, użyj zarządzanych tożsamości, aby ograniczyć ponowne użycie poświadczeń i ryzyko narażenia.
+Przy użyciu tożsamości zarządzanej kod aplikacji nie musi zawierać poświadczeń, aby uzyskać dostęp do usługi, takiej jak usługa Azure Storage. Każdy z nich jest uwierzytelniany przy użyciu własnej tożsamości, dzięki czemu można przeprowadzać inspekcję i przeglądanie dostępu. Jeśli aplikacja łączy się z innymi usługami platformy Azure, Użyj tożsamości zarządzanych, aby ograniczyć ponowne użycie poświadczeń i ryzyko narażenia.
 
-Aby uzyskać więcej informacji na temat tożsamości zasobników, zobacz [Konfigurowanie klastra AKS do używania tożsamości zarządzanych zasobników i aplikacji][aad-pod-identity]
+Aby uzyskać więcej informacji o tożsamościach pod, zobacz [Konfigurowanie klastra AKS do użycia z tożsamościami zarządzanymi i aplikacjami][aad-pod-identity] .
 
-### <a name="use-azure-key-vault-with-flexvol"></a>Korzystanie z usługi Azure Key Vault z usługą FlexVol
+### <a name="use-azure-key-vault-with-flexvol"></a>Używanie Azure Key Vault z FlexVol
 
-Zarządzane tożsamości zasobników działają świetnie, aby uwierzytelnić się przed obsługą usług platformy Azure. W przypadku własnych usług lub aplikacji bez zarządzanych tożsamości zasobów platformy Azure nadal uwierzytelniasz się przy użyciu poświadczeń lub kluczy. Do przechowywania tych poświadczeń można używać magazynu cyfrowego.
+Tożsamości zarządzane pod są doskonałe do uwierzytelniania w celu obsługi usług platformy Azure. W przypadku własnych usług lub aplikacji bez tożsamości zarządzanych dla zasobów platformy Azure nadal można uwierzytelniać się przy użyciu poświadczeń lub kluczy. Magazyn cyfrowy może służyć do przechowywania tych poświadczeń.
 
-Gdy aplikacje potrzebują poświadczenia, komunikują się z magazynem cyfrowym, pobierają najnowsze poświadczenia, a następnie łączą się z wymaganą usługą. Usługa Azure Key Vault może być tym cyfrowym magazynem. Uproszczony przepływ pracy do pobierania poświadczeń z usługi Azure Key Vault przy użyciu tożsamości zarządzanych zasobnika jest pokazany na poniższym diagramie:
+Gdy aplikacje potrzebują poświadczeń, komunikują się z magazynem cyfrowym, pobierają najnowsze poświadczenia, a następnie nawiązują połączenie z wymaganą usługą. Azure Key Vault może to być ten magazyn cyfrowy. Uproszczony przepływ pracy służący do pobierania poświadczeń z Azure Key Vault przy użyciu tożsamości zarządzanych pod na poniższym diagramie:
 
-![Uproszczony przepływ pracy do pobierania poświadczeń z magazynu kluczy przy użyciu tożsamości zarządzanej zasobnika](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
+![Uproszczony przepływ pracy służący do pobierania poświadczeń z Key Vault przy użyciu tożsamości zarządzanej pod](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
 
-Za pomocą usługi Key Vault można przechowywać i regularnie obracać wpisy tajne, takie jak poświadczenia, klucze kont magazynu lub certyfikaty. Usługę Azure Key Vault można zintegrować z klastrem AKS za pomocą funkcji FlexVolume. Sterownik FlexVolume umożliwia klastrowi AKS natywnie pobieranie poświadczeń z usługi Key Vault i bezpieczne dostarczanie ich tylko do żądanego zasobnika. Współpracuj z operatorem klastra, aby wdrożyć sterownik Key Vault FlexVol w węzłach AKS. Za pomocą zasobnika tożsamości zarządzanej można zażądać dostępu do usługi Key Vault i pobrać poświadczenia potrzebne za pośrednictwem sterownika FlexVolume.
+Dzięki Key Vault można przechowywać i regularnie przekazywać wpisy tajne, takie jak poświadczenia, klucze konta magazynu lub certyfikaty. Azure Key Vault można zintegrować z klastrem AKS przy użyciu FlexVolume. Sterownik FlexVolume umożliwia klastrowi AKS natywne pobieranie poświadczeń z Key Vault i bezpieczne udostępnianie ich tylko żądającemu. Pracuj z operatorem klastra, aby wdrożyć Key Vault sterownik FlexVol na węzłach AKS. Możesz użyć tożsamości zarządzanej pod, aby zażądać dostępu do Key Vault i pobrać wymagane poświadczenia za pomocą sterownika FlexVolume.
 
-Usługa Azure Key Vault z usługą FlexVol jest przeznaczona do użytku z aplikacjami i usługami działającymi w zasobnikach i węzłach systemu Linux.
+Azure Key Vault z FlexVol jest przeznaczony do użytku z aplikacjami i usługami działającymi w ramach systemów i węzłów systemu Linux.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule skupiono się na tym, jak zabezpieczyć zasobników. Aby zaimplementować niektóre z tych obszarów, zobacz następujące artykuły:
+Ten artykuł koncentruje się na sposobach zabezpieczania swoich zasobników. Aby zaimplementować niektóre z tych obszarów, zobacz następujące artykuły:
 
-* [Używanie tożsamości zarządzanych dla zasobów platformy Azure przy użyciu usługi AKS][aad-pod-identity]
-* [Integracja usługi Azure Key Vault z usługą AKS][aks-keyvault-flexvol]
+* [Korzystanie z tożsamości zarządzanych dla zasobów platformy Azure z usługą AKS][aad-pod-identity]
+* [Integracja Azure Key Vault z usługą AKS][aks-keyvault-flexvol]
 
 <!-- EXTERNAL LINKS -->
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity#demo

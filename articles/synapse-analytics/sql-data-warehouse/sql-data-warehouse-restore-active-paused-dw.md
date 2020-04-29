@@ -1,6 +1,6 @@
 ---
 title: Przywracanie istniejącego magazynu danych
-description: Instrukcje dotyczące przywracania istniejącej puli SQL.
+description: Przewodnik dotyczący przywracania istniejącej puli SQL.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -12,46 +12,46 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 6fa8bd42eb067124ab6ea1db77e2f3d6fba79638
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745216"
 ---
 # <a name="restore-an-existing-sql-pool"></a>Przywracanie istniejącej puli SQL
 
-W tym artykule dowiesz się, jak przywrócić istniejącą pulę SQL w usłudze Azure Synapse Analytics przy użyciu witryny Azure portal i programu PowerShell.
+Ten artykuł zawiera informacje na temat przywracania istniejącej puli SQL w usłudze Azure Synapse Analytics przy użyciu Azure Portal i programu PowerShell.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Sprawdź pojemność funkcji DTU.** Każda pula jest obsługiwana przez serwer SQL (na przykład myserver.database.windows.net), który ma domyślny przydział DTU. Sprawdź, czy serwer SQL ma wystarczającą ilość pozostałego przydziału DTU dla przywracania bazy danych. Aby dowiedzieć się, jak obliczyć potrzebne ceny DTU lub zażądać więcej DTU, zobacz [Żądanie zmiany przydziału DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Sprawdź pojemność jednostek DTU.** Każda pula jest hostowana przez program SQL Server (na przykład myserver.database.windows.net), który ma domyślny limit przydziału jednostek DTU. Sprawdź, czy program SQL Server ma wystarczającą liczbę pozostałych limitów przydziału jednostek DTU dla przywracanej bazy danych. Aby dowiedzieć się, jak obliczyć liczbę jednostek DTU potrzebnych lub aby zażądać większej liczby jednostek DTU, zobacz [żądanie zmiany limitu przydziału jednostek DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-1. Upewnij się, że [zainstalowano program Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-2. Mieć istniejący punkt przywracania, który chcesz przywrócić. Jeśli chcesz utworzyć nowe przywracanie, zobacz [samouczek, aby utworzyć nowy punkt przywracania zdefiniowany przez użytkownika](sql-data-warehouse-restore-points.md).
+1. Upewnij się, że [zainstalowano Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+2. Mieć istniejący punkt przywracania, z którego chcesz przeprowadzić przywracanie. Jeśli chcesz utworzyć nowe przywracanie, zapoznaj się z [samouczkiem, aby utworzyć nowy punkt przywracania zdefiniowany przez użytkownika](sql-data-warehouse-restore-points.md).
 
-## <a name="restore-an-existing-sql-pool-through-powershell"></a>Przywracanie istniejącej puli SQL za pośrednictwem programu PowerShell
+## <a name="restore-an-existing-sql-pool-through-powershell"></a>Przywracanie istniejącej puli SQL przy użyciu programu PowerShell
 
-Aby przywrócić istniejącą pulę SQL z punktu przywracania, użyj polecenia cmdlet programu PowerShell [restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Aby przywrócić istniejącą pulę SQL z punktu przywracania, użyj polecenia cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) programu PowerShell.
 
 1. Otwórz program PowerShell.
 
-2. Połącz się ze swoim kontem platformy Azure i wymień wszystkie subskrypcje skojarzone z Twoim kontem.
+2. Połącz się z kontem platformy Azure i Wyświetl listę wszystkich subskrypcji skojarzonych z Twoim kontem.
 
 3. Wybierz subskrypcję zawierającą bazę danych, która ma zostać przywrócona.
 
-4. Wyświetl listę punktów przywracania puli SQL.
+4. Wyświetl listę punktów przywracania dla puli SQL.
 
-5. Wybierz żądany punkt przywracania za pomocą przyrządu RestorePointCreationDate.
+5. Wybierz żądany punkt przywracania za pomocą RestorePointCreationDate.
 
-6. Przywróć pulę SQL do żądanego punktu przywracania przy użyciu polecenia cmdlet programu PowerShell [restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
-        1. Aby przywrócić pulę SQL na inny serwer logiczny, należy określić inną nazwę serwera logicznego.  Ten serwer logiczny może również znajdować się w innej grupie zasobów i regionie.
+6. Przywróć pulę SQL do żądanego punktu przywracania za pomocą polecenia cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) programu PowerShell.
+        1. Aby przywrócić pulę SQL na innym serwerze logicznym, należy określić inną nazwę serwera logicznego.  Ten serwer logiczny może również znajdować się w innej grupie zasobów i regionie.
         2. Aby przywrócić do innej subskrypcji, użyj przycisku "Przenieś", aby przenieść serwer logiczny do innej subskrypcji.
 
-7. Sprawdź, czy przywrócona pula SQL jest w trybie online.
+7. Sprawdź, czy przywrócona Pula SQL jest w trybie online.
 
-8. Po zakończeniu przywracania można skonfigurować odzyskaną pulę SQL, wykonując [konfigurowanie bazy danych po odzyskaniu](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+8. Po zakończeniu przywracania można skonfigurować odzyskaną pulę SQL, wykonując następujące czynności: [Skonfiguruj bazę danych po odzyskaniu](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 
@@ -87,19 +87,19 @@ $RestoredDatabase.status
 
 ```
 
-## <a name="restore-an-existing-sql-pool-through-the-azure-portal"></a>Przywracanie istniejącej puli SQL za pośrednictwem witryny Azure portal
+## <a name="restore-an-existing-sql-pool-through-the-azure-portal"></a>Przywracanie istniejącej puli SQL za pomocą Azure Portal
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
-2. Przejdź do puli SQL, z której chcesz przywrócić.
-3. U góry bloku Przegląd wybierz pozycję **Przywróć**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Przejdź do puli SQL, z której chcesz wykonać przywracanie.
+3. W górnej części bloku przegląd wybierz pozycję **Przywróć**.
 
     ![ Omówienie przywracania kopii zapasowych](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Wybierz punkty **automatycznego przywracania** lub **zdefiniowane przez użytkownika punkty przywracania**. Jeśli pula SQL nie ma żadnych automatycznych punktów przywracania, poczekaj kilka godzin lub utwórz zdefiniowany przez użytkownika punkt przywracania przed przywróceniem. W przypadku punktów przywracania zdefiniowanych przez użytkownika wybierz istniejący lub utwórz nowy. W przypadku **programu Server**można wybrać serwer logiczny w innej grupie zasobów i regionie lub utworzyć nowy. Po podaniu wszystkich parametrów kliknij przycisk **Przejrzyj + Przywróć**.
+4. Wybierz **punkty przywracania automatycznego** lub **punkty przywracania zdefiniowane przez użytkownika**. Jeśli pula SQL nie zawiera żadnych automatycznych punktów przywracania, poczekaj kilka godzin lub przed przywróceniem Utwórz punkt przywracania zdefiniowany przez użytkownika. Dla punktów przywracania zdefiniowanych przez użytkownika wybierz istniejącą lub Utwórz nową. W przypadku **serwera**można wybrać serwer logiczny w innej grupie zasobów i regionie lub utworzyć nowy. Po podania wszystkich parametrów kliknij przycisk **Przegląd + Przywróć**.
 
     ![Automatyczne punkty przywracania](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przywracanie usuniętej puli SQL](sql-data-warehouse-restore-deleted-dw.md)
-- [Przywracanie z puli SQL kopii zapasowej geograficznej](sql-data-warehouse-restore-from-geo-backup.md)
+- [Przywracanie z puli SQL geograficznej kopii zapasowej](sql-data-warehouse-restore-from-geo-backup.md)

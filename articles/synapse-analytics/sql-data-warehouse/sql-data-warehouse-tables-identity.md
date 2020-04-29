@@ -1,5 +1,5 @@
 ---
-title: Tworzenie kluczy zastępczych za pomocą funkcji TOŻSAMOŚCI
+title: Używanie tożsamości do tworzenia kluczy zastępczych
 description: Zalecenia i przykłady dotyczące używania właściwości IDENTITY do tworzenia kluczy zastępczych w tabelach w puli SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -12,25 +12,25 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: e681e8ad655c31d5078b56b8f1a49cfd7c664533
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80742639"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Tworzenie kluczy zastępczych w puli SQL Synapse za pomocą funkcji TOŻSAMOŚCI
+# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Używanie tożsamości do tworzenia kluczy zastępczych w puli Synapse SQL
 
 Zalecenia i przykłady dotyczące używania właściwości IDENTITY do tworzenia kluczy zastępczych w tabelach w puli SQL Synapse.
 
 ## <a name="what-is-a-surrogate-key"></a>Co to jest klucz zastępczy
 
-Klucz zastępczy w tabeli to kolumna z unikatowym identyfikatorem dla każdego wiersza. Klucz nie jest generowany na podstawie danych tabeli. Modelarze danych lubią tworzyć klucze zastępcze na swoich tabelach podczas projektowania modeli magazynu danych. Można użyć identity właściwości, aby osiągnąć ten cel w prosty i skuteczny sposób bez wpływu na wydajność obciążenia.  
+Klucz zastępczy w tabeli jest kolumną o unikatowym identyfikatorze dla każdego wiersza. Klucz nie jest generowany na podstawie danych tabeli. Modele danych, takie jak tworzenie kluczy zastępczych w tabelach, podczas projektowania modeli magazynu danych. Można użyć właściwości IDENTITY do osiągnięcia tego celu po prostu i efektywnie bez wpływu na wydajność ładowania.  
 
-## <a name="creating-a-table-with-an-identity-column"></a>Tworzenie tabeli z kolumną TOŻSAMOŚĆ
+## <a name="creating-a-table-with-an-identity-column"></a>Tworzenie tabeli z kolumną tożsamości
 
-Właściwość IDENTITY jest przeznaczona do skalowania w poziomie we wszystkich dystrybucjach w puli Synapse SQL bez wpływu na wydajność obciążenia. W związku z tym wdrożenie TOŻSAMOŚCI jest ukierunkowane na osiągnięcie tych celów.
+Właściwość IDENTITY została zaprojektowana w celu skalowania w poziomie między wszystkimi dystrybucjami w puli SQL Synapse bez wpływu na wydajność ładowania. W związku z tym implementacja tożsamości jest ukierunkowana na osiągnięcie tych celów.
 
-Tabelę można zdefiniować jako zawierającą właściwość IDENTITY przy pierwszym utworzeniu tabeli przy użyciu składni podobnej do następującej instrukcji:
+Można zdefiniować tabelę jako mającą właściwość IDENTITY podczas pierwszej tworzenia tabeli przy użyciu składni podobnej do następującej:
 
 ```sql
 CREATE TABLE dbo.T1
@@ -44,13 +44,13 @@ WITH
 ;
 ```
 
-Następnie można `INSERT..SELECT` użyć do wypełniania tabeli.
+Można następnie użyć `INSERT..SELECT` , aby wypełnić tabelę.
 
-W dalszej części tej sekcji przedstawiono niuanse implementacji, aby pomóc Ci lepiej je zrozumieć.  
+W tym pozostałej części tej sekcji przedstawiono wszystkie szczegóły wdrożenia, aby ułatwić zrozumienie ich w pełni.  
 
 ### <a name="allocation-of-values"></a>Alokacja wartości
 
-Właściwość IDENTITY nie gwarantuje kolejności, w której są przydzielane wartości zastępcze, co odzwierciedla zachowanie programu SQL Server i bazy danych SQL Azure. Jednak w puli SQL Synapse brak gwarancji jest bardziej wyraźny.
+Właściwość IDENTITY nie gwarantuje kolejności, w której są przyliczane wartości zastępcze, co odzwierciedla zachowanie SQL Server i Azure SQL Database. Jednak w puli SQL Synapse brak gwarancji jest bardziej wyraźny.
 
 Poniższy przykład jest ilustracją:
 
@@ -77,34 +77,34 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-W poprzednim przykładzie dwa wiersze wylądowały w dystrybucji 1. Pierwszy wiersz ma wartość zastępczą 1 w kolumnie `C1`, a drugi wiersz ma wartość zastępczą 61. Obie te wartości zostały wygenerowane przez właściwość IDENTITY. Jednak alokacja wartości nie jest ciągła. To zachowanie jest celowe.
+W poprzednim przykładzie dwa wiersze wyładowywane w dystrybucji 1. Pierwszy wiersz ma wartość zastępczą 1 w kolumnie `C1`, a drugi wiersz ma wartość zastępczą 61. Obie te wartości zostały wygenerowane przez właściwość IDENTITY. Jednak alokacja wartości nie jest ciągła. To zachowanie jest celowe.
 
-### <a name="skewed-data"></a>Pochylone dane
+### <a name="skewed-data"></a>Skośne dane
 
-Zakres wartości dla typu danych są rozłożone równomiernie między dystrybucjami. Jeśli tabela rozproszona cierpi z powodu pochylonych danych, zakres wartości dostępnych dla typu danych może zostać wyczerpany przedwcześnie. Na przykład jeśli wszystkie dane kończy się w jednej dystrybucji, a następnie skutecznie tabela ma dostęp do tylko jeden sześćdziesiąt wartości wartości typu danych. Z tego powodu właściwość IDENTITY `INT` `BIGINT` jest ograniczona tylko do typów danych i.
+Zakres wartości dla typu danych jest równomiernie rozłożony przez dystrybucje. Jeśli tabela rozproszona pogorszy się od pochylonych danych, zakres wartości dostępnych dla tego elementu DataType może zostać przedwcześnie wyczerpany. Na przykład, jeśli wszystkie dane kończą się w ramach jednej dystrybucji, efektywnie tabela ma dostęp tylko do jednej sixtieth wartości typu danych. Z tego powodu właściwość IDENTITY jest ograniczona tylko do `INT` typów `BIGINT` danych.
 
-### <a name="selectinto"></a>Wybierz.. Do
+### <a name="selectinto"></a>Wybierz pozycję.. PRZEKSZTAŁCA
 
-Gdy istniejąca kolumna TOŻSAMOŚCI jest zaznaczona w nowej tabeli, nowa kolumna dziedziczy właściwość TOŻSAMOŚCI, chyba że spełniony jest jeden z następujących warunków:
+Po wybraniu istniejącej kolumny tożsamości w nowej tabeli, Nowa kolumna dziedziczy właściwość IDENTITY, chyba że jest spełniony jeden z następujących warunków:
 
 - Instrukcja SELECT zawiera sprzężenie.
-- Wiele instrukcji SELECT są połączone przy użyciu UNION.
-- Kolumna TOŻSAMOŚĆ jest wyświetlana więcej niż jeden raz na liście SELECT.
-- Kolumna TOŻSAMOŚĆ jest częścią wyrażenia.
+- Wielokrotne instrukcje SELECT są sprzężone przy użyciu UNION.
+- Kolumna tożsamości jest wymieniona więcej niż jeden raz na liście wyboru.
+- Kolumna tożsamości jest częścią wyrażenia.
 
-Jeśli którykolwiek z tych warunków jest spełniony, kolumna jest tworzona NIE NULL zamiast dziedziczenia właściwości IDENTITY.
+Jeśli którykolwiek z tych warunków ma wartość true, kolumna zostanie utworzona nie NULL zamiast dziedziczyć właściwość IDENTITY.
 
 ### <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
-UTWÓRZ TABELĘ AS SELECT (CTAS) jest zgodne z tym samym zachowaniem programu SQL Server, które jest udokumentowane dla select.. Do. Jednak nie można określić właściwość TOŻSAMOŚCI w `CREATE TABLE` definicji kolumny części instrukcji. Nie można również użyć funkcji TOŻSAMOŚCI `SELECT` w części CTAS. Aby wypełnić tabelę, należy `CREATE TABLE` użyć do zdefiniowania `INSERT..SELECT` tabeli, po której następuje jej wypełnić.
+CREATE TABLE jako SELECT (CTAS) ma takie samo zachowanie SQL Server, które zostało udokumentowane w przypadku WYBRANia.. Przekształca. Nie można jednak określić właściwości IDENTITY w definicji kolumny `CREATE TABLE` części instrukcji. Nie można również użyć funkcji IDENTITY w `SELECT` części CTAs. Aby wypełnić tabelę, należy użyć `CREATE TABLE` do zdefiniowania tabeli, a następnie `INSERT..SELECT` jej wypełnienia.
 
-## <a name="explicitly-inserting-values-into-an-identity-column"></a>Jawne wstawianie wartości do kolumny TOŻSAMOŚCI
+## <a name="explicitly-inserting-values-into-an-identity-column"></a>Jawne wstawianie wartości do kolumny tożsamości
 
-Pula SQL synapsy obsługuje `SET IDENTITY_INSERT <your table> ON|OFF` składnię. Tej składni można użyć do jawnego wstawiania wartości do kolumny TOŻSAMOŚĆ.
+Synapse Pula SQL obsługuje `SET IDENTITY_INSERT <your table> ON|OFF` składnię. Możesz użyć tej składni, aby jawnie wstawić wartości do kolumny tożsamość.
 
-Wielu modelarzy danych lubi używać wstępnie zdefiniowanych wartości ujemnych dla niektórych wierszy w ich wymiarach. Przykładem jest wiersz -1 lub "nieznany element członkowski".
+Wiele modeli danych, takich jak użycie wstępnie zdefiniowanych wartości ujemnych dla niektórych wierszy w ich wymiarach. Przykładem jest wiersz-1 lub "nieznany element członkowski".
 
-Następny skrypt pokazuje, jak jawnie dodać ten wiersz przy użyciu funkcji SET IDENTITY_INSERT:
+Następny skrypt pokazuje, jak jawnie dodać ten wiersz przy użyciu SET IDENTITY_INSERT:
 
 ```sql
 SET IDENTITY_INSERT dbo.T1 ON;
@@ -125,11 +125,11 @@ FROM    dbo.T1
 
 ## <a name="loading-data"></a>Ładowanie danych
 
-Obecność identity właściwości ma pewne implikacje do kodu ładowania danych. W tej sekcji wyróżniono niektóre podstawowe wzorce ładowania danych do tabel przy użyciu tożsamości.
+Obecność właściwości IDENTITY ma pewne konsekwencje związane z kodem ładowania danych. W tej sekcji przedstawiono podstawowe wzorce dotyczące ładowania danych do tabel przy użyciu tożsamości.
 
-Aby załadować dane do tabeli i wygenerować klucz zastępczy przy użyciu tożsamości, utwórz tabelę, a następnie użyj INSERT.. WYBIERZ lub WSTAW.. WARTOŚCI, aby wykonać obciążenie.
+Aby załadować dane do tabeli i wygenerować klucz zastępczy przy użyciu tożsamości, należy utworzyć tabelę, a następnie użyć instrukcji INSERT.. Wybierz lub Wstaw.. WARTOŚCI do wykonania ładowania.
 
-W poniższym przykładzie wyróżniono podstawowy wzorzec:
+Poniższy przykład wyróżnia wzorzec podstawowy:
 
 ```sql
 --CREATE TABLE with IDENTITY
@@ -158,16 +158,16 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
 > [!NOTE]
-> Nie można używać `CREATE TABLE AS SELECT` obecnie podczas ładowania danych do tabeli z kolumną TOŻSAMOŚCI.
+> Obecnie nie jest możliwe użycie `CREATE TABLE AS SELECT` podczas ładowania danych do tabeli z kolumną tożsamości.
 >
 
-Aby uzyskać więcej informacji na temat ładowania danych, zobacz [Projektowanie wyodrębniania, ładowania i przekształcania (ELT) dla puli sql synapse](design-elt-data-loading.md) i [najlepsze wskazówki dotyczące ładowania](guidance-for-loading-data.md).
+Aby uzyskać więcej informacji na temat ładowania danych, zobacz [projektowanie wyodrębniania, ładowania i przekształcania (ELT) dla puli SQL Synapse](design-elt-data-loading.md) i [ładowanie najlepszych](guidance-for-loading-data.md)rozwiązań.
 
 ## <a name="system-views"></a>Widoki systemowe
 
-Można użyć widoku [katalogu sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) katalogu, aby zidentyfikować kolumnę, która ma właściwość TOŻSAMOŚCI.
+Widok wykazu [sys. identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) służy do identyfikowania kolumny zawierającej właściwość Identity.
 
-Aby lepiej zrozumieć schemat bazy danych, w tym przykładzie pokazano, jak zintegrować plik sys.identity_column" z innymi widokami wykazu systemu:
+Aby lepiej zrozumieć schemat bazy danych, w tym przykładzie pokazano, jak zintegrować sys. identity_column z innymi widokami wykazu systemu:
 
 ```sql
 SELECT  sm.name
@@ -191,37 +191,37 @@ AND     tb.name = 'T1'
 
 Nie można użyć właściwości IDENTITY:
 
-- Gdy typ danych kolumny nie jest INT lub BIGINT
+- Gdy typem danych kolumny nie jest INT lub BIGINT
 - Gdy kolumna jest również kluczem dystrybucji
 - Gdy tabela jest tabelą zewnętrzną
 
-Następujące powiązane funkcje nie są obsługiwane w puli języka SYNAPSE SQL:
+Następujące powiązane funkcje nie są obsługiwane w puli Synapse SQL:
 
-- [TOŻSAMOŚĆ()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [TOŻSAMOŚĆ ()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Scope_identity](/sql/t-sql/functions/scope-identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Ident_current](/sql/t-sql/functions/ident-current-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [SCOPE_IDENTITY](/sql/t-sql/functions/scope-identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [IDENT_CURRENT](/sql/t-sql/functions/ident-current-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [IDENT_INCR](/sql/t-sql/functions/ident-incr-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [IDENT_SEED](/sql/t-sql/functions/ident-seed-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="common-tasks"></a>Typowe zadania
 
-Ta sekcja zawiera przykładowy kod, którego można użyć do wykonywania typowych zadań podczas pracy z kolumnami TOŻSAMOŚCI.
+Ta sekcja zawiera przykładowy kod, którego można użyć do wykonywania typowych zadań podczas pracy z kolumnami tożsamości.
 
-Kolumna C1 jest tożsamości we wszystkich następujących zadań.
+Kolumna C1 jest TOŻSAMOŚCIą we wszystkich następujących zadaniach.
 
-### <a name="find-the-highest-allocated-value-for-a-table"></a>Znajdowanie najwyższej przydzielonej wartości tabeli
+### <a name="find-the-highest-allocated-value-for-a-table"></a>Znajdź najwyższą przydzieloną wartość dla tabeli
 
-Funkcja `MAX()` służy do określania najwyższej wartości przydzielonej dla tabeli rozproszonej:
+Użyj funkcji `MAX()` , aby określić największą wartość przydzieloną dla rozproszonej tabeli:
 
 ```sql
 SELECT MAX(C1)
 FROM dbo.T1
 ```
 
-### <a name="find-the-seed-and-increment-for-the-identity-property"></a>Znajdź materiał siewny i przyrost dla właściwości IDENTITY
+### <a name="find-the-seed-and-increment-for-the-identity-property"></a>Znajdź inicjator i przyrost dla właściwości IDENTITY
 
-Widoki wykazu służy do odnajdywanie wartości konfiguracji przyrostu tożsamości i materiału siewnego dla tabeli przy użyciu następującej kwerendy:
+Widoków wykazu można użyć do odnajdywania wartości konfiguracji przyrostu i inicjatora tożsamości dla tabeli przy użyciu następującej kwerendy:
 
 ```sql
 SELECT  sm.name
@@ -241,6 +241,6 @@ AND     tb.name = 'T1'
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Omówienie tabeli](sql-data-warehouse-tables-overview.md)
-- [TWORZENIE TOŻSAMOŚCI TABELI (Transact-SQL) (właściwość)](/sql/t-sql/statements/create-table-transact-sql-identity-property?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Przegląd tabeli](sql-data-warehouse-tables-overview.md)
+- [TOŻSAMOŚĆ CREATE TABLE (Transact-SQL) (Właściwość)](/sql/t-sql/statements/create-table-transact-sql-identity-property?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [POLECENIE DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

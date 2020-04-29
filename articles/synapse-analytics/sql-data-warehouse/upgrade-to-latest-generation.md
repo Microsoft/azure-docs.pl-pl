@@ -1,5 +1,5 @@
 ---
-title: Uaktualnienie do najnowszej generacji
+title: Uaktualnij do najnowszej generacji
 description: Uaktualnij pulę SQL usługi Azure Synapse Analytics do najnowszej generacji architektury sprzętu i magazynu platformy Azure.
 services: synapse-analytics
 author: mlee3gsd
@@ -12,41 +12,41 @@ ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 13b1f33ffe653627bcf45f6c995e82e741de32ea
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80742748"
 ---
-# <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Optymalizacja wydajności przez uaktualnienie puli SQL usługi Azure Synapse Analytics
+# <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Optymalizowanie wydajności przez uaktualnienie puli SQL usługi Azure Synapse Analytics
 
 Uaktualnij pulę SQL do najnowszej generacji architektury sprzętu i magazynu platformy Azure.
 
-## <a name="why-upgrade"></a>Dlaczego warto uaktualnić?
+## <a name="why-upgrade"></a>Dlaczego warto przeprowadzić uaktualnienie?
 
-Teraz można bezproblemowo uaktualnić do puli SQL obliczeń zoptymalizowane gen2 warstwy w witrynie Azure portal dla [obsługiwanych regionów](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Jeśli region nie obsługuje samodzielnego uaktualniania, można uaktualnić do obsługiwanego regionu lub czekać na samomodernacji, aby być dostępne w twoim regionie. Uaktualnij teraz, aby korzystać z najnowszej generacji sprzętu platformy Azure i ulepszonej architektury pamięci masowej, w tym szybszej wydajności, większej skalowalności i nieograniczonej przestrzeni dyskowej kolumnowej.
+Teraz można bezproblemowo uaktualnić do warstwy Gen2 obliczeń zoptymalizowanych pod kątem puli SQL w Azure Portal dla [obsługiwanych regionów](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Jeśli region nie obsługuje samodzielnego uaktualniania, możesz przeprowadzić uaktualnienie do obsługiwanego regionu lub poczekać na udostępnienie samodzielnego uaktualnienia w Twoim regionie. Uaktualnij teraz, aby korzystać z najnowszej generacji sprzętu platformy Azure i rozszerzonej architektury magazynu, w tym szybszej wydajności, wyższej skalowalności i nieograniczonego magazynu kolumnowego.
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 > [!IMPORTANT]
-> To uaktualnienie dotyczy pul SQL warstwy gen1 zoptymalizowanej pod kątem obliczeń w [obsługiwanych regionach.](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)
+> To uaktualnienie dotyczy pul Gen1 zoptymalizowanych pod kątem obliczeń w [obsługiwanych regionach](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-1. Sprawdź, czy twój [region](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) jest obsługiwany dla migracji GEN1 do GEN2. Zanotuj daty migracji automatycznej. Aby uniknąć konfliktów z procesem automatycznym, zaplanuj migrację ręczną przed datą rozpoczęcia procesu automatycznego.
-2. Jeśli znajdujesz się w regionie, który nie jest jeszcze obsługiwany, kontynuuj sprawdzanie, czy twój region ma zostać dodany lub [uaktualniony przy użyciu przywracania](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) do obsługiwanego regionu.
-3. Jeśli twój region jest obsługiwany, [uaktualnij za pośrednictwem witryny Azure portal](#upgrade-in-a-supported-region-using-the-azure-portal)
-4. **Wybierz sugerowany poziom wydajności** dla puli SQL na podstawie bieżącego poziomu wydajności w warstwie Zoptymalizowana pod kątem obliczeń Gen1 przy użyciu poniższego mapowania:
+1. Sprawdź, czy [region](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) jest obsługiwany na potrzeby migracji GEN1 do GEN2. Zanotuj daty automatycznej migracji. Aby uniknąć konfliktów z procesem zautomatyzowanym, zaplanuj migrację ręczną przed datą rozpoczęcia procesu automatycznego.
+2. Jeśli jesteś w regionie, który nie jest jeszcze obsługiwany, Kontynuuj sprawdzanie, czy region ma zostać dodany lub [uaktualniony przy użyciu polecenia Przywróć](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) do obsługiwanego regionu.
+3. Jeśli region jest obsługiwany, [Uaktualnij go za pomocą Azure Portal](#upgrade-in-a-supported-region-using-the-azure-portal)
+4. **Wybierz sugerowany poziom wydajności** dla puli SQL na podstawie bieżącego poziomu wydajności w warstwie Gen1 zoptymalizowanej pod kątem obliczeń przy użyciu poniższego mapowania:
 
-   | Warstwa Zoptymalizowana do obliczeń Gen1 | Warstwa Zoptymalizowana do obliczeń Gen2 |
+   | Warstwa zoptymalizowana pod kątem obliczeń Gen1 | Warstwa zoptymalizowana pod kątem obliczeń Gen2 |
    | :-------------------------: | :-------------------------: |
    |            DW100            |           DW100c            |
-   |            DW200 (dw200)            |           DW200c            |
-   |            DW300 (dw300)            |           DW300c            |
-   |            DW400 ( DW400 )            |           DW400c            |
+   |            WARTOŚCI DW200            |           DW200c            |
+   |            DW300            |           DW300c            |
+   |            DW400            |           DW400c            |
    |            DW500            |           DW500c.            |
-   |            DW600 ( DW600 )            |           DW500c.            |
-   |           DW1000            |           DW1000c           |
+   |            WARTOŚCI DW600            |           DW500c.            |
+   |           WARTOŚCI DW1000            |           DW1000c           |
    |           DW1200            |           DW1000c           |
    |           DW1500            |           DW1500c           |
    |           DW2000            |           DW2000c           |
@@ -54,86 +54,86 @@ Teraz można bezproblemowo uaktualnić do puli SQL obliczeń zoptymalizowane gen
    |           DW6000            |           DW6000c           |
 
 > [!NOTE]
-> Sugerowane poziomy skuteczności nie są konwersją bezpośrednią. Na przykład zaleca się przejście z DW600 do DW500c.
+> Sugerowane poziomy wydajności nie są konwersją bezpośrednią. Na przykład zalecamy przechodzenie z wartości DW600 do DW500c.
 
-## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Uaktualnianie w obsługiwanym regionie przy użyciu portalu Azure
+## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Uaktualnij program w obsługiwanym regionie przy użyciu Azure Portal
 
-- Migracja z gen1 do gen2 za pośrednictwem witryny Azure portal jest stała. Nie ma procesu powrotu do Gen1.
-- Pula SQL musi być uruchomiona w celu migracji do gen2
+- Migracja z Gen1 do Gen2 za pośrednictwem Azure Portal jest trwała. Nie istnieje proces powrotu do Gen1.
+- Aby przeprowadzić migrację do Gen2, musi być uruchomiona Pula SQL
 
 ### <a name="before-you-begin"></a>Przed rozpoczęciem
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-- Zaloguj się do [Portalu Azure](https://portal.azure.com/).
-- Upewnij się, że pula SQL jest uruchomiona — musi być migracja do gen2
+- Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+- Upewnij się, że Pula SQL jest uruchomiona — musi być migrowana do Gen2
 
 ### <a name="powershell-upgrade-commands"></a>Polecenia uaktualniania programu PowerShell
 
-1. Jeśli pula SQL warstwy gen1 zoptymalizowana pod kątem obliczeń do uaktualnienia zostanie wstrzymana, [wznowić pulę SQL](pause-and-resume-compute-portal.md).
+1. Jeśli pula SQL zoptymalizowana pod kątem obliczeń w warstwie Gen1 do uaktualnienia jest wstrzymana, [Wznów pulę SQL](pause-and-resume-compute-portal.md).
 
-2. Przygotuj się na kilka minut przestoju.
+2. Przygotowanie przez kilka minut przestoju.
 
-3. Identyfikować wszelkie odwołania do kodu do obliczeń zoptymalizowane gen1 poziomów wydajności i zmodyfikować je do ich równoważnego poziomu wydajności zoptymalizowane pod kątem obliczeń Gen2. Poniżej znajdują się dwa przykłady, gdzie należy zaktualizować odwołania do kodu przed uaktualnieniem:
+3. Zidentyfikuj wszystkie odwołania do kodu na potrzeby obliczeń zoptymalizowanych pod kątem wydajności Gen1 i zmodyfikuj je na równoważnym poziomie wydajności zoptymalizowanym pod kątem obliczeń Gen2. Poniżej znajdują się dwa przykłady, w których należy zaktualizować odwołania do kodu przed uaktualnieniem:
 
-   Oryginalne polecenie Programu PowerShell w programie Gen1:
+   Oryginalne polecenie programu Gen1 PowerShell:
 
    ```powershell
    Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
    ```
 
-   Zmodyfikowano do:
+   Zmodyfikowano:
 
    ```powershell
    Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
    ```
 
    > [!NOTE]
-   > -RequestedServiceObjectiveName "DW300" został zmieniony na - RequestedServiceObjectiveName "DW300**c"**
+   > -RequestedServiceObjectiveName "DW300" został zmieniony na-RequestedServiceObjectiveName "DW300**c**"
    >
 
-   Oryginalne polecenie Gen1 T-SQL:
+   Oryginalne Gen1 polecenia T-SQL:
 
    ```SQL
    ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300') ;
    ```
 
-   Zmodyfikowano do:
+   Zmodyfikowano:
 
    ```sql
    ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300c') ;
    ```
 
    > [!NOTE]
-   > SERVICE_OBJECTIVE = 'DW300' jest zmieniany na SERVICE_OBJECTIVE = 'DW300**c**'
+   > SERVICE_OBJECTIVE = "DW300" została zmieniona na SERVICE_OBJECTIVE = "DW300**c**"
 
-## <a name="start-the-upgrade"></a>Rozpocznij uaktualnienie
+## <a name="start-the-upgrade"></a>Rozpocznij uaktualnianie
 
-1. Przejdź do puli SQL zoptymalizowanej pod kątem obliczeń Gen1 w witrynie Azure portal. Jeśli pula SQL warstwy gen1 zoptymalizowana pod kątem obliczeń do uaktualnienia zostanie wstrzymana, [wznowić pulę SQL](pause-and-resume-compute-portal.md).
-2. Wybierz **pozycję Uaktualnij do** karty ![Gen2 na karcie Zadania: Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
+1. Przejdź do puli programu Gen1 zoptymalizowanej pod kątem obliczeń w Azure Portal. Jeśli pula SQL zoptymalizowana pod kątem obliczeń w warstwie Gen1 do uaktualnienia jest wstrzymana, [Wznów pulę SQL](pause-and-resume-compute-portal.md).
+2. Wybierz pozycję **Uaktualnij do karty Gen2** na karcie zadania ![: Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
 
    > [!NOTE]
-   > Jeśli karta **Uaktualnienie do gen2** nie jest widoczna na karcie Zadania, typ subskrypcji jest ograniczony w bieżącym regionie.
-   > [Prześlij zgłoszenie pomocy technicznej,](sql-data-warehouse-get-started-create-support-ticket.md) aby uzyskać białą listę subskrypcji.
+   > Jeśli nie widzisz karty **uaktualnienie do Gen2** na karcie zadania, typ subskrypcji jest ograniczony w bieżącym regionie.
+   > [Prześlij bilet pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md) , aby uzyskać subskrypcję usługi listy dozwolonych.
 
-3. Przed uaktualnieniem upewnij się, że obciążenie zostało ukończone i zakończone. Będziesz doświadczać przestojów przez kilka minut, zanim pula SQL powróci do trybu online jako pula SQL warstwy gen2 zoptymalizowana pod kątem obliczeń. **Wybierz uaktualnienie:**
+3. Upewnij się, że obciążenie zostało zakończone i przestanie działać w stanie spoczynku przed uaktualnieniem. Wystąpi przestój przez kilka minut, zanim Pula SQL zostanie przywrócona w trybie online jako pula w warstwie Gen2 zoptymalizowana pod kątem obliczeń. **Wybierz pozycję Uaktualnij**:
 
    ![Upgrade_2](./media/upgrade-to-latest-generation/upgrade-to-gen2-2.png)
 
-4. **Monitoruj uaktualnienie,** sprawdzając stan w witrynie Azure portal:
+4. **Monitoruj uaktualnienie** , sprawdzając stan w Azure Portal:
 
-   ![Ulepszenie3](./media/upgrade-to-latest-generation/upgrade-to-gen2-3.png)
+   ![Upgrade3](./media/upgrade-to-latest-generation/upgrade-to-gen2-3.png)
 
-   Pierwszy krok procesu uaktualniania przechodzi przez operację skalowania ("Uaktualnianie — offline"), gdzie wszystkie sesje zostaną zabite, a połączenia zostaną przerwane.
+   Pierwszy krok procesu uaktualniania przechodzi przez operację skalowania ("uaktualnienie do trybu offline"), w którym wszystkie sesje zostaną zabite, a połączenia zostaną usunięte.
 
-   Drugim etapem procesu uaktualniania jest migracja danych ("Uaktualnianie — online"). Migracja danych jest procesem w tle w tle. Ten proces powoli przenosi dane kolumnowe ze starej architektury magazynu do nowej architektury magazynu przy użyciu lokalnej pamięci podręcznej SSD. W tym czasie pula SQL będzie w trybie online do wykonywania zapytań i ładowania. Dane będą dostępne do kwerendy niezależnie od tego, czy zostały zmigrowane, czy nie. Migracja danych odbywa się z różnoliszowymi szybkościami w zależności od rozmiaru danych, poziomu wydajności i liczby segmentów magazynu kolumn.
+   Drugim krokiem procesu uaktualniania jest migracja danych ("Uaktualnianie w trybie online"). Migracja danych to proces w tle Trickle online. Ten proces wolno przenosi dane kolumnowy ze starej architektury magazynu do nowej architektury magazynu przy użyciu lokalnej pamięci podręcznej SSD. W tym czasie Pula SQL będzie w trybie online na potrzeby wykonywania zapytań i ładowania. Dane będą dostępne do zbadania, niezależnie od tego, czy zostały zmigrowane, czy nie. Migracja danych odbywa się przy różnych stawkach, w zależności od rozmiaru danych, poziomu wydajności i liczby segmentów magazynu kolumn.
 
-5. **Zalecenie opcjonalne:** Po zakończeniu operacji skalowania można przyspieszyć proces migracji danych w tle. Można wymusić przenoszenie danych, uruchamiając [alter index odbudować](sql-data-warehouse-tables-index.md) na wszystkich tabelach magazynu kolumn podstawowych, które będą kwerendy w większym SLO i klasy zasobów. Ta operacja jest **w trybie offline** w porównaniu do procesu tła, który może potrwać wiele godzin, aby zakończyć w zależności od liczby i rozmiarów tabel. Jednak po zakończeniu migracji danych będzie znacznie szybsze ze względu na nową architekturę rozszerzonej pamięci masowej z wysokiej jakości grup wierszy.
+5. **Zalecenie opcjonalne:** Po zakończeniu operacji skalowania można przyspieszyć proces w tle migracji danych. Aby wymusić przenoszenie danych, należy uruchomić polecenie [ALTER index Rebuild](sql-data-warehouse-tables-index.md) na wszystkich głównych tabelach magazynu kolumn, które zostaną zbadane przy użyciu większego poziomu SLO i klasy zasobów. Ta operacja jest **w trybie offline** w porównaniu z procesem Trickle w tle, co może potrwać kilka godzin w zależności od liczby i rozmiarów tabel. Jednak po zakończeniu migracja danych będzie znacznie szybsza ze względu na nową architekturę magazynu rozszerzonego o wysokiej jakości RowGroups.
 
 > [!NOTE]
-> Alter Index rebuild jest operacją w trybie offline i tabele nie będą dostępne, dopóki przebudowa nie zostanie zakończona.
+> Instrukcja ALTER index Rebuild jest operacją w trybie offline, a tabele nie będą dostępne do momentu zakończenia odbudowy.
 
-Następująca kwerenda generuje wymagane polecenia przebudowywać alter index w celu przyspieszenia migracji danych:
+Poniższe zapytanie generuje wymagane polecenia ALTER index Rebuild, aby przyspieszyć migrację danych:
 
 ```sql
 SELECT 'ALTER INDEX [' + idx.NAME + '] ON ['
@@ -178,15 +178,15 @@ FROM   sys.indexes idx
 WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 ```
 
-## <a name="upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal"></a>Uaktualnianie z regionu geograficznego platformy Azure przy użyciu przywracania za pośrednictwem witryny Azure portal
+## <a name="upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal"></a>Uaktualnianie z regionu geograficznego platformy Azure przy użyciu funkcji przywracania przez Azure Portal
 
-## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Tworzenie punktu przywracania zdefiniowanego przez użytkownika przy użyciu portalu Azure
+## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Utwórz punkt przywracania zdefiniowany przez użytkownika przy użyciu Azure Portal
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 2. Przejdź do puli SQL, dla której chcesz utworzyć punkt przywracania.
 
-3. U góry sekcji Przegląd wybierz pozycję **+Nowy punkt przywracania**.
+3. W górnej części sekcji Przegląd wybierz pozycję **+ nowy punkt przywracania**.
 
     ![Nowy punkt przywracania](./media/upgrade-to-latest-generation/creating_restore_point_0.png)
 
@@ -194,15 +194,15 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
     ![Nazwa punktu przywracania](./media/upgrade-to-latest-generation/creating_restore_point_1.png)
 
-## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Przywracanie aktywnej lub wstrzymanej bazy danych przy użyciu witryny Azure Portal
+## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Przywracanie aktywnej lub wstrzymanej bazy danych przy użyciu Azure Portal
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
-2. Przejdź do puli SQL, z której chcesz przywrócić.
-3. U góry sekcji Przegląd wybierz pozycję **Przywróć**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Przejdź do puli SQL, z której chcesz wykonać przywracanie.
+3. W górnej części sekcji Przegląd wybierz pozycję **Przywróć**.
 
     ![ Omówienie przywracania kopii zapasowych](./media/upgrade-to-latest-generation/restoring_0.png)
 
-4. Wybierz **punkty automatycznego przywracania** lub **zdefiniowane przez użytkownika punkty przywracania**. W przypadku punktów przywracania zdefiniowanych przez użytkownika **wybierz zdefiniowany przez użytkownika punkt przywracania** lub **Utwórz nowy punkt przywracania zdefiniowany przez użytkownika**. W przypadku serwera wybierz pozycję **Utwórz nowy** i wybierz serwer w obsługiwanym regionie geograficznym Gen2.
+4. Wybierz **punkty przywracania automatycznego** lub **punkty przywracania zdefiniowane przez użytkownika**. Dla punktów przywracania zdefiniowanych przez użytkownika **Wybierz punkt przywracania zdefiniowany przez użytkownika** lub **Utwórz nowy punkt przywracania zdefiniowany przez użytkownika**. Na serwerze wybierz pozycję **Utwórz nowy** i wybierz serwer w Gen2 obsługiwanym regionie geograficznym.
 
     ![Automatyczne punkty przywracania](./media/upgrade-to-latest-generation/restoring_1.png)
 
@@ -210,17 +210,17 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Aby odzyskać bazę danych, należy użyć polecenia cmdlet [Restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Aby odzyskać bazę danych, należy użyć polecenia cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
 > [!NOTE]
-> Można wykonać geo-przywracanie do Gen2! W tym celu należy określić nazwę usługi Gen2 ServiceObjectiveName**c**(np.
+> Można wykonać przywracanie geograficzne do Gen2! W tym celu należy określić Gen2 serviceobiektywname (np. wartości DW1000**c**) jako opcjonalny parametr.
 
 1. Otwórz program Windows PowerShell.
-2. Połącz się ze swoim kontem platformy Azure i wymień wszystkie subskrypcje skojarzone z Twoim kontem.
+2. Połącz się z kontem platformy Azure i Wyświetl listę wszystkich subskrypcji skojarzonych z Twoim kontem.
 3. Wybierz subskrypcję zawierającą bazę danych, która ma zostać przywrócona.
 4. Pobierz bazę danych, którą chcesz odzyskać.
-5. Utwórz żądanie odzyskiwania dla bazy danych, określając nazwę usługi Gen2 ServiceObjectiveName.
-6. Sprawdź stan bazy danych przywróconych geograficznie.
+5. Utwórz żądanie odzyskiwania dla bazy danych, określając Gen2 servicecelname.
+6. Sprawdź stan bazy danych z przywróconą geograficzną.
 
 ```Powershell
 Connect-AzAccount
@@ -240,10 +240,10 @@ $GeoRestoredDatabase.status
 > [!NOTE]
 > Aby skonfigurować bazę danych po zakończeniu przywracania, zobacz [Konfigurowanie bazy danych po odzyskaniu](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
-Odzyskana baza danych będzie włączona TDE, jeśli źródłowa baza danych jest włączona TDE.
+Odzyskana baza danych będzie TDE, jeśli źródłowa baza danych jest włączona.
 
-Jeśli wystąpią jakiekolwiek problemy z puli SQL, utwórz [żądanie pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md) i odwołanie "Gen2 upgrade" jako możliwą przyczynę.
+Jeśli występują problemy z pulą SQL, Utwórz [żądanie pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md) i odwołuje się do "Gen2 upgrade" jako możliwej przyczyny.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Uaktualniona pula SQL jest w trybie online. Aby skorzystać z ulepszonej architektury, zobacz [Klasy zasobów do zarządzania obciążeniem](resource-classes-for-workload-management.md).
+Uaktualniona Pula SQL jest w trybie online. Aby skorzystać z rozszerzonej architektury, zobacz [klasy zasobów dla zarządzania obciążeniami](resource-classes-for-workload-management.md).

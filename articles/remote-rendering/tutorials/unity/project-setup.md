@@ -1,15 +1,15 @@
 ---
 title: Konfigurowanie projektu Unity od podstaw
-description: W tym artykule wyjaśniono, jak skonfigurować pusty projekt Unity do użytku z renderowaniem zdalnym platformy Azure.
+description: W tym artykule wyjaśniono, jak skonfigurować pusty projekt środowiska Unity do użycia z renderowaniem zdalnym platformy Azure.
 author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
 ms.openlocfilehash: 33801316e4c0446865169560bb42f98052acba70
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80679597"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Samouczek: Konfigurowanie projektu Unity od podstaw
@@ -18,39 +18,39 @@ Ten samouczek zawiera następujące informacje:
 
 > [!div class="checklist"]
 >
-> * Konfigurowanie projektu zarysowania Unity dla ARR.
+> * Konfigurowanie projektu geosieci Unity dla ARR.
 > * Tworzenie i zatrzymywanie sesji renderowania.
-> * Ponowne czesanie istniejących sesji.
-> * Łączenie i odłączanie się od sesji.
+> * Używanie istniejących sesji.
+> * Łączenie i rozłączanie sesji.
 > * Ładowanie modeli do sesji renderowania.
 > * Wyświetlanie statystyk połączeń.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym samouczku potrzebujesz:
+W tym samouczku są potrzebne:
 
-* Informacje o koncie (identyfikator konta, klucz konta, identyfikator subskrypcji). Jeśli nie masz konta, [utwórz konto](../../how-tos/create-an-account.md).
-* Windows SDK 10.0.18362.0 [(do pobrania)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* Najnowsza wersja programu Visual Studio 2019 [(do pobrania)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* GIT [(do pobrania)](https://git-scm.com/downloads)
-* Unity 2019.3.1 [(do pobrania)](https://unity3d.com/get-unity/download)
-  * Zainstaluj te moduły w unity:
-    * **Uwp** — obsługa kompilacji platformy systemu Windows
-    * **IL2CPP** - Obsługa kompilacji systemu Windows (IL2CPP)
+* Informacje o koncie (Identyfikator konta, klucz konta, Identyfikator subskrypcji). Jeśli nie masz konta, [Utwórz konto](../../how-tos/create-an-account.md).
+* Windows SDK 10.0.18362.0 [(pobieranie)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
+* Najnowsza wersja programu Visual Studio 2019 [(pobieranie)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* GIT [(pobieranie)](https://git-scm.com/downloads)
+* 2019.3.1 Unity [(pobieranie)](https://unity3d.com/get-unity/download)
+  * Zainstaluj te moduły w aparacie Unity:
+    * **Platformy UWP** — obsługa kompilacji platforma uniwersalna systemu Windows
+    * **IL2CPP** — obsługa kompilacji systemu Windows (IL2CPP)
 
 > [!TIP]
-> [Repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) zawiera przygotowane projekty Unity dla wszystkich samouczków. Można użyć tych projektów jako odwołania.
+> [Repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) zawiera przygotowane projekty Unity dla wszystkich samouczków. Możesz użyć tych projektów jako odwołania.
 
-## <a name="create-a-new-unity-project"></a>Tworzenie nowego projektu Unity
+## <a name="create-a-new-unity-project"></a>Utwórz nowy projekt aparatu Unity
 
-Z Unity Hub, utwórz nowy projekt.
-W tym przykładzie zakładamy, że projekt jest `RemoteRendering`tworzony w folderze o nazwie .
+W centrum Unity Utwórz nowy projekt.
+W tym przykładzie przyjęto założenie, że projekt zostanie utworzony w folderze o nazwie `RemoteRendering`.
 
-![nowe okno projektu](media/new-project.png)
+![okno nowego projektu](media/new-project.png)
 
 ## <a name="configure-the-projects-manifest"></a>Konfigurowanie manifestu projektu
 
-Należy zmodyfikować plik, `Packages/manifest.json` który znajduje się w folderze projektu Unity. Otwórz plik w edytorze tekstu i dołącz wiersze wymienione poniżej:
+Należy zmodyfikować plik `Packages/manifest.json` , który znajduje się w folderze projektu aparatu Unity. Otwórz plik w edytorze tekstów i Dołącz wiersze wymienione poniżej:
 
 ```json
 {
@@ -69,81 +69,81 @@ Należy zmodyfikować plik, `Packages/manifest.json` który znajduje się w fold
 }
 ```
 
-Pakiet potoku renderowania uniwersalnego jest opcjonalny, ale zalecane ze względu na wydajność.
-Po zmodyfikowaniu i zapisaniu manifestu unity zostanie automatycznie odświeżona. Upewnij się, że pakiety zostały załadowane w oknie *Projekt:*
+Pakiet uniwersalnego potoku renderowania jest opcjonalny, ale zalecany ze względu na wydajność.
+Po zmodyfikowaniu i zapisaniu manifestu aparat Unity zostanie automatycznie odświeżony. Upewnij się, że pakiety zostały załadowane w oknie *projektu* :
 
-![potwierdzanie importu pakietów](media/confirm-packages.png)
+![Potwierdź Importy pakietów](media/confirm-packages.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Upewnij się, że masz najnowszą wersję pakietu
 
-Poniższe kroki upewnij się, że projekt korzysta z najnowszej wersji pakietu renderowania zdalnego.
-1. Wybierz pakiet w oknie Projekt i kliknij ![ikonę pakietu: Wybieranie ikony pakietu](media/package-icons.png)
-1. W inspektorze kliknij "Wyświetl w ![Menedżerze pakietów": inspektor pakietów](media/package-properties.png)
-1. Na stronie Menedżera pakietów dla pakietu zdalnego renderowania sprawdź, czy przycisk aktualizacji jest dostępny. Jeśli tak jest, kliknięcie go spowoduje zaktualizowanie pakietu ![do najnowszej dostępnej wersji: Pakiet ARR w menedżerze pakietów](media/package-manager.png)
-1. Czasami aktualizowanie pakietu może prowadzić do błędów w konsoli. W takim przypadku spróbuj zamknąć i ponownie otworzyć projekt.
+Poniższe kroki zapewniają, że Twój projekt używa najnowszej wersji pakietu do renderowania zdalnego.
+1. Wybierz pakiet w oknie projektu i kliknij ikonę pakietu: ![wybierz ikonę pakietu](media/package-icons.png)
+1. W Inspektorze kliknij pozycję "Wyświetl w Menedżerze pakietów": ![Inspektor pakietów](media/package-properties.png)
+1. Na stronie Menedżer pakietów dla pakietu zdalnego renderowania Sprawdź, czy przycisk Aktualizuj jest dostępny. Jeśli tak, to kliknięcie spowoduje zaktualizowanie pakietu do najnowszej dostępnej wersji: ![pakietu ARR w Menedżerze pakietów](media/package-manager.png)
+1. Czasami aktualizacja pakietu może prowadzić do błędów w konsoli programu. W takim przypadku spróbuj zamknąć i ponownie otworzyć projekt.
 
-## <a name="configure-the-camera"></a>Konfigurowanie kamery
+## <a name="configure-the-camera"></a>Konfigurowanie aparatu
 
-Wybierz węzeł **Kamera główna.**
+Wybierz węzeł **główny aparat** .
 
-1. Zresetuj *transformację:*
+1. Zresetuj jego *transformację*:
 
-    ![resetowanie transformacji kamery](media/camera-reset-transform.png)
+    ![Zresetuj transformację aparatu](media/camera-reset-transform.png)
 
-1. Ustaw **wyczyść flagi** na *Jednolity kolor*
+1. Ustaw **Wyczyść flagi** na *Kolor kryjący*
 
-1. Ustawianie **tła** na *czarne*
+1. Ustaw **tło** na *czerń*
 
-1. Ustaw **płaszczyzny przycinania** na *Blisko = 0,3* i *Daleko = 20*. Oznacza to, że renderowanie przycina geometrię, która jest bliższa 30 cm lub dalej niż 20 metrów.
+1. Ustaw **płaszczyzny przycinające** na wartość *Near = 0,3* i *daleko = 20*. Oznacza to, że renderowanie będzie odcięta geometrii, która jest mniejsza niż 30 cm lub większa niż 20 metrów.
 
-    ![Właściwości kamery Unity](media/camera-properties.png)
+    ![Właściwości aparatu Unity](media/camera-properties.png)
 
-## <a name="adjust-the-project-settings"></a>Dostosowywanie ustawień projektu
+## <a name="adjust-the-project-settings"></a>Dostosuj ustawienia projektu
 
-1. Otwórz *pozycję Edytuj > ustawienia projektu...*
-1. Na liście po lewej stronie wybierz pozycję Jakość.
-1. Zmiana **domyślnego poziomu jakości** na *Niski*
+1. Otwórz *Edytowanie ustawień projektu >...*
+1. Na liście po lewej stronie wybierz pozycję jakość.
+1. Zmień **domyślny poziom jakości** na *niski*
 
-    ![zmienianie ustawień jakości projektu](media/settings-quality.png)
+    ![Zmień ustawienia jakości projektu](media/settings-quality.png)
 
-1. Wybierz **pozycję Grafika** po lewej stronie.
-1. Zmień ustawienie **potoku renderowania skryptowego** na *HybridRenderingPipeline*. Pomiń ten krok, jeśli potok renderowania uniwersalnego nie jest używany.
+1. Wybierz pozycję **grafika** po lewej stronie.
+1. Zmień ustawienie **potoku renderowania skryptowego** na *HybridRenderingPipeline*. Pomiń ten krok, jeśli nie jest używany potok uniwersalny renderowania.
 
-    ![zmiana ustawień](media/settings-graphics-lwrp.png) grafiki projektu Czasami interfejs użytkownika nie wypełnia listy dostępnych typów potoku z pakietów, w którym to przypadku zasób ![ *HybridRenderingPipeline* musi zostać przeciągnięty do pola ręcznie: zmiana ustawień grafiki projektu](media/hybrid-rendering-pipeline.png)
-1. Wybierz **opcję Gracz** po lewej stronie.
-1. Wybieranie karty **Ustawienia uniwersalnej platformy systemu Windows**
-1. Zmienianie **ustawień XR** w celu ![obsługi ustawień systemu Windows Mixed Reality: player](media/xr-player-settings.png)
-1. Wybierz ustawienia, jak na powyższym zrzucie ekranu:
-    1. Włącz **obsługę wirtualnej rzeczywistości**
-    1. Ustawianie **formatu głębokości** na *głębokość 16-bitową*
+    ![Zmiana ustawień](media/settings-graphics-lwrp.png) grafiki projektu czasami interfejs użytkownika nie wypełnia listy dostępnych typów potoków z pakietów. w takim przypadku element zawartości *HybridRenderingPipeline* musi być przeciągany do pola ręcznie: ![zmiana ustawień grafiki projektu](media/hybrid-rendering-pipeline.png)
+1. Wybierz **odtwarzacz** po lewej stronie.
+1. Wybierz kartę **ustawienia platforma uniwersalna systemu Windows**
+1. Zmień **Ustawienia XR** , aby obsługiwały rzeczywistość systemu Windows ![: ustawienia odtwarzacza](media/xr-player-settings.png)
+1. Wybierz ustawienia tak jak na poniższym zrzucie ekranu:
+    1. Włącz obsługę **wirtualnej rzeczywistości**
+    1. Ustaw **Format głębokości** na *16-bitową głębię*
     1. Włącz **udostępnianie buforu głębokości**
-    1. Ustawianie **trybu renderowania stereo** na *wystąpienie pojedynczego przejścia*
+    1. Ustaw **tryb renderowania stereo** na *pojedynczy przebieg*
 
-1. W tym samym oknie powyżej *ustawienia XR*rozwiń rozwiń ustawienia **publikowania**
-1. Przewiń w dół do **opcji** i wybierz:
-    * **InternetClient (InternetClient)**
-    * **Serwer internetowy**
-    * **Przestrzennepercepcja**
-    * Opcjonalnie dla rozwoju: **PrivateNetworkClientServer**
+1. W tym samym oknie, powyżej *ustawień XR*, rozwiń pozycję **Ustawienia publikowania**
+1. Przewiń w dół do opcji **możliwości** i wybierz:
+    * **InternetClient**
+    * **InternetClientServer**
+    * **SpatialPerception**
+    * Opcjonalne do tworzenia: **PrivateNetworkClientServer**
 
-      Ta opcja jest potrzebna, jeśli chcesz podłączyć debuger zdalny Unity do urządzenia.
+      Ta opcja jest wymagana, jeśli chcesz połączyć zdalny debuger aparatu Unity z urządzeniem.
 
-1. W **obsługiwanych rodzinach urządzeń**włącz **holografię** i **pulpit**
+1. W **obsługiwanych rodzinach urządzeń**Włącz **Holographic** i **pulpit**
 
-1. Jeśli chcesz użyć zestawu narzędzi rzeczywistości mieszanej, zapoznaj się z [dokumentacją MRTK](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview), aby uzyskać więcej informacji na temat zalecanych ustawień i możliwości.
+1. Jeśli chcesz użyć zestawu narzędzi rzeczywistości mieszanej, zobacz [dokumentację MRTK](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview), aby uzyskać więcej informacji na temat zalecanych ustawień i możliwości.
 
-## <a name="validate-project-setup"></a>Sprawdzanie poprawności konfiguracji projektu
+## <a name="validate-project-setup"></a>Weryfikowanie konfiguracji projektu
 
 Wykonaj następujące kroki, aby sprawdzić, czy ustawienia projektu są poprawne.
 
-1. Wybierz wpis ValidateProject z menu RemoteRendering na pasku narzędzi edytora Unity.
-1. Okno ValidateProject służy do sprawdzania i naprawianie ustawień projektu w razie potrzeby.
+1. Wybierz wpis ValidateProject z menu RemoteRendering na pasku narzędzi edytora aparatu Unity.
+1. Użyj okna ValidateProject, aby sprawdzić i naprawić ustawienia projektu, w razie potrzeby.
 
     ![Sprawdzanie poprawności projektu edytora Unity](media/arr-unity-validation.png)
 
-## <a name="create-a-script-to-initialize-azure-remote-rendering"></a>Tworzenie skryptu w celu zainicjowania zdalnego renderowania platformy Azure
+## <a name="create-a-script-to-initialize-azure-remote-rendering"></a>Tworzenie skryptu w celu zainicjowania renderowania zdalnego na platformie Azure
 
-Utwórz [nowy skrypt](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) i nadaj mu nazwę **RemoteRendering**. Otwórz plik skryptu i zastąp całą jego zawartość poniższym kodem:
+Utwórz [Nowy skrypt](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) i nadaj mu nazwę **RemoteRendering**. Otwórz plik skryptu i Zastąp całą zawartość następującym kodem:
 
 ```csharp
 using System.Collections;
@@ -290,39 +290,39 @@ public class RemoteRendering : MonoBehaviour
 }
 ```
 
-Ten skrypt inicjuje zdalne renderowanie platformy Azure, informuje go, który obiekt kamery ma być używany do renderowania, i umieszcza przycisk **Utwórz sesję** w rzutni po uaktywnieniu *trybu odtwarzania.*
+Ten skrypt inicjuje zdalne renderowanie na platformie Azure, poinformuj o tym, który obiekt aparatu ma być używany do renderowania, i umieszcza przycisk **Utwórz sesję** w okienku ekranu, gdy *tryb odtwarzania* jest aktywowany.
 
 > [!CAUTION]
-> Modyfikowanie skryptu i zapisywanie go, gdy tryb odtwarzania jest aktywny w Unity może spowodować zamrożenie unity i jesteś zmuszony do zamknięcia go za pośrednictwem menedżera zadań. W związku z tym zawsze zatrzymać tryb odtwarzania przed edycją *skryptu RemoteRendering.*
+> Modyfikacja skryptu i zapisanie go w czasie, gdy tryb odtwarzania jest aktywny w aparacie Unity, może spowodować zamarzanie aparatu Unity i wymuszone zamknięcie go za pomocą Menedżera zadań. W związku z tym zawsze należy zatrzymać tryb odtwarzania przed edycją skryptu *RemoteRendering* .
 
-## <a name="test-azure-remote-rendering-session-creation"></a>Testowanie tworzenia sesji zdalnego renderowania platformy Azure
+## <a name="test-azure-remote-rendering-session-creation"></a>Testowanie tworzenia sesji renderowania zdalnego platformy Azure
 
-Utwórz nowy gameobject w scenie i dodaj do niego składnik *RemoteRendering.* Wypełnij odpowiednią *domenę konta,* *identyfikator konta*i klucz *konta* dla konta zdalnego renderowania:
+Utwórz nowy obiekt gameobject w scenie i Dodaj do niego składnik *RemoteRendering* . Wypełnij odpowiednie *domeny konta*, *Identyfikator konta*i *klucz konta* dla konta renderowania zdalnego:
 
 ![Właściwości składnika renderowania zdalnego](media/remote-rendering-component.png)
 
-Uruchom aplikację w edytorze **(naciśnij przycisk Odtwórz** lub CTRL+P). W rzutni powinien pojawić się przycisk **Utwórz sesję.** Kliknij ją, aby rozpocząć pierwszą sesję ARR:
+Uruchom aplikację w edytorze (**naciśnij klawisze Play** lub Ctrl + P). W okienku ekranu powinna zostać wyświetlona przycisk **Utwórz sesję** . Kliknij go, aby rozpocząć pierwszą sesję ARR:
 
 ![Tworzenie pierwszej sesji](media/test-create.png)
 
-Jeśli to się nie powiedzie, upewnij się, że dane konta zostały poprawnie wprowadzone we właściwościach składnika RemoteRendering. W przeciwnym razie w oknie konsoli pojawi się komunikat z przypisanym identyfikatorem sesji i informacją, że sesja jest obecnie w stanie *początkowym:*
+Jeśli to się nie powiedzie, upewnij się, że poprawnie wprowadzono szczegóły konta we właściwościach składnika RemoteRendering. W przeciwnym razie w oknie konsoli zostanie wyświetlony komunikat z informacją o IDENTYFIKATORze sesji przypisanym do użytkownika i zostanie wyświetlona, że sesja jest obecnie w stanie *uruchomienia* :
 
-![Wyjście początkowe sesji](media/create-session-output.png)
+![Wyjście rozpoczynające sesję](media/create-session-output.png)
 
-W tym momencie platforma Azure inicjuje inicjowanie obsługi administracyjnej serwera i uruchamianie maszyny wirtualnej renderowania zdalnego. Zwykle trwa to **od 3 do 5 minut.** Gdy maszyna wirtualna jest gotowa, `OnSessionStatusChanged` wywołanie zwrotne naszego skryptu Unity jest wykonywane i wydrukuje nowy stan sesji:
+W tym momencie platforma Azure zastrzega sobie serwerowi i uruchamia zdalną maszynę wirtualną. Zwykle trwa to od **3 do 5 minut**. Gdy maszyna wirtualna jest gotowa, zostanie wykonane `OnSessionStatusChanged` wywołanie zwrotne skryptu aparatu Unity i zostanie wydrukowany nowy stan sesji:
 
 ![Wyjście gotowe do sesji](media/create-session-output-2.png)
 
-To jest to! Na razie nic więcej się nie stanie. Aby zapobiec naliczaniu opłat, należy zawsze przerywać sesje, gdy nie są już potrzebne. W tym przykładzie można to zrobić, klikając przycisk **Zatrzymaj sesję** lub zatrzymując symulację Unity. Ze względu na **auto-stop session** właściwość w *składniku ARRServiceUnity,* który jest domyślnie włączony, sesja zostanie zatrzymana automatycznie dla Ciebie. Jeśli wszystko nie powiedzie się, z powodu awarii lub problemów z połączeniem, sesja może działać tak długo, jak *MaxLeaseTime* przed zamknięciem przez serwer.
+To wszystko! Nie będzie to miało więcej czasu. Aby uniknąć naliczania opłat, należy zawsze zatrzymywać sesje, gdy nie są już potrzebne. W tym przykładzie możesz to zrobić, klikając przycisk **Zatrzymaj sesję** lub zatrzymując symulację aparatu Unity. Ze względu na Właściwość **sesji automatycznego zatrzymania** w składniku *ARRServiceUnity* , która jest domyślnie włączona, sesja zostanie zatrzymana automatycznie. Jeśli działanie zakończy się niepowodzeniem, z powodu awarii lub problemów z połączeniem, sesja może działać tak długo, jak *MaxLeaseTime* przed zamknięciem serwera.
 
 > [!NOTE]
-> Zatrzymanie sesji będzie natychmiastowe i nie można jej cofnąć. Po zatrzymaniu należy utworzyć nową sesję z tym samym obciążeniem dla uruchamiania.
+> Zatrzymywanie sesji zajmie natychmiastowy skutek i nie można jej cofnąć. Po zatrzymaniu należy utworzyć nową sesję z tym samym obciążeniem podczas uruchamiania.
 
-## <a name="reusing-sessions"></a>Ponowne odtwarzanie sesji
+## <a name="reusing-sessions"></a>Korzystanie z sesji
 
-Tworzenie nowej sesji jest niestety czasochłonną operacją. W związku z tym należy spróbować tworzyć sesje rzadko i używać ich ponownie, gdy tylko jest to możliwe.
+Tworzenie nowej sesji to, niestety, czasochłonna operacja. W związku z tym jedna powinna próbować tworzyć sesje sporadycznie i ponownie używać ich, jeśli jest to możliwe.
 
-Wstaw następujący kod do skryptu *RemoteRendering* i usuń stare wersje zduplikowanych funkcji:
+Wstaw następujący kod do skryptu *RemoteRendering* i usuń stare wersje funkcji zduplikowanych:
 
 ```csharp
     public string SessionId = null;
@@ -413,24 +413,24 @@ Wstaw następujący kod do skryptu *RemoteRendering* i usuń stare wersje zdupli
 ```
 
 > [!CAUTION]
-> Przed uruchomieniem tego kodu należy dezaktywować opcję **Auto-Stop Session** w składniku RemoteRendering. W przeciwnym razie każda utworzona sesja zostanie automatycznie zatrzymana po zatrzymaniu symulacji, a próba ponownego użycia zakończy się niepowodzeniem.
+> Przed uruchomieniem tego kodu, upewnij się, że w składniku RemoteRendering można dezaktywować opcję **zatrzymywania sesji** . W przeciwnym razie każda utworzona sesja zostanie automatycznie zatrzymana po zatrzymaniu symulacji i próba ponownego użycia nie powiedzie się.
 
-Po *naciśnięciu przycisku Odtwórz*otrzymujesz teraz trzy przyciski w rzutni: **Tworzenie sesji,** **Sesje aktywne kwerendy**i **Używanie istniejącej sesji**. Pierwszy przycisk zawsze tworzy nową sesję. Drugi przycisk kwerendy, które *istnieją aktywne* sesje. Jeśli nie określono ręcznie identyfikatora sesji, który ma być używany, ta akcja automatycznie wybierze ten identyfikator sesji do wykorzystania w przyszłości. Trzeci przycisk próbuje połączyć się z istniejącą sesją. Albo ten określony ręcznie za pomocą właściwości *składnika Identyfikator sesji,* albo ten znaleziony przez *sesje aktywne kwerendy*.
+Po naciśnięciu przycisku *Odtwórz*uzyskasz trzy przyciski w okienku ekranu: **Utwórz sesję**, **Badaj aktywne sesje**i **Użyj istniejącej sesji**. Pierwszy przycisk zawsze tworzy nową sesję. Drugi przycisk wysyła zapytania, które istnieją *aktywne* sesje. Jeśli nie określisz ręcznie identyfikatora sesji, który ma zostać użyty, ta akcja spowoduje automatyczne wybranie tego identyfikatora sesji do użytku w przyszłości. Trzeci przycisk próbuje nawiązać połączenie z istniejącą sesją. Można go określić ręcznie za pomocą właściwości składnika *identyfikatora sesji* lub jednej znalezionej przez *zapytanie aktywnych sesji*.
 
-**Funkcja AutoStartSessionAsync** służy do symulowania naciśnięć przycisku poza edytorem.
+Funkcja **AutoStartSessionAsync** służy do symulowania naciśnięcia przycisku poza edytorem.
 
 > [!TIP]
-> Istnieje możliwość otwarcia sesji, które zostały zatrzymane, wygasły lub są w stanie błędu. Chociaż nie można ich już używać do renderowania, można zbadać ich szczegóły po otwarciu nieaktywnej sesji. Powyższy kod sprawdza stan sesji `ARRService_OnSessionStarted`w , aby automatycznie zatrzymać, gdy sesja stała się bezużyteczna.
+> Istnieje możliwość otwarcia sesji, które zostały zatrzymane, wygasły lub są w stanie błędu. Chociaż nie można ich użyć do renderowania, można zbadać ich szczegóły, po otwarciu nieaktywnej sesji. Powyższy kod sprawdza stan sesji w programie `ARRService_OnSessionStarted`, aby automatycznie zatrzymywać, gdy sesja stanie się niezdatna do użytku.
 
-Dzięki tej funkcji można teraz tworzyć i ponownie używać sesji, co powinno znacznie poprawić przepływ pracy deweloperów.
+Korzystając z tej funkcji, można teraz tworzyć i ponownie używać sesji, co znacznie poprawia przepływ pracy programistycznej.
 
-Zazwyczaj tworzenie sesji zostanie wyzwolone poza aplikacją kliencką ze względu na czas wymagany do uruchomienia serwera.
+Zwykle Tworzenie sesji zostanie wyzwolone poza aplikacją kliencką z powodu czasu wymaganego do uruchomienia serwera.
 
-## <a name="connect-to-an-active-session"></a>Łączenie się z aktywną sesją
+## <a name="connect-to-an-active-session"></a>Nawiązywanie połączenia z aktywną sesją
 
-Do tej pory stworzyliśmy lub otworzyliśmy sesje. Następnym krokiem jest *połączenie z* sesją. Po podłączeniu serwer renderowania będzie produkował obrazy i wysyłał strumień wideo do naszej aplikacji.
+Do tej pory zostały utworzone lub otwarte sesje. Następnym krokiem jest *nawiązanie połączenia* z sesją. Po nawiązaniu połączenia serwer renderowania utworzy obrazy i wyśle strumień wideo do naszej aplikacji.
 
-Wstaw następujący kod do skryptu *RemoteRendering* i usuń stare wersje zduplikowanych funkcji:
+Wstaw następujący kod do skryptu *RemoteRendering* i usuń stare wersje funkcji zduplikowanych:
 
 ```csharp
     private bool isConnected = false;
@@ -555,21 +555,21 @@ Wstaw następujący kod do skryptu *RemoteRendering* i usuń stare wersje zdupli
 
 Aby przetestować tę funkcję:
 
-1. Naciśnij **przycisk Odtwórz** w Unity.
+1. Naciśnij pozycję **Odtwórz** w aparacie Unity.
 1. Otwórz sesję:
-    1. Jeśli masz już sesję, naciśnij klawisz **Query Active Sessions,** a następnie **użyj istniejącej sesji**.
-    1. W przeciwnym razie naciśnij klawisz **Utwórz sesję**.
-1. Naciśnij **przycisk Połącz**.
-1. Po kilku sekundach wyjście konsoli powinno zostać wydrukowane, które są podłączone.
-1. Na razie nic więcej nie powinno się wydarzyć.
-1. Naciśnij **przycisk Rozłącz** lub zatrzymaj tryb odtwarzania Unity.
+    1. Jeśli masz już sesję, naciśnij przycisk **Query Active Sessions** , a następnie **Użyj istniejącej sesji**.
+    1. W przeciwnym razie naciśnij pozycję **Utwórz sesję**.
+1. Naciśnij pozycję **Połącz**.
+1. Po kilku sekundach dane wyjściowe konsoli powinny być drukowane.
+1. Na razie nic innego nie powinno się zdarzyć.
+1. Naciśnij przycisk **Rozłącz** lub Zatrzymaj tryb odtwarzania aparatu Unity.
 
 >[!NOTE]
-> Wielu użytkowników może *otworzyć* sesję, aby zbadać jej informacje, ale tylko jeden użytkownik może być *połączony z* sesją naraz. Jeśli inny użytkownik jest już podłączony, połączenie zakończy się niepowodzeniem z **błędem uzgadniania**.
+> Wielu użytkowników może *otworzyć* sesję, aby zbadać jej informacje, ale tylko jeden użytkownik może być *połączony* z sesją w danym momencie. Jeśli inny użytkownik jest już połączony, połączenie zakończy się niepowodzeniem z **powodu błędu uzgadniania**.
 
-## <a name="load-a-model"></a>Ładowanie modelu
+## <a name="load-a-model"></a>Załaduj model
 
-Wstaw następujący kod do skryptu *RemoteRendering* i usuń stare wersje zduplikowanych funkcji:
+Wstaw następujący kod do skryptu *RemoteRendering* i usuń stare wersje funkcji zduplikowanych:
 
 ```csharp
 
@@ -724,20 +724,20 @@ Wstaw następujący kod do skryptu *RemoteRendering* i usuń stare wersje zdupli
 #endif
 ```
 
-Po naciśnięciu przycisku odtwarzania, otwarciu sesji i nawiązaniu z nią **przycisku Załaduj model** zostanie wyświetlony przycisk Załaduj model. Po kliknięciu go wyjście konsoli pokaże postęp ładowania, a gdy osiągnie 100% powinien pojawić się model silnika:
+Gdy teraz naciśniesz przycisk Odtwórz, Otwórz sesję i nawiąż połączenie z nią, zostanie wyświetlony przycisk **Załaduj model** . Po kliknięciu tej opcji w danych wyjściowych konsoli zostanie wyświetlony postęp ładowania i kiedy osiągnie on 100% powinien zostać wyświetlony model aparatu:
 
-![Model załadowany do edytora](media/model-loaded-replace-me.png)
+![Model załadowany w edytorze](media/model-loaded-replace-me.png)
 
-[WorldAnchor](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) jest ważnym elementem używanym do [stabilności hologramu.](https://docs.microsoft.com/windows/mixed-reality/hologram-stability) Jednak będzie to miało wpływ tylko wtedy, gdy zostanie wdrożony na urządzeniu rzeczywistości mieszanej.
+[WorldAnchor](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) jest ważnym składnikiem używanym do [stateczności hologramu](https://docs.microsoft.com/windows/mixed-reality/hologram-stability). Jednak będzie obowiązywać tylko po wdrożeniu na urządzeniu rzeczywistości mieszanej.
 
 > [!TIP]
-> Jeśli po [szybki start: Konwersja modelu do renderowania](../../quickstarts/convert-model.md), już wiesz, jak przekonwertować własne modele. Wszystko, co musisz zrobić teraz, aby go renderować, jest umieszczenie identyfikatora URI do przekonwertowanego modelu do *właściwości Nazwa modelu.*
+> W przypadku korzystania z [przewodnika Szybki Start: konwertowanie modelu do renderowania](../../quickstarts/convert-model.md), już wiesz, jak przekonwertować własne modele. Wszystko, co musisz zrobić teraz, aby je renderować, polega na umieszczeniu identyfikatora URI w przekonwertowanym modelu we właściwości *nazwy modelu* .
 
-## <a name="display-frame-statistics"></a>Wyświetlanie statystyk ramki
+## <a name="display-frame-statistics"></a>Wyświetlanie statystyk ramek
 
-Zdalne renderowanie platformy Azure śledzi różne informacje o jakości połączenia. Aby szybko wyświetlić te informacje, wykonaj następujące czynności:
+Zdalne renderowanie na platformie Azure śledzi różne informacje o jakości połączenia. Aby szybko wyświetlić te informacje, wykonaj następujące czynności:
 
-Utwórz [nowy skrypt](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) i nadaj mu nazwę **RemoteFrameStats**. Otwórz plik skryptu i zastąp całą jego zawartość poniższym kodem:
+Utwórz [Nowy skrypt](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) i nadaj mu nazwę **RemoteFrameStats**. Otwórz plik skryptu i Zastąp całą zawartość następującym kodem:
 
 ```csharp
 using Microsoft.Azure.RemoteRendering;
@@ -778,29 +778,29 @@ public class RemoteFrameStats : MonoBehaviour
 }
 ```
 
-Utwórz GameObject i nadaj jej nazwę *FrameStats*. Dołącz go jako węzeł podrzędny do obiektu *Kamera główna* i ustaw jego położenie na **x = 0, y = 0, z = 0,325**. Dodaj składnik **RemoteFrameStats** do obiektu.
+Utwórz Gręobject i nadaj jej nazwę *FrameStats*. Dołącz go jako węzeł podrzędny do głównego obiektu *aparatu* i ustaw jego pozycję na **x = 0, y = 0, z = 0,325**. Dodaj składnik **RemoteFrameStats** do obiektu.
 
-Dodaj obiekt podrzędny **interfejsu użytkownika > kanwy** do obiektu *FrameStats* i ustaw jego właściwości w ten sposób:
+Dodaj **interfejs użytkownika > obiekt podrzędny kanwy** do obiektu *FrameStats* i ustaw jego właściwości w następujący sposób:
 
-![właściwości płótna](media/framestats-canvas.png)
+![Właściwości kanwy](media/framestats-canvas.png)
 
-Dodaj obiekt **interfejsu użytkownika > Text** jako obiekt podrzędny obszaru roboczego i ustaw jego właściwości w następujący sposób:
+Dodaj **interfejs użytkownika > obiekt tekstowy** jako element podrzędny kanwy i ustaw jego właściwości w następujący sposób:
 
-![właściwości tekstu](media/framestats-text.png)
+![Właściwości tekstu](media/framestats-text.png)
 
-Zaznacz obiekt *FrameStats* i wypełnij **pole FrameStats,** klikając ikonę okręgu i zaznaczając obiekt **Tekst:**
+Wybierz obiekt *FrameStats* i wypełnij **pole FrameStats** , klikając ikonę okręgu i zaznaczając obiekt **tekstowy** :
 
-![ustawianie właściwości tekstowej](media/framestats-set-text.png)
+![Ustawianie właściwości text](media/framestats-set-text.png)
 
-Teraz, po podłączeniu do sesji zdalnej, tekst powinien wyświetlać statystyki przesyłania strumieniowego:
+Teraz po nawiązaniu połączenia z sesją zdalną tekst powinien zawierać statystyki przesyłania strumieniowego:
 
-![wyjście statystyk ramki](media/framestats-output.png)
+![dane wyjściowe statystyk ramki](media/framestats-output.png)
 
-Kod wyłącza aktualizację statystyk poza edytorem, ponieważ pole tekstowe zablokowane głową byłoby rozpraszające. Bardziej wyrafinowana implementacja znajduje się w projekcie [Szybki start.](../../quickstarts/render-model.md)
+Kod wyłącza aktualizację statystyk poza edytorem, ponieważ pole tekstowe zablokowane przez nagłówek jest rozpraszane. Bardziej zaawansowaną implementację można znaleźć w projekcie [szybkiego startu](../../quickstarts/render-model.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku poznaliście wszystkie kroki niezbędne do podjęcia pustego projektu Unity i uzyskania go do pracy z renderowaniem zdalnym platformy Azure. W następnym samouczku przyjrzymy się bliżej, jak pracować z jednostkami zdalnymi.
+W tym samouczku przedstawiono wszystkie kroki niezbędne do przejęcia pustego projektu środowiska Unity i pobrania go przy użyciu zdalnego renderowania platformy Azure. W następnym samouczku zajmiemy się tym, jak współpracować z obiektami zdalnymi.
 
 > [!div class="nextstepaction"]
-> [Samouczek: Praca z jednostkami zdalnymi w unity](working-with-remote-entities.md)
+> [Samouczek: Praca z jednostkami zdalnymi w środowisku Unity](working-with-remote-entities.md)

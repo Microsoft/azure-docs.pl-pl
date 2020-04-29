@@ -1,6 +1,6 @@
 ---
-title: Jak utworzyć i wdrożyć usługę w chmurze | Dokumenty firmy Microsoft
-description: Dowiedz się, jak utworzyć i wdrożyć usługę w chmurze za pomocą witryny Azure Portal.
+title: Jak utworzyć i wdrożyć usługę w chmurze | Microsoft Docs
+description: Dowiedz się, jak utworzyć i wdrożyć usługę w chmurze przy użyciu Azure Portal.
 services: cloud-services
 documentationcenter: ''
 author: tgore03
@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
 ms.openlocfilehash: 63cf864a3f3b92728ad613ac45542bdbce2c9858
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811341"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Jak utworzyć i wdrożyć usługę w chmurze
-Portal Azure zawiera dwa sposoby tworzenia i wdrażania usługi w chmurze: *Szybkie tworzenie* i *tworzenie niestandardowe*.
+Azure Portal zapewnia dwa sposoby tworzenia i wdrażania usługi w chmurze: *szybkie tworzenie* i *Tworzenie niestandardowe*.
 
-W tym artykule wyjaśniono, jak użyć metody szybkiego tworzenia, aby utworzyć nową usługę w chmurze, a następnie użyć **przekaż** do przekazania i wdrożenia pakietu usługi w chmurze na platformie Azure. Korzystając z tej metody, witryna Azure portal udostępnia wygodne łącza do wypełniania wszystkich wymagań w miarę użycia. Jeśli chcesz wdrożyć usługę w chmurze podczas jej tworzenia, możesz wykonać obie te usługi w tym samym czasie przy użyciu tworzenia niestandardowego.
+W tym artykule wyjaśniono, jak za pomocą metody Quick Create utworzyć nową usługę w chmurze, a następnie za pomocą **przekazywania** przekazać i wdrożyć pakiet usługi w chmurze na platformie Azure. W przypadku korzystania z tej metody Azure Portal udostępnia wygodne linki do uzupełniania wszystkich wymagań zgodnie z rzeczywistym użyciem. Jeśli wszystko jest gotowe do wdrożenia usługi w chmurze podczas jej tworzenia, można wykonać obie czynności przy użyciu opcji tworzenie niestandardowe.
 
 > [!NOTE]
-> Jeśli planujesz opublikować usługę w chmurze z usługi Azure DevOps, użyj szybkiego tworzenia, a następnie skonfiguruj publikowanie programów Azure DevOps z usługi Szybki start platformy Azure lub pulpitu nawigacyjnego. Aby uzyskać więcej informacji, zobacz [ciągłe dostarczanie na platformę Azure przy użyciu usługi Azure DevOps][TFSTutorialForCloudService]lub zobacz pomoc dla strony **Szybki start.**
+> Jeśli planujesz publikację usługi w chmurze w usłudze Azure DevOps, użyj opcji szybkie tworzenie, a następnie skonfiguruj publikowanie usługi Azure DevOps z poziomu przewodnika Szybki Start platformy Azure lub pulpitu nawigacyjnego. Aby uzyskać więcej informacji, zobacz [ciągłe dostarczanie do platformy Azure za pomocą usługi Azure DevOps][TFSTutorialForCloudService]lub zapoznaj się z informacjami na stronie **Szybki Start** .
 >
 >
 
@@ -29,58 +29,58 @@ W tym artykule wyjaśniono, jak użyć metody szybkiego tworzenia, aby utworzyć
 Do wdrożenia aplikacji jako usługi w chmurze na platformie Azure wymagane są trzy składniki:
 
 * **Definicja usługi**  
-  Plik definicji usługi w chmurze (csdef) definiuje model usługi, w tym liczbę ról.
+  Plik definicji usługi w chmurze (. csdef) definiuje model usług, w tym liczbę ról.
 * **Konfiguracja usługi**  
-  Plik konfiguracji usługi w chmurze (cscfg) zawiera ustawienia konfiguracji usługi w chmurze i poszczególnych ról, w tym liczbę wystąpień roli.
-* **Pakiet serwisowy**  
-  Pakiet usługi (.cspkg) zawiera kod aplikacji i konfiguracje oraz plik definicji usługi.
+  Plik konfiguracji usługi w chmurze (cscfg) zawiera ustawienia konfiguracji usługi w chmurze i poszczególnych ról, w tym liczbę wystąpień ról.
+* **Pakiet usługi**  
+  Pakiet usługi (. cspkg) zawiera kod i konfiguracje aplikacji oraz plik definicji usługi.
 
-Możesz dowiedzieć się więcej o tych i jak utworzyć pakiet [tutaj](cloud-services-model-and-package.md).
+Więcej informacji o tych i sposobach tworzenia pakietu można znaleźć [tutaj](cloud-services-model-and-package.md).
 
-## <a name="prepare-your-app"></a>Przygotowanie aplikacji
-Przed wdrożeniem usługi w chmurze należy utworzyć pakiet usługi w chmurze (.cspkg) z kodu aplikacji i pliku konfiguracji usługi w chmurze (cscfg). Zestaw Azure SDK udostępnia narzędzia do przygotowywania tych wymaganych plików wdrażania. Zestaw SDK można zainstalować na stronie [Usługi Azure Downloads](https://azure.microsoft.com/downloads/) w języku, w którym wolisz opracować kod aplikacji.
+## <a name="prepare-your-app"></a>Przygotowywanie aplikacji
+Aby można było wdrożyć usługę w chmurze, należy utworzyć pakiet usługi w chmurze (. cspkg) z kodu aplikacji i pliku konfiguracji usługi w chmurze (cscfg). Zestaw Azure SDK oferuje narzędzia do przygotowywania wymaganych plików wdrożenia. Zestaw SDK można zainstalować ze strony [plików do pobrania platformy Azure](https://azure.microsoft.com/downloads/) w języku, w którym wolisz opracowywać kod aplikacji.
 
-Trzy funkcje usługi w chmurze wymagają specjalnych konfiguracji przed wyeksportem pakietu usług:
+Trzy funkcje usługi w chmurze wymagają specjalnych konfiguracji przed wyeksportowaniem pakietu usługi:
 
-* Jeśli chcesz wdrożyć usługę w chmurze, która używa zabezpieczeń warstwy transportowej (TLS), wcześniej znaną jako Secure Sockets Layer (SSL), do szyfrowania danych, [skonfiguruj aplikację](cloud-services-configure-ssl-certificate-portal.md#modify) dla protokołu TLS.
-* Jeśli chcesz skonfigurować połączenia pulpitu zdalnego do wystąpień ról, [skonfiguruj role pulpitu](cloud-services-role-enable-remote-desktop-new-portal.md) zdalnego.
-* Jeśli chcesz skonfigurować pełne monitorowanie usługi w chmurze, włącz diagnostykę platformy Azure dla usługi w chmurze. *Minimalne monitorowanie* (domyślny poziom monitorowania) używa liczników wydajności zebranych z systemów operacyjnych hosta dla wystąpień ról (maszyn wirtualnych). *Pełne monitorowanie* gromadzi dodatkowe metryki na podstawie danych dotyczących wydajności w wystąpieniach roli, aby umożliwić ściślejszą analizę problemów występujących podczas przetwarzania aplikacji. Aby dowiedzieć się, jak włączyć diagnostykę platformy Azure, zobacz [Włączanie diagnostyki na platformie Azure.](cloud-services-dotnet-diagnostics.md)
+* Jeśli chcesz wdrożyć usługę w chmurze, która korzysta z Transport Layer Security (TLS), wcześniej znanej jako SSL (SSL), aby szyfrować dane, [Skonfiguruj aplikację](cloud-services-configure-ssl-certificate-portal.md#modify) dla protokołu TLS.
+* Jeśli chcesz skonfigurować połączenia Pulpit zdalny z wystąpieniami ról, [Skonfiguruj role](cloud-services-role-enable-remote-desktop-new-portal.md) dla Pulpit zdalny.
+* Jeśli chcesz skonfigurować pełne monitorowanie dla usługi w chmurze, Włącz Diagnostyka Azure dla usługi w chmurze. *Minimalne monitorowanie* (domyślny poziom monitorowania) używa liczników wydajności zebranych z systemów operacyjnych hosta dla wystąpień roli (maszyn wirtualnych). *Pełne monitorowanie* zbiera dodatkowe metryki na podstawie danych wydajności w wystąpieniach roli w celu zapewnienia bliższej analizy problemów występujących podczas przetwarzania aplikacji. Aby dowiedzieć się, jak włączyć Diagnostyka Azure, zobacz [Włączanie diagnostyki na platformie Azure](cloud-services-dotnet-diagnostics.md).
 
-Aby utworzyć usługę w chmurze z wdrożeniami ról sieci web lub ról procesu [roboczego,](cloud-services-model-and-package.md#servicepackagecspkg)należy utworzyć pakiet usług .
+Aby utworzyć usługę w chmurze z wdrożeniami ról sieci Web lub procesów roboczych, należy [utworzyć pakiet usługi](cloud-services-model-and-package.md#servicepackagecspkg).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-* Jeśli zestaw SDK platformy Azure nie został zainstalowany, kliknij pozycję **Zainstaluj zestaw Azure SDK,** aby otworzyć [stronę Pobieranie platformy Azure,](https://azure.microsoft.com/downloads/)a następnie pobierz zestaw SDK dla języka, w którym wolisz opracować kod. (Będziesz miał możliwość zrobienia tego później.)
-* Jeśli dowolne wystąpienia roli wymagają certyfikatu, utwórz certyfikaty. Usługi w chmurze wymagają pliku .pfx z kluczem prywatnym. Certyfikaty można przekazać na platformę Azure podczas tworzenia i wdrażania usługi w chmurze.
+* Jeśli nie zainstalowano zestawu Azure SDK, kliknij pozycję **Zainstaluj zestaw Azure SDK** , aby otworzyć [stronę pliki do pobrania platformy Azure](https://azure.microsoft.com/downloads/), a następnie Pobierz zestaw SDK dla języka, w którym wolisz opracowywać swój kod. (Możesz to zrobić później).
+* Jeśli jakieś wystąpienia roli wymagają certyfikatu, należy utworzyć certyfikaty. Usługi w chmurze wymagają pliku PFX z kluczem prywatnym. Certyfikaty można przesłać na platformę Azure podczas tworzenia i wdrażania usługi w chmurze.
 
 ## <a name="create-and-deploy"></a>Tworzenie i wdrażanie
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Kliknij **pozycję Utwórz zasób > obliczeń,** a następnie przewiń w dół i kliknij pozycję **Usługa w chmurze**.
+2. Kliknij pozycję **Utwórz zasób > obliczenia**, a następnie przewiń w dół do i kliknij pozycję **Usługa w chmurze**.
 
     ![Publikowanie usługi w chmurze](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. W nowym okienku **usługi w chmurze** wprowadź wartość **nazwy DNS**.
+3. W okienku Nowa **Usługa w chmurze** wprowadź wartość w polu **nazwa DNS**.
 4. Utwórz nową **grupę zasobów** lub wybierz istniejącą.
 5. Wybierz **lokalizację**.
-6. Kliknij **pozycję Pakiet**. Spowoduje to otwarcie **okienka Przekaż pakiet.** Wypełnij wymagane pola. Jeśli którakolwiek z ról zawiera pojedyncze wystąpienie, upewnij się, że **deploy, nawet jeśli jedna lub więcej ról zawiera pojedyncze wystąpienie** jest zaznaczone.
-7. Upewnij się, że wybrano **opcję Rozpocznij wdrażanie.**
-8. Kliknij **przycisk OK,** które spowoduje zamknięcie **okienka Przekaż pakiet.**
-9. Jeśli nie masz żadnych certyfikatów do dodania, kliknij przycisk **Utwórz**.
+6. Kliknij pozycję **pakiet**. Spowoduje to otwarcie okienka **Przekaż pakiet** . Wypełnij pola wymagane. Jeśli dowolna z ról zawiera pojedyncze wystąpienie, należy upewnić się, że jest **ono wdrożone nawet wtedy, gdy co najmniej jedna z ról zawiera wybrane pojedyncze wystąpienie** .
+7. Upewnij się, że wybrano **Rozpocznij wdrażanie** .
+8. Kliknij przycisk **OK** , aby zamknąć okienko **Przekaż pakiet** .
+9. Jeśli nie masz żadnych certyfikatów do dodania, kliknij pozycję **Utwórz**.
 
     ![Publikowanie usługi w chmurze](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
-## <a name="upload-a-certificate"></a>Przekazywanie certyfikatu
-Jeśli pakiet wdrażania został [skonfigurowany do używania certyfikatów,](cloud-services-configure-ssl-certificate-portal.md#modify)można przekazać certyfikat teraz.
+## <a name="upload-a-certificate"></a>Przekaż certyfikat
+Jeśli pakiet wdrożeniowy został [skonfigurowany do korzystania z certyfikatów](cloud-services-configure-ssl-certificate-portal.md#modify), możesz go teraz przekazać.
 
-1. Wybierz **pozycję Certyfikaty**i w okienku **Dodawanie certyfikatów** wybierz plik PFX certyfikatu TLS/SSL, a następnie podaj **hasło** certyfikatu,
-2. Kliknij **pozycję Dołącz certyfikat**, a następnie kliknij przycisk **OK** w okienku **Dodawanie certyfikatów.**
-3. Kliknij **pozycję Utwórz** w okienku **Usługi w chmurze.** Po osiągnięciu stanu **Gotowości** wdrożenia można przejść do następnych kroków.
+1. Wybierz pozycję **Certyfikaty**, a następnie w okienku **Dodawanie certyfikatów** wybierz plik certyfikatu TLS/SSL, a następnie podaj **hasło** dla certyfikatu.
+2. Kliknij pozycję **Dołącz certyfikat**, a następnie kliknij przycisk **OK** w okienku **Dodawanie certyfikatów** .
+3. Kliknij przycisk **Utwórz** w okienku **usługi w chmurze** . Gdy wdrożenie osiągnie stan **gotowości** , można przejść do kolejnych kroków.
 
     ![Publikowanie usługi w chmurze](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
-## <a name="verify-your-deployment-completed-successfully"></a>Weryfikacja pomyślnego wdrożenia została ukończona
+## <a name="verify-your-deployment-completed-successfully"></a>Sprawdź, czy wdrożenie zostało ukończone pomyślnie
 1. Kliknij wystąpienie usługi w chmurze.
 
-    Stan powinien pokazać, że usługa jest **uruchomiona**.
-2. W **obszarze Podstawowe elementy**kliknij adres URL **witryny,** aby otworzyć usługę w chmurze w przeglądarce internetowej.
+    Stan powinien wskazywać, że usługa jest **uruchomiona**.
+2. W obszarze **podstawy**kliknij **adres URL witryny** , aby otworzyć usługę w chmurze w przeglądarce internetowej.
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
@@ -88,9 +88,9 @@ Jeśli pakiet wdrażania został [skonfigurowany do używania certyfikatów,](cl
 
 ## <a name="next-steps"></a>Następne kroki
 * [Ogólna konfiguracja usługi w chmurze](cloud-services-how-to-configure-portal.md).
-* Konfigurowanie [niestandardowej nazwy domeny](cloud-services-custom-domain-name-portal.md).
+* Skonfiguruj [niestandardową nazwę domeny](cloud-services-custom-domain-name-portal.md).
 * [Zarządzanie usługą w chmurze](cloud-services-how-to-manage-portal.md).
-* Konfigurowanie [certyfikatów TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
+* Skonfiguruj [Certyfikaty TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

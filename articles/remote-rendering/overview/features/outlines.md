@@ -1,34 +1,34 @@
 ---
-title: Renderowanie konspektu
-description: W tym artykule wyjaśniono, jak renderować konspekt zaznaczenia
+title: Renderowanie konturów
+description: Wyjaśniono, jak przeprowadzić renderowanie w konspekcie zaznaczenia
 author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 8b52dbe8cd12e51c42677ce37acbd57ad551ec50
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680832"
 ---
-# <a name="outline-rendering"></a>Renderowanie konspektu
+# <a name="outline-rendering"></a>Renderowanie konturów
 
-Zaznaczone obiekty można wyróżnić wizualnie, dodając renderowanie konspektu za pomocą [komponentu Zastępowanie stanu hierarchicznego](../../overview/features/override-hierarchical-state.md). W tym rozdziale wyjaśniono, jak globalne parametry renderowania konspektu są zmieniane za pośrednictwem interfejsu API klienta.
+Wybrane obiekty można wizualnie podświetlone, dodając renderowanie konspektu za pośrednictwem [składnika zastąpienia stanu hierarchicznego](../../overview/features/override-hierarchical-state.md). W tym rozdziale wyjaśniono, jak globalne parametry renderowania w konspekcie są zmieniane za pomocą interfejsu API klienta.
 
-Właściwości konspektu są ustawieniem globalnym. Wszystkie obiekty korzystające z renderowania konspektu będą używać tego samego ustawienia — nie jest możliwe użycie koloru konturu dla obiektu.
+Właściwości konspektu to ustawienie globalne. Wszystkie obiekty, które używają renderowania konturu, będą używać tego samego ustawienia — nie można użyć koloru konturu dla obiektu.
 
 ## <a name="parameters-for-outlinesettings"></a>Parametry dla`OutlineSettings`
 
-Klasa `OutlineSettings` przechowuje ustawienia związane z właściwościami konspektu globalnego. Udostępnia następujące elementy członkowskie:
+Klasa `OutlineSettings` przechowuje ustawienia związane z właściwościami konspektu globalnego. Uwidacznia następujące elementy członkowskie:
 
 | Parametr      | Typ    | Opis                                             |
 |----------------|---------|---------------------------------------------------------|
-| `Color`          | Kolor4Ub | Kolor używany do rysowania konturu. Część alfa jest ignorowana.         |
-| `PulseRateHz`    | float   | Szybkość, z jaką zarys oscyluje na sekundę|
-| `PulseIntensity` | float   | Intensywność efektu impulsu konspektu. Musi być między 0,0 dla bez pulsowania i 1,0 dla pełnego pulsowania. Intensywność niejawnie ustawia minimalną krycie `MinOpacity = 1.0 - PulseIntensity`konspektu jako . |
+| `Color`          | Color4Ub | Kolor używany do rysowania konspektu. Część alfa jest ignorowana.         |
+| `PulseRateHz`    | float   | Szybkość, z jaką krzywe konspektu na sekundę|
+| `PulseIntensity` | float   | Intensywność efektu impulsu konturu. Musi mieć długość od 0,0 do bez napędu i 1,0 do pełnego napędu. Intensywność ustawia minimalną nieprzezroczystość konspektu `MinOpacity = 1.0 - PulseIntensity`jako. |
 
-![Konturuje](./media/outlines.png) Efekt zmiany `color` parametru z żółtego (po lewej) `pulseIntensity` na karmazynowy (środek) i od 0 do 0,8 (po prawej).
+![Pokreśl](./media/outlines.png) skutki zmiany `color` parametru z żółtego (z lewej) na amarantowy (wyśrodkuj) i `pulseIntensity` od 0 do 0,8 (prawo).
 
 ## <a name="example"></a>Przykład
 
@@ -46,8 +46,8 @@ void SetOutlineParameters(AzureSession session)
 
 ## <a name="performance"></a>Wydajność
 
-Renderowanie konspektu może mieć znaczący wpływ na wydajność renderowania. Wpływ ten różni się w zależności od relacji przestrzennej przestrzeni ekranu między wybranymi i niewybranymi obiektami dla danej klatki.
+Renderowanie konspektu może mieć znaczny wpływ na wydajność renderowania. Ten wpływ zależy od relacji przestrzennej między zaznaczonymi i niewybranymi obiektami dla danej ramki.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Składnik zastępowania stanu hierarchicznego](../../overview/features/override-hierarchical-state.md)
+* [Składnik przesłonięcia stanu hierarchicznego](../../overview/features/override-hierarchical-state.md)

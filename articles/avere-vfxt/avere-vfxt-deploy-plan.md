@@ -1,63 +1,63 @@
 ---
-title: Zaplanuj swój system VFXT Avere - Azure
-description: W tym artykule opisano planowanie przed wdrożeniem avere vFXT for Azure
+title: Planowanie systemu avere vFXT na platformie Azure
+description: Wyjaśnia planowanie przed wdrożeniem programu avere vFXT dla platformy Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: 6acc1ffd197ddba4290ff7c0751b259d98a70927
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80754392"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planowanie systemu Avere vFXT
 
-W tym artykule wyjaśniono, jak zaplanować nowy klaster Avere vFXT dla platformy Azure, który jest pozycjonowany i dopasowywał się odpowiednio do Twoich potrzeb.
+W tym artykule wyjaśniono, jak zaplanować nowy avere vFXT dla klastra platformy Azure, który jest ustalany odpowiednio do potrzeb.
 
-Przed udaniem się do portalu Azure Marketplace lub utworzeniem maszyn wirtualnych należy wziąć pod uwagę następujące szczegóły:
+Przed przejściem do portalu Azure Marketplace lub utworzeniem jakichkolwiek maszyn wirtualnych należy wziąć pod uwagę następujące szczegóły:
 
-* W jaki sposób klaster będzie współdziałać z innymi zasobami platformy Azure?
+* Jak działa klaster z innymi zasobami platformy Azure?
 * Gdzie powinny znajdować się elementy klastra w sieciach prywatnych i podsieciach?
-* Jakiego typu magazynu zaplecza będzie używany i jak klaster będzie do niego uzyskiwać dostęp?
-* Jak wydajne muszą być węzły klastra do obsługi przepływu pracy?
+* Jakiego typu magazyn zaplecza będzie używany i w jaki sposób klaster będzie miał do niego dostęp?
+* Jak wydajnie węzły klastra muszą być obsługiwane w ramach przepływu pracy?
 
-Czytaj dalej, aby dowiedzieć się więcej.
+Przeczytaj, aby dowiedzieć się więcej.
 
-## <a name="learn-the-components-of-the-system"></a>Poznaj elementy systemu
+## <a name="learn-the-components-of-the-system"></a>Informacje o składnikach systemu
 
-Może być przydatne do zrozumienia składników systemu Avere vFXT for Azure po rozpoczęciu planowania.
+Po rozpoczęciu planowania warto zrozumieć składniki avere vFXT for Azure system.
 
-* Węzły klastra — klaster składa się z co najmniej trzech maszyn wirtualnych skonfigurowanych jako węzły klastra. Więcej węzłów daje systemowi wyższą przepływność i większą pamięć podręczną.
+* Węzły klastra — klaster składa się z co najmniej trzech maszyn wirtualnych skonfigurowanych jako węzły klastra. Więcej węzłów zapewnia wyższą przepływność systemu i większą pamięć podręczną.
 
-* Pamięć podręczna — pojemność pamięci podręcznej jest dzielona równo między węzły klastra. Ustaw rozmiar pamięci podręcznej dla węzłów podczas tworzenia klastra; rozmiary węzłów są dodawane, aby stać się całkowity rozmiar pamięci podręcznej.
+* Pamięć podręczna — pojemność pamięci podręcznej jest dzielona równomiernie między węzłami klastra. Ustawianie rozmiaru pamięci podręcznej na węzeł podczas tworzenia klastra; rozmiary węzłów są dodawane, aby stała się łącznym rozmiarem pamięci podręcznej.
 
-* Kontroler klastra — kontroler klastra jest dodatkową maszyną wirtualną znajdującą się wewnątrz tej samej podsieci co węzły klastra. Kontroler jest potrzebny do utworzenia klastra i bieżących zadań zarządzania.
+* Kontroler klastra — kontroler klastra jest dodatkową maszyną wirtualną znajdującą się w tej samej podsieci co węzły klastra. Kontroler jest wymagany do utworzenia klastra i bieżących zadań zarządzania.
 
-* Magazyn zaplecza — dane, które mają być buforowane są przechowywane przez długi czas w systemie magazynu sprzętu lub kontenera obiektów blob platformy Azure. Można dodać magazyn po utworzeniu klastra Avere vFXT for Azure lub korzystając z magazynu obiektów Blob, można dodać i skonfigurować kontener podczas tworzenia klastra.
+* Magazyn zaplecza — dane, które mają być buforowane, są przechowywane w długim czasie w sprzętowym systemie pamięci masowej lub kontenera obiektów blob platformy Azure. Magazyn można dodać po utworzeniu avere vFXT dla klastra platformy Azure lub w przypadku korzystania z magazynu obiektów BLOB można dodać i skonfigurować kontener podczas tworzenia klastra.
 
-* Klienci — maszyny klienckie, które używają buforowanych plików, łączą się z klastrem przy użyciu wirtualnej ścieżki plików zamiast bezpośredniego uzyskiwania dostępu do systemów magazynowania. (Więcej informacji można przeczytać w [umiań Montaż klastra VFXT Avere).](avere-vfxt-mount-clients.md)
+* Klienci — komputery klienckie, które używają plików w pamięci podręcznej, łączą się z klastrem przy użyciu ścieżki pliku wirtualnego, zamiast bezpośrednio uzyskiwać dostęp do systemów magazynowych. (Więcej informacji można znaleźć w temacie [Instalowanie klastra avere vFXT](avere-vfxt-mount-clients.md)).
 
-## <a name="subscription-resource-group-and-network-infrastructure"></a>Subskrypcja, grupa zasobów i infrastruktura sieciowa
+## <a name="subscription-resource-group-and-network-infrastructure"></a>Subskrypcja, Grupa zasobów i infrastruktura sieci
 
-Należy wziąć pod uwagę, gdzie będą elementy wdrożenia avere vFXT dla platformy Azure. Na poniższym diagramie przedstawiono możliwe rozmieszczenie składników Avere vFXT for Azure:
+Rozważ, gdzie będą znajdować się elementy avere vFXT dla wdrożenia platformy Azure. Na poniższym diagramie przedstawiono możliwe rozmieszczenie składników avere vFXT for Azure:
 
-![Diagram przedstawiający kontroler klastra i maszyny wirtualne klastra w jednej podsieci. Wokół granicy podsieci jest granica sieci wirtualnej. Wewnątrz sieci wirtualnej jest sześciokąt reprezentujący punkt końcowy usługi magazynu; jest połączony strzałką przerywaną do magazynu obiektów Blob poza siecią wirtualną.](media/avere-vfxt-components-option.png)
+![Diagram przedstawiający kontroler klastra i maszyny wirtualne klastra w jednej podsieci. Wokół granicy podsieci jest granicą sieci wirtualnej. Wewnątrz sieci wirtualnej to sześciokąt reprezentujący punkt końcowy usługi magazynu; jest ona połączona z kreskowaną strzałką do magazynu obiektów blob poza siecią wirtualną.](media/avere-vfxt-components-option.png)
 
-Podczas planowania infrastruktury sieciowej klastra VXT avere:
+Postępuj zgodnie z poniższymi wskazówkami podczas planowania infrastruktury sieciowej klastra avere vFXT:
 
-* Utwórz nową subskrypcję dla każdego wdrożenia Avere vFXT dla platformy Azure. Zarządzaj wszystkimi składnikami w tej subskrypcji.
+* Utwórz nową subskrypcję dla każdego avere vFXT dla wdrożenia platformy Azure. Zarządzaj wszystkimi składnikami w tej subskrypcji.
 
-  Korzyści z korzystania z nowej subskrypcji dla każdego wdrożenia obejmują:
-  * Prostsze śledzenie kosztów — wyświetlanie i inspekcja wszystkich kosztów z zasobów, infrastruktury i cykli obliczeniowych w jednej subskrypcji.
-  * Łatwiejsze oczyszczanie — można usunąć całą subskrypcję po zakończeniu projektu.
-  * Wygodne partycjonowanie przydziałów zasobów — izolowanie klientów vFXT avere i klastra w jednej subskrypcji w celu ochrony innych krytycznych obciążeń przed możliwym ograniczaniem zasobów. Ta separacja zapobiega konfliktom podczas wychowania dużej liczby klientów dla przepływu pracy obliczeń o wysokiej wydajności.
+  Zalety korzystania z nowej subskrypcji dla każdego wdrożenia obejmują:
+  * Prostsze śledzenie kosztów — umożliwia wyświetlanie i inspekcję wszystkich kosztów zasobów, infrastruktury i cykli obliczeniowych w ramach jednej subskrypcji.
+  * Łatwiejsze czyszczenie — po zakończeniu pracy z projektem można usunąć całą subskrypcję.
+  * Wygodne partycjonowanie przydziałów zasobów — Izoluj klientów i klaster avere vFXT w ramach jednej subskrypcji, aby chronić inne krytyczne obciążenia przed możliwym ograniczeniem zasobów. Ta separacja zapobiega konfliktom podczas pobierania dużej liczby klientów do przepływu pracy obliczeniowej o wysokiej wydajności.
 
-* Znajdź systemy obliczeniowe klienta w pobliżu klastra vFXT. Pamięć zaplecza może być bardziej zdalna.  
+* Znajdź systemy obliczeniowe klienta blisko klastra vFXT. Magazyn zaplecza może być bardziej zdalny.  
 
-* Zlokalizuj klaster vFXT i maszynę wirtualną kontrolera klastra razem — w szczególności powinny być:
+* Zlokalizuj klaster vFXT oraz maszynę wirtualną kontrolera klastra, w tym:
 
   * W tej samej sieci wirtualnej
   * W tej samej grupie zasobów
@@ -65,116 +65,116 @@ Podczas planowania infrastruktury sieciowej klastra VXT avere:
   
   Szablon tworzenia klastra obsługuje tę konfigurację w większości sytuacji.
 
-* Klaster musi znajdować się we własnej podsieci, aby uniknąć konfliktów adresów IP z klientami lub innymi zasobami obliczeniowymi.
+* Klaster musi znajdować się w własnej podsieci, aby uniknąć konfliktów adresów IP z klientami lub innymi zasobami obliczeniowymi.
 
-* Szablon tworzenia klastra służy do tworzenia większości potrzebnych zasobów infrastruktury dla klastra, w tym grup zasobów, sieci wirtualnych, podsieci i kont magazynu.
+* Użyj szablonu tworzenia klastra, aby utworzyć większość zasobów infrastruktury wymaganych dla klastra, w tym grup zasobów, sieci wirtualnych, podsieci i kont magazynu.
 
-  Jeśli chcesz użyć zasobów, które już istnieją, upewnij się, że spełniają wymagania w tej tabeli.
+  Jeśli chcesz użyć już istniejących zasobów, upewnij się, że spełniają one wymagania zawarte w tej tabeli.
 
-  | Zasób | Użyj istniejących? | Wymagania |
+  | Zasób | Użyć istniejącej? | Wymagania |
   |----------|-----------|----------|
-  | Grupa zasobów | Tak, jeśli jest pusty | Musi być pusty|
-  | Konto magazynu | **Tak,** jeśli połączenie istniejącego kontenera obiektów blob po utworzeniu klastra <br/>  **Nie,** jeśli tworzenie nowego kontenera obiektów Blob podczas tworzenia klastra | Istniejący kontener obiektów blob musi być pusty <br/> &nbsp; |
-  | Sieć wirtualna | Tak | Musi zawierać punkt końcowy usługi magazynu podczas tworzenia nowego kontenera obiektów Blob platformy Azure |
+  | Grupa zasobów | Tak, jeśli wartość jest pusta | Musi być pusty|
+  | Konto magazynu | **Tak** w przypadku łączenia istniejącego kontenera obiektów BLOB po utworzeniu klastra <br/>  **Nie** w przypadku tworzenia nowego kontenera obiektów BLOB podczas tworzenia klastra | Istniejący kontener obiektów BLOB musi być pusty <br/> &nbsp; |
+  | Sieć wirtualna | Tak | Musi zawierać punkt końcowy usługi magazynu, jeśli tworzysz nowy kontener obiektów blob platformy Azure |
   | Podsieć | Tak | Nie może zawierać innych zasobów |
 
 ## <a name="ip-address-requirements"></a>Wymagania dotyczące adresów IP
 
-Upewnij się, że podsieć klastra ma wystarczająco duży zakres adresów IP do obsługi klastra.
+Upewnij się, że podsieć klastra ma wystarczająco duży zakres adresów IP, aby obsługiwał klaster.
 
-Klaster Avere vFXT używa następujących adresów IP:
+Klaster avere vFXT używa następujących adresów IP:
 
-* Jeden adres IP zarządzania klastrem. Ten adres można przenieść z węzła do węzła w klastrze w razie potrzeby, dzięki czemu jest zawsze dostępny. Ten adres służy do łączenia się z narzędziem konfiguracyjnym Panelu sterowania Avere.
+* Jeden adres IP zarządzania klastrem. Ten adres może przechodzić z węzła do węzła w klastrze w miarę potrzeby, aby był on zawsze dostępny. Użyj tego adresu, aby nawiązać połączenie z narzędziem konfiguracji panelu sterowania avere.
 * Dla każdego węzła klastra:
-  * Co najmniej jeden adres IP skierowany do klienta. (Wszystkie adresy skierowane do klienta są zarządzane przez *serwer vserver*klastra, który może przenosić adresy IP między węzłami w razie potrzeby).
-  * Jeden adres IP do komunikacji klastra
-  * Adres IP jednego wystąpienia (przypisany do maszyny Wirtualnej)
+  * Co najmniej jeden adres IP skierowany na klienta. (Wszystkie adresy związane z klientem są zarządzane przez *vserver*klastra, co może przenosić adresy IP między węzłami w razie konieczności).
+  * Jeden adres IP do komunikacji z klastrem
+  * Jeden adres IP wystąpienia (przypisany do maszyny wirtualnej)
 
-Jeśli używasz magazynu obiektów Blob platformy Azure, może również wymagać adresów IP z sieci wirtualnej klastra:  
+W przypadku korzystania z usługi Azure Blob Storage mogą być również wymagane adresy IP z sieci wirtualnej klastra:  
 
-* Konto magazynu obiektów Blob platformy Azure wymaga co najmniej pięciu adresów IP. Należy pamiętać o tym wymaganiu, jeśli magazyn obiektów Blob zostanie zlokalizowany w tej samej sieci wirtualnej co klaster.
-* Jeśli używasz magazynu obiektów Blob platformy Azure, który znajduje się poza siecią wirtualną klastra, utwórz punkt końcowy usługi magazynu wewnątrz sieci wirtualnej. Punkt końcowy nie używa adresu IP.
+* Konto magazynu obiektów blob platformy Azure wymaga co najmniej pięciu adresów IP. Należy pamiętać o tym wymaganiu, jeśli zlokalizujesz magazyn obiektów BLOB w tej samej sieci wirtualnej co klaster.
+* Jeśli używasz magazynu obiektów blob platformy Azure, który znajduje się poza siecią wirtualną klastra, Utwórz punkt końcowy usługi magazynu w sieci wirtualnej. Punkt końcowy nie używa adresu IP.
 
-Istnieje możliwość zlokalizowania zasobów sieciowych i magazynu obiektów Blob (jeśli jest używana) w różnych grupach zasobów z klastra.
+Istnieje możliwość lokalizowania zasobów sieciowych i magazynu obiektów BLOB (jeśli są używane) w różnych grupach zasobów z klastra.
 
-## <a name="vfxt-node-size"></a>Rozmiar węzła vFXT
+## <a name="vfxt-node-size"></a>rozmiar węzła vFXT
 
-Maszyny wirtualne, które służą jako węzły klastra określić przepływność żądania i pojemność magazynu pamięci podręcznej. <!-- The instance type offered has been chosen for its memory, processor, and local storage characteristics. You can choose from two instance types, with different memory, processor, and local storage characteristics. -->
+Maszyny wirtualne służące jako węzły klastra określają przepływność żądań i pojemność pamięci podręcznej. <!-- The instance type offered has been chosen for its memory, processor, and local storage characteristics. You can choose from two instance types, with different memory, processor, and local storage characteristics. -->
 
-Każdy węzeł vFXT będzie identyczny. Oznacza to, że jeśli utworzysz klaster z trzema węzłami, będziesz mieć trzy maszyny wirtualne tego samego typu i rozmiaru.
+Każdy węzeł vFXT będzie identyczny. Oznacza to, że jeśli utworzysz klaster z trzema węzłami, będziesz mieć trzy maszyny wirtualne o tym samym typie i rozmiarze.
 
-| Typ wystąpienia | Procesory wirtualne | Memory (Pamięć)  | Lokalna pamięć masowa SSD  | Maks. liczba dysków danych | Przepływność dysku bez buforów | Karta sieciowa (liczba) |
+| Typ wystąpienia | Procesory wirtualne | Memory (Pamięć)  | Lokalny magazyn SSD  | Maks. liczba dysków danych | Przepływność dysku w pamięci podręcznej | Karta sieciowa (licznik) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standardowa_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51 200 koi <br/> 768 deputowanych | 16 000 mb/s (8)  |
+| Standardowa_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | LICZBA OPERACJI WE/WY 51 200 <br/> 768 MB/s | 16 000 MB/s (8)  |
 
-Pamięć podręczna dysku na węzeł jest konfigurowalna i może szaleć od 1000 GB do 8000 GB. 4 TB na węzeł jest zalecany rozmiar pamięci podręcznej dla Standard_E32s_v3 węzłów.
+Pamięć podręczna dysku na węzeł można skonfigurować i próg od 1000 GB do 8000 GB. Zalecany rozmiar pamięci podręcznej dla węzłów Standard_E32s_v3 to 4 TB na węzeł.
 
-Aby uzyskać dodatkowe informacje na temat tych maszyn wirtualnych, przeczytaj dokumentację platformy Microsoft Azure: [Rozmiary maszyn wirtualnych zoptymalizowane pod kątem pamięci](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
+Aby uzyskać dodatkowe informacje na temat tych maszyn wirtualnych, Przeczytaj dokumentację Microsoft Azure: [rozmiary maszyn wirtualnych zoptymalizowane pod kątem pamięci](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
-## <a name="account-quota"></a>Przydział konta
+## <a name="account-quota"></a>Limit przydziału konta
 
-Upewnij się, że subskrypcja ma zdolność do uruchamiania klastra VFXT Avere, a także wszelkich używanych systemów obliczeniowych lub klienckich. Przeczytaj [przydział dla klastra vFXT, aby](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster) uzyskać szczegółowe informacje.
+Upewnij się, że Twoja subskrypcja ma pojemność do uruchomienia klastra avere vFXT, a także wszystkich używanych systemów obliczeniowych lub klienckich. Aby uzyskać szczegółowe informacje, zapoznaj [się z limitem przydziału dla klastra vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster) .
 
-## <a name="back-end-data-storage"></a>Przechowywanie danych zaplecza
+## <a name="back-end-data-storage"></a>Magazyn danych zaplecza
 
-Systemy magazynu zaplecza dostarczają pliki do pamięci podręcznej klastra, a także odbierają zmienione dane z pamięci podręcznej. Zdecyduj, czy zestaw roboczy będzie przechowywany długoterminowo w nowym kontenerze obiektów Blob, czy w istniejącym systemie magazynowania (w chmurze lub sprzęcie). Te systemy pamięci masowej zaplecza są nazywane *głównymi filerami.*
+Systemy magazynowania zaplecza umożliwiają dostarczanie plików do pamięci podręcznej klastra, a także odbieranie zmienionych danych z pamięci podręcznej. Zdecyduj, czy zestaw roboczy będzie przechowywany w długim czasie w nowym kontenerze obiektów blob, czy w istniejącym systemie magazynu (chmurze lub sprzętu). Te systemy magazynu zaplecza są nazywane *plikami podstawowymi*.
 
-### <a name="hardware-core-filers"></a>Podstawowe filery sprzętowe
+### <a name="hardware-core-filers"></a>Podstawowe pliki sprzętowe
 
-Po utworzeniu klastra należy dodać sprzętowe systemy pamięci masowej do klastra vFXT. Można używać różnych popularnych systemów sprzętowych, w tym systemów lokalnych, o ile system magazynowania można uzyskać z podsieci klastra.
+Po utworzeniu klastra Dodaj systemy magazynu sprzętowego do klastra vFXT. Można użyć różnych popularnych systemów sprzętowych, w tym systemów lokalnych, tak długo, jak można osiągnąć system magazynu z podsieci klastra.
 
-Przeczytaj [pozycję Konfiguruj magazyn,](avere-vfxt-add-storage.md) aby uzyskać szczegółowe instrukcje dotyczące dodawania istniejącego systemu magazynu do klastra VFXT Avere.
+Przeczytaj temat [Konfigurowanie magazynu](avere-vfxt-add-storage.md) , aby uzyskać szczegółowe instrukcje dotyczące sposobu dodawania istniejącego systemu magazynu do klastra avere vFXT.
 
-### <a name="cloud-core-filers"></a>Filery z rdzeniem chmury
+### <a name="cloud-core-filers"></a>Pliki podstawowe w chmurze
 
-System Avere vFXT for Azure może używać pustych kontenerów obiektów blob do magazynu zaplecza. Kontenery muszą być puste po dodaniu do klastra — system vFXT musi być w stanie zarządzać magazynem obiektów bez konieczności zachowywania istniejących danych.
+Avere vFXT for Azure system może używać pustych kontenerów obiektów BLOB dla magazynu zaplecza. Kontenery muszą być puste po dodaniu do klastra — system vFXT musi mieć możliwość zarządzania jego magazynem obiektów bez konieczności zachowywania istniejących danych.
 
 > [!TIP]
-> Jeśli chcesz użyć magazynu obiektów Blob platformy Azure dla zaplecza, utwórz nowy kontener jako część tworzenia klastra vFXT. Szablon tworzenia klastra można utworzyć i skonfigurować nowy kontener obiektów Blob, tak aby był gotowy do użycia, jak tylko klaster jest dostępny. Dodawanie kontenera później jest bardziej skomplikowane.
+> Jeśli chcesz użyć magazynu obiektów blob platformy Azure dla zaplecza, Utwórz nowy kontener w ramach tworzenia klastra vFXT. Szablon tworzenia klastra może utworzyć i skonfigurować nowy kontener obiektów blob, aby był gotowy do użycia, gdy tylko klaster będzie dostępny. Późniejsze dodanie kontenera jest bardziej skomplikowane.
 >
-> Przeczytaj [artykuł Utwórz avere vFXT for Azure,](avere-vfxt-deploy.md#create-the-avere-vfxt-for-azure) aby uzyskać szczegółowe informacje.
+> Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem tworzenie avere vFXT dla platformy Azure](avere-vfxt-deploy.md#create-the-avere-vfxt-for-azure) .
 
-Po dodaniu pustego kontenera magazynu obiektów blob jako głównego filera można skopiować do niego dane za pośrednictwem klastra. Użyj równoległego, wielowątkowego mechanizmu kopiowania. Przeczytaj Tryb [Przenoszenie danych do klastra vFXT,](avere-vfxt-data-ingest.md) aby dowiedzieć się, jak wydajnie kopiować dane do nowego kontenera klastra przy użyciu komputerów klienckich i pamięci podręcznej Avere vFXT.
+Po dodaniu pustego kontenera magazynu obiektów BLOB jako podstawowego pliku programu można skopiować do niego dane za pomocą klastra. Użyj równoległego mechanizmu kopiowania wielowątkowego. Aby dowiedzieć się, jak kopiować dane do nowego kontenera klastra przy użyciu komputerów klienckich i pamięci podręcznej vFXT avere, przeczytaj artykuł dotyczący [przeniesienia danych do klastra vFXT](avere-vfxt-data-ingest.md) .
 
 ## <a name="cluster-access"></a>Dostęp do klastra
 
-Klaster Avere vFXT for Azure znajduje się w podsieci prywatnej, a klaster nie ma publicznego adresu IP. Musisz mieć jakiś sposób dostępu do podsieci prywatnej dla administrowania klastrem i połączeń klientów.
+Avere vFXT dla klastra platformy Azure znajduje się w podsieci prywatnej, a klaster nie ma publicznego adresu IP. Musisz mieć pewien sposób, aby uzyskać dostęp do podsieci prywatnej w celu administrowania klastrami i połączeń klientów.
 
 Opcje dostępu obejmują:
 
-* Host szybkiego dostępu — przypisz publiczny adres IP do oddzielnej maszyny Wirtualnej w sieci prywatnej i użyj go do utworzenia tunelu TLS do węzłów klastra.
+* Przeskocz hosta — Przypisz publiczny adres IP do osobnej maszyny wirtualnej w sieci prywatnej i użyj jej do utworzenia tunelu protokołu TLS w węzłach klastra.
 
   > [!TIP]
-  > Jeśli ustawisz publiczny adres IP na kontrolerze klastra, można go użyć jako hosta szybkiego dostępu. Przeczytaj [kontroler klastra jako hosta szybkiego dostępu, aby](#cluster-controller-as-jump-host) uzyskać więcej informacji.
+  > Jeśli ustawisz publiczny adres IP na kontrolerze klastra, możesz go użyć jako hosta skoku. Aby uzyskać więcej informacji, Odczytaj [kontroler klastra jako hosta skoku](#cluster-controller-as-jump-host) .
 
-* Wirtualna sieć prywatna (VPN) — konfigurowanie sieci VPN typu lokacja lub lokacja między siecią prywatną w sieciach platformy Azure i firmowych.
+* Wirtualna sieć prywatna (VPN) — Konfigurowanie sieci VPN typu punkt-lokacja lub lokacja-lokacja między siecią prywatną w systemie Azure i sieciami firmowymi.
 
-* Usługa Azure ExpressRoute — konfigurowanie połączenia prywatnego za pośrednictwem partnera usługi ExpressRoute.
+* Azure ExpressRoute — skonfiguruj połączenie prywatne za pomocą partnera ExpressRoute.
 
-Aby uzyskać szczegółowe informacje na temat tych opcji, przeczytaj [dokumentację usługi Azure Virtual Network dotyczącą komunikacji internetowej.](../virtual-network/virtual-networks-overview.md#communicate-with-the-internet)
+Aby uzyskać szczegółowe informacje na temat tych opcji, Przeczytaj dokumentację dotyczącą [platformy Azure Virtual Network](../virtual-network/virtual-networks-overview.md#communicate-with-the-internet).
 
-### <a name="cluster-controller-as-jump-host"></a>Kontroler klastra jako host skoku
+### <a name="cluster-controller-as-jump-host"></a>Kontroler klastra jako hosta skoku
 
-Jeśli ustawisz publiczny adres IP na kontrolerze klastra, możesz użyć go jako hosta szybkiego dostępu do kontaktu z klastrem VFXT Avere spoza podsieci prywatnej. Jednak ponieważ kontroler ma uprawnienia dostępu do modyfikowania węzłów klastra, stwarza to niewielkie zagrożenie bezpieczeństwa.
+W przypadku ustawienia publicznego adresu IP na kontrolerze klastra można go użyć jako hosta skoku, aby skontaktować się z klastrem usługi avere vFXT spoza podsieci prywatnej. Niemniej jednak, ponieważ kontroler ma uprawnienia dostępu do modyfikowania węzłów klastra, powoduje to utworzenie małego zagrożenia bezpieczeństwa.
 
-Aby zwiększyć bezpieczeństwo kontrolera z publicznym adresem IP, skrypt wdrażania automatycznie tworzy sieciową grupę zabezpieczeń, która ogranicza dostęp przychodzący tylko do portu 22. Można dodatkowo chronić system, blokując dostęp do zakresu adresów źródłowych IP — oznacza to, że zezwalaj tylko na połączenia z maszyn, których zamierzasz używać do uzyskiwania dostępu do klastra.
+W celu zwiększenia bezpieczeństwa kontrolera z publicznym adresem IP skrypt wdrażania automatycznie tworzy sieciową grupę zabezpieczeń, która ogranicza dostęp przychodzący tylko do portu 22. Aby zapewnić lepszą ochronę systemu, można zablokować dostęp do zakresu adresów IP źródła, czyli zezwalać na połączenia tylko z maszyn, które mają być używane do dostępu do klastra.
 
-Podczas tworzenia klastra można wybrać, czy ma być utworzony publiczny adres IP na kontrolerze klastra.
+Podczas tworzenia klastra można określić, czy ma zostać utworzony publiczny adres IP na kontrolerze klastra.
 
-* W przypadku utworzenia **nowej sieci wirtualnej** lub **nowej podsieci**kontroler klastra zostanie przypisany **publiczny** adres IP.
-* Jeśli wybierzesz istniejącą sieć wirtualną i podsieć, kontroler klastra będzie miał tylko **prywatne** adresy IP.
+* Jeśli utworzysz **nową sieć wirtualną** lub **nową podsieć**, do kontrolera klastra zostanie przypisany **publiczny** adres IP.
+* W przypadku wybrania istniejącej sieci wirtualnej i podsieci kontroler klastra będzie miał tylko **prywatne** adresy IP.
 
-## <a name="vm-access-roles"></a>Role dostępu do maszyn wirtualnych
+## <a name="vm-access-roles"></a>Role dostępu do maszyny wirtualnej
 
-Platforma Azure używa [kontroli dostępu opartej na rolach](../role-based-access-control/index.yml) (RBAC) do autoryzowania maszyn wirtualnych klastra do wykonywania niektórych zadań. Na przykład kontroler klastra wymaga autoryzacji do tworzenia i konfigurowania maszyn wirtualnych węzła klastra. Węzły klastra muszą mieć możliwość przypisywania lub ponownego przypisywania adresów IP do innych węzłów klastra.
+Platforma Azure używa [kontroli dostępu opartej na rolach](../role-based-access-control/index.yml) (RBAC) do autoryzacji maszyn wirtualnych klastra do wykonywania określonych zadań. Na przykład kontroler klastra wymaga autoryzacji do tworzenia i konfigurowania maszyn wirtualnych węzłów klastra. Węzły klastra muszą mieć możliwość przypisywania lub ponownego przypisywania adresów IP do innych węzłów klastra.
 
-Dwie wbudowane role platformy Azure są używane dla maszyn wirtualnych VFXT Avere:
+W przypadku maszyn wirtualnych avere vFXT są używane dwie wbudowane role platformy Azure:
 
-* Kontroler klastra używa wbudowanej roli [Avere Contributor](../role-based-access-control/built-in-roles.md#avere-contributor).
-* Węzły klastra używają wbudowanej roli [Avere Operator](../role-based-access-control/built-in-roles.md#avere-operator).
+* Kontroler klastra używa wbudowanego [współautora avere](../role-based-access-control/built-in-roles.md#avere-contributor)roli.
+* Węzły klastra używają wbudowanego [operatora avere](../role-based-access-control/built-in-roles.md#avere-operator)roli.
 
-Jeśli chcesz dostosować role dostępu dla składników Avere vFXT, należy zdefiniować własną rolę, a następnie przypisać ją do maszyn wirtualnych w momencie ich tworzenia. Nie można użyć szablonu wdrożenia w portalu Azure Marketplace. Skonsultuj się z działem obsługi klienta i pomocą techniczną firmy Microsoft, otwierając bilet w portalu Azure, zgodnie z opisem w [temacie Uzyskaj pomoc dotyczącą systemu.](avere-vfxt-open-ticket.md)
+Jeśli musisz dostosować role dostępu dla składników avere vFXT, musisz zdefiniować własną rolę, a następnie przypisać ją do maszyn wirtualnych w momencie ich tworzenia. Nie można użyć szablonu wdrożenia w portalu Azure Marketplace. Skontaktuj się z działem obsługi klienta i pomocy technicznej firmy Microsoft, otwierając bilet w Azure Portal zgodnie z opisem w artykule [Uzyskiwanie pomocy dotyczącej systemu](avere-vfxt-open-ticket.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Omówienie wdrażania](avere-vfxt-deploy-overview.md) zawiera ogólny obraz kroków potrzebnych do utworzenia systemu Avere vFXT dla platformy Azure i przygotowania go do obsługi danych.
+[Omówienie wdrażania](avere-vfxt-deploy-overview.md) zawiera widok Big-Picture kroków wymaganych do utworzenia avere vFXT dla systemu Azure i przygotowania do obsługi danych.

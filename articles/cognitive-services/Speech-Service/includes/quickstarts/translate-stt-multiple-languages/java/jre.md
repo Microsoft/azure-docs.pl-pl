@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: Tłumaczenie mowy na wiele języków, Java (Windows, Linux) - Usługa mowy'
+title: 'Szybki Start: Tłumaczenie mowy na wiele języków, Java (Windows, Linux) — usługa mowy'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,23 +11,23 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: erhopf
 ms.openlocfilehash: 4ed3862b08c73264bca0f3bc6ed8e17586c2735c
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80671462"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zanim zaczniesz, upewnij się, że:
+Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
-> * [Tworzenie zasobu mowy platformy Azure](../../../../get-started.md)
-> * [Konfigurowanie środowiska programistycznego i tworzenie pustego projektu](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../get-started.md)
+> * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 
 ## <a name="add-sample-code"></a>Dodawanie przykładowego kodu
 
-1. Aby dodać nową pustą klasę do projektu Java, wybierz **pozycję Plik** > **nowej** > **klasy**.
+1. Aby dodać nową pustą klasę do projektu Java, wybierz pozycję **plik** > **Nowa** > **Klasa**.
 
 1. W oknie **Nowa klasa Java** wprowadź ciąg **speechsdk.quickstart** w polu **Pakiet** i **Main** w polu **Nazwa**.
 
@@ -133,9 +133,9 @@ Zanim zaczniesz, upewnij się, że:
 
 ## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
 
-Naciśnij klawisz F11 lub wybierz pozycję **Uruchom** > **debugowanie**.
+Naciśnij klawisz F11 lub wybierz polecenie **Uruchom** > **debugowanie**.
 
-1. Wypowiedz zwrot lub zdanie w języku angielskim. Aplikacja przesyła mowę do usługi mowy, która tłumaczy i transkrybuje tekst (w tym przypadku do francuskiego i niemieckiego). Usługa mowy następnie wysyła tekst z powrotem do aplikacji do wyświetlenia.
+1. Wypowiedz zwrot lub zdanie w języku angielskim. Aplikacja przesyła mowę do usługi mowy, która tłumaczy i przekształca na tekst (w tym przypadku w języku francuskim i niemieckim). Usługa mowy wysyła następnie tekst z powrotem do aplikacji do wyświetlenia.
 
 ````
 Say something...

@@ -1,6 +1,6 @@
 ---
 title: Nawiązywanie połączenia z programem SSMS
-description: Program SQL Server Management Studio (SSMS) umożliwia łączenie się z usługą Azure Synapse Analytics i wykonywanie zapytań.
+description: Użyj SQL Server Management Studio (SSMS), aby nawiązać połączenie z usługą Azure Synapse Analytics i uzyskać do niej zapytanie.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,36 +12,36 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 0d65ea9b684439cab384bbaa09fcdef1302b6bcf
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80743850"
 ---
-# <a name="connect-to-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Połącz się z usługą Azure Synapse Analytics za pomocą programu SQL Server Management Studio (SSMS)
+# <a name="connect-to-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Nawiązywanie połączenia z usługą Azure Synapse Analytics przy użyciu programu SQL Server Management Studio (SSMS)
 
 > [!div class="op_single_selector"]
 >
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Uczenie maszynowe platformy Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Program SQL Server Management Studio (SSMS) umożliwia łączenie się z magazynem danych w ramach usługi Azure Synapse i wykonywanie zapytań.
+Użyj SQL Server Management Studio (SSMS), aby nawiązać połączenie z magazynem danych i wysłać do niego zapytanie w ramach usługi Azure Synapse.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby użyć tego samouczka, potrzebne są następujące elementy:
 
-* Istniejąca pula SQL. Aby go utworzyć, zobacz [Tworzenie puli SQL](create-data-warehouse-portal.md).
-* Sql Server Management Studio (SSMS) zainstalowany. [Pobierz SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) za darmo, jeśli jeszcze go nie masz.
-* W pełni kwalifikowana nazwa serwera SQL. Aby znaleźć te informacje, zobacz [Łączenie z pulą SQL](sql-data-warehouse-connect-overview.md).
+* Istniejąca Pula SQL. Aby go utworzyć, zobacz [Tworzenie puli SQL](create-data-warehouse-portal.md).
+* SQL Server Management Studio (SSMS). [Pobierz](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) bezpłatnie program SSMS, jeśli go jeszcze nie masz.
+* W pełni kwalifikowana nazwa serwera SQL. Aby znaleźć te informacje, zobacz [nawiązywanie połączenia z pulą SQL](sql-data-warehouse-connect-overview.md).
 
-## <a name="1-connect-to-your-sql-pool"></a>1. Połącz się z pulą SQL
+## <a name="1-connect-to-your-sql-pool"></a>1. Nawiązywanie połączenia z pulą SQL
 
 1. Otwórz program SSMS.
-2. Otwórz Eksploratora obiektów, wybierając**Eksploratora obiektów łączenia** **plików** > .
+2. Otwórz Eksplorator obiektów, wybierając pozycję **plik** > **Połącz Eksplorator obiektów**.
 
     ![Eksplorator obiektów SQL Server](./media/sql-data-warehouse-query-ssms/connect-object-explorer.png)
 3. Wypełnij pola w oknie łączenia z serwerem.
@@ -56,7 +56,7 @@ Aby użyć tego samouczka, potrzebne są następujące elementy:
 
    ![Poznawanie bazy danych AdventureWorksDW](./media/sql-data-warehouse-query-ssms/explore-tables.png)
 
-## <a name="2-run-a-sample-query"></a>2. Uruchamianie przykładowej kwerendy
+## <a name="2-run-a-sample-query"></a>2. Uruchom przykładowe zapytanie
 
 Teraz, po nawiązaniu połączenia z bazą danych, napiszemy zapytanie.
 
@@ -64,13 +64,13 @@ Teraz, po nawiązaniu połączenia z bazą danych, napiszemy zapytanie.
 2. Wybierz pozycję **Nowe zapytanie**. Otworzy się okno nowego zapytania.
 
    ![Nowe zapytanie](./media/sql-data-warehouse-query-ssms/new-query.png)
-3. Skopiuj do okna kwerendy następującą kwerendę T-SQL:
+3. Skopiuj następujące zapytanie T-SQL do okna zapytania:
 
    ```sql
    SELECT COUNT(*) FROM dbo.FactInternetSales;
    ```
 
-4. Uruchom kwerendę, `Execute` klikając lub użyj `F5`następującego skrótu: .
+4. Uruchom zapytanie, klikając `Execute` lub używając następującego skrótu:. `F5`
 
    ![Uruchamianie zapytania](./media/sql-data-warehouse-query-ssms/execute-query.png)
 5. Przejrzyj wyniki zapytania. W tym przykładzie tabela FactInternetSales ma 60398 wierszy.
@@ -79,4 +79,4 @@ Teraz, po nawiązaniu połączenia z bazą danych, napiszemy zapytanie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy możesz się połączyć i zapytać, spróbuj [zwizualizować dane za pomocą usługi Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md). Aby skonfigurować środowisko uwierzytelniania usługi Azure Active Directory, zobacz [Uwierzytelnianie w puli SQL](sql-data-warehouse-authentication.md).
+Teraz, gdy można nawiązać połączenie i wykonywać zapytania, spróbuj [wizualizować dane za pomocą Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md). Aby skonfigurować środowisko do uwierzytelniania Azure Active Directory, zobacz [uwierzytelnianie w puli SQL](sql-data-warehouse-authentication.md).

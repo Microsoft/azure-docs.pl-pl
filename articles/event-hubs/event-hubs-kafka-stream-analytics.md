@@ -1,6 +1,6 @@
 ---
-title: Usługi Azure Event Hubs — proces zdarzeń apache platformy Kafka
-description: 'Samouczek: W tym artykule pokazano, jak przetwarzać zdarzenia platformy Kafka, które są pozyskiwania za pośrednictwem centrów zdarzeń przy użyciu usługi Azure Stream Analytics'
+title: Azure Event Hubs — przetwarzanie zdarzeń Apache Kafka
+description: 'Samouczek: w tym artykule przedstawiono sposób przetwarzania zdarzeń Kafka, które są pozyskiwane za pośrednictwem centrów zdarzeń przy użyciu Azure Stream Analytics'
 services: event-hubs
 documentationcenter: ''
 author: spelluru
@@ -14,20 +14,20 @@ ms.custom: seodec18
 ms.date: 04/02/2020
 ms.author: spelluru
 ms.openlocfilehash: 9c678a91b88b87acb438311b4968be4cae46733b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80632805"
 ---
-# <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Samouczek: Przetwarzanie apache kafka dla zdarzeń centrum zdarzeń przy użyciu analizy strumienia 
-W tym artykule pokazano, jak przesyłać strumieniowo dane do centrów zdarzeń i przetwarzać go za pomocą usługi Azure Stream Analytics. Przeprowadzi Cię przez następujące kroki: 
+# <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Samouczek: proces Apache Kafka dla zdarzeń Event Hubs za pomocą usługi Stream Analytics 
+W tym artykule pokazano, jak przesłać strumieniowo dane do Event Hubs i przetworzyć je z Azure Stream Analytics. Przeprowadzi Cię przez następujące kroki: 
 
 1. Utwórz przestrzeń nazw usługi Event Hubs.
-2. Utwórz klienta platformy Kafka, który wysyła wiadomości do centrum zdarzeń.
-3. Utwórz zadanie usługi Stream Analytics, które kopiuje dane z Centrum zdarzeń do magazynu obiektów blob platformy Azure. 
+2. Utwórz klienta Kafka, który wysyła komunikaty do centrum zdarzeń.
+3. Utwórz zadanie Stream Analytics, które kopiuje dane z centrum zdarzeń do magazynu obiektów blob platformy Azure. 
 
-Nie trzeba zmieniać klientów protokołu ani uruchamiać własnych klastrów podczas korzystania z punktu końcowego platformy Kafka udostępnianego przez centrum zdarzeń. Usługa Azure Event Hubs obsługuje [platformę Apache Kafka w wersji 1.0.](https://kafka.apache.org/10/documentation.html) i powyżej. 
+Nie trzeba zmieniać klientów protokołu ani uruchamiać własnych klastrów, gdy używasz punktu końcowego Kafka uwidocznionego przez centrum zdarzeń. Usługa Azure Event Hubs obsługuje [platformę Apache Kafka w wersji 1.0.](https://kafka.apache.org/10/documentation.html) i powyżej. 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -38,20 +38,20 @@ Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz nastę
 * [Zestaw Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
 * [Pobierz](https://maven.apache.org/download.cgi) i [zainstaluj](https://maven.apache.org/install.html) archiwum binarne Maven.
 * [Git](https://www.git-scm.com/)
-* **Konto usługi Azure Storage**. Jeśli go nie masz, [utwórz go](../storage/common/storage-account-create.md) przed kontynuowaniem. Zadanie usługi Stream Analytics w tym instruktażu przechowuje dane wyjściowe w magazynie obiektów blob platformy Azure. 
+* **Konto usługi Azure Storage**. Jeśli go nie masz, [Utwórz go](../storage/common/storage-account-create.md) przed kontynuowaniem. Zadanie Stream Analytics w tym instruktażu przechowuje dane wyjściowe w usłudze Azure Blob Storage. 
 
 
 ## <a name="create-an-event-hubs-namespace"></a>Tworzenie przestrzeni nazw usługi Event Hubs
-Podczas tworzenia obszaru nazw centrum zdarzeń warstwy **standardowej** punkt końcowy platformy Kafka dla obszaru nazw jest automatycznie włączony. Można przesyłać strumieniowo zdarzenia z aplikacji korzystających z protokołu Kafka do centrum zdarzeń warstwy standardowej. Postępuj zgodnie z instrukcjami krok po kroku w [Centrum tworzenia zdarzeń przy użyciu witryny Azure Portal,](event-hubs-create.md) aby utworzyć obszar nazw centrum zdarzeń warstwy **standardowej.** 
+Podczas tworzenia warstwy **standardowa** Event Hubs przestrzeń nazw, punkt końcowy Kafka dla przestrzeni nazw jest automatycznie włączany. Zdarzenia z aplikacji korzystających z protokołu Kafka można przesyłać strumieniowo do warstwy Standardowa Event Hubs. Postępuj zgodnie z instrukcjami krok po kroku w temacie [Tworzenie centrum zdarzeń przy użyciu Azure Portal](event-hubs-create.md) , aby utworzyć Event Hubs przestrzeni nazw w warstwie **standardowa** . 
 
 > [!NOTE]
-> Centra zdarzeń dla platformy Kafka są dostępne tylko w **warstwach standardowych** i **dedykowanych.** Warstwa **podstawowa** nie obsługuje platformy Kafka w centrach zdarzeń.
+> Event Hubs dla Kafka jest dostępny tylko w warstwach **standardowa** i **dedykowana** . Warstwa **podstawowa** nie obsługuje Kafka na Event Hubs.
 
-## <a name="send-messages-with-kafka-in-event-hubs"></a>Wysyłanie wiadomości z platformą Kafka w Centrach zdarzeń
+## <a name="send-messages-with-kafka-in-event-hubs"></a>Wysyłanie komunikatów za pomocą Kafka w Event Hubs
 
-1. Klonuj [usługi Azure Event Hubs dla repozytorium platformy Kafka](https://github.com/Azure/azure-event-hubs-for-kafka) na komputerze.
+1. Sklonuj [Event Hubs Azure dla repozytorium Kafka](https://github.com/Azure/azure-event-hubs-for-kafka) na komputerze.
 2. Przejdź do folderu: `azure-event-hubs-for-kafka/quickstart/java/producer`. 
-4. Zaktualizuj szczegóły `src/main/resources/producer.config`konfiguracji producenta w programie . Określ **nazwę** i **parametry połączenia** obszaru nazw centrum **zdarzeń**. 
+4. Zaktualizuj szczegóły konfiguracji producenta w `src/main/resources/producer.config`temacie. Określ **nazwę** i **Parametry połączenia** dla **przestrzeni nazw centrum zdarzeń**. 
 
     ```xml
     bootstrap.servers={EVENT HUB NAMESPACE}.servicebus.windows.net:9093
@@ -60,90 +60,90 @@ Podczas tworzenia obszaru nazw centrum zdarzeń warstwy **standardowej** punkt k
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{CONNECTION STRING for EVENT HUB NAMESPACE}";
     ```
 
-5. Przejdź `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/`do pliku **TestDataReporter.java** w wybranym edytorze. 
+5. Przejdź do `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/`pliku **TestDataReporter. Java** i otwórz go w wybranym edytorze. 
 6. Skomentuj następujący wiersz kodu:
 
     ```java
                 //final ProducerRecord<Long, String> record = new ProducerRecord<Long, String>(TOPIC, time, "Test Data " + i);
     ```
-3. Dodaj następujący wiersz kodu zamiast komentowanego kodu: 
+3. Dodaj następujący wiersz kodu zamiast kodu komentarza: 
 
     ```java
                 final ProducerRecord<Long, String> record = new ProducerRecord<Long, String>(TOPIC, time, "{ \"eventData\": \"Test Data " + i + "\" }");            
     ```
 
-    Ten kod wysyła dane zdarzenia w formacie **JSON.** Podczas konfigurowania danych wejściowych dla zadania usługi Stream Analytics, należy określić JSON jako format danych wejściowych. 
-7. **Uruchom producenta** i strumień do Centrów zdarzeń. Na komputerze z systemem Windows podczas korzystania z **wiersza polecenia Node.js**przełącz się do folderu `azure-event-hubs-for-kafka/quickstart/java/producer` przed uruchomieniem tych poleceń. 
+    Ten kod wysyła dane zdarzenia w formacie **JSON** . Podczas konfigurowania danych wejściowych dla zadania Stream Analytics należy określić kod JSON jako format danych wejściowych. 
+7. **Uruchom producenta** i Prześlij strumieniowo do Event Hubs. Na komputerze z systemem Windows, w przypadku korzystania z **wiersza polecenia środowiska Node. js**, `azure-event-hubs-for-kafka/quickstart/java/producer` Przełącz się do folderu przed uruchomieniem tych poleceń. 
    
     ```shell
     mvn clean package
     mvn exec:java -Dexec.mainClass="TestProducer"                                    
     ```
 
-## <a name="verify-that-event-hub-receives-the-data"></a>Sprawdź, czy Centrum zdarzeń odbiera dane
+## <a name="verify-that-event-hub-receives-the-data"></a>Sprawdź, czy centrum zdarzeń odbiera dane
 
-1. Wybierz **centra zdarzeń** w obszarze **JEDNOSTKI**. Upewnij się, że widzisz centrum zdarzeń o nazwie **test**. 
+1. Wybierz **Event Hubs** w obszarze **jednostki**. Upewnij się, że widzisz centrum zdarzeń o nazwie **test**. 
 
     ![Centrum zdarzeń — test](./media/event-hubs-kafka-stream-analytics/test-event-hub.png)
-2. Upewnij się, że do centrum zdarzeń przychodzą komunikaty. 
+2. Potwierdź, że zobaczysz komunikaty przychodzące do centrum zdarzeń. 
 
-    ![Centrum zdarzeń - wiadomości](./media/event-hubs-kafka-stream-analytics/confirm-event-hub-messages.png)
+    ![Centrum zdarzeń — komunikaty](./media/event-hubs-kafka-stream-analytics/confirm-event-hub-messages.png)
 
-## <a name="process-event-data-using-a-stream-analytics-job"></a>Przetwarzanie danych zdarzeń przy użyciu zadania usługi Stream Analytics
-W tej sekcji utworzysz zadanie usługi Azure Stream Analytics. Klient platformy Kafka wysyła zdarzenia do centrum zdarzeń. Utwórz zadanie usługi Stream Analytics, które przyjmuje dane zdarzeń jako dane wejściowe i wyprowadza je do magazynu obiektów blob platformy Azure. Jeśli nie masz **konta usługi Azure Storage,** [utwórz je](../storage/common/storage-account-create.md).
+## <a name="process-event-data-using-a-stream-analytics-job"></a>Przetwarzanie danych zdarzeń przy użyciu zadania Stream Analytics
+W tej sekcji utworzysz zadanie Azure Stream Analytics. Klient Kafka wysyła zdarzenia do centrum zdarzeń. Tworzysz zadanie Stream Analytics, które pobiera dane zdarzeń jako dane wejściowe i wyprowadza je do magazynu obiektów blob platformy Azure. Jeśli nie masz **konta usługi Azure Storage**, [Utwórz je](../storage/common/storage-account-create.md).
 
-Kwerenda w zadaniu usługi Stream Analytics przekazuje dane bez przeprowadzania żadnych analiz. Można utworzyć kwerendę, która przekształca dane wejściowe do tworzenia danych wyjściowych w innym formacie lub z uzyskanych szczegółowych informacji.  
+Zapytanie w Stream Analytics zadania przejdzie przez dane bez wykonywania żadnej analizy. Można utworzyć zapytanie, które przekształca dane wejściowe w celu wygenerowania danych wyjściowych w innym formacie lub z uzyskaniem szczegółowych informacji.  
 
 ### <a name="create-a-stream-analytics-job"></a>Tworzenie zadania usługi Stream Analytics 
 
-1. Wybierz **+ Utwórz zasób** w [witrynie Azure portal](https://portal.azure.com).
-2. Wybierz **pozycję Analytics** w menu Portalu Azure **Marketplace** i wybierz zadanie usługi **Stream Analytics**. 
-3. Na stronie **Nowa analiza strumienia** wykonaj następujące czynności: 
+1. Wybierz pozycję **+ Utwórz zasób** w [Azure Portal](https://portal.azure.com).
+2. Wybierz pozycję **Analiza** w menu **portalu Azure Marketplace** , a następnie wybierz pozycję **Stream Analytics zadanie**. 
+3. Na stronie **nowy Stream Analytics** wykonaj następujące czynności: 
     1. Wprowadź **nazwę** zadania. 
-    2. Wybierz **subskrypcję**.
-    3. Wybierz **pozycję Utwórz nowy** dla grupy **zasobów** i wprowadź jej nazwę. Można również **użyć istniejącej** grupy zasobów. 
-    4. Wybierz **lokalizację** zadania.
-    5. Wybierz **pozycję Utwórz,** aby utworzyć zadanie. 
+    2. Wybierz swoją **subskrypcję**.
+    3. Wybierz pozycję **Utwórz nowy** dla **grupy zasobów** , a następnie wprowadź nazwę. Można również **użyć istniejącej** grupy zasobów. 
+    4. Wybierz **lokalizację** dla zadania.
+    5. Wybierz pozycję **Utwórz** , aby utworzyć zadanie. 
 
-        ![Nowe zadanie usługi Stream Analytics](./media/event-hubs-kafka-stream-analytics/new-stream-analytics-job.png)
+        ![Nowe zadanie Stream Analytics](./media/event-hubs-kafka-stream-analytics/new-stream-analytics-job.png)
 
 ### <a name="configure-job-input"></a>Konfigurowanie danych wejściowych zadania
 
-1. W komunikacie z powiadomieniem wybierz pozycję **Przejdź do zasobu,** aby wyświetlić stronę **zadania usługi Stream Analytics.** 
-2. **Wybierz wejścia** w sekcji **TOPOLOGIA ZADANIA** w menu po lewej stronie.
-3. Wybierz **pozycję Dodaj dane wejściowe strumienia**, a następnie wybierz pozycję Centrum **zdarzeń**. 
+1. W komunikacie powiadomienia wybierz pozycję **Przejdź do zasobu** , aby wyświetlić stronę **zadania Stream Analytics** . 
+2. Wybierz pozycję **dane wejściowe** w sekcji **topologia zadania** w menu po lewej stronie.
+3. Wybierz pozycję **Dodaj strumień wejściowy**, a następnie wybierz pozycję **centrum zdarzeń**. 
 
-    ![Dodawanie centrum zdarzeń jako danych wejściowych](./media/event-hubs-kafka-stream-analytics/select-event-hub-input.png)
-4. Na stronie konfiguracji **wejściowej Centrum zdarzeń** wykonaj następujące czynności: 
+    ![Dodaj centrum zdarzeń jako dane wejściowe](./media/event-hubs-kafka-stream-analytics/select-event-hub-input.png)
+4. Na stronie Konfiguracja **danych wejściowych centrum zdarzeń** wykonaj następujące czynności: 
 
-    1. Określ **alias** danych wejściowych. 
+    1. Określ **alias** dla danych wejściowych. 
     2. Wybierz swoją **subskrypcję platformy Azure**.
-    3. Wybierz **obszar nazw centrum zdarzeń** utworzony wcześniej. 
-    4. Wybierz **test** dla **centrum zdarzeń**. 
-    5. Wybierz **pozycję Zapisz**. 
+    3. Wybierz utworzoną wcześniej **przestrzeń nazw centrum zdarzeń** . 
+    4. Wybierz **test** **centrum zdarzeń**. 
+    5. Wybierz pozycję **Zapisz**. 
 
-        ![Konfiguracja wprowadzania centrum zdarzeń](./media/event-hubs-kafka-stream-analytics/event-hub-input-configuration.png)
+        ![Konfiguracja danych wejściowych centrum zdarzeń](./media/event-hubs-kafka-stream-analytics/event-hub-input-configuration.png)
 
 ### <a name="configure-job-output"></a>Konfigurowanie danych wyjściowych zadania 
 
-1. Wybierz **pozycję Wyjścia** w sekcji **TOPOLOGIA ZADAŃ** w menu. 
-2. Wybierz **pozycję + Dodaj** na pasku narzędzi i wybierz pozycję Magazyn obiektów **Blob**
-3. Na stronie Ustawienia wyjściowe magazynu obiektów blob wykonaj następujące czynności: 
+1. Wybierz pozycję dane **wyjściowe** w sekcji **topologia zadania** w menu. 
+2. Wybierz pozycję **+ Dodaj** na pasku narzędzi i wybierz pozycję **BLOB Storage**
+3. Na stronie Ustawienia wyjściowe magazynu obiektów BLOB wykonaj następujące czynności: 
     1. Określ **alias** dla danych wyjściowych. 
     2. Wybierz swoją **subskrypcję** platformy Azure. 
-    3. Wybierz swoje **konto usługi Azure Storage**. 
-    4. Wprowadź **nazwę kontenera,** który przechowuje dane wyjściowe z kwerendy usługi Stream Analytics.
-    5. Wybierz **pozycję Zapisz**.
+    3. Wybierz **konto usługi Azure Storage**. 
+    4. Wprowadź **nazwę kontenera** , w którym są przechowywane dane wyjściowe z kwerendy Stream Analytics.
+    5. Wybierz pozycję **Zapisz**.
 
-        ![Konfiguracja wyjściowa magazynu obiektów blob](./media/event-hubs-kafka-stream-analytics/output-blob-settings.png)
+        ![Blob Storage konfiguracja wyjściowa](./media/event-hubs-kafka-stream-analytics/output-blob-settings.png)
  
 
-### <a name="define-a-query"></a>Definiowanie kwerendy
-Po skonfigurowaniu zadania usługi Stream Analytics do odczytu przychodzącego strumienia danych następnym krokiem jest utworzenie przekształcenia, które analizuje dane w czasie rzeczywistym. Zapytanie przekształcenia należy zdefiniować przy użyciu [języka zapytań usługi Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). W tym instruktażu można zdefiniować kwerendę, która przechodzi przez dane bez wykonywania transformacji.
+### <a name="define-a-query"></a>Definiowanie zapytania
+Po skonfigurowaniu zadania usługi Stream Analytics do odczytu przychodzącego strumienia danych następnym krokiem jest utworzenie przekształcenia, które analizuje dane w czasie rzeczywistym. Zapytanie przekształcenia należy zdefiniować przy użyciu [języka zapytań usługi Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). W tym instruktażu zdefiniujesz zapytanie, które przekazuje dane bez wykonywania transformacji.
 
-1. Wybierz **opcję Kwerenda**.
-2. W oknie kwerendy `[YourOutputAlias]` zastąp aliasem wyjściowym utworzonym wcześniej.
-3. Zastąp `[YourInputAlias]` wcześniej utworzonym aliasem wejściowym. 
+1. Wybierz **zapytanie**.
+2. W oknie zapytania Zastąp `[YourOutputAlias]` wartość utworzonym wcześniej aliasem wyjściowym.
+3. Zamień `[YourInputAlias]` na utworzony wcześniej alias wejściowy. 
 4. Wybierz pozycję **Zapisz** na pasku narzędzi. 
 
     ![Zapytanie](./media/event-hubs-kafka-stream-analytics/query.png)
@@ -151,24 +151,24 @@ Po skonfigurowaniu zadania usługi Stream Analytics do odczytu przychodzącego s
 
 ### <a name="run-the-stream-analytics-job"></a>Uruchamianie zadania usługi Stream Analytics
 
-1. Wybierz **pozycję Przegląd** w menu po lewej stronie. 
+1. Z menu po lewej stronie wybierz pozycję **Przegląd** . 
 2. Wybierz pozycję **Uruchom**. 
 
     ![Menu Start](./media/event-hubs-kafka-stream-analytics/start-menu.png)
-1. Na stronie **Rozpocznij pracę** wybierz pozycję **Start**. 
+1. Na stronie **Uruchamianie zadania** wybierz pozycję **Rozpocznij**. 
 
     ![Strona uruchamiania zadania](./media/event-hubs-kafka-stream-analytics/start-job-page.png)
-1. Poczekaj, aż stan zadania zmieni się z **Rozpoczęcie** do **uruchomienia**. 
+1. Poczekaj, aż stan zadania zmieni się z **Rozpoczynanie** na **uruchomione**. 
 
-    ![Stan zadania — uruchamianie](./media/event-hubs-kafka-stream-analytics/running.png)
+    ![Stan zadania — uruchomiono](./media/event-hubs-kafka-stream-analytics/running.png)
 
 ## <a name="test-the-scenario"></a>Testowanie scenariusza
-1. Uruchom **ponownie producenta platformy Kafka,** aby wysłać zdarzenia do centrum zdarzeń. 
+1. Uruchom ponownie **producenta Kafka** , aby wysłać zdarzenia do centrum zdarzeń. 
 
     ```shell
     mvn exec:java -Dexec.mainClass="TestProducer"                                    
     ```
-1. Upewnij się, że dane **wyjściowe** są generowane w **magazynie obiektów blob platformy Azure**. W kontenerze jest widoczny plik JSON ze 100 wierszami, które wyglądają jak następujące przykładowe wiersze: 
+1. Upewnij się, że w **usłudze Azure Blob Storage**są generowane **dane wyjściowe** . W kontenerze zostanie wyświetlony plik JSON z 100 wierszami, które wyglądają jak w następujących przykładowych wierszach: 
 
     ```
     {"eventData":"Test Data 0","EventProcessedUtcTime":"2018-08-30T03:27:23.1592910Z","PartitionId":0,"EventEnqueuedUtcTime":"2018-08-30T03:27:22.9220000Z"}
@@ -176,9 +176,9 @@ Po skonfigurowaniu zadania usługi Stream Analytics do odczytu przychodzącego s
     {"eventData":"Test Data 2","EventProcessedUtcTime":"2018-08-30T03:27:23.3936511Z","PartitionId":0,"EventEnqueuedUtcTime":"2018-08-30T03:27:22.9220000Z"}
     ```
 
-    Zadanie usługi Azure Stream Analytics odebrało dane wejściowe z Centrum zdarzeń i przechowywać je w magazynie obiektów blob platformy Azure w tym scenariuszu. 
+    Zadanie Azure Stream Analytics otrzymało dane wejściowe z centrum zdarzeń i zapisano je w magazynie obiektów blob platformy Azure w tym scenariuszu. 
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule dowiesz się, jak przesyłać strumieniowo do centrów zdarzeń bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Aby dowiedzieć się więcej o centrach zdarzeń dla platformy Apache Kafka, zobacz [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md). 
+W tym artykule przedstawiono sposób przesyłania strumieniowego do Event Hubs bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Aby dowiedzieć się więcej na temat Event Hubs Apache Kafka, zobacz [Przewodnik dla deweloperów Apache Kafka dla Event Hubs platformy Azure](apache-kafka-developer-guide.md). 

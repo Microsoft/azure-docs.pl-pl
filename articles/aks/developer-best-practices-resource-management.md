@@ -1,56 +1,56 @@
 ---
-title: Najważniejsze wskazówki dotyczące zarządzania zasobami
+title: Najlepsze rozwiązania dotyczące zarządzania zasobami
 titleSuffix: Azure Kubernetes Service
-description: Zapoznaj się z najlepszymi rozwiązaniami dla deweloperów aplikacji dotyczących zarządzania zasobami w usłudze Azure Kubernetes Service (AKS)
+description: Poznaj najlepsze rozwiązania dla deweloperów aplikacji dotyczące zarządzania zasobami w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
 ms.openlocfilehash: 0052657c947f8a9ff9c9d6aef86ff16d9a22adae
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80803487"
 ---
-# <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Najważniejsze wskazówki dotyczące zarządzania zasobami przez deweloperów aplikacji w usłudze Azure Kubernetes Service (AKS)
+# <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dla deweloperów aplikacji do zarządzania zasobami w usłudze Azure Kubernetes Service (AKS)
 
-Podczas tworzenia i uruchamiania aplikacji w usłudze Azure Kubernetes Service (AKS) istnieje kilka kluczowych obszarów, które należy wziąć pod uwagę. Sposób zarządzania wdrożeniami aplikacji może negatywnie wpłynąć na środowisko użytkownika końcowego usług, które świadczysz. Aby pomóc Ci odnieść sukces, należy pamiętać o niektórych sprawdzonych praktykach, które można wykonać podczas opracowywania i uruchamiania aplikacji w uaś według aksu.
+Podczas opracowywania i uruchamiania aplikacji w usłudze Azure Kubernetes Service (AKS) istnieje kilka kluczowych zagadnień, które należy wziąć pod uwagę. Zarządzanie wdrożeniami aplikacji może mieć negatywny wpływ na środowisko użytkownika końcowego, które zapewnia usługa. Aby pomóc w pomyślnym zapewnieniu, należy wziąć pod uwagę niektóre najlepsze rozwiązania, które można wykonać podczas tworzenia i uruchamiania aplikacji w AKS.
 
-W tym artykule najważniejsze wskazówki koncentruje się na jak uruchomić klastra i obciążeń z punktu widzenia dewelopera aplikacji. Aby uzyskać informacje na temat najlepszych rozwiązań administracyjnych, zobacz [Najważniejsze wskazówki dotyczące izolacji i zarządzania zasobami w usłudze Azure Kubernetes Service (AKS).][operator-best-practices-isolation] W tym artykule omówiono następujące zagadnienia:
+Ten artykuł dotyczący najlepszych rozwiązań koncentruje się na sposobie uruchamiania klastra i obciążeń z perspektywy deweloperów aplikacji. Aby uzyskać informacje o najlepszych rozwiązaniach administracyjnych, zobacz [najlepsze rozwiązania operatorów klastrów na potrzeby izolacji i zarządzania zasobami w usłudze Azure Kubernetes Service (AKS)][operator-best-practices-isolation]. W tym artykule omówiono następujące zagadnienia:
 
 > [!div class="checklist"]
-> * Co to są żądania zasobów zasobu zasobu zasobu zasobu zasobu
-> * Sposoby tworzenia i wdrażania aplikacji za pomocą funkcji Dev Spaces i Visual Studio Code
-> * Jak korzystać `kube-advisor` z narzędzia, aby sprawdzić problemy z wdrożeniami
+> * Co to są żądania zasobów i limity
+> * Sposoby tworzenia i wdrażania aplikacji przy użyciu funkcji miejsca do magazynowania i Visual Studio Code
+> * Jak używać `kube-advisor` narzędzia do sprawdzania problemów z wdrożeniami
 
-## <a name="define-pod-resource-requests-and-limits"></a>Definiowanie żądań i limitów zasobów zasobu zasobu zasobu zasobu zasobu zasobu
+## <a name="define-pod-resource-requests-and-limits"></a>Definiuj żądania zasobów i limity
 
-**Wskazówki dotyczące najlepszych praktyk** — ustaw żądania zasobników i limity dla wszystkich zasobników w manifestach YAML. Jeśli klaster AKS używa *przydziałów zasobów,* wdrożenie może zostać odrzucone, jeśli te wartości nie zostaną zdefiniowane.
+**Wskazówki dotyczące najlepszych** rozwiązań — Ustaw żądania i limity dla wszystkich zasobników w manifestach YAML. Jeśli klaster AKS korzysta z *przydziałów zasobów*, wdrożenie może zostać odrzucone, jeśli nie zostaną zdefiniowane te wartości.
 
-Podstawowym sposobem zarządzania zasobami obliczeniowymi w klastrze AKS jest użycie żądań zasobników i limitów. Te żądania i limity niech Harmonogram Kubernetes wiedzieć, jakie zasoby obliczeniowe zasoby zasobnik powinien być przypisany.
+Podstawowym sposobem zarządzania zasobami obliczeniowymi w klastrze AKS jest użycie żądań i limitów. Te żądania i limity pozwalają usłudze Kubernetes Scheduler wiedzieć, jakie zasoby obliczeniowe należy przypisać.
 
-* **Pod CPU/ Memory żądań** zdefiniować określoną ilość procesora CPU i pamięci, że zasobnik potrzebuje na bieżąco.
-    * Gdy harmonogram Kubernetes próbuje umieścić zasobnik w węźle, żądania zasobnika są używane do określenia, który węzeł ma wystarczające zasoby dostępne do planowania.
-    * Nie ustawienie żądania zasobnika spowoduje jego ustawienie domyślnie zdefiniowanego limitu.
-    * Jest bardzo ważne, aby monitorować wydajność aplikacji, aby dostosować te żądania. Jeśli nie są składane niewystarczające żądania, aplikacja może odbierać wydajność obniżoną z powodu planowania węzła. Jeśli żądania są przeszacowane, aplikacja może mieć zwiększone trudności z uzyskaniem zaplanowanego.
-* **Limity procesora/pamięci zasobników** to maksymalna ilość procesora i pamięci, z których może korzystać zasobnik. Limity te pomagają określić, które zasobniki powinny zostać zabite w przypadku niestabilności węzła z powodu niewystarczających zasobów. Bez odpowiednich limitów ustawione strąki zostaną zabite do czasu podniesienia ciśnienia zasobów.
-    * Limity zasobników pomagają zdefiniować, kiedy zasobnik utracił kontrolę nad zużyciem zasobów. Po przekroczeniu limitu zasobnik jest priorytetem dla zabijania w celu utrzymania kondycji węzła i zminimalizowania wpływu na zasobników współużytkowanych węzła.
-    * Nie ustawienie limitu zasobnika domyślnie do najwyższej dostępnej wartości w danym węźle.
-    * Nie ustawiaj limitu zasobników wyższego niż obsługiwane przez węzły. Każdy węzeł AKS rezerwuje określoną ilość procesora CPU i pamięci dla podstawowych składników Kubernetes. Aplikacja może próbować zużywać zbyt wiele zasobów w węźle dla innych zasobników, aby pomyślnie uruchomić.
-    * Ponownie, bardzo ważne jest, aby monitorować wydajność aplikacji w różnych porach dnia lub tygodnia. Określ, kiedy jest szczytowe zapotrzebowanie i wyrównaj limity zasobników do zasobów wymaganych do zaspokojenia maksymalnych potrzeb aplikacji.
+* W obszarze **żądania procesora CPU/pamięci** definiuje określoną ilość czasu procesora i pamięci, która jest regularnie wymagana.
+    * Gdy planista usługi Kubernetes próbuje umieścić element na węźle, żądania poniżej są używane do określenia, który węzeł ma wystarczające zasoby dostępne do zaplanowania.
+    * Jeśli żądanie nie zostanie skonfigurowane, zostanie ono ustawione domyślnie na określony limit.
+    * Bardzo ważne jest, aby monitorować wydajność aplikacji w celu dostosowania tych żądań. Jeśli są wykonywane niewystarczające żądania, aplikacja może otrzymać obniżoną wydajność z powodu zbyt krótkiego planowania węzła. Jeśli żądania są zawyżone, aplikacja może zwiększyć zaplanowaną trudność.
+* **Limity procesora CPU/pamięci** są maksymalną ilością procesora i pamięci, której może użyć. Te limity ułatwiają zdefiniowanie, które z nich mają być zabijane w przypadku niestabilności węzła z powodu niewystarczających zasobów. Bez odpowiednich limitów ustawionych zasobniki zostaną zabite, dopóki obciążenie zasobów nie zostanie zniesione.
+    * Limity powyżej ułatwiają zdefiniowanie, kiedy w obszarze została utracona Kontrola zużycia zasobów. Po przekroczeniu limitu wartość w obszarze jest określana jako priorytetowe w celu utrzymania kondycji węzła i zminimalizowania wpływu na te, które współużytkują węzeł.
+    * W przypadku ustawienia wartości granicznej nie można ustawić najwyższej dostępnej wartości w danym węźle.
+    * Nie ustawiaj limitu pod wyższe niż nie można obsługiwać węzłów. Każdy węzeł AKS rezerwuje określoną ilość procesora CPU i pamięci dla podstawowych składników Kubernetes. Aplikacja może próbować użyć zbyt wielu zasobów w węźle, aby pozostałe zasobniki mogły zostać pomyślnie uruchomione.
+    * Z tego powodu bardzo ważne jest, aby monitorować wydajność aplikacji w różnym czasie w ciągu dnia lub tygodnia. Określ, kiedy szczytowe zapotrzebowanie ma, i Dopasuj limity pod względem zasobów wymaganych do osiągnięcia maksymalnych potrzeb aplikacji.
 
-W specyfikacji zasobnika jest **najlepszym rozwiązaniem i bardzo ważne** jest zdefiniowanie tych żądań i limitów na podstawie powyższych informacji. Jeśli te wartości nie zostaną uwzględnione, harmonogram usługi Kubernetes nie może uwzględniać zasobów wymaganych przez aplikacje do pomocy w podejmowaniu decyzji dotyczących planowania.
+We własnych specyfikacjach **najlepiej** jest określić te żądania i limity na podstawie powyższych informacji. Jeśli nie dołączysz tych wartości, usługa Kubernetes Scheduler nie może uwzględnić zasobów wymaganych przez aplikacje w celu uzyskania pomocy w planowaniu decyzji.
 
-Jeśli harmonogram umieszcza zasobnika w węźle z niewystarczających zasobów, wydajność aplikacji zostanie obniżona. Zdecydowanie zaleca się, aby administratorzy klastrów ustawiali *przydziały zasobów* w obszarze nazw, który wymaga ustawiania żądań i limitów zasobów. Aby uzyskać więcej informacji, zobacz [Przydziały zasobów w klastrach AKS][resource-quotas].
+Jeśli harmonogram umieści miejsce na węźle z niewystarczającymi zasobami, wydajność aplikacji zostanie obniżona. Zdecydowanie zaleca się, aby administratorzy klastrów ustawiali *limity przydziału zasobów* w przestrzeni nazw, która wymaga ustawienia żądań i limitów zasobów. Aby uzyskać więcej informacji, zobacz [zasoby zasobów w klastrach AKS][resource-quotas].
 
 Podczas definiowania żądania lub limitu procesora CPU wartość jest mierzona w jednostkach procesora CPU. 
-* *Procesor 1.0* jest równy jednemu z podstawowych rdzeni wirtualnych procesorów w węźle. 
-* Ten sam pomiar jest używany dla procesorów graficznych.
-* Można zdefiniować ułamki mierzone w milikores. Na przykład *100m* jest *0,1* podstawowego rdzenia vCPU.
+* *1,0* CPU odpowiada jednemu podstawowemu RDZENIU procesora CPU w węźle. 
+* Ten sam pomiar jest używany w procesorach GPU.
+* Można zdefiniować ułamki mierzone w millicores. Na przykład *100 mln* jest *0,1* podstawowego rdzeń vCPU.
 
-W poniższym podstawowym przykładzie dla pojedynczego zasobnika NGINX zasobnik żąda *100m* czasu procesora CPU i *128Mi* pamięci. Limity zasobów dla zasobnika są ustawione na *250m* cpu i *256Mi* pamięci:
+W poniższym przykładowym przykładzie dla pojedynczego NGINX pod, żądania pod *100 mln* czasu procesora CPU i *128Mi* pamięci. Limity zasobów dla pod są ustawione na *250m* procesora CPU i *256Mi* pamięć:
 
 ```yaml
 kind: Pod
@@ -70,46 +70,46 @@ spec:
         memory: 256Mi
 ```
 
-Aby uzyskać więcej informacji na temat pomiarów i przydziałów zasobów, zobacz [Zarządzanie zasobami obliczeniowymi kontenerów][k8s-resource-limits].
+Aby uzyskać więcej informacji na temat pomiarów zasobów i przydziałów, zobacz [Zarządzanie zasobami obliczeniowymi dla kontenerów][k8s-resource-limits].
 
-## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Tworzenie i debugowanie aplikacji względem klastra AKS
+## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Opracowywanie i debugowanie aplikacji w klastrze AKS
 
-**Wskazówki dotyczące najlepszych rozwiązań** — zespoły programistyczne należy wdrożyć i debugować względem klastra AKS przy użyciu obszarów deweloperów. Ten model programistyczny zapewnia, że formanty dostępu oparte na rolach, potrzeby sieci lub magazynu są implementowane przed wdrożeniem aplikacji w procesach produkcyjnych.
+**Wskazówki dotyczące najlepszych** rozwiązań — zespoły programistyczne powinny wdrażać i debugować dla klastra AKS przy użyciu funkcji Spaces dev. Ten model programistyczny gwarantuje, że potrzeby kontroli dostępu opartej na rolach, sieci lub magazynu są implementowane przed wdrożeniem aplikacji w środowisku produkcyjnym.
 
-Za pomocą usługi Azure Dev Spaces można tworzyć, debugować i testować aplikacje bezpośrednio względem klastra AKS. Deweloperzy w zespole współpracują ze sobą w celu tworzenia i testowania w całym cyklu życia aplikacji. Można nadal korzystać z istniejących narzędzi, takich jak Visual Studio lub Visual Studio Code. Rozszerzenie jest zainstalowane dla dev spaces, który daje możliwość uruchamiania i debugowania aplikacji w klastrze AKS:
+Dzięki Azure Dev Spaces można opracowywać, debugować i testować aplikacje bezpośrednio w klastrze AKS. Deweloperzy w zespole współpracują ze sobą, aby kompilować i testować cały cykl życia aplikacji. Można nadal korzystać z istniejących narzędzi, takich jak Visual Studio lub Visual Studio Code. Rozszerzenie jest zainstalowane dla funkcji miejsca do użytku deweloperskiego, które udostępnia opcję uruchamiania i debugowania aplikacji w klastrze AKS:
 
-![Debugowanie aplikacji w klastrze AKS ze spacjami deweloperów](media/developer-best-practices-resource-management/dev-spaces-debug.png)
+![Debugowanie aplikacji w klastrze AKS z miejscami deweloperskimi](media/developer-best-practices-resource-management/dev-spaces-debug.png)
 
-Ten zintegrowany proces rozwoju i testowania z dev spaces zmniejsza zapotrzebowanie na lokalne środowiska testowe, takie jak [minikube][minikube]. Zamiast tego należy opracować i przetestować na klastrze AKS. Ten klaster może być zabezpieczony i odizolowany, jak wspomniano w poprzedniej sekcji dotyczącej używania obszarów nazw do logicznego izolowania klastra. Gdy aplikacje są gotowe do wdrożenia w procesach produkcyjnych, można śmiało wdrożyć, jak rozwój został wykonany na całym klastrze AKS.
+Ten zintegrowany proces tworzenia i testowania z miejscami deweloperskimi zmniejsza potrzebę używania lokalnych środowisk testowych, takich jak [minikube][minikube]. Zamiast tego można tworzyć i testować klaster AKS. Ten klaster może być zabezpieczony i izolowany, jak wspomniano w poprzedniej sekcji dotyczącej używania przestrzeni nazw do logicznego izolowania klastra. Gdy aplikacje są gotowe do wdrożenia w środowisku produkcyjnym, można je bezpiecznie wdrożyć w miarę rozwoju.
 
-Usługa Azure Dev Spaces jest przeznaczona do użytku z aplikacjami uruchamiającymi się w zasobnikach i węzłach systemu Linux.
+Azure Dev Spaces jest przeznaczony do użycia z aplikacjami, które działają w ramach systemów i węzłów systemu Linux.
 
-## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Używanie rozszerzenia kodu programu Visual Studio dla usługi Kubernetes
+## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Użyj rozszerzenia Visual Studio Code dla Kubernetes
 
-**Wskazówki dotyczące najlepszych praktyk** — instalowanie i używanie rozszerzenia kodu programu VS dla aplikacji Kubernetes podczas pisania manifestów YAML. Można również użyć rozszerzenia dla zintegrowanego rozwiązania wdrożeniowego, które może pomóc właścicielom aplikacji, które rzadko wchodzą w interakcje z klastrem AKS.
+**Wskazówki dotyczące najlepszych** rozwiązań — Zainstaluj i użyj rozszerzenia vs Code Kubernetes podczas pisania manifestów YAML. Można również użyć rozszerzenia dla zintegrowanego rozwiązania do wdrażania, które może pomóc właścicielom aplikacji, którzy rzadko współdziałają z klastrem AKS.
 
-[Rozszerzenie kodu programu Visual Studio dla usługi Kubernetes][vscode-kubernetes] ułatwia tworzenie i wdrażanie aplikacji w u usługi AKS. Rozszerzenie zapewnia intellisense dla zasobów Kubernetes i helm wykresy i szablony. Można również przeglądać, wdrażać i edytować zasoby kubernetes z poziomu programu VS Code. Rozszerzenie zapewnia również intellisense sprawdzić żądania zasobów lub limity są ustawiane w specyfikacji zasobu:
+[Visual Studio Code rozszerzenie Kubernetes][vscode-kubernetes] ułatwia tworzenie i wdrażanie aplikacji w AKS. Rozszerzenie udostępnia funkcję IntelliSense dla zasobów Kubernetes oraz wykresów i szablonów Helm. Możesz również przeglądać, wdrażać i edytować zasoby Kubernetes z poziomu VS Code. Rozszerzenie udostępnia również kontrolę IntelliSense dla żądań zasobów lub limitów ustawionych w specyfikacjach pod:
 
-![Rozszerzenie kodu VS dla aplikacji Kubernetes ostrzeżenie o brakujących limitów pamięci](media/developer-best-practices-resource-management/vs-code-kubernetes-extension.png)
+![VS Code rozszerzenie dla ostrzeżenia Kubernetes o brakujących limitów pamięci](media/developer-best-practices-resource-management/vs-code-kubernetes-extension.png)
 
-## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Regularnie sprawdzaj problemy z aplikacją z kube-advisor
+## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Regularnie sprawdzaj problemy z aplikacjami za pomocą usługi polecenia-Advisor
 
-**Wskazówki dotyczące najlepszych praktyk** — `kube-advisor` regularnie uruchamiaj najnowszą wersję narzędzia open source w celu wykrywania problemów w klastrze. Jeśli zastosujesz przydziały zasobów do istniejącego `kube-advisor` klastra usługi AKS, uruchom najpierw, aby znaleźć zasobniki, które nie mają zdefiniowanych żądań zasobów i limitów.
+**Wskazówki dotyczące najlepszych** rozwiązań — regularnie uruchamiaj najnowszą wersję `kube-advisor` narzędzia Open Source, aby wykrywać problemy w klastrze. W przypadku zastosowania przydziałów zasobów w istniejącym klastrze AKS `kube-advisor` najpierw uruchom polecenie, aby znaleźć informacje o jednostkach, dla których zdefiniowano żądania zasobów i limity.
 
-Narzędzie [kube-advisor][kube-advisor] jest skojarzonym projektem open source usługi AKS, który skanuje klaster Kubernetes i raportuje problemy, które znajdzie. Jednym z przydatnych kontroli jest zidentyfikowanie zasobników, które nie mają żądań zasobów i limitów w miejscu.
+Narzędzie [polecenia-Advisor][kube-advisor] to SKOJARZONY projekt AKS typu open source, który skanuje klaster Kubernetes i raportuje o znalezionych problemach. Jednym z przydatnych kontroli jest zidentyfikowanie, które nie mają żądań zasobów i limitów.
 
-Narzędzie kube-advisor może raportować żądanie zasobów i limity brakujące w PodSpecs dla aplikacji Windows, a także aplikacji Linux, ale samo narzędzie kube-advisor musi być zaplanowane na zasobniku Linux. Można zaplanować zasobnik do uruchomienia w puli węzłów z określonego systemu operacyjnego przy użyciu [selektora węzłów][k8s-node-selector] w konfiguracji zasobnika.
+Narzędzie polecenia-Advisor może raportować żądania zasobów i limitów braku w PodSpecs dla aplikacji systemu Windows, a także aplikacji z systemem Linux, ale narzędzie Advisor polecenia musi zostać zaplanowane w systemie Linux pod. Można zaplanować uruchomienie w puli węzłów z określonym systemem operacyjnym przy użyciu [selektora węzłów][k8s-node-selector] w konfiguracji pod.
 
-W klastrze AKS, który obsługuje wiele zespołów programistycznych i aplikacji, może być trudne do śledzenia zasobników bez tych żądań zasobów i limitów ustawionych. Najlepszym rozwiązaniem jest regularne `kube-advisor` uruchamianie klastrów usługi AKS.
+W klastrze AKS, który hostuje wiele zespołów i aplikacji programistycznych, może być trudno śledzić zestaw na platformie i nie tylko te żądania zasobów i limity. Najlepszym rozwiązaniem jest regularne działanie `kube-advisor` w klastrach AKS.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule najważniejsze wskazówki koncentruje się na jak uruchomić klastra i obciążeń z punktu widzenia operatora klastra. Aby uzyskać informacje na temat najlepszych rozwiązań administracyjnych, zobacz [Najważniejsze wskazówki dotyczące izolacji i zarządzania zasobami w usłudze Azure Kubernetes Service (AKS).][operator-best-practices-isolation]
+W tym artykule dotyczącym najlepszych rozwiązań opisano sposób uruchamiania klastra i obciążeń z perspektywy operatora klastra. Aby uzyskać informacje o najlepszych rozwiązaniach administracyjnych, zobacz [najlepsze rozwiązania operatorów klastrów na potrzeby izolacji i zarządzania zasobami w usłudze Azure Kubernetes Service (AKS)][operator-best-practices-isolation].
 
 Aby zaimplementować niektóre z tych najlepszych rozwiązań, zobacz następujące artykuły:
 
 * [Programowanie za pomocą usługi Dev Spaces][dev-spaces]
-* [Sprawdź, czy nie występują problemy z kube-advisor][aks-kubeadvisor]
+* [Sprawdź, czy występują problemy z usługą polecenia — Advisor][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->
 [k8s-resource-limits]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/

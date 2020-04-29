@@ -1,5 +1,5 @@
 ---
-title: Oprawa graficzna
+title: Powiązanie grafiki
 description: Konfiguracja powiązań graficznych i przypadków użycia
 author: florianborn71
 manager: jlyons
@@ -10,31 +10,31 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.openlocfilehash: 8b5db0532f3dcc8b6dfb024238d0cacff2e6d2a1
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681885"
 ---
-# <a name="graphics-binding"></a>Oprawa graficzna
+# <a name="graphics-binding"></a>Powiązanie grafiki
 
-Aby móc korzystać z renderowania zdalnego platformy Azure w aplikacji niestandardowej, musi być zintegrowany z potokiem renderowania aplikacji. Ta integracja jest odpowiedzialny za powiązanie grafiki.
+Aby można było korzystać z zdalnego renderowania platformy Azure w aplikacji niestandardowej, należy zintegrować ją z potokiem renderowania aplikacji. Integracja jest odpowiedzialna za powiązanie grafiki.
 
-Po skonfigurowaniu powiązania grafiki daje dostęp do różnych funkcji, które wpływają na renderowany obraz. Funkcje te można podzielić na dwie kategorie: ogólne funkcje, które są zawsze `Microsoft.Azure.RemoteRendering.GraphicsApiType`dostępne, oraz określone funkcje, które są istotne tylko dla wybranego .
+Po skonfigurowaniu, powiązanie grafiki zapewnia dostęp do różnych funkcji, które mają wpływ na renderowany obraz. Te funkcje można podzielić na dwie kategorie: ogólne funkcje, które są zawsze dostępne i określone funkcje, które są odpowiednie dla wybranych `Microsoft.Azure.RemoteRendering.GraphicsApiType`.
 
-## <a name="graphics-binding-in-unity"></a>Oprawa graficzna w unity
+## <a name="graphics-binding-in-unity"></a>Powiązanie grafiki w aparacie Unity
 
-W unity, całe powiązanie jest `RemoteUnityClientInit` obsługiwane przez `RemoteManagerUnity.InitializeManager`struktury przekazywane do . Aby ustawić tryb graficzny, `GraphicsApiType` pole musi być ustawione na wybrane powiązanie. Pole zostanie automatycznie wypełnione w zależności od tego, czy xrdevice jest obecny. Zachowanie można ręcznie zastąpić następującymi zachowaniami:
+W środowisku Unity całe powiązanie jest obsługiwane przez `RemoteUnityClientInit` strukturę przekazaną do `RemoteManagerUnity.InitializeManager`. Aby ustawić tryb grafiki, `GraphicsApiType` pole musi być ustawione na wybrane powiązanie. Pole zostanie wypełnione automatycznie w zależności od tego, czy XRDevice jest obecny. Zachowanie można przesłonić ręcznie przy użyciu następujących zachowań:
 
-* **HoloLens 2**: zawsze używane jest wiązanie [graficzne Windows Mixed Reality.](#windows-mixed-reality)
-* **Płaska aplikacja klasyczna PLATFORMY UNIWERSALNEJ**SYSTEMU [Windows: Symulacja](#simulation) jest zawsze używana. Aby korzystać z tego trybu, wykonaj kroki opisane w [samouczku: Konfigurowanie projektu Unity od podstaw](../tutorials/unity/project-setup.md).
-* **Edytor Unity:** [Symulacja](#simulation) jest zawsze używana, chyba że podłączony jest zestaw słuchawkowy WMR VR, w którym to przypadku ARR zostanie wyłączony, aby umożliwić debugowanie części aplikacji powiązanych z ARR. Zobacz też [holograficzna remoting](../how-tos/unity/holographic-remoting.md).
+* **HoloLens 2**: zawsze używane jest powiązanie grafiki w [rzeczywistości mieszanej systemu Windows](#windows-mixed-reality) .
+* **Aplikacja klasyczna Flat platformy UWP**: [symulacja](#simulation) jest zawsze używana. Aby użyć tego trybu, należy postępować zgodnie z krokami opisanymi w [samouczku: Konfigurowanie projektu Unity od podstaw](../tutorials/unity/project-setup.md).
+* **Edytor aparatu Unity**: [symulacja](#simulation) jest zawsze używana, chyba że jest podłączony zestaw WMR VR, w którym wypadek to, że ARR zostanie wyłączony, aby umożliwić debugowanie niezwiązanych z nią części aplikacji. Zobacz też [holographice komunikacji zdalnej](../how-tos/unity/holographic-remoting.md).
 
-Jedyną istotną częścią unity jest dostęp do [podstawowego powiązania,](#access)wszystkie inne poniższe sekcje można pominąć.
+Jedyną inną istotną częścią aparatu Unity jest uzyskiwanie dostępu do [podstawowego powiązania](#access). wszystkie pozostałe sekcje poniżej można pominąć.
 
 ## <a name="graphics-binding-setup-in-custom-applications"></a>Konfiguracja powiązania grafiki w aplikacjach niestandardowych
 
-Aby wybrać powiązanie graficzne, należy wykonać następujące dwa kroki: Po pierwsze, powiązanie graficzne musi zostać zainicjowane statycznie podczas inicjowania programu:
+Aby wybrać powiązanie grafiki, wykonaj następujące dwa kroki: pierwsze, powiązanie grafiki musi być inicjowane statycznie po zainicjowaniu programu:
 
 ``` cs
 RemoteRenderingInitialization managerInit = new RemoteRenderingInitialization;
@@ -44,11 +44,11 @@ managerInit.right = ///...
 RemoteManagerStatic.StartupRemoteRendering(managerInit);
 ```
 
-Powyższe wywołanie jest niezbędne do zainicjowania zdalnego renderowania platformy Azure do holograficznych interfejsów API. Ta funkcja musi zostać wywołana przed wywołaniem dowolnego holograficznego interfejsu API i przed dostępem do innych interfejsów API zdalnego renderowania. Podobnie należy wywołać odpowiednią funkcję `RemoteManagerStatic.ShutdownRemoteRendering();` de-init po tym, jak nie są już wywoływane żadne holograficzne interfejsy API.
+Powyższe wywołanie jest niezbędne do zainicjowania zdalnego renderowania platformy Azure do interfejsów API Holographic. Ta funkcja musi być wywoływana przed wywołaniem interfejsu API Holographic i przed uzyskaniem dostępu do innych interfejsów API renderowania zdalnego. Analogicznie, odpowiadająca funkcji `RemoteManagerStatic.ShutdownRemoteRendering();` DEINIT powinna być wywoływana po tym, że żadne interfejsy API Holographic nie są już wywoływane.
 
 ## <a name="span-idaccessaccessing-graphics-binding"></a><span id="access">Uzyskiwanie dostępu do powiązania grafiki
 
-Po skonfigurowaniu klienta podstawowe powiązanie grafiki można uzyskać `AzureSession.GraphicsBinding` za pomocą metody getter. Na przykład statystyki ostatniej ramki można pobrać w następujący sposób:
+Po skonfigurowaniu klienta podstawowe powiązanie grafiki można uzyskać za pomocą `AzureSession.GraphicsBinding` metody pobierającej. Przykładowo Statystyka ostatniej ramki może zostać pobrana w następujący sposób:
 
 ``` cs
 AzureSession currentSesson = ...;
@@ -64,16 +64,16 @@ if (currentSesson.GraphicsBinding)
 
 ## <a name="graphic-apis"></a>Graficzne interfejsy API
 
-Obecnie można wybrać dwa interfejsy API grafiki `WmrD3D11` `SimD3D11`oraz . Trzeci istnieje, `Headless` ale nie jest jeszcze obsługiwany po stronie klienta.
+Istnieją obecnie dwa interfejsy API grafiki, które można wybrać, `WmrD3D11` i `SimD3D11`. Trzecia `Headless` istnieje, ale nie jest jeszcze obsługiwana po stronie klienta.
 
 ### <a name="windows-mixed-reality"></a>Windows Mixed Reality
 
-`GraphicsApiType.WmrD3D11`jest domyślnym powiązaniem do uruchomienia na HoloLens 2. Spowoduje to `GraphicsBindingWmrD3d11` utworzenie powiązania. W tym trybie narzędzia Azure Remote Rendering łączy bezpośrednio holograficzne interfejsy API.
+`GraphicsApiType.WmrD3D11`jest domyślnym powiązaniem do uruchamiania na serwerze HoloLens 2. Zostanie utworzone `GraphicsBindingWmrD3d11` powiązanie. W tym trybie zdalne renderowanie platformy Azure jest podłączane bezpośrednio do interfejsów API Holographic.
 
-Aby uzyskać dostęp do pochodnych `GraphicsBinding` powiązań graficznych, podstawa musi zostać rzutowana.
+Aby uzyskać dostęp do pochodnych powiązań graficznych, baza `GraphicsBinding` musi być rzutowana.
 Istnieją dwie rzeczy, które należy wykonać, aby użyć powiązania WMR:
 
-#### <a name="inform-remote-rendering-of-the-used-coordinate-system"></a>Informowanie o zdalnym renderowaniu używanego układu współrzędnych
+#### <a name="inform-remote-rendering-of-the-used-coordinate-system"></a>Informowanie zdalnego renderowania używanego układu współrzędnych
 
 ``` cs
 AzureSession currentSesson = ...;
@@ -85,11 +85,11 @@ if (binding.UpdateUserCoordinateSystem(ptr) == Result.Success)
 }
 ```
 
-Gdzie powyższe `ptr` musi być wskaźnikiem do obiektu macierzystego, `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` który definiuje układ współrzędnych przestrzeni świata, w którym współrzędne w interfejsie API są wyrażone w.
+Gdzie powyżej `ptr` musi być wskaźnikiem do obiektu natywnego `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` , który definiuje układ współrzędnych świata obszaru, w którym współrzędne w interfejsie API są wyrażane w.
 
 #### <a name="render-remote-image"></a>Renderowanie obrazu zdalnego
 
-Na początku każdej klatki zdalna ramka musi być renderowana do tylnego buforu. Odbywa się to `BlitRemoteFrame`przez wywołanie , który wypełni zarówno kolor i głębokość informacji do aktualnie powiązanego obiektu docelowego renderowania. W związku z tym ważne jest, aby to zrobić po powiązaniu buforu wstecznego jako docelowego renderowania.
+Na początku każdej ramki zdalna ramka musi być renderowana w buforze zaplecza. W tym celu należy wywołać `BlitRemoteFrame`metodę, która spowoduje wypełnienie informacji o kolorach i głębokości do aktualnie powiązanego obiektu docelowego renderowania. Dlatego ważne jest, aby to zrobić po powiązaniu buforu zapasowego jako elementu docelowego renderowania.
 
 ``` cs
 AzureSession currentSesson = ...;
@@ -99,12 +99,12 @@ binding.BlitRemoteFrame();
 
 ### <a name="simulation"></a>Symulacja
 
-`GraphicsApiType.SimD3D11`jest oprawą symulacji i `GraphicsBindingSimD3d11` jeśli jest zaznaczona, tworzy oprawę graficzną. Ten interfejs służy do symulowania ruchu głowy, na przykład w aplikacji klasycznej i renderuje obraz monoskopowy.
-Konfiguracja jest nieco bardziej zaangażowana i działa w następujący sposób:
+`GraphicsApiType.SimD3D11`jest powiązaniem symulacji i jeśli wybrane, tworzy powiązanie `GraphicsBindingSimD3d11` grafiki. Ten interfejs służy do symulowania przenoszenia głowy, na przykład w aplikacji klasycznej i renderowania obrazu monoscopic.
+Konfiguracja jest nieco większa i działa w następujący sposób:
 
-#### <a name="create-proxy-render-target"></a>Tworzenie obiektu docelowego renderowania serwera proxy
+#### <a name="create-proxy-render-target"></a>Utwórz obiekt docelowy renderowania serwera proxy
 
-Zawartość zdalna i lokalna musi być renderowana do celu renderowania kolorów / głębokości `GraphicsBindingSimD3d11.Update` poza ekranem o nazwie "proxy" przy użyciu danych z kamery proxy dostarczonych przez tę funkcję. Serwer proxy musi być zgodny z rozdzielczością buforu wstecznego. Gdy sesja jest `GraphicsBindingSimD3d11.InitSimulation` gotowa, należy wywołać przed nawiązaniem połączenia z nią:
+Zawartość zdalna i lokalna muszą być renderowane do elementu docelowego renderowania koloru/głębokości, zwanego "serwerem proxy" przy użyciu danych z aparatu proxy `GraphicsBindingSimD3d11.Update` dostarczonych przez funkcję. Serwer proxy musi być zgodny z rozdzielczością buforu zapasowego. Gdy sesja będzie gotowa, `GraphicsBindingSimD3d11.InitSimulation` należy wywołać ją przed nawiązaniem połączenia:
 
 ``` cs
 AzureSession currentSesson = ...;
@@ -118,16 +118,16 @@ GraphicsBindingSimD3d11 simBinding = (currentSession.GraphicsBinding as Graphics
 simBinding.InitSimulation(d3dDevice, depth, color, refreshRate, flipBlitRemoteFrameTextureVertically, flipReprojectTextureVertically);
 ```
 
-Funkcja init musi być wyposażona w wskaźniki do macierzystego urządzenia d3d, a także do tekstury kolorów i głębi obiektu docelowego renderowania serwera proxy. Po zainicjowaniu `AzureSession.ConnectToRuntime` `DisconnectFromRuntime` i mogą być wywoływane wiele razy, `GraphicsBindingSimD3d11.DeinitSimulation` ale podczas przełączania do innej `GraphicsBindingSimD3d11.InitSimulation` sesji, musi być wywoływana najpierw na starej sesji, zanim może być wywołana na innej sesji.
+Funkcja init musi być dostarczana ze wskaźnikami do natywnej metody D3D-urządzenie, a także do tekstury koloru i głębi elementu docelowego renderowania serwera proxy. Po `AzureSession.ConnectToRuntime` zainicjowaniu `DisconnectFromRuntime` i może być wywoływana wiele razy, ale podczas przełączania do innej sesji `GraphicsBindingSimD3d11.DeinitSimulation` należy najpierw wywołać starą sesję, zanim `GraphicsBindingSimD3d11.InitSimulation` będzie można wywołać inną sesję.
 
 #### <a name="render-loop-update"></a>Aktualizacja pętli renderowania
 
-Aktualizacja pętli renderowania składa się z wielu kroków:
+Aktualizacja pętli renderowania obejmuje wiele kroków:
 
-1. Każda klatka, przed renderowaniem, `GraphicsBindingSimD3d11.Update` jest wywoływana z bieżącą transformacją kamery, która jest wysyłana do serwera w celu renderowania. W tym samym czasie zwrócone transformacja serwera proxy powinny być stosowane do kamery proxy do renderowania do obiektu docelowego renderowania serwera proxy.
-Jeśli zwrócona `SimulationUpdate.frameId` aktualizacja serwera proxy ma wartość null, nie ma jeszcze żadnych danych zdalnych. W takim przypadku zamiast renderowania do obiektu docelowego renderowania serwera proxy, wszelkie lokalne treści powinny być renderowane do buforu wstecznego bezpośrednio przy użyciu bieżących danych kamery i kolejne dwa kroki są pomijane.
-1. Aplikacja powinna teraz powiązać obiekt `GraphicsBindingSimD3d11.BlitRemoteFrameToProxy`docelowy renderowania serwera proxy i wywołać . Spowoduje to wypełnienie zdalnych informacji o kolorze i głębi do obiektu docelowego renderowania serwera proxy. Wszystkie lokalne treści mogą być teraz renderowane na serwerze proxy za pomocą transformacji kamery proxy.
-1. Następnie bufor z powrotem musi być powiązany jako obiekt docelowy renderowania i `GraphicsBindingSimD3d11.ReprojectProxy` wywoływany w tym momencie można przedstawić bufor wstecz.
+1. Każda ramka przed każdym renderowaniem `GraphicsBindingSimD3d11.Update` jest wywoływana z bieżącą transformację aparatu, która jest wysyłana do serwera, który ma być renderowany. W tym samym czasie zwrócona transformacja proxy powinna zostać zastosowana do aparatu proxy w celu renderowania do obiektu docelowego renderowania serwera proxy.
+Jeśli zwrócona aktualizacja `SimulationUpdate.frameId` serwera proxy ma wartość null, nie ma jeszcze żadnych danych zdalnych. W takim przypadku zamiast renderowania do obiektu docelowego renderowania proxy, każda Zawartość lokalna powinna być renderowana do buforu zaplecza bezpośrednio przy użyciu bieżących danych aparatu, a następne dwa kroki są pomijane.
+1. Aplikacja powinna teraz powiązać obiekt docelowy renderowania serwera proxy i wywołanie `GraphicsBindingSimD3d11.BlitRemoteFrameToProxy`. Spowoduje to wypełnienie zdalnego koloru i szczegółowych informacji w celu renderowania serwera proxy. Każda zawartość lokalna może teraz być renderowana na serwerze proxy przy użyciu transformacji aparatu proxy.
+1. Następnie bufor zapasowy musi być powiązany jako obiekt docelowy renderowania i `GraphicsBindingSimD3d11.ReprojectProxy` wywoływany, w którym momencie można przedstawić bufor zapasowy.
 
 ``` cs
 AzureSession currentSesson = ...;

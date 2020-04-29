@@ -1,27 +1,27 @@
 ---
-title: Użyj holograficznego zdalnego sterowania i zdalnego renderowania w unity
-description: Jak można używać podglądu holograficznego zdalnego sterowania w połączeniu z renderowaniem zdalnym platformy Azure
+title: Używanie funkcji Holographic Remoting i usługi Remote Rendering w środowisku Unity
+description: Jak można używać podglądu usług zdalnych Holographic w połączeniu z funkcją zdalnego renderowania platformy Azure
 author: christophermanthei
 ms.author: chmant
 ms.date: 03/23/2020
 ms.topic: how-to
 ms.openlocfilehash: ac47a2922e92233f0acabf75817a712671306bc1
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681209"
 ---
-# <a name="use-holographic-remoting-and-remote-rendering-in-unity"></a>Użyj holograficznego zdalnego sterowania i zdalnego renderowania w unity
+# <a name="use-holographic-remoting-and-remote-rendering-in-unity"></a>Używanie funkcji Holographic Remoting i usługi Remote Rendering w środowisku Unity
 
-[Holograficzne funkcje zdalnego sterowania](https://docs.microsoft.com/windows/mixed-reality/holographic-remoting-player) i zdalne renderowanie platformy Azure wzajemnie się wykluczają w ramach jednej aplikacji. W związku z tym [tryb odtwarzania Unity](https://docs.microsoft.com/windows/mixed-reality/unity-play-mode) również nie jest dostępny.
+[Komunikacja](https://docs.microsoft.com/windows/mixed-reality/holographic-remoting-player) zdalna Holographic i zdalne renderowanie na platformie Azure wykluczają się wzajemnie w ramach jednej aplikacji. W związku z tym [tryb odtwarzania aparatu Unity](https://docs.microsoft.com/windows/mixed-reality/unity-play-mode) jest również niedostępny.
 
-Dla każdego uruchomienia edytora Unity można użyć tylko jeden z dwóch. Aby użyć drugiego, najpierw uruchom ponownie Unity.
+Dla każdego przebiegu edytora Unity można użyć tylko jednego z nich. Aby użyć drugiej z nich, należy najpierw ponownie uruchomić środowisko Unity.
 
-## <a name="use-unity-play-mode-to-preview-on-hololens-2"></a>Użyj trybu gry Unity, aby wyświetlić podgląd na Hololens 2
+## <a name="use-unity-play-mode-to-preview-on-hololens-2"></a>Korzystanie z trybu odtwarzania aparatu Unity w celu uzyskania podglądu na serwerze HoloLens 2
 
- Tryb odtwarzania unity nadal można używać, na przykład do testowania interfejsu użytkownika aplikacji. Jednak ważne jest, aby ARR nigdy nie został zainicjowany. W przeciwnym razie upaść.
+ Można nadal używać trybu odtwarzania aparatu Unity, na przykład w celu przetestowania interfejsu użytkownika aplikacji. Niemniej jednak ważne jest, aby ARR nigdy nie zostało zainicjowane. W przeciwnym razie wystąpi awaria.
 
-## <a name="use-a-wmr-vr-headset-to-preview-on-desktop"></a>Wyświetlanie podglądu na komputerze za pomocą zestawu słuchawkowego WMR VR
+## <a name="use-a-wmr-vr-headset-to-preview-on-desktop"></a>Używanie zestawu słuchawkowego WMR VR do podglądu na pulpicie
 
-Jeśli zestaw słuchawkowy Windows Mixed Reality VR jest obecny, może służyć do podglądu wewnątrz Unity. W takim przypadku można zainicjować ARR, jednak nie będzie możliwe połączenie z sesją, gdy używany jest zestaw słuchawkowy WMR.
+Jeśli jest obecny zestaw słuchawkowy w systemie Windows Mixed Reality, można go użyć do podglądu wewnątrz aparatu Unity. W takim przypadku należy zastanowić się nad zainicjowaniem ARR, ale nie będzie możliwe nawiązanie połączenia z sesją podczas korzystania z zestawu słuchawkowego WMR.

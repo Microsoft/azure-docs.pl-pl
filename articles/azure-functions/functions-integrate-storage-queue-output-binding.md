@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 09/19/2017
 ms.custom: mvc
 ms.openlocfilehash: a060cd35bbb42d2c31e98bed4855b2d27bfcbada
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80756629"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Dodawanie komunikatów do kolejki usługi Azure Storage przy użyciu funkcji
@@ -34,9 +34,9 @@ W tej sekcji użyjesz interfejsu użytkownika portalu w celu dodania powiązania
 
 1. Wybierz funkcję utworzoną we wcześniejszym przewodniku Szybki start.
 
-1. Wybierz **pozycję Zintegruj > nowe dane wyjściowe > usługi Azure Queue Storage**.
+1. Wybierz pozycję **zintegruj > nowe dane wyjściowe > Azure queue storage**.
 
-1. Kliknij **pozycję Wybierz**.
+1. Kliknij pozycję **Wybierz**.
 
     ![Dodaj powiązanie danych wyjściowych kolejki magazynu do funkcji w witrynie Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
@@ -66,7 +66,7 @@ W tej sekcji dodasz kod służący do zapisywania komunikatu do kolejki wyjścio
 
 1. Zaktualizuj kod funkcji w zależności od języka funkcji:
 
-    # <a name="c"></a>[C\#](#tab/csharp)
+    # <a name="c"></a>[S\#](#tab/csharp)
 
     Dodaj parametr **outputQueueItem** do sygnatury metody, jak pokazano w poniższym przykładzie.
 

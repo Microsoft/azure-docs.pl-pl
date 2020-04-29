@@ -1,27 +1,27 @@
 ---
 title: Zastępowanie materiałów podczas konwersji modelu
-description: W tym artykule wyjaśniono przepływ pracy zastępujący materiał w czasie konwersji
+description: Wyjaśnia przepływ pracy zastępowania materiału w czasie konwersji
 author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
 ms.openlocfilehash: 90653db4c572877a728964851a99beebf2e823a4
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681482"
 ---
 # <a name="override-materials-during-model-conversion"></a>Zastępowanie materiałów podczas konwersji modelu
 
-Podczas konwersji ustawienia materiału w modelu źródłowym są używane do definiowania [materiałów PBR używanych](../../overview/features/pbr-materials.md) przez moduł renderowania.
-Czasami [konwersja domyślna](../../reference/material-mapping.md) nie daje pożądanych rezultatów i trzeba wprowadzić zmiany.
-Gdy model jest konwertowany do użytku w renderowaniu zdalnym platformy Azure, można podać plik zastępowania materiałów, aby dostosować sposób konwersji materiałów odbywa się na podstawie materiału.
-Sekcja dotycząca [konfigurowania konwersji modelu](configure-model-conversion.md) zawiera instrukcje dotyczące deklarowania nazwy pliku zastępowania materiału.
+Podczas konwersji ustawienia materiału w modelu źródłowym są używane do definiowania [materiałów PBR](../../overview/features/pbr-materials.md) używanych przez moduł renderujący.
+Czasami [Konwersja domyślna](../../reference/material-mapping.md) nie daje żądanych wyników i należy wprowadzić zmiany.
+Gdy model jest konwertowany do użycia w przypadku renderowania zdalnego na platformie Azure, można dostarczyć plik przesłaniający materiał, aby dostosować sposób konwersji materiału dla poszczególnych materiałów.
+Sekcja dotycząca [konfigurowania konwersji modelu](configure-model-conversion.md) zawiera instrukcje dotyczące deklarowania nazwy pliku zastępującego materiał.
 
-## <a name="the-override-file-used-during-conversion"></a>Plik zastępowania używany podczas konwersji
+## <a name="the-override-file-used-during-conversion"></a>Plik przesłonięcia używany podczas konwersji
 
-Na prostym przykładzie załóżmy, że model box ma jeden materiał o nazwie "Default". Kolor albedo musi być dostosowany do stosowania w ARR.
+W prostym przykładzie Załóżmy, że model Box ma pojedynczy materiał o nazwie "default". Kolor albedo musi zostać dostosowany do użycia w ARR.
 W takim przypadku `box_materials_override.json` plik można utworzyć w następujący sposób:
 
 ```json
@@ -38,7 +38,7 @@ W takim przypadku `box_materials_override.json` plik można utworzyć w następu
 ]
 ```
 
-Plik `box_materials_override.json` jest umieszczany w kontenerze `ConversionSettings.json` wejściowym, a obok `box.fbx`niego jest dodawany , który informuje o tym, gdzie można znaleźć plik zastępowania (patrz [Konfigurowanie konwersji modelu):](configure-model-conversion.md)
+`box_materials_override.json` Plik znajduje się w kontenerze wejściowym i `ConversionSettings.json` jest dodawany obok `box.fbx`, który informuje o konwersji, gdzie znaleźć plik przesłonięcia (zobacz [Konfigurowanie konwersji modelu](configure-model-conversion.md)):
 
 ```json
 {
@@ -48,11 +48,11 @@ Plik `box_materials_override.json` jest umieszczany w kontenerze `ConversionSett
 
 Po przekonwertowaniu modelu zostaną zastosowane nowe ustawienia.
 
-### <a name="color-materials"></a>Materiały kolorowe
+### <a name="color-materials"></a>Materiały kolorów
 
-Model [materiału kolorów](../../overview/features/color-materials.md) opisuje stale zacienioną powierzchnię, która jest niezależna od oświetlenia.
-Jest to przydatne dla zasobów wykonanych przez algorytmy fotogrametrii, na przykład.
-W plikach zastępowania materiału materiał można zadeklarować jako `unlit` materiał `true`kolorowy, ustawiając na .
+Model [materiału kolorów](../../overview/features/color-materials.md) opisuje ciągle zacieniowaną powierzchnię, która jest niezależna od oświetlenia.
+Jest to przydatne w przypadku zasobów dokonywanych przez algorytmy photogrammetry, na przykład.
+W plikach zastąpienia plików materiał może być zadeklarowany jako materiał koloru przez ustawienie `unlit` do. `true`
 
 ```json
 [
@@ -67,11 +67,11 @@ W plikach zastępowania materiału materiał można zadeklarować jako `unlit` m
 ]
 ```
 
-### <a name="ignore-specific-texture-maps"></a>Ignoruj określone mapy tekstur
+### <a name="ignore-specific-texture-maps"></a>Ignoruj określone mapy tekstury
 
-Czasami proces konwersji może ignorować określone mapy tekstur. Może to być przypadek, gdy model został wygenerowany przez narzędzie, które generuje specjalne mapy nie jest poprawnie zrozumiany przez moduł renderowania. Na przykład "OpacityMap", który jest używany do definiowania czegoś innego niż krycie, lub modelu, w którym "NormalMap" jest przechowywany jako "BumpMap". (W tym ostatnim przypadku chcesz zignorować "NormalMap", co spowoduje, że konwerter użyje "BumpMap" jako "NormalMap".)
+Czasami może zaistnieć potrzeba ignorowania określonych map tekstury przez proces konwersji. Może się tak zdarzyć w przypadku, gdy model został wygenerowany przez narzędzie generujące specjalne mapy, które nie są prawidłowo zrozumiałe dla modułu renderowania. Na przykład "OpacityMap", który jest używany do definiowania czegoś innego niż krycie lub model, w którym "NormalMap" jest przechowywany jako "BumpMap". (W tym ostatnim przypadku chcesz zignorować "NormalMap", co spowoduje, że konwerter użyje "BumpMap" jako "NormalMap").
 
-Zasada jest prosta. Wystarczy dodać właściwość o nazwie `ignoreTextureMaps` i dodać dowolną mapę tekstury, którą chcesz zignorować:
+Zasada jest prosta. Wystarczy dodać właściwość o nazwie `ignoreTextureMaps` i dodać dowolną mapę tekstury, która ma być ignorowana:
 
 ```json
 [
@@ -82,11 +82,11 @@ Zasada jest prosta. Wystarczy dodać właściwość o nazwie `ignoreTextureMaps`
 ]
 ```
 
-Aby uzyskać pełną listę map tekstur, które można zignorować, zobacz schemat JSON poniżej.
+Aby zapoznać się z pełną listą map tekstury, które można zignorować, zobacz poniższy schemat JSON.
 
 ## <a name="json-schema"></a>Schemat JSON
 
-Pełny schemat JSON dla plików materiałów znajduje się tutaj. Z wyjątkiem `unlit` i `ignoreTextureMaps`, dostępne właściwości są podzbiorem właściwości opisanych w sekcjach na [materiał koloru](../../overview/features/color-materials.md) i PBR modeli [materiałów.](../../overview/features/pbr-materials.md)
+Pełny schemat JSON dla plików materiałów jest podawany w tym miejscu. Z wyjątkiem `unlit` i `ignoreTextureMaps`, dostępne właściwości są podzbiorem właściwości opisanych w sekcjach na [materiałach kolorów](../../overview/features/color-materials.md) i w modelu. [PBR material](../../overview/features/pbr-materials.md)
 
 ```json
 {
@@ -172,5 +172,5 @@ Pełny schemat JSON dla plików materiałów znajduje się tutaj. Z wyjątkiem `
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Materiały kolorowe](../../overview/features/color-materials.md)
+* [Materiały kolorów](../../overview/features/color-materials.md)
 * [Materiały PBR](../../overview/features/pbr-materials.md)

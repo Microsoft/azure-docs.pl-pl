@@ -12,32 +12,32 @@ ms.date: 03/26/2020
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 2485794d9ec1ce78a8916014dc1117ed59c34e44
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656062"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Szybki start: generowanie miniatury za pomocą interfejsu API REST i języka JavaScript
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Szybki Start: generowanie miniatury przy użyciu interfejsu API REST przetwarzanie obrazów i języka JavaScript
 
-W tym przewodniku Szybki start wygenerujesz miniaturę z obrazu przy użyciu interfejsu API REST przetwarzania wizji komputerowej. Można określić wysokość i szerokość, które mogą różnić się współczynnikiem proporcji od obrazu wejściowego. Interfejs API przetwarzania obrazów wykorzystuje inteligentne przycinanie, aby określić obszar zainteresowania i wygenerować współrzędne przycinania na podstawie tego obszaru.
+W tym przewodniku szybki start utworzysz miniaturę obrazu przy użyciu interfejsu API REST przetwarzanie obrazów. Należy określić wysokość i szerokość, która może się różnić od obrazu wejściowego. Interfejs API przetwarzania obrazów wykorzystuje inteligentne przycinanie, aby określić obszar zainteresowania i wygenerować współrzędne przycinania na podstawie tego obszaru.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz próbny z [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Możesz też postępować zgodnie z instrukcjami w aplikacji [Utwórz konto usług Cognitive Services,](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) aby zasubskrybować usługę Computer Vision i uzyskać klucz. Zapisz klucz subskrypcji i adres URL punktu końcowego w lokalizacji tymczasowej.
+Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Zapisz klucz subskrypcji i adres URL punktu końcowego w lokalizacji tymczasowej.
 
 ## <a name="create-and-run-the-sample"></a>Tworzenie i uruchamianie próbki
 
 Aby utworzyć i uruchomić przykład, wykonaj następujące kroki:
 
-1. Utwórz plik o nazwie _get-thumbnail.html_, otwórz go w edytorze tekstu i skopiuj do niego następujący kod.
-1. Opcjonalnie zastąp `value` wartość atrybutu `inputImage` formantu adresem URL innego obrazu, który chcesz przeanalizować.
+1. Utwórz plik o nazwie _Get-Thumbnail. html_, otwórz go w edytorze tekstów i skopiuj do niego następujący kod.
+1. Opcjonalnie Zastąp wartość `value` atrybutu `inputImage` kontrolki adresem URL innego obrazu, który chcesz analizować.
 1. Otwórz okno przeglądarki.
 1. W przeglądarce przeciągnij plik i upuść go w oknie przeglądarki.
-1. Gdy strona sieci Web jest wyświetlana w przeglądarce, wklej klucz subskrypcji i adres URL punktu końcowego do odpowiednich pól wejściowych.
-1. Na koniec wybierz przycisk **Generuj miniaturę.**
+1. Gdy strona sieci Web zostanie wyświetlona w przeglądarce, Wklej klucz subskrypcji i adres URL punktu końcowego do odpowiednich pól wejściowych.
+1. Na koniec wybierz przycisk **Generuj miniaturę** .
 
 ```html
 <!DOCTYPE html>

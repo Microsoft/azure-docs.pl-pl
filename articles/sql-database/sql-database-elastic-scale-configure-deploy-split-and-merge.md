@@ -1,6 +1,6 @@
 ---
 title: Wdrażanie usługi z podziałem i scalaniem
-description: Użyj scalania podziału zbyt przenieść dane między podzielonymi bazami danych.
+description: Aby przenieść dane między bazami danych podzielonej na fragmenty, użyj zbyt Split-Merge.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,70 +12,70 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: b6f61de23ab4b637cfb5b8ee365ddea9764bf515
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80810209"
 ---
-# <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Wdrażanie usługi scalania dzielonego w celu przenoszenia danych między podzielonymi bazami danych
+# <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Wdrażanie usługi Split-Merge do przenoszenia danych między bazami danych podzielonej na fragmenty
 
-Narzędzie scalania podziału umożliwia przenoszenie danych między podzielonymi bazami danych. Zobacz [Przenoszenie danych między skalowane w poziomie bazami danych w chmurze](sql-database-elastic-scale-overview-split-and-merge.md)
+Narzędzie Split-Merge służy do przenoszenia danych między bazami danych podzielonej na fragmenty. Zobacz [przeniesienie danych między skalowanymi bazami danych w chmurze](sql-database-elastic-scale-overview-split-and-merge.md)
 
-## <a name="download-the-split-merge-packages"></a>Pobierz pakiety scalania podziału
+## <a name="download-the-split-merge-packages"></a>Pobieranie pakietów Split-Merge
 
-1. Pobierz najnowszą wersję NuGet z [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
+1. Pobierz najnowszą wersję pakietu NuGet z narzędzia [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 
-1. Otwórz wiersz polecenia i przejdź do katalogu, w którym pobrano plik nuget.exe. Plik do pobrania zawiera polecenia programu PowerShell.
+1. Otwórz wiersz polecenia i przejdź do katalogu, do którego został pobrany plik NuGet. exe. Pobieranie obejmuje polecenia programu PowerShell.
 
-1. Pobierz najnowszy pakiet Split-Merge do bieżącego katalogu za pomocą poniższego polecenia:
+1. Pobierz najnowszy pakiet Split-Merge do bieżącego katalogu przy użyciu poniższego polecenia:
 
    ```cmd
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-Pliki są umieszczane w katalogu o nazwie **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x,** gdzie *x.x.xxx.x* odzwierciedla numer wersji. Znajdź pliki usługi korespondencji seryjnej w katalogu podkatarzy **content\splitmerge\service** oraz skrypty programu PowerShell (i wymagane biblioteki DLL klienta) w podkatarzye **zawartości\splitmerge\powershell.**
+Pliki są umieszczane w katalogu o nazwie **Microsoft. Azure. SQLDatabase. ElasticScale. Service. SplitMerge. x. x. xxx. x** , gdzie *x. x. xxx. x* odzwierciedla numer wersji. Znajdź pliki usługi Split-Merge w podkatalogu **content\splitmerge\service** oraz skrypty programu PowerShell Split-Merge (i wymagane biblioteki DLL klienta) w podkatalogu **content\splitmerge\powershell** .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. Utwórz bazę danych bazy danych usługi Azure SQL DB, która będzie używana jako baza danych stanu korespondencji seryjnej. Przejdź do [witryny Azure portal](https://portal.azure.com). Utwórz nową **bazę danych SQL**. Nadaj bazie danych nazwę i utwórz nowego administratora i hasło. Pamiętaj, aby zapisać nazwę i hasło do późniejszego użycia.
+1. Utwórz bazę danych usługi Azure SQL DB, która będzie używana jako baza danych stanu Split-Merge. Przejdź do [Azure Portal](https://portal.azure.com). Utwórz nowy **SQL Database**. Nadaj bazie danych nazwę i Utwórz nowego administratora i hasło. Pamiętaj, aby zapisać nazwę i hasło do późniejszego użycia.
 
-1. Upewnij się, że serwer usługi Azure SQL DB umożliwia usługom Platformy Azure łączenie się z nim. W portalu w **ustawieniach zapory**upewnij się, że ustawienie **Zezwalaj na dostęp do usług Platformy Azure** jest ustawione na **Włączone**. Kliknij ikonę "Zapisz".
+1. Upewnij się, że serwer usługi Azure SQL DB umożliwia usługom platformy Azure Łączenie się z nią. W portalu w **ustawieniach zapory**upewnij się, że ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest ustawione na wartość **włączone**. Kliknij ikonę "Save" (Zapisz).
 
-1. Utwórz konto usługi Azure Storage dla danych wyjściowych diagnostyki.
+1. Utwórz konto usługi Azure Storage na potrzeby danych wyjściowych diagnostyki.
 
-1. Utwórz usługę Azure Cloud Service dla usługi scalania podzielonego.
+1. Utwórz usługę w chmurze platformy Azure dla usługi Split-Merge.
 
-## <a name="configure-your-split-merge-service"></a>Konfigurowanie usługi scalania dzielonego
+## <a name="configure-your-split-merge-service"></a>Konfigurowanie usługi Split-Merge
 
-### <a name="split-merge-service-configuration"></a>Konfiguracja usługi dzielenia i scalania
+### <a name="split-merge-service-configuration"></a>Konfiguracja usługi Split-Merge
 
-1. W folderze, do którego pobrano zestawy scalania podziału, utwórz kopię pliku *ServiceConfiguration.Template.cscfg,* który został dostarczony wraz z *splitmergeservice.cspkg* i zmień jego nazwę *serviceconfiguration.cscfg*.
+1. W folderze, do którego pobrano zbiory z podziałem, Utwórz kopię pliku *ServiceConfiguration. Template. cscfg* , który został wysłany wraz z *SplitMergeService. cspkg* i zmień jego nazwę na *ServiceConfiguration. cscfg*.
 
-1. Otwórz *serviceconfiguration.cscfg* w edytorze tekstu, takim jak Visual Studio, który sprawdza poprawność danych wejściowych, takich jak format odcisków palców certyfikatów.
+1. Otwórz element *ServiceConfiguration. cscfg* w edytorze tekstu, takim jak program Visual Studio, który sprawdza poprawność danych wejściowych, takich jak format odcisków palców certyfikatów.
 
-1. Utwórz nową bazę danych lub wybierz istniejącą bazę danych, która będzie służyć jako baza danych stanu dla operacji scalania podziału i pobierz ciąg połączenia tej bazy danych.
+1. Utwórz nową bazę danych lub wybierz istniejącą bazę danych, która będzie stanowić bazę danych stanu dla operacji Split-Merge i Pobierz parametry połączenia tej bazy danych.
 
    > [!IMPORTANT]
-   > W tej chwili baza danych stanu musi używać\_sortowania łacińskiego (SQL\_Latin1 General\_CP1\_CI\_AS). Aby uzyskać więcej informacji, zobacz [Nazwa sortowania systemu Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+   > W tej chwili baza danych stanu musi używać sortowania łacińskiego\_(SQL Latin1\_General\_CP1\_Ci\_AS). Aby uzyskać więcej informacji, zobacz [Nazwa sortowania systemu Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
 
-   W usłudze Azure SQL DB parametry połączenia zazwyczaj mają postać:
+   W usłudze Azure SQL DB parametry połączenia zwykle mają postać:
 
       `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<userId>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-1. Ten ciąg połączenia należy wpisać w pliku *cscfg* w sekcjach roli **SplitMergeWeb** i **SplitMergeWorker** w ustawieniu Elastyczne rozmiary.
+1. Wprowadź te parametry połączenia w pliku *cscfg* w sekcjach role **SplitMergeWeb** i **SplitMergeWorker** w ustawieniu ElasticScaleMetadata.
 
-1. Dla roli **SplitMergeWorker** wprowadź prawidłowy parametry połączenia z magazynem platformy Azure dla ustawienia **WorkerRoleSynchronizationStorageAccountConnectionString.**
+1. Dla roli **SplitMergeWorker** wprowadź prawidłowe parametry połączenia do usługi Azure Storage dla ustawienia **WorkerRoleSynchronizationStorageAccountConnectionString** .
 
 ### <a name="configure-security"></a>Konfigurowanie zabezpieczeń
 
-Szczegółowe instrukcje dotyczące konfigurowania zabezpieczeń usługi można znaleźć w [konfiguracji zabezpieczeń scalania podziału.](sql-database-elastic-scale-split-merge-security-configuration.md)
+Aby uzyskać szczegółowe instrukcje dotyczące konfigurowania zabezpieczeń usługi, zapoznaj się z [konfiguracją zabezpieczeń Split-Merge](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-Na potrzeby prostego wdrożenia testowego dla tego samouczka zostanie wykonany minimalny zestaw kroków konfiguracji, aby rozpocząć i uruchomić usługę. Te kroki umożliwiają tylko jeden komputer/konto wykonujące je do komunikowania się z usługą.
+Na potrzeby prostego wdrożenia testowego w ramach tego samouczka zostanie wykonany minimalny zestaw kroków konfiguracyjnych umożliwiający uruchomienie usługi. W tych krokach można włączyć tylko jeden komputer/konto do komunikowania się z usługą.
 
 ### <a name="create-a-self-signed-certificate"></a>Tworzenie certyfikatu z podpisem własnym
 
-Utwórz nowy katalog i z tego katalogu wykonaj następujące polecenie przy użyciu [wiersza polecenia dewelopera dla](https://msdn.microsoft.com/library/ms229859.aspx) programu Visual Studio:
+Utwórz nowy katalog i z tego katalogu wykonaj następujące polecenie przy użyciu okna [wiersz polecenia dla deweloperów dla programu Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) :
 
    ```cmd
    makecert ^
@@ -86,39 +86,39 @@ Utwórz nowy katalog i z tego katalogu wykonaj następujące polecenie przy uży
     -sv MyCert.pvk MyCert.cer
    ```
 
-Zostaniesz poproszony o podanie hasła do ochrony klucza prywatnego. Wprowadź silne hasło i potwierdź go. Następnie zostanie wyświetlony monit o podanie hasła do użycia ponownie po tym. Kliknij **przycisk Tak** na końcu, aby zaimportować go do magazynu głównego zaufanych urzędów certyfikacji.
+Zostanie wyświetlony monit o podanie hasła w celu ochrony klucza prywatnego. Wprowadź silne hasło i potwierdź je. Następnie zostanie wyświetlony monit o podanie hasła, które będzie później używane. Kliknij przycisk **tak** na końcu, aby zaimportować go do głównego magazynu zaufanych urzędów certyfikacji.
 
-### <a name="create-a-pfx-file"></a>Tworzenie pliku PFX
+### <a name="create-a-pfx-file"></a>Utwórz plik PFX
 
-Wykonaj następujące polecenie z tego samego okna, w którym wykonano makecert; użyj tego samego hasła, które zostało użyte do utworzenia certyfikatu:
+Wykonaj następujące polecenie w tym samym oknie, w którym zostało wykonane Makecert; Użyj tego samego hasła, które zostało użyte do utworzenia certyfikatu:
 
    ```cmd
    pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
    ```
 
-### <a name="import-the-client-certificate-into-the-personal-store"></a>Importowanie certyfikatu klienta do magazynu osobistego
+### <a name="import-the-client-certificate-into-the-personal-store"></a>Zaimportuj certyfikat klienta do magazynu osobistego
 
-1. W Eksploratorze Windows kliknij dwukrotnie pozycję *MyCert.pfx*.
-2. W **Kreatorze importu certyfikatów** wybierz pozycję **Bieżący użytkownik** i kliknij przycisk **Dalej**.
-3. Potwierdź ścieżkę pliku i kliknij przycisk **Dalej**.
-4. Wpisz hasło, **pozostaw Uwzględnij wszystkie zaznaczone właściwości rozszerzone** i kliknij przycisk **Dalej**.
-5. Pozostaw **Automatycznie wybierz sejdę certyfikatów i** kliknij przycisk **Dalej**.
-6. Kliknij **przycisk Zakończ** i **OK**.
+1. W Eksploratorze Windows kliknij dwukrotnie plik *. pfx*.
+2. W **Kreatorze importu certyfikatów** wybierz pozycję **bieżący użytkownik** , a następnie kliknij przycisk **dalej**.
+3. Potwierdź ścieżkę pliku i kliknij przycisk **dalej**.
+4. Wpisz hasło, pozostaw zaznaczone pole wyboru **Dołącz wszystkie rozszerzone właściwości** , a następnie kliknij przycisk **dalej**.
+5. Pozostaw zaznaczone pole wyboru **Magazyn certyfikatów [...]** , a następnie kliknij przycisk **dalej**.
+6. Kliknij przycisk **Zakończ** i **OK**.
 
-### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Przekazywanie pliku PFX do usługi w chmurze
+### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Przekaż plik PFX do usługi w chmurze
 
-1. Przejdź do [witryny Azure portal](https://portal.azure.com).
-2. Wybierz pozycję **Usługi w chmurze**.
-3. Wybierz usługę w chmurze utworzoną powyżej dla usługi Podziału/Scalania.
-4. W górnym menu kliknij **pozycję Certyfikaty.**
-5. Kliknij **pozycję Przekaż** na dolnym pasku.
-6. Wybierz plik PFX i wprowadź to samo hasło, co powyżej.
-7. Po zakończeniu skopiuj odcisk palca certyfikatu z nowego wpisu na liście.
+1. Przejdź do [Azure Portal](https://portal.azure.com).
+2. Wybierz **Cloud Services**.
+3. Wybierz usługę w chmurze utworzoną powyżej dla usługi Split/Merge.
+4. Kliknij pozycję **Certyfikaty** w górnym menu.
+5. Kliknij przycisk **Przekaż** na dolnym pasku.
+6. Wybierz plik PFX i wprowadź takie samo hasło jak powyżej.
+7. Po zakończeniu Skopiuj odcisk palca certyfikatu z nowej pozycji na liście.
 
 ### <a name="update-the-service-configuration-file"></a>Aktualizowanie pliku konfiguracji usługi
 
-Wklej odcisk palca certyfikatu skopiowany powyżej do atrybutu odcisk palca/wartość tych ustawień.
-Dla roli pracownika:
+Wklej odcisk palca certyfikatu skopiowany powyżej do atrybutu odcisku palca/wartości tych ustawień.
+Dla roli proces roboczy:
 
    ```xml
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
@@ -136,50 +136,50 @@ Dla roli sieci Web:
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
    ```
 
-Należy pamiętać, że w przypadku wdrożeń produkcyjnych dla urzędu certyfikacji powinny być używane oddzielne certyfikaty do szyfrowania, certyfikatów serwera i certyfikatów klientów. Aby uzyskać szczegółowe instrukcje dotyczące tej kwestii, zobacz [Konfiguracja zabezpieczeń](sql-database-elastic-scale-split-merge-security-configuration.md).
+Należy pamiętać, że w przypadku wdrożeń produkcyjnych dla urzędu certyfikacji należy używać oddzielnych certyfikatów do szyfrowania, certyfikatu serwera i certyfikatów klienta. Aby uzyskać szczegółowe instrukcje na ten temat, zobacz [Konfiguracja zabezpieczeń](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ## <a name="deploy-your-service"></a>Wdrażanie usługi
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
-2. Wybierz usługę w chmurze, która została utworzona wcześniej.
+2. Wybierz utworzoną wcześniej usługę w chmurze.
 3. Kliknij pozycję **Przegląd**.
-4. Wybierz środowisko przejściowe, a następnie kliknij przycisk **Przekaż**.
-5. W oknie dialogowym wprowadź etykietę wdrożenia. W przypadku opcji "Pakiet" i "Konfiguracja" kliknij "Z lokalnego" i wybierz plik *SplitMergeService.cspkg* i plik cscfg skonfigurowany wcześniej.
-6. Upewnij się, że pole wyboru z etykietą **Deploy, nawet jeśli jedna lub więcej ról zawiera pojedyncze wystąpienie** jest zaznaczone.
-7. Naciśnij przycisk zaznaczyć w prawym dolnym rogu, aby rozpocząć wdrażanie. Spodziewaj się, że zajmie to kilka minut.
+4. Wybierz środowisko przejściowe, a następnie kliknij pozycję **Przekaż**.
+5. W oknie dialogowym Wprowadź etykietę wdrożenia. Dla opcji "Package" i "Configuration" kliknij pozycję "from local" i wybierz plik *SplitMergeService. cspkg* i plik cscfg, który został wcześniej skonfigurowany.
+6. Upewnij się, że pole wyboru z etykietą **Wdróż, nawet jeśli co najmniej jedna rola zawiera pojedyncze wystąpienie** jest zaznaczone.
+7. Naciśnij przycisk takt w prawym dolnym rogu, aby rozpocząć wdrażanie. Należy spodziewać się, że ukończenie nie potrwa kilka minut.
 
-## <a name="troubleshoot-the-deployment"></a>Rozwiązywanie problemów z wdrażaniem
+## <a name="troubleshoot-the-deployment"></a>Rozwiązywanie problemów z wdrożeniem
 
-Jeśli rola sieci Web nie przejdzie do trybu online, prawdopodobnie wystąpił problem z konfiguracją zabezpieczeń. Sprawdź, czy TLS/SSL jest skonfigurowany w sposób opisany powyżej.
+Jeśli rola sieci Web nie zostanie przełączona w tryb online, prawdopodobnie wystąpił problem z konfiguracją zabezpieczeń. Sprawdź, czy protokół TLS/SSL jest skonfigurowany zgodnie z powyższym opisem.
 
-Jeśli rola pracownika nie przejdzie do trybu online, ale rola sieci web zakończy się pomyślnie, najprawdopodobniej występuje problem z połączeniem się z wcześniej utworzoną bazą danych o stanie.
+Jeśli rola procesu roboczego nie zostanie przełączona w tryb online, ale rola sieci Web powiedzie się, prawdopodobnie wystąpił problem z połączeniem z utworzoną wcześniej bazą danych stanu.
 
-- Upewnij się, że parametry połączenia w cscfg są dokładne.
+- Upewnij się, że parametry połączenia w pliku cscfg są dokładne.
 - Sprawdź, czy serwer i baza danych istnieją oraz czy identyfikator użytkownika i hasło są poprawne.
 - W przypadku usługi Azure SQL DB parametry połączenia powinny mieć postać:
 
    `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<user>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
 - Upewnij się, że nazwa serwera nie zaczyna się od **https://**.
-- Upewnij się, że serwer usługi Azure SQL DB umożliwia usługom Platformy Azure łączenie się z nim. Aby to zrobić, otwórz bazę danych w portalu i upewnij się, że ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest ustawione na **On****.
+- Upewnij się, że serwer usługi Azure SQL DB umożliwia usługom platformy Azure Łączenie się z nią. Aby to zrobić, Otwórz bazę danych w portalu i upewnij się, że ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest ustawione na * * na * * * *.
 
 ## <a name="test-the-service-deployment"></a>Testowanie wdrożenia usługi
 
-### <a name="connect-with-a-web-browser"></a>Łączenie się z przeglądarką internetową
+### <a name="connect-with-a-web-browser"></a>Nawiązywanie połączenia za pomocą przeglądarki sieci Web
 
-Określ punkt końcowy sieci Web usługi scalania podziału. Można to znaleźć w portalu, przechodząc do **przeglądu** usługi w chmurze i patrząc w obszarze **Adres URL witryny** po prawej stronie. Zastąp **http://** **https://,** ponieważ domyślne ustawienia zabezpieczeń wyłączają punkt końcowy HTTP. Załaduj stronę dla tego adresu URL do przeglądarki.
+Określ punkt końcowy sieci Web usługi Split-Merge. Można to znaleźć w portalu, przechodząc do **omówienia** usługi w chmurze i sprawdzając **adres URL witryny** po prawej stronie. Zastąp **http://** z **https://** , ponieważ domyślne ustawienia zabezpieczeń wyłączają punkt końcowy HTTP. Załaduj stronę dla tego adresu URL do przeglądarki.
 
 ### <a name="test-with-powershell-scripts"></a>Testowanie za pomocą skryptów programu PowerShell
 
-Wdrożenie i środowisko można przetestować, uruchamiając dołączone przykładowe skrypty programu PowerShell.
+Wdrożenie i środowisko można sprawdzić, uruchamiając dołączone przykładowe skrypty programu PowerShell.
 
-Pliki skryptów zawarte są:
+Uwzględnione pliki skryptów:
 
-1. *SetupSampleSplitMergeEnvironment.ps1* - konfiguruje warstwę danych testowych dla podziału/scalania (szczegółowy opis znajduje się w poniższej tabeli)
-2. *ExecuteSampleSplitMerge.ps1* - wykonuje operacje testowe w warstwie danych testowych (szczegółowy opis znajduje się w poniższej tabeli)
-3. *GetMappings.ps1* — przykładowy skrypt najwyższego poziomu, który drukuje bieżący stan mapowań niezależnego fragmentu.
-4. *ShardManagement.psm1* - skrypt pomocniczy, który otacza interfejs API obrażeń odłamków
-5. *SqlDatabaseHelpers.psm1* - skrypt pomocniczy do tworzenia baz danych SQL i zarządzania nimi
+1. *SetupSampleSplitMergeEnvironment. ps1* — konfiguruje warstwę danych testowych dla operacji Split/Merge (zobacz tabelę poniżej, aby uzyskać szczegółowy opis)
+2. *ExecuteSampleSplitMerge. ps1* — wykonuje operacje testowe w warstwie danych testowych (patrz tabela poniżej w celu uzyskania szczegółowego opisu)
+3. *Getmappings. ps1* — przykładowy skrypt na najwyższego poziomu, który drukuje bieżący stan mapowań fragmentu.
+4. *ShardManagement. PSM1* — skrypt pomocniczy, który otacza interfejs API ShardManagement
+5. *SqlDatabaseHelpers. PSM1* — skrypt pomocnika na potrzeby tworzenia baz danych SQL i zarządzania nimi
    
    <table style="width:100%">
      <tr>
@@ -187,20 +187,20 @@ Pliki skryptów zawarte są:
        <th>Kroki</th>
      </tr>
      <tr>
-       <th rowspan="5">KonfiguracjaSampleSplitMergeEnvironment.ps1</th>
-       <td>1. Tworzy bazę danych menedżera map fragmentów</td>
+       <th rowspan="5">SetupSampleSplitMergeEnvironment. ps1</th>
+       <td>1. Tworzy bazę danych Menedżera map fragmentu</td>
      </tr>
      <tr>
-       <td>2. Tworzy 2 bazy danych niezależnego fragmentu.
+       <td>2. Tworzy 2 bazy danych fragmentu.
      </tr>
      <tr>
-       <td>3. Tworzy mapę niezależnego fragmentu dla tych baz danych (usuwa wszystkie istniejące mapy niezależnego fragmentu w tych bazach danych). </td>
+       <td>3. Tworzy mapę fragmentu dla tych baz danych (usuwa wszystkie istniejące mapy fragmentu w tych bazach danych). </td>
      </tr>
      <tr>
-       <td>4. Tworzy małą tabelę przykładu w obu fragmentów i wypełnia tabelę w jednym z fragmentów.</td>
+       <td>4. Tworzy małą przykładową tabelę w fragmentów i wypełnia tabelę w jednym z fragmentów.</td>
      </tr>
      <tr>
-       <td>5. Deklaruje SchemaInfo dla podzielonej tabeli.</td>
+       <td>5. Deklaruje SchemaInfo dla tabeli podzielonej na fragmenty.</td>
      </tr>
    </table>
    <table style="width:100%">
@@ -209,36 +209,36 @@ Pliki skryptów zawarte są:
        <th>Kroki</th>
      </tr>
    <tr>
-       <th rowspan="4">WykonujeSampleSplitMerge.ps1 </th>
-       <td>1. Wysyła żądanie podziału do frontonu sieci web usługi dzielenia scalania, który dzieli połowę danych z pierwszego niezależnego fragmentu do drugiego niezależnego fragmentu.</td>
+       <th rowspan="4">ExecuteSampleSplitMerge. ps1 </th>
+       <td>1. Wysyła żądanie Split do frontonu sieci Web usługi Split-Merge, który dzieli dane z pierwszego fragmentuu na drugi fragmentu.</td>
      </tr>
      <tr>
-       <td>2. Sonduje frontend sieci web dla stanu żądania podziału i czeka na zakończenie żądania.</td>
+       <td>2. Sonduje fronton sieci Web pod kątem stanu żądania podziału i czeka na zakończenie żądania.</td>
      </tr>
      <tr>
-       <td>3. Wysyła żądanie scalania do frontonu sieci web usługi dzielenia i scalania, który przenosi dane z drugiego niezależnego fragmentu z powrotem do pierwszego niezależnego fragmentu.</td>
+       <td>3. Wysyła żądanie scalania do frontonu sieci Web usługi Split-Merge, który przenosi dane z drugiej fragmentu z powrotem do pierwszej fragmentu.</td>
      </tr>
      <tr>
-       <td>4. Sonduje fronton sieci Web dla stanu żądania korespondencji seryjnej i czeka na zakończenie żądania.</td>
+       <td>4. Sonduje fronton sieci Web pod kątem stanu żądania scalania i czeka na zakończenie żądania.</td>
      </tr>
    </table>
    
-## <a name="use-powershell-to-verify-your-deployment"></a>Weryfikowanie wdrożenia za pomocą programu PowerShell
+## <a name="use-powershell-to-verify-your-deployment"></a>Weryfikowanie wdrożenia przy użyciu programu PowerShell
 
-1. Otwórz nowe okno programu PowerShell i przejdź do katalogu, w którym pobrano pakiet Scalanie podziału, a następnie przejdź do katalogu "powershell".
+1. Otwórz nowe okno programu PowerShell i przejdź do katalogu, do którego pobrano pakiet Split-Merge, a następnie przejdź do katalogu "PowerShell".
 
-2. Utwórz serwer bazy danych SQL Azure (lub wybierz istniejący serwer), na którym zostanie utworzony menedżer map niezależnego fragmentu i fragmenty.
+2. Utwórz serwer Azure SQL Database (lub wybierz istniejący serwer), w którym zostanie utworzony Menedżer map fragmentu i fragmentów.
 
    > [!NOTE]
-   > Skrypt *SetupSampleSplitMergeEnvironment.ps1* domyślnie tworzy wszystkie te bazy danych na tym samym serwerze, aby zachować prostotę skryptu. Nie jest to ograniczenie samej usługi scalania podziału.
+   > Skrypt *SetupSampleSplitMergeEnvironment. ps1* tworzy domyślnie wszystkie te bazy danych na tym samym serwerze, aby zachować prosty skrypt. Nie jest to ograniczenie usługi Split-Merge.
 
-   Logowanie uwierzytelniania SQL z dostępem do odczytu/zapisu do DB będą potrzebne dla usługi Scalanie podziału, aby przenieść dane i zaktualizować mapę niezależnego fragmentu. Ponieważ usługa scalania podziału jest uruchamiana w chmurze, obecnie nie obsługuje zintegrowanego uwierzytelniania.
+   Aby usługa Split-Merge mogła przenosić dane i aktualizować mapę fragmentu, konieczne będzie logowanie za pomocą uwierzytelniania SQL z dostępem do odczytu/zapisu do baz danych. Ponieważ usługa Split-Merge działa w chmurze, obecnie nie obsługuje uwierzytelniania zintegrowanego.
 
-   Upewnij się, że serwer SQL platformy Azure jest skonfigurowany tak, aby zezwalać na dostęp z adresu IP komputera z uruchomionymi tymi skryptami. To ustawienie można znaleźć w witrynie Serwer SQL Azure / konfiguracja / dozwolone adresy IP.
+   Upewnij się, że serwer SQL platformy Azure został skonfigurowany tak, aby zezwalał na dostęp z adresu IP komputera, na którym uruchomiono te skrypty. To ustawienie można znaleźć w obszarze serwer Azure SQL/konfiguracja/dozwolone adresy IP.
 
-3. Wykonaj skrypt *SetupSampleSplitMergeEnvironment.ps1,* aby utworzyć przykładowe środowisko.
+3. Wykonaj skrypt *SetupSampleSplitMergeEnvironment. ps1* , aby utworzyć przykładowe środowisko.
 
-   Uruchomienie tego skryptu spowoduje wymazanie istniejących struktur danych zarządzania mapami niezależnego fragmentu w bazie danych menedżera map niezależnego fragmentu i fragmentów. Może być przydatne do ponownego uruchomienia skryptu, jeśli chcesz ponownie zainicjować mapy niezależnego fragmentu lub fragmenty.
+   Uruchomienie tego skryptu spowoduje wyczyszczenie wszelkich istniejących struktur danych zarządzania mapy fragmentu w bazie danych Menedżera mapy fragmentu i fragmentów. Może być przydatne ponowne uruchomienie skryptu, jeśli chcesz ponownie zainicjować mapę fragmentu lub fragmentów.
 
    Przykładowy wiersz polecenia:
 
@@ -247,14 +247,14 @@ Pliki skryptów zawarte są:
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-4. Wykonaj skrypt Getmappings.ps1, aby wyświetlić mapowania, które obecnie istnieją w przykładowym środowisku.
+4. Wykonaj skrypt getmappings. ps1, aby wyświetlić mapowania, które aktualnie istnieją w przykładowym środowisku.
 
    ```cmd
    .\GetMappings.ps1
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Wykonaj *skrypt ExecuteSampleSplitMerge.ps1,* aby wykonać operację podziału (przeniesienie połowy danych na pierwszy fragment do drugiego fragmentu), a następnie operację scalania (przeniesienie danych z powrotem na pierwszy fragment). Jeśli skonfigurowano protokół TLS i wyłączono punkt końcowy http, upewnij się, że zamiast tego używasz https:// punktu końcowego.
+5. Wykonaj skrypt *ExecuteSampleSplitMerge. ps1* , aby wykonać operację Split (przeniesienie połowy danych z pierwszego fragmentu do drugiego fragmentu), a następnie operację scalania (przeniesienie danych z powrotem na pierwsze fragmentu). W przypadku skonfigurowania protokołu TLS i pozostawienia wyłączonego punktu końcowego http upewnij się, że zamiast tego używasz punktu końcowego https://.
 
    Przykładowy wiersz polecenia:
 
@@ -266,11 +266,11 @@ Pliki skryptów zawarte są:
     -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
    ```
 
-   Jeśli zostanie wyświetlony poniższy błąd, najprawdopodobniej występuje problem z certyfikatem punktu końcowego sieci Web. Spróbuj połączyć się z punktem końcowym sieci Web za pomocą ulubionej przeglądarki sieci Web i sprawdź, czy wystąpił błąd certyfikatu.
+   Jeśli wystąpi Poniższy błąd, prawdopodobnie wystąpił problem z certyfikatem punktu końcowego sieci Web. Spróbuj połączyć się z punktem końcowym sieci Web za pomocą ulubionej przeglądarki sieci Web i sprawdź, czy wystąpił błąd certyfikatu.
 
      `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.`
 
-   Jeśli to się udało, dane wyjściowe powinny wyglądać jak poniżej:
+   Jeśli zakończyło się pomyślnie, dane wyjściowe powinny wyglądać następująco:
 
    ```output
    > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' -CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
@@ -307,39 +307,39 @@ Pliki skryptów zawarte są:
    > 
    ```
 
-6. Eksperymentuj z innymi typami danych! Wszystkie te skrypty mają opcjonalny parametr -ShardKeyType, który umożliwia określenie typu klucza. Wartość domyślna to Int32, ale można również określić Int64, Guid lub Binary.
+6. Eksperymentuj z innymi typami danych! Wszystkie te skrypty pobierają opcjonalny parametr-ShardKeyType, który umożliwia określenie typu klucza. Wartość domyślna to Int32, ale można również określić Int64, GUID lub Binary.
 
-## <a name="create-requests"></a>Tworzenie żądań
+## <a name="create-requests"></a>Utwórz żądania
 
-Usługa może być używana za pomocą interfejsu użytkownika sieci Web lub importując i używając modułu Programu PowerShell SplitMerge.psm1, który będzie przesyłał żądania za pośrednictwem roli sieci web.
+Usługi można użyć przy użyciu interfejsu użytkownika sieci Web lub przez zaimportowanie i użycie modułu programu PowerShell SplitMerge. PSM1, który prześle żądania za pośrednictwem roli sieci Web.
 
-Usługa może przenosić dane zarówno w tabelach podzielonych na fragmenty, jak i w tabelach referencyjnych. Tabela podzielona na fragmenty ma kolumnę klucza dzielenia na fragmenty i ma różne dane wiersza na każdym niezależnuze. Tabela odwołań nie jest podzielona na fragmenty, więc zawiera te same dane wiersza na każdym niezależnuze. Tabele odwołań są przydatne dla danych, które nie zmieniają się często i jest używany do łączenia z tabel podzielonych na fragmenty w kwerendach.
+Usługa może przenosić dane zarówno w tabelach podzielonej na fragmenty, jak i tabelach referencyjnych. Tabela podzielonej na fragmenty ma kolumnę klucza fragmentowania i ma inne dane wierszy w każdej fragmentu. Tabela referencyjna nie jest podzielonej na fragmenty, więc zawiera te same dane wierszy w każdym fragmentu. Tabele referencyjne są przydatne w przypadku danych, które nie zmieniają się często i są używane do łączenia się z tabelami podzielonej na fragmenty w zapytaniach.
 
-Aby wykonać operację scalania podziału, należy zadeklarować podzielone tabele i tabele odwołań, które mają zostać przeniesione. Jest to realizowane za pomocą interfejsu API **SchemaInfo.** Ten interfejs API znajduje się w obszarze nazw **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema.**
+Aby wykonać operację Split-Merge, należy zadeklarować tabele podzielonej na fragmenty i tabele odwołań, które mają zostać przeniesione. Jest to realizowane za pomocą interfejsu API **SchemaInfo** . Ten interfejs API znajduje się w przestrzeni nazw **Microsoft. Azure. SQLDatabase. ElasticScale. ShardManagement. Schema** .
 
-1. Dla każdej tabeli podzielonej na fragmenty utwórz obiekt **ShardedTableInfo** opisujący nadrzędną nazwę schematu tabeli (opcjonalnie, domyślnie "dbo"), nazwę tabeli i nazwę kolumny w tej tabeli, która zawiera klucz dzielenia na fragmenty.
-2. Dla każdej tabeli odwołań należy utworzyć obiekt **ReferenceTableInfo** opisujący nadrzędną nazwę schematu tabeli (opcjonalnie, domyślnie "dbo") i nazwę tabeli.
-3. Dodaj powyższe obiekty TableInfo do nowego obiektu **SchemaInfo.**
-4. Uzyskaj odwołanie do obiektu **ShardMapManager** i wywołaj **getschemaInfoCollection**.
-5. Dodaj **SchemaInfo** do **SchemaInfoCollection**, podając nazwę mapy niezależnego fragmentu.
+1. Dla każdej tabeli podzielonej na fragmenty Utwórz obiekt **ShardedTableInfo** opisujący nazwę schematu nadrzędnego tabeli (opcjonalnie, wartość domyślną "dbo"), nazwę tabeli i nazwę kolumny w tej tabeli, która zawiera klucz fragmentowania.
+2. Dla każdej tabeli referencyjnej Utwórz obiekt **ReferenceTableInfo** opisujący nazwę schematu nadrzędnego tabeli (opcjonalnie, wartość domyślną "dbo") i nazwę tabeli.
+3. Dodaj powyższe obiekty TableInfo do nowego obiektu **SchemaInfo** .
+4. Pobierz odwołanie do obiektu **ShardMapManager** i Wywołaj **GetSchemaInfoCollection**.
+5. Dodaj **SchemaInfo** do **SchemaInfoCollection**, podając nazwę mapy fragmentu.
 
-Przykładem tego można zobaczyć w dziale SetupSampleSplitMergeEnvironment.ps1.
+Przykład tego elementu można zobaczyć w skrypcie SetupSampleSplitMergeEnvironment. ps1.
 
-Usługa scalania podziału nie tworzy docelowej bazy danych (lub schematu dla wszystkich tabel w bazie danych) dla Ciebie. Muszą one być wstępnie utworzone przed wysłaniem żądania do usługi.
+Usługa Split-Merge nie tworzy docelowej bazy danych (lub schematu dla dowolnych tabel w bazie danych). Muszą być wstępnie utworzone przed wysłaniem żądania do usługi.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Po uruchomieniu przykładowych skryptów programu PowerShell może zostać wyświetlony poniższy komunikat:
+Podczas uruchamiania przykładowych skryptów programu PowerShell może zostać wyświetlony następujący komunikat:
 
    `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.`
 
-Ten błąd oznacza, że certyfikat TLS/SSL nie jest poprawnie skonfigurowany. Postępuj zgodnie z instrukcjami w sekcji "Łączenie się z przeglądarką internetową".
+Ten błąd oznacza, że certyfikat TLS/SSL nie jest prawidłowo skonfigurowany. Postępuj zgodnie z instrukcjami w sekcji "łączenie się z przeglądarką sieci Web".
 
-Jeśli nie możesz przesłać żądań, możesz zobaczyć:
+Jeśli nie możesz przesłać żądań, możesz je zobaczyć:
 
    `[Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'.`
 
-W takim przypadku sprawdź plik konfiguracyjny, w szczególności ustawienie **WorkerRoleSynchronizationStorageAccountConnectionString**. Ten błąd zazwyczaj wskazuje, że rola procesu roboczego nie może pomyślnie zainicjować bazy danych metadanych przy pierwszym użyciu.
+W takim przypadku sprawdź plik konfiguracji, w szczególności ustawienia dla **WorkerRoleSynchronizationStorageAccountConnectionString**. Ten błąd zazwyczaj wskazuje, że rola proces roboczy nie może pomyślnie zainicjować bazy danych metadanych przy pierwszym użyciu.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

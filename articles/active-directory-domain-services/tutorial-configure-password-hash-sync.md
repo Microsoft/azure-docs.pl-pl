@@ -1,6 +1,6 @@
 ---
-title: Włączanie synchronizacji skrótów haseł dla usług domenowych usługi Azure AD | Dokumenty firmy Microsoft
-description: W tym samouczku dowiesz się, jak włączyć synchronizację skrótów haseł przy użyciu usługi Azure AD Connect w domenie zarządzanej usług domenowych usługi active directory platformy Azure.
+title: Włącz synchronizację skrótów haseł dla Azure AD Domain Services | Microsoft Docs
+description: W tym samouczku dowiesz się, jak włączyć synchronizację skrótów haseł przy użyciu Azure AD Connect do Azure Active Directory Domain Services domenie zarządzanej.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -10,70 +10,70 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: iainfou
 ms.openlocfilehash: 4bf85a8e38a3cfc46fe4dbaf86639899e7267178
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80676604"
 ---
-# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Samouczek: Włączanie synchronizacji haseł w usługach domenowych Active Directory platformy Azure w środowiskach hybrydowych
+# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Samouczek: Włączanie synchronizacji haseł w Azure Active Directory Domain Services dla środowisk hybrydowych
 
-W środowiskach hybrydowych dzierżawę usługi Azure Active Directory (Azure AD) można skonfigurować do synchronizacji z lokalnym środowiskiem usług domenowych Active Directory (AD DS) przy użyciu usługi Azure AD Connect. Domyślnie usługa Azure AD Connect nie synchronizuje starszych skrótów haseł usługi NT LAN Manager (NTLM) i protokołu Kerberos, które są potrzebne dla usług domenowych Active Directory platformy Azure (Usługi Azure AD DS).
+W przypadku środowisk hybrydowych dzierżawa Azure Active Directory (Azure AD) można skonfigurować do synchronizacji ze środowiskiem lokalnym Active Directory Domain Services (AD DS) za pomocą Azure AD Connect. Domyślnie Azure AD Connect nie synchronizuje starszych skrótów NT LAN Manager (NTLM) i haseł protokołu Kerberos, które są zbędne dla Azure Active Directory Domain Services (Azure AD DS).
 
-Aby używać usług Azure AD DS z kontami zsynchronizowanymi z lokalnego środowiska usług AD DS, należy skonfigurować usługę Azure AD Connect w celu zsynchronizowania tych skrótów haseł wymaganych do uwierzytelniania NTLM i Kerberos. Po skonfigurowaniu usługi Azure AD Connect zdarzenie tworzenia konta lokalnego lub zmiany hasła również następnie synchronizuje starsze skróty haseł z usługą Azure AD.
+Aby korzystać z usługi Azure AD DS z kontami synchronizowanymi ze środowiska lokalnego AD DS, należy skonfigurować Azure AD Connect do synchronizowania tych skrótów haseł wymaganych do uwierzytelniania NTLM i Kerberos. Po skonfigurowaniu Azure AD Connect zdarzenie tworzenia konta lokalnego lub zmiany hasła synchronizuje także starsze skróty haseł do usługi Azure AD.
 
-Nie trzeba wykonywać tych kroków, jeśli używasz kont tylko w chmurze bez lokalnego środowiska usług AD DS.
+Nie musisz wykonywać tych czynności, jeśli używasz kont tylko w chmurze bez lokalnego środowiska AD DS.
 
-W tym samouczku dowiesz się:
+W ramach tego samouczka nauczysz się:
 
 > [!div class="checklist"]
-> * Dlaczego potrzebne są starsze skróty haseł NTLM i Kerberos
-> * Jak skonfigurować synchronizację skrótów haseł starszych dla usługi Azure AD Connect
+> * Dlaczego są wymagana starsze skróty NTLM i hasła protokołu Kerberos
+> * Jak skonfigurować starszą synchronizację skrótów haseł dla Azure AD Connect
 
-Jeśli nie masz subskrypcji platformy Azure, [utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten samouczek, potrzebne są następujące zasoby:
 
 * Aktywna subskrypcja platformy Azure.
-    * Jeśli nie masz subskrypcji platformy Azure, [utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, która jest synchronizowana z katalogiem lokalnym przy użyciu usługi Azure AD Connect.
-    * W razie potrzeby [utwórz dzierżawę usługi Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z kontem.][associate-azure-ad-tenant]
-    * W razie potrzeby [włącz usługę Azure AD Connect do synchronizacji skrótów haseł][enable-azure-ad-connect].
-* Domena zarządzana usługami domenowymi Usługi Active Directory platformy Azure włączona i skonfigurowana w dzierżawie usługi Azure AD.
-    * W razie potrzeby [utwórz i skonfiguruj wystąpienie usług domenowych Active Directory platformy Azure][create-azure-ad-ds-instance].
+    * Jeśli nie masz subskrypcji platformy Azure, [Utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Dzierżawa Azure Active Directory skojarzona z subskrypcją, która jest synchronizowana z katalogiem lokalnym przy użyciu Azure AD Connect.
+    * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
+    * W razie potrzeby [włącz Azure AD Connect na potrzeby synchronizacji skrótów haseł][enable-azure-ad-connect].
+* Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
+    * W razie konieczności [Utwórz i skonfiguruj wystąpienie Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 
-## <a name="password-hash-synchronization-using-azure-ad-connect"></a>Synchronizacja skrótów haseł przy użyciu usługi Azure AD Connect
+## <a name="password-hash-synchronization-using-azure-ad-connect"></a>Synchronizacja skrótów haseł przy użyciu Azure AD Connect
 
-Usługa Azure AD Connect służy do synchronizowania obiektów, takich jak konta użytkowników i grupy z lokalnego środowiska usług AD DS w dzierżawę usługi Azure AD. W ramach tego procesu synchronizacja skrótów haseł umożliwia kontom używanie tego samego hasła w środowisku usług AD DS i usłudze Azure AD.
+Azure AD Connect służy do synchronizowania obiektów, takich jak konta użytkowników i grupy, z lokalnego środowiska AD DS do dzierżawy usługi Azure AD. W ramach procesu synchronizacja skrótów haseł umożliwia kontom używanie tego samego hasła w środowisku Premium AD DS i usłudze Azure AD.
 
-Aby uwierzytelnić użytkowników w domenie zarządzanej, usługi Azure AD DS potrzebuje skrótów haseł w formacie odpowiednim do uwierzytelniania NTLM i Kerberos. Usługa Azure AD nie przechowuje skrótów haseł w formacie wymaganym do uwierzytelniania NTLM lub Kerberos, dopóki nie włączysz usług Azure AD DS dla dzierżawy. Ze względów bezpieczeństwa usługa Azure AD również nie przechowuje żadnych poświadczeń hasła w postaci zwykłego tekstu. W związku z tym usługa Azure AD nie może automatycznie wygenerować tych skrótów haseł NTLM lub Kerberos na podstawie istniejących poświadczeń użytkowników.
+Aby można było uwierzytelniać użytkowników w domenie zarządzanej, usługa Azure AD DS wymaga skrótów haseł w formacie odpowiednim do uwierzytelniania NTLM i Kerberos. Usługa Azure AD nie przechowuje skrótów haseł w formacie wymaganym do uwierzytelniania NTLM lub Kerberos, dopóki nie zostanie włączona usługa Azure AD DS dla dzierżawy. Ze względów bezpieczeństwa usługa Azure AD nie przechowuje również żadnych poświadczeń hasła w postaci zwykłego tekstu. W związku z tym usługa Azure AD nie może automatycznie generować tych skrótów uwierzytelniania NTLM lub Kerberos w oparciu o istniejące poświadczenia użytkownika.
 
-Usługę Azure AD Connect można skonfigurować do synchronizowania wymaganych skrótów haseł NTLM lub Kerberos dla usług Azure AD DS. Upewnij się, że wykonaliśmy kroki [umożliwiające włączenie usługi Azure AD Connect do synchronizacji skrótów haseł][enable-azure-ad-connect]. Jeśli masz istniejące wystąpienie usługi Azure AD Connect, [pobierz i zaktualizuj do najnowszej wersji,][azure-ad-connect-download] aby upewnić się, że można zsynchronizować skróty haseł starszych dla NTLM i Kerberos. Ta funkcja nie jest dostępna we wczesnych wersjach usługi Azure AD Connect ani w starszym narzędziu DirSync. Usługa Azure AD Connect w wersji *1.1.614.0* lub nowszej jest wymagana.
+Azure AD Connect można skonfigurować do synchronizowania wymaganych skrótów uwierzytelniania NTLM lub Kerberos dla AD DS platformy Azure. Upewnij się, że wykonano kroki umożliwiające [włączenie Azure AD Connect synchronizacji skrótów haseł][enable-azure-ad-connect]. Jeśli masz istniejące wystąpienie Azure AD Connect, [Pobierz i zaktualizuj do najnowszej wersji][azure-ad-connect-download] , aby upewnić się, że można synchronizować starsze skróty haseł dla protokołów NTLM i Kerberos. Ta funkcja jest niedostępna w wczesnych wersjach Azure AD Connect lub za pomocą starszego narzędzia DirSync. Wymagany jest Azure AD Connect w wersji *1.1.614.0* lub nowszej.
 
 > [!IMPORTANT]
-> Usługa Azure AD Connect powinna być instalowana i konfigurowana tylko do synchronizacji z lokalnymi środowiskami usług AD DS. Nie jest obsługiwana instalacja usługi Azure AD Connect w domenie zarządzanej usług Azure AD DS w celu synchronizowania obiektów z powrotem do usługi Azure AD.
+> Azure AD Connect należy instalować i konfigurować tylko na potrzeby synchronizacji z lokalnymi środowiskami AD DS. Instalowanie Azure AD Connect w domenie zarządzanej AD DS platformy Azure nie jest obsługiwane do synchronizowania obiektów z powrotem do usługi Azure AD.
 
-## <a name="enable-synchronization-of-password-hashes"></a>Włączanie synchronizacji skrótów haseł
+## <a name="enable-synchronization-of-password-hashes"></a>Włącz synchronizację skrótów haseł
 
-Po zainstalowaniu i skonfigurowanym do synchronizacji usługi Azure AD, teraz skonfiguruj synchronizację skrótów haseł starszych haseł dla NTLM i Kerberos. Skrypt programu PowerShell służy do konfigurowania wymaganych ustawień, a następnie uruchamiania pełnej synchronizacji haseł z usługą Azure AD. Po zakończeniu tego procesu synchronizacji skrótów haseł usługi Azure AD Connect użytkownicy mogą logować się do aplikacji za pośrednictwem usług Azure AD DS, które używają starszych skrótów haseł NTLM lub Kerberos.
+Za pomocą Azure AD Connect zainstalowanych i skonfigurowanych do synchronizacji z usługą Azure AD Skonfiguruj teraz starszą synchronizację skrótów haseł dla protokołów NTLM i Kerberos. Skrypt programu PowerShell służy do konfigurowania wymaganych ustawień, a następnie do uruchamiania pełnej synchronizacji haseł z usługą Azure AD. Azure AD Connect po ukończeniu procesu synchronizacji skrótów haseł, użytkownicy mogą logować się do aplikacji za pośrednictwem usługi Azure AD DS, które używają starszych skrótów haseł NTLM lub Kerberos.
 
-1. Na komputerze z zainstalowaną usługą Azure AD Connect z menu Start otwórz **usługę Synchronizacja > synchronizacji usługi Azure AD Connect**.
-1. Wybierz kartę **Łączniki.** Zostaną wyświetlone informacje o połączeniu używane do ustanawiania synchronizacji między lokalnym środowiskiem usług AD DS a usługą Azure AD.
+1. Na komputerze z zainstalowanym Azure AD Connect z menu Start Otwórz **usługę synchronizacji > Azure AD Connect**.
+1. Wybierz kartę **Łączniki** . Wymienione są informacje o połączeniu służące do ustanowienia synchronizacji między środowiskiem lokalnym AD DS i usługą Azure AD.
 
-    **Typ** wskazuje usługę *Windows Azure Active Directory (Microsoft)* dla łącznika usługi Azure AD lub *usługi domenowe Active Directory* dla lokalnego łącznika usług AD DS. Zanotuj nazwy łączników do użycia w skrypcie programu PowerShell w następnym kroku.
+    **Typ** wskazuje, *Azure Active Directory systemu Windows (Microsoft)* dla łącznika usługi Azure AD lub *Active Directory Domain Services* dla lokalnego łącznika AD DS. Zanotuj nazwy łączników, które mają być używane w skrypcie programu PowerShell w następnym kroku.
 
-    ![Wyświetlanie nazw łączników w Menedżerze usług synchronizacji](media/tutorial-configure-password-hash-sync/service-sync-manager.png)
+    ![Wyświetl listę nazw łączników w Service Manager synchronizacji](media/tutorial-configure-password-hash-sync/service-sync-manager.png)
 
-    W tym przykładzie używane są następujące łączniki:
+    W tym przykładowym zrzucie ekranu są używane następujące łączniki:
 
-    * Łącznik usługi Azure AD nosi nazwę *contoso.onmicrosoft.com — AAD*
-    * Lokalny łącznik usług AD DS nosi nazwę *onprem.contoso.com*
+    * Łącznik usługi Azure AD ma nazwę *contoso.onmicrosoft.com-AAD*
+    * Łącznik AD DS lokalnego ma nazwę *OnPrem.contoso.com*
 
-1. Skopiuj i wklej następujący skrypt programu PowerShell na komputer z zainstalowaną usługą Azure AD Connect. Skrypt wyzwala pełną synchronizację haseł, która zawiera starsze skróty haseł. Zaktualizuj `$azureadConnector` zmienne i `$adConnector` nazwy łączników z poprzedniego kroku.
+1. Skopiuj i wklej następujący skrypt programu PowerShell na komputerze z zainstalowanym Azure AD Connect. Skrypt wyzwala pełną synchronizację haseł, która zawiera starsze skróty haseł. Zaktualizuj zmienne `$azureadConnector` i `$adConnector` przy użyciu nazw łączników z poprzedniego kroku.
 
-    Uruchom ten skrypt w każdym lesie usługi AD, aby zsynchronizować skróty haseł ntlm i protokołu Kerberos do usługi Azure AD.
+    Uruchom ten skrypt w każdym lesie usługi AD, aby zsynchronizować skróty haseł dla lokalnego konta NTLM i Kerberos do usługi Azure AD.
 
     ```powershell
     # Define the Azure AD Connect connector names and import the required PowerShell module
@@ -97,18 +97,18 @@ Po zainstalowaniu i skonfigurowanym do synchronizacji usługi Azure AD, teraz sk
     Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true
     ```
 
-    W zależności od rozmiaru katalogu pod względem liczby kont i grup synchronizacja skrótów haseł starszych do usługi Azure AD może zająć trochę czasu. Hasła są następnie synchronizowane z domeną zarządza zarządzana usługą Azure AD DS po ich zsynchronizowaniu z usługą Azure AD.
+    W zależności od rozmiaru katalogu pod względem liczby kont i grup synchronizacja starszych skrótów haseł do usługi Azure AD może zająć trochę czasu. Hasła są następnie synchronizowane z domeną zarządzaną platformy Azure AD DS po ich zsynchronizowaniu z usługą Azure AD.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dowiedziałeś się:
+W tym samouczku przedstawiono następujące informacje:
 
 > [!div class="checklist"]
-> * Dlaczego potrzebne są starsze skróty haseł NTLM i Kerberos
-> * Jak skonfigurować synchronizację skrótów haseł starszych dla usługi Azure AD Connect
+> * Dlaczego są wymagana starsze skróty NTLM i hasła protokołu Kerberos
+> * Jak skonfigurować starszą synchronizację skrótów haseł dla Azure AD Connect
 
 > [!div class="nextstepaction"]
-> [Dowiedz się, jak działa synchronizacja w domenie zarządzanej usług domenowych usługi Azure AD](synchronization.md)
+> [Dowiedz się, jak synchronizacja działa w Azure AD Domain Servicesej domenie zarządzanej](synchronization.md)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

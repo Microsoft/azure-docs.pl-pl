@@ -1,6 +1,6 @@
 ---
-title: Zamiast ETL, zaprojektuj ELT
-description: Wdrażanie elastycznych strategii ładowania danych dla puli sql synapse w ramach usługi Azure Synapse Analytics
+title: Zamiast ETL, projekt ELT
+description: Implementowanie elastycznych strategii ładowania danych dla puli SQL Synapse w ramach usługi Azure Synapse Analytics
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,83 +12,83 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: e99fd898956e11a4827d023691111a47e5a790c0
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80744956"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategie ładowania danych dla puli SQL Synapse
 
-Tradycyjne pule SQL SMP używają procesu wyodrębniania, przekształcania i ładowania (ETL) do ładowania danych. Pula SQL synapse w ramach usługi Azure Synapse Analytics ma architekturę przetwarzania równoległego (MPP), która wykorzystuje skalowalność i elastyczność zasobów obliczeniowych i magazynowych.
+Tradycyjne pule SQL SMP używają procesu wyodrębniania, transformacji i ładowania (ETL) do ładowania danych. Synapse Pool SQL, w ramach usługi Azure Synapse Analytics, oferuje architekturę masowego przetwarzania równoległego (MPP), która korzysta z skalowalności i elastyczności zasobów obliczeniowych i magazynu.
 
-Za pomocą wyodrębniania, ładowania i przekształcania (ELT) proces wykorzystuje MPP i eliminuje zasoby potrzebne do transformacji danych przed załadowaniem.
+Użycie procesu wyodrębniania, ładowania i przekształcania (ELT) wykorzystuje MPP i eliminuje zasoby konieczne do przekształcenia danych przed załadowaniem.
 
-Podczas gdy pula SQL obsługuje wiele metod ładowania, w tym popularnych opcji programu SQL Server, takich jak [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) i [SQLBulkCopy API,](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)najszybszym i najbardziej skalowalnym sposobem ładowania danych jest tabele zewnętrzne PolyBase i [instrukcja COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (wersja zapoznawcza).
+Chociaż Pula SQL obsługuje wiele metod ładowania, w tym popularnych opcji SQL Server, takich jak [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) i [interfejsu API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), najszybszym i najbardziej skalowalnym sposobem ładowania danych jest użycie podstawowych tabel zewnętrznych i [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (wersja zapoznawcza).
 
-Za pomocą polybase i instrukcji COPY można uzyskać dostęp do danych zewnętrznych przechowywanych w magazynie obiektów Blob platformy Azure lub usłudze Azure Data Lake Store za pośrednictwem języka T-SQL. Aby uzyskać największą elastyczność podczas ładowania, zaleca się użycie instrukcji COPY.
+Korzystając z instrukcji Base i COPY, można uzyskać dostęp do zewnętrznych danych przechowywanych w usłudze Azure Blob Storage lub Azure Data Lake Store za pośrednictwem języka T-SQL. Aby zapewnić największą elastyczność podczas ładowania, zalecamy użycie instrukcji COPY.
 
 > [!NOTE]  
-> Instrukcja COPY jest obecnie w publicznej wersji zapoznawczej. Aby przekazać opinię, wyślij wiadomość e-mail na następującą listę dystrybucyjną: sqldwcopypreview@service.microsoft.com.
+> Instrukcja COPY jest obecnie w publicznej wersji zapoznawczej. Aby przekazać opinię, Wyślij wiadomość e-mail na następującą listę dystrybucyjną sqldwcopypreview@service.microsoft.com:.
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 ## <a name="what-is-elt"></a>Co to jest ELT?
 
-Wyodrębnij, Załaduj i Przekształć (ELT) to proces, w którym dane są wyodrębniane z systemu źródłowego, ładowane do puli SQL, a następnie przekształcane.
+Wyodrębnij, Załaduj i Przekształć (ELT) to proces polegający na tym, że dane są wyodrębniane z systemu źródłowego, ładowane do puli SQL, a następnie przekształcane.
 
-Podstawowe kroki wdrażania ELT to:
+Podstawowe kroki implementacji ELT są następujące:
 
 1. Wyodrębnij dane źródłowe do plików tekstowych.
-2. Wyląduj dane w magazynie obiektów Blob platformy Azure lub usłudze Azure Data Lake Store.
+2. Wydziel dane do usługi Azure Blob Storage lub Azure Data Lake Store.
 3. Przygotuj dane do załadowania.
-4. Załaduj dane do tabel przemieszczania za pomocą polybase lub polecenia KOPIUJ.
+4. Załaduj dane do tabel przemieszczania za pomocą polecenia Base lub COPY.
 5. Przekształć dane.
 6. Wstaw dane do tabel produkcyjnych.
 
-Aby zapoznać się z samouczkiem ładowania bazy danych PolyBase, zobacz [Korzystanie z bazy danych PolyBase w celu załadowania danych z magazynu obiektów blob platformy Azure](load-data-from-azure-blob-storage-using-polybase.md).
+Aby zapoznać się z samouczkiem dotyczącym ładowania wieloczęściowego, zobacz [Korzystanie z bazy danych w celu załadowania z usługi Azure Blob Storage](load-data-from-azure-blob-storage-using-polybase.md).
 
-Aby uzyskać więcej informacji, zobacz [Blog wczytywania wzorców](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/).
+Aby uzyskać więcej informacji, zobacz Blog dotyczący [ładowania wzorców](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/).
 
 ## <a name="1-extract-the-source-data-into-text-files"></a>1. Wyodrębnij dane źródłowe do plików tekstowych
 
-Wyprowadzanie danych z systemu źródłowego zależy od lokalizacji magazynu.  Celem jest przeniesienie danych do PolyBase i copy obsługiwane rozdzielane tekstu lub plików CSV.
+Pobieranie danych z systemu źródłowego zależy od lokalizacji magazynu.  Celem jest przeniesienie danych do formatu Base i SKOPIOWAnie obsługiwanego tekstu lub plików CSV.
 
-### <a name="polybase-and-copy-external-file-formats"></a>Formaty plików zewnętrznych PolyBase i COPY
+### <a name="polybase-and-copy-external-file-formats"></a>Zewnętrzne i kopiowanie formatów plików zewnętrznych
 
-Za pomocą polybase i instrukcji COPY można załadować dane z zakodowanych w formatach tekstowych lub plików CSV zakodowanych w formatach UTF-8 i UTF-16. Oprócz rozdzielonych plików tekstowych lub CSV ładuje się z formatów plików Hadoop, takich jak ORC i Parquet. PolyBase i copy instrukcji można również załadować dane z Gzip i Snappy skompresowane pliki.
+Korzystając z instrukcji Base i COPY, można ładować dane z rozdzielonych plików tekstowych lub CSV z kodowaniem UTF-8 i UTF-16. Oprócz rozdzielonych plików tekstowych lub CSV, są one ładowane z formatów plików Hadoop, takich jak ORC i Parquet. Instrukcje Base i COPY mogą również ładować dane z skompresowanych plików gzip i przyciągania.
 
-Rozszerzone formaty ASCII, format o stałej szerokości i zagnieżdżone formaty, takie jak WinZip lub XML, nie są obsługiwane. W przypadku eksportowania z programu SQL Server można użyć [narzędzia wiersza polecenia bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) do eksportowania danych do rozdzielonych plików tekstowych.
+Rozszerzony format ASCII, stała szerokość i zagnieżdżone formaty, takie jak WinZip lub XML, nie są obsługiwane. Jeśli eksportujesz z SQL Server, możesz użyć [narzędzia wiersza polecenia BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby wyeksportować dane do rozdzielanych plików tekstowych.
 
-## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Wyląduj dane w magazynie obiektów Blob platformy Azure lub usłudze Azure Data Lake Store
+## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. wyląduj dane do usługi Azure Blob Storage lub Azure Data Lake Store
 
-Aby wyładowywać dane w magazynie platformy Azure, można przenieść je do [magazynu obiektów Blob platformy Azure](../../storage/blobs/storage-blobs-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) lub usługi Azure Data Lake Store [Gen2.](../../data-lake-store/data-lake-store-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) W obu lokalizacjach dane powinny być przechowywane w plikach tekstowych. PolyBase i COPY instrukcji można załadować z każdej lokalizacji.
+Aby wystawić dane w usłudze Azure Storage, można przenieść je do [usługi Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) lub [Azure Data Lake Store Gen2](../../data-lake-store/data-lake-store-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). W każdej lokalizacji dane powinny być przechowywane w plikach tekstowych. Instrukcji Base i COPY można załadować z jednej z lokalizacji.
 
 Narzędzia i usługi, których można użyć do przenoszenia danych do usługi Azure Storage:
 
-- [Usługa Azure ExpressRoute](../../expressroute/expressroute-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) zwiększa przepływność sieci, wydajność i przewidywalność. Usługa ExpressRoute to usługa, która kieruje dane za pośrednictwem dedykowanego połączenia prywatnego na platformę Azure. Połączenia usługi ExpressRoute nie kierują danych przez publiczny Internet. Połączenia zapewniają większą niezawodność, większą szybkość, mniejsze opóźnienia i większe bezpieczeństwo niż typowe połączenia przez publiczny Internet.
-- [Narzędzie AZCopy](../../storage/common/storage-choose-data-transfer-solution.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) przenosi dane do usługi Azure Storage za pośrednictwem publicznego Internetu. To działa, jeśli rozmiary danych są mniejsze niż 10 TB. Aby regularnie wykonywać obciążenia za pomocą AZCopy, przetestuj szybkość sieci, aby sprawdzić, czy jest to dopuszczalne.
-- [Usługa Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ma bramę, którą można zainstalować na serwerze lokalnym. Następnie można utworzyć potok, aby przenieść dane z serwera lokalnego do usługi Azure Storage. Aby użyć usługi Data Factory z analizą SQL, zobacz [Ładowanie danych dla usługi SQL Analytics](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+- Usługa [Azure ExpressRoute](../../expressroute/expressroute-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) zwiększa przepustowość sieci, wydajność i przewidywalność. ExpressRoute to usługa, która przekierowuje dane za pomocą dedykowanego połączenia prywatnego z platformą Azure. Połączenia ExpressRoute nie kierują danych za pomocą publicznego Internetu. Połączenia oferują większą niezawodność, większe szybkości, krótsze opóźnienia oraz lepsze zabezpieczenia niż typowe połączenia przez publiczny Internet.
+- [Narzędzie AzCopy](../../storage/common/storage-choose-data-transfer-solution.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) przenosi dane do usługi Azure Storage za pośrednictwem publicznego Internetu. To działa, jeśli rozmiar danych jest mniejszy niż 10 TB. Aby przeprowadzić regularne ładowanie w programie AZCopy, przetestuj szybkość sieci, aby sprawdzić, czy jest ona akceptowalna.
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) zawiera bramę, którą można zainstalować na serwerze lokalnym. Następnie możesz utworzyć potok, aby przenieść dane z serwera lokalnego do usługi Azure Storage. Aby użyć Data Factory z analizą SQL, zobacz [ładowanie danych do usługi SQL Analytics](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-## <a name="3-prepare-the-data-for-loading"></a>3. Przygotowanie danych do załadunku
+## <a name="3-prepare-the-data-for-loading"></a>3. Przygotuj dane do załadowania
 
-Przed załadowaniem może być konieczne przygotowanie i wyczyszczone dane na koncie magazynu. Przygotowanie danych można wykonać, gdy dane znajdują się w źródle, podczas eksportowania danych do plików tekstowych lub po tym, jak dane znajdują się w usłudze Azure Storage.  Najłatwiej jest pracować z danymi tak wcześnie, jak to możliwe.  
+Przed załadowaniem programu może być konieczne przygotowanie i oczyszczenie danych na koncie magazynu. Przygotowanie danych można wykonać, gdy dane są przechowywane w źródle, podczas eksportowania danych do plików tekstowych lub po utworzeniu danych w usłudze Azure Storage.  Najłatwiej pracujesz z danymi tak wcześnie w procesie, jak to możliwe.  
 
 ### <a name="define-external-tables"></a>Definiowanie tabel zewnętrznych
 
-Jeśli używasz PolyBase, należy zdefiniować tabele zewnętrzne w puli SQL przed załadowaniem. Tabele zewnętrzne nie są wymagane przez copy instrukcji. PolyBase używa tabel zewnętrznych do definiowania danych w usłudze Azure Storage i uzyskiwania do nich dostępu.
+Jeśli używasz bazy danych Base, musisz zdefiniować tabele zewnętrzne w puli SQL przed załadowaniem. Tabele zewnętrzne nie są wymagane przez instrukcję COPY. Baza danych używa tabel zewnętrznych w celu definiowania i uzyskiwania dostępu do nich w usłudze Azure Storage.
 
-Tabela zewnętrzna jest podobna do widoku bazy danych. Tabela zewnętrzna zawiera schemat tabeli i wskazuje na dane przechowywane poza pulą SQL.
+Tabela zewnętrzna jest podobna do widoku bazy danych. Tabela zewnętrzna zawiera schemat tabeli i wskazuje dane przechowywane poza pulą SQL.
 
-Definiowanie tabel zewnętrznych obejmuje określenie źródła danych, formatu plików tekstowych i definicji tabel. Artykuły referencyjne składni T-SQL, które będą potrzebne, to:
+Definiowanie tabel zewnętrznych obejmuje określenie źródła danych, formatu plików tekstowych i definicji tabeli. Informacje o składni języka T-SQL, które są potrzebne, są następujące:
 
-- [TWORZENIE ZEWNĘTRZNEGO ŹRÓDŁA DANYCH](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [TWORZENIE TABELI ZEWNĘTRZNEJ](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-Podczas ładowania parkietu mapowanie typu danych SQL jest następujące:
+Podczas ładowania Parquet mapowanie typu danych SQL jest następujące:
 
-| **Typ danych parkietu** | **Typ danych SQL** |
+| **Parquet — typ danych** | **Typ danych SQL** |
 | :-------------------: | :---------------: |
 |        tinyint        |      tinyint      |
 |       smallint        |     smallint      |
@@ -96,7 +96,7 @@ Podczas ładowania parkietu mapowanie typu danych SQL jest następujące:
 |        bigint         |      bigint       |
 |        wartość logiczna        |        bit        |
 |        double         |       float       |
-|         float         |       rzeczywiste        |
+|         float         |       liczba rzeczywista        |
 |        double         |       pieniędzy       |
 |        double         |    smallmoney     |
 |        ciąg         |       nchar       |
@@ -113,52 +113,52 @@ Podczas ładowania parkietu mapowanie typu danych SQL jest następujące:
 |         date          |       date        |
 |        decimal        |      decimal      |
 
-Na przykład tworzenia obiektów zewnętrznych, zobacz [Tworzenie tabel zewnętrznych](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) krok w samouczku ładowania.
+Aby zapoznać się z przykładem tworzenia obiektów zewnętrznych, zobacz krok [Tworzenie tabel zewnętrznych](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) w samouczku ładowania.
 
 ### <a name="format-text-files"></a>Formatowanie plików tekstowych
 
-Jeśli używasz PolyBase, zdefiniowane obiekty zewnętrzne muszą wyrównać wiersze plików tekstowych z definicją tabeli zewnętrznej i formatu pliku. Dane w każdym wierszu pliku tekstowego muszą być zgodne z definicją tabeli.
+W przypadku korzystania z bazy Base, zdefiniowane obiekty zewnętrzne muszą wyrównać wiersze plików tekstowych z definicją tabeli zewnętrznej i formatu pliku. Dane w każdym wierszu pliku tekstowego muszą być wyrównane z definicją tabeli.
 Aby sformatować pliki tekstowe:
 
-- Jeśli dane pochodzą ze źródła nierelacyjnego, należy przekształcić je w wiersze i kolumny. Niezależnie od tego, czy dane pochodzą ze źródła relacyjnego, czy nierelacyjnego, dane muszą zostać przekształcone w taki sposób, aby były zgodne z definicjami kolumn dla tabeli, do której mają być ładowane dane.
-- Formatowanie danych w pliku tekstowym w celu wyrównania z kolumnami i typami danych w tabeli docelowej. Niewspółosiowość między typami danych w zewnętrznych plikach tekstowych i tabeli puli SQL powoduje, że wiersze mają zostać odrzucone podczas ładowania.
-- Rozdziel pola w pliku tekstowym za pomocą terminatora.  Pamiętaj, aby użyć znaku lub sekwencji znaków, których nie ma w danych źródłowych. Użyj terminatora określonego w formacie [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Jeśli dane pochodzą z nierelacyjnego źródła, należy przekształcić je w wiersze i kolumny. Niezależnie od tego, czy dane pochodzą ze źródła relacyjnego, czy nierelacyjnego, dane muszą zostać przekształcone w celu dopasowania z definicjami kolumn dla tabeli, do której mają zostać załadowane dane.
+- Sformatuj dane w pliku tekstowym, aby wyrównać je do kolumn i typów danych w tabeli docelowej. Niezgodność między typami danych w zewnętrznych plikach tekstowych a tabelą puli SQL powoduje odrzucenie wierszy podczas ładowania.
+- Oddziel pola w pliku tekstowym z terminatorem.  Upewnij się, że używasz znaku lub sekwencji znaków, która nie została znaleziona w danych źródłowych. Użyj terminatora określonego przy użyciu parametru [Create External File Format](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-## <a name="4-load-the-data-using-polybase-or-the-copy-statement"></a>4. Załaduj dane za pomocą PolyBase lub instrukcji COPY
+## <a name="4-load-the-data-using-polybase-or-the-copy-statement"></a>4. Załaduj dane przy użyciu bazy danych lub instrukcji COPY
 
-Najlepszym rozwiązaniem jest załadowanie danych do tabeli przemieszczania. Tabele przemieszczania umożliwiają obsługę błędów bez zakłócania tabel produkcyjnych. Tabela przemieszczania daje również możliwość użycia puli SQL MPP dla przekształceń danych przed wstawieniem danych do tabel produkcyjnych.
+Najlepszym rozwiązaniem jest załadowanie danych do tabeli przejściowej. Tabele przemieszczania umożliwiają obsługę błędów bez zakłócania pracy z tabelami produkcyjnymi. Tabela przemieszczania daje również możliwość użycia funkcji MPP puli SQL na potrzeby przekształceń danych przed wstawieniem danych do tabel produkcyjnych.
 
-Tabela musi być wstępnie utworzona podczas ładowania do tabeli przemieszczania z KOPIĄ.
+Tabela musi być wstępnie utworzona podczas ładowania do tabeli przemieszczania z KOPIą.
 
-### <a name="options-for-loading-with-polybase-and-copy-statement"></a>Opcje ładowania za pomocą instrukcji PolyBase i COPY
+### <a name="options-for-loading-with-polybase-and-copy-statement"></a>Opcje ładowania z użyciem instrukcji Base i COPY
 
-Aby załadować dane za pomocą PolyBase, można użyć dowolnej z następujących opcji ładowania:
+Aby załadować dane za pomocą bazy danych Base, można użyć dowolnej z następujących opcji ładowania:
 
-- [PolyBase z T-SQL](load-data-from-azure-blob-storage-using-polybase.md) działa dobrze, gdy dane znajdują się w magazynie obiektów Blob platformy Azure lub w magazynie usługi Azure Data Lake Store. Zapewnia największą kontrolę nad procesem ładowania, ale wymaga również definiowania obiektów danych zewnętrznych. Inne metody definiują te obiekty za kulisami podczas mapowania tabel źródłowych do tabel docelowych.  Aby zorganizować obciążenia T-SQL, można użyć usługi Azure Data Factory, SSIS lub azure funkcji.
-- [PolyBase z SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) działa dobrze, gdy dane źródłowe są w programie SQL Server, lokalnie lub w chmurze. SSIS definiuje mapowania tabeli źródłowej do docelowej, a także organizuje obciążenie. Jeśli masz już pakiety SSIS, możesz zmodyfikować pakiety, aby pracować z nowym miejscem docelowym magazynu danych.
-- [Instrukcja PolyBase i COPY z usługą Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to kolejne narzędzie aranżacji.  Definiuje potok i planuje zadania.
-- [PolyBase z usługą Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) przesyła dane z tabeli do dataframe i/lub zapisuje dane z dataframe Databricks do tabeli przy użyciu PolyBase.
+- Baza danych w języku [T-SQL](load-data-from-azure-blob-storage-using-polybase.md) działa prawidłowo, gdy dane są przechowywane w usłudze Azure Blob storage lub Azure Data Lake Store. Zapewnia ona największą kontrolę nad procesem ładowania, ale wymaga również zdefiniowania zewnętrznych obiektów danych. Inne metody definiują te obiekty w tle podczas mapowania tabel źródłowych do tabel docelowych.  Aby zorganizować obciążenia T-SQL, można użyć Azure Data Factory, SSIS lub Azure Functions.
+- [Baza](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) danych programu SSIS działa dobrze, gdy dane źródłowe są w SQL Server, SQL Server lokalnie lub w chmurze. Program SSIS definiuje mapowania tabeli źródłowej do docelowej, a także organizuje obciążenie. Jeśli masz już pakiety SSIS, możesz zmodyfikować pakiety, aby współpracowały z nowym miejscem docelowym magazynu danych.
+- [Instrukcja "Base" i "Copy" z Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to inne narzędzie aranżacji.  Definiuje potok i planuje zadania.
+- [Baza danych z Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) przesyła dane z tabeli do ramki danych datakosteks i/lub zapisuje dane z ramki Databases do tabeli przy użyciu bazy danych.
 
 ### <a name="other-loading-options"></a>Inne opcje ładowania
 
-Oprócz PolyBase i instrukcji COPY można użyć [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) lub [interfejsu API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). bcp ładuje się bezpośrednio do bazy danych bez przechodzenia przez magazyn obiektów Blob platformy Azure i jest przeznaczony tylko dla małych obciążeń.
+Oprócz instrukcji Base i COPY można użyć narzędzia [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) lub [interfejsu API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Narzędzie bcp ładuje się bezpośrednio do bazy danych bez przechodzenia przez usługę Azure Blob Storage i jest przeznaczone tylko do małych obciążeń.
 
 > [!NOTE]
-> Wydajność ładowania tych opcji jest wolniejsza niż PolyBase i copy instrukcji.
+> Wydajność ładowania tych opcji jest mniejsza niż baza i instrukcja COPY.
 
-## <a name="5-transform-the-data"></a>5. Przekształcenie danych
+## <a name="5-transform-the-data"></a>5. Przekształć dane
 
-Gdy dane są w tabeli przemieszczania, wykonaj przekształcenia, które wymaga obciążenia. Następnie przenieś dane do tabeli produkcyjnej.
+Gdy dane są w tabeli przemieszczania, należy wykonać przekształcenia wymagane przez obciążenie. Następnie Przenieś dane do tabeli produkcyjnej.
 
-## <a name="6-insert-the-data-into-production-tables"></a>6. Wstawianie danych do tabel produkcyjnych
+## <a name="6-insert-the-data-into-production-tables"></a>6. Wstaw dane do tabel produkcyjnych
 
-Wkładka do ... Instrukcja SELECT przenosi dane z tabeli przemieszczania do stałej tabeli.
+Wstaw do... Instrukcja SELECT przenosi dane z tabeli przemieszczania do trwałej tabeli.
 
-Podczas projektowania procesu ETL spróbuj uruchomić proces na małej próbce testowej. Spróbuj wyodrębnić 1000 wierszy z tabeli do pliku, przenieś go na platformę Azure, a następnie spróbuj załadować go do tabeli przemieszczania.
+Podczas projektowania procesu ETL spróbuj uruchomić proces przy użyciu małego przykładu testowego. Spróbuj wyodrębnić 1000 wierszy z tabeli do pliku, przenieść go na platformę Azure, a następnie spróbować załadować go do tabeli przejściowej.
 
 ## <a name="partner-loading-solutions"></a>Rozwiązania do ładowania partnerów
 
-Wielu naszych partnerów ma rozwiązania do ładowania. Aby dowiedzieć się więcej, zapoznaj się z listą naszych [partnerów rozwiązań.](sql-data-warehouse-partner-business-intelligence.md)
+Wielu naszych partnerów ma załadowane rozwiązania. Aby dowiedzieć się więcej, zobacz listę naszych [partnerów rozwiązań](sql-data-warehouse-partner-business-intelligence.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

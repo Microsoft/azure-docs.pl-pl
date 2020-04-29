@@ -1,60 +1,60 @@
 ---
 title: Używanie certyfikatu TLS/SSL w kodzie
-description: Dowiedz się, jak używać certyfikatów klientów w kodzie. Uwierzytelnij się przy użyciu zasobów zdalnych za pomocą certyfikatu klienta lub uruchom z nimi zadania kryptograficzne.
+description: Dowiedz się, jak używać certyfikatów klienta w kodzie. Uwierzytelnianie za pomocą zasobów zdalnych przy użyciu certyfikatu klienta lub wykonywanie do nich zadań kryptograficznych.
 ms.topic: article
 ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811697"
 ---
-# <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Używanie certyfikatu TLS/SSL w kodzie w usłudze Azure App Service
+# <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Użyj certyfikatu TLS/SSL w kodzie w Azure App Service
 
-W kodzie aplikacji można uzyskać dostęp do [certyfikatów publicznych lub prywatnych dodawanych do usługi App Service](configure-ssl-certificate.md). Kod aplikacji może działać jako klient i uzyskiwać dostęp do usługi zewnętrznej, która wymaga uwierzytelniania certyfikatów lub może być konieczne wykonywanie zadań kryptograficznych. W tym przewodniku pokazano, jak używać certyfikatów publicznych lub prywatnych w kodzie aplikacji.
+W kodzie aplikacji można uzyskać dostęp do [publicznych lub prywatnych certyfikatów, które są dodawane do App Service](configure-ssl-certificate.md). Kod aplikacji może pełnić rolę klienta i uzyskać dostęp do usługi zewnętrznej wymagającej uwierzytelniania przy użyciu certyfikatu lub może być konieczne wykonanie zadań kryptograficznych. W tym przewodniku opisano sposób używania certyfikatów publicznych lub prywatnych w kodzie aplikacji.
 
-Ta metoda korzystania z certyfikatów w kodzie korzysta z funkcji TLS w usłudze App Service, która wymaga, aby aplikacja była w warstwie **Podstawowa** lub nowsza. Jeśli aplikacja znajduje się w warstwie **Bezpłatna** lub **Udostępniona,** możesz [dołączyć plik certyfikatu do repozytorium aplikacji](#load-certificate-from-file).
+Takie podejście do używania certyfikatów w kodzie korzysta z funkcji protokołu TLS w App Service, co wymaga, aby aplikacja była w warstwie **podstawowa** lub wyższa. Jeśli Twoja aplikacja znajduje się w warstwie **bezpłatna** lub **współdzielona** , możesz [dołączyć plik certyfikatu do repozytorium aplikacji](#load-certificate-from-file).
 
-Po umożliwieniu app service zarządzać certyfikatami TLS/SSL, można zachować certyfikaty i kod aplikacji oddzielnie i chronić poufne dane.
+Gdy zezwolisz App Service na zarządzanie certyfikatami TLS/SSL, możesz osobno zarządzać certyfikatami i kodem aplikacji oraz chronić poufne dane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby postępować zgodnie z tym przewodnikiem:
+Aby wykonać następujące czynności:
 
 - [Utwórz aplikację usługi App Service](/azure/app-service/)
 - [Dodawanie certyfikatu do aplikacji](configure-ssl-certificate.md)
 
-## <a name="find-the-thumbprint"></a>Znajdź odcisk palca
+## <a name="find-the-thumbprint"></a>Znajdowanie odcisku palca
 
-W <a href="https://portal.azure.com" target="_blank">witrynie Azure portal</a>, z lewego menu wybierz pozycję **App Services** > **\<app-name>**.
+W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>z menu po lewej stronie wybierz pozycję **App Services** > **\<App-Name>**.
 
-Z lewej strony aplikacji wybierz **pozycję Ustawienia protokołu TLS/SSL**, a następnie wybierz pozycję **Certyfikaty klucza prywatnego (pfx)** lub **Certyfikaty kluczy publicznych (cer).**
+W lewym panelu nawigacyjnym aplikacji wybierz pozycję **Ustawienia protokołu TLS/SSL**, a następnie wybierz pozycję **certyfikaty kluczy prywatnych (pfx)** lub **Certyfikaty klucza publicznego (CER)**.
 
-Znajdź certyfikat, którego chcesz użyć, i skopiuj odcisk palca.
+Znajdź certyfikat, którego chcesz użyć, i Skopiuj odcisk palca.
 
-![Kopiowanie odcisku palca certyfikatu](./media/configure-ssl-certificate/create-free-cert-finished.png)
+![Skopiuj odcisk palca certyfikatu](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
-## <a name="make-the-certificate-accessible"></a>Udostępnij certyfikat
+## <a name="make-the-certificate-accessible"></a>Udostępnianie certyfikatu
 
-Aby uzyskać dostęp do certyfikatu w kodzie `WEBSITE_LOAD_CERTIFICATES` aplikacji, dodaj jego odcisk palca do ustawienia aplikacji, uruchamiając następujące polecenie w <a target="_blank" href="https://shell.azure.com" >aplikacji Cloud Shell:</a>
+Aby uzyskać dostęp do certyfikatu w kodzie aplikacji, Dodaj jego odcisk palca `WEBSITE_LOAD_CERTIFICATES` do ustawienia aplikacji, uruchamiając następujące polecenie w <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
 ```
 
-Aby udostępnić wszystkie certyfikaty, `*`ustaw wartość na .
+Aby udostępnić wszystkie certyfikaty, ustaw wartość na `*`.
 
 ## <a name="load-certificate-in-windows-apps"></a>Ładowanie certyfikatu w aplikacjach systemu Windows
 
-Ustawienie `WEBSITE_LOAD_CERTIFICATES` aplikacji sprawia, że określone certyfikaty są dostępne dla aplikacji hostowanego w systemie Windows w magazynie certyfikatów systemu Windows, a lokalizacja zależy od [warstwy cenowej:](overview-hosting-plans.md)
+Ustawienie `WEBSITE_LOAD_CERTIFICATES` aplikacji sprawia, że określone certyfikaty są dostępne dla aplikacji hostowanej w systemie Windows w magazynie certyfikatów systemu Windows, a lokalizacja zależy od [warstwy cenowej](overview-hosting-plans.md):
 
-- **Warstwa izolowana** — w [obszarze Maszyna lokalna\Mój](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
-- Wszystkie inne warstwy — w [obszarze Bieżący użytkownik\Mój](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
+- Warstwa **izolowana** — [Machine\My lokalny](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
+- Wszystkie inne warstwy — w [bieżącym User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 
-W kodzie języka C# dostęp do certyfikatu za pomocą odcisku palca certyfikatu. Poniższy kod ładuje certyfikat z `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`odciskiem palca .
+W kodzie C# można uzyskać dostęp do certyfikatu za pomocą odcisku palca certyfikatu. Poniższy kod ładuje certyfikat z odciskiem palca `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
 ```csharp
 using System;
@@ -86,7 +86,7 @@ using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUs
 }
 ```
 
-W kodzie Java uzyskujesz dostęp do certyfikatu ze sklepu "Windows-MY" przy użyciu pola Nazwa wspólna podmiotu (zobacz [Certyfikat klucza publicznego).](https://en.wikipedia.org/wiki/Public_key_certificate) Poniższy kod pokazuje, jak załadować certyfikat klucza prywatnego:
+W kodzie Java można uzyskać dostęp do certyfikatu z magazynu "Windows-MY" przy użyciu pola Nazwa pospolita podmiotu (zobacz [certyfikat klucza publicznego](https://en.wikipedia.org/wiki/Public_key_certificate)). Poniższy kod przedstawia sposób ładowania certyfikatu klucza prywatnego:
 
 ```java
 import org.springframework.web.bind.annotation.RestController;
@@ -105,16 +105,16 @@ PrivateKey privKey = (PrivateKey) ks.getKey("<subject-cn>", ("<password>").toCha
 ...
 ```
 
-W przypadku języków, które nie obsługują lub nie oferują niewystarczającej obsługi magazynu certyfikatów systemu Windows, zobacz [Ładowanie certyfikatu z pliku](#load-certificate-from-file).
+W przypadku języków, które nie obsługują programu lub nie oferują wystarczającej obsługi dla magazynu certyfikatów systemu Windows, zobacz [ładowanie certyfikatu z pliku](#load-certificate-from-file).
 
 ## <a name="load-certificate-in-linux-apps"></a>Ładowanie certyfikatu w aplikacjach systemu Linux
 
-Ustawienia `WEBSITE_LOAD_CERTIFICATES` aplikacji sprawiają, że określone certyfikaty są dostępne dla aplikacji hostowanych w systemie Linux (w tym niestandardowych aplikacji kontenerowych) jako pliki. Pliki znajdują się w następujących katalogach:
+Ustawienia `WEBSITE_LOAD_CERTIFICATES` aplikacji umożliwiają dostęp do określonych certyfikatów dla aplikacji hostowanych w systemie Linux (w tym niestandardowych aplikacji kontenerów) jako plików. Pliki znajdują się w następujących katalogach:
 
-- Certyfikaty `/var/ssl/private` prywatne `.p12` - ( pliki)
-- Certyfikaty `/var/ssl/certs` publiczne `.der` - ( pliki)
+- Certyfikaty prywatne — `/var/ssl/private` ( `.p12` pliki)
+- Certyfikaty publiczne — `/var/ssl/certs` ( `.der` pliki)
 
-Nazwy plików certyfikatów są odciskami palców certyfikatu. Poniższy kod języka C# pokazuje, jak załadować certyfikat publiczny w aplikacji systemu Linux.
+Nazwa pliku certyfikatu jest odciskiem palca certyfikatu. Poniższy kod w języku C# przedstawia sposób ładowania certyfikatu publicznego w aplikacji systemu Linux.
 
 ```csharp
 using System;
@@ -128,22 +128,22 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-Aby zobaczyć, jak załadować certyfikat TLS/SSL z pliku w node.js, PHP, Python, Java lub Ruby, zobacz dokumentację odpowiedniego języka lub platformy internetowej.
+Aby dowiedzieć się, jak załadować certyfikat TLS/SSL z pliku w językach Node. js, PHP, Python, Java lub Ruby, zapoznaj się z dokumentacją odpowiedniego języka lub platformy sieci Web.
 
-## <a name="load-certificate-from-file"></a>Ładowanie certyfikatu z pliku
+## <a name="load-certificate-from-file"></a>Załaduj certyfikat z pliku
 
-Jeśli chcesz załadować plik certyfikatu, który przesyłasz ręcznie, lepiej przesłać certyfikat za pomocą [FTPS](deploy-ftp.md) zamiast [Git](deploy-local-git.md), na przykład. Należy przechowywać poufne dane, takie jak prywatny certyfikat poza kontrolą źródła.
+Jeśli zachodzi potrzeba załadowania pliku certyfikatu, który zostanie przekazany ręcznie, lepiej jest przekazać certyfikat przy użyciu [FTPS](deploy-ftp.md) zamiast [git](deploy-local-git.md), na przykład. Należy zachować poufne dane, takie jak certyfikat prywatny, z kontroli źródła.
 
 > [!NOTE]
-> ASP.NET i ASP.NET Core w systemie Windows musi uzyskać dostęp do magazynu certyfikatów, nawet jeśli certyfikat jest ładowany z pliku. Aby załadować plik certyfikatu w aplikacji Windows .NET, załaduj bieżący profil użytkownika za pomocą następującego polecenia w <a target="_blank" href="https://shell.azure.com" >aplikacji Cloud Shell:</a>
+> ASP.NET i ASP.NET Core w systemie Windows muszą uzyskać dostęp do magazynu certyfikatów nawet w przypadku ładowania certyfikatu z pliku. Aby załadować plik certyfikatu w aplikacji systemu Windows .NET, Załaduj bieżący profil użytkownika przy użyciu następującego polecenia w <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
 >
 > ```azurecli-interactive
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
 >
-> Ta metoda korzystania z certyfikatów w kodzie korzysta z funkcji TLS w usłudze App Service, która wymaga, aby aplikacja była w warstwie **Podstawowa** lub nowsza.
+> Takie podejście do używania certyfikatów w kodzie korzysta z funkcji protokołu TLS w App Service, co wymaga, aby aplikacja była w warstwie **podstawowa** lub wyższa.
 
-Poniższy przykład języka C# ładuje certyfikat publiczny ze ścieżki względnej w aplikacji:
+Poniższy przykład kodu w języku C# ładuje certyfikat publiczny ze ścieżki względnej w aplikacji:
 
 ```csharp
 using System;
@@ -157,11 +157,11 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-Aby zobaczyć, jak załadować certyfikat TLS/SSL z pliku w node.js, PHP, Python, Java lub Ruby, zobacz dokumentację odpowiedniego języka lub platformy internetowej.
+Aby dowiedzieć się, jak załadować certyfikat TLS/SSL z pliku w językach Node. js, PHP, Python, Java lub Ruby, zapoznaj się z dokumentacją odpowiedniego języka lub platformy sieci Web.
 
 ## <a name="more-resources"></a>Więcej zasobów
 
-* [Zabezpiecz niestandardową nazwę DNS za pomocą powiązania TLS/SSL w usłudze Azure App Service](configure-ssl-bindings.md)
+* [Zabezpiecz niestandardową nazwę DNS z powiązaniem TLS/SSL w Azure App Service](configure-ssl-bindings.md)
 * [Wymuszanie protokołu HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Wymuszanie protokołu TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [Często zadawane pytania: Certyfikaty usługi aplikacji](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Często zadawane pytania: certyfikaty App Service](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

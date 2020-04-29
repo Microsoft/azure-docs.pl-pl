@@ -1,28 +1,28 @@
 ---
-title: Aplikacja unity showcase
-description: Łącze do repozytorium GitHub, w którym znajduje się aplikacja prezentowa
+title: Aplikacja pokazowa środowiska Unity
+description: Link do repozytorium GitHub, w którym znajduje się aplikacja pokazu
 author: florianborn71
 ms.author: flborn
 ms.date: 04/01/2020
 ms.topic: sample
 ms.openlocfilehash: e1e91a892a1c8b69b3dc7f6c79109377e13bd7ae
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804456"
 ---
-# <a name="unity-showcase-application"></a>Aplikacja unity showcase
+# <a name="unity-showcase-application"></a>Aplikacja pokazowa środowiska Unity
 
-Aplikacja unity showcase to przykładowa aplikacja oparta na unity, która zademonstruje funkcje zdalnego renderowania platformy Azure. Może działać zarówno wewnątrz edytora Unity, jak i na Hololens 2.
+Aplikacja do prezentowania Unity to przykładowa aplikacja oparta na technologii Unity, która przedstawia funkcje zdalnego renderowania platformy Azure. Można go uruchomić zarówno w edytorze Unity, jak i na serwerze HoloLens 2.
 
 ![Zaprezentuj aplikację](./media/showcase-app.png "Zaprezentuj aplikację")
 
-## <a name="source-repository"></a>Repozytorium źródeł
+## <a name="source-repository"></a>Repozytorium źródła
 
-Kod źródłowy dla tej aplikacji wraz z instrukcjami kompilacji/wdrażania można znaleźć w [repozytorium próbek ARR](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
+Kod źródłowy tej aplikacji wraz z instrukcjami kompilowania/wdrażania można znaleźć w [repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Szybki start: renderowanie modelu za pomocą unity](../quickstarts/render-model.md)
-* [Szybki start: konwertowanie modelu do renderowania](../quickstarts/convert-model.md)
+* [Szybki Start: renderowanie modelu przy użyciu aparatu Unity](../quickstarts/render-model.md)
+* [Szybki Start: konwertowanie modelu do renderowania](../quickstarts/convert-model.md)

@@ -1,37 +1,37 @@
 ---
-title: Płaszczyzny cięte
-description: Wyjaśnia, czym są cięte płaszczyzny i jak z nich korzystać
+title: Wycięte płaszczyzny
+description: Wyjaśnia, jakie są wycięte płaszczyzny i jak ich używać
 author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
 ms.openlocfilehash: 8075d9cd4530bafb12a338830baf0fe22eb03bce
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681027"
 ---
-# <a name="cut-planes"></a>Płaszczyzny cięte
+# <a name="cut-planes"></a>Wycięte płaszczyzny
 
-*Płaszczyzna cięcia* to funkcja wizualna, która przycina piksele po jednej stronie wirtualnej płaszczyzny, odsłaniając [wnętrze siatek.](../../concepts/meshes.md)
-Poniższy obraz ekspozycyjnie pokazuje efekt. Po lewej stronie znajduje się oryginalna siatka, po prawej można zajrzeć do siatki:
+*Płaszczyzna wycinania* jest funkcją wizualną, która przycina piksele na jednej stronie płaszczyzny wirtualnej, odkrywając wewnątrz [siatki](../../concepts/meshes.md).
+Na poniższej ilustracji przedstawiono efekt. Po lewej stronie zostanie wyświetlona oryginalna siatka, po prawej stronie może wyglądać wewnątrz siatki:
 
-![Płaszczyzna cięcia](./media/cutplane-1.png)
+![Wytnij płaszczyznę](./media/cutplane-1.png)
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Na razie zdalne renderowanie platformy Azure obsługuje **maksymalnie osiem aktywnych płaszczyzn cięcia.** Można utworzyć więcej komponentów płaszczyzny cięcia, ale jeśli spróbujesz włączyć więcej jednocześnie, zignoruje aktywację. Najpierw wyłącz inne płaszczyzny, jeśli chcesz przełączyć komponent, który powinien mieć wpływ na scenę.
-* Każda płaszczyzna cięcia wpływa na wszystkie zdalnie renderowane obiekty. Obecnie nie można wykluczyć określonych obiektów lub części siatki.
-* Wycięte płaszczyzny są wyłącznie funkcją wizualną, nie wpływają na wynik [zapytań przestrzennych.](spatial-queries.md) Jeśli chcesz promieniować do siatki z otwartym cięciem, możesz dostosować punkt początkowy promienia, aby znajdował się na płaszczyźnie cięcia. W ten sposób promień może trafić tylko widoczne części.
+* W tym czasie zdalne renderowanie na platformie Azure obsługuje **maksymalnie osiem aktywnych płaszczyzn wycinania**. Można utworzyć bardziej wycięte składniki płaszczyzny, ale jeśli spróbujesz go włączyć dłużej, zignoruje aktywację. Najpierw wyłącz inne płaszczyzny, jeśli chcesz zmienić składnik powinien wpływać na scenę.
+* Każda płaszczyzna wycinania ma wpływ na wszystkie zdalnie renderowane obiekty. Obecnie nie ma możliwości wykluczenia określonych obiektów i części siatki.
+* Wycięte płaszczyzny są czysto funkcją wizualną, nie wpływają na wynik [zapytań przestrzennych](spatial-queries.md). Jeśli chcesz otrzymywać dane z rzutu do siatki wyciętej, możesz dostosować punkt początkowy promienia, aby znajdować się na płaszczyźnie wycinania. W ten sposób promień może trafiać tylko widoczne części.
 
 ## <a name="performance-considerations"></a>Zagadnienia dotyczące wydajności
 
-Każda aktywna płaszczyzna cięcia wiąże się z niewielkimi kosztami podczas renderowania. Wyłącz lub usuń wycięte płaszczyzny, gdy nie są potrzebne.
+Każda aktywna płaszczyzna wycinania wiąże się z niewielkim kosztem podczas renderowania. Wyłącz lub Usuń wycięte płaszczyzny, gdy nie są potrzebne.
 
-## <a name="cutplanecomponent"></a>CutPlaneComponent (Skomponent)
+## <a name="cutplanecomponent"></a>CutPlaneComponent
 
-Płaszczyznę cięcia można dodać do sceny, tworząc *przycisk CutPlaneComponent*. Położenie i orientacja płaszczyzny jest określana przez [jednostkę](../../concepts/entities.md)właściciela komponentu .
+Do sceny należy dodać płaszczyznę wycinania, tworząc *CutPlaneComponent*. Położenie i orientacja płaszczyzny są określane przez [jednostkę](../../concepts/entities.md)właściciela składnika.
 
 ```cs
 void CreateCutPlane(AzureSession session, Entity ownerEntity)
@@ -45,15 +45,15 @@ void CreateCutPlane(AzureSession session, Entity ownerEntity)
 
 ### <a name="cutplanecomponent-properties"></a>Właściwości CutPlaneComponent
 
-Następujące właściwości są widoczne na składniku płaszczyzny cięcia:
+Następujące właściwości są uwidocznione w składniku wycinania płaszczyzny:
 
-* **Włączono:** Można tymczasowo wyłączyć płaszczyzny odcięcia, wyłączając komponent. Wyłączone płaszczyzny cięcia nie ponoszą narzutów renderowania, a także nie są wliczane do globalnego limitu płaszczyzny cięcia.
+* **Włączone:** Możesz tymczasowo wyłączyć wycięte płaszczyzny, wyłączając składnik. Wyłączone płaszczyzny wycinania nie wiążą się z obciążeniem renderowania, a także nie są wliczane do limitu globalnej płaszczyzny wycinania.
 
-* **Normalny:** Określa, który kierunek (+X,-X,+Y,-Y,+Z,-Z) jest używany jako normalna płaszczyzna. Ten kierunek jest względem orientacji jednostki właściciela. Przenoszenie i obracanie jednostki właściciela w celu dokładnego umieszczenia.
+* **Normalne:** Określa kierunek (+ X,-X, + Y,-Y, + Z,-Z) jest używany jako normalna płaszczyzna. Ten kierunek jest określany względem orientacji jednostki właściciela. Przenieś i obróć jednostkę Owner w celu dokładnego umieszczania.
 
 * **FadeColor** i **FadeLength:**
 
-  Jeśli wartość alfa *FadeColor* jest niezerowa, piksele w pobliżu płaszczyzny cięcia znikną w kierunku części RGB FadeColor. Siła kanału alfa określa, czy będzie całkowicie zanikać w kierunku koloru zanikania, czy tylko częściowo. *FadeLength* określa, w jakiej odległości nastąpi to zanikanie.
+  Jeśli wartość alfa *FadeColor* jest różna od zera, piksele blisko płaszczyzny wycinania przestaną się na część RGB części FadeColor. Siła kanału alfa decyduje o tym, czy przejdzie w pełni do koloru zanikania, czy tylko częściowo. *FadeLength* definiuje odległość tego zaniku.
 
 ## <a name="next-steps"></a>Następne kroki
 

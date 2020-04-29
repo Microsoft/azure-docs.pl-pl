@@ -1,6 +1,6 @@
 ---
 title: Przywracanie usuniętej puli SQL
-description: Jak prowadzić do przywracania usuniętej puli SQL.
+description: Przewodnik dotyczący przywracania usuniętej puli SQL.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -12,36 +12,36 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: d2e2fdb181b553d330368b043b75159e211dd0d2
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745127"
 ---
 # <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Przywracanie usuniętej puli SQL przy użyciu usługi Azure Synapse Analytics
 
-W tym artykule nauczysz się przywracać sql przy użyciu witryny Azure portal lub programu PowerShell.
+Ten artykuł zawiera informacje na temat przywracania bazy danych SQL przy użyciu Azure Portal lub programu PowerShell.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Sprawdź pojemność funkcji DTU.** Każda pula SQL jest obsługiwana przez serwer SQL (na przykład myserver.database.windows.net), który ma domyślny przydział DTU.  Sprawdź, czy serwer SQL ma wystarczającą ilość pozostałego przydziału DTU dla przywracania bazy danych. Aby dowiedzieć się, jak obliczyć potrzebne ceny DTU lub zażądać więcej DTU, zobacz [Żądanie zmiany przydziału DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Sprawdź pojemność jednostek DTU.** Każda pula SQL jest hostowana przez program SQL Server (na przykład myserver.database.windows.net), który ma domyślny limit przydziału jednostek DTU.  Sprawdź, czy program SQL Server ma wystarczający limit przydziału jednostek DTU dla przywracanej bazy danych. Aby dowiedzieć się, jak obliczyć liczbę jednostek DTU potrzebnych lub aby zażądać większej liczby jednostek DTU, zobacz [żądanie zmiany limitu przydziału jednostek DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
-## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Przywracanie usuniętego magazynu danych za pośrednictwem programu PowerShell
+## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Przywracanie usuniętego magazynu danych za pomocą programu PowerShell
 
-Aby przywrócić usuniętą pulę SQL, użyj polecenia cmdlet [Restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Jeśli odpowiedni serwer logiczny również został usunięty, nie można przywrócić tego magazynu danych.
+Aby przywrócić usuniętą pulę SQL, użyj polecenia cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . Jeśli odpowiedni serwer logiczny został również usunięty, nie można przywrócić tego magazynu danych.
 
-1. Przed rozpoczęciem należy zainstalować [program Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+1. Przed rozpoczęciem upewnij się, że [zainstalowano Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Otwórz program PowerShell.
-3. Połącz się ze swoim kontem platformy Azure i wymień wszystkie subskrypcje skojarzone z Twoim kontem.
+3. Połącz się z kontem platformy Azure i Wyświetl listę wszystkich subskrypcji skojarzonych z Twoim kontem.
 4. Wybierz subskrypcję zawierającą usunięty magazyn danych, który ma zostać przywrócony.
-5. Pobierz określony magazyn usuniętych danych.
+5. Pobierz konkretny usunięty magazyn danych.
 6. Przywracanie usuniętego magazynu danych
-    1. Aby przywrócić usunięty magazyn danych SQL na inny serwer logiczny, należy określić inną nazwę serwera logicznego.  Ten serwer logiczny może również znajdować się w innej grupie zasobów i regionie.
-    1. Aby przywrócić do innej subskrypcji, użyj przycisku [Przenieś,](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) aby przenieść serwer logiczny do innej subskrypcji.
+    1. Aby przywrócić usunięte SQL Data Warehouse na inny serwer logiczny, należy określić inną nazwę serwera logicznego.  Ten serwer logiczny może również znajdować się w innej grupie zasobów i regionie.
+    1. Aby przywrócić do innej subskrypcji, użyj przycisku [Przenieś](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) , aby przenieść serwer logiczny do innej subskrypcji.
 7. Sprawdź, czy przywrócony magazyn danych jest w trybie online.
-8. Po zakończeniu przywracania można skonfigurować magazyn odzyskanych danych, wykonując [konfigurację bazy danych po odzyskaniu](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+8. Po zakończeniu przywracania można skonfigurować odzyskany magazyn danych, wykonując następujące czynności: [Skonfiguruj bazę danych po odzyskaniu](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -69,23 +69,23 @@ $RestoredDatabase = Restore-AzSqlDatabase –FromDeletedDatabaseBackup –Deleti
 $RestoredDatabase.status
 ```
 
-## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Przywracanie usuniętej bazy danych za pomocą portalu Azure
+## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Przywracanie usuniętej bazy danych przy użyciu Azure Portal
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
-2. Przejdź do serwera SQL, na który znajdował się usunięty magazyn danych.
-3. Wybierz ikonę **Usunięte bazy danych** w spisie treści.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Przejdź do programu SQL Server, w którym jest hostowany usunięty magazyn danych.
+3. Wybierz ikonę **usunięte bazy danych** w spisie treści.
 
     ![Usunięte bazy danych](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-01.png)
 
-4. Wybierz usunięty magazyn danych SQL, który chcesz przywrócić.
+4. Wybierz usunięte SQL Data Warehouse, które chcesz przywrócić.
 
     ![Wybieranie pozycji Usunięte bazy danych](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-11.png)
 
-5. Określ nową **nazwę bazy danych** i kliknij przycisk **OK**
+5. Określ nową **nazwę bazy danych** i kliknij przycisk **OK** .
 
     ![Określ nazwę bazy danych](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przywracanie istniejącej puli SQL](sql-data-warehouse-restore-active-paused-dw.md)
-- [Przywracanie z puli SQL kopii zapasowej geograficznej](sql-data-warehouse-restore-from-geo-backup.md)
+- [Przywracanie z puli SQL geograficznej kopii zapasowej](sql-data-warehouse-restore-from-geo-backup.md)

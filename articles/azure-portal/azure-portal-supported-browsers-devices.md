@@ -1,6 +1,6 @@
 ---
-title: Obsługiwane przeglądarki i urządzenia dla witryny Azure portal | Dokumenty firmy Microsoft
-description: Witryny Azure portal można używać na wszystkich nowoczesnych urządzeniach i w najnowszych wersjach przeglądarki. Zapoznaj się z tym artykułem, aby upewnić się, że twoja przeglądarka jest obsługiwana.
+title: Obsługiwane przeglądarki i urządzenia dla Azure Portal | Microsoft Docs
+description: Azure Portal można użyć na wszystkich nowoczesnych urządzeniach i z najnowszymi wersjami przeglądarki. Zapoznaj się z tym artykułem, aby upewnić się, że przeglądarka jest obsługiwana.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -16,17 +16,17 @@ ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
 ms.openlocfilehash: 63bfb7c92e77c4059a46a83b76b3818fcb6d63be
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80754189"
 ---
 # <a name="supported-devices"></a>Obsługiwane urządzenia
 
-[Portal Azure](https://portal.azure.com) jest konsolą internetową i działa w przeglądarce wszystkich nowoczesnych komputerów stacjonarnych i tabletów. Aby korzystać z portalu, musisz mieć włączoną obsługę JavaScript w przeglądarce.
+[Azure Portal](https://portal.azure.com) jest konsolą opartą na sieci Web i działa w przeglądarce wszystkich nowoczesnych komputerów stacjonarnych i urządzeń typu Tablet. Aby móc korzystać z portalu, musisz mieć włączoną obsługę języka JavaScript w przeglądarce.
 
-Jeśli chcesz zarządzać zasobami platformy Azure z urządzenia przenośnego, wypróbuj [aplikację mobilną platformy Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/). Jest on dostępny dla systemów iOS i Android.
+Jeśli musisz zarządzać zasobami platformy Azure z poziomu urządzenia przenośnego, wypróbuj [aplikacja mobilna platformy Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/). Jest ona dostępna dla systemów iOS i Android.
 
 ## <a name="recommended-browsers"></a>Zalecane przeglądarki
 

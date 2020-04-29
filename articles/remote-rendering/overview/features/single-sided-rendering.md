@@ -1,43 +1,43 @@
 ---
 title: Renderowanie jednostronne
-description: Zawiera opis jednostronnych ustawień renderowania i przypadków użycia
+description: Opisuje ustawienia renderowania jednostronnego i przypadki użycia
 author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.openlocfilehash: 34ee5d4978c6476da407cde33598a5713177078e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80682015"
 ---
 # <a name="single-sided-rendering"></a>Renderowanie jednostronne
 
-Większość rendererów używa [uboju tylnej ściany,](https://en.wikipedia.org/wiki/Back-face_culling) aby poprawić wydajność. Jednak gdy siatki są otwierane za pomocą [wyciętych płaszczyzn,](cut-planes.md)użytkownicy często patrzą na tylną stronę trójkątów. Jeśli te trójkąty są wybite, wynik nie wygląda przekonująco.
+Większość renderowania korzysta z [odtwarzania z tyłu](https://en.wikipedia.org/wiki/Back-face_culling) , aby zwiększyć wydajność. Jeśli jednak siatki są obcinane jako otwarte z [płaszczyznami wycinania](cut-planes.md), użytkownicy często będą oglądać z tyłu trójkątów. Jeśli te trójkąty są odrzucane, wynik nie wygląda na przekonujący.
 
-Sposobem na niezawodne zapobieganie temu problemowi jest renderowanie trójkątów *dwustronnych.* Ponieważ nie przy użyciu uboju zaplecza ma wpływ na wydajność, domyślnie azure zdalnego renderowania przełącza się tylko do renderowania dwustronnego dla siateczek, które przecinają się z płaszczyzną cięcia.
+Sposobem nieniezawodnego zapobiegania temu problemowi jest renderowanie trójkątów *dwukrotnie*. Jako że nie korzystasz z funkcji usuwania z tyłu, ma to wpływ na wydajność, ponieważ domyślne renderowanie zdalne platformy Azure przełącza się tylko na dwustronne Renderowanie siatek, które są przecinane z płaszczyzną wycinania.
 
-Jednostronne ustawienie *renderowania* umożliwia dostosowanie tego zachowania.
+Ustawienie *renderowania jednostronnego* pozwala dostosować to zachowanie.
 
 > [!CAUTION]
-> Jednostronne ustawienie renderowania jest funkcją eksperymentalną. W przyszłości może zostać ponownie usunięty. Nie zmieniaj ustawienia domyślnego, chyba że naprawdę rozwiązuje to krytyczny problem w aplikacji.
+> Ustawienie renderowania jednostronnego jest funkcją eksperymentalną. Może zostać ponownie usunięta w przyszłości. Nie zmieniaj ustawienia domyślnego, chyba że naprawdę rozwiąże problem krytyczny w aplikacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jednostronne ustawienie renderowania ma wpływ tylko na siatki, które zostały `opaqueMaterialDefaultSidedness` [przekonwertowane](../../how-tos/conversion/configure-model-conversion.md) z opcją ustawioną na `SingleSided`. Domyślnie ta opcja `DoubleSided`jest ustawiona na .
+Ustawienie renderowania jednostronnego ma wpływ tylko na siatki, które zostały [przekonwertowane](../../how-tos/conversion/configure-model-conversion.md) przy użyciu `opaqueMaterialDefaultSidedness` opcji ustawionej na `SingleSided`. Domyślnie ta opcja jest ustawiona na `DoubleSided`.
 
-## <a name="single-sided-rendering-setting"></a>Jednostronne ustawienie renderowania
+## <a name="single-sided-rendering-setting"></a>Ustawienie renderowania jednostronnego
 
 Istnieją trzy różne tryby:
 
-**Normalny:** W tym trybie siatki są zawsze renderowane podczas ich konwersji. Oznacza to, że `opaqueMaterialDefaultSidedness` siatki `SingleSided` konwertowane z ustawionym na zawsze będą renderowane z włączonym ubojem tylnej ściany, nawet jeśli przecinają płaszczyznę cięcia.
+**Normalne:** W tym trybie siatki są zawsze renderowane podczas konwersji. Oznacza to, że siatki konwertowane `opaqueMaterialDefaultSidedness` z zestawem na `SingleSided` zawsze będą renderowane z włączonym usuwaniem z tyłu, nawet gdy przecinają płaszczyznę wycinania.
 
-**DynamiczneDoubleSiding:** W tym trybie, gdy płaszczyzna cięcia przecina siatkę, jest automatycznie przełączana na renderowanie dwustronne. Ten tryb jest trybem domyślnym.
+**DynamicDoubleSiding:** W tym trybie, gdy płaszczyzna wycinania przecina siatkę, zostanie ona automatycznie przełączona na Render dwustronny. Ten tryb jest trybem domyślnym.
 
-**ZawszeDoubleSided:** Wymusza renderowanie całej geometrii jednostronnej przez cały czas. Ten tryb jest w większości narażony, dzięki czemu można łatwo porównać wpływ na wydajność między renderowaniem jednostronnym i dwustronnym.
+**AlwaysDoubleSided:** Wymusza, aby cała geometria jednostronna była renderowana dwustronnie przez cały czas. Ten tryb jest głównie narażony, dzięki czemu można łatwo porównać wpływ na wydajność między renderowaniem jednostronnym i dwustronnym.
 
-Zmiana jednostronnych ustawień renderowania może odbywać się w następujący sposób:
+Zmiana ustawień renderowania jednostronnego można wykonać w następujący sposób:
 
 ``` cs
 void ChangeSingleSidedRendering(AzureSession session)
@@ -54,5 +54,5 @@ void ChangeSingleSidedRendering(AzureSession session)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Płaszczyzny cięte](cut-planes.md)
+* [Wycięte płaszczyzny](cut-planes.md)
 * [Konfigurowanie konwersji modelu](../../how-tos/conversion/configure-model-conversion.md)

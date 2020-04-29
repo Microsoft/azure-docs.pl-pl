@@ -8,29 +8,29 @@ ms.date: 03/10/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: aff6f99c119ba2854fd7923d2a15efb2e1a6b601
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80666795"
 ---
 # <a name="what-is-azure-files"></a>Co to jest usługa Azure Files?
 Usługa Azure Files oferuje w pełni zarządzane udziały plików w chmurze, dostępne za pośrednictwem [protokołu Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx), będącego standardem branżowym. Udziały plików platformy Azure można instalować współbieżnie za pośrednictwem chmurowych lub lokalnych wdrożeń systemów Windows, Linux i macOS. Ponadto udziały plików platformy Azure mogą być buforowane w systemach Windows Server za pomocą usługi Azure File Sync w celu zapewnienia szybkiego dostępu blisko miejsca, w którym dane są używane.
 
 ## <a name="videos"></a>Filmy wideo
-| Wprowadzenie do synchronizacji plików platformy Azure | Usługa Azure Files with Sync (Ignite 2019)  |
+| Wprowadzenie Azure File Sync | Azure Files z synchronizacją (zapłon 2019)  |
 |-|-|
-| [![Screencast z wprowadzeniem Azure File Sync wideo - kliknij, aby odtworzyć!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast prezentacji Usługi Azure Files with Sync — kliknij, aby grać!](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/embed/6E2p28XwovU) |
+| [![Zrzut ekranu przedstawiający wprowadzenie Azure File Sync wideo — kliknij, aby odtworzyć!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Zrzut ekranu przedstawiający Azure Files z prezentacją synchronizacji — kliknij, aby odtworzyć!](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/embed/6E2p28XwovU) |
 
-Oto kilka klipów wideo dotyczących typowych przypadków użycia plików platformy Azure:
-* [Zastąp serwer plików bezserwerowym udziałem plików platformy Azure](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
-* [Wprowadzenie do kontenerów profilu FSLogix w plikach azure w systemie Windows Virtual Desktop z wykorzystaniem uwierzytelniania usługi AD](https://www.youtube.com/embed/9S5A1IJqfOQ)
+Poniżej przedstawiono kilka filmów wideo dotyczących typowych przypadków użycia Azure Files:
+* [Zastąp serwer plików nieserwerowym udziałem plików platformy Azure](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
+* [Wprowadzenie do kontenerów profilów FSLogix na Azure Files na pulpicie wirtualnym systemu Windows wykorzystującym uwierzytelnianie usługi AD](https://www.youtube.com/embed/9S5A1IJqfOQ)
 
 ## <a name="why-azure-files-is-useful"></a>Na czym polega przydatność usługi Azure Files
 Udziały plików platformy Azure mogą być używane w następujących celach:
 
 * **Zastępowanie lub uzupełnianie lokalnych serwerów plików**:  
-    Usługi Azure Files można użyć w celu całkowitego zastąpienia lub uzupełnienia tradycyjnych lokalnych serwerów plików lub urządzeń NAS. W popularnych systemach operacyjnych, takich jak Windows, macOS i Linux, udziały plików platformy Azure można zainstalować bezpośrednio bez względu na to, gdzie się one znajdują. Udziały plików platformy Azure można również replikować za pomocą usługi Azure File Sync w systemach Windows Server, lokalnie lub w chmurze, w celu zapewnienia wydajnego i rozproszonego buforowania danych w miejscu ich używania. Dzięki ostatniej wersji [uwierzytelniania usługi Azure Files AD udziały](storage-files-active-directory-overview.md)plików platformy Azure mogą nadal współpracować z usługą AD hostowanym lokalnie w celu kontroli dostępu. 
+    Usługi Azure Files można użyć w celu całkowitego zastąpienia lub uzupełnienia tradycyjnych lokalnych serwerów plików lub urządzeń NAS. W popularnych systemach operacyjnych, takich jak Windows, macOS i Linux, udziały plików platformy Azure można zainstalować bezpośrednio bez względu na to, gdzie się one znajdują. Udziały plików platformy Azure można również replikować za pomocą usługi Azure File Sync w systemach Windows Server, lokalnie lub w chmurze, w celu zapewnienia wydajnego i rozproszonego buforowania danych w miejscu ich używania. W najnowszej wersji [Azure Files uwierzytelniania usługi AD](storage-files-active-directory-overview.md)udziały plików platformy Azure mogą nadal współdziałać z usługą AD hostowaną lokalnie na potrzeby kontroli dostępu. 
 
 * **Migrowanie aplikacji metodą „lift and shift”**:  
     Usługa Azure File Storage ułatwia migrowanie do chmury metodą „lift and shift” tych aplikacji, które oczekują udziału plików do przechowywania danych aplikacji lub danych użytkownika. Usługa Azure Files umożliwia zarówno klasyczny scenariusz migracji metodą „lift and shift”, w którym aplikacja i jej dane są przenoszone do platformy Azure, jak i scenariusz hybrydowy migracji „lift and shift”, w którym dane aplikacji są przenoszone do usługi Azure Files, a aplikacja dalej działa lokalnie. 
@@ -43,7 +43,7 @@ Udziały plików platformy Azure mogą być używane w następujących celach:
     * **Udział diagnostyczny**:  
         Udział plików platformy Azure jest wygodnym miejscem do zapisywania dzienników, metryk i zrzutów awaryjnych aplikacji w chmurze. Dzienniki mogą być zapisywane przez wystąpienia aplikacji za pomocą interfejsu API REST pliku, a deweloperzy mogą uzyskiwać do nich dostęp przez zainstalowanie udziału plików na komputerze lokalnym. Zapewnia to dużą elastyczność, ponieważ deweloperzy mogą obsługiwać opracowywanie rozwiązań dla chmury bez konieczności porzucania istniejących narzędzi, które znają i lubią.
 
-    * **Dev/Test/Debug:**  
+    * Tworzenie **i testowanie/debugowanie**:  
         Deweloperzy i administratorzy często w swojej pracy z maszynami wirtualnymi w chmurze muszą korzystać z zestawu narzędzi i programów narzędziowych. Kopiowanie tych narzędzi do każdej maszyny wirtualnej może być czasochłonne. Zainstalowanie udziału plików platformy Azure lokalnie na maszynach wirtualnych pozwala deweloperowi i administratorowi na szybkie uzyskanie dostępu do swoich narzędzi bez konieczności ich kopiowania.
 
 ## <a name="key-benefits"></a>Najważniejsze korzyści

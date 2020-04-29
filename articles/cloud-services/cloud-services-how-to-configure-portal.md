@@ -1,6 +1,6 @@
 ---
-title: Jak skonfigurować usługę w chmurze (portal) | Dokumenty firmy Microsoft
-description: Dowiedz się, jak skonfigurować usługi w chmurze na platformie Azure. Dowiedz się, jak zaktualizować konfigurację usługi w chmurze i skonfigurować dostęp zdalny do wystąpień ról. W tych przykładach użyto witryny Azure portal.
+title: Jak skonfigurować usługę w chmurze (Portal) | Microsoft Docs
+description: Dowiedz się, jak skonfigurować usługi w chmurze na platformie Azure. Dowiedz się, jak zaktualizować konfigurację usługi w chmurze i skonfigurować dostęp zdalny do wystąpień roli. W poniższych przykładach użyto Azure Portal.
 services: cloud-services
 documentationcenter: ''
 author: tgore03
@@ -9,101 +9,101 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
 ms.openlocfilehash: e862818a4fe2471af574d153d43f0096af7847b8
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811411"
 ---
-# <a name="how-to-configure-cloud-services"></a>Jak skonfigurować usługi w chmurze
+# <a name="how-to-configure-cloud-services"></a>Jak skonfigurować Cloud Services
 
-Można skonfigurować najczęściej używane ustawienia usługi w chmurze w witrynie Azure portal. Jeśli chcesz zaktualizować pliki konfiguracyjne bezpośrednio, pobierz plik konfiguracji usługi do aktualizacji, a następnie przekaż zaktualizowany plik i zaktualizuj usługę w chmurze ze zmianami konfiguracji. Tak czy inaczej aktualizacje konfiguracji są wypychane do wszystkich wystąpień roli.
+W Azure Portal można skonfigurować najczęściej używane ustawienia dla usługi w chmurze. Lub, jeśli chcesz bezpośrednio aktualizować pliki konfiguracji, Pobierz plik konfiguracji usługi do zaktualizowania, a następnie Przekaż zaktualizowany plik i zaktualizuj usługę w chmurze przy użyciu zmian konfiguracji. W obu przypadkach aktualizacje konfiguracji są przekazywane do wszystkich wystąpień ról.
 
-Można również zarządzać wystąpieniami ról usługi w chmurze lub pulpitu zdalnego do nich.
+Do nich można także zarządzać wystąpieniami ról usługi w chmurze lub pulpitu zdalnego.
 
-Platforma Azure może zapewnić dostępność usługi na poziomie 99,95 procent podczas aktualizacji konfiguracji, jeśli masz co najmniej dwa wystąpienia roli dla każdej roli. Dzięki temu jedna maszyna wirtualna może przetwarzać żądania klientów, podczas gdy druga jest aktualizowana. Aby uzyskać więcej informacji, zobacz [Umowy dotyczące poziomu usług](https://azure.microsoft.com/support/legal/sla/).
+Platforma Azure może zapewnić dostępność usługi na 99,95% w trakcie aktualizacji konfiguracji, jeśli masz co najmniej dwa wystąpienia roli dla każdej roli. Dzięki temu jedna maszyna wirtualna może przetwarzać żądania klientów, gdy druga jest aktualizowana. Aby uzyskać więcej informacji, zobacz [umowy dotyczące poziomu usług](https://azure.microsoft.com/support/legal/sla/).
 
-## <a name="change-a-cloud-service"></a>Zmienianie usługi w chmurze
+## <a name="change-a-cloud-service"></a>Zmień usługę w chmurze
 
-Po otwarciu [witryny Azure portal](https://portal.azure.com/)przejdź do usługi w chmurze. W tym miejscu zarządzasz wieloma jego aspektami.
+Po otwarciu [Azure Portal](https://portal.azure.com/)przejdź do usługi w chmurze. W tym miejscu można zarządzać wieloma aspektami.
 
-![Strona ustawień](./media/cloud-services-how-to-configure-portal/cloud-service.png)
+![Strona Ustawienia](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-Łącza **Ustawienia** lub **Wszystkie ustawienia** otworzą **ustawienia,** w których można zmienić właściwości, zmienić **konfigurację,** zarządzać **certyfikatami,** skonfigurować **Certificates** **reguły alertów**i zarządzać **użytkownikami,** którzy mają dostęp do tej usługi w chmurze.
+Link **Ustawienia** lub **wszystkie ustawienia** spowoduje otwarcie **ustawień** , w których można zmienić **Właściwości**, zmienić **konfigurację**, zarządzać **certyfikatami**, skonfigurować **reguły alertów**i zarządzać **użytkownikami** mającymi dostęp do tej usługi w chmurze.
 
 ![Ustawienia usługi w chmurze platformy Azure](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
-### <a name="manage-guest-os-version"></a>Zarządzanie wersją systemu operacyjnego gościa
+### <a name="manage-guest-os-version"></a>Zarządzaj wersją systemu operacyjnego gościa
 
-Domyślnie platforma Azure okresowo aktualizuje system operacyjny gościa do najnowszego obsługiwanego obrazu w rodzinie systemów operacyjnych określonych w konfiguracji usługi (cscfg), takich jak Windows Server 2016.
+Domyślnie platforma Azure okresowo aktualizuje system operacyjny gościa do najnowszej obsługiwanego obrazu w rodzinie systemów operacyjnych określonym w konfiguracji usługi (. cscfg), takiej jak Windows Server 2016.
 
-Jeśli chcesz kierować reklamy na określoną wersję systemu operacyjnego, możesz ustawić ją w **programie Configuration**.
+Jeśli musisz wybrać konkretną wersję systemu operacyjnego, możesz ustawić ją w **konfiguracji**.
 
-![Ustawianie wersji systemu operacyjnego](./media/cloud-services-how-to-configure-portal/cs-settings-config-guestosversion.png)
+![Ustaw wersję systemu operacyjnego](./media/cloud-services-how-to-configure-portal/cs-settings-config-guestosversion.png)
 
 >[!IMPORTANT]
-> Wybranie konkretnej wersji systemu operacyjnego powoduje wyłączenie automatycznych aktualizacji systemu operacyjnego i wprowadzanie poprawek do odpowiedzialności. Należy upewnić się, że wystąpienia roli otrzymują aktualizacje lub może narazić aplikację na luki w zabezpieczeniach.
+> Wybranie określonej wersji systemu operacyjnego spowoduje wyłączenie automatycznych aktualizacji systemu operacyjnego i naprawienie odpowiedzialności. Musisz się upewnić, że wystąpienia roli otrzymują aktualizacje lub że aplikacja może ujawnić luki w zabezpieczeniach.
 
 ## <a name="monitoring"></a>Monitorowanie
 
-Alerty można dodawać do usługi w chmurze. Kliknij **pozycję Ustawienia** > **Reguły** > **alertów Dodaj alert**.
+Możesz dodać alerty do usługi w chmurze. Kliknij kolejno pozycje **Ustawienia** > **reguły** > alertu**Dodawanie alertu**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
-W tym miejscu można skonfigurować alert. Z pola rozwijanego **Metryki** można skonfigurować alert dla następujących typów danych.
+W tym miejscu możesz skonfigurować alert. Za pomocą pola listy rozwijanej **Metryka** można skonfigurować alert dla następujących typów danych.
 
 * Odczyt dysku
-* Zapis dysku
-* Sieć w
-* Wyjście sieciowe
+* Zapis na dysku
+* Ruch przychodzący w sieci
+* Ruch wychodzący w sieci
 * Procent użycia procesora CPU
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
-### <a name="configure-monitoring-from-a-metric-tile"></a>Konfigurowanie monitorowania z kafelka metryki
+### <a name="configure-monitoring-from-a-metric-tile"></a>Konfigurowanie monitorowania na podstawie kafelka metryki
 
-Zamiast używać**reguł alertów** **ustawień,** > możesz kliknąć jeden z kafelków metryk w sekcji **Monitorowanie** usługi w chmurze.
+Zamiast korzystać z **Settings** > **reguł alertów**dotyczących ustawień, można kliknąć jeden z kafelków metryk w sekcji **monitorowanie** w usłudze w chmurze.
 
-![Monitorowanie usług w chmurze](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
+![Monitorowanie usługi w chmurze](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
-W tym miejscu można dostosować wykres używany z kafelkiem lub dodać regułę alertu.
+W tym miejscu możesz dostosować wykres używany z kafelkiem lub dodać regułę alertu.
 
-## <a name="reboot-reimage-or-remote-desktop"></a>Ponowne uruchamianie, ponowne imaż lub pulpit zdalny
+## <a name="reboot-reimage-or-remote-desktop"></a>Ponowne uruchamianie, odtwarzanie obrazu lub Pulpit zdalny
 
-Pulpit zdalny można skonfigurować za pośrednictwem [witryny Azure Portal (konfigurowanie pulpitu zdalnego),](cloud-services-role-enable-remote-desktop-new-portal.md) [programu PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)lub programu [Visual Studio.](cloud-services-role-enable-remote-desktop-visual-studio.md)
+Pulpit zdalny można skonfigurować za pomocą [Azure Portal (skonfigurować pulpit zdalny)](cloud-services-role-enable-remote-desktop-new-portal.md), [programu PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)lub za pomocą [programu Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
 
-Aby ponownie uruchomić, ponownie zamów lub zdalnie do usługi w chmurze, wybierz wystąpienie usługi w chmurze.
+Aby ponownie uruchomić, odtworzyć z obrazu lub zdalnie do usługi w chmurze, wybierz wystąpienie usługi w chmurze.
 
 ![Wystąpienie usługi w chmurze](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 
-Następnie można zainicjować połączenie pulpitu zdalnego, zdalnie ponownie uruchomić wystąpienie lub zdalnie odtworzyć (zacznij od świeżego obrazu) wystąpienie.
+Następnie można zainicjować Podłączanie pulpitu zdalnego, zdalnie ponownie uruchomić wystąpienie lub zdalnie odtworzyć z obrazu (Zacznij od nowego obrazu) wystąpienia.
 
 ![Przyciski wystąpienia usługi w chmurze](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
-## <a name="reconfigure-your-cscfg"></a>Ponowne konfigurowanie pliku cscfg
+## <a name="reconfigure-your-cscfg"></a>Skonfiguruj ponownie. cscfg
 
-Może być konieczne ponowne skonfigurowanie usługi w chmurze za pośrednictwem pliku [konfiguracji usługi (cscfg).](cloud-services-model-and-package.md#cscfg) Najpierw musisz pobrać plik cscfg, zmodyfikować go, a następnie przesłać.
+Może być konieczne ponowne skonfigurowanie usługi w chmurze za pomocą pliku [konfiguracji usługi (cscfg)](cloud-services-model-and-package.md#cscfg) . Najpierw musisz pobrać plik. cscfg, zmodyfikować go, a następnie przekazać.
 
-1. Kliknij ikonę **Ustawienia** lub łącze **Wszystkie ustawienia,** aby otworzyć **okno Ustawienia**.
+1. Kliknij ikonę **Ustawienia** lub link **wszystkie ustawienia** , aby otworzyć **Ustawienia**.
 
-    ![Strona ustawień](./media/cloud-services-how-to-configure-portal/cloud-service.png)
-2. Kliknij element **Konfiguracja.**
+    ![Strona Ustawienia](./media/cloud-services-how-to-configure-portal/cloud-service.png)
+2. Kliknij element **konfiguracji** .
 
-    ![Blok konfiguracyjny](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
+    ![Blok konfiguracji](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 3. Kliknij przycisk **Pobierz**.
 
-    ![Pobierz](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
-4. Po zaktualizowaniu pliku konfiguracji usługi przekaż i zastosuj aktualizacje konfiguracji:
+    ![Pliki do pobrania](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
+4. Po zaktualizowaniu pliku konfiguracji usługi należy przekazać i zastosować aktualizacje konfiguracji:
 
     ![Upload](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
-5. Zaznacz plik cscfg i kliknij przycisk **OK**.
+5. Wybierz plik. cscfg i kliknij przycisk **OK**.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się, jak [wdrożyć usługę w chmurze](cloud-services-how-to-create-deploy-portal.md).
-* Konfigurowanie [niestandardowej nazwy domeny](cloud-services-custom-domain-name-portal.md).
+* Skonfiguruj [niestandardową nazwę domeny](cloud-services-custom-domain-name-portal.md).
 * [Zarządzanie usługą w chmurze](cloud-services-how-to-manage-portal.md).
-* Konfigurowanie [certyfikatów TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
+* Skonfiguruj [Certyfikaty TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

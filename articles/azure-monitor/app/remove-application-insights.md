@@ -1,113 +1,113 @@
 ---
-title: Usuwanie usługi Application Insights w programie Visual Studio — Monitor platformy Azure
-description: Jak usunąć SDK usługi Application Insights dla ASP.NET i ASP.NET Core w programie Visual Studio.
+title: Usuwanie Application Insights w programie Visual Studio — Azure Monitor
+description: Jak usunąć zestaw Application Insights SDK dla ASP.NET i ASP.NET Core w programie Visual Studio.
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 1c9ff8d3d305645ac7d113421e2c6c5f8451bd2b
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80805107"
 ---
-# <a name="how-to-remove-application-insights-in-visual-studio"></a>Jak usunąć aplikację Application Insights w programie Visual Studio
+# <a name="how-to-remove-application-insights-in-visual-studio"></a>Jak usunąć Application Insights w programie Visual Studio
 
-W tym artykule pokazano, jak usunąć ASP.NET i ASP.NET Core Application Insights SDK w programie Visual Studio.
+W tym artykule przedstawiono sposób usuwania zestawu SDK ASP.NET i ASP.NET Core Application Insights w programie Visual Studio.
 
-Aby usunąć usługa Application Insights, należy usunąć pakiety NuGet i odwołania z interfejsu API w aplikacji. Pakiety NuGet można odinstalować przy użyciu konsoli zarządzania pakietami lub zarządzania rozwiązaniem NuGet w programie Visual Studio. W poniższych sekcjach zostaną wyświetlane dwa sposoby usuwania pakietów NuGet i co zostało automatycznie dodane w projekcie. Pamiętaj, aby potwierdzić dodane pliki i obszary z własnym kodem, w którym zostały wykonane wywołania interfejsu API są usuwane.
+Aby usunąć Application Insights, należy usunąć pakiety NuGet i odwołania z interfejsu API w aplikacji. Pakiety NuGet można odinstalować za pomocą konsoli Zarządzanie pakietami lub rozwiązania NuGet w programie Visual Studio. Poniższe sekcje zawierają dwa sposoby usuwania pakietów NuGet i informacje, które zostały automatycznie dodane do projektu. Upewnij się, że dodano pliki i obszary z w własnym kodzie, w którym zostały wykonane wywołania interfejsu API.
 
-## <a name="uninstall-using-the-package-management-console"></a>Odinstalowywanie przy użyciu Konsoli zarządzania pakietami
+## <a name="uninstall-using-the-package-management-console"></a>Odinstalowywanie przy użyciu konsoli Zarządzanie pakietami
 
 # <a name="net"></a>[.NET](#tab/net)
 
-1. Aby otworzyć Konsolę zarządzania pakietami, w górnym menu wybierz polecenie Narzędzia > Menedżer pakietów NuGet > konsoli Menedżera pakietów.
+1. Aby otworzyć konsolę Zarządzanie pakietami, w górnym menu wybierz kolejno pozycje Narzędzia > Menedżer pakietów NuGet > konsola Menedżera pakietów.
      
-    ![W górnym menu kliknij pozycję Narzędzia > Menedżer pakietów NuGet > Konsoli Menedżera pakietów](./media/remove-application-insights/package-manager.png)
+    ![W górnym menu kliknij kolejno pozycje Narzędzia > Menedżer pakietów NuGet > konsola Menedżera pakietów](./media/remove-application-insights/package-manager.png)
 
     > [!NOTE]
-    > Jeśli kolekcja śledzenia jest włączona, należy najpierw odinstalować microsoft.ApplicationInsights.TraceListener. Wprowadź `Uninstall-package Microsoft.ApplicationInsights.TraceListener` następnie wykonaj poniższy krok, aby usunąć microsoft.ApplicationInsights.Web.
+    > Jeśli zbieranie śladów jest włączone, należy najpierw odinstalować Microsoft. ApplicationInsights. TraceListener. Wprowadź `Uninstall-package Microsoft.ApplicationInsights.TraceListener` następujące polecenie, aby usunąć Microsoft. ApplicationInsights. Web.
 
 1. Wprowadź następujące polecenie: `Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
 
-    Po wprowadzeniu polecenia pakiet usługi Application Insights i wszystkie jego zależności zostaną odinstalowane z projektu.
+    Po wprowadzeniu polecenia pakiet Application Insights i wszystkie jego zależności zostaną odinstalowane z projektu.
     
-    ![Polecenie Wprowadź w konsoli](./media/remove-application-insights/package-management-console.png)
+    ![Wprowadź polecenie w konsoli](./media/remove-application-insights/package-management-console.png)
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-1. Aby otworzyć Konsolę zarządzania pakietami, w górnym menu wybierz polecenie Narzędzia > Menedżer pakietów NuGet > konsoli Menedżera pakietów.
+1. Aby otworzyć konsolę Zarządzanie pakietami, w górnym menu wybierz kolejno pozycje Narzędzia > Menedżer pakietów NuGet > konsola Menedżera pakietów.
 
-    ![W górnym menu kliknij pozycję Narzędzia > Menedżer pakietów NuGet > Konsoli Menedżera pakietów](./media/remove-application-insights/package-manager.png)
+    ![W górnym menu kliknij kolejno pozycje Narzędzia > Menedżer pakietów NuGet > konsola Menedżera pakietów](./media/remove-application-insights/package-manager.png)
 
 1. Wprowadź następujące polecenie: ` Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
 
-    Po wprowadzeniu polecenia pakiet usługi Application Insights i wszystkie jego zależności zostaną odinstalowane z projektu.
+    Po wprowadzeniu polecenia pakiet Application Insights i wszystkie jego zależności zostaną odinstalowane z projektu.
 
 ---
 
-## <a name="uninstall-using-the-visual-studio-nugetui"></a>Odinstalowywanie przy użyciu interfejsu użytkownika programu Visual Studio NuGet
+## <a name="uninstall-using-the-visual-studio-nugetui"></a>Odinstalowywanie przy użyciu interfejsu użytkownika NuGet programu Visual Studio
 
 # <a name="net"></a>[.NET](#tab/net)
 
-1. W *Eksploratorze* rozwiązań po prawej stronie kliknij prawym przyciskiem myszy **rozwiązanie** i wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**.
+1. W *Eksplorator rozwiązań* po prawej stronie kliknij prawym przyciskiem myszy **rozwiązanie** i wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**.
 
-    Następnie zostanie wyświetlony ekran, który umożliwia edycję wszystkich pakietów NuGet, które są częścią projektu.
+    Zobaczysz ekran, który umożliwia edytowanie wszystkich pakietów NuGet, które są częścią projektu.
     
-     ![Kliknij prawym przyciskiem myszy pozycję Rozwiązanie w Eksploratorze rozwiązań, a następnie wybierz pozycję Zarządzaj pakietami NuGet dla rozwiązania](./media/remove-application-insights/manage-nuget-framework.png)
+     ![W Eksplorator rozwiązań kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycję Zarządzaj pakietami NuGet dla rozwiązania](./media/remove-application-insights/manage-nuget-framework.png)
 
     > [!NOTE]
-    > Jeśli kolekcja śledzenia jest włączona, należy najpierw odinstalować microsoft.ApplicationInsights.TraceListener bez usunięcia zależności zaznaczone, a następnie wykonaj poniższe kroki, aby odinstalować Microsoft.ApplicationInsights.Web z usuń zależności zaznaczone.
+    > Jeśli kolekcja śledzenia jest włączona, należy najpierw odinstalować program Microsoft. ApplicationInsights. TraceListener bez zaznaczenia opcję Usuń zależności, a następnie wykonać poniższe kroki, aby odinstalować program Microsoft. ApplicationInsights. Web z wybraną opcją Usuń zależności.
     
-1. Kliknij pakiet "Microsoft.ApplicationInsights.Web".Po prawej stronie zaznacz pole wyboru obok *pozycji Projekt,* aby wybrać wszystkie projekty.
+1. Kliknij pakiet "Microsoft. ApplicationInsights. Web".Po prawej stronie zaznacz pole wyboru obok pozycji *projekt* , aby wybrać wszystkie projekty.
     
-1. Aby usunąć wszystkie zależności podczas odinstalowywania, wybierz przycisk rozwijany **Opcje** poniżej sekcji, w której zaznaczono projekt.
+1. Aby usunąć wszystkie zależności podczas odinstalowywania, wybierz przycisk listy rozwijanej **Opcje** poniżej sekcji, w której został wybrany projekt.
 
-    W obszarze *Opcje odinstalowywania*zaznacz pole wyboru obok pozycji *Usuń zależności*.
+    W obszarze *Opcje dezinstalacji*zaznacz pole wyboru obok pozycji *Usuń zależności*.
 
-1. Wybierz **pozycję Odinstaluj**.
+1. Wybierz pozycję **Odinstaluj**.
     
-    ![Sprawdź usuwanie zależności, a następnie odinstaluj](./media/remove-application-insights/uninstall-framework.png)
+    ![Zaznacz Usuń zależności, a następnie Odinstaluj](./media/remove-application-insights/uninstall-framework.png)
 
-    Zostanie wyświetlone okno dialogowe, w tym wszystkie zależności, które mają zostać usunięte z aplikacji.Wybierz **ok,** aby odinstalować.
+    Zostanie wyświetlone okno dialogowe, w którym zostaną wyświetlone wszystkie zależności, które mają zostać usunięte z aplikacji.Wybierz **przycisk OK** , aby odinstalować.
     
-    ![Sprawdź usuwanie zależności, a następnie odinstaluj](./media/remove-application-insights/preview-uninstall-framework.png)
+    ![Zaznacz Usuń zależności, a następnie Odinstaluj](./media/remove-application-insights/preview-uninstall-framework.png)
     
-1.  Po odinstalowaniu wszystkiego w *Eksploratorze rozwiązań*nadal możesz zobaczyć "ApplicationInsights.config" i "AiHandleErrorAttribute.cs".Oba pliki można usunąć ręcznie.
+1.  Po odinstalowaniu wszystkiego w *Eksplorator rozwiązań*nadal mogą być widoczne "ApplicationInsights. config" i "AiHandleErrorAttribute.cs".Te dwa pliki można usunąć ręcznie.
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-1. W *Eksploratorze* rozwiązań po prawej stronie kliknij prawym przyciskiem myszy **rozwiązanie** i wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**.
+1. W *Eksplorator rozwiązań* po prawej stronie kliknij prawym przyciskiem myszy **rozwiązanie** i wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**.
 
-    Następnie zostanie wyświetlony ekran, który umożliwia edycję wszystkich pakietów NuGet, które są częścią projektu.
+    Zobaczysz ekran, który umożliwia edytowanie wszystkich pakietów NuGet, które są częścią projektu.
 
-    ![Kliknij prawym przyciskiem myszy pozycję Rozwiązanie w Eksploratorze rozwiązań, a następnie wybierz pozycję Zarządzaj pakietami NuGet dla rozwiązania](./media/remove-application-insights/manage-nuget-core.png)
+    ![W Eksplorator rozwiązań kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycję Zarządzaj pakietami NuGet dla rozwiązania](./media/remove-application-insights/manage-nuget-core.png)
 
-1. Kliknij pakiet "Microsoft.ApplicationInsights.AspNetCore". Po prawej stronie zaznacz pole wyboru obok *pozycji Projekt,* aby zaznaczyć wszystkie projekty, a następnie wybierz pozycję **Odinstaluj**.
+1. Kliknij pakiet "Microsoft. ApplicationInsights. AspNetCore". Po prawej stronie zaznacz pole wyboru obok pozycji *projekt* , aby wybrać wszystkie projekty, a następnie wybierz pozycję **Odinstaluj**.
 
-    ![Sprawdź usuwanie zależności, a następnie odinstaluj](./media/remove-application-insights/uninstall-core.png)
+    ![Zaznacz Usuń zależności, a następnie Odinstaluj](./media/remove-application-insights/uninstall-core.png)
 
 ---
 
-## <a name="what-is-created-when-you-add-application-insights"></a>Co jest tworzone podczas dodawania usługi Application Insights
+## <a name="what-is-created-when-you-add-application-insights"></a>Co jest tworzone podczas dodawania Application Insights
 
-Po dodaniu usługi Application Insights do projektu, tworzy pliki i dodaje kod do niektórych plików. Tylko odinstalowanie pakietów NuGet nie zawsze odrzuci pliki i kod. Aby w pełni usunąć usługa Application Insights, należy sprawdzić i ręcznie usunąć dodany kod lub pliki wraz z wszelkimi wywołaniami interfejsu API dodanymi w projekcie.
+Po dodaniu Application Insights do projektu tworzy on pliki i dodaje kod do niektórych plików. Odinstalowanie pakietów NuGet nie zawsze powoduje odrzucanie plików i kodu. Aby całkowicie usunąć Application Insights, należy sprawdzić i ręcznie usunąć dodany kod lub pliki wraz z dowolnymi wywołaniami interfejsu API, które zostały dodane do projektu.
 
 # <a name="net"></a>[.NET](#tab/net)
 
-Po dodaniu danych telemetrycznych usługi Application Insights do projektu ASP.NET programu Visual Studio dodaje następujące pliki:
+Dodanie telemetria usługi Application Insights do projektu programu Visual Studio ASP.NET powoduje dodanie następujących plików:
 
 - Plik ApplicationInsights.config
 - AiHandleErrorAttribute.cs
 
-Dodaje się następujące fragmenty kodu:
+Dodano następujące fragmenty kodu:
 
-- [Nazwa projektu].csproj
+- [Nazwa projektu]. csproj
 
     ```C#
      <ApplicationInsightsResourceId>/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebApplication4</ApplicationInsightsResourceId>
     ```
 
-- Packages.config
+- Packages. config
 
     ```xml
     <packages>
@@ -132,9 +132,9 @@ Dodaje się następujące fragmenty kodu:
     </packages>
     ```
 
-- Layout.cshtml
+- Layout. cshtml
 
-    Jeśli projekt ma plik Layout.cshtml, kod poniżej jest dodawany.
+    Jeśli projekt zawiera plik Layout. cshtml, zostanie dodany Poniższy kod.
     
     ```html
     <head>
@@ -155,7 +155,7 @@ Dodaje się następujące fragmenty kodu:
     </head>
     ```
 
-- ConnectedService.json
+- Usługę połączoną. JSON
 
     ```json
     {
@@ -178,9 +178,9 @@ Dodaje się następujące fragmenty kodu:
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Po dodaniu danych telemetrycznych usługi Application Insights do projektu szablonu programu Visual Studio ASP.NET Core dodaje on następujący kod:
+Po dodaniu telemetria usługi Application Insights do projektu szablonu ASP.NET Core programu Visual Studio dodaje następujący kod:
 
-- [Nazwa projektu].csproj
+- [Nazwa projektu]. csproj
 
     ```csharp
       <PropertyGroup>
@@ -197,14 +197,14 @@ Po dodaniu danych telemetrycznych usługi Application Insights do projektu szabl
       </ItemGroup>
     ```
 
-- Appsettings.json:
+- AppSettings. JSON:
 
     ```json
     "ApplicationInsights": {
         "InstrumentationKey": "00000000-0000-0000-0000-000000000000"
     ```
 
-- ConnectedService.json
+- Usługę połączoną. JSON
     
     ```json
     {

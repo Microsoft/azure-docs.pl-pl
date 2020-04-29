@@ -1,20 +1,20 @@
 ---
-title: Tworzenie funkcji działającej zgodnie z harmonogramem na platformie Azure
+title: Tworzenie funkcji uruchamianej zgodnie z harmonogramem na platformie Azure
 description: Dowiedz się, jak utworzyć na platformie Azure funkcję uruchamianą zgodnie z określonym harmonogramem.
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
 ms.date: 03/28/2018
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: e100a2d3a3718b302a44cbdecf462a99d9c823e0
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80756499"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Tworzenie funkcji wyzwalanej czasomierzem na platformie Azure
 
-Dowiedz się, jak używać usługi Azure Functions do tworzenia funkcji [bezserwerowej,](https://azure.microsoft.com/solutions/serverless/) która jest uruchamiana na podstawie zdefiniowanego harmonogramu.
+Dowiedz się, jak za pomocą Azure Functions utworzyć funkcję [bezserwerową](https://azure.microsoft.com/solutions/serverless/) , która jest uruchamiana na podstawie zdefiniowanego harmonogramu.
 
 ![Tworzenie aplikacji funkcji w witrynie Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
@@ -22,7 +22,7 @@ Dowiedz się, jak używać usługi Azure Functions do tworzenia funkcji [bezserw
 
 W celu ukończenia tego samouczka:
 
-+ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
++ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="create-an-azure-function-app"></a>Tworzenie aplikacji funkcji platformy Azure
 
@@ -36,7 +36,7 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
 ## <a name="create-a-timer-triggered-function"></a>Tworzenie funkcji wyzwalanej czasomierzem
 
-1. Rozwiń aplikację funkcji **+** i kliknij przycisk obok **pozycji Funkcje**. Jeśli jest to pierwsza funkcja w aplikacji funkcji, wybierz pozycję **W portalu**, a następnie opcję **Kontynuuj**. W przeciwnym razie przejdź do kroku 3.
+1. Rozwiń aplikację funkcji i kliknij **+** przycisk obok pozycji **funkcje**. Jeśli jest to pierwsza funkcja w aplikacji funkcji, wybierz pozycję **W portalu**, a następnie opcję **Kontynuuj**. W przeciwnym razie przejdź do kroku 3.
 
    ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
@@ -50,10 +50,10 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
     | Ustawienie | Sugerowana wartość | Opis |
     |---|---|---|
-    | **Nazwa** | Domyślne | Określa nazwę funkcji wyzwalanej czasomierzem. |
+    | **Nazwa** | Domyślny | Określa nazwę funkcji wyzwalanej czasomierzem. |
     | **Harmonogram** | 0 \*/1 \* \* \*\* | Składające się z 6 pól [wyrażenie CRON](functions-bindings-timer.md#ncrontab-expressions) planujące uruchamianie funkcji co minutę. |
 
-4. Kliknij przycisk **Utwórz**. Funkcja jest tworzona w wybranym języku, który działa co minutę, na minutę.
+4. Kliknij przycisk **Utwórz**. Funkcja jest tworzona w wybranym języku, który jest uruchamiany co minutę, na minutę.
 
 5. Zweryfikuj uruchomienie, wyświetlając informacje o śledzeniu zapisane w dziennikach.
 
@@ -69,7 +69,7 @@ Teraz możesz zmienić harmonogram funkcji tak, aby była uruchamiana co godzin�
 
 ![Harmonogram aktualizowania czasomierza usługi Functions w witrynie Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 
-Teraz masz funkcję, która działa raz na godzinę, na godzinę.
+Teraz masz funkcję, która jest uruchamiana co godzinę, w ciągu godziny.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

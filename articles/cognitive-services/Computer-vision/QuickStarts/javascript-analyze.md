@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: analizowanie obrazu zdalnego — REST, JavaScript'
+title: 'Szybki Start: analizowanie obrazu zdalnego — REST, JavaScript'
 titleSuffix: Azure Cognitive Services
 description: W tym przewodniku Szybki start przeprowadzisz analizę obrazu za pomocą interfejsu API przetwarzania obrazów w języku JavaScript.
 services: cognitive-services
@@ -12,32 +12,32 @@ ms.date: 03/26/2020
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 1d77acf9f076bbb9a4f4da5c592a0443b8585299
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656120"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Szybki start: analizowanie obrazu zdalnego przy użyciu interfejsu API REST i języka JavaScript podczas przetwarzania obrazów
 
-W tym przewodniku Szybki start przeanalizujesz zdalnie przechowywany obraz w celu wyodrębnienia funkcji wizualnych za pomocą interfejsu API REST wizji systemu. [Metoda Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) umożliwia wyodrębnienie elementów wizualnych na podstawie zawartości obrazu.
+W tym przewodniku szybki start przeprowadzisz analizę zdalnie przechowywanego obrazu w celu wyodrębnienia funkcji wizualnych przy użyciu interfejsu API REST przetwarzanie obrazów. [Metoda Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) umożliwia wyodrębnienie elementów wizualnych na podstawie zawartości obrazu.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz próbny z [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Możesz też postępować zgodnie z instrukcjami w aplikacji [Utwórz konto usług Cognitive Services,](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) aby zasubskrybować usługę Computer Vision i uzyskać klucz. Zapisz klucz subskrypcji i adres URL punktu końcowego w lokalizacji tymczasowej.
+Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Zapisz klucz subskrypcji i adres URL punktu końcowego w lokalizacji tymczasowej.
 
 ## <a name="create-and-run-the-sample"></a>Tworzenie i uruchamianie próbki
 
 Aby utworzyć i uruchomić przykład, wykonaj następujące kroki:
 
-1. Utwórz plik o nazwie _analyze-image.html_, otwórz go w edytorze tekstu i skopiuj do niego następujący kod.
+1. Utwórz plik o nazwie _analyze-Image. html_, otwórz go w edytorze tekstów i skopiuj do niego następujący kod.
 1. Opcjonalnie zastąp wartość `value` atrybutu dla kontrolki `inputImage` adresem URL innego obrazu, który chcesz analizować.
 1. Otwórz okno przeglądarki.
 1. W przeglądarce przeciągnij plik i upuść go w oknie przeglądarki.
-1. Gdy strona sieci Web jest wyświetlana w przeglądarce, wklej klucz subskrypcji i adres URL punktu końcowego do odpowiednich pól wejściowych.
-1. Wybierz przycisk **Analizuj obraz.**
+1. Gdy strona sieci Web zostanie wyświetlona w przeglądarce, Wklej klucz subskrypcji i adres URL punktu końcowego do odpowiednich pól wejściowych.
+1. Wybierz przycisk **Analizuj obraz** .
 
 ```html
 <!DOCTYPE html>

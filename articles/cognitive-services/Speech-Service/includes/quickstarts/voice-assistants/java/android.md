@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: tworzenie niestandardowego asystenta głosowego, Java (Android) - usługa mowy'
+title: 'Szybki Start: Tworzenie niestandardowego asystenta głosowego, Java (Android) — usługi mowy'
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak utworzyć niestandardowego asystenta głosowego w języku Java w systemie Android przy użyciu SDK mowy.
+description: Dowiedz się, jak utworzyć niestandardowy asystenta głosowego w języku Java w systemie Android przy użyciu zestawu Speech SDK.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
 ms.openlocfilehash: 8a1dd07fd567f41c2b406aabccd0421b5a6983af
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80671251"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zanim zaczniesz, upewnij się, że:
+Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
-> * [Tworzenie zasobu mowy platformy Azure](~/articles/cognitive-services/speech-service/get-started.md)
-> * [Konfigurowanie środowiska programistycznego i tworzenie pustego projektu](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
-> * Tworzenie bota połączonego z [kanałem Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-> * Upewnij się, że masz dostęp do mikrofonu do przechwytywania dźwięku
+> * [Tworzenie zasobu usługi Azure Speech](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Konfigurowanie środowiska deweloperskiego i Tworzenie pustego projektu](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
+> * Utwórz element bot połączony z [kanałem mowy linii bezpośredniej](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Upewnij się, że masz dostęp do mikrofonu do przechwytywania audio
 
   > [!NOTE]
-  > Zapoznaj się [z listą obsługiwanych regionów dla asystentów głosowych](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) i upewnij się, że zasoby są wdrażane w jednym z tych regionów.
+  > Zapoznaj się z [listą obsługiwanych regionów dla asystentów głosowych](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) i upewnij się, że zasoby zostały wdrożone w jednym z tych regionów.
 
 ## <a name="create-and-configure-a-project"></a>Tworzenie i konfigurowanie projektu
 
@@ -36,9 +36,9 @@ Zanim zaczniesz, upewnij się, że:
 
 ## <a name="create-user-interface"></a>Tworzenie interfejsu użytkownika
 
-W tej sekcji utworzymy podstawowy interfejs użytkownika (UI) dla aplikacji. Zacznijmy od otwarcia głównej działalności: `activity_main.xml`. Szablon podstawowy zawiera pasek tytułu z nazwą aplikacji `TextView` i komunikat "Hello world!".
+W tej sekcji utworzymy podstawowy interfejs użytkownika dla aplikacji. Zacznijmy od otwarcia głównego działania: `activity_main.xml`. Szablon podstawowy zawiera pasek tytułu z nazwą aplikacji i `TextView` z komunikatem "Hello World!".
 
-Następnie zastąp `activity_main.xml` zawartość następującego kodu:
+Następnie zastąp zawartość `activity_main.xml` następującym kodem:
 
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
@@ -87,11 +87,11 @@ Następnie zastąp `activity_main.xml` zawartość następującego kodu:
    </LinearLayout>
    ```
 
-Ten kod XML definiuje prosty interfejs użytkownika do interakcji z botem.
+Ten plik XML definiuje prosty interfejs użytkownika do współpracy z bot.
 
-- Element `button` inicjuje interakcję i `onBotButtonClicked` wywołuje metodę po kliknięciu.
-- Element `recoText` będzie wyświetlać wyniki mowy do tekstu podczas rozmowy z botem.
-- Element `activityText` wyświetli ładunek JSON dla najnowszej aktywności Bot Framework z bota.
+- `button` Element inicjuje interakcję i wywołuje `onBotButtonClicked` metodę po kliknięciu.
+- `recoText` Element wyświetli wyniki zamiany mowy na tekst podczas rozmowy z bot.
+- `activityText` Element będzie WYŚWIETLAŁ ładunek JSON dla najnowszej aktywności bot Framework z bot.
 
 Tekst i graficzna reprezentacja interfejsu użytkownika powinny teraz wyglądać następująco:
 
@@ -99,7 +99,7 @@ Tekst i graficzna reprezentacja interfejsu użytkownika powinny teraz wyglądać
 
 ## <a name="add-sample-code"></a>Dodawanie przykładowego kodu
 
-1. Otwórz `MainActivity.java`i zastąp zawartość następującym kodem:
+1. Otwórz `MainActivity.java`i Zastąp zawartość następującym kodem:
 
    ```java
     package samples.speech.cognitiveservices.microsoft.com;
@@ -241,31 +241,31 @@ Tekst i graficzna reprezentacja interfejsu użytkownika powinny teraz wyglądać
     }
    ```
 
-   * Metoda `onCreate` zawiera kod, który żąda uprawnień mikrofonu i Internetu.
+   * `onCreate` Metoda zawiera kod, który żąda dostępu do mikrofonu i Internetu.
 
-   * Metoda `onBotButtonClicked` oznacza, jak wspomniano wcześniej, procedurę obsługi naciskania przycisku. Naciśnięcie przycisku powoduje pojedynczą interakcję ("turn") z botem.
+   * Metoda `onBotButtonClicked` oznacza, jak wspomniano wcześniej, procedurę obsługi naciskania przycisku. Naciśnięcie przycisku powoduje wyzwolenie pojedynczej interakcji ("skręt") na bot.
 
-   * Metoda `registerEventListeners` pokazuje zdarzenia używane przez `DialogServiceConnector` i podstawowej obsługi działań przychodzących.
+   * `registerEventListeners` Metoda pokazuje zdarzenia używane przez i w `DialogServiceConnector` podstawowej obsłudze działań przychodzących.
 
-1. W tym samym pliku zastąp ciągi konfiguracji, aby dopasować je do zasobów:
+1. W tym samym pliku Zastąp ciągi konfiguracyjne, aby były zgodne z zasobami:
 
     * Zastąp element `YourSpeechSubscriptionKey` kluczem subskrypcji.
 
-    * Zamień `YourServiceRegion` z [regionem](~/articles/cognitive-services/speech-service/regions.md) skojarzonym z subskrypcją Tylko podzbiór regionów usługi mowy są obecnie obsługiwane przez direct line speech. Aby uzyskać więcej informacji, zobacz [regiony](~/articles/cognitive-services/speech-service/regions.md#voice-assistants).
+    * Zastąp `YourServiceRegion` w [regionie](~/articles/cognitive-services/speech-service/regions.md) skojarzonym z subskrypcją tylko podzbiór regionów usługi mowy jest obecnie obsługiwany przez funkcję Direct line Speech. Aby uzyskać więcej informacji, zobacz [regiony](~/articles/cognitive-services/speech-service/regions.md#voice-assistants).
 
 ## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
 
 1. Połącz urządzenie z systemem Android do komputera projektowego. Upewnij się, że na urządzeniu włączono [tryb projektowania i debugowanie USB](https://developer.android.com/studio/debug/dev-options).
 
-1. Aby utworzyć aplikację, naciśnij klawisze Ctrl+F9 lub wybierz z paska menu pozycję **Zbuduj** > **projekt.**
+1. Aby skompilować aplikację, naciśnij klawisze CTRL + F9 lub wybierz opcję **Kompiluj** > **Utwórz projekt** z paska menu.
 
-1. Aby uruchomić aplikację, naciśnij klawisze Shift+F10 lub wybierz polecenie **Uruchom** > **polecenie Uruchom "app"**.
+1. Aby uruchomić aplikację, naciśnij klawisze Shift + F10 **lub wybierz polecenie** > Uruchom**przebieg "App"**.
 
 1. W oknie docelowym wdrożenia, które zostanie wyświetlone, wybierz urządzenie Android.
 
    ![Zrzut ekranu okna Deployment Target (Cel wdrożenia)](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-12-deploy.png)
 
-Po uruchomieniu aplikacji i jej aktywności kliknij przycisk, aby rozpocząć rozmowę z botem. Transkrybowany tekst pojawi się w miarę mówienia, a najnowsza aktywność otrzymana od bota pojawi się po jego otrzymaniu. Jeśli bot jest skonfigurowany do udzielania odpowiedzi mówionych, zamiana mowy na tekst będzie odtwarzana automatycznie.
+Po uruchomieniu aplikacji i jej działania kliknij przycisk, aby rozpocząć rozmowę z bot. Tekst uzyskanego pojawi się w miarę mówienia, a najnowsze działania otrzymane z bot pojawią się po odebraniu. Jeśli bot jest skonfigurowany do dostarczania mówionych odpowiedzi, funkcja zamiany mowy na tekst zostanie automatycznie przegrana.
 
 ![Zrzut ekranu aplikacji Android](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-completed-turn.png)
 

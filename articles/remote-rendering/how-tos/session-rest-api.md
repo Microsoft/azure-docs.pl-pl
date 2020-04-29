@@ -1,33 +1,33 @@
 ---
-title: Interfejs API REST zarządzania sesjami
-description: W tym artykule opisano sposób zarządzania sesjami
+title: Interfejs API REST zarządzania sesją
+description: Opisuje sposób zarządzania sesjami
 author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681248"
 ---
-# <a name="use-the-session-management-rest-api"></a>Korzystanie z interfejsu API REST zarządzania sesjami
+# <a name="use-the-session-management-rest-api"></a>Korzystanie z interfejsu API REST zarządzania sesją
 
-Aby korzystać z funkcji zdalnego renderowania platformy Azure, należy utworzyć *sesję*. Każda sesja odpowiada maszynie wirtualnej (VM) przydzielanej na platformie Azure i oczekiwaniu na połączenie się urządzenia klienckiego. Gdy urządzenie łączy się, maszyna wirtualna renderuje żądane dane i służy wynik jako strumień wideo. Podczas tworzenia sesji, wybrać rodzaj serwera, który ma być uruchomiony na, który określa ceny. Gdy sesja nie jest już potrzebna, należy ją zatrzymać. Jeśli nie zostanie zatrzymana ręcznie, zostanie automatycznie zamknięty po upływie *czasu dzierżawy* sesji.
+Aby korzystać z funkcji renderowania zdalnego platformy Azure, należy utworzyć *sesję*. Każda sesja odpowiada maszynie wirtualnej (VM), która jest przypisana na platformie Azure i oczekuje na połączenie urządzenia klienckiego. Gdy urządzenie zostanie połączone, maszyna wirtualna renderuje żądane dane i zachowuje wynik jako strumień wideo. Podczas tworzenia sesji wybierasz rodzaj serwera, na którym chcesz pracować, co określa Cennik. Gdy sesja nie jest już wymagana, powinna zostać zatrzymana. Jeśli nie zostanie zatrzymana ręcznie, zostanie ona ZAMKNIĘTA automatycznie po wygaśnięciu *czasu dzierżawy* sesji.
 
-Udostępniamy skrypt programu PowerShell w [repozytorium próbek ARR](https://github.com/Azure/azure-remote-rendering) w *folderze Skrypty* o nazwie *RenderingSession.ps1*, który demonstruje korzystanie z naszej usługi. Skrypt i jego konfiguracja są opisane w tym miejscu: [Przykładowe skrypty programu PowerShell](../samples/powershell-example-scripts.md)
+Udostępniamy skrypt programu PowerShell w [repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) w folderze *scripts* o nazwie *RenderingSession. ps1*, który ilustruje korzystanie z naszej usługi. Skrypt i jego konfigurację są opisane tutaj: [przykładowe skrypty programu PowerShell](../samples/powershell-example-scripts.md)
 
 > [!TIP]
-> Polecenia programu PowerShell wymienione na tej stronie mają się wzajemnie uzupełniać. Jeśli wszystkie skrypty są uruchamiane w kolejności w tym samym wierszu polecenia programu PowerShell, będą one opierać się na siebie nawzajem.
+> Polecenia programu PowerShell wymienione na tej stronie są przeznaczone do uzupełniania siebie nawzajem. Jeśli w tym samym wierszu polecenia programu PowerShell zostanie uruchomione wszystkie skrypty, zostaną one skompilowane na początku.
 
 ## <a name="regions"></a>Regiony
 
-Zobacz [listę dostępnych regionów](../reference/regions.md) dla podstawowych adresów URL, do które mają być wysyłane żądania.
+Zapoznaj się z [listą regionów dostępnych](../reference/regions.md) dla podstawowych adresów URL, do których mają być wysyłane żądania.
 
-Dla przykładowych skryptów poniżej wybraliśmy region *westus2*.
+Dla przykładowych skryptów poniżej wybieramy region *westus2*.
 
-### <a name="example-script-choose-an-endpoint"></a>Przykładowy skrypt: wybieranie punktu końcowego
+### <a name="example-script-choose-an-endpoint"></a>Przykładowy skrypt: Wybieranie punktu końcowego
 
 ```PowerShell
 $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
@@ -35,9 +35,9 @@ $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
 
 ## <a name="accounts"></a>Konta
 
-Jeśli nie masz konta zdalnego renderowania, [utwórz je](create-an-account.md). Każdy zasób jest identyfikowany przez *identyfikator konta*, który jest używany w interfejsach API sesji.
+Jeśli nie masz konta renderowania zdalnego, [Utwórz je](create-an-account.md). Każdy zasób jest identyfikowany przez *accountId*, który jest używany przez interfejsy API sesji.
 
-### <a name="example-script-set-accountid-and-accountkey"></a>Przykładowy skrypt: Ustaw identyfikator konta i klucz konta
+### <a name="example-script-set-accountid-and-accountkey"></a>Przykładowy skrypt: Ustaw accountId i accountKey
 
 ```PowerShell
 $accountId = "********-****-****-****-************"
@@ -46,7 +46,7 @@ $accountKey = "*******************************************="
 
 ## <a name="common-request-headers"></a>Typowe nagłówki żądań
 
-* Nagłówek *Autoryzacja* musi mieć`Bearer TOKEN`wartość "`TOKEN`", gdzie " jest tokenem uwierzytelniania [zwróconym przez usługę bezpiecznego tokenu.](tokens.md)
+* Nagłówek *autoryzacji* musi mieć wartość "`Bearer TOKEN`", gdzie "`TOKEN`" jest tokenem uwierzytelniania [zwracanym przez usługę bezpiecznego tokenu](tokens.md).
 
 ### <a name="example-script-request-a-token"></a>Przykładowy skrypt: żądanie tokenu
 
@@ -59,29 +59,29 @@ $token = $response.AccessToken;
 
 ## <a name="common-response-headers"></a>Typowe nagłówki odpowiedzi
 
-* Nagłówek *MS-CV* może służyć przez zespół produktu do śledzenia wywołania w usłudze.
+* Nagłówek *MS-CV* może być używany przez zespół produktu do śledzenia wywołania w ramach usługi.
 
 ## <a name="create-a-session"></a>Tworzenie sesji
 
-To polecenie tworzy sesję. Zwraca identyfikator nowej sesji. Identyfikator sesji jest potrzebny dla wszystkich innych poleceń.
+To polecenie tworzy sesję. Zwraca identyfikator nowej sesji. Potrzebujesz identyfikatora sesji dla wszystkich innych poleceń.
 
 | Identyfikator URI | Metoda |
 |-----------|:-----------|
-| /v1/accounts/accountId /sessions/create*accountId* | POST |
+| /V1/accounts/*accountId*/Sessions/Create | POST |
 
 **Treść żądania:**
 
-* maxLeaseTime (timespan): wartość limitu czasu, gdy maszyna wirtualna zostanie automatycznie wycofana
-* modele (tablica): adresy URL kontenerów zasobów do wstępnego ładowania
-* rozmiar (ciąg znaków): rozmiar maszyny Wirtualnej (**"standard"** lub **"premium").** Zobacz określone [ograniczenia rozmiaru maszyny Wirtualnej](../reference/limits.md#overall-number-of-polygons).
+* maxLeaseTime (TimeSpan): wartość limitu czasu, gdy maszyna wirtualna zostanie automatycznie zlikwidowana
+* modele (Array): adresy URL kontenerów zasobów do wstępnego załadowania
+* rozmiar (ciąg): rozmiar maszyny wirtualnej (**"Standardowa"** lub **"Premium"**). Zapoznaj się z określonymi [ograniczeniami rozmiaru maszyny wirtualnej](../reference/limits.md#overall-number-of-polygons).
 
-**Odpowiedzi:**
+**Reagowani**
 
-| Kod stanu | Ładowność JSON | Komentarze |
+| Kod stanu | Ładunek JSON | Komentarze |
 |-----------|:-----------|:-----------|
-| 202 | - sessionId: GUID | Powodzenie |
+| 202 | -sessionId: GUID | Powodzenie |
 
-### <a name="example-script-create-a-session"></a>Przykładowy skrypt: tworzenie sesji
+### <a name="example-script-create-a-session"></a>Przykładowy skrypt: Tworzenie sesji
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/create" -Method Post -ContentType "application/json" -Body "{ 'maxLeaseTime': '4:0:0', 'models': [], 'size': 'standard' }" -Headers @{ Authorization = "Bearer $token" }
@@ -109,9 +109,9 @@ ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 52
 ```
 
-### <a name="example-script-store-sessionid"></a>Przykładowy skrypt: Identyfikator sesji sklepu
+### <a name="example-script-store-sessionid"></a>Przykładowy skrypt: identyfikator sesji magazynu
 
-Odpowiedź z powyższego żądania zawiera **sessionId**, który jest potrzebny dla wszystkich żądań kontynuacji.
+Odpowiedź z powyższego żądania zawiera **Identyfikator sesji**, który jest wymagany dla wszystkich żądań monitowania.
 
 ```PowerShell
 $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
@@ -119,22 +119,22 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 
 ## <a name="update-a-session"></a>Aktualizowanie sesji
 
-To polecenie aktualizuje parametry sesji. Obecnie można przedłużyć tylko czas dzierżawy sesji.
+To polecenie aktualizuje parametry sesji. Obecnie można zwiększyć tylko czas dzierżawy sesji.
 
 > [!IMPORTANT]
-> Czas dzierżawy jest zawsze podawany jako całkowity czas od początku sesji. Oznacza to, że jeśli utworzono sesję z czasem dzierżawy jednej godziny i chcesz przedłużyć jej czas dzierżawy o kolejną godzinę, musisz zaktualizować jego maxLeaseTime do dwóch godzin.
+> Czas dzierżawy jest zawsze wyrażony jako łączny czas od momentu rozpoczęcia sesji. Oznacza to, że jeśli utworzono sesję z upływem czasu dzierżawy o wartości jednej godziny i chcesz zwiększyć jej czas dzierżawy przez inną godzinę, musisz zaktualizować jej maxLeaseTime na dwie godziny.
 
 | Identyfikator URI | Metoda |
 |-----------|:-----------|
-| /v1/accounts/*accountID*/sessions/sessionId*sessionId* | Patch |
+| /V1/accounts/*accountID*/Sessions/*SessionID* | WYSŁANA |
 
 **Treść żądania:**
 
-* maxLeaseTime (timespan): wartość limitu czasu, gdy maszyna wirtualna zostanie automatycznie wycofana
+* maxLeaseTime (TimeSpan): wartość limitu czasu, gdy maszyna wirtualna zostanie automatycznie zlikwidowana
 
-**Odpowiedzi:**
+**Reagowani**
 
-| Kod stanu | Ładowność JSON | Komentarze |
+| Kod stanu | Ładunek JSON | Komentarze |
 |-----------|:-----------|:-----------|
 | 200 | | Powodzenie |
 
@@ -160,21 +160,21 @@ Headers           : {[MS-CV, Fe+yXCJumky82wuoedzDTA.0], [Content-Length, 0], [Da
 RawContentLength  : 0
 ```
 
-## <a name="get-active-sessions"></a>Uatrzyj aktywne sesje
+## <a name="get-active-sessions"></a>Pobierz aktywne sesje
 
 To polecenie zwraca listę aktywnych sesji.
 
 | Identyfikator URI | Metoda |
 |-----------|:-----------|
-| /v1/accounts/*accountId*/sessions | GET |
+| /V1/accounts/*accountId*/Sessions | GET |
 
-**Odpowiedzi:**
+**Reagowani**
 
-| Kod stanu | Ładowność JSON | Komentarze |
+| Kod stanu | Ładunek JSON | Komentarze |
 |-----------|:-----------|:-----------|
-| 200 | - sesje: tablica właściwości sesji | zobacz sekcję "Pobierz właściwości sesji", aby uzyskać opis właściwości sesji |
+| 200 | -Sessions: Tablica właściwości sesji | Opis właściwości sesji znajduje się w sekcji "Uzyskiwanie właściwości sesji". |
 
-### <a name="example-script-query-active-sessions"></a>Przykładowy skrypt: kwerenda aktywnych sesji
+### <a name="example-script-query-active-sessions"></a>Przykładowy skrypt: wykonywanie zapytań dotyczących aktywnych sesji
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions" -Method Get -Headers @{ Authorization = "Bearer $token" }
@@ -205,19 +205,19 @@ RawContentLength  : 2
 
 ## <a name="get-sessions-properties"></a>Pobierz właściwości sesji
 
-To polecenie zwraca informacje o sesji, takie jak jej nazwa hosta maszyny Wirtualnej.
+To polecenie zwraca informacje o sesji, takie jak nazwa hosta maszyny wirtualnej.
 
 | Identyfikator URI | Metoda |
 |-----------|:-----------|
-| /v1/accounts/*accountId*/sessions/sessionId /properties*sessionId* | GET |
+| /V1/accounts/*accountId*/Sessions/*SessionID*/Properties | GET |
 
-**Odpowiedzi:**
+**Reagowani**
 
-| Kod stanu | Ładowność JSON | Komentarze |
+| Kod stanu | Ładunek JSON | Komentarze |
 |-----------|:-----------|:-----------|
-| 200 | - komunikat: ciąg<br/>- sessionElapsedTime: timespan<br/>- sessionHostname: string<br/>- sessionId: ciąg<br/>- sesjaMaxLeaseTime: timespan<br/>- sessionSize: wyliczenie<br/>- sessionStatus: wyliczenie | enum sessionStatus { starting, ready, stopping, stopped, expired, error}<br/>Jeśli stan jest "błąd" lub "wygasł", wiadomość będzie zawierać więcej informacji |
+| 200 | -Message: ciąg<br/>-sessionElapsedTime: TimeSpan<br/>-sessionHostname: ciąg<br/>-sessionId: ciąg<br/>-sessionMaxLeaseTime: TimeSpan<br/>-sessionSize: enum<br/>-sessionStatus: enum | Wyliczenie sessionStatus {Start, gotowe, zatrzymywanie, zatrzymane, wygasłe, błąd}<br/>Jeśli stan ma wartość "Error" lub "wygasła", komunikat będzie zawierać więcej informacji |
 
-### <a name="example-script-get-session-properties"></a>Przykładowy skrypt: Pobierz właściwości sesji
+### <a name="example-script-get-session-properties"></a>Przykładowy skrypt: pobieranie właściwości sesji
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId/properties" -Method Get -Headers @{ Authorization = "Bearer $token" }
@@ -246,21 +246,21 @@ ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 60
 ```
 
-## <a name="stop-a-session"></a>Zatrzymywać sesję
+## <a name="stop-a-session"></a>Zatrzymaj sesję
 
-To polecenie zatrzymuje sesję. Przydzielona maszyna wirtualna zostanie odzyskana wkrótce po.
+To polecenie powoduje zatrzymanie sesji. Przypisana maszyna wirtualna zostanie wkrótce ododzyskiwana.
 
 | Identyfikator URI | Metoda |
 |-----------|:-----------|
-| /v1/accounts/*accountId*/sessions/sessionId*sessionId* | DELETE |
+| /V1/accounts/*accountId*/Sessions/*SessionID* | DELETE |
 
-**Odpowiedzi:**
+**Reagowani**
 
-| Kod stanu | Ładowność JSON | Komentarze |
+| Kod stanu | Ładunek JSON | Komentarze |
 |-----------|:-----------|:-----------|
 | 204 | | Powodzenie |
 
-### <a name="example-script-stop-a-session"></a>Przykładowy skrypt: Zatrzymywać sesję
+### <a name="example-script-stop-a-session"></a>Przykładowy skrypt: zatrzymywanie sesji
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId" -Method Delete -Headers @{ Authorization = "Bearer $token" }

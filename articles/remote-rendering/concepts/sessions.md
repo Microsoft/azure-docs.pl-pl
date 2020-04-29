@@ -1,86 +1,86 @@
 ---
-title: Sesje zdalnego renderowania
-description: Opisuje, czym jest sesja zdalnego renderowania
+title: Sesje usługi Remote Rendering
+description: Opisuje, co jest zdalna sesja renderowania
 author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 91a59e1398bf5e68799ad16a20dfb824904edc8a
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681690"
 ---
-# <a name="remote-rendering-sessions"></a>Sesje zdalnego renderowania
+# <a name="remote-rendering-sessions"></a>Sesje usługi Remote Rendering
 
-W usłudze Azure Remote Rendering (ARR) *sesja* jest kluczową koncepcją. W tym artykule wyjaśniono, czym dokładnie jest sesja.
+W przypadku renderowania zdalnego (ARR) na platformie Azure *sesja* jest najważniejszym pojęciem. W tym artykule wyjaśniono, co dokładnie jest sesja.
 
 ## <a name="overview"></a>Omówienie
 
-Renderowanie zdalne platformy Azure działa przez odciążanie złożonych zadań renderowania do chmury. Te zadania renderowania nie mogą być wykonywane przez dowolny serwer, ponieważ większość serwerów w chmurze nie ma procesorów gpu. Ze względu na ilość danych zaangażowanych i twarde wymaganie uzyskania wyników z interakcyjnym współczynnikiem klatek, odpowiedzialność, która serwer obsługuje, którego żądanie użytkownika również nie może być przekazana do innego komputera w locie, co może być możliwe w przypadku bardziej powszechnego ruchu internetowego.
+Zdalne renderowanie na platformie Azure działa przez przeciążanie złożonych zadań renderowania do chmury. Te zadania renderowania nie mogą być spełnione przez tylko każdy serwer, ponieważ większość serwerów w chmurze nie ma procesorów GPU. Ze względu na ilość danych, których to dotyczy, oraz twardą wymaganą możliwość tworzenia wyników w oparciu o interaktywne szybkości klatek, odpowiedzialność, która z nich nie może być przekazana na inny komputer w locie, jak może być bardziej typowym ruchem w sieci Web.
 
-Oznacza to, że w przypadku korzystania z usługi Azure Remote Rendering serwer w chmurze z niezbędnymi możliwościami sprzętowymi musi być zarezerwowany wyłącznie do obsługi żądań renderowania. *Sesja* odnosi się do wszystkiego, co związane z interakcji z tym serwerem. Zaczyna się od początkowego żądania zarezerwowania *(dzierżawy)* komputera do użytku, kontynuuje wszystkie polecenia ładowania i manipulowania modelami, a kończy się zwolnieniem dzierżawy na serwerze w chmurze.
+Oznacza to, że w przypadku korzystania z zdalnego renderowania platformy Azure serwer w chmurze z wymaganymi możliwościami sprzętowymi musi być zarezerwowany wyłącznie do obsługi żądań renderowania. *Sesja* odnosi się do wszystkich elementów powiązanych z tym serwerem. Rozpoczyna się od wstępnego żądania zarezerwowania (*dzierżawy*) maszyny do użycia, program kontynuuje wszystkie polecenia do ładowania i manipulowania modelami oraz zakończy się zwalnianiem dzierżawy na serwerze w chmurze.
 
 ## <a name="managing-sessions"></a>Zarządzanie sesjami
 
-Istnieje wiele sposobów zarządzania sesjami i interakcji z nimi. Niezależny od języka sposób tworzenia, aktualizowania i zamykania sesji odbywa się za pośrednictwem [interfejsu API REST zarządzania sesjami.](../how-tos/session-rest-api.md) W językach C# i C++ te `AzureFrontend` `AzureSession`operacje są udostępniane za pośrednictwem klas i . W przypadku aplikacji Unity istnieją dalsze `ARRServiceUnity` funkcje narzędzia dostarczane przez składnik.
+Istnieje wiele sposobów, aby zarządzać sesjami i korzystać z nich. Niezależny od języka sposób tworzenia, aktualizowania i zamykania sesji odbywa się za pomocą [interfejsu API REST zarządzania sesją](../how-tos/session-rest-api.md). W językach C# i C++ te operacje są ujawniane za pomocą `AzureFrontend` klas `AzureSession`i. W przypadku aplikacji aparatu Unity dostępne są dalsze funkcje narzędziowe udostępniane `ARRServiceUnity` przez składnik.
 
-Po *nawiązaniu połączenia z* aktywną sesją operacje, takie jak `AzureSession` ładowanie [modeli](models.md) i interakcja ze sceną są udostępniane za pośrednictwem klasy.
+Po *nawiązaniu połączenia* z aktywną sesją operacje, takie jak [ładowanie modeli](models.md) i współdziałanie z sceną, są `AzureSession` ujawniane za pomocą klasy.
 
 ### <a name="managing-multiple-sessions-simultaneously"></a>Jednoczesne zarządzanie wieloma sesjami
 
-Nie jest możliwe pełne *połączenie z* wieloma sesjami z jednego urządzenia. Można jednak tworzyć, obserwować i zamykać dowolną liczbę sesji z jednej aplikacji. Tak długo, jak aplikacja nie jest przeznaczona do kiedykolwiek połączyć się z sesją, nie trzeba działać na urządzeniu takim jak HoloLens 2, albo. Przypadek użycia dla takiej implementacji może być, jeśli chcesz kontrolować sesje za pośrednictwem mechanizmu centralnego. Można na przykład utworzyć aplikację internetową, do której można się zalogować wiele tabletów i obiektywów HoloLenses. Następnie aplikacja może wyświetlać opcje na tabletach, takie jak model CAD do wyświetlenia. Jeśli użytkownik dokona wyboru, te informacje są przekazywane do wszystkich HoloLenses, aby utworzyć wspólne środowisko.
+Nie można w pełni *łączyć* się z wieloma sesjami z jednego urządzenia. Można jednak tworzyć, obserwować i zamykać dowolną liczbę sesji z pojedynczej aplikacji. Tak długo, jak aplikacja nie jest przeznaczona do łączenia się z sesją, nie musi działać na urządzeniu, takim jak HoloLens 2. Przypadek użycia dla takiej implementacji może być, jeśli chcesz sterować sesjami za pomocą mechanizmu centralnego. Na przykład jedna z nich może utworzyć aplikację sieci Web, w której może się zalogować wiele tabletów i HoloLenses. Następnie aplikacja może wyświetlać opcje na tabletach, takie jak model CAD, który ma być wyświetlany. Jeśli użytkownik dokona wyboru, te informacje są przekazywane do wszystkich HoloLenses, aby utworzyć środowisko udostępnione.
 
-## <a name="session-phases"></a>Fazy sesji
+## <a name="session-phases"></a>Etapy sesji
 
-Każda sesja przechodzi wiele faz.
+Każda sesja jest poddawana wielu etapom.
 
 ### <a name="session-startup"></a>Uruchamianie sesji
 
-Gdy poprosisz ARR o [utworzenie nowej sesji,](../how-tos/session-rest-api.md#create-a-session)pierwszą rzeczą, jaką robi, jest zwrócenie identyfikatora [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)sesji. Ten identyfikator UUID umożliwia wykonywanie zapytań o informacje dotyczące sesji. UUID i niektóre podstawowe informacje o sesji są zachowywane przez 30 dni, dzięki czemu można zbadać te informacje nawet po zakończeniu sesji. W tym momencie **stan sesji** zostanie zgłoszony jako **Starting**.
+Po zaproszeniu ARR w celu [utworzenia nowej sesji](../how-tos/session-rest-api.md#create-a-session)pierwszy z nich ma zwrócić [identyfikator UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)sesji. Ten identyfikator UUID umożliwia wykonywanie zapytań dotyczących informacji o sesji. Identyfikator UUID i niektóre podstawowe informacje o sesji są utrwalane przez 30 dni, aby można było wysyłać zapytania do tych informacji nawet po zatrzymaniu sesji. W tym momencie **stan sesji** będzie raportowany jako **uruchamiany**.
 
-Następnie usługa Azure Remote Rendering próbuje znaleźć serwer, na który można obsługiwać sesję. Istnieją dwa parametry dla tego wyszukiwania. Po pierwsze, będzie rezerwować tylko serwery w Twoim [regionie](../reference/regions.md). To dlatego, że opóźnienie sieci w różnych regionach może być zbyt wysokie, aby zagwarantować przyzwoite doświadczenie. Drugi współczynnik to żądany *rozmiar* określony. W każdym regionie istnieje ograniczona liczba serwerów, które mogą spełnić żądanie rozmiaru *standardowego* lub *premium.* W związku z tym jeśli wszystkie serwery żądanego rozmiaru są obecnie używane w regionie, tworzenie sesji zakończy się niepowodzeniem. Przyczynę awarii [można zbadać](../how-tos/session-rest-api.md#get-sessions-properties).
-
-> [!IMPORTANT]
-> Jeśli zażądasz *rozmiar standardowej* maszyny Wirtualnej, a żądanie nie powiedzie się z powodu wysokiego popytu, nie oznacza to, że żądanie serwera *Premium* również zakończy się niepowodzeniem. Więc jeśli jest to opcja dla Ciebie, możesz spróbować wrócić do maszyny Wirtualnej *Premium.*
-
-Gdy usługa znajdzie odpowiedni serwer, musi skopiować na nią właściwą maszynę wirtualną (VM), aby przekształcić ją w hosta zdalnego renderowania platformy Azure. Ten proces trwa kilka minut. Następnie maszyna wirtualna jest uruchamiana, a **stan sesji** przechodzi do **gotowego**.
-
-W tym momencie serwer oczekuje wyłącznie na dane wejściowe. Jest to również punkt, z którego otrzymasz naliczane rachunki za usługę.
-
-### <a name="connecting-to-a-session"></a>Łączenie się z sesją
-
-Gdy sesja będzie *gotowa,* można się z nią *połączyć.* Po podłączeniu urządzenie może wysyłać polecenia do ładowania i modyfikowania modeli. Każdy host ARR obsługuje tylko jedno urządzenie klienckie naraz, więc gdy klient łączy się z sesją, ma wyłączną kontrolę nad renderowanej zawartości. Oznacza to również, że wydajność renderowania nigdy nie będzie się różnić z przyczyn poza kontrolą.
+Następnie zdalne renderowanie na platformie Azure próbuje znaleźć serwer, który może hostować daną sesję. Dla tego wyszukiwania istnieją dwa parametry. Po pierwsze spowoduje to zarezerwowanie serwerów w Twoim [regionie](../reference/regions.md). Wynika to z faktu, że opóźnienie sieci między regionami może być zbyt wysokie, aby zapewnić znośnego środowisko pracy. Drugim czynnikiem jest żądany *rozmiar* określony przez użytkownika. W każdym regionie istnieje ograniczona liczba serwerów, które mogą spełnić żądanie rozmiaru *standardowego* lub *Premium* . W związku z tym, jeśli wszystkie serwery o żądanym rozmiarze są obecnie używane w Twoim regionie, Tworzenie sesji zakończy się niepowodzeniem. Przyczyną niepowodzenia [może być zapytanie](../how-tos/session-rest-api.md#get-sessions-properties).
 
 > [!IMPORTANT]
-> Chociaż tylko jeden klient może *połączyć się z* sesją, podstawowe informacje o sesjach, takie jak ich bieżący stan, mogą być wyszukiwane bez łączenia.
+> Jeśli zażądasz *standardowego* rozmiaru maszyny wirtualnej, a żądanie zakończy się niepowodzeniem z powodu wysokiego zapotrzebowania, nie oznacza to, że żądanie serwera w *warstwie Premium* również nie powiedzie się. Dlatego jeśli jest to opcja dla Ciebie, możesz spróbować wrócić do maszyny wirtualnej w *warstwie Premium* .
 
-Gdy urządzenie jest połączone z sesją, próby połączenia przez inne urządzenia nie powiodą się. Jednak po rozłączeniu podłączonego urządzenia, dobrowolnie lub z powodu jakiegoś błędu, sesja zaakceptuje inne żądanie połączenia. Cały poprzedni stan (załadowane modele i takie) jest odrzucany w taki sposób, że następne urządzenie łączące otrzymuje czysty łupek. W ten sposób sesje mogą być ponownie wielokrotne, przez różne urządzenia i może być możliwe, aby ukryć obciążenie uruchamiania sesji od użytkownika końcowego w większości przypadków.
+Gdy usługa odnajdzie odpowiedni serwer, musi skopiować do niego odpowiednią maszynę wirtualną, aby przekształcić ją w Host renderowania zdalnego platformy Azure. Ten proces trwa kilka minut. Następnie maszyna wirtualna jest uruchamiana i przechodzi **stan sesji** na **gotowe**.
+
+W tym momencie serwer jest w stanie oczekiwać wyłącznie na dane wejściowe. Jest to również punkt, z którego naliczane są opłaty za usługę.
+
+### <a name="connecting-to-a-session"></a>Nawiązywanie połączenia z sesją
+
+Gdy sesja będzie *gotowa*, możesz *nawiązać z nią połączenie* . Po nawiązaniu połączenia urządzenie może wysyłać polecenia w celu załadowania i zmodyfikowania modeli. Każdy host ARR obsługuje tylko jedno urządzenie klienckie w danym momencie, więc gdy klient nawiązuje połączenie z sesją, ma wyłączną kontrolę nad renderowaną zawartością. Oznacza to również, że wydajność renderowania nigdy nie będzie się różnić z powodów poza formantem.
 
 > [!IMPORTANT]
-> Serwer zdalny nigdy nie zmienia stanu danych po stronie klienta. Wszystkie mutacje danych (takie jak aktualizacje transformacji i żądania obciążenia) muszą być wykonywane przez aplikację kliencką. Wszystkie akcje natychmiast zaktualizować stan klienta.
+> Chociaż tylko jeden klient może *łączyć* się z sesją, podstawowe informacje o sesjach, takie jak ich bieżący stan, mogą być badane bez łączenia.
 
-### <a name="session-end"></a>Koniec sesji
+Gdy urządzenie jest połączone z sesją, próby nawiązania połączenia przez inne urządzenia zakończą się niepowodzeniem. Jednak po rozłączeniu urządzenia połączonego, a także dobrowolnie lub z powodu niepowodzenia, sesja zaakceptuje inne żądanie połączenia. Wszystkie poprzednie Stany (załadowane modele i takie) są odrzucane w taki sposób, że następne łączące się urządzenie uzyskuje czysty. W związku z tym sesje mogą być ponownie używane wielokrotnie, przez różne urządzenia i może być możliwe ukrycie obciążeń uruchamiania sesji od użytkownika końcowego w większości przypadków.
 
-Podczas żądania nowej sesji należy określić *maksymalny czas dzierżawy*, zazwyczaj w zakresie od jednego do ośmiu godzin. Jest to czas trwania, podczas którego host zaakceptuje dane wejściowe.
+> [!IMPORTANT]
+> Serwer zdalny nigdy nie zmienia stanu danych po stronie klienta. Wszystkie mutacje danych (takich jak aktualizacje transformacji i żądania załadowania) muszą być wykonywane przez aplikację kliencką. Wszystkie akcje natychmiast aktualizują stan klienta.
 
-Istnieją dwa regularne powody, dla sesji do końca. Ręcznie zażądasz wstrzymania sesji lub upływa maksymalny czas dzierżawy. W obu przypadkach każde aktywne połączenie z hostem jest natychmiast zamknięte, a usługa jest zamykana na tym serwerze. Serwer jest następnie przekazywał z powrotem do puli platformy Azure i może zostać zarekwirowany do innych celów. Nie można cofnąć ani anulować zatrzymania sesji. Kwerenda o **stan sesji** w zatrzymanej sesji zwróci **zatrzymaną** lub **wygasłą**, w zależności od tego, czy została ręcznie zamknięta, czy też osiągnięto maksymalny czas dzierżawy.
+### <a name="session-end"></a>Zakończenie sesji
 
-Sesja może również zostać zatrzymana z powodu awarii.
+W przypadku żądania nowej sesji należy określić *Maksymalny czas dzierżawy*, zazwyczaj w zakresie od 1 do ośmiu godzin. Jest to czas, przez który host akceptuje dane wejściowe.
 
-We wszystkich przypadkach nie będą naliczane kolejne rachunki po zatrzymaniu sesji.
+Istnieją dwa zwykłe powody, aby sesja była zakończona. Ręcznie Żądaj, aby sesja została zatrzymana lub maksymalny czas dzierżawy wygaśnie. W obu przypadkach wszystkie aktywne połączenia z hostem są od razu zamknięte, a usługa zostaje wyłączona na tym serwerze. Serwer jest następnie podawany do puli platformy Azure i może zostać zamierzony do innych celów. Zatrzymywanie sesji nie może zostać cofnięte lub anulowane. Wykonanie zapytania o **stan sesji** w zatrzymanej sesji zwróci wartość **zatrzymaną** lub **wygasłą**, w zależności od tego, czy został on ręcznie zamknięty, czy został osiągnięty maksymalny czas dzierżawy.
+
+Sesja może być również zatrzymana z powodu pewnego błędu.
+
+We wszystkich przypadkach nie będą naliczane dalsze opłaty po zatrzymaniu sesji.
 
 > [!WARNING]
-> To, czy łączysz się z sesją i jak długo, nie ma wpływu na rozliczenia. To, co płacisz za usługę, zależy od *czasu trwania sesji,* co oznacza czas, przez który serwer jest zarezerwowany wyłącznie dla Ciebie, oraz żądane możliwości sprzętowe (rozmiar maszyny Wirtualnej). Jeśli rozpoczniesz sesję, połącz się przez pięć minut, a następnie nie zatrzymaj sesji, tak aby działała do momentu wygaśnięcia dzierżawy, zostanie naliczona naliczona opłaty za pełny czas dzierżawy sesji. Z drugiej strony *maksymalny czas dzierżawy* jest głównie siatką bezpieczeństwa. Nie ma znaczenia, czy żądasz sesji z czasem dzierżawy ośmiu godzin, a następnie używasz jej tylko przez pięć minut, jeśli ręcznie zatrzymasz sesję później.
+> Bez względu na to, czy nawiązujesz połączenie z sesją, jak długo nie wpływają na rozliczenia. Opłaty za usługę są zależne od *czasu trwania sesji*, czyli czasu, przez który serwer jest zarezerwowany wyłącznie dla Ciebie, i żądanych możliwości sprzętu (rozmiar maszyny wirtualnej). Jeśli uruchomisz sesję, Połącz się przez pięć minut, a następnie nie zatrzymasz sesji, tak aby nadal działała do momentu wygaśnięcia dzierżawy, zostanie naliczona stawka za pełny czas dzierżawy sesji. Z drugiej strony *Maksymalny czas dzierżawy* jest przede wszystkim w sieci zabezpieczeń. Nie ma znaczenia, czy użytkownik żąda sesji z upływem ośmiu godzin dzierżawy, a następnie będzie go używać tylko przez pięć minut, w przypadku ręcznego zatrzymania sesji.
 
-#### <a name="extend-a-sessions-lease-time"></a>Wydłużenie czasu dzierżawy sesji
+#### <a name="extend-a-sessions-lease-time"></a>Zwiększ czas dzierżawy sesji
 
-Możesz [przedłużyć czas dzierżawy](../how-tos/session-rest-api.md#update-a-session) aktywnej sesji, jeśli okaże się, że jest potrzebna dłużej.
+Możesz [wydłużyć czas dzierżawy](../how-tos/session-rest-api.md#update-a-session) aktywnej sesji, jeśli okaże się to konieczne dłużej.
 
 ## <a name="example-code"></a>Przykładowy kod
 
-Poniższy kod przedstawia prostą implementację uruchamiania sesji, oczekiwania na stan *gotowości,* łączenia, a następnie rozłączania i zamykania ponownie.
+W poniższym kodzie przedstawiono prostą implementację uruchomienia sesji, która oczekuje na stan *gotowości* , połączenie, a następnie ponowne połączenie i wyłączenie.
 
 ``` cs
 RemoteRenderingInitialization init = new RemoteRenderingInitialization();
@@ -136,13 +136,13 @@ await session.StopAsync().AsTask();
 RemoteManagerStatic.ShutdownRemoteRendering();
 ```
 
-Wiele `AzureFrontend` `AzureSession` i wystąpień mogą być obsługiwane, manipulowane i wyszukiwane z kodu. Ale tylko jedno urządzenie może `AzureSession` łączyć się z jednocześnie.
+Można `AzureFrontend` utrzymywać `AzureSession` wiele wystąpień, manipulować nimi i wykonywać zapytania z kodu. Ale tylko jedno urządzenie może połączyć się `AzureSession` jednocześnie.
 
-Okres istnienia maszyny wirtualnej nie jest `AzureFrontend` powiązany `AzureSession` z wystąpieniem ani wystąpieniem. `AzureSession.StopAsync`należy wezwać do przerwania sesji.
+Okres istnienia maszyny wirtualnej nie jest powiązany z `AzureFrontend` wystąpieniem ani `AzureSession` wystąpieniem. `AzureSession.StopAsync`musi być wywołana, aby zatrzymać sesję.
 
-Identyfikator sesji trwałej można wyszukiwać za pośrednictwem `AzureSession.SessionUUID()` i buforować lokalnie. Przy tym identyfikatorze aplikacja `AzureFrontend.OpenSession` może wywołać powiązanie z tą sesją.
+W przypadku identyfikatora sesji trwałej można wykonywać zapytania `AzureSession.SessionUUID()` i buforować lokalnie. Przy użyciu tego identyfikatora aplikacja może wywołać `AzureFrontend.OpenSession` powiązanie z tą sesją.
 
-Gdy `AzureSession.IsConnected` jest `AzureSession.Actions` true, zwraca `RemoteManager`wystąpienie , który zawiera funkcje [ładowania modeli,](models.md)manipulowania [elementów](entities.md)i [kwerendy informacji](../overview/features/spatial-queries.md) o renderowane sceny.
+Gdy `AzureSession.IsConnected` ma wartość true `AzureSession.Actions` , zwraca `RemoteManager`wystąpienie, które zawiera funkcje do [ładowania modeli](models.md), manipulowania [jednostkami](entities.md)i [zapytania o informacje](../overview/features/spatial-queries.md) o renderowanej scenie.
 
 ## <a name="next-steps"></a>Następne kroki
 

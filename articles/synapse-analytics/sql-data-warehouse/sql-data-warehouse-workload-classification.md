@@ -1,6 +1,6 @@
 ---
 title: Klasyfikacja obciążenia
-description: Wskazówki dotyczące używania klasyfikacji do zarządzania współbieżnością, ważność i zasoby obliczeniowe dla zapytań w usłudze Azure Synapse Analytics.
+description: Wskazówki dotyczące używania klasyfikacji do zarządzania współbieżnością, ważnością i zasobami obliczeniowymi dla zapytań w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,71 +12,71 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: e7aa0c402878c994aabe4e12d811a99e300d7e67
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80743655"
 ---
-# <a name="azure-synapse-analytics-workload-classification"></a>Klasyfikacja obciążenia usługi Azure Synapse Analytics
+# <a name="azure-synapse-analytics-workload-classification"></a>Klasyfikacja obciążeń usługi Azure Synapse Analytics
 
-W tym artykule opisano proces klasyfikacji obciążenia przypisywania grupy obciążenia i ważność do żądań przychodzących za pomocą puli Sql Synapse w usłudze Azure Synapse.
+W tym artykule opisano proces klasyfikacji obciążenia przypisujący grupę obciążeń i ważność do żądań przychodzących z Synapse pulami SQL na platformie Azure Synapse.
 
 ## <a name="classification"></a>Klasyfikacja
 
 > [!Video https://www.youtube.com/embed/QcCRBAhoXpM]
 
-Klasyfikacja zarządzania obciążeniem umożliwia stosowanie zasad obciążenia do żądań poprzez przypisywanie [klas zasobów](resource-classes-for-workload-management.md#what-are-resource-classes) i [ważność](sql-data-warehouse-workload-importance.md).
+Klasyfikacja zarządzania obciążeniami umożliwia stosowanie zasad obciążeń do żądań przez przypisanie [klas zasobów](resource-classes-for-workload-management.md#what-are-resource-classes) i [ważności](sql-data-warehouse-workload-importance.md).
 
-Chociaż istnieje wiele sposobów klasyfikowania obciążeń magazynowania danych, najprostszą i najbardziej powszechną klasyfikacją jest ładowanie i wykonywanie zapytań. Wczytujesz dane za pomocą instrukcji wstawiania, aktualizowania i usuwania.  Kwerenda danych za pomocą wybiera. Rozwiązanie do magazynowania danych często będzie miało zasady obciążenia dla działań obciążenia, takie jak przypisywanie wyższej klasy zasobów z większą liczebnością zasobów. Różne zasady obciążenia mogą mieć zastosowanie do zapytań, takich jak mniejsze znaczenie w porównaniu do działań obciążenia.
+Istnieje wiele sposobów klasyfikowania obciążeń związanych z magazynem danych, tym najprostszą i najbardziej typową klasyfikacją jest obciążenie i wykonywanie zapytań. Ładowanie danych za pomocą instrukcji INSERT, Update i DELETE.  Wykonywanie zapytań dotyczących danych przy użyciu polecenia SELECT. Rozwiązanie do magazynowania danych często ma zasady obciążenia dla aktywności obciążenia, takie jak przypisanie wyższej klasy zasobów większej ilości zasobów. Różne zasady obciążenia mogą dotyczyć zapytań, takich jak mniejsza ważność porównana z działaniami ładowania.
 
-Można również podklasyfikować obciążenia obciążenia i zapytania. Podklasyfikowanie zapewnia większą kontrolę nad obciążeniami. Na przykład obciążeń kwerendy mogą składać się z odświeżania modułu, kwerend pulpitu nawigacyjnego lub kwerend ad hoc. Można sklasyfikować każde z tych obciążeń kwerendy z różnych klas zasobów lub ustawienia ważności. Obciążenie może również korzystać z podklasyfikacji. Duże przekształcenia mogą być przypisane do większych klas zasobów. Większe znaczenie może być wykorzystane do zapewnienia, że kluczowe dane sprzedaży są ładowarką przed danymi pogodowymi lub zestawieniem danych społecznościowych.
+Można również podzielić obciążenia na obciążenia i zapytania. Podklasyfikacja zapewnia większą kontrolę nad obciążeniami. Na przykład obciążenia zapytań mogą składać się z odświeżeń modułów, zapytań pulpitu nawigacyjnego lub zapytań ad hoc. Można sklasyfikować każde z tych obciążeń zapytań o różne klasy zasobów lub ustawienia ważności. Obciążenie może również korzystać z podklasyfikacji. Duże przekształcenia można przypisać do większych klas zasobów. Wyższe znaczenie może służyć do zapewnienia, że kluczowe dane sprzedaży są modułem ładującym przed danymi pogody lub strumieniowym źródłem danych społecznościowych.
 
-Nie wszystkie instrukcje są klasyfikowane, ponieważ nie wymagają zasobów lub mają znaczenie, aby wpłynąć na wykonanie.  Polecenia DBCC, BEGIN, COMMIT i ROLLBACK TRANSACTION nie są klasyfikowane.
+Nie wszystkie instrukcje są klasyfikowane, ponieważ nie wymagają zasobów lub muszą mieć istotny wpływ na wykonanie.  Instrukcje poleceń DBCC, BEGIN, COMMIT i ROLLBACK TRANSACTION nie są klasyfikowane.
 
 ## <a name="classification-process"></a>Proces klasyfikacji
 
-Klasyfikacja puli SQL Synapse w usłudze Azure Synapse jest osiągana dzisiaj przez przypisanie użytkowników do roli, która ma przypisaną do niej odpowiednią klasę zasobów przy użyciu [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Możliwość scharakteryzowania żądań poza logowaniem do klasy zasobów jest ograniczona dzięki tej możliwości. Bogatsza metoda klasyfikacji jest teraz dostępna ze składnią [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  W tej składni użytkownicy puli Synapse SQL mogą przypisywać ważność i `workload_group` ilość zasobów systemowych przypisanych do żądania za pośrednictwem parametru.
+Klasyfikacja dla puli SQL Synapse w usłudze Azure Synapse jest już obecna, przypisując użytkownikom do roli, która ma odpowiednią klasę zasobów przypisaną do niej przy użyciu [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Możliwość scharakteryzowania żądań poza logowaniem do klasy zasobów jest ograniczona tą możliwością. Bardziej zaawansowana Metoda klasyfikacji jest teraz dostępna ze składnią [klasyfikatora tworzenia obciążenia](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Dzięki tej składni użytkownicy puli SQL Synapse mogą przypisywać ważność i ilość zasobów systemowych przypisanych do żądania za pośrednictwem `workload_group` parametru.
 
 > [!NOTE]
-> Klasyfikacja jest oceniana na podstawie żądania. Wiele żądań w jednej sesji można sklasyfikować inaczej.
+> Klasyfikacja jest oceniana na podstawie żądania. Wiele żądań w jednej sesji może być klasyfikowanych inaczej.
 
-## <a name="classification-weighting"></a>Ważenie klasyfikacji
+## <a name="classification-weighting"></a>Klasyfikowanie klasyfikacji
 
-W ramach procesu klasyfikacji trwa trwa ustalanie, która grupa obciążenia jest przypisana.  Waga idzie w następujący sposób:
+W ramach procesu klasyfikacji jest stosowane ustalanie wagi, aby określić, która grupa obciążeń jest przypisana.  Waga odbywa się w następujący sposób:
 
 |Parametr klasyfikatora |Waga   |
 |---------------------|---------|
-|NAZWA CZŁONKOW:UŻYTKOWNIK      |64       |
-|NAZWA CZŁONKOW:ROLA      |32       |
+|CZŁONEKNAME: UŻYTKOWNIK      |64       |
+|MEMBERNAME: ROLA      |32       |
 |WLM_LABEL            |16       |
 |WLM_CONTEXT          |8        |
 |START_TIME/END_TIME  |4        |
 
-Parametr `membername` jest obowiązkowy.  Jednak jeśli nazwa członkowna określona jest użytkownikiem bazy danych zamiast roli bazy danych, wagi dla użytkownika jest wyższa, a tym samym ten klasyfikator jest wybrany.
+`membername` Parametr jest obowiązkowy.  Jeśli jednak określona wartość elementu członkowskiego jest użytkownikiem bazy danych, a nie rolą bazy danych, oznacza to, że wagi dla użytkownika są wyższe i w ten sposób jest wybierany klasyfikator.
 
-Jeśli użytkownik jest członkiem wielu ról z różnych klas zasobów przypisane lub dopasowane w wielu klasyfikatorów, użytkownik otrzymuje najwyższe przypisanie klasy zasobów.  To zachowanie jest zgodne z istniejącym zachowaniem przypisania klasy zasobów.
+Jeśli użytkownik jest członkiem wielu ról z różnymi klasami zasobów przypisanymi lub dopasowanymi w wielu klasyfikatorach, użytkownik otrzymuje największe przypisanie klasy zasobów.  To zachowanie jest spójne z istniejącym zachowaniem przypisywania klasy zasobów.
 
-## <a name="system-classifiers"></a>Klasyfikatory systemowe
+## <a name="system-classifiers"></a>Klasyfikatory systemu
 
-Klasyfikacja obciążenia ma klasyfikatory obciążenia systemu. Klasyfikatory systemowe mapują istniejące członkostwo w roli klasy zasobów na alokacje zasobów klasy zasobów o normalnym znaczeniu. Klasyfikatorów systemowych nie można upuścić. Aby wyświetlić klasyfikatory systemowe, można uruchomić poniższą kwerendę:
+Klasyfikacja obciążenia ma klasyfikatory obciążenia systemu. Klasyfikatory systemu mapują istniejące członkostwa ról klasy zasobów na alokacje zasobów klasy zasobów o normalnym znaczeniu. Nie można porzucić klasyfikatorów systemowych. Aby wyświetlić klasyfikatory systemu, można uruchomić następujące zapytanie:
 
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <= 12
 ```
 
-## <a name="mixing-resource-class-assignments-with-classifiers"></a>Mieszanie przydziałów klas zasobów z klasyfikatorami
+## <a name="mixing-resource-class-assignments-with-classifiers"></a>Mieszanie przypisań klas zasobów z klasyfikatorami
 
-Klasyfikatory systemowe utworzone w Twoim imieniu zapewniają łatwą ścieżkę migracji do klasyfikacji obciążenia. Za pomocą mapowania roli klasy zasobów z pierwszeństwem klasyfikacji, może prowadzić do błędnej klasyfikacji, jak rozpocząć tworzenie nowych klasyfikatorów z ważnością.
+Klasyfikatory systemu utworzone w Twoim imieniu zapewniają łatwą ścieżkę do migracji do klasyfikacji obciążeń. Użycie mapowań roli klasy zasobów z pierwszeństwem klasyfikacji może prowadzić do błędnej klasyfikacji podczas tworzenia nowych klasyfikatorów o ważności.
 
 Poniżej przedstawiono przykładowy scenariusz:
 
-- Istniejący magazyn danych ma użytkownika bazy danych DBAUser przypisany do roli klasy zasobów largerc. Przypisanie klasy zasobów zostało wykonane za pomocą sp_addrolemember.
-- Magazyn danych jest teraz aktualizowany o zarządzanie obciążeniem.
-- Aby przetestować nową składnię klasyfikacji, rola bazy danych DBARole (której DBAUser jest członkiem), ma klasyfikator utworzony dla nich mapowanie ich do mediumrc i duże znaczenie.
-- Gdy DBAUser loguje się i uruchamia kwerendę, kwerenda zostanie przypisana do largerc. Ponieważ użytkownik ma pierwszeństwo przed członkostwem roli.
+- Istniejący magazyn danych ma DBAUser użytkownika bazy danych przypisany do roli klasy zasobów largerc. Przypisanie klasy zasobów zostało wykonane z sp_addrolemember.
+- Magazyn danych jest teraz aktualizowany za pomocą zarządzania obciążeniami.
+- Aby przetestować nową składnię klasyfikacji, rola bazy danych DBARole (która DBAUser jest członkiem), ma klasyfikator utworzony dla ich mapowania na mediumrc i wysoką ważność.
+- Gdy DBAUser loguje się i uruchamia zapytanie, zapytanie zostanie przypisane do largerc. Ponieważ użytkownik ma pierwszeństwo przed członkostwem w roli.
 
-Aby uprościć błędy w rozwiązywaniu problemów, zalecamy usunięcie mapowania ról klasy zasobów podczas tworzenia klasyfikatorów obciążenia.  Poniższy kod zwraca istniejące członkostwa roli klasy zasobów.  Uruchom [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) dla każdej nazwy elementu członkowskiego zwróconej z odpowiedniej klasy zasobów.
+Aby uprościć Rozwiązywanie problemów z błędną klasyfikacją, zaleca się usunięcie mapowań ról klasy zasobów podczas tworzenia klasyfikatorów obciążeń.  Poniższy kod zwraca istniejące członkostwa ról klasy zasobów.  Uruchom [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) dla każdej nazwy elementu członkowskiego zwróconej z odpowiedniej klasy zasobów.
 
 ```sql
 SELECT  r.name AS [Resource Class]
@@ -92,7 +92,7 @@ sp_droprolemember '[Resource Class]', membername
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji na temat tworzenia klasyfikatora, zobacz [CREAT WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
-- Zobacz szybki start, jak utworzyć klasyfikator obciążenia [Tworzenie klasyfikatora obciążenia](quickstart-create-a-workload-classifier-tsql.md).
-- Zobacz artykuły infigurajnokonfigurowanie [ważność obciążenia](sql-data-warehouse-how-to-configure-workload-importance.md) oraz sposób [zarządzania i monitorowania zarządzania obciążeniem.](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)
-- Zobacz [sys.dm_pdw_exec_requests,](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) aby wyświetlić zapytania i przypisane znaczenie.
+- Aby uzyskać więcej informacji na temat tworzenia klasyfikatora, zobacz [Tworzenie KLASYFIKATORA obciążenia (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+- Zobacz Przewodnik Szybki Start dotyczący tworzenia klasyfikatora obciążeń [Tworzenie klasyfikatora obciążeń](quickstart-create-a-workload-classifier-tsql.md).
+- Zapoznaj się z artykułami z artykułu jak, aby [skonfigurować ważność obciążenia](sql-data-warehouse-how-to-configure-workload-importance.md) oraz jak [zarządzać i monitorować zarządzanie obciążeniami](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Zobacz sekcję [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby wyświetlić zapytania i przypisane znaczenie.

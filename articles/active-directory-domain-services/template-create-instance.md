@@ -1,6 +1,6 @@
 ---
-title: Włączanie usług domenowych usług domenowych usług usług domenowych usług usług usług cyfrowych platformy Azure przy użyciu szablonu | Dokumenty firmy Microsoft
-description: Dowiedz się, jak skonfigurować i włączyć usługi domenowe usługi domenowe Active Directory platformy Azure przy użyciu szablonu Usługi Azure Resource Manager
+title: Włączanie usług Azure DS Domain Services przy użyciu szablonu | Microsoft Docs
+description: Dowiedz się, jak skonfigurować i włączyć Azure Active Directory Domain Services przy użyciu szablonu Azure Resource Manager
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -11,73 +11,73 @@ ms.topic: sample
 ms.date: 01/14/2020
 ms.author: iainfou
 ms.openlocfilehash: b44547998b7ed7159e43bcbbfb4b4456d2a232e9
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80654548"
 ---
-# <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Tworzenie domeny zarządzanej usług domenowych usługi active directory platformy Azure przy użyciu szablonu usługi Azure Resource Manager
+# <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Tworzenie Azure Active Directory Domain Services domeny zarządzanej przy użyciu szablonu Azure Resource Manager
 
-Usługi domenowe Usługi Active Directory (Azure AD DS) zapewniają usługi domeny zarządzanej, takie jak dołączanie do domeny, zasady grupy, uwierzytelnianie LDAP, Kerberos/NTLM, które jest w pełni zgodne z usługą Active Directory systemu Windows Server. Te usługi domeny są używane bez samodzielnego wdrażania, zarządzania i instalowania poprawek kontrolerów domeny. Usługi Azure AD DS integruje się z istniejącą dzierżawą usługi Azure AD. Ta integracja umożliwia użytkownikom logowanie się przy użyciu poświadczeń firmowych i można użyć istniejących grup i kont użytkowników, aby zabezpieczyć dostęp do zasobów.
+Azure Active Directory Domain Services (AD DS platformy Azure) oferuje zarządzane usługi domenowe, takie jak przyłączanie do domeny, zasady grupy, protokół LDAP, uwierzytelnianie Kerberos/NTLM, które jest w pełni zgodne z systemem Windows Server Active Directory. Te usługi domenowe są używane bez konieczności samodzielnego wdrażania kontrolerów domeny i zarządzania nimi. Platforma Azure AD DS integruje się z istniejącą dzierżawą usługi Azure AD. Ta Integracja umożliwia użytkownikom logowanie się przy użyciu poświadczeń firmowych, a także umożliwia korzystanie z istniejących grup i kont użytkowników w celu zabezpieczenia dostępu do zasobów.
 
-W tym artykule pokazano, jak włączyć usługi Azure AD DS przy użyciu szablonu usługi Azure Resource Manager. Zasoby pomocnicze są tworzone przy użyciu programu Azure PowerShell.
+W tym artykule przedstawiono sposób włączania usługi Azure AD DS przy użyciu szablonu Azure Resource Manager. Obsługa zasobów jest tworzona przy użyciu Azure PowerShell.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten artykuł, potrzebne są następujące zasoby:
+Aby wykonać ten artykuł, potrzebne są następujące zasoby:
 
 * Zainstaluj i skonfiguruj program Azure PowerShell.
-    * W razie potrzeby postępuj zgodnie z instrukcjami, aby [zainstalować moduł programu Azure PowerShell i połączyć się z subskrypcją platformy Azure.](/powershell/azure/install-az-ps)
-    * Upewnij się, że logujesz się do subskrypcji platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount.][Connect-AzAccount]
-* Instalowanie i konfigurowanie programu Azure AD PowerShell.
-    * W razie potrzeby postępuj zgodnie z instrukcjami, aby [zainstalować moduł programu Azure AD PowerShell i połączyć się z usługą Azure AD](/powershell/azure/active-directory/install-adv2).
-    * Upewnij się, że logujesz się do dzierżawy usługi Azure AD przy użyciu polecenia cmdlet [Connect-AzureAD.][Connect-AzureAD]
-* Aby włączyć usługi Azure AD DS, potrzebujesz uprawnień *administratora globalnego* w dzierżawie usługi Azure AD.
-* Aby utworzyć wymagane zasoby usług Azure AD DS, potrzebujesz uprawnień *współautora* w ramach subskrypcji platformy Azure.
+    * W razie potrzeby postępuj zgodnie z instrukcjami, aby [zainstalować moduł Azure PowerShell i nawiązać połączenie z subskrypcją platformy Azure](/powershell/azure/install-az-ps).
+    * Upewnij się, że logujesz się do subskrypcji platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount][Connect-AzAccount] .
+* Zainstaluj i skonfiguruj program Azure AD PowerShell.
+    * W razie potrzeby postępuj zgodnie z instrukcjami, aby [zainstalować moduł Azure AD PowerShell i nawiązać połączenie z usługą Azure AD](/powershell/azure/active-directory/install-adv2).
+    * Upewnij się, że logujesz się do dzierżawy usługi Azure AD przy użyciu polecenia cmdlet [Connect-AzureAD][Connect-AzureAD] .
+* Aby włączyć usługę Azure AD DS, musisz mieć uprawnienia *administratora globalnego* w dzierżawie usługi Azure AD.
+* Aby utworzyć wymagane zasoby usługi Azure AD DS, musisz mieć uprawnienia *współautora* w ramach subskrypcji platformy Azure.
 
 ## <a name="dns-naming-requirements"></a>Wymagania dotyczące nazewnictwa DNS
 
-Podczas tworzenia wystąpienia usług Azure AD DS należy określić nazwę DNS. Po wybraniu tej nazwy DNS należy wziąć pod uwagę pewne kwestie:
+Podczas tworzenia wystąpienia usługi Azure AD DS należy określić nazwę DNS. Po wybraniu tej nazwy DNS należy wziąć pod uwagę następujące kwestie:
 
-* **Wbudowana nazwa domeny:** Domyślnie używana jest wbudowana nazwa domeny katalogu (sufiks *.onmicrosoft.com).* Jeśli chcesz włączyć bezpieczny dostęp LDAP do domeny zarządzanej przez Internet, nie możesz utworzyć certyfikatu cyfrowego w celu zabezpieczenia połączenia z tą domeną domyślną. Firma Microsoft jest właścicielem domeny *onmicrosoft.com,* więc urząd certyfikacji (CA) nie wystawi certyfikatu.
-* **Niestandardowe nazwy domen:** Najczęstszym podejściem jest określenie niestandardowej nazwy domeny, zazwyczaj tej, która jest już właścicielem i jest rutowalna. Korzystając z domeny niestandardowej z rutowalnymi, ruch może poprawnie przepływać zgodnie z potrzebami do obsługi aplikacji.
-* **Sufiksy domen nienastępnych do routingu:** Ogólnie zaleca się unikanie sufiksu nazwy domeny nierutowalnej, takiego jak *contoso.local*. Sufiks *.local* nie jest rutowalny i może powodować problemy z rozpoznawaniem DNS.
+* **Nazwa wbudowanej domeny:** Domyślnie używana jest wbudowana nazwa domeny katalogu (sufiks *. onmicrosoft.com* ). Jeśli chcesz włączyć bezpieczny dostęp LDAP do domeny zarządzanej za pośrednictwem Internetu, nie możesz utworzyć certyfikatu cyfrowego, aby zabezpieczyć połączenie z tą domeną domyślną. Firma Microsoft jest właścicielem domeny *. onmicrosoft.com* , więc urząd certyfikacji (CA) nie wystawia certyfikatu.
+* **Niestandardowe nazwy domen:** Najbardziej typowym podejściem jest określenie niestandardowej nazwy domeny, która zwykle jest już posiadana i ma Routing. W przypadku używania routingu, domeny niestandardowej, ruch może prawidłowo przepływać w miarę potrzeb do obsługi aplikacji.
+* **Sufiksy domen bez routingu:** Zwykle zalecamy uniknięcie sufiksu nazwy domeny bez obsługi routingu, takiego jak *contoso. Local*. Sufiks *. Local* nie jest w stanie routingu i może powodować problemy z ROZPOZNAWANIEM nazw DNS.
 
 > [!TIP]
-> Jeśli utworzysz niestandardową nazwę domeny, zadbaj o istniejące przestrzenie nazw DNS. Zaleca się używanie nazwy domeny oddzielnie od istniejącego obszaru nazw dns platformy Azure lub lokalnego.
+> Jeśli utworzysz niestandardową nazwę domeny, weź pod uwagę istniejące przestrzenie nazw DNS. Zalecane jest użycie nazwy domeny innej niż istniejąca lub lokalna przestrzeń nazw DNS.
 >
-> Na przykład, jeśli masz istniejący odstęp nazw DNS *contoso.com,* utwórz domenę zarządzaną usługą Azure AD DS o niestandardowej nazwie domeny *aaddscontoso.com*. Jeśli musisz użyć bezpiecznego protokołu LDAP, musisz zarejestrować i posiadać tę niestandardową nazwę domeny, aby wygenerować wymagane certyfikaty.
+> Na przykład jeśli masz istniejącą przestrzeń nazw DNS *contoso.com*, Utwórz domenę zarządzaną platformy Azure AD DS przy użyciu niestandardowej nazwy domeny *aaddscontoso.com*. Jeśli musisz użyć bezpiecznego protokołu LDAP, musisz zarejestrować i utworzyć niestandardową nazwę domeny w celu wygenerowania wymaganych certyfikatów.
 >
-> Może być konieczne utworzenie dodatkowych rekordów DNS dla innych usług w twoim środowisku lub warunkowych usług przesyłania dalej DNS między istniejącymi spaniami nazw DNS w twoim środowisku. Na przykład po uruchomieniu serwera sieci Web, który obsługuje witrynę przy użyciu głównej nazwy DNS, mogą istnieć konflikty nazw, które wymagają dodatkowych wpisów DNS.
+> Może być konieczne utworzenie dodatkowych rekordów DNS dla innych usług w środowisku lub warunkowych usług przesyłania dalej DNS między istniejącymi spacjami nazw DNS w danym środowisku. Jeśli na przykład uruchomisz serwer sieci Web, który hostuje lokację przy użyciu nazwy głównej DNS, mogą wystąpić konflikty nazw, które wymagają dodatkowych wpisów DNS.
 >
-> W tych samouczkach i artykułach instruktażowych domena niestandardowa *aaddscontoso.com* jest używana jako krótki przykład. We wszystkich poleceniach określ własną nazwę domeny.
+> W tych samouczkach i artykułach z przewodnikiem jest używana jako krótki przykład domeny niestandardowej *aaddscontoso.com* . We wszystkich poleceniach należy określić własną nazwę domeny.
 
 Obowiązują również następujące ograniczenia nazw DNS:
 
-* **Ograniczenia prefiksu domeny:** Nie można utworzyć domeny zarządzanej z prefiksem dłuższym niż 15 znaków. Prefiks określonej nazwy domeny (na przykład *aaddscontoso* w *aaddscontoso.com* nazwa domeny) musi zawierać 15 lub mniej znaków.
-* **Konflikty nazw sieciowych:** Nazwa domeny DNS domeny zarządzanej nie powinna już istnieć w sieci wirtualnej. W szczególności sprawdź następujące scenariusze, które mogłyby prowadzić do konfliktu nazw:
-    * Jeśli masz już domenę usługi Active Directory o tej samej nazwie domeny DNS w sieci wirtualnej platformy Azure.
-    * Jeśli sieć wirtualna, w której planujesz włączyć domenę zarządzaną, ma połączenie sieci VPN z siecią lokalną. W tym scenariuszu upewnij się, że nie masz domeny o tej samej nazwie domeny DNS w sieci lokalnej.
+* **Ograniczenia prefiksu domeny:** Nie można utworzyć domeny zarządzanej z prefiksem dłuższym niż 15 znaków. Prefiks określonej nazwy domeny (na przykład *aaddscontoso* w nazwie domeny *aaddscontoso.com* ) musi zawierać co najwyżej 15 znaków.
+* **Konflikty nazw sieciowych:** Nazwa domeny DNS dla domeny zarządzanej nie powinna już istnieć w sieci wirtualnej. W celu sprawdzenia następujących scenariuszy, które mogłyby prowadzić do konfliktu nazw:
+    * Jeśli masz już domenę Active Directory z tą samą nazwą domeny DNS w sieci wirtualnej platformy Azure.
+    * Jeśli sieć wirtualna, w której planujesz włączyć domenę zarządzaną, ma połączenie sieci VPN z siecią lokalną. W tym scenariuszu upewnij się, że nie masz domeny z tą samą nazwą domeny DNS w sieci lokalnej.
     * Jeśli masz istniejącą usługę w chmurze platformy Azure o tej nazwie w sieci wirtualnej platformy Azure.
 
 ## <a name="create-required-azure-ad-resources"></a>Tworzenie wymaganych zasobów usługi Azure AD
 
-Usługa Azure AD DS wymaga jednostki usługi i grupy usługi Azure AD. Te zasoby umożliwiają domenie zarządzanej usług Azure AD DS synchronizowanie danych i definiowanie, którzy użytkownicy mają uprawnienia administracyjne w domenie zarządzanej.
+Usługa Azure AD DS wymaga nazwy głównej usługi i grupy usługi Azure AD. Te zasoby umożliwiają synchronizowanie danych przez domenę zarządzaną przez usługę Azure AD DS i definiowanie użytkowników, którzy mają uprawnienia administracyjne w domenie zarządzanej.
 
-Najpierw zarejestruj dostawcę zasobów usług domenowych usługi Azure AD przy użyciu polecenia cmdlet [Register-AzResourceProvider:][Register-AzResourceProvider]
+Najpierw Zarejestruj dostawcę zasobów Azure AD Domain Services za pomocą polecenia cmdlet [register-AzResourceProvider][Register-AzResourceProvider] :
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-Utwórz jednostkę usługi Azure AD przy użyciu polecenia cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal] dla usług Azure AD DS do komunikowania się i uwierzytelniania. Identyfikator określonej aplikacji jest używany o nazwie *Domain Controller Services* o identyfikatorze *2565bd9d-da50-47d4-8b85-4c97f669dc36*. Nie zmieniaj tego identyfikatora aplikacji.
+Utwórz nazwę główną usługi Azure AD za pomocą polecenia cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal] dla platformy AD DS Azure, aby komunikować się i uwierzytelniać samodzielnie. Określony identyfikator aplikacji jest używany o nazwie *usługi kontrolera domeny* o identyfikatorze *2565bd9d-DA50-47d4-8b85-4c97f669dc36*. Nie zmieniaj tego identyfikatora aplikacji.
 
 ```powershell
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
-Teraz utwórz grupę usługi Azure AD o nazwie *Administratorzy kontrolera domeny usługi AAD* przy użyciu polecenia cmdlet [New-AzureADGroup.][New-AzureADGroup] Użytkownicy dodani do tej grupy otrzymują uprawnienia do wykonywania zadań administracyjnych w domenie zarządzanej usług Azure AD DS.
+Teraz Utwórz grupę usługi Azure AD o nazwie *administratorzy platformy AAD DC* przy użyciu polecenia cmdlet [New-AzureADGroup][New-AzureADGroup] . Użytkownicy dodani do tej grupy otrzymują uprawnienia do wykonywania zadań administracyjnych w domenie zarządzanej AD DS platformy Azure.
 
 ```powershell
 New-AzureADGroup -DisplayName "AAD DC Administrators" `
@@ -86,9 +86,9 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
   -MailNickName "AADDCAdministrators"
 ```
 
-Po utworzeniu grupy *Administratorzy kontrolera domeny usługi AAD* dodaj użytkownika do grupy przy użyciu polecenia cmdlet [Add-AzureADGroupMember.][Add-AzureADGroupMember] Najpierw otrzymasz identyfikator obiektu grupy *administratorów kontrolera domeny usługi AAD* przy użyciu polecenia cmdlet [Get-AzureADGroup,][Get-AzureADGroup] a następnie identyfikator obiektu żądanego użytkownika przy użyciu polecenia cmdlet [Get-AzureADUser.][Get-AzureADUser]
+Po utworzeniu grupy *administratorów kontrolera domeny usługi AAD* Dodaj użytkownika do grupy przy użyciu polecenia cmdlet [Add-AzureADGroupMember][Add-AzureADGroupMember] . Najpierw uzyskasz identyfikator obiektu grupy *administratorów kontrolera domeny usługi AAD* za pomocą polecenia cmdlet [Get-AzureADGroup][Get-AzureADGroup] , a następnie identyfikator obiektu żądanego użytkownika przy użyciu polecenia cmdlet [Get-AzureADUser][Get-AzureADUser] .
 
-W poniższym przykładzie identyfikator obiektu użytkownika dla konta `admin@aaddscontoso.onmicrosoft.com`z omdyną UPN . Zastąp to konto użytkownika numerem UPN użytkownika, którego chcesz dodać do grupy *Administratorzy kontrolera domeny usługi AAD:*
+W poniższym przykładzie identyfikator obiektu użytkownika dla konta z nazwą UPN `admin@aaddscontoso.onmicrosoft.com`. Zastąp to konto użytkownika nazwą UPN użytkownika, który chcesz dodać do grupy *administratorów kontrolera domeny usługi AAD* :
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -105,7 +105,7 @@ $UserObjectId = Get-AzureADUser `
 Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 ```
 
-Na koniec utwórz grupę zasobów przy użyciu polecenia cmdlet [New-AzResourceGroup.][New-AzResourceGroup] W poniższym przykładzie grupa zasobów nosi nazwę *myResourceGroup* i jest tworzona w regionie *westus.* Użyj własnej nazwy i żądanego regionu:
+Na koniec Utwórz grupę zasobów za pomocą polecenia cmdlet [New-AzResourceGroup][New-AzResourceGroup] . W poniższym przykładzie grupa zasobów ma nazwę moja *zasobów* i jest tworzona w regionie *zachodnim* . Użyj własnej nazwy i żądanego regionu:
 
 ```powershell
 New-AzResourceGroup `
@@ -113,22 +113,22 @@ New-AzResourceGroup `
   -Location "WestUS"
 ```
 
-Jeśli wybierzesz region, który obsługuje strefy dostępności, zasoby usługi Azure AD DS są dystrybuowane między strefami w celu uzyskania dodatkowej redundancji. Strefy dostępności to unikatowe fizyczne lokalizacje w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. W celu zapewnienia odporności istnieją co najmniej trzy osobne strefy we wszystkich włączonych regionach.
+W przypadku wybrania regionu, który obsługuje Strefy dostępności, zasoby AD DS platformy Azure są dystrybuowane między strefami w celu zapewnienia dodatkowej nadmiarowości. Strefy dostępności to unikatowe fizyczne lokalizacje w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. W celu zapewnienia odporności istnieją co najmniej trzy osobne strefy we wszystkich włączonych regionach.
 
-Nie ma nic do skonfigurowania dla usługi Azure AD DS, które mają być dystrybuowane w różnych strefach. Platforma Azure automatycznie obsługuje dystrybucji strefy zasobów. Aby uzyskać więcej informacji i wyświetlić dostępność regionu, zobacz [Co to są strefy dostępności na platformie Azure?][availability-zones].
+Nie ma niczego do skonfigurowania na potrzeby dystrybuowania AD DS platformy Azure między strefami. Platforma Azure automatycznie obsługuje dystrybucję zasobów. Aby uzyskać więcej informacji i sprawdzić dostępność regionów, zobacz [co to są strefy dostępności na platformie Azure?][availability-zones]
 
-## <a name="resource-definition-for-azure-ad-ds"></a>Definicja zasobu dla usług Azure AD DS
+## <a name="resource-definition-for-azure-ad-ds"></a>Definicja zasobu dla AD DS platformy Azure
 
-W ramach definicji zasobu Menedżera zasobów wymagane są następujące parametry konfiguracji:
+W ramach definicji zasobu Menedżer zasobów wymagane są następujące parametry konfiguracji:
 
 | Parametr               | Wartość |
 |-------------------------|---------|
-| Nazwa_domeny              | Nazwa domeny DNS domeny zarządzanej, biorąc pod uwagę poprzednie punkty dotyczące nazewnictwa prefiksów i konfliktów. |
-| filteredSync            | Usługi Azure AD DS umożliwia synchronizację *wszystkich* użytkowników i grup dostępnych w usłudze Azure AD lub synchronizacji o *określonym zakresie* tylko określonych grup. Jeśli zdecydujesz się zsynchronizować wszystkich użytkowników i grupy, nie można później wybrać tylko wykonać synchronizację o określonym zakresie.<br /> Aby uzyskać więcej informacji na temat synchronizacji o określonym zakresie, zobacz [Synchronizacja zakresu usług domenowych usługi Azure AD][scoped-sync].|
-| powiadomieniaUstawienia    | Jeśli istnieją alerty generowane w domenie zarządzanej usługi Azure AD DS, powiadomienia e-mail mogą być wysyłane. <br />*Administratorzy globalni dzierżawy* platformy Azure i członkowie grupy *Administratorzy kontrolera domeny usługi AAD* mogą być *włączeni* dla tych powiadomień.<br /> W razie potrzeby można dodać dodatkowych adresatów powiadomień, gdy istnieją alerty, które wymagają uwagi.|
-| typ konfiguracji domeny | Domyślnie domena zarządzana usługą Azure AD DS jest tworzona jako las *użytkownika.* Ten typ lasu synchronizuje wszystkie obiekty z usługi Azure AD, w tym wszystkie konta użytkowników utworzone w lokalnym środowisku usług AD DS. Aby utworzyć las użytkownika, nie trzeba określać wartości *konfiguracji domeny.*<br /> Las *zasobów* synchronizuje tylko użytkowników i grupy utworzone bezpośrednio w usłudze Azure AD. Lasy zasobów są obecnie w wersji zapoznawczej. Ustaw wartość *ResourceTrusting,* aby utworzyć las zasobów.<br />Aby uzyskać więcej informacji na temat lasów *zasobów,* w tym dlaczego można ich używać i jak tworzyć relacje zaufania lasów za pomocą lokalnych domen usług AD DS, zobacz [omówienie lasów zasobów usługi Azure AD DS][resource-forests].|
+| domainName              | Nazwa domeny DNS dla domeny zarządzanej, biorąc pod uwagę poprzednie kwestie dotyczące prefiksów nazw i konfliktów. |
+| filteredSync            | Usługa Azure AD DS pozwala synchronizować *wszystkich* użytkowników i grupy dostępne w usłudze Azure AD albo synchronizację z *zakresem* tylko określonych grup. W przypadku wybrania opcji synchronizowanie wszystkich użytkowników i grup nie można później przeprowadzić synchronizacji z zakresem.<br /> Aby uzyskać więcej informacji na temat synchronizacji z zakresem, zobacz [Azure AD Domain Services synchronizacji w zakresie][scoped-sync].|
+| notificationSettings    | W przypadku wygenerowania alertów w domenie zarządzanej usługi Azure AD DS powiadomienia e-mail mogą być wysyłane. <br />*Administratorzy globalni* dzierżawy platformy Azure i członkowie grupy *Administratorzy usługi AAD* mogą *włączyć* te powiadomienia.<br /> W razie potrzeby można dodać kolejnych adresatów dla powiadomień, gdy istnieją alerty wymagające uwagi.|
+| domainConfigurationType | Domyślnie domena zarządzana AD DS platformy Azure jest tworzona jako Las *użytkownika* . Ten typ lasu służy do synchronizowania wszystkich obiektów z usługi Azure AD, w tym wszystkich kont użytkowników utworzonych w środowisku lokalnym AD DS. Nie musisz określać wartości *atrybutem domainconfiguration* , aby utworzyć Las użytkownika.<br /> Las *zasobów* synchronizuje tylko użytkowników i grupy utworzone bezpośrednio w usłudze Azure AD. Lasy zasobów są obecnie w wersji zapoznawczej. Ustaw wartość *ResourceTrusting* , aby utworzyć Las zasobów.<br />Aby uzyskać więcej informacji o lasach *zasobów* , w tym o tym, dlaczego można korzystać z jednej z nich i jak utworzyć relacje zaufania lasów z lokalnymi domenami AD DS, zobacz [Omówienie lasów zasobów platformy Azure AD DS][resource-forests].|
 
-Poniższa definicja skondensowanych parametrów pokazuje sposób deklarowania tych wartości. Las użytkownika o nazwie *aaddscontoso.com* jest tworzony ze wszystkimi użytkownikami z usługi Azure AD zsynchronizowanymi z domeną zarządzaną usługą Azure AD DS:
+Następująca skrócona Definicja parametrów pokazuje, jak te wartości są zadeklarowane. Las użytkownika o nazwie *aaddscontoso.com* jest tworzony dla wszystkich użytkowników z usługi Azure AD zsynchronizowanych z domeną zarządzaną platformy Azure AD DS:
 
 ```json
 "parameters": {
@@ -149,7 +149,7 @@ Poniższa definicja skondensowanych parametrów pokazuje sposób deklarowania ty
 }
 ```
 
-Następujący typ zasobu szablonu skróconego Menedżera zasobów jest następnie używany do definiowania i tworzenia domeny zarządzanej usług Azure AD DS. Sieć wirtualna platformy Azure i podsieć muszą już istnieć lub zostać utworzone jako część szablonu Menedżera zasobów. Domena zarządzana usługą Azure AD DS jest połączona z tą podsiecią.
+Następujący skrócony typ zasobu szablonu Menedżer zasobów jest następnie używany do definiowania i tworzenia domeny zarządzanej AD DS platformy Azure. Sieć wirtualna platformy Azure i podsieć muszą już istnieć lub być utworzone jako część szablonu Menedżer zasobów. Domena zarządzana AD DS platformy Azure jest połączona z tą podsiecią.
 
 ```json
 "resources": [
@@ -172,11 +172,11 @@ Następujący typ zasobu szablonu skróconego Menedżera zasobów jest następni
 ]
 ```
 
-Te parametry i typ zasobu mogą być używane jako część szerszego szablonu Menedżera zasobów do wdrażania domeny zarządzanej, jak pokazano w poniższej sekcji.
+Te parametry i typ zasobu mogą służyć jako część szerszego szablonu Menedżer zasobów, aby wdrożyć domenę zarządzaną, jak pokazano w poniższej sekcji.
 
 ## <a name="create-a-managed-domain-using-sample-template"></a>Tworzenie domeny zarządzanej przy użyciu przykładowego szablonu
 
-Poniższy kompletny przykładowy szablon Menedżera zasobów tworzy domenę zarządzaną usługą Azure AD DS oraz obsługujące reguły sieci wirtualnej, podsieci i sieciowej grupy zabezpieczeń. Reguły sieciowej grupy zabezpieczeń są wymagane do zabezpieczenia domeny zarządzanej i upewnienia się, że ruch może przepływać poprawnie. Tworzony jest las użytkownika o nazwie DNS *aaddscontoso.com,* z synchronizacją wszystkich użytkowników z usługą Azure AD:
+Poniższy kompletny Menedżer zasobów szablon tworzy domenę zarządzaną platformy Azure AD DS i reguły obsługi sieci wirtualnej, podsieci i grup zabezpieczeń sieci. Reguły sieciowej grupy zabezpieczeń są wymagane do zabezpieczenia domeny zarządzanej i upewnienia się, że ruch może prawidłowo przepływać. Zostanie utworzony Las użytkownika z nazwą DNS *aaddscontoso.com* , ze wszystkimi użytkownikami synchronizowanymi z usługi Azure AD:
 
 ```json
 {
@@ -319,23 +319,23 @@ Poniższy kompletny przykładowy szablon Menedżera zasobów tworzy domenę zarz
 }
 ```
 
-Ten szablon można wdrożyć przy użyciu preferowanej metody wdrażania, takiej jak [witryna Azure portal][portal-deploy], [Azure PowerShell][powershell-deploy]lub potok ciągłej integracji/ciągłego wdrażania. W poniższym przykładzie użyto polecenia cmdlet [New-AzResourceGroupDeployment.][New-AzResourceGroupDeployment] Określ własną nazwę grupy zasobów i nazwę pliku szablonu:
+Ten szablon można wdrożyć przy użyciu preferowanej metody wdrażania, takiej jak [Azure Portal][portal-deploy], [Azure PowerShell][powershell-deploy]lub potok ciągłej integracji/ciągłego dostarczania. Poniższy przykład używa polecenia cmdlet [New-AzResourceGroupDeployment][New-AzResourceGroupDeployment] . Określ nazwę własnej grupy zasobów i nazwa pliku szablonu:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myResourceGroup" -TemplateFile <path-to-template>
 ```
 
-Utworzenie zasobu i zwrócenie kontroli do monitu programu PowerShell zajmuje kilka minut. Domena zarządzana usługą Azure AD DS nadal jest aprowizowana w tle i może potrwać do godziny, aby zakończyć wdrożenie. W witrynie Azure portal na stronie **Przegląd** domeny zarządzanej usług Azure AD DS jest wyświetlany bieżący stan na tym etapie wdrażania.
+Utworzenie zasobu i zwrócenie kontroli do wiersza polecenia programu PowerShell trwa kilka minut. Domena zarządzana AD DS platformy Azure nadal będzie obsługiwana w tle i może upłynąć do godziny, aby ukończyć wdrażanie. W Azure Portal strona **Przegląd** dla domeny zarządzanej platformy Azure AD DS pokazuje bieżący stan w ramach tego etapu wdrożenia.
 
-Gdy w witrynie Azure Portal zostanie wykazanie, że domena zarządzana usługą Azure AD DS zakończyła inicjowanie obsługi administracyjnej, należy wykonać następujące zadania:
+Gdy Azure Portal pokazuje, że domena zarządzana AD DS platformy Azure zakończyła Inicjowanie obsługi administracyjnej, należy wykonać następujące zadania:
 
-* Zaktualizuj ustawienia DNS dla sieci wirtualnej, aby maszyny wirtualne mogły znaleźć domenę zarządzana dla dołączania do domeny lub uwierzytelniania.
-    * Aby skonfigurować usługę DNS, wybierz domenę zarządzana usługą Azure AD DS w portalu. W oknie **Przegląd** zostanie wyświetlony monit o automatyczne skonfigurowanie tych ustawień DNS.
-* [Włącz synchronizację haseł z usługami domenowymi usługi Azure AD, aby](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) użytkownicy końcowi mogli logować się do domeny zarządzanej przy użyciu poświadczeń firmowych.
+* Zaktualizuj ustawienia DNS dla sieci wirtualnej, aby maszyny wirtualne mogły znaleźć domenę zarządzaną do przyłączania do domeny lub uwierzytelniania.
+    * Aby skonfigurować system DNS, wybierz domenę zarządzaną platformy Azure AD DS w portalu. W oknie **Przegląd** zostanie wyświetlony monit o automatyczne skonfigurowanie tych ustawień DNS.
+* [Włącz synchronizację haseł w Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) , aby użytkownicy końcowi mogli logować się do domeny zarządzanej przy użyciu swoich poświadczeń firmowych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby wyświetlić domenę zarządzaną usługą Azure AD DS w akcji, możesz [dołączyć do maszyny Wirtualnej systemu Windows,][windows-join] [skonfigurować bezpieczną usługę LDAP][tutorial-ldaps]i [skonfigurować synchronizację skrótów haseł][tutorial-phs].
+Aby wyświetlić domenę zarządzaną AD DS platformy Azure w działaniu, można [przyłączyć do domeny maszynę wirtualną z systemem Windows][windows-join], [skonfigurować bezpieczny protokół LDAP][tutorial-ldaps]i [skonfigurować synchronizację skrótów haseł][tutorial-phs].
 
 <!-- INTERNAL LINKS -->
 [windows-join]: join-windows-vm.md

@@ -1,39 +1,39 @@
 ---
 title: Zmiana środowiska i materiałów
-description: Samouczek, który pokazuje, jak zmodyfikować mapę nieba i materiały obiektów w scenie Unity.
+description: Samouczek pokazujący, jak modyfikować mapę i materiały obiektów w środowisku Unity.
 author: jakrams
 ms.author: jakras
 ms.date: 02/03/2020
 ms.topic: tutorial
 ms.openlocfilehash: 1354ac3cf2c6fc716ac72ae339928fa49171893e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80679618"
 ---
-# <a name="tutorial-changing-the-environment-and-materials"></a>Samouczek: Zmiana środowiska i materiałów
+# <a name="tutorial-changing-the-environment-and-materials"></a>Samouczek: zmiana środowiska i materiałów
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
-> * Zmienianie mapy środowiska sceny.
-> * Zmodyfikuj parametry materiału.
-> * Załaduj niestandardowe tekstury.
+> * Zmień mapę środowiska sceny.
+> * Modyfikowanie parametrów materiału.
+> * Załaduj tekstury niestandardowe.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym samouczku założono, że znasz [samouczek: Praca z jednostkami zdalnymi w Unity](working-with-remote-entities.md). Jednak wystarczy tylko projekt Unity, z którym można połączyć się z sesjami i załadować model, jak pokazano w [tutorialu: Konfigurowanie projektu Unity od podstaw](project-setup.md).
+W tym samouczku założono, że znasz [Samouczek: Praca z obiektami zdalnymi w środowisku Unity](working-with-remote-entities.md). Jednak potrzebny jest tylko projekt Unity, za pomocą którego można nawiązywać połączenie z sesjami i ładować model, jak pokazano w [samouczku: Konfigurowanie projektu Unity od podstaw](project-setup.md).
 
 > [!TIP]
-> [Repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) zawiera przygotowane projekty Unity dla wszystkich samouczków w folderze *Unity,* których można użyć jako odwołanie.
+> [Repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) zawiera przygotowane projekty Unity dla wszystkich samouczków w folderze *Unity* , których można użyć jako odwołania.
 
-## <a name="change-the-environment-map"></a>Zmienianie mapy środowiska
+## <a name="change-the-environment-map"></a>Zmień mapę środowiska
 
-Funkcja zdalnego renderowania platformy Azure obsługuje używanie [pól nieba](../../overview/features/sky.md) (czasami nazywanych również "mapami środowiska") do symulowania oświetlenia otoczenia. Jest to szczególnie przydatne, gdy obiekty używają *[renderowania fizycznego,](../../overview/features/pbr-materials.md)* tak jak robią to nasze przykładowe modele. ARR jest również wyposażony w wiele wbudowanych tekstur nieba, które użyjemy w tym samouczku.
+Zdalne renderowanie na platformie Azure obsługuje [skrzynki](../../overview/features/sky.md) pamięci (czasami nazywane również "mapami środowiskowymi"), aby symulować oświetlenie otoczenia. Jest to szczególnie przydatne, gdy obiekty używają *[renderowania opartego na fizycznie](../../overview/features/pbr-materials.md)*, jak nasze przykładowe modele. ARR zawiera również różnorodne tekstury wbudowanej przestrzeniki, które będą używane w tym samouczku.
 
-Utwórz nowy skrypt o nazwie **RemoteSky** i dodaj go do nowego GameObject. Otwórz plik skryptu i zastąp go następującym kodem:
+Utwórz nowy skrypt o nazwie **RemoteSky** i dodaj go do nowej gry. Otwórz plik skryptu i zastąp go następującym kodem:
 
 ```csharp
 using Microsoft.Azure.RemoteRendering;
@@ -95,15 +95,15 @@ public class RemoteSky : MonoBehaviour
 }
 ```
 
-Należy zauważyć, że `LoadTextureFromSASAsync` wariant jest używany powyżej, ponieważ wbudowane tekstury są ładowane. W przypadku ładowania z [połączonych magazynów obiektów blob](../../how-tos/create-an-account.md#link-storage-accounts)użyj wariantu. `LoadTextureAsync` Przykład, jak to działa dla modeli można znaleźć w [sekcji ładowania modelu](../../concepts/models.md#loading-models).
+Należy zauważyć, `LoadTextureFromSASAsync` że wariant jest używany powyżej, ponieważ załadowano tekstury wbudowane. W przypadku ładowania z [połączonych magazynów obiektów BLOB](../../how-tos/create-an-account.md#link-storage-accounts)Użyj `LoadTextureAsync` wariantu. Przykładem tego, jak to działa dla modeli, można znaleźć w [sekcji Ładowanie modelu](../../concepts/models.md#loading-models).
 
-Po uruchomieniu kodu i przełączać się na mapy nieba, można zauważyć drastycznie różne oświetlenie na modelu. Jednak tło pozostanie czarne i nie widać rzeczywistej tekstury nieba. Jest to celowe, ponieważ renderowanie tła rozpraszałoby urządzenie rzeczywistości rozszerzonej. W odpowiedniej aplikacji należy używać tekstur nieba, które są podobne do twojego prawdziwego otoczenia, ponieważ pomoże to sprawić, że obiekty staną się bardziej realne.
+Po uruchomieniu kodu i przełączeniu się przez mapy w przestrzenie czasu, zobaczysz radykalnie różne oświetlenie w modelu. Jednak tło pozostanie czarne i nie zobaczysz tekstury rzeczywistej wartości w tej samej wersji. Jest to zamierzone, ponieważ renderowanie tła byłoby rozpraszane z urządzeniem rzeczywistości rozszerzonej. W odpowiedniej aplikacji należy używać tekstur w formacie od sieci, które są podobne do rzeczywistego otoczenia świata, ponieważ ułatwiają one rzeczywiste Wyświetlanie obiektów.
 
-## <a name="modify-materials"></a>Modyfikowanie materiałów
+## <a name="modify-materials"></a>Modyfikuj materiały
 
-W poprzednim samouczku użyliśmy [składników zastępowania stanu,](../../overview/features/override-hierarchical-state.md) aby zmienić kolor odcienia zaznaczonych obiektów. Teraz chcemy osiągnąć podobny efekt, ale robimy to modyfikując [materiał](../../concepts/materials.md) obiektu.
+W poprzednim samouczku użyto [składników zastępujących stan](../../overview/features/override-hierarchical-state.md) , aby zmienić kolor odcienia wybranych obiektów. Teraz chcemy osiągnąć podobny efekt, ale należy to zrobić, modyfikując [materiał](../../concepts/materials.md) obiektu.
 
-Najpierw potrzebujemy skryptu do wybierania obiektów, tak jak zrobiliśmy to w [drugim tutorialu](working-with-remote-entities.md). Jeśli nie masz jeszcze skryptu **RemoteRaycaster,** utwórz go teraz. Zastąp jego zawartość następującym kodem:
+Najpierw potrzebujemy skryptu do wybierania obiektów, tak jak w [drugim samouczku](working-with-remote-entities.md). Jeśli nie masz jeszcze skryptu **RemoteRaycaster** , utwórz go teraz. Zastąp jego zawartość następującym kodem:
 
 ```csharp
 using Microsoft.Azure.RemoteRendering;
@@ -220,9 +220,9 @@ public class RemoteRaycaster : MonoBehaviour
 }
 ```
 
-Dodaj składnik do obiektu gry *RemoteRendering.* Jest odpowiedzialny za pobieranie obiektów pod myszą i dodawanie *składników RemoteModelEntity* do wybranych obiektów. Ta klasa składnika jest, gdzie możemy implementować rzeczywiste funkcje zmiany materiału.
+Dodaj składnik do obiektu gry *RemoteRendering* . Jest on odpowiedzialny za pobieranie obiektów pod myszą i Dodawanie składników *RemoteModelEntity* do pobranych obiektów. Ta klasa składnika to miejsce, w którym implementujemy rzeczywistą funkcjonalność zmiany materiału.
 
-Jeśli nie masz jeszcze skryptu **RemoteModelEntity,** utwórz go i zastąp jego zawartość tym kodem:
+Jeśli nie masz jeszcze skryptu **RemoteModelEntity** , utwórz go i Zastąp jego zawartość tym kodem:
 
 ```csharp
 using UnityEngine;
@@ -314,21 +314,21 @@ public class RemoteModelEntity : MonoBehaviour
 }
 ```
 
-Po uruchomieniu tego kodu obiekty, które można najechać za pomocą myszy, są wyróżnione. Efekt jest podobny do tego, co zrobiliśmy w tutorialu 2, ale sposób, w jaki jest osiągnięty jest inny. Tutaj otrzymujemy listę materiałów na wybranym obiekcie, a następnie modyfikujemy pierwszy z nich, aby miał inny kolor albedo.
+Gdy uruchamiasz ten kod, obiekty, które zostały aktywowane przy użyciu myszy, zostaną wyróżnione. Efekt jest podobny do tego, co zostało zrobione w samouczku 2, ale jego osiągnięcie jest inne. W tym miejscu zostanie wykorzystana Lista materiałów dla pobranego obiektu, a następnie zmodyfikowanie pierwszego koloru albedo.
 
 > [!IMPORTANT]
-> Należy pamiętać, że to, czy ta metoda wyróżnia poprawne części modelu, zależy od sposobu tworzenia modelu. Będzie działać idealnie, jeśli każdy obiekt używa dokładnie jednego materiału. Jeśli jednak model nie ma relacji 1:1 między częściami i materiałami, naiwny kod powyżej nie zrobi właściwej rzeczy.
+> Należy pamiętać, że ta metoda podświetla poprawne części modelu, zależy od tego, jak model jest tworzony. Będzie to idealne działanie, jeśli każdy obiekt używa dokładnie jednego materiału. Jeśli jednak model nie ma relacji 1:1 między częściami i materiałami, powyższy kod algorytmie nie wykona odpowiednich czynności.
 
-## <a name="use-a-different-texture"></a>Używanie innej tekstury
+## <a name="use-a-different-texture"></a>Użyj innej tekstury
 
-[Tekstury](../../concepts/textures.md) są zazwyczaj częścią modelu źródłowego. Podczas [konwersji modelu](../../quickstarts/convert-model.md)wszystkie tekstury są konwertowane na niezbędny format środowiska wykonawczego i pakowane do pliku końcowego modelu. Aby zastąpić teksturę w czasie wykonywania, należy zapisać ją w [formacie DDS](https://en.wikipedia.org/wiki/DirectDraw_Surface) i przekazać do magazynu obiektów blob platformy Azure. Zapoznaj się z [tym przewodnikiem szybki start,](../../quickstarts/convert-model.md) aby dowiedzieć się, jak utworzyć kontener obiektów blob platformy Azure. Po kontenerze obiektów blob można go otworzyć w Eksploratorze usługi Azure Storage i przekazać plik za pomocą przeciągania i upuszczania.
+[Tekstury](../../concepts/textures.md) są zwykle częścią modelu źródłowego. Podczas [konwersji modelu](../../quickstarts/convert-model.md)wszystkie tekstury są konwertowane do niezbędnego formatu środowiska uruchomieniowego i pakowane w końcowym pliku modelu. Aby zastąpić teksturę w czasie wykonywania, należy ją zapisać w [formacie pliku DDS](https://en.wikipedia.org/wiki/DirectDraw_Surface) i przekazać do usługi Azure Blob Storage. Zapoznaj się z [tym przewodnikiem Szybki Start](../../quickstarts/convert-model.md) dotyczącym tworzenia kontenera obiektów blob platformy Azure. Po utworzeniu kontenera obiektów BLOB można go otworzyć w Eksplorator usługi Azure Storage i przekazać plik za pomocą przeciągania i upuszczania.
 
-Po stronie środowiska wykonawczego można rozwiązać zasób tekstury w magazynie obiektów blob na dwa różne sposoby:
+Po stronie środowiska uruchomieniowego można rozwiązać element zawartości tekstury w usłudze BLOB Storage na dwa różne sposoby:
 
-* Adres tekstury przez jego identyfikator URI sygnatury dostępu Współdzielonego. W tym celu kliknij prawym przyciskiem myszy przesłany plik i wybierz polecenie **"Pobierz podpis dostępu współdzielonego..."** z menu kontekstowego. Użyj tego identyfikatora `LoadTextureFromSASAsync` URI sygnatury dostępu Współdzielonego z wariantem funkcji (patrz przykładowy kod poniżej).
-* Adres tekstury przez parametry magazynu obiektów blob bezpośrednio, w przypadku, gdy [magazyn obiektów blob jest połączony z kontem](../../how-tos/create-an-account.md#link-storage-accounts). Odpowiednią funkcją ładowania `LoadTextureAsync`w tym przypadku jest .
+* Tekstury adresów według identyfikatora URI sygnatury dostępu współdzielonego. W tym celu kliknij prawym przyciskiem myszy przekazany plik i wybierz polecenie "**Pobierz sygnaturę dostępu współdzielonego**" z menu kontekstowego. Użyj tego identyfikatora URI sygnatury `LoadTextureFromSASAsync` dostępu współdzielonego z wariantem funkcji (Zobacz przykładowy kod poniżej).
+* Bezpośrednie rozwiązanie tekstury według parametrów magazynu obiektów BLOB w przypadku, gdy [Magazyn obiektów BLOB jest połączony z kontem](../../how-tos/create-an-account.md#link-storage-accounts). Odpowiednia funkcja ładowania jest `LoadTextureAsync`w tym przypadku.
 
-Teraz otwórz skrypt **RemoteModelEntity,** dodaj następujący kod i usuń zduplikowane funkcje:
+Teraz otwórz skrypt **RemoteModelEntity** , Dodaj następujący kod i Usuń zduplikowane funkcje:
 
 ```csharp
     private string textureFile = ""; //<SAS URI for your texture>
@@ -385,11 +385,11 @@ Teraz otwórz skrypt **RemoteModelEntity,** dodaj następujący kod i usuń zdup
     }
 ```
 
-Uruchom ten kod i najedź kursorem na model. Jeśli model ma odpowiednie współrzędne UV, powinna pojawić się tekstura. W przeciwnym razie można zauważyć tylko zmianę koloru.
+Uruchom ten kod i umieść kursor nad modelem. Jeśli model ma prawidłowe współrzędne UV, powinna zostać wyświetlona tekstura. W przeciwnym razie zmiana koloru może być zauważalna.
 
 ## <a name="next-steps"></a>Następne kroki
 
-To kończy naszą serię wprowadzającą na temat korzystania z renderowania zdalnego platformy Azure z unity. W następnym kroku należy zapoznać się z kilkoma podstawowymi pojęciami ARR, takimi jak [sesje,](../../concepts/sessions.md) [jednostki](../../concepts/entities.md)i [modele,](../../concepts/models.md) aby zbudować głębsze zrozumienie. Istnieją również różne funkcje, takie jak [światła,](../../overview/features/lights.md) [renderowanie konspektu,](../../overview/features/outlines.md) [hierarchiczne zastąpienia stanu](../../overview/features/override-hierarchical-state.md)i [materiały,](../../concepts/materials.md) które należy zbadać bardziej szczegółowo.
+Zakończymy nasze serie wprowadzające, jak używać zdalnego renderowania platformy Azure w środowisku Unity. W następnym kroku należy zapoznać się z najważniejszymi pojęciami dotyczącymi ARR, takimi jak [sesje](../../concepts/sessions.md), [jednostki](../../concepts/entities.md)i [modele](../../concepts/models.md) , aby skompilować bardziej szczegółowe informacje. Istnieją również różne funkcje, takie jak [sygnalizatory](../../overview/features/lights.md), [renderowanie konspektu](../../overview/features/outlines.md), [przesłaniania hierarchiczne](../../overview/features/override-hierarchical-state.md)i [materiały](../../concepts/materials.md) , które należy poznać w bardziej szczegółowy sposób.
 
 > [!div class="nextstepaction"]
-> [Obiekty i komponenty gry Unity](../../how-tos/unity/objects-components.md)
+> [Obiekty i składniki gier Unity](../../how-tos/unity/objects-components.md)

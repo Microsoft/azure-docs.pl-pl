@@ -1,6 +1,6 @@
 ---
-title: Wprowadzenie do funkcji okienowania usługi Azure Stream Analytics
-description: W tym artykule opisano cztery funkcje okna (tumbling, przeskakujące, przesuwne, sesji), które są używane w zadaniach usługi Azure Stream Analytics.
+title: Wprowadzenie do funkcji okna Azure Stream Analytics
+description: W tym artykule opisano cztery funkcje okna (wirowania, przeskoku, przesuwane, sesja), które są używane w Azure Stream Analytics zadaniach.
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
@@ -8,51 +8,51 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.openlocfilehash: 872eec62e7a629d76533aa6c9906cbdb64c32236
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745561"
 ---
-# <a name="introduction-to-stream-analytics-windowing-functions"></a>Wprowadzenie do funkcji okienowania usługi Stream Analytics
+# <a name="introduction-to-stream-analytics-windowing-functions"></a>Wprowadzenie do funkcji okna Stream Analytics
 
-W scenariuszach przesyłania strumieniowego czasu wykonywanie operacji na danych zawartych w oknach czasowych jest typowym wzorcem. Usługa Stream Analytics obsługuje funkcje okien, umożliwiając deweloperom tworzenie złożonych zadań przetwarzania strumienia przy minimalnym wysiłku.
+W scenariuszach przesyłania strumieniowego w czasie wykonywanie operacji na danych zawartych w oknach czasowych jest typowym wzorcem. Stream Analytics ma natywną obsługę funkcji okna, dzięki czemu deweloperzy mogą tworzyć złożone zadania przetwarzania strumieniowego z minimalnym nakładem pracy.
 
-Istnieją cztery rodzaje okien czasowych do wyboru: [**Tumbling**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**Hopping**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**Przesuwne**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics)i [**okna sesji.**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics)  Funkcje okna w klauzuli [**GROUP BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) składni kwerendy w zadaniach usługi Stream Analytics. Zdarzenia można również agregować w wielu oknach za pomocą funkcji [ **Windows().** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics)
+Istnieją cztery rodzaje danych czasowych do wyboru: [**wirowania**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**przeskoku**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**przesuwane**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics)i okna [**sesji**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics) .  Używasz funkcji okna w klauzuli [**Group by**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) składni zapytania w zadaniach Stream Analytics. Można również agregować zdarzenia w wielu oknach przy użyciu funkcji [ **Windows ()** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
 
-Wszystkie wyniki [wyjściowe](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) operacji okna na **końcu** okna. Dane wyjściowe okna będzie pojedyncze zdarzenie oparte na funkcji agregacji używane. Zdarzenie wyjściowe będzie miało sygnaturę czasową końca okna, a wszystkie funkcje okna są zdefiniowane ze stałą długością. 
+Wszystkie operacje [okna](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) są wyprowadzane na **końcu** okna. Dane wyjściowe okna będą pojedynczym zdarzeniem na podstawie użytej funkcji agregującej. Zdarzenie wyjściowe będzie miało sygnaturę czasową końca okna, a wszystkie funkcje okna są definiowane ze stałą długością. 
 
-![Pojęcia dotyczące funkcji okien usługi usługi Usługi Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
+![Pojęcia dotyczące funkcji okna Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
-## <a name="tumbling-window"></a>Okno tumbling
-Funkcje okna tumbling są używane do segmentowania strumienia danych do różnych segmentów czasu i wykonywania funkcji przeciwko nim, takich jak poniższy przykład. Kluczowe wyróżniki okna wirowania: okna te się powtarzają, nie nakładają się, a zdarzenia nie mogą należeć do więcej niż jednego okna wirowania.
+## <a name="tumbling-window"></a>Okno wirowania
+Funkcje okna wirowania są używane do segmentacji strumienia danych w różne segmenty czasu i wykonywania na nich funkcji, takich jak przykład poniżej. Kluczowe wyróżniki okna wirowania: okna te się powtarzają, nie nakładają się, a zdarzenia nie mogą należeć do więcej niż jednego okna wirowania.
 
-![Okno zawirowań usługi Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
+![Stream Analytics okno wirowania](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
 
-## <a name="hopping-window"></a>Okno hopping
-Funkcje okien powtarzanych powodują przeskoki w czasie do przodu o stały okres. Okna te przypominają okna wirowania, ale mogą się nakładać, więc zdarzenia mogą należeć do więcej niż jednego zestawu wyników okien powtarzanych. Aby okno Hopping było takie samo jak okno Tumbling, określ rozmiar przeskoku, który ma być taki sam jak rozmiar okna. 
+## <a name="hopping-window"></a>Okno przeskoku
+Funkcje okien powtarzanych powodują przeskoki w czasie do przodu o stały okres. Okna te przypominają okna wirowania, ale mogą się nakładać, więc zdarzenia mogą należeć do więcej niż jednego zestawu wyników okien powtarzanych. Aby okno przeskoku było takie samo jak okno wirowania, określ rozmiar przeskoku tak samo jak rozmiar okna. 
 
-![Okno przeskakiwania usługi Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
+![Stream Analytics okno przeskoku](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
-## <a name="sliding-window"></a>Okno przesuwne
-Funkcje okna przesuwnego, w przeciwieństwie do okien Tumbling lub Hopping, generują dane wyjściowe **tylko** wtedy, gdy wystąpi zdarzenie. Każde okno będzie miało co najmniej jedno zdarzenie, a okno jest stale przesuwane do przodu przez ε (epsilon). Podobnie jak w przypadku okien powtarzanych, zdarzenia mogą należeć do więcej niż jednego okna przewijania.
+## <a name="sliding-window"></a>Okno przewijania
+Funkcje okna przesuwanego, w przeciwieństwie do systemu Windows wirowania lub przeskoku, tworzą dane wyjściowe **tylko** wtedy, gdy wystąpi zdarzenie. Każde okno będzie miało co najmniej jedno zdarzenie, a okno jest stale przenoszone do przodu o ε (Epsilon). Podobnie jak w przypadku okien powtarzanych, zdarzenia mogą należeć do więcej niż jednego okna przewijania.
 
-![Okno przesuwne usługi Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
+![Stream Analytics przesuwanego okna](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 ## <a name="session-window"></a>Okno sesji
-Funkcje okna sesji grupują zdarzenia, które docierają o podobnych porach, odfiltrowując okresy czasu, w których nie ma żadnych danych. Okno ma trzy główne parametry: limit czasu, maksymalny czas trwania i klucz partycjonowania (opcjonalny).
+Funkcja okna sesji grupuje zdarzenia, które docierają w podobnym czasie, filtrując okresy, w których nie ma żadnych danych. Okno ma trzy główne parametry: limit czasu, maksymalny czas trwania i klucz partycjonowania (opcjonalny).
 
-![Okno sesji usługi Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)
+![Okno sesji Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)
 
-Okno sesji rozpoczyna się po wystąpieniu pierwszego zdarzenia. Jeśli inne zdarzenie występuje w określonym limit czasu od ostatniego zdarzenia pochłonięty, a następnie okno rozszerza się o nowe zdarzenie. W przeciwnym razie, jeśli nie wystąpią żadne zdarzenia w przecenie czasu, okno jest zamykane z limitem czasu.
+Okno sesji rozpoczyna się w momencie wystąpienia pierwszego zdarzenia. Jeśli inne zdarzenie wystąpi w określonym limicie czasu od ostatniego pozyskanego zdarzenia, okno rozszerza się, aby uwzględnić nowe zdarzenie. W przeciwnym razie, jeśli żadne zdarzenia nie wystąpią w limicie czasu, okno zostanie zamknięte po upływie limitu czasu.
 
-Jeśli zdarzenia nadal występują w określonym limit czasu, okno sesji będzie się rozszerzać aż do osiągnięcia maksymalnego czasu trwania. Maksymalne interwały sprawdzania czasu trwania są ustawione na taki sam rozmiar jak określony maksymalny czas trwania. Na przykład jeśli maksymalny czas trwania wynosi 10, a następnie sprawdza, czy okno przekracza maksymalny czas trwania nastąpi w t = 0, 10, 20, 30, itp.
+Jeśli zdarzenia będą wykonywane w określonym limicie czasu, okno sesji będzie nadal rozszerzane do czasu osiągnięcia maksymalnego czasu trwania. Interwał sprawdzania maksymalny czas trwania jest ustawiony na taki sam rozmiar jak określony maksymalny czas trwania. Na przykład jeśli maksymalny czas trwania wynosi 10, sprawdza, czy okno przekracza maksymalny czas trwania w t = 0, 10, 20, 30 itd.
 
-Po podaniu klucza partycji zdarzenia są grupowane według klucza i okna sesji są stosowane do każdej grupy niezależnie. Ta partycjonowanie jest przydatne w przypadkach, gdy potrzebujesz różnych okien sesji dla różnych użytkowników lub urządzeń.
+Po podaniu klucza partycji zdarzenia są pogrupowane w oknie klucz i sesja są stosowane niezależnie do poszczególnych grup. Partycjonowanie jest przydatne w przypadku, gdy potrzebne są różne okna sesji dla różnych użytkowników lub urządzeń.
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
+* [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

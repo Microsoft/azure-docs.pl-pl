@@ -6,38 +6,38 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
 ms.openlocfilehash: 8551e17ddd71e76aca0c85b9768f564ae0e5f049
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681846"
 ---
 # <a name="materials"></a>Materiały
 
-Materiały są [zasobami udostępnionymi,](../concepts/lifetime.md) które definiują sposób renderowania [siatek.](meshes.md) Materiały służą do określania, które [tekstury](textures.md) mają być stosowane, czy obiekty mają być przezroczyste i jak będzie obliczane oświetlenie.
+Materiały są [zasobami udostępnionymi](../concepts/lifetime.md) , które definiują sposób renderowania [siatki](meshes.md) . Materiały są używane do określania, które [tekstury](textures.md) należy zastosować, czy obiekty mają być przezroczyste i jak będą obliczane oświetlenie.
 
-Materiały są tworzone automatycznie podczas [konwersji modelu](../how-tos/conversion/model-conversion.md) i są dostępne w czasie wykonywania. Można również tworzyć materiały niestandardowe na podstawie kodu i zastąpić istniejące. Ten scenariusz ma szczególnie sens, jeśli chcesz udostępnić ten sam materiał w wielu siatce. Ponieważ modyfikacje materiału są widoczne na każdej siatce, która się do niego odwołuje, metoda ta może być używana do łatwego stosowania zmian.
+Materiały są tworzone automatycznie podczas [konwersji modelu](../how-tos/conversion/model-conversion.md) i są dostępne w czasie wykonywania. Możesz również utworzyć niestandardowe materiały z kodu i zamienić istniejące. W tym scenariuszu warto szczególnie zorientować się, czy chcesz współużytkować ten sam materiał w wielu siatkach. Ze względu na to, że modyfikacje materiału są widoczne dla każdej siatki, która odwołuje się do niej, ta metoda może być używana do łatwego stosowania zmian.
 
 > [!NOTE]
-> Niektóre przypadki użycia, takie jak wyróżnianie wybranego obiektu, można wykonać, modyfikując materiały, ale są znacznie łatwiejsze do osiągnięcia za pomocą [hierarchicznego komponentu .](../overview/features/override-hierarchical-state.md)
+> Niektóre przypadki użycia, takie jak wyróżnienie wybranego obiektu można wykonać, modyfikując materiały, ale są znacznie łatwiejsze w [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md).
 
-## <a name="material-types"></a>Rodzaje materiałów
+## <a name="material-types"></a>Typy materiału
 
-Renderowanie zdalne platformy Azure ma dwa różne typy materiałów:
+Zdalne renderowanie na platformie Azure ma dwa różne typy materiałów:
 
-* [Materiały PBR](../overview/features/pbr-materials.md) są stosowane do powierzchni, które powinny być renderowane jako fizycznie poprawne, jak to możliwe. Realistyczne oświetlenie jest obliczane dla tych materiałów przy użyciu *renderowania opartego fizycznie* (PBR). Aby w pełni wykorzystać ten rodzaj materiału, ważne jest, aby zapewnić wysokiej jakości dane wejściowe, takie jak chropowatość i normalne mapy.
+* [Materiały PBR](../overview/features/pbr-materials.md) są używane w przypadku powierzchni, które powinny być renderowane jako fizycznie poprawne, jak to możliwe. Realistyczne oświetlenie jest obliczane dla tych materiałów przy użyciu *renderowania opartego na fizycznie* (PBR). Aby maksymalnie wykorzystać ten typ materiału, ważne jest, aby zapewnić wysokiej jakości dane wejściowe, takie jak surowce i mapy normalne.
 
-* [Materiały kolorowe](../overview/features/color-materials.md) są stosowane w przypadkach, w których nie jest wymagane dodatkowe oświetlenie. Materiały te są zawsze w pełni jasne i łatwiejsze w konfiguracji. Kolorowe materiały są używane do danych, które powinny albo nie mieć oświetlenia w ogóle, lub już zawiera oświetlenie statyczne, takie jak modele uzyskane za pomocą [fotogrametrii](https://en.wikipedia.org/wiki/Photogrammetry).
+* [Materiały koloru](../overview/features/color-materials.md) są używane w przypadkach, gdy nie jest potrzebne żadne dodatkowe oświetlenie. Te materiały są zawsze w pełni jasne i łatwiejsze do skonfigurowania. Materiały koloru są używane w przypadku danych, które nie powinny być w ogóle dostępne, czy też są już poddane statyczne oświetlenie, takie jak modele uzyskane za pomocą [photogrammetry](https://en.wikipedia.org/wiki/Photogrammetry).
 
-## <a name="mesh-vs-meshcomponent-material-assignment"></a>Przypisanie materiału siatki a siatki
+## <a name="mesh-vs-meshcomponent-material-assignment"></a>MeshComponent — przypisanie materiału siatki
 
-[Siatki](meshes.md) mają jeden lub więcej podmeshes. Każdy submesh odwołuje się do jednego materiału. Można zmienić materiał, który ma być używany bezpośrednio w siatce, lub można zastąpić materiał, który ma być używany dla podmesh na [MeshComponent](meshes.md#meshcomponent).
+[Siatki](meshes.md) mają co najmniej jedną podsiatkę. Każda Podsiatka odwołuje się do jednego materiału. Można zmienić materiał do użycia bezpośrednio w siatce lub można przesłonić materiał, który ma być używany dla podsiatki w [MeshComponent](meshes.md#meshcomponent).
 
-Podczas modyfikowania materiału bezpośrednio na zasób siatki, ta zmiana dotyczy wszystkich wystąpień tej siatki. Zmiana go na MeshComponent, jednak wpływa tylko na to jedno wystąpienie siatki. Metoda jest bardziej odpowiednie zależy od żądanego zachowania, ale modyfikowanie MeshComponent jest bardziej powszechne podejście.
+Gdy modyfikujesz materiał bezpośrednio na zasobów siatki, ta zmiana wpłynie na wszystkie wystąpienia tej siatki. Jednak zmiana tego obiektu na MeshComponent ma wpływ tylko na jedno wystąpienie siatki. Która metoda jest bardziej odpowiednia, zależy od żądanego zachowania, ale modyfikacja MeshComponent jest bardziej typowym podejściem.
 
-## <a name="material-classes"></a>Klasy materiałów
+## <a name="material-classes"></a>Klasy materiału
 
-Wszystkie materiały dostarczone przez INTERFEJS API `Material`pochodzą z klasy podstawowej . Ich typ można zbadać `Material.MaterialSubType` za pośrednictwem lub rzucając je bezpośrednio:
+Wszystkie materiały dostarczone przez interfejs API pochodzą z klasy `Material`podstawowej. Ich typ może być wysyłany przez `Material.MaterialSubType` lub przez rzutowanie ich bezpośrednio:
 
 ``` cs
 void SetMaterialColorToGreen(Material material)
@@ -62,4 +62,4 @@ void SetMaterialColorToGreen(Material material)
 ## <a name="next-steps"></a>Następne kroki
 
 * [Materiały PBR](../overview/features/pbr-materials.md)
-* [Materiały kolorowe](../overview/features/color-materials.md)
+* [Materiały kolorów](../overview/features/color-materials.md)

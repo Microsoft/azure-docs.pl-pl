@@ -1,108 +1,108 @@
 ---
-title: Zrozumienie cyklu życia planu
-description: Dowiedz się więcej o cyklu życia, przez który przechodzi definicja planu i szczegóły dotyczące każdego etapu, w tym aktualizowanie i usuwanie przypisań planu.
+title: Zapoznaj się z cyklem życia planu
+description: Dowiedz się więcej na temat cyklu życia, przez który przechodzą definicje planu i szczegółowe informacje o każdym z etapów, w tym aktualizowanie i usuwanie przypisań strategii.
 ms.date: 07/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 46da42ec97f16af91ef8e41362a085d466bbb887
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80677386"
 ---
-# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Opis cyklu życia planu azure
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Zapoznaj się z cyklem życia Azure Blueprint
 
-Podobnie jak wiele zasobów w ramach platformy Azure, plan w planach platformy Azure ma typowy i naturalny cykl życia. Są one tworzone, wdrażane i ostatecznie usuwane, gdy nie są już potrzebne lub istotne. Usługa Azure Blueprints obsługuje standardowe operacje cyklu życia. Następnie opiera się na nich, aby zapewnić dodatkowe poziomy stanu, które obsługują wspólną ciągłą integrację i ciągłe potoki wdrażania dla organizacji, które zarządzają swoją infrastrukturą jako kod — kluczowym elementem w DevOps.
+Podobnie jak w przypadku wielu zasobów platformy Azure, plan w planach platformy Azure ma typowy i naturalny cykl życia. Są one tworzone, wdrażane i usuwane, gdy nie są już potrzebne lub są istotne. Plany platformy Azure obsługują standardowe operacje cyklu życia. Następnie kompiluje je w celu zapewnienia dodatkowych poziomów stanu, które obsługują wspólną ciągłą integrację i ciągłe wdrażanie potoków dla organizacji, które zarządzają infrastrukturą jako kodu — elementu klucza w DevOps.
 
-Aby w pełni zrozumieć plan i etapy, omówimy standardowy cykl życia:
+Aby w pełni zrozumieć plany i etapy, zajmiemy się standardowym cyklem życia:
 
 > [!div class="checklist"]
-> - Tworzenie i edytowanie planu
+> - Tworzenie i Edytowanie planu
 > - Publikowanie planu
 > - Tworzenie i edytowanie nowej wersji planu
 > - Publikowanie nowej wersji planu
 > - Usuwanie określonej wersji planu
 > - Usuwanie planu
 
-## <a name="creating-and-editing-a-blueprint"></a>Tworzenie i edytowanie planu
+## <a name="creating-and-editing-a-blueprint"></a>Tworzenie i Edytowanie planu
 
-Podczas tworzenia planu, dodać artefakty do niego, zapisać do grupy zarządzania lub subskrypcji i pod warunkiem unikatową nazwę i unikatową wersję. Plan jest teraz w trybie **roboczym** i nie można go jeszcze przypisać. W trybie **roboczym** można go nadal aktualizować i zmieniać.
+Podczas tworzenia planu Dodaj do niego artefakty, Zapisz je w grupie zarządzania lub subskrypcji i podano unikatową nazwę i unikatową wersję. Plan jest teraz w trybie **wersji roboczej** i nie można go jeszcze przypisać. W trybie **wersji roboczej** można nadal aktualizować i zmieniać.
 
-Nigdy nie opublikowany plan w trybie **roboczym** wyświetla inną ikonę na stronie **Definicje planu** niż te, które zostały **opublikowane.** **Najnowsza wersja** jest wyświetlana jako **wersja robocza** dla tych nigdy nie opublikowanych planów.
+Nieopublikowana strategia w trybie **wersji roboczej** wyświetla inną ikonę na stronie **definicje** strategii niż te, które zostały **opublikowane**. **Najnowsza wersja** jest wyświetlana jako **wersja robocza** dla tych, które nigdy nie zostały opublikowane.
 
-Tworzenie i edytowanie planu za pomocą [interfejsu API portalu Azure](../create-blueprint-portal.md#create-a-blueprint) lub [REST](../create-blueprint-rest-api.md#create-a-blueprint).
+Utwórz i Edytuj plan za pomocą [Azure Portal](../create-blueprint-portal.md#create-a-blueprint) lub [interfejsu API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
-## <a name="publishing-a-blueprint"></a>Publikowanie planu
+## <a name="publishing-a-blueprint"></a>Publikowanie strategii
 
-Po wprowadzeniu wszystkich planowanych zmian w planie w trybie **roboczym** można go **opublikować** i udostępnić do przypisania. **Opublikowanej** wersji planu nie można zmienić. Po **opublikowaniu**plan jest wyświetlany z inną ikoną niż **Plany robocze** i wyświetla podany numer wersji w kolumnie **Najnowsza wersja.**
+Gdy wszystkie planowane zmiany zostały wprowadzone do planu w trybie **wersji roboczej** , można je **opublikować** i udostępnić do przypisania. **Opublikowana** wersja planu nie może zostać zmieniona. Po **opublikowaniu**plan jest wyświetlany z inną ikoną niż szkice **robocze** i wyświetla podany numer wersji w kolumnie **Najnowsza wersja** .
 
-Opublikuj plan za pomocą [witryny Azure portal](../create-blueprint-portal.md#publish-a-blueprint) lub [interfejsu API REST](../create-blueprint-rest-api.md#publish-a-blueprint).
+Opublikuj plan za pomocą [Azure Portal](../create-blueprint-portal.md#publish-a-blueprint) lub [interfejsu API REST](../create-blueprint-rest-api.md#publish-a-blueprint).
 
 ## <a name="creating-and-editing-a-new-version-of-the-blueprint"></a>Tworzenie i edytowanie nowej wersji planu
 
-**Opublikowanej** wersji planu nie można zmienić. Jednak nowa wersja planu można dodać do istniejącego planu i w razie potrzeby zmodyfikować. Wprowadzać zmiany w istniejącym planie, edytując go. Po zapisaniu nowych zmian plan ma teraz **nieopublikowane zmiany.** Te zmiany są nową wersją **planu wersji roboczej.**
+Nie można zmienić **opublikowanej** wersji planu. Jednak nową wersję planu można dodać do istniejącego planu i zmodyfikować zgodnie z wymaganiami. Wprowadź zmiany w istniejącym planie, edytując je. Po zapisaniu nowych zmian plan ma teraz **nieopublikowane zmiany**. Te zmiany są nową wersją **projektu** planu.
 
-Edytuj plan za pomocą [portalu Azure](../create-blueprint-portal.md#edit-a-blueprint).
+Edytuj plan przy użyciu [Azure Portal](../create-blueprint-portal.md#edit-a-blueprint).
 
 ## <a name="publishing-a-new-version-of-the-blueprint"></a>Publikowanie nowej wersji planu
 
-Każda edytowana wersja planu musi zostać **opublikowana,** zanim będzie można ją przypisać. Po **nieopublikowanych zmian** zostały wprowadzone do planu, ale nie **opublikowane,** przycisk **Opublikuj plan** jest dostępny na stronie planu edycji. Jeśli przycisk nie jest widoczny, plan został już **opublikowany** i nie ma **nieopublikowanych zmian**.
+Przed przypisaniem każdej edytowanej wersji strategii należy ją **opublikować** . Po dokonaniu **nieopublikowanych zmian** w planie, ale nie **opublikowanych**, przycisk **Publikuj plan** jest dostępny na stronie Edytuj plan. Jeśli przycisk nie jest widoczny, plan został już **opublikowany** i nie ma żadnych **nieopublikowanych zmian**.
 
 > [!NOTE]
-> Pojedynczy plan może mieć wiele **opublikowanych** wersji, które można przypisać do subskrypcji.
+> Jeden plan może mieć wiele **opublikowanych** wersji, które można przypisać do subskrypcji.
 
-Aby opublikować plan z **nieopublikowanymi zmianami,** użyj tych samych kroków, aby opublikować nowy plan.
+Aby opublikować plan z **nieopublikowanymi zmianami**, wykonaj te same kroki w celu opublikowania nowego planu.
 
 ## <a name="deleting-a-specific-version-of-the-blueprint"></a>Usuwanie określonej wersji planu
 
-Każda wersja planu jest unikalnym obiektem i może być indywidualnie **opublikowana.** W związku z tym każda wersja planu można również usunąć. Usunięcie wersji planu nie ma żadnego wpływu na inne wersje tego planu.
+Każda wersja planu jest unikatowym obiektem i może być indywidualnie **opublikowana**. W związku z tym można również usunąć każdą wersję planu. Usunięcie wersji planu nie ma żadnego wpływu na inne wersje tego planu.
 
 > [!NOTE]
-> Nie można usunąć planu, który ma aktywne przypisania. Najpierw usuń przypisania, a następnie usuń wersję, którą chcesz usunąć.
+> Nie można usunąć planu, który ma aktywne przypisania. Najpierw usuń przypisania, a następnie Usuń wersję, którą chcesz usunąć.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
-1. Wybierz **definicje planu** ze strony po lewej stronie i użyj opcji filtru, aby zlokalizować plan, którego chcesz usunąć wersję. Wybierz go, aby otworzyć stronę edycji.
+1. Wybierz pozycję **definicje** strategii ze strony po lewej stronie, a następnie użyj opcji filtru, aby zlokalizować plan, dla którego chcesz usunąć wersję. Wybierz go, aby otworzyć stronę Edycja.
 
-1. Wybierz kartę **Opublikowane wersje** i znajdź wersję, którą chcesz usunąć.
+1. Wybierz kartę **opublikowane wersje** i Znajdź wersję, którą chcesz usunąć.
 
-1. Kliknij prawym przyciskiem myszy wersję, aby usunąć i wybierz pozycję **Usuń tę wersję**.
+1. Kliknij prawym przyciskiem myszy wersję, którą chcesz usunąć, a następnie wybierz pozycję **Usuń tę wersję**.
 
 ## <a name="deleting-the-blueprint"></a>Usuwanie planu
 
-Podstawowy plan można również usunąć. Usunięcie planu podstawowego powoduje również usunięcie wszystkich wersji planu tego planu, w tym planów **wersji roboczej** i **opublikowanych.** Podobnie jak w przypadku usuwania wersji planu, usunięcie planu podstawowego nie powoduje usunięcia istniejących przydziałów żadnej z wersji planu.
+Można również usunąć podstawowe plany. Usunięcie podstawowego planu spowoduje również usunięcie wszystkich wersji strategii tego planu, w tym **projektów** i **opublikowanych** planów. Podobnie jak w przypadku usuwania wersji planu, usunięcie podstawowego planu nie powoduje usunięcia istniejących przypisań żadnej wersji planu.
 
 > [!NOTE]
-> Nie można usunąć planu, który ma aktywne przypisania. Najpierw usuń przypisania, a następnie usuń wersję, którą chcesz usunąć.
+> Nie można usunąć planu, który ma aktywne przypisania. Najpierw usuń przypisania, a następnie Usuń wersję, którą chcesz usunąć.
 
-Usuń plan za pomocą [witryny Azure portal](../create-blueprint-portal.md#delete-a-blueprint) lub [interfejsu API REST](../create-blueprint-rest-api.md#delete-a-blueprint).
+Usuń plan z [Azure portalem](../create-blueprint-portal.md#delete-a-blueprint) lub [interfejsem API REST](../create-blueprint-rest-api.md#delete-a-blueprint).
 
 ## <a name="assignments"></a>Przypisania
 
-Istnieje kilka punktów w cyklu życia planu można przypisać do subskrypcji. Gdy tryb wersji planu jest **opublikowany**, a następnie tej wersji można przypisać do subskrypcji. Ten cykl życia umożliwia wersje planu do użycia i aktywnie przypisane podczas opracowywania nowszej wersji.
+W trakcie cyklu życia można przypisać plan do subskrypcji. Po **opublikowaniu**trybu wersji planu ta wersja może być przypisana do subskrypcji. Ten cykl życia umożliwia korzystanie z wersji planu i aktywnie przypisywania podczas tworzenia nowszej wersji.
 
-Ponieważ wersje planów są przypisane, ważne jest, aby zrozumieć, gdzie są one przypisane i jakie parametry zostały przypisane do. Parametry mogą być statyczne lub dynamiczne. Aby dowiedzieć się więcej, zobacz [parametry statyczne i dynamiczne](parameters.md).
+Gdy są przypisane wersje planów, ważne jest, aby zrozumieć, gdzie są przypisane, i z którymi parametrami zostały przypisane. Parametry mogą być statyczne lub dynamiczne. Aby dowiedzieć się więcej, zobacz [Parametry statyczne i dynamiczne](parameters.md).
 
-### <a name="updating-assignments"></a>Aktualizowanie przydziałów
+### <a name="updating-assignments"></a>Aktualizowanie przypisań
 
-Po przypisaniu planu przypisanie może zostać zaktualizowane. Istnieje kilka przyczyn aktualizacji istniejącego przypisania, w tym:
+Po przypisaniu planu można zaktualizować przypisanie. Istnieje kilka powodów, dla których należy zaktualizować istniejące przypisanie, w tym:
 
 - Dodawanie lub usuwanie [blokowania zasobów](resource-locking.md)
-- Zmienianie wartości [parametrów dynamicznych](parameters.md#dynamic-parameters)
-- Uaktualnienie przypisania do nowszej **opublikowanej** wersji planu
+- Zmień wartość [parametrów dynamicznych](parameters.md#dynamic-parameters)
+- Uaktualnij przypisanie do nowszej **opublikowanej** wersji planu
 
-Aby dowiedzieć się, jak to zrobić, zobacz [aktualizowanie istniejących przydziałów](../how-to/update-existing-assignments.md).
+Aby dowiedzieć się, jak to zrobić, zobacz [aktualizowanie istniejących przypisań](../how-to/update-existing-assignments.md).
 
-### <a name="unassigning-assignments"></a>Niepodpisywanie przypisań
+### <a name="unassigning-assignments"></a>Cofanie przypisania przypisań
 
-Jeśli plan nie jest już potrzebny, można go nie przypisać z grupy zarządzania lub subskrypcji. Podczas zmiany planu występuje:
+Jeśli plan nie jest już wymagany, można go przypisać do grupy zarządzania lub subskrypcji. Podczas przypisywania strategii następuje:
 
-- Usuwanie [blokowania zasobów planu](resource-locking.md)
-- Usuwanie obiektu przypisania planu
-- (Warunkowe) Jeśli **użyto tożsamości zarządzanej przypisanej do systemu,** jest ona również usuwana
+- Usuwanie [blokowania zasobów](resource-locking.md) planu
+- Usuwanie obiektu przypisania strategii
+- Warunk Jeśli użyto **tożsamości zarządzanej przypisanej do systemu** , zostanie ona również usunięta
 
 > [!NOTE]
-> Wszystkie zasoby wdrożone przez przypisanie planu pozostają na swoim miejscu, ale nie są już chronione przez plany platformy Azure.
+> Wszystkie zasoby wdrożone przez przypisanie planu pozostają na miejscu, ale nie są już chronione przez plany platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

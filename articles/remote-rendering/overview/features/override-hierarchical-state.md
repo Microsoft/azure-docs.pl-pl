@@ -1,61 +1,61 @@
 ---
-title: Zastępowanie stanu hierarchicznego
-description: W tym artykule wyjaśniono pojęcie hierarchicznego zastępowania składników stanu.
+title: Hierarchiczne zastępowanie stanu
+description: Wyjaśnia koncepcję składników przesłonięcia stanu hierarchicznego.
 author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.openlocfilehash: f3be073857cc8583669ab26f306760478479e2ae
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680793"
 ---
-# <a name="hierarchical-state-override"></a>Zastępowanie stanu hierarchicznego
+# <a name="hierarchical-state-override"></a>Hierarchiczne zastępowanie stanu
 
-W wielu przypadkach konieczna jest dynamiczna zmiana wyglądu części [modelu](../../concepts/models.md), na przykład ukrywanie subgrafów lub przełączanie części do przezroczystego renderowania. Zmiana materiałów każdej z zaangażowanych części nie jest praktyczna, ponieważ wymaga iteracji całego wykresu sceny i zarządzania klonowaniem materiału i przypisywaniem w każdym węźle.
+W wielu przypadkach konieczna jest Dynamiczna zmiana wyglądu części [modelu](../../concepts/models.md), na przykład ukrycie podwykresów lub przełączenie części do przezroczystego renderowania. Zmiana materiałów dla każdej części nie jest praktyczna, ponieważ wymaga ona iteracji całego wykresu sceny i zarządzania klonowania i przypisywania materiału w każdym węźle.
 
-Aby osiągnąć ten przypadek użycia przy jak `HierarchicalStateOverrideComponent`najmniejszym możliwym narzucie, użyj pliku . Ten składnik implementuje hierarchiczne aktualizacje stanu na dowolnych gałęziach wykresu sceny. Oznacza to, że stan może być zdefiniowany na dowolnym poziomie na wykresie sceny i spływa w dół hierarchii, dopóki nie zostanie zastąpiony przez nowy stan lub zastosowany do obiektu liścia.
+Aby osiągnąć ten przypadek użycia przy minimalnym możliwym obciążeniu `HierarchicalStateOverrideComponent`, użyj. Ten składnik implementuje hierarchiczne aktualizacje stanu dla dowolnych gałęzi grafu sceny. Oznacza to, że stan można zdefiniować na dowolnym poziomie wykresu sceny i Trickles hierarchię do momentu, aż zostanie zastąpiony przez nowy stan lub zastosowany do obiektu liścia.
 
-Na przykład należy wziąć pod uwagę model samochodu i chcesz przełączyć cały samochód na przezroczysty, z wyjątkiem wewnętrznej części silnika. Ten przypadek użycia obejmuje tylko dwa wystąpienia składnika:
+Na przykład rozważmy model samochodu i chcesz przełączyć cały samochód, aby był przezroczysty, z wyjątkiem części aparatu wewnętrznego. Ten przypadek użycia obejmuje tylko dwa wystąpienia składnika:
 
-* Pierwszy komponent jest przypisany do węzła głównego modelu i włącza przezroczyste renderowanie dla całego samochodu.
-* Drugi składnik jest przypisany do węzła głównego aparatu i zastępuje stan ponownie przez jawne wyłączenie trybu przezroczystego.
+* Pierwszy składnik jest przypisany do głównego węzła modelu i włącza renderowanie przezroczyste dla całego samochodu.
+* Drugi składnik jest przypisany do węzła głównego aparatu i ponownie zastępuje stan, przez jawne wyłączenie trybu wyświetlania.
 
 ## <a name="features"></a>Funkcje
 
-Stały zestaw stanów, które mogą być zastąpione są:
+Stały zestaw Stanów, które mogą zostać zastąpione, to:
 
-* **Ukryte**: Odpowiednie siatki na wykresie sceny są ukryte lub pokazane.
-* **Kolor tinty:** Renderowany obiekt może być barwiony kolorem o indywidualnym kolorze odcienia i wadze odcienia. Poniższy obraz eksploruje kolor barwienia obręczy koła.
+* **Ukryte**: odpowiednie siatki w grafie sceny są ukryte lub pokazane.
+* **Kolor odcienia**: renderowany obiekt może być odbarwione kolorami z odcieniami poszczególnych kolorów i grubości odcienia. Na poniższym obrazie pokazano kolor tinty obręczy koła.
   
   ![Odcień koloru](./media/color-tint.png)
 
-* **Przezroczyste**: Geometria jest renderowana półprzezroczysto, na przykład w celu ujawnienia wewnętrznych części obiektu. Na poniższej ilustracji przedstawiono cały samochód renderowany w trybie przezroczystym, z wyjątkiem czerwonego zacisku hamulca:
+* Zapoznaj się z **tematem**: geometria jest renderowana częściowo w sposób przezroczysty, na przykład w celu ujawnienia wewnętrznych części obiektu. Na poniższej ilustracji przedstawiono cały samochód, który jest renderowany w trybie Zobacz, z wyjątkiem czerwonych Caliper hamulców:
 
-  ![Przezroczyste](./media/see-through.png)
+  ![Zapoznaj się z artykułem](./media/see-through.png)
 
   > [!IMPORTANT]
-  > Efekt przezroczystości działa tylko wtedy, gdy używany jest [tryb renderowania](../../concepts/rendering-modes.md) *TileBasedComposition.*
+  > Efekt uboczny działa tylko wtedy, gdy używany jest [tryb renderowania](../../concepts/rendering-modes.md) *TileBasedComposition* .
 
-* **Zaznaczone**: Geometria jest renderowana z [konspektem zaznaczenia](outlines.md).
+* **Zaznaczone**: geometria jest renderowana z [konturem zaznaczenia](outlines.md).
 
-  ![Konspekt zaznaczenia](./media/selection-outline.png)
+  ![Kontur zaznaczenia](./media/selection-outline.png)
 
-* **DisableCollision**: Geometria jest zwolniona z [zapytań przestrzennych](spatial-queries.md). **Ukryta** flaga nie wyłącza kolizji, więc te dwie flagi są często ustawione razem.
+* **DisableCollision**: geometria jest wykluczona z [zapytań przestrzennych](spatial-queries.md). Flaga **Ukryta** nie wyłącza kolizji, dlatego te dwie flagi są często ustawiane razem.
 
 ## <a name="hierarchical-overrides"></a>Zastąpienia hierarchiczne
 
-Można `HierarchicalStateOverrideComponent` dołączyć na wielu poziomach hierarchii obiektów. Ponieważ w jednostce może istnieć tylko jeden `HierarchicalStateOverrideComponent` składnik każdego typu, każdy zarządza stanami dla ukrytych, przezroczystych, wybranych, odcienia kolorów i kolizji.
+`HierarchicalStateOverrideComponent` Można je dołączyć na wielu poziomach hierarchii obiektów. Ponieważ może istnieć tylko jeden składnik każdego typu w jednostce, każda z nich `HierarchicalStateOverrideComponent` zarządza Stanami ukryty, zapoznaj się z elementem, wybranym, tintą kolorów i kolizją.
 
-W związku z tym każdy stan można ustawić na jeden z:
+W związku z tym każdy stan może być ustawiony na jeden z:
 
-* `ForceOn`- stan jest włączony dla całej siatki na i poniżej tego węzła
-* `ForceOff`- stan jest wyłączony dla wszystkich oczek na i poniżej tego węzła
-* `InheritFromParent`- ten składnik zastępowania nie ma wpływu na stan
+* `ForceOn`-stan jest włączony dla wszystkich siatek w tym węźle i poniżej niego
+* `ForceOff`-stan jest wyłączony dla wszystkich siatek w i poniżej tego węzła
+* `InheritFromParent`-Ten składnik przesłonięcia nie ma wpływ na stan.
 
-Stany można zmieniać bezpośrednio lub `SetState` za pomocą funkcji:
+Stany można zmienić bezpośrednio lub za pomocą `SetState` funkcji:
 
 ```cs
 HierarchicalStateOverrideComponent component = ...;
@@ -72,16 +72,16 @@ component.SetState(HierarchicalStates.Hidden | HierarchicalStates.DisableCollisi
 
 ### <a name="tint-color"></a>Kolor tinty
 
-Zastąpienie koloru odcienia jest nieco specjalne, ponieważ istnieje zarówno stan włączania/ wyłączania/dziedziczenia, jak i właściwości koloru tinty. Część alfa koloru odcienia definiuje masę efektu barwienia: Jeśli ustawiono na 0,0, nie jest widoczny kolor odcienia, a jeśli ustawiono na 1,0, obiekt będzie renderowany czystym kolorem odcienia. W przypadku wartości in-between kolor końcowy zostanie zmieszany z kolorem tinty. Kolor odcienia można zmieniać na podstawie klatki, aby uzyskać animację kolorów.
+Zastępowanie koloru tinty jest nieco specjalne w przypadku, gdy istnieje zarówno stan on/off/dziedziczenia, jak i kolor tinty. Część alfa koloru tinty definiuje wagę efektu tinty: w przypadku ustawienia na 0,0, kolor tinty nie jest widoczny i jeśli zostanie ustawiony na 1,0, obiekt będzie renderowany z czystym kolorem tinty. Dla wartości in-between kolor końcowy zostanie zmieszany z kolorem odcienia. Kolor odcienia można zmienić na poszczególnych klatkach, aby osiągnąć animację koloru.
 
 ## <a name="performance-considerations"></a>Zagadnienia dotyczące wydajności
 
-Samo wystąpienie `HierarchicalStateOverrideComponent` nie dodaje wiele nakładów pracy. Jednak zawsze dobrą praktyką jest utrzymanie niskiej liczby aktywnych składników. Na przykład podczas implementowania systemu zaznaczania, który wyróżnia pobrany obiekt, zaleca się usunięcie składnika po usunięciu podświetlenia. Utrzymywanie komponentów wokół z neutralnymi funkcjami może szybko się sumować.
+Wystąpienie `HierarchicalStateOverrideComponent` samego siebie nie dodaje znacznie obciążenia środowiska uruchomieniowego. Jest jednak zawsze dobrym sposobem, aby zachować liczbę aktywnych składników. Na przykład podczas implementowania systemu wyboru, który podświetla wybrany obiekt, zaleca się usunięcie składnika po usunięciu wyróżnienia. Utrzymywanie składników z neutralnymi funkcjami może szybko dodać.
 
-Przezroczyste renderowanie powoduje większe obciążenie procesorów GPU serwera niż standardowe renderowanie. Jeśli duże części wykresu sceny są przełączane na *przezroczyste,* a wiele warstw geometrii jest widocznych, może stać się wąskim gardłem wydajności. To samo dotyczy obiektów z [konturami zaznaczenia](../../overview/features/outlines.md#performance).
+Renderowanie przezroczyste zwiększa obciążenie procesora GPU serwera niż w przypadku renderowania standardowego. Jeśli duże części wykresu sceny są przełączane do *wyświetlania, a*wiele warstw geometrii jest widocznych, może stać się wąskim gardłem wydajności. Ta sama wartość jest prawidłowa dla obiektów z [konturami wyboru](../../overview/features/outlines.md#performance).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Kontury](../../overview/features/outlines.md)
+* [Przedstawiono](../../overview/features/outlines.md)
 * [Tryby renderowania](../../concepts/rendering-modes.md)
 * [Zapytania przestrzenne](../../overview/features/spatial-queries.md)

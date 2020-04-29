@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Federuj pojedyncze środowisko lasu usługi AD na platformie Azure | Dokumenty firmy Microsoft'
+title: 'Samouczek: Sfederować jednego środowiska lasu usługi AD na platformę Azure | Microsoft Docs'
 description: W tym samouczku pokazano, jak skonfigurować środowisko tożsamości hybrydowej przy użyciu federacji.
 services: active-directory
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3a17eb7fdde6840ce04fb0cbce13ec3f1a121e0
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80673703"
 ---
-# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Samouczek: Podawanie pojedynczego środowiska lasu usługi AD do chmury
+# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Samouczek: Sfederować jednego środowiska lasu usługi AD do chmury
 
 ![Utwórz](media/tutorial-federation/diagram.png)
 
@@ -88,8 +88,8 @@ Aby zakończyć tworzenie maszyny wirtualnej, należy zakończyć instalację sy
 5. Kliknij pozycję **Zainstaluj teraz**.
 6. Wprowadź klucz licencji i kliknij przycisk **Dalej**.
 7. Zaznacz opcję **Akceptuję postanowienia licencyjne, a następnie kliknij przycisk **Dalej**.
-8. Wybierz **opcję Niestandardowe: Zainstaluj tylko system Windows (zaawansowane)**
-9. Kliknij **przycisk Dalej**
+8. Wybierz **niestandardowe: tylko Zainstaluj system Windows (Zaawansowane)**
+9. Kliknij przycisk **dalej** .
 10. Po zakończeniu instalacji uruchom ponownie maszynę wirtualną, zaloguj się i uruchom aktualizacje systemu Windows, aby upewnić się, że maszyna wirtualna została zaktualizowana.  Zainstaluj najnowsze aktualizacje.
 
 ## <a name="install-active-directory-pre-requisites"></a>Instalowanie wymagań wstępnych usługi Active Directory
@@ -184,7 +184,7 @@ Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogo
 ```
 
 ## <a name="create-a-certificate-for-ad-fs"></a>tworzenie certyfikatu dla usług AD FS
-Teraz utworzymy certyfikat TLS/SSL, który będzie używany przez usługi AD FS.  Będzie to certyfikat z podpisem własnym służący tylko do celów testowych.  Firma Microsoft nie zaleca używania certyfikatu z podpisem własnym w środowisku produkcyjnym. Wykonaj następujące czynności:
+Teraz utworzymy certyfikat protokołu TLS/SSL, który będzie używany przez AD FS.  Będzie to certyfikat z podpisem własnym służący tylko do celów testowych.  Firma Microsoft nie zaleca używania certyfikatu z podpisem własnym w środowisku produkcyjnym. Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
 2. Uruchom następujący skrypt.
@@ -204,7 +204,7 @@ Teraz należy utworzyć dzierżawę usługi Azure AD, aby umożliwić synchroniz
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta z subskrypcją platformy Azure.
 2. Wybierz **ikonę plusa (+)** i wyszukaj ciąg **Azure Active Directory**.
 3. W wynikach wyszukiwania wybierz pozycję **Azure Active Directory**.
-4. Wybierz **pozycję Utwórz**.</br>
+4. Wybierz przycisk **Utwórz**.</br>
 ![Tworzenie](media/tutorial-password-hash-sync/create1.png)</br>
 5. Podaj **nazwę organizacji** wraz z **początkową nazwą domeny**. Następnie wybierz pozycję **Utwórz**. Spowoduje to utworzenie katalogu.
 6. Po zakończeniu kliknij link **tutaj**, aby zarządzać katalogiem.
@@ -225,7 +225,7 @@ Istnieją już dzierżawa i administrator globalny. Teraz należy dodać domenę
 
 1. Ponownie w witrynie [Azure Portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) zamknij blok **Wszyscy użytkownicy**.
 2. Po lewej stronie wybierz pozycję **Nazwy domen niestandardowych**.
-3. Wybierz **pozycję Dodaj domenę niestandardową**.</br>
+3. Wybierz pozycję **Dodaj domenę niestandardową**.</br>
 ![Federacja](media/tutorial-federation/custom1.png)</br>
 4. W obszarze **Nazwy domen niestandardowych** wprowadź w polu nazwę domeny niestandardowej, a następnie kliknij pozycję **Dodaj domenę**.
 5. Na ekranie nazwy domeny niestandardowej zostaną podane informacje o rekordzie TXT lub MX.  Te informacje należy dodać do informacji DNS rejestratora domeny w obszarze używanej domeny.  Należy więc przejść do witryny rejestratora domeny i wprowadzić informacje o rekordzie TXT lub MX w obszarze ustawień DNS dla tej domeny.  Umożliwi to platformie Azure zweryfikowanie domeny.  Oczekiwanie na zweryfikowanie domeny przez platformę Azure może potrwać do 24 godzin.  Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [dodawania domeny niestandardowej](../../active-directory/fundamentals/add-custom-domain.md).</br>
@@ -236,11 +236,11 @@ Istnieją już dzierżawa i administrator globalny. Teraz należy dodać domenę
 ## <a name="download-and-install-azure-ad-connect"></a>Pobieranie i instalowanie programu Azure AD Connect
 Nadszedł czas, aby pobrać i zainstalować program Azure AD Connect.  Po zainstalowaniu go przejdziemy przez konfigurację ekspresową.  Wykonaj następujące czynności:
 
-1. Pobieranie [usługi Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
+1. Pobierz [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
 2. Przejdź do pozycji **AzureADConnect.msi** i kliknij ją dwukrotnie.
 3. Na ekranie powitalnym zaznacz pole wyrażenia zgody na warunki licencji i kliknij pozycję **Kontynuuj**.  
 4. Na ekranie Ustawienia ekspresowe kliknij przycisk **Dostosuj**.  
-5. Zostanie wyświetlony ekran instalowania składników wymaganych. Kliknij **pozycję Zainstaluj**.  
+5. Zostanie wyświetlony ekran instalowania składników wymaganych. Kliknij przycisk **Zainstaluj**.  
 6. Na ekranie logowania użytkownika wybierz pozycję **Federacja z usługami AD FS** i kliknij przycisk **Dalej**.
 ![Federacja](media/tutorial-federation/fed1.png)
 
@@ -291,5 +291,5 @@ W ten sposób pomyślnie skonfigurowano środowisko tożsamości hybrydowej, kt�
 
 - [Sprzęt i wymagania wstępne](how-to-connect-install-prerequisites.md) 
 - [Ustawienia dostosowane](how-to-connect-install-custom.md)
-- [Usługa Azure AD Connect i federacja](how-to-connect-fed-whatis.md)
+- [Azure AD Connect i Federacja](how-to-connect-fed-whatis.md)
 

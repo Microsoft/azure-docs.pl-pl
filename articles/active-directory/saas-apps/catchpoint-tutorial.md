@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory z punktem catchpoint'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a punktem catchpoint.
+title: 'Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą punkt przechwytywania'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i punkt przechwytywania.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,184 +16,184 @@ ms.date: 02/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b19e286d299811a950df05f93d221bd710676ea
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80743495"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Samouczek: Integracja z logiem jednokrotnym usługi Azure Active Directory z punktem catchpoint
+# <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym za pomocą punkt przechwytywania
 
-W tym samouczku dowiesz się, jak zintegrować program Catchpoint z usługą Azure Active Directory (Azure AD). Po zintegrowaniu programu Catchpoint z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować usługę punkt przechwytywania z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi punkt przechwytywania z usługą Azure AD można:
 
-* Kontroluj dostęp użytkowników do punktu catchpoint z usługi Azure AD.
-* Włącz automatyczne logowanie catchpoint dla użytkowników korzystających z kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji: w witrynie Azure Portal.
+* Kontroluj dostęp użytkowników do punkt przechwytywania z usługi Azure AD.
+* Włącz automatyczne logowanie w usłudze punkt przechwytywania dla użytkowników z kontami usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebujesz następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
-* Subskrypcja Catchpoint z włączoną rejestracją jednokrotną.A Catchpoint subscription with single sign-on (SSO) enabled.
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Subskrypcja usługi punkt przechwytywania z włączonym logowaniem jednokrotnym (SSO).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku można skonfigurować i przetestować samouszeńców usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Catchpoint obsługuje jednostkę SSO inicjowane przez sp i protokół IDP.
-* Catchpoint obsługuje just-in-time (JIT) inicjowania obsługi administracyjnej użytkowników.
-* Po skonfigurowaniu Catchpoint, można wymusić kontrolę sesji. Ten środek ostrożności chroni przed eksfiltracją i infiltracją poufnych danych organizacji w czasie rzeczywistym. Kontrola sesji jest rozszerzeniem dostępu warunkowego. [Dowiedz się, jak wymusić kontrolę nad sesją za pomocą programu Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Usługa punkt przechwytywania obsługuje logowanie jednokrotne z użyciem zainicjowanych przez usługę SP i dostawcy tożsamości.
+* Punkt przechwytywania obsługuje Inicjowanie obsługi użytkowników just-in-Time (JIT).
+* Po skonfigurowaniu punkt przechwytywania można wymusić kontrolę sesji. To zabezpieczenie chroni przed eksfiltracji i niefiltrowaniem poufnych danych organizacji w czasie rzeczywistym. Kontrola sesji jest rozszerzeniem dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="add-catchpoint-from-the-gallery"></a>Dodawanie punktu catchpoint z galerii
+## <a name="add-catchpoint-from-the-gallery"></a>Dodaj punkt przechwytywania z galerii
 
-Aby skonfigurować integrację catchpoint do usługi Azure AD, dodaj Catchpoint do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu punkt przechwytywania z usługą Azure AD, Dodaj punkt przechwytywania do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) za pomocą służbowego, szkolnego lub osobistego konta Microsoft.
-1. W lewym okienku wybierz usługę **Azure Active Directory.**
-1. Przejdź do **aplikacji dla przedsiębiorstw,** a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) za pomocą konto Microsoftów służbowych.
+1. W okienku po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **Catchpoint** w polu wyszukiwania.
-1. Wybierz **punkt catchpoint** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wpisz **punkt przechwytywania** w polu wyszukiwania.
+1. Wybierz pozycję **punkt przechwytywania** w panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-catchpoint"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla punktu catchpoint
+## <a name="configure-and-test-azure-ad-single-sign-on-for-catchpoint"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla punkt przechwytywania
 
-Aby użytkownik ujedniaka bez instrukcji obsługi działał, należy połączyć użytkownika usługi Azure AD z użytkownikiem w programie Catchpoint. W tym samouczku skonfigurujemy użytkownika testowego o nazwie **B.Simon**. 
+Aby logowanie jednokrotne działało, należy połączyć użytkownika usługi Azure AD z użytkownikiem w punkt przechwytywania. Na potrzeby tego samouczka skonfigurujemy użytkownika testowego o nazwie **B. Simon**. 
 
 Wykonaj następujące sekcje:
 
-1. [Skonfiguruj sytuasz usługi Azure AD ,](#configure-azure-ad-sso)aby włączyć tę funkcję dla użytkowników.
-    * [Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user), aby przetestować logowanie jednokrotne usługi Azure AD za pomocą b.simon.
-    * [Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user)aby umożliwić B.Simon używać logowania jednokrotnego usługi Azure AD.
-1. [Skonfiguruj logowanie jednokrotne punktu catchpoint](#configure-catchpoint-sso), aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-    * [Utwórz użytkownika testowego catchpoint](#create-a-catchpoint-test-user), aby umożliwić łączenie konta testowego B.Simon Azure AD do podobnego konta użytkownika w catchpoint.
-1. [Przetestuj opcję SSO](#test-sso), aby sprawdzić, czy konfiguracja działa.
+1. [Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso), aby włączyć tę funkcję dla użytkowników.
+    * [Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user), aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    * [Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user), aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+1. [Skonfiguruj Logowanie jednokrotne](#configure-catchpoint-sso)w usłudze punkt przechwytywania, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    * [Utwórz użytkownika testowego punkt przechwytywania](#create-a-catchpoint-test-user), aby umożliwić Łączenie konta testowego B. Simon usługi Azure AD z podobnym kontem użytkownika w usłudze punkt przechwytywania.
+1. [Przetestuj Logowanie jednokrotne](#test-sso), aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki w witrynie Azure portal, aby włączyć usługę Azure AD SSO:
+Wykonaj następujące kroki w Azure Portal, aby włączyć logowanie jednokrotne w usłudze Azure AD:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-1. Na stronie integracji aplikacji **Catchpoint** znajdź sekcję **Zarządzaj** i wybierz **opcję logowania jednokrotnego**.
+1. Na stronie integracja aplikacji **punkt przechwytywania** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą narzędzia SAML** wybierz ikonę pióra, aby edytować podstawowe ustawienia **konfiguracji SAML.**
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę pióra, aby edytować **podstawowe ustawienia konfiguracji SAML** .
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. Skonfiguruj tryb inicjowany dla punktu catchpoint:
-   - W przypadku trybu inicjowanego przez **IDP**wprowadź wartości dla następujących pól:
-     - Dla **identyfikatora:**`https://portal.catchpoint.com/SAML2`
-     - Dla **odpowiedzi adres URL:**`https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
-   - W przypadku trybu inicjowanego w dodatku **SP**wybierz pozycję **Ustaw dodatkowe adresy URL** i wprowadź następującą wartość:
-     - Aby **uzyskać adres URL logowania:**`https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
+1. Skonfiguruj tryb zainicjowany dla punkt przechwytywania:
+   - W przypadku trybu zainicjowane przez **dostawcy tożsamości**wprowadź wartości dla następujących pól:
+     - Dla **identyfikatora**:`https://portal.catchpoint.com/SAML2`
+     - **Adres URL odpowiedzi**:`https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
+   - W przypadku trybu inicjowania programu **SP**wybierz opcję **Ustaw dodatkowe adresy URL** i wprowadź następującą wartość:
+     - Dla **adresu URL logowania**:`https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
 
-1. Catchpoint aplikacja oczekuje potwierdzeń SAML w określonym formacie. Dodawanie mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższa tabela zawiera listę atrybutów domyślnych:
+1. Aplikacja punkt przechwytywania oczekuje potwierdzeń SAML w określonym formacie. Dodawanie mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenów SAML. Poniższa tabela zawiera listę atrybutów domyślnych:
 
     | Nazwa | Atrybut źródłowy|
     | ------------ | --------- |
-    | Givenname | user.givenneame |
+    | GivenName | User. givenneame |
     | Nazwisko | user.surname |
-    | Emailaddress | user.mail |
+    | EmailAddress | user.mail |
     | Nazwa | user.userprincipalname |
     | Unikatowy identyfikator użytkownika | user.userprincipalname |
 
-    ![Zrzut ekranu przedstawiający listę oświadczeń & atrybutów użytkownika](common/default-attributes.png)
+    ![Zrzut ekranu listy atrybutów użytkownika &](common/default-attributes.png)
 
-1. Ponadto catchpoint aplikacji oczekuje innego atrybutu mają być przekazywane w odpowiedzi SAML. Zobacz poniższą tabelę. Ten atrybut jest również wstępnie wypełniony, ale można go przejrzeć i zaktualizować, aby dopasować go do wymagań.
+1. Ponadto aplikacja punkt przechwytywania oczekuje, że inny atrybut zostanie przesłany w odpowiedzi SAML. Zobacz poniższą tabelę. Ten atrybut jest również wstępnie wypełniony, ale można go przejrzeć i zaktualizować w celu dopasowania do własnych wymagań.
 
     | Nazwa | Atrybut źródłowy|
     | ------------ | --------- |
     | namespace | user.assignedrole |
 
     > [!NOTE]
-    > Oświadczenie `namespace` musi być mapowane z nazwą konta. Ta nazwa konta powinna być skonfigurowana z rolą w usłudze Azure AD, która ma zostać przekazana z powrotem w odpowiedzi SAML. Aby uzyskać więcej informacji na temat ról w usłudze Azure AD, zobacz [Konfigurowanie oświadczenia roli wystawionego w tokenie SAML dla aplikacji korporacyjnych.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)
+    > To `namespace` zastrzeżenie musi być zamapowane przy użyciu nazwy konta. Ta nazwa konta powinna być skonfigurowana z rolą w usłudze Azure AD, aby mogła zostać przeniesiona z powrotem w odpowiedzi SAML. Aby uzyskać więcej informacji na temat ról w usłudze Azure AD, zobacz [Konfigurowanie roszczeń ról wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
-1. Przejdź do strony **Konfigurowanie logowania jednokrotnego za pomocą saml.** W sekcji **Certyfikat podpisywania SAML** znajdź **certyfikat (Base64)**. Wybierz **pozycję Pobierz,** aby zapisać certyfikat na komputerze.
+1. Przejdź do strony **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** . W sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)**. Wybierz pozycję **Pobierz** , aby zapisać certyfikat na komputerze.
 
-    ![Łącze do pobierania certyfikatu](common/certificatebase64.png)
+    ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-1. W sekcji **Konfigurowanie punktu catchpoint** skopiuj potrzebne adresy URL w późniejszym kroku.
+1. W sekcji **Konfiguracja punkt przechwytywania** Skopiuj adresy URL, które są potrzebne w późniejszym kroku.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji można użyć witryny Azure portal, aby utworzyć użytkownika testowego usługi Azure AD o nazwie B.Simon.
+W tej sekcji użyjesz Azure Portal, aby utworzyć użytkownika testowego usługi Azure AD o nazwie B. Simon.
 
-1. Z lewego okienka w witrynie Azure portal wybierz pozycję**Użytkownicy** >  **usługi Azure Active Directory** > **Wszyscy użytkownicy**.
-1. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
-1. We właściwościach **Użytkownika** wykonaj następujące kroki:
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** > **Użytkownicy** > **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** username@companydomain.extensionwprowadź pole . Na przykład wprowadź wartość `B.Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło.** Zanotuj wyświetlaną wartość hasła.
-   1. Wybierz **pozycję Utwórz**.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład wprowadź `B.Simon@contoso.com`.
+   1. Zaznacz pole wyboru **Pokaż hasło** . Zanotuj wartość wyświetlaną hasło.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć B.Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do catchpoint.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi punkt przechwytywania.
 
-1. W portalu Azure wybierz pozycję **Aplikacje** > dla**przedsiębiorstw Wszystkie aplikacje**.
-1. Na liście aplikacji wybierz **punkt catchpoint**.
-1. Na stronie przegląd aplikacji znajdź sekcję **Zarządzaj** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **punkt przechwytywania**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
 
-    ![Łącze "Dodaj użytkownika"](common/add-assign-user.png)
+    ![Link "Dodaj użytkownika"](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B.Simon** z listy użytkowników. Kliknij **pozycję Wybierz** u dołu ekranu.
-1. Jeśli oczekujesz wartości roli w asercji SAML, poszukaj w oknie dialogowym **Wybierz rolę** i wybierz rolę użytkownika z listy. Kliknij przycisk **Wybierz** u dołu ekranu.
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy użytkowników. Kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz wartości roli w potwierdzeniu SAML, poszukaj w oknie dialogowym **Wybierz rolę** i wybierz z listy rolę użytkownika. Kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Przypisz**.
 
-## <a name="configure-catchpoint-sso"></a>Konfigurowanie sytcha w punkcie catchpoint
+## <a name="configure-catchpoint-sso"></a>Konfigurowanie logowania jednokrotnego punkt przechwytywania
 
-1. W innym oknie przeglądarki sieci Web zaloguj się do aplikacji Catchpoint jako administrator.
+1. W innym oknie przeglądarki sieci Web Zaloguj się do aplikacji punkt przechwytywania jako administrator.
 
-1. Wybierz ikonę **Ustawienia,** a następnie **dostawcę tożsamości logowania przesuwu .**
+1. Wybierz ikonę **Ustawienia** , a następnie pozycję **dostawca tożsamości logowania jednokrotnego**.
 
-    ![Zrzut ekranu z ustawieniami punktu catchpoint z wybraną wybraną usługą Dostawca tożsamości logowania do systemu sypkiego](./media/catchpoint-tutorial/configuration1.png)
+    ![Zrzut ekranu ustawień punkt przechwytywania z wybranym dostawcą tożsamości logowania jednokrotnego](./media/catchpoint-tutorial/configuration1.png)
 
-1. Na stronie **Jednokrotne znakowanie wejdź** w następujące pola:
+1. Na stronie **Logowanie** jednokrotne wprowadź następujące pola:
 
-   ![Zrzut ekranu strony logowania jednokrotnego catchpoint](./media/catchpoint-tutorial/configuration2.png)
+   ![Zrzut ekranu strony punkt przechwytywania logowania jednokrotnego](./media/catchpoint-tutorial/configuration2.png)
 
    Pole | Wartość
    ----- | ----- 
-   **Namespace** | Prawidłowa wartość obszaru nazw.
-   **Wystawca dostawcy tożsamości** | Wartość `Azure AD Identifier` z witryny Azure portal.
-   **Adres URL logowania jednokrotnego** | Wartość `Login URL` z witryny Azure portal.
-   **Certyfikat** | Zawartość pobranego pliku `Certificate (Base64)` z witryny Azure portal. Użyj Notatnika, aby wyświetlić i skopiować.
+   **Obszaru** | Prawidłowa wartość przestrzeni nazw.
+   **Wystawca dostawcy tożsamości** | `Azure AD Identifier` Wartość z Azure Portal.
+   **Adres URL logowania jednokrotnego** | `Login URL` Wartość z Azure Portal.
+   **Certyfikat** | Zawartość pobranego `Certificate (Base64)` pliku z Azure Portal. Użyj Notatnika, aby wyświetlić i skopiować.
 
-   Możesz również przekazać **kod XML metadanych federacji,** wybierając opcję **Przekaż metadane.**
+   Możesz również przekazać **plik XML metadanych Federacji** , wybierając opcję **Przekaż metadane** .
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
-### <a name="create-a-catchpoint-test-user"></a>Tworzenie użytkownika testowego punktu catchpoint
+### <a name="create-a-catchpoint-test-user"></a>Tworzenie użytkownika testowego punkt przechwytywania
 
-Catchpoint obsługuje just-in-time inicjowania obsługi administracyjnej użytkowników, który jest domyślnie włączony. W tej sekcji nie ma żadnych elementów akcji. Jeśli B.Simon nie istnieje jeszcze jako użytkownik w Catchpoint, jest tworzony po uwierzytelnieniu.
+Punkt przechwytywania obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. Brak elementów akcji w tej sekcji. Jeśli B. Simon nie istnieje jako użytkownik w punkt przechwytywania, zostanie utworzony po uwierzytelnieniu.
 
-## <a name="test-sso"></a>Test SSO
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji można przetestować konfigurację logowania jednokrotnego usługi Azure AD przy użyciu portalu Moje aplikacje.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą portalu My Apps.
 
-Po wybraniu kafelka Catchpoint w portalu Moje aplikacje, powinieneś być automatycznie zalogowany do aplikacji Catchpoint z skonfigurowanym logiem logującym się. Aby uzyskać więcej informacji o portalu Moje aplikacje, zobacz [Logowanie się i uruchamianie aplikacji z portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+Po wybraniu kafelka punkt przechwytywania w portalu My Apps należy automatycznie zalogować się do aplikacji punkt przechwytywania z skonfigurowanym logowaniem jednokrotnym. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz artykuł [Logowanie i uruchamianie aplikacji z poziomu portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
 > [!NOTE]
-> Po zalogowaniu się do aplikacji Catchpoint za pośrednictwem strony logowania, po podaniu **poświadczeń Catchpoint**wprowadź prawidłową wartość **obszaru nazw** w polu **Poświadczenia firmy (logowanie logowania)** i wybierz pozycję **Zaloguj**.
+> Gdy logujesz się do aplikacji punkt przechwytywania za pomocą strony logowania, po podaniu **poświadczeń punkt przechwytywania**Wprowadź prawidłową wartość **przestrzeni nazw** w polu **poświadczenia firmy (SSO)** i wybierz pozycję **Zaloguj**.
 > 
-> ![Konfiguracja punktu catchpoint](./media/catchpoint-tutorial/loginimage.png)
+> ![Konfiguracja punkt przechwytywania](./media/catchpoint-tutorial/loginimage.png)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Wypróbuj punkt catchpoint za pomocą usługi Azure AD](https://aad.portal.azure.com/)
+- [Wypróbuj punkt przechwytywania z usługą Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w usłudze Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

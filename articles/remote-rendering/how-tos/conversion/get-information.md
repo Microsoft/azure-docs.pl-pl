@@ -1,24 +1,24 @@
 ---
-title: Uzyskaj informacje o przekonwertowanym modelu
+title: Pobieranie informacji o przekonwertowanym modelu
 description: Opis wszystkich parametrów konwersji modelu
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
 ms.openlocfilehash: d5f843add0649682bae8c472bc50b6beea33bf93
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681521"
 ---
-# <a name="get-information-about-a-converted-model"></a>Uzyskaj informacje o przekonwertowanym modelu
+# <a name="get-information-about-a-converted-model"></a>Pobieranie informacji o przekonwertowanym modelu
 
-Plik arrAsset wyprodukowany przez usługę konwersji jest przeznaczony wyłącznie do użytku przez usługę utylizacją. Może jednak wystąpić czasy, gdy chcesz uzyskać dostęp do informacji o modelu bez uruchamiania sesji renderowania. W związku z tym usługa konwersji umieszcza plik JSON obok pliku arrAsset w kontenerze wyjściowym. Na przykład, jeśli `buggy.gltf` plik jest konwertowany, kontener `buggy.info.json` wyjściowy będzie `buggy.arrAsset`zawierał plik o nazwie obok przekonwertowanego zasobu . Zawiera informacje o modelu źródłowym, przekonwertowanym modelu i o samej konwersji.
+Plik arrAsset utworzony przez usługę konwersji jest przeznaczony wyłącznie do użytku przez usługę renderowania. Mogą jednak wystąpić sytuacje, w których chcesz uzyskać dostęp do informacji o modelu bez rozpoczynania sesji renderowania. W związku z tym usługa konwersji umieszcza plik JSON obok pliku arrAsset w kontenerze danych wyjściowych. Na przykład jeśli plik `buggy.gltf` zostanie przekonwertowany, kontener wyjściowy będzie zawierać plik o nazwie `buggy.info.json` obok przekonwertowanego elementu zawartości `buggy.arrAsset`. Zawiera informacje o modelu źródłowym, przekonwertowanym modelu i o samej konwersji.
 
 ## <a name="example-info-file"></a>Przykładowy plik *informacyjny*
 
-Oto przykładowy plik *informacji* wyprodukowany przez `buggy.gltf`konwersję pliku o nazwie:
+Oto przykładowy plik *informacyjny* tworzony przez konwersję pliku o nazwie `buggy.gltf`:
 
 ```JSON
 {
@@ -73,56 +73,56 @@ Oto przykładowy plik *informacji* wyprodukowany przez `buggy.gltf`konwersję pl
 }
 ```
 
-## <a name="information-in-the-info-file"></a>Informacje w pliku informacyjnym
+## <a name="information-in-the-info-file"></a>Informacje w pliku info
 
 ### <a name="the-files-section"></a>Sekcja *pliki*
 
 Ta sekcja zawiera podane nazwy plików.
 
 * `input`: Nazwa pliku źródłowego.
-* `output`: Nazwa pliku wyjściowego, gdy użytkownik określił nazwę nieniekońcową.
+* `output`: Nazwa pliku wyjściowego, gdy użytkownik określił nazwę niedomyślną.
 
-### <a name="the-conversionsettings-section"></a>Sekcja *ConversionSettings*
+### <a name="the-conversionsettings-section"></a>Sekcja *conversionSettings*
 
-W tej sekcji znajduje się kopia [ConversionSettings](configure-model-conversion.md#settings-file) określone podczas konwersji modelu.
+Ta sekcja zawiera kopię [ConversionSettings](configure-model-conversion.md#settings-file) określoną podczas konwersji modelu.
 
 ### <a name="the-inputinfo-section"></a>Sekcja *inputInfo*
 
-W tej sekcji są rejestrowane informacje o formacie pliku źródłowego.
+Ta sekcja rejestruje informacje o formacie pliku źródłowego.
 
 * `sourceAssetExtension`: Rozszerzenie pliku źródłowego.
 * `sourceAssetFormat`: Opis formatu pliku źródłowego.
 * `sourceAssetFormatVersion`: Wersja formatu pliku źródłowego.
-* `sourceAssetGenerator`: Nazwa narzędzia, które wygenerowało plik źródłowy, jeśli jest dostępna.
+* `sourceAssetGenerator`: Nazwa narzędzia, które wygenerowało plik źródłowy, jeśli jest dostępny.
 
-### <a name="the-inputstatistics-section"></a>Sekcja *InputStatistics*
+### <a name="the-inputstatistics-section"></a>Sekcja *inputStatistics*
 
-Ta sekcja zawiera informacje o scenie źródłowej. Często występują rozbieżności między wartościami w tej sekcji a równoważnymi wartościami w narzędziu, które utworzyło model źródłowy. Takie różnice są oczekiwane, ponieważ model zostanie zmodyfikowany podczas etapów eksportowania i konwersji.
+Ta sekcja zawiera informacje dotyczące sceny źródłowej. Często występują rozbieżności między wartościami w tej sekcji a odpowiednikami wartości w narzędziu, które utworzyły Model źródłowy. Takie różnice są oczekiwane, ponieważ model jest modyfikowany podczas kroków eksportu i konwersji.
 
-* `numMeshes`: Liczba części siatki, w których każda część może odwoływać się do pojedynczego materiału.
-* `numFaces`: Całkowita liczba _trójkątów_ w całym modelu. Należy zauważyć, że siatka jest triangulated podczas konwersji.
+* `numMeshes`: Liczba części siatki, gdzie każda część może odwoływać się do pojedynczego materiału.
+* `numFaces`: Całkowita liczba _trójkątów_ w całym modelu. Należy zauważyć, że siatka jest triangulacją podczas konwersji.
 * `numVertices`: Całkowita liczba wierzchołków w całym modelu.
 * `numMaterial`: Całkowita liczba materiałów w całym modelu.
-* `numFacesSmallestMesh`: Liczba trójkątów w najmniejszej siatce modelu.
-* `numFacesBiggestMesh`: Liczba trójkątów w największej siatce modelu.
-* `numNodes`: Liczba węzłów na wykresie sceny modelu.
-* `numMeshUsagesInScene`: Liczba sekwencji odwołań do siatek. Więcej niż jeden węzeł może odwoływać się do tej samej siatki.
-* `maxNodeDepth`: Maksymalna głębokość węzłów na wykresie sceny.
+* `numFacesSmallestMesh`: Liczba trójkątów w najmniejszej sieci modelu.
+* `numFacesBiggestMesh`: Liczba trójkątów w największych oczkach modelu.
+* `numNodes`: Liczba węzłów w grafie sceny modelu.
+* `numMeshUsagesInScene`: Liczba siatek odwołań do węzłów. Więcej niż jeden węzeł może odwoływać się do tej samej siatki.
+* `maxNodeDepth`: Maksymalna głębokość węzłów w grafie sceny.
 
 ### <a name="the-outputinfo-section"></a>Sekcja *outputInfo*
 
-W tej sekcji zapisuje się ogólne informacje o wygenerowanych danych wyjściowych.
+Ta sekcja rejestruje ogólne informacje o wygenerowanych danych wyjściowych.
 
 * `conversionToolVersion`: Wersja konwertera modelu.
-* `conversionHash`: skrót danych w arrAsset, które mogą przyczynić się do renderowania. Może służyć do zrozumienia, czy usługa konwersji przyniosły inny wynik po ponownym uruchomieniu w tym samym pliku.
+* `conversionHash`: Skrót danych w arrAsset, który może współtworzyć do renderowania. Można go użyć, aby zrozumieć, czy usługa konwersji wygenerowała inny wynik po ponownym uruchomieniu tego samego pliku.
 
-### <a name="the-outputstatistics-section"></a>Sekcja *statystyki wyjściowej*
+### <a name="the-outputstatistics-section"></a>Sekcja *outputStatistics*
 
-W tej sekcji zapisuje się informacje obliczone na podstawie przekonwertowanego zasobu.
+Ta sekcja rejestruje informacje obliczane na podstawie przekonwertowanego elementu zawartości.
 
-* `numMeshPartsCreated`: Liczba siatek w arrAsset. Może się `numMeshes` różnić `inputStatistics` od w sekcji, ponieważ na instancing ma wpływ proces konwersji.
+* `numMeshPartsCreated`: Liczba siatek w arrAsset. Może się to różnić `numMeshes` w `inputStatistics` sekcji, ponieważ proces konwersji ma wpływ na tworzenie wystąpień.
 * `numMeshPartsInstanced`: Liczba siatek, które są ponownie używane w arrAsset.
-* `recenteringOffset`: Gdy `recenterToOrigin` opcja w [conversionsettings](configure-model-conversion.md) jest włączona, ta wartość jest tłumaczeniem, które przesunie przekonwertowany model z powrotem do jego pierwotnej pozycji.
+* `recenteringOffset`: Gdy `recenterToOrigin` opcja w [ConversionSettings](configure-model-conversion.md) jest włączona, ta wartość jest tłumaczeniem, który przeniesie przekonwertowany model z powrotem do oryginalnego położenia.
 * `boundingBox`: Granice modelu.
 
 ## <a name="next-steps"></a>Następne kroki

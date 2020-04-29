@@ -1,6 +1,6 @@
 ---
-title: Dostęp warunkowy — wymagaj usługi MFA do zarządzania platformą Azure — usługa Azure Active Directory
-description: Tworzenie niestandardowych zasad dostępu warunkowego wymagających uwierzytelniania wieloskładnikowego dla zadań zarządzania platformy Azure
+title: Dostęp warunkowy — Wymagaj uwierzytelniania wieloskładnikowego dla zarządzania platformy Azure — Azure Active Directory
+description: Utwórz niestandardowe zasady dostępu warunkowego, aby wymagać uwierzytelniania wieloskładnikowego na potrzeby zadań zarządzania platformy Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,53 +12,53 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b92d833e6f32821ad907ff966771bbba8bbb77ce
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80755167"
 ---
-# <a name="conditional-access-require-mfa-for-azure-management"></a>Dostęp warunkowy: wymagaj usługi MFA do zarządzania platformą Azure
+# <a name="conditional-access-require-mfa-for-azure-management"></a>Dostęp warunkowy: Wymagaj uwierzytelniania wieloskładnikowego dla zarządzania na platformie Azure
 
-Organizacje korzystają z różnych usług platformy Azure i zarządzają nimi za pomocą narzędzi opartych na usłudze Azure Resource Manager, takich jak:
+Organizacje korzystają z różnych usług platformy Azure i zarządzają nimi za pomocą narzędzi opartych na Azure Resource Manager, takich jak:
 
 * Azure Portal
 * Azure PowerShell
 * Interfejs wiersza polecenia platformy Azure
 
-Narzędzia te mogą zapewnić wysoce uprzywilejowany dostęp do zasobów, które mogą zmieniać konfiguracje obejmujące całą subskrypcję, ustawienia usługi i rozliczenia subskrypcji. Aby chronić te uprzywilejowane zasoby, firma Microsoft zaleca wymaganie uwierzytelniania wieloskładnikowego dla każdego użytkownika uzyskującego dostęp do tych zasobów.
+Te narzędzia mogą zapewnić wysoce uprzywilejowany dostęp do zasobów, które mogą zmieniać konfiguracje, ustawienia usług i rozliczenia subskrypcji w całej subskrypcji. Aby chronić te zasoby uprzywilejowane, firma Microsoft zaleca wymaganie uwierzytelniania wieloskładnikowego dla każdego użytkownika, który uzyskuje dostęp do tych zasobów.
 
 ## <a name="user-exclusions"></a>Wykluczenia użytkowników
 
-Zasady dostępu warunkowego są zaawansowanymi narzędziami, zalecamy wyłączenie następujących kont z zasad:
+Zasady dostępu warunkowego to zaawansowane narzędzia, dlatego zalecamy wykluczenie następujących kont z zasad:
 
-* **Dostęp awaryjny** lub **break-glass** kont, aby zapobiec blokady konta całej dzierżawcy. W mało prawdopodobnym scenariuszu wszyscy administratorzy są zablokowane z dzierżawy, konto administracyjne dostępu awaryjnego może służyć do logowania się do dzierżawy podjąć kroki w celu odzyskania dostępu.
+* **Dostęp awaryjny** lub konta z **przerwaniem** do blokowania kont w całej dzierżawie. W mało prawdopodobnym scenariuszu wszyscy administratorzy są Zablokowani z Twojej dzierżawy, w celu zalogowania się do dzierżawy można użyć konta administratora z dostępem awaryjnym.
    * Więcej informacji można znaleźć w artykule [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Konta usług** i **podmioty usługi,** takie jak konto usługi Azure AD Connect Sync. Konta usług są kontami nieinterakcyjnymi, które nie są powiązane z żadnym konkretnym użytkownikiem. Są one zwykle używane przez usługi zaplecza umożliwiające programowy dostęp do aplikacji, ale są również używane do logowania się do systemów do celów administracyjnych. Konta usług, takie jak te, powinny być wykluczone, ponieważ nie można ukończyć programowo. Wywołania przez podmioty usługi nie są blokowane przez dostęp warunkowy.
-   * Jeśli organizacja ma te konta w użyciu w skryptach lub kod, należy rozważyć zastąpienie ich [tożsamościami zarządzanymi](../managed-identities-azure-resources/overview.md). Jako tymczasowe obejście można wykluczyć te określone konta z zasad linii bazowej.
+* **Konta usług** i jednostki **usługi**, takie jak konto synchronizacji Azure AD Connect. Konta usług są kontami nieinteraktywnymi, które nie są powiązane z żadnym konkretnym użytkownikiem. Są one zwykle używane przez usługi zaplecza umożliwiające programistyczny dostęp do aplikacji, ale są również używane do logowania się do systemów w celach administracyjnych. Konta usług, takie jak te, powinny być wykluczone, ponieważ nie można programowo zakończyć usługi MFA. Wywołania wykonywane przez jednostki usługi nie są blokowane przez dostęp warunkowy.
+   * Jeśli w organizacji są używane te konta w skryptach lub kodzie, należy rozważyć zastępowanie ich [tożsamościami zarządzanymi](../managed-identities-azure-resources/overview.md). W ramach tymczasowego obejścia można wykluczyć te określone konta z zasad linii bazowej.
 
 ## <a name="create-a-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
-Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać od tych przypisanych ról administracyjnych do wykonywania uwierzytelniania wieloskładnikowego.
+Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać przypisanych ról administracyjnych do uwierzytelniania wieloskładnikowego.
 
-1. Zaloguj się do **witryny Azure portal** jako administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. Przejdź do **usługi Azure Active Directory** > **Security** > **Conditional Access**.
-1. Wybierz **pozycję Nowa zasada**.
-1. Nadaj polityce nazwę. Zaleca się, aby organizacje tworzyły znaczący standard nazw swoich zasad.
-1. W obszarze **Przydziały**wybierz **pozycję Użytkownicy i grupy**
-   1. W **obszarze Uwzględnij**wybierz pozycję **Wszyscy użytkownicy**.
-   1. W obszarze **Wyklucz**wybierz **pozycję Użytkownicy i grupy** i wybierz dostęp awaryjny w organizacji lub konta typu break-glass. 
-   1. Wybierz pozycję **Done** (Gotowe).
-1. W obszarze **Aplikacje lub akcje w** > chmurze**Uwzględnij**wybierz pozycję **Wybierz aplikacje**, wybierz pozycję **Microsoft Azure Management**i wybierz pozycję **Wybierz,** a następnie **gotowe**.
-1. W **obszarze Warunki** > **aplikacje klienckie (Wersja zapoznawcza)** ustaw **pozycję Konfiguruj** na **Tak**i wybierz opcję **Gotowe**.
-1. W obszarze **Kontrola** > dostępu**Przyznanie**wybierz pozycję **Udzielić dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**i wybierz pozycję **Wybierz**.
-1. Potwierdź ustawienia i ustaw **włącz zasadę** **na Włącz**.
-1. Wybierz **pozycję Utwórz,** aby utworzyć, aby włączyć zasady.
+1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
+1. Przejdź do **Azure Active Directory** > **Security** > **dostępu warunkowego**zabezpieczeń.
+1. Wybierz pozycję **nowe zasady**.
+1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
+1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
+   1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
+   1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
+   1. Wybierz pozycję **Gotowe**.
+1. W **obszarze aplikacje lub akcje** > w chmurze**Wybierz pozycję** **Wybierz aplikacje**, wybierz pozycję **Microsoft Azure zarządzanie**, a następnie wybierz pozycję **Wybierz** **gotowe**.
+1. W obszarze **warunki** > **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość **opcji** **Konfiguruj** na tak, a następnie wybierz pozycję **gotowe**.
+1. W **obszarze kontrola** > dostępu**przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wybierz**.
+1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
+1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.
 
 ## <a name="next-steps"></a>Następne kroki
 
 [Wspólne zasady dostępu warunkowego](concept-conditional-access-policy-common.md)
 
-[Określanie wpływu przy użyciu trybu tylko dla dostępu warunkowego](howto-conditional-access-report-only.md)
+[Określanie wpływu przy użyciu trybu tylko Raport z dostępem warunkowym](howto-conditional-access-report-only.md)
 
-[Symulowanie zachowania logowania za pomocą narzędzia Co jeśli dostęp warunkowy](troubleshoot-conditional-access-what-if.md)
+[Symulowanie zachowania logowania za pomocą narzędzia What If dostępu warunkowego](troubleshoot-conditional-access-what-if.md)

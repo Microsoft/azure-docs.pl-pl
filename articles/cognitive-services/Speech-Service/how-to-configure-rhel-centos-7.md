@@ -1,7 +1,7 @@
 ---
-title: Jak skonfigurować RHEL/CentOS 7 - Usługa mowy
+title: Jak skonfigurować usługę RHEL/CentOS 7-mowę
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak skonfigurować RHEL/CentOS 7, tak aby można było używać SDK mowy.
+description: Dowiedz się, jak skonfigurować RHEL/CentOS 7, aby można było użyć zestawu Speech SDK.
 services: cognitive-services
 author: pankopon
 manager: jhakulin
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: pankopon
 ms.openlocfilehash: dc09d517d95b5a3f2a88504a14f1451d1de5ffc9
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80639164"
 ---
-# <a name="configure-rhelcentos-7-for-speech-sdk"></a>Konfigurowanie RHEL/CentOS 7 dla sdk mowy
+# <a name="configure-rhelcentos-7-for-speech-sdk"></a>Konfigurowanie RHEL/CentOS 7 dla zestawu Speech SDK
 
-Red Hat Enterprise Linux (RHEL) 8 x64 i CentOS 8 x64 są oficjalnie obsługiwane przez speech SDK w wersji 1.10.0 i nowszych. Jest również możliwe użycie zestawu SDK mowy na RHEL/CentOS 7 x64, ale wymaga to aktualizacji kompilatora Języka C++ (dla rozwoju języka C++ i udostępnionej biblioteki wykonawczej języka C++ w systemie.
+Red Hat Enterprise Linux (RHEL) 8 x64 i CentOS 8 x64 są oficjalnie obsługiwane przez zestaw Speech SDK w wersji 1.10.0 i nowszych. Istnieje również możliwość użycia zestawu Speech SDK w systemie RHEL/CentOS 7 x64, ale wymaga to aktualizacji kompilatora języka C++ (dla programowania C++) i udostępnionej biblioteki środowiska uruchomieniowego języka C++ w systemie.
 
-Aby sprawdzić wersję kompilatora języka C++, uruchom:
+Aby sprawdzić wersję kompilatora języka C++, uruchom polecenie:
 
 ```bash
 g++ --version
@@ -33,29 +33,29 @@ Jeśli kompilator jest zainstalowany, dane wyjściowe powinny wyglądać następ
 g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)
 ```
 
-Ten komunikat informuje, że GCC wersja główna 4 jest zainstalowana. Ta wersja nie ma pełnej obsługi standardu C++ 11, którego używa pakiet SDK mowy. Próba skompilowania programu C++ z tą wersją GCC i nagłówkami SDK mowy spowoduje błędy kompilacji.
+Ten komunikat informuje o tym, że jest zainstalowana wersja główna programu w wersji 4. Ta wersja nie ma pełnej obsługi standardu C++ 11, która jest używany przez zestaw Speech SDK. Próba skompilowania programu C++ przy użyciu tej wersji i nagłówków zestawu Speech SDK spowoduje błędy kompilacji.
 
-Ważne jest również, aby sprawdzić wersję udostępnionej biblioteki środowiska uruchomieniowego języka C++ (libstdc++). Większość speech SDK jest implementowana jako natywne biblioteki języka C++, co oznacza, że zależy od libstdc++ niezależnie od języka używanego do tworzenia aplikacji.
+Ważne jest również, aby sprawdzić wersję udostępnionej biblioteki środowiska uruchomieniowego języka C++ (libstdc + +). Większość zestawu Speech SDK jest implementowana jako natywne biblioteki C++, co oznacza, że jest to zależne od libstdc + + niezależnie od języka używanego do tworzenia aplikacji.
 
-Aby znaleźć lokalizację libstdc++ w systemie, uruchom:
+Aby znaleźć lokalizację libstdc + + w systemie, uruchom polecenie:
 
 ```bash
 ldconfig -p | grep libstdc++
 ```
 
-Wyjście na wanilii RHEL/CentOS 7 (x64) wynosi:
+Dane wyjściowe z RHEL/CentOS 7 (x64) są następujące:
 
 ```
 libstdc++.so.6 (libc6,x86-64) => /lib64/libstdc++.so.6
 ```
 
-Na podstawie tego komunikatu należy sprawdzić definicje wersji za pomocą tego polecenia:
+Na podstawie tej wiadomości należy sprawdzić definicje wersji za pomocą tego polecenia:
 
 ```bash
 strings /lib64/libstdc++.so.6 | egrep "GLIBCXX_|CXXABI_"
 ```
 
-Wyjście powinno być:
+Dane wyjściowe powinny być następujące:
 
 ```
 ...
@@ -65,14 +65,14 @@ CXXABI_1.3.7
 ...
 ```
 
-SDK mowy wymaga **CXXABI_1.3.9** i **GLIBCXX_3.4.21**. Informacje te można znaleźć, uruchamiając `ldd libMicrosoft.CognitiveServices.Speech.core.so` biblioteki zestawu SDK mowy z pakietu Linux.
+Zestaw Speech SDK wymaga **CXXABI_1.3.9** i **GLIBCXX_3.4.21**. Te informacje można znaleźć, uruchamiając `ldd libMicrosoft.CognitiveServices.Speech.core.so` je w bibliotekach zestawu Speech SDK z pakietu systemu Linux.
 
 > [!NOTE]
-> Zaleca się, że wersja GCC zainstalowany w systemie jest co najmniej **5.4.0**, z pasującymi bibliotekami środowiska uruchomieniowego.
+> Zaleca się, aby wersja programu w ramach konferencji w systemie była równa co najmniej **5.4.0**, z pasującymi bibliotekami środowiska uruchomieniowego.
 
 ## <a name="example"></a>Przykład
 
-Jest to przykładowe polecenie, które ilustruje sposób konfigurowania RHEL/CentOS 7 x64 do programowania (C++, C#, Java, Python) za pomocą zestawu SDK mowy 1.10.0 lub nowszego:
+Jest to przykładowe polecenie, które ilustruje sposób konfigurowania RHEL/CentOS 7 x64 na potrzeby programowania (C++, C#, Java, Python) przy użyciu zestawu Speech SDK 1.10.0 lub nowszego:
 
 ```bash
 # Only run ONE of the following two commands

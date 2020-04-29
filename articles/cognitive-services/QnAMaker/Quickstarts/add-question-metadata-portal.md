@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: dodawanie pytań i odpowiedzi w portalu programu QnA Maker'
-description: Ten przewodnik Szybki start pokazuje, jak dodać zestawy pytań i odpowiedzi z metadanymi, aby użytkownicy mogli znaleźć właściwą odpowiedź na swoje pytanie.
+title: 'Szybki Start: dodawanie pytań i odpowiedzi w portalu QnA Maker'
+description: Ten przewodnik Szybki Start przedstawia sposób dodawania zestawów pytań i odpowiedzi za pomocą metadanych, dzięki czemu użytkownicy mogą znaleźć odpowiednią odpowiedź na pytanie.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: f067bae55c38fc783c12bf9d0bc6fbcdf881e4e4
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80756687"
 ---
-# <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Szybki start: dodawanie pytań i odpowiadanie za pomocą portalu QnA Maker
+# <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Szybki Start: dodawanie pytań i odpowiedzi za pomocą portalu QnA Maker
 
-Po utworzeniu bazy wiedzy dodaj zestawy pytań i odpowiedzi (QnA) z metadanymi, aby filtrować odpowiedź. Pytania w poniższej tabeli dotyczą limitów usług platformy Azure, ale każdy ma do czynienia z inną usługą platformy Azure.
+Po utworzeniu bazy wiedzy Dodaj zestawy pytań i odpowiedzi (QnA) z metadanymi, aby odfiltrować odpowiedź. Pytania zawarte w poniższej tabeli dotyczą limitów usługi platformy Azure, ale każdy z nich musi wykonać inną usługę platformy Azure.
 
 <a name="qna-table"></a>
 
@@ -29,85 +29,85 @@ Po utworzeniu bazy wiedzy dodaj zestawy pytań i odpowiedzi (QnA) z metadanymi, 
 
 Po dodaniu metadanych do pary QnA aplikacja kliencka może:
 
-* Żądaj odpowiedzi, które pasują tylko do określonych metadanych.
-* Otrzymuj wszystkie odpowiedzi, ale po przetworze odpowiedzi w zależności od metadanych dla każdej odpowiedzi.
+* Zażądaj odpowiedzi, które pasują tylko do niektórych metadanych.
+* Odbieraj wszystkie odpowiedzi, ale nie Przetwarzaj odpowiedzi w zależności od metadanych dla każdej odpowiedzi.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Ukończ [poprzedni szybki start](./create-publish-knowledge-base.md)
+* Ukończ [poprzedni Przewodnik Szybki Start](./create-publish-knowledge-base.md)
 
-## <a name="sign-in-to-the-qna-maker-portal"></a>Zaloguj się do portalu QnA Maker
+## <a name="sign-in-to-the-qna-maker-portal"></a>Logowanie się do portalu QnA Maker
 
-1. Zaloguj się do [portalu QnA Maker](https://www.qnamaker.ai).
+1. Zaloguj się do [portalu QNA Maker](https://www.qnamaker.ai).
 
-1. Wybierz istniejącą bazę wiedzy z [poprzedniego przewodnika Szybki start](../how-to/create-knowledge-base.md).
+1. Wybierz istniejącą bazę wiedzy z [poprzedniego przewodnika Szybki Start](../how-to/create-knowledge-base.md).
 
-## <a name="add-additional-alternatively-phrased-questions"></a>Dodawanie dodatkowych pytań z wyrażeniami alternatywnymi
+## <a name="add-additional-alternatively-phrased-questions"></a>Dodawanie dodatkowych pytań z możliwością frazy
 
-Aktualna baza wiedzy ma QnA Maker rozwiązywania problemów z parami QnA. Te zestawy zostały utworzone, gdy adres URL został dodany do bazy wiedzy podczas procesu tworzenia.
+Bieżąca baza wiedzy ma QnA Maker QnA Rozwiązywanie problemów. Te zestawy zostały utworzone, gdy adres URL został dodany do bazy wiedzy podczas procesu tworzenia.
 
-Podczas importowania tego adresu URL utworzono tylko jedno pytanie z jedną odpowiedzią. W tej procedurze dodaj dodatkowe pytania.
+Po zaimportowaniu tego adresu URL zostanie utworzona tylko jedno pytanie z jedną odpowiedzią. W tej procedurze należy dodać dodatkowe pytania.
 
-1. Na stronie **Edycja** użyj pola tekstowego wyszukiwania nad zestawami pytań i odpowiedzi, aby znaleźć pytanie`How large a knowledge base can I create?`
+1. Na stronie **Edytuj** Użyj pola tekstowego Wyszukaj powyżej zestawów pytań i odpowiedzi, aby znaleźć pytanie`How large a knowledge base can I create?`
 
-1. W kolumnie **Pytanie** wybierz + **Dodaj zwroty alternatywne,** a następnie dodaj każde nowe sformułowanie podane w poniższej tabeli.
+1. W kolumnie **pytania** wybierz pozycję **+ Dodaj alternatywne sformułowanie** , a następnie Dodaj każde nowe sformułowanie, które podano w poniższej tabeli.
 
-    |Alternatywne zwroty|
+    |Alternatywne sformułowanie|
     |--|
     |`What is the max size of a knowledge base?`|
     |`How many GB of data can a knowledge base hold?`|
 
-1. Wybierz **zapisz i trenuj,** aby przeszkolić bazę wiedzy.
+1. Wybierz pozycję **Zapisz i poszkol** , aby ponownie przeprowadzić uczenie bazy wiedzy.
 
-1. Wybierz **opcję Testuj**, a następnie wprowadź pytanie, które jest bliskie jednemu z nowych alternatywnych zwrotów, ale nie jest dokładnie tym samym sformułowaniem:
+1. Wybierz pozycję **test**, a następnie wprowadź pytanie blisko jednego z nowych alternatywnych frazy, ale nie dokładnie ten sam wyraz:
 
     `What GB size can a knowledge base be?`
 
-    Poprawna odpowiedź jest zwracana w formacie znaczników:
+    Prawidłowa odpowiedź jest zwracana w formacie promocji:
 
     `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
 
-    Jeśli wybierzesz **Inspect** pod zwróconą odpowiedzią, możesz zobaczyć więcej odpowiedzi na pytanie, ale nie z tym samym wysokim poziomem zaufania.
+    W przypadku wybrania opcji **Sprawdź** w odpowiedzi na odpowiedź można zobaczyć więcej odpowiedzi, ale nie ma tego samego wysokiego poziomu zaufania.
 
-    Nie należy dodawać każdej możliwej kombinacji alternatywnych zwrotów. Po włączeniu [aktywnego uczenia się](../how-to/improve-knowledge-base.md)QnA Maker znajdzie alternatywne zwroty, które najlepiej pomogą Twojej bazie wiedzy zaspokoić potrzeby użytkowników.
+    Nie dodawaj każdej możliwej kombinacji alternatywnych wyrazów. Po włączeniu [aktywnej uczenia](../how-to/improve-knowledge-base.md)QNA Maker zostanie znaleziony alternatywna frazy, która będzie najlepiej odpowiadać potrzebom użytkowników.
 
-1. Wybierz **opcję Testuj** ponownie, aby zamknąć okno testu.
+1. Ponownie wybierz **test** , aby zamknąć okno testowe.
 
 ## <a name="add-metadata-to-filter-the-answers"></a>Dodawanie metadanych w celu filtrowania odpowiedzi
 
-Dodawanie metadanych do zestawu pytań i odpowiedzi umożliwia aplikacji klienckiej żądanie filtrowanych odpowiedzi. Ten filtr jest stosowany przed zastosowaniem [pierwszej i drugiej rangi.](../concepts/query-knowledge-base.md#ranker-process)
+Dodanie metadanych do zestawu pytań i odpowiedzi umożliwia aplikacji klienckiej żądanie filtrowanych odpowiedzi. Ten filtr jest stosowany przed zastosowaniem [pierwszej i drugiej rangi](../concepts/query-knowledge-base.md#ranker-process) .
 
-1. Dodaj drugie pytanie i zestaw odpowiedzi, bez metadanych, z [pierwszej tabeli w tym przewodniku Szybki start,](#qna-table)a następnie przejdź do następujących kroków.
+1. Dodaj drugie pytanie i zestaw odpowiedzi, bez metadanych, z [pierwszej tabeli w tym przewodniku szybki start](#qna-table), a następnie wykonaj poniższe kroki.
 
-1. Wybierz pozycję **Opcje widoku**, a następnie wybierz pozycję **Pokaż metadane**.
+1. Wybierz pozycję **Wyświetl opcje**, a następnie wybierz pozycję **Pokaż metadane**.
 
-1. Dla właśnie dodanej pary QnA wybierz **pozycję Dodaj tagi metadanych,** a następnie dodaj nazwę `service` i wartość . `search` Wygląda to tak: `service:search`.
+1. W przypadku dodanej pary QnA wybierz pozycję **Dodaj Tagi metadanych**, a następnie Dodaj nazwę `service` i wartość. `search` Wygląda to następująco: `service:search`.
 
-1. Dodaj kolejny tag metadanych `link_in_answer` o `false`nazwie i wartości pliku . Wygląda to tak: `link_in_answer:false`.
+1. Dodaj inny tag metadanych o nazwie `link_in_answer` i wartości. `false` Wygląda to następująco: `link_in_answer:false`.
 
-1. Wyszukaj pierwszą odpowiedź `How large a knowledge base can I create?`w tabeli, .
+1. Wyszukaj pierwszą odpowiedź w tabeli, `How large a knowledge base can I create?`.
 
-1. Dodawanie par metadanych dla tych samych dwóch tagów metadanych:
+1. Dodaj pary metadanych dla tych samych dwóch tagów metadanych:
 
     `link_in_answer` : `true`<br>
     `server`: `qna_maker`
 
-    Masz teraz dwa pytania z tymi samymi metadanymi tagami o różnych wartościach.
+    Masz teraz dwa pytania z tymi samymi tagami metadanych o różnych wartościach.
 
-1. Wybierz **zapisz i trenuj,** aby przeszkolić bazę wiedzy.
+1. Wybierz pozycję **Zapisz i poszkol** , aby ponownie przeprowadzić uczenie bazy wiedzy.
 
-1. Wybierz **pozycję Publikuj** w górnym menu, aby przejść do strony publikowania.
-1. Wybierz przycisk **Publikuj,** aby opublikować bieżącą bazę wiedzy w punkcie końcowym.
-1. Po opublikowaniu bazy wiedzy przejdź do następnego przewodnika Szybki start, aby dowiedzieć się, jak wygenerować odpowiedź z bazy wiedzy.
+1. Wybierz pozycję **Publikuj** w górnym menu, aby przejść do strony publikowanie.
+1. Wybierz przycisk **Publikuj** , aby opublikować bieżącą bazę wiedzy w punkcie końcowym.
+1. Po opublikowaniu bazy wiedzy przejdź do następnego przewodnika Szybki Start, aby dowiedzieć się, jak wygenerować odpowiedź z bazy wiedzy.
 
-## <a name="what-did-you-accomplish"></a>Co udało ci się osiągnąć?
+## <a name="what-did-you-accomplish"></a>Co zostało wykonane?
 
-Edytowałeś swoją bazę wiedzy, aby obsługiwać więcej pytań i podałeś pary nazw/wartości do obsługi filtrowania podczas wyszukiwania odpowiedzi górnej lub postprocessingu po zwróceniu odpowiedzi lub odpowiedzi.
+Twoja baza wiedzy została poddana edycji w celu obsługi większej liczby pytań i dostarczonych par nazwa/wartość do obsługi filtrowania podczas wyszukiwania dla najważniejszych odpowiedzi lub dostosujesz, gdy zostanie zwrócona odpowiedź lub odpowiedzi.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie kontynuujesz następnego przewodnika Szybki start, usuń zasoby platformy QnA Maker i Bot w witrynie Azure portal.
+Jeśli nie chcesz kontynuować korzystania z następnego przewodnika Szybki Start, Usuń QnA Maker i zasoby struktury bot w Azure Portal.
 
 ## <a name="next-steps"></a>Następne kroki
 

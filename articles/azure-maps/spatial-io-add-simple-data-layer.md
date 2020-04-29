@@ -1,6 +1,6 @@
 ---
-title: Dodawanie prostej warstwy danych | Mapy platformy Microsoft Azure
-description: Dowiedz się, jak dodać prostą warstwę danych przy użyciu modułu Usługi We/Wy przestrzennej udostępnianej przez zestaw SDK usługi Azure Maps Web.
+title: Dodawanie prostej warstwy danych | Mapy Microsoft Azure
+description: Dowiedz się, jak dodać prostą warstwę danych przy użyciu przestrzennego modułu we/wy dostarczonego przez Azure Maps Web SDK.
 author: philmea
 ms.author: philmea
 ms.date: 02/29/2020
@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 8862c33b7660b8130f692dc4beea89a7b6b5f5ad
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804490"
 ---
 # <a name="add-a-simple-data-layer"></a>Dodawanie prostej warstwy danych
 
-Przestrzenny moduł We/Wy zapewnia `SimpleDataLayer` klasę. Ta klasa ułatwia renderowanie stylizowanych obiektów na mapie. Może nawet renderować zestawy danych, które mają właściwości stylu i zestawy danych, które zawierają typy geometrii mieszanej. Prosta warstwa danych osiąga tę funkcję, owijając wiele warstw renderowania i używając wyrażeń stylu. Wyrażenia stylu wyszukują typowe właściwości stylu obiektów wewnątrz tych zawiniętych warstw. Funkcja `atlas.io.read` i `atlas.io.write` funkcja używają tych właściwości do odczytu i zapisu stylów w obsługiwanym formacie pliku. Po dodaniu właściwości do obsługiwanego formatu pliku plik może być używany do różnych celów. Na przykład plik może służyć do wyświetlania stylizowanych obiektów na mapie.
+Moduł operacji we/wy przestrzennego udostępnia `SimpleDataLayer` klasę. Ta klasa ułatwia renderowanie funkcji stylów na mapie. Może nawet renderować zestawy danych, które mają właściwości stylu i zestawy danych, które zawierają mieszane typy geometrii. Prosta warstwa danych uzyskuje tę funkcję przez zapakowanie wielu warstw renderingu i użycie wyrażeń stylów. Wyrażenia stylu wyszukują wspólne właściwości stylu funkcji w tych warstwach opakowanych. `atlas.io.read` Funkcja i `atlas.io.write` funkcja używają tych właściwości do odczytu i zapisu stylów do obsługiwanego formatu pliku. Po dodaniu właściwości do obsługiwanego formatu pliku można użyć tego pliku do różnych celów. Na przykład plik może służyć do wyświetlania funkcji stylów na mapie.
 
-Oprócz funkcji stylizacji, `SimpleDataLayer` zapewnia wbudowaną funkcję wyskakującego z szablonem wyskakującym okienkiem. Okno podręczne jest wyświetlane po kliknięciu obiektu. Domyślna funkcja wyskakujących okienka może być wyłączona, jeśli to możliwe. Ta warstwa obsługuje również dane klastrowane. Po kliknięciu klastra mapa powiększy klaster i rozszerzy go na poszczególne punkty i podklastery.
+Oprócz funkcji stylów, `SimpleDataLayer` zapewnia wbudowaną funkcję podręczną z szablonem podręcznym. Zostanie wyświetlone okno podręczne, gdy zostanie kliknięta funkcja. W razie potrzeby można wyłączyć domyślną funkcję podręczną. Ta warstwa obsługuje również dane klastrowane. Po kliknięciu klastra mapa zostanie powiększana do klastra i rozwinie do poszczególnych punktów i klastrów.
 
-Klasa `SimpleDataLayer` jest przeznaczona do użycia w dużych zestawach danych z wieloma typami geometrii i wieloma stylami zastosowanymi w elementów. Gdy jest używana, ta klasa dodaje obciążenie sześciu warstw zawierających wyrażenia stylu. Tak więc zdążyń, gdy bardziej efektywne jest użycie podstawowych warstw renderowania. Na przykład użyj warstwy rdzenia, aby renderować kilka typów geometrii i kilka stylów na elementów
+`SimpleDataLayer` Klasa jest przeznaczona do użycia w dużych zestawach danych z wieloma typami geometrii i wieloma stylami zastosowanymi w tych funkcjach. Gdy jest używana, ta klasa dodaje narzuty na sześć warstw zawierających wyrażenia stylów. Dlatego istnieją przypadki, w których bardziej wydajne jest korzystanie z podstawowych warstw renderowania. Na przykład użyj warstwy Podstawowa do renderowania kilku typów geometrii i kilku stylów dla funkcji
 
 ## <a name="use-a-simple-data-layer"></a>Korzystanie z prostej warstwy danych
 
-Klasa `SimpleDataLayer` jest używana podobnie jak inne warstwy renderowania są używane. Poniższy kod pokazuje, jak używać prostej warstwy danych na mapie:
+`SimpleDataLayer` Klasa jest używana, podobnie jak inne warstwy renderowania. Poniższy kod pokazuje, jak używać prostej warstwy danych na mapie:
 
 ```javascript
 //Create a data source and add it to the map.
@@ -37,7 +37,7 @@ var layer = new atlas.layer.SimpleDataLayer(datasource);
 map.layers.add(layer);
 ```
 
-Dodaj funkcje do źródła danych. Następnie prosta warstwa danych dowiesz się, jak najlepiej renderować obiekty. Style poszczególnych operacji można ustawić jako właściwości operacji. Poniższy kod przedstawia funkcję punktu GeoJSON z właściwością ustawioną `color` na `red`. 
+Dodaj funkcje do źródła danych. Następnie prosta warstwa danych będzie dowiedzieć się, jak najlepiej renderować funkcje. Style dla poszczególnych funkcji można ustawić jako właściwości funkcji. Poniższy kod pokazuje funkcję punktu GEOJSON z `color` właściwością ustawioną na. `red` 
 
 ```json
 {
@@ -52,58 +52,58 @@ Dodaj funkcje do źródła danych. Następnie prosta warstwa danych dowiesz się
 }
 ```
 
-Poniższy kod renderuje powyższą funkcję punktu przy użyciu prostej warstwy danych. 
+Poniższy kod renderuje funkcję powyższych punktów przy użyciu prostej warstwy danych. 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Korzystanie z prostej warstwy danych" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true"> Zobacz pióro <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Użyj prostej warstwy danych</a> przez usługi Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na funkcji <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Korzystanie z prostej warstwy danych" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true"> Zobacz, jak <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>korzystać z prostej warstwy danych</a> według Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Prawdziwa moc prostej warstwy danych pojawia się, gdy:
+Rzeczywista moc prostej warstwy danych to:
 
-- Istnieje kilka różnych typów funkcji w źródle danych; Lub
-- Funkcje w zestawie danych mają kilka właściwości stylu indywidualnie ustawione na nich; Lub
-- Nie masz pewności, co dokładnie zawiera zestaw danych.
+- Istnieje kilka różnych typów funkcji w źródle danych. oraz
+- Funkcje w zestawie danych mają ustawione na nich kilka właściwości stylu; oraz
+- Nie masz pewności, co zestaw danych dokładnie zawiera.
 
-Na przykład podczas analizowania danych XML można nie znać dokładnych stylów i typów geometrii obiektów. W poniższym przykładzie przedstawiono moc prostej warstwy danych, renderując funkcje pliku KML. Pokazuje również różne opcje, które zapewnia klasa warstwy proste dane.
+Na przykład podczas analizowania strumieniowych źródeł danych XML nie można znać dokładnych stylów i typów geometrii funkcji. Poniższy przykład pokazuje moc prostej warstwy danych przez renderowanie funkcji pliku KML. Przedstawiono w nim również różne opcje zapewniane przez klasę prostej warstwy danych.
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Proste opcje warstwy danych" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Zobacz <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>opcje warstwy danych</a> Pióro proste przez Usługi Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height="700" style="width: 100%;" scrolling="no" title="Proste Opcje warstwy danych" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>opcjami proste warstwy danych</a> piórem Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 > [!NOTE]
-> Ta prosta warstwa danych używa klasy [szablonu wyskakujących](map-add-popup.md#add-popup-templates-to-the-map) do wyświetlania odnośników KML lub właściwości funkcji jako tabeli. Domyślnie cała zawartość renderowana w wyskakującym okienku zostanie włączona w trybie piaskownicy elementu iframe jako funkcja zabezpieczeń. Istnieją jednak ograniczenia:
+> Ta prosta warstwa danych używa klasy [szablonu popup](map-add-popup.md#add-popup-templates-to-the-map) do wyświetlania KML dymków lub właściwości funkcji w postaci tabeli. Domyślnie cała zawartość renderowana w oknie podręcznym zostanie przeizolowana wewnątrz elementu IFRAME jako funkcja zabezpieczeń. Istnieją jednak ograniczenia:
 >
-> - Wszystkie skrypty, formularze, blokada wskaźnika i górna funkcja nawigacji są wyłączone. Linki mogą otwierać się na nowej karcie po kliknięciu. 
-> - Starsze przeglądarki, które nie `srcdoc` obsługują parametru w elementów iframe, będą ograniczone do renderowania niewielkiej ilości zawartości.
+> - Wszystkie skrypty, formularze, blokada wskaźnika i najważniejsze funkcje nawigacji są wyłączone. Po kliknięciu łącza mogą zostać otwarte na nowej karcie. 
+> - Starsze przeglądarki, które nie obsługują `srcdoc` parametru w iframeach, będą ograniczone do renderowania niewielkiej ilości zawartości.
 > 
-> Jeśli ufasz, że dane są ładowane do wyskakujących okienk i potencjalnie chcesz, aby te skrypty ładowane do wyskakujących okienka mogły uzyskać dostęp do aplikacji, możesz wyłączyć to, ustawiając opcję szablonów wyskakujących `sandboxContent` na false. 
+> Jeśli ufasz danych ładowanych do okien podręcznych i potencjalnie chcesz, aby te skrypty były ładowane do okien podręcznych, można je wyłączyć, ustawiając opcję szablony `sandboxContent` wyskakujące na false. 
 
 ## <a name="default-supported-style-properties"></a>Domyślne obsługiwane właściwości stylu
 
-Jak wspomniano wcześniej, prosta warstwa danych zawija kilka warstw renderowania rdzenia: bąbelk, symbol, linię, wielokąt i wyciągnięty wielokąt. Następnie używa wyrażeń do wyszukiwania prawidłowych właściwości stylu dla poszczególnych obiektów.
+Jak wspomniano wcześniej, prosta warstwa danych otacza kilka podstawowych warstw renderowania: bąbelki, symbole, linie, Wielokąt i wytłaczany wielokąt. Następnie używa wyrażeń do wyszukiwania prawidłowych właściwości stylu dla poszczególnych funkcji.
 
-Usługi Azure Maps i Właściwości stylu GitHub to dwa główne zestawy obsługiwanych nazw właściwości. Większość nazw właściwości różnych opcji warstwy map azure są obsługiwane jako właściwości stylu obiektów w prostej warstwie danych. Wyrażenia zostały dodane do niektórych opcji warstwy do obsługi nazw właściwości stylu, które są powszechnie używane przez GitHub. Te nazwy właściwości są definiowane przez [obsługę map GeoJSON usługi GitHub](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github)i są używane do stylizacji plików GeoJSON, które są przechowywane i renderowane w ramach platformy. Wszystkie właściwości stylizowania gitHub są obsługiwane w prostej `marker-symbol` warstwie danych, z wyjątkiem właściwości stylizujących.
+Azure Maps i właściwości stylu GitHub to dwa główne zestawy obsługiwanych nazw właściwości. Większość nazw właściwości różnych opcji warstwy usługi Azure Maps jest obsługiwana jako właściwości stylu funkcji w prostej warstwie danych. Do niektórych opcji warstwy dodano wyrażenia obsługujące nazwy właściwości stylu, które są często używane przez witrynę GitHub. Te nazwy właściwości są definiowane przez [obsługę mapy GEOjson usługi GitHub](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github)i są używane do stylu plików GeoJSON, które są przechowywane i renderowane na platformie. Wszystkie właściwości stylu usługi GitHub są obsługiwane w prostej warstwie danych, z wyjątkiem właściwości `marker-symbol` stylów.
 
-Jeśli czytelnik natknie się na właściwości mniej wspólnego stylu, przekonwertuje go do najbliższej właściwości stylu usługi Azure Maps. Ponadto domyślne wyrażenia stylu można zastąpić za pomocą `getLayers` funkcji prostej warstwy danych i aktualizując opcje na dowolnej warstwie.
+Jeśli czytnik znajduje się w obrębie właściwości o mniej typowym stylu, zostanie przekonwertowany na najbliższy Azure Maps Właściwość stylu. Dodatkowo wyrażenia stylu domyślnego można przesłonić, używając `getLayers` funkcji prostej warstwy danych i aktualizując opcje na dowolnej z warstw.
 
-W poniższych sekcjach znajdują się szczegółowe informacje na temat domyślnych właściwości stylu obsługiwanych przez prostą warstwę danych. Kolejność obsługiwanej nazwy właściwości jest również priorytetem właściwości. Jeśli dla tej samej opcji warstwy zdefiniowano dwie właściwości stylu, pierwsza z nich ma wyższy priorytet.
+Poniższe sekcje zawierają szczegółowe informacje o właściwościach domyślnych stylów, które są obsługiwane przez prostą warstwę danych. Kolejność nazwy obsługiwanej właściwości jest również priorytetem właściwości. Jeśli zdefiniowano dwie właściwości stylu dla tej samej opcji warstwy, pierwsza z nich na liście ma wyższy priorytet.
 
-### <a name="bubble-layer-style-properties"></a>Właściwości stylu warstwy bąbelkowej
+### <a name="bubble-layer-style-properties"></a>Właściwości bąbelków warstwowych
 
-Jeśli obiekt jest `Point` lub `MultiPoint`, a funkcja nie `image` ma właściwości, która będzie używana jako niestandardowa ikona do renderowania punktu `BubbleLayer`jako symbolu, funkcja zostanie renderowana za pomocą pliku .
+`Point` Jeśli funkcja jest lub `MultiPoint`a, a funkcja nie ma `image` właściwości, która mogłaby być używana jako ikona niestandardowa, aby renderować punkt jako symbol, funkcja będzie renderowana przy użyciu. `BubbleLayer`
 
-| Warstwa, opcja | Nazwa(y) obsługiwanych właściwości | Wartość domyślna |
+| Opcja warstwy | Obsługiwane nazwy właściwości | Wartość domyślna |
 |--------------|----------------------------|---------------|
 | `color` | `color`, `marker-color` | `'#1A73AA'` |
-| `radius` | `size`<sup>1</sup> `marker-size`, <sup>2</sup>, `scale` <sup>1</sup> | `8` |
+| `radius` | `size`<sup>1</sup>, `marker-size` <sup>2</sup>, `scale` <sup>1</sup> | `8` |
 | `strokeColor` | `strokeColor`, `stroke` | `'#FFFFFF'` |
 
-\[1\] `size` Wartości `scale` i wartości są uważane za wartości skalarne i zostaną pomnożone przez`8`
+\[1\] wartości `size` i `scale` są uznawane za wartości skalarne i zostaną pomnożone przez`8`
 
-\[2\] Jeśli opcja `marker-size` GitHub jest określona, następujące wartości będą używane dla promienia.
+\[2\] Jeśli opcja GitHub `marker-size` jest określona, dla usługi RADIUS będą używane następujące wartości.
 
 | Rozmiar znacznika | Promień |
 |-------------|--------|
@@ -111,19 +111,19 @@ Jeśli obiekt jest `Point` lub `MultiPoint`, a funkcja nie `image` ma właściwo
 | `medium`    | `8`    |
 | `large`     | `12`   |
 
-Klastry są również renderowane przy użyciu warstwy bąbelkowej. Domyślnie promień klastra jest `16`ustawiony na . Kolor klastra różni się w zależności od liczby punktów w klastrze, zgodnie z poniższą definicją:
+Klastry są również renderowane przy użyciu warstwy bąbelki. Domyślnie promień klastra jest ustawiony na `16`. Kolor klastra różni się w zależności od liczby punktów w klastrze, zgodnie z definicją poniżej:
 
 | Liczba punktów | Kolor    |
 |-------------|----------|
 | &gt;= 100   | `red`    |
 | &gt;= 10    | `yellow` |
-| &lt;10     | `green`  |
+| &lt;dziesięć     | `green`  |
 
 ### <a name="symbol-style-properties"></a>Właściwości stylu symbolu
 
-Jeśli obiekt jest `Point` lub `MultiPoint`lub , i `image` funkcja i ma właściwość, która będzie używana jako ikona niestandardowa do `SymbolLayer`renderowania punktu jako symbol, funkcja zostanie renderowana za pomocą .
+`Point` Jeśli funkcja jest `MultiPoint`lub a i ma `image` właściwość, która byłaby używana jako ikona niestandardowa, aby renderować punkt jako symbol, funkcja będzie renderowana przy użyciu. `SymbolLayer`
 
-| Warstwa, opcja | Nazwa(y) obsługiwanych właściwości | Wartość domyślna |
+| Opcja warstwy | Obsługiwane nazwy właściwości | Wartość domyślna |
 |--------------|----------------------------|---------------|
 | `image` | `image` | ``none`` |
 | `size` | `size`, `marker-size` <sup>1</sup> | `1` |
@@ -131,7 +131,7 @@ Jeśli obiekt jest `Point` lub `MultiPoint`lub , i `image` funkcja i ma właści
 | `offset` | `offset` | `[0, 0]` |
 | `anchor` | `anchor` | `'bottom'` |
 
-\[1\] Jeśli określono `marker-size` opcję GitHub, dla opcji rozmiaru ikony zostaną użyte następujące wartości.
+\[1\] jeśli została określona `marker-size` opcja GitHub, dla opcji rozmiar ikony zostaną użyte następujące wartości.
 
 | Rozmiar znacznika | Rozmiar symboli |
 |-------------|-------------|
@@ -139,13 +139,13 @@ Jeśli obiekt jest `Point` lub `MultiPoint`lub , i `image` funkcja i ma właści
 | `medium`    | `1`         |
 | `large`     | `2`         |
 
-Jeśli funkcja punktu jest klastrem, `point_count_abbreviated` właściwość będzie renderowana jako etykieta tekstowa. Żaden obraz nie zostanie renderowany.
+Jeśli punkt jest klastrem, `point_count_abbreviated` właściwość będzie renderowana jako etykieta tekstowa. Obraz nie będzie renderowany.
 
 ### <a name="line-style-properties"></a>Właściwości stylu linii
 
-Jeśli funkcja jest `LineString` `MultiLineString`, `Polygon`, `MultiPolygon`, lub , to funkcja `LineLayer`zostanie renderowana za pomocą .
+Jeśli funkcja jest `LineString`, `MultiLineString`, `Polygon`, lub `MultiPolygon`, funkcja będzie renderowana przy użyciu. `LineLayer`
 
-| Warstwa, opcja | Nazwa(y) obsługiwanych właściwości | Wartość domyślna |
+| Opcja warstwy | Obsługiwane nazwy właściwości | Wartość domyślna |
 |--------------|----------------------------|---------------|
 | `strokeColor` | `strokeColor`, `stroke` | `'#1E90FF'` |
 | `strokeWidth` | `strokeWidth`, `stroke-width`, `stroke-thickness` | `3` |
@@ -153,18 +153,18 @@ Jeśli funkcja jest `LineString` `MultiLineString`, `Polygon`, `MultiPolygon`, l
 
 ### <a name="polygon-style-properties"></a>Właściwości stylu wielokąta
 
-Jeśli funkcja jest `Polygon` lub `MultiPolygon`a , a funkcja albo `height` nie ma `height` właściwości lub właściwość wynosi zero, `PolygonLayer`funkcja zostanie renderowana za pomocą .
+Jeśli funkcja jest `Polygon` `MultiPolygon`lub a, a funkcja nie ma `height` właściwości lub `height` właściwość jest równa zero, funkcja będzie renderowana przy użyciu. `PolygonLayer`
 
-| Warstwa, opcja | Nazwa(y) obsługiwanych właściwości | Wartość domyślna |
+| Opcja warstwy | Obsługiwane nazwy właściwości | Wartość domyślna |
 |--------------|----------------------------|---------------|
 | `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
 | `fillOpacity` | `fillOpacity`, '`fill-opacity` | `0.5` |
 
-### <a name="extruded-polygon-style-properties"></a>Właściwości stylu trędowatego wielokąta
+### <a name="extruded-polygon-style-properties"></a>Właściwości wyciągania stylu wielokątu
 
-Jeśli funkcja jest `Polygon` lub `MultiPolygon`, i `height` ma właściwość o wartości większej niż 0, `PolygonExtrusionLayer`funkcja zostanie renderowana za pomocą .
+`Polygon` Jeśli funkcja jest `MultiPolygon`lub a i ma `height` właściwość o wartości większej niż 0, funkcja będzie renderowana przy użyciu. `PolygonExtrusionLayer`
 
-| Warstwa, opcja | Nazwa(y) obsługiwanych właściwości | Wartość domyślna |
+| Opcja warstwy | Obsługiwane nazwy właściwości | Wartość domyślna |
 |--------------|----------------------------|---------------|
 | `base` | `base` | `0` |
 | `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
@@ -172,27 +172,27 @@ Jeśli funkcja jest `Polygon` lub `MultiPolygon`, i `height` ma właściwość o
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o klasach i metodach użytych w tym artykule:
+Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Warstwa simpledata](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
+> [SimpleDataLayer](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
 
 > [!div class="nextstepaction"]
-> [SimpleDataLayerOptions (Proste warstwy danych)](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
+> [SimpleDataLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
 
-Aby uzyskać więcej przykładów kodu do dodania do map, zobacz następujące artykuły:
-
-> [!div class="nextstepaction"]
-> [Odczytywanie i zapisywanie danych przestrzennych](spatial-io-read-write-spatial-data.md)
+Zapoznaj się z następującymi artykułami, aby uzyskać więcej przykładów kodu do dodania do Twoich map:
 
 > [!div class="nextstepaction"]
-> [Dodawanie warstwy mapy OGC](spatial-io-add-ogc-map-layer.md)
+> [Odczytuj i zapisuj dane przestrzenne](spatial-io-read-write-spatial-data.md)
 
 > [!div class="nextstepaction"]
-> [Łączenie się z usługą WFS](spatial-io-connect-wfs-service.md)
+> [Dodaj warstwę mapy OGC](spatial-io-add-ogc-map-layer.md)
 
 > [!div class="nextstepaction"]
-> [Wykorzystanie podstawowych operacji](spatial-io-core-operations.md)
+> [Nawiązywanie połączenia z usługą WFS](spatial-io-connect-wfs-service.md)
+
+> [!div class="nextstepaction"]
+> [Korzystanie z podstawowych operacji](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
 > [Szczegóły obsługiwanego formatu danych](spatial-io-supported-data-format-details.md)

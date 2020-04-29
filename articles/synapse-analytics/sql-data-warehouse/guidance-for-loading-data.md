@@ -1,6 +1,6 @@
 ---
-title: Najważniejsze wskazówki dotyczące ładowania danych dla puli SQL synapse
-description: Zalecenia i optymalizacje wydajności do ładowania danych przy użyciu puli SYNAPSE SQL.
+title: Najlepsze rozwiązania dotyczące ładowania danych dla puli SQL Synapse
+description: Zalecenia i optymalizacje wydajności służące do ładowania danych przy użyciu puli SQL Synapse.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,23 +12,23 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: e170a789727fb0de36705895245cc638d30ee3d7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745496"
 ---
-# <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Najważniejsze wskazówki dotyczące ładowania danych przy użyciu puli synapse SQL
+# <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Najlepsze rozwiązania dotyczące ładowania danych przy użyciu puli SQL Synapse
 
-W tym artykule dowiesz się zalecenia i optymalizacje wydajności do ładowania danych przy użyciu puli SQL.
+W tym artykule przedstawiono zalecenia i optymalizacje wydajności dotyczące ładowania danych przy użyciu puli SQL.
 
 ## <a name="preparing-data-in-azure-storage"></a>Przygotowywanie danych w usłudze Azure Storage
 
-Aby zminimalizować opóźnienia, współlokuj warstwę magazynu i pulę SQL.
+Aby zminimalizować opóźnienie, należy rozszukać warstwę magazynu i pulę SQL.
 
 Podczas eksportowania danych do formatu plików ORC mogą pojawić się błędy braku pamięci Java, jeśli w danych znajdują się duże kolumny tekstu. Aby obejść to ograniczenie, można wyeksportować tylko podzestaw wszystkich kolumn.
 
-PolyBase nie może załadować wierszy, które mają więcej niż 1 000 000 bajtów danych. Dane umieszczane w plikach tekstowych w usłudze Azure Blob Storage lub Azure Data Lake Store muszą zawierać mniej niż 1 000 000 bajtów danych. Ograniczenie liczby bajtów jest niezależne od zdefiniowanego schematu tabeli.
+Nie można załadować wierszy, które mają więcej niż 1 000 000 bajtów danych. Dane umieszczane w plikach tekstowych w usłudze Azure Blob Storage lub Azure Data Lake Store muszą zawierać mniej niż 1 000 000 bajtów danych. Ograniczenie liczby bajtów jest niezależne od zdefiniowanego schematu tabeli.
 
 Różne typy plików mają różną charakterystykę wydajności. Najszybsze ładowanie zapewnia użycie skompresowanych rozdzielanych plików tekstowych. Różnica w wydajności między kodowaniem UTF-8 a UTF-16 jest minimalna.
 
@@ -36,9 +36,9 @@ Duże pliki skompresowane można podzielić na mniejsze.
 
 ## <a name="running-loads-with-enough-compute"></a>Uruchamianie zadań ładowania przy użyciu wystarczających zasobów obliczeniowych
 
-Aby uzyskać większą szybkość ładowania, uruchamiaj tylko jedno zadanie ładowania naraz. Jeśli nie jest to możliwe, uruchom minimalną liczbę obciążeń jednocześnie. Jeśli oczekujesz zadania ładowania dużych, należy rozważyć skalowanie puli SQL przed obciążeniem.
+Aby uzyskać większą szybkość ładowania, uruchamiaj tylko jedno zadanie ładowania naraz. Jeśli to nie jest możliwe, należy uruchomić minimalną liczbę obciążeń jednocześnie. Jeśli spodziewasz się dużego zadania ładowania, rozważ przeskalowanie puli SQL przed obciążeniem.
 
-Aby uruchamiać zadania ładowania przy użyciu odpowiednich zasobów obliczeniowych, utwórz użytkowników ładujących na potrzeby uruchamiania ładowania. Przypisz każdego użytkownika ładującego do określonej klasy zasobów lub grupy obciążenia. Aby uruchomić obciążenie, zaloguj się jako jeden z użytkowników ładowania, a następnie uruchom obciążenie. Ładowanie zostanie uruchomione przy użyciu klasy zasobów przypisanej do użytkownika.  
+Aby uruchamiać zadania ładowania przy użyciu odpowiednich zasobów obliczeniowych, utwórz użytkowników ładujących na potrzeby uruchamiania ładowania. Przypisz każdego użytkownika ładującego do określonej klasy zasobów lub grupy obciążeń. Aby uruchomić ładowanie, zaloguj się jako jeden z użytkowników ładujących, a następnie uruchom obciążenie. Ładowanie zostanie uruchomione przy użyciu klasy zasobów przypisanej do użytkownika.  
 
 > [!NOTE]
 > Jest to prostsza metoda niż zmienianie klasy zasobów użytkownika odpowiednio do bieżących potrzeb.
@@ -52,7 +52,7 @@ Ten przykład umożliwia utworzenie użytkownika ładującego dla klasy zasobów
    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Połącz się z pulą SQL i utwórz użytkownika. Poniższy kod zakłada, że masz połączenie z bazą danych o nazwie mySampleDataWarehouse. Pokazuje, jak utworzyć użytkownika o nazwie LoaderRC20 i daje uprawnienia kontroli użytkownika w bazie danych. Następnie dodaje użytkownika jako członka roli bazy danych staticrc20.  
+Nawiąż połączenie z pulą SQL i Utwórz użytkownika. Poniższy kod założono, że masz połączenie z bazą danych o nazwie mySampleDataWarehouse. Przedstawiono w nim sposób tworzenia użytkownika o nazwie LoaderRC20 i nadaje użytkownikowi uprawnienia do kontroli nad bazą danych. Następnie dodaje użytkownika jako członka roli bazy danych staticrc20.  
 
 ```sql
    -- Connect to the database
@@ -61,15 +61,15 @@ Połącz się z pulą SQL i utwórz użytkownika. Poniższy kod zakłada, że ma
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-Aby uruchomić obciążenie z zasobami dla klas zasobów staticRC20, zaloguj się jako LoaderRC20 i uruchom obciążenie.
+Aby uruchomić obciążenie za pomocą zasobów dla klas zasobów staticRC20, zaloguj się jako LoaderRC20 i uruchom obciążenie.
 
-Lepszym rozwiązaniem jest uruchamianie ładowania przy użyciu statycznych, a nie dynamicznych klas zasobów. Za pomocą klas zasobów statycznych gwarantuje te same zasoby, niezależnie od [jednostek magazynu danych](what-is-a-data-warehouse-unit-dwu-cdwu.md). W przypadku użycia dynamicznej klasy zasobów zasoby różnią się w zależności od poziomu usług.
+Lepszym rozwiązaniem jest uruchamianie ładowania przy użyciu statycznych, a nie dynamicznych klas zasobów. Korzystanie z klas zasobów statycznych gwarantuje te same zasoby, niezależnie od [jednostek magazynu danych](what-is-a-data-warehouse-unit-dwu-cdwu.md). W przypadku użycia dynamicznej klasy zasobów zasoby różnią się w zależności od poziomu usług.
 
 W przypadku dynamicznych klas zasobów niższy poziom usług oznacza, że prawdopodobnie konieczne będzie użycie większej klasy zasobów na potrzeby użytkownika ładującego.
 
 ## <a name="allowing-multiple-users-to-load"></a>Umożliwianie ładowania danych wielu użytkownikom
 
-Często istnieje potrzeba, aby wielu użytkowników załadować dane do puli SQL. Ładowanie za pomocą [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) wymaga uprawnień CONTROL bazy danych.  Uprawnienia kontrolne (CONTROL) zapewniają dostęp z prawem kontroli do wszystkich schematów.
+Często istnieje potrzeba, aby wielu użytkowników ładowała dane do puli SQL. Ładowanie przy użyciu [CREATE TABLE jako Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) wymaga uprawnień kontroli bazy danych.  Uprawnienia kontrolne (CONTROL) zapewniają dostęp z prawem kontroli do wszystkich schematów.
 
 Być może nie chcesz, aby wszyscy użytkownicy, którzy wykonują zadania ładowania, mieli dostęp z prawem kontroli do wszystkich schematów. Aby ograniczyć uprawnienia, użyj instrukcji DENY CONTROL.
 
@@ -80,13 +80,13 @@ Rozważmy na przykład dwa schematy bazy danych, schema_A dla działu A i schema
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
-User_A i user_B są teraz zablokowane ze schematu innego departamentu.
+User_A i user_B są teraz zablokowane w schemacie innego działu.
 
 ## <a name="loading-to-a-staging-table"></a>Ładowanie do tabeli przejściowej
 
-Aby osiągnąć najszybszą szybkość ładowania dla przenoszenia danych do tabeli puli SQL, załaduj dane do tabeli przemieszczania.  Zdefiniuj tabelę przejściową jako stertę i użyj opcji dystrybucji z działaniem okrężnym.
+Aby osiągnąć najszybszą szybkość ładowania do przenoszenia danych do tabeli puli SQL, Załaduj dane do tabeli przejściowej.  Zdefiniuj tabelę przejściową jako stertę i użyj opcji dystrybucji z działaniem okrężnym.
 
-Należy wziąć pod uwagę, że ładowanie jest zwykle procesem dwuetapowym, w którym najpierw można załadować do tabeli przemieszczania, a następnie wstawić dane do produkcyjnej tabeli puli SQL. Jeśli tabela produkcyjna korzysta z dystrybucji skrótów, łączny czas ładowania i wstawiania może być krótszy w przypadku zdefiniowania tabeli przejściowej za pomocą dystrybucji skrótów.
+Należy wziąć pod uwagę, że ładowanie jest zwykle procesem dwuetapowym, w którym należy najpierw załadować do tabeli przejściowej, a następnie wstawić dane do tabeli produkcyjnej puli SQL. Jeśli tabela produkcyjna korzysta z dystrybucji skrótów, łączny czas ładowania i wstawiania może być krótszy w przypadku zdefiniowania tabeli przejściowej za pomocą dystrybucji skrótów.
 
 Ładowanie do tabeli przejściowej trwa dłużej, ale drugi etap wstawiania wierszy do tabeli produkcyjnej nie powoduje przenoszenia danych między dystrybucjami.
 
@@ -94,33 +94,33 @@ Należy wziąć pod uwagę, że ładowanie jest zwykle procesem dwuetapowym, w k
 
 Indeksy magazynu kolumn wymagają dużej ilości pamięci w celu skompresowania danych w grupy wierszy wysokiej jakości. Najlepsza wydajność kompresji i indeksu występuje wówczas, gdy indeks magazynu kolumn kompresuje maksymalnie 1 048 576 wierszy w każdej grupie wierszy.
 
-Jeśli pamięci jest za mało, indeks magazynu kolumn może nie osiągać maksymalnej szybkości kompresji. W tym scenariuszu z kolei efekty wydajności kwerendy. Aby zapoznać się ze szczegółowymi informacjami, zobacz [Columnstore memory optimizations (Optymalizowanie pamięci na potrzeby magazynu kolumn)](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Jeśli pamięci jest za mało, indeks magazynu kolumn może nie osiągać maksymalnej szybkości kompresji. W tym scenariuszu wyniki zapytania są skutkiem. Aby zapoznać się ze szczegółowymi informacjami, zobacz [Columnstore memory optimizations (Optymalizowanie pamięci na potrzeby magazynu kolumn)](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 - Aby mieć pewność, że użytkownik ładujący ma wystarczająco dużo pamięci do uzyskania maksymalnej szybkości kompresji, korzystaj z użytkowników ładujących będących członkami średnich lub dużych klas zasobów.
 - Załaduj wystarczającą liczbę wierszy, aby całkowicie wypełnić nowe grupy wierszy. Podczas ładowania zbiorczego każde 1 048 576 wierszy jest kompresowanych bezpośrednio do magazynu kolumn jako pełna grupa wierszy. W przypadku zadań ładowania z liczbą wierszy mniejszą niż 102 400 wiersze są przekazywane do magazynu delta, gdzie są przechowywane w indeksie b-drzewa.
 
 > [!NOTE]
-> Jeśli załadować zbyt mało wierszy, mogą one wszystkie trasy do deltastore i nie dostać skompresowane natychmiast do formatu magazynu kolumn.
+> Jeśli załadujesz zbyt mało wierszy, wszystkie trasy do magazynu Delta i nie zostaną bezpośrednio skompresowane w formacie magazynu kolumn.
 
-## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Zwiększ rozmiar partii podczas korzystania z interfejsu API SqLBulkCopy lub bcp
+## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Zwiększ rozmiar wsadu podczas korzystania z interfejsu API SqLBulkCopy lub BCP
 
-Ładowanie z PolyBase zapewni najwyższą przepływność z puli SQL. Jeśli nie można użyć PolyBase do załadowania i należy użyć [Interfejsu API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) lub [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), należy rozważyć zwiększenie rozmiaru partii dla lepszej przepływności.
+Ładowanie za pomocą bazy danych Base zapewnia najwyższą przepływność przy użyciu puli SQL. Jeśli nie można użyć bazy Base do załadowania i należy użyć [interfejsu API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) lub [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), należy rozważyć zwiększenie rozmiaru wsadu w celu uzyskania lepszej przepływności.
 
 > [!TIP]
-> Rozmiar partii od 100 K do 1M wierszy jest zalecaną linią bazową do określania optymalnej pojemności wielkości partii.
+> Rozmiar wsadu między 100 K a 1M wierszy jest zalecaną linią bazową do określania optymalnej pojemności wsadu.
 
 ## <a name="handling-loading-failures"></a>Postępowanie w przypadku błędów ładowania
 
 Ładowanie z użyciem tabeli zewnętrznej może zakończyć się wystąpieniem błędu *Zapytanie zostało przerwane — osiągnięto maksymalny próg odrzuceń podczas odczytu ze źródła zewnętrznego*. Ten komunikat wskazuje, że dane zewnętrzne zawierają zanieczyszczone rekordy.
 
-Rekord danych jest uważany za za zabrudzony, jeśli spełnia jeden z następujących warunków:
+Rekord danych jest traktowany jako zanieczyszczony, jeśli spełnia jeden z następujących warunków:
 
 - Typy danych i liczba kolumn nie są zgodne z definicjami kolumn tabeli zewnętrznej.
-- Dane nie są zgodne z określonym formatem pliku zewnętrznego.
+- Dane nie są zgodne z określonym zewnętrznym formatem pliku.
 
 Aby poprawić zanieczyszczone rekordy, upewnij się, że definicje tabeli zewnętrznej i zewnętrznego formatu pliku są prawidłowe, a dane zewnętrzne są zgodne z tymi definicjami.
 
-Jeśli podzbiór rekordów danych zewnętrznych jest zabrudzony, można odrzucić te rekordy dla kwerend, korzystając z opcji odrzucenia w [programie CREATE EXTERNAL TABLE (Transact-SQL).](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Jeśli podzestaw rekordów danych zewnętrznych jest zanieczyszczony, możesz odrzucić te rekordy w zapytaniach, używając opcji odrzucania w [instrukcji CREATE External Table (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="inserting-data-into-a-production-table"></a>Wstawianie danych do tabeli produkcyjnej
 
@@ -130,9 +130,9 @@ Jeśli w ciągu dnia wykonujesz kilka tysięcy lub więcej wstawień, utwórz pa
 
 ## <a name="creating-statistics-after-the-load"></a>Tworzenie statystyk po załadowaniu
 
-Aby poprawić wydajność zapytań, należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu danych, a następnie po każdej istotnej zmianie danych. Tworzenie statystyk można wykonać ręcznie lub włączyć [AUTO_CREATE_STATISTICS](sql-data-warehouse-tables-statistics.md#automatic-creation-of-statistic).
+Aby poprawić wydajność zapytań, należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu danych, a następnie po każdej istotnej zmianie danych. Tworzenie statystyk można wykonać ręcznie lub można włączyć [AUTO_CREATE_STATISTICS](sql-data-warehouse-tables-statistics.md#automatic-creation-of-statistic).
 
-Aby zapoznać się ze szczegółowym opisem statystyk, zobacz temat [Statystyki](sql-data-warehouse-tables-statistics.md). W poniższym przykładzie pokazano, jak ręcznie tworzyć statystyki na pięciu kolumnach tabeli Customer_Speed.
+Aby zapoznać się ze szczegółowym opisem statystyk, zobacz temat [Statystyki](sql-data-warehouse-tables-statistics.md). Poniższy przykład pokazuje, jak ręcznie utworzyć statystyki dla pięciu kolumn tabeli Customer_Speed.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);

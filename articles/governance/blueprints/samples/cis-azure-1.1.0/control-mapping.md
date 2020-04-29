@@ -1,462 +1,462 @@
 ---
-title: Przykładowe kontrole planu wzorcowego FUNDACJI CIS Microsoft Azure Foundations
-description: Mapowanie rekomendacji przykładowego planu wzorca fundacji FUNDACJI CIS Microsoft Azure do zasad platformy Azure.
+title: Przykłady zakrytych w usłudze CIS Microsoft Azure przykładowe kontrolki testu
+description: Rekomendacja zaleceń usługi CIS Microsoft Azure przykłady planów testów porównawczych do Azure Policy.
 ms.date: 11/04/2019
 ms.topic: sample
 ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80656966"
 ---
-# <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapowanie rekomendacji przykładowego planu wzorca fundacji CIS Microsoft Azure Foundations
+# <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Rekomendacja zaleceń przykładowego planu testów usługi CIS Microsoft Azure
 
-W poniższym artykule opisano, jak plan wzorów porównawczych azure blueprints CIS Microsoft Azure Foundations benchmark jest mapowy na zalecenia dotyczące wzorca fundacji CIS Microsoft Azure Foundations. Aby uzyskać więcej informacji na temat zaleceń, zobacz [wzorzec FUNDACJI CIS Microsoft Azure Foundations](https://www.cisecurity.org/benchmark/azure/).
+W tym artykule szczegółowo przedstawiono sposób, w jaki plan platformy Azure Microsoft Azure fundacje planów testów porównawczych jest mapowany na zaleceń usługi CIS Microsoft Azure dotyczącej testów porównawczych. Aby uzyskać więcej informacji na temat zaleceń, zobacz artykuł dotyczący [testów usług CIS Microsoft Azure](https://www.cisecurity.org/benchmark/azure/).
 
-Poniższe mapowania są do **wnudziwu fundacji FUNDACJI CIS w wersji 1.1.0.** Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do mapowania określonych rekomendacji.
-Wiele mapowanych zaleceń jest implementowanych za pomocą inicjatywy [azure policy.](../../../policy/overview.md) Aby przejrzeć pełną inicjatywę, otwórz **policy** w witrynie Azure portal i wybierz stronę **Definicje.** Następnie znajdź i wybierz ** \[zalecenia inspekcji\] WNP Microsoft Azure Foundations Benchmark w wersji 1.1.0 i wdruż określone rozszerzenia maszyn wirtualnych, aby obsługiwać** wbudowaną inicjatywę zasad dotyczącą wymagań inspekcji.
+Poniżej przedstawiono mapowania zaleceń dotyczących usługi **CIS Microsoft Azure testy porównawcze 1.1.0** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania rekomendacji.
+Liczne zamapowane zalecenia są implementowane z inicjatywy [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz pozycję ** \[wersja zapoznawcza inspekcja w wersji zapoznawczej\] usługi CIS Microsoft Azure 1.1.0** .
 
 > [!IMPORTANT]
-> Każdy formant poniżej jest skojarzony z jedną lub więcej definicji [zasad platformy Azure.](../../../policy/overview.md) Te zasady mogą pomóc w [ocenie zgodności](../../../policy/how-to/get-compliance-data.md) z kontrolą; jednak często nie ma 1:1 lub pełne dopasowanie między formantem i jedną lub więcej zasad. W związku z tym **zgodne** w usłudze Azure Policy odnosi się tylko do samych zasad; nie gwarantuje to pełnej zgodności ze wszystkimi wymaganiami formantu. Ponadto standard zgodności zawiera formanty, które nie są objęte żadnych definicji zasad platformy Azure w tej chwili. W związku z tym zgodność w zasadach platformy Azure jest tylko częściowy widok ogólnego stanu zgodności. Skojarzenia między formantami i definicjami zasad platformy Azure dla tego przykładu planu zgodności mogą się zmieniać wraz z czasem. Aby wyświetlić historię zmian, zobacz [historię zatwierdzania gitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md).
+> Każda kontrolka poniżej jest skojarzona z co najmniej jedną definicją [Azure Policy](../../../policy/overview.md) . Te zasady mogą pomóc w [ocenie zgodności](../../../policy/how-to/get-compliance-data.md) z kontrolką; Niemniej jednak często nie jest to 1:1 ani kompletna zgodność między kontrolką a co najmniej jedną zasadą. W związku z tym **zgodność** w Azure Policy odnosi się tylko do samych zasad; nie gwarantuje to, że jest w pełni zgodne ze wszystkimi wymaganiami formantu. Ponadto Standard zgodności zawiera kontrolki, które nie są obecnie rozwiązywane przez żadną Azure Policy definicje. W związku z tym zgodność w Azure Policy jest tylko częściowym widokiem ogólnego stanu zgodności. Skojarzenia między kontrolkami i definicjami Azure Policy dla tego przykładowego planu zgodności mogą ulec zmianie z upływem czasu. Aby wyświetlić historię zmian, zobacz [historię zatwierdzeń usługi GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md).
 
-## <a name="11-ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>1.1 Upewnij się, że uwierzytelnianie wieloskładnikowe jest włączone dla wszystkich uprzywilejowanych użytkowników
+## <a name="11-ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>1,1 Upewnij się, że uwierzytelnianie wieloskładnikowe jest włączone dla wszystkich uprzywilejowanych użytkowników
 
-Ten plan przypisuje definicje [zasad platformy Azure,](../../../policy/overview.md) które ułatwią monitorowanie, gdy uwierzytelnianie wieloskładnikowe nie jest włączone na uprzywilejowanych kontach usługi Azure Active Directory.
+Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które ułatwiają monitorowanie, kiedy uwierzytelnianie wieloskładnikowe nie jest włączone na kontach Azure Active Directory uprzywilejowanych.
 
-- Usługa MFA powinna być włączona na kontach z uprawnieniami właściciela w ramach subskrypcji
-- Usługa MFA powinna być włączona na kontach z uprawnieniami do zapisu w ramach subskrypcji
+- Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji
+- Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do zapisu w Twojej subskrypcji
 
-## <a name="12-ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>1.2 Upewnij się, że uwierzytelnianie wieloskładnikowe jest włączone dla wszystkich użytkowników nieuprzywilejowanych
+## <a name="12-ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>1,2 Upewnij się, że uwierzytelnianie wieloskładnikowe jest włączone dla wszystkich użytkowników bez uprawnień
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która ułatwia monitorowanie, gdy uwierzytelnianie wieloskładnikowe nie jest włączone na nieuprzywilejowanych kontach usługi Azure Active Directory.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która ułatwia monitorowanie, kiedy uwierzytelnianie wieloskładnikowe nie jest włączone na kontach Azure Active Directory bez uprawnień.
 
-- Usługa MFA powinna być włączona na kontach z uprawnieniami do odczytu w ramach subskrypcji
+- Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do odczytu w ramach subskrypcji
 
-## <a name="13-ensure-that-there-are-no-guest-users"></a>1.3 Upewnienie się, że nie ma użytkowników-gości
+## <a name="13-ensure-that-there-are-no-guest-users"></a>1,3 Upewnij się, że nie ma żadnych użytkowników-Gości
 
-Ten plan przypisuje definicje [zasad platformy Azure,](../../../policy/overview.md) które ułatwią monitorowanie kont gości, które mogą wymagać usunięcia.
+Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które pomagają monitorować konta gościa, które mogą wymagać usunięcia.
 
 - Konta zewnętrzne z uprawnieniami właściciela powinny zostać usunięte z subskrypcji
 - Konta zewnętrzne z uprawnieniami do odczytu powinny zostać usunięte z subskrypcji
 - Konta zewnętrzne z uprawnieniami do zapisu powinny zostać usunięte z subskrypcji
 
-## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 Upewnij się, że nie są tworzone żadne role właściciela subskrypcji niestandardowej
+## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1,23 upewnij się, że nie są tworzone role niestandardowego właściciela subskrypcji
 
-Ten plan przypisuje definicje [zasad platformy Azure,](../../../policy/overview.md) które ułatwią monitorowanie ról właściciela subskrypcji niestandardowej, które mogą wymagać usunięcia.
+Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które pomagają monitorować niestandardowe role właściciela subskrypcji, które mogą wymagać usunięcia.
 
-- Role właściciela subskrypcji niestandardowej nie powinny istnieć
+- Role niestandardowego właściciela subskrypcji nie powinny istnieć
 
-## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2.1 Upewnij się, że wybrano standardową warstwę cenową
+## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2,1 Upewnij się, że wybrano warstwę cenową standardowa
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która ułatwia monitorowanie sieci i maszyn wirtualnych, w których warstwa standardowa usługi Security Center nie jest włączona.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga monitorować sieci i maszyny wirtualne, na których nie włączono warstwy Security Center Standard.
 
- - Należy wybrać standardową warstwę cenową Centrum zabezpieczeń
+ - Należy wybrać Security Center warstwy cenowej Standard
 
-## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2.2 Zapewnienie, aby "automatyczne inicjowanie obsługi administracyjnej agenta monitorującego" było ustawione na "Włączone"
+## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2,2 Upewnij się, że "Automatyczna obsługa administracyjna agenta monitorowania" jest ustawiona na "on"
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić automatyczne inicjowanie obsługi administracyjnej agenta usługi Log Analytics jest włączona.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że Automatyczna obsługa administracyjna agenta log Analytics jest włączona.
 
-- Automatyczne inicjowanie obsługi administracyjnej agenta monitorowania usługi Log Analytics powinno być włączone w ramach subskrypcji
+- Automatyczna obsługa administracyjna agenta monitorowania Log Analytics powinna być włączona w ramach subskrypcji
 
-## <a name="23-ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>2.3 Upewnij się, że domyślne ustawienie zasad ASC "Monitorowanie aktualizacji systemu" nie jest "wyłączone"
+## <a name="23-ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>2,3 Upewnij się, że domyślne ustawienie zasad ASC "Monitoruj aktualizacje systemu" nie jest "wyłączone"
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga upewnić się, że aktualizacje systemu są zainstalowane na maszynach wirtualnych.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że aktualizacje systemu są zainstalowane na maszynach wirtualnych.
 
 - Należy zainstalować aktualizacje systemu na maszynach
 
-## <a name="24-ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>2.4 Upewnij się, że domyślne ustawienie zasad ASC "Monitoruj luki w systemie operacyjnym" nie jest "wyłączone"
+## <a name="24-ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>2,4 Upewnij się, że domyślne ustawienie zasad ASC "Monitoruj luki w zabezpieczeniach systemu operacyjnego" nie jest wyłączone
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która ułatwia monitorowanie nieodprawnionych luk w zabezpieczeniach maszyny wirtualnej.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która ułatwia monitorowanie luk w zabezpieczeniach maszyn wirtualnych unremediated.
 
-- Luki w zabezpieczeniach konfiguracji na komputerach powinny zostać naprawione
+- Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować
 
-## <a name="25-ensure-asc-default-policy-setting-monitor-endpoint-protection-is-not-disabled"></a>2.5 Upewnij się, że domyślne ustawienie zasad ASC "Monitorowanie ochrony punktów końcowych" nie jest "wyłączone"
+## <a name="25-ensure-asc-default-policy-setting-monitor-endpoint-protection-is-not-disabled"></a>2,5 Upewnij się, że domyślne ustawienie zasad ASC "Monitor Endpoint Protection nie jest" wyłączone "
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić ochronę punktów końcowych jest włączona na maszynach wirtualnych.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że program Endpoint Protection jest włączony na maszynach wirtualnych.
 
-- Monitorowanie braku ochrony punktów końcowych w usłudze Azure Security Center
+- Monitoruj brakujące Endpoint Protection w Azure Security Center
 
-## <a name="26-ensure-asc-default-policy-setting-monitor-disk-encryption-is-not-disabled"></a>2.6 Upewnij się, że domyślne ustawienie zasad ASC "Monitorowanie szyfrowania dysku" nie jest "wyłączone"
+## <a name="26-ensure-asc-default-policy-setting-monitor-disk-encryption-is-not-disabled"></a>2,6 Upewnij się, że domyślne ustawienie zasad ASC "Monitoruj szyfrowanie dysków" nie jest wyłączone
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga upewnić się, że dyski maszyny wirtualnej są szyfrowane.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że dyski maszyny wirtualnej są szyfrowane.
 
-- Szyfrowanie dysku powinno być stosowane na maszynach wirtualnych
+- Szyfrowanie dysków powinno być stosowane na maszynach wirtualnych
 
-## <a name="27-ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>2.7 Upewnij się, że domyślne ustawienie zasad ASC "Monitoruj grupy zabezpieczeń sieci" nie jest "wyłączone"
+## <a name="27-ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>2,7 upewnij się, że domyślne ustawienie zasad ASC "monitorowanie sieciowych grup zabezpieczeń" nie jest "wyłączone"
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która ułatwia ochronę maszyn wirtualnych z dostępem do Internetu.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga chronić maszyny wirtualne dostępne z Internetu.
 
-- Reguły sieciowej grupy zabezpieczeń dla maszyn wirtualnych z widokiem na Internet powinny zostać wzmocnione
+- Reguły sieciowej grupy zabezpieczeń dla maszyn wirtualnych mających dostęp do Internetu powinny być zaostrzone
 
-## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2.8 Upewnij się, że domyślne ustawienie zasad ASC "Monitorj zaporę aplikacji sieci Web" nie jest "wyłączone"
+## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2,8 upewnij się, że domyślne ustawienie zasad ASC "Monitoruj zaporę aplikacji sieci Web" nie jest "wyłączone"
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która ułatwia ochronę maszyn wirtualnych z uruchomionymi aplikacjami sieci web.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga chronić maszyny wirtualne z uruchomionymi aplikacjami sieci Web.
 
-- Zasady nsgs dla aplikacji internetowych na IaaS powinny być zaostrzone
+- Reguły sieciowych grup zabezpieczeń dla aplikacji sieci Web w usłudze IaaS powinny być zaostrzone
 
-## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2.9 Upewnij się, że domyślne ustawienie zasad ASC "Włącz monitorowanie zapory nowej generacji (NGFW) nie jest "wyłączone"
+## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2,9 upewnij się, że domyślne ustawienie zasad ASC "Włączanie monitorowania zapory nowej generacji (zapory następnej generacji)" nie jest wyłączone
 
-Ten plan przypisuje definicje [zasad platformy Azure,](../../../policy/overview.md) które pomagają chronić podsieci i maszyny wirtualne przed zagrożeniami, ograniczając dostęp. Zasady usługi Security Center, do których odwołuje się to zalecenie wzorca FUNDACJI CIS Microsoft Azure Foundations, zostały zastąpione dwoma nowymi zaleceniami. Zasady, o których mowa poniżej, odnoszą się do nowych zaleceń.
+Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) chroniące podsieci i maszyny wirtualne przed zagrożeniami przez ograniczenie dostępu. Zasady Security Center, do których odwołują się te usługi CIS Microsoft Azure zalecenia porównawcze zostały zastąpione przez dwa nowe zalecenia. Zasady, do których odwołuje się poniżej, dotyczą nowych zaleceń.
 
 - Podsieci powinny być skojarzone z sieciową grupą zabezpieczeń
 - Maszyny wirtualne powinny być skojarzone z sieciową grupą zabezpieczeń
 
-## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2.10 Upewnij się, że domyślne ustawienie zasad ASC "Monitorowanie oceny luk w zabezpieczeniach" nie jest "wyłączone"
+## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2,10 upewnij się, że domyślne ustawienie zasad ASC "Ocena luk w zabezpieczeniach monitora" nie jest wyłączone
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić wykrycie i skorygowanie luk w zabezpieczeniach.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić wykrywanie i korygowanie luk w zabezpieczeniach.
 
-- Luki w zabezpieczeniach powinny zostać naprawione przez rozwiązanie do oceny luk w zabezpieczeniach
+- Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach
 
-## <a name="211-ensure-asc-default-policy-setting-monitor-storage-blob-encryption-is-not-disabled"></a>2.11 Upewnij się, że domyślne ustawienie zasad ASC "Monitorowanie szyfrowania obiektów blob magazynu" nie jest "wyłączone"
+## <a name="211-ensure-asc-default-policy-setting-monitor-storage-blob-encryption-is-not-disabled"></a>2,11 upewnij się, że domyślne ustawienie zasad ASC "Monitoruj szyfrowanie obiektu BLOB Storage" nie jest wyłączone
 
-Szyfrowanie usługi Azure Storage jest włączone dla wszystkich nowych oraz istniejących kont magazynu i nie można go wyłączyć. (Jest to domyślna funkcja platformy Azure; nie ma przypisania zasad).
+Szyfrowanie usługi Azure Storage jest włączone dla wszystkich nowych oraz istniejących kont magazynu i nie można go wyłączyć. (Jest to domyślna funkcja platformy Azure; nie istnieje przypisanie zasad).
 
-## <a name="212-ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>2.12 Upewnij się, że domyślne ustawienie zasad ASC "Monitorj dostęp do sieci JIT" nie jest "wyłączone"
+## <a name="212-ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>2,12 upewnij się, że domyślne ustawienie zasad ASC "Monitoruj dostęp do sieci JIT" nie jest wyłączone
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga kontrolować dostęp do maszyn wirtualnych.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która ułatwia kontrolowanie dostępu do maszyn wirtualnych.
 
 - Kontrola dostępu do sieci just-in-time powinna być stosowana na maszynach wirtualnych
 
-## <a name="213-ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>2.13 Upewnij się, że domyślne ustawienie zasad ASC "Monitorowanie białej listy aplikacji adaptacyjnych" nie jest "wyłączone"
+## <a name="213-ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>2,13 upewnij się, że domyślne ustawienie zasad ASC "Monitoruj adaptacyjne aplikacji listy dozwolonych" nie jest "wyłączone"
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga upewnić się, że formantów aplikacji adaptacyjnych jest włączona na maszynach wirtualnych.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że na maszynach wirtualnych jest włączona funkcja adaptacyjnych kontroli aplikacji.
 
-- Adaptacyjne sterowanie aplikacjami powinno być włączone na maszynach wirtualnych
+- Na maszynach wirtualnych należy włączyć adaptacyjne kontrolki aplikacji
 
-## <a name="214-ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>2.14 Upewnij się, że domyślne ustawienie zasad ASC "Monitorowanie inspekcji SQL" nie jest "wyłączone"
+## <a name="214-ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>2,14 upewnij się, że domyślne ustawienie zasad ASC "Monitoruj inspekcję SQL" nie jest "wyłączone"
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić włączona inspekcja serwera SQL.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że Inspekcja programu SQL Server jest włączona.
 
-- Inspekcja powinna być włączona w przypadku zaawansowanych ustawień zabezpieczeń danych na programie SQL Server
+- Inspekcja powinna być włączona w zaawansowanych ustawieniach zabezpieczeń danych na SQL Server
 
-## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2.15 Upewnij się, że domyślne ustawienie zasad ASC "Monitoruj szyfrowanie SQL" nie jest "wyłączone"
+## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2,15 upewnij się, że domyślne ustawienie zasad ASC "Monitoruj szyfrowanie SQL" nie jest wyłączone
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga upewnić się, że przezroczyste szyfrowanie danych jest włączone w bazach danych SQL.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że transparent Data Encryption jest włączona w bazach danych SQL.
 
-- Należy włączyć przezroczyste szyfrowanie danych w bazach danych SQL
+- Należy włączyć Transparent Data Encryption baz danych SQL
 
-## <a name="216-ensure-that-security-contact-emails-is-set"></a>2.16 Upewnij się, że ustawiono "e-maile kontaktowe z zabezpieczeniami"
+## <a name="216-ensure-that-security-contact-emails-is-set"></a>2,16 upewnij się, że ustawiono "adresy e-mail dla kontaktu z zabezpieczeniami"
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić prawidłowe włączenie powiadomień o zabezpieczeniach
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić prawidłowe włączenie powiadomień o zabezpieczeniach
 
-- Dla subskrypcji należy podać adres e-mail kontaktu z zabezpieczeniami
+- Należy podać adres e-mail kontaktu z zabezpieczeniami dla Twojej subskrypcji
 
-## <a name="217-ensure-that-security-contact-phone-number-is-set"></a>2.17 Upewnij się, że "numer telefonu" kontaktu bezpieczeństwa jest ustawiony
+## <a name="217-ensure-that-security-contact-phone-number-is-set"></a>2,17 upewnij się, że ustawiono numer telefonu kontaktu zabezpieczeń
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić prawidłowe włączenie powiadomień o zabezpieczeniach
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić prawidłowe włączenie powiadomień o zabezpieczeniach
 
-- Dla subskrypcji należy podać numer telefonu kontaktu z zabezpieczeniami
+- Należy podać numer telefonu kontaktu z zabezpieczeniami dla Twojej subskrypcji
 
-## <a name="218-ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>2.18 Upewnij się, że "Wyślij powiadomienie e-mail o alertach o wysokiej ważności" jest ustawione na "On"
+## <a name="218-ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>2,18 upewnij się, że dla alertów o wysokiej ważności jest ustawiona wartość "on".
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić prawidłowe włączenie powiadomień o zabezpieczeniach
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić prawidłowe włączenie powiadomień o zabezpieczeniach
 
-- Należy włączyć powiadomienia e-mail o wysokiej ważności
+- Należy włączyć powiadomienia e-mail o alertach o wysokiej ważności
 
-## <a name="219-ensure-that-send-email-also-to-subscription-owners-is-set-to-on"></a>2.19 Upewnij się, że "Wyślij e-mail również do właścicieli subskrypcji" jest ustawiona na "On"
+## <a name="219-ensure-that-send-email-also-to-subscription-owners-is-set-to-on"></a>2,19 upewnij się, że jako "Wyślij wiadomość e-mail do właścicieli subskrypcji" ustawiono wartość "on"
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić prawidłowe włączenie powiadomień o zabezpieczeniach
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić prawidłowe włączenie powiadomień o zabezpieczeniach
 
-- Powiadomienie e-mail do właściciela subskrypcji o wysokiej ważności alertów powinno być włączone
+- Powiadomienie e-mail dla właściciela subskrypcji w celu uzyskania alertów o wysokiej ważności powinno być włączone
 
-## <a name="31-ensure-that-secure-transfer-required-is-set-to-enabled"></a>3.1 Upewnij się, że "Wymagany bezpieczny transfer" jest ustawiony na "Włączone"
+## <a name="31-ensure-that-secure-transfer-required-is-set-to-enabled"></a>3,1 Upewnij się, że "wymagany bezpieczny transfer" jest ustawiony na wartość "Enabled"
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która ułatwia monitorowanie kont magazynu, które zezwalają na niezabezpieczone połączenia.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która ułatwia monitorowanie kont magazynu, które zezwalają na niezabezpieczone połączenia.
 
 - Należy włączyć bezpieczny transfer na konta magazynu
 
-## <a name="37-ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>3.7 Upewnij się, że domyślna reguła dostępu do sieci dla kont magazynu jest ustawiona na odmowę
+## <a name="37-ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>3,7 upewnij się, że domyślna reguła dostępu do sieci dla kont magazynu jest ustawiona na Odmów
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która ułatwia monitorowanie kont magazynu, które umożliwiają nieograniczony dostęp.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która ułatwia monitorowanie kont magazynu, które zezwalają na nieograniczony dostęp.
 
-- Inspekcja nieograniczonego dostępu do kont magazynu
+- Inspekcja nieograniczonego dostępu sieciowego do kont magazynu
 
-## <a name="38-ensure-trusted-microsoft-services-is-enabled-for-storage-account-access"></a>3.8 Upewnij się, że "zaufane usługi firmy Microsoft" są włączone w celu uzyskania dostępu do konta magazynu
+## <a name="38-ensure-trusted-microsoft-services-is-enabled-for-storage-account-access"></a>3,8 upewnij się, że w obszarze "zaufane usługi firmy Microsoft" włączono dostęp do konta magazynu
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która ułatwia monitorowanie kont magazynu, które nie zezwalają na dostęp z zaufanych usług firmy Microsoft.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która ułatwia monitorowanie kont magazynu, które nie zezwalają na dostęp z zaufanych usług firmy Microsoft.
 
 - Konta magazynu powinny zezwalać na dostęp z zaufanych usług firmy Microsoft
 
-## <a name="41-ensure-that-auditing-is-set-to-on"></a>4.1 Upewnienie się, że "inspekcja" jest ustawiona na "On"
+## <a name="41-ensure-that-auditing-is-set-to-on"></a>4,1 Upewnij się, że wartość "inspekcja" jest ustawiona na wartość "on"
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić włączona inspekcja serwera SQL. 
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że Inspekcja programu SQL Server jest włączona. 
 
-- Inspekcja powinna być włączona w przypadku zaawansowanych ustawień zabezpieczeń danych na programie SQL Server
+- Inspekcja powinna być włączona w zaawansowanych ustawieniach zabezpieczeń danych na SQL Server
 
-## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4.2 Upewnij się, że "AuditActionGroups" w zasadach "inspekcji" dla serwera SQL jest prawidłowo ustawiony
+## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4,2 Upewnij się, że element "AuditActionGroups" w zasadach "Audits" dla programu SQL Server jest skonfigurowany prawidłowo
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga upewnić się, że inspekcja serwera SQL jest poprawnie skonfigurowana.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że Inspekcja programu SQL Server jest prawidłowo skonfigurowana.
 
 - Ustawienia inspekcji SQL powinny mieć skonfigurowane grupy akcji do przechwytywania działań krytycznych
 
-## <a name="43-ensure-that-auditing-retention-is-greater-than-90-days"></a>4.3 Zapewnienie, że zatrzymanie "audytu" jest "większe niż 90 dni"
+## <a name="43-ensure-that-auditing-retention-is-greater-than-90-days"></a>4,3 Upewnij się, że przechowywanie "inspekcja" jest większe niż 90 dni
 
-Ten plan przypisuje definicji [usługi Azure Policy,](../../../policy/overview.md) która pomaga upewnić się, że dzienniki serwera SQL są przechowywane przez co najmniej 90 dni.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że dzienniki programu SQL Server są przechowywane przez co najmniej 90 dni.
 
-- Serwery SQL powinny być skonfigurowane z inspekcji dni przechowywania większe niż 90 dni.
+- Serwery SQL powinny być skonfigurowane z okresem przechowywania inspekcji większym niż 90 dni.
 
-## <a name="44-ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>4.4 Upewnij się, że "Zaawansowane zabezpieczenia danych" na serwerze SQL jest ustawione na "On"
+## <a name="44-ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>4,4 Upewnij się, że w programie SQL Server ustawiono wartość "on" (Zaawansowane zabezpieczenia danych).
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić zaawansowane zabezpieczenia danych jest włączona na serwerach SQL i wystąpieniach zarządzanych SQL.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że zaawansowane zabezpieczenia danych są włączone na serwerach SQL i wystąpieniach zarządzanych SQL.
 
-- Zaawansowane zabezpieczenia danych powinny być włączone w wystąpieniach zarządzanych SQL
-- Zaawansowane zabezpieczenia danych powinny być włączone na serwerach SQL
+- Zaawansowana ochrona danych powinna być włączona w wystąpieniach zarządzanych SQL
+- Zaawansowana ochrona danych powinna być włączona na serwerach SQL
 
-## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 Upewnij się, że "typy wykrywania zagrożeń" są ustawione na "Wszystkie"
+## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4,5 Upewnij się, że ustawienie "typy wykrywania zagrożeń" ma wartość "All"
 
-Ten plan przypisuje definicje [zasad platformy Azure,](../../../policy/overview.md) które pomagają zapewnić, że zaawansowana ochrona przed zagrożeniami jest poprawnie skonfigurowana na serwerach SQL i wystąpieniach zarządzanych SQL.
+Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które pomagają zapewnić, że Zaawansowana ochrona przed zagrożeniami jest prawidłowo skonfigurowana na serwerach SQL i wystąpieniach zarządzanych SQL.
 
-- Zaawansowane typy ochrony przed zagrożeniami powinny być ustawione na "Wszystkie" w ustawieniach zaawansowanych zabezpieczeń danych serwera SQL
-- Zaawansowane typy ochrony przed zagrożeniami powinny być ustawione na "Wszystkie" w przypadku zarządzanym SQL ustawienia zaawansowanego zabezpieczenia danych
+- Zaawansowane typy ochrony przed zagrożeniami powinny mieć ustawioną wartość "wszystkie" w ustawieniach zaawansowanych zabezpieczeń danych programu SQL Server
+- Zaawansowane typy ochrony przed zagrożeniami powinny mieć ustawioną wartość "All" w zaawansowanych ustawieniach zabezpieczeń danych wystąpienia zarządzanego SQL
 
-## <a name="46-ensure-that-send-alerts-to-is-set"></a>4.6 Upewnij się, że ustawiono
+## <a name="46-ensure-that-send-alerts-to-is-set"></a>4,6 Upewnij się, że ustawiono wartość "Wyślij alerty do"
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić, że zaawansowane powiadomienia o zabezpieczeniach danych są prawidłowo włączone.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że zaawansowane powiadomienia o zabezpieczeniach danych są prawidłowo włączone.
 
-- Zaawansowane ustawienia zabezpieczeń danych dla wystąpienia zarządzanego SQL powinny zawierać adres e-mail do odbierania alertów zabezpieczeń
-- Zaawansowane ustawienia zabezpieczeń danych dla serwera SQL powinny zawierać adres e-mail do odbierania alertów zabezpieczeń
+- Zaawansowane ustawienia zabezpieczeń danych dla wystąpienia zarządzanego SQL powinny zawierać adres e-mail, aby otrzymywać alerty zabezpieczeń
+- Zaawansowane ustawienia zabezpieczeń danych dla programu SQL Server powinny zawierać adres e-mail, aby otrzymywać alerty zabezpieczeń
 
-## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4.7 Upewnij się, że "usługa poczty e-mail i współadministratorzy" są "włączone"
+## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4,7 upewnij się, że "usługa poczty E-mail i współadministratory" jest włączona
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić, że zaawansowane powiadomienia o zabezpieczeniach danych są prawidłowo włączone.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że zaawansowane powiadomienia o zabezpieczeniach danych są prawidłowo włączone.
 
-- Powiadomienia e-mail do administratorów i właścicieli subskrypcji powinny być włączone w zaawansowanych ustawieniach zabezpieczeń danych w przypadku zarządzanym sql
-- Powiadomienia e-mail do administratorów i właścicieli subskrypcji powinny być włączone w zaawansowanych ustawieniach zabezpieczeń danych serwera SQL server
+- Powiadomienia e-mail do administratorów i właścicieli subskrypcji powinny być włączone w ustawieniach zaawansowanych danych wystąpienia zarządzanego SQL
+- Powiadomienia e-mail dla administratorów i właścicieli subskrypcji powinny być włączone w ustawieniach zaawansowanych zabezpieczeń danych programu SQL Server
 
-## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4.8 Upewnij się, że administrator usługi Azure Active Directory jest skonfigurowany
+## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4,8 upewnij się, że skonfigurowano administratora Azure Active Directory
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić, że administrator usługi Azure Active Directory jest aprowidzony dla serwerów SQL.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że Azure Active Directory administrator jest zainicjowany dla serwerów SQL.
 
-- Administrator usługi Azure Active Directory powinien być aprowizny dla serwerów SQL
+- Dla serwerów SQL powinien zostać zainicjowany administrator Azure Active Directory
 
-## <a name="49-ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>4.9 Upewnij się, że "Szyfrowanie danych" jest ustawione na "Włączone" w bazie danych SQL
+## <a name="49-ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>4,9 upewnij się, że "szyfrowanie danych" jest ustawione na wartość "on" na SQL Database
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga upewnić się, że przezroczyste szyfrowanie danych jest włączone w bazach danych SQL.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że transparent Data Encryption jest włączona w bazach danych SQL.
 
-- Należy włączyć przezroczyste szyfrowanie danych w bazach danych SQL
+- Należy włączyć Transparent Data Encryption baz danych SQL
 
-## <a name="410-ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>4.10 Upewnij się, że ochrona TDE serwera SQL jest szyfrowana za pomocą BYOK (Użyj własnego klucza)
+## <a name="410-ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>4,10 upewnij się, że funkcja ochrony TDE programu SQL Server jest zaszyfrowana z BYOK (Użyj własnego klucza)
 
-Ten plan przypisuje definicje [zasad platformy Azure,](../../../policy/overview.md) które pomagają zapewnić, że chroniącą zaszyfrowane dane dla serwerów SQL i wystąpień zarządzanych SQL jest szyfrowany za pomocą własnego klucza.
+Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które ułatwiają zapewnienie, że funkcja ochrony zaszyfrowanych danych dla serwerów SQL i wystąpień zarządzanych przez program SQL jest szyfrowana przy użyciu własnego klucza.
 
-- Ochrona TDE wystąpienia zarządzanego SQL powinna być szyfrowana za pomocą własnego klucza
-- Ochrona TDE serwera SQL powinna być szyfrowana za pomocą własnego klucza
+- Funkcja ochrony TDE wystąpienia zarządzanego SQL powinna być szyfrowana przy użyciu własnego klucza
+- Funkcja ochrony programu SQL Server TDE powinna być szyfrowana przy użyciu własnego klucza
 
-## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 Upewnij się, że opcja "Wymuszanie połączenia SSL" jest ustawiona na "WŁĄCZONE" dla serwera bazy danych MySQL
+## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4,11 upewnij się, że ustawienie "Wymuszaj połączenie SSL" ma wartość "ENABLED" dla serwera bazy danych MySQL
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić, że serwery bazy danych MySQL wymuszają połączenia TLS/SSL.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że serwery baz danych MySQL wymuszają połączenia TLS/SSL.
 
-- Wymuszanie połączenia SSL powinno być włączone dla serwerów bazy danych MySQL
+- Dla serwerów baz danych MySQL powinna być włączona funkcja Wymuszaj połączenie SSL
 
-## <a name="412-ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>4.12 Upewnij się, że parametr serwera "log_checkpoints" jest ustawiony na "ON" dla serwera bazy danych PostgreSQL
+## <a name="412-ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>4,12 upewnij się, że parametr serwera "log_checkpoints" jest ustawiony na wartość "ON" dla serwera bazy danych PostgreSQL
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić postgreSQL serwerów bazy danych dziennik punktów kontrolnych.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że serwery baz danych PostgreSQL są dziennikami punktów kontrolnych.
 
-- Punkty kontrolne dziennika powinny być włączone dla serwerów bazy danych PostgreSQL
+- Punkty kontrolne dziennika powinny być włączone dla serwerów baz danych PostgreSQL
 
-## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 Upewnij się, że opcja "Wymuszanie połączenia SSL" jest ustawiona na "WŁĄCZONE" dla serwera bazy danych PostgreSQL
+## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4,13 upewnij się, że ustawienie "Wymuszaj połączenie SSL" ma wartość "ENABLED" dla serwera bazy danych PostgreSQL
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić, że serwery bazy danych PostgreSQL wymuszają połączenia TLS/SSL.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że serwery bazy danych PostgreSQL wymuszają połączenia TLS/SSL.
 
-- Wymuszanie połączenia SSL powinno być włączone dla serwerów bazy danych PostgreSQL
+- Należy włączyć połączenie SSL dla serwerów bazy danych PostgreSQL
 
-## <a name="414-ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>4.14 Upewnij się, że parametr serwera "log_connections" jest ustawiony na "ON" dla serwera bazy danych PostgreSQL
+## <a name="414-ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>4,14 upewnij się, że parametr serwera "log_connections" jest ustawiony na wartość "ON" dla serwera bazy danych PostgreSQL
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić postgreSQL serwerów bazy danych rejestrowania połączeń.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że serwery bazy danych PostgreSQL będą rejestrować połączenia.
 
-- Połączenia dziennika powinny być włączone dla serwerów bazy danych PostgreSQL
+- Należy włączyć połączenia dzienników dla serwerów baz danych PostgreSQL
 
-## <a name="415-ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>4.15 Upewnij się, że parametr serwera "log_disconnections" jest ustawiony na "ON" dla serwera bazy danych PostgreSQL
+## <a name="415-ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>4,15 upewnij się, że parametr serwera "log_disconnections" jest ustawiony na wartość "ON" dla serwera bazy danych PostgreSQL
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić postgreSQL serwerów bazy danych log rozłączenia.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że serwery bazy danych PostgreSQL będą rejestrować odłączenia.
 
-- Rozłączenia powinny być rejestrowane dla serwerów bazy danych PostgreSQL.
+- Odłączenia powinny być rejestrowane dla serwerów baz danych PostgreSQL.
 
-## <a name="416-ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>4.16 Upewnij się, że parametr serwera "log_duration" jest ustawiony na "ON" dla serwera bazy danych PostgreSQL
+## <a name="416-ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>4,16 upewnij się, że parametr serwera "log_duration" jest ustawiony na wartość "ON" dla serwera bazy danych PostgreSQL
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga upewnić się, że serwery bazy danych PostgreSQL rejestrują czas trwania zakończonych instrukcji.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że serwery bazy danych PostgreSQL będą rejestrować czas trwania ukończonych instrukcji.
 
-- Czas trwania dziennika powinien być włączony dla serwerów bazy danych PostgreSQL
+- Czas trwania dziennika powinien być włączony dla serwerów baz danych PostgreSQL
 
-## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4.17 Upewnij się, że parametr serwera "connection_throttling" jest ustawiony na "ON" dla serwera bazy danych PostgreSQL
+## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4,17 upewnij się, że parametr serwera "connection_throttling" jest ustawiony na wartość "ON" dla serwera bazy danych PostgreSQL
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga ograniczyć ataki brute życie na serwerach bazy danych PostgreSQL.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga w ograniczeniu ataków bezproblemowych na serwerach bazy danych PostgreSQL.
 
-- Ograniczanie połączeń powinno być włączone dla serwerów bazy danych PostgreSQL
+- Dla serwerów baz danych PostgreSQL powinna być włączona funkcja ograniczania połączeń
 
-## <a name="419-ensure-that-azure-active-directory-admin-is-configured"></a>4.19 Upewnij się, że administrator usługi Azure Active Directory jest skonfigurowany
+## <a name="419-ensure-that-azure-active-directory-admin-is-configured"></a>4,19 upewnij się, że skonfigurowano administratora Azure Active Directory
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić, że administrator usługi Azure Active Directory jest aprowidzony dla serwerów SQL. Narzędzie CIS Microsoft Azure Foundations Benchmark zawiera to zalecenie; jest to jednak duplikat [zalecenia 4.8](#48-ensure-that-azure-active-directory-admin-is-configured).
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że Azure Active Directory administrator jest zainicjowany dla serwerów SQL. Porównawcze fundacje Microsoft Azure WNP obejmuje to zalecenie; jest to jednak duplikat [zalecenia 4,8](#48-ensure-that-azure-active-directory-admin-is-configured).
 
-- Administrator usługi Azure Active Directory powinien być aprowizny dla serwerów SQL
+- Dla serwerów SQL powinien zostać zainicjowany administrator Azure Active Directory
 
-## <a name="511-ensure-that-a-log-profile-exists"></a>5.1.1 Upewnienie się, że istnieje profil dziennika
+## <a name="511-ensure-that-a-log-profile-exists"></a>5.1.1 Upewnij się, że profil dziennika istnieje
 
-Ten plan przypisuje definicji [usługi Azure Policy,](../../../policy/overview.md) która pomaga upewnić się, że profil dziennika istnieje dla wszystkich subskrypcji platformy Azure. 
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że istnieje profil dziennika dla wszystkich subskrypcji platformy Azure. 
 
-- Subskrypcje platformy Azure powinny mieć profil dziennika dla dziennika aktywności
+- Subskrypcje platformy Azure powinny mieć profil dziennika aktywności
 
-## <a name="512-ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>5.1.2 Upewnij się, że przechowywanie dzienników aktywności jest ustawione na 365 dni lub więcej
+## <a name="512-ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>5.1.2 Upewnij się, że czas przechowywania dziennika aktywności wynosi 365 dni lub więcej
 
-Ten plan przypisuje definicji [usługi Azure Policy,](../../../policy/overview.md) która pomaga upewnić się, że dzienniki aktywności są przechowywane przez co najmniej jeden rok.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że dzienniki aktywności są przechowywane przez co najmniej jeden rok.
 
-- Dziennik aktywności powinien być zachowany przez co najmniej rok
+- Dziennik aktywności powinien być zachowywany przez co najmniej jeden rok.
 
-## <a name="513-ensure-audit-profile-captures-all-the-activities"></a>5.1.3 Zapewnienie, że profil audytu rejestruje wszystkie działania
+## <a name="513-ensure-audit-profile-captures-all-the-activities"></a>5.1.3 Upewnij się, że profil inspekcji przechwytuje wszystkie działania
 
-Ten plan przypisuje definicji [usługi Azure Policy,](../../../policy/overview.md) która pomaga upewnić się, że profil dziennika jest poprawnie skonfigurowany.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że profil dziennika jest prawidłowo skonfigurowany.
 
-- Profil dziennika usługi Azure Monitor powinien zbierać dzienniki dla kategorii "napisz", "usuń" i "akcja"
+- Profil dziennika Azure Monitor powinien zbierać dzienniki dla kategorii "Write", "Delete" i "Action"
 
-## <a name="514-ensure-the-log-profile-captures-activity-logs-for-all-regions-including-global"></a>5.1.4 Upewnij się, że profil dziennika przechwytuje dzienniki aktywności dla wszystkich regionów, w tym
+## <a name="514-ensure-the-log-profile-captures-activity-logs-for-all-regions-including-global"></a>5.1.4 Upewnij się, że profil dziennika przechwytuje dzienniki aktywności dla wszystkich regionów łącznie z globalnym
 
-Ten plan przypisuje definicji [usługi Azure Policy,](../../../policy/overview.md) która pomaga upewnić się, że profil dziennika jest poprawnie skonfigurowany.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że profil dziennika jest prawidłowo skonfigurowany.
 
-- Usługa Azure Monitor powinna zbierać dzienniki aktywności ze wszystkich regionów
+- Azure Monitor powinna zbierać dzienniki aktywności ze wszystkich regionów
 
-## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 Upewnij się, że rejestrowanie usługi Azure KeyVault jest "włączone"
+## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 upewnij się, że rejestrowanie dla magazynu kluczy platformy Azure ma włączoną funkcję "Enabled"
 
-Ten plan przypisuje definicji [usługi Azure Policy,](../../../policy/overview.md) która pomaga upewnić się, że dzienniki diagnostyczne są włączone dla magazynów kluczy.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że dzienniki diagnostyczne są włączone dla magazynów kluczy.
 
-- Dzienniki diagnostyczne w magazynie kluczy powinny być włączone
+- Dzienniki diagnostyczne w Key Vault powinny być włączone
 
-## <a name="65-ensure-that-network-watcher-is-enabled"></a>6.5 Upewnij się, że obserwator sieci jest "włączony"
+## <a name="65-ensure-that-network-watcher-is-enabled"></a>6,5 Upewnij się, że Network Watcher jest "Enabled"
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga upewnić się, że kontrola sieci jest włączona dla wszystkich regionów, w których są wdrażane zasoby. Ta zasada wymaga tablicy parametrów, która określa wszystkie odpowiednie regiony. Wartością domyślną w tej definicji inicjatywy polityki jest "eastus".
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że Network Watcher jest włączona dla wszystkich regionów, w których wdrożono zasoby. Te zasady wymagają tablicy parametrów, która określa wszystkie odpowiednie regiony. Wartością domyślną w tej definicji inicjatywy zasad jest "Wschód".
 
-- Obserwator sieci powinien być włączony
+- Network Watcher powinna być włączona
 
-## <a name="71-ensure-that-os-disk-are-encrypted"></a>7.1 Upewnij się, że "dysk systemu operacyjnego" jest zaszyfrowany
+## <a name="71-ensure-that-os-disk-are-encrypted"></a>7,1 Upewnij się, że "dysk systemu operacyjnego" jest szyfrowany
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga upewnić się, że szyfrowanie dysku jest włączone na maszynach wirtualnych.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że szyfrowanie dysków jest włączone na maszynach wirtualnych.
 
-- Szyfrowanie dysku powinno być stosowane na maszynach wirtualnych
+- Szyfrowanie dysków powinno być stosowane na maszynach wirtualnych
 
-## <a name="72-ensure-that-data-disks-are-encrypted"></a>7.2 Upewnij się, że "dyski danych" są szyfrowane
+## <a name="72-ensure-that-data-disks-are-encrypted"></a>7,2 Upewnij się, że "dyski danych" są zaszyfrowane
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga upewnić się, że szyfrowanie dysku jest włączone na maszynach wirtualnych.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że szyfrowanie dysków jest włączone na maszynach wirtualnych.
 
-- Szyfrowanie dysku powinno być stosowane na maszynach wirtualnych
+- Szyfrowanie dysków powinno być stosowane na maszynach wirtualnych
 
-## <a name="73-ensure-that-unattached-disks-are-encrypted"></a>7.3 Upewnij się, że "niezałączone dyski" są szyfrowane
+## <a name="73-ensure-that-unattached-disks-are-encrypted"></a>7,3 Upewnij się, że "niedołączone dyski" są zaszyfrowane
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga upewnić się, że dyski nieprzyłączone są szyfrowane.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić zaszyfrowanie niedołączonych dysków.
 
-- Dyski niezałączone powinny być szyfrowane
+- Niedołączone dyski powinny być szyfrowane
 
-## <a name="74-ensure-that-only-approved-extensions-are-installed"></a>7.4 Upewnić się, że zainstalowane są tylko zatwierdzone rozszerzenia
+## <a name="74-ensure-that-only-approved-extensions-are-installed"></a>7,4 Upewnij się, że zainstalowano tylko zatwierdzone rozszerzenia
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga upewnić się, że tylko zatwierdzone rozszerzenia maszyny wirtualnej są zainstalowane. Ta zasada wymaga tablicy parametrów, która określa wszystkie zatwierdzone rozszerzenia maszyny wirtualnej. Ta definicja inicjatywy zasad zawiera sugerowane wartości domyślne, które klienci powinni zweryfikować. 
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że są zainstalowane tylko zatwierdzone rozszerzenia maszyn wirtualnych. Te zasady wymagają tablicy parametrów, która określa wszystkie zatwierdzone rozszerzenia maszyny wirtualnej. Ta definicja inicjatywy zasad zawiera sugerowane wartości domyślne, które klienci powinni zweryfikować. 
 
  - Należy zainstalować tylko zatwierdzone rozszerzenia maszyn wirtualnych
 
-## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7.5 Upewnij się, że stosowane są najnowsze poprawki systemu operacyjnego dla wszystkich maszyn wirtualnych
+## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7,5 Upewnij się, że są stosowane najnowsze poprawki systemu operacyjnego dla wszystkich Virtual Machines
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga upewnić się, że aktualizacje systemu są zainstalowane na maszynach wirtualnych.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że aktualizacje systemu są zainstalowane na maszynach wirtualnych.
 
 - Należy zainstalować aktualizacje systemu na maszynach
 
-## <a name="76-ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>7.6 Upewnij się, że zainstalowano ochronę punktu końcowego dla wszystkich maszyn wirtualnych
+## <a name="76-ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>7,6 Upewnij się, że program Endpoint Protection dla wszystkich Virtual Machines jest zainstalowany
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić ochronę punktów końcowych jest włączona na maszynach wirtualnych.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że program Endpoint Protection jest włączony na maszynach wirtualnych.
 
-- Monitorowanie braku ochrony punktów końcowych w usłudze Azure Security Center
+- Monitoruj brakujące Endpoint Protection w Azure Security Center
 
-## <a name="84-ensure-the-key-vault-is-recoverable"></a>8.4 Upewnienie się, że przechowalnia kluczy jest odzyskiwalna
+## <a name="84-ensure-the-key-vault-is-recoverable"></a>8,4 Upewnij się, że magazyn kluczy jest możliwy do odzyskania
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić, że obiekty magazynu kluczy są możliwe do odzyskania w przypadku przypadkowego usunięcia.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić możliwość odzyskania obiektów magazynu kluczy w przypadku przypadkowego usunięcia.
 
-- Obiekty magazynu kluczy powinny być odzyskiwalne
+- Key Vault obiektów powinno być możliwe do odzyskania
 
-## <a name="85-enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>8.5 Włączanie kontroli dostępu opartej na rolach (RBAC) w usługach Azure Kubernetes
+## <a name="85-enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>8,5 włączenie kontroli dostępu opartej na rolach (RBAC) w ramach usług Azure Kubernetes Services
 
-Ten plan przypisuje definicję [zasad platformy Azure,](../../../policy/overview.md) która pomaga zapewnić, że kontrola dostępu oparta na rolach jest używana do zarządzanych uprawnień w klastrach usług Kubernetes
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że kontrola dostępu oparta na rolach służy do zarządzania uprawnieniami zarządzanymi w klastrach usługi Kubernetes
 
-- \[Wersja\]zapoznawcza : Kontrola dostępu oparta na rolach (RBAC) powinna być używana w usługach Kubernetes
+- \[Wersja\]zapoznawcza: Access Control oparte na ROLACH (RBAC) powinny być używane w usługach Kubernetes Services
 
-## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9.2 Upewnij się, że aplikacja internetowa przekierowuje cały ruch HTTP do HTTPS w usłudze Azure App Service
+## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9,2 Upewnij się, że aplikacja internetowa przekierowuje cały ruch HTTP do protokołu HTTPS w Azure App Service
 
-Ten plan przypisuje definicji [zasad platformy Azure,](../../../policy/overview.md) która pomaga upewnić się, że aplikacje sieci web są dostępne tylko za pośrednictwem bezpiecznych połączeń.
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że aplikacje sieci Web są dostępne tylko za pośrednictwem bezpiecznych połączeń.
 
-- Aplikacja internetowa powinna być dostępna tylko za pośrednictwem protokołu HTTPS
+- Aplikacja sieci Web powinna być dostępna tylko za pośrednictwem protokołu HTTPS
 
-## <a name="93-ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>9.3 Upewnij się, że aplikacja internetowa korzysta z najnowszej wersji szyfrowania TLS
+## <a name="93-ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>9,3 Upewnij się, że aplikacja sieci Web używa najnowszej wersji szyfrowania TLS
 
-Ten plan przypisuje definicje [zasad platformy Azure,](../../../policy/overview.md) które pomagają upewnić się, że aplikacje sieci web korzystają z najnowszej wersji protokołu TLS.
+Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które pomagają zapewnić, że aplikacje sieci Web używają najnowszej wersji protokołu TLS.
 
-- Najnowsza wersja TLS powinna być używana w aplikacji interfejsu API
-- Najnowsza wersja TLS powinna być używana w aplikacji funkcji
-- Najnowsza wersja TLS powinna być używana w aplikacji sieci Web
+- Najnowsza wersja protokołu TLS powinna być używana w aplikacji interfejsu API
+- Najnowsza wersja protokołu TLS powinna być używana w aplikacja funkcji
+- Najnowsza wersja protokołu TLS powinna być używana w aplikacji sieci Web
 
-## <a name="94-ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>9.4 Upewnij się, że aplikacja internetowa ma ustawioną na "Włączone certyfikaty klientów (certyfikaty klientów przychodzących)"
+## <a name="94-ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>9,4 Upewnij się, że aplikacja sieci Web ma "certyfikaty klienta (przychodzące certyfikaty klienta") "on"
 
-Ten plan przypisuje definicje [zasad platformy Azure,](../../../policy/overview.md) które pomagają upewnić się, że tylko klienci z prawidłowymi certyfikatami mogą dotrzeć do aplikacji sieci web.
+Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które ułatwiają zapewnienie, że tylko klienci z prawidłowymi certyfikatami będą mogli uzyskać dostęp do aplikacji sieci Web.
 
-- Upewnij się, że aplikacja INTERFEJSU API ma ustawioną na "Włączone certyfikaty klientów".
-- Upewnij się, że aplikacja Function ma ustawioną na "Włączone certyfikaty klientów".
-- Upewnij się, że aplikacja WEB ma ustawioną na "Włączone certyfikaty klientów (certyfikaty klientów przychodzących)"
+- Upewnij się, że aplikacja interfejsu API ma wartość "certyfikaty klienta (przychodzące certyfikaty klienta") "on"
+- Upewnij się, że aplikacja funkcji ma wartość "certyfikaty klienta (przychodzące certyfikaty klienta") "on"
+- Upewnij się, że aplikacja sieci WEB ma "certyfikaty klienta (przychodzące certyfikaty klienta") "on"
 
-## <a name="95-ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>9.5 Upewnij się, że rejestracja w usłudze Azure Active Directory jest włączona w usłudze App Service
+## <a name="95-ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>9,5 Upewnij się, że rejestracja w Azure Active Directory jest włączona na App Service
 
-Ten plan przypisuje definicje [zasad platformy Azure,](../../../policy/overview.md) które pomagają upewnić się, że aplikacje sieci web używają tożsamości zarządzanej.
+Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które ułatwiają zapewnienie, że aplikacje sieci Web używają tożsamości zarządzanej.
 
-- Upewnij się, że usługa Zarejestruj się w usłudze Azure Active Directory jest włączona w aplikacji interfejsu API
-- Upewnij się, że rejestracja w usłudze Azure Active Directory jest włączona w aplikacji function
-- Upewnij się, że usługa Zarejestruj się w usłudze Azure Active Directory jest włączona w aplikacji WEB
+- Upewnij się, że w aplikacji interfejsu API jest włączony rejestr z Azure Active Directory
+- Upewnij się, że Azure Active Directory jest włączona na aplikacja funkcji
+- Upewnij się, że w aplikacji sieci WEB jest włączony rejestr z Azure Active Directory
 
-## <a name="96-ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>9.6 Upewnij się, że wersja '.Net Framework' jest najnowsza, jeśli jest używana jako część aplikacji internetowej
+## <a name="96-ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>9,6 Upewnij się, że wersja ".NET Framework" jest najnowsza, jeśli jest używana jako część aplikacji sieci Web
 
-Ten plan przypisuje definicje [zasad platformy Azure,](../../../policy/overview.md) które pomagają upewnić się, że aplikacje sieci web korzystają z najnowszej wersji programu .Net Framework.
+Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które pomagają zagwarantować, że aplikacje sieci Web używają najnowszej wersji programu .NET Framework.
 
-- Upewnij się, że wersja ".Net Framework" jest najnowsza, jeśli jest używana jako część aplikacji interfejsu API
-- Upewnij się, że wersja ".Net Framework" jest najnowsza, jeśli jest używana jako część aplikacji funkcji
-- Upewnij się, że wersja ".Net Framework" jest najnowsza, jeśli jest używana jako część aplikacji sieci Web
+- Upewnij się, że wersja ".NET Framework" jest najnowsza, jeśli jest używana jako część aplikacji interfejsu API
+- Upewnij się, że wersja ".NET Framework" jest najnowsza, jeśli jest używana jako część aplikacja funkcji
+- Upewnij się, że wersja ".NET Framework" jest najnowsza, jeśli jest używana jako część aplikacji sieci Web
 
-## <a name="97-ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>9.7 Upewnij się, że "wersja PHP" jest najnowsza, jeśli jest używana do uruchamiania aplikacji internetowej
+## <a name="97-ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>9,7 upewnij się, że "wersja PHP" jest najnowsza, jeśli zostanie użyta do uruchomienia aplikacji sieci Web
 
-Ten plan przypisuje definicje [zasad platformy Azure,](../../../policy/overview.md) które pomagają upewnić się, że aplikacje sieci web korzystają z najnowszej wersji PHP.
+Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które pomagają zagwarantować, że aplikacje sieci Web używają najnowszej wersji środowiska php.
 
-- Upewnij się, że "wersja PHP" jest najnowsza, jeśli jest używana jako część aplikacji Api
-- Upewnij się, że "wersja PHP" jest najnowsza, jeśli jest używana jako część aplikacji Function
-- Upewnij się, że "wersja PHP" jest najnowsza, jeśli jest używana jako część aplikacji WEB
+- Upewnij się, że wersja języka PHP jest najnowsza, jeśli jest używana jako część aplikacji interfejsu API
+- Upewnij się, że wersja języka PHP jest najnowsza, jeśli jest używana jako część aplikacji funkcji
+- Upewnij się, że wersja języka PHP jest najnowsza, jeśli jest używana jako część aplikacji sieci WEB
 
-## <a name="98-ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>9.8 Upewnij się, że "wersja Pythona" jest najnowsza, jeśli jest używana do uruchamiania aplikacji internetowej
+## <a name="98-ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>9,8 upewnij się, że "wersja języka Python" jest najnowsza, jeśli zostanie użyta do uruchomienia aplikacji sieci Web
 
-Ten plan przypisuje definicje [zasad platformy Azure,](../../../policy/overview.md) które pomagają upewnić się, że aplikacje sieci web używają najnowszej wersji języka Python.
+Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które pomagają zagwarantować, że aplikacje sieci Web używają najnowszej wersji języka Python.
 
-- Upewnij się, że "wersja Języka Python" jest najnowsza, jeśli jest używana jako część aplikacji Api
-- Upewnij się, że "wersja Języka Python" jest najnowsza, jeśli jest używana jako część aplikacji Function
-- Upewnij się, że "wersja Języka Python" jest najnowsza, jeśli jest używana jako część aplikacji sieci Web
+- Upewnij się, że "wersja języka Python" jest najnowsza, jeśli jest używana jako część aplikacji interfejsu API
+- Upewnij się, że "wersja języka Python" jest najnowsza, jeśli jest używana jako część aplikacji funkcji
+- Upewnij się, że "wersja języka Python" jest najnowsza, jeśli jest używana jako część aplikacji sieci Web
 
-## <a name="99-ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>9.9 Upewnij się, że "wersja Java" jest najnowsza, jeśli jest używana do uruchamiania aplikacji internetowej
+## <a name="99-ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>9,9 upewnij się, że "wersja Java" jest najnowsza, jeśli zostanie użyta do uruchomienia aplikacji sieci Web
 
-Ten plan przypisuje definicje [zasad platformy Azure,](../../../policy/overview.md) które pomagają upewnić się, że aplikacje sieci web używają najnowszej wersji oprogramowania Java.
+Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które pomagają zagwarantować, że aplikacje sieci Web używają najnowszej wersji środowiska Java.
 
-- Upewnij się, że "wersja Java" jest najnowsza, jeśli jest używana jako część aplikacji Api
-- Upewnij się, że "wersja Java" jest najnowsza, jeśli jest używana jako część aplikacji Funtion
-- Upewnij się, że "wersja Java" jest najnowsza, jeśli jest używana jako część aplikacji sieci Web
+- Upewnij się, że wersja języka Java jest najnowsza, jeśli jest używana jako część aplikacji interfejsu API
+- Upewnij się, że "wersja Java" jest najnowsza, jeśli jest używana jako część aplikacji funtion
+- Upewnij się, że wersja języka Java jest najnowsza, jeśli jest używana jako część aplikacji sieci Web
 
-## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9.10 Upewnij się, że "Wersja HTTP" jest najnowsza, jeśli jest używana do uruchamiania aplikacji internetowej
+## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9,10 upewnij się, że wersja protokołu HTTP jest najnowsza, jeśli jest używana do uruchamiania aplikacji sieci Web
 
-Ten plan przypisuje definicje [zasad platformy Azure,](../../../policy/overview.md) które pomagają upewnić się, że aplikacje sieci web używają najnowszej wersji protokołu HTTP.
+Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które pomagają zagwarantować, że aplikacje sieci Web używają najnowszej wersji protokołu HTTP.
 
-- Upewnij się, że "Wersja HTTP" jest najnowsza, jeśli jest używana do uruchamiania aplikacji Api
-- Upewnij się, że "Wersja HTTP" jest najnowsza, jeśli jest używana do uruchamiania aplikacji Function
-- Upewnij się, że "Wersja HTTP" jest najnowsza, jeśli jest używana do uruchamiania aplikacji sieci Web
+- Upewnij się, że wersja protokołu HTTP jest najnowsza, jeśli jest używana do uruchamiania aplikacji interfejsu API
+- Upewnij się, że wersja protokołu HTTP jest najnowsza, jeśli jest używana do uruchamiania aplikacji funkcji
+- Upewnij się, że wersja protokołu HTTP jest najnowsza, jeśli jest używana do uruchamiania aplikacji sieci Web
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy przejrzysz mapowanie kontrolne planu wzorcowego fundacji CIS Microsoft Azure Foundations, odwiedź następujące artykuły, aby dowiedzieć się więcej o planie, lub odwiedź witrynę Azure Policy w witrynie Azure portal, aby przypisać tę inicjatywę:
+Po przejrzeniu mapowania kontroli w ramach planu porównawczego usługi CIS Microsoft Azure Zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej na temat planu, lub odwiedź Azure Policy w Azure Portal, aby przypisać inicjatywę:
 
 > [!div class="nextstepaction"]
-> [Plan wzorcowy fundacji CIS Microsoft Azure Foundations — omówienie](./index.md)
-> [planu wzorcowego FUNDACJI CIS Microsoft Azure Foundations — wdrażanie kroków](./deploy.md)
+> [Plan porównawczy usługi CIS Microsoft Azure — omówienie](./index.md)
+> [planów testów usługi CIS Microsoft Azure](./deploy.md)
 
 Dodatkowe artykuły na temat strategii i sposobu ich używania:
 
-- Dowiedz się więcej o [cyklu życia planu](../../concepts/lifecycle.md).
+- Uzyskaj informacje na temat [cyklu życia strategii](../../concepts/lifecycle.md).
 - Dowiedz się, jak używać [parametrów statycznych i dynamicznych](../../concepts/parameters.md).
 - Dowiedz się, jak dostosować [kolejność sekwencjonowania strategii](../../concepts/sequencing-order.md).
 - Dowiedz się, jak używać [blokowania zasobów strategii](../../concepts/resource-locking.md).

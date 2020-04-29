@@ -6,21 +6,21 @@ ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
 ms.openlocfilehash: eb287b812c477b2e472c48d7bd8f44574a398bac
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681573"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurowanie konwersji modelu
 
-W tym rozdziale jest dokumentowanie opcji konwersji modelu.
+W tym rozdziale udokumentowano opcje konwersji modelu.
 
 ## <a name="settings-file"></a>Plik ustawień
 
-Jeśli plik `ConversionSettings.json` wywoływany znajduje się w kontenerze wejściowym obok modelu wejściowego, a następnie jest używany do zapewnienia dodatkowej konfiguracji dla procesu konwersji modelu.
+Jeśli plik o nazwie `ConversionSettings.json` znajduje się w kontenerze danych wejściowych obok modelu wejściowego, jest używany do zapewnienia dodatkowej konfiguracji procesu konwersji modelu.
 
-Zawartość pliku powinna spełniać następujące schematy json:
+Zawartość pliku powinna spełniać następujący schemat JSON:
 
 ```json
 {
@@ -65,76 +65,76 @@ Przykładowy `ConversionSettings.json` plik może być:
 
 ### <a name="geometry-parameters"></a>Parametry geometrii
 
-* `scaling`- Ten parametr skaluje model równomiernie. Skalowanie może służyć do powiększania lub zmniejszania modelu, na przykład do wyświetlania modelu budynku na blacie stołu. Ponieważ aparat renderowania oczekuje długości, które mają być określone w metrach, inne ważne użycie tego parametru powstaje, gdy model jest zdefiniowany w różnych jednostkach. Na przykład jeśli model jest zdefiniowany w centymetrach, zastosowanie skali 0,01 powinno spowodować, że model będzie miał prawidłowy rozmiar.
-Niektóre formaty danych źródłowych (na przykład .fbx) zapewniają wskazówkę skalowania jednostki, w którym to przypadku konwersja niejawnie skaluje model do jednostek miernika. Skalowanie niejawne dostarczone przez format źródłowy zostaną zastosowane na górze parametru skalowania.
-Końcowy współczynnik skalowania jest stosowany do wierzchołków geometrii i lokalnych przekształceń węzłów wykresu sceny. Skalowanie transformacji jednostki głównej pozostaje niezmodyfikowane.
+* `scaling`— Ten parametr skaluje model jednolicie. Skalowanie może służyć do powiększania lub zmniejszania modelu, na przykład w celu wyświetlenia modelu budynku na górze tabeli. Ponieważ aparat renderowania oczekuje, że długość ma być określona w licznikach, inne ważne użycie tego parametru będzie miało miejsce, gdy model jest zdefiniowany w różnych jednostkach. Na przykład jeśli model jest zdefiniowany w centymetrach, zastosowanie skali 0,01 powinno spowodować, że model ma prawidłowy rozmiar.
+Niektóre formaty danych źródłowych (na przykład. FBX) zapewniają wskazówkę skalowania jednostki, w tym przypadku konwersja niejawnie skaluje model do jednostek miary. Niejawne skalowanie dostarczone przez format źródła zostanie zastosowane w górnej części parametru skalowania.
+Końcowy współczynnik skalowania jest stosowany do wierzchołków geometrii i lokalnych przekształceń węzłów wykresu sceny. Skalowanie dla przekształcenia jednostki głównej pozostaje niemodyfikowane.
 
-* `recenterToOrigin`- Stwierdza, że model powinien zostać przekonwertowany w taki sposób, aby jego obwiednia była wyśrodkowana na początku.
-Centrowanie jest ważne, jeśli model źródłowy jest przesunięty z dala od źródła, ponieważ w tym przypadku zmiennoprzecinkowe problemy z precyzją mogą powodować renderowanie artefaktów.
+* `recenterToOrigin`-Określa, że model powinien zostać przekonwertowany, aby jego pole ograniczenia zostało wyśrodkowane w miejscu pochodzenia.
+Wyśrodkowanie jest ważne, jeśli model źródłowy jest odsunięty od źródła, ponieważ w tym przypadku problemy z dokładnością do liczby zmiennoprzecinkowej mogą powodować artefakty renderowania.
 
-* `opaqueMaterialDefaultSidedness`- Silnik renderowania zakłada, że materiały nieprzezroczyste są dwustronne.
-Jeśli nie jest to zamierzone zachowanie, ten parametr powinien być ustawiony na "SingleSided". Aby uzyskać więcej informacji, zobacz [renderowanie jednostronne](../../overview/features/single-sided-rendering.md).
+* `opaqueMaterialDefaultSidedness`-Aparat renderowania zakłada, że nieprzezroczyste materiały są dwustronne.
+Jeśli to nie jest zamierzone zachowanie, ten parametr powinien być ustawiony na wartość "SingleSided". Aby uzyskać więcej informacji, zobacz [renderowanie jednostronne](../../overview/features/single-sided-rendering.md).
 
-### <a name="material-overrides"></a>Nadpisy
+### <a name="material-overrides"></a>Zastępowanie materiału
 
-* `material-override`- Ten parametr pozwala na dostosowanie przetwarzania materiałów [podczas konwersji.](override-materials.md)
+* `material-override`-Ten parametr umożliwia dostosowanie przetwarzania materiałów [podczas konwersji](override-materials.md).
 
 ### <a name="color-space-parameters"></a>Parametry przestrzeni kolorów
 
-Aparat renderowania oczekuje, że wartości kolorów będą w przestrzeni liniowej.
-Jeśli model jest zdefiniowany przy użyciu przestrzeni gamma, opcje te powinny być ustawione na true.
+Aparat renderowania oczekuje, że wartości koloru mają być w przestrzeni liniowej.
+Jeśli model jest zdefiniowany przy użyciu przestrzeni gamma, te opcje powinny być ustawione na wartość true.
 
-* `gammaToLinearMaterial`- Konwersja kolorów materiału z przestrzeni gamma do przestrzeni liniowej
-* `gammaToLinearVertex`- Konwersja kolorów wierzchołków z przestrzeni gamma na przestrzeń liniową
+* `gammaToLinearMaterial`— Konwertuj kolory materiału z przestrzeni gamma na miejsce liniowe
+* `gammaToLinearVertex`— Konwertuj kolory wierzchołków z przestrzeni gamma na miejsce liniowe
 
 > [!NOTE]
-> W przypadku plików FBX `true` ustawienia te są domyślnie ustawione na. Dla wszystkich innych typów plików `false`wartość domyślna to .
+> Dla plików FBX te ustawienia są domyślnie ustawione `true` na. Dla wszystkich innych typów plików wartością domyślną jest `false`.
 
 ### <a name="scene-parameters"></a>Parametry sceny
 
-* `sceneGraphMode`- Określa, jak wykres sceny w pliku źródłowym jest konwertowany:
-  * `dynamic`(domyślnie): Wszystkie obiekty w pliku są udostępniane jako [jednostki](../../concepts/entities.md) w interfejsie API i mogą być przekształcane niezależnie. Hierarchia węzłów w czasie wykonywania jest identyczna ze strukturą w pliku źródłowym.
-  * `static`: Wszystkie obiekty są widoczne w interfejsie API, ale nie można przekształcić niezależnie.
-  * `none`: Wykres sceny jest zwinięty na jeden obiekt.
+* `sceneGraphMode`-Definiuje sposób konwersji grafu sceny w pliku źródłowym:
+  * `dynamic`(ustawienie domyślne): wszystkie obiekty w pliku są ujawniane jako [jednostki](../../concepts/entities.md) w interfejsie API i mogą być niezależne. Hierarchia węzłów w czasie wykonywania jest taka sama jak struktura w pliku źródłowym.
+  * `static`: Wszystkie obiekty są uwidocznione w interfejsie API, ale nie mogą być niezależne.
+  * `none`: Wykres sceny jest zwinięty do jednego obiektu.
 
-Każdy tryb ma inną wydajność środowiska uruchomieniowego. W `dynamic` trybie koszt wydajności skaluje się liniowo z liczbą [elementów](../../concepts/entities.md) na wykresie, nawet jeśli żadna część nie zostanie przeniesiona. Powinien być używany tylko wtedy, gdy części ruchome indywidualnie są niezbędne do aplikacji, na przykład dla animacji "widoku eksplozji".
+Każdy tryb ma inną wydajność środowiska uruchomieniowego. W `dynamic` trybie, koszt wydajności jest skalowany liniowo wraz z liczbą [jednostek](../../concepts/entities.md) na grafie, nawet jeśli żadna część nie zostanie przeniesiona. Tego elementu należy używać tylko w przypadku, gdy przenoszone części oddzielnie są wymagane dla aplikacji, na przykład dla animacji "widok wybuchu".
 
-Tryb `static` eksportuje pełny wykres sceny, ale części wewnątrz tego wykresu mają stałe przekształcenie względem jego części głównej. Węzeł główny obiektu nadal można jednak przenosić, obracać lub skalować bez znaczonych kosztów wydajności. Ponadto [zapytania przestrzenne](../../overview/features/spatial-queries.md) zwracają poszczególne części, a każda część może być modyfikowana za pomocą [nadpisań stanu.](../../overview/features/override-hierarchical-state.md) W tym trybie obciążenie środowiska wykonawczego na obiekt jest znikome. Jest to idealne rozwiązanie dla dużych scen, w których nadal potrzebujesz inspekcji na obiekt, ale nie ma zmian przekształcania na obiekt.
+`static` Tryb eksportuje wykres pełnej sceny, ale części wewnątrz tego wykresu mają stałą transformację względem jej głównej części. Węzeł główny obiektu, jednak nadal można przenieść, obrócić lub skalować bez znaczącego kosztu wydajności. Ponadto [zapytania przestrzenne](../../overview/features/spatial-queries.md) zwracają poszczególne części, a każda część może być modyfikowana przy użyciu [przesłonięć stanu](../../overview/features/override-hierarchical-state.md). W tym trybie obciążenie środowiska uruchomieniowego na obiekt jest nieznaczne. Jest to idealne rozwiązanie w przypadku dużych scen, w których nadal potrzebna jest inspekcja poszczególnych obiektów, ale nie ma żadnych zmian przekształceń na obiekt.
 
-Tryb `none` ma najmniejsze obciążenie czasu wykonywania, a także nieco lepsze czasy ładowania. Inspekcja lub przekształcenie pojedynczych obiektów nie jest możliwe w tym trybie. Przypadki użycia to na przykład modele fotogrametrii, które nie mają na pierwszym miejscu znaczącego wykresu sceny.
+`none` Tryb ma najniższe obciążenie środowiska uruchomieniowego, a także nieco lepsze czasy ładowania. Inspekcja lub przekształcanie pojedynczych obiektów nie jest możliwe w tym trybie. Przypadki użycia to na przykład modele photogrammetry, które nie mają znaczącego wykresu sceny w pierwszym miejscu.
 
 > [!TIP]
-> Wiele aplikacji załaduje wiele modeli. Parametry konwersji dla każdego modelu należy zoptymalizować w zależności od tego, jak będzie on używany. Na przykład, jeśli chcesz wyświetlić model samochodu, aby użytkownik rozjął się i `dynamic` sprawdził szczegółowo, musisz przekonwertować go w trybie. Jeśli jednak dodatkowo chcesz umieścić samochód w środowisku sali pokazowej, model `sceneGraphMode` ten `static` można `none`przekonwertować z zestawem lub nawet .
+> Wiele aplikacji będzie ładować wiele modeli. Należy zoptymalizować parametry konwersji dla każdego modelu w zależności od sposobu jego użycia. Jeśli na przykład chcesz wyświetlić model samochodu, aby użytkownik mógł się z nim oddzielić i szczegółowo sprawdzić, należy go przekonwertować z `dynamic` trybem. Jeśli jednak chcesz umieścić samochód w środowisku pokazywania pokoju, ten model można przekonwertować na `sceneGraphMode` wartość `static` lub nawet. `none`
 
 ### <a name="physics-parameters"></a>Parametry fizyki
 
-* `generateCollisionMesh`- Jeśli potrzebujesz obsługi [zapytań przestrzennych](../../overview/features/spatial-queries.md) w modelu, ta opcja musi być włączona. W najgorszym przypadku utworzenie siatki kolizji może podwoić czas konwersji. Ładowanie modeli z siatkami kolizji trwa `dynamic` dłużej, a podczas korzystania z wykresu sceny mają również wyższe obciążenie wydajnością środowiska uruchomieniowego. Aby uzyskać ogólną optymalną wydajność, należy wyłączyć tę opcję we wszystkich modelach, w których nie są potrzebne zapytania przestrzenne.
+* `generateCollisionMesh`— Jeśli potrzebujesz obsługi [zapytań przestrzennych](../../overview/features/spatial-queries.md) w modelu, ta opcja musi być włączona. W najgorszym przypadku tworzenie siatki kolizji może być podwojone czasu konwersji. Modele ze oczkami kolizji zajmują więcej czasu, a w `dynamic` przypadku korzystania z wykresu sceny są również większe obciążenie wydajności środowiska uruchomieniowego. W celu uzyskania ogólnej optymalnej wydajności należy wyłączyć tę opcję dla wszystkich modeli, w których nie są potrzebne zapytania przestrzenne.
 
-### <a name="unlit-materials"></a>Nieoświetlone materiały
+### <a name="unlit-materials"></a>Materiały bez oświetlenia
 
-* `unlitMaterials`- Domyślnie konwersja woli tworzyć [materiały PBR](../../overview/features/pbr-materials.md). Ta opcja informuje konwerter, aby zamiast tego traktował wszystkie materiały jako [materiały kolorowe.](../../overview/features/color-materials.md) Jeśli masz dane, które już zawierają oświetlenie, takie jak modele utworzone za pomocą fotogrametrii, ta opcja pozwala szybko wymusić prawidłową konwersję dla wszystkich materiałów, bez konieczności [zastępowania każdego materiału](override-materials.md) indywidualnie.
+* `unlitMaterials`-Domyślnie konwersja będzie preferować tworzenie [materiałów PBR](../../overview/features/pbr-materials.md). Ta opcja nakazuje konwerterowi traktowanie wszystkich materiałów jako [materiałów koloru](../../overview/features/color-materials.md) . Jeśli masz dane, które już zawierają oświetlenie, takie jak modele utworzone za pomocą photogrammetry, ta opcja pozwala szybko wymusić poprawną konwersję dla wszystkich materiałów, bez konieczności [przesłonięcia poszczególnych materiałów](override-materials.md) osobno.
 
-### <a name="converting-from-older-fbx-formats-with-a-phong-material-model"></a>Konwersja ze starszych formatów FBX, z modelem materiału Phong
+### <a name="converting-from-older-fbx-formats-with-a-phong-material-model"></a>Konwertowanie ze starszych formatów FBX z modelem materiałowym podstawowego Phong
 
-* `fbxAssumeMetallic`- Starsze wersje formatu FBX definiują swoje materiały za pomocą modelu materiału Phong. Proces konwersji musi wywnioskować, jak te materiały mapują do [modelu PBR](../../overview/features/pbr-materials.md)modułu renderowania. Zwykle działa to dobrze, ale niejednoznaczność może pojawić się, gdy materiał nie ma tekstur, wysokich wartości lustrzanych i nieszare albedo kolor. W tej sytuacji konwersja musi wybrać między priorytetem wysokich wartości lustrzanych, definiowaniem wysoce odblaskowego, metalowego materiału, w którym kolor albedo rozpuszcza się, lub priorytetem koloru albedo, definiując coś w rodzaju błyszczącego kolorowego plastiku. Domyślnie proces konwersji zakłada, że wartości wysoce lustrzane oznaczają materiał metaliczny w przypadkach, gdy ma zastosowanie niejednoznaczność. Ten parametr można `false` ustawić, aby przełączyć się na odwrotnie.
+* `fbxAssumeMetallic`-Starsze wersje formatu FBX definiują ich materiały przy użyciu modelu materiału podstawowego Phong. Proces konwersji musi wnioskować, jak te materiały są mapowane na [model PBR](../../overview/features/pbr-materials.md)modułu renderowania. Zwykle jest to dobre rozwiązanie, ale niejednoznaczność może powstać, gdy materiał nie ma żadnych tekstur, wysokich wartości odblasków i nieszarego koloru albedo. W takim przypadku konwersja musi wybrać między priorytetyzacją odblasków wartości, Definiowanie wysoce odbijających materiałów metalicznych, gdy kolor albedo jest rozwiązany, lub określić priorytety koloru albedo, definiując takie jak Shiny kolorowe tworzywo sztuczne. Domyślnie proces konwersji zakłada, że wysoce odblasków wartości implikują materiał metaliczny w przypadkach, gdy ma zastosowanie niejednoznaczność. Ten parametr można ustawić `false` , aby przełączyć się na odwrotność.
 
-### <a name="coordinate-system-overriding"></a>Zastępowanie układu współrzędnych
+### <a name="coordinate-system-overriding"></a>Przesłanianie systemu współrzędnych
 
-* `axis`- Aby zastąpić układ współrzędnych wektorów jednostki. Wartościami `["+x", "+y", "+z"]`domyślnymi są . Teoretycznie format FBX ma nagłówek, w którym zdefiniowano te wektory, a konwersja wykorzystuje te informacje do przekształcenia sceny. Format glTF definiuje również stały układ współrzędnych. W praktyce niektóre zasoby mają nieprawidłowe informacje w nagłówku lub zostały zapisane przy innej konwencji układu współrzędnych. Ta opcja umożliwia zastąpienie układu współrzędnych w celu skompensowania. Na przykład: `"axis" : ["+x", "+z", "-y"]` wymieni oś Z i oś Y i zachowa układ współrzędnych, odwracając kierunek osi Y.
+* `axis`-Aby przesłonić jednostkę układu współrzędnych. Wartości domyślne to `["+x", "+y", "+z"]`. Teoretycznie format FBX ma nagłówek, w którym są zdefiniowane te wektory, a konwersja używa tych informacji do przekształcenia sceny. Format glTF definiuje również stały układ współrzędnych. W ramach tej działalności niektóre elementy zawartości mają nieprawidłowe informacje w nagłówku lub zostały zapisane z inną Konwencją systemu współrzędnych. Ta opcja umożliwia przesłonięcie układu współrzędnych w celu zrekompensowania. Na przykład: `"axis" : ["+x", "+z", "-y"]` program zamieni osi z i oś y i utrzymuje skrętności układu współrzędnych, odwracając kierunek osi y.
 
 ### <a name="vertex-format"></a>Format wierzchołka
 
-Możliwe jest dostosowanie formatu wierzchołka dla siatki, aby wymienić precyzję w celu oszczędności pamięci. Mniejsza ilość pamięci pozwala załadować większe modele lub osiągnąć lepszą wydajność. Jednak w zależności od danych niewłaściwy format może znacząco wpłynąć na jakość renderowania.
+Istnieje możliwość dostosowania formatu wierzchołka dla siatki w celu uzyskania dokładności handlowej dla oszczędności pamięci. Zmniejszenie ilości pamięci umożliwia załadowanie większych modeli lub osiągnięcie lepszej wydajności. Jednak w zależności od danych niewłaściwy format może znacząco wpływać na jakość renderowania.
 
 > [!CAUTION]
-> Zmiana formatu wierzchołka powinna być ostatecznością, gdy modele nie pasują już do pamięci lub podczas optymalizacji w celu uzyskania najlepszej możliwej wydajności. Zmiany mogą łatwo wprowadzić artefakty renderowania, zarówno oczywiste, jak i subtelne. Jeśli nie wiesz, na co zwrócić uwagę, nie należy zmieniać wartości domyślnej.
+> Zmiana formatu wierzchołka powinna być ostatnim etapem, gdy modele nie mieszczą się w pamięci lub w przypadku optymalizacji pod kątem najlepszej możliwej wydajności. Zmiany mogą łatwo wprowadzać artefakty renderowania, zarówno oczywiste, jak i delikatne. Nie należy zmieniać ustawień domyślnych, chyba że wiesz, co należy wyszukać.
 
-Korekty te są możliwe:
+Możliwe są następujące korekty:
 
-* Określone strumienie danych mogą być jawnie uwzględnione lub wykluczone.
-* Dokładność strumieni danych można zmniejszyć, aby zmniejszyć zużycie pamięci.
+* Określone strumienie danych można jawnie dołączać lub wykluczać.
+* Dokładność strumieni danych można zmniejszyć, aby zmniejszyć ilość pamięci.
 
-Poniższa `vertex` sekcja `.json` w pliku jest opcjonalna. Dla każdej części, która nie jest jawnie określona, usługa konwersji powraca do ustawienia domyślnego.
+Następująca `vertex` sekcja w `.json` pliku jest opcjonalna. Dla każdej części, która nie została określona jawnie, usługa konwersji powraca do ustawienia domyślnego.
 
 ```json
 {
@@ -152,86 +152,86 @@ Poniższa `vertex` sekcja `.json` w pliku jest opcjonalna. Dla każdej części,
     ...
 ```
 
-Wymuszając składnik `NONE`do , jest gwarantowane, że siatka wyjściowa nie ma odpowiedniego strumienia.
+Wymuszając składnik do `NONE`, jest gwarantowane, że siatka wyjściowa nie ma odpowiedniego strumienia.
 
-#### <a name="component-formats-per-vertex-stream"></a>Formaty komponentów na strumień wierzchołków
+#### <a name="component-formats-per-vertex-stream"></a>Formaty składników na strumień wierzchołków
 
 Formaty te są dozwolone dla odpowiednich składników:
 
 | Składnik wierzchołka | Obsługiwane formaty (pogrubienie = domyślne) |
 |:-----------------|:------------------|
 |pozycja| **32_32_32_FLOAT**, 16_16_16_16_FLOAT |
-|kolor0| **8_8_8_8_UNSIGNED_NORMALIZED**, BRAK |
-|kolor1| 8_8_8_8_UNSIGNED_NORMALIZED, **BRAK**|
-|Normalne| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, BRAK |
-|Stycznej| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, BRAK |
-|binormal| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, BRAK |
-|texcoord0 ( texcoord0 )| **32_32_FLOAT**, 16_16_FLOAT, BRAK |
-|texcoord1| **32_32_FLOAT**, 16_16_FLOAT, BRAK |
+|color0| **8_8_8_8_UNSIGNED_NORMALIZED**, brak |
+|color1| 8_8_8_8_UNSIGNED_NORMALIZED, **Brak**|
+|typow| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, brak |
+|liczby| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, brak |
+|normalny| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, brak |
+|texcoord0| **32_32_FLOAT**, 16_16_FLOAT, brak |
+|texcoord1| **32_32_FLOAT**, 16_16_FLOAT, brak |
 
 #### <a name="supported-component-formats"></a>Obsługiwane formaty składników
 
-Rozmiary pamięci formatów są następujące:
+Są to następujące pamięci:
 
 | Format | Opis | Bajty na wierzchołek |
 |:-------|:------------|:---------------|
-|32_32_FLOAT|dwuskładnikowa pełna dokładność zmiennoprzecinkowa|8
-|16_16_FLOAT|dwuskładnikowa pół zmiennoprzecinkowa precyzja|4
-|32_32_32_FLOAT|trzyskładkowa pełna precyzja zmiennoprzecinkowa|12
-|16_16_16_16_FLOAT|czteroskładnikowa pół zmiennoprzecinkowa precyzja|8
-|8_8_8_8_UNSIGNED_NORMALIZED|bajt czteroskładnikowy, znormalizowany do `[0; 1]` zakresu|4
-|8_8_8_8_SIGNED_NORMALIZED|bajt czteroskładnikowy, znormalizowany do `[-1; 1]` zakresu|4
+|32_32_FLOAT|Pełna precyzja zmiennoprzecinkowa dwóch składników|8
+|16_16_FLOAT|dwuskładnikowa precyzja zmiennoprzecinkowa|4
+|32_32_32_FLOAT|precyzja pełnej liczby zmiennoprzecinkowej z trzema składnikami|12
+|16_16_16_16_FLOAT|Liczba pół zmiennoprzecinkowa z czterema składnikami|8
+|8_8_8_8_UNSIGNED_NORMALIZED|bajty z czterema składnikami, `[0; 1]` znormalizowane do zakresu|4
+|8_8_8_8_SIGNED_NORMALIZED|bajty z czterema składnikami, `[-1; 1]` znormalizowane do zakresu|4
 
-#### <a name="best-practices-for-component-format-changes"></a>Najważniejsze wskazówki dotyczące zmian formatu składników
+#### <a name="best-practices-for-component-format-changes"></a>Najlepsze rozwiązania dotyczące zmian w formacie składnika
 
-* `position`: Rzadko zdarza się, że wymagana jest zmniejszona dokładność. **16_16_16_16_FLOAT** wprowadza zauważalne artefakty kwantyzacji, nawet dla małych modeli.
-* `normal`, `tangent` `binormal`: Zazwyczaj te wartości są zmieniane razem. O ile nie istnieją zauważalne artefakty świetlne, które wynikają z normalnej kwantyzacji, nie ma powodu, aby zwiększyć ich dokładność. W niektórych przypadkach jednak te składniki można ustawić na **NONE:**
-  * `normal`, `tangent`i `binormal` są potrzebne tylko wtedy, gdy powinien świecić się co najmniej jeden materiał w modelu. W ARR jest to przypadek, gdy [materiał PBR](../../overview/features/pbr-materials.md) jest używany w modelu w dowolnym momencie.
-  * `tangent`i `binormal` są potrzebne tylko wtedy, gdy którykolwiek z oświetlonych materiałów używa normalnej tekstury mapy.
-* `texcoord0`, `texcoord1` : Współrzędne tekstury mogą używać zmniejszonej dokładności `[0; 1]` (**16_16_FLOAT),** gdy ich wartości pozostają w zakresie i gdy tekstury adresowane mają maksymalny rozmiar 2048 x 2048 pikseli. Jeśli te limity zostaną przekroczone, jakość mapowania tekstur ucierpi.
+* `position`: Bardzo rzadko jest wystarczająca dokładność. **16_16_16_16_FLOAT** wprowadza zauważalne artefakty podziału nawet dla małych modeli.
+* `normal`, `tangent`, `binormal`: Zwykle te wartości są zmieniane razem. O ile nie istnieją zauważalne artefakty oświetlenia wynikające z normalnego podziałuu, nie ma powodów, aby zwiększyć ich dokładność. W niektórych przypadkach te składniki mogą być ustawione na **Brak**:
+  * `normal`, `tangent`, i `binormal` są odpowiednie tylko wtedy, gdy powinien być oświetlony co najmniej jeden materiał w modelu. W odniesieniu do ARR jest to przypadek, gdy [materiał PBR](../../overview/features/pbr-materials.md) jest używany w modelu w dowolnym momencie.
+  * `tangent`i `binormal` są potrzebne tylko wtedy, gdy żadne z materiałów oświetlonych używa normalnej tekstury mapy.
+* `texcoord0`, `texcoord1` : Współrzędne tekstury mogą korzystać z zmniejszonej dokładności (**16_16_FLOAT**), gdy ich wartości `[0; 1]` pozostają w zakresie, a rozmiary tekstur mają maksymalny rozmiar 2048 x 2048 pikseli. W przypadku przekroczenia tych limitów jakość mapowania tekstury będzie mieć wpływ.
 
 #### <a name="example"></a>Przykład
 
-Załóżmy, że masz model fotogrametrii, który ma oświetlenie pieczone w teksturach. Wszystko, co jest potrzebne do renderowania modelu są pozycje wierzchołków i współrzędne tekstury.
+Załóżmy, że masz model photogrammetry, który ma oświetlenie rozszerzania do tekstury. Wszystko, co jest konieczne do renderowania modelu, to położenia wierzchołków i Współrzędne tekstury.
 
-Domyślnie konwerter musi zakładać, że w pewnym momencie można użyć materiałów `normal`PBR w modelu, więc wygeneruje program `tangent`, i `binormal` dane dla Ciebie. W związku z tym użycie `position` pamięci na wierzchołek jest (12 `texcoord0` bajtów) + (8 bajtów) + `normal` (4 bajty) + `tangent` (4 bajty) + `binormal` (4 bajtów) = 32 bajtów. Większe modele tego typu mogą łatwo mieć wiele milionów wierzchołków, co powoduje, że modele mogą zająć wiele gigabajtów pamięci. Tak duże ilości danych będą miały wpływ na wydajność i może nawet zabraknąć pamięci.
+Domyślnie konwerter musi założyć, że w pewnym momencie możesz chcieć używać materiałów PBR w modelu, aby generować `normal`dane, `tangent`i. `binormal` W związku z tym użycie pamięci dla wierzchołków `position` wynosi (12 bajtów) `texcoord0` + (8 bajtów) `normal` + (4 bajty `tangent` ) + (4 bajty) + `binormal` (4 bajty) = 32 bajtów. Większe modele tego typu mogą w łatwy sposób zawierać wiele milionów wierzchołków, które będą miały wiele gigabajtów pamięci. Takie duże ilości danych wpłynie na wydajność i nawet zabrakło pamięci.
 
-Wiedząc, że nigdy nie potrzebujesz dynamicznego oświetlenia w modelu `[0; 1]` i wiedząc, `normal`że `tangent`wszystkie `binormal` `NONE` współrzędne tekstury znajdują się w zasięgu, można ustawić , i do i `texcoord0` do połowy precyzji (`16_16_FLOAT`), co daje tylko 16 bajtów na wierzchołek. Zmniejszenie danych siatki na pół umożliwia ładowanie większych modeli i potencjalnie zwiększa wydajność.
+Wiedząc, że nie potrzebujesz dynamicznego oświetlenia na modelu i wiedzą, że wszystkie Współrzędne tekstury znajdują `[0; 1]` się w zakresie, można `normal`ustawić `tangent`,, `binormal` i `NONE` do `texcoord0` i do połowy precyzji (`16_16_FLOAT`), co spowoduje, że tylko 16 bajtów na wierzchołek. Wycinanie danych siatki na pół umożliwia załadowanie większych modeli i zwiększenie wydajności.
 
 ## <a name="typical-use-cases"></a>Typowe przypadki użycia
 
-Znalezienie dobrych ustawień importu dla danego przypadku użycia może być żmudnym procesem. Z drugiej strony ustawienia konwersji mogą mieć znaczący wpływ na wydajność środowiska uruchomieniowego.
+Wyszukiwanie dobrych ustawień importu dla danego przypadku użycia może być procesem żmudnym. Z drugiej strony Ustawienia konwersji mogą mieć znaczny wpływ na wydajność środowiska uruchomieniowego.
 
-Istnieją pewne klasy przypadków użycia, które kwalifikują się do określonych optymalizacji. Poniżej podano kilka przykładów.
+Istnieją pewne klasy przypadków użycia, które kwalifikują się do określonych optymalizacji. Poniżej przedstawiono kilka przykładów.
 
-### <a name="use-case-architectural-visualization--large-outdoor-maps"></a>Przypadek użycia: Wizualizacja architektoniczna / duże mapy zewnętrzne
+### <a name="use-case-architectural-visualization--large-outdoor-maps"></a>Przypadek użycia: wizualizacja architektoniczna/duże mapy na zewnątrz
 
-* Tego typu sceny wydają się być statyczne, co oznacza, że nie potrzebują ruchomych części. W związku `sceneGraphMode` z tym `static` można `none`ustawić lub nawet , co poprawia wydajność środowiska uruchomieniowego. W `static` trybie węzeł główny sceny nadal można przenosić, obracać i skalować, na przykład dynamicznie przełączać się między skalą 1:1 (dla widoku z perspektywy pierwszej osoby) a widokiem z góry tabeli.
+* Te typy scen mają być statyczne, co oznacza, że nie potrzebują ruchomych części. Odpowiednio `sceneGraphMode` można ustawić wartość `static` lub nawet `none`, co zwiększa wydajność środowiska uruchomieniowego. W `static` trybie z trybem węzeł główny sceny może być nadal przenoszony, obracany i skalowany, na przykład w celu dynamicznego przełączenia między skalą 1:1 (w przypadku pierwszej osoby) i widokiem najwyższego poziomu tabeli.
 
-* Gdy trzeba przenieść części, zazwyczaj oznacza to również, że potrzebujesz wsparcia dla raycastów lub innych [zapytań przestrzennych,](../../overview/features/spatial-queries.md)aby można było wybrać te części w pierwszej kolejności. Z drugiej strony, jeśli nie zamierzasz coś poruszać, szanse są wysokie, że również nie potrzebujesz go do udziału `generateCollisionMesh` w zapytaniach przestrzennych i dlatego możesz wyłączyć flagę. Ten przełącznik ma znaczący wpływ na czas konwersji, czas ładowania, a także koszty aktualizacji czasu wykonywania na klatkę.
+* Gdy konieczne jest przeniesienie części wokół, zazwyczaj oznacza to, że konieczna jest obsługa raycasts lub innych [zapytań przestrzennych](../../overview/features/spatial-queries.md), dzięki czemu można wybierać te części w pierwszym miejscu. Z drugiej strony, jeśli nie zamierzasz poruszać się wokół siebie, szanse są wysokie, ale nie potrzebujesz jej do uczestniczenia w zapytania przestrzenne, dlatego można wyłączyć `generateCollisionMesh` flagę. Ten przełącznik ma znaczny wpływ na czasy konwersji, czasy ładowania, a także koszty aktualizacji poszczególnych klatek.
 
-* Jeśli aplikacja nie używa płaszczyzn `opaqueMaterialDefaultSidedness` [cięcia,](../../overview/features/cut-planes.md)flaga powinna być wyłączona. Przyrost wydajności wynosi zazwyczaj 20%-30%. Wytnij płaszczyzny mogą być nadal używane, ale nie będzie tylnych ścian, patrząc na wewnętrzne części obiektów, co wygląda na sprzeczne z intuicją. Aby uzyskać więcej informacji, zobacz [renderowanie jednostronne](../../overview/features/single-sided-rendering.md).
+* Jeśli aplikacja nie używa [wyciętych płaszczyzn](../../overview/features/cut-planes.md), `opaqueMaterialDefaultSidedness` flaga powinna być wyłączona. Wzrost wydajności jest zwykle 20%-30%. Nadal mogą być używane wycięte płaszczyzny, ale nie będzie można używać ich ponownie podczas wyszukiwania w wewnętrznych częściach obiektów, które wyglądają na intuicyjne. Aby uzyskać więcej informacji, zobacz [renderowanie jednostronne](../../overview/features/single-sided-rendering.md).
 
-### <a name="use-case-photogrammetry-models"></a>Przypadek użycia: Modele fotogrametrii
+### <a name="use-case-photogrammetry-models"></a>Przypadek użycia: modele photogrammetry
 
-Podczas renderowania modeli fotogrametrii zazwyczaj nie ma potrzeby tworzenia wykresu `sceneGraphMode` `none`sceny, więc można ustawić na . Ponieważ te modele rzadko zawierają złożony wykres sceny na początek, wpływ tej opcji powinien być jednak nieznaczny.
+Podczas renderowania modeli photogrammetry zazwyczaj nie ma potrzeby dla wykresu sceny, więc można ustawić `sceneGraphMode` na. `none` Ponieważ te modele rzadko zawierają złożone wykresy sceny, które zaczynają się od, wpływ tej opcji powinien być nieistotny, chociaż.
 
-Ponieważ oświetlenie jest już pieczone w teksturach, nie jest potrzebne dynamiczne oświetlenie. Zatem:
+Ponieważ oświetlenie jest już rozszerzania do tekstury, nie jest wymagana żadna dynamiczna oświetlenie. Zatem:
 
-* Ustaw `unlitMaterials` flagę `true` tak, aby wszystkie materiały zamieniły się w nieoświetlone [materiały kolorowe](../../overview/features/color-materials.md).
-* Usuń niepotrzebne dane z formatu wierzchołka. Zobacz [powyższy przykład.](#example)
+* Ustaw `unlitMaterials` flagę na `true` , aby przekształcić wszystkie materiały w bez oświetlenia [kolory](../../overview/features/color-materials.md).
+* Usuń niepotrzebne dane z formatu wierzchołka. Zapoznaj się z powyższym [przykładem](#example) .
 
-### <a name="use-case-visualization-of-compact-machines-etc"></a>Przypadek użycia: Wizualizacja kompaktowych maszyn itp.
+### <a name="use-case-visualization-of-compact-machines-etc"></a>Przypadek użycia: wizualizacja maszyn kompaktowych itp.
 
-W takich przypadkach modele często mają bardzo wysokie szczegóły w małej objętości. Moduł renderowania jest mocno zoptymalizowany do obsługi takich przypadków dobrze. Jednak większość optymalizacji wymienionych w poprzednim przypadku użycia nie ma zastosowania w tym miejscu:
+W tych przypadkach, modele często mają bardzo duże szczegóły w niewielkim woluminie. Renderowanie jest silnie zoptymalizowane pod kątem obsługi takich przypadków. Jednak większość optymalizacji wymienionych w poprzednim przypadku użycia nie ma zastosowania w tym miejscu:
 
-* Poszczególne części powinny być wybieralne i `sceneGraphMode` ruchome, `dynamic`więc należy pozostawić do .
-* Rzutki promieniowe są zazwyczaj integralną częścią aplikacji, więc siatki kolizji muszą być generowane.
-* Wycięte samoloty `opaqueMaterialDefaultSidedness` wyglądają lepiej z włączoną flagą.
+* Poszczególne części powinny być wybierane i ruchome, więc `sceneGraphMode` musi pozostać do `dynamic`.
+* Rzutowania promieniowego są zwykle integralną częścią aplikacji, dlatego siatki kolizji muszą być generowane.
+* Wytnij płaszczyzny wyglądają lepiej z `opaqueMaterialDefaultSidedness` włączoną flagą.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Konwersja modelu](model-conversion.md)
-* [Materiały kolorowe](../../overview/features/color-materials.md)
+* [Materiały kolorów](../../overview/features/color-materials.md)
 * [Materiały PBR](../../overview/features/pbr-materials.md)
 * [Zastępowanie materiałów podczas konwersji modelu](override-materials.md)

@@ -1,57 +1,57 @@
 ---
-title: Ponowna proces opóźniania się w późnym etapie
-description: Informacje na temat ponownego wystawiania na późnym etapie i sposobu korzystania z niej.
+title: Reprojekcja na późnym etapie
+description: Informacje o późnym przemieszczeniu projektu i sposobach ich użycia.
 author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
 ms.openlocfilehash: 4aa1148e544ff3451aa1cb956bc4a5fb932b9611
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680988"
 ---
-# <a name="late-stage-reprojection"></a>Ponowna proces opóźniania się w późnym etapie
+# <a name="late-stage-reprojection"></a>Reprojekcja na późnym etapie
 
-*Ponowne wystawianie na późnym etapie* (LSR) to funkcja sprzętowa, która pomaga ustabilizować hologramy podczas przenoszenia się użytkownika.
+Przechodzenie do *późnych etapów* (LSR) to funkcja sprzętowa, która ułatwia ustabilizowanie hologramów podczas przenoszenia użytkownika.
 
-Oczekuje się, że modele statyczne będą wizualnie utrzymywać swoją pozycję podczas poruszania się po nich. Jeśli wydają się być niestabilne, to zachowanie może wskazywać na problemy LSR. Należy pamiętać, że dodatkowe dynamiczne przekształcenia, takie jak animacje lub widoki rozłowienia, mogą maskować to zachowanie.
+Modele statyczne powinny wizualnie zachować swoją pozycję podczas poruszania się po nich. Jeśli wydaje się to niestabilne, takie zachowanie może być przyczyną problemów z LSR. Należy pamiętać, że dodatkowe przekształcenia dynamiczne, takie jak animacje lub widoki rozłożenia, mogą maskować takie zachowanie.
 
-Możesz wybrać jeden z dwóch różnych trybów LSR, a mianowicie **Planar LSR** lub **Depth LSR**. Który z nich jest aktywny zależy od tego, czy aplikacja kliencka przesyła bufor głębokości.
+Można wybrać jeden z dwóch różnych trybów LSR, mianowicie **planarny LSR** lub **głębokość LSR**. Który jest aktywny, zależy od tego, czy aplikacja kliencka przesyła bufor głębokości.
 
-Oba tryby LSR poprawiają stabilność hologramu, chociaż mają swoje odrębne ograniczenia. Zacznij od wypróbowania Głębokość LSR, ponieważ jest to prawdopodobnie dając lepsze wyniki w większości przypadków.
+Oba tryby LSR zwiększają stabilność hologramu, chociaż mają odrębne ograniczenia. Zacznij od uzyskania większej głębi LSR, ponieważ raczej w większości przypadków lepsze wyniki.
 
-## <a name="choose-lsr-mode-in-unity"></a>Wybieranie trybu LSR w unity
+## <a name="choose-lsr-mode-in-unity"></a>Wybieranie trybu LSR w środowisku Unity
 
-W edytorze Unity przejdź do *pozycji Ustawienia kompilacji > plików*. Wybierz *pozycję Ustawienia odtwarzacza* w lewym dolnym dolnym roku, a następnie zaznacz w obszarze *Ustawienia > XR player > zestawy SDK rzeczywistości wirtualnej > rzeczywistości mieszanej systemu Windows,* czy zaznaczono opcję **Włącz udostępnianie buforu głębokości:**
+W edytorze aparatu Unity przejdź do *pliku > ustawienia kompilacji*. Wybierz pozycję *Ustawienia odtwarzacza* w lewym dolnym rogu, a następnie sprawdź w obszarze *Player > ustawienia XR > wirtualne zestawy SDK > Windows Mixed Reality* , czy jest zaznaczone pole wyboru **Włącz udostępnianie buforu głębokości** :
 
-![Flaga Włączona funkcja udostępniania buforu głębokości](./media/unity-depth-buffer-sharing-enabled.png)
+![Flaga włączenia udostępniania buforu głębokości](./media/unity-depth-buffer-sharing-enabled.png)
 
-Jeśli tak jest, aplikacja będzie używać depth LSR, w przeciwnym razie użyje Planar LSR.
+Jeśli tak, aplikacja będzie używać głębokości LSR, w przeciwnym razie będzie używać planarnych LSR.
 
 ## <a name="depth-lsr"></a>Głębokość LSR
 
-Aby głębokość LSR do pracy, aplikacja kliencka musi dostarczyć prawidłowy bufor głębokości, który zawiera wszystkie odpowiednie geometrii do rozważenia podczas LSR.
+Aby głębokość LSR działała, aplikacja kliencka musi dostarczyć prawidłowy bufor głębokości, który zawiera wszystkie istotne dane geometryczne, które należy wziąć pod uwagę podczas LSR.
 
-Głębokość LSR próbuje ustabilizować klatkę wideo na podstawie zawartości dostarczonego buforu głębokości. W związku z tym zawartość, która nie została wyrenderowana do niego, takich jak obiekty przezroczyste, nie mogą być dostosowane przez LSR i może wykazywać niestabilność i artefakty ponownego przetwarzania.
+Głębokość LSR próbuje stabilizację ramki wideo na podstawie zawartości dostarczonego buforu głębokości. W rezultacie zawartość, która nie została renderowana, taka jak obiekty przezroczyste, nie może być dostosowywana przez LSR i może zawierać artefakty niestabilności i reprojektowania.
 
-## <a name="planar-lsr"></a>Planar LSR
+## <a name="planar-lsr"></a>LSR planarny
 
-Planar LSR nie ma informacji o głębokości na piksel, jak głębokość LSR nie. Zamiast tego ponownie przedstawia całą zawartość na podstawie płaszczyzny, która musi dostarczyć każdą ramkę.
+Współrzędne LSR nie zawierają informacji o głębokości na piksel, ponieważ głębokości LSR. Zamiast tego reprojektuje całą zawartość na podstawie płaszczyzny, w której należy udostępnić każdą klatkę.
 
-Planar LSR projektuje te obiekty najlepiej, które znajdują się w pobliżu dostarczonej płaszczyzny. Im dalej znajduje się obiekt, tym bardziej niestabilny będzie wyglądał. Podczas gdy głębokość LSR jest lepsza w ponownym współtworzeniu obiektów na różnych głębokościach, Planar LSR może działać lepiej dla zawartości dobrze wyrównywania z płaszczyzną.
+Planarny LSR reprojektuje obiekty najlepiej, które znajdują się blisko podanej płaszczyzny. Jeszcze bardziej niestabilny obiekt będzie wyglądał. Mimo że głębia LSR jest lepsza podczas reprojektowania obiektów na różnych głębokościach, współrzędne LSR mogą być lepsze do dopasowania zawartości do płaszczyzny.
 
-### <a name="configure-planar-lsr-in-unity"></a>Konfigurowanie planarnego LSR w unity
+### <a name="configure-planar-lsr-in-unity"></a>Konfigurowanie planarnych LSR w środowisku Unity
 
-Parametry płaszczyzny pochodzą z tak zwanego *punktu ostrości,* przez `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`który należy zapewnić każdą klatkę. Zobacz [interfejs API unity focus point, aby](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) uzyskać szczegółowe informacje. Jeśli nie ustawisz punktu ostrości, zostanie wybrany rezerwowy. Jednak automatyczny rezerwowy często prowadzi do nieoptymalnych wyników.
+Parametry płaszczyzny są wyprowadzane z tak zwanego *punktu fokusu*, który należy dostarczyć każdą klatkę `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`. Aby uzyskać szczegółowe informacje, zobacz [interfejs API punktu fokusu aparatu Unity](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) . Jeśli nie ustawisz punktu fokusu, zostanie wybrana opcja powrotu. Jednak automatyczna rezerwa często prowadzi do nieoptymalnych wyników.
 
-Punkt ostrości można obliczyć samodzielnie, choć może to mieć sens, aby oprzeć go na tym obliczonym przez hosta renderowania zdalnego. Zadzwoń, `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` aby to uzyskać. Użytkownik jest proszony o podanie ramki współrzędnych, w której można wyrazić punkt ostrości. W większości przypadków po prostu chcesz podać `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` wynik stąd.
+Punkt fokusu można obliczyć samodzielnie, ale może się to okazać podstawą dla tego, który jest obliczany przez hosta renderowania zdalnego. Wywołanie `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` w celu uzyskania tego. Zostanie wyświetlony monit o podanie ramki współrzędnej, w której ma zostać wyświetlona punkt fokusu. W większości przypadków należy jedynie podać wynik z `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` tego miejsca.
 
-Zazwyczaj zarówno klienta, jak i hosta renderowania zawartości, że druga strona nie jest świadomy, takich jak elementy interfejsu użytkownika na kliencie. W związku z tym może mieć sens, aby połączyć zdalnego punktu fokusu z lokalnie obliczony.
+Zazwyczaj zarówno klient, jak i Host renderują zawartość, której nie zna druga strona, na przykład elementy interfejsu użytkownika na komputerze klienckim. W związku z tym warto połączyć zdalny punkt skupienia z lokalnym obliczanym elementem.
 
-Punkty ostrości obliczone w dwóch kolejnych klatkach mogą być zupełnie inne. Po prostu za ich pomocą jako-jest może prowadzić do hologramów wydaje się być skakanie. Aby zapobiec takiemu zachowaniu, zaleca się interpolację między poprzednim i bieżącym punktem ostrości.
+Punkty fokusu obliczone w dwóch kolejnych klatkach mogą być zupełnie inne. Po prostu użycie ich jako-jest możliwe do przeskoczenia do hologramów. Aby uniknąć tego zachowania, zaleca się interpolowanie między poprzednim i bieżącym punktem fokusu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Kwerendy wydajności po stronie serwera](performance-queries.md)
+* [Zapytania wydajności po stronie serwera](performance-queries.md)

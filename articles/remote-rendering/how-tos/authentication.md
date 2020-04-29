@@ -1,36 +1,36 @@
 ---
-title: Authentication
-description: Wyjaśniono, jak działa uwierzytelnianie
+title: Uwierzytelnianie
+description: Wyjaśnia, jak działa uwierzytelnianie
 author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2019
 ms.topic: how-to
 ms.openlocfilehash: fbc27f2fa3b7517151c4bcdbec5b146e83dd868e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681638"
 ---
 # <a name="configure-authentication"></a>Konfigurowanie uwierzytelniania
 
-Renderowanie zdalne platformy Azure używa tego samego mechanizmu uwierzytelniania co [zakotwiczenia przestrzenne platformy Azure (ASA).](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp) Klienci muszą ustawić *AccountKey*, *AuthenticationToken*lub *AccessToken,* aby pomyślnie wywołać interfejsy API REST. *AccountKey* można uzyskać w zakładce "Klucze" dla konta zdalnego renderowania w witrynie Azure portal. *AuthenticationToken* to token usługi Azure AD, który można uzyskać za pomocą [biblioteki ADAL.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) *AccessToken* to token MR, który można uzyskać z usługi Azure Mixed Reality Security Token Service (STS).
+Zdalne renderowanie na platformie Azure używa tego samego mechanizmu uwierzytelniania jak [kotwice przestrzenne platformy Azure](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp). Klienci muszą ustawić *AccountKey*, *AuthenticationToken*lub *AccessToken* , aby pomyślnie wywołać interfejsy API REST. *AccountKey* można uzyskać na karcie "klucze" dla konta renderowania zdalnego na Azure Portal. *AuthenticationToken* jest tokenem usługi Azure AD, który można uzyskać przy użyciu [biblioteki ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). *AccessToken* to token Mr, który można uzyskać z usługi Azure Mixed Reality Security Token Service (STS).
 
-## <a name="authentication-for-deployed-applications"></a>Uwierzytelnianie dla wdrożonych aplikacji
+## <a name="authentication-for-deployed-applications"></a>Uwierzytelnianie wdrożonych aplikacji
 
- Używanie kluczy konta jest zalecane do szybkiego wejścia na pokład, ale tylko podczas opracowywania/tworzenia prototypów. Zdecydowanie zaleca się, aby nie wysyłać aplikacji do środowiska produkcyjnego przy użyciu klucza konta osadzonego w nim i zamiast tego używać metod uwierzytelniania usługi Azure AD opartych na użytkownikach lub usługach.
+ Użycie kluczy konta jest zalecane do szybkiego udostępniania, ale tylko w przypadku tworzenia/prototypowania. Zdecydowanie zaleca się, aby nie dostarczać aplikacji do środowiska produkcyjnego przy użyciu osadzonego klucza konta, a zamiast tego używać podejścia opartego na użytkowniku lub usłudze Azure AD.
 
- Uwierzytelnianie usługi Azure AD jest opisane w sekcji [uwierzytelniania użytkowników usługi Azure AD](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) usługi Azure Spatial [Anchors (ASA).](https://docs.microsoft.com/azure/spatial-anchors/)
+ Uwierzytelnianie usługi Azure AD jest opisane w sekcji [uwierzytelnianie użytkowników usługi Azure AD](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) w usłudze [Azure przestrzenny kotwics (ASA)](https://docs.microsoft.com/azure/spatial-anchors/) .
 
 ## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
-Aby ułatwić kontrolowanie poziomu dostępu przyznanego aplikacjom, usługom lub użytkownikom usługi Azure AD, utworzono następujące role, aby można je było przypisać zgodnie z potrzebami do kont zdalnego renderowania platformy Azure:
+Aby ułatwić kontrolę poziomu dostępu udzielonego aplikacjom, usługom lub użytkownikom usługi Azure AD w usłudze, zostały utworzone następujące role do przypisywania w razie potrzeby do kont zdalnego renderowania na platformie Azure:
 
-* **Administrator zdalnego renderowania:** zapewnia użytkownikowi możliwości konwersji, zarządzania sesją, renderowaniem i diagnostyką dla zdalnego renderowania platformy Azure.
-* **Zdalny klient renderowania:** zapewnia użytkownikowi zarządzanie funkcjami sesji, renderowania i diagnostyki dla renderowania zdalnego platformy Azure.
+* **Administrator zdalnego renderowania**: umożliwia użytkownikowi konwertowanie funkcji konwersji, sesji zarządzania, renderowania i diagnostyki na potrzeby renderowania zdalnego na platformie Azure.
+* **Klient renderowania zdalnego**: umożliwia użytkownikowi zarządzanie sesjami, renderowaniem i diagnostyką w przypadku renderowania zdalnego na platformie Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Tworzenie konta](create-an-account.md)
-* [Używanie interfejsów API zaplecza azure do uwierzytelniania](frontend-apis.md)
+* [Używanie interfejsów API frontonu platformy Azure do uwierzytelniania](frontend-apis.md)
 * [Przykładowe skrypty programu PowerShell](../samples/powershell-example-scripts.md)

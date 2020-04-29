@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: dapine
 ms.openlocfilehash: 7a00361581071ddf54893c42246b8c7ad4ac5722
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80656603"
 ---
 ## <a name="sample-source-code"></a>Przykładowy kod źródłowy
 
 :::row:::
     :::column span="3":::
-        Zestaw SDK mowy aktywnie przechowuje duży zestaw przykładów w repozytorium open source. Aby uzyskać przykładowe repozytorium kodu źródłowego, odwiedź zestaw <a href="https://aka.ms/csspeech/samples" target="_blank">Microsoft <span class="docon docon-navigate-external x-hidden-focus"> </span>Cognitive Services Speech SDK w usłudze GitHub </a>. Istnieją przykłady dla języka C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity i Xamarin.
+        Zestaw Speech SDK aktywnie utrzymuje duży zestaw przykładów w repozytorium typu "open source". Przykładowe repozytorium kodu źródłowego można znaleźć w temacie <a href="https://aka.ms/csspeech/samples" target="_blank">Microsoft Cognitive Services Speech SDK w witrynie GitHub <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. Istnieją przykłady dla języków C#, C++, Java, Python, zamierzenia-C, Swift, JavaScript, platformy UWP, Unity i Xamarin.
     :::column-end:::
     :::column:::
         <br>

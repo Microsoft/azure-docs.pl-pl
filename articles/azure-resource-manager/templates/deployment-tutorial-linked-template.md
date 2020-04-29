@@ -1,50 +1,50 @@
 ---
 title: Samouczek — wdrażanie połączonego szablonu
-description: Dowiedz się, jak wdrożyć szablon połączony
+description: Dowiedz się, jak wdrożyć połączony szablon
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 177a994450b6ffe5489a8c95c3b484521fd9b77b
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80672917"
 ---
-# <a name="tutorial-deploy-a-linked-template"></a>Samouczek: Wdrażanie połączonego szablonu
+# <a name="tutorial-deploy-a-linked-template"></a>Samouczek: wdrażanie połączonego szablonu
 
-W [poprzednich samouczkach](./deployment-tutorial-local-template.md)opisano, jak wdrożyć szablon przechowywany na komputerze lokalnym. Aby wdrożyć złożone rozwiązania, można podzielić szablon na wiele szablonów i wdrożyć te szablony za pomocą szablonu głównego. W tym samouczku dowiesz się, jak wdrożyć szablon główny, który zawiera odwołanie do szablonu połączonego. Po wdrożeniu szablonu głównego wyzwala wdrożenie połączonego szablonu. Dowiesz się również, jak przechowywać i zabezpieczać połączony szablon przy użyciu tokenu sygnatury dostępu Współdzielonego. Trwa około **12 minut.**
+W [poprzednich samouczkach](./deployment-tutorial-local-template.md)przedstawiono sposób wdrażania szablonu, który jest przechowywany na komputerze lokalnym. Aby wdrożyć złożone rozwiązania, możesz przerwać szablon do wielu szablonów i wdrożyć te szablony za pomocą szablonu głównego. W tym samouczku dowiesz się, jak wdrożyć szablon główny, który zawiera odwołanie do połączonego szablonu. Gdy główny szablon zostanie wdrożony, wyzwala wdrożenie połączonego szablonu. Dowiesz się również, jak przechowywać i zabezpieczyć połączony szablon przy użyciu tokenu SAS. Ukończenie może potrwać około **12 minut** .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zaleca się ukończenie poprzedniego samouczka, ale nie jest wymagane.
+Zalecamy wykonanie poprzedniego samouczka, ale nie jest to wymagane.
 
-## <a name="review-template"></a>Szablon recenzji
+## <a name="review-template"></a>Przejrzyj szablon
 
-W poprzednich samouczkach można wdrożyć szablon, który tworzy konto magazynu, plan usługi App Service i aplikacji sieci web. Użyty szablon to:
+W poprzednich samouczkach wdrażasz szablon, który tworzy konto magazynu, App Service plan i aplikację sieci Web. Użyty szablon:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
-## <a name="create-a-linked-template"></a>Tworzenie szablonu połączonego
+## <a name="create-a-linked-template"></a>Utwórz połączony szablon
 
 Zasób konta magazynu można rozdzielić na połączony szablon:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-Poniższy szablon jest szablonem głównym.  Wyróżniony obiekt **Microsoft.Resources/deployments** pokazuje, jak wywołać szablon połączony. Połączony szablon nie może być przechowywany jako plik lokalny lub plik, który jest dostępny tylko w sieci lokalnej. Można podać tylko wartość URI, która zawiera *http* lub *https*. Menedżer zasobów musi mieć dostęp do szablonu. Jedną z opcji jest umieszczenie połączonego szablonu na koncie magazynu i użycie identyfikatora URI dla tego elementu. Identyfikator URI jest przekazywany do szablonu przy użyciu parametru. Zobacz definicję podświetlonych parametrów.
+Następujący szablon jest głównym szablonem.  Wyróżniony obiekt **Microsoft. resources/Deployments** pokazuje, jak wywołać połączony szablon. Połączony szablon nie może być przechowywany jako plik lokalny ani plik, który jest dostępny tylko w sieci lokalnej. Można podać tylko wartość identyfikatora URI, która zawiera *http* lub *https*. Menedżer zasobów musi mieć możliwość uzyskania dostępu do szablonu. Jedną z opcji jest umieszczenie powiązanego szablonu na koncie magazynu i użycie identyfikatora URI dla tego elementu. Identyfikator URI jest przesyłany do szablonu za pomocą parametru. Zobacz definicję wyróżnionego parametru.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
 
-Zapisz kopię szablonu głównego na komputerze lokalnym z rozszerzeniem .json, na przykład azuredeploy.json. Nie trzeba zapisywać kopii połączonego szablonu.  Połączony szablon zostanie skopiowany z repozytorium GitHub na konto magazynu.
+Zapisz kopię głównego szablonu na komputerze lokalnym przy użyciu rozszerzenia JSON, na przykład azuredeploy. JSON. Nie musisz zapisywać kopii połączonego szablonu.  Połączony szablon zostanie skopiowany z repozytorium GitHub do konta magazynu.
 
-## <a name="store-the-linked-template"></a>Przechowywanie połączonego szablonu
+## <a name="store-the-linked-template"></a>Zapisz połączony szablon
 
-Poniższy skrypt programu PowerShell tworzy konto magazynu, tworzy kontener i kopiuje połączony szablon z repozytorium GitHub do kontenera. Kopia połączonego szablonu jest przechowywana w [usłudze GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json).
+Poniższy skrypt programu PowerShell tworzy konto magazynu, tworzy kontener i kopiuje połączony szablon z repozytorium GitHub do kontenera. Kopia połączonego szablonu jest przechowywana w serwisie [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json).
 
-Wybierz **pozycję Wypróbuj,** aby otworzyć powłokę chmury, wybierz **pozycję Kopiuj,** aby skopiować skrypt programu PowerShell, a następnie kliknij prawym przyciskiem myszy okienko powłoki, aby wkleić skrypt:
+Wybierz pozycję **Wypróbuj** , aby otworzyć Cloud Shell, wybierz pozycję **Kopiuj** , aby skopiować skrypt programu PowerShell, a następnie kliknij prawym przyciskiem myszy okienko powłoki, aby wkleić skrypt:
 
 > [!IMPORTANT]
-> Nazwy kont magazynu muszą mieć długość od 3 do 24 znaków i używać tylko cyfr i mniejszych liter. Nazwa musi być unikatowa. W szablonie nazwa konta magazynu jest nazwą projektu z dołączenym "magazynem", a nazwa projektu musi zawierać od 3 do 11 znaków. Dlatego nazwa projektu musi spełniać wymagania dotyczące nazwy konta magazynu i ma mniej niż 11 znaków.
+> Nazwy kont magazynu muszą mieć długość od 3 do 24 znaków i używać tylko cyfr i małych liter. Nazwa musi być unikatowa. W szablonie nazwa konta magazynu jest nazwą projektu z dołączonym elementem "Store", a nazwa projektu musi zawierać od 3 do 11 znaków. Nazwa projektu musi być zgodna z wymaganiami dotyczącymi nazwy konta magazynu i ma mniej niż 11 znaków.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
@@ -87,12 +87,12 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="deploy-template"></a>Wdrażanie szablonu
 
-Aby wdrożyć szablon prywatny na koncie magazynu, wygeneruj token sygnatury dostępu Współdzielonego i dołącz go do identyfikatora URI dla szablonu. Ustaw czas wygaśnięcia, aby dać wystarczająco dużo czasu na ukończenie wdrożenia. Obiekt blob zawierający szablon jest dostępny tylko dla właściciela konta. Jednak podczas tworzenia tokenu sygnatury dostępu Współdzielonego dla obiektu blob obiekt jest dostępny dla każdego, kto ma ten identyfikator URI. Jeśli inny użytkownik przechwytuje identyfikator URI, ten użytkownik może uzyskać dostęp do szablonu. Token Sygnatury dostępu Współdzielonego jest dobrym sposobem ograniczenia dostępu do szablonów, ale nie należy dołączać poufnych danych, takich jak hasła bezpośrednio w szablonie.
+Aby wdrożyć szablon prywatny na koncie magazynu, wygeneruj token sygnatury dostępu współdzielonego i umieść go w identyfikatorze URI dla szablonu. Ustaw czas wygaśnięcia, aby zapewnić wystarczającą ilość czasu na ukończenie wdrożenia. Obiekt BLOB zawierający szablon jest dostępny tylko dla właściciela konta. Jednak podczas tworzenia tokenu sygnatury dostępu współdzielonego dla obiektu BLOB obiekt BLOB jest dostępny dla wszystkich użytkowników o tym identyfikatorze URI. Jeśli inny użytkownik przechwytuje identyfikator URI, ten użytkownik będzie mógł uzyskać dostęp do szablonu. Token SAS to dobry sposób ograniczania dostępu do szablonów, ale nie należy uwzględniać poufnych danych, takich jak hasła bezpośrednio w szablonie.
 
 Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](./deployment-tutorial-local-template.md#create-resource-group).
 
 > [!NOTE]
-> W poniższym kodzie interfejsu wiersza polecenia platformy Azure parametr daty -d byłby nieprawidłowym argumentem w systemie macOS. Więc użytkownicy macOS, aby dodać 2 godziny do bieżącego czasu w terminalu na macOS należy użyć -v + 2H.
+> W poniższym kodzie interfejsu wiersza polecenia platformy Azure parametr Date-d byłby nieprawidłowym argumentem w macOS. Tak więc macOS użytkownicy, aby dodać 2 godziny do bieżącego czasu w terminalu na macOS, należy użyć-v + 2H.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -166,16 +166,16 @@ az deployment group create \
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Wyczyść zasoby wdrożone przez usunięcie grupy zasobów.
+Wyczyść wdrożone zasoby, usuwając grupę zasobów.
 
-1. W witrynie Azure portal wybierz **grupę zasobów** z lewego menu.
+1. Z Azure Portal z menu po lewej stronie wybierz pozycję **Grupa zasobów** .
 2. Wprowadź nazwę grupy zasobów w polu **Filtruj według nazwy**.
 3. Wybierz nazwę grupy zasobów.
-4. Wybierz **pozycję Usuń grupę zasobów** z górnego menu.
+4. W górnym menu wybierz pozycję **Usuń grupę zasobów** .
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedzialiście się, jak wdrożyć połączony szablon. W następnym samouczku dowiesz się, jak utworzyć potok DevOp, aby wdrożyć szablon.
+Wiesz już, jak wdrożyć połączony szablon. W następnym samouczku dowiesz się, jak utworzyć potok DevOp, aby wdrożyć szablon.
 
 > [!div class="nextstepaction"]
 > [Tworzenie potoku](./deployment-tutorial-pipeline.md)

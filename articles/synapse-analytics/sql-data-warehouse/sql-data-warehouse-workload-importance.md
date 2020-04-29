@@ -1,6 +1,6 @@
 ---
 title: Znaczenie obciążenia
-description: Wskazówki dotyczące ustawiania ważności zapytań puli SQL synapse w usłudze Azure Synapse Analytics.
+description: Wskazówki dotyczące ustawiania ważności zapytań puli SQL Synapse w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,58 +12,58 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 43ee14784b6049e9b5c1a78e733e72bbc45f915d
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80744040"
 ---
-# <a name="azure-synapse-analytics-workload-importance"></a>Znaczenie obciążenia usługi Azure Synapse Analytics
+# <a name="azure-synapse-analytics-workload-importance"></a>Ważność obciążeń usługi Azure Synapse Analytics
 
-W tym artykule wyjaśniono, jak ważność obciążenia może mieć wpływ na kolejność wykonywania żądań puli SQL Synapse w usłudze Azure Synapse.
+W tym artykule wyjaśniono, jak ważność obciążenia może mieć wpływ na kolejność wykonywania żądań Synapse w puli SQL na platformie Azure Synapse.
 
 ## <a name="importance"></a>Ważność
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 
-Potrzeby biznesowe mogą wymagać, aby obciążenia związane z magazynowaniami danych były ważniejsze niż inne.  Należy wziąć pod uwagę scenariusz, w którym dane sprzedaży o znaczeniu krytycznym są ładowane przed zamknięciem okresu obrachunkowego.  Obciążenia danych dla innych źródeł, takich jak dane pogodowe, nie mają ścisłych łas. Ustawienie dużej wagi dla żądania, aby załadować dane sprzedaży i niskie znaczenie do żądania, aby załadować dane pogodowe zapewnia obciążenie danych sprzedaży uzyskuje pierwszy dostęp do zasobów i kończy się szybciej.
+Potrzeby biznesowe mogą wymagać, aby obciążenia związane z magazynem danych były ważniejsze niż inne.  Rozważmy scenariusz, w którym dane sprzedaży o kluczowym znaczeniu są ładowane przed zamknięciem okresu obrachunkowego.  Ładowanie danych dla innych źródeł, takich jak dane pogodowe, nie mają ścisłych umowy SLA. Ustawienie wysokiej ważności dla żądania załadowania danych sprzedaży i niskiej ważności do żądania załadowania danych pogodowych gwarantuje, że ładowanie danych sprzedaży będzie miało pierwszy dostęp do zasobów i kończy się szybciej.
 
 ## <a name="importance-levels"></a>Poziomy ważności
 
-Istnieje pięć poziomów ważności: niski, below_normal, normalny, above_normal i wysoki.  Żądania, które nie ustawiają znaczenia, są przypisywane domyślny poziom normalny. Żądania, które mają ten sam poziom ważności mają takie samo zachowanie planowania, które istnieje dzisiaj.
+Istnieje pięć poziomów ważności: niski, below_normal, normalny, above_normal i wysoki.  Żądania, które nie ustawiają znaczenia, są przypisane do domyślnego poziomu normalnego. Żądania o takim samym poziomie ważności mają takie samo zachowanie dotyczące planowania, które już istnieje.
 
 ## <a name="importance-scenarios"></a>Scenariusze ważności
 
-Poza podstawowym scenariuszem ważności opisanym powyżej z danymi sprzedaży i pogody, istnieją inne scenariusze, w których ważność obciążenia pomaga spełnić potrzeby przetwarzania danych i zapytań.
+Poza podstawowym scenariuszem ważności opisanym powyżej z danymi dotyczącymi sprzedaży i pogody istnieją inne scenariusze, w których ważność obciążenia pomaga spełnić wymagania związane z przetwarzaniem danych i wykonywaniem zapytań.
 
 ### <a name="locking"></a>Blokowanie
 
-Dostęp do blokad dla aktywności odczytu i zapisu jest jednym z obszarów rywalizacji naturalnej. Działania, takie jak [przełączanie partycji](sql-data-warehouse-tables-partition.md) lub [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) wymagają blokad z podwyższonym poziomem uprawnień.  Bez znaczności obciążenia puli SQL Synapse w usłudze Azure Synapse optymalizuje przepływność. Optymalizacja pod kątem przepływności oznacza, że podczas uruchamiania i kolejkowania żądań mają takie same potrzeby blokowania i zasoby są dostępne, żądania w kolejce można pominąć żądania z wyższymi potrzebami blokowania, które pojawiły się w kolejce żądań wcześniej. Gdy ważność obciążenia jest stosowana do żądań o wyższych potrzebach blokowania. Żądanie o wyższym znaczeniu zostanie uruchomione przed żądaniem o niższym znaczeniu.
+Dostęp do blokad dla działania odczytu i zapisu jest jednym obszarem naturalnej rywalizacji. Działania takie jak [przełączanie partycji](sql-data-warehouse-tables-partition.md) lub [zmiana nazwy obiektu](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) wymagają podniesionych blokad.  Bez znaczenia obciążenia Synapse puli SQL w usłudze Azure Synapse optymalizuje się pod kątem przepływności. Optymalizacja pod kątem przepływności oznacza, że gdy uruchomione i kolejkowane żądania mają takie same potrzeby blokowania i dostępne są zasoby, żądania kolejkowane mogą pomijać żądania o wyższych wymaganiach blokowania, które dotarły wcześniej do kolejki żądań. Po zastosowaniu ważności obciążenia do żądań o wyższych wymaganiach blokowania. Żądanie o wyższej ważności zostanie uruchomione przed żądaniem o niższej ważności.
 
 Rozważmy następujący przykład:
 
-- Q1 aktywnie działa i wybiera dane z SalesFact.
-- Q2 jest w kolejce czekając na Q1, aby zakończyć.  Został on złożony o 9 rano i próbuje podzielić się na nowe dane do SalesFact.
-- Q3 jest przesyłany na 9:01am i chce wybrać dane z SalesFact.
+- Aktywnie działa i wybierasz dane z SalesFact.
+- Q2 oczekuje na ukończenie kolejki Q1.  Został przesłany w 9:00 i trwa próba przełączenia na partycje nowych danych do SalesFact.
+- Q3 jest przesyłany o 01am i chce wybierać dane z SalesFact.
 
-Jeśli Q2 i Q3 mają takie samo znaczenie, a Q1 nadal jest wykonywany, Q3 rozpocznie wykonywanie. Q2 będzie nadal czekać na ekskluzywną blokadę na SalesFact.  Jeśli Q2 ma większe znaczenie niż Q3, Q3 będzie czekać do Q2 jest gotowy, zanim będzie można rozpocząć wykonywanie.
+Jeśli Q2 i Q3 mają takie same znaczenie i jest nadal wykonywane, Q3 rozpocznie wykonywanie. Q2 będzie nadal czekać na wyłączne blokady SalesFact.  Jeśli Q2 ma wyższy priorytet niż Q3, Q3 czeka na zakończenie kwartału.
 
-### <a name="non-uniform-requests"></a>Nieujemne wnioski
+### <a name="non-uniform-requests"></a>Niejednorodne żądania
 
-Innym scenariuszem, w którym ważność może pomóc w spełnieniu wymagań kwerendy jest, gdy żądania z różnych klas zasobów są przesyłane.  Jak już wcześniej wspomniano, w tym samym znaczeniu, Synapse PULI SQL w usłudze Azure Synapse optymalizuje przepływność. Gdy żądania o mieszanym rozmiarze (takie jak smallrc lub mediumrc) są umieszczane w kolejce, pula Programu Synapse SQL wybierze najwcześniejsze przychodzące żądanie, które mieści się w dostępnych zasobach. Jeśli zastosowanie jest istotne dla obciążenia, żądanie najwyższego znaczenia jest zaplanowane w następnej kolejności.
+W innym scenariuszu, w którym istotność może pomóc spełnić wymagania dotyczące zapytań, są przesyłane żądania z różnymi klasami zasobów.  Jak wspomniano wcześniej, w ramach tego samego znaczenia Synapse Pula SQL na platformie Azure Synapse optymalizuje się pod kątem przepływności. Gdy żądania o rozmiarze mieszanym (takie jak smallrc lub mediumrc) są umieszczane w kolejce, Synapse w puli SQL zostanie wybrana najwcześniej przychodzące żądanie zgodne z dostępnymi zasobami. Jeśli jest stosowana ważność obciążenia, żądanie o najwyższym znaczeniu zostanie zaplanowane dalej.
   
 Rozważmy następujący przykład na DW500c:
 
-- Q1, Q2, Q3 i Q4 są uruchomione smallrc zapytań.
-- Q5 jest przesyłany z klasy zasobów mediumrc na 9 rano.
-- Q6 jest przesyłany z klasy zasobów smallrc na 9:01am.
+- W kwartale Q1, Q2, Q3 i kwartale są uruchomione zapytania smallrc.
+- Q5 jest przesyłana z klasą zasobów mediumrc w 9:00.
+- Q6 jest przesyłana z klasą zasobów smallrc o godzinie 9:01am.
 
-Ponieważ Q5 jest mediumrc, wymaga dwóch gniazd współbieżności. Q5 musi czekać na dwa uruchomione kwerendy do ukończenia.  Jednak po zakończeniu jednego z uruchomionych kwerend (Q1-Q4), Q6 jest zaplanowane natychmiast, ponieważ istnieją zasoby do wykonania kwerendy.  Jeśli Q5 ma większe znaczenie niż Q6, Q6 czeka, aż Q5 jest uruchomiony, zanim będzie można rozpocząć wykonywanie.
+Ponieważ Q5 jest mediumrc, wymaga dwóch miejsc współbieżności. Q5 musi czekać na zakończenie dwóch z uruchomionych zapytań.  Jednak po zakończeniu jednego z uruchomionych zapytań (Q1-kwartale) Q6 jest zaplanowana natychmiast, ponieważ zasoby istnieją do wykonania zapytania.  Jeśli Q5 ma wyższy priorytet niż Q6, Q6 czeka, aż do momentu rozpoczęcia wykonywania przez Q5.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji na temat tworzenia klasyfikatora, zobacz [CREAT WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+- Aby uzyskać więcej informacji na temat tworzenia klasyfikatora, zobacz [Tworzenie KLASYFIKATORA obciążenia (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
 - Aby uzyskać więcej informacji na temat klasyfikacji obciążeń, zobacz [Klasyfikacja obciążeń](sql-data-warehouse-workload-classification.md).  
-- Zobacz [klasyfikator tworzenia obciążenia](quickstart-create-a-workload-classifier-tsql.md) szybki start, aby dowiedzieć się, jak utworzyć klasyfikator obciążenia.
-- Zobacz artykuły infigurajnokonfigurowanie [ważność obciążenia](sql-data-warehouse-how-to-configure-workload-importance.md) oraz sposób [zarządzania zarządzaniem obciążeniami i monitorowania.](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)
-- Zobacz [sys.dm_pdw_exec_requests,](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) aby wyświetlić zapytania i przypisane znaczenie.
+- Zobacz Przewodnik Szybki Start dotyczący [tworzenia obciążenia](quickstart-create-a-workload-classifier-tsql.md) , aby utworzyć klasyfikator obciążeń.
+- Zapoznaj się z artykułami z artykułu jak, aby [skonfigurować ważność obciążenia](sql-data-warehouse-how-to-configure-workload-importance.md) oraz jak [zarządzać i monitorować zarządzanie obciążeniami](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Zobacz sekcję [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby wyświetlić zapytania i przypisane znaczenie.

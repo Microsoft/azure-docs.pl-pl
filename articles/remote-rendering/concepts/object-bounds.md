@@ -1,28 +1,28 @@
 ---
-title: Granice obiektu
-description: Wyjaśnia, w jaki sposób można wyszukiwać granice obiektów przestrzennych
+title: Granice obiektów
+description: Wyjaśnia, w jaki sposób można zbadać granice obiektu przestrzennego
 author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 1d2dfdb203b05f2f6b7de740718d7407bd88066c
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681716"
 ---
-# <a name="object-bounds"></a>Granice obiektu
+# <a name="object-bounds"></a>Granice obiektów
 
-Granice obiektu reprezentują wolumin, który zajmuje [encja](entities.md) i jej element podrzędny. W usłudze Azure Remote Rendering granice obiektów są zawsze podane jako *pola ograniczające wyrównane osi* (AABB). Granice obiektu mogą znajdować się w *przestrzeni lokalnej* lub w *przestrzeni światowej.* Tak czy inaczej, są one zawsze wyrównane do osi, co oznacza, że zakresy i objętość mogą się różnić między reprezentacją przestrzeni lokalnej i światowej.
+Granice obiektów reprezentują wolumin, który jest zajmowany przez [jednostkę](entities.md) i jej elementy podrzędne. W przypadku renderowania zdalnego na platformie Azure granice obiektów są zawsze przyznawane jako *wyrównane pola* (AABB) osi. Granice obiektów mogą znajdować się w *przestrzeni lokalnej* lub w *przestrzeni świata*. W obu przypadkach są zawsze wyrównane do osi, co oznacza, że rozmiary i woluminy mogą się różnić między reprezentacją przestrzeni lokalnej i światowej.
 
-## <a name="querying-object-bounds"></a>Wykonywanie zapytań o granice obiektu
+## <a name="querying-object-bounds"></a>Badanie granic obiektów
 
-Lokalny AABB [siatki](meshes.md) można zbadać bezpośrednio z zasobu siatki. Te granice mogą zostać przekształcone w przestrzeń lokalną lub przestrzeń świata jednostki przy użyciu transformacji jednostki.
+Lokalne AABB [siatki](meshes.md) można zbadać bezpośrednio z zasobu sieci siatkowej. Te granice mogą być przekształcone w miejsce lokalne lub na świecie jednostki przy użyciu transformacji jednostki.
 
-Istnieje możliwość obliczenia granic całej hierarchii obiektów w ten sposób, ale wymaga przechodzenia przez hierarchię, kwerendy granice dla każdej siatki i połączyć je ręcznie. Ta operacja jest zarówno żmudne i nieefektywne.
+Istnieje możliwość obliczenia granic całej hierarchii obiektów w ten sposób, ale wymaga ona przechodzenia do hierarchii, wykonywania zapytań dotyczących granic dla każdej siatki i łączenia ich ręcznie. Ta operacja jest zarówno żmudnym, jak i niewydajne.
 
-Lepszym sposobem jest `QueryLocalBoundsAsync` wywołanie lub `QueryWorldBoundsAsync` na jednostkę. Obliczenia są następnie odciążane do serwera i zwracane z minimalnym opóźnieniem.
+Lepszym sposobem jest wywołanie `QueryLocalBoundsAsync` lub `QueryWorldBoundsAsync` w jednostce. Obliczenia są następnie przeciążać do serwera i zwracane z minimalnym opóźnieniem.
 
 ``` cs
 private BoundsQueryAsync _boundsQuery = null;

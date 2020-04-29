@@ -6,31 +6,31 @@ ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
 ms.openlocfilehash: 9a981aeb08ec46900994fd599b592b9f16034f34
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680533"
 ---
 # <a name="spatial-queries"></a>Zapytania przestrzenne
 
-Zapytania przestrzenne to operacje, za pomocą których można zapytać usługę zdalnego renderowania, które obiekty znajdują się w danym obszarze. Zapytania przestrzenne są często używane do implementowania interakcji, takich jak ustalenie, który obiekt jest skierowany na użytkownika.
+Zapytania przestrzenne to operacje, za pomocą których można zażądać usługi zdalnego renderowania, które obiekty znajdują się w obszarze. Zapytania przestrzenne są często używane do implementowania interakcji, takich jak ustalenie, który obiekt jest wskazywany przez użytkownika.
 
-Wszystkie zapytania przestrzenne są oceniane na serwerze. W związku z tym są one operacje asynchroniczne i wyniki dojdą z opóźnieniem, które zależy od opóźnienia sieci. Ponieważ każde zapytanie przestrzenne generuje ruch sieciowy, należy uważać, aby nie robić zbyt wiele naraz.
+Wszystkie zapytania przestrzenne są oceniane na serwerze. W związku z tym są to operacje asynchroniczne, a wyniki pojawią się z opóźnieniem, który zależy od opóźnienia sieci. Ponieważ każde zapytanie przestrzenne generuje ruch sieciowy, należy uważać, aby nie było zbyt wiele jednocześnie.
 
 ## <a name="collision-meshes"></a>Siatki kolizji
 
-Zapytania przestrzenne są zasilane przez silnik [Havok Physics](https://www.havok.com/products/havok-physics) i wymagają dedykowanej siatki kolizji. Domyślnie [konwersja modelu](../../how-tos/conversion/model-conversion.md) generuje siatki kolizji. Jeśli nie potrzebujesz zapytań przestrzennych w modelu złożonym, rozważ wyłączenie generowania siatki kolizji w [opcjach konwersji,](../../how-tos/conversion/configure-model-conversion.md)ponieważ ma on wpływ na wiele sposobów:
+Zapytania przestrzenne są obsługiwane przez aparat [fizyki Havok](https://www.havok.com/products/havok-physics) i wymagają obecności dedykowanej siatki kolizji. Domyślnie [Konwersja modelu](../../how-tos/conversion/model-conversion.md) generuje siatki kolizji. Jeśli nie są wymagane zapytania przestrzenne w modelu złożonym, rozważ wyłączenie generowania siatki kolizji w [opcjach konwersji](../../how-tos/conversion/configure-model-conversion.md), ponieważ ma to wpływ na wiele sposobów:
 
-* [Konwersja modelu](../../how-tos/conversion/model-conversion.md) potrwa znacznie dłużej.
-* Przekonwertowane rozmiary plików modelu są zauważalnie większe, co wpływa na szybkość pobierania.
-* Czas ładowania środowiska uruchomieniowego jest dłuższy.
-* Zużycie pamięci procesora CPU środowiska wykonawczego jest wyższe.
-* Istnieje niewielkie obciążenie wydajności środowiska uruchomieniowego dla każdego wystąpienia modelu.
+* [Konwersja modelu](../../how-tos/conversion/model-conversion.md) będzie trwać znacznie dłużej.
+* Rozmiary plików konwertowanego modelu są znacznie większe, co wpływa na szybkość pobierania.
+* Czasy ładowania środowiska uruchomieniowego są dłuższe.
+* Użycie pamięci procesora CPU przez środowisko uruchomieniowe jest wyższe.
+* Dla każdego wystąpienia modelu istnieje niewielkie obciążenie wydajności środowiska uruchomieniowego.
 
-## <a name="ray-casts"></a>Odlewy promieniowe
+## <a name="ray-casts"></a>Rzutowania promienia
 
-*Rzutowanie promieni* jest kwerendą przestrzenną, w której środowisko uruchomieniowe sprawdza, które obiekty są przecinane przez promień, zaczynając od danej pozycji i wskazując w określonym kierunku. Jako optymalizacja podaje się również maksymalną odległość promienia, aby nie wyszukiwać obiektów, które są zbyt daleko.
+*Rzutowanie promienia* to zapytanie przestrzenne, w którym środowisko uruchomieniowe sprawdza, które obiekty są przecinane przez promień, rozpoczynając od danego położenia i wskazując określony kierunek. W ramach optymalizacji zapewniona jest również Maksymalna odległość usługi ray, która nie wyszukuje obiektów, które są zbyt daleko.
 
 ````c#
 async void CastRay(AzureSession session)
@@ -56,11 +56,11 @@ async void CastRay(AzureSession session)
 
 Istnieją trzy tryby kolekcji trafień:
 
-* **Najbliżej:** W tym trybie zostanie zgłoszony tylko najbliższy trafienie.
-* **Dowolne:** Preferuj ten tryb, gdy chcesz tylko wiedzieć, *czy* promień uderzy w cokolwiek, ale nie obchodzi cię, co zostało dokładnie uderzone. Ta kwerenda może być znacznie tańsze do oceny, ale także ma tylko kilka aplikacji.
-* **Wszystkie:** W tym trybie wszystkie trafienia wzdłuż promienia są zgłaszane, sortowane według odległości. Nie używaj tego trybu, chyba że naprawdę potrzebujesz więcej niż pierwsze trafienie. Ogranicz liczbę zgłoszonych `MaxHits` trafień za pomocą opcji.
+* **Najbliższy:** W tym trybie będzie raportowany tylko najbliższy trafi.
+* **Dowolny:** Preferuj ten tryb, gdy chcesz wiedzieć, *czy* promień dochodzi do wszystkiego, ale nie Zadbaj o to, co zostało natrafione dokładnie. To zapytanie może być znacznie tańsze do obliczenia, ale również ma tylko kilka aplikacji.
+* **Wszystkie:** W tym trybie są raportowane wszystkie trafienia na promieniu, posortowane według odległości. Nie używaj tego trybu, chyba że naprawdę potrzebujesz więcej niż pierwsze trafienie. Ogranicz liczbę raportowanych trafień za pomocą `MaxHits` opcji.
 
-Aby wykluczyć obiekty selektywnie z rozważanych dla rzutowania promieni, można użyć [składnika HierarchicalStateOverrideComponent.](override-hierarchical-state.md)
+Aby wykluczyć obiekty selektywnie z uwzględnienia w przypadku rzutowania promieniowego, można użyć składnika [HierarchicalStateOverrideComponent](override-hierarchical-state.md) .
 
 <!--
 The CollisionMask allows the quey to consider or ignore some objects based on their collision layer. If an object has layer L, it will be hit only if the mask has  bit L set.
@@ -68,19 +68,19 @@ It is useful in case you want to ignore objects, for instance when setting an ob
 TODO : Add an API to make that possible.
 -->
 
-### <a name="hit-result"></a>Wynik trafienia
+### <a name="hit-result"></a>Wynik trafień
 
-Wynikiem kwerendy rzutowej promieni jest tablica trafień. Tablica jest pusta, jeśli żaden obiekt nie został trafiony.
+Wynik zapytania Cast Ray jest tablicą trafień. Tablica jest pusta, jeśli żaden obiekt nie został trafiony.
 
 Trafienie ma następujące właściwości:
 
-* **HitEntity:** Który [podmiot](../../concepts/entities.md) został trafiony.
-* **Podpartid:** Który *submesh* został trafiony w [MeshComponent](../../concepts/meshes.md). Może służyć do `MeshComponent.UsedMaterials` indeksu i wyszukiwania [materiału](../../concepts/materials.md) w tym momencie.
-* **Pozycja trafienia:** Pozycja przestrzeni świata, w której promień przecinał obiekt.
-* **HitNormal:** Powierzchnia powierzchni świata normalna siatka w pozycji przecięcia.
-* **DistanceToHit:** Odległość od pozycji wyjściowej promienia do trafienia.
+* **HitEntity:** Który [obiekt](../../concepts/entities.md) został trafiony.
+* **Podpartia:** Która *Podsiatka* została trafiona w [MeshComponent](../../concepts/meshes.md). Może służyć do indeksowania `MeshComponent.UsedMaterials` i wyszukiwania [materiału](../../concepts/materials.md) w tym momencie.
+* **HitPosition:** Miejsce na świecie, w którym Ray przecina obiekt.
+* **HitNormal:** Powierzchnia świata jest normalna dla siatki w pozycji przecięcia.
+* **DistanceToHit:** Odległość od promień pozycji początkowej do trafienia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Granice obiektu](../../concepts/object-bounds.md)
-* [Nadrzędne stany hierarchiczne](override-hierarchical-state.md)
+* [Granice obiektów](../../concepts/object-bounds.md)
+* [Zastępowanie Stanów hierarchicznych](override-hierarchical-state.md)
