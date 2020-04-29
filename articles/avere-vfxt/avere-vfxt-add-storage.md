@@ -1,190 +1,190 @@
 ---
-title: Konfigurowanie magazynu VFXT usługi Avere — platforma Azure
-description: Jak dodać system pamięci masowej zaplecza do usługi Avere vFXT for Azure
+title: Konfigurowanie magazynu avere vFXT — Azure
+description: Jak dodać system przechowywania zaplecza do avere vFXT dla platformy Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79252612"
 ---
 # <a name="configure-storage"></a>Konfigurowanie magazynu
 
-Ten krok konfiguruje system pamięci masowej zaplecza dla klastra vFXT.
+Ten krok powoduje skonfigurowanie systemu magazynu zaplecza dla klastra vFXT.
 
 > [!TIP]
-> Jeśli utworzono nowy kontener obiektów blob platformy Azure wraz z klastrem VFXT Avere, ten kontener jest już skonfigurowany i gotowy do użycia.
+> Jeśli utworzono nowy kontener obiektów blob platformy Azure wraz z klastrem avere vFXT, ten kontener jest już skonfigurowany i gotowy do użycia.
 
-Postępuj zgodnie z tymi instrukcjami, jeśli nie utworzysz nowego kontenera obiektów Blob z klastrem lub jeśli chcesz dodać dodatkowy sprzęt lub system magazynu w chmurze.
+Wykonaj te instrukcje, jeśli nie utworzono nowego kontenera obiektów blob z klastrem lub jeśli chcesz dodać dodatkowy sprzęt lub system magazynu w chmurze.
 
 Istnieją dwa główne zadania:
 
-1. [Utwórz podstawowy filer](#create-a-core-filer), który łączy klaster vFXT z istniejącym systemem magazynowania lub kontenerem konta usługi Azure Storage.
+1. [Utwórz podstawowy plik](#create-a-core-filer), który łączy klaster vFXT z istniejącym systemem magazynu lub kontenerem konta usługi Azure Storage.
 
-1. [Utwórz skrzyżowanie obszaru nazw,](#create-a-junction)które definiuje ścieżkę, którą będą instalować klienci.
+1. [Utwórz połączenie przestrzeni nazw](#create-a-junction), które określa ścieżkę, którą będą instalować klienci.
 
-W tych krokach za pomocą Panelu sterowania Avere. Przeczytaj [dostęp do klastra vFXT,](avere-vfxt-cluster-gui.md) aby dowiedzieć się, jak go używać.
+W tych krokach użyto panelu sterowania avere. Aby dowiedzieć się, jak z niej korzystać [, przeczytaj dostęp do klastra vFXT](avere-vfxt-cluster-gui.md) .
 
-## <a name="create-a-core-filer"></a>Tworzenie głównego filera
+## <a name="create-a-core-filer"></a>Tworzenie podstawowego pliku
 
-"Core filer" to termin vFXT dla systemu pamięci masowej zaplecza. Pamięć masowa może być sprzętowym urządzeniem NAS, takim jak NetApp lub Isilon, lub może być magazynem obiektów w chmurze. Więcej informacji na temat głównych filerów można znaleźć w [przewodniku po ustawieniach klastra Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
+"Podstawowy system plików" to vFXT termin dla systemu magazynu zaplecza. Magazyn może być sprzętowym urządzeniem NAS, takim jak NetApp lub Isilon, lub może być magazynem obiektów w chmurze. Więcej informacji na temat plików podstawowych można znaleźć w [podręczniku ustawień klastra avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
-Aby dodać podstawowy filer, wybierz jeden z dwóch głównych typów głównych filerów:
+Aby dodać podstawowy plik, wybierz jeden z dwóch głównych typów plików podstawowych:
 
-* [Plik podstawowy NAS](#nas-core-filer) - opisuje, jak dodać plik rdzeń NAS
-* [Filer z chmury usługi Azure Storage](#azure-blob-storage-cloud-core-filer) — opisuje sposób dodawania kontenera magazynu obiektów Blob platformy Azure jako filera z rdzeniem chmury
+* [Podstawowy plik nas](#nas-core-filer) — opis sposobu dodawania plików w usłudze nas Core
+* [Podstawowy plik usługi Azure Storage w chmurze](#azure-blob-storage-cloud-core-filer) — opis sposobu dodawania kontenera magazynu obiektów blob platformy Azure jako podstawowego pliku w chmurze
 
-### <a name="nas-core-filer"></a>Plik podstawowy NAS
+### <a name="nas-core-filer"></a>Podstawowy plik NAS
 
-Głównym filerem NAS może być lokalne urządzenie NetApp lub Isilon lub punkt końcowy NAS w chmurze. System pamięci masowej musi mieć niezawodne szybkie połączenie z klastrem VFXT Avere — na przykład połączenie 1GBps ExpressRoute (nie sieć VPN) — i musi zapewniać rootowi klastra używany eksport nas.
+Podstawowy plik usługi NAS może być lokalnym urządzeniem NetApp lub Isilon albo punktem końcowym usługi NAS w chmurze. System magazynu musi mieć niezawodne połączenie o dużej szybkości z klastrem avere vFXT — na przykład połączenie 1GBps ExpressRoute (nie sieć VPN) i musi nadawać głównemu dostępowi do używanego eksportu serwerów NAS.
 
-Wykonaj następujące kroki, aby dodać podstawowy filer NAS:
+Wykonaj następujące kroki, aby dodać podstawowy plik NAS:
 
-1. W Panelu sterowania Avere kliknij kartę **Ustawienia** u góry.
+1. W panelu sterowania avere kliknij kartę **Ustawienia** w górnej części ekranu.
 
-1. Po lewej stronie kliknij **pozycję Core Filer** > **Manage Core Filers** .
+1. Kliknij pozycję **podstawowe** > pliki**zarządzanymi plikami głównymi** po lewej stronie.
 
 1. Kliknij przycisk **Utwórz**.
 
-   ![Zrzut ekranu przedstawiający stronę Dodaj nowy podstawowy filer z kursorem nad przyciskiem Utwórz](media/avere-vfxt-add-core-filer-start.png)
+   ![Zrzut ekranu przedstawiający stronę Dodawanie nowej podstawowej klasy plików z kursorem nad przyciskiem Utwórz](media/avere-vfxt-add-core-filer-start.png)
 
-1. Wypełnij wymagane informacje w kreatorze:
+1. Wprowadź wymagane informacje w Kreatorze:
 
-   * Nazwij swojego głównego filera.
-   * Podaj w pełni kwalifikowaną nazwę domeny (FQDN), jeśli jest dostępna. W przeciwnym razie podaj adres IP lub nazwę hosta, która jest rozpoznawana jako podstawowy filer.
-   * Wybierz klasę filera z listy. Jeśli nie masz pewności, wybierz pozycję **Inne**.
+   * Nazwij podstawowy plik.
+   * Podaj w pełni kwalifikowaną nazwę domeny (FQDN), jeśli jest dostępna. W przeciwnym razie podaj adres IP lub nazwę hosta, który jest rozpoznawany jako plik podstawowy.
+   * Wybierz klasę pliku z listy. Jeśli nie masz pewności, wybierz pozycję **inne**.
 
-     ![Zrzut ekranu przedstawiający stronę Dodaj nowy podstawowy filer z podstawową nazwą filera i w pełni kwalifikowaną nazwą domeny](media/avere-vfxt-add-core-filer.png)
+     ![Zrzut ekranu przedstawiający stronę Dodawanie nowego podstawowego pliku z nazwą pliku podstawowego i jego w pełni kwalifikowaną nazwą domeny](media/avere-vfxt-add-core-filer.png)
   
-   * Kliknij **przycisk Dalej** i wybierz zasadę pamięci podręcznej.
-   * Kliknij **pozycję Dodaj plik .**
-   * Aby uzyskać bardziej szczegółowe informacje, zobacz [Dodawanie nowego pliku serwera NAS](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) core w przewodniku po ustawieniach klastra Avere.
+   * Kliknij przycisk **dalej** i wybierz zasady pamięci podręcznej.
+   * Kliknij pozycję **Dodaj plik**.
+   * Aby uzyskać bardziej szczegółowe informacje, zobacz [Dodawanie nowego pliku usługi nas Core](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) w podręczniku ustawień klastra avere.
 
-Następnie przejdź do [pozycji Utwórz połączenie](#create-a-junction).  
+Następnie przejdź do [tworzenia rozgałęzienia](#create-a-junction).  
 
-### <a name="azure-blob-storage-cloud-core-filer"></a>Podstawowy filer usługi Azure Blob Storage
+### <a name="azure-blob-storage-cloud-core-filer"></a>Podstawowy plik usługi Azure Blob Storage Cloud
 
-Aby użyć magazynu obiektów Blob platformy Azure jako magazynu zaplecza klastra vFXT, potrzebujesz pustego kontenera, aby dodać go jako głównego filera.
+Aby korzystać z usługi Azure Blob Storage jako magazynu zaplecza klastra vFXT, potrzebny jest pusty kontener do dodania jako podstawowy plik.
 
-Dodanie magazynu obiektów blob do klastra wymaga następujących zadań:
+Dodanie magazynu obiektów BLOB do klastra wymaga następujących zadań:
 
-* Tworzenie konta magazynu (krok 1, poniżej)
-* Tworzenie pustego kontenera obiektów blob (kroki 2-3)
-* Dodawanie klucza dostępu do magazynu jako poświadczenia chmury dla klastra vFXT (kroki 4-6)
-* Dodawanie kontenera obiektów blob jako głównego filera dla klastra vFXT (kroki 7–9)
-* Tworzenie połączenia obszaru nazw używanego przez klientów do instalowania głównego filera[(Tworzenie połączenia](#create-a-junction), tak samo zarówno dla sprzętu, jak i magazynu w chmurze)
+* Utwórz konto magazynu (krok 1 poniżej)
+* Tworzenie pustego kontenera obiektów BLOB (kroki 2-3)
+* Dodaj klucz dostępu do magazynu jako poświadczenie w chmurze dla klastra vFXT (kroki 4-6)
+* Dodawanie kontenera obiektów BLOB jako podstawowego pliku dla klastra vFXT (kroki 7-9)
+* Tworzenie rozgałęzienia przestrzeni nazw używanej przez klientów do instalowania podstawowego pliku programu ([Utwórz połączenie](#create-a-junction), takie samo jak w przypadku sprzętu i magazynu w chmurze)
 
 > [!TIP]
-> Jeśli utworzysz nowy kontener obiektów Blob podczas tworzenia avere vFXT dla klastra platformy Azure, szablon wdrożenia automatycznie konfiguruje kontener jako podstawowy filer. (Jest to również prawdą, jeśli używasz skryptu tworzenia, który jest dostępny na żądanie.) Nie trzeba później konfigurować głównego filera.
+> Jeśli tworzysz nowy kontener obiektów BLOB podczas tworzenia avere vFXT dla klastra platformy Azure, szablon wdrożenia automatycznie skonfiguruje kontener jako plik podstawowy. (Jest to również prawdziwe, jeśli używasz skryptu tworzenia, który jest dostępny na żądanie). Nie trzeba później konfigurować podstawowego pliku.
 >
-> Narzędzie do tworzenia klastra wykonuje następujące zadania konfiguracyjne:
+> Narzędzie do tworzenia klastra wykonuje następujące zadania konfiguracji:
 >
-> * Tworzy nowy kontener obiektu Blob na podanym koncie magazynu
-> * Definiuje kontener jako podstawowy filer
-> * Tworzy połączenie obszaru nazw do kontenera
-> * Tworzy punkt końcowy usługi magazynu wewnątrz sieci wirtualnej klastra
+> * Tworzy nowy kontener obiektów BLOB na podanym koncie magazynu
+> * Definiuje kontener jako podstawowy plik
+> * Tworzy połączenie przestrzeni nazw z kontenerem
+> * Tworzy punkt końcowy usługi magazynu w sieci wirtualnej klastra
 
-Aby dodać magazyn obiektów Blob po utworzeniu klastra, wykonaj następujące kroki.
+Aby dodać magazyn obiektów BLOB po utworzeniu klastra, wykonaj następujące kroki.
 
-1. Utwórz ogólne konto magazynu v2 z tymi ustawieniami:
+1. Utwórz konto magazynu ogólnego przeznaczenia w wersji 2 przy użyciu następujących ustawień:
 
-   * **Subskrypcja** — taka sama jak w klastrze vFXT
+   * **Subskrypcja** — taka sama jak klaster vFXT
    * **Grupa zasobów** — taka sama jak grupa klastra vFXT (opcjonalnie)
-   * **Lokalizacja** — taka sama jak w klastrze vFXT
-   * **Wydajność** — standardowa (magazyn w wersji Premium nie jest nieobsługiwał)
-   * **Rodzaj konta** — uniwersalny V2 (StorageV2)
-   * **Replikacja** — magazyn dostępny lokalnie nadmiarowy (LRS)
+   * **Lokalizacja** — taka sama jak klaster vFXT
+   * **Wydajność** — standardowa (Usługa Premium Storage nie jest obsługiwana)
+   * **Rodzaj konta** — ogólnego przeznaczenia w wersji 2 (StorageV2)
+   * **Replikacja** — Magazyn lokalnie nadmiarowy (LRS)
    * **Warstwa dostępu** — gorąca
-   * **Wymagany bezpieczny transfer** - wyłącz tę opcję (wartość nienawisowa)
-   * **Sieci wirtualne** — nie jest wymagane
+   * **Wymagany bezpieczny transfer** — Wyłącz tę opcję (wartość nie jest wartością domyślną)
+   * **Sieci wirtualne** — niewymagane
 
-   Możesz użyć witryny Azure portal lub kliknij przycisk "Wdrażanie na platformie Azure" poniżej.
+   Możesz użyć Azure Portal lub kliknąć przycisk "wdróż na platformie Azure" poniżej.
 
-   [![, aby utworzyć konto magazynu](media/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAvere%2Fmaster%2Fsrc%2Fvfxt%2Fstorageaccount%2Fazuredeploy.json)
+   [![przycisk służący do tworzenia konta magazynu](media/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAvere%2Fmaster%2Fsrc%2Fvfxt%2Fstorageaccount%2Fazuredeploy.json)
 
-1. Po utworzeniu konta przejdź do strony konta magazynu.
+1. Po utworzeniu konta przejdź do strony konto magazynu.
 
-   ![Nowe konto magazynu w witrynie Azure portal](media/avere-vfxt-new-storage-acct.png)
+   ![Nowe konto magazynu w Azure Portal](media/avere-vfxt-new-storage-acct.png)
 
-1. Utwórz nowy kontener obiektów blob: kliknij pozycję **Kontenery** na stronie przeglądu, a następnie kliknij przycisk **+Kontener**. Użyj dowolnej nazwy kontenera i upewnij się, że dostęp jest ustawiony na **Prywatny**.
+1. Utwórz nowy kontener obiektów blob: kliknij pozycję **kontenery** na stronie Przegląd, a następnie kliknij pozycję **+ kontener**. Użyj dowolnej nazwy kontenera i upewnij się, że dostęp jest ustawiony na wartość **Private**.
 
-   ![Strona obiektów blob magazynu z zakreślonym przyciskiem +container i nowym kontenerem tworzonym na stronie podręcznej](media/avere-vfxt-new-blob.png)
+   ![Strona obiektów blob magazynu z przyciskiem + kontener w kółku i nowy kontener tworzony na stronie podręcznej](media/avere-vfxt-new-blob.png)
 
-1. Pobierz klucz konta usługi Azure Storage, klikając **przycisk Klucze programu Access** w obszarze **Ustawienia**. Skopiuj jeden z dostarczonych kluczy.
+1. Pobierz klucz konta usługi Azure Storage, klikając pozycję **klucze dostępu** w obszarze **Ustawienia**. Skopiuj jeden z podanych kluczy.
 
-   ![Interfejs gui portalu platformy Azure do kopiowania klucza](media/avere-vfxt-copy-storage-key.png)
+   ![Azure Portal graficzny interfejs użytkownika do kopiowania klucza](media/avere-vfxt-copy-storage-key.png)
 
-1. Otwórz Panel sterowania Avere dla swojego klastra. Kliknij **pozycję Ustawienia**, a następnie otwórz pozycję Poświadczenia chmury **klastra** > **Cloud Credentials** w lewym okienku nawigacji. Na stronie Poświadczenia w chmurze kliknij pozycję **Dodaj poświadczenia**.
+1. Otwórz Panel sterowania avere dla klastra. Kliknij przycisk **Ustawienia**, a następnie otwórz pozycję**poświadczenia w chmurze** **klastra** > w okienku nawigacji po lewej stronie. Na stronie poświadczenia chmury kliknij pozycję **Dodaj poświadczenie**.
 
-   ![Kliknij przycisk Dodaj poświadczenia na stronie konfiguracji Poświadczenia w chmurze](media/avere-vfxt-new-credential-button.png)
+   ![Kliknij przycisk Dodaj poświadczenia na stronie Konfiguracja poświadczeń w chmurze](media/avere-vfxt-new-credential-button.png)
 
-1. Wypełnij następujące informacje, aby utworzyć poświadczenia dla filera z rdzeniem chmury:
+1. Wypełnij poniższe informacje, aby utworzyć poświadczenia dla podstawowego pliku w chmurze:
 
    | Pole | Wartość |
    | --- | --- |
-   | Nazwa poświadczenia | dowolna nazwa opisowa |
-   | Typ usługi | (wybierz klucz dostępu usługi Azure Storage) |
+   | Nazwa poświadczenia | nazwa opisowa |
+   | Typ usługi | (Wybierz klucz dostępu do usługi Azure Storage) |
    | Dzierżawa | nazwa konta magazynu |
    | Subskrypcja | subscription ID |
    | Klucz dostępu do magazynu | Klucz konta usługi Azure Storage (skopiowany w poprzednim kroku) |
 
-   Kliknij **przycisk Prześlij**.
+   Kliknij przycisk **Prześlij**.
 
-   ![Ukończony formularz poświadczeń w chmurze w Panelu sterowania Avere](media/avere-vfxt-new-credential-submit.png)
+   ![Formularz ukończonych poświadczeń w chmurze w panelu sterowania avere](media/avere-vfxt-new-credential-submit.png)
 
-1. Następnie utwórz podstawowy filer. Po lewej stronie Panelu sterowania Avere kliknij pozycję **Core Filer** >  **Manage Core Filers**.
+1. Następnie Utwórz podstawowy plik. W lewej części panelu sterowania avere kliknij pozycję **podstawowe** >  pliki**zarządzania plikami podstawowymi**.
 
-1. Kliknij przycisk **Utwórz** na stronie **Ustawienia podstawowych filerów.**
+1. Kliknij przycisk **Utwórz** na stronie **Zarządzanie ustawieniami plików podstawowych** .
 
-1. Wypełnij kreatora:
+1. Wypełnij Kreatora:
 
-   * Wybierz typ filera **Chmura**.
-   * Nazwij nowy podstawowy filer i kliknij przycisk **Dalej**.
-   * Zaakceptuj domyślną zasadę pamięci podręcznej i przejdź do trzeciej strony.
-   * W **obszarze Typ usługi**wybierz pozycję Magazyn platformy **Azure**.
-   * Wybierz poświadczenia utworzone wcześniej.
-   * Ustawianie **zawartości zasobnika** na **pustą**
-   * Zmień **weryfikację certyfikatu** na **Wyłączona**
+   * Wybierz typ pliku **Cloud**.
+   * Nazwij nowy plik podstawowy i kliknij przycisk **dalej**.
+   * Zaakceptuj domyślne zasady pamięci podręcznej i przejdź do trzeciej strony.
+   * W obszarze **Typ usługi**wybierz pozycję **Azure Storage**.
+   * Wybierz utworzone wcześniej poświadczenie.
+   * Ustaw **zawartość zasobnika** na **pustą**
+   * Zmień **weryfikację certyfikatu** na **wyłączony**
    * Zmień **tryb kompresji** na **Brak**
-   * Kliknij przycisk **alej**.
-   * Na czwartej stronie wpisz nazwę kontenera w nazwach **zasobnika** jako *storage_account_name*/*container_name*.
-   * Opcjonalnie ustaw **typ szyfrowania** na **Brak**.  Usługa Azure Storage jest domyślnie szyfrowana.
-   * Kliknij **pozycję Dodaj plik .**
+   * Kliknij przycisk **Dalej**.
+   * Na czwartej stronie Wprowadź nazwę kontenera w polu **Nazwa zasobnika** jako *storage_account_name*/*container_name*.
+   * Opcjonalnie Ustaw dla opcji **typ szyfrowania** **wartość Brak**.  Usługa Azure Storage jest domyślnie szyfrowana.
+   * Kliknij pozycję **Dodaj plik**.
 
-   Aby uzyskać bardziej szczegółowe informacje, zobacz [Dodawanie nowego filera z rdzeniem chmury](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) w przewodniku konfiguracji klastra Avere.
+   Aby uzyskać bardziej szczegółowe informacje, przeczytaj temat [Dodawanie nowego pliku w chmurze](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) w podręczniku konfiguracji klastra avere.
 
-Strona zostanie odświeżona lub można odświeżyć stronę, aby wyświetlić nowy podstawowy filer.
+Strona zostanie odświeżona lub można odświeżyć stronę, aby wyświetlić nowy plik podstawowy.
 
-Następnie należy [utworzyć skrzyżowanie](#create-a-junction).
+Następnie należy [utworzyć połączenie](#create-a-junction).
 
-## <a name="create-a-junction"></a>Tworzenie skrzyżowania
+## <a name="create-a-junction"></a>Tworzenie połączenia
 
-Skrzyżowanie to ścieżka utworzona dla klientów. Klienci montują ścieżkę i docierają do wybranego miejsca docelowego.
+Połączenie jest ścieżką utworzoną dla klientów. Klienci instalują ścieżkę i docierają do wybranego miejsca docelowego.
 
-Na przykład można `/vfxt/files` utworzyć do mapowania do `/vol0/data` eksportu plików `/project/resources` podstawowych NetApp i podkatalogu.
+Można na przykład utworzyć `/vfxt/files` mapowanie do NetApp podstawowego pliku `/vol0/data` eksportu i `/project/resources` podkatalogu.
 
-Więcej informacji na temat połączeń można znaleźć w [sekcji obszarów nazw w przewodniku konfiguracji klastra Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
+Więcej informacji o połączeniach można znaleźć w [sekcji przestrzeń nazw podręcznika konfiguracji klastra avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
-Wykonaj następujące kroki w interfejsie Panelu sterowania Avere:
+Wykonaj następujące kroki w interfejsie avere panelu sterowania:
 
-* W lewym górnym rogu kliknij pozycję Obszar nazw **serwera VServer.** > **Namespace**
-* Podaj ścieżkę obszaru nazw rozpoczynającą ``/vfxt/data``się od / (ukośnik do przodu), na podobny .
-* Wybierz podstawowy filer.
-* Wybierz podstawowy eksport filera.
-* Kliknij przycisk **alej**.
+* W lewym górnym rogu kliknij pozycję **vserver** > **obszar nazw** .
+* Podaj ścieżkę przestrzeni nazw rozpoczynającą się od znaku/(ukośnik) ``/vfxt/data``, na przykład.
+* Wybierz podstawowy plik.
+* Wybierz eksport pliku podstawowego.
+* Kliknij przycisk **Dalej**.
 
-  ![Zrzut ekranu przedstawiający stronę "Dodaj nowe skrzyżowanie" z polami ukończonymi dla złącza, głównego filera i eksportu](media/avere-vfxt-add-junction.png)
+  ![Zrzut ekranu przedstawiający stronę "Dodawanie nowego połączenia" z polami zakończono dla połączenia, podstawowego pliku i eksportu](media/avere-vfxt-add-junction.png)
 
-Skrzyżowanie pojawi się po kilku sekundach. W razie potrzeby utwórz dodatkowe skrzyżowania.
+Połączenie zostanie wyświetlone po kilku sekundach. Utwórz dodatkowe połączenia zgodnie z wymaganiami.
 
-Po utworzeniu skrzyżowania klienci używają ścieżki obszaru nazw, aby uzyskać dostęp do plików z systemu magazynu.
+Po utworzeniu połączenia klienci używają ścieżki przestrzeni nazw, aby uzyskać dostęp do plików z systemu magazynu.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Instalowanie klastra Avere vFXT](avere-vfxt-mount-clients.md)
-* Dowiedz się skuteczne sposoby [przenoszenia danych do nowego kontenera obiektów Blob](avere-vfxt-data-ingest.md)
+* Poznaj wydajne metody [przenoszenia danych do nowego kontenera obiektów BLOB](avere-vfxt-data-ingest.md)

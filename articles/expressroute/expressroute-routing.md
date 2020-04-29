@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273048"
 ---
 # <a name="expressroute-routing-requirements"></a>Wymagania dotyczące routingu w usłudze ExpressRoute
@@ -39,7 +39,7 @@ Do konfigurowania komunikacji równorzędnej można użyć prywatnych lub public
   * Aby zapewnić ważność [umowy SLA dotyczącej dostępności](https://azure.microsoft.com/support/legal/sla/), musisz skonfigurować obie sesje protokołu BGP.  
 
 #### <a name="example-for-private-peering"></a>Przykład prywatnej komunikacji równorzędnej
-Jeśli do skonfigurowania komunikacji równorzędnej zdecydujesz się użyć podsieci a.b.c.d/29, zostanie ona podzielona na dwie podsieci /30. W poniższym przykładzie zwróć uwagę, jak używana jest podsieć a.b.c.d/29:
+Jeśli do skonfigurowania komunikacji równorzędnej zdecydujesz się użyć podsieci a.b.c.d/29, zostanie ona podzielona na dwie podsieci /30. W poniższym przykładzie Zwróć uwagę na to, jak jest używana podsieć a. b. c. d/29:
 
 * Podsieć a.b.c.d/29 zostanie podzielona na podsieci a.b.c.d/30 i a.b.c.d+4/30 i przekazana firmie Microsoft za pośrednictwem aprowizowanych interfejsów API.
   * Użytkownik użyje podsieci a.b.c.d+1 jako adresu IP VRF usługi Primary PE, a firma Microsoft użyje podsieci a.b.c.d+2 jako adresu IP VRF podstawowego rozwiązania MSEE.
@@ -66,7 +66,7 @@ Do konfigurowania sesji protokołu BGP należy użyć posiadanych publicznych ad
 ### <a name="ip-addresses-used-for-azure-public-peering"></a>Adresy IP używane do publicznej komunikacji równorzędnej na platformie Azure
 
 > [!NOTE]
-> Publiczne komunikacji równorzędnej platformy Azure nie jest dostępne dla nowych obwodów.
+> Publiczna Komunikacja równorzędna Azure nie jest dostępna dla nowych obwodów.
 > 
 
 Do konfigurowania sesji protokołu BGP należy użyć posiadanych publicznych adresów IP. Firma Microsoft musi mieć możliwość weryfikacji własności adresów IP za pomocą rejestrów internetowego routingu i internetowych rejestrów routingu. 
@@ -83,7 +83,7 @@ Do konfigurowania sesji protokołu BGP należy użyć posiadanych publicznych ad
 Do prywatnej komunikacji równorzędnej można używać publicznych lub prywatnych adresów IPv4. Zapewniamy kompleksową izolację ruchu, w związku z czym w warunkach prywatnej komunikacji równorzędnej nie ma możliwości, aby adresy się nakładały. Te adresy nie są anonsowane w Internecie. 
 
 ### <a name="microsoft-peering"></a>Komunikacja równorzędna firmy Microsoft
-Ścieżka komunikacji równorzędnej firmy Microsoft umożliwia łączenie się z usługami w chmurze firmy Microsoft. Lista usług obejmuje usługi Office 365, takie jak Exchange Online, SharePoint Online, Skype dla firm i Microsoft Teams. Firma Microsoft zapewnia obsługę dwukierunkowej łączności w oparciu o komunikację równorzędną firmy Microsoft. Ruch skierowany do usług w chmurze firmy Microsoft musi uzyskać prawidłowe publiczne adresy IPv4, zanim wejdzie do sieci firmy Microsoft.
+Ścieżka komunikacji równorzędnej firmy Microsoft umożliwia nawiązanie połączenia z usługami w chmurze firmy Microsoft. Lista usług obejmuje usługi Office 365, takie jak Exchange Online, SharePoint Online, Skype dla firm i Microsoft Teams. Firma Microsoft zapewnia obsługę dwukierunkowej łączności w oparciu o komunikację równorzędną firmy Microsoft. Ruch skierowany do usług w chmurze firmy Microsoft musi uzyskać prawidłowe publiczne adresy IPv4, zanim wejdzie do sieci firmy Microsoft.
 
 Zadbaj o to, aby adres IP i numer AS zostały zarejestrowane na Ciebie w jednym z następujących rejestrów:
 
@@ -100,18 +100,18 @@ Jeśli Twoje prefiksy i numer systemu autonomicznego nie są przypisane do Ciebi
 Prywatny numer systemu autonomicznego jest dozwolony dla komunikacji równorzędnej firmy Microsoft, ale będzie również wymagał ręcznej weryfikacji. Ponadto firma Microsoft usuwa prywatne numery AS w ścieżce AS dla odebranych prefiksów. W związku z tym nie można dołączyć prywatnych numerów AS do ścieżki AS, aby [wpłynąć na routing komunikacji równorzędnej firmy Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Nie anonsuj tej samej publicznej trasy IP do publicznego Internetu i za pośrednictwem usługi ExpressRoute. Aby zmniejszyć ryzyko nieprawidłowej konfiguracji powodującej routing asymetryczny, zdecydowanie zaleca się, aby [adresy IP NAT](expressroute-nat.md) anonsowane firmie Microsoft za pośrednictwem usługi ExpressRoute pochodziły z zakresu, który w ogóle nie jest anonsowany w Internecie. Jeśli nie jest to możliwe do osiągnięcia, konieczne jest, aby upewnić się, że reklamujesz bardziej szczegółowy zakres za pośrednictwem usługi ExpressRoute niż w przypadku połączenia internetowego. Oprócz publicznej trasy dla translatora adresów sieciowych można również anonsować za pośrednictwem usługi ExpressRoute publiczne adresy IP używane przez serwery w sieci lokalnej, które komunikują się z punktami końcowymi usługi Office 365 w firmie Microsoft. 
+> Nie należy anonsować tej samej publicznej trasy IP do publicznego Internetu i za pośrednictwem ExpressRoute. Aby zmniejszyć ryzyko niepoprawnej konfiguracji powodującej Routing asymetryczny, zdecydowanie zalecamy, aby [adresy IP translatora adresów sieciowych](expressroute-nat.md) anonsowane do firmy Microsoft przez ExpressRoute były z zakresu, który nie jest anonsowany w Internecie. Jeśli nie jest to możliwe, należy się upewnić, że anonsuje bardziej konkretny zakres od ExpressRoute niż ten, na którym nadano połączenie internetowe. Poza trasą publiczną dla translatora adresów sieciowych można także anonsować za pośrednictwem usługi ExpressRoute publiczne adresy IP używane przez serwery w sieci lokalnej, które komunikują się z punktami końcowymi pakietu Office 365 w firmie Microsoft. 
 > 
 > 
 
-### <a name="public-peering-deprecated---not-available-for-new-circuits"></a>Komunikacja równorzędna publiczna (przestarzała — niedostępna dla nowych obwodów)
+### <a name="public-peering-deprecated---not-available-for-new-circuits"></a>Publiczna Komunikacja równorzędna (przestarzałe — niedostępne w przypadku nowych obwodów)
 Ścieżka publicznej komunikacji równorzędnej Azure umożliwia łączenie ze wszystkimi usługami obsługiwanymi na platformie Azure za pośrednictwem ich publicznych adresów IP. Dotyczy to usług wymienionych w temacie [ExpessRoute FAQ](expressroute-faqs.md) (ExpessRoute — często zadawane pytania) i wszystkich usług obsługiwanych przez niezależnych dostawców oprogramowania na platformie Microsoft Azure. Połączenie z usługami Microsoft Azure w publicznej komunikacji równorzędnej jest zawsze inicjowane z sieci użytkownika do sieci Microsoft. W odniesieniu do ruchu skierowanego do sieci firmy Microsoft należy użyć publicznych adresów IP.
 
 > [!IMPORTANT]
-> Wszystkie usługi PaaS platformy Azure są dostępne za pośrednictwem komunikacji równorzędnej firmy Microsoft.
+> Wszystkie usługi Azure PaaS są dostępne za pomocą komunikacji równorzędnej firmy Microsoft.
 >   
 
-Prywatny numer AS jest dozwolony z komunikacją równorzędną.
+Prywatny numer AS jest dozwolony w publicznej komunikacji równorzędnej.
 
 ## <a name="dynamic-route-exchange"></a>Wymiana tras dynamicznych
 Wymiana routingu będzie odbywać się za pośrednictwem protokołu eBGP. Sesje eBGP są ustanawiane między rozwiązaniami MSEE a routerami użytkownika. Uwierzytelnianie sesji BGP nie jest wymagane. W razie potrzeby można skonfigurować skrót MD5. Informacje na temat konfigurowania sesji BGP znajdują się w artykułach [Configure routing](how-to-routefilter-portal.md) (Konfigurowanie routingu) i [Circuit provisioning workflows and circuit states](expressroute-workflows.md) (Przepływy pracy inicjowania obsługi obwodu i stany obwodu).
@@ -119,7 +119,7 @@ Wymiana routingu będzie odbywać się za pośrednictwem protokołu eBGP. Sesje 
 ## <a name="autonomous-system-numbers"></a>Numery systemu autonomicznego
 Firma Microsoft używa numeru AS 12076 do publicznej i prywatnej komunikacji równorzędnej Azure oraz komunikacji równorzędnej Microsoft. Zarezerwowaliśmy numery AS od 65515 do 65520 do użytku wewnętrznego. Obsługiwane są zarówno 16-, jak i 32-bitowe numery AS.
 
-Nie ma żadnych wymagań związanych z symetrią transferu danych. Ścieżki przekazywania dalej i ścieżki zwracania mogą przechodzić różne pary routerów. Identyczne trasy muszą być reklamowane z obu stron w wielu parach obwodów należących do Ciebie. Metryki tras nie muszą być identyczne.
+Nie ma żadnych wymagań związanych z symetrią transferu danych. Ścieżki przekazywania dalej i ścieżki zwracania mogą przechodzić różne pary routerów. Trasy identyczne muszą być anonsowane z obu stron w wielu parach obwodów należących do użytkownika. Metryki tras nie muszą być identyczne.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Agregacja tras i limity prefiksów
 Firma Microsoft obsługuje do 4000 prefiksów anonsowanych nam za pośrednictwem prywatnej komunikacji równorzędnej Azure. Tę liczbę można zwiększyć do 10 000 prefiksów, jeśli zostanie włączony dodatek Premium usługi ExpressRoute. Akceptujemy do 200 prefiksów na sesję protokołu BGP dla publicznej komunikacji równorzędnej Azure i komunikacji równorzędnej Microsoft. 
@@ -134,7 +134,7 @@ Trasy domyślne są dozwolone tylko w sesjach prywatnej komunikacji równorzędn
 
  Aby można było włączyć łączność z innymi usługami i usługami infrastruktury Azure, musi być spełniony jeden z poniższych warunków:
 
-* Komunikacja publiczna platformy Azure jest włączona do kierowania ruchu do publicznych punktów końcowych.
+* Publiczna Komunikacja równorzędna Azure jest włączona, aby kierować ruch do publicznych punktów końcowych.
 * Używasz routingu zdefiniowanego przez użytkownika, aby zezwolić na połączenie z Internetem dla każdej podsieci wymagającej takiego połączenia.
 
 > [!NOTE]
@@ -151,9 +151,9 @@ Na przykład po połączeniu się z firmą Microsoft w Amsterdamie za pośrednic
 
 Zapoznaj się ze stroną [ExpressRoute partners and peering locations](expressroute-locations.md) (Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute), która zawiera szczegółową listę regionów geopolitycznych, powiązanych regionów świadczenia usługi Azure i odpowiadających im lokalizacji komunikacji równorzędnej usługi ExpressRoute.
 
-Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolityczny. Wiele ofert połączeń daje znaczące korzyści w zakresie wysokiej dostępności z powodu nadmiarowości geograficznej. W przypadkach, gdy masz wiele obwodów usługi ExpressRoute, otrzymasz ten sam zestaw prefiksów anonsowanych od firmy Microsoft na ścieżkach komunikacji równorzędnej firmy Microsoft i publicznej komunikacji równorzędnej. Oznacza to, że będziesz mieć wiele ścieżek ze swojej sieci do firmy Microsoft. Może to teoretycznie spowodować podjęcie nieoptymalnych decyzji w zakresie routingu w ramach sieci. W efekcie połączenia z różnymi usługami mogą nie być optymalne. Wartości społeczności gwarantują, że zostaną podjęte odpowiednie decyzje w kwestii routingu i klienci będą mieli zapewniony [optymalny routing do użytkowników](expressroute-optimize-routing.md).
+Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolityczny. Wiele ofert połączeń daje znaczące korzyści w zakresie wysokiej dostępności z powodu nadmiarowości geograficznej. W przypadkach, gdy masz wiele obwodów usługi ExpressRoute, otrzymasz ten sam zestaw prefiksów anonsowanych od firmy Microsoft na ścieżce komunikacji równorzędnej firmy Microsoft i publicznych komunikacji równorzędnych. Oznacza to, że będziesz mieć wiele ścieżek ze swojej sieci do firmy Microsoft. Może to teoretycznie spowodować podjęcie nieoptymalnych decyzji w zakresie routingu w ramach sieci. W efekcie połączenia z różnymi usługami mogą nie być optymalne. Wartości społeczności gwarantują, że zostaną podjęte odpowiednie decyzje w kwestii routingu i klienci będą mieli zapewniony [optymalny routing do użytkowników](expressroute-optimize-routing.md).
 
-| **Region platformy Microsoft Azure** | **Regionalna społeczność BGP** | **Społeczność BGP magazynu** | **Społeczność SQL BGP** | **Społeczność Usługi Cosmos DB BGP** |
+| **Region platformy Microsoft Azure** | **Regionalna społeczność protokołu BGP** | **Społeczność protokołu BGP magazynu** | **Społeczność protokołu BGP SQL** | **Cosmos DB społeczność protokołu BGP** |
 | --- | --- | --- | --- | --- |
 | **Ameryka Północna** | |
 | Wschodnie stany USA | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
@@ -176,9 +176,9 @@ Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolit
 | Francja Środkowa | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Francja Południowa | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
 | Szwajcaria Północna | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
-| Szwajcaria Zachód | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
+| Szwajcaria Zachodnia | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
 | Niemcy Północne | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
-| Niemcy Zachodnio-Środkowe | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
+| Niemcy Środkowo-Zachodnie | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
 | Norwegia Wschodnia | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
 | Norwegia Zachodnia | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
 | **Azja i Pacyfik** | |
@@ -201,11 +201,11 @@ Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolit
 | Korea Południowa | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
 | Korea Środkowa | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
 | **Republika Południowej Afryki**| |
-| Republika Południowej Afryki Północ | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
-| Republika Południowej Afryki Zachód | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
+| Północna Republika Południowej Afryki | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
+| Zachodnia Republika Południowej Afryki | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
 | **Zjednoczone Emiraty Arabskie**| |
-| Zjednoczone Emiraty Północne | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
-| Zjednoczone Emiraty Zjednoczone Emiraty Zjednoczone Emiraty Zjednoczone Emiraty Zjednoczone Emirat | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
+| Północne Zjednoczone Emiraty Arabskie | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
+| Środkowy Zjednoczone Emiraty Arabskie | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
 
 
 Wszystkie trasy anonsowane przez firmę Microsoft zostaną oznaczone odpowiednią wartością społeczności. 
@@ -215,22 +215,22 @@ Wszystkie trasy anonsowane przez firmę Microsoft zostaną oznaczone odpowiedni�
 > 
 > 
 
-### <a name="service-to-bgp-community-value"></a>Usługa dla wartości społeczności BGP
-Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do której się odnoszą. Dotyczy to tylko komunikacji równorzędnej firmy Microsoft. Poniższa tabela zawiera mapowanie usługi do wartości społeczności BGP. Aby uzyskać pełną listę najnowszych wartości, można uruchomić polecenie cmdlet "Get-AzBgpServiceCommunity".
+### <a name="service-to-bgp-community-value"></a>Wartość wspólnotowa usługi BGP
+Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do której się odnoszą. Dotyczy to tylko komunikacji równorzędnej firmy Microsoft. Poniższa tabela zawiera mapowanie usługi do wartości społeczności BGP. Można uruchomić polecenie cmdlet "Get-AzBgpServiceCommunity", aby zapoznać się z pełną listą najnowszych wartości.
 
 | **Usługa** | **Wartość społeczności BGP** |
 | --- | --- |
-| Exchange Online** | 12076:5010 |
-| SharePoint Online** | 12076:5020 |
-| Skype dla firm Online** | 12076:5030 |
-| CRM Online*** |12076:5040 |
-| Usługi globalne platformy Azure* | 12076:5050 |
-| Usługa Azure Active Directory |12076:5060 |
-| Inne usługi Office 365 Online** | 12076:5100 |
+| Exchange Online * * | 12076:5010 |
+| SharePoint Online * * | 12076:5020 |
+| Skype dla firm Online * * | 12076:5030 |
+| CRM Online * * * |12076:5040 |
+| Usługi globalne platformy Azure * | 12076:5050 |
+| Azure Active Directory |12076:5060 |
+| Inne usługi online pakietu Office 365 * * | 12076:5100 |
 
-*Usługi globalne platformy Azure obejmują tylko usługi Azure DevOps w tej chwili.\
-** Autoryzacja wymagana od firmy Microsoft, zapoznaj się z [konfigurowaniem filtrów tras dla komunikacji równorzędnej firmy Microsoft](how-to-routefilter-portal.md)\
-CRM Online obsługuje Dynamics v8.2 i poniżej. W przypadku wyższych wersji wybierz społeczność regionalną dla wdrożeń dynamics.
+* Usługi globalne platformy Azure zawierają tylko usługę Azure DevOps.
+* * Autoryzacja wymagana przez firmę Microsoft, zapoznaj się z tematem [Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft](how-to-routefilter-portal.md)\
+Program CRM Online obsługuje Dynamics v 8.2 i poniżej. W przypadku wyższych wersji wybierz społeczność regionalną dla wdrożeń programu Dynamics.
 
 > [!NOTE]
 > Firma Microsoft nie uznaje żadnych wartości społeczności BGP ustawionych na trasach anonsowanych do firmy Microsoft.

@@ -1,6 +1,6 @@
 ---
 title: 'SAP na platformie Azure: obsługiwane scenariusze z maszynami wirtualnymi platformy Azure'
-description: Maszyny wirtualne platformy Azure obsługiwane scenariusze z obciążeniem SAP
+description: Platforma Azure Virtual Machines obsługiwane scenariusze z obciążeniem SAP
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -17,294 +17,294 @@ ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 564c648a550b41017ffc684ca19ff03612fc63d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79137632"
 ---
-# <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Obsługiwane scenariusze dotyczące obciążenia SAP na maszynie wirtualnej platformy Azure
-Projektowanie architektury systemów SAP NetWeaver, Business one `Hybris` lub S/4HANA na platformie Azure otwiera wiele różnych możliwości dla różnych architektur i narzędzi do użycia, aby uzyskać skalowalne, wydajne i wysoce dostępne wdrożenie. Chociaż zależy to od używanego systemu operacyjnego lub systemu DBMS, istnieją ograniczenia. Ponadto nie wszystkie scenariusze, które są obsługiwane lokalnie są obsługiwane w taki sam sposób na platformie Azure. Ten dokument będzie prowadzić przez obsługiwane konfiguracje non-high-dostępności i konfiguracji o wysokiej dostępności i architektury przy użyciu maszyn wirtualnych platformy Azure wyłącznie. W przypadku scenariuszy obsługiwanych za pomocą [dużych wystąpień HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)zapoznaj się z artykułem [Obsługiwane scenariusze dla dużych wystąpień HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario). 
+# <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Scenariusze obsługi obciążeń SAP w maszynach wirtualnych platformy Azure
+Projektowanie architektury SAP NetWeaver, Business One `Hybris` lub S/4HANA system na platformie Azure otwiera wiele różnych możliwości dla różnych architektur i narzędzi, które mogą być używane do skalowalnego, wydajnego i wysokiej dostępności wdrożenia. Jednak zależnie od używanego systemu operacyjnego lub DBMS istnieją ograniczenia. Ponadto nie wszystkie scenariusze, które są obsługiwane lokalnie, są obsługiwane w taki sam sposób na platformie Azure. Ten dokument przeprowadzi Cię przez obsługiwane konfiguracje bez wysokiej dostępności i konfiguracje wysokiej dostępności oraz architektury korzystające wyłącznie z maszyn wirtualnych platformy Azure. W przypadku scenariuszy obsługiwanych z [dużymi wystąpieniami Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)zapoznaj się z artykułem [obsługiwane scenariusze dotyczące dużych wystąpień platformy Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario). 
 
 
-## <a name="2-tier-configuration"></a>Konfiguracja dwuwarstwowa
-Konfiguracja SAP 2-warstwowa jest uważana za zbudowaną z połączonej warstwy SAP DBMS i warstwy aplikacji, które działają na tym samym serwerze lub jednostce maszyny Wirtualnej. Druga warstwa jest uważana za warstwę interfejsu użytkownika. W przypadku konfiguracji 2-warstwowej warstwy aplikacji DBMS i SAP współużytkować zasoby maszyny Wirtualnej platformy Azure. W rezultacie należy skonfigurować różne składniki w taki sposób, aby te nie konkurować o zasoby. Należy również uważać, aby nie przesubżyć zasobów maszyny Wirtualnej. Taka konfiguracja nie zapewnia żadnej wysokiej dostępności, poza [umowami dotyczących poziomu usług platformy Azure](https://azure.microsoft.com/support/legal/sla/) różnych składników platformy Azure.
+## <a name="2-tier-configuration"></a>Konfiguracja 2-warstwowa
+Konfiguracja systemu SAP 2-warstwowa jest traktowana jako wbudowana w połączeniu z warstwą systemu SAP DBMS i warstwy aplikacji, która działa na tym samym serwerze lub jednostce maszyn wirtualnych. Druga warstwa jest traktowana jako warstwa interfejsu użytkownika. W przypadku konfiguracji 2-warstwowej warstwa aplikacji systemów DBMS i SAP udostępnia zasoby maszyny wirtualnej platformy Azure. W związku z tym należy skonfigurować różne składniki w taki sposób, aby nie konkurują się z zasobami. Należy również zachować ostrożność, aby nie subskrybować zasobów maszyny wirtualnej. Taka konfiguracja nie zapewnia wysokiej dostępności, poza umowami dotyczącymi [poziomu usług platformy Azure](https://azure.microsoft.com/support/legal/sla/) dla różnych składników platformy Azure.
 
 Graficzna reprezentacja takiej konfiguracji może wyglądać następująco:
 
 ![Prosta konfiguracja 2-warstwowa](./media/sap-planning-supported-configurations/two-tier-simple-configuration.png)
 
-Takie konfiguracje są obsługiwane przez systemy Windows, Red Hat, SUSE i Oracle Linux dla systemów DBMS SQL Server, Oracle, Db2, maxDB i SAP ASE dla przypadków produkcyjnych i nieprodukcyjnych. W przypadku sap HANA jako DBMS takie typy konfiguracji są obsługiwane tylko w przypadkach nieprodukcyjnych. Obejmuje to przypadek wdrożenia [dużych wystąpień platformy Azure HANA,](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) jak również.
-Dla wszystkich kombinacji systemu operacyjnego/dbms obsługiwanych na platformie Azure ten typ konfiguracji jest obsługiwany. Jednak jest obowiązkowe, aby ustawić konfigurację dbms i składników SAP w taki sposób, że składniki DBMS i SAP nie konkurować o zasoby pamięci i procesora CPU, a tym samym przekracza fizyczne dostępne zasoby. Należy to zrobić, ograniczając pamięć dbms może przydzielić. Należy również ograniczyć pamięć rozszerzoną SAP w wystąpieniach aplikacji. Należy również monitorować zużycie procesora CPU maszyny Wirtualnej, aby upewnić się, że składniki nie są maksymalizacji zasobów procesora CPU. 
+Takie konfiguracje są obsługiwane w systemach Windows, Red Hat, SUSE i Oracle Linux dla systemów DBMS SQL Server, Oracle, DB2, maxDB i SAP ASE w przypadku środowisk produkcyjnych i nieprodukcyjnych. W przypadku SAP HANA jako systemu DBMS taka konfiguracja jest obsługiwana tylko w przypadku przypadków nieprodukcyjnych. Obejmuje to również przypadek wdrożenia [dużych wystąpień platformy Azure Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) .
+W przypadku wszystkich kombinacji systemu operacyjnego/DBMS obsługiwanych na platformie Azure ten typ konfiguracji jest obsługiwany. Należy jednak określić konfigurację systemu DBMS i składników SAP w taki sposób, że składniki systemów DBMS i SAP nie konkurują o pamięć i zasoby procesora CPU, a tym samym przekraczają fizyczne dostępne zasoby. Należy to zrobić, ograniczając pamięć, którą może przydzielić system DBMS. Należy również ograniczyć pamięć rozszerzoną systemu SAP w wystąpieniach aplikacji. Należy również monitorować użycie procesora CPU przez maszynę wirtualną w celu upewnienia się, że składniki nie maksymalizują zasobów procesora CPU. 
 
 > [!NOTE]
-> W przypadku systemów SAP w produkcji zalecamy dodatkową wysoką dostępność i ewentualne konfiguracje odzyskiwania po awarii, jak opisano w dalszej części tego dokumentu
+> W przypadku produkcyjnych systemów SAP zalecamy dodatkowe konfiguracje wysokiej dostępności i ostatecznego odzyskiwania po awarii, zgodnie z opisem w dalszej części tego dokumentu.
 
 
 ## <a name="3-tier-configuration"></a>Konfiguracja 3-warstwowa
-W takich konfiguracjach warstwa aplikacji SAP i warstwa DBMS są od różnych maszyn wirtualnych. Zwykle można to zrobić dla większych systemów i ze względu na bardziej elastyczne zasoby warstwy aplikacji SAP. W najprostszej konfiguracji nie ma wysokiej dostępności poza [umowy dotyczące poziomu usług platformy Azure](https://azure.microsoft.com/support/legal/sla/) różnych składników platformy Azure zaangażowanych. 
+W takich konfiguracjach warstwa aplikacji SAP i warstwa DBMS są oddzielane do różnych maszyn wirtualnych. Zwykle jest to potrzebne w przypadku większych systemów i z przyczyn bardziej elastycznej od zasobów warstwy aplikacji SAP. W najprostszej konfiguracji nie ma wysokiej dostępności poza [umowami dotyczącymi poziomu usług platformy Azure](https://azure.microsoft.com/support/legal/sla/) dla różnych składników platformy Azure. 
 
 Graficzna reprezentacja wygląda następująco:
 
 ![Prosta konfiguracja 2-warstwowa](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
 
-Ten typ konfiguracji jest obsługiwany w systemach Windows, Red Hat, SUSE i Oracle Linux dla systemów DBMS SQL Server, Oracle, Db2, SAP HANA, maxDB i SAP ASE dla przypadków produkcyjnych i nieprodukcyjnych. Jest to domyślna konfiguracja wdrażania dla [dużych wystąpień platformy Azure HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). W celu uproszczenia nie rozróżniliśmy wystąpień okien dialogowych SAP Central Services i SAP w warstwie aplikacji SAP. W tej prostej konfiguracji 3-warstwowej nie będzie wysokiej dostępności ochrony sap central services.
+Ten typ konfiguracji jest obsługiwany w systemie Windows, Red Hat, SUSE i Oracle Linux w systemach DBMS systemów SQL Server, Oracle, DB2, SAP HANA, maxDB i SAP ASE w przypadku środowisk produkcyjnych i nieprodukcyjnych. Jest to domyślna konfiguracja wdrożenia dla [dużych wystąpień platformy Azure Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). W celu uproszczenia nie rozróżnienie między wystąpieniami okna dialogowego SAP Central Services i SAP w warstwie aplikacji SAP. W tej prostej konfiguracji 3-warstwowej nie ma żadnej ochrony o wysokiej dostępności dla usług SAP Central.
 
 > [!NOTE]
-> W przypadku systemów SAP w produkcji zalecamy dodatkową wysoką dostępność i ewentualne konfiguracje odzyskiwania po awarii, jak opisano w dalszej części tego dokumentu
+> W przypadku produkcyjnych systemów SAP zalecamy dodatkowe konfiguracje wysokiej dostępności i ostatecznego odzyskiwania po awarii, zgodnie z opisem w dalszej części tego dokumentu.
 
 
-## <a name="multiple-dbms-instances-per-vm-or-hana-large-instance-unit"></a>Wiele wystąpień DBMS na jednostkę dużych wystąpień maszyny Wirtualnej lub HANA
-W tym typie konfiguracji hostujesz wiele wystąpień DBMS na jednostkę dużych wystąpień maszyny Wirtualnej platformy Azure lub HANA. Motywacją może być mieć mniej systemów operacyjnych do utrzymania, a przy tym niższe koszty. Inne motywacje może być mieć większą elastyczność i większą wydajność, dzieląc zasoby większej jednostki VM lub HANA duże wystąpienie wśród wielu wystąpień dbms. Do tej pory konfiguracje te były wyświetlane głównie dla systemów nieprodukcyjnych.
+## <a name="multiple-dbms-instances-per-vm-or-hana-large-instance-unit"></a>Wiele wystąpień systemu DBMS na maszynę wirtualną lub jednostkę dużego wystąpienia HANA
+Ten typ konfiguracji umożliwia hostowanie wielu wystąpień systemu DBMS na maszynę wirtualną platformy Azure lub w jednostce dużego wystąpienia HANA. Motywacja może mieć mniejsze systemy operacyjne, aby zachować i zmniejszyć koszty. Inne motywacje mogą mieć większą elastyczność i lepszą wydajność dzięki udostępnieniu zasobów większej lub dużej jednostce wystąpienia platformy HANA między wieloma wystąpieniami systemu DBMS. Do tej pory te konfiguracje były widoczne głównie dla systemów nieprodukcyjnych.
 
-Konfiguracja taka może wyglądać następująco:
+Taka konfiguracja może wyglądać następująco:
 
-![Wiele wystąpień usługi DBMS w jednej jednostce](./media/sap-planning-supported-configurations/multiple-database-instances.png)
+![Wiele wystąpień systemu DBMS w jednej jednostce](./media/sap-planning-supported-configurations/multiple-database-instances.png)
 
-Ten typ wdrożenia systemu dbms jest obsługiwany dla:
+Ten typ wdrożenia systemu DBMS jest obsługiwany przez:
 
-- Program SQL Server w systemie Windows
-- IBM Db2. Szczegóły w artykule [Wiele wystąpień (Linux, UNIX)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0004904.html)
-- Dla Oracle. Aby uzyskać szczegółowe informacje, zobacz [uwaga dotycząca pomocy technicznej SAP #1778431](https://launchpad.support.sap.com/#/notes/1778431) i powiązanych notatek SAP
-- W przypadku sap HANA obsługiwanych jest wiele wystąpień na jednej maszynie wirtualnej, SAP wywołuje tę metodę wdrażania MCOS. Szczegółowe informacje można znaleźć w artykule SAP [Wiele systemów SAP HANA na jednym hoście (MCOS)](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/
+- SQL Server w systemie Windows
+- IBM DB2. Znajdowanie szczegółowych informacji w artykule [wiele wystąpień (Linux, UNIX)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0004904.html)
+- Dla firmy Oracle. Aby uzyskać szczegółowe informacje, zobacz [uwagi dotyczące pomocy technicznej sap #1778431](https://launchpad.support.sap.com/#/notes/1778431) i powiązane uwagi SAP
+- W przypadku SAP HANA, jest obsługiwana wiele wystąpień na jednej maszynie wirtualnej, a rozwiązanie SAP wywołuje tę metodę wdrażania MCOS. Aby uzyskać szczegółowe informacje, zobacz artykuł SAP [wiele SAP HANA systemów na jednym hoście (MCOS)] (https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/
 - /b2751fd43bec41a9a14e01913f1edf18.html)
 
-Uruchamianie wielu wystąpień bazy danych na jednym hoście, należy upewnić się, że różne wystąpienia nie konkurują o zasoby, a tym samym przekraczają limity zasobów fizycznych maszyny Wirtualnej. Jest to szczególnie ważne dla pamięci, gdzie należy ograniczyć pamięć każdy z wystąpień współużytkowania maszyny Wirtualnej można przydzielić. To również może być prawdziwe dla zasobów procesora CPU różnych wystąpień bazy danych można wykorzystać. Wszystkie dbms wymienione mają konfiguracje, które umożliwiają ograniczenie alokacji pamięci i zasobów procesora CPU na poziomie wystąpienia.
-Aby mieć obsługę takiej konfiguracji dla maszyn wirtualnych platformy Azure, oczekuje się, że dyski lub woluminy, które są używane dla danych i log/redo plików dziennika baz danych zarządzanych przez różne wystąpienia są oddzielne. Innymi słowy, pliki dziennika lub dzienniki dziennika logów danych zarządzanych przez różne wystąpienia DBMS nie powinny współużytkować tych samych dysków lub woluminów. 
+Uruchamianie wielu wystąpień bazy danych na jednym hoście, należy się upewnić, że różne wystąpienia nie konkurują o zasoby, a tym samym przekraczają limity zasobów fizycznych maszyny wirtualnej. Jest to szczególnie istotne w przypadku pamięci, w której należy zwolnić pamięć, którą mogą przydzielić każdy z wystąpień, które udostępniają maszynę wirtualną. Może to również dotyczyć zasobów procesora CPU, których mogą użyć różne wystąpienia bazy danych. Wszystkie wymienione systemy DBMS mają konfiguracje umożliwiające ograniczenie alokacji pamięci i zasobów procesora na poziomie wystąpienia.
+Aby można było obsłużyć taką konfigurację dla maszyn wirtualnych platformy Azure, oczekuje się, że dyski lub woluminy, które są używane dla plików dziennika danych i dzienników/ponawiania baz danych zarządzanych przez różne wystąpienia, są oddzielone. Lub innymi słowy pliki dzienników danych lub dzienników/ponawiania baz danych zarządzanych przez różne wystąpienie systemu DBMS nie powinny udostępniać tych samych dysków ani woluminów. 
 
-Konfiguracja dysku dla dużych wystąpień HANA jest dostarczana skonfigurowana i jest szczegółowo opisana w [obsługiwanych scenariuszach dla dużych wystąpień HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-mcos). 
+Konfiguracja dysków dla dużych wystąpień platformy HANA została skonfigurowana i jest szczegółowo opisana w temacie [obsługiwane scenariusze dla dużych wystąpień platformy Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-mcos). 
 
 > [!NOTE]
-> W przypadku systemów SAP dla środowiska produkcyjnego zaleca się dodatkową wysoką dostępność i ewentualne konfiguracje odzyskiwania po awarii, zgodnie z opisem w dalszej części tego dokumentu. Maszyny wirtualne z wieloma wystąpieniami systemu DBMS nie są obsługiwane przy użyciu konfiguracji o wysokiej dostępności opisanych w dalszej części tego dokumentu.
+> W przypadku produkcyjnych systemów SAP zalecamy dodatkowe konfiguracje wysokiej dostępności i ostatecznego odzyskiwania po awarii, zgodnie z opisem w dalszej części tego dokumentu. Maszyny wirtualne z wieloma wystąpieniami systemu DBMS nie są obsługiwane przez konfiguracje wysokiej dostępności opisane w dalszej części tego dokumentu.
 
 
 ## <a name="multiple-sap-dialog-instances-in-one-vm"></a>Wiele wystąpień okna dialogowego SAP w jednej maszynie wirtualnej
-W wielu przypadkach wiele wystąpień okien dialogowych został wdrożony na serwerach bez systemu operacyjnego lub nawet na maszynach wirtualnych działających w chmurach prywatnych. Powodem takich konfiguracji było dostosowanie niektórych wystąpień okna dialogowego SAP do określonych typów obciążenia, funkcji biznesowych lub obciążenia. Powodem nie izolowania tych wystąpień do oddzielnych maszyn wirtualnych był wysiłek konserwacji systemu operacyjnego i operacji. Lub w wielu przypadkach koszty w przypadku, gdy hoster lub operator maszyny Wirtualnej prosi o miesięczną opłatę za maszynę wirtualną obsługiwaną i administrowaną. Na platformie Azure scenariusz hostowania wielu wystąpień okna dialogowego SAP w ramach jednej maszyny Wirtualnej obsługiwanej przez nas do celów produkcyjnych i nieprodukcyjnych w systemach operacyjnych Windows, Red Hat, SUSE i Oracle Linux. Parametr jądra SAP PHYS_MEMSIZE, dostępny w systemie Windows i nowoczesnych jądrach systemu Linux, powinien być ustawiony, jeśli wiele wystąpień serwera aplikacji SAP jest uruchomionych na jednej maszynie wirtualnej. Zaleca się również ograniczenie rozszerzania pamięci rozszerzonej SAP w systemach operacyjnych, takich jak Windows, w których zaimplementowano automatyczny wzrost pamięci rozszerzonej SAP. Można to zrobić za pomocą `em/max_size_MB`parametru profilu SAP .
+W wielu przypadkach wiele wystąpień okna dialogowego zostało wdrożonych na serwerach bez systemu operacyjnego lub nawet na maszynach wirtualnych działających w chmurach prywatnych. Przyczyną takich konfiguracji było dostosowanie niektórych wystąpień okna dialogowego SAP do określonych obciążeń, funkcjonalności biznesowej lub typów obciążeń. Powodem braku izolowania tych wystąpień do osobnych maszyn wirtualnych była nakład pracy z konserwacją i eksploatacją systemu operacyjnego. Lub w licznych przypadkach koszty w przypadku dostawcy usług hostingowych lub operatora maszyny wirtualnej żądają miesięcznej opłaty za maszynę wirtualną, która jest zarządzana. Na platformie Azure scenariusz udostępniania wielu wystąpień okna dialogowego SAP w ramach jednej maszyny wirtualnej w Stanach Zjednoczonych jest obsługiwany na potrzeby produkcji i nieprodukcyjnej w systemach operacyjnych Windows, Red Hat, SUSE i Oracle Linux. Parametr jądra SAP PHYS_MEMSIZE, dostępny w systemie Windows i nowoczesnych jądra systemu Linux, należy ustawić, jeśli na jednej maszynie wirtualnej są uruchomione wiele wystąpień serwera aplikacji SAP. Zaleca się również ograniczenie rozszerzania pamięci rozszerzonej SAP w systemach operacyjnych, takich jak system Windows, w którym zaimplementowano automatyczne przyrosty pamięci rozszerzonej SAP. Można to zrobić przy użyciu parametru `em/max_size_MB`profilu SAP.
 
-W konfiguracji 3-warstwowej, gdzie wiele wystąpień okna dialogowego SAP są uruchamiane w ramach maszyn wirtualnych platformy Azure może wyglądać:
+W konfiguracji 3-warstwowej, w której wiele wystąpień okna dialogowego SAP jest uruchamianych na maszynach wirtualnych platformy Azure, może wyglądać następująco:
 
-![Wiele wystąpień usługi DBMS w jednej jednostce](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
+![Wiele wystąpień systemu DBMS w jednej jednostce](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
 
-W celu uproszczenia nie rozróżniliśmy wystąpień okien dialogowych SAP Central Services i SAP w warstwie aplikacji SAP. W tej prostej konfiguracji 3-warstwowej nie będzie wysokiej dostępności ochrony sap central services. W przypadku systemów produkcyjnych nie zaleca się pozostawiania usług SAP Central Services bez ochrony. Szczegółowe informacje na temat tak zwanych konfiguracji wielu identyfikatorów SID wokół wystąpień centralnych SAP i wysokiej dostępności takich konfiguracji z wieloma identyfikatorami SID można znaleźć w późniejszych sekcjach tego dokumentu.
+W celu uproszczenia nie rozróżnienie między wystąpieniami okna dialogowego SAP Central Services i SAP w warstwie aplikacji SAP. W tej prostej konfiguracji 3-warstwowej nie ma żadnej ochrony o wysokiej dostępności dla usług SAP Central. W przypadku systemów produkcyjnych nie zaleca się pozostawiania usług SAP centralnych, które nie są chronione. W przypadku określonych elementów o nazwie wiele identyfikatorów SID dotyczących wystąpień oprogramowania SAP Central i wysokiej dostępności takich konfiguracji z obsługą wiele identyfikatorów SID Zobacz dalsze sekcje tego dokumentu.
 
-## <a name="high-availability-protection-for-the-sap-dbms-layer"></a>Ochrona o wysokiej dostępności dla warstwy SAP DBMS
-W miarę wdrażania systemów produkcyjnych SAP należy wziąć pod uwagę konfiguracje o wysokiej dostępności typu gorąca w trybie gotowości. Szczególnie w przypadku sap HANA, gdzie dane muszą być ładowane do pamięci, zanim będzie można uzyskać pełną wydajność i skalowalność z powrotem, leczenie usługi platformy Azure nie jest idealnym środkiem dla wysokiej dostępności. 
+## <a name="high-availability-protection-for-the-sap-dbms-layer"></a>Ochrona wysokiej dostępności dla warstwy systemu SAP DBMS
+Podczas wdrażania systemów produkcyjnych SAP należy wziąć pod uwagę typ aktywnego stanu gotowości konfiguracje o wysokiej dostępności. W szczególności w przypadku SAP HANA, w których dane muszą zostać załadowane do pamięci, zanim będzie można uzyskać pełną wydajność i skalowalność, Naprawianie usługi platformy Azure nie jest idealnym rozwiązaniem dla wysokiej dostępności. 
 
-Ogólnie firma Microsoft obsługuje tylko konfiguracje o wysokiej dostępności i pakiety oprogramowania, które są opisane w sekcji obciążenia SAP w docs.microsoft.com. Tę samą instrukcję można odczytać w [#1928533](https://launchpad.support.sap.com/#/notes/1928533)notatki SAP . Firma Microsoft nie zapewni pomocy technicznej dla innych platform oprogramowania innych firm o wysokiej dostępności, które nie są dokumentowane przez firmę Microsoft w połączeniu z obciążeniem SAP. W takich przypadkach zewnętrzny dostawca struktury wysokiej dostępności jest stroną wspierającą konfigurację o wysokiej dostępności, która musi być zaangażowana przez Ciebie jako klienta w proces pomocy technicznej. Wyjątki zostaną wymienione w tym artykule. 
+Ogólnie rzecz biorąc, firma Microsoft obsługuje tylko konfiguracje wysokiej dostępności i pakiety oprogramowania, które są opisane w sekcji obciążenie SAP w docs.microsoft.com. Tę samą instrukcję można odczytać w artykule SAP uwagi [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Firma Microsoft nie będzie zapewniać wsparcia dla innych platform oprogramowania innych firm, które nie są udokumentowane przez firmę Microsoft w połączeniu z obciążeniem SAP. W takich przypadkach dostawca usług o wysokiej dostępności jest podmiotem pomocniczym do konfiguracji wysokiej dostępności, która musi być zaangażowana przez klienta w proces pomocy technicznej. Wyjątki są wymienione w tym artykule. 
 
-Ogólnie firma Microsoft obsługuje ograniczony zestaw konfiguracji wysokiej dostępności na maszynach wirtualnych platformy Azure lub jednostkach dużych wystąpień HANA. W przypadku obsługiwanych scenariuszy dużych wystąpień HANA przeczytaj dokument [Obsługiwane scenariusze dla dużych wystąpień HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario).
+Ogólnie rzecz biorąc, firma Microsoft obsługuje ograniczoną konfigurację wysokiej dostępności na maszynach wirtualnych platformy Azure lub w jednostkach dużych wystąpień HANA. W przypadku scenariuszy z dużymi wystąpieniami HANA zapoznaj się z dokumentem [obsługiwane scenariusze dotyczące dużych wystąpień usługi Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario).
 
-W przypadku maszyn wirtualnych platformy Azure na poziomie dbms są obsługiwane następujące konfiguracje o wysokiej dostępności:
+W przypadku maszyn wirtualnych platformy Azure następujące konfiguracje wysokiej dostępności są obsługiwane na poziomie systemu DBMS:
 
-- Replikacja systemu SAP HANA oparta na linuxowym rozruszniku serca na SUSE i Red Hat. Zobacz szczegółowe artykuły:
-    - [Wysoka dostępność sap HANA na maszynach wirtualnych platformy Azure na serwerze SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
-    - [Wysoka dostępność maszyn wirtualnych SAP HANA na maszynach wirtualnych platformy Azure w systemie Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel)
-- Sap HANA skalować w poziomie n +m konfiguracji przy użyciu [plików NetApp Azure](https://azure.microsoft.com/services/netapp/) na SUSE i Red Hat. Szczegóły są wymienione w następujących artykułach:
-    - [Wdrażanie systemu skalowania w poziomie SAP HANA z węzłem wstrzymania na maszynach wirtualnych platformy Azure przy użyciu plików NetApp platformy Azure na serwerze SUSE Linux Enterprise Server}](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
-    - [Wdrażanie systemu skalowania w poziomie SAP HANA z węzłem wstrzymania na maszynach wirtualnych platformy Azure przy użyciu plików NetApp azure w systemie Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
-- Klaster trybu failover programu SQL Server oparty na programach Windows Scale-Out File Services. Chociaż zalecenie dla systemów produkcyjnych jest użycie programu SQL Server Always On zamiast klastrowania. SQL Server Always On zapewnia lepszą dostępność przy użyciu oddzielnego magazynu. Szczegóły są opisane w tym artykule: 
-    - [Konfigurowanie wystąpienia klastra trybu failover programu SQL Server na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster)
-- Program SQL Server Always On jest obsługiwany przez system operacyjny Windows dla programu SQL Server na platformie Azure. Jest to domyślne zalecenie dla produkcyjnych wystąpień programu SQL Server na platformie Azure. Szczegóły są opisane w następujących artykułach:
-    - [Wprowadzenie grup dostępności programu SQL Server Always On na maszynach wirtualnych platformy Azure.](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-    - [Skonfiguruj grupę dostępności zawsze włączone na maszynach wirtualnych platformy Azure w różnych regionach](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-dr).
-    - [Skonfiguruj moduł równoważenia obciążenia dla grupy dostępności zawsze włączone na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener).
-- Oracle Data Guard dla Windows i Oracle Linux. Szczegóły dotyczące systemu Oracle Linux można znaleźć w tym artykule:
-    - [Wdrażanie oracle data guard na maszynie wirtualnej systemu Azure Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
-- IBM Db2 HADR na SUSE i RHEL Szczegółowa dokumentacja dla SUSE i RHEL za pomocą rozrusznika serca znajduje się tutaj:
-    - [Wysoka dostępność środowiska IBM Db2 LUW na maszynach wirtualnych platformy Azure na suse linux enterprise server z rozrusznikiem serca](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm)
+- SAP HANA replikację systemu opartą na systemie Linux Pacemaker na SUSE i Red Hat. Zobacz szczegółowe artykuły:
+    - [Wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
+    - [Wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure na Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel)
+- SAP HANA skalowalne w poziomie konfiguracje n + m używające [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) na SUSE i Red Hat. Szczegóły znajdują się w następujących artykułach:
+    - [Wdróż system SAP HANA skalowalny w poziomie za pomocą węzła Standby na maszynach wirtualnych platformy Azure przy użyciu Azure NetApp Files na SUSE Linux Enterprise Server}](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
+    - [Wdróż system SAP HANA skalowalny w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure przy użyciu Azure NetApp Files na Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+- SQL Server klaster trybu failover na podstawie usług plików skalowalnych w poziomie systemu Windows. Mimo że zalecenie dotyczące systemów produkcyjnych to użycie usługi SQL Server zawsze włączone zamiast klastrowania. SQL Server zawsze włączona zapewnia lepszą dostępność przy użyciu oddzielnego magazynu. Szczegóły zostały opisane w tym artykule: 
+    - [Konfigurowanie SQL Server wystąpienia klastra trybu failover na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster)
+- Usługa SQL Server zawsze włączona jest obsługiwana w systemie operacyjnym Windows dla SQL Server na platformie Azure. Jest to domyślne zalecenie dla wystąpień SQL Server produkcyjnych na platformie Azure. Szczegóły są opisane w następujących artykułach:
+    - [Wprowadzenie SQL Server zawsze dostępnych grup dostępności na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
+    - [Skonfiguruj zawsze włączona Grupa dostępności na maszynach wirtualnych platformy Azure w różnych regionach](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-dr).
+    - [Skonfiguruj moduł równoważenia obciążenia dla zawsze włączonej grupy dostępności na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener).
+- Funkcja Oracle Data Guard dla systemu Windows i Oracle Linux. Szczegóły dotyczące Oracle Linux można znaleźć w tym artykule:
+    - [Implementowanie funkcji Oracle Data Guard na maszynie wirtualnej platformy Azure z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+- Program IBM DB2 HADR Cluster na SUSE i RHEL szczegółowej dokumentacji dotyczącej SUSE i RHEL za pomocą Pacemaker jest dostępny tutaj:
+    - [Wysoka dostępność programu IBM DB2 LUW na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm)
     - [Wysoka dostępność programu IBM Db2 LUW na maszynach wirtualnych platformy Azure w systemie Red Hat Enterprise Linux Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw)
-- Konfiguracja SAP ASE i SAP maxDB, jak opisano w tych dokumentach:
+- Konfiguracja oprogramowania SAP ASE i SAP maxDB zgodnie z opisem w następujących dokumentach:
     - [Wdrażanie systemu DBMS usługi Azure Virtual Machines produktu SAP ESE dla obciążenia SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
-    - [Wdrożenie SAP MaxDB, usługi liveCache i content server na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_maxdb)
-- Hana dużych wystąpień scenariusze wysokiej dostępności są szczegółowo w:
-    - [Obsługiwane scenariusze dla dużych wystąpień HANA- HSR z STONITH dla wysokiej dostępności](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#hsr-with-stonith-for-high-availability)
-    - [Obsługiwane scenariusze dla dużych wystąpień HANA — automatyczne tryb failover hosta (1+1)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#host-auto-failover-11)
+    - [Wdrażanie oprogramowania SAP MaxDB, liveCache i Content Server na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_maxdb)
+- Scenariusze wysokiej dostępności dla dużych wystąpień platformy HANA są szczegółowo opisane w:
+    - [Obsługiwane scenariusze dla dużych wystąpień platformy HANA — HSR z STONITH w celu zapewnienia wysokiej dostępności](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#hsr-with-stonith-for-high-availability)
+    - [Obsługiwane scenariusze dla dużych wystąpień HANA — automatycznie przełączenia do trybu failover hosta (1 + 1)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#host-auto-failover-11)
 
 > [!IMPORTANT]
-> W żadnym ze scenariuszy opisanych powyżej obsługujemy konfiguracje wielu wystąpień systemu DBMS w jednej maszynie wirtualnej. Oznacza, że w każdym przypadku tylko jedno wystąpienie bazy danych można wdrożyć na maszynie wirtualnej i chronione za pomocą opisanych metod wysokiej dostępności. Ochrona wielu wystąpień systemu DBMS w tym samym klastrze trybu failover systemu Windows lub rozrusznika serca **NIE** jest obsługiwana w tym momencie. Również Oracle Data Guard jest obsługiwany tylko dla pojedynczego wystąpienia na przypadki wdrażania maszyny Wirtualnej. 
+> W przypadku żadnego z opisanych powyżej scenariuszy obsługiwane są konfiguracje wielu wystąpień systemu DBMS na jednej maszynie wirtualnej. W każdym z tych przypadków można wdrożyć tylko jedno wystąpienie bazy danych na maszynę wirtualną i chronić je za pomocą opisanych metod wysokiej dostępności. Ochrona wielu wystąpień DBMS w ramach tego samego klastra trybu failover systemu Windows lub Pacemaker **nie** jest obsługiwana w tym momencie. Ponadto funkcja Oracle Data Guard jest obsługiwana tylko w przypadku pojedynczych wystąpień na maszynę wirtualną. 
 
-Różne systemy baz danych umożliwiają hostowanie wielu baz danych w ramach jednego wystąpienia DBMS. Podobnie jak w przypadku SAP HANA, wiele baz danych może być hostowanych w wielu kontenerach bazy danych (MDC). W przypadkach, gdy te konfiguracje wielu baz danych działają w ramach jednego zasobu klastra trybu failover, te konfiguracje są obsługiwane. Konfiguracje, które nie są obsługiwane, to przypadki, w których wymagane byłoby wiele zasobów klastra. Jeśli chodzi o konfiguracje, w których można zdefiniować wiele grup dostępności programu SQL Server, w ramach jednego wystąpienia programu SQL Server.
-
-
-![Konfiguracja usługi DBMS HA](./media/sap-planning-supported-configurations/database-high-availability-configuration.png)
-
-W zależności od systemu DBMS/lub systemów operacyjnych składniki, takie jak moduł równoważenia obciążenia platformy Azure może lub nie mogą być wymagane jako część architektury rozwiązania. 
-
-W szczególności dla maxDB konfiguracja magazynu musi być inna. W maxDB pliki danych i dzienników muszą znajdować się w magazynie współdzielonym, aby uzyskać konfiguracje o wysokiej dostępności. Tylko w przypadku maxDB współdzielonego magazynu jest obsługiwany dla wysokiej dostępności. Dla wszystkich innych dbms oddzielne stosy magazynu na węzeł są tylko obsługiwane konfiguracje dysku.
-
-Inne struktury wysokiej dostępności są znane istnieją i są znane do uruchamiania na platformie Microsoft Azure, jak również. Firma Microsoft nie przetestowała jednak tych struktur. Jeśli chcesz zbudować konfigurację wysokiej dostępności z tymi strukturami, musisz współpracować z dostawcą tego oprogramowania, aby:
-
-- Tworzenie architektury wdrażania
-- Wdrażanie architektury
-- Wsparcie architektury
-
-> [!IMPORTANT]
-> Witryna Microsoft Azure Marketplace oferuje wiele urządzeń miękkich, które zapewniają rozwiązania magazynu na platformie Azure. Te miękkie urządzenia mogą być używane do tworzenia udziałów NFS, jak również, które teoretycznie mogą być używane w SAP HANA skalowania w poziomie wdrożeń, gdzie wymagany jest węzeł rezerwowy. Z różnych powodów żadne z tych urządzeń programowych magazynu jest obsługiwane dla żadnego z wdrożeń dbms przez firmę Microsoft i SAP na platformie Azure. Wdrożenia dbms na udziały SMB nie jest obsługiwany w ogóle w tym momencie. Wdrożenia dbms na udziały NFS jest ograniczona do nfs 4.1 udziałów w [usłudze Azure NetApp Files](https://azure.microsoft.com/services/netapp/).
+Różne systemy baz danych umożliwiają hostowanie wielu baz danych w ramach jednego wystąpienia systemu DBMS. Tak jak w przypadku SAP HANA wiele baz danych może być hostowanych w wielu kontenerach baz danych (MDC). W przypadku, gdy te konfiguracje wielu baz danych działają w ramach jednego zasobu klastra trybu failover, te konfiguracje są obsługiwane. Konfiguracje, które nie są obsługiwane, są sytuacje, w których wymagane jest wiele zasobów klastra. Podobnie jak w przypadku konfiguracji, w których zdefiniowano wiele SQL Server grup dostępności, w ramach jednego wystąpienia SQL Server.
 
 
-## <a name="high-availability-for-sap-central-service"></a>Wysoka dostępność usługi SAP Central
-SAP Central Services to drugi pojedynczy punkt awarii konfiguracji SAP. W rezultacie należy również chronić te procesy usług centralnych. Oferta obsługiwana i udokumentowana dla obciążenia SAP brzmi następująco:
+![Konfiguracja systemu DBMS HA](./media/sap-planning-supported-configurations/database-high-availability-configuration.png)
 
-- Serwer klastra trybu failover systemu Windows przy użyciu programów Windows Skal w poziomie usług plików dla katalogu sapmnt i transportu globalnego. Szczegóły są opisane w artykule:
-    - [Klaster wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)
-    - [Przygotowywanie infrastruktury platformy Azure dla wysokiej dostępności systemu SAP przy użyciu klastra trybu failover systemu Windows i udziału plików dla wystąpień SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)
-- Serwer klastra trybu failover systemu Windows przy użyciu udziału SMB opartego na [plikach NetApp usługi Azure](https://azure.microsoft.com/services/netapp/) dla sapmnt i globalnego katalogu transportu. Szczegóły są wymienione w artykule:
-    - [Wysoka dostępność sap NetWeaver na maszynach wirtualnych platformy Azure w systemie Windows z plikami NetApp(SMB) platformy Azure dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
-- Serwer klastra trybu failover `Datakeeper`systemu Windows oparty na programie SIOS . Chociaż jest to udokumentowane przez firmę Microsoft, potrzebujesz relacji pomocy technicznej z SIOS, dzięki czemu można korzystać z pomocy technicznej SIOS podczas korzystania z tego rozwiązania. Szczegóły są opisane w artykule:
-    - [Klaster wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udostępnionego dysku klastra na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
-    - [Przygotowanie infrastruktury platformy Azure dla usługi SAP HA przy użyciu klastra trybu failover systemu Windows i udostępnionego dysku dla SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk)
-- Rozrusznik serca w systemie operacyjnym SUSE z utworzeniem wysoce dostępnego udziału `drdb` NFS przy użyciu dwóch maszyn wirtualnych SUSE i replikacji plików. Szczegóły są udokumentowane w artykule
-    - [Wysoka dostępność sap NetWeaver na maszynach wirtualnych platformy Azure na suse Linux Enterprise Server dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)
-    - [Wysoka dostępność systemu plików NFS na maszynach wirtualnych platformy Azure na serwerze SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
-- System operacyjny Pacemaker SUSE z wykorzystaniem udziałów NFS dostarczanych przez [usługi Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Szczegóły są udokumentowane w
-    - [Wysoka dostępność sap NetWeaver na maszynach wirtualnych platformy Azure na serwerze SUSE Linux Enterprise Server z plikami NetApp usługi Azure dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
-- Rozrusznik serca w systemie operacyjnym Red Hat z `glusterfs` udziałem NFS hostowanym w klastrze. Szczegóły można znaleźć w artykułach
-    - [Wysoka dostępność maszyn wirtualnych platformy Azure dla sap NetWeaver w systemie Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
-    - [`GlusterFS`na maszynach wirtualnych platformy Azure w systemie Red Hat Enterprise Linux dla SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs)
-- Rozrusznik serca w systemie operacyjnym Red Hat z udziałem NFS hostowanym na [platformie Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Szczegóły są opisane w artykule
-    - [Wysoka dostępność maszyn wirtualnych platformy Azure dla systemu SAP NetWeaver w systemie Red Hat Enterprise Linux z plikami NetApp usługi Azure dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
+Zależnie od systemu operacyjnego lub systemów operacyjnych DBMS składniki, takie jak moduł równoważenia obciążenia platformy Azure, mogą lub nie muszą być wymagane w ramach architektury rozwiązania. 
 
-Z wymienionych rozwiązań, potrzebujesz relacji wsparcia z SIOS, aby wspierać `Datakeeper` produkt i bezpośrednio współpracować z SIOS w przypadku problemów. W zależności od sposobu licencjonowania systemu Windows, Red Hat i/lub systemu operacyjnego SUSE może być również wymagana umowa pomocy technicznej z dostawcą systemu operacyjnego, aby mieć pełną obsługę wymienionych konfiguracji wysokiej dostępności.
+W odniesieniu do maxDB Konfiguracja magazynu musi się różnić. W maxDB pliki danych i dziennika muszą znajdować się w magazynie udostępnionym dla konfiguracji o wysokiej dostępności. Tylko w przypadku maxDB magazyn udostępniony jest obsługiwany na potrzeby wysokiej dostępności. W przypadku wszystkich innych różnych stosów magazynów w systemie DBMS dla każdego węzła obsługiwane są tylko konfiguracje dysków.
 
-Konfiguracja może być również wyświetlana w następujący sposób:
+Istnieją inne struktury wysokiej dostępności, które są znane i są również uruchamiane na Microsoft Azure. Jednak firma Microsoft nie przetestuje tych platform. Jeśli chcesz skompilować konfigurację wysokiej dostępności z tymi platformami, musisz skontaktować się z dostawcą tego oprogramowania, aby:
 
-![Konfiguracja dbms i ASCS HA](./media/sap-planning-supported-configurations/high-available-3-tier-configuration.png)
-
-Po prawej stronie grafiki wyświetlana jest wysoce dostępna sap central services. Oprócz ochrony usług SAP Central za pomocą struktury klastra trybu failover, która może zakończyć się awaryjnie w przypadku problemu, istnieje konieczność posiadania wysoce dostępnego udziału NFS lub SMB lub udostępnionego dysku systemu Windows, aby upewnić się, że sapmnt i globalny katalog transportowy są niezależnie od istnienia jednej maszyny Wirtualnej. Dodatkowe niektóre rozwiązania, takie jak serwer klastra trybu failover systemu Windows i rozrusznik serca będą wymagać modułu równoważenia obciążenia platformy Azure do kierowania lub ponownego kierowania ruchu do w dobrej kondycji węzła.
-
-Na pokazanej liście nie ma wzmianki o systemie operacyjnym Oracle Linux. Oracle Linux nie obsługuje rozrusznika jako struktury klastra. Jeśli chcesz wdrożyć system SAP w systemie Oracle Linux i potrzebujesz wysokiej dostępności dla systemu Oracle Linux, musisz współpracować z dostawcami zewnętrznymi. Jednym z dostawców jest SIOS z pakietem Protection Suite dla systemu Linux, który jest obsługiwany przez sap na platformie Azure. Aby uzyskać więcej informacji, przeczytaj notatkę SAP [#1662610 — szczegółowe informacje dotyczące pomocy technicznej dla pakietu SIOS Protection Suite dla systemu Linux,](https://launchpad.support.sap.com/#/notes/1662610) aby uzyskać więcej informacji.
-
-
-
-### <a name="supported-storage-with-the-sap-central-services-scenarios-listed-above"></a>Obsługiwane magazynowanie w scenariuszach SAP Central Services wymienionych powyżej
-Ponieważ tylko podzbiór typów magazynu platformy Azure zapewnia wysoce dostępne udziały NFS lub SMB tej jakości dla użycia w naszych scenariuszach klastra SAP Central Services lista obsługiwanych typów magazynu
-
-- Serwer klastra trybu failover systemu Windows z programem Windows Scale-wy rozbił się na serwerze plików w poziomie, można wdrożyć we wszystkich natywnych typach magazynu platformy Azure, z wyjątkiem plików NetApp platformy Azure. Jednak zalecenie jest wykorzystanie magazynu w wersji Premium ze względu na najwyższej poziomu usług umów w przepływności i we/wy.
-- Serwer klastra trybu failover systemu Windows zmb na usługi Azure NetApp Files jest obsługiwany w plikach NetApp platformy Azure. Udziały SMB w usługach plików azure **nie** są obsługiwane w tym momencie.
-- Serwer klastra trybu failover systemu Windows `Datakeeper` z udostępnionym dyskiem systemu Windows opartym na sios można wdrożyć na wszystkich natywnych typach magazynu platformy Azure, z wyjątkiem plików NetApp platformy Azure. Jednak zalecenie jest wykorzystanie magazynu w wersji Premium ze względu na najwyższej poziomu usług umów w przepływności i we/wy.
-- SUSE lub Red Hat Pacemaker przy użyciu udziałów NFS w usłudze Azure NetApp Files jest obsługiwany w plikach NetApp platformy Azure. 
-- SUSE Pacemaker `drdb` przy użyciu konfiguracji między dwoma maszynami wirtualnymi jest obsługiwany przy użyciu natywnych typów magazynu platformy Azure, z wyjątkiem usługi Azure NetApp Files. Jednak zalecenie jest wykorzystanie magazynu w wersji Premium ze względu na najwyższej poziomu usług umów w przepływności i we/wy.
-- Red Hat Pacemaker przy użyciu `glusterfs` do dostarczania udziału NFS jest obsługiwany przy użyciu natywnych typów magazynu platformy Azure, z wyjątkiem usługi Azure NetApp Files. Jednak zalecenie jest wykorzystanie magazynu w wersji Premium ze względu na najwyższej poziomu usług umów w przepływności i we/wy.
+- Opracowywanie architektury wdrażania
+- Wdrożenie architektury
+- Obsługa architektury
 
 > [!IMPORTANT]
-> Witryna Microsoft Azure Marketplace oferuje wiele urządzeń miękkich, które zapewniają rozwiązania magazynu na platformie Azure. Te miękkie urządzenia mogą być używane do tworzenia udziałów NFS lub SMB, jak również, że teoretycznie może być używany w pracy awaryjnej klastrowane SAP Central Services, jak również. Te rozwiązania nie są bezpośrednio obsługiwane dla obciążenia SAP przez firmę Microsoft. Jeśli użytkownik zdecyduje się użyć takiego rozwiązania do utworzenia pakietu NFS lub SMB, pomoc techniczną dla konfiguracji sap central service musi być zapewniona przez stronę trzecią, która jest właścicielem oprogramowania w miękkim urządzeniu pamięci masowej.
+> Microsoft Azure Marketplace oferuje różne urządzenia miękkie, które udostępniają rozwiązania magazynu w oparciu o magazyn natywny platformy Azure. Te urządzenia miękkie mogą służyć do tworzenia udziałów NFS, a teoretycznie mogą być używane w ramach wdrożeń skalowalnych w poziomie SAP HANA, w których wymagany jest węzeł w stanie wstrzymania. Ze względu na różne przyczyny żadne z tych urządzeń nie jest obsługiwane przez firmę Microsoft i oprogramowanie SAP na platformie Azure. W tym momencie wdrożenia systemu DBMS w udziałach SMB nie są obsługiwane. Wdrożenia systemu DBMS w udziałach NFS są ograniczone do udziałów NFS 4,1 w [Azure NetApp Files](https://azure.microsoft.com/services/netapp/).
 
 
-## <a name="multi-sid-sap-central-services-failover-clusters"></a>Klastry trybu failover sap sap z wieloma identyfikatorami SID
-Aby zmniejszyć liczbę maszyn wirtualnych, które są potrzebne w dużych krajobrazów SAP, SAP umożliwia uruchamianie sap central services wystąpień wielu różnych systemów SAP w konfiguracji klastra trybu failover. Wyobraź sobie przypadki, w których masz 30 lub więcej systemów produkcyjnych NetWeaver lub S/4HANA. Bez klastrowania wielu identyfikatorów SID te konfiguracje wymagałyby 60 lub więcej maszyn wirtualnych w 30 lub więcej konfiguracjach klastra trybu failover systemu Windows lub rozrusznika serca. Oprócz klastrów trybu failover dbms konieczne. Wdrażanie wielu usług centralnych SAP w dwóch węzłach w konfiguracji klastra trybu failover może znacznie zmniejszyć liczbę maszyn wirtualnych. Jednak wdrażanie wielu wystąpień usług SAP Central w konfiguracji klastra z jednym węzłem ma również pewne wady. Problemy związane z pojedynczą maszyną wirtualną w konfiguracji klastra dotyczą wielu systemów SAP. Konserwacja systemu operacyjnego gościa uruchomionego w konfiguracji klastra wymaga większej koordynacji, ponieważ dotyczy to wielu produkcyjnych systemów SAP. Narzędzia takie jak SAP LaMa nie obsługują klastrowania wielu identyfikatorów SID w procesie klonowania systemu.
+## <a name="high-availability-for-sap-central-service"></a>Wysoka dostępność dla usługi SAP Central
+Usługa SAP Central Services to druga single point of failure konfiguracji oprogramowania SAP. W związku z tym należy również włączyć ochronę tych centralnych procesów usług. Oferta jest obsługiwana i udokumentowana w przypadku takich operacji, jak:
 
-Na platformie Azure konfiguracja klastra z wieloma identyfikatorami SID jest obsługiwana dla systemu operacyjnego Windows z ENSA1 i ENSA2. Zalecenie nie polega na połączeniu starszej architektury usługi enqueue replication service (ENSA1) z nową architekturą (ENSA2) w jednym klastrze wielosuwowym. Szczegóły dotyczące takiej architektury są udokumentowane w artykułach
+- Serwer klastra trybu failover systemu Windows korzystający z usług plików skalowalnych w poziomie systemu Windows dla sapmnt i globalnego katalogu transportowego. Szczegóły zostały opisane w artykule:
+    - [Klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)
+    - [Przygotowanie infrastruktury platformy Azure pod kątem wysokiej dostępności SAP przy użyciu klastra trybu failover systemu Windows i udziału plików dla wystąpień oprogramowania SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)
+- Serwer klastra trybu failover systemu Windows korzystający z udziału SMB na podstawie [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) dla sapmnt i globalnego katalogu transportowego. Szczegóły znajdują się w artykule:
+    - [Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie Windows z Azure NetApp Files (SMB) dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
+- Serwer klastra trybu failover systemu Windows oparty `Datakeeper`na oprogramowanie SIOS. Chociaż jest to udokumentowane przez firmę Microsoft, potrzebna jest relacja pomocy technicznej z oprogramowanie SIOS, dzięki czemu można korzystać z pomocy technicznej oprogramowanie SIOS w przypadku korzystania z tego rozwiązania. Szczegóły zostały opisane w artykule:
+    - [Klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udostępnionego dysku klastra na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
+    - [Przygotowanie infrastruktury platformy Azure dla oprogramowania SAP HA przy użyciu klastra trybu failover systemu Windows i dysku udostępnionego dla oprogramowania SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk)
+- Pacemaker w systemie SUSE system operacyjny, który umożliwia tworzenie udziału NFS o wysokiej dostępności przy użyciu `drdb` dwóch maszyn wirtualnych SUSE i na potrzeby replikacji plików. Szczegóły zostały udokumentowane w artykule
+    - [Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)
+    - [Wysoka dostępność systemu plików NFS na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
+- System operacyjny Pacemaker SUSE wykorzystujący udziały NFS udostępniane przez [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Szczegóły są udokumentowane w
+    - [Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Azure NetApp Files dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+- Pacemaker w systemie operacyjnym Red Hat z udziałem NFS hostowanym w `glusterfs` klastrze. Szczegółowe informacje można znaleźć w artykułach
+    - [Platforma Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver na Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
+    - [`GlusterFS`na maszynach wirtualnych platformy Azure na Red Hat Enterprise Linux dla oprogramowania SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs)
+- Pacemaker w systemie operacyjnym Red Hat z udziałem NFS hostowanym na [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Szczegóły zostały opisane w artykule
+    - [Platforma Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver na Red Hat Enterprise Linux z Azure NetApp Files dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
 
-- [Wysoka dostępność wystąpienia SAP ASCS/SCS z klastrem trybu failover systemu Windows Server i dyskiem współdzielonym na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk) 
-- [Sap ASCS/SCS wystąpienie wielu identyfikatorów SID wysokiej dostępności z klastrów trybu failover systemu Windows Server i udziału plików na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share) 
+Z wymienionych rozwiązań potrzebna jest relacja pomocy technicznej z oprogramowanie SIOSą do obsługi `Datakeeper` produktu oraz do zaangażowania się z oprogramowanie SIOS bezpośrednio w przypadku problemów. Zależnie od sposobu licencjonowania systemu Windows, Red Hat i/lub SUSE OS, może być również konieczne posiadanie kontraktu pomocy technicznej z dostawcą systemu operacyjnego w celu zapewnienia pełnej obsługi wymienionych konfiguracji o wysokiej dostępności.
 
-W przypadku SUSE obsługiwany jest również klaster wieloustawowy oparty na rozruszniku serca. Do tej pory konfiguracja jest obsługiwana dla:
+Konfiguracja może być również wyświetlana na przykład:
+
+![Konfiguracja systemu DBMS i ASCS HA](./media/sap-planning-supported-configurations/high-available-3-tier-configuration.png)
+
+Po prawej stronie grafiki zostanie wyświetlona usługa SAP Central o wysokiej dostępności. Oprócz tego, że usługi SAP Central są chronione za pomocą platformy klastra trybu failover, która może działać w trybie awaryjnym w przypadku wystąpienia problemu, istnieje konieczność zapewnienia wysokiej dostępności systemu plików NFS lub udziału SMB lub dysku udostępnionego systemu Windows, aby upewnić się, że sapmnt i Globalny katalog transportu są dostępne niezależnie od istnienia pojedynczej maszyny wirtualnej. Dodatkowe rozwiązania, takie jak serwer klastrów trybu failover systemu Windows i Pacemaker, wymagają, aby moduł równoważenia obciążenia platformy Azure mógł bezpośrednio lub ponownie skierować ruch do węzła w dobrej kondycji.
+
+Na wyświetlonej liście nie ma wzmianki o Oracle Linux systemie operacyjnym. Oracle Linux nie obsługuje Pacemaker jako platformy klastra. Jeśli chcesz wdrożyć system SAP na Oracle Linux i potrzebujesz struktury wysokiej dostępności dla Oracle Linux, musisz współpracować z dostawcami innych firm. Jeden z dostawców jest oprogramowanie SIOS z pakietem ochrony dla systemu Linux, który jest obsługiwany przez oprogramowanie SAP na platformie Azure. Więcej informacji można znaleźć w artykule SAP Uwaga [#1662610 — szczegóły pomocy technicznej dla programu oprogramowanie SIOS Protection Suite dla systemu Linux](https://launchpad.support.sap.com/#/notes/1662610) , aby uzyskać więcej informacji.
+
+
+
+### <a name="supported-storage-with-the-sap-central-services-scenarios-listed-above"></a>Obsługiwane magazyny w przypadku scenariuszy usług SAP centralnych wymienionych powyżej
+Ponieważ tylko podzbiór typów magazynu platformy Azure zapewnia wysoką dostępność systemu plików NFS lub SMB, że jakość na potrzeby użycia w naszym scenariuszu klastra usług SAP Central Services ma listę obsługiwanych typów magazynu
+
+- Serwer klastra trybu failover systemu Windows z serwerem plików skalowalnym w poziomie systemu Windows można wdrożyć na wszystkich natywnych typach usługi Azure Storage, z wyjątkiem Azure NetApp Files. Zaleca się jednak korzystanie z Premium Storage ze względu na wyższą umowę dotyczącą poziomu usług w przepływności i operacje we/wy na sekundę.
+- Serwer klastra trybu failover systemu Windows z protokołem SMB on Azure NetApp Files jest obsługiwany przez Azure NetApp Files. Udziały SMB w usługach plików platformy Azure **nie** są obsługiwane w tym momencie.
+- Serwer klastra trybu failover systemu Windows z dyskiem udostępnionym `Datakeeper` systemu Windows oparty na oprogramowanie SIOS można wdrożyć na wszystkich natywnych typach usługi Azure Storage, z wyjątkiem Azure NetApp Files. Zaleca się jednak korzystanie z Premium Storage ze względu na wyższą umowę dotyczącą poziomu usług w przepływności i operacje we/wy na sekundę.
+- Program SUSE lub Red Hat Pacemaker korzystający z udziałów NFS na Azure NetApp Files jest obsługiwany przez Azure NetApp Files. 
+- SUSE Pacemaker przy użyciu `drdb` konfiguracji między dwiema maszynami wirtualnymi jest obsługiwany przy użyciu natywnych typów magazynu platformy Azure, z wyjątkiem Azure NetApp Files. Zaleca się jednak korzystanie z Premium Storage ze względu na wyższą umowę dotyczącą poziomu usług w przepływności i operacje we/wy na sekundę.
+- Red Hat Pacemaker używany `glusterfs` do udostępniania udziału NFS jest obsługiwany przy użyciu natywnych typów magazynu platformy Azure, z wyjątkiem Azure NetApp Files. Zaleca się jednak korzystanie z Premium Storage ze względu na wyższą umowę dotyczącą poziomu usług w przepływności i operacje we/wy na sekundę.
+
+> [!IMPORTANT]
+> Microsoft Azure Marketplace oferuje różne urządzenia miękkie, które udostępniają rozwiązania magazynu w oparciu o magazyn natywny platformy Azure. Te urządzenia miękkie mogą służyć do tworzenia udziałów w systemie plików NFS lub SMB, jak również teoretycznie mogą być używane w klastrach trybu failover z usługami SAP Central. Te rozwiązania nie są bezpośrednio obsługiwane dla obciążeń SAP przez firmę Microsoft. Jeśli zdecydujesz się użyć takiego rozwiązania do utworzenia udziału w systemie plików NFS lub SMB, obsługa konfiguracji usługi SAP Central musi być świadczona przez inną firmę będącą właścicielem oprogramowania w urządzeniu magazynującym magazynu.
+
+
+## <a name="multi-sid-sap-central-services-failover-clusters"></a>Klastry trybu failover z obsługą wieloidentyfikatorowego protokołu SAP Central Services
+Aby zmniejszyć liczbę maszyn wirtualnych potrzebnych w dużych landscapesach SAP, system SAP umożliwia uruchamianie wystąpień usług SAP Central w wielu różnych systemach SAP w konfiguracji klastra trybu failover. Wyobraź sobie, że masz 30 lub więcej systemów produkcyjnych NetWeaver lub 4HANA. Bez klastrowania z wieloma SIDmi te konfiguracje wymagają 60 lub więcej maszyn wirtualnych w 30 lub więcej konfiguracjach klastra trybu failover z systemem Windows lub Pacemaker. Oprócz potrzeb klastrów trybu failover systemu DBMS. Wdrożenie wielu usług SAP Central w dwóch węzłach w konfiguracji klastra trybu failover może znacząco obniżyć liczbę maszyn wirtualnych. Jednak wdrożenie wielu wystąpień usług SAP Central w jednej konfiguracji klastra z dwoma węzłami ma także pewne wady. Problemy dotyczące pojedynczej maszyny wirtualnej w konfiguracji klastra dotyczą wielu systemów SAP. Konserwacja w systemie operacyjnym gościa, w której działa Konfiguracja klastra, wymaga większej koordynacji, ponieważ wpływają na wiele systemów SAP w środowisku produkcyjnym. Narzędzia, takie jak SAP LaMa, nie obsługują klastrowania wieloidentyfikatorowego w procesie klonowania systemu.
+
+Na platformie Azure jest obsługiwana konfiguracja klastra z obsługą wiele identyfikatorów SID dla systemu operacyjnego Windows z ENSA1 i ENSA2. Zalecenie nie łączy starszej architektury usługi replikacji w kolejce (ENSA1) z nową architekturą (ENSA2) w jednym klastrze z obsługą wielu identyfikatorów SID. Szczegółowe informacje o takiej architekturze zostały udokumentowane w artykułach
+
+- [Rozwiązanie SAP ASCS/SCS o wysokiej dostępności z użyciem usługi Windows Server Failover Clustering i dysku udostępnionego na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk) 
+- [Rozwiązanie SAP ASCS/SCS o wysokiej dostępności z użyciem klastra trybu failover systemu Windows Server i udziału plików na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share) 
+
+W przypadku SUSE jest również obsługiwany klaster z obsługą wiele identyfikatorów SID oparty na Pacemaker. Do tej pory konfiguracja jest obsługiwana dla:
 
 - Maksymalnie pięć wystąpień SAP ASCS/SCS
 - Stara architektura lodu serwera replikacji w kolejce (ENSA1)
-- Konfiguracje klastra rozrusznika dwuwęzłowego
+- Konfiguracja klastra z dwoma węzłami Pacemaker
 
-Konfiguracja jest udokumentowana w [przewodniku O wysokiej dostępności dla sap NetWeaver na maszynach wirtualnych platformy Azure na suse Linux Enterprise Server for SAP applications multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+Konfiguracja jest udokumentowana w [wysokiej dostępności dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure SUSE Linux Enterprise Server na platformie Microsoft dla aplikacji SAP Przewodnik dotyczący wiele identyfikatorów SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
 
-Klaster wieloustawowy z serwerem enqueue replication schematycznie wygląda
+Klaster z obsługą identyfikatorów SID z przykładowym schematem serwera replikacji
 
-![Konfiguracja dbms i ASCS HA](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
+![Konfiguracja systemu DBMS i ASCS HA](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
 
 
-## <a name="sap-hana-scale-out-scenarios"></a>Scenariusze skalowania w poziomie SAP HANA
-Scenariusze skalowania w poziomie SAP HANA są obsługiwane dla podzbioru maszyn wirtualnych platformy Azure z certyfikatem HANA, wymienionych w [katalogu sprzętowym SAP HANA.](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) Wszystkie maszyny wirtualne oznaczone "Tak" w kolumnie "Klastrowanie" mogą być używane do skalowania OLAP lub S/4HANA w poziomie. Konfiguracje bez stanu wstrzymania są obsługiwane za pomocą typów usługi Azure Storage: 
+## <a name="sap-hana-scale-out-scenarios"></a>SAP HANA scenariusze skalowalne w poziomie
+SAP HANA scenariusze skalowalne w poziomie są obsługiwane dla podzestawu certyfikowanych maszyn wirtualnych platformy Azure, które wymieniono w [katalogu SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Wszystkie maszyny wirtualne oznaczone jako "yes" w kolumnie "Clustering" mogą być używane do skalowania w poziomie OLAP lub S/4HANA. Konfiguracje bez wstrzymywania są obsługiwane w przypadku typów usługi Azure Storage: 
 
-- Usługa Azure Premium Storage, w tym akcelerator usługi Azure Write dla woluminu /hana/log
+- Premium Storage platformy Azure, w tym akcelerator zapisu platformy Azure dla woluminu/Hana/log
 - [Dysk w warstwie Ultra](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-Konfiguracje skalowania w poziomie SAP HANA dla OLAP lub S/4HANA z węzłami wstrzymania są obsługiwane wyłącznie za pomocą usług NFS udostępnionych w plikach NetApp.
+SAP HANA skalowalne w poziomie konfiguracje dla OLAP lub S/4HANA z węzłami w stanie wstrzymania są obsługiwane wyłącznie w systemie plików NFS udostępnianym przez Azure NetApp Files.
 
-Aby uzyskać więcej informacji na temat dokładnych konfiguracji magazynu z węzłem wstrzymania lub bez, zapoznaj się z artykułami:
+Aby uzyskać więcej informacji na temat dokładnej konfiguracji magazynu z węzłem wstrzymywania lub bez niego, zapoznaj się z artykułami:
 
 - [Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 
-- [Wdrażanie systemu skalowania w poziomie SAP HANA z węzłem wstrzymania na maszynach wirtualnych platformy Azure przy użyciu plików NetApp platformy Azure na serwerze SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
-- [Wdrażanie systemu skalowania w poziomie SAP HANA z węzłem wstrzymania na maszynach wirtualnych platformy Azure przy użyciu plików NetApp azure w systemie Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
-- [Uwaga dotycząca obsługi sap #2080991](https://launchpad.support.sap.com/#/notes/2080991)
+- [Wdróż system SAP HANA skalowalny w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure przy użyciu Azure NetApp Files na SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
+- [Wdróż system SAP HANA skalowalny w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure przy użyciu Azure NetApp Files na Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+- [Uwaga dotycząca pomocy technicznej SAP #2080991](https://launchpad.support.sap.com/#/notes/2080991)
 
-Aby uzyskać szczegółowe informacje na temat dużych wystąpień HANA obsługiwanych konfiguracji skalowania w poziomie HANA, stosuje się następującą dokumentację:
+Aby uzyskać szczegółowe informacje o dużych wystąpieniach platformy HANA obsługiwane konfiguracje skalowalne w poziomie, zastosowana została następująca dokumentacja:
 
-- [Obsługiwane scenariusze skalowania w poziomie dużych wystąpień HANA ze wstrzymanie](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-standby)
-- [Obsługiwane scenariusze skalowania w poziomie dużych wystąpień HANA bez gotowości](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-without-standby)
+- [Scenariusze obsługiwane w przypadku dużych wystąpień platformy HANA w trybie rezerwy](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-standby)
+- [Obsługiwane scenariusze dotyczące skalowania w poziomie dużych wystąpień platformy HANA bez rezerwy](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-without-standby)
 
 
 ## <a name="disaster-recovery-scenario"></a>Scenariusz odzyskiwania po awarii
-Istnieje wiele scenariuszy odzyskiwania po awarii, które są obsługiwane. Definiujemy architektury awarii jako architektury, które powinny zrekompensować pełne regiony platformy Azure wychodzące z sieci. Oznacza to, że potrzebujemy docelowego odzyskiwania po awarii, aby być innym regionem platformy Azure jako celem do uruchamiania środowiska SAP. Oddzielamy metody i konfiguracje w warstwie DBMS i warstwie innej niż DBMS. 
+Obsługiwane są różne scenariusze odzyskiwania po awarii. Architekturę awaryjną definiujemy jako architekturę, która powinna kompensować wszystkie regiony platformy Azure, które wychodzą z siatki. Oznacza to, że potrzebujemy celu odzyskiwania po awarii, aby być innym regionem świadczenia usługi Azure jako obiektem docelowym w celu uruchomienia środowiska SAP krajobrazu. Oddzielamy metody i konfiguracje w warstwie systemu DBMS i w warstwie innej niż DBMS. 
 
 ### <a name="dbms-layer"></a>Warstwa DBMS
-W przypadku warstwy DBMS obsługiwane są konfiguracje przy użyciu natywnych mechanizmów replikacji DBMS, takich jak Always On, Oracle Data Guard, Db2 HADR, SAP ASE Always-On lub HANA System Replication. Jest to obowiązkowe, że strumień replikacji w takich przypadkach jest asynchroniczne, a nie synchroniczne, jak w typowych scenariuszach wysokiej dostępności, które są wdrażane w jednym regionie platformy Azure. Typowy przykład takiej obsługiwanej konfiguracji odzyskiwania po awarii systemu DBMS opisano w artykule [Dostępność SAP HANA w regionach platformy Azure.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions#combine-availability-within-one-region-and-across-regions) Druga grafika w tej sekcji opisuje scenariusz z HANA jako przykład. Główne bazy danych obsługiwane dla aplikacji SAP są w stanie wdrożyć w takim scenariuszu.
+W przypadku warstwy DBMS konfiguracje są obsługiwane przy użyciu natywnych mechanizmów replikacji systemu DBMS, takich jak zawsze włączone, Oracle Data Guard, DB2 HADR Cluster, funkcja SAP ASE zawsze włączone lub replikacja systemowa HANA. Należy zastanowić się, że strumień replikacji w takich przypadkach jest asynchroniczny, a nie synchronicznie jak w przypadku typowych scenariuszy wysokiej dostępności, które są wdrażane w ramach jednego regionu świadczenia usługi Azure. Typowy przykład takiej obsługiwanej konfiguracji odzyskiwania po awarii w systemie DBMS został opisany w artykule [SAP HANA dostępność w różnych regionach platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions#combine-availability-within-one-region-and-across-regions). Druga ilustracja w tej sekcji opisuje scenariusz z platformą HANA jako przykład. W takim scenariuszu można wdrożyć główne bazy danych obsługiwane przez aplikacje SAP.
 
-Jest obsługiwany do korzystania z mniejszej maszyny Wirtualnej jako wystąpienie docelowe w regionie odzyskiwania po awarii, ponieważ maszyna wirtualna nie występuje pełny ruch obciążenia. W ten sposób należy pamiętać o następujących kwestiach:
+Jest obsługiwane, aby użyć mniejszej maszyny wirtualnej jako wystąpienia docelowego w regionie odzyskiwania po awarii, ponieważ ta maszyna wirtualna nie jest w pełni obciążony ruchem. Należy pamiętać o następujących kwestiach:
 
-- Mniejsze typy maszyn wirtualnych nie zezwalają na podłączenie wielu dysków niż mniejsze maszyny wirtualne
-- Mniejsze maszyny wirtualne mają mniejszą przepustowość sieci i pamięci masowej
-- Zmiana rozmiaru w rodzinach maszyn wirtualnych może być problemem, gdy różne maszyny wirtualne są zbierane w jednym zestawie dostępności platformy Azure lub gdy zmiana rozmiaru powinna nastąpić między rodziną maszyn wirtualnych z serii M i rodziną maszyn wirtualnych Mv2
-- Zużycie procesora i pamięci dla wystąpienia bazy danych jest w stanie odbierać strumień zmian z minimalnym opóźnieniem i wystarczającą ilością zasobów procesora i pamięci, aby zastosować te zmiany z minimalnym opóźnieniem do danych  
+- Mniejsze typy maszyn wirtualnych nie pozwalają na to, że wiele dysków jest dołączonych niż mniejsze maszyny wirtualne
+- Mniejsze maszyny wirtualne mają mniejszą przepływność sieci i magazynu
+- Zmiana rozmiarów w różnych rodzinach maszyn wirtualnych może być problemem, gdy różne maszyny wirtualne są zbierane w jednym zestawie dostępności platformy Azure lub gdy zmiana rozmiarów ma miejsce między rodziną serii M i rodziną maszyn wirtualnych Mv2
+- Użycie procesora CPU i pamięci dla wystąpienia bazy danych może odbierać strumień zmian z minimalnym opóźnieniem i wystarczającą ilością zasobów procesora i pamięci, aby zastosować te zmiany z minimalnym opóźnieniem danych  
 
-Więcej informacji na temat ograniczeń różnych rozmiarów maszyn wirtualnych można znaleźć [tutaj](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) 
+Więcej szczegółowych informacji na temat ograniczeń dotyczących różnych rozmiarów maszyn wirtualnych można znaleźć [tutaj](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) 
 
-Inną obsługiwaną metodą wdrażania obiektu docelowego odzyskiwania po awarii jest zainstalowanie drugiego wystąpienia DBMS na maszynie Wirtualnej, która uruchamia nieprodukcyjne wystąpienie DBMS nieprodukcyjnego wystąpienia SAP. Może to być nieco trudniejsze, ponieważ trzeba dowiedzieć się, co na pamięci, zasobów procesora, przepustowości sieci i przepustowości magazynu jest potrzebne dla poszczególnych wystąpień docelowych, które powinny działać jako główne wystąpienie w scenariuszu odzyskiwania po awarii. Szczególnie w HANA zaleca się konfigurowanie wystąpienia, które działa jako miejsce docelowe odzyskiwania po awarii na udostępnionym hoście, tak aby dane nie są wstępnie ładowane do wystąpienia docelowego odzyskiwania po awarii.
+Inna obsługiwana metoda wdrażania obiektu docelowego odzyskiwania po awarii polega na tym, że na maszynie wirtualnej uruchomionej nieprodukcyjnego wystąpienia SAP nie jest zainstalowane drugie wystąpienie systemu DBMS. Może to być nieco bardziej trudne, ponieważ należy ustalić, jakie zasoby dotyczące pamięci, zasobów procesora, przepustowości sieci i magazynu są potrzebne dla konkretnych wystąpień docelowych, które powinny działać jako główne wystąpienie w scenariuszu odzyskiwania po awarii. Szczególnie w przypadku platformy HANA zdecydowanie zaleca się skonfigurowanie wystąpienia, które działa jako element docelowy odzyskiwania po awarii na hoście udostępnionym, dzięki czemu dane nie są wstępnie załadowane do wystąpienia docelowego odzyskiwania po awarii.
 
-W przypadku scenariuszy odzyskiwania po awarii dużych wystąpień HANA sprawdź te dokumenty:
+Scenariusze odzyskiwania po wystąpieniu dużego wystąpienia HANA sprawdź następujące dokumenty:
 
-- [Pojedynczy węzeł z odzyskiwania po awarii przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-storage-replication)
-- [Pojedynczy węzeł z modułem ODZYSKIWANIA PO (wielofunkcyjnym) przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication)
-- [Pojedynczy węzeł z modułem ODZYSKIWANIA PO (wielofunkcyjnym) przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication)
-- [Wysoka dostępność dzięki hsr i odzyskiwania po awarii z replikacją pamięci masowej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-with-hsr-and-dr-with-storage-replication)
-- [Skalowanie w poziomie przy użyciu odzyskiwania po awarii przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-storage-replication)
-- [Pojedynczy węzeł z dr przy użyciu HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-hsr)
-- [Pojedynczy węzeł HSR do odzyskiwania po awarii (zoptymalizowany pod kątem kosztów)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-hsr-to-dr-cost-optimized)
-- [Wysoka dostępność i odzyskiwanie po awarii dzięki HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr)
-- [Wysoka dostępność i odzyskiwanie po awarii dzięki HSR (zoptymalizowane pod względem kosztów)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr-cost-optimized)
-- [Skalowanie w poziomie z dr przy użyciu HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-hsr)
+- [Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-storage-replication)
+- [Pojedynczy węzeł z DR (Multipurpose) przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication)
+- [Pojedynczy węzeł z DR (Multipurpose) przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication)
+- [Wysoka dostępność dzięki replikacji HSR i DR z replikacją magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-with-hsr-and-dr-with-storage-replication)
+- [Skalowanie za pomocą odzyskiwania po awarii przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-storage-replication)
+- [Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-hsr)
+- [HSR z jednym węzłem do odzyskiwania po awarii (koszt zoptymalizowany)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-hsr-to-dr-cost-optimized)
+- [Wysoka dostępność i odzyskiwanie po awarii za pomocą HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr)
+- [Wysoka dostępność i odzyskiwanie po awarii za pomocą HSR (zoptymalizowane pod kątem kosztów)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr-cost-optimized)
+- [Skalowanie w poziomie za pomocą narzędzia DR using HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-hsr)
 
 > [!NOTE]
-> Użycie [usługi Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) nie zostało przetestowane dla wdrożeń dbms w ramach obciążenia SAP. W rezultacie nie jest obsługiwany dla warstwy DBMS systemów SAP w tym momencie. Inne metody replikacji przez firmy Microsoft i SAP, które nie są wymienione, nie są obsługiwane. Używanie oprogramowania innych firm do replikowania warstwy DBMS systemów SAP między różnymi regionami platformy Azure musi być obsługiwane przez dostawcę oprogramowania i nie będzie obsługiwane za pośrednictwem kanałów pomocy technicznej firmy Microsoft i SAP. 
+> Użycie [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) nie zostało przetestowane dla wdrożeń DBMS w ramach obciążenia SAP. W związku z tym nie jest to obsługiwane w przypadku systemów SAP w tym punkcie w czasie. Inne metody replikacji przez firmę Microsoft i SAP nie są wyświetlane na liście nie są obsługiwane. Używanie oprogramowania innej firmy do replikowania warstwy DBMS systemów SAP między różnymi regionami świadczenia usługi Azure musi być obsługiwane przez dostawcę oprogramowania i nie będzie obsługiwane w ramach kanałów pomocy technicznej firmy Microsoft i SAP. 
  
-## <a name="non-dbms-layer"></a>Warstwa nieobjęta dbms
-W przypadku warstwy aplikacji SAP i ewentualnych udziałów lub lokalizacji magazynu, które są potrzebne, dwa główne scenariusze są wykorzystywane przez klientów:
+## <a name="non-dbms-layer"></a>Warstwa systemu innego niż DBMS
+W przypadku warstwy aplikacji SAP oraz udziałów lub lokalizacji magazynu, które są zbędne, klienci mogą korzystać z dwóch głównych scenariuszy:
 
-- Obiekty docelowe odzyskiwania po awarii w drugim regionie platformy Azure nie są używane do żadnych celów produkcyjnych lub nieprodukcyjnych. W tym scenariuszu maszyny wirtualne, które działają jako miejsce docelowe odzyskiwania po awarii, nie są idealnie wdrożone, a obraz i zmiany w obrazach warstwy aplikacji SAP produkcji jest replikowany do regionu odzyskiwania po awarii. Funkcją, która może wykonać takie zadanie, jest [usługa Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-move-overview). Usługa Azure Site Recovery obsługuje takie scenariusze replikacji platformy Azure na platformę Azure. 
-- Obiekty docelowe odzyskiwania po awarii są maszynami wirtualnymi, które są faktycznie używane przez systemy nieprodukcyjne. Cały krajobraz SAP jest rozłożony na dwa różne regiony platformy Azure z systemami produkcyjnymi zwykle w jednym regionie i systemami nieprodukcyjnymi w innym regionie. W wielu wdrożeniach klientów klient ma system nieprodukcyjny, który jest odpowiednikiem systemu produkcyjnego. Klient ma wstępnie zainstalowane wystąpienia aplikacji produkcyjnych w systemach nieprodukcyjnych warstwy aplikacji. W przypadku pracy awaryjnej wystąpienia nieprodukcyjne zostaną zamknięte, wirtualne nazwy maszyn wirtualnych produkcyjnych przeniesione na nieprodukcyjne maszyny wirtualne (po przypisaniu nowych adresów IP w systemie DNS) i rozpoczynają się preinstalowane wystąpienia produkcyjne.
+- Cele odzyskiwania po awarii w drugim regionie platformy Azure nie są używane do celów produkcyjnych ani nieprodukcyjnych. W tym scenariuszu maszyny wirtualne, które działają jako miejsce docelowe odzyskiwania po awarii, są idealnym rozwiązaniem, a obraz i zmiany w obrazach produkcyjnej warstwy aplikacji SAP są replikowane do regionu odzyskiwania po awarii. Funkcja, która może wykonać takie zadanie, jest [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-move-overview). Azure Site Recovery obsługiwać scenariusze replikacji z platformy Azure na platformę Azure, takie jak to. 
+- Cele odzyskiwania po awarii są maszynami wirtualnymi, które są używane przez systemy nieprodukcyjne. Cały poziom oprogramowania SAP jest rozłożony na dwa różne regiony platformy Azure z systemami produkcyjnymi zwykle w jednym regionie i w systemach nieprodukcyjnych w innym regionie. W wielu wdrożeniach klientów klient ma system nieprodukcyjny, który jest równoważny z systemem produkcyjnym. Klient ma wstępnie zainstalowane wystąpienia aplikacji produkcyjnych w systemach nieprodukcyjnych warstwy aplikacji. W przypadku przejścia w tryb failover wystąpienia nieprodukcyjne zostaną zamknięte, wirtualne nazwy maszyn wirtualnych są przenoszone do maszyn wirtualnych innych niż produkcyjne (po przypisaniu nowych adresów IP w systemie DNS) i wstępnie zainstalowanych wystąpień produkcyjnych.
 
-### <a name="sap-central-services-clusters"></a>Klastry usług SAP Central Services
-Klastry sap central services korzystające z dysków udostępnionych (Windows), udziałów SMB (Windows) lub NFS są nieco trudniejsze do replikacji. Po stronie systemu Windows replikacja magazynu systemu Windows jest możliwym rozwiązaniem. Na Linuksie rsync jest realnym rozwiązaniem.
+### <a name="sap-central-services-clusters"></a>Klastry usług SAP Central
+Klastry usług SAP Central Services używające dysków udostępnionych (Windows), udziałów SMB (Windows) lub udziałów NFS są trudniejsze do replikacji. Po stronie systemu Windows replikacja magazynu systemu Windows jest możliwym rozwiązaniem. W systemie Linux rsync to rozwiązanie, którego to dotyczy.
 
 
 
-## <a name="non-supported-scenario"></a>Scenariusz nieobjęty wsparciem
-Istnieje lista scenariuszy, które nie są obsługiwane dla obciążenia SAP na architekturach platformy Azure. **Nie obsługiwane** oznacza, że sap i microsoft nie będzie w stanie obsługiwać tych konfiguracji i trzeba odroczyć do ewentualnego zaangażowanych osób trzecich, które dostarczyły oprogramowanie do ustanowienia takich architektur. Dwie kategorie to:
+## <a name="non-supported-scenario"></a>Nieobsługiwany scenariusz
+Istnieje lista scenariuszy, które nie są obsługiwane w przypadku obciążeń SAP w ramach architektury platformy Azure. **Nieobsługiwane** oznacza, że oprogramowanie SAP i Microsoft nie będzie w stanie obsłużyć tych konfiguracji i musi odroczyć na ewentualną inną firmę, która dostarczyła oprogramowania do ustanowienia takich architektur. Dwie z kategorii są:
 
-- Urządzenia miękkie magazynu: istnieje wiele urządzeń miękkich magazynu oferowanych w witrynie Azure Marketplace. Niektórzy dostawcy oferują własną dokumentację dotyczącą używania tych urządzeń programowych magazynu na platformie Azure związanych z oprogramowaniem SAP. Dostawca tych urządzeń miękkich do przechowywania musi zapewnić obsługę konfiguracji lub wdrożeń obejmujących takie urządzenia programowe do magazynowania. Fakt ten objawia się również w [nocie technicznej SAP #2015553](https://launchpad.support.sap.com/#/notes/2015553)
-- Struktury wysokiej dostępności: tylko program Pacemaker i klaster trybu failover systemu Windows Server są obsługiwane struktury wysokiej dostępności dla obciążenia SAP na platformie Azure. Jak wspomniano wcześniej, rozwiązanie SIOS `Datakeeper` jest opisane i udokumentowane przez firmę Microsoft. Niemniej jednak składniki SIOS `Datakeeper` muszą być obsługiwane przez SIOS jako dostawca dostarczający te składniki. Firma SAP wymieniła również inne certyfikowane struktury wysokiej dostępności w różnych notatkach SAP. Niektóre z nich zostały certyfikowane przez zewnętrznego dostawcę platformy Azure. Niemniej jednak obsługa konfiguracji korzystających z tych produktów musi być świadczona przez dostawcę produktu. Różni dostawcy mają inną integrację z procesami obsługi SAP. Przed podjęciem decyzji o użyciu produktu w konfiguracjach SAP wdrożonych na platformie Azure należy wyjaśnić, który proces pomocy technicznej jest najlepszy dla określonego dostawcy.
-- Udostępnione klastry dysków, w których pliki bazy danych znajdują się na dyskach udostępnionych, nie są obsługiwane z wyjątkiem bazy danych maxDB. W przypadku wszystkich innych baz danych obsługiwane rozwiązanie ma mieć oddzielne lokalizacje magazynu zamiast udziału SMB lub NFS lub udostępnionego dysku w celu skonfigurowania scenariuszy wysokiej dostępności
+- Urządzenia nietrwałe magazynu: istnieje wiele urządzeń nieelastycznych magazynu oferowanych w witrynie Azure Marketplace. Niektórzy dostawcy udostępniają własną dokumentację dotyczącą sposobu używania tych urządzeń do magazynowania na platformie Azure związanych z oprogramowaniem SAP. Obsługa konfiguracji i wdrożeń związanych z takimi urządzeniami magazynującymi magazynu musi być świadczona przez dostawcę tych urządzeń. Ten fakt jest również omawiany w [uwagi dotyczące pomocy technicznej SAP #2015553](https://launchpad.support.sap.com/#/notes/2015553)
+- Platformy wysokiej dostępności: tylko klaster trybu failover z systemem Pacemaker i Windows Server są obsługiwane platformy o wysokiej dostępności dla obciążeń SAP na platformie Azure. Jak wspomniano wcześniej, rozwiązanie oprogramowanie SIOS `Datakeeper` zostało opisane i udokumentowane przez firmę Microsoft. Niemniej jednak składniki oprogramowanie SIOS `Datakeeper` muszą być obsługiwane za pomocą oprogramowanie SIOS jako dostawcy dostarczającego te składniki. W przypadku oprogramowania SAP wymieniono również inne platformy certyfikowane wysokiej dostępności w różnych uwagach dotyczących oprogramowania SAP. Niektóre z nich były certyfikowane przez dostawcę innych firm dla platformy Azure. Niemniej jednak Obsługa konfiguracji przy użyciu tych produktów musi być świadczona przez dostawcę produktu. Różni dostawcy mają inną integrację z procesami obsługi SAP. Przed podjęciem decyzji o użyciu produktu w konfiguracjach SAP wdrożonych na platformie Azure należy wyjaśnić, jaki proces wsparcia działa najlepiej dla danego dostawcy.
+- Udostępnione klastry dysków, w których pliki bazy danych znajdują się na dyskach udostępnionych nie są obsługiwane z wyjątkiem maxDB. W przypadku wszystkich innych baz danych obsługiwane rozwiązanie ma mieć osobne lokalizacje magazynu zamiast udziału SMB lub NFS lub dysku udostępnionego do konfigurowania scenariuszy wysokiej dostępności
 
-Inne scenariusze, które nie są obsługiwane, to scenariusze takie jak:
+Inne scenariusze, które nie są obsługiwane, są takie jak:
 
-- Scenariusze wdrażania, które wprowadzają większe opóźnienie sieci między warstwą aplikacji SAP a warstwą SAP DBMS we wspólnej architekturze SAP, jak `Hybris`pokazano w netweaver, S/4HANA i np. . Obejmuje to:
-    - Wdrażanie jednej z warstw w środowisku lokalnym, podczas gdy druga warstwa jest wdrażana na platformie Azure
-    - Wdrażanie warstwy aplikacji SAP systemu w innym regionie platformy Azure niż warstwa DBMS
-    - Wdrażanie jednej warstwy w centrach danych, które znajdują się na platformie Azure i innej warstwie na platformie Azure, z wyjątkiem sytuacji, gdy takie wzorce architektury są dostarczane przez natywną usługę platformy Azure
-    - Wdrażanie sieciowych urządzeń wirtualnych między warstwą aplikacji SAP a warstwą DBMS
-    - Wykorzystanie magazynu hostowanego w centrach danych zlokalizowanych w centrum danych platformy Azure dla warstwy SAP DBMS lub globalnego katalogu transportu SAP
-    - Wdrażanie dwóch warstw z dwoma różnymi dostawcami chmury. Na przykład wdrażanie warstwy DBMS w infrastrukturze Oracle Cloud Infrastructure i warstwy aplikacji na platformie Azure
-- Konfiguracje klastra rozrusznika gwiazd hana z wieloma wystąpieniami
-- Konfiguracje klastra systemu Windows z dyskami udostępnionymi za pośrednictwem SOFS lub SMB w bazie danych ANF dla SAP obsługiwane w systemie Windows. Zamiast tego zaleca się użycie natywnej replikacji wysokiej dostępności poszczególnych baz danych i użyj oddzielnych stosów magazynu
-- Wdrażanie baz danych SAP obsługiwanych w systemie Linux z plikami baz danych znajdującymi się w akcjach NFS na szczycie ANF, z wyjątkiem SAP HANA
-- Wdrożenie oracle dbms na dowolnym innym systemie operacyjnym gościa niż Windows i Oracle Linux. Zobacz też [uwaga dotycząca obsługi sap #2039619](https://launchpad.support.sap.com/#/notes/2039619)
+- Scenariusze wdrażania, które wprowadzają duże opóźnienia sieci między warstwą aplikacji SAP a warstwą SAP DBMS w typowej architekturze SAP, jak pokazano w NetWeaver, S/4HANA `Hybris`i na przykład. Obejmuje to następujące działania:
+    - Wdrażanie jednej z warstw lokalnie, a druga warstwa jest wdrażana na platformie Azure
+    - Wdrażanie warstwy aplikacji SAP systemu w innym regionie świadczenia usługi Azure niż w warstwie DBMS
+    - Wdrożenie jednej warstwy w centrach danych, które znajdują się na platformie Azure i drugiej warstwie na platformie Azure, z wyjątkiem sytuacji, w których takie wzorce architektury są dostarczane przez usługę natywną platformy Azure
+    - Wdrażanie wirtualnych urządzeń sieciowych między warstwą aplikacji SAP a warstwą DBMS
+    - Korzystanie z magazynu hostowanego w centrach danych, które znajdują się na platformie Azure Datacenter dla warstwy systemu SAP DBMS lub globalnego katalogu transportu SAP
+    - Wdrożenie dwóch warstw z dwoma różnymi dostawcami w chmurze. Na przykład wdrożenie warstwy DBMS w infrastrukturze chmury firmy Oracle i warstwie aplikacji na platformie Azure
+- Konfiguracje klastrów Pacemaker platformy HANA z obsługą wiele wystąpień
+- Konfiguracje klastrów systemu Windows z dyskami udostępnionymi za pomocą usługi SOFS lub SMB w systemie ANF dla baz danych SAP obsługiwanych w systemie Windows. Zamiast tego zalecamy użycie natywnej replikacji o wysokiej dostępności dla określonych baz danych i użycie oddzielnych stosów pamięci masowej
+- Wdrożenie baz danych SAP, które są obsługiwane w systemie Linux z plikami bazy danych znajdującymi się w udziałach NFS na ANF z wyjątkiem SAP HANA
+- Wdrażanie systemu Oracle DBMS na dowolnym innym systemie operacyjnym gościa niż Windows i Oracle Linux. Zobacz również temat [Pomoc techniczna SAP uwagi #2039619](https://launchpad.support.sap.com/#/notes/2039619)
 
-Scenariusz (s) że nie testowaliśmy i dlatego nie mają doświadczenia z listy, takich jak:
+Scenariusze, które nie zostały przetestowane i w związku z tym nie mają doświadczenia z listą takich jak:
 
-- Usługa Azure Site Recovery replikuje maszyny wirtualne warstwy DBMS. W związku z tym zalecamy wykorzystanie natywnej funkcji replikacji asynchroniiowej bazy danych do potencjalnej konfiguracji odzyskiwania po awarii
+- Azure Site Recovery replikowanie maszyn wirtualnych z warstwą DBMS. W związku z tym zalecamy użycie natywnej funkcji replikacji asynchronicznej bazy danych dla potencjalnej konfiguracji odzyskiwania po awarii
  
 
 ## <a name="next-steps"></a>Następne kroki
-Przeczytaj kolejne kroki w [planowaniu i implementacji maszyn wirtualnych platformy Azure dla sap NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
+Przeczytaj następne kroki w temacie [Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 
 
 

@@ -1,24 +1,24 @@
 ---
-title: Łącze prywatne — interfejsu wiersza polecenia platformy Azure — usługa Azure Database dla mysql
-description: Dowiedz się, jak skonfigurować łącze prywatne dla usługi Azure Database dla mysql z interfejsu wiersza polecenia platformy Azure
+title: Link prywatny — interfejs wiersza polecenia platformy Azure — Azure Database for MySQL
+description: Dowiedz się, jak skonfigurować link prywatny dla Azure Database for MySQL z interfejsu wiersza polecenia platformy Azure
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: f83f52f1c1800803c5e1d47f1931f7b13b2c11de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79368013"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Tworzenie łącza prywatnego dla usługi Azure Database dla mysql i zarządzanie nim przy użyciu interfejsu wiersza polecenia
+# <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Tworzenie prywatnego linku do Azure Database for MySQL przy użyciu interfejsu wiersza polecenia i zarządzanie nim
 
-Prywatny punkt końcowy jest podstawowym blokiem konstrukcyjnym dla łącza prywatnego na platformie Azure. Umożliwia zasoby platformy Azure, takie jak maszyny wirtualne (maszyny wirtualne), do komunikowania się prywatnie z zasobami łączy prywatnych. W tym artykule dowiesz się, jak używać interfejsu wiersza polecenia platformy Azure do tworzenia maszyny wirtualnej w sieci wirtualnej platformy Azure i usługi Azure Database dla serwera MySQL z prywatnym punktem końcowym platformy Azure.
+Prywatny punkt końcowy to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Umożliwia ona korzystanie z zasobów platformy Azure, takich jak Virtual Machines (VM), w celu komunikacji z prywatnymi zasobami łączy prywatnych. W tym artykule dowiesz się, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć maszynę wirtualną w usłudze Azure Virtual Network i na serwerze Azure Database for MySQL za pomocą prywatnego punktu końcowego platformy Azure.
 
 > [!NOTE]
-> Ta funkcja jest dostępna we wszystkich regionach platformy Azure, gdzie usługa Azure Database dla MySQL obsługuje warstwy cenowe ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci.
+> Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for MySQL obsługuje warstwy cenowe Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -28,14 +28,14 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azur
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Przed utworzeniem dowolnego zasobu należy utworzyć grupę zasobów do obsługi sieci wirtualnej. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). W tym przykładzie utworzy grupę zasobów o nazwie *myResourceGroup* w lokalizacji *westeurope:*
+Przed utworzeniem dowolnego zasobu należy utworzyć grupę zasobów, która będzie hostować Virtual Network. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Ten przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *westeurope* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
-Utwórz sieć wirtualną za pomocą [sieci wirtualnej az .](/cli/azure/network/vnet) W tym przykładzie tworzy domyślną sieć wirtualną o nazwie *myVirtualNetwork* z jedną podsiecią o nazwie *mySubnet:*
+Utwórz Virtual Network za pomocą [AZ Network VNET Create](/cli/azure/network/vnet). W tym przykładzie tworzony jest domyślny Virtual Network o nazwie *myVirtualNetwork* z jedną podsiecią o nazwie Moja *podsieć*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -44,8 +44,8 @@ az network vnet create \
  --subnet-name mySubnet
 ```
 
-## <a name="disable-subnet-private-endpoint-policies"></a>Wyłączanie zasad prywatnego punktu końcowego podsieci 
-Platforma Azure wdraża zasoby w podsieci w sieci wirtualnej, dlatego należy utworzyć lub zaktualizować podsieć, aby wyłączyć zasady sieci prywatnych punktów końcowych. Aktualizowanie konfiguracji podsieci o nazwie *mySubnet* za pomocą [aktualizacji podsieci sieci AZ:](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)
+## <a name="disable-subnet-private-endpoint-policies"></a>Wyłącz zasady prywatnego punktu końcowego podsieci 
+Platforma Azure wdraża zasoby w podsieci w sieci wirtualnej, dlatego należy utworzyć lub zaktualizować podsieć w celu wyłączenia zasad sieci prywatnych punktów końcowych. Zaktualizuj konfigurację podsieci o nazwie Moja *podsieć* za pomocą elementu [AZ Network VNET Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -55,17 +55,17 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Tworzenie maszyny wirtualnej 
-Utwórz maszynę wirtualną z az vm create. Po wyświetleniu monitu podaj hasło, które ma być używane jako poświadczenia logowania dla maszyny Wirtualnej. W tym przykładzie tworzy maszynę wirtualną o nazwie *myVm:* 
+Utwórz maszynę wirtualną za pomocą AZ VM Create. Po wyświetleniu monitu podaj hasło, które będzie używane jako poświadczenia logowania dla maszyny wirtualnej. Ten przykład tworzy maszynę wirtualną o nazwie *myVm*: 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVm \
   --image Win2019Datacenter
 ```
-Zanotuj publiczny adres IP maszyny Wirtualnej. Użyjesz tego adresu do nawiązania połączenia z maszyną wirtualną z Internetu w następnym kroku.
+Zanotuj publiczny adres IP maszyny wirtualnej. Użyjesz tego adresu do nawiązania połączenia z maszyną wirtualną z Internetu w następnym kroku.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Tworzenie serwera usługi Azure Database for MySQL 
-Utwórz usługę Azure Database for MySQL za pomocą polecenia tworzenia serwera az mysql. Należy pamiętać, że nazwa serwera MySQL musi być unikatowa na całej platformie Azure, więc zastąp wartość zastępczą w nawiasach własną unikatową wartością: 
+Utwórz Azure Database for MySQL za pomocą polecenia AZ MySQL Server Create. Należy pamiętać, że nazwa serwera MySQL musi być unikatowa w obrębie platformy Azure, więc Zastąp wartość symbolu zastępczego w nawiasach własnym unikatowymi wartościami: 
 
 ```azurecli-interactive
 # Create a logical server in the resource group 
@@ -78,10 +78,10 @@ az mysql server create \
 --sku-name GP_Gen5_2
 ```
 
-Zwróć uwagę, że identyfikator serwera MySQL jest podobny do ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/servername.``` identyfikatora Serwera MySQL w następnym kroku. 
+Zwróć uwagę, że identyfikator serwera MySQL jest ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/servername.``` podobny do tego, że w następnym kroku zostanie użyty identyfikator serwera MySQL. 
 
 ## <a name="create-the-private-endpoint"></a>Tworzenie prywatnego punktu końcowego 
-Utwórz prywatny punkt końcowy dla serwera MySQL w sieci wirtualnej: 
+Utwórz prywatny punkt końcowy dla serwera MySQL w Virtual Network: 
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
@@ -93,8 +93,8 @@ az network private-endpoint create \
     --connection-name myConnection  
  ```
 
-## <a name="configure-the-private-dns-zone"></a>Konfigurowanie prywatnej strefy DNS 
-Utwórz prywatną strefę DNS dla domeny serwera MySQL i utwórz łącze skojarzenia z siecią wirtualną. 
+## <a name="configure-the-private-dns-zone"></a>Konfigurowanie strefy Prywatna strefa DNS 
+Utwórz strefę Prywatna strefa DNS dla domeny serwera MySQL i Utwórz link powiązania z Virtual Network. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.mysql.database.azure.com" 
@@ -118,40 +118,40 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 ```
 
 > [!NOTE] 
-> Sieć FQDN w ustawieniach DNS klienta nie jest rozpoznawana jako prywatny adres IP skonfigurowany. Musisz skonfigurować strefę DNS dla skonfigurowanego FQDN, jak pokazano [tutaj](../dns/dns-operations-recordsets-portal.md).
+> Nazwa FQDN w ustawieniu DNS klienta nie jest rozpoznawana jako prywatny adres IP skonfigurowany. Konieczne będzie skonfigurowanie strefy DNS dla skonfigurowanej nazwy FQDN, jak pokazano [poniżej](../dns/dns-operations-recordsets-portal.md).
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Nawiązywanie połączenia z maszyną wirtualną z Internetu
 
 Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
 
-1. W pasku wyszukiwania portalu wpisz *myVm*.
+1. Na pasku wyszukiwania portalu wprowadź *myVm*.
 
 1. Wybierz przycisk **Połącz**. Po wybraniu przycisku **Połącz** zostanie otwarta strona **Łączenie z maszyną wirtualną**.
 
 1. Wybierz opcję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (*rdp*), który zostanie pobrany na komputer.
 
-1. Otwórz *pobrany plik rdp.*
+1. Otwórz *pobrany plik RDP* .
 
     1. Po wyświetleniu monitu wybierz pozycję **Połącz**.
 
-    1. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny Wirtualnej.
+    1. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej.
 
         > [!NOTE]
-        > Może być konieczne **wybranie opcji Więcej opcji** > **Użyj innego konta,** aby określić poświadczenia wprowadzone podczas tworzenia maszyny Wirtualnej.
+        > Może być konieczne wybranie **pozycji więcej opcji** > **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 
 1. Po wyświetleniu pulpitu maszyny wirtualnej zminimalizuj ją i wróć z powrotem do pulpitu lokalnego.  
 
-## <a name="access-the-mysql-server-privately-from-the-vm"></a>Dostęp do serwera MySQL prywatnie z maszyny Wirtualnej
+## <a name="access-the-mysql-server-privately-from-the-vm"></a>Dostęp do serwera MySQL prywatnie z maszyny wirtualnej
 
-1. W pulpicie zdalnym *myVM*otwórz program PowerShell.
+1. W Pulpit zdalny *myVM*Otwórz program PowerShell.
 
 2. Wprowadź polecenie  `nslookup mydemomysqlserver.privatelink.mysql.database.azure.com`. 
 
-    Otrzymasz wiadomość podobną do tej:
+    Zostanie wyświetlony komunikat podobny do tego:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -160,33 +160,33 @@ Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
     Address:  10.1.3.4
     ```
 
-3. Przetestuj połączenie łącza prywatnego dla serwera MySQL przy użyciu dowolnego dostępnego klienta. W poniższym przykładzie użyłem [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) do wykonania operacji.
+3. Przetestuj połączenie prywatne linku dla serwera MySQL przy użyciu dowolnego dostępnego klienta. W poniższym przykładzie użyto programu [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) do wykonania tej operacji.
 
 
-4. W **obszarze Nowe połączenie**wprowadź lub wybierz te informacje:
+4. W obszarze **nowe połączenie**wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
     | Nazwa połączenia| Wybierz wybraną nazwę połączenia.|
-    | Nazwa hosta | Wybierz *mydemoserver.privatelink.mysql.database.azure.com* |
-    | Nazwa użytkownika | Wprowadź nazwę *username@servername* użytkownika, która jest podana podczas tworzenia serwera MySQL. |
+    | Nazwa hosta | Wybierz *mydemoserver.privatelink.MySQL.Database.Azure.com* |
+    | Nazwa użytkownika | Wprowadź nazwę użytkownika *username@servername* , która jest dostępna podczas tworzenia serwera MySQL. |
     | Hasło | Wprowadź hasło podane podczas tworzenia serwera MySQL. |
     ||
 
 5. Wybierz przycisk Połącz.
 
-6. Przeglądaj bazy danych z lewego menu.
+6. Przeglądaj bazy danych z menu po lewej stronie.
 
-7. (Opcjonalnie) Tworzenie lub wykonywanie zapytań z bazy danych MySQL.
+7. Zdefiniować Utwórz lub Zbadaj informacje z bazy danych MySQL.
 
-8. Zamknij połączenie pulpitu zdalnego do myVm.
+8. Zamknij połączenie pulpitu zdalnego z myVm.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
-Gdy nie jest już potrzebne, można użyć az group delete, aby usunąć grupę zasobów i wszystkie zasoby, które posiada: 
+Gdy nie jest już potrzebne, można użyć polecenie AZ Group Delete, aby usunąć grupę zasobów i wszystkie jej zasoby: 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [prywatnym punkcie końcowym platformy Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+- Dowiedz się więcej o tym, [co to jest prywatny punkt końcowy platformy Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)

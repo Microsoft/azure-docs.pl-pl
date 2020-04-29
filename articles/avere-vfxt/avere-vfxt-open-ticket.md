@@ -1,60 +1,60 @@
 ---
-title: Jak uzyskać pomoc techniczną dla Avere vFXT for Azure
-description: Wyjaśnienie otwierania biletów pomocy technicznej dotyczących usługi Avere vFXT for Azure
+title: Jak uzyskać pomoc techniczną dotyczącą avere vFXT dla platformy Azure
+description: Wyjaśnienie otwartych biletów pomocy technicznej dotyczących usługi avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79252560"
 ---
 # <a name="get-help-with-your-system"></a>Uzyskaj pomoc dotyczącą systemu
 
-Aby uzyskać pomoc dotyczącą systemu Avere vFXT for Azure, oto sposoby uzyskania pomocy technicznej:
+Aby uzyskać pomoc dotyczącą usługi avere vFXT dla systemu Azure, poniżej przedstawiono sposoby uzyskania pomocy technicznej:
 
-* **Problem avere vFXT** — użyj witryny Azure portal, aby otworzyć bilet pomocy technicznej dla usługi Avere vFXT, jak opisano [poniżej.](#open-a-support-ticket-for-your-avere-vfxt)
-* **Przydział** — jeśli masz problem związany z przydziałem, [poproś o zwiększenie przydziału](#request-a-quota-increase)
-* **Dokumentacja i przykłady** — jeśli znajdziesz problemy z tą dokumentacją lub przykładami, przewiń do dołu strony z problemem i użyj sekcji **Opinie,** aby wyszukać istniejące problemy i w razie potrzeby złożyć nowy.
+* **Problem z avere vFXT** — Użyj Azure Portal, aby otworzyć bilet pomocy technicznej dla vFXT avere, zgodnie z [poniższym](#open-a-support-ticket-for-your-avere-vfxt)opisem.
+* **Przydział** — Jeśli masz problem związany z przydziałem, [Poproś o zwiększenie limitu przydziału](#request-a-quota-increase)
+* **Dokumentacja i przykłady** — Jeśli znajdziesz problemy z tą dokumentacją lub przykładami, przewiń w dół strony, a następnie skorzystaj z sekcji **Opinie** , aby wyszukać istniejące problemy i w razie potrzeby zastąpić nowe rozwiązanie.
 
-## <a name="open-a-support-ticket-for-your-avere-vfxt"></a>Otwórz bilet pomocy technicznej dla urządzenia Avere vFXT
+## <a name="open-a-support-ticket-for-your-avere-vfxt"></a>Otwórz bilet pomocy technicznej dla Twojego avere vFXT
 
-Jeśli wystąpią problemy podczas wdrażania lub korzystania z Avere vFXT, poproś o pomoc za pośrednictwem witryny Azure portal.
+Jeśli wystąpią problemy podczas wdrażania lub korzystania z avere vFXT, poproś o pomoc za pośrednictwem Azure Portal.
 
-Wykonaj następujące kroki, aby upewnić się, że bilet pomocy technicznej jest oznaczony zasobem z klastra. Oznaczanie biletu pomaga nam przekierować go do odpowiedniego zasobu pomocy technicznej.
+Wykonaj następujące kroki, aby upewnić się, że bilet pomocy technicznej jest oznaczony przy użyciu zasobu z klastra. Tagowanie biletu pomaga nam kierować go do poprawnego zasobu pomocy technicznej.
 
-1. Z [https://portal.azure.com](https://portal.azure.com)wybierz pozycję **Grupy zasobów**. Przejdź do grupy zasobów zawierającej klaster vFXT, w której wystąpił problem, i kliknij jedną z maszyn wirtualnych klastra Avere.
+1. Z [https://portal.azure.com](https://portal.azure.com)programu wybierz pozycję **grupy zasobów**. Przejdź do grupy zasobów zawierającej klaster vFXT, w którym wystąpił problem, a następnie kliknij jedną z maszyn wirtualnych klastra avere.
 
-    ![zrzut ekranu przedstawiający panel "przegląd" grupy zasobów witryny Azure portal z zakreśloną maszyną wirtualną](media/avere-vfxt-ticket-vm.png)
+    ![zrzut ekranu przedstawiający panel "przegląd" Azure Portal grupy zasobów z określoną maszyną wirtualną](media/avere-vfxt-ticket-vm.png)
 
-1. Na stronie maszyny Wirtualnej przewiń w dół do dołu lewego panelu i kliknij pozycję **Nowe żądanie pomocy technicznej**.
+1. Na stronie VM przewiń w dół do końca lewego panelu, a następnie kliknij pozycję **nowe żądanie obsługi**.
 
-    ![Zrzut ekranu przedstawiający stronę maszyny Wirtualnej witryny Azure portal dla maszyny Wirtualnej z poprzedniego zrzutu ekranu. Lewe menu jest przewijane do dołu i kółko jest "Nowe żądanie obsługi".](media/avere-vfxt-ticket-request.png)
+    ![Zrzut ekranu strony maszyny wirtualnej Azure Portal dla maszyny wirtualnej z poprzedniego zrzutu ekranu. Menu po lewej stronie jest przewijane do dołu i "nowe żądanie obsługi" jest zakreślone.](media/avere-vfxt-ticket-request.png)
 
-1. Na pierwszej stronie żądania pomocy technicznej wybierz typ problemu i upewnij się, że jest wybrana poprawna subskrypcja.
+1. Na pierwszej stronie żądania pomocy technicznej wybierz typ problemu i upewnij się, że wybrano poprawną subskrypcję.
 
-   W obszarze **Usługa**kliknij **pozycję Wszystkie usługi** i poszukaj w obszarze **Magazyn,** aby wybrać **opcję Avere vFXT**.
+   W obszarze **Usługa**kliknij pozycję **wszystkie usługi** i w obszarze **Magazyn** wybierz pozycję **avere vFXT**.
 
    Dodaj krótkie podsumowanie i wybierz typ problemu.
 
-    ![zrzut ekranu nowego ekranu żądania pomocy technicznej w witrynie Azure portal. Zostanie wybrana karta Podstawy. Elementy ekranu obejmują typ problemu, subskrypcja, usługa, podsumowanie i typ problemu.](media/ticket-basics.png)
+    ![zrzut ekranu przedstawiający nowy ekran żądania obsługi w Azure Portal. Wybrana jest karta podstawy. Elementy ekranu obejmują typ problemu, subskrypcję, usługę, podsumowanie i typ problemu.](media/ticket-basics.png)
 
-   Kliknij **przycisk Dalej,** aby kontynuować.
+   Kliknij przycisk **Dalej** , aby kontynuować.
 
-1. Druga strona formularza pomocy technicznej zawiera sugestie dotyczące rozwiązania problemu na podstawie opisu podsumowania. Kliknij przycisk **Dalej** u dołu, jeśli nadal musisz utworzyć bilet pomocy technicznej.
+1. Druga strona formularza pomocy technicznej zawiera sugestie dotyczące rozwiązania problemu na podstawie opisu podsumowania. Kliknij przycisk **dalej** w dolnej części, jeśli nadal potrzebujesz utworzyć bilet pomocy technicznej.
 
-   ![zrzut ekranu nowego ekranu żądania pomocy technicznej z wybraną kartą Rozwiązania. Pole tekstowe w środku ma tytuł "Zalecane rozwiązanie" i wyjaśnia możliwe środki zaradcze.](media/ticket-solutions.png)
+   ![zrzut ekranu przedstawiający nowy ekran żądania obsługi z wybraną kartą rozwiązania. Pole tekstowe w środku ma tytuł "zalecane rozwiązanie" i objaśnia możliwe środki zaradcze.](media/ticket-solutions.png)
 
-1. Na trzeciej stronie podaj szczegóły — obejmuje to informacje o klastrze, czasie wystąpienia problemu, ważności i sposobie kontaktowania się z Tobą. Wypełnij informacje i kliknij przycisk **Dalej** u dołu.
+1. Na trzeciej stronie Podaj szczegóły — dotyczy to również informacji o klastrze, czasie wystąpienia problemu, ważności i sposobu kontaktowania się z Tobą. Wypełnij informacje i kliknij przycisk **dalej** u dołu.
 
-   ![zrzut ekranu nowego ekranu żądania pomocy technicznej z wybraną kartą Szczegóły. Pola informacyjne są podzielone na kategorie "Szczegóły problemu", "Metoda pomocy technicznej" i "Informacje kontaktowe".](media/ticket-details.png)
+   ![zrzut ekranu przedstawiający nowy ekran żądania obsługi z wybraną kartą szczegóły. Pola informacji są zorganizowane w kategorii "Szczegóły problemu", "metoda obsługi" i "informacje kontaktowe".](media/ticket-details.png)
 
-1. Przejrzyj informacje na ostatniej stronie i kliknij przycisk **Utwórz**. Na Twój adres e-mail zostanie wysłany numer potwierdzenia i biletu, a pracownik pomocy technicznej skontaktuje się z Tobą.
+1. Zapoznaj się z informacjami na ostatniej stronie i kliknij przycisk **Utwórz**. Potwierdzenie i numer biletu zostaną wysłane na Twój adres e-mail, a członek personelu pomocy technicznej skontaktuje się z Tobą.
 
-## <a name="request-a-quota-increase"></a>Poproś o zwiększenie kwoty
+## <a name="request-a-quota-increase"></a>Poproś o zwiększenie limitu przydziału
 
-Przeczytaj [przydział dla klastra vFXT,](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster) aby dowiedzieć się, jakie składniki są potrzebne do wdrożenia avere vFXT dla platformy Azure. Możesz [zażądać zwiększenia przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) z witryny Azure portal.
+Zapoznaj się z [limitem przydziału dla klastra vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster) , aby dowiedzieć się, jakie składniki są potrzebne do wdrożenia avere VFXT dla platformy Azure. Można [zażądać zwiększenia limitu przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) z Azure Portal.

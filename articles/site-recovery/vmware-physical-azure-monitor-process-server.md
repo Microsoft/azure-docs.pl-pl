@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie serwera procesów odzyskiwania witryny platformy Azure
-description: W tym artykule opisano sposób monitorowania serwera przetwarzania usługi Azure Site Recovery używanego do odzyskiwania po awarii vmware vmware vmware/server fizycznego
+title: Monitoruj serwer przetwarzania Azure Site Recovery
+description: W tym artykule opisano sposób monitorowania Azure Site Recovery serwera przetwarzania używanego na potrzeby odzyskiwania po awarii maszyny wirtualnej VMware/serwera fizycznego
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,95 +8,95 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 54c161c40c881d7626f79fc9bfe1ec1c160480ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257071"
 ---
 # <a name="monitor-the-process-server"></a>Monitorowanie serwera przetwarzania
 
-W tym artykule opisano sposób monitorowania serwera przetwarzania [odzyskiwania lokacji.](site-recovery-overview.md)
+W tym artykule opisano sposób monitorowania serwera przetwarzania [Site Recovery](site-recovery-overview.md) .
 
 - Serwer przetwarzania jest używany podczas konfigurowania odzyskiwania po awarii lokalnych maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure.
-- Domyślnie serwer przetwarzania jest uruchamiany na serwerze konfiguracji. Jest instalowany domyślnie podczas wdrażania serwera konfiguracji.
-- Opcjonalnie, aby skalować i obsługiwać większą liczbę zreplikowanych maszyn i większe ilości ruchu replikacji, można wdrożyć dodatkowe serwery procesów skalowanych w poziomie.
+- Domyślnie serwer przetwarzania jest uruchamiany na serwerze konfiguracji. Jest ona instalowana domyślnie podczas wdrażania serwera konfiguracji.
+- Opcjonalnie, aby skalować i obsłużyć większą liczbę replikowanych maszyn i wyższych woluminów ruchu związanego z replikacją, można wdrożyć dodatkowe serwery przetwarzania skalowalnego w poziomie.
 
-[Dowiedz się więcej](vmware-physical-azure-config-process-server-overview.md) o roli i wdrażaniu serwerów przetwarzania.
+[Dowiedz się więcej](vmware-physical-azure-config-process-server-overview.md) na temat roli i wdrożenia serwerów przetwarzania.
 
 ## <a name="monitoring-overview"></a>Omówienie monitorowania
 
-Ponieważ serwer przetwarzania ma tak wiele ról, szczególnie w replikowanych danych buforowania, kompresji i transferu na platformę Azure, ważne jest, aby monitorować kondycję serwera procesu na bieżąco.
+Ponieważ serwer przetwarzania ma tak wiele ról, szczególnie w przypadku replikowanych pamięci podręcznej, kompresji i transferu danych na platformę Azure, ważne jest, aby regularnie monitorować kondycję serwera przetwarzania.
 
-Istnieje wiele sytuacji, które często wpływają na wydajność serwera przetwarzania. Problemy wpływające na wydajność będą miały kaskadowy wpływ na kondycję maszyny wirtualnej, ostatecznie wypychając serwer przetwarzania i jego zreplikowane maszyny do stanu krytycznego. Sytuacje obejmują:
+Istnieje wiele sytuacji, które zwykle wpływają na wydajność serwera przetwarzania. Problemy mające wpływ na wydajność będą mieć wpływ na kondycję maszyny wirtualnej, a ostatecznie wypychanie serwera przetwarzania i jego zreplikowanych maszyn w stan krytyczny. Sytuacje obejmują:
 
-- Duża liczba maszyn wirtualnych korzysta z serwera przetwarzania, zbliżając się lub przekraczając zalecane ograniczenia.
+- Duża liczba maszyn wirtualnych korzysta z serwera przetwarzania, zbliżania lub przekroczenia zalecanych ograniczeń.
 - Maszyny wirtualne korzystające z serwera przetwarzania mają wysoką szybkość zmian.
-- Przepustowość sieciowa między maszynami wirtualnymi a serwerem przetwarzania nie wystarczy do przekazywania danych replikacji do serwera przetwarzania.
-- Przepływność sieciowa między serwerem przetwarzania a platformą Azure nie jest wystarczająca do przekazywania danych replikacji z serwera przetwarzania na platformę Azure.
+- Przepływność sieci między maszynami wirtualnymi i serwerem przetwarzania nie jest wystarczająca do przekazywania danych replikacji do serwera przetwarzania.
+- Przepustowość sieci między serwerem przetwarzania i platformą Azure nie jest wystarczająca do przekazywania danych replikacji z serwera przetwarzania do platformy Azure.
 
 Wszystkie te problemy mogą mieć wpływ na cel punktu odzyskiwania (RPO) maszyn wirtualnych. 
 
-**Dlaczego?** Ponieważ generowanie punktu odzyskiwania dla maszyny Wirtualnej wymaga, aby wszystkie dyski na maszynie wirtualnej miały wspólny punkt. Jeśli jeden dysk ma wysoki współczynnik zmian, replikacja jest powolna lub serwer przetwarzania nie jest optymalny, wpływa to na sposób efektywnego tworzenia punktów odzyskiwania.
+**Dlaczego?** Ponieważ generowanie punktu odzyskiwania dla maszyny wirtualnej wymaga, aby wszystkie dyski na maszynie wirtualnej miały wspólny punkt. Jeśli jeden dysk ma dużą wydajność, replikacja działa wolno lub serwer przetwarzania nie jest optymalny, ma wpływ na sposób tworzenia punktów odzyskiwania.
 
 ## <a name="monitor-proactively"></a>Aktywne monitorowanie
 
-Aby uniknąć problemów z serwerem przetwarzania, ważne jest, aby:
+Aby uniknąć problemów z serwerem przetwarzania, należy wykonać następujące czynności:
 
-- Zapoznaj się z określonymi wymaganiami dotyczącymi serwerów procesów przy użyciu [pojemności i wskazówki dotyczące rozmiaru](site-recovery-plan-capacity-vmware.md#capacity-considerations)oraz upewnij się, że serwery procesów są wdrażane i uruchamiane zgodnie z zaleceniami.
-- Monitoruj alerty i rozwiązuj problemy w miarę ich występowania, aby wydajnie uruchamiać serwery procesów.
+- Zapoznaj się z określonymi wymaganiami dotyczącymi serwerów przetwarzania przy użyciu [wskazówek dotyczących pojemności i rozmiarów](site-recovery-plan-capacity-vmware.md#capacity-considerations)oraz upewnij się, że serwery przetwarzania zostały wdrożone i uruchomione zgodnie z zaleceniami.
+- Monitoruj alerty i rozwiązywaj problemy w miarę ich występowania, aby zapewnić wydajne działanie serwerów przetwarzania.
 
 
 ## <a name="process-server-alerts"></a>Alerty serwera przetwarzania
 
-Serwer procesów generuje szereg alertów kondycji, podsumowane w poniższej tabeli.
+Serwer przetwarzania generuje wiele alertów dotyczących kondycji, które zostały podsumowane w poniższej tabeli.
 
 **Typ alertu** | **Szczegóły**
 --- | ---
-![W dobrej kondycji][green] | Serwer przetwarzania jest podłączony i zdrowy.
-![Ostrzeżenie][yellow] | Wykorzystanie procesora > 80% w ciągu ostatnich 15 minut
-![Ostrzeżenie][yellow] | Użycie pamięci > 80% w ciągu ostatnich 15 minut
-![Ostrzeżenie][yellow] | Wolne miejsce w folderze pamięci podręcznej < 30% w ciągu ostatnich 15 minut
-![Ostrzeżenie][yellow] | Usługa Site Recovery monitoruje oczekujące/wychodzące dane co pięć minut i szacuje, że danych w pamięci podręcznej serwera procesu nie można przekazać na platformę Azure w ciągu 30 minut.
-![Ostrzeżenie][yellow] | Usługi serwera przetwarzania nie są uruchomione przez ostatnie 15 minut
-![Krytyczny][red] | Wykorzystanie procesora > 95% w ciągu ostatnich 15 minut
-![Krytyczny][red] | Zużycie pamięci > 95% w ciągu ostatnich 15 minut
-![Krytyczny][red] | Wolne miejsce w folderze pamięci podręcznej < 25% w ciągu ostatnich 15 minut
-![Krytyczny][red] | Usługa Site Recovery monitoruje oczekujące/wychodzące dane co pięć minut i szacuje, że danych w pamięci podręcznej serwera procesu nie można przekazać na platformę Azure w ciągu 45 minut.
+![Dobra kondycja][green] | Serwer przetwarzania jest podłączony i jest w dobrej kondycji.
+![Ostrzeżenie][yellow] | Użycie procesora CPU > 80% dla ostatnich 15 minut
+![Ostrzeżenie][yellow] | Użycie pamięci > 80% dla ostatnich 15 minut
+![Ostrzeżenie][yellow] | Wolne miejsce w folderze pamięci podręcznej < 30% dla ostatnich 15 minut
+![Ostrzeżenie][yellow] | Site Recovery monitoruje dane oczekujące/wychodzące co pięć minut i szacuje, że dane w pamięci podręcznej serwera przetwarzania nie mogą być przekazywane do platformy Azure w ciągu 30 minut.
+![Ostrzeżenie][yellow] | Usługi serwera przetwarzania nie są uruchomione w ciągu ostatnich 15 minut
+![Krytyczny][red] | Użycie procesora CPU > 95% dla ostatnich 15 minut
+![Krytyczny][red] | Użycie pamięci > 95% dla ostatnich 15 minut
+![Krytyczny][red] | Wolne miejsce w folderze pamięci podręcznej < 25% dla ostatnich 15 minut
+![Krytyczny][red] | Site Recovery monitoruje dane oczekujące/wychodzące co pięć minut i szacuje, że dane w pamięci podręcznej serwera przetwarzania nie mogą zostać przekazane do platformy Azure w ciągu 45 minut.
 ![Krytyczny][red] | Brak pulsu z serwera przetwarzania przez 15 minut.
 
 ![Klucz tabeli](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 
 > [!NOTE]
-> Ogólny stan kondycji serwera przetwarzania jest oparty na najgorszym wygenerowanym alertem.
+> Ogólny stan kondycji serwera przetwarzania jest oparty na wygenerowanym najgorszym alercie.
 
 
 
-## <a name="monitor-process-server-health"></a>Monitorowanie kondycji serwera procesów
+## <a name="monitor-process-server-health"></a>Monitorowanie kondycji serwera przetwarzania
 
-Stan kondycji serwerów procesów można monitorować w następujący sposób: 
+Stan kondycji serwerów przetwarzania można monitorować w następujący sposób: 
 
-1. Aby monitorować kondycję i stan replikacji replikowanego komputera oraz jego serwera przetwarzania, w przechowalni > **elementy replikowane**kliknij komputer, który chcesz monitorować.
-2. W **kondycji replikacji**można monitorować stan kondycji maszyny Wirtualnej. Kliknij stan, aby przejść do szczegółów błędu.
+1. Aby monitorować kondycję i stan replikacji replikowanej maszyny oraz jej serwera przetwarzania, w magazynie > **zreplikowane elementy**kliknij maszynę, którą chcesz monitorować.
+2. W obszarze **kondycja replikacji**można monitorować stan kondycji maszyny wirtualnej. Kliknij stan, aby przejść do szczegółów, aby uzyskać szczegółowe informacje o błędach.
 
-    ![Kondycja serwera przetwarzania na pulpicie nawigacyjnym maszyny Wirtualnej](./media/vmware-physical-azure-monitor-process-server/vm-ps-health.png)
+    ![Kondycja serwera przetwarzania na pulpicie nawigacyjnym maszyny wirtualnej](./media/vmware-physical-azure-monitor-process-server/vm-ps-health.png)
 
-4. W **kondycji serwera przetwarzania**można monitorować stan serwera przetwarzania. Przejdź do szczegółów.
+4. W obszarze **kondycja serwera przetwarzania**można monitorować stan serwera przetwarzania. Szczegóły.
 
-    ![Przetwarzanie szczegółów serwera na pulpicie nawigacyjnym maszyny Wirtualnej](./media/vmware-physical-azure-monitor-process-server/ps-summary.png)
+    ![Szczegóły serwera przetwarzania na pulpicie nawigacyjnym maszyny wirtualnej](./media/vmware-physical-azure-monitor-process-server/ps-summary.png)
 
-5. Kondycję można również monitorować za pomocą reprezentacji graficznej na stronie maszyny Wirtualnej.
-    - Serwer procesów skalowanych w poziomie zostanie wyróżniony na pomarańczowo, jeśli są z nim skojarzone ostrzeżenia, a czerwony, jeśli ma jakieś krytyczne problemy. 
-    - Jeśli serwer przetwarzania jest uruchomiony w domyślnym wdrożeniu na serwerze konfiguracji, serwer konfiguracji zostanie odpowiednio wyróżniony.
-    - Aby przejść do szczegółów, kliknij serwer konfiguracji lub serwer przetwarzania. Zanotuj wszelkie problemy i wszelkie zalecenia dotyczące korygowania.
+5. Kondycję można również monitorować przy użyciu graficznej reprezentacji na stronie maszyny wirtualnej.
+    - Serwer przetwarzania skalowalnego w poziomie zostanie wyróżniony w kolorze pomarańczowym, jeśli są z nim skojarzone ostrzeżenia, a czerwona, jeśli ma jakiekolwiek krytyczne problemy. 
+    - Jeśli serwer przetwarzania jest uruchomiony w ramach domyślnego wdrożenia na serwerze konfiguracji, serwer konfiguracji zostanie odpowiednio wyróżniony.
+    - Aby przejść do szczegółów, kliknij serwer konfiguracji lub serwer przetwarzania. Zwróć uwagę na wszelkie problemy i wszelkie zalecenia dotyczące korygowania.
 
-Można również monitorować serwery procesów w przechowalni w obszarze **Infrastruktura odzyskiwania lokacji**. W **programie Zarządzanie infrastrukturą odzyskiwania witryny**kliknij pozycję **Serwery konfiguracji**. Wybierz serwer konfiguracji skojarzony z serwerem przetwarzania i przejdź do szczegółów serwera przetwarzania.
+Możesz również monitorować serwery przetwarzania w magazynie w obszarze **Site Recovery infrastruktura**. W obszarze **Zarządzanie infrastrukturą Site Recovery**kliknij pozycję **serwery konfiguracji**. Wybierz serwer konfiguracji skojarzony z serwerem przetwarzania i przejdź do szczegółów serwera przetwarzania.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Jeśli masz jakiekolwiek problemy z serwerami procesów, postępuj zgodnie z naszymi [wskazówkami dotyczącymi rozwiązywania problemów](vmware-physical-azure-troubleshoot-process-server.md)
-- Jeśli potrzebujesz więcej pomocy, opublikuj swoje pytanie na [forum usługi Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
+- Jeśli masz problemy z serwerami przetwarzania, postępuj zgodnie z naszymi [wskazówkami dotyczącymi rozwiązywania problemów](vmware-physical-azure-troubleshoot-process-server.md)
+- Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [forum Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
 
 [green]: ./media/vmware-physical-azure-monitor-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-monitor-process-server/yellow.png

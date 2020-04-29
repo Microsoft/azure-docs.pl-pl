@@ -1,96 +1,96 @@
 ---
-title: Uwierzytelnianie usługi Active Directory — usługa Azure Database dla mysql
-description: Dowiedz się więcej o pojęciach usługi Azure Active Directory do uwierzytelniania za pomocą usługi Azure Database for MySQL
+title: Uwierzytelnianie Active Directory — Azure Database for MySQL
+description: Informacje na temat pojęć związanych z Azure Active Directory uwierzytelniania przy użyciu Azure Database for MySQL
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.openlocfilehash: 960536c3f80aa7870d6f2056d8e95cd1a4338dfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79299026"
 ---
-# <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Uwierzytelnianie za pomocą usługi Azure Active Directory za pomocą usługi MySQL
+# <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
 
-Uwierzytelnianie usługi Microsoft Azure Active Directory (Azure AD) to mechanizm łączenia się z usługą Azure Database for MySQL przy użyciu tożsamości zdefiniowanych w usłudze Azure AD.
-Za pomocą uwierzytelniania usługi Azure AD można zarządzać tożsamościami użytkowników bazy danych i innymi usługami firmy Microsoft w centralnej lokalizacji, co upraszcza zarządzanie uprawnieniami.
+Uwierzytelnianie Microsoft Azure Active Directory (Azure AD) to mechanizm łączenia się z Azure Database for MySQL przy użyciu tożsamości zdefiniowanych w usłudze Azure AD.
+Uwierzytelnianie za pomocą usługi Azure AD umożliwia zarządzanie tożsamościami użytkowników bazy danych i innymi usługami firmy Microsoft w centralnej lokalizacji, co upraszcza zarządzanie uprawnieniami.
 
 > [!IMPORTANT]
-> Uwierzytelnianie usługi Azure AD dla usługi Azure Database for MySQL jest obecnie w publicznej wersji zapoznawczej.
+> Uwierzytelnianie usługi Azure AD dla Azure Database for MySQL jest obecnie dostępne w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Korzyści z korzystania z usługi Azure AD obejmują:
+Zalety korzystania z usługi Azure AD:
 
-- Uwierzytelnianie użytkowników w usługach platformy Azure w jednolity sposób
+- Uwierzytelnianie użytkowników w ramach usług platformy Azure w jednolity sposób
 - Zarządzanie zasadami haseł i rotacją haseł w jednym miejscu
-- Wiele form uwierzytelniania obsługiwanych przez usługę Azure Active Directory, co może wyeliminować konieczność przechowywania haseł
+- Wiele form uwierzytelniania obsługiwanych przez Azure Active Directory, które mogą wyeliminować konieczność przechowywania haseł
 - Klienci mogą zarządzać uprawnieniami bazy danych przy użyciu zewnętrznych grup (Azure AD).
 - Uwierzytelnianie usługi Azure AD używa użytkowników bazy danych MySQL do uwierzytelniania tożsamości na poziomie bazy danych
-- Obsługa uwierzytelniania opartego na tokenach dla aplikacji łączących się z usługą Azure Database for MySQL
+- Obsługa uwierzytelniania opartego na tokenach dla aplikacji łączących się z Azure Database for MySQL
 
-Aby skonfigurować i używać uwierzytelniania usługi Azure Active Directory, należy użyć następującego procesu:
+Aby skonfigurować uwierzytelnianie Azure Active Directory i korzystać z niego, wykonaj następujące czynności:
 
-1. W razie potrzeby utwórz i wypełnij usługę Azure Active Directory tożsamościami użytkowników.
-2. Opcjonalnie skojarzyć lub zmienić usługę Active Directory obecnie skojarzone z subskrypcją platformy Azure.
-3. Utwórz administratora usługi Azure AD dla usługi Azure Database dla serwera MySQL.
-4. Tworzenie użytkowników bazy danych w bazie danych mapowane do tożsamości usługi Azure AD.
-5. Połącz się z bazą danych, pobierając token dla tożsamości usługi Azure AD i logując się.
+1. Utwórz i wypełnij Azure Active Directory tożsamościami użytkowników zgodnie z wymaganiami.
+2. Opcjonalnie Skojarz lub Zmień Active Directory aktualnie skojarzone z subskrypcją platformy Azure.
+3. Utwórz administratora usługi Azure AD dla serwera Azure Database for MySQL.
+4. Tworzenie użytkowników bazy danych w bazie danych zamapowanej na tożsamości usługi Azure AD.
+5. Nawiąż połączenie z bazą danych, pobierając token dla tożsamości usługi Azure AD i zaloguj się.
 
 > [!NOTE]
-> Aby dowiedzieć się, jak tworzyć i wypełniać usługę Azure AD, a następnie konfigurować usługę Azure AD za pomocą usługi Azure Database dla mysql, zobacz [Konfigurowanie i logowanie się za pomocą usługi Azure AD dla usługi Azure Database dla mysql.](howto-configure-sign-in-azure-ad-authentication.md)
+> Aby dowiedzieć się, jak utworzyć i wypełnić usługę Azure AD, a następnie skonfigurować usługę Azure AD za pomocą Azure Database for MySQL, zobacz [Konfigurowanie i logowanie za pomocą usługi Azure AD dla Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
 
 ## <a name="architecture"></a>Architektura
 
-Poniższy diagram wysokiego poziomu podsumowuje, jak działa uwierzytelnianie usługi Azure AD przy użyciu usługi Azure Database dla mysql. Strzałki wskazują ścieżki komunikacyjne.
+Poniższy diagram wysokiego poziomu zawiera podsumowanie sposobu działania uwierzytelniania przy użyciu uwierzytelniania usługi Azure AD z Azure Database for MySQL. Strzałki oznaczają ścieżki komunikacji.
 
 ![przepływ uwierzytelniania][1]
 
 ## <a name="administrator-structure"></a>Struktura administratora
 
-Podczas korzystania z uwierzytelniania usługi Azure AD istnieją dwa konta administratora dla serwera MySQL; pierwotnego administratora MySQL i administratora usługi Azure AD. Tylko administrator na podstawie konta usługi Azure AD można utworzyć pierwszy użytkownik bazy danych zawierającej usługę Azure AD w bazie danych użytkowników. Logowanie administratora usługi Azure AD może być użytkownikiem usługi Azure AD lub grupą usługi Azure AD. Gdy administrator jest kontem grupy, może być używany przez dowolnego członka grupy, włączając wielu administratorów usługi Azure AD dla serwera MySQL. Używanie konta grupy jako administratora zwiększa łatwość zarządzania, umożliwiając centralne dodawanie i usuwanie członków grupy w usłudze Azure AD bez zmiany użytkowników lub uprawnień na serwerze MySQL. Tylko jeden administrator usługi Azure AD (użytkownik lub grupa) można skonfigurować w dowolnym momencie.
+W przypadku korzystania z uwierzytelniania usługi Azure AD dla serwera MySQL istnieją dwa konta administratora. oryginalny administrator MySQL i administrator usługi Azure AD. Tylko administrator oparty na koncie usługi Azure AD może utworzyć pierwszego użytkownika zawartej bazy danych usługi Azure AD w bazie danych użytkownika. Identyfikator logowania administratora usługi Azure AD może być użytkownikiem usługi Azure AD lub grupą usługi Azure AD. Jeśli administrator jest kontem grupy, może być używany przez dowolnego członka grupy, co pozwala na wielu administratorów usługi Azure AD dla serwera MySQL. Użycie konta grupy jako administrator zwiększa możliwości zarządzania, umożliwiając centralne Dodawanie i usuwanie członków grupy w usłudze Azure AD bez zmiany użytkowników ani uprawnień na serwerze MySQL. W dowolnej chwili można skonfigurować tylko jednego administratora usługi Azure AD (użytkownika lub grupę).
 
-![struktura administracyjna][2]
+![Struktura administratora][2]
 
 ## <a name="permissions"></a>Uprawnienia
 
-Aby utworzyć nowych użytkowników, którzy mogą uwierzytelniać się za pomocą usługi Azure AD, musisz być zaprojektowanym administratorem usługi Azure AD. Ten użytkownik jest przypisywany przez skonfigurowanie konta administratora usługi Azure AD dla określonej bazy danych platformy Azure dla serwera MySQL.
+Aby utworzyć nowych użytkowników, którzy mogą uwierzytelniać się w usłudze Azure AD, musisz być administratorem usługi Azure AD. Ten użytkownik jest przypisany przez skonfigurowanie konta administratora usługi Azure AD dla określonego serwera Azure Database for MySQL.
 
-Aby utworzyć nowego użytkownika bazy danych usługi Azure AD, należy połączyć się jako administrator usługi Azure AD. Zostało to zademonstrowane w [temacie Konfigurowanie i logowanie za pomocą usługi Azure AD dla usługi Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
+Aby utworzyć nowego użytkownika bazy danych usługi Azure AD, musisz nawiązać połączenie jako administrator usługi Azure AD. Jest to zademonstrowane w temacie [Konfigurowanie i logowanie za pomocą usługi Azure AD dla Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
 
-Uwierzytelnianie usługi Azure AD jest możliwe tylko wtedy, gdy administrator usługi Azure AD został utworzony dla usługi Azure Database for MySQL. Jeśli administrator usługi Azure Active Directory został usunięty z serwera, istniejący użytkownicy usługi Azure Active Directory utworzone wcześniej nie mogą już łączyć się z bazą danych przy użyciu poświadczeń usługi Azure Active Directory.
+Każde uwierzytelnianie usługi Azure AD jest możliwe tylko wtedy, gdy administrator usługi Azure AD został utworzony dla Azure Database for MySQL. Jeśli administrator Azure Active Directory został usunięty z serwera, istniejące wcześniej utworzone Azure Active Directory użytkownicy nie mogą już łączyć się z bazą danych przy użyciu poświadczeń Azure Active Directory.
 
-## <a name="connecting-using-azure-ad-identities"></a>Łączenie przy użyciu tożsamości usługi Azure AD
+## <a name="connecting-using-azure-ad-identities"></a>Nawiązywanie połączenia przy użyciu tożsamości usługi Azure AD
 
-Uwierzytelnianie usługi Azure Active Directory obsługuje następujące metody łączenia się z bazą danych przy użyciu tożsamości usługi Azure AD:
+Azure Active Directory Authentication obsługuje następujące metody łączenia się z bazą danych przy użyciu tożsamości usługi Azure AD:
 
-- Hasło usługi Azure Active Directory
-- Zintegrowana usługa Azure Active Directory
-- Uniwersalna usługa Azure Active Directory z usługą MFA
-- Używanie certyfikatów aplikacji usługi Active Directory lub wpisów tajnych klienta
+- Azure Active Directory hasło
+- Azure Active Directory zintegrowany
+- Azure Active Directory Universal with MFA
+- Korzystanie z Active Directory certyfikatów aplikacji lub wpisów tajnych klienta
 
-Po uwierzytelnieniu względem usługi Active Directory, a następnie pobrać token. Ten token jest twoim hasłem do logowania.
+Po uzyskaniu uwierzytelnienia względem Active Directory można pobrać token. Ten token jest hasłem do logowania.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat łączenia się z tokenem usługi Active Directory, zobacz [Konfigurowanie i logowanie się za pomocą usługi Azure AD dla usługi Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
+> Aby uzyskać więcej informacji na temat nawiązywania połączenia z tokenem Active Directory, zobacz [Konfigurowanie i logowanie za pomocą usługi Azure AD dla Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
 
 ## <a name="additional-considerations"></a>Dodatkowe zagadnienia
 
-- Tylko jeden administrator usługi Azure AD można skonfigurować dla usługi Azure Database dla serwera MySQL w dowolnym momencie.
-- Tylko administrator usługi Azure AD dla MySQL może początkowo połączyć się z usługą Azure Database for MySQL przy użyciu konta usługi Azure Active Directory. Administrator usługi Active Directory może konfigurować kolejnych użytkowników bazy danych usługi Azure AD.
-- Jeśli użytkownik zostanie usunięty z usługi Azure AD, ten użytkownik nie będzie już mógł uwierzytelnić się za pomocą usługi Azure AD i dlatego nie będzie już można uzyskać tokenu dostępu dla tego użytkownika. W takim przypadku mimo że pasujący użytkownik nadal będzie w bazie danych, nie będzie można połączyć się z serwerem z tym użytkownikiem.
+- W dowolnej chwili można skonfigurować tylko jednego administratora usługi Azure AD dla serwera Azure Database for MySQL.
+- Tylko administrator usługi Azure AD dla programu MySQL może początkowo połączyć się z Azure Database for MySQL przy użyciu konta Azure Active Directory. Administrator Active Directory może skonfigurować kolejnych użytkowników bazy danych usługi Azure AD.
+- Jeśli użytkownik zostanie usunięty z usługi Azure AD, nie będzie już można uwierzytelnić się w usłudze Azure AD i w związku z tym nie będzie już możliwe uzyskanie tokenu dostępu dla tego użytkownika. W takim przypadku Chociaż pasujący użytkownik nadal znajduje się w bazie danych, nie będzie możliwe nawiązanie połączenia z serwerem za pomocą tego użytkownika.
 > [!NOTE]
-> Logowanie z usuniętym użytkownikiem usługi Azure AD można nadal wykonywać do wygaśnięcia tokenu (do 60 minut od wystawienia tokenu).  Jeśli również usunąć użytkownika z usługi Azure Database dla MySQL ten dostęp zostanie natychmiast odwołany.
-- Jeśli administrator usługi Azure AD zostanie usunięty z serwera, serwer nie będzie już skojarzony z dzierżawą usługi Azure AD i dlatego wszystkie logowania usługi Azure AD zostaną wyłączone dla serwera. Dodanie nowego administratora usługi Azure AD z tej samej dzierżawy spowoduje ponowne włączenie logowania usługi Azure AD.
-- Usługa Azure Database for MySQL dopasowuje tokeny dostępu do usługi Azure Database dla użytkownika MySQL przy użyciu unikatowego identyfikatora użytkownika usługi Azure AD użytkownika użytkownika, w przeciwieństwie do używania nazwy użytkownika. Oznacza to, że jeśli użytkownik usługi Azure AD zostanie usunięty w usłudze Azure AD, a nowy użytkownik utworzony o tej samej nazwie, usługa Azure Database for MySQL uzna, że inny użytkownik. W związku z tym jeśli użytkownik zostanie usunięty z usługi Azure AD, a następnie nowy użytkownik o tej samej nazwie dodane, nowy użytkownik nie będzie mógł połączyć się z istniejącym użytkownikiem.
+> Można nadal wykonać logowanie przy użyciu usuniętego użytkownika usługi Azure AD, dopóki token nie wygaśnie (do 60 minut od wystawiania tokenów).  Jeśli usuniesz również użytkownika z Azure Database for MySQL ten dostęp zostanie natychmiast odwołany.
+- Jeśli administrator usługi Azure AD zostanie usunięty z serwera, serwer nie będzie już skojarzony z dzierżawą usługi Azure AD i w związku z tym wszystkie logowania usługi Azure AD zostaną wyłączone na serwerze. Dodanie nowego administratora usługi Azure AD z tej samej dzierżawy spowoduje ponowne włączenie nazw logowania usługi Azure AD.
+- Azure Database for MySQL dopasowuje tokeny dostępu do Azure Database for MySQL użytkownika przy użyciu unikatowego identyfikatora użytkownika usługi Azure AD użytkownika, a nie przy użyciu nazwy użytkownika. Oznacza to, że jeśli użytkownik usługi Azure AD zostanie usunięty w usłudze Azure AD i zostanie utworzony nowy użytkownik o tej samej nazwie, Azure Database for MySQL uważa, że inny użytkownik. W związku z tym, jeśli użytkownik zostanie usunięty z usługi Azure AD, a następnie zostanie dodany nowy użytkownik o tej samej nazwie, nowy użytkownik nie będzie mógł nawiązać połączenia z istniejącym użytkownikiem.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się, jak tworzyć i wypełniać usługę Azure AD, a następnie konfigurować usługę Azure AD za pomocą usługi Azure Database dla mysql, zobacz [Konfigurowanie i logowanie się za pomocą usługi Azure AD dla usługi Azure Database dla mysql.](howto-configure-sign-in-azure-ad-authentication.md)
-- Aby uzyskać omówienie loginów i użytkowników bazy danych dla usługi Azure Database for MySQL, zobacz [Tworzenie użytkowników w usłudze Azure Database dla MySQL](howto-create-users.md).
+- Aby dowiedzieć się, jak utworzyć i wypełnić usługę Azure AD, a następnie skonfigurować usługę Azure AD za pomocą Azure Database for MySQL, zobacz [Konfigurowanie i logowanie za pomocą usługi Azure AD dla Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
+- Aby zapoznać się z omówieniem logowania i użytkownikami bazy danych dla Azure Database for MySQL, zobacz temat [Tworzenie użytkowników w Azure Database for MySQL](howto-create-users.md).
 
 <!--Image references-->
 

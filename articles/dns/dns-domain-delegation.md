@@ -1,5 +1,5 @@
 ---
-title: Omówienie delegowania usługi Azure DNS
+title: Omówienie delegowania Azure DNS
 description: Dowiedz się, jak zmienić delegowanie domeny i korzystać z serwerów nazw usługi Azure DNS do zapewniania hostingu domeny.
 services: dns
 author: rohinkoul
@@ -8,10 +8,10 @@ ms.date: 2/19/2019
 ms.author: rohink
 ms.topic: conceptual
 ms.openlocfilehash: 9304556edb5e6207296d8ee4e8392e345869cb92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76939051"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegowanie stref DNS za pomocą usługi Azure DNS
@@ -28,7 +28,7 @@ System nazw domen (DNS, Domain Name System) jest hierarchią domen. Hierarchia r
 
 **Rejestrator domen** — Rejestrator domen to firma, która może udostępniać nazwy domen internetowych. Weryfikuje ona, czy domena internetowa, której chcesz używać, jest dostępna, i umożliwi jej zakupienie. Po zarejestrowaniu nazwy domeny jesteś jej prawnym właścicielem. Jeśli masz już domenę internetową, będziesz korzystać z bieżącego rejestratora domeny do delegowania jej do usługi Azure DNS.
 
-Aby uzyskać więcej informacji na temat akredytowanych rejestratorów domen, zobacz [Rejestratory akredytowane przez ICANN](https://www.icann.org/registrar-reports/accredited-list.html).
+Aby uzyskać więcej informacji na temat akredytowanych rejestratorów domen, zobacz [ICANN-akredytowanych](https://www.icann.org/registrar-reports/accredited-list.html)rejestratorów.
 
 ### <a name="resolution-and-delegation"></a>Rozpoznawanie i delegowanie
 
@@ -54,13 +54,13 @@ Na poniższej ilustracji przedstawiono przykładowe zapytanie DNS. Contoso.net i
 1. Klient żąda adresu `www.partners.contoso.net` z lokalnego serwera DNS.
 2. Lokalny serwer DNS nie ma tego rekordu, dlatego wysyła żądanie do swojego głównego serwera nazw.
 3. Główny serwer nazw nie ma tego rekordu, ale dysponuje informacjami o adresie serwera nazw `.net`, udostępnia więc ten adres serwerowi DNS.
-4. Lokalny serwer DNS wysyła żądanie `.net` do serwera nazw.
-5. Serwer `.net` nazw nie ma rekordu, ale zna `contoso.net` adres serwera nazw. W takim przypadku odpowiada adresem serwera nazw strefy DNS hostowanego w usłudze Azure DNS.
-6. Lokalny serwer DNS wysyła żądanie do serwera `contoso.net` nazw strefy hostowanej w usłudze Azure DNS.
-7. Strefa `contoso.net` nie ma rekordu, ale zna `partners.contoso.net` serwer nazw i odpowiada za pomocą adresu. W takim przypadku jest to strefa DNS hostowana w usłudze Azure DNS.
-8. Lokalny serwer DNS wysyła żądanie do serwera `partners.contoso.net` nazw strefy.
-9. Strefa `partners.contoso.net` ma rekord A i odpowiada za pomocą adresu IP.
-10. Lokalny serwer DNS udostępnia klientowi adres IP
+4. Lokalny serwer DNS wysyła żądanie do serwera `.net` nazw.
+5. Serwer `.net` nazw nie ma rekordu, ale zna adres serwera `contoso.net` nazw. W tym przypadku odpowiada adres serwera nazw dla strefy DNS hostowanej w Azure DNS.
+6. Lokalny serwer DNS wysyła żądanie do serwera nazw dla `contoso.net` strefy hostowanej w Azure DNS.
+7. Strefa `contoso.net` nie ma tego rekordu, ale zna serwer nazw dla `partners.contoso.net` i odpowiada na adres. W tym przypadku jest to strefa DNS hostowana w Azure DNS.
+8. Lokalny serwer DNS wysyła żądanie do serwera nazw dla `partners.contoso.net` strefy.
+9. `partners.contoso.net` Strefa zawiera rekord a i odpowiada na adres IP.
+10. Lokalny serwer DNS udostępnia adres IP klientowi
 11. Klient łączy się z witryną sieci Web `www.partners.contoso.net`.
 
 Każde delegowanie faktycznie zawiera dwie kopie rekordów NS — jedną w strefie nadrzędnej wskazującej strefę podrzędną i drugą w samej strefie podrzędnej. Strefa „contoso.net” zawiera rekordy NS dla strefy „contoso.net” (oprócz rekordów NS w strefie „net”). Są to tak zwane autorytatywne rekordy NS i znajdują się na wierzchołku strefy podrzędnej.

@@ -1,5 +1,5 @@
 ---
-title: Centra zdarzeń — przechwytywanie zdarzeń przesyłania strumieniowego przy użyciu portalu Azure
+title: Event Hubs — przechwytywanie zdarzeń przesyłania strumieniowego przy użyciu Azure Portal
 description: W tym artykule opisano, jak włączyć przechwytywanie zdarzeń przesyłanych strumieniowo za pomocą usługi Azure Event Hubs przy użyciu witryny Azure Portal.
 services: event-hubs
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
 ms.openlocfilehash: 8a6d9456b00e5520e6f4fbb9ccb77b0260731ddd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77187392"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Włączanie przechwytywania zdarzeń przesyłanych strumieniowo za pomocą usługi Azure Event Hubs
 
-[Przechwytywanie usługi][capture-overview] Azure Event Hubs umożliwia automatyczne dostarczanie danych przesyłania strumieniowego w centrach zdarzeń do [magazynu obiektów Blob platformy Azure](https://azure.microsoft.com/services/storage/blobs/) lub konta usługi Azure Data Lake Storage [Gen1 lub Gen 2](https://azure.microsoft.com/services/data-lake-store/) do wyboru.
+[Przechwytywanie Event Hubs][capture-overview] platformy Azure umożliwia automatyczne dostarczanie danych przesyłanych strumieniowo w Event Hubs do [magazynu obiektów blob platformy Azure](https://azure.microsoft.com/services/storage/blobs/) lub [Azure Data Lake Storage Gen1 lub generacji 2](https://azure.microsoft.com/services/data-lake-store/) .
 
-Przy użyciu witryny [Azure Portal](https://portal.azure.com) można skonfigurować funkcję przechwytywania podczas tworzenia centrum zdarzeń. Można przechwycić dane do kontenera [magazynu obiektów Blob](https://azure.microsoft.com/services/storage/blobs/) platformy Azure lub do konta [usługi Azure Data Lake Storage Gen 1 lub Gen 2.](https://azure.microsoft.com/services/data-lake-store/)
+Przy użyciu witryny [Azure Portal](https://portal.azure.com) można skonfigurować funkcję przechwytywania podczas tworzenia centrum zdarzeń. Możesz przechwytywać dane do kontenera usługi Azure [BLOB Storage](https://azure.microsoft.com/services/storage/blobs/) lub do konta [Azure Data Lake Storage generacji 1 lub generacji 2](https://azure.microsoft.com/services/data-lake-store/) .
 
 Aby uzyskać więcej informacji, zobacz [omówienie funkcji przechwytywania usługi Event Hubs][capture-overview].
 
-## <a name="capture-data-to-azure-storage"></a>Przechwytywanie danych w usłudze Azure Storage
+## <a name="capture-data-to-azure-storage"></a>Przechwytywanie danych do usługi Azure Storage
 
 Podczas tworzenia centrum zdarzeń można włączyć funkcję przechwytywania przez kliknięcie przycisku **Wł** na ekranie portalu **Tworzenie centrum zdarzeń**. Następnie można określić konto magazynu i kontener przez kliknięcie pozycji **Azure Storage** w polu **Dostawca przechwytywania**. Ponieważ do uwierzytelniania w magazynie funkcja przechwytywania usługi Event Hubs korzysta z uwierzytelniania między usługami, nie trzeba podawać parametrów połączenia z magazynem. Selektor zasobów automatycznie wybiera identyfikator URI zasobu dla konta magazynu. Jeśli używasz usługi Azure Resource Manager, musisz jawnie podać ten identyfikator URI jako ciąg.
 
@@ -40,45 +40,45 @@ Domyślny przedział czasu to 5 minut. Minimalna wartość to 1, a maksymalna �
 > [!NOTE]
 > Emitowanie pustych plików przy braku zdarzeń podczas okna przechwytywania można włączyć lub wyłączyć. 
 
-## <a name="capture-data-to-azure-data-lake-storage-gen-2"></a>Przechwytywanie danych do usługi Azure Data Lake Storage Gen 2 
+## <a name="capture-data-to-azure-data-lake-storage-gen-2"></a>Przechwytywanie danych do Azure Data Lake Storage generacji 2 
 
-1. Postępuj zgodnie z artykułu [Utwórz konto magazynu,](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) aby utworzyć konto usługi Azure Storage. Ustaw **hierarchiczny obszar nazw** na **Włączone** na karcie **Zaawansowane,** aby uczynić go kontem usługi Azure Data Lake Storage Gen 2.
+1. Postępuj zgodnie z artykułem [Tworzenie konta magazynu](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) , aby utworzyć konto usługi Azure Storage. Ustaw **hierarchiczną przestrzeń nazw** na wartość **włączone** na karcie **zaawansowane** , aby uczynić ją Azure Data Lake Storage kontem generacji 2.
 2. Podczas tworzenia centrum zdarzeń wykonaj następujące czynności: 
 
-    1. Wybierz **opcję Włączone** dla **przechwytywania**. 
-    2. Wybierz **usługę Azure Storage** jako dostawcę przechwytywania. Opcja **usługi Azure Data Lake Store,** którą widzisz dla dostawcy **przechwytywania,** jest dla genu 1 usługi Azure Data Lake Storage. Aby użyć gen 2 usługi Azure Data Lake Storage, należy wybrać **usługę Azure Storage**.
-    2. Wybierz przycisk **Wybierz kontener.** 
+    1. Wybierz pozycję **włączone** do **przechwycenia**. 
+    2. Wybierz pozycję **Magazyn platformy Azure** jako dostawcę przechwytywania. Opcja **Azure Data Lake Store** wyświetlana dla **dostawcy przechwytywania** jest dla Azure Data Lake Storage generacji 1. Aby użyć generacji 2 Azure Data Lake Storage, należy wybrać **usługę Azure Storage**.
+    2. Wybierz przycisk **Wybierz kontener** . 
 
-        ![Włącz przechwytywanie do magazynu w uł.2 w ucho.](./media/event-hubs-capture-enable-through-portal/data-lake-storage-gen2.png)
-3. Wybierz konto **usługi Azure Data Lake Storage Gen 2** z listy. 
+        ![Włączanie funkcji przechwytywania do Data Lake Storage Gen 2](./media/event-hubs-capture-enable-through-portal/data-lake-storage-gen2.png)
+3. Wybierz z listy konto **Azure Data Lake Storage Gen 2** . 
 
-    ![Wybierz magazyn danych Lake Gen 2](./media/event-hubs-capture-enable-through-portal/select-data-lake-storage-gen2.png)
-4. Wybierz **kontener** (system plików w data lake storage gen 2).
+    ![Wybieranie Data Lake Storage Gen 2](./media/event-hubs-capture-enable-through-portal/select-data-lake-storage-gen2.png)
+4. Wybierz **kontener** (system plików w Data Lake Storage Gen 2).
 
-    ![Wybieranie systemu plików w magazynie](./media/event-hubs-capture-enable-through-portal/select-file-system-data-lake-storage.png)
-5. Na stronie **Tworzenie Centrum zdarzeń** wybierz pozycję **Utwórz**. 
+    ![Wybierz system plików w magazynie](./media/event-hubs-capture-enable-through-portal/select-file-system-data-lake-storage.png)
+5. Na stronie **Tworzenie centrum zdarzeń** wybierz pozycję **Utwórz**. 
 
     ![Wybierz przycisk Utwórz](./media/event-hubs-capture-enable-through-portal/create-event-hub-data-lake-storage.png)
 
     > [!NOTE]
-    > Kontener utworzony w usłudze Azure Data Lake Storage Gen 2 przy użyciu tego interfejsu użytkownika (UI) jest wyświetlany w obszarze **Systemy plików** w **Eksploratorze magazynu**. Podobnie system plików utworzony na koncie Data Lake Storage Gen 2 jest wyświetlany jako kontener w tym interfejsie użytkownika. 
+    > Kontener utworzony w Azure Data Lake Storage Gen 2 przy użyciu tego interfejsu użytkownika jest wyświetlany w obszarze **systemy plików** w **Eksplorator usługi Storage**. Podobnie system plików tworzony w ramach konta Data Lake Storage generacji 2 jest wyświetlany jako kontener w tym interfejsie użytkownika. 
 
 
-## <a name="capture-data-to-azure-data-lake-storage-gen-1"></a>Przechwytywanie danych do usługi Azure Data Lake Storage Gen 1 
+## <a name="capture-data-to-azure-data-lake-storage-gen-1"></a>Przechwytywanie danych do Azure Data Lake Storage Gen 1 
 
-Aby przechwycić dane do usługi Azure Data Lake Storage Gen 1, należy utworzyć konto magazynu usługi Data Lake Gen 1 i centrum zdarzeń:
+Aby przechwytywać dane do Azure Data Lake Storage generacji 1, należy utworzyć konto Data Lake Storage Gen 1 i centrum zdarzeń:
 
-### <a name="create-an-azure-data-lake-storage-gen-1-account-and-folders"></a>Tworzenie konta i folderów usługi Azure Data Storage Gen 1
+### <a name="create-an-azure-data-lake-storage-gen-1-account-and-folders"></a>Tworzenie konta i folderów Azure Data Lake Storage generacji 1
 
-1. Utwórz konto magazynu usługi Data Lake, postępując zgodnie z instrukcjami w [wprowadzenie do usługi Azure Data Lake Storage Gen 1 przy użyciu portalu Azure.](../data-lake-store/data-lake-store-get-started-portal.md)
-2. Postępuj zgodnie z instrukcjami w sekcji [Przypisywanie uprawnień do centrów zdarzeń,](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) aby utworzyć folder na koncie Data Lake Storage Gen 1, na którym chcesz przechwycić dane z centrum zdarzeń, i przypisać uprawnienia do centrów zdarzeń, aby można było zapisywać dane na koncie Data Lake Storage Gen 1.  
+1. Utwórz konto Data Lake Storage, postępując zgodnie z instrukcjami w temacie [Rozpoczynanie pracy z usługą Azure Data Lake Storage Gen 1 przy użyciu Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md).
+2. Postępuj zgodnie z instrukcjami w sekcji [przypisywanie uprawnień do Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) , aby utworzyć folder na koncie Data Lake Storage generacji 1, w którym chcesz przechwytywać dane z Event Hubs, a następnie przypisz uprawnienia do Event Hubs, aby umożliwić zapisanie danych na koncie Data Lake Storage generacji 1.  
 
 
 ### <a name="create-an-event-hub"></a>Tworzenie centrum zdarzeń
 
-1. Centrum zdarzeń musi znajdować się w tej samej subskrypcji platformy Azure, co utworzone konto usługi Azure Data Lake Storage Gen 1. Aby utworzyć centrum zdarzeń, kliknij przycisk **Wł** w obszarze **Przechwytywanie** na stronie portalu **Tworzenie centrum zdarzeń**. 
+1. Centrum zdarzeń musi znajdować się w tej samej subskrypcji platformy Azure co utworzone konto Azure Data Lake Storage Gen 1. Aby utworzyć centrum zdarzeń, kliknij przycisk **Wł** w obszarze **Przechwytywanie** na stronie portalu **Tworzenie centrum zdarzeń**. 
 2. Na stronie portalu **Tworzenie centrum zdarzeń** wybierz pozycję **Azure Data Lake Store** w polu **Dostawca przechwytywania**.
-3. W **obszarze Wybierz sklep** obok listy rozwijanej Magazynu danych **Lake** Store określ konto Data Lake Storage Gen 1 utworzone wcześniej, a w polu Ścieżka **jeziora danych** wprowadź ścieżkę do utworzonego folderu danych.
+3. W obszarze **Wybierz sklep** obok listy rozwijanej **Data Lake Store** określ utworzone wcześniej konto Data Lake Storage generacji 1, a następnie w polu **ścieżka Data Lake** wprowadź ścieżkę do utworzonego folderu danych.
 
     ![Wybieranie konta usługi Data Lake Storage][3]
 
@@ -93,9 +93,9 @@ Przechwytywanie można skonfigurować w istniejących centrach zdarzeń, które 
 
 ### <a name="azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2
 
-![Konfigurowanie usługi Azure Data Lake Storage Gen 2](./media/event-hubs-capture-enable-through-portal/configure-data-lake-storage-gen2.png)
+![Konfigurowanie Azure Data Lake Storage generacji 2](./media/event-hubs-capture-enable-through-portal/configure-data-lake-storage-gen2.png)
 
-### <a name="azure-data-lake-storage-gen-1"></a>Usługa Azure Data Lake Storage Gen 1 
+### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1 
 
 ![Konfigurowanie usługi Azure Data Lake Storage][4]
 
@@ -109,6 +109,6 @@ Przechwytywanie można skonfigurować w istniejących centrach zdarzeń, które 
 - Aby dowiedzieć się więcej na temat funkcji przechwytywania usługi Event Hubs, przeczytaj [omówienie funkcji przechwytywania usługi Event Hubs][capture-overview].
 - Funkcję przechwytywania usługi Event Hubs możesz również skonfigurować za pomocą szablonów usługi Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [Enable Capture using an Azure Resource Manager template (Włączanie funkcji przechwytywania przy użyciu szablonu usługi Azure Resource Manager)](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
 - [Dowiedz się, jak utworzyć subskrypcję usługi Azure Event Grid przy użyciu przestrzeni nazw usługi Event Hubs jako źródła](store-captured-data-data-warehouse.md)
-- [Wprowadzenie do usługi Azure Data Lake Store przy użyciu portalu Azure](../data-lake-store/data-lake-store-get-started-portal.md)
+- [Wprowadzenie do Azure Data Lake Store przy użyciu Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md)
 
 [capture-overview]: event-hubs-capture-overview.md

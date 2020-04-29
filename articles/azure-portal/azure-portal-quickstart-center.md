@@ -1,6 +1,6 @@
 ---
-title: Wprowadzenie do Centrum szybki start platformy Azure
-description: Skorzystaj z przewodnika Centrum szybkiej obsługi platformy Azure, aby rozpocząć korzystanie z platformy Azure. Dowiedz się, jak konfigurowanie, migrowanie i wprowadzanie innowacji.
+title: Wprowadzenie do centrum szybkiego startu platformy Azure
+description: Skorzystaj z przewodnika Szybki Start platformy Azure, aby rozpocząć pracę z platformą Azure. Dowiedz się, jak konfigurować, migrować i wprowadzać innowacje.
 services: azure-portal
 keywords: ''
 author: mgblythe
@@ -10,40 +10,40 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 21dd43b5179d0752699bb56b51a2c08976aa037b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76900694"
 ---
-# <a name="get-started-with-the-azure-quickstart-center"></a>Wprowadzenie do Centrum szybki start platformy Azure
+# <a name="get-started-with-the-azure-quickstart-center"></a>Wprowadzenie do centrum szybkiego startu platformy Azure
 
-Centrum szybki start platformy Azure to usługa z przewodnikiem w witrynie Azure portal dostępna dla każdego, kto chce pocieszyć swoją wiedzę na temat platformy Azure. Dla organizacji nowych na platformie Azure jest to najszybszy sposób na wbudowane i skonfigurowanie środowiska chmury.
+Centrum szybkiego startu platformy Azure to środowisko z przewodnikiem Azure Portal dostępne dla każdego, kto chce ulepszyć swoją wiedzę na temat platformy Azure. W przypadku organizacji, które są nowością w systemie Azure, jest to najszybszy sposób, aby dołączyć i skonfigurować środowisko chmury.
 
 ## <a name="overview"></a>Omówienie
 
-Centrum szybki start platformy Azure ma trzy opcje rozpoczęcia pracy:
+Centrum szybkiego startu platformy Azure oferuje trzy opcje umożliwiające rozpoczęcie pracy:
 
-* **Przewodniki konfiguracji:** Zaprojektowane dla administratora IT i architekta chmury, nasze przewodniki wprowadzają kluczowe pojęcia dotyczące wdrażania platformy Azure. Ustrukturyzowane kroki ułatwiają podejmowanie działań w miarę uczenia się, stosując zalecane najlepsze rozwiązania firmy Microsoft. Przewodnik migracji pomaga ocenić gotowość i zaplanować podczas przygotowywania się do przejścia na platformę Azure.
+* **Przewodniki Instalatora**: zaprojektowana dla administratora IT i architekta chmury, nasze przewodniki wprowadzają kluczowe koncepcje dotyczące wdrażania platformy Azure. Kroki ze strukturą ułatwiają podejmowanie odpowiednich działań, stosując zalecane najlepsze rozwiązania firmy Microsoft. Przewodnik migracji ułatwia ocenę gotowości i planowanie przygotowania do przejścia na platformę Azure.
 
-* **Rozpocznij projekt:** Jeśli chcesz utworzyć zasób, ta sekcja pozwala dowiedzieć się więcej o swoich wyborach, zanim zatwierdzą się do opcji usługi. Dowiesz się więcej o usłudze i dlaczego warto z niej korzystać, eksplorować koszty i identyfikować wymagania wstępne. Po dokonaniu wyboru, można przejść bezpośrednio do tworzenia.
+* **Rozpocznij projekt**: Jeśli chcesz utworzyć zasób, w tej sekcji znajdziesz więcej informacji na temat opcji przed zatwierdzeniem do opcji usługi. Znajdziesz więcej na temat usługi i dlaczego należy z niej korzystać, Poznaj koszty i zidentyfikuj wymagania wstępne. Po dokonaniu wyboru możesz przejść bezpośrednio do pozycji Utwórz.
 
-* **Nauka online:** W tej sekcji centrum szybki start platformy Azure przedstawiono bezpłatne moduły kursów wprowadzających firmy Microsoft Learn. Wybierz kafelek, aby uruchomić kurs i dowiedzieć się więcej o pojęciach dotyczących chmury i zarządzaniu zasobami na platformie Azure.
+* **Uczenie online**: w tej sekcji centrum szybkiego startu platformy Azure wyróżniono bezpłatny moduł kursu wprowadzającego z Microsoft Learn. Wybierz kafelek, aby uruchomić kurs i dowiedzieć się więcej na temat pojęć w chmurze i zarządzania zasobami na platformie Azure.
 
-## <a name="how-to-use-azure-quickstart-center"></a>Jak korzystać z Centrum szybki start platformy Azure
+## <a name="how-to-use-azure-quickstart-center"></a>Jak korzystać z centrum szybkiego startu platformy Azure
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Wybierz **wszystkie usługi** z menu portalu azure.
+1. Wybierz pozycję **wszystkie usługi** z menu Azure Portal.
 
-1. Wybierz **Ogólne Centrum** > **szybkiego startu**.
+1. Wybierz pozycję **Ogólne** > **centrum szybkiego startu**.
 
-Aby zapoznać się z tym, co może dla Ciebie zrobić Centrum Szybki start platformy Azure, obejrzyj ten klip wideo:
+Aby uzyskać szczegółowe informacje na temat tego, co można zrobić w centrum szybkiego startu platformy Azure, zapoznaj się z tym wideo:
 > [!VIDEO https://www.youtube.com/embed/0bSA7RXrbAg]
 
-[Wprowadzenie do Centrum szybki startu platformy Azure](https://www.youtube.com/watch?v=0bSA7RXrbAg)
+[Wprowadzenie do centrum szybkiego startu platformy Azure](https://www.youtube.com/watch?v=0bSA7RXrbAg)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o instalacji i migracji platformy Azure w [programie Microsoft Cloud Adoption Framework for Azure](/azure/architecture/cloud-adoption/).
-* Odblokuj swoje umiejętności w chmurze dzięki większej liczbie kursów z [programu Microsoft Learn](/learn/azure/).
+* Dowiedz się więcej na temat instalacji i migracji platformy Azure w [środowisku wdrażania Microsoft Cloud dla platformy Azure](/azure/architecture/cloud-adoption/).
+* Odblokuj umiejętności chmury, korzystając z większej liczby kursów od [Microsoft Learn](/learn/azure/).
