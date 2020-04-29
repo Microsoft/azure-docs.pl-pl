@@ -1,7 +1,7 @@
 ---
 title: Analiza danych dla początkujących
 titleSuffix: ML Studio (classic) - Azure
-description: Data Science dla początkujących uczy podstawowych pojęć w 5 krótkich filmach, począwszy od odpowiedzi 5 questions Data Science. Z usługi Azure Machine Learning.
+description: Nauka danych dla początkujących to podstawowe pojęcia dotyczące 5 krótkich filmów wideo, począwszy od 5 pytań dotyczących analizy danych. Z Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,129 +11,129 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: af0611e121228a587e159bd4e6529c807132d16d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79204447"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Wideo 1: analiza danych dla początkujących — 5 pytań, na które analiza danych daje odpowiedzi
-Szybkie wprowadzenie do nauki o danych z *data science dla początkujących* w pięciu krótkich filmach od najlepszego analityka danych. Te filmy są podstawowe, ale przydatne, niezależnie od tego, czy chcesz dowiedzieć się więcej, czy pracujesz z analitykami danych.
+Zapoznaj się z szybkim wprowadzeniem do nauki danych z *nauki danych dla początkujących* w pięciu krótkich klipach wideo od najlepszych analityków danych. Te filmy wideo są podstawowe, ale użyteczne, niezależnie od tego, czy interesują Cię dane, czy pracujesz z analitykami danych.
 
-Ten pierwszy film wideo dotyczy pytań, na które nauka o danych może odpowiedzieć. Aby w pełni wykorzystać wyniki serii, obejrzyj je wszystkie. [Przejdź do listy filmów](#other-videos-in-this-series)
+To pierwsze wideo zawiera informacje o rodzajach pytań, na które mogą odpowiedzieć dane. Aby maksymalnie wykorzystać serię, Obejrzyj wszystko. [Przejdź do listy filmów wideo](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
 >
 >
 
-## <a name="other-videos-in-this-series"></a>Inne filmy z tej serii
-*Data Science dla początkujących* to szybkie wprowadzenie do nauki o danych, które zajmują łącznie około 25 minut. Sprawdź wszystkie pięć filmów:
+## <a name="other-videos-in-this-series"></a>Inne filmy wideo w tej serii
+Analiza *danych dla początkujących* to krótkie wprowadzenie do analizy danych, które zajmują około 25 minut. Wypróbuj wszystkie pięć filmów wideo:
 
-* Film 1: Odpowiedzi na 5 pytań do nauki o danych
-* Film 2: [Czy Twoje dane są gotowe do nauki o danych?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sek.)*
-* Wideo 3: [Zadaj pytanie, na które możesz odpowiedzieć danymi](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
-* Wideo 4: [Przewidywanie odpowiedzi za pomocą prostego modelu](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 s)*
-* Wideo 5: [Kopiowanie pracy innych osób w celu nauki o danych](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
+* Wideo 1: odpowiedzi na pytania naukowe dotyczące danych
+* Wideo 2: [czy Twoje dane są gotowe do analizy danych?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 minuty 56 s)*
+* Wideo 3: [zadawanie pytania, na które można odpowiedzieć, przy użyciu danych](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
+* Wideo 4: [prognozowanie odpowiedzi za pomocą prostego modelu](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 s)*
+* Wideo 5: [kopiowanie pracy innych osób w celu przeprowadzenia analizy danych](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 minuty 18 sek.)*
 
-## <a name="transcript-the-5-questions-data-science-answers"></a>Transkrypcja: Odpowiedzi na 5 pytań do nauki o danych
-Witaj! Witamy w serii wideo *Data Science dla początkujących*.
+## <a name="transcript-the-5-questions-data-science-answers"></a>Transkrypcja: 5 pytań odpowiedzi naukowych
+Witaj! Witamy w serii filmów wideo *nauka danych dla początkujących*.
 
-Data Science może być zastraszające, więc przedstawię podstawy tutaj bez równań lub żargonu programowania komputerowego.
+Analiza danych może być zastraszanie, więc wprowadzamy podstawowe informacje bez żadnych równań lub programowania komputerowego żargon.
 
-W tym pierwszym filmie porozmawiamy o odpowiedziach na 5 pytań do nauki o danych.
+W pierwszym filmie wideo będziemy mówić o "5 pytaniach dotyczących analizy danych".
 
-Data Science używa liczb i nazw (nazywanych również kategoriami lub etykietami) do przewidywania odpowiedzi na pytania.
+Nauka danych używa liczb i nazw (znanych również jako kategorie lub etykiety) do przewidywania odpowiedzi na pytania.
 
-To może cię zaskoczyć, ale *jest tylko pięć pytań, na które odpowiedzi nauki o danych:*
+Może się to zdarzyć, ale *istnieje tylko pięć pytań dotyczących odpowiedzi na dane*:
 
-* Czy to A czy B?
-* Czy to dziwne?
-* Ile – lub – Ile?
-* Jak to jest zorganizowane?
+* Czy to jest A czy B?
+* Czy to brzmienia?
+* Ile lub — ile?
+* Jak jest to zorganizowane?
 * Co mam robić dalej?
 
-Na każde z tych pytań odpowiada oddzielna rodzina metod uczenia maszynowego, zwana algorytmami.
+Każdy z tych pytań jest odpowiedzią przez osobną rodzinę metod uczenia maszynowego, zwanych algorytmami.
 
-Warto myśleć o algorytmie jako przepisie, a dane jako o składnikach. Algorytm informuje, jak połączyć i wymieszać dane w celu uzyskania odpowiedzi. Komputery są jak blender. Wykonują większość ciężkiej pracy algorytmu dla Ciebie i robią to dość szybko.
+Warto traktować algorytm jako przepis i dane jako składniki. Algorytm informuje, jak łączyć i mieszać dane w celu uzyskania odpowiedzi. Komputery są podobne do programu Blender. Większość pracy z algorytmem jest dla Ciebie większa i bardzo szybka.
 
-## <a name="question-1-is-this-a-or-b-uses-classification-algorithms"></a>Pytanie 1: Czy to A czy B? wykorzystuje algorytmy klasyfikacji
-Zacznijmy od pytania: Czy to A czy B?
+## <a name="question-1-is-this-a-or-b-uses-classification-algorithms"></a>Pytanie 1: czy to jest A czy B? używa algorytmów klasyfikacji
+Zacznijmy od pytania: czy to jest A czy B?
 
-![Algorytmy klasyfikacji: Czy to A czy B?](./media/data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
+![Algorytmy klasyfikacji: czy to A lub B?](./media/data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
 
-Ta rodzina algorytmów jest nazywana klasyfikacją dwuklasową.
+Ta rodzina algorytmów jest nazywana klasyfikacją dwóch klas.
 
-Jest to przydatne dla każdego pytania, które ma tylko dwie możliwe odpowiedzi.
+Jest to przydatne w przypadku każdego pytania, które ma tylko dwie możliwe odpowiedzi.
 
 Przykład:
 
-* Czy ta opona zawiedzie w ciągu najbliższych 1000 mil: Tak czy nie?
-* Co przynosi więcej klientów: $5 kupon lub 25% rabat?
+* Czy ten stan kończy się niepowodzeniem w ciągu następnych 1 000 kilometrów: tak lub nie?
+* Co przynosi klientom więcej klientów: $5 kupon lub rabat w wysokości 25%?
 
-To pytanie można również przeformułować, aby uwzględnić więcej niż dwie opcje: Czy to A lub B lub C lub D, itp.?  Nazywa się to klasyfikacją wieloklasową i jest to przydatne, gdy masz kilka - lub kilka tysięcy - możliwych odpowiedzi. Klasyfikacja wieloklasowa wybiera najbardziej prawdopodobną.
+To pytanie może być również zwrotne w celu uwzględnienia więcej niż dwóch opcji: to A lub B lub C lub D, itp.?  Nazywa się to klasyfikacją wieloklasową i jest przydatna, jeśli masz kilka tysięcy — możliwych odpowiedzi. Klasyfikacja wieloklasowa wybiera najprawdopodobniej jedną.
 
-## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>Pytanie 2: Czy to dziwne? wykorzystuje algorytmy wykrywania anomalii
-Następne pytanie, na które nauka o danych może odpowiedzieć, brzmi: Czy to dziwne? Na to pytanie odpowiada rodzina algorytmów zwanych wykrywaniem anomalii.
+## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>Pytanie 2: czy to brzmienia? używa algorytmów wykrywania anomalii
+Odpowiedzi na następne pytania można znaleźć na stronie: czy to brzmienia? Na to pytanie jest udzielona rodzina algorytmów o nazwie wykrywanie anomalii.
 
-![Algorytmy wykrywania anomalii: Czy to dziwne?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
+![Algorytmy wykrywania anomalii: czy to brzmienia?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
-Jeśli masz kartę kredytową, korzystasz już z wykrywania anomalii. Twoja firma obsługująca kartę kredytową analizuje wzorce zakupów, dzięki czemu może ostrzegać Cię o możliwych oszustwach. Opłaty, które są "dziwne", mogą być zakupem w sklepie, w którym zwykle nie robisz zakupów lub kupujesz niezwykle drogi przedmiot.
+Jeśli masz kartę kredytową, już korzystasz z wykrywania anomalii. Twoja firma z kartami kredytowymi analizuje Twoje wzorce zakupów, dzięki czemu mogą otrzymywać alerty o możliwym oszustwie. Opłaty za "brzmienia" mogą być zakupami w sklepie, w którym nie są zwykle kupowane ani kupowane nienormalnie.
 
 To pytanie może być przydatne na wiele sposobów. Przykład:
 
-* Jeśli masz samochód z manometrami, warto wiedzieć: Czy ten manometr odczytuje się normalnie?
-* Jeśli monitorujesz Internet, chcesz wiedzieć: Czy ta wiadomość z Internetu jest typowa?
+* Jeśli masz samochód z miernikami ciśnienia, warto wiedzieć: czy ten miernik ciśnienia jest czytelny?
+* Jeśli monitorujesz Internet, warto wiedzieć: czy ten komunikat jest typowy w Internecie?
 
-Wykrywanie anomalii oznacza nieoczekiwane lub nietypowe zdarzenia lub zachowania. Daje wskazówki, gdzie szukać problemów.
+Flagi wykrywania anomalii nieoczekiwane lub nietypowe zdarzenia lub zachowania. Zawiera wskazówki, gdzie szukać problemów.
 
-## <a name="question-3-how-much-or-how-many-uses-regression-algorithms"></a>Pytanie 3: Ile? lub Ile? używa algorytmów regresji
-Uczenie maszynowe może również przewidzieć odpowiedź na Ile? lub Ile? Rodzina algorytmów, która odpowiada na to pytanie, jest nazywana regresją.
+## <a name="question-3-how-much-or-how-many-uses-regression-algorithms"></a>Pytanie 3: ile? lub ile? używa algorytmów regresji
+Uczenie maszynowe może również przewidzieć, jak dużo? lub ile? Rodzina algorytmów, która odpowiada na to pytanie, nosi nazwę regresji.
 
-![Algorytmy regresji: Ile? lub Ile?](./media/data-science-for-beginners-the-5-questions-data-science-answers/regression-algorithms.png)
+![Algorytmy regresji: ile? lub ile?](./media/data-science-for-beginners-the-5-questions-data-science-answers/regression-algorithms.png)
 
-Algorytmy regresji tworzą prognozy numeryczne, takie jak:
+Algorytmy regresji tworzą przewidywania liczbowe, takie jak:
 
-* Jaka będzie temperatura w najbliższy wtorek?  
-* Jaka będzie moja sprzedaż w czwartym kwartale?
+* Co będzie miało przyszłe wtorku temperatury?  
+* Co to jest sprzedaż w czwartym kwartale?
 
-Pomagają odpowiedzieć na każde pytanie, które wymaga numeru.
+Pomagają odpowiedzieć na pytania, które pytają o liczbę.
 
-## <a name="question-4-how-is-this-organized-uses-clustering-algorithms"></a>Pytanie 4: Jak to jest zorganizowane? wykorzystuje algorytmy klastrowania
-Teraz dwa ostatnie pytania są nieco bardziej zaawansowane.
+## <a name="question-4-how-is-this-organized-uses-clustering-algorithms"></a>Pytanie 4: jak to jest zorganizowane? używa algorytmów klastrowania
+Teraz ostatnie dwa pytania są nieco bardziej zaawansowane.
 
-Czasami chcesz zrozumieć strukturę zestawu danych - Jak to jest zorganizowane? Na to pytanie, nie masz przykładów, które już znasz wyniki.
+Czasami chcesz zrozumieć strukturę zestawu danych — w jaki sposób jest to zorganizowane? Na potrzeby tego pytania nie masz przykładów, dla których znasz już wyniki.
 
-Istnieje wiele sposobów, aby drażnić strukturę danych. Jednym z podejść jest klastrowanie. Oddziela dane na naturalne "grudki", aby ułatwić interpretację. W klastrowaniu nie ma jednej właściwej odpowiedzi.
+Istnieje wiele sposobów teasenia struktury danych. Jednym z metod jest klastrowanie. W celu łatwiejszej interpretacji dane są oddzielane do naturalnego "clumps". W przypadku klastrowania nie ma żadnej prawej odpowiedzi.
 
-![Algorytmy klastrowania: Jak to jest zorganizowane?](./media/data-science-for-beginners-the-5-questions-data-science-answers/clustering-algorithms.png)
+![Algorytmy klastrowania: jak jest to zorganizowane?](./media/data-science-for-beginners-the-5-questions-data-science-answers/clustering-algorithms.png)
 
-Typowe przykłady pytań klastrowania to:
+Typowe przykłady pytań dotyczących klastrowania:
 
-* Którzy widzowie lubią te same typy filmów?
-* Które modele drukarek zawodzą w ten sam sposób?
+* Które osoby przeglądające lubią te same typy filmów?
+* Które modele drukarek nie działają w ten sam sposób?
 
-Dzięki zrozumieniu sposobu organizowania danych można lepiej zrozumieć i przewidzieć zachowania i zdarzenia.  
+Zrozumienie, jak zorganizowane są dane, można lepiej zrozumieć i przewidzieć zachowania oraz zdarzenia.  
 
-## <a name="question-5-what-should-i-do-now-uses-reinforcement-learning-algorithms"></a>Pytanie 5: Co mam teraz zrobić? wykorzystuje algorytmy uczenia się wzmacniania
-Ostatnie pytanie – Co mam teraz zrobić? – wykorzystuje rodzinę algorytmów zwanych uczeniem wzmacnianym.
+## <a name="question-5-what-should-i-do-now-uses-reinforcement-learning-algorithms"></a>Pytanie 5: co mam zrobić? używa algorytmów uczenia wzmocnienie
+Ostatnie pytanie — co mam zrobić teraz? — używa rodziny algorytmów o nazwie nauka wzmacniania.
 
-Uczenie się wzmacniające było inspirowane tym, jak mózgi szczurów i ludzi reagują na kary i nagrody. Algorytmy te uczą się na podstawie wyników i decydują o następnej akcji.
+Uczenie wzmacniające było inspiracją, jak mózgi szczurów i ludzi reagują na kara i nagrody. Te algorytmy uczyją się od wyników i decydują o następnej akcji.
 
-Zazwyczaj uczenie się wzmacniające jest dobrym rozwiązaniem dla zautomatyzowanych systemów, które muszą podejmować wiele małych decyzji bez wskazówek człowieka.
+Zwykle uczenie wzmacniające jest dobrym sposobem dla zautomatyzowanych systemów, które muszą podejmować wiele małych decyzji bez wytycznych ludzkich.
 
-![Algorytmy uczenia wzmacniania: Co należy zrobić dalej?](./media/data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
+![Algorytmy uczenia wzmacniania: co należy zrobić dalej?](./media/data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
 
-Pytania, na które odpowiada, zawsze dotyczą tego, jakie działania należy podjąć - zwykle przez maszynę lub robota. Oto przykłady:
+Pytania, na które odpowiedzi, są zawsze związane z tym, jakie działania powinny być wykonywane — zwykle przez maszynę lub robota. Oto przykłady:
 
-* Jeśli jestem systemem kontroli temperatury w domu: Dostosować temperaturę lub pozostawić go tam, gdzie jest?  
-* Jeśli jestem samojeżdżący samochód: Na żółtym świetle, hamulec lub przyspieszenie?  
-* W przypadku próżni robota: Kontynuuj odkurzanie lub wróć do stacji ładującej?
+* Jeśli mam system kontroli temperatury dla domu: Dostosuj temperaturę lub pozostaw to miejsce, w którym jest?  
+* Jeśli jestem samochodem samodzielnym: w żółtym oświetleniu, hamulcu lub przyspieszeniu?  
+* W przypadku próżniowej próżni: Zachowaj próżnię lub Wróć do stacji ładowania?
 
-Algorytmy uczenia wzmacniającego zbierają dane w miarę ich procesu, ucząc się na podstawie prób i błędów.
+Algorytmy uczenia wzmacniające zbierają dane w miarę ich działania, uczenie się z wersji próbnej i błędu.
 
-Więc to wszystko - 5 pytań data science może odpowiedzieć.
+W ten sposób można odpowiedzieć na 5 pytań dotyczących danych.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wypróbuj pierwszy eksperyment nauki o danych z Machine Learning Studio (klasyczny)](create-experiment.md)
-* [Wprowadzenie do uczenia maszynowego na platformie Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Zapoznaj się z wprowadzeniem do Machine Learning na Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

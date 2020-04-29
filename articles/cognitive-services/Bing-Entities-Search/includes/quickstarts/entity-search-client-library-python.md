@@ -1,5 +1,5 @@
 ---
-title: Szybki start biblioteki klienta usługi Bing Entity Search Python
+title: wyszukiwanie jednostek Bing przewodniku szybki start dla biblioteki klienta języka Python
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 03/06/2020
 ms.author: aahi
 ms.openlocfilehash: 0c0a124773eab8166806312dc47ded24e1cd841f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79136760"
 ---
-Ten przewodnik Szybki start umożliwia rozpoczęcie wyszukiwania jednostek za pomocą biblioteki klienta wyszukiwania jednostek Bing dla języka Python. Usługa Bing Entity Search ma interfejs API REST zgodny z większością języków programowania, ale biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py).
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć wyszukiwanie jednostek przy użyciu biblioteki klienta wyszukiwanie jednostek Bing dla języka Python. Chociaż wyszukiwanie jednostek Bing ma interfejs API REST zgodny z większością języków programowania, Biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -23,13 +23,13 @@ Ten przewodnik Szybki start umożliwia rozpoczęcie wyszukiwania jednostek za po
 
 * [Zestaw SDK wyszukiwania jednostek Bing dla języka Python](https://pypi.org/project/azure-cognitiveservices-search-entitysearch/)
 
-Zalecane jest użycie środowiska wirtualnego języka Python. Środowisko wirtualne możesz zainstalować i zainicjować przy użyciu modułu venv. Virtualenv można zainstalować za pomocą:
+Zalecane jest użycie środowiska wirtualnego języka Python. Środowisko wirtualne możesz zainstalować i zainicjować przy użyciu modułu venv. Możesz zainstalować virtualenv z:
 
 ```Console
 python -m venv mytestenv
 ```
 
-Zainstaluj bibliotekę klienta wyszukiwania jednostek Bing za pomocą:
+Zainstaluj wyszukiwanie jednostek Bingą bibliotekę kliencką z:
 
 ```Console
 cd mytestenv
@@ -48,7 +48,7 @@ python -m pip install azure-cognitiveservices-search-entitysearch
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
-2. Utwórz zmienną dla klucza subskrypcji i punktu końcowego. Tworzenie wystąpienia klienta przez utworzenie `CognitiveServicesCredentials` nowego obiektu za pomocą klucza.
+2. Utwórz zmienną dla klucza subskrypcji i punktu końcowego. Utwórz wystąpienie klienta, tworząc nowy `CognitiveServicesCredentials` obiekt z kluczem.
     
     ```python
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
@@ -78,6 +78,6 @@ python -m pip install azure-cognitiveservices-search-entitysearch
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Tworzenie jednostronicowej aplikacji sieci Web](../../tutorial-bing-entities-search-single-page-app.md)
+> [Tworzenie jednostronicowej aplikacji internetowej](../../tutorial-bing-entities-search-single-page-app.md)
 
 * [Czym jest interfejs API wyszukiwania jednostek Bing?](../../overview.md )

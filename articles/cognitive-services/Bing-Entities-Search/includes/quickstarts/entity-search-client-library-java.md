@@ -1,5 +1,5 @@
 ---
-title: Szybki start biblioteki klienta java wyszukiwania jednostek Bing
+title: wyszukiwanie jednostek Bing Java Client Library — Szybki Start
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,21 +9,21 @@ ms.topic: include
 ms.date: 03/06/2020
 ms.author: aahi
 ms.openlocfilehash: 8c987aa14e922573d01aa35fab609edf01e109b4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79136774"
 ---
-Ten przewodnik Szybki start umożliwia rozpoczęcie wyszukiwania jednostek w bibliotece klienta wyszukiwania jednostek Bing dla języka Java. Usługa Bing Entity Search ma interfejs API REST zgodny z większością języków programowania, ale biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć wyszukiwanie jednostek przy użyciu biblioteki klienta wyszukiwanie jednostek Bing dla środowiska Java. Chociaż wyszukiwanie jednostek Bing ma interfejs API REST zgodny z większością języków programowania, Biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Zestaw Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 
-* Biblioteka klienta wyszukiwania jednostek Bing dla języka Java
+* Biblioteka klienta wyszukiwanie jednostek Bing dla języka Java
 
-Zainstaluj zależności biblioteki klienta wyszukiwania jednostek Bing przy użyciu maven, Gradle lub innego systemu zarządzania zależnościami. Plik POM systemu Maven wymaga deklaracji:
+Zainstaluj zależności biblioteki klienta wyszukiwanie jednostek Bing przy użyciu programu Maven, Gradle lub innego systemu zarządzania zależnościami. Plik POM systemu Maven wymaga deklaracji:
 
 ```xml
 <dependency>
@@ -63,7 +63,7 @@ Zainstaluj zależności biblioteki klienta wyszukiwania jednostek Bing przy uży
 
 ## <a name="create-a-search-client"></a>Tworzenie klienta wyszukiwania
 
-1. Zaimplementuj klienta `dominantEntityLookup`, który wymaga punktu końcowego interfejsu API i wystąpienia klasy `ServiceClientCredentials`. Można użyć globalnego punktu końcowego poniżej lub niestandardowego punktu końcowego [poddomeny](../../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w witrynie Azure portal dla zasobu.
+1. Zaimplementuj klienta `dominantEntityLookup`, który wymaga punktu końcowego interfejsu API i wystąpienia klasy `ServiceClientCredentials`. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {

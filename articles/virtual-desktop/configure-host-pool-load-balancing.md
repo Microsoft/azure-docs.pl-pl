@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie równoważenia obciążenia pulpitu wirtualnego systemu Windows — Platforma Azure
+title: Konfigurowanie równoważenia obciążenia systemu Windows Virtual Desktop — Azure
 description: Jak skonfigurować metodę równoważenia obciążenia dla środowiska pulpitu wirtualnego systemu Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -9,46 +9,46 @@ ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 5d8670994791e360f5e3b30b90b4bea5d55464b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79128308"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Konfigurowanie metody równoważenia obciążenia usługi Windows Virtual Desktop
 
-Skonfigurowanie metody równoważenia obciążenia dla puli hostów umożliwia dostosowanie środowiska pulpitu wirtualnego systemu Windows do własnych potrzeb.
+Skonfigurowanie metody równoważenia obciążenia dla puli hostów umożliwia dostosowanie środowiska pulpitu wirtualnego systemu Windows w celu lepszego dopasowania do Twoich potrzeb.
 
 >[!NOTE]
-> Nie dotyczy to trwałej puli hostów pulpitu, ponieważ użytkownicy zawsze mają mapowanie 1:1 do hosta sesji w puli hostów.
+> Nie dotyczy to trwałej puli hostów komputerów stacjonarnych, ponieważ użytkownicy mają zawsze mapowanie 1:1 do hosta sesji w puli hostów.
 
-## <a name="configure-breadth-first-load-balancing"></a>Konfigurowanie równoważenia obciążenia pierwszego w zakresie szerokości
+## <a name="configure-breadth-first-load-balancing"></a>Konfigurowanie równoważenia obciążenia w pierwszej kolejności
 
-Równoważenie obciążenia po raz pierwszy jest domyślną konfiguracją dla nowych pul hostów nietrwałych. Równoważenie obciążenia o wysokiej szerokości rozdziela nowe sesje użytkowników we wszystkich dostępnych hostach sesji w puli hostów. Podczas konfigurowania równoważenia obciążenia pierwszego szerokości można ustawić maksymalny limit sesji na host sesji w puli hostów.
+Pierwsze Równoważenie obciążenia jest konfiguracją domyślną dla nowych pul hostów nietrwałych. Równoważenie obciążenia w pierwszej kolejności dystrybuuje nowe sesje użytkowników między wszystkimi dostępnymi hostami sesji w puli hostów. Podczas konfigurowania równoważenia obciążenia w pierwszej kolejności można ustawić maksymalny limit sesji dla każdego hosta sesji w puli hostów.
 
-Najpierw [pobierz i zaimportuj moduł programu Windows Virtual Desktop PowerShell](/powershell/windows-virtual-desktop/overview/) do użycia w sesji programu PowerShell, jeśli jeszcze tego nie zrobiłeś. Następnie uruchom następujące polecenie cmdlet, aby zalogować się na swoje konto:
+Najpierw [Pobierz i zaimportuj moduł programu PowerShell dla pulpitu wirtualnego systemu Windows](/powershell/windows-virtual-desktop/overview/) , który ma być używany w sesji programu PowerShell, jeśli jeszcze tego nie zrobiono. Następnie uruchom następujące polecenie cmdlet, aby zalogować się do konta:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-Aby skonfigurować pulę hostów do równoważenia obciążenia pierwszego zakresu bez dostosowywania maksymalnego limitu sesji, uruchom następujące polecenie cmdlet programu PowerShell:
+Aby skonfigurować pulę hostów do wykonywania równoważenia obciążenia w pierwszej kolejności bez dostosowywania limitu liczby sesji, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer
 ```
 
-Aby skonfigurować pulę hostów do równoważenia obciążenia pierwszego szerokości i użycia nowego maksymalnego limitu sesji, uruchom następujące polecenie cmdlet programu PowerShell:
+Aby skonfigurować pulę hostów do wykonywania równoważenia obciążenia w pierwszej kolejności i użyć nowego limitu maksymalnej liczby sesji, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer -MaxSessionLimit ###
 ```
 
-## <a name="configure-depth-first-load-balancing"></a>Konfigurowanie równoważenia obciążenia z pierwszej głębokości
+## <a name="configure-depth-first-load-balancing"></a>Konfigurowanie pierwszej równoważenia obciążenia
 
-Równoważenie obciążenia typu głębokość po pierwsze rozdziela nowe sesje użytkownika do dostępnego hosta sesji z największą liczbą połączeń, ale nie osiągnął maksymalnego progu limitu sesji. Podczas konfigurowania równoważenia obciążenia najpierw głębokość, **należy** ustawić maksymalny limit sesji na hosta sesji w puli hosta.
+Usługa Równoważenie obciążenia po raz pierwszy dystrybuuje nowe sesje użytkowników do dostępnego hosta sesji o największej liczbie połączeń, ale nie osiągnął progu limitu liczby sesji. Podczas konfigurowania równoważenia obciążenia najpierw **należy** ustawić maksymalny limit sesji dla każdego hosta sesji w puli hostów.
 
-Aby skonfigurować pulę hostów do równoważenia obciążenia po pierwsze głębokości, uruchom następujące polecenie cmdlet programu PowerShell:
+Aby skonfigurować pulę hostów do wykonywania równoważenia obciążenia w pierwszej kolejności, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -DepthFirstLoadBalancer -MaxSessionLimit ###

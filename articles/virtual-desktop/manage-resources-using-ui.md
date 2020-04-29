@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie narzędzia do zarządzania za pomocą szablonu usługi Azure Resource Manager — Azure
-description: Jak zainstalować narzędzie interfejsu użytkownika z szablonem usługi Azure Resource Manager do zarządzania zasobami pulpitu wirtualnego systemu Windows.
+title: Wdrażanie narzędzia do zarządzania z szablonem Azure Resource Manager — Azure
+description: Jak zainstalować narzędzie interfejsu użytkownika z szablonem Azure Resource Manager w celu zarządzania zasobami pulpitu wirtualnego systemu Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,103 +9,103 @@ ms.date: 01/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: dac17da4aa3d3d73ccbbc101cba4326a17fec9b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79127770"
 ---
-# <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Wdrażanie narzędzia do zarządzania za pomocą szablonu usługi Azure Resource Manager
+# <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Wdrażanie narzędzia do zarządzania przy użyciu szablonu Azure Resource Manager
 
-Instrukcje zawarte w tym artykule dowiesz się, jak wdrożyć interfejs użytkownika przy użyciu szablonu usługi Azure Resource Manager.
+Instrukcje zawarte w tym artykule przedstawiają sposób wdrażania interfejsu użytkownika przy użyciu szablonu Azure Resource Manager.
 
 ## <a name="important-considerations"></a>Istotne zagadnienia
 
-Ponieważ aplikacja wymaga zgody na interakcję z pulpitem wirtualnym systemu Windows, to narzędzie nie obsługuje scenariuszy typu Business-to-Business (B2B). Subskrypcja dzierżawy usługi Azure Active Directory (AAD) będzie wymagać własnego oddzielnego wdrożenia narzędzia do zarządzania.
+Ponieważ aplikacja wymaga zgody na współdziałanie z pulpitem wirtualnym systemu Windows, to narzędzie nie obsługuje scenariuszy biznes-to-Business (B2B). Każda subskrypcja dzierżawy usługi Azure Active Directory (AAD) będzie potrzebować oddzielnego wdrożenia narzędzia do zarządzania.
 
-To narzędzie do zarządzania jest próbką. Firma Microsoft zapewni ważne aktualizacje zabezpieczeń i jakości. [Kod źródłowy jest dostępny w usłudze GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Klienci i partnerzy są zachęcani do dostosowywania narzędzia do ich potrzeb biznesowych.
+To narzędzie do zarządzania jest przykładem. Firma Microsoft zapewni ważne aktualizacje zabezpieczeń i ich jakości. [Kod źródłowy jest dostępny w](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy)serwisie GitHub. Zachęcamy klientów i partnerów do dostosowania narzędzia do potrzeb firmy.
 
-Do następujących przeglądarek są zgodne z narzędziem do zarządzania:
-- Google Chrome 68 lub nowsze
-- Microsoft Edge 40.15063 lub nowsze
-- Mozilla Firefox 52.0 lub nowsza
-- Safari 10 lub nowsze (tylko macOS)
+Do następujących przeglądarek są zgodne narzędzia do zarządzania:
+- Google Chrome 68 lub nowsza
+- Microsoft Edge 40,15063 lub nowsza
+- Mozilla Firefox 52,0 lub nowsza
+- Przeglądarka Safari 10 lub nowsza (tylko macOS)
 
 ## <a name="what-you-need-to-deploy-the-management-tool"></a>Co jest potrzebne do wdrożenia narzędzia do zarządzania
 
-Przed wdrożeniem narzędzia do zarządzania, trzeba użytkownika usługi Azure Active Directory (Azure AD) do utworzenia rejestracji aplikacji i wdrożenia interfejsu użytkownika zarządzania. Ten użytkownik musi:
+Przed wdrożeniem narzędzia do zarządzania musisz mieć Azure Active Directory użytkownika (Azure AD), aby utworzyć rejestrację aplikacji i wdrożyć interfejs użytkownika zarządzania. Ten użytkownik musi:
 
-- Wyłączanie uwierzytelniania wieloskładnikowego usługi Azure
-- Mieć uprawnienia do tworzenia zasobów w ramach subskrypcji platformy Azure
-- Mieć uprawnienia do tworzenia aplikacji usługi Azure AD. Wykonaj następujące kroki, aby sprawdzić, czy użytkownik ma wymagane uprawnienia, postępując zgodnie z instrukcjami w [Required permissions](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Wyłączono usługę Azure Multi-Factor Authentication (MFA)
+- Masz uprawnienia do tworzenia zasobów w ramach subskrypcji platformy Azure
+- Masz uprawnienia do tworzenia aplikacji usługi Azure AD. Wykonaj następujące kroki, aby sprawdzić, czy użytkownik ma wymagane uprawnienia, postępując zgodnie z instrukcjami w obszarze [wymagane uprawnienia](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
-Po wdrożeniu i skonfigurowaniu narzędzia do zarządzania zaleca się poprosić użytkownika o uruchomienie interfejsu użytkownika zarządzania, aby upewnić się, że wszystko działa. Użytkownik uruchamiany interfejsu użytkownika zarządzania musi mieć przypisanie roli, które umożliwia mu wyświetlanie lub edytowanie dzierżawy pulpitu wirtualnego systemu Windows.
+Po wdrożeniu i skonfigurowaniu narzędzia do zarządzania zalecamy poproszenie użytkownika o uruchomienie interfejsu użytkownika zarządzania, aby upewnić się, że wszystko działa. Użytkownik, który uruchamia interfejs użytkownika zarządzania, musi mieć przypisanie roli, które umożliwia im wyświetlanie lub edytowanie dzierżawy pulpitów wirtualnych systemu Windows.
 
 ## <a name="deploy-the-management-tool"></a>Wdrażanie narzędzia do zarządzania
 
-Przed rozpoczęciem upewnij się, że serwer i aplikacje klienckie mają zgodę, odwiedzając [stronę zgody pulpitu wirtualnego systemu Windows](https://rdweb.wvd.microsoft.com) dla reprezentowanego usługi Azure Active Directory (AAD).
+Przed rozpoczęciem upewnij się, że aplikacje serwera i klienta mają zgodę, odwiedzając [stronę zgody na pulpit wirtualny systemu Windows](https://rdweb.wvd.microsoft.com) dla reprezentowanego Azure Active Directory (AAD).
 
-Postępuj zgodnie z poniższymi instrukcjami, aby wdrożyć szablon zarządzania zasobami platformy Azure:
+Postępuj zgodnie z poniższymi instrukcjami, aby wdrożyć szablon usługi Azure Resource Management:
 
-1. Przejdź do [strony Szablony usług pulpitu zdalnego platformy GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
-2. Wdrażanie szablonu na platformie Azure.
-    - Jeśli wdrażasz w ramach subskrypcji enterprise, przewiń w dół i wybierz **pozycję Wdrażanie na platformie Azure**. 
-    - Jeśli wdrażasz w subskrypcji dostawcy rozwiązań w chmurze, postępuj zgodnie z tymi instrukcjami, aby wdrożyć na platformie Azure:
-        1. Przewiń w dół i kliknij prawym przyciskiem myszy **pozycję Wdrażanie na platformie Azure,** a następnie wybierz pozycję **Kopiuj lokalizację łącza**.
-        2. Otwórz edytor tekstu, taki jak Notatnik, i wklej tam link.
-        3. Zaraz <https://portal.azure.com/> po i przed hasztagiem (#) wprowadź znak (@), a następnie nazwę domeny dzierżawy. Oto przykład formatu: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
-        4. Zaloguj się do witryny Azure portal jako użytkownik z uprawnieniami administratora/współautora do subskrypcji dostawcy rozwiązań w chmurze.
-        5. Wklej skopiowane łącze do edytora tekstu na pasku adresu.
-3. Podczas wprowadzania parametrów wykonaj następujące czynności:
-    - Dla parametru **isServicePrincipal** **wybierz**false .
-    - W przypadku poświadczeń wprowadź poświadczenia usługi Azure AD z wyłączonym uwierzytelnianiem wieloskładnikowym. Te poświadczenia będą używane do tworzenia aplikacji usługi Azure AD i zasobów platformy Azure. Aby dowiedzieć się więcej, zobacz [co jest potrzebne do wdrożenia narzędzia do zarządzania](#what-you-need-to-deploy-the-management-tool).
-    - W przypadku **aplikacjiName**użyj unikatowej nazwy aplikacji, która zostanie zarejestrowana w usłudze Azure Active Directory. Ta nazwa będzie również używana dla adresu URL aplikacji internetowej. Na przykład można użyć nazwy takiej jak "Apr3UX".
-4. Po podaniu parametrów zaakceptuj warunki i wybierz **opcję Kup**.
+1. Przejdź do [strony usługi GitHub Azure RDS-templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
+2. Wdróż szablon na platformie Azure.
+    - Jeśli wdrażasz w ramach subskrypcji przedsiębiorstwa, przewiń w dół i wybierz pozycję **Wdróż na platformie Azure**. 
+    - Jeśli wdrażasz w ramach subskrypcji dostawcy rozwiązań w chmurze, postępuj zgodnie z poniższymi instrukcjami, aby wdrożyć platformę Azure:
+        1. Przewiń w dół i kliknij prawym przyciskiem myszy pozycję **Wdróż na platformie Azure**, a następnie wybierz pozycję **Kopiuj lokalizację linku**.
+        2. Otwórz Edytor tekstu, taki jak Notatnik, i Wklej tam link.
+        3. Po <https://portal.azure.com/> prawej stronie i przed wystąpieniem programu (#) wprowadź znak (@), a po nim nazwę domeny dzierżawy. Oto przykład formatu: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
+        4. Zaloguj się do Azure Portal jako użytkownik z uprawnieniami administratora/współautora do subskrypcji dostawcy rozwiązań w chmurze.
+        5. Wklej skopiowany link do edytora tekstu na pasku adresu.
+3. Wprowadzając parametry, wykonaj następujące czynności:
+    - Dla parametru **isServicePrincipal** wybierz **wartość false**.
+    - W polu poświadczenia wprowadź poświadczenia usługi Azure AD z wyłączonym uwierzytelnianiem wieloskładnikowym. Te poświadczenia będą używane do tworzenia aplikacji usługi Azure AD i zasobów platformy Azure. Aby dowiedzieć się więcej, zobacz temat [czego potrzebujesz do wdrożenia narzędzia do zarządzania](#what-you-need-to-deploy-the-management-tool).
+    - Dla programu **ApplicationName**Użyj unikatowej nazwy aplikacji, która zostanie zarejestrowana w Azure Active Directory. Ta nazwa będzie również używana dla adresu URL aplikacji sieci Web. Można na przykład użyć nazwy takiej jak "Apr3UX".
+4. Po podaniu parametrów Zaakceptuj warunki i postanowienia, a następnie wybierz pozycję **Kup**.
 
-## <a name="provide-consent-for-the-management-tool"></a>Zgoda na narzędzie zarządzania
+## <a name="provide-consent-for-the-management-tool"></a>Wyrażanie zgody na narzędzie do zarządzania
 
-Po zakończeniu szablonu Usługi Azure Resource Manager usługi GitHub znajdziesz grupę zasobów zawierającą dwie usługi aplikacji wraz z jednym planem usługi aplikacji w witrynie Azure portal.
+Po zakończeniu szablonu Azure Resource Manager GitHub znajdziesz grupę zasobów zawierającą dwie usługi aplikacji wraz z jednym planem usługi App Service w Azure Portal.
 
-Przed zalogowaniem się i korzystanie z narzędzia do zarządzania, należy udzielić zgody na nową aplikację usługi Azure AD skojarzone z narzędziem do zarządzania. Udzielanie zgody umożliwia narzędziu do zarządzania pulpitem wirtualnym systemu Windows wywołania w imieniu użytkownika aktualnie zalogowanego do narzędzia.
+Przed zalogowaniem się i użyciem narzędzia do zarządzania należy wyrazić zgodę na nową aplikację usługi Azure AD skojarzoną z narzędziem do zarządzania. Udostępnienie zgody pozwala narzędziu do zarządzania wykonywać wywołania Zarządzanie pulpitami wirtualnymi systemu Windows w imieniu użytkownika, który jest aktualnie zalogowany do narzędzia.
 
-![Zrzut ekranu przedstawiający uprawnienia udostępniane podczas wyrażania zgody na narzędzie do zarządzania interfejsem użytkownika.](media/management-ui-delegated-permissions.png)
+![Zrzut ekranu przedstawiający uprawnienia podane podczas wyrażania zgody na narzędzie do zarządzania interfejsami użytkownika.](media/management-ui-delegated-permissions.png)
 
-Aby ustalić, którego użytkownika można użyć do zalogowania się do narzędzia, przejdź do [strony ustawień użytkownika usługi Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) i zanotuj wartość, na jaką **użytkownicy mogą wyrazić zgodę**na dostęp do danych firmy w ich imieniu.
+Aby określić, którego użytkownika możesz użyć do zalogowania się do narzędzia, przejdź do [strony Ustawienia użytkownika Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) i zanotuj wartość dla **użytkowników, którzy będą mogli wyrazić zgodę na aplikacje uzyskujące dostęp do danych firmy w ich imieniu**.
 
-![Zrzut ekranu pokazujący, czy użytkownicy mogą udzielić zgody na aplikacje tylko dla swojego użytkownika.](media/management-ui-user-consent-allowed.png)
+![Zrzut ekranu przedstawiający, czy użytkownicy mogą udzielać zgody na aplikacje dla samego użytkownika.](media/management-ui-user-consent-allowed.png)
 
-- Jeśli wartość jest ustawiona na **Tak,** możesz zalogować się przy dowolnym koncie użytkownika w usłudze Azure Active Directory i udzielić zgody tylko dla tego użytkownika. Jeśli jednak zalogujesz się do narzędzia do zarządzania z innym użytkownikiem później, musisz ponownie wykonać tę samą zgodę.
-- Jeśli wartość jest ustawiona na **Nie,** musisz zalogować się jako administrator globalny w usłudze Azure Active Directory i udzielić zgody administratora wszystkim użytkownikom w katalogu. Żaden inny użytkownik nie będzie musiał zostać wyświetlony monit o zgodę.
+- Jeśli wartość jest równa **tak**, możesz zalogować się przy użyciu dowolnego konta użytkownika w Azure Active Directory i zapewnić zgodę tylko dla tego użytkownika. Jednak w przypadku zalogowania się do narzędzia do zarządzania z innym użytkownikiem później należy ponownie wykonać tę samą zgodę.
+- Jeśli wartość jest równa **no**, należy zalogować się jako Administrator globalny w Azure Active Directory i zapewnić zgodę administratora dla wszystkich użytkowników w katalogu. Żaden inny użytkownik nie będzie monitowany na monit o wyrażenie zgody.
 
 
-Gdy zdecydujesz, którego użytkownika użyjesz do wyrażenia zgody, postępuj zgodnie z poniższymi instrukcjami, aby wyrazić zgodę na to narzędzie:
+Po podjęciu decyzji o tym, którego użytkownika będziesz używać, aby wyrazić zgodę, postępuj zgodnie z tymi instrukcjami, aby wyrazić zgodę na narzędzie:
 
-1. Przejdź do zasobów platformy Azure, wybierz zasób usługi Azure App Services o nazwie podanej w szablonie (na przykład Apr3UX) i przejdź do skojarzonego z nim adresu URL; na przykład <https://rdmimgmtweb-210520190304.azurewebsites.net>.
-2. Zaloguj się przy użyciu odpowiedniego konta użytkownika usługi Azure Active Directory.
-3. Jeśli uwierzytelniony u administratora globalnego, można teraz zaznaczyć pole wyboru **Zgoda w imieniu organizacji**. Wybierz **pozycję Zaakceptuj,** aby wyrazić zgodę.
+1. Przejdź do zasobów platformy Azure, wybierz zasób App Services platformy Azure o nazwie podanej w szablonie (na przykład Apr3UX) i przejdź do adresu URL skojarzonego z nim. na przykład <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+2. Zaloguj się przy użyciu odpowiedniego konta użytkownika Azure Active Directory.
+3. W przypadku uwierzytelnienia za pomocą administratora globalnego możesz teraz zaznaczyć pole wyboru, aby **wyrazić zgodę w imieniu organizacji**. Wybierz pozycję **Akceptuj** , aby wyrazić zgodę.
    
-   ![Zrzut ekranu przedstawiający stronę pełnej zgody, którą zobaczy użytkownik lub administrator.](media/management-ui-consent-page.png)
+   ![Zrzut ekranu przedstawiający stronę pełna zgoda, którą zobaczy użytkownik lub administrator.](media/management-ui-consent-page.png)
 
-Spowoduje to teraz, że przejdziesz do narzędzia do zarządzania.
+Spowoduje to przejście do narzędzia do zarządzania.
 
 ## <a name="use-the-management-tool"></a>Korzystanie z narzędzia do zarządzania
 
-Po udzieleniu zgody dla organizacji lub dla określonego użytkownika, można uzyskać dostęp do narzędzia do zarządzania w dowolnym momencie.
+Po udzieleniu zgody na organizację lub dla określonego użytkownika można w dowolnym momencie uzyskać dostęp do narzędzia do zarządzania.
 
-Aby uruchomić narzędzie, wykonaj następujące instrukcje:
+Postępuj zgodnie z poniższymi instrukcjami, aby uruchomić narzędzie:
 
-1. Wybierz zasób usługi Azure App Services o nazwie podanej w szablonie (na przykład Apr3UX) i przejdź do skojarzonego z nim adresu URL; na przykład <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+1. Wybierz zasób App Services platformy Azure o nazwie podanej w szablonie (na przykład Apr3UX) i przejdź do adresu URL skojarzonego z nim. na przykład <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Zaloguj się przy użyciu poświadczeń pulpitu wirtualnego systemu Windows.
-3. Po wyświetleniu monitu o wybranie grupy dzierżawy wybierz z listy rozwijanej pozycję **Domyślna grupa dzierżawców.**
-4. Po wybraniu **domyślnej grupy dzierżawy**po lewej stronie okna powinno pojawić się menu. W tym menu znajdź nazwę grupy dzierżawy i wybierz ją.
+3. Po wyświetleniu monitu o wybranie grupy dzierżawców wybierz z listy rozwijanej pozycję **Domyślna grupa dzierżawców** .
+4. Po wybraniu **domyślnej grupy dzierżawców**menu powinno być wyświetlane po lewej stronie okna. W tym menu Znajdź nazwę grupy dzierżawców i wybierz ją.
   
   > [!NOTE]
-  > Jeśli masz niestandardową grupę dzierżawy, wprowadź ją ręcznie, zamiast wybierać ją z listy rozwijanej.
+  > Jeśli masz niestandardową grupę dzierżawców, wprowadź nazwę ręcznie zamiast wybierać ją z listy rozwijanej.
 
 ## <a name="report-issues"></a>Zgłaszanie problemów
 
-Jeśli natkniesz się na jakiekolwiek problemy z narzędziem do zarządzania lub innymi narzędziami pulpitu wirtualnego systemu Windows, postępuj zgodnie ze [wskazówkami w szablonach usługi Azure Resource Manager dla usług pulpitu zdalnego,](https://github.com/Azure/RDS-Templates/blob/master/README.md) aby zgłosić je w usłudze GitHub.
+Jeśli występują problemy z narzędziem do zarządzania lub innymi narzędziami pulpitu wirtualnego systemu Windows, postępuj zgodnie z instrukcjami w temacie [Azure Resource Manager templates for usługi pulpitu zdalnego](https://github.com/Azure/RDS-Templates/blob/master/README.md) , aby zgłosić je w serwisie GitHub.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy już wiesz, jak wdrożyć i połączyć się z narzędziem do zarządzania, możesz dowiedzieć się, jak korzystać z pomocy usługi Azure do monitorowania problemów z usługami i poradatoriów kondycji. Aby dowiedzieć się więcej, zobacz nasz [samouczek Konfigurowanie alertów usługi](./set-up-service-alerts.md).
+Teraz, gdy wiesz już, jak wdrożyć narzędzie do zarządzania i połączyć się z nim, możesz dowiedzieć się, jak za pomocą usługi platformy Azure monitorować problemy z usługami i klasyfikatory kondycji. Aby dowiedzieć się więcej, zobacz [Samouczek dotyczący konfigurowania alertów usługi](./set-up-service-alerts.md).

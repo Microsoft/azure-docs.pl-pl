@@ -1,6 +1,6 @@
 ---
-title: Analiza dziennika diagnostyki pulpitu wirtualnego systemu Windows — platforma Azure
-description: Jak korzystać z analizy dzienników za pomocą funkcji diagnostyki pulpitu wirtualnego systemu Windows.
+title: Analiza dzienników diagnostyki usług pulpitu wirtualnego systemu Windows — Azure
+description: Jak używać usługi log Analytics z funkcją diagnostyki pulpitu wirtualnego systemu Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,67 +9,67 @@ ms.date: 12/18/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 355acb081afef8c78cdf971c7a82acdb91ab5593
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79127925"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature"></a>Korzystanie z usługi Log Analytics dla funkcji diagnostycznej
+# <a name="use-log-analytics-for-the-diagnostics-feature"></a>Użyj Log Analytics dla funkcji diagnostyki
 
-Pulpit wirtualny systemu Windows oferuje funkcję diagnostyczną, która umożliwia administratorowi identyfikowanie problemów za pośrednictwem jednego interfejsu. Ta funkcja rejestruje informacje diagnostyczne za każdym razem, gdy ktoś przypisany do roli pulpitu wirtualnego systemu Windows korzysta z usługi. Każdy dziennik zawiera informacje o roli pulpitu wirtualnego systemu Windows, która była zaangażowana w działanie, wszelkie komunikaty o błędach wyświetlane podczas sesji, informacje o dzierżawie i informacje o użytkowniku. Funkcja diagnostyki tworzy dzienniki aktywności dla akcji użytkownika i administracyjnych. Każdy dziennik aktywności należy do trzech głównych kategorii: 
+Pulpit wirtualny systemu Windows oferuje funkcję diagnostyki, która umożliwia administratorowi identyfikowanie problemów za pomocą jednego interfejsu. Ta funkcja rejestruje informacje diagnostyczne za każdym razem, gdy ktoś przypisany do roli pulpitu wirtualnego systemu Windows używa usługi. Każdy dziennik zawiera informacje o tym, które role pulpitu wirtualnego systemu Windows dotyczyły działania, wszystkich komunikatów o błędach, które pojawiają się podczas sesji, informacje o dzierżawie i informacje o użytkowniku. Funkcja diagnostyki tworzy dzienniki aktywności zarówno dla użytkownika, jak i akcji administracyjnych. Każdy dziennik aktywności znajduje się poniżej trzech głównych kategorii: 
 
-- Działania związane z subskrypcją pliku danych: gdy użytkownik próbuje połączyć się z kanałem informacyjnym za pośrednictwem aplikacji pulpitu zdalnego firmy Microsoft.
-- Działania połączenia: gdy użytkownik próbuje połączyć się z pulpitem lub aplikacją RemoteApp za pośrednictwem aplikacji pulpitu zdalnego firmy Microsoft.
-- Działania związane z zarządzaniem: gdy administrator wykonuje operacje zarządzania w systemie, takie jak tworzenie pul hostów, przypisywanie użytkowników do grup aplikacji i tworzenie przypisań ról.
+- Działania subskrypcji kanału informacyjnego: gdy użytkownik próbuje nawiązać połączenie ze źródłem danych za pomocą aplikacji Pulpit zdalny Microsoft.
+- Działania połączenia: Kiedy użytkownik próbuje nawiązać połączenie z pulpitem lub funkcją RemoteApp za pomocą aplikacji Pulpit zdalny Microsoft.
+- Działania związane z zarządzaniem: w przypadku wykonywania przez administratora operacji zarządzania w systemie, takich jak tworzenie pul hostów, przypisywanie użytkowników do grup aplikacji i tworzenie przypisań ról.
 
-Połączenia, które nie docierają do pulpitu wirtualnego systemu Windows, nie będą wyświetlane w wynikach diagnostyki, ponieważ sama usługa roli diagnostyki jest częścią pulpitu wirtualnego systemu Windows. Problemy z połączeniem pulpitu wirtualnego systemu Windows mogą wystąpić, gdy użytkownik doświadcza problemów z łącznością sieciową.
+Połączenia, które nie docierają do pulpitu wirtualnego systemu Windows, nie będą wyświetlane w wynikach diagnostyki, ponieważ sama usługa roli diagnostyki jest częścią pulpitu wirtualnego systemu Windows. Problemy z połączeniem pulpitu wirtualnego systemu Windows mogą wystąpić, gdy użytkownik napotyka problemy z łącznością sieciową.
 
-## <a name="why-you-should-use-log-analytics"></a>Dlaczego warto korzystać z usługi Log Analytics
+## <a name="why-you-should-use-log-analytics"></a>Dlaczego należy używać Log Analytics
 
-Zaleca się użycie usługi Log Analytics do analizowania danych diagnostycznych na kliencie platformy Azure, które wykraczają poza rozwiązywanie problemów z jednym użytkownikiem. Jak można ciągnąć liczniki wydajności maszyn wirtualnych do usługi Log Analytics masz jedno narzędzie do zbierania informacji dla wdrożenia.
+Zalecamy używanie Log Analytics do analizowania danych diagnostycznych w kliencie platformy Azure, które wykraczają poza Rozwiązywanie problemów z pojedynczym użytkownikiem. Jak można ściągnąć liczniki wydajności maszyn wirtualnych do Log Analytics masz jedno narzędzie do zbierania informacji dla wdrożenia.
 
 ## <a name="before-you-get-started"></a>Przed rozpoczęciem
 
-Aby można było korzystać z usługi Log Analytics z funkcją diagnostyki, należy [utworzyć obszar roboczy](../azure-monitor/learn/quick-collect-windows-computer.md#create-a-workspace).
+Aby można było używać Log Analytics z funkcją diagnostyki, należy [utworzyć obszar roboczy](../azure-monitor/learn/quick-collect-windows-computer.md#create-a-workspace).
 
-Po utworzeniu obszaru roboczego postępuj zgodnie z instrukcjami w [obszarze Łączenie komputerów z systemem Windows z monitorem Azure,](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) aby uzyskać następujące informacje: 
+Po utworzeniu obszaru roboczego postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem Windows, aby Azure monitor](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) uzyskać następujące informacje: 
 
 - Identyfikator obszaru roboczego
 - Klucz podstawowy obszaru roboczego
 
-Te informacje będą potrzebne w dalszej części procesu instalacji.
+Te informacje będą potrzebne później w procesie instalacji.
 
 ## <a name="push-diagnostics-data-to-your-workspace"></a>Wypychanie danych diagnostycznych do obszaru roboczego 
 
-Dane diagnostyczne z dzierżawy pulpitu wirtualnego systemu Windows można wypchnąć do analizy dzienników dla obszaru roboczego. Tę funkcję można skonfigurować od razu podczas pierwszego tworzenia dzierżawy, łącząc obszar roboczy z dzierżawą lub można ją później skonfigurować w istniejącej dzierżawie.
+Możesz wypchnąć dane diagnostyczne z dzierżawy pulpitu wirtualnego systemu Windows do Log Analytics obszaru roboczego. Tę funkcję można skonfigurować od razu w momencie utworzenia dzierżawy przez połączenie obszaru roboczego z dzierżawcą lub można skonfigurować go później przy użyciu istniejącej dzierżawy.
 
-Aby połączyć dzierżawę z obszarem roboczym usługi Log Analytics podczas konfigurowania nowej dzierżawy, uruchom następujące polecenie cmdlet, aby zalogować się do pulpitu wirtualnego systemu Windows za pomocą konta użytkownika TenantCreator: 
+Aby połączyć dzierżawcę z obszarem roboczym Log Analytics podczas konfigurowania nowej dzierżawy, uruchom następujące polecenie cmdlet, aby zalogować się do pulpitu wirtualnego systemu Windows przy użyciu konta użytkownika TenantCreator: 
 
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com 
 ```
 
-Jeśli zamierzasz połączyć istniejącą dzierżawę zamiast nowej dzierżawy, uruchom zamiast tego polecenie cmdlet: 
+Jeśli chcesz połączyć istniejącą dzierżawę zamiast nowej dzierżawy, Uruchom to polecenie cmdlet w zamian: 
 
 ```powershell
 Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String> 
 ```
 
-Musisz uruchomić te polecenia cmdlet dla każdej dzierżawy, którą chcesz połączyć z usługi Log Analytics. 
+Należy uruchomić te polecenia cmdlet dla każdej dzierżawy, do której chcesz połączyć Log Analytics. 
 
 >[!NOTE]
->Jeśli nie chcesz łączyć obszaru roboczego usługi Log Analytics podczas `New-RdsTenant` tworzenia dzierżawy, uruchom polecenie cmdlet. 
+>Jeśli nie chcesz połączyć obszaru roboczego Log Analytics podczas tworzenia dzierżawy, uruchom `New-RdsTenant` polecenie cmdlet zamiast tego. 
 
-## <a name="cadence-for-sending-diagnostic-events"></a>Rytm wysyłania zdarzeń diagnostycznych
+## <a name="cadence-for-sending-diagnostic-events"></a>Erze do wysyłania zdarzeń diagnostycznych
 
-Zdarzenia diagnostyczne są wysyłane do usługi Log Analytics po zakończeniu.  
+Zdarzenia diagnostyczne są wysyłane do Log Analytics po zakończeniu.  
 
 ## <a name="example-queries"></a>Przykładowe zapytania
 
-Poniższe przykładowe kwerendy pokazują, jak funkcja diagnostyki generuje raport dla najczęstszych działań w systemie:
+Poniższe przykładowe zapytania pokazują, jak funkcja diagnostyki generuje raport dla najbardziej częstych działań w systemie:
 
-W tym pierwszym przykładzie pokazano działania połączeń inicjowane przez użytkowników z obsługiwanymi klientami pulpitu zdalnego:
+W pierwszym przykładzie przedstawiono działania połączenia zainicjowane przez użytkowników z obsługiwanymi klientami pulpitu zdalnego:
 
 ```powershell
 WVDActivityV1_CL 
@@ -95,7 +95,7 @@ WVDActivityV1_CL
 |project-away ActivityId_g, ActivityId_g1 
 ```
 
-W tym następnym przykładzie kwerendy pokazano działania zarządzania przez administratorów na dzierżawców:
+W następnym przykładzie zapytanie ukazuje działania związane z zarządzaniem według administratorów w dzierżawcach:
 
 ```powershell
 WVDActivityV1_CL 
@@ -121,16 +121,16 @@ WVDActivityV1_CL
 |project-away ActivityId_g, ActivityId_g1 
 ```
  
-## <a name="stop-sending-data-to-log-analytics"></a>Zatrzymywać wysyłanie danych do usługi Log Analytics 
+## <a name="stop-sending-data-to-log-analytics"></a>Zatrzymaj wysyłanie danych do Log Analytics 
 
-Aby zatrzymać wysyłanie danych z istniejącej dzierżawy do usługi Log Analytics, uruchom następujące polecenie cmdlet i ustaw puste ciągi:
+Aby zatrzymać wysyłanie danych z istniejącej dzierżawy do Log Analytics, uruchom następujące polecenie cmdlet i ustaw puste ciągi:
 
 ```powershell
 Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String> 
 ```
 
-Musisz uruchomić to polecenie cmdlet dla każdej dzierżawy, z której chcesz zatrzymać wysyłanie danych. 
+Należy uruchomić to polecenie cmdlet dla każdej dzierżawy, z której ma zostać zatrzymane wysyłanie danych. 
 
 ## <a name="next-steps"></a>Następne kroki 
 
-Aby przejrzeć typowe scenariusze błędów, które funkcja diagnostyki może zidentyfikować dla Ciebie, zobacz [Identyfikowanie i diagnozowanie problemów](diagnostics-role-service.md#common-error-scenarios).
+Aby zapoznać się z typowymi scenariuszami błędów, które mogą identyfikować funkcja diagnostyki, zobacz [Identyfikowanie i diagnozowanie problemów](diagnostics-role-service.md#common-error-scenarios).

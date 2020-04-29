@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: wypróbuj moderatora zawartości w internecie - Moderator zawartości'
+title: 'Szybki Start: Wypróbuj Content Moderator w sieci Web — Content Moderator'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start użyjesz narzędzia content moderatora do testowania podstawowych funkcji moderatora zawartości bez konieczności pisania kodu.
+description: W tym przewodniku szybki start użyjesz narzędzia do przeglądu Content Moderator w trybie online, aby przetestować podstawowe funkcje Content Moderator bez konieczności pisania kodu.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,77 +11,77 @@ ms.topic: quickstart
 ms.date: 03/13/2020
 ms.author: pafarley
 ms.openlocfilehash: 666b70ba8b632cb2cadf20de384e3e615acb2b3d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79203579"
 ---
-# <a name="quickstart-try-content-moderator-on-the-web"></a>Szybki start: wypróbuj moderatora zawartości w internecie
+# <a name="quickstart-try-content-moderator-on-the-web"></a>Szybki Start: Wypróbuj Content Moderator w sieci Web
 
-W tym przewodniku Szybki start użyjesz internetowego narzędzia content moderatora do testowania podstawowych funkcji moderatora zawartości bez konieczności pisania kodu. Jeśli chcesz szybciej zintegrować tę usługę z aplikacją, zobacz inne przewodniki Szybki start w sekcji [Następne kroki.](#next-steps)
+W tym przewodniku szybki start użyjesz narzędzia do przeglądu Content Moderator w trybie online, aby przetestować podstawowe funkcje Content Moderator bez konieczności pisania kodu. Jeśli chcesz szybciej zintegrować tę usługę z aplikacją, zobacz inne Przewodniki Szybki Start w sekcji [następne kroki](#next-steps) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Przeglądarka internetowa
+- Przeglądarka sieci Web
 
-## <a name="set-up-the-review-tool"></a>Konfigurowanie narzędzia do przeglądania
-Narzędzie Content Moderator Review to internetowe narzędzie, które umożliwia recenzentom ludzkim pomoc w podejmowaniu decyzji przez służby poznawcze. W tym przewodniku przejdziesz przez krótki proces konfigurowania narzędzia do recenzji, aby zobaczyć, jak działa usługa Content Moderator. Przejdź do [witryny narzędzi content moderatora i](https://contentmoderator.cognitive.microsoft.com/) zarejestruj się.
+## <a name="set-up-the-review-tool"></a>Konfigurowanie narzędzia do przeglądu
+Narzędzie do przeglądu Content Moderator jest narzędziem opartym na sieci Web, które pozwala recenzentom ludzkim ułatwić korzystanie z usługi poznawczej w podejmowaniu decyzji. W tym przewodniku przedstawiono krótki proces konfigurowania narzędzia do przeglądu, dzięki któremu można zobaczyć, jak działa usługa Content Moderator. Przejdź do witryny [Narzędzia do przeglądu Content moderator](https://contentmoderator.cognitive.microsoft.com/) i Utwórz konto.
 
-![Strona główna moderatora zawartości](images/homepage.PNG)
+![Strona główna Content Moderator](images/homepage.PNG)
 
 ## <a name="create-a-review-team"></a>Tworzenie zespołu do przeprowadzania przeglądu
 
-Następnie utwórz zespół recenzentów. W scenariuszu pracy będzie to grupa osób, które ręcznie przejmą decyzje dotyczące moderacji usługi. Aby utworzyć zespół, musisz wybrać **region**i podać **nazwę zespołu** i **identyfikator zespołu.** Jeśli chcesz zaprosić kolegów do zespołu, możesz to zrobić, wprowadzając ich adresy e-mail tutaj.
+Następnie utwórz zespół recenzji. W scenariuszu roboczym będzie to grupa osób, które będą ręcznie sprawdzać decyzje o moderowaniu usługi. Aby utworzyć zespół, należy wybrać **region**i podać **nazwę zespołu** i **Identyfikator zespołu**. Jeśli chcesz zaprosić współpracowników do zespołu, możesz to zrobić, wprowadzając tutaj ich adresy e-mail.
 
 > [!NOTE]
-> **Nazwa zespołu** to przyjazna nazwa dla zespołu recenzentów. Jest to nazwa wyświetlana w witrynie Azure portal. Identyfikator **zespołu** jest to, co jest używane do identyfikacji zespołu przeglądu programowo.
+> **Nazwa zespołu** jest przyjazną nazwą Twojego zespołu ds. recenzji. Jest to nazwa wyświetlana w Azure Portal. **Identyfikator zespołu** jest używany do identyfikowania zespołu recenzji programowo.
 
 > [!div class="mx-imgBorder"]
 > ![Zaproś członka zespołu](images/create-team.png)
 
-Jeśli zdecydujesz się szyfrować dane przy użyciu klucza zarządzanego przez klienta (CMK), zostanie wyświetlony monit o **identyfikator zasobu Resource** Moderator dla zasobu w warstwie cenowej E0. Zasób, który podasz musi być nowy. 
+Jeśli zdecydujesz się na szyfrowanie danych przy użyciu klucza zarządzanego przez klienta (CMK), zostanie wyświetlony monit o podanie **identyfikatora zasobu** dla zasobu Content moderator w warstwie cenowej E0. Zasób, który należy podać, musi być nowy. 
 
 > [!div class="mx-imgBorder"]
-> ![Zaproś członka zespołu z CMK](images/create-team-cmk.png)
+> ![Zapraszanie członka zespołu za pomocą CMK](images/create-team-cmk.png)
 
-Jeśli spróbujesz ponownie użyć zasobu Moderatora zawartości, zobaczysz to ostrzeżenie: 
+Jeśli spróbujesz ponownie użyć zasobu Content Moderator, zobaczysz następujące ostrzeżenie: 
 
 > [!div class="mx-imgBorder"]
-> ![Awaria cmk](images/create-team-cmk-fail.png)
+> ![Niepowodzenie CMK](images/create-team-cmk-fail.png)
 
-## <a name="upload-sample-content"></a>Przekazywanie przykładowej zawartości
+## <a name="upload-sample-content"></a>Przekaż przykładową zawartość
 
-Teraz możesz przesłać przykładową zawartość. Wybierz **pozycję Wypróbuj > obraz,** Spróbuj > **tekst**lub Spróbuj **> wideo**.
+Teraz wszystko jest gotowe do przekazania przykładowej zawartości. Wybierz pozycję **wypróbuj > obraz**, **spróbuj > tekst**lub **spróbuj > wideo**.
 
 ![Wypróbuj moderowanie obrazu lub tekstu](images/tryimagesortext.png)
 
-Prześlij zawartość w celu moderowania. Wewnętrznie narzędzie do przeglądania wywoła interfejsy API moderowania w celu skanowania zawartości. Po zakończeniu skanowania zostanie wyświetlony komunikat informujący o wynikach oczekiwania na sprawdzenie.
+Prześlij zawartość pod kątem moderowania. Wewnętrznie narzędzie do przeglądu wywoła interfejsy API moderowania do skanowania zawartości. Po zakończeniu skanowania zobaczysz komunikat informujący o tym, że wyniki czekają na przegląd.
 
-![Moderowanie plików](images/submitted.png)
+![Pliki umiarkowane](images/submitted.png)
 
-## <a name="review-moderation-tags"></a>Przeglądanie tagów moderowania
+## <a name="review-moderation-tags"></a>Przejrzyj Tagi moderowania
 
-Przejrzyj zastosowane tagi moderowania. Możesz sprawdzić, które tagi zostały zastosowane do Twoich treści i jaki był wynik w każdej kategorii. Zobacz tematy [moderowania obrazów,](image-moderation-api.md) [tekstu](text-moderation-api.md)i [wideo,](video-moderation-api.md) aby dowiedzieć się więcej o tym, co wskazują różne tagi zawartości.
+Przejrzyj zastosowane znaczniki moderowania. Możesz zobaczyć, które Tagi zostały zastosowane do zawartości, i co to jest wynik w każdej kategorii. Zobacz tematy dotyczące moderowania [obrazów](image-moderation-api.md), [tekstu](text-moderation-api.md)i [wideo](video-moderation-api.md) , aby dowiedzieć się więcej na temat tego, co wskazuje różne Tagi zawartości.
 
 ![Przegląd wyników](images/reviewresults_text.png)
 
-W projekcie ty lub twój zespół recenzentów możesz zmienić te tagi lub dodać więcej tagów w razie potrzeby. Te zmiany zostaną przesłane za pomocą przycisku **Dalej.** Gdy aplikacja biznesowa wywołuje interfejsy API moderatora, oznaczona zawartość będzie w kolejce tutaj, gotowa do sprawdzenia przez zespoły przeglądu ludzkiego. Dzięki temu podejściu można szybko przejrzeć duże ilości zawartości.
+W projekcie ty lub Twój zespół recenzji może zmienić te znaczniki lub dodać więcej tagów w razie potrzeb. Te zmiany zostaną przesłane przy użyciu przycisku **dalej** . Ponieważ aplikacja biznesowa wywołuje interfejsy API moderatora, otagowana zawartość będzie w tym miejscu gotowa do przejrzenia przez zespoły przeglądów ludzkich. Możesz szybko przejrzeć duże ilości zawartości przy użyciu tego podejścia.
 
-W tym momencie użyto narzędzia Content Moderator Review, aby zobaczyć przykłady tego, co może zrobić usługa Content Moderator. Następnie możesz dowiedzieć się więcej o narzędziu do przeglądu i jak zintegrować je z projektem oprogramowania przy użyciu interfejsów API przeglądu lub przejść do sekcji [Następne kroki,](#next-steps) aby dowiedzieć się, jak same korzystać z interfejsów API moderowania w aplikacji.
+W tym momencie użyto narzędzia do przeglądu Content Moderator, aby zobaczyć przykłady możliwości usługi Content Moderator. Następnie można dowiedzieć się więcej na temat narzędzia do przeglądu i sposobu integrowania go z projektem oprogramowania przy użyciu interfejsów API przeglądu lub można przejść do sekcji [następne kroki](#next-steps) , aby dowiedzieć się, jak używać interfejsów API moderowania w aplikacji.
 
-## <a name="learn-more-about-the-review-tool"></a>Dowiedz się więcej o narzędziu do recenzji
+## <a name="learn-more-about-the-review-tool"></a>Dowiedz się więcej o narzędziu do przeglądu
 
-Aby dowiedzieć się więcej o korzystaniu z narzędzia Do recenzji moderatora zawartości, zapoznaj się z przewodnikiem po [narzędziach Recenzja](Review-Tool-User-Guide/human-in-the-loop.md) i zobacz interfejsy API narzędzia do przeglądania, aby dowiedzieć się, jak dostosować środowisko oceny ludzkiej:
-- [Interfejs API zadania](try-review-api-job.md) skanuje zawartość przy użyciu interfejsów API moderowania i generuje recenzje w narzędziu do przeglądu. 
-- Interfejs [API przeglądu](try-review-api-review.md) bezpośrednio tworzy recenzje obrazów, tekstu lub wideo dla moderatorów ludzkich bez uprzedniego skanowania zawartości. 
-- Interfejs [API przepływu pracy](try-review-api-workflow.md) tworzy, aktualizuje i pobiera szczegółowe informacje o niestandardowych przepływach pracy, które tworzy zespół.
+Aby dowiedzieć się więcej na temat korzystania z narzędzia do przeglądu Content Moderator, zapoznaj się z przewodnikiem po [narzędziu](Review-Tool-User-Guide/human-in-the-loop.md) do przeglądu i zobacz Interfejsy API narzędzia do przeglądu, aby dowiedzieć się, jak dostosować środowisko przeglądu ludzkiego:
+- [Interfejs API zadań](try-review-api-job.md) skanuje zawartość przy użyciu interfejsów API moderowania i generuje przeglądy w narzędziu do przeglądu. 
+- [Interfejs API przeglądu](try-review-api-review.md) bezpośrednio tworzy obrazy, tekst lub Recenzje wideo dla moderatorów ludzkich bez wcześniejszego skanowania zawartości. 
+- [Interfejs API przepływu pracy](try-review-api-workflow.md) tworzy, aktualizuje i pobiera szczegóły dotyczące niestandardowych przepływów pracy tworzonych przez zespół.
 
-Lub kontynuuj następne kroki, aby rozpocząć korzystanie z interfejsów API moderowania w kodzie.
+Lub przejdź do następnych kroków, aby rozpocząć korzystanie z interfejsów API moderowania w kodzie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak samodzielnie korzystać z interfejsów API moderowania w aplikacji.
-- Implementowanie moderowania obrazu. Użyj [konsoli interfejsu API](try-image-api.md) lub postępuj zgodnie z [paskiem szybkiego startu .NET SDK,](dotnet-sdk-quickstart.md) aby skanować obrazy i wykrywać potencjalną zawartość dla dorosłych i rasistów przy użyciu tagów, wyników zaufania i innych wyodrębnionych informacji.
-- Implementowanie moderowania tekstu. Użyj [konsoli interfejsu API](try-text-api.md) lub użyj [paska szybkiej startu .NET SDK](dotnet-sdk-quickstart.md) do skanowania zawartości tekstowej w poszukiwaniu potencjalnych wulgaryzmów, klasyfikacji niechcianych wiadomości (podgląd) wspomaganej komputerowo i danych osobowych.
-- Wdrażanie moderowania wideo. Postępuj zgodnie z instrukcjami dotyczącymi [moderowania wideo w języku C#,](video-moderation-api.md) aby skanować filmy i wykrywać potencjalne treści dla dorosłych i rasistowskie. 
+Dowiedz się, jak używać interfejsów API moderowania w aplikacji.
+- Implementowanie moderowania obrazu. Użyj [konsoli interfejsu API](try-image-api.md) lub postępuj zgodnie z [przewodnikiem Szybki Start zestawu .NET SDK](dotnet-sdk-quickstart.md) , aby skanować obrazy i wykrywać potencjalną zawartość dla dorosłych i erotycznej przy użyciu tagów, wyników pewności i innych wyodrębnionych informacji.
+- Implementowanie moderowania tekstu. Użyj [konsoli interfejsu API](try-text-api.md) lub Użyj [przewodnika Szybki Start zestawu .NET SDK](dotnet-sdk-quickstart.md) , aby skanować zawartość tekstową w celu uzyskania potencjalnej wulgarności, niepotrzebnej do użycia maszynowo klasyfikacji tekstu (wersja zapoznawcza) i danych osobowych.
+- Implementowanie moderowania wideo. Postępuj zgodnie z [przewodnikiem dotyczącym moderowania wideo dla języka C#](video-moderation-api.md) , aby skanować wideo i wykrywać potencjalną zawartość dla dorosłych i erotycznej. 

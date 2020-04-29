@@ -1,5 +1,5 @@
 ---
-title: Równoważenie obciążenia puli hostów pulpitu wirtualnego systemu Windows — platforma Azure
+title: Równoważenie obciążenia puli hostów usług pulpitu wirtualnego systemu Windows — Azure
 description: Metody równoważenia obciążenia puli hostów dla środowiska pulpitu wirtualnego systemu Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -9,34 +9,34 @@ ms.date: 03/21/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 193821ed0df09b87f19e45a82ca42026405a0dc4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79127859"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Metody równoważenia obciążenia puli hostów
 
-Pulpit wirtualny systemu Windows obsługuje dwie metody równoważenia obciążenia. Każda metoda określa, który host sesji będzie hostować sesję użytkownika, gdy połączy się z zasobem w puli hostów.
+Pulpit wirtualny systemu Windows obsługuje dwie metody równoważenia obciążenia. Każda metoda określa, który Host sesji będzie hostować sesję użytkownika, gdy łączą się z zasobem w puli hostów.
 
-W wirtualnym pulpicie systemu Windows dostępne są następujące metody równoważenia obciążenia:
+Następujące metody równoważenia obciążenia są dostępne w programie Virtual Desktop systemu Windows:
 
-- Równoważenie obciążenia o pierwszym rozpiętość umożliwia równomierne rozdzielanie sesji użytkownika między hostami sesji w puli hostów.
-- Równoważenie obciążenia po pierwsze głębokości umożliwia nasycenie hosta sesji sesjami użytkownika w puli hostów. Gdy pierwsza sesja osiągnie próg limitu sesji, moduł równoważenia obciążenia kieruje wszystkie nowe połączenia użytkownika do następnego hosta sesji w puli hosta, dopóki nie osiągnie limitu i tak dalej.
+- Równoważenie obciążenia w pierwszej kolejności umożliwia równomierne dystrybuowanie sesji użytkowników między hostami sesji w puli hostów.
+- Głębokość — pierwsze Równoważenie obciążenia pozwala na nasycenie hosta sesji z sesjami użytkowników w puli hostów. Gdy pierwsza sesja osiągnie próg limitu sesji, moduł równoważenia obciążenia kieruje wszystkie nowe połączenia użytkowników do następnego hosta sesji w puli hostów do momentu osiągnięcia limitu i tak dalej.
 
-Każda pula hostów może skonfigurować tylko jeden typ równoważenia obciążenia specyficzne dla niego. Jednak obie metody równoważenia obciążenia współużytkują następujące zachowania bez względu na to, w której puli hostów się znajdują:
+Dla każdej puli hostów można skonfigurować tylko jeden typ równoważenia obciążenia. Jednak obie metody równoważenia obciążenia współdzielą następujące zachowania niezależnie od tego, z których puli hostów znajdują się:
 
-- Jeśli użytkownik ma już sesję w puli hostów i ponownie łączy się z tą sesją, moduł równoważenia obciążenia pomyślnie przekieruje go do hosta sesji z istniejącą sesją. To zachowanie ma zastosowanie nawet wtedy, gdy właściwość AllowNewConnections tego hosta sesji jest ustawiona na False.
-- Jeśli użytkownik nie ma jeszcze sesji w puli hostów, moduł równoważenia obciążenia nie będzie uwzględniał hostów sesji, których właściwość AllowNewConnections jest ustawiona na False podczas równoważenia obciążenia.
+- Jeśli użytkownik ma już sesję w puli hostów i ponownie nawiązuje połączenie z tą sesją, moduł równoważenia obciążenia pomyślnie przekieruje je do hosta sesji z istniejącą sesją. To zachowanie ma zastosowanie, nawet jeśli właściwość AllowNewConnections hosta sesji ma wartość false.
+- Jeśli użytkownik nie ma jeszcze sesji w puli hostów, moduł równoważenia obciążenia nie będzie uwzględniać hostów sesji, których właściwość AllowNewConnections jest ustawiona na wartość false podczas równoważenia obciążenia.
 
-## <a name="breadth-first-load-balancing-method"></a>Metoda równoważenia obciążenia pierwszego szerokości
+## <a name="breadth-first-load-balancing-method"></a>Metoda równoważenia obciążenia po pierwszej szerokości
 
-Metoda równoważenia obciążenia najpierw szerokość pozwala na dystrybucję połączeń użytkownika w celu optymalizacji w tym scenariuszu. Ta metoda jest idealna dla organizacji, które chcą zapewnić najlepsze środowisko dla użytkowników łączących się z ich buforowanym środowiskiem pulpitu wirtualnego.
+Metoda równoważenia obciążenia pierwszej szerokości umożliwia dystrybucję połączeń użytkowników w celu optymalizacji w tym scenariuszu. Ta metoda jest idealnym rozwiązaniem dla organizacji, które chcą zapewnić najlepszym użytkownikom łączenie się ze środowiskiem pulpitu wirtualnego w puli.
 
-Metoda najpierw rozszerzenia najpierw kwerendy hostów sesji, które zezwalają na nowe połączenia. Metoda następnie wybiera hosta sesji z najmniejszą liczbą sesji. Jeśli istnieje remis, metoda wybiera pierwszego hosta sesji w kwerendzie.
+Pierwsza metoda pierwsza bada hosty sesji, które zezwalają na nowe połączenia. Następnie Metoda wybiera hosta sesji z najmniejszą liczbą sesji. Jeśli istnieje powiązanie, Metoda wybiera pierwszego hosta sesji w zapytaniu.
 
-## <a name="depth-first-load-balancing-method"></a>Metoda równoważenia obciążenia z pierwszej głębokości
+## <a name="depth-first-load-balancing-method"></a>Głębokość — pierwsza metoda równoważenia obciążenia
 
-Metoda równoważenia obciążenia najpierw głębokość pozwala nasycić jeden host sesji w czasie, aby zoptymalizować dla tego scenariusza. Ta metoda jest idealna dla organizacji dbających o koszty, które chcą bardziej szczegółową kontrolę nad liczbą maszyn wirtualnych, które zostały przydzielone dla puli hostów.
+Metoda równoważenia obciążenia po pierwszej drodze pozwala na optymalizację jednego hosta sesji w czasie w celu optymalizacji w tym scenariuszu. Ta metoda jest idealnym rozwiązaniem w przypadku organizacji branżowych, które chcą mieć dokładniejszą kontrolę nad liczbą maszyn wirtualnych przyznanych dla puli hostów.
 
-Metoda najpierw głębokość najpierw kwerendy hostów sesji, które zezwalają na nowe połączenia i nie przekroczyły ich maksymalny limit sesji. Następnie metoda wybiera hosta sesji z największą liczbą sesji. Jeśli istnieje remis, metoda wybiera pierwszego hosta sesji w kwerendzie.
+Pierwsza metoda najpierw bada hosty sesji, które zezwalają na nowe połączenia i nie przekroczyły limitu maksymalnej liczby sesji. Następnie Metoda wybiera hosta sesji z największą liczbą sesji. Jeśli istnieje powiązanie, Metoda wybiera pierwszego hosta sesji w zapytaniu.
