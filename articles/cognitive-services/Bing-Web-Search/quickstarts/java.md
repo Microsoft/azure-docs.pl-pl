@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: używanie oprogramowania Java do wywoływania interfejsu API REST wyszukiwania w sieci Bing'
+title: 'Szybki Start: używanie języka Java do wywoływania interfejsu API REST wyszukiwanie w sieci Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Skorzystaj z tego przewodnika Szybki Start, aby wysyłać żądania do interfejsu API wyszukiwania w sieci Web Bing przy użyciu języka Java i otrzymywać odpowiedzi w formacie JSON.
 services: cognitive-services
@@ -12,15 +12,15 @@ ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 1fdeffb5ee5b1e2d66fbf5586d307cd8d8b78858
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76166729"
 ---
-# <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Szybki start: używanie oprogramowania Java do wyszukiwania w internecie za pomocą interfejsu API REST wyszukiwania w sieci Web usługi Azure
+# <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Szybki Start: używanie języka Java do przeszukiwania sieci Web za pomocą interfejsu API REST wyszukiwanie w sieci Web Bing, usługi poznawczej platformy Azure
 
-W tym przewodniku Szybki start użyjesz aplikacji Java, aby nawiązać pierwsze połączenie z interfejsem API wyszukiwania w sieci Web Bing i otrzymać odpowiedź JSON. Ta aplikacja Java wysyła żądanie wyszukiwania do interfejsu API i pokazuje odpowiedź. Chociaż ta aplikacja jest napisana w języku Java, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
+W tym przewodniku szybki start użyjesz aplikacji Java do nadania pierwszego wywołania do interfejs API wyszukiwania w sieci Web Bing i otrzymania odpowiedzi JSON. Ta aplikacja Java wysyła żądanie wyszukiwania do interfejsu API i wyświetla odpowiedź. Chociaż ta aplikacja jest napisana w języku Java, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -73,7 +73,7 @@ public class BingWebSearch {
 
 ## <a name="define-variables"></a>Definiowanie zmiennych
 
-Ten kod ustawia wartości `subscriptionKey`, `host`, `path` i `searchTerm`. `host`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlany w witrynie Azure portal dla zasobu. Zamień wartość `subscriptionKey` na odpowiedni klucz subskrypcji ze swojego konta platformy Azure. Możesz dostosować zapytanie wyszukiwania, zamieniając wartość `searchTerm`. Pamiętaj, aby dodać `BingWebSearch` ten kod do klasy, jak wspomniano powyżej.
+Ten kod ustawia wartości `subscriptionKey`, `host`, `path` i `searchTerm`. `host`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu. Zamień wartość `subscriptionKey` na odpowiedni klucz subskrypcji ze swojego konta platformy Azure. Możesz dostosować zapytanie wyszukiwania, zamieniając wartość `searchTerm`. Pamiętaj, aby dodać ten kod do `BingWebSearch` klasy, jak wspomniano powyżej.
 
 ```java
 // Enter a valid subscription key.

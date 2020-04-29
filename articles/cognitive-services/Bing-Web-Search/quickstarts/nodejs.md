@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: wykonywanie wyszukiwania w sieci Web za pomocą interfejsu API Node.js — Bing Web Search REST'
+title: 'Szybki Start: wykonywanie wyszukiwania w sieci Web za pomocą środowiska Node. js — wyszukiwanie w sieci Web Bing interfejsu API REST'
 titleSuffix: Azure Cognitive Services
 description: Skorzystaj z tego przewodnika Szybki Start, aby wysyłać żądania do interfejsu API wyszukiwania w sieci Web Bing przy użyciu środowiska Node.js i otrzymywać odpowiedzi w formacie JSON.
 services: cognitive-services
@@ -12,21 +12,21 @@ ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 54f4b38e01b51289319390779a140346befc6f0c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76168802"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Szybki start: wyszukiwanie w internecie za pomocą interfejsu API REST wyszukiwania w sieci Bing i pliku Node.js
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Szybki Start: przeszukiwanie sieci Web przy użyciu interfejsu API REST wyszukiwanie w sieci Web Bing i środowiska Node. js
 
-Ten przewodnik Szybki start umożliwi Ci utworzenie Twojego pierwszego wywołania interfejsu API wyszukiwania w Internecie Bing i odebranie odpowiedzi JSON. Ta aplikacja Node.js wysyła żądanie wyszukiwania do interfejsu API i pokazuje odpowiedź. Aplikacja jest napisana w języku JavaScript, natomiast interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
+Ten przewodnik Szybki start umożliwi Ci utworzenie Twojego pierwszego wywołania interfejsu API wyszukiwania w Internecie Bing i odebranie odpowiedzi JSON. Ta aplikacja Node. js wysyła żądanie wyszukiwania do interfejsu API i wyświetla odpowiedź. Aplikacja jest napisana w języku JavaScript, natomiast interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Oto kilka rzeczy, które są potrzebne przed rozpoczęciem tego przewodnika Szybki start:
 
-* [Node.js 6](https://nodejs.org/en/download/) lub nowsze
+* [Node. js 6](https://nodejs.org/en/download/) lub nowszy
 * Klucz subskrypcji
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
@@ -44,7 +44,7 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>Ustawianie klucza subskrypcji
 
-Ten fragment kodu używa zmiennej środowiskowej `AZURE_SUBSCRIPTION_KEY` do przechowywania klucza subskrypcji. Jest to dobre rozwiązanie pozwalające uniknąć przypadkowego ujawnienia kluczy podczas wdrażania kodu. Przejdź do [strony Interfejsy API, aby wyszukać](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) klucz subskrypcji.
+Ten fragment kodu używa zmiennej środowiskowej `AZURE_SUBSCRIPTION_KEY` do przechowywania klucza subskrypcji. Jest to dobre rozwiązanie pozwalające uniknąć przypadkowego ujawnienia kluczy podczas wdrażania kodu. Przejdź do [strony interfejsów API](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) , aby wyszukać klucz subskrypcji.
 
 Jeśli nie wiesz, jak korzystać ze zmiennych środowiskowych, lub chcesz uruchomić tę aplikację możliwie najszybciej, możesz zastąpić `process.env['AZURE_SUBSCRIPTION_KEY']` kluczem subskrypcji ustawionym jako ciąg.
 
@@ -57,7 +57,7 @@ if (!SUBSCRIPTION_KEY) {
 
 ## <a name="create-a-function-to-make-the-request"></a>Tworzenie funkcji do wysłania żądania
 
-Ta funkcja wyśle bezpieczne żądanie GET, zapisując zapytanie wyszukiwania jako parametr zapytania w ścieżce. `hostname`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlany w witrynie Azure portal dla zasobu.  Parametr `encodeURIComponent` ułatwia uniknięcie nieprawidłowych znaków, a klucz subskrypcji jest przekazywany w nagłówku. Wywołanie zwrotne otrzymuje [odpowiedź](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse), która subskrybuje zdarzenia `data` w celu agregowania treści w formacie JSON, zdarzenia `error` do zapisywania wszelkich problemów w dzienniku oraz zdarzenia `end` umożliwiające określenie, kiedy należy uznać komunikat za pełny. Po zakończeniu aplikacja zacznie drukować interesujące nas nagłówki i treść komunikatów. Można poeksperymentować z kolorami i ustawić głębię w zależności od osobistych preferencji. Głębia `1` zapewnia ładne podsumowanie odpowiedzi.
+Ta funkcja wyśle bezpieczne żądanie GET, zapisując zapytanie wyszukiwania jako parametr zapytania w ścieżce. `hostname`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu.  Parametr `encodeURIComponent` ułatwia uniknięcie nieprawidłowych znaków, a klucz subskrypcji jest przekazywany w nagłówku. Wywołanie zwrotne otrzymuje [odpowiedź](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse), która subskrybuje zdarzenia `data` w celu agregowania treści w formacie JSON, zdarzenia `error` do zapisywania wszelkich problemów w dzienniku oraz zdarzenia `end` umożliwiające określenie, kiedy należy uznać komunikat za pełny. Po zakończeniu aplikacja zacznie drukować interesujące nas nagłówki i treść komunikatów. Można poeksperymentować z kolorami i ustawić głębię w zależności od osobistych preferencji. Głębia `1` zapewnia ładne podsumowanie odpowiedzi.
 
 ```javascript
 function bingWebSearch(query) {

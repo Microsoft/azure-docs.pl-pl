@@ -1,5 +1,5 @@
 ---
-title: Równoważenie obciążenia wielu witryn sieci Web — azure cli — Azure Load Balancer
+title: Równoważenie obciążenia wielu witryn sieci Web — interfejs wiersza polecenia platformy Azure — Azure Load Balancer
 description: Ten przykładowy skrypt wiersza polecenia platformy Azure przedstawia sposób równoważenia obciążenia wielu witryn internetowych do tej samej maszyny wirtualnej
 documentationcenter: load-balancer
 author: asudbring
@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
 ms.openlocfilehash: 80ec18ca722b9833307fc270c710abd93c6fb6f9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76274619"
 ---
 # <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Przykładowy skrypt interfejsu wiersza polecenia platformy Azure: równoważenie obciążenia wielu witryn internetowych

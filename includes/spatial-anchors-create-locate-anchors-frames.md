@@ -1,11 +1,11 @@
 ---
 ms.openlocfilehash: 505670e719e86086dbf7721b4298ec913220f928
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76694273"
 ---
-## <a name="provide-frames-to-the-session"></a>Podaj klatki do sesji
+## <a name="provide-frames-to-the-session"></a>Podaj ramki do sesji
 
-Przestrzenna sesja zakotwiczenia działa poprzez mapowanie przestrzeni wokół użytkownika. Pomaga to określić, gdzie znajdują się kotwice. Platformy mobilne (iOS & Android) wymagają natywnego połączenia z kanałem z kamery w celu uzyskania ramek z biblioteki ar platformy. Z kolei HoloLens stale skanuje środowisko, więc nie ma potrzeby korzystania z konkretnych połączeń, takich jak na urządzeniach mobilnych.
+Sesja kotwicy przestrzennej działa przez mapowanie miejsca wokół użytkownika. Dzięki temu można określić, gdzie znajdują się kotwice. Platformy mobilne (iOS & Android) wymagają natywnego wywołania kanału informacyjnego aparatu, aby uzyskać ramki z biblioteki AR platformy. W przeciwieństwie do środowiska HoloLens ciągle skanuje środowisko, dlatego nie ma potrzeby określonego wywołania, takiego jak na urządzeniach przenośnych.

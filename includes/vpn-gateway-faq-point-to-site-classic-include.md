@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3c1e34bb418f9be2e26afc117343f1fa50bd8566
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76308898"
 ---
 Te często zadawane pytania dotyczą połączeń punkt-lokacja wykorzystujących klasyczny model wdrażania.
@@ -35,7 +35,7 @@ Nie. Obsługa jest ograniczona tylko do wymienionych wersji systemu operacyjnego
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>Ile punktów końcowych klienta sieci VPN może istnieć w konfiguracji punkt-lokacja?
 
-Ilość punktów końcowych klienta sieci VPN zależy od sku bramy i protokołu.
+Liczba punktów końcowych klienta sieci VPN zależy od jednostki SKU i protokołu bramy.
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>Czy w przypadku połączenia punkt-lokacja można użyć własnego głównego urzędu certyfikacji PKI?

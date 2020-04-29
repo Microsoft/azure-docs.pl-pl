@@ -1,7 +1,7 @@
 ---
-title: 'Przykład: Analiza wideo w czasie rzeczywistym - Twarz'
+title: 'Przykład: Analiza wideo w czasie rzeczywistym — do analizy'
 titleSuffix: Azure Cognitive Services
-description: Usługa Face umożliwia przeprowadzanie analizy w czasie zbliżonym do rzeczywistego klatek pobranych ze strumienia wideo na żywo.
+description: Użyj usługi kroju, aby przeprowadzić analizę niemal w czasie rzeczywistym na klatkach pobranych z strumienia wideo na żywo.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.openlocfilehash: ab3f596000216e8555bb84d0d47aff9a6e969eeb
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76169900"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Przykład: jak analizować filmy wideo w czasie rzeczywistym
@@ -26,7 +26,7 @@ W przewodniku pokazano, jak można prowadzić analizę niemalże w czasie rzeczy
 - Przesłanie wybranych ramek do interfejsu API
 - Wykorzystanie wyniku każdej analizy, który jest zwracany z wywołania interfejsu API
 
-Te przykłady są zapisywane w języku C#, a kod [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)można znaleźć na GitHub tutaj: .
+Te przykłady są zapisywane w języku C#, a kod można znaleźć w witrynie GitHub tutaj [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/):.
 
 ## <a name="the-approach"></a>Podejście
 
@@ -136,13 +136,13 @@ while (true)
 
 ## <a name="implementing-the-solution"></a>Implementowanie rozwiązania
 
-### <a name="getting-started"></a>Wprowadzenie
+### <a name="getting-started"></a>Getting Started
 
-Aby skonfigurować i uruchomić aplikację tak szybko, jak to możliwe, użyjesz elastycznej implementacji systemu opisanej powyżej. Aby uzyskać dostęp do [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis)kodu, przejdź do .
+Aby skonfigurować i uruchomić aplikację tak szybko, jak to możliwe, użyjesz elastycznej implementacji systemu opisanej powyżej. Aby uzyskać dostęp do kodu, przejdź [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis)do.
 
 Biblioteka zawiera klasę FrameGrabber, która implementuje omówiony powyżej system producent — konsument, pozwalający na przetwarzanie ramek wideo z kamery internetowej. Użytkownik może określić dokładną formę wywołania interfejsu API, a klasa korzysta ze zdarzeń, aby przekazać do wywołującego kodu informację o tym, kiedy nowa ramka została pozyskana lub jest dostępny nowy wynik analizy.
 
-Dwie przykładowe aplikacje korzystające z tej biblioteki ilustrują niektóre z tych możliwości. Pierwsza z nich to prosta aplikacja konsolowa, której uproszczoną wersję przedstawiono poniżej. Pobiera klatki z domyślnej kamery internetowej i przesyła je do usługi Twarz do wykrywania twarzy.
+Dwie przykładowe aplikacje korzystające z tej biblioteki ilustrują niektóre z tych możliwości. Pierwsza z nich to prosta aplikacja konsolowa, której uproszczoną wersję przedstawiono poniżej. Pokryją one ramki z domyślnej kamery internetowej i przesyła je do usługi kroju na potrzeby wykrywania.
 
 ```csharp
 using System;
@@ -208,7 +208,7 @@ Aby zacząć pracę z tym przykładem, wykonaj następujące kroki:
 2. Sklonuj repozytorium GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
 
 3. Otwórz przykład w programie Visual Studio 2015, skompiluj i uruchom przykładowe aplikacje:
-    - W przypadku basicconsoleSample klawisz Twarzy jest zakodowany na miejscu bezpośrednio w [pliku BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - W przypadku BasicConsoleSample klucz czołowy jest zakodowany bezpośrednio w [BasicConsoleSample/program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - W przypadku aplikacji LiveCameraSample klucze należy wprowadzić w okienku Ustawienia aplikacji. Zostaną one utrwalone pomiędzy sesjami jako dane użytkownika.
         
 

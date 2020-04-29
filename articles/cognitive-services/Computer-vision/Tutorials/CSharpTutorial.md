@@ -1,7 +1,7 @@
 ---
-title: 'Przykład: Eksploruj aplikację do przetwarzania obrazów w języku C #'
+title: 'Przykład: Eksplorowanie aplikacji do przetwarzania obrazów w języku C #'
 titleSuffix: Azure Cognitive Services
-description: Poznaj podstawową aplikację systemu Windows, która korzysta z interfejsu API przetwarzania obrazów w usługach Azure Cognitive Services. Przeprowadź proces optycznego rozpoznawania znaków (OCR), twórz miniatury i wykorzystuj funkcje wizualizacji w obrazie.
+description: Poznaj podstawową aplikację systemu Windows, która używa interfejs API przetwarzania obrazów w usłudze Azure Cognitive Services. Przeprowadź proces optycznego rozpoznawania znaków (OCR), twórz miniatury i wykorzystuj funkcje wizualizacji w obrazie.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
@@ -12,13 +12,13 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: b492d8e3bdcf6d9a41df3eb79ef159985cc715cf
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76168880"
 ---
-# <a name="sample-explore-an-image-processing-app-with-c"></a>Przykład: Eksploruj aplikację do przetwarzania obrazów za pomocą języka C #
+# <a name="sample-explore-an-image-processing-app-with-c"></a>Przykład: Eksplorowanie aplikacji do przetwarzania obrazów przy użyciu języka C #
 
 Zapoznaj się z podstawową aplikacją dla systemu Windows, w której zastosowano przetwarzanie obrazów do optycznego rozpoznawania znaków (OCR), inteligentnego przycinania miniatur oraz wykrywania, kategoryzowania, tagowania i opisywania elementów wizualnych, w tym twarzy, na obrazie. Poniższy przykład umożliwia przesłanie adresu URL obrazu lub lokalnego pliku. Ten przykład typu „open source” może służyć jako szablon do tworzenia własnej aplikacji systemu Windows korzystającej z interfejsu API przetwarzania obrazów i platformy WPF (Windows Presentation Foundation), która jest częścią programu .NET Framework.
 
@@ -33,7 +33,7 @@ Zapoznaj się z podstawową aplikacją dla systemu Windows, w której zastosowan
 Przed rozpoczęciem pracy z przykładową aplikacją upewnij się, że zostały spełnione następujące wymagania wstępne:
 
 * Musisz mieć program [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) lub nowszy.
-* Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz próbny z [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Możesz też postępować zgodnie z instrukcjami w aplikacji [Utwórz konto usług Cognitive Services,](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) aby zasubskrybować usługę Computer Vision i uzyskać klucz. Zanotuj również adres URL punktu końcowego usługi.
+* Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Zanotuj również adres URL punktu końcowego usługi.
 
 ## <a name="get-the-sample-app"></a>Pobieranie przykładowej aplikacji
 
@@ -80,7 +80,7 @@ Możesz uruchomić przykładową aplikację, aby zobaczyć sposób jej interakcj
    ![Strona Zarządzanie kluczami subskrypcji](../Images/Vision_UI_Subscription.PNG)  
 1. Wprowadź swój klucz subskrypcji w polu **Klucz subskrypcji**.
 1. Wprowadź adres URL punktu końcowego w **punkcie końcowym**.  
-   Jeśli na przykład używasz klucza subskrypcji z bezpłatnej wersji próbnej programu Computer Vision, wprowadź następujący adres URL punktu końcowego:`https://westcentralus.api.cognitive.microsoft.com`  
+   Jeśli na przykład używasz klucza subskrypcji z przetwarzanie obrazów bezpłatnej wersji próbnej, wprowadź następujący adres URL punktu końcowego:`https://westcentralus.api.cognitive.microsoft.com`  
    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Jeśli nie chcesz wprowadzać klucza subskrypcji ani adresu URL punktu końcowego przy następnym uruchomieniu przykładowej aplikacji, wybierz pozycję **Zapisz ustawienie**, aby zapisać klucz subskrypcji i adres URL punktu końcowego na komputerze. Jeśli chcesz usunąć uprzednio zapisany klucz subskrypcji i adres URL punktu końcowego, wybierz pozycję **Usuń ustawienie**.
 
@@ -311,4 +311,4 @@ Gdy nie jest już potrzebny, usuń folder, do którego zostało sklonowane repoz
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Wprowadzenie do usługi Face](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [Wprowadzenie do usługi Front Service](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)

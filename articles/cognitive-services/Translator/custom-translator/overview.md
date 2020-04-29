@@ -10,10 +10,10 @@ ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
 ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75982687"
 ---
 # <a name="what-is-custom-translator"></a>Co to jest rozszerzenie Custom Translator?
@@ -40,7 +40,7 @@ Rozszerzenie Custom Translator udostępnia różne funkcje umożliwiające utwor
 
 [Neuronowe tłumaczenie maszynowe (NMT)](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) w usłudze Microsoft Translator zostało udostępnione w 2016 roku. Technologia NMT zapewnia lepszą jakość tłumaczenia niż będąca standardem w branży technologia [statystycznego tłumaczenia maszynowego (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation). Ponieważ NMT lepiej przechwytuje kontekst pełnych zdań przed ich przetłumaczeniem, zapewnia wyższej jakości, bardziej naturalnie brzmiące i płynne tłumaczenia. Rozszerzenie [Custom Translator](https://portal.customtranslator.azure.ai) udostępnia technologię NMT dla modeli niestandardowych, zapewniając lepszą jakość tłumaczenia.
 
-Możesz użyć wcześniej przetłumaczonych dokumentów do utworzenia systemu tłumaczenia. Dokumenty te zawierają terminologię i styl specyficzny dla domeny, lepszy niż standardowy system tłumaczenia. Użytkownicy mogą przesyłać dokumenty ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX i XLSX.
+Możesz użyć wcześniej przetłumaczonych dokumentów do utworzenia systemu tłumaczenia. Te dokumenty obejmują terminologię i styl specyficzny dla domeny, lepszy niż standardowy system tłumaczenia. Użytkownicy mogą przesyłać dokumenty ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX i XLSX.
 
 Rozszerzenie Custom Translator akceptuje także dane równoległe na poziomie dokumentu, co umożliwia bardziej efektywne zbieranie i przygotowanie danych. Jeśli użytkownicy mają dostęp do wersji tej samej zawartości w wielu językach, ale w osobnych dokumentach, rozszerzenie Custom Translator będzie w stanie automatycznie dopasowywać zdania między dokumentami.
 

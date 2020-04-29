@@ -1,7 +1,7 @@
 ---
 title: Używanie atrybutu HeadPose
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak użyć atrybutu HeadPose do automatycznego obracania prostokąta twarzy lub wykrywania gestów głowy w kanale wideo.
+description: Dowiedz się, jak używać atrybutu HeadPose, aby automatycznie obrócić prostokąt powierzchni lub wykryć gesty głowy w strumieniu wideo.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -10,25 +10,25 @@ ms.topic: sample
 ms.date: 05/29/2019
 ms.author: pafarley
 ms.openlocfilehash: 534846044770d66ec5171ad4f61de921d2d5d194
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76169791"
 ---
 # <a name="use-the-headpose-attribute"></a>Używanie atrybutu HeadPose
 
-W tym przewodniku zobaczysz, jak można użyć HeadPose atrybut wykrytej twarzy, aby włączyć niektóre kluczowe scenariusze.
+W tym przewodniku zobaczysz, jak można użyć atrybutu HeadPose wykrytej właściwości, aby włączyć niektóre kluczowe scenariusze.
 
-## <a name="rotate-the-face-rectangle"></a>Obracanie prostokąta ściany
+## <a name="rotate-the-face-rectangle"></a>Obróć prostokąt czołowy
 
-Prostokąt twarzy, zwracany z każdą wykrytą twarzą, oznacza położenie i rozmiar twarzy na obrazie. Domyślnie prostokąt jest zawsze wyrównany z obrazem (jego boki są pionowe i poziome); może to być nieefektywne dla kadrowania kątowych ścian. W sytuacjach, w których chcesz programowo przyciąć ściany obrazu, lepiej jest mieć możliwość obracania prostokąta w celu przycięcia.
+Prostokąt z powierzchnią zwrócony po każdej wykrytej powierzchni oznacza lokalizację i rozmiar powierzchni na obrazie. Domyślnie prostokąt jest zawsze wyrównany do obrazu (jego boki są pionowe i poziome); może to być niewydajne w przypadku ramek z pochyloną buzią. W sytuacjach, w których chcesz programowo przyciąć twarze na obrazie, lepiej jest obrócić prostokąt, aby przyciąć.
 
-Przykładowa aplikacja [WPF w ucho przykładu usług Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) face używa atrybutu HeadPose do obracania wykrytych prostokątów twarzy.
+Przykładowa aplikacja platformy [WPF w Cognitive Services kroju](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) używa atrybutu HeadPose, aby obrócić wykryte prostokąty powierzchni.
 
 ### <a name="explore-the-sample-code"></a>Poznawanie przykładowego kodu
 
-Prostokąt twarzy można programowo obracać za pomocą atrybutu HeadPose. Jeśli określisz ten atrybut podczas wykrywania twarzy (patrz [Jak wykryć twarze),](HowtoDetectFacesinImage.md)będzie można go później zbadać. Poniższa metoda z aplikacji [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) pobiera listę **DetectedFace** obiektów i zwraca listę **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** obiektów. **Face** w tym miejscu jest klasą niestandardową, która przechowuje dane twarzy, w tym zaktualizowane współrzędne prostokąta. Nowe wartości są obliczane dla **górnej,** **lewej,** **szerokości**i **wysokości,** a nowe pole **FaceAngle** określa obrót.
+Można programistycznie obrócić prostokąt powierzchni przy użyciu atrybutu HeadPose. Jeśli ten atrybut zostanie określony podczas wykrywania twarzy (zobacz [jak wykrywać twarze](HowtoDetectFacesinImage.md)), będzie można wysłać do niego zapytanie później. Poniższa metoda w aplikacji [WPF Cognitive Services kroju](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) pobiera listę obiektów **DetectedFace** i zwraca listę obiektów **[czołowych](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** . W **tym miejscu jest** klasą niestandardową, która przechowuje dane powierzchni, łącznie ze zaktualizowanymi współrzędnymi prostokąta. Nowe wartości są obliczane dla opcji **Top**, **Left**, **Width**i **Height**, a nowe pole **FaceAngle** określa obrót.
 
 ```csharp
 /// <summary>
@@ -106,9 +106,9 @@ public static IEnumerable<Face> CalculateFaceRectangleForRendering(IList<Detecte
 }
 ```
 
-### <a name="display-the-updated-rectangle"></a>Wyświetlanie zaktualizowanego prostokąta
+### <a name="display-the-updated-rectangle"></a>Wyświetl zaktualizowany prostokąt
 
-W tym miejscu można użyć zwróconych obiektów **Ściana** na ekranie. Następujące wiersze z [pliku FaceDetectionPage.xaml](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml) pokazują, jak nowy prostokąt jest renderowany na podstawie tych danych:
+W tym miejscu możesz użyć zwracanych obiektów **czołowych** na ekranie. Poniższe wiersze z [FaceDetectionPage. XAML](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml) pokazują, jak nowy prostokąt jest renderowany na podstawie tych danych:
 
 ```xaml
  <DataTemplate>
@@ -120,17 +120,17 @@ W tym miejscu można użyć zwróconych obiektów **Ściana** na ekranie. Nastę
 </DataTemplate>
 ```
 
-## <a name="detect-head-gestures"></a>Wykrywanie gestów głowy
+## <a name="detect-head-gestures"></a>Wykrywanie gestów głównych
 
-Możesz wykryć gesty głowy, takie jak kiwanie głową i potrząsanie głową, śledząc zmiany HeadPose w czasie rzeczywistym. Możesz użyć tej funkcji jako niestandardowego detektora żywotności.
+Możesz wykrywać gesty głowy, takie jak Nodding i powstrząsając, śledząc zmiany HeadPose w czasie rzeczywistym. Tej funkcji można użyć jako niestandardowego detektora na żywo.
 
-Wykrywanie żywotności jest zadaniem określenia, że podmiot jest prawdziwą osobą, a nie reprezentacją obrazu lub wideo. Detektor gestów głowy może służyć jako jeden ze sposobów na weryfikację żywotności, zwłaszcza w przeciwieństwie do reprezentacji obrazu osoby.
+Wykrywanie wartości na żywo to zadanie określenia, że podmiot jest rzeczywistą osobą, a nie z obrazem lub reprezentacją wideo. Detektor gestu głowy może pomóc w sprawdzeniu, czy jest to sposób na żywo, szczególnie w przeciwieństwie do obrazu reprezentującego osobę.
 
 > [!CAUTION]
-> Aby wykrywać gesty głowy w czasie rzeczywistym, musisz wywołać interfejs API twarzy z dużą szybkością (więcej niż raz na sekundę). Jeśli masz subskrypcję bezpłatną (f0), nie będzie to możliwe. Jeśli masz subskrypcję płatnej warstwy, upewnij się, że obliczono koszty wykonywania szybkich wywołań interfejsu API w celu wykrywania gestów head.
+> Aby wykrywać gesty głowy w czasie rzeczywistym, należy wywołać interfejs API rozpoznawania twarzy z dużą szybkością (więcej niż raz na sekundę). Jeśli masz subskrypcję warstwy Bezpłatna (F0), nie będzie to możliwe. Jeśli masz subskrypcję płatnej warstwy, upewnij się, że zostały obliczone koszty tworzenia szybkich wywołań interfejsu API na potrzeby wykrywania gestów głównych.
 
-Zobacz [przykład headpose twarzy](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample) w usłudze GitHub, aby uzyskać działający przykład wykrywania gestów głowy.
+Zapoznaj się z przykładem [Front HeadPose](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample) w witrynie GitHub, aby zapoznać się z przykładem wykrywania gestów głównych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [aplikacji WPF WPF w usłudze Cognitive Services w](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) usłudze GitHub, aby uzyskać działający przykład prostokątów obróconej ściany. Możesz też zapoznać się z przykładową aplikacją [Face HeadPose,](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) która śledzi atrybut HeadPose w czasie rzeczywistym w celu wykrycia ruchów głowy.
+Zapoznaj się z aplikacją [WPF dla Cognitive Services kroju](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) w witrynie GitHub, aby zapoznać się z przykładem dla obróconych prostokątów powierzchni. Można też zapoznać się z [przykładową aplikacją HeadPose Front](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) , która śledzi atrybut HeadPose w czasie rzeczywistym w celu wykrycia przesunięć głównych.

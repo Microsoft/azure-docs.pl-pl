@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie komunikacji równorzędnej w firmie Microsoft
+title: Konfigurowanie komunikacji równorzędnej z firmą Microsoft
 titleSuffix: Azure
 description: Omówienie komunikacji równorzędnej
 services: internet-peering
@@ -9,48 +9,48 @@ ms.topic: overview
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 576bc3e37711851acd7d6c7ac811a10e40080710
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75908917"
 ---
-# <a name="internet-peering-overview"></a>Omówienie komunikacji równorzędnej w Internecie
+# <a name="internet-peering-overview"></a>Internet Komunikacja równorzędna — Omówienie
 
-Komunikacja równorzędna to połączenie między globalną siecią firmy Microsoft (AS8075) a siecią użytkownika w celu wymiany ruchu internetowego z/do usług online firmy Microsoft i usług Microsoft Azure. Przewoźnicy lub usługodawcy mogą zażądać połączenia z firmą Microsoft w dowolnej z naszych lokalizacji brzegowych. Każde żądanie jest sprawdzane przez firmę Microsoft, aby upewnić się, że jest zgodne z naszymi zasadami komunikacji równorzędnej. Komunikację równorzędną można skonfigurować w sieci Firmy Microsoft na dwa sposoby:
+Komunikacja równorzędna to połączenie między siecią globalną firmy Microsoft (AS8075) a siecią na potrzeby wymiany ruchu internetowego z/do usług Microsoft Usługi online i Microsoft Azure. Operatorzy lub dostawcy usług mogą zażądać połączenia z firmą Microsoft w dowolnej lokalizacji brzegowej. Każde żądanie jest analizowane przez firmę Microsoft, aby upewnić się, że jest ono zgodne z naszymi zasadami komunikacji równorzędnej. Komunikację równorzędną z siecią firmy Microsoft można skonfigurować na dwa sposoby:
 
-* **Bezpośrednia komunikacja równorzędna:**
+* **Bezpośrednia Komunikacja równorzędna:**
 
-    Komunikacja równorzędna jest nawiązywalna za pośrednictwem bezpośrednich połączeń fizycznych między siecią Microsoft w witrynie Microsoft Edge a siecią. Sesje Protokołu BGP są konfigurowane w tych połączeniach zgodnie z naszymi zasadami routingu i przy użyciu wstępnie wynegocjowanej umowy. Jest to również określane jako PNI.
+    Komunikacja równorzędna jest ustanawiana za pośrednictwem bezpośrednich połączeń fizycznych między siecią firmy Microsoft a siecią firmy Microsoft Edge. Sesje protokołu BGP są konfigurowane w ramach tych połączeń zgodnie z naszymi zasadami routingu i z zastosowaniem wstępnie negocjowanej umowy. Jest to również nazywane PNI.
 
 * **Komunikacja równorzędna programu Exchange:**
 
-    Odnosi się to do standardowych publicznych połączeń równorzędnych w wymianach internetowych (IX). Fizyczne połączenia między siecią Firmy Microsoft a siecią są za pośrednictwem sieci szkieletowej przełączników obsługiwanych przez IX. Sesje BGP są konfigurowane przy użyciu miejsca IP dostarczonego przez IX.
+    Odnosi się to do standardowych publicznych połączeń komunikacji równorzędnej w wymianach internetowych (IX). Połączenia fizyczne między siecią firmy Microsoft a siecią polegają na przełączeniu sieci szkieletowej obsługiwanej przez 9. Sesje BGP są konfigurowane przy użyciu przestrzeni adresów IP dostarczonej przez IX.
 
-## <a name="benefits-of-peering-with-microsoft"></a>Korzyści z komunikacji równorzędnej z firmą Microsoft
-* Obniż koszty transportu, dostarczając ruch firmy Microsoft za pomocą komunikacji równorzędnej z firmą Microsoft.
-* Zwiększ wydajność klientów, zmniejszając przeskoki sieciowe i opóźnienia w sieci Microsoft Edge.
-* Chroń ruch klientów przed awariami w sieci lub sieci dostawcy transportu, korzystając z komunikacji z firmą Microsoft w nadmiarowych lokalizacjach.
-* Poznaj metryki wydajności dotyczące połączeń komunikacji równorzędnej i wykorzystaj szczegółowe informacje do rozwiązywania problemów z siecią.
+## <a name="benefits-of-peering-with-microsoft"></a>Zalety komunikacji równorzędnej z firmą Microsoft
+* Obniż koszty związane z tranzytem, dostarczając ruch firmy Microsoft przy użyciu komunikacji równorzędnej z firmą Microsoft.
+* Zwiększ wydajność dla klientów, zmniejszając liczbę przeskoków sieci i opóźnienia do sieci Microsoft Edge.
+* Należy chronić ruch klientów przed awariami w sieci lub przez sieć dostawcy tranzytu za pomocą komunikacji równorzędnej z firmą Microsoft w nadmiarowych lokalizacjach.
+* Poznaj metryki wydajności połączeń komunikacji równorzędnej i korzystaj ze szczegółowych informacji w celu rozwiązywania problemów z siecią.
 
-## <a name="benefits-of-using-azure-to-set-up-peering"></a>Korzyści z używania platformy Azure do konfigurowania komunikacji równorzędnej
+## <a name="benefits-of-using-azure-to-set-up-peering"></a>Zalety korzystania z platformy Azure w celu skonfigurowania komunikacji równorzędnej
 
-Możesz poprosić o komunikację równorzędnych z firmą Microsoft przy użyciu programu Azure PowerShell lub portalu. Konfiguracja komunikacji równorzędnej w ten sposób jest zarządzana jako zasób platformy Azure i zapewnia następujące korzyści:
-* Uproszczone i zautomatyzowane kroki konfigurowania komunikacji równorzędnej z firmą Microsoft i zarządzania nimi.
-* Szybki i łatwy sposób, aby wyświetlić i zarządzać wszystkimi peerings w jednym miejscu.
+Możesz zażądać komunikacji równorzędnej z firmą Microsoft przy użyciu Azure PowerShell lub portalu. Komunikacja równorzędna skonfigurowana w ten sposób jest zarządzana jako zasób platformy Azure i zapewnia następujące korzyści:
+* Uproszczone i automatyzuje kroki służące do konfigurowania komunikacji równorzędnej z firmą Microsoft i zarządzania nią.
+* Szybki i łatwy sposób wyświetlania wszystkich połączeń równorzędnych w jednym miejscu i zarządzania nimi.
 * Śledź dane o stanie i przepustowości dla wszystkich połączeń.
-* Możesz użyć tej samej subskrypcji, aby uzyskać dostęp do usług w chmurze azure.
+* Możesz użyć tej samej subskrypcji, aby uzyskać dostęp do usługi Azure Cloud Services.
 
-Jeśli masz już ustalone komunikacji równorzędnej z firmą Microsoft, są one określane jako **starsze peerings**. Możesz zarządzać takimi elementami komunikacji równorzędnej, jak zasób platformy Azure, aby skorzystać z powyższych korzyści. Aby przesłać nowe żądanie komunikacji równorzędnej lub przekonwertować starsze komunikacji równorzędnej do zasobu platformy Azure, wykonaj łącza w sekcji **Następne kroki** poniżej.
+Jeśli nawiązano już połączenie komunikacji równorzędnej z firmą Microsoft, są one nazywane **starszymi komunikacjami równorzędnymi**. Aby skorzystać z powyższych korzyści, możesz zarządzać takimi komunikacjami równorzędnymi jako zasobami platformy Azure. Aby przesłać nowe żądanie komunikacji równorzędnej lub dokonać konwersji starszej komunikacji równorzędnej na zasób platformy Azure, Skorzystaj z linków w sekcji **następne kroki** poniżej.
 
 ## <a name="peering-policy"></a>Zasady komunikacji równorzędnej
-Firma Microsoft ma selektywne, ale ogólnie otwarte zasady komunikacji równorzędnej. Elementy równorzędne są wybierane na podstawie wydajności, możliwości i w przypadku obopólnych korzyści i podlegają pewnym wymogom technicznym, handlowym i prawnym. Aby uzyskać szczegółowe informacje, zobacz [zasady komunikacji równorzędnej](policy.md).
+Firma Microsoft ma selektywne, ale ogólnie otwarte zasady komunikacji równorzędnej. Elementy równorzędne są wybierane na podstawie wydajności, możliwości i miejsca, w którym istnieje wzajemna korzyść i podlegają określonym wymaganiom technicznym, handlowym i prawnym. Aby uzyskać szczegółowe informacje, zobacz [zasady komunikacji równorzędnej](policy.md).
 
-## <a name="faq"></a>Najczęściej zadawane pytania
-Aby uzyskać często zadawane pytania dotyczące komunikacji równorzędnej, zobacz [Peering internet — często zadawane pytania](faqs.md).
+## <a name="faq"></a>Często zadawane pytania
+W przypadku często zadawanych pytań dotyczących komunikacji równorzędnej zobacz [Internet Komunikacja równorzędna — często zadawane](faqs.md)pytania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o krokach konfigurowania komunikacji bezpośredniej z firmą Microsoft, postępuj zgodnie z [wskazówki dotyczące komunikacji równorzędnej](walkthrough-direct-all.md)
-* Aby dowiedzieć się więcej o krokach konfigurowania komunikacji równorzędnej programu Exchange z firmą Microsoft, postępuj zgodnie z [wskazówki dotyczące komunikacji równorzędnej programu Exchange](walkthrough-exchange-all.md)
+* Aby dowiedzieć się więcej o krokach konfigurowania bezpośredniej komunikacji równorzędnej z firmą Microsoft, postępuj zgodnie ze wskazówkami [bezpośredniego komunikacji równorzędnej](walkthrough-direct-all.md)
+* Aby poznać kroki konfigurowania komunikacji równorzędnej programu Exchange z firmą Microsoft, postępuj zgodnie ze wskazówkami dotyczącymi [komunikacji równorzędnej programu Exchange](walkthrough-exchange-all.md)
 * Poznaj inne kluczowe [możliwości sieciowe](https://docs.microsoft.com/azure/networking/networking-overview) platformy Azure.

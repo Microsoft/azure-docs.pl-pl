@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: tworzenie aplikacji sieci Web, która uruchamia program Immersive Reader z plikem Node.js'
+title: 'Szybki Start: Tworzenie aplikacji sieci Web, która uruchamia czytnik immersyjny przy użyciu środowiska Node. js'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start tworzysz aplikację internetową od podstaw i dodajesz funkcję interfejsu API programu Immersive Reader.
+description: W tym przewodniku szybki start utworzysz aplikację internetową od podstaw i dodasz funkcję interfejsu API czytnika immersyjny.
 author: pasta
 manager: nitinme
 ms.service: cognitive-services
@@ -10,29 +10,29 @@ ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: pasta
 ms.openlocfilehash: 749e75fed409632c613713a49154e4cd8dc265b3
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75946327"
 ---
-# <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-nodejs"></a>Szybki start: tworzenie aplikacji sieci Web, która uruchamia czytnik Immersive Reader (Node.js)
+# <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-nodejs"></a>Szybki Start: Tworzenie aplikacji sieci Web, która uruchamia czytnik immersyjny (Node. js)
 
-[Immersive Reader](https://www.onenote.com/learningtools) to zaprojektowane z włącznie narzędzie, które wdraża sprawdzone techniki poprawiające rozumienie czytania.
+[Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności.
 
-W tym przewodniku Szybki start tworzysz aplikację internetową od podstaw i integrujesz program Immersive Reader przy użyciu sdk Immersive Reader. Pełna próbka pracy tego przewodnika Szybki start jest dostępna [tutaj.](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs)
+W tym przewodniku szybki start utworzysz aplikację internetową od podstaw i zintegrujesz czytnik immersyjny przy użyciu zestawu SDK czytnika immersyjny. Pełny przykład pracy tego przewodnika Szybki Start jest dostępny [tutaj](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Zasób programu Immersive Reader skonfigurowany do uwierzytelniania usługi Azure Active Directory. Postępuj zgodnie [z tymi instrukcjami,](./how-to-create-immersive-reader.md) aby skonfigurować. Podczas konfigurowania właściwości środowiska potrzebne będą niektóre wartości utworzone w tym miejscu. Zapisz dane wyjściowe sesji w pliku tekstowym do wykorzystania w przyszłości.
-* [Node.js](https://nodejs.org/) i [Przędza](https://yarnpkg.com)
-* Ide, takie jak [Visual Studio Code](https://code.visualstudio.com/)
+* Zasób czytnika immersyjny skonfigurowany do Azure Active Directory uwierzytelniania. Postępuj zgodnie z [tymi instrukcjami](./how-to-create-immersive-reader.md) , aby rozpocząć konfigurację. Podczas konfigurowania właściwości środowiska będą potrzebne pewne wartości. Zapisz dane wyjściowe sesji w pliku tekstowym do użycia w przyszłości.
+* [Node. js](https://nodejs.org/) i [przędza](https://yarnpkg.com)
+* IDE, takie jak [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="create-a-nodejs-web-app-with-express"></a>Tworzenie aplikacji sieci Web Node.js za pomocą aplikacji Express
+## <a name="create-a-nodejs-web-app-with-express"></a>Tworzenie aplikacji sieci Web w języku Node. js za pomocą języka Express
 
-Utwórz aplikację internetową Node.js za `express-generator` pomocą narzędzia.
+Utwórz aplikację sieci Web Node. js za pomocą `express-generator` narzędzia.
 
 ```bash
 npm install express-generator -g
@@ -40,7 +40,7 @@ express --view=pug quickstart-nodejs
 cd quickstart-nodejs
 ```
 
-Zainstaluj zależności przędzy i dodaj `request` zależności `dotenv`i , które będą używane w dalszej części przewodnika Szybki start.
+Zainstaluj zależności przędzy i Dodaj zależności `request` oraz `dotenv`, które będą używane w dalszej części przewodnika Szybki Start.
 
 ```bash
 yarn
@@ -52,8 +52,8 @@ yarn add dotenv
 
 ### <a name="configure-authentication-values"></a>Konfigurowanie wartości uwierzytelniania
 
-Utwórz nowy plik o nazwie _.env_ w katalogu głównym projektu. Wklej do niego następujący kod, podając wartości podane podczas tworzenia zasobu Immersive Reader.
-Nie należy dołączać cudzysłowów ani znaków "{" i "}".
+Utwórz nowy plik o nazwie _ENV_ w folderze głównym projektu. Wklej do niego następujący kod, dostarczając wartości podanych podczas tworzenia zasobu czytnika immersyjny.
+Nie należy zawierać cudzysłowów ani znaków "{" i "}".
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -62,18 +62,18 @@ CLIENT_SECRET={YOUR_CLIENT_SECRET}
 SUBDOMAIN={YOUR_SUBDOMAIN}
 ```
 
-Pamiętaj, aby nie zatwierdzać tego pliku do kontroli źródła, ponieważ zawiera on wpisy tajne, które nie powinny być upublicznione.
+Nie należy zatwierdzić tego pliku w kontroli źródła, ponieważ zawiera on klucze tajne, które nie powinny być publiczne.
 
-Następnie otwórz _plik app.js_ i dodaj następujące elementy w górnej części pliku. Spowoduje to załadowanie właściwości zdefiniowanych w pliku env jako zmiennych środowiskowych do nodea.
+Następnie otwórz plik _App. js_ i Dodaj następujący na początku pliku. Spowoduje to załadowanie właściwości zdefiniowanych w pliku ENV jako zmiennych środowiskowych do węzła.
 
 ```javascript
 require('dotenv').config();
 ```
 
 ### <a name="update-the-router-to-acquire-the-token"></a>Aktualizowanie routera w celu uzyskania tokenu
-Otwórz plik _routes\index.js_ i zastąp automatycznie wygenerowany kod następującym kodem.
+Otwórz plik _routes\index.js_ i Zastąp automatycznie wygenerowany kod następującym kodem.
 
-Ten kod tworzy punkt końcowy interfejsu API, który uzyskuje token uwierzytelniania usługi Azure AD przy użyciu hasła jednostkowego usługi. Pobiera również poddomenę. Następnie zwraca obiekt zawierający token i poddomenę.
+Ten kod tworzy punkt końcowy interfejsu API, który uzyskuje token uwierzytelniania usługi Azure AD przy użyciu hasła nazwy głównej usługi. Pobiera również poddomenę. Następnie zwraca obiekt zawierający token i poddomenę.
 
 ```javascript
 var express = require('express');
@@ -125,11 +125,11 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
 module.exports = router;
 ```
 
-**GetTokenAndSubdomain** punktu końcowego interfejsu API powinny być zabezpieczone za jakąś formą uwierzytelniania (na przykład [OAuth),](https://oauth.net/2/)aby uniemożliwić nieautoryzowanym użytkownikom uzyskanie tokenów do użycia w usłudze Immersive Reader i rozliczeń; że praca wykracza poza zakres tego przewodnika Szybki start.
+Punkt końcowy interfejsu API **GetTokenAndSubdomain** powinien być zabezpieczony za pomocą uwierzytelniania (na przykład [OAuth](https://oauth.net/2/)), aby uniemożliwić nieautoryzowanym użytkownikom uzyskanie tokenów, które mają być używane z usługą czytnika danych immersyjny i rozliczeniami. Ta praca wykracza poza zakres tego przewodnika Szybki Start.
 
-## <a name="add-sample-content"></a>Dodawanie przykładowej zawartości
+## <a name="add-sample-content"></a>Dodaj przykładową zawartość
 
-Teraz dodamy przykładową zawartość do tej aplikacji internetowej. Otwórz _views\index.mops_ i zastąp automatycznie wygenerowany kod tym przykładem:
+Teraz dodamy przykładową zawartość do tej aplikacji sieci Web. Otwórz _views\index.Pug_ i Zastąp automatycznie wygenerowany kod tym przykładem:
 
 ```pug
 doctype html
@@ -235,26 +235,26 @@ script(type="text/javascript").
 ```
 
 
-Należy zauważyć, że cały tekst ma atrybut **lang,** który opisuje języki tekstu. Ten atrybut pomaga immersive reader zapewnić odpowiednie funkcje języka i gramatyki.
+Zwróć uwagę, że cały tekst ma atrybut **lang** , który opisuje Języki tekstu. Ten atrybut pomaga czytnikom immersyjny zapewnić odpowiednie funkcje języka i gramatyki.
 
 ## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
 
-Nasza aplikacja internetowa jest już gotowa. Uruchom aplikację, uruchamiając:
+Nasza aplikacja sieci Web jest teraz gotowa. Uruchom aplikację, uruchamiając:
 
 ```bash
 npm start
 ```
 
-Otwórz przeglądarkę i _http://localhost:3000_przejdź do pliku . Powinien zostać wyświetlony następujący ekran:
+Otwórz przeglądarkę i przejdź do _http://localhost:3000_. Powinien zostać wyświetlony następujący ekran:
 
 ![Przykładowa aplikacja](./media/quickstart-nodejs/1-buildapp.png)
 
-## <a name="launch-the-immersive-reader"></a>Uruchom czytnik Immersive Reader
+## <a name="launch-the-immersive-reader"></a>Uruchom czytnik immersyjny
 
-Po kliknięciu przycisku "Immersive Reader" zobaczysz immersyjny czytnik uruchomiony z zawartością na stronie.
+Po kliknięciu przycisku "czytnik immersyjny" zobaczysz czytnik immersyjny uruchamiany z zawartością na stronie.
 
 ![Czytnik immersyjny](./media/quickstart-nodejs/2-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Poznaj [immersyjny moduł SDK czytnika](https://github.com/microsoft/immersive-reader-sdk) i [immersyjny moduł SDK czytnika](./reference.md)
+* Poznaj [zestaw SDK czytnika immersyjny](https://github.com/microsoft/immersive-reader-sdk) i [Kompendium zestawu SDK czytnika immersyjny](./reference.md)

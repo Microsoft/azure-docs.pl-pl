@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: b6a3f38e0b83dc927a225c630b8178be1dc539ce
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76310122"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Samouczek: aktualizowanie magazynu przy użyciu witryny Azure Portal oraz tematów/subskrypcji
 
 Usługa Microsoft Azure Service Bus to wielodostępna usługa przesyłania komunikatów w chmurze, która przesyła informacje między aplikacjami i usługami. Operacje asynchroniczne umożliwiają elastyczne przesyłanie komunikatów obsługiwanych przez brokera oraz ustrukturyzowane przesyłanie komunikatów typu „pierwszy na wejściu — pierwszy na wyjściu” (FIFO, first-in, first-out) i zapewniają możliwości publikowania/subskrybowania. W tym samouczku przedstawiono, jak używać tematów i subskrypcji usługi Service Bus w scenariuszu obejmującym magazyn sklepu sieciowego, gdy kanały publikowania/subskrypcji korzystają z witryny Azure Portal oraz programu .NET.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie tematu usługi Service Bus i co najmniej jednej subskrypcji do tego tematu przy użyciu witryny Azure Portal
 > * Dodawanie filtrów tematu przy użyciu kodu platformy .NET
@@ -395,7 +395,7 @@ private async Task ReceiveMessages(string subscription)
 ```
 
 > [!NOTE]
-> Zasoby usługi Service Bus można zarządzać za pomocą [Eksploratora magistrali usług](https://github.com/paolosalvatori/ServiceBusExplorer/). Eksplorator usługi Service Bus umożliwia użytkownikom łączenie się z obszarem nazw usługi Service Bus i administrowanie jednostkami obsługi wiadomości w łatwy sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcje importu/eksportu lub możliwość testowania tematu, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
+> Za pomocą [eksploratora Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/)można zarządzać zasobami Service Bus. Eksplorator Service Bus umożliwia użytkownikom łączenie się z przestrzenią nazw Service Bus i administrowanie jednostkami obsługi komunikatów w prosty sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcja importowania/eksportowania lub możliwość testowania tematów, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -415,7 +415,7 @@ Przejdź do następnego samouczka, aby dowiedzieć się więcej o korzystaniu z 
 > [!div class="nextstepaction"]
 > [aktualizowanie magazynu przy użyciu programu PowerShell oraz tematów/subskrypcji](service-bus-tutorial-topics-subscriptions-powershell.md)
 
-[darmowe konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[bezpłatne konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

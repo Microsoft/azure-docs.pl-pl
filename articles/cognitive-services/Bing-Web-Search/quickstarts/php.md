@@ -12,21 +12,21 @@ ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 58192845e0119ce96ea2577007d211f075d3e419
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76169728"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Szybki start: wywoływanie interfejsu API wyszukiwania w sieci Web Bing za pomocą języka PHP  
 
-Ten przewodnik Szybki start umożliwi Ci utworzenie Twojego pierwszego wywołania interfejsu API wyszukiwania w Internecie Bing i odebranie odpowiedzi JSON. Ta aplikacja Node.js wysyła żądanie wyszukiwania do interfejsu API i pokazuje odpowiedź. Aplikacja jest napisana w języku JavaScript, natomiast interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
+Ten przewodnik Szybki start umożliwi Ci utworzenie Twojego pierwszego wywołania interfejsu API wyszukiwania w Internecie Bing i odebranie odpowiedzi JSON. Ta aplikacja Node. js wysyła żądanie wyszukiwania do interfejsu API i wyświetla odpowiedź. Aplikacja jest napisana w języku JavaScript, natomiast interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Oto kilka rzeczy, które są potrzebne przed rozpoczęciem tego przewodnika Szybki start:
 
-* [PHP 5.6.x lub nowsze](https://php.net/downloads.php)
+* [PHP 5.6. x](https://php.net/downloads.php) lub nowszy
 * Klucz subskrypcji  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
@@ -43,7 +43,7 @@ Przed rozpoczęciem odszukaj plik `php.ini` i usuń znaczniki komentarza z tego 
 
 Utwórz nowy projekt PHP w ulubionym środowisku IDE lub edytorze. Nie zapomnij o dodaniu tagów otwierających i zamykających: `<?php` i `?>`.
 
-Zanim będzie można kontynuować, należy ustawić kilka zmiennych. `$endpoint`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlany w witrynie Azure portal dla zasobu. Upewnij się, że wartość `$endpoint` jest poprawna, i zamień wartość `$accesskey` na odpowiedni klucz subskrypcji ze swojego konta platformy Azure. Możesz dostosować zapytanie wyszukiwania, zamieniając wartość `$term`.
+Zanim będzie można kontynuować, należy ustawić kilka zmiennych. `$endpoint`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu. Upewnij się, że wartość `$endpoint` jest poprawna, i zamień wartość `$accesskey` na odpowiedni klucz subskrypcji ze swojego konta platformy Azure. Możesz dostosować zapytanie wyszukiwania, zamieniając wartość `$term`.
 
 ```php
 $accessKey = 'enter key here';

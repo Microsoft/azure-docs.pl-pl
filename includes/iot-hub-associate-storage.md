@@ -9,16 +9,16 @@ ms.date: 01/22/2019
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: ebc23ce4238c736442fbc4507e858876f9192fd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76021104"
 ---
-## <a name="associate-an-azure-storage-account-to-iot-hub"></a>Kojarzenie konta usługi Azure Storage z usługą IoT Hub
+## <a name="associate-an-azure-storage-account-to-iot-hub"></a>Skojarz konto usługi Azure Storage z IoT Hub
 
-Ponieważ aplikacja symulowanego urządzenia przekazuje plik do obiektu blob, musisz mieć konto [usługi Azure Storage](../articles/storage/common/storage-account-create.md) skojarzone z centrum IoT hub. Po skojarzeniu konta usługi Azure Storage z centrum IoT hub centrum IoT generuje identyfikator URI sygnatury dostępu Współdzielonego. Urządzenie może użyć tego identyfikatora URI sygnatury dostępu Współdzielonego, aby bezpiecznie przekazać plik do kontenera obiektów blob. Usługa IoT Hub i sdk urządzeń koordynować proces, który generuje identyfikator URI sygnatury dostępu Współdzielonego i udostępnia go do urządzenia do przekazywania pliku.
+Ponieważ aplikacja symulowanego urządzenia przekazuje plik do obiektu BLOB, musisz mieć konto [usługi Azure Storage](../articles/storage/common/storage-account-create.md) skojarzone z Twoim centrum IoT Hub. Po skojarzeniu konta usługi Azure Storage z usługą IoT Hub usługa IoT Hub generuje identyfikator URI sygnatury dostępu współdzielonego. Urządzenie może używać tego identyfikatora URI sygnatury dostępu współdzielonego do bezpiecznego przekazywania pliku do kontenera obiektów BLOB. Usługa IoT Hub i zestawy SDK urządzeń koordynują proces generujący identyfikator URI sygnatury dostępu współdzielonego i udostępnia urządzenie do użycia w celu przekazywania pliku.
 
-Postępuj zgodnie z instrukcjami w [konfigurowanie przekazywania plików za pomocą witryny Azure portal](../articles/iot-hub/iot-hub-configure-file-upload.md). Upewnij się, że kontener obiektów blob jest skojarzony z centrum IoT hub i że powiadomienia o plikach są włączone.
+Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie przekazywania plików przy użyciu Azure Portal](../articles/iot-hub/iot-hub-configure-file-upload.md). Upewnij się, że kontener obiektów BLOB jest skojarzony z Centrum IoT Hub i że powiadomienia o plikach są włączone.
 
-![Włączanie powiadomień o plikach w portalu](./media/iot-hub-associate-storage/file-notifications-vs2019.png)
+![Włącz powiadomienia dotyczące plików w portalu](./media/iot-hub-associate-storage/file-notifications-vs2019.png)

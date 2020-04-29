@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: Konwersacja na wielu urządzeniach — usługa mowy'
+title: 'Szybki Start: konwersacja na wiele urządzeń — usługa mowy'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start dowiesz się, jak tworzyć i dołączać klientów do konwersacji na wielu urządzeniach przy użyciu sdk mowy.
+description: W tym przewodniku szybki start dowiesz się, jak tworzyć klientów i dołączać je do konwersacji na wiele urządzeń przy użyciu zestawu Speech SDK.
 services: cognitive-services
 author: ralphe
 manager: cpoulain
@@ -12,13 +12,13 @@ ms.date: 01/16/2020
 ms.author: ralphe
 zone_pivot_groups: programming-languages-set-nine
 ms.openlocfilehash: 7276b790b3fdb56308c6af9a047a7c290c01b253
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76264578"
 ---
-# <a name="quickstart-multi-device-conversation"></a>Szybki start: konwersacja na wielu urządzeniach
+# <a name="quickstart-multi-device-conversation"></a>Szybki Start: konwersacja z obsługą kilku urządzeń
 
 [!INCLUDE [Header](../includes/quickstarts/multi-device-conversation/header.md)]
 
