@@ -1,77 +1,77 @@
 ---
-title: Pliki programu SharePoint — program QnA Maker
-description: Dodaj zabezpieczone źródła danych programu SharePoint do bazy wiedzy, aby wzbogacić bazę wiedzy o pytania i odpowiedzi, które mogą być zabezpieczone za pomocą usługi Active Directory.
+title: Pliki programu SharePoint — QnA Maker
+description: Dodaj zabezpieczone źródła danych programu SharePoint do bazy wiedzy, aby wzbogacić bazę wiedzy z pytaniami i odpowiedziami, które mogą być zabezpieczone za pomocą Active Directory.
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 6f05079e39c8afb001bd4ba09d68f435c18efad5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80294874"
 ---
-# <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Dodawanie zabezpieczonego źródła danych programu SharePoint do bazy wiedzy
+# <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Dodawanie bezpiecznego źródła danych programu SharePoint do bazy wiedzy
 
-Dodaj zabezpieczone źródła danych programu SharePoint oparte na chmurze do bazy wiedzy, aby wzbogacić bazę wiedzy o pytania i odpowiedzi, które mogą być zabezpieczone za pomocą usługi Active Directory.
+Dodaj zabezpieczone źródła danych programu SharePoint oparte na chmurze do bazy wiedzy, aby wzbogacić bazę wiedzy z pytaniami i odpowiedziami, które mogą być zabezpieczone za pomocą Active Directory.
 
-Po dodaniu zabezpieczonego dokumentu programu SharePoint do bazy wiedzy jako menedżera programu QnA Maker należy zażądać uprawnień usługi Active Directory dla programu QnA Maker. Po nadaniu menedżera usługi Active Directory programowi QnA Maker dostępu do programu SharePoint nie musi ono być ponownie udzielone. Każdy kolejny dokument oprócz bazy wiedzy nie będzie wymagał autoryzacji, jeśli znajduje się w tym samym zasobie programu SharePoint.
+Po dodaniu bezpiecznego dokumentu programu SharePoint do bazy wiedzy jako Menedżera QnA Maker należy zażądać uprawnień Active Directory do QnA Maker. Po otrzymaniu tego uprawnienia z Menedżera Active Directory, aby QnA Maker dostęp do programu SharePoint, nie trzeba go ponownie pomieścić. Każdy kolejny dokument dodany do bazy wiedzy nie będzie wymagał autoryzacji, jeśli znajduje się w tym samym zasobie programu SharePoint.
 
-Jeśli menedżer bazy wiedzy QnA Maker nie jest menedżerem usługi Active Directory, aby zakończyć ten proces, należy skontaktować się z menedżerem usługi Active Directory.
+Jeśli Menedżer bazy wiedzy QnA Maker nie jest menedżerem Active Directory, należy skontaktować się z menedżerem Active Directory, aby zakończyć ten proces.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Program SharePoint oparty na chmurze — program QnA Maker używa programu Microsoft Graph do uzyskania uprawnień. Jeśli program SharePoint jest lokalny, nie będzie można wyodrębnić z programu SharePoint, ponieważ program Microsoft Graph nie będzie mógł określić uprawnień.
-* Format adresu URL — program QnA Maker obsługuje tylko adresy URL programu SharePoint, które są generowane do udostępniania i są w formacie`https://\*.sharepoint.com`
+* Oparta na chmurze QnA Maker SharePoint używa Microsoft Graph w celu uzyskania uprawnień. Jeśli program SharePoint działa lokalnie, nie będzie można wyodrębnić z programu SharePoint, ponieważ Microsoft Graph nie będzie można określić uprawnień.
+* Format adresu URL — QnA Maker obsługuje tylko adresy URL programu SharePoint, które są generowane na potrzeby udostępniania i mają format`https://\*.sharepoint.com`
 
-## <a name="add-supported-file-types-to-knowledge-base"></a>Dodawanie obsługiwanych typów plików do bazy wiedzy
+## <a name="add-supported-file-types-to-knowledge-base"></a>Dodaj obsługiwane typy plików do bazy wiedzy
 
-Do bazy wiedzy można dodać wszystkie [typy plików](../Concepts/content-types.md) obsługiwane przez program QnA Maker z witryny programu SharePoint. Może być wymagane przyznanie [uprawnień, jeśli zasób](#permissions) pliku jest zabezpieczony.
+Do bazy wiedzy można dodać wszystkie [typy plików](../Concepts/content-types.md) obsługiwane przez QNA Maker z witryny programu SharePoint. Może być konieczne przyznanie [uprawnień](#permissions) , jeśli zasób pliku jest zabezpieczony.
 
-1. Z biblioteki z witryną programu SharePoint wybierz menu `...`wielokropka pliku , .
+1. Z biblioteki z witryną programu SharePoint wybierz menu wielokropka pliku `...`.
 1. Skopiuj adres URL pliku.
 
-   ![Pobierz adres URL pliku programu SharePoint, wybierając menu wielokropek pliku, a następnie skopiując adres URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
+   ![Pobierz adres URL pliku programu SharePoint, wybierając menu wielokropka pliku, a następnie kopiując adres URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. W portalu QnA Maker na stronie **Ustawienia** [dodaj adres URL](manage-knowledge-bases.md#edit-knowledge-base) do bazy wiedzy.
+1. Na stronie **Ustawienia** w portalu QNA Maker [Dodaj adres URL](manage-knowledge-bases.md#edit-knowledge-base) do bazy wiedzy.
 
 ### <a name="images-with-sharepoint-files"></a>Obrazy z plikami programu SharePoint
 
-Jeśli pliki zawierają obrazy, nie są wyodrębniane. Obraz można dodać z portalu QnA Maker po wyodrębnianiu pliku do par QnA.
+Jeśli pliki zawierają obrazy, nie są wyodrębniane. Możesz dodać obraz z portalu QnA Maker po wyodrębnieniu pliku do par QnA.
 
-Dodaj obraz z następującą składnią znaczników:
+Dodaj obraz z następującą składnią promocji:
 
 ```markdown
 ![Explanation or description of image](URL of public image)
 ```
 
-Tekst w nawiasach kwadratowych, `[]`, wyjaśnia obraz. Adres URL w nawiasach `()`, jest bezpośrednim linkiem do obrazu.
+Tekst w nawiasach `[]`kwadratowych, objaśnia obraz. Adres URL w nawiasach `()`, jest bezpośrednim linkiem do obrazu.
 
-Podczas testowania pary QnA w interaktywnym panelu testowym w portalu QnA Maker wyświetlany jest obraz zamiast tekstu znaczników. Sprawdza, czy obraz może być publicznie pobierany z aplikacji klienckiej.
+Po przetestowaniu pary QnA w panelu test interaktywny w portalu QnA Maker zostanie wyświetlony obraz zamiast tekstu z promocji. Spowoduje to zweryfikowanie, że obraz można pobrać publicznie z aplikacji klienckiej.
 
 ## <a name="permissions"></a>Uprawnienia
 
-Przyznawanie uprawnień ma miejsce, gdy zabezpieczony plik z serwera programu SharePoint zostanie dodany do bazy wiedzy. W zależności od konfiguracji programu SharePoint i uprawnień osoby dodającej plik może to wymagać:
+Udzielanie uprawnień występuje, gdy zabezpieczony plik z programu SharePoint Server zostanie dodany do bazy wiedzy. W zależności od konfiguracji programu SharePoint i uprawnień osoby, która dodaje plik, może to wymagać:
 
-* żadnych dodatkowych kroków - osoba dodająca plik ma wszystkie wymagane uprawnienia.
-* zarówno przez [menedżera bazy wiedzy,](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) jak i [menedżera usługi Active Directory](#active-directory-manager-grant-file-read-access-to-qna-maker).
+* Brak dodatkowych kroków — osoba, która doda plik, ma wszystkie wymagane uprawnienia.
+* kroki wykonywane przez [Menedżera bazy wiedzy](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) i [Menedżera Active Directory](#active-directory-manager-grant-file-read-access-to-qna-maker).
 
-Zobacz poniższe kroki.
+Zapoznaj się z poniższymi instrukcjami.
 
-### <a name="knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal"></a>Menedżer bazy wiedzy: dodawanie źródła danych programu SharePoint w portalu programu QnA Maker
+### <a name="knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal"></a>Menedżer bazy wiedzy: Dodawanie źródła danych programu SharePoint w portalu QnA Maker
 
-Gdy **menedżer programu QnA Maker** doda zabezpieczony dokument programu SharePoint do bazy wiedzy, menedżer bazy wiedzy inicjuje żądanie uprawnień, które menedżer usługi Active Directory musi wykonać.
+Gdy **menedżer QNA Maker** dodaje zabezpieczony dokument programu SharePoint do bazy wiedzy, Menedżer bazy wiedzy inicjuje żądanie dotyczące uprawnień wymaganych przez Menedżera Active Directory.
 
-Żądanie rozpoczyna się od okna podręcznego w celu uwierzytelnienia na koncie usługi Active Directory.
+Żądanie rozpoczyna się od wyskakującego okienka w celu uwierzytelnienia na koncie Active Directory.
 
-![Uwierzytelnij konto użytkownika](../media/add-sharepoint-datasources/authenticate-user-account.png)
+![Uwierzytelnianie konta użytkownika](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-Gdy menedżer programu QnA Maker wybierze konto, administrator usługi Azure Active Directory otrzyma powiadomienie, że musi zezwolić aplikacji QnA Maker (nie menedżerowi QnA Maker) na dostęp do zasobu programu SharePoint. Menedżer usługi Azure Active Directory będzie musiał to zrobić dla każdego zasobu programu SharePoint, ale nie dla każdego dokumentu w tym zasobie.
+Po wybraniu konta przez Menedżera QnA Maker administrator Azure Active Directory otrzyma powiadomienie, że musi zezwolić na dostęp do aplikacji QnA Maker (nie Menedżera QnA Maker) do zasobu programu SharePoint. Menedżer Azure Active Directory będzie musiał wykonać tę czynność dla każdego zasobu programu SharePoint, ale nie do każdego dokumentu w tym zasobie.
 
-### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Menedżer usługi Active Directory: udzielanie dostępu do odczytu plików do programu QnA Maker
+### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Menedżer usługi Active Directory: udzielanie dostępu do odczytu pliku do QnA Maker
 
-Menedżer usługi Active Directory (a nie menedżer programu QnA Maker) musi udzielić dostępu do programu QnA Maker w celu uzyskania dostępu do zasobu programu SharePoint, wybierając [to łącze,](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) aby autoryzować aplikację QnA Maker Portal SharePoint enterprise do uzyskania uprawnień do odczytu pliku.
+Menedżer Active Directory (nie Menedżer QnA Maker) musi udzielić dostępu do QnA Maker dostępu do zasobu programu SharePoint przez wybranie [tego linku](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) w celu autoryzowania aplikacji Portal QNA Maker SharePoint Enterprise, aby mieć uprawnienia do odczytu pliku.
 
-![Menedżer usługi Azure Active Directory udziela uprawnień interaktywnie](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
+![Azure Active Directory Manager przyznaje uprawnienia interaktywnie](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 
 <!--
 The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharePoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`.
@@ -109,19 +109,19 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
     ![Grant required permissions](../media/add-sharepoint-datasources/grant-required-permissions.png)
 -->
-### <a name="grant-access-from-the-azure-active-directory-admin-center"></a>Udzielanie dostępu z centrum administracyjnego usługi Azure Active Directory
+### <a name="grant-access-from-the-azure-active-directory-admin-center"></a>Udzielanie dostępu z poziomu Centrum administracyjnego Azure Active Directory
 
-1. Menedżer usługi Active Directory loguje się do portalu Azure i otwiera **[aplikacje enterprise](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**.
+1. Menedżer Active Directory loguje się do Azure Portal i otwiera **[aplikacje dla przedsiębiorstw](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**.
 
-1. `QnAMakerPortalSharePoint` Wyszukaj wybierz aplikację QnA Maker.
+1. `QnAMakerPortalSharePoint` Wyszukaj pozycję wybierz aplikację QNA Maker.
 
-    [![Wyszukaj listę aplikacji QnAMakerPortalSharePoint na liście aplikacji dla przedsiębiorstw](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
+    [![Wyszukaj QnAMakerPortalSharePoint na liście aplikacji dla przedsiębiorstw](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
-1. W obszarze **Zabezpieczenia**przejdź do **pozycji Uprawnienia**. Wybierz **pozycję Przyznaj zgodę administratora dla organizacji**.
+1. W obszarze **zabezpieczenia**przejdź do pozycji **uprawnienia**. Wybierz pozycję **Udziel zgody administratora na organizację**.
 
-    [![Wybieranie uwierzytelnionego użytkownika dla administratora usługi Active Directory](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
+    [![Wybierz uwierzytelnionego użytkownika dla administratora Active Directory](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
 
-1. Wybierz konto logowania z uprawnieniami do udzielania uprawnień do usługi Active Directory.
+1. Wybierz konto logowania z uprawnieniami do udzielenia uprawnień dla Active Directory.
 
 
 
@@ -186,4 +186,4 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Współpraca nad bazą wiedzy](collaborate-knowledge-base.md)
+> [Współpracuj nad bazą wiedzy](collaborate-knowledge-base.md)

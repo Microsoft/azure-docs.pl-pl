@@ -1,6 +1,6 @@
 ---
-title: Skrypt programu PowerShell do listy i pobierania zasobów interfejsu API SQL usługi Azure Cosmos DB
-description: Skrypt programu Azure PowerShell — lista usługi Azure Cosmos DB i operacje dla interfejsu API SQL
+title: Skrypt programu PowerShell do wyświetlania i uzyskiwania Azure Cosmos DB zasobów interfejsu API SQL
+description: Azure PowerShell listę Azure Cosmos DB skryptu i Pobierz operacje dla interfejsu API SQL
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/17/2020
 ms.author: mjbrown
 ms.openlocfilehash: 51880e12f5f422acc0df05fa40da5f40f0ede3d3
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365960"
 ---
-# <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>Lista i pobierz bazy danych i kontenery dla usługi Azure Cosmos DB — interfejs API SQL (Core)
+# <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>Wyświetlanie i pobieranie baz danych i kontenerów dla interfejsu API Azure Cosmos DB-SQL (rdzeń)
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -39,9 +39,9 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | Polecenie | Uwagi |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Konto Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Wyświetla listę kont usługi Cosmos DB lub pobiera określone konto usługi Cosmos DB. |
-| [Baza danych Get-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabase) | Wyświetla listę baz danych usługi Cosmos DB w koncie lub pobiera określoną bazę danych usługi Cosmos DB na koncie. |
-| [Get-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Wyświetla listę kontenerów usługi Cosmos DB w bazie danych lub pobiera określony kontener usługi Cosmos DB w bazie danych. |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Wyświetla listę kont Cosmos DB lub pobiera określone konto Cosmos DB. |
+| [Get-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabase) | Wyświetla listę baz danych Cosmos DB na koncie lub pobiera określoną bazę danych Cosmos DB na koncie. |
+| [Get-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Wyświetla listę kontenerów Cosmos DB w bazie danych lub pobiera określony kontener Cosmos DB w bazie danych. |
 |**Grupy zasobów platformy Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||

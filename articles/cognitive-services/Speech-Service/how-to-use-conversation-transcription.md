@@ -1,7 +1,7 @@
 ---
 title: Transkrypcja konwersacji w czasie rzeczywistym (wersja zapoznawcza) — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak używać transkrypcji konwersacji w czasie rzeczywistym za pomocą SDK mowy. Dostępne dla języka C++, C#i Java.
+description: Dowiedz się, jak używać transkrypcji konwersacji w czasie rzeczywistym za pomocą zestawu Speech SDK. Dostępne dla języków C++, C# i Java.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,46 +11,46 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
 ms.openlocfilehash: e2c9c0aadc8e443f07f60f3ccddb4a1b6dd661b1
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80520907"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Transkrypcja konwersacji w czasie rzeczywistym (wersja zapoznawcza)
 
-Interfejs API **konwersacji konwersatora** SDK umożliwia transkrypcję spotkań i innych konwersacji z możliwością dodawania, `PullStream` usuwania i identyfikowania wielu uczestników przez przesyłanie strumieniowe dźwięku do usługi Mowy za pomocą lub `PushStream`. W tym temacie należy wiedzieć, jak używać zamiany mowy na tekst przy użyciu sdk mowy (wersja 1.8.0 lub nowsza). Aby uzyskać więcej informacji, zobacz [Co to są usługi mowy](overview.md).
+Interfejs API **ConversationTranscriber** zestawu mowy SDK umożliwia transkrypcja spotkań i innych konwersacji z możliwością dodawania, usuwania i identyfikowania wielu uczestników przez przesyłanie strumieniowe plików audio do usługi mowy przy użyciu `PullStream` lub `PushStream`. Ten temat wymaga, aby dowiedzieć się, jak używać zamiany mowy na tekst za pomocą zestawu Speech SDK (wersja 1.8.0 lub nowsza). Aby uzyskać więcej informacji, zobacz [co to jest usługa Speech Services](overview.md).
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Interfejs API konwersatora jest obsługiwany dla języka C++, C#i Java w systemach Windows, Linux i Android.
-- Obecnie dostępne w językach "en-US" i "zh-CN" w następujących regionach: _centralus_ i _eastasia_.
-- Wymaga 7-mikrofonowej tablicy wielomiażdżycowej z strumieniem referencyjnym odtwarzania. Zestaw mikrofonów powinien spełniać [naszą specyfikację.](https://aka.ms/sdsdk-microphone)
-- Zestaw [SDK urządzeń mowy](speech-devices-sdk.md) udostępnia odpowiednie urządzenia i przykładową aplikację demonstrującą transkrypcję konwersacji.
+- Interfejs API ConversationTranscriber jest obsługiwany dla języków C++, C# i Java w systemach Windows, Linux i Android.
+- Obecnie dostępne w językach "en-US" i "zh-CN" w następujących regionach: _środkowe_ i _eastasia_.
+- Wymaga cyklicznej macierzy z obsługą wielomikrofonową z użyciem 7 mikrofonów z strumieniem odwołania odtwarzania. Tablica mikrofonów powinna być zgodna z [naszą specyfikacją](https://aka.ms/sdsdk-microphone).
+- [Zestaw SDK urządzeń mowy](speech-devices-sdk.md) udostępnia odpowiednie urządzenia i przykładową aplikację pokazującą transkrypcję konwersacji.
 
 ## <a name="optional-sample-code-resources"></a>Opcjonalne przykładowe zasoby kodu
 
-Zestaw SDK urządzenia mowy udostępnia przykładowy kod w języku Java do przechwytywania dźwięku w czasie rzeczywistym przy użyciu 8 kanałów.
+Zestaw SDK urządzenia mowy zawiera przykładowy kod w języku Java do przechwytywania audio w czasie rzeczywistym przy użyciu 8 kanałów.
 
-- [Kod przykładowego urządzenia ROOBO](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java)
-- [Przykładowy kod zestawu Azure Kinect Dev Kit](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
+- [Przykładowy kod urządzenia ROOBO](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java)
+- [Przykładowy kod usługi Azure urządzenia Kinect dev Kit](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Subskrypcja usługi mowy. Jeśli jej nie masz, możesz [uzyskać subskrypcję wersji próbnej mowy.](https://azure.microsoft.com/try/cognitive-services/)
+Subskrypcja usługi mowy. Jeśli go nie masz, możesz [uzyskać subskrypcję wersji próbnej](https://azure.microsoft.com/try/cognitive-services/) .
 
 ## <a name="create-voice-signatures"></a>Tworzenie podpisów głosowych
 
-Pierwszym krokiem jest stworzenie podpisów głosowych dla uczestników konwersacji w celu sprawnego identyfikacji prelegentów.
+Pierwszym krokiem jest utworzenie podpisów głosowych dla uczestników konwersacji na potrzeby efektywnej identyfikacji głośników.
 
-### <a name="audio-input-requirements"></a>Wymagania dotyczące wejścia audio
+### <a name="audio-input-requirements"></a>Wymagania wejściowe audio
 
-- Wejściowy plik fali audio do tworzenia podpisów głosowych powinien znajdować się w próbkach 16-bitowych, częstotliwości próbkowania 16 kHz i formacie jednokanałowym (mono).
-- Zalecana długość dla każdej próbki audio wynosi od trzydziestu sekund do dwóch minut.
+- Wejściowy plik Wave audio służący do tworzenia podpisów głosowych powinien znajdować się w 16-bitowych próbkach, szybkości próbkowania 16 kHz i formacie pojedynczego kanału (mono).
+- Zalecana długość dla każdego przykładu audio to 30 sekund i dwie minuty.
 
 ### <a name="sample-code"></a>Przykładowy kod
 
-W poniższym przykładzie przedstawiono dwa różne sposoby tworzenia [podpisu głosowego przy użyciu interfejsu API REST](https://aka.ms/cts/signaturegenservice) w języku C#. Należy pamiętać, że musisz zastąpić prawdziwe informacje dla "YourSubscriptionKey", nazwa pliku wave dla "speakerVoice.wav", a twój region `{region}` i "YourServiceRegion"_(centralus_ lub _eastasia_).
+W poniższym przykładzie przedstawiono dwa różne sposoby tworzenia podpisów głosowych przy [użyciu interfejsu API REST](https://aka.ms/cts/signaturegenservice) w języku C#. Należy pamiętać, że należy zastąpić rzeczywiste informacje dla "YourSubscriptionKey", nazwę pliku Wave dla "speakerVoice. wav" oraz region dla `{region}` i "YourServiceRegion" (_środkowe_ lub _eastasia_).
 
 ```csharp
 class Program
@@ -102,20 +102,20 @@ class Program
 }
 ```
 
-## <a name="transcribe-conversations"></a>Transkrypcja konwersacji
+## <a name="transcribe-conversations"></a>Transkrypcja konwersacje
 
-Poniższy przykładowy kod pokazuje, jak transkrypcji konwersacji w czasie rzeczywistym dla trzech głośników. Zakłada się, że dla każdego głośnika zostały już utworzone podpisy głosowe, jak pokazano powyżej. Zastąp prawdziwe informacje dla "YourSubscriptionKey" i "YourServiceRegion" podczas tworzenia SpeechConfig obiektu.
+Poniższy przykładowy kod demonstruje, jak transkrypcja konwersacje w czasie rzeczywistym dla trzech głośników. Przyjęto założenie, że sygnatury głosowe zostały już utworzone dla każdego głośnika, jak pokazano powyżej. Podstaw rzeczywiste informacje dotyczące "YourSubscriptionKey" i "YourServiceRegion" podczas tworzenia obiektu SpeechConfig.
 
-Przykładowe najważniejsze informacje o kodzie obejmują:
+Przykładowe przykłady kodu obejmują:
 
 - Tworzenie `Conversation` obiektu z `SpeechConfig` obiektu przy użyciu identyfikatora spotkania wygenerowanego przy użyciu`Guid.NewGuid()`
-- Tworzenie `ConversationTranscriber` obiektu i dołączenie `JoinConversationAsync()` do konwersacji, aby rozpocząć transkrypcję
-- Rejestrowanie interesujących wydarzeń
-- Dodawanie lub usuwanie uczestników do konwersacji przy użyciu obiektu Konwersacja
-- Przesyłanie strumieniowe dźwięku
-- W polu wersji sygnatury głosowej w wersji `int` 1.9.0 i 1.9.0 i później obsługiwane są zarówno typy `string` i typy wartości.
+- Tworzenie `ConversationTranscriber` obiektu i sprzęganie się z `JoinConversationAsync()` konwersacją w celu rozpoczęcia transkrypcji
+- Rejestrowanie interesujących Cię zdarzeń
+- Dodawanie lub usuwanie uczestników konwersacji przy użyciu obiektu konwersacja
+- Przesyłanie strumieniowe audio
+- W przypadku zestawu Speech SDK wersja 1.9.0 i w polu `int` wersja `string` podpisu głosowego są obsługiwane typy i.
 
-Transkrypcja i identyfikator prelegenta powracają w zarejestrowanych zdarzeniach.
+Identyfikator transkrypcji i prelegenta wracają do zarejestrowanych zdarzeń.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -218,4 +218,4 @@ public class MyConversationTranscriber
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Transkrypcja konwersacji asynchroniisty](how-to-async-conversation-transcription.md)
+> [Transkrypcja konwersacji asynchronicznej](how-to-async-conversation-transcription.md)

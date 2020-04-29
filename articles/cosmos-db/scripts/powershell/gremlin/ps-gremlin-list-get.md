@@ -1,6 +1,6 @@
 ---
-title: Skrypt programu PowerShell do listy i uzyskania operacji dla interfejsu API Gremlin usługi Azure Cosmos DB
-description: Skrypt programu Azure PowerShell — lista usługi Azure Cosmos DB i operacje dla interfejsu API gremlin
+title: Skrypt programu PowerShell do wyświetlania i pobierania operacji dla Azure Cosmos DB interfejsu API Gremlin
+description: Azure PowerShell listę Azure Cosmos DB skryptu i Pobierz operacje dla interfejsu API Gremlin
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: bd764dce0bc55582125bdb4e6ffd86dec924390b
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80366041"
 ---
-# <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Lista i pobierz bazy danych i wykresy dla usługi Azure Cosmos DB — interfejs API Gremlin
+# <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Wyświetl i Pobierz bazy danych i wykresy dla interfejsu API Azure Cosmos DB Gremlin
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -39,9 +39,9 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | Polecenie | Uwagi |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Konto Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Wyświetla listę kont usługi Cosmos DB lub pobiera określone konto usługi Cosmos DB. |
-| [Baza danych Get-AzCosmosDBGremlinDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabase) | Wyświetla listę baz danych interfejsu API interfejsu API usługi Cosmos DB gremlin w koncie lub pobiera określoną bazę danych interfejsu API interfejsu API usługi Cosmos DB w koncie. |
-| [Get-AzCosmosDBGremlinGraph](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) | Wyświetla listę wykresów interfejsu API interfejsu API usługi Cosmos DB Gremlin w bazie danych lub pobiera określoną tabelę interfejsu API programu Cosmos DB Gremlin w bazie danych. |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Wyświetla listę kont Cosmos DB lub pobiera określone konto Cosmos DB. |
+| [Get-AzCosmosDBGremlinDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabase) | Wyświetla listę Cosmos DB baz danych interfejsu API Gremlin na koncie lub pobiera określoną Cosmos DB bazę danych interfejsu API Gremlin na koncie. |
+| [Get-AzCosmosDBGremlinGraph](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) | Wyświetla listę Cosmos DB wykresy interfejsu API Gremlin w bazie danych lub pobiera określoną Cosmos DB tabelę interfejsu API Gremlin w bazie danych. |
 |**Grupy zasobów platformy Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||

@@ -1,48 +1,48 @@
 ---
-title: Zapytanie do bazy wiedzy — QnA Maker
-description: Należy opublikować bazę wiedzy. Po opublikowaniu baza wiedzy jest wyszukiwana w punkcie końcowym przewidywania środowiska wykonawczego przy użyciu interfejsu API generateAnswer.
+title: Badanie bazy wiedzy — QnA Maker
+description: Baza wiedzy musi być opublikowana. Po opublikowaniu baza wiedzy jest wysyłana w punkcie końcowym przewidywania środowiska uruchomieniowego przy użyciu interfejsu API generateAnswer.
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: cb777aa16fada50811cce1bbf49f28662c62b49b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220722"
 ---
-# <a name="query-the-knowledge-base-for-answers"></a>Zapytanie do bazy wiedzy o odpowiedzi
+# <a name="query-the-knowledge-base-for-answers"></a>Zapytanie dotyczące odpowiedzi z bazy wiedzy
 
-Należy opublikować bazę wiedzy. Po opublikowaniu baza wiedzy jest wyszukiwana w punkcie końcowym przewidywania środowiska wykonawczego przy użyciu interfejsu API generateAnswer. Zapytanie zawiera tekst pytania i inne ustawienia, aby pomóc QnA Maker wybrać najlepsze możliwe dopasowanie do odpowiedzi.
+Baza wiedzy musi być opublikowana. Po opublikowaniu baza wiedzy jest wysyłana w punkcie końcowym przewidywania środowiska uruchomieniowego przy użyciu interfejsu API generateAnswer. Zapytanie zawiera tekst pytania i inne ustawienia, aby ułatwić QnA Maker wybranie najlepszego możliwego dopasowania do odpowiedzi.
 
-## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>Jak program QnA Maker przetwarza zapytanie użytkownika w celu wybrania najlepszej odpowiedzi
+## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>Jak QnA Maker przetwarza zapytanie użytkownika w celu wybrania najlepszej odpowiedzi
 
-Przeszkolona i [opublikowana](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) baza wiedzy QnA Maker odbiera zapytanie użytkownika, z bota lub innej aplikacji klienckiej, w [interfejsie API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Na poniższym diagramie przedstawiono proces po odebraniu kwerendy użytkownika.
+Przeszkolony i [opublikowany](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QNA Maker baza wiedzy otrzymuje zapytanie użytkownika z bot lub innej aplikacji klienckiej w [interfejsie API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Na poniższym diagramie przedstawiono proces po odebraniu zapytania użytkownika.
 
-![Proces modelu klasyfikacji dla kwerendy użytkownika](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
+![Proces modelu klasyfikowania dla zapytania użytkownika](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
 
-### <a name="ranker-process"></a>Proces rankera
+### <a name="ranker-process"></a>Proces rangi
 
-Proces ten jest wyjaśniony w poniższej tabeli.
+Ten proces został wyjaśniony w poniższej tabeli.
 
 |Krok|Przeznaczenie|
 |--|--|
 |1|Aplikacja kliencka wysyła zapytanie użytkownika do [interfejsu API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
-|2|Program QnA Maker wstępnie przetwarza kwerendę użytkownika za pomocą wykrywania języka, czarowników i modułów sprawdzania wyrazów.|
-|3|To przetwarzanie wstępne jest podejmowane w celu zmiany zapytania użytkownika dla najlepszych wyników wyszukiwania.|
-|4|Ta zmieniona kwerenda jest wysyłana do indeksu usługi Azure Cognitive Search Index, który otrzymuje `top` liczbę wyników. Jeśli poprawnej odpowiedzi nie ma w tych `top` wynikach, zwiększ wartość nieznacznie. Ogólnie rzecz biorąc wartość 10 dla `top` prac w 90% zapytań.|
-|5|QnA Maker używa składni i semantycznej featurization w celu określenia podobieństwa między kwerendą użytkownika i pobranych wyników QnA.|
-|6|Model rangeru nauczony maszynowo używa różnych funkcji, od kroku 5, do określenia wyników zaufania i nowej kolejności rankingowej.|
-|7|Nowe wyniki są zwracane do aplikacji klienckiej w kolejności rankingowej.|
+|2|QnA Maker wstępnie przetworzy zapytanie użytkownika przy użyciu wykrywania języka, modułu sprawdzania pisowni i wyłączników słów.|
+|3|Przetwarzanie wstępne jest podejmowane w celu zmiany zapytania użytkownika w celu uzyskania najlepszych wyników wyszukiwania.|
+|4|To zmienione zapytanie jest wysyłane do indeksu Wyszukiwanie poznawcze platformy Azure, który otrzymuje `top` liczbę wyników. Jeśli prawidłowa odpowiedź nie jest w tych wynikach, zwiększ wartość `top` nieco. Ogólnie rzecz biorąc, wartość 10 dla `top` robót budowlanych w 90% zapytań.|
+|5|QnA Maker używa składni i semantyki opartej na cechowania w celu określenia podobieństwa między zapytania użytkownika i pobieranymi wynikami QnA.|
+|6|Model rankingu o określonej maszynie używa różnych funkcji, od kroku 5, do określenia wyników pewności i nowej kolejności klasyfikacji.|
+|7|Nowe wyniki są zwracane do aplikacji klienckiej w kolejności uporządkowanej.|
 |||
 
-Używane funkcje obejmują, ale nie są ograniczone do semantyki na poziomie słowa, znaczenie na poziomie terminu w korpusie i głęboko wyuczonych modeli semantycznych w celu określenia podobieństwa i trafności między dwoma ciągami tekstowymi.
+Używane funkcje obejmują, ale nie są ograniczone do semantyki na poziomie wyrazów, ważności na poziomie terminu w korpus i głębokiego uczenia się modeli semantycznych w celu określenia podobieństwa i zgodności między dwoma ciągami tekstowymi.
 
-## <a name="http-request-and-response-with-endpoint"></a>Żądanie i odpowiedź HTTP z punktem końcowym
-Podczas publikowania bazy wiedzy usługa tworzy punkt końcowy HTTP oparty na rest, który można zintegrować z aplikacją, często bot czatu.
+## <a name="http-request-and-response-with-endpoint"></a>Żądanie HTTP i odpowiedź z punktem końcowym
+Po opublikowaniu bazy wiedzy Usługa tworzy punkt końcowy HTTP oparty na protokole REST, który można zintegrować z aplikacją, zazwyczaj bot rozmowy.
 
 ### <a name="the-user-query-request-to-generate-an-answer"></a>Żądanie kwerendy użytkownika w celu wygenerowania odpowiedzi
 
-Zapytanie użytkownika to pytanie, które użytkownik końcowy zadaje `How do I add a collaborator to my app?`bazy wiedzy, na przykład . Zapytanie jest często w formacie języka naturalnego lub kilka słów `help with collaborators`kluczowych, które reprezentują pytanie, takie jak . Kwerenda jest wysyłana do bazy wiedzy z żądania HTTP w aplikacji klienckiej.
+Zapytanie użytkownika to pytanie, że użytkownik końcowy prosi o bazę wiedzy, np `How do I add a collaborator to my app?`.. Zapytanie jest często w formacie języka naturalnego lub kilka słów kluczowych, które reprezentują pytanie, na przykład `help with collaborators`. Zapytanie jest wysyłane do bazy wiedzy z żądania HTTP w aplikacji klienckiej.
 
 ```json
 {
@@ -59,13 +59,13 @@ Zapytanie użytkownika to pytanie, które użytkownik końcowy zadaje `How do I 
 }
 ```
 
-Odpowiedź można kontrolować, ustawiając właściwości, takie jak [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)i [strictFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
+Aby kontrolować odpowiedź, należy ustawić właściwości, takie jak [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [Top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)i [strictFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
 
-Użyj [kontekstu konwersacji](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) z [funkcją multi-turn,](../how-to/multiturn-conversation.md) aby utrzymać konwersację w celu uściślenia pytań i odpowiedzi, aby znaleźć poprawną i ostateczną odpowiedź.
+Użyj [kontekstu konwersacji](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) z [funkcją](../how-to/multiturn-conversation.md) wieloskładnikową, aby zachować konwersację w celu uściślenia pytań i odpowiedzi, aby znaleźć poprawną i końcową odpowiedź.
 
-### <a name="the-response-from-a-call-to-generate-an-answer"></a>Odpowiedź z połączenia w celu wygenerowania odpowiedzi
+### <a name="the-response-from-a-call-to-generate-an-answer"></a>Odpowiedź z wywołania do wygenerowania odpowiedzi
 
-Odpowiedź HTTP jest odpowiedzią pobraną z bazy wiedzy, opartą na najlepszym dopasowaniu dla danego zapytania użytkownika. Odpowiedź zawiera odpowiedź i wynik przewidywania. Jeśli poprosisz o więcej niż `top` jedną najlepszą odpowiedź z nieruchomości, otrzymasz więcej niż jedną najlepszą odpowiedź, każda z wynikiem.
+Odpowiedź HTTP to odpowiedź pobierana z bazy wiedzy, na podstawie najlepszego dopasowania dla danego zapytania użytkownika. Odpowiedź zawiera odpowiedź i wynik przewidywania. Jeśli zażądano więcej niż jednej górnej odpowiedzi z `top` właściwością, uzyskasz więcej niż jedną największą odpowiedź z wynikiem.
 
 ```json
 {

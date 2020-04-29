@@ -1,50 +1,50 @@
 ---
-title: Poprawa bazy wiedzy - QnA Maker
-description: Popraw jakość swojej bazy wiedzy dzięki aktywnemu uczeniu się. Przeglądaj, akceptuj lub odrzucaj, dodawaj bez usuwania lub zmieniania istniejących pytań.
+title: Poprawianie bazy wiedzy — QnA Maker
+description: Popraw jakość bazy wiedzy dzięki aktywnej uczeniu. Przeglądanie, akceptowanie lub odrzucanie, Dodawanie bez usuwania lub zmieniania istniejących pytań.
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 33b3c547b0aea9a1e235bf8a05d01aa16b468a71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80071134"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Ulepszanie bazy wiedzy za pomocą uczenia aktywnego
 
-[Aktywne uczenie się](../Concepts/active-learning-suggestions.md) pozwala poprawić jakość bazy wiedzy, proponując alternatywne pytania. Zgłoszenia użytkowników są brane pod uwagę i wyświetlane jako sugestie na liście pytań alternatywnych. Masz możliwość dodania tych sugestii jako alternatywnych pytań lub odrzucenia ich.
+[Usługa Active Learning](../Concepts/active-learning-suggestions.md) pozwala ulepszyć jakość bazy wiedzy, sugerując inne pytania. Zgłoszenia użytkowników są brane pod uwagę i są wyświetlane w postaci sugestii na liście pytań alternatywnych. Aby dodać te sugestie jako pytania alternatywne lub je odrzucić, możesz to zrobić.
 
-Baza wiedzy nie zmienia się automatycznie. Aby zmiany weszły w życie, musisz zaakceptować sugestie. Te sugestie dodają pytania, ale nie zmieniają ani nie usuwają istniejących pytań.
-
-
-## <a name="upgrade-runtime-version-to-use-active-learning"></a>Uaktualnianie wersji środowiska uruchomieniowego w celu użycia aktywnego uczenia się
-
-Usługa Active Learning jest obsługiwana w wersji wykonawczej 4.4.0 lub wyższej. Jeśli baza wiedzy została utworzona na wcześniejszej wersji, [uaktualnij środowisko wykonawcze,](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) aby użyć tej funkcji.
-
-## <a name="turn-on-active-learning-for-alternate-questions"></a>Włączanie aktywnej nauki w przypadku pytań alternatywnych
-
-Aktywne uczenie jest domyślnie wyłączone. Włącz go, aby wyświetlić sugerowane pytania. Po włączeniu aktywnego uczenia się należy wysłać informacje z aplikacji klienckiej do programu QnA Maker. Aby uzyskać więcej informacji, zobacz [Przepływ architektury do korzystania z generateanswer i pociągu interfejsów API z bota](improve-knowledge-base.md#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
-
-1. Wybierz **pozycję Publikuj,** aby opublikować bazę wiedzy. Aktywne zapytania szkoleniowe są zbierane tylko z punktu końcowego prognozowania interfejsu API GenerateAnswer. Zapytania do okienka testowego w portalu QnA Maker nie mają wpływu na aktywne uczenie się.
-
-1. Aby włączyć aktywne uczenie się w portalu QnA Maker, przejdź do prawego górnego rogu, wybierz **nazwę**, przejdź do [**ustawień usługi**](https://www.qnamaker.ai/UserSettings).
-
-    ![Włącz zalecane przez aktywne uczenie się alternatywy pytań na stronie Ustawienia usługi. Wybierz nazwę użytkownika w prawym górnym menu, a następnie wybierz pozycję Ustawienia usługi.](../media/improve-knowledge-base/Endpoint-Keys.png)
+Baza wiedzy nie zmienia się automatycznie. Aby zmiany zaczęły obowiązywać, należy zaakceptować sugestie. Te sugestie dodają pytania, ale nie zmieniają ani nie usuwają istniejących pytań.
 
 
-1. Znajdź usługę QnA Maker, a następnie przełącz **usługę Active Learning**.
+## <a name="upgrade-runtime-version-to-use-active-learning"></a>Uaktualnij wersję środowiska uruchomieniowego, aby użyć usługi Active Learning
+
+Usługa Active Learning jest obsługiwana w środowisku uruchomieniowym w wersji 4.4.0 i nowszych. Jeśli baza wiedzy została utworzona w starszej wersji, [Uaktualnij środowisko uruchomieniowe](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) , aby użyć tej funkcji.
+
+## <a name="turn-on-active-learning-for-alternate-questions"></a>Włącz aktywną naukę w przypadku pytań alternatywnych
+
+Aktywna nauka jest domyślnie wyłączona. Włącz tę opcję, aby zobaczyć sugerowane pytania. Po włączeniu aktywnego uczenia należy wysłać informacje z aplikacji klienckiej do QnA Maker. Aby uzyskać więcej informacji, zobacz temat [Architektura przepływu na potrzeby używania GenerateAnswer i uczenia interfejsów API z bot](improve-knowledge-base.md#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
+
+1. Wybierz pozycję **Publikuj** , aby opublikować bazę wiedzy. Aktywne zapytania szkoleniowe są zbierane tylko z punktu końcowego przewidywania interfejsu API GenerateAnswer. Zapytania do okienka test w portalu QnA Maker nie wpływają na aktywną naukę.
+
+1. Aby włączyć aktywną naukę w portalu QnA Maker, przejdź do prawego górnego rogu, wybierz swoją **nazwę**i przejdź do pozycji [**Ustawienia usługi**](https://www.qnamaker.ai/UserSettings).
+
+    ![Na stronie ustawień usługi Włącz zaproponowane wątpliwości dotyczące aktywnego uczenia. Wybierz swoją nazwę użytkownika w prawym górnym menu, a następnie wybierz pozycję Ustawienia usługi.](../media/improve-knowledge-base/Endpoint-Keys.png)
+
+
+1. Znajdź usługę QnA Maker a następnie Przełącz **aktywną naukę**.
 
     > [!div class="mx-imgBorder"]
-    > [![Na stronie Ustawienia usługi przełącz funkcję Aktywne uczenie. Jeśli nie możesz przełączyć tej funkcji, może być konieczne uaktualnienie usługi.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    > [![Na stronie Ustawienia usługi Przełącz funkcję Active Learning. Jeśli nie możesz przełączać tej funkcji, może być konieczne uaktualnienie usługi.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
     > [!Note]
-    > Dokładna wersja na poprzednim obrazie jest wyświetlana tylko jako przykład. Twoja wersja może być inna.
+    > Dokładna wersja na powyższym obrazie jest pokazywana tylko jako przykład. Twoja wersja może być inna.
 
-    Po włączeniu **funkcji Active Learning** baza wiedzy sugeruje nowe pytania w regularnych odstępach czasu na podstawie pytań przesłanych przez użytkownika. **Active Learning** można wyłączyć, ponownie przełączając to ustawienie.
+    Po włączeniu **aktywnej uczenia** baza wiedzy sugeruje nowe pytania w regularnych odstępach czasu na podstawie pytań przesłanych przez użytkownika. **Aktywną naukę** można wyłączyć, przełączając ponownie ustawienie.
 
 ## <a name="review-suggested-alternate-questions"></a>Przejrzyj sugerowane pytania alternatywne
 
-[Przejrzyj alternatywne sugerowane pytania](improve-knowledge-base.md) na stronie **Edycja** każdej bazy wiedzy.
+Zapoznaj się z [alternatywnymi sugerowanymi pytaniami](improve-knowledge-base.md) na stronie **edytowania** każdej bazy wiedzy.
 
 ## <a name="next-steps"></a>Następne kroki
 

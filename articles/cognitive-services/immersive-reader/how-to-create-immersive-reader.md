@@ -1,7 +1,7 @@
 ---
 title: Tworzenie zasobu czytnika immersyjnego
 titleSuffix: Azure Cognitive Services
-description: W tym artykule pokazano, jak utworzyć nowy zasób programu Immersive Reader z niestandardową poddomeną, a następnie skonfigurować usługę Azure AD w dzierżawie platformy Azure.
+description: W tym artykule pokazano, jak utworzyć nowy zasób czytnika immersyjny z niestandardową domeną poddomeny, a następnie skonfigurować usługę Azure AD w dzierżawie platformy Azure.
 services: cognitive-services
 author: rwaller
 manager: guillasi
@@ -11,27 +11,27 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
 ms.openlocfilehash: 41efe4592c65ae3cdd85ce1b212554e50691905a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78330723"
 ---
-# <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Tworzenie zasobu programu Immersive Reader i konfigurowanie uwierzytelniania usługi Azure Active Directory
+# <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Utwórz zasób czytnika immersyjny i Skonfiguruj uwierzytelnianie Azure Active Directory
 
-W tym artykule udostępniamy skrypt, który utworzy zasób programu Immersive Reader i skonfiguruje uwierzytelnianie usługi Azure Active Directory (Azure AD). Za każdym razem, gdy tworzony jest zasób programu Immersive Reader, czy to za pomocą tego skryptu, czy w portalu, musi być również skonfigurowany z uprawnieniami usługi Azure AD. Ten skrypt ci w tym pomoże.
+W tym artykule udostępniamy skrypt, który utworzy zasób czytnika immersyjny i skonfiguruje uwierzytelnianie Azure Active Directory (Azure AD). Za każdym razem, gdy tworzony jest zasób czytnika, niezależnie od tego, czy jest to skrypt, czy w portalu, należy również skonfigurować uprawnienia usługi Azure AD. Ten skrypt pomoże Ci tego.
 
-Skrypt został zaprojektowany do tworzenia i konfigurowania wszystkich niezbędnych immersive reader i zasobów usługi Azure AD dla Ciebie wszystkich w jednym kroku. Jednak można również skonfigurować uwierzytelnianie usługi Azure AD dla istniejącego zasobu programu Immersive Reader, jeśli na przykład, zdarzy ci się już utworzyć jeden w witrynie Azure portal.
+Skrypt jest przeznaczony do tworzenia i konfigurowania wszystkich niezbędnych czytników immersyjny i zasobów usługi Azure AD w jednym kroku. Można jednak po prostu skonfigurować uwierzytelnianie usługi Azure AD dla istniejącego zasobu czytnika szczegółowego, jeśli na przykład nastąpi już utworzenie jednego w Azure Portal.
 
-W przypadku niektórych klientów może być konieczne utworzenie wielu zasobów programu Immersive Reader, dla rozwoju i produkcji lub być może dla wielu różnych regionów, w których usługa jest wdrażana. W takich przypadkach można wrócić i użyć skryptu wiele razy, aby utworzyć różne zasoby programu Immersive Reader i uzyskać je skonfigurowane przy użyciu uprawnień usługi Azure AD.
+W przypadku niektórych klientów może być konieczne utworzenie wielu zasobów czytnika, na potrzeby tworzenia i produkcji, lub też dla wielu różnych regionów, w których jest wdrażana usługa. W takich przypadkach można wrócić i wielokrotnie używać skryptu do tworzenia różnych zasobów czytnika szczegółowego i uzyskiwania ich konfiguracji przy użyciu uprawnień usługi Azure AD.
 
-Skrypt został zaprojektowany tak, aby był elastyczny. Najpierw będzie szukać istniejących zasobów Immersive Reader i usługi Azure AD w ramach subskrypcji i utworzyć je tylko w razie potrzeby, jeśli jeszcze nie istnieją. Jeśli po raz pierwszy tworzysz zasób Immersive Reader, skrypt zrobi wszystko, czego potrzebujesz. Jeśli chcesz go używać tylko do skonfigurowania usługi Azure AD dla istniejącego zasobu immersive reader, który został utworzony w portalu, zrobi to również. Może być również używany do tworzenia i konfigurowania wielu zasobów immersive reader.
+Skrypt został zaprojektowany jako elastyczny. Najpierw szuka istniejącego czytnika immersyjny i zasobów usługi Azure AD w ramach subskrypcji i utworzysz je tylko w razie potrzeby, jeśli jeszcze nie istnieją. Jeśli tworzysz zasób czytnika immersyjny po raz pierwszy, skrypt wykona wszystko, czego potrzebujesz. Jeśli chcesz korzystać z niej tylko w celu skonfigurowania usługi Azure AD dla istniejącego zasobu czytników immersyjny, który został utworzony w portalu, spowoduje to również. Może również służyć do tworzenia i konfigurowania wielu zasobów czytnika.
 
 ## <a name="set-up-powershell-environment"></a>Konfigurowanie środowiska programu PowerShell
 
-1. Zacznij od otwarcia powłoki [chmury azure](https://docs.microsoft.com/azure/cloud-shell/overview). Upewnij się, że powłoka chmury jest ustawiona na program PowerShell w lewym górnym rogu listy rozwijanej lub wpisując `pwsh`.
+1. Zacznij od otworzenia [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Upewnij się, że usługa Cloud Shell jest ustawiona na program PowerShell w lewym górnym rogu listy rozwijanej lub wpisując `pwsh`.
 
-1. Skopiuj i wklej następujący fragment kodu do powłoki.
+1. Skopiuj i wklej poniższy fragment kodu w powłoce.
 
     ```azurepowershell-interactive
     function Create-ImmersiveReaderResource(
@@ -141,7 +141,7 @@ Skrypt został zaprojektowany tak, aby był elastyczny. Najpierw będzie szukać
     }
     ```
 
-1. Uruchom funkcję, `Create-ImmersiveReaderResource`podając odpowiednie parametry.
+1. Uruchom funkcję `Create-ImmersiveReaderResource`, dostarczając odpowiednio parametry.
 
     ```azurepowershell-interactive
     Create-ImmersiveReaderResource
@@ -159,16 +159,16 @@ Skrypt został zaprojektowany tak, aby był elastyczny. Najpierw będzie szukać
 
     | Parametr | Komentarze |
     | --- | --- |
-    | SubscriptionName |Nazwa subskrypcji platformy Azure do użycia w zasobie programu Immersive Reader. Aby utworzyć zasób, musisz mieć subskrypcję. |
-    | ResourceName |  Musi być alfanumeryczny i może zawierać '-', o ile '-' nie jest pierwszym lub ostatnim znakiem. Długość nie może przekraczać 63 znaków.|
-    | ResourceSubdomena |Niestandardowa poddomena jest potrzebna dla zasobu Immersive Reader. Poddomena jest używana przez SDK podczas wywoływania usługi Immersive Reader w celu uruchomienia czytnika. Poddomena musi być unikatowa globalnie. Poddomena musi być alfanumeryczna i może zawierać '-', o ile '-' nie jest pierwszym lub ostatnim znakiem. Długość nie może przekraczać 63 znaków. Ten parametr jest opcjonalny, jeśli zasób już istnieje. |
-    | ResourceSKU |Opcje: `S0`. Odwiedź naszą [stronę cennika usług Cognitive Services,](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) aby dowiedzieć się więcej o każdej dostępnej jednostce SKU. Ten parametr jest opcjonalny, jeśli zasób już istnieje. |
-    | ResourceLocation |Opcje: `eastus` `eastus2`, `southcentralus` `westus`, `westus2` `australiaeast`, `southeastasia` `centralindia`, `japaneast` `northeurope`, `uksouth` `westeurope`, , , , , , . Ten parametr jest opcjonalny, jeśli zasób już istnieje. |
-    | ResourceGroupName |Zasoby są tworzone w grupach zasobów w ramach subskrypcji. Podaj nazwę istniejącej grupy zasobów. Jeśli grupa zasobów jeszcze nie istnieje, zostanie utworzona nowa grupa o tej nazwie. |
-    | ResourceGroupLocation (Alokacja grupy zasobów) |Jeśli grupa zasobów nie istnieje, należy podać lokalizację, w której chcesz utworzyć grupę. Aby znaleźć listę lokalizacji, `az account list-locations`uruchom plik . Użyj właściwości *name* (bez spacji) zwracanego wyniku. Ten parametr jest opcjonalny, jeśli grupa zasobów już istnieje. |
-    | Nazwa AADAppDisplayName |Nazwa wyświetlana aplikacji usługi Azure Active Directory. Jeśli nie zostanie znaleziona istniejąca aplikacja usługi Azure AD, zostanie utworzona nowa aplikacja o tej nazwie. Ten parametr jest opcjonalny, jeśli aplikacja usługi Azure AD już istnieje. |
-    | AADAppIdentifierUri |Identyfikator URI dla aplikacji usługi Azure AD. Jeśli nie zostanie znaleziona istniejąca aplikacja usługi Azure AD, zostanie utworzona nowa aplikacja z tym identyfikatorem URI. Na przykład `https://immersivereaderaad-mycompany`. |
-    | AADAppClientSecret (Protokół z okiem na akces |Utworzone hasło, które będzie używane później do uwierzytelniania podczas uzyskiwania tokenu w celu uruchomienia programu Immersive Reader. Hasło musi mieć co najmniej 16 znaków, zawierać co najmniej 1 znak specjalny i zawierać co najmniej 1 znak numeryczny. |
+    | SubscriptionName |Nazwa subskrypcji platformy Azure, która ma być używana dla zasobu czytnika danych. Aby można było utworzyć zasób, trzeba mieć subskrypcję. |
+    | ResourceName |  Musi być alfanumeryczne i może zawierać znak "-", tak długo, jak "-" nie jest pierwszy ani ostatni. Długość nie może przekraczać 63 znaków.|
+    | ResourceSubdomain |Niestandardowa poddomena jest wymagana dla zasobu czytnika danych. Poddomena jest używana przez zestaw SDK podczas wywoływania usługi czytnika immersyjny w celu uruchomienia czytnika. Poddomena musi być unikatowa w skali globalnej. Poddomena musi być alfanumeryczna i może zawierać znaki "-", o ile nie jest to pierwszy ani ostatni znak. Długość nie może przekraczać 63 znaków. Ten parametr jest opcjonalny, jeśli zasób już istnieje. |
+    | ResourceSKU |Opcje: `S0`. Odwiedź [stronę cennika Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) , aby dowiedzieć się więcej na temat każdej dostępnej jednostki SKU. Ten parametr jest opcjonalny, jeśli zasób już istnieje. |
+    | ResourceLocation |Opcje: `eastus`, `eastus2`, `southcentralus` `westus` `westus2`,,, `australiaeast`, `southeastasia` `centralindia` `japaneast` `northeurope`,,, `westeurope`, `uksouth`. Ten parametr jest opcjonalny, jeśli zasób już istnieje. |
+    | ResourceGroupName |Zasoby są tworzone w grupach zasobów w ramach subskrypcji. Podaj nazwę istniejącej grupy zasobów. Jeśli grupa zasobów jeszcze nie istnieje, zostanie utworzona nowa nazwa o tej nazwie. |
+    | ResourceGroupLocation |Jeśli grupa zasobów nie istnieje, należy podać lokalizację, w której ma zostać utworzona grupa. Aby znaleźć listę lokalizacji, uruchom `az account list-locations`polecenie. Użyj właściwości *name* (bez spacji) zwracanego wyniku. Ten parametr jest opcjonalny, jeśli grupa zasobów już istnieje. |
+    | AADAppDisplayName |Nazwa wyświetlana aplikacji Azure Active Directory. Jeśli istniejąca aplikacja usługi Azure AD nie zostanie znaleziona, zostanie utworzona nowa nazwa o tej nazwie. Ten parametr jest opcjonalny, jeśli aplikacja usługi Azure AD już istnieje. |
+    | AADAppIdentifierUri |Identyfikator URI aplikacji usługi Azure AD. Jeśli istniejąca aplikacja usługi Azure AD nie zostanie znaleziona, zostanie utworzona nowa z tym identyfikatorem URI. Na przykład `https://immersivereaderaad-mycompany`. |
+    | AADAppClientSecret |Utworzone hasło, które będzie używane później do uwierzytelniania podczas uzyskiwania tokenu w celu uruchomienia czytnika immersyjny. Hasło musi składać się z co najmniej 16 znaków, zawierać co najmniej 1 znak specjalny i zawierać co najmniej 1 znak liczbowy. |
 
 1. Skopiuj dane wyjściowe JSON do pliku tekstowego do późniejszego użycia. Dane wyjściowe powinny wyglądać podobnie do poniższych.
 
@@ -183,10 +183,10 @@ Skrypt został zaprojektowany tak, aby był elastyczny. Najpierw będzie szukać
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Wyświetl [przewodnik Szybki start w pliku Node.js,](./quickstart-nodejs.md) aby zobaczyć, co jeszcze można zrobić z modułem Immersive Reader SDK przy użyciu pliku Node.js
-* Zobacz [samouczek Pythona,](./tutorial-python.md) aby zobaczyć, co jeszcze możesz zrobić z zestawu Immersive Reader SDK przy użyciu języka Python
-* Zobacz [samouczek Swift,](./tutorial-ios-picture-immersive-reader.md) aby zobaczyć, co jeszcze możesz zrobić z zestawu Immersive Reader SDK za pomocą programu Swift
-* Poznaj [immersyjny moduł SDK czytnika](https://github.com/microsoft/immersive-reader-sdk) i [immersyjny moduł SDK czytnika](./reference.md)
+* Zobacz [Przewodnik Szybki Start środowiska Node. js](./quickstart-nodejs.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK programu immersyjny przy użyciu środowiska Node. js.
+* Obejrzyj [samouczek języka Python](./tutorial-python.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK dla czytnika immersyjny przy użyciu języka Python
+* Obejrzyj [samouczek SWIFT](./tutorial-ios-picture-immersive-reader.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu SWIFT
+* Poznaj [zestaw SDK czytnika immersyjny](https://github.com/microsoft/immersive-reader-sdk) i [Kompendium zestawu SDK czytnika immersyjny](./reference.md)
 
 
 

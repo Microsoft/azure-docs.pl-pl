@@ -1,54 +1,54 @@
 ---
-title: Migrowanie baz wiedzy - QnA Maker
-description: Migracja bazy wiedzy wymaga eksportowania z jednej bazy wiedzy, a następnie importowania do innej.
+title: Migrowanie baz wiedzy — QnA Maker
+description: Migrowanie bazy wiedzy wymaga eksportowania z jednej bazy wiedzy, a następnie importowania do innej.
 ms.topic: article
 ms.date: 03/25/2020
 ms.openlocfilehash: 13e5e79bf4eaf6ec59e41b3e12aa1bb23f2c1578
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80258094"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrowanie bazy wiedzy przy użyciu eksportu i importu
 
-Migracja to proces tworzenia nowej bazy wiedzy z istniejącej bazy wiedzy. Możesz to zrobić z kilku powodów:
+Migracja jest procesem tworzenia nowej bazy wiedzy na podstawie istniejącej bazy wiedzy. Można to zrobić z kilku powodów:
 
-* proces tworzenia kopii zapasowych i przywracania
+* proces tworzenia kopii zapasowej i przywracania
 * Potok ciągłej integracji/ciągłego wdrażania
-* przenoszenie regionów
+* Przenieś regiony
 
-Migracja bazy wiedzy wymaga eksportowania z istniejącej bazy wiedzy, a następnie importowania do innej.
+Migrowanie bazy wiedzy wymaga eksportowania z istniejącej bazy wiedzy, a następnie importowania do innej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Zanim rozpoczniesz, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Konfigurowanie nowej [usługi QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
+* Skonfiguruj nową [usługę QNA Maker](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="migrate-a-knowledge-base-from-qna-maker"></a>Migrowanie bazy wiedzy z programu QnA Maker
-1. Zaloguj się do [portalu QnA Maker](https://qnamaker.ai).
-1. Wybierz bazę wiedzy pochodzenia, którą chcesz przeprowadzić migrację.
+## <a name="migrate-a-knowledge-base-from-qna-maker"></a>Migrowanie bazy wiedzy z QnA Maker
+1. Zaloguj się do [portalu QNA Maker](https://qnamaker.ai).
+1. Wybierz bazę wiedzy źródłowej, którą chcesz zmigrować.
 
-1. Na stronie **Ustawienia** wybierz **pozycję Eksportuj bazę wiedzy,** aby pobrać plik .tsv zawierający zawartość bazy wiedzy pochodzenia — pytania, odpowiedzi, metadane, monity uzupełniające i nazwy źródeł danych, z których zostały wyodrębnione.
+1. Na stronie **Ustawienia** wybierz pozycję **Eksportuj bazę wiedzy** , aby pobrać plik. tsv, który zawiera zawartość bazy wiedzy o pochodzeniu, odpowiedzi, metadane, monity monitujące oraz nazwy źródeł danych, z których zostały wyodrębnione.
 
-1. Wybierz **pozycję Utwórz bazę wiedzy** z górnego menu, a następnie utwórz _pustą_ bazę wiedzy. Jest pusta, ponieważ podczas tworzenia nie zamierzasz dodawać żadnych adresów URL ani plików. Są to dodawane podczas kroku importu, po utworzeniu.
+1. Wybierz pozycję **Utwórz bazę wiedzy** z górnego menu, a następnie Utwórz _pustą_ bazę wiedzy. Jest ona pusta, ponieważ podczas jej tworzenia nie będzie można dodawać żadnych adresów URL ani plików. Są one dodawane podczas kroku importowania po utworzeniu.
 
-    Skonfiguruj bazę wiedzy. Ustaw tylko nową nazwę bazy wiedzy. Obsługiwane są zduplikowane nazwy i obsługiwane są również znaki specjalne.
+    Skonfiguruj bazę wiedzy. Ustaw tylko nową nazwę bazy wiedzy. Zduplikowane nazwy są obsługiwane, a znaki specjalne również są obsługiwane.
 
-    Nie należy wybierać niczego z kroku 4, ponieważ te wartości zostaną zastąpione podczas importowania pliku.
+    Nie zaznaczaj niczego z kroku 4, ponieważ te wartości zostaną nadpisywane podczas importowania pliku.
 
 1. W kroku 5 wybierz pozycję **Utwórz**.
 
-1. W tej nowej bazie wiedzy otwórz kartę **Ustawienia** i wybierz pozycję **Importuj bazę wiedzy**. Spowoduje to import pytań, odpowiedzi, metadanych, monitów uzupełniających i zachowuje nazwy źródeł danych, z których zostały wyodrębnione.
+1. W tej nowej bazie wiedzy Otwórz kartę **Ustawienia** , a następnie wybierz pozycję **Importuj bazę wiedzy**. Spowoduje to zaimportowanie pytań, odpowiedzi, metadanych, monitów, a następnie zachowanie nazw źródeł danych, z których zostały wyodrębnione.
 
    > [!div class="mx-imgBorder"]
-   > [![Importowanie bazy wiedzy](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
+   > [![Importuj bazę wiedzy](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
 
-1. **Przetestuj** nową bazę wiedzy za pomocą panelu testowego. Dowiedz się, jak [przetestować swoją bazę wiedzy](../How-To/test-knowledge-base.md).
+1. **Przetestuj** nową bazę wiedzy przy użyciu panelu test. Dowiedz się, jak [przetestować bazę wiedzy](../How-To/test-knowledge-base.md).
 
-1. **Opublikuj** bazę wiedzy i utwórz bota czatu. Dowiedz się, jak [opublikować bazę wiedzy](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
+1. **Opublikuj** bazę wiedzy i Utwórz czat bot. Dowiedz się, jak [opublikować bazę wiedzy](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
-## <a name="programmatically-migrate-a-knowledge-base-from-qna-maker"></a>Programowo migruj bazę wiedzy z programu QnA Maker
+## <a name="programmatically-migrate-a-knowledge-base-from-qna-maker"></a>Programowe Migrowanie bazy wiedzy z QnA Maker
 
 Proces migracji jest programowo dostępny przy użyciu następujących interfejsów API REST:
 
@@ -58,14 +58,14 @@ Proces migracji jest programowo dostępny przy użyciu następujących interfejs
 
 **Import**
 
-* [Zamień interfejs API (ponowne załadowanie identyfikatorem bazy wiedzy)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace)
-* [Tworzenie interfejsu API (ładowanie przy nowym identyfikatorze bazy wiedzy)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
+* [Zastąp interfejs API (Załaduj ponownie z tym samym IDENTYFIKATORem bazy wiedzy)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace)
+* [Utwórz interfejs API (Załaduj z nowym IDENTYFIKATORem bazy wiedzy)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
 
 
-## <a name="chat-logs-and-alterations"></a>Dzienniki czatu i zmiany
-Zmiany bez uwzględniania wielkości liter (synonimy) nie są importowane automatycznie. Użyj [interfejsów API V4,](https://go.microsoft.com/fwlink/?linkid=2092179) aby przenieść zmiany w nowej bazie wiedzy.
+## <a name="chat-logs-and-alterations"></a>Dzienniki i zmiany rozmowy
+Zmiany bez uwzględniania wielkości liter (synonimy) nie są importowane automatycznie. Użyj [interfejsów API v4](https://go.microsoft.com/fwlink/?linkid=2092179) , aby przenieść zmiany w nowej bazie wiedzy.
 
-Nie ma możliwości migracji dzienników czatu, ponieważ nowa baza wiedzy używa usługi Application Insights do przechowywania dzienników czatu.
+Nie ma możliwości migrowania dzienników rozmowy, ponieważ nowa baza wiedzy używa Application Insights do przechowywania dzienników rozmowy.
 
 ## <a name="next-steps"></a>Następne kroki
 

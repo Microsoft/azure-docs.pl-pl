@@ -1,41 +1,41 @@
 ---
-title: Zmiana danych — usługa LUIS
-description: Dowiedz się, jak można zmieniać dane przed przewidywaniem w zrozumieni języku (LUIS)
+title: Zmiana danych — LUIS
+description: Dowiedz się, jak można zmienić dane przed przewidywaniami w Language Understanding (LUIS)
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: b3b36351a64a4e1a0bd13d5785a4e0609a80901d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80292047"
 ---
-# <a name="alter-utterance-data-before-or-during-prediction"></a>Zmienianie danych wypowiedź przed lub w trakcie przewidywania
-Usługa LUIS udostępnia sposoby manipulowania wypowiedź przed lub w trakcie przewidywania. Należą do nich [naprawianie pisowni](luis-tutorial-bing-spellcheck.md)i rozwiązywanie problemów ze strefą czasową dla wstępnie utworzonego [pliku datetimeV2.](luis-reference-prebuilt-datetimev2.md)
+# <a name="alter-utterance-data-before-or-during-prediction"></a>Zmień wypowiedź danych przed lub podczas przewidywania
+LUIS zapewnia sposoby manipulowania wypowiedź przed lub podczas przewidywania. Obejmują one [naprawianie błędów](luis-tutorial-bing-spellcheck.md)i rozwiązywanie problemów ze strefą czasową dla prekompilowanego [datetimeV2](luis-reference-prebuilt-datetimev2.md).
 
-## <a name="correct-spelling-errors-in-utterance"></a>Poprawianie błędów pisowni w wypowiedzi
+## <a name="correct-spelling-errors-in-utterance"></a>Poprawianie błędów pisowni w wypowiedź
 
 
-### <a name="v3-runtime"></a>Środowisko wykonawcze V3
+### <a name="v3-runtime"></a>Środowisko uruchomieniowe v3
 
-Przedprocesowy tekst poprawek pisowni przed wysłaniem wypowiedź do usługi LUIS. Użyj wypowiedzi przykład z poprawnej pisowni, aby upewnić się, że masz poprawne prognoz.
+Przed wysłaniem wypowiedź do LUIS należy wstępnie przetworzyć tekst w celu wprowadzania poprawek pisowni. Użyj przykładu wyrażenia długości z poprawną pisownią, aby upewnić się, że pobrano poprawne przewidywania.
 
-Sprawdzanie [pisowni bing,](../bing-spell-check/overview.md) aby poprawić tekst przed wysłaniem go do usługi LUIS.
+Użyj [Sprawdzanie pisowni Bing](../bing-spell-check/overview.md) , aby poprawić tekst przed wysłaniem go do Luis.
 
-### <a name="prior-to-v3-runtime"></a>Przed uruchomieniem v3
+### <a name="prior-to-v3-runtime"></a>Przed wprowadzeniem do wersji 3 środowiska uruchomieniowego
 
-Usługa LUIS używa [interfejsu API sprawdzania pisowni Bing w wersji 7](../Bing-Spell-Check/overview.md) do poprawiania błędów pisowni w wypowiedź. Usługa LUIS potrzebuje klucza skojarzonego z tą usługą. Utwórz klucz, a następnie dodaj klucz jako parametr querystring w [punkcie końcowym](https://go.microsoft.com/fwlink/?linkid=2092356).
+LUIS [Sprawdzanie pisowni Bing używa interfejsu API wersji 7](../Bing-Spell-Check/overview.md) do poprawiania błędów pisowni w wypowiedź. LUIS wymaga klucza skojarzonego z tą usługą. Utwórz klucz, a następnie Dodaj klucz jako parametr QueryString w [punkcie końcowym](https://go.microsoft.com/fwlink/?linkid=2092356).
 
-Punkt końcowy wymaga dwóch params dla poprawek pisowni do pracy:
+Punkt końcowy wymaga dwóch parametrów do działania poprawek pisowni:
 
 |Param|Wartość|
 |--|--|
 |`spellCheck`|wartość logiczna|
-|`bing-spell-check-subscription-key`|Klucz punktu [końcowego interfejsu API sprawdzania pisowni bing](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
+|`bing-spell-check-subscription-key`|Klucz punktu końcowego [wersji 7 interfejsu API sprawdzanie pisowni Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
 
-Gdy [interfejs API sprawdzania pisowni Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) wykryje błąd, oryginalny wypowiedź i skorygowany wypowiedź są zwracane wraz z prognoz z punktu końcowego.
+Gdy [Sprawdzanie pisowni Bing API wersji 7](https://azure.microsoft.com/services/cognitive-services/spell-check/) wykrywa błąd, oryginalny wypowiedź i poprawione wypowiedź są zwracane wraz z przewidywaniami z punktu końcowego.
 
-#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
 ```JSON
 {
@@ -49,7 +49,7 @@ Gdy [interfejs API sprawdzania pisowni Bing V7](https://azure.microsoft.com/serv
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
 ```JSON
 {
@@ -69,21 +69,21 @@ Gdy [interfejs API sprawdzania pisowni Bing V7](https://azure.microsoft.com/serv
 
 * * *
 
-### <a name="list-of-allowed-words"></a>Lista dozwolonych słów
-Interfejs API sprawdzania pisowni Bing używany w usłudze LUIS nie obsługuje listy słów do zignorowania podczas sprawdzania pisowni zmian. Jeśli chcesz zezwolić na listę słów lub akronimów, przetwórz wypowiedź w aplikacji klienckiej przed wysłaniem wypowiedź do usługi LUIS do przewidywania intencji.
+### <a name="list-of-allowed-words"></a>Lista dozwolonych wyrazów
+Interfejs API sprawdzania pisowni Bing używany w programie LUIS nie obsługuje listy wyrazów ignorowanych podczas sprawdzania pisowni. Jeśli musisz zezwolić na listę wyrazów lub akronimów, przetwórz wypowiedź w aplikacji klienckiej przed wysłaniem wypowiedź do LUIS w celu przewidywania założeń.
 
-## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Zmienianie strefy czasowej wstępnie utworzonej encji datetimeV2
-Gdy aplikacja usługi LUIS używa wstępnie utworzonej jednostki [datetimeV2,](luis-reference-prebuilt-datetimev2.md) wartość datetime mogą być zwracane w odpowiedzi przewidywania. Strefa czasowa żądania służy do określenia poprawnej daty do zwrócenia. Jeśli żądanie pochodzi z bota lub innej scentralizowanej aplikacji przed dotarciem do usługi LUIS, należy poprawić używane usługi LUIS strefy czasowej.
+## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Zmień strefę czasową wstępnie skompilowanej jednostki datetimeV2
+Gdy aplikacja LUIS używa wstępnie skompilowanej jednostki [datetimeV2](luis-reference-prebuilt-datetimev2.md) , w odpowiedzi predykcyjnej można zwrócić wartość typu DateTime. Strefa czasowa żądania służy do określenia poprawnej wartości DateTime do zwrócenia. Jeśli żądanie pochodzi z bot lub innej scentralizowanej aplikacji przed uzyskaniem LUIS, należy poprawić użycie LUIS strefy czasowej.
 
-### <a name="endpoint-querystring-parameter"></a>Parametr ciągowania zapytania punktu końcowego
-Strefa czasowa jest korygowana przez dodanie strefy czasowej `timezoneOffset` użytkownika do [punktu końcowego](https://go.microsoft.com/fwlink/?linkid=2092356) przy użyciu param. Wartość `timezoneOffset` powinna być dodatnią lub ujemną liczbą w minutach, aby zmienić czas.
+### <a name="endpoint-querystring-parameter"></a>Parametr QueryString punktu końcowego
+Strefa czasowa jest korygowana przez dodanie strefy czasowej użytkownika do [punktu końcowego](https://go.microsoft.com/fwlink/?linkid=2092356) przy użyciu `timezoneOffset` parametru. Wartość `timezoneOffset` powinna być liczbą dodatnią lub ujemną w minutach, aby zmienić czas.
 
 |Param|Wartość|
 |--|--|
-|`timezoneOffset`|dodatnia lub ujemna liczba, w minutach|
+|`timezoneOffset`|liczba dodatnia lub ujemna, w minutach|
 
-### <a name="daylight-savings-example"></a>Przykład czasu letniego
-Jeśli potrzebujesz zwróconego wstępnie utworzonego datetimeV2, aby dostosować `timezoneOffset` czas letni, należy użyć querystring parametr z wartością +/- w minutach dla kwerendy [punktu końcowego.](https://go.microsoft.com/fwlink/?linkid=2092356)
+### <a name="daylight-savings-example"></a>Przykład oszczędności czasu letniego
+Jeśli potrzebujesz dostosowanej wstępnie wbudowanej datetimeV2 do dostosowywania czasu letniego, należy użyć parametru `timezoneOffset` QueryString z wartością +/-w minutach dla kwerendy [punktu końcowego](https://go.microsoft.com/fwlink/?linkid=2092356) .
 
 #### <a name="v2-prediction-endpoint-request"></a>[Żądanie punktu końcowego przewidywania wersji 2](#tab/V2)
 
@@ -95,7 +95,7 @@ Usuń 60 minut:
 
 `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
-#### <a name="v3-prediction-endpoint-request"></a>[Żądanie punktu końcowego przewidywania wersji 3](#tab/V3)
+#### <a name="v3-prediction-endpoint-request"></a>[Żądanie punktu końcowego przewidywania v3](#tab/V3)
 
 Dodaj 60 minut:
 
@@ -105,12 +105,12 @@ Usuń 60 minut:
 
 `https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**timezoneOffset=-60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
 * * *
 
-## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>Kod C# określa prawidłową wartość timezoneOffset
-Następujący kod języka C# używa metody [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) klasy `timezoneOffset` [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) w celu określenia poprawnej na podstawie czasu systemowego:
+## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>Kod C# określa poprawną wartość timezoneOffset
+Poniższy kod w języku C# używa metody [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) klasy `timezoneOffset` [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) , aby określić poprawność na podstawie czasu systemowego:
 
 ```csharp
 // Get CST zone id
@@ -129,4 +129,4 @@ int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Poprawianie błędów pisowni w tym samouczku](luis-tutorial-bing-spellcheck.md)
+> [Popraw błędy pisowni w tym samouczku](luis-tutorial-bing-spellcheck.md)

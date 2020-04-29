@@ -1,7 +1,7 @@
 ---
-title: Urządzenia mowy SDK Roobo Smart Audio Dev Kit v2 - Usługa mowy
+title: Speech Devices SDK roobo inteligentne audio dev Kit v2-Speech Service
 titleSuffix: Azure Cognitive Services
-description: Wymagania wstępne i instrukcje dotyczące rozpoczynania pracy z zestawu SDK urządzeń mowy Roobo Smart Audio Dev Kit v2.
+description: Wymagania wstępne i instrukcje dotyczące rozpoczynania pracy z zestawem SDK usługi Speech Devices, roobo Smart audio dev Kit v2.
 services: cognitive-services
 author: anushapatnala
 manager: wellsi
@@ -11,31 +11,31 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: v-anusp
 ms.openlocfilehash: 2f325c80877068c53d690bd7ff74f768dab3a174
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80371578"
 ---
-# <a name="device-roobo-smart-audio-dev-kit-v2"></a>Urządzenie: Roobo Smart Audio Dev Kit v2
+# <a name="device-roobo-smart-audio-dev-kit-v2"></a>Urządzenie: roobo Smart audio dev Kit v2
 
-Ten artykuł zawiera informacje dotyczące urządzenia dla Roobo Smart Audio Dev Kit2.
+Ten artykuł zawiera informacje specyficzne dla urządzenia dla roobo Smart audio dev Kit2.
 
 ## <a name="set-up-the-development-kit"></a>Konfigurowanie zestawu deweloperskiego
 
-1. Zestaw deweloperski posiada dwa złącza micro USB. Lewe złącze jest do zasilania zestawu deweloperskiego i jest wyróżniony jako moc na obrazku poniżej. Po prawej stronie jest kontrolowanie go i jest oznaczony debugowania na obrazie. 
-    ![Podłączanie zestawu deweloperskiego](media/speech-devices-sdk/roobo-v2-connections.png)
-1. Podłącz zestaw deweloperski za pomocą kabla micro USB do podłączenia portu zasilania do komputera lub zasilacza. Pod górną płytą zaświeć zielony wskaźnik zasilania.
-1. Aby sterować zestawem deweloperskim, podłącz port debugowania do komputera za pomocą drugiego kabla micro USB. Konieczne jest użycie kabla wysokiej jakości, aby zapewnić niezawodną komunikację.
-1. Orientuj swój zestaw rozwojowy Circularly - Pionowo, z mikrofonami skierowanymi w stronę sufitu, jak pokazano powyżej
+1. Zestaw deweloperski ma dwa łączniki Micro USB. Lewy łącznik to Włączanie zestawu deweloperskiego i został wyróżniony jako energia na poniższym obrazie. Po prawej stronie jest on kontrolowany i jest oznaczony jako debugowanie w obrazie. 
+    ![Łączenie z zestawem deweloperskim](media/speech-devices-sdk/roobo-v2-connections.png)
+1. Włącz zestaw deweloperski przy użyciu kabla micro USB, aby podłączyć port do komputera lub zasilacza. Zielony wskaźnik napięcia zostanie wyróżniony w górnej części tablicy.
+1. Aby sterować zestawem deweloperskim, Podłącz port debugowania do komputera przy użyciu drugiego kabla micro USB. Aby zapewnić niezawodne komunikację, należy użyć kabla wysokiej jakości.
+1. Orientuje się, aby zestaw programistyczny został rozbudowany cyklicznie, z mikroportami, jak pokazano powyżej.
 
 
-## <a name="development-information"></a>Informacje o rozwoju
+## <a name="development-information"></a>Informacje o programowaniu
 
-Aby uzyskać więcej informacji na temat rozwoju, zobacz [przewodnik rozwoju Roobo](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
+Aby uzyskać więcej informacji na temat programowania, zobacz [Przewodnik programowania w roobo](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 
-## <a name="audio-recordplay"></a>Nagrywanie/odtwarzanie dźwięku
+## <a name="audio-recordplay"></a>Nagrywanie/odtwarzanie audio
 
-Operacje audio DDK2 mogą być wykonywane w następujący sposób:
-* Użyj bibliotek open source ALSA i ich aplikacji.
-* Użyj appmainprog interfejs do tworzenia aplikacji. DDK2 audio - powiązana struktura oprogramowania wykorzystuje standardową strukturę ALSA, można użyć libasound. Tak więc, aby opracować oprogramowanie bezpośrednio. Więc można użyć arecord ALSA i aplay bezpośrednio do nagrywania i odtwarzania dźwięku.
+Operacje audio DDK2 można wykonać w następujący sposób:
+* Używaj bibliotek Open Source ALSA i ich aplikacji.
+* Użyj interfejsu appmainprog do tworzenia aplikacji. DDK2 środowisko oprogramowania powiązane z dźwiękiem używa standardowej platformy ALSA, można użyć libasound. Tak, aby bezpośrednio opracowywać oprogramowanie. Dzięki temu można używać ALSA arecord i aplay bezpośrednio do nagrywania i odtwarzania dźwięku.

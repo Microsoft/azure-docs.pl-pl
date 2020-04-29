@@ -1,59 +1,59 @@
 ---
-title: Jak działa personalizator - Personalizer
-description: _Pętla_ Personalizer używa uczenia maszynowego do tworzenia modelu, który przewiduje najlepsze działanie dla zawartości. Model jest szkolony wyłącznie na podstawie danych, które wysłałeś do niego za pomocą połączeń rangi i nagrody.
+title: Jak działa program Personalizuj-Personalizacja
+description: _Pętla_ personalizacji używa uczenia maszynowego do kompilowania modelu, który przewiduje najwyższą akcję dla zawartości. Model jest szkolony wyłącznie na danych, które zostały do niego wysłane, z wywołaniami rangi i nagrody.
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 836c207213ac52a60e27da6fc957418187059023
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77623746"
 ---
 # <a name="how-personalizer-works"></a>Jak działa usługa Personalizacja
 
-Zasób Personalizer, _pętla uczenia się,_ używa uczenia maszynowego do tworzenia modelu, który przewiduje najlepsze działanie dla zawartości. Model jest szkolony wyłącznie na podstawie danych, które wysłałeś do niego za pomocą połączeń **rangi** i **nagrody.** Każda pętla jest całkowicie niezależna od siebie.
+Zasób personalizacji, _Pętla szkoleniowa_, korzysta z uczenia maszynowego do kompilowania modelu, który przewiduje najwyższą akcję dla zawartości. Model jest szkolony wyłącznie na danych, które zostały do niego wysłane, z wywołaniami **rangi** i **nagrody** . Każda pętla jest całkowicie niezależna od siebie.
 
-## <a name="rank-and-reward-apis-impact-the-model"></a>Interfejsy API rangi i nagrody mają wpływ na model
+## <a name="rank-and-reward-apis-impact-the-model"></a>Interfejsy API rangi i nagrody wpływają na model
 
-Akcje wysyłane _z funkcjami_ i _funkcjami kontekstu_ do interfejsu API rangi. Interfejs API **rangi** decyduje się na użycie:
+Do interfejsu API rangi są wysyłane _akcje z funkcjami_ i _funkcjami kontekstu_ . Interfejs API **rangi** decyduje się użyć:
 
-* _Wykorzystanie:_ Bieżący model, aby zdecydować najlepsze działanie na podstawie danych z przeszłości.
-* _Eksploruj_: Wybierz inną akcję zamiast najpopularniejszej akcji. Ten procent dla zasobu Personalizer [można skonfigurować](how-to-settings.md#configure-exploration-to-allow-the-learning-loop-to-adapt) w witrynie Azure portal.
+* _Wykorzystanie_: bieżący model, aby określić najlepszą akcję na podstawie przeszłych danych.
+* _Eksploruj_: Wybierz inną akcję, a nie górną akcję. [Ta wartość procentowa jest konfigurowana](how-to-settings.md#configure-exploration-to-allow-the-learning-loop-to-adapt) dla zasobu personalizacji w Azure Portal.
 
-Określasz wynik nagrody i wysyłasz ten wynik do interfejsu API nagrody. Interfejs API **nagrody:**
+Możesz określić wynik nagrody i wysłać ten wynik do interfejsu API nagradzania. Interfejs API **nagradzania** :
 
-* Zbiera dane, aby trenować model, rejestrując funkcje i wyniki nagród każdego wywołania rangi.
-* Używa tych danych do aktualizacji modelu na podstawie konfiguracji określonej w _zasadach uczenia się_.
+* Zbiera dane do uczenia modelu przez zarejestrowanie funkcji i nagrody każdego wywołania rangi.
+* Używa tych danych do aktualizowania modelu w oparciu o konfigurację określoną w _zasadach nauki_.
 
-## <a name="your-system-calling-personalizer"></a>Twój system wywołujący Personalizer
+## <a name="your-system-calling-personalizer"></a>System wywołujący spersonalizowany
 
-Na poniższej ilustracji przedstawiono przepływ architektury wywoływania wywołań rangi i nagrody:
+Na poniższej ilustracji przedstawiono przepływ architektury wywołujący wywołania rangi i nagrody:
 
-![tekst alternatywny](./media/how-personalizer-works/personalization-how-it-works.png "Jak działa personalizacja")
+![tekst alternatywny](./media/how-personalizer-works/personalization-how-it-works.png "Jak działa Personalizacja")
 
-1. Akcje wysyłane _z funkcjami_ i _funkcjami kontekstu_ do interfejsu API rangi.
+1. Do interfejsu API rangi są wysyłane _akcje z funkcjami_ i _funkcjami kontekstu_ .
 
-    * Personalizator decyduje, czy wykorzystać bieżący model lub eksplorować nowe opcje dla modelu.
-    * Wynik rankingu jest wysyłany do eventhub.
-1. Najwyższa ranga jest zwracana do systemu jako _identyfikator akcji nagrody._
-    System przedstawia tę zawartość i określa wynik nagrody na podstawie własnych reguł biznesowych.
-1. System zwraca wynik nagrody do pętli uczenia się.
-    * Gdy Personalizer otrzyma nagrodę, nagroda jest wysyłana do EventHub.
-    * Ranga i nagroda są skorelowane.
-    * Model AI jest aktualizowany na podstawie wyników korelacji.
-    * Aparat wnioskowania jest aktualizowany o nowy model.
+    * Personalizowanie decyduje o tym, czy wykorzystać bieżący model, czy eksplorować nowe opcje modelu.
+    * Wynik klasyfikacji jest wysyłany do centrum EventHub.
+1. Górna ranga jest zwracana do systemu jako _nagradzany Identyfikator akcji_.
+    System prezentuje zawartość i ustala wynik nagrody na podstawie własnych reguł firmy.
+1. System zwraca wynik nagrody do pętli szkoleniowej.
+    * Gdy Personalizowanie otrzymuje wynagrodzenie, wynagrodzenie jest wysyłane do centrum EventHub.
+    * Ranga i Nagroda są skorelowane.
+    * Model AI jest aktualizowany w oparciu o wyniki korelacji.
+    * Aparat wnioskowania jest aktualizowany nowym modelem.
 
-## <a name="personalizer-retrains-your-model"></a>Personalizator przekwalifikuje twój model
+## <a name="personalizer-retrains-your-model"></a>Personalizacja ponownie szkoli model
 
-Personalizator przeszkolił model na podstawie ustawienia **aktualizacji częstotliwości modelu** w zasobie Personalizer w witrynie Azure portal.
+Personalizacja ponownie szkoli model na podstawie ustawienia **aktualizacji częstotliwości modelu** w zasobie personalizacji w Azure Portal.
 
-Personalizator używa wszystkich aktualnie przechowywanech danych na podstawie ustawienia **przechowywania danych** w liczbie dni na zasobie Personalizer w witrynie Azure portal.
+Program personalizujer używa wszystkich aktualnie zachowanych danych na podstawie ustawienia **przechowywania danych** w polu Liczba dni w zasobie personalizacji w Azure Portal.
 
-## <a name="research-behind-personalizer"></a>Badania za Personalizer
+## <a name="research-behind-personalizer"></a>Zbadaj za personalizacją
 
-Personalizer opiera się na najnowocześniejszych naukach i badaniach w dziedzinie [uczenia się wzmacniającego,](concepts-reinforcement-learning.md) w tym na pracach, działaniach badawczych i bieżących obszarach badań w programie Microsoft Research.
+Personalizacja jest oparta na wykorzystaniu nauki i badań w dziedzinie [nauki wzmacniania](concepts-reinforcement-learning.md) , w tym na dokumentach, w badaniach naukowych i w ciągłych obszarach eksploracji firmy Microsoft.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [najlepszych scenariuszach](where-can-you-use-personalizer.md) personalizatora
+Dowiedz się więcej na temat [najpopularniejszych scenariuszy](where-can-you-use-personalizer.md) dla programu personalizacji

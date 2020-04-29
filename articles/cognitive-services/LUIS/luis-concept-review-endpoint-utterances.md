@@ -1,42 +1,42 @@
 ---
-title: Przeglądanie wypowiedzi użytkownika — usługa LUIS
-description: Dzięki aktywnemu uczeniu wypowiedzi punktu końcowego przeglądu dla poprawnej intencji i jednostki. Usługa LUIS wybiera wypowiedzi punktu końcowego, o które nie ma pewności.
+title: Przeglądanie użytkownika wypowiedź — LUIS
+description: Dzięki aktywnej uczeniu punkt końcowy recenzji wyrażenia długości się w celu poprawnego zamiaru i jednostki. LUIS wybiera punkt końcowy wyrażenia długości nie ma pewności.
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 8d267fc441dc2cbf7f8ae3746486d5e7be55f135
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80546847"
 ---
-# <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Pojęcia dotyczące włączania aktywnego uczenia się przez przeglądanie wypowiedzi punktów końcowych
-Aktywne uczenie się jest jedną z trzech strategii poprawiania dokładności przewidywania i najłatwiejszych do wdrożenia. Dzięki aktywnemu uczeniu wypowiedzi punktu końcowego przeglądu dla poprawnej intencji i jednostki. Usługa LUIS wybiera wypowiedzi punktu końcowego, o które nie ma pewności.
+# <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Pojęcia dotyczące włączania aktywnego uczenia przez przeglądanie punktu końcowego wyrażenia długości
+Usługa Active uczenie jest jedną z trzech strategii, aby poprawić dokładność przewidywania i najłatwiej ją wdrożyć. Dzięki aktywnej uczeniu punkt końcowy recenzji wyrażenia długości się w celu poprawnego zamiaru i jednostki. LUIS wybiera punkt końcowy wyrażenia długości nie ma pewności.
 
-## <a name="what-is-active-learning"></a>Czym jest aktywne uczenie się
-Aktywne uczenie się jest procesem dwuetapowym. Najpierw usługa LUIS wybiera wypowiedzi, które otrzymuje w punkcie końcowym aplikacji, które wymagają weryfikacji. Drugi krok jest wykonywany przez właściciela aplikacji lub współpracownika, aby sprawdzić poprawność wybranych wypowiedzi do [przeglądu,](luis-how-to-review-endpoint-utterances.md)w tym poprawne intencji i wszystkie jednostki w ramach intencji. Po przejrzeniu wypowiedzi, pociągu i opublikować aplikację ponownie.
+## <a name="what-is-active-learning"></a>Co to jest aktywna nauka
+Usługa Active Learning jest procesem dwuetapowym. Najpierw LUIS wybiera wyrażenia długości, które są odbierane w punkcie końcowym aplikacji, który wymaga sprawdzenia poprawności. Drugi krok jest wykonywany przez właściciela aplikacji lub współpracownika, aby zweryfikować wybrane wyrażenia długości do [przeglądu](luis-how-to-review-endpoint-utterances.md), w tym odpowiednie zamierzenie i wszystkie jednostki w ramach zamiaru. Po przejrzeniu wyrażenia długości ponownie nauczenie i opublikowanie aplikacji.
 
-## <a name="which-utterances-are-on-the-review-list"></a>Które wypowiedzi znajdują się na liście recenzji
-Usługa LUIS dodaje wypowiedzi do listy recenzji, gdy górna intencja wypalania ma niski wynik lub wyniki dwóch najlepszych intencji są zbyt blisko.
+## <a name="which-utterances-are-on-the-review-list"></a>Które wyrażenia długości znajdują się na liście przeglądów
+LUIS dodaje wyrażenia długości do listy przeglądów, gdy najwyższy zamiara uruchamiania ma niski wynik lub dwa wyniki założeń są zbyt blisko.
 
-## <a name="single-pool-for-utterances-per-app"></a>Pojedyncza pula wypowiedzi na aplikację
-Lista **przejrzyj wypowiedzi punktu końcowego** nie zmienia się na podstawie wersji. Jest tylko jedna pula wypowiedzi do przejrzenia, niezależnie od aktywnie edytowanej wersji wypowiedzi ani od wersji aplikacji opublikowanej w punkcie końcowym.
+## <a name="single-pool-for-utterances-per-app"></a>Pojedyncza Pula dla wyrażenia długości na aplikację
+Lista **wyrażenia długości punktu końcowego recenzji** nie zmienia się w zależności od wersji. Jest tylko jedna pula wypowiedzi do przejrzenia, niezależnie od aktywnie edytowanej wersji wypowiedzi ani od wersji aplikacji opublikowanej w punkcie końcowym.
 
-W [interfejsie API REST](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58b6f32139e2bb139ce823c9)nazwa wersji jest wymagana i musi istnieć w aplikacji, ale nie jest używana poza tą weryfikacją. Wypowiedzi przeglądu dotyczą całej aplikacji. Jeśli usuniesz wypowiedzi z jednej _wersji,_ dotyczy to wszystkich wersji.
+W [interfejsie API REST](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58b6f32139e2bb139ce823c9)Nazwa wersji jest wymagana i musi istnieć w aplikacji, ale nie jest używana poza tą walidacją. Przegląd wyrażenia długości dotyczy całej aplikacji. Jeśli usuniesz wyrażenia długości z jednej _wersji_, wpłynie to na wszystkie wersje.
 
-## <a name="where-are-the-utterances-from"></a>Gdzie są wypowiedzi z
-Wypowiedzi punktu końcowego są pobierane z zapytań użytkowników końcowych w punkcie końcowym HTTP aplikacji. Jeśli aplikacja nie została opublikowana lub nie otrzymała jeszcze trafień, nie masz żadnych wypowiedzi do przejrzenia. Jeśli nie trafienia punktu końcowego są odbierane dla określonego zamiaru lub jednostki, nie masz wypowiedzi do przeglądu, które je zawierają.
+## <a name="where-are-the-utterances-from"></a>Gdzie są wyrażenia długości
+Punkty końcowe wyrażenia długości są pobierane z zapytań użytkowników końcowych w punkcie końcowym HTTP aplikacji. Jeśli Twoja aplikacja nie została opublikowana lub nie otrzymano jeszcze żadnych trafień, nie masz żadnych wyrażenia długości do przejrzenia. Jeśli nie otrzymasz żadnych trafień punktów końcowych dla konkretnego zamiaru lub jednostki, nie masz wyrażenia długości do przeglądania, które je zawierają.
 
-## <a name="schedule-review-periodically"></a>Okresowo planuj przegląd
-Przeglądanie sugerowane wypowiedzi nie musi być wykonywane codziennie, ale powinny być częścią regularnej konserwacji usługi LUIS.
+## <a name="schedule-review-periodically"></a>Okresowe przeglądy harmonogramu
+Przegląd sugerowanych wyrażenia długości nie musi być wykonywany codziennie, ale powinien być częścią regularnej konserwacji LUIS.
 
-## <a name="delete-review-items-programmatically"></a>Programowo usuwanie elementów recenzji
-Użyj interfejsu API **[usuwania wypowiedzi bez etykiety.](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** Wykonaj te wypowiedzi przed usunięciem, **[eksportując pliki dziennika](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
+## <a name="delete-review-items-programmatically"></a>Programistyczne usuwanie elementów recenzji
+Użyj interfejsu API **[usuwania bez etykiet wyrażenia długości](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** . Przed usunięciem wykonaj kopię zapasową tych wyrażenia długości, **[eksportując pliki dziennika](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
 
-## <a name="enable-active-learning"></a>Włącz aktywne uczenie się
+## <a name="enable-active-learning"></a>Włącz aktywną naukę
 
-Aby włączyć aktywne uczenie, należy rejestrować zapytania użytkowników. Jest to realizowane przez wywołanie [kwerendy punktu końcowego](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) `log=true` z querystring parametru i wartości.
+Aby włączyć aktywną naukę, należy zarejestrować zapytania użytkownika. Jest to realizowane przez wywołanie [zapytania punktu końcowego](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) z parametrem `log=true` QueryString i wartością.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się, jak [przeglądać](luis-how-to-review-endpoint-utterances.md) wypowiedzi punktów końcowych
+* Dowiedz się, jak [przeglądać](luis-how-to-review-endpoint-utterances.md) punkt końcowy wyrażenia długości

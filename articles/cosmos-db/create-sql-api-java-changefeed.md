@@ -1,6 +1,6 @@
 ---
-title: Samouczek - end-to-end Async Java SQL API przykład aplikacji z change feed
-description: W tym samouczku przeprowadzi Cię prosta aplikacja java SQL API, która wstawia dokumenty do kontenera usługi Azure Cosmos DB, zachowując zmaterializowany widok kontenera przy użyciu źródła danych.
+title: Samouczek — kompleksowa Przykładowa aplikacja interfejsu API SQL w języku Java ze źródłem zmian
+description: Ten samouczek przeprowadzi Cię przez prostą aplikację interfejsu API SQL języka Java, która wstawia dokumenty do kontenera Azure Cosmos DB, zachowując materiałowy widok kontenera przy użyciu źródła zmian.
 author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,21 +9,21 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: anfeldma
 ms.openlocfilehash: 5eab523dde2a13a85b0c8ff5bcbb3ecb5912e78e
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80586701"
 ---
-# <a name="tutorial---an-end-to-end-async-java-sql-api-application-sample-with-change-feed"></a>Samouczek - end-to-end Async Java SQL API przykład aplikacji z change feed
+# <a name="tutorial---an-end-to-end-async-java-sql-api-application-sample-with-change-feed"></a>Samouczek — kompleksowa Przykładowa aplikacja interfejsu API SQL w języku Java ze źródłem zmian
 
-W tym samouczku przeprowadzi Cię przez prostą aplikację java SQL API, która wstawia dokumenty do kontenera usługi Azure Cosmos DB, zachowując zmaterializowany widok kontenera przy użyciu źródła danych zmiany.
+Ten przewodnik samouczka przeprowadzi Cię przez prostą aplikację interfejsu API SQL języka Java, która wstawia dokumenty do kontenera Azure Cosmos DB, zachowując materiałowy widok kontenera za pomocą źródła zmian.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Komputer osobisty
 
-* Identyfikator URI i klucz dla konta usługi Azure Cosmos DB
+* Identyfikator URI i klucz konta Azure Cosmos DB
 
 * Maven
 
@@ -31,23 +31,23 @@ W tym samouczku przeprowadzi Cię przez prostą aplikację java SQL API, która 
 
 ## <a name="background"></a>Tło
 
-Kanał informacyjny zmian usługi Azure Cosmos DB zawiera interfejs oparty na zdarzeniach, aby wyzwolić akcje w odpowiedzi na wstawianie dokumentu. Ma to wiele zastosowań. Na przykład w aplikacjach, które są zarówno do odczytu i zapisu ciężkie, głównym użyciem change feed jest utworzenie w czasie rzeczywistym **zmaterializowany widok** kontenera, ponieważ jest pozyskiwania dokumentów. Zmaterializowany kontener widoku będzie przechowywać te same dane, ale podzielony na partycje w celu wydajnego odczytu, dzięki czemu aplikacja jest wydajna zarówno do odczytu, jak i zapisu.
+Kanał informacyjny zmiany Azure Cosmos DB zapewnia interfejs sterowany zdarzeniami do wyzwalania akcji w odpowiedzi na wstawienie dokumentu. Ma wiele użycia. Na przykład w przypadku aplikacji, które mają duże znaczenie zarówno do odczytu, jak i zapisu, głównym zastosowaniem kanału informacyjnego zmiany jest utworzenie **materiałuowego widoku** kontenera w czasie rzeczywistym w miarę pozyskiwania dokumentów. Kontener widoku z materiałami będzie przechowywać te same dane, ale partycjonowany do wydajnego odczytu, co sprawia, że aplikacja zarówno do odczytu, jak i do zapisu.
 
-Praca nad zarządzaniem zdarzeniami kanału informacyjnego zmian jest w dużej mierze opiekuje się biblioteką procesora kanału informacyjnego zmian wbudowaną w sdk. Ta biblioteka jest wystarczająco wydajna, aby rozpowszechniać zdarzenia kanału informacyjnego zmian wśród wielu pracowników, jeśli jest to pożądane. Wszystko, co musisz zrobić, to zapewnić biblioteki zdań biblioteki wywołania zwrotnego.
+Praca nad zarządzaniem zdarzeniami związanych ze źródłem zmian jest w dużym stopniu przejmowana przez bibliotekę procesora źródła zmian wbudowaną w zestawie SDK. Ta biblioteka jest wystarczająca do dystrybucji zdarzeń strumieniowego źródła danych między wieloma pracownikami, jeśli jest to wymagane. Wszystkie czynności, które należy wykonać, to w przypadku wywołania zwrotnego biblioteki źródeł zmian.
 
-W tym prostym przykładzie pokazano bibliotekę procesora kanału informacyjnego zmian z pojedynczym pracownikiem tworzącym i usuwającym dokumenty z zmaterializowanego widoku.
+W tym prostym przykładzie przedstawiono bibliotekę procesora kanału informacyjnego z pojedynczym procesem roboczym tworzącym i usuwającym dokumenty z widoku z materiałami.
 
-## <a name="setup"></a>Konfiguracja
+## <a name="setup"></a>Konfigurowanie
 
-Jeśli jeszcze tego nie zrobiono, sklonuj przykładowe repozytorium aplikacji:
+Jeśli jeszcze tego nie zrobiono, Sklonuj repozytorium przykładowej aplikacji:
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example.git
 ```
 
-> Możesz pracować nad tym przewodnikiem Szybki start z java SDK 4.0 lub Java SDK 3.7.0. **Jeśli chcesz używać Java SDK 3.7.0, w ```git checkout SDK3.7.0```typie terminala **. W przeciwnym razie ```master``` pozostań w gałęzi, która domyślnie ma wartość Java SDK 4.0.
+> Możesz korzystać z tego przewodnika Szybki Start przy użyciu zestawu Java SDK 4,0 lub Java SDK 3.7.0. **Jeśli chcesz użyć zestawu Java SDK 3.7.0, w polu Typ ```git checkout SDK3.7.0```terminalu **. W przeciwnym razie pozostaw ```master``` w gałęzi, która domyślnie jest Java SDK 4,0.
 
-Otwórz terminal w katalogu repozytorium. Tworzenie aplikacji przez uruchomienie
+Otwórz terminal w katalogu repozytorium. Kompilowanie aplikacji przez uruchomienie
 
 ```bash
 mvn clean package
@@ -55,42 +55,42 @@ mvn clean package
 
 ## <a name="walkthrough"></a>Przewodnik
 
-1. Jako pierwszy czek powinieneś mieć konto usługi Azure Cosmos DB. Otwórz **witrynę Azure Portal** w przeglądarce, przejdź do konta usługi Azure Cosmos DB, a w lewym okienku przejdź do **Eksploratora danych.**
+1. Najpierw należy sprawdzić konto Azure Cosmos DB. Otwórz witrynę **Azure Portal** w przeglądarce, przejdź do swojego konta Azure Cosmos DB, a następnie w okienku po lewej stronie przejdź do pozycji **Eksplorator danych**.
 
-    ![Konto usługi Azure Cosmos DB](media/create-sql-api-java-changefeed/cosmos_account_empty.JPG)
+    ![Konto Azure Cosmos DB](media/create-sql-api-java-changefeed/cosmos_account_empty.JPG)
 
-1. Uruchom aplikację w terminalu za pomocą następującego polecenia:
+1. Uruchom aplikację w terminalu przy użyciu następującego polecenia:
 
     ```bash
     mvn exec:java -Dexec.mainClass="com.azure.cosmos.workedappexample.SampleGroceryStore" -DACCOUNT_HOST="your-account-uri" -DACCOUNT_KEY="your-account-key" -Dexec.cleanupDaemonThreads=false
     ```
 
-1. Naciskaj enter, gdy zobaczysz
+1. Naciśnij klawisz ENTER, gdy zobaczysz
 
     ```bash
     Press enter to create the grocery store inventory system...
     ```
 
-    następnie wróć do Eksploratora danych usługi Azure Portal w przeglądarce. Zobaczysz bazę danych **GroceryStoreDatabase** został dodany z trzech pustych kontenerów: 
+    następnie wróć do witryny Azure Portal Eksplorator danych w przeglądarce. Zobaczysz, że baza danych **GroceryStoreDatabase** została dodana z trzema pustymi kontenerami: 
 
-    * **InventoryContainer** — rekord zapasów dla naszego przykładowego sklepu spożywczego, podzielony na partycje na towar, ```id``` który jest identyfikatorem UUID.
-    * **InventoryContainer-pktype** — zmaterializowany widok rekordu zapasów zoptymalizowany pod kątem kwerend nad towarem```type```
-    * **InventoryContainer-leases** — kontener dzierżawy jest zawsze potrzebny do pliku danych o zmianach; dzierżawy śledzą postępy aplikacji w czytaniu kanału zmian.
-
-
-    ![Puste pojemniki](media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG)
+    * **InventoryContainer** — rekord spisu dla naszego przykładowego sklepu w postaci spożywczej, podzielony ```id``` na element, który jest identyfikatorem UUID.
+    * **InventoryContainer-pktype** — materiałowy widok rekordu spisu zoptymalizowany pod kątem zapytań względem elementu```type```
+    * **InventoryContainer-leases** — kontener dzierżawy jest zawsze wymagany dla źródła zmian; dzierżawy śledzą postęp aplikacji w odczytaniu źródła zmian.
 
 
-1. W terminalu powinien zostać wyświetlony monit
+    ![Puste kontenery](media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG)
+
+
+1. W terminalu powinien pojawić się monit
 
     ```bash
     Press enter to start creating the materialized view...
     ```
 
-    Naciśnij klawisz Enter. Teraz następujący blok kodu wykona i zainiszczy procesor Źródła danych zmian w innym wątku: 
+    Naciśnij klawisz ENTER. Teraz Poniższy blok kodu zostanie wykonany i zainicjuje procesor źródła zmian w innym wątku: 
 
 
-    **Java SDK 4.0**
+    **Zestaw Java SDK 4,0**
     ```java
     changeFeedProcessorInstance = getChangeFeedProcessor("SampleHost_1", feedContainer, leaseContainer);
     changeFeedProcessorInstance.start()
@@ -103,7 +103,7 @@ mvn clean package
     while (!isProcessorRunning.get()); //Wait for Change Feed processor start
     ```
 
-    **Java SDK 3.7.0**
+    **3.7.0 zestawu Java SDK**
     ```java
     changeFeedProcessorInstance = getChangeFeedProcessor("SampleHost_1", feedContainer, leaseContainer);
     changeFeedProcessorInstance.start()
@@ -116,15 +116,15 @@ mvn clean package
     while (!isProcessorRunning.get()); //Wait for Change Feed processor start    
     ```
 
-    ```"SampleHost_1"```to nazwa pracownika procesora przemijadnik. ```changeFeedProcessorInstance.start()```jest to, co faktycznie uruchamia procesor zmienić plik danych.
+    ```"SampleHost_1"```jest nazwą procesu roboczego procesora źródła zmian. ```changeFeedProcessorInstance.start()```Czy w rzeczywistości zaczyna się procesorem źródła zmian.
 
-    Wróć do Eksploratora danych usługi Azure Portal w przeglądarce. W kontenerze **InventoryContainer-leases** kliknij pozycję **towary,** aby wyświetlić jego zawartość. Zobaczysz, że procesor kanału informacyjnego zmian wypełnił kontener dzierżawy, ```SampleHost_1``` czyli procesor przypisał pracownikowi dzierżawę na niektórych partycjach **magazynu.**
+    Wróć do witryny Azure Portal Eksplorator danych w przeglądarce. W kontenerze **InventoryContainer-leases** kliknij pozycję **Items (elementy** ), aby wyświetlić jego zawartość. Zobaczysz, że procesor danych zmiany wypełnił kontener dzierżawy, tj. procesor przypisał ```SampleHost_1``` proces roboczy do dzierżawy na niektórych partycjach **InventoryContainer**.
 
     ![Dzierżawy](media/create-sql-api-java-changefeed/cosmos_leases.JPG)
 
-1. Naciśnij ponownie enter w terminalu. Spowoduje to uruchomienie 10 dokumentów, które mają zostać wstawione do **magazynu.** Każde wstawienie dokumentu jest wyświetlane w kanale informacyjnym zmiany jako JSON; następujący kod wywołania zwrotnego obsługuje te zdarzenia, dublując dokumenty JSON w widoku zmaterializowanym:
+1. Naciśnij klawisz Enter ponownie w terminalu. Spowoduje to wyzwolenie 10 dokumentów do wstawienia do **InventoryContainer**. Każda wstawka dokumentu pojawia się w kanale zmian jako kod JSON; Poniższy kod wywołania zwrotnego obsługuje te zdarzenia przez dublowanie dokumentów JSON do widoku z materiałami:
 
-    **Java SDK 4.0**
+    **Zestaw Java SDK 4,0**
     ```java
     public static ChangeFeedProcessor getChangeFeedProcessor(String hostName, CosmosAsyncContainer feedContainer, CosmosAsyncContainer leaseContainer) {
         ChangeFeedProcessorOptions cfOptions = new ChangeFeedProcessorOptions();
@@ -150,7 +150,7 @@ mvn clean package
     }
     ```
 
-    **Java SDK 3.7.0**
+    **3.7.0 zestawu Java SDK**
     ```java
     public static ChangeFeedProcessor getChangeFeedProcessor(String hostName, CosmosContainer feedContainer, CosmosContainer leaseContainer) {
         ChangeFeedProcessorOptions cfOptions = new ChangeFeedProcessorOptions();
@@ -176,21 +176,21 @@ mvn clean package
     }    
     ```
 
-1. Zezwalaj na uruchamianie kodu w ciągu 5-10 sek. Następnie wróć do Eksploratora danych usługi Azure Portal i przejdź do **pozycji InventoryContainer > items**. Powinieneś zobaczyć, że towary są wstawiane do kontenera magazynowego; zanotuj```id```klucz partycji ( ).
+1. Zezwól na uruchomienie kodu 5-10sec. Następnie wróć do witryny Azure Portal Eksplorator danych i przejdź do **pozycji InventoryContainer > Items**. Należy zobaczyć, że elementy są wstawiane do kontenera spisu; Zanotuj klucz partycji (```id```).
 
-    ![Pojemnik na paszę](media/create-sql-api-java-changefeed/cosmos_items.JPG)
+    ![Kontener kanału informacyjnego](media/create-sql-api-java-changefeed/cosmos_items.JPG)
 
-1. Teraz w Eksploratorze danych przejdź do **pozycji InventoryContainer-pktype > items**. Jest to widok zmaterializowany — elementy w tym kontenerze **dublowane InventoryContainer,** ponieważ zostały wstawione programowo przez źródło danych zmiany. Zanotuj```type```klucz partycji ( ). Tak więc ten zmaterializowany widok jest ```type```zoptymalizowany pod kątem filtrowania zapytań, co byłoby ```id```nieefektywne w **inventorycontainer,** ponieważ jest podzielony na partycje .
+1. Teraz w Eksplorator danych przejdź do **pozycji > InventoryContainer-pktype**. Jest to widok z materiałami — elementy znajdujące się w tym kontenerze dublowane **InventoryContainer** , ponieważ zostały wstawione programowo przez źródło zmian. Zanotuj klucz partycji (```type```). Dlatego ten widok z materiałami jest zoptymalizowany pod kątem zapytań ```type```filtrowanych, co byłoby niewydajne w **InventoryContainer** , ponieważ jest on podzielony ```id```na partycje.
 
     ![Zmaterializowany widok](media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG)
 
-1. Usuniemy dokument zarówno z **InventoryContainer,** jak i **InventoryContainer-pktype** przy użyciu tylko jednego ```upsertItem()``` wywołania. Najpierw zapoznaj się z Eksploratorem danych usługi Azure Portal. Usuniemy dokument, ```/type == "plums"```dla którego ; jest otoczony na czerwono poniżej
+1. Zamierzamy usunąć dokument z zarówno **InventoryContainer** , jak i **InventoryContainer-pktype** przy użyciu tylko jednego ```upsertItem()``` wywołania. Najpierw zapoznaj się z tematem witryna Azure Portal Eksplorator danych. Usuniemy dokument, dla którego ```/type == "plums"```; jest on otoczony czerwonym kolorem poniżej
 
     ![Zmaterializowany widok](media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG)
 
-    Naciśnij enter ponownie, ```deleteDocument()``` aby wywołać funkcję w przykładowym kodzie. Ta funkcja, pokazana poniżej, wprowadza nową wersję ```/ttl == 5```dokumentu za pomocą programu , która ustawia dokument Time-To-Live (TTL) na 5 sek. 
+    Ponownie naciśnij klawisz ENTER, aby wywołać ```deleteDocument()``` funkcję w przykładowym kodzie. Ta funkcja, pokazana poniżej, upserts nową wersję dokumentu z ```/ttl == 5```, który ustawia czas wygaśnięcia dokumentu na Live (TTL) na 5Sec. 
     
-    **Java SDK 4.0**
+    **Zestaw Java SDK 4,0**
     ```java
     public static void deleteDocument() {
 
@@ -218,7 +218,7 @@ mvn clean package
     }    
     ```
 
-    **Java SDK 3.7.0**
+    **3.7.0 zestawu Java SDK**
     ```java
     public static void deleteDocument() {
 
@@ -246,10 +246,10 @@ mvn clean package
     }    
     ```
 
-    Plik danych ```feedPollDelay``` o zmianie jest ustawiony na 100 ms; w związku z tym, Change Feed reaguje ```updateInventoryTypeMaterializedView()``` na tę aktualizację niemal natychmiast i wywołania pokazane powyżej. To ostatnie wywołanie funkcji spowoduje upsert nowego dokumentu z TTL 5sec do **InventoryContainer-pktype**.
+    Kanał informacyjny ```feedPollDelay``` zmiany jest ustawiany na 100 MS; w związku z tym, kanał informacyjny zmiany reaguje na tę ```updateInventoryTypeMaterializedView()``` aktualizację niemal natychmiast i pokazanych powyżej wywołaniach. To ostatnie wywołanie funkcji będzie upsert nowy dokument z wartością TTL 5Sec do **InventoryContainer-pktype**.
 
-    Efekt jest taki, że po około 5 sekundach dokument wygaśnie i zostanie usunięty z obu kontenerów.
+    Ten efekt jest taki, że po około 5 sekundach dokument utraci ważność i zostanie usunięty z obu kontenerów.
 
-    Ta procedura jest konieczna, ponieważ plik danych o zmianie powoduje tylko problemy z zdarzeniami podczas wstawiania lub aktualizowania towaru, a nie przy usuwaniu zapasu.
+    Ta procedura jest niezbędna, ponieważ w przypadku usuwania elementu Źródło zmian tylko wystawia zdarzenia dotyczące wstawiania lub aktualizowania elementu.
 
-1. Naciśnij przycisk Wprowadź jeszcze raz, aby zamknąć program i oczyścić jego zasoby.
+1. Naciśnij klawisz ENTER jeszcze raz, aby zamknąć program i oczyścić jego zasoby.

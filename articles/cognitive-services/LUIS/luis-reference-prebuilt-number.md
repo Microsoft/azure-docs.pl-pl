@@ -1,7 +1,7 @@
 ---
-title: Liczba wstępnie utworzonej jednostki — USŁUGA LUIS
+title: Liczba wstępnie utworzonych jednostek — LUIS
 titleSuffix: Azure Cognitive Services
-description: Ten artykuł zawiera informacje o jednostce utworzonej numer w yrozmaicieniu języka (LUIS).
+description: Ten artykuł zawiera numery wstępnie skompilowanych informacji o jednostkach w Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,19 +12,19 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 85e3589d7467691e2b9a11879510ab980bbd875a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273463"
 ---
-# <a name="number-prebuilt-entity-for-a-luis-app"></a>Numer wstępnie utworzonej jednostki dla aplikacji usługi LUIS
-Istnieje wiele sposobów, w których wartości liczbowe są używane do kwantyfikacji, wyrażania i opisywania informacji. W tym artykule opisano tylko niektóre z możliwych przykładów. Usługa LUIS interpretuje różnice w wypowiedziach użytkowników i zwraca spójne wartości liczbowe. Ponieważ ta jednostka jest już przeszkolony, nie trzeba dodawać wypowiedzi przykład zawierający liczbę do intencji aplikacji.
+# <a name="number-prebuilt-entity-for-a-luis-app"></a>Liczba wstępnie utworzonych jednostek dla aplikacji LUIS
+Istnieje wiele sposobów, w których wartości numeryczne są używane do określania ilości informacji. W tym artykule omówiono tylko niektóre z możliwych przykładów. LUIS interpretuje Wariacje w wyrażenia długości użytkownika i zwraca spójne wartości liczbowe. Ponieważ ta jednostka jest już przeszkolone, nie trzeba dodawać przykładowej wyrażenia długości zawierającej liczbę do intencji aplikacji.
 
-## <a name="types-of-number"></a>Typy numerów
-Numer jest zarządzany z repozytorium GitHub [w tekście aparatury-aparaty rozpoznawania](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml)
+## <a name="types-of-number"></a>Typy liczb
+Numer jest zarządzany przez [Aparaty rozpoznawania tekstu —](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) repozytorium GitHub
 
-## <a name="examples-of-number-resolution"></a>Przykłady rozpoznawania numerów
+## <a name="examples-of-number-resolution"></a>Przykłady rozpoznawania liczb
 
 | Wypowiedź        | Jednostka   | Rozwiązanie |
 | ------------- |:----------------:| --------------:|
@@ -38,17 +38,17 @@ Numer jest zarządzany z repozytorium GitHub [w tekście aparatury-aparaty rozpo
 | ```buy two dozen eggs```    | ```"two dozen"``` | ```"24"``` |
 
 
-Usługa LUIS zawiera rozpoznaną **`builtin.number`** wartość `resolution` encji w polu zwracanej odpowiedzi JSON.
+LUIS zawiera rozpoznaną wartość **`builtin.number`** jednostki w `resolution` polu odpowiedzi JSON, która zwraca.
 
-## <a name="resolution-for-prebuilt-number"></a>Rozdzielczość dla wstępnie utworzonego numeru
+## <a name="resolution-for-prebuilt-number"></a>Rozwiązanie dla wstępnie skompilowanego numeru
 
-Następujące obiekty encji są zwracane dla kwerendy:
+Następujące obiekty jednostki są zwracane dla zapytania:
 
 `order two dozen eggs`
 
-#### <a name="v3-response"></a>[Odpowiedź V3](#tab/V3)
+#### <a name="v3-response"></a>[Odpowiedź v3](#tab/V3)
 
-Następujący JSON jest `verbose` z parametrem ustawionym na: `false`
+Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
 
 ```json
 "entities": {
@@ -57,9 +57,9 @@ Następujący JSON jest `verbose` z parametrem ustawionym na: `false`
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[Odpowiedź pełne V3](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/V3-verbose)
 
-Następujący JSON jest `verbose` z parametrem ustawionym na: `true`
+Poniższy kod JSON jest z `verbose` parametrem ustawionym `true`na:
 
 ```json
 "entities": {
@@ -83,9 +83,9 @@ Następujący JSON jest `verbose` z parametrem ustawionym na: `true`
     }
 }
 ```
-#### <a name="v2-response"></a>[Odpowiedź V2](#tab/V2)
+#### <a name="v2-response"></a>[Odpowiedź w wersji 2](#tab/V2)
 
-Poniższy przykład pokazuje odpowiedź JSON z usługi LUIS, która obejmuje rozdzielczość wartości 24 dla wypowiedź "dwa tuziny".
+Poniższy przykład przedstawia odpowiedź JSON z LUIS, która zawiera rozdzielczość wartość 24 dla wypowiedź "dwa dziesiątki".
 
 ```json
 "entities": [
@@ -105,6 +105,6 @@ Poniższy przykład pokazuje odpowiedź JSON z usługi LUIS, która obejmuje roz
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
-Dowiedz się więcej o [walucie](luis-reference-prebuilt-currency.md), [liczba porządkowa](luis-reference-prebuilt-ordinal.md)i [procent](luis-reference-prebuilt-percentage.md).
+Dowiedz się więcej o [walucie](luis-reference-prebuilt-currency.md), [liczbie porządkowej](luis-reference-prebuilt-ordinal.md)i [wartości procentowej](luis-reference-prebuilt-percentage.md).

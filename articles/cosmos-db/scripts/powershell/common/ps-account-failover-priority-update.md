@@ -1,19 +1,19 @@
 ---
-title: Skrypt programu PowerShell do zmiany priorytetu trybu failover dla jednowładnego konta usługi Azure Cosmos
-description: Przykład skryptu programu Azure PowerShell — zmiana priorytetu trybu failover lub wyzwalania pracy awaryjnej dla konta jednowładnikowego usługi Azure Cosmos DB
+title: Skrypt programu PowerShell umożliwiający zmianę priorytetu trybu failover dla jednego głównego konta usługi Azure Cosmos
+description: Przykładowy skrypt Azure PowerShell — zmiana priorytetu trybu failover lub wyzwolenie trybu failover dla konta z jednym wzorcem Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: a81938675e72d9ec3a18c920121951e38580b91e
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80366120"
 ---
-# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-db-single-master-account-using-powershell"></a>Zmienianie priorytetu trybu failover lub wyzwalania pracy awaryjnej dla konta jednowładnikowego usługi Azure Cosmos DB przy użyciu programu PowerShell
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-db-single-master-account-using-powershell"></a>Zmiana priorytetu trybu failover lub wyzwolenie trybu failover dla Azure Cosmos DB konta z jednym wzorcem przy użyciu programu PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,9 +22,9 @@ ms.locfileid: "80366120"
 ## <a name="sample-script"></a>Przykładowy skrypt
 
 > [!NOTE]
-> Wszelkie zmiany w `failoverPriority=0` regionie z wyzwalaczy ręcznej pracy awaryjnej i można zrobić tylko na koncie skonfigurowanym do ręcznego trybu failover. Zmiany we wszystkich innych regionach po prostu zmienia priorytet pracy awaryjnej dla konta usługi Cosmos.
+> Każda zmiana w regionie z `failoverPriority=0` wyzwala ręczną pracę awaryjną i można ją wykonać tylko na koncie skonfigurowanym do ręcznego przełączania do trybu failover. Zmiany we wszystkich pozostałych regionach po prostu zmieniają priorytet trybu failover dla konta Cosmos.
 > [!NOTE]
-> W tym przykładzie pokazano przy użyciu konta interfejsu API SQL (Core). Aby użyć tego przykładu dla innych interfejsów API, skopiuj powiązane właściwości i zastosuj do skryptu specyficznego dla interfejsu API
+> Ten przykład pokazuje użycie konta interfejsu API SQL (rdzeń). Aby użyć tego przykładu dla innych interfejsów API, skopiuj powiązane właściwości i Zastosuj do skryptu określonego przez interfejs API
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-failover-priority-update.ps1 "Update failover priority for an Azure Cosmos account or trigger a manual failover")]
 
@@ -43,8 +43,8 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | Polecenie | Uwagi |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Konto Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Wyświetla listę kont usługi Cosmos DB lub pobiera określone konto usługi Cosmos DB. |
-| [Aktualizacja-AzCosmosDBAccountFailoverPriority](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccountfailoverpriority) | Zaktualizuj kolejność priorytetów trybu failover regionów konta usługi Cosmos DB. |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Wyświetla listę kont Cosmos DB lub pobiera określone konto Cosmos DB. |
+| [Update-AzCosmosDBAccountFailoverPriority](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccountfailoverpriority) | Aktualizowanie kolejności priorytetu trybu failover regionów konta Cosmos DB. |
 |**Grupy zasobów platformy Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||

@@ -1,16 +1,16 @@
 ---
-title: Skrypt programu PowerShell do aktualizowania regionów konta usługi Azure Cosmos
-description: Przykład skryptu programu Azure PowerShell — aktualizowanie regionów konta usługi Azure Cosmos
+title: Skrypt programu PowerShell służący do aktualizowania regionów konta usługi Azure Cosmos
+description: Przykładowy skrypt Azure PowerShell — aktualizowanie regionów konta usługi Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/21/2020
 ms.author: mjbrown
 ms.openlocfilehash: 4a8e24b4445e2bf29b35e87600de260c523d4376
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80367574"
 ---
 # <a name="update-an-azure-cosmos-accounts-regions-using-powershell"></a>Aktualizowanie regionów konta usługi Azure Cosmos przy użyciu programu PowerShell
@@ -22,9 +22,9 @@ ms.locfileid: "80367574"
 ## <a name="sample-script"></a>Przykładowy skrypt
 
 > [!NOTE]
-> Nie można modyfikować regionów i zmieniać innych właściwości konta usługi Cosmos w tej samej operacji. Należy to wykonać jako dwie oddzielne operacje.
+> Nie można modyfikować regionów i zmieniać innych właściwości konta Cosmos w tej samej operacji. Muszą one być takie same jak dwie osobne operacje.
 > [!NOTE]
-> W tym przykładzie pokazano przy użyciu konta interfejsu API SQL (Core). Aby użyć tego przykładu dla innych interfejsów API, skopiuj powiązane właściwości i zastosuj do skryptu specyficznego dla interfejsu API.
+> Ten przykład pokazuje użycie konta interfejsu API SQL (rdzeń). Aby użyć tego przykładu dla innych interfejsów API, skopiuj powiązane właściwości i Zastosuj do skryptu określonego przez interfejs API.
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update-region.ps1 "Update Azure Cosmos account regions")]
 
@@ -43,7 +43,7 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | Polecenie | Uwagi |
 |---|---|
 |**Zasoby platformy Azure**| |
-| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Aktualizowanie zasobu. |
+| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Zaktualizuj zasób. |
 |**Grupy zasobów platformy Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||

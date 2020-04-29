@@ -1,6 +1,6 @@
 ---
-title: Skrypt programu PowerShell do tworzenia przestrzeni kluczy i tabeli interfejsu API usługi Azure Cosmos DB Cassandra
-description: Skrypt programu Azure PowerShell — usługa Azure Cosmos DB tworzy przestrzeń kluczy i tabelę interfejsu API cassandra
+title: Skrypt programu PowerShell służący do tworzenia Azure Cosmos DB interfejs API Cassandra przestrzeni kluczy i tabeli
+description: Azure PowerShell skryptu — Azure Cosmos DB tworzenia interfejs API Cassandra przestrzeni kluczy i tabeli
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: 1fcded19731d412a4892e231f4445c51b330b1b4
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80366141"
 ---
-# <a name="create-a-keyspace-and-table-for-azure-cosmos-db---cassandra-api"></a>Tworzenie przestrzeni kluczy i tabeli dla usługi Azure Cosmos DB — interfejs API Cassandra
+# <a name="create-a-keyspace-and-table-for-azure-cosmos-db---cassandra-api"></a>Tworzenie przestrzeni kluczy i tabeli dla Azure Cosmos DB-interfejs API Cassandra
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -39,13 +39,13 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | Polecenie | Uwagi |
 |---|---|
 |**Zasoby platformy Azure**| |
-| [Nowe źródło AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Tworzy zasób. |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Tworzy zasób. |
 |**Azure Cosmos DB**| |
-| [Set-AzCosmosDBCassandraKeyspace](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbcassandrakeyspace) | Tworzy lub aktualizuje przestrzeń kluczy interfejsu API usługi Cosmos DB Cassandra. |
-| [Nowy-AzCosmosDBCassandraClusterKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandraclusterkey) | Tworzy nowy klucz klastra CosmosDB Cassandra. |
-| [Nowy-AzCosmosDBCassandraColumn](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandracolumn) | Tworzy nową kolumnę CosmosDB Cassandra. |
-| [Nowy-AzCosmosDBCassandraSchema](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandraschema) | Tworzy nowy schemat Cassandra usługi CosmosDB. |
-| [Set-AzCosmosDBCassandraTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbcassandratable) | Tworzy lub aktualizuje tabelę interfejsu API usługi Cosmos DB Cassandra. |
+| [Set-AzCosmosDBCassandraKeyspace](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbcassandrakeyspace) | Tworzy lub aktualizuje Cosmos DB interfejs API Cassandra przestrzeni kluczy. |
+| [New-AzCosmosDBCassandraClusterKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandraclusterkey) | Tworzy nowy klucz klastra CosmosDB Cassandra. |
+| [New-AzCosmosDBCassandraColumn](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandracolumn) | Tworzy nową kolumnę CosmosDB Cassandra. |
+| [New-AzCosmosDBCassandraSchema](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandraschema) | Tworzy nowy schemat CosmosDB Cassandra. |
+| [Set-AzCosmosDBCassandraTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbcassandratable) | Tworzy lub aktualizuje tabelę interfejs API Cassandra Cosmos DB. |
 |**Grupy zasobów platformy Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||

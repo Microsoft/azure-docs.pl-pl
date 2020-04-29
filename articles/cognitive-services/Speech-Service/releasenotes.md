@@ -1,7 +1,7 @@
 ---
 title: Informacje o wersji — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: Uruchomiony dziennik wersji funkcji usługi mowy, ulepszeń, poprawek błędów i znanych problemów.
+description: Uruchomiony dziennik wersji funkcji usługi Speech, ulepszenia, poprawki błędów i znane problemy.
 services: cognitive-services
 author: oliversc
 manager: jhakulin
@@ -12,533 +12,533 @@ ms.date: 02/25/2020
 ms.author: oliversc
 ms.custom: seodec18
 ms.openlocfilehash: 7bab0a28ba2b75903b6bdf4708e6aa0a98bdc9e5
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80607405"
 ---
 # <a name="release-notes"></a>Informacje o wersji
-## <a name="speech-sdk-1110-2020-march-release"></a>SDK mowy 1.11.0: wydanie 2020-marzec
+## <a name="speech-sdk-1110-2020-march-release"></a>Speech SDK 1.11.0:2020-marzec Release
 
 **Nowe funkcje**
 
-- Linux: Dodano obsługę Red Hat Enterprise Linux (RHEL) / CentOS 7 x64 z [instrukcjami,](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-rhel-centos-7) jak skonfigurować system dla SDK mowy.
-- Linux: Dodano obsługę .NET Core C# na Linuksach ARM32 i ARM64. Czytaj więcej [tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux). 
-- C#, C++: `UtteranceId` `ConversationTranscriptionResult`Dodano w , spójny identyfikator we wszystkich półproduktów i końcowego wyniku rozpoznawania mowy. Szczegółowe informacje dotyczące [języka C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult).
-- Python: Dodano `Language ID`obsługę . Zobacz speech_sample.py w [repozytorium GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console).
-- Windows: Dodano obsługę skompresowanego formatu wejściowego audio na platformie Windows dla wszystkich aplikacji konsoli win32. Szczegóły [tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
-- JavaScript: Obsługa syntezy mowy (zamiana tekstu na mowę) w NodeJS. Dowiedz się więcej [tutaj](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech). 
-- JavaScript: Dodaj nowe interfejsy API, aby umożliwić kontrolę wszystkich wiadomości wysyłanych i odbieranych. Dowiedz się więcej [tutaj](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript). 
+- Linux: Dodano obsługę Red Hat Enterprise Linux (RHEL)/CentOS 7 x64 z [instrukcjami](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-rhel-centos-7) dotyczącymi sposobu konfigurowania systemu dla zestawu Speech SDK.
+- Linux: Dodano obsługę platformy .NET Core C# w systemie Linux ARM32 i ARM64. Przeczytaj więcej [tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux). 
+- C#, C++: dodano `UtteranceId` w `ConversationTranscriptionResult`, spójny identyfikator między wszystkimi pośrednimi i końcowymi wynikami rozpoznawania mowy. Szczegóły dla [języków C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet)i [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult).
+- Python: Dodano obsługę `Language ID`. Zobacz speech_sample. PR w [repozytorium GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console).
+- System Windows: Dodano obsługę formatu kompresji danych wejściowych audio na platformie Windows dla wszystkich aplikacji konsolowych Win32. Szczegóły [tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
+- JavaScript: obsługa syntezy mowy (zamiany tekstu na mowę) w NodeJS. Dowiedz się więcej [tutaj](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech). 
+- JavaScript: Dodaj nowy interfejs API, aby włączyć inspekcję wszystkich wysłanych i odebranych komunikatów. Dowiedz się więcej [tutaj](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript). 
         
 **Poprawki błędów**
 
-- C#, C++: Rozwiązaliśmy `SendMessageAsync` problem, więc teraz wysyła wiadomość binarną jako typ binarny. Szczegółowe informacje dotyczące [języka C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection).
-- C#, C++: Rozwiązano `Connection MessageReceived` problem polegający `Recognizer` na tym, `Connection` że używanie zdarzenia mogło spowodować awarię, jeśli zostanie usunięte przed obiektem. Szczegółowe informacje dotyczące [języka C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?view=azure-dotnet), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection#messagereceived).
-- Android: rozmiar buforu audio z mikrofonu zmniejszył się z 800ms do 100ms, aby poprawić opóźnienie.
-- Android: Rozwiązano [problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/563) z emulatorem androida x86 w Android Studio.
-- JavaScript: Dodano obsługę regionów w `fromSubscription` Chinach za pomocą interfejsu API. Szczegóły [tutaj](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#fromsubscription-string--string-). 
-- JavaScript: Dodaj więcej informacji o błędach dla awarii połączenia z NodeJS.
+- C#, C++: Rozwiązano problem, `SendMessageAsync` dlatego wysyła komunikat binarny jako typ binarny. Szczegóły dla [języków C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_)i [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection).
+- C#, C++: Rozwiązano problem polegający `Connection MessageReceived` na tym, że użycie `Recognizer` zdarzenia może spowodować `Connection` awarię, jeśli element zostanie usunięty przed obiektem. Szczegóły dla [języków C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?view=azure-dotnet)i [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection#messagereceived).
+- Android: rozmiar buforu audio z mikrofonu zmniejszył się z 800ms do 100 MS w celu usprawnienia opóźnienia.
+- Android: rozwiązano [problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/563) z emulatorem x86 systemu android w Android Studio.
+- JavaScript: Dodano obsługę regionów w Chinach przy użyciu `fromSubscription` interfejsu API. Szczegóły [tutaj](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#fromsubscription-string--string-). 
+- JavaScript: Dodaj więcej informacji o błędzie dla niepowodzeń połączeń z NodeJS.
         
 **Samples**
 
-- Jedność: Intencja rozpoznawania próbki publicznej jest stała, gdzie import json usługi LUIS nie powiódł się. Szczegóły [tutaj](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/369).
-- Python: Próbka `Language ID`dodana dla . Szczegóły [tutaj](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
+- Unity: w przypadku niepowodzenia importu LUIS JSON został usunięty publiczny przykład rozpoznawania intencji. Szczegóły [tutaj](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/369).
+- Python: dodano przykład dla `Language ID`. Szczegóły [tutaj](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
     
-**Skrócone testy Covid19**
+**Testowanie Covid19 w skrócie**
 
-Ze względu na pracę zdalną w ciągu ostatnich kilku tygodni, nie mogliśmy zrobić tyle ręcznych testów weryfikacji urządzeń, jak zwykle. Przykładem tego jest testowanie wejścia mikrofonu i wyjścia głośnika w systemach Linux, iOS i macOS. Nie wnieśliśmy żadnych zmian, które naszym zdaniem mogły spowodować złamanie czegokolwiek na tych platformach, a nasze zautomatyzowane testy przeszły. W mało prawdopodobnym przypadku, gdy coś nam umknęło, poinformuj nas o tym na [GitHubie](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?page=2&q=is%3Aissue+is%3Aopen).<br> Dziękuję za nieutrzymane wsparcie. Jak zawsze, prosimy pisać pytania lub opinie na [Temat GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?page=2&q=is%3Aissue+is%3Aopen) lub [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/731).<br>
-Zachowaj zdrowie!
+Ze względu na to, że praca zdalna jest wykonywana w ciągu ostatnich kilku tygodni, nie mogliśmy przeanalizować tak wielu ręcznych testów weryfikacyjnych urządzeń. Przykładem jest testowanie danych wejściowych mikrofonu i danych wyjściowych głośników w systemach Linux, iOS i macOS. Nie wprowadziliśmy żadnych zmian, na których myślimy, że na tych platformach zakończono wszystkie czynności i wszystkie testy zautomatyzowane zostały zakończone powodzeniem. W mało prawdopodobnym zdarzeniu, poinformuj nas o tym w serwisie [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?page=2&q=is%3Aissue+is%3Aopen).<br> Dziękujemy za dalszą pomoc techniczną. Jak zawsze, Opublikuj pytania lub opinię w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?page=2&q=is%3Aissue+is%3Aopen) lub [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/731).<br>
+Bądź w dobrej kondycji
 
-## <a name="speech-sdk-1100-2020-february-release"></a>Speech SDK 1.10.0: wydanie 2020-luty
+## <a name="speech-sdk-1100-2020-february-release"></a>Speech SDK 1.10.0:2020-luty Release
 
 **Nowe funkcje**
 
- - Dodano pakiety Pythona do obsługi nowej wersji 3.8 Pythona.
- - Obsługa systemu Red Hat Enterprise Linux (RHEL)/CentOS 8 x64 (C++, C#, Java, Python).
+ - Dodano pakiety języka Python obsługujące nowe wydanie 3,8 języka Python.
+ - Red Hat Enterprise Linux (RHEL)/CentOS 8 x64 (C++, C#, Java, Python).
    > [!NOTE] 
    > Klienci muszą skonfigurować OpenSSL zgodnie z [tymi instrukcjami](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux).
- - Linux ARM32 obsługuje Debiana i Ubuntu.
- - DialogServiceConnector obsługuje teraz opcjonalny parametr "bot ID" na BotFrameworkConfig. Ten parametr umożliwia korzystanie z wielu botów direct line speech z jednym zasobem mowy platformy Azure. Bez określonego parametru zostanie użyty domyślny bot (określony przez stronę konfiguracji kanału direct line speech).
- - DialogServiceConnector ma teraz właściwość SpeechActivityTemplate. Zawartość tego ciągu JSON będzie używana przez direct line speech do wstępnego wypełniania szerokiej gamy obsługiwanych pól we wszystkich działaniach, które osiągają bota direct line speech, w tym działania generowane automatycznie w odpowiedzi na zdarzenia, takie jak rozpoznawanie mowy.
- - TTS teraz używa klucza subskrypcji do uwierzytelniania, zmniejszając opóźnienie pierwszego bajtów pierwszego wyniku syntezy po utworzeniu syntezatora.
- - Zaktualizowano modele rozpoznawania mowy dla 19 ustawień regionalnych dla średniego poziomu błędu słowa o 18,6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN, zh-HK, nb-NO, fi-FL, ru-RU, pl-PL, ca-ES, zh-TW, th-TH, pt-PT, tr-TR). Nowe modele wprowadzają znaczące ulepszenia w wielu domenach, w tym dyktowanie, transkrypcję centrum obsługi telefonicznej i indeksowanie wideo scenariuszy.
+ - Obsługa ARM32 systemu Linux dla Debian i Ubuntu.
+ - DialogServiceConnector obsługuje teraz opcjonalny parametr "bot ID" na BotFrameworkConfig. Ten parametr umożliwia korzystanie z wielu bezpośrednich botów mowy wiersza za pomocą pojedynczego zasobu usługi Azure Speech. Bez określonego parametru zostanie użyta wartość domyślna bot (zgodnie z konfiguracją kanału Direct Speech line).
+ - DialogServiceConnector ma teraz Właściwość SpeechActivityTemplate. Zawartość tego ciągu JSON zostanie użyta w bezpośrednim wierszu mowy, aby wstępnie wypełnić szeroką gamę obsługiwanych pól we wszystkich działaniach, które docierają do bezpośredniego bot mowy liniowej, w tym działań automatycznie generowanych w odpowiedzi na zdarzenia, takie jak rozpoznawanie mowy.
+ - Funkcja TTS używa teraz klucza subskrypcji do uwierzytelniania, co zmniejsza czas opóźnienia pierwszego bajtu z pierwszego wyniku w przypadku tworzenia syntezatora.
+ - Zaktualizowane modele rozpoznawania mowy dla 19 ustawień regionalnych dla średniego współczynnika błędów wyrazu redukcja 18,6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, Ko-KR, pt-BR, zh-CN, zh-HK, NB-NO, Fi-FL, ru-PL, pl-am, "CA-ES", zh-TW, th, pt-PT, TR-TR). Nowe modele zapewniają znaczące ulepszenia w wielu domenach, takich jak Dyktowanie, transkrypcja wyśrodkowania i scenariusze indeksowania wideo.
 
 **Poprawki błędów**
 
- - Naprawiono błąd, który powodował, że transcriber konwersacji nie czekał poprawnie w interfejsach API java 
- - Android x86 emulator naprawić problem Xamarin [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/363)
- - Dodaj brak (Pobierz| Set)Metody właściwości audioconfig
- - Napraw błąd TTS, w którym nie można zatrzymać audioDataStream, gdy połączenie nie powiedzie się
- - Używanie punktu końcowego bez regionu spowodowałoby błędy USP dla translatora konwersacji
- - Generowanie identyfikatorów w uniwersalnych aplikacjach systemu Windows używa teraz odpowiednio unikatowego algorytmu GUID; wcześniej i nieumyślnie domyślnie do implementacji stubbed, które często produkowane kolizji przez duże zestawy interakcji.
+ - Rozwiązano problem polegający na tym, że w interfejsie API języka JAVA nie Transcriber konwersacji. 
+ - Poprawka emulatora systemu Android x86 dla rozwiązania Xamarin [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/363)
+ - Dodaj brakujące (Pobierz | Ustaw metody właściwości na AudioConfig
+ - Naprawianie usterki TTS, w której nie można zatrzymać audioDataStream w przypadku niepowodzenia połączenia
+ - Użycie punktu końcowego bez regionu spowoduje wystąpienie błędów USP dla translatora konwersacji
+ - Generowanie identyfikatorów w aplikacjach uniwersalnych systemu Windows używa teraz odpowiedniego unikatowego algorytmu identyfikatora GUID; wcześniej i przypadkowo nie została zamierzona domyślna implementacja użyto metod zastępczych, która często wytwarza kolizje w dużych zestawach interakcji.
  
  **Samples**
  
- - Przykład Unity do korzystania z zestawu SDK mowy z [mikrofonem Unity i strumieniowaniem w trybie push](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/from-unitymicrophone)
+ - Przykład aparatu Unity do korzystania z zestawu Speech SDK z [mikrofonu Unity i przesyłania strumieniowego w trybie push](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/from-unitymicrophone)
 
 **Inne zmiany**
 
- - [Zaktualizowano dokumentację konfiguracją OpenSSL dla systemu Linux](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux)
+ - [Dokumentacja dotycząca konfiguracji OpenSSL dla systemu Linux](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux)
 
-## <a name="speech-sdk-190-2020-january-release"></a>Speech SDK 1.9.0: wydanie 2020-styczeń
+## <a name="speech-sdk-190-2020-january-release"></a>Speech SDK 1.9.0:2020 — wydanie w styczniu
 
 **Nowe funkcje**
 
-- Konwersacja na wielu urządzeniach: podłącz wiele urządzeń do tej samej konwersacji opartej na mowie lub tekście i opcjonalnie tłumacz wiadomości wysyłane między nimi. Dowiedz się więcej w [tym artykule](multi-device-conversation.md). 
-- Dodano obsługę rozpoznawania słów kluczowych dla pakietu Android .aar i dodano obsługę smaków x86 i x64. 
-- Objective-C: `SendMessage` `SetMessageProperty` i metody `Connection` dodane do obiektu. Zobacz dokumentację [tutaj](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxconnection).
-- Interfejs API TTS C++ obsługuje `std::wstring` teraz jako wejście tekstu syntezy, eliminując konieczność konwersji wstringu na ciąg przed przekazaniem go do SDK. Zobacz szczegóły [tutaj](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync). 
-- C#: [Identyfikator języka](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) i [config języka źródłowego](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) są teraz dostępne.
-- JavaScript: Dodano funkcję `Connection` do obiektu, aby przejść przez niestandardowe wiadomości z usługi mowy jako wywołania zwrotnego `receivedServiceMessage`.
-- JavaScript: Dodano `FromHost API` obsługę, aby ułatwić korzystanie z kontenerów na prem i suwerennych chmur. Zobacz dokumentację [tutaj](speech-container-howto.md).
-- JavaScript: Teraz `NODE_TLS_REJECT_UNAUTHORIZED` honor dzięki wkład z [orgads](https://github.com/orgads). Zobacz szczegóły [tutaj](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
+- Konwersacja z wieloma urządzeniami: łączenie wielu urządzeń z tą samą obsługą mowy lub konwersacją tekstową oraz opcjonalne tłumaczenie komunikatów wysyłanych między nimi. Więcej informacji znajduje się w [tym artykule](multi-device-conversation.md). 
+- Dodano obsługę rozpoznawania słów kluczowych dla pakietu Android. AAR i dodano obsługę wersji x86 i x64. 
+- Zamierzenia- `SendMessage` C `SetMessageProperty` : i metody `Connection` dodane do obiektu. [Tutaj](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxconnection)znajdziesz dokumentację.
+- Interfejs API języka TTS C++ `std::wstring` obsługuje teraz jako dane wejściowe syntezy tekstu, eliminując konieczność konwersji wstring na ciąg przed przekazaniem go do zestawu SDK. Szczegóły można znaleźć [tutaj](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync). 
+- C#: dostępne są teraz [identyfikatory języka](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) i [konfiguracji języka źródłowego](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) .
+- JavaScript: dodano funkcję do `Connection` obiektu, aby przekazywać komunikaty niestandardowe z usługi mowy jako wywołanie zwrotne. `receivedServiceMessage`
+- JavaScript: Dodano obsługę programu `FromHost API` , aby ułatwić korzystanie z kontenerów Premium i suwerennych chmur. [Tutaj](speech-container-howto.md)znajdziesz dokumentację.
+- JavaScript: Firma Microsoft honoruje `NODE_TLS_REJECT_UNAUTHORIZED` się z [orgads](https://github.com/orgads). Szczegóły można znaleźć [tutaj](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
 **Fundamentalne zmiany**
 
-- `OpenSSL`został zaktualizowany do wersji 1.1.1b i jest statycznie połączony z biblioteką rdzenia SDK mowy dla systemu Linux. Może to spowodować przerwę, `OpenSSL` jeśli skrzynka `/usr/lib/ssl` odbiorcza nie została zainstalowana w katalogu w systemie. Zapoznaj się z [naszą dokumentacją](how-to-configure-openssl-linux.md) w obszarze Dokumenty SDK mowy, aby obejść ten problem.
-- Zmieniliśmy typ danych zwrócony `WordLevelTimingResult.Offset` dla `int` `long` języka C# `WordLevelTimingResults` z do, aby umożliwić dostęp do, gdy dane mowy jest dłuższy niż 2 minuty.
-- `PushAudioInputStream`a `PullAudioInputStream` teraz wysyłać informacje nagłówka wav do usługi mowy na `AudioStreamFormat`podstawie , opcjonalnie określone, kiedy zostały utworzone. Klienci muszą teraz korzystać z [obsługiwanego formatu wejścia audio](how-to-use-audio-input-streams.md). Wszelkie inne formaty uzyskają nieoptymalne wyniki rozpoznawania lub mogą powodować inne problemy. 
+- `OpenSSL`został zaktualizowany do wersji 1.1.1 b i jest statycznie połączony z biblioteką podstawową zestawu Speech SDK dla systemu Linux. Może to spowodować przerwanie, jeśli skrzynka odbiorcza `OpenSSL` nie została zainstalowana w `/usr/lib/ssl` katalogu w systemie. Aby obejść ten problem, zapoznaj się z [naszą dokumentacją](how-to-configure-openssl-linux.md) w obszarze dokumentacja zestawu Speech SDK.
+- Zmieniono typ danych zwrócony dla języka `WordLevelTimingResult.Offset` C# z `int` na `long` , aby zezwolić na dostęp, `WordLevelTimingResults` gdy dane mowy są dłuższe niż 2 minuty.
+- `PushAudioInputStream`i `PullAudioInputStream` teraz Wysyłaj informacje z nagłówka WAV do usługi mowy opartej na systemie `AudioStreamFormat`, opcjonalnie określone podczas tworzenia. Klienci muszą teraz korzystać z [obsługiwanego formatu wejścia audio](how-to-use-audio-input-streams.md). Wszystkie inne formaty będą uzyskiwać optymalne wyniki rozpoznawania lub mogą powodować inne problemy. 
 
 **Poprawki błędów**
 
-- Zobacz `OpenSSL` aktualizację w obszarze Łamanie zmian powyżej. Naprawiliśmy zarówno przerywany awaria, jak i problem z wydajnością (rywalizacja o blokadę przy dużym obciążeniu) w linuksie i javie. 
-- Java: Wprowadzono ulepszenia do zamykania obiektów w scenariuszach wysokiej współbieżności.
-- Zrestrukturyzowana nasz pakiet NuGet. Usunęliśmy trzy `Microsoft.CognitiveServices.Speech.core.dll` kopie `Microsoft.CognitiveServices.Speech.extension.kws.dll` folderów lib i pod nich, dzięki czemu pakiet NuGet jest mniejszy i szybszy do pobrania, a także dodaliśmy nagłówki potrzebne do skompilowania niektórych aplikacji natywnych języka C++.
-- Naprawiono tutaj próbki szybkiego [startu](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp). Były to wyjście bez wyświetlania wyjątku "nie znaleziono mikrofonu" w systemach Linux, MacOS, Windows.
-- Naprawiono awarię SDK z długimi wynikami rozpoznawania mowy na niektórych ścieżkach kodu, takich jak [ten przykład.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/uwp/speechtotext-uwp)
-- Naprawiono błąd wdrażania SDK w środowisku aplikacji Azure Web App w celu rozwiązania [tego problemu z klientem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/396).
-- Naprawiono błąd TTS `<voice>` podczas `<audio>` używania wielu tagów lub tagów w celu rozwiązania [tego problemu z klientem.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/433) 
-- Naprawiono błąd TTS 401, gdy SDK jest odzyskiwany z zawieszenia.
-- JavaScript: Poprawiono okrągły import danych audio dzięki wkładowi [euirim](https://github.com/euirim). 
-- JavaScript: dodano obsługę ustawiania właściwości usługi, jak dodano w 1.7.
-- JavaScript: rozwiązał problem polegający na tym, że błąd połączenia mógł spowodować ciągłe, nieudane próby ponownego połączenia w sieci Web.
+- Zapoznaj `OpenSSL` się z aktualizacją w obszarze istotne zmiany powyżej. Rozwiązano zarówno sporadyczną awarię, jak i problem z wydajnością (Zablokuj rywalizację pod dużym obciążeniem) w systemach Linux i Java. 
+- Java: wprowadzono ulepszenia dotyczące zamykania obiektów w scenariuszach o wysokim współbieżności.
+- Restrukturyzacja naszego pakietu NuGet. Firma Microsoft usunęła trzy kopie `Microsoft.CognitiveServices.Speech.core.dll` i `Microsoft.CognitiveServices.Speech.extension.kws.dll` w folderach lib, dzięki czemu pakiet NuGet jest mniejszy i szybszy do pobrania, a dodaliśmy nagłówki, które są konieczne do kompilowania niektórych natywnych aplikacji C++.
+- Poprawiono przykłady [szybkiego](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp)startu. Zostały one zakończone bez wyświetlania wyjątku "nie znaleziono mikrofonu" w systemie Linux, MacOS, Windows.
+- Naprawiono awarię zestawu SDK z długią funkcją rozpoznawania mowy na niektórych ścieżkach kodu, takich jak [ten przykład](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/uwp/speechtotext-uwp).
+- Wystąpił błąd wdrażania zestawu SDK w środowisku aplikacji sieci Web platformy Azure w celu rozwiązania [problemu z klientem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/396).
+- Naprawiono błąd usługi TTS przy `<voice>` użyciu wielotagu lub `<audio>` tagu w celu rozwiązania [problemu z klientem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/433). 
+- Naprawiono błąd TTS 401, gdy zestaw SDK zostanie odzyskany z wstrzymania.
+- JavaScript: Naprawiono cykliczne Importowanie danych audio za pośrednictwem udziału z [euirim](https://github.com/euirim). 
+- JavaScript: Dodano obsługę ustawiania właściwości usługi, jak dodano w 1,7.
+- JavaScript: Rozwiązano problem polegający na tym, że błąd połączenia może spowodować ciągłe, nieudane próby ponownego nawiązania połączenia z użyciem protokołu WebSocket.
 
 **Samples**
 
-- Dodano przykład rozpoznawania słów kluczowych dla [Androida tutaj](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo).
-- Dodano próbkę TTS dla scenariusza serwera [tutaj](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs).
-- Dodano szybkie uruchamianie konwersacji na wielu urządzeniach dla języka C# i C++ [tutaj](quickstarts/multi-device-conversation.md).
+- Dodano przykład rozpoznawania słów kluczowych dla systemu Android [tutaj](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo).
+- W [tym miejscu](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs)dodano przykład TTS dla scenariusza serwera.
+- Dodano wiele przewodników szybki start dla języków C# i C++ w [tym miejscu](quickstarts/multi-device-conversation.md).
 
 **Inne zmiany**
 
-- Zoptymalizowany rozmiar biblioteki podstawowej SDK w systemie Android.
-- Zestaw SDK w wersji 1.9.0 `int` `string` i nowszej obsługuje zarówno typy, jak i typy w polu wersji podpisu głosowego dla transcribera konwersacji.
+- Rozmiar zoptymalizowanej biblioteki podstawowej zestawu SDK w systemie Android.
+- Zestaw SDK w 1.9.0 i lub nowszym obsługuje zarówno `int` typy `string` w polu wersja podpisu głosowego, jak i na potrzeby konwersacji Transcriber.
 
-## <a name="speech-sdk-180-2019-november-release"></a>Speech SDK 1.8.0: wydanie 2019-listopadowe
+## <a name="speech-sdk-180-2019-november-release"></a>Speech SDK 1.8.0:2019 — wydanie w listopadzie
 
 **Nowe funkcje**
 
-- Dodano `FromHost()` interfejs API, aby ułatwić korzystanie z kontenerów na przedwzmowych i suwerennych chmur.
-- Dodano automatyczne wykrywanie języka źródłowego do rozpoznawania mowy (w językach Java i C++)
-- Dodano `SourceLanguageConfig` obiekt do rozpoznawania mowy, używany do określania oczekiwanych języków źródłowych (w językach Java i C++)
-- Dodano `KeywordRecognizer` obsługę pakietów NuGet i Unity w systemach Windows (UWP), Android i iOS
-- Dodano interfejs API Java do zdalnej konwersacji do transkrypcji konwersacji w partiach asynchronicznych.
+- Dodano `FromHost()` interfejs API, aby ułatwić korzystanie z kontenerów Premium i suwerennych chmur.
+- Dodano automatyczne wykrywanie języka źródła dla funkcji rozpoznawania mowy (w językach Java i C++)
+- Dodano `SourceLanguageConfig` obiekt dla funkcji rozpoznawania mowy używany do określania oczekiwanych języków źródłowych (w językach Java i C++)
+- Dodano `KeywordRecognizer` obsługę systemu Windows (platformy UWP), systemów Android i iOS za pomocą pakietów NuGet i programu Unity
+- Dodano interfejs API języka Java konwersacji zdalnych w celu przeprowadzenia transkrypcji konwersacji w partiach asynchronicznych.
 
 **Fundamentalne zmiany**
 
-- Funkcje transcribera konwersacji przeniesione w obszarze nazw `Microsoft.CognitiveServices.Speech.Transcription`.
-- Część konwersacji transcriber metody `Conversation` są przenoszone do nowej klasy.
-- Porzucona obsługa 32-bitowego (ARMv7 i x86) systemu iOS
+- Funkcje Transcriber konwersacji przenoszone w `Microsoft.CognitiveServices.Speech.Transcription`obszarze nazw.
+- Część metod Transcriber konwersacji jest przenoszona do nowej `Conversation` klasy.
+- Porzucone wsparcie dla 32-bitowych (architektury ARMv7 i x86) iOS
 
 **Poprawki błędów**
 
-- Napraw awarię, `KeywordRecognizer` jeśli lokalny jest używany bez prawidłowego klucza subskrypcji usługi mowy
+- Popraw w przypadku awarii, `KeywordRecognizer` jeśli jest używana lokalna bez prawidłowego klucza subskrypcji usługi mowy
 
 **Samples**
 
-- Próbka xamarin dla`KeywordRecognizer`
-- Próbka jedności dla`KeywordRecognizer`
-- C++ i Java przykłady do automatycznego wykrywania języka źródłowego.
+- Przykład platformy Xamarin dla`KeywordRecognizer`
+- Przykład aparatu Unity dla`KeywordRecognizer`
+- Przykłady języków C++ i Java dla automatycznych wykrywanie języka źródłowych.
 
-## <a name="speech-sdk-170-2019-september-release"></a>Speech SDK 1.7.0: wydanie 2019-Wrzesień
+## <a name="speech-sdk-170-2019-september-release"></a>Speech SDK 1.7.0:2019 — wydanie z września
 
 **Nowe funkcje**
 
-- Dodano obsługę wersji beta platformy Xamarin na uniwersalnej platformie Windows (UWP), Android i iOS
-- Dodano obsługę systemu iOS dla unity
-- Dodano `Compressed` obsługę danych wejściowych dla ALaw, Mulaw, FLAC na Androida, iOS i Linux
-- Dodano `SendMessageAsync` `Connection` w klasie do wysyłania wiadomości do serwisu
-- Dodano `SetMessageProperty` `Connection` w klasie do ustawiania właściwości wiadomości
-- TTS dodano powiązania dla Java (Jre i Android), Python, Swift i Objective-C
-- TTS dodał obsługę odtwarzania dla systemów macOS, iOS i Android.
-- Dodano informacje o granicy słowa dla TTS.
+- Dodano obsługę wersji beta platformy Xamarin w systemach platforma uniwersalna systemu Windows (platformy UWP), Android i iOS
+- Dodano obsługę systemu iOS dla aparatu Unity
+- Dodano `Compressed` obsługę danych wejściowych dla ALAW, MULAW, FLAC w systemach Android, iOS i Linux
+- Dodano `SendMessageAsync` w `Connection` klasie do wysyłania komunikatu do usługi
+- Dodano `SetMessageProperty` w `Connection` klasie dla właściwości ustawienia komunikatu
+- Usługi TTS dodaliśmy powiązania dla Java (JRE i Android), Python, Swift i celu-C
+- Obsługa odtwarzania w systemie macOS, iOS i Android została dodana przez funkcję TTS.
+- Dodano informacje "granica wyrazu" dla usługi TTS.
 
 **Poprawki błędów**
 
-- Naprawiono problem z kompilacją IL2CPP na Unity 2019 dla Androida
-- Naprawiono błąd, który powodował nieprawidłowe przetwarzanie nieprawidłowego przetwarzania nagłówków nieprawidłowo w danych wejściowych pliku wav
-- Naprawiono błąd, który powodował, że identyfikatory UUID nie były unikatowe w niektórych właściwościach połączenia
-- Poprawiono kilka ostrzeżeń dotyczących specyfikatorów nieważność w swift powiązania (może wymagać drobnych zmian kodu)
-- Naprawiono błąd, który powodował, że połączenia websocket były zamykane bezgranicznie pod obciążeniem sieci
-- Naprawiono błąd, który powodował, że w systemie Android czasami pojawiały się identyfikatory zduplikowanych wyświetleń`DialogServiceConnector`
-- Poprawa stabilności połączeń w interakcjach wielokierunkowych oraz zgłaszanie awarii `Canceled` (za pośrednictwem zdarzeń), gdy występują one z`DialogServiceConnector`
-- `DialogServiceConnector`rozpocznie się sesja będzie teraz poprawnie dostarczać zdarzenia, w tym podczas `ListenOnceAsync()``StartKeywordRecognitionAsync()`
-- Rozwiązano problem związany `DialogServiceConnector` z odbieraniem działań
+- Rozwiązano problem z kompilacją IL2CPP w systemie Unity 2019 dla systemu Android
+- Rozwiązano problem z nieprawidłowo utworzonymi nagłówkami w danych wejściowych pliku WAV, które są przetwarzane nieprawidłowo
+- Rozwiązano problem z identyfikatorami UUID, które nie są unikatowe we właściwościach połączenia
+- Rozwiązano kilka ostrzeżeń dotyczących specyfikatorów wartości null w powiązaniach SWIFT (może wymagać wprowadzenia małych kodu)
+- Rozwiązano błąd, który spowodował, że połączenia protokołu WebSocket są niebezpiecznie zamknięte w ramach obciążenia sieci
+- Rozwiązano problem w systemie Android, który czasami powoduje wystąpienie zduplikowanych identyfikatorów nakładów używanych przez program`DialogServiceConnector`
+- Ulepszenia stabilności połączeń między interakcjami i raportowaniem niepowodzeń (za pośrednictwem `Canceled` zdarzeń) w przypadku wystąpienia`DialogServiceConnector`
+- `DialogServiceConnector`rozpoczęcie sesji będzie teraz prawidłowo udostępniać zdarzenia, włącznie z wywoływaniem `ListenOnceAsync()` w trakcie aktywnego`StartKeywordRecognitionAsync()`
+- Rozwiązywanie awarii skojarzonej `DialogServiceConnector` z odebranymi działaniami
 
 **Samples**
 
-- Szybki start dla platformy Xamarin
-- Zaktualizowano skrócony start CPP z informacjami o systemie Linux ARM64
-- Zaktualizowany przewodnik Szybki start unity z informacjami o systemach iOS
+- Szybki Start dla platformy Xamarin
+- Zaktualizowano przewodnik szybkiego startu z systemem Linux ARM64 Information
+- Zaktualizowano przewodnik szybkiego startu aparatu Unity przy użyciu informacji systemu iOS
 
-## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0: wydanie 2019-Czerwiec
+## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0:2019 — wydanie z czerwca
 
 **Samples**
 
-- Przykłady szybkiego startu dla tekstu do mowy na platformie uniwersalnej systemu wyu według platformy uniwersalnej systemu i jedności
-- Próbka szybkiego startu dla programu Swift w iOS
-- Próbki unity dla rozpoznawania mowy & intencji i tłumaczenia
-- Zaktualizowano przykłady szybkiego startu`DialogServiceConnector`
+- Przykłady szybkiego startu dla zamiany tekstu na mowę w platformy UWP i Unity
+- Przykład szybkiego startu dla SWIFT w systemie iOS
+- Przykłady aparatu Unity dla rozpoznawanie intencji & mowy i tłumaczenia
+- Zaktualizowano przykłady szybkiego startu dla`DialogServiceConnector`
 
-**Ulepszenia / Zmiany**
+**Ulepszenia/zmiany**
 
-- Obszar nazw okna dialogowego:
+- Przestrzeń nazw okna dialogowego:
   - Zmieniono nazwę polecenia `SpeechBotConnector` na `DialogServiceConnector`
   - Zmieniono nazwę polecenia `BotConfig` na `DialogServiceConfig`
-  - `BotConfig::FromChannelSecret()`został ponownie odserwowany na`DialogServiceConfig::FromBotSecret()`
-  - Wszystkie istniejące klienci direct line speech są nadal obsługiwani po zmianie nazwy
-- Aktualizowanie karty TTS REST do obsługi serwera proxy, połączenia trwałego
-- Poprawianie komunikatu o błędzie po przekazaniu nieprawidłowego regionu
-- Swift/Objective-C:
-  - Ulepszone raportowanie błędów: Metody, które mogą spowodować błąd są `NSError` teraz obecne w dwóch wersjach: Jeden, który udostępnia obiekt do obsługi błędów i jeden, który zgłasza wyjątek. Te pierwsze są narażone na Swift. Ta zmiana wymaga dostosowania do istniejącego kodu Swift.
+  - `BotConfig::FromChannelSecret()`został ponownie zmapowany na`DialogServiceConfig::FromBotSecret()`
+  - Wszystkie istniejące bezpośrednie komputery klienckie mowy są nadal obsługiwane po zmianie nazwy
+- Aktualizowanie karty REST usługi TTS do obsługi serwera proxy, trwałego połączenia
+- Ulepsz komunikat o błędzie po przekazaniu nieprawidłowego regionu
+- SWIFT/cel-C:
+  - Udoskonalone raportowanie błędów: metody, które mogą spowodować błąd, są teraz obecne w dwóch wersjach: takie, które `NSError` uwidacznia obiekt dla obsługi błędów, i jeden, który wywołuje wyjątek. Dawniej są dostępne dla Swift. Ta zmiana wymaga adaptacji do istniejącego kodu SWIFT.
   - Ulepszona obsługa zdarzeń
 
 **Poprawki błędów**
 
-- Poprawka dla TTS: gdzie `SpeakTextAsync` przyszłość powróciła bez czekania, aż dźwięk zakończy renderowanie
-- Poprawka dla rozsyłania ciągów w języku C#, aby włączyć obsługę pełnego języka
-- Napraw problem z aplikacją .NET core, aby załadować bibliotekę podstawową z platformą docelową net461 w przykładach
-- Rozwiązywanie sporadyczne problemy z wdrażaniem bibliotek natywnych w folderze wyjściowym w przykładach
-- Napraw niezawodne zamykanie gniazd internetowych
-- Napraw możliwość awarii podczas otwierania połączenia pod bardzo dużym obciążeniem na Linuksie
-- Poprawka braku metadanych w pakiecie framework dla systemu macOS
-- Rozwiązywanie problemów `pip install --user` z systemem Windows
+- Poprawka dla usługi TTS: `SpeakTextAsync` w przypadku, gdy w przyszłości zostanie zwrócony bez oczekiwania na ukończenie renderowania dźwięku
+- Poprawka dotycząca organizowania ciągów w języku C# w celu włączenia obsługi pełnego języka
+- Naprawa problemu z aplikacją .NET Core w celu załadowania biblioteki podstawowej z platformą docelową net461 w przykładach
+- Naprawa sporadycznych problemów związanych z wdrażaniem bibliotek natywnych w folderze wyjściowym w przykładach
+- Naprawa niezawodnego zamykania gniazda internetowego
+- Naprawianie możliwej awarii podczas otwierania połączenia w przypadku bardzo dużego obciążenia w systemie Linux
+- Naprawianie brakujących metadanych w pakiecie struktury dla macOS
+- Rozwiązywanie problemów z `pip install --user` systemem Windows
 
-## <a name="speech-sdk-151"></a>Mowa SDK 1.5.1
+## <a name="speech-sdk-151"></a>Zestaw Speech SDK 1.5.1
 
-Jest to wydanie poprawki błędów i dotyczy tylko natywnego/zarządzanego SDK. Nie ma to wpływu na wersję javascript sdk.
-
-**Poprawki błędów**
-
-- Napraw FromSubscription, gdy jest używany z transkrypcją konwersacji.
-- Napraw błąd w wykrywaniu słów kluczowych dla asystentów głosowych.
-
-## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0: wydanie 2019-Maj
-
-**Nowe funkcje**
-
-- Wykrywanie słów kluczowych (KWS) jest teraz dostępne dla systemów Windows i Linux. Funkcja KWS może działać z dowolnym typem mikrofonu, oficjalna obsługa KWS jest jednak obecnie ograniczona do macierzy mikrofonów znalezionych w sprzęcie usługi Azure Kinect DK lub sdk urządzeń mowy.
-- Funkcja podpowiedzi do wyrażenia jest dostępna za pośrednictwem sdk. Aby uzyskać więcej informacji, zobacz [tutaj](how-to-phrase-lists.md).
-- Funkcja transkrypcji konwersacji jest dostępna za pośrednictwem sdk. Zobacz [tutaj](conversation-transcription-service.md).
-- Dodaj obsługę asystentów głosowych za pomocą kanału Direct Line Speech.
-
-**Samples**
-
-- Dodano przykłady nowych funkcji lub nowych usług obsługiwanych przez zestaw SDK.
-
-**Ulepszenia / Zmiany**
-
-- Dodano różne właściwości aparatu rozpoznawania, aby dostosować zachowanie usługi lub wyniki usługi (takie jak maskowanie wulgaryzmów i innych).
-- Teraz można skonfigurować aparat rozpoznawania za pomocą standardowych właściwości konfiguracji, `FromEndpoint`nawet jeśli utworzono aparat rozpoznawania .
-- Objective-C: `OutputFormat` właściwość `SPXSpeechConfiguration`została dodana do .
-- SDK obsługuje teraz Debiana 9 jako dystrybucję Linuksa.
+Jest to poprawka usterek i ma wpływ tylko na natywny/zarządzany zestaw SDK. Nie ma to wpływu na wersję języka JavaScript zestawu SDK.
 
 **Poprawki błędów**
 
-- Naprawiono błąd, który powodował, że zasób głośnika był zbyt wczesny w zamian za zamianę tekstu na mowę.
+- Należy rozwiązać FromSubscription, gdy jest używany z transkrypcją konwersacji.
+- Usuń usterkę słowa kluczowego wykrywania trendów dla asystentów głosowych.
 
-## <a name="speech-sdk-142"></a>Mowa SDK 1.4.2
-
-Jest to wydanie poprawki błędów i dotyczy tylko natywnego/zarządzanego SDK. Nie ma to wpływu na wersję javascript sdk.
-
-## <a name="speech-sdk-141"></a>SDK mowy 1.4.1
-
-Jest to wersja dostępna tylko w języku JavaScript. Nie dodano żadnych funkcji. Wprowadzono następujące poprawki:
-
-- Zapobiegaj ładowaniu pakietu internetowego przez https-proxy-agenta.
-
-## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0: wydanie 2019-kwiecień
+## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0:2019 — może wydać
 
 **Nowe funkcje**
 
-- Zestaw SDK obsługuje teraz usługę zamiany tekstu na mowę w wersji beta. Jest obsługiwany w systemach Windows i Linux Desktop z języka C++ i C#. Aby uzyskać więcej informacji, zapoznaj się z [omówieniem zamiany tekstu na mowę](text-to-speech.md#get-started).
-- Zestaw SDK obsługuje teraz pliki audio MP3 i Opus/OGG jako pliki wejściowe strumienia. Ta funkcja jest dostępna tylko w systemie Linux z języka C++ i C# i jest obecnie w wersji beta (więcej szczegółów [tutaj](how-to-use-codec-compressed-audio-input-streams.md)).
-- SDK mowy dla języka Java, .NET core, C++ i Objective-C zyskały obsługę systemu macOS. Obsługa funkcji Objective-C dla systemu macOS jest obecnie w wersji beta.
-- iOS: SDK mowy dla systemu iOS (Objective-C) jest teraz również publikowany jako CocoaPod.
-- JavaScript: Obsługa mikrofonu nie domyślnego jako urządzenia wejściowego.
-- JavaScript: Obsługa serwera proxy dla pliku Node.js.
+- Wykrywania trendów słowa kluczowego (KWS) jest teraz dostępny dla systemów Windows i Linux. Funkcja KWS może działać z dowolnym typem mikrofonu, oficjalną obsługą KWS, ale jest obecnie ograniczona do tablic mikrofonów znajdujących się na sprzęcie platformy Azure urządzenia Kinect DK lub zestawu Speech Devices SDK.
+- Funkcja podpowiedzi frazy jest dostępna za pomocą zestawu SDK. Aby uzyskać więcej informacji, zobacz [tutaj](how-to-phrase-lists.md).
+- Funkcja transkrypcji konwersacji jest dostępna za pomocą zestawu SDK. Zobacz [tutaj](conversation-transcription-service.md).
+- Dodawanie obsługi asystentów głosowych przy użyciu kanału bezpośredniej linii mowy.
 
 **Samples**
 
-- Dodano przykłady użycia zestawu SDK mowy w języku C++ i z objectiveem C w systemie macOS.
-- Dodano przykłady przedstawiające użycie usługi zamiany tekstu na mowę.
+- Dodano przykłady dla nowych funkcji lub nowych usług obsługiwanych przez zestaw SDK.
 
-**Ulepszenia / Zmiany**
+**Ulepszenia/zmiany**
 
-- Python: Dodatkowe właściwości wyników rozpoznawania są `properties` teraz udostępniane za pośrednictwem właściwości.
-- Aby uzyskać dodatkową obsługę rozwoju i debugowania, można przekierować informacje logowania i diagnostyki SDK do pliku dziennika (więcej szczegółów [tutaj](how-to-use-logging.md)).
-- JavaScript: Zwiększ wydajność przetwarzania dźwięku.
+- Dodano różne właściwości aparatu rozpoznawania w celu dostosowania zachowania usługi lub wyników usług (takich jak maskowanie wulgarności i innych).
+- Teraz można skonfigurować aparat rozpoznawania przy użyciu standardowych właściwości konfiguracji, nawet jeśli aparat rozpoznawania `FromEndpoint`został utworzony.
+- Cel-C: `OutputFormat` właściwość została dodana do `SPXSpeechConfiguration`.
+- Zestaw SDK obsługuje teraz Debian 9 jako dystrybucję systemu Linux.
 
 **Poprawki błędów**
 
-- Mac/iOS: Naprawiono błąd, który prowadził do długiego oczekiwania, gdy nie można ustanowić połączenia z usługą mowy.
-- Python: usprawnij obsługę błędów dla argumentów w wywołaniach zwrotnych języka Python.
-- JavaScript: Poprawiono nieprawidłowe raportowanie stanu dla mowy zakończone na RequestSession.
+- Rozwiązano problem polegający na tym, że zasób osoby mówiącej był zbyt wczesny w zamian tekstu na mowę.
 
-## <a name="speech-sdk-131-2019-february-refresh"></a>SDK mowy 1.3.1: odświeżanie 2019-luty
+## <a name="speech-sdk-142"></a>Zestaw mowy SDK 1.4.2
 
-Jest to wydanie poprawki błędów i dotyczy tylko natywnego/zarządzanego SDK. Nie ma to wpływu na wersję javascript sdk.
+Jest to poprawka usterek i ma wpływ tylko na natywny/zarządzany zestaw SDK. Nie ma to wpływu na wersję języka JavaScript zestawu SDK.
 
-**Poprawka**
+## <a name="speech-sdk-141"></a>Zestaw Speech SDK 1.4.1
 
-- Naprawiono wyciek pamięci podczas korzystania z wejścia mikrofonu. Nie ma to wpływu na dane wejściowe oparte na strumieniu lub pliku.
+Jest to wersja tylko w języku JavaScript. Nie dodano żadnych funkcji. Wprowadzono następujące poprawki:
 
-## <a name="speech-sdk-130-2019-february-release"></a>Speech SDK 1.3.0: wydanie 2019-luty
+- Zapobiegaj ładowaniu protokołu HTTPS-proxy-Agent przez pakiet internetowy.
+
+## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0:2019 — wydanie z kwietnia
 
 **Nowe funkcje**
 
-- Zestaw SDK mowy obsługuje wybór mikrofonu wejściowego za pośrednictwem `AudioConfig` klasy. Dzięki temu można przesyłać strumieniowo dane audio do usługi Mowy z mikrofonu nienawicznego. Aby uzyskać więcej informacji, zobacz dokumentację opisującą [wybór urządzenia wejściowego audio](how-to-select-audio-input-devices.md). Ta funkcja nie jest jeszcze dostępna w języku JavaScript.
-- Zestaw SDK mowy obsługuje teraz unity w wersji beta. Przekazywać opinie za pośrednictwem sekcji problemu w [przykładowym repozytorium GitHub](https://aka.ms/csspeech/samples). Ta wersja obsługuje unity w systemach Windows x86 i x64 (aplikacje dla komputerów stacjonarnych lub uniwersalnych platformy systemu Windows) i android (ARM32/64, x86). Więcej informacji można znaleźć w naszym [przewodniku Unity Quickstart.](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=unity)
-- Plik `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (dostarczany w poprzednich wersjach) nie jest już potrzebny. Funkcja jest teraz zintegrowana z podstawowym SDK.
+- Zestaw SDK obsługuje teraz usługę zamiany tekstu na mowę jako wersję beta. Jest ona obsługiwana na komputerach z systemami Windows i Linux w językach C++ i C#. Aby uzyskać więcej informacji, zapoznaj się z [omówieniem zamiany tekstu na mowę](text-to-speech.md#get-started).
+- Zestaw SDK obsługuje teraz pliki audio MP3 i Opus/OGG jako pliki wejściowe strumienia. Ta funkcja jest dostępna tylko w systemie Linux w językach C++ i C# i jest obecnie w wersji beta (więcej informacji znajduje się [tutaj](how-to-use-codec-compressed-audio-input-streams.md)).
+- Zestaw mowy SDK dla języka Java, .NET Core, C++ i dążyć-C uzyskał pomoc techniczną macOS. Obsługa języka C dla macOS jest obecnie w wersji beta.
+- iOS: zestaw Speech SDK dla systemu iOS (cel-C) jest teraz również publikowany jako CocoaPod.
+- JavaScript: Obsługa mikrofonu innego niż domyślny jako urządzenia wejściowego.
+- JavaScript: Obsługa serwera proxy dla środowiska Node. js.
 
 **Samples**
 
-W naszym [przykładowym repozytorium](https://aka.ms/csspeech/samples)dostępna jest następująca nowa zawartość:
+- Przykłady użycia zestawu Speech SDK z językiem C++ i z celem macOS zostały dodane.
+- Przykłady pokazujące użycie usługi zamiany tekstu na mowę zostały dodane.
 
-- Dodatkowe próbki `AudioConfig.FromMicrophoneInput`dla .
-- Dodatkowe przykłady języka Python do rozpoznawania intencji i tłumaczenia.
-- Dodatkowe przykłady do `Connection` korzystania z obiektu w iOS.
-- Dodatkowe przykłady języka Java do tłumaczenia z wyjściem audio.
-- Nowy przykład do użycia [interfejsu API REST transkrypcji partii](batch-transcription.md).
+**Ulepszenia/zmiany**
 
-**Ulepszenia / Zmiany**
+- Python: dodatkowe właściwości wyników rozpoznawania są teraz udostępniane za pośrednictwem `properties` właściwości.
+- Aby uzyskać dodatkową pomoc w zakresie programowania i debugowania, możesz przekierować informacje dotyczące rejestrowania i diagnostyki zestawu SDK do pliku dziennika (więcej informacji znajdziesz [tutaj](how-to-use-logging.md)).
+- JavaScript: Poprawianie wydajności przetwarzania dźwięku.
+
+**Poprawki błędów**
+
+- Mac/iOS: usterka, która doprowadziła do długiego oczekiwania, gdy nie można nawiązać połączenia z usługą mowy została naprawiona.
+- Python: poprawianie obsługi błędów dla argumentów w wywołaniach zwrotnych języka Python.
+- JavaScript: Naprawiono nieprawidłowe raportowanie stanu dla mowy zakończono w RequestSession.
+
+## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1:2019 – luty Refresh
+
+Jest to poprawka usterek i ma wpływ tylko na natywny/zarządzany zestaw SDK. Nie ma to wpływu na wersję języka JavaScript zestawu SDK.
+
+**Poprawka błędu**
+
+- Naprawiono przeciek pamięci podczas korzystania z mikrofonu. Nie ma to żadnego oddziaływania na dane wejściowe lub oparte na strumieniu.
+
+## <a name="speech-sdk-130-2019-february-release"></a>Speech SDK 1.3.0:2019-luty Release
+
+**Nowe funkcje**
+
+- Zestaw Speech SDK obsługuje wybór mikrofonu wejściowego za pomocą `AudioConfig` klasy. Pozwala to na przesyłanie strumieniowe danych audio do usługi mowy z mikrofonu innego niż domyślny. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [wyboru urządzenia wejściowego audio](how-to-select-audio-input-devices.md). Ta funkcja nie jest jeszcze dostępna w języku JavaScript.
+- Zestaw Speech SDK obsługuje teraz środowisko Unity w wersji beta. Prześlij opinię w sekcji problemu w [repozytorium przykładowym usługi GitHub](https://aka.ms/csspeech/samples). Ta wersja obsługuje środowisko Unity w systemie Windows x86 i x64 (aplikacje klasyczne lub platforma uniwersalna systemu Windows) oraz Android (ARM32/64, x86). Więcej informacji można znaleźć w naszym [przewodniku szybki start dla aparatu Unity](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=unity).
+- Plik `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (dostarczany w poprzednich wersjach) nie jest już wymagany. Ta funkcja jest teraz zintegrowana z podstawowym zestawem SDK.
+
+**Samples**
+
+W naszym [przykładowym repozytorium](https://aka.ms/csspeech/samples)jest dostępna następująca Nowa zawartość:
+
+- Dodatkowe przykłady dla `AudioConfig.FromMicrophoneInput`.
+- Dodatkowe przykłady w języku Python dotyczące rozpoznawania i tłumaczenia zamierzeń.
+- Dodatkowe przykłady dotyczące korzystania z `Connection` obiektu w systemie iOS.
+- Dodatkowe przykłady języka Java do tłumaczenia z danymi wyjściowymi audio.
+- Nowy przykład do korzystania z [interfejsu API REST transkrypcji usługi Batch](batch-transcription.md).
+
+**Ulepszenia/zmiany**
 
 - Python
-  - Ulepszona weryfikacja parametrów i komunikaty o błędach w `SpeechConfig`pliku .
+  - Ulepszono weryfikację parametrów i komunikaty `SpeechConfig`o błędach w.
   - Dodaj obsługę `Connection` obiektu.
   - Obsługa 32-bitowego języka Python (x86) w systemie Windows.
-  - SDK mowy dla języka Python jest poza wersję beta.
+  - Zestaw Speech SDK dla języka Python jest poza wersją beta.
 - iOS
-  - SDK jest teraz zbudowany na skusi iOS W wersji 12.1.
-  - Zestaw SDK obsługuje teraz system iOS w wersji 9.2 i nowszych.
-  - Popraw dokumentację referencyjną i napraw kilka nazw właściwości.
+  - Zestaw SDK jest teraz oparty na zestawie SDK systemu iOS w wersji 12,1.
+  - Zestaw SDK obsługuje teraz system iOS w wersji 9,2 lub nowszej.
+  - Popraw dokumentację referencyjną i popraw kilka nazw właściwości.
 - JavaScript
   - Dodaj obsługę `Connection` obiektu.
-  - Dodawanie plików definicji typu dla dołączonego języka JavaScript
-  - Początkowa obsługa i implementacja wskazówek dotyczących fraz.
-  - Zbieranie właściwości zwrotu z usługą JSON do rozpoznawania
+  - Dodaj pliki definicji typów dla powiązanego języka JavaScript
+  - Wstępna pomoc techniczna i implementacja dla wskazówek dotyczących fraz.
+  - Zwracanie kolekcji właściwości przy użyciu notacji JSON usługi dla rozpoznawania
 - Biblioteki DLL systemu Windows zawierają teraz zasób wersji.
-- Jeśli utworzysz `FromEndpoint` aparat rozpoznawania, możesz dodać parametry bezpośrednio do adresu URL punktu końcowego. Za `FromEndpoint` pomocą nie można skonfigurować aparat rozpoznawania za pomocą standardowych właściwości konfiguracji.
+- Jeśli tworzysz aparat rozpoznawania `FromEndpoint` , możesz dodać parametry bezpośrednio do adresu URL punktu końcowego. `FromEndpoint` Nie można skonfigurować aparatu rozpoznawania przy użyciu standardowych właściwości konfiguracji.
 
 **Poprawki błędów**
 
-- Pusta nazwa użytkownika serwera proxy i hasło serwera proxy nie były obsługiwane poprawnie. W tej wersji jeśli ustawisz nazwę użytkownika serwera proxy i hasło serwera proxy na pusty ciąg, nie zostaną one przesłane podczas łączenia się z serwerem proxy.
-- SessionId's utworzone przez SDK nie zawsze były&nbsp;naprawdę losowe dla niektórych języków / środowisk. Dodano inicjowanie generatora losowego, aby rozwiązać ten problem.
-- Usprawnij obsługę tokenu autoryzacji. Jeśli chcesz użyć tokenu autoryzacji, `SpeechConfig` określ w kluczu subskrypcji i pozostaw klucz subskrypcji pusty. Następnie utwórz aparat rozpoznawania jak zwykle.
-- W niektórych `Connection` przypadkach obiekt nie został poprawnie zwolniony. Ten problem został rozwiązany.
-- Próbka JavaScript została naprawiona w celu obsługi wyjścia audio do syntezy tłumaczeń również w przeglądarce Safari.
+- Pusta nazwa użytkownika serwera proxy i hasło serwera proxy nie zostały poprawnie obsłużone. W tej wersji, jeśli ustawisz nazwę użytkownika serwera proxy i hasło serwera proxy na pusty ciąg, nie zostaną one przesłane podczas nawiązywania połączenia z serwerem proxy.
+- Identyfikator sesji utworzony przez zestaw SDK nie zawsze jest losowo obsługiwany w niektórych językach&nbsp;/środowiskach. Dodano losową inicjalizację generatora, aby rozwiązać ten problem.
+- Poprawa obsługi tokenu autoryzacji. Jeśli chcesz użyć tokenu autoryzacji, określ wartość `SpeechConfig` w i pozostaw klucz subskrypcji pusty. Następnie utwórz aparat rozpoznawania w zwykły sposób.
+- W niektórych przypadkach `Connection` obiekt nie został prawidłowo opublikowany. Ten problem został rozwiązany.
+- Przykład JavaScript został rozwiązany do obsługi danych wyjściowych audio na potrzeby syntezy tłumaczenia również w przeglądarce Safari.
 
-## <a name="speech-sdk-121"></a>SDK mowy 1.2.1
+## <a name="speech-sdk-121"></a>Zestaw Speech SDK 1.2.1
 
-Jest to wersja dostępna tylko w języku JavaScript. Nie dodano żadnych funkcji. Wprowadzono następujące poprawki:
+Jest to wersja tylko w języku JavaScript. Nie dodano żadnych funkcji. Wprowadzono następujące poprawki:
 
-- Koniec ognia strumienia na turn.end, a nie na speech.end.
-- Napraw błąd w pompie audio, który nie zaplanował następnego wysłania, jeśli bieżące wysłanie nie powiodło się.
-- Napraw ciągłe rozpoznawanie za pomocą tokenu omytowego.
-- Poprawka błędu dla różnych aparat rozpoznawania / punktów końcowych.
-- Ulepszenia dokumentacji.
+- Wygeneruj strumieniowo koniec strumienia. end, a nie na mowę. end.
+- Usuń usterkę w pompie audio, która nie zaplanował następnego wysłania, jeśli bieżące wysyłanie nie powiodło się.
+- Naprawianie ciągłego rozpoznawania przy użyciu tokenu uwierzytelniania.
+- Poprawka usterki dla różnych aparatów rozpoznawania/punktów końcowych.
+- Udoskonalenia dokumentacji.
 
-## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0: wydanie 2018-grudzień
+## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0:2018 — wydanie z grudnia
 
 **Nowe funkcje**
 
 - Python
-  - Wersja beta obsługi języka Python (3.5 lub powyżej) jest dostępna w tej wersji. Aby uzyskać więcej informacji, zobacz tutaj](szybki start-python.md).
+  - Wersja beta obsługi języka Python (3,5 i nowszych) jest dostępna w tej wersji. Aby uzyskać więcej informacji, zobacz tutaj] (Szybki Start-python.md).
 - JavaScript
-  - SDK mowy dla języka JavaScript został open source. Kod źródłowy jest dostępny w [serwisie GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
-  - Teraz obsługujemy Node.js, więcej informacji można znaleźć [tutaj](quickstart-js-node.md).
-  - Usunięto ograniczenie długości sesji audio, ponowne połączenie nastąpi automatycznie pod osłoną.
-- `Connection`Obiektu
-  - Z `Recognizer`obiektu można uzyskać `Connection` dostęp do obiektu. Ten obiekt umożliwia jawne inicjowanie połączenia usługi i subskrybowanie zdarzeń łączenia i rozłączania.
-    (Ta funkcja nie jest jeszcze dostępna w językach JavaScript i Pythonie).
-- Wsparcie dla Ubuntu 18.04.
+  - Zestaw Speech SDK dla języka JavaScript został otwarty jako źródło. Kod źródłowy jest dostępny w serwisie [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
+  - Teraz obsługujemy Node. js. więcej informacji można znaleźć [tutaj](quickstart-js-node.md).
+  - Ograniczenie długości sesji audio zostało usunięte, ponowne połączenie zostanie wykonane automatycznie pod pokryciem.
+- `Connection`Stream
+  - `Recognizer`W programie można uzyskać dostęp do `Connection` obiektu. Ten obiekt umożliwia jawne zainicjowanie połączenia z usługą i subskrypcję w celu nawiązania połączenia i rozłączenia zdarzeń.
+    (Ta funkcja nie jest jeszcze dostępna w języku JavaScript i Python).
+- Obsługa Ubuntu 18,04.
 - Android
-  - Obsługa proguard podczas generowania apk.
+  - Włączono obsługę funkcji preguard podczas generowania APK.
 
-**Ulepszenia**
+**Poprawek**
 
-- Ulepszenia użycia wątku wewnętrznego, zmniejszając liczbę wątków, blokad, muteksów.
-- Ulepszone raportowanie błędów / informacje. W kilku przypadkach komunikaty o błędach nie zostały propagowane przez całe wyjście.
-- Zaktualizowano zależności programistyczne w języku JavaScript w celu użycia aktualnych modułów.
+- Udoskonalenia wewnętrznego użycia wątku, Zmniejszanie liczby wątków, blokad i muteksów.
+- Ulepszone raportowanie błędów/informacje. W kilku przypadkach komunikaty o błędach nie zostały jeszcze rozpropagowane.
+- Zaktualizowano zależności programistyczne w języku JavaScript w celu korzystania z aktualnych modułów.
 
 **Poprawki błędów**
 
-- Naprawiono przecieki pamięci spowodowane niezgodnością `RecognizeAsync`typu w pliku .
-- W niektórych przypadkach wyciekały wyjątki.
+- Naprawiono przecieki pamięci ze względu na `RecognizeAsync`niezgodność typów w.
+- W niektórych przypadkach wyjątki były wyciekami.
 - Naprawianie przecieku pamięci w argumentach zdarzeń tłumaczenia.
-- Naprawiono błąd blokujący podczas ponownego łączenia się podczas długotrwałych sesji.
-- Naprawiono błąd, który mógł prowadzić do braku wyniku końcowego dla nieudanych tłumaczeń.
-- C#: Jeśli `async` operacja nie była oczekiwana w wątku głównym, możliwe było, że aparat rozpoznawania może zostać usunięty przed zakończeniem zadania asynchronicznego.
-- Java: Naprawiono błąd powodujący awarię maszyny Wirtualnej Java.
-- Objective-C: Poprawiono mapowanie wyliczenia; RecognizedIntent został zwrócony `RecognizingIntent`zamiast .
-- JavaScript: Ustaw domyślny format wyjściowy na "prosty" w . `SpeechConfig`
-- JavaScript: Usuwanie niespójności między właściwościami obiektu konfiguracyjnego w języku JavaScript i innych językach.
+- Rozwiązano problem z blokowaniem po ponownym nawiązaniu połączenia w długotrwałych sesjach.
+- Rozwiązano problem, który może prowadzić do braku końcowego wyniku dla nieudanych tłumaczeń.
+- C#: Jeśli `async` operacja nie została oczekiwana w wątku głównym, możliwe, że aparat rozpoznawania mógł zostać usunięty przed ukończeniem zadania asynchronicznego.
+- Java: Rozwiązano problem powodujący awarię maszyny wirtualnej Java.
+- Cel-C: stałe mapowanie wyliczenia; RecognizedIntent został zwrócony zamiast `RecognizingIntent`.
+- JavaScript: Ustaw domyślny format wyjściowy na "Simple" w `SpeechConfig`.
+- JavaScript: usuwanie niespójności między właściwościami obiektu konfiguracji w języku JavaScript i innych językach.
 
 **Samples**
 
-- Zaktualizowano i poprawiono kilka próbek (na przykład głosy wyjściowe do tłumaczenia itp.).
-- Dodano przykłady node.js w [przykładowym repozytorium](https://aka.ms/csspeech/samples).
+- Zaktualizowano i Naprawiono kilka próbek (na przykład głosy wyjściowe dla tłumaczenia itp.).
+- Dodano przykłady dla środowiska Node. js w [przykładowym repozytorium](https://aka.ms/csspeech/samples).
 
-## <a name="speech-sdk-110"></a>Mowa SDK 1.1.0
+## <a name="speech-sdk-110"></a>Zestaw Speech SDK 1.1.0
 
 **Nowe funkcje**
 
 - Obsługa systemu Android x86/x64.
-- Obsługa serwera proxy: W `SpeechConfig` obiekcie można teraz wywołać funkcję, aby ustawić informacje proxy (nazwa hosta, port, nazwa użytkownika i hasło). Ta funkcja nie jest jeszcze dostępna w systemach iOS.
-- Ulepszony kod błędu i komunikaty. Jeśli uznanie zwróciło błąd, to `Reason` już ustawione (w `CancellationDetails` odwołanym zdarzeniu) lub (w wyniku uznania) do `Error`. Anulowane wydarzenie zawiera teraz dwóch `ErrorCode` `ErrorDetails`dodatkowych członków i . Jeśli serwer zwrócił dodatkowe informacje o błędzie ze zgłoszonym błędem, będzie teraz dostępny w nowych członkach.
+- Obsługa serwera proxy: w `SpeechConfig` obiekcie można teraz wywołać funkcję, aby ustawić informacje o serwerze proxy (nazwa hosta, port, nazwa użytkownika i hasło). Ta funkcja nie jest jeszcze dostępna w systemie iOS.
+- Ulepszono kod i komunikaty o błędach. Jeśli rozpoznawanie zwróciło błąd, ten element został już ustawiony `Reason` (w zdarzeniu anulowanym) `CancellationDetails` lub (w wyniku rozpoznawania) `Error`do. Zdarzenie anulowane zawiera teraz dwa dodatkowe elementy członkowskie `ErrorCode` i `ErrorDetails`. Jeśli serwer zwrócił dodatkowe informacje o błędzie z zgłoszonym błędem, będzie on teraz dostępny w nowych elementach członkowskich.
 
-**Ulepszenia**
+**Poprawek**
 
 - Dodano dodatkową weryfikację w konfiguracji aparatu rozpoznawania i dodano dodatkowy komunikat o błędzie.
-- Poprawiono obsługę długotrwałej ciszy w środku pliku audio.
-- Pakiet NuGet: dla projektów .NET Framework zapobiega tworzeniu za pomocą konfiguracji AnyCPU.
+- Ulepszona obsługa cisza w czasie długim w środku pliku dźwiękowego.
+- Pakiet NuGet: projekty .NET Framework uniemożliwiają Kompilowanie z konfiguracją AnyCPU.
 
 **Poprawki błędów**
 
-- Naprawiono kilka wyjątków znalezionych w aparatach rozpoznawania. Ponadto wyjątki są przechwytywały `Canceled` i konwertowane na zdarzenie.
-- Napraw przeciek pamięci w zarządzaniu właściwościami.
-- Naprawiono błąd, w którym plik wejściowy audio mógł spowodować awarię aparatu rozpoznawania.
-- Naprawiono błąd, który powodował, że zdarzenia mogły być odbierane po zdarzeniu zatrzymania sesji.
-- Poprawiono niektóre warunki wyścigu w gwintowaniu.
-- Naprawiono błąd ze zgodnością systemu iOS, który mógł spowodować awarię.
-- Ulepszenia stabilności dla obsługi mikrofonu Android.
-- Naprawiono błąd, który powodował, że aparat rozpoznawania w języku JavaScript ignorował język rozpoznawania.
-- Naprawiono błąd uniemożliwiający `EndpointId` ustawienie (w niektórych przypadkach) w języku JavaScript.
-- Zmieniono kolejność parametrów w addintent `AddIntent` w języku JavaScript i dodano brakujący podpis JavaScript.
+- Rozwiązano kilka wyjątków znalezionych w aparatach rozpoznawania. Ponadto wyjątki są przechwytywane i konwertowane na `Canceled` zdarzenia.
+- Naprawianie przecieku pamięci w zarządzaniu właściwościami.
+- Rozwiązano problem polegający na tym, że plik wejściowy audio może ulec awarii.
+- Naprawiono usterkę, w której można odbierać zdarzenia po zdarzeniu zatrzymania sesji.
+- Naprawiono niektóre sytuacje wyścigu w wątkach.
+- Rozwiązano problem ze zgodnością systemu iOS, który może spowodować awarię.
+- Ulepszenia stabilności dla obsługi mikrofonu w systemie Android.
+- Rozwiązano problem polegający na tym, że aparat rozpoznawania w języku JavaScript zignoruje język rozpoznawania.
+- Naprawiono usterkę uniemożliwiającą Ustawianie `EndpointId` (w niektórych przypadkach) w języku JavaScript.
+- Zmieniono kolejność parametrów w parametrze zamierzenia w języku `AddIntent` JavaScript i dodano brakującą sygnaturę języka JavaScript.
 
 **Samples**
 
-- Dodano przykłady języka C++ i C# do użycia strumienia ściągania i wypychania w [repozytorium próbek.](https://aka.ms/csspeech/samples)
+- Dodano przykłady języków C++ i C# na potrzeby użycia ściągania i strumienia wypychania w [przykładowym repozytorium](https://aka.ms/csspeech/samples).
 
-## <a name="speech-sdk-101"></a>Mowa SDK 1.0.1
+## <a name="speech-sdk-101"></a>Zestaw Speech SDK 1.0.1
 
 Ulepszenia niezawodności i poprawki błędów:
 
-- Naprawiono potencjalny błąd krytyczny spowodowany stanem wyścigu w utylizowaniu aparatu rozpoznawania
+- Naprawiono potencjalny błąd krytyczny spowodowany sytuacją wyścigu podczas usuwania aparatu rozpoznawania
 - Naprawiono potencjalny błąd krytyczny w przypadku nieustawionych właściwości.
-- Dodano dodatkowe sprawdzanie błędów i parametrów.
-- Objective-C: Naprawiono możliwy błąd krytyczny spowodowany zastępowaniem nazwy w NSString.
-- Objective-C: Dostosowana widoczność API
-- JavaScript: Poprawiono zdarzenia i ich ładunki.
-- Ulepszenia dokumentacji.
+- Dodano dodatkowy błąd i sprawdzanie parametrów.
+- Zamierzenie-C: stały możliwy błąd krytyczny spowodowany przez zastąpienie nazwy w NSString.
+- Cel-C: dostosowany widoczność interfejsu API
+- JavaScript: stałe dotyczące zdarzeń i ich ładunków.
+- Udoskonalenia dokumentacji.
 
 W naszym [przykładowym repozytorium](https://aka.ms/csspeech/samples)dodano nowy przykład dla języka JavaScript.
 
-## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services Speech SDK 1.0.0: wydanie 2018-Wrzesień
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services Speech SDK 1.0.0:2018-wrzesień Release
 
 **Nowe funkcje**
 
-- Obsługa języka Objective-C w systemu iOS. Sprawdź nasz [przewodnik Objective-C dla systemu iOS.](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md)
-- Obsługa javascript w przeglądarce. Sprawdź nasz [Szybki start JavaScript](quickstart-js-browser.md).
+- Obsługa celu języka C w systemie iOS. Zapoznaj się z naszym [przewodnikiem Szybki Start dla systemu iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
+- Obsługa języka JavaScript w przeglądarce. Zapoznaj się z naszym [przewodnikiem Szybki Start dla języka JavaScript](quickstart-js-browser.md).
 
 **Fundamentalne zmiany**
 
-- W tej wersji wprowadzono szereg przełomowych zmian.
-  Sprawdź [tę stronę,](https://aka.ms/csspeech/breakingchanges_1_0_0) aby uzyskać szczegółowe informacje.
+- W tej wersji wprowadzono kilka istotnych zmian.
+  Sprawdź [Tę stronę](https://aka.ms/csspeech/breakingchanges_1_0_0) , aby uzyskać szczegółowe informacje.
 
-## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0: wydanie 2018-sierpień
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0:2018 — wydanie z sierpnia
 
 **Nowe funkcje**
 
-- Aplikacje platformy uniwersalnej systemu Windows utworzone za pomocą zestawu SDK mowy mogą teraz przekazać zestaw certyfikacji aplikacji systemu Windows (WACK).
-  Zapoznaj się z [programem Szybki start platformy Uniwersalnej Systemu Wschowego](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp&tabs=uwp).
-- Obsługa .NET Standard 2.0 w systemie Linux (Ubuntu 16.04 x64).
-- Eksperymentalne: Obsługa Java 8 w systemie Windows (64-bit) i Linux (Ubuntu 16.04 x64).
-  Zapoznaj się z [przewodnikiem Szybki start środowiska wykonawczego Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre).
+- Aplikacje platformy UWP utworzone za pomocą zestawu Speech SDK mogą teraz przejść do zestawu certyfikacji aplikacji systemu Windows (WACK).
+  Zapoznaj się z [przewodnikiem Szybki Start platformy UWP](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp&tabs=uwp).
+- Obsługa .NET Standard 2,0 w systemie Linux (Ubuntu 16,04 x64).
+- Eksperymentalne: obsługa języka Java 8 w systemie Windows (64-bitowy) i Linux (Ubuntu 16,04 x64).
+  Zapoznaj się z [Java Runtime Environment przewodnika Szybki Start](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre).
 
-**Zmiana funkcjonalności**
+**Zmiana funkcjonalna**
 
-- Uwidacznia dodatkowe informacje o błędach dotyczących błędów połączeń.
+- Uwidacznianie dodatkowych szczegółowych informacji o błędach dotyczących błędów połączenia.
 
 **Fundamentalne zmiany**
 
-- W języku Java `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` (Android) funkcja nie wymaga już parametru ścieżki. Teraz ścieżka jest automatycznie wykrywana na wszystkich obsługiwanych platformach.
-- Get-akcesor `EndpointUrl` właściwości w języku Java i C# został usunięty.
+- W systemie Java (Android) `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` funkcja nie wymaga już parametru Path. Teraz ścieżka jest automatycznie wykrywana na wszystkich obsługiwanych platformach.
+- Metoda Get-accessor właściwości `EndpointUrl` w językach Java i C# została usunięta.
 
 **Poprawki błędów**
 
-- W języku Java wynik syntezy audio na aparat rozpoznawania tłumaczenia jest zaimplementowany teraz.
-- Naprawiono błąd, który mógł powodować nieaktywne wątki i zwiększoną liczbę otwartych i nieużywanych gniazd.
-- Naprawiono błąd, który powodował, że długotrwałe rozpoznawanie mogło zakończyć się w środku transmisji.
-- Naprawiono stan wyścigu w zamykaniu aparatu rozpoznawania.
+- W języku Java wynik syntezy audio dla aparatu rozpoznawania tłumaczenia jest teraz zaimplementowany.
+- Rozwiązano błąd, który może spowodować nieaktywne wątki i większą liczbę otwartych i nieużywanych gniazd.
+- Rozwiązano problem, w którym długotrwałe rozpoznawanie może zakończyć się w trakcie transmisji.
+- Naprawiono sytuację wyścigu w zamknięciu aparatu rozpoznawania.
 
-## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>SDK mowy usług Cognitive Services 0.5.0: wydanie 2018-lipiec
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services Speech SDK 0.5.0:2018 – wydanie
 
 **Nowe funkcje**
 
-- Obsługa platformy Android (API 23: Android 6.0 Marshmallow lub nowsza). Sprawdź [Szybki start systemu Android](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=android).
-- Obsługa platformy .NET Standard 2.0 w systemie Windows. Zapoznaj się z [programem szybki start programu .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
-- Eksperymentalne: Obsługa platformy uniwersalnej systemu Windows (wersja 1709 lub nowsza).
-  - Zapoznaj się z [programem Szybki start platformy Uniwersalnej Systemu Wschowego](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp).
-  - Uwaga: Aplikacje platformy uniwersalnej systemu Windows utworzone za pomocą zestawu SDK mowy nie przechodzą jeszcze zestawu certyfikacji aplikacji systemu Windows (WACK).
-- Obsługa długotrwałego rozpoznawania z automatycznym ponownym podłączeniu.
+- Obsługa platformy Android (API 23: Android 6,0 Marshmallow lub nowszy). Zapoznaj się z [przewodnikiem Szybki Start dla systemu Android](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=android).
+- Obsługa .NET Standard 2,0 w systemie Windows. Zapoznaj się z [przewodnikiem Szybki Start dla platformy .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+- Eksperymentalne: obsługa platformy UWP w systemie Windows (wersja 1709 lub nowsza).
+  - Zapoznaj się z [przewodnikiem Szybki Start platformy UWP](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp).
+  - Uwaga: aplikacje platformy UWP utworzone przy użyciu zestawu Speech SDK nie przechodzą jeszcze zestawu certyfikacji aplikacji systemu Windows (WACK).
+- Obsługa długotrwałego rozpoznawania z automatycznym ponownem połączeniem.
 
 **Zmiany funkcjonalne**
 
 - `StartContinuousRecognitionAsync()`obsługuje długotrwałe rozpoznawanie.
-- Wynik rozpoznawania zawiera więcej pól. Są one odsunięte od początku i czasu trwania dźwięku (zarówno w zaznaczeniach) `InitialSilenceTimeout` rozpoznanego tekstu, jak i dodatkowych wartości, które reprezentują stan rozpoznawania, na przykład i `InitialBabbleTimeout`.
-- Obsługa AuthorizationToken do tworzenia wystąpień fabrycznych.
+- Wynik rozpoznawania zawiera więcej pól. Są one przesunięte od początku i czasu trwania (w taktach) rozpoznanego tekstu oraz wartości dodatkowych reprezentujących stan rozpoznawania, na przykład `InitialSilenceTimeout` i. `InitialBabbleTimeout`
+- Obsługa AuthorizationToken do tworzenia wystąpień fabryki.
 
 **Fundamentalne zmiany**
 
-- Rozpoznawanie `NoMatch` zdarzeń: typ zdarzenia `Error` został scalony ze zdarzeniem.
-- SpeechOutputFormat w języku C# `OutputFormat` został zmieniony, aby zachować wyrównany z C++.
-- Typ zwracania niektórych `AudioInputStream` metod interfejsu zmienił się nieznacznie:
-  - W języku `read` Java metoda `long` zwraca `int`teraz zamiast .
-  - W języku `Read` C#metoda `uint` zwraca teraz `int`zamiast .
-  - W `Read` języku C++ `GetFormat` metody `size_t` i metody `int`zwracają teraz zamiast .
-- C++: Wystąpienia strumieni wejściowych audio mogą być `shared_ptr`teraz przekazywane tylko jako .
+- Zdarzenia rozpoznawania: `NoMatch` typ zdarzenia został scalony w `Error` zdarzeniu.
+- Nazwa SpeechOutputFormat w języku C# została `OutputFormat` zmieniona na, aby zachować wyrównanie do języka C++.
+- Nieznacznie zmieniony typ zwracany niektórych metod `AudioInputStream` interfejsu:
+  - W języku Java `read` Metoda teraz zwraca wartość `long` zamiast `int`.
+  - W języku C# `Read` Metoda teraz zwraca `uint` zamiast. `int`
+  - W języku C++ metody `Read` i `GetFormat` teraz zwracają `size_t` zamiast `int`.
+- C++: wystąpienia strumieni wejścia audio mogą teraz być przesyłane tylko jako `shared_ptr`.
 
 **Poprawki błędów**
 
-- Naprawiono nieprawidłowe wartości `RecognizeAsync()` zwracane w wyniku, gdy przesunie się czas.
-- Usunięto zależność od bibliotek fundacji multimediów w systemie Windows. SDK używa teraz podstawowych interfejsów API audio.
-- Poprawka dokumentacji: Dodano stronę [regionów,](regions.md) aby opisać obsługiwane regiony.
+- Naprawiono nieprawidłowe wartości zwracane w wyniku `RecognizeAsync()` , gdy zostanie przeprowadzony limit czasu.
+- Zależność od bibliotek programu Media Foundation w systemie Windows została usunięta. Zestaw SDK używa teraz podstawowych interfejsów API audio.
+- Poprawka do dokumentacji: Dodano stronę [regiony](regions.md) , aby opisać Obsługiwane regiony.
 
 **Znany problem**
 
-- SDK mowy dla systemu Android nie zgłasza wyników syntezy mowy do tłumaczenia. Ten problem zostanie rozwiązany w następnej wersji.
+- Zestaw Speech SDK dla systemu Android nie raportuje wyników syntezy mowy na potrzeby tłumaczenia. Ten problem zostanie rozwiązany w następnej wersji.
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>SDK mowy usług Cognitive Services 0.4.0: wydanie 2018-Czerwiec
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services Speech SDK 0.4.0:2018-czerwiec Release
 
 **Zmiany funkcjonalne**
 
-- AudioInputStream (Strumień audio)
+- AudioInputStream
 
-  Aparat rozpoznawania może teraz zużywać strumień jako źródło dźwięku. Aby uzyskać więcej informacji, zobacz [powiązany przewodnik po instrukcjach](how-to-use-audio-input-streams.md).
+  Aparat rozpoznawania teraz może zużywać strumień jako źródło audio. Aby uzyskać więcej informacji, zobacz temat dotyczący [przewodnika](how-to-use-audio-input-streams.md).
 
 - Szczegółowy format danych wyjściowych
 
-  Podczas tworzenia `SpeechRecognizer`formatu , `Detailed` `Simple` można zażądać lub format wyjściowy. Zawiera `DetailedSpeechRecognitionResult` wynik zaufania, rozpoznany tekst, surową leksykalne, znormalizowane formy i znormalizowane formy z zamaskowanym wulgaryzmami.
+  Podczas tworzenia `SpeechRecognizer`, można żądać `Detailed` lub `Simple` format wyjściowy. `DetailedSpeechRecognitionResult` Zawiera ocenę pewności, rozpoznany tekst, nieprzetworzoną postać leksykalną, znormalizowaną postać i znormalizowaną postać z maską bez obaw.
 
-**Przełomowa zmiana**
+**Zmiana podziału**
 
-- Zmieniono `SpeechRecognitionResult.Text` `SpeechRecognitionResult.RecognizedText` na w języku C#.
+- Zmieniono na `SpeechRecognitionResult.Text` z `SpeechRecognitionResult.RecognizedText` w języku C#.
 
 **Poprawki błędów**
 
-- Naprawiono możliwy problem z wywołaniem zwrotnym w warstwie USP podczas zamykania systemu.
-- Jeśli aparat rozpoznawania używane audio plik wejściowy, trzymał się dojścia do pliku dłużej niż to konieczne.
-- Usunięto kilka zakleszczenia między pompą wiadomości a aparatem rozpoznawania.
-- Zwolnij `NoMatch` wynik, gdy przesunie się limit czasu odpowiedzi z serwisu.
-- Biblioteki fundacji multimediów w systemie Windows są opóźnione. Ta biblioteka jest wymagana tylko dla wejścia mikrofonu.
-- Szybkość przesyłania danych audio jest ograniczona do około dwukrotnie wyższej niż oryginalna prędkość dźwięku.
-- W systemie Windows zestawy C# .NET są teraz silne nazwane.
-- Poprawka dokumentacji: `Region` jest wymagane informacje do utworzenia aparatu rozpoznawania.
+- Podczas zamykania Naprawiono możliwy problem z wywołaniem zwrotnym w warstwie USP.
+- Jeśli aparat rozpoznawania zużywa plik wejściowy audio, zatrzymał się w obsłudze plików dłużej niż to konieczne.
+- Usunięto kilka zakleszczenii między pompą komunikatów i aparatem rozpoznawania.
+- Wygeneruj `NoMatch` wynik w przypadku przekroczenia limitu czasu odpowiedzi z usługi.
+- Biblioteki programu Media Foundation w systemie Windows są ładowane z opóźnieniem. Ta biblioteka jest wymagana tylko w przypadku danych wejściowych mikrofonu.
+- Szybkość przekazywania danych audio jest ograniczona do około dwa razy większa niż oryginalna szybkość audio.
+- W systemie Windows zestawy C# .NET są teraz silne nazwami.
+- Poprawka do dokumentacji `Region` : informacje wymagane do utworzenia aparatu rozpoznawania.
 
-Dodano więcej próbek i są stale aktualizowane. Aby uzyskać najnowszy zestaw przykładów, zobacz [przykłady zestawu SDK mowy repozytorium GitHub](https://aka.ms/csspeech/samples).
+Więcej przykładów zostało dodanych i są stale aktualizowane. Aby zapoznać się z najnowszym zestawem przykładów, zobacz [repozytorium usługi Speech SDK przykłady](https://aka.ms/csspeech/samples)w witrynie GitHub.
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>SDK mowy usług Cognitive Services 0.2.12733: wydanie 2018-majowe
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services Speech SDK 0.2.12733:2018 — może wydać
 
-Ta wersja jest pierwszą publiczną wersją podglądu sdk mowy usług Cognitive Services.
+Ta wersja stanowi pierwszą publiczną wersję zapoznawczą zestawu SDK mowy Cognitive Services.

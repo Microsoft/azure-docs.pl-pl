@@ -1,49 +1,49 @@
 ---
-title: Tworzenie zasobu personalizatora
-description: Konfiguracja usługi obejmuje sposób, w jaki usługa traktuje nagrody, jak często usługa eksploruje, jak często model jest przeszkolony i ile danych jest przechowywanych.
+title: Utwórz zasób personalizacji
+description: Konfiguracja usługi zawiera informacje o tym, jak usługa traktuje korzyści, jak często bada usługa, jak często jest on przełączany i jak dużo danych jest przechowywanych.
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: adb97db53d1fc0b6f0cdb14b697c82ec52501b84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80336062"
 ---
-# <a name="create-a-personalizer-resource"></a>Tworzenie zasobu personalizatora
+# <a name="create-a-personalizer-resource"></a>Utwórz zasób personalizacji
 
-Zasób Personalizer jest tym samym, co pętla uczenia personalizatora. Dla każdej domeny podmiotu lub obszaru zawartości, który posiadasz, jest tworzony pojedynczy zasób lub pętla uczenia się. Nie należy używać wielu obszarów zawartości w tej samej pętli, ponieważ będzie to mylić pętli uczenia się i zapewnić słabe prognozy.
+Zasób personalizacji jest tym samym elementem co pętla szkoleniowa programu Personalizacja. Pojedynczy zasób lub pętla szkoleniowa jest tworzona dla każdej domeny podmiotu lub obszaru zawartości. Nie używaj wielu obszarów zawartości w tej samej pętli, ponieważ spowoduje to pomylić pętli uczenia i dostarczenie słabych prognoz.
 
-Jeśli chcesz, aby Personalizer wybrał najlepszą zawartość dla więcej niż jednego obszaru zawartości strony internetowej, użyj innej pętli uczenia się dla każdego.
+Jeśli chcesz, aby Personalizował wybór najlepszej zawartości dla więcej niż jednego obszaru zawartości strony sieci Web, użyj innej pętli szkoleniowej dla każdej z nich.
 
 
-## <a name="create-a-resource-in-the-azure-portal"></a>Tworzenie zasobu w witrynie Azure portal
+## <a name="create-a-resource-in-the-azure-portal"></a>Utwórz zasób w Azure Portal
 
-Utwórz zasób Personalizer dla każdej pętli sprzężenia zwrotnego.
+Utwórz zasób personalizacji dla każdej pętli opinii.
 
-1. Zaloguj się do [witryny Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). Poprzednie łącze spowoduje przejście do strony **Utwórz** dla usługi Personalizator.
+1. Zaloguj się do [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). Poprzedni link prowadzi do strony **Tworzenie** dla usługi personalizacji.
 1. Wprowadź nazwę usługi, wybierz subskrypcję, lokalizację, warstwę cenową i grupę zasobów.
 
     > [!div class="mx-imgBorder"]
-    > ![Użyj witryny Azure portal do tworzenia zasobów Personalizer, nazywanych również pętlą uczenia się.](./media/how-to-create-resource/how-to-create-personalizer-resource-learning-loop.png)
+    > ![Użyj Azure Portal, aby utworzyć zasób personalizacji, nazywany również pętlą uczenia.](./media/how-to-create-resource/how-to-create-personalizer-resource-learning-loop.png)
 
-1. Wybierz **pozycję Utwórz,** aby utworzyć zasób.
+1. Wybierz pozycję **Utwórz** , aby utworzyć zasób.
 
-1. Po wdrożeniu zasobu wybierz przycisk **Przejdź do zasobu,** aby przejść do zasobu Personalizer.
+1. Po wdrożeniu zasobu wybierz przycisk **Przejdź do zasobu** , aby przejść do zasobu personalizowania.
 
-1. Wybierz stronę **Szybki start** dla zasobu, a następnie skopiuj wartości punktu końcowego i klucza. Do użycia interfejsów API rangi i nagrody potrzebny jest zarówno punkt końcowy zasobu, jak i klucz.
+1. Wybierz stronę **Szybki Start** dla zasobu, a następnie skopiuj wartości dla swojego punktu końcowego i klucza. Do korzystania z interfejsów API rangi i nagrody potrzebny jest zarówno punkt końcowy zasobu, jak i klucz.
 
-1. Wybierz stronę **Konfiguracja** nowego zasobu, aby [skonfigurować pętlę uczenia .](how-to-settings.md)
+1. Wybierz stronę **konfiguracji** nowego zasobu, aby [skonfigurować pętlę uczenia](how-to-settings.md).
 
 ## <a name="create-a-resource-with-the-azure-cli"></a>Tworzenie zasobu za pomocą interfejsu wiersza polecenia platformy Azure
 
-1. Zaloguj się do interfejsu wiersza polecenia platformy Azure za pomocą następującego polecenia:
+1. Zaloguj się w interfejsie wiersza polecenia platformy Azure przy użyciu następujące polecenie:
 
     ```azurecli-interactive
     az login
     ```
 
-1. Utwórz grupę zasobów, logiczne grupowanie do zarządzania wszystkimi zasobami platformy Azure, które mają być używane z zasobem Personalizer.
+1. Utwórz grupę zasobów, czyli grupowanie logiczne służące do zarządzania wszystkimi zasobami platformy Azure, które mają być używane z zasobem narzędzia Personalizacja.
 
 
     ```azurecli-interactive
@@ -52,7 +52,7 @@ Utwórz zasób Personalizer dla każdej pętli sprzężenia zwrotnego.
         --location westus2
     ```
 
-1. Utwórz nowy zasób Personalizer, _pętla uczenia się_, z następującym poleceniem dla istniejącej grupy zasobów.
+1. Utwórz nowy zasób personalizacji, _pętlę uczenia_przy użyciu następującego polecenia dla istniejącej grupy zasobów.
 
     ```azurecli-interactive
     az cognitiveservices account create \
@@ -66,7 +66,7 @@ Utwórz zasób Personalizer dla każdej pętli sprzężenia zwrotnego.
 
     Zwraca obiekt JSON, który zawiera **punkt końcowy zasobu**.
 
-1. Użyj następującego polecenia interfejsu wiersza polecenia platformy Azure, aby uzyskać **klucz zasobu**.
+1. Aby uzyskać **klucz zasobu**, użyj następującego polecenia platformy Azure.
 
     ```azurecli-interactive
         az cognitiveservices account keys list \
@@ -74,8 +74,8 @@ Utwórz zasób Personalizer dla każdej pętli sprzężenia zwrotnego.
         --resource-group your-personalizer-resource-group
     ```
 
-    Do użycia interfejsów API rangi i nagrody potrzebny jest zarówno punkt końcowy zasobu, jak i klucz.
+    Do korzystania z interfejsów API rangi i nagrody potrzebny jest zarówno punkt końcowy zasobu, jak i klucz.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Konfigurowanie](how-to-settings.md) Pętla uczenia się personalizatora
+* [Konfiguruj](how-to-settings.md) Pętla szkoleniowa personalizacji

@@ -1,7 +1,7 @@
 ---
-title: Transkrypcja konwersacji asynchroniiowej (wersja zapoznawcza) — usługa mowy
+title: Transkrypcja konwersacji asynchronicznej (wersja zapoznawcza) — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak używać transkrypcji konwersacji asynchroniiowej za pomocą usługi Mowy. Dostępne tylko dla języka Java.
+description: Dowiedz się, jak używać asynchronicznego transkrypcji konwersacji przy użyciu usługi mowy. Dostępne tylko dla języka Java.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,29 +11,29 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: amishu
 ms.openlocfilehash: 57543f4a3779145ce66259eec1abac195b63c7ba
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80384300"
 ---
-# <a name="asynchronous-conversation-transcription-preview"></a>Transkrypcja konwersacji asynchroniisty (wersja zapoznawcza)
+# <a name="asynchronous-conversation-transcription-preview"></a>Transkrypcja konwersacji asynchronicznej (wersja zapoznawcza)
 
-W tym artykule transkrypcji konwersacji asynchroniiowej jest zademonstrowany przy użyciu interfejsu API **RemoteConversationTranscriptionClient.** Jeśli skonfigurowano transkrypcję konwersacji do transkrypcji asynchroniiowej i mają `conversationId`, `conversationId` można uzyskać transkrypcji skojarzone z tym za pomocą **RemoteConversationTranscriptionClient** API.
+W tym artykule, transkrypcja konwersacji asynchronicznej jest wykazana przy użyciu interfejsu API **RemoteConversationTranscriptionClient** . Jeśli skonfigurowano transkrypcję konwersacji w celu przeprowadzania asynchronicznego transkrypcji i masz `conversationId`, możesz uzyskać transkrypcję skojarzoną z tym `conversationId` , używając interfejsu API **RemoteConversationTranscriptionClient** .
 
-## <a name="asynchronous-vs-real-time--asynchronous"></a>Asynchroniczne vs. w czasie rzeczywistym + asynchroniczne
+## <a name="asynchronous-vs-real-time--asynchronous"></a>Asynchroniczny a w czasie rzeczywistym + asynchronicznie
 
-Dzięki transkrypcji asynchroniiowej można przesyłać strumieniowo dźwięk konwersacji, ale nie potrzebujesz transkrypcji zwróconej w czasie rzeczywistym. Zamiast tego po wysłaniu dźwięku `conversationId` użyj `Conversation` do kwerendy o stan transkrypcji asynchronicznej. Gdy transkrypcja asynchroniza jest gotowa, otrzymasz . `RemoteConversationTranscriptionResult`
+Dzięki operacji transkrypcji asynchronicznej można przesyłać strumieniowo konwersacje audio, ale nie musi istnieć transkrypcja zwrócona w czasie rzeczywistym. Zamiast tego, po wysłaniu dźwięku, należy użyć `conversationId` programu `Conversation` do zapytania o stan asynchronicznego transkrypcji. Gdy asynchroniczne transkrypcje jest gotowe, uzyskasz `RemoteConversationTranscriptionResult`.
 
-Z w czasie rzeczywistym plus asynchroniczne, można uzyskać transkrypcji w czasie rzeczywistym, `conversationId` ale również uzyskać transkrypcji przez zapytanie z (podobny do scenariusza asynchronicznego).
+W czasie rzeczywistym i asynchronicznie można uzyskać transkrypcję w czasie rzeczywistym, ale również uzyskać transkrypcję, wykonując zapytania z `conversationId` (podobnie jak w scenariuszu asynchronicznym).
 
-Dwa kroki są wymagane do wykonania transkrypcji asynchronii. Pierwszym krokiem jest przesłanie dźwięku, wybierając tylko asynchroniczne lub w czasie rzeczywistym plus asynchroniczne. Drugim krokiem jest uzyskanie wyników transkrypcji.
+Do wykonania asynchronicznego transkrypcji wymagane są dwa kroki. Pierwszym krokiem jest przekazanie dźwięku, wybranie opcji tylko asynchroniczne lub w czasie rzeczywistym, a asynchronicznie. Drugim krokiem jest uzyskanie wyników transkrypcji.
 
-## <a name="upload-the-audio"></a>Prześlij dźwięk
+## <a name="upload-the-audio"></a>Przekaż dźwięk
 
-Przed transkrypcji asynchronicznego można wykonać, należy wysłać audio do usługi transkrypcji konwersacji przy użyciu microsoft cognitive speech client SDK (wersja 1.8.0 lub powyżej).
+Aby można było wykonać asynchroniczne transkrypcje, musisz wysłać dźwięk do usługi transkrypcji do konwersacji przy użyciu zestawu SDK programu Microsoft poznawczego klienta (wersja 1.8.0 lub nowsza).
 
-Ten przykładowy kod pokazuje, jak utworzyć transkrypcję konwersacji dla trybu tylko asynchroniza. Aby przesyłać strumieniowo dźwięk do transcribera, należy dodać kod przesyłania strumieniowego audio pochodzący z [transkrypcji konwersacji w czasie rzeczywistym za pomocą SDK mowy](how-to-use-conversation-transcription-service.md). Zapoznaj się z sekcji **Ograniczenia** tego tematu, aby zobaczyć obsługiwane platformy i języki interfejsów API.
+Ten przykładowy kod pokazuje, jak utworzyć konwersację Transcriber w trybie tylko asynchronicznie. Aby przesłać strumieniowo dźwięk do Transcriber, musisz dodać kod strumieniowego audio pochodzący z [konwersacji transkrypcja w czasie rzeczywistym za pomocą zestawu Speech SDK](how-to-use-conversation-transcription-service.md). Zapoznaj się z sekcją **ograniczenia** tego tematu, aby wyświetlić obsługiwane interfejsy API platform i języków.
 
 ```java
 // Create the speech config object
@@ -101,7 +101,7 @@ Future<?> future = transcriber.startTranscribingAsync();
 ...
 ```
 
-Jeśli chcesz w czasie rzeczywistym _plus_ asynchroniczne, komentarz i uncomment odpowiednie wiersze kodu w następujący sposób:
+Jeśli chcesz, aby w czasie rzeczywistym _Plus_ asynchroniczny, komentarz i Usuń komentarz z odpowiednich wierszy kodu w następujący sposób:
 
 ```java
 // Set the property for asynchronous transcription
@@ -111,17 +111,17 @@ Jeśli chcesz w czasie rzeczywistym _plus_ asynchroniczne, komentarz i uncomment
 speechConfig.setServiceProperty("transcriptionMode", "RealTimeAndAsync", ServicePropertyChannel.UriQueryParameter);
 ```
 
-## <a name="get-transcription-results"></a>Uzyskaj wyniki transkrypcji
+## <a name="get-transcription-results"></a>Pobierz wyniki transkrypcji
 
-Ten krok pobiera wyniki transkrypcji asynchroniiowej, ale zakłada, że wszelkie przetwarzanie w czasie rzeczywistym może być wymagane odbywa się w innym miejscu. Aby uzyskać więcej informacji, zobacz [Transkrypcja konwersacji w czasie rzeczywistym za pomocą SDK mowy](how-to-use-conversation-transcription-service.md).
+Ten krok umożliwia pobranie asynchronicznych wyników transkrypcji, ale założenie, że wymagane jest przetwarzanie w czasie rzeczywistym w innym miejscu. Aby uzyskać więcej informacji, zobacz [transkrypcja konwersacje w czasie rzeczywistym za pomocą zestawu Speech SDK](how-to-use-conversation-transcription-service.md).
 
-W przypadku kodu pokazanego tutaj potrzebujesz **zdalnej konwersacji w wersji 1.8.0,** obsługiwanej tylko dla języka Java (1.8.0 lub nowszy) w systemach Windows, Linux i Android (tylko poziom interfejsu API 26 lub wyższy).
+W pokazanym tu kodzie potrzebna jest **wersja 1.8.0**, obsługiwana tylko w języku Java (1.8.0 lub nowszy) w systemach Windows, Linux i Android (tylko poziom interfejsu API 26 lub nowsza).
 
-### <a name="obtaining-the-client-sdk"></a>Uzyskiwanie sdk klienta
+### <a name="obtaining-the-client-sdk"></a>Uzyskiwanie zestawu SDK klienta
 
-Można uzyskać **zdalną konwersację,** edytując plik pom.xml w następujący sposób.
+Możesz uzyskać dostęp do **konwersacji zdalnej** , edytując plik pliku pom. XML w następujący sposób.
 
-1. Na końcu pliku przed tagiem `</project>`zamknięcia należy `repositories` utworzyć element z odwołaniem do repozytorium Maven dla SDK mowy:
+1. Na końcu pliku przed tagiem `</project>`zamykającym Utwórz `repositories` element z odwołaniem do repozytorium Maven dla zestawu Speech SDK:
 
    ```xml
    <repositories>
@@ -133,7 +133,7 @@ Można uzyskać **zdalną konwersację,** edytując plik pom.xml w następujący
    </repositories>
    ```
 
-2. Dodaj również `dependencies` element, z remoteconversation-client-sdk 1.8.0 jako zależność:
+2. Należy również dodać `dependencies` element z remoteconversation-Client-SDK 1.8.0 jako zależność:
 
    ```xml
    <dependencies>
@@ -145,11 +145,11 @@ Można uzyskać **zdalną konwersację,** edytując plik pom.xml w następujący
    </dependencies>
    ```
 
-3. Zapisywanie zmian
+3. Zapisz zmiany
 
 ### <a name="sample-transcription-code"></a>Przykładowy kod transkrypcji
 
-Po utworzeniu `conversationId`klienta transkrypcji zdalnej konwersacji **RemoteConversationTranscriptionClient** w aplikacji klienckiej, aby zbadać stan transkrypcji asynchronicznej. Użyj **metody getTranscriptionOperation** w **RemoteConversationTranscriptionClient,** aby uzyskać obiekt [PollerFlux.](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) Obiekt PollerFlux będzie miał informacje o stanie zdalnej operacji **RemoteConversationTranscriptionOperation** i końcowym wyniku **RemoteConversationTranscriptionResult**. Po zakończeniu operacji pobierz **remoteconversationTranscriptionResult,** wywołując **getFinalResult** na [SyncPoller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java). W tym kodzie po prostu drukujemy zawartość wyniku na wyjściu systemowym.
+Po utworzeniu programu `conversationId`Utwórz **RemoteConversationTranscriptionClient** klienta transkrypcji konwersacji zdalnej w aplikacji klienckiej w celu zbadania stanu asynchronicznego transkrypcji. Użyj metody **getTranscriptionOperation** w **RemoteConversationTranscriptionClient** , aby pobrać obiekt [PollerFlux](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) . Obiekt PollerFlux będzie miał informacje o stanie operacji zdalnej **RemoteConversationTranscriptionOperation** i ostatnim wyniku **RemoteConversationTranscriptionResult**. Po zakończeniu operacji Pobierz **RemoteConversationTranscriptionResult** przez wywołanie **getFinalResult** na [SyncPoller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java). W tym kodzie po prostu wydrukujesz zawartość wyniku do danych wyjściowych systemu.
 
 ```java
 // Create the speech config object
