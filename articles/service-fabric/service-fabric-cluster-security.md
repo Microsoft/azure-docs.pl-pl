@@ -1,126 +1,126 @@
 ---
-title: Zabezpieczanie klastra sieci szkieletowej usług Azure
-description: Dowiedz się więcej o scenariuszach zabezpieczeń klastra sieci szkieletowej usług Azure i różnych technologiach, których można użyć do ich zaimplementowania.
+title: Zabezpieczanie klastra Service Fabric platformy Azure
+description: Dowiedz się więcej o scenariuszach zabezpieczeń dla klastra usługi Azure Service Fabric i różnych technologiach, których można użyć do ich wdrożenia.
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
 ms.openlocfilehash: c43cfbd4468a64867d50482d9c8055622602f159
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461586"
 ---
-# <a name="service-fabric-cluster-security-scenarios"></a>Scenariusze zabezpieczeń klastra sieci szkieletowej usług
+# <a name="service-fabric-cluster-security-scenarios"></a>Scenariusze zabezpieczeń klastra Service Fabric
 
-Klaster sieci szkieletowej usług Azure to zasób, którego jesteś właścicielem. Użytkownik jest odpowiedzialny za zabezpieczenie klastrów, aby zapobiec łączeniu się z nimi nieautoryzowanym użytkownikom. Bezpieczny klaster jest szczególnie ważne podczas uruchamiania obciążeń produkcyjnych w klastrze. Istnieje możliwość utworzenia klastra niezabezpieczonego, jednak jeśli klaster udostępnia punkty końcowe zarządzania do publicznego Internetu, anonimowi użytkownicy mogą się z nim połączyć. Klastry niezabezpieczone nie są obsługiwane dla obciążeń produkcyjnych. 
+Klaster Service Fabric platformy Azure to zasób, którego jesteś członkiem. Użytkownik jest odpowiedzialny za zabezpieczanie klastrów w celu zapobiegania łączeniu się z nimi nieautoryzowanych użytkowników. Bezpieczny klaster jest szczególnie ważny w przypadku uruchamiania obciążeń produkcyjnych w klastrze. Istnieje możliwość utworzenia klastra niezabezpieczonego, jednak Jeśli klaster ujawnia punkty końcowe zarządzania do publicznej sieci Internet, anonimowi użytkownicy mogą się z nim połączyć. Niezabezpieczone klastry nie są obsługiwane w przypadku obciążeń produkcyjnych. 
 
-Ten artykuł zawiera omówienie scenariuszy zabezpieczeń dla klastrów platformy Azure i klastrów autonomicznych oraz różnych technologii, których można użyć do ich zaimplementowania:
+Ten artykuł zawiera omówienie scenariuszy zabezpieczeń klastrów platformy Azure i klastrów autonomicznych oraz różnych technologii, których można użyć do ich wdrożenia:
 
 * Zabezpieczenia między węzłami
-* Zabezpieczenia między klientami
+* Zabezpieczenia między klientem a węzłem
 * Kontrola dostępu oparta na rolach (RBAC)
 
 ## <a name="node-to-node-security"></a>Zabezpieczenia między węzłami
 
-Zabezpieczenia między węzłami pomagają zabezpieczyć komunikację między maszynami wirtualnymi lub komputerami w klastrze. Ten scenariusz zabezpieczeń gwarantuje, że tylko komputery, które są upoważnione do przyłączenia się do klastra mogą uczestniczyć w hostowania aplikacji i usług w klastrze.
+Zabezpieczenia typu węzeł-węzeł pomagają w zabezpieczaniu komunikacji między maszynami wirtualnymi lub komputerami w klastrze. Ten scenariusz zabezpieczeń zapewnia, że tylko komputery autoryzowane do dołączenia do klastra mogą uczestniczyć w aplikacjach i usługach obsługujących klaster.
 
 ![Diagram komunikacji między węzłami][Node-to-Node]
 
-Klastry uruchomione na platformie Azure i autonomiczne klastry uruchomione w systemie Windows mogą używać [zabezpieczeń certyfikatów](https://msdn.microsoft.com/library/ff649801.aspx) lub [zabezpieczeń systemu Windows](https://msdn.microsoft.com/library/ff649396.aspx) dla komputerów z systemem Windows Server.
+Klastry działające na platformie Azure i autonomicznych klastrach działających w systemie Windows mogą korzystać z [zabezpieczeń certyfikatów](https://msdn.microsoft.com/library/ff649801.aspx) lub [zabezpieczeń systemu Windows](https://msdn.microsoft.com/library/ff649396.aspx) na komputerach z systemem Windows Server.
 
-### <a name="node-to-node-certificate-security"></a>Zabezpieczenia certyfikatu węzeł-węzeł
+### <a name="node-to-node-certificate-security"></a>Zabezpieczenia certyfikatów między węzłami
 
-Sieć szkieletowa usług używa certyfikatów serwera X.509 określonych jako część konfiguracji typu węzła podczas tworzenia klastra. Na końcu tego artykułu można zobaczyć krótki przegląd tego, czym są te certyfikaty i jak można je nabyć lub utworzyć.
+Service Fabric używa certyfikatów serwera X. 509, które są określane jako część konfiguracji typu węzła podczas tworzenia klastra. Na końcu tego artykułu zobaczysz krótkie omówienie tego, czym są te certyfikaty i jak można je uzyskać lub utworzyć.
 
-Konfigurowanie zabezpieczeń certyfikatów podczas tworzenia klastra w witrynie Azure Portal przy użyciu szablonu usługi Azure Resource Manager lub przy użyciu autonomicznego szablonu JSON. Domyślnym zachowaniem sdk sieci szkieletowej usług jest wdrożenie i zainstalowanie certyfikatu z najdalej w przyszłym wygasającym certyfikacie; klasyczne zachowanie pozwoliło na zdefiniowanie certyfikatów podstawowych i pomocniczych, aby umożliwić ręczne inicjowane najazdy i nie jest zalecane do użycia nad nowymi funkcjami. Certyfikaty podstawowe, które będą używane ma najdalej do przyszłej daty wygaśnięcia, powinny różnić się od klienta administracyjnego i tylko do odczytu certyfikatów klienta, które można ustawić dla [zabezpieczeń klient-węzeł](#client-to-node-security).
+Konfigurowanie zabezpieczeń certyfikatów podczas tworzenia klastra, w Azure Portal, przy użyciu szablonu Azure Resource Manager lub przy użyciu autonomicznego szablonu JSON. Domyślne zachowanie Service Fabric zestawu SDK polega na wdrożeniu i instalowaniu certyfikatu z najpóźniejszym terminem wygaśnięcia certyfikatu. zachowanie klasyczne może definiować certyfikaty podstawowe i pomocnicze, aby umożliwić Ręczne inicjowanie przerzucania i nie jest zalecane do użycia w ramach nowych funkcji. Certyfikaty podstawowe, które będą używane, mają najpóźniejsze daty wygaśnięcia, powinny być inne od klienta administratora i certyfikatów klienta tylko do odczytu ustawionych dla [zabezpieczeń klient-węzeł](#client-to-node-security).
 
-Aby dowiedzieć się, jak skonfigurować zabezpieczenia certyfikatów w klastrze na platformie Azure, zobacz [Konfigurowanie klastra przy użyciu szablonu usługi Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
+Aby dowiedzieć się, jak skonfigurować zabezpieczenia certyfikatów w klastrze dla platformy Azure, zobacz [Konfigurowanie klastra przy użyciu szablonu Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
-Aby dowiedzieć się, jak skonfigurować zabezpieczenia certyfikatów w klastrze dla autonomicznego klastra systemu Windows Server, zobacz [Zabezpieczanie autonomicznego klastra w systemie Windows przy użyciu certyfikatów X.509](service-fabric-windows-cluster-x509-security.md).
+Aby dowiedzieć się, jak skonfigurować zabezpieczenia certyfikatów w klastrze dla autonomicznego klastra systemu Windows Server, zobacz temat [Zabezpieczanie klastra autonomicznego w systemie Windows za pomocą certyfikatów X. 509](service-fabric-windows-cluster-x509-security.md).
 
-### <a name="node-to-node-windows-security"></a>Zabezpieczenia systemu Windows typu węzeł-węzeł
+### <a name="node-to-node-windows-security"></a>Zabezpieczenia między węzłami systemu Windows
 
-Aby dowiedzieć się, jak skonfigurować zabezpieczenia systemu Windows dla autonomicznego klastra systemu Windows Server, zobacz [Zabezpieczanie autonomicznego klastra w systemie Windows przy użyciu zabezpieczeń systemu Windows](service-fabric-windows-cluster-windows-security.md).
+Aby dowiedzieć się, jak skonfigurować zabezpieczenia systemu Windows dla autonomicznego klastra systemu Windows Server, zobacz temat [Zabezpieczanie klastra autonomicznego w systemie Windows przy użyciu zabezpieczeń systemu Windows](service-fabric-windows-cluster-windows-security.md).
 
-## <a name="client-to-node-security"></a>Zabezpieczenia między klientami
+## <a name="client-to-node-security"></a>Zabezpieczenia między klientem a węzłem
 
-Zabezpieczenia klient-węzeł uwierzytelniają klientów i pomagają w zabezpieczeniu komunikacji między klientem a poszczególnymi węzłami w klastrze. Ten typ zabezpieczeń pomaga zapewnić, że tylko autoryzowani użytkownicy mogą uzyskiwać dostęp do klastra i aplikacji wdrożonych w klastrze. Klienci są jednoznacznie identyfikowani za pomocą poświadczeń zabezpieczeń systemu Windows lub poświadczeń zabezpieczeń certyfikatów.
+Zabezpieczenia klienta w węźle uwierzytelniają klientów i pomagają w zabezpieczaniu komunikacji między klientem a poszczególnymi węzłami w klastrze. Ten typ zabezpieczeń pomaga upewnić się, że tylko autoryzowani użytkownicy mają dostęp do klastra i aplikacji wdrożonych w klastrze. Klienci są jednoznacznie identyfikowani przy użyciu poświadczeń zabezpieczeń systemu Windows lub poświadczeń zabezpieczeń certyfikatów.
 
-![Diagram komunikacji klient-węzeł][Client-to-Node]
+![Diagram komunikacji między klientem a węzłem][Client-to-Node]
 
-Klastry działające na platformie Azure i autonomiczne klastry działające w systemie Windows mogą używać [zabezpieczeń certyfikatów](https://msdn.microsoft.com/library/ff649801.aspx) lub [zabezpieczeń systemu Windows](https://msdn.microsoft.com/library/ff649396.aspx).
+Klastry działające na platformie Azure i autonomicznych klastrach działających w systemie Windows mogą korzystać z [zabezpieczeń certyfikatów](https://msdn.microsoft.com/library/ff649801.aspx) lub [zabezpieczeń systemu Windows](https://msdn.microsoft.com/library/ff649396.aspx).
 
-### <a name="client-to-node-certificate-security"></a>Zabezpieczenia certyfikatu klient-węzeł
+### <a name="client-to-node-certificate-security"></a>Zabezpieczenia certyfikatów między klientami a węzłami
 
-Skonfiguruj zabezpieczenia certyfikatu klient-węzeł podczas tworzenia klastra w witrynie Azure portal przy użyciu szablonu Menedżera zasobów lub przy użyciu autonomicznego szablonu JSON. Aby utworzyć certyfikat, określ certyfikat klienta administratora lub certyfikat klienta użytkownika. Najlepszym rozwiązaniem jest, że określone certyfikaty klienta administratora i klienta użytkownika powinny się różnić od certyfikatów podstawowych i pomocniczych określonych dla [zabezpieczeń węzła do węzła](#node-to-node-security). Certyfikaty klastra mają takie same prawa jak certyfikaty administratora klienta. Jednak powinny one być używane tylko przez klaster, a nie przez użytkowników administracyjnych jako najlepsze rozwiązanie w zakresie zabezpieczeń.
+Skonfiguruj zabezpieczenia certyfikatu klient-węzeł podczas tworzenia klastra, w Azure Portal, przy użyciu szablonu Menedżer zasobów lub przy użyciu autonomicznego szablonu JSON. Aby utworzyć certyfikat, Określ certyfikat klienta administratora lub certyfikat klienta użytkownika. Najlepszym rozwiązaniem jest określenie, że certyfikaty klienta i klienta administratora będą się różnić od podstawowych i pomocniczych certyfikatów określonych dla [zabezpieczeń między węzłami](#node-to-node-security). Certyfikaty klastra mają takie same prawa jak certyfikaty administratora klienta. Jednak powinny być używane tylko przez klaster, a nie przez użytkowników administracyjnych jako najlepsze rozwiązanie w zakresie zabezpieczeń.
 
-Klienci, którzy łączą się z klastrem przy użyciu certyfikatu administratora mają pełny dostęp do możliwości zarządzania. Klienci, którzy łączą się z klastrem przy użyciu certyfikatu klienta tylko do odczytu, mają dostęp do odczytu tylko do możliwości zarządzania. Certyfikaty te są używane dla RBAC, który jest opisany w dalszej części tego artykułu.
+Klienci, którzy łączą się z klastrem przy użyciu certyfikatu administratora, mają pełny dostęp do możliwości zarządzania. Klienci łączący się z klastrem przy użyciu certyfikatu klienta użytkownika tylko do odczytu mają dostęp tylko do odczytu do funkcji zarządzania. Te certyfikaty są używane na potrzeby kontroli RBAC opisanej w dalszej części tego artykułu.
 
-Aby dowiedzieć się, jak skonfigurować zabezpieczenia certyfikatów w klastrze na platformie Azure, zobacz [Konfigurowanie klastra przy użyciu szablonu usługi Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
+Aby dowiedzieć się, jak skonfigurować zabezpieczenia certyfikatów w klastrze dla platformy Azure, zobacz [Konfigurowanie klastra przy użyciu szablonu Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
-Aby dowiedzieć się, jak skonfigurować zabezpieczenia certyfikatów w klastrze dla autonomicznego klastra systemu Windows Server, zobacz [Zabezpieczanie autonomicznego klastra w systemie Windows przy użyciu certyfikatów X.509](service-fabric-windows-cluster-x509-security.md).
+Aby dowiedzieć się, jak skonfigurować zabezpieczenia certyfikatów w klastrze dla autonomicznego klastra systemu Windows Server, zobacz temat [Zabezpieczanie klastra autonomicznego w systemie Windows za pomocą certyfikatów X. 509](service-fabric-windows-cluster-x509-security.md).
 
-### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Zabezpieczenia usługi Azure Active Directory między klientami na platformie Azure na platformie Azure
+### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Zabezpieczenia Azure Active Directory na poziomie klienta na platformie Azure
 
-Usługa Azure AD umożliwia organizacjom (znanym jako dzierżawy) zarządzanie dostępem użytkowników do aplikacji. Aplikacje są podzielone na te z interfejsem użytkownika logowania opartego na sieci Web i te z natywnym doświadczeniem klienta. Jeśli nie utworzono jeszcze dzierżawy, zacznij od przeczytania [jak uzyskać dzierżawy usługi Azure Active Directory.][active-directory-howto-tenant]
+Usługa Azure AD umożliwia organizacjom (znanym jako dzierżawy) zarządzanie dostępem użytkowników do aplikacji. Aplikacje są podzielone na te z interfejsem użytkownika logowania opartego na sieci Web i z natywną obsługą klienta. Jeśli dzierżawa nie została jeszcze utworzona, Zacznij od czytania, [jak uzyskać dzierżawę Azure Active Directory][active-directory-howto-tenant].
 
-Klaster usługi Service Fabric udostępnia kilka punktów wejścia dla swoich funkcji zarządzania, w tym internetowe narzędzie [Service Fabric Explorer][service-fabric-visualizing-your-cluster] i [program Visual Studio][service-fabric-manage-application-in-visual-studio]. W rezultacie utworzysz dwie aplikacje usługi Azure AD, aby kontrolować dostęp do klastra, jedną aplikację sieci web i jedną aplikację macierzystą.
+Klaster usługi Service Fabric udostępnia kilka punktów wejścia dla swoich funkcji zarządzania, w tym internetowe narzędzie [Service Fabric Explorer][service-fabric-visualizing-your-cluster] i [program Visual Studio][service-fabric-manage-application-in-visual-studio]. W efekcie utworzysz dwie aplikacje usługi Azure AD w celu kontrolowania dostępu do klastra, jednej aplikacji sieci Web i jednej aplikacji natywnej.
 
-W przypadku klastrów uruchomionych na platformie Azure można również zabezpieczyć dostęp do punktów końcowych zarządzania przy użyciu usługi Azure Active Directory (Azure AD). Aby dowiedzieć się, jak utworzyć wymagane artefakty usługi Azure AD i jak je wypełnić podczas tworzenia klastra, zobacz [Konfigurowanie usługi Azure AD w celu uwierzytelnienia klientów.](service-fabric-cluster-creation-setup-aad.md)
+W przypadku klastrów działających na platformie Azure można również zabezpieczyć dostęp do punktów końcowych zarządzania przy użyciu Azure Active Directory (Azure AD). Aby dowiedzieć się, jak utworzyć wymagane artefakty usługi Azure AD i jak je wypełnić podczas tworzenia klastra, zobacz [Konfigurowanie usługi Azure AD do uwierzytelniania klientów](service-fabric-cluster-creation-setup-aad.md).
 
 ## <a name="security-recommendations"></a>Zalecenia dotyczące zabezpieczeń
 
 W przypadku klastrów usługi Service Fabric wdrożonych w sieci publicznej hostowanej na platformie Azure zalecenia dla wzajemnego uwierzytelniania klienta i węzła są następujące:
 
 * Używanie usługi Azure Active Directory na potrzeby określania tożsamości klienta
-* Certyfikat dla tożsamości serwera i szyfrowania TLS komunikacji http
+* Certyfikat służący do identyfikacji serwera i szyfrowania TLS komunikacji http
 
-W przypadku klastrów sieci szkieletowej usług wdrożonych w sieci publicznej hostowanych na platformie Azure zalecenie dotyczące zabezpieczeń między węzłami polega na użyciu certyfikatu klastra do uwierzytelniania węzłów.
+W przypadku klastrów Service Fabric wdrożonych w sieci publicznej hostowanej na platformie Azure zalecenia dotyczące zabezpieczeń między węzłami polegają na uwierzytelnianiu węzłów za pomocą certyfikatu klastra.
 
-W przypadku autonomicznych klastrów systemu Windows Server, jeśli masz systemy Windows Server 2012 R2 i Windows Active Directory, zaleca się używanie zabezpieczeń systemu Windows z grupowymi kontami usług zarządzanych. W przeciwnym razie należy użyć zabezpieczeń systemu Windows z kontami systemu Windows.
+W przypadku autonomicznych klastrów systemu Windows Server, jeśli masz systemy Windows Server 2012 R2 i Windows Active Directory, zalecamy użycie zabezpieczeń systemu Windows z kontami usług zarządzanymi przez grupę. W przeciwnym razie Użyj zabezpieczeń systemu Windows z kontami systemu Windows.
 
 ## <a name="role-based-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
 
-Za pomocą kontroli dostępu można ograniczyć dostęp do niektórych operacji klastra dla różnych grup użytkowników. Pomaga to uczynić klaster bardziej bezpieczne. Dwa typy kontroli dostępu są obsługiwane dla klientów, którzy łączą się z klastrem: rola administratora i rola użytkownika.
+Za pomocą kontroli dostępu można ograniczyć dostęp do niektórych operacji klastra dla różnych grup użytkowników. Dzięki temu klaster jest bezpieczniejszy. Obsługiwane są dwa typy kontroli dostępu dla klientów łączących się z klastrem: rola administratora i rola użytkownika.
 
-Użytkownicy, którym przypisano rolę Administrator, mają pełny dostęp do funkcji zarządzania, w tym funkcji odczytu i zapisu. Użytkownicy, którym domyślnie przypisano rolę Użytkownik, mają tylko dostęp do odczytu do funkcji zarządzania (na przykład możliwości zapytań). Mogą również rozwiązywać problemy z aplikacjami i usługami.
+Użytkownicy, którym przypisano rolę administratora, mają pełny dostęp do możliwości zarządzania, w tym możliwości odczytu i zapisu. Użytkownicy, którym przypisano rolę użytkownika, domyślnie mają dostęp tylko do odczytu do funkcji zarządzania (na przykład możliwości zapytania). Mogą również rozpoznać aplikacje i usługi.
 
-Ustaw role klienta administratora i użytkownika podczas tworzenia klastra. Przypisz role, udostępniając oddzielne tożsamości (na przykład przy użyciu certyfikatów lub usługi Azure AD) dla każdego typu roli. Aby uzyskać więcej informacji na temat domyślnych ustawień kontroli dostępu i sposobu zmieniania ustawień [domyślnych, zobacz Kontrola dostępu oparta na rolach dla klientów sieci szkieletowej usług](service-fabric-cluster-security-roles.md).
+Podczas tworzenia klastra Ustaw role administratora i klienta użytkownika. Przypisywanie ról przez dostarczanie osobnych tożsamości (na przykład przy użyciu certyfikatów lub usługi Azure AD) dla każdego typu roli. Aby uzyskać więcej informacji na temat domyślnych ustawień kontroli dostępu i sposobu zmiany ustawień domyślnych, zobacz [Access Control oparte na rolach dla klientów Service Fabric](service-fabric-cluster-security-roles.md).
 
-## <a name="x509-certificates-and-service-fabric"></a>Certyfikaty X.509 i sieci szkieletowej usług
+## <a name="x509-certificates-and-service-fabric"></a>Certyfikaty X. 509 i Service Fabric
 
-Certyfikaty cyfrowe X.509 są często używane do uwierzytelniania klientów i serwerów. Są one również używane do szyfrowania i cyfrowego podpisywania wiadomości. Usługa Service Fabric używa certyfikatów X.509 do zabezpieczenia klastra i zapewnienia funkcji zabezpieczeń aplikacji. Aby uzyskać więcej informacji na temat certyfikatów cyfrowych X.509, zobacz [Praca z certyfikatami](https://msdn.microsoft.com/library/ms731899.aspx). Usługa [Key Vault](../key-vault/general/overview.md) służy do zarządzania certyfikatami klastrów sieci szkieletowej usług na platformie Azure.
+Certyfikaty cyfrowe X. 509 są zwykle używane do uwierzytelniania klientów i serwerów. Są one również używane do szyfrowania i cyfrowego podpisywania wiadomości. Service Fabric używa certyfikatów X. 509 w celu zabezpieczenia klastra i zapewnienia funkcji zabezpieczeń aplikacji. Aby uzyskać więcej informacji na temat certyfikatów cyfrowych X. 509, zobacz [Praca z certyfikatami](https://msdn.microsoft.com/library/ms731899.aspx). [Key Vault](../key-vault/general/overview.md) służy do zarządzania certyfikatami dla klastrów Service Fabric na platformie Azure.
 
-Kilka ważnych rzeczy do rozważenia:
+Niektóre ważne zagadnienia, które należy wziąć pod uwagę:
 
-* Aby utworzyć certyfikaty dla klastrów z uruchomionymi obciążeniami produkcyjnymi, należy użyć poprawnie skonfigurowanej usługi certyfikatów systemu Windows Server lub certyfikatu zatwierdzonego [urzędu certyfikacji .](https://en.wikipedia.org/wiki/Certificate_authority)
-* Nigdy nie używaj żadnych tymczasowych lub testowych certyfikatów utworzonych przy użyciu narzędzi, takich jak MakeCert.exe w środowisku produkcyjnym.
-* Certyfikatu z podpisem własnym można używać, ale tylko w klastrze testowym. Nie należy używać certyfikatu z podpisem własnym w produkcji.
-* Podczas generowania odcisku palca certyfikatu, należy wygenerować odcisk palca SHA1. SHA1 jest to, co jest używane podczas konfigurowania odcisków palców certyfikatu klienta i klastra.
+* Aby utworzyć certyfikaty dla klastrów z uruchomionymi obciążeniami produkcyjnymi, należy użyć prawidłowo skonfigurowanej usługi certyfikatów systemu Windows Server lub jednej z zatwierdzonych [urzędów certyfikacji (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
+* Nigdy nie należy używać żadnych certyfikatów tymczasowych ani testowych, które tworzysz przy użyciu narzędzi takich jak MakeCert. exe w środowisku produkcyjnym.
+* Możesz użyć certyfikatu z podpisem własnym, ale tylko w klastrze testowym. Nie należy używać certyfikatu z podpisem własnym w środowisku produkcyjnym.
+* Podczas generowania odcisku palca certyfikatu Pamiętaj o wygenerowaniu odcisku palca SHA1. Algorytm SHA1 jest używany podczas konfigurowania odcisków palca certyfikatu klienta i klastra.
 
 ### <a name="cluster-and-server-certificate-required"></a>Certyfikat klastra i serwera (wymagany)
 
-Te certyfikaty (jeden podstawowy i opcjonalnie pomocniczy) są wymagane do zabezpieczenia klastra i zapobiegania nieautoryzowanemu dostępowi do niego. Certyfikaty te zapewniają uwierzytelnianie klastra i serwera.
+Te certyfikaty (jeden podstawowy i opcjonalnie pomocniczy) są wymagane do zabezpieczenia klastra i uniemożliwiają nieautoryzowany dostęp do niego. Te certyfikaty zapewniają uwierzytelnianie klastra i serwera.
 
-Uwierzytelnianie klastra uwierzytelnia komunikację między węzłami dla federacji klastra. Tylko węzły, które mogą udowodnić swoją tożsamość za pomocą tego certyfikatu, mogą dołączyć do klastra. Uwierzytelnianie serwera uwierzytelnia punkty końcowe zarządzania klastrem do klienta zarządzania, dzięki czemu klient zarządzania wie, że rozmawia z prawdziwym klastrem, a nie z "człowiekiem w środku". Ten certyfikat zapewnia również protokół TLS dla interfejsu API zarządzania HTTPS i Eksploratora sieci szkieletowej usług za pośrednictwem protokołu HTTPS. Gdy klient lub węzeł uwierzytelnia węzeł, jednym z początkowych kontroli jest wartość nazwy pospolitej w polu **Temat.** Ta nazwa pospolita lub jedna z alternatywnych nazw przedmiotów certyfikatów (SAN) musi znajdować się na liście dozwolonych nazw pospolitych.
+Uwierzytelnianie klastra uwierzytelnia komunikację między węzłami w ramach Federacji klastra. Do klastra można dołączyć tylko węzły, które mogą udowodnić swoją tożsamość za pomocą tego certyfikatu. Uwierzytelnianie serwera uwierzytelnia punkty końcowe zarządzania klastrami na kliencie zarządzania, dzięki czemu klient zarządzania wie, że jest w stanie mówić do rzeczywistego klastra, a nie jako "man in the middle". Ten certyfikat udostępnia również protokół TLS dla interfejsu API zarządzania HTTPS i dla Service Fabric Explorer za pośrednictwem protokołu HTTPS. Gdy klient lub węzeł uwierzytelnia węzeł, jeden z pierwszych testów jest wartością nazwy pospolitej w polu **podmiot** . Ta nazwa pospolita lub jedna z nazw alternatywny podmiotu (San) certyfikatów musi znajdować się na liście dozwolonych nazw wspólnych.
 
 Certyfikat musi spełniać następujące wymagania:
 
-* Certyfikat musi zawierać klucz prywatny. Certyfikaty te zazwyczaj mają rozszerzenia .pfx lub .pem  
-* Certyfikat musi zostać utworzony w celu wymiany kluczy, który można wyeksportować do pliku wymiany informacji osobistych (pfx).
-* **Nazwa podmiotu certyfikatu musi być zgodna z domeną używaną do uzyskiwania dostępu do klastra sieci szkieletowej usług**. To dopasowanie jest wymagane do zapewnienia protokołu TLS dla punktu końcowego zarządzania HTTPS klastra i Eksploratora sieci szkieletowej usług. Nie można uzyskać certyfikatu TLS/SSL od urzędu certyfikacji (CA) dla domeny *.cloudapp.azure.com. Musisz uzyskać niestandardową nazwę domeny dla klastra. W przypadku żądania certyfikatu od urzędu certyfikacji nazwa podmiotu certyfikatu musi być zgodna z niestandardową nazwą domeny używaną dla danego klastra.
+* Certyfikat musi zawierać klucz prywatny. Te certyfikaty zazwyczaj mają rozszerzenia PFX lub PEM.  
+* Należy utworzyć certyfikat dla wymiany kluczy, który można wyeksportować do pliku wymiany informacji osobistych (pfx).
+* **Nazwa podmiotu certyfikatu musi być zgodna z domeną używaną do uzyskiwania dostępu do klastra Service Fabric**. To dopasowanie jest wymagane w celu udostępnienia protokołu TLS dla punktu końcowego zarządzania HTTPS klastra i Service Fabric Explorer. Nie można uzyskać certyfikatu TLS/SSL z urzędu certyfikacji dla domeny *. cloudapp.azure.com. Musisz uzyskać niestandardową nazwę domeny dla klastra. W przypadku żądania certyfikatu od urzędu certyfikacji nazwa podmiotu certyfikatu musi być zgodna z niestandardową nazwą domeny używaną dla danego klastra.
 
-Kilka innych rzeczy do rozważenia:
+Niektóre inne zagadnienia, które należy wziąć pod uwagę:
 
-* Pole **Temat** może mieć wiele wartości. Każda wartość jest poprzedzony inicjacją, aby wskazać typ wartości. Zwykle inicjalizacja jest **CN** (dla *nazwy pospolitej);* na przykład **CN\.= www contoso.com**.
-* Pole **Temat** może być puste.
-* Jeśli opcjonalne pole **Nazwa alternatywna podmiotu** jest wypełniane, musi ono mieć zarówno wspólną nazwę certyfikatu, jak i jeden wpis na san. Są one wprowadzane jako wartości **nazwy DNS.** Aby dowiedzieć się, jak generować certyfikaty z sieciami SAN, zobacz [Jak dodać alternatywną nazwę podmiotu do bezpiecznego certyfikatu LDAP](https://support.microsoft.com/kb/931351).
-* Wartość pola **Zamierzone cele** certyfikatu powinna zawierać odpowiednią wartość, taką jak **uwierzytelnianie serwera** lub **uwierzytelnianie klienta.**
+* Pole **podmiotu** może zawierać wiele wartości. Każda wartość jest poprzedzona inicjalizacją, aby wskazać typ wartości. Zazwyczaj inicjowanie jest **CN** (dla *nazwy pospolitej*); na przykład **CN = www\.contoso.com**.
+* Pole **podmiotu** może być puste.
+* Jeśli pole wyboru opcjonalnej **alternatywnej nazwy podmiotu** jest wypełnione, musi mieć zarówno nazwę pospolitą certyfikatu, jak i jeden wpis na sieć San. Są one wprowadzane jako wartości **nazw DNS** . Aby dowiedzieć się, jak generować certyfikaty, które mają sieci SAN, zobacz [jak dodać alternatywną nazwę podmiotu do certyfikatu bezpiecznego protokołu LDAP](https://support.microsoft.com/kb/931351).
+* Wartość pola **zamierzone cele** w certyfikacie powinna zawierać odpowiednią wartość, na przykład **uwierzytelnianie serwera** lub **uwierzytelnianie klienta**.
 
 ### <a name="application-certificates-optional"></a>Certyfikaty aplikacji (opcjonalnie)
 
-Dowolna liczba dodatkowych certyfikatów może być zainstalowana w klastrze ze względów bezpieczeństwa aplikacji. Przed utworzeniem klastra należy wziąć pod uwagę scenariusze zabezpieczeń aplikacji, które wymagają zainstalowania certyfikatu w węzłach, takie jak:
+Dowolna liczba dodatkowych certyfikatów może być zainstalowana w klastrze na potrzeby zabezpieczeń aplikacji. Przed utworzeniem klastra należy wziąć pod uwagę scenariusze zabezpieczeń aplikacji, które wymagają zainstalowania certyfikatu w węzłach, na przykład:
 
 * Szyfrowanie i odszyfrowywanie wartości konfiguracji aplikacji.
 * Szyfrowanie danych między węzłami podczas replikacji.
@@ -129,16 +129,16 @@ Koncepcja tworzenia bezpiecznych klastrów jest taka sama, niezależnie od tego,
 
 ### <a name="client-authentication-certificates-optional"></a>Certyfikaty uwierzytelniania klienta (opcjonalnie)
 
-Można określić dowolną liczbę dodatkowych certyfikatów dla operacji administratora lub klienta użytkownika. Klient może używać tego certyfikatu, gdy wymagane jest uwierzytelnianie wzajemne. Certyfikaty klienta zazwyczaj nie są wystawiane przez urząd certyfikacji innej firmy. Zamiast tego magazyn osobisty bieżącej lokalizacji użytkownika zazwyczaj zawiera certyfikaty klienta umieszczone tam przez główny urząd. Certyfikat powinien mieć wartość **zamierzonego celu** **uwierzytelniania klienta**.  
+Dla operacji administratora lub użytkownika można określić dowolną liczbę dodatkowych certyfikatów. Klient może użyć tego certyfikatu, jeśli wymagane jest wzajemne uwierzytelnianie. Certyfikaty klienta zwykle nie są wystawiane przez urząd certyfikacji innej firmy. Zamiast tego magazyn osobisty bieżącej lokalizacji użytkownika zwykle zawiera certyfikaty klienta umieszczone w ramach głównego urzędu certyfikacji. Certyfikat powinien mieć **zamierzoną** wartość w polu **uwierzytelnianie klienta**.  
 
-Domyślnie certyfikat klastra ma uprawnienia klienta administratora. Te dodatkowe certyfikaty klienta nie powinny być instalowane w klastrze, ale są określone jako dozwolone w konfiguracji klastra.  Jednak certyfikaty klienta muszą być zainstalowane na komputerach klienckich, aby połączyć się z klastrem i wykonać wszelkie operacje.
+Domyślnie certyfikat klastra ma uprawnienia administratora. Te dodatkowe certyfikaty klienta nie powinny być zainstalowane w klastrze, ale są określone jako dozwolone w konfiguracji klastra.  Należy jednak zainstalować certyfikaty klienta na komputerach klienckich, aby połączyć się z klastrem i wykonać wszelkie operacje.
 
 > [!NOTE]
-> Wszystkie operacje zarządzania w klastrze sieci szkieletowej usług wymagają certyfikatów serwera. Certyfikatów klienta nie można używać do zarządzania.
+> Wszystkie operacje zarządzania w klastrze Service Fabric wymagają certyfikatów serwera. Nie można używać certyfikatów klienta do zarządzania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie klastra na platformie Azure przy użyciu szablonu Usługi Resource Manager](service-fabric-cluster-creation-via-arm.md)
+* [Tworzenie klastra na platformie Azure przy użyciu szablonu Menedżer zasobów](service-fabric-cluster-creation-via-arm.md)
 * [Tworzenie klastra przy użyciu witryny Azure Portal](service-fabric-cluster-creation-via-portal.md)
 
 <!--Image references-->

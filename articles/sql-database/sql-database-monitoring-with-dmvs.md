@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie wydajności za pomocą dmv
-description: Dowiedz się, jak wykrywać i diagnozować typowe problemy z wydajnością, korzystając z dynamicznych widoków zarządzania do monitorowania bazy danych SQL platformy Microsoft Azure.
+title: Monitorowanie wydajności przy użyciu widoków DMV
+description: Informacje na temat wykrywania i diagnozowania typowych problemów z wydajnością przy użyciu dynamicznych widoków zarządzania do monitorowania Microsoft Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,57 +12,57 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 04/19/2020
 ms.openlocfilehash: 6f33f49be74419a8f0cd31d973d64798f5d76a2c
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683019"
 ---
-# <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitorowanie wydajności usługi Azure SQL Database przy użyciu dynamicznych widoków zarządzania
+# <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitorowanie wydajności Azure SQL Database przy użyciu dynamicznych widoków zarządzania
 
-Microsoft Azure SQL Database umożliwia podzbiór widoków zarządzania dynamicznego do diagnozowania problemów z wydajnością, które mogą być spowodowane przez zablokowane lub długotrwałe kwerendy, wąskie gardła zasobów, plany kwerend ubogich i tak dalej. Ten temat zawiera informacje na temat wykrywania typowych problemów z wydajnością przy użyciu dynamicznych widoków zarządzania.
+Microsoft Azure SQL Database umożliwia podzbiór dynamicznych widoków zarządzania do diagnozowania problemów z wydajnością, co może być spowodowane przez zablokowane lub długotrwałe zapytania, wąskie gardła zasobów, słabe plany zapytań itd. Ten temat zawiera informacje dotyczące wykrywania typowych problemów z wydajnością przy użyciu dynamicznych widoków zarządzania.
 
-Baza danych SQL częściowo obsługuje trzy kategorie dynamicznych widoków zarządzania:
+SQL Database częściowo obsługuje trzy kategorie dynamicznych widoków zarządzania:
 
-- Widoki dynamicznego zarządzania związane z bazami danych.
-- Widoki dynamicznego zarządzania związane z wykonaniem.
-- Dynamiczne widoki zarządzania związane z transakcjami.
+- Dynamiczne widoki zarządzania powiązane z bazami danych.
+- Dynamiczne widoki zarządzania powiązane z wykonywaniem.
+- Dynamiczne widoki zarządzania powiązane z transakcjami.
 
-Aby uzyskać szczegółowe informacje na temat dynamicznych widoków zarządzania, zobacz [Dynamiczne widoki zarządzania i funkcje (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) w programie SQL Server Books Online.
+Aby uzyskać szczegółowe informacje na temat dynamicznych widoków zarządzania, zobacz [dynamiczne widoki zarządzania i funkcje (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) w SQL Server książki online.
 
 ## <a name="permissions"></a>Uprawnienia
 
-W bazie danych SQL wykonywanie zapytań o dynamiczny widok zarządzania wymaga uprawnień **VIEW DATABASE STATE.** Uprawnienie **WYŚWIETL STAN BAZY DANYCH** zwraca informacje o wszystkich obiektach w bieżącej bazie danych.
-Aby udzielić uprawnienia **VIEW DATABASE STATE** określonemu użytkownikowi bazy danych, uruchom następującą kwerendę:
+W programie SQL Database wykonywanie zapytania dotyczącego dynamicznego widoku zarządzania wymaga uprawnień **Wyświetlanie stanu bazy danych** . Uprawnienie **Wyświetlanie stanu bazy danych** zwraca informacje o wszystkich obiektach w bieżącej bazie danych.
+Aby udzielić uprawnienia do **wyświetlania stanu bazy danych** określonemu użytkownikowi bazy danych, uruchom następujące zapytanie:
 
 ```sql
 GRANT VIEW DATABASE STATE TO database_user;
 ```
 
-W przypadku lokalnego programu SQL Server dynamiczne widoki zarządzania zwracają informacje o stanie serwera. W bazie danych SQL zwracają informacje dotyczące bieżącej bazy danych logicznej tylko.
+W wystąpieniu SQL Server lokalnego, dynamiczne widoki zarządzania zwracają informacje o stanie serwera. W SQL Database zwracają informacje dotyczące tylko bieżącej logicznej bazy danych.
 
-Ten artykuł zawiera kolekcję zapytań DMV, które można wykonać przy użyciu programu SQL Server Management Studio lub usługi Azure Data Studio w celu wykrycia następujących typów problemów z wydajnością kwerendy:
+Ten artykuł zawiera kolekcję zapytań DMV, które można wykonać za pomocą SQL Server Management Studio lub Azure Data Studio w celu wykrycia następujących typów problemów z wydajnością zapytań:
 
-- [Identyfikowanie zapytań związanych z nadmiernym zużyciem procesora CPU](#identify-cpu-performance-issues)
-- [PAGELATCH_* i WRITE_LOG czeka związane z wąskich gardeł we/wy](#identify-io-performance-issues)
-- [PAGELATCH_* czeka spowodowane przeztTempDB rywalizacji](#identify-tempdb-performance-issues)
-- [RESOURCE_SEMAHPORE czeka spowodowane problemami z oczekiwaniem na przyznanie pamięci](#identify-memory-grant-wait-performance-issues)
+- [Identyfikowanie zapytań dotyczących nadmiernego użycia procesora CPU](#identify-cpu-performance-issues)
+- [PAGELATCH_ * i WRITE_LOG czekają na wąskie gardła we/wy](#identify-io-performance-issues)
+- [PAGELATCH_ * czeka na bytTempDB rywalizację](#identify-tempdb-performance-issues)
+- [RESOURCE_SEMAHPORE czeka na problemy z przydzieleniem pamięci](#identify-memory-grant-wait-performance-issues)
 - [Identyfikowanie rozmiarów bazy danych i obiektów](#calculating-database-and-objects-sizes)
 - [Pobieranie informacji o aktywnych sesjach](#monitoring-connections)
-- [Pobieranie informacji o użyciu zasobów w całym systemie i w zasobach bazy danych](#monitor-resource-use)
-- [Pobieranie informacji o wydajności kwerendy](#monitoring-query-performance)
+- [Pobierz informacje o użyciu zasobów dla całego systemu i bazy danych](#monitor-resource-use)
+- [Pobieranie informacji o wydajności zapytań](#monitoring-query-performance)
 
-## <a name="identify-cpu-performance-issues"></a>Identyfikowanie problemów z wydajnością procesora
+## <a name="identify-cpu-performance-issues"></a>Identyfikowanie problemów z wydajnością procesora CPU
 
-Jeśli zużycie procesora CPU przekracza 80% przez dłuższy czas, należy wziąć pod uwagę następujące kroki rozwiązywania problemów:
+Jeśli użycie procesora CPU jest powyżej 80% przez dłuższy czas, należy wziąć pod uwagę następujące kroki rozwiązywania problemów:
 
-### <a name="the-cpu-issue-is-occurring-now"></a>Problem z procesorem występuje teraz
+### <a name="the-cpu-issue-is-occurring-now"></a>Problem z procesorem CPU występuje teraz
 
-Jeśli problem występuje w tej chwili, istnieją dwa możliwe scenariusze:
+Jeśli problem występuje już teraz, istnieją dwa możliwe scenariusze:
 
-#### <a name="many-individual-queries-that-cumulatively-consume-high-cpu"></a>Wiele pojedynczych zapytań, które łącznie zużywają wysoki poziom procesora
+#### <a name="many-individual-queries-that-cumulatively-consume-high-cpu"></a>Wiele indywidualnych zapytań, które łącznie zużywają duże użycie procesora CPU
 
-Użyj następującej kwerendy, aby zidentyfikować najważniejsze skróty kwerendy:
+Użyj następującego zapytania, aby zidentyfikować Najważniejsze skróty zapytania:
 
 ```sql
 PRINT '-- top 10 Active CPU Consuming Queries (aggregated)--';
@@ -75,9 +75,9 @@ FROM (SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cp
 ORDER BY Total_Request_Cpu_Time_Ms DESC;
 ```
 
-#### <a name="long-running-queries-that-consume-cpu-are-still-running"></a>Długo działające kwerendy, które zużywają procesor CPU, są nadal uruchomione
+#### <a name="long-running-queries-that-consume-cpu-are-still-running"></a>Długotrwałe zapytania, które zużywają procesor CPU, są nadal uruchomione
 
-Użyj następującej kwerendy, aby zidentyfikować te kwerendy:
+Użyj następującego zapytania, aby zidentyfikować te zapytania:
 
 ```sql
 PRINT '--top 10 Active CPU Consuming Queries by sessions--';
@@ -88,9 +88,9 @@ ORDER BY cpu_time DESC;
 GO
 ```
 
-### <a name="the-cpu-issue-occurred-in-the-past"></a>Problem z procesorem wystąpił w przeszłości
+### <a name="the-cpu-issue-occurred-in-the-past"></a>Wystąpił problem z procesorem CPU w przeszłości
 
-Jeśli problem wystąpił w przeszłości i chcesz wykonać analizę przyczyn źródłowych, użyj [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Użytkownicy z dostępem do bazy danych mogą używać funkcji T-SQL do wykonywania zapytań o dane magazynu zapytań. Domyślne konfiguracje magazynu zapytań używają szczegółowości 1 godziny. Użyj następującej kwerendy, aby sprawdzić aktywność dla kwerend zużywających procesor CPU o wysokiej wydajności. Ta kwerenda zwraca 15 najlepszych zapytań zużywających procesor CPU. Pamiętaj, `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`aby zmienić:
+Jeśli problem wystąpił w przeszłości i chcesz przeprowadzić analizę głównej przyczyny, użyj [magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Użytkownicy z dostępem do bazy danych mogą używać języka T-SQL do wykonywania zapytań dotyczących danych magazynu zapytań. Domyślne konfiguracje magazynu zapytań korzystają z stopnia szczegółowości 1 godziny. Użyj następującego zapytania, aby przyjrzeć się działaniu w przypadku dużych zapytań zużywających procesor CPU. To zapytanie zwraca 15 najważniejszych zapytań zużywających procesor CPU. Pamiętaj, aby `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`zmienić:
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -111,27 +111,27 @@ WHERE OD.RN<=15
 ORDER BY total_cpu_millisec DESC;
 ```
 
-Po zidentyfikowaniu kwerend problematycznych, nadszedł czas, aby dostroić te zapytania, aby zmniejszyć wykorzystanie procesora CPU.  Jeśli nie masz czasu, aby dostroić zapytania, można również uaktualnić SLO bazy danych, aby obejść ten problem.
+Po zidentyfikowaniu problemów z zapytaniami czasowo dostroić te zapytania, aby zmniejszyć wykorzystanie procesora CPU.  Jeśli nie masz czasu na dostosowanie zapytań, możesz również uaktualnić cel bazy danych w celu obejścia tego problemu.
 
 ## <a name="identify-io-performance-issues"></a>Identyfikowanie problemów z wydajnością we/wy
 
-Podczas identyfikowania problemów z wydajnością we/wy najważniejsze typy oczekiwania skojarzone z problemami we/wy to:
+Podczas identyfikowania problemów dotyczących wydajności operacji we/wy najważniejsze typy oczekiwania skojarzone z problemami we/wy są następujące:
 
 - `PAGEIOLATCH_*`
 
-  W przypadku problemów z `PAGEIOLATCH_SH`we/wy pliku danych (w tym , `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Jeśli nazwa typu oczekiwania ma **we/wy we/wy,** wskazuje na problem we/wy. Jeśli w nazwie oczekiwania zatrzaśnięcia strony nie ma żadnych operacji **we/wy,** wskazuje ona inny typ problemu (na przykład rywalizacja tempdb).
+  W przypadku problemów we/wy pliku `PAGEIOLATCH_SH`danych `PAGEIOLATCH_EX`( `PAGEIOLATCH_UP`w tym,,).  Jeśli nazwa typu oczekiwania zawiera we **/wy** , wskazuje na problem we/wy. Jeśli nie ma **operacji we/wy** w nazwie oczekiwania zamka strony, wskazuje na inny typ problemu (na przykład rywalizacja o bazę danych tempdb).
 
 - `WRITE_LOG`
 
-  W przypadku problemów z we/wy dziennika transakcji.
+  W przypadku problemów z operacjami we/wy dziennika transakcji.
 
-### <a name="if-the-io-issue-is-occurring-right-now"></a>Jeśli problem we/wy występuje właśnie teraz
+### <a name="if-the-io-issue-is-occurring-right-now"></a>Jeśli problem we/wy występuje już teraz
 
-Użyj [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) lub [sys.dm_os_waiting_tasks,](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) aby zobaczyć `wait_type` i `wait_time`.
+Użyj [widoku sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) lub [sys. dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) , aby zobaczyć `wait_type` i `wait_time`.
 
-#### <a name="identify-data-and-log-io-usage"></a>Identyfikowanie danych i logów użycia we/wy
+#### <a name="identify-data-and-log-io-usage"></a>Identyfikowanie użycia operacji we/wy danych i dziennika
 
-Użyj następującej kwerendy do identyfikowania danych i log użycia we/wy. Jeśli we/wy danych lub dziennika jest powyżej 80%, oznacza to, że użytkownicy korzystali z dostępnych we/wy dla warstwy usług bazy danych SQL.
+Użyj następującego zapytania, aby zidentyfikować dane i użycie operacji we/wy dziennika. Jeśli operacje we/wy danych lub dziennika są powyżej 80%, oznacza to, że użytkownicy korzystali z dostępnych operacji we/wy dla warstwy usługi SQL DB.
 
 ```sql
 SELECT end_time, avg_data_io_percent, avg_log_write_percent
@@ -139,14 +139,14 @@ FROM sys.dm_db_resource_stats
 ORDER BY end_time DESC;
 ```
 
-Jeśli limit we/wy został osiągnięty, dostępne są dwie opcje:
+Jeśli limit operacji we/wy został osiągnięty, dostępne są dwie opcje:
 
-- Opcja 1: Uaktualnianie rozmiaru obliczeniowego lub warstwy usługi
-- Opcja 2: Identyfikowanie i dostrajanie zapytań zużywających najwięcej we/wy.
+- Opcja 1: uaktualnianie rozmiaru obliczeń lub warstwy usług
+- Opcja 2: Identyfikowanie i dostrajanie zapytań zużywających najwięcej operacji we/wy.
 
-#### <a name="view-buffer-related-io-using-the-query-store"></a>Wyświetlanie we/wy związanej z buforem przy użyciu Magazynu zapytań
+#### <a name="view-buffer-related-io-using-the-query-store"></a>Wyświetlanie operacji we/wy związanych z buforem przy użyciu magazynu zapytań
 
-Dla opcji 2 można użyć następującej kwerendy względem Magazynu zapytań dla we/wy związanej z buforem, aby wyświetlić ostatnie dwie godziny śledzonej aktywności:
+W przypadku opcji 2 można użyć następującego zapytania względem magazynu zapytań dla operacji we/wy, aby wyświetlić ostatnie dwie godziny śledzonego działania:
 
 ```sql
 -- top queries that waited on buffer
@@ -167,9 +167,9 @@ ORDER BY total_wait_time_ms DESC;
 GO
 ```
 
-#### <a name="view-total-log-io-for-writelog-waits"></a>Wyświetl całkowity dziennik We/Wy dla oczekiwania WRITELOG
+#### <a name="view-total-log-io-for-writelog-waits"></a>Wyświetl łączny limit operacji we/wy dziennika dla WRITELOG
 
-Jeśli typem `WRITELOG`oczekiwania jest , użyj następującej kwerendy, aby wyświetlić sumę dziennika we/wy przez instrukcję:
+Jeśli typ oczekiwania to `WRITELOG`, użyj następującego zapytania, aby wyświetlić łączną liczbę operacji we/wy dziennika:
 
 ```sql
 -- Top transaction log consumers
@@ -248,19 +248,19 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identyfikowanie `tempdb` problemów z wydajnością
 
-Podczas identyfikowania problemów z wydajnością we/wy najważniejsze typy oczekiwania skojarzone z `tempdb` problemami są `PAGELATCH_*` (nie). `PAGEIOLATCH_*` Jednak `PAGELATCH_*` czeka nie zawsze oznacza, `tempdb` że masz sporów.  To oczekiwanie może również oznaczać, że masz rywalizację o stronę danych obiektu użytkownika z powodu równoczesnych żądań kierowanych na tę samą stronę danych. Aby dodatkowo `tempdb` potwierdzić rywalizację, użyj [pliku sys.dm_exec_requests,](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) aby potwierdzić, że `tempdb` wartość wait_resource zaczyna `x` się od tego, `y` `2:x:y` gdzie znajduje się 2, jest identyfikatorem bazy danych, identyfikatorem pliku i identyfikatorem strony.  
+W przypadku identyfikowania problemów dotyczących wydajności operacji we/wy najważniejsze `tempdb` typy oczekiwania `PAGELATCH_*` skojarzone z `PAGEIOLATCH_*`problemami to (nie). Jednak `PAGELATCH_*` oczekiwania nie zawsze oznaczają `tempdb` rywalizację.  Taka odczekanie może również oznaczać, że masz zawartość strony danych obiektu użytkownika z powodu współbieżnych żądań przeznaczonych dla tej samej strony danych. Aby dodatkowo potwierdzić `tempdb` rywalizację, użyj wykazu [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) , aby potwierdzić, że wait_resource wartość `2:x:y` zaczyna się od `tempdb` , gdzie 2 jest identyfikatorem bazy danych, `x` jest identyfikatorem pliku i `y` jest identyfikatorem strony.  
 
-W przypadku rywalizacji tempdb powszechną metodą jest zmniejszenie `tempdb`lub ponowne zapisanie kodu aplikacji, który opiera się na .  Typowe `tempdb` obszary użytkowania obejmują:
+W przypadku rywalizacji o bazę danych tempdb wspólna metoda polega na zmniejszeniu lub ponownym zapisaniu kodu aplikacji `tempdb`, na którym bazuje.  Typowe `tempdb` obszary użycia obejmują:
 
 - Tabele tymczasowe
 - Zmienne tabeli
-- Parametry wycenione w tabeli
-- Użycie magazynu wersji (w szczególności związane z długotrwałymi transakcjami)
-- Kwerendy, które mają plany kwerend, które używają sortowania, sprzężeń mieszania i buforów
+- Parametry z wartościami przechowywanymi w tabeli
+- Użycie magazynu wersji (powiązane z długotrwałymi transakcjami)
+- Zapytania z planami zapytania, które używają sortowania, sprzężeń skrótów i buforów
 
-### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Najpopularniejsze kwerendy korzystające ze zmiennych tabel i tabel tymczasowych
+### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Najpopularniejsze zapytania, które używają zmiennych tabeli i tabel tymczasowych
 
-Użyj następującej kwerendy, aby zidentyfikować najważniejsze kwerendy korzystające ze zmiennych tabeli i tabel tymczasowych:
+Użyj następującego zapytania, aby zidentyfikować najpopularniejsze zapytania, które używają zmiennych tabeli i tabel tymczasowych:
 
 ```sql
 SELECT plan_handle, execution_count, query_plan
@@ -283,9 +283,9 @@ FROM(SELECT DISTINCT plan_handle, [Database], [Schema], [table]
     JOIN #tmpPlan AS t2 ON t.plan_handle=t2.plan_handle;
 ```
 
-### <a name="identify-long-running-transactions"></a>Identyfikowanie długotrwałych transakcji
+### <a name="identify-long-running-transactions"></a>Zidentyfikuj długotrwałe transakcje
 
-Użyj następującej kwerendy, aby zidentyfikować długotrwałe transakcje. Długotrwałe transakcje uniemożliwiają oczyszczanie magazynu wersji.
+Użyj następującego zapytania, aby zidentyfikować długotrwałe transakcje. Długotrwałe transakcje uniemożliwiają czyszczenie magazynu wersji.
 
 ```sql
 SELECT DB_NAME(dtr.database_id) 'database_name',
@@ -341,13 +341,13 @@ WHERE atr.transaction_type != 2
 ORDER BY start_time ASC;
 ```
 
-## <a name="identify-memory-grant-wait-performance-issues"></a>Identyfikowanie problemów z wydajnością oczekiwania na przyznanie dotacji pamięci
+## <a name="identify-memory-grant-wait-performance-issues"></a>Identyfikuj problemy z wydajnością odczekania pamięci
 
-Jeśli twój najwyższy `RESOURCE_SEMAHPORE` typ oczekiwania jest i nie masz problemu z wysokim użyciem procesora CPU, może to być problem z oczekiwaniem dotacji pamięci.
+Jeśli typ oczekiwania to `RESOURCE_SEMAHPORE` i nie masz wysokiego problemu dotyczącego użycia procesora CPU, może wystąpić problem z przydzieleniem pamięci.
 
-### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Określanie, `RESOURCE_SEMAHPORE` czy oczekiwanie jest najlepszym oczekiwaniem
+### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Określanie, `RESOURCE_SEMAHPORE` czy oczekiwanie jest oczekiwanie na początku
 
-Użyj następującej kwerendy, `RESOURCE_SEMAHPORE` aby ustalić, czy oczekiwanie jest
+Użyj następującego zapytania, aby określić, czy `RESOURCE_SEMAHPORE` oczekiwanie jest oczekiwanie na początku
 
 ```sql
 SELECT wait_type,
@@ -360,9 +360,9 @@ GROUP BY wait_type
 ORDER BY SUM(wait_time) DESC;
 ```
 
-### <a name="identity-high-memory-consuming-statements"></a>Tożsamości wysokiej pamięci zużywa instrukcji
+### <a name="identity-high-memory-consuming-statements"></a>Wysoce czasochłonne instrukcje tożsamości
 
-Użyj następującej kwerendy, aby zidentyfikować instrukcje zużywające dużą ilość pamięci:
+Użyj następującego zapytania, aby zidentyfikować następujące instrukcje zużywające pamięć:
 
 ```sql
 SELECT IDENTITY(INT, 1, 1) rowId,
@@ -396,9 +396,9 @@ FROM cte
 ORDER BY SerialDesiredMemory DESC;
 ```
 
-### <a name="identify-the-top-10-active-memory-grants"></a>Określ 10 najważniejszych dotacji na pamięć aktywną
+### <a name="identify-the-top-10-active-memory-grants"></a>Zidentyfikuj 10 najważniejszych przydziałów pamięci
 
-Użyj następującej kwerendy, aby zidentyfikować 10 najważniejszych dotacji pamięci aktywnej:
+Użyj następującego zapytania, aby zidentyfikować 10 najważniejszych przydziałów pamięci:
 
 ```sql
 SELECT TOP 10
@@ -470,9 +470,9 @@ FROM sys.dm_exec_requests AS r
 ORDER BY mg.granted_memory_kb DESC;
 ```
 
-## <a name="calculating-database-and-objects-sizes"></a>Obliczanie rozmiarów bazy danych i obiektów
+## <a name="calculating-database-and-objects-sizes"></a>Obliczanie rozmiarów baz danych i obiektów
 
-Następująca kwerenda zwraca rozmiar bazy danych (w megabajtach):
+Następujące zapytanie zwraca rozmiar bazy danych (w megabajtach):
 
 ```sql
 -- Calculates the size of the database.
@@ -482,7 +482,7 @@ WHERE type_desc = 'ROWS';
 GO
 ```
 
-Następująca kwerenda zwraca rozmiar poszczególnych obiektów (w megabajtach) w bazie danych:
+Następujące zapytanie zwraca rozmiar pojedynczych obiektów (w megabajtach) w bazie danych:
 
 ```sql
 -- Calculates the size of individual database objects.
@@ -495,8 +495,8 @@ GO
 
 ## <a name="monitoring-connections"></a>Monitorowanie połączeń
 
-Można użyć widoku [sys.dm_exec_connections,](https://msdn.microsoft.com/library/ms181509.aspx) aby pobrać informacje o połączeniach nawiązanych z określonym serwerem bazy danych SQL platformy Azure i szczegóły każdego połączenia. Ponadto widok [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) jest przydatny podczas pobierania informacji o wszystkich aktywnych połączeniach użytkowników i zadaniach wewnętrznych.
-Następująca kwerenda pobiera informacje o bieżącym połączeniu:
+Możesz użyć widoku [sys. dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) , aby pobrać informacje o połączeniach ustanowionych z określonym serwerem Azure SQL Database i szczegóły dotyczące poszczególnych połączeń. Ponadto widok [sys. dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) jest przydatny podczas pobierania informacji o wszystkich aktywnych połączeniach użytkowników i zadaniach wewnętrznych.
+Następujące zapytanie pobiera informacje dotyczące bieżącego połączenia:
 
 ```sql
 SELECT
@@ -512,22 +512,22 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Podczas wykonywania **widoków sys.dm_exec_requests** i **sys.dm_exec_sessions,** jeśli masz uprawnienia **VIEW DATABASE STATE** w bazie danych, zobaczysz wszystkie sesje wykonywania w bazie danych; w przeciwnym razie zobaczysz tylko bieżącą sesję.
+> W przypadku wykonywania widoków **sys. dm_exec_requests** i **sys. dm_exec_sessions**, jeśli masz uprawnienia do **wyświetlania stanu bazy** danych w bazie danych, zobaczysz wszystkie wykonywane sesje w bazie danych. w przeciwnym razie zostanie wyświetlona tylko bieżąca sesja.
 
-## <a name="monitor-resource-use"></a>Monitorowanie wykorzystania zasobów
+## <a name="monitor-resource-use"></a>Monitoruj użycie zasobów
 
-Użycie zasobów można monitorować za pomocą [usługi SQL Database Query Performance Insight](sql-database-query-performance.md) i Query [Store](https://msdn.microsoft.com/library/dn817826.aspx).
+Użycie zasobów można monitorować przy użyciu [SQL Database szczegółowe informacje o wydajności zapytań](sql-database-query-performance.md) i [magazynu zapytań](https://msdn.microsoft.com/library/dn817826.aspx).
 
-Można również monitorować użycie przy użyciu tych dwóch widoków:
+Możesz również monitorować użycie przy użyciu następujących dwóch widoków:
 
-- [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
-- [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
+- [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys. dm_db_resource_stats
 
-Można użyć [widoku sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) w każdej bazie danych SQL. Widok **sys.dm_db_resource_stats** pokazuje dane użycia zasobów ostatnich względem warstwy usług. Średnie wartości procentowe procesora CPU, we/wy danych, zapisów dziennika i pamięci są rejestrowane co 15 sekund i są utrzymywane przez 1 godzinę.
+W każdej bazie danych SQL można użyć widoku [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) . Widok **sys. dm_db_resource_stats** pokazuje ostatnie dane użycia zasobów względem warstwy usług. Średnia wartość procentowa dla procesora CPU, operacji we/wy danych, zapisów dziennika i pamięci są rejestrowane co 15 sekund i są przechowywane przez 1 godzinę.
 
-Ponieważ ten widok zapewnia bardziej szczegółowe spojrzenie na wykorzystanie zasobów, użyj **sys.dm_db_resource_stats** najpierw dla każdej analizy bieżącego stanu lub rozwiązywania problemów. Na przykład ta kwerenda pokazuje średnie i maksymalne użycie zasobów dla bieżącej bazy danych w ciągu ostatniej godziny:
+Ponieważ ten widok zapewnia bardziej szczegółowy wgląd w użycie zasobów, należy najpierw użyć wykazu **sys. dm_db_resource_stats** , aby uzyskać aktualną analizę stanu lub Rozwiązywanie problemów. Na przykład to zapytanie pokazuje średnie i maksymalne użycie zasobów dla bieżącej bazy danych w ciągu ostatniej godziny:
 
 ```sql
 SELECT  
@@ -542,26 +542,26 @@ SELECT
 FROM sys.dm_db_resource_stats;  
 ```
 
-Aby zapoznać się z innymi kwerendami, zobacz przykłady w [pliku sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+Inne zapytania można znaleźć w przykładach w tabeli [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-### <a name="sysresource_stats"></a>sys.resource_stats
+### <a name="sysresource_stats"></a>sys. resource_stats
 
-Widok [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) w **głównej** bazie danych ma dodatkowe informacje, które mogą pomóc w monitorowaniu wydajności bazy danych SQL w określonej warstwie usług i rozmiarze obliczeń. Dane są zbierane co 5 minut i są przechowywane przez około 14 dni. Ten widok jest przydatny w przypadku długoterminowej analizy historycznej sposobu używania zasobów przez bazę danych SQL.
+Widok [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) w bazie danych **Master** zawiera dodatkowe informacje, które mogą pomóc w monitorowaniu wydajności bazy danych SQL w określonej warstwie usług i rozmiarze obliczeniowym. Dane są zbierane co 5 minut i są przechowywane przez około 14 dni. Ten widok jest przydatny do długoterminowej analizy historycznej, w jaki sposób baza danych SQL używa zasobów.
 
-Na poniższym wykresie przedstawiono użycie zasobów procesora CPU dla bazy danych premium o rozmiarze obliczeniowym P2 dla każdej godziny w tygodniu. Ten wykres rozpoczyna się w poniedziałek, pokazuje 5 dni roboczych, a następnie pokazuje weekend, gdy znacznie mniej dzieje się w aplikacji.
+Na poniższym wykresie przedstawiono użycie zasobów procesora CPU dla bazy danych w warstwie Premium z wielkością obliczeniową P2 dla każdej godziny w tygodniu. Ten wykres zaczyna się w poniedziałek, pokazuje 5 dni roboczych, a następnie pokazuje weekend, gdy jest znacznie mniejszy w aplikacji.
 
 ![Użycie zasobów bazy danych SQL](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
 
-Z danych ta baza danych ma obecnie szczytowe obciążenie procesora CPU nieco ponad 50 procent użycia procesora w stosunku do rozmiaru obliczeniowego P2 (południe we wtorek). Jeśli procesor CPU jest czynnikiem dominującym w profilu zasobów aplikacji, można zdecydować, że P2 jest odpowiedni rozmiar obliczeń, aby zagwarantować, że obciążenie zawsze pasuje. Jeśli oczekujesz, że aplikacja będzie rosnąć wraz z czasem, to dobry pomysł, aby mieć dodatkowy bufor zasobów, tak aby aplikacja nigdy nie osiągnie limitu poziomu wydajności. Jeśli zwiększysz rozmiar obliczeń, można uniknąć błędów widocznych dla klienta, które mogą wystąpić, gdy baza danych nie ma wystarczającej mocy do skutecznego przetwarzania żądań, szczególnie w środowiskach wrażliwych na opóźnienia. Przykładem jest baza danych, która obsługuje aplikację, która maluje strony sieci Web na podstawie wyników wywołań bazy danych.
+Z danych ta baza danych ma obecnie szczytowe obciążenie procesora CPU znacznie ponad 50% użycia procesora CPU względem rozmiaru obliczeniowego P2 (środku dnia we wtorek). Jeśli procesor jest dominującym czynnikiem w profilu zasobów aplikacji, można zdecydować, że P2 jest odpowiednim rozmiarem obliczeniowym, aby zagwarantować, że obciążenie zawsze mieści się. Jeśli oczekujesz, że aplikacja zostanie powiększona z upływem czasu, dobrym pomysłem jest posiadanie dodatkowego buforu zasobów, dzięki czemu aplikacja nie osiągnie limitu poziomu wydajności. W przypadku zwiększenia rozmiaru obliczeń można zapobiec błędom widocznym dla klienta, które mogą wystąpić, gdy baza danych nie ma wystarczającej mocy, aby efektywnie przetwarzać żądania, szczególnie w środowiskach z uwzględnieniem opóźnień. Przykładem jest baza danych, która obsługuje aplikację, która maluje strony sieci Web na podstawie wyników wywołań bazy danych.
 
-Inne typy aplikacji może interpretować ten sam wykres inaczej. Na przykład jeśli aplikacja próbuje przetwarzać dane listy płac każdego dnia i ma ten sam wykres, tego rodzaju "zadanie wsadowe" model może zrobić dobrze w rozmiarze obliczeń P1. Rozmiar obliczeń P1 ma 100 jednostek DTU w porównaniu do 200 jednostek DTU w rozmiarze obliczeniowym P2. Rozmiar obliczeń P1 zapewnia połowę wydajności rozmiaru obliczeń P2. Tak więc 50 procent użycia procesora w P2 jest równe 100 procent wykorzystania procesora w P1. Jeśli aplikacja nie ma limitów czasu, może nie mieć znaczenia, jeśli zadanie trwa 2 godziny lub 2,5 godziny, aby zakończyć, jeśli zostanie wykonana dzisiaj. Aplikacja w tej kategorii prawdopodobnie można użyć rozmiaru obliczeń P1. Możesz skorzystać z faktu, że istnieją okresy czasu w ciągu dnia, gdy zużycie zasobów jest niższe, tak, że każdy "wielki szczyt" może rozlać się na jeden z koryt później w ciągu dnia. Rozmiar obliczeń P1 może być dobry dla tego rodzaju aplikacji (i zaoszczędzić pieniądze), tak długo, jak zadania mogą zakończyć się na czas każdego dnia.
+Inne typy aplikacji mogą interpretować ten sam wykres inaczej. Na przykład jeśli aplikacja próbuje przetwarzać dane listy płac codziennie i ma ten sam wykres, ten rodzaj modelu "zadanie wsadowe" może być bardziej przydatny w rozmiarze obliczeń P1. Rozmiar obliczeń P1 ma 100 DTU w porównaniu do 200 DTU w rozmiarze obliczeniowym P2. Rozmiar obliczeń P1 zapewnia połowę wydajności rozmiaru obliczeniowego P2. Tak więc 50 procent użycia procesora CPU w P2 równa się 100% użycia procesora CPU w P1. Jeśli aplikacja nie ma limitów czasu, być może nie ma znaczenia, czy zadanie trwa 2 godziny lub 2,5 godzin, jeśli zostanie zakończone dzisiaj. Aplikacja w tej kategorii prawdopodobnie może korzystać z rozmiaru obliczeń P1. Można wykorzystać fakt, że w ciągu dnia istnieją okresy, w których użycie zasobów jest niższe, dzięki czemu każdy "duży szczyt" może zostać przelana do jednego z troughsów w ciągu dnia. Rozmiar obliczeń P1 może być dobry dla tego rodzaju aplikacji (i oszczędności oszczędności), o ile zadania mogą zakończyć się codziennie.
 
-Usługa Azure SQL Database udostępnia informacje o zużytych zasobach dla każdej aktywnej bazy danych w widoku **sys.resource_stats** **głównej** bazy danych na każdym serwerze. Dane w tabeli są agregowane dla interwałów 5-minutowych. W warstwach usługi Basic, Standard i Premium dane mogą zająć więcej niż 5 minut, aby pojawić się w tabeli, więc te dane są bardziej przydatne w przypadku analizy historycznej, a nie analizy w czasie zbliżonym do rzeczywistego. Kwerenda **sys.resource_stats** widok, aby zobaczyć najnowszą historię bazy danych i sprawdzić, czy rezerwacja, którą wybrałeś dostarczone wydajność, którą chcesz w razie potrzeby.
+Azure SQL Database uwidacznia informacje o wykorzystanych zasobach dla każdej aktywnej bazy danych w widoku **sys. resource_stats** bazy danych **Master** na każdym serwerze. Dane w tabeli są agregowane dla 5-minutowych interwałów. W przypadku warstw usług podstawowa, standardowa i Premium dane w tabeli mogą trwać więcej niż 5 minut, więc dane te są bardziej przydatne do analizy historycznej, a nie do analizy w czasie rzeczywistym. Wykonaj zapytanie dotyczące widoku **sys. resource_stats** , aby zobaczyć ostatnią historię bazy danych i sprawdzić, czy rezerwacja została wybrana, w razie potrzeby podano żądaną wydajność.
 
 > [!NOTE]
-> Musisz być połączony z **główną** bazą danych serwera bazy danych SQL, aby zbadać **plik sys.resource_stats** w poniższych przykładach.
+> Aby zbadać **sys. resource_stats** w poniższych przykładach, musisz mieć połączenie z bazą danych **Master** serwera SQL Database.
 
-W tym przykładzie pokazano, jak dane w tym widoku jest narażony:
+Ten przykład pokazuje, jak są udostępniane dane w tym widoku:
 
 ```sql
 SELECT TOP 10 *
@@ -570,11 +570,11 @@ WHERE database_name = 'resource1'
 ORDER BY start_time DESC
 ```
 
-![Widok katalogu sys.resource_stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
+![Widok wykazu sys. resource_stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
-W następnym przykładzie przedstawiono różne sposoby użycia widoku katalogu **sys.resource_stats** katalogu, aby uzyskać informacje o tym, jak baza danych SQL korzysta z zasobów:
+W następnym przykładzie pokazano różne sposoby używania widoku wykazu **sys. resource_stats** , aby uzyskać informacje na temat używania zasobów przez bazę danych SQL:
 
-1. Aby przyjrzeć się wykorzystaniu zasobów w zeszłym tygodniu dla bazy danych userdb1, można uruchomić tę kwerendę:
+1. Aby przyjrzeć się zasobom używanym w ostatnim tygodniu dla bazy danych userdb1, możesz uruchomić następujące zapytanie:
 
     ```sql
     SELECT *
@@ -584,7 +584,7 @@ W następnym przykładzie przedstawiono różne sposoby użycia widoku katalogu 
     ORDER BY start_time DESC;
     ```
 
-2. Aby ocenić, jak dobrze obciążenie odpowiada rozmiarowi obliczeń, należy przejść do szczegółów każdego aspektu metryk zasobów: procesora CPU, odczyty, zapisy, liczba pracowników i liczba sesji. Oto poprawiona kwerenda **używająca pliku sys.resource_stats** do raportowania średnich i maksymalnych wartości tych metryk zasobów:
+2. Aby oszacować, w jaki sposób obciążenie jest zgodne z rozmiarem obliczeń, należy przejść do szczegółów poszczególnych aspektów metryk zasobów: procesor, Odczyt, zapis, liczba procesów roboczych i liczba sesji. Oto poprawione zapytanie przy użyciu wykazu **sys. resource_stats** , aby zgłosić średnią i maksymalną wartość tych metryk zasobów:
 
     ```sql
     SELECT
@@ -602,11 +602,11 @@ W następnym przykładzie przedstawiono różne sposoby użycia widoku katalogu 
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-3. Dzięki tym informacjom o średnich i maksymalnych wartościach każdego zasobu można ocenić, jak dobrze obciążenie mieści się w wybranym rozmiarze obliczeń. Zazwyczaj średnie wartości z **pliku sys.resource_stats** zapewniają dobrą linię bazową do użycia względem rozmiaru docelowego. Powinien to być twój podstawowy kij pomiarowy. Na przykład może być przy użyciu standardowej warstwy usług o rozmiarze obliczeniowym S2. Średnie wartości procentowe użycia procesora CPU i we/wy odczytuje i zapisuje są poniżej 40 procent, średnia liczba pracowników jest poniżej 50, a średnia liczba sesji jest poniżej 200. Obciążenie może pasować do rozmiaru obliczeniowego S1. Łatwo sprawdzić, czy baza danych mieści się w limitach procesu roboczego i sesji. Aby sprawdzić, czy baza danych mieści się w mniejszym rozmiarze obliczeń w odniesieniu do procesora CPU, odczytuje i zapisuje, podziel numer JEDNOSTKI DTU o niższym rozmiarze obliczeń przez numer JEDNOSTKI DTU bieżącego rozmiaru obliczeń, a następnie pomnóż wynik przez 100:
+3. Dzięki tym informacjom dotyczącym średnich i maksymalnych wartości każdej metryki zasobów można ocenić, w jaki sposób obciążenie mieści się w wybranym rozmiarze. Zazwyczaj średnie wartości z wykazu **sys. resource_stats** zapewniają dobrą linię bazową do użycia względem rozmiaru docelowego. Powinna to być podstawowa pomiar. Przykładowo może być używana standardowa warstwa usługi z rozmiarem obliczeń S2. Średnie wartości procentowe użycia dla operacji odczytu i zapisu procesora CPU i we/wy są poniżej 40%, średnia liczba procesów roboczych poniżej 50, a średnia liczba sesji jest poniżej 200. Obciążenie może być zgodne z rozmiarem obliczeń S1. Można łatwo sprawdzić, czy baza danych mieści się w limicie procesów roboczych i sesji. Aby sprawdzić, czy baza danych mieści się w mniejszym rozmiarze obliczeniowym w odniesieniu do procesora CPU, odczytów i zapisów, Podziel liczbę jednostek DTU o mniejszym rozmiarze obliczeń przez liczbę jednostek DTU bieżącego rozmiaru obliczeń, a następnie pomnóż wynik przez 100:
 
     `S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40`
 
-    Wynik jest względną różnicą wydajności między dwoma rozmiarami obliczeń w procentach. Jeśli użycie zasobów nie przekracza tej kwoty, obciążenie może pasować do niższego rozmiaru obliczeń. Należy jednak przyjrzeć się wszystkim zakresom wartości użycia zasobów i określić, według wartości procentowej, jak często obciążenie bazy danych będzie pasować do niższego rozmiaru obliczeń. Następująca kwerenda wyprowadza wartość procentową dopasowania na wymiar zasobu na podstawie progu 40 procent obliczonego w tym przykładzie:
+    Wynik jest względną różnicą wydajnościową między dwoma wielkościami obliczeniowymi wyrażoną w procentach. Jeśli użycie zasobów nie przekracza tej wartości, obciążenie może zmieścić się w mniejszym rozmiarze. Należy jednak przyjrzeć się wszystkim zakresom wartości użycia zasobów i określić procent, jak często obciążenie bazy danych zmieści się w mniejszym rozmiarze. Następujące zapytanie zwraca procent dopasowania na wymiar zasobu, na podstawie progu 40% obliczonego w tym przykładzie:
 
    ```sql
     SELECT
@@ -617,15 +617,15 @@ W następnym przykładzie przedstawiono różne sposoby użycia widoku katalogu 
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-    Na podstawie warstwy usług bazy danych można zdecydować, czy obciążenie mieści się w mniejszym rozmiarze obliczeń. Jeśli cel obciążenia bazy danych wynosi 99,9 procent, a poprzednia kwerenda zwraca wartości większe niż 99,9 procent dla wszystkich trzech wymiarów zasobów, obciążenie prawdopodobnie mieści się w niższym rozmiarze obliczeń.
+    Na podstawie warstwy usług bazy danych można zdecydować, czy obciążenie mieści się w mniejszym rozmiarze. Jeśli cel obciążenia bazy danych wynosi 99,9%, a poprzednie zapytanie zwraca wartości większe niż 99,9 procent dla wszystkich trzech wymiarów zasobów, obciążenie prawdopodobnie mieści się w mniejszym rozmiarze.
 
-    Patrząc na procent dopasowania daje również wgląd w to, czy należy przejść do następnego wyższego rozmiaru obliczeń, aby osiągnąć swój cel. Na przykład userdb1 pokazuje następujące użycie procesora CPU w ciągu ostatniego tygodnia:
+    Poszukiwanie wartości procentowej dopasowania zapewnia również wgląd w to, czy należy przenieść do kolejnego wyższego rozmiaru obliczeniowego, aby osiągnąć cel. Na przykład userdb1 pokazuje następujące użycie procesora CPU w ubiegłym tygodniu:
 
-   | Średni procent procesora | Maksymalny procent procesora |
+   | Średni procent procesora CPU | Maksymalny procent użycia procesora CPU |
    | --- | --- |
-   | 24.5 |100,00 |
+   | 24,5 |100,00 |
 
-    Średni procesor CPU wynosi około jednej czwartej limitu rozmiaru obliczeń, który dobrze pasuje do rozmiaru obliczeniowego bazy danych. Jednak maksymalna wartość pokazuje, że baza danych osiąga limit rozmiaru obliczeń. Czy musisz przejść do następnego większego rozmiaru obliczeń? Zobacz, ile razy obciążenie osiąga 100 procent, a następnie porównaj je z celem obciążenia bazy danych.
+    Średni procesor CPU jest około kwartału limitu rozmiaru obliczeniowego, który może być również dopasowany do rozmiaru obliczeniowego bazy danych. Jednak wartość maksymalna pokazuje, że baza danych osiągnie limit rozmiaru obliczeń. Czy chcesz przejść do kolejnego większego rozmiaru obliczeń? Sprawdź, ile razy obciążenie osiągnie 100 procent, a następnie porównaj je z celem obciążenia bazy danych.
 
     ```sql
     SELECT
@@ -636,22 +636,22 @@ W następnym przykładzie przedstawiono różne sposoby użycia widoku katalogu 
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-    Jeśli ta kwerenda zwraca wartość mniejszą niż 99,9 procent dla dowolnego z trzech wymiarów zasobów, należy rozważyć przeniesienie do następnego większego rozmiaru obliczeń lub użyć technik dostrajania aplikacji, aby zmniejszyć obciążenie bazy danych SQL.
+    Jeśli zapytanie zwróci wartość mniejszą niż 99,9 procent dla dowolnego z trzech wymiarów zasobów, należy rozważyć przeniesienie do następnego wyższego rozmiaru lub użycie technik dostrajania aplikacji w celu zmniejszenia obciążenia bazy danych SQL.
 
-4. W tym ćwiczeniu uwzględnino również przewidywany wzrost obciążenia w przyszłości.
+4. To ćwiczenie uwzględnia również przewidywany wzrost obciążenia w przyszłości.
 
 W przypadku pul elastycznych można monitorować pojedyncze bazy danych w puli za pomocą metod opisanych w tej sekcji. Można jednak również monitorować pulę jako całość. Informacje na ten temat znajdziesz w artykule [Monitor and manage an elastic pool](sql-database-elastic-pool-manage-portal.md) (Monitorowanie puli elastycznej i zarządzanie nią).
 
 ### <a name="maximum-concurrent-requests"></a>Maksymalna liczba równoczesnych żądań
 
-Aby wyświetlić liczbę równoczesnych żądań, uruchom tę kwerendę Transact-SQL w bazie danych SQL:
+Aby sprawdzić liczbę równoczesnych żądań, Uruchom to zapytanie Transact-SQL w bazie danych SQL:
 
 ```sql
 SELECT COUNT(*) AS [Concurrent_Requests]
 FROM sys.dm_exec_requests R;
 ```
 
-Aby przeanalizować obciążenie lokalnej bazy danych programu SQL Server, zmodyfikuj tę kwerendę, aby filtrować określoną bazę danych, którą chcesz przeanalizować. Na przykład jeśli masz lokalną bazę danych o nazwie MyDatabase, ta kwerenda Transact-SQL zwraca liczbę równoczesnych żądań w tej bazie danych:
+Aby analizować obciążenie lokalnej bazy danych SQL Server, zmodyfikuj to zapytanie w celu odfiltrowania konkretnej bazy danych, którą chcesz analizować. Na przykład jeśli masz lokalną bazę danych o nazwie Moja baza danych, zapytanie Transact-SQL zwraca liczbę równoczesnych żądań w tej bazie danych:
 
 ```sql
 SELECT COUNT(*) AS [Concurrent_Requests]
@@ -660,27 +660,27 @@ INNER JOIN sys.databases D ON D.database_id = R.database_id
 AND D.name = 'MyDatabase';
 ```
 
-Jest to tylko migawka w jednym punkcie w czasie. Aby lepiej zrozumieć obciążenie i wymagania dotyczące równoczesnych żądań, musisz zebrać wiele przykładów w czasie.
+Jest to tylko migawka w jednym punkcie w czasie. Aby lepiej zrozumieć obciążenie i współbieżne wymagania dotyczące żądań, należy zebrać wiele próbek w czasie.
 
-### <a name="maximum-concurrent-logins"></a>Maksymalna liczba równoczesnych logowań
+### <a name="maximum-concurrent-logins"></a>Maksymalna liczba współbieżnych logowań
 
-Można analizować wzorce użytkowników i aplikacji, aby zorientować się o częstotliwości logowania. Można również uruchomić rzeczywistych obciążeń w środowisku testowym, aby upewnić się, że nie trafisz tego lub innych limitów omówimy w tym artykule. Nie ma jednego zapytania lub dynamicznego widoku zarządzania (DMV), który może wyświetlać równoczesne liczby logowania lub historię.
+Możesz analizować wzorce użytkownika i aplikacji, aby uzyskać pomysł z częstotliwością logowań. Możesz również uruchomić rzeczywiste obciążenia w środowisku testowym, aby upewnić się, że nie są to ani inne limity omawiane w tym artykule. Nie istnieje pojedyncze zapytanie ani dynamiczny widok zarządzania (DMV), który może wyświetlać współbieżne liczby logowań lub historię.
 
-Jeśli wielu klientów używa tego samego ciągu połączenia, usługa uwierzytelnia każdy login. Jeśli 10 użytkowników jednocześnie połączyć się z bazą danych przy użyciu tej samej nazwy użytkownika i hasła, będzie 10 równoczesnych logowania. Ten limit dotyczy tylko czasu logowania i uwierzytelniania. Jeśli te same 10 użytkowników połączyć się z bazą danych sekwencyjnie, liczba równoczesnych logowania nigdy nie będzie większa niż 1.
+Jeśli wielu klientów używa tych samych parametrów połączenia, usługa uwierzytelnia każde logowanie. Jeśli 10 użytkowników jednocześnie nawiąże połączenie z bazą danych przy użyciu tej samej nazwy użytkownika i hasła, zostanie 10 współbieżnych logowań. Ten limit dotyczy tylko czasu trwania logowania i uwierzytelniania. Jeśli ten sam 10 użytkowników łączy się z bazą danych sekwencyjnie, liczba współbieżnych logowań nigdy nie będzie większa niż 1.
 
 > [!NOTE]
 > Obecnie ten limit nie ma zastosowania do baz danych w pulach elastycznych.
 
 ### <a name="maximum-sessions"></a>Maksymalna liczba sesji
 
-Aby wyświetlić liczbę bieżących aktywnych sesji, uruchom tę kwerendę Transact-SQL w bazie danych SQL:
+Aby wyświetlić liczbę bieżących aktywnych sesji, Uruchom to zapytanie Transact-SQL w bazie danych SQL:
 
 ```sql
 SELECT COUNT(*) AS [Sessions]
 FROM sys.dm_exec_connections
 ```
 
-Jeśli analizujesz lokalne obciążenie programu SQL Server, zmodyfikuj kwerendę, aby skupić się na określonej bazie danych. Ta kwerenda pomaga określić możliwe potrzeby sesji dla bazy danych, jeśli rozważasz przeniesienie go do usługi Azure SQL Database.
+W przypadku analizowania obciążenia SQL Server lokalnego należy zmodyfikować zapytanie, aby skoncentrować się na określonej bazie danych. To zapytanie pomaga określić możliwe potrzeby sesji dla bazy danych, Jeśli rozważasz przechodzenie do Azure SQL Database.
 
 ```sql
 SELECT COUNT(*) AS [Sessions]
@@ -690,17 +690,17 @@ INNER JOIN sys.databases D ON (D.database_id = S.database_id)
 WHERE D.name = 'MyDatabase'
 ```
 
-Ponownie te kwerendy zwracają liczbę punktów w czasie. Jeśli zbierzesz wiele próbek w czasie, będziesz mieć najlepszą wiedzę na temat użycia sesji.
+Ponownie te zapytania zwracają liczbę punktów w czasie. Jeśli zbierasz wiele przykładów z upływem czasu, będziesz mieć najlepszą wiedzę na temat użycia sesji.
 
-W przypadku analizy bazy danych SQL można uzyskać historyczne statystyki dotyczące sesji, odpytując widok [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) i przeglądając **kolumnę active_session_count.**
+W celu przeprowadzenia analizy SQL Database można uzyskać historyczne statystyki dotyczące sesji, badając widok [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) i przeglądając kolumnę **active_session_count** .
 
-## <a name="monitoring-query-performance"></a>Monitorowanie wydajności kwerendy
+## <a name="monitoring-query-performance"></a>Monitorowanie wydajności zapytań
 
-Powolne lub długotrwałe kwerendy mogą zużywać znaczne zasoby systemowe. W tej sekcji pokazano, jak używać dynamicznych widoków zarządzania do wykrywania kilku typowych problemów z wydajnością kwerend. Starszy, ale nadal pomocne odwołanie do rozwiązywania problemów, jest [rozwiązywanie problemów z wydajnością w programie SQL Server 2008](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) artykuł w witrynie Microsoft TechNet.
+Zapytania powolne lub długotrwałe mogą zużywać znaczne zasoby systemowe. W tej sekcji przedstawiono sposób korzystania z dynamicznych widoków zarządzania w celu wykrywania kilku typowych problemów z wydajnością zapytań. Ze względu na rozwiązywanie problemów w witrynie Microsoft TechNet można rozwiązać [problemy z wydajnością w SQL Server 2008](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) .
 
-### <a name="finding-top-n-queries"></a>Znajdowanie najlepszych zapytań N
+### <a name="finding-top-n-queries"></a>Znajdowanie pierwszych N zapytań
 
-Poniższy przykład zwraca informacje o pięciu pierwszych kwerendach uszeregowane według średniego czasu procesora CPU. W tym przykładzie agreguje kwerendy zgodnie z ich hash kwerendy, tak aby logicznie równoważne kwerendy są pogrupowane według ich skumulowanego zużycia zasobów.
+Poniższy przykład zwraca informacje o pięciu pierwszych zapytania sklasyfikowanych według średniego czasu procesora CPU. Ten przykład agreguje zapytania według ich wartości skrótu zapytania, tak aby logicznie równoważne zapytania były pogrupowane według ich łącznego zużycia zasobów.
 
 ```sql
 SELECT TOP 5 query_stats.query_hash AS "Query Hash",
@@ -721,11 +721,11 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>Monitorowanie zablokowanych zapytań
 
-Powolne lub długotrwałe kwerendy mogą przyczyniać się do nadmiernego zużycia zasobów i być konsekwencją zablokowanych zapytań. Przyczyną blokowania może być zły projekt aplikacji, złe plany zapytań, brak przydatnych indeksów i tak dalej. Można użyć widoku sys.dm_tran_locks, aby uzyskać informacje o bieżącej aktywności blokowania w bazie danych SQL azure. Na przykład kod można znaleźć w [pliku sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) w aplikacji SQL Server Books Online.
+Wykonywanie wolnych lub długotrwałych zapytań może współtworzyć nadmierne zużycie zasobów i być konsekwencją zablokowanych zapytań. Przyczyną blokowania może być słaba konstrukcja aplikacji, złe plany zapytań, brak przydatnych indeksów i tak dalej. Możesz użyć widoku sys. dm_tran_locks, aby uzyskać informacje o bieżącej aktywności blokowania w Azure SQL Database. Na przykład kod można znaleźć w temacie [sys. dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) w SQL Server Books Online.
 
-### <a name="monitoring-query-plans"></a>Monitorowanie planów kwerend
+### <a name="monitoring-query-plans"></a>Monitorowanie planów zapytań
 
-Nieefektywny plan kwerend może również zwiększyć zużycie procesora CPU. W poniższym przykładzie użyto widoku [sys.dm_exec_query_stats,](https://msdn.microsoft.com/library/ms189741.aspx) aby określić, która kwerenda używa najbardziej skumulowanego procesora CPU.
+Nieefektywny plan zapytania może również zwiększyć użycie procesora CPU. Poniższy przykład używa widoku [sys. dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) , aby określić, które zapytanie używa najbardziej SKUMULOWANEGO procesora CPU.
 
 ```sql
 SELECT
@@ -747,6 +747,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Wprowadzenie do usługi SQL Database](sql-database-technical-overview.md)

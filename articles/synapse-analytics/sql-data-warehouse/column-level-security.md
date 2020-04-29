@@ -1,6 +1,6 @@
 ---
-title: Co to jest zabezpieczenia na poziomie kolumny dla platformy Azure Synapse?
-description: Zabezpieczenia na poziomie kolumny umożliwia klientom kontrolowanie dostępu do kolumn tabel bazy danych na podstawie kontekstu wykonywania użytkownika lub członkostwa w grupie, upraszczając projektowanie i kodowanie zabezpieczeń w aplikacji i umożliwiając zaimplementowanie ograniczeń dostępu do kolumn.
+title: Co to jest zabezpieczenia na poziomie kolumny w usłudze Azure Synapse?
+description: Zabezpieczenia na poziomie kolumny umożliwiają klientom kontrolowanie dostępu do kolumn tabeli bazy danych na podstawie kontekstu wykonywania użytkownika lub członkostwa w grupie, upraszczając projektowanie i kodowanie zabezpieczeń w aplikacji oraz pozwalające na wdrożenie ograniczeń dotyczących dostępu do kolumn.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -13,24 +13,24 @@ ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ms.openlocfilehash: b0a783ad5db86ca783ff1cebceec8d77ab528047
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687919"
 ---
 # <a name="column-level-security"></a>Zabezpieczenia na poziomie kolumny
 
-Zabezpieczenia na poziomie kolumny umożliwiają klientom kontrolowanie dostępu do kolumn tabel na podstawie kontekstu wykonywania lub członkostwa w grupie użytkownika.
+Zabezpieczenia na poziomie kolumny umożliwiają klientom kontrolowanie dostępu do kolumn tabeli na podstawie kontekstu wykonywania użytkownika lub członkostwa w grupie.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Ponieważ ten film wideo został opublikowany [poziom wiersza zabezpieczenia](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) stały się dostępne dla platformy Azure Synapse.
+Ponieważ to wideo zostało ogłoszone, [zabezpieczenia na poziomie wiersza](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) stały się dostępne dla usługi Azure Synapse.
 
-Zabezpieczenia na poziomie kolumny upraszcza projektowanie i kodowanie zabezpieczeń w aplikacji, co pozwala ograniczyć dostęp do kolumn w celu ochrony poufnych danych. Na przykład zapewnienie, że określone użytkownicy mogą uzyskać dostęp tylko niektóre kolumny tabeli istotne dla ich działu. Logika ograniczeń dostępu znajduje się w warstwie bazy danych, a nie z dala od danych w innej warstwie aplikacji. Baza danych stosuje ograniczenia dostępu za każdym razem, gdy próbowano uzyskać dostęp do danych z dowolnej warstwy. To ograniczenie sprawia, że bezpieczeństwo jest bardziej niezawodne i niezawodne dzięki zmniejszeniu powierzchni całego systemu zabezpieczeń. Ponadto zabezpieczenia na poziomie kolumny eliminują również konieczność wprowadzania widoków w celu odfiltrowania kolumn w celu nałożenia ograniczeń dostępu na użytkowników.
+Zabezpieczenia na poziomie kolumny upraszczają projektowanie i kodowanie zabezpieczeń w aplikacji, co pozwala ograniczyć dostęp do kolumn w celu ochrony poufnych danych. Na przykład w celu zapewnienia, że określeni użytkownicy będą mieli dostęp tylko do niektórych kolumn tabeli odnoszących się do ich działu. Logika ograniczeń dostępu znajduje się w warstwie bazy danych, a nie na danych w innej warstwie aplikacji. Baza danych stosuje ograniczenia dostępu przy każdym próbie dostępu do danych z dowolnej warstwy. To ograniczenie sprawia, że zabezpieczenia są bardziej niezawodne i niezawodne przez zredukowanie obszaru ogólnego systemu zabezpieczeń. Ponadto zabezpieczenia na poziomie kolumny eliminują również konieczność wprowadzenia widoków do filtrowania kolumn w celu nakładania ograniczeń dostępu dla użytkowników.
 
-Można zaimplementować zabezpieczenia na poziomie kolumny za pomocą [instrukcji GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL. Dzięki temu mechanizmowi obsługiwane jest uwierzytelnianie SQL i Azure Active Directory (AAD).
+Zabezpieczenia na poziomie kolumny można zaimplementować przy użyciu instrukcji [Grant](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) języka T-SQL. Dzięki temu mechanizmowi obsługiwane jest uwierzytelnianie SQL i Azure Active Directory (AAD).
 
-![Cls](./media/column-level-security/cls.png)
+![ze](./media/column-level-security/cls.png)
 
 ## <a name="syntax"></a>Składnia
 
@@ -52,9 +52,9 @@ GRANT <permission> [ ,...n ] ON
 
 ## <a name="example"></a>Przykład
 
-W poniższym przykładzie `TestUser` pokazano, `SSN` jak ograniczyć dostęp do kolumny `Membership` tabeli:
+Poniższy przykład pokazuje, jak ograniczyć `TestUser` dostęp do `SSN` kolumny `Membership` tabeli:
 
-Utwórz `Membership` tabelę z kolumną SSN używaną do przechowywania numerów ubezpieczenia społecznego:
+Utwórz `Membership` tabelę z kolumną SSN służącą do przechowywania numerów PESEL:
 
 ```sql
 CREATE TABLE Membership
@@ -66,13 +66,13 @@ CREATE TABLE Membership
    Email varchar(100) NULL);
 ```
 
-Zezwalaj na `TestUser` dostęp do wszystkich kolumn z wyjątkiem kolumny SSN, która ma poufne dane:
+Zezwalaj `TestUser` na dostęp do wszystkich kolumn z wyjątkiem kolumny SSN, która ma poufne dane:
 
 ```sql
 GRANT SELECT ON Membership(MemberID, FirstName, LastName, Phone, Email) TO TestUser;
 ```
 
-Kwerendy wykonywane `TestUser` zgodnie z niepowodzeniem, jeśli zawierają kolumnę SSN:
+Zapytania wykonane jako `TestUser` zakończą się niepowodzeniem, jeśli zawierają kolumnę SSN:
 
 ```sql
 SELECT * FROM Membership;
@@ -83,7 +83,7 @@ SELECT * FROM Membership;
 
 ## <a name="use-cases"></a>Przypadki użycia
 
-Oto kilka przykładów użycia zabezpieczeń na poziomie kolumny:
+Przykłady sposobu używania zabezpieczeń na poziomie kolumny:
 
-- Firma świadcząca usługi finansowe zezwala tylko menedżerom kont na dostęp do numerów ubezpieczenia społecznego klientów (SSN), numerów telefonów i innych danych osobowych.
-- Dostawca opieki zdrowotnej umożliwia tylko lekarzom i pielęgniarkom dostęp do wrażliwej dokumentacji medycznej, jednocześnie uniemożliwiając członkom działu rozliczeniowego przeglądanie tych danych.
+- Firma Financial Services zezwala tylko menedżerom kont na dostęp do numerów PESEL (SSN) klienta, numerów telefonów i innych informacji umożliwiających identyfikację użytkownika.
+- Dostawca opieki zdrowotnej umożliwia tylko lekarzy i pielęgniarkom dostęp do poufnych rekordów medycznych, jednocześnie uniemożliwiając członkom działu rozliczania wyświetlanie tych danych.

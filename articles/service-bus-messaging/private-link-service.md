@@ -8,10 +8,10 @@ ms.date: 03/13/2020
 ms.service: service-bus-messaging
 ms.topic: article
 ms.openlocfilehash: 33e6ce1d5feb50080b00fcbecdeb9e512980eab6
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82141943"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link-preview"></a>Integracja Azure Service Bus z prywatnym łączem platformy Azure (wersja zapoznawcza)
@@ -175,14 +175,14 @@ Istnieją cztery Stany aprowizacji:
 
 | Akcja usługi | Stan prywatnego punktu końcowego klienta usługi | Opis |
 |--|--|--|
-| Brak | Oczekujące | Połączenie jest tworzone ręcznie i oczekuje na zatwierdzenie przez właściciela zasobu link prywatny. |
+| Brak | Oczekiwanie | Połączenie jest tworzone ręcznie i oczekuje na zatwierdzenie przez właściciela zasobu link prywatny. |
 | Zatwierdzenie | Approved (Zatwierdzono) | Połączenie zostało automatycznie lub ręcznie zatwierdzone i jest gotowe do użycia. |
 | Reject | Odrzucone | Połączenie zostało odrzucone przez właściciela zasobu link prywatny. |
 | Remove | Odłączony | Połączenie zostało usunięte przez właściciela zasobu link prywatny, a prywatny punkt końcowy zmieni się na format i powinien zostać usunięty do oczyszczenia. |
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Zatwierdź, Odrzuć lub Usuń połączenie prywatnego punktu końcowego
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 1. Na pasku wyszukiwania wpisz w **Service Bus**.
 1. Wybierz **przestrzeń nazw** , którą chcesz zarządzać.
 1. Wybierz kartę **Sieć** .

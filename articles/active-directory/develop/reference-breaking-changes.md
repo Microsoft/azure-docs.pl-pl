@@ -1,6 +1,6 @@
 ---
-title: Odwołanie do zmian z podziałem usługi Azure Active Directory
-description: Dowiedz się więcej o zmianach wprowadzonych w protokołach usługi Azure AD, które mogą mieć wpływ na aplikację.
+title: Informacje o dzieleniu zmian Azure Active Directory
+description: Dowiedz się więcej na temat zmian wprowadzonych w protokołach usługi Azure AD, które mogą mieć wpływ na aplikację.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,17 +13,17 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: a60b927f7239818b582ffcd85ddb4b7d69594482
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535965"
 ---
 # <a name="whats-new-for-authentication"></a>Co nowego w uwierzytelnianiu?
 
->Otrzymuuj powiadomienia o aktualizacjach tej strony. Wystarczy dodać [ten adres URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) do czytnika kanałów RSS.
+>Otrzymuj powiadomienia o aktualizacjach na tej stronie. Po prostu Dodaj [ten adres URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) do czytnika kanału informacyjnego RSS.
 
-System uwierzytelniania zmienia i dodaje funkcje na bieżąco w celu poprawy bezpieczeństwa i zgodności z normami. Aby być na bieżąco z najnowszymi wydarzeniami, w tym artykule znajdziesz informacje o następujących szczegółach:
+System uwierzytelniania zmienia i dodaje funkcje na bieżąco w celu poprawy bezpieczeństwa i zgodności ze standardami. Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje o następujących szczegółach:
 
 - Najnowsze funkcje
 - Znane problemy
@@ -31,31 +31,31 @@ System uwierzytelniania zmienia i dodaje funkcje na bieżąco w celu poprawy bez
 - Funkcje uznane za przestarzałe
 
 > [!TIP]
-> Ta strona jest regularnie aktualizowana, więc odwiedzaj często. O ile nie zaznaczono inaczej, zmiany te są wprowadzane tylko dla nowo zarejestrowanych wniosków.
+> Ta strona jest regularnie aktualizowana, więc często pojawia się. O ile nie zaznaczono inaczej, te zmiany są wprowadzane tylko dla nowo zarejestrowanych aplikacji.
 
 ## <a name="upcoming-changes"></a>Nadchodzące zmiany
 
-Żaden zaplanowano w tej chwili.  Poniżej znajdują się zmiany, które są w produkcji lub nadchodzą.
+Brak zaplanowanych w tym momencie.  Poniżej znajdują się zmiany, które znajdują się w środowisku produkcyjnym lub znajdują się w nim.
 
 ## <a name="march-2020"></a>Marzec 2020 r.
 
 ### <a name="user-passwords-will-be-restricted-to-256-characters"></a>Hasła użytkowników będą ograniczone do 256 znaków.
 
-**Data wejścia w życie**: 13 marca 2020 r.
+**Data wprowadzenia**: 13 marca 2020
 
-**Wpływ na punkty końcowe:** zarówno w wersji 1.0, jak i v2.0
+**Wpływ na punkty końcowe**: 1.0 i v 2.0
 
-**Wpływ na protokół:** Wszystkie przepływy użytkownika.
+**Wpływ na protokół**: wszystkie przepływy użytkownika.
 
-Użytkownicy z hasłami dłuższymi niż 256 znaków, którzy logują się bezpośrednio do usługi Azure AD (w przeciwieństwie do federacyjnego protokołu IDP, takiego jak ADFS), nie będą mogli zalogować się od 13 marca 2020 r. i zamiast tego zostaną poproszeni o zresetowanie hasła.  Administratorzy mogą otrzymywać prośby o pomoc w zresetowaniu hasła użytkowników.
+Użytkownicy z hasłami dłuższymi niż 256 znaków, które logują się bezpośrednio do usługi Azure AD (w przeciwieństwie do federacyjnych dostawcy tożsamości takich jak ADFS), nie będą mogli zalogować się od 13 marca 2020, a zamiast tego zostanie wyświetlony monit o zresetowanie hasła.  Administratorzy mogą otrzymywać żądania, aby pomóc Ci zresetować hasło użytkownika.
 
-Błąd w logach logowania będzie AADSTS 50052: InvalidPasswordExceedsMaxLength
+Błąd w dziennikach logowania to AADSTS 50052: InvalidPasswordExceedsMaxLength
 
 Komunikat:`The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
 
-Korygowania:
+Korygowania
 
-Użytkownik nie może się zalogować, ponieważ jego hasło przekracza dozwoloną maksymalną długość. Powinni skontaktować się ze swoim administratorem, aby zresetować hasło. Jeśli funkcja SSPR jest włączona dla ich dzierżawy, mogą zresetować swoje hasło, wykonując link "Zapomniałeś hasła".
+Użytkownik nie może się zalogować, ponieważ jego hasło przekracza dozwoloną maksymalną długość. Należy skontaktować się z administratorem w celu zresetowania hasła. Jeśli SSPR jest włączona dla swojej dzierżawy, może zresetować swoje hasło, wykonując łącze "nie pamiętasz hasła".
 
 
 
@@ -63,90 +63,90 @@ Użytkownik nie może się zalogować, ponieważ jego hasło przekracza dozwolon
 
 ### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>Puste fragmenty zostaną dołączone do każdego przekierowania HTTP z punktu końcowego logowania.
 
-**Data wejścia w życie**: 8 lutego 2020 r.
+**Data wprowadzenia**: 8 lutego 2020
 
-**Wpływ na punkty końcowe:** zarówno w wersji 1.0, jak i v2.0
+**Wpływ na punkty końcowe**: 1.0 i v 2.0
 
-Protokół wpływ : **Przepływy**OAuth i OIDC, które używają response_type = query - obejmuje to [przepływ kodu autoryzacji](v2-oauth2-auth-code-flow.md) w niektórych przypadkach i [niejawny przepływ](v2-oauth2-implicit-grant-flow.md).
+**Wpływ na protokół**: przepływy OAuth i OIDC, które używają response_type = Query — obejmuje to [przepływ kodu autoryzacji](v2-oauth2-auth-code-flow.md) w niektórych przypadkach i [niejawny przepływ](v2-oauth2-implicit-grant-flow.md).
 
-Gdy odpowiedź uwierzytelniania jest wysyłana z login.microsoftonline.com do aplikacji za pośrednictwem przekierowania HTTP, usługa dołączy pusty fragment do adresu URL odpowiedzi.  Zapobiega to atakom przekierowania klasy, zapewniając, że przeglądarka usuwa istniejący fragment w żądaniu uwierzytelniania.  Żadna aplikacja nie powinna mieć zależności od tego zachowania.
+Po wysłaniu odpowiedzi uwierzytelniania z login.microsoftonline.com do aplikacji za pośrednictwem przekierowania HTTP usługa dołączy pusty fragment do adresu URL odpowiedzi.  Pozwala to zapobiec atakom klasy w celu przekierowania przez zagwarantowanie, że przeglądarka wyczyści wszystkie istniejące fragmenty w żądaniu uwierzytelniania.  Żadne aplikacje nie powinny być zależne od tego zachowania.
 
 
 ## <a name="august-2019"></a>Sierpień 2019 r.
 
-### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>Semantyka formularza POST będzie egzekwowana bardziej rygorystycznie - spacje i cudzysłowy będą ignorowane
+### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>Semantyka formularza POST zostanie wymuszona z większą ilością miejsc, a cudzysłowy zostaną zignorowane
 
-**Data wejścia w życie**: 2 września 2019 r.
+**Data wprowadzenia**: 2 września 2019
 
-**Wpływ na punkty końcowe:** zarówno w wersji 1.0, jak i v2.0
+**Wpływ na punkty końcowe**: 1.0 i v 2.0
 
-**Protokół, którego dotyczy wpływ:** Gdziekolwiek post jest używany[(poświadczenia klienta,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) [wykorzystanie kodu autoryzacji,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) [ROPC,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc) [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)i [odświeżanie tokenu wykupu)](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token)
+**Wpływ na protokół**: wpis wszędzie jest używany ([poświadczenia klienta](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [wykup kodu autoryzacji](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)i [wykup tokenów](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
 
-Począwszy od tygodnia 9/2, żądania uwierzytelniania, które używają metody POST zostaną sprawdzone przy użyciu bardziej rygorystycznych standardów HTTP.  W szczególności spacje i cudzysłowy (") nie będą już usuwane z wartości formularza żądania. Te zmiany nie powinny przerywać istniejących klientów i zapewni, że żądania wysyłane do usługi Azure AD są niezawodnie obsługiwane za każdym razem. W przyszłości (patrz wyżej) planujemy dodatkowo odrzucić zduplikowane parametry i zignorować BOM w żądaniach.
+Począwszy od tygodnia 9/2, żądania uwierzytelniania używające metody POST będą weryfikowane przy użyciu bardziej rygorystycznych standardów protokołu HTTP.  W przypadku opcji spacje i podwójne cudzysłowy (") nie będą już usuwane z wartości formularza żądania. Te zmiany nie są oczekiwane w celu podziału istniejących klientów i zapewniają niezawodne Obsługiwanie żądań wysyłanych do usługi Azure AD za każdym razem. W przyszłości (Zobacz powyżej) planujemy dodatkowo odrzucanie zduplikowanych parametrów i ignorowanie BOM w ramach żądań.
 
 Przykład:
 
-Dziś `?e=    "f"&g=h` jest analizowany identycznie `?e=f&g=h` jak `e`  ==  `f`- tak .  Dzięki tej zmianie będzie teraz analizowana `e`  ==  `    "f"` tak, że - jest mało prawdopodobne, aby był to prawidłowy argument, a żądanie zakończy się niepowodzeniem.
+Dzisiaj jest `?e=    "f"&g=h` analizowane identycznie tak, jak `?e=f&g=h` to możliwe `e`  ==  `f`.  W przypadku tej zmiany teraz będzie ona analizowana w taki sposób `e`  ==  `    "f"` , aby nie był to prawidłowy argument, a żądanie mogłoby się nie powieść.
 
 
 ## <a name="july-2019"></a>Lipiec 2019 r.
 
-### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>Tokeny tylko do aplikacji dla aplikacji z jedną dzierżawą są wystawiane tylko wtedy, gdy aplikacja kliencka istnieje w dzierżawie zasobów
+### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>Tokeny tylko do aplikacji dla aplikacji z jedną dzierżawą są wystawiane tylko wtedy, gdy aplikacja kliencka istnieje w dzierżawie zasobu
 
-**Data wejścia w życie**: 26 lipca 2019 r.
+**Data wprowadzenia**: 26 lipca 2019
 
-**Wpływ na punkty końcowe:** zarówno [w wersji 1.0,](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) jak i [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+**Wpływ na punkty końcowe**: [1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) i v [2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
 
-**Wpływ na protokół:** [Poświadczenia klienta (tokeny tylko do aplikacji)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+**Wpływ na protokół**: [poświadczenia klienta (tokeny tylko dla aplikacji)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 
-Zmiana zabezpieczeń została włączona 26 lipca, która zmienia sposób wystawiania tokenów tylko do aplikacji (za pośrednictwem dotacji poświadczeń klienta). Wcześniej aplikacje mogły uzyskać tokeny do wywoływania dowolnej innej aplikacji, niezależnie od obecności w dzierżawie lub ról, na które udzielono zgody dla tej aplikacji.  To zachowanie zostało zaktualizowane, tak aby dla zasobów (czasami nazywanych interfejsami API sieci web) ustawionych na jedną dzierżawę (domyślnie), aplikacja kliencka musi istnieć w dzierżawie zasobów.  Należy zauważyć, że istniejąca zgoda między klientem a interfejsem API nadal nie jest `roles` wymagana, a aplikacje powinny nadal wykonywać własne kontrole autoryzacji, aby upewnić się, że oświadczenie jest obecne i zawiera oczekiwaną wartość dla interfejsu API.
+Nastąpiła zmiana zabezpieczeń na żywo 26 lipca, która zmienia sposób, w jaki są wydawane tokeny tylko dla aplikacji (za pośrednictwem przyznanych poświadczeń klienta). Wcześniej aplikacje mogły uzyskać tokeny wywołujące dowolną inną aplikację, niezależnie od obecności w dzierżawie lub rolach, które zostały wysłane do danej aplikacji.  To zachowanie zostało zaktualizowane, tak aby w przypadku zasobów (nazywanych czasem interfejsem API sieci Web) ustawić jedną dzierżawę (domyślnie), aplikacja kliencka musi znajdować się w dzierżawie zasobów.  Należy zauważyć, że istniejąca zgoda między klientem i interfejsem API nadal nie jest wymagana, a aplikacje nadal powinny przeprowadzać własne testy autoryzacji, `roles` aby upewnić się, że występuje żądanie i zawiera oczekiwaną wartość dla interfejsu API.
 
-Komunikat o błędzie dla tego scenariusza stanowi obecnie:
+Komunikat o błędzie dla tego scenariusza jest obecnie stanem:
 
 `The service principal named <appName> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.`
 
-Aby rozwiązać ten problem, należy użyć środowiska Zgody administratora, aby utworzyć jednostkę usługi aplikacji klienckiej w dzierżawie lub utworzyć ją ręcznie.  To wymaganie zapewnia, że dzierżawca udzielił aplikacji uprawnienia do działania w ramach dzierżawy.
+Aby rozwiązać ten problem, użyj środowiska zgody administratora, aby utworzyć nazwę główną usługi aplikacji klienta w dzierżawie, lub utwórz ją ręcznie.  To wymaganie zapewnia, że dzierżawca udzielił uprawnienia aplikacji do działania w ramach dzierżawy.
 
 #### <a name="example-request"></a>Przykładowe żądanie
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`W tym przykładzie dzierżawy zasobów (urząd) jest contoso.com, aplikacja zasobów `gateway.contoso.com/api` jest aplikacją pojedynczej dzierżawy `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`wywoływane dla dzierżawy Contoso, a aplikacja kliencka jest .  Jeśli aplikacja kliencka ma jednostkę usługi w ciągu Contoso.com, to żądanie może być kontynuowane.  Jeśli jednak nie, żądanie zakończy się niepowodzeniem z błędem powyżej.
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`W tym przykładzie dzierżawca zasobów (Urząd) to contoso.com, aplikacja zasobów jest aplikacją jednodostępną o nazwie `gateway.contoso.com/api` dzierżawcy contoso, a aplikacja kliencka. `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`  Jeśli aplikacja kliencka ma nazwę główną usługi w ramach Contoso.com, to żądanie może być kontynuowane.  W przeciwnym razie żądanie zakończy się niepowodzeniem z błędem powyżej.
 
-Jeśli contoso aplikacji bramy były aplikacje wielu dzierżawców, jednak żądanie będzie kontynuowane niezależnie od aplikacji klienckiej o jednostki usługi w ciągu Contoso.com.
+Jeśli jednak aplikacja bramy contoso była aplikacją z wieloma dzierżawcami, żądanie będzie kontynuowane bez względu na to, czy aplikacja kliencka ma nazwę główną usługi w Contoso.com.
 
-### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>Przekierowanie identyfikatorów URI może teraz zawierać parametry ciągu zapytania
+### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>Identyfikatory URI przekierowania mogą teraz zawierać parametry ciągu zapytania
 
-**Data wejścia w życie**: 22 lipca 2019 r.
+**Data wprowadzenia**: 22 lipca 2019
 
-**Wpływ na punkty końcowe:** zarówno w wersji 1.0, jak i v2.0
+**Wpływ na punkty końcowe**: 1.0 i v 2.0
 
-**Wpływ protokołu**: Wszystkie przepływy
+**Wpływ na protokół**: wszystkie przepływy
 
-Zgodnie z [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)aplikacje usługi Azure AD można teraz zarejestrować i używać `https://contoso.com/oauth2?idp=microsoft`przekierowania (odpowiedzi) identyfikatory URI ze statycznymi parametrami kwerendy (takich jak) dla żądań OAuth 2.0.  Dynamiczne identyfikatory URI przekierowania są nadal zabronione, ponieważ stanowią zagrożenie bezpieczeństwa i nie można ich `state` używać do przechowywania informacji o stanie w żądaniu uwierzytelniania — w tym celu należy użyć tego parametru.
+Na [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)aplikacje usługi Azure AD mogą teraz rejestrować i używać identyfikatorów URI przekierowania (odpowiedź) przy użyciu statycznych parametrów zapytania `https://contoso.com/oauth2?idp=microsoft`(takich jak) dla żądań uwierzytelniania OAuth 2,0.  Dynamiczne identyfikatory URI przekierowania są nadal zabronione, ponieważ stanowią zagrożenie bezpieczeństwa i nie mogą być używane do zachowywania informacji o stanie w ramach żądania uwierzytelniania — w tym celu `state` należy użyć parametru.
 
-Parametr zapytania statycznego podlega dopasowywaniu ciągów do przekierowania identyfikatorów URI, jak każda inna część identyfikatora URI przekierowania — jeśli nie jest zarejestrowany żaden ciąg odpowiadający redirect_uri zdekodowanym identyfikatorem URI, żądanie zostanie odrzucone.  Jeśli identyfikator URI zostanie znaleziony w rejestracji aplikacji, cały ciąg będzie używany do przekierowania użytkownika, w tym parametru zapytania statycznego.
+Statyczny parametr zapytania jest uzależniony od ciągu dla identyfikatorów URI przekierowania, takich jak jakakolwiek inna część identyfikatora URI przekierowania — Jeśli nie jest zarejestrowany żaden ciąg pasujący do redirect_uri z zdekodowanym identyfikatorem URI, żądanie zostanie odrzucone.  Jeśli identyfikator URI zostanie znaleziony w rejestracji aplikacji, cały ciąg zostanie użyty do przekierowania użytkownika, łącznie z parametrem zapytania statycznego.
 
-Należy zauważyć, że w tej chwili (koniec lipca 2019 r.) środowisko użytkownika rejestracji aplikacji w witrynie Azure portal nadal blokuje parametry zapytania.  Jednak manifest aplikacji można edytować ręcznie, aby dodać parametry kwerendy i przetestować to w aplikacji.
+Należy pamiętać, że w tej chwili (koniec lipca 2019) środowisko rejestracji aplikacji w Azure Portal nadal blokuje parametry zapytania.  Można jednak ręcznie edytować manifest aplikacji w celu dodania parametrów zapytania i przetestowania go w aplikacji.
 
 
 ## <a name="march-2019"></a>Marzec 2019 r.
 
-### <a name="looping-clients-will-be-interrupted"></a>Zapętlanie klientów zostanie przerwane
+### <a name="looping-clients-will-be-interrupted"></a>Zapętlenie klientów zostanie przerwane
 
-**Data wejścia w życie**: 25 marca 2019 r.
+**Data wprowadzenia**: 25 marca 2019
 
-**Wpływ na punkty końcowe:** zarówno w wersji 1.0, jak i v2.0
+**Wpływ na punkty końcowe**: 1.0 i v 2.0
 
-**Wpływ protokołu**: Wszystkie przepływy
+**Wpływ na protokół**: wszystkie przepływy
 
-Aplikacje klienckie mogą czasami zachowywać się nieprawidłowo, wydając setki tego samego żądania logowania w krótkim okresie czasu.  Te żądania mogą lub nie mogą zakończyć się powodzeniem, ale wszystkie one przyczyniają się do słabego środowiska użytkownika i zwiększone obciążenia dla IDP, zwiększenie opóźnienia dla wszystkich użytkowników i zmniejszenie dostępności idp.  Te aplikacje działają poza granicami normalnego użytkowania i powinny być aktualizowane, aby zachowywać się poprawnie.
+Aplikacje klienckie mogą czasami niedziałać, wydając setki tego samego żądania logowania w krótkim czasie.  Te żądania mogą się nie powieść, ale wszystkie mają wpływ na słabe środowisko użytkownika i zwiększone obciążenia dla dostawcy tożsamości, zwiększając opóźnienia dla wszystkich użytkowników i redukując dostępność dostawcy tożsamości.  Te aplikacje działają poza granicami normalnego użycia i należy je zaktualizować, aby działały prawidłowo.
 
-Klienci, którzy wielokrotnie wystawiają `invalid_grant` zduplikowane żądania, otrzymają błąd: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`.
+Klienci, którzy wydają zduplikowane żądania wiele razy, `invalid_grant` będą mogli `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`wysłać błąd:.
 
-Większość klientów nie będzie musiał zmienić zachowanie, aby uniknąć tego błędu.  Ten błąd będzie miał wpływ tylko na nieprawidłowo skonfigurowanych klientów (tych bez buforowania tokenów lub tych, którzy już wykazują pętle monitów).  Klienci są śledzone na podstawie wystąpienia lokalnie (za pośrednictwem plików cookie) na następujące czynniki:
+Większość klientów nie będzie musiała zmienić zachowania, aby uniknąć tego błędu.  Ten błąd będzie miał wpływ tylko na niepoprawnie skonfigurowanych klientów (bez buforowania tokenu lub tych, które są już wyświetlane).  Klienci są śledzoni lokalnie na poszczególnych wystąpieniach (za pośrednictwem pliku cookie) na następujących czynnikach:
 
-* Podpowiedź użytkownika, jeśli istnieje
+* Wskazówka użytkownika, jeśli istnieje
 
-* Żądane zakresy lub zasób
+* Żądane zakresy lub zasoby
 
 * Identyfikator klienta
 
@@ -154,42 +154,42 @@ Większość klientów nie będzie musiał zmienić zachowanie, aby uniknąć te
 
 * Typ i tryb odpowiedzi
 
-Aplikacje składające wiele żądań (15+) w krótkim czasie `invalid_grant` (5 minut) otrzymają błąd wyjaśniający, że są one zapętlone.  Tokeny wymagane mają wystarczająco długowieczne okresy istnienia (minimum 10 minut, domyślnie 60 minut), więc powtarzające się żądania w tym okresie czasu są niepotrzebne.
+Aplikacje wykonujące wiele żądań (15 +) w krótkim czasie (5 minut) otrzymają komunikat `invalid_grant` o błędzie z informacją, że są zapętlenia.  Żądane tokeny mają wystarczająco długie okresy istnienia (co najmniej 10 minut, domyślnie 60 minut), więc powtarzające się żądania w tym okresie są zbędne.
 
-Wszystkie aplikacje `invalid_grant` powinny obsługiwać, wyświetlając interaktywny monit, a nie dyskretnie żądając tokenu.  Aby uniknąć tego błędu, klienci powinni upewnić się, że są poprawnie buforowania tokenów, które otrzymują.
+Wszystkie aplikacje powinny być `invalid_grant` obsługiwane przez wyświetlanie interakcyjnego monitu, a nie w trybie dyskretnym.  Aby uniknąć tego błędu, klienci powinni upewnić się, że prawidłowo buforują otrzymywane tokeny.
 
 
 ## <a name="october-2018"></a>Październik 2018 r.
 
-### <a name="authorization-codes-can-no-longer-be-reused"></a>Kody autoryzacyjne nie mogą być już ponownie
+### <a name="authorization-codes-can-no-longer-be-reused"></a>Nie można już ponownie używać kodów autoryzacji
 
-**Data wejścia w życie**: 15 listopada 2018 r.
+**Data wprowadzenia**: 15 listopada 2018
 
-**Wpływ na punkty końcowe:** zarówno w wersji 1.0, jak i v2.0
+**Wpływ na punkty końcowe**: 1.0 i v 2.0
 
-**Wpływ protokołu**: [Przepływ kodu](v2-oauth2-auth-code-flow.md)
+**Wpływ na protokół**: [przepływ kodu](v2-oauth2-auth-code-flow.md)
 
-Począwszy od 15 listopada 2018 r. usługa Azure AD przestanie akceptować wcześniej używane kody uwierzytelniania dla aplikacji. Ta zmiana zabezpieczeń pomaga dostosować usługę Azure AD do specyfikacji OAuth i będzie wymuszana zarówno w punktach końcowych w wersji 1, jak i w wersji 2.
+Od 15 listopada 2018 usługa Azure AD nie będzie akceptować poprzednio używanych kodów uwierzytelniania dla aplikacji. Ta zmiana zabezpieczeń pomaga w przeniesieniu usługi Azure AD zgodnie ze specyfikacją OAuth i wymuszać zarówno punkty końcowe V1, jak i v2.
 
-Jeśli aplikacja ponownie używa kodów autoryzacji, aby uzyskać tokeny dla wielu zasobów, zaleca się użycie kodu, aby uzyskać token odświeżania, a następnie użyć tego tokenu odświeżania, aby uzyskać dodatkowe tokeny dla innych zasobów. Kody autoryzacji można używać tylko raz, ale tokeny odświeżania mogą być używane wiele razy w wielu zasobach. Każda nowa aplikacja, która próbuje ponownie użyć kodu uwierzytelniania podczas przepływu kodu OAuth otrzyma błąd invalid_grant.
+Jeśli aplikacja ponownie używa kodów autoryzacji w celu uzyskania tokenów dla wielu zasobów, zalecamy użycie kodu w celu uzyskania tokenu odświeżania, a następnie użycie tego tokenu odświeżania do uzyskania dodatkowych tokenów dla innych zasobów. Kody autoryzacji mogą być używane tylko raz, ale tokeny odświeżania można wielokrotnie używać w wielu zasobach. W przypadku każdej nowej aplikacji próbującej ponownie użyć kodu uwierzytelniania podczas przepływu kodu OAuth Wystąpił błąd invalid_grant.
 
-Aby uzyskać więcej informacji na temat tokenów odświeżania, zobacz [Odświeżanie tokenów dostępu](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  Jeśli używasz ADAL lub MSAL, jest to obsługiwane przez bibliotekę — zastąp drugie wystąpienie "AcquireTokenByAuthorizationCodeAsync" na "AcquireTokenSilentAsync".
+Aby uzyskać więcej informacji na temat tokenów odświeżania, zobacz [odświeżanie tokenów dostępu](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  W przypadku używania biblioteki ADAL lub MSAL jest to obsługiwane przez bibliotekę — Zastąp drugie wystąpienie elementu "AcquireTokenByAuthorizationCodeAsync" elementem "AcquireTokenSilentAsync".
 
 ## <a name="may-2018"></a>Maj 2018 r.
 
-### <a name="id-tokens-cannot-be-used-for-the-obo-flow"></a>Tokeny identyfikatorów nie mogą być używane dla przepływu OBO
+### <a name="id-tokens-cannot-be-used-for-the-obo-flow"></a>Nie można używać tokenów identyfikatora dla przepływu OBO
 
-**Data**: 1 maja 2018 r.
+**Data**: 1 maja, 2018
 
-**Wpływ na punkty końcowe:** zarówno w wersji 1.0, jak i v2.0
+**Wpływ na punkty końcowe**: 1.0 i v 2.0
 
-**Protokoły, na które wpływ miało wpływ:** Przepływ niejawny i [przepływ w imieniu](v2-oauth2-on-behalf-of-flow.md)
+**Wpływ na protokoły**: niejawny przepływ i [w imieniu przepływu](v2-oauth2-on-behalf-of-flow.md)
 
-Po 1 maja 2018 r. nie można id_tokens służyć jako potwierdzenie w przepływie OBO dla nowych aplikacji. Tokeny dostępu powinny być używane zamiast do zabezpieczania interfejsów API, nawet między warstwą klienta i warstwy środkowej tej samej aplikacji. Aplikacje zarejestrowane przed 1 maja 2018 r. będą nadal działać i będą mogły wymieniać id_tokens token dostępu; jednak ten wzorzec nie jest uważany za najlepszą praktykę.
+Od 1 maja 2018 id_tokens nie może być używany jako potwierdzenie w przepływie OBO dla nowych aplikacji. Tokeny dostępu należy zamiast tego używać w celu zabezpieczania interfejsów API, nawet między klientem a warstwą środkową tej samej aplikacji. Aplikacje zarejestrowane przed 1 maja 2018 będą nadal działać i mogą być dostępne do wymiany id_tokens dla tokenu dostępu. Jednak ten wzorzec nie jest uważany za najlepsze rozwiązanie.
 
 Aby obejść tę zmianę, można wykonać następujące czynności:
 
-1. Utwórz internetowy interfejs API dla aplikacji z co najmniej jednym zakresem. Ten jawny punkt wejścia pozwoli na lepszą kontrolę i zabezpieczenia.
-1. W manifeście aplikacji w [witrynie Azure portal](https://portal.azure.com) lub portalu rejestracji [aplikacji](https://apps.dev.microsoft.com)upewnij się, że aplikacja może wystawiać tokeny dostępu za pośrednictwem przepływu niejawnego. Jest to kontrolowane `oauth2AllowImplicitFlow` przez klucz.
-1. Gdy aplikacja kliencka żąda id_token `response_type=id_token`za pośrednictwem ,`response_type=token`zażądaj również tokenu dostępu ( ) dla utworzonego powyżej internetowego interfejsu API. Tak więc podczas korzystania z punktu końcowego w wersji 2.0 `scope` parametr powinien wyglądać podobnie do `api://GUID/SCOPE`. W punkcie końcowym w wersji 1.0 `resource` parametr powinien być identyfikatorem URI aplikacji interfejsu API sieci web.
+1. Utwórz internetowy interfejs API dla aplikacji z co najmniej jednym zakresem. Ten jawny punkt wejścia umożliwi dokładniejszą kontrolę i bezpieczeństwo.
+1. W manifeście aplikacji, w [Azure Portal](https://portal.azure.com) lub [portalu rejestracji aplikacji](https://apps.dev.microsoft.com), upewnij się, że aplikacja może wystawiać tokeny dostępu za pośrednictwem niejawnego przepływu. Jest to kontrolowane przez `oauth2AllowImplicitFlow` klucz.
+1. Gdy aplikacja kliencka żąda id_token za pośrednictwem `response_type=id_token`programu, należy również zażądać`response_type=token`tokenu dostępu () dla internetowego interfejsu API utworzonego powyżej. W tym przypadku, podczas korzystania z punktu końcowego `scope` v 2.0, parametr powinien `api://GUID/SCOPE`wyglądać podobnie do. W punkcie końcowym v 1.0 `resource` parametr powinien być identyfikatorem URI aplikacji interfejsu API sieci Web.
 1. Przekaż ten token dostępu do warstwy środkowej zamiast id_token.

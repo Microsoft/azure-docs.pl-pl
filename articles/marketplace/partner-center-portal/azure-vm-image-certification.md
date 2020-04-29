@@ -1,6 +1,6 @@
 ---
-title: Certyfikacja maszyny wirtualnej platformy Azure — usługa Azure Marketplace
-description: Dowiedz się, jak przetestować i przesłać ofertę maszyny wirtualnej w komercyjnym rynku.
+title: Certyfikacja maszyn wirtualnych platformy Azure — Azure Marketplace
+description: Dowiedz się, jak testować i przesyłać ofertę maszyny wirtualnej w komercyjnej witrynie Marketplace.
 author: emuench
 ms.author: mingshen
 ms.service: marketplace
@@ -8,50 +8,50 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.openlocfilehash: 9bd7e40855f30612b90cf28365c0b1410cd3e3d8
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731122"
 ---
-# <a name="azure-virtual-machine-vm-image-certification"></a>Certyfikacja obrazu maszyny wirtualnej platformy Azure
+# <a name="azure-virtual-machine-vm-image-certification"></a>Certyfikat obrazu maszyny wirtualnej platformy Azure
 
 > [!NOTE]
-> Przenosimy zarządzanie ofertami maszyn wirtualnych platformy Azure z portalu Cloud Partner do Centrum partnerów. Dopóki oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami w [artykule Tworzenie certyfikatów dla usługi Azure Key Vault](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert) w portalu cloud partner, aby zarządzać ofertami.
+> Przenosimy zarządzanie ofertami maszyn wirtualnych platformy Azure z usługi portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, nadal postępuj zgodnie z instrukcjami w temacie [Tworzenie certyfikatów dla Azure Key Vault](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert) w Portal Cloud partner, aby zarządzać ofertami.
 
-W tym artykule opisano sposób testowania i przesyłania obrazu maszyny wirtualnej (VM) w komercyjnym portalu, aby upewnić się, że spełnia on najnowsze wymagania dotyczące publikowania w portalu Azure Marketplace.
+W tym artykule opisano sposób testowania i przesyłania obrazu maszyny wirtualnej (VM) w komercyjnej witrynie Marketplace, aby upewnić się, że spełnia on najnowsze wymagania dotyczące publikowania w witrynie Azure Marketplace.
 
-Wykonaj następujące kroki przed przesłaniem oferty maszyny Wirtualnej:
+Przed przesłaniem oferty maszyny wirtualnej wykonaj następujące kroki:
 
 1. Tworzenie i wdrażanie certyfikatów.
-2. Wdrażanie maszyny Wirtualnej platformy Azure przy użyciu uogólnionego obrazu.
-3. Uruchom sprawdzanie poprawności.
+2. Wdróż maszynę wirtualną platformy Azure przy użyciu uogólnionego obrazu.
+3. Uruchamianie walidacji.
 
-## <a name="create-and-deploy-certificates-for-azure-key-vault"></a>Tworzenie i wdrażanie certyfikatów dla usługi Azure Key Vault
+## <a name="create-and-deploy-certificates-for-azure-key-vault"></a>Tworzenie i wdrażanie certyfikatów dla Azure Key Vault
 
-W tej sekcji opisano sposób tworzenia i wdrażania certyfikatów z podpisem własnym wymaganym do skonfigurowania łączności zarządzania zdalnego systemu Windows (WinRM) na maszynie wirtualnej hostowanej przez platformę Azure.
+W tej sekcji opisano sposób tworzenia i wdrażania certyfikatów z podpisem własnym wymaganych do skonfigurowania łączności Windows Remote Management (WinRM) z maszyną wirtualną hostowaną na platformie Azure.
 
-### <a name="create-certificates-for-azure-key-vault"></a>Tworzenie certyfikatów dla usługi Azure Key Vault
+### <a name="create-certificates-for-azure-key-vault"></a>Tworzenie certyfikatów dla Azure Key Vault
 
-Proces ten składa się z trzech etapów:
+Proces ten składa się z trzech kroków:
 
 1. Utwórz certyfikat zabezpieczeń.
-2. Utwórz usługę Azure Key Vault do przechowywania certyfikatu.
-3. Przechowuj certyfikaty w magazynie kluczy.
+2. Utwórz Azure Key Vault do przechowywania certyfikatu.
+3. Przechowywanie certyfikatów w magazynie kluczy.
 
-Można użyć nowej lub istniejącej grupy zasobów platformy Azure dla tej pracy.
+Do tej pracy można użyć nowej lub istniejącej grupy zasobów platformy Azure.
 
 #### <a name="create-the-security-certificate"></a>Tworzenie certyfikatu zabezpieczeń
 
-Edytuj i uruchom następujący skrypt programu Azure PowerShell, aby utworzyć plik certyfikatu (pfx) w folderze lokalnym. Zastąp wartości parametrów pokazanych w poniższej tabeli.
+Edytuj i uruchom poniższy skrypt Azure PowerShell, aby utworzyć plik certyfikatu (pfx) w folderze lokalnym. Zastąp wartości parametrów przedstawionych w poniższej tabeli.
 
-| **Parametr** | **Opis** |
+| **Konstruktora** | **Opis** |
 | --- | --- |
-| $certroopath | Folder lokalny, w który można zapisać plik pfx. |
-| $location | Jedna ze standardowych lokalizacji geograficznych platformy Azure. |
+| $certroopath | Folder lokalny, w którym ma zostać zapisany plik PFX. |
+| $location | Jedna z lokalizacji geograficznych platformy Azure w warstwie Standardowa. |
 | $vmName | Nazwa planowanej maszyny wirtualnej platformy Azure. |
-| $certname | Nazwa certyfikatu; musi być zgodna z w pełni kwalifikowaną nazwą domeny planowanej maszyny Wirtualnej. |
-| $certpassword | Hasło certyfikatów musi być zgodne z hasłem używanym dla planowanej maszyny Wirtualnej. |
+| $certname | Nazwa certyfikatu; musi być zgodna z w pełni kwalifikowaną nazwą domeny planowanej maszyny wirtualnej. |
+| $certpassword | Hasło dla certyfikatów musi być zgodne z hasłem używanym dla planowanej maszyny wirtualnej. |
 | | |
 
 ```PowerShell
@@ -82,14 +82,14 @@ Edytuj i uruchom następujący skrypt programu Azure PowerShell, aby utworzyć p
 ```
 
 > [!TIP]
-> Zachowaj tę samą sesję konsoli programu Azure PowerShell otwartą i uruchomień podczas tych kroków, aby zachować wartości różnych parametrów.
+> Po wykonaniu tych kroków należy zachować tę samą Azure PowerShell sesji konsoli, aby zachować wartości różnych parametrów.
 
 > [!WARNING]
-> Jeśli zapiszesz ten skrypt, zapisz go tylko w bezpiecznej lokalizacji, ponieważ zawiera informacje zabezpieczające (hasło).
+> Jeśli zapiszesz ten skrypt, Zapisz go tylko w bezpiecznej lokalizacji, ponieważ zawiera informacje o zabezpieczeniach (hasło).
 
-#### <a name="create-the-azure-key-vault-to-store-the-certificate"></a>Tworzenie magazynu kluczy platformy Azure do przechowywania certyfikatu
+#### <a name="create-the-azure-key-vault-to-store-the-certificate"></a>Utwórz magazyn kluczy platformy Azure, aby zapisać certyfikat
 
-Skopiuj zawartość poniższego szablonu do pliku na komputerze lokalnym. W poniższym przykładowym skrypcie ten zasób jest `C:\certLocation\keyvault.json`).
+Skopiuj zawartość szablonu poniżej do pliku na komputerze lokalnym. W poniższym przykładzie skryptu ten zasób ma wartość `C:\certLocation\keyvault.json`).
 
 ```json
 {
@@ -184,14 +184,14 @@ Skopiuj zawartość poniższego szablonu do pliku na komputerze lokalnym. W poni
 
 ```
 
-Edytuj i uruchom następujący skrypt programu Azure PowerShell, aby utworzyć usługę Azure Key Vault i skojarzoną grupę zasobów. Zastąp wartości parametrów pokazanych w poniższej tabeli
+Edytuj i uruchom poniższy skrypt Azure PowerShell, aby utworzyć Azure Key Vault i skojarzoną grupę zasobów. Zastąp wartości parametrów przedstawionych w poniższej tabeli.
 
-| **Parametr** | **Opis** |
+| **Konstruktora** | **Opis** |
 | --- | --- |
-| $postfix | Losowy ciąg numeryczny dołączony do identyfikatorów wdrożenia. |
+| $postfix | Losowy ciąg liczbowy dołączony do identyfikatorów wdrożenia. |
 | $rgName | Nazwa grupy zasobów platformy Azure (RG) do utworzenia. |
-| $location | Jedna ze standardowych lokalizacji geograficznych platformy Azure. |
-| $kvTemplateJson | Ścieżka pliku (keyvault.json) zawierająca szablon Menedżera zasobów dla magazynu kluczy. |
+| $location | Jedna z lokalizacji geograficznych platformy Azure w warstwie Standardowa. |
+| $kvTemplateJson | Ścieżka pliku (. JSON) zawierającego szablon Menedżer zasobów dla magazynu kluczy. |
 | $kvname | Nazwa nowego magazynu kluczy.|
 |   |   |
 
@@ -293,7 +293,7 @@ Edytuj i uruchom następujący skrypt programu Azure PowerShell, aby utworzyć u
 
 #### <a name="store-the-certificates-to-the-key-vault"></a>Przechowywanie certyfikatów w magazynie kluczy
 
-Przechowuj certyfikaty zawarte w pliku pfx w nowym magazynie kluczy przy użyciu tego skryptu:
+Zapisz certyfikaty zawarte w pliku PFX do nowego magazynu kluczy przy użyciu tego skryptu:
 
 ```PowerShell
      $fileName =$certroopath+"\$certname"+".pfx"
@@ -317,13 +317,13 @@ Przechowuj certyfikaty zawarte w pliku pfx w nowym magazynie kluczy przy użyciu
 
 ```
 
-## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Wdrażanie maszyny Wirtualnej platformy Azure przy użyciu uogólnionego obrazu
+## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Wdróż maszynę wirtualną platformy Azure przy użyciu uogólnionego obrazu
 
-W tej sekcji opisano sposób wdrażania uogólnionego obrazu VHD w celu utworzenia nowego zasobu maszyny wirtualnej platformy Azure. W tym procesie użyjemy dostarczonego szablonu usługi Azure Resource Manager i skryptu programu Azure PowerShell.
+W tej sekcji opisano sposób wdrażania uogólnionego obrazu wirtualnego dysku twardego w celu utworzenia nowego zasobu maszyny wirtualnej platformy Azure. W przypadku tego procesu użyjemy podanego szablonu Azure Resource Manager i Azure PowerShell skryptu.
 
-### <a name="prepare-an-azure-resource-manager-template"></a>Przygotowywanie szablonu usługi Azure Resource Manager
+### <a name="prepare-an-azure-resource-manager-template"></a>Przygotowywanie szablonu Azure Resource Manager
 
-Skopiuj następujący szablon usługi Azure Resource Manager dla wdrożenia VHD do pliku lokalnego o nazwie VHDtoImage.json. Następny skrypt zażąda lokalizacji na komputerze lokalnym, aby użyć tego JSON.
+Skopiuj następujący szablon Azure Resource Manager dla wdrożenia dysku VHD do pliku lokalnego o nazwie VHDtoImage. JSON. Następny skrypt wyśle żądanie lokalizacji na komputerze lokalnym w celu użycia tego pliku JSON.
 
 ```JSON
 {
@@ -558,32 +558,32 @@ Skopiuj następujący szablon usługi Azure Resource Manager dla wdrożenia VHD 
 
 ```
 
-Edytuj ten plik, aby podać wartości dla tych parametrów:
+Edytuj ten plik, aby podać wartości tych parametrów:
 
-| **Parametr** | **Opis** |
+| **Konstruktora** | **Opis** |
 | --- | --- |
-| ResourceGroupName | Istniejąca nazwa grupy zasobów platformy Azure. Zazwyczaj należy użyć tego samego RG jako magazynu kluczy. |
-| Plik szablonu | Pełna nazwa ścieżki do pliku VHDtoImage.json. |
-| użytkownikStorageAccountName | Nazwa konta magazynu. |
-| sNameForPublicIP | Nazwa DNS publicznego adresu IP; muszą być małe. |
+| ResourceGroupName | Istniejąca nazwa grupy zasobów platformy Azure. Zazwyczaj należy używać tego samego RG, co Magazyn kluczy. |
+| TemplateFile | Pełna nazwa ścieżki do pliku VHDtoImage. JSON. |
+| userStorageAccountName | Nazwa konta magazynu. |
+| sNameForPublicIP | Nazwa DNS publicznego adresu IP; musi być małymi literami. |
 | subscriptionId | Identyfikator subskrypcji platformy Azure. |
 | Lokalizacja | Standardowa lokalizacja geograficzna platformy Azure grupy zasobów. |
 | vmName | Nazwa maszyny wirtualnej. |
-| nazwa skarbca | Nazwa magazynu kluczy. |
+| vaultName | Nazwa magazynu kluczy. |
 | vaultResourceGroup | Grupa zasobów magazynu kluczy. |
-| certyfikatUrl | Adres internetowy (URL) certyfikatu, w tym wersja przechowywana `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`w magazynie kluczy, na przykład: . |
-| vhdUrl ( vhdUrl ) | Adres internetowy wirtualnego dysku twardego. |
+| certificateUrl | Adres sieci Web (URL) certyfikatu, w tym wersja przechowywana w magazynie kluczy, na przykład: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`. |
+| vhdUrl | Adres internetowy wirtualnego dysku twardego. |
 | vmSize | Rozmiar wystąpienia maszyny wirtualnej. |
 | publicIPAddressName | Nazwa publicznego adresu IP. |
 | virtualNetworkName | Nazwa sieci wirtualnej. |
-| nazwa nicName | Nazwa karty interfejsu sieciowego dla sieci wirtualnej. |
+| nicName | Nazwa karty sieciowej sieci wirtualnej. |
 | adminUserName | Nazwa użytkownika konta administratora. |
 | adminPassword | Hasło administratora. |
 |   |   |
 
-### <a name="deploy-an-azure-vm"></a>Wdrażanie maszyny Wirtualnej platformy Azure
+### <a name="deploy-an-azure-vm"></a>Wdróż maszynę wirtualną platformy Azure
 
-Skopiuj i edytuj następujący `$storageaccount` `$vhdUrl` skrypt, aby podać wartości dla zmiennych i zmiennych. Wykonaj go, aby utworzyć zasób maszyny Wirtualnej platformy Azure z istniejącego uogólnionego dysku wirtualnego.
+Skopiuj i edytuj następujący skrypt, aby podać wartości zmiennych `$storageaccount` i. `$vhdUrl` Wykonaj tę operację, aby utworzyć zasób maszyny wirtualnej platformy Azure na podstawie istniejącego uogólnionego wirtualnego dysku twardego.
 
 ```PowerShell
 
@@ -603,53 +603,53 @@ New-AzResourceGroupDeployment -Name"dplisvvm$postfix" -ResourceGroupName"$rgName
 
 ```
 
-## <a name="run-validations"></a>Uruchamianie weryfikacji
+## <a name="run-validations"></a>Wykonaj walidacje
 
-Istnieją dwa sposoby uruchamiania weryfikacji na wdrożonym obrazie:
+Istnieją dwa sposoby uruchamiania walidacji na wdrożonym obrazie:
 
-- Korzystanie z narzędzia do testowania certyfikacji dla certyfikatu platformy Azure
-- Korzystanie z interfejsu API autotestu
+- Używanie narzędzia testowego certyfikacji dla certyfikatu platformy Azure
+- Korzystanie z interfejsu API samoobsługowego testowania
 
-### <a name="download-and-run-the-certification-test-tool"></a>Pobieranie i uruchamianie narzędzia do testowania certyfikacji
+### <a name="download-and-run-the-certification-test-tool"></a>Pobieranie i uruchamianie narzędzia testowego certyfikacji
 
-Narzędzie testowe certyfikacji dla certyfikatu platformy Azure działa na lokalnym komputerze z systemem Windows, ale testuje maszynę wirtualną systemu Windows lub Linux opartą na platformie Azure. Zaświadcza, że obraz maszyny Wirtualnej użytkownika może być używany z platformą Microsoft Azure i że wskazówki i wymagania dotyczące przygotowywania dysku VHD zostały spełnione. Dane wyjściowe narzędzia to raport zgodności, który zostanie przekazany do portalu Centrum partnerów w celu zażądania certyfikacji maszyny Wirtualnej.
+Narzędzie Test certyfikacji dla certyfikatu platformy Azure jest uruchamiane na lokalnym komputerze z systemem Windows, ale testuje maszynę wirtualną z systemem Windows lub Linux opartą na platformie Azure. Zaświadcza on, że obraz maszyny wirtualnej użytkownika może być używany z Microsoft Azure i że zostały spełnione wskazówki i wymagania dotyczące przygotowywania wirtualnego dysku twardego. Dane wyjściowe narzędzia to raport zgodności, który zostanie przekazany do portalu Centrum partnerskiego w celu zażądania certyfikatu maszyny wirtualnej.
 
-1. Pobierz i zainstaluj najnowsze [narzędzie do testowania certyfikacji dla platformy Azure Certified](https://www.microsoft.com/download/details.aspx?id=44299).
+1. Pobierz i zainstaluj najnowsze [Narzędzie testowania certyfikacji dla certyfikatu platformy Azure](https://www.microsoft.com/download/details.aspx?id=44299).
 2. Otwórz narzędzie certyfikacji, a następnie wybierz pozycję **Rozpocznij nowy test**.
-3. Na ekranie **Informacje o teście** wprowadź **nazwę testu** dla przebiegu testu.
-4. Wybierz **platformę** dla maszyny Wirtualnej, w systemie Windows Server lub Linux. Wybór platformy ma wpływ na pozostałe opcje.
-5. Jeśli maszyna wirtualna korzysta z tej usługi bazy danych, zaznacz pole wyboru **Testuj dla usługi Azure SQL Database.**
+3. Na ekranie **Informacje o testach** wprowadź **nazwę testu** dla przebiegu testu.
+4. Wybierz **platformę** dla maszyny wirtualnej, system Windows Server lub Linux. Wybór platformy ma wpływ na pozostałe opcje.
+5. Jeśli maszyna wirtualna korzysta z tej usługi bazy danych, zaznacz pole wyboru **Testuj dla Azure SQL Database** .
 
-### <a name="connect-the-certification-tool-to-a-vm-image"></a>Podłączanie narzędzia certyfikacji do obrazu maszyny Wirtualnej
+### <a name="connect-the-certification-tool-to-a-vm-image"></a>Łączenie Narzędzia certyfikacji z obrazem maszyny wirtualnej
 
-Narzędzie łączy się z maszynami wirtualnymi opartymi na systemie Windows za pomocą [programu Azure PowerShell](https://docs.microsoft.com/powershell/) i łączy się z maszynami wirtualnymi z systemem Linux za pośrednictwem [SSH.Net](https://www.ssh.com/ssh/protocol/).
+Narzędzie łączy się z maszynami wirtualnymi z systemem Windows przy użyciu [Azure PowerShell](https://docs.microsoft.com/powershell/) i łączy z maszynami wirtualnymi z systemem Linux za pośrednictwem [SSH.NET](https://www.ssh.com/ssh/protocol/)
 
-### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>Podłączanie narzędzia certyfikacji do obrazu maszyny Wirtualnej z systemem Linux
+### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>Łączenie Narzędzia certyfikacji z obrazem maszyny wirtualnej z systemem Linux
 
-1. Wybierz tryb **uwierzytelniania SSH:** Uwierzytelnianie hasłem lub Uwierzytelnianie za pomocą klucza.
-2. W przypadku korzystania z uwierzytelniania opartego na hasłach wprowadź wartości **nazwy DNS maszyny Wirtualnej,** **nazwy użytkownika**i **hasła**. Można również zmienić domyślny numer **portu SSH.**
+1. Wybierz tryb **uwierzytelniania SSH** : uwierzytelnianie hasła lub uwierzytelnianie przy użyciu pliku klucza.
+2. W przypadku korzystania z uwierzytelniania opartego na hasłach wprowadź wartości w polu Nazwa DNS, **Nazwa użytkownika**i **hasło** **maszyny wirtualnej**. Możesz również zmienić domyślny numer **portu SSH** .
 
-    ![Narzędzie testowe z certyfikatem platformy Azure, uwierzytelnianie hasłem obrazu maszyny wirtualnej systemu Linux](media/avm-cert2.png)
+    ![Narzędzie testowe z certyfikatem platformy Azure, uwierzytelnianie hasła dla obrazu maszyny wirtualnej z systemem Linux](media/avm-cert2.png)
 
-3. W przypadku korzystania z uwierzytelniania opartego na plikach kluczy wprowadź wartości **dla nazwy DNS maszyny Wirtualnej,** nazwy **użytkownika**i lokalizacji **klucza prywatnego.** Można również dołączyć hasło lub zmienić **domyślny** numer **portu SSH.**
+3. W przypadku użycia uwierzytelniania opartego na plikach klucza wpisz wartości w polu **nazwa DNS maszyny wirtualnej**, **Nazwa użytkownika**i lokalizacja **klucza prywatnego** . Możesz również uwzględnić **hasło** lub zmienić domyślny numer **portu SSH** .
 
-### <a name="connect-the-certification-tool-to-a-windows-based-vm-image"></a>**Łączenie narzędzia certyfikacji z obrazem maszyny wirtualnej z systemem Windows**
+### <a name="connect-the-certification-tool-to-a-windows-based-vm-image"></a>**Łączenie Narzędzia certyfikacji z obrazem maszyny wirtualnej z systemem Windows**
 
-1. Wprowadź w pełni kwalifikowaną **nazwę DNS maszyny Wirtualnej** (na przykład MyVMName.Cloudapp.net).
-2. Wprowadź wartości **nazwy użytkownika** i **hasła**.
+1. Wprowadź w pełni kwalifikowaną **nazwę DNS maszyny wirtualnej** (na przykład MyVMName.cloudapp.NET).
+2. Wprowadź wartości w polu **Nazwa użytkownika** i **hasło**.
 
-    ![Narzędzie testowe z certyfikatem platformy Azure, uwierzytelnianie hasłem obrazu maszyny wirtualnej z systemem Windows](media/avm-cert4.png)
+    ![Narzędzie testowe z certyfikatem platformy Azure, uwierzytelnianie hasła dla obrazu maszyny wirtualnej z systemem Windows](media/avm-cert4.png)
 
-### <a name="run-a-certification-test"></a>Uruchamianie testu certyfikacyjnego
+### <a name="run-a-certification-test"></a>Uruchamianie testu certyfikacji
 
-Po po podaniem wartości parametrów obrazu maszyny Wirtualnej w narzędziu certyfikacji wybierz opcję **Testuj połączenie,** aby utworzyć prawidłowe połączenie z maszyną wirtualną. Po zweryfikowaniu połączenia wybierz przycisk **Dalej,** aby rozpocząć test. Po zakończeniu testu wyniki badań są wyświetlane w tabeli. Kolumna Stan jest wyświetlana (Pass/Fail/Warning) dla każdego testu. Jeśli którykolwiek z testów nie powiedzie się, obraz _nie_ jest certyfikowany. W takim przypadku przejrzyj wymagania i komunikaty o błędach, wykonuj sugerowane zmiany i uruchom test ponownie.
+Po podaniu wartości parametrów dla obrazu maszyny wirtualnej w narzędziu certyfikacji wybierz pozycję **Testuj połączenie** , aby utworzyć prawidłowe połączenie z maszyną wirtualną. Po zweryfikowaniu połączenia wybierz pozycję **dalej** , aby rozpocząć test. Po zakończeniu testu wyniki testu są wyświetlane w tabeli. W kolumnie Stan są wyświetlane (pass/Fail/ostrzeżenie) dla każdego testu. Jeśli którykolwiek z testów zakończy się niepowodzeniem, obraz _nie_ zostanie certyfikowany. W takim przypadku Przejrzyj wymagania i komunikaty o błędach, wprowadź sugerowane zmiany i ponownie uruchom test.
 
-Po zakończeniu automatycznego testu podaj dodatkowe informacje o obrazie maszyny Wirtualnej na dwóch kartach ekranu **Kwestionariusz,** **Ocena ogólna** i **Dostosowywanie jądra,** a następnie wybierz przycisk **Dalej**.
+Po zakończeniu testu automatycznego podaj dodatkowe informacje o obrazie maszyny wirtualnej na karcie dwie karty ekranu **kwestionariusza** , **Ogólne oceny** i **dostosowanie jądra**, a następnie wybierz przycisk **dalej**.
 
-Ostatni ekran umożliwia dostarczenie więcej informacji, takich jak informacje o dostępie do SSH dla obrazu maszyny Wirtualnej systemu Linux i wyjaśnienie wszelkich nieudanych ocen, jeśli szukasz wyjątków.
+Ostatni ekran umożliwia podanie dodatkowych informacji, takich jak informacje o dostępie SSH dla obrazu maszyny wirtualnej z systemem Linux, oraz wyjaśnienie ewentualnych ocen zakończonych niepowodzeniem, jeśli szukasz wyjątków.
 
-Na koniec wybierz pozycję **Wygeneruj raport,** aby pobrać wyniki testów i pliki dziennika dla wykonanych przypadków testowych wraz z odpowiedziami na kwestionariusz. Zapisz wyniki w tym samym kontenerze co veds.
+Na koniec wybierz pozycję **Generuj raport** , aby pobrać wyniki testów i pliki dziennika dla wykonanych przypadków testowych wraz z odpowiedziami na kwestionariusz. Zapisz wyniki w tym samym kontenerze co wirtualne dyski twarde.
 
 ## <a name="next-step"></a>Następny krok
 
-- [Generowanie jednolitych identyfikatorów zasobów (URI) dla każdego dysku VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)
+- [Generuj identyfikatory URI (Uniform Resource Identifier) dla każdego wirtualnego dysku twardego](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)

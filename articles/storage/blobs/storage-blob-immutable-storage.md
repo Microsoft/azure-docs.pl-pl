@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
 ms.openlocfilehash: bb66e90f1d835a6341b47bb698cf05bc442e0ac0
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82129251"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Przechowywanie kluczowych dla działalności danych obiektów blob z niezmiennym magazynem
@@ -118,7 +118,7 @@ W poniższej tabeli przedstawiono typy operacji magazynu obiektów blob, które 
 
 Za korzystanie z tej funkcji nie są naliczane dodatkowe opłaty. Zmienne dane są wyceniane w taki sam sposób jak dane modyfikowalne. Aby uzyskać szczegółowe informacje o cenach usługi Azure Blob Storage, zobacz [stronę z cennikiem usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 **Czy można udostępnić dokumentację zgodności z ROBAKiem?**
 

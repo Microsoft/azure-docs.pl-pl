@@ -1,6 +1,6 @@
 ---
-title: Pobieranie listy grup w portalu usługi Azure Active Directory | Dokumenty firmy Microsoft
-description: Pobieranie właściwości grupy zbiorczo w centrum administracyjnym platformy Azure w usłudze Azure Active Directory.
+title: Pobierz listę grup w portalu Azure Active Directory | Microsoft Docs
+description: Pobierz zbiorczo właściwości grupy w centrum administracyjnym platformy Azure w Azure Active Directory.
 services: active-directory
 author: curtand
 ms.author: curtand
@@ -14,35 +14,35 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59983678c1b14d6aa87a7b500605e3abeb6a9b85
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81533546"
 ---
-# <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Pobieranie zbiorcze listy grup w usłudze Azure Active Directory
+# <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Pobierz zbiorczo listę grup w Azure Active Directory
 
-Korzystając z portalu usługi Azure Active Directory (Azure AD), można zbiorczo pobrać listę wszystkich grup w organizacji do pliku wartości oddzielonych przecinkami (CSV).
+Korzystając z portalu usługi Azure Active Directory (Azure AD), można zbiorczo pobrać listę wszystkich grup w organizacji do pliku wartości rozdzielanych przecinkami (CSV).
 
 ## <a name="to-download-a-list-of-groups"></a>Aby pobrać listę grup
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy za pomocą konta administratora w organizacji.
-1. W usłudze Azure AD wybierz pozycję **Grupy** > **pobierania grup**.
-1. Na stronie **Pobieranie grup** wybierz pozycję **Start,** aby otrzymać plik CSV z listą grup.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta administratora w organizacji.
+1. W usłudze Azure AD wybierz pozycję **grupy** > **Pobierz grupy**.
+1. Na stronie **pobieranie grup** wybierz pozycję **Rozpocznij** , aby otrzymać plik CSV z listą Twoich grup.
 
-   ![Polecenie Grupy pobierania znajduje się na stronie Wszystkie grupy](./media/groups-bulk-download/bulk-download.png)
+   ![Polecenie Pobierz grupy znajduje się na stronie wszystkie grupy](./media/groups-bulk-download/bulk-download.png)
 
 ## <a name="check-download-status"></a>Sprawdź stan pobierania
 
-Stan wszystkich oczekujących żądań zbiorczych można zobaczyć na stronie **Wyniki operacji zbiorczej.**
+Na stronie **wyniki operacji zbiorczej** można zobaczyć stan wszystkich oczekujących żądań zbiorczych.
 
 [![](media/groups-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-download/bulk-center.png#lightbox)
 
-## <a name="bulk-download-service-limits"></a>Limity usług pobierania zbiorczego
+## <a name="bulk-download-service-limits"></a>Limity usługi pobierania zbiorczego
 
-Każde działanie zbiorcze w celu pobrania listy grup może trwać do jednej godziny. Dzięki temu można pobrać listę co najmniej 300 000 grup.
+Każde działanie zbiorcze do pobrania listy grup można uruchomić przez maksymalnie godzinę. Pozwala to na pobranie listy co najmniej 300 000 grup.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zbiorcze usuwanie członków grupy](groups-bulk-remove-members.md)
-- [Pobieranie członków grupy](groups-bulk-download-members.md)
+- [Pobierz członków grupy](groups-bulk-download-members.md)

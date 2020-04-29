@@ -1,7 +1,7 @@
 ---
-title: Przenoszenie chronionego interfejsu API sieci web do produkcji | Azure
+title: Przenoszenie chronionego interfejsu API sieci Web do środowiska produkcyjnego | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak utworzyć chroniony internetowy interfejs API (przejście do produkcji).
+description: Dowiedz się, jak utworzyć chroniony internetowy interfejs API (Przenieś do środowiska produkcyjnego).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,24 +13,24 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 86e897547869c917313deeb8d71b361c9e16798b
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537189"
 ---
-# <a name="protected-web-api---move-to-production"></a>Chroniony internetowy interfejs API — przejście do produkcji
+# <a name="protected-web-api---move-to-production"></a>Chroniony internetowy interfejs API — Przenieś do środowiska produkcyjnego
 
-Teraz, gdy wiesz, jak chronić internetowy interfejs API, oto jak możesz przenieść go do produkcji.
+Teraz, gdy wiesz już, jak chronić internetowy interfejs API, możesz go przenieść do środowiska produkcyjnego.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak wywołać interfejs API podrzędny.
+Dowiedz się, jak wywołać podrzędny interfejs API.
 
 > [!div class="nextstepaction"]
-> [Scenariusz — interfejs API sieci Web wywołuje interfejsy API podrzędnego](scenario-web-api-call-api-overview.md)
+> [Scenariusz — interfejs API sieci Web wywołuje podrzędne interfejsy API](scenario-web-api-call-api-overview.md)
 
 Dowiedz się więcej dzięki samouczkom i przykładom.
 
@@ -38,7 +38,7 @@ Dowiedz się więcej dzięki samouczkom i przykładom.
 > [Wywoływanie chronionego interfejsu API przy użyciu demona](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core web API samouczek](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+> [Samouczek interfejsu API sieci Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
 
 > [!div class="nextstepaction"]
-> [ASP.NET przykładowy internetowy interfejs API](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+> [Przykład interfejsu API sieci Web ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)

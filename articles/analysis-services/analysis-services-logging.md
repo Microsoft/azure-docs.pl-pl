@@ -8,10 +8,10 @@ ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 71a81c4a3a57c206540e20f7c7e58949c552e582
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128931"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurowanie rejestrowania diagnostycznego
@@ -38,11 +38,11 @@ Wybieranie dzienników **aparatów** wszystkie [xEvents](https://docs.microsoft.
 |Raporty postępu     |   Początek raportu postępu      |
 |Raporty postępu     |   Koniec raportu postępu      |
 |Raporty postępu     |   Bieżący raport postępu      |
-|Zapytania     |  Początek zapytania       |
-|Zapytania     |   Koniec zapytania      |
+|Kwerendy     |  Początek zapytania       |
+|Kwerendy     |   Koniec zapytania      |
 |Polecenia     |  Początek polecenia       |
 |Polecenia     |  Koniec polecenia       |
-|Błędy & ostrzeżeń     |   Błąd      |
+|Błędy & ostrzeżeń     |   Error      |
 |Odnajdź     |   Odnajdź zakończenie      |
 |Powiadomienie     |    Powiadomienie     |
 |Sesja     |  Inicjowanie sesji       |
@@ -88,7 +88,7 @@ Kategoria metryki rejestruje te same [metryki serwera](analysis-services-monitor
     * **Usługa**. Wybierz tę opcję, aby rejestrować zdarzenia poziomu usługi. W przypadku archiwizowania na koncie magazynu można wybrać okres przechowywania dzienników zasobów. Dzienniki są usuwane autokasowanie po upływie okresu przechowywania.
     * **Metryki**. Wybierz tę opcję, aby przechowywać pełne dane w [metrykach](analysis-services-monitor.md#server-metrics). W przypadku archiwizowania na koncie magazynu można wybrać okres przechowywania dzienników zasobów. Dzienniki są usuwane autokasowanie po upływie okresu przechowywania.
 
-3. Kliknij pozycję **Zapisz**.
+3. Kliknij przycisk **Zapisz**.
 
     Jeśli zostanie wyświetlony komunikat o błędzie "nie można zaktualizować diagnostyki dla \<nazwy obszaru roboczego>. Identyfikator subskrypcji \<subskrypcji> nie jest zarejestrowany do korzystania z usługi Microsoft. Insights. Postępuj zgodnie z instrukcjami [Diagnostyka Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) , aby zarejestrować konto, a następnie spróbuj ponownie wykonać tę procedurę.
 

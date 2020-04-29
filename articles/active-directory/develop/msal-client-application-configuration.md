@@ -1,7 +1,7 @@
 ---
-title: Konfiguracja aplikacji klienckiej (MSAL) | Azure
+title: Konfiguracja aplikacji klienta (MSAL) | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się więcej o opcjach konfiguracji publicznych aplikacji klienckich i poufnych przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL).
+description: Informacje o opcjach konfiguracji dla klienta publicznego i poufnych aplikacji klienckich przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,135 +14,135 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81534469"
 ---
 # <a name="application-configuration-options"></a>Opcje konfiguracji aplikacji
 
-W kodzie można zainicjować nową publiczną lub poufną aplikację kliencką (lub agenta użytkownika dla msal.js) do uwierzytelniania i uzyskiwania tokenów. Podczas inicjowania aplikacji klienckiej w bibliotece uwierzytelniania Firmy Microsoft (MSAL) można ustawić wiele opcji konfiguracji. Opcje te dzielą się na dwie grupy:
+W kodzie można zainicjować nową publiczną lub poufną aplikację kliencką (lub agenta użytkownika dla MSAL. js) do uwierzytelniania i pozyskiwania tokenów. Po zainicjowaniu aplikacji klienckiej w bibliotece uwierzytelniania firmy Microsoft (MSAL) można ustawić kilka opcji konfiguracji. Te opcje są dostępne w dwóch grupach:
 
 - Opcje rejestracji, w tym:
-    - [Urząd](#authority) (składający się z [wystąpienia](#cloud-instance) dostawcy tożsamości i [grupy odbiorców](#application-audience) logowania dla aplikacji i ewentualnie identyfikatora dzierżawy).
+    - [Urząd](#authority) (składający się z [wystąpienia](#cloud-instance) dostawcy tożsamości oraz [odbiorców](#application-audience) logowania dla aplikacji i prawdopodobnie identyfikatora dzierżawy).
     - [Identyfikator klienta](#client-id).
-    - [Przekieruj identyfikator URI](#redirect-uri).
-    - [Klucz tajny klienta](#client-secret) (dla poufnych aplikacji klienckich).
-- [Opcje rejestrowania,](#logging)w tym poziom dziennika, kontrola danych osobowych i nazwa składnika za pomocą biblioteki.
+    - [Identyfikator URI przekierowania](#redirect-uri).
+    - [Klucz tajny klienta](#client-secret) (w przypadku poufnych aplikacji klienckich).
+- [Opcje rejestrowania](#logging), w tym poziom rejestrowania, Kontrola danych osobowych i nazwa składnika przy użyciu biblioteki programu.
 
 ## <a name="authority"></a>Urząd
 
-Urząd jest adresem URL, który wskazuje katalog, z których msal może żądać tokenów. Wspólne organy to:
+Urząd to adres URL wskazujący katalog, z którego MSAL może żądać tokenów. Typowe urzędy są następujące:
 
-- https\://login.microsoftonline.com/\<dzierżawy\>/, gdzie &lt;dzierżawa&gt; jest identyfikatorem dzierżawy dzierżawy usługi Azure Active Directory (Azure AD) dzierżawy lub domeny skojarzonej z tą dzierżawą usługi Azure AD. Służy tylko do logowania użytkowników określonej organizacji.
-- https\://login.microsoftonline.com/common/. Służy do logowania użytkowników za pomocą kont służbowych i szkolnych lub osobistych kont Microsoft.
-- https\://login.microsoftonline.com/organizations/. Służy do logowania użytkowników za pomocą kont służbowych i szkolnych.
-- https\://login.microsoftonline.com/consumers/. Służy do logowania użytkowników przy użyciu tylko osobistych kont Microsoft (dawniej nazywanych kontami identyfikatorów Windows Live).
+- dzierżawa\:\<\>https//login.microsoftonline.com//, &lt;gdzie&gt; dzierżawca to identyfikator dzierżawy dzierżawy usługi Azure Active Directory (Azure AD) lub domeny skojarzonej z tą dzierżawą usługi Azure AD. Służy tylko do logowania użytkowników określonej organizacji.
+- https\://login.microsoftonline.com/common/. Służy do logowania użytkowników przy użyciu kont służbowych lub osobistych kont Microsoft.
+- https\://login.microsoftonline.com/Organizations/. Służy do logowania użytkowników przy użyciu kont służbowych.
+- https\://login.microsoftonline.com/Consumers/. Służy do logowania użytkowników tylko przy użyciu osobistych kont Microsoft (znanych wcześniej jako konta usługi Windows Live ID).
 
-Ustawienie urzędu musi być zgodne z tym, co jest zadeklarowane w portalu rejestracji aplikacji.
+Ustawienie urzędu musi być zgodne z informacjami zadeklarowanymi w portalu rejestracji aplikacji.
 
 Adres URL urzędu składa się z wystąpienia i odbiorców.
 
-Organ może być:
-- Urząd chmury usługi Azure AD.
-- Urząd usługi Azure AD B2C. Zobacz [szczegóły B2C](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
-- Urząd Federacyjne usługi Active Directory (AD FS). Zobacz [ad fs wsparcie](https://aka.ms/msal-net-adfs-support).
+Urząd może:
+- Urząd usługi Azure AD w chmurze.
+- Urząd Azure AD B2C. Zobacz [szczegóły B2C](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
+- Urząd Active Directory Federation Services (AD FS). Zobacz [Pomoc techniczna AD FS](https://aka.ms/msal-net-adfs-support).
 
 Urzędy chmury usługi Azure AD mają dwie części:
 - *Wystąpienie* dostawcy tożsamości
-- Grupa *odbiorców* logowania w aplikacji
+- *Odbiorcy* logowania dla aplikacji
 
-Wystąpienie i odbiorców mogą być łączone i dostarczane jako adres URL urzędu. W wersjach MSAL.NET wcześniej niż MSAL 3. *x*, trzeba było samodzielnie skomponować uprawnienia, w oparciu o chmurę, na którą chcesz kierować reklamy i odbiorców logowania.  Na tym diagramie przedstawiono sposób tworzenia adresu URL urzędu:
+Wystąpienie i odbiorcy mogą być połączone i udostępniane jako adres URL urzędu certyfikacji. W wersjach programu MSAL.NET starszej niż MSAL 3. *x*, musisz samodzielnie złożyć urząd w oparciu o docelową chmurę oraz odbiorców logowania.  Ten diagram przedstawia sposób tworzenia adresu URL urzędu:
 
-![Jak składa się adres URL urzędu](media/msal-client-application-configuration/authority.png)
+![Jak składają się adres URL urzędu](media/msal-client-application-configuration/authority.png)
 
-## <a name="cloud-instance"></a>Wystąpienie w chmurze
+## <a name="cloud-instance"></a>Wystąpienie chmury
 
-*Wystąpienie* służy do określenia, czy aplikacja podpisuje użytkowników z chmury publicznej platformy Azure lub z chmur krajowych. Za pomocą msal w kodzie, można ustawić wystąpienie chmury platformy Azure przy użyciu wyliczenia lub przekazując adres URL do [wystąpienia chmury krajowej](authentication-national-cloud.md#azure-ad-authentication-endpoints) jako `Instance` członka (jeśli go znasz).
+To *wystąpienie* służy do określenia, czy aplikacja loguje użytkowników z chmury publicznej platformy Azure lub z chmur krajowych. Korzystając z MSAL w kodzie, można ustawić wystąpienie chmury platformy Azure przy użyciu wyliczenia lub przekazując adres URL do [wystąpienia chmury krajowej](authentication-national-cloud.md#azure-ad-authentication-endpoints) jako `Instance` członka (jeśli jest znany).
 
-MSAL.NET zda jawny wyjątek, jeśli oba `Instance` i `AzureCloudInstance` są określone.
+MSAL.NET zgłosi jawny wyjątek, jeśli `Instance` oba `AzureCloudInstance` i są określone.
 
-Jeśli nie określisz wystąpienia, aplikacja będzie kierowana na wystąpienie chmury `https://login.onmicrosoftonline.com`publicznej platformy Azure (wystąpienie adresu URL).
+Jeśli nie określisz wystąpienia, aplikacja będzie ukierunkowana na wystąpienie chmury publicznej platformy Azure (wystąpienie adresu URL `https://login.onmicrosoftonline.com`).
 
 ## <a name="application-audience"></a>Odbiorcy aplikacji
 
-Grupa odbiorców logowania zależy od potrzeb biznesowych aplikacji:
-- Jeśli jesteś deweloperem linii biznesowej (LOB), prawdopodobnie stworzysz aplikację z jedną dzierżawą, która będzie używana tylko w Twojej organizacji. W takim przypadku należy określić organizację, albo przez jej identyfikator dzierżawy (identyfikator wystąpienia usługi Azure AD) lub przez nazwę domeny skojarzone z wystąpieniem usługi Azure AD.
-- Jeśli jesteś niezależną instytucją żytą, możesz zalogować użytkowników za pomocą ich kont służbowych i szkolnych w dowolnej organizacji lub w niektórych organizacjach (aplikacja wielodostępna). Ale możesz też chcieć, aby użytkownicy logowali się za pomocą swoich osobistych kont Microsoft.
+Odbiorcy logowania zależą od potrzeb firmy dla Twojej aplikacji:
+- Jeśli jesteś deweloperem biznesowym (LOB), prawdopodobnie utworzysz aplikację z jedną dzierżawą, która będzie używana tylko w organizacji. W takim przypadku należy określić organizację jako identyfikator dzierżawy (identyfikator wystąpienia usługi Azure AD) lub nazwę domeny skojarzoną z wystąpieniem usługi Azure AD.
+- Jeśli jesteś dostawcą niezależnego dostawcy oprogramowania, możesz chcieć zalogować użytkowników przy użyciu kont służbowych w dowolnej organizacji lub w niektórych organizacjach (aplikacji wielodostępnej). Może jednak być również konieczne zalogowanie się przy użyciu osobistych kont Microsoft.
 
-### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>Jak określić grupę odbiorców w kodzie/konfiguracji
+### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>Jak określić odbiorców w kodzie/konfiguracji
 
-Korzystając z usługi MSAL w kodzie, można określić odbiorców przy użyciu jednej z następujących wartości:
+Używając MSAL w kodzie, należy określić odbiorców przy użyciu jednej z następujących wartości:
 - Wyliczenie odbiorców urzędu usługi Azure AD
 - Identyfikator dzierżawy, który może być:
   - Identyfikator GUID (identyfikator wystąpienia usługi Azure AD) dla aplikacji z jedną dzierżawą
-  - Nazwa domeny skojarzona z wystąpieniem usługi Azure AD (również dla aplikacji z jedną dzierżawą)
+  - Nazwa domeny skojarzona z wystąpieniem usługi Azure AD (również w przypadku aplikacji z jedną dzierżawą)
 - Jeden z tych symboli zastępczych jako identyfikator dzierżawy zamiast wyliczenia odbiorców urzędu usługi Azure AD:
-    - `organizations`dla aplikacji wielodostępne
-    - `consumers`aby zalogować się tylko za pomocą ich kont osobistych
-    - `common`aby zalogować użytkowników za pomocą swoich kont służbowych i szkolnych lub osobistych kont Microsoft
+    - `organizations`dla aplikacji wielodostępnej
+    - `consumers`Aby zalogować użytkowników tylko przy użyciu ich kont osobistych
+    - `common`Aby zalogować użytkowników przy użyciu kont służbowych lub osobistych kont Microsoft
 
-MSAL zda znaczący wyjątek, jeśli określisz zarówno odbiorców urzędu usługi Azure AD i identyfikator dzierżawy.
+MSAL zgłosi znaczący wyjątek, jeśli określono zarówno odbiorców urzędu usługi Azure AD, jak i identyfikator dzierżawy.
 
-Jeśli nie określisz grupy odbiorców, twoja aplikacja będzie kierowana na usługę Azure AD i osobiste konta Microsoft jako odbiorców. (Oznacza to, że będzie `common` zachowywać się tak, jakby zostały określone.)
+Jeśli nie określisz odbiorców, Twoja aplikacja będzie ukierunkowana na usługę Azure AD i osobiste konta Microsoft jako odbiorców. (Oznacza to, że zostaną one zachowywać `common` się tak, jakby zostały określone).
 
-### <a name="effective-audience"></a>Skuteczna publiczność
+### <a name="effective-audience"></a>Czynni odbiorcy
 
-Skuteczna grupa odbiorców aplikacji będzie minimalna (jeśli jest przecięcie) odbiorców ustawionych w aplikacji i odbiorców określonych w rejestracji aplikacji. W rzeczywistości środowisko [rejestracji aplikacji](https://aka.ms/appregistrations) pozwala określić odbiorców (typy obsługiwanych kont) dla aplikacji. Aby uzyskać więcej informacji, zobacz [Szybki start: Rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](quickstart-register-app.md).
+Obowiązującymi odbiorcami aplikacji będzie minimalny (jeśli istnieje część wspólna) odbiorców ustawionych w aplikacji oraz odbiorców określonych w ramach rejestracji aplikacji. W rzeczywistości środowisko [rejestracje aplikacji](https://aka.ms/appregistrations) umożliwia określenie odbiorców (obsługiwanych typów kont) dla aplikacji. Aby uzyskać więcej informacji, zobacz [Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](quickstart-register-app.md).
 
-Obecnie jedynym sposobem, aby uzyskać aplikację do logowania użytkowników tylko osobistych kont Microsoft jest skonfigurowanie obu tych ustawień:
-- Ustaw odbiorców rejestracji `Work and school accounts and personal accounts`aplikacji na .
-- Ustaw odbiorców w kodzie/konfiguracji `AadAuthorityAudience.PersonalMicrosoftAccount` `TenantID` na (lub ="konsumenci").
+Obecnie jedynym sposobem na uzyskanie aplikacji do logowania użytkowników tylko przy użyciu osobistych kont Microsoft jest skonfigurowanie obu tych ustawień:
+- Ustaw odbiorców rejestracji aplikacji na `Work and school accounts and personal accounts`.
+- Ustaw odbiorców w kodzie/konfiguracji na `AadAuthorityAudience.PersonalMicrosoftAccount` (lub `TenantID` = "konsumenci").
 
 ## <a name="client-id"></a>Identyfikator klienta
 
-Identyfikator klienta to unikatowy identyfikator aplikacji (klienta) przypisany do aplikacji przez usługę Azure AD podczas rejestracji aplikacji.
+Identyfikator klienta jest unikatowym IDENTYFIKATORem aplikacji przypisanym do aplikacji przez usługę Azure AD po zarejestrowaniu aplikacji.
 
 ## <a name="redirect-uri"></a>Identyfikator URI przekierowania
 
-Identyfikator URI przekierowania jest identyfikatorem URI, do który dostawca tożsamości wyśle tokeny zabezpieczające z powrotem.
+Identyfikator URI przekierowania to identyfikator URI, do którego dostawca tożsamości wyśle ponownie tokeny zabezpieczające.
 
-### <a name="redirect-uri-for-public-client-apps"></a>Przekierowywanie identyfikatora URI dla publicznych aplikacji klienckich
+### <a name="redirect-uri-for-public-client-apps"></a>Identyfikator URI przekierowania dla publicznych aplikacji klienckich
 
-Jeśli jesteś deweloperem aplikacji klienckiej, który korzysta z usługi MSAL:
-- Chcesz używać `.WithDefaultRedirectUri()` w aplikacjach komputerowych lub platformach uniwersalnych systemu Windows (MSAL.NET 4.1+). Ta metoda ustawi właściwość przekierowania uri aplikacji klienta publicznego do domyślnego zalecanego przekierowania uri dla publicznych aplikacji klienckich.
+Jeśli jesteś publicznym deweloperem aplikacji klienta korzystającym z usługi MSAL:
+- Chcesz użyć `.WithDefaultRedirectUri()` w aplikacjach klasycznych lub platformy uwp (MSAL.NET 4.1 +). Ta metoda ustawi właściwość URI przekierowania aplikacji publicznej na domyślny zalecany identyfikator URI przekierowania dla publicznych aplikacji klienckich.
 
   Platforma  | Identyfikator URI przekierowania
   ---------  | --------------
-  Aplikacja komputerowa (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
-  Platforma UWP | wartości `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Umożliwia to SSO z przeglądarką, ustawiając wartość na wynik WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), które należy zarejestrować
-  .NET Core | `https://localhost`. Dzięki temu użytkownik może używać przeglądarki systemowej do uwierzytelniania interaktywnego, ponieważ program .NET Core nie ma obecnie interfejsu użytkownika dla osadzonego widoku sieci Web.
+  Aplikacja klasyczna (.NET PD) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
+  Platforma UWP | wartość `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Umożliwia to Logowanie jednokrotne w przeglądarce przez ustawienie wartości na wynik WebAuthenticationBroker. GetCurrentApplicationCallbackUri (), który należy zarejestrować.
+  .NET Core | `https://localhost`. Umożliwia to użytkownikowi korzystanie z przeglądarki systemu na potrzeby uwierzytelniania interaktywnego, ponieważ program .NET Core nie ma obecnie interfejsu użytkownika dla osadzonego widoku sieci Web.
 
-- Nie musisz dodawać identyfikatora URI przekierowania, jeśli budujesz aplikację platformy Xamarin android i iOS, która nie `msal{ClientId}://auth` obsługuje brokera (identyfikator URI przekierowania jest automatycznie ustawiany na system Xamarin Android i iOS
+- Nie musisz dodawać identyfikatora URI przekierowania, jeśli tworzysz aplikację platformy Xamarin dla systemu Android i iOS, która nie obsługuje brokera (identyfikator URI przekierowania jest `msal{ClientId}://auth` automatycznie ustawiany na dla platformy Xamarin Android i iOS
 
-- Należy skonfigurować identyfikator URI przekierowania w [rejestracjach aplikacji:](https://aka.ms/appregistrations)
+- Należy skonfigurować identyfikator URI przekierowania w [rejestracje aplikacji](https://aka.ms/appregistrations):
 
-   ![Przekierowywanie identyfikatora URI w rejestracjach aplikacji](media/msal-client-application-configuration/redirect-uri.png)
+   ![Identyfikator URI przekierowania w Rejestracje aplikacji](media/msal-client-application-configuration/redirect-uri.png)
 
-Można zastąpić przekierowanie identyfikatora URI `RedirectUri` przy użyciu właściwości (na przykład, jeśli używasz brokerów). Oto kilka przykładów przekierowania identyfikatorów URI dla tego scenariusza:
+Identyfikator URI przekierowania można zastąpić za pomocą `RedirectUri` właściwości (na przykład jeśli używasz brokerów). Poniżej przedstawiono kilka przykładów identyfikatorów URI przekierowania dla tego scenariusza:
 
-- `RedirectUriOnAndroid`= "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
-- `RedirectUriOnIos`= $"msauth. {Bundle.ID}://auth";
+- `RedirectUriOnAndroid`= "msauth-5a434691-CCB2-4fd1-b97b-b64bcfbc03fc://com.Microsoft.Identity.Client.sample";
+- `RedirectUriOnIos`= $ "msauth. {Pakiet. ID}://auth ";
 
-Aby uzyskać dodatkowe szczegółowe informacje na temat systemu iOS, zobacz [Migrowanie aplikacji systemu iOS korzystających z funkcji Microsoft Authenticator z ADAL.NET do MSAL.NET](msal-net-migration-ios-broker.md) i korzystanie z funkcji [brokera w systemie iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
-Aby uzyskać dodatkowe informacje na temat [Androida, zobacz Brokered auth w Systemie Android](brokered-auth.md).
+Aby uzyskać dodatkowe informacje na temat systemu iOS, zobacz [Migrowanie aplikacji systemu iOS, które używają Microsoft Authenticator od ADAL.NET do MSAL.NET](msal-net-migration-ios-broker.md) i korzystania [z brokera w systemie iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
+Aby uzyskać dodatkowe informacje dotyczące systemu Android, zobacz [uwierzytelnianie przez brokera w systemie Android](brokered-auth.md).
 
-### <a name="redirect-uri-for-confidential-client-apps"></a>Przekierowywanie identyfikatora URI dla poufnych aplikacji klienckich
+### <a name="redirect-uri-for-confidential-client-apps"></a>Identyfikator URI przekierowania dla poufnych aplikacji klienckich
 
-W przypadku aplikacji sieci web identyfikator URI (lub identyfikator URI odpowiedzi) jest identyfikatorem URI używanym przez usługę Azure AD do wysyłania tokenu z powrotem do aplikacji. Ten identyfikator URI może być adresem URL interfejsu API aplikacji sieci web/sieci Web, jeśli jedną z nich jest aplikacja poufna. Identyfikator URI przekierowania musi być zarejestrowany w rejestracji aplikacji. Ta rejestracja jest szczególnie ważna podczas wdrażania aplikacji, która została początkowo przetestowana lokalnie. Następnie należy dodać adres URL odpowiedzi wdrożonej aplikacji w portalu rejestracji aplikacji.
+W przypadku aplikacji sieci Web identyfikator URI przekierowania (lub identyfikator URI odpowiedzi) to identyfikator URI, który będzie używany przez usługę Azure AD do wysyłania tokenu z powrotem do aplikacji. Ten identyfikator URI może być adresem URL aplikacji sieci Web/internetowego interfejsu API, jeśli jest to jedna z nich. Identyfikator URI przekierowania musi być zarejestrowany w rejestracji aplikacji. Ta rejestracja jest szczególnie ważna w przypadku wdrożenia aplikacji, która została wstępnie przetestowana lokalnie. Następnie należy dodać adres URL odpowiedzi wdrożonej aplikacji w portalu rejestracji aplikacji.
 
 W przypadku aplikacji demonów nie trzeba określać identyfikatora URI przekierowania.
 
 ## <a name="client-secret"></a>Klucz tajny klienta
 
-Ta opcja określa klucz tajny klienta dla poufnej aplikacji klienckiej. Ten klucz tajny (hasło aplikacji) jest dostarczany przez portal rejestracji aplikacji lub dostarczany do usługi Azure AD podczas rejestracji aplikacji w programie PowerShell AzureAD, PowerShell AzureRM lub platformie Azure CLI.
+Ta opcja określa klucz tajny klienta dla poufnej aplikacji klienckiej. Ten wpis tajny (hasło aplikacji) jest udostępniany przez portal rejestracji aplikacji lub dostarczany do usługi Azure AD podczas rejestracji aplikacji przy użyciu programu PowerShell AzureAD, programu PowerShell AzureRM lub interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="logging"></a>Rejestrowanie
 
-Inne opcje konfiguracji umożliwiają rejestrowanie i rozwiązywanie problemów. Zobacz [rejestrowanie](msal-logging.md) artykułu, aby uzyskać szczegółowe informacje na temat korzystania z nich.
+Inne opcje konfiguracji umożliwiają rejestrowanie i rozwiązywanie problemów. Zobacz artykuł [Rejestrowanie](msal-logging.md) , aby uzyskać szczegółowe informacje na temat korzystania z nich.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [tworzeniem wystąpienia aplikacji klienckich przy użyciu MSAL.NET](msal-net-initializing-client-applications.md).
-Dowiedz się więcej o [tworzeniem wystąpienia aplikacji klienckich przy użyciu pliku MSAL.js](msal-js-initializing-client-applications.md).
+Dowiedz się więcej o [tworzeniu wystąpień aplikacji klienckich za pomocą MSAL.NET](msal-net-initializing-client-applications.md).
+Dowiedz się więcej o [tworzeniu wystąpień aplikacji klienckich przy użyciu MSAL. js](msal-js-initializing-client-applications.md).

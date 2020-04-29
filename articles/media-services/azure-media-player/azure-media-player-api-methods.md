@@ -1,34 +1,34 @@
 ---
-title: Metody interfejsu API programu Azure Media Player
-description: Interfejs API odtwarzacza multimediów azure umożliwia interakcję z wideo za pośrednictwem języka JavaScript, niezależnie od tego, czy przeglądarka odtwarza wideo za pośrednictwem wideo HTML5, Flash, Silverlight lub innych obsługiwanych technologii odtwarzania.
+title: Metody interfejsu API Azure Media Player
+description: Interfejs API Azure Media Player umożliwia korzystanie z filmu wideo za pomocą języka JavaScript, niezależnie od tego, czy przeglądarka odtwarza wideo za pomocą wideo HTML5, Flash, Silverlight czy innych obsługiwanych technologii odtwarzania.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: d1ad0cbe30ce20e61a31f0534a47fe031f6f257b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727270"
 ---
-# <a name="api"></a>interfejs API #
+# <a name="api"></a>Interfejs API #
 
-Interfejs API odtwarzacza multimediów azure umożliwia interakcję z wideo za pośrednictwem języka JavaScript, niezależnie od tego, czy przeglądarka odtwarza wideo za pośrednictwem wideo HTML5, Flash, Silverlight lub innych obsługiwanych technologii odtwarzania.
+Interfejs API Azure Media Player umożliwia korzystanie z filmu wideo za pomocą języka JavaScript, niezależnie od tego, czy przeglądarka odtwarza wideo za pomocą wideo HTML5, Flash, Silverlight czy innych obsługiwanych technologii odtwarzania.
 
-## <a name="referencing-the-player"></a>Odwoływanie się do gracza ##
+## <a name="referencing-the-player"></a>Odwoływanie się do odtwarzacza ##
 
-Aby korzystać z funkcji interfejsu API, należy uzyskać dostęp do obiektu odtwarzacza. Na szczęście jest to łatwe do zdobycia. Wystarczy upewnić się, że tag wideo ma identyfikator. Przykładowy kod osadzania ma `vid1`identyfikator . Jeśli masz wiele filmów na jednej stronie, upewnij się, że każdy tag wideo ma unikatowy identyfikator.
+Aby korzystać z funkcji interfejsu API, wymagany jest dostęp do obiektu odtwarzacza. Na szczęście. Wystarczy upewnić się, że tag wideo ma identyfikator. Przykładowy kod osadzania ma identyfikator `vid1`. Jeśli masz wiele filmów wideo na jednej stronie, upewnij się, że każdy tag wideo ma unikatowy identyfikator.
 
 `var myPlayer = amp('vid1');`
 
 > [!NOTE]
-> Jeśli odtwarzacz nie został jeszcze zainicjowany za pomocą atrybutu konfiguracji danych lub innej metody, spowoduje to również zainicjowanie odtwarzacza.
+> Jeśli gracz nie został jeszcze zainicjowany za pośrednictwem atrybutu konfiguracji danych lub innej metody, spowoduje to również zainicjowanie odtwarzacza.
 
 ## <a name="wait-until-the-player-is-ready"></a>Poczekaj, aż odtwarzacz będzie gotowy ##
 
-Czas potrzebny programowi Azure Media Player do skonfigurowania wideo i interfejsu API będzie się różnić w zależności od używanej technologii odtwarzania. HTML5 będzie często znacznie szybszy do załadowania niż Flash lub Silverlight. Z tego powodu funkcja "gotowego" gracza powinna być używana do wyzwalania dowolnego kodu, który wymaga interfejsu API gracza.
+Czas potrzebny na Azure Media Player konfigurowania wideo i interfejsu API różni się w zależności od używanej technologii odtwarzania. Usługa HTML5 będzie często znacznie szybsza niż w przypadku wersji Flash lub Silverlight. Z tego powodu funkcja "gotowe" odtwarzacza powinna być używana do wyzwalania dowolnego kodu, który wymaga interfejsu API odtwarzacza.
 
 ```javacript
     amp("vid_1").ready(function(){
@@ -47,9 +47,9 @@ LUB
     });
 ```
 
-## <a name="api-methods"></a>Metody API ##
+## <a name="api-methods"></a>Metody interfejsu API ##
 
-Teraz, gdy masz dostęp do gotowego odtwarzacza, możesz kontrolować film, otrzymywać wartości lub reagować na zdarzenia wideo. Nazwy funkcji interfejsu API programu Azure Media Player próbują podążać za [interfejsem API nośników HTML5](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html). Główną różnicą jest to, że funkcje getter/setter są używane dla właściwości wideo.
+Teraz, gdy masz dostęp do gotowego odtwarzacza, możesz kontrolować wideo, uzyskiwać wartości lub reagować na zdarzenia wideo. Nazwy funkcji interfejsu API Azure Media Player próbują postępować zgodnie z [interfejsem API multimediów HTML5](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html). Główną różnicą jest to, że funkcje pobierającej i ustawiającej są używane do właściwości wideo.
 
 ```javacript
     // setting a property on a bare HTML5 video element
@@ -59,8 +59,8 @@ Teraz, gdy masz dostęp do gotowego odtwarzacza, możesz kontrolować film, otrz
     myPlayer.currentTime(120);
 ```
 
-## <a name="registering-for-events"></a>Rejestracja wydarzeń ##
-Zdarzenia powinny być rejestrowane bezpośrednio po zainicjowaniu odtwarzacza po raz pierwszy, aby upewnić się, że wszystkie zdarzenia są odpowiednio zgłaszane do aplikacji i powinny być wykonywane poza gotowym zdarzeniem.
+## <a name="registering-for-events"></a>Rejestrowanie zdarzeń ##
+Zdarzenia powinny być rejestrowane bezpośrednio po zainicjowaniu odtwarzacza po raz pierwszy, aby upewnić się, że wszystkie zdarzenia zostały odpowiednio zgłoszone do aplikacji i powinny być wykonywane poza zdarzeniem gotowości.
 
 ```javacript
     var myPlayer = amp("vid_1", myOptions, function(){
@@ -73,4 +73,4 @@ Zdarzenia powinny być rejestrowane bezpośrednio po zainicjowaniu odtwarzacza p
 ## <a name="next-steps"></a>Następne kroki ##
 
 <!---Some context for the following links goes here--->
-- [Szybki start programu Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player — Szybki Start](azure-media-player-quickstart.md)

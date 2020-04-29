@@ -1,6 +1,6 @@
 ---
-title: Odtwarzanie zawartości za pomocą istniejących odtwarzaczy — Azure | Dokumenty firmy Microsoft
-description: W tym artykule wymieniono istniejących graczy, których można użyć do odtwarzania zawartości.
+title: Korzystanie z istniejących odtwarzaczy do odtwarzania zawartości — Azure | Microsoft Docs
+description: Ten artykuł zawiera listę istniejących odtwarzaczy, których można użyć do odtwarzania zawartości.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,42 +15,42 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 2d3c22e17c37bc46c16a9cc80eb3cf4b9ec93ecf
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686922"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Odtwarzanie zawartości w istniejących odtwarzaczach
-Usługa Azure Media Services obsługuje wiele popularnych formatów przesyłania strumieniowego, takich jak płynne przesyłanie strumieniowe, przesyłanie strumieniowe na żywo HTTP i mpeg-dash. W tym temacie wskazano istniejące odtwarzacze, których można użyć do testowania strumieni.
+Azure Media Services obsługuje wiele popularnych formatów przesyłania strumieniowego, takich jak Smooth Streaming, HTTP Live Streaming i MPEG-kreska. Ten temat prowadzi do istniejących graczy, których można użyć do testowania strumieni.
 
-### <a name="the-azure-portal-media-services-content-player"></a>Odtwarzacz zawartości usługi Azure portal Media Services
-**Portal Azure** udostępnia odtwarzacz zawartości, którego można użyć do testowania wideo.
+### <a name="the-azure-portal-media-services-content-player"></a>Azure Portal Media Services odtwarzacz zawartości
+Witryna **Azure** Portal udostępnia odtwarzacz zawartości, którego można użyć do testowania wideo.
 
-Kliknij żądany film (upewnij się, że został [opublikowany)](media-services-portal-publish.md)i kliknij przycisk **Odtwórz** u dołu portalu.
+Kliknij żądany film wideo (Upewnij się, że został [opublikowany](media-services-portal-publish.md)), a następnie kliknij przycisk **Odtwórz** w dolnej części portalu.
 
 Zagadnienia do rozważenia:
 
-* **Odtwarzacz zawartości MEDIA SERVICES** odtwarza z domyślnego punktu końcowego przesyłania strumieniowego. Do odtwarzania z punktu końcowego przesyłania strumieniowego innego niż domyślny należy użyć innego odtwarzacza Na przykład [program Azure Media Player](https://aka.ms/azuremediaplayer).
+* **Odtwarzacz zawartości MEDIA SERVICES** odtwarza z domyślnego punktu końcowego przesyłania strumieniowego. Do odtwarzania z punktu końcowego przesyłania strumieniowego innego niż domyślny należy użyć innego odtwarzacza Na przykład [Azure Media Player](https://aka.ms/azuremediaplayer).
 
 ![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Azure Media Player
 
-Użyj [programu Azure Media Player](https://aka.ms/azuremediaplayer) do odtwarzania zawartości (wyczyszczonej lub chronionej) w dowolnym z następujących formatów:
+Użyj [Azure Media Player](https://aka.ms/azuremediaplayer) do odtwarzania zawartości (wyczyść lub chroniona) w jednym z następujących formatów:
 
 * Smooth Streaming
 * MPEG DASH
 * HLS
-* Progresywny MP4
+* Pliki MP4 progresywne
 
-### <a name="flash-player"></a>Flash Player
+### <a name="flash-player"></a>Program Flash Player
 
 #### <a name="playready-with-token"></a>PlayReady z tokenem
 
 [https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
-### <a name="dash-players"></a>Gracze DASH
+### <a name="dash-players"></a>Odtwarzacze PAUZ
 
 [https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
 
@@ -59,7 +59,7 @@ Użyj [programu Azure Media Player](https://aka.ms/azuremediaplayer) do odtwarza
 ### <a name="other"></a>Inne
 Aby przetestować adresy URL HLS, można również użyć:
 
-* **Safari** na urządzeniu z systemem iOS lub
+* **Przeglądarka Safari** na urządzeniu z systemem iOS lub
 * **3ivx HLS Player** w systemie Windows.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ms.openlocfilehash: 68480f5b3b52d2347369f878802c71672213940a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146873"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Skopiuj dane z i do usługi Salesforce przy użyciu Azure Data Factory
@@ -57,7 +57,7 @@ Usługi Salesforce mają limity dla obu żądań interfejsu API i współbieżny
 
 W obu scenariuszach może być również wyświetlany komunikat o błędzie "REQUEST_LIMIT_EXCEEDED". Aby uzyskać więcej informacji, zobacz sekcję "limity żądań interfejsu API" w obszarze [limity deweloperów usługi Salesforce](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -69,10 +69,10 @@ Dla połączonej usługi Salesforce są obsługiwane następujące właściwośc
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type |Właściwość Type musi być ustawiona na wartość **Salesforce**. |Yes |
+| type |Właściwość Type musi być ustawiona na wartość **Salesforce**. |Tak |
 | environmentUrl | Określ adres URL wystąpienia usługi Salesforce. <br> -Wartość domyślna `"https://login.salesforce.com"`to. <br> -Aby skopiować dane z piaskownicy, `"https://test.salesforce.com"`Określ. <br> -Aby skopiować dane z domeny niestandardowej, określ, na przykład, `"https://[domain].my.salesforce.com"`. |Nie |
-| nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika. |Yes |
-| hasło |Określ hasło dla konta użytkownika.<br/><br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika. |Tak |
+| hasło |Określ hasło dla konta użytkownika.<br/><br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak |
 | Obiektu |Określ token zabezpieczający dla konta użytkownika. <br/><br/>Aby uzyskać ogólne informacje na temat tokenów zabezpieczających, zobacz [zabezpieczenia i interfejs API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). Token zabezpieczający można pominąć tylko wtedy, gdy dodasz adres IP Integration Runtime do [listy zaufanych adresów IP](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) w usłudze Salesforce. Korzystając z Azure IR, zapoznaj się z [Azure Integration Runtime adresami IP](azure-integration-runtime-ip-addresses.md).<br/><br/>Instrukcje dotyczące pobierania i resetowania tokenu zabezpieczającego znajdują się w temacie [Get a Security Token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Nie |
 | apiVersion | Określ wersję interfejsu API REST/Bulk usługi Salesforce, która ma zostać `48.0`użyta, np.. Domyślnie łącznik używa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) do kopiowania danych z usługi Salesforce i używa [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) do kopiowania danych do usługi Salesforce. | Nie |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie dla źródła, tak dla ujścia, jeśli źródłowa usługa nie ma środowiska Integration Runtime |
@@ -148,7 +148,7 @@ Aby skopiować dane z i do usługi Salesforce, ustaw właściwość Type zestawu
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi być ustawiona na wartość **salesforceobject**.  | Yes |
+| type | Właściwość Type musi być ustawiona na wartość **salesforceobject**.  | Tak |
 | objectApiName | Nazwa obiektu usług Salesforce, z którego mają zostać pobrane dane. | Nie dla źródła, tak dla ujścia |
 
 > [!IMPORTANT]
@@ -156,7 +156,7 @@ Aby skopiować dane z i do usługi Salesforce, ustaw właściwość Type zestawu
 
 ![Data Factory nazwę interfejsu API połączenia usługi Salesforce](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
-**Przyklad**
+**Przykład:**
 
 ```json
 {
@@ -180,7 +180,7 @@ Aby skopiować dane z i do usługi Salesforce, ustaw właściwość Type zestawu
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość **relacyjną**. | Yes |
+| type | Właściwość Type zestawu danych musi być ustawiona na wartość **relacyjną**. | Tak |
 | tableName | Nazwa tabeli w usłudze Salesforce. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
@@ -193,7 +193,7 @@ Aby skopiować dane z usługi Salesforce, ustaw typ źródła w działaniu Copy 
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość **SalesforceSource**. | Yes |
+| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość **SalesforceSource**. | Tak |
 | query |Użyj zapytania niestandardowego do odczytywania danych. Można użyć zapytania [SOQL (Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) lub zapytania SQL-92. Zobacz więcej porad w sekcji [porady dotyczące zapytań](#query-tips) . Jeśli nie określono zapytania, zostaną pobrane wszystkie dane obiektu usługi Salesforce określone w "objectApiName" w zestawie danych. | Nie (Jeśli określono wartość "objectApiName" w zestawie danych) |
 | readBehavior | Wskazuje, czy mają być zbadane istniejące rekordy, czy też mają być poszukiwane wszystkie rekordy, w tym usunięte. Jeśli nie zostanie określony, domyślnym zachowaniem jest pierwsze. <br>Dozwolone wartości: **zapytanie** (wartość domyślna), **queryAll**.  | Nie |
 
@@ -202,7 +202,7 @@ Aby skopiować dane z usługi Salesforce, ustaw typ źródła w działaniu Copy 
 
 ![Data Factory lista nazw interfejsów API połączenia usługi Salesforce](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
-**Przyklad**
+**Przykład:**
 
 ```json
 "activities":[
@@ -243,7 +243,7 @@ Aby skopiować dane do usługi Salesforce, ustaw typ ujścia w działaniu Copy n
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość Type ujścia działania Copy musi być ustawiona na wartość **SalesforceSink**. | Yes |
+| type | Właściwość Type ujścia działania Copy musi być ustawiona na wartość **SalesforceSink**. | Tak |
 | writeBehavior | Zachowanie zapisu dla operacji.<br/>Dozwolone wartości to **INSERT** i **upsert**. | Nie (wartość domyślna to Insert) |
 | externalIdFieldName | Nazwa pola identyfikatora zewnętrznego dla operacji upsert. Określone pole musi być zdefiniowane jako "pole identyfikatora zewnętrznego" w obiekcie usługi Salesforce. Nie może mieć wartości NULL w odpowiednich danych wejściowych. | Tak dla "upsert" |
 | writeBatchSize | Liczba wierszy danych zapisywana w usłudze Salesforce w każdej partii. | Nie (domyślnie 5 000) |
@@ -304,8 +304,8 @@ Podczas kopiowania danych z usługi Salesforce można użyć zapytania SOQL lub 
 | Cudzysłowy | Nazwy zgłoszonych/obiektów nie mogą być ujęte w cudzysłów. | Nazwy pól/obiektów mogą być ujęte w cudzysłów, np.`SELECT "id" FROM "Account"` |
 | Format daty i godziny |  Zapoznaj się z informacjami [tutaj](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) i przykładami w następnej sekcji. | Zapoznaj się z informacjami [tutaj](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) i przykładami w następnej sekcji. |
 | Wartości logiczne | Reprezentowane jako `False` i `True`, np. `SELECT … WHERE IsDeleted=True`. | Reprezentowane jako 0 lub 1, np. `SELECT … WHERE IsDeleted=1`. |
-| Zmiana nazwy kolumny | Bez pomocy technicznej. | Obsługiwane, np.: `SELECT a AS b FROM …`. |
-| Relacja | Obsługiwane, np. `Account_vod__r.nvs_Country__c`. | Bez pomocy technicznej. |
+| Zmiana nazwy kolumny | Nieobsługiwane. | Obsługiwane, np.: `SELECT a AS b FROM …`. |
+| Relacja | Obsługiwane, np. `Account_vod__r.nvs_Country__c`. | Nieobsługiwane. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Pobieranie danych przy użyciu klauzuli WHERE w kolumnie DateTime
 
@@ -324,25 +324,25 @@ Podczas kopiowania danych z usługi Salesforce następujące mapowania są używ
 
 | Typ danych usługi Salesforce | Data Factory typ danych pośrednich |
 |:--- |:--- |
-| Numer Autokorekty |Ciąg |
-| Pole wyboru |Wartość logiczna |
+| Numer Autokorekty |String |
+| Pole wyboru |Boolean |
 | Waluta |Wartość dziesiętna |
 | Date |DateTime |
 | Data/godzina |DateTime |
-| Poczta e-mail |Ciąg |
-| Identyfikator |Ciąg |
-| Relacja odnośnika |Ciąg |
-| Lista wyboru z wybórem |Ciąg |
+| Poczta e-mail |String |
+| Identyfikator |String |
+| Relacja odnośnika |String |
+| Lista wyboru z wybórem |String |
 | Liczba |Wartość dziesiętna |
 | Wartość procentowa |Wartość dziesiętna |
-| Telefon |Ciąg |
-| Lista wyboru |Ciąg |
-| Tekst |Ciąg |
-| Obszar tekstu |Ciąg |
-| Obszar tekstowy (Long) |Ciąg |
-| Obszar tekstowy (rozbudowany) |Ciąg |
-| Tekst (zaszyfrowany) |Ciąg |
-| Adres URL |Ciąg |
+| Telefon |String |
+| Lista wyboru |String |
+| Tekst |String |
+| Obszar tekstu |String |
+| Obszar tekstowy (Long) |String |
+| Obszar tekstowy (rozbudowany) |String |
+| Tekst (zaszyfrowany) |String |
+| Adres URL |String |
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 

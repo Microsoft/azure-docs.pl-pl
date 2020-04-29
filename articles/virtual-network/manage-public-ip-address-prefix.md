@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
 ms.openlocfilehash: 720496c56cdae69e3b7415ac4d4d05d5796fbff9
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146369"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Tworzenie, zmienianie i usuwanie prefiksu publicznego adresu IP
@@ -46,13 +46,13 @@ Prefiksy publicznych adresów IP są naliczane. Aby uzyskać szczegółowe infor
 3. W obszarze **prefiks publicznego adresu IP**wybierz pozycję **Utwórz**.
 4. Wprowadź lub wybierz wartości dla następujących ustawień, w obszarze **Utwórz prefiks publicznego adresu IP**, a następnie wybierz pozycję **Utwórz**:
 
-   |Ustawienie|Wymagana?|Szczegóły|
+   |Ustawienie|Wymagane?|Szczegóły|
    |---|---|---|
-   |Subskrypcja|Yes|Musi znajdować się w tej samej [subskrypcji](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) co zasób, do którego chcesz skojarzyć publiczny adres IP.|
-   |Grupa zasobów|Yes|Może istnieć w tej samej lub innej [grupie zasobów](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) co zasób, do którego chcesz skojarzyć publiczny adres IP.|
-   |Nazwa|Yes|Nazwa musi być unikatowa w ramach wybranej grupy zasobów.|
-   |Region|Yes|Musi istnieć w tym samym [regionie](https://azure.microsoft.com/regions)co publiczne adresy IP, z którego będą przypisywane adresy z zakresu.|
-   |Rozmiar prefiksu|Yes| Rozmiar wymaganego prefiksu. Domyślne adresy IP/28 lub 16.
+   |Subskrypcja|Tak|Musi znajdować się w tej samej [subskrypcji](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) co zasób, do którego chcesz skojarzyć publiczny adres IP.|
+   |Grupa zasobów|Tak|Może istnieć w tej samej lub innej [grupie zasobów](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) co zasób, do którego chcesz skojarzyć publiczny adres IP.|
+   |Nazwa|Tak|Nazwa musi być unikatowa w ramach wybranej grupy zasobów.|
+   |Region|Tak|Musi istnieć w tym samym [regionie](https://azure.microsoft.com/regions)co publiczne adresy IP, z którego będą przypisywane adresy z zakresu.|
+   |Rozmiar prefiksu|Tak| Rozmiar wymaganego prefiksu. Domyślne adresy IP/28 lub 16.
 
 **Polecenia**
 
@@ -69,9 +69,9 @@ Po utworzeniu prefiksu należy utworzyć statyczne adresy IP z prefiksu. Aby to 
 3. Gdy pojawi się w wynikach wyszukiwania, wybierz ją, a następnie kliknij pozycję **+ Dodaj adres IP** w sekcji Przegląd.
 4. Wprowadź lub wybierz wartości dla następujących ustawień w obszarze **Utwórz publiczny adres IP**. Ponieważ prefiks jest przeznaczony dla standardowej jednostki SKU, IPv4 i static, należy podać tylko następujące informacje:
 
-   |Ustawienie|Wymagana?|Szczegóły|
+   |Ustawienie|Wymagane?|Szczegóły|
    |---|---|---|
-   |Nazwa|Yes|Nazwa publicznego adresu IP musi być unikatowa w ramach wybranej grupy zasobów.|
+   |Nazwa|Tak|Nazwa publicznego adresu IP musi być unikatowa w ramach wybranej grupy zasobów.|
    |Limit czasu bezczynności (minuty)|Nie|Liczba minut utrzymywania otwartego połączenia TCP lub HTTP bez polegania na klientach do wysyłania komunikatów Keep-Alive. |
    |Etykieta nazwy DNS|Nie|Musi być unikatowa w ramach regionu platformy Azure, w którym jest tworzona nazwa (między wszystkimi subskrypcjami i wszystkimi klientami). Platforma Azure automatycznie rejestruje nazwę i adres IP w systemie DNS, aby można było połączyć się z zasobem o nazwie. System Azure dołącza domyślną podsieć, taką jak *Location.cloudapp.Azure.com* (lokalizacja jest wybieraną lokalizacją) do podania nazwy, aby utworzyć w pełni KWALIFIKOWANĄ nazwę DNS. Aby uzyskać więcej informacji, zobacz [używanie Azure DNS z publicznym adresem IP platformy Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 

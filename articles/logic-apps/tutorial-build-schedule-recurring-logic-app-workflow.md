@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
 ms.openlocfilehash: 5d4990fd806aed75d9b5e5ddd3e9a615631d9d65
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82146523"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Samouczek: Tworzenie zautomatyzowanych, cyklicznych przepływów pracy opartych na harmonogramach przy użyciu Azure Logic Apps
@@ -94,8 +94,8 @@ Następnie Dodaj [wyzwalacz](../logic-apps/logic-apps-overview.md#logic-app-conc
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Dat** | Yes | 1 | Liczba interwałów do odczekania między sprawdzaniami |
-   | **Częstotliwość** | Yes | Tydzień | Jednostka czasu cyklu |
+   | **Dat** | Tak | 1 | Liczba interwałów do odczekania między sprawdzaniami |
+   | **Częstotliwość** | Tak | Tydzień | Jednostka czasu cyklu |
    |||||
 
 1. W obszarze **Interwał** i **częstotliwość**Otwórz listę **Dodaj nowy parametr** i wybierz te właściwości, które mają zostać dodane do wyzwalacza.
@@ -143,15 +143,15 @@ Po utworzeniu wyzwalacza możesz dodać [akcję](../logic-apps/logic-apps-overvi
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Nazwa połączenia** | Yes | BingMapsConnection | Podaj nazwę połączenia. W tym przykładzie zastosowano "BingMapsConnection". |
-   | **Klucz interfejsu API** | Yes | <*Twoje-Bing-Maps-Key*> | Wprowadź uzyskany wcześniej klucz usługi Mapy Bing. Jeśli nie masz klucza usługi Mapy Bing, dowiedz się [jak uzyskać klucz](https://msdn.microsoft.com/library/ff428642.aspx). |
+   | **Nazwa połączenia** | Tak | BingMapsConnection | Podaj nazwę połączenia. W tym przykładzie zastosowano "BingMapsConnection". |
+   | **Klucz interfejsu API** | Tak | <*Twoje-Bing-Maps-Key*> | Wprowadź uzyskany wcześniej klucz usługi Mapy Bing. Jeśli nie masz klucza usługi Mapy Bing, dowiedz się [jak uzyskać klucz](https://msdn.microsoft.com/library/ff428642.aspx). |
    |||||
 
 1. Zmień nazwę akcji na następujący opis: `Get route and travel time with traffic`
 
 1. Wewnątrz akcji Otwórz **listę Dodaj nowy parametr**i wybierz te właściwości, które mają zostać dodane do akcji.
 
-   * **Optymalizacja**
+   * **Zoptymalizować**
    * **Jednostka odległości**
    * **Tryb podróży**
 
@@ -163,9 +163,9 @@ Po utworzeniu wyzwalacza możesz dodać [akcję](../logic-apps/logic-apps-overvi
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Punkt nawigacyjny 1** | Yes | <*lokalizacja początkowa*> | Początek trasy |
-   | **Punkt nawigacyjny 2** | Yes | <*Lokalizacja końcowa*> | Koniec trasy |
-   | **Optymalizacja** | Nie | timeWithTraffic | Parametr używany do optymalizowania trasy, na przykład odległość, czas podróży z uwzględnieniem aktualnego natężenia ruchu i tak dalej. Wybierz parametr "timeWithTraffic". |
+   | **Punkt nawigacyjny 1** | Tak | <*lokalizacja początkowa*> | Początek trasy |
+   | **Punkt nawigacyjny 2** | Tak | <*Lokalizacja końcowa*> | Koniec trasy |
+   | **Zoptymalizować** | Nie | timeWithTraffic | Parametr używany do optymalizowania trasy, na przykład odległość, czas podróży z uwzględnieniem aktualnego natężenia ruchu i tak dalej. Wybierz parametr "timeWithTraffic". |
    | **Jednostka odległości** | Nie | <*Twoje preferencje*> | Jednostka odległości trasy. Ten przykład używa "milowej" jako jednostki. |
    | **Tryb podróży** | Nie | Jazda samochodem | Tryb podróży dla trasy. Wybierz tryb "kierowanie". |
    ||||
@@ -194,9 +194,9 @@ Domyślnie Poprzednia Akcja **Pobierz trasę** zwraca bieżący czas podróży z
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Nazwa** | Yes | travelTime | Nazwa zmiennej. W tym przykładzie zastosowano "travelTime". |
-   | **Typ** | Yes | Liczba całkowita | Typ danych dla zmiennej |
-   | **Wartościami** | Nie| Wyrażenie, które konwertuje aktualny czas podróży z sekund na minuty (zobacz instrukcje pod tą tabelą). | Początkowa wartość zmiennej |
+   | **Nazwa** | Tak | travelTime | Nazwa zmiennej. W tym przykładzie zastosowano "travelTime". |
+   | **Typ** | Tak | Liczba całkowita | Typ danych dla zmiennej |
+   | **Wartość** | Nie| Wyrażenie, które konwertuje aktualny czas podróży z sekund na minuty (zobacz instrukcje pod tą tabelą). | Początkowa wartość zmiennej |
    ||||
 
    1. Aby utworzyć wyrażenie dla właściwości **Value** , kliknij wewnątrz pola, aby wyświetlić listę zawartości dynamicznej. W razie potrzeby poszerz okno przeglądarki, aż lista będzie widoczna. Z listy zawartość dynamiczna wybierz pozycję **wyrażenie**.

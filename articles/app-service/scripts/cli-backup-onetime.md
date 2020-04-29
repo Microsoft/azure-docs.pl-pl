@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Łącze zapasowe aplikacji'
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zautomatyzować wdrażanie aplikacji usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak zrobić z powrotem do kopii zapasowej aplikacji.
+title: 'Interfejs wiersza polecenia: Tworzenie kopii zapasowej aplikacji'
+description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak utworzyć kopię zapasową aplikacji.
 author: msangapu-msft
 tags: azure-service-management
 ms.devlang: azurecli
@@ -10,10 +10,10 @@ ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18
 ms.openlocfilehash: fd310e81c6a86e651e27518acfdefa66980fa938
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80059153"
 ---
 # <a name="back-up-an-app-using-cli"></a>Tworzenie kopii zapasowej aplikacji przy użyciu interfejsu wiersza polecenia

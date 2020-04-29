@@ -1,112 +1,112 @@
 ---
 title: Plany usługi App Service
-description: Dowiedz się, jak działają plany usługi App Service w usłudze Azure App Service, jak są rozliczane klientowi i jak je skalować zgodnie z potrzebami.
-keywords: usługa aplikacji, usługa aplikacji platformy Azure, skalowanie, skalowalne, skalowalność, plan usługi aplikacji, koszt usługi aplikacji
+description: Dowiedz się, jak plany App Service działają w Azure App Service, jak są rozliczane dla klienta oraz jak skalować je w swoich potrzebach.
+keywords: App Service, Azure App Service, skala, skalowalność, skalowalność, plan usługi App Service, koszt usługi App Service
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
 ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537648"
 ---
 # <a name="azure-app-service-plan-overview"></a>Plan usługi Azure App Service — omówienie
 
-W usłudze App Service aplikacje są uruchamiane w ramach _planu usługi App Service_. Plan usługi App Service definiuje zestaw zasobów obliczeniowych dla aplikacji internetowej używanych podczas jej uruchamiania. Te zasoby obliczeniowe są analogiczne do [_farmy serwerów_](https://wikipedia.org/wiki/Server_farm) w konwencjonalnym hostingu internetowym. Co najmniej jedna aplikacja może być skonfigurowana do uruchamiania na tych samych zasobach obliczeniowych (lub w tym samym planie usługi App Service).
+W usłudze App Service aplikacje są uruchamiane w ramach _planu usługi App Service_. Plan usługi App Service definiuje zestaw zasobów obliczeniowych dla aplikacji internetowej używanych podczas jej uruchamiania. Te zasoby obliczeniowe są analogiczne do [_farmy serwerów_](https://wikipedia.org/wiki/Server_farm) w konwencjonalnym hostingu sieci Web. Co najmniej jedna aplikacja może być skonfigurowana do uruchamiania w tych samych zasobach obliczeniowych (lub w tym samym planie App Service).
 
-Podczas tworzenia planu usługi app service w określonym regionie (na przykład Europa Zachodnia), zestaw zasobów obliczeniowych jest tworzony dla tego planu w tym regionie. Niezależnie od aplikacji, które można umieścić w tym planie usługi aplikacji uruchomić na tych zasobów obliczeniowych, zgodnie z definicją w planie usługi app service. Każdy plan usługi App Service definiuje następujące informacje:
+Po utworzeniu planu App Service w określonym regionie (na przykład Europa Zachodnia) zestaw zasobów obliczeniowych jest tworzony dla tego planu w tym regionie. Niezależnie od tego, które aplikacje zostały umieszczone w tym App Service planie, są uruchamiane na tych zasobach obliczeniowych zgodnie z planem App Service. Każdy plan usługi App Service definiuje następujące informacje:
 
 - Region (Zachodnie stany USA, Wschodnie stany USA itp.)
 - Liczba wystąpień maszyn wirtualnych
 - Rozmiar wystąpień maszyn wirtualnych (mały, średni, duży)
-- Warstwa cenowa (bezpłatna, udostępniona, podstawowa, standardowa, premium, premiumv2, odizolowana)
+- Warstwa cenowa (bezpłatna, współdzielona, podstawowa, standardowa, Premium, PremiumV2, izolowana)
 
-_Warstwa cenowa_ planu usługi app service określa, jakie funkcje usługi App Service otrzymujesz i ile płacisz za plan. Warstwy cenowe dzielą się na kilka kategorii:
+_Warstwa cenowa_ planu App Service określa, jakie funkcje App Service uzyskasz i ile płacisz za plan. Warstwy cenowe dzielą się na kilka kategorii:
 
-- **Obliczenia udostępnione:** **Bezpłatne** i **udostępnione**— dwie warstwy podstawowe — uruchamia aplikację na tej samej maszynie Wirtualnej platformy Azure, co inne aplikacje usługi App Service, w tym aplikacje innych klientów. Te warstwy określają limity przydziałów procesora CPU dla każdej aplikacji uruchamianej na udostępnionych zasobach, a zasobów nie można skalować w poziomie.
-- **Dedykowane obliczenia:** warstwy **Basic,** **Standard,** **Premium**i **PremiumV2** uruchamiają aplikacje na dedykowanych maszynach wirtualnych platformy Azure. Jedynie aplikacje w tym samym planie usługi App Service współdzielą te same zasoby obliczeniowe. Im wyższa warstwa, tym większa liczba wystąpień maszyn wirtualnych dostępnych na potrzeby zwiększania skali w poziomie.
-- **Izolowane:** Ta warstwa uruchamia dedykowane maszyny wirtualne platformy Azure w dedykowanych sieciach wirtualnych platformy Azure. Zapewnia izolację sieci na poziomie izolacji obliczeń do aplikacji. Ta warstwa daje największe możliwości zwiększania skali w poziomie.
+- **Udostępnione obliczenia**: **bezpłatne** i **udostępnione**, dwie warstwy podstawowe, URUCHAMIAJĄ aplikację na tej samej maszynie wirtualnej platformy Azure, co inne App Service aplikacje, w tym aplikacje innych klientów. Te warstwy określają limity przydziałów procesora CPU dla każdej aplikacji uruchamianej na udostępnionych zasobach, a zasobów nie można skalować w poziomie.
+- **Dedykowane obliczenia**: warstwy **Basic**, **Standard**, **Premium**i **PremiumV2** korzystają z aplikacji na dedykowanych maszynach wirtualnych platformy Azure. Jedynie aplikacje w tym samym planie usługi App Service współdzielą te same zasoby obliczeniowe. Im wyższa warstwa, tym większa liczba wystąpień maszyn wirtualnych dostępnych na potrzeby zwiększania skali w poziomie.
+- **Izolowane**: Ta warstwa służy do uruchamiania dedykowanych maszyn wirtualnych platformy Azure w dedykowanych sieciach wirtualnych platformy Azure. Zapewnia izolację sieci na poziomie izolacji obliczeniowej dla aplikacji. Ta warstwa daje największe możliwości zwiększania skali w poziomie.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Każda warstwa zawiera również określony podzbiór funkcji usługi App Service. Funkcje te obejmują domeny niestandardowe i certyfikaty TLS/SSL, skalowanie automatyczne, miejsca wdrożenia, kopie zapasowe, integrację usługi Traffic Manager i inne. Im wyższa warstwa, tym więcej funkcji jest dostępnych. Aby dowiedzieć się, które funkcje są obsługiwane w każdej warstwie cenowej, zobacz [Szczegóły planu usługi App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Każda warstwa udostępnia również określony podzbiór funkcji App Service. Te funkcje obejmują domeny niestandardowe oraz certyfikaty TLS/SSL, Skalowanie automatyczne, miejsca wdrożenia, kopie zapasowe, integrację Traffic Manager i wiele innych. Im wyższa warstwa, tym więcej funkcji jest dostępnych. Aby dowiedzieć się, które funkcje są obsługiwane w każdej warstwie cenowej, zobacz [szczegóły planu App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 <a name="new-pricing-tier-premiumv2"></a>
 
 > [!NOTE]
-> Nowa warstwa cenowa **PremiumV2** zapewnia [maszyny wirtualne z serii Dv2](../virtual-machines/dv2-dsv2-series.md) z szybszymi procesorami, pamięcią SSD i podwójnym współczynnikiem pamięci do rdzenia w porównaniu z **warstwą standardową.** **PremiumV2** obsługuje również większą skalę dzięki zwiększonej liczbie wystąpień, zapewniając jednocześnie wszystkie zaawansowane funkcje znalezione w planie standardowym. Wszystkie funkcje dostępne w istniejącej warstwie **Premium** są uwzględnione w **wersji PremiumV2.**
+> Nowa warstwa cenowa **PremiumV2** udostępnia [maszyny wirtualne z serii Dv2](../virtual-machines/dv2-dsv2-series.md) z szybszymi procesorami, magazynem dysków SSD i podwójną proporcją pamięci na rdzeń w porównaniu z warstwą **Standard** . Usługa **PremiumV2** obsługuje również wyższą skalę dzięki większej liczbie wystąpień, jednocześnie zapewniając jednocześnie wszystkie zaawansowane możliwości dostępne w planie standardowym. Wszystkie funkcje dostępne w istniejącej warstwie **Premium** są zawarte w **PremiumV2**.
 >
-> Podobnie jak w przypadku innych warstw dedykowanych, dla tej warstwy dostępne są trzy rozmiary maszyn wirtualnych:
+> Podobnie jak w przypadku innych dedykowanych warstw, dla tej warstwy są dostępne trzy rozmiary maszyn wirtualnych:
 >
-> - Mały (jeden rdzeń procesora, 3,5 GiB pamięci) 
-> - Medium (dwa rdzenie procesora, 7 GiB pamięci) 
-> - Duży (cztery rdzenie procesora, 14 GiB pamięci)  
+> - Mały (jeden rdzeń procesora CPU, 3,5 GiB pamięci) 
+> - Średni (dwa rdzenie procesora CPU, 7 GiB pamięci) 
+> - Duże (cztery rdzenie procesora CPU, 14 GiB pamięci)  
 >
-> Aby uzyskać informacje o cenach **PremiumV2,** zobacz [Ceny usługi app service](https://azure.microsoft.com/pricing/details/app-service/).
+> Aby uzyskać informacje o cenach **PremiumV2** , zobacz [Cennik usługi App Service](https://azure.microsoft.com/pricing/details/app-service/).
 >
-> Aby rozpocząć korzystanie z nowej warstwy cenowej **PremiumV2,** zobacz [Konfigurowanie warstwy PremiumV2 dla usługi App Service.](app-service-configure-premium-tier.md)
+> Aby rozpocząć pracę z nową warstwą cenową **PremiumV2** , zobacz [Konfigurowanie warstwy PremiumV2 dla App Service](app-service-configure-premium-tier.md).
 
-## <a name="how-does-my-app-run-and-scale"></a>Jak działa i skaluje aplikację?
+## <a name="how-does-my-app-run-and-scale"></a>Jak działa i skalowanie mojej aplikacji?
 
-W warstwach **Bezpłatne** i **Udostępnione** aplikacja odbiera minuty procesora CPU w wystąpieniu udostępnionej maszyny Wirtualnej i nie może skalować w poziomie. W innych warstwach aplikacja jest uruchamiana i skalowana w następujący sposób.
+W warstwach **bezpłatna** i **współdzielona** aplikacja otrzymuje minuty procesora CPU w wystąpieniu udostępnionej maszyny wirtualnej i nie może skalować w poziomie. W innych warstwach aplikacja działa i skaluje się w następujący sposób.
 
-Podczas tworzenia aplikacji w usłudze App Service, jest on umieszczany w planie usługi app service. Po uruchomieniu aplikacji działa na wszystkich wystąpieniach maszyny Wirtualnej skonfigurowanych w planie usługi app service. Jeśli wiele aplikacji znajduje się w tym samym planie usługi App Service, wszystkie one współużytkują te same wystąpienia maszyn wirtualnych. Jeśli masz wiele gniazd wdrażania dla aplikacji, wszystkie gniazda wdrażania również działają na tych samych wystąpieniach maszyny Wirtualnej. Jeśli włączysz dzienniki diagnostyczne, wykonasz kopie zapasowe lub uruchomisz webjobs, użyją one również cykli procesora CPU i pamięci w tych wystąpieniach maszyny Wirtualnej.
+Podczas tworzenia aplikacji w App Service jest ona umieszczana w planie App Service. Gdy aplikacja zostanie uruchomiona, zostanie uruchomiona na wszystkich wystąpieniach maszyn wirtualnych skonfigurowanych w planie App Service. Jeśli wiele aplikacji jest w tym samym planie App Service, wszystkie współużytkują te same wystąpienia maszyn wirtualnych. Jeśli masz wiele miejsc wdrożenia dla aplikacji, wszystkie miejsca wdrożenia są również uruchamiane na tych samych wystąpieniach maszyn wirtualnych. W przypadku włączenia dzienników diagnostycznych, wykonywania kopii zapasowych lub uruchamiania zadań WebJob program używa również cykli procesora CPU i pamięci dla tych wystąpień maszyn wirtualnych.
 
-W ten sposób plan usługi aplikacji jest jednostką skalowania aplikacji usługi app service. Jeśli plan jest skonfigurowany do uruchamiania pięciu wystąpień maszyn wirtualnych, wszystkie aplikacje w planie są uruchamiane we wszystkich pięciu wystąpieniach. Jeśli plan jest skonfigurowany do skalowania automatycznego, wszystkie aplikacje w planie są skalowane razem na podstawie ustawień skalowania automatycznego.
+W ten sposób plan App Service jest jednostką skalowania aplikacji App Service. Jeśli plan jest skonfigurowany do uruchamiania pięciu wystąpień maszyn wirtualnych, wszystkie aplikacje w planie są uruchamiane na wszystkich pięciu wystąpieniach. Jeśli plan jest skonfigurowany do automatycznego skalowania, wszystkie aplikacje w planie są skalowane razem na podstawie ustawień skalowania automatycznego.
 
-Aby uzyskać informacje na temat skalowania w poziomie aplikacji, zobacz [Skalowanie liczby wystąpień ręcznie lub automatycznie](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Aby uzyskać informacje na temat skalowania aplikacji, zobacz [Ręczne lub automatyczne skalowanie liczby wystąpień](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
 <a name="cost"></a>
 
-## <a name="how-much-does-my-app-service-plan-cost"></a>Ile kosztuje mój plan usługi App Service?
+## <a name="how-much-does-my-app-service-plan-cost"></a>Jak dużo kosztu App Service planować?
 
-W tej sekcji opisano sposób rozliczania aplikacji usługi App Service. Aby uzyskać szczegółowe informacje o cenach dla regionu, zobacz [Ceny usługi app service](https://azure.microsoft.com/pricing/details/app-service/).
+W tej sekcji opisano sposób rozliczania App Service aplikacji. Aby uzyskać szczegółowe informacje o cenach specyficznych dla regionu, zobacz [Cennik usługi App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
-Z wyjątkiem warstwy **bezpłatna** plan usługi app service zawiera opłatę godzinową od zasobów obliczeniowych, których używa.
+Z wyjątkiem warstwy **bezpłatna** plan App Service jest naliczany godzinowo za zasoby obliczeniowe, których używa.
 
-- W warstwie **Udostępnione** każda aplikacja otrzymuje przydział minut procesora CPU, więc _każda aplikacja_ jest naliczana co godzinę za przydział procesora CPU.
-- W dedykowanych warstwach obliczeniowych **(Podstawowe,** **Standardowe,** **Premium,** **PremiumV2)** plan usługi app service definiuje liczbę wystąpień maszyn wirtualnych, do których aplikacje są skalowane, więc _każde wystąpienie maszyny Wirtualnej_ w planie usługi aplikacji jest obciążone opłatą godzinową. Te wystąpienia maszyn wirtualnych są naliczane tak samo niezależnie od tego, ile aplikacji jest na nich uruchomionych. Aby uniknąć nieoczekiwanych opłat, zobacz [Czyszczenie planu usługi app service](app-service-plan-manage.md#delete).
-- W warstwie **Izolowane** środowisko usługi aplikacji definiuje liczbę izolowanych pracowników, którzy uruchamiają aplikacje, a _każdy pracownik_ jest naliczany co godzinę. Ponadto istnieje godzinowa opłata podstawowa za uruchamianie samego środowiska usługi app service.
+- W warstwie **udostępnionej** każda aplikacja otrzymuje limit czasu procesora (w minutach), więc _każda aplikacja_ jest rozliczana co godzinę dla limitu przydziału procesora CPU.
+- W przypadku dedykowanych warstw obliczeniowych (**podstawowa**, **standardowa**, **Premium**, **PremiumV2**) plan App Service definiuje liczbę wystąpień maszyn wirtualnych, do których są skalowane aplikacje, a więc _każde wystąpienie maszyny wirtualnej_ w planie App Service ma opłaty godzinowe. Te wystąpienia maszyn wirtualnych są obciążane tymi samymi, niezależnie od liczby uruchomionych na nich aplikacji. Aby uniknąć nieoczekiwanych opłat, zobacz [oczyszczanie planu App Service](app-service-plan-manage.md#delete).
+- W warstwie **izolowanej** App Service Environment definiuje liczbę izolowanych pracowników, którzy uruchamiają aplikacje, a _każdy proces roboczy_ jest naliczany co godzinę. Ponadto istnieje co godzinę Podstawowa opłata za uruchomienie App Service Environment samego siebie.
 
-Nie pobierasz opłat za korzystanie z dostępnych funkcji usługi App Service (konfigurowanie domen niestandardowych, certyfikatów TLS/SSL, gniazd wdrażania, kopii zapasowych itp.). Wyjątkami są:
+Za korzystanie z funkcji App Service, które są dostępne dla użytkownika (Konfigurowanie domen niestandardowych, certyfikatów TLS/SSL, miejsc wdrożenia, kopii zapasowych itp.), nie jest naliczana opłata. Wyjątki są następujące:
 
-- Domeny usługi app service — płacisz przy zakupie na platformie Azure i odnawianiu go każdego roku.
-- Certyfikaty usługi app service — płacisz przy zakupie na platformie Azure i odnawianiu go każdego roku.
-- Połączenia TLS oparte na protoke IP — za każde połączenie TLS oparte na protoke IP pobierana jest opłata godzinowa, ale **niektóre** standardowe lub wyższe warstwy zapewniają bezpłatne jedno połączenie TLS oparte na protokoście. Połączenia TLS oparte na SNI są bezpłatne.
+- Domeny App Service — płacisz przy zakupie jednej na platformie Azure i odnowieniu każdego roku.
+- Certyfikaty App Service — płacisz przy zakupie jednej na platformie Azure i po odnowieniu każdego roku.
+- Połączenia protokołu TLS oparte na protokole IP — jest naliczana opłata godzinowa za każde połączenie protokołu TLS opartego na protokole IP, ale niektóre warstwy **Standard** lub powyżej umożliwiają bezpłatne połączenie TLS oparte na protokole IP. Połączenia TLS oparte na SNI są bezpłatne.
 
 > [!NOTE]
-> Jeśli zintegrujesz usługę App Service z inną usługą platformy Azure, może być konieczne rozważenie opłat od tych innych usług. Na przykład jeśli używasz usługi Azure Traffic Manager do skalowania aplikacji geograficznie, usługa Azure Traffic Manager również pobiera opłaty na podstawie użycia. Aby oszacować koszt usług krzyżowych na platformie Azure, zobacz [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/). 
+> Jeśli integrujesz App Service z inną usługą platformy Azure, może być konieczne naliczanie opłat za inne usługi. Na przykład, jeśli używasz platformy Azure Traffic Manager do skalowania aplikacji geograficznie, usługa Azure Traffic Manager również naliczane na podstawie użycia. Aby oszacować koszt międzyusług na platformie Azure, zobacz [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/). 
 >
 >
 
 ## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>Co zrobić, jeśli moja aplikacja potrzebuje więcej możliwości lub funkcji?
 
-Plan usługi App Service można skalować w górę i w dół w dowolnym momencie. Jest to tak proste, jak zmiana warstwy cenowej planu. Na początek możesz wybrać niższą warstwę cenową i skalować ją w górę później, gdy będziesz potrzebować więcej funkcji usługi App Service.
+Plan usługi App Service można skalować w górę i w dół w dowolnym momencie. Jest tak proste, jak zmiana warstwy cenowej planu. Na początek możesz wybrać niższą warstwę cenową i skalować ją w górę później, gdy będziesz potrzebować więcej funkcji usługi App Service.
 
-Na przykład możesz rozpocząć testowanie aplikacji sieci web w planie **bezpłatnej** usługi app service i nic nie płacić. Jeśli chcesz dodać [niestandardową nazwę DNS](app-service-web-tutorial-custom-domain.md) do aplikacji sieci web, po prostu skaluj plan do **warstwy udostępnionej.** Później, gdy chcesz [utworzyć powiązanie TLS,](configure-ssl-bindings.md)skaluj plan do warstwy **Podstawowa.** Jeśli chcesz mieć [środowiska przejściowe,](deploy-staging-slots.md)skaluj do **warstwy standardowej.** Jeśli potrzebujesz więcej rdzeni, pamięci lub magazynu, skaluj do większego rozmiaru maszyny Wirtualnej w tej samej warstwie.
+Możesz na przykład rozpocząć testowanie aplikacji sieci Web w ramach planu App Service **bezpłatna** i zwrócić wartość Nothing. Aby dodać [niestandardową nazwę DNS](app-service-web-tutorial-custom-domain.md) do aplikacji sieci Web, wystarczy przeskalować swój plan do warstwy **udostępnionej** . Później, jeśli chcesz [utworzyć powiązanie TLS](configure-ssl-bindings.md), Skaluj plan do warstwy **podstawowa** . Jeśli chcesz mieć [środowiska przejściowe](deploy-staging-slots.md), Skaluj do warstwy **standardowa** . Jeśli potrzebujesz więcej rdzeni, pamięci lub magazynu, możesz skalować w górę do większego rozmiaru maszyny wirtualnej w tej samej warstwie.
 
-To samo działa na odwrocie. Jeśli czujesz, że nie potrzebujesz już możliwości lub funkcji wyższej warstwy, możesz skalować w dół do niższego poziomu, co pozwala zaoszczędzić pieniądze.
+To samo działa w odwrocie. Jeśli uważasz, że nie potrzebujesz już możliwości lub funkcji wyższego poziomu, możesz skalować w dół do niższej warstwy, co pozwala zaoszczędzić pieniądze.
 
-Aby uzyskać informacje na temat skalowania planu usługi aplikacji, zobacz [Skalowanie aplikacji na platformie Azure](manage-scale-up.md).
+Aby uzyskać informacje na temat skalowania planu App Service, zobacz [skalowanie w górę aplikacji na platformie Azure](manage-scale-up.md).
 
-Jeśli aplikacja znajduje się w tym samym planie usługi App Service z innymi aplikacjami, możesz poprawić wydajność aplikacji, izolując zasoby obliczeniowe. Można to zrobić, przenosząc aplikację do oddzielnego planu usługi app service. Aby uzyskać więcej informacji, zobacz [Przenoszenie aplikacji do innego planu usługi App Service](app-service-plan-manage.md#move).
+Jeśli aplikacja jest w tym samym planie App Service z innymi aplikacjami, możesz zwiększyć wydajność aplikacji, izolując zasoby obliczeniowe. Możesz to zrobić, przenosząc aplikację do oddzielnego planu App Service. Aby uzyskać więcej informacji, zobacz [przenoszenie aplikacji do innego planu App Service](app-service-plan-manage.md#move).
 
-## <a name="should-i-put-an-app-in-a-new-plan-or-an-existing-plan"></a>Czy należy umieścić aplikację w nowym planie lub istniejącym planie?
+## <a name="should-i-put-an-app-in-a-new-plan-or-an-existing-plan"></a>Czy należy umieścić aplikację w nowym planie czy istniejącym planie?
 
-Ponieważ płacisz za zasoby obliczeniowe, które przydziela plan usługi App Service (zobacz [Ile kosztuje mój plan usługi App Service?](#cost)), możesz potencjalnie zaoszczędzić pieniądze, umieszczając wiele aplikacji w jednym planie usługi App Service. Możesz nadal dodawać aplikacje do istniejącego planu, o ile plan ma wystarczającą ilość zasobów do obsługi obciążenia. Należy jednak pamiętać, że aplikacje w tym samym planie usługi App Service mają te same zasoby obliczeniowe. Aby ustalić, czy nowa aplikacja ma niezbędne zasoby, należy znać pojemność istniejącego planu usługi App Service i oczekiwane obciążenie nowej aplikacji. Przeciążanie planu usługi App Service może spowodować przestój dla nowych i istniejących aplikacji.
+Ponieważ płacisz za zasoby obliczeniowe przydzielane przez App Service planu (Zobacz, [ile kosztuje usługa my App Service plan?](#cost)), możesz zaoszczędzić pieniądze, umieszczając wiele aplikacji w jednym planie App Service. Można nadal dodawać aplikacje do istniejącego planu, o ile plan ma wystarczającą ilość zasobów do obsłużenia obciążenia. Należy jednak pamiętać, że aplikacje w tym samym App Service planować wszystkie te same zasoby obliczeniowe. Aby ustalić, czy nowa aplikacja ma niezbędne zasoby, należy znać pojemność istniejącego planu usługi App Service i oczekiwane obciążenie nowej aplikacji. Przeciążanie planu usługi App Service może spowodować przestój dla nowych i istniejących aplikacji.
 
 Aplikację należy izolować w nowym planie usługi App Service w następujących przypadkach:
 
-- Aplikacja jest intensywnie korzystająca z zasobów.
+- Aplikacja wymaga dużej ilości zasobów.
 - Chcesz skalować aplikację niezależnie od innych aplikacji w istniejącym planie.
-- Aplikacja potrzebuje zasobów w innym regionie geograficznym.
+- Aplikacja wymaga zasobu w innym regionie geograficznym.
 
 W ten sposób można przydzielić nowy zestaw zasobów dla aplikacji i uzyskać większą kontrolę nad aplikacjami.
 
-## <a name="manage-an-app-service-plan"></a>Zarządzanie planem usługi aplikacji
+## <a name="manage-an-app-service-plan"></a>Zarządzanie planem App Service
 
 > [!div class="nextstepaction"]
-> [Zarządzanie planem usługi aplikacji](app-service-plan-manage.md)
+> [Zarządzanie planem App Service](app-service-plan-manage.md)

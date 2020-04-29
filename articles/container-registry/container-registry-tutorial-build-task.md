@@ -1,24 +1,24 @@
 ---
-title: Samouczek - Tworzenie obrazu na zatwierdzanie kodu
+title: Samouczek — Kompilowanie obrazu przy zatwierdzaniu kodu
 description: Z tego samouczka dowiesz się, jak skonfigurować usługę Azure Container Registry Task w celu automatycznego wyzwalania kompilacji obrazu kontenera w chmurze, gdy zatwierdzasz kod źródłowy do repozytorium Git.
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 2f70b829e2202c3d28adcfbbb07338923c43e8a8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78402849"
 ---
-# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Samouczek: Automatyzacja kompilacji obrazu kontenera w chmurze podczas zatwierdzania kodu źródłowego
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Samouczek: Automatyzowanie kompilacji obrazów kontenerów w chmurze podczas zatwierdzania kodu źródłowego
 
-Oprócz szybkiego [zadania,](container-registry-tutorial-quick-task.md)zadania ACR obsługuje automatyczne docker obraz kontenera buduje w chmurze podczas zatwierdzania kodu źródłowego do repozytorium Git. Obsługiwane konteksty Git dla zadań usługi ACR obejmują publiczne lub prywatne repozytoria usługi GitHub lub platformy Azure.
+Oprócz [szybkiego zadania](container-registry-tutorial-quick-task.md)zadania ACR obsługują zautomatyzowane kompilacje obrazów kontenerów platformy Docker w chmurze podczas zatwierdzania kodu źródłowego w repozytorium git. Obsługiwane konteksty git dla zadań ACR obejmują publiczne lub prywatne repozytoria GitHub lub Azure.
 
 > [!NOTE]
-> Obecnie zadania usługi ACR nie obsługują wyzwalaczy żądań zatwierdzania ani ściągania w repozytoriach Usługi GitHub Enterprise.
+> Obecnie zadania ACR nie obsługują wyzwalaczy żądań zatwierdzenia lub ściągnięcia w ramach repozytoriów Enterprise usługi GitHub.
 
-W tym samouczku zadanie usługi ACR tworzy i wypycha obraz pojedynczego kontenera określony w pliku Dockerfile podczas zatwierdzania kodu źródłowego do repozytorium Git. Aby utworzyć [wieloetapowe zadanie,](container-registry-tasks-multi-step.md) które używa pliku YAML do definiowania kroków do tworzenia, wypychania i opcjonalnie testowania wielu kontenerów w zatwierdzaniu kodu, zobacz [Samouczek: Uruchamianie przepływu pracy kontenera wieloetapowego w chmurze podczas zatwierdzania kodu źródłowego](container-registry-tutorial-multistep-task.md). Aby zapoznać się z omówieniem zadań usługi ACR, zobacz [Automatyzowanie systemu operacyjnego i poprawek w ramach za pomocą zadań ACR](container-registry-tasks-overview.md)
+W tym samouczku zadanie ACR kompiluje i wypycha pojedynczy obraz kontenera określony w pliku dockerfile podczas zatwierdzania kodu źródłowego w repozytorium git. Aby utworzyć [zadanie wieloetapowe](container-registry-tasks-multi-step.md) używające pliku YAML do definiowania kroków do kompilowania, wypychania i opcjonalnego testowania wielu kontenerów przy przekazywaniu kodu, zobacz [Samouczek: uruchamianie wieloetapowego przepływu pracy kontenera w chmurze podczas zatwierdzania kodu źródłowego](container-registry-tutorial-multistep-task.md). Aby zapoznać się z omówieniem zadań ACR, zobacz [Automatyzowanie poprawek systemu operacyjnego i platformy przy użyciu zadań ACR](container-registry-tasks-overview.md)
 
 W tym samouczku:
 
@@ -40,9 +40,9 @@ Jeśli chcesz użyć interfejsu wiersza polecenia platformy Azure lokalnie, musi
 
 Po ukończeniu kroków wymaganych do włączenia usługi ACR Tasks w celu odczytywania stanu zatwierdzenia i tworzenia elementów webhook w repozytorium możesz utworzyć zadanie, które wyzwala kompilację obrazu kontenera po zatwierdzeniu do repozytorium.
 
-Najpierw wypełnij te zmienne środowiskowe powłoki przy użyciu wartości odpowiednich dla danego środowiska. Ten krok nie jest ściśle wymagany, ale trochę ułatwia wykonywanie przedstawionych w tym samouczku wielowierszowych poleceń interfejsu wiersza polecenia platformy Azure. Jeśli te zmienne środowiskowe nie zostaną zapełniane, należy ręcznie zastąpić każdą wartość wszędzie tam, gdzie pojawia się ona w przykładowych poleceniach.
+Najpierw wypełnij te zmienne środowiskowe powłoki przy użyciu wartości odpowiednich dla danego środowiska. Ten krok nie jest ściśle wymagany, ale trochę ułatwia wykonywanie przedstawionych w tym samouczku wielowierszowych poleceń interfejsu wiersza polecenia platformy Azure. Jeśli te zmienne środowiskowe nie zostaną wypełnione, należy ręcznie zastąpić każdą wartość w dowolnym miejscu w przykładowych poleceniach.
 
-[![Uruchom osadź](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
+[![Uruchom osadzenie](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
 
 ```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -50,7 +50,7 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Teraz utwórz zadanie, wykonując następujące [polecenie tworzenia zadania az acr:][az-acr-task-create]
+Teraz Utwórz zadanie, wykonując następujące polecenie [AZ ACR Task Create][az-acr-task-create] :
 
 ```azurecli-interactive
 az acr task create \

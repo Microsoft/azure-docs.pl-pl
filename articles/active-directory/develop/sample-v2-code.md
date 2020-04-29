@@ -1,6 +1,6 @@
 ---
 title: Przykłady kodu dla platformy tożsamości firmy Microsoft
-description: Zawiera indeks dostępnych przykładów kodu platformy tożsamości firmy Microsoft (punkt końcowy w wersji 2.0), uporządkowany według scenariusza.
+description: Zawiera indeks dostępnych przykładów kodu platformy Microsoft Identity platform (Endpoint), zorganizowanych według scenariusza.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,120 +13,120 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 15578b6adc19eb3513e0d7e1d3d2c400c9170250
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535982"
 ---
-# <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Przykłady kodu platformy tożsamości firmy Microsoft (punkt końcowy w wersji 2.0)
+# <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Przykłady kodu platformy tożsamości firmy Microsoft (punkt końcowy v 2.0)
 
-Za pomocą platformy tożsamości firmy Microsoft można:
+Platformy tożsamości firmy Microsoft można używać do:
 
-- Dodaj uwierzytelnianie i autoryzację do aplikacji sieci web i internetowych interfejsów API.
-- Wymagaj tokenu dostępu, aby uzyskać dostęp do chronionego interfejsu API sieci web.
+- Dodawanie uwierzytelniania i autoryzacji do aplikacji sieci Web i interfejsów API sieci Web.
+- Wymagaj tokenu dostępu w celu uzyskania dostępu do chronionego internetowego interfejsu API.
 
-W tym artykule pokrótce opisano i zawiera łącza do przykładów dla punktu końcowego platformy tożsamości firmy Microsoft. Te przykłady pokazują, jak to zrobić, a także zawierają fragmenty kodu, które można użyć w aplikacjach. Na przykładowej stronie kodu znajdziesz szczegółowe tematy readme, które pomagają w wymaganiach, instalacji i konfiguracji. Komentarze w kodzie pomagają zrozumieć sekcje krytyczne.
+W tym artykule krótko opisano i przedstawiono linki do przykładów dla punktu końcowego platformy tożsamości firmy Microsoft. Te przykłady pokazują, jak to zrobiono, a także zawierają fragmenty kodu, których można używać w aplikacjach. Na stronie przykładowy kod znajdziesz szczegółowe tematy dotyczące pliku Readme, które ułatwiają wymagania, instalację i konfigurację. Komentarze w kodzie pomagają zrozumieć sekcje krytyczne.
 
 > [!NOTE]
-> Jeśli interesują Cię przykłady w wersji 1.0, zobacz [przykłady kodu usługi Azure AD (punkt końcowy w wersji 1.0).](../azuread-dev/sample-v1-code.md)
+> Jeśli interesuje Cię przykłady w wersji 1.0, zobacz [przykłady kodu usługi Azure AD (punkt końcowy w wersji 1.0)](../azuread-dev/sample-v1-code.md).
 
-Aby zrozumieć podstawowy scenariusz dla każdego przykładowego typu, zobacz [Typy aplikacji dla punktu końcowego platformy tożsamości firmy Microsoft](v2-app-types.md).
+Aby zrozumieć podstawowy scenariusz dla każdego typu przykładu, zobacz [typy aplikacji dla punktu końcowego platformy tożsamości firmy Microsoft](v2-app-types.md).
 
-Można również przyczynić się do przykładów w usłudze GitHub. Aby dowiedzieć się, jak to zrobić, zobacz [Przykłady i dokumentacja usługi Microsoft Azure Active Directory](https://github.com/Azure-Samples?page=3&query=active-directory).
+Możesz również współtworzyć przykłady w witrynie GitHub. Aby dowiedzieć się, jak to zrobić, zobacz [Microsoft Azure Active Directory przykłady i dokumentacja](https://github.com/Azure-Samples?page=3&query=active-directory).
 
 ## <a name="single-page-applications"></a>Aplikacje jednostronicowe
 
-Te przykłady pokazują, jak napisać jednostronicową aplikację zabezpieczoną za pomocą platformy tożsamości firmy Microsoft. Próbki te używają jednego ze smaków MSAL.js.
+Te przykłady przedstawiają sposób pisania aplikacji jednostronicowej zabezpieczonej za pomocą platformy tożsamości firmy Microsoft. W tych przykładach użyto jednego z wersji MSAL. js.
 
-| Platforma | Opis | Link |
+| Platforma | Opis | Łącze |
 | -------- | --------------------- | -------- |
-| ![Ten obraz eksponuje](media/sample-v2-code/logo_js.png) logo [JavaScript JavaScript (msal.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Wywołuje program Microsoft Graph |[javascript-graphapi-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
-| ![Ten obraz eksponuje](media/sample-v2-code/logo_js.png) logo [JavaScript JavaScript (msal.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Połączenia B2C |[b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
-| ![Ten obraz eksponuje](media/sample-v2-code/logo_js.png) logo [JavaScript JavaScript (msal.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Wywołuje własny internetowy interfejs API |[javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |
-| ![Ten obraz eksponuje](media/sample-v2-code/logo_angular.png) logo Angular [JavaScript (MSAL Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| Wywołuje program Microsoft Graph  | [active-directory-javascript-singlepageapp-kątowe](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) |
-| ![Ten obraz eksponuje](media/sample-v2-code/logo_angular.png) logo Angular [JavaScript (MSAL Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | Połączenia B2C |[active-directory-b2c-javascript-kątowe-spa](https://github.com/Azure-Samples/active-directory-b2c-javascript-angular-spa) |
+| ![Ten obraz pokazuje logo](media/sample-v2-code/logo_js.png) JavaScript [JavaScript (msal. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Microsoft Graph wywołań |[JavaScript-graphapi-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
+| ![Ten obraz pokazuje logo](media/sample-v2-code/logo_js.png) JavaScript [JavaScript (msal. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Wywołania B2C |[B2C-JavaScript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
+| ![Ten obraz pokazuje logo](media/sample-v2-code/logo_js.png) JavaScript [JavaScript (msal. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Wywołuje własny internetowy interfejs API |[JavaScript-singlepageapp-dotnet-WebAPI-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |
+| ![Ten obraz pokazuje logo](media/sample-v2-code/logo_angular.png) kątowe [JavaScript (MSAL kątowy)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| Microsoft Graph wywołań  | [Active-Directory-JavaScript-singlepageapp — kątowy](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) |
+| ![Ten obraz pokazuje logo](media/sample-v2-code/logo_angular.png) kątowe [JavaScript (MSAL kątowy)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | Wywołania B2C |[Active-Directory-B2C-JavaScript — Spa](https://github.com/Azure-Samples/active-directory-b2c-javascript-angular-spa) |
 
 ## <a name="web-applications"></a>Aplikacje internetowe
 
-Poniższe przykłady ilustrują aplikacje sieci web, które logują się do użytkowników. Niektóre przykłady pokazują również aplikację wywołującą program Microsoft Graph lub własny internetowy interfejs API z tożsamością użytkownika.
+W poniższych przykładach przedstawiono aplikacje sieci Web, które logują użytkowników. Niektóre przykłady przedstawiają również Microsoft Graph wywoływania aplikacji lub własnego interfejsu API sieci Web przy użyciu tożsamości użytkownika.
 
-| Platforma | Tylko logowanie użytkowników | Loguje się do użytkowników i wywołuje program Microsoft Graph |
+| Platforma | Tylko oznaki użytkowników | Logowanie użytkowników i wywołań Microsoft Graph |
 | -------- | ------------------- | --------------------------------- |
-| ![Na tym zdjęciu widać logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | [ASP.NET Core WebApp loguje użytkowników samouczek](https://aka.ms/aspnetcore-webapp-sign-in) | Ten sam przykład w ASP.NET Core aplikacji sieci web wywołuje fazę [Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph) |
-| ![Ten obraz ekspozycjowy przedstawia logo ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET Szybki start](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
-| ![Ten obraz eksploruje logo Java](media/sample-v2-code/logo_java.png)  |                   | [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
-| ![Ten obraz eksploruje logo Pythona](media/sample-v2-code/logo_python.png)  |                   | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
-| ![Ten obraz eksploruje logo Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
+| ![Ten obraz zawiera logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | [Samouczek dotyczący ASP.NET Core logowania użytkowników](https://aka.ms/aspnetcore-webapp-sign-in) | Ten sam przykład w [Microsoft Graph fazie ASP.NET Core aplikacji sieci Web](https://aka.ms/aspnetcore-webapp-call-msgraph) |
+| ![Ten obraz pokazuje logo ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET — szybki start](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-z ograniczeniami-Scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[MSGraph — szkolenia — aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+| ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png)  |                   | [MS-Identity-Java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
+| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  |                   | [MS-Identity-Python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
+| ![Ten obraz pokazuje logo języka Ruby](media/sample-v2-code/logo_ruby.png) |                   | [MSGraph — szkolenia — rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 
-## <a name="desktop-and-mobile-public-client-apps"></a>Publiczne aplikacje klienckie dla komputerów i urządzeń przenośnych
+## <a name="desktop-and-mobile-public-client-apps"></a>Publiczne aplikacje dla komputerów stacjonarnych i mobilnych
 
-W poniższych przykładach przedstawiono publiczne aplikacje klienckie (aplikacje klasyczne lub mobilne), które uzyskują dostęp do interfejsu API programu Microsoft Graph lub własny internetowy interfejs API w imieniu użytkownika. Wszystkie te aplikacje klienckie używają biblioteki uwierzytelniania firmy Microsoft (MSAL).
+W poniższych przykładach przedstawiono publiczne aplikacje klienckie (aplikacje klasyczne lub mobilne), które uzyskują dostęp do interfejsu API Microsoft Graph lub własnego internetowego interfejsu API w imieniu użytkownika. Wszystkie te aplikacje klienckie korzystają z biblioteki Microsoft Authentication Library (MSAL).
 
-| Aplikacja kliencka | Platforma | Przepływ/dotacja | Wywołuje program Microsoft Graph | Wywołuje internetowy interfejs API ASP.NET Core 2.0 |
+| Aplikacja kliencka | Platforma | Przepływ/Grant | Microsoft Graph wywołań | Wywołuje interfejs API sieci Web w ASP.NET Core 2,0 |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
-| Pulpit (WPF)      | ![Na tym obrazie jest wyświetlane logo .NET/C#](media/sample-v2-code/logo_NET.png) | [Interaktywne](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
-| Pulpit (konsola)   | ![Ten obraz przedstawia logo .NET/C# (Pulpit)](media/sample-v2-code/logo_NET.png) | [Zintegrowane uwierzytelnianie systemu Windows](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
-| Pulpit (konsola)   | ![Ten obraz eksploruje logo Java](media/sample-v2-code/logo_java.png) | [Zintegrowane uwierzytelnianie systemu Windows](msal-authentication-flows.md#integrated-windows-authentication) |[ms-identity-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
-| Pulpit (konsola)   | ![Ten obraz przedstawia logo .NET/C# (Pulpit)](media/sample-v2-code/logo_NETcore.png) | [Nazwa użytkownika/hasło](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
-| Pulpit (konsola) z WAM  | ![Ten obraz przedstawia logo .NET/C# (Pulpit)](media/sample-v2-code/logo_NETcore.png) | [interaktywne z WAM](msal-authentication-flows.md#interactive) |[dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  |
-| Pulpit (konsola)   | ![Ten obraz eksploruje logo Java](media/sample-v2-code/logo_java.png) | [Nazwa użytkownika/hasło](msal-authentication-flows.md#usernamepassword) |[ms-identity-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
-| Pulpit (konsola)   | ![Ten obraz eksploruje logo Pythona](media/sample-v2-code/logo_python.png) | [Nazwa użytkownika/hasło](msal-authentication-flows.md#usernamepassword) |[ms-identity-python-desktop](https://github.com/Azure-Samples/ms-identity-python-desktop) |  |
-| Urządzenia mobilne (Android, iOS, UWP)   | ![Ten obraz przedstawia logo .NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | [Interaktywne](msal-authentication-flows.md#interactive) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
-| Urządzenia mobilne (iOS)       | ![Na tym obrazie przedstawiono system iOS/Objective-C lub Swift](media/sample-v2-code/logo_iOS.png) | [Interaktywne](msal-authentication-flows.md#interactive) |[ios-swift-objc-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
-| Pulpit (macOS)       | macOS | [Interaktywne](msal-authentication-flows.md#interactive) |[macOS-swift-objc-native-v2](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) |  |
-| Urządzenia mobilne (Android-Java)   | ![Ten obraz eksploruje logo Androida](media/sample-v2-code/logo_Android.png) | [Interaktywne](msal-authentication-flows.md#interactive) |  [android-Java](https://github.com/Azure-Samples/ms-identity-android-java) |  |
-| Telefon komórkowy (Android-Kotlin)   | ![Ten obraz eksploruje logo Androida](media/sample-v2-code/logo_Android.png) | [Interaktywne](msal-authentication-flows.md#interactive) |  [android-Kotlin](https://github.com/Azure-Samples/ms-identity-android-kotlin) |  |
+| Pulpit (WPF)      | ![Ten obraz pokazuje logo .NET/C#](media/sample-v2-code/logo_NET.png) | [interaktywne](msal-authentication-flows.md#interactive)| [dotnet-Desktop-MSGraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-Native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
+| Pulpit (konsola)   | ![Ten obraz pokazuje logo .NET/C# (Desktop)](media/sample-v2-code/logo_NET.png) | [Zintegrowane uwierzytelnianie systemu Windows](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-IWA-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
+| Pulpit (konsola)   | ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png) | [Zintegrowane uwierzytelnianie systemu Windows](msal-authentication-flows.md#integrated-windows-authentication) |[MS-Identity-Java-Desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
+| Pulpit (konsola)   | ![Ten obraz pokazuje logo .NET/C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | [Nazwa użytkownika/hasło](msal-authentication-flows.md#usernamepassword) |[dotnetcore — wersja 2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
+| Pulpit (konsola) z Menedżera WAM  | ![Ten obraz pokazuje logo .NET/C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | [interaktywny z WAM](msal-authentication-flows.md#interactive) |[dotnet-Native-platformy UWP-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  |
+| Pulpit (konsola)   | ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png) | [Nazwa użytkownika/hasło](msal-authentication-flows.md#usernamepassword) |[MS-Identity-Java-Desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
+| Pulpit (konsola)   | ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png) | [Nazwa użytkownika/hasło](msal-authentication-flows.md#usernamepassword) |[MS-Identity-Python-Desktop](https://github.com/Azure-Samples/ms-identity-python-desktop) |  |
+| Urządzenia przenośne (Android, iOS, platformy UWP)   | ![Ten obraz pokazuje logo .NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | [interaktywne](msal-authentication-flows.md#interactive) |[Xamarin-Native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
+| Urządzenia przenośne (iOS)       | ![Ten obraz przedstawia system iOS/cel-C lub SWIFT](media/sample-v2-code/logo_iOS.png) | [interaktywne](msal-authentication-flows.md#interactive) |[iOS-SWIFT-objc-Native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [iOS-Native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
+| Desktop (macOS)       | macOS | [interaktywne](msal-authentication-flows.md#interactive) |[macOS-SWIFT-objc-Native-v2](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) |  |
+| Mobile (Android-Java)   | ![Ten obraz pokazuje logo systemu Android](media/sample-v2-code/logo_Android.png) | [interaktywne](msal-authentication-flows.md#interactive) |  [system Android — Java](https://github.com/Azure-Samples/ms-identity-android-java) |  |
+| Mobile (Android-Kotlin)   | ![Ten obraz pokazuje logo systemu Android](media/sample-v2-code/logo_Android.png) | [interaktywne](msal-authentication-flows.md#interactive) |  [Android — Kotlin](https://github.com/Azure-Samples/ms-identity-android-kotlin) |  |
 
-## <a name="daemon-applications"></a>Aplikacje demonów
+## <a name="daemon-applications"></a>Aplikacje demona
 
-W poniższych przykładach przedstawiono aplikację, która uzyskuje dostęp do interfejsu API programu Microsoft Graph z własną tożsamością (bez użytkownika).
+W poniższych przykładach przedstawiono aplikację, która uzyskuje dostęp do interfejsu API Microsoft Graph przy użyciu własnej tożsamości (bez użytkownika).
 
-| Aplikacja kliencka | Platforma | Przepływ/dotacja | Wywołuje program Microsoft Graph |
+| Aplikacja kliencka | Platforma | Przepływ/Grant | Microsoft Graph wywołań |
 | ------------------ | -------- | ---------- | -------------------- |
-| Konsola | ![Na tym obrazie jest wyświetlane logo .NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Poświadczenia klienta](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
-| Aplikacja internetowa | ![Ten obraz ekspozycjowy przedstawia logo ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Poświadczenia klienta](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
-| Konsola | ![Ten obraz eksploruje logo Java](media/sample-v2-code/logo_java.png) | [Poświadczenia klienta](msal-authentication-flows.md#client-credentials) | [ms-identity-java-daemon](https://github.com/Azure-Samples/ms-identity-java-daemon) |
-| Konsola | ![Ten obraz eksploruje logo Pythona](media/sample-v2-code/logo_python.png) | [Poświadczenia klienta](msal-authentication-flows.md#client-credentials) | [ms-identity-python-daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) |
+| Konsola | ![Ten obraz pokazuje logo platformy .NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Poświadczenia klienta](msal-authentication-flows.md#client-credentials) | [dotnetcore-demon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
+| Aplikacja internetowa | ![Ten obraz pokazuje logo ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Poświadczenia klienta](msal-authentication-flows.md#client-credentials) | [dotnet-demon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
+| Konsola | ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png) | [Poświadczenia klienta](msal-authentication-flows.md#client-credentials) | [MS-Identity-Java — demon](https://github.com/Azure-Samples/ms-identity-java-daemon) |
+| Konsola | ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png) | [Poświadczenia klienta](msal-authentication-flows.md#client-credentials) | [MS-Identity-Python-demona](https://github.com/Azure-Samples/ms-identity-python-daemon) |
 
-## <a name="headless-applications"></a>Zastosowania bezgłowy
+## <a name="headless-applications"></a>Aplikacje bezobsługowe
 
-W poniższym przykładzie przedstawiono publiczną aplikację kliencką działającą na urządzeniu bez przeglądarki sieci web. Aplikacja może być narzędziem wiersza polecenia, aplikacją działającą na linuksie lub komputerze Mac lub aplikacją IoT. W przykładzie znajduje się aplikacja uzyskująca dostęp do interfejsu API programu Microsoft Graph w imieniu użytkownika, który loguje się interaktywnie na innym urządzeniu (takim jak telefon komórkowy). Ta aplikacja kliencka używa biblioteki uwierzytelniania firmy Microsoft (MSAL).
+Poniższy przykład pokazuje publiczną aplikację kliencką działającą na urządzeniu bez przeglądarki sieci Web. Aplikacja może być narzędziem wiersza polecenia, aplikacją działającą na komputerach z systemem Linux lub Mac lub aplikacją IoT. Przykładowa funkcja umożliwia aplikacji dostęp do interfejsu API Microsoft Graph, w imieniu użytkownika, który loguje się interaktywnie na innym urządzeniu (na przykład na telefonie komórkowym). Ta aplikacja kliencka używa biblioteki uwierzytelniania firmy Microsoft (MSAL).
 
-| Aplikacja kliencka | Platforma | Przepływ/dotacja | Wywołuje program Microsoft Graph |
+| Aplikacja kliencka | Platforma | Przepływ/Grant | Microsoft Graph wywołań |
 | ------------------ | -------- |  ----------| ---------- |
-| Pulpit (konsola)   | ![Ten obraz przedstawia logo .NET/C# (Pulpit)](media/sample-v2-code/logo_NETcore.png) | [Przepływ kodu urządzenia](msal-authentication-flows.md#device-code) |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
-| Pulpit (konsola)   | ![Ten obraz eksploruje logo Java](media/sample-v2-code/logo_java.png) | [Przepływ kodu urządzenia](msal-authentication-flows.md#device-code) |[ms-identity-java-devicecodeflow](https://github.com/Azure-Samples/ms-identity-java-devicecodeflow) |
-| Pulpit (konsola)   | ![Ten obraz eksploruje logo Pythona](media/sample-v2-code/logo_python.png) | [Przepływ kodu urządzenia](msal-authentication-flows.md#device-code) |[ms-identity-python-devicecodeflow](https://github.com/Azure-Samples/ms-identity-python-devicecodeflow) |
+| Pulpit (konsola)   | ![Ten obraz pokazuje logo .NET/C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | [Przepływ kodu urządzenia](msal-authentication-flows.md#device-code) |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
+| Pulpit (konsola)   | ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png) | [Przepływ kodu urządzenia](msal-authentication-flows.md#device-code) |[MS-Identity-Java-devicecodeflow](https://github.com/Azure-Samples/ms-identity-java-devicecodeflow) |
+| Pulpit (konsola)   | ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png) | [Przepływ kodu urządzenia](msal-authentication-flows.md#device-code) |[MS-Identity-Python-devicecodeflow](https://github.com/Azure-Samples/ms-identity-python-devicecodeflow) |
 
 ## <a name="web-apis"></a>Interfejsy API sieci Web
 
-Poniższe przykłady pokazują, jak chronić internetowy interfejs API za pomocą punktu końcowego platformy tożsamości firmy Microsoft i jak wywołać interfejs API podrzędnego z internetowego interfejsu API.
+W poniższych przykładach pokazano, jak chronić internetowy interfejs API za pomocą punktu końcowego platformy tożsamości firmy Microsoft oraz jak wywołać podrzędny interfejs API z internetowego interfejsu API.
 
 | Platforma | Przykład |
 | -------- | ------------------- |
-| ![Na tym zdjęciu widać logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core web API (usługa) [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
-| ![Ten obraz ekspozycjowy przedstawia logo ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API (usługa) [ms-identity-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
-| ![Ten obraz eksploruje logo Java](media/sample-v2-code/logo_java.png) | Internetowy interfejs API (usługa) [ms-identity-java-webapi](https://github.com/Azure-Samples/ms-identity-java-webapi) |
-| ![Na tym obrazie jest wyświetlane logo Node.js](media/sample-v2-code/logo_nodejs.png) | Internetowy interfejs API (usługa) [active-directory-javascript-nodejs-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) |
-| ![Na tym obrazie jest wyświetlane logo Node.js](media/sample-v2-code/logo_nodejs.png) | B2C Web API (usługa) [active-directory-b2c-javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) |
+| ![Ten obraz zawiera logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | ASP.NET Core Web API (usługa) elementu [dotnet-Native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![Ten obraz pokazuje logo ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Internetowy interfejs API (usługa) [MS-Identity-ASPNET-WebAPI-OnBehalfOf](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
+| ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png) | Interfejs API sieci Web (usługa) [MS-Identity-Java-WebAPI](https://github.com/Azure-Samples/ms-identity-java-webapi) |
+| ![Ten obraz pokazuje logo środowiska Node. js](media/sample-v2-code/logo_nodejs.png) | Internetowy interfejs API (usługa) [Active-Directory-JavaScript-NodeJS-WebAPI-v2](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) |
+| ![Ten obraz pokazuje logo środowiska Node. js](media/sample-v2-code/logo_nodejs.png) | B2C Web API (usługa) elementu [Active-Directory-B2C-JavaScript-NodeJS-WebAPI](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) |
 
-## <a name="azure-functions-as-web-apis"></a>Usługa Azure działa jako internetowe interfejsy API
+## <a name="azure-functions-as-web-apis"></a>Azure Functions jako interfejsy API sieci Web
 
-Poniższe przykłady pokazują, jak chronić funkcję platformy Azure przy użyciu protokołu HttpTrigger i uwidacznianie internetowego interfejsu API za pomocą punktu końcowego platformy tożsamości firmy Microsoft oraz jak wywołać interfejs API podrzędnego z internetowego interfejsu API.
+W poniższych przykładach pokazano, jak chronić funkcję platformy Azure przy użyciu programu HttpTrigger i uwidaczniać internetowy interfejs API za pomocą punktu końcowego platformy tożsamości firmy Microsoft oraz jak wywołać podrzędny interfejs API z internetowego interfejsu API.
 
 | Platforma | Przykład |
 | -------- | ------------------- |
-| ![Na tym zdjęciu widać logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core web API (usługa) Funkcja platformy Azure [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
-| ![Na tym obrazie jest wyświetlane logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Web API (usługa) [nodejs i passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
-| ![Ten obraz eksploruje logo Pythona](media/sample-v2-code/logo_python.png)</p>Python | Internetowy interfejs API (usługa) [języka Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
-| ![Na tym obrazie jest wyświetlane logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Web API (usługa) [NodeJS i passport-azure-ad za pomocą w imieniu](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
+| ![Ten obraz zawiera logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | ASP.NET Core Web API (usługa) Azure Function of [dotnet-Native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
+| ![Ten obraz pokazuje logo środowiska Node. js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Web API (Service) of [NodeJS i Passport-Azure-AD](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
+| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)</p>Python | Internetowy interfejs API (usługa) języka [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
+| ![Ten obraz pokazuje logo środowiska Node. js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Internetowy interfejs API (usługa) [NodeJS i paszport-Azure-AD przy użyciu w imieniu](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
 
-## <a name="other-microsoft-graph-samples"></a>Inne przykłady programu Microsoft Graph
+## <a name="other-microsoft-graph-samples"></a>Inne przykłady Microsoft Graph
 
-Aby dowiedzieć się więcej o [przykładach](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) i samouczkach przedstawiających różne wzorce użycia interfejsu API programu Microsoft Graph, w tym uwierzytelnianie za pomocą usługi Azure AD, zobacz [przykłady & samouczki microsoft Graph Community](https://github.com/microsoftgraph/msgraph-community-samples).
+Aby dowiedzieć się więcej na temat [przykładów](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) i samouczków demonstrujących różne wzorce użycia dla interfejsu API Microsoft Graph, w tym uwierzytelniania za pomocą usługi Azure AD, zobacz [Microsoft Graph przykłady społeczności & samouczków](https://github.com/microsoftgraph/msgraph-community-samples).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-- [Przewodnik dla deweloperów usługi Azure Active Directory (w wersji 1.0)](../azuread-dev/v1-overview.md)
-- [Koncepcyjne i referencyjne interfejsu API programu Microsoft Graph](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2Fbeta&view=graph-rest-beta)
+- [Przewodnik dewelopera Azure Active Directory (v 1.0)](../azuread-dev/v1-overview.md)
+- [Informacje koncepcyjne i informacje o interfejsie API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2Fbeta&view=graph-rest-beta)

@@ -1,20 +1,20 @@
 ---
-title: Szybki start programu Azure Media Player
-description: Zapoznaj się z podstawowymi krokami konfigurowania programu Azure Media Player.
+title: Azure Media Player — Szybki Start
+description: Zapoznaj się z podstawowymi krokami w celu skonfigurowania Azure Media Player.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: quickstart
 ms.date: 04/20/2020
 ms.openlocfilehash: ac81832765f674e58ad6b3213238e9c68e04d2dc
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81726466"
 ---
-# <a name="azure-media-player-quickstart"></a>Szybki start programu Azure Media Player
-Program Azure Media Player jest łatwy w konfiguracji. Uzyskanie podstawowego odtwarzania zawartości multimedialnej z konta usługi Azure Media Services zajmuje tylko kilka minut. W tej sekcji omówiono podstawowe kroki bez przedstawiania szczegółów. Sekcje, które należy wykonać, podają szczegółowe informacje na temat konfigurowania i konfigurowania programu Azure Media Player.  Po prostu w dokumencie dodaj następujące dane do `<head>`:
+# <a name="azure-media-player-quickstart"></a>Szybki start: usługa Azure Media Player
+Azure Media Player można łatwo skonfigurować. Uzyskanie podstawowego odtwarzania zawartości multimedialnej z konta Azure Media Services trwa zaledwie kilka minut. W tej sekcji omówiono podstawowe kroki bez przedstawiania szczegółów. Poniższe sekcje zawierają szczegółowe informacje na temat konfigurowania i konfigurowania Azure Media Player.  Po prostu w dokumencie dodaj następujące dane do `<head>`:
 
 ```html
     <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
@@ -22,11 +22,11 @@ Program Azure Media Player jest łatwy w konfiguracji. Uzyskanie podstawowego od
 ```
 
 > [!IMPORTANT]
-> **NIE** należy używać `latest` wersji w wersji produkcyjnej, ponieważ może to ulec zmianie na żądanie. Zamień `latest` na wersję programu Azure Media Player; na przykład `latest` `1.0.0`zastąp . Wersje programu Azure Media Player można wyszukiwać [w tym miejscu](azure-media-player-changelog.md).
+> **Nie** należy używać `latest` wersji w środowisku produkcyjnym, ponieważ może to ulec zmianie na żądanie. Zamień `latest` na wersję Azure Media Player; na przykład `latest` Zastąp `1.0.0`ciąg. W [tym miejscu](azure-media-player-changelog.md)można wykonywać zapytania dotyczące wersji Azure Media Player.
 
-## <a name="use-the-video-element"></a>Użyj elementu wideo
+## <a name="use-the-video-element"></a>Korzystanie z elementu wideo
 
-Następnie po prostu `<video>` użyj elementu, jak zwykle, `data-setup` ale z dodatkowym atrybutem zawierającym wszystkie opcje. Te opcje mogą obejmować dowolną opcję usługi Azure Media Services w prawidłowym obiekcie JSON.
+Następnie wystarczy użyć `<video>` elementu w zwykły sposób, ale z dodatkowym `data-setup` atrybutem zawierającym wszelkie opcje. Te opcje mogą zawierać dowolną opcję Azure Media Services w prawidłowym obiekcie JSON.
 
 ```html
     <video id="vid1" class="azuremediaplayer amp-default-skin" autoplay controls width="640" height="400" poster="poster.jpg" data-setup='{"nativeControlsForTouch": false}'>
@@ -37,7 +37,7 @@ Następnie po prostu `<video>` użyj elementu, jak zwykle, `data-setup` ale z do
     </video>
 ```
 
-Jeśli nie chcesz używać automatycznej konfiguracji, możesz pominąć `data-setup` ten atrybut i zainicjować element wideo ręcznie.
+Jeśli nie chcesz używać funkcji autoinstalacji, możesz pominąć `data-setup` atrybut i ręcznie zainicjować element wideo.
 
 ```html
     var myPlayer = amp('vid1', { /* Options */
@@ -63,4 +63,4 @@ Jeśli nie chcesz używać automatycznej konfiguracji, możesz pominąć `data-s
 
 ## <a name="next-steps"></a>Następne kroki ##
 
-- [Szybki start programu Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player — Szybki Start](azure-media-player-quickstart.md)

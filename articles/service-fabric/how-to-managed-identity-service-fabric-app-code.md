@@ -1,46 +1,46 @@
 ---
-title: Używanie tożsamości zarządzanej za pomocą aplikacji
-description: Jak używać zarządzanych tożsamości w kodzie aplikacji usługi Azure Service Fabric, aby uzyskać dostęp do usług platformy Azure.
+title: Używanie tożsamości zarządzanej z aplikacją
+description: Jak uzyskać dostęp do usług platformy Azure za pomocą zarządzanych tożsamości w usłudze Azure Service Fabric kodzie aplikacji.
 ms.topic: article
 ms.date: 10/09/2019
 ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461569"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Jak wykorzystać tożsamość zarządzaną aplikacji sieci szkieletowej usług w celu uzyskania dostępu do usług platformy Azure
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Jak korzystać z zarządzanej tożsamości aplikacji Service Fabric w celu uzyskiwania dostępu do usług platformy Azure
 
-Aplikacje sieci szkieletowej usług mogą korzystać z zarządzanych tożsamości, aby uzyskać dostęp do innych zasobów platformy Azure, które obsługują uwierzytelnianie oparte na usłudze Azure Active Directory. Aplikacja może uzyskać [token dostępu reprezentujący](../active-directory/develop/developer-glossary.md#access-token) jego tożsamość, który może być przypisany do systemu lub przypisany przez użytkownika, i używać go jako tokenu "nośnika" do uwierzytelniania się w innej usłudze — znanej również jako [serwer chronionych zasobów](../active-directory/develop/developer-glossary.md#resource-server). Token reprezentuje tożsamość przypisaną do aplikacji sieci szkieletowej usług i zostanie wystawiony tylko do zasobów platformy Azure (w tym aplikacji SF), które współużytkują tę tożsamość. Szczegółowe opis tożsamości zarządzanych można znaleźć w dokumentacji [przeglądu tożsamości zarządzanej,](../active-directory/managed-identities-azure-resources/overview.md) a także w rozróżnieniu między tożsamościami przypisanymi przez system i tożsamościami przypisanymi przez użytkownika. Będziemy odwoływać się do aplikacji sieci szkieletowej usługi z obsługą tożsamości zarządzanej jako [aplikacji klienckiej](../active-directory/develop/developer-glossary.md#client-application) w tym artykule.
-
-> [!IMPORTANT]
-> Tożsamość zarządzana reprezentuje skojarzenie między zasobem platformy Azure a jednostką usługi w odpowiedniej dzierżawie usługi Azure AD skojarzonej z subskrypcją zawierającą zasób. W związku z tym w kontekście sieci szkieletowej usług tożsamości zarządzane są obsługiwane tylko dla aplikacji wdrożonych jako zasoby platformy Azure. 
+Aplikacje Service Fabric mogą korzystać z zarządzanych tożsamości w celu uzyskiwania dostępu do innych zasobów platformy Azure, które obsługują uwierzytelnianie oparte na Azure Active Directory. Aplikacja może uzyskać [token dostępu](../active-directory/develop/developer-glossary.md#access-token) reprezentujący jego tożsamość, która może być przypisana przez system lub przypisany przez użytkownika, i użyć go jako tokenu "okaziciela", aby uwierzytelnić się w innej usłudze — znanej także jako [chroniony serwer zasobów](../active-directory/develop/developer-glossary.md#resource-server). Token reprezentuje tożsamość przypisaną do aplikacji Service Fabric i zostanie wystawiony tylko dla zasobów platformy Azure (w tym aplikacji SF), które współużytkują tę tożsamość. Zapoznaj się z dokumentacją [zarządzaną tożsamości](../active-directory/managed-identities-azure-resources/overview.md) , aby uzyskać szczegółowy opis tożsamości zarządzanych, a także różnice między tożsamościami przypisanymi do systemu i przypisanymi przez użytkownika. W tym artykule odnosimy się do aplikacji Service Fabric z włączoną obsługą tożsamości zarządzanej jako [aplikacji klienckiej](../active-directory/develop/developer-glossary.md#client-application) .
 
 > [!IMPORTANT]
-> Przed użyciem tożsamości zarządzanej aplikacji sieci szkieletowej usług aplikacja kliencka musi uzyskać dostęp do chronionego zasobu. Zapoznaj się z listą [usług platformy Azure, które obsługują uwierzytelnianie usługi Azure AD,](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) aby sprawdzić dostępność pomocy technicznej, a następnie do dokumentacji odpowiedniej usługi, aby uzyskać określone kroki, aby udzielić dostępu do tożsamości interesujących zasobów. 
+> Zarządzana tożsamość reprezentuje skojarzenie między zasobem platformy Azure i jednostką usługi w odpowiedniej dzierżawie Azure AD skojarzonym z subskrypcją zawierającą zasób. W związku z tym w kontekście Service Fabric zarządzane tożsamości są obsługiwane tylko w przypadku aplikacji wdrożonych jako zasoby platformy Azure. 
 
-## <a name="acquiring-an-access-token-using-rest-api"></a>Pobieranie tokenu dostępu przy użyciu interfejsu API REST
-W klastrach włączonych dla tożsamości zarządzanej środowisko uruchomieniowe sieci szkieletowej sieci szkieletowej udostępnia punkt końcowy localhost, którego aplikacje mogą używać do uzyskiwania tokenów dostępu. Punkt końcowy jest dostępny w każdym węźle klastra i jest dostępny dla wszystkich jednostek w tym węźle. Autoryzowani wywoływanie mogą uzyskać tokeny dostępu, wywołując ten punkt końcowy i przedstawiając kod uwierzytelniania; kod jest generowany przez środowisko uruchomieniowe sieci szkieletowej usług dla każdej aktywacji pakietu kodu usługi i jest powiązany z okresem istnienia procesu hostingu tego pakietu kodu usługi.
+> [!IMPORTANT]
+> Przed użyciem zarządzanej tożsamości aplikacji Service Fabric, aplikacja kliencka musi mieć udzielony dostęp do chronionego zasobu. Zapoznaj się z listą [usług platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) , aby sprawdzić pomoc techniczną, a następnie do dokumentacji odpowiedniej usługi, aby uzyskać dostęp do tożsamości do interesujących Cię zasobów. 
 
-W szczególności środowisko usługi sieci szkieletowej usług z obsługą tożsamości zarządzanej zostanie rozstawione z następującymi zmiennymi:
-- "IDENTITY_ENDPOINT": punkt końcowy localhost odpowiadający tożsamości zarządzanej usługi
+## <a name="acquiring-an-access-token-using-rest-api"></a>Uzyskiwanie tokenu dostępu przy użyciu interfejsu API REST
+W klastrach obsługujących tożsamość zarządzaną środowisko uruchomieniowe Service Fabric udostępnia punkt końcowy localhost, którego aplikacje mogą używać do uzyskiwania tokenów dostępu. Punkt końcowy jest dostępny w każdym węźle klastra i jest dostępny dla wszystkich jednostek w tym węźle. Autoryzowane obiekty wywołujące mogą uzyskać tokeny dostępu przez wywołanie tego punktu końcowego i przedprezentowanie kodu uwierzytelniania; kod jest generowany przez środowisko uruchomieniowe Service Fabric dla każdej odrębnej aktywacji pakietu kodu usługi i jest powiązany z okresem istnienia procesu obsługującego ten pakiet kodu usługi.
+
+W odniesieniu do środowiska usługi Service Fabric z włączoną obsługą tożsamości zarządzanej jest docelowa następująca zmienna:
+- "IDENTITY_ENDPOINT": punkt końcowy localhost odpowiadający tożsamości zarządzanej przez usługę
 - "IDENTITY_HEADER": unikatowy kod uwierzytelniania reprezentujący usługę w bieżącym węźle
-- "IDENTITY_SERVER_THUMBPRINT": Odcisk palca serwera tożsamości zarządzanej przez sieci szkieletowe usług
+- "IDENTITY_SERVER_THUMBPRINT": odcisk palca zarządzanego serwera tożsamości usługi Service Fabric
 
 > [!IMPORTANT]
-> Kod aplikacji powinien uwzględniać wartość zmiennej środowiskowej "IDENTITY_HEADER" jako dane wrażliwe - nie powinna być rejestrowana ani w inny sposób rozpowszechniana. Kod uwierzytelniania nie ma żadnej wartości poza węzłem lokalnym lub po zakończeniu procesu hostingu usługi, ale reprezentuje tożsamość usługi sieci szkieletowej usług, a więc powinien być traktowany z tymi samymi środkami ostrożności, co sam token dostępu.
+> Kod aplikacji powinien uwzględniać wartość zmiennej środowiskowej "IDENTITY_HEADER" jako poufne dane — nie należy jej rejestrować ani rozpowszechniać w inny sposób. Kod uwierzytelniania nie ma wartości poza węzłem lokalnym lub po zakończeniu procesu obsługującego usługę, ale reprezentuje tożsamość usługi Service Fabric i dlatego powinien być traktowany z tymi samymi środkami ostrożności co sam token dostępu.
 
-Aby uzyskać token, klient wykonuje następujące kroki:
-- tworzy identyfikator URI przez łączenie zarządzanego punktu końcowego tożsamości (IDENTITY_ENDPOINT wartość) z wersją interfejsu API i zasobem (odbiorcami) wymaganym dla tokenu
-- tworzy żądanie GET http(s) dla określonego identyfikatora URI
-- dodaje odpowiednią logikę sprawdzania poprawności certyfikatu serwera
-- dodaje kod uwierzytelniania (IDENTITY_HEADER wartość) jako nagłówek do żądania
-- składa wniosek
+Aby uzyskać token, Klient wykonuje następujące czynności:
+- tworzy identyfikator URI przez połączenie punktu końcowego tożsamości zarządzanej (IDENTITY_ENDPOINT wartość) z wersją interfejsu API i zasobem (odbiorcy) wymaganym dla tokenu
+- tworzy żądanie pobrania http (s) dla określonego identyfikatora URI
+- dodaje odpowiedni logiki walidacji certyfikatu serwera
+- dodaje kod uwierzytelniania (IDENTITY_HEADER wartość) jako nagłówek żądania
+- przesyła żądanie
 
-Pomyślna odpowiedź będzie zawierać ładunek JSON reprezentujący wynikowy token dostępu, a także metadane opisujące go. Odpowiedź nie powiodła się będzie również zawierać wyjaśnienie błędu. Poniżej znajdziesz dodatkowe informacje na temat obsługi błędów.
+Pomyślna odpowiedź będzie zawierać ładunek JSON reprezentujący otrzymany token dostępu, a także metadane opisujące go. Odpowiedź zakończona niepowodzeniem również zawiera wyjaśnienie błędu. Dodatkowe szczegóły dotyczące obsługi błędów znajdują się poniżej.
 
-Tokeny dostępu będą buforowane przez sieci szkieletowej usług na różnych poziomach (węzeł, klaster, usługa dostawcy zasobów), więc pomyślna odpowiedź nie musi oznaczać, że token został wystawiony bezpośrednio w odpowiedzi na żądanie aplikacji użytkownika. Tokeny będą buforowane przez mniej niż ich okres istnienia, a więc aplikacja jest gwarantowana, aby otrzymać prawidłowy token. Zaleca się, że kod aplikacji buforuje się wszelkie tokeny dostępu, które uzyskuje; klucz buforowania powinien obejmować (wyprowadzenie) odbiorców. 
+Tokeny dostępu będą buforowane przez Service Fabric na różnych poziomach (węzeł, klaster, usługa dostawcy zasobów), dlatego pomyślna odpowiedź nie musi oznaczać, że token został wystawiony bezpośrednio w odpowiedzi na żądanie aplikacji użytkownika. Tokeny będą przechowywane w pamięci podręcznej przez czas krótszy niż ich okres istnienia, więc aplikacja zostanie zagwarantowana, aby otrzymać prawidłowy token. Zaleca się, aby kod aplikacji buforuje wszystkie tokeny dostępu, które uzyskują. klucz buforowania powinien obejmować odbiorców. 
 
 Przykładowe żądanie:
 ```http
@@ -50,11 +50,11 @@ gdzie:
 
 | Element | Opis |
 | ------- | ----------- |
-| `GET` | Zlecenie HTTP, wskazując, że chcesz pobrać dane z punktu końcowego. W takim przypadku token dostępu OAuth. | 
-| `https://localhost:2377/metadata/identity/oauth2/token` | Punkt końcowy tożsamości zarządzanej dla aplikacji sieci szkieletowej usług, pod warunkiem za pośrednictwem zmiennej środowiskowej IDENTITY_ENDPOINT. |
-| `api-version` | Parametr ciągu kwerendy, określający wersję interfejsu API usługi tokenu tożsamości zarządzanej; obecnie jedyną akceptowaną `2019-07-01-preview`wartością jest i może ulec zmianie. |
-| `resource` | Parametr ciągu kwerendy wskazujący identyfikator URI identyfikatora aplikacji zasobu docelowego. Zostanie to odzwierciedlone jako `aud` (odbiorcy) roszczenie wydanego tokenu. W tym przykładzie żąda tokenu dostępu do usługi Azure Key\/Vault, którego identyfikator URI identyfikatora aplikacji jest https: /vault.azure.net/. |
-| `Secret` | Pole nagłówka żądania HTTP, wymagane przez usługę tokenu tożsamości zarządzanej sieci szkieletowej usług sieci szkieletowej usług dla sieci szkieletowej usług do uwierzytelniania wywołującego. Ta wartość jest dostarczana przez środowisko uruchomieniowe SF za pośrednictwem zmiennej środowiskowej IDENTITY_HEADER. |
+| `GET` | Czasownik HTTP wskazujący, że chcesz pobrać dane z punktu końcowego. W tym przypadku token dostępu OAuth. | 
+| `https://localhost:2377/metadata/identity/oauth2/token` | Zarządzany punkt końcowy tożsamości dla aplikacji Service Fabric udostępniany za pośrednictwem zmiennej środowiskowej IDENTITY_ENDPOINT. |
+| `api-version` | Parametr ciągu zapytania, określający wersję interfejsu API usługi zarządzanego tokenu tożsamości; obecnie jedyną akceptowaną wartością jest `2019-07-01-preview`i może ulec zmiana. |
+| `resource` | Parametr ciągu zapytania, wskazujący identyfikator URI aplikacji dla zasobu docelowego. Zostanie to odzwierciedlone jako `aud` zbiór odbiorców dla wystawionego tokenu. Ten przykład żąda tokenu, aby uzyskać dostęp do Azure Key Vault, którego identyfikator URI aplikacji to https\/:/Vault.Azure.NET/. |
+| `Secret` | Pole nagłówka żądania HTTP wymagane przez usługę Service Fabric zarządzanym tokenem tożsamości dla usług Service Fabric do uwierzytelniania obiektu wywołującego. Ta wartość jest dostarczana przez środowisko uruchomieniowe SF za pośrednictwem zmiennej środowiskowej IDENTITY_HEADER. |
 
 
 Przykładowa odpowiedź:
@@ -72,14 +72,14 @@ gdzie:
 
 | Element | Opis |
 | ------- | ----------- |
-| `token_type` | Typ tokenu; w takim przypadku token dostępu "Nośnik", co oznacza, że prezenter ("okaziciela") tego tokenu jest zamierzonym przedmiotem tokenu. |
-| `access_token` | Żądany token dostępu. Podczas wywoływania zabezpieczonego interfejsu API REST `Authorization` token jest osadzony w polu nagłówka żądania jako token "nośnik", umożliwiając interfejsowi API uwierzytelnienie wywołującego. | 
-| `expires_on` | Sygnatura czasowa wygaśnięcia tokenu dostępu; reprezentowana jako liczba sekund od "1970-01-01T0:0:0Z UTC" i odpowiada `exp` żądaniu tokenu. W takim przypadku token wygasa w dniu 2019-08-08T06:10:11+00:00 (w RFC 3339)|
-| `resource` | Zasób, dla którego został wystawiony `resource` token dostępu, określony za pomocą parametru ciągu zapytania żądania; odpowiada twierdzeniu "aud" tokenu. |
+| `token_type` | Typ tokenu; w tym przypadku token dostępu "Bearer", który oznacza, że prezenter ("Bearer") tego tokenu jest zamierzonym tematem tokenu. |
+| `access_token` | Żądany token dostępu. Podczas wywoływania bezpiecznego interfejsu API REST token jest osadzony w polu nagłówka `Authorization` żądania jako token "Bearer", dzięki czemu interfejs API może uwierzytelniać obiekt wywołujący. | 
+| `expires_on` | Sygnatura czasowa wygaśnięcia tokenu dostępu; reprezentowane jako liczba sekund od "1970-01-01T0:0: 0Z UTC" i odpowiada na `exp` żądania tokenu. W tym przypadku token wygasa w dniu 2019-08-08T06:10:11 + 00:00 (w dokumencie RFC 3339)|
+| `resource` | Zasób, dla którego został wystawiony token dostępu, określony za `resource` pomocą parametru ciągu zapytania żądania; odnosi się do roszczeń "AUD" tokenu. |
 
 
-## <a name="acquiring-an-access-token-using-c"></a>Pobieranie tokenu dostępu przy użyciu języka C #
-Powyższe staje się w języku C#:
+## <a name="acquiring-an-access-token-using-c"></a>Uzyskiwanie tokenu dostępu przy użyciu języka C #
+Powyższe polecenie zmieni się w języku C#:
 
 ```C#
 namespace Azure.ServiceFabric.ManagedIdentity.Samples
@@ -172,8 +172,8 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
     } // class AccessTokenAcquirer
 } // namespace Azure.ServiceFabric.ManagedIdentity.Samples
 ```
-## <a name="accessing-key-vault-from-a-service-fabric-application-using-managed-identity"></a>Uzyskiwanie dostępu do magazynu kluczy z aplikacji sieci szkieletowej usług przy użyciu tożsamości zarządzanej
-Ten przykład opiera się na powyższe, aby zademonstrować dostęp do klucza tajnego przechowywanego w magazynie kluczy przy użyciu tożsamości zarządzanej.
+## <a name="accessing-key-vault-from-a-service-fabric-application-using-managed-identity"></a>Uzyskiwanie dostępu do Key Vault z aplikacji Service Fabric przy użyciu tożsamości zarządzanej
+Ten przykład kompiluje się w powyższej wersji, aby przedstawić dostęp do wpisu tajnego przechowywanego w Key Vault przy użyciu tożsamości zarządzanej.
 
 ```C#
         /// <summary>
@@ -321,59 +321,59 @@ Ten przykład opiera się na powyższe, aby zademonstrować dostęp do klucza ta
 ```
 
 ## <a name="error-handling"></a>Obsługa błędów
-Pole "kod stanu" nagłówka odpowiedzi HTTP wskazuje stan sukcesu żądania; stan "200 OK" wskazuje na powodzenie, a odpowiedź będzie zawierać token dostępu, jak opisano powyżej. Poniżej przedstawiono krótkie wyliczenie możliwych odpowiedzi na błędy.
+Pole "kod stanu" w nagłówku odpowiedzi HTTP wskazuje stan powodzenia żądania; stan "200 OK" oznacza powodzenie, a odpowiedź będzie zawierać token dostępu, zgodnie z powyższym opisem. Poniżej przedstawiono krótkie Wyliczenie możliwych odpowiedzi na błędy.
 
-| Kod stanu | Przyczyna błędu | Jak sobie radzić |
+| Kod stanu | Przyczyna błędu | Jak obsłużyć |
 | ----------- | ------------ | ------------- |
-| 404 Nie znaleziono. | Nieznany kod uwierzytelniania lub aplikacji nie przypisano tożsamości zarządzanej. | Sprostowanie kodu instalacji aplikacji lub nabycia tokenu. |
-| 429 Zbyt wiele żądań. |  Osiągnięto limit przepustnicy, narzucony przez AAD lub SF. | Ponów próbę przy czym przy próbie przywrócania wykładniczego. Zapoznaj się z poniższymi wskazówkami. |
-| 4xx Błąd w żądaniu. | Jeden lub więcej parametrów żądania było niepoprawne. | Nie należy ponowiać próby.  Sprawdź szczegóły błędu, aby uzyskać więcej informacji.  Błędy 4xx to błędy w czasie projektowania.|
-| 5xx Błąd z serwisu. | Podsystem tożsamości zarządzanej lub usługi Azure Active Directory zwrócił błąd przejściowy. | Po krótkim czasie można ponowić próbę. Po ponowieniu próby może zostać na trafienie warunku ograniczania przepustowości (429).|
+| nie znaleziono 404. | Nieznany kod uwierzytelniania lub aplikacja nie ma przypisanej tożsamości zarządzanej. | Należy skorygować konfigurację aplikacji lub kod pozyskiwania tokenu. |
+| 429 zbyt wiele żądań. |  Osiągnięto limit ograniczania przepustowości, narzucone przez AAD lub SF. | Ponów próbę, używając wykładniczej wycofywania. Zobacz wskazówki poniżej. |
+| 4xx Błąd w żądaniu. | Co najmniej jeden z parametrów żądania był niepoprawny. | Nie ponawiaj próby.  Aby uzyskać więcej informacji, zapoznaj się ze szczegółami błędu.  Błędy 4xx są błędy czasu projektowania.|
+| 5xx błąd z usługi. | Podsystem tożsamości zarządzanej lub Azure Active Directory zwrócił błąd przejściowy. | Można bezpiecznie ponowić próbę po krótkim czasie. Przed ponowną próbą można napotkać warunek ograniczenia przepustowości (429).|
 
-Jeśli wystąpi błąd, odpowiednia treść odpowiedzi HTTP zawiera obiekt JSON ze szczegółami błędu:
+Jeśli wystąpi błąd, odpowiadająca treść odpowiedzi HTTP zawiera obiekt JSON z szczegółowymi informacjami o błędzie:
 
 | Element | Opis |
 | ------- | ----------- |
 | kod | Kod błędu. |
-| correlationId | Identyfikator korelacji, który może służyć do debugowania. |
-| message | Pełny opis błędu. **Opisy błędów mogą ulec zmianie w dowolnym momencie. Nie należy polegać na samym komunikacie o błędzie.**|
+| correlationId | Identyfikator korelacji, który może być używany do debugowania. |
+| message | Pełny opis błędu. **Opis błędów można zmienić w dowolnym momencie. Nie zależą od samego komunikatu o błędzie.**|
 
-Przykładowy błąd:
+Błąd próbki:
 ```json
 {"error":{"correlationId":"7f30f4d3-0f3a-41e0-a417-527f21b3848f","code":"SecretHeaderNotFound","message":"Secret is not found in the request headers."}}
 ```
 
-Poniżej znajduje się lista typowych błędów sieci szkieletowej usług specyficznych dla tożsamości zarządzanych:
+Poniżej znajduje się lista typowych błędów Service Fabric związanych z tożsamościami zarządzanymi:
 
 | Code | Komunikat | Opis | 
 | ----------- | ----- | ----------------- |
-| Odnaleźnie SecretHeaderNotfound | Klucz tajny nie został znaleziony w nagłówkach żądań. | Kod uwierzytelniania nie został dostarczony wraz z żądaniem. | 
-| ManagedIdentityNotFound (Zarządzany Niedowianie) | Nie znaleziono tożsamości zarządzanej dla określonego hosta aplikacji. | Aplikacja nie ma tożsamości lub kod uwierzytelniania jest nieznany. |
-| ArgumentNullOrEmpty | Parametr "resource" nie powinien mieć wartości null ani pustego ciągu. | Zasób (odbiorcy) nie został dostarczony w żądaniu. |
-| InvalidApiVersion (Wersja inwersji) | Wersja interfejsu API '' nie jest obsługiwana. Obsługiwana wersja to '2019-07-01-preview'. | Brak lub nieobsługiwała wersji interfejsu API określona w identyfikatorze URI żądania. |
-| InternalServerError | Wystąpił błąd. | Wystąpił błąd w podsystemie tożsamości zarządzanej, prawdopodobnie poza stosem sieci szkieletowej usług. Najbardziej prawdopodobną przyczyną jest niepoprawna wartość określona dla zasobu (sprawdź, czy na końcu '/'?) | 
+| SecretHeaderNotFound | Nie znaleziono wpisu tajnego w nagłówkach żądania. | Kod uwierzytelniania nie został dostarczony wraz z żądaniem. | 
+| ManagedIdentityNotFound | Nie znaleziono tożsamości zarządzanej dla określonego hosta aplikacji. | Aplikacja nie ma tożsamości lub kod uwierzytelniania jest nieznany. |
+| ArgumentNullOrEmpty | Parametr "Resource" nie może mieć wartości null ani być pustym ciągiem. | W żądaniu nie podano zasobu (odbiorcy). |
+| InvalidApiVersion | Wersja interfejsu API "" nie jest obsługiwana. Obsługiwana wersja to "2019-07-01-Preview". | W identyfikatorze URI żądania określono brakującą lub nieobsługiwaną wersję interfejsu API. |
+| InternalServerError | Wystąpił błąd. | Wystąpił błąd w zarządzanym podsystemie tożsamości, prawdopodobnie poza stosem Service Fabric. Najbardziej prawdopodobną przyczyną jest niepoprawna wartość określona dla zasobu (Sprawdź, czy kończy się znakiem "/"?) | 
 
 ## <a name="retry-guidance"></a>Wskazówki dotyczące ponawiania prób 
 
-Zazwyczaj tylko ponowialny kod błędu jest 429 (zbyt wiele żądań); wewnętrzne błędy serwera/kody błędów 5xx mogą być ponawiane, chociaż przyczyna może być trwała. 
+Zazwyczaj jedynym powtarzanym kodem błędu jest 429 (zbyt wiele żądań); wewnętrzne błędy serwera/5xx kody błędów mogą być ponawiane, chociaż Przyczyna może być trwała. 
 
-Limity ograniczania dotyczą liczby wywołań wykonanych do podsystemu tożsamości zarządzanej — w szczególności zależności "nadrzędne" (usługa Managed Identity Azure lub usługa bezpiecznego tokenu). Sieci szkieletowej usług buforuje tokeny na różnych poziomach w potoku, ale biorąc pod uwagę rozproszony charakter zaangażowanych składników, obiektu wywołującego może wystąpić niespójne odpowiedzi ograniczania przepustowości (tj. uzyskać ograniczone w jednym węźle/wystąpieniu aplikacji, ale nie w innym węźle podczas żądania tokenu dla tej samej tożsamości.) Po ustawieniu warunku ograniczania przepustowości kolejne żądania z tej samej aplikacji mogą zakończyć się niepowodzeniem przy użyciu kodu stanu HTTP 429 (zbyt wiele żądań), dopóki warunek nie zostanie wyczyszczony.  
+Limity ograniczania mają zastosowanie do liczby wywołań w podsystemie tożsamości zarządzanej — w odniesieniu do zależności "nadrzędnych" (usługi tożsamości zarządzanej platformy Azure lub usługi bezpiecznego tokenu). Service Fabric buforuje tokeny na różnych poziomach potoku, ale z uwzględnieniem rozproszonego charakteru powiązanych składników, wywołujący może wystąpić niespójne odpowiedzi dotyczące ograniczania przepustowości (tj. uzyskać ograniczenia dotyczące jednego węzła/wystąpienia aplikacji, ale nie w innym węźle podczas żądania tokenu dla tej samej tożsamości). Po ustawieniu warunku ograniczania kolejne żądania z tej samej aplikacji mogą kończyć się niepowodzeniem z kodem stanu HTTP 429 (zbyt wiele żądań) do momentu wyczyszczenia warunku.  
 
-Zaleca się, że żądania nie powiodło się z powodu ograniczania są ponowione z wykładniczym backoff, w następujący sposób: 
+Zaleca się, aby żądania nie powiodły się, ponieważ trwa ponawianie próby ograniczenia przy użyciu wykładniczej wycofywania w następujący sposób: 
 
-| Indeks połączeń | Działanie w sprawie otrzymania 429 | 
+| Indeks wywołań | Akcja przy odbiorze 429 | 
 | --- | --- | 
-| 1 | Odczekaj 1 sekundę i ponów próbę |
+| 1 | Poczekaj 1 sekunda i ponów próbę |
 | 2 | Odczekaj 2 sekundy i ponów próbę |
-| 3 | Odczekaj 4 sekundy i ponów próbę |
+| 3 | Poczekaj 4 sekundy i ponów próbę |
 | 4 | Odczekaj 8 sekund i ponów próbę |
 | 4 | Odczekaj 8 sekund i ponów próbę |
 | 5 | Odczekaj 16 sekund i ponów próbę |
 
 ## <a name="resource-ids-for-azure-services"></a>Identyfikatory zasobów dla usług platformy Azure
-Zobacz [usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD,](../active-directory/managed-identities-azure-resources/services-support-msi.md) aby uzyskać listę zasobów obsługujących usługę Azure AD i ich odpowiednie identyfikatory zasobów.
+Zobacz [usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md) , aby uzyskać listę zasobów, które obsługują usługę Azure AD, oraz ich identyfikatory zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Wdrażanie aplikacji sieci szkieletowej usług Azure z tożsamością zarządzaną przypisaną do systemu](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Wdrażanie aplikacji sieci szkieletowej usług Azure z tożsamością zarządzaną przypisaną przez użytkownika](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [Udzielanie dostępu aplikacji sieci szkieletowej usługi Azure do innych zasobów platformy Azure](./how-to-grant-access-other-resources.md)
+* [Wdrażanie aplikacji Service Fabric platformy Azure przy użyciu tożsamości zarządzanej przypisanej do systemu](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Wdrażanie aplikacji Service Fabric platformy Azure przy użyciu tożsamości zarządzanej przypisanej przez użytkownika](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Przyznaj aplikacji Service Fabric platformy Azure dostęp do innych zasobów platformy Azure](./how-to-grant-access-other-resources.md)

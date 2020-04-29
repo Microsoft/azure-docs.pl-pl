@@ -1,5 +1,5 @@
 ---
-title: Przykład interfejsu wiersza polecenia skaluje elastyczną bazę danych SQL-Azure SQL Database
+title: Przykład interfejsu wiersza polecenia skalowanie elastycznej puli SQL — Azure SQL Database
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do skalowania elastycznej puli w usłudze Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
 ms.openlocfilehash: b229aa8976705c5e3ad83c468ebc10a261f14a4f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067395"
 ---
 # <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Korzystanie z interfejsu wiersza polecenia do skalowania elastycznej puli w usłudze Azure SQL Database
@@ -36,21 +36,21 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ### <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
+Użyj poniższego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
 
 ```azurecli-interactive
 az group delete --name $resource
 ```
 
-## <a name="sample-reference"></a>Przykładowy numer referencyjny
+## <a name="sample-reference"></a>Przykładowe odwołanie
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | | |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Polecenia serwera. |
-| [az sql db](/cli/azure/sql/db) | Polecenia bazy danych. |
-| [az sql elastyczne pule](/cli/azure/sql/elastic-pool) | Polecenia puli elastycznej. |
+| [AZ SQL DB](/cli/azure/sql/db) | Polecenia bazy danych. |
+| [AZ SQL Elastic-Pools](/cli/azure/sql/elastic-pool) | Polecenia puli elastycznej. |
 
 ## <a name="next-steps"></a>Następne kroki
 

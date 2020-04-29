@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Przekazywanie i powiązywać certyfikat TLS/SSL do aplikacji'
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zautomatyzować wdrażanie aplikacji usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak powiązać niestandardowy certyfikat TLS/SSL z aplikacją.
+title: 'Interfejs wiersza polecenia: przekazywanie i powiązywanie certyfikatu TLS/SSL z aplikacją'
+description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak powiązać niestandardowy certyfikat TLS/SSL z aplikacją.
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
 ms.devlang: azurecli
@@ -8,18 +8,18 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.custom: mvc, seodec18
 ms.openlocfilehash: d1775f3af390bb71b6895dc6d43c5ae574371aef
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81537665"
 ---
-# <a name="bind-a-custom-tlsssl-certificate-to-an-app-service-app-using-cli"></a>Powiąż niestandardowy certyfikat TLS/SSL z aplikacją usługi App Service przy użyciu interfejsu wiersza polecenia
+# <a name="bind-a-custom-tlsssl-certificate-to-an-app-service-app-using-cli"></a>Powiązywanie niestandardowego certyfikatu TLS/SSL z aplikacją App Service przy użyciu interfejsu wiersza polecenia
 
-Ten przykładowy skrypt tworzy aplikację w usłudze App Service z powiązanymi zasobami, a następnie wiąże z nią certyfikat TLS/SSL o niestandardowej nazwie domeny. Do pracy z tym przykładem potrzebne są:
+Ten przykładowy skrypt tworzy aplikację w App Service z jej powiązanymi zasobami, a następnie wiąże certyfikat TLS/SSL z niestandardową nazwą domeny. Do pracy z tym przykładem potrzebne są:
 
 * Dostęp do strony konfiguracji serwera DNS rejestratora domen.
-* Prawidłowe . PFX i jego hasło do certyfikatu TLS/SSL, który chcesz przekazać i powiązać.
+* Prawidłowy. Plik PFX i jego hasło dla certyfikatu TLS/SSL, który ma zostać przekazany i powiązany.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,8 +43,8 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Tworzy plan usługi App Service. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Tworzy aplikację usługi App Service. |
 | [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | Mapuje domenę niestandardową na aplikację usługi App Service. |
-| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | Przesyła certyfikat TLS/SSL do aplikacji usługi App Service. |
-| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | Wiąże przekazany certyfikat TLS/SSL z aplikacją usługi App Service. |
+| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | Przekazuje certyfikat TLS/SSL do aplikacji App Service. |
+| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | Tworzy powiązanie przekazanego certyfikatu TLS/SSL z aplikacją App Service. |
 
 ## <a name="next-steps"></a>Następne kroki
 

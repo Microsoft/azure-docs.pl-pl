@@ -1,5 +1,5 @@
 ---
-title: Maszyny wirtualne równoważenia obciążenia w strefie — narzędzie interfejsu wiersza polecenia platformy Azure
+title: Równoważenie obciążenia maszyn wirtualnych w strefie — interfejs wiersza polecenia platformy Azure
 description: Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure przedstawia sposób równoważenia obciążenia ruchu do maszyn wirtualnych w konkretnej strefie dostępności
 services: load-balancer
 documentationcenter: load-balancer
@@ -15,13 +15,13 @@ ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
 ms.openlocfilehash: 0ae159b57a89b4238d52d178d59cb79b452e0411
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79214555"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Przykład skryptu interfejsu wiersza polecenia platformy Azure: ruch równoważenia obciążenia maszynom wirtualnym w określonej strefie dostępności
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Przykład skryptu interfejsu wiersza polecenia platformy Azure: Równoważenie obciążenia ruchu do maszyn wirtualnych w określonej strefie dostępności
 
 Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure umożliwia utworzenie wszystkich elementów potrzebnych do uruchomienia kilku maszyn wirtualnych z systemem Ubuntu skonfigurowanych w ramach konfiguracji o wysokiej dostępności i zrównoważonym obciążeniu w konkretnej strefie dostępności. Po uruchomieniu skryptu będziesz mieć trzy maszyny wirtualne w pojedynczych strefach dostępności w regionie, które będą dostępne za pośrednictwem usługi Azure Load Balancer w warstwie Standardowa. 
 

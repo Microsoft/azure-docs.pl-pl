@@ -1,6 +1,6 @@
 ---
-title: Usługi przejdź na rynek — promuj swoją firmę dzięki firmie Microsoft | Azure
-description: Usługi przejdź na rynek — wydawcy mogą dowiedzieć się, jak promować firmę za pomocą firmy Microsoft w tej sekcji.
+title: Usługi na rynku — Promuj swoją firmę dzięki firmie Microsoft | Azure
+description: Usługi na rynku — wydawcy mogą dowiedzieć się, jak promować swoją firmę firmie Microsoft w tej sekcji.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,34 +8,34 @@ ms.topic: conceptual
 ms.date: 01/12/2019
 ms.author: dsindona
 ms.openlocfilehash: fde249f22342ed2a0c50f5fdda3bde9dc2cde183
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81685738"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promowanie swojej firmy we współpracy z firmą Microsoft
 
-Partnerzy portalu Marketplace muszą być częścią sieci Microsoft Partner Network (MPN). Jako członek MPN możesz uzyskać dostęp do dodatkowych korzyści biznesowych. Odwiedź [partner.microsoft.com,](https://partner.microsoft.com) aby zobaczyć, jak możesz korzystać z sieci, aby uzyskać dostęp do:
+Partnerzy portalu Marketplace muszą być częścią Microsoft Partner Network (MPN). Jako członek MPN możesz uzyskać dostęp do dodatkowych korzyści ukierunkowanych na działalność biznesową. Odwiedź stronę [partner.Microsoft.com](https://partner.microsoft.com) , aby dowiedzieć się, jak można używać sieci do uzyskiwania dostępu do:
 
 * Nowe możliwości biznesowe.
 * Łączenie się z zespołami lub partnerami.
-* Rozwiązania i szkolenia, które pomogą ci rozwinąć swój zestaw umiejętności.
+* Rozwiązania i szkolenia ułatwiające rozwój zestawu umiejętności.
 
-## <a name="benefits-and-resources"></a>Korzyści i zasoby
+## <a name="benefits-and-resources"></a>Zalety i zasoby
 
-Aby promować ofertę lub aplikację oraz uzyskać dostęp do większej liczby korzyści i zasobów, skorzystaj z poniższej tabeli:
+Aby podwyższyć poziom oferty lub aplikacji oraz uzyskać dostęp do większej liczby korzyści i zasobów, Skorzystaj z poniższej tabeli:
 
-| Zalety | Resources |
+| Korzyści | Zasoby |
 |:--- |:--- |
-| Wykorzystaj podstawowe zalety | W ramach sieci partnerów firmy Microsoft otrzymujesz zestaw podstawowych korzyści, które mogą pomóc zaoszczędzić czas i pieniądze. Korzyści mogą pomóc <ul> <li> wzmocnić swoje możliwości, </li> <li> lepiej służyć klientom, a także </li> <li> budować połączenia, aby w pełni wykorzystać swój potencjał biznesowy. </li> </ul> Aby uzyskać więcej informacji na temat podstawowych korzyści, odwiedź [stronę Podstawowe zalety i wymagania](https://partner.microsoft.com/membership/core-benefits#tab-content-1). |
-| Zdobądź kompetencję platformy w chmurze | Zdobycie kompetencji pomaga <ul> <li> Wyróżnij się między innymi partnerami firmy Microsoft. </li> <li> Zademonstruj wiedzę techniczną i sukces klienta na rynku. </li> </ul> Kompetencja jest warunkiem wstępnym dla wielu kluczowych programów partnerskich, takich jak Co-Sell. Aby uzyskać więcej informacji, zobacz [kompetencja platformy w chmurze.](https://partner.microsoft.com/reach-customers/selling-with-microsoft) |
-| Zostań gotowym do współsprzedaży IP | Możesz kwalifikować się do programu IP Co-Sell Ready.  Program ten pozwala na: <ul> <li> Współpracuj bezpośrednio ze sprzedawcami firmy Microsoft i innymi partnerami nad docelowymi możliwościami klientów i planowaniem kont. </li> <li> Udostępnianie rozwiązania sprzedawcom firmy Microsoft w katalogu rozwiązań dla sprzedawców. </li> <li> Sprzedawcy firmy Microsoft są nagradzani za współpracę i wygraną z Tobą. </li> </ul> Aby uzyskać więcej informacji, w tym wymagania dotyczące uprawnień, zobacz [program Co-Sell Ready i Promuj swoją firmę.](https://partner.microsoft.com/reach-customers/selling-with-microsoft) |
+| Skorzystaj z podstawowych korzyści | W ramach Microsoft Partner Network otrzymujesz zestaw podstawowych korzyści, które mogą pomóc zaoszczędzić czas i pieniądze. Korzyści mogą pomóc <ul> <li> Wzmocnij swoje możliwości, </li> <li> lepiej Obsługuj klientów i </li> <li> Twórz połączenia w celu osiągnięcia pełnego potencjału biznesowego. </li> </ul> Aby uzyskać więcej informacji na temat najważniejszych korzyści, odwiedź [Podstawowe zalety i wymagania](https://partner.microsoft.com/membership/core-benefits#tab-content-1). |
+| Uzyskaj kompetencje dotyczące platformy w chmurze | Zdobywanie kompetencji ułatwia <ul> <li> Odróżnij się od innych partnerów firmy Microsoft. </li> <li> Zaprezentuj wiedzę techniczną i sukces klientów na rynku. </li> </ul> Kompetencja jest wymaganiem wstępnym dla wielu głównych programów partnerskich, takich jak współsprzedaż. Aby uzyskać więcej informacji, zobacz temat [kompetencje platformy w chmurze](https://partner.microsoft.com/reach-customers/selling-with-microsoft) . |
+| Zostań gotowym do odsprzedażu IP | Może być uprawniony do korzystania z programu do współdziałania w ramach protokołu IP.  Ten program umożliwia: <ul> <li> Współpracuj bezpośrednio ze sprzedawcami firmy Microsoft i innymi partnerami w celu uwzględnienia docelowych możliwości klientów i planowania konta. </li> <li> Aby Twoje rozwiązanie było widoczne dla sprzedawców firmy Microsoft w katalogu rozwiązań sprzedającego. </li> <li> Sprzedawcy firmy Microsoft są nagradzani z myślą o współpracy z nimi. </li> </ul> Aby uzyskać więcej informacji na temat wymagań dotyczących uprawnień, zobacz artykuł dotyczący współdziałania [i promowania firmy](https://partner.microsoft.com/reach-customers/selling-with-microsoft) . |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o usługach GTM w marketplace, przejdź [do usług przejdź na rynek.](https://partner.microsoft.com/reach-customers/gtm)
+Aby dowiedzieć się więcej o usługach GTM Marketplace, przejdź do [usługi go-to-Market](https://partner.microsoft.com/reach-customers/gtm).
 
-[Zaloguj się do Centrum partnerów,](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) aby utworzyć lub uzupełnić ofertę.
+[Zaloguj się do Centrum partnerskiego](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) , aby utworzyć lub zakończyć swoją ofertę.
 
 ---

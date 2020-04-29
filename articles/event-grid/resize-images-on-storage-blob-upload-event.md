@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: automatyzacja zmiany rozmiaru przekazanych obrazów za pomocą usługi Azure Event Grid'
-description: 'Samouczek: Usługa Azure Event Grid może wyzwolić przekazywanie obiektów blob w usłudze Azure Storage. W ten sposób można wysyłać obrazy przekazane do usługi Azure Storage do innych usług, takich jak Azure Functions, zmieniać ich rozmiar i wprowadzać inne ulepszenia.'
+title: 'Samouczek: automatyczne zmienianie rozmiarów przekazanych obrazów przy użyciu Azure Event Grid'
+description: 'Samouczek: Azure Event Grid mogą wyzwalać operacje przekazywania obiektów BLOB w usłudze Azure Storage. W ten sposób można wysyłać obrazy przekazane do usługi Azure Storage do innych usług, takich jak Azure Functions, zmieniać ich rozmiar i wprowadzać inne ulepszenia.'
 services: event-grid, functions
 author: spelluru
 manager: jpconnoc
@@ -13,13 +13,13 @@ ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
 ms.openlocfilehash: 1d1da88d1e7eaf06ebf71da999ef8fb25c7cf066
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81482195"
 ---
-# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Samouczek: automatyzacja zmiany rozmiaru przesłanych obrazów przy użyciu siatki zdarzeń
+# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Samouczek: Automatyzowanie zmiany rozmiarów załadowanych obrazów przy użyciu Event Grid
 
 [Azure Event Grid](overview.md) to usługa do obsługi zdarzeń dla chmury. Usługa Event Grid pozwala tworzyć subskrypcje zdarzeń zgłaszanych przez usługi platformy Azure lub zasoby innych firm.  
 
@@ -27,7 +27,7 @@ Ten samouczek to druga część serii samouczków na temat usługi Storage. Stan
 
 Aby dodać funkcję zmiany rozmiaru do istniejącej aplikacji do przekazywania obrazów, używane są interfejs wiersza polecenia platformy Azure i witryna Azure Portal.
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[\.Zestaw SDK NET V12](#tab/dotnet)
 
 ![Opublikowana aplikacja internetowa w przeglądarce](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
@@ -105,13 +105,13 @@ W poniższym poleceniu podaj własną, unikatową nazwę aplikacji funkcji. Nazw
       --functions-version 2
     ```
 
-Teraz skonfiguruj aplikację funkcji, aby połączyć się z kontem magazynu obiektów Blob utworzonym w [poprzednim samouczku][previous-tutorial].
+Teraz Skonfiguruj aplikację funkcji, aby nawiązać połączenie z kontem magazynu obiektów BLOB utworzonym w [poprzednim samouczku][previous-tutorial].
 
 ## <a name="configure-the-function-app"></a>Konfigurowanie aplikacji funkcji
 
 Funkcja wymaga poświadczeń dla konta usługi Blob Storage, które są dodawane do ustawień aplikacji funkcji za pomocą polecenia [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[\.Zestaw SDK NET V12](#tab/dotnet)
 
 ```azurecli-interactive
 blobStorageAccount="<name of the Blob storage account you created in the previous tutorial>"
@@ -149,7 +149,7 @@ Teraz możesz wdrożyć projekt kodu funkcji do tej aplikacji funkcji.
 
 ## <a name="deploy-the-function-code"></a>Wdrażanie kodu funkcji 
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[\.Zestaw SDK NET V12](#tab/dotnet)
 
 Przykładowa funkcja zmiany rozmiaru w formacie C# jest dostępna w usłudze [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Wdróż ten projekt kodu w aplikacji funkcji, używając polecenia [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
@@ -176,7 +176,7 @@ Dane przekazane do funkcji z powiadomienia usługi Event Grid zawierają adres U
 
 Ten projekt używa wartości `EventGridTrigger` dla typu wyzwalacza. Zamiast ogólnych wyzwalaczy HTTP zaleca się korzystanie z wyzwalacza usługi Event Grid. Usługa Event Grid automatycznie weryfikuje wyzwalacze funkcji usługi Event Grid. W przypadku ogólnych wyzwalaczy HTTP trzeba zaimplementować [odpowiedź weryfikacji](security-authentication.md).
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[\.Zestaw SDK NET V12](#tab/dotnet)
 
 Aby dowiedzieć się więcej na temat tej funkcji, zobacz [pliki function.json i run.csx](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/ImageFunctions).
 
@@ -194,11 +194,11 @@ Subskrypcja zdarzeń wskazuje, które zdarzenia generowane przez dostawcę mają
 
 1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **Wszystkie usługi** z menu po lewej stronie, a następnie wybierz pozycję **Aplikacje funkcji**.
 
-    ![Przechodzenie do aplikacji funkcji w witrynie Azure portal](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
+    ![Przejdź do aplikacji funkcji w Azure Portal](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
 2. Rozwiń swoją aplikację funkcji, wybierz funkcję **Thumbnail**, a następnie wybierz pozycję **Dodaj subskrypcję usługi Event Grid**.
 
-    ![Przejdź do subskrypcji Dodaj siatkę zdarzeń w witrynie Azure portal](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
+    ![Przejdź do dodawania subskrypcji Event Grid w Azure Portal](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
 
 3. Użyj ustawień subskrypcji zdarzeń w sposób określony w tabeli poniżej.
     
@@ -212,16 +212,16 @@ Subskrypcja zdarzeń wskazuje, które zdarzenia generowane przez dostawcę mają
     | **Grupa zasobów** | myResourceGroup | Wybierz pozycję **Użyj istniejącej** i wybierz grupę zasobów używaną w tym samouczku. |
     | **Zasób** | Konto usługi Blob Storage | Wybierz utworzone konto usługi Blob Storage. |
     | **Typy zdarzeń** | Utworzony obiekt blob | Anuluj zaznaczenie wszystkich typów innych niż **Utworzony obiekt blob**. Tylko typy zdarzeń `Microsoft.Storage.BlobCreated` są przekazywane do funkcji. |
-    | **Typ punktu końcowego** | generowany automatycznie | Wstępnie zdefiniowana jako **funkcja platformy Azure**. |
+    | **Typ punktu końcowego** | generowany automatycznie | Wstępnie zdefiniowana jako **Funkcja platformy Azure**. |
     | **Punktu końcowego** | generowany automatycznie | Nazwa funkcji. W tym przypadku jest to **miniatura**. |
 
-4. Przełącz się na kartę **Filtry** i wykonaj następujące czynności:
+4. Przejdź do karty **filtry** i wykonaj następujące czynności:
     1. Zaznacz pole wyboru **Enable subject filtering** (Włącz filtrowanie tematów).
     2. W polu **Subject begins with** (Temat rozpoczyna się od) wprowadź następującą wartość: **/blobServices/default/containers/images/blobs/**.
 
         ![Określ filtr dla subskrypcji zdarzeń](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 
-5. Wybierz pozycję **Create** (Utwórz), aby dodać subskrypcję zdarzeń. Spowoduje to utworzenie subskrypcji zdarzenia, która wyzwala `Thumbnail` funkcję po `images` dodaniu obiektu blob do kontenera. Funkcja zmieni rozmiar obrazów i doda je do kontenera `thumbnails`.
+5. Wybierz pozycję **Create** (Utwórz), aby dodać subskrypcję zdarzeń. Spowoduje to utworzenie subskrypcji zdarzeń, która wyzwala `Thumbnail` funkcję po dodaniu obiektu BLOB do `images` kontenera. Funkcja zmieni rozmiar obrazów i doda je do kontenera `thumbnails`.
 
 Ponieważ usługi zaplecza zostały już skonfigurowane, można przetestować funkcję zmieniania rozmiaru obrazów w przykładowej aplikacji internetowej.
 
@@ -229,17 +229,17 @@ Ponieważ usługi zaplecza zostały już skonfigurowane, można przetestować fu
 
 Aby przetestować zmienianie rozmiaru obrazów w aplikacji internetowej, przejdź pod adres URL Twojej opublikowanej aplikacji. Domyślnym adresem URL aplikacji internetowej jest `https://<web_app>.azurewebsites.net`.
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[\.Zestaw SDK NET V12](#tab/dotnet)
 
 Kliknij region **Upload photos** (Przekazywanie zdjęć), aby wybrać i przekazać plik. Możesz także przeciągnąć zdjęcia do tego obszaru.
 
-Należy zauważyć, że po zniknięciu przesłanego obrazu kopia przesłanego obrazu jest wyświetlana w karuzeli **Wygenerowane miniatury.** Rozmiar obrazu został zmieniony przez funkcję, obraz został dodany do kontenera *thumbnails* i pobrany przez klienta internetowego.
+Zwróć uwagę, że po usunięciu przekazanego obrazu zostanie wyświetlona kopia przekazanego obrazu w karuzeli z **wygenerowanymi miniaturkami** . Rozmiar obrazu został zmieniony przez funkcję, obraz został dodany do kontenera *thumbnails* i pobrany przez klienta internetowego.
 
 ![Opublikowana aplikacja internetowa w przeglądarce](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[Zestaw Node.js V10 SDK](#tab/nodejsv10)
 
-Kliknij pozycję **Choose File** (Wybierz plik), aby wybrać plik, a następnie kliknij przycisk **Upload Image** (Przekaż obraz). Po pomyślnym zakończeniu przekazywania w przeglądarce pojawi się strona z informacją o powodzeniu operacji. Kliknij link, aby powrócić do strony głównej. Kopia przesłanego obrazu jest wyświetlana w obszarze **Wygenerowane miniatury.** (Jeśli obraz nie pojawia się na początku, spróbuj ponownie załadować stronę). Ten obraz został przesunięty przez funkcję, dodany do kontenera *miniatur* i pobrany przez klienta sieci web.
+Kliknij pozycję **Choose File** (Wybierz plik), aby wybrać plik, a następnie kliknij przycisk **Upload Image** (Przekaż obraz). Po pomyślnym zakończeniu przekazywania w przeglądarce pojawi się strona z informacją o powodzeniu operacji. Kliknij link, aby powrócić do strony głównej. Kopia przekazanego obrazu zostanie wyświetlona w obszarze **wygenerowane miniatury** . (Jeśli obraz nie pojawia się na początku, spróbuj załadować ponownie stronę). Rozmiar tego obrazu został zmieniony przez funkcję, dodano do kontenera *miniatur* i pobrane przez klienta sieci Web.
 
 ![Opublikowana aplikacja internetowa w przeglądarce](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 

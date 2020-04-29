@@ -1,6 +1,6 @@
 ---
-title: Uruchamianie skryptów na maszynie wirtualnej systemu Azure z systemem Linux
-description: W tym temacie opisano sposób uruchamiania skryptów na maszynie wirtualnej
+title: Uruchamianie skryptów na maszynie wirtualnej z systemem Linux na platformie Azure
+description: W tym temacie opisano sposób uruchamiania skryptów w ramach maszyny wirtualnej
 services: automation
 ms.service: virtual-machines-linux
 author: bobbytreed
@@ -8,64 +8,64 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: article
 ms.openlocfilehash: 9dbfb3e76fe1c0e80dd8020b79f4edd6d32a24a3
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758586"
 ---
-# <a name="run-scripts-in-your-linux-vm"></a>Uruchamianie skryptów na maszynie Wirtualnej systemu Linux
+# <a name="run-scripts-in-your-linux-vm"></a>Uruchamianie skryptów na maszynie wirtualnej z systemem Linux
 
-Aby zautomatyzować zadania lub rozwiązać problemy, może być konieczne uruchomienie poleceń na maszynie Wirtualnej. Poniższy artykuł zawiera krótkie omówienie funkcji, które są dostępne do uruchamiania skryptów i poleceń w ramach maszyn wirtualnych.
+Aby zautomatyzować zadania lub rozwiązać problemy, może być konieczne uruchomienie poleceń na maszynie wirtualnej. Poniższy artykuł zawiera krótkie omówienie funkcji, które są dostępne do uruchamiania skryptów i poleceń na maszynach wirtualnych.
 
 ## <a name="custom-script-extension"></a>Rozszerzenie niestandardowego skryptu
 
-[Rozszerzenie skryptów niestandardowych](../extensions/custom-script-linux.md) jest używane głównie do konfiguracji po wdrożeniu i instalacji oprogramowania.
+[Rozszerzenie niestandardowego skryptu](../extensions/custom-script-linux.md) jest używane przede wszystkim do konfiguracji po wdrożeniu i instalacji oprogramowania.
 
-* Pobieranie i uruchamianie skryptów na maszynach wirtualnych platformy Azure.
-* Można uruchomić przy użyciu szablonów usługi Azure Resource Manager, interfejsu wiersza polecenia platformy Azure, interfejsu API REST, programu PowerShell lub witryny Azure portal.
-* Pliki skryptów można pobrać z usługi Azure Storage lub GitHub lub dostarczone z komputera po uruchomieniu z witryny Azure portal.
-* Uruchom skrypt programu PowerShell na komputerach z systemem Windows i skrypt Bash na komputerach z systemem Linux.
-* Przydatne do konfiguracji po wdrożeniu, instalacji oprogramowania i innych zadań konfiguracyjnych lub zarządzania.
+* Pobieranie i uruchamianie skryptów w usłudze Azure Virtual Machines.
+* Można uruchamiać przy użyciu szablonów Azure Resource Manager, interfejsu wiersza polecenia platformy Azure, usługi API REST, programu PowerShell lub Azure Portal.
+* Pliki skryptów można pobrać z usługi Azure Storage lub GitHub lub z komputera, gdy jest on uruchamiany z Azure Portal.
+* Uruchom skrypt programu PowerShell na maszynach z systemem Windows i skrypcie bash na maszynach z systemem Linux.
+* Przydatne w przypadku konfiguracji po wdrożeniu, instalacji oprogramowania i innych zadań związanych z konfiguracją lub zarządzaniem.
 
 ## <a name="run-command"></a>Uruchom polecenie
 
-Funkcja [Uruchom polecenie](run-command.md) umożliwia zarządzanie maszyną wirtualną i aplikacjami oraz rozwiązywanie problemów przy użyciu skryptów i jest dostępna nawet wtedy, gdy komputer jest niedostępny, na przykład jeśli zapora gościa nie ma otwartego portu RDP lub SSH.
+Funkcja [Run command](run-command.md) umożliwia zarządzanie maszynami wirtualnymi i aplikacjami oraz Rozwiązywanie problemów przy użyciu skryptów i jest dostępna nawet wtedy, gdy komputer jest nieosiągalny, na przykład jeśli Zapora gościa nie ma otwartego portu RDP lub SSH.
 
-* Uruchamianie skryptów na maszynach wirtualnych platformy Azure.
-* Można uruchomić przy użyciu [witryny Azure portal,](run-command.md) [interfejsu API REST,](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) [interfejsu wiersza polecenia platformy Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke)lub programu [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand)
-* Szybko uruchom skrypt i wyświetl dane wyjściowe i powtórz zgodnie z potrzebami w witrynie Azure portal.
+* Uruchamianie skryptów w usłudze Azure Virtual Machines.
+* Mogą być uruchamiane przy użyciu [Azure Portal](run-command.md), [interfejsu API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [wiersza polecenia platformy Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke)lub [programu PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) .
+* Szybkie uruchamianie skryptu i wyświetlanie danych wyjściowych i powtarzanie w razie konieczności w Azure Portal.
 * Skrypt można wpisać bezpośrednio lub można uruchomić jeden z wbudowanych skryptów.
-* Uruchom skrypt programu PowerShell na komputerach z systemem Windows i skrypt Bash na komputerach z systemem Linux.
-* Przydatne do zarządzania maszynami wirtualnymi i aplikacjami oraz do uruchamiania skryptów na maszynach wirtualnych, które są nieosiągalne.
+* Uruchom skrypt programu PowerShell na maszynach z systemem Windows i skrypcie bash na maszynach z systemem Linux.
+* Przydatne do zarządzania maszynami wirtualnymi i aplikacjami oraz do uruchamiania skryptów w maszynach wirtualnych, które są nieosiągalne.
 
 ## <a name="hybrid-runbook-worker"></a>Hybrydowy proces roboczy elementu Runbook
 
-[Hybrydowy proces roboczy systemu runbook](../../automation/automation-hybrid-runbook-worker.md) zapewnia ogólne zarządzanie maszynami, aplikacjami i środowiskami za pomocą skryptów niestandardowych użytkownika przechowywanych na koncie automatyzacji.
+[Hybrydowy proces roboczy elementu Runbook](../../automation/automation-hybrid-runbook-worker.md) zapewnia ogólne zarządzanie maszynami, aplikacjami i środowiskami przy użyciu niestandardowych skryptów użytkownika przechowywanych na koncie usługi Automation.
 
-* Uruchamianie skryptów na komputerach platformy Azure i innych niż azure.
-* Można uruchomić przy użyciu witryny Azure portal, interfejsu wiersza polecenia platformy Azure, interfejsu API REST, programu PowerShell, elementu webhook.
-* Skrypty przechowywane i zarządzane na koncie automatyzacji.
-* Uruchamianie eksbry programów PowerShell, przepływu pracy programu PowerShell, języka Python lub yartów graficznych
-* Brak limitu czasu na czas wykonywania skryptu.
-* Wiele skryptów można uruchomić jednocześnie.
+* Uruchamiaj skrypty na platformie Azure i na maszynach spoza platformy Azure.
+* Można uruchamiać przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure, usługi API REST, programu PowerShell i elementu webhook.
+* Skrypty przechowywane i zarządzane na koncie usługi Automation.
+* Uruchamianie programu PowerShell, przepływu pracy programu PowerShell, środowiska Python lub graficznych elementów Runbook
+* Czas wykonywania skryptu nie jest limitem czasu.
+* Jednocześnie można uruchamiać wiele skryptów.
 * Pełne dane wyjściowe skryptu są zwracane i przechowywane.
-* Historia pracy dostępna przez 90 dni.
-* Skrypty mogą być uruchamiane jako system lokalny lub z poświadczeniami dostarczonymi przez użytkownika.
-* Wymaga [ręcznej instalacji](../../automation/automation-windows-hrw-install.md)
+* Historia zadań dostępna przez 90 dni.
+* Skrypty mogą działać jako system lokalny lub z poświadczeniami dostarczonymi przez użytkownika.
+* Wymaga [instalacji ręcznej](../../automation/automation-windows-hrw-install.md)
 
 ## <a name="serial-console"></a>Konsola szeregowa
 
-Konsola [szeregowa](serial-console.md) zapewnia bezpośredni dostęp do maszyny Wirtualnej, podobnie jak posiadanie klawiatury podłączonej do maszyny Wirtualnej.
+[Konsola szeregowa](serial-console.md) zapewnia bezpośredni dostęp do maszyny wirtualnej, podobnie jak przy użyciu klawiatury podłączonej do maszyny wirtualnej.
 
-* Uruchamianie poleceń na maszynach wirtualnych platformy Azure.
-* Można uruchomić przy użyciu konsoli tekstowej do komputera w witrynie Azure portal.
-* Zaloguj się do urządzenia za pomocą lokalnego konta użytkownika.
-* Przydatne, gdy potrzebny jest dostęp do maszyny wirtualnej niezależnie od stanu sieci lub systemu operacyjnego komputera.
+* Uruchom polecenia w usłudze Azure Virtual Machines.
+* Można uruchomić za pomocą konsoli tekstowej na maszynie w Azure Portal.
+* Zaloguj się na komputerze przy użyciu konta użytkownika lokalnego.
+* Przydatne, gdy dostęp do maszyny wirtualnej jest konieczny niezależnie od stanu sieci lub systemu operacyjnego maszyny.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o różnych funkcjach, które są dostępne do uruchamiania skryptów i poleceń w maszynach wirtualnych.
+Dowiedz się więcej o różnych funkcjach, które są dostępne do uruchamiania skryptów i poleceń na maszynach wirtualnych.
 
 * [Rozszerzenie niestandardowego skryptu](../extensions/custom-script-linux.md)
 * [Uruchamianie polecenia](run-command.md)

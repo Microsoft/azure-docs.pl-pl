@@ -1,6 +1,6 @@
 ---
-title: Dodawanie i usuwanie jednostek administracyjnych (wersja zapoznawcza) — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Użyj jednostek administracyjnych, aby ograniczyć zakres uprawnień roli w usłudze Azure Active Directory.
+title: Dodawanie i usuwanie jednostek administracyjnych (wersja zapoznawcza) — Azure Active Directory | Microsoft Docs
+description: Użyj jednostek administracyjnych, aby ograniczyć zakres uprawnień roli w Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,43 +15,43 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7a4a0dfaeda18b3f68ddc3c7cc7333b8c994d174
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81684913"
 ---
-# <a name="manage-administrative-units-in-azure-active-directory"></a>Zarządzanie jednostkami administracyjnymi w usłudze Azure Active Directory
+# <a name="manage-administrative-units-in-azure-active-directory"></a>Zarządzanie jednostkami administracyjnymi w Azure Active Directory
 
-Aby uzyskać bardziej szczegółową kontrolę administracyjną w usłudze Azure Active Directory (Azure AD), można przypisać użytkowników do roli usługi Azure AD o zakresie ograniczonym do co najmniej jednej jednostki administracyjnej (AU).
+Aby uzyskać bardziej szczegółową kontrolę administracyjną w usłudze Azure Active Directory (Azure AD), można przypisać użytkowników do roli usługi Azure AD z zakresem ograniczonym do co najmniej jednej jednostki administracyjnej (np.).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
-1. Aby uruchomić zapytania z następujących instrukcji za pośrednictwem [Eksploratora wykresu,](https://aka.ms/ge)wykonaj następujące czynności:
+1. Aby uruchamiać zapytania z poniższych instrukcji za pośrednictwem [Eksploratora grafów](https://aka.ms/ge), wykonaj następujące czynności:
 
-    a. W witrynie Azure portal przejdź do usługi Azure AD. Na liście aplikacji wybierz pozycję **Graph Explorer**, a następnie wybierz pozycję **Udzielaj zgody administratora eksploratorowi wykresu**.
+    a. W Azure Portal przejdź do usługi Azure AD. Na liście Aplikacje wybierz pozycję **Eksplorator wykresu**, a następnie wybierz pozycję **Udziel zgody administratora na Eksplorator grafów**.
 
     ![Zrzut ekranu przedstawiający link do "Udziel zgody administratora"](./media/roles-admin-units-manage/select-graph-explorer.png)
 
-    b. W Eksploratorze wykresów wybierz wersję **beta.**
+    b. W Eksploratorze grafu wybierz wersję **beta** .
 
     ![Zrzut ekranu przedstawiający wybraną wersję beta](./media/roles-admin-units-manage/select-beta-version.png)
 
 1. Użyj wersji zapoznawczej programu Azure AD PowerShell.
 
-## <a name="add-an-administrative-unit"></a>Dodawanie jednostki administracyjnej
+## <a name="add-an-administrative-unit"></a>Dodaj jednostkę administracyjną
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. W witrynie Azure portal przejdź do usługi Azure AD, a następnie w lewym okienku wybierz pozycję **Jednostki administracyjne**.
+1. W Azure Portal przejdź do usługi Azure AD, a następnie w okienku po lewej stronie wybierz pozycję **jednostki administracyjne**.
 
-    ![Zrzut ekranu przedstawiający łącze Jednostki administracyjne (Wersja zapoznawcza) w usłudze Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
+    ![Zrzut ekranu przedstawiający link jednostki administracyjne (wersja zapoznawcza) w usłudze Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
 
-1. Wybierz **pozycję Dodaj,** a następnie wprowadź nazwę jednostki administracyjnej. Opcjonalnie należy dodać opis jednostki administracyjnej.
+1. Wybierz pozycję **Dodaj** , a następnie wprowadź nazwę jednostki administracyjnej. Opcjonalnie Dodaj opis jednostki administracyjnej.
 
     ![Zrzut ekranu przedstawiający przycisk Dodaj i pole tekstowe służące do wprowadzania nazwy jednostki administracyjnej](./media/roles-admin-units-manage/add-new-admin-unit.png)
 
-1. Wybierz **pozycję Dodaj,** aby sfinalizować jednostkę administracyjną.
+1. Wybierz pozycję **Dodaj** , aby sfinalizować jednostkę administracyjną.
 
 ### <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
@@ -60,9 +60,9 @@ Zainstaluj program Azure AD PowerShell (wersja zapoznawcza) przed podjęciem pr�
     Connect-AzureAD
     New-AzureADAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
 
-W razie potrzeby można zmodyfikować wartości ujęte w cudzysłów.
+W razie potrzeby można zmodyfikować wartości ujęte w znaki cudzysłowu.
 
-### <a name="use-microsoft-graph"></a>Korzystanie z programu Microsoft Graph
+### <a name="use-microsoft-graph"></a>Użyj Microsoft Graph
 
     Http Request
     POST /administrativeUnits
@@ -72,26 +72,26 @@ W razie potrzeby można zmodyfikować wartości ujęte w cudzysłów.
         "description": "North America Operations administration"
     }
 
-## <a name="remove-an-administrative-unit"></a>Usuwanie jednostki administracyjnej
+## <a name="remove-an-administrative-unit"></a>Usuń jednostkę administracyjną
 
-W usłudze Azure AD można usunąć jednostkę administracyjną, która nie jest już potrzebna jako jednostka zakresu ról administracyjnych.
+W usłudze Azure AD można usunąć jednostkę administracyjną, która nie jest już potrzebna jako jednostka zakresu dla ról administracyjnych.
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. W witrynie Azure portal przejdź do**jednostek administracyjnych** **usługi Azure AD** > . 
+1. W Azure Portal przejdź do pozycji**jednostki administracyjne** **usługi Azure AD** > . 
 1. Wybierz jednostkę administracyjną do usunięcia, a następnie wybierz pozycję **Usuń**. 
-1. Aby potwierdzić, że chcesz usunąć jednostkę administracyjną, **wybierz**tak . Jednostka administracyjna zostanie usunięta.
+1. Aby potwierdzić, że chcesz usunąć jednostkę administracyjną, wybierz pozycję **tak**. Jednostka administracyjna została usunięta.
 
-![Zrzut ekranu przedstawiający przycisk usuwania i okno potwierdzenia jednostki administracyjnej](./media/roles-admin-units-manage/select-admin-unit-to-delete.png)
+![Zrzut ekranu przedstawiający przycisk usuwania jednostki administracyjnej i okno potwierdzenia](./media/roles-admin-units-manage/select-admin-unit-to-delete.png)
 
 ### <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
     $delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
     Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
 
-Można zmodyfikować wartości, które są ujęte w cudzysłów, zgodnie z wymaganiami dla określonego środowiska.
+Wartości, które są ujęte w znaki cudzysłowu, można modyfikować zgodnie z wymaganiami określonego środowiska.
 
-### <a name="use-the-graph-api"></a>Korzystanie z interfejsu API wykresu
+### <a name="use-the-graph-api"></a>Użyj interfejs API programu Graph
 
     HTTP request
     DELETE /administrativeUnits/{Admin id}

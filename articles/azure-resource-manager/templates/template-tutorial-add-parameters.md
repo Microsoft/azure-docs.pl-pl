@@ -1,48 +1,48 @@
 ---
-title: Samouczek - dodawanie parametrów do szablonu
-description: Dodaj parametry do szablonu usługi Azure Resource Manager, aby był wielokrotnego użycia.
+title: Samouczek — Dodawanie parametrów do szablonu
+description: Dodaj parametry do szablonu Azure Resource Manager, aby umożliwić jego wielokrotne użycie.
 author: mumian
 ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: de7ec961672db2f3120e00f1a42b33f71e7ab092
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80437829"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Samouczek: Dodawanie parametrów do szablonu ARM
 
-W [poprzednim samouczku](template-tutorial-add-resource.md)opisano, jak dodać konto magazynu do szablonu i wdrożyć je. W tym samouczku dowiesz się, jak ulepszyć szablon usługi Azure Resource Manager (ARM), dodając parametry. Ten samouczek trwa około **14 minut.**
+W [poprzednim samouczku](template-tutorial-add-resource.md)przedstawiono sposób dodawania konta magazynu do szablonu i wdrażania go. W tym samouczku dowiesz się, jak ulepszyć szablon Azure Resource Manager (ARM) przez dodanie parametrów. Ukończenie tego samouczka zajmuje około **14 minut** .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zalecamy ukończenie [samouczka na temat zasobów,](template-tutorial-add-resource.md)ale nie jest to wymagane.
+Zalecamy ukończenie [samouczka dotyczącego zasobów](template-tutorial-add-resource.md), ale nie jest to wymagane.
 
-Musisz mieć program Visual Studio Code z rozszerzeniem Narzędzia Menedżera zasobów i azure powershell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [narzędzia szablonów](template-tutorial-create-first-template.md#get-tools).
+Musisz mieć Visual Studio Code z rozszerzeniem narzędzi Menedżer zasobów i Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Narzędzia szablonu](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-template"></a>Szablon recenzji
+## <a name="review-template"></a>Przejrzyj szablon
 
-Na końcu poprzedniego samouczka szablon miał następujący JSON:
+Na końcu poprzedniego samouczka szablon zawierał następujący kod JSON:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json":::
 
-Być może zauważyłeś, że wystąpił problem z tym szablonem. Nazwa konta magazynu jest zakodowany na czas. Tego szablonu można używać tylko do wdrażania tego samego konta magazynu za każdym razem. Aby wdrożyć konto magazynu o innej nazwie, należy utworzyć nowy szablon, który oczywiście nie jest praktycznym sposobem automatyzacji wdrożeń.
+Być może zauważono, że wystąpił problem z tym szablonem. Nazwa konta magazynu jest zakodowana na stałe. Tego szablonu można używać tylko do wdrożenia tego samego konta magazynu za każdym razem. Aby wdrożyć konto magazynu o innej nazwie, należy utworzyć nowy szablon, który oczywiście nie jest praktycznym sposobem automatyzacji wdrożeń.
 
-## <a name="make-template-reusable"></a>Nadaj szablonowi wielokrotnego pożycie
+## <a name="make-template-reusable"></a>Tworzenie szablonu do ponownego użycia
 
-Aby szablon był wielokrotnego użytku, dodajmy parametr, którego można użyć do przekazania nazwy konta magazynu. Wyróżniony JSON w poniższym przykładzie pokazuje, co zmieniło się w szablonie. Parametr **storageName** jest identyfikowany jako ciąg. Maksymalna długość jest ustawiona na 24 znaki, aby zapobiec wszelkie nazwy, które są zbyt długie.
+Aby można było ponownie używać szablonu, dodajmy parametr, który służy do przekazywania nazwy konta magazynu. Wyróżniony kod JSON w poniższym przykładzie pokazuje, co zmieniło się w szablonie. Parametr **storagename** jest identyfikowany jako ciąg. Maksymalna długość jest równa 24 znaków, aby zapobiec wszelkim nazwom, które są zbyt długie.
 
-Skopiuj cały plik i zastąp szablon jego zawartością.
+Skopiuj cały plik i Zastąp jego zawartość.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json" range="1-26" highlight="4-10,15":::
 
 ## <a name="deploy-template"></a>Wdrażanie szablonu
 
-Zastosujmy szablon. W poniższym przykładzie wdraża szablon z interfejsu wiersza polecenia platformy Azure lub programu PowerShell. Należy zauważyć, że podasz nazwę konta magazynu jako jedną z wartości w poleceniu wdrażania. Dla nazwy konta magazynu podaj taką samą nazwę, która została użyta w poprzednim samouczku.
+Wdróżmy szablon. Poniższy przykład wdraża szablon przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell. Zwróć uwagę, że podajesz nazwę konta magazynu jako jedną z wartości w poleceniu wdrożenia. Podaj nazwę konta magazynu o tej samej nazwie, która została użyta w poprzednim samouczku.
 
-Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie przyjęto założenie, że ustawiono **zmienną templateFile** na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
+Jeśli grupa zasobów nie została utworzona, zobacz [Tworzenie grupy zasobów](template-tutorial-create-first-template.md#create-resource-group). W przykładzie założono, że ustawiono zmienną **TemplateFile** na ścieżkę do pliku szablonu, jak pokazano w [pierwszym samouczku](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -56,7 +56,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby uruchomić to polecenie wdrażania, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
+Aby uruchomić to polecenie wdrożenia, musisz mieć [najnowszą wersję](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli
 az deployment group create \
@@ -68,27 +68,27 @@ az deployment group create \
 
 ---
 
-## <a name="understand-resource-updates"></a>Opis aktualizacji zasobów
+## <a name="understand-resource-updates"></a>Omówienie aktualizacji zasobów
 
-W poprzedniej sekcji wdrożono konto magazynu o tej samej nazwie, które zostało utworzone wcześniej. Możesz się zastanawiać, jak zasób ma wpływ na ponowne wdrożenie.
+W poprzedniej sekcji zostało wdrożone konto magazynu o tej samej nazwie, która została wcześniej utworzona. Możesz zastanawiać się, w jaki sposób zasób ma wpływ na ponowne wdrożenie.
 
-Jeśli zasób już istnieje i nie zostanie wykryta żadna zmiana we właściwościach, nie zostanie podjęta żadna akcja. Jeśli zasób już istnieje i właściwość została zmieniona, zasób jest aktualizowany. Jeśli zasób nie istnieje, jest tworzony.
+Jeśli zasób już istnieje i żadna zmiana nie zostanie wykryta we właściwościach, nie zostanie podjęta żadna akcja. Jeśli zasób już istnieje, a właściwość została zmieniona, zasób zostanie zaktualizowany. Jeśli zasób nie istnieje, zostanie utworzony.
 
-Ten sposób obsługi aktualizacji oznacza, że szablon może zawierać wszystkie zasoby potrzebne do rozwiązania platformy Azure. Można bezpiecznie ponownie wdrożyć szablon i wiedzieć, że zasoby są zmieniane lub tworzone tylko w razie potrzeby. Na przykład po dodaniu plików do konta magazynu można ponownie wdrożyć konto magazynu bez utraty tych plików.
+Ten sposób obsługi aktualizacji oznacza, że szablon może obejmować wszystkie zasoby potrzebne do rozwiązania platformy Azure. Możesz bezpiecznie ponownie wdrożyć szablon i wiedzieć, że zasoby są zmieniane lub tworzone tylko w razie konieczności. Na przykład jeśli dodano pliki do konta magazynu, można ponownie wdrożyć konto magazynu bez utraty tych plików.
 
-## <a name="customize-by-environment"></a>Dostosowywanie według środowiska
+## <a name="customize-by-environment"></a>Dostosuj według środowiska
 
-Parametry umożliwiają dostosowanie wdrożenia poprzez podanie wartości dopasowanych do danego środowiska. Na przykład można przekazać różne wartości na podstawie tego, czy wdrażasz w środowisku w celu programowania, testowania i produkcji.
+Parametry umożliwiają dostosowanie wdrożenia poprzez podanie wartości dopasowanych do danego środowiska. Na przykład można przekazać różne wartości w zależności od tego, czy wdrażasz do środowiska na potrzeby opracowywania, testowania i produkcji.
 
-Poprzedni szablon zawsze wdrażał konto magazynu Standard_LRS. Można elastyczność do wdrażania różnych jednostek SKU w zależności od środowiska. W poniższym przykładzie przedstawiono zmiany, aby dodać parametr dla jednostki SKU. Skopiuj cały plik i wklej szablon.
+Poprzedni szablon zawsze wdrożono konto magazynu Standard_LRS. W zależności od środowiska może być konieczna elastyczność wdrażania różnych jednostek SKU. Poniższy przykład pokazuje zmiany w celu dodania parametru dla jednostki SKU. Skopiuj cały plik i wklej go nad szablonem.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
-Parametr **storageSKU** ma wartość domyślną. Ta wartość jest używana, gdy wartość nie jest określona podczas wdrażania. Posiada również listę dozwolonych wartości. Te wartości są zgodne z wartościami, które są potrzebne do utworzenia konta magazynu. Nie chcesz, aby użytkownicy szablonu przechodzili w jednostkach SKU, które nie działają.
+Parametr **storageSKU** ma wartość domyślną. Ta wartość jest używana, gdy wartość nie jest określona podczas wdrażania. Zawiera również listę dozwolonych wartości. Te wartości są zgodne z wartościami, które są konieczne do utworzenia konta magazynu. Nie chcesz, aby użytkownicy szablonu mogli przekazać jednostki SKU, które nie działają.
 
 ## <a name="redeploy-template"></a>Ponowne wdrażanie szablonu
 
-Możesz przystąpić do ponownego wdrożenia. Ponieważ domyślna jednostka SKU jest ustawiona na **Standard_LRS,** nie trzeba podawać wartości dla tego parametru.
+Wszystko jest gotowe do ponownego wdrożenia. Ponieważ domyślna jednostka SKU jest ustawiona na **Standard_LRS**, nie trzeba podawać wartości dla tego parametru.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -113,9 +113,9 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Jeśli wdrożenie nie powiodło się, użyj przełącznika **debugowania** z poleceniem wdrażania, aby wyświetlić dzienniki debugowania.  Można również użyć pełnego **przełącznika,** aby wyświetlić pełne dzienniki debugowania.
+> Jeśli wdrożenie nie powiodło się, użyj przełącznika **debugowania** z poleceniem wdrożenia, aby wyświetlić dzienniki debugowania.  Aby wyświetlić pełne dzienniki debugowania, można również użyć przełącznika **verbose** .
 
-Aby zobaczyć elastyczność szablonu, zastosuj ponownie. Tym razem parametr SKU ma **Standard_GRS**. Możesz przekazać nową nazwę, aby utworzyć inne konto magazynu, lub użyć tej samej nazwy, aby zaktualizować istniejące konto magazynu. Obie opcje działają.
+Aby sprawdzić elastyczność szablonu, wdróż ponownie. Tym razem ustaw parametr SKU na **Standard_GRS**. Możesz przekazać nową nazwę, aby utworzyć inne konto magazynu, lub użyć tej samej nazwy do zaktualizowania istniejącego konta magazynu. Obie opcje działają.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -140,7 +140,7 @@ az deployment group create \
 
 ---
 
-Na koniec uruchommy jeszcze jeden test i zobaczmy, co się stanie po przejściu w jednostce SKU, która nie jest jedną z dozwolonych wartości. W takim przypadku testujemy scenariusz, w którym użytkownik szablonu uważa, że **podstawowe** jest jednym z jednostek SKU.
+Na koniec Uruchommy jeszcze jeden test i zobacz, co się dzieje po przejściu do jednostki SKU, która nie jest jedną z dozwolonych wartości. W takim przypadku testuje scenariusz, w którym użytkownik szablonu traktuje **podstawową** , jest jedną z jednostek SKU.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -165,22 +165,22 @@ az deployment group create \
 
 ---
 
-Polecenie kończy się niepowodzeniem natychmiast z komunikatem o błędzie, który określa, które wartości są dozwolone. Menedżer zasobów identyfikuje błąd przed rozpoczęciem wdrażania.
+Polecenie kończy się niepowodzeniem z komunikatem o błędzie z informacją, które wartości są dozwolone. Menedżer zasobów identyfikuje błąd przed rozpoczęciem wdrażania.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli przechodzisz do następnego samouczka, nie musisz usuwać grupy zasobów.
+Jeśli przeniesiesz się do następnego samouczka, nie musisz usuwać grupy zasobów.
 
-Jeśli zatrzymujesz się teraz, możesz wyczyścić zasoby wdrożone przez usunięcie grupy zasobów.
+Jeśli zatrzymasz się teraz, możesz chcieć wyczyścić wdrożone zasoby, usuwając grupę zasobów.
 
-1. W witrynie Azure portal wybierz **grupę zasobów** z lewego menu.
+1. Z Azure Portal z menu po lewej stronie wybierz pozycję **Grupa zasobów** .
 2. Wprowadź nazwę grupy zasobów w polu **Filtruj według nazwy**.
 3. Wybierz nazwę grupy zasobów.
-4. Wybierz **pozycję Usuń grupę zasobów** z górnego menu.
+4. W górnym menu wybierz pozycję **Usuń grupę zasobów** .
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ulepszono szablon utworzony w [pierwszym samouczku,](template-tutorial-create-first-template.md) dodając parametry. W następnym samouczku dowiesz się o funkcjach szablonu.
+Ulepszono szablon utworzony w [pierwszym samouczku](template-tutorial-create-first-template.md) przez dodanie parametrów. W następnym samouczku znajdziesz informacje na temat funkcji szablonu.
 
 > [!div class="nextstepaction"]
 > [Dodawanie funkcji szablonu](template-tutorial-add-functions.md)

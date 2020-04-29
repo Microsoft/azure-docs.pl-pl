@@ -1,6 +1,6 @@
 ---
-title: Dostępność geograficzna i wsparcie walutowe dla rynku komercyjnego | Azure Marketplace
-description: Dostępność geograficzna na rynku komercyjnym
+title: Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace | Portal Azure Marketplace
+description: Dostępność geograficzna w komercyjnej witrynie Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
 ms.openlocfilehash: 83906e6270ed41c2ea8f489c5a5312d32a565a29
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687584"
 ---
-# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Dostępność geograficzna i wsparcie walutowe dla rynku komercyjnego
+# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace
 
-Oferty komercyjnego rynku można kupić w 141 lokalizacjach geograficznych zgodnie z definicją adresu rozliczeniowego klienta, a transakcje można dokońcać w 17 walutach. W poniższej tabeli wymieniono każdą obsługiwaną lokalizację geograficzną, [dwucyfrowy kod alfa ISO 3166](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)oraz przypisaną walutę.
+Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograficzne zgodnie z definicją podaną przez adres rozliczeniowy klienta, a transakcje można wykonać w 17 walutach. Poniższa tabela zawiera listę wszystkich obsługiwanych lokalizacji geograficznych, jej [ISO 3166 2-cyfrowy kod alfa](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)i przypisaną walutę.
 
 |   Nazwa kraju/regionu               |   ISO-2   |   Waluta   |
 |-------------------------------------|-----------|--------------|
@@ -36,7 +36,7 @@ Oferty komercyjnego rynku można kupić w 141 lokalizacjach geograficznych zgodn
 | Białoruś                             | BY        | USD          |
 | Belgia                             | BE        | EUR          |
 | Belize                              | BZ        | USD          |
-| Bermudy                             | Bm        | USD          |
+| Bermudy                             | BM        | USD          |
 | Boliwia                             | BO        | USD          |
 | Bośnia i Hercegowina              | BA        | USD          |
 | Botswana                            | BW        | USD          |
@@ -48,12 +48,12 @@ Oferty komercyjnego rynku można kupić w 141 lokalizacjach geograficznych zgodn
 | Cabo Verde                          | CV        | USD          |
 | Kajmany                      | KY        | USD          |
 | Chile                               | CL        | USD          |
-| Chiny\**                            | CN        | Nie dotyczy          |
+| Chinach\**                            | CN        | Nie dotyczy          |
 | Kolumbia                            | CO        | USD          |
 | Kostaryka                          | CR        | USD          |
 | Côte d'Ivoire                       | CI        | USD          |
 | Chorwacja                             | HR        | EUR          |
-| Curaçao                             | Cw        | USD          |
+| Curaçao                             | CW        | USD          |
 | Cypr                              | CY        | EUR          |
 | Czechy                      | CZ        | EUR          |
 | Dania                             | DK        | DKK          |
@@ -63,7 +63,7 @@ Oferty komercyjnego rynku można kupić w 141 lokalizacjach geograficznych zgodn
 | Salwador                         | SV        | USD          |
 | Estonia                             | EE        | EUR          |
 | Etiopia                            | ET        | USD          |
-| Wyspy Owcze                       | Fo        | DKK          |
+| Wyspy Owcze                       | CZCIONKI        | DKK          |
 | Fidżi                                | FJ        | AUD          |
 | Finlandia                             | FI        | EUR          |
 | Francja                              | PW        | EUR          |
@@ -87,7 +87,7 @@ Oferty komercyjnego rynku można kupić w 141 lokalizacjach geograficznych zgodn
 | Jordania                              | JO        | USD          |
 | Kazachstan                          | KZ        | USD          |
 | Kenia                               | KE        | USD          |
-| Korea Południowa                       | KR        | KRW          |
+| Korea Południowa (południe)                       | KR        | KRW          |
 | Kuwejt                              | KW        | USD          |
 | Kirgistan                          | KG        | USD          |
 | Łotwa                              | LV        | EUR          |
@@ -100,7 +100,7 @@ Oferty komercyjnego rynku można kupić w 141 lokalizacjach geograficznych zgodn
 | Macedonia Północna                     | MK        | USD          |
 | Malezja                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
-| Mauritius                           | Mu        | USD          |
+| Mauritius                           | MU        | USD          |
 | Meksyk                              | MX        | USD          |
 | Mołdawia                             | MD        | USD          |
 | Monako                              | MC        | EUR          |
@@ -141,15 +141,15 @@ Oferty komercyjnego rynku można kupić w 141 lokalizacjach geograficznych zgodn
 | Szwecja                              | SE        | SEK          |
 | Szwajcaria                         | CH        | CHF          |
 | Tajwan                              | TW        | TWD          |
-| Tadżykistan                          | TJ (tj)        | USD          |
+| Tadżykistan                          | TJ        | USD          |
 | Tanzania                            | TZ        | USD          |
 | Tajlandia                            | TH        | USD          |
 | Trynidad i Tobago                 | TT        | USD          |
 | Tunezja                             | TN        | USD          |
 | Turcja                              | TR        | USD          |
 | Turkmenistan                        | TM        | USD          |
-| Watykan (Stolica Apostolska)             | VA        | EUR          |
-| Wyspy Dziewicze Stanów Zjednoczonych | VI        | USD          |
+| Watykan (Watykan)             | VA        | EUR          |
+| Wyspy Dziewicze Stany Zjednoczone | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ukraina                             | UA        | USD          |
 | Zjednoczone Emiraty Arabskie                | AE        | USD          |
@@ -159,11 +159,11 @@ Oferty komercyjnego rynku można kupić w 141 lokalizacjach geograficznych zgodn
 | Uzbekistan                          | UZ        | USD          |
 | Wenezuela                           | VE        | USD          |
 | Wietnam                             | VN        | USD          |
-| Jemen                               | Ye        | USD          |
+| Jemen                               | YE        | USD          |
 | Zambia                              | ZM        | USD          |
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\*W przypadku klientów w Brazylii marketplace za pośrednictwem dostawców rozwiązań w chmurze (CSP) używa USD.
+\*W przypadku klientów w Brazylii Portal Marketplace za pośrednictwem dostawców rozwiązań w chmurze (CSP) używa USD.
 
-\** Darmowe i BYOL obrazy VM tylko.
+\** Tylko bezpłatne i BYOL obrazy maszyn wirtualnych.
