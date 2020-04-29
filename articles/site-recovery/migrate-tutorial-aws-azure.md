@@ -10,19 +10,19 @@ ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 929bc0695bda2e64f77f7e9286e06cee787822ba
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80388971"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrowanie maszyn wirtualnych usług Amazon Web Services (AWS) na platformę Azure
 
-W tym samouczku pokazano, jak migrować maszyny wirtualne amazon web services (AWS) na maszyny wirtualne platformy Azure przy użyciu usługi Azure Site Recovery. Podczas migrowania wystąpień usługi EC2 usług AWS na platformę Azure maszyny wirtualne są traktowane tak, jakby były fizycznymi komputerami lokalnymi. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku pokazano, jak migrować maszyny wirtualne Amazon Web Services (AWS) do maszyn wirtualnych platformy Azure przy użyciu Azure Site Recovery. Podczas migrowania wystąpień usługi EC2 usług AWS na platformę Azure maszyny wirtualne są traktowane tak, jakby były fizycznymi komputerami lokalnymi. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 
 > [!TIP]
-> Teraz należy użyć usługi Migracji platformy Azure do migracji maszyn wirtualnych AWS na platformę Azure, zamiast usługi Azure Site Recovery. [Dowiedz się więcej](../migrate/tutorial-migrate-physical-virtual-machines.md).
+> Teraz należy używać usługi Azure Migrate do migrowania maszyn wirtualnych AWS na platformę Azure, a nie usługi Azure Site Recovery. [Dowiedz się więcej](../migrate/tutorial-migrate-physical-virtual-machines.md).
 
 
 > [!div class="checklist"]
@@ -34,7 +34,7 @@ W tym samouczku pokazano, jak migrować maszyny wirtualne amazon web services (A
 > * Testowanie trybu failover w celu upewnienia się, że wszystkie funkcje działają
 > * Uruchamianie jednokrotnego przejścia w tryb failover na platformie Azure
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) .
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -88,7 +88,7 @@ Obrazy replikowanych maszyn są przechowywane w usłudze Microsoft Azure Storage
 5. Aby mieć możliwość szybkiego uzyskania dostępu do nowego magazynu z poziomu pulpitu nawigacyjnego, wybierz pozycję **Przypnij do pulpitu nawigacyjnego**.
 7. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
 
-Aby wyświetlić nowy magazyn, przejdź do **pulpitu nawigacyjnego** > **Wszystkie zasoby**. Nowy magazyn będzie wyświetlany także na stronie głównej **Magazyny usług Recovery Services**.
+Aby wyświetlić nowy magazyn, przejdź do pozycji **pulpit nawigacyjny** > **wszystkie zasoby**. Nowy magazyn będzie wyświetlany także na stronie głównej **Magazyny usług Recovery Services**.
 
 ### <a name="set-up-an-azure-network"></a>Konfiguracja sieci platformy Azure
 
@@ -97,12 +97,12 @@ Gdy po migracji (przejściu w tryb failover) zostaną utworzone maszyny wirtualn
 1. W witrynie [Azure Portal](https://portal.azure.com) wybierz kolejno pozycje **Utwórz zasób** > **Sieć** >
    **Sieć wirtualna**.
 3. W polu **Nazwa** wprowadź wartość **myMigrationNetwork**.
-4. Pozostaw wartość domyślną dla **przestrzeni adresowej** (należy wprowadzić wartość).
+4. Pozostaw wartość domyślną **przestrzeni adresowej** (należy wprowadzić wartość).
 5. W polu **Subskrypcja** wybierz subskrypcję, która ma być używana.
-6. W obszarze **Grupa zasobów**wybierz pozycję **Użyj istniejącego**, a następnie wybierz **migrationRG**.
+6. W obszarze **Grupa zasobów**wybierz pozycję **Użyj istniejącej**, a następnie wybierz pozycję **migrationRG**.
 7. W obszarze **Lokalizacja** wybierz pozycję **Europa Zachodnia**.
-8. W **obszarze Podsieć**pozostaw wartości domyślne dla **zakresu Nazwa** i IP **(należy wprowadzić wartość).**
-9. Dodaj instrukcje dotyczące ustawień ochrony przed atakami DDoS.
+8. W obszarze **podsieć**pozostaw wartości domyślne w polu **Nazwa** i **zakres adresów IP (należy wprowadzić wartość)**.
+9. Dodaj instrukcje dotyczące ustawień ochrony DDoS.
 10. Pozostaw wyłączoną opcję **Punkty końcowe usługi**.
 11. Dodaj instrukcje dotyczące ustawień zapory.
 12. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
@@ -119,16 +119,16 @@ Na stronie **Cel ochrony** wybierz następujące wartości:
 |---------|-----------|
 | Gdzie znajdują się maszyny? |Wybierz pozycję **Lokalnie**.|
 | Gdzie chcesz zreplikować maszyny? |Wybierz pozycję **Do platformy Azure**.|
-| Czy przeprowadzasz migrację? | Wybierz **pozycję Tak**, a następnie zaznacz pole wyboru obok pozycji I **underdstand, ale chcę kontynuować usługę Azure Site Recovery.**
+| Czy przeprowadzasz migrację? | Wybierz pozycję **tak**, a następnie zaznacz pole wyboru obok pozycji **underdstand, ale chcę kontynuować Azure Site Recovery.**
 | Czy maszyny są zwirtualizowane? |Wybierz pozycję **Bez wirtualizacji / inne**.|
 
 Gdy wszystko będzie gotowe, wybierz przycisk **OK**, aby przejść do następnej sekcji.
 
-### <a name="2-select-deployment-planning"></a>2: Wybierz planowanie wdrażania
+### <a name="2-select-deployment-planning"></a>2: Wybierz Planowanie wdrożenia
 
 W obszarze **Czy ukończono planowanie wdrożenia** wybierz pozycję **Zrobię to później**, a następnie wybierz opcję **OK**.
 
-### <a name="3-prepare-source"></a>3: Przygotuj źródło
+### <a name="3-prepare-source"></a>3: przygotowywanie źródła
 
 Na stronie **Przygotowywanie źródła** wybierz pozycję **+ Serwer konfiguracji**.
 
@@ -140,20 +140,20 @@ Na stronie **Przygotowywanie źródła** wybierz pozycję **+ Serwer konfiguracj
 
     1. W obszarze **Przed rozpoczęciem** wybierz pozycję **Zainstaluj serwer konfiguracji i serwer przetwarzania**, a następnie wybierz opcję **Dalej**.
     2. W obszarze **Licencja oprogramowania innej firmy** zaznacz opcję **Akceptuję umowę licencyjną innej firmy**, a następnie wybierz opcję **Dalej**.
-    3. W obszarze **Rejestracja** wybierz pozycję **Przeglądaj** i przejdź do lokalizacji, w której umieszczono plik klucza rejestracji magazynu. Wybierz **pozycję Dalej**.
+    3. W obszarze **Rejestracja** wybierz pozycję **Przeglądaj** i przejdź do lokalizacji, w której umieszczono plik klucza rejestracji magazynu. Wybierz pozycję **Dalej**.
     4. W obszarze **Ustawienia internetowe** wybierz pozycję **Połącz z usługą Azure Site Recovery bez serwera proxy**, a następnie wybierz opcję **Dalej**.
     5. Na stronie **Sprawdzanie wymagań wstępnych** zostanie uruchomione sprawdzanie kilku elementów. Po zakończeniu wybierz opcję **Dalej**.
     6. W obszarze **Konfiguracja programu MySQL** podaj wymagane hasła, a następnie wybierz opcję **Dalej**.
-    7. Dla opcji **Szczegóły środowiska** wybierz wartość **Nie**. Maszyny VMware nie wymagają ochrony. Następnie wybierz przycisk **Dalej**.
+    7. Dla opcji **Szczegóły środowiska** wybierz wartość **Nie**. Maszyny VMware nie wymagają ochrony. Następnie wybierz przycisk **dalej**.
     8. Na stronie **Lokalizacja instalacji** wybierz opcję **Dalej**, aby zaakceptować wartości domyślne.
     9. Na stronie **Wybór sieci** wybierz opcję **Dalej**, aby zaakceptować wartości domyślne.
     10. Na stronie **Podsumowanie** wybierz pozycję **Zainstaluj**.
-    11. W obszarze **Postęp instalacji** wyświetlane są informacje dotyczące procesu instalacji. Po zakończeniu wybierz opcję **Zakończ**. Zostanie wyświetlone okno z komunikatem o konieczności ponownego uruchomienia. Kliknij przycisk **OK**. Następnie w oknie zostanie wyświetlony komunikat dotyczący hasła wymaganego do połączenia z serwerem konfiguracji. Skopiuj hasło do schowka i zapisz je w bezpiecznym miejscu.
+    11. W obszarze **Postęp instalacji** wyświetlane są informacje dotyczące procesu instalacji. Po zakończeniu wybierz opcję **Zakończ**. Zostanie wyświetlone okno z komunikatem o konieczności ponownego uruchomienia. Wybierz przycisk **OK**. Następnie w oknie zostanie wyświetlony komunikat dotyczący hasła wymaganego do połączenia z serwerem konfiguracji. Skopiuj hasło do schowka i zapisz je w bezpiecznym miejscu.
 6. Na maszynie wirtualnej uruchom plik cspsconfigtool.exe, aby utworzyć co najmniej jedno konto zarządzania na serwerze konfiguracji. Upewnij się, że konta zarządzania mają uprawnienia administratora na wystąpieniach usługi EC2, które chcesz zmigrować.
 
 Po zakończeniu konfigurowania serwera konfiguracji wróć do portalu i wybierz utworzony przez siebie serwer jako **Serwer konfiguracji**. Wybierz opcję **OK**, aby przejść do kroku 3: Przygotowywanie celu.
 
-### <a name="4-prepare-target"></a>4: Przygotowanie celu
+### <a name="4-prepare-target"></a>4: przygotowywanie elementu docelowego
 
 W tej sekcji wprowadzisz informacje dotyczące zasobów utworzonych w sekcji [Przygotowywanie zasobów platformy Azure](#prepare-azure-resources) we wcześniejszej części tego samouczka.
 
@@ -162,11 +162,11 @@ W tej sekcji wprowadzisz informacje dotyczące zasobów utworzonych w sekcji [Pr
 3. Usługa Site Recovery sprawdza, czy masz co najmniej jedno zgodne konto magazynu Azure i co najmniej jedną sieć platformy Azure. Powinny to być zasoby utworzone w sekcji [Przygotowywanie zasobów platformy Azure](#prepare-azure-resources) we wcześniejszej części tego samouczka.
 4. Gdy skończysz, wybierz opcję **OK**.
 
-### <a name="5-prepare-replication-settings"></a>5: Przygotowanie ustawień replikacji
+### <a name="5-prepare-replication-settings"></a>5: przygotowywanie ustawień replikacji
 
 Aby móc włączyć replikację, musisz najpierw utworzyć zasady replikacji.
 
-1. Wybierz **pozycję Utwórz i skojarz**.
+1. Wybierz pozycję **Utwórz i skojarz**.
 2. W obszarze **Nazwa** wprowadź wartość **myReplicationPolicy**.
 3. Pozostaw resztę ustawień domyślnych bez zmian i kliknij przycisk **OK**, aby utworzyć zasady. Nowe zasady zostaną automatycznie skojarzone z serwerem konfiguracji.
 
@@ -176,7 +176,7 @@ Po zakończeniu wszystkich pięciu sekcji w obszarze **Przygotowanie infrastrukt
 
 Włącz replikację dla każdej maszyny wirtualnej, która ma zostać zmigrowana. Po włączeniu replikacji usługa Site Recovery automatycznie zainstaluje usługę mobilności.
 
-1. Przejdź do [witryny Azure portal](https://portal.azure.com).
+1. Przejdź do [Azure Portal](https://portal.azure.com).
 1. Na stronie swojego magazynu w obszarze **Wprowadzenie** wybierz pozycję **Site Recovery**.
 2. W obszarze **Dla maszyn lokalnych i maszyn wirtualnych platformy Azure** wybierz pozycję **Krok 1. Replikowanie aplikacji**. Przejdź do końca przez strony kreatora, używając poniższych informacji. Gdy wszystko będzie gotowe, na każdej stronie wybierz opcję **OK**:
    - 1. Konfigurowanie źródła
@@ -203,7 +203,7 @@ Włącz replikację dla każdej maszyny wirtualnej, która ma zostać zmigrowana
 
    - 3. Wybieranie maszyn fizycznych
 
-     Wybierz pozycję **Maszyna fizyczna**, a następnie wprowadź wartości dla pól **Nazwa**, **Adres IP** i **Typ systemu operacyjnego** dotyczące wystąpienia usługi EC2, które ma zostać zmigrowane. Kliknij przycisk **OK**.
+     Wybierz pozycję **Maszyna fizyczna**, a następnie wprowadź wartości dla pól **Nazwa**, **Adres IP** i **Typ systemu operacyjnego** dotyczące wystąpienia usługi EC2, które ma zostać zmigrowane. Wybierz przycisk **OK**.
 
    - 4. Konfigurowanie właściwości
 
@@ -229,17 +229,17 @@ Po uruchomieniu próby przejścia w tryb failover występują następujące zdar
 
 W portalu wykonaj próbę przejścia w tryb failover:
 
-1. Na stronie magazynu przejdź do pozycji **Elementy** > chronione**Replikowane**. Wybierz maszynę wirtualną, a następnie wybierz pozycję **Test pracy w trybie failover**.
+1. Na stronie swojego magazynu przejdź do **pozycji chronione elementy** > **zreplikowane elementy**. Wybierz maszynę wirtualną, a następnie wybierz pozycję **Test pracy w trybie failover**.
 2. Wybierz punkt odzyskiwania, którego chcesz użyć podczas pracy w trybie failover:
     - **Najnowszy przetworzony**: wprowadza maszynę wirtualną w tryb failover do najnowszego punktu odzyskiwania przetworzonego przez usługę Site Recovery. Wyświetlana jest sygnatura czasowa. Ta opcja zapewnia niską wartość celu czasu odzyskiwania (RTO, Recovery Time Objective), ponieważ nie trzeba poświęcać czasu na przetwarzanie danych.
     - **Najnowszy spójny na poziomie aplikacji**: ta opcja wprowadza wszystkie maszyny wirtualne w tryb failover do najnowszego spójnego na poziomie aplikacji punktu odzyskiwania. Wyświetlana jest sygnatura czasowa.
     - **Niestandardowy**: można wybrać dowolny punkt odzyskiwania.
 
 3. W obszarze **Test pracy w trybie failover** wybierz sieć platformy Azure, z którą maszyny wirtualne platformy Azure zostaną połączone po przejściu w tryb failover. Powinna to być sieć utworzona w sekcji [Przygotowywanie zasobów platformy Azure](#prepare-azure-resources).
-4. Wybierz opcję **OK**, aby rozpocząć tryb failover. Aby śledzić postępy, wybierz maszynę wirtualną w celu wyświetlenia jej właściwości. Możesz również wybrać zadanie **Test pracy w trybie failover** na stronie dla Twojego magazynu. Aby to zrobić, wybierz **opcję Monitorowanie i zgłasza** > **zadania odzyskiwania witryny****zadania.** >  
+4. Wybierz opcję **OK**, aby rozpocząć tryb failover. Aby śledzić postępy, wybierz maszynę wirtualną w celu wyświetlenia jej właściwości. Możesz również wybrać zadanie **Test pracy w trybie failover** na stronie dla Twojego magazynu. W tym celu wybierz kolejno pozycje **monitorowanie i raporty** > **zadania** >  **Site Recovery zadania**.
 5. Po zakończeniu trybu failover w witrynie Azure Portal będzie widoczna replika maszyny wirtualnej platformy Azure. Aby wyświetlić maszynę wirtualną, wybierz opcję **Maszyny wirtualne**. Upewnij się, że maszyna wirtualna ma prawidłowy rozmiar, jest połączona z odpowiednią siecią i jest uruchomiona.
 6. Powinno być teraz możliwe nawiązanie połączenia ze zreplikowaną maszyną wirtualną na platformie Azure.
-7. Aby usunąć maszyny wirtualne platformy Azure utworzone podczas testu pracy w trybie failover, w planie odzyskiwania wybierz pozycję **Wyczyść test pracy w trybie failover**. W **uwagach**należy rejestrować i zapisywać wszystkie obserwacje związane z testem w wersji failover.
+7. Aby usunąć maszyny wirtualne platformy Azure utworzone podczas testu pracy w trybie failover, w planie odzyskiwania wybierz pozycję **Wyczyść test pracy w trybie failover**. W obszarze **uwagi**Zarejestruj i Zapisz wszelkie obserwacje związane z testem pracy w trybie failover.
 
 W niektórych scenariuszach tryb failover wymaga dodatkowego przetwarzania. Do ukończenia przetwarzania wymagane jest od 8 do 10 minut.
 
@@ -247,8 +247,8 @@ W niektórych scenariuszach tryb failover wymaga dodatkowego przetwarzania. Do u
 
 Uruchom rzeczywisty tryb failover dla wystąpień usługi EC2, aby zmigrować je do maszyn wirtualnych platformy Azure:
 
-1. W **obszarze Elementy** > chronione**Elementy replikowane**wybierz instancje AWS, a następnie wybierz pozycję **Tryb failover**.
-2. W obszarze **Tryb failover** wybierz **Punkt odzyskiwania**, z którego chcesz skorzystać do przełączenia w tryb failover. Wybierz najnowszy punkt odzyskiwania, a następnie uruchom tryb failover. Postęp pracy awaryjnej można śledzić na stronie **Zadania.**
+1. W obszarze **chronione elementy** > **zreplikowane elementy**wybierz wystąpienia AWS, a następnie wybierz pozycję **tryb failover**.
+2. W obszarze **Tryb failover** wybierz **Punkt odzyskiwania**, z którego chcesz skorzystać do przełączenia w tryb failover. Wybierz najnowszy punkt odzyskiwania, a następnie uruchom tryb failover. Postęp pracy w trybie failover można wykonać na stronie **zadań** .
 1. Upewnij się, że maszyna wirtualna jest wyświetlana w obszarze **Zreplikowane elementy**.
 2. Kliknij prawym przyciskiem myszy każdą maszynę wirtualną, a następnie wybierz polecenie **Zakończ migrację**. Spowoduje to wykonanie następujących czynności:
 

@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 3/11/2020
 ms.custom: include file
 ms.openlocfilehash: cb36863f0072b031a8c40dd3dc8efcf26a29fb58
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80408098"
 ---
 > [!NOTE]
-> Dziękujemy za zainteresowanie programem azure digital twins w wersji zapoznawczej. Ze względu na ogromne zapotrzebowanie, program podglądu jest tymczasowo zamknięty, gdy przygotowujemy się do nadchodzącej wersji nowych funkcji. W rezultacie możesz nie być w stanie teraz utworzyć nowych zasobów usługi Azure Digital Twins. Kontynuuj sprawdzanie nowych informacji.
+> Dziękujemy za zainteresowanie programem Azure Digital bliźniaczych reprezentacji Preview. Ze względu na Przeciążenie popytu program w wersji zapoznawczej jest tymczasowo zamknięty podczas przygotowywania do przyszłej wersji nowych funkcji. W związku z tym możesz nie być w stanie teraz tworzyć nowych zasobów usługi Azure Digital bliźniaczych reprezentacji. Kontynuuj sprawdzanie z powrotem, aby uzyskać nowe informacje.

@@ -1,5 +1,5 @@
 ---
-title: Szybki start biblioteki klienta usługi Bing Visual Search Python
+title: wyszukiwanie wizualne Bing przewodniku szybki start dla biblioteki klienta języka Python
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,21 +9,21 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: aahi
 ms.openlocfilehash: debc5130824a0f661a3736b8d24d950fc789f2f3
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80550002"
 ---
-Użyj tego przewodnika Szybki start, aby rozpocząć uzyskiwanie szczegółowych informacji o obrazie z usługi wyszukiwania wizualnego Bing przy użyciu biblioteki klienta języka Python. Usługa Bing Visual Search ma interfejs API REST zgodny z większością języków programowania, ale biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w [usłudze GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć pobieranie szczegółowych informacji o obrazach z usługi wyszukiwanie wizualne Bing przy użyciu biblioteki klienta języka Python. Chociaż wyszukiwanie wizualne Bing ma interfejs API REST zgodny z większością języków programowania, Biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy dla tego przykładu można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
 
-[Dokumentacja](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python) | [referencyjna Przykłady pakietu kodu źródłowego](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-visualsearch) | [(PyPi)](https://pypi.org/project/azure-cognitiveservices-search-visualsearch/) | [biblioteki](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
+[Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python) |  | [Przykłady](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/) pakietu | [kodu źródłowego biblioteki](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-visualsearch)dokumentacji referencyjnej[(PyPi)](https://pypi.org/project/azure-cognitiveservices-search-visualsearch/)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Python](https://www.python.org/) 2.x lub 3.x
+* Język [Python](https://www.python.org/) 2. x lub 3. x
 * Zalecane jest użycie [środowiska wirtualnego](https://docs.python.org/3/tutorial/venv.html). Zainstaluj i zainicjuj środowisko wirtualne przy użyciu [modułu venv](https://pypi.python.org/pypi/virtualenv).
-* Biblioteka klienta wyszukiwania wizualnego Bing dla języka Python. Możesz go zainstalować za pomocą następujących poleceń:
+* Biblioteka klienta wyszukiwanie wizualne Bing dla języka Python. Możesz go zainstalować za pomocą następujących poleceń:
     1. `cd mytestenv`
     2. `python -m pip install azure-cognitiveservices-search-visualsearch`
 
