@@ -1,46 +1,46 @@
 ---
-title: Samouczek - niestandardowe akcje & zasobami
-description: W tym samouczku opisano sposób tworzenia aplikacji zarządzanej platformy Azure za pomocą dostawcy niestandardowego platformy Azure.
+title: Samouczek — akcje niestandardowe & zasoby
+description: W tym samouczku opisano sposób tworzenia aplikacji zarządzanej przez platformę Azure za pomocą niestandardowego dostawcy platformy Azure.
 ms.topic: tutorial
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.openlocfilehash: c3750da6bd76c8cb3908fbdc71ba676f09d77def
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75650079"
 ---
-# <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Samouczek: Tworzenie aplikacji zarządzanej przy niestandardowych akcjach i zasobach
+# <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Samouczek: Tworzenie aplikacji zarządzanej z niestandardowymi akcjami i zasobami
 
-W tym samouczku utworzysz własną aplikację zarządzana z niestandardowymi akcjami i zasobami. Aplikacja zarządzana będzie zawierać akcję `Overview` niestandardową na stronie, niestandardowy typ `Table of Content` zasobu wyświetlany jako oddzielny element menu i niestandardową akcję kontekstu na niestandardowej stronie zasobu.
+W tym samouczku utworzysz własną zarządzaną aplikację z niestandardowymi akcjami i zasobami. Aplikacja zarządzana będzie zawierać akcję niestandardową na `Overview` stronie, niestandardowy typ zasobu wyświetlany jako oddzielny element menu w `Table of Content` i niestandardowa Akcja kontekstowa na stronie zasobów niestandardowych.
 
-Ten samouczek zawiera następujące kroki:
+Ten samouczek obejmuje następujące kroki:
 
 > [!div class="checklist"]
-> * Plik definicji interfejsu użytkownika autora do tworzenia wystąpienia aplikacji zarządzanej
-> * Szablon wdrożenia autora z [dostawcą niestandardowym platformy Azure,](../custom-providers/overview.md)kontem usługi Azure Storage i funkcją platformy Azure
-> * Artefakt definicji widoku autora z akcjami i zasobami niestandardowymi
-> * Wdrażanie definicji aplikacji zarządzanej
+> * Utwórz plik definicji interfejsu użytkownika na potrzeby tworzenia wystąpienia aplikacji zarządzanej
+> * Tworzenie szablonu wdrożenia przy użyciu [dostawcy niestandardowego platformy Azure](../custom-providers/overview.md), konta usługi Azure Storage i funkcji platformy Azure
+> * Tworzenie artefaktu definicji widoku z niestandardowymi akcjami i zasobami
+> * Wdróż definicję aplikacji zarządzanej
 > * Wdrażanie wystąpienia aplikacji zarządzanej
 > * Wykonywanie akcji niestandardowych i tworzenie zasobów niestandardowych
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten samouczek, musisz wiedzieć:
+Aby ukończyć ten samouczek, musisz znać:
 
 * Jak [utworzyć i opublikować definicję aplikacji zarządzanej](publish-service-catalog-app.md).
-* Jak [wdrożyć aplikację wykazu usług za pośrednictwem witryny Azure portal](deploy-service-catalog-quickstart.md).
-* Jak [utworzyć interfejs użytkownika portalu Azure dla zarządzanej aplikacji](create-uidefinition-overview.md).
-* Wyświetl możliwości [artefaktu definicji.](concepts-view-definition.md)
-* Możliwości [dostawcy niestandardowego platformy Azure.](../custom-providers/overview.md)
+* Jak [wdrożyć aplikację katalogu usług za Azure Portal](deploy-service-catalog-quickstart.md).
+* Jak [utworzyć Azure Portal interfejs użytkownika dla aplikacji zarządzanej](create-uidefinition-overview.md).
+* [Wyświetl możliwości artefaktów definicji](concepts-view-definition.md) .
+* Możliwości [niestandardowe dostawcy platformy Azure](../custom-providers/overview.md) .
 
 ## <a name="user-interface-definition"></a>Definicja interfejsu użytkownika
 
-W tym samouczku utworzysz aplikację zarządzaną, a jej zarządzana grupa zasobów będzie zawierać wystąpienie dostawcy niestandardowego, konto magazynu i funkcję. Funkcja platformy Azure używana w tym przykładzie implementuje interfejs API, który obsługuje operacje dostawcy niestandardowego dla akcji i zasobów. Konto usługi Azure Storage jest używane jako podstawowy magazyn dla zasobów dostawcy niestandardowego.
+W tym samouczku utworzysz zarządzaną aplikację, a jej zarządzana Grupa zasobów będzie zawierać niestandardowe wystąpienie dostawcy, konto magazynu i funkcję. Funkcja platformy Azure używana w tym przykładzie implementuje interfejs API obsługujący niestandardowe operacje dostawcy dla akcji i zasobów. Konto usługi Azure Storage jest używane jako magazyn podstawowy dla niestandardowych zasobów dostawcy.
 
-Definicja interfejsu użytkownika do tworzenia wystąpienia `funcname` `storagename` aplikacji zarządzanej zawiera i elementy wejściowe. Nazwa konta magazynu i nazwa funkcji muszą być unikatowe globalnie. Domyślnie pliki funkcyjne będą wdrażane z [przykładowego pakietu funkcji,](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip)ale można je zmienić, dodając element wejściowy dla łącza pakietu w *pliku createUIDefinition.json*:
+Definicja interfejsu użytkownika służąca do tworzenia wystąpienia aplikacji zarządzanej `funcname` zawiera `storagename` elementy i. Nazwa konta magazynu i nazwa funkcji musi być globalnie unikatowa. Domyślnie pliki funkcji zostaną wdrożone z [przykładowego pakietu funkcji](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), ale można je zmienić przez dodanie elementu wejściowego dla linku do pakietu w pliku *createUIDefinition. JSON*:
 
 ```json
 {
@@ -73,7 +73,7 @@ Definicja interfejsu użytkownika do tworzenia wystąpienia `funcname` `storagen
 }
 ```
 
-i dane wyjściowe w *createUIDefinition.json*:
+i dane wyjściowe w pliku *createUIDefinition. JSON*:
 
 ```json
   "funcname": "[steps('applicationSettings').funcname]",
@@ -81,13 +81,13 @@ i dane wyjściowe w *createUIDefinition.json*:
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-Kompletny *createUIDefinition.json* próbki można znaleźć w [Odwołuje: Artefakty elementów interfejsu użytkownika](reference-createuidefinition-artifact.md).
+Pełną próbkę *createUIDefinition. JSON* można znaleźć w temacie [Reference: elementy interfejsu użytkownika artefakty](reference-createuidefinition-artifact.md).
 
-## <a name="template-with-custom-provider"></a>Szablon z dostawcą niestandardowym
+## <a name="template-with-custom-provider"></a>Szablon z niestandardowym dostawcą
 
-Aby utworzyć wystąpienie aplikacji zarządzanej z dostawcą niestandardowym, należy zdefiniować niestandardowy zasób dostawcy o nazwie **publicznej** i wpisać **microsoft.CustomProviders/resourceProviders** w **mainTemplate.json**. W tym zasobie można zdefiniować typy zasobów i akcje dla usługi. Aby wdrożyć usługi Azure Function i instancji konta usługi Azure Storage, należy zdefiniować zasoby typu `Microsoft.Web/sites` i `Microsoft.Storage/storageAccounts` odpowiednio.
+Aby utworzyć zarządzane wystąpienie aplikacji z dostawcą niestandardowym, należy zdefiniować zasób niestandardowego dostawcy o nazwie **Public** i wpisać **Microsoft. CustomProviders/ResourceProviders** w pliku **mainTemplate. JSON**. W tym zasobie należy zdefiniować typy zasobów i akcje dla usługi. Aby wdrożyć funkcje platformy Azure i wystąpienia konta usługi Azure Storage, zdefiniuj `Microsoft.Web/sites` zasoby `Microsoft.Storage/storageAccounts` typu i odpowiednio.
 
-W tym samouczku `users` utworzysz `ping` jeden typ `users/contextAction` zasobu, akcję niestandardową i `users` akcję niestandardową, która zostanie wykonana w kontekście zasobu niestandardowego. Dla każdego typu zasobu i akcji należy podać punkt końcowy wskazujący funkcję o nazwie podanej w [pliku createUIDefinition.json](#user-interface-definition). Określ **typ marszruty** jako `Proxy,Cache` typy zasobów i `Proxy` akcje:
+W tym `users` samouczku utworzysz jeden typ zasobu, `ping` akcję niestandardową i `users/contextAction` akcję niestandardową, która zostanie wykonana w kontekście `users` niestandardowego zasobu. Dla każdego typu zasobu i akcji Podaj punkt końcowy wskazujący funkcję o nazwie podanej w pliku [createUIDefinition. JSON](#user-interface-definition). Określ typ **routingtype** jako `Proxy,Cache` dla typów zasobów i `Proxy` akcji:
 
 ```json
 {
@@ -122,18 +122,18 @@ W tym samouczku `users` utworzysz `ping` jeden typ `users/contextAction` zasobu,
 }
 ```
 
-Kompletny *przykład mainTemplate.json* można znaleźć w [reference: artefakt szablonu wdrożenia](reference-main-template-artifact.md).
+Pełną próbkę *mainTemplate. JSON* można znaleźć w temacie [Reference: artefakt szablonu wdrożenia](reference-main-template-artifact.md).
 
 ## <a name="view-definition-artifact"></a>Wyświetlanie artefaktu definicji
 
-Aby zdefiniować interfejs użytkownika, który zawiera akcje niestandardowe i zasoby niestandardowe w aplikacji zarządzanej, należy autor **viewDefinition.json** artefakt. Aby uzyskać więcej informacji na temat artefaktu definicji widoku, zobacz [Wyświetlanie artefaktu definicji w aplikacjach zarządzanych platformy Azure](concepts-view-definition.md).
+Aby zdefiniować interfejs użytkownika, który zawiera niestandardowe akcje i zasoby niestandardowe w aplikacji zarządzanej, należy utworzyć artefakt **galerii. JSON** . Aby uzyskać więcej informacji na temat artefaktu definicji widoku, zobacz temat [artefakt definicji widoku w Azure Managed Applications](concepts-view-definition.md).
 
-W tym samouczku można zdefiniować:
-* Strona *Przegląd* z przyciskiem paska `TestAction` narzędzi reprezentująca akcję niestandardową z podstawowym wprowadzaniem tekstu.
-* Strona *Użytkownicy* reprezentująca niestandardowy typ `users`zasobu .
-* Akcja `users/contextAction` zasobu niestandardowego na stronie *Użytkownicy,* która będzie `users`wykonywana w kontekście niestandardowego zasobu typu .
+W tym samouczku zdefiniujesz:
+* Strona *przeglądu* z przyciskiem paska narzędzi, który reprezentuje akcję `TestAction` niestandardową z podstawowymi danymi wejściowymi.
+* Strona *użytkowników* reprezentująca niestandardowy typ `users`zasobu.
+* Niestandardowa Akcja `users/contextAction` zasobu na stronie *Użytkownicy* , która zostanie wykonana w kontekście niestandardowego zasobu typu `users`.
 
-W poniższym przykładzie przedstawiono konfigurację widoku dla strony "Przegląd":
+W poniższym przykładzie przedstawiono konfigurację widoku na stronie "przegląd":
 
 ```json
 {
@@ -150,7 +150,7 @@ W poniższym przykładzie przedstawiono konfigurację widoku dla strony "Przegl�
   }
 ```
 
-Poniższy przykład zawiera konfigurację strony zasobów "Użytkownicy" z niestandardową akcją zasobów:
+Poniższy przykład obejmuje konfigurację strony zasobów "Użytkownicy" z akcją zasobów niestandardowych:
 
 ```json
 {
@@ -174,17 +174,17 @@ Poniższy przykład zawiera konfigurację strony zasobów "Użytkownicy" z niest
   }
 ```
 
-Kompletny *przykład viewDefinition.json* można znaleźć w [punkcie Reference: View definition artifact](reference-view-definition-artifact.md).
+Pełną próbkę *galerii. JSON* można znaleźć w temacie [Reference: artefakt definicji widoku](reference-view-definition-artifact.md).
 
 ## <a name="managed-application-definition"></a>Definicja aplikacji zarządzanej
 
-Pakiet następujących artefaktów aplikacji zarządzanych do archiwum zip i przekazać go do magazynu:
+Spakuj następujące artefakty aplikacji zarządzanych do archiwum zip i przekaż je do magazynu:
 
-* tworzenieUiDedefdefition.json
-* mainTemplate.json
-* plik viewDefinition.json
+* createUiDefinition. JSON
+* mainTemplate. JSON
+* Galerii. JSON
 
-Wszystkie pliki muszą być na poziomie głównym. Pakiet z artefaktami mogą być przechowywane w dowolnym magazynie, na przykład gitHub obiektu blob lub konta usługi Azure Storage obiektu blob. Oto skrypt do przekazania pakietu aplikacji na konto magazynu: 
+Wszystkie pliki muszą znajdować się na poziomie głównym. Pakiet z artefaktami może być przechowywany w dowolnym magazynie, na przykład w usłudze GitHub BLOB lub na koncie BLOB usługi Azure Storage. Oto skrypt przekazywania pakietu aplikacji do konta magazynu: 
 
 ```powershell
 $resourceGroup="appResourcesGroup"
@@ -215,7 +215,7 @@ Set-AzStorageBlobContent `
 $blobUri=(Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx).ICloudBlob.uri.AbsoluteUri
 ```
 
-Uruchom skrypt interfejsu wiersza polecenia platformy Azure poniżej lub wykonaj kroki opisane w witrynie Azure portal, aby wdrożyć definicję aplikacji zarządzanej w wykazie usług:
+Uruchom Poniższy skrypt interfejsu wiersza polecenia platformy Azure lub postępuj zgodnie z instrukcjami w Azure Portal, aby wdrożyć definicję aplikacji zarządzanej katalogu usług:
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -246,36 +246,36 @@ az managedapp definition create \
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. W witrynie Azure portal wybierz pozycję **Wszystkie usługi**. Na liście zasobów wpisz i wybierz pozycję **Centrum aplikacji zarządzanych**.
-2. W **Centrum aplikacji zarządzanych**wybierz **pozycję Definicja aplikacji wykazu usług** i kliknij przycisk **Dodaj**. 
+1. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz i wybierz pozycję **zarządzane aplikacje centrum**.
+2. W **centrum zarządzane aplikacje**wybierz pozycję **Definicja aplikacji katalogu usług** i kliknij przycisk **Dodaj**. 
     
-    ![Dodawanie katalogu usług](./media/tutorial-create-managed-app-with-custom-provider/service-catalog-managed-application.png)
+    ![Dodaj katalog usług](./media/tutorial-create-managed-app-with-custom-provider/service-catalog-managed-application.png)
 
-3. Podaj wartości tworzenia definicji katalogu usług:
+3. Podaj wartości do utworzenia definicji katalogu usług:
 
-    * Podaj unikatową **nazwę** definicji katalogu usług, **nazwy wyświetlanej** i *opisu*(opcjonalnie).
-    * Wybierz **subskrypcję,** **grupę zasobów**i **lokalizację, w** której zostanie utworzona definicja aplikacji. Można użyć tej samej grupy zasobów, która jest używana dla pakietu zip lub utworzyć nową grupę zasobów.
-    * W przypadku **uri pliku pakietu**podaj ścieżkę do pliku zip utworzonego w poprzednim kroku.
+    * Podaj unikatową **nazwę** definicji katalogu usług, **nazwę wyświetlaną** i *Opis*(opcjonalnie).
+    * Wybierz **subskrypcję**, **grupę zasobów**i **lokalizację** , w której zostanie utworzona definicja aplikacji. Możesz użyć tej samej grupy zasobów, która jest używana przez pakiet ZIP lub utworzyć nową grupę zasobów.
+    * W polu **Identyfikator URI pliku pakietu**podaj ścieżkę do pliku zip utworzonego w poprzednim kroku.
 
     ![Podaj wartości](./media/tutorial-create-managed-app-with-custom-provider/add-service-catalog-managed-application.png)
 
-4. Po dojście do sekcji Poziom uwierzytelniania i blokady wybierz pozycję **Dodaj autoryzację**.
+4. Po wyświetleniu sekcji uwierzytelnianie i blokowanie poziomu wybierz pozycję **Dodaj autoryzację**.
 
     ![Dodaj autoryzację](./media/tutorial-create-managed-app-with-custom-provider/add-authorization.png)
 
-5. Wybierz grupę usługi Azure Active Directory, aby zarządzać zasobami, i wybierz **przycisk OK**.
+5. Wybierz grupę Azure Active Directory, aby zarządzać zasobami, a następnie wybierz **przycisk OK**.
 
    ![Dodaj grupę autoryzacji](./media/tutorial-create-managed-app-with-custom-provider/add-auth-group.png)
 
 6. Po podaniu wszystkich wartości wybierz pozycję **Utwórz**.
 
-   ![Tworzenie definicji aplikacji zarządzanej](./media/tutorial-create-managed-app-with-custom-provider/create-service-catalog-definition.png)
+   ![Utwórz definicję aplikacji zarządzanej](./media/tutorial-create-managed-app-with-custom-provider/create-service-catalog-definition.png)
 
 ---
 
-## <a name="managed-application-instance"></a>Wystąpienie aplikacji zarządzanej
+## <a name="managed-application-instance"></a>Zarządzane wystąpienie aplikacji
 
-Po wdrożeniu definicji aplikacji zarządzanej uruchom poniższy skrypt lub wykonaj kroki opisane w witrynie Azure Portal, aby wdrożyć wystąpienie aplikacji zarządzanej u niestandardowego dostawcy:
+Po wdrożeniu definicji aplikacji zarządzanej uruchom poniższy skrypt lub postępuj zgodnie z instrukcjami w Azure Portal, aby wdrożyć wystąpienie aplikacji zarządzanej przy użyciu dostawcy niestandardowego:
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azurecli-interactive)
 
@@ -302,53 +302,53 @@ az managedapp create \
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. W witrynie Azure portal wybierz pozycję **Wszystkie usługi**. Na liście zasobów wpisz i wybierz pozycję **Centrum aplikacji zarządzanych**.
-2. W **Centrum aplikacji zarządzanych**wybierz pozycję **Service Catalog applications** and click **Add**. 
+1. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz i wybierz pozycję **zarządzane aplikacje centrum**.
+2. W **centrum zarządzane aplikacje**wybierz pozycję **aplikacje katalogu usług** i kliknij przycisk **Dodaj**. 
 
-    ![Dodawanie aplikacji zarządzanej](./media/tutorial-create-managed-app-with-custom-provider/add-managed-application.png)
+    ![Dodaj zarządzaną aplikację](./media/tutorial-create-managed-app-with-custom-provider/add-managed-application.png)
 
-3. Na **stronie Aplikacje katalogu usług** wpisz nazwę wyświetlaną definicji katalogu usług w polu wyszukiwania. Zaznacz definicję utworzoną w poprzednim kroku i kliknij przycisk **Utwórz**.
+3. Na stronie **aplikacje katalogu usług** wpisz nazwę wyświetlaną definicji katalogu usług w polu wyszukiwania. Wybierz definicję utworzoną w poprzednim kroku, a następnie kliknij pozycję **Utwórz**.
 
     ![Wybieranie katalogu usług](./media/tutorial-create-managed-app-with-custom-provider/select-service-catalog-definition.png)
 
-4. Podaj wartości tworzenia wystąpienia aplikacji zarządzanej z definicji wykazu usług:
+4. Podaj wartości do utworzenia wystąpienia aplikacji zarządzanej z definicji katalogu usług:
 
-    * Wybierz **subskrypcję,** **grupę zasobów**i **lokalizację, w** której zostanie utworzone wystąpienie aplikacji.
+    * Wybierz **subskrypcję**, **grupę zasobów**i **lokalizację** , w której zostanie utworzone wystąpienie aplikacji.
     * Podaj unikatową nazwę funkcji platformy Azure i nazwę konta usługi Azure Storage.
 
     ![Ustawienia aplikacji](./media/tutorial-create-managed-app-with-custom-provider/application-settings.png)
 
-5. Po zakończeniu sprawdzania poprawności kliknij przycisk **OK,** aby wdrożyć wystąpienie aplikacji zarządzanej. 
+5. Po przekazaniu walidacji kliknij przycisk **OK** , aby wdrożyć wystąpienie aplikacji zarządzanej. 
     
-    ![Wdrażanie aplikacji zarządzanej](./media/tutorial-create-managed-app-with-custom-provider/deploy-managed-application.png)
+    ![Wdróż aplikację zarządzaną](./media/tutorial-create-managed-app-with-custom-provider/deploy-managed-application.png)
 
 ---
 
-## <a name="custom-actions-and-resources"></a>Akcje i zasoby niestandardowe
+## <a name="custom-actions-and-resources"></a>Niestandardowe akcje i zasoby
 
-Po wdrożeniu wystąpienia aplikacji wykazu usług masz dwie nowe grupy zasobów. Pierwsza grupa `applicationGroup` zasobów zawiera wystąpienie aplikacji zarządzanej, druga grupa `managedResourceGroup` zasobów przechowuje zasoby dla aplikacji zarządzanej, w tym **niestandardowego dostawcy**.
+Po wdrożeniu wystąpienia aplikacji wykazu usług masz dwie nowe grupy zasobów. Pierwsza grupa `applicationGroup` zasobów zawiera wystąpienie aplikacji zarządzanej. Druga grupa `managedResourceGroup` zasobów przechowuje zasoby dla aplikacji zarządzanej, w tym **dostawcę niestandardowego**.
 
 ![Grupy zasobów aplikacji](./media/tutorial-create-managed-app-with-custom-provider/application-resource-groups.png)
 
-Możesz przejść do wystąpienia aplikacji zarządzanej i wykonać **akcję niestandardową** na stronie "Przegląd", utworzyć **niestandardowy** zasób użytkowników na stronie "Użytkownicy" i uruchomić **niestandardową akcję kontekstu** dla zasobu niestandardowego.
+Możesz przejść do wystąpienia aplikacji zarządzanej i wykonać **akcję niestandardową** na stronie "przegląd", utworzyć zasób niestandardowy **Użytkownicy** na stronie "Użytkownicy" i uruchomić **akcję niestandardowego kontekstu** w zasobie niestandardowym.
 
-* Przejdź do strony "Przegląd" i kliknij przycisk "Ping Action":
+* Przejdź do strony "przegląd" i kliknij przycisk "Akcja ping":
 
-![Wykonywanie akcji niestandardowej](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-action.png)
+![Wykonaj akcję niestandardową](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-action.png)
 
-* Przejdź do strony "Użytkownicy" i kliknij przycisk "Dodaj". Podaj dane wejściowe do tworzenia zasobu i prześlij formularz:
+* Przejdź do strony "Użytkownicy" i kliknij przycisk "Dodaj". Podaj dane wejściowe do utworzenia zasobu i Prześlij formularz:
 
-![Tworzenie zasobu niestandardowego](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
+![Utwórz zasób niestandardowy](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
 
-* Przejdź do strony "Użytkownicy", wybierz zasób "Użytkownicy" i kliknij "Niestandardowa akcja kontekstowa":
+* Przejdź do strony "Użytkownicy", wybierz zasób "Użytkownicy" i kliknij pozycję "Akcja kontekstu niestandardowego":
 
-![Tworzenie zasobu niestandardowego](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
+![Utwórz zasób niestandardowy](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
 
 [!INCLUDE [clean-up-section-portal](../../../includes/clean-up-section-portal.md)]
 
-## <a name="looking-for-help"></a>Szukam pomocy
+## <a name="looking-for-help"></a>Szukasz pomocy
 
-Jeśli masz pytania dotyczące aplikacji zarządzanych platformy Azure, spróbuj zadać pytanie w sprawie [Przepełnienie stosu](https://stackoverflow.com/questions/tagged/azure-managedapps). Podobne pytanie mogło już zostać zadane i udzielono odpowiedzi, więc sprawdź najpierw przed wysłaniem. Dodaj tag, `azure-managedapps` aby uzyskać szybką odpowiedź!
+Jeśli masz pytania dotyczące Azure Managed Applications, spróbuj zadać pytanie na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managedapps). Podobne pytanie mogło zostać już zgłoszone i nie udzielono odpowiedzi, więc najpierw należy sprawdzić przed opublikowaniem. Dodaj tag `azure-managedapps` , aby uzyskać szybką odpowiedź!
 
 ## <a name="next-steps"></a>Następne kroki
 

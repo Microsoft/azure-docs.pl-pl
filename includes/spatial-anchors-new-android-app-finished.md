@@ -7,15 +7,15 @@ ms.topic: include
 ms.author: rgarcia
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 8bef7b12f4d9d9a63e41441ef22b029b2ee5afd1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74276942"
 ---
-## <a name="putting-everything-together"></a>Łączenie wszystkiego
+## <a name="putting-everything-together"></a>Umieszczanie wszystkich siebie
 
-Oto jak powinien `MainActivity` wyglądać kompletny plik klasy, po zebraniu wszystkich różnych elementów. Można go użyć jako odniesienia do porównania z własnym plikiem i miejscu, jeśli może być żadnych różnic w lewo.
+Poniżej przedstawiono sposób, w `MainActivity` jaki powinien wyglądać cały plik klasy, po umieszczeniu wszystkich różnych elementów. Można go użyć jako odwołania, aby porównać się z własnym plikiem i tam, gdzie mogą występować jakiekolwiek różnice.
 
 ```java
 package com.example.myfirstapp;
@@ -244,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku opisano, jak utworzyć nową aplikację dla systemu Android, która integruje funkcje ARCore z zakotwiczeniami przestrzennymi platformy Azure. Aby dowiedzieć się więcej o bibliotece usługi Azure Spatial Anchors, kontynuuj pracę z naszym przewodnikiem w sekcji dotyczącej sposobu tworzenia i znajdowania kotwic.
+W tym samouczku pokazano, jak utworzyć nową aplikację systemu Android, która integruje funkcjonalność ARCore z zakotwiczeniami przestrzennymi platformy Azure. Aby dowiedzieć się więcej o bibliotece usługi Azure Spatial Anchors, kontynuuj pracę z naszym przewodnikiem w sekcji dotyczącej sposobu tworzenia i znajdowania kotwic.
 
 > [!div class="nextstepaction"]
 > [Tworzenie i znajdowanie kotwic przy użyciu usługi Azure Spatial Anchors](/azure/spatial-anchors/create-locate-anchors-overview)

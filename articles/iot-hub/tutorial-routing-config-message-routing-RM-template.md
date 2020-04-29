@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie routingu wiadomości dla usługi Azure IoT Hub przy użyciu szablonu usługi Azure Resource Manager
-description: Konfigurowanie routingu wiadomości dla usługi Azure IoT Hub przy użyciu szablonu usługi Azure Resource Manager
+title: Konfigurowanie routingu komunikatów dla IoT Hub platformy Azure przy użyciu szablonu Azure Resource Manager
+description: Konfigurowanie routingu komunikatów dla IoT Hub platformy Azure przy użyciu szablonu Azure Resource Manager
 author: robinsh
 manager: philmeagit st
 ms.service: iot-hub
@@ -10,13 +10,13 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74084403"
 ---
-# <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Samouczek: konfigurowanie routingu wiadomości usługi IoT Hub za pomocą szablonu usługi Azure Resource Manager
+# <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Samouczek: używanie szablonu Azure Resource Manager do konfigurowania routingu komunikatów IoT Hub
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
@@ -26,75 +26,75 @@ ms.locfileid: "74084403"
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-## <a name="download-the-template-and-parameters-file"></a>Pobierz plik szablonu i parametrów
+## <a name="download-the-template-and-parameters-file"></a>Pobieranie szablonu i pliku parametrów
 
-W drugiej części tego samouczka można pobrać i uruchomić aplikację programu Visual Studio do wysyłania wiadomości do Centrum IoT Hub. Istnieje folder w tym pobieranie, który zawiera szablon usługi Azure Resource Manager i plik parametrów, a także skrypty interfejsu wiersza polecenia platformy Azure i programu PowerShell.
+W drugiej części tego samouczka pobierasz i uruchamiasz aplikację Visual Studio w celu wysyłania komunikatów do IoT Hub. Istnieje folder, który zawiera plik szablonu i parametrów Azure Resource Manager, a także skrypt interfejsu wiersza polecenia platformy Azure i skryptów programu PowerShell.
 
-Śmiało i pobierz [próbki usługi Azure IoT C#.](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) Rozpaj plik master.zip. Szablon Menedżera zasobów i plik parametrów znajdują się w pliku /iot-hub/Tutorials/Routing/SimulatedDevice/resources/ jako **template_iothub.json** i **template_iothub_parameters.json**.
+Możesz teraz pobrać przykłady w [języku C# usługi Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) . Rozpakuj plik Master. zip. Szablon Menedżer zasobów i plik parametrów są w/iot-hub/Tutorials/Routing/SimulatedDevice/resources/jako **template_iothub. JSON** i **template_iothub_parameters. JSON**.
 
 ## <a name="create-your-resources"></a>Tworzenie zasobów
 
-Zamierzasz użyć szablonu usługi Azure Resource Manager (RM), aby utworzyć wszystkie zasoby. Skrypty interfejsu wiersza polecenia platformy Azure i programu PowerShell można uruchomić kilka wierszy naraz. Szablon RM jest wdrażany w jednym kroku. W tym artykule przedstawiono sekcje oddzielnie, aby ułatwić zrozumienie każdego z nich. Następnie pokaże, jak wdrożyć szablon i utworzyć urządzenie wirtualne do testowania. Po wdrożeniu szablonu można wyświetlić konfigurację routingu wiadomości w portalu.
+Zamierzasz utworzyć wszystkie zasoby przy użyciu szablonu Azure Resource Manager (RM). Za pomocą interfejsu wiersza polecenia platformy Azure i skryptów programu PowerShell można uruchamiać kilka wierszy naraz. Szablon RM został wdrożony w jednym kroku. W tym artykule przedstawiono oddzielne sekcje, które ułatwiają zrozumienie każdego z nich. Następnie pokazano, jak wdrożyć szablon i utworzyć urządzenie wirtualne na potrzeby testowania. Po wdrożeniu szablonu można wyświetlić konfigurację routingu wiadomości w portalu.
 
-Istnieje kilka nazw zasobów, które muszą być unikatowe globalnie, takich jak nazwa Centrum IoT i nazwa konta magazynu. Aby ułatwić nazywanie zasobów, te nazwy zasobów są skonfigurowane do dołączania losowej wartości alfanumerycznej wygenerowanej od bieżącej daty/godziny. 
+Istnieje kilka nazw zasobów, które muszą być globalnie unikatowe, takie jak nazwa IoT Hub i nazwa konta magazynu. Aby ułatwić nazywanie zasobów, te nazwy zasobów są konfigurowane do dołączania losowo wygenerowanej wartości alfanumerycznej z bieżącej daty/godziny. 
 
-Jeśli spojrzysz na szablon, zobaczysz, gdzie są skonfigurowane zmienne dla tych zasobów, które przyjmują parametr przekazany i łączyć *randomValue do parametru.* 
+Jeśli zobaczysz szablon, zobaczysz, gdzie są skonfigurowane zmienne dla tych zasobów, które pobierają parametr i łączą *randomValue* z parametrem. 
 
-W poniższej sekcji opisano parametry używane.
+W poniższej sekcji opisano używane parametry.
 
 ### <a name="parameters"></a>Parametry
 
-Większość z tych parametrów ma wartości domyślne. Te kończące się **na _in** są łączone *z randomValue,* aby uczynić je globalnie unikatowymi. 
+Większość z tych parametrów ma wartości domyślne. Te kończące się na **_IN** są łączone z *randomValue* , aby uczynić je globalnie unikatowymi. 
 
-**randomValue:** Ta wartość jest generowana od bieżącej daty/godziny podczas wdrażania szablonu. To pole nie znajduje się w pliku parametrów, ponieważ jest generowane w samym szablonie.
+**randomValue**: Ta wartość jest generowana na podstawie bieżącej daty/godziny podczas wdrażania szablonu. To pole nie znajduje się w pliku parametrów, ponieważ jest generowane w samym szablonie.
 
-**identyfikator subskrypcji:** To pole jest ustawione dla subskrypcji, w której wdrażasz szablon. To pole nie znajduje się w pliku parametrów, ponieważ jest ustawione dla Ciebie.
+Identyfikator **subskrypcji**: to pole jest ustawione dla subskrypcji, w której wdrażasz szablon. To pole nie znajduje się w pliku parametrów, ponieważ jest ono ustawione dla Ciebie.
 
-**IoTHubName_in:** To pole jest podstawową nazwą centrum IoT Hub, która jest łączona z randomValue jako unikatowa globalnie.
+**IoTHubName_in**: to pole jest podstawową nazwą IoT Hub, która jest połączona z randomValue, aby była unikatowa w skali globalnej.
 
-**lokalizacja:** To pole jest regionem platformy Azure, w którym wdrażasz, takim jak "westus".
+**Lokalizacja**: to pole jest regionem platformy Azure, w którym są wdrażane, na przykład "zachodnie".
 
-**consumer_group:** To pole jest grupą odbiorców ustawioną dla wiadomości przechodzących przez punkt końcowy routingu. Służy do filtrowania wyników w usłudze Azure Stream Analytics. Na przykład istnieje cały strumień, w którym można uzyskać wszystko lub jeśli masz dane pochodzące z consumer_group ustawiona na **Contoso**, następnie można skonfigurować strumień usługi Azure Stream Analytics (i raport usługi Power BI), aby wyświetlić tylko te wpisy. To pole jest używane w części 2 tego samouczka.
+**consumer_group**: to pole jest grupą odbiorców ustawioną dla komunikatów przychodzących przez punkt końcowy routingu. Służy do filtrowania wyników w Azure Stream Analytics. Na przykład istnieje cały strumień, w którym można uzyskać wszystko, lub jeśli masz dane przesyłane przez consumer_group do firmy **contoso**, możesz skonfigurować strumień Azure Stream Analytics (i raport Power BI), aby wyświetlić tylko te wpisy. To pole jest używane w części 2 tego samouczka.
 
-**sku_name:** To pole jest skalowaniem centrum IoT Hub. Wartość ta musi być S1 lub wyższa; bezpłatna warstwa nie działa dla tego samouczka, ponieważ nie zezwala na wiele punktów końcowych.
+**sku_name**: to pole jest skalowaniem dla IoT Hub. Ta wartość musi być równa S1 lub większa; warstwa Bezpłatna nie działa w tym samouczku, ponieważ nie zezwala na używanie wielu punktów końcowych.
 
-**sku_units**: To pole jest powiązane z **sku_name**i jest liczbą jednostek IoT Hub, które mogą być używane.
+**sku_units**: to pole zawiera **sku_name**i jest liczbą IoT Hub jednostek, które mogą być używane.
 
-**d2c_partitions**: To pole jest liczbą partycji używanych do strumienia zdarzeń.
+**d2c_partitions**: to pole jest liczbą partycji używanych przez strumień zdarzeń.
 
-**storageAccountName_in**: To pole jest nazwą konta magazynu, które ma zostać utworzone. Wiadomości są kierowane do kontenera na koncie magazynu. To pole jest łączone z randomValue, aby uczynić go globalnie unikatowym.
+**storageAccountName_in**: to pole jest nazwą konta magazynu, które ma zostać utworzone. Komunikaty są kierowane do kontenera na koncie magazynu. To pole jest połączone z randomValue, aby uczynić je globalnie unikatowymi.
 
-**storageContainerName**: To pole jest nazwą kontenera, w którym są przechowywane wiadomości kierowane do konta magazynu.
+**storageContainerName**: to pole jest nazwą kontenera, w którym są przechowywane komunikaty kierowane do konta magazynu.
 
-**storage_endpoint**: To pole jest nazwą punktu końcowego konta magazynu używanego przez routing wiadomości.
+**storage_endpoint**: to pole jest nazwą punktu końcowego konta magazynu używanego przez routing wiadomości.
 
-**service_bus_namespace_in:** To pole jest nazwą obszaru nazw usługi Service Bus, który ma zostać utworzony. Ta wartość jest łączona z randomValue, aby uczynić ją globalnie unikatową.
+**service_bus_namespace_in**: to pole jest nazwą Service Bus przestrzeni nazw, która ma zostać utworzona. Ta wartość jest łączona z randomValue, aby uczynić ją globalnie unikatową.
 
-**service_bus_queue_in:** To pole jest nazwą kolejki usługi Service Bus używanej do routingu wiadomości. Ta wartość jest łączona z randomValue, aby uczynić ją globalnie unikatową.
+**service_bus_queue_in**: to pole jest nazwą kolejki Service Bus używanej w przypadku komunikatów routingu. Ta wartość jest łączona z randomValue, aby uczynić ją globalnie unikatową.
 
-**AuthRules_sb_queue:** To pole jest regułami autoryzacji dla kolejki magistrali usług, używane do pobierania ciągu połączenia dla kolejki.
+**AuthRules_sb_queue**: to pole jest regułami autoryzacji dla kolejki usługi Service Bus, które są używane do pobierania parametrów połączenia dla kolejki.
 
 ### <a name="variables"></a>Zmienne
 
-Wartości te są używane w szablonie i są najczęściej pochodną parametrów.
+Te wartości są używane w szablonie i są głównie wyprowadzane z parametrów.
 
-**queueAuthorizationRuleResourceId:** To pole jest identyfikatorem zasobu dla reguły autoryzacji dla kolejki usługi Service Bus. ResourceId jest z kolei używany do pobierania ciągu połączenia dla kolejki.
+**queueAuthorizationRuleResourceId**: to pole jest identyfikatorem zasobu dla reguły autoryzacji dla kolejki Service Bus. Identyfikator ResourceId jest z kolei używany do pobierania parametrów połączenia dla kolejki.
 
-**iotHubName:** To pole jest nazwą Centrum IoT po randomValue łączenia. 
+**iotHubName**: to pole jest nazwą IoT Hub po randomValue łączenia. 
 
-**storageAccountName:** To pole jest nazwą konta magazynu po losowymwścięcie łączenia. 
+**storageAccountName**: to pole jest nazwą konta magazynu po połączona z randomValue. 
 
-**service_bus_namespace:** To pole jest obszarem nazw po randomValue łączenia.
+**service_bus_namespace**: to pole jest przestrzenią nazw po randomValue połączonej.
 
-**service_bus_queue:** To pole jest nazwą kolejki usługi Service Bus po losowymkonkułowanie.
+**service_bus_queue**: to pole jest nazwą kolejki Service Bus po randomValue łączenia.
 
-**sbVersion**: THe wersja interfejsu API usługi Service Bus do użycia. W tym przypadku jest to "2017-04-01".
+**sbVersion**: wersja interfejsu API Service Bus do użycia. W tym przypadku jest to "2017-04-01".
 
 ### <a name="resources-storage-account-and-container"></a>Zasoby: konto magazynu i kontener
 
-Pierwszym utworzonym zasobem jest konto magazynu wraz z kontenerem, do którego są kierowane wiadomości. Kontener jest zasobem w ramach konta magazynu. Ma klauzulę `dependsOn` dla konta magazynu, wymagające konta magazynu, które mają zostać utworzone przed kontenerem.
+Pierwszy utworzony zasób to konto magazynu, a także kontener, do którego są kierowane komunikaty. Kontener jest zasobem na koncie magazynu. Ma klauzulę `dependsOn` dla konta magazynu, co wymaga utworzenia konta magazynu przed kontenerem.
 
-Oto jak wygląda ta sekcja:
+Oto jak wygląda następująca sekcja:
 
 ```json
 {
@@ -124,9 +124,9 @@ Oto jak wygląda ta sekcja:
 }
 ```
 
-### <a name="resources-service-bus-namespace-and-queue"></a>Zasoby: obszar nazw usługi Service Bus i kolejka
+### <a name="resources-service-bus-namespace-and-queue"></a>Zasoby: Service Bus przestrzeni nazw i kolejki
 
-Drugi utworzony zasób to obszar nazw usługi Service Bus wraz z kolejką usługi Service Bus, do której są kierowane wiadomości. Jednostka SKU jest ustawiona na standard. Wersja interfejsu API jest pobierana ze zmiennych. Jest również ustawiona, aby aktywować obszar nazw usługi Service Bus podczas wdrażania tej sekcji (stan:Aktywny). 
+Drugim utworzonym zasobem jest przestrzeń nazw Service Bus wraz z kolejką Service Bus, do której są kierowane komunikaty. Jednostka SKU jest ustawiona na wartość standardowa. Wersja interfejsu API jest pobierana ze zmiennych. Jest również ustawiony na aktywowanie Service Bus przestrzeni nazw podczas wdrażania tej sekcji (stan: aktywny). 
 
 ```json
 {
@@ -149,7 +149,7 @@ Drugi utworzony zasób to obszar nazw usługi Service Bus wraz z kolejką usług
 }
 ```
 
-W tej sekcji utworzy się kolejkę usługi Service Bus. Ta część skryptu `dependsOn` ma klauzulę, która zapewnia, że obszar nazw jest tworzony przed kolejką.
+Ta sekcja służy do tworzenia kolejki Service Bus. Ta część skryptu ma `dependsOn` klauzulę zapewniającą, że przestrzeń nazw jest tworzona przed kolejką.
 
 ```json
 {
@@ -165,11 +165,11 @@ W tej sekcji utworzy się kolejkę usługi Service Bus. Ta część skryptu `dep
 }
 ```
 
-### <a name="resources-iot-hub-and-message-routing"></a>Zasoby: Centrum Iot i routing wiadomości
+### <a name="resources-iot-hub-and-message-routing"></a>Zasoby: Centrum IoT i Routing komunikatów
 
-Teraz, gdy konto magazynu i kolejka usługi Service Bus zostały utworzone, należy utworzyć Centrum IoT Hub, który kieruje wiadomości do nich. Szablon RM używa `dependsOn` klauzul, więc nie próbuje utworzyć centrum przed utworzeniem zasobów usługi Service Bus i konta magazynu. 
+Teraz, gdy utworzono konto magazynu i kolejkę Service Bus, utworzysz IoT Hub, który kieruje do nich komunikaty. Szablon RM używa `dependsOn` klauzul, dlatego nie próbuje utworzyć centrum przed Service Bus zasobów i utworzono konto magazynu. 
 
-Oto pierwsza część sekcji Centrum IoT. Ta część szablonu konfiguruje zależności i rozpoczyna się od właściwości.
+Poniżej znajduje się pierwsza część sekcji IoT Hub. Ta część szablonu ustawia zależności i zaczyna się od właściwości.
 
 ```json
 {
@@ -191,11 +191,11 @@ Oto pierwsza część sekcji Centrum IoT. Ta część szablonu konfiguruje zale�
             },
 ```
 
-Następna sekcja jest sekcją konfiguracji routingu wiadomości dla Centrum Iot. Pierwszy to sekcja dla punktów końcowych. Ta część szablonu konfiguruje punkty końcowe routingu dla kolejki usługi Service Bus i konta magazynu, w tym parametry połączenia.
+Następna sekcja to sekcja dotycząca konfiguracji routingu wiadomości dla Centrum IoT Hub. Pierwsza to sekcja dla punktów końcowych. Ta część szablonu służy do konfigurowania punktów końcowych routingu dla kolejki Service Bus i konta magazynu, w tym parametrów połączenia.
 
-Aby utworzyć parametry połączenia dla kolejki, potrzebujesz queueAuthorizationRulesResourcedId, który jest pobierany w linii. Aby utworzyć parametry połączenia dla konta magazynu, należy pobrać podstawowy klucz magazynu, a następnie użyć go w formacie dla ciągu połączenia.
+Aby utworzyć parametry połączenia dla kolejki, potrzebne jest queueAuthorizationRulesResourcedId, która jest pobierana wewnętrznie. Aby utworzyć parametry połączenia dla konta magazynu, należy pobrać podstawowy klucz magazynu, a następnie użyć go w formacie parametrów połączenia.
 
-Konfiguracja punktu końcowego jest również w `AVRO` miejscu, w którym można ustawić format obiektu blob na lub . `JSON`
+Konfiguracja punktu końcowego służy również do ustawiania formatu obiektu BLOB na `AVRO` lub. `JSON`
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
@@ -229,9 +229,9 @@ Konfiguracja punktu końcowego jest również w `AVRO` miejscu, w którym można
     },
 ```
 
-Ta następna sekcja dotyczy tras wiadomości do punktów końcowych. Istnieje jeden skonfigurowany dla każdego punktu końcowego, więc jest jeden dla kolejki usługi Service Bus i jeden dla kontenera konta magazynu.
+Ta Następna sekcja dotyczy tras komunikatów do punktów końcowych. Istnieje jeden skonfigurowany dla każdego punktu końcowego, dlatego istnieje jeden dla kolejki Service Bus i jeden dla kontenera konta magazynu.
 
-Należy pamiętać, że warunkiem kwerendy dla `level="storage"`wiadomości kierowanych do magazynu jest , a warunkiem `level="critical"`kwerendy dla wiadomości kierowanych do kolejki usługi Service Bus jest .
+Należy pamiętać, że warunek zapytania dla komunikatów przesyłanych do magazynu jest `level="storage"`i warunek zapytania dla komunikatów kierowanych do kolejki Service Bus `level="critical"`.
 
 ```json
 "routes": [
@@ -256,7 +256,7 @@ Należy pamiętać, że warunkiem kwerendy dla `level="storage"`wiadomości kier
 ],
 ```
 
-Ten json pokazuje pozostałą część sekcji Centrum IoT, która zawiera informacje domyślne i jednostkę SKU dla koncentratora.
+Ten kod JSON pokazuje resztę sekcji IoT Hub, która zawiera informacje domyślne i jednostkę SKU centrum.
 
 ```json
             "fallbackRoute": {
@@ -301,9 +301,9 @@ Ten json pokazuje pozostałą część sekcji Centrum IoT, która zawiera inform
 }
 ```
 
-### <a name="resources-service-bus-queue-authorization-rules"></a>Zasoby: reguły autoryzacji kolejek usługi Service Bus
+### <a name="resources-service-bus-queue-authorization-rules"></a>Zasoby: reguły autoryzacji kolejki Service Bus
 
-Reguła autoryzacji kolejki usługi Service Bus służy do pobierania ciągu połączenia dla kolejki usługi Service Bus. Używa klauzuli, `dependsOn` aby upewnić się, że nie jest tworzony przed obszarem nazw usługi Service Bus i kolejki usługi Service Bus.
+Reguła autoryzacji kolejki Service Bus służy do pobierania parametrów połączenia dla kolejki Service Bus. Używa `dependsOn` klauzuli, aby upewnić się, że nie została utworzona przed przestrzenią nazw Service Bus i Service Bus kolejką.
 
 ```json
 {
@@ -324,9 +324,9 @@ Reguła autoryzacji kolejki usługi Service Bus służy do pobierania ciągu po�
 },
 ```
 
-### <a name="resources-consumer-group"></a>Zasoby: Grupa konsumentów
+### <a name="resources-consumer-group"></a>Zasoby: Grupa odbiorców
 
-W tej sekcji utworzysz grupę odbiorców dla danych usługi IoT Hub, które mają być używane przez usługę Azure Stream Analytics w drugiej części tego samouczka.
+W tej sekcji utworzysz grupę odbiorców dla IoT Hub danych, które będą używane przez Azure Stream Analytics w drugiej części tego samouczka.
 
 ```json
 {
@@ -339,9 +339,9 @@ W tej sekcji utworzysz grupę odbiorców dla danych usługi IoT Hub, które maj�
 }
 ```
 
-### <a name="resources-outputs"></a>Zasoby: Produkty
+### <a name="resources-outputs"></a>Zasoby: dane wyjściowe
 
-Jeśli chcesz wysłać wartość z powrotem do skryptu wdrażania, który ma być wyświetlany, należy użyć sekcji danych wyjściowych. Ta część szablonu zwraca parametry połączenia dla kolejki usługi Service Bus. Zwracanie wartości nie jest wymagane, jest zawiera jako przykład sposobu zwracania wyników do skryptu wywołującego.
+Jeśli chcesz wysłać wartość z powrotem do skryptu wdrożenia, który ma być wyświetlany, użyj sekcji wyjściowej. Ta część szablonu zwraca parametry połączenia dla kolejki Service Bus. Zwrócenie wartości nie jest wymagane, jest ona dołączana jako przykład sposobu zwracania wyników do wywołującego skryptu.
 
 ```json
 "outputs": {
@@ -352,33 +352,33 @@ Jeśli chcesz wysłać wartość z powrotem do skryptu wdrażania, który ma by�
   }
 ```
 
-## <a name="deploy-the-rm-template"></a>Wdrażanie szablonu rm
+## <a name="deploy-the-rm-template"></a>Wdrażanie szablonu RM
 
-Aby wdrożyć szablon na platformie Azure, przekaż szablon i plik parametrów do usługi Azure Cloud Shell, a następnie wykonaj skrypt, aby wdrożyć szablon. Otwórz usługę Azure Cloud Shell i zaloguj się. W tym przykładzie użyto programu PowerShell.
+Aby wdrożyć szablon na platformie Azure, Przekaż szablon i plik parametrów do Azure Cloud Shell, a następnie wykonaj skrypt w celu wdrożenia szablonu. Otwórz Azure Cloud Shell i zaloguj się. W tym przykładzie używa programu PowerShell.
 
-Aby przesłać pliki, wybierz ikonę **Przekaż/Pobierz pliki** na pasku menu, a następnie wybierz pozycję Przekaż.
+Aby przekazać pliki, wybierz ikonę **Przekaż/Pobierz pliki** na pasku menu, a następnie wybierz polecenie Przekaż.
 
-![Pasek menu Powłoki chmury z wyróżnionymi plikami przesyłania/pobierania](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
+![Pasek menu Cloud Shell z wyróżnionymi plikami przekazywania/pobierania](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
 
-Użyj wyskakuje Eksploratora plików, aby znaleźć pliki na dysku lokalnym i wybrać je, a następnie wybrać **otwórz**.
+Użyj Eksploratora plików, który znajduje się w programie, aby znaleźć pliki na dysku lokalnym, a następnie wybierz je, a następnie wybierz **Otwórz**.
 
-Po przekazaniu plików okno dialogowe wyników pokazuje coś podobnego do poniższego obrazu.
+Po przekazaniu plików w oknie dialogowym wyników zostanie wyświetlony komunikat podobny do następującego.
 
-![Pasek menu Powłoki chmury z wyróżnionymi plikami przesyłania/pobierania](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
+![Pasek menu Cloud Shell z wyróżnionymi plikami przekazywania/pobierania](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
 
-Pliki są przekazywane do udziału używanego przez wystąpienie usługi Cloud Shell. 
+Pliki są przekazywane do udziału używanego przez wystąpienie Cloud Shell. 
 
-Uruchom skrypt, aby wykonać wdrożenie. Ostatni wiersz tego skryptu pobiera zmienną, która została skonfigurowana do zwracania — ciąg połączenia kolejki usługi Service Bus.
+Uruchom skrypt, aby wykonać wdrożenie. Ostatni wiersz tego skryptu pobiera zmienną, która została skonfigurowana do zwrócenia — parametry połączenia kolejki Service Bus.
 
 Skrypt ustawia i używa tych zmiennych:
 
-**$RGName** jest nazwą grupy zasobów, do której można wdrożyć szablon. To pole jest tworzone przed wdrożeniem szablonu.
+**$RGName** to nazwa grupy zasobów, w której ma zostać wdrożony szablon. To pole jest tworzone przed wdrożeniem szablonu.
 
-**$location** jest lokalizacją platformy Azure, która ma być używana dla szablonu, na przykład "westus".
+**$Location** to lokalizacja platformy Azure, która ma być używana dla szablonu, na przykład "zachodnie".
 
-**nazwa deploymentname** to nazwa przypisana do wdrożenia w celu pobrania zwracanej wartości zmiennej.
+**deploymentname** to nazwa przypisana do wdrożenia w celu pobrania wartości zmiennej zwracanej.
 
-Oto skrypt programu PowerShell. Skopiuj ten skrypt programu PowerShell i wklej go do okna Powłoki chmury, a następnie naciśnij klawisz Enter, aby go uruchomić.
+Oto skrypt programu PowerShell. Skopiuj ten skrypt programu PowerShell i wklej go do okna Cloud Shell, a następnie naciśnij klawisz ENTER, aby go uruchomić.
 
 ```powershell
 $RGName="ContosoResources"
@@ -406,7 +406,7 @@ New-AzResourceGroupDeployment `
 (Get-AzResourceGroupDeployment -ResourceGroupName $RGName -Name $deploymentname).Outputs.sbq_connectionString.value
 ```
 
-Jeśli masz błędy skryptu, możesz edytować skrypt lokalnie, przekazać go ponownie do powłoki chmury i ponownie uruchomić skrypt. Po pomyślnym uruchomieniu skryptu przejdź do następnego kroku.
+Jeśli masz błędy skryptów, możesz edytować skrypt lokalnie, przekazać go ponownie do Cloud Shell i ponownie uruchomić skrypt. Po pomyślnym zakończeniu działania skryptu przejdź do następnego kroku.
 
 ## <a name="create-simulated-device"></a>Tworzenie symulowanego urządzenia
 
@@ -418,7 +418,7 @@ Jeśli masz błędy skryptu, możesz edytować skrypt lokalnie, przekazać go po
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy masz skonfigurowane wszystkie zasoby i trasy wiadomości są skonfigurowane, przejdź do następnego samouczka, aby dowiedzieć się, jak przetwarzać i wyświetlać informacje o kierowanych wiadomościach.
+Teraz, gdy wszystkie zasoby zostały skonfigurowane i trasy komunikatów zostały skonfigurowane, przejdź do następnego samouczka, aby dowiedzieć się, jak przetwarzać i wyświetlać informacje o rozesłanych wiadomościach.
 
 > [!div class="nextstepaction"]
-> [Część 2 - Wyświetlanie wyników routingu wiadomości](tutorial-routing-view-message-routing-results.md)
+> [Część 2 — Wyświetlanie wyników routingu komunikatów](tutorial-routing-view-message-routing-results.md)

@@ -1,6 +1,6 @@
 ---
-title: Samouczek reagowania na incydenty — Usługa Azure Security Center
-description: W tym samouczku dowiesz się, jak klasyfikować alerty zabezpieczeń, określać główną przyczynę & zakresu zdarzenia i wyszukiwać dane zabezpieczeń.
+title: Samouczek odpowiedzi na zdarzenia — Azure Security Center
+description: W tym samouczku dowiesz się, jak Klasyfikacja alerty zabezpieczeń, określić przyczynę główną & zakres zdarzenia i przeszukać dane zabezpieczeń.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
 ms.openlocfilehash: 971b93422e2b3f2053e0c5564c7ba924a631d810
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80585767"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Samouczek: Reagowanie na zdarzenia związane z zabezpieczeniami
@@ -29,10 +29,10 @@ Usługa Security Center w sposób ciągły analizuje obciążenia chmury hybrydo
 > * Dalsze badanie w celu ustalenia głównej przyczyny i zakresu zdarzenia zabezpieczeń
 > * Wyszukiwanie danych zabezpieczeń pomocnych w badaniu
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby przejść przez funkcje opisane w tym samouczku, musisz być w standardowej warstwie cenowej centrum zabezpieczeń. Warstwę Standardowa usługi Security Center możesz wypróbować bezpłatnie. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/). Przewodnik szybkiego startu [Dołączanie subskrypcji platformy Azure do standardowej usługi Security Center](security-center-get-started.md) przeprowadzi Cię przez procedurę uaktualniania do warstwy standardowej.
+Aby przekroczyć funkcje omówione w tym samouczku, musisz mieć Security Center warstwy cenowej standardowa. Warstwę Standardowa usługi Security Center możesz wypróbować bezpłatnie. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/). Przewodnik szybkiego startu [Dołączanie subskrypcji platformy Azure do standardowej usługi Security Center](security-center-get-started.md) przeprowadzi Cię przez procedurę uaktualniania do warstwy standardowej.
 
 ## <a name="scenario"></a>Scenariusz
 Firma Contoso dokonała ostatnio migracji niektórych lokalnych zasobów na platformę Azure. Dotyczyło to niektórych obciążeń biznesowych na maszynach wirtualnych i baz danych SQL. Obecnie zespół reagowania na zdarzenia zabezpieczeń firmy Contoso (CSIRT, Computer Security Incident Response Team) ma kłopot ze zbadaniem problemów dotyczących zabezpieczeń. Jest to spowodowane brakiem integracji funkcji analizy zabezpieczeń z ich obecnymi narzędziami do reagowania na zdarzenia. Ten brak integracji powoduje problem na etapach wykrywania (za dużo fałszywych alarmów), oceniania i diagnozowania. W ramach tej migracji zespół postanowił skorzystać z usługi Security Center, aby rozwiązać ten problem.
@@ -43,12 +43,12 @@ Na potrzeby tego scenariusza skoncentrujemy się na rolach następujących czło
 
 ![Cykl życia reakcji na zdarzenie](./media/tutorial-security-incident/security-center-incident-response.png)
 
-Magda zajmuje się operacjami zabezpieczeń. Do ich obowiązków należą:
+Magda zajmuje się operacjami zabezpieczeń. Ich obowiązki obejmują:
 
 * Stałe monitorowanie zagrożeń bezpieczeństwa i reagowanie na nie.
 * W razie potrzeby eskalację problemu do właściciela obciążeń chmurowych lub analityka zabezpieczeń.
 
-Sam jest analitykiem bezpieczeństwa, a ich obowiązki obejmują:
+Sam jest analitykiem zabezpieczeń, a ich obowiązki obejmują:
 
 * Badanie ataków.
 * Korygowanie działań na podstawie alertów.
@@ -87,7 +87,7 @@ Usługa Security Center zapewnia spójny widok wszystkich alertów zabezpieczeń
 
    ![Badanie](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-   Mapa badania jest graficzną reprezentacją obiektów związanych z tym alertem lub zdarzeniem zabezpieczeń. Kliknięcie obiektu na mapie powoduje, że w informacjach o tym obiekcie są wyświetlane nowe obiekty, a mapy są rozwijane. Właściwości obiektu zaznaczonego na mapie są wyróżnione w okienku po prawej stronie. Informacje dostępne na poszczególnych kartach różnią się w zależności od wybranego obiektu. Podczas procesu dochodzenia przejrzyj wszystkie istotne informacje, aby lepiej zrozumieć ruch osoby atakującej.
+   Mapa badania jest graficzną reprezentacją obiektów związanych z tym alertem lub zdarzeniem zabezpieczeń. Kliknięcie obiektu na mapie powoduje, że w informacjach o tym obiekcie są wyświetlane nowe obiekty, a mapy są rozwijane. Właściwości obiektu zaznaczonego na mapie są wyróżnione w okienku po prawej stronie. Informacje dostępne na poszczególnych kartach różnią się w zależności od wybranego obiektu. Podczas procesu badania zapoznaj się ze wszystkimi odpowiednimi informacjami, aby lepiej zrozumieć przenoszenie osoby atakującej.
 
 2. Jeśli potrzebujesz więcej dowodów lub musisz dokładniej zbadać obiekty, które zostały znalezione w trakcie badania, przejdź do następnego kroku.
 
@@ -104,17 +104,17 @@ Inne przewodniki szybkiego startu i samouczki w tej kolekcji bazują na tym prze
 2. Wybierz subskrypcję lub zasady, którym chcesz przywrócić warstwę bezpłatną. Zostanie otwarte okno **Zasady zabezpieczeń**.
 3. W obszarze **SKŁADNIKI ZASAD** wybierz pozycję **Warstwa cenowa**.
 4. Wybierz pozycję **Bezpłatna**, aby zmienić subskrypcję z warstwy standardowej na warstwę bezpłatną.
-5. Wybierz **pozycję Zapisz**.
+5. Wybierz pozycję **Zapisz**.
 
 Jeśli chcesz wyłączyć automatyczną aprowizację:
 
-1. Wróć do menu głównego Centrum zabezpieczeń i wybierz pozycję **Zasady zabezpieczeń**.
+1. Wróć do menu głównego Security Center i wybierz pozycję **zasady zabezpieczeń**.
 2. Wybierz subskrypcję, dla której chcesz wyłączyć automatyczną aprowizację.
 3. W sekcji **Zasady zabezpieczeń — zbieranie danych** wybierz pozycję **Wyłącz** w obszarze **Dołączanie**, aby wyłączyć automatyczną aprowizację.
-4. Wybierz **pozycję Zapisz**.
+4. Wybierz pozycję **Zapisz**.
 
 >[!NOTE]
-> Wyłączenie automatycznego inicjowania obsługi administracyjnej nie powoduje usunięcia agenta usługi Log Analytics z maszyn wirtualnych platformy Azure, w których agent został aprowizny. Wyłączenie automatycznej aprowizacji powoduje ograniczenie monitorowania zabezpieczeń dla zasobów.
+> Wyłączenie automatycznej aprowizacji nie powoduje usunięcia agenta Log Analytics z maszyn wirtualnych platformy Azure, w przypadku których Agent został zainicjowany. Wyłączenie automatycznej aprowizacji powoduje ograniczenie monitorowania zabezpieczeń dla zasobów.
 >
 
 ## <a name="next-steps"></a>Następne kroki

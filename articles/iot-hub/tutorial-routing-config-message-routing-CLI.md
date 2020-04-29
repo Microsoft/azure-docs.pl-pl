@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie routingu wiadomości dla usługi Azure IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Skonfiguruj routing wiadomości dla usługi Azure IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure. W zależności od właściwości w wiadomości, trasy do konta magazynu lub kolejki usługi Service Bus.
+title: Konfigurowanie routingu komunikatów dla IoT Hub platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
+description: Skonfiguruj Routing komunikatów dla IoT Hub platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. W zależności od właściwości komunikatu, trasy do konta magazynu lub kolejki Service Bus.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -10,13 +10,13 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 056dac7977115f97892d8dbfde0710e00237804e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78674343"
 ---
-# <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Samouczek: konfigurowanie routingu komunikatów usługi IoT Hub za pomocą interfejsu wiersza polecenia platformy Azure
+# <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Samouczek: Konfigurowanie routingu komunikatów IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
@@ -24,22 +24,22 @@ ms.locfileid: "78674343"
 
 ## <a name="download-the-script-optional"></a>Pobierz skrypt (opcjonalnie)
 
-W drugiej części tego samouczka można pobrać i uruchomić aplikację programu Visual Studio do wysyłania wiadomości do Centrum IoT Hub. Istnieje folder w pobieranie, który zawiera szablon usługi Azure Resource Manager i plik parametrów, a także skrypty interfejsu wiersza polecenia platformy Azure i programu PowerShell.
+W drugiej części tego samouczka pobierasz i uruchamiasz aplikację Visual Studio w celu wysyłania komunikatów do IoT Hub. Pobierany jest folder zawierający plik szablonu i parametrów Azure Resource Manager, jak również interfejs wiersza polecenia platformy Azure i skrypty programu PowerShell.
 
-Jeśli chcesz wyświetlić gotowy skrypt, pobierz [przykłady usługi Azure IoT C#.](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) Rozpaj plik master.zip. Skrypt interfejsu wiersza polecenia platformy Azure jest w /iot-hub/Tutorials/Routing/SimulatedDevice/resources/ jako **iothub_routing_cli.azcli**.
+Jeśli chcesz wyświetlić gotowy skrypt, Pobierz [przykłady w języku C# usługi Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Rozpakuj plik Master. zip. Skrypt interfejsu wiersza polecenia platformy Azure jest w/iot-hub/Tutorials/Routing/SimulatedDevice/resources/jako **iothub_routing_cli. azcli**.
 
-## <a name="use-the-azure-cli-to-create-your-resources"></a>Tworzenie zasobów za pomocą interfejsu wiersza polecenia platformy Azure
+## <a name="use-the-azure-cli-to-create-your-resources"></a>Tworzenie zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Skopiuj i wklej poniższy skrypt do usługi Cloud Shell i naciśnij klawisz Enter. Uruchamia skrypt po jednym wierszu naraz. W tej pierwszej sekcji skryptu utworzy się zasoby podstawowe dla tego samouczka, w tym konto magazynu, Centrum IoT Hub, obszar nazw magistrali usług i kolejka usługi Service Bus. W trakcie przechodzenia przez resztę samouczka skopiuj każdy blok skryptu i wklej go do usługi Cloud Shell, aby go uruchomić.
+Skopiuj i wklej poniższy skrypt do Cloud Shell i naciśnij klawisz ENTER. Skrypt uruchamia jeden wiersz jednocześnie. Ta pierwsza sekcja skryptu spowoduje utworzenie zasobów podstawowych dla tego samouczka, w tym konta magazynu, IoT Hub, Service Bus przestrzeni nazw i kolejki Service Bus. Po pozostałej części samouczka skopiuj każdy blok skryptu i wklej go do Cloud Shell, aby uruchomić go.
 
 > [!TIP]
-> Wskazówka dotycząca debugowania: ten skrypt używa symbolu `\`kontynuacji (ukośnika odwrotnego), aby skrypt był bardziej czytelny. Jeśli masz problem z uruchomieniem skryptu, upewnij `bash` się, że sesja cloud shell jest uruchomiona i że nie ma spacji po każdym z ukośników odwrotnych.
+> Wskazówka dotycząca debugowania: ten skrypt używa symbolu kontynuacji (ukośnika odwrotnego `\`), aby zwiększyć czytelność skryptu. Jeśli wystąpił problem z uruchomieniem skryptu, upewnij się, że sesja Cloud Shell jest `bash` uruchomiona i że nie ma spacji po żadnym z ukośników odwrotnych.
 > 
 
-Istnieje kilka nazw zasobów, które muszą być unikatowe globalnie, takich jak nazwa Centrum IoT i nazwa konta magazynu. Aby to ułatwić, te nazwy zasobów są dołączane z losową wartością alfanumeryczną o nazwie *randomValue*. RandomValue jest generowany raz w górnej części skryptu i dołączane do nazw zasobów w razie potrzeby w całym skrypcie. Jeśli nie chcesz, aby był losowy, możesz ustawić go na pusty ciąg lub określoną wartość. 
+Istnieje kilka nazw zasobów, które muszą być globalnie unikatowe, takie jak nazwa IoT Hub i nazwa konta magazynu. Aby to ułatwić, nazwy tych zasobów są dołączane losowo wartością alfanumeryczną o nazwie *randomValue*. RandomValue jest generowany raz u góry skryptu i dołączany do nazw zasobów zgodnie z wymaganiami w całym skrypcie. Jeśli nie chcesz go losowo, możesz ustawić go na pusty ciąg lub do określonej wartości. 
 
 > [!IMPORTANT]
-> Zmienne ustawione w skrypcie początkowym są również używane przez skrypt routingu, więc uruchom cały skrypt w tej samej sesji cloud shell. Jeśli otworzysz nową sesję, aby uruchomić skrypt do konfigurowania routingu, kilka zmiennych będzie brakować wartości.
+> Zmienne ustawione w skrypcie początkowym są również używane przez skrypt routingu, więc Uruchom cały skrypt w tej samej sesji Cloud Shell. Jeśli otworzysz nową sesję, aby uruchomić skrypt w celu skonfigurowania routingu, w kilku zmiennych brakuje wartości.
 >
 
 ```azurecli-interactive
@@ -141,43 +141,43 @@ az iot hub device-identity show --device-id $iotDeviceName \
     --hub-name $iotHubName
 ```
 
-Teraz, gdy zasoby podstawowe są skonfigurowane, można skonfigurować routing wiadomości.
+Teraz, gdy zasoby podstawowe są skonfigurowane, można skonfigurować Routing komunikatów.
 
 ## <a name="set-up-message-routing"></a>Konfigurowanie routingu komunikatów
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-Aby utworzyć punkt końcowy routingu, należy użyć [programu AZ iot Hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). Aby utworzyć trasę wiadomości dla punktu końcowego, użyj [programu AZ iot Hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
+Aby utworzyć punkt końcowy routingu, użyj [AZ IoT Hub Routing-Endpoint Create](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). Aby utworzyć trasę wiadomości dla punktu końcowego, użyj [AZ IoT Hub Route Create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
 
 ### <a name="route-to-a-storage-account"></a>Kierowanie do konta magazynu
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-Najpierw skonfiguruj punkt końcowy dla konta magazynu, a następnie skonfiguruj marszrutę. 
+Najpierw Skonfiguruj punkt końcowy dla konta magazynu, a następnie skonfiguruj trasę. 
 
-Są to zmienne używane przez skrypt, który musi być ustawiony w ramach sesji Cloud Shell:
+Są to zmienne używane przez skrypt, które muszą być ustawione w ramach sesji Cloud Shell:
 
-**storageConnectionString**: Ta wartość jest pobierana z konta magazynu skonfigurowanego w poprzednim skrypcie. Jest on używany przez routing wiadomości, aby uzyskać dostęp do konta magazynu.
+**storageConnectionString**: Ta wartość jest pobierana z konta magazynu skonfigurowanego w poprzednim skrypcie. Jest ona używana przez Routing komunikatów w celu uzyskania dostępu do konta magazynu.
 
-  **resourceGroup**: Istnieją dwa wystąpienia grupy zasobów — ustaw je na grupę zasobów.
+  Grupa **zasobów: istnieją**dwa wystąpienia grupy zasobu — Ustaw je na grupę zasobów.
 
-**identyfikator subskrypcji punktu końcowego:** to pole jest ustawione na identyfikator subskrypcji platformy Azure dla punktu końcowego. 
+Identyfikator **subskrypcji punktu końcowego**: to pole jest ustawione na identyfikator subskrypcji platformy Azure dla punktu końcowego. 
 
-**typ punktu końcowego:** To pole jest typem punktu końcowego. Wartość ta musi `azurestoragecontainer`być `eventhub` `servicebusqueue`ustawiona `servicebustopic`na , , lub . Dla twoich celów tutaj `azurestoragecontainer`ustaw go na .
+**EndpointType**: to pole jest typem punktu końcowego. Ta wartość musi być ustawiona na `azurestoragecontainer`, `eventhub`, `servicebusqueue`, lub `servicebustopic`. W tym miejscu ustaw wartość `azurestoragecontainer`.
 
-**iotHubName:** To pole jest nazwą koncentratora, który wykona marszrutę.
+**iotHubName**: to pole jest nazwą centrum, które wykona Routing.
 
-**containerName:** To pole jest nazwą kontenera na koncie magazynu, do którego będą zapisywane dane.
+**ContainerName**: to pole jest nazwą kontenera na koncie magazynu, w którym będą zapisywane dane.
 
-**kodowanie:** To pole będzie `avro` `json`albo lub . Oznacza to format przechowywanych danych.
+**kodowanie**: to pole ma wartość `avro` lub. `json` Oznacza to format przechowywanych danych.
 
-**routeName**: To pole jest nazwą trasy, którą konfigurujesz. 
+**RouteName**: to pole jest nazwą konfigurowanej trasy. 
 
-**endpointName**: To pole jest nazwą identyfikującą punkt końcowy. 
+**EndpointName**: to pole jest nazwą identyfikującą punkt końcowy. 
 
-**włączone:** To pole domyślnie wskazuje, `true`że trasa wiadomości powinna być włączona po utworzeniu.
+**włączone**: to pole ma `true`wartość domyślną, co oznacza, że trasa wiadomości powinna być włączona po utworzeniu.
 
-**warunek:** To pole jest kwerendą używaną do filtrowania wiadomości wysyłanych do tego punktu końcowego. Warunkiem kwerendy dla wiadomości kierowanych `level="storage"`do magazynu jest .
+**warunek**: to pole jest zapytaniem używanym do filtrowania komunikatów wysyłanych do tego punktu końcowego. Warunek zapytania dla komunikatów, które są przesyłane do magazynu, `level="storage"`to.
 
 Skopiuj ten skrypt i wklej go do okna Cloud Shell i uruchom go.
 
@@ -211,7 +211,7 @@ az iot hub routing-endpoint create \
   --encoding avro
 ```
 
-Następnie utwórz trasę dla punktu końcowego magazynu. Trasa wiadomości określa, gdzie mają być wysyłane wiadomości, które spełniają specyfikację kwerendy. 
+Następnie utwórz trasę dla punktu końcowego magazynu. Trasa komunikatów określa miejsce, w którym mają zostać wysłane komunikaty zgodne ze specyfikacją zapytania. 
 
 ```azurecli
 # Create the route for the storage endpoint.
@@ -225,9 +225,9 @@ az iot hub route create \
   --condition $condition
 ```
 
-### <a name="route-to-a-service-bus-queue"></a>Trasa do kolejki usługi Service Bus
+### <a name="route-to-a-service-bus-queue"></a>Kierowanie do kolejki Service Bus
 
-Teraz skonfigurujesz routing dla kolejki usługi Service Bus. Aby pobrać parametry połączenia dla kolejki usługi Service Bus, należy utworzyć regułę autoryzacji, która ma zdefiniowane poprawne prawa. Poniższy skrypt tworzy regułę autoryzacji `sbauthrule`dla kolejki usługi `Listen Manage Send`Service Bus o nazwie , i ustawia prawa do . Po zdefiniowaniu tej reguły autoryzacji można jej użyć do pobrania ciągu połączenia dla kolejki.
+Teraz skonfigurujesz routing dla kolejki usługi Service Bus. Aby pobrać parametry połączenia dla kolejki Service Bus, należy utworzyć regułę autoryzacji z zdefiniowanymi prawidłowymi prawami. Poniższy skrypt tworzy regułę autoryzacji dla kolejki Service Bus o nazwie `sbauthrule`i ustawia prawa do. `Listen Manage Send` Po zdefiniowaniu tej reguły autoryzacji można jej użyć do pobrania parametrów połączenia dla kolejki.
 
 ```azurecli
 # Create the authorization rule for the Service Bus queue.
@@ -240,7 +240,7 @@ az servicebus queue authorization-rule create \
   --subscription $subscriptionID
 ```
 
-Teraz użyj reguły autoryzacji, aby pobrać parametry połączenia z kolejką usługi Service Bus.
+Teraz użyj reguły autoryzacji, aby pobrać parametry połączenia do kolejki Service Bus.
 
 ```azurecli
 # Get the Service Bus queue connection string.
@@ -257,17 +257,17 @@ sbqConnectionString=$(az servicebus queue authorization-rule keys list \
 echo "service bus queue connection string = " $sbqConnectionString
 ```
 
-Teraz skonfiguruj punkt końcowy routingu i trasę komunikatów dla kolejki usługi Service Bus. Są to zmienne używane przez skrypt, który musi być ustawiony w ramach sesji Cloud Shell:
+Teraz Skonfiguruj punkt końcowy routingu i trasę wiadomości dla kolejki Service Bus. Są to zmienne używane przez skrypt, które muszą być ustawione w ramach sesji Cloud Shell:
 
-**endpointName**: To pole jest nazwą identyfikującą punkt końcowy. 
+**EndpointName**: to pole jest nazwą identyfikującą punkt końcowy. 
 
-**typ punktu końcowego:** To pole jest typem punktu końcowego. Wartość ta musi `azurestoragecontainer`być `eventhub` `servicebusqueue`ustawiona `servicebustopic`na , , lub . Dla twoich celów tutaj `servicebusqueue`ustaw go na .
+**EndpointType**: to pole jest typem punktu końcowego. Ta wartość musi być ustawiona na `azurestoragecontainer`, `eventhub`, `servicebusqueue`, lub `servicebustopic`. W tym miejscu ustaw wartość `servicebusqueue`.
 
-**routeName**: To pole jest nazwą trasy, którą konfigurujesz. 
+**RouteName**: to pole jest nazwą konfigurowanej trasy. 
 
-**warunek:** To pole jest kwerendą używaną do filtrowania wiadomości wysyłanych do tego punktu końcowego. Warunkiem kwerendy dla wiadomości kierowanych do kolejki `level="critical"`usługi Service Bus jest .
+**warunek**: to pole jest zapytaniem używanym do filtrowania komunikatów wysyłanych do tego punktu końcowego. Warunek zapytania dla komunikatów przesyłanych do kolejki Service Bus jest `level="critical"`.
 
-Oto narzędzie wiersza polecenia platformy Azure dla punktu końcowego routingu i trasa komunikatu dla kolejki usługi Service Bus.
+Oto interfejs wiersza polecenia platformy Azure dla punktu końcowego routingu i trasy wiadomości dla kolejki Service Bus.
 
 ```azurecli
 endpointName="ContosoSBQueueEndpoint"
@@ -302,7 +302,7 @@ az iot hub route create --name $routeName \
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy masz skonfigurowane zasoby i trasy wiadomości skonfigurowane, przejdź do następnego samouczka, aby dowiedzieć się, jak wysyłać wiadomości do centrum IoT hub i zobaczyć, że są kierowane do różnych miejsc docelowych. 
+Po skonfigurowaniu zasobów oraz skonfigurowaniu tras komunikatów przejdź do następnego samouczka, aby dowiedzieć się, jak wysyłać komunikaty do centrum IoT Hub i zobaczyć je do różnych miejsc docelowych. 
 
 > [!div class="nextstepaction"]
-> [Część 2 - Wyświetlanie wyników routingu wiadomości](tutorial-routing-view-message-routing-results.md)
+> [Część 2 — Wyświetlanie wyników routingu komunikatów](tutorial-routing-view-message-routing-results.md)

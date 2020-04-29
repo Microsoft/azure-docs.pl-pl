@@ -15,10 +15,10 @@ ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
 ms.openlocfilehash: ee9a68df685095244fc9471b7d4ab0f6cee0642d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68360258"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Samouczek: uzyskiwanie dostępu do laboratorium w usłudze Azure DevTest Labs
@@ -31,11 +31,11 @@ W tym samouczku wykonasz następujące czynności:
 > * Łączenie z maszyną wirtualną
 > * Cofanie przejęcia maszyny wirtualnej
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="access-the-lab"></a>Uzyskiwanie dostępu do laboratorium
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz pozycję **Wszystkie zasoby** w menu po lewej stronie. 
 3. Wybierz typ zasobu **DevTest Labs**. 
 4. Wybierz laboratorium. 
@@ -61,12 +61,12 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
     Aby można było nawiązać połączenie z maszyną wirtualną z systemem Linux, musi być włączony dostęp do maszyny wirtualnej za pomocą protokołu SSH i/lub RDP. Kroki procedury nawiązywania połączenia z maszyną wirtualną z systemem Linux zawiera artykuł [Instalowanie i konfigurowanie pulpitu zdalnego w celu nawiązania połączenia z maszyna wirtualną z systemem Linux na platformie Azure](../virtual-machines/linux/use-remote-desktop.md). 
 
     > [!NOTE]
-    > Istnieją inne sposoby, aby uzyskać do maszyny wirtualnej strony dla maszyny wirtualnej. Oto niektóre z nich: 
+    > Istnieją inne sposoby uzyskania na stronę maszyny wirtualnej dla maszyny wirtualnej. Oto niektóre z nich: 
     > 
-    > 1. Wyszukaj wszystkie maszyny wirtualne w ramach subskrypcji. Wybierz maszynę wirtualną na liście maszyn wirtualnych, aby przejść do strony **maszyny wirtualnej.**
-    > 2. Przejdź do strony **Grupa zasobów** dla grupy zasobów. Następnie wybierz maszynę wirtualną z listy zasobów w grupie zasobów, aby przejść do strony **Maszyny wirtualnej.** 
+    > 1. Wyszukaj wszystkie maszyny wirtualne w subskrypcji. Wybierz maszynę wirtualną z listy maszyn wirtualnych, aby uzyskać dostęp do strony **maszyny wirtualnej** .
+    > 2. Przejdź do strony **grupy zasobów** dla grupy zasobów. Następnie wybierz maszynę wirtualną z listy zasobów w grupie zasobów, aby przejść do strony **maszyny wirtualnej** . 
     >
-    > Nie używaj przycisku **Połącz** na pasku narzędzi na stronie **Maszyna wirtualna,** do której można uzyskać, korzystając z tych opcji. Zamiast tego przejdź do strony **Maszyny wirtualnej** ze strony **DevTest Labs,** jak pokazano w tym artykule, a następnie użyj przycisku **Połącz** na pasku narzędzi.
+    > Nie należy używać przycisku **Połącz** na pasku narzędzi na stronie **maszyny wirtualnej** , do której można uzyskać dostęp za pomocą tych opcji. Zamiast tego przejdź do strony **maszyny wirtualnej** na stronie **DevTest Labs** , jak pokazano w tym artykule, a następnie użyj przycisku **Połącz** na pasku narzędzi.
 
 
 ## <a name="unclaim-the-vm"></a>Cofanie przejęcia maszyny wirtualnej

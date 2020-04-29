@@ -9,30 +9,30 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6f910dbe91ed8e1cb65eefa6dfc48c72a689bf25
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73491445"
 ---
-1. Znajdź utworzoną wirtualną sieć WAN. Na stronie Wirtualna sieć WAN w sekcji **Łączność** wybierz pozycję **Koncentratory**.
-2. Na stronie Koncentratory wybierz pozycję **+Nowe centrum,** aby otworzyć stronę **Tworzenie centrum wirtualnego.**
-3. Na karcie **Tworzenie** sieciowej strony **centrum wirtualnego** uzupełnij następujące pola:
+1. Zlokalizuj utworzoną wirtualną sieć WAN. Na stronie wirtualna sieć WAN w obszarze **łączność** wybierz pozycję **centra**.
+2. Na stronie centra wybierz pozycję **+ nowe centrum** , aby otworzyć stronę **Tworzenie wirtualnego centrum** .
+3. Na karcie Tworzenie **podstawy** strony **wirtualnego centrum** wykonaj następujące pola:
 
    ![Podstawy](./media/virtual-wan-tutorial-er-hub-include/hub1.png "Podstawy")
 
     **Szczegóły projektu**
 
-   * Region (wcześniej określany jako Lokalizacja)
+   * Region (wcześniej nazywany lokalizacją)
    * Nazwa
-   * Centrum prywatnej przestrzeni adresowej. Minimalna przestrzeń adresowa jest /24, aby utworzyć koncentrator, co oznacza, że wszystko w zakresie od /25 do /32 spowoduje błąd podczas tworzenia.
+   * Prywatna przestrzeń adresowa centrum. Minimalną przestrzenią adresową jest/24, aby utworzyć centrum, co oznacza, że każdy zakres od/25 do/32 spowoduje wystąpienie błędu podczas tworzenia.
 4. Wybierz **kartę ExpressRoute**.
 
-5. Na karcie **Usługa ExpressRoute** uzupełnij następujące pola:
+5. Na karcie **ExpressRoute** wypełnij następujące pola:
 
-   ![Expressroute](./media/virtual-wan-tutorial-er-hub-include/hub2.png "ExpressRoute")
+   ![ExpressRoute](./media/virtual-wan-tutorial-er-hub-include/hub2.png "ExpressRoute")
 
-   * Wybierz **pozycję Tak,** aby utworzyć bramę **usługi ExpressRoute.**
-   * Z listy rozwijanej wybierz wartość **jednostek skalowania bramy.**
-6. Wybierz **pozycję Recenzja + Utwórz,** aby sprawdzić poprawność.
-7. Wybierz **pozycję Utwórz,** aby utworzyć koncentrator. Po 30 minutach **odśwież,** aby wyświetlić koncentrator na stronie **Koncentratory.** Wybierz **pozycję Przejdź do zasobu,** aby przejść do zasobu.
+   * Wybierz pozycję **tak** , aby utworzyć bramę **ExpressRoute** .
+   * Wybierz z listy rozwijanej wartość **jednostki skalowania bramy** .
+6. Wybierz pozycję **Przegląd + Utwórz** , aby sprawdzić poprawność.
+7. Wybierz pozycję **Utwórz** , aby utworzyć centrum. Po 30 minutach **Odśwież** , aby wyświetlić centrum na stronie **centra** . Wybierz pozycję **Przejdź do zasobu** , aby przejść do zasobu.

@@ -1,5 +1,5 @@
 ---
-title: Zabezpieczenia wystąpienia zarządzanego za pomocą podmiotów serwerowych usługi Azure AD (logowania)
+title: Zabezpieczenia wystąpienia zarządzanego z podmiotami zabezpieczeń serwera usługi Azure AD (logowania)
 description: Informacje na temat technik i funkcji umożliwiających zabezpieczenie wystąpienia zarządzanego w usłudze Azure SQL Database oraz korzystania z jednostek usługi (identyfikatorów logowania) serwera Azure AD
 services: sql-database
 ms.service: sql-database
@@ -10,13 +10,13 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ms.openlocfilehash: bd65a21c2aa21643c76966410931949db7d17ad6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73822790"
 ---
-# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Samouczek: Zabezpieczenia wystąpienia zarządzanego w bazie danych SQL usługi Azure przy użyciu podmiotów serwera usługi Azure AD (logowania)
+# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Samouczek: zabezpieczenia wystąpienia zarządzanego w Azure SQL Database przy użyciu podmiotów zabezpieczeń serwera usługi Azure AD (nazwy logowania)
 
 Wystąpienie zarządzane zapewnia niemal wszystkie funkcje zabezpieczeń, które oferuje najnowszy lokalny aparat bazy danych programu SQL Server (Enterprise Edition):
 
@@ -25,7 +25,7 @@ Wystąpienie zarządzane zapewnia niemal wszystkie funkcje zabezpieczeń, które
 - Stosowanie autoryzacji za pośrednictwem członkostwa i uprawnień opartych na rolach.
 - Włączanie funkcji zabezpieczeń.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > - Tworzenie jednostki usługi (identyfikatora logowania) serwera Azure Active Directory dla wystąpień zarządzanych
@@ -36,15 +36,15 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 > - Korzystanie z zapytań w wielu bazach danych dotyczących użytkowników usługi Azure AD
 > - Informacje na temat funkcji zabezpieczeń takich jak ochrona przed zagrożeniami, inspekcja, maskowanie danych i szyfrowanie
 
-Aby dowiedzieć się więcej, zobacz [omówienie wystąpienia zarządzanego usługi Azure SQL Database](sql-database-managed-instance-index.yml) i artykuły dotyczące [możliwości.](sql-database-managed-instance.md)
+Aby dowiedzieć się więcej, zobacz artykuł [Azure SQL Database Omówienie wystąpienia zarządzanego](sql-database-managed-instance-index.yml) i [możliwości](sql-database-managed-instance.md) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten samouczek, upewnij się, że dysponujesz następującymi elementami:
 
-- Program [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - Wystąpienie zarządzane usługi Azure SQL Database
-  - Postępuj zgodnie z tym [artykułem: Szybki start: tworzenie wystąpienia zarządzanego usługi Azure SQL Database](sql-database-managed-instance-get-started.md)
+  - Wykonaj czynności opisane w tym artykule: [Szybki Start: tworzenie Azure SQL Database wystąpienia zarządzanego](sql-database-managed-instance-get-started.md)
 - Możliwość dostępu do wystąpienia zarządzanego oraz [aprowizowanego administratora usługi Azure AD dla wystąpienia zarządzanego](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Aby dowiedzieć się więcej, zobacz:
     - [Connect your application to a managed instance](sql-database-managed-instance-connect-app.md) (Łączenie aplikacji z wystąpieniem zarządzanym) 
     - [Managed instance connectivity architecture](sql-database-managed-instance-connectivity-architecture.md) (Architektura łączności wystąpienia zarządzanego)
@@ -52,23 +52,23 @@ Aby ukończyć ten samouczek, upewnij się, że dysponujesz następującymi elem
 
 ## <a name="limiting-access-to-your-managed-instance"></a>Ograniczanie dostępu do wystąpienia zarządzanego
 
-Wystąpienia zarządzane są dostępne za pośrednictwem prywatnego adresu IP. Podobnie jak w izolowanym środowisku lokalnym sql server, aplikacje lub użytkownicy potrzebują dostępu do sieci wirtualnej zarządzanych przed nawiązaniem połączenia. Aby uzyskać więcej informacji, zapoznaj się z artykułem [Connect your application to a managed instance](sql-database-managed-instance-connect-app.md) (Łączenie aplikacji z wystąpieniem zarządzanym).
+Zarządzane wystąpienia są dostępne za pomocą prywatnego adresu IP. Podobnie jak izolowane SQL Server środowiska lokalnego, aplikacje lub użytkownicy potrzebują dostępu do sieci wystąpienia zarządzanego (VNet), zanim będzie można nawiązać połączenie. Aby uzyskać więcej informacji, zapoznaj się z artykułem [Connect your application to a managed instance](sql-database-managed-instance-connect-app.md) (Łączenie aplikacji z wystąpieniem zarządzanym).
 
-Istnieje również możliwość skonfigurowania punktu końcowego usługi w wystąpieniu zarządzanym, co pozwala na połączenia publiczne, w taki sam sposób jak usługa Azure SQL Database. Aby uzyskać więcej informacji, zobacz następujący artykuł [Konfigurowanie publicznego punktu końcowego w wystąpieniu zarządzanym usługi Azure SQL Database](sql-database-managed-instance-public-endpoint-configure.md).
+Istnieje również możliwość skonfigurowania punktu końcowego usługi w zarządzanym wystąpieniu, która umożliwia nawiązywanie połączeń publicznych w taki sam sposób jak Azure SQL Database. Aby uzyskać więcej informacji, zobacz następujący artykuł, [Konfigurowanie publicznego punktu końcowego w Azure SQL Database wystąpienia zarządzanego](sql-database-managed-instance-public-endpoint-configure.md).
 
 > [!NOTE] 
-> Nawet z włączonymi punktami końcowymi usługi [reguły zapory bazy danych SQL](sql-database-firewall-configure.md) nie mają zastosowania. Wystąpienie zarządzane ma własną [wbudowaną zaporę](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) do zarządzania łącznością.
+> Nawet po włączeniu punktów końcowych usługi nie mają zastosowania [reguły zapory SQL Database](sql-database-firewall-configure.md) . Zarządzane wystąpienie ma własną [wbudowaną zaporę](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) do zarządzania łącznością.
 
 ## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>Tworzenie jednostki usługi (identyfikatora logowania) serwera Azure AD dla wystąpienia zarządzanego przy użyciu programu SSMS
 
-Pierwszy podmiot zabezpieczeń serwera usługi Azure AD (login) może być utworzony przez standardowe `sysadmin`konto programu SQL Server (nie azure AD), który jest administratorem usługi Azure AD dla wystąpienia zarządzanego utworzonego podczas procesu inicjowania obsługi administracyjnej. Aby uzyskać więcej informacji, zobacz [Aprowizuj administratora usługi Azure Active Directory dla wystąpienia zarządzanego](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Ta funkcja uległa zmianie od czasu [ga podmiotów serwera usługi Azure AD](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
+Pierwszy podmiot zabezpieczeń serwera usługi Azure AD (login) można utworzyć przy użyciu standardowego konta SQL Server (poza usługą Azure AD) `sysadmin`, czyli administratora usługi Azure AD dla wystąpienia zarządzanego utworzonego podczas procesu aprowizacji. Aby uzyskać więcej informacji, zobacz temat [udostępnianie administratorowi Azure Active Directory dla wystąpienia zarządzanego](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Ta funkcjonalność została zmieniona od czasu, w którym znajdują się [nazwy główne serwera usługi Azure AD](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
 
 Zobacz następujące artykuły, aby zapoznać się z przykładami nawiązywania połączenia z wystąpieniem zarządzanym:
 
-- [Szybki start: konfigurowanie maszyny Wirtualnej platformy Azure do łączenia się z wystąpieniem zarządzanym](sql-database-managed-instance-configure-vm.md)
-- [Szybki start: konfigurowanie połączenia typu "punkt-lokacja" z wystąpieniem zarządzanym z lokalnego](sql-database-managed-instance-configure-p2s.md)
+- [Szybki Start: Konfigurowanie maszyny wirtualnej platformy Azure do nawiązywania połączenia z wystąpieniem zarządzanym](sql-database-managed-instance-configure-vm.md)
+- [Szybki Start: Konfigurowanie połączenia typu punkt-lokacja z wystąpieniem zarządzanym w środowisku lokalnym](sql-database-managed-instance-configure-p2s.md)
 
-1. Zaloguj się do wystąpienia zarządzanego przy użyciu standardowego konta `sysadmin` programu SQL Server (innej niż azure AD), które jest administratorem usługi Azure AD dla mi, przy użyciu [programu SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
+1. Zaloguj się do wystąpienia zarządzanego przy użyciu standardowego konta SQL Server (poza usługą Azure AD), które jest `sysadmin` lub administratorem usługi Azure AD dla mnie, przy użyciu [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
 2. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie**.
 
@@ -116,12 +116,12 @@ Aby utworzyć inne jednostki usługi (identyfikatory logowania) serwera Azure AD
 
 - Aby umożliwić nowo utworzonym jednostkom usługi (identyfikatorom logowania) serwera Azure AD tworzenie identyfikatorów logowania dla innych użytkowników, grup lub aplikacji usługi Azure AD, musisz udzielić identyfikatorowi logowania roli serwera `sysadmin` lub `securityadmin`. 
 - Jednostce usługi (identyfikatorowi logowania) serwera Azure AD należy udzielić przynajmniej uprawnienia **ALTER ANY LOGIN**, aby umożliwić jej tworzenie innych jednostek usługi (identyfikatorów logowania) serwera Azure AD. 
-- Domyślnie standardowe uprawnienie przyznane nowo utworzonym podmiotom serwera usługi Azure AD (loginy) w wzorcu to: **CONNECT SQL** i VIEW **ANY DATABASE**.
+- Domyślnie standardowe uprawnienia przyznawane nowo utworzonym podmiotom zabezpieczeń serwera usługi Azure AD (Logins) w bazie danych Master to: **Connect SQL** i **View any Database**.
 - Roli serwera `sysadmin` można udzielić wielu jednostkom usługi (identyfikatorom logowania) serwera Azure AD w ramach wystąpienia zarządzanego.
 
 Aby dodać identyfikator logowania do roli serwera `sysadmin`:
 
-1. Zaloguj się ponownie do wystąpienia zarządzanego lub użyj istniejącego połączenia z `sysadmin`administratorem usługi Azure AD lub podmiotem zabezpieczeń SQL, który jest .
+1. Zaloguj się ponownie do wystąpienia zarządzanego lub Użyj istniejącego połączenia z administratorem usługi Azure AD lub podmiotem zabezpieczeń SQL, który jest `sysadmin`.
 
 1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie**.
 
@@ -151,7 +151,7 @@ Po utworzeniu jednostki usługi (identyfikatora logowania) serwera Azure AD oraz
 
      ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-     Aby uzyskać więcej informacji, zobacz następujący artykuł: [Uwierzytelnianie uniwersalne z bazą danych SQL i magazynem danych SQL (obsługa usługi SSMS dla usługi MFA)](sql-database-ssms-mfa-authentication.md)
+     Aby uzyskać więcej informacji, zobacz następujący artykuł: [uwierzytelnianie uniwersalne z SQL Database i SQL Data Warehouse (Obsługa programu SSMS dla usługi MFA)](sql-database-ssms-mfa-authentication.md)
 
 1. Wybierz opcję **Active Directory — uniwersalne z obsługą uwierzytelniania wieloskładnikowego**. To spowoduje wywołanie okna logowania uwierzytelniania wieloskładnikowego. Zaloguj się przy użyciu hasła usługi Azure AD.
 
@@ -169,7 +169,7 @@ Po utworzeniu jednostki usługi (identyfikatora logowania) serwera Azure AD oraz
 
     W tym przykładzie utworzono identyfikator logowania dla użytkownika usługi Azure AD bob@aadsqlmi.net, którego domena aadsqlmi.net jest sfederowana z domeną usługi Azure AD aadsqlmi.onmicrosoft.com.
 
-    Wykonaj następujące polecenie w języku T-SQL. Federacyjne konta usługi Azure AD są zamiennikami zarządzanych wystąpień lokalnych użytkowników i użytkowników systemu Windows.
+    Wykonaj następujące polecenie w języku T-SQL. Federacyjne konta usługi Azure AD to zamienniki wystąpień zarządzanych dla lokalnych nazw logowania i użytkowników systemu Windows.
 
     ```sql
     USE master
@@ -178,7 +178,7 @@ Po utworzeniu jednostki usługi (identyfikatora logowania) serwera Azure AD oraz
     GO
     ```
 
-1. Utwórz bazę danych w wystąpieniu zarządzanym przy użyciu składni [TWORZENIE BAZY DANYCH.](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) Ta baza danych będzie używana do przetestowania identyfikatorów logowania użytkownika w kolejnej sekcji.
+1. Utwórz bazę danych w zarządzanym wystąpieniu przy użyciu składni [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) . Ta baza danych będzie używana do przetestowania identyfikatorów logowania użytkownika w kolejnej sekcji.
     1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie**.
     1. W oknie zapytania użyj następującej składni, aby utworzyć bazę danych o nazwie **MyMITestDB**.
 
@@ -210,11 +210,11 @@ Po utworzeniu jednostki usługi (identyfikatora logowania) serwera Azure AD oraz
       ```
 
 > [!NOTE]
-> Użytkownicy-goście usługi Azure AD mają możliwość obsługi identyfikatorów logowania wystąpienia zarządzanego tylko, jeśli są dodani jako członkowie grupy usługi Azure AD. Użytkownik-gość usługi Azure AD to konto zaproszone do usługi Azure AD, do której należy wystąpienie zarządzane, z innej usługi Azure AD. Na przykład joe@contoso.com (konto usługi Azure AD) lub steve@outlook.com (konto MSA) można dodać do grupy aadsqlmi usługi Azure AD. Po dodaniu użytkowników do grupy można utworzyć login w **głównej** bazie danych wystąpienia zarządzanego dla grupy przy użyciu składni **CREATE LOGIN.** Użytkownicy-goście, którzy są członkami tej grupy, mogą nawiązać połączenie z wystąpieniem zarządzanym, korzystając z aktualnego identyfikatora logowania (na przykład joe@contoso.com lub steve@outlook.com).
+> Użytkownicy-goście usługi Azure AD mają możliwość obsługi identyfikatorów logowania wystąpienia zarządzanego tylko, jeśli są dodani jako członkowie grupy usługi Azure AD. Użytkownik-gość usługi Azure AD to konto zaproszone do usługi Azure AD, do której należy wystąpienie zarządzane, z innej usługi Azure AD. Na przykład joe@contoso.com (konto usługi Azure AD) lub steve@outlook.com (konto MSA) można dodać do grupy aadsqlmi usługi Azure AD. Po dodaniu użytkowników do grupy można utworzyć nazwę logowania w bazie danych **Master** wystąpienia zarządzanego dla grupy przy użyciu SKŁADNI **CREATE LOGIN** . Użytkownicy-goście, którzy są członkami tej grupy, mogą nawiązać połączenie z wystąpieniem zarządzanym, korzystając z aktualnego identyfikatora logowania (na przykład joe@contoso.com lub steve@outlook.com).
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login-and-give-permissions"></a>Tworzenie użytkownika usługi Azure AD na podstawie jednostki usługi (identyfikatora logowania) serwera Azure AD oraz nadawanie uprawnień
 
-Autoryzacja do poszczególnych baz danych działa w taki sam sposób w wystąpieniu zarządzanym, jak w przypadku programu SQL Server lokalnie. Można utworzyć użytkownika na podstawie istniejącego identyfikatora logowania w bazie danych i nadać mu uprawienia w tej bazie danych lub dodać go do roli bazy danych.
+Autoryzacja poszczególnych baz danych działa tak samo w taki sam sposób w przypadku wystąpienia zarządzanego, jak w przypadku SQL Server lokalnego. Można utworzyć użytkownika na podstawie istniejącego identyfikatora logowania w bazie danych i nadać mu uprawienia w tej bazie danych lub dodać go do roli bazy danych.
 
 Po utworzeniu bazy danych o nazwie **MyMITestDB** oraz utworzeniu identyfikatora logowania, który ma tylko uprawnienia domyślne, utworzymy teraz użytkownika na podstawie tego identyfikatora. Obecnie identyfikator logowania może nawiązać połączenie z wystąpieniem zarządzanym i wyświetlać wszystkie bazy danych, ale nie może korzystać z tych baz danych. Jeśli zalogujesz się za pomocą konta usługi Azure AD, które ma uprawnienia domyślne, i spróbujesz rozwinąć nowo utworzoną bazę danych, zostanie wyświetlony następujący komunikat o błędzie:
 
@@ -357,7 +357,7 @@ Wystąpienie zarządzane obsługuje personifikację podmiotów zabezpieczeń na 
     GO
     ```
 
-1. Użyj następującego polecenia, aby zobaczyć, że użytkownik, którego personifikujesz podczas wykonywania procedury składowanej, to **bob\@aadsqlmi.net**.
+1. Użyj poniższego polecenia, aby zobaczyć, że użytkownik jest personifikowany podczas wykonywania procedury składowanej, **robert\@aadsqlmi.NET**.
 
     ```sql
     Exec dbo.usp_Demo
@@ -411,7 +411,7 @@ Funkcja wykonywania zapytań w wielu bazach danych jest obsługiwana dla kont us
     GO
     ```
 
-1. Zaloguj się do wystąpienia zarządzanego przy użyciu programu SQL Server Management Studio jako członek grupy _mygroup_grupy usługi Azure AD . Otwórz nowe okno zapytania i wykonaj instrukcję SELECT w wielu bazach danych:
+1. Zaloguj się do wystąpienia zarządzanego przy użyciu SQL Server Management Studio jako elementu członkowskiego grupy usługi Azure _AD._ Otwórz nowe okno zapytania i wykonaj instrukcję SELECT w wielu bazach danych:
 
     ```sql
     USE MyMITestDB
@@ -421,7 +421,7 @@ Funkcja wykonywania zapytań w wielu bazach danych jest obsługiwana dla kont us
 
     Powinny zostać wyświetlone wyniki z tabeli **TestTable2**.
 
-## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins"></a>Dodatkowe scenariusze obsługiwane dla podmiotów serwera usługi Azure AD (logowania)
+## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins"></a>Dodatkowe scenariusze obsługiwane przez podmioty zabezpieczeń serwera usługi Azure AD (nazwy logowania)
 
 - Dla jednostek usługi (identyfikatorów logowania) serwera Azure AD jest obsługiwane zarządzanie agentem SQL oraz wykonywanie zadań.
 - Operacje tworzenia kopii zapasowej oraz przywracania bazy danych mogą być wykonywane przy użyciu jednostek usługi (identyfikatorów logowania) serwera Azure AD.
@@ -436,9 +436,9 @@ Funkcja wykonywania zapytań w wielu bazach danych jest obsługiwana dla kont us
 
 ### <a name="enable-security-features"></a>Włączanie funkcji zabezpieczeń.
 
-Zobacz następujący artykuł [funkcji zabezpieczeń funkcji wystąpienia zarządzanego,](sql-database-managed-instance.md#azure-sql-database-security-features) aby uzyskać wyczerpującą listę sposobów zabezpieczenia bazy danych. Omówione są następujące funkcje zabezpieczeń:
+Szczegółowe listę sposobów zabezpieczania bazy danych można znaleźć w artykule o następujących [funkcjach dotyczących możliwości wystąpienia zarządzanego](sql-database-managed-instance.md#azure-sql-database-security-features) . Omówione są następujące funkcje zabezpieczeń:
 
-- [Inspekcja zarządzanych wystąpień](sql-database-managed-instance-auditing.md) 
+- [Inspekcja wystąpienia zarządzanego](sql-database-managed-instance-auditing.md) 
 - [Zawsze szyfrowane](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Wykrywanie zagrożeń](sql-database-managed-instance-threat-detection.md) 
 - [Dynamiczne maskowanie danych](/sql/relational-databases/security/dynamic-data-masking)

@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek 2: Modele ryzyka kredytowego pociągu'
+title: 'Samouczek 2: uczenie modeli ryzyka kredytowego'
 titleSuffix: ML Studio (classic) - Azure
-description: Szczegółowy samouczek pokazujący, jak utworzyć rozwiązanie do analizy predykcyjnej do oceny ryzyka kredytowego w usłudze Azure Machine Learning Studio (klasyczny). Ten samouczek jest drugą częścią trzyczęściowej serii samouczków. Przedstawia on trenowanie i ewaluację modeli.
+description: Szczegółowy Samouczek przedstawiający sposób tworzenia rozwiązania do analizy predykcyjnej w celu oceny ryzyka kredytowego w Azure Machine Learning Studio (klasyczny). Ten samouczek jest drugą częścią trzyczęściowej serii samouczków. Przedstawia on trenowanie i ewaluację modeli.
 keywords: ryzyko kredytowe, rozwiązanie analizy predykcyjnej, ocena ryzyka
 author: sdgilley
 ms.author: sgilley
@@ -11,25 +11,25 @@ ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
 ms.openlocfilehash: 8feca17f10bb891f0ca5577b2363f95901da4a46
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79217873"
 ---
-# <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Samouczek 2: Szkolenie modeli ryzyka kredytowego — Usługa Azure Machine Learning Studio (klasyczna)
+# <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Samouczek 2: uczenie modeli ryzyka kredytowego — Azure Machine Learning Studio (klasyczny)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-W tym samouczku szczegółowo przedstawiono proces opracowywania rozwiązania analizy predykcyjnej. Opracowywkij prostego modelu w machine learning studio (klasyczny).  Następnie wdrożysz model jako usługę internetową w ramach usługi Azure Machine Learning.  Wdrożony model może tworzyć przewidywania przy użyciu nowych danych. Ten poradnik jest **częścią drugiej z trzech części serii samouczków**.
+W tym samouczku szczegółowo przedstawiono proces opracowywania rozwiązania analizy predykcyjnej. Tworzysz prosty model w Machine Learning Studio (klasyczny).  Następnie wdrożysz model jako usługę internetową w ramach usługi Azure Machine Learning.  Wdrożony model może tworzyć przewidywania przy użyciu nowych danych. Ten samouczek jest **drugą częścią serii samouczków z trzema częściami**.
 
 Załóżmy, że chcesz przewidzieć ryzyko kredytowe osoby na podstawie informacji przekazanych we wniosku kredytowym.  
 
-Ocena ryzyka kredytowego to złożony problem, ale w tym samouczku zostanie on nieco uproszczony. Użyjesz go jako przykład, jak można utworzyć rozwiązanie analizy predykcyjnej przy użyciu microsoft azure machine learning studio (klasyczny). Użyjesz usługi Azure Machine Learning Studio (klasyczny) i usługi sieci web uczenia maszynowego dla tego rozwiązania.  
+Ocena ryzyka kredytowego to złożony problem, ale w tym samouczku zostanie on nieco uproszczony. Będziesz jej używać jako przykładu tworzenia rozwiązania do analizy predykcyjnej przy użyciu Microsoft Azure Machine Learning Studio (klasyczne). Dla tego rozwiązania będziesz używać Azure Machine Learning Studio (klasyczny) i Machine Learning usługi sieci Web.  
 
 W tym trzyczęściowym samouczku zaczniesz od publicznie dostępnych danych ryzyka kredytowego.  Następnie wdrożysz i wytrenujesz model predykcyjny.  Na koniec wdrożysz model jako usługę internetową.
 
-W [części drugiej samouczka](tutorial-part1-credit-risk.md)utworzono obszar roboczy Studio uczenia maszynowego (klasyczny), przesłano dane i utworzono eksperyment.
+W [pierwszej części samouczka](tutorial-part1-credit-risk.md)utworzono obszar roboczy Machine Learning Studio (klasyczny), przekazane dane i utworzono eksperyment.
 
 W tej części samouczka zostaną wykonane następujące czynności:
  
@@ -46,14 +46,14 @@ Wykonanie [pierwszej części samouczka](tutorial-part1-credit-risk.md).
 
 ## <a name="train-multiple-models"></a><a name="train"></a>Trenowanie wielu modeli
 
-Jedną z zalet korzystania z usługi Azure Machine Learning Studio (classic) do tworzenia modeli uczenia maszynowego jest możliwość wypróbowania więcej niż jednego typu modelu naraz w jednym eksperymencie i porównania wyników. Taki eksperyment ułatwia znalezienie najlepszego rozwiązania problemu.
+Jedną z zalet używania Azure Machine Learning Studio (klasycznego) do tworzenia modeli uczenia maszynowego jest możliwość wypróbowania więcej niż jednego typu modelu jednocześnie w jednym doświadczeniu i porównać wyniki. Taki eksperyment ułatwia znalezienie najlepszego rozwiązania problemu.
 
 W ramach eksperymentu opracowywanego w tym samouczku utworzysz dwa różne typy modelu i porównasz wyniki ich oceny, aby określić, który algorytm ma zostać użyty w końcowym eksperymencie.  
 
 Masz do wyboru różne modele. Aby wyświetlić dostępne modele, rozwiń węzeł **Machine Learning** na palecie modułów, a następnie rozwiń węzeł **Initialize Model** (Inicjuj model) i węzły znajdujące się poniżej. Na potrzeby tego eksperymentu wybierzesz moduły [Two-Class Support Vector Machine][two-class-support-vector-machine] — SVM (Dwuklasowa maszyna wektorów nośnych) i [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Dwuklasowe wzmocnione drzewo decyzyjne).
 
 > [!TIP]
-> Aby uzyskać pomoc w podejmowaniu decyzji, który algorytm uczenia maszynowego najlepiej odpowiada konkretnej problemie, który próbujesz rozwiązać, zobacz [Jak wybrać algorytmy dla programu Microsoft Azure Machine Learning Studio (klasyczny).](algorithm-choice.md)
+> Aby uzyskać pomoc w wyborze, który algorytm Machine Learning najlepiej odpowiada konkretnemu problemowi, który próbujesz rozwiązać, zobacz [jak wybrać algorytmy dla Microsoft Azure Machine Learning Studio (klasyczne)](algorithm-choice.md).
 > 
 > 
 
@@ -190,9 +190,9 @@ Po prawej stronie wykresu kliknij pozycję **Scored dataset** (Oceniony zestaw d
 Badając te wartości, możesz zdecydować, który model daje wyniki najbardziej zbliżone do wyników, których szukasz. Możesz wrócić do eksperymentu i powtórzyć go, zmieniając wartości parametrów w różnych modelach. 
 
 Nauka i sztuka interpretowania tych wyników i strojenie wydajności modelu wykracza poza zakres tego samouczka. Aby uzyskać dodatkową pomoc, możesz przeczytać następujące artykuły:
-- [Jak ocenić wydajność modelu w usłudze Azure Machine Learning Studio (klasyczny)](evaluate-model-performance.md)
-- [Wybierz parametry, aby zoptymalizować algorytmy w usłudze Azure Machine Learning Studio (klasyczny)](algorithm-parameters-optimize.md)
-- [Interpretowanie wyników modelu w usłudze Azure Machine Learning Studio (klasyczny)](interpret-model-results.md)
+- [Jak oszacować wydajność modelu w Azure Machine Learning Studio (klasyczny)](evaluate-model-performance.md)
+- [Wybierz parametry, aby zoptymalizować algorytmy w Azure Machine Learning Studio (klasyczny)](algorithm-parameters-optimize.md)
+- [Interpretowanie wyników modelu w Azure Machine Learning Studio (klasyczny)](interpret-model-results.md)
 
 > [!TIP]
 > Każde uruchomienie eksperymentu powoduje zapisanie rekordu iteracji w historii uruchamiania. Te iteracje możesz wyświetlić i wrócić do dowolnej z nich, klikając pozycję **VIEW RUN HISTORY** (WYŚWIETL HISTORIĘ URUCHAMIANIA) poniżej kanwy. Możesz także kliknąć pozycję **Prior Run** (Poprzednie uruchomienie) w okienku **Properties** (Właściwości), aby wrócić do iteracji bezpośrednio poprzedzającej obecnie otwartą iterację.
@@ -200,7 +200,7 @@ Nauka i sztuka interpretowania tych wyników i strojenie wydajności modelu wykr
 > Kopię dowolnej iteracji eksperymentu można utworzyć, klikając pozycję **SAVE AS** (ZAPISZ JAKO) poniżej kanwy. 
 > Użyj właściwości **Summary** (Podsumowanie) i **Description** (Opis) eksperymentu, aby zanotować własne informacje dotyczące celów iteracji eksperymentu.
 > 
-> Aby uzyskać więcej informacji, zobacz [Zarządzanie iteracjami eksperymentów w usłudze Azure Machine Learning Studio (klasycznym).](manage-experiment-iterations.md)  
+> Aby uzyskać więcej informacji, zobacz [Zarządzanie iteracjami eksperymentów w Azure Machine Learning Studio (klasyczny)](manage-experiment-iterations.md).  
 > 
 > 
 

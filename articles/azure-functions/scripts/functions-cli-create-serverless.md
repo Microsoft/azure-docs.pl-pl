@@ -7,15 +7,15 @@ ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 0fe4cb6e75a74f58b4c3b312f923935053ea4756
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75922613"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Tworzenie aplikacji funkcji do bezserwerowego wykonywania kodu 
 
-Ten przykładowy skrypt usługi Azure Functions tworzy aplikację funkcji, która jest kontenerem dla funkcji. Aplikacja funkcji jest tworzona przy użyciu [planu zużycie](../functions-scale.md#consumption-plan), który jest idealny dla obciążeń bezserwerowych opartych na zdarzeniach.
+Ten przykładowy skrypt usługi Azure Functions tworzy aplikację funkcji, która jest kontenerem dla funkcji. Aplikacja funkcji jest tworzona przy użyciu [planu zużycia](../functions-scale.md#consumption-plan), który jest idealnym rozwiązaniem w przypadku obciążeń bezserwerowych sterowanych zdarzeniami.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

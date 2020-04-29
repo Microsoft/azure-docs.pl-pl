@@ -1,17 +1,17 @@
 ---
-title: Samouczek — wypychanie aktualizacji do rejestru replikowanego geograficznie
-description: Wypchnij zaktualizowany obraz platformy Docker do rejestru kontenerów platformy Azure replikowanych geograficznie, a następnie zobacz zmiany automatycznie wdrożone w aplikacjach sieci web działających w wielu regionach. Trzecia część trzyczęściowej serii.
+title: Samouczek — wypychanie aktualizacji do rejestru z replikacją geograficzną
+description: Wypchnij zaktualizowany obraz Docker do rejestru kontenerów platformy Azure z replikacją geograficzną, a następnie zobacz zmiany automatycznie wdrożone w aplikacjach sieci Web działających w wielu regionach. Trzecia część trzyczęściowej serii.
 ms.topic: tutorial
 ms.date: 04/30/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 9222ac31e067cba6a0ffa71143c90f906ba6ff7f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74454688"
 ---
-# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Samouczek: Wypychanie zaktualizowanego obrazu kontenera do rejestru kontenerów replikowanych geograficznie w celu wdrożenia regionalnych aplikacji sieci Web
+# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Samouczek: wypychanie zaktualizowanego obrazu kontenera do rejestru kontenerów z replikacją geograficzną na potrzeby wdrożeń regionalnych aplikacji sieci Web
 
 Niniejszy samouczek jest trzecią częścią trzyczęściowej serii. W [poprzednim samouczku](container-registry-tutorial-deploy-app.md) skonfigurowano replikację geograficzną dla dwóch różnych regionalnych wdrożeń aplikacji internetowej. W tym samouczku najpierw zmodyfikujesz aplikację, a następnie utworzysz nowy obraz kontenera i wypchniesz go do rejestru replikowanego geograficznie. Na koniec wyświetlisz zmianę, wdrożoną automatycznie przez elementy webhook usługi Azure Container Registry w obu wystąpieniach aplikacji internetowej.
 

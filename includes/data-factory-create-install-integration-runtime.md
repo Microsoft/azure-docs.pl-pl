@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: e7717cdeec33a32f926cb5ef4c1f6d28c25f9d93
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76989092"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Tworzenie własnego środowiska Integration Runtime
 
-W tej sekcji utworzysz własne środowisko Integration Runtime i skojarzysz je z maszyną lokalną za pomocą bazy danych programu SQL Server. Środowisko wykonawcze integracji hostowanego samodzielnie jest składnikiem, który kopiuje dane z programu SQL Server na komputerze do bazy danych SQL platformy Azure. 
+W tej sekcji utworzysz własne środowisko Integration Runtime i skojarzysz je z maszyną lokalną za pomocą bazy danych programu SQL Server. Własne środowisko Integration Runtime jest składnikiem, który kopiuje dane z SQL Server na komputerze do usługi Azure SQL Database. 
 
 1. Utwórz zmienną dla nazwy środowiska Integration Runtime. Użyj unikatowej nazwy i zanotuj ją. Będziesz jej używać w dalszej części tego samouczka. 
 
@@ -83,7 +83,7 @@ W tej sekcji utworzysz własne środowisko Integration Runtime i skojarzysz je z
 
 5. Skopiuj jeden z kluczy (pomijając cudzysłowy) używanych do rejestracji własnego środowiska Integration Runtime, które zainstalujesz na swojej maszynie w kolejnych krokach.  
 
-## <a name="install-the-integration-runtime-tool"></a>Instalowanie narzędzia środowiska wykonawczego integracji
+## <a name="install-the-integration-runtime-tool"></a>Zainstaluj narzędzie Integration Runtime
 
 1. Jeśli środowisko Integration Runtime jest już zainstalowane na maszynie, odinstaluj je za pomocą apletu **Dodaj lub usuń programy**. 
 
@@ -103,7 +103,7 @@ W tej sekcji utworzysz własne środowisko Integration Runtime i skojarzysz je z
 
     ![Rejestrowanie środowiska Integration Runtime](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
 
-9. Na stronie **Węzeł Nowy środowisko wykonawcze integracji wybierz** pozycję **Zakończ**. 
+9. Na stronie **nowy węzeł Integration Runtime (Self-Hosted)** wybierz pozycję **Zakończ**. 
 
 10. Gdy własne środowisko Integration Runtime zostanie pomyślnie zarejestrowane, zostanie wyświetlony następujący komunikat:
 
@@ -123,7 +123,7 @@ W tej sekcji utworzysz własne środowisko Integration Runtime i skojarzysz je z
 
     b. Wybierz typ źródła danych **SqlServer**.
 
-    d. Wprowadź nazwę serwera.
+    c. Wprowadź nazwę serwera.
 
     d. Wprowadź nazwę bazy danych.
 
@@ -131,7 +131,7 @@ W tej sekcji utworzysz własne środowisko Integration Runtime i skojarzysz je z
 
     f. Wprowadź nazwę użytkownika.
 
-    g. Wprowadź hasło skojarzone z nazwą użytkownika.
+    g. Wprowadź hasło, które jest skojarzone z nazwą użytkownika.
 
     h. Wybierz przycisk **Testuj**, aby upewnić się, że środowisko Integration Runtime może połączyć się z wystąpieniem programu SQL Server. Jeśli połączenie zostanie pomyślnie nawiązane, zostanie wyświetlony zielony znacznik wyboru. Jeśli nawiązywanie połączenia nie powiedzie się, zostanie wyświetlony komunikat o błędzie. Rozwiąż wszelkie problemy i upewnij się, że środowisko Integration Runtime może połączyć się z programem SQL Server.    
 

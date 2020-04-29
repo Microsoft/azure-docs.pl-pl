@@ -1,19 +1,19 @@
 ---
-title: Tworzenie aplikacji funkcji z wdrożeniem DevOps — narzędzie interfejsu wiersza polecenia platformy Azure
+title: Tworzenie aplikacji funkcji przy użyciu wdrożenia DevOps — interfejs wiersza polecenia platformy Azure
 description: Tworzenie aplikacji funkcji i wdrażanie kodu funkcji z usługi Azure DevOps
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
 ms.openlocfilehash: d10c3987aef6e0a32081acd17425517f5109c4bb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75922639"
 ---
-# <a name="create-a-function-in-azure-that-is-deployed-from-azure-devops"></a>Tworzenie funkcji na platformie Azure, która jest wdrażana z usługi Azure DevOps
+# <a name="create-a-function-in-azure-that-is-deployed-from-azure-devops"></a>Tworzenie funkcji na platformie Azure wdrożonej z usługi Azure DevOps
 
-W tym temacie pokazano, jak używać usługi Azure Functions do tworzenia aplikacji funkcji [bezserwerowej](https://azure.microsoft.com/solutions/serverless/) przy użyciu [planu zużycia](../functions-scale.md#consumption-plan). Aplikacja funkcji, która jest kontenerem dla funkcji, jest stale wdrażana z repozytorium Azure DevOps. 
+W tym temacie pokazano, jak za pomocą programu Azure Functions utworzyć aplikację funkcji [bezserwerowej](https://azure.microsoft.com/solutions/serverless/) przy użyciu [planu zużycia](../functions-scale.md#consumption-plan). Aplikacja funkcji, która jest kontenerem dla funkcji, jest ciągle wdrażana z repozytorium usługi Azure DevOps. 
 
 Do wykonania instrukcji w tym temacie potrzebne są:
 
@@ -42,7 +42,7 @@ Ten skrypt zawiera następujące polecenia, służące do utworzenia grupy zasob
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Tworzy konto magazynu wymagane przez aplikację funkcji. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Tworzy aplikację funkcji w [planie zużycia](../functions-scale.md#consumption-plan)bez użycia serwera . |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Tworzy aplikację funkcji w [planie zużycia](../functions-scale.md#consumption-plan)bezserwerowego. |
 | [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config) | Kojarzy aplikację funkcji z repozytorium Git lub Mercurial. |
 
 ## <a name="next-steps"></a>Następne kroki

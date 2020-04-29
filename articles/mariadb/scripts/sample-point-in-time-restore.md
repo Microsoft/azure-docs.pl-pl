@@ -1,5 +1,5 @@
 ---
-title: Skrypt INTERFEJSU WIERSZA POLECENIA — przywracanie serwera — usługa Azure Database for MariaDB
+title: Skrypt interfejsu wiersza polecenia — przywracanie serwera-Azure Database for MariaDB
 description: Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure pokazuje sposób przywracania serwera usługi Azure Database for MariaDB i jego baz danych do wcześniejszego punktu w czasie.
 author: ajlam
 ms.author: andrela
@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 12/02/2019
 ms.openlocfilehash: d7591c4f88026644ee2453150cfa226a155ab32d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74771711"
 ---
 # <a name="restore-an-azure-database-for-mariadb-server-using-azure-cli"></a>Przywracanie serwera usługi Azure Database for MariaDB za pomocą interfejsu wiersza polecenia platformy Azure
@@ -41,5 +41,5 @@ Ten skrypt używa poleceń opisanych w poniższej tabeli:
 | [az group delete](/cli/azure/group#az-group-delete) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
 ## <a name="next-steps"></a>Następne kroki
-- Przeczytaj więcej informacji na temat dokumentacji interfejsu wiersza [polecenia platformy Azure: interfejsu wiersza polecenia platformy Azure](/cli/azure).
+- Przeczytaj więcej informacji na temat interfejsu wiersza polecenia platformy Azure: [Dokumentacja interfejsu wiersza polecenia platformy Azure](/cli/azure).
 - Wypróbuj dodatkowe skrypty: [Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for MariaDB](../sample-scripts-azure-cli.md)

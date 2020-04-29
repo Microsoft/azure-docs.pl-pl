@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Uruchamianie podręcznika w usłudze Azure Sentinel'
-description: 'Samouczek: W tym artykule opisano sposób uruchamiania podręcznika w usłudze Azure Sentinel.'
+title: 'Samouczek: uruchamianie element PlayBook na platformie Azure — wskaźnik'
+description: 'Samouczek: w tym artykule opisano sposób uruchamiania element PlayBook na platformie Azure.'
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -17,98 +17,98 @@ ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
 ms.openlocfilehash: f6adcb978dbe540d3bdd352089d4dde407d0fb4c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77585088"
 ---
-# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Samouczek: Konfigurowanie automatycznych odpowiedzi na zagrożenia w usłudze Azure Sentinel
+# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Samouczek: Konfigurowanie zautomatyzowanych odpowiedzi na zagrożenia na platformie Azure — wskaźnik
 
 
 
-Ten samouczek ułatwia używanie podręczników zabezpieczeń w usłudze Azure Sentinel do ustawiania automatycznych odpowiedzi na zagrożenia problemów związanych z zabezpieczeniami wykrytych przez usługę Azure Sentinel.
+Ten samouczek ułatwia korzystanie z usługi Security elementy PlayBook w wskaźniku kontrolnym platformy Azure w celu automatycznego reagowania na problemy związane z zabezpieczeniami wykryte przez wskaźnik na platformie Azure.
 
 
 > [!div class="checklist"]
-> * Opis podręczników
-> * Tworzenie podręcznika
-> * Uruchamianie podręcznika
-> * Automatyzacja reakcji na zagrożenia
+> * Zrozumienie elementy PlayBook
+> * Utwórz element PlayBook
+> * Uruchamianie element PlayBook
+> * Automatyzowanie odpowiedzi na zagrożenia
 
 
-## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>Co to jest podręcznik zabezpieczeń w usłudze Azure Sentinel?
+## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>Co to jest element PlayBook zabezpieczeń na platformie Azure — wskaźnik?
 
-Podręcznik zabezpieczeń to zbiór procedur, które można uruchomić z usługi Azure Sentinel w odpowiedzi na alert. Podręcznik zabezpieczeń może pomóc zautomatyzować i zorganizować odpowiedź i można go uruchomić ręcznie lub ustawić tak, aby działał automatycznie po wyzwoleniu określonych alertów. Podręczniki zabezpieczeń w usłudze Azure Sentinel są oparte na [usłudze Azure Logic Apps,](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps)co oznacza, że otrzymujesz całą moc, możliwość dostosowania i wbudowane szablony aplikacji logiki. Każdy podręcznik jest tworzony dla konkretnej subskrypcji, którą wybierzesz, ale gdy spojrzysz na stronę Podręczniki, zobaczysz wszystkie podręczniki w wybranych subskrypcjach.
+Element PlayBook zabezpieczeń to zbiór procedur, które mogą być uruchamiane z obszaru wskaźnikowego platformy Azure w odpowiedzi na alert. Element PlayBook zabezpieczeń może pomóc zautomatyzować i zorganizować odpowiedź i można ją uruchomić ręcznie lub skonfigurować do automatycznego uruchamiania po wyzwoleniu określonych alertów. Zabezpieczenia elementy PlayBook na platformie Azure wskazują na [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), co oznacza, że otrzymujesz wszystkie funkcje, szerszym i wbudowane szablony Logic Apps. Każdy element PlayBook jest tworzony dla wybranej subskrypcji, ale po przeszukaniu na stronie elementy PlayBook zobaczysz wszystkie elementy PlayBook w ramach dowolnych subskrypcji.
 
 > [!NOTE]
-> Podręczniki wykorzystują usługi Azure Logic Apps, w związku z czym obowiązują opłaty. Odwiedź stronę cennika usługi [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/), aby zapoznać się ze szczegółami.
+> Elementy PlayBook wykorzystać Azure Logic Apps, dlatego opłaty są naliczane. Odwiedź stronę cennika usługi [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/), aby zapoznać się ze szczegółami.
 
-Jeśli na przykład obawiasz się złośliwych osób atakujących uzyskujących dostęp do zasobów sieciowych, możesz ustawić alert, który wyszukuje złośliwe adresy IP uzyskujące dostęp do sieci. Następnie można utworzyć podręcznik, który wykonuje następujące czynności:
-1. Po wyzwoleniu alertu otwórz bilet w ServiceNow lub innym systemie sprzedaży it ticketing.
-2. Wyślij wiadomość do kanału operacji zabezpieczeń w usłudze Microsoft Teams lub Slack, aby upewnić się, że analitycy zabezpieczeń są świadomi zdarzenia.
-3. Wyślij wszystkie informacje zawarte w alertie do starszego administratora sieci i administratora zabezpieczeń. Wiadomość e-mail zawiera również dwa przyciski opcji użytkownika **Blokuj** lub **Ignoruj**.
-4. Podręcznik jest nadal uruchamiany po otrzymaniu odpowiedzi od administratorów.
-5. Jeśli administratorzy wybiorą **opcję Blokuj,** adres IP jest zablokowany w zaporze, a użytkownik jest wyłączony w usłudze Azure AD.
-6. Jeśli administratorzy wybierz **ignoruj**, alert zostanie zamknięty w usłudze Azure Sentinel i zdarzenie zostanie zamknięte w ServiceNow.
+Na przykład jeśli martwisz się o złośliwych osobach atakujących uzyskujących dostęp do zasobów sieciowych, można ustawić alert, który szuka złośliwych adresów IP uzyskujących dostęp do sieci. Następnie można utworzyć element PlayBook, który wykonuje następujące czynności:
+1. Po wyzwoleniu alertu Otwórz bilet w usługi ServiceNow lub dowolnym systemie biletów IT.
+2. Wyślij wiadomość do kanału operacji zabezpieczeń w usłudze Microsoft Teams lub zapasu czasu, aby upewnić się, że analitycy zabezpieczeń wiedzą o zdarzeniu.
+3. Wyślij wszystkie informacje z alertu do administratora sieci w starszej firmie i administratora zabezpieczeń. Wiadomość e-mail zawiera również dwa przyciski opcji użytkownika **blok** lub **Ignoruj**.
+4. Element PlayBook będzie nadal działać po odebraniu odpowiedzi od administratorów.
+5. Jeśli administratorzy wybierzą opcję **Blokuj**, adres IP jest blokowany w zaporze, a użytkownik jest wyłączony w usłudze Azure AD.
+6. Jeśli administratorzy wybierzą opcję **Ignoruj**, alert zostanie zamknięty w obszarze Azure — wskaźnik i zdarzenie zostanie zamknięte w usługi ServiceNow.
 
-Podręczniki zabezpieczeń można uruchamiać ręcznie lub automatycznie. Uruchamianie ich ręcznie oznacza, że po otrzymaniu alertu można uruchomić podręcznik na żądanie w odpowiedzi na wybrany alert. Uruchamianie ich automatycznie oznacza, że podczas tworzenia reguły korelacji można ustawić ją tak, aby automatycznie uruchamiała jeden lub więcej podręczników po wyzwoleniu alertu.
+Elementy PlayBook zabezpieczeń można uruchomić ręcznie lub automatycznie. Uruchamianie ich ręcznie oznacza, że po otrzymaniu alertu można uruchomić element PlayBook na żądanie jako odpowiedź na wybrany alert. Uruchamianie ich automatycznie oznacza, że podczas tworzenia reguły korelacji ustawia się ją w taki sposób, aby automatycznie uruchamiała co najmniej jeden elementy PlayBook, gdy zostanie wyzwolony alert.
 
 
-## <a name="create-a-security-playbook"></a>Tworzenie podręcznika zabezpieczeń
+## <a name="create-a-security-playbook"></a>Tworzenie element PlayBook zabezpieczeń
 
-Wykonaj następujące kroki, aby utworzyć nowy podręcznik zabezpieczeń w usłudze Azure Sentinel:
+Wykonaj następujące kroki, aby utworzyć nowy element PlayBook zabezpieczeń na platformie Azure:
 
-1. Otwórz pulpit nawigacyjny **usługi Azure Sentinel.**
-2. W obszarze **Zarządzanie**wybierz **pozycję Playbooks**.
+1. Otwórz pulpit nawigacyjny wskaźników **platformy Azure** .
+2. W obszarze **Zarządzanie**wybierz pozycję **elementy PlayBook**.
 
    ![Aplikacja logiki](./media/tutorial-respond-threats-playbook/playbookimg.png)
 
-3. Na stronie **Azure Sentinel — Playbooks** kliknij przycisk **Dodaj.**
+3. Na stronie **wskaźnik na platformie Azure — elementy PlayBook** kliknij przycisk **Dodaj** .
 
    ![Tworzenie aplikacji logiki](./media/tutorial-respond-threats-playbook/create-playbook.png) 
 
-4. Na stronie **Tworzenie aplikacji Logika** wpisz żądane informacje, aby utworzyć nową aplikację logiki, a następnie kliknij przycisk **Utwórz**. 
+4. Na stronie **Tworzenie aplikacji logiki** wpisz żądane informacje, aby utworzyć nową aplikację logiki, a następnie kliknij przycisk **Utwórz**. 
 
-5. W [**projektancie aplikacji logiki**](../logic-apps/logic-apps-overview.md)wybierz szablon, którego chcesz użyć. Jeśli wybierzesz szablon, który wymaga poświadczeń, trzeba będzie je podać. Alternatywnie, można utworzyć nowy pusty podręcznik od podstaw. Wybierz **pustą aplikację logiki**. 
+5. W [**Projektancie aplikacji logiki**](../logic-apps/logic-apps-overview.md)wybierz szablon, którego chcesz użyć. W przypadku wybrania szablonu wymagającego poświadczeń należy je udostępnić. Alternatywnie można utworzyć nową pustą element PlayBook od podstaw. Wybierz pozycję **pusta aplikacja logiki**. 
 
    ![Projektant aplikacji logiki](./media/tutorial-respond-threats-playbook/playbook-template.png)
 
-6. Zostaniesz przesuń do projektanta aplikacji logiki, gdzie można tworzyć nowe lub edytować szablon. Aby uzyskać więcej informacji na temat tworzenia podręcznika za pomocą [aplikacji logiki](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
+6. Nastąpi przekierowanie do projektanta aplikacji logiki, w którym można utworzyć nowy lub edytować szablon. Aby uzyskać więcej informacji na temat tworzenia element PlayBook z [Logic Apps](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 
-7. Jeśli tworzysz pusty podręcznik, w polu **Wyszukaj wszystkie łączniki i wyzwalacze** wpisz *azure sentinel*i wybierz **opcję Po wyzwoleniu odpowiedzi na alert wartownicy platformy Azure**. <br>Po utworzeniu nowego podręcznika pojawi się na liście **Podręczniki.** Jeśli nie jest wyświetlany, kliknij przycisk **Odśwież**.
+7. Jeśli tworzysz puste element PlayBook, w polu **Przeszukaj wszystkie łączniki i wyzwalacze** wpisz *Azure*, a następnie wybierz, **kiedy zostanie wyzwolona odpowiedź na alert na platformie Azure**. <br>Po utworzeniu nowego element PlayBook pojawia się na liście **elementy PlayBook** . Jeśli nie jest wyświetlany, kliknij przycisk **Odśwież**.
 
-1. Użyj **funkcji Pobierz jednostki,** które umożliwiają uzyskanie odpowiednich jednostek z listy **Jednostki,** takich jak konta, adresy IP i hosty. Umożliwi to uruchamianie akcji na określonych encjach.
+1. Użyj funkcji **Pobierz jednostki** , które umożliwiają uzyskanie odpowiednich jednostek z listy **jednostek** , takich jak konta, adresy IP i hosty. Umożliwi to uruchamianie akcji na określonych jednostkach.
 
-7. Teraz możesz zdefiniować zachowanie po wyzwoleniu elementu playbook. Można dodać akcję, warunek logiczny, przełącznik warunków sprawy lub pętli.
+7. Teraz możesz zdefiniować zachowanie po wyzwoleniu elementu playbook. Można dodać akcję, warunek logiczny, warunki przełączenia lub pętle.
 
    ![Projektant aplikacji logiki](./media/tutorial-respond-threats-playbook/logic-app.png)
 
-## <a name="how-to-run-a-security-playbook"></a>Jak uruchomić podręcznik zabezpieczeń
+## <a name="how-to-run-a-security-playbook"></a>Jak uruchomić element PlayBook zabezpieczeń
 
-Podręcznik można uruchomić na żądanie.
+Można uruchomić element PlayBook na żądanie.
 
-Aby uruchomić podręcznik na żądanie:
+Aby uruchomić element PlayBook na żądanie:
 
-1. Na stronie **zdarzenia** wybierz zdarzenie i kliknij **Wyświetl pełne szczegóły**.
+1. Na stronie **incydenty** wybierz zdarzenie i kliknij pozycję **Wyświetl pełne szczegóły**.
 
-2. Na karcie **Alerty** kliknij alert, na który chcesz uruchomić podręcznik, i przewiń całą drogę w prawo i kliknij pozycję **Wyświetl podręczniki** i wybierz podręcznik do **uruchomienia** z listy dostępnych podręczników w ramach subskrypcji. 
+2. Na karcie **alerty** Kliknij alert, na którym chcesz uruchomić element PlayBook, a następnie przewiń w prawo, a następnie kliknij pozycję **Wyświetl elementy PlayBook** i wybierz element PlayBook do **uruchomienia** z listy dostępnych elementy PlayBook w subskrypcji. 
 
 
 
-## <a name="automate-threat-responses"></a>Automatyzacja reakcji na zagrożenia
+## <a name="automate-threat-responses"></a>Automatyzowanie odpowiedzi na zagrożenia
 
-Zespoły SIEM/SOC mogą być regularnie zalewane alertami zabezpieczeń. Ilość generowanych alertów jest tak ogromna, że dostępni administratorzy zabezpieczeń są przytłoczeni. Powoduje to zbyt często w sytuacjach, gdy wiele alertów nie może być zbadane, pozostawiając organizacji narażone na ataki, które nie sąuznane. 
+Zespoły SIEM/SOC mogą regularnie zasypaniu z alertami zabezpieczeń. Wygenerowane alerty są bardzo ogromne, a dostępni administratorzy zabezpieczeń są zapychani. W wyniku tego często zdarza się, że nie można zbadać wielu alertów, pozostawiając organizację narażoną na ataki, które nie są zauważalne. 
 
-Wiele, jeśli nie większość z tych alertów jest zgodnych z wzorcami cyklicznymi, które można rozwiązać za pomocą określonych i zdefiniowanych akcji korygowania. Usługa Azure Sentinel umożliwia już zdefiniowanie korygowania w podręcznikach. Istnieje również możliwość ustawienia automatyzacji w czasie rzeczywistym jako część definicji podręcznika, aby umożliwić pełną automatyzację zdefiniowanej odpowiedzi na określone alerty zabezpieczeń. Korzystając z automatyzacji w czasie rzeczywistym, zespoły reagowania mogą znacznie zmniejszyć obciążenie pracą, w pełni automatyzując rutynowe odpowiedzi na powtarzające się typy alertów, co pozwala bardziej skoncentrować się na unikatowych alertach, analizowaniu wzorców, polowaniu na zagrożenia i innych.
+Wiele, jeśli nie większość z tych alertów, jest zgodny ze wzorcami cyklicznymi, które mogą być rozkierowane przez określone i zdefiniowane akcje naprawcze. Na platformie Azure wskaźnikiem można już definiować korygowanie w elementy PlayBook. Istnieje również możliwość ustawienia automatyzacji w czasie rzeczywistym jako części definicji element PlayBook, aby umożliwić pełne Automatyzowanie zdefiniowanej odpowiedzi dla konkretnych alertów zabezpieczeń. Korzystając z automatyzacji w czasie rzeczywistym, zespoły odpowiedzi mogą znacząco ograniczyć obciążenie, w pełni automatyzując rutynowe odpowiedzi na cykliczne typy alertów, co pozwala skoncentrować się na unikatowych alertach, analizowanie wzorców, łowiectwu zagrożeń i nie tylko.
 
 Aby zautomatyzować odpowiedzi:
 
-1. Wybierz alert, dla którego chcesz zautomatyzować odpowiedź.
-1. Na stronie **Reguła edytowania alertu** w obszarze **Automatyzacja w czasie rzeczywistym**wybierz **podręcznik Wyzwalany,** który chcesz uruchomić po dopasowaniu tej reguły alertu.
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz Alert, dla którego chcesz zautomatyzować odpowiedź.
+1. Na stronie **Edytowanie reguły alertu** w obszarze **Automatyzacja w czasie rzeczywistym**wybierz **wyzwolone element PlayBook** , które chcesz uruchomić po dopasowaniu tej reguły alertu.
+1. Wybierz pozycję **Zapisz**.
 
-   ![automatyzacja w czasie rzeczywistym](./media/tutorial-detect-threats/rt-configuration.png)
+   ![Automatyzacja w czasie rzeczywistym](./media/tutorial-detect-threats/rt-configuration.png)
 
 
 
@@ -117,6 +117,6 @@ Aby zautomatyzować odpowiedzi:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dowiesz się, jak uruchomić podręcznik w usłudze Azure Sentinel. Przejdź do [sposobu proaktywnego polowania na zagrożenia](hunting.md) za pomocą usługi Azure Sentinel.
+W tym samouczku przedstawiono sposób uruchamiania element PlayBook na platformie Azure. Przejdź do strony z [możliwością aktywnego wyszukiwania w poszukiwaniu zagrożeń](hunting.md) przy użyciu platformy Azure.
 
 

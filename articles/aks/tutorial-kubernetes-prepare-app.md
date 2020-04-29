@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: feab8495536b3306fd96793323d51644570b401b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77593164"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Samouczek: przygotowywanie aplikacji na potrzeby usługi Azure Kubernetes Service (AKS)
@@ -100,7 +100,7 @@ Zatrzymaj i usuń wystąpienia kontenerów i zasoby za pomocą polecenia [docker
 docker-compose down
 ```
 
-Po usunięciu aplikacji lokalnej, masz obraz platformy Docker, który zawiera aplikację Azure Vote, *azure-vote-front*, do użycia z następnym samouczkiem.
+Po usunięciu aplikacji lokalnej masz obraz *platformy*Docker zawierający aplikację do głosowania platformy Azure, na której będzie można korzystać w następnym samouczku.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -125,7 +125,7 @@ Przejdź do kolejnego samouczka, aby dowiedzieć się, jak przechowywać obrazy 
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/
 [docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
 [docker-compose-down]: https://docs.docker.com/compose/reference/down
-[Git]: https://git-scm.com/downloads
+[narzędzia]: https://git-scm.com/downloads
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md

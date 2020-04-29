@@ -1,5 +1,5 @@
 ---
-title: Ruch równoważenia obciążenia do maszyn wirtualnych dla wysokiej klasy — narzędzie interfejsu wiersza polecenia platformy Azure — moduł równoważenia obciążenia platformy Azure
+title: Równoważenie obciążenia ruchu z maszynami wirtualnymi na potrzeby usługi HA — interfejs wiersza polecenia platformy Azure — Azure Load Balancer
 description: Ten przykładowy skrypt wiersza polecenia platformy Azure przedstawia sposób równoważenia obciążenia ruchu do maszyn wirtualnych na potrzeby wysokiej dostępności
 services: load-balancer
 documentationcenter: load-balancer
@@ -12,10 +12,10 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
 ms.openlocfilehash: c0bfb5705989c99d3626d6e728b764e94f83fffe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74048926"
 ---
 # <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Przykładowy skrypt wiersza polecenia platformy Azure: równoważenie obciążenia ruchu do maszyn wirtualnych na potrzeby wysokiej dostępności

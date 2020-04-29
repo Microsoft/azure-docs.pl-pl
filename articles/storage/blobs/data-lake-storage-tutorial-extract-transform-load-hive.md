@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: wyodrębnianie, przekształcanie i ładowanie danych przy użyciu usługi Azure HDInsight'
+title: 'Samouczek: Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu usługi Azure HDInsight'
 description: W ramach tego samouczka dowiesz się, jak wyodrębnić dane z zestawu danych pierwotnych w postaci pliku CSV, przekształcić je za pomocą technologii Apache Hive w usłudze Azure HDInsight, a następnie załadować przekształcone dane do bazy danych Azure SQL Database za pomocą narzędzia Sqoop.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,24 +9,24 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74327574"
 ---
-# <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Samouczek: wyodrębnianie, przekształcanie i ładowanie danych przy użyciu usługi Azure HDInsight
+# <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Samouczek: Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu usługi Azure HDInsight
 
 W ramach tego samouczka wykonasz operację ETL: wyodrębnianie, przekształcanie i ładowanie danych. Pobierzesz plik danych pierwotnych w formacie CSV, zaimportujesz te dane do klastra usługi Azure HDInsight, przekształcisz je przy użyciu technologii Apache Hive i załadujesz do bazy danych Azure SQL Database za pomocą narzędzia Apache Sqoop.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wyodrębnianie danych i przekazywanie ich do klastra usługi HDInsight.
 > * Przekształcanie danych przy użyciu technologii Apache Hive.
 > * Ładowanie danych do bazy danych Azure SQL Database za pomocą narzędzia Sqoop.
 
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -34,15 +34,15 @@ Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://
 
     Zobacz [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
 
-* **Klaster Hadoop oparty na systemie Linux w programie HDInsight**
+* **Klaster Hadoop oparty na systemie Linux w usłudze HDInsight**
 
-    Zobacz [Szybki start: Wprowadzenie do Apache Hadoop i Apache Hive w usłudze Azure HDInsight przy użyciu portalu Azure.](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal)
+    Zobacz [Szybki Start: wprowadzenie do Apache Hadoop i Apache Hive w usłudze Azure HDInsight przy użyciu Azure Portal](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
 
-* **Usługa Azure SQL Database:** Używasz bazy danych SQL platformy Azure jako docelowego magazynu danych. Jeśli nie masz bazy danych SQL, zobacz [Tworzenie bazy danych Azure SQL Database w witrynie Azure Portal](../../sql-database/sql-database-get-started.md).
+* **Azure SQL Database**: usługa Azure SQL Database jest używana jako docelowy magazyn danych. Jeśli nie masz bazy danych SQL, zobacz [Tworzenie bazy danych Azure SQL Database w witrynie Azure Portal](../../sql-database/sql-database-get-started.md).
 
-* **Narzędzie CLI platformy Azure:** Jeśli nie zainstalowano interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* **Interfejs wiersza polecenia platformy Azure**: Jeśli nie zainstalowano interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* **Klient secure shell (SSH):** Aby uzyskać więcej informacji, zobacz [Łączenie się z HDInsight (Hadoop) przy użyciu funkcji SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Klient Secure Shell (SSH)**: Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z usługą HDInsight (Hadoop) przy użyciu protokołu SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>Pobieranie danych lotów
 
@@ -98,7 +98,7 @@ W tej sekcji przekażesz dane do klastra usługi HDInsight, a następnie skopiuj
    hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
    ```
 
-   Zastąp `<container-name>` symbol zastępczy nazwą, którą chcesz nadać kontenerowi.
+   Zastąp `<container-name>` symbol zastępczy nazwą, którą chcesz przypisać do kontenera.
 
    Zastąp symbol zastępczy `<storage-account-name>` nazwą konta magazynu.
 
@@ -122,13 +122,13 @@ W tej sekcji uruchomisz zadanie Apache Hive za pomocą usługi Beeline.
 
 W ramach zadania Apache Hive zaimportujesz dane z pliku csv do tabeli Apache Hive o nazwie **delays**.
 
-1. Z wiersza SSH, który masz już dla klastra HDInsight, użyj następującego polecenia, aby utworzyć i edytować nowy plik o nazwie **flightdelays.hql**:
+1. W wyświetlonym monicie SSH dla klastra usługi HDInsight Użyj następującego polecenia, aby utworzyć i edytować nowy plik o nazwie **flightdelays. HQL**:
 
    ```bash
    nano flightdelays.hql
    ```
 
-2. Zmodyfikuj `<container-name>` następujący `<storage-account-name>` tekst, zastępując symbole zastępcze nazwą kontenera i konta magazynu. Następnie skopiuj i wklej tekst do konsoli programu nano, klikając prawym przyciskiem myszy przy naciśniętym klawiszu SHIFT.
+2. Zmodyfikuj następujący tekst, zastępując symbole `<container-name>` zastępcze `<storage-account-name>` i nazwą swojego kontenera i konta magazynu. Następnie skopiuj i wklej tekst do konsoli programu nano, klikając prawym przyciskiem myszy przy naciśniętym klawiszu SHIFT.
 
     ```hiveql
     DROP TABLE delays_raw;
@@ -226,7 +226,7 @@ W ramach zadania Apache Hive zaimportujesz dane z pliku csv do tabeli Apache Hiv
 
 Aby wykonać tę operację, musisz dysponować nazwą serwera bazy danych SQL Database. Wykonaj następujące kroki, aby znaleźć nazwę serwera.
 
-1. Przejdź do [witryny Azure portal](https://portal.azure.com).
+1. Przejdź do [Azure Portal](https://portal.azure.com).
 
 2. Wybierz pozycję **Bazy danych SQL**.
 
@@ -234,7 +234,7 @@ Aby wykonać tę operację, musisz dysponować nazwą serwera bazy danych SQL Da
 
 4. Filtruj listę według nazwy bazy danych, której chcesz użyć. Nazwa serwera jest wyświetlana w kolumnie **Nazwa serwera**.
 
-    ![Uzyskaj szczegółowe informacje o serwerze SQL platformy Azure](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Uzyskaj szczegółowe informacje o serwerze SQL platformy Azure")
+    ![Pobierz szczegóły programu Azure SQL Server](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Pobierz szczegóły programu Azure SQL Server")
 
     Istnieje wiele sposobów nawiązywania połączenia z bazą danych SQL i tworzenia tabeli. W poniższej procedurze użyto rozwiązania [FreeTDS](https://www.freetds.org/) z klastra usługi HDInsight.
 
@@ -344,4 +344,4 @@ Wszystkie zasoby używane w tym samouczku istniały już wcześniej. Oczyszczani
 Aby poznać więcej sposobów pracy z danymi w usłudze HDInsight, zobacz następujący artykuł:
 
 > [!div class="nextstepaction"]
-> [Korzystanie z usługi Azure Data Lake Storage Gen2 z klastrami usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Używanie Azure Data Lake Storage Gen2 z klastrami usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

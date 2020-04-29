@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie replikacji transakcyjnej między dwoma wystąpieniami zarządzanymi a programem SQL Server
-description: Samouczek, który konfiguruje replikację między wystąpieniem zarządzanym programu Publisher, wystąpieniem zarządzanym dystrybutora i subskrybentem programu SQL Server na maszynie Wirtualnej platformy Azure, wraz z niezbędnymi składnikami sieciowymi, takimi jak prywatna strefa DNS i komunikacja równorzędna sieci VPN.
+title: Skonfiguruj replikację transakcyjną między dwoma wystąpieniami zarządzanymi i SQL Server
+description: Samouczek, który konfiguruje replikację między wystąpieniem zarządzanym przez wydawcę, wystąpieniem zarządzanym przez dystrybutora i subskrybentem SQL Server na maszynie wirtualnej platformy Azure oraz niezbędnymi składnikami sieciowymi, takimi jak prywatna strefa DNS i Komunikacja równorzędna sieci VPN.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,42 +10,42 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
 ms.openlocfilehash: fa6e393500e9deeb91ee84aa5255320003817f08
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76719895"
 ---
-# <a name="tutorial-configure-transactional-replication-between-two-managed-instances-and-sql-server"></a>Samouczek: Konfigurowanie replikacji transakcyjnej między dwoma wystąpieniami zarządzanymi a programem SQL Server
+# <a name="tutorial-configure-transactional-replication-between-two-managed-instances-and-sql-server"></a>Samouczek: Konfigurowanie replikacji transakcyjnej między dwoma wystąpieniami zarządzanymi i SQL Server
 
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> - Konfigurowanie wystąpienia zarządzanego jako wydawcy replikacji. 
-> - Konfigurowanie wystąpienia zarządzanego jako dystrybutora replikacji. 
-> - Konfigurowanie programu SQL Server jako subskrybenta. 
+> - Skonfiguruj wystąpienie zarządzane jako wydawcę replikacji. 
+> - Skonfiguruj wystąpienie zarządzane jako dystrybutora replikacji. 
+> - Skonfiguruj SQL Server jako subskrybenta. 
 
-![Replikacja między pubem SQL MI, identyfikatorem SQL MI i podprogramem SQL Server](media/sql-database-managed-instance-failover-group-tutorial/sqlmi-to-sql-replication.png)
+![Replikacja między programem SQL a zapubmi, programem SQL MI a SQL Server sub](media/sql-database-managed-instance-failover-group-tutorial/sqlmi-to-sql-replication.png)
 
-Ten samouczek jest przeznaczony dla doświadczonych odbiorców i zakłada, że użytkownik jest zaznajomiony z wdrażaniem i łączeniem się z obu wystąpień zarządzanych i maszyn wirtualnych programu SQL Server na platformie Azure. W związku z tym niektóre kroki w tym samouczku są błyszczące. 
+Ten samouczek jest przeznaczony dla doświadczonych odbiorców i zakłada, że użytkownik zna wdrażanie i łączenie się z obydwoma wystąpieniami zarządzanymi oraz SQL Server maszyn wirtualnych na platformie Azure. W związku z tym niektóre kroki tego samouczka są w sposób błyszczący. 
 
-Aby dowiedzieć się więcej, zobacz [omówienie wystąpienia zarządzanego bazy danych SQL platformy Azure](sql-database-managed-instance-index.yml)— [możliwości](sql-database-managed-instance.md)i artykuły [replikacji transakcyjnej SQL.](sql-database-managed-instance-transactional-replication.md)
+Aby dowiedzieć się więcej, zobacz [Omówienie wystąpienia zarządzanego Azure SQL Database](sql-database-managed-instance-index.yml), [możliwości](sql-database-managed-instance.md)i artykuły dotyczące [replikacji transakcyjnej SQL](sql-database-managed-instance-transactional-replication.md) .
 
-Aby skonfigurować replikację między wydawcą wystąpienia zarządzanego a subskrybentem wystąpienia zarządzanego, zobacz [Konfigurowanie replikacji transakcyjnej między dwoma wystąpieniami zarządzanymi](replication-with-sql-database-managed-instance.md). 
+Aby skonfigurować replikację między wydawcą wystąpienia zarządzanego i subskrybentem wystąpienia zarządzanego, zobacz [Konfigurowanie replikacji transakcyjnej między dwoma wystąpieniami zarządzanymi](replication-with-sql-database-managed-instance.md). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten samouczek, upewnij się, że dysponujesz następującymi elementami:
 
 - [Subskrypcja platformy Azure](https://azure.microsoft.com/free/). 
-- Środowisko wdrażania dwóch wystąpień zarządzanych w tej samej sieci wirtualnej. 
-- Subskrybent programu SQL Server lokalnie lub na maszynie wirtualnej platformy Azure. W tym samouczku użyto maszyny Wirtualnej platformy Azure.  
-- [SQL Server Management Studio (SSMS) 18.0 lub więcej](/sql/ssms/download-sql-server-management-studio-ssms).
-- Najnowsza wersja [programu Azure Powershell](/powershell/azure/install-az-ps?view=azps-1.7.0).
-- Porty 445 i 1433 umożliwiają ruch SQL zarówno na Zaporze platformy Azure, jak i w Zaporze systemu Windows. 
+- Środowisko pracy z wdrażaniem dwóch wystąpień zarządzanych w ramach tej samej sieci wirtualnej. 
+- Subskrybent SQL Server, lokalna lub maszyna wirtualna platformy Azure. Ten samouczek używa maszyny wirtualnej platformy Azure.  
+- [SQL Server Management Studio (SSMS) 18,0 lub nowszy](/sql/ssms/download-sql-server-management-studio-ssms).
+- Najnowsza wersja programu [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0).
+- Port 445 i 1433 zezwalają na ruch SQL zarówno w zaporze platformy Azure, jak i w zaporze systemu Windows. 
 
-## <a name="1---create-the-resource-group"></a>1 - Tworzenie grupy zasobów
+## <a name="1---create-the-resource-group"></a>1 — Tworzenie grupy zasobów
 Aby utworzyć nową grupę zasobów, użyj następującego fragmentu kodu programu PowerShell:
 
 ```powershell-interactive
@@ -57,31 +57,31 @@ $Location = "East US 2"
 New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 ```
 
-## <a name="2---create-two-managed-instances"></a>2 - Tworzenie dwóch wystąpień zarządzanych
-Utwórz dwa wystąpienia zarządzane w ramach tej nowej grupy zasobów za pomocą [portalu Azure](https://portal.azure.com). 
+## <a name="2---create-two-managed-instances"></a>2 — Tworzenie dwóch wystąpień zarządzanych
+Utwórz dwa wystąpienia zarządzane w ramach tej nowej grupy zasobów przy użyciu [Azure Portal](https://portal.azure.com). 
 
-- Nazwa wystąpienia zarządzanego wydawcy `sql-mi-publisher` powinna być: (wraz z kilkoma znakami do randomizacji) i nazwa sieci wirtualnej powinna być `vnet-sql-mi-publisher`.
-- Nazwa wystąpienia zarządzanego dystrybutora `sql-mi-distributor` powinna być następująca: (wraz z kilkoma znakami do randomizacji) i powinna znajdować się _w tej samej sieci wirtualnej, co wystąpienie zarządzane przez wydawcę._
+- Nazwa wystąpienia zarządzanego przez wydawcę powinna być: `sql-mi-publisher` (wraz z kilkoma znakami w przypadku losowego) i nazwą sieci wirtualnej powinna być `vnet-sql-mi-publisher`.
+- Nazwa wystąpienia zarządzanego dystrybutora powinna być następująca: `sql-mi-distributor` (wraz z kilkoma znakami w przypadku losowego) i powinna znajdować się w tej _samej sieci wirtualnej co wystąpienie zarządzane wydawcy_.
 
-   ![Użyj sieci wirtualnej wydawcy dla dystrybutora](media/sql-database-managed-instance-configure-replication-tutorial/use-same-vnet-for-distributor.png)
+   ![Korzystanie z sieci wirtualnej wydawcy dla dystrybutora](media/sql-database-managed-instance-configure-replication-tutorial/use-same-vnet-for-distributor.png)
 
 Aby uzyskać więcej informacji na temat tworzenia wystąpienia zarządzanego, zobacz [Tworzenie wystąpienia zarządzanego w portalu](sql-database-managed-instance-get-started.md)
 
   > [!NOTE]
-  > Ze względu na prostotę i ponieważ jest to najbardziej powszechna konfiguracja, ten samouczek sugeruje umieszczenie wystąpienia zarządzanego dystrybutora w tej samej sieci wirtualnej co wydawca. Istnieje jednak możliwość utworzenia dystrybutora w osobnej sieci wirtualnej. Aby to zrobić, należy skonfigurować komunikację równorzędnych sieci VPN między sieciami wirtualnymi wydawcy i dystrybutora, a następnie skonfigurować komunikację równorzędnych sieci VPN między sieciami wirtualnymi dystrybutora i subskrybenta. 
+  > W celu uproszczenia i ponieważ jest to najbardziej powszechna konfiguracja, w tym samouczku sugeruje się umieszczenie wystąpienia zarządzanego dystrybutora w tej samej sieci wirtualnej co Wydawca. Można jednak utworzyć dystrybutora w oddzielnej sieci wirtualnej. W tym celu należy skonfigurować komunikację równorzędną sieci VPN między sieciami wirtualnymi wydawcy i dystrybutora, a następnie skonfigurować komunikację równorzędną sieci VPN między sieciami wirtualnymi dystrybutora i subskrybenta. 
 
-## <a name="3---create-a-sql-server-vm"></a>3 - Tworzenie maszyny Wirtualnej programu SQL Server
-Utwórz maszynę wirtualną programu SQL Server za pomocą [portalu Azure](https://portal.azure.com). Maszyna wirtualna programu SQL Server powinna mieć następujące właściwości:
+## <a name="3---create-a-sql-server-vm"></a>3 — Tworzenie maszyny wirtualnej SQL Server
+Utwórz SQL Server maszynę wirtualną przy użyciu [Azure Portal](https://portal.azure.com). Maszyna wirtualna SQL Server powinna mieć następującą charakterystykę:
 
-- Nazwa:`sql-vm-sub`
+- Nazwij`sql-vm-sub`
 - Obraz: SQL Server 2016 lub większy
-- Grupa zasobów: taka sama jak wystąpienie zarządzane
+- Grupa zasobów: taka sama jak w przypadku wystąpienia zarządzanego
 - Sieć wirtualna:`sql-vm-sub-vnet` 
 
-Aby uzyskać więcej informacji na temat wdrażania maszyny Wirtualnej programu SQL Server na platformie Azure, zobacz [Szybki start: Tworzenie maszyny Wirtualnej programu SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md).
+Aby uzyskać więcej informacji na temat wdrażania SQL Server maszyny wirtualnej na platformie Azure, zobacz [Szybki Start: tworzenie SQL Server maszynie wirtualnej](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md).
 
-## <a name="4---configure-vpn-peering"></a>4 - Konfigurowanie komunikacji równorzędnej sieci VPN
-Skonfiguruj komunikację równorzędnych sieci VPN, aby włączyć komunikację między siecią wirtualną dwóch wystąpień zarządzanych a siecią wirtualną programu SQL Server. Aby to zrobić, należy użyć tego fragmentu kodu programu PowerShell:
+## <a name="4---configure-vpn-peering"></a>4 — Konfigurowanie komunikacji równorzędnej sieci VPN
+Skonfiguruj komunikację równorzędną sieci VPN w celu umożliwienia komunikacji między siecią wirtualną dwóch wystąpień zarządzanych i sieci wirtualnej SQL Server. Aby to zrobić, użyj tego fragmentu kodu programu PowerShell:
 
 ```powershell-interactive
 # Set variables
@@ -126,53 +126,53 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
-Po ustanowieniu komunikacji równorzędnej sieci VPN przetestuj łączność, uruchamiając program SQL Server Management Studio (SSMS) w programie SQL Server i łącząc się z obydwoma wystąpieniami zarządzanymi. Aby uzyskać więcej informacji na temat łączenia się z wystąpieniem zarządzanym przy użyciu usługi SSMS, zobacz [Łączenie się z mi za pomocą sms.](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance) 
+Po ustanowieniu komunikacji równorzędnej sieci VPN Przetestuj połączenie, uruchamiając SQL Server Management Studio (SSMS) na SQL Server i łącząc się z obydwoma wystąpieniami zarządzanymi. Aby uzyskać więcej informacji na temat nawiązywania połączenia z wystąpieniem zarządzanym przy użyciu programu SSMS, zobacz temat [Używanie programu SSMS do nawiązywania połączenia z usługą mi](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance). 
 
 ![Testowanie łączności z wystąpieniami zarządzanymi](media/sql-database-managed-instance-configure-replication-tutorial/test-connectivity-to-mi.png)
 
-## <a name="5---create-private-dns-zone"></a>5 - Tworzenie prywatnej strefy DNS
+## <a name="5---create-private-dns-zone"></a>5 — Tworzenie prywatnej strefy DNS
 
-Prywatna strefa DNS umożliwia routing DNS między wystąpieniami zarządzanymi a programem SQL Server. 
+Prywatna strefa DNS umożliwia routing DNS między wystąpieniami zarządzanymi i SQL Server. 
 
-### <a name="create-private-dns-zone"></a>Tworzenie prywatnej strefy DNS
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com).
-1. Wybierz **pozycję Utwórz zasób,** aby utworzyć nowy zasób platformy Azure. 
-1. Szukaj `private dns zone` w portalu Azure Marketplace. 
-1. Wybierz zasób **strefy dns prywatny** opublikowany przez firmę Microsoft, a następnie wybierz pozycję **Utwórz,** aby utworzyć strefę DNS. 
+### <a name="create-private-dns-zone"></a>Utwórz prywatną strefę DNS
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
+1. Wybierz pozycję **Utwórz zasób** , aby utworzyć nowy zasób platformy Azure. 
+1. Wyszukaj `private dns zone` w witrynie Azure Marketplace. 
+1. Wybierz zasób **strefy prywatna strefa DNS** Opublikowany przez firmę Microsoft, a następnie wybierz pozycję **Utwórz** , aby utworzyć strefę DNS. 
 1. Wybierz subskrypcję i grupę zasobów z listy rozwijanej. 
-1. Podaj dowolną nazwę strefy DNS, taką jak `repldns.com`. 
+1. Podaj arbitralną nazwę strefy DNS, `repldns.com`na przykład. 
 
-   ![Tworzenie prywatnej strefy DNS](media/sql-database-managed-instance-configure-replication-tutorial/create-private-dns-zone.png)
+   ![Utwórz prywatną strefę DNS](media/sql-database-managed-instance-configure-replication-tutorial/create-private-dns-zone.png)
 
-1. Wybierz pozycję **Przegląd + utwórz**. Przejrzyj parametry prywatnej strefy DNS, a następnie wybierz pozycję **Utwórz,** aby utworzyć zasób. 
+1. Wybierz pozycję **Przegląd + utwórz**. Przejrzyj parametry prywatnej strefy DNS, a następnie wybierz pozycję **Utwórz** , aby utworzyć zasób. 
 
 ### <a name="create-a-record"></a>Tworzenie rekordu
 
-1. Przejdź do nowej **prywatnej strefy DNS** i wybierz **pozycję Przegląd**. 
-1. Wybierz **+ Zestaw rekordów,** aby utworzyć nowy rekord A. 
-1. Podaj nazwę maszyny Wirtualnej programu SQL Server oraz prywatny wewnętrzny adres IP. 
+1. Przejdź do nowej **strefy prywatna strefa DNS** i wybierz pozycję **Przegląd**. 
+1. Wybierz pozycję **+ zestaw rekordów** , aby utworzyć nowy rekord a. 
+1. Podaj nazwę maszyny wirtualnej SQL Server, a także prywatny wewnętrzny adres IP. 
 
-   ![Konfigurowanie rekordu A](media/sql-database-managed-instance-configure-replication-tutorial/configure-a-record.png)
+   ![Konfigurowanie rekordu](media/sql-database-managed-instance-configure-replication-tutorial/configure-a-record.png)
 
-1. Wybierz **przycisk OK,** aby utworzyć rekord A. 
+1. Wybierz **przycisk OK** , aby utworzyć rekord A. 
 
 ### <a name="link-the-virtual-network"></a>Łączenie sieci wirtualnej
 
-1. Przejdź do nowej **prywatnej strefy DNS** i wybierz **pozycję Łącza sieci wirtualnej**. 
+1. Przejdź do nowej **strefy prywatna strefa DNS** i wybierz pozycję **linki sieci wirtualnej**. 
 1. Wybierz pozycję **+ Dodaj**. 
-1. Podaj nazwę łącza, `Pub-link`na przykład . 
-1. Wybierz subskrypcję z listy rozwijanej, a następnie wybierz sieć wirtualną dla wystąpienia zarządzanego przez wydawcę. 
-1. Zaznacz pole wyboru obok pozycji **Włącz automatyczną rejestrację**. 
+1. Podaj nazwę łącza, na przykład `Pub-link`. 
+1. Wybierz subskrypcję z listy rozwijanej, a następnie wybierz sieć wirtualną dla wystąpienia zarządzanego wydawcy. 
+1. Zaznacz pole wyboru obok pozycji **Włącz autorejestrację**. 
 
-   ![Tworzenie łącza sieci vnet](media/sql-database-managed-instance-configure-replication-tutorial/configure-vnet-link.png)
+   ![Utwórz łącze sieci wirtualnej](media/sql-database-managed-instance-configure-replication-tutorial/configure-vnet-link.png)
 
-1. Wybierz **przycisk OK,** aby połączyć sieć wirtualną. 
-1. Powtórz te kroki, aby dodać łącze dla sieci wirtualnej subskrybenta o nazwie, takiej jak `Sub-link`. 
+1. Wybierz **przycisk OK** , aby połączyć sieć wirtualną. 
+1. Powtórz te kroki, aby dodać łącze dla sieci wirtualnej subskrybenta z nazwą, taką jak `Sub-link`. 
 
 
-## <a name="6---create-azure-storage-account"></a>6 - Tworzenie konta usługi Azure Storage
+## <a name="6---create-azure-storage-account"></a>6 — Tworzenie konta usługi Azure Storage
 
-[Utwórz konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) dla katalogu roboczego, a następnie utwórz udział [plików](../storage/files/storage-how-to-create-file-share.md) na koncie magazynu. 
+[Utwórz konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) dla katalogu roboczego, a następnie Utwórz [udział plików](../storage/files/storage-how-to-create-file-share.md) na koncie magazynu. 
 
 Skopiuj ścieżkę udziału plików w formacie:`\\storage-account-name.file.core.windows.net\file-share-name`   
 
@@ -186,12 +186,12 @@ Przykład: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dY
 Aby uzyskać więcej informacji, zobacz [Zarządzanie kluczami dostępu do konta magazynu](../storage/common/storage-account-keys-manage.md). 
 
 
-## <a name="7---create-a-database"></a>7 - Tworzenie bazy danych
-Utwórz nową bazę danych w programie PUBLISHER MI. Aby to zrobić, wykonaj następujące kroki:
+## <a name="7---create-a-database"></a>7. Tworzenie bazy danych
+Utwórz nową bazę danych na wydawcy MI. Aby to zrobić, wykonaj następujące kroki:
 
-1. Uruchom program SQL Server Management Studio (SSMS) na serwerze SQL Server. 
-1. Połącz `sql-mi-publisher` się z wystąpieniem zarządzanym. 
-1. Otwórz okno **Nowe zapytanie** i wykonaj następującą kwerendę T-SQL, aby utworzyć bazę danych:
+1. Na SQL Server uruchom SQL Server Management Studio (SSMS). 
+1. Nawiąż połączenie `sql-mi-publisher` z wystąpieniem zarządzanym. 
+1. Otwórz **nowe okno zapytania** i wykonaj następujące zapytanie T-SQL, aby utworzyć bazę danych:
 
 ```sql
 -- Create the databases
@@ -233,12 +233,12 @@ SELECT * FROM ReplTest
 GO
 ```
 
-## <a name="8---configure-distribution"></a>8 - Konfigurowanie dystrybucji 
-Po ustanowieniu łączności i masz przykładową bazę danych, `sql-mi-distributor` można skonfigurować dystrybucję w wystąpieniu zarządzanym. Aby to zrobić, wykonaj następujące kroki:
+## <a name="8---configure-distribution"></a>8 — Konfigurowanie dystrybucji 
+Po nawiązaniu połączenia z przykładową bazą danych można skonfigurować dystrybucję na `sql-mi-distributor` zarządzanym wystąpieniu. Aby to zrobić, wykonaj następujące kroki:
 
-1. Uruchom program SQL Server Management Studio (SSMS) na serwerze SQL Server. 
-1. Połącz `sql-mi-distributor` się z wystąpieniem zarządzanym. 
-1. Otwórz okno **Nowe zapytanie** i uruchom następujący kod Transact-SQL, aby skonfigurować dystrybucję w wystąpieniu zarządzanym dystrybutora: 
+1. Na SQL Server uruchom SQL Server Management Studio (SSMS). 
+1. Nawiąż połączenie `sql-mi-distributor` z wystąpieniem zarządzanym. 
+1. Otwórz **nowe okno zapytania** i uruchom następujący kod języka Transact-SQL w celu skonfigurowania dystrybucji na wystąpieniu zarządzanym dystrybutora: 
 
    ```sql
    EXEC sp_adddistpublisher @publisher = 'sql-mi-publisher.b6bf57.database.windows.net', -- primary publisher
@@ -253,10 +253,10 @@ Po ustanowieniu łączności i masz przykładową bazę danych, `sql-mi-distribu
    ```
 
    > [!NOTE]
-   > Pamiętaj, aby użyć tylko ukośników odwrotnych (`\`) dla tego parametru. @working_directory Użycie ukośnika do przodu (`/`) może spowodować błąd podczas łączenia się z udziałem plików. 
+   > Upewnij się, @working_directory że dla parametru są używane tylko`\`ukośniki odwrotne (). Użycie ukośnika (`/`) może spowodować błąd podczas nawiązywania połączenia z udziałem plików. 
 
-1. Połącz `sql-mi-publisher` się z wystąpieniem zarządzanym. 
-1. Otwórz okno **Nowe zapytanie** i uruchom następujący kod Transact-SQL, aby zarejestrować dystrybutora u wydawcy: 
+1. Nawiąż połączenie `sql-mi-publisher` z wystąpieniem zarządzanym. 
+1. Otwórz **nowe okno zapytania** i uruchom następujący kod języka Transact-SQL w celu zarejestrowania dystrybutora na wydawcy: 
 
 ```sql
 Use MASTER
@@ -264,34 +264,34 @@ EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.wi
 ```
 
 
-## <a name="9---create-the-publication"></a>9 - Tworzenie publikacji
-Po skonfigurowaniu dystrybucji można teraz utworzyć publikację. Aby to zrobić, wykonaj następujące kroki: 
+## <a name="9---create-the-publication"></a>9 — Tworzenie publikacji
+Po skonfigurowaniu dystrybucji możesz teraz utworzyć publikację. Aby to zrobić, wykonaj następujące kroki: 
 
-1. Uruchom program SQL Server Management Studio (SSMS) na serwerze SQL Server. 
-1. Połącz `sql-mi-publisher` się z wystąpieniem zarządzanym. 
-1. W **Eksploratorze obiektów**rozwiń węzeł **Replikacja** i kliknij prawym przyciskiem myszy folder **Publikacja lokalna.** Wybierz **nową publikację...**. 
-1. Wybierz **przycisk Dalej,** aby przejść obok strony powitalnej. 
-1. Na stronie Baza danych `ReplTutorial` **publikacji** wybierz wcześniej utworzoną bazę danych. Wybierz **pozycję Dalej**. 
-1. Na stronie **Typ publikacji** wybierz pozycję **Publikacja transakcyjna**. Wybierz **pozycję Dalej**. 
-1. Na stronie **Artykuły** zaznacz pole wyboru obok **pozycji Tabele**. Wybierz **pozycję Dalej**. 
-1. Na stronie **Wiersze tabeli filtrowania** wybierz pozycję **Dalej** bez dodawania filtrów. 
-1. Na stronie **Agent migawek** zaznacz pole wyboru **przycisk Utwórz migawkę natychmiast i zachowaj dostęp migawki do zainicjowania subskrypcji**. Wybierz **pozycję Dalej**. 
-1. Na stronie **Zabezpieczenia agenta** wybierz pozycję **Ustawienia zabezpieczeń..**. Podaj poświadczenia logowania programu SQL Server do użycia dla agenta migawki i aby połączyć się z wydawcą. Wybierz **przycisk OK,** aby zamknąć stronę **Zabezpieczenia agenta migawki.** Wybierz **pozycję Dalej**. 
+1. Na SQL Server uruchom SQL Server Management Studio (SSMS). 
+1. Nawiąż połączenie `sql-mi-publisher` z wystąpieniem zarządzanym. 
+1. W **Eksplorator obiektów**rozwiń węzeł **replikacja** , a następnie kliknij prawym przyciskiem myszy folder **publikacja lokalna** . Wybierz **nową publikację.**.. 
+1. Wybierz pozycję **dalej** , aby przejść poza stronę powitalną. 
+1. Na stronie **baza danych publikacji** Wybierz utworzoną wcześniej `ReplTutorial` bazę danych. Wybierz pozycję **Dalej**. 
+1. Na stronie **Typ publikacji** wybierz pozycję **publikacja transakcyjna**. Wybierz pozycję **Dalej**. 
+1. Na stronie **artykuły** zaznacz pole wyboru obok pozycji **tabele**. Wybierz pozycję **Dalej**. 
+1. Na stronie **Filtruj wiersze tabeli** wybierz pozycję **dalej** bez dodawania filtrów. 
+1. Na stronie **Agent migawek** zaznacz pole wyboru obok pozycji **Utwórz migawkę natychmiast i Zachowaj dostępność migawki w celu zainicjowania subskrypcji**. Wybierz pozycję **Dalej**. 
+1. Na stronie **zabezpieczenia agenta** wybierz pozycję **Ustawienia zabezpieczeń..**. Podaj poświadczenia logowania SQL Server, które mają być używane dla agenta migawek, i Połącz się z wydawcą. Wybierz **przycisk OK** , aby zamknąć stronę **zabezpieczenia agenta migawek** . Wybierz pozycję **Dalej**. 
 
-   ![Konfigurowanie zabezpieczeń agenta migawek](media/sql-database-managed-instance-configure-replication-tutorial/snapshot-agent-security.png)
+   ![Konfiguruj zabezpieczenia agenta migawek](media/sql-database-managed-instance-configure-replication-tutorial/snapshot-agent-security.png)
 
-1. Na stronie **Akcje kreatora** wybierz pozycję **Utwórz publikację** i (opcjonalnie) wybierz opcję **Generowanie pliku skryptu z instrukcjami tworzenia publikacji,** jeśli chcesz zapisać ten skrypt na później. 
-1. Na stronie **Ukończono Kreator** nazwij publikację `ReplTest` i wybierz pozycję **Dalej,** aby utworzyć publikację. 
-1. Po utworzeniu publikacji odśwież węzeł **Replikacja** w **Eksploratorze obiektów** i rozwiń pozycję **Publikacje lokalne,** aby wyświetlić nową publikację. 
+1. Na stronie **Akcje kreatora** wybierz opcję **utworzenia publikacji** i (opcjonalnie) wybierz opcję **wygenerowania pliku skryptu z krokami utworzenia publikacji** , jeśli chcesz zapisać ten skrypt w późniejszym czasie. 
+1. Na stronie **Kończenie pracy Kreatora** Nadaj nazwę publikacji `ReplTest` i wybierz pozycję **dalej** , aby utworzyć publikację. 
+1. Po utworzeniu publikacji Odśwież węzeł **replikacja** w **Eksplorator obiektów** i rozwiń pozycję **Publikacje lokalne** , aby wyświetlić nową publikację. 
 
 
-## <a name="10---create-the-subscription"></a>10 - Tworzenie subskrypcji 
+## <a name="10---create-the-subscription"></a>10 — Tworzenie subskrypcji 
 
 Po utworzeniu publikacji można utworzyć subskrypcję. Aby to zrobić, wykonaj następujące kroki: 
 
-1. Uruchom program SQL Server Management Studio (SSMS) na serwerze SQL Server. 
-1. Połącz `sql-mi-publisher` się z wystąpieniem zarządzanym. 
-1. Otwórz okno **Nowe zapytanie** i uruchom następujący kod Transact-SQL, aby dodać agenta subskrypcji i dystrybucji. Użyj systemu DNS jako części nazwy subskrybenta. 
+1. Na SQL Server uruchom SQL Server Management Studio (SSMS). 
+1. Nawiąż połączenie `sql-mi-publisher` z wystąpieniem zarządzanym. 
+1. Otwórz **nowe okno zapytania** i uruchom następujący kod języka Transact-SQL, aby dodać subskrypcję i agenta dystrybucji. Użyj usługi DNS jako części nazwy subskrybenta. 
 
 ```sql
 use [ReplTutorial]
@@ -318,18 +318,18 @@ exec sp_addpushsubscription_agent
 GO
 ```
 
-## <a name="11---test-replication"></a>11 - Replikacja testowa 
+## <a name="11---test-replication"></a>replikacja 11-testowa 
 
-Po skonfigurowaniu replikacji można ją przetestować, wstawiając nowe elementy do wydawcy i obserwując, jak zmiany są propagowane przez subskrybenta. 
+Po skonfigurowaniu replikacji można testować ją, wstawiając nowe elementy na wydawcy i obserwując zmiany propagowane do subskrybenta. 
 
-Uruchom następujący fragment kodu T-SQL, aby wyświetlić wiersze na subskrybenta:
+Uruchom Poniższy fragment kodu T-SQL, aby wyświetlić wiersze na subskrybencie:
 
 ```sql
 Use ReplSub
 select * from dbo.ReplTest
 ```
 
-Uruchom następujący fragment kodu T-SQL, aby wstawić dodatkowe wiersze w wydawcy, a następnie ponownie sprawdź wiersze subskrybenta. 
+Uruchom Poniższy fragment kodu T-SQL, aby wstawić dodatkowe wiersze na wydawcy, a następnie ponownie sprawdzić wiersze na subskrybencie. 
 
 ```sql
 Use ReplTutorial
@@ -338,36 +338,36 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-1. Przejdź do grupy zasobów w [witrynie Azure portal](https://portal.azure.com). 
-1. Wybierz wystąpienia zarządzane, a następnie wybierz pozycję **Usuń**. Wpisz `yes` pole tekstowe, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. Ten proces może zająć trochę czasu, aby zakończyć w tle, a dopóki nie zostanie zrobione, nie będzie można usunąć *wirtualnego klastra* lub innych zasobów zależnych. Monitoruj usuwanie na karcie Działanie, aby potwierdzić, że wystąpienie zarządzane zostało usunięte. 
-1. Po usunięciu wystąpienia zarządzanego usuń *klaster wirtualny,* zaznaczając go w grupie zasobów, a następnie wybierając pozycję **Usuń**. Wpisz `yes` pole tekstowe, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. 
-1. Usuń wszystkie pozostałe zasoby. Wpisz `yes` pole tekstowe, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. 
-1. Usuń grupę zasobów, wybierając pozycję **Usuń grupę zasobów,** wpisując nazwę grupy zasobów, `myResourceGroup`a następnie wybierając polecenie **Usuń**. 
+1. Przejdź do grupy zasobów w [Azure Portal](https://portal.azure.com). 
+1. Wybierz wystąpienia zarządzane, a następnie wybierz pozycję **Usuń**. Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. Ukończenie tego procesu może potrwać trochę czasu w tle i do momentu wykonania operacji "s" nie będzie można usunąć *klastra wirtualnego* ani żadnych innych zasobów zależnych. Monitoruj pozycję Usuń na karcie działanie, aby potwierdzić, że zarządzane wystąpienie zostało usunięte. 
+1. Po usunięciu wystąpienia zarządzanego Usuń *klaster wirtualny* , wybierając go w grupie zasobów, a następnie wybierając pozycję **Usuń**. Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. 
+1. Usuń wszystkie pozostałe zasoby. Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. 
+1. Aby usunąć grupę zasobów, wybierz pozycję **Usuń grupę zasobów**, wpisz nazwę grupy zasobów, `myResourceGroup`a następnie wybierz pozycję **Usuń**. 
 
 ## <a name="known-errors"></a>Znane błędy
 
-### <a name="windows-logins-are-not-supported"></a>Logowania systemu Windows nie są obsługiwane
+### <a name="windows-logins-are-not-supported"></a>Nazwy logowania systemu Windows nie są obsługiwane
 
 `Exception Message: Windows logins are not supported in this version of SQL Server.`
 
-Agent został skonfigurowany przy użyciu logowania systemu Windows i zamiast tego musi używać logowania programu SQL Server. Użyj **strony Zabezpieczenia agenta** **właściwości publikacji,** aby zmienić poświadczenia logowania na identyfikator SQL Server. 
+Agent został skonfigurowany przy użyciu logowania systemu Windows i w zamian musi używać logowania SQL Server. Na stronie **zabezpieczenia agenta** **Właściwości publikacji** można zmienić poświadczenia logowania na nazwę logowania SQL Server. 
 
 
-### <a name="failed-to-connect-to-azure-storage"></a>Nie można połączyć się z usługą Azure Storage
+### <a name="failed-to-connect-to-azure-storage"></a>Nie można nawiązać połączenia z usługą Azure Storage
 
 
 `Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare' Failed to connect to Azure Storage '' with OS error: 53.`
 
-2019-11-19 02:21:05.07 Otrzymany ciąg połączenia usługi Azure Storage dla replstorage 2019-11-19 02:21:05.07 Łączenie się z Usługa Azure Files Storage '\\replstorage.file.core.windows.net\replshare' 2019-11-19 02:21:31.21 Nie można połączyć się z usługą Azure Storage '' z błędem systemu operacyjnego: 53.
+2019-11-19 02:21:05.07 uzyskano parametry połączenia usługi Azure Storage dla replstorage 2019-11-19 02:21:05.07 łączenie z usługą\\Azure Files Storage "replstorage. plik. Core. Windows. net\replshare" 2019-11-19 02:21:31.21 nie można nawiązać połączenia z usługą Azure Storage "" z powodu błędu systemu operacyjnego: 53.
 
 
-Jest to prawdopodobne, ponieważ port 445 jest zamknięty w zaporze platformy Azure, zaporze systemu Windows lub obu. 
+Jest to możliwe, ponieważ port 445 jest zamknięty w zaporze platformy Azure, w zaporze systemu Windows lub w obu tych przypadkach. 
 
 `Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare' Failed to connect to Azure Storage '' with OS error: 55.`
 
-Użycie ukośnika do przodu zamiast ukośnika odwrotnego w ścieżce pliku dla udziału plików może spowodować ten błąd. To jest `\\replstorage.file.core.windows.net\replshare` w porządku: Może to spowodować błąd systemu operacyjnego 55:`'\\replstorage.file.core.windows.net/replshare'`
+Użycie ukośnika zamiast ukośnika odwrotnego w ścieżce pliku dla udziału plików może spowodować wystąpienie tego błędu. To nie jest możliwe `\\replstorage.file.core.windows.net\replshare` : może to spowodować błąd systemu operacyjnego 55:`'\\replstorage.file.core.windows.net/replshare'`
 
-### <a name="could-not-connect-to-subscriber"></a>Nie można połączyć się z subskrybentem
+### <a name="could-not-connect-to-subscriber"></a>Nie można nawiązać połączenia z subskrybentem
 
 `The process could not connect to Subscriber 'SQL-VM-SUB`
 `Could not open a connection to SQL Server [53].`
@@ -375,28 +375,28 @@ Użycie ukośnika do przodu zamiast ukośnika odwrotnego w ścieżce pliku dla u
 
 Możliwe rozwiązania:
 - Upewnij się, że port 1433 jest otwarty. 
-- Upewnij się, że protokół TCP/IP jest włączony przez subskrybenta. 
-- Upewnij się, że nazwa DNS została użyta podczas tworzenia subskrybenta. 
-- Sprawdź, czy sieci wirtualne są poprawnie połączone w prywatnej strefie DNS. 
-- Sprawdź, czy rekord A jest poprawnie skonfigurowany. 
-- Sprawdź, czy komunikacja równorzędna sieci VPN jest poprawnie skonfigurowana. 
+- Upewnij się, że na subskrybencie jest włączony protokół TCP/IP. 
+- Potwierdź, że nazwa DNS została użyta podczas tworzenia subskrybenta. 
+- Sprawdź, czy sieci wirtualne są prawidłowo połączone w prywatnej strefie DNS. 
+- Sprawdź, czy rekord A został prawidłowo skonfigurowany. 
+- Sprawdź, czy Komunikacja równorzędna sieci VPN została prawidłowo skonfigurowana. 
 
 ### <a name="no-publications-to-which-you-can-subscribe"></a>Brak publikacji, do których można subskrybować
 
-Podczas dodawania nowej subskrypcji za pomocą Kreatora **nowej subskrypcji** na stronie **Publikacja** może się okazać, że nie ma żadnych baz danych i publikacji wymienionych jako dostępne opcje i może zostać wyświetlony następujący komunikat o błędzie:
+W przypadku dodawania nowej subskrypcji przy użyciu kreatora **nowej subskrypcji** na stronie **publikacji** może się okazać, że nie ma żadnych baz danych i publikacji wymienionych jako dostępne opcje i może zostać wyświetlony następujący komunikat o błędzie:
 
 `There are no publications to which you can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
  
-Chociaż jest możliwe, że ten komunikat o błędzie jest dokładne i naprawdę nie są dostępne publikacje na wydawcy, do którego masz połączenie, lub brakuje wystarczających uprawnień, ten błąd może być również spowodowane przez starszą wersję programu SQL Server Management Studio. Spróbuj uaktualnić do programu SQL Server Management Studio 18.0 lub większej, aby wykluczyć to jako główną przyczynę. 
+Chociaż jest możliwe, że ten komunikat o błędzie jest dokładny i naprawdę nie są dostępne publikacje na wydawcy, z którym nawiązano połączenie lub nie masz wystarczających uprawnień, ten błąd może być również spowodowany przez starszą wersję SQL Server Management Studio. Spróbuj przeprowadzić uaktualnienie do wersji SQL Server Management Studio 18,0 lub nowszej, aby wyrównać ją jako główną przyczynę. 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 ### <a name="enable-security-features"></a>Włączanie funkcji zabezpieczeń.
 
-Zobacz następujący artykuł [funkcji zabezpieczeń funkcji wystąpienia zarządzanego,](sql-database-managed-instance.md#azure-sql-database-security-features) aby uzyskać wyczerpującą listę sposobów zabezpieczenia bazy danych. Omówione są następujące funkcje zabezpieczeń:
+Szczegółowe listę sposobów zabezpieczania bazy danych można znaleźć w artykule o następujących [funkcjach dotyczących możliwości wystąpienia zarządzanego](sql-database-managed-instance.md#azure-sql-database-security-features) . Omówione są następujące funkcje zabezpieczeń:
 
-- [Inspekcja zarządzanych wystąpień](sql-database-managed-instance-auditing.md) 
+- [Inspekcja wystąpienia zarządzanego](sql-database-managed-instance-auditing.md) 
 - [Zawsze szyfrowane](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Wykrywanie zagrożeń](sql-database-managed-instance-threat-detection.md) 
 - [Dynamiczne maskowanie danych](/sql/relational-databases/security/dynamic-data-masking)

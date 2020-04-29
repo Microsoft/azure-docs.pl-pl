@@ -1,42 +1,42 @@
 ---
-title: Przykładowe notebooki Jupyter używające danych NOAA
+title: Przykładowe notesy Jupyter korzystające z danych NOAA
 titleSuffix: Azure Open Datasets
-description: Użyj przykładowych notesów Jupyter dla zestawów danych Azure Open, aby dowiedzieć się, jak załadować otwarte zestawy danych i użyć ich do wzbogacenia danych demonstracyjnych. Techniki obejmują użycie spark i pandas do przetwarzania danych.
+description: Użyj przykładowych notesów Jupyter dla platformy Azure Otwórz zestawy danych, aby dowiedzieć się, jak ładować otwarte zestawy danych i używać ich do wzbogacania dane demonstracyjne. Techniki obejmują użycie platformy Spark i Pandas do przetwarzania danych.
 ms.service: open-datasets
 ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
 ms.openlocfilehash: 8b96a35db91a282be1fb5e4c6143e6bd0a0203f2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73606141"
 ---
-# <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Przykładowe notesy Jupyter pokazują, jak wzbogacić dane o otwarte zestawy danych 
-Przykładowe notesy Jupyter dla zestawów danych Azure Open pokazują, jak załadować otwarte zestawy danych i użyć ich do wzbogacenia danych demonstracyjnych. Techniki obejmują użycie Apache Spark i Pandas do przetwarzania danych.
+# <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Przykładowe notesy Jupyter pokazują, jak wzbogacać dane za pomocą otwartych zestawów danych 
+Przykład Jupyter notesów dla usługi Azure Open DataSets pokazują, jak ładować otwarte zestawy danych i używać ich do wzbogacania dane demonstracyjne. Techniki obejmują używanie Apache Spark i Pandas do przetwarzania danych.
 
 >[!IMPORTANT]
->Podczas pracy w środowisku innym niż Spark, Open Datasets umożliwia pobieranie tylko jeden miesiąc danych w czasie z niektórych klas w celu uniknięcia MemoryError z dużych zestawów danych.
+>W przypadku pracy w środowisku innym niż platforma Spark otwarte zestawy danych umożliwiają pobieranie tylko jednego miesiąca z danymi jednocześnie z określonymi klasami w celu uniknięcia MemoryError z dużymi zestawami.
 
-## <a name="load-noaa-integrated-surface-database-isd-data"></a>Ładowanie danych zintegrowanej bazy danych powierzchni NOAA (ISD) 
+## <a name="load-noaa-integrated-surface-database-isd-data"></a>NOAA obciążenia — dane zintegrowanej bazy danych (ISD) 
 |Notes        | Opis                                    |
 |----------------|------------------------------------------------|
-|[Załaduj jeden ostatni miesiąc danych pogodowych do ramki danych Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/02-weather-to-pandas-dataframe.ipynb) | Dowiedz się, jak załadować historyczne dane pogodowe do ulubionej ramki danych Pandas. |
-|[Załaduj jeden ostatni miesiąc danych pogodowych do ramki danych Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/01-weather-to-spark-dataframe.ipynb) | Dowiedz się, jak załadować historyczne dane pogodowe do ulubionej ramki danych Platformy Spark.  |
+|[Załaduj jeden ostatni miesiąc danych pogody do Pandas Dataframe](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/02-weather-to-pandas-dataframe.ipynb) | Dowiedz się, jak ładować historyczne dane pogodowe do ulubionej ramki dataPandas. |
+|[Załaduj jeden ostatni miesiąc danych pogody do ramki Dataframe platformy Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/01-weather-to-spark-dataframe.ipynb) | Dowiedz się, jak ładować historyczne dane pogodowe do ulubionej ramki Dataframe.  |
 
-## <a name="join-demo-data-with-noaa-isd-data"></a>Dołączanie danych demonstracyjnych za pomocą danych ISD NOAA 
+## <a name="join-demo-data-with-noaa-isd-data"></a>Dołącz dane demonstracyjne za pomocą danych NOAA ISD 
 |Notes        | Opis                                    |
 |----------------|------------------------------------------------|
-|[Dołącz do danych demonstracyjnych z danymi pogodowymi - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Dołącz do 1-miesięcznego zestawu danych demonstracyjnych lokalizacji czujników z odczytami pogody w ramce danych Pandas.  |
-|[Dołącz do danych demonstracyjnych z danymi pogodowymi – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Dołącz do zestawu danych demonstracyjnych lokalizacji czujników z odczytami pogody w ramce danych Platformy Spark. |
+|[Dołączanie danych demonstracyjnych za pomocą danych pogody — Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Dołącz do 1-miesięcznego demonstracyjnego zestawu danych lokalizacji czujników z odczytami pogody w Pandas Dataframe.  |
+|[Dołączanie danych demonstracyjnych za pomocą danych pogody — Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Dołącz do demonstracyjnego zestawu danych lokalizacji czujników z odczytami pogody w ramce Dataframe. |
 
-## <a name="join-nyc-taxi-data-with-noaa-isd-data"></a>Dołączanie danych taksówek w Nowym Jorku za pomocą danych ISD NOAA 
+## <a name="join-nyc-taxi-data-with-noaa-isd-data"></a>Dołącz dane z NYC taksówki przy użyciu danych NOAA ISD 
 |Notes        | Opis                                    |
 |----------------|------------------------------------------------|
-|[Dane o podróży taksówką wzbogacone o dane pogodowe - Pandy](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) | Załaduj dane zielonej taksówki NYC (ponad 1 miesiąc) i wzbogać go o dane pogodowe w ramce danych Pandas. W tym przykładzie `get_pandas_limit` zastępuje metodę i równoważy wydajność ładowania danych z ilością danych.|
-|[Dane o podróży taksówką wzbogacone o dane pogodowe – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/03-nyc-taxi-join-weather-in-spark.ipynb) | Załaduj zielone dane taksówek w nowym Jorku i wzbogać go o dane pogodowe w ramce danych platformy Spark.  |
+|[Dane o podróży z taksówkami wzbogacone o dane pogodowe — Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) | Ładuj NYCe dane dotyczące oddziałów zielonych (ponad 1 miesiąc) i Wzbogacaj je o dane pogodowe w ramce dataPandas. Ten przykład zastępuje metodę `get_pandas_limit` i równoważy wydajność ładowania danych z ilością danych.|
+|[Dane o podróży z taksówkami wzbogacone o dane pogodowe — Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/03-nyc-taxi-join-weather-in-spark.ipynb) | Ładuj NYCe dane dotyczące oddziałów zielonych i Wzbogacaj je o dane pogodowe w usłudze Spark Dataframe.  |
 
 ## <a name="next-steps"></a>Następne kroki
 

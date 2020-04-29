@@ -1,5 +1,5 @@
 ---
-title: Monitorowanie aplikacji w sieci szkieletowej usług przy użyciu usługi ELK na platformie Azure
+title: Monitoruj aplikacje w Service Fabric przy użyciu ELK na platformie Azure
 description: W tym samouczku przedstawiono informacje na temat konfigurowania rozwiązania ELK i monitorowania aplikacji usługi Service Fabric.
 author: suhuruli
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: b283982e11449d234da966f15b86cc5b638a026c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75376665"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Samouczek: monitorowanie aplikacji usługi Service Fabric przy użyciu rozwiązania ELK
@@ -35,14 +35,14 @@ Ta seria samouczków zawiera informacje na temat wykonywania następujących czy
 
 Przed rozpoczęciem tego samouczka:
 
-* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Konfigurowanie aplikacji do emitowania dzienników do lokalizacji określonej w [części drugiej](service-fabric-tutorial-debug-log-local-cluster.md).
 * Wykonaj czynności z [części trzeciej](service-fabric-tutorial-java-deploy-azure.md), aby skonfigurować uruchomiony klaster usługi Service Fabric do wysyłania dzienników do usługi Event Hubs.
 * Zasady w usłudze Event Hubs mają uprawnienia do nasłuchiwania oraz skojarzony klucz podstawowy z trzeciej części serii.
 
 ## <a name="download-the-voting-sample-application"></a>Pobieranie przykładowej aplikacji do głosowania
 
-Jeśli nie zbudowano aplikacji przykładowe głosowanie w [pierwszej części tej serii samouczków,](service-fabric-tutorial-create-java-app.md)można go pobrać. W oknie polecenia uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na komputer lokalny.
+Jeśli nie skompilowano przykładowej aplikacji do głosowania w [pierwszej części tej serii samouczków](service-fabric-tutorial-create-java-app.md), można ją pobrać. W oknie polecenia uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na komputer lokalny.
 
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
@@ -140,7 +140,7 @@ W tym samouczku możesz używać wstępnie skonfigurowanego środowiska ELK. Je�
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. Dostęp do pulpitu nawigacyjnego Kibana pod adresem **http:\//SERVER-IP** i wprowadzanie nazwy użytkownika i hasła do Kibana. Jeśli używasz obrazu ELK na platformie Azure, domyślna nazwa użytkownika to „user”, a hasło jest uzyskiwane z **diagnostyki rozruchu**.
+8. Uzyskaj dostęp do pulpitu nawigacyjnego usługi Kibana przy użyciu **protokołu http:\//Server-IP** i wprowadź nazwę użytkownika i hasło dla Kibana. Jeśli używasz obrazu ELK na platformie Azure, domyślna nazwa użytkownika to „user”, a hasło jest uzyskiwane z **diagnostyki rozruchu**.
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

@@ -7,15 +7,15 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.custom: seodec18
 ms.openlocfilehash: 46750383c1436a2d053d6db7fed858c7c0f8a9fe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78226310"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Samouczek: kompleksowe uwierzytelnianie i autoryzacja użytkowników w usłudze Azure App Service
 
-[Usługa Azure App Service](overview.md) zapewnia wysoce skalowalną, samoładującą się usługę hostingu. Ponadto usługa App Service zapewnia wbudowaną obsługę [uwierzytelniania i autoryzacji użytkowników](overview-authentication-authorization.md). Ten samouczek przedstawia sposób zabezpieczania aplikacji za pomocą uwierzytelniania i autoryzacji usługi App Service. W samouczku użyto aplikacji ASP.NET Core z frontonem Angular.js, ale jest to tylko przykład. Uwierzytelnianie i autoryzacja usługi App Service obsługuje wszystkie środowiska uruchomieniowe języków, a wykonując kroki samouczka, można dowiedzieć się, jak zastosować je w przypadku preferowanego języka.
+[Azure App Service](overview.md) zapewnia wysoce skalowalną, samoobsługową usługę hostingu w sieci Web. Ponadto usługa App Service zapewnia wbudowaną obsługę [uwierzytelniania i autoryzacji użytkowników](overview-authentication-authorization.md). Ten samouczek przedstawia sposób zabezpieczania aplikacji za pomocą uwierzytelniania i autoryzacji usługi App Service. W samouczku użyto aplikacji ASP.NET Core z frontonem Angular.js, ale jest to tylko przykład. Uwierzytelnianie i autoryzacja usługi App Service obsługuje wszystkie środowiska uruchomieniowe języków, a wykonując kroki samouczka, można dowiedzieć się, jak zastosować je w przypadku preferowanego języka.
 
 Samouczek korzysta z aplikacji przykładowej w celu pokazania, jak zabezpieczyć aplikację samodzielną (w sekcji [Włączanie uwierzytelniania i autoryzacji w aplikacji zaplecza](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -46,7 +46,7 @@ Kroki opisane w tym samouczku można wykonać w systemie macOS, Linux i Windows.
 
 W celu ukończenia tego samouczka:
 
-* [Zainstaluj Git](https://git-scm.com/).
+* [Zainstaluj narzędzie git](https://git-scm.com/).
 * [Zainstaluj program .NET Core](https://www.microsoft.com/net/core/).
 
 ## <a name="create-local-net-core-app"></a>Tworzenie lokalnej aplikacji .NET Core
@@ -81,7 +81,7 @@ W tym kroku wdrożysz projekt w dwóch aplikacjach usługi App Service. Jedna ap
 
 ### <a name="create-azure-resources"></a>Tworzenie zasobów platformy Azure
 
-W usłudze Cloud Shell uruchom następujące polecenia, aby utworzyć dwie aplikacje internetowe. Zastąp `0-9` `-` _ \<nazwę aplikacji front-end>_ i _ \<>nazw aplikacji zaplecza_ dwiema unikatowymi nazwami `a-z`aplikacji globalnie (prawidłowe znaki to , i ). Aby uzyskać więcej informacji na temat każdego polecenia, zobacz [Interfejs API RESTful z mechanizmem CORS w usłudze Azure App Service](app-service-web-tutorial-rest-api.md).
+W usłudze Cloud Shell uruchom następujące polecenia, aby utworzyć dwie aplikacje internetowe. Zastąp `a-z` `0-9` `-` _ \<ciąg "front-end-App-Name>_ i _ \<back-end-App-Name>_ z dwiema unikatowymi nazwami aplikacji (prawidłowe znaki to, i). Aby uzyskać więcej informacji na temat każdego polecenia, zobacz [Interfejs API RESTful z mechanizmem CORS w usłudze Azure App Service](app-service-web-tutorial-rest-api.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
@@ -91,19 +91,19 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 ```
 
 > [!NOTE]
-> Zapisz adresy URL pilotów Git dla aplikacji front-end i back-end, `az webapp create`które są wyświetlane na wyjściu z .
+> Zapisz adresy URL zdalnych elementów usługi git dla aplikacji frontonu i zaplecza, które są wyświetlane w danych wyjściowych z `az webapp create`programu.
 >
 
 ### <a name="push-to-azure-from-git"></a>Wypychanie z narzędzia Git na platformę Azure
 
-Wróć do _lokalnego okna terminala_ i uruchom następujące polecenia Git, aby wdrożyć w aplikacji zaplecza. Zastąp _ \<deploymentLocalGitUrl-of-back-end-app>_ adresem URL pilota Git zapisanego z [zasobów platformy Azure](#create-azure-resources). Po wyświetleniu monitu o poświadczenia przez Menedżera poświadczeń Git, upewnij się, że wprowadzono [poświadczenia wdrożenia,](deploy-configure-credentials.md)a nie poświadczenia używane do logowania się do witryny Azure portal.
+Wróć do _lokalnego okna terminala_ i uruchom następujące polecenia Git, aby wdrożyć w aplikacji zaplecza. Zastąp _ \<zmienną deploymentlocalgiturl-of-back-App>_ adresem URL zdalnego narzędzia Git zapisanego w obszarze [Tworzenie zasobów platformy Azure](#create-azure-resources). Po wyświetleniu monitu o poświadczenia za pomocą programu Git Credential Manager upewnij się, że wprowadzasz [poświadczenia wdrażania](deploy-configure-credentials.md), a nie poświadczenia, których używasz do logowania się do Azure Portal.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
 git push backend master
 ```
 
-W lokalnym oknie terminala uruchom następujące polecenia Git, aby wdrożyć ten sam kod w aplikacji frontonu. Zastąp _ \<deploymentLocalGitUrl-of-front-end-app>_ adres url pilota Git zapisanego z [zasobów platformy Azure](#create-azure-resources).
+W lokalnym oknie terminala uruchom następujące polecenia Git, aby wdrożyć ten sam kod w aplikacji frontonu. Zastąp _ \<zmienną deploymentlocalgiturl-of-the-end-App>_ adresem URL zdalnego narzędzia Git zapisanego w obszarze [Tworzenie zasobów platformy Azure](#create-azure-resources).
 
 ```bash
 git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
@@ -132,7 +132,7 @@ W tym kroku zmienisz kod serwera aplikacji frontonu w celu uzyskiwania dostępu 
 
 ### <a name="modify-front-end-code"></a>Modyfikowanie kodu frontonu
 
-W repozytorium lokalnym otwórz plik _Controllers/TodoController.cs_. Na początku `TodoController` klasy dodaj następujące wiersze i zastąp _ \<nazwę zaplecza aplikacji>_ nazwą aplikacji zaplecza:
+W repozytorium lokalnym otwórz plik _Controllers/TodoController.cs_. Na początku `TodoController` klasy Dodaj następujące wiersze i Zastąp _ \<wartości back-end-App-Name>_ nazwą swojej aplikacji zaplecza:
 
 ```cs
 private static readonly HttpClient _client = new HttpClient();
@@ -209,35 +209,35 @@ Jako dostawcy tożsamości użyjesz usługi Azure Active Directory. Aby uzyskać
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Włączanie uwierzytelniania i autoryzacji w aplikacji zaplecza
 
-1. W menu [portalu platformy Azure](https://portal.azure.com) wybierz **grupę zasobów** lub wyszukaj i wybierz grupy *zasobów* z dowolnej strony.
+1. W menu [Azure Portal](https://portal.azure.com) wybierz pozycję **grupy zasobów** lub Wyszukaj, a następnie wybierz pozycję *grupy zasobów* z dowolnej strony.
 
-1. W **grupach zasobów**znajdź i wybierz grupę zasobów. W **obszarze Przegląd**wybierz stronę zarządzania aplikacji zaplecza.
+1. W obszarze **grupy zasobów**Znajdź i wybierz grupę zasobów. W obszarze **Przegląd**wybierz stronę zarządzania aplikacji zaplecza.
 
    ![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 
-1. W menu po lewej stronie aplikacji zaplecza wybierz **pozycję Uwierzytelnianie / Autoryzacja,** a następnie włącz uwierzytelnianie usługi app service, wybierając opcję **Włączone**.
+1. W menu po lewej stronie aplikacji zaplecza wybierz pozycję **uwierzytelnianie/autoryzacja**, a następnie włącz uwierzytelnianie App Service, wybierając pozycję **włączone**.
 
 1. Z listy **Akcja do wykonania w przypadku nieuwierzytelnionego żądania** wybierz pozycję **Zaloguj się za pomocą usługi Azure Active Directory**.
 
-1. W obszarze **Dostawcy uwierzytelniania**wybierz pozycję **Usługa Azure Active Directory** 
+1. W obszarze **dostawcy uwierzytelniania**wybierz pozycję **Azure Active Directory** 
 
    ![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/app-service-web-tutorial-auth-aad/configure-auth-back-end.png)
 
-1. Wybierz **express**, a następnie zaakceptuj ustawienia domyślne, aby utworzyć nową aplikację AD i wybierz **przycisk OK**.
+1. Wybierz pozycję **Express**, a następnie zaakceptuj ustawienia domyślne, aby utworzyć nową aplikację usługi AD, a następnie wybierz **przycisk OK**.
 
-1. Na stronie **Uwierzytelnianie / Autoryzacja** wybierz pozycję **Zapisz**.
+1. Na stronie **uwierzytelnianie/autoryzacja** wybierz pozycję **Zapisz**.
 
    Gdy zostanie wyświetlone powiadomienie z komunikatem `Successfully saved the Auth Settings for <back-end-app-name> App`, odśwież stronę.
 
-1. Ponownie wybierz **pozycję Azure Active Directory,** a następnie wybierz **aplikację Usługi Azure AD**.
+1. Wybierz **Azure Active Directory** ponownie, a następnie wybierz **aplikacja usługi Azure AD**.
 
-1. Skopiuj **identyfikator klienta** aplikacji usługi Azure AD do notatnika. Ta wartość będzie potrzebna później.
+1. Skopiuj **Identyfikator klienta** aplikacji usługi Azure AD do Notatnika. Ta wartość będzie potrzebna później.
 
    ![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>Włączanie uwierzytelniania i autoryzacji w aplikacji frontonu
 
-Wykonaj te same kroki dla aplikacji zaplecza, ale pomiń ostatni krok. Nie potrzebujesz identyfikatora klienta dla aplikacji front-end.
+Wykonaj te same kroki dla aplikacji zaplecza, ale Pomiń ostatni krok. Nie potrzebujesz identyfikatora klienta dla aplikacji frontonu.
 
 Jeśli chcesz, przejdź na adres `http://<front-end-app-name>.azurewebsites.net`. Teraz powinno nastąpić przekierowanie do bezpiecznej strony logowania. Po zalogowaniu nadal nie masz dostępu do danych z aplikacji zaplecza, ponieważ trzeba jeszcze wykonać trzy czynności:
 
@@ -252,27 +252,27 @@ Jeśli chcesz, przejdź na adres `http://<front-end-app-name>.azurewebsites.net`
 
 Teraz, po włączeniu uwierzytelniania i autoryzacji dla obu aplikacji, każda z nich jest wspierana przez aplikację usługi AD. W tym kroku nadasz aplikacji frontonu uprawnienia dostępu do zaplecza w imieniu użytkownika. (W praktyce nadasz _aplikacji usługi AD_ frontonu uprawnienia umożliwiające dostęp do _aplikacji usługi AD_ zaplecza w imieniu użytkownika).
 
-1. W menu [portalu Azure](https://portal.azure.com) wybierz pozycję Azure **Active Directory** lub wyszukaj i wybierz *usługę Azure Active Directory* z dowolnej strony.
+1. W menu [Azure Portal](https://portal.azure.com) wybierz pozycję **Azure Active Directory** lub wyszukaj i wybierz pozycję *Azure Active Directory* z dowolnej strony.
 
-1. Wybierz **pozycję Rejestracje aplikacji posiadanych** > **przez aplikacje**. Wybierz nazwę aplikacji front-end, a następnie wybierz **pozycję Uprawnienia interfejsu API**.
+1. Wybierz **rejestracje aplikacji** > **posiadane aplikacje**. Wybierz nazwę aplikacji frontonu, a następnie wybierz pozycję **uprawnienia interfejsu API**.
 
    ![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
 
-1. Wybierz **pozycję Dodaj uprawnienie**, a następnie wybierz pozycję Nazwa**\<zaplecza aplikacji interfejsów ** **My APIs** > API>.
+1. Wybierz pozycję **Dodaj uprawnienia**, a następnie wybierz pozycję **Moje interfejsy API** > **\<back-end-App-Name>**.
 
-1. Na stronie **Żądania uprawnień interfejsu API** dla aplikacji zaplecza wybierz pozycję **Delegowane uprawnienia** i **user_impersonation**, a następnie wybierz pozycję **Dodaj uprawnienia**.
+1. Na stronie **uprawnienia interfejsu API żądania** dla aplikacji zaplecza wybierz pozycję **uprawnienia delegowane** i **user_impersonation**, a następnie wybierz pozycję **Dodaj uprawnienia**.
 
    ![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>Konfigurowanie usługi App Service do zwracania nadającego się do użycia tokenu dostępu
 
-Aplikacja front-end ma teraz wymagane uprawnienia dostępu do aplikacji zaplecza jako zalogowany użytkownik. W tym kroku skonfigurujesz uwierzytelnianie i autoryzację usługi App Service, aby zapewnić nadający się do użycia token dostępu na potrzeby uzyskiwania dostępu do zaplecza. W tym kroku potrzebny jest identyfikator klienta zaplecza, który został skopiowany z [włącz uwierzytelnianie i autoryzację dla aplikacji zaplecza](#enable-authentication-and-authorization-for-back-end-app).
+Aplikacja frontonu ma teraz wymagane uprawnienia dostępu do aplikacji zaplecza jako zalogowany użytkownik. W tym kroku skonfigurujesz uwierzytelnianie i autoryzację usługi App Service, aby zapewnić nadający się do użycia token dostępu na potrzeby uzyskiwania dostępu do zaplecza. W tym kroku należy potrzebować identyfikatora klienta zaplecza, który został skopiowany z [włączenia uwierzytelniania i autoryzacji dla aplikacji zaplecza](#enable-authentication-and-authorization-for-back-end-app).
 
 Zaloguj się do witryny [Azure Resource Explorer](https://resources.azure.com). U góry strony kliknij pozycję **Odczyt/zapis**, aby włączyć edytowanie zasobów platformy Azure.
 
 ![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/app-service-web-tutorial-auth-aad/resources-enable-write.png)
 
-W lewej przeglądarce kliknij **subskrypcje** > **_\<subskrypcji>_**  >  **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** > **_\<front-end-app-name>_**  >  **config** > **authsettings**.
+W przeglądarce po lewej stronie kliknij **pozycję subskrypcje** > **_\<subskrypcja>_** **resourceGroups** > **myAuthResourceGroup** > **providers** >  > **sites** >   >  **config** > **authsettings****Microsoft.Web**resourceGroups myAuthResourceGroup dostawcy Microsoft. Web Sites**_\<frontonu-App-Name>_** config authsettings.  > 
 
 W widoku **authsettings** kliknij pozycję **Edytuj**. Ustaw `additionalLoginParams` następujący ciąg JSON przy użyciu skopiowanego identyfikatora klienta. 
 
@@ -286,13 +286,13 @@ Zapisz ustawienia, klikając pozycję **PUT**.
 
 Aplikacje są teraz skonfigurowane. Fronton może teraz uzyskiwać dostęp do zaplecza za pomocą odpowiedniego tokenu dostępu.
 
-Aby uzyskać informacje na temat konfigurowania tokenu dostępu dla innych dostawców, zobacz [Odśwież tokeny dostawcy tożsamości](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
+Aby uzyskać informacje na temat konfigurowania tokenu dostępu dla innych dostawców, zobacz [odświeżanie tokenów dostawcy tożsamości](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
 
 ## <a name="call-api-securely-from-server-code"></a>Bezpieczne wywoływanie interfejsu API z poziomu kodu serwera
 
 W tym kroku umożliwisz wcześniej zmodyfikowanemu kodowi serwera wykonywanie uwierzytelnionych wywołań interfejsu API zaplecza.
 
-Aplikacja front-end ma teraz wymagane uprawnienia, a także dodaje identyfikator klienta zaplecza do parametrów logowania. W związku z tym może uzyskać token dostępu na potrzeby uwierzytelniania w aplikacji zaplecza. Usługa App Service dostarcza ten token do kodu serwera przez wprowadzenie nagłówka `X-MS-TOKEN-AAD-ACCESS-TOKEN` do każdego uwierzytelnionego żądania (zobacz [Pobieranie tokenów w kodzie aplikacji](app-service-authentication-how-to.md#retrieve-tokens-in-app-code)).
+Aplikacja frontonu ma teraz wymagane uprawnienie i dodaje także identyfikator klienta zaplecza do parametrów logowania. W związku z tym może uzyskać token dostępu na potrzeby uwierzytelniania w aplikacji zaplecza. Usługa App Service dostarcza ten token do kodu serwera przez wprowadzenie nagłówka `X-MS-TOKEN-AAD-ACCESS-TOKEN` do każdego uwierzytelnionego żądania (zobacz [Pobieranie tokenów w kodzie aplikacji](app-service-authentication-how-to.md#retrieve-tokens-in-app-code)).
 
 > [!NOTE]
 > Te nagłówki są wprowadzane dla wszystkich obsługiwanych języków. Dostęp do nich możesz uzyskiwać przy użyciu standardowego wzorca dla każdego języka.
@@ -338,7 +338,7 @@ Kod serwera ma dostęp do nagłówków żądań, natomiast kod klienta może uzy
 
 ### <a name="configure-cors"></a>Konfigurowanie mechanizmu CORS
 
-W aplikacji Cloud Shell włącz usługę CORS w [`az resource update`](/cli/azure/resource#az-resource-update) adresie URL klienta za pomocą polecenia. Zastąp _ \<>nazwy aplikacji zaplecza_ i _ \<symbole zastępcze>nazw aplikacji typu front-end._
+W Cloud Shell Włącz funkcję CORS dla adresu URL klienta przy użyciu [`az resource update`](/cli/azure/resource#az-resource-update) polecenia. Zastąp symbole zastępcze ">" i _ \<"Front_ -End-App-Name">. _ \<_
 
 ```azurecli-interactive
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back-end-app-name> --set properties.cors.allowedOrigins="['https://<front-end-app-name>.azurewebsites.net']" --api-version 2015-06-01
@@ -350,7 +350,7 @@ Ten krok nie jest powiązany z uwierzytelnianiem i autoryzacją. Należy go jedn
 
 W repozytorium lokalnym otwórz plik _wwwroot/index.html_.
 
-W wierszu 51 ustaw zmienną `apiEndpoint` na adres URL aplikacji zaplecza (`https://<back-end-app-name>.azurewebsites.net`). Zastąp _ \<nazwę aplikacji zaplecza>_ nazwą aplikacji w usłudze App Service.
+W wierszu 51 ustaw zmienną `apiEndpoint` na adres URL aplikacji zaplecza (`https://<back-end-app-name>.azurewebsites.net`). Zastąp ciąg back- _ \<End-App-Name>_ nazwą aplikacji w App Service.
 
 W repozytorium lokalnym otwórz plik _wwwroot/app/scripts/todoListSvc.js_ i zobacz, że zmienna `apiEndpoint` jest dołączona na początku wszystkich wywołań interfejsu API. Twoja aplikacja Angular.js wywołuje teraz interfejsy API zaplecza. 
 
@@ -439,4 +439,4 @@ Które czynności umiesz wykonać:
 Przejdź do następnego samouczka, aby dowiedzieć się, jak zmapować niestandardową nazwę DNS na aplikację internetową.
 
 > [!div class="nextstepaction"]
-> [Mapowanie istniejącej niestandardowej nazwy DNS na usługę Azure App Service](app-service-web-tutorial-custom-domain.md)
+> [Mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service](app-service-web-tutorial-custom-domain.md)

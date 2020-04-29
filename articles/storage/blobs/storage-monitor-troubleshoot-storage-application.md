@@ -9,10 +9,10 @@ ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.openlocfilehash: 3a2381302a378e7b2635b84c32a87e844e4605a7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68844884"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorowanie i rozwiązywanie problemów aplikacji magazynu w chmurze
@@ -33,7 +33,7 @@ Rejestrowanie i metryki dotyczące konta magazynu można włączyć na karcie **
 
 ## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 
-Zaloguj się do [portalu Azure](https://portal.azure.com)
+Zaloguj się do [Azure Portal](https://portal.azure.com)
 
 ## <a name="turn-on-logging-and-metrics"></a>Włączanie rejestrowania i metryk
 
@@ -41,7 +41,7 @@ W menu po lewej stronie wybierz kolejno pozycje **Grupy zasobów** i **myResourc
 
 W obszarze **Ustawienia diagnostyki (klasyczne)** zmień ustawienie **Stan** na **Włączone**. Upewnij się, że wszystkie opcje w obszarze **Właściwości obiektu blob** są włączone.
 
-Po zakończeniu kliknij przycisk **Zapisz**
+Po zakończeniu kliknij przycisk **Zapisz** .
 
 ![Okienko diagnostyki](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
@@ -89,7 +89,7 @@ W tym scenariuszu należy użyć narzędzia [Microsoft Message Analyzer](https:/
 
 Pobierz narzędzie [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) i zainstaluj aplikację.
 
-Uruchom aplikację i wybierz opcję**Otwórz** >  **plik** > **z innych źródeł plików**.
+Uruchom aplikację i wybierz polecenie **plik** > **otwarty** > **z innych źródeł plików**.
 
 W oknie dialogowym **File Selector** (Selektor plików) wybierz opcję **+ Add Azure Connection** (+ Dodaj połączenie Azure). Uzupełnij pola **Storage account name** (Nazwa konta magazynu) i **Account key** (Klucz konta), a następnie kliknij przycisk **OK**.
 

@@ -1,42 +1,42 @@
 ---
-title: 'Wzorzec: skutki definicji zasad'
-description: Ten wzorzec zasad platformy Azure zawiera przykład sposobu używania różnych efektów definicji zasad.
+title: 'Wzorzec: efekty definicji zasad'
+description: Ten Azure Policy wzorzec zawiera przykład zastosowania różnych efektów definicji zasad.
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: 1a9aec50bd328b76271d54f7830c75e0848d3cde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80372639"
 ---
-# <a name="azure-policy-pattern-effects"></a>Wzorzec zasad platformy Azure: efekty
+# <a name="azure-policy-pattern-effects"></a>Wzorzec Azure Policy: efekty
 
-Usługa Azure Policy ma wiele [efektów,](../concepts/effects.md) które określają, jak usługa reaguje na niezgodne zasoby. Niektóre efekty są proste i nie wymagają żadnych dodatkowych właściwości w definicji zasad, podczas gdy inne wymagają kilku właściwości.
+Azure Policy ma wiele [efektów](../concepts/effects.md) , które określają sposób, w jaki usługa reaguje na niezgodne zasoby. Niektóre efekty są proste i nie wymagają żadnych dodatkowych właściwości w definicji zasad, a inne wymagają kilku właściwości.
 
-## <a name="sample-1-simple-effect"></a>Przykład 1: Prosty efekt
+## <a name="sample-1-simple-effect"></a>Przykład 1: prosty efekt
 
-Ta definicja zasad sprawdza, czy tag zdefiniowany w **parametrze tagName** istnieje w ocenianym zasobie. Jeśli tag jeszcze nie istnieje, efekt [modyfikacji](../concepts/effects.md#modify) jest wyzwalany w celu dodania znacznika o wartości w **parametrze tagValue**.
+Ta definicja zasad sprawdza, czy tag zdefiniowany w parametrze **TagName** istnieje dla szacowanego zasobu. Jeśli tag jeszcze nie istnieje, efekt [modyfikacji](../concepts/effects.md#modify) jest wyzwalany w celu dodania znacznika z wartością w parametrze **tagValue**.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json":::
 
-### <a name="sample-1-explanation"></a>Przykład 1: Wyjaśnienie
+### <a name="sample-1-explanation"></a>Przykład 1: wyjaśnienie
 
 :::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json" range="40-50":::
 
-Efekt **modyfikowania** wymaga bloku **policyRule.then.details,** który definiuje **roleDefinitionIds** i **operacje**. Te parametry informują usługi Azure Policy, jakie role są potrzebne do dodania tagu i korygowania zasobu oraz które **modyfikują** operację do wykonania. W tym przykładzie **operacja** jest _dodawany_ i parametry są używane do ustawiania tagu i jego wartości.
+Efekt **modyfikacji** wymaga bloku **Klasa policyrule. then. Details** , który definiuje **roleDefinitionIds** i **operacje**. Te parametry informują Azure Policy, jakie role są potrzebne do dodania znacznika i skorygowania zasobu, a następnie wykonania operacji **modyfikowania** . W tym przykładzie **operacja** jest _dodawana_ , a parametry są używane do ustawiania znacznika i jego wartości.
 
-## <a name="sample-2-complex-effect"></a>Przykład 2: Efekt złożony
+## <a name="sample-2-complex-effect"></a>Przykład 2: efekt złożony
 
-Ta definicja zasad przeprowadza inspekcje każdej maszyny wirtualnej, gdy rozszerzenie, zdefiniowane w **parametrach wydawcy** i **typu,** nie istnieje. Używa [auditIfNotExists](../concepts/effects.md#auditifnotexists) do sprawdzenia zasobu związanego z maszyną wirtualną, aby sprawdzić, czy istnieje wystąpienie, które pasuje do zdefiniowanych parametrów. W tym przykładzie sprawdza typ **rozszerzeń.**
+Ta definicja zasad przeprowadza inspekcję każdej maszyny wirtualnej w przypadku, gdy rozszerzenie zdefiniowane w parametrach **Publisher** i **Type**nie istnieje. Używa [auditIfNotExists](../concepts/effects.md#auditifnotexists) do sprawdzenia zasobu związanego z maszyną wirtualną, aby sprawdzić, czy istnieje wystąpienie zgodne ze zdefiniowanymi parametrami. Ten przykład sprawdza typ **rozszerzeń** .
 
 :::code language="json" source="~/policy-templates/patterns/pattern-effect-details-2.json":::
 
-### <a name="sample-2-explanation"></a>Przykład 2: Wyjaśnienie
+### <a name="sample-2-explanation"></a>Przykład 2: wyjaśnienie
 
 :::code language="json" source="~/policy-templates/patterns/pattern-effect-details-2.json" range="45-58":::
 
-Efekt **auditIfNotExists** wymaga **policyRule.then.details** bloku do definiowania zarówno **typu** i **existenceCondition** szukać. **ExistenceCondition** używa elementów języka zasad, takich jak [operatory logiczne,](../concepts/definition-structure.md#logical-operators)aby ustalić, czy istnieje pasujący powiązany zasób. W tym przykładzie wartości zaznaczone względem każdego [aliasu](../concepts/definition-structure.md#aliases) są zdefiniowane w parametrach.
+Efekt **auditIfNotExists** wymaga bloku **Klasa policyrule. then. Details** , aby zdefiniować zarówno **Typ** , jak i **existenceCondition** do wyszukania. **ExistenceCondition** używa elementów języka zasad, takich jak [Operatory logiczne](../concepts/definition-structure.md#logical-operators), w celu określenia, czy istnieje odpowiedni powiązany zasób. W tym przykładzie wartości sprawdzane względem każdego [aliasu](../concepts/definition-structure.md#aliases) są zdefiniowane w parametrach.
 
 ## <a name="next-steps"></a>Następne kroki
 
