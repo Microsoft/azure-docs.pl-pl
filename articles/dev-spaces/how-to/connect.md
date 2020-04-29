@@ -1,116 +1,116 @@
 ---
-title: Podłączanie komputera deweloperskiego do klastra AKS (wersja zapoznawcza)
+title: Łączenie komputera programistycznego z klastrem AKS (wersja zapoznawcza)
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: conceptual
-description: Dowiedz się, jak połączyć komputer dewelopera z klastrem AKS za pomocą usługi Azure Dev Spaces
-keywords: Miejsca deweloperów platformy Azure, przestrzenie deweloperów, platforma do dokowania, sieci Kubernetes, platforma Azure, usługa AKS, usługa Azure Kubernetes, kontenery
+description: Dowiedz się, jak połączyć komputer deweloperski z klastrem AKS przy użyciu Azure Dev Spaces
+keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
 ms.openlocfilehash: 772f221a8047a71902f36fa98ded6c24b5e02d27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235005"
 ---
-# <a name="connect-your-development-computer-to-an-aks-cluster-preview"></a>Podłączanie komputera deweloperskiego do klastra AKS (wersja zapoznawcza)
+# <a name="connect-your-development-computer-to-an-aks-cluster-preview"></a>Łączenie komputera programistycznego z klastrem AKS (wersja zapoznawcza)
 
-Usługa Azure Dev Spaces umożliwia uruchamianie i debugowanie kodu z kontenerem lub bez kontenera na komputerze deweloperskim, podczas gdy nadal jest połączony z klastrem usługi Kubernetes z resztą aplikacji lub usług. Podłączenie komputera dewelopera do klastra pomaga szybko tworzyć aplikację i przeprowadzać kompleksowe testy bez konieczności tworzenia dowolnej konfiguracji platformy Docker lub Kubernetes. Można również połączyć się z klastrem AKS bez wpływu na inne obciążenia lub użytkowników, którzy mogą używać tego samego klastra.
+Azure Dev Spaces umożliwia uruchamianie i debugowanie kodu z lub bez kontenera na komputerze deweloperskim, przy jednoczesnym połączeniu z klastrem Kubernetes z pozostałą częścią aplikacji lub usług. Połączenie komputera deweloperskiego z klastrem pomaga szybko opracowywać aplikację i wykonywać kompleksowe testy bez konieczności tworzenia żadnych konfiguracji platformy Docker lub Kubernetes. Możesz również nawiązać połączenie z klastrem AKS bez wpływu na inne obciążenia lub użytkowników, którzy mogą korzystać z tego samego klastra.
 
-Usługa Azure Dev Spaces przekierowuje ruch między połączonym klastrem AKS a komputerem deweloperskim. To przekierowanie ruchu umożliwia kod na komputerze deweloperskim i usług uruchomionych w klastrze AKS do komunikowania się tak, jakby były one w tym samym klastrze AKS. Ponieważ kod jest uruchomiony na komputerze deweloperskim, masz również elastyczność w narzędzia programistyczne, których używasz do uruchamiania i debugowania tego kodu. Usługa Azure Dev Spaces zapewnia również sposób replikowania zmiennych środowiskowych i zainstalowanych plików dostępnych dla zasobników w klastrze AKS na komputerze deweloperskim.
+Azure Dev Spaces przekierowuje ruch między podłączonym klastrem AKS a komputerem deweloperskim. To przekierowywanie ruchu umożliwia kod na komputerze deweloperskim i usługach uruchomionych w klastrze AKS, aby komunikować się tak, jakby znajdowały się w tym samym klastrze AKS. Ponieważ Twój kod jest uruchomiony na komputerze deweloperskim, masz również elastyczność w narzędziach programistycznych, które są używane do uruchamiania i debugowania tego kodu. Azure Dev Spaces zapewnia również sposób replikowania zmiennych środowiskowych i zainstalowanych plików dostępnych dla zasobników w klastrze AKS na komputerze deweloperskim.
 
 Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czynności:
 
-* Konfigurowanie usługi Azure Dev Spaces w zarządzanym klastrze kubernetes na platformie Azure.
-* Wdrażanie dużej aplikacji z wieloma mikrousługami w przestrzeni deweloperów.
-* Użyj usługi Azure Dev Spaces, aby przekierować ruch między klastrem AKS a kodem uruchomionym na komputerze deweloperskim.
+* Skonfiguruj Azure Dev Spaces w zarządzanym klastrze Kubernetes na platformie Azure.
+* Wdróż dużą aplikację z wieloma mikrousługami w miejscu dev.
+* Użyj Azure Dev Spaces, aby przekierować ruch między klastrem AKS i kodem uruchomionym na komputerze deweloperskim.
 
 > [!IMPORTANT]
-> Ta funkcja jest obecnie dostępna w wersji zapoznawczej. Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.
+> Ta funkcja jest obecnie w wersji zapoznawczej. Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym przewodniku użyto [przykładowej aplikacji Azure Dev Spaces Bike Sharing,](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) aby zademonstrować podłączenie komputera deweloperskiego do klastra AKS. Postępuj zgodnie z instrukcjami w [przykładowej aplikacji AZURE Dev Spaces Bike Sharing README,](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/README.md) aby uruchomić przykładową aplikację. Alternatywnie, jeśli masz własną aplikację w klastrze AKS nadal można wykonać poniższe kroki i używać nazw własnych usług i zasobników.
+Ten przewodnik korzysta z [przykładowej aplikacji do udostępniania Azure dev Spaces roweru](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) do zademonstrowania połączenia komputera deweloperskiego z klastrem AKS. Postępuj zgodnie z instrukcjami w [pliku Readme przykładowej aplikacji do udostępniania Azure dev Spaces roweru](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/README.md) , aby uruchomić przykładową aplikację. Alternatywnie, jeśli masz własną aplikację w klastrze AKS, możesz nadal wykonać poniższe kroki i używać nazw własnych usług i zasobników.
 
 ### <a name="limitations"></a>Ograniczenia
 
-* UDP nie jest obecnie obsługiwana.
+* Protokół UDP nie jest w tej chwili obsługiwany.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free).
 * [Zainstalowany interfejs wiersza polecenia platformy Azure][azure-cli].
-* [Visual Studio Code][vs-code] z rozszerzeniem [Azure Dev Spaces][azds-vs-code] zainstalowanym i uruchomionym w systemie MacOS lub Windows 10.
-* Przykładowa [aplikacja azure dev spaces bike sharing](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) lub własna aplikacja działająca w klastrze AKS.
+* [Visual Studio Code][vs-code] z rozszerzeniem [Azure dev Spaces][azds-vs-code] zainstalowanym i działającym w systemie MacOS lub Windows 10.
+* [Aplikacja Przykładowa do udostępniania Azure dev Spaces roweru](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) lub własnej aplikacji uruchomionej w klastrze AKS.
 
-## <a name="connect-your-development-computer"></a>Podłączanie komputera dewelopera
+## <a name="connect-your-development-computer"></a>Łączenie komputera deweloperskiego
 
-Otwórz *dev-spaces/samples/BikeSharingApp/Bikes* w programie Visual Studio Code i użyj rozszerzenia Azure Dev Spaces, aby połączyć komputer dewelopera z klastrem AKS.
+Otwórz *przystawkę dev Spaces/Samples/BikeSharingApp/Bikes* in Visual Studio Code i użyj rozszerzenia Azure dev Spaces, aby połączyć komputer deweloperski z klastrem AKS.
 
-Aby użyć rozszerzenia Usługi Azure Dev Spaces, otwórz paletę poleceń w programie Visual Studio Code, klikając *pozycję Wyświetl,* a następnie *paletę poleceń*. Zacznij pisać `Azure Dev Spaces: Redirect` i kliknij `Azure Dev Spaces: Redirect an existing Kubernetes service to my machine [Preview]`albo `Azure Dev Spaces: Redirect an existing Kubernetes pod to my machine [Preview]`, `Azure Dev Spaces: Redirect a new Kubernetes pod to my machine [Preview]`, lub .
+Aby użyć rozszerzenia Azure Dev Spaces, Otwórz paletę poleceń w Visual Studio Code, klikając pozycję *Widok* i *paleta poleceń*. Rozpocznij wpisywanie `Azure Dev Spaces: Redirect` i kliknij jeden `Azure Dev Spaces: Redirect an existing Kubernetes service to my machine [Preview]`z `Azure Dev Spaces: Redirect an existing Kubernetes pod to my machine [Preview]`nich, `Azure Dev Spaces: Redirect a new Kubernetes pod to my machine [Preview]`lub.
 
 ![Polecenia](../media/how-to-connect/connect-commands.png)
 
 ### <a name="select-a-redirection-option"></a>Wybierz opcję przekierowania
 
-Jeśli uruchomisz `Azure Dev Spaces: Redirect an existing Kubernetes service to my machine [Preview]`program , zostaniesz poproszony o wybranie istniejącej usługi Kubernetes:
+Jeśli uruchomisz `Azure Dev Spaces: Redirect an existing Kubernetes service to my machine [Preview]`program, zostanie wyświetlony monit o wybranie istniejącej usługi Kubernetes:
 
-![Wybierz usługę](../media/how-to-connect/connect-choose-service.png)
+![Wybieranie usługi](../media/how-to-connect/connect-choose-service.png)
 
-Ta opcja przekierowuje cały ruch w klastrze AKS dla tej usługi do wersji aplikacji uruchomionej na komputerze deweloperskim. Jeśli ta usługa ma wiele zasobników uruchomionych w klastrze AKS, cały ruch dla tej usługi jest kierowany tylko do komputera deweloperskiego. Usługa Azure Dev Spaces kieruje również cały ruch wychodzący z aplikacji z powrotem do klastra AKS.
+Ta opcja przekierowuje cały ruch w klastrze AKS dla tej usługi do wersji aplikacji działającej na komputerze deweloperskim. Jeśli ta usługa ma wiele serwerów w klastrze AKS, cały ruch dla tej usługi jest kierowany tylko do komputera deweloperskiego. Azure Dev Spaces również kieruje cały ruch wychodzący z aplikacji z powrotem do klastra AKS.
 
-Jeśli uruchomisz `Azure Dev Spaces: Redirect an existing Kubernetes pod to my machine [Preview]`, zostaniesz poproszony o wybranie określonego zasobnika:
+Jeśli uruchomisz `Azure Dev Spaces: Redirect an existing Kubernetes pod to my machine [Preview]`program, zostanie wyświetlony monit o wybranie określonego elementu pod:
 
-![Wybierz pozycję Pod](../media/how-to-connect/connect-choose-pod.png)
+![Wybierz pod](../media/how-to-connect/connect-choose-pod.png)
 
-Ta opcja łączy się z określonym zasobnikiem. Ta opcja jest przydatna do interakcji z zasobnikami, które nie wysyłają ani nie odbierają ruchu i replikują zakończone zasobniki. Jeśli zasobnik wysyła i odbiera ruch, ta opcja `Azure Dev Spaces: Redirect an existing Kubernetes service to my machine [Preview]` zachowuje się w podobny sposób i przekieruje cały ruch w klastrze AKS dla wszystkich zasobników związanych z usługą wybranego zasobnika.
+Ta opcja łączy się z konkretnym pod. Ta opcja jest przydatna w przypadku współdziałania z identyfikatorami, które nie wysyłają ani nie odbierają ruchu i replikowania zakończonych zasobników. Jeśli w obszarze jest wysyłany i odbierany ruch, ta opcja zachowuje się w podobny sposób `Azure Dev Spaces: Redirect an existing Kubernetes service to my machine [Preview]` do i przekierowuje cały ruch w klastrze AKS dla wszystkich wartości z usługi wybranego obszaru.
 
-Po uruchomieniu `Azure Dev Spaces: Redirect a new Kubernetes pod to my machine [Preview]`nie zostanie wyświetlony monit o wybranie istniejącego zasobnika lub usługi. Ta opcja przekierowuje cały ruch wychodzący z aplikacji uruchomionej na komputerze deweloperskim do klastra AKS.
+Jeśli uruchomisz `Azure Dev Spaces: Redirect a new Kubernetes pod to my machine [Preview]`program, nie zostanie wyświetlony monit o wybranie istniejącego elementu lub usługi. Ta opcja przekierowuje cały ruch wychodzący z aplikacji uruchomionej na komputerze deweloperskim do klastra AKS.
 
-W tym przykładzie wybierz `Azure Dev Spaces: Redirect an existing Kubernetes service to my machine [Preview]` i wybierz usługę *rowerów.*
+Na potrzeby tego przykładu `Azure Dev Spaces: Redirect an existing Kubernetes service to my machine [Preview]` wybierz i wybierz usługę *Bikes* .
 
-### <a name="select-a-connection-mode"></a>Wybieranie trybu połączenia
+### <a name="select-a-connection-mode"></a>Wybierz tryb połączenia
 
-Po wybraniu opcji przekierowania zostanie wyświetlony monit o wybranie trybu *zamień* lub *Klonuj* połączenie.
+Po wybraniu opcji przekierowania zostanie wyświetlony monit z pytaniem o wybranie trybu *zastępowanie* lub *klonowanie* .
 
-![Zastępowanie lub klonowanie](../media/how-to-connect/connect-replace-clone.png)
+![Zastąp lub Klonuj](../media/how-to-connect/connect-replace-clone.png)
 
-Opcja *Zamień* zastępuje bieżącą zasobnik lub usługę w klastrze AKS i przekierowuje cały ruch tej usługi do komputera deweloperskiego. Ta opcja może być uciążliwa dla innych usług w klastrze AKS, które współdziałają z przekierowaną usługą, może nie działać, dopóki nie uruchomisz aplikacji na komputerze deweloperskim. Opcja *Klonuj* umożliwia wybranie istniejącego miejsca deweloperskiego podrzędnego lub utworzenie nowego miejsca deweloperskiego podrzędnego do przekierowania ruchu dla zasobnika lub usługi do komputera deweloperskiego. Ta opcja umożliwia pracę w izolacji i nie zakłócać innych usług, ponieważ tylko ruch do tego miejsca dewelopera podrzędnego zostanie przekierowany do komputera dewelopera. Opcja *Klonuj* wymaga, aby klaster AKS miał włączoną usługę Azure Dev Spaces.
+Opcja *replace* zastępuje bieżący pod lub usługę w klastrze AKS i przekierowuje cały ruch dla tej usługi do komputera deweloperskiego. Ta opcja może być nieprzerwana dla innych usług w klastrze AKS, które współdziałają z usługą przekierowania, mogą nie działać do momentu uruchomienia aplikacji na komputerze deweloperskim. Opcja *klonowania* pozwala wybrać istniejący obszar podrzędny lub utworzyć nowe miejsce w środowisku deweloperskim do przekierowywania ruchu dla usługi lub na komputer deweloperski. Ta opcja pozwala obsłużyć izolację i nie zakłóca innych usług, ponieważ tylko ruch do tego miejsca podrzędnego jest przekierowywany do komputera deweloperskiego. Opcja *klonowania* wymaga, aby klaster AKS miał włączony Azure dev Spaces.
 
-W tym przykładzie wybierz pozycję *Zamień*.
+Na potrzeby tego przykładu wybierz *Zastąp*.
 
 > [!NOTE]
-> Jeśli zasobnik istniejącej usługi ma wiele kontenerów, zostanie wyświetlony monit o wybranie kontenera aplikacji.
+> Jeśli istniejąca usługa ma wiele kontenerów, zostanie również wyświetlony monit o wybranie kontenera aplikacji.
 
-### <a name="select-a-port-for-your-application"></a>Wybieranie portu dla aplikacji
+### <a name="select-a-port-for-your-application"></a>Wybierz port dla swojej aplikacji
 
-Po wybraniu trybu połączenia zostanie wyświetlony monit o wprowadzenie portu TCP aplikacji lokalnej. Jeśli aplikacja otworzy wiele portów, oddziel je przecinkiem na przykład *80,81*. Jeśli aplikacja nie akceptuje żadnych żądań sieciowych, wprowadź *0*. W tym przykładzie wprowadź *3000*.
+Po wybraniu trybu połączenia zostanie wyświetlony monit o wprowadzenie portu TCP używanej przez lokalną aplikację. Jeśli aplikacja otwiera wiele portów, rozdziel je przecinkami na przykład *80, 81*. Jeśli aplikacja nie akceptuje żadnych żądań sieci, wprowadź *wartość 0*. Na potrzeby tego przykładu wprowadź *3000*.
 
 ![Połącz wybierz port](../media/how-to-connect/connect-choose-port.png)
 
 ### <a name="confirm-you-are-connected"></a>Potwierdź, że masz połączenie
 
-Po wybraniu portu TCP aplikacji usługa Azure Dev Spaces ustanowi połączenie z klastrem AKS. Usługa Azure Dev Spaces wstrzykuje agenta do klastra AKS, aby przekierować ruch między klastrem AKS a komputerem deweloperskim. Ustanowienie tego połączenia może potrwać kilka minut. Usługa Azure Dev Spaces zażąda również dostępu administratora w celu zmodyfikowania pliku *hostów* na komputerze deweloperskim.
+Po wybraniu portu TCP aplikacji Azure Dev Spaces nawiąże połączenie z klastrem AKS. Azure Dev Spaces wprowadza agenta do klastra AKS w celu przekierowania ruchu między klastrem AKS i komputerem deweloperskim. Ustanowienie tego połączenia może potrwać kilka minut. Azure Dev Spaces również będzie żądać dostępu administratora w celu zmodyfikowania pliku *hosts* na komputerze deweloperskim.
 
 > [!IMPORTANT]
-> Po utworzeniu usługi Azure Dev Spaces połączenie z klastrem AKS, inne usługi w klastrze AKS może nie działać poprawnie, dopóki nie uruchomisz usługi na komputerze deweloperskim, jeśli wybierzesz tryb *zamień* połączenie. Zamiast tego można wybrać tryb klonowania *połączenia,* aby utworzyć podrzędne miejsce dewelopera dla przekierowania i uniknąć zakłóceń w przestrzeni nadrzędnej. Ponadto jeśli usługa ma zależność, która nie jest dostępna na komputerze deweloperskim, może być konieczne zmodyfikowanie aplikacji lub podanie [dodatkowej konfiguracji](#additional-configuration)
+> Po Azure Dev Spaces nawiązaniu połączenia z klastrem AKS inne usługi w klastrze AKS mogą działać nieprawidłowo, dopóki usługa nie zostanie uruchomiona na komputerze deweloperskim w przypadku wybrania opcji *Zamień* połączenie. Zamiast tego można wybrać tryb połączenia *klonowania* , aby utworzyć podrzędny obszar deweloperski dla przekierowania i uniknąć przerw w miejscu nadrzędnym. Ponadto jeśli usługa ma zależność, która nie jest dostępna na komputerze deweloperskim, może być konieczne zmodyfikowanie aplikacji lub dostarczenie [dodatkowej konfiguracji](#additional-configuration)
 
-Usługa Azure Dev Spaces otwiera okno terminalu o nazwie *AZDS Connect — Bikes* po nawiązaniu połączenia z klastrem AKS. To okno terminala ma wszystkie zmienne środowiskowe i wpisy DNS skonfigurowane z klastra AKS. Każdy kod uruchomiony w tym oknie terminala lub przy użyciu debugera kodu programu Visual Studio jest połączony z klastrem AKS.
+Azure Dev Spaces otwiera okno terminalu zatytułowane *AZDS Connect-Bikes* po ustanowieniu połączenia z klastrem AKS. To okno terminalu ma wszystkie zmienne środowiskowe i wpisy DNS skonfigurowane z klastra AKS. Każdy kod uruchamiany w tym oknie terminalu lub przy użyciu debugera Visual Studio Code jest połączony z klastrem AKS.
 
 ![Terminal](../media/how-to-connect/connect-terminal.png)
 
-Ponadto usługa Azure Dev Spaces tworzy okno *zatytułowane Dev Spaces Connect* ze wszystkimi jego wyjściami.
+Ponadto Azure Dev Spaces tworzy okno zatytułowane *miejsca deweloperskie Połącz* ze wszystkimi danymi wyjściowymi.
 
 ![Dane wyjściowe](../media/how-to-connect/connect-output.png)
 
-Usługa Azure Dev Spaces ma również element paska stanu pokazujący stan połączenia.
+Azure Dev Spaces ma także element paska stanu z informacją o stanie połączenia.
 
 ![Stan](../media/how-to-connect/connect-status.png)
 
-Sprawdź, czy na pasku stanu są wyświetlane *miejsca deweloperów: Połączone z deweloperami/rowerami na porcie lokalnym 3000*.
+Sprawdź, czy pasek stanu zawiera *spacje: połączony z dev/Bikes na porcie lokalnym 3000*.
 
 ### <a name="configure-your-application-on-your-development-computer"></a>Konfigurowanie aplikacji na komputerze deweloperskim
 
-Otwórz okno terminala *AZDS Connect - Bikes* i uruchom: `npm install`
+Otwórz okno terminalu *AZDS Connect-Bikes* i uruchom `npm install`następujące:
 
 ```console
 $ npm install
@@ -120,7 +120,7 @@ $ npm install
 ...
 ```
 
-Kliknij *przycisk Debugowanie,* a następnie *pozycję Otwórz konfiguracje*. Jeśli zostanie wyświetlony monit o wybranie środowiska, wybierz *node.js*. Spowoduje to `.vscode/launch.json` utworzenie pliku. Zastąp zawartość tego pliku następującymi:
+Kliknij przycisk *Debuguj* , a następnie *Otwórz pozycję konfiguracje*. Jeśli zostanie wyświetlony monit o wybranie środowiska, wybierz pozycję *Node. js*. Spowoduje to utworzenie `.vscode/launch.json` pliku. Zastąp zawartość tego pliku następującym:
 
 ```json
 {
@@ -140,7 +140,7 @@ Kliknij *przycisk Debugowanie,* a następnie *pozycję Otwórz konfiguracje*. Je
 }
 ```
 
-Otwórz [plik package.json](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/Bikes/package.json) i dodaj skrypt debugowania:
+Otwórz plik [Package. JSON](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/Bikes/package.json) i Dodaj skrypt debugowania:
 
 ```json
   "devDependencies": {
@@ -151,13 +151,13 @@ Otwórz [plik package.json](https://github.com/Azure/dev-spaces/blob/master/samp
   }
 ```
 
-### <a name="start-your-application-on-your-development-computer"></a>Uruchamianie aplikacji na komputerze deweloperskim
+### <a name="start-your-application-on-your-development-computer"></a>Uruchom aplikację na komputerze deweloperskim
 
-Kliknij ikonę *debugowania* po lewej stronie i kliknij przycisk start obok *przycisku Uruchom za pośrednictwem NPM* u góry.
+Kliknij ikonę *debugowania* po lewej stronie, a następnie kliknij przycisk Start obok pozycji *Uruchom za pomocą npm* w górnej części ekranu.
 
-![Uruchamianie za pośrednictwem NPM](../media/how-to-connect/launch-npm.png)
+![Uruchom za pomocą NPM](../media/how-to-connect/launch-npm.png)
 
-Aplikacja zostanie uruchomiony i usługi Azure Dev Spaces przekierowuje ruch między klastrem AKS i komputera deweloperskiego. W *konsoli debugowania*zobaczysz komunikaty podobne do poniższych:
+Aplikacja zostanie uruchomiona i Azure Dev Spaces przekierowuje ruch między klastrem AKS a komputerem deweloperskim. Komunikaty podobne do poniższych znajdują się w *konsoli debugowania*:
 
 ```console
 /usr/local/bin/npm run-script debug 
@@ -169,19 +169,19 @@ Connected to MongoDB
 Listening on port 3000
 ```
 
-Przejdź do usługi *bikesharingweb,* klikając pasek stanu azure dev spaces i wybierając publiczny adres URL aplikacji. Publiczny adres URL można również `azds list-uris` znaleźć w poleceniu, które uruchomiono wcześniej. Jeśli nie używasz usługi Azure Dev Spaces w klastrze, użyj adresu IP lub adresu URL aplikacji dla używanego obszaru nazw. W powyższym przykładzie publiczny adres URL usługi *bikesharingweb* to `http://dev.bikesharingweb.fedcab0987.eus.azds.io/`. Wybierz *Aurelia Briggs (klienta)* jako użytkownika, a następnie wybierz rower do wynajęcia.
+Przejdź do usługi *bikesharingweb* , klikając pasek stanu Azure dev Spaces i wybierając publiczny adres URL aplikacji. Publiczny adres URL można także znaleźć w `azds list-uris` poleceniu wcześniej uruchomionym. Jeśli nie używasz Azure Dev Spaces w klastrze, użyj adresu IP lub adresu URL aplikacji dla używanej przestrzeni nazw. W powyższym przykładzie publiczny adres URL usługi *bikesharingweb* to `http://dev.bikesharingweb.fedcab0987.eus.azds.io/`. Wybierz pozycję *Aurelia Briggs (Customer)* jako użytkownik, a następnie wybierz rower do wynajęcia.
 
-### <a name="set-a-break-point"></a>Ustawianie punktu przerwania
+### <a name="set-a-break-point"></a>Ustaw punkt przerwania
 
-Otwórz [server.js](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/Bikes/server.js#L233) i kliknij gdzieś na wierszu 233, aby umieścić tam kursor. Ustaw punkt przerwania, naciskając *klawisz F9* lub klikając *przycisk Debug,* a następnie *przełącz punkt przerwania*.
+Otwórz [serwer Server. js](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/Bikes/server.js#L233) i kliknij w dowolnym miejscu w wierszu 233, aby umieścić w nim kursor. Ustaw punkt przerwania, naciskając klawisz *F9* lub klikając polecenie *Debuguj* , a następnie *Przełącz punkt przerwania*.
 
-Przejdź do usługi *bikesharingweb,* otwierając publiczny adres URL. Wybierz *Aurelia Briggs (klienta)* jako użytkownika, a następnie wybierz rower do wynajęcia. Zwróć uwagę, że obraz roweru nie ładuje się. Powrót do programu Visual Studio Code i obserwować wiersz 233 jest wyróżniony. Ustawiony punkt przerwania wstrzymał usługę w wierszu 233. Aby wznowić usługę, naciśnij *klawisz F5* lub kliknij przycisk *Debugowanie,* a następnie *kontynuuj*. Wróć do przeglądarki i sprawdź, czy widzisz obraz zastępczy roweru.
+Przejdź do usługi *bikesharingweb* , otwierając publiczny adres URL. Wybierz pozycję *Aurelia Briggs (Customer)* jako użytkownik, a następnie wybierz rower do wynajęcia. Zauważ, że obraz dla roweru nie zostanie załadowany. Wróć do Visual Studio Code i obserwuj wiersz 233. Ustawiony punkt przerwania został wstrzymany usługi w wierszu 233. Aby wznowić działanie usługi, naciśnij klawisz *F5* lub kliknij pozycję *Debuguj* i *Kontynuuj*. Wróć do przeglądarki i sprawdź, czy jest wyświetlany obraz symbolu zastępczego dla roweru.
 
-Usuń punkt przerwania, umieszczając kursor w wierszu `server.js` 233 i uderzając *F9*.
+Usuń punkt przerwania, umieszczając kursor w wierszu 233 `server.js` i naciskając klawisz *F9*.
 
 ### <a name="update-your-application"></a>Aktualizowanie aplikacji
 
-Edytuj, `server.js` aby usunąć linie 232 i 233:
+Edytuj `server.js` , aby usunąć wiersze 232 i 233:
 
 ```javascript
     // Hard code image url *FIX ME*
@@ -196,15 +196,15 @@ Sekcja powinna teraz wyglądać następująco:
     delete theBike._id;
 ```
 
-Zapisz zmiany i kliknij przycisk *Debugowanie,* a następnie *uruchom ponownie debugowanie*. Odśwież przeglądarkę i sprawdź, czy nie widzisz już obrazu zastępczego roweru.
+Zapisz zmiany, a następnie kliknij pozycję *Debuguj* , a następnie *ponownie uruchom debugowanie*. Odśwież przeglądarkę i sprawdź, czy nie widzisz już obrazu zastępczego dla roweru.
 
-Kliknij *przycisk Debugowanie,* a następnie *pozycję Zatrzymaj debugowanie,* aby zatrzymać debuger. Kliknij pasek stanu usługi Azure Dev Spaces, aby odłączyć się od klastra AKS.
+Kliknij pozycję *Debuguj* , a następnie *Zatrzymaj debugowanie* , aby zatrzymać debuger. Kliknij pasek stanu Azure Dev Spaces, aby rozłączyć się z klastrem AKS.
 
 ## <a name="additional-configuration"></a>Dodatkowa konfiguracja
 
-Usługa Azure Dev Spaces może obsługiwać ruch routingu i replikowanie zmiennych środowiskowych bez dodatkowej konfiguracji. Jeśli chcesz pobrać wszystkie pliki, które są zainstalowane do kontenera w klastrze AKS, `azds-local.env` takie jak plik ConfigMap, można utworzyć, aby pobrać te pliki na komputer dewelopera.
+Azure Dev Spaces może obsługiwać ruch routingu i replikowanie zmiennych środowiskowych bez żadnej dodatkowej konfiguracji. Jeśli musisz pobrać wszystkie pliki, które są zainstalowane do kontenera w klastrze AKS, na przykład plik ConfigMap, możesz utworzyć, `azds-local.env` aby pobrać te pliki na komputer deweloperski.
 
-Oto przykład: `azds-local.env`
+Oto przykład `azds-local.env`:
 
 ```
 # This downloads the "whitelist" volume from the container,
@@ -236,24 +236,24 @@ MYAPP1_SERVICE_HOST=${services.myapp1}
 MYAPP2_SERVICE_HOST=${services.mynamespace.myapp2}
 ```
 
-## <a name="using-logging-and-diagnostics"></a>Korzystanie z rejestrowania i diagnostyki
+## <a name="using-logging-and-diagnostics"></a>Korzystanie z funkcji rejestrowania i diagnostyki
 
-Dane wyjściowe rejestrowania są zapisywane w oknie *Dev Spaces Connect* po podłączeniu komputera deweloperskiego do klastra AKS.
+Dane wyjściowe rejestrowania są zapisywane w oknie programu *dev Spaces Connect* po nawiązaniu połączenia komputera deweloperskiego z klastrem AKS.
 
 ![Dane wyjściowe](../media/how-to-connect/connect-output.png)
 
-Kliknij pasek stanu usługi Azure Dev Spaces i wybierz pozycję *Pokaż informacje diagnostyczne*. To polecenie drukuje bieżące zmienne środowiskowe i całe DNS w danych wyjściowych rejestrowania.
+Kliknij pasek stanu Azure Dev Spaces a następnie wybierz pozycję *Pokaż informacje diagnostyczne*. To polecenie drukuje bieżące zmienne środowiskowe i cały system DNS w danych wyjściowych rejestrowania.
 
-![Wyjście z diagnostyką](../media/how-to-connect/connect-output-diagnostics.png)
+![Dane wyjściowe z diagnostyką](../media/how-to-connect/connect-output-diagnostics.png)
 
-Dodatkowo dzienniki diagnostyczne można znaleźć `Azure Dev Spaces` w katalogu w [katalogu *TEMP* komputera dewelopera.][azds-tmp-dir]
+Ponadto można znaleźć dzienniki diagnostyczne w `Azure Dev Spaces` katalogu w [katalogu *tymczasowym* komputera deweloperskiego][azds-tmp-dir].
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak używać usługi Azure Dev Spaces i akcji GitHub do testowania zmian z żądania ściągania bezpośrednio w usłudze AKS, zanim żądanie ściągnięcia zostanie scalone z główną gałęzią repozytorium.
+Dowiedz się, jak za pomocą akcji Azure Dev Spaces i GitHub przetestować zmiany z żądania ściągnięcia bezpośrednio w AKS przed scaleniem żądania ściągnięcia z gałęzią główną repozytorium.
 
 > [!div class="nextstepaction"]
-> [Akcje usługi GitHub & usłudze Azure Kubernetes][gh-actions]
+> [Akcje GitHub & usłudze Azure Kubernetes Service][gh-actions]
 
 [azds-tmp-dir]: ../troubleshooting.md#before-you-begin
 [azds-vs-code]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds

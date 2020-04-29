@@ -1,6 +1,6 @@
 ---
-title: Diagnozowanie problemu z filtrem ruchu sieciowego maszyny wirtualnej | Dokumenty firmy Microsoft
-description: Dowiedz się, jak zdiagnozować problem z filtrem ruchu sieciowego maszyny wirtualnej, wyświetlając skuteczne reguły zabezpieczeń dla maszyny wirtualnej.
+title: Diagnozowanie problemu z filtrem ruchu sieciowego maszyny wirtualnej | Microsoft Docs
+description: Dowiedz się, jak zdiagnozować problem z filtrem ruchu sieciowego maszyny wirtualnej, wyświetlając obowiązujące reguły zabezpieczeń dla maszyny wirtualnej.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -16,72 +16,72 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: 6939ea2497a9f12321e1a6dfb9bf9fbb353bc7db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240775"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnozowanie problemu z filtrem ruchu sieciowego maszyny wirtualnej
 
-W tym artykule dowiesz się, jak zdiagnozować problem z filtrem ruchu sieciowego, wyświetlając reguły zabezpieczeń sieciowej grupy zabezpieczeń(NSG), które są skuteczne dla maszyny wirtualnej (VM).
+W tym artykule dowiesz się, jak zdiagnozować problem z filtrem ruchu sieciowego, wyświetlając reguły zabezpieczeń grupy zabezpieczeń sieci (sieciowej grupy zabezpieczeń), które obowiązują dla maszyny wirtualnej.
 
-Sieci zabezpieczeń umożliwiają kontrolowanie typów ruchu, które przepływają do i z maszyny Wirtualnej. Sieć sieciowej sieciowej sieciowej można skojarzyć z podsiecią w sieci wirtualnej platformy Azure, interfejsie sieciowym dołączonym do maszyny Wirtualnej lub obu. Skuteczne reguły zabezpieczeń stosowane do interfejsu sieciowego są agregacją reguł, które istnieją w sieciowej sieciowej sieciowej skojarzonej z interfejsem sieciowym i podsieci, w których znajduje się interfejs sieciowy. Reguły w różnych grupach sieciowych mogą czasami kolidować ze sobą i wpływać na łączność sieciową maszyny Wirtualnej. Można wyświetlić wszystkie skuteczne reguły zabezpieczeń z sieciowych grup zabezpieczeń, które są stosowane w interfejsach sieciowych maszyny Wirtualnej. Jeśli nie znasz pojęcia dotyczące sieci wirtualnej, interfejsu sieciowego lub sieciowej grupy zabezpieczeń, zobacz [Omówienie sieci wirtualnej](virtual-networks-overview.md), [Interfejs sieci](virtual-network-network-interface.md)i [Omówienie grup zabezpieczeń Sieć](security-overview.md).
+Sieciowych grup zabezpieczeń umożliwiają kontrolowanie typów ruchu, który przepływa do i z maszyny wirtualnej. Można skojarzyć sieciowej grupy zabezpieczeń z podsiecią w sieci wirtualnej platformy Azure, interfejsem sieciowym podłączonym do maszyny wirtualnej lub z obu tych systemów. Obowiązujące reguły zabezpieczeń stosowane do interfejsu sieciowego są agregacją reguł istniejących w sieciowej grupy zabezpieczeń skojarzonym z interfejsem sieciowym i podsiecią, w której znajduje się interfejs sieciowy. Reguły w różnych sieciowych grup zabezpieczeń mogą czasami powodować konflikty i mieć wpływ na łączność sieciową maszyny wirtualnej. Można wyświetlić wszystkie obowiązujące reguły zabezpieczeń z sieciowych grup zabezpieczeń, które są stosowane do interfejsów sieciowych maszyny wirtualnej. Jeśli nie znasz pojęć dotyczących sieci wirtualnych, interfejsów sieciowych lub sieciowej grupy zabezpieczeń, zobacz Omówienie usługi [Virtual Network](virtual-networks-overview.md), [interfejs sieciowy](virtual-network-network-interface.md)i [sieciowe grupy zabezpieczeń](security-overview.md).
 
 ## <a name="scenario"></a>Scenariusz
 
-Próbujesz połączyć się z maszyną wirtualną za pośrednictwem portu 80 z Internetu, ale połączenie nie powiedzie się. Aby ustalić, dlaczego nie można uzyskać dostępu do portu 80 z Internetu, można wyświetlić skuteczne reguły zabezpieczeń dla interfejsu sieciowego za pomocą witryny Azure [portal,](#diagnose-using-azure-portal) [PowerShell](#diagnose-using-powershell)lub [interfejsu wiersza polecenia platformy Azure.](#diagnose-using-azure-cli)
+Podjęto próbę nawiązania połączenia z maszyną wirtualną przez port 80 z Internetu, ale połączenie nie powiedzie się. Aby określić, dlaczego nie można uzyskać dostępu do portu 80 z Internetu, można wyświetlić obowiązujące reguły zabezpieczeń dla interfejsu sieciowego przy użyciu witryny Azure [Portal](#diagnose-using-azure-portal), [programu PowerShell](#diagnose-using-powershell)lub [interfejsu wiersza polecenia platformy Azure](#diagnose-using-azure-cli).
 
-Kroki, które należy wykonać założyć, że masz istniejącą maszynę wirtualną, aby wyświetlić skuteczne reguły zabezpieczeń dla. Jeśli nie masz istniejącej maszyny Wirtualnej, najpierw wdrożyć [maszynę](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) wirtualną z systemem Linux lub [Windows,](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) aby wykonać zadania w tym artykule. Przykłady w tym artykule są dla maszyny Wirtualnej o nazwie *myVM* z interfejsem sieciowym o nazwie *myVMVMNic*. Maszyna wirtualna i interfejs sieciowy znajdują się w grupie zasobów o nazwie *myResourceGroup*i znajdują się w regionie *Wschodnie stany USA.* Zmień wartości w krokach, w stosownych przypadkach, dla maszyny Wirtualnej, dla której diagnozujesz problem.
+W poniższej procedurze przyjęto założenie, że masz istniejącą maszynę wirtualną do wyświetlania obowiązujących reguł zabezpieczeń. Jeśli nie masz istniejącej maszyny wirtualnej, najpierw Wdróż maszynę wirtualną z systemem [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , aby wykonać zadania z tego artykułu. Przykłady w tym artykule dotyczą maszyny wirtualnej o nazwie *myVM* z interfejsem sieciowym o nazwie *myVMVMNic*. Maszyna wirtualna i interfejs sieciowy znajdują się w grupie zasobów o nazwie Moja *zasobów*i znajdują się w regionie *Wschodnie stany USA* . W razie potrzeby zmień wartości w odpowiednich krokach dla maszyny wirtualnej, dla której jest diagnozowany problem.
 
-## <a name="diagnose-using-azure-portal"></a>Diagnozowanie przy użyciu witryny Azure portal
+## <a name="diagnose-using-azure-portal"></a>Diagnozuj przy użyciu Azure Portal
 
-1. Zaloguj się do [witryny](https://portal.azure.com) Azure portal przy użyciu konta platformy Azure, które ma [niezbędne uprawnienia.](virtual-network-network-interface.md#permissions)
-2. U góry witryny Azure portal wprowadź nazwę maszyny Wirtualnej w polu wyszukiwania. Gdy w wynikach wyszukiwania pojawi się nazwa maszyny Wirtualnej, zaznacz ją.
-3. W obszarze **USTAWIENIA**wybierz pozycję **Sieć**, jak pokazano na poniższej ilustracji:
+1. Zaloguj się do witryny Azure [Portal](https://portal.azure.com) przy użyciu konta platformy Azure, które ma [wymagane uprawnienia](virtual-network-network-interface.md#permissions).
+2. W górnej części Azure Portal wprowadź nazwę maszyny wirtualnej w polu wyszukiwania. Gdy nazwa maszyny wirtualnej zostanie wyświetlona w wynikach wyszukiwania, wybierz ją.
+3. W obszarze **Ustawienia**wybierz pozycję **Sieć**, jak pokazano na poniższej ilustracji:
 
    ![Wyświetlanie reguł zabezpieczeń](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
-   Reguły widoczne na poprzednim zdjęciu są dla interfejsu sieciowego o nazwie **myVMVMNic**. Zobaczysz, że istnieją **reguły portu przychodzącego** dla interfejsu sieciowego z dwóch różnych grup zabezpieczeń sieci:
+   Reguły widoczne na liście na poprzednim obrazie dotyczą interfejsu sieciowego o nazwie **myVMVMNic**. Zobaczysz, że dla interfejsu sieciowego istnieją **reguły portów ruchu przychodzącego** z dwóch różnych sieciowych grup zabezpieczeń:
    
-   - **mySubnetNSG**: Skojarzone z podsiecią, w których znajduje się interfejs sieciowy.
-   - **myVMNSG**: Skojarzony z interfejsem sieciowym w maszynie wirtualnej o nazwie **myVMVMNic**.
+   - **mySubnetNSG**: skojarzona z podsiecią, w której znajduje się interfejs sieciowy.
+   - **myVMNSG**: skojarzona z interfejsem sieciowym w maszynie wirtualnej o nazwie **myVMVMNic**.
 
-   Reguła o nazwie **DenyAllInBound** jest to, co uniemożliwia komunikację przychodzącą do maszyny Wirtualnej za pośrednictwem portu 80, z Internetu, zgodnie z opisem w [scenariuszu](#scenario). Reguła zawiera *listę 0.0.0.0/0* dla **SOURCE**, która obejmuje internet. Żadna inna reguła o wyższym priorytecie (niższa liczba) nie zezwala na przychodzące porty 80. Aby zezwolić na przychodzące do portu 80 do maszyny Wirtualnej z Internetu, zobacz [Rozwiązywanie problemu](#resolve-a-problem). Aby dowiedzieć się więcej o regułach zabezpieczeń i sposobie ich zastosowania przez platformę Azure, zobacz [Sieciowe grupy zabezpieczeń](security-overview.md).
+   Reguła o nazwie **DenyAllInBound** polega na tym, że zapobieganie komunikacji przychodzącej z maszyną wirtualną przez port 80 z Internetu, zgodnie z opisem w tym [scenariuszu](#scenario). Reguła zawiera listę wartości *0.0.0.0/0* dla **źródła**, w tym Internet. Żadna inna reguła o wyższym priorytecie (Dolna liczba) zezwala na ruch przychodzący do portu 80. Aby zezwolić na ruch przychodzący portu 80 do maszyny wirtualnej z Internetu, zobacz temat [Rozwiązywanie problemu](#resolve-a-problem). Aby dowiedzieć się więcej o regułach zabezpieczeń i sposobach ich stosowania przez platformę Azure, zobacz [Network Security Groups](security-overview.md).
 
-   U dołu obrazu znajdują się również **reguły portu wychodzącego**. W obszarze tych znajdują się reguły portów wychodzących dla interfejsu sieciowego. Chociaż obraz pokazuje tylko cztery reguły przychodzące dla każdej sieciowej sieciowej grup płciowych, sieciowe sieciowe mogą mieć wiele więcej niż cztery reguły. Na zdjęciu w **obszarze** **ŹRÓDŁO** i **MIEJSCE DOCELOWE** oraz **AzureLoadBalancer** w obszarze **SOURCE**. **VirtualNetwork** i **AzureLoadBalancer** są [tagami usług.](security-overview.md#service-tags) Tagi usługi reprezentują grupę prefiksów adresów IP, aby zminimalizować złożoność tworzenia reguł zabezpieczeń.
+   W dolnej części obrazu widoczne są także **reguły portów wychodzących**. W obszarze są to reguły portów wychodzących dla interfejsu sieciowego. Chociaż obraz zawiera tylko cztery reguły ruchu przychodzącego dla każdego sieciowej grupy ZABEZPIECZEŃu, sieciowych grup zabezpieczeń może mieć wiele więcej niż czterech reguł. Na obrazie zobaczysz **VirtualNetwork** w obszarze **źródłowym** i **docelowym** oraz **AzureLoadBalancer** w obszarze **Źródło**. **VirtualNetwork** i **AzureLoadBalancer** to [Tagi usług](security-overview.md#service-tags). Tagi usług reprezentują grupę prefiksów adresów IP, aby zminimalizować złożoność tworzenia reguł zabezpieczeń.
 
-4. Upewnij się, że maszyna wirtualna jest w stanie uruchomionym, a następnie wybierz **opcję Skuteczne reguły zabezpieczeń**, jak pokazano na poprzednim zdjęciu, aby wyświetlić skuteczne reguły zabezpieczeń, pokazane na poniższym rysunku:
+4. Upewnij się, że maszyna wirtualna jest w stanie uruchomienia, a następnie wybierz pozycję **obowiązujące reguły zabezpieczeń**, jak pokazano na poprzedniej ilustracji, aby wyświetlić obowiązujące reguły zabezpieczeń, pokazane na poniższej ilustracji:
 
-   ![Wyświetlanie skutecznych reguł zabezpieczeń](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
+   ![Wyświetlanie obowiązujących reguł zabezpieczeń](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
 
-   Reguły wymienione są takie same, jak w kroku 3, chociaż istnieją różne karty dla sieciowej sieciowej sieciowej skojarzonej z interfejsem sieciowym i podsiecią. Jak widać na zdjęciu, wyświetlane są tylko pierwsze 50 reguł. Aby pobrać plik csv zawierający wszystkie reguły, wybierz opcję **Pobierz**.
+   Wymienione reguły są takie same, jak w kroku 3, chociaż istnieją różne karty dla sieciowej grupy zabezpieczeń skojarzonych z interfejsem sieciowym i podsiecią. Jak widać na zdjęciu, wyświetlane są tylko pierwsze reguły 50. Aby pobrać plik CSV, który zawiera wszystkie reguły, wybierz pozycję **Pobierz**.
 
-   Aby zobaczyć, które prefiksy reprezentuje każdy tag usługi, wybierz regułę, taką jak reguła o nazwie **AllowAzureLoadBalancerInbound**. Na poniższej ilustracji przedstawiono prefiksy tagu usługi **AzureLoadBalancer:**
+   Aby zobaczyć, które prefiksy są reprezentowane przez każdy tag usługi, wybierz regułę, taką jak reguła o nazwie **AllowAzureLoadBalancerInbound**. Na poniższej ilustracji przedstawiono prefiksy dla tagu usługi **AzureLoadBalancer** :
 
-   ![Wyświetlanie skutecznych reguł zabezpieczeń](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
+   ![Wyświetlanie obowiązujących reguł zabezpieczeń](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
 
-   Chociaż tag usługi **AzureLoadBalancer** reprezentuje tylko jeden prefiks, inne tagi usługi reprezentują kilka prefiksów.
+   Chociaż tag usługi **AzureLoadBalancer** reprezentuje tylko jeden prefiks, inne Tagi usług reprezentują kilka prefiksów.
 
-5. Poprzednie kroki pokazały reguły zabezpieczeń dla interfejsu sieciowego o nazwie **myVMVMNic**, ale w niektórych poprzednich obrazach był również interfejs sieciowy o nazwie **myVMVMNic2.** Maszyna wirtualna w tym przykładzie ma dwa interfejsy sieciowe dołączone do niego. Skuteczne reguły zabezpieczeń mogą być różne dla każdego interfejsu sieciowego.
+5. Poprzednie kroki wykazały reguły zabezpieczeń dla interfejsu sieciowego o nazwie **myVMVMNic**, ale w niektórych z poprzednich zdjęć pojawił się również interfejs sieciowy o nazwie **myVMVMNic2** . Do maszyny wirtualnej w tym przykładzie są dołączone dwa interfejsy sieciowe. Obowiązujące reguły zabezpieczeń mogą być różne dla każdego interfejsu sieciowego.
 
-   Aby wyświetlić reguły interfejsu sieciowego **myVMVMNic2,** wybierz go. Jak pokazano na poniższym rysunku, interfejs sieciowy ma te same reguły skojarzone z jego podsiecią co interfejs **sieciowy myVMVMNic,** ponieważ oba interfejsy sieciowe znajdują się w tej samej podsieci. Po skojarzeniu sieciowej sieciowej sieciowej z podsieci jej reguły są stosowane do wszystkich interfejsów sieciowych w podsieci.
+   Aby wyświetlić reguły dla interfejsu sieciowego **myVMVMNic2** , zaznacz go. Jak pokazano na poniższej ilustracji, interfejs sieciowy ma te same reguły, które są skojarzone z podsiecią, jako interfejs sieciowy **myVMVMNic** , ponieważ oba interfejsy sieciowe znajdują się w tej samej podsieci. Po skojarzeniu sieciowej grupy zabezpieczeń z podsiecią reguły są stosowane do wszystkich interfejsów sieciowych w podsieci.
 
    ![Wyświetlanie reguł zabezpieczeń](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
 
-   W przeciwieństwie do interfejsu **sieciowego myVMVMNic** interfejs **sieciowy myVMVMNic2** nie ma skojarzonej z nim sieciowej grupy zabezpieczeń. Każdy interfejs sieciowy i podsieć mogą mieć zero lub jedną z sieciowej sieciowej skojarzonej z nią. Grupa sieciowych skojarzona z każdym interfejsem sieciowym lub podsiecią może być taka sama lub inna. Tę samą grupę zabezpieczeń sieci można skojarzyć z dowolną ą wiąza siecią sieci.
+   W przeciwieństwie do interfejsu sieciowego **myVMVMNic** , interfejs sieciowy **myVMVMNic2** nie ma skojarzonej sieciowej grupy zabezpieczeń. Każdy interfejs sieciowy i podsieć mogą mieć sieciowej grupy zabezpieczeń, lub jeden z nich. SIECIOWEJ grupy zabezpieczeń skojarzone z poszczególnymi interfejsami sieciowymi lub podsiecią może być taka sama lub inna. Tę samą grupę zabezpieczeń sieci można skojarzyć z dowolną liczbą interfejsów sieciowych i podsieci.
 
-Chociaż skuteczne reguły zabezpieczeń były wyświetlane za pośrednictwem maszyny Wirtualnej, można również wyświetlić skuteczne reguły zabezpieczeń za pośrednictwem osoby:
-- **Interfejs sieciowy**: Dowiedz się, jak [wyświetlić interfejs sieciowy](virtual-network-network-interface.md#view-network-interface-settings).
-- **NSG**: Dowiedz się, jak [wyświetlić nsg](manage-network-security-group.md#view-details-of-a-network-security-group).
+Mimo że skuteczne reguły zabezpieczeń były przeglądane za pośrednictwem maszyny wirtualnej, można także wyświetlać obowiązujące reguły zabezpieczeń za pośrednictwem indywidualnych:
+- **Interfejs sieciowy**: informacje na temat [wyświetlania interfejsu sieciowego](virtual-network-network-interface.md#view-network-interface-settings).
+- **Sieciowej grupy zabezpieczeń**: informacje o sposobie [wyświetlania sieciowej grupy zabezpieczeń](manage-network-security-group.md#view-details-of-a-network-security-group).
 
-## <a name="diagnose-using-powershell"></a>Diagnozowanie przy użyciu programu PowerShell
+## <a name="diagnose-using-powershell"></a>Diagnozuj przy użyciu programu PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Można uruchomić polecenia, które należy wykonać w [usłudze Azure Cloud Shell](https://shell.azure.com/powershell)lub uruchamiając program PowerShell z komputera. Usługa Azure Cloud Shell to bezpłatna powłoka interaktywna. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Jeśli program PowerShell jest uruchamiany z komputera, potrzebny jest moduł programu Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom `Get-Module -ListAvailable Az` na komputerze, aby znaleźć zainstalowaną wersję. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, `Connect-AzAccount` musisz również uruchomić, aby zalogować się do platformy Azure przy użyciu konta, które ma [niezbędne uprawnienia].](virtual-network-network-interface.md#permissions)
+Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.azure.com/powershell)lub przez uruchomienie programu PowerShell z komputera. Azure Cloud Shell to bezpłatna interaktywna powłoka. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. W przypadku uruchomienia programu PowerShell z komputera potrzebny jest moduł Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom `Get-Module -ListAvailable Az` polecenie na komputerze, aby znaleźć zainstalowaną wersję. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić `Connect-AzAccount` polecenie, aby zalogować się do platformy Azure przy użyciu konta, które ma [wymagane uprawnienia](virtual-network-network-interface.md#permissions).
 
-Uzyskaj skuteczne reguły zabezpieczeń dla interfejsu sieciowego za pomocą [get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). W poniższym przykładzie pobiera się skuteczne reguły zabezpieczeń dla interfejsu sieciowego o nazwie *myVMVMNic*, który znajduje się w grupie zasobów o nazwie *myResourceGroup:*
+Pobierz efektywne reguły zabezpieczeń dla interfejsu sieciowego za pomocą [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). Poniższy przykład pobiera obowiązujące reguły zabezpieczeń dla interfejsu sieciowego o nazwie *myVMVMNic*, który znajduje się w grupie *zasobów o nazwie*moja Grupa:
 
 ```azurepowershell-interactive
 Get-AzEffectiveNetworkSecurityGroup `
@@ -89,19 +89,19 @@ Get-AzEffectiveNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-Dane wyjściowe są zwracane w formacie json. Aby zrozumieć dane wyjściowe, zobacz [interpretuj wyjście polecenia](#interpret-command-output).
-Dane wyjściowe są zwracane tylko wtedy, gdy grupa sieciowa jest skojarzona z interfejsem sieciowym, podsiecią, w, w załączeniu lub w obu tych elementach. Maszyna wirtualna musi być w stanie uruchomionym. Maszyna wirtualna może mieć wiele interfejsów sieciowych z różnych sieciowychgów zastosowanych. Podczas rozwiązywania problemów uruchom polecenie dla każdego interfejsu sieciowego.
+Dane wyjściowe są zwracane w formacie JSON. Aby zrozumieć dane wyjściowe, zobacz [interpretowanie danych wyjściowych polecenia](#interpret-command-output).
+Dane wyjściowe są zwracane tylko wtedy, gdy sieciowej grupy zabezpieczeń jest skojarzona z interfejsem sieciowym, podsiecią, w której znajduje się interfejs sieciowy, lub obie. Maszyna wirtualna musi być w stanie uruchomionym. Maszyna wirtualna może mieć wiele interfejsów sieciowych z różnymi sieciowych grup zabezpieczeńmi. W przypadku rozwiązywania problemów Uruchom polecenie dla każdego interfejsu sieciowego.
 
-Jeśli nadal masz problem z łącznością, zapoznaj się z [dodatkową diagnozą](#additional-diagnosis) i [zagadnieniami.](#considerations)
+Jeśli nadal masz problem z łącznością, zobacz [dodatkową diagnostykę](#additional-diagnosis) i [zagadnienia](#considerations).
 
-Jeśli nie znasz nazwy interfejsu sieciowego, ale znasz nazwę maszyny Wirtualnej, do której jest dołączony interfejs sieciowy, następujące polecenia zwracają identyfikatory wszystkich interfejsów sieciowych podłączonych do maszyny Wirtualnej:
+Jeśli nie znasz nazwy interfejsu sieciowego, ale znasz nazwę maszyny wirtualnej, do której jest dołączony interfejs sieciowy, następujące polecenia zwracają identyfikatory wszystkich interfejsów sieciowych dołączonych do maszyny wirtualnej:
 
 ```azurepowershell-interactive
 $VM = Get-AzVM -Name myVM -ResourceGroupName myResourceGroup
 $VM.NetworkProfile
 ```
 
-Otrzymujesz dane wyjściowe podobne do następującego przykładu:
+Otrzymasz dane wyjściowe podobne do następującego przykładu:
 
 ```output
 NetworkInterfaces
@@ -109,13 +109,13 @@ NetworkInterfaces
 {/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
 ```
 
-W poprzednim wyjściu nazwa interfejsu sieciowego to *myVMVMNic*.
+W poprzednich danych wyjściowych nazwa interfejsu sieciowego to *myVMVMNic*.
 
-## <a name="diagnose-using-azure-cli"></a>Diagnozowanie przy użyciu interfejsu wiersza polecenia platformy Azure
+## <a name="diagnose-using-azure-cli"></a>Diagnozuj przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Jeśli do wykonywania zadań w tym artykule przy użyciu poleceń interfejsu wiersza polecenia platformy Azure należy uruchomić polecenia w [usłudze Azure Cloud Shell](https://shell.azure.com/bash)lub uruchomić interfejs wiersza polecenia z komputera. Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.32 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Jeśli korzystasz z interfejsu wiersza polecenia platformy `az login` Azure lokalnie, musisz również uruchomić i zalogować się na platformę Azure przy użyciu konta, które ma [niezbędne uprawnienia.](virtual-network-network-interface.md#permissions)
+W przypadku korzystania z poleceń interfejsu wiersza polecenia (CLI) platformy Azure w celu wykonania zadań w tym artykule Uruchom polecenia w [Azure Cloud Shell](https://shell.azure.com/bash)lub przez uruchomienie interfejsu wiersza polecenia na komputerze. Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.32 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz również uruchomić `az login` i zalogować się do platformy Azure przy użyciu konta, które ma [wymagane uprawnienia](virtual-network-network-interface.md#permissions).
 
-Uzyskaj skuteczne reguły zabezpieczeń dla interfejsu sieciowego z [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). W poniższym przykładzie przedstawiono skuteczne reguły zabezpieczeń dla interfejsu sieciowego o nazwie *myVMVMNic,* który znajduje się w grupie zasobów o nazwie *myResourceGroup:*
+Pobierz efektywne reguły zabezpieczeń dla interfejsu sieciowego za pomocą [AZ Network nic list-sieciowej grupy zabezpieczeń](/cli/azure/network/nic#az-network-nic-list-effective-nsg). Poniższy przykład pobiera obowiązujące reguły zabezpieczeń dla interfejsu sieciowego o nazwie *myVMVMNic* , który znajduje się w grupie zasobów o nazwie Moja *zasobów*:
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
@@ -123,12 +123,12 @@ az network nic list-effective-nsg \
   --resource-group myResourceGroup
 ```
 
-Dane wyjściowe są zwracane w formacie json. Aby zrozumieć dane wyjściowe, zobacz [interpretuj wyjście polecenia](#interpret-command-output).
-Dane wyjściowe są zwracane tylko wtedy, gdy grupa sieciowa jest skojarzona z interfejsem sieciowym, podsiecią, w, w załączeniu lub w obu tych elementach. Maszyna wirtualna musi być w stanie uruchomionym. Maszyna wirtualna może mieć wiele interfejsów sieciowych z różnych sieciowychgów zastosowanych. Podczas rozwiązywania problemów uruchom polecenie dla każdego interfejsu sieciowego.
+Dane wyjściowe są zwracane w formacie JSON. Aby zrozumieć dane wyjściowe, zobacz [interpretowanie danych wyjściowych polecenia](#interpret-command-output).
+Dane wyjściowe są zwracane tylko wtedy, gdy sieciowej grupy zabezpieczeń jest skojarzona z interfejsem sieciowym, podsiecią, w której znajduje się interfejs sieciowy, lub obie. Maszyna wirtualna musi być w stanie uruchomionym. Maszyna wirtualna może mieć wiele interfejsów sieciowych z różnymi sieciowych grup zabezpieczeńmi. W przypadku rozwiązywania problemów Uruchom polecenie dla każdego interfejsu sieciowego.
 
-Jeśli nadal masz problem z łącznością, zapoznaj się z [dodatkową diagnozą](#additional-diagnosis) i [zagadnieniami.](#considerations)
+Jeśli nadal masz problem z łącznością, zobacz [dodatkową diagnostykę](#additional-diagnosis) i [zagadnienia](#considerations).
 
-Jeśli nie znasz nazwy interfejsu sieciowego, ale znasz nazwę maszyny Wirtualnej, do której jest dołączony interfejs sieciowy, następujące polecenia zwracają identyfikatory wszystkich interfejsów sieciowych podłączonych do maszyny Wirtualnej:
+Jeśli nie znasz nazwy interfejsu sieciowego, ale znasz nazwę maszyny wirtualnej, do której jest dołączony interfejs sieciowy, następujące polecenia zwracają identyfikatory wszystkich interfejsów sieciowych dołączonych do maszyny wirtualnej:
 
 ```azurecli-interactive
 az vm show \
@@ -136,7 +136,7 @@ az vm show \
   --resource-group myResourceGroup
 ```
 
-W obrębie zwróconego danych wyjściowych są widoczne informacje podobne do następującego przykładu:
+W zwróconym wyjściu zobaczysz informacje podobne do następującego przykładu:
 
 ```output
 "networkProfile": {
@@ -150,58 +150,58 @@ W obrębie zwróconego danych wyjściowych są widoczne informacje podobne do na
       },
 ```
 
-W poprzednim wyjściu nazwa interfejsu sieciowego to *interfejs myVMVMNic*.
+W poprzednich danych wyjściowych nazwa interfejsu sieciowego to *myVMVMNic interfejs*.
 
-## <a name="interpret-command-output"></a>Interpretowanie wyjścia polecenia
+## <a name="interpret-command-output"></a>Interpretowanie danych wyjściowych polecenia
 
-Niezależnie od tego, czy do zdiagnozowania problemu użyto programu [PowerShell](#diagnose-using-powershell), czy [interfejsu wiersza polecenia platformy Azure,](#diagnose-using-azure-cli) otrzymasz dane wyjściowe zawierające następujące informacje:
+Bez względu na to, czy użyto programu [PowerShell](#diagnose-using-powershell), czy [interfejsu wiersza polecenia platformy Azure](#diagnose-using-azure-cli) w celu zdiagnozowania problemu otrzymujesz dane wyjściowe zawierające następujące informacje:
 
 - **NetworkSecurityGroup**: Identyfikator sieciowej grupy zabezpieczeń.
-- **Skojarzenie**: Czy grupa zabezpieczeń sieci jest skojarzona z *sieciąInterface* lub *podsieci*. Jeśli sieciowej grupy zabezpieczeń jest skojarzony z obu, dane wyjściowe są zwracane z **NetworkSecurityGroup**, **Association**i **EffectiveSecurityRules**, dla każdego NSG. Jeśli sieciowej sieciowej sieciowej jest skojarzony lub odłączony bezpośrednio przed uruchomieniem polecenia, aby wyświetlić skuteczne reguły zabezpieczeń, może być konieczne odczekanie kilku sekund, aby zmiana odzwierciedliła się w danych wyjściowych polecenia.
-- **EffectiveSecurityRules:** Wyjaśnienie każdej właściwości jest szczegółowo opisane w [tworzenie reguły zabezpieczeń](manage-network-security-group.md#create-a-security-rule). Nazwy reguł poprzedzone *defaultSecurityRules/* są domyślnymi regułami zabezpieczeń, które istnieją w każdej sieci nsg. Nazwy reguł poprzedzone *securityRules/* są regułami, które zostały utworzone. Reguły określające [tag usługi](security-overview.md#service-tags), takich jak **Internet**, **VirtualNetwork**i **AzureLoadBalancer** dla **destinationAddressPrefix** lub **sourceAddressPrefix** właściwości, mają również wartości dla **expandedDestinationAddressPrefix** właściwości. Właściwość **expandedDestinationAddressPrefix** zawiera listę wszystkich prefiksów adresów reprezentowanych przez tag usługi.
+- **Skojarzenie**: określa, czy sieciowa Grupa zabezpieczeń jest skojarzona z *interfejsu sieciowego* czy *podsiecią*. Jeśli sieciowej grupy zabezpieczeń jest skojarzona z obydwoma, dane wyjściowe są zwracane z **NetworkSecurityGroup**, **Association**i **EffectiveSecurityRules**dla każdego sieciowej grupy zabezpieczeń. Jeśli sieciowej grupy zabezpieczeń jest skojarzony lub usuwany bezpośrednio przed uruchomieniem polecenia w celu wyświetlenia obowiązujących reguł zabezpieczeń, może być konieczne odczekanie kilku sekund, aby zmiana została odzwierciedlona w danych wyjściowych polecenia.
+- **EffectiveSecurityRules**: wyjaśnienie każdej właściwości jest szczegółowo opisane w temacie [Create a Security Rule](manage-network-security-group.md#create-a-security-rule). Nazwy reguł poprzedzone *defaultSecurityRules/* są domyślnymi regułami zabezpieczeń, które istnieją w każdym sieciowej grupy zabezpieczeńe. Nazwy reguł poprzedzone *securityRules/* są regułami, które zostały utworzone. Reguły określające [tag usługi](security-overview.md#service-tags), takie jak **Internet**, **VirtualNetwork**i **AzureLoadBalancer** dla właściwości **destinationAddressPrefix** lub **DestinationPortRange i SourceAddressPrefix** , również mają wartości właściwości **expandedDestinationAddressPrefix** . Właściwość **expandedDestinationAddressPrefix** wyświetla wszystkie prefiksy adresów reprezentowane przez tag usługi.
 
-Jeśli widzisz zduplikowane reguły wymienione w danych wyjściowych, to dlatego, że sieciowej listy sieciowej jest skojarzony zarówno do interfejsu sieciowego i podsieci. Obie sieci zabezpieczeń sieciowych mają te same reguły domyślne i mogą mieć dodatkowe reguły duplikatów, jeśli utworzono własne reguły, które są takie same w obu grupach sieciowych.
+Jeśli w danych wyjściowych zostaną wyświetlone zduplikowane reguły, jest to spowodowane tym, że element sieciowej grupy zabezpieczeń jest skojarzony zarówno z interfejsem sieciowym, jak i podsiecią. Oba sieciowych grup zabezpieczeń mają te same reguły domyślne i mogą mieć dodatkowe zduplikowane reguły, jeśli utworzono własne reguły, które są takie same w obu sieciowych grup zabezpieczeńach.
 
-Reguła o nazwie **defaultSecurityRules/DenyAllInBound** jest tym, co uniemożliwia komunikację przychodzącą do maszyny Wirtualnej za pośrednictwem portu 80 z Internetu, zgodnie z opisem w [scenariuszu](#scenario). Żadna inna reguła o wyższym priorytecie (niższa liczba) nie zezwala na przychodzące do portu 80 z Internetu.
+Reguła o nazwie **defaultSecurityRules/DenyAllInBound** polega na tym, że zapobieganie komunikacji przychodzącej z maszyną wirtualną przez port 80 z Internetu, zgodnie z opisem w tym [scenariuszu](#scenario). Żadna inna reguła z wyższym priorytetem (niższym numerem) zezwala na ruch przychodzący do portu 80 z Internetu.
 
 ## <a name="resolve-a-problem"></a>Rozwiązywanie problemu
 
-Niezależnie od tego, czy używasz witryny Azure [portal,](#diagnose-using-azure-portal) [PowerShell](#diagnose-using-powershell)lub [interfejsu wiersza polecenia platformy Azure](#diagnose-using-azure-cli) do diagnozowania problemu przedstawionego w [scenariuszu](#scenario) w tym artykule, rozwiązaniem jest utworzenie reguły zabezpieczeń sieciowych z następującymi właściwościami:
+W przypadku korzystania z witryny Azure [Portal](#diagnose-using-azure-portal), [programu PowerShell](#diagnose-using-powershell)lub [interfejsu wiersza polecenia platformy Azure](#diagnose-using-azure-cli) w celu zdiagnozowania problemu przedstawionego w [scenariuszu](#scenario) w tym artykule Rozwiązanie polega na utworzeniu reguły zabezpieczeń sieci z następującymi właściwościami:
 
 | Właściwość                | Wartość                                                                              |
 |---------                |---------                                                                           |
 | Element źródłowy                  | Dowolne                                                                                |
 | Zakresy portów źródłowych      | Dowolne                                                                                |
-| Element docelowy             | Adres IP maszyny Wirtualnej, zakres adresów IP lub wszystkie adresy w podsieci. |
+| Element docelowy             | Adres IP maszyny wirtualnej, zakres adresów IP lub wszystkie adresy w podsieci. |
 | Zakresy portów docelowych | 80                                                                                 |
 | Protocol (Protokół)                | TCP                                                                                |
 | Akcja                  | Zezwalaj                                                                              |
 | Priorytet                | 100                                                                                |
-| Nazwa                    | Zezwalaj-HTTP-Wszystko                                                                     |
+| Nazwa                    | Zezwalaj-HTTP-All                                                                     |
 
-Po utworzeniu reguły port 80 jest dozwolony przychodzących z Internetu, ponieważ priorytet reguły jest wyższy niż domyślna reguła zabezpieczeń o nazwie *DenyAllInBound*, która odmawia ruchu. Dowiedz się, jak [utworzyć regułę zabezpieczeń](manage-network-security-group.md#create-a-security-rule). Jeśli różne sieciowe sieciowe sieciowe są skojarzone zarówno z interfejsem sieciowym, jak i z podsiecią, należy utworzyć tę samą regułę w obu sieciach zabezpieczeń.
+Po utworzeniu reguły port 80 jest dozwolony dla ruchu przychodzącego z Internetu, ponieważ priorytet reguły jest wyższy niż domyślna reguła zabezpieczeń o nazwie *DenyAllInBound*, która odmówi ruch. Dowiedz się, jak [utworzyć regułę zabezpieczeń](manage-network-security-group.md#create-a-security-rule). Jeśli różne sieciowych grup zabezpieczeń są skojarzone zarówno z interfejsem sieciowym, jak i podsiecią, należy utworzyć tę samą regułę w obu sieciowych grup zabezpieczeń.
 
-Gdy platforma Azure przetwarza ruch przychodzący, przetwarza reguły w sieciowej grupowej skojarzonej z podsiecią (jeśli istnieje skojarzona sieć sieciowa), a następnie przetwarza reguły w sieciowej sieciowej grupce skojarzonej z interfejsem sieciowym. Jeśli istnieje sieciowej sieciowej grupki zabezpieczeń skojarzone z interfejsem sieciowym i podsieci, port musi być otwarty w obu sieciowych grup zabezpieczeń, aby ruch dotarł do maszyny Wirtualnej. Aby ułatwić zarządzanie i problemy z komunikacją, zaleca się skojarzenie sieciowej sieciowej sieciowej z podsiecią, a nie z poszczególnymi interfejsami sieciowymi. Jeśli maszyny wirtualne w podsieci wymagają różnych reguł zabezpieczeń, można wprowadzić interfejsy sieciowe do członków grupy zabezpieczeń aplikacji (ASG) i określić asg jako źródło i miejsce docelowe reguły zabezpieczeń. Dowiedz się więcej o [grupach zabezpieczeń aplikacji](security-overview.md#application-security-groups).
+Gdy platforma Azure przetwarza ruch przychodzący, przetwarza reguły w sieciowej grupy zabezpieczeń skojarzonej z podsiecią (jeśli istnieje skojarzona sieciowej grupy zabezpieczeń), a następnie przetwarza reguły w sieciowej grupy zabezpieczeń skojarzonym z interfejsem sieciowym. Jeśli istnieje sieciowej grupy zabezpieczeń skojarzona z interfejsem sieciowym i podsiecią, Port musi być otwarty w obu sieciowych grup zabezpieczeńach dla ruchu, który ma dotrzeć do maszyny wirtualnej. Aby ułatwić administrowanie i problemy z komunikacją, zalecamy skojarzenie sieciowej grupy zabezpieczeń z podsiecią, a nie pojedynczymi interfejsami sieciowymi. Jeśli maszyny wirtualne w podsieci wymagają różnych reguł zabezpieczeń, można ustawić interfejsy sieciowe jako elementy członkowskie grupy zabezpieczeń aplikacji (ASG) i określić ASG jako źródło i miejsce docelowe reguły zabezpieczeń. Dowiedz się więcej o [grupach zabezpieczeń aplikacji](security-overview.md#application-security-groups).
 
-Jeśli nadal występują problemy z komunikacją, zobacz [Zagadnienia](#considerations) i Dodatkowa diagnoza.
+Jeśli nadal występują problemy z komunikacją, zapoznaj się z [zagadnieniami](#considerations) i dodatkową diagnostyką.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Podczas rozwiązywania problemów z łącznością należy wziąć pod uwagę następujące kwestie:
 
-* Domyślne reguły zabezpieczeń blokują dostęp przychodzący z Internetu i zezwalają tylko na ruch przychodzący z sieci wirtualnej. Aby zezwolić na ruch przychodzący z Internetu, dodaj reguły zabezpieczeń o wyższym priorytecie niż reguły domyślne. Dowiedz się więcej o [domyślnych regułach zabezpieczeń](security-overview.md#default-security-rules)lub o [dodaniu reguły zabezpieczeń](manage-network-security-group.md#create-a-security-rule).
-* Jeśli sieci wirtualne są równorzędne, domyślnie VIRTUAL_NETWORK tag **usługi** automatycznie rozszerza się, aby uwzględnić prefiksy dla sieci wirtualnych równorzędnych. Aby rozwiązać wszelkie problemy związane z komunikacją równorzędową sieci wirtualnej, można wyświetlić prefiksy na liście **ExpandedAddressPrefix.** Dowiedz się więcej o [komunikacji równorzędnej](virtual-network-peering-overview.md) sieci wirtualnej i [tagach usług](security-overview.md#service-tags).
-* Skuteczne reguły zabezpieczeń są wyświetlane tylko dla interfejsu sieciowego, jeśli istnieje sieciowej ochrony sieciowej skojarzonej z interfejsem sieciowym maszyny Wirtualnej i lub podsieci, a jeśli maszyna wirtualna jest w stanie uruchomionym.
-* Jeśli z interfejsem sieciowym lub podsiecią nie są skojarzone żadne sieciowe sieciowe, a do maszyny Wirtualnej jest przypisany [publiczny adres IP,](virtual-network-public-ip-address.md) wszystkie porty są otwarte dla dostępu przychodzącego z dowolnego miejsca i dostępu wychodzącego. Jeśli maszyna wirtualna ma publiczny adres IP, zaleca się zastosowanie sieciowej sieciowej do podsieci interfejsu sieciowego.
+* Domyślne reguły zabezpieczeń blokują dostęp przychodzący z Internetu i zezwalają na ruch przychodzący z sieci wirtualnej. Aby zezwolić na ruch przychodzący z Internetu, Dodaj reguły zabezpieczeń z wyższym priorytetem niż reguły domyślne. Dowiedz się więcej o [domyślnych regułach zabezpieczeń](security-overview.md#default-security-rules)lub sposobach [dodawania reguły zabezpieczeń](manage-network-security-group.md#create-a-security-rule).
+* Jeśli masz równorzędne sieci wirtualne, domyślnie tag usługi **VIRTUAL_NETWORK** automatycznie rozszerza się, aby uwzględnić prefiksy dla wirtualnych sieci równorzędnych. Aby rozwiązać problemy związane z równorzędnymi sieciami wirtualnymi, można wyświetlić prefiksy na liście **ExpandedAddressPrefix** . Dowiedz się więcej o [wirtualnych sieciach równorzędnych](virtual-network-peering-overview.md) i [znacznikach usług](security-overview.md#service-tags).
+* Obowiązujące reguły zabezpieczeń są wyświetlane tylko dla interfejsu sieciowego, jeśli istnieje sieciowej grupy zabezpieczeń skojarzona z interfejsem sieciowym maszyny wirtualnej, lub, podsiecią i, jeśli maszyna wirtualna jest w stanie uruchomienia.
+* Jeśli nie ma żadnych sieciowych grup zabezpieczeń skojarzonych z interfejsem sieciowym lub podsiecią i masz przypisany [publiczny adres IP](virtual-network-public-ip-address.md) do maszyny wirtualnej, wszystkie porty są otwarte dla dostępu przychodzącego z i wychodzącego do dowolnego miejsca. Jeśli maszyna wirtualna ma publiczny adres IP, zalecamy zastosowanie sieciowej grupy zabezpieczeń do podsieci interfejsu sieciowego.
 
-## <a name="additional-diagnosis"></a>Dodatkowa diagnoza
+## <a name="additional-diagnosis"></a>Dodatkowa Diagnostyka
 
-* Aby uruchomić szybki test, aby ustalić, czy ruch jest dozwolony do lub z maszyny Wirtualnej, należy użyć możliwości [weryfikacji przepływu ip](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) usługi Azure Network Watcher. Weryfikacja przepływu IP informuje, czy ruch jest dozwolony lub zabroniony. Jeśli odmowa, weryfikacja przepływu IP informuje, która reguła zabezpieczeń odmawia ruchu.
-* Jeśli nie ma żadnych reguł zabezpieczeń powodujących niepowodzenie łączności sieciowej maszyny Wirtualnej, problem może być spowodowany:
-  * Oprogramowanie zapory uruchomione w systemie operacyjnym maszyny Wirtualnej
-  * Trasy skonfigurowane dla urządzeń wirtualnych lub ruchu lokalnego. Ruch internetowy można przekierować do sieci lokalnej za pośrednictwem [wymuszonego tunelowania.](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Jeśli wymusisz ruch internetowy tunelu do urządzenia wirtualnego lub lokalnego, może nie być możliwe połączenie z maszyną wirtualną z Internetu. Aby dowiedzieć się, jak zdiagnozować problemy z trasą, które mogą utrudniać przepływ ruchu z maszyny Wirtualnej, zobacz [Diagnozowanie problemu routingu ruchu sieciowego maszyny wirtualnej](diagnose-network-routing-problem.md).
+* Aby uruchomić szybki test w celu ustalenia, czy ruch jest dozwolony do lub z maszyny wirtualnej, użyj funkcji [weryfikowania przepływu IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) w usłudze Azure Network Watcher. Weryfikacja przepływu IP informuje o tym, czy ruch jest dozwolony, czy odrzucany. Jeśli odmówiono, sprawdzenie przepływu IP informuje, która reguła zabezpieczeń odmówił ruchu.
+* Jeśli nie ma żadnych reguł zabezpieczeń powodujących niepowodzenie łączności sieciowej maszyny wirtualnej, problem może być spowodowany przez:
+  * Oprogramowanie zapory uruchomione w systemie operacyjnym maszyny wirtualnej
+  * Trasy skonfigurowane dla urządzeń wirtualnych lub ruchu lokalnego. Ruch internetowy może być przekierowywany do sieci lokalnej za pośrednictwem [tunelowania wymuszonego](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Jeśli wymusisz tunelowanie ruchu internetowego do urządzenia wirtualnego lub lokalnego, może nie być możliwe nawiązanie połączenia z MASZYNą wirtualną z Internetu. Aby dowiedzieć się, jak zdiagnozować problemy z trasą, które mogą utrudnić przepływ ruchu z maszyny wirtualnej, zobacz [diagnozowanie problemu z routingiem ruchu sieciowego maszyny wirtualnej](diagnose-network-routing-problem.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o wszystkich zadaniach, właściwościach i ustawieniach [sieciowej grupy zabezpieczeń](manage-network-security-group.md#work-with-network-security-groups) i [reguł zabezpieczeń](manage-network-security-group.md#work-with-security-rules).
-- Dowiedz się więcej o [domyślnych regułach zabezpieczeń,](security-overview.md#default-security-rules) [tagach usług](security-overview.md#service-tags)i [o tym, jak platforma Azure przetwarza reguły zabezpieczeń dla ruchu przychodzącego i wychodzącego](security-overview.md#network-security-groups) dla maszyny Wirtualnej.
+- Dowiedz się więcej o wszystkich zadaniach, właściwościach i ustawieniach dla [sieciowej grupy zabezpieczeń](manage-network-security-group.md#work-with-network-security-groups) i [reguł zabezpieczeń](manage-network-security-group.md#work-with-security-rules).
+- Dowiedz się więcej na temat [domyślnych reguł zabezpieczeń](security-overview.md#default-security-rules), [tagów usługi](security-overview.md#service-tags)i [sposobu, w jaki platforma Azure przetwarza reguły zabezpieczeń dla ruchu przychodzącego i wychodzącego](security-overview.md#network-security-groups) dla maszyny wirtualnej.

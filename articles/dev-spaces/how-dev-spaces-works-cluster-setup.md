@@ -1,98 +1,98 @@
 ---
-title: Jak działa konfigurowanie klastra dla usługi Azure Dev Spaces
+title: Jak skonfigurować klaster dla Azure Dev Spaces działa
 services: azure-dev-spaces
 ms.date: 03/24/2020
 ms.topic: conceptual
-description: W tym artykule opisano, jak działa konfigurowanie klastra usługi Azure Kubernetes dla usługi Azure Dev Spaces
-keywords: Miejsca deweloperów platformy Azure, przestrzenie deweloperów, platforma do dokowania, sieci Kubernetes, platforma Azure, usługa AKS, usługa Azure Kubernetes, kontenery
+description: Opisuje sposób konfigurowania klastra usługi Azure Kubernetes dla Azure Dev Spaces Works
+keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
 ms.openlocfilehash: 00f8262f3008ce9ba82726960f78d18395458a2a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241727"
 ---
-# <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Jak działa konfigurowanie klastra dla usługi Azure Dev Spaces
+# <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Jak skonfigurować klaster dla Azure Dev Spaces działa
 
-Usługa Azure Dev Spaces oferuje wiele sposobów szybkiego iteracji i debugowania aplikacji Kubernetes oraz współpracy z zespołem nad klastrem usługi Azure Kubernetes (AKS). Jednym ze sposobów jest włączenie usługi Azure Dev Spaces w klastrze AKS, dzięki czemu można [uruchamiać usługi bezpośrednio w klastrze][how-it-works-up] i korzystać z [dodatkowych funkcji sieciowych i routingu.][how-it-works-routing] W tym artykule opisano, co się dzieje podczas przygotowywania klastra i włączania usługi Azure Dev Spaces.
+Azure Dev Spaces zapewnia wiele sposobów na szybkie Iterowanie i debugowanie aplikacji Kubernetes oraz współpracę z zespołem w klastrze usługi Azure Kubernetes Service (AKS). Jednym ze sposobów jest włączenie Azure Dev Spaces w klastrze AKS, dzięki czemu można [uruchamiać usługi bezpośrednio w klastrze][how-it-works-up] i korzystać z [dodatkowych możliwości sieciowych i routingu][how-it-works-routing]. W tym artykule opisano, co się dzieje podczas przygotowywania klastra i włączania Azure Dev Spaces.
 
-## <a name="prepare-your-aks-cluster"></a>Przygotowanie klastra AKS
+## <a name="prepare-your-aks-cluster"></a>Przygotowywanie klastra AKS
 
-Aby przygotować klaster usługi AKS dla obszarów deweloperskich, sprawdź, czy klaster usługi AKS znajduje się w regionie [obsługiwanym przez usługi Azure Dev Spaces][supported-regions] i używasz aplikacji Kubernetes 1.10.3 lub nowszej. Aby włączyć usługę Azure Dev Spaces w klastrze z witryny Azure portal, przejdź do klastra, kliknij pozycję *Miejsca deweloperów,* zmień *pozycję Użyj miejsca dewelopera* na *Tak*i kliknij przycisk *Zapisz*. Można również włączyć usługi Azure Dev Spaces `az aks use-dev-spaces`z interfejsu wiersza polecenia platformy Azure, uruchamiając program .
+Aby przygotować klaster AKS na potrzeby obszarów programistycznych, należy sprawdzić, czy klaster AKS znajduje się w regionie [obsługiwanym przez Azure dev Spaces][supported-regions] i korzysta z Kubernetes 1.10.3 lub nowszego. Aby włączyć Azure Dev Spaces w klastrze z poziomu Azure Portal, przejdź do klastra, kliknij pozycję *spacje dla deweloperów*, Zmień opcję *Użyj spacji dev* na *tak*, a następnie kliknij przycisk *Zapisz*. Możesz również włączyć Azure Dev Spaces w interfejsie wiersza polecenia platformy Azure `az aks use-dev-spaces`, uruchamiając.
 
-Na przykład konfigurowanie klastra AKS dla obszarów deweloperskich zobacz [szybki start rozwoju zespołu][quickstart-team].
+Aby zapoznać się z przykładem konfigurowania klastra AKS dla funkcji miejsca do użytku deweloperskiego, zapoznaj się z [przewodnikiem Szybki Start dla deweloperów][quickstart-team].
 
-Gdy usługa Azure Dev Spaces jest włączona w klastrze AKS, instaluje kontroler dla klastra. Kontroler znajduje się poza klastrem AKS. Napędza zachowanie i komunikację między narzędziami po stronie klienta a klastrem AKS. Po włączeniu można wchodzić w interakcje z kontrolerem za pomocą narzędzi po stronie klienta.
+Po włączeniu Azure Dev Spaces w klastrze AKS zainstaluje on kontroler dla klastra. Kontroler znajduje się poza klastrem AKS. Umożliwia ona zachowanie komunikacji między narzędziami po stronie klienta a klastrem AKS. Po jego włączeniu można korzystać z kontrolera przy użyciu narzędzi po stronie klienta.
 
 Kontroler wykonuje następujące akcje:
 
-* Zarządza tworzeniem i zaznaczaniem przestrzeni deweloperów.
+* Zarządza tworzeniem i wyborem obszaru dev.
 * Instaluje wykres Helm aplikacji i tworzy obiekty Kubernetes.
-* Tworzy obraz kontenera aplikacji.
-* Wdraża aplikację do usługi AKS.
-* Wykonuje przyrostowe kompilacje i restartuje po zmianie kodu źródłowego.
+* Kompiluje obraz kontenera aplikacji.
+* Wdraża aplikację w usłudze AKS.
+* Wykonuje przyrostowe kompilacje i ponowne uruchomienie po zmianie kodu źródłowego.
 * Zarządza dziennikami i śladami HTTP.
-* Przekazuje stdout i stderr do narzędzi po stronie klienta.
-* Konfiguruje routing dla aplikacji w obrębie przestrzeni, a także w przestrzeni nadrzędnej i podrzędnej.
+* Przesyła strumieniowo stdout i stderr do narzędzi po stronie klienta.
+* Konfiguruje Routing dla aplikacji w przestrzeni, a także między spacjami nadrzędnymi i podrzędnymi.
 
-Kontroler jest oddzielnym zasobem platformy Azure poza klastrem i wykonuje następujące czynności z zasobami w klastrze:
+Kontroler jest oddzielnym zasobem platformy Azure poza klastrem i wykonuje następujące czynności w przypadku zasobów w klastrze:
 
-* Tworzy lub wyznacza obszar nazw Kubernetes do użycia jako obszar dewelopera.
-* Usuwa wszystkie obszary nazw Kubernetes o nazwie *azds*, jeśli istnieje, i tworzy nowy.
-* Wdraża konfigurację elementu webhook kubernetes.
-* Wdraża serwer dostępu do elementu webhook.
+* Tworzy lub wyznacza przestrzeń nazw Kubernetes, która ma być używana jako przestrzeń dev.
+* Usuwa wszystkie Kubernetes przestrzeń nazw o nazwie *azds*, jeśli istnieje, i tworzy nową.
+* Wdraża konfigurację elementu webhook Kubernetes.
+* Wdraża serwer przyjęcia elementu webhook.
 
-Używa tej samej jednostki usługi, której klaster AKS używa do wykonywania wywołań usługi do innych składników usługi Azure Dev Spaces.
+Używa tej samej nazwy głównej usługi, która jest używany przez klaster AKS do wykonywania wywołań usługi do innych składników Azure Dev Spaces.
 
-![Usługa Azure Dev Spaces przygotowuje klaster](media/how-dev-spaces-works/prepare-cluster.svg)
+![Azure Dev Spaces Przygotuj klaster](media/how-dev-spaces-works/prepare-cluster.svg)
 
-Aby można było korzystać z usługi Azure Dev Spaces, musi istnieć co najmniej jedno miejsce dewelopera. Usługa Azure Dev Spaces używa obszarów nazw usługi Kubernetes w klastrze AKS do tworzenia przestrzeni. Po zainstalowaniu kontrolera monituje o utworzenie nowego obszaru nazw Kubernetes lub wybranie istniejącego obszaru nazw, który będzie używany jako pierwszy obszar deweloperów. Domyślnie kontroler oferuje uaktualnienie istniejącego *domyślnego* obszaru nazw Kubernetes do pierwszego obszaru deweloperów.
+Aby można było użyć Azure Dev Spaces, musi istnieć co najmniej jeden obszar deweloperski. Azure Dev Spaces używa Kubernetes przestrzenie nazw w klastrze AKS dla miejsc deweloperskich. Gdy kontroler jest instalowany, zostanie wyświetlony komunikat z prośbą o utworzenie nowej przestrzeni nazw Kubernetes lub wybranie istniejącej przestrzeni nazw, która ma być używana jako pierwsze miejsce dev. Domyślnie kontroler oferuje uaktualnienie istniejącej *domyślnej* przestrzeni nazw Kubernetes do pierwszego obszaru dev.
 
-Gdy obszar nazw jest wyznaczony jako obszar dewelopera, kontroler dodaje etykietę *azds.io/space=true* do tego obszaru nazw, aby zidentyfikować go jako obszar dewelopera. Początkowa przestrzeń deweloperska, którą tworzysz lub wyznaczasz, jest wybierana domyślnie po przygotowaniu klastra. Po wybraniu miejsca jest on używany przez usługę Azure Dev Spaces do tworzenia nowych obciążeń.
+Gdy przestrzeń nazw jest oznaczona jako przestrzeń dev, kontroler dodaje etykietę *azds.IO/Space=true* do tej przestrzeni nazw, aby zidentyfikować ją jako przestrzeń dev. Początkowe miejsce tworzenia lub wyznaczania jest wybierane domyślnie po przygotowaniu klastra. Gdy jest zaznaczone miejsce, jest używane przez Azure Dev Spaces do tworzenia nowych obciążeń.
 
-Narzędzia po stronie klienta umożliwiają tworzenie nowych przestrzeni deweloperskich i usuwanie istniejących przestrzeni deweloperskich. Ze względu na ograniczenie w umięśne, nie można usunąć *domyślnego* miejsca dewelopera. Kontroler usuwa również wszystkie istniejące obszary nazw Kubernetes o nazwie *azds,* aby uniknąć konfliktów z `azds` poleceniem używanym przez narzędzia po stronie klienta.
+Korzystając z narzędzi po stronie klienta, można tworzyć nowe miejsca deweloperskie i usuwać istniejące spacje. Ze względu na ograniczenie w Kubernetes, nie można usunąć *domyślnego* obszaru dev. Kontroler usuwa również wszystkie istniejące przestrzenie nazw Kubernetes o nazwie *azds* , aby uniknąć `azds` konfliktów z poleceniem używanym przez narzędzia po stronie klienta.
 
-Serwer dostępu do łączy webhook kubernetes służy do wstrzykiwania zasobników z trzema kontenerami podczas wdrażania do instrumentacji: kontenera devspaces-proxy, kontenera devspaces-proxy-init i kontenera devspaces-build. **Wszystkie trzy z tych kontenerów są uruchamiane z dostępem administratora w klastrze AKS.** Używają również tej samej jednostki usługi, której klaster AKS używa do nawiązywać wywołania usługi do innych składników usługi Azure Dev Spaces.
+Serwer przyjęcia elementu webhook Kubernetes służy do iniekcji z trzech kontenerów podczas wdrażania Instrumentacji: kontenera devspaces-proxy, kontenera devspaces-proxy-init i kontenera devspaces-Build. **Wszystkie trzy z tych kontenerów działają z dostępem do katalogu głównego w klastrze AKS.** Używają one również tej samej nazwy głównej usługi, która jest używana przez klaster AKS do wykonywania wywołań usługi do innych składników Azure Dev Spaces.
 
-![Serwer dostępu do witryny Azure Dev Spaces Kubernetes webhook](media/how-dev-spaces-works/kubernetes-webhook-admission-server.svg)
+![Azure Dev Spaces Kubernetes serwer przyjęcia elementu webhook](media/how-dev-spaces-works/kubernetes-webhook-admission-server.svg)
 
-Kontener devspaces-proxy jest kontenerem sidecar, który obsługuje cały ruch TCP do i z kontenera aplikacji i pomaga w routingu. Kontener devspaces-proxy przekieruje przekierowania wiadomości HTTP, jeśli używane są określone spacje. Na przykład może pomóc w kierowaniu wiadomości HTTP między aplikacjami w przestrzeni nadrzędnej i podrzędnej. Cały ruch nie-HTTP przechodzi przez devspaces-proxy niezmodyfikowany. Kontener devspaces-proxy rejestruje również wszystkie przychodzące i wychodzące wiadomości HTTP i wysyła je do narzędzi po stronie klienta jako ślady. Te ślady mogą być następnie wyświetlane przez dewelopera, aby sprawdzić zachowanie aplikacji.
+Kontener devspaces-proxy jest kontenerem przyczepki, który obsługuje cały ruch TCP do i z kontenera aplikacji i ułatwia Routing. Kontener devspaces-proxy kieruje komunikaty HTTP, jeśli są używane określone spacje. Może na przykład ułatwić kierowanie komunikatów HTTP między aplikacjami w przestrzeniach nadrzędnych i podrzędnych. Cały ruch inny niż HTTP przechodzi przez devspaces-proxy unmodifiedd. Kontener devspaces-proxy rejestruje także wszystkie przychodzące i wychodzące komunikaty HTTP i wysyła je do narzędzi po stronie klienta jako śladów. Te ślady mogą być następnie przeglądane przez dewelopera w celu sprawdzenia zachowania aplikacji.
 
-Devspaces-proxy-init kontener jest [kontenerem init,](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) który dodaje dodatkowe reguły routingu na podstawie hierarchii przestrzeni do kontenera aplikacji. Dodaje reguły routingu, aktualizując konfigurację pliku */etc/resolv.conf* kontenera aplikacji i iptables przed jego uruchomieniem. Aktualizacje */etc/resolv.conf* umożliwiają rozpoznawanie usług DNS w przestrzeniach nadrzędnych. Aktualizacje konfiguracji iptables upewnij się, że cały ruch TCP do i z kontenera aplikacji są kierowane przez devspaces-proxy. Wszystkie aktualizacje z devspaces-proxy-init się oprócz reguł, które dodaje Kubernetes.
+Kontener devspaces-proxy-init jest [kontenerem init](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) , który dodaje dodatkowe reguły routingu na podstawie hierarchii Space do kontenera aplikacji. Dodaje reguły routingu, aktualizując plik */etc/resolv.conf* kontenera aplikacji i konfigurację dołączenie iptables przed rozpoczęciem. Aktualizacje */etc/resolv.conf* umożliwiają rozpoznawanie nazw DNS usług w przestrzeniach nadrzędnych. Aktualizacje konfiguracji dołączenie iptables zapewniają, że cały ruch TCP do i z kontenera aplikacji jest kierowany za pośrednictwem devspaces-proxy. Wszystkie aktualizacje z devspaces-proxy-init są wykonywane oprócz reguł, które Kubernetes dodaje.
 
-Devspaces-build kontener jest kontenerem init i ma kod źródłowy projektu i gniazdo Platformy Docker zainstalowany. Kod źródłowy projektu i dostęp do platformy Docker umożliwia kontener aplikacji, które mają być budowane bezpośrednio przez zasobnika.
+Kontener devspaces-Build jest kontenerem init i ma zainstalowany kod źródłowy projektu i gniazdo Docker. Kod źródłowy projektu i dostęp do platformy Docker umożliwiają skompilowanie kontenera aplikacji bezpośrednio przez.
 
 > [!NOTE]
-> Usługa Azure Dev Spaces używa tego samego węzła do utworzenia kontenera aplikacji i uruchomienia go. W rezultacie usługa Azure Dev Spaces nie potrzebuje zewnętrznego rejestru kontenerów do tworzenia i uruchamiania aplikacji.
+> Azure Dev Spaces używa tego samego węzła do kompilowania kontenera aplikacji i uruchamiania go. W związku z tym Azure Dev Spaces nie potrzebuje zewnętrznego rejestru kontenerów do kompilowania i uruchamiania aplikacji.
 
-Serwer dostępu do łączy webhook Kubernetes nasłuchuje wszelkich nowych zasobników, które są tworzone w klastrze AKS. Jeśli ten zasobnik jest wdrażany w dowolnym obszarze nazw z etykietą *azds.io/space=true,* wstrzykuje ten zasobnik z dodatkowymi kontenerami. Devspaces-build kontener jest wstrzykiwany tylko wtedy, gdy kontener aplikacji jest uruchamiany przy użyciu narzędzi po stronie klienta.
+Serwer przyjmowania elementu webhook Kubernetes nasłuchuje dla każdego nowego pod, który został utworzony w klastrze AKS. Jeśli ten element pod zostanie wdrożony w dowolnym obszarze nazw z etykietą *azds.IO/Space=true* , zostanie on dodany do tych dodatkowych kontenerów. Kontener devspaces-Build jest wstrzykiwany tylko wtedy, gdy kontener aplikacji jest uruchamiany przy użyciu narzędzi po stronie klienta.
 
-Po przygotowaniu klastra AKS można użyć narzędzia po stronie klienta, aby przygotować i uruchomić kod w przestrzeni deweloperskiej.
+Po przygotowaniu klastra AKS można użyć narzędzi po stronie klienta do przygotowania i uruchomienia kodu w obszarze dev.
 
 ## <a name="client-side-tooling"></a>Narzędzia po stronie klienta
 
 Narzędzia po stronie klienta umożliwiają użytkownikowi:
-* Generowanie pliku dockerfile, wykresu helm i pliku konfiguracji usługi Azure Dev Spaces dla aplikacji.
-* Tworzenie nadrzędnych i podrzędnych przestrzeni deweloperskich.
-* Powiedz kontrolerowi, aby skompilować i uruchomić aplikację.
+* Wygeneruj wykres pliku dockerfile, Helm, a Azure Dev Spaces plik konfiguracyjny dla aplikacji.
+* Utwórz nadrzędne i podrzędne miejsca deweloperskie.
+* Poinformuj kontroler, aby skompilować i uruchomić aplikację.
 
-Gdy aplikacja jest uruchomiona, narzędzia po stronie klienta również:
-* Odbiera i wyświetla stdout i stderr z aplikacji uruchomionej w AKS.
-* Używa [port-forward,](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) aby zezwolić na dostęp\/do aplikacji w sieci Web przy użyciu http: /localhost.
-* Dołącza debuger do uruchomionej aplikacji w u.
-* Synchronizuje kod źródłowy z miejscem deweloperskim po wykryciu zmiany dla kompilacji przyrostowych, co pozwala na szybką iterację.
-* Umożliwia podłączenie komputera deweloperskiego bezpośrednio do klastra AKS.
+Gdy aplikacja jest uruchomiona, narzędzia po stronie klienta:
+* Odbiera i wyświetla stdout i stderr z aplikacji działającej w AKS.
+* Używa [portu do przodu](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) w celu zezwalania na dostęp do aplikacji sieci Web\/za pomocą protokołu http:/localhost.
+* Dołącza debuger do uruchomionej aplikacji w AKS.
+* Synchronizuje kod źródłowy do obszaru deweloperskiego, gdy zostanie wykryta zmiana dla kompilacji przyrostowych, co pozwala na szybką iterację.
+* Umożliwia połączenie komputera dewelopera bezpośrednio z klastrem AKS.
 
-Narzędzia po stronie klienta można użyć z wiersza `azds` polecenia jako część polecenia. Można również użyć narzędzia po stronie klienta z:
+Narzędzia po stronie klienta można użyć z wiersza polecenia w ramach `azds` polecenia. Możesz również użyć narzędzi po stronie klienta w programie:
 
-* Visual Studio Code przy użyciu [rozszerzenia Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
-* Visual Studio z [programem Visual Studio Tools dla kubernetes](https://aka.ms/get-vsk8stools).
+* Visual Studio Code przy użyciu [rozszerzenia Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
+* Program Visual Studio z [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat korzystania z narzędzi po stronie klienta w celu przygotowania i uruchomienia kodu w obszarze deweloperskim, zobacz [Jak działa przygotowanie projektu dla usługi Azure Dev Spaces.][how-it-works-prep]
+Aby dowiedzieć się więcej o używaniu narzędzi po stronie klienta do przygotowywania i uruchamiania kodu w obszarze deweloperskim, zobacz [przygotowywanie projektu dla Azure dev Spaces działa][how-it-works-prep].
 
-Aby rozpocząć korzystanie z usługi Azure Dev Spaces do tworzenia zespołów, zobacz tworzenie zespołu w przewodniku Szybki start [usługi Azure Dev Spaces.][quickstart-team]
+Aby rozpocząć korzystanie z Azure Dev Spaces do tworzenia zespołu, zobacz [programowanie zespołowe w Azure dev Spaces][quickstart-team] przewodnika Szybki Start.
 
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

@@ -1,6 +1,6 @@
 ---
-title: Aplikacje sieci Web w usłudze Azure Active Directory
-description: W tym artykule opisano, jakie są aplikacje sieci web i podstawy dotyczące przepływu protokołu, rejestracji i wygaśnięcia tokenu dla tego typu aplikacji.
+title: Aplikacje sieci Web w Azure Active Directory
+description: Zawiera opis aplikacji sieci Web oraz podstawowe informacje dotyczące przepływu protokołu, rejestracji i wygaśnięcia tokenu dla tego typu aplikacji.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -15,45 +15,45 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: e4a7fb72d40f5db65e8e30264e9d68b2727749e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154410"
 ---
 # <a name="web-apps"></a>Aplikacje internetowe
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-Aplikacje sieci Web to aplikacje uwierzytelniają użytkownika w przeglądarce sieci Web w aplikacji sieci Web. W tym scenariuszu aplikacja sieci web kieruje przeglądarkę użytkownika, aby zalogować się do usługi Azure AD. Usługa Azure AD zwraca odpowiedź logowania za pośrednictwem przeglądarki użytkownika, która zawiera oświadczenia dotyczące użytkownika w tokenie zabezpieczającym. W tym scenariuszu obsługuje logowania przy użyciu OpenID Connect, SAML 2.0 i WS-Federation protokołów.
+Aplikacje sieci Web to aplikacje, które uwierzytelniają użytkownika w przeglądarce internetowej w aplikacji sieci Web. W tym scenariuszu aplikacja sieci Web kieruje przeglądarkę użytkownika do podpisania ich w usłudze Azure AD. Usługa Azure AD zwraca odpowiedź logowania za pomocą przeglądarki użytkownika, która zawiera oświadczenia dotyczące użytkownika w tokenie zabezpieczającym. Ten scenariusz obsługuje logowanie przy użyciu protokołów OpenID Connect Connect, SAML 2,0 i WS-Federation.
 
 ## <a name="diagram"></a>Diagram
 
-![Przepływ uwierzytelniania dla przeglądarki do aplikacji sieci Web](./media/authentication-scenarios/web-browser-to-web-api.png)
+![Przepływ uwierzytelniania dla aplikacji przeglądarki sieci Web](./media/authentication-scenarios/web-browser-to-web-api.png)
 
 ## <a name="protocol-flow"></a>Przepływ protokołu
 
-1. Gdy użytkownik odwiedza aplikację i musi się zalogować, są one przekierowywane za pośrednictwem żądania logowania do punktu końcowego uwierzytelniania w usłudze Azure AD.
+1. Gdy użytkownik odwiedza aplikację i musi się zalogować, zostaje przekierowany przez żądanie logowania do punktu końcowego uwierzytelniania w usłudze Azure AD.
 1. Użytkownik loguje się na stronie logowania.
-1. Jeśli uwierzytelnianie zakończy się pomyślnie, usługa Azure AD tworzy token uwierzytelniania i zwraca odpowiedź logowania do adresu URL odpowiedzi aplikacji, który został skonfigurowany w witrynie Azure portal. W przypadku aplikacji produkcyjnej ten adres URL odpowiedzi powinien być https. Zwrócony token zawiera oświadczenia dotyczące użytkownika i usługi Azure AD, które są wymagane przez aplikację do sprawdzania poprawności tokenu.
-1. Aplikacja sprawdza poprawność tokenu przy użyciu publicznego klucza podpisywania i informacje o wystawcy dostępne w dokumencie metadanych federacji dla usługi Azure AD. Po weryfikacji tokenu przez aplikację rozpoczyna nową sesję z użytkownikiem. Ta sesja umożliwia użytkownikowi dostęp do aplikacji, dopóki nie wygaśnie.
+1. W przypadku pomyślnego uwierzytelnienia usługa Azure AD utworzy token uwierzytelniania i zwróci odpowiedź logowania do adresu URL odpowiedzi aplikacji, który został skonfigurowany w Azure Portal. W przypadku aplikacji produkcyjnej ten adres URL odpowiedzi powinien mieć wartość HTTPS. Zwrócony token zawiera oświadczenia dotyczące użytkownika i usługi Azure AD, które są wymagane przez aplikację do weryfikacji tokenu.
+1. Aplikacja sprawdza poprawność tokenu przy użyciu publicznego klucza podpisywania i informacji o wystawce dostępnych w dokumencie metadanych Federacji dla usługi Azure AD. Gdy aplikacja zweryfikuje token, rozpocznie nową sesję z użytkownikiem. Ta sesja umożliwia użytkownikowi uzyskanie dostępu do aplikacji do momentu jej wygaśnięcia.
 
 ## <a name="code-samples"></a>Przykłady kodu
 
-Zobacz przykłady kodu dla przeglądarki sieci web do scenariuszy aplikacji sieci web. I często sprawdzaj, ponieważ często dodawane są nowe próbki.
+Zapoznaj się z przykładami kodu dotyczącymi scenariuszy aplikacji sieci Web w przeglądarce internetowej. I sprawdź często, jak często dodawane są nowe przykłady.
 
 ## <a name="app-registration"></a>Rejestracja aplikacji
 
-Aby zarejestrować aplikację internetową, zobacz [Rejestrowanie aplikacji](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+Aby zarejestrować aplikację sieci Web, zobacz [Rejestrowanie aplikacji](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-* Pojedyncza dzierżawa — jeśli budujemy aplikację tylko dla twojej organizacji, musi ona być zarejestrowana w katalogu firmy przy użyciu witryny Azure portal.
-* Multi-tenant — jeśli budujesz aplikację, która może być używana przez użytkowników spoza organizacji, musi być zarejestrowana w katalogu firmy, ale również musi być zarejestrowana w katalogu każdej organizacji, która będzie korzystać z aplikacji. Aby udostępnić aplikację w ich katalogu, można dołączyć proces rejestracji dla klientów, który umożliwia im wyrażenie zgody na aplikację. Po zarejestrowaniu się w aplikacji zostaną one wyświetlone z okna dialogowego, który pokazuje uprawnienia aplikacji wymaga, a następnie opcja zgody. W zależności od wymaganych uprawnień administrator w innej organizacji może być zobowiązany do wyrażenia zgody. Gdy użytkownik lub administrator wyrazi na to zgodę, aplikacja jest rejestrowana w ich katalogu.
+* Pojedyncze dzierżawy — Jeśli tworzysz aplikację tylko dla organizacji, musi ona być zarejestrowana w katalogu firmy przy użyciu Azure Portal.
+* Wiele dzierżawców — w przypadku kompilowania aplikacji, która może być używana przez użytkowników spoza organizacji, musi być ona zarejestrowana w katalogu firmy, ale również musi być zarejestrowana w katalogu każdej organizacji, który będzie używać aplikacji. Aby udostępnić aplikację w swoim katalogu, możesz dołączyć proces rejestracji dla klientów, który umożliwia im zgodę na korzystanie z aplikacji. Po zarejestrowaniu się w aplikacji zostanie wyświetlone okno dialogowe, w którym są wyświetlane uprawnienia wymagane przez aplikację, a następnie opcja wyrażania zgody. W zależności od wymaganych uprawnień administrator w innej organizacji może być zobowiązany do udzielenia zgody. Gdy użytkownik lub administrator wyraził zgodę, aplikacja zostanie zarejestrowana w swoim katalogu.
 
 ## <a name="token-expiration"></a>Wygaśnięcie tokenu
 
-Sesja użytkownika wygasa po wygaśnięciu okresu istnienia tokenu wystawionego przez usługę Azure AD. Aplikacja może skrócić ten okres w razie potrzeby, takich jak wylogowywanie użytkowników na podstawie okresu braku aktywności. Po wygaśnięciu sesji użytkownik zostanie poproszony o ponowne zalogowanie się.
+Sesja użytkownika wygasa, gdy okres istnienia tokenu wystawionego przez usługę Azure AD wygaśnie. W razie potrzeby aplikacja może skrócić ten okres, na przykład wylogować użytkowników na podstawie okresu nieaktywności. Po wygaśnięciu sesji użytkownik zostanie poproszony o ponowne zalogowanie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o innych [typach i scenariuszach aplikacji](app-types.md)
-* Dowiedz się więcej o [podstawach uwierzytelniania](v1-authentication-scenarios.md) usługi Azure AD
+* Dowiedz się więcej o innych [typach aplikacji i scenariuszach](app-types.md)
+* Poznaj podstawowe informacje na temat [uwierzytelniania](v1-authentication-scenarios.md) usługi Azure AD

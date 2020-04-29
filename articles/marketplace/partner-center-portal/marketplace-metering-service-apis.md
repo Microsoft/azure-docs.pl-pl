@@ -1,5 +1,5 @@
 ---
-title: Interfejsy API usługi pomiarowej marketplace | Azure Marketplace
+title: Interfejsy API usługi pomiaru Marketplace | Portal Azure Marketplace
 description: Zdarzenie użycia dla ofert SaaS w portalu Azure Marketplace.
 author: dsindona
 ms.author: dsindona
@@ -8,35 +8,35 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.openlocfilehash: 315f36e5aed9dee0a89e1f9f504b18a6bed806e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275751"
 ---
 # <a name="marketplace-metering-service-apis"></a>Interfejsy API usługi pomiaru w witrynie Marketplace
 
-Interfejs API zdarzenia użycia umożliwia emitowanie zdarzeń użycia dla określonej zakupionej encji. Żądanie zdarzenia użycia odwołuje się do wymiaru usług pomiarowych zdefiniowanych przez wydawcę podczas publikowania oferty.
+Interfejs API zdarzeń użycia umożliwia emitowanie zdarzeń użycia dla określonej zakupionej jednostki. Żądanie zdarzenia użycia odwołuje się do wymiaru usług pomiarowych zdefiniowanego przez wydawcę podczas publikowania oferty.
 
 ## <a name="usage-event"></a>Zdarzenie użycia
 
-**POST**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**Wpis**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
-*Parametry kwerendy:*
+*Parametry zapytania:*
 
 |            |          |
 | ---------- | ---------------------- |
-| `ApiVersion` | Wersja operacji do użycia dla tego żądania. Najnowsza wersja INTERFEJSU API to 2018-08-31. |
+| `ApiVersion` | Wersja operacji do użycia dla tego żądania. Najnowsza wersja interfejsu API to 2018-08-31. |
 
-*Nagłówki żądań:*
+*Nagłówki żądania:*
 
 | Typ zawartości       | `application/json`    |
 | ------------------ | ---------------------------- |
-| `x-ms-requestid`     | Unikatowa wartość ciągu do śledzenia żądania od klienta, najlepiej identyfikator GUID. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
-| `x-ms-correlationid` | Unikatowa wartość ciągu dla operacji na kliencie. Ten parametr koreluje wszystkie zdarzenia z operacji klienta ze zdarzeniami po stronie serwera. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
-| `authorization`   | [Pobierz token na okaziciela tokenu sieci Web JSON (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Uwaga: Podczas wysyłania żądania `Bearer` HTTP prefiks do tokenu uzyskany z łącza, do którego istnieje odwołanie. |
+| `x-ms-requestid`     | Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
+| `x-ms-correlationid` | Unikatowa wartość ciągu dla operacji na kliencie. Ten parametr umożliwia skorelowanie wszystkich zdarzeń z operacji klienta ze zdarzeniami po stronie serwera. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
+| `authorization`   | [Pobierz token okaziciela sieci Web JSON (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Uwaga: podczas wykonywania żądania HTTP, prefiks `Bearer` do tokenu uzyskany z przywoływanego linku. |
 
-*Żądanie:*
+*Żądając*
 
 ```json
 {
@@ -67,7 +67,7 @@ OK
 ```
 
 Kod: 400 <br>
-Złe żądanie, brakujące lub nieprawidłowe dane dostarczone lub wygasły
+Złe żądanie, brakujące lub nieprawidłowe dane lub wygasły
 
 ```json
 {
@@ -85,7 +85,7 @@ Złe żądanie, brakujące lub nieprawidłowe dane dostarczone lub wygasły
 ```
 
 Kod: 403<br>
-Złe żądanie, brakujące lub nieprawidłowe dane dostarczone lub wygasły
+Złe żądanie, brakujące lub nieprawidłowe dane lub wygasły
 
 ```json
 {
@@ -95,7 +95,7 @@ Złe żądanie, brakujące lub nieprawidłowe dane dostarczone lub wygasły
 ```
 
 Kod: 409<br>
-Konflikt, gdy otrzymamy wywołanie użycia dla identyfikatora zasobu użycia i efektywne użycie, które już istnieje. Odpowiedź będzie `additionalInfo` zawierać pole zawierające informacje o zaakceptowanym komunikacie.
+Konflikt, gdy otrzymamy wywołanie użycia dla identyfikatora zasobu użycia i efektywne użycie już istnieje. Odpowiedź będzie zawierać `additionalInfo` pole, które zawiera informacje o zaakceptowanej wiadomości.
 
 ```json
 {
@@ -113,30 +113,30 @@ Konflikt, gdy otrzymamy wywołanie użycia dla identyfikatora zasobu użycia i e
 }
 ```
 
-## <a name="batch-usage-event"></a>Zdarzenie użycia wsadowego
+## <a name="batch-usage-event"></a>Zdarzenie użycia partii
 
-Interfejs API zdarzenia użycia wsadowego umożliwia emitowanie zdarzeń użycia dla więcej niż jednej zakupionej jednostki naraz. Żądanie zdarzenia użycia partii odwołuje się do wymiaru usług pomiarowych zdefiniowanych przez wydawcę podczas publikowania oferty.
+Interfejs API zdarzeń użycia usługi Batch umożliwia emitowanie zdarzeń użycia dla więcej niż jednej zakupionej jednostki jednocześnie. Żądanie zdarzenia użycia usługi Batch odwołuje się do wymiaru usług pomiarowych zdefiniowanego przez wydawcę podczas publikowania oferty.
 
 >[!Note]
->W komercyjnym rynku firmy Microsoft można zarejestrować wiele ofert SaaS. Każda zarejestrowana oferta SaaS ma unikatową aplikację usługi Azure AD, która jest zarejestrowana do celów uwierzytelniania i autoryzacji. Zdarzenia emitowane w partii powinny należeć do ofert z tą samą aplikacją usługi Azure AD w momencie rejestrowania oferty.
+>Możesz zarejestrować wiele ofert SaaS na komercyjnym rynku firmy Microsoft. Każda zarejestrowana oferta SaaS ma unikatową aplikację usługi Azure AD, która jest zarejestrowana na potrzeby uwierzytelniania i autoryzacji. Zdarzenia emitowane w usłudze Batch powinny należeć do ofert z tą samą aplikacją usługi Azure AD w momencie rejestracji oferty.
 
-**POST:**`https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
+**Wpis:**`https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 
-*Parametry kwerendy:*
+*Parametry zapytania:*
 
 |            |     |
 | ---------- | -------------------- |
-| `ApiVersion` | Wersja operacji do użycia dla tego żądania. Najnowsza wersja INTERFEJSU API to 2018-08-31. |
+| `ApiVersion` | Wersja operacji do użycia dla tego żądania. Najnowsza wersja interfejsu API to 2018-08-31. |
 
-*Nagłówki żądań:*
+*Nagłówki żądania:*
 
 | Typ zawartości       | `application/json`       |
 | ------------------ | ------ |
-| `x-ms-requestid`     | Unikatowa wartość ciągu do śledzenia żądania od klienta, najlepiej identyfikator GUID. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
-| `x-ms-correlationid` | Unikatowa wartość ciągu dla operacji na kliencie. Ten parametr koreluje wszystkie zdarzenia z operacji klienta ze zdarzeniami po stronie serwera. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
-| `authorization`      | [Pobierz token na okaziciela tokenu sieci Web JSON (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Uwaga: Podczas wysyłania żądania `Bearer` HTTP prefiks do tokenu uzyskany z łącza, do którego istnieje odwołanie.  |
+| `x-ms-requestid`     | Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
+| `x-ms-correlationid` | Unikatowa wartość ciągu dla operacji na kliencie. Ten parametr umożliwia skorelowanie wszystkich zdarzeń z operacji klienta ze zdarzeniami po stronie serwera. Jeśli ta wartość nie zostanie określona, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
+| `authorization`      | [Pobierz token okaziciela sieci Web JSON (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Uwaga: podczas wykonywania żądania HTTP, prefiks `Bearer` do tokenu uzyskany z przywoływanego linku.  |
 
-*Żądanie:*
+*Żądając*
 ```json
 {
   "request": [
@@ -192,22 +192,22 @@ OK
 }
 ```
 
-Opis kodu stanu, `BatchUsageEvent` do którego odwołuje się odpowiedź interfejsu API:
+Opis kodu stanu przywoływany `BatchUsageEvent` w odpowiedzi interfejsu API:
 
 | Kod stanu  | Opis |
 | ---------- | -------------------- |
-| `Accepted` | Zaakceptowany kod. |
+| `Accepted` | Kod zaakceptowany. |
 | `Expired` | Wygasłe użycie. |
-| `Duplicate` | Zduplikowane użycie pod warunkiem. |
+| `Duplicate` | Podano zduplikowane użycie. |
 | `Error` | Kod błędu. |
 | `ResourceNotFound` | Podany zasób użycia jest nieprawidłowy. |
-| `ResourceNotAuthorized` | Użytkownik nie jest autoryzowany do zapewnienia użycia dla tego zasobu. |
-| `InvalidDimension` | Wymiar, dla którego zostało przekazane użycie jest nieprawidłowy dla tej oferty/planu. |
-| `InvalidQuantity` | Przekazana ilość jest < 0. |
-| `BadArgument` | Brak danych wejściowych lub zniekształcone. |
+| `ResourceNotAuthorized` | Nie masz uprawnień do zapewnienia użycia dla tego zasobu. |
+| `InvalidDimension` | Wymiar, dla którego jest przesyłane użycie, jest nieprawidłowy dla tej oferty/planu. |
+| `InvalidQuantity` | Przenoszona ilość jest < 0. |
+| `BadArgument` | Brak danych wejściowych lub jest nieprawidłowo sformułowany. |
 
 Kod: 400<br>
-Złe żądanie, brakujące lub nieprawidłowe dane dostarczone lub wygasły
+Złe żądanie, brakujące lub nieprawidłowe dane lub wygasły
 
 ```json
 {
@@ -224,7 +224,7 @@ Złe żądanie, brakujące lub nieprawidłowe dane dostarczone lub wygasły
 }
 ```
 Kod: 403<br>
-Użytkownik jest nieautoryzowany do nawiązać połączenie
+Użytkownik nie ma autoryzacji do tego wywołania
 
 ```json
 {
@@ -235,4 +235,4 @@ Użytkownik jest nieautoryzowany do nawiązać połączenie
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz [SaaS taryfowych rozliczeń](./saas-metered-billing.md).
+Aby uzyskać więcej informacji, zobacz [SaaS zliczanie opłat](./saas-metered-billing.md).

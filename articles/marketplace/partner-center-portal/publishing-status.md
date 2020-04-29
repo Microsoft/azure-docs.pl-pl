@@ -1,6 +1,6 @@
 ---
-title: Sprawdź stan publikacji oferty w portalu Commercial Marketplace
-description: Sprawdź stan kroków sprawdzania poprawności, certyfikacji i wersji zapoznawczej wymaganych do opublikowania oferty za pośrednictwem portalu Marketplace Commercial Marketplace w Centrum partnerów firmy Microsoft.
+title: Sprawdź stan publikowania oferty komercyjnej witryny Marketplace
+description: Sprawdź stan weryfikacji, certyfikacji i kroków w wersji zapoznawczej wymaganych do opublikowania oferty za pośrednictwem komercyjnej witryny Marketplace w centrum partnerskim firmy Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,139 +8,139 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: 012a574887d9980e0c71c3af84ff70ca8d31312c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275683"
 ---
-# <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Sprawdź stan publikacji oferty w portalu Commercial Marketplace
+# <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Sprawdź stan publikowania oferty komercyjnej witryny Marketplace
 
-You can view your current **Publishing status** on the **Offer overview** tab of the [Commercial Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) in Partner Center.
+Bieżący **stan publikowania** można wyświetlić na karcie **Omówienie oferty** [portalu komercyjnego Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) w centrum partnerskim.
 
-Dla każdej oferty powinien być wyświetlany jeden z następujących wskaźników stanu.
+Dla każdej oferty należy wyświetlić jeden z następujących wskaźników stanu.
 
 | **Stan**    | **Opis**  |
 | :---------- | :-------------------|
 | **Wersja robocza** | Oferta została utworzona, ale nie jest publikowana. |
-| **Publikowanie w toku** | Oferta/ Plan pracuje nad etapami procesu publikowania. |
-| **Potrzebna uwaga** | Podczas certyfikacji firmy Microsoft lub któregokolwiek z etapów publikowania wykryto krytyczny problem. |
-| **Podgląd** | Oferta została certyfikowana przez firmę Microsoft, a teraz czeka na ostateczną weryfikację przez wydawcę. Wybierz opcję przejdź na żywo, aby oferta była dostępna na żywo. |
-| **Na żywo** | Oferta jest na żywo na rynku i może być postrzegana i nabywana przez klientów. |
-| **Oczekujące zaprzestanie sprzedaży** | Wydawca wybrał "stop sell" w ofercie lub planie, ale akcja nie została jeszcze zakończona. |
-| **Niedostępne na rynku** | Wcześniej opublikowana oferta/plan na rynku została usunięta. |
+| **Publikowanie w toku** | Oferta/plan działa w sposób w ramach kroków procesu publikowania. |
+| **Wymagana Uwaga** | Wykryto problem krytyczny podczas certyfikacji przez firmę Microsoft lub dowolny z kroków publikacji. |
+| **Przeglądania** | Oferta została certyfikowana przez firmę Microsoft i teraz czeka na ostateczną weryfikację przez wydawcę. Wybierz pozycję Przejdź na żywo, aby utworzyć ofertę na żywo. |
+| **Na żywo** | Oferta jest aktywna w portalu Marketplace i może być widoczna i nabywana przez klientów. |
+| **Oczekiwanie na zaprzestanie sprzedawania** | Wydawca zaznaczył opcję "Zatrzymaj sprzedaż" w ofercie lub planie, ale akcja nie została jeszcze ukończona. |
+| **Niedostępne w portalu Marketplace** | Wcześniej opublikowana oferta/plan w portalu Marketplace został usunięty. |
 
-## <a name="automated-validation"></a>Automatyczna walidacja
+## <a name="automated-validation"></a>Automatyczne sprawdzanie poprawności
 
-Pierwszym krokiem w procesie publikowania jest zestaw automatycznych weryfikacji. Każdy krok sprawdzania poprawności odpowiada funkcji wybranej do włączenia w tworzeniu oferty. Jeśli ta funkcja nie została włączona, sprawdzanie poprawności przeskakuje do następnego kroku publikowania. Każde sprawdzenie poprawności musi zostać zakończone przed zatwierdzeniem stanu publikowania.
+Pierwszym krokiem w procesie publikowania jest zestaw zautomatyzowanych walidacji. Każdy krok walidacji odpowiada funkcji wybranej podczas tworzenia oferty. Jeśli ta funkcja nie została włączona, walidacja zostanie pominięta w następnym kroku publikowania. Przed zatwierdzeniem stanu publikacji należy wykonać każde sprawdzenie poprawności.
 
-- **Konfiguracja przepływu zakupu oferty (<10 min)**
+- **Konfiguracja oferty zakupu (<10 min)**
 
-W tym kroku zapewniamy, że oferta może zostać zrealizowana przy zakupie przez klientów za pośrednictwem witryny Azure portal. Ten krok ma zastosowanie tylko w przypadku ofert sprzedawanych za pośrednictwem firmy Microsoft.
+W tym kroku firma Microsoft gwarantuje, że oferta może zostać zrealizowana w przypadku zakupu przez klientów za pomocą Azure Portal. Ten krok ma zastosowanie tylko w przypadku ofert sprzedawanych przez firmę Microsoft.
 
-- **Sprawdzanie poprawności danych dysku testowego (~5 min)**
+- **Sprawdzanie poprawności danych na dysku testowym (~ 5 min)**
 
-W tym kroku sprawdzamy poprawność danych podanych w sekcji konfiguracji technicznej dysku testowego oferty. Funkcja jazdy testowej jest testowana i zatwierdzana. Ten krok dotyczy tylko ofert z włączoną jazdą próbną.
+W tym kroku sprawdzimy dane podane w sekcji testowa konfiguracja techniczna w ramach tej oferty. Testowanie i zatwierdzanie funkcji na dysku. Ten krok ma zastosowanie tylko w przypadku ofert z włączonym dyskiem testowym.
 
-- **Inicjowanie obsługi administracyjnej dysku testowego (~30 min)**
+- **Obsługa administracyjna stacji testowej (~ 30 min)**
 
-W tym kroku po sprawdzeniu poprawności danych i funkcji dysku testowego w poprzednim kroku wdrażamy i replikujemy wystąpienia dysku testowego, aby były gotowe do użycia przez klienta.  Ten krok dotyczy tylko ofert z włączoną jazdą próbną.
+W tym kroku po zweryfikowaniu danych i funkcjonalności dysku testowego w poprzednim kroku wdrażamy i replikujemy wystąpienia dysku testowego, aby były gotowe do użycia przez klienta.  Ten krok ma zastosowanie tylko w przypadku ofert z włączonym dyskiem testowym.
 
-- **Walidacja i rejestracja zarządzania potencjalnymi klientami (<15 min)**
+- **Sprawdzanie poprawności i rejestracja zarządzania potencjalnymi klientami (<15 min)**
 
-W tym kroku potwierdzamy, że twój system zarządzania potencjalnymi klientami może odbierać potencjalnych klientów na podstawie szczegółów podanych w konfiguracji oferty. Ten krok ma zastosowanie tylko do ofert z włączonym zarządzaniem potencjalnym klientem.
+W tym kroku potwierdzamy, że Twój system zarządzania potencjalnym klientem może odbierać potencjalnych klientów na podstawie szczegółowych informacji podanych w ustawieniach oferty. Ten krok dotyczy tylko ofert z włączonym zarządzaniem potencjalnym klientem.
 
 ## <a name="certification"></a>Certyfikacja
 
-Przed opublikowaniem oferty przesłane do portalu Commercial Marketplace w Centrum partnerskim muszą być certyfikowane. Przesłane oferty są poddawane rygorystycznym testom, niektóre zautomatyzowane i inne ręcznie, w tym sprawdzanie [zasad certyfikacji usługi Azure Marketplace.](https://docs.microsoft.com/legal/marketplace/general-policies) Zgłoszenia ofert muszą być oznaczone jako kwalifikujące się do certyfikacji, zanim przejdą do następnego kroku w przepływie publikacji.
+Przed opublikowaniem oferty przesłane do komercyjnej witryny Marketplace w centrum partnerskim muszą być certyfikowane. Przesłane oferty przechodzą rygorystyczne testy, kilka zautomatyzowanych i innych podręczników, w tym sprawdzanie [zasad certyfikacji portalu Azure Marketplace](https://docs.microsoft.com/legal/marketplace/general-policies). Przed przejściem do następnego kroku w przepływie publikowania należy zaznaczyć odpowiednie przesłania do certyfikatu.
 
-### <a name="types-of-validation-that-take-place-during-certification"></a>Rodzaje walidacji, które mają miejsce podczas certyfikacji
+### <a name="types-of-validation-that-take-place-during-certification"></a>Typy walidacji, które mają miejsce podczas certyfikacji
 
-Istnieją trzy poziomy walidacji uwzględnione w procesie certyfikacji dla każdej złożonej oferty.
+W procesie certyfikacji uwzględniono trzy poziomy weryfikacji dla każdej przesłanej oferty.
 
-- Uprawnienia firmy wydawcy
-- Sprawdzanie poprawności zawartości
-- Walidacja techniczna
+- Kwalifikacje biznesowe wydawcy
+- Weryfikacja zawartości
+- Weryfikacja techniczna
 
-#### <a name="publisher-business-eligibility"></a>Uprawnienia firmy wydawcy
+#### <a name="publisher-business-eligibility"></a>Kwalifikacje biznesowe wydawcy
 
-Każdy typ oferty sprawdza zestaw podstawowych kryteriów kwalifikowalności, które wydawca musi spełnić. Kryteria kwalifikowalności mogą obejmować status MPN wydawcy, posiadane kompetencje, poziomy kompetencji itp.
+Każdy typ oferty sprawdza zestaw podstawowych kryteriów kwalifikacji, które musi spełnić Wydawca. Kryteria kwalifikujące mogą obejmować stan MPN wydawcy, posiadane kompetencje, poziomy kompetencji itp.
 
-#### <a name="content-validation"></a>Sprawdzanie poprawności zawartości
+#### <a name="content-validation"></a>Weryfikacja zawartości
 
-Podczas sprawdzania poprawności zawartości informacje wprowadzone podczas tworzenia oferty są sprawdzane pod kątem jakości i trafności. Czeki te będą sprawdzać twoje wpisy pod kątem szczegółów aukcji w portalu marketplace, cen, dostępności, powiązanych planów itp. Aby spełnić kryteria listy w portalu Azure Marketplace i/lub AppSource, firma Microsoft sprawdzi, czy oferta obejmuje:
+Podczas weryfikacji zawartości informacje wprowadzane podczas tworzenia oferty są sprawdzane pod kątem jakości i przydatności. Te sprawdzenia zapoznają się z wpisami dotyczącymi szczegółowych informacji dotyczących aukcji portalu Marketplace, cen, dostępności, skojarzonych planów itp. Aby spełnić kryteria dotyczące aukcji portalu Azure Marketplace i/lub AppSource, sprawdzimy, czy oferta obejmuje:
 
 - tytuł, który dokładnie opisuje ofertę;
-- dobrze napisane opisy, które zapewniają dokładny przegląd i propozycję wartości;
-- zrzuty ekranu i towarzyszące im filmy; I
-- wyjaśnienie, w jaki sposób oferta wykorzystuje platformy i narzędzia firmy Microsoft.
+- dobrze napisano opisy, które zapewniają szczegółowe omówienie i propozycję wartości;
+- Zrzuty ekranu jakości i dołączone wideo lub
+- wyjaśnienie, jak oferta używa platform i narzędzi firmy Microsoft.
 
-Dowiedz się więcej o kryteriach sprawdzania poprawności zawartości, zapoznając się z [ogólnymi zasadami wyświetlania.](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general)
+Dowiedz się więcej na temat kryteriów weryfikacji zawartości, odczytując [ogólne zasady wyświetlania](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general).
 
-#### <a name="technical-validation"></a>Walidacja techniczna
+#### <a name="technical-validation"></a>Weryfikacja techniczna
 
-Podczas sprawdzania poprawności technicznej oferta (pakiet lub binarna) podlega następującym kontrolom.
+Podczas weryfikacji technicznej oferta (pakiet lub plik binarny) jest poddawana następującym testom.
 - Skanowanie w poszukiwaniu złośliwego oprogramowania
-- Monitorowane połączenia sieciowe
-- Analizowany pakiet
-- Dokładne skanowanie rzeczywistej funkcjonalności oferty
+- Monitorowane wywołania sieciowe
+- Przeanalizowane pakiety
+- Dokładne skanowanie rzeczywistej funkcji oferty
 
-Oferta jest testowana na różnych platformach i wersjach w celu zapewnienia, że jest solidna.
+Oferta jest testowana między różnymi platformami i wersjami w celu zapewnienia niezawodnego działania.
 
-Przejrzyj szczegółowe informacje o konfiguracji wymagane dla oferty w sekcji Konfiguracja techniczna tego dokumentu.
+Przejrzyj szczegółowe informacje dotyczące konfiguracji wymagane w ramach oferty w sekcji konfiguracja techniczna tego dokumentu.
 
-### <a name="certification-failure-report"></a>Raport o niepowodzeniu certyfikacji
+### <a name="certification-failure-report"></a>Raport o błędach certyfikacji
 
-Po zakończeniu przeglądu, jeśli oferta przeszła certyfikację, przechodzi do następnego kroku w procesie publikowania. Jeśli twoja oferta nie powiodła się, nie powiodła się żadna z aukcji, kontroli technicznej lub zasad lub jeśli nie kwalifikujesz się do przesłania oferty tego typu, zostanie wygenerowany raport o niepowodzeniu certyfikacji i wysłany pocztą e-mail.
+Po zakończeniu przeglądu, jeśli oferta została przeniesiona, przejdzie do następnego kroku procesu publikowania. Jeśli Twoja oferta zakończyła się niepowodzeniem na liście, techniczne lub sprawdzanie zasad lub jeśli nie masz uprawnień do przesłania oferty tego typu, raport o błędach certyfikacji jest generowany i wysyłany pocztą e-mail.
 
-Ten raport zawiera opisy wszystkich zasad, które nie powiodły się, wraz z uwagami do przeglądu. Przejrzyj ten raport e-mail, rozwiążesz wszelkie problemy, w razie potrzeby aktualizując ofertę i prześlij ponownie ofertę za pomocą [portalu Marketplace Komercyjnego](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) w Centrum partnerów. (Możesz ponownie przesłać ofertę tyle razy, ile potrzeba, aż do przejścia certyfikacji).
+Ten raport zawiera opisy wszelkich zasad, które zakończyły się niepowodzeniem, a także uwagi dotyczące recenzowania. Przejrzyj ten raport wiadomości e-mail, Rozwiąż wszelkie problemy, w razie potrzeby, wprowadzając aktualizacje oferty, a następnie prześlij ją ponownie za pomocą [portalu komercyjnej witryny Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) w centrum partnerskim. (Ofertę można przesłać ponownie dowolną liczbę razy do momentu przekazania certyfikatu).
 
-## <a name="preview-creation"></a>Tworzenie w wersji zapoznawczej
+## <a name="preview-creation"></a>Tworzenie podglądu
 
-W trakcie etapu **tworzenia wersji zapoznawczej** tworzymy wersję oferty dostępną tylko dla odbiorców określonych w sekcji Podgląd oferty.
+W ramach kroku **tworzenia podglądu** tworzymy wersję oferty dostępną tylko dla odbiorców określonych w sekcji w wersji zapoznawczej oferty.
 
 >[!Note]
-> Nie należy używać tego kroku, aby zapewnić osobom spoza organizacji wgląd w ofertę. Zamiast tego użyj opcji **Oferta prywatna.** W tym momencie twoja oferta nie została w pełni przetestowana i zweryfikowana i nie jest gotowa do dystrybucji zewnętrznej.
+> Nie należy używać tego kroku, aby zapewnić osobom spoza organizacji wgląd w ofertę. Zamiast tego użyj opcji **oferta prywatna** . W tym momencie Twoja oferta nie została w pełni przetestowana i zweryfikowana i nie jest gotowa do dystrybucji poza nią.
 
-## <a name="publisher-approval"></a>Zatwierdzenie przez wydawcę
+## <a name="publisher-approval"></a>Zatwierdzenie wydawcy
 
-W tym kroku zostanie wysłany e-mail z prośbą o przejrzenie i zatwierdzenie wersji zapoznawczej oferty przed ostatnim krokiem publikowania.
+W tym kroku zostanie wysłana wiadomość e-mail z prośbą o przejrzenie i zatwierdzenie wersji zapoznawczej oferty przed ostatnim krokiem publikacji.
 
-Jeśli wybrano opcję sprzedaży oferty za pośrednictwem firmy Microsoft, będzie można przetestować nabycie i wdrożenie oferty, aby upewnić się, że spełnia ona twoje wymagania na tym etapie zatwierdzania wersji zapoznawczej. Twoja oferta nie będzie jeszcze dostępna na publicznym rynku. Po przetestowaniu i zatwierdzeniu tej wersji zapoznawczej należy wybrać opcję Przejdź na **żywo** na [**pulpicie nawigacyjnym Przegląd oferty.**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)
+Jeśli wybrano sprzedawanie oferty przez firmę Microsoft, można przetestować pozyskiwanie i wdrażanie oferty, aby upewnić się, że spełnia Twoje wymagania na etapie zatwierdzania wersji zapoznawczej. Twoja oferta nie będzie jeszcze dostępna na publicznej platformie Marketplace. Po przetestowaniu i zaakceptowaniu tej wersji zapoznawczej musisz wybrać pozycję **Przejdź na żywo** na pulpicie nawigacyjnym [**przeglądu oferty**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) .
 
-Jeśli chcesz wprowadzić zmiany w ofercie na tym etapie podglądu, możesz edytować i ponownie przesłać, aby opublikować nową wersję zapoznawczą. Zobacz artykuł [Aktualizowanie istniejących ofert marketplace,](#update-existing-marketplace-offers) aby uzyskać szczegółowe informacje na temat zmian.
+Jeśli chcesz wprowadzić zmiany w ofercie na tym etapie wersji zapoznawczej, możesz edytować i ponownie przesłać w celu opublikowania nowej wersji zapoznawczej. Zapoznaj się z artykułem [aktualizowanie istniejących ofert w portalu Marketplace](#update-existing-marketplace-offers) , aby uzyskać szczegółowe informacje na temat dodatkowych zmian.
 
-Jeśli Twoja oferta jest już dostępna i jest dostępna publicznie w marketplace, wszelkie aktualizacje, które wprowadzasz, nie będą dostępne, dopóki nie wybierzesz **opcji Przejdź** na żywo na pulpicie nawigacyjnym [**Przegląd oferty.**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)
+Jeśli Twoja oferta już działa i jest dostępna publicznie w portalu Marketplace, wszystkie aktualizacje, które wprowadzisz, nie będą dostępne, dopóki nie wybierzesz opcji przejdź do usługi **Live** na pulpicie nawigacyjnym [**przeglądu oferty**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) .
 
 ### <a name="publish-offer-to-the-public"></a>Publikuj ofertę publicznie
 
-Zaloguj się do Centrum partnerów i uzyskaj dostęp do oferty. Zostaniesz przekierowany na stronę **Przegląd oferty.** W górnej części tej strony zobaczysz opcję **Go live**. Wybierz **opcję Przejdź na żywo,** a po potwierdzeniu oferta zacznie być publikowana publicznie. Otrzymasz powiadomienie e-mail, gdy oferta jest dostępna.
+Zaloguj się do Centrum partnerskiego i uzyskaj dostęp do oferty. Nastąpi przekierowanie do strony **przeglądu oferty** . W górnej części tej strony zobaczysz opcję dla opcji **Przejdź na żywo**. Wybierz pozycję **Przejdź na żywo** i po potwierdzeniu, że oferta zacznie być opublikowana publicznie. Gdy oferta będzie aktywna, otrzymasz wiadomość e-mail z powiadomieniem.
 
 ## <a name="publish"></a>Publikowanie
 
-Teraz, gdy wybrałeś **opcję Przejdź na żywo** z ofertą, udostępniając ją na rynku, istnieje seria ostatecznych kontroli poprawności, które zostaną zintensyfikowane, aby upewnić się, że oferta na żywo jest skonfigurowana tak samo, jak wersja zapoznawcza oferty.
+Teraz, **gdy zamierzasz korzystać z oferty** , udostępniając ją w portalu Marketplace, istnieje szereg końcowych testów weryfikacyjnych, które zostaną przełączone w celu zapewnienia, że usługa Live Offer zostanie skonfigurowana tak jak wersja zapoznawcza oferty.
 
-- **Konfiguracja przepływu zakupu oferty (>10 min)**
+- **Konfiguracja oferty zakupu (>10 min)**
 
-W tym kroku zapewniamy, że oferta może zostać zrealizowana przy zakupie przez klientów za pośrednictwem witryny Azure portal. Ten krok ma zastosowanie tylko w przypadku ofert sprzedawanych za pośrednictwem firmy Microsoft.
+W tym kroku firma Microsoft gwarantuje, że oferta może zostać zrealizowana w przypadku zakupu przez klientów za pomocą Azure Portal. Ten krok ma zastosowanie tylko w przypadku ofert sprzedawanych przez firmę Microsoft.
 
-- **Sprawdzanie poprawności danych dysku testowego (~5 min)**
+- **Sprawdzanie poprawności danych na dysku testowym (~ 5 min)**
 
-W tym kroku sprawdzamy poprawność danych podanych w sekcji konfiguracji technicznej dysku testowego oferty. Funkcja jazdy testowej jest testowana i zatwierdzana. Ten krok dotyczy tylko ofert z włączoną jazdą próbną.
+W tym kroku sprawdzimy dane podane w sekcji testowa konfiguracja techniczna w ramach tej oferty. Testowanie i zatwierdzanie funkcji na dysku. Ten krok ma zastosowanie tylko w przypadku ofert z włączonym dyskiem testowym.
 
-- **Inicjowanie obsługi administracyjnej dysku testowego (~30 min)**
+- **Obsługa administracyjna stacji testowej (~ 30 min)**
 
-W tym kroku wdrażamy i replikujemy wystąpienia dysku testowego, aby były gotowe do użycia przez klienta.  Ten krok dotyczy tylko ofert z włączoną jazdą próbną.
+W tym kroku wdrażamy i replikujemy wystąpienia dysku testowego, aby były gotowe do użycia przez klienta.  Ten krok ma zastosowanie tylko w przypadku ofert z włączonym dyskiem testowym.
 
-- **Walidacja i rejestracja zarządzania potencjalnymi klientami (>15 min)**
+- **Sprawdzanie poprawności i rejestracja zarządzania potencjalnymi klientami (>15 min)**
 
-W tym kroku potwierdzamy, że twój system zarządzania potencjalnymi klientami może odbierać potencjalnych klientów na podstawie szczegółów podanych w konfiguracji oferty. Ten krok ma zastosowanie tylko do ofert z włączonym zarządzaniem potencjalnym klientem.
+W tym kroku potwierdzamy, że Twój system zarządzania potencjalnym klientem może odbierać potencjalnych klientów na podstawie szczegółowych informacji podanych w ustawieniach oferty. Ten krok dotyczy tylko ofert z włączonym zarządzaniem potencjalnym klientem.
 
-- **Publikacja końcowa (>30 minut)**
+- **Publikowanie końcowe (>30 minut)**
 
-W tym kroku zapewniamy, że Twoja oferta stanie się publicznie dostępna na rynku.
+W tym kroku zagwarantujemy, że oferta będzie publicznie dostępna w portalu Marketplace.
 
-## <a name="update-existing-marketplace-offers"></a>Aktualizowanie istniejących ofert w portalu marketplace
+## <a name="update-existing-marketplace-offers"></a>Aktualizowanie istniejących ofert w portalu Marketplace
 
 Jeśli chcesz wprowadzić zmiany w już opublikowanej ofercie, musisz najpierw zaktualizować istniejącą ofertę, a następnie opublikować ją ponownie.
 

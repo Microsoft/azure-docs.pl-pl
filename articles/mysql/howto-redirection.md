@@ -1,76 +1,76 @@
 ---
-title: Połącz się z przekierowaniem — usługa Azure Database for MySQL
-description: W tym artykule opisano, jak skonfigurować aplikację do łączenia się z usługą Azure Database for MySQL z przekierowaniem.
+title: Łączenie z przekierowaniami — Azure Database for MySQL
+description: W tym artykule opisano, jak można skonfigurować aplikację do łączenia się z Azure Database for MySQL przy użyciu przekierowania.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: f987d5d9640c3bfef61320df379a68eae2f4712b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246339"
 ---
-# <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Łączenie się z usługą Azure Database dla mysql z przekierowaniem
+# <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Nawiązywanie połączenia z usługą Azure Database for MySQL przy użyciu przekierowania
 
-W tym temacie wyjaśniono, jak połączyć aplikację usługi Azure Database dla serwera MySQL z trybem przekierowania. Przekierowanie ma na celu zmniejszenie opóźnienia sieci między aplikacjami klienckimi a serwerami MySQL, umożliwiając aplikacjom bezpośrednie łączenie się z węzłami serwera wewnętrznej bazy danych.
+W tym temacie opisano sposób łączenia aplikacji Azure Database for MySQL serwerze z trybem przekierowywania. Przekierowywanie ma na celu zmniejszenie opóźnienia sieci między aplikacjami klienckimi a serwerami MySQL, umożliwiając aplikacjom bezpośrednie łączenie się z węzłami serwera zaplecza.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-Zaloguj się do [Portalu Azure](https://portal.azure.com). Utwórz usługę Azure Database dla serwera MySQL z aparatem w wersji 5.6, 5.7 lub 8.0. Aby uzyskać szczegółowe informacje, zobacz [Jak utworzyć usługę Azure Database dla serwera MySQL z portalu](quickstart-create-mysql-server-database-using-azure-portal.md) lub Jak utworzyć usługę Azure Database dla serwera [MySQL przy użyciu interfejsu WIERSZA POLECENIA.](quickstart-create-mysql-server-database-using-azure-cli.md)
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Utwórz serwer Azure Database for MySQL przy użyciu aparatu w wersji 5,6, 5,7 lub 8,0. Aby uzyskać szczegółowe informacje, zobacz [jak utworzyć serwer Azure Database for MySQL z poziomu portalu](quickstart-create-mysql-server-database-using-azure-portal.md) lub [jak utworzyć serwer Azure Database for MySQL przy użyciu interfejsu wiersza polecenia](quickstart-create-mysql-server-database-using-azure-cli.md).
 
-Przekierowanie jest obecnie obsługiwane tylko wtedy, gdy **protokół SSL jest włączony** w bazie danych usługi Azure dla serwera MySQL. Aby uzyskać szczegółowe informacje na temat konfigurowania ssl, zobacz [Korzystanie z SSL z usługą Azure Database for MySQL](howto-configure-ssl.md#step-3--enforcing-ssl-connections-in-azure).
+Przekierowanie jest obecnie obsługiwane tylko wtedy, gdy na serwerze Azure Database for MySQL **jest włączony protokół SSL** . Aby uzyskać szczegółowe informacje na temat konfigurowania protokołu SSL, zobacz [Używanie protokołu SSL z Azure Database for MySQL](howto-configure-ssl.md#step-3--enforcing-ssl-connections-in-azure).
 
 ## <a name="php"></a>PHP
 
-Wsparcie dla przekierowania w aplikacjach PHP jest dostępne za pośrednictwem rozszerzenia [mysqlnd_azure,](https://github.com/microsoft/mysqlnd_azure) opracowanego przez Microsoft. 
+Obsługa przekierowywania w aplikacjach PHP jest dostępna za pomocą rozszerzenia [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) opracowanego przez firmę Microsoft. 
 
-Rozszerzenie mysqlnd_azure jest dostępne do dodania do aplikacji PHP za pośrednictwem PECL i zdecydowanie zaleca się zainstalowanie i skonfigurowanie rozszerzenia za pośrednictwem oficjalnie opublikowanego [pakietu PECL.](https://pecl.php.net/package/mysqlnd_azure)
+Rozszerzenie mysqlnd_azure jest dostępne do dodania do aplikacji PHP za pomocą PECL. zdecydowanie zaleca się zainstalowanie i skonfigurowanie rozszerzenia za pomocą oficjalnie opublikowanego [pakietu PECL](https://pecl.php.net/package/mysqlnd_azure).
 
 > [!IMPORTANT]
-> Obsługa przekierowania w rozszerzeniu [PHP mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) jest obecnie w wersji zapoznawczej.
+> Obsługa przekierowania w rozszerzeniu [MYSQLND_AZURE](https://github.com/microsoft/mysqlnd_azure) php jest obecnie w wersji zapoznawczej.
 
 ### <a name="redirection-logic"></a>Logika przekierowania
 
 >[!IMPORTANT]
-> Logika przekierowania/zachowanie począwszy od wersji 1.1.0 została zaktualizowana i **zaleca się użycie wersji 1.1.0+**.
+> Logika przekierowania/zachowanie początkowa wersja 1.1.0 została zaktualizowana i **zaleca się użycie wersji 1.1.0 +**.
 
-Zachowanie przekierowania zależy od wartości `mysqlnd_azure.enableRedirect`. W poniższej tabeli przedstawiono zachowanie przekierowania na podstawie wartości tego parametru rozpoczynającego się w **wersji 1.1.0+**.
+Zachowanie przekierowywania jest ustalane przez wartość `mysqlnd_azure.enableRedirect`. W poniższej tabeli przedstawiono zachowanie przekierowywania na podstawie wartości tego parametru, zaczynając od **wersji 1.1.0 +**.
 
-Jeśli używasz starszej wersji rozszerzenia mysqlnd_azure (wersja 1.0.0-1.0.3), zachowanie przekierowania zależy od `mysqlnd_azure.enabled`wartości programu . Prawidłowe wartości `off` są (działa podobnie jak zachowanie opisane w `on` poniższej `preferred` tabeli) i (działa jak w poniższej tabeli).  
+Jeśli używasz starszej wersji rozszerzenia mysqlnd_azure (wersja 1.0.0-1.0.3), zachowanie przekierowania jest określane przez wartość `mysqlnd_azure.enabled`. Prawidłowe wartości to `off` (działają podobnie jak zachowanie opisane w poniższej tabeli) i `on` (działa jak `preferred` w poniższej tabeli).  
 
-|**mysqlnd_azure.enableWarta 2018**| **Zachowanie**|
+|**wartość mysqlnd_azure. enableRedirect**| **Zachowanie**|
 |----------------------------------------|-------------|
-|`off` lub `0`|Przekierowanie nie będzie używane. |
-|`on` lub `1`|- Jeśli protokół SSL nie jest włączony na serwerze usługi Azure Database for MySQL, nie zostanie nawiązane żadne połączenie. Zostanie zwrócony następujący błąd: *"mysqlnd_azure.enableRedirect jest włączony, ale opcja SSL nie jest ustawiona w ciągu połączenia. Przekierowanie jest możliwe tylko za pomocą SSL."*<br>- Jeśli protokół SSL jest włączony na serwerze MySQL, ale przekierowanie nie jest obsługiwane na serwerze, pierwsze połączenie zostanie przerwane i zwracany jest następujący błąd: *"Połączenie przerwane, ponieważ przekierowanie nie jest włączone na serwerze MySQL lub pakiet sieciowy nie spełnia protokołu przekierowania."*<br>- Jeśli serwer MySQL obsługuje przekierowanie, ale przekierowane połączenie nie powiodło się z jakiegokolwiek powodu, również przerwać pierwsze połączenie proxy. Zwraca błąd przekierowanego połączenia.|
-|`preferred` lub `2`<br> (wartość domyślna)|- mysqlnd_azure użyje przekierowania, jeśli to możliwe.<br>- Jeśli połączenie nie korzysta z SSL, serwer nie obsługuje przekierowania lub przekierowane połączenie nie może połączyć się z jakiegokolwiek powodu nieśmiertelnego, podczas gdy połączenie proxy jest nadal prawidłowe, powróci do pierwszego połączenia proxy.|
+|`off` lub `0`|Przekierowanie nie zostanie użyte. |
+|`on` lub `1`|-Jeśli protokół SSL nie jest włączony na serwerze Azure Database for MySQL, połączenie nie zostanie nawiązane. Zostanie zwrócony następujący błąd: *"mysqlnd_azure. enableRedirect jest włączone, ale nie ustawiono opcji SSL w parametrach połączenia. Przekierowywanie jest możliwe tylko przy użyciu protokołu SSL. "*<br>-Jeśli na serwerze MySQL jest włączony protokół SSL, ale przekierowywanie nie jest obsługiwane na serwerze, pierwsze połączenie zostanie przerwane i zostanie zwrócony następujący błąd: *"połączenie zostało przerwane, ponieważ przekierowanie nie jest włączone na serwerze MySQL lub pakiet sieciowy nie jest zgodny z protokołem przekierowywania".*<br>-Jeśli serwer MySQL obsługuje przekierowania, ale połączenie przekierowane nie powiodło się z jakiegokolwiek powodu, należy również przerwać pierwsze połączenie serwera proxy. Zwróć błąd połączenia przekierowanego.|
+|`preferred` lub `2`<br> (wartość domyślna)|-mysqlnd_azure będzie używać przekierowania, jeśli jest to możliwe.<br>— Jeśli połączenie nie korzysta z protokołu SSL, serwer nie obsługuje przekierowania lub połączenie przekierowane nie może nawiązać połączenia z powodu niekrytycznej przyczyny, gdy połączenie serwera proxy nadal jest prawidłowe, nastąpi powrót do pierwszego połączenia z serwerem proxy.|
 
-W kolejnych sekcjach dokumentu opisano sposób `mysqlnd_azure` instalowania rozszerzenia przy użyciu listy PECL i ustawiać wartość tego parametru.
+Kolejne sekcje dokumentu przedstawiają sposób instalacji `mysqlnd_azure` rozszerzenia przy użyciu PECL i ustawiania wartości tego parametru.
 
 ### <a name="ubuntu-linux"></a>Ubuntu Linux
 
 #### <a name="prerequisites"></a>Wymagania wstępne 
-- Wersje PHP 7.2.15+ i 7.3.2+
-- GRUSZKA PHP 
-- php-mysql
-- Usługa Azure Database dla serwera MySQL z włączonym ssl
+- Wersje PHP 7.2.15 + i 7.3.2 +
+- PHP 
+- PHP — MySQL
+- Serwer Azure Database for MySQL z włączonym protokołem SSL
 
-1. Zainstaluj [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) z [PECL](https://pecl.php.net/package/mysqlnd_azure). Zaleca się stosowanie wersji 1.1.0+.
+1. Zainstaluj [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) z [PECL](https://pecl.php.net/package/mysqlnd_azure). Zalecane jest użycie wersji 1.1.0 +.
 
     ```bash
     sudo pecl install mysqlnd_azure
     ```
 
-2. Znajdź katalog rozszerzeń (`extension_dir`) uruchamiając poniższe:
+2. Znajdź katalog rozszerzeń (`extension_dir`), uruchamiając następujące czynności:
 
     ```bash
     php -i | grep "extension_dir"
     ```
 
-3. Zmień katalogi na zwrócony `mysqlnd_azure.so` folder i upewnij się, że znajduje się w tym folderze. 
+3. Zmień katalogi na zwracany folder i upewnij `mysqlnd_azure.so` się, że znajduje się w tym folderze. 
 
-4. Znajdź folder dla plików .ini, uruchamiając poniższe: 
+4. Zlokalizuj folder dla plików. ini, uruchamiając następujące czynności: 
 
     ```bash
     php -i | grep "dir for additional .ini files"
@@ -78,9 +78,9 @@ W kolejnych sekcjach dokumentu opisano sposób `mysqlnd_azure` instalowania rozs
 
 5. Zmień katalogi na ten zwrócony folder. 
 
-6. Utwórz nowy plik .ini dla `mysqlnd_azure`pliku . Upewnij się, że kolejność alfabetu nazwy jest po mysqnld, ponieważ moduły są ładowane zgodnie z kolejnością nazw plików ini. Na przykład, `mysqlnd` jeśli nazwa `10-mysqlnd.ini`.ini jest nazwą , nazwa `20-mysqlnd-azure.ini`mysqlnd ini jako .
+6. Utwórz nowy plik. ini dla `mysqlnd_azure`. Upewnij się, że kolejność alfabetyczna nazwy jest po mysqnld, ponieważ moduły są ładowane zgodnie z kolejnością nazw plików ini. Na przykład, jeśli `mysqlnd` plik ini ma nazwę `10-mysqlnd.ini`, Nazwij plik mysqlnd ini jako `20-mysqlnd-azure.ini`.
 
-7. W nowym pliku .ini dodaj następujące wiersze, aby włączyć przekierowanie.
+7. W nowym pliku ini Dodaj następujące wiersze, aby włączyć przekierowywanie.
 
     ```bash
     extension=mysqlnd_azure
@@ -90,21 +90,21 @@ W kolejnych sekcjach dokumentu opisano sposób `mysqlnd_azure` instalowania rozs
 ### <a name="windows"></a>Windows
 
 #### <a name="prerequisites"></a>Wymagania wstępne 
-- Wersje PHP 7.2.15+ i 7.3.2+
-- php-mysql
-- Usługa Azure Database dla serwera MySQL z włączonym ssl
+- Wersje PHP 7.2.15 + i 7.3.2 +
+- PHP — MySQL
+- Serwer Azure Database for MySQL z włączonym protokołem SSL
 
-1. Określ, czy korzystasz z wersji PHP x64 lub x86, uruchamiając następujące polecenie:
+1. Sprawdź, czy korzystasz z programu PHP w wersji x64 lub x86, uruchamiając następujące polecenie:
 
     ```cmd
     php -i | findstr "Thread"
     ```
 
-2. Pobierz odpowiednią wersję biblioteki [DLL mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) x64 lub x86 z [PECL,](https://pecl.php.net/package/mysqlnd_azure) która pasuje do Twojej wersji PHP. Zaleca się stosowanie wersji 1.1.0+.
+2. Pobierz odpowiednią wersję x64 lub x86 [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) dll z [PECL](https://pecl.php.net/package/mysqlnd_azure) , która pasuje do używanej wersji języka PHP. Zalecane jest użycie wersji 1.1.0 +.
 
-3. Wyodrębnij plik zip i znajdź `php_mysqlnd_azure.dll`bibliotekę DLL o nazwie .
+3. Wyodrębnij plik zip i Znajdź bibliotekę DLL o `php_mysqlnd_azure.dll`nazwie.
 
-4. Znajdź katalog rozszerzeń (`extension_dir`) uruchamiając polecenie poniżej:
+4. Znajdź katalog rozszerzeń (`extension_dir`), uruchamiając następujące polecenie:
 
     ```cmd
     php -i | find "extension_dir"
@@ -112,15 +112,15 @@ W kolejnych sekcjach dokumentu opisano sposób `mysqlnd_azure` instalowania rozs
 
 5. Skopiuj `php_mysqlnd_azure.dll` plik do katalogu zwróconego w kroku 4. 
 
-6. Znajdź folder PHP zawierający plik za `php.ini` pomocą następującego polecenia:
+6. Zlokalizuj folder PHP zawierający `php.ini` plik za pomocą następującego polecenia:
 
     ```cmd
     php -i | find "Loaded Configuration File"
     ```
 
-7. Zmodyfikuj `php.ini` plik i dodaj następujące dodatkowe wiersze, aby włączyć przekierowanie. 
+7. Zmodyfikuj `php.ini` plik i Dodaj następujące dodatkowe wiersze, aby włączyć przekierowywanie. 
 
-    W sekcji Rozszerzenia dynamiczne: 
+    W sekcji rozszerzenia dynamiczne: 
     ```cmd
     extension=mysqlnd_azure
     ```
@@ -133,7 +133,7 @@ W kolejnych sekcjach dokumentu opisano sposób `mysqlnd_azure` instalowania rozs
 
 ### <a name="confirm-redirection"></a>Potwierdź przekierowanie
 
-Możesz również potwierdzić, że przekierowanie jest skonfigurowane za pomocą poniższego przykładowego kodu PHP. Utwórz plik PHP o nazwie `mysqlConnect.php` i wklej poniższy kod. Zaktualizuj nazwę serwera, nazwę użytkownika i hasło za pomocą własnych. 
+Możesz również potwierdzić, że przekierowanie jest skonfigurowane przy użyciu poniższego przykładowego kodu w języku PHP. Utwórz plik PHP o nazwie `mysqlConnect.php` i wklej poniższy kod. Zaktualizuj nazwę serwera, nazwę użytkownika i hasło. 
  
  ```php
 <?php
@@ -158,4 +158,4 @@ $db_name = 'testdb';
  ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat ciągów połączeń, zobacz [Parametry połączenia](howto-connection-string.md).
+Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [Parametry połączenia](howto-connection-string.md).

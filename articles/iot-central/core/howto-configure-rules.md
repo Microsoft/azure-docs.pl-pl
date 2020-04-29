@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie reguł i akcji w usłudze Azure IoT Central | Microsoft Docs
-description: W tym artykule przedstawiono, jako konstruktor, jak skonfigurować reguły i akcje oparte na telemetrii w aplikacji Azure IoT Central.
+description: Ten artykuł zawiera opis sposobu konfigurowania reguł i akcji opartych na danych telemetrycznych w aplikacji IoT Central platformy Azure.
 author: vavilla
 ms.author: vavilla
 ms.date: 11/27/2019
@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 509f9557a8128df12353ad02a7c7db02b7b42631
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80158475"
 ---
 # <a name="configure-rules"></a>Konfigurowanie reguł
@@ -21,35 +21,35 @@ ms.locfileid: "80158475"
 
 *Ten artykuł dotyczy operatorów, konstruktorów i administratorów.*
 
-Reguły w centrum IoT służą jako konfigurowalne narzędzie reagowania, które wyzwala aktywnie monitorowane zdarzenia z podłączonych urządzeń. W poniższych sekcjach opisano sposób oceny reguł.
+Reguły w IoT Central pełnią rolę narzędzia do dostosowywania odpowiedzi, które wyzwalają aktywne monitorowane zdarzenia z połączonych urządzeń. W poniższych sekcjach opisano, jak są oceniane reguły.
 
-## <a name="select-target-devices"></a>Wybieranie urządzeń docelowych
+## <a name="select-target-devices"></a>Wybierz urządzenia docelowe
 
-Użyj sekcji Urządzenia docelowe, aby wybrać, na jakich urządzeniach zostanie zastosowana ta reguła. Filtry umożliwiają dalsze udoskonalanie urządzeń, które powinny zostać uwzględnione. Filtry używają właściwości szablonu urządzenia do filtrowania zestawu urządzeń. Same filtry nie wywołują akcji. Na poniższym zrzucie ekranu urządzenia, które są kierowane są typu szablon urządzenia **Lodówka**. Filtr stwierdza, że reguła powinna obejmować tylko **lodówki,** w których właściwość **wyprodukowanego państwa** jest równa **Waszyngtonowi.**
+Sekcja urządzenia docelowe służy do wybierania rodzaju urządzeń, na których zostanie zastosowana ta reguła. Filtry umożliwiają dokładniejsze zawężenie urządzeń, które powinny być uwzględniane. Filtry używają właściwości w szablonie urządzenia do filtrowania zestawu urządzeń. Same filtry nie wyzwalają akcji. Na poniższym zrzucie ekranu urządzenia, które są wskazywane, są typu szablonu urządzenia **chłodziarkd**. Filtr wskazuje, że reguła powinna zawierać tylko **chłodziarki** , w których właściwość **stan wyprodukowana** jest równa **Waszyngton**.
 
 ![Warunki](media/howto-configure-rules/filters.png)
 
-## <a name="use-multiple-conditions"></a>Korzystaj z wielu warunków
+## <a name="use-multiple-conditions"></a>Użycie wielu warunków
 
-Warunki są to, co reguły wyzwalają. Obecnie po dodaniu wielu warunków do reguły są one logicznie i są razem. Innymi słowy, wszystkie warunki muszą być spełnione, aby reguła została oceniona jako prawdziwa.  
+Warunki są wyzwalane przez reguły. Obecnie po dodaniu wielu warunków do reguły są one logicznie i razem. Innymi słowy, aby reguła mogła oszacować jako prawda, muszą zostać spełnione wszystkie warunki.  
 
-Na poniższym zrzucie ekranu warunki sprawdzają, kiedy temperatura jest większa niż 70&deg; F, a wilgotność jest mniejsza niż 10. Gdy obie te instrukcje są prawdziwe, reguła ocenia true i wyzwala akcję.
+Na poniższym zrzucie ekranu warunki sprawdzają, kiedy temperatura jest większa niż 70&deg; F, a wilgotność jest mniejsza niż 10. Gdy obie te instrukcje są spełnione, reguła zwraca wartość true i wyzwala akcję.
 
 ![Warunki](media/howto-configure-rules/conditions.png)
 
-## <a name="use-aggregate-windowing"></a>Użyj agregacji okien
+## <a name="use-aggregate-windowing"></a>Użyj okna agregacji
 
-Reguły oceniają zagregowane okna czasu jako okna. Na poniższym zrzucie ekranu przedział czasu wynosi pięć minut. Co pięć minut reguła ocenia dane z ostatnich pięciu minut. Dane są oceniane tylko raz w oknie, do którego odpowiada.
+Reguły obliczają łączny czas systemu Windows jako wirowania Windows. Na poniższym zrzucie ekranu czas przedziału wynosi pięć minut. Co pięć minut reguła jest szacowana w ciągu ostatnich pięciu minut danych. Dane są oceniane tylko raz w oknie, do którego się odnosi.
 
-![Upadek systemu Windows](media/howto-configure-rules/tumbling-window.png)
+![Wirowania systemu Windows](media/howto-configure-rules/tumbling-window.png)
 
 ## <a name="use-rules-with-iot-edge-modules"></a>Używanie reguł z modułami IoT Edge
 
-Ograniczenie ma zastosowanie do reguł, które są stosowane do modułów IoT Edge. Reguły dotyczące danych telemetrycznych z różnych modułów nie są oceniane jako prawidłowe reguły. Weźmy następujący przykład. Pierwszy warunek reguły jest na telemetrii temperatury z modułu A. Drugi warunek reguły jest na telemetrii wilgotności w module B. Ponieważ oba warunki pochodzą z różnych modułów, jest to nieprawidłowy zestaw warunków. Reguła jest nieprawidłowa i spowoduje błąd podczas próby zapisania reguły.
+Ograniczenie ma zastosowanie do reguł, które są stosowane do modułów IoT Edge. Reguły dotyczące danych telemetrycznych z różnych modułów nie są oceniane jako prawidłowe reguły. Zapoznaj się z poniższym przykładem. Pierwszy warunek reguły znajduje się na danych telemetrycznych temperatury z modułu A. Drugi warunek reguły znajduje się na telemetrcie wilgotności w module B. Ponieważ dwa warunki pochodzą z różnych modułów, jest to nieprawidłowy zestaw warunków. Reguła jest nieprawidłowa i zgłosi błąd podczas próby zapisania reguły.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy już wiesz, jak skonfigurować regułę w aplikacji Azure IoT Central, możesz:
+Teraz, gdy już wiesz, jak skonfigurować regułę w aplikacji IoT Central platformy Azure, możesz:
 
 > [!div class="nextstepaction"]
-> [Analizuj swoje dane na bieżąco](howto-create-analytics.md)
+> [Analizuj dane na bieżąco](howto-create-analytics.md)

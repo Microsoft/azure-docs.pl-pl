@@ -3,50 +3,50 @@ title: Jak działa usługa Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 03/24/2020
 ms.topic: conceptual
-description: W tym artykule opisano procesy, które zasilają usługi Azure Dev Spaces
-keywords: Miejsca deweloperów platformy Azure, przestrzenie deweloperów, platforma do dokowania, sieci Kubernetes, platforma Azure, usługa AKS, usługa Azure Kubernetes, kontenery
+description: Opisuje procesy, które Azure Dev Spaces
+keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
 ms.openlocfilehash: 99b0b3309d115b450bfca94871b6defd885349fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80234951"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Jak działa usługa Azure Dev Spaces
 
-Tworzenie aplikacji Kubernetes może być trudne. Potrzebne są pliki konfiguracyjne platformy Docker i Kubernetes. Musisz dowiedzieć się, jak przetestować aplikację lokalnie i interakcji z innymi usługami zależnymi. Może być konieczne obsługa tworzenia i testowania wielu usług jednocześnie i z zespołem deweloperów.
+Tworzenie aplikacji Kubernetes może być trudne. Wymagane są pliki konfiguracyjne Docker i Kubernetes. Należy ustalić sposób lokalnego testowania aplikacji i korzystania z innych usług zależnych. Być może musisz obsługiwać tworzenie i testowanie wielu usług jednocześnie i z zespołem deweloperów.
 
-Usługa Azure Dev Spaces zapewnia wiele sposobów szybkiego iteracji i debugowania aplikacji Kubernetes i współpracy z zespołem. W tym artykule opisano, co usługa Azure Dev Spaces może zrobić i jak to działa.
+Azure Dev Spaces zapewnia wiele sposobów na szybkie Iterowanie i debugowanie aplikacji Kubernetes oraz współpracę z zespołem. W tym artykule opisano, jakie Azure Dev Spaces można wykonać i jak działa.
 
-## <a name="rapidly-iterate-and-debug-your-kubernetes-application"></a>Szybko iteracji i debugowania aplikacji Kubernetes
+## <a name="rapidly-iterate-and-debug-your-kubernetes-application"></a>Szybkie Iterowanie i debugowanie aplikacji Kubernetes
 
-Usługa Azure Dev Spaces zmniejsza nakład pracy w celu opracowania, przetestowania i iteracji aplikacji Kubernetes w kontekście klastra AKS. To zmniejszenie nakładu pracy pozwala deweloperom skupić się na logice biznesowej swoich aplikacji i nie konfigurowania ich usług do uruchamiania w umięwersy.
+Azure Dev Spaces zmniejsza nakład pracy, aby opracowywać, testować i iterować aplikację Kubernetes w kontekście klastra AKS. To zmniejszenie nakładu pracy pozwala deweloperom skupić się na logice biznesowej aplikacji i nie konfigurować usług do uruchamiania w Kubernetes.
 
-### <a name="connect-your-development-machine-to-aks"></a>Podłączanie maszyny deweloperskiej do aksu
+### <a name="connect-your-development-machine-to-aks"></a>Połącz komputer deweloperski z AKS
 
-Za pomocą usługi Azure Dev Spaces można podłączyć komputer dewelopera do klastra AKS, umożliwiając uruchamianie i debugowanie kodu na komputerze deweloperskim, tak jakby był uruchomiony w klastrze. Usługa Azure Dev Spaces przekierowuje ruch między połączonym klastrem AKS, uruchamiając zasobnik w klastrze, który działa jako agent zdalny, aby przekierować ruch między komputerem deweloperskim a klastrem. To przekierowanie ruchu umożliwia kod na komputerze deweloperskim i usługach uruchomionych w klastrze AKS do komunikowania się tak, jakby były w tym samym klastrze AKS. Aby uzyskać więcej informacji na temat podłączania komputera deweloperskiego do usługi AKS, zobacz [Jak działa podłączanie komputera deweloperskiego do klastra AKS.][how-it-works-connect]
+Za pomocą Azure Dev Spaces można połączyć komputer deweloperski z klastrem AKS, co pozwala na uruchamianie i debugowanie kodu na komputerze deweloperskim, tak jakby był uruchomiony w klastrze. Azure Dev Spaces przekierowuje ruch między podłączonym klastrem AKS, uruchamiając go w klastrze, który działa jako agent zdalny do przekierowywania ruchu między komputerem deweloperskim i klastrem. To przekierowywanie ruchu umożliwia kod na komputerze deweloperskim i usługach uruchomionych w klastrze AKS, aby komunikować się tak, jakby znajdowały się w tym samym klastrze AKS. Aby uzyskać więcej informacji o łączeniu komputera deweloperskiego z AKS, zobacz [jak połączyć komputer deweloperski z klastrem AKS][how-it-works-connect].
 
-### <a name="run-your-code-in-aks"></a>Uruchamianie kodu w aks
+### <a name="run-your-code-in-aks"></a>Uruchamianie kodu w AKS
 
-Oprócz przekierowywania ruchu między komputerem deweloperskim a klastrem AKS, za pomocą usługi Azure Dev Spaces można skonfigurować i szybko uruchomić kod bezpośrednio w usłudze AKS. Dzięki programowi Visual Studio, visual studio code lub interfejsu wiersza polecenia azure dev spaces przestrzenie deweloperów przekażą kod do klastra, a następnie skompilują go i uruchomią. Przestrzenie deweloperów platformy Azure mogą również inteligentnie synchronizować zmiany kodu i ponownie uruchamiać usługę, aby w razie potrzeby odzwierciedlić zmiany. Podczas uruchamiania kodu dzienniki kompilacji i śledzenia HTTP są przesyłane strumieniowo z powrotem do klienta, dzięki czemu można monitorować postęp i diagnozować wszelkie problemy. Można również użyć usługi Azure Dev Spaces, aby dołączyć debuger w programie Visual Studio i Visual Studio Code do usług Java, Node.js i .NET Core. Aby uzyskać więcej informacji, zobacz [Jak działa przygotowanie projektu dla usługi Azure Dev Spaces][how-it-works-prep], Jak działa [uruchamianie kodu za pomocą usługi Azure Dev Spaces][how-it-works-up]i jak [zdalnie debugowanie kodu za pomocą usługi Azure Dev Spaces działa.][how-it-works-remote-debugging]
+Oprócz przekierowywania ruchu między komputerem deweloperskim i klastrem AKS, za pomocą Azure Dev Spaces można skonfigurować i szybko uruchomić kod bezpośrednio w AKS. Dzięki programowi Visual Studio, Visual Studio Code lub interfejsie wiersza polecenia Azure Dev Spaces usługa Azure dev Spaces przekaże kod do klastra, a następnie skompiluje go i uruchomi. Usługa Azure dev Spaces umożliwia również inteligentne synchronizowanie zmian kodu i ponowne uruchomienie usługi w celu odzwierciedlenia zmian w razie potrzeby. Podczas uruchamiania kodu dzienniki kompilacji i ślady HTTP są przesyłane strumieniowo z powrotem do klienta, dzięki czemu można monitorować postęp i diagnozować problemy. Możesz również użyć Azure Dev Spaces, aby dołączyć debuger w programie Visual Studio i Visual Studio Code do usług Java, Node. js i .NET Core. Aby uzyskać więcej informacji, zobacz [jak przygotowywanie projektu dla Azure dev Spaces działa][how-it-works-prep], [jak uruchomić swój kod przy użyciu Azure dev Spaces Works][how-it-works-up]oraz [jak zdalne debugowanie kodu za pomocą Azure dev Spaces działa][how-it-works-remote-debugging].
 
 ## <a name="team-development"></a>Programowanie zespołowe
 
-Usługa Azure Dev Spaces pomaga zespołom wydajnie pracować nad aplikacją w tym samym klastrze AKS bez zakłócania pracy.
+Azure Dev Spaces ułatwia zespołom wydajną pracę w aplikacji w tym samym klastrze AKS bez zakłócania pracy.
 
-### <a name="intelligent-routing-between-dev-spaces"></a>Inteligentne wyznaczanie tras między przestrzeniami deweloperskimi
+### <a name="intelligent-routing-between-dev-spaces"></a>Inteligentne kierowanie między miejscami do deweloperów
 
-Za pomocą usługi Azure Dev Spaces zespół może udostępniać pojedynczy klaster AKS z uruchomioną aplikacją natywną w chmurze i tworzyć pojedyncze przestrzenie deweloperów, w których zespół może tworzyć, testować i debugować bez zakłócania innych przestrzeni deweloperskich. Wersja bazowa aplikacji jest uruchamiana w głównym obszarze deweloperskim. Członkowie zespołu następnie utworzyć niezależne przestrzenie dewelopera podrzędnego na podstawie miejsca głównego dla rozwoju, testowania i debugowania zmian w aplikacji. Za pośrednictwem funkcji routingu w przestrzeni deweloperów podrzędnych przestrzeni deweloperskich można kierować żądania między usługami działającymi w przestrzeni deweloperów podrzędnych i nadrzędnego obszaru dev. Ta routing umożliwia deweloperom uruchamianie własnej wersji usługi podczas ponownego stosowania usług zależnych z obszaru nadrzędnego. Każda przestrzeń podrzędna ma swój własny unikatowy adres URL, który może być udostępniany i uzyskiwać do nich dostęp przez inne osoby w celu współpracy. Aby uzyskać więcej informacji na temat działania routingu w usłudze Azure Dev Spaces, zobacz [Jak routing działa z usługą Azure Dev Spaces.][how-it-works-routing]
+Dzięki Azure Dev Spaces zespół może współdzielić jeden klaster AKS z uruchomioną aplikacją natywną w chmurze i utworzyć odizolowane miejsca programistyczne, w których zespół może opracowywać, testować i debugować bez zakłócania innych miejsc dev. Wersja linii bazowej aplikacji jest uruchamiana w głównym miejscu deweloperskim. Członkowie zespołu tworzą niezależne miejsca do użytku deweloperskiego na podstawie przestrzeni głównej na potrzeby tworzenia, testowania i debugowania zmian w aplikacji. Dzięki możliwościom routingu w miejscach deweloperskich, podrzędne miejsca dev umożliwiają kierowanie żądań między usługami uruchomionymi w podrzędnym obszarze dev i nadrzędnym miejscu dev. Ten Routing pozwala deweloperom uruchamiać własne wersje usługi przy ponownym używaniu usług zależnych od obszaru nadrzędnego. Każdy obszar podrzędny ma własny unikatowy adres URL, który może być współużytkowany przez inne osoby do współpracy. Aby uzyskać więcej informacji na temat sposobu działania routingu w Azure Dev Spaces, zobacz [jak routing współdziała z Azure dev Spaces][how-it-works-routing].
 
-### <a name="live-testing-an-open-pull-request"></a>Testowanie na żywo otwartego żądania ściągania
+### <a name="live-testing-an-open-pull-request"></a>Testowanie na żywo otwarte żądanie ściągnięcia
 
-Akcje usługi GitHub z usługą Azure Dev Spaces można również użyć do testowania zmian w aplikacji w żądaniu ściągania bezpośrednio w klastrze przed scaleniem. Usługa Azure Dev Spaces można automatycznie wdrożyć wersję przeglądu aplikacji do klastra, dzięki czemu autor, jak również innych członków zespołu do przeglądu zmian w kontekście całej aplikacji. Korzystając z możliwości routingu usługi Azure Dev Spaces, ta wersja przeglądu aplikacji jest również wdrażana w klastrze bez wpływu na inne przestrzenie deweloperów. Wszystkie te funkcje umożliwiają pewnie zatwierdzanie i scalanie żądań ściągania. Aby zobaczyć przykład akcji Usługi GitHub i usługi Azure Dev Spaces, zobacz [Akcje usługi GitHub & usłudze Azure Kubernetes][pr-flow].
+Możesz również użyć akcji usługi GitHub z Azure Dev Spaces, aby przetestować zmiany w aplikacji w żądaniu ściągnięcia bezpośrednio w klastrze przed scaleniem. Azure Dev Spaces może automatycznie wdrożyć wersję recenzowania aplikacji w klastrze, umożliwiając autorowi oraz innym członkom zespołu przeglądanie zmian w kontekście całej aplikacji. Korzystając z możliwości routingu Azure Dev Spaces, ta wersja przeglądu aplikacji zostanie również wdrożona w klastrze bez wpływu na inne miejsca deweloperskie. Wszystkie te możliwości mogą bezpiecznie zatwierdzać i scalać żądania ściągnięcia. Aby zapoznać się z przykładem akcji usługi GitHub i Azure Dev Spaces, zobacz [Akcje github & usłudze Azure Kubernetes][pr-flow].
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć podłączanie lokalnego komputera deweloperskiego do klastra AKS, zobacz [Łączenie komputera deweloperskiego z klastrem AKS][connect].
+Aby rozpocząć łączenie lokalnego komputera deweloperskiego z klastrem AKS, zobacz [Łączenie komputera deweloperskiego z klastrem AKS][connect].
 
-Aby rozpocząć korzystanie z usługi Azure Dev Spaces do tworzenia zespołów, zobacz tworzenie zespołu w przewodniku Szybki start [usługi Azure Dev Spaces.][quickstart-team]
+Aby rozpocząć korzystanie z Azure Dev Spaces do tworzenia zespołu, zobacz [programowanie zespołowe w Azure dev Spaces][quickstart-team] przewodnika Szybki Start.
 
 [connect]: how-to/connect.md
 [how-it-works-connect]: how-dev-spaces-works-connect.md

@@ -1,6 +1,6 @@
 ---
 title: Hostowanie statycznej witryny sieci Web w usłudze Azure Storage
-description: Dowiedz się, jak wyświetlać zawartość statyczną (HTML, CSS, JavaScript i pliki obrazów) bezpośrednio z kontenera na koncie GPv2 usługi Azure Storage.
+description: Dowiedz się, jak udostępniać zawartość statyczną (pliki HTML, CSS, JavaScript i Image) bezpośrednio z kontenera na koncie usługi Azure Storage GPv2.
 author: normesta
 ms.service: storage
 ms.subservice: blobs
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.openlocfilehash: 056e23f0f0cf1a3a1c70042cef3c92dd41f14f82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80247014"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hostowanie statycznej witryny sieci Web w usłudze Azure Storage
 
-Zawartość statyczną (HTML, CSS, JavaScript i pliki obrazów) można wyświetlać bezpośrednio z kontenera na koncie GPv2 usługi Azure Storage. Aby dowiedzieć się więcej, zobacz [Hosting statycznej witryny sieci Web w usłudze Azure Storage](storage-blob-static-website.md).
+Zawartości statycznej (HTML, CSS, JavaScript i plików obrazów) można obsłużyć bezpośrednio w kontenerze na koncie usługi Azure Storage GPv2. Aby dowiedzieć się więcej, zobacz [statyczne hostowanie witryn sieci Web w usłudze Azure Storage](storage-blob-static-website.md).
 
-W tym artykule pokazano, jak włączyć hosting statycznej witryny sieci Web przy użyciu witryny Azure portal, interfejsu wiersza polecenia platformy Azure lub programu PowerShell.
+W tym artykule opisano sposób włączania obsługi statycznej witryny sieci Web przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub programu PowerShell.
 
-## <a name="enable-static-website-hosting"></a>Włącz statyczny hosting stron internetowych
+## <a name="enable-static-website-hosting"></a>Włączanie hostingu statycznej witryny sieci Web
 
-Statyczny hosting stron internetowych to funkcja, którą musisz włączyć na koncie pamięci masowej.
+Hostowanie statycznej witryny sieci Web to funkcja, którą należy włączyć na koncie magazynu.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -34,11 +34,11 @@ Statyczny hosting stron internetowych to funkcja, którą musisz włączyć na k
 
 4. Wybierz pozycję **Włączone**, aby umożliwić hostowanie statycznej witryny internetowej na koncie magazynu.
 
-5. W polu **Nazwa dokumentu indeksu** określ domyślną stronę indeksu (na przykład: *index.html*). 
+5. W polu **Nazwa dokumentu indeksu** określ domyślną stronę indeksu (na przykład: *index. html*). 
 
    Gdy użytkownik przejdzie do głównego elementu statycznej witryny internetowej, wyświetlona zostanie domyślna strona indeksu.  
 
-6. W polu **Ścieżka dokumentu Błąd** określ domyślną stronę błędu (na przykład: *404.html*). 
+6. W polu **ścieżka dokumentu błędu** określ domyślną stronę błędu (na przykład: *404. html*). 
 
    Gdy użytkownik spróbuje przejść do strony, która nie istnieje w statycznej witrynie internetowej, wyświetlona zostanie domyślna strona błędu.
 
@@ -50,19 +50,19 @@ Statyczny hosting stron internetowych to funkcja, którą musisz włączyć na k
 
 <a id="cli" />
 
-Statyczne hostowanie witryn sieci Web można włączyć za pomocą [interfejsu wiersza polecenia platformy Azure (CLI).](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+Można włączyć obsługę statycznej witryny sieci Web przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
-1. Najpierw otwórz [usługę Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)lub jeśli [zainstalowano](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) interfejs wiersza polecenia platformy Azure lokalnie, otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
+1. Najpierw Otwórz [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)lub jeśli interfejs wiersza polecenia platformy Azure został [zainstalowany](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) lokalnie, Otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
 
-2. Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na subskrypcję konta magazynu, które będzie hostować statyczną witrynę sieci Web.
+2. Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na konto magazynu, które będzie hostować statyczną witrynę sieci Web.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
    ```
 
-   Zastąp wartość symbolu `<subscription-id>` zastępczego identyfikatorem subskrypcji.
+   Zastąp `<subscription-id>` wartość symbolu ZASTĘPCZego identyfikatorem subskrypcji.
 
-3. Włącz statyczny hosting stron internetowych.
+3. Włącz hosting statycznej witryny sieci Web.
 
    ```azurecli-interactive
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
@@ -70,19 +70,19 @@ Statyczne hostowanie witryn sieci Web można włączyć za pomocą [interfejsu w
 
    * Zastąp wartość symbolu zastępczego `<storage-account-name>` nazwą konta magazynu.
 
-   * Zastąp `<error-document-name>` symbol zastępczy nazwą dokumentu błędu, który będzie wyświetlany użytkownikom, gdy przeglądarka zażąda strony w witrynie, która nie istnieje.
+   * Zastąp `<error-document-name>` symbol zastępczy nazwą dokumentu błędu, który będzie widoczny dla użytkowników, gdy przeglądarka zażąda strony, która nie istnieje.
 
-   * Zastąp `<index-document-name>` symbol zastępczy nazwą dokumentu indeksu. Ten dokument jest powszechnie "index.html".
+   * Zastąp `<index-document-name>` symbol zastępczy nazwą dokumentu indeksu. Ten dokument jest często "index. html".
 
-### <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+### <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
 <a id="powershell" />
 
-Hosting statycznej witryny sieci Web można włączyć przy użyciu modułu programu Azure PowerShell.
+Można włączyć hosting statycznej witryny sieci Web przy użyciu modułu Azure PowerShell.
 
-1. Otwórz okno polecenia programu Windows PowerShell.
+1. Otwórz okno poleceń programu Windows PowerShell.
 
-2. Sprawdź, czy masz moduł Azure PowerShell Az w wersji 0.7 lub nowszej.
+2. Sprawdź, czy masz Azure PowerShell module AZ w wersji 0,7 lub nowszej.
 
    ```powershell
    Get-InstalledModule -Name Az -AllVersions | select Name,Version
@@ -96,14 +96,14 @@ Hosting statycznej witryny sieci Web można włączyć przy użyciu modułu prog
    Connect-AzAccount
    ```
 
-4. Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na subskrypcję konta magazynu, które będzie hostować statyczną witrynę sieci Web.
+4. Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na konto magazynu, które będzie hostować statyczną witrynę sieci Web.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
    Set-AzContext $context
    ```
 
-   Zastąp wartość symbolu `<subscription-id>` zastępczego identyfikatorem subskrypcji.
+   Zastąp `<subscription-id>` wartość symbolu ZASTĘPCZego identyfikatorem subskrypcji.
 
 5. Pobierz kontekst konta magazynu, który definiuje konto magazynu, którego chcesz użyć.
 
@@ -112,19 +112,19 @@ Hosting statycznej witryny sieci Web można włączyć przy użyciu modułu prog
    $ctx = $storageAccount.Context
    ```
 
-   * Zastąp `<resource-group-name>` wartość zastępczą nazwą grupy zasobów.
+   * Zastąp `<resource-group-name>` wartość symbolu zastępczego nazwą grupy zasobów.
 
    * Zastąp wartość symbolu zastępczego `<storage-account-name>` nazwą konta magazynu.
 
-6. Włącz statyczny hosting stron internetowych.
+6. Włącz hosting statycznej witryny sieci Web.
 
    ```powershell
    Enable-AzStorageStaticWebsite -Context $ctx -IndexDocument <index-document-name> -ErrorDocument404Path <error-document-name>
    ```
 
-   * Zastąp `<error-document-name>` symbol zastępczy nazwą dokumentu błędu, który będzie wyświetlany użytkownikom, gdy przeglądarka zażąda strony w witrynie, która nie istnieje.
+   * Zastąp `<error-document-name>` symbol zastępczy nazwą dokumentu błędu, który będzie widoczny dla użytkowników, gdy przeglądarka zażąda strony, która nie istnieje.
 
-   * Zastąp `<index-document-name>` symbol zastępczy nazwą dokumentu indeksu. Ten dokument jest powszechnie "index.html".
+   * Zastąp `<index-document-name>` symbol zastępczy nazwą dokumentu indeksu. Ten dokument jest często "index. html".
 
 ---
 
@@ -132,31 +132,31 @@ Hosting statycznej witryny sieci Web można włączyć przy użyciu modułu prog
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-W tych instrukcjach pokazano sposób przekazywania plików przy użyciu wersji Eksploratora magazynu, która jest wyświetlana w witrynie Azure portal. Jednak można również użyć wersji [Eksploratora magazynu,](https://azure.microsoft.com/features/storage-explorer/) który działa poza witryną Azure portal. Można użyć [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI lub dowolnej aplikacji niestandardowej, która może przekazywać pliki do **$web** kontenera konta. Aby uzyskać samouczek krok po kroku, który przekazuje pliki przy użyciu kodu programu Visual Studio, zobacz [Samouczek: Hostowanie statycznej witryny sieci Web w magazynie obiektów Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+W tych instrukcjach pokazano, jak przekazywać pliki przy użyciu wersji Eksplorator usługi Storage, która pojawia się w Azure Portal. Można jednak również użyć wersji [Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/) , która działa poza programem Azure Portal. Można użyć [AzCopy](../common/storage-use-azcopy-v10.md), programu PowerShell, interfejsu wiersza polecenia lub dowolnej aplikacji niestandardowej, która może przekazywać pliki do kontenera **$Web** Twojego konta. Aby zapoznać się z samouczkiem krok po kroku, który przekazuje pliki przy użyciu programu Visual Studio Code, zobacz [Samouczek: hostuje statyczną witrynę sieci Web na BLOB Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
-1. Wybierz **Eksploratora magazynu (podgląd)**.
+1. Wybierz pozycję **Eksplorator usługi Storage (wersja zapoznawcza)**.
 
-2. Rozwiń węzeł **KONTENERY OBIEKTÓW BLOB,** a następnie wybierz **kontener $web.**
+2. Rozwiń węzeł **kontenery obiektów BLOB** , a następnie wybierz kontener **$Web** .
 
-3. Wybierz przycisk **Przekaż,** aby przekazać pliki.
+3. Wybierz przycisk **Przekaż** , aby przekazać pliki.
 
    ![Przekazywanie plików](media/storage-blob-static-website/storage-blob-static-website-upload.png)
 
-4. Jeśli zamierzasz, aby przeglądarka wyświetlała zawartość pliku, upewnij się, że `text/html`typ zawartości tego pliku jest ustawiony na . 
+4. Jeśli zamierzasz wyświetlić zawartość pliku w przeglądarce, upewnij się, że typ zawartości tego pliku jest ustawiony na `text/html`. 
 
-   ![Sprawdzanie typów zawartości](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
+   ![Sprawdź typy zawartości](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
 
    >[!NOTE]
-   > Eksplorator magazynu automatycznie `text/html` ustawia tę właściwość na `.html`często rozpoznawane rozszerzenia, takie jak . Jednak w niektórych przypadkach będziesz musiał ustawić to samodzielnie. Jeśli ta właściwość nie `text/html`zostanie ustawiona na , przeglądarka wyświetli monit o pobranie pliku zamiast renderowania zawartości. Aby ustawić tę właściwość, kliknij plik prawym przyciskiem myszy, a następnie kliknij polecenie **Właściwości**.
+   > Eksplorator usługi Storage automatycznie ustawia tę właściwość na `text/html` dla powszechnie rozpoznanych rozszerzeń, `.html`takich jak. Jednak w niektórych przypadkach trzeba będzie ustawić to samodzielnie. Jeśli nie ustawisz tej właściwości na `text/html`, przeglądarka wyświetli monit o pobranie pliku zamiast renderowania zawartości. Aby ustawić tę właściwość, kliknij plik prawym przyciskiem myszy, a następnie kliknij polecenie **Właściwości**.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Przekaż obiekty do kontenera *$web* z katalogu źródłowego.
+Przekaż obiekty do kontenera *$Web* z katalogu źródłowego.
 
 > [!NOTE]
-> Jeśli używasz usługi Azure Cloud Shell, `\` upewnij się, że `$web` podczas odwoływania `\$web`się do kontenera (na przykład: ). Jeśli używasz instalacji lokalnej interfejsu wiersza polecenia platformy Azure, nie trzeba używać znaku ucieczki.
+> Jeśli używasz Azure Cloud Shell, pamiętaj o dodaniu znaku `\` ucieczki podczas odwoływania się do `$web` kontenera (na przykład: `\$web`). Jeśli używasz lokalnej instalacji interfejsu wiersza polecenia platformy Azure, nie musisz używać znaku ucieczki.
 
-W tym przykładzie przyjęto założenie, że używasz poleceń z sesji usługi Azure Cloud Shell.
+W tym przykładzie przyjęto założenie, że używasz poleceń z sesji Azure Cloud Shell.
 
 ```azurecli-interactive
 az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
@@ -167,13 +167,13 @@ az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-a
 * Zastąp `<source-path>` symbol zastępczy ścieżką do lokalizacji plików, które chcesz przekazać.
 
 > [!NOTE]
-> Jeśli używasz instalacji lokalizacji interfejsu wiersza polecenia platformy Azure, możesz użyć ścieżki do `C:\myFolder`dowolnej lokalizacji na komputerze lokalnym (na przykład: .
+> Jeśli używasz instalacji lokalizacji interfejsu wiersza polecenia platformy Azure, możesz użyć ścieżki do dowolnej lokalizacji na komputerze lokalnym (na przykład: `C:\myFolder`.
 >
-> Jeśli używasz usługi Azure Cloud Shell, musisz odwołać się do udziału plików, który jest widoczny dla powłoki chmury. Ta lokalizacja może być udziałem plików samego udziału w chmurze lub istniejącym udziałem plików, który można zainstalować z powłoki chmury. Aby dowiedzieć się, jak to zrobić, zobacz [Utrwalanie plików w usłudze Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
+> Jeśli używasz Azure Cloud Shell, musisz odwołać się do udziału plików, który jest widoczny dla Cloud Shell. Ta lokalizacja może być udziałem plików w udziale w chmurze lub istniejącym udziałem plików, który można zainstalować z Cloud Shell. Aby dowiedzieć się, jak to zrobić, zobacz [utrwalanie plików w Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
 
-### <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+### <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
-Przekaż obiekty do kontenera *$web* z katalogu źródłowego.
+Przekaż obiekty do kontenera *$Web* z katalogu źródłowego.
 
 ```powershell
 # upload a file
@@ -184,29 +184,29 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 -Context $ctx
 ```
 
-* Zastąp wartość symbolu `<path-to-file>` zastępczego w pełni kwalifikowaną ścieżką `C:\temp\index.html`do pliku, który chcesz przekazać (na przykład: ).
+* Zastąp `<path-to-file>` wartość symbolu zastępczego w pełni kwalifikowaną ścieżką do pliku, który chcesz przekazać (na przykład: `C:\temp\index.html`).
 
-* Zastąp wartość symbolu `<blob-name>` zastępczego nazwą, którą chcesz nadać `index.html`wynikowy obiekt blob (na przykład: ).
+* Zastąp `<blob-name>` wartość symbolu zastępczego nazwą, która ma dać otrzymany obiekt BLOB (na przykład: `index.html`).
 
 ---
 
-## <a name="find-the-website-url-by-using-the-azure-portal"></a>Znajdź adres URL witryny sieci Web za pomocą witryny Azure portal
+## <a name="find-the-website-url-by-using-the-azure-portal"></a>Znajdź adres URL witryny sieci Web przy użyciu Azure Portal
 
-Możesz przeglądać strony witryny z przeglądarki, używając publicznego adresu URL witryny.
+Możesz wyświetlić strony witryny z przeglądarki, używając publicznego adresu URL witryny sieci Web.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 <a id="portal-find-url" />
 
-W okienku wyświetlanym obok strony przeglądu konta konta magazynu wybierz **pozycję Statyczna witryna sieci Web**. Adres URL witryny jest wyświetlany w polu **Podstawowy punkt końcowy.**
+W okienku, które pojawia się obok strony Przegląd konta na koncie magazynu, wybierz pozycję **statyczna witryna sieci Web**. Adres URL witryny zostanie wyświetlony w polu **podstawowy punkt końcowy** .
 
-![Metryka metryk statycznych witryn sieci Web usługi Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-url.png)
+![Metryka statycznych witryn sieci Web usługi Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 <a id="cli-find-url" />
 
-Znajdź publiczny adres URL swojej statycznej witryny sieci Web za pomocą następującego polecenia:
+Znajdź publiczny adres URL statycznej witryny sieci Web za pomocą następującego polecenia:
 
 ```azurecli-interactive
 az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
@@ -214,20 +214,20 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 * Zastąp wartość symbolu zastępczego `<storage-account-name>` nazwą konta magazynu.
 
-* Zastąp `<resource-group-name>` wartość zastępczą nazwą grupy zasobów.
+* Zastąp `<resource-group-name>` wartość symbolu zastępczego nazwą grupy zasobów.
 
-### <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+### <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
 <a id="powershell-find-url" />
 
-Znajdź publiczny adres URL swojej statycznej witryny sieci Web za pomocą następującego polecenia:
+Znajdź publiczny adres URL statycznej witryny sieci Web za pomocą następującego polecenia:
 
 ```powershell
  $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>"
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-* Zastąp `<resource-group-name>` wartość zastępczą nazwą grupy zasobów.
+* Zastąp `<resource-group-name>` wartość symbolu zastępczego nazwą grupy zasobów.
 
 * Zastąp wartość symbolu zastępczego `<storage-account-name>` nazwą konta magazynu.
 
@@ -235,46 +235,46 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 <a id="metrics" />
 
-## <a name="enable-metrics-on-static-website-pages"></a>Włączanie danych na statycznych stronach witryny sieci Web
+## <a name="enable-metrics-on-static-website-pages"></a>Włącz metryki na stronach statycznej witryny internetowej
 
-Po włączeniu metryki statystyki ruchu plików w kontenerze **$web** są zgłaszane na pulpicie nawigacyjnym metryk.
+Po włączeniu metryk statystyki ruchu dla plików w kontenerze **$Web** są raportowane na pulpicie nawigacyjnym metryk.
 
-1. Kliknij **pozycję Metryki** w sekcji **Monitor** w menu konta magazynu.
+1. Kliknij pozycję **metryki** w sekcji **monitorowanie** w menu konto magazynu.
 
    > [!div class="mx-imgBorder"]
-   > ![Łącze metryki](./media/storage-blob-static-website/metrics-link.png)
+   > ![Link metryk](./media/storage-blob-static-website/metrics-link.png)
 
    > [!NOTE]
-   > Dane metryki są generowane przez podłączenie do różnych metryki interfejsów API. Portal wyświetla tylko elementy członkowskie interfejsu API używane w danym przedziale czasowym, aby skupić się tylko na członkach, które zwracają dane. Aby upewnić się, że jesteś w stanie wybrać niezbędnego członka interfejsu API, pierwszym krokiem jest rozszerzenie przedziału czasu.
+   > Dane metryk są generowane przez Podłączanie do różnych interfejsów API metryk. W portalu są wyświetlane tylko elementy API używane w danym przedziale czasowym, aby skoncentrować się tylko na elementach członkowskich, które zwracają dane. Aby upewnić się, że można wybrać wymagany element członkowski interfejsu API, pierwszym krokiem jest rozwinięcie przedziału czasu.
 
-2. Kliknij przycisk przedział czasu, wybierz przedział czasu, a następnie kliknij przycisk **Zastosuj**.
+2. Kliknij przycisk ramy czasowe, wybierz przedział czasu, a następnie kliknij przycisk **Zastosuj**.
 
    ![Zakres czasu metryk statycznych witryn sieci Web usługi Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 
-3. Wybierz **pozycję Blob** z *listy rozwijanej Obszar nazw.*
+3. Wybierz pozycję **obiekt BLOB** z listy rozwijanej *przestrzeń nazw* .
 
-   ![Statyczne witryny sieci Web usługi Azure Storage metryki obszaru nazw](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
+   ![Przestrzeń nazw metryk statycznych witryn sieci Web usługi Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
 
-4. Następnie wybierz metrykę **Wychodzącą.**
+4. Następnie wybierz metrykę **ruchu** wychodzącego.
 
-   ![Metryka metryk statycznych witryn sieci Web usługi Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Metryka statycznych witryn sieci Web usługi Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
-5. Wybierz **opcję Suma** z *selektora agregacji.*
+5. Wybierz pozycję **sum** z selektora *agregacji* .
 
    ![Agregacja metryk statycznych witryn sieci Web usługi Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
 
-6. Kliknij przycisk **Dodaj filtr** i wybierz nazwę **interfejsu API** z selektora *właściwości.*
+6. Kliknij przycisk **Dodaj filtr** i wybierz pozycję **nazwa interfejsu API** z selektora *Właściwości* .
 
-   ![Statyczne witryny sieci Web usługi Azure Storage metryki nazwa interfejsu API](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
+   ![Nazwa interfejsu API metryk statycznych witryn sieci Web usługi Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
 
-7. Zaznacz pole wyboru **GetWebContent** w selektorze *Wartości,* aby wypełnić raport metryki.
+7. Zaznacz pole wyboru obok pozycji **GetWebContent** w selektorze *wartości* , aby wypełnić raport metryk.
 
    ![Metryki statycznych witryn sieci Web usługi Azure Storage GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
    >[!NOTE]
-   > Pole wyboru **GetWebContent** jest wyświetlane tylko wtedy, gdy ten element członkowski interfejsu API był używany w danym przedziale czasu. Portal wyświetla tylko elementy członkowskie interfejsu API używane w danym przedziale czasowym, aby skupić się tylko na członkach, które zwracają dane. Jeśli nie możesz znaleźć określonego członka interfejsu API na tej liście, rozwiń przedział czasu.
+   > Pole wyboru **GetWebContent** pojawia się tylko wtedy, gdy ten element członkowski interfejsu API został użyty w danym przedziale czasu. W portalu są wyświetlane tylko elementy API używane w danym przedziale czasowym, aby skoncentrować się tylko na elementach członkowskich, które zwracają dane. Jeśli nie możesz znaleźć konkretnego elementu członkowskiego interfejsu API na tej liście, rozwiń przedział czasu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się, jak skonfigurować domenę niestandardową za pomocą statycznej witryny sieci Web. Zobacz [Mapowanie domeny niestandardowej do punktu końcowego usługi Azure Blob Storage](storage-custom-domain-name.md).
+* Dowiedz się, jak skonfigurować domenę niestandardową przy użyciu statycznej witryny sieci Web. Zobacz sekcję [Mapowanie domeny niestandardowej na punkt końcowy usługi Azure Blob Storage](storage-custom-domain-name.md).
 

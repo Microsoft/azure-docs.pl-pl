@@ -1,7 +1,7 @@
 ---
-title: 'Znane problemy: Migracja z oracle do bazy danych Platformy Azure dla postgreSQL'
+title: 'Znane problemy: Migrowanie z programu Oracle do Azure Database for PostgreSQL'
 titleSuffix: Azure Database Migration Service
-description: Dowiedz się więcej o znanych problemach i ograniczeniach migracji z migracji online z Oracle do usługi Azure Database dla serwera PostgreSQL-Single przy użyciu usługi migracji bazy danych Azure.
+description: Informacje o znanych problemach i ograniczeniach migracji z migracją online z programu Oracle do Azure Database for PostgreSQL-pojedynczego serwera przy użyciu Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -13,60 +13,60 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: fcebc7eb170239e5d7efd8a32599a6e782f630bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235245"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Znane problemy/ograniczenia migracji z migracjami online z Oracle do usługi Azure DB dla serwera PostgreSQL-Single
+# <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Znane problemy/ograniczenia migracji z migracją online z programu Oracle do usługi Azure DB dla PostgreSQL — pojedynczy serwer
 
-Znane problemy i ograniczenia związane z migracjami online z Oracle do usługi Azure Database dla serwera PostgreSQL-Single są opisane w poniższych sekcjach.
+Znane problemy i ograniczenia związane z migracją w trybie online z programu Oracle do Azure Database for PostgreSQL-pojedynczego serwera są opisane w poniższych sekcjach.
 
-## <a name="oracle-versions-supported-as-a-source-database"></a>Wersje Oracle obsługiwane jako źródłowych baz danych
+## <a name="oracle-versions-supported-as-a-source-database"></a>Wersje programu Oracle obsługiwane jako źródłowa baza danych
 
-Usługa migracji bazy danych platformy Azure obsługuje łączenie się z:
+Azure Database Migration Service obsługuje łączenie z:
 
 - Oracle w wersji 10g, 11g i 12c.
-- Oracle Enterprise, Standard, Express i Personal Edition.
+- Oracle Enterprise, standard, Express i Personal Edition.
 
-Usługa migracji bazy danych platformy Azure nie obsługuje łączenia się z bazami danych kontenerów z wieloma dzierżawami (CDB).
+Azure Database Migration Service nie obsługuje łączenia z wielodostępnymi bazami danych kontenerów (CDBs).
 
 ## <a name="postgresql-versions-supported-as-a-target-database"></a>Wersje PostgreSQL obsługiwane jako docelowa baza danych
 
-Usługa migracji bazy danych platformy Azure obsługuje migracje do bazy danych usługi Azure database dla serwera PostgreSQL-Single w wersji 9.5, 9.6, 10 i 11. Zobacz artykuł [Obsługiwane wersje bazy danych PostgreSQL bieżące](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) informacje na temat obsługi wersji w usłudze Azure Database dla serwera PostgreSQL-Single.
+Azure Database Migration Service obsługuje migracje do Azure Database for PostgreSQL-jednego serwera w wersji 9,5, 9,6, 10 i 11. Zapoznaj się z artykułem [obsługiwane wersje bazy danych PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) , aby uzyskać aktualne informacje o obsłudze wersji na pojedynczym serwerze Azure Database for PostgreSQL.
 
-## <a name="datatype-limitations"></a>Ograniczenia typu danych
+## <a name="datatype-limitations"></a>Ograniczenia typów danych
 
-Następujące typy danych **nie** zostaną poddane migracji:
+Następujące typy danych **nie** zostaną zmigrowane:
 
-- Bfile
-- Rowid
+- DOTYCZĄCE
+- Właściwość
 - REF
-- Urowid
+- UROWID
 - ANYDATA
 - SDO_GEOMETRY
-- Tabele zagnieżdżone
+- Zagnieżdżone tabele
 - Typy danych zdefiniowane przez użytkownika
 - Uwagi
 - Kolumny wirtualne
-- Widoki materializowane na podstawie kolumny ROWID
+- Widoki z materiałami oparte na kolumnie ROWID
 
-Ponadto puste kolumny BLOB/CLOB są mapowane na wartość NULL w obiekcie docelowym.
+Ponadto puste kolumny obiektów BLOB/obiektów CLOB są mapowane na wartość NULL w elemencie docelowym.
 
-## <a name="lob-limitations"></a>Ograniczenia LOB
+## <a name="lob-limitations"></a>Ograniczenia dotyczące obiektów LOB
 
-- Gdy tryb LOB o ograniczonym rozmiarze jest włączony, puste lejki w źródle Oracle są replikowane jako wartości NULL.
+- Gdy tryb LOB o ograniczonym rozmiarze jest włączony, puste LOB w źródle Oracle są replikowane jako wartości NULL.
 - Długie nazwy obiektów (ponad 30 bajtów) nie są obsługiwane.
-- Dane w kolumnie LONG i LONG RAW nie mogą przekraczać 64k. Wszelkie dane powyżej 64k zostaną obcięty.
-- Tylko w programie Oracle 12 wszelkie zmiany w kolumnach lob nie są obsługiwane (migrowane).
-- Aktualizowanie do kolumn XMLTYPE i LOB nie są obsługiwane (migrowane).
+- Dane w kolumnie LONG i LONG RAW nie mogą przekroczyć 64 KB. Wszystkie dane spoza 64 KB zostaną obcięte.
+- Tylko w przypadku programu Oracle 12 wszystkie zmiany w kolumnach LOB nie są obsługiwane (migrowane).
+- Aktualizacje kolumn XmlType i LOB nie są obsługiwane (migrowane).
 
 ## <a name="known-issues-and-limitations"></a>Znane problemy i ograniczenia
 
-- Klienci muszą korzystać z SYSDBA, aby połączyć się z Oracle.
-- Zmiany danych wynikające z operacji partycji/podpodziału (ADD, DROP, EXCHANGE i TRUNCATE) nie zostaną zmigrowane i mogą spowodować następujące błędy:
-  - W przypadku operacji ADD aktualizacje i usunięcia dodanych danych mogą zwracać ostrzeżenie "0 wierszy, których dotyczy problem".
-  - W przypadku operacji DROP i TRUNCATE nowe wstawienia mogą powodować błędy "duplikatów".
-  - W przypadku operacji PROGRAMU EXCHANGE może wystąpić ostrzeżenie o "0 wierszy, których dotyczy problem", jak i błędy "duplikaty".
-- Tabel, których nazwy zawierają apostrofy nie mogą być replikowane.
+- Aby nawiązać połączenie z bazą danych Oracle, klienci muszą używać SYSDBA.
+- Zmiany danych pochodzące z operacji partycji/partycji podrzędnej (Dodawanie, usuwanie, wymiana i obcinanie) nie zostaną zmigrowane i mogą spowodować następujące błędy:
+  - W przypadku operacji dodawania aktualizacje i usunięcia na dodanych dane mogą zwracać ostrzeżenie "0 wierszy, których dotyczy".
+  - W przypadku operacji upuszczania i OBCINAnia nowe wstawienia mogą spowodować błędy "duplikatów".
+  - W przypadku operacji programu EXCHANGE mogą wystąpić błędy "ostrzeżenie" i "duplikaty".
+- Tabel, których nazwy zawierają apostrofy, nie mogą być replikowane.

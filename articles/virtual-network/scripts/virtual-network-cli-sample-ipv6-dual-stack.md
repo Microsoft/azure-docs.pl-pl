@@ -1,7 +1,7 @@
 ---
-title: Przykład skryptu interfejsu wiersza polecenia platformy Azure — konfigurowanie frontendu IPv6
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — Konfigurowanie frontonu protokołu IPv6
 titlesuffix: Azure Virtual Network
-description: Włączanie punktów końcowych IPv6 przy użyciu interfejsu wiersza polecenia platformy Azure w sieci wirtualnej platformy Azure
+description: Włączanie punktów końcowych IPv6 przy użyciu interfejsu wiersza polecenia platformy Azure na platformie Azure Virtual Network
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,36 +13,36 @@ ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
 ms.openlocfilehash: 1ef8742bc4f8de2d08d9bb4fc98b3df6f9420737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235022"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Konfigurowanie punktów końcowych IPv6 w przykładzie skryptu sieci wirtualnej (wersja zapoznawcza)
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Przykład konfiguracji punktów końcowych protokołu IPv6 w skrypcie sieci wirtualnej (wersja zapoznawcza)
 
-W tym artykule pokazano, jak wdrożyć aplikację podwójnego stosu (IPv4 + IPv6) na platformie Azure, która obejmuje sieć wirtualną z dwoma stosami z podsiecią z dwoma stosami, moduł równoważenia obciążenia z dwoma konfiguracjami frontu (IPv4 + IPv6), maszyny wirtualne z kartami sieciowymi, które mają konfigurację podwójnego adresu IP, zasady podwójnej sieciowej grupy zabezpieczeń i podwójnych publicznych ip.
+W tym artykule opisano sposób wdrażania aplikacji podwójnego stosu (IPv4 + IPv6) na platformie Azure, która obejmuje sieć wirtualną o podwójnej stercie z podsiecią podwójnego stosu, moduł równoważenia obciążenia z dwoma (IPv4 + IPv6) konfiguracjami frontonu, maszyny wirtualne z kartami sieciowymi z konfiguracją podwójnego adresu IP, podwójne reguły sieciowej grupy zabezpieczeń i dwa publiczne adresy IP.
 
 Skrypt można wykonać z poziomu usługi Azure [Cloud Shell](https://shell.azure.com/bash) lub lokalnej instalacji wiersza polecenia platformy Azure. Jeśli używasz interfejsu wiersza polecenia lokalnie, ten skrypt wymaga uruchomienia wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja została zainstalowana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia lokalnie, musisz też uruchomić polecenie `az login`, aby utworzyć połączenie z platformą Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby użyć funkcji sieci wirtualnej IPv6 dla platformy Azure, należy skonfigurować subskrypcję tylko raz w następujący sposób:
+Aby użyć funkcji IPv6 dla usługi Azure Virtual Network, należy skonfigurować subskrypcję tylko raz w następujący sposób:
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
 
-Rejestracja funkcji trwa do 30 minut. Możesz sprawdzić stan rejestracji, uruchamiając następujące polecenie interfejsu wiersza polecenia platformy Azure:
+Ukończenie rejestracji funkcji może potrwać do 30 minut. Stan rejestracji można sprawdzić, uruchamiając następujące polecenie interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
 
-Po zakończeniu rejestracji uruchom następujące polecenie:
+Po zakończeniu rejestracji Uruchom następujące polecenie:
 
 ```azurecli
 az provider register --namespace Microsoft.Network

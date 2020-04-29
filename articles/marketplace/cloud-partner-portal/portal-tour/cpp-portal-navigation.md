@@ -1,6 +1,6 @@
 ---
-title: Nawigacja w portalu partnerów w chmurze dla portalu Azure Marketplace
-description: Wyjaśnienie nawigacji w portalu cloud partner dla portalu Azure Marketplace.
+title: Nawigacja portal Cloud Partner w portalu Azure Marketplace
+description: Wyjaśnienie nawigacji w portal Cloud Partner portalu Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,84 +8,84 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dsindona
 ms.openlocfilehash: 2c1d0eafe96d6e1533bb980ae0e4fd3c43f0e56b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278420"
 ---
-# <a name="cloud-partner-portal-navigation"></a>Nawigacja po portalu partnerów w chmurze
+# <a name="cloud-partner-portal-navigation"></a>Nawigacja portal Cloud Partner
 
-Istnieją dwa podstawowe mechanizmy interfejsu użytkownika (UI) do poruszania się w [portalu Cloud Partner Portal:](https://cloudpartner.azure.com)górny pasek menu i lewe okienko nawigacji.  Te elementy interfejsu użytkownika są niezmienne, dostępne bez względu na to, do jakiej strony w portalu, do której nawigujesz.
+Istnieją dwa mechanizmy interfejsu użytkownika podstawowego (UI) do nawigowania w [Portal Cloud partner](https://cloudpartner.azure.com): górny pasek menu i okienko nawigacji po lewej stronie.  Te elementy interfejsu użytkownika są niezmienne i są dostępne niezależnie od strony portalu, do której chcesz przejść.
 
 
 ## <a name="menu-bar"></a>Pasek menu
 
-Pasek menu biegnie w górnej części witryny portalu.  Posiada następujące cztery aktywne obszary:
+Pasek menu jest uruchamiany w górnej części witryny portalu.  Ma cztery aktywne obszary:
 
 ![Pasek menu](./media/top-menubar1.png)
 
-Kliknięcie tych obszarów powoduje następujące działania:
+Kliknięcie tych obszarów powoduje wykonanie następujących czynności:
 
-1. Obszar tytułu - przechodzi do strony głównej portalu.
-2. **Przycisk Pomoc** — wyświetla menu pomocy, które zapewnia zasoby służące do pomocy użytkownikowi.
-3. **Przycisk Opinia** - wyświetla formularz **Wyślij do nas opinię.**
-4. **Przycisk Wydawca** — wyświetla menu, które umożliwia użytkownikowi zarządzanie profilem.
+1. Obszar tytułu — przechodzi do strony głównej portalu.
+2. Przycisk **Pomoc** — wyświetla menu Pomoc, które zawiera zasoby ułatwiające użytkownikowi.
+3. Przycisk **opinii** — wyświetla formularz **Prześlij nam opinię** .
+4. Przycisk **wydawcy** — wyświetla menu, które umożliwia użytkownikowi Zarządzanie profilem.
 
 Te menu i formularze są opisane dalej.
 
 ### <a name="help-menu"></a>Menu Pomoc
 
-Menu **Pomoc** udostępnia zasoby ułatwiające użytkownikowi korzystanie z portalu Cloud Partner Portal.
+Menu **Pomoc** zawiera zasoby ułatwiające użytkownikowi Portal Cloud partner.
 
 ![Górny pasek menu](./media/top-menubar2.png)
 
 Menu Pomoc zawiera następujące elementy:
 
-- **Dokumentacja** — uruchamia nową kartę w przeglądarce i przechodzi do strony głównej dokumentacji dla portalu cloud partner. 
-- **Forum** — uruchamia nową kartę i przechodzi do strony głównej dokumentacji dla społeczności partnerów dla appsource i platformy Azure Marketplaces.
-- **Pomoc techniczna** — uruchamia nową kartę i przechodzi do strony pomocy technicznej dla publikowania w portalu Marketplace, gdzie można utworzyć raport o zdarzeniu.  Oceniamy i sprawdzamy wszystkie opinie, a my zawsze szanujemy Twoją prywatność. Skontaktujemy się z Tobą tylko wtedy, gdy poprosisz lub poprosisz o więcej informacji.
+- **Dokumentacja** — uruchamia nową kartę w przeglądarce i przechodzi do strony głównej dokumentacji Portal Cloud partner. 
+- **Forum** — uruchamia nową kartę i przechodzi do strony głównej dokumentacji społeczności partnerów dla AppSource i Azure Marketplace.
+- **Obsługa** — uruchamia nową kartę i przechodzi do strony pomocy technicznej dotyczącej publikacji w portalu Marketplace, w której można utworzyć raport o zdarzeniach.  Klasyfikacja i przeglądamy wszystkie opinie i zawsze Szanujemy Twoją prywatność. Skontaktujemy się z Tobą, jeśli poprosisz o dodatkowe informacje lub poprosisz o ich podanie.
 
 
 ### <a name="send-us-feedback-form"></a>Wyślij nam formularz opinii
 
-Formularz **Wyślij do nas opinie** zapewnia bezpośrednią metodę przekazywania opinii zespołowi dołączania wydawców marketplace.  Skontaktujemy się z Tobą w celu uzyskania dodatkowych informacji tylko wtedy, gdy zaznaczysz pole **wyboru OK, aby skontaktować się z Tobą w sprawie opinii.**
+Formularz **Wyślij do nas opinia** zapewnia bezpośrednią metodę przekazywania opinii do zespołu ds. portalu Marketplace.  Skontaktujemy się z Tobą, aby uzyskać dodatkowe informacje, jeśli zaznaczono pole wyboru **OK, aby skontaktować się z Tobą w sprawie opinii** .
 
 ![Formularz opinii](./media/feedback-form.png)
 
 > [!TIP]
-> Jeśli twoja opinia dotyczy konkretnej strony w portalu Cloud Partner Portal, przejdź do tej strony przed kliknięciem przycisku **Opinie.**  Sprawdź, czy pole wyboru **Dołącz zrzut ekranu** jest zaznaczone przed przesłaniem opinii, aby można było przechwycić stan interfejsu użytkownika sesji. 
+> Jeśli Twoja opinia dotyczy konkretnej strony na portal Cloud Partner, przejdź do tej strony przed kliknięciem przycisku **opinii** .  Przed przesłaniem opinii upewnij się, że jest zaznaczone pole wyboru **Uwzględnij zrzut ekranu** , aby można było przechwycić stan interfejsu użytkownika sesji. 
 
 
-### <a name="publisher-menu"></a>Menu programu Publisher
+### <a name="publisher-menu"></a>Menu wydawcy
 
-To menu umożliwia zarządzanie profilem i sesją: bezpośredni dostęp do strony profilu wydawcy, wyświetlanie umowy programu Microsoft Publisher agreement lub wylogowywanie się z bieżącej sesji. 
+To menu umożliwia Zarządzanie profilem i sesją: bezpośredni dostęp do strony profilu wydawcy, wyświetlanie umowy Microsoft Publisher lub Wylogowywanie z bieżącej sesji. 
 
-![Menu programu Publisher](./media/publisher-menu.png)
+![Menu wydawcy](./media/publisher-menu.png)
 
 
 ## <a name="left-navigation-pane"></a>Lewe okienko nawigacji
 
-Zwijane okienko nawigacji zajmuje lewą stronę portalu.  Zawiera pasek menu z następującymi elementami, które umożliwiają partnerom:
+Zwijane okienko nawigacji jest zajęte po lewej stronie portalu.  Zawiera pasek menu z następującymi elementami, które umożliwiają partnerom:
 
 
-|    **Pozycja menu**     |      **Opis**                       |
+|    **Element menu**     |      **Opis**                       |
 |    -------------     |      ---------------                       |
-| ![Nowy przedmiot oferty](./media/left-navbar1.png) | [Nowe menu Oferta](./cpp-new-offer-menu.md) do tworzenia nowych ofert określonego typu. |
-| ![Wszystkie oferty przedmiot](./media/left-navbar2.png) | [Wszystkie oferty](./cpp-all-offers-page.md) strony, aby wyświetlić wszystkie oferty i niektóre z ich podstawowych cech. |
-| ![Pozycja zatwierdzenia](./media/left-navbar3.png) | [Strona Zatwierdzenia,](./cpp-approvals-page.md) aby wyświetlić wszystkie aktualnie zatwierdzone oferty. |
-| ![Pozycja Wszyscy wydawcy](./media/left-navbar4.png) | [Strona Wszyscy wydawcy](./cpp-all-publishers-page.md) zawiera listę wszystkich bieżących zarejestrowanych wydawców partnerów w chmurze. |
-| ![Pozycja Użytkownicy](./media/left-navbar5.png) | [Strona Użytkownicy](./cpp-users-page.md) zawiera listę wszystkich bieżących kont użytkowników powiązanych z zarejestrowanymi partnerami w chmurze. |
-| ![Element historii](./media/left-navbar6.png) | [Strona historia](./cpp-history-page.md) zawiera listę zdarzeń publikowania i modyfikacji oferty dla wszystkich wydawców. |
-| ![Element Statystyka](./media/left-navbar7.png) | Strona [insights](./cpp-insights-page.md) zawiera różne pulpity nawigacyjne, które składają się na funkcję *Statystyki sprzedawcy* w tym portalu. |
-| ![Element dokumentacji](./media/left-navbar8.png) | Uruchamia nową kartę na stronie głównej dokumentacji portalu cloud partner (duplikaty wpisu w menu **Pomoc).** |
-| ![Pozycja na forum](./media/left-navbar9.png)  | Uruchamia nową kartę na stronie głównej dokumentacji dla społeczności partnerów dla usługi AppSource i portalu Azure Marketplaces (polecenie duplikatów w menu **Pomoc).** |
+| ![Nowy element oferty](./media/left-navbar1.png) | [Nowe oferty menu](./cpp-new-offer-menu.md) , aby utworzyć nowe oferty określonego typu. |
+| ![Wszystkie elementy oferty](./media/left-navbar2.png) | Na stronie [wszystkie oferty](./cpp-all-offers-page.md) można wyświetlić wszystkie przesłane oferty i niektóre ich podstawowe cechy. |
+| ![Element zatwierdzenia](./media/left-navbar3.png) | Strona [zatwierdzeń](./cpp-approvals-page.md) , aby wyświetlić wszystkie aktualnie zatwierdzone oferty. |
+| ![Element wszyscy wydawcy](./media/left-navbar4.png) | Na stronie [wszyscy wydawcy](./cpp-all-publishers-page.md) znajduje się lista wszystkich aktualnie zarejestrowanych wydawców partnerów w chmurze. |
+| ![Element użytkownicy](./media/left-navbar5.png) | Na stronie [Użytkownicy](./cpp-users-page.md) są wyświetlane wszystkie bieżące konta użytkowników skojarzone z zarejestrowanymi partnerami chmury. |
+| ![Element historii](./media/left-navbar6.png) | Na stronie [historia](./cpp-history-page.md) są wyświetlane zdarzenia publikowania i modyfikacji oferty dla wszystkich wydawców. |
+| ![Element Insights](./media/left-navbar7.png) | Strona usługi [Insights](./cpp-insights-page.md) zawiera różne pulpity nawigacyjne, które składają się na funkcję *Informacje o sprzedaży* w tym portalu. |
+| ![Element dokumentacji](./media/left-navbar8.png) | Uruchamia nową kartę do strony głównej dokumentacji dla portal Cloud Partner (zduplikowany wpis w menu **Pomoc** ). |
+| ![Element forum](./media/left-navbar9.png)  | Uruchamia nową kartę na stronie głównej dokumentacji dla społeczności partnerskiej dla AppSource i Azure Marketplace (duplikaty wpisu w menu **Pomoc** ). |
 |  |  |
 
 > [!NOTE]
-> Ponieważ ten pasek menu jest okresowo aktualizowany w celu odzwierciedlenia nowych funkcji portalu, elementy, które widzisz, mogą nie być dokładnie zgodne z elementami w powyższej tabeli.
+> Ponieważ ten pasek menu jest okresowo aktualizowany w celu odzwierciedlenia nowych funkcji portalu, widoczne elementy mogą nie być dokładnie zgodne z tymi w powyższej tabeli.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W następnym artykule [menu Nowa oferta wymieniono](./cpp-new-offer-menu.md)typy ofert, które można utworzyć za pomocą menu **Nowa oferta.**
+W następnym artykule z [menu Nowa oferta](./cpp-new-offer-menu.md)są wyświetlane typy ofert, które można utworzyć za pomocą menu **nowe oferty** .

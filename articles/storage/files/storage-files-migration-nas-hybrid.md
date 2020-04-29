@@ -1,6 +1,6 @@
 ---
-title: Lokalna migracja serwera NAS do usługi Azure File Sync
-description: Dowiedz się, jak migrować pliki z lokalnej lokalizacji sieciowego magazynu dołączonego do sieci (NAS) do wdrożenia chmury hybrydowej za pomocą usługi Azure File Sync i udziałów plików platformy Azure.
+title: Migracja lokalnego serwera NAS do Azure File Sync
+description: Dowiedz się, jak migrować pliki z lokalizacji magazynu w sieci lokalnej (NAS) do wdrożenia w chmurze hybrydowej z Azure File Sync i udziałami plików platformy Azure.
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
@@ -8,118 +8,118 @@ ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 7b0c7a30580d3863a78e85b8b45287a598bbf394
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80247354"
 ---
-# <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migracja z sieciowej pamięci masowej (NAS) do wdrożenia chmury hybrydowej za pomocą usługi Azure File Sync
+# <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrowanie z magazynu dołączanego do sieci (NAS) do wdrożenia chmury hybrydowej za pomocą Azure File Sync
 
-Usługa Azure File Sync działa w lokalizacjach magazynu bezpośredniego dołączonego (DAS) i nie obsługuje synchronizacji z lokalizacjami sieciowego magazynu (NAS).
-Fakt ten sprawia, że migracja plików jest niezbędna, a ten artykuł prowadzi użytkownika przez planowanie i wykonywanie takiej migracji.
+Azure File Sync działa w odniesieniu do lokalizacji magazynu bezpośrednio dołączonego (DAS) i nie obsługuje synchronizacji z lokalizacjami magazynu sieciowego (NAS).
+Ten fakt powoduje, że migracja plików jest konieczna, a w tym artykule opisano planowanie i wykonywanie takich migracji.
 
 ## <a name="migration-goals"></a>Cele migracji
 
-Celem jest przeniesienie udziałów posiadane na urządzeniu NAS do systemu Windows Server. Następnie skorzystaj z usługi Azure File Sync do wdrożenia w chmurze hybrydowej. Ta migracja musi być wykonana w sposób, który gwarantuje integralność danych produkcyjnych, a także dostępność podczas migracji. Ten ostatni wymaga utrzymania przestojów do minimum, tak aby mógł zmieścić się w lub tylko nieznacznie przekroczyć regularne okna konserwacji.
+Celem jest przeniesienie udziałów znajdujących się na urządzeniu NAS do systemu Windows Server. Następnie użyj Azure File Sync do wdrożenia chmury hybrydowej. Migracja musi być realizowana w sposób gwarantujący integralność danych produkcyjnych, a także dostępność podczas migracji. Druga z nich wymaga utrzymywania przestoju w minimalnym stopniu, dzięki czemu może być dłuższa niż w zwykłych oknach obsługi lub tylko nieco.
 
-## <a name="migration-overview"></a>Przegląd migracji
+## <a name="migration-overview"></a>Omówienie migracji
 
-Jak wspomniano w [artykule omówienie migracji](storage-files-migration-overview.md)plików azure , przy użyciu narzędzia do kopiowania i podejście jest ważne. Urządzenie NAS udostępnia udziały SMB bezpośrednio w sieci lokalnej. RoboCopy, wbudowany w system Windows Server, to najlepszy sposób przenoszenia plików w tym scenariuszu migracji.
+Jak wspomniano w [artykule Omówienie migracji](storage-files-migration-overview.md)Azure Files przy użyciu prawidłowego narzędzia do kopiowania i podejścia jest ważne. Urządzenie NAS udostępnia udziały SMB bezpośrednio w sieci lokalnej. RoboCopy, wbudowany system Windows Server, jest najlepszym sposobem przenoszenia plików w tym scenariuszu migracji.
 
-- Faza 1: [Określ, ile potrzebnych udziałów plików platformy Azure](#phase-1-identify-how-many-azure-file-shares-you-need)
-- Faza 2: [Udostępnienie odpowiedniego systemu Windows Server lokalnie](#phase-2-provision-a-suitable-windows-server-on-premises)
-- Faza 3: [Wdrażanie zasobu chmury synchronizacji plików platformy Azure](#phase-3-deploy-the-azure-file-sync-cloud-resource)
-- Faza 4: [Wdrażanie zasobów magazynu platformy Azure](#phase-4-deploy-azure-storage-resources)
-- Faza 5: [Wdrażanie agenta synchronizacji plików platformy Azure](#phase-5-deploy-the-azure-file-sync-agent)
-- Faza 6: [Konfigurowanie synchronizacji plików platformy Azure na serwerze Windows Server](#phase-6-configure-azure-file-sync-on-the-windows-server)
-- Faza 7: [RoboCopy](#phase-7-robocopy)
-- Faza 8: [Przecięcie użytkownika](#phase-8-user-cut-over)
+- Faza 1: [określenie, ile potrzebnych udziałów plików platformy Azure](#phase-1-identify-how-many-azure-file-shares-you-need)
+- Faza 2. [udostępnianie odpowiedniego lokalnego systemu Windows Server](#phase-2-provision-a-suitable-windows-server-on-premises)
+- Faza 3: [wdrażanie zasobu chmury Azure File Sync](#phase-3-deploy-the-azure-file-sync-cloud-resource)
+- Faza 4. [wdrażanie zasobów usługi Azure Storage](#phase-4-deploy-azure-storage-resources)
+- Faza 5. [wdrażanie agenta Azure File Sync](#phase-5-deploy-the-azure-file-sync-agent)
+- Faza 6: [konfigurowanie Azure File Sync w systemie Windows Server](#phase-6-configure-azure-file-sync-on-the-windows-server)
+- Faza 7: [Robocopy](#phase-7-robocopy)
+- Faza 8: [wycinanie użytkownika](#phase-8-user-cut-over)
 
-## <a name="phase-1-identify-how-many-azure-file-shares-you-need"></a>Faza 1: Określ, ile potrzebnych udziałów plików platformy Azure
+## <a name="phase-1-identify-how-many-azure-file-shares-you-need"></a>Faza 1: określenie, ile potrzebnych udziałów plików platformy Azure
 
 [!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
-## <a name="phase-2-provision-a-suitable-windows-server-on-premises"></a>Faza 2: Udostępnienie odpowiedniego systemu Windows Server lokalnie
+## <a name="phase-2-provision-a-suitable-windows-server-on-premises"></a>Faza 2. Udostępnianie odpowiedniego lokalnego systemu Windows Server
 
-* Utwórz system Windows Server 2019 — co najmniej 2012R2 — jako maszynę wirtualną lub serwer fizyczny. Obsługiwany jest również klaster trybu failover systemu Windows Server.
-* Aprowizuj lub dodaj bezpośrednio podłączoną pamięć masową (DAS w porównaniu z serwerem NAS, który nie jest obsługiwany).
+* Utwórz system Windows Server 2019 — co najmniej 2012R2 maszyny wirtualnej lub serwera fizycznego. Obsługiwany jest również klaster trybu failover systemu Windows Server.
+* Udostępnianie lub Dodawanie bezpośredniego dołączonego magazynu (DAS w porównaniu z serwerem NAS, co nie jest obsługiwane).
 
-    Ilość udostępninej przestrzeni dyskowej może być mniejsza niż obecnie używana na urządzeniu NAS, jeśli korzystasz z funkcji [warstwowej chmury](storage-sync-cloud-tiering.md) synchronizacji plików azure.
-    Jednak podczas kopiowania plików z większego miejsca na serwer NAS do mniejszego woluminu systemu Windows Server w późniejszej fazie należy pracować partiami:
+    Ilość dostępnego miejsca w magazynie może być mniejsza niż obecnie używane na urządzeniu NAS, jeśli używana jest funkcja obsługi [warstw w chmurze](storage-sync-cloud-tiering.md) w usłudze Azure File Sync.
+    Jednak podczas kopiowania plików z większej ilości miejsca do usługi NAS do mniejszego woluminu systemu Windows Server w późniejszej fazie należy wykonać czynności w partiach:
 
-    1. Przenoszenie zestawu plików, które zmieszczą się na dysku
-    2. niech synchronizacja plików i tworzenie warstw w chmurze
-    3. gdy na woluminie zostanie utworzonych więcej wolnego miejsca, przejdź do następnej partii plików. 
+    1. Przenoszenie zestawu plików, który pasuje do dysku
+    2. Zezwalaj na synchronizację plików i obsługę warstw w chmurze
+    3. Po utworzeniu większej ilości wolnego miejsca na woluminie przejdź do następnej partii plików. 
     
-    Można uniknąć tego podejścia do przetwarzania wsadowego, inicjując inicjowanie obsługi administracyjnej równoważne miejsce w systemie Windows Server, które pliki zajmują na urządzeniu NAS. Rozważ deduplikację na nas / Windows. Jeśli nie chcesz trwale zatwierdzić tej dużej ilości miejsca do systemu Windows Server, możesz zmniejszyć rozmiar woluminu po migracji i przed dostosowaniem zasad warstwowych w chmurze. W ten sposób powstaje mniejsza lokalna pamięć podręczna udziałów plików platformy Azure.
+    Takie podejście wsadowe można uniknąć, udostępniając odpowiednie miejsce na serwerze z systemem Windows, które zajmują pliki na urządzeniu NAS. Należy rozważyć deduplikację na serwerze NAS/Windows. Jeśli nie chcesz trwale zatwierdzić tej dużej ilości miejsca do magazynowania w systemie Windows Server, możesz zmniejszyć rozmiar woluminu po migracji i przed dopasowaniem zasad obsługi warstw w chmurze. Powoduje to utworzenie mniejszej lokalnej pamięci podręcznej udziałów plików platformy Azure.
 
-Konfiguracja zasobów (obliczeniowa i ram) wdrażanego systemu Windows Server zależy głównie od liczby elementów (plików i folderów), które będą synchronizowane. Jeśli masz jakiekolwiek wątpliwości, zalecamy przejście z konfiguracją o wyższej wydajności.
+Konfiguracja zasobów (obliczeniowa i pamięć RAM) wdrażanego systemu Windows zależy przede wszystkim od liczby elementów (plików i folderów), które zostaną zsynchronizowane. W przypadku jakichkolwiek problemów zalecamy przeprowadzenie wyższej konfiguracji wydajności.
 
-[Dowiedz się, jak rozmiar systemu Windows Server na podstawie liczby elementów (plików i folderów) potrzebnych do synchronizacji.](storage-sync-files-planning.md#recommended-system-resources)
+[Dowiedz się, jak zmienić rozmiar systemu Windows Server na podstawie liczby elementów (plików i folderów), które mają być synchronizowane.](storage-sync-files-planning.md#recommended-system-resources)
 
 > [!NOTE]
-> Wcześniej połączony artykuł przedstawia tabelę z zakresem pamięci serwera (RAM). Można orientować się w kierunku mniejszej liczby dla serwera, ale spodziewać się, że początkowa synchronizacja może zająć znacznie więcej czasu.
+> W wcześniej połączonym artykule przedstawiono tabelę z zakresem dla pamięci serwera (RAM). Można przyróżnić do mniejszej liczby serwerów, ale oczekiwać, że synchronizacja początkowa może trwać znacznie więcej czasu.
 
-## <a name="phase-3-deploy-the-azure-file-sync-cloud-resource"></a>Faza 3: Wdrażanie zasobu chmury synchronizacji plików platformy Azure
+## <a name="phase-3-deploy-the-azure-file-sync-cloud-resource"></a>Faza 3: wdrażanie zasobu chmury Azure File Sync
 
 [!INCLUDE [storage-files-migration-deploy-afs-sss](../../../includes/storage-files-migration-deploy-azure-file-sync-storage-sync-service.md)]
 
-## <a name="phase-4-deploy-azure-storage-resources"></a>Faza 4: Wdrażanie zasobów magazynu platformy Azure
+## <a name="phase-4-deploy-azure-storage-resources"></a>Faza 4. wdrażanie zasobów usługi Azure Storage
 
-W tej fazie zapoznaj się z tabelą mapowania z fazy 1 i użyj jej do aprowizowania poprawnej liczby kont magazynu platformy Azure i udziałów plików w nich.
+W tej fazie zapoznaj się z tabelą mapowania z fazy 1 i użyj jej do aprowizacji poprawnej liczby kont usługi Azure Storage i udziałów plików w nich.
 
 [!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azure-file-share.md)]
 
-## <a name="phase-5-deploy-the-azure-file-sync-agent"></a>Faza 5: Wdrażanie agenta synchronizacji plików platformy Azure
+## <a name="phase-5-deploy-the-azure-file-sync-agent"></a>Faza 5. wdrażanie agenta Azure File Sync
 
 [!INCLUDE [storage-files-migration-deploy-afs-agent](../../../includes/storage-files-migration-deploy-azure-file-sync-agent.md)]
 
-## <a name="phase-6-configure-azure-file-sync-on-the-windows-server"></a>Faza 6: Konfigurowanie synchronizacji plików platformy Azure na serwerze Windows Server
+## <a name="phase-6-configure-azure-file-sync-on-the-windows-server"></a>Faza 6: Konfigurowanie Azure File Sync w systemie Windows Server
 
-Zarejestrowany lokalny system Windows Server musi być gotowy i połączony z Internetem w tym procesie.
+Zarejestrowany lokalny serwer systemu Windows musi być gotowy i połączony z Internetem w ramach tego procesu.
 
 [!INCLUDE [storage-files-migration-configure-sync](../../../includes/storage-files-migration-configure-sync.md)]
 
 > [!IMPORTANT]
-> Warstwa chmury to funkcja AFS, która umożliwia serwerowi lokalnemu mniejszą pojemność niż jest przechowywana w chmurze, ale ma dostęp do pełnego obszaru nazw. Lokalnie interesujące dane są również buforowane lokalnie w celu uzyskania szybkiej wydajności dostępu. Warstwa w chmurze jest opcjonalną funkcją dla "punktu końcowego serwera" synchronizacji plików platformy Azure.
+> Obsługa warstw w chmurze to funkcja AFS, która umożliwia serwerowi lokalnemu przechowywanie mniejszej pojemności niż w chmurze, ale pełna przestrzeń nazw jest dostępna. Lokalnie interesujące dane są również buforowane lokalnie w celu zapewnienia wydajności szybkiego dostępu. Obsługa warstw w chmurze jest opcjonalną funkcją dla Azure File Sync "punkt końcowy serwera".
 
 > [!WARNING]
-> Jeśli na woluminach serwera Windows serwera jest większa ilość miejsca niż dane używane na urządzeniu NAS, warstwa w chmurze jest obowiązkowa. Jeśli nie włączysz warstwy chmurowej, serwer nie zwalnia miejsca na przechowywanie wszystkich plików. Ustaw zasady warstwowe, tymczasowo dla migracji, na 99% wolnego miejsca na woluminie. Pamiętaj, aby powrócić do ustawień warstwowych w chmurze po zakończeniu migracji i ustawić go na bardziej długoterminowym poziomie użytecznym.
+> W przypadku zainicjowania obsługi mniejszej ilości miejsca na woluminach z systemem Windows Server niż dane używane na urządzeniu NAS, warstwy chmur są obowiązkowe. Jeśli nie włączysz warstw w chmurze, serwer nie zwolni miejsca do przechowywania wszystkich plików. Ustaw zasady dotyczące warstw tymczasowo dla migracji na 99% wolnego miejsca na woluminie. Upewnij się, że po zakończeniu migracji nastąpi powrót do ustawień obsługi warstw w chmurze, i ustaw ją na bardziej długoterminowy poziom użyteczności.
 
-Powtórz kroki tworzenia grupy synchronizacji i dodawanie pasującego folderu serwera jako punktu końcowego serwera dla wszystkich udziałów plików platformy Azure/ lokalizacji serwera, które muszą być skonfigurowane do synchronizacji.
+Powtórz kroki tworzenia grupy synchronizacji i Dodawanie pasującego folderu serwera jako punktu końcowego serwera dla wszystkich udziałów plików platformy Azure/lokalizacji serwera, które muszą zostać skonfigurowane do synchronizacji.
 
-Po utworzeniu wszystkich punktów końcowych serwera synchronizacja działa. Można utworzyć plik testowy i wyświetlić go zsynchronizować z lokalizacji serwera do połączonego udziału plików platformy Azure (zgodnie z opisem punktu końcowego chmury w grupie synchronizacji).
+Po utworzeniu wszystkich punktów końcowych serwera synchronizacja działa. Można utworzyć plik testowy i zobaczyć jego synchronizację z lokalizacji serwera do połączonego udziału plików platformy Azure (zgodnie z opisem w punkcie końcowym w chmurze w grupie synchronizacji).
 
-Obie lokalizacje, foldery serwera i udziały plików platformy Azure są w przeciwnym razie puste i oczekują na dane w obu lokalizacjach. W następnym kroku rozpoczniesz kopiowanie plików do systemu Windows Server for Azure File Sync, aby przenieść je do chmury. W przypadku włączenia warstw w chmurze serwer rozpocznie warstwę plików, jeśli zabraknie pojemności na woluminach lokalnych.
+Obie lokalizacje, foldery na serwerze i udziały plików platformy Azure, są w inny sposób puste i oczekują na dane w jednej lokalizacji. W następnym kroku rozpocznie się kopiowanie plików do systemu Windows Server w celu Azure File Sync, aby przenieść je do chmury. W przypadku włączenia obsługi warstw w chmurze, serwer będzie rozpoczynał się do warstw plików, w przypadku gdy woluminy lokalne nie są uruchamiane.
 
 ## <a name="phase-7-robocopy"></a>Faza 7: RoboCopy
 
-Podstawowym podejściem do migracji jest RoboCopy z urządzenia NAS do windows server i udziałów plików Usługi Azure File Sync do platformy Azure.
+Podstawowe podejście migracji to RoboCopy z urządzenia NAS do systemu Windows Server, a Azure File Sync do udziałów plików platformy Azure.
 
-Uruchom pierwszą kopię lokalną do folderu docelowego systemu Windows Server:
+Uruchom pierwszą kopię lokalną w folderze docelowym systemu Windows Server:
 
-* Zidentyfikuj pierwszą lokalizację urządzenia NAS.
-* Zidentyfikuj pasujący folder w systemie Windows Server, który ma już skonfigurowaną usługę Azure File Sync.
-* Rozpocznij kopiowanie za pomocą robocopy
+* Zidentyfikuj pierwszą lokalizację na urządzeniu NAS.
+* Zidentyfikuj pasujący folder na serwerze z systemem Windows, dla którego skonfigurowano już Azure File Sync.
+* Rozpocznij kopiowanie przy użyciu RoboCopy
 
 Następujące polecenie RoboCopy skopiuje pliki z magazynu NAS do folderu docelowego systemu Windows Server. System Windows Server zsynchronizuje go z udziałami plików platformy Azure. 
 
-Jeśli w systemie Windows Server aprowizacji udostępnisz mniej miejsca niż pliki zajmowane przez urządzenie NAS, skonfigurowano warstwowanie w chmurze. W miarę zapełniania lokalnego woluminu systemu Windows Server [warstwowe warstwy](storage-sync-cloud-tiering.md) w chmurze i pliki warstwy, które zostały pomyślnie zsynchronizowane. Warstwowe chmury wygeneruje wystarczająco dużo miejsca, aby kontynuować kopię z urządzenia NAS. Warstwowa chmura sprawdza raz na godzinę, aby zobaczyć, co zostało zsynchronizowane i zwolnić miejsce na dysku, aby osiągnąć 99% wolnego miejsca na woluminie.
-Jest możliwe, że RoboCopy przenosi pliki szybciej niż można synchronizować z chmurą i warstwą lokalnie, w ten sposób zabraknie miejsca na dysku lokalnym. RoboCopy zakończy się niepowodzeniem. Zaleca się, aby pracować za pośrednictwem udziałów w sekwencji, która zapobiega. Na przykład nie uruchamianie robocopy zadań dla wszystkich udziałów w tym samym czasie lub tylko przenoszenie udziałów, które mieszczą się na bieżącej ilości wolnego miejsca w systemie Windows Server, aby wspomnieć o kilku.
+W przypadku zainicjowania obsługi mniejszej ilości miejsca w systemie Windows Server niż pliki na urządzeniu NAS, skonfigurowano obsługę warstw w chmurze. W miarę jak wolumin lokalnego systemu Windows Server jest pełny, obsługa [warstw w chmurze](storage-sync-cloud-tiering.md) zostanie rozpoczęta i pliki warstw, które zostały już pomyślnie zsynchronizowane. Obsługa warstw w chmurze spowoduje wygenerowanie wystarczającej ilości miejsca, aby kontynuować kopiowanie z urządzenia NAS. Obsługa warstw w chmurze jest sprawdzana raz na godzinę, aby zobaczyć, co zostało zsynchronizowane, i zwolnić miejsce na dysku, aby uzyskać dostęp do 99% wolnego miejsca na woluminie.
+Jest możliwe, że RoboCopy przenosi pliki szybciej niż można zsynchronizować lokalnie z chmurą i warstwą, w rezultacie kończy się miejsce na dysku lokalnym. RoboCopy zakończy się niepowodzeniem. Zalecane jest, aby wykonać czynności wykonywane przez udziały w sekwencji, która uniemożliwia to. Na przykład nie uruchamiaj zadań RoboCopy dla wszystkich udziałów w tym samym czasie lub przenosi tylko udziały pasujące do bieżącej ilości wolnego miejsca w systemie Windows Server, aby wymienić kilka.
 
 ```console
 Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
-Tle:
+Tle
 
 :::row:::
    :::column span="1":::
       /MT
    :::column-end:::
    :::column span="1":::
-      Pozwala roboCopy do uruchamiania wielowątkowych. Wartość domyślna to 8, max to 128.
+      Zezwala na uruchamianie wielowątkowości przez RoboCopy. Wartość domyślna to 8, wartość maksymalna to 128.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -127,7 +127,7 @@ Tle:
       /UNILOG:\<nazwa pliku\>
    :::column-end:::
    :::column span="1":::
-      Dane wyjściowe do pliku LOG jako UNICODE (zastępuje istniejący dziennik).
+      Wyprowadza stan do pliku dziennika jako UNICODE (Zastępuje istniejący dziennik).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -135,7 +135,7 @@ Tle:
       /TEE
    :::column-end:::
    :::column span="1":::
-      Wyjścia do okna konsoli. Używany w połączeniu z wyjściem do pliku dziennika.
+      Dane wyjściowe do okna konsoli. Używane w połączeniu z danymi wyjściowymi do pliku dziennika.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -143,7 +143,7 @@ Tle:
       /B
    :::column-end:::
    :::column span="1":::
-      Uruchamia RoboCopy w tym samym trybie, którego użyłaby aplikacja do tworzenia kopii zapasowych. Umożliwia RoboCopy przenoszenie plików, do których bieżący użytkownik nie ma uprawnień.
+      Uruchamia RoboCopy w tym samym trybie, w którym będzie używana aplikacja kopii zapasowej. Umożliwia RoboCopy przenoszenie plików, do których bieżący użytkownik nie ma uprawnień.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -151,15 +151,15 @@ Tle:
       /MIR
    :::column-end:::
    :::column span="1":::
-      Pozwala uruchomić to polecenie RoboCopy kilka razy, sekwencyjnie na tym samym celu / miejscu docelowym. Identyfikuje to, co zostało skopiowane wcześniej i pomija je. Przetwarzane będą tylko zmiany, dodatki i " deletes ", które*wystąpiły*od ostatniego uruchomienia. Jeśli polecenie nie zostało uruchomione wcześniej, nic nie zostanie pominięte. Flaga */MIR* jest doskonałą opcją dla lokalizacji źródłowych, które są nadal aktywnie używane i zmieniane.
+      Umożliwia uruchamianie tego polecenia RoboCopy kilka razy, sekwencyjnie w tym samym miejscu docelowym/miejscu docelowym. Identyfikuje, co zostało wcześniej skopiowane, i pominie go. Tylko zmiany, dodatki i "*usunięcia*" zostaną przetworzone, które wystąpiły od momentu ostatniego uruchomienia. Jeśli polecenie nie było wcześniej uruchamiane, nic nie zostanie pominięte. Flaga */Mir* jest doskonałym rozwiązaniem dla lokalizacji źródłowych, które są nadal aktywnie używane i zmieniane.
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="1":::
-      /COPY:copyflag[s]
+      /COPY: copyflag [s]
    :::column-end:::
    :::column span="1":::
-      wierność kopii pliku (domyślnie jest to /COPY:DAT), flagi kopiowania: D=Data, A=Attributes, T=Timestamps, S=Security=NTFS ACL, O=Informacje o właścicielu, U=aUditing info
+      wierność kopiowania plików (wartość domyślna to/COPY: DAT), Copy flags: D = Data, A = Attributes, T = Timestamps, S = Security = NTFS list ACL, O = Owner info, U = informacje o inspekcji
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -167,65 +167,65 @@ Tle:
       / COPYALL
    :::column-end:::
    :::column span="1":::
-      KOPIUJ WSZYSTKIE informacje o pliku (odpowiednik /COPY:DATSOU)
+      Kopiuj wszystkie informacje o pliku (równoważne do/COPY: DATSOU)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="1":::
-      /DCOPY:copyflag[s]
+      /DCOPY: copyflag [s]
    :::column-end:::
    :::column span="1":::
-      wierność kopii katalogów (domyślnie jest to /DCOPY:DA), flagi kopiowania: D=Data, A=Attributes, T=Sygnatury czasowe
+      wierność kopiowania katalogów (wartość domyślna to/DCOPY: DA), Copy flags: D = Data, A = Attributes, T = Timestamps
    :::column-end:::
 :::row-end:::
 
-## <a name="phase-8-user-cut-over"></a>Faza 8: Przecięcie użytkownika
+## <a name="phase-8-user-cut-over"></a>Faza 8: wycinanie użytkownika
 
-Po uruchomieniu polecenia RoboCopy po raz pierwszy użytkownicy i aplikacje nadal uzyskują dostęp do plików na serwerze NAS i potencjalnie je zmieniają. Jest możliwe, że RoboCopy przetworzył katalog, przechodzi do następnego, a następnie użytkownik w lokalizacji źródłowej (NAS) dodaje, zmienia lub usuwa plik, który nie będzie teraz przetwarzany w tym bieżącym uruchomieniu RoboCopy. Takie zachowanie jest oczekiwane.
+Po pierwszym uruchomieniu polecenia RoboCopy Użytkownicy i aplikacje nadal uzyskują dostęp do plików na serwerze NAS i mogą je zmienić. Istnieje możliwość, że RoboCopy przetworzył katalog, przechodzi do następnego, a następnie użytkownik w lokalizacji źródłowej (NAS) dodaje, zmienia lub usuwa plik, który nie zostanie przetworzony w bieżącym przebiegu RoboCopy. Takie zachowanie jest oczekiwane.
 
-Pierwsze uruchomienie dotyczy przenoszenia większości danych do systemu Windows Server i do chmury za pośrednictwem usługi Azure File Sync. Ta pierwsza kopia może zająć dużo czasu, w zależności od:
+Pierwszy przebieg polega na przenoszeniu ilości danych do systemu Windows Server i w chmurze za pośrednictwem Azure File Sync. Ta pierwsza kopia może zająć dużo czasu, w zależności od:
 
 * przepustowość pobierania
-* przepustowość przesyłania
-* szybkość sieci lokalnej i liczbę optymalnie dopasowanych wątków RoboCopy
-* liczba elementów (plików i folderów), które muszą być przetwarzane przez RoboCopy i Azure File Sync
+* przepustowość przekazywania
+* szybkość sieci lokalnej i liczba optymalnie dopasowanej liczby wątków RoboCopy
+* Liczba elementów (plików i folderów), które muszą być przetwarzane przez RoboCopy i Azure File Sync
 
-Po zakończeniu początkowego uruchomienia uruchom polecenie ponownie.
+Po zakończeniu pierwszego uruchomienia Uruchom polecenie ponownie.
 
-Za drugim razem zakończy się szybciej, ponieważ musi tylko transportować zmiany, które miały miejsce od ostatniego uruchomienia. Podczas tego drugiego biegu, nadal, nowe zmiany mogą gromadzić.
+Drugi raz, który zakończy się szybciej, ponieważ wymaga jedynie transportowania zmian, które wystąpiły od momentu ostatniego uruchomienia. W trakcie tego drugiego uruchomienia nadal można zbierać nowe zmiany.
 
-Powtarzaj ten proces, dopóki nie upewnisz się, że czas potrzebny do ukończenia RoboCopy dla określonej lokalizacji mieści się w dopuszczalnym oknie dla przestojów.
+Powtarzaj ten proces do momentu, gdy okaże się, że czas potrzebny na zakończenie RoboCopy dla określonej lokalizacji znajduje się w akceptowalnym oknie do przestoju.
 
-Jeśli wziąć pod uwagę czas przestoju dopuszczalne i jesteś przygotowany do podjęcia lokalizacji NAS w trybie offline: W celu podjęcia dostępu użytkownika w trybie offline, masz możliwość zmiany list ACL w katalogu głównym udziału, tak aby użytkownicy nie mogą już uzyskać dostępu do lokalizacji lub podjąć inne odpowiednie kroki zapobiega zmianie zawartości w tym folderze na serwerze NAS.
+Jeśli zauważasz o przestoje akceptowalne i przygotowano do przełączenia lokalizacji NAS w tryb offline: aby użytkownicy mieli dostęp do trybu offline, można zmienić listy ACL w katalogu głównym udziału, aby nie mogli już uzyskiwać dostępu do tej lokalizacji ani podejmować innych odpowiednich kroków, które uniemożliwiają zmianę zawartości w tym folderze na serwerze NAS.
 
-Uruchom ostatnią rundę RoboCopy. Będzie odebrać wszelkie zmiany, które mogły zostać pominięte.
-Jak długo trwa ten ostatni krok, zależy od szybkości skanowania RoboCopy. Możesz oszacować czas (który jest równy przestojowi), mierząc czas poprzedniego biegu.
+Uruchom jeden ostatni RoboCopy zaokrąglenie. Spowoduje to pobranie wszelkich zmian, które mogły zostać pominięte.
+Jak długo trwa ten ostatni krok, zależy od szybkości skanowania RoboCopy. Możesz oszacować czas (który jest równy przestoju), mierząc, jak długo trwało wykonywanie poprzedniego uruchomienia.
 
-Utwórz udział w folderze Windows Server i ewentualnie dostosuj wdrożenie systemu DFS-N, aby go wskazać. Pamiętaj, aby ustawić te same uprawnienia na poziomie udziału, co w udziale SMB NAS. Jeśli serwer NAS przyłączony do domeny klasy korporacyjnej został automatycznie dopasowany do identyfikatorów SID użytkowników, ponieważ użytkownicy w usłudze Active Directory i RoboCopy kopiują pliki i metadane z pełną wiernością. Jeśli na serwerze NAS korzystano z użytkowników lokalnych, należy ponownie utworzyć tych użytkowników jako użytkowników lokalnych systemu Windows Server i zamapować istniejące identyfikatory SID RoboCopy przeniesione na system Windows Server na identyfikatory SID nowych użytkowników lokalnych systemu Windows Server.
+Utwórz udział w folderze systemu Windows Server i ewentualnie Dostosuj wdrożenie systemu plików DFS-N, aby wskazywało na niego. Pamiętaj, aby ustawić te same uprawnienia na poziomie udziału jak w udziale SMB NAS. Jeśli masz serwer NAS przyłączony do domeny przedsiębiorstwa, identyfikatory SID użytkownika będą automatycznie zgodne, ponieważ użytkownicy znajdują się w Active Directory i RoboCopy kopiuje pliki i metadane z pełną dokładnością. Jeśli używasz lokalnych użytkowników na serwerze NAS, należy ponownie utworzyć tych użytkowników jako lokalnych użytkowników systemu Windows Server i zmapować istniejące identyfikatory SID RoboCopy przenoszone do systemu Windows Server na identyfikatory SID nowych użytkowników lokalnych systemu Windows Server.
 
-Migracja akcji/grupy udziałów została zakończona do wspólnego katalogu głównego lub woluminu. (W zależności od mapowania z fazy 1)
+Zakończono Migrowanie udziału/grupy udziałów do wspólnego katalogu głównego lub woluminu. (W zależności od mapowania od fazy 1)
 
-Możesz spróbować uruchomić kilka z tych kopii równolegle. Firma Microsoft zaleca przetwarzanie zakresu jednego udziału plików platformy Azure w czasie.
+Można spróbować uruchomić kilka z tych kopii równolegle. Zalecamy przetwarzanie zakresu jednego udziału plików platformy Azure w danym momencie.
 
 > [!WARNING]
-> Po przeniesieniu wszystkich danych z serwera NAS do systemu Windows Server i zakończeniu migracji: Powrót do ***wszystkich*** grup synchronizacji w witrynie Azure portal i dostosowanie wartości procentu wolnego miejsca w warstwie w chmurze do czegoś lepiej dostosowanego do wykorzystania pamięci podręcznej, powiedzmy 20%. 
+> Po przeniesieniu wszystkich danych z serwera NAS do systemu Windows Server i zakończeniu migracji: Wróć do ***wszystkich*** grup synchronizacji w Azure Portal i Dostosuj wartość procentową ilości wolnego miejsca na woluminie w chmurze do wartości lepiej dopasowanej do wykorzystania pamięci podręcznej, powiedz 20%. 
 
-Zasady wolnego miejsca woluminu warstwowego w chmurze działają na poziomie woluminu z potencjalnie wieloma punktami końcowymi serwera synchronizującymi się z nim. Jeśli zapomnisz dostosować wolne miejsce nawet w jednym punkcie końcowym serwera, synchronizacja będzie nadal stosować najbardziej restrykcyjną regułę i próbować zachować 99% wolnego miejsca na dysku, dzięki czemu lokalna pamięć podręczna nie będzie działać zgodnie z oczekiwaniami. Chyba że twoim celem jest tylko obszar nazw dla woluminu, który zawiera tylko rzadko dostępne, dane archiwalne i rezerwujesz resztę miejsca do magazynowania dla innego scenariusza.
+Zasady wolnego miejsca na woluminie w chmurze działają na poziomie woluminu z potencjalnie wieloma punktami końcowymi serwera. Jeśli zapomnisz o dostosowaniu wolnego miejsca w nawet jednym punkcie końcowym serwera, synchronizacja będzie nadal stosowała najbardziej restrykcyjną regułę i podejmie próbę utrzymania 99% wolnego miejsca na dysku, dzięki czemu lokalna pamięć podręczna nie będzie działała zgodnie z oczekiwaniami. O ile nie jest to cel, aby można było korzystać tylko z przestrzeni nazw dla woluminu, który zawiera tylko rzadko używane dane archiwalne i zachowuje resztę miejsca do magazynowania w innym scenariuszu.
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Najbardziej prawdopodobnym problemem, na który można napotkać, jest to, że polecenie RoboCopy kończy się niepowodzeniem z *"Woluminem pełnym"* po stronie systemu Windows Server. Warstwowa chmura działa raz na godzinę, aby ewakuować zawartość z lokalnego dysku systemu Windows Server, który został zsynchronizowany. Jego celem jest osiągnięcie 99% wolnego miejsca na woluminie.
+Najbardziej prawdopodobną przyczyną problemu może być uruchomienie polecenia *Robocopy po stronie* serwera systemu Windows. Obsługa warstw w chmurze jest przeprowadzana co godzinę, aby wypróbować zawartość z lokalnego dysku systemu Windows Server, który został zsynchronizowany. Celem jest osiągnięcie ilości wolnego miejsca na 99% w woluminie.
 
-Pozwól postępowi synchronizacji i warstwom w chmurze zwolnić miejsce na dysku. Można to zaobserwować w Eksploratorze plików na serwerze Windows Server.
+Zezwalaj na postęp synchronizacji i warstwowanie w chmurze Zwolnij miejsce na dysku. Można obserwować, że w Eksploratorze plików systemu Windows Server.
 
-Gdy system Windows Server ma wystarczającą dostępną pojemność, ponowne uruchomienie polecenia rozwiąże problem. Nic nie pęka, gdy dojdziesz do tej sytuacji i możesz iść do przodu z ufnością. Niedogodności związane z ponownym uruchomieniem polecenia jest jedyną konsekwencją.
+Gdy system Windows Server ma wystarczającą ilość dostępnej pojemności, polecenie spowoduje rozwiązanie problemu. Nic nie przerywa się w przypadku przechodzenia do tej sytuacji i można ją szybko przenieść do przodu. Jedyną konsekwencją jest to, że w przypadku ponownego uruchomienia polecenia.
 
-Sprawdź łącze w poniższej sekcji, aby rozwiązać problemy z synchronizacją plików platformy Azure.
+Skorzystaj z linku w poniższej sekcji, aby rozwiązywać problemy związane z Azure File Sync.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Informacje na temat udziałów plików platformy Azure i synchronizacji plików platformy Azure można znaleźć więcej. Poniższe artykuły pomagają zrozumieć zaawansowane opcje, najlepsze rozwiązania, a także zawierają pomoc dotyczącą rozwiązywania problemów. Te artykuły łącze do [dokumentacji udziału plików platformy Azure,](storage-files-introduction.md) stosownie do przypadku.
+Istnieje więcej informacji na temat udziałów plików platformy Azure i Azure File Sync. Poniższe artykuły ułatwiają zapoznanie się z zaawansowanymi opcjami, najlepszymi rozwiązaniami, a także zawiera pomoc dotyczącą rozwiązywania problemów. Te artykuły zawierają link do [dokumentacji udziału plików platformy Azure](storage-files-introduction.md) zgodnie z potrzebami.
 
-* [Omówienie AFS](https://aka.ms/AFS)
-* [Przewodnik wdrażania usługi AFS](storage-files-deployment-guide.md)
-* [Rozwiązywanie problemów z afs](storage-sync-files-troubleshoot.md)
+* [Omówienie usługi AFS](https://aka.ms/AFS)
+* [Podręcznik wdrażania AFS](storage-files-deployment-guide.md)
+* [Rozwiązywanie problemów z systemem AFS](storage-sync-files-troubleshoot.md)

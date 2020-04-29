@@ -1,24 +1,24 @@
 ---
 title: Lokalizacja zasobu szablonu
-description: W tym artykule opisano sposób ustawiania lokalizacji zasobów w szablonie usługi Azure Resource Manager.
+description: Opisuje sposób ustawiania lokalizacji zasobów w szablonie Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.openlocfilehash: a8324dac1232eecd5624e5f1dc0e6656295c0a10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80156433"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Ustawianie lokalizacji zasobu w szablonie ARM
 
-Podczas wdrażania szablonu usługi Azure Resource Manager (ARM) należy podać lokalizację dla każdego zasobu. Lokalizacja nie musi być tą samą lokalizacją co lokalizacja grupy zasobów.
+Podczas wdrażania szablonu Azure Resource Manager (ARM) należy podać lokalizację każdego zasobu. Lokalizacja nie musi być taka sama jak lokalizacja grupy zasobów.
 
-## <a name="get-available-locations"></a>Uzyskaj dostępne lokalizacje
+## <a name="get-available-locations"></a>Pobierz dostępne lokalizacje
 
-Różne typy zasobów są obsługiwane w różnych lokalizacjach. Aby uzyskać obsługiwane lokalizacje dla typu zasobu, użyj narzędzia Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
+Różne typy zasobów są obsługiwane w różnych lokalizacjach. Aby uzyskać obsługiwane lokalizacje dla typu zasobu, użyj Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes `
@@ -36,11 +36,11 @@ az provider show \
 
 ---
 
-## <a name="use-location-parameter"></a>Użyj parametru lokalizacji
+## <a name="use-location-parameter"></a>Użyj parametru Location
 
-Aby zapewnić elastyczność podczas wdrażania szablonu, należy użyć parametru, aby określić lokalizację zasobów. Ustaw domyślną wartość parametru na `resourceGroup().location`.
+Aby zapewnić elastyczność podczas wdrażania szablonu, należy użyć parametru w celu określenia lokalizacji zasobów. Ustaw wartość domyślną parametru na `resourceGroup().location`.
 
-W poniższym przykładzie pokazano konto magazynu, które jest wdrażane w lokalizacji określonej jako parametr:
+Poniższy przykład przedstawia konto magazynu wdrożone w lokalizacji określonej jako parametr:
 
 ```json
 {
@@ -95,5 +95,5 @@ W poniższym przykładzie pokazano konto magazynu, które jest wdrażane w lokal
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać pełną listę funkcji szablonu, zobacz [Funkcje szablonów usługi Azure Resource Manager](template-functions.md).
-* Aby uzyskać więcej informacji o plikach [szablonów, zobacz Opis struktury i składni szablonów ARM](template-syntax.md).
+* Aby zapoznać się z pełną listą funkcji szablonu, zobacz [Azure Resource Manager Template Functions](template-functions.md).
+* Aby uzyskać więcej informacji na temat plików szablonów, zobacz [Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).

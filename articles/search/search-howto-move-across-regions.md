@@ -1,7 +1,7 @@
 ---
 title: Jak przenieść zasób usługi między regionami
 titleSuffix: Azure Cognitive Search
-description: W tym artykule pokazano, jak przenieść zasoby usługi Azure Cognitive Search z jednego regionu do drugiego w chmurze platformy Azure.
+description: W tym artykule przedstawiono sposób przenoszenia zasobów Wyszukiwanie poznawcze platformy Azure z jednego regionu do innego w chmurze platformy Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -10,48 +10,48 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 03/24/2020
 ms.openlocfilehash: 00f16d11f7a9cd276772eda5e91d6e117ada8c9f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246307"
 ---
-# <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Przenoszenie usługi Azure Cognitive Search do innego regionu platformy Azure
+# <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Przenoszenie usługi Wyszukiwanie poznawcze platformy Azure do innego regionu platformy Azure
 
-Od czasu do czasu klienci pytają o przeniesienie usługi wyszukiwania do innego regionu. Obecnie nie ma wbudowanego mechanizmu lub narzędzi, aby pomóc w tym zadaniu, ale ten artykuł może pomóc zrozumieć ręczne kroki w celu osiągnięcia tego samego wyniku.
+Czasami klienci pytają o przeniesienie usługi wyszukiwania do innego regionu. Obecnie nie ma wbudowanego mechanizmu ani narzędzi, które ułatwiają wykonanie tego zadania, ale ten artykuł może pomóc w zrozumieniu ręcznych kroków w celu osiągnięcia tego samego wyniku.
 
 > [!NOTE]
-> W witrynie Azure portal wszystkie usługi mają polecenie **Eksportuj szablon.** W przypadku usługi Azure Cognitive Search to polecenie tworzy podstawową definicję usługi (nazwa, lokalizacja, warstwa, replika i liczba partycji), ale nie rozpoznaje zawartości usługi, ani nie przenosi kluczy, ról lub dzienników. Mimo że polecenie istnieje, nie zaleca się używania go do przenoszenia usługi wyszukiwania.
+> W Azure Portal wszystkie usługi mają polecenie **eksportu szablonu** . W przypadku usługi Azure Wyszukiwanie poznawcze to polecenie tworzy podstawową definicję usługi (nazwę, lokalizację, warstwę, replikę i liczbę partycji), ale nie rozpoznaje zawartości usługi ani nie przeprowadzi z kluczy, ról ani dzienników. Chociaż to polecenie istnieje, nie zaleca się używania go do przeniesienia usługi wyszukiwania.
 
-## <a name="guidance-for-moving-a-service"></a>Wskazówki dotyczące przenoszenia usługi
+## <a name="guidance-for-moving-a-service"></a>Wskazówki dotyczące przesuwania usługi
 
-1. Identyfikowanie zależności i powiązanych usług, aby zrozumieć pełny wpływ przeniesienia usługi, w przypadku, gdy trzeba przenieść więcej niż tylko usługi Azure Cognitive Search.
+1. Zidentyfikuj zależności i powiązane usługi, aby zrozumieć pełny wpływ zmiany lokalizacji usługi na wypadek, gdyby trzeba było przenieść więcej niż tylko Wyszukiwanie poznawcze platformy Azure.
 
-   Usługa Azure Storage jest używana do rejestrowania, tworzenia magazynu wiedzy i jest powszechnie używanym zewnętrznym źródłem danych do wzbogacania i indeksowania sztucznej inteligencji. Usługi Cognitive Services to zależność w wzbogacaniu SI. Usługi Cognitive Services i usługa wyszukiwania muszą znajdować się w tym samym regionie, jeśli używasz wzbogacania si.
+   Usługa Azure Storage służy do rejestrowania, tworzenia magazynu wiedzy i jest powszechnie używanym zewnętrznym źródłem danych na potrzeby wzbogacania i indeksowania systemu AI. Cognitive Services jest zależność w wzbogacaniu AI. Zarówno Cognitive Services, jak i usługa wyszukiwania, muszą znajdować się w tym samym regionie, jeśli używasz wzbogacania AI.
 
-1. Utwórz spis wszystkich obiektów w usłudze, aby wiedzieć, co przenieść: indeksy, mapy synonimów, indeksatory, źródła danych, skillsets. Jeśli włączono rejestrowanie, utwórz i zarchiwizuj wszystkie raporty, które mogą być potrzebne do uzyskania rekordu historycznego.
+1. Utwórz spis wszystkich obiektów w usłudze, aby dowiedzieć się, co przenieść: indeksy, mapy synonimów, indeksatory, źródła danych, umiejętności. W przypadku włączenia rejestrowania należy utworzyć i zarchiwizować wszystkie raporty, które mogą być potrzebne w rekordzie historycznym.
 
-1. Sprawdź ceny i dostępność w nowym regionie, aby zapewnić dostępność usługi Azure Cognitive Search oraz powiązanych usług w nowym regionie. Większość funkcji jest dostępna we wszystkich regionach, ale niektóre funkcje w wersji zapoznawczej mają ograniczoną dostępność.
+1. Sprawdź ceny i dostępność w nowym regionie, aby zapewnić dostępność systemu Azure Wyszukiwanie poznawcze i wszystkie powiązane usługi w nowym regionie. Większość funkcji jest dostępna we wszystkich regionach, ale niektóre funkcje w wersji zapoznawczej mają ograniczoną dostępność.
 
-1. Utwórz usługę w nowym regionie i ponownie opublikuj z kodu źródłowego wszystkie istniejące indeksy, mapy synonimów, indeksatory, źródła danych i zestawy umiejętności. Należy pamiętać, że nazwy usług muszą być unikatowe, więc nie można ponownie użyć istniejącej nazwy. Sprawdź każdy zestaw umiejętności, aby sprawdzić, czy połączenia z usługami Cognitive Services są nadal ważne pod względem wymagań tego samego regionu. Ponadto jeśli są tworzone magazyny wiedzy, sprawdź parametry połączenia dla usługi Azure Storage, jeśli używasz innej usługi.
+1. Utwórz usługę w nowym regionie i ponownie Opublikuj z kodu źródłowego wszystkie istniejące indeksy, mapy synonimów, indeksatory, źródła danych i umiejętności. Należy pamiętać, że nazwy usług muszą być unikatowe, aby nie można było użyć istniejącej nazwy. Sprawdź każdy zestawu umiejętności, aby sprawdzić, czy połączenia z Cognitive Services są nadal ważne w warunkach tego samego regionu. Ponadto jeśli są tworzone magazyny wiedzy, sprawdź parametry połączenia dla usługi Azure Storage, jeśli używasz innej usługi.
 
-1. W stosownych przypadkach ponownie załaduj indeksy i magazyny wiedzy. Użyjesz kodu aplikacji do wypychania danych JSON do indeksu lub ponownie uruchom indeksatory, aby pobierać dokumenty ze źródeł zewnętrznych. 
+1. Załaduj ponownie indeksy i magazyny wiedzy, jeśli ma to zastosowanie. Użyjesz kodu aplikacji, aby wypchnąć dane JSON do indeksu, lub ponownie uruchomić indeksatory, aby ściągnąć dokumenty ze źródeł zewnętrznych. 
 
-1. Włącz rejestrowanie, a jeśli ich używasz, ponownie utwórz role zabezpieczeń.
+1. Włącz rejestrowanie i jeśli są używane, Utwórz ponownie role zabezpieczeń.
 
-1. Zaktualizuj aplikacje klienckie i zestawy testów, aby używać nowej nazwy usługi i kluczy interfejsu API oraz przetestuj wszystkie aplikacje.
+1. Zaktualizuj aplikacje klienckie i zestawy testów, aby użyć nowej nazwy usługi i kluczy interfejsu API, i przetestuj wszystkie aplikacje.
 
-1. Usuń starą usługę, gdy nowa usługa jest w pełni przetestowana i działa.
+1. Usuń starą usługę, gdy nowa usługa zostanie w pełni przetestowana i działa.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Poniższe łącza mogą pomóc w znalezieniu więcej informacji podczas wykonywania kroków opisanych powyżej.
+Poniższe linki mogą pomóc w znalezieniu dodatkowych informacji podczas wykonywania kroków opisanych powyżej.
 
-+ [Ceny i regiony usługi Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/)
++ [Ceny i regiony Wyszukiwanie poznawcze platformy Azure](https://azure.microsoft.com/pricing/details/search/)
 + [Wybieranie warstwy](search-sku-tier.md)
 + [Tworzenie usługi wyszukiwania](search-create-service-portal.md)
-+ [Ładowanie dokumentów wyszukiwania](search-what-is-data-import.md)
-+ [Włączanie rejestrowania](search-monitor-logs.md)
++ [Załaduj dokumenty do przeszukiwania](search-what-is-data-import.md)
++ [Włącz rejestrowanie](search-monitor-logs.md)
 
 
 <!-- To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.

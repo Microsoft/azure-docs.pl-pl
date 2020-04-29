@@ -1,6 +1,6 @@
 ---
-title: Interakcja z urządzeniem IoT Plug and Play Preview z rozwiązania IoT platformy Azure | Dokumenty firmy Microsoft
-description: Jako deweloper rozwiązania dowiedz się, jak używać zestawu SDK usługi do interakcji z urządzeniami IoT Plug and Play.
+title: Korzystanie z urządzenia usługi IoT Plug and Play w wersji zapoznawczej w ramach rozwiązania Azure IoT | Microsoft Docs
+description: Deweloperzy rozwiązań dowiesz się, jak używać zestawu SDK usługi do współpracy z urządzeniami Plug and Play IoT.
 author: Philmea
 ms.author: philmea
 ms.date: 12/26/2019
@@ -10,19 +10,19 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: e349aadfd629202b1c8cdb5c53a88e0a6c2e06de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80159221"
 ---
-# <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Łączenie się z urządzeniem IoT Plug and Play Preview i interakcję z nim
+# <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Łączenie się z urządzeniem Plug and Play IoT w wersji zapoznawczej i korzystanie z niego
 
-W tym przewodniku przedstawiono sposób korzystania z przykładów w SDK usługi węzłów, które pokazują, jak rozwiązanie IoT może wchodzić w interakcje z urządzeniami IoT Plug and Play Preview.
+W tym przewodniku opisano sposób korzystania z przykładów w zestawie SDK usługi Node Service, które pokazują, jak rozwiązanie IoT może współdziałać z urządzeniami w wersji zapoznawczej IoT Plug and Play.
 
-Jeśli urządzenie Podłącz do rozwiązania nie zostało [ukończone z urządzeniem](quickstart-connect-pnp-device-solution-node.md) Szybki start, należy to zrobić teraz. Przewodnik Szybki start pokazuje, jak pobrać i zainstalować zestaw SDK i uruchomić niektóre przykłady.
+Jeśli nie zostało to jeszcze zrobione, [Połącz urządzenie IoT Plug and Play z rozwiązaniem](quickstart-connect-pnp-device-solution-node.md) przewodnika Szybki Start. Przewodnik Szybki Start przedstawia sposób pobierania i instalowania zestawu SDK oraz uruchamiania niektórych przykładów.
 
-Przed uruchomieniem przykładów usługi otwórz nowy terminal, przejdź do folderu głównego sklonowanego repozytorium, przejdź do folderu **digitaltwins/quickstarts/service,** a następnie uruchom następujące polecenie, aby zainstalować zależności:
+Przed uruchomieniem przykładów usługi Otwórz nowy terminal, przejdź do folderu głównego sklonowanego repozytorium, przejdź do folderu **digitaltwins/szybkiego startu/usługi** , a następnie uruchom następujące polecenie, aby zainstalować zależności:
 
 ```cmd/sh
 npm install
@@ -30,47 +30,47 @@ npm install
 
 ## <a name="run-the-service-samples"></a>Uruchamianie przykładów usługi
 
-Poniższe przykłady można zapoznać się z możliwościami zestawu SDK usługi Node.js. Upewnij się, `IOTHUB_CONNECTION_STRING` że zmienna środowiskowa jest ustawiona w używanej powłoce:
+Skorzystaj z poniższych przykładów, aby poznać możliwości zestawu SDK usługi Node. js. Upewnij się, że `IOTHUB_CONNECTION_STRING` zmienna środowiskowa jest ustawiona w używanej powłoce:
 
-### <a name="retrieve-a-digital-twin-and-list-the-interfaces"></a>Pobierz cyfrowy bliźniak i wymień interfejsy
+### <a name="retrieve-a-digital-twin-and-list-the-interfaces"></a>Pobierz dwuosiową cyfrę i Utwórz listę interfejsów
 
-**get_digital_twin.js** pobiera cyfrowy bliźniak skojarzony z urządzeniem i drukuje jego komponent w wierszu polecenia. Nie wymaga próbki uruchomionego urządzenia, aby odnieść sukces.
+**get_digital_twin. js** pobiera cyfrowe sznurki skojarzone z urządzeniem i drukuje jego składnik w wierszu polecenia. Nie wymaga to pomyślnego uruchomienia przykładowego urządzenia.
 
-**get_digital_twin_interface_instance.js** pobiera pojedyncze wystąpienie interfejsu cyfrowego bliźniaczego skojarzonego z urządzeniem i drukuje go w wierszu polecenia. Nie wymaga próbki urządzenia do uruchomienia.
+**get_digital_twin_interface_instance. js** pobiera jedno wystąpienie interfejsu dwucyfrowego, skojarzonego z urządzeniem i drukuje w wierszu polecenia. Nie wymaga to uruchomienia próbki urządzenia.
 
-### <a name="get-and-set-properties-using-the-node-service-sdk"></a>Pobierz i ustaw właściwości przy użyciu zestawu SDK usługi Node
+### <a name="get-and-set-properties-using-the-node-service-sdk"></a>Pobieranie i Ustawianie właściwości przy użyciu zestawu SDK usługi Node
 
-**update_digital_twin.js aktualizuje** zapisywalną właściwość na urządzeniu cyfrowego bliźniaka za pomocą pełnej poprawki. Można zaktualizować wiele właściwości na wielu interfejsach, jeśli chcesz. Aby to się udało, próbka urządzenia musi być uruchomiona w tym samym czasie. Sukces wygląda jak próbka urządzenia jest drukowanie coś o aktualizowanie właściwości próbki usługi drukowania zaktualizowanego bliźniaka cyfrowego w terminalu.
+**update_digital_twin. js** aktualizuje właściwość z możliwością zapisu na cyfrowym bliźniaczym urządzeniu przy użyciu pełnej poprawki. Jeśli chcesz, możesz zaktualizować wiele właściwości w wielu interfejsach. Aby pomyślnie zadziałała, próbka urządzenia musi być uruchomiona w tym samym czasie. Pomyślna informacja o tym, że przykład urządzenia drukuje coś o aktualizowaniu właściwości, przykładowa usługa drukuje zaktualizowaną dwuosiową cyfrę w terminalu.
 
-### <a name="send-a-command-and-retrieve-the-response-using-the-node-service-sdk"></a>Wyślij polecenie i pobierz odpowiedź przy użyciu SDK usługi Node
+### <a name="send-a-command-and-retrieve-the-response-using-the-node-service-sdk"></a>Wyślij polecenie i Pobierz odpowiedź przy użyciu zestawu SDK usługi Node Service
 
-**invoke_command.js** wywołuje polecenie synchroniczne na urządzeniu cyfrowym bliźniaczej reprezentacji. Aby to się udało, próbka urządzenia musi być uruchomiona w tym samym czasie. Sukces wygląda jak próbka urządzenia drukuje coś o potwierdzaniu polecenia, a klient serwisu drukuje wynik polecenia w terminalu.
+**invoke_command. js** wywołuje synchroniczne polecenie na cyfrowym bliźniaczym urządzeniu. Aby pomyślnie zadziałała, próbka urządzenia musi być uruchomiona w tym samym czasie. Pomyślnym wyglądem urządzenia jest wydrukowanie czegoś o potwierdzenie polecenia, a klient usługi drukuje wynik polecenia w terminalu.
 
-### <a name="connect-to-the-public-repository-and-retrieve-a-model-definition-using-the-node-service-sdk"></a>Łączenie się z publicznym repozytorium i pobieranie definicji modelu przy użyciu sdk usługi node
+### <a name="connect-to-the-public-repository-and-retrieve-a-model-definition-using-the-node-service-sdk"></a>Nawiązywanie połączenia z repozytorium publicznym i pobieranie definicji modelu przy użyciu zestawu SDK usługi Node Service
 
-Korzystając z tych samych instrukcji, co w przypadku próbek usługi i urządzenia, należy ustawić następującą zmienną środowiskową:
+Korzystając z tych samych instrukcji jak w przypadku przykładów usług i urządzeń, należy ustawić następującą zmienną środowiskową:
 
 * `AZURE_IOT_MODEL_REPOSITORY_CONNECTION_STRING`
 
-Ten ciąg połączenia można znaleźć w [portalu Certyfikat platformy Azure dla IoT](https://preview.catalog.azureiotsolutions.com) na karcie Parametry **połączenia** dla **repozytorium firmy.**
+Te parametry połączenia można znaleźć w [portalu Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com) na karcie **Parametry połączenia** dla **repozytorium firmy**.
 
-Ciąg połączenia wygląda następująco:
+Parametry połączenia wyglądają podobnie jak w poniższym przykładzie:
 
 ```text
 HostName={repo host name};RepositoryId={repo ID};SharedAccessKeyName={repo key ID};SharedAccessKey={repo key secret}
 ```
 
-Po ustawieniu tych czterech zmiennych środowiskowych uruchom próbkę w taki sam sposób, w jaki uruchomiono inne przykłady:
+Po ustawieniu tych czterech zmiennych środowiskowych Uruchom próbkę tak samo jak w przypadku innych przykładów:
 
 ```cmd/sh
 node model_repo.js
 ```
 
-W tym przykładzie pobiera interfejs **ModelDiscovery** i drukuje ten model w terminalu.
+Ten przykład pobiera interfejs **ModelDiscovery** i drukuje ten model w terminalu.
 
-### <a name="run-queries-in-iot-hub-based-on-capability-models-and-interfaces"></a>Uruchamianie zapytań w Centrum IoT na podstawie modeli i interfejsów
+### <a name="run-queries-in-iot-hub-based-on-capability-models-and-interfaces"></a>Uruchamianie zapytań w IoT Hub na podstawie modeli możliwości i interfejsów
 
-Język zapytań Usługi IoT Hub obsługuje `HAS_INTERFACE` i `HAS_CAPABILITYMODEL` jak pokazano w następujących przykładach:
+Język zapytań IoT Hub obsługuje `HAS_INTERFACE` i `HAS_CAPABILITYMODEL` jak pokazano w następujących przykładach:
 
 ```sql
 select * from devices where HAS_INTERFACE('id without version', version)
@@ -80,20 +80,20 @@ select * from devices where HAS_INTERFACE('id without version', version)
 select * from devices where HAS_CAPABILITYMODEL('id without version', version)
 ```
 
-### <a name="creating-digital-twin-routes"></a>Tworzenie cyfrowych tras bliźniaczych
+### <a name="creating-digital-twin-routes"></a>Tworzenie tras Digital bliźniaczy
 
-Rozwiązanie może otrzymywać powiadomienia o zdarzeniach cyfrowej zmiany bliźniaczej reprezentacji. Aby subskrybować te powiadomienia, użyj [funkcji routingu Usługi IoT Hub,](../iot-hub/iot-hub-devguide-endpoints.md) aby wysłać powiadomienia do punktu końcowego, takiego jak magazyn obiektów blob, centra zdarzeń lub kolejka usługi Service Bus.
+Twoje rozwiązanie może odbierać powiadomienia o zdarzeniach zmiany cyfrowych sznurów. Aby subskrybować te powiadomienia, użyj [funkcji routingu IoT Hub](../iot-hub/iot-hub-devguide-endpoints.md) , aby wysyłać powiadomienia do punktu końcowego, takiego jak BLOB storage, Event Hubs lub kolejki Service Bus.
 
-Aby utworzyć cyfrową trasę bliźniaczej:
+Aby utworzyć trasę Digital bliźniaczy:
 
-1. W witrynie Azure portal przejdź do zasobu usługi IoT Hub.
-1. Wybierz **pozycję Routing wiadomości**.
-1. Na karcie **Trasy** wybierz pozycję **Dodaj**.
-1. Wprowadź wartość w polu **Nazwa** i wybierz **punkt końcowy**. Jeśli punkt końcowy nie został skonfigurowany, wybierz pozycję **Dodaj punkt końcowy**.
-1. Z **listy** rozwijanej Źródło danych wybierz pozycję **Digital Twin Change Events**.
-1. Wybierz **pozycję Zapisz**.
+1. W Azure Portal przejdź do zasobu IoT Hub.
+1. Wybierz pozycję **Routing komunikatów**.
+1. Na karcie **trasy** wybierz pozycję **Dodaj**.
+1. Wprowadź wartość w polu **Nazwa** , a następnie wybierz **punkt końcowy**. Jeśli nie skonfigurowano punktu końcowego, wybierz pozycję **Dodaj punkt końcowy**.
+1. Z listy rozwijanej **Źródło danych** wybierz pozycję **wielocyfrowe zdarzenia zmiany**.
+1. Wybierz pozycję **Zapisz**.
 
-Poniżej JSON przedstawiono przykład zdarzenia cyfrowej zmiany bliźniaczej reprezentacji:
+Poniższy kod JSON przedstawia przykład wielocyfrowego zdarzenia zmiany:
 
 ```json
 {
@@ -140,4 +140,4 @@ Poniżej JSON przedstawiono przykład zdarzenia cyfrowej zmiany bliźniaczej rep
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy dowiedziałeś się o rozwiązaniach usługowych, które wchodzą w interakcję z urządzeniami IoT Plug and Play, następnym krokiem jest zapoznanie się z [odnajdywania modelu.](concepts-model-discovery.md)
+Teraz, gdy znasz już rozwiązania usług, które współdziałają z urządzeniami Plug and Play IoT, sugerowanym następnym krokiem jest zapoznanie się z [odnajdywaniem modeli](concepts-model-discovery.md).

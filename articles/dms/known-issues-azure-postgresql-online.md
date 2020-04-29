@@ -1,7 +1,7 @@
 ---
-title: 'Znane problemy: migracje online z postgreSQL do usługi Azure Database dla postgreSQL'
+title: 'Znane problemy: migracje online z PostgreSQL do Azure Database for PostgreSQL'
 titleSuffix: Azure Database Migration Service
-description: Dowiedz się więcej o znanych problemach i ograniczeniach migracji z migracji online z PostgreSQL do bazy danych Platformy Azure dla postgreSQL przy użyciu usługi migracji bazy danych azure.
+description: Informacje o znanych problemach i ograniczeniach migracji z migracją online z PostgreSQL do Azure Database for PostgreSQL przy użyciu Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -15,36 +15,36 @@ ms.custom:
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 3d1bc627ccb8814ab2dfb61fb0653ef0ac644038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235261"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Znane problemy/ograniczenia migracji z migracjami online z PostgreSQL do usługi Azure DB dla postgreSQL
+# <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Znane problemy/ograniczenia migracji z migracją online z PostgreSQL do usługi Azure DB dla PostgreSQL
 
-Znane problemy i ograniczenia związane z migracjami online z PostgreSQL do usługi Azure Database for PostgreSQL opisano w poniższych sekcjach.
+Znane problemy i ograniczenia związane z migracją online z PostgreSQL do Azure Database for PostgreSQL są opisane w poniższych sekcjach.
 
-## <a name="online-migration-configuration"></a>Konfiguracja migracji online
+## <a name="online-migration-configuration"></a>Konfiguracja migracji w trybie online
 
-- Źródłowy serwer PostgreSQL musi być uruchomiony w wersji 9.4, 9.5, 9.6, 10 lub 11. Aby uzyskać więcej informacji, zobacz artykuł [Obsługiwane wersje bazy danych PostgreSQL](../postgresql/concepts-supported-versions.md).
-- Obsługiwane są tylko migracje do tej samej lub wyższej wersji. Na przykład migracja PostgreSQL 9.5 do usługi Azure Database dla PostgreSQL 9.6 lub 10 jest obsługiwana, ale migracja z PostgreSQL 11 do PostgreSQL 9.6 nie jest obsługiwana.
-- Aby włączyć replikację logiczną w źródłowym pliku **postgresql.conf,** należy ustawić następujące parametry:
-  - **wal_level** = logiczne
-  - **max_replication_slots** = [co najmniej maksymalna liczba baz danych do migracji]; jeśli chcesz przeprowadzić migrację czterech baz danych, ustaw wartość co najmniej 4.
-  - **max_wal_senders** = [liczba baz danych uruchomionych jednocześnie]; zalecana wartość wynosi 10
-- Dodaj adres IP agenta DMS do źródła PostgreSQL pg_hba.conf
-  1. Zanotuj adres IP DMS po zakończeniu inicjowania obsługi administracyjnej wystąpienia usługi migracji bazy danych platformy Azure.
-  2. Dodaj adres IP do pliku pg_hba.conf, jak pokazano na rysunku:
+- Na źródłowym serwerze PostgreSQL musi być uruchomiona wersja 9,4, 9,5, 9,6, 10 lub 11. Aby uzyskać więcej informacji, zobacz artykuł [Obsługiwane wersje bazy danych PostgreSQL](../postgresql/concepts-supported-versions.md).
+- Obsługiwane są tylko migracje do tej samej lub wyższej wersji. Na przykład Migrowanie PostgreSQL 9,5 do Azure Database for PostgreSQL 9,6 lub 10 jest obsługiwane, ale Migrowanie z PostgreSQL 11 do PostgreSQL 9,6 nie jest obsługiwane.
+- Aby włączyć replikację logiczną w pliku **Source PostgreSQL PostgreSQL. conf** , ustaw następujące parametry:
+  - **wal_level** = logiczny
+  - **max_replication_slots** = [co najmniej Maksymalna liczba baz danych na potrzeby migracji]; Jeśli chcesz migrować cztery bazy danych, ustaw wartość na co najmniej 4.
+  - **max_wal_senders** = [liczba baz danych uruchomionych współbieżnie]; Zalecana wartość to 10
+- Dodawanie adresu IP agenta DMS do źródła PostgreSQL pg_hba. conf
+  1. Zanotuj adres IP DMS po zakończeniu aprowizacji wystąpienia Azure Database Migration Service.
+  2. Dodaj adres IP do pliku pg_hba. conf, jak pokazano:
 
       ```
           host  all     172.16.136.18/10    md5
           host  replication postgres    172.16.136.18/10    md5
       ```
 
-- Użytkownik musi mieć rolę REPLIKACJA na serwerze obsługującym źródłową bazę danych.
-- Schematy źródłowej i docelowej bazy danych muszą być zgodne.
-- Schemat w docelowej bazie danych platformy Azure dla serwera PostgreSQL-Single nie może mieć kluczy obcych. Użyj następującej kwerendy, aby upuścić klucze obce:
+- Użytkownik musi mieć rolę replikacji na serwerze hostującym źródłową bazę danych.
+- Źródłowe i docelowe schematy bazy danych muszą być zgodne.
+- Schemat w docelowym Azure Database for PostgreSQL-pojedynczy serwer nie może mieć kluczy obcych. Użyj następującego zapytania, aby porzucić klucze obce:
 
     ```
                                 SELECT Queries.tablename
@@ -75,49 +75,49 @@ Znane problemy i ograniczenia związane z migracjami online z PostgreSQL do usł
 
     Uruchom docelowy klucz obcy (znajduje się w drugiej kolumnie) w wyniku zapytania.
 
-- Schemat w docelowej bazie danych platformy Azure dla serwera PostgreSQL-Single nie może mieć żadnych wyzwalaczy. Aby wyłączyć wyzwalacze w docelowej bazie danych, należy użyć następujących funkcji:
+- Schemat w Azure Database for PostgreSQL docelowym — pojedynczy serwer nie może mieć żadnych wyzwalaczy. Aby wyłączyć Wyzwalacze w docelowej bazie danych, wykonaj następujące czynności:
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
      ```
 
-## <a name="datatype-limitations"></a>Ograniczenia typu danych
+## <a name="datatype-limitations"></a>Ograniczenia typów danych
 
-  **Ograniczenie:** Jeśli w tabelach nie ma klucza podstawowego, zmiany mogą nie zostać zsynchronizowane z docelową bazą danych.
+  **Ograniczenie**: Jeśli w tabelach nie istnieje klucz podstawowy, zmiany mogą nie być synchronizowane z docelową bazą danych.
 
-  **Obejście:** Tymczasowo ustaw klucz podstawowy dla tabeli, aby migracja była kontynuowana. Klucz podstawowy można usunąć po zakończeniu migracji danych.
+  **Obejście**: tymczasowo Ustaw klucz podstawowy dla tabeli do migracji, aby kontynuować. Klucz podstawowy można usunąć po zakończeniu migracji danych.
 
-## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>Ograniczenia podczas migracji online z AWS RDS PostgreSQL
+## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>Ograniczenia dotyczące migracji z usługi AWS RDS PostgreSQL do trybu online
 
-Podczas próby przeprowadzenia migracji online z usługi AWS RDS PostgreSQL do usługi Azure Database dla postgreSQL, mogą wystąpić następujące błędy.
+Podczas próby przeprowadzenia migracji w trybie online z AWS RDS PostgreSQL do Azure Database for PostgreSQL mogą wystąpić następujące błędy.
 
-- **Błąd:** Domyślna wartość kolumny "{column}" w tabeli "{table}" w bazie danych "{database}" różni się na serwerach źródłowych i docelowych. Na serwerze źródłowym jest to „{value on source}”, a na serwerze docelowym — „{value on target}”.
+- **Błąd**: wartość domyślna kolumny "{Column}" w tabeli "{Table}" w bazie danych "{Database}" różni się w zależności od serwera źródłowego i docelowego. Na serwerze źródłowym jest to „{value on source}”, a na serwerze docelowym — „{value on target}”.
 
-  **Ograniczenie:** Ten błąd występuje, gdy wartość domyślna w schemacie kolumny różni się między źródłowymi i docelowymi bazami danych.
-  **Obejście:** Upewnij się, że schemat w docelowym pasuje do schematu w źródle. Szczegółowe informacje na temat migracji schematu można znaleźć w [dokumentacji migracji online usługi Azure PostgreSQL.](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)
+  **Ograniczenie**: ten błąd występuje, gdy wartość domyślna schematu kolumny różni się między źródłową i docelową bazą danych.
+  **Obejście**: Upewnij się, że schemat na miejscu docelowym jest zgodny ze schematem w źródle. Aby uzyskać szczegółowe informacje na temat migrowania schematu, zapoznaj się z [dokumentacją dotyczącą migracji do usługi Azure PostgreSQL online](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
-- **Błąd:** Docelowa baza danych "{database}" ma tabele "{liczba tabel}", w których jako źródłowna baza danych "{database}" ma tabele "{liczba tabel}". Liczba tabel w źródłowej i docelowej bazie danych powinna być taka sama.
+- **Błąd**: docelowa baza danych "{Database}" ma tabele "{Number of Tables}", w których źródłowa baza danych "{Database}" ma tabele "{Number of Tables}". Liczba tabel w źródłowej i docelowej bazie danych powinna być taka sama.
 
-  **Ograniczenie:** Ten błąd występuje, gdy liczba tabel jest różna między źródłowymi i docelowymi bazami danych.
+  **Ograniczenie**: ten błąd występuje, gdy liczba tabel jest różna między źródłową i docelową bazą danych.
 
-  **Obejście:** Upewnij się, że schemat w docelowym pasuje do schematu w źródle. Szczegółowe informacje na temat migracji schematu można znaleźć w [dokumentacji migracji online usługi Azure PostgreSQL.](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)
+  **Obejście**: Upewnij się, że schemat na miejscu docelowym jest zgodny ze schematem w źródle. Aby uzyskać szczegółowe informacje na temat migrowania schematu, zapoznaj się z [dokumentacją dotyczącą migracji do usługi Azure PostgreSQL online](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
-- **Błąd:** Źródłowa baza danych {database} jest pusta.
+- **Błąd:** Źródłowa baza danych {Database} jest pusta.
 
-  **Ograniczenie:** Ten błąd występuje, gdy źródłowa baza danych jest pusta. Jest to najprawdopodobniej dlatego, że wybrano niewłaściwą bazę danych jako źródło.
+  **Ograniczenie**: ten błąd występuje, gdy źródłowa baza danych jest pusta. Najprawdopodobniej z powodu wybrania niewłaściwej bazy danych jako źródła.
 
-  **Obejście:** Sprawdź dwukrotnie źródłową bazę danych wybraną do migracji, a następnie spróbuj ponownie.
+  **Obejście**: dokładnie sprawdź źródłową bazę danych wybraną do migracji, a następnie spróbuj ponownie.
 
-- **Błąd:** Docelowa baza danych {database} jest pusta. Przeprowadź migrację schematu.
+- **Błąd:** Docelowa baza danych {Database} jest pusta. Przeprowadź migrację schematu.
 
-  **Ograniczenie:** Ten błąd występuje, gdy nie ma schematu w docelowej bazie danych. Upewnij się, że schemat w docelowym pasuje schematu w źródle.
-  **Obejście:** Upewnij się, że schemat w docelowym pasuje do schematu w źródle. Szczegółowe informacje na temat migracji schematu można znaleźć w [dokumentacji migracji online usługi Azure PostgreSQL.](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)
+  **Ograniczenie**: ten błąd występuje, gdy nie ma schematu w docelowej bazie danych. Upewnij się, że schemat na miejscu docelowym jest zgodny ze schematem w źródle.
+  **Obejście**: Upewnij się, że schemat na miejscu docelowym jest zgodny ze schematem w źródle. Aby uzyskać szczegółowe informacje na temat migrowania schematu, zapoznaj się z [dokumentacją dotyczącą migracji do usługi Azure PostgreSQL online](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
 ## <a name="other-limitations"></a>Inne ograniczenia
 
 - Nazwa bazy danych nie może zawierać średnika (;).
-- Przechwycona tabela musi mieć klucz podstawowy. Jeśli tabela nie ma klucza podstawowego, wynik operacji usuwania i aktualizacji rekordów będzie nieprzewidywalny.
-- Aktualizowanie segmentu klucza podstawowego jest ignorowane. W takich przypadkach zastosowanie takiej aktualizacji zostanie zidentyfikowane przez obiekt docelowy jako aktualizacja, która nie zaktualizowała żadnych wierszy i spowoduje rekord zapisany w tabeli wyjątków.
-- Migracja wielu tabel o tej samej nazwie, ale w innym przypadku (np. table1, TABLE1 i Table1) może powodować nieprzewidywalne zachowanie i dlatego nie jest obsługiwana.
-- Zmiana przetwarzania [CREATE | ALTER | KROPLA | TRUNCATE] tabela DDLs tabeli nie jest obsługiwany.
-- W usłudze migracji bazy danych azure jedno działanie migracji może pomieścić tylko do czterech baz danych.
+- Przechwycona tabela musi mieć klucz podstawowy. Jeśli tabela nie ma klucza podstawowego, wynik operacji usuwania i aktualizowania rekordu będzie nieprzewidywalny.
+- Aktualizacja segmentu klucza podstawowego jest ignorowana. W takich przypadkach zastosowanie takiej aktualizacji zostanie zidentyfikowane przez obiekt docelowy jako aktualizacja, która nie zaktualizowano żadnych wierszy i spowoduje powstanie rekordu zarejestrowanego w tabeli wyjątków.
+- Migracja wielu tabel o takiej samej nazwie, ale innym przypadku (np. Tabela1, TABELA1 i Tabela1) może spowodować nieprzewidywalne zachowanie i dlatego nie jest obsługiwana.
+- Przetwarzanie zmian [CREATE | ZMIEŃ | UPUŚĆ | Truncate] tabela DDLs nie jest obsługiwana.
+- W Azure Database Migration Service pojedyncze działanie migracji może obsługiwać maksymalnie cztery bazy danych.

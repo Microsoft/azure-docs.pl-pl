@@ -1,57 +1,57 @@
 ---
-title: Jak działa podłączanie komputera deweloperskiego do klastra AKS
+title: Jak połączyć komputer deweloperski z klastrem AKS
 services: azure-dev-spaces
 ms.date: 03/24/2020
 ms.topic: conceptual
-description: W tym artykule opisano procesy związane z używaniem usługi Azure Dev Spaces do łączenia komputera dewelopera z klastrem usługi Azure Kubernetes
-keywords: Miejsca deweloperów platformy Azure, przestrzenie deweloperów, platforma do dokowania, sieci Kubernetes, platforma Azure, usługa AKS, usługa Azure Kubernetes, kontenery
+description: Opisuje procesy opisane przy użyciu Azure Dev Spaces do łączenia komputera deweloperskiego z klastrem usługi Azure Kubernetes Service
+keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
 ms.openlocfilehash: a74a5a623006ccd64441023c2c4bc9ad3dcb517e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241714"
 ---
-# <a name="how-connecting-your-development-computer-to-your-aks-cluster-works"></a>Jak działa podłączanie komputera deweloperskiego do klastra AKS
+# <a name="how-connecting-your-development-computer-to-your-aks-cluster-works"></a>Jak połączyć komputer deweloperski z klastrem AKS
 
-Za pomocą usługi Azure Dev Spaces można podłączyć komputer dewelopera do klastra AKS, umożliwiając uruchamianie i debugowanie kodu na komputerze deweloperskim, tak jakby był uruchomiony w klastrze. Usługa Azure Dev Spaces przekierowuje ruch między połączonym klastrem AKS, uruchamiając zasobnik w klastrze, który działa jako agent zdalny, aby przekierować ruch między komputerem deweloperskim a klastrem. To przekierowanie ruchu umożliwia kod na komputerze deweloperskim i usługach uruchomionych w klastrze AKS do komunikowania się tak, jakby były w tym samym klastrze AKS. To połączenie umożliwia również uruchamianie i debugowanie kodu z kontenerem lub bez niego na komputerze deweloperskim. Podłączenie komputera dewelopera do klastra pomaga szybko tworzyć aplikację i przeprowadzać kompleksowe testy.
+Za pomocą Azure Dev Spaces można połączyć komputer deweloperski z klastrem AKS, co pozwala na uruchamianie i debugowanie kodu na komputerze deweloperskim, tak jakby był uruchomiony w klastrze. Azure Dev Spaces przekierowuje ruch między podłączonym klastrem AKS, uruchamiając go w klastrze, który działa jako agent zdalny do przekierowywania ruchu między komputerem deweloperskim i klastrem. To przekierowywanie ruchu umożliwia kod na komputerze deweloperskim i usługach uruchomionych w klastrze AKS, aby komunikować się tak, jakby znajdowały się w tym samym klastrze AKS. To połączenie umożliwia również uruchamianie i debugowanie kodu z lub bez kontenera na komputerze deweloperskim. Połączenie komputera deweloperskiego z klastrem ułatwia szybkie tworzenie aplikacji i wykonywanie testów kompleksowych.
 
-## <a name="connecting-to-your-cluster"></a>Łączenie się z klastrem
+## <a name="connecting-to-your-cluster"></a>Nawiązywanie połączenia z klastrem
 
-Połączenie z istniejącym klastrem AKS przy użyciu [programu Visual Studio Code][vs-code] z rozszerzeniem Azure Dev [Spaces][azds-vs-code] zainstalowanym w systemie MacOS lub Windows 10. Podczas ustanawiania połączenia, masz możliwość przekierowania całego ruchu do iz nowego lub istniejącego zasobnika w klastrze do komputera deweloperskiego.
+Nawiąż połączenie z istniejącym klastrem AKS przy użyciu [Visual Studio Code][vs-code] z rozszerzeniem [Azure dev Spaces][azds-vs-code] zainstalowanym w systemie MacOS lub Windows 10. Po nawiązaniu połączenia możesz przekierować cały ruch do i z nowego lub istniejącego w klastrze do komputera deweloperskiego.
 
 > [!NOTE]
-> Podczas korzystania z programu Visual Studio Code do łączenia się z klastrem rozszerzenie Usługi Azure Dev Spaces umożliwia przekierowanie usługi do komputera dewelopera. Ta opcja jest wygodnym sposobem identyfikowania zasobnika do przekierowania. Wszystkie przekierowania między klastrem AKS a komputerem deweloperskim jest dla zasobnika.
+> W przypadku używania Visual Studio Code do nawiązywania połączenia z klastrem rozszerzenie Azure Dev Spaces udostępnia opcję przekierowywania usługi do komputera deweloperskiego. Ta opcja jest wygodnym sposobem identyfikacji pod kątem przekierowania. Wszystkie przekierowania między klastrem AKS a komputerem deweloperskim dotyczą usługi pod.
 
-Łączenie się z klastrem nie wymaga włączenia usługi Azure Dev Spaces w klastrze. Zamiast tego, gdy rozszerzenie usługi Azure Dev Spaces ustanawia połączenie z klastrem, to:
+Połączenie z klastrem nie wymaga, aby Azure Dev Spaces włączony w klastrze. Zamiast tego, gdy rozszerzenie Azure Dev Spaces nawiązuje połączenie z klastrem,:
 
-* Zastępuje kontener w zasobniku w klastrze AKS kontenerem agenta zdalnego, który przekierowuje ruch do komputera deweloperskiego. Podczas przekierowywania nowego zasobnika usługa Azure Dev Spaces tworzy nową zasobnik w klastrze usługi AKS za pomocą agenta zdalnego.
-* Uruchamia [port kubectl do przodu][kubectl-port-forward] na komputerze deweloperskim, aby przekazywać ruch z komputera dewelopera do agenta zdalnego działającego w klastrze.
-* Zbiera informacje o środowisku z klastra przy użyciu agenta zdalnego. Te informacje o środowisku obejmują zmienne środowiskowe, widoczne usługi, instalacje woluminów i instalacje tajne.
-* Konfiguruje środowisko w terminalu kodu programu Visual Studio, dzięki czemu usługa na komputerze deweloperskim może uzyskać dostęp do tych samych zmiennych, jak gdyby była uruchomiona w klastrze.  
-* Aktualizuje plik hostów do mapowania usług w klastrze AKS do lokalnych adresów IP na komputerze deweloperskim. Te wpisy plików hosts umożliwiają kod uruchomiony na komputerze deweloperskim do żądania do innych usług uruchomionych w klastrze. Aby zaktualizować plik hosts, usługa Azure Dev Spaces poprosi o dostęp administratora na komputerze deweloperskim podczas łączenia się z klastrem.
+* Zastępuje kontener w klastrze AKS z kontenerem zdalnego agenta, który przekierowuje ruch do komputera deweloperskiego. Podczas przekierowywania nowego pod Azure Dev Spaces w klastrze AKS jest tworzony nowy element pod, a agent zdalny.
+* Uruchamia funkcję [polecenia kubectl port-forward][kubectl-port-forward] na komputerze deweloperskim, aby przekazywać ruch z komputera deweloperskiego do zdalnego agenta działającego w klastrze.
+* Zbiera informacje o środowisku z klastra przy użyciu zdalnego agenta. Informacje o środowisku obejmują zmienne środowiskowe, widoczne usługi, instalacje woluminów i instalacje tajne.
+* Konfiguruje środowisko w terminalu Visual Studio Code, dzięki czemu usługa na komputerze deweloperskim będzie mogła uzyskiwać dostęp do tych samych zmiennych, tak jakby były uruchomione w klastrze.  
+* Aktualizuje plik hosts, aby mapować usługi w klastrze AKS na lokalne adresy IP na komputerze deweloperskim. Te wpisy plików hostów umożliwiają uruchamianie kodu na komputerze deweloperskim w celu wykonywania żądań do innych usług uruchomionych w klastrze. Aby zaktualizować plik hosts, Azure Dev Spaces będzie pytał o dostęp administratora na komputerze deweloperskim podczas nawiązywania połączenia z klastrem.
 
-Jeśli w klastrze włączono usługi Azure Dev Spaces, możesz również użyć [przekierowania ruchu oferowanego przez usługę Azure Dev Spaces.][how-it-works-routing] Przekierowanie ruchu oferowane przez usługi Azure Dev Spaces umożliwia łączenie się z kopią usługi uruchomionej w przestrzeni deweloperów podrzędnych. Korzystanie z przestrzeni deweloperów podrzędnych pomaga uniknąć zakłócania innych pracujących w nadrzędnym miejscu deweloperskim, ponieważ tylko przekierowanie ruchu kierowanego na wystąpienie usługi przestrzeni podrzędnej, pozostawiając wystąpienie obszaru nadrzędnego usługi bez modyfikacji.
+Jeśli w klastrze są włączone Azure Dev Spaces, można również użyć opcji [przekierowania ruchu oferowanej przez Azure dev Spaces][how-it-works-routing]. Przekierowanie ruchu oferowane przez Azure Dev Spaces umożliwia nawiązanie połączenia z kopią usługi działającej w podrzędnym obszarze dev. Korzystanie z podrzędnego miejsca dev pozwala uniknąć zakłócania pracy innych osób w nadrzędnym obszarze dev, ponieważ przekierowujesz tylko ruch ukierunkowany na wystąpienie obszaru podrzędnego usługi, pozostawiając wystąpienie obszaru nadrzędnego niezmodyfikowanej usługi.
 
-Po nawiązaniu połączenia z klastrem ruch jest kierowany do komputera dewelopera niezależnie od tego, czy usługa jest uruchomiona na komputerze deweloperskim.
+Po nawiązaniu połączenia z klastrem ruch jest kierowany do komputera deweloperskiego niezależnie od tego, czy usługa jest uruchomiona na komputerze deweloperskim.
 
 ## <a name="running-code-on-your-development-computer"></a>Uruchamianie kodu na komputerze deweloperskim
 
-Po nawiązaniu połączenia z klastrem AKS można uruchomić dowolny kod natywnie na komputerze, bez konteneryzacji. Każdy ruch sieciowy odbierany przez agenta zdalnego jest przekierowywał do portu lokalnego określonego podczas połączenia, dzięki czemu natywnie uruchomiony kod może akceptować i przetwarzać ten ruch. Zmienne środowiskowe, woluminy i wpisy tajne z klastra są udostępniane do kodu uruchomionego na komputerze deweloperskim. Ponadto ze względu na wpisy plików hosts i przekazywanie portów dodane do komputera dewelopera przez usługę Azure Dev Spaces, kod może wysyłać ruch sieciowy do usług uruchomionych w klastrze przy użyciu nazw usług z klastra, a ruch jest przesyłany dalej do usług, które są uruchomione w klastrze.
+Po nawiązaniu połączenia z klastrem AKS można uruchomić dowolny kod natywnie na komputerze bez kontenerach. Każdy ruch sieciowy odbierany przez agenta zdalnego jest przekierowywany do portu lokalnego określonego podczas połączenia, dzięki czemu kod natywnie uruchomiony może zaakceptować i przetworzyć ten ruch. Zmienne środowiskowe, woluminy i wpisy tajne z klastra są udostępniane w kodzie uruchomionym na komputerze deweloperskim. Ponadto ze względu na to, że w przypadku wpisów w pliku Hosts i przekazywania portów dodanych do komputera dewelopera Azure Dev Spaces kod może wysyłać ruch sieciowy do usług uruchomionych w klastrze przy użyciu nazw usług z klastra, a ruch jest przesyłany do usług uruchomionych w klastrze.
 
-Ponieważ kod jest uruchomiony na komputerze deweloperskim, masz elastyczność, aby użyć dowolnego narzędzia, które zwykle używasz do tworzenia do uruchamiania kodu i debugowania go. Ruch jest kierowany między komputerem deweloperskim a klastrem przez cały czas nawiązywanie połączenia. To trwałe połączenie umożliwia uruchamianie, zatrzymywania i ponownego uruchamiania kodu tak bardzo, jak trzeba bez konieczności ponownego ustanawiania połączenia.
+Ponieważ Twój kod jest uruchomiony na komputerze deweloperskim, możesz skorzystać z dowolnego narzędzia używanego zwykle do programowania, aby uruchomić kod i debugować go. Ruch jest kierowany między komputerem deweloperskim i klastrem przez cały czas, gdy masz połączenie. To trwałe połączenie umożliwia uruchamianie, zatrzymywanie i ponowne uruchamianie kodu, dopóki nie będzie konieczne ponowne nawiązanie połączenia.
 
-Ponadto usługa Azure Dev Spaces umożliwia replikowanie zmiennych środowiskowych i plików zainstalowanych dostępnych dla zasobników w klastrze AKS na komputerze deweloperskim za pośrednictwem pliku *azds-local.env.* Za pomocą tego pliku można również tworzyć nowe zmienne środowiskowe i instalacje woluminów.
+Ponadto Azure Dev Spaces zapewnia sposób replikowania zmiennych środowiskowych i zainstalowanych plików dostępnych dla zasobników w klastrze AKS na komputerze deweloperskim za pomocą pliku *azds-Local. env* . Możesz również użyć tego pliku, aby utworzyć nowe zmienne środowiskowe i instalacje woluminów.
 
-## <a name="additional-configuration-with-azds-localenv"></a>Dodatkowa konfiguracja z azds-local.env
+## <a name="additional-configuration-with-azds-localenv"></a>Dodatkowa konfiguracja z azds-Local. env
 
-Plik *azds-local.env* umożliwia replikowanie zmiennych środowiskowych i plików zainstalowanych dostępnych dla zasobników w klastrze AKS. W pliku *azds-local.env* można określić następujące akcje:
+Plik *azds-Local. env* umożliwia replikowanie zmiennych środowiskowych i zainstalowanych plików dostępnych dla Twojego zasobnika w klastrze AKS. W pliku *azds-Local. env* można określić następujące akcje:
 
-* Pobierz wolumin i ustaw ścieżkę do tego woluminu jako zmienną środowiskową.
-* Pobierz pojedynczy plik lub zestaw plików z woluminu i zamontuj go na komputerze deweloperskim.
-* Udostępnij usługę niezależnie od klastra, z którego masz połączenie.
+* Pobierz wolumin i Ustaw ścieżkę do tego woluminu jako zmienną środowiskową.
+* Pobierz pojedynczy plik lub zestaw plików z woluminu i zainstaluj go na komputerze deweloperskim.
+* Udostępnienie usługi niezależnie od klastra, z którym nawiązano połączenie.
 
-Oto przykład *pliku azds-local.env:*
+Oto przykład pliku *azds-Local. env* :
 
 ```
 # This downloads the "whitelist" volume from the container,
@@ -82,15 +82,15 @@ MYAPP1_SERVICE_HOST=${services.myapp1}
 MYAPP2_SERVICE_HOST=${services.mynamespace.myapp2}
 ```
 
-Domyślny plik *azds-local.env* nie jest tworzony automatycznie, więc należy ręcznie utworzyć plik w katalogu głównym projektu.
+Domyślny plik *azds-Local. env* nie jest tworzony automatycznie, dlatego należy ręcznie utworzyć plik w katalogu głównym projektu.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostyka i rejestrowanie
 
-Po podłączeniu do klastra AKS dzienniki diagnostyczne z klastra są rejestrowane w [katalogu tymczasowym][azds-tmp-dir]komputera deweloperskiego. Za pomocą programu Visual Studio Code można również użyć polecenia *Pokaż informacje diagnostyczne* do drukowania bieżących zmiennych środowiskowych i wpisów DNS z klastra AKS.
+Po nawiązaniu połączenia z klastrem AKS dzienniki diagnostyczne z klastra są rejestrowane w [katalogu tymczasowym][azds-tmp-dir]komputera deweloperskiego. Za pomocą Visual Studio Code można także użyć polecenia *Pokaż informacje diagnostyczne* , aby wydrukować bieżące zmienne środowiskowe i wpisy DNS z klastra AKS.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć podłączanie lokalnego komputera deweloperskiego do klastra AKS, zobacz [Łączenie komputera deweloperskiego z klastrem AKS][connect].
+Aby rozpocząć łączenie lokalnego komputera deweloperskiego z klastrem AKS, zobacz [Łączenie komputera deweloperskiego z klastrem AKS][connect].
 
 [azds-tmp-dir]: troubleshooting.md#before-you-begin
 [azds-vs-code]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds

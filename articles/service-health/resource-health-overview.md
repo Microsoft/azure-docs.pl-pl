@@ -1,26 +1,26 @@
 ---
-title: Omówienie kondycji zasobów platformy Azure
-description: Omówienie kondycji zasobów platformy Azure
+title: Przegląd Azure Resource Health
+description: Omówienie Azure Resource Health
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 7a1dfe5e93d0e19aeb343d113a24ed882a5b3f69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80159255"
 ---
-# <a name="resource-health-overview"></a>Omówienie kondycji zasobów
+# <a name="resource-health-overview"></a>Przegląd Resource Health
  
-Usługa Azure Resource Health pomaga diagnozować i utrzymywki obsługi problemów z usługą, które wpływają na zasoby platformy Azure. Raportuje bieżącą i przeszłą kondycję twoich zasobów.
+Azure Resource Health pomaga zdiagnozować i uzyskać pomoc techniczną dotyczącą problemów z usługami, które mają wpływ na zasoby platformy Azure. Raporty IT są raportowane w bieżącej i wcześniejszej kondycji zasobów.
 
-[Raporty o stanie platformy Azure](https://status.azure.com) dotyczące problemów z usługami, które wpływają na szeroki zestaw klientów platformy Azure. Kondycja zasobów zapewnia spersonalizowany pulpit nawigacyjny kondycji zasobów. Kondycja zasobu pokazuje wszystkie czasy, że zasoby były niedostępne z powodu problemów z usługą Platformy Azure. Te dane ułatwiają sprawdzenie, czy umowy SLA została naruszona.
+Raporty o [stanie platformy Azure](https://status.azure.com) dotyczące problemów z usługami, które mają wpływ na szeroki zestaw klientów platformy Azure. Resource Health zapewnia spersonalizowany pulpit nawigacyjny kondycji zasobów. Resource Health przedstawia wszystkie czasy braku dostępu do zasobów z powodu problemów z usługą platformy Azure. Te dane ułatwiają sprawdzenie, czy umowa SLA została naruszona.
 
-## <a name="resource-definition-and-health-assessment"></a>Definicja zasobów i ocena stanu zdrowia
+## <a name="resource-definition-and-health-assessment"></a>Definicja zasobu i Ocena kondycji
 
-*Zasób* jest określonym wystąpieniem usługi platformy Azure, takiej jak maszyna wirtualna, aplikacja sieci web lub baza danych SQL. Kondycja zasobów opiera się na sygnałach z różnych usług platformy Azure, aby ocenić, czy zasób jest w dobrej kondycji. Jeśli zasób jest w złej kondycji, kondycja zasobów analizuje dodatkowe informacje w celu określenia źródła problemu. Raportuje również o działaniach podejmowanych przez firmę Microsoft w celu rozwiązania problemu i identyfikuje rzeczy, które można wykonać, aby go rozwiązać.
+*Zasób* to określone wystąpienie usługi platformy Azure, takie jak maszyna wirtualna, aplikacja sieci Web lub baza danych SQL. Resource Health opiera się na sygnałach z różnych usług platformy Azure w celu oceny, czy zasób jest w dobrej kondycji. Jeśli zasób jest w złej kondycji, Resource Health analizuje dodatkowe informacje w celu ustalenia źródła problemu. Raport zawiera również informacje o działaniach podejmowanych przez firmę Microsoft w celu rozwiązania problemu i identyfikacji rzeczy, które można zrobić, aby rozwiązać ten problem.
 
-Aby uzyskać więcej informacji na temat sposobu oceny kondycji, zobacz listę typów zasobów i kontroli kondycji w [usłudze Azure Resource Health](resource-health-checks-resource-types.md).
+Aby uzyskać więcej informacji na temat oceny kondycji, zobacz listę typów zasobów i kontroli kondycji w [Azure Resource Health](resource-health-checks-resource-types.md).
 
 ## <a name="health-status"></a>Stan kondycji
 
@@ -28,74 +28,74 @@ Kondycja zasobu jest wyświetlana jako jeden z następujących stanów.
 
 ### <a name="available"></a>Dostępne
 
-*Dostępne* oznacza, że nie wykryto żadnych zdarzeń, które wpływają na kondycję zasobu. W przypadkach, gdy zasób odzyskane z nieplanowanych przestojów w ciągu ostatnich 24 godzin, zobaczysz powiadomienie "Ostatnio rozwiązany".
+*Dostępne* oznacza, że nie wykryto zdarzeń, które mają wpływ na kondycję zasobu. W przypadku, gdy zasób odzyskał sprawność z nieplanowanego przestoju w ciągu ostatnich 24 godzin, zobaczysz powiadomienie "ostatnio rozwiązane".
 
-![Stan *Dostępne* dla maszyny wirtualnej z powiadomieniem "Ostatnio rozwiązany"](./media/resource-health-overview/Available.png)
+![Stan * dostępny * dla maszyny wirtualnej, która ma powiadomienie "ostatnio rozwiązane"](./media/resource-health-overview/Available.png)
 
 ### <a name="unavailable"></a>Niedostępny
 
-*Niedostępne* oznacza, że usługa wykryła trwające zdarzenie platformy lub nieplatformowe, które wpływa na kondycję zasobu.
+*Niedostępne* oznacza, że usługa wykryła trwającą platformę lub zdarzenie niebędące platformą, które ma wpływ na kondycję zasobu.
 
-#### <a name="platform-events"></a>Wydarzenia platformy
+#### <a name="platform-events"></a>Zdarzenia platformy
 
-Zdarzenia platformy są wyzwalane przez wiele składników infrastruktury platformy Azure. Obejmują one zarówno zaplanowane akcje (na przykład planowaną konserwację), jak i nieoczekiwane zdarzenia (na przykład nieplanowany ponowny rozruch hosta lub zdegradowany sprzęt hosta, który ma zakończyć się niepowodzeniem po określonym przedziale czasu).
+Zdarzenia platformy są wyzwalane przez wiele składników infrastruktury platformy Azure. Obejmują one zarówno zaplanowane akcje (na przykład zaplanowaną konserwację), jak i nieoczekiwane zdarzenia (na przykład nieplanowany ponowny rozruch hosta lub niedziałający sprzęt hosta przewidywany niepowodzenie po określonym przedziale czasu).
 
-Kondycja zasobów zawiera dodatkowe szczegóły dotyczące zdarzenia i procesu odzyskiwania. Umożliwia również skontaktowanie się z pomocą techniczną firmy Microsoft, nawet jeśli nie masz aktywnej umowy dotyczącej pomocy technicznej.
+Resource Health zawiera dodatkowe szczegóły dotyczące zdarzenia i procesu odzyskiwania. Pozwala również kontaktować się z usługą pomoc techniczna firmy Microsoft, nawet jeśli nie masz aktywnej umowy pomocy technicznej.
 
-![Stan *Niedostępne* dla maszyny wirtualnej z powodu zdarzenia platformy](./media/resource-health-overview/Unavailable.png)
+![Stan * niedostępne * dla maszyny wirtualnej z powodu zdarzenia platformy](./media/resource-health-overview/Unavailable.png)
 
-#### <a name="non-platform-events"></a>Wydarzenia nieplatformowe
+#### <a name="non-platform-events"></a>Zdarzenia niezwiązane z platformą
 
-Zdarzenia spoza platformy są wyzwalane przez akcje użytkownika. Przykłady obejmują zatrzymanie maszyny wirtualnej lub osiągnięcie maksymalnej liczby połączeń z pamięcią podręczną Azure dla firmy Redis.
+Zdarzenia inne niż platformy są wyzwalane przez akcje użytkownika. Przykłady obejmują zatrzymywanie maszyny wirtualnej lub osiągnięcie maksymalnej liczby połączeń z usługą Azure cache for Redis.
 
-![Stan "Niedostępne" dla maszyny wirtualnej z powodu zdarzenia nienaplatformowego](./media/resource-health-overview/Unavailable_NonPlatform.png)
+![Stan "niedostępne" dla maszyny wirtualnej z powodu zdarzenia niezwiązanego z platformą](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
 ### <a name="unknown"></a>Nieznane
 
-*Nieznany* oznacza, że kondycja zasobów nie otrzymała informacji o zasobie przez więcej niż 10 minut. Mimo że ten stan nie jest ostatecznym wskazaniem stanu zasobu, jest to ważny punkt danych do rozwiązywania problemów.
+*Nieznany* oznacza, że Resource Health nie otrzymał informacji o zasobie przez więcej niż 10 minut. Mimo że ten stan nie jest ostatecznym oznaczeniem stanu zasobu, jest to ważny punkt danych na potrzeby rozwiązywania problemów.
 
-Jeśli zasób działa zgodnie z oczekiwaniami, stan zasobu zmieni się na *Dostępne* po kilku minutach.
+Jeśli zasób działa zgodnie z oczekiwaniami, stan zasobu zmieni się na *dostępny* po kilku minutach.
 
-Jeśli wystąpią problemy z zasobem, *nieznany* stan kondycji może oznaczać, że zdarzenie na platformie ma wpływ na zasób.
+W przypadku wystąpienia problemów z zasobem *nieznany* stan kondycji może oznaczać, że zdarzenie na platformie ma wpływ na zasób.
 
-![Stan *Nieznany* dla maszyny wirtualnej](./media/resource-health-overview/Unknown.png)
+![Stan * nieznane * dla maszyny wirtualnej](./media/resource-health-overview/Unknown.png)
 
 ### <a name="degraded"></a>Obniżona wydajność
 
-*Obniżona* oznacza, że zasób wykrył utratę wydajności, chociaż jest nadal dostępny do użycia.
+*Zdegradowane* oznacza, że zasób wykrył utratę wydajności, chociaż nadal jest dostępny do użycia.
 
-Różne zasoby mają własne kryteria, kiedy zgłaszają, że są one zdegradowane.
+Różne zasoby mają własne kryteria w przypadku zgłaszania nieprawidłowej wydajności.
 
-![Stan *Zdegradowany* dla maszyny wirtualnej](./media/resource-health-overview/degraded.png)
+![Stan * obniżone * dla maszyny wirtualnej](./media/resource-health-overview/degraded.png)
 
 ## <a name="reporting-an-incorrect-status"></a>Zgłaszanie nieprawidłowego stanu
 
-Jeśli uważasz, że bieżący stan kondycji jest nieprawidłowy, możesz nam powiedzieć, wybierając **pozycję Zgłoś niepoprawny stan zdrowia**. W przypadkach, gdy problem z platformą Azure ma wpływ na Ciebie, zachęcamy do skontaktowania się z pomocą techniczną z kondycji zasobów.
+Jeśli uważasz, że bieżący stan kondycji jest nieprawidłowy, możesz powiedzieć nam, wybierając pozycję **Zgłoś nieprawidłowy stan kondycji**. W przypadkach, gdy problem z platformą Azure wpływa na Ciebie, zachęcamy do skontaktowania się z pomocą techniczną Resource Health.
 
 ![Formularz do przesyłania informacji o nieprawidłowym stanie](./media/resource-health-overview/incorrect-status.png)
 
-## <a name="history-information"></a>Informacje o historii
+## <a name="history-information"></a>Informacje historyczne
 
-Dostęp do maksymalnie 30 dni historii można uzyskać w sekcji **Historia kondycji** kondycji zasobów.
+Możesz uzyskać dostęp do 30-dniowej historii w sekcji **historia kondycji** Resource Health.
 
-![Lista zdarzeń kondycji zasobów w ciągu ostatnich dwóch tygodni](./media/resource-health-overview/history-blade.png)
+![Lista zdarzeń Resource Health w ciągu ostatnich dwóch tygodni](./media/resource-health-overview/history-blade.png)
 
 ## <a name="get-started"></a>Wprowadzenie
 
-Aby otworzyć kondycję zasobu dla jednego zasobu:
+Aby otworzyć Resource Health dla jednego zasobu:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 2. Przejdź do zasobu.
-3. W menu zasobów w lewym okienku wybierz pozycję **Kondycja zasobów**.
+3. W menu zasób w okienku po lewej stronie wybierz pozycję **kondycja zasobu**.
 
-![Otwieranie kondycji zasobów z widoku zasobu](./media/resource-health-overview/from-resource-blade.png)
+![Otwieranie Resource Health z widoku zasobów](./media/resource-health-overview/from-resource-blade.png)
 
-Dostęp do kondycji zasobów można również uzyskać, zaznaczając **pozycję Wszystkie usługi** i wpisując **kondycję zasobów** w polu tekstowym filtru. W okienku **Pomoc + obsługa** wybierz pozycję [Kondycja zasobów](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
+Dostęp do Resource Health można również uzyskać, wybierając pozycję **wszystkie usługi** i wpisując w polu tekstowym wartość **kondycja zasobu** . W okienku **Pomoc i obsługa techniczna** wybierz pozycję [kondycja zasobu](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
 
-![Otwieranie kondycji zasobów z "Wszystkie usługi"](./media/resource-health-overview/FromOtherServices.png)
+![Otwieranie Resource Health ze wszystkich usług](./media/resource-health-overview/FromOtherServices.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z tymi odwołaniami, aby dowiedzieć się więcej o kondycji zasobów:
--  [Typy zasobów i kontrole kondycji w kondycji zasobów platformy Azure](resource-health-checks-resource-types.md)
--  [Często zadawane pytania dotyczące kondycji zasobów platformy Azure](resource-health-faq.md)
+Zapoznaj się z tymi odwołaniami, aby dowiedzieć się więcej na temat Resource Health:
+-  [Typy zasobów i kontrole kondycji w Azure Resource Health](resource-health-checks-resource-types.md)
+-  [Często zadawane pytania dotyczące Azure Resource Health](resource-health-faq.md)

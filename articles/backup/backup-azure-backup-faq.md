@@ -4,10 +4,10 @@ description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Back
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.openlocfilehash: 039666c4b54da6ac5444f5aa5acda5f1bb438782
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80156059"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
@@ -22,7 +22,7 @@ Tak. Maksymalnie można utworzyć 500 magazynów usługi Recovery Services na ob
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Czy istnieją ograniczenia dotyczące liczby serwerów/maszyn, które można zarejestrować w każdym magazynie?
 
-W magazynie można zarejestrować maksymalnie 1000 maszyn wirtualnych platformy Azure. Jeśli używasz agenta kopii zapasowej platformy Microsoft Azure, możesz zarejestrować maksymalnie 50 agentów MARS na magazyn. Możesz też zarejestrować 50 serwerów MABS/DPM w skarbcu.
+W magazynie można zarejestrować maksymalnie 1000 maszyn wirtualnych platformy Azure. Jeśli używasz agenta Microsoft Azure Backup, możesz zarejestrować do 50 agentów MARS na magazyn. Można też 50 zarejestrować serwery serwera usługi MAB Server/serwery programu DPM w magazynie.
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Ile źródeł danych / elementów można objąć ochroną w magazynie?
 
@@ -75,7 +75,7 @@ Tak.
 
 Usługa Azure Backup obsługuje następujące systemy operacyjne w przypadku tworzenia kopii zapasowych plików i folderów oraz aplikacji chronionych przy użyciu serwera usługi Azure Backup i programu DPM.
 
-**System operacyjny** | **Numer jednostki magazynowej** | **Szczegóły**
+**Macintosh** | **Magazyn** | **Szczegóły**
 --- | --- | ---
 Stacja robocza | |
 Windows 10 (wersja 64-bitowa) | Enterprise, Pro, Home | Na maszynach powinny być uruchomione najnowsze dodatki Service Pack i aktualizacje.
@@ -117,13 +117,13 @@ W poniższej tabeli opisano sposób ustalania rozmiaru dla każdego źródła da
 --- | ---
 Wolumin |Ilość danych kopii zapasowej z jednego woluminu maszyny wirtualnej, którego kopia zapasowa jest wykonywana.
 Baza danych programu SQL Server |Rozmiar pojedynczej bazy danych SQL, której kopia zapasowa jest wykonywana.
-Program SharePoint | Suma baz danych z zawartością i danymi konfiguracyjnymi w farmie programu SharePoint, której kopia zapasowa jest wykonywana.
+SharePoint | Suma baz danych z zawartością i danymi konfiguracyjnymi w farmie programu SharePoint, której kopia zapasowa jest wykonywana.
 Exchange |Suma wszystkich baz danych programu Exchange w serwerze Exchange, którego kopia zapasowa jest wykonywana.
 Stan systemu/BMR |Każda pojedyncza kopia BMR lub stanu systemu komputera, którego kopia zapasowa jest wykonywana.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Czy istnieje ograniczenie ilości danych kopii zapasowej utworzonej przy użyciu magazynu usługi Recovery Services?
 
-Nie ma limitu całkowitej ilości danych, które można uzupełnić za pomocą magazynu usług odzyskiwania. Poszczególne źródła danych (inne niż maszyny wirtualne platformy Azure) mogą mieć maksymalnie rozmiar 54 400 GB. Aby uzyskać więcej informacji na temat limitów, zobacz [sekcję limity przechowalni w macierzy obsługi](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
+Nie ma żadnego limitu łącznej ilości danych, których kopię zapasową można utworzyć przy użyciu magazynu Recovery Services. Poszczególne źródła danych (inne niż maszyny wirtualne platformy Azure) mogą mieć maksymalnie 54 400 GB pamięci. Aby uzyskać więcej informacji na temat limitów, zobacz [sekcję limity magazynu w macierzy obsługi](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Dlaczego rozmiar danych przesyłanych do magazynu usługi Recovery Services jest mniejszy niż rozmiar danych wybranych do utworzenia kopii zapasowej?
 

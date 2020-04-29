@@ -1,6 +1,6 @@
 ---
-title: Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej sieci wirtualnej — interfejs wiersza polecenia platformy Azure
-description: W tym artykule dowiesz się, jak połączyć sieci wirtualne z komunikacją równorzędową sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej VNet — interfejs wiersza polecenia platformy Azure
+description: W tym artykule dowiesz się, jak połączyć sieci wirtualne za pomocą komunikacji równorzędnej sieci wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -16,13 +16,13 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: aa2d75173b14e768a207336b54b3dc10a8c3ea5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235162"
 ---
-# <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Łączenie sieci wirtualnych z komunikacją równorzędnie sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej sieci wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Sieci wirtualne możesz łączyć ze sobą za pomocą komunikacji równorzędnej sieci wirtualnych. Po połączeniu sieci wirtualnych za pomocą komunikacji równorzędnej zasoby w obu sieciach wirtualnych mogą komunikować się ze sobą przy takim samym opóźnieniu i z taką samą przepustowością, jakby zasoby były w tej samej sieci wirtualnej. W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -31,11 +31,11 @@ Sieci wirtualne możesz łączyć ze sobą za pomocą komunikacji równorzędnej
 * Wdrażanie maszyny wirtualnej w każdej sieci wirtualnej
 * Nawiązywanie komunikacji między maszynami wirtualnymi
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować i używać interfejsu wiersza polecenia lokalnie, ten artykuł wymaga, aby uruchomić interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="create-virtual-networks"></a>Tworzenie sieci wirtualnych
 
@@ -69,7 +69,7 @@ az network vnet create \
 
 ## <a name="peer-virtual-networks"></a>Tworzenia komunikacji równorzędnej sieci wirtualnych
 
-Komunikacji równorzędnej są ustanawiane między identyfikatorami sieci wirtualnej, więc najpierw należy uzyskać identyfikator każdej sieci wirtualnej z [az network vnet show](/cli/azure/network/vnet) i przechowywać identyfikator w zmiennej.
+Komunikacja równorzędna jest ustanawiana między identyfikatorami sieci wirtualnych, dlatego należy najpierw uzyskać identyfikator każdej sieci wirtualnej za pomocą [AZ Network VNET show](/cli/azure/network/vnet) i Zapisz identyfikator w zmiennej.
 
 ```azurecli-interactive
 # Get the id for myVirtualNetwork1.
@@ -86,7 +86,7 @@ vNet2Id=$(az network vnet show \
   --out tsv)
 ```
 
-Tworzenie komunikacji równorzędnej z *myVirtualNetwork1* do *myVirtualNetwork2* z [siecią sieci az równość sieci utworzyć](/cli/azure/network/vnet/peering). Jeśli `--allow-vnet-access` parametr nie jest określony, jest ustanawiana komunikacja równorzędna, ale nie może przepływać przez nią komunikacja.
+Utwórz komunikację równorzędną od *myVirtualNetwork1* do *myVirtualNetwork2* przy użyciu [AZ Network VNET peering Create](/cli/azure/network/vnet/peering). Jeśli `--allow-vnet-access` parametr nie jest określony, Komunikacja równorzędna zostanie ustanowiona, ale nie będzie można z niej przepływać.
 
 ```azurecli-interactive
 az network vnet peering create \
@@ -97,7 +97,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-W danych wyjściowych zwróconych po wykonaniu poprzedniego polecenia widać, że **zainicjowano stan równorzędny** . *Initiated* Komunikacja równorzędna pozostaje w stanie *Inicjowane,* dopóki nie utworzysz komunikacji równorzędnej z *myVirtualNetwork2* do *myVirtualNetwork1*. Tworzenie peering z *myVirtualNetwork2* do *myVirtualNetwork1*. 
+W danych wyjściowych zwróconych po poprzednim wykonaniu polecenia zobaczysz, że **peeringState** jest *inicjowana*. Komunikacja równorzędna pozostaje w stanie *zainicjowania* , dopóki nie utworzysz komunikacji równorzędnej z *myVirtualNetwork2* do *myVirtualNetwork1*. Utwórz komunikację równorzędną od *myVirtualNetwork2* do *myVirtualNetwork1*. 
 
 ```azurecli-interactive
 az network vnet peering create \
@@ -108,7 +108,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-W danych wyjściowych zwróconych po wykonaniu poprzedniego polecenia widać, że **peeringState** jest *Połączony*. Platforma Azure zmieniła również stan komunikacji równorzędnej *myVirtualNetwork1-myVirtualNetwork2* w komunikacji równorzędnej *z connected*. Upewnij się, że stan komunikacji równorzędnej dla *myVirtualNetwork1-myVirtualNetwork2* peering zmieniono na *Połączony* z [siecią az vnet peering show](/cli/azure/network/vnet/peering).
+W danych wyjściowych zwróconych po poprzednim wykonaniu polecenia zobaczysz, że **peeringState** jest *połączony*. Na platformie Azure zmieniono także stan komunikacji równorzędnej *myVirtualNetwork1-myVirtualNetwork2* , aby *nawiązać połączenie*. Upewnij się, że stan komunikacji równorzędnej dla komunikacji równorzędnej *myVirtualNetwork1-myVirtualNetwork2* został zmieniony na *podłączony* przy użyciu [AZ Network VNET peering show](/cli/azure/network/vnet/peering).
 
 ```azurecli-interactive
 az network vnet peering show \
@@ -118,7 +118,7 @@ az network vnet peering show \
   --query peeringState
 ```
 
-Zasoby w jednej sieci wirtualnej nie mogą komunikować się z zasobami w innej sieci wirtualnej, dopóki **stan komunikacji równorzędnej** dla komunikacji równorzędnej w obu sieciach wirtualnych jest *Połączony*. 
+Zasoby w jednej sieci wirtualnej nie mogą komunikować się z zasobami w innej sieci wirtualnej, dopóki nie zostanie *nawiązane* **peeringState** połączeń równorzędnych w obu sieciach wirtualnych. 
 
 ## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
@@ -126,7 +126,7 @@ Utwórz maszynę wirtualną w każdej sieci wirtualnej, dzięki czemu będzie mo
 
 ### <a name="create-the-first-vm"></a>Tworzenie pierwszej maszyny wirtualnej
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). Poniższy przykład tworzy maszynę wirtualną o nazwie *myVm1* w sieci wirtualnej *myVirtualNetwork1.* Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`. Opcja `--no-wait` tworzy maszynę wirtualną w tle, dzięki czemu można przejść do następnego kroku.
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). Poniższy przykład tworzy MASZYNę wirtualną o nazwie *myVm1* w sieci wirtualnej *myVirtualNetwork1* . Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`. `--no-wait` Opcja tworzy maszynę wirtualną w tle, dzięki czemu można przejść do następnego kroku.
 
 ```azurecli-interactive
 az vm create \
@@ -141,7 +141,7 @@ az vm create \
 
 ### <a name="create-the-second-vm"></a>Tworzenie drugiej maszyny wirtualnej
 
-Utwórz maszynę wirtualną w sieci wirtualnej *myVirtualNetwork2.*
+Utwórz MASZYNę wirtualną w sieci wirtualnej *myVirtualNetwork2* .
 
 ```azurecli-interactive
 az vm create \
@@ -153,7 +153,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-W ciągu kilku minut zostanie utworzona maszyna wirtualna. Po utworzeniu maszyny Wirtualnej interfejsu wiersza polecenia platformy Azure zawiera informacje podobne do następującego przykładu: 
+W ciągu kilku minut zostanie utworzona maszyna wirtualna. Po utworzeniu maszyny wirtualnej interfejs wiersza polecenia platformy Azure wyświetli informacje podobne do następującego przykładu: 
 
 ```output
 {
@@ -168,29 +168,29 @@ W ciągu kilku minut zostanie utworzona maszyna wirtualna. Po utworzeniu maszyny
 }
 ```
 
-Zanotuj wartość adresu **publicIpAddress**. Ten adres jest używany do uzyskiwania dostępu do maszyny Wirtualnej z Internetu w późniejszym kroku.
+Zanotuj wartość adresu **publicIpAddress**. Ten adres jest używany w celu uzyskania dostępu do maszyny wirtualnej z Internetu w późniejszym kroku.
 
 ## <a name="communicate-between-vms"></a>Nawiązywanie komunikacji między maszynami wirtualnymi
 
-Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną wirtualną *myVm2.* Zamień `<publicIpAddress>` publiczny adres IP maszyny Wirtualnej. W poprzednim przykładzie publiczny adres IP to *13.90.242.231*.
+Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną wirtualną *myVm2* . Zastąp `<publicIpAddress>` wartość publicznym adresem IP maszyny wirtualnej. W poprzednim przykładzie publiczny adres IP to *13.90.242.231*.
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-Ping maszyny Wirtualnej w *myVirtualNetwork1*.
+Wyślij polecenie ping do maszyny wirtualnej w *myVirtualNetwork1*.
 
 ```bash
 ping 10.0.0.4 -c 4
 ```
 
-Otrzymasz cztery odpowiedzi. 
+Otrzymujesz cztery odpowiedzi. 
 
-Zamknij sesję SSH na maszynie wirtualnej *myVm2.* 
+Zamknij sesję SSH z maszyną wirtualną *myVm2* . 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie jest już potrzebne, użyj [az group delete,](/cli/azure/group) aby usunąć grupę zasobów i wszystkie zasoby, które zawiera.
+Gdy nie jest już potrzebne, użyj [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -198,6 +198,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule opisano, jak połączyć dwie sieci w tym samym regionie platformy Azure z komunikacją równorzędna sieci wirtualnej. Możesz też nawiązać komunikację równorzędną między sieciami wirtualnymi w różnych [obsługiwanych regionach](virtual-network-manage-peering.md#cross-region) i w [różnych subskrypcjach platformy Azure](create-peering-different-subscriptions.md#cli), a także utworzyć [projekty sieci w topologii gwiazdy](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) z komunikacją równorzędną. Aby dowiedzieć się więcej na temat komunikacji równorzędnej sieci wirtualnych, zobacz [Virtual network peering overview (Omówienie komunikacji równorzędnej sieci wirtualnych)](virtual-network-peering-overview.md) i [Manage virtual network peerings (Zarządzanie komunikacją równorzędną sieci wirtualnych)](virtual-network-manage-peering.md).
+W tym artykule przedstawiono sposób łączenia dwóch sieci w tym samym regionie świadczenia usługi Azure przy użyciu komunikacji równorzędnej sieci wirtualnych. Możesz też nawiązać komunikację równorzędną między sieciami wirtualnymi w różnych [obsługiwanych regionach](virtual-network-manage-peering.md#cross-region) i w [różnych subskrypcjach platformy Azure](create-peering-different-subscriptions.md#cli), a także utworzyć [projekty sieci w topologii gwiazdy](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) z komunikacją równorzędną. Aby dowiedzieć się więcej na temat komunikacji równorzędnej sieci wirtualnych, zobacz [Virtual network peering overview (Omówienie komunikacji równorzędnej sieci wirtualnych)](virtual-network-peering-overview.md) i [Manage virtual network peerings (Zarządzanie komunikacją równorzędną sieci wirtualnych)](virtual-network-manage-peering.md).
 
-Można [podłączyć własny komputer do sieci wirtualnej](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) za pośrednictwem sieci VPN i wchodzić w interakcje z zasobami w sieci wirtualnej lub w sieciach wirtualnych równorzędnych. Aby uzyskać skrypty wielokrotnego użytku, aby wykonać wiele zadań objętych artykułami sieci wirtualnej, zobacz [przykłady skryptów](cli-samples.md).
+Możesz [połączyć własny komputer z siecią wirtualną](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) za pośrednictwem sieci VPN i korzystać z zasobów w sieci wirtualnej lub w sieciach wirtualnych połączonych za pomocą komunikacji równorzędnej. Aby skrypty wielokrotnego użytku wykonali wiele zadań objętych artykułami sieci wirtualnych, zobacz [przykłady skryptów](cli-samples.md).

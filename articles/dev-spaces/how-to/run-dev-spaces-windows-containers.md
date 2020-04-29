@@ -3,24 +3,24 @@ title: Interakcja z kontenerami systemu Windows
 services: azure-dev-spaces
 ms.date: 01/16/2020
 ms.topic: conceptual
-description: Dowiedz się, jak uruchomić usługi Azure Dev Spaces w istniejącym klastrze z kontenerami systemu Windows
-keywords: Miejsca deweloperów platformy Azure, przestrzenie deweloperów, platforma do dokowania, sieci Kubernetes, platforma Azure, usługa AKS, usługa Azure Kubernetes, kontenery, kontenery systemu Windows
+description: Dowiedz się, jak uruchamiać Azure Dev Spaces w istniejącym klastrze przy użyciu kontenerów systemu Windows
+keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, kontenery systemu Windows
 ms.openlocfilehash: 0b3f221c9e62343a02ba8742e4cf988c7cf26c12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240484"
 ---
-# <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interakcja z kontenerami systemu Windows przy użyciu usługi Azure Dev Spaces
+# <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Korzystanie z kontenerów systemu Windows przy użyciu Azure Dev Spaces
 
-Można włączyć usługi Azure Dev Spaces zarówno w nowych, jak i istniejących obszarach nazw kubernetes. Usługa Azure Dev Spaces będzie działać i instruować usługi, które są uruchamiane na kontenerach systemu Linux. Te usługi mogą również wchodzić w interakcje z aplikacjami, które są uruchamiane w kontenerach systemu Windows w tym samym obszarze nazw. W tym artykule pokazano, jak używać przestrzeni deweloperskich do uruchamiania usług w obszarze nazw z istniejącymi kontenerami systemu Windows. W tej chwili nie można debugować ani dołączać do kontenerów systemu Windows za pomocą usługi Azure Dev Spaces.
+Azure Dev Spaces można włączyć zarówno dla nowych, jak i istniejących przestrzeni nazw Kubernetes. Azure Dev Spaces uruchomi i Instrumentacja usług, które działają w kontenerach systemu Linux. Te usługi mogą również współdziałać z aplikacjami uruchamianymi w kontenerach systemu Windows w tej samej przestrzeni nazw. W tym artykule pokazano, jak za pomocą funkcji miejsca do magazynowania uruchamiać usługi w przestrzeni nazw z istniejącymi kontenerami systemu Windows. W tej chwili nie można debugować ani dołączać do kontenerów systemu Windows przy użyciu Azure Dev Spaces.
 
 ## <a name="set-up-your-cluster"></a>Konfigurowanie klastra
 
-W tym artykule założono, że masz już klaster z pulami węzłów systemu Linux i Windows. Jeśli chcesz utworzyć klaster z pulami węzłów Linux i Windows, możesz postępować zgodnie z instrukcjami [tutaj][windows-container-cli].
+W tym artykule przyjęto założenie, że istnieje już klaster z pulami węzłów systemu Linux i Windows. Jeśli musisz utworzyć klaster z pulami węzłów systemu Linux i Windows, możesz postępować zgodnie z instrukcjami znajdującymi się [tutaj][windows-container-cli].
 
-Połącz się z klastrem za pomocą [kubectl][kubectl], klienta wiersza polecenia Kubernetes. Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, użyj polecenia [az aks get-credentials][az-aks-get-credentials]. To polecenie powoduje pobranie poświadczeń i zastosowanie ich w konfiguracji interfejsu wiersza polecenia Kubernetes.
+Nawiąż połączenie z klastrem za pomocą [polecenia kubectl][kubectl], Kubernetes klienta wiersza polecenia. Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, użyj polecenia [az aks get-credentials][az-aks-get-credentials]. To polecenie powoduje pobranie poświadczeń i zastosowanie ich w konfiguracji interfejsu wiersza polecenia Kubernetes.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -32,7 +32,7 @@ Aby sprawdzić połączenie z klastrem, użyj polecenia [kubectl get][kubectl-ge
 kubectl get nodes
 ```
 
-Poniższe przykładowe dane wyjściowe przedstawia klaster z węzłem Systemu Windows i Linux. Upewnij się, że stan jest *gotowy* dla każdego węzła przed kontynuowaniem.
+Następujące przykładowe dane wyjściowe pokazują klaster z węzłem systemu Windows i Linux. Przed kontynuowaniem upewnij się, że stan jest *gotowy* dla każdego węzła.
 
 ```console
 NAME                                STATUS   ROLES   AGE    VERSION
@@ -41,27 +41,27 @@ aks-nodepool1-12345678-vmss000001   Ready    agent   13m    v1.14.8
 aksnpwin000000                      Ready    agent   108s   v1.14.8
 ```
 
-Zastosuj [skazę][using-taints] do węzłów systemu Windows. Skażenie w węzłach systemu Windows uniemożliwia tworzenie przestrzeni deweloperskich z planowania kontenerów systemu Linux do uruchomienia w węzłach systemu Windows. Poniższe polecenie przykładowe polecenie stosuje skazę do węzła systemu Windows *aksnpwin987654* z poprzedniego przykładu.
+Zastosuj [przybarwienie][using-taints] do węzłów systemu Windows. W przypadku węzłów systemu Windows nie można używać funkcji tworzenia obszarów programistycznych, które mogą być uruchamiane w węzłach systemu Windows. Poniższe polecenie przykładowe polecenie stosuje przebarwienie do węzła systemu Windows *aksnpwin987654* z poprzedniego przykładu.
 
 ```azurecli-interactive
 kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 ```
 
 > [!IMPORTANT]
-> Po zastosowaniu skazy do węzła, należy skonfigurować pasujące tolerancji w szablonie wdrażania usługi, aby uruchomić usługę w tym węźle. Przykładowa aplikacja jest już skonfigurowana z [dopasowującą tolerancją][sample-application-toleration-example] do taint skonfigurowanego w poprzednim poleceniu.
+> Po zastosowaniu zmiany czasu do węzła należy skonfigurować dopasowanie tolerowania w szablonie wdrożenia usługi, aby uruchomić usługę w tym węźle. Aplikacja Przykładowa jest już skonfigurowana z [dopasowaniem][sample-application-toleration-example] do celu, który został skonfigurowany w poprzednim poleceniu.
 
 ## <a name="run-your-windows-service"></a>Uruchamianie usługi systemu Windows
 
-Uruchom usługę systemu Windows w klastrze AKS i sprawdź, czy jest w stanie *uruchomionym.* W tym artykule użyto [przykładowej aplikacji][sample-application] do zademonstrowania usługi Windows i Linux uruchomionej w klastrze.
+Uruchom usługę systemu Windows w klastrze AKS i sprawdź, czy jest w stanie *uruchomionym* . W tym artykule jest używana [Przykładowa aplikacja][sample-application] do zademonstrowania usługi systemu Windows i Linux działającej w klastrze.
 
-Sklonuj przykładową aplikację z gitHub i przejdź do `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` katalogu:
+Sklonuj przykładową aplikację z witryny GitHub i przejdź do `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` katalogu:
 
 ```console
 git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-Przykładowa aplikacja używa [helm 3][helm-installed] do uruchomienia usługi Windows w klastrze. Przejdź do `charts` katalogu i użyj Helm uruchom usługę Windows:
+Przykładowa aplikacja używa [Helm 3][helm-installed] do uruchamiania usługi systemu Windows w klastrze. Przejdź do `charts` katalogu i Użyj usługi Helm, aby uruchomić usługę systemu Windows:
 
 ```console
 cd charts/
@@ -69,9 +69,9 @@ kubectl create ns dev
 helm install windows-service . --namespace dev
 ```
 
-Powyższe polecenie używa helm do uruchomienia usługi systemu Windows w obszarze nazw *deweloperów.* Jeśli nie masz obszaru nazw o nazwie *dev,* zostanie ona utworzona.
+Powyższe polecenie używa Helm do uruchamiania usługi systemu Windows w przestrzeni nazw *dev* . Jeśli nie masz przestrzeni nazw o nazwie *dev*, zostanie ona utworzona.
 
-Użyj `kubectl get pods` polecenia, aby sprawdzić, czy usługa systemu Windows jest uruchomiona w klastrze. 
+Użyj polecenia `kubectl get pods` , aby sprawdzić, czy usługa systemu Windows jest uruchomiona w klastrze. 
 
 ```console
 $ kubectl get pods --namespace dev --watch
@@ -81,17 +81,17 @@ myapi-4b9667d123-1a2b3   0/1     ContainerCreating   0          47s
 myapi-4b9667d123-1a2b3   1/1     Running             0          98s
 ```
 
-## <a name="enable-azure-dev-spaces"></a>Włączanie pomieszczeń deweloperskich platformy Azure
+## <a name="enable-azure-dev-spaces"></a>Włącz Azure Dev Spaces
 
-Włącz miejsca dewelopera w tym samym obszarze nazw, który był używany do uruchamiania usługi systemu Windows. Następujące polecenie włącza miejsca programu Dev Spaces w obszarze nazw *deweloperów:*
+Włącz funkcję Spaces dev w tej samej przestrzeni nazw, która była używana do uruchamiania usługi systemu Windows. Następujące polecenie włącza miejsca deweloperskie w przestrzeni nazw *dev* :
 
 ```console
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster --space dev --yes
 ```
 
-## <a name="update-your-windows-service-for-dev-spaces"></a>Aktualizowanie usługi systemu Windows dla miejsc deweloperskich
+## <a name="update-your-windows-service-for-dev-spaces"></a>Aktualizowanie usługi systemu Windows pod kątem funkcji dev Spaces
 
-Po włączeniu obszarów deweloperskich na istniejącym obszarze nazw z kontenerami, które są już uruchomione, domyślnie dev spaces spróbuje przywzwiczają wszystkie nowe kontenery uruchamiane w tym obszarze nazw. Dev Spaces spróbuje również przywdzwać wszystkie nowe kontenery utworzone dla usługi już uruchomionej w obszarze nazw. Aby zapobiec instrumentacji kontenera działającego w obszarze nazw w obszarze `deployment.yaml`nazw, dodaj nagłówek bez serwera *proxy* do pliku .
+Po włączeniu funkcji miejsca deweloperskie w istniejącej przestrzeni nazw z kontenerami, które są już uruchomione, funkcja miejsca deweloperskie będzie podejmować próby i instrumentować wszystkie nowe kontenery, które działają w tej przestrzeni nazw. Miejsca deweloperskie również będą próbować i instrumentować wszelkie nowe kontenery utworzone dla usługi już uruchomionej w przestrzeni nazw. Aby zapobiec występowaniu przez funkcję miejsca do magazynowania kontenera działającego w przestrzeni nazw, Dodaj nagłówek *no-proxy* do obiektu `deployment.yaml`.
 
 Dodaj `azds.io/no-proxy: "true"` do `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` pliku:
 
@@ -112,7 +112,7 @@ spec:
         azds.io/no-proxy: "true"
 ```
 
-Służy `helm list` do wyliowania listy wdrożenia usługi systemu Windows:
+Użyj `helm list` , aby wyświetlić listę wdrożenia usługi systemu Windows:
 
 ```cmd
 $ helm list --namespace dev
@@ -120,17 +120,17 @@ NAME              REVISION  UPDATED                     STATUS      CHART       
 windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-W powyższym przykładzie nazwa wdrożenia to *usługa windows.* Zaktualizuj usługę systemu `helm upgrade`Windows o nową konfigurację za pomocą :
+W powyższym przykładzie nazwa wdrożenia to *Windows-Service*. Zaktualizuj usługę systemu Windows za pomocą nowej konfiguracji przy `helm upgrade`użyciu:
 
 ```cmd
 helm upgrade windows-service . --namespace dev
 ```
 
-Od czasu `deployment.yaml`zaktualizowania usługi Dev Spaces nie będzie próbował aranżować usługi.
+Ze względu na `deployment.yaml`to, że zostały zaktualizowane, obszary deweloperów nie będą próbować i instrumentować usługi.
 
-## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Uruchamianie aplikacji systemu Linux za pomocą usługi Azure Dev Spaces
+## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Uruchamianie aplikacji systemu Linux przy użyciu Azure Dev Spaces
 
-Przejdź do `webfrontend` katalogu i `azds prep` użyj `azds up` i poleceń, aby uruchomić aplikację Systemu Linux w klastrze.
+Przejdź do `webfrontend` katalogu i Użyj poleceń `azds prep` i `azds up` , aby uruchomić aplikację systemu Linux w klastrze.
 
 ```console
 cd ../../webfrontend-linux/
@@ -138,12 +138,12 @@ azds prep --enable-ingress
 azds up
 ```
 
-Polecenie `azds prep --enable-ingress` generuje wykres Helm i pliki dockerfiles dla aplikacji.
+`azds prep --enable-ingress` Polecenie generuje wykres Helm i wieloetapowe dockerfile dla aplikacji.
 
 > [!TIP]
-> [Wykres Dockerfile i Helm](../how-dev-spaces-works-prep.md#prepare-your-code) dla projektu jest używany przez usługę Azure Dev Spaces do tworzenia i uruchamiania kodu, ale można zmodyfikować te pliki, jeśli chcesz zmienić sposób tworzenia i uruchamiania projektu.
+> [Wykres pliku dockerfile i Helm](../how-dev-spaces-works-prep.md#prepare-your-code) dla projektu jest używany przez Azure dev Spaces do kompilowania i uruchamiania kodu, ale można modyfikować te pliki, jeśli chcesz zmienić sposób kompilowania i wykonywania projektu.
 
-Polecenie `azds up` uruchamia usługę w obszarze nazw.
+`azds up` Polecenie uruchamia usługę w przestrzeni nazw.
 
 ```console
 $ azds up
@@ -161,16 +161,16 @@ Service 'webfrontend' port 'http' is available at http://dev.webfrontend.abcdef0
 Service 'webfrontend' port 80 (http) is available via port forwarding at http://localhost:57648
 ```
 
-Możesz zobaczyć usługę uruchomiona przez otwarcie publicznego adresu URL, który jest wyświetlany w danych wyjściowych z polecenia azds up. W tym przykładzie publiczny `http://dev.webfrontend.abcdef0123.eus.azds.io/`adres URL to . Przejdź do usługi w przeglądarce i kliknij przycisk *Informacje* u góry. Sprawdź, czy zostanie wyświetlony komunikat z usługi *mywebapi* zawierający wersję systemu Windows, z której korzysta kontener.
+Możesz zobaczyć, że usługa jest uruchomiona, otwierając publiczny adres URL, który jest wyświetlany w danych wyjściowych polecenia azds. W tym przykładzie publiczny adres URL to `http://dev.webfrontend.abcdef0123.eus.azds.io/`. Przejdź do usługi w przeglądarce i kliknij pozycję *informacje* w górnej części strony. Sprawdź, czy zostanie wyświetlony komunikat z usługi *mywebapi* zawierającej wersję systemu Windows, z której korzysta kontener.
 
-![Przykładowa aplikacja przedstawiająca wersję systemu Windows z mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
+![Przykładowa aplikacja pokazująca wersję systemu Windows z mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak usługa Azure Dev Spaces pomaga tworzyć bardziej złożone aplikacje w wielu kontenerach i jak można uprościć tworzenie współpracy, pracując z różnymi wersjami lub gałęziami kodu w różnych przestrzeniach.
+Dowiedz się, jak Azure Dev Spaces ułatwiają tworzenie bardziej złożonych aplikacji w wielu kontenerach i jak można uprościć programowanie do współpracy, pracując z różnymi wersjami lub gałęziami kodu w różnych miejscach.
 
 > [!div class="nextstepaction"]
-> [Tworzenie zespołów w usłudze Azure Dev Spaces][team-development-qs]
+> [Programowanie zespołowe w Azure Dev Spaces][team-development-qs]
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
