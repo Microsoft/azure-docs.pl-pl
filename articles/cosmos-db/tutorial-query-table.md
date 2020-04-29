@@ -1,6 +1,6 @@
 ---
 title: Jak wykonywać zapytania względem danych tabeli w usłudze Azure Cosmos DB?
-description: Dowiedz się, jak wysyłać zapytania do danych przechowywanych na koncie interfejsu API tabeli usługi Azure Cosmos DB przy użyciu filtrów OData i zapytań LINQ
+description: Dowiedz się, jak wykonywać zapytania dotyczące danych przechowywanych na koncie Azure Cosmos DB interfejs API tabel przy użyciu filtrów OData i zapytań LINQ
 author: sakash279
 ms.author: akshanka
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 8f31ace0045dad2f038a1eded52a41ffb1932f99
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76770482"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Samouczek: Wykonywanie zapytań w usłudze Azure Cosmos DB przy użyciu interfejsu API tabel
@@ -26,7 +26,7 @@ W tym artykule opisano następujące zadania:
 
 Zapytania w tym artykule korzystają z następującej przykładowej tabeli `People`:
 
-| PartitionKey | RowKey | Adres e-mail | PhoneNumber |
+| PartitionKey | RowKey | Poczta e-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0101 |
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
@@ -50,7 +50,7 @@ https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')
 ```
 **Wyniki**
 
-| PartitionKey | RowKey | Adres e-mail | PhoneNumber |
+| PartitionKey | RowKey | Poczta e-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0104 |
 
@@ -76,7 +76,7 @@ Aby uzyskać więcej informacji na temat sposobu tworzenia wyrażenia filtru dla
 
 **Wyniki**
 
-| PartitionKey | RowKey | Adres e-mail | PhoneNumber |
+| PartitionKey | RowKey | Poczta e-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Smith |Ben | Ben@contoso.com| 425-555-0102 |
 

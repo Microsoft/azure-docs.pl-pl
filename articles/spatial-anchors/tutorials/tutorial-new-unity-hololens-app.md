@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Tworzenie nowej aplikacji HoloLens Unity'
-description: W tym samouczku dowiesz się, jak utworzyć nową aplikację HoloLens Unity przy użyciu zakotwiczeń przestrzennych platformy Azure.
+description: W ramach tego samouczka dowiesz się, jak utworzyć nową aplikację aparatu HoloLens Unity przy użyciu kotwic przestrzennych platformy Azure.
 author: julianparismorgan
 manager: vriveras
 services: azure-spatial-anchors
@@ -9,222 +9,222 @@ ms.date: 07/05/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: e1abb759c80e770f1e650c232b6b2e21232b7e6f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75457723"
 ---
-# <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Samouczek: Instrukcje krok po kroku dotyczące tworzenia nowej aplikacji HoloLens Unity przy użyciu zakotwiczeń przestrzennych platformy Azure
+# <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Samouczek: instrukcje krok po kroku dotyczące tworzenia nowej aplikacji HoloLens Unity przy użyciu kotwic przestrzennych platformy Azure
 
-W tym samouczku pokazano, jak utworzyć nową aplikację HoloLens Unity za pomocą funkcji Azure Spatial Anchors.
+W tym samouczku pokazano, jak utworzyć nową aplikację usługi HoloLens Unity z zakotwiczeniami przestrzennymi platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć kroki tego samouczka, upewnij się, że dysponujesz następującymi elementami:
 
-1. Komputer z systemem Windows z <a href="https://www.visualstudio.com/downloads/" target="_blank">programem Visual Studio 2017+</a> zainstalowany z obciążeniem **deweloperskim platformy systemu** Windows i składnikiem **SDK systemu Windows 10.0.18362.0 lub nowszym oraz** <a href="https://git-scm.com/download/win" target="_blank">Git dla systemu Windows</a>.
+1. Maszyna z systemem Windows z programem <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 +</a> zainstalowana z **platforma uniwersalna systemu Windows obciążenie programowaniem** oraz składnikiem **Windows 10 SDK (10.0.18362.0 lub nowszym)** i <a href="https://git-scm.com/download/win" target="_blank">git dla systemu Windows</a>.
 2. Powinno być zainstalowane rozszerzenie [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) dla programu Visual Studio z usługi [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 3. Urządzenie HoloLens z włączonym [trybem dewelopera](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio). Ten artykuł wymaga urządzenia HoloLens z [aktualizacją systemu Windows z 10 października 2018 r.](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 ) (znaną także jako RS5). Aby wykonać aktualizację do najnowszej wersji na urządzeniu HoloLens, otwórz aplikację **Ustawienia**, przejdź do pozycji **Aktualizacja i zabezpieczenia**, a następnie wybierz przycisk **Sprawdź dostępność aktualizacji**.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Najpierw utworzymy nasz projekt i scenę Unity:
-1. Rozpocznij jedność.
-2. Wybierz **pozycję Nowy**.
-4. Upewnij się, że wybrano **opcję 3D.**
-5. Nadaj nazwę projektowi i wprowadź pozycję zapisz **lokalizację**.
-6. Kliknij **pozycję Utwórz projekt**.
-7. Zapisz pustą scenę domyślną w nowym pliku za pomocą: **Zapisz plik** > **jako**.
-8. Nazwij nową scenę **Main** i naciśnij przycisk **Zapisz.**
+Najpierw skonfigurujemy nasze sceny projektowe i Unity:
+1. Uruchom środowisko Unity.
+2. Wybierz pozycję **Nowy**.
+4. Upewnij się, że wybrano **3W** .
+5. Nazwij projekt i wprowadź **lokalizację**zapisywania.
+6. Kliknij pozycję **Utwórz projekt**.
+7. Zapisz pustą domyślną scenę w nowym pliku przy użyciu polecenia: **plik** > **Zapisz jako**.
+8. Nazwij nową scenę **główną** i naciśnij przycisk **Zapisz** .
 
 **Konfigurowanie ustawień projektu**
 
-Teraz ustawimy niektóre ustawienia projektu Unity, które pomogą nam kierować zestaw holograficzny zestawu Windows SDK do programowania.
+Teraz ustawimy ustawienia projektu środowiska Unity, które pomagają nam określić zestaw SDK systemu Windows Holographic na potrzeby programowania.
 
-Najpierw ustawiamy ustawienia jakości dla naszej aplikacji.
-1. Wybieranie **opcji Edytuj** > **jakość** **ustawień** > projektu
-2. W kolumnie pod logo **Sklepu Windows** kliknij strzałkę w wierszu **Domyślny** i wybierz pozycję **Bardzo niski**. Zobaczysz, że ustawienie jest stosowane poprawnie, gdy pole w kolumnie **Sklep Windows** i wiersz **Bardzo niski** jest zielony.
+Po pierwsze, program umożliwia ustawianie ustawień jakości dla naszej aplikacji.
+1. Wybierz pozycję **Edytuj** > **Ustawienia** > projektu**jakość**
+2. W kolumnie pod logo **sklepu Windows** kliknij strzałkę w wierszu **domyślny** i wybierz opcję **bardzo niska**. Wiadomo, że ustawienie jest stosowane poprawnie, gdy pole w kolumnie **Sklep Windows** i **bardzo niski** wiersz jest zielony.
 
-Musimy poinformować Unity, że aplikacja, którą próbujemy wyeksportować, powinna utworzyć widok wciągający zamiast widoku 2D. Tworzymy wciągający widok, włączając obsługę wirtualnej rzeczywistości w unity kierowania windows 10 SDK.
+Musimy poinformować aparat Unity, że aplikacja, którą próbujesz wyeksportować, powinna utworzyć widok immersyjny zamiast widoku 2D. Tworzymy widok immersyjny, włączając obsługę wirtualnej rzeczywistości w aparacie Unity przeznaczonym dla zestawu SDK systemu Windows 10.
 
-1. Przejdź do **pozycji Edytuj** > **odtwarzacz****ustawień** > projektu .
-2. W **Panelu Inspektora** **ustawień odtwarzacza**wybierz ikonę **Sklepu Windows.**
-3. Rozwiń grupę **Ustawienia XR.**
-4. W sekcji **Renderowanie** zaznacz pole wyboru **Obsługiwane przez wirtualną rzeczywistość,** aby dodać nową listę **zestawów SDK rzeczywistości wirtualnej.**
-5. Sprawdź, czy na liście jest wyświetlana **rzeczywistość mieszana** systemu Windows. Jeśli nie, **+** wybierz przycisk u dołu listy i wybierz pozycję **Windows Mixed Reality**.
+1. Przejdź do pozycji **Edytuj** > **Ustawienia** > projektu**odtwarzacz**.
+2. W **panelu Inspektora** **Ustawienia odtwarzacza**wybierz ikonę **sklepu Windows** .
+3. Rozwiń grupę **ustawień XR** .
+4. W sekcji **renderowanie** zaznacz pole wyboru zapoznaj **wirtualną rzeczywistość** , aby dodać nową listę **SDK rzeczywistości wirtualnej** .
+5. Sprawdź, czy na liście pojawi się wartość **Windows Mixed Reality** . W przeciwnym razie wybierz **+** przycisk w dolnej części listy i wybierz pozycję **Windows Mixed Reality**.
 
 > [!NOTE]
-> Jeśli nie widzisz ikony Sklepu Windows, przed instalacją sprawdź dokładnie, czy wybrano wybraną wybraną wybraną wybraną wybraną wybraną wybraną wybraną wybraną wybraną wybraną wybraną wybraną wybraną wybraną wybraną wybraną wyewidenc Jeśli nie, może być konieczne ponowne zainstalowanie unity z poprawną instalacją systemu Windows.
+> Jeśli ikona sklepu Windows nie jest widoczna, należy zaznaczyć pole wyboru Sprawdź, czy przed instalacją została wybrana wewnętrzna baza danych do obsługi skryptów .NET sklepu Windows. W przeciwnym razie może być konieczne ponowne zainstalowanie aparatu Unity przy użyciu poprawnej instalacji systemu Windows.
 
-**Weryfikowanie konfiguracji wewnętrznej bazy danych skryptów**
-1. Przejdź do **pozycji Edytuj** > **odtwarzacz** **ustawień** > projektu (nadal możesz mieć otwarty **odtwarzacz** z poprzedniego kroku).
-2. W **Panelu Inspektora** **ustawień odtwarzacza**wybierz ikonę **Sklepu Windows.**
-3. W sekcji **Konfiguracja innych ustawień** upewnij się, że **wewnętrznej bazy danych skryptów** jest ustawiona na **IL2CPP**.
+**Weryfikowanie konfiguracji zaplecza skryptów**
+1. Przejdź do pozycji **Edytuj** > **Ustawienia** > projektu**odtwarzacz** (nadal może być otwarty **odtwarzacz** z poprzedniego kroku).
+2. W **panelu Inspektora** **Ustawienia odtwarzacza**wybierz ikonę **sklepu Windows** .
+3. Upewnij **się, że** w sekcji Konfiguracja **innych ustawień** jest ustawiona wartość **IL2CPP**.
 
-**Ustawianie możliwości**
-1. Przejdź do **pozycji Edytuj** > **odtwarzacz** **ustawień** > projektu (nadal możesz mieć otwarty **odtwarzacz** z poprzedniego kroku).
-2. W **Panelu Inspektora** **ustawień odtwarzacza**wybierz ikonę **Sklepu Windows.**
-3. W sekcji Konfiguracja **ustawień publikowania** zaznacz pole wyboru **InternetClientServer** i **SpatialPerception**.
+**Ustaw możliwości**
+1. Przejdź do pozycji **Edytuj** > **Ustawienia** > projektu**odtwarzacz** (nadal może być otwarty **odtwarzacz** z poprzedniego kroku).
+2. W **panelu Inspektora** **Ustawienia odtwarzacza**wybierz ikonę **sklepu Windows** .
+3. W sekcji Konfiguracja **ustawień publikowania** Sprawdź **InternetClientServer** i **SpatialPerception**.
 
-**Konfigurowanie głównej kamery wirtualnej**
-1. W **panelu Hierarchia**wybierz opcję **Aparat główny**.
-2. W **inspektorze**ustaw swoją pozycję transformacji na **0,0,0**.
-3. Znajdź właściwość **Wyczyść flagi** i zmień pozycję rozwijanej ze **Skybox** na **Solid Color**.
-4. Kliknij pole **Tło,** aby otworzyć selektor kolorów.
-5. Ustaw **R, G, B i A** na **0**.
-6. Wybierz **pozycję Dodaj komponent** i wyszukaj i dodaj **zderzacz map przestrzennych**.
+**Skonfiguruj główną kamerę wirtualną**
+1. W **panelu hierarchia**wybierz pozycję **główny aparat**.
+2. W **Inspektorze**ustaw jego pozycję przekształcenia na **0, 0, 0**.
+3. Znajdź właściwość **Clear flags** i zmień listę rozwijaną z **skybox** na **Kolor kryjący**.
+4. Kliknij pole **tło** , aby otworzyć selektor kolorów.
+5. Ustaw wartość **R, G, B i a** na **0**.
+6. Wybierz pozycję **Dodaj składnik** i Wyszukaj i Dodaj element **koliduje mapowania przestrzennego**.
 
-**Stwórz nasz skrypt**
-1. W **okienku Projekt** utwórz nowy folder **Skrypty**w folderze **Zasoby.**
-2. Kliknij prawym przyciskiem myszy folder, a następnie wybierz polecenie **Utwórz >**, **Skrypt C#.** Title it **AzureSpatialAnchorsScript**.
-3. Przejdź do **gameobject** -> **Create Empty**.
-4. Wybierz go, a w **Inspektorze** zmień jego nazwę z **GameObject** na **MixedRealityCloud**. Wybierz **pozycję Dodaj składnik** i wyszukaj i dodaj kod **AzureSpatialAnchorsScript**.
+**Utwórz nasz skrypt**
+1. W okienku **projekt** Utwórz nowy folder ( **skrypty**) w folderze **Assets (zasoby** ).
+2. Kliknij prawym przyciskiem myszy folder, a następnie wybierz polecenie **utwórz >**, **skrypt C#**. Tytuł IT **AzureSpatialAnchorsScript**.
+3. Przejdź do pozycji **gameobject** -> **Utwórz pustą**.
+4. Wybierz go, a w **Inspektorze** zmień jego nazwę **z** **MixedRealityCloud**. Wybierz pozycję **Dodaj składnik** i Wyszukaj i Dodaj **AzureSpatialAnchorsScript**.
 
-**Tworzenie prefabrykatu kuli**
-1. Przejdź do **gameobject** -> **3D Object** -> **Sphere**.
-2. W **Inspektorze**ustaw swoją skalę na **0,25, 0,25, 0,25**.
-3. Znajdź obiekt **Sfera** w okienku **Hierarchia.** Kliknij go i przeciągnij do folderu **Zasoby** w okienku **Projekt.**
-4. Kliknij prawym przyciskiem myszy i **usuń** oryginalną sferę utworzoną w okienku **Hierarchia.**
+**Utwórz sferę PREFAB**
+1. Przejdź do**sfery****obiektu** -> 3D **gry** -> 3W.
+2. W **Inspektorze**ustaw jej skalę na **0,25, 0,25, 0,25**.
+3. Znajdź obiekt **Sphere** w okienku **Hierarchia** . Kliknij go i przeciągnij do folderu **Assets** w okienku **projektu** .
+4. Kliknij prawym przyciskiem myszy i **Usuń** oryginalną sferę utworzoną w okienku **Hierarchia** .
 
-Prefabrykaty sfery powinny być teraz prefabrykować kulę w okienku **programu Project.**
+W okienku **projektu** powinna być teraz dostępna sfera PREFAB.
 
-## <a name="trying-it-out"></a>Wypróbowanie go
-Aby sprawdzić, czy wszystko działa, skompiluj aplikację w **unity** i wdrożyć ją w **programie Visual Studio.** Postępuj zgodnie z rozdziałem 6 z [ **MR Basics 100: Pierwsze kroki z kursem Unity,** ](https://docs.microsoft.com/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) aby to zrobić. Powinien zostać wyświetlony ekran startowy Unity, a następnie wyraźny ekran.
+## <a name="trying-it-out"></a>Trwa próba
+Aby sprawdzić, czy wszystko działa, skompiluj swoją aplikację w aparacie **Unity** i Wdróż ją z poziomu **programu Visual Studio**. Obserwuj rozdział 6 od firmy [ **MR podstawy 100: wprowadzenie** ](https://docs.microsoft.com/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) do środowiska Unity. Powinien zostać wyświetlony ekran startowy środowiska Unity, a następnie przycisk Wyczyść.
 
 ## <a name="place-an-object-in-the-real-world"></a>Umieść obiekt w świecie rzeczywistym
-Utwórzmy & umieść obiekt za pomocą aplikacji. Otwórz rozwiązanie programu Visual Studio, które utworzyliśmy podczas [wdrażania naszej aplikacji.](#trying-it-out)
+Utwórzmy & umieścić obiekt przy użyciu aplikacji. Otwórz rozwiązanie programu Visual Studio, które zostało utworzone podczas [wdrażania naszej aplikacji](#trying-it-out).
 
-Najpierw dodaj do swojego: `Assembly-CSharp (Universal Windows)\Scripts\AzureSpatialAnchorsScript.cs`
+Najpierw Dodaj następujące Importy do `Assembly-CSharp (Universal Windows)\Scripts\AzureSpatialAnchorsScript.cs`:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=19-24)]
 
-Następnie dodaj do `AzureSpatialAnchorsScript` klasy następujące zmienne członkowskie:
+Następnie Dodaj następujące zmienne elementów członkowskich do `AzureSpatialAnchorsScript` klasy:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-42,48-52,60-79)]
 
-Zanim będziemy kontynuować, musimy ustawić prefabrykat kuli utworzyliśmy na naszej sferzePrefab zmiennej członkowskiej. Wróć do **Unity**.
-1. W **obszarze Jedność**wybierz obiekt **MixedRealityCloud** w okienku **Hierarchia.**
-2. Kliknij prefabrykat **kuli** zapisany w okienku **Projekt.** Przeciągnij **sferę** klikniętą do obszaru **Prefabrykowania sfery** w obszarze **Skrypt zakotwiczenia przestrzenne (Skrypt) platformy Azure** w okienku **Inspektor.**
+Przed kontynuowaniem musimy ustawić PREFAB sferę utworzoną na naszej zmiennej składowej spherePrefab. Wróć do **aparatu Unity**.
+1. W aparacie **Unity**wybierz obiekt **MixedRealityCloud** w okienku **Hierarchia** .
+2. Kliknij PREFAB **sferę** , która została zapisana w okienku **projektu** . Przeciągnij **sferę** klikniętą w obszarze **sfera PREFAB** w obszarze **skrypt zakotwiczenia przestrzenne platformy Azure** w okienku **Inspektor** .
 
-Teraz powinieneś mieć ustawiony **sferę** jako prefabryk w skrypcie. Skompiluj z **Unity,** a następnie otwórz wynikowe rozwiązanie **programu Visual Studio** ponownie, tak jak to miało miejsce w trying it [out.](#trying-it-out)
+Teraz należy mieć rolę PREFAB **Sphere** w skrypcie. Skompiluj z **aparatu Unity** , a następnie ponownie otwórz powstałe rozwiązanie **programu Visual Studio** , tak jak właśnie [było to możliwe.](#trying-it-out)
 
-W **programie Visual** `AzureSpatialAnchorsScript.cs` Studio otwórz się ponownie. Dodaj następujący kod `Start()` do metody. Ten kod zostanie `GestureRecognizer`podłączony, który wykryje, `HandleTap`kiedy jest dotknij powietrza i połączenia .
+W programie **Visual Studio** `AzureSpatialAnchorsScript.cs` ponownie otwórz program. Dodaj następujący kod do `Start()` metody. Ten kod zostanie poddany `GestureRecognizer`, który zostanie wykryty w przypadku naciskania i wyłączania powietrza `HandleTap`.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=81-90,93&highlight=4-10)]
 
-Teraz musimy dodać poniższą `HandleTap()` `Update()`metodę. Zrobi rzut promienia i uzyskać punkt trafienia, w którym można umieścić kulę.
+Teraz musimy dodać następującą `HandleTap()` metodę poniżej. `Update()` Spowoduje to rzutowanie promienia i uzyskanie punktu trafień, w którym należy umieścić sferę.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-277,299-300,304-312)]
 
-Teraz musimy stworzyć sferę. Kula będzie początkowo biała, ale ta wartość zostanie później dostosowana. Dodaj następującą `CreateAndSaveSphere()` metodę:
+Teraz musimy utworzyć sferę. Sfera będzie początkowo Biała, ale ta wartość zostanie później zmieniona na. Dodaj następującą `CreateAndSaveSphere()` metodę:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-325,390)]
 
-Uruchom aplikację z **programu Visual Studio,** aby ponownie ją zweryfikować. Tym razem dotknij ekranu, aby utworzyć & umieścić białą kulę na wybranej powierzchni.
+Uruchom aplikację z **programu Visual Studio** , aby zweryfikować ją jeszcze raz. Tym razem naciśnij ekran, aby utworzyć & umieścić białą sferę na wybranej powierzchni.
 
 ## <a name="set-up-the-dispatcher-pattern"></a>Konfigurowanie wzorca dyspozytora
 
-Podczas pracy z Unity, wszystkie interfejsy API Unity, na przykład interfejsy API, których używasz do aktualizacji interfejsu użytkownika, muszą się zdarzyć w wątku głównym. W kodzie napiszemy jednak otrzymujemy wywołania zwrotne w innych wątkach. Chcemy zaktualizować interfejs użytkownika w tych wywołaniach zwrotnych, więc musimy sposób, aby przejść z wątku bocznego do wątku głównego. Aby wykonać kod w wątku głównym z wątku bocznego, użyjemy wzorca dyspozytora.
+Podczas pracy z systemem Unity wszystkie interfejsy API aparatu Unity, na przykład interfejsy API używane do wykonywania aktualizacji interfejsu użytkownika, muszą wystąpić w wątku głównym. W kodzie, który zapisząmy, otrzymamy wywołania zwrotne w innych wątkach. Chcemy zaktualizować interfejs użytkownika w tych wywołaniach zwrotnych, aby trzeba było przejść z wątku bocznego do wątku głównego. Aby wykonać kod w wątku głównym z wątku bocznego, użyjemy wzorca dyspozytora.
 
-Dodajmy zmienną członkowską, dispatchQueue, która jest kolejką akcji. Będziemy wypychać akcje do kolejki, a następnie odkuwają i uruchamiają akcje w wątku głównym.
+Dodajmy zmienną członkowską dispatchQueue, która jest kolejką akcji. Będziemy wypychać akcje do kolejki, a następnie dekolejkować i uruchamiać akcje w głównym wątku.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=38-51&highlight=6-9)]
 
-Następnie dodajmy sposób dodawania akcji do kolejki. Dodaj `QueueOnUpdate()` zaraz `Update()` po:
+Następnie Dodajmy sposób dodawania akcji do kolejki. Dodaj `QueueOnUpdate()` bezpośrednio po `Update()` :
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=107-117)]
 
-Teraz użyjmy update() pętli, aby sprawdzić, czy istnieje akcja w kolejce. Jeśli tak, będziemy dequeue działania i uruchomić go.
+Teraz użyjemy pętli Update (), aby sprawdzić, czy w kolejce występuje akcja. W takim przypadku zostanie on usunięty z kolejki i zostanie uruchomiony.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=95-105&highlight=4-10)]
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Pobierz zestaw SDK zakotwiczeń przestrzennych platformy Azure
 
-## <a name="via-unity-package"></a>[Pakiet Via Unity](#tab/UnityPackage)
+## <a name="via-unity-package"></a>[Za pośrednictwem pakietu Unity](#tab/UnityPackage)
 
-Teraz pobierzemy zestaw SDK zakotwiczenia przestrzenne platformy Azure. Przejdź do [strony Wydania aplikacji Usługi Azure Spatial Anchors GitHub](https://github.com/Azure/azure-spatial-anchors-samples/releases). W obszarze Zasoby pobierz **pakiet AzureSpatialAnchors.unitypackage**. W ujamienie przejdź do **strony Zasoby**, kliknij przycisk **Importuj pakiet** > **niestandardowy...**. Przejdź do pakietu i wybierz pozycję **Otwórz**.
+Teraz pobieramy zestaw SDK kotwic przestrzennych platformy Azure. Przejdź do [strony usługi GitHub dotyczącej zakotwiczenia przestrzennego platformy Azure](https://github.com/Azure/azure-spatial-anchors-samples/releases). W obszarze zasoby Pobierz **AzureSpatialAnchors. UNITYPACKAGE**. W środowisku Unity przejdź do pozycji **zasoby**, kliknij pozycję **Importuj** > pakiet**niestandardowy pakietu.** Przejdź do pakietu i wybierz pozycję **Otwórz**.
 
-W nowym oknie **Pakietu importu unity,** które się pojawia, usuń zaznaczenie **wtyczek,** a następnie kliknij przycisk **Importuj** w prawym dolnym rogu.
+W oknie Nowy **Importuj pakiet Unity** , który zostanie wystawiony, usuń zaznaczenie **wtyczek** , a następnie kliknij przycisk **Importuj** w prawym dolnym rogu.
 
-Teraz musimy przywrócić pakiety Nuget, aby uzyskać zestaw SDK zakotwiczenia przestrzenne platformy Azure. Skompiluj z **Unity,** a następnie otwórz i skompiluj wynikowe rozwiązanie **programu Visual Studio** ponownie, jak opisano w [wypróbować.](#trying-it-out)
+Teraz należy przywrócić pakiety NuGet, aby uzyskać zestaw SDK zakotwiczenia przestrzennego platformy Azure. Skompiluj z **aparatu Unity** , a następnie otwórz i Skompiluj ponownie powstałe rozwiązanie **programu Visual Studio** , jak to opisano w dalszej [próbie](#trying-it-out).
 
-## <a name="via-nugetforunity"></a>[Przez NuGetForUnity](#tab/NuGetForUnity)
+## <a name="via-nugetforunity"></a>[Za pośrednictwem NuGetForUnity](#tab/NuGetForUnity)
 
-Najpierw musimy zainstalować NuGetForUnity. Przejdź do [strony Wydania NuGetForUnity GitHub](https://github.com/GlitchEnzo/NuGetForUnity/releases). W obszarze Zasoby pobierz pakiet **Lastest NuGetForUnity.unitypackage**. W ujamienie przejdź do **strony Zasoby**, kliknij przycisk **Importuj pakiet** > **niestandardowy...**. Przejdź do pakietu i wybierz pozycję **Otwórz**. Unity zainstaluje teraz NugetForUnity. Jeśli nie widzisz nowej listy rozwijanej **NuGet** w unity, może być konieczne kliknięcie prawym przyciskiem myszy w obszarze**Zasoby** **projektów** > . Następnie wybierz pozycję **Ponownie zaimportuj wszystkie**.
+Najpierw musimy zainstalować NuGetForUnity. Przejdź do [strony NuGetForUnity releases (wersje GitHub](https://github.com/GlitchEnzo/NuGetForUnity/releases)). W obszarze zasoby Pobierz ostatni **NuGetForUnity. UNITYPACKAGE**. W środowisku Unity przejdź do pozycji **zasoby**, kliknij pozycję **Importuj** > pakiet**niestandardowy pakietu.** Przejdź do pakietu i wybierz pozycję **Otwórz**. Aparat Unity zainstaluje teraz NugetForUnity. Jeśli nie widzisz nowej listy rozwijanej **NuGet** w aparacie Unity, może być konieczne kliknięcie prawym przyciskiem myszy w obszarze**zasoby** **projektu** > . Następnie wybierz pozycję **zaimportuj ponownie wszystko**.
 
-Po zainstalowaniu nugetforunity wybierz **nuget** > **zarządzaj pakietami NuGet**. Następnie wyszukaj pozycję Microsoft.Azure.SpatialAnchors.Unity i wybierz pozycję **Zainstaluj**.
+Po zainstalowaniu programu NuGetForUnity wybierz pozycję **NuGet** > **Zarządzaj pakietami NuGet**. Wyszukaj pozycję Microsoft. Azure. SpatialAnchors. Unity i wybierz pozycję **Zainstaluj**.
 
-Teraz musimy utworzyć, aby uzyskać rzeczywiste Azure Spatial Anchors SDK, jak pakiet NuGet właśnie pobrane tylko zawiera skrypty pomocnicze. Skompiluj z **Unity,** a następnie otwórz i skompiluj wynikowe rozwiązanie **programu Visual Studio** ponownie, jak opisano w [wypróbować.](#trying-it-out)
+Teraz musimy skompilować, aby uzyskać rzeczywiste ZESTAWIEnie zakotwiczeń przestrzennych platformy Azure, ponieważ właśnie pobrany pakiet NuGet zawiera tylko skrypty pomocnika. Skompiluj z **aparatu Unity** , a następnie otwórz i Skompiluj ponownie powstałe rozwiązanie **programu Visual Studio** , jak to opisano w dalszej [próbie](#trying-it-out).
 
 ---
 
-W rozwiązaniu **programu Visual Studio** dodaj `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs`do swojego rozwiązania:
+W rozwiązaniu **programu Visual Studio** Dodaj następujący import do programu `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs`:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18-21&highlight=1)]
 
-Następnie dodaj do `AzureSpatialAnchorsScript` swojej klasy następujące zmienne członkowskie:
+Następnie Dodaj następujące zmienne członkowskie do `AzureSpatialAnchorsScript` klasy:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=48-63&highlight=6-11)]
 
-## <a name="attach-a-local-azure-spatial-anchor-to-the-local-anchor"></a>Dołączanie lokalnej kotwicy przestrzennej platformy Azure do lokalnej kotwicy
+## <a name="attach-a-local-azure-spatial-anchor-to-the-local-anchor"></a>Dołącz lokalną kotwicę przestrzenną platformy Azure do lokalnej kotwicy
 
-Skonfigurujmy usługę Azure Spatial Anchor's CloudSpatialAnchorSession. Zaczniemy od dodania `InitializeSession()` następującej `AzureSpatialAnchorsScript` metody wewnątrz klasy. Po wywołaniu zapewni sesji Azure Spatial Anchors jest tworzony i poprawnie zainicjowane podczas uruchamiania aplikacji.
+Skonfigurujmy CloudSpatialAnchorSession zakotwiczenia przestrzennego platformy Azure. Zaczniemy od dodania następującej `InitializeSession()` metody wewnątrz `AzureSpatialAnchorsScript` klasy. Po wywołaniu zagwarantuje, że sesja kotwic Azure przestrzenny zostanie utworzona i poprawnie zainicjowana podczas uruchamiania aplikacji.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=174-202,205-209)]
 
-Teraz musimy napisać kod do obsługi wywołań delegata. Dodamy do nich więcej w miarę kontynuowania.
+Teraz musimy napisać kod obsługujący wywołania delegatów. Będziemy w dalszym ciągu dodawać do nich dodatkowe elementy.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=211-226)]
 
-Teraz podłączmy metodę `initializeSession()` do metody. `Start()`
+Teraz przejdźmy `initializeSession()` do `Start()` metody.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=81-93&highlight=12)]
 
-Na koniec dodaj następujący kod `CreateAndSaveSphere()` do metody. Dołączy lokalną kotwicę przestrzenną platformy Azure do sfery, którą umieszczamy w świecie rzeczywistym.
+Na koniec Dodaj następujący kod do `CreateAndSaveSphere()` metody. Dołączy lokalną kotwicę platformy Azure do sfery, która jest umieszczana w świecie rzeczywistym.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-338,390&highlight=14-25)]
 
-Przed kontynuowaniem dalszych, należy utworzyć identyfikator konta zakotwiczenia przestrzennego platformy Azure i klucz, jeśli jeszcze ich nie masz. Postępuj zgodnie z poniższą sekcją, aby je uzyskać.
+Przed przeprowadzeniem dalszych dalszych czynności należy utworzyć identyfikator i klucz konta zakotwiczeń przestrzennych platformy Azure, jeśli jeszcze tego nie zrobiono. Aby je uzyskać, postępuj zgodnie z poniższą sekcją.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="upload-your-local-anchor-into-the-cloud"></a>Przesyłanie lokalnej kotwicy do chmury
+## <a name="upload-your-local-anchor-into-the-cloud"></a>Przekaż lokalne zakotwiczenie do chmury
 
-Po uzyskaniu identyfikatora i klucza konta zakotwiczenia `Account Id` przestrzennego `SpatialAnchorsAccountId` `Account Key` platformy `SpatialAnchorsAccountKey`Azure, wklej je do i do .
+Po określeniu identyfikatora i klucza konta zakotwiczeń przestrzennych platformy Azure `Account Id` przejdź i wklej `SpatialAnchorsAccountId` `Account Key` do. `SpatialAnchorsAccountKey`
 
-Na koniec połączmy wszystko. W `SpawnNewAnchoredObject()` metodzie dodaj następujący kod. Wywoła metodę, `CreateAnchorAsync()` gdy tylko zostanie utworzona twoja kula. Po powrocie metody poniższy kod wykona jedną ostateczną aktualizację kuli, zmieniając jej kolor na niebieski.
+Na koniec przychodźmy wszystko razem. W `SpawnNewAnchoredObject()` metodzie Dodaj następujący kod. Wywołanie `CreateAnchorAsync()` metody będzie możliwe zaraz po utworzeniu sfery. Po powrocie metody kod poniżej wykona jedną aktualizację ostateczną do sfery, zmieniając jej kolor na niebieską.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-391&highlight=26-77)]
 
-Uruchom aplikację z **programu Visual Studio** jeszcze raz. Poruszaj się po głowie, a następnie dotknij powietrzem, aby umieścić kulę. Gdy mamy wystarczająco dużo klatek, kula zmieni się na żółtą, a rozpocznie się przesyłanie w chmurze. Po zakończeniu przesyłania kula zmieni kolor na niebieski. Opcjonalnie można również użyć okna dane wyjściowe wewnątrz **programu Visual Studio** do monitorowania komunikatów dziennika, które wysyła aplikacja. Po zakończeniu przekazywania będzie można obserwować zalecane do tworzenia postępu, a także identyfikator zakotwiczenia, który chmura zwraca.
+Uruchom aplikację z **programu Visual Studio** jeszcze raz. Poruszaj się po głowie, a następnie naciśnij pozycję Air, aby umieścić swoją sferę. Gdy mamy wystarczającą liczbę ramek, sfera zmieni się na żółtą i rozpocznie się przekazywanie do chmury. Po zakończeniu przekazywania sfera zmieni kolor na niebieski. Opcjonalnie można również użyć okna danych wyjściowych w **programie Visual Studio** do monitorowania komunikatów dziennika wysyłanych przez aplikację. Będziesz w stanie obejrzeć zalecenia dotyczące tworzenia postępów, a także identyfikator kotwicy zwracanej przez chmurę po zakończeniu przekazywania.
 
 > [!NOTE]
-> Jeśli pojawi się "DllNotFoundException: Nie można załadować biblioteki DLL "AzureSpatialAnchors": Nie można odnaleźć określonego modułu.", należy **ponownie wyczyścić** i **skompilować** rozwiązanie.
+> Jeśli zostanie wyświetlony element "DllNotFoundException —: nie można załadować biblioteki DLL" AzureSpatialAnchors ": nie można odnaleźć określonego modułu." należy **wyczyścić** i **skompilować** rozwiązanie ponownie.
 
-## <a name="locate-your-cloud-spatial-anchor"></a>Lokalizowanie kotwicy przestrzennej chmury
+## <a name="locate-your-cloud-spatial-anchor"></a>Znajdź kotwicę przestrzenną w chmurze
 
-Jedna kotwica jest przesyłana do chmury, jesteśmy gotowi, aby spróbować zlokalizować go ponownie. Dodajmy następujący kod do `HandleTap()` metody. Ten kod będzie:
+Jedno zakotwiczenie zostanie przekazane do chmury. wszystko jest gotowe do ponownego zlokalizowania. Dodajmy do `HandleTap()` metody następujący kod. Ten kod będzie:
 
-* Zadzwoń `ResetSession()`, który `CloudSpatialAnchorSession` zatrzyma i usunąć naszą istniejącą niebieską kulę z ekranu.
-* Inicjuj `CloudSpatialAnchorSession` ponownie. Robimy to, więc jesteśmy pewni, że kotwica, którą zamierzamy zlokalizować, pochodzi z chmury, a nie z lokalnej kotwicy, którą stworzyliśmy.
-* Utwórz **czujkę,** która będzie szukać kotwicy, którą przekażemy do zakotwiczeń przestrzennych platformy Azure.
+* Wywołanie `ResetSession()`, które spowoduje zatrzymanie `CloudSpatialAnchorSession` i usunięcie istniejącej niebieskie sfery z ekranu.
+* Zainicjuj `CloudSpatialAnchorSession` ponownie. Możemy to zrobić, aby upewnić się, że zakotwiczenie, które zamierzamy znaleźć, pochodzi z chmury, a nie jako zakotwiczenia lokalnego.
+* Utwórz **obserwatora** , który będzie szukać zakotwiczenia przekazanego do zakotwiczeń przestrzennych platformy Azure.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-305&highlight=13-31,35-36)]
 
-Dodajmy nasze `ResetSession()` i `CleanupObjects()` metody. Możesz umieścić je poniżej`QueueOnUpdate()`
+Dodajmy teraz nasze `ResetSession()` metody i `CleanupObjects()` . Można je umieścić poniżej`QueueOnUpdate()`
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=119-172)]
 
-Teraz musimy podłączyć kod, który zostanie wywołany, gdy znajduje się kotwica, dla której prowadzi zapytanie. Wewnątrz `InitializeSession()`, dodaj następujące wywołania zwrotne:
+Teraz musimy podłączyć kod, który zostanie wywołany, gdy zakotwiczenie zakotwiczenia dla programu znajduje się w lokalizacji. `InitializeSession()`W programie Dodaj następujące wywołania zwrotne:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=200-206&highlight=4-5)]
 
 
-Teraz pozwala dodać kod, który utworzy & umieścić zieloną kulę po CloudSpatialAnchor znajduje. Umożliwi to również ponowne stuknięcie ekranu, dzięki czemu możesz powtórzyć cały scenariusz jeszcze raz: utworzyć kolejną lokalną kotwicę, przesłać ją i zlokalizować ponownie.
+Teraz pozwala dodać kod, który zostanie utworzony, & umieścić zieloną sferę po zlokalizowaniu CloudSpatialAnchor. Spowoduje to również ponowne włączenie ekranu, aby można było wielokrotnie powtórzyć cały scenariusz: Utwórz kolejną kotwicę lokalną, przekaż ją i Znajdź ponownie.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=228-265)]
 
-Gotowe. Uruchom aplikację z **programu Visual Studio** po raz ostatni, aby wypróbować cały scenariusz od końca do końca. Poruszaj się po urządzeniu i umieść białą kulę. Następnie poruszaj głową, aby rejestrować dane otoczenia, aż kula zmieni kolor na żółty. Twoja lokalna kotwica zostanie przesłana, a kula zmieni kolor na niebieski. Na koniec ponownie stuknij ekran, aby twoja lokalna kotwica została usunięta, a następnie zapytamy o jej odpowiednik w chmurze. Kontynuuj przenoszenie urządzenia, aż do zlokalizowania kotwicy przestrzennej chmury. Zielona kula powinna pojawić się we właściwym miejscu i można spłukać & powtórzyć cały scenariusz ponownie.
+Gotowe. Uruchom aplikację z **programu Visual Studio** po raz ostatni, aby wypróbować cały scenariusz do końca. Poruszaj się po urządzeniu i umieść swoją białą sferę. Następnie kontynuuj przesuwanie głowy, aby przechwycić dane środowiska do momentu, gdy sfera zmieni kolor na żółty. Twoje lokalne zakotwiczenie zostanie przekazane, a SFERA zmieni kolor na niebiesko. Na koniec naciśnij swój ekran jeszcze raz, aby lokalne zakotwiczenie zostało usunięte, a następnie będziemy wysyłać zapytania o jego odpowiednik w chmurze. Kontynuuj przenoszenie urządzenia do momentu, gdy zakotwiczenie chmury nie zostanie umieszczone. Zielona kula powinna pojawić się w poprawnej lokalizacji i można wypłukać & powtórzyć cały scenariusz ponownie.
 
 [!INCLUDE [AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md)]

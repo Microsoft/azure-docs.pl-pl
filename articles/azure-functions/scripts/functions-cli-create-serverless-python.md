@@ -1,22 +1,22 @@
 ---
-title: Tworzenie aplikacji funkcji języka Python bezserwerowej — Azure CLI
-description: Tworzenie aplikacji funkcji języka Python bez użycia serwera przy użyciu interfejsu wiersza polecenia platformy Azure
+title: Tworzenie bezserwerowej aplikacji funkcji w języku Python — interfejs wiersza polecenia platformy Azure
+description: Tworzenie aplikacji funkcji środowiska Python bezserwerowej przy użyciu interfejsu wiersza polecenia platformy Azure
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
 ms.openlocfilehash: c55934c42db6bb7248db107b97fb8998163fae8b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75922626"
 ---
-# <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Tworzenie aplikacji funkcji języka Python bez użycia serwera przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Tworzenie aplikacji funkcji środowiska Python bezserwerowej przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Ten przykładowy skrypt usługi Azure Functions tworzy aplikację funkcji, która jest kontenerem dla funkcji. 
 
 >[!NOTE]
->Utworzona aplikacja funkcji działa na Pythonie w wersji 3.6. Python w wersji 3.7 jest również obsługiwany przez usługę Azure Functions.
+>Utworzona aplikacja funkcji działa w języku Python w wersji 3,6. Środowisko Python w wersji 3,7 jest również obsługiwane przez Azure Functions.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Grubozlegalizacja w Swift
-description: Szczegółowe wyjaśnienie sposobu tworzenia i lokalizowania kotew przy użyciu grubozlegalnej alokacji w trybie Swift.
+title: Gruba relokalizacja w SWIFT
+description: Szczegółowe informacje na temat sposobu tworzenia i lokalizowania kotwic przy użyciu grubej relokalizacji w SWIFT.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -9,32 +9,32 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 7b568c43f8420b5a2f994b4cba145bf4d70b9010
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76546167"
 ---
-# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-swift"></a>Jak tworzyć i lokalizować kotwice za pomocą grubozlegalnej relokalizacji w Swift
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-swift"></a>Jak utworzyć i zlokalizować kotwice przy użyciu grubej relokalizacji w SWIFT
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
-> * [Cel C](set-up-coarse-reloc-objc.md)
+> * [Obiektowy C](set-up-coarse-reloc-objc.md)
 > * [Swift](set-up-coarse-reloc-swift.md)
-> * [Android Java](set-up-coarse-reloc-java.md)
+> * [System Android Java](set-up-coarse-reloc-java.md)
 > * [C++/NDK](set-up-coarse-reloc-cpp-ndk.md)
 > * [C++/WinRT](set-up-coarse-reloc-cpp-winrt.md)
 
-Zakotwiczenia przestrzenne platformy Azure mogą łączyć dane czujnika pozycjonowania na urządzeniu z utworzonymi kotwicami. Te dane mogą być również używane do szybkiego określenia, czy w pobliżu urządzenia znajdują się jakieś kotwice. Aby uzyskać więcej informacji, zobacz [Kolokacja gruba](../concepts/coarse-reloc.md).
+Kotwice przestrzenne platformy Azure mogą kojarzyć dane z czujników na urządzeniu, umieszczając w nich kotwice. Te dane mogą również służyć do szybkiego ustalenia, czy w pobliżu urządzenia znajdują się jakieś kotwice. Aby uzyskać więcej informacji, zobacz artykuł o [niedużej lokalizacji](../concepts/coarse-reloc.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten przewodnik, upewnij się, że masz:
 
-- Podstawowa znajomość Swift.
-- Przeczytaj [omówienie zakotwiczenia przestrzennego platformy Azure](../overview.md).
-- Ukończono jeden z [5-minutowych programów Szybki start.](../index.yml)
-- Przeczytaj sposób [tworzenia i lokalizowania zakotwiczeń](../create-locate-anchors-overview.md).
+- Podstawowa wiedza na temat Swift.
+- Zapoznaj się z [omówieniem zakotwiczenia przestrzennego platformy Azure](../overview.md).
+- Ukończono jedno z [5-minutowych przewodników szybki start](../index.yml).
+- Zapoznaj się z [tematem tworzenie i lokalizowanie kotwic](../create-locate-anchors-overview.md).
 
 [!INCLUDE [Configure Provider](../../../includes/spatial-anchors-set-up-coarse-reloc-configure-provider.md)]
 

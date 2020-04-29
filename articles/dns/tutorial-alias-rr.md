@@ -9,24 +9,24 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 2b122a34cfd382a58f7680743d3a1cb1ae598fd1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76939248"
 ---
 # <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Samouczek: tworzenie rekordu aliasu do odwoływania do rekordu zasobów w strefie DNS
 
 Rekordy aliasów mogą odwoływać się do innych zestawów rekordów tego samego typu. Na przykład zestaw rekordów DNS CNAME może być aliasem dla innego zestawu rekordów CNAME tego samego typu. Ta funkcja jest przydatna, jeśli chcesz, by z punktu widzenia zachowania niektóre zestawy rekordów były aliasami, a niektóre nie.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie rekordu aliasu dla rekordu zasobów w strefie DNS.
 > * Testowanie rekordu aliasu.
 
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do testowania niezbędna jest nazwa domeny, którą można hostować w usłudze Azure DNS. Musisz mieć pełną kontrolę nad tą domeną. Pełna kontrola obejmuje możliwość ustawiania dla domeny rekordów serwera nazw (NS).
@@ -44,7 +44,7 @@ Utwórz rekord aliasu, który wskazuje na rekord zasobów w strefie DNS.
 3. W polu tekstowym **Nazwa** wprowadź **serwer**.
 4. Dla opcji **Typ** wybierz pozycję **A**.
 5. W polu tekstowym **ADRES IP** wprowadź **10.10.10.10**.
-6. Kliknij przycisk **OK**.
+6. Wybierz przycisk **OK**.
 
 ### <a name="create-the-alias-record"></a>Tworzenie rekordu aliasu
 1. Wybierz strefę usługi Azure DNS, aby ją otworzyć.
@@ -53,11 +53,11 @@ Utwórz rekord aliasu, który wskazuje na rekord zasobów w strefie DNS.
 4. Dla opcji **Typ** wybierz pozycję **A**.
 5. Zaznacz pozycję **Tak** w polu wyboru **Zestaw rekordów aliasów**. Następnie wybierz opcję **Zestaw rekordów strefy**.
 6. Dla opcji **Zestaw rekordów strefy** wybierz rekord **serwer**.
-7. Kliknij przycisk **OK**.
+7. Wybierz przycisk **OK**.
 
 ## <a name="test-the-alias-record"></a>Testowanie rekordu aliasu
 
-1. Uruchom ulubione narzędzie nslookup. Jedną z opcji jest [https://network-tools.com/nslook](https://network-tools.com/nslook)przejście do pliku .
+1. Uruchom ulubione narzędzie nslookup. Jedną z opcji jest przechodzenie [https://network-tools.com/nslook](https://network-tools.com/nslook)do.
 2. Ustaw typ zapytania dla rekordów A i wyszukaj **test.\<Twoja nazwa domeny\>**. W odpowiedzi otrzymasz **10.10.10.10**.
 3. W witrynie Azure Portal zmień rekord A **serwer** na **10.11.11.11**.
 4. Poczekaj kilka minut, a następnie użyj ponownie narzędzia nslookup dla rekordu **test**. W odpowiedzi otrzymasz **10.11.11.11**.

@@ -1,6 +1,6 @@
 ---
-title: Samouczek — konfigurowanie usługi inicjowania obsługi administracyjnej urządzeń usługi Azure IoT Hub w portalu
-description: W tym samouczku pokazano, jak skonfigurować zasoby w chmurze do inicjowania obsługi administracyjnej urządzeń w [witrynie Azure portal](https://portal.azure.com) przy użyciu usługi inicjowania obsługi administracyjnej (DPS) w centrum IoT Hub.
+title: Samouczek — Konfigurowanie chmury dla usługi Azure IoT Hub Device Provisioning Service w portalu
+description: W tym samouczku przedstawiono sposób konfigurowania zasobów w chmurze na potrzeby aprowizacji urządzeń w [Azure Portal](https://portal.azure.com) przy użyciu IoT Hub Device PROVISIONING Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,15 +9,15 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 925d1178ad630699cfd3d9e48677c0f029fc75af
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74976727"
 ---
-# <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Samouczek: Konfigurowanie zasobów w chmurze do inicjowania obsługi administracyjnej urządzeń za pomocą usługi inicjowania obsługi administracyjnej urządzeń usługi IoT Hub
+# <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Samouczek: Konfigurowanie zasobów w chmurze na potrzeby aprowizacji urządzeń przy użyciu IoT Hub Device Provisioning Service
 
-Ten samouczek przedstawia konfigurowanie chmury pod kątem automatycznego aprowizowania urządzeń za pomocą usługi IoT Hub Device Provisioning. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek przedstawia konfigurowanie chmury pod kątem automatycznego aprowizowania urządzeń za pomocą usługi IoT Hub Device Provisioning. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Użycie witryny Azure Portal do utworzenia usługi IoT Hub Device Provisioning i pobrania zakresu identyfikatorów
@@ -25,17 +25,17 @@ Ten samouczek przedstawia konfigurowanie chmury pod kątem automatycznego aprowi
 > * Połączenie centrum IoT z usługą Device Provisioning
 > * Ustawienie zasad alokacji w usłudze Device Provisioning
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Utworzenie wystąpienia usługi Device Provisioning i uzyskanie zakresu identyfikatorów
 
 Wykonaj następujące kroki, aby utworzyć nowe wystąpienie usługi Device Provisioning.
 
-1. W lewym górnym rogu witryny Azure portal kliknij pozycję **Utwórz zasób**.
+1. W lewym górnym rogu Azure Portal kliknij pozycję **Utwórz zasób**.
 
 2. W polu wyszukiwania wpisz ciąg **device provisioning**. 
 
@@ -76,7 +76,7 @@ Następnym krokiem jest połączenie usługi Device Provisioning z centrum IoT w
 
 2. Na stronie Usługa Device Provisioning kliknij pozycję **Połączone centra IoT Hub**.
 
-3. Kliknij przycisk **Dodaj**.
+3. Kliknij pozycję **Dodaj**.
 
 4. Na stronie **Dodawanie linku do centrum IoT Hub** podaj następujące informacje i kliknij przycisk **Zapisz**:
 
@@ -90,7 +90,7 @@ Następnym krokiem jest połączenie usługi Device Provisioning z centrum IoT w
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Ustawienie zasad alokacji w usłudze Device Provisioning
 
-Zasady alokacji to ustawienie usługi inicjowania obsługi administracyjnej urządzeń usługi IoT Hub, które określa sposób przypisywania urządzeń do centrum IoT hub. Są obsługiwane trzy zasady alokacji: 
+Zasada alokacji jest ustawieniem IoT Hub Device Provisioning Service, które określa sposób przypisywania urządzeń do centrum IoT Hub. Są obsługiwane trzy zasady alokacji: 
 
 1. **Najmniejsze opóźnienie**: urządzenia są aprowizowane do centrum IoT z uwzględnieniem centrum z najmniejszym opóźnieniem do urządzenia.
 

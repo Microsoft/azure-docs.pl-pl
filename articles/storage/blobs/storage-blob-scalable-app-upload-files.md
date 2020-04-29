@@ -1,6 +1,6 @@
 ---
-title: Przekazywanie dużych ilości losowych danych równolegle do usługi Azure Storage
-description: Dowiedz się, jak używać biblioteki klienta usługi Azure Storage do przekazywania dużych ilości losowych danych równolegle do konta usługi Azure Storage
+title: Równoległe przekazywanie dużych ilości danych losowych do usługi Azure Storage
+description: Dowiedz się, jak używać biblioteki klienckiej usługi Azure Storage w celu równoległego przekazywania dużych ilości danych losowych do konta usługi Azure Storage
 author: roygara
 ms.service: storage
 ms.topic: tutorial
@@ -8,10 +8,10 @@ ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75371942"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Równoległe przekazywanie dużych ilości danych losowych do usługi Azure Storage
@@ -26,9 +26,9 @@ Część druga serii zawiera informacje na temat wykonywania następujących czy
 > * Uruchamianie aplikacji
 > * Weryfikowanie liczby połączeń
 
-Usługa Azure Blob Storage to skalowalna usługa do przechowywania danych. Aby zagwarantować maksymalną wydajność aplikacji, warto wiedzieć, jak działa magazyn obiektów blob. Znajomość limitów dla obiektów blob platformy Azure jest ważna, aby dowiedzieć się więcej o tych limitach odwiedź: [Skalowalność i cele wydajności dla magazynu obiektów Blob.](../blobs/scalability-targets.md)
+Usługa Azure Blob Storage to skalowalna usługa do przechowywania danych. Aby zagwarantować maksymalną wydajność aplikacji, warto wiedzieć, jak działa magazyn obiektów blob. Znajomość limitów obiektów blob platformy Azure jest ważne, aby dowiedzieć się więcej na temat tych limitów odwiedzania: [skalowalność i cele wydajności dla usługi BLOB Storage](../blobs/scalability-targets.md).
 
-[Nazewnictwo partycji](../blobs/storage-performance-checklist.md#partitioning) jest kolejnym potencjalnie ważnym czynnikiem podczas projektowania aplikacji o wysokiej wydajności przy użyciu obiektów blob. W przypadku bloków o rozmiarach większych lub równych 4 MiB używane są [obiekty blob blokowe o wysokiej przepływie,](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) a nazewnictwo partycji nie wpłynie na wydajność. W przypadku bloków o rozmiarach mniejszych niż 4 MiB usługa Azure Storage używa schematu partycjonowania opartego na zakresie do skalowania i równoważenia obciążenia. Ta konfiguracja oznacza, że pliki z podobną konwencją nazewnictwa lub podobnymi prefiksami są umieszczane w tej samej partycji. Ta logika dotyczy także nazwy kontenera, do którego przekazywane są pliki. W tym samouczku używane są pliki, których nazwa zawiera identyfikator GUID, a ich zawartość jest generowana losowo. Są one przekazywane do pięciu różnych kontenerów o losowych nazwach.
+[Nazewnictwo partycji](../blobs/storage-performance-checklist.md#partitioning) jest innym potencjalnie ważnym czynnikiem podczas projektowania aplikacji o wysokiej wydajności przy użyciu obiektów BLOB. W przypadku bloków o rozmiarze większym niż lub równym 4 MiB są używane [blokowe obiekty blob o dużej przepływności](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) , a nazwy partycji nie wpłyną na wydajność. W przypadku bloków o rozmiarze mniejszym niż 4 MiB usługa Azure Storage korzysta z schematu partycjonowania opartego na zakresie, aby skalować i zrównoważyć obciążenie. Ta konfiguracja oznacza, że pliki z podobną konwencją nazewnictwa lub podobnymi prefiksami są umieszczane w tej samej partycji. Ta logika dotyczy także nazwy kontenera, do którego przekazywane są pliki. W tym samouczku używane są pliki, których nazwa zawiera identyfikator GUID, a ich zawartość jest generowana losowo. Są one przekazywane do pięciu różnych kontenerów o losowych nazwach.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -68,10 +68,10 @@ Oprócz skonfigurowania ustawień wątków oraz limitu połączeń, opcje [BlobR
 
 |Właściwość|Wartość|Opis|
 |---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| To ustawienie dzieli obiekt blob na bloki na potrzeby przekazywania. Dla najwyższej wydajności ta wartość powinna być osiem razy większa liczba rdzeni. |
+|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| To ustawienie dzieli obiekt blob na bloki na potrzeby przekazywania. W celu uzyskania najwyższej wydajności ta wartość powinna być osiem razy większa niż liczba rdzeni. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Ta właściwość wyłącza sprawdzanie skrótu MD5 przekazanej zawartości. Wyłączenie sprawdzania poprawności skrótu MD5 zwiększa szybkość transferu. Jednak poprawność i integralność przekazywanych plików nie jest wtedy sprawdzana.   |
-|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Ta właściwość określa, czy skrót MD5 jest obliczany i przechowywany w pliku.   |
-| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Czas wycofania: 2 sekundy, maksymalna liczba ponawianych prób: 10 |Określa zasady ponawiania żądań. Połączenia zakończone niepowodzeniem są ponawianie. W tym przykładzie skonfigurowano zasadę [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) z 2-sekundowych wycofaniem, a maksymalna liczba prób wynosi 10. To ustawienie jest ważne, gdy aplikacja zbliża się do osiągnięcia docelowych skalowalności dla magazynu obiektów Blob. Aby uzyskać więcej informacji, zobacz [Skalowalność i cele wydajności dla magazynu obiektów Blob](../blobs/scalability-targets.md).  |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| fałsz| Ta właściwość określa, czy skrót MD5 jest obliczany i przechowywany w pliku.   |
+| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Czas wycofania: 2 sekundy, maksymalna liczba ponawianych prób: 10 |Określa zasady ponawiania żądań. Połączenia zakończone niepowodzeniem są ponawianie. W tym przykładzie skonfigurowano zasadę [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) z 2-sekundowych wycofaniem, a maksymalna liczba prób wynosi 10. To ustawienie jest ważne, gdy aplikacja zbliża się do elementów docelowych skalowalności dla usługi BLOB Storage. Aby uzyskać więcej informacji, zobacz [elementy docelowe skalowalności i wydajności dla usługi BLOB Storage](../blobs/scalability-targets.md).  |
 
 Zadanie `UploadFilesAsync` jest przedstawione w poniższym przykładzie:
 

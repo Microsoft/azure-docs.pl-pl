@@ -1,101 +1,101 @@
 ---
-title: Wprowadzenie do zapytań dziennika w usłudze Azure Monitor | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera samouczek dotyczący rozpoczynania pisania zapytań dziennika w usłudze Azure Monitor.
+title: Rozpoczynanie pracy z zapytaniami dzienników w Azure Monitor | Microsoft Docs
+description: Ten artykuł zawiera samouczek dotyczący rozpoczynania pisania zapytań dzienników w Azure Monitor.
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
 ms.openlocfilehash: f56abe2bf6ccea1f55f9b3fe94b75016d449b46b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77670183"
 ---
-# <a name="get-started-with-log-queries-in-azure-monitor"></a>Wprowadzenie do zapytań dziennika w usłudze Azure Monitor
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Wprowadzenie do zapytań dzienników w Azure Monitor
 
 > [!NOTE]
-> Można pracować za pośrednictwem tego ćwiczenia w środowisku, jeśli zbierasz dane z co najmniej jednej maszyny wirtualnej. Jeśli nie, to skorzystaj z naszego [środowiska demo,](https://portal.loganalytics.io/demo)które zawiera wiele przykładowych danych.
+> Można to zrobić w Twoim środowisku, jeśli zbierasz dane z co najmniej jednej maszyny wirtualnej. Jeśli nie, użyj naszego [środowiska demonstracyjnego](https://portal.loganalytics.io/demo), co obejmuje wiele przykładowych danych.
 
-W tym samouczku dowiesz się pisać zapytania dziennika w usłudze Azure Monitor. Nauczy Cię, jak:
+W tym samouczku dowiesz się, jak pisać zapytania dzienników w Azure Monitor. Pouczysz się, jak:
 
-- Opis struktury kwerend
-- Sortowanie wyników kwerendy
-- Filtrowanie wyników kwerendy
-- Określanie zakresu czasu
-- Wybieranie pól do uwzględnienia w wynikach
+- Opis struktury zapytania
+- Sortuj wyniki zapytania
+- Filtruj wyniki zapytania
+- Określ zakres czasu
+- Wybierz pola do uwzględnienia w wynikach
 - Definiowanie i używanie pól niestandardowych
-- Wyniki agregacji i grup
+- Agregowanie i grupowanie wyników
 
-Aby zapoznać się z samouczkiem na temat korzystania z usługi Log Analytics w portalu Azure, zobacz [Wprowadzenie do usługi Azure Monitor Log Analytics](get-started-portal.md).<br>
-Aby uzyskać więcej informacji na temat zapytań dziennika w usłudze Azure Monitor, zobacz [Omówienie zapytań dziennika w usłudze Azure Monitor.](log-query-overview.md)
+Aby zapoznać się z samouczkiem dotyczącym używania Log Analytics w Azure Portal, zobacz [wprowadzenie do Azure Monitor Log Analytics](get-started-portal.md).<br>
+Aby uzyskać więcej informacji na temat zapytań dzienników w Azure Monitor, zobacz [Omówienie zapytań dzienników w programie Azure monitor](log-query-overview.md).
 
-Postępuj zgodnie z wersją wideo tego samouczka poniżej:
+Wykonaj poniższe czynności, korzystając z wersji wideo z tego samouczka:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
-## <a name="writing-a-new-query"></a>Pisanie nowej kwerendy
-Kwerendy można rozpocząć od nazwy tabeli lub polecenia *wyszukiwania.* Należy rozpocząć od nazwy tabeli, ponieważ definiuje ona jasny zakres kwerendy i poprawia zarówno wydajność kwerendy, jak i trafność wyników.
+## <a name="writing-a-new-query"></a>Pisanie nowego zapytania
+Zapytania mogą rozpoczynać się od nazwy tabeli lub polecenia *wyszukiwania* . Należy zacząć od nazwy tabeli, ponieważ definiuje jasno zakres zapytania i poprawia wydajność zapytań oraz przydatność wyników.
 
 > [!NOTE]
-> W języku zapytań Kusto używanym przez usługę Azure Monitor jest uwzględniana wielkość liter. Słowa kluczowe języka są zwykle zapisywane przy użyciu małych liter. Korzystając z nazw tabel lub kolumn w kwerendzie, upewnij się, że używasz poprawnej sprawy, jak pokazano w okienku schematu.
+> W języku zapytań Kusto używanym przez usługę Azure Monitor jest uwzględniana wielkość liter. Słowa kluczowe języka są zwykle zapisywane przy użyciu małych liter. W przypadku używania nazw tabel lub kolumn w zapytaniu upewnij się, że użyto poprawnej wielkości liter, jak pokazano w okienku schematu.
 
-### <a name="table-based-queries"></a>Kwerendy oparte na tabelach
-Usługa Azure Monitor organizuje dane dziennika w tabelach, z których każda składa się z wielu kolumn. Wszystkie tabele i kolumny są wyświetlane w okienku schematu w usłudze Log Analytics w portalu Analytics. Zidentyfikuj interesującą Cię tabelę, a następnie przyjrzyj się odrobinie danych:
+### <a name="table-based-queries"></a>Zapytania oparte na tabelach
+Azure Monitor organizuje dane dziennika w tabelach, z których każda składa się z wielu kolumn. Wszystkie tabele i kolumny są wyświetlane w okienku schematu w Log Analytics w portalu analizy. Zidentyfikuj tabelę, która Cię interesuje, a następnie zapoznaj się z bitem danych:
 
 ```Kusto
 SecurityEvent
 | take 10
 ```
 
-Kwerenda pokazana powyżej zwraca 10 wyników z *SecurityEvent* tabeli, w żadnej określonej kolejności. Jest to bardzo powszechny sposób, aby rzucić okiem na tabelę i zrozumieć jego strukturę i zawartość. Przyjrzyjmy się, jak to jest zbudowane:
+Pokazane powyżej zapytanie zwraca 10 wyników z tabeli *SecurityEvent* w określonej kolejności. Jest to bardzo typowy sposób, aby skrócić tabelę i zrozumieć jej strukturę i zawartość. Sprawdźmy, jak to zostało skompilowane:
 
-* Kwerenda rozpoczyna się od nazwy tabeli *SecurityEvent* - ta część definiuje zakres kwerendy.
-* Znak potoku (|) oddziela polecenia, więc dane wyjściowe pierwszego z danych wejściowych następującego polecenia. Można dodać dowolną liczbę elementów potoku.
-* Po potoku jest polecenie **take,** który zwraca określoną liczbę dowolnych rekordów z tabeli.
+* Zapytanie rozpoczyna się od nazwy tabeli *SecurityEvent* — ta część definiuje zakres zapytania.
+* Znak potoku (|) oddziela polecenia, więc dane wyjściowe pierwszego z nich w danych wejściowych z następującego polecenia. Można dodać dowolną liczbę elementów potokowych.
+* Po potoku jest polecenie **Take** , które zwraca określoną liczbę dowolnych rekordów z tabeli.
 
-Możemy uruchomić kwerendę nawet `| take 10` bez dodawania - to nadal będzie prawidłowe, ale może zwrócić do 10 000 wyników.
+W rzeczywistości można uruchomić zapytanie nawet bez dodawania `| take 10` , które nadal będzie prawidłowe, ale może to spowodować zwrócenie do 10 000 wyników.
 
 ### <a name="search-queries"></a>Zapytania wyszukiwania
-Zapytania wyszukiwania są mniej ustrukturyzowane i zazwyczaj bardziej nadają się do znajdowania rekordów, które zawierają określoną wartość w dowolnej z ich kolumn:
+Zapytania wyszukiwania są mniej strukturalne i zwykle bardziej dopasowane do znajdowania rekordów zawierających określoną wartość w dowolnej z ich kolumn:
 
 ```Kusto
 search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
 
-Ta kwerenda przeszukuje tabelę *SecurityEvent* w poszukiwaniu rekordów zawierających frazę "Kryptograficzna". Z tych rekordów zostanie zwróconych i wyświetlonych 10 rekordów. Jeśli pominiemy `in (SecurityEvent)` część `search "Cryptographic"`i po prostu uruchomimy , wyszukiwanie przejdzie przez *wszystkie* tabele, co zajmie więcej czasu i będzie mniej wydajne.
+To zapytanie przeszukuje tabelę *SecurityEvent* pod kątem rekordów zawierających frazę "Cryptographic". Z tych rekordów zostaną zwrócone i wyświetlone 10 rekordów. W przypadku pominięcia `in (SecurityEvent)` części i uruchomienia `search "Cryptographic"`, wyszukiwanie przejdzie nad *wszystkie* tabele, co zajmie więcej czasu i jest mniej wydajne.
 
 > [!WARNING]
-> Zapytania wyszukiwania są zazwyczaj wolniejsze niż kwerendy oparte na tabelach, ponieważ muszą przetwarzać więcej danych. 
+> Zapytania wyszukiwania są zwykle wolniejsze niż zapytania oparte na tabelach, ponieważ muszą przetwarzać więcej danych. 
 
-## <a name="sort-and-top"></a>Sortowanie i top
-Chociaż **take** jest przydatne, aby uzyskać kilka rekordów, wyniki są wybierane i wyświetlane w żadnej określonej kolejności. Aby uzyskać uporządkowany widok, możesz **posortować** według preferowanej kolumny:
+## <a name="sort-and-top"></a>Sortuj i Top
+Mimo **że warto pobrać** kilka rekordów, wyniki są wybierane i wyświetlane w określonej kolejności. Aby uzyskać widok uporządkowany, można **posortować** według preferowanej kolumny:
 
 ```Kusto
 SecurityEvent   
 | sort by TimeGenerated desc
 ```
 
-To może zwrócić zbyt wiele wyników choć i może również zająć trochę czasu. Powyższa kwerenda sortuje *całą tabelę* SecurityEvent według kolumny TimeGenerated. Portal Analytics ogranicza wyświetlanie do wyświetlania tylko 10 000 rekordów. Takie podejście nie jest oczywiście optymalne.
+Może to spowodować zwrócenie zbyt wielu wyników, a także może zająć trochę czasu. Powyższe zapytanie sortuje *całą* tabelę SecurityEvent według kolumny TimeGenerated. Następnie Portal analizy ograniczy wyświetlanie do wyświetlania tylko 10 000 rekordów. Ta metoda nie jest optymalna.
 
-Najlepszym sposobem uzyskania tylko najnowszych 10 rekordów jest użycie **górnej**, która sortuje całą tabelę po stronie serwera, a następnie zwraca najlepsze rekordy:
+Najlepszym sposobem uzyskania tylko 10 ostatnich rekordów jest użycie **górnej**, która sortuje całą tabelę po stronie serwera, a następnie zwraca górne rekordy:
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 ```
 
-Malejąco jest domyślną kolejnością sortowania, więc zazwyczaj pomijamy argument **desc.** Dane wyjściowe będą wyglądać następująco:
+Malejąco jest domyślną kolejności sortowania, więc zwykle pomijamy argument **DESC** . Dane wyjściowe będą wyglądać następująco:
 
-![Top 10](media/get-started-queries/top10.png)
+![10 najważniejszych](media/get-started-queries/top10.png)
 
 
-## <a name="where-filtering-on-a-condition"></a>Gdzie:filtrowanie pod warunkiem
-Filtry, zgodnie z ich nazwą, filtrują dane według określonego warunku. Jest to najczęstszy sposób ograniczania wyników kwerendy do odpowiednich informacji.
+## <a name="where-filtering-on-a-condition"></a>WHERE: filtrowanie dla warunku
+Filtry, zgodnie z ich nazwą, filtrują dane według określonego warunku. Jest to najbardziej typowy sposób ograniczania wyników zapytania do istotnych informacji.
 
-Aby dodać filtr do kwerendy, należy użyć operatora **where,** po którym następuje co najmniej jeden z warunków. Na przykład następująca kwerenda zwraca tylko rekordy *SecurityEvent,* gdzie _poziom_ jest równy _8:_
+Aby dodać filtr do zapytania, użyj operatora **WHERE** , po którym następuje co najmniej jeden warunek. Na przykład następujące zapytanie zwraca tylko rekordy *SecurityEvent* , w których _poziom_ jest równy _8_:
 
 ```Kusto
 SecurityEvent
@@ -107,18 +107,18 @@ Podczas pisania warunków filtrowania można użyć następujących wyrażeń:
 | Wyrażenie | Opis | Przykład |
 |:---|:---|:---|
 | == | Sprawdź równość<br>(z uwzględnieniem wielkości liter) | `Level == 8` |
-| =~ | Sprawdź równość<br>(niewrażliwe na argumenty) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
-| !=, <> | Sprawdzanie nierówności<br>(oba wyrażenia są identyczne) | `Level != 4` |
-| *oraz*, *lub* | Wymagane między warunkami| `Level == 16 or CommandLine != ""` |
+| =~ | Sprawdź równość<br>(bez uwzględniania wielkości liter) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
+| ! =,  <> | Sprawdzanie nierówności<br>(oba wyrażenia są identyczne) | `Level != 4` |
+| *i* *lub* | Wymagane między warunkami| `Level == 16 or CommandLine != ""` |
 
-Aby filtrować według wielu warunków, można użyć **i:**
+Aby filtrować według wielu warunków, można użyć **i**:
 
 ```Kusto
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
-lub rury **wielokrotne, gdzie** elementy jeden po drugim:
+lub wiele potoków, **gdzie** jeden po drugim:
 
 ```Kusto
 SecurityEvent
@@ -127,18 +127,18 @@ SecurityEvent
 ```
     
 > [!NOTE]
-> Wartości mogą mieć różne typy, więc może być konieczne rzutowanie ich do przeprowadzenia porównania na poprawny typ. Na przykład securityevent *level* kolumna jest typu String, więc należy rzutować go do typu numerycznego, takich jak *int* lub *long*, zanim będzie można użyć operatorów numerycznych na nim:`SecurityEvent | where toint(Level) >= 10`
+> Wartości mogą mieć różne typy, więc może być konieczne rzutowanie ich w celu przeprowadzenia porównania w poprawnym typie. Na przykład kolumna *poziomu* SecurityEvent jest typu String, więc musisz rzutować ją na typ liczbowy, na przykład *int* lub *Long*, zanim będzie można używać operatorów numerycznych:`SecurityEvent | where toint(Level) >= 10`
 
-## <a name="specify-a-time-range"></a>Określanie zakresu czasu
+## <a name="specify-a-time-range"></a>Określ zakres czasu
 
-### <a name="time-picker"></a>Selektor czasu
-Selektor czasu znajduje się obok przycisku Uruchom i wskazuje, że wysyłamy zapytania tylko do rekordów z ostatnich 24 godzin. Jest to domyślny zakres czasu stosowany do wszystkich zapytań. Aby uzyskać tylko rekordy z ostatniej godziny, wybierz _opcję Ostatnia godzina_ i uruchom kwerendę ponownie.
+### <a name="time-picker"></a>Wybór godziny
+Selektor godziny znajduje się obok przycisku Uruchom i wskazuje, że wysyłamy zapytania tylko do rekordów z ostatnich 24 godzin. Jest to domyślny zakres czasu stosowany do wszystkich zapytań. Aby uzyskać tylko rekordy z ostatniej godziny, wybierz pozycję _Ostatnia godzina_ i ponownie uruchom zapytanie.
 
 ![Selektor czasu](media/get-started-queries/timepicker.png)
 
 
-### <a name="time-filter-in-query"></a>Filtr czasu w kwerendzie
-Można również zdefiniować własny zakres czasu, dodając filtr czasu do kwerendy. Najlepiej umieścić filtr czasu natychmiast po nazwie tabeli: 
+### <a name="time-filter-in-query"></a>Filtr czasu w zapytaniu
+Możesz również zdefiniować własny zakres czasu, dodając do zapytania filtr czasu. Najlepiej umieścić filtr czasu bezpośrednio po nazwie tabeli: 
 
 ```Kusto
 SecurityEvent
@@ -146,11 +146,11 @@ SecurityEvent
 | where toint(Level) >= 10
 ```
 
-W powyższym `ago(30m)` filtrze czasu oznacza "30 minut temu", więc ta kwerenda zwraca tylko rekordy z ostatnich 30 minut. Inne jednostki czasu to dni (2d), minuty (25 m) i sekundy (10s).
+W filtrze `ago(30m)` powyżej "30 minut temu", więc to zapytanie zwraca tylko rekordy z ostatnich 30 minut. Inne jednostki czasu obejmują dni (2D), minuty (25m) i sekundy (dziesiątkach).
 
 
-## <a name="project-and-extend-select-and-compute-columns"></a>Projekt i rozszerzanie: wybieranie i obliczanie kolumn
-Użyj **projektu,** aby wybrać określone kolumny do uwzględnienia w wynikach:
+## <a name="project-and-extend-select-and-compute-columns"></a>Projekt i rozszerzona: Wybieranie i kolumny obliczeniowe
+Użyj **projektu** , aby wybrać określone kolumny do uwzględnienia w wynikach:
 
 ```Kusto
 SecurityEvent 
@@ -158,15 +158,15 @@ SecurityEvent
 | project TimeGenerated, Computer, Activity
 ```
 
-W poprzednim przykładzie generuje to dane wyjściowe:
+Poprzedni przykład generuje te dane wyjściowe:
 
-![Zapytanie o wyniki projektu](media/get-started-queries/project.png)
+![Wyniki projektu zapytania](media/get-started-queries/project.png)
 
-Można również użyć **projektu,** aby zmienić nazwę kolumn i zdefiniować nowe. W poniższym przykładzie użyto projektu do wykonania następujących czynności:
+Można również użyć **projektu** , aby zmienić nazwy kolumn i zdefiniować nowe. Poniższy przykład używa programu Project, aby wykonać następujące czynności:
 
-* Wybierz tylko oryginalne kolumny *Komputer* i *CzasGenerowane.*
-* Zmień nazwę kolumny *Działanie* na *EventDetails*.
-* Utwórz nową kolumnę o nazwie *EventCode*. Funkcja **substring()** jest używana do uzyskania tylko pierwszych czterech znaków z pola Działanie.
+* Wybierz tylko *komputer* i *TimeGenerated* oryginalne kolumny.
+* Zmień nazwę kolumny *Activity* na *EventDetails*.
+* Utwórz nową kolumnę o nazwie *Kod zdarzenia*. Funkcja **substring ()** służy do pobierania tylko pierwszych czterech znaków z pola aktywności.
 
 
 ```Kusto
@@ -175,7 +175,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend** zachowuje wszystkie oryginalne kolumny w zestawie wyników i definiuje dodatkowe. Poniższa kwerenda używa **rozszerzenia,** aby dodać kolumnę *EventCode.* Należy zauważyć, że ta kolumna może nie być wyświetlana na końcu wyników tabeli, w którym to przypadku należy rozwinąć szczegóły rekordu, aby go wyświetlić.
+wartość **Rozwiń** zachowuje wszystkie oryginalne kolumny w zestawie wyników i definiuje dodatkowe. Poniższe zapytanie używa **rozszerzeń** , aby dodać kolumnę *Kod zdarzenia* . Zwróć uwagę, że ta kolumna nie może być wyświetlana na końcu tabeli. w takim przypadku należy rozwinąć szczegóły rekordu, aby go wyświetlić.
 
 ```Kusto
 SecurityEvent
@@ -183,17 +183,17 @@ SecurityEvent
 | extend EventCode=substring(Activity, 0, 4)
 ```
 
-## <a name="summarize-aggregate-groups-of-rows"></a>Podsumowanie: zagregowane grupy wierszy
-Użyj **podsumowania,** aby zidentyfikować grupy rekordów, zgodnie z jedną lub kilkoma kolumnami, i zastosować do nich agregacje. Najczęstszym zastosowaniem **sumowania** jest *liczba*, która zwraca liczbę wyników w każdej grupie.
+## <a name="summarize-aggregate-groups-of-rows"></a>Podsumowanie: agregowanie grup wierszy
+Użyj **podsumowania** do identyfikowania grup rekordów, zgodnie z co najmniej jedną kolumną, i Zastosuj do nich agregacje. Najbardziej typowym zastosowaniem **podsumowania** jest *Liczba*, która zwraca liczbę wyników w każdej grupie.
 
-Następująca kwerenda przegląda wszystkie rekordy *perf* z ostatniej godziny, grupuje je według *ObjectName*i zlicza rekordy w każdej grupie: 
+Następujące zapytanie przegląda wszystkie rekordy *wydajności* z ostatniej godziny, grupuje je według obiektu *ObjectName*i zlicza rekordy w każdej grupie: 
 ```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName
 ```
 
-Czasami sensowne jest definiowanie grup według wielu wymiarów. Każda unikalna kombinacja tych wartości definiuje oddzielną grupę:
+Czasami warto zdefiniować grupy według wielu wymiarów. Każda unikatowa kombinacja tych wartości definiuje oddzielną grupę:
 
 ```Kusto
 Perf
@@ -201,7 +201,7 @@ Perf
 | summarize count() by ObjectName, CounterName
 ```
 
-Innym powszechnym zastosowaniem jest wykonywanie obliczeń matematycznych lub statystycznych na każdej grupie. Na przykład poniższe oblicza średnią *wartość CounterValue* dla każdego komputera:
+Innym typowym zastosowaniem jest wykonywanie obliczeń matematycznych lub statystycznych dla każdej grupy. Na przykład poniższy kod oblicza średnią *CounterValue* dla każdego komputera:
 
 ```Kusto
 Perf
@@ -209,7 +209,7 @@ Perf
 | summarize avg(CounterValue) by Computer
 ```
 
-Niestety wyniki tej kwerendy są bez znaczenia, ponieważ mieszamy ze sobą różne liczniki wydajności. Aby uczynić to bardziej znaczącym, powinniśmy obliczyć średnią oddzielnie dla każdej kombinacji *CounterName* i *Computer:*
+Niestety, wyniki tego zapytania nie są bezwzględne, ponieważ mieszamy różne liczniki wydajności. Aby to bardziej zrozumiałe, należy obliczyć średnią osobno dla każdej kombinacji *CounterName* i *komputera*:
 
 ```Kusto
 Perf
@@ -218,9 +218,9 @@ Perf
 ```
 
 ### <a name="summarize-by-a-time-column"></a>Podsumowanie według kolumny czasu
-Wyniki grupowania mogą być również oparte na kolumnie czasu lub innej wartości ciągłej. Po prostu `by TimeGenerated` podsumowanie jednak utworzy grupy dla każdej milisekundy w zakresie czasu, ponieważ są to unikatowe wartości. 
+Grupowanie wyników może być również oparte na kolumnie czas lub innej ciągłej wartości. Po prostu Podsumowując `by TimeGenerated` , można utworzyć grupy dla każdej pojedynczej milisekundy w zakresie czasu, ponieważ są to unikatowe wartości. 
 
-Aby utworzyć grupy na podstawie wartości ciągłych, najlepiej podzielić zakres na zarządzane jednostki za pomocą **pojemnika**. Poniższa kwerenda analizuje rekordy *perf,* które mierzą wolną pamięć *(Dostępne Bajty)* na określonym komputerze. Oblicza średnią wartość każdego okresu 1 godziny w ciągu ostatnich 7 dni:
+Aby utworzyć grupy na podstawie wartości ciągłych, najlepiej podzielić zakres na jednostki możliwe do zarządzania przy użyciu usługi **bin**. Poniższe zapytanie analizuje rekordy *wydajności* , które mierzą ilość wolnej pamięci (*dostępna pamięć (MB*) na określonym komputerze. Oblicza średnią wartość każdego ciągu 1 godziny w ciągu ostatnich 7 dni:
 
 ```Kusto
 Perf 
@@ -230,15 +230,15 @@ Perf
 | summarize avg(CounterValue) by bin(TimeGenerated, 1h)
 ```
 
-Aby dane wyjściowe były wyraźniejsze, należy wybrać wyświetlanie go jako wykresu czasu, pokazując dostępnej pamięci w czasie:
+Aby dane wyjściowe były wyraźniejsze, wybierz opcję wyświetlania go jako wykresu czasu, pokazując dostępną pamięć w czasie:
 
-![Pamięć kwerend w czasie](media/get-started-queries/chart.png)
+![Badaj pamięć w czasie](media/get-started-queries/chart.png)
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o używaniu danych ciągu w kwerendzie dziennika [z workiem z ciągami w kwerendach dziennika usługi Azure Monitor.](string-operations.md)
-- Dowiedz się więcej o agregowaniu danych w kwerendzie dziennika za pomocą [zaawansowanych agregacji w kwerendach dziennika usługi Azure Monitor.](advanced-aggregations.md)
-- Dowiedz się, jak dołączać dane z wielu tabel za pomocą [sprzężeń w kwerendach dziennika usługi Azure Monitor.](joins.md)
-- Pobierz dokumentację dotyczącą całego języka zapytań Kusto w [odwołaniu do języka KQL](/azure/kusto/query/).
+- Dowiedz się więcej o korzystaniu z danych ciągu w zapytaniu dziennika i [pracy z ciągami w zapytaniach dziennika Azure monitor](string-operations.md).
+- Dowiedz się więcej na temat agregowania danych w zapytaniu dziennika z [zaawansowanymi agregacjami w zapytaniach dziennika Azure monitor](advanced-aggregations.md).
+- Dowiedz się, jak dołączać dane z wielu tabel przy użyciu [sprzężeń w kwerendach dzienników Azure monitor](joins.md).
+- Zapoznaj się z dokumentacją w całym języku zapytań Kusto w dokumentacji [języka KQL](/azure/kusto/query/).

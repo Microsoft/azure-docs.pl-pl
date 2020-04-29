@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z usługi Azure Storage Table service lub interfejsu API tabeli usługi Azure Cosmos DB z PHP
+title: Korzystanie z usługi Azure Storage Table service lub Azure Cosmos DB interfejs API tabel z poziomu języka PHP
 description: Przechowywanie danych strukturalnych w chmurze za pomocą usługi Azure Table Storage lub interfejsu Table API usługi Azure Cosmos DB.
 author: sakash279
 ms.author: akshanka
@@ -9,10 +9,10 @@ ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
 ms.openlocfilehash: a19928516685e7496dc3e892d2598b24b5abae19
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76771057"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Jak korzystać z usługi Azure Table Storage lub interfejsu API tabel usługi Azure Cosmos DB przy użyciu języka PHP
@@ -95,7 +95,7 @@ Aby uzyskać dostęp do emulatora usługi Azure Storage:
 UseDevelopmentStorage = true
 ```
 
-Aby utworzyć klienta usługi Azure Table Storage lub Azure Cosmos DB, należy użyć klasy **TableRestProxy**. Możesz:
+Aby utworzyć klienta usługi Azure Table Storage lub Azure Cosmos DB, należy użyć klasy **TableRestProxy**. Można:
 
 * Przekazać parametry połączenia bezpośrednio.
 * Użyć narzędzia **CloudConfigurationManager (CCM)**, aby sprawdzić wiele źródeł zewnętrznych dla parametrów połączenia:
@@ -140,7 +140,7 @@ catch(ServiceException $e){
 Aby uzyskać szczegółowe informacje na temat ograniczeń dotyczących nazw tabel, zobacz [Understanding the Table Service Data Model (Omówienie modelu danych usługi Table Storage)][table-data-model].
 
 ## <a name="add-an-entity-to-a-table"></a>Dodawanie jednostki do tabeli
-Aby dodać jednostkę do tabeli, utwórz nowy obiekt **Entity** i przekaż go do metody **TableRestProxy->insertEntity**. Pamiętaj, że podczas tworzenia jednostki należy określić wartości `PartitionKey` i `RowKey`. Są to unikatowe identyfikatory jednostki. Zapytania dotyczące tych wartości są wykonywane znacznie szybciej niż zapytania dotyczące innych właściwości jednostki. System używa wartości `PartitionKey`, aby automatycznie rozłożyć jednostki tabeli w wielu węzłach usługi Azure Storage. Jednostki z tą samą wartością `PartitionKey` są przechowywane w tym samym węźle. (Operacje na wielu jednostkach przechowywanych w tym samym węźle działają lepiej niż na jednostkach przechowywanych w różnych węzłach). Jest `RowKey` unikatowy identyfikator jednostki w ramach partycji.
+Aby dodać jednostkę do tabeli, utwórz nowy obiekt **Entity** i przekaż go do metody **TableRestProxy->insertEntity**. Pamiętaj, że podczas tworzenia jednostki należy określić wartości `PartitionKey` i `RowKey`. Są to unikatowe identyfikatory jednostki. Zapytania dotyczące tych wartości są wykonywane znacznie szybciej niż zapytania dotyczące innych właściwości jednostki. System używa wartości `PartitionKey`, aby automatycznie rozłożyć jednostki tabeli w wielu węzłach usługi Azure Storage. Jednostki z tą samą wartością `PartitionKey` są przechowywane w tym samym węźle. (Operacje na wielu jednostkach przechowywanych w tym samym węźle działają lepiej niż w przypadku jednostek przechowywanych w różnych węzłach). `RowKey` Jest UNIKATOWYm identyfikatorem jednostki w ramach partycji.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -314,7 +314,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="retrieve-a-subset-of-entity-properties"></a>Pobieranie podzestawu właściwości jednostki
-Zapytanie umożliwia także pobranie podzestawu właściwości jednostki. Ta technika, zwana *projekcją,* zmniejsza przepustowość i może poprawić wydajność kwerend, szczególnie w przypadku dużych jednostek. Aby określić właściwość do pobrania, należy przekazać nazwę właściwości do metody **Query->addSelectField**. Tę metodę można wywołać wiele razy, aby dodać więcej właściwości. Po wykonaniu polecenia **TableRestProxy->queryEntities** zwrócone zostaną tylko wybrane właściwości jednostek. Jeśli chcesz zwrócić podzestaw jednostek tabeli, użyj filtru tak, jak pokazano w powyższych zapytaniach.
+Zapytanie umożliwia także pobranie podzestawu właściwości jednostki. Ta technika, nazywana *projekcją*, zmniejsza przepustowość i może poprawić wydajność zapytań, szczególnie w przypadku dużych jednostek. Aby określić właściwość do pobrania, należy przekazać nazwę właściwości do metody **Query->addSelectField**. Tę metodę można wywołać wiele razy, aby dodać więcej właściwości. Po wykonaniu polecenia **TableRestProxy->queryEntities** zwrócone zostaną tylko wybrane właściwości jednostek. Jeśli chcesz zwrócić podzestaw jednostek tabeli, użyj filtru tak, jak pokazano w powyższych zapytaniach.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -505,7 +505,7 @@ Teraz, kiedy znasz już podstawy usług Azure Table Storage i Azure Cosmos DB, s
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest bezpłatną aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.
 
-* [Centrum programistów PHP](https://azure.microsoft.com/develop/php/).
+* [Centrum deweloperów języka PHP](https://azure.microsoft.com/develop/php/).
 
 [download]: https://packagist.org/packages/microsoft/azure-storage-table
 [require_once]: https://php.net/require_once

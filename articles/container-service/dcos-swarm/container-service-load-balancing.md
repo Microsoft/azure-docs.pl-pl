@@ -8,10 +8,10 @@ ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: a8f863f16888e6eca2dbc72c5dd612c38edbe46e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273373"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(PRZESTARZAŁE) Równoważenie obciążenia kontenerów w klastrze DC/OS usługi Azure Container Service
@@ -43,7 +43,7 @@ Usługa **Marathon Load Balancer (marathon-lb)** kieruje żądania przychodzące
 
 Moduł Marathon Load Balancer dynamicznie zmienia konfigurację na podstawie wdrożonych kontenerów. Jest on również odporny na utratę kontenera lub agenta. W takim przypadku rozwiązanie Apache Mesos ponownie uruchamia kontener w innym miejscu, a moduł marathon-lb jest dostosowywany.
 
-Przejdź [https://shell.azure.com](https://shell.azure.com) do, aby otworzyć Cloud Shell w przeglądarce.
+Przejdź do [https://shell.azure.com](https://shell.azure.com) okna, aby otworzyć Cloud Shell w przeglądarce.
 
 Uruchom poniższe polecenie, aby zainstalować moduł Marathon Load Balancer w klastrze agenta publicznego.
 

@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78252744"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Samouczek: tworzenie pakietów kontenerów i wdrażanie ich jako aplikacji usługi Service Fabric za pomocą usługi Yeoman
@@ -112,13 +112,13 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 Aby usługa Service Fabric pobierała obrazy kontenerów z usługi Azure Container Registry, należy podać poświadczenia w pliku **ApplicationManifest.xml**.
 
-Zaloguj się do wystąpienia usługi ACR. Aby wykonać tę operację, użyj polecenia **az acr login**. Podaj unikatową nazwę nadaną rejestrowi kontenerów podczas jego tworzenia.
+Zaloguj się do swojego wystąpienia ACR. Aby wykonać tę operację, użyj polecenia **az acr login**. Podaj unikatową nazwę nadaną rejestrowi kontenerów podczas jego tworzenia.
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-Polecenie zwraca komunikat **Pomyślnie logowania** po zakończeniu.
+Polecenie zwraca komunikat o **pomyślnym zalogowaniu** po zakończeniu.
 
 Następnie uruchom następujące polecenie, aby pobrać hasło rejestru kontenerów. To hasło jest używane przez usługę Service Fabric do uwierzytelniania w usłudze ACR na potrzeby ściągania obrazów kontenera.
 
@@ -272,11 +272,11 @@ Użyj skryptu instalacji udostępnionego w katalogu **TestContainer**, aby skopi
 ./install.sh
 ```
 
-Otwórz przeglądarkę i przejdź do Eksploratora sieci szkieletowej usług pod adresem http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Rozwiń węzeł Aplikacje i zwróć uwagę, że istnieje wpis dla danego typu aplikacji i inny wpis dla wystąpienia.
+Otwórz przeglądarkę i przejdź do Service Fabric Explorer przy użyciu protokołu HTTP\/:/containertestcluster.eastus.cloudapp.Azure.com:19080/Explorer. Rozwiń węzeł Aplikacje i zwróć uwagę, że istnieje wpis dla danego typu aplikacji i inny wpis dla wystąpienia.
 
 ![Service Fabric Explorer][sfx]
 
-Aby połączyć się z uruchomiającą aplikacją, otwórz przeglądarkę internetową\/i przejdź do adresu URL klastra - na przykład http: /containertestcluster.eastus.cloudapp.azure.com:80. W przeglądarce powinien zostać wyświetlony internetowy interfejs użytkownika.
+Aby połączyć się z uruchomioną aplikacją, Otwórz przeglądarkę internetową i przejdź do adresu URL klastra — na przykład http:\//containertestcluster.eastus.cloudapp.Azure.com:80. W przeglądarce powinien zostać wyświetlony internetowy interfejs użytkownika.
 
 ![votingapp][votingapp]
 

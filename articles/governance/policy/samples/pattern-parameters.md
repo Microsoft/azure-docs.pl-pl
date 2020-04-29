@@ -1,50 +1,50 @@
 ---
-title: 'Wzorzec: Parametry w definicji zasad'
-description: Ten wzorzec zasad platformy Azure zawiera przykład użycia parametrów w definicji zasad.
+title: 'Wzorzec: parametry w definicji zasad'
+description: Ten Azure Policy wzorzec zawiera przykład sposobu używania parametrów w definicji zasad.
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: 4921bb216ef67b561bc8986cf48239e6448beafc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77172807"
 ---
-# <a name="azure-policy-pattern-parameters"></a>Wzorzec zasad platformy Azure: parametry
+# <a name="azure-policy-pattern-parameters"></a>Wzorzec Azure Policy: parametry
 
-Definicja zasad może być dynamiczna w celu zmniejszenia liczby definicji zasad, które są potrzebne przy użyciu [parametrów](../concepts/definition-structure.md#parameters). Parametr jest definiowany podczas przypisywania zasad. Parametry mają zestaw wstępnie zdefiniowanych właściwości, które opisują parametr i sposób jego użycia.
+Definicję zasad można uczynić dynamicznym, aby zmniejszyć liczbę definicji zasad, które są konieczne przy użyciu [parametrów](../concepts/definition-structure.md#parameters). Parametr jest definiowany podczas przypisywania zasad. Parametry mają zestaw wstępnie zdefiniowanych właściwości opisujących parametr i sposób jego użycia.
 
-## <a name="sample-1-string-parameters"></a>Przykład 1: Parametry ciągu
+## <a name="sample-1-string-parameters"></a>Przykład 1: parametry ciągu
 
-Ta definicja zasad używa dwóch parametrów: **tagName** i **tagValue,** aby ustawić, czego szuka przypisanie zasad w zasobach. Ten format umożliwia zasady do użycia dla dowolnej liczby kombinacji nazw tagów i wartości znacznika, ale tylko zachować jedną definicję zasad.
+Ta definicja zasad używa dwóch parametrów, **TagName** i **tagValue** , aby określić, co ma być wyszukiwane przez zasady dla zasobów. Ten format umożliwia używanie zasad dla dowolnej liczby kombinacji nazwy tagu i wartości tagów, ale tylko do obsługi jednej definicji zasad.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-1.json":::
 
-### <a name="sample-1-explanation"></a>Przykład 1: Wyjaśnienie
+### <a name="sample-1-explanation"></a>Przykład 1: wyjaśnienie
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-1.json" range="8-13":::
 
-W tej części definicji zasad parametr **tagName** jest zdefiniowany jako _ciąg_ znaków, a opis jest podany do jego użycia.
+W tej części definicji zasad parametr **TagName** jest zdefiniowany jako _ciąg_ i opis jest przeznaczony do użycia.
 
-Parametr jest następnie używany w **policyRule.if** bloku, aby zasady dynamiczne. W tym miejscu służy do definiowania pola, które jest oceniane, który jest tagiem o wartości **tagName**.
+Parametr jest następnie używany w bloku **Klasa policyrule. if** , aby zastosować zasady dynamiczne. W tym miejscu służy do definiowania ocenianego pola, które jest tagiem z wartością **TagName**.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-1.json" range="22-27" highlight="3":::
 
-## <a name="sample-2-array-parameters"></a>Przykład 2: Parametry tablicy
+## <a name="sample-2-array-parameters"></a>Przykład 2: parametry tablicy
 
-Ta definicja zasad używa jednego **parametru, listOfBandwidthinMbps,** aby sprawdzić, czy zasób obwodu trasy ekspresowej skonfigurował ustawienie przepustowości na jedną z zatwierdzonych wartości. Jeśli nie jest zgodny, tworzenie lub aktualizowanie zasobu zostanie [odrzucone](../concepts/effects.md#deny).
+Ta definicja zasad używa jednego parametru, **listOfBandwidthinMbps**, aby sprawdzić, czy zasób obwodu trasy Express skonfigurował ustawienie przepustowości do jednej z zatwierdzonych wartości. Jeśli nie jest on zgodny [, nie można](../concepts/effects.md#deny)utworzyć lub zaktualizować zasobu.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-2.json":::
 
-### <a name="sample-2-explanation"></a>Przykład 2: Wyjaśnienie
+### <a name="sample-2-explanation"></a>Przykład 2: wyjaśnienie
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-2.json" range="6-12":::
 
-W tej części definicji zasad parametr **listOfBandwidthinMbps** jest zdefiniowany jako _tablica_ i opis jest podany do jego użycia. Jako _tablica_ma wiele wartości do dopasowania.
+W tej części definicji zasad parametr **listOfBandwidthinMbps** jest zdefiniowany jako _Tablica_ i opis jest przeznaczony do użycia. Jako _Tablica_ma wiele wartości do dopasowania.
 
-Parametr jest następnie używany w **policyRule.if** bloku. Jako parametr _tablicy_ musi być używany[warunek](../concepts/definition-structure.md#conditions) _tablicy_
-w **lub** **nieIn.**
-W tym miejscu jest używany względem **aliasu serviceProvider.bandwidthInMbps** jako jednej ze zdefiniowanych wartości.
+Ten parametr jest następnie używany w bloku **Klasa policyrule. if** . Jako parametr _tablicy_ , należy **użyć lub** **notIn** [warunku](../concepts/definition-structure.md#conditions) _tablicy_
+.
+W tym miejscu jest używany w odniesieniu do aliasu **. bandwidthInMbps** jako jednej ze zdefiniowanych wartości.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-2.json" range="21-24" highlight="3":::
 

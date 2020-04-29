@@ -1,6 +1,6 @@
 ---
 title: Wykonywanie zapytań o dane za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB
-description: Dowiedz się, jak wysyłać zapytania do danych z interfejsu API usługi Azure Cosmos DB dla usługi MongoDB przy użyciu poleceń powłoki MongoDB
+description: Dowiedz się, jak wykonywać zapytania dotyczące danych z interfejsu API Azure Cosmos DB dla MongoDB za pomocą poleceń powłoki MongoDB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74870143"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Wykonywanie zapytań o dane przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB
@@ -62,11 +62,11 @@ Zapytania w tym artykule korzystają z następującego przykładowego dokumentu.
 
 Bazując na powyższym przykładowym dokumencie dotyczącym rodziny, następujące zapytanie zwraca dokumenty, dla których pole id ma wartość `WakefieldFamily`.
 
-**Kwerendy**
+**Zapytanie**
     
     db.families.find({ id: "WakefieldFamily"})
 
-**Results**
+**Wyniki**
 
     {
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
@@ -112,11 +112,11 @@ Bazując na powyższym przykładowym dokumencie dotyczącym rodziny, następują
 
 Następne zapytanie zwraca wszystkie dzieci w rodzinie. 
 
-**Kwerendy**
+**Zapytanie**
     
     db.families.find( { id: "WakefieldFamily" }, { children: true } )
 
-**Results**
+**Wyniki**
 
     {
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
@@ -145,7 +145,7 @@ Następne zapytanie zwraca wszystkie dzieci w rodzinie.
 
 Następne zapytanie zwraca wszystkie zarejestrowane rodziny. 
 
-**Kwerendy**
+**Zapytanie**
     
     db.families.find( { "isRegistered" : true })
 **Wyniki** Nie zostanie zwrócony żaden dokument. 
@@ -154,10 +154,10 @@ Następne zapytanie zwraca wszystkie zarejestrowane rodziny.
 
 Następne zapytanie zwraca wszystkie niezarejestrowane rodziny. 
 
-**Kwerendy**
+**Zapytanie**
     
     db.families.find( { "isRegistered" : false })
-**Results**
+**Wyniki**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -198,11 +198,11 @@ Następne zapytanie zwraca wszystkie niezarejestrowane rodziny.
 
 Następne zapytanie zwraca wszystkie rodziny, które nie zostały zarejestrowane i dla których stan to NY. 
 
-**Kwerendy**
+**Zapytanie**
     
      db.families.find( { "isRegistered" : false, "address.state" : "NY" })
 
-**Results**
+**Wyniki**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -244,11 +244,11 @@ Następne zapytanie zwraca wszystkie rodziny, które nie zostały zarejestrowane
 
 Następne zapytanie zwraca wszystkie rodziny, w których dzieci chodzą do 8 klasy.
 
-**Kwerendy**
+**Zapytanie**
   
      db.families.find( { children : { $elemMatch: { grade : 8 }} } )
 
-**Results**
+**Wyniki**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -289,11 +289,11 @@ Następne zapytanie zwraca wszystkie rodziny, w których dzieci chodzą do 8 kla
 
 Następne zapytanie zwraca wszystkie rodziny, w których rozmiar tablicy z dziećmi to 3.
 
-**Kwerendy**
+**Zapytanie**
   
       db.Family.find( {children: { $size:3} } )
 
-**Results**
+**Wyniki**
 
 Żadne wyniki nie zostaną zwrócone, ponieważ nie ma żadnych rodzin z więcej niż 2 dzieci. To zapytanie powiedzie się i zwróci pełny dokument tylko wtedy, gdy parametr będzie równy 2.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Tworzenie aplikacji sieci Web (na bok pamięci podręcznej) — pamięć podręczna Azure dla redis'
-description: Dowiedz się, jak utworzyć aplikację sieci Web z pamięcią podręczną Azure dla programu Redis, która używa wzorca odłogowania pamięci podręcznej.
+title: 'Samouczek: Tworzenie aplikacji sieci Web (w pamięci podręcznej) — pamięć podręczna platformy Azure dla Redis'
+description: Dowiedz się, jak utworzyć aplikację internetową za pomocą usługi Azure cache for Redis, która używa wzorca z możliwością buforowania.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75411941"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Samouczek: tworzenie rankingu z odkładaniem do pamięci podręcznej na platformie ASP.NET
 
 W tym samouczku zaktualizujesz aplikację internetową platformy ASP.NET o nazwie *ContosoTeamStats*, utworzoną w ramach [przewodnika Szybki start platformy ASP.NET dla usługi Azure Cache for Redis](cache-web-app-howto.md), w taki sposób, aby zawierała ranking korzystający ze [wzorca odkładania do pamięci podręcznej](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) i usługi Azure Cache for Redis. Przykładowa aplikacja wyświetla listę statystyk zespołu z bazy danych i demonstruje różne sposoby korzystania z usługi Azure Cache for Redis do przechowywania danych w pamięci podręcznej i pobierania ich w celu podniesienia wydajności. Wykonanie instrukcji z samouczka umożliwi uzyskanie działającej aplikacji internetowej wykonującej odczyt i zapis w bazie danych, zoptymalizowanej przy użyciu usługi Azure Cache for Redis i hostowanej na platformie Azure.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Zwiększ przepływność danych i ogranicz obciążenie bazy danych, przechowując i pobierając dane przy użyciu usługi Azure Cache for Redis.
@@ -148,7 +148,7 @@ Aby uzyskać więcej informacji dotyczących tego pakietu, zobacz stronę pakiet
 
 1. Dodaj następującą sekcję `connectionStrings` wewnątrz sekcji `configuration`. Nazwa parametrów połączenia musi być zgodna z nazwą klasy kontekstu bazy danych platformy Entity Framework, którą jest `TeamContext`.
 
-    Ten ciąg połączenia zakłada, że spełnione [wymagania wstępne](#prerequisites) i zainstalowany SQL Server Express LocalDB, który jest częścią obciążenia *dewelopera pulpitu .NET* zainstalowany w programie Visual Studio 2019.
+    W tych parametrach połączenia przyjęto założenie, że spełniono [wymagania wstępne](#prerequisites) i zainstalowano SQL Server Express LocalDB, które jest częścią obciążenia programowania dla programu *.NET Desktop* zainstalowanego z programem Visual Studio 2019.
 
     ```xml
     <connectionStrings>
@@ -615,7 +615,7 @@ Kod tworzenia szkieletu, który został wygenerowany w ramach tego przykładu, z
     </table>
     ```
 
-1. Przewiń do dołu pliku **Index.cshtml** i dodaj następujący `tr` element, aby był to ostatni wiersz w ostatniej tabeli w pliku:
+1. Przewiń w dół pliku **index. cshtml** i Dodaj następujący `tr` element, tak aby był ostatnim wierszem w ostatniej tabeli w pliku:
 
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
@@ -634,7 +634,7 @@ Podczas tego testu aplikacja i baza danych działają lokalnie. Usługa Azure Ca
 
 Aby uruchomić aplikację lokalnie:
 
-1. Naciśnij **klawisze Ctrl+F5,** aby uruchomić aplikację.
+1. Naciśnij **klawisze CTRL + F5** , aby uruchomić aplikację.
 
     ![Aplikacja uruchomiona lokalnie](./media/cache-web-app-cache-aside-leaderboard/cache-local-application.png)
 
@@ -654,7 +654,7 @@ W tej sekcji aprowizujesz nową bazę danych SQL platformy Azure dla aplikacji, 
 
    | Ustawienie       | Sugerowana wartość | Opis |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nazwa bazy danych** | *ContosoTeamsDatabase* | Aby zapoznać się z prawidłową nazwymi baz danych, zobacz [Identyfikatory baz danych](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Nazwa bazy danych** | *ContosoTeamsDatabase* | Prawidłowe nazwy baz danych znajdują się w temacie [identyfikatory baz danych](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Subskrypcja** | *Twoja subskrypcja*  | Wybierz tę samą subskrypcję, która została użyta do utworzenia pamięci podręcznej i hostowania usługi App Service. |
    | **Grupa zasobów**  | *TestResourceGroup* | Kliknij pozycję **Użyj istniejącej** i użyj tej samej grupy zasobów, w której umieszczono pamięć podręczną i usługę App Service. |
    | **Wybierz źródło** | **Pusta baza danych** | Zacznij od pustej bazy danych. |
@@ -664,7 +664,7 @@ W tej sekcji aprowizujesz nową bazę danych SQL platformy Azure dla aplikacji, 
    | Ustawienie       | Sugerowana wartość | Opis |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nazwa serwera** | Dowolna nazwa unikatowa w skali globalnej | Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa). |
-   | **Logowanie administratora serwera** | Dowolna prawidłowa nazwa | Aby uzyskać prawidłowe nazwy logowania, zobacz [Identyfikatory baz danych](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Identyfikator logowania administratora serwera** | Dowolna prawidłowa nazwa | Prawidłowe nazwy logowania można znaleźć w temacie [identyfikatory baz danych](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Hasło** | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej 8 znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
    | **Lokalizacja** | *Wschodnie stany USA* | Wybierz ten sam region, w którym utworzono pamięć podręczną i usługę App Service. |
 
@@ -727,7 +727,7 @@ Po zakończeniu pracy z przykładową aplikacją z samouczka możesz usunąć u�
 2. Wpisz nazwę grupy zasobów w polu tekstowym **Filtruj elementy...**.
 3. Kliknij pozycję **...** z prawej strony grupy zasobów i kliknij pozycję **Usuń grupę zasobów**.
 
-    ![Usuń](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
+    ![Usuwanie](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
 
 4. Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń**.
 

@@ -1,6 +1,6 @@
 ---
-title: Tworzenie pamięci podręcznej platformy Azure premium dla redis z klastrowania — narzędzie interfejsu wiersza polecenia platformy Azure
-description: W tym przykładzie kodu interfejsu wiersza polecenia platformy Azure pokazano, jak utworzyć 6 GB premium warstwy Azure Cache dla redis z włączone klastrowanie i dwa fragmenty.
+title: Tworzenie pamięci podręcznej platformy Azure w warstwie Premium dla usługi Redis za pomocą klastrowania
+description: Ten przykładowy kod interfejsu wiersza polecenia platformy Azure przedstawia sposób tworzenia pamięci podręcznej systemu Azure w warstwie Premium o pojemności 6 GB dla Redis z włączoną obsługą klastrów i dwoma fragmentów.
 author: yegu-ms
 ms.author: yegu
 tags: azure-service-management
@@ -9,15 +9,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.openlocfilehash: 68203fe2e054f32ce5764fe4f1b07013b0806104
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75411147"
 ---
-# <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Tworzenie pamięci podręcznej platformy Azure premium dla redis z klastrem
+# <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Tworzenie pamięci podręcznej systemu Azure w warstwie Premium dla Redis przy użyciu klastrowania
 
-W tym scenariuszu dowiesz się, jak utworzyć 6 GB warstwy Premium Azure Cache dla Redis z włączone klastrowanie i dwa fragmenty.
+W tym scenariuszu dowiesz się, jak utworzyć pamięć podręczną systemu Azure w warstwie Premium o pojemności 6 GB dla Redis z włączoną obsługą klastrów i dwoma fragmentów.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -29,16 +29,16 @@ W tym scenariuszu dowiesz się, jak utworzyć 6 GB warstwy Premium Azure Cache d
 
 ## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń do utworzenia grupy zasobów i warstwy Premium Azure Cache dla redis z klastrowania włączyć. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
+Ten skrypt używa następujących poleceń w celu utworzenia grupy zasobów i pamięci podręcznej platformy Azure dla usługi Redis z włączonym klastrowaniem. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [az redis tworzenie](https://docs.microsoft.com/cli/azure/redis) | Utwórz pamięć podręczną platformy Azure dla wystąpienia Redis. |
+| [AZ Redis Create](https://docs.microsoft.com/cli/azure/redis) | Utwórz wystąpienie usługi Azure cache for Redis. |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
 
-Dodatkowe przykłady skryptów interfejsu wiersza platformy Azure dla modułów interfejsu wiersza polecenia Redis można znaleźć w [dokumentacji usługi Azure Cache for Redis.](../cli-samples.md)
+Dodatkowe przykłady skryptów interfejsu wiersza polecenia usługi Azure cache for Redis znajdują się w [pamięci podręcznej platformy Azure w celu uzyskania dokumentacji Redis](../cli-samples.md).

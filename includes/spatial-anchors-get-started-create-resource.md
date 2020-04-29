@@ -5,43 +5,43 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
 ms.openlocfilehash: 32f4545a45eda8acddd7c93cc4917dbadca9ad4d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67135027"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Tworzenie zasobu usługi Spatial Anchors
 
-Przejdź do <a href="https://portal.azure.com" target="_blank">witryny Azure portal</a>.
+Przejdź do <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
-W lewym okienku nawigacji w witrynie Azure portal wybierz pozycję **Utwórz zasób**.
+W okienku nawigacji po lewej stronie Azure Portal wybierz pozycję **Utwórz zasób**.
 
-Użyj pola wyszukiwania, aby wyszukać **zakotwiczenia przestrzenne**.
+Użyj pola wyszukiwania, aby wyszukać **kotwice przestrzenne**.
 
    ![Wyszukiwanie usługi Spatial Anchors](./media/spatial-anchors-get-started-create-resource/portal-search.png)
 
-Wybierz **zakotwiczenia przestrzenne**. W oknie dialogowym wybierz pozycję **Utwórz**.
+Wybierz **kotwice przestrzenne**. W oknie dialogowym wybierz pozycję **Utwórz**.
 
-W oknie **dialogowym Konto zakotwiczenia przestrzennego:**
+W oknie dialogowym **konto kotwicowe** :
 
-- Wprowadź unikatową nazwę zasobu przy użyciu zwykłych znaków alfanumerycznych.
+- Wprowadź unikatową nazwę zasobu, używając zwykłych znaków alfanumerycznych.
 - Wybierz subskrypcję, do której chcesz dołączyć zasób.
-- Utwórz grupę zasobów, wybierając pozycję **Utwórz nowy**. Nazwij to **myResourceGroup** i wybierz **PRZYCISK OK**.
+- Utwórz grupę zasobów, wybierając pozycję **Utwórz nową**. Nadaj jej **nazwę, a** następnie wybierz **przycisk OK**.
       [!INCLUDE [resource group intro text](resource-group.md)]
-- Wybierz lokalizację (region), w której ma być umieszczany zasób.
+- Wybierz lokalizację (region), w której ma zostać umieszczony zasób.
 - Wybierz pozycję **Nowy**, aby rozpocząć tworzenie zasobu.
 
    ![Tworzenie zasobu](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-Po utworzeniu zasobu usługa Azure Portal pokaże, że wdrożenie zostało zakończone. Kliknij pozycję **Przejdź do zasobu**.
+Po utworzeniu zasobu w witrynie Azure Portal zostanie wyświetlona wartość ukończenie wdrożenia. Kliknij pozycję **Przejdź do zasobu**.
 
 ![Zakończono wdrożenie](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
 
-Następnie można wyświetlić właściwości zasobu. Skopiuj wartość **identyfikatora konta** zasobu do edytora tekstu, ponieważ będzie potrzebna później.
+Następnie można wyświetlić właściwości zasobów. Skopiuj wartość **identyfikatora konta** zasobu do edytora tekstu, ponieważ będzie ona potrzebna później.
 
    ![Właściwości zasobu](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
-W obszarze **Ustawienia**wybierz **pozycję Klawisz**. Skopiuj wartość **klucza podstawowego** do edytora tekstu. Ta wartość `Account Key`jest . Będzie on potrzebny później.
+W obszarze **Ustawienia**wybierz pozycję **klucz**. Skopiuj wartość **klucza podstawowego** do edytora tekstu. Ta wartość to `Account Key`. Będzie on potrzebny później.
 
    ![Klucz konta](./media/spatial-anchors-get-started-create-resource/view-account-key.png)

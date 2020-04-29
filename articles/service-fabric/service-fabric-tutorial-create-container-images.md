@@ -1,5 +1,5 @@
 ---
-title: Tworzenie obrazów kontenerów w sieci szkieletowej usług na platformie Azure
+title: Tworzenie obrazów kontenerów na Service Fabric na platformie Azure
 description: Z tego samouczka dowiesz się, jak utworzyć obrazy kontenerów dla aplikacji obsługującej wiele kontenerów usługi Service Fabric.
 author: suhuruli
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: fe06da759a1ad42ef5cef888f98c440cdfb9569c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78252783"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Samouczek: tworzenie obrazów kontenerów w klastrze usługi Service Fabric systemu Linux
@@ -78,7 +78,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Wdrażanie usługi Azure Container Registry
 
-Najpierw uruchom polecenie **logowania az,** aby zalogować się do konta platformy Azure.
+Najpierw uruchom polecenie **AZ login** , aby zalogować się do konta platformy Azure.
 
 ```azurecli
 az login
@@ -98,7 +98,7 @@ Utwórz grupę zasobów za pomocą polecenia **az group create**. W tym przykła
 az group create --name <myResourceGroup> --location westus
 ```
 
-Utwórz rejestr kontenera platformy Azure za pomocą polecenia **az acr create.** Zamiast ciągu \<acrName> wpisz nazwę rejestru kontenerów, który ma zostać utworzony w ramach Twojej subskrypcji. Ta nazwa może zawierać tylko znaki alfanumeryczne i musi być unikatowa.
+Utwórz usługę Azure Container Registry za pomocą polecenia **AZ ACR Create** . Zamiast ciągu \<acrName> wpisz nazwę rejestru kontenerów, który ma zostać utworzony w ramach Twojej subskrypcji. Ta nazwa może zawierać tylko znaki alfanumeryczne i musi być unikatowa.
 
 ```azurecli
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
@@ -106,9 +106,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 W dalszej części tego samouczka wartość „acrName” jest używana jako symbol zastępczy wybranej nazwy rejestru kontenerów. Zanotuj tę wartość.
 
-## <a name="sign-in-to-your-container-registry"></a>Logowanie się do rejestru kontenerów
+## <a name="sign-in-to-your-container-registry"></a>Logowanie do rejestru kontenerów
 
-Zaloguj się do wystąpienia usługi ACR przed wypchnięciem do niego obrazów. Aby wykonać tę operację, użyj polecenia **az acr login**. Podaj unikatową nazwę nadaną rejestrowi kontenerów podczas jego tworzenia.
+Zaloguj się do swojego wystąpienia ACR przed wypchnięciem do niego obrazów. Aby wykonać tę operację, użyj polecenia **az acr login**. Podaj unikatową nazwę nadaną rejestrowi kontenerów podczas jego tworzenia.
 
 ```azurecli
 az acr login --name <acrName>

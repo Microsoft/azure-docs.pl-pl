@@ -7,15 +7,15 @@ ms.topic: include
 ms.author: pmorgan
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 96439479ebb007507efdd577e963532d9cdf90d4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67722947"
 ---
-## <a name="putting-everything-together"></a>Łączenie wszystkiego
+## <a name="putting-everything-together"></a>Umieszczanie wszystkich siebie
 
-Oto jak powinien `AzureSpatialAnchorsScript` wyglądać kompletny plik klasy, po zebraniu wszystkich różnych elementów. Można go użyć jako odniesienia do porównania z własnym plikiem i miejscu, jeśli może być żadnych różnic w lewo.
+Poniżej przedstawiono sposób, w `AzureSpatialAnchorsScript` jaki powinien wyglądać cały plik klasy, po umieszczeniu wszystkich różnych elementów. Można go użyć jako odwołania, aby porównać się z własnym plikiem i tam, gdzie mogą występować jakiekolwiek różnice.
 
 ```csharp
 using Microsoft.Azure.SpatialAnchors;
@@ -396,7 +396,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dowiesz się więcej o tym, jak używać kotwic przestrzennych platformy Azure w nowej aplikacji Unity HoloLens. Aby dowiedzieć się więcej na temat korzystania z funkcji Azure Spatial Anchors w nowej aplikacji dla systemu Android, przejdź do następnego samouczka.
+W tym samouczku dowiesz się więcej na temat korzystania z kotwic przestrzennych platformy Azure w nowej aplikacji HoloLens Unity. Aby dowiedzieć się więcej na temat korzystania z kotwic przestrzennych platformy Azure w nowej aplikacji systemu Android, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Uruchamianie nowej aplikacji na Androida](/azure/spatial-anchors/tutorials/tutorial-new-android-app)
+> [Uruchamianie nowej aplikacji systemu Android](/azure/spatial-anchors/tutorials/tutorial-new-android-app)

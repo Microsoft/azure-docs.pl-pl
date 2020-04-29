@@ -1,67 +1,67 @@
 ---
-title: 'Samouczek: Skalowanie aplikacji w wiosennej chmurze platformy Azure | Dokumenty firmy Microsoft'
-description: W tym samouczku dowiesz się, jak skalować aplikację za pomocą usługi Azure Spring Cloud w witrynie Azure portal
+title: 'Samouczek: skalowanie aplikacji w chmurze Azure wiosennej | Microsoft Docs'
+description: W tym samouczku dowiesz się, jak skalować aplikację przy użyciu chmury Azure wiosennej w Azure Portal
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.openlocfilehash: f08a3b5d0a03b0e898457bbb783dd5031c4b0f27
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76277480"
 ---
-# <a name="scale-an-application-in-azure-spring-cloud"></a>Skalowanie aplikacji w chmurze Azure Spring Cloud
+# <a name="scale-an-application-in-azure-spring-cloud"></a>Skalowanie aplikacji w chmurze Azure wiosennej
 
-W tym samouczku pokazano, jak skalować dowolną aplikację mikrousług przy użyciu pulpitu nawigacyjnego usługi Azure Spring Cloud w witrynie Azure portal.
+W tym samouczku przedstawiono sposób skalowania dowolnej aplikacji mikrousług przy użyciu pulpitu nawigacyjnego chmury Azure wiosny w Azure Portal.
 
-Skaluj aplikację w górę i w dół, modyfikując liczbę procesorów wirtualnych (vCPU) i ilość pamięci. Skalowanie aplikacji w i na zewnątrz, modyfikując liczbę wystąpień aplikacji.
+Skaluj swoją aplikację w górę i w dół, modyfikując jej liczbę wirtualnych procesorów CPU (procesorów wirtualnych vCPU) i ilość pamięci. Skaluj swoją aplikację w i na zewnątrz, modyfikując liczbę wystąpień aplikacji.
 
-Po zakończeniu dowiesz się, jak wprowadzać szybkie ręczne zmiany w każdej aplikacji w usłudze. Skalowanie staje się skuteczne w ciągu kilku sekund i nie wymaga żadnych zmian kodu lub ponownego rozmieszczenia.
+Po zakończeniu dowiesz się, jak wprowadzać szybkie zmiany ręcznie do każdej aplikacji w usłudze. Skalowanie obowiązuje w kilka sekund i nie wymaga żadnych zmian w kodzie ani ponownego wdrożenia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem. 
-* Wdrożone wystąpienie usługi Azure Spring Cloud.  Postępuj zgodnie z naszym [przewodnikiem Szybki start podczas wdrażania aplikacji za pośrednictwem interfejsu wiersza polecenia platformy Azure,](spring-cloud-quickstart-launch-app-cli.md) aby rozpocząć.
-* Co najmniej jedna aplikacja już utworzona w wystąpieniu usługi.
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+* Wdrożone wystąpienie usługi w chmurze Azure wiosną.  Skorzystaj z naszego [przewodnika Szybki Start dotyczącego wdrażania aplikacji za pomocą interfejsu wiersza polecenia platformy Azure,](spring-cloud-quickstart-launch-app-cli.md) aby rozpocząć pracę.
+* Co najmniej jedna aplikacja została już utworzona w wystąpieniu usługi.
 
-## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Przechodzenie do strony Skalowanie w witrynie Azure Portal
+## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Przejdź do strony skalowanie w Azure Portal
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Przejdź do strony **Przegląd chmury** usługi Azure Spring.
+1. Przejdź do strony **omówienia** chmury Azure wiosennej.
 
-1. Wybierz grupę zasobów zawierającą usługę.
+1. Wybierz grupę zasobów, która zawiera tę usługę.
 
-1. Wybierz kartę **Aplikacje** w obszarze **Ustawienia** w menu po lewej stronie.
+1. Wybierz kartę **aplikacje** w obszarze **Ustawienia** w menu po lewej stronie.
 
-1. Wybierz aplikację, którą chcesz skalować. W tym przykładzie wybierz aplikację o nazwie **account-service**. Następnie należy wyświetlić stronę **Przegląd** aplikacji.
+1. Wybierz aplikację, którą chcesz skalować. W tym przykładzie wybierz aplikację o nazwie **Account-Service**. Powinna zostać wyświetlona strona **Przegląd** aplikacji.
 
-1. Przejdź do karty **Skaluj** w obszarze **Ustawienia** w menu po lewej stronie. Powinny być widoczne opcje skalowania atrybutów pokazanych w poniższej sekcji.
+1. Przejdź do karty **Skala** w obszarze **Ustawienia** w menu po lewej stronie. Należy zapoznać się z opcjami skalowania atrybutów pokazanych w poniższej sekcji.
 
 ## <a name="scale-your-application"></a>Skalowanie aplikacji
 
-Jeśli zmodyfikujesz atrybuty skalowania, należy pamiętać o następujących uwagach:
+Jeśli modyfikujesz atrybuty skalowania, pamiętaj o następujących uwagach:
 
-* **Procesory:** Maksymalna liczba procesorów na wystąpienie aplikacji wynosi cztery. Całkowita liczba procesorów dla aplikacji jest wartością ustawioną w tym miejscu pomnożoną przez liczbę wystąpień aplikacji.
+* **Procesory**: Maksymalna liczba procesorów CPU na wystąpienie aplikacji to cztery. Łączna liczba procesorów dla aplikacji to ustawiona w tym miejscu wartość pomnożona przez liczbę wystąpień aplikacji.
 
-* **Pamięć/GB**: Maksymalna ilość pamięci na wystąpienie aplikacji wynosi 8 GB. Całkowita ilość pamięci dla aplikacji jest wartością ustawioną w tym miejscu pomnożoną przez liczbę wystąpień aplikacji.
+* **Pamięć/GB**: Maksymalna ilość pamięci na wystąpienie aplikacji wynosi 8 GB. Całkowita ilość pamięci dla aplikacji to wartość ustawiona w tym miejscu pomnożona przez liczbę wystąpień aplikacji.
 
-* **Liczba wystąpień aplikacji:** w warstwie Standardowa można skalować w poziomie do maksymalnie 20 wystąpień. Ta wartość zmienia liczbę oddzielnych uruchomionych wystąpień aplikacji mikrousług.
+* **Liczba wystąpień aplikacji**: w warstwie Standardowa można skalować w poziomie do maksymalnie 20 wystąpień. Ta wartość zmienia liczbę oddzielnych uruchomionych wystąpień aplikacji mikrousług.
 
-Pamiętaj, aby wybrać **pozycję Zapisz,** aby zastosować ustawienia skalowania.
+Upewnij się, że wybrano pozycję **Zapisz** , aby zastosować ustawienia skalowania.
 
-![Usługa Skalowanie w witrynie Azure portal](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
+![Usługa skalowania w Azure Portal](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
-Po kilku sekundach wprowadzone zmiany są wyświetlane na stronie **Przegląd,** a więcej szczegółów jest dostępnych na karcie **Wystąpienia aplikacji.**
+Po kilku sekundach wprowadzone zmiany zostaną wyświetlone na stronie **Przegląd** zawierającej więcej szczegółów dostępnych na karcie **wystąpienia aplikacji** . skalowanie nie wymaga żadnych zmian w kodzie ani ponownego wdrożenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dowiesz się, jak ręcznie skalować aplikacje usługi Azure Spring Cloud. Aby dowiedzieć się, jak monitorować aplikację, przejdź do następnego samouczka.
+W tym samouczku przedstawiono sposób ręcznego skalowania aplikacji w chmurze sieci platformy Azure. Aby dowiedzieć się, jak monitorować aplikację, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
 > [Dowiedz się, jak monitorować aplikację](spring-cloud-tutorial-distributed-tracing.md)

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 05/23/2019
 ms.author: rgarcia
 ms.openlocfilehash: e0038fd5632d512f18d50c4d11577b7f5756baa3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67235411"
 ---
-W unity otwórz projekt `Unity` w folderze. Unity może monitować o inną wersję Unity między projektem i ten, który został zainstalowany na komputerze. To ostrzeżenie jest w porządku, tak długo, jak twoja wersja Edytora Unity jest nowsza niż ta, z którą został utworzony projekt. W takim przypadku wystarczy kliknąć przycisk **Kontynuuj**. Jeśli wersja edytora Unity jest starsza niż wersja, na którą potrzebuje projekt, kliknij przycisk **Zamknij**i uaktualnij edytor Unity.
+W aparacie Unity Otwórz projekt w `Unity` folderze. Aparat Unity może monitować o inną wersję aparatu Unity między projektem a tym, który został zainstalowany na komputerze. To ostrzeżenie jest dobry, o ile wersja edytora Unity jest nowsza niż ta, w której został utworzony projekt. W takim przypadku po prostu kliknij pozycję **Kontynuuj**. Jeśli wersja edytora Unity jest starsza niż wymagana dla projektu, kliknij przycisk **Zakończ**, a następnie Uaktualnij Edytor aparatu Unity.
 
-![Okno Jedność](./media/spatial-anchors-unity/unity-window.png)
+![Okno aparatu Unity](./media/spatial-anchors-unity/unity-window.png)

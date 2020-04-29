@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell — subskrybowanie subskrypcji platformy Azure
-description: Ten artykuł zawiera przykładowy skrypt programu Azure PowerShell, który pokazuje, jak subskrybować zdarzenia w usłudze Event Grid dla subskrypcji platformy Azure.
+title: Azure PowerShell — Subskrybuj subskrypcję platformy Azure
+description: Ten artykuł zawiera przykładowy skrypt Azure PowerShell, który pokazuje, jak subskrybować zdarzenia Event Grid dla subskrypcji platformy Azure.
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 4a6539966ff2e907c4f6f942dd0c238ee35b6836
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76721459"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>Subskrybowanie zdarzeń dla subskrypcji platformy Azure przy użyciu programu PowerShell
@@ -32,7 +32,7 @@ Ten skrypt tworzy subskrypcję usługi Event Grid na potrzeby zdarzeń związany
 
 ## <a name="sample-script---preview-module"></a>Przykładowy skrypt — moduł w wersji zapoznawczej
 
-Ten przykładowy skrypt podglądu wymaga modułu siatki zdarzeń. Aby go zainstalować, uruchom polecenie `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+Ten przykładowy skrypt w wersji zapoznawczej wymaga modułu Event Grid. Aby go zainstalować, uruchom polecenie `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
@@ -44,7 +44,7 @@ Ten skrypt używa następującego polecenia w celu utworzenia subskrypcji zdarze
 
 | Polecenie | Uwagi |
 |---|---|
-| [Nowy-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Tworzy subskrypcję usługi Event Grid. |
+| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Tworzy subskrypcję usługi Event Grid. |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,16 +8,16 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: b67e3008bc2ad681e222af6b9edc4a08875732e4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76275430"
 ---
 # <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(PRZESTARZAŁE) Tworzenie obrazów kontenera do użycia z usługą Azure Container Service
 
 > [!TIP]
-> Zaktualizowana wersja tego samouczka korzystającego z usługi Azure Kubernetes, zobacz [Samouczek: Przygotowywanie aplikacji dla usługi Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
+> Aby uzyskać zaktualizowaną wersję tego samouczka korzystającego z usługi Azure Kubernetes, zobacz [Samouczek: przygotowywanie aplikacji dla usługi Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -85,7 +85,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Uruchom polecenie [docker ps,](https://docs.docker.com/engine/reference/commandline/ps/) aby wyświetlić uruchomione kontenery.
+Uruchom polecenie [Docker PS](https://docs.docker.com/engine/reference/commandline/ps/) , aby wyświetlić uruchomione kontenery.
 
 ```bash
 docker ps

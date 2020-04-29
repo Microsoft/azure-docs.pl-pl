@@ -1,23 +1,23 @@
 ---
-title: 'Program PowerShell: Monitor z dziennikami serwera sieci Web'
-description: Dowiedz się, jak za pomocą programu Azure PowerShell zautomatyzować wdrażanie usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak monitorować aplikację za pomocą dzienników serwera sieci web.
+title: 'PowerShell: monitorowanie za pomocą dzienników serwera sieci Web'
+description: Dowiedz się, jak używać Azure PowerShell do automatyzowania wdrażania App Service i zarządzania nimi. Ten przykład pokazuje, jak monitorować aplikację za pomocą dzienników serwera sieci Web.
 tags: azure-service-management
 ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
 ms.openlocfilehash: c9b3ab6f8115f68ead478c0de21e4661d3ca032c
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80437929"
 ---
 # <a name="monitor-a-web-appwith-web-server-logs"></a>Monitorowanie aplikacji internetowej za pomocą dzienników serwera internetowego
 
 W tym scenariuszu utworzysz grupę zasobów, plan usługi App Service i aplikację internetową oraz skonfigurujesz aplikację internetową tak, aby włączyć dzienniki serwera internetowego. Następnie pobierzesz pliki dzienników do przejrzenia.
 
-W razie potrzeby zainstaluj program Azure PowerShell przy użyciu instrukcji znalezionych `Connect-AzAccount` w [przewodniku programu Azure PowerShell](/powershell/azure/overview), a następnie uruchom w celu utworzenia połączenia z platformą Azure.
+W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdującej się w [przewodniku Azure PowerShell](/powershell/azure/overview), a następnie `Connect-AzAccount` Uruchom polecenie, aby utworzyć połączenie z platformą Azure.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 

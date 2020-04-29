@@ -1,54 +1,54 @@
 ---
 title: Tworzenie punktu końcowego usługi RESTful
-description: W tym samouczku pokazano, jak autor punktu końcowego RESTful dla dostawców niestandardowych. Szczegółowe informacje na temat obsługi żądań i odpowiedzi dla obsługiwanych metod HTTP RESTful.
+description: W tym samouczku pokazano, jak utworzyć punkt końcowy RESTful dla dostawców niestandardowych. Szczegóły dotyczące obsługi żądań i odpowiedzi dla obsługiwanych metod HTTP RESTful.
 author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: d7f6c51211ce0572797ade659b9316003502da1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75650023"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>Tworzenie punktu końcowego RESTful dla dostawców niestandardowych
 
-Dostawca niestandardowy to umowa między platformą Azure a punktem końcowym. Za pomocą dostawców niestandardowych można dostosowywać przepływy pracy na platformie Azure. W tym samouczku pokazano, jak autoryzować niestandardowy punkt końcowy RESTful dostawcy. Jeśli nie znasz dostawców niestandardowych platformy Azure, zobacz [omówienie dostawców zasobów niestandardowych.](overview.md)
+Dostawca niestandardowy to kontrakt między platformą Azure i punktem końcowym. Dostawcy niestandardowi mogą dostosowywać przepływy pracy na platformie Azure. W tym samouczku przedstawiono sposób tworzenia niestandardowego punktu końcowego RESTful dostawcy. Jeśli nie znasz dostawców niestandardowych platformy Azure, zapoznaj [się z tematem Omówienie niestandardowych dostawców zasobów](overview.md).
 
 > [!NOTE]
-> Ten samouczek opiera się na samouczku [Konfigurowanie funkcji platformy Azure dla dostawców niestandardowych platformy Azure](./tutorial-custom-providers-function-setup.md). Niektóre kroki opisane w tym samouczku działają tylko wtedy, gdy aplikacja funkcji platformy Azure została skonfigurowana do pracy z dostawcami niestandardowymi.
+> W tym samouczku przedstawiono samouczek dotyczący [konfigurowania Azure Functions dla dostawców niestandardowych platformy Azure](./tutorial-custom-providers-function-setup.md). Niektóre kroki opisane w tym samouczku działają tylko wtedy, gdy aplikacja funkcji platformy Azure została skonfigurowana do pracy z dostawcami niestandardowymi.
 
-## <a name="work-with-custom-actions-and-custom-resources"></a>Praca z akcjami niestandardowymi i zasobami niestandardowymi
+## <a name="work-with-custom-actions-and-custom-resources"></a>Współpraca z akcjami niestandardowymi i zasobami niestandardowymi
 
-W tym samouczku zaktualizujesz aplikację funkcji, aby działała jako punkt końcowy RESTful dla dostawcy niestandardowego. Zasoby i akcje na platformie Azure są modelowane zgodnie z następującą podstawową specyfikacją RESTful:
+W tym samouczku zaktualizujesz aplikację funkcji, aby działała jako punkt końcowy RESTful dla niestandardowego dostawcy. Zasoby i akcje na platformie Azure są modelowane po następującej podstawowej specyfikacji RESTful:
 
-- **PUT**: Tworzenie nowego zasobu
-- **GET (wystąpienie)**: Pobieranie istniejącego zasobu
-- **USUŃ**: Usuwanie istniejącego zasobu
-- **POST**: Wyzwalanie akcji
-- **GET (kolekcja)**: Lista wszystkich istniejących zasobów
+- **Put**: Tworzenie nowego zasobu
+- **Get (wystąpienie)**: pobieranie istniejącego zasobu
+- **Usuwanie**: Usuwanie istniejącego zasobu
+- **Wpis**: wyzwalanie akcji
+- **Pobierz (zbieranie)**: Wyświetl listę wszystkich istniejących zasobów
 
- W tym samouczku używasz usługi Azure Table Storage. Ale każda baza danych lub usługa magazynu może działać.
+ Na potrzeby tego samouczka używasz usługi Azure Table Storage. Jednak może to być dowolna baza danych lub usługa magazynu.
 
-## <a name="partition-custom-resources-in-storage"></a>Partycja zasobów niestandardowych w magazynie
+## <a name="partition-custom-resources-in-storage"></a>Partycjonowanie zasobów niestandardowych w magazynie
 
-Ponieważ tworzysz usługę RESTful, musisz przechowywać utworzone zasoby. W przypadku magazynu tabel platformy Azure należy wygenerować klucze partycji i wierszy dla danych. W przypadku dostawców niestandardowych dane powinny być podzielone na partycje do dostawcy niestandardowego. Gdy żądanie przychodzące jest wysyłane do dostawcy niestandardowego, dostawca niestandardowy dodaje `x-ms-customproviders-requestpath` nagłówek do wychodzących żądań do punktu końcowego.
+Ponieważ tworzysz usługę RESTful, musisz zapisać utworzone zasoby. W przypadku usługi Azure Table Storage konieczne jest wygenerowanie kluczy partycji i wierszy dla danych. W przypadku dostawców niestandardowych dane powinny być partycjonowane do niestandardowego dostawcy. Gdy żądanie przychodzące jest wysyłane do niestandardowego dostawcy, Dostawca niestandardowy dodaje `x-ms-customproviders-requestpath` nagłówek do żądań wychodzących do punktu końcowego.
 
-W poniższym `x-ms-customproviders-requestpath` przykładzie pokazano nagłówek zasobu niestandardowego:
+Poniższy przykład przedstawia `x-ms-customproviders-requestpath` nagłówek dla zasobu niestandardowego:
 
 ```
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{myResourceType}/{myResourceName}
 ```
 
-Na podstawie nagłówka `x-ms-customproviders-requestpath` przykładu można utworzyć parametry *partitionKey* i *rowKey* dla magazynu, jak pokazano w poniższej tabeli:
+Na podstawie `x-ms-customproviders-requestpath` nagłówka przykładu można utworzyć parametry *partitionKey* i *rowKey* dla magazynu, jak pokazano w poniższej tabeli:
 
 Parametr | Szablon | Opis
 ---|---|---
-*partitionKey (klucz)* | `{subscriptionId}:{resourceGroupName}:{resourceProviderName}` | Parametr *partitionKey* określa sposób partycjonowania danych. Zazwyczaj dane są podzielone na partycje przez wystąpienie dostawcy niestandardowego.
-*klawisz rowKey* | `{myResourceType}:{myResourceName}` | Parametr *rowKey* określa indywidualny identyfikator danych. Zazwyczaj identyfikator jest nazwą zasobu.
+*partitionKey* | `{subscriptionId}:{resourceGroupName}:{resourceProviderName}` | Parametr *partitionKey* określa sposób partycjonowania danych. Zwykle dane są partycjonowane przez niestandardowe wystąpienie dostawcy.
+*rowKey* | `{myResourceType}:{myResourceName}` | Parametr *rowKey* określa indywidualny identyfikator dla danych. Zazwyczaj identyfikator jest nazwą zasobu.
 
-Należy również utworzyć nową klasę do modelowania zasobu niestandardowego. W tym samouczku należy dodać następującą klasę **CustomResource** do aplikacji funkcji:
+Należy również utworzyć nową klasę, aby modelować zasób niestandardowy. W tym samouczku dodasz następującą klasę **CustomResource** do aplikacji funkcji:
 
 ```csharp
 // Custom Resource Table Entity
@@ -57,18 +57,18 @@ public class CustomResource : TableEntity
     public string Data { get; set; }
 }
 ```
-**CustomResource** to prosta, ogólna klasa, która akceptuje wszelkie dane wejściowe. Jest on oparty na **TableEntity**, który jest używany do przechowywania danych. **Klasa CustomResource** dziedziczy dwie właściwości z **TableEntity:** **partitionKey** i **rowKey**.
+**CustomResource** jest prostą, ogólną klasą akceptującą dowolne dane wejściowe. Jest on oparty na **klasy tableentity**, który jest używany do przechowywania danych. Klasa **CustomResource** dziedziczy dwie właściwości z **klasy tableentity**: **partitionKey** i **rowKey**.
 
-## <a name="support-custom-provider-restful-methods"></a>Obsługa metod restful dostawcy niestandardowego
+## <a name="support-custom-provider-restful-methods"></a>Obsługa niestandardowych metod RESTful dostawcy
 
 > [!NOTE]
-> Jeśli nie kopiujesz kodu bezpośrednio z tego samouczka, zawartość odpowiedzi musi `Content-Type` być `application/json`prawidłowa JSON, która ustawia nagłówek na .
+> Jeśli nie kopiujesz kodu bezpośrednio z tego samouczka, zawartość odpowiedzi musi być prawidłowym kodem JSON, który `Content-Type` ustawia nagłówek `application/json`na.
 
-Teraz, gdy masz skonfigurowane partycjonowanie danych, utwórz podstawowe metody CRUD i wyzwalacza dla zasobów niestandardowych i akcji niestandardowych. Ponieważ dostawcy niestandardowi działają jako serwery proxy, punkt końcowy RESTful musi modelować i obsługiwać żądanie i odpowiedź. Poniższe fragmenty kodu pokazują, jak obsługiwać podstawowe operacje RESTful.
+Teraz, po skonfigurowaniu partycjonowania danych, Utwórz podstawowe metody CRUD i Trigger dla zasobów niestandardowych i akcji niestandardowych. Ponieważ Dostawcy niestandardowi działają jako proxy, punkt końcowy RESTful musi modelować i obsługiwać żądanie i odpowiedź. Poniższe fragmenty kodu pokazują, jak obsłużyć podstawowe operacje RESTful.
 
 ### <a name="trigger-a-custom-action"></a>Wyzwalanie akcji niestandardowej
 
-W przypadku dostawców niestandardowych akcja niestandardowa jest wyzwalana za pośrednictwem żądań POST. Akcja niestandardowa może opcjonalnie zaakceptować treść żądania, która zawiera zestaw parametrów wejściowych. Akcja następnie zwraca odpowiedź, która sygnalizuje wynik akcji i czy powiodło się lub nie powiodło się.
+W przypadku dostawców niestandardowych akcja niestandardowa jest wyzwalana przez żądania POST. Akcja niestandardowa może opcjonalnie zaakceptować treść żądania, która zawiera zestaw parametrów wejściowych. Następnie akcja zwraca odpowiedź, która sygnalizuje wynik akcji oraz o tym, czy zakończyła się powodzeniem, czy niepowodzeniem.
 
 Dodaj następującą metodę **TriggerCustomAction** do aplikacji funkcji:
 
@@ -90,13 +90,13 @@ public static async Task<HttpResponseMessage> TriggerCustomAction(HttpRequestMes
 }
 ```
 
-**TriggerCustomAction** Metoda akceptuje przychodzące żądanie i po prostu echa odpowiedzi z kodem stanu.
+Metoda **TriggerCustomAction** akceptuje żądanie przychodzące i po prostu odsyła odpowiedź z kodem stanu.
 
 ### <a name="create-a-custom-resource"></a>Tworzenie zasobu niestandardowego
 
-W przypadku dostawców niestandardowych zasób niestandardowy jest tworzony za pomocą żądań PUT. Dostawca niestandardowy akceptuje treść żądania JSON, która zawiera zestaw właściwości zasobu niestandardowego. Zasoby na platformie Azure są zgodne z modelem RESTful. Ten sam adres URL żądania służy do tworzenia, pobierania lub usuwania zasobu.
+W przypadku dostawców niestandardowych zasób niestandardowy jest tworzony za pomocą żądań PUT. Dostawca niestandardowy akceptuje treść żądania JSON, która zawiera zestaw właściwości dla niestandardowego zasobu. Zasoby na platformie Azure są zgodne z modelem RESTful. Możesz użyć tego samego adresu URL żądania, aby utworzyć, pobrać lub usunąć zasób.
 
-Dodaj następującą metodę **CreateCustomResource,** aby utworzyć nowe zasoby:
+Dodaj następującą metodę **CreateCustomResource** , aby utworzyć nowe zasoby:
 
 ```csharp
 /// <summary>
@@ -132,21 +132,21 @@ public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMe
 }
 ```
 
-Metoda **CreateCustomResource** aktualizuje żądanie przychodzące, aby uwzględnić **identyfikator,** **nazwę**i **typ**pól specyficznych dla platformy Azure. Te pola są właściwości najwyższego poziomu używane przez usługi na platformie Azure. Umożliwiają one dostawcy niestandardowemu współdziałanie z innymi usługami, takimi jak zasady platformy Azure, szablony usługi Azure Resource Manager i dziennik aktywności platformy Azure.
+Metoda **CreateCustomResource** aktualizuje przychodzące żądanie w celu uwzględnienia **identyfikatora**, **nazwy**i **typu**pól specyficznych dla platformy Azure. Te pola to właściwości najwyższego poziomu używane przez usługi na platformie Azure. Umożliwiają one współdziałanie dostawcy niestandardowego z innymi usługami, takimi jak Azure Policy, szablony Azure Resource Manager i dziennik aktywności platformy Azure.
 
 Właściwość | Przykład | Opis
 ---|---|---
-**Nazwa** | {myCustomResourceName} | Nazwa zasobu niestandardowego
-**Typu** | Microsoft.CustomProviders/resourceProviders/{resourceTypeName} | Obszar nazw typu zasobu
-**Identyfikator** | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupGroupName}/<br>dostawcy/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName} | Identyfikator zasobu
+**Nazwij** | {myCustomResourceName} | Nazwa zasobu niestandardowego
+**Wprowadź** | Microsoft. CustomProviders/resourceProviders/{resourceTypeName} | Przestrzeń nazw typu zasobu
+**#c1** | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>dostawcy/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName} | Identyfikator zasobu
 
-Oprócz dodawania właściwości, dokument JSON został również zapisany do magazynu tabel platformy Azure.
+Oprócz dodawania właściwości, dokument JSON również został zapisany w usłudze Azure Table Storage.
 
 ### <a name="retrieve-a-custom-resource"></a>Pobieranie zasobu niestandardowego
 
-W przypadku dostawców niestandardowych zasób niestandardowy jest pobierany za pośrednictwem żądań GET. Dostawca *niestandardowy nie* akceptuje treści żądania JSON. W przypadku żądań GET punkt `x-ms-customproviders-requestpath` końcowy używa nagłówka do zwrócenia już utworzonego zasobu.
+W przypadku dostawców niestandardowych zasób niestandardowy jest pobierany za pomocą żądań GET. Dostawca niestandardowy *nie* akceptuje treści żądania JSON. W przypadku żądań GET punkt końcowy używa `x-ms-customproviders-requestpath` nagłówka do zwrócenia już utworzonego zasobu.
 
-Dodaj następującą metodę **RetrieveCustomResource,** aby pobrać istniejące zasoby:
+Dodaj następującą metodę **RetrieveCustomResource** , aby pobrać istniejące zasoby:
 
 ```csharp
 /// <summary>
@@ -173,13 +173,13 @@ public static async Task<HttpResponseMessage> RetrieveCustomResource(HttpRequest
 }
 ```
 
-Na platformie Azure zasoby są zgodne z modelem RESTful. Adres URL żądania, który tworzy zasób zwraca również zasób, jeśli zostanie wykonane żądanie GET.
+Na platformie Azure zasoby są zgodne z modelem RESTful. Adres URL żądania, który tworzy zasób, również zwraca zasób w przypadku wykonania żądania GET.
 
 ### <a name="remove-a-custom-resource"></a>Usuwanie zasobu niestandardowego
 
-W przypadku dostawców niestandardowych zasób niestandardowy jest usuwany za pośrednictwem żądań DELETE. Dostawca *niestandardowy nie* akceptuje treści żądania JSON. W przypadku żądania DELETE punkt końcowy `x-ms-customproviders-requestpath` używa nagłówka do usuwania już utworzonego zasobu.
+W przypadku dostawców niestandardowych zasób niestandardowy jest usuwany przez żądania DELETE. Dostawca niestandardowy *nie* akceptuje treści żądania JSON. W przypadku żądania usunięcia punkt końcowy używa `x-ms-customproviders-requestpath` nagłówka do usunięcia już utworzonego zasobu.
 
-Dodaj następującą metodę **RemoveCustomResource,** aby usunąć istniejące zasoby:
+Dodaj następującą metodę **RemoveCustomResource** , aby usunąć istniejące zasoby:
 
 ```csharp
 /// <summary>
@@ -206,13 +206,13 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 }
 ```
 
-Na platformie Azure zasoby są zgodne z modelem RESTful. Adres URL żądania, który tworzy zasób, również usuwa zasób, jeśli zostanie wykonane żądanie DELETE.
+Na platformie Azure zasoby są zgodne z modelem RESTful. Adres URL żądania, który tworzy zasób, również usuwa zasób, jeśli jest wykonywane żądanie DELETE.
 
-### <a name="list-all-custom-resources"></a>Wyświetlanie listy wszystkich zasobów niestandardowych
+### <a name="list-all-custom-resources"></a>Wyświetl listę wszystkich zasobów niestandardowych
 
-W przypadku dostawców niestandardowych można wyliczyć listę istniejących zasobów niestandardowych przy użyciu żądań GET z kolekcji. Dostawca *niestandardowy nie* akceptuje treści żądania JSON. W przypadku kolekcji żądań GET punkt `x-ms-customproviders-requestpath` końcowy używa nagłówka do wyliczenia już utworzonych zasobów.
+W przypadku dostawców niestandardowych można wyliczyć listę istniejących zasobów niestandardowych przy użyciu żądań pobrania kolekcji. Dostawca niestandardowy *nie* akceptuje treści żądania JSON. W przypadku kolekcji żądań GET punkt końcowy używa `x-ms-customproviders-requestpath` nagłówka do wyliczenia już utworzonych zasobów.
 
-Dodaj następującą metodę **EnumerateAllCustomResources,** aby wyliczyć istniejące zasoby:
+Dodaj następującą metodę **EnumerateAllCustomResources** , aby wyliczyć istniejące zasoby:
 
 ```csharp
 /// <summary>
@@ -249,13 +249,13 @@ public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRe
 ```
 
 > [!NOTE]
-> Składnia magazynu tabely usługi Azure Do wykonywania kwerendy "startswith" dla ciągów jest składnia rowkey querycomparisons.GreaterThan i QueryComparisons.LessThan jest składnia magazynu tabel platformy Azure do wykonywania kwerendy "startswith" dla ciągów.
+> RowKey QueryComparisons. GreaterThan i QueryComparisons. LessThan jest składnią usługi Azure Table Storage, aby wykonać zapytanie "StartsWith" dotyczące ciągów.
 
-Aby wyświetlić listę wszystkich istniejących zasobów, wygeneruj kwerendę magazynu tabel platformy Azure, która zapewnia, że zasoby istnieją w ramach partycji dostawcy niestandardowego. Następnie kwerenda sprawdza, czy klucz wiersza rozpoczyna się od tej samej `{myResourceType}` wartości.
+Aby wyświetlić listę wszystkich istniejących zasobów, wygeneruj zapytanie usługi Azure Table Storage, które zapewnia, że zasoby istnieją w niestandardowej partycji dostawcy. Następnie zapytanie sprawdza, czy klucz wiersza zaczyna się od tej samej `{myResourceType}` wartości.
 
-## <a name="integrate-restful-operations"></a>Integracja operacji RESTful
+## <a name="integrate-restful-operations"></a>Integrowanie operacji RESTful
 
-Po dodaniu wszystkich metod RESTful do aplikacji funkcji, zaktualizuj główną metodę **Uruchom,** która wywołuje funkcje do obsługi różnych żądań REST:
+Po dodaniu wszystkich metod RESTful do aplikacji funkcji należy zaktualizować metodę **uruchomieniową** Main, która wywołuje funkcje do obsługi różnych żądań REST:
 
 ```csharp
 /// <summary>
@@ -338,11 +338,11 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 }
 ```
 
-Zaktualizowana metoda **Uruchamiani** zawiera teraz powiązanie wejściowe *tableStorage,* które zostało dodane dla magazynu tabel platformy Azure. Pierwsza część metody odczytuje `x-ms-customproviders-requestpath` nagłówek i `Microsoft.Azure.Management.ResourceManager.Fluent` używa biblioteki do analizowania wartości jako identyfikatora zasobu. Nagłówek `x-ms-customproviders-requestpath` jest wysyłany przez dostawcę niestandardowego i określa ścieżkę żądania przychodzącego.
+Zaktualizowana Metoda **Run** obejmuje teraz powiązanie danych wejściowych *TableStorage* dodane do usługi Azure Table Storage. Pierwsza część metody odczytuje `x-ms-customproviders-requestpath` nagłówek i używa `Microsoft.Azure.Management.ResourceManager.Fluent` biblioteki, aby przeanalizować wartość jako identyfikator zasobu. `x-ms-customproviders-requestpath` Nagłówek jest wysyłany przez niestandardowego dostawcę i określa ścieżkę żądania przychodzącego.
 
-Za pomocą analizowanego identyfikatora zasobu można wygenerować wartości **partitionKey** i **rowKey** dla danych do wyszukiwania lub przechowywania zasobów niestandardowych.
+Korzystając z przeanalizowanego identyfikatora zasobu, można wygenerować wartości **partitionKey** i **rowKey** dla danych w celu wyszukania lub zapisania zasobów niestandardowych.
 
-Po dodaniu metod i klas, należy zaktualizować **przy użyciu** metod dla aplikacji funkcji. Dodaj następujący kod do górnej części pliku języka C#:
+Po dodaniu metod i klas należy zaktualizować metody **using** dla aplikacji funkcji. Dodaj następujący kod na początku pliku C#:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -366,8 +366,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 
-Jeśli zgubisz się w dowolnym momencie tego samouczka, możesz znaleźć pełny przykład kodu w [niestandardowym dostawcy C# RESTful endpoint reference](./reference-custom-providers-csharp-endpoint.md). Po zakończeniu aplikacji funkcji zapisz adres URL aplikacji funkcji. Może służyć do wyzwalania aplikacji funkcji w późniejszych samouczkach.
+Jeśli w dowolnym momencie tego samouczka zostanie utracona, można znaleźć pełny przykład kodu w [odsyłaczu do punktu końcowego RESTful języka C# dostawcy niestandardowego](./reference-custom-providers-csharp-endpoint.md). Po zakończeniu działania aplikacji funkcji Zapisz adres URL aplikacji funkcji. Może służyć do wyzwalania aplikacji funkcji w kolejnych samouczkach.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule utworzyno punkt końcowy RESTful do pracy z punktem końcowym dostawcy niestandardowego platformy Azure. Aby dowiedzieć się, jak utworzyć dostawcę niestandardowego, przejdź do artykułu [Samouczek: Tworzenie dostawcy niestandardowego](./tutorial-custom-providers-create.md).
+W tym artykule opisano tworzenie punktu końcowego RESTful do pracy z punktem końcowym niestandardowego dostawcy platformy Azure. Aby dowiedzieć się, jak utworzyć dostawcę niestandardowego, przejdź do samouczka dotyczącego artykułu [: Tworzenie niestandardowego dostawcy](./tutorial-custom-providers-create.md).

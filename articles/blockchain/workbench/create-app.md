@@ -1,17 +1,17 @@
 ---
-title: Tworzenie aplikacji blockchain — Azure Blockchain Workbench
-description: Samouczek dotyczący tworzenia aplikacji blockchain dla usługi Azure Blockchain Workbench Preview.
+title: Tworzenie aplikacji łańcucha bloków — Azure łańcucha bloków Workbench
+description: Samouczek dotyczący sposobu tworzenia aplikacji łańcucha bloków dla usługi Azure łańcucha bloków Workbench Preview.
 ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 33a9e9c10c07d0808626353a7edfd505e0f60bc9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74324809"
 ---
-# <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Samouczek: Tworzenie aplikacji blockchain dla programu Azure Blockchain Workbench
+# <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Samouczek: Tworzenie aplikacji łańcucha bloków dla usługi Azure łańcucha bloków Workbench
 
 Usługa Azure Blockchain Workbench umożliwia tworzenie aplikacji łańcucha bloków reprezentujących przepływy pracy dla wielu podmiotów zdefiniowane za pomocą konfiguracji i kodu kontraktu inteligentnego.
 
@@ -208,7 +208,7 @@ Na początku pliku konfiguracji znajdują się informacje o aplikacji, w tym naz
 
 W sekcji ról aplikacji są definiowane role użytkowników, którzy mogą działać lub uczestniczyć w ramach aplikacji łańcucha bloków. Definiowany jest zestaw odrębnych ról na podstawie funkcjonalności. W scenariuszu żądanie-odpowiedź występuje rozróżnienie między funkcjonalnością osoby żądającej jako jednostki tworzącej żądania oraz osoby odpowiadającej jako jednostki tworzącej odpowiedzi.
 
-### <a name="workflows"></a>Przepływy
+### <a name="workflows"></a>Przepływy pracy
 
 Przepływy pracy definiują co najmniej jeden etap i co najmniej jedną akcję kontraktu. W scenariuszu żądanie-odpowiedź pierwszy etap (stan) przepływu pracy to wykonanie akcji (przejście) wysłania żądania (funkcja) przez osobę żądającą (rola). W kolejnym etapie (stan) osoba odpowiadająca (rola) wykonuje akcję (przejście) wysłania odpowiedzi (funkcja). Przepływ pracy aplikacji może obejmować właściwości, funkcje i stany wymagane do opisania przepływu kontraktu.
 
@@ -321,9 +321,9 @@ Aby dodać aplikację łańcucha bloków do usługi Blockchain Workbench, należ
 
 1. W przeglądarce internetowej przejdź na adres internetowy usługi Blockchain Workbench. Na przykład `https://{workbench URL}.azurewebsites.net/`. Aplikacja internetowa zostanie utworzona po wdrożeniu usługi Blockchain Workbench. Aby uzyskać informacje na temat znajdowania adresu internetowego usługi Blockchain Workbench, zobacz [Internetowy adres URL usługi Blockchain Workbench](deploy.md#blockchain-workbench-web-url)
 2. Zaloguj się jako [administrator usługi Blockchain Workbench](manage-users.md#manage-blockchain-workbench-administrators).
-3. Wybierz **nowe aplikacje** > **.** Zostanie wyświetlone okienko **Nowa aplikacja**.
-4. Wybierz **pozycję Przekaż konfigurację** > kontraktu**Przeglądaj,** aby zlokalizować utworzony plik konfiguracyjny **HelloBlockchain.json.** Zostanie wykonana automatyczna walidacja pliku konfiguracji. Wybierz link **Pokaż**, aby wyświetlić błędy walidacji. Usuń błędy walidacji przed wdrożeniem aplikacji.
-5. Wybierz **opcję Przekaż kod** > umowy**Przeglądaj,** aby zlokalizować plik kodu inteligentnego kontraktu **HelloBlockchain.sol.** Zostanie wykonana automatyczna walidacja pliku kodu. Wybierz link **Pokaż**, aby wyświetlić błędy walidacji. Usuń błędy walidacji przed wdrożeniem aplikacji.
+3. Wybierz kolejno pozycje **aplikacje** > **nowe**. Zostanie wyświetlone okienko **Nowa aplikacja**.
+4. Wybierz pozycję **Przekaż konfigurację** > kontraktu**Przeglądaj** , aby zlokalizować utworzony plik konfiguracji **HelloBlockchain. JSON** . Zostanie wykonana automatyczna walidacja pliku konfiguracji. Wybierz link **Pokaż**, aby wyświetlić błędy walidacji. Usuń błędy walidacji przed wdrożeniem aplikacji.
+5. Wybierz pozycję **Przekaż kod** > kontraktu**Przeglądaj** , aby zlokalizować plik kodu kontraktu inteligentnego **HelloBlockchain. peruwiański** . Zostanie wykonana automatyczna walidacja pliku kodu. Wybierz link **Pokaż**, aby wyświetlić błędy walidacji. Usuń błędy walidacji przed wdrożeniem aplikacji.
 6. Wybierz pozycję **Wdróż**, aby utworzyć aplikację łańcucha bloków na podstawie plików konfiguracji i kontraktu inteligentnego.
 
 Wdrażanie aplikacji łańcucha bloków zajmuje kilka minut. Po zakończeniu wdrażania nowa aplikacja zostanie wyświetlona w sekcji **Aplikacje**. 
@@ -335,7 +335,7 @@ Wdrażanie aplikacji łańcucha bloków zajmuje kilka minut. Po zakończeniu wdr
 
 Dodaj do aplikacji członków, którzy będą inicjować kontrakty i wykonywać w ramach nich akcje. Aby dodać członków aplikacji, musisz być [administratorem usługi Blockchain Workbench](manage-users.md#manage-blockchain-workbench-administrators).
 
-1. Wybierz **aplikacje** > **Hello, Blockchain!**.
+1. Wybierz pozycję **aplikacje** > **Hello, łańcucha bloków!**.
 2. Liczba członków skojarzonych z aplikacją jest wyświetlana w prawym górnym rogu strony. W przypadku nowej aplikacji liczba członków będzie równa zero.
 3. Wybierz link **członkowie** w prawym górnym rogu strony. Zostanie wyświetlona bieżąca lista członków aplikacji.
 4. Na liście członkostwa wybierz pozycję **Dodaj członków**.

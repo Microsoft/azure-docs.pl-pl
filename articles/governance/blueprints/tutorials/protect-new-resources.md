@@ -1,62 +1,62 @@
 ---
-title: 'Samouczek: Ochrona nowych zasobów za pomocą zamków'
-description: W tym samouczku używasz opcji blokad zasobów planów platformy Azure tylko do odczytu i Nie usuwaj, aby chronić nowo wdrożone zasoby.
+title: 'Samouczek: Ochrona nowych zasobów przy użyciu blokad'
+description: W tym samouczku użyto opcji blokowania zasobów usługi Azure Plans tylko do odczytu i nie usuwaj, aby chronić nowo wdrożone zasoby.
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.openlocfilehash: ee57ff0c08f4fb8aa710dd2fa4dcef664484973d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74327442"
 ---
-# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Samouczek: Ochrona nowych zasobów za pomocą blokad zasobów usługi Azure Blueprints
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Samouczek: Ochrona nowych zasobów przy użyciu blokad zasobów usługi Azure Plans
 
-Za pomocą [blokad zasobów](../concepts/resource-locking.md)usługi Azure Blueprints można chronić nowo wdrożone zasoby przed ingerencją, nawet przez konto z rolą _właściciela._ Tę ochronę można dodać w definicjach planu zasobów utworzonych przez artefakt szablonu Menedżera zasobów.
+Dzięki [zablokowaniu zasobów](../concepts/resource-locking.md)platformy Azure można chronić nowo wdrożone zasoby przed zmianą, nawet przez konto z rolą _właściciela_ . Tę ochronę można dodać w definicjach planów zasobów utworzonych przez artefakt szablonu Menedżer zasobów.
 
-W tym samouczku wykonaj następujące kroki:
+W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
-> - Tworzenie definicji planu
+> - Tworzenie definicji strategii
 > - Oznacz swoją definicję planu jako **opublikowaną**
 > - Przypisywanie definicji planu do istniejącej subskrypcji
-> - Sprawdzanie nowej grupy zasobów
-> - Co niesesignować plan, aby usunąć zamki
+> - Inspekcja nowej grupy zasobów
+> - Cofnij przypisanie planu w celu usunięcia blokad
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free) .
 
-## <a name="create-a-blueprint-definition"></a>Tworzenie definicji planu
+## <a name="create-a-blueprint-definition"></a>Tworzenie definicji strategii
 
-Najpierw utwórz definicję planu.
+Najpierw Utwórz definicję planu.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
-1. Na stronie **Wprowadzenie** po lewej stronie wybierz pozycję **Utwórz** w obszarze **Utwórz plan**.
+1. Na stronie **pierwsze kroki** z lewej strony wybierz pozycję **Utwórz** w obszarze **Utwórz plan**.
 
-1. Znajdź przykład planu **pustego planu** u góry strony. Wybierz **pozycję Rozpocznij od pustego planu**.
+1. Znajdź **pustą** przykładową strategię planów w górnej części strony. Wybierz pozycję **Rozpocznij od pustego**planu.
 
-1. Wprowadź te informacje na karcie **Podstawy:**
+1. Wprowadź te informacje na karcie **podstawowe** :
 
-   - **Nazwa planu:** Podaj nazwę kopii przykładu planu. W tym samouczku użyjemy nazwy **zablokowanego konta magazynu**.
-   - **Opis planu:** Dodaj opis definicji planu. Użyj **do testowania blokowania zasobów planu na wdrożonych zasobach**.
-   - **Lokalizacja definicji**: Wybierz przycisk wielokropka (...) a następnie wybierz grupę zarządzania lub subskrypcję, w którym chcesz zapisać definicję planu.
+   - **Nazwa**planu: Podaj nazwę kopii przykładu strategii. W tym samouczku użyjemy nazwy **"locked-storageaccount"**.
+   - **Opis**planu: Dodaj opis definicji planu. Służy **do testowania blokowania zasobów planu dla wdrożonych zasobów**.
+   - **Lokalizacja definicji**: wybierz przycisk wielokropka (...), a następnie wybierz grupę zarządzania lub subskrypcję, w której ma zostać zapisana definicja planu.
 
-1. Wybierz kartę **Artefakty** u góry strony lub wybierz **pozycję Dalej: Artefakty** u dołu strony.
+1. Wybierz kartę **artefakty** w górnej części strony lub wybierz pozycję **Dalej: artefakty** w dolnej części strony.
 
-1. Dodawanie grupy zasobów na poziomie subskrypcji:
-   1. Wybierz wiersz **Dodaj artefakt** w obszarze **Subskrypcja**.
-   1. Wybierz **pozycję Grupa zasobów** w obszarze Typ **artefaktu**.
+1. Dodaj grupę zasobów na poziomie subskrypcji:
+   1. Wybierz pozycję **Dodaj wiersz artefaktu** w obszarze **subskrypcja**.
+   1. Wybierz pozycję **Grupa zasobów** w obszarze **Typ artefaktu**.
    1. Ustaw **nazwę wyświetlaną artefaktu** na **RGtoLock**.
-   1. Pola **Nazwa grupy zasobów** i **Lokalizacja** należy pozostawić puste, ale upewnij się, że pole wyboru jest zaznaczone na każdej właściwości, aby uczynić je **dynamicznymi parametrami**.
-   1. Wybierz **dodaj,** aby dodać artefakt do planu.
+   1. Pozostaw puste pola **Nazwa grupy zasobów** i **Lokalizacja** , ale upewnij się, że pole wyboru jest zaznaczone dla każdej właściwości, aby uczynić je **parametrami dynamicznymi**.
+   1. Wybierz pozycję **Dodaj** , aby dodać artefakt do planu.
 
-1. Dodawanie szablonu w grupie zasobów:
-   1. Wybierz wiersz **Dodaj artefakt** pod wpisem **RGtoLock.**
-   1. Wybierz **szablon Usługi Azure Resource Manager** w obszarze Typ **artefaktu,** ustaw **nazwę wyświetlaną artefaktu** na **Konto magazynu**i pozostaw **opis** jako pusty.
-   1. Na karcie **Szablon** wklej następujący szablon Menedżera zasobów do pola edytora.
-      Po wklejeniu w szablonie wybierz pozycję **Dodaj,** aby dodać artefakt do planu.
+1. Dodaj szablon do grupy zasobów:
+   1. Wybierz **Dodaj wiersz artefaktu** w ramach wpisu **RGtoLock** .
+   1. Wybierz **szablon Azure Resource Manager** w obszarze **Typ artefaktu**, ustaw **nazwę wyświetlaną artefaktu** na **StorageAccount**i pozostaw pole **Opis** puste.
+   1. Na karcie **szablon** wklej następujący szablon Menedżer zasobów w polu Edytor.
+      Po wklejeniu szablonu wybierz pozycję **Dodaj** , aby dodać artefakt do planu.
 
    ```json
    {
@@ -100,132 +100,132 @@ Najpierw utwórz definicję planu.
    }
    ```
 
-1. Wybierz **pozycję Zapisz pochyłość** u dołu strony.
+1. Wybierz pozycję **Zapisz wersję roboczą** w dolnej części strony.
 
-Ten krok tworzy definicję planu w wybranej grupie zarządzania lub subskrypcji.
+Ten krok powoduje utworzenie definicji planu w wybranej grupie zarządzania lub subskrypcji.
 
-Po **zapisaniu definicji planu powiodło się** powiadomienie portalu, przejdź do następnego kroku.
+Po **pomyślnym zakończeniu zapisywania definicji** planu zostanie wyświetlone powiadomienie portalu przejdź do następnego kroku.
 
-## <a name="publish-the-blueprint-definition"></a>Publikowanie definicji planu
+## <a name="publish-the-blueprint-definition"></a>Publikowanie definicji strategii
 
-Definicja planu została utworzona w twoim środowisku. Jest tworzony w trybie **roboczym** i musi zostać opublikowany, zanim będzie można go przypisać i wdrożyć.
-
-1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
-
-1. Po lewej stronie wybierz stronę **Definicje planu.** Użyj filtrów, aby znaleźć definicję planu **konta zamkniętego magazynu,** a następnie wybierz ją.
-
-1. Wybierz **pozycję Publikuj plan** u góry strony. W nowym okienku po prawej stronie wprowadź **1.0** jako **wersję**. Ta właściwość jest przydatna, jeśli później zostanie wniesiena zmiana. Wprowadź **informacje o zmianie,** takie jak **Pierwsza wersja opublikowana w celu blokowania wdrożonych zasobów planu**. Następnie wybierz **pozycję Publikuj** u dołu strony.
-
-Ten krok umożliwia przypisanie planu do subskrypcji. Po opublikowaniu definicji planu nadal można wprowadzać zmiany. Jeśli wniesiesz zmiany, należy opublikować definicję z nową wartością wersji, aby śledzić różnice między wersjami tej samej definicji planu.
-
-Po **opublikowaniu definicji planu publikowania powiodło** się powiadomienie portalu, przejdź do następnego kroku.
-
-## <a name="assign-the-blueprint-definition"></a>Przypisywanie definicji planu
-
-Po opublikowaniu definicji planu można przypisać ją do subskrypcji w grupie zarządzania, w której została zapisana. W tym kroku należy podać parametry, aby każde wdrożenie definicji planu unikatowe.
+Twoja definicja planu została teraz utworzona w Twoim środowisku. Jest on tworzony w trybie **wersji roboczej** i musi być opublikowany, aby można go było przypisać i wdrożyć.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
-1. Po lewej stronie wybierz stronę **Definicje planu.** Użyj filtrów, aby znaleźć definicję planu **konta zamkniętego magazynu,** a następnie wybierz ją.
+1. Wybierz stronę **definicje** strategii po lewej stronie. Użyj filtrów, aby znaleźć definicję planu **storageaccount** , a następnie wybierz ją.
 
-1. Wybierz **pozycję Przypisz plan** u góry strony definicji planu.
+1. Wybierz pozycję **Publikuj plan** w górnej części strony. W nowym okienku po prawej stronie wprowadź **1,0** jako **wersję**. Ta właściwość jest przydatna, jeśli wprowadzisz zmiany później. Wprowadź **Informacje o zmianach**, takie jak **Pierwsza wersja opublikowana do blokowania zasobów wdrożonych w**planie. Następnie wybierz pozycję **Publikuj** w dolnej części strony.
+
+Ten krok umożliwia przypisanie planu do subskrypcji. Po opublikowaniu definicji planu można nadal wprowadzać zmiany. W przypadku wprowadzenia zmian należy opublikować definicję z nową wartością wersji, aby śledzić różnice między wersjami tej samej definicji planu.
+
+Po **pomyślnym** wyświetleniu powiadomienia portalu publikowanie definicji strategii przejdź do następnego kroku.
+
+## <a name="assign-the-blueprint-definition"></a>Przypisywanie definicji strategii
+
+Po opublikowaniu definicji planu można przypisać ją do subskrypcji w grupie zarządzania, w której zapisano ją. W tym kroku podajesz parametry, aby każde wdrożenie definicji strategii było unikatowe.
+
+1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
+
+1. Wybierz stronę **definicje** strategii po lewej stronie. Użyj filtrów, aby znaleźć definicję planu **storageaccount** , a następnie wybierz ją.
+
+1. Wybierz pozycję **Przypisz plan** w górnej części strony definicji planu.
 
 1. Podaj wartości parametrów dla przypisania planu:
 
    - **Podstawy**
 
-     - **Subskrypcje:** Wybierz jedną lub więcej subskrypcji, które znajdują się w grupie zarządzania, w której zapisano definicję planu. Jeśli wybierzesz więcej niż jedną subskrypcję, dla każdej subskrypcji zostanie utworzone przypisanie przy użyciu wprowadzonych parametrów.
-     - **Nazwa przydziału:** Nazwa jest wstępnie wypełniona na podstawie nazwy definicji planu. Chcemy, aby to przypisanie reprezentowało blokowanie nowej grupy zasobów, więc zmień nazwę przydziału na **przydział-locked-storageaccount-TestingBPLocks**.
-     - **Lokalizacja:** Wybierz region, w którym ma być utworzona tożsamość zarządzana. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [tożsamości zarządzane dla zasobów platformy Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
-       W tym samouczku wybierz **pozycję Wschodnie stany USA 2**.
-     - **Wersja definicji planu:** Wybierz opublikowaną wersję **1.0** definicji planu.
+     - **Subskrypcje**: Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, w której zapisano definicję planu. W przypadku wybrania więcej niż jednej subskrypcji zostanie utworzone przypisanie dla każdej subskrypcji przy użyciu wprowadzonych parametrów.
+     - **Nazwa przypisania**: nazwa jest wstępnie wypełniana na podstawie nazwy definicji planu. To przypisanie reprezentuje zablokowanie nowej grupy zasobów, dlatego należy zmienić nazwę przypisania na **przypisanie-storageaccount-TestingBPLocks**.
+     - **Lokalizacja**: Wybierz region, w którym chcesz utworzyć zarządzaną tożsamość. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
+       Na potrzeby tego samouczka wybierz pozycję **Wschodnie stany USA 2**.
+     - **Wersja definicji**planu: Wybierz opublikowaną wersję **1,0** definicji planu.
 
    - **Przypisanie blokady**
 
-     Wybierz tryb blokady planu **tylko do odczytu.** Aby uzyskać więcej informacji, zobacz [blokowanie zasobów strategii](../concepts/resource-locking.md).
+     Wybierz tryb blokowania **tylko do odczytu** . Aby uzyskać więcej informacji, zobacz [blokowanie zasobów strategii](../concepts/resource-locking.md).
 
    - **Tożsamość zarządzana**
 
-     Użyj opcji domyślnej: **Przypisano system**. Aby uzyskać więcej informacji, zobacz [tożsamości zarządzane](../../../active-directory/managed-identities-azure-resources/overview.md).
+     Użyj opcji domyślnej: **przypisany system**. Aby uzyskać więcej informacji, zobacz [zarządzane tożsamości](../../../active-directory/managed-identities-azure-resources/overview.md).
 
    - **Parametry artefaktu**
 
-     Parametry zdefiniowane w tej sekcji dotyczą artefaktu, w którym są zdefiniowane. Parametry te są [parametry dynamiczne,](../concepts/parameters.md#dynamic-parameters) ponieważ są one zdefiniowane podczas przypisywania planu. Dla każdego artefaktu ustaw wartość parametru na to, co widzisz w kolumnie **Wartość.**
+     Parametry zdefiniowane w tej sekcji dotyczą artefaktu, w którym są zdefiniowane. Parametry te są [parametrami dynamicznymi](../concepts/parameters.md#dynamic-parameters) , ponieważ są one definiowane podczas przypisywania planu. Dla każdego artefaktu ustaw wartość parametru na co widać w kolumnie **wartość** .
 
      |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Wartość|Opis|
      |-|-|-|-|-|
-     |Grupa zasobów RGtoLock|Grupa zasobów|Nazwa|TestingBPLocks|Definiuje nazwę nowej grupy zasobów, do aby zastosować blokady planu.|
-     |Grupa zasobów RGtoLock|Grupa zasobów|Lokalizacja|Zachodnie stany USA 2|Definiuje lokalizację nowej grupy zasobów, do aby zastosować blokady planu.|
-     |StorageAccount|Szablon usługi Resource Manager|typ konta magazynu (konto magazynu)|Standard_GRS|Jednostka SKU magazynu. Wartość domyślna to _Standard_LRS_.|
+     |Grupa zasobów RGtoLock|Grupa zasobów|Nazwa|TestingBPLocks|Określa nazwę nowej grupy zasobów, do której mają zostać zastosowane blokady planu.|
+     |Grupa zasobów RGtoLock|Grupa zasobów|Lokalizacja|Zachodnie stany USA 2|Określa lokalizację nowej grupy zasobów, do której mają zostać zastosowane blokady planu.|
+     |StorageAccount|Szablon usługi Resource Manager|storageAccountType (StorageAccount)|Standard_GRS|Jednostka SKU magazynu. Wartość domyślna to _Standard_LRS_.|
 
-1. Po wprowadzeniu wszystkich parametrów wybierz pozycję **Przypisz** u dołu strony.
+1. Po wprowadzeniu wszystkich parametrów wybierz pozycję **Przypisz** w dolnej części strony.
 
-Ten krok wdraża zdefiniowane zasoby i konfiguruje wybrane **przypisanie blokady**. Stosowanie blokad planu może potrwać do 30 minut.
+W tym kroku wdrożono określone zasoby i skonfiguruje wybrane **przypisanie blokady**. Zastosowanie blokad planu może potrwać do 30 minut.
 
-Po **przypisując definicji planu pomyślnie** powiadomienie portalu, przejdź do następnego kroku.
+Po wyświetleniu powiadomienia portalu **przypisywanie definicji planu powiodło** się przejdź do następnego kroku.
 
-## <a name="inspect-resources-deployed-by-the-assignment"></a>Inspekcja zasobów wdrożonych przez przydział
+## <a name="inspect-resources-deployed-by-the-assignment"></a>Inspekcja zasobów wdrożonych przez przypisanie
 
-Przydział tworzy grupę zasobów _TestingBPLocks_ i konto magazynu wdrożone przez artefakt szablonu Menedżera zasobów. Nowa grupa zasobów i wybrany stan blokady są wyświetlane na stronie szczegółów przydziału.
+Przypisanie tworzy _TestingBPLocks_ grupy zasobów i konto magazynu wdrożone przez artefakt szablonu Menedżer zasobów. Nowa grupa zasobów i wybrany stan blokady są wyświetlane na stronie szczegółów przypisania.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
-1. Po lewej stronie wybierz stronę **Przypisane plany.** Użyj filtrów, aby znaleźć przypisanie planu **przydziału zablokowanego magazynu-TestingBPLocks,** a następnie wybierz je.
+1. Wybierz stronę **przypisane plany** po lewej stronie. Użyj filtrów, aby znaleźć przypisanie do planu **storageaccount-TestingBPLocks przypisania** , a następnie wybierz je.
 
-   Na tej stronie widzimy, że przypisanie powiodło się i że zasoby zostały wdrożone z nowym stanem blokady planu. Jeśli przypisanie zostanie zaktualizowane, w części rozwijanej **Operacja przydziału** są wyświetlane szczegółowe informacje o wdrażaniu każdej wersji definicji. Można wybrać grupę zasobów, aby otworzyć stronę właściwości.
+   Na tej stronie można zobaczyć, że przypisanie zakończyło się pomyślnie i że zasoby zostały wdrożone przy użyciu nowego stanu blokady planu. Jeśli przypisanie zostało zaktualizowane, lista rozwijana **operacja przypisywania** zawiera szczegółowe informacje dotyczące wdrożenia każdej wersji definicji. Możesz wybrać grupę zasobów, aby otworzyć stronę właściwości.
 
-1. Wybierz grupę zasobów **TestingBPLocks.**
+1. Wybierz grupę zasobów **TestingBPLocks** .
 
-1. Po lewej stronie wybierz stronę **Kontrola dostępu (IAM).** Następnie wybierz kartę **Przypisania ról.**
+1. Wybierz stronę **Kontrola dostępu (IAM)** po lewej stronie. Następnie wybierz kartę **przypisania ról** .
 
-   W tym miejscu widzimy, że przypisanie planu _przypisania planu przypisania przypisania do planu blokady blokad z blokadami z blokadami przypisania przypisania przypisania przypisania przypisania przypisania ma_ rolę _właściciela._ Ma tę rolę, ponieważ ta rola została użyta do wdrożenia i zablokowania grupy zasobów.
+   W tym miejscu widzimy, że przypisanie planu _storageaccount-TestingBPLocks_ jest przypisane do roli _właściciela_ . Ta rola ma tę rolę, ponieważ ta rola została użyta do wdrożenia i zablokowania grupy zasobów.
 
-1. Wybierz kartę **Odmów przydziałów.**
+1. Wybierz kartę **Odmów przypisań** .
 
-   Przydział planu utworzył [przypisanie odmowy](../../../role-based-access-control/deny-assignments.md) w wdrożonej grupie zasobów w celu wymuszenia trybu **blokady** planu tylko do odczytu. Przypisanie odmowy uniemożliwia osobie z odpowiednimi prawami na karcie **Przypisania ról podejmowanie** określonych akcji. Przypisanie odmowy dotyczy _wszystkich podmiotów._
+   Przypisanie planu spowodowało utworzenie [przypisania odmowy](../../../role-based-access-control/deny-assignments.md) w wdrożonej grupie zasobów w celu wymuszenia trybu blokowania **tylko do odczytu** . Przypisanie Odmów uniemożliwia komuś z odpowiednimi prawami na karcie **przypisania roli** w celu podjęcia określonych działań. Przypisanie Odmów ma wpływ na _wszystkich podmiotów zabezpieczeń_.
 
-   Aby uzyskać informacje na temat wykluczania podmiotu z przypisania [odmowy,](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment)zobacz blokowanie zasobów planów .
+   Aby uzyskać informacje na temat wykluczania podmiotu zabezpieczeń z przypisania odmowy, zobacz temat [plany blokowanie zasobów](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
 
-1. Wybierz przypisanie odmowy, a następnie wybierz stronę **Odmowa uprawnień** po lewej stronie.
+1. Zaznacz pozycję Odmów przypisania, a następnie wybierz stronę **odmowa uprawnień** po lewej stronie.
 
-   Przypisanie odmowy uniemożliwia wszystkie **\*** operacje z konfiguracją i **działaniem,** ale umożliwia dostęp do odczytu, wykluczając ** \*/odczyt** za pośrednictwem **NotActions**.
+   Przypisanie Odmów uniemożliwia wszystkie operacje z konfiguracją **\*** **akcji** i, ale zezwala na dostęp do odczytu przez wykluczenie ** \*/Read** za **pośrednictwem**nostąps.
 
-1. W portalu Azure breadcrumb wybierz **TestingBPLocks - Kontrola dostępu (IAM)**. Następnie wybierz stronę **Przegląd** po lewej stronie, a następnie przycisk **Usuń grupę zasobów.** Wprowadź nazwę **TestingBPLocks,** aby potwierdzić usunięcie, a następnie wybierz **pozycję Usuń** u dołu okienka.
+1. Na stronie nawigacyjnej Azure Portal wybierz pozycję **Kontrola dostępu TestingBPLocks (IAM)**. Następnie wybierz stronę **Przegląd** po lewej stronie, a następnie przycisk **Usuń grupę zasobów** . Wprowadź nazwę **TestingBPLocks** , aby potwierdzić usunięcie, a następnie wybierz pozycję **Usuń** w dolnej części okienka.
 
-   Powiadomienie portalu **Usuń grupę zasobów TestingBPLocks nie powiodło się.** Błąd stwierdza, że chociaż konto ma uprawnienia do usuwania grupy zasobów, dostęp jest odrzucany przez przypisanie planu. Pamiętaj, że wybraliśmy tryb blokady planu **tylko do odczytu** podczas przypisywania planu. Blokada planu uniemożliwia kontu z uprawnieniami, nawet _właściciel,_ usunięcie zasobu. Aby uzyskać więcej informacji, zobacz [blokowanie zasobów strategii](../concepts/resource-locking.md).
+   **Nie powiodło się usunięcie TestingBPLocks grupy zasobów** powiadomienia portalu. Ten błąd oznacza, że mimo że Twoje konto ma uprawnienia do usuwania grupy zasobów, odmowa dostępu przez przypisanie planu. Należy pamiętać, że podczas przypisywania strategii zaznaczono tryb blokowania **tylko do odczytu** . Blokada strategii uniemożliwia konto z uprawnieniami, nawet _właściciel_, od usunięcia zasobu. Aby uzyskać więcej informacji, zobacz [blokowanie zasobów strategii](../concepts/resource-locking.md).
 
-Te kroki pokazują, że nasze wdrożone zasoby są teraz chronione za pomocą blokad planu, które zapobiegają niechcianemu usunięciu, nawet z konta, które ma uprawnienia do usuwania zasobów.
+Te kroki pokazują, że nasze wdrożone zasoby są teraz chronione za pomocą blokad planu, które uniemożliwiają niepożądane usuwanie, nawet z konta, które ma uprawnienia do usuwania zasobów.
 
-## <a name="unassign-the-blueprint"></a>Niepodpisaj planu
+## <a name="unassign-the-blueprint"></a>Cofnij przypisanie planu
 
 Ostatnim krokiem jest usunięcie przypisania definicji planu. Usunięcie przypisania nie powoduje usunięcia skojarzonych artefaktów.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
-1. Po lewej stronie wybierz stronę **Przypisane plany.** Użyj filtrów, aby znaleźć przypisanie planu **przydziału zablokowanego magazynu-TestingBPLocks,** a następnie wybierz je.
+1. Wybierz stronę **przypisane plany** po lewej stronie. Użyj filtrów, aby znaleźć przypisanie do planu **storageaccount-TestingBPLocks przypisania** , a następnie wybierz je.
 
-1. Wybierz **opcję Cozbuj plan** w górnej części strony. Przeczytaj ostrzeżenie w oknie dialogowym potwierdzenia, a następnie wybierz przycisk **OK**.
+1. Wybierz pozycję Anuluj **przypisanie** planu u góry strony. Zapoznaj się z ostrzeżeniem w oknie dialogowym potwierdzenia, a następnie wybierz przycisk **OK**.
 
-   Po usunięciu przypisania planu blokady planu są również usuwane. Zasoby można ponownie usunąć przez konto z odpowiednimi uprawnieniami.
+   Po usunięciu przypisania planu blokowane są również blokady. Zasoby mogą być ponownie usuwane przez konto z odpowiednimi uprawnieniami.
 
-1. Wybierz **grup zasobów** z menu Azure, a następnie wybierz **testingBPLocks**.
+1. Wybierz pozycję **grupy zasobów** z menu platformy Azure, a następnie wybierz pozycję **TestingBPLocks**.
 
-1. Po lewej stronie wybierz stronę **Kontrola dostępu (IAM),** a następnie wybierz kartę **Przypisania ról.**
+1. Wybierz stronę **Kontrola dostępu (IAM)** po lewej stronie, a następnie wybierz kartę **przypisania ról** .
 
-Zabezpieczenia dla grupy zasobów pokazują, że przypisanie planu nie ma już dostępu _właściciela._
+Zabezpieczenia dla grupy zasobów pokazują, że przypisanie planu nie ma już dostępu _właściciela_ .
 
-Po usunięciu **przypisania planu powiodło się** powiadomienie portalu, przejdź do następnego kroku.
+Po wyświetleniu powiadomienia portalu **usuwanie przypisania strategii powiodło** się przejdź do następnego kroku.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Po zakończeniu pracy z tym samouczkiem usuń następujące zasoby:
+Po zakończeniu pracy z tym samouczkiem Usuń następujące zasoby:
 
-- Grupa zasobów _TestingBPLocks_
-- Konto _zamkniętego konta przechowywania definicji_ planu
+- _TestingBPLocks_ grupy zasobów
+- _Zablokowana definicja planu — storageaccount_
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dowiesz się, jak chronić nowe zasoby wdrożone za pomocą planów platformy Azure. Aby dowiedzieć się więcej o planach platformy Azure, przejdź do artykułu cyklu życia planu.
+W ramach tego samouczka nauczysz się chronić nowe zasoby wdrożone przy użyciu planów platformy Azure. Aby dowiedzieć się więcej na temat planów platformy Azure, przejdź do artykułu dotyczącego cyklu życia planu.
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o cyklu życia planu](../concepts/lifecycle.md)

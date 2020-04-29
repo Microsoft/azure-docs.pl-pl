@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
 ms.openlocfilehash: cfd5cf77b9df8cdd5b856a0b36b9010077a7078a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68562501"
 ---
 Otwórz obszar **Build Settings (Ustawienia kompilacji)**, wybierając pozycje **File (Plik)** > **Build Settings (Ustawienia kompilacji)**.
 
 W sekcji **Platform (Platforma)** wybierz pozycję **iOS**.
 
-Wybierz pozycję **Switch Platform (Przełącz platformę)**, aby zmienić platformę na **iOS**. Unity może monitować o zainstalowanie składników pomocy technicznej systemu iOS, jeśli ich brakuje.
+Wybierz pozycję **Switch Platform (Przełącz platformę)**, aby zmienić platformę na **iOS**. Aparat Unity może monitować o zainstalowanie składników obsługi systemu iOS, jeśli ich nie ma.
 
-![Okno Ustawienia kompilacji jedności](./media/spatial-anchors-unity/unity-ios-build-settings.png)
+![Okno ustawień kompilacji aparatu Unity](./media/spatial-anchors-unity/unity-ios-build-settings.png)
 
 Zamknij okno **Build Settings (Ustawienia kompilacji)**.
 

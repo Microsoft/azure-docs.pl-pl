@@ -1,7 +1,7 @@
 ---
-title: Przykład skryptu interfejsu wiersza polecenia platformy Azure — usuwanie magazynu konfiguracji aplikacji platformy Azure
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — Usuwanie magazynu konfiguracji aplikacji platformy Azure
 titleSuffix: Azure App Configuration
-description: Usuwanie magazynu konfiguracji aplikacji usługi Azure App za pomocą skryptu interfejsu wiersza polecenia platformy Azure
+description: Usuwanie magazynu konfiguracji aplikacji platformy Azure za pomocą skryptu interfejsu wiersza polecenia platformy Azure
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
 ms.openlocfilehash: 7f73de459d8ce9f74e3925789af630b7c804d605
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77523577"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>Usuwanie magazynu usługi Azure App Configuration
@@ -39,11 +39,11 @@ az appconfig delete --name myTestAppConfigStore --resource-group myResourceGroup
 
 ## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń do usunięcia magazynu konfiguracji aplikacji. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
+Ten skrypt zawiera następujące polecenia służące do usuwania magazynu konfiguracji aplikacji. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [az appconfig delete](/cli/azure/appconfig#az-appconfig-delete) | Usuwa zasób sklepu konfiguracji aplikacji. |
+| [az appconfig delete](/cli/azure/appconfig#az-appconfig-delete) | Usuwa zasób magazynu konfiguracji aplikacji. |
 
 ## <a name="next-steps"></a>Następne kroki
 

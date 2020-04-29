@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
 ms.openlocfilehash: cc6c7fc94e940732ba180c83344eabf29597d849
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77670359"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Korzystanie z usługi Azure Application Insights, aby dowiedzieć się, jak klienci używają aplikacji
@@ -41,7 +41,7 @@ W celu ukończenia tego samouczka:
 - Wyślij [kontekst użytkownika](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context), aby śledzić działania użytkownika w czasie i w pełni wykorzystać możliwości funkcji użycia.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
-Zaloguj się do portalu [https://portal.azure.com](https://portal.azure.com)Azure w .
+Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="get-information-about-your-users"></a>Pobieranie informacji o użytkownikach
 Panel **Użytkownicy** pozwala analizować na różne sposoby ważne informacje o użytkownikach. Można w nim znaleźć takie informacje jak lokalizacja, z której użytkownicy nawiązują połączenie, szczegóły klienta i obszary aplikacji, do których użytkownicy uzyskują dostęp. 
@@ -56,11 +56,11 @@ Panel **Użytkownicy** pozwala analizować na różne sposoby ważne informacje 
 
     ![Zmiana zakresu czasu](media/tutorial-users/TimeRange.png)
 
-4. Kliknij listę rozwijaną **Podział według**, aby dodać do wykresu podział według właściwości użytkownika.  Wybierz pozycję **Kraj lub region**.  Wykres zawiera te same dane, ale umożliwia wyświetlenie podziału liczby użytkowników dla każdego kraju/regionu.
+4. Kliknij listę rozwijaną **Podział według**, aby dodać do wykresu podział według właściwości użytkownika.  Wybierz pozycję **Kraj lub region**.  Wykres zawiera te same dane, ale umożliwia wyświetlenie podziału liczby użytkowników w poszczególnych krajach/regionach.
 
     ![Wykres dla kraju lub regionu](media/tutorial-users/CountryorRegion.png)
 
-5. Umieść kursor na różnych słupkach na wykresie i zwróć uwagę, że liczba dla każdego kraju/regionu odzwierciedla tylko przedział czasu reprezentowany przez ten pasek.
+5. Umieść kursor na różnych paskach wykresu i Zauważ, że liczba dla każdego kraju/regionu odzwierciedla tylko przedział czasu reprezentowany przez ten pasek.
 6. Spójrz na kolumnę **Szczegółowe informacje** po prawej stronie, która umożliwia analizowanie danych użytkowników.  Zawiera ona takie informacje jak liczba unikatowych sesji w danym okresie i rekordy ze wspólnymi właściwościami, które tworzą znaczącą część danych użytkowników. 
 
     ![Kolumna szczegółowych informacji](media/tutorial-users/insights.png)
@@ -83,7 +83,7 @@ Panel **Sesje** jest podobny do panelu **Użytkownicy**.  Panel **Użytkownicy**
     ![Oś czasu sesji](media/tutorial-users/SessionsTimeline.png)
 
 ## <a name="group-together-similar-users"></a>Grupowanie podobnych użytkowników
-**Kohorta** to zestaw użytkowników pogrupowanych na podobnych cechach.  Kohorty umożliwiają filtrowanie danych w innych panelach, co pozwala analizować poszczególne grupy użytkowników.  Można na przykład analizować tylko użytkowników, którzy ukończyli zakup.
+**Kohorta** to zbiór użytkowników pogrupowanych według podobnych właściwości.  Kohorty umożliwiają filtrowanie danych w innych panelach, co pozwala analizować poszczególne grupy użytkowników.  Można na przykład analizować tylko użytkowników, którzy ukończyli zakup.
 
 1.  Wybierz pozycję **Kohorty** z menu.
 2.  Kliknij przycisk **Nowa**, aby utworzyć nową kohortę.

@@ -1,29 +1,29 @@
 ---
-title: Monitorowanie klastra sieci szkieletowej usług na platformie Azure
-description: W tym samouczku dowiesz się, jak monitorować klaster, wyświetlając zdarzenia sieci szkieletowej usług, odpytując interfejsy API eventstore, monitorując liczniki kondycji i wyświetlając raporty dotyczące kondycji.
+title: Monitorowanie klastra Service Fabric na platformie Azure
+description: W tym samouczku dowiesz się, jak monitorować klaster, wyświetlając Service Fabric zdarzenia, wykonując zapytania dotyczące interfejsów API EventStore, monitorowania liczników wydajności i wyświetlania raportów o kondycji.
 author: srrengar
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
 ms.openlocfilehash: ab58d622511e0d5793eb6df312bc3fd6dd15bfd6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75376634"
 ---
-# <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Samouczek: Monitorowanie klastra sieci szkieletowej usług na platformie Azure
+# <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Samouczek: monitorowanie klastra Service Fabric na platformie Azure
 
-Monitorowanie i diagnostyka mają kluczowe znaczenie dla tworzenia, testowania i wdrażania obciążeń w dowolnym środowisku chmury. Ten samouczek jest częścią drugiej serii i pokazuje, jak monitorować i diagnozować klaster sieci szkieletowej usług przy użyciu zdarzeń, liczników wydajności i raportów kondycji.   Aby uzyskać więcej informacji, przeczytaj omówienie [monitorowania klastra](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) i [monitorowania infrastruktury](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring).
+Monitorowanie i Diagnostyka mają kluczowe znaczenie dla opracowywania, testowania i wdrażania obciążeń w dowolnym środowisku chmury. Ten samouczek jest drugą częścią serii i pokazuje, jak monitorować i diagnozować klaster Service Fabric przy użyciu zdarzeń, liczników wydajności i raportów kondycji.   Aby uzyskać więcej informacji, zapoznaj się z omówieniem [monitorowanie klastra](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) i [monitorowanie infrastruktury](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring).
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Wyświetlanie zdarzeń sieci szkieletowej usług
-> * Kwerendy eventstore interfejsów API dla zdarzeń klastra
-> * Monitorowanie infrastruktury/zbieranie liczników perf
-> * Wyświetlanie raportów kondycji klastra
+> * Wyświetlanie zdarzeń Service Fabric
+> * Wykonywanie zapytań dotyczących interfejsów API EventStore dla zdarzeń klastra
+> * Monitorowanie infrastruktury/Zbieranie liczników wydajności
+> * Wyświetlanie raportów o kondycji klastra
 
 Ta seria samouczków zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
@@ -40,54 +40,54 @@ Ta seria samouczków zawiera informacje na temat wykonywania następujących czy
 
 Przed rozpoczęciem tego samouczka:
 
-* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Zainstaluj [usługę Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) lub [platformę Azure CLI](/cli/azure/install-azure-cli).
+* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Zainstaluj program [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * Tworzenie bezpiecznego [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 
-* Kolekcja [diagnostyki instalacji](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) dla klastra
+* Konfiguracja [zbierania danych diagnostycznych](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) dla klastra
 * Włączanie [usługi EventStore](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor) w klastrze
-* Konfigurowanie [dzienników usługi Azure Monitor i agenta usługi Log Analytics](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureloganalytics_anchor) dla klastra
+* Konfigurowanie [dzienników Azure monitor i agenta log Analytics](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureloganalytics_anchor) dla klastra
 
-## <a name="view-service-fabric-events-using-azure-monitor-logs"></a>Wyświetlanie zdarzeń sieci szkieletowej usług przy użyciu dzienników usługi Azure Monitor
+## <a name="view-service-fabric-events-using-azure-monitor-logs"></a>Wyświetlanie zdarzeń Service Fabric przy użyciu dzienników Azure Monitor
 
-Dzienniki usługi Azure Monitor zbierają i analizują dane telemetryczne z aplikacji i usług hostowanych w chmurze i udostępniają narzędzia do analizy, które pomagają zmaksymalizować ich dostępność i wydajność. Można uruchamiać kwerendy w dziennikach usługi Azure Monitor, aby uzyskać szczegółowe informacje i rozwiązać problemy z tym, co dzieje się w klastrze.
+Dzienniki Azure Monitor zbierają i analizują dane telemetryczne z aplikacji i usług hostowanych w chmurze oraz udostępniają narzędzia do analizy ułatwiające maksymalizowanie ich dostępności i wydajności. Można uruchamiać zapytania w dziennikach Azure Monitor, aby uzyskać szczegółowe informacje i rozwiązywać problemy związane z tym, co dzieje się w klastrze.
 
-Aby uzyskać dostęp do rozwiązania usługi Analizy sieci szkieletowej, przejdź do [witryny Azure portal](https://portal.azure.com) i wybierz grupę zasobów, w której utworzono rozwiązanie analizy sieci szkieletowej usług.
+Aby uzyskać dostęp do rozwiązania Service Fabric Analytics, przejdź do [Azure Portal](https://portal.azure.com) i wybierz grupę zasobów, w której utworzono rozwiązanie Service Fabric Analytics.
 
-Wybierz zasób **ServiceFabric(mysfomsworkspace).**
+Wybierz pozycję Resource **webfabric (mysfomsworkspace)**.
 
-W **przeglądzie** widać kafelki w postaci wykresu dla każdego z włączonych rozwiązań, w tym jednego dla sieci szkieletowej usług. Kliknij wykres **sieci szkieletowej usług,** aby przejść do rozwiązania analizy sieci szkieletowej usług.
+W obszarze **Przegląd** widoczne są kafelki w formie wykresu dla każdego z włączonych rozwiązań, w tym jeden dla Service Fabric. Kliknij wykres **Service Fabric** , aby kontynuować Service Fabric Analytics rozwiązanie.
 
-![Rozwiązanie sieci szkieletowej usług](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
+![Service Fabric rozwiązanie](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
-Na poniższej ilustracji przedstawiono stronę główną rozwiązania usługi Analizy sieci szkieletowej. Ta strona główna zawiera widok migawki tego, co dzieje się w klastrze.
+Na poniższej ilustracji przedstawiono stronę główną rozwiązania Service Fabric Analytics. Ta strona główna zawiera widok migawek, co dzieje się w klastrze.
 
-![Rozwiązanie sieci szkieletowej usług](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-solution.png)
+![Service Fabric rozwiązanie](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-solution.png)
 
- Jeśli diagnostyka została włączona podczas tworzenia klastra, można zobaczyć zdarzenia 
+ Jeśli po utworzeniu klastra włączono diagnostykę, można zobaczyć zdarzenia dla 
 
-* [Zdarzenia klastra sieci szkieletowej usług](service-fabric-diagnostics-event-generation-operational.md)
-* [Reliable Actors modelowanie zdarzeń modelu](service-fabric-reliable-actors-diagnostics.md)
-* [Zdarzenia modelu programowania niezawodnych usług](service-fabric-reliable-services-diagnostics.md)
+* [Zdarzenia klastra Service Fabric](service-fabric-diagnostics-event-generation-operational.md)
+* [Zdarzenia modelu programowania Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+* [Zdarzenia modelu programowania Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
->Oprócz zdarzeń sieci szkieletowej usług po wyjęciu z pudełka, bardziej szczegółowe zdarzenia systemowe mogą być zbierane przez [aktualizację konfiguracji rozszerzenia diagnostyki](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
+>Oprócz Service Fabric zdarzeń z pola, bardziej szczegółowe zdarzenia systemowe można zbierać, [aktualizując konfigurację rozszerzenia diagnostyki](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
-### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Wyświetlanie zdarzeń sieci szkieletowej usług, w tym akcji w węzłach
+### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Wyświetlanie zdarzeń Service Fabric, w tym akcji w węzłach
 
-Na stronie Analiza sieci szkieletowej usług kliknij wykres **zdarzeń klastra**.  Pojawią się dzienniki dla wszystkich zdarzeń systemowych, które zostały zebrane. Dla odwołania są one z **WADServiceFabricSystemEventsTable** na koncie usługi Azure Storage i podobnie niezawodne usługi i zdarzenia podmiotów, które widzisz dalej są z tych odpowiednich tabel.
+Na stronie Service Fabric Analytics kliknij wykres dla **zdarzeń klastra**.  Zostaną wyświetlone dzienniki dla wszystkich zebranych zdarzeń systemowych. Z tego względu są one z **WADServiceFabricSystemEventsTable** na koncie usługi Azure Storage, a podobnie zdarzenia niezawodnych usług i aktorów, które zobaczysz, są z tych tabel.
     
-![Zapytanie kanał operacyjny](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
+![Kanał operacyjny zapytania](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
 
-Kwerenda używa języka zapytania Kusto, który można zmodyfikować, aby uściślić to, czego szukasz. Na przykład, aby znaleźć wszystkie akcje podjęte w węzłach w klastrze, można użyć następującej kwerendy. Identyfikatory zdarzeń użyte poniżej znajdują się w [odwołaniu do zdarzeń kanału operacyjnego](service-fabric-diagnostics-event-generation-operational.md).
+Zapytanie używa języka zapytań Kusto, który można modyfikować w celu uściślenia tego, czego szukasz. Na przykład aby znaleźć wszystkie akcje wykonywane na węzłach w klastrze, można użyć poniższego zapytania. Identyfikatory zdarzeń używane poniżej znajdują się w [dokumentacji zdarzenia dotyczącego kanału operacyjnego](service-fabric-diagnostics-event-generation-operational.md).
 
 ```kusto
 ServiceFabricOperationalEvent
 | where EventId < 25627 and EventId > 25619 
 ```
 
-Język zapytania Kusto jest potężny. Oto kilka innych przydatnych zapytań.
+Język zapytań Kusto jest zaawansowany. Oto kilka innych przydatnych zapytań.
 
-Utwórz tabelę odnośnych *ServiceFabricEvent* jako funkcję zdefiniowaną przez użytkownika, zapisując kwerendę jako funkcję z aliasem ServiceFabricEvent:
+Tworzenie tabeli odnośników *ServiceFabricEvent* jako funkcji zdefiniowanej przez użytkownika przez zapisanie zapytania jako funkcji z aliasem ServiceFabricEvent:
 
 ```kusto
 let ServiceFabricEvent = datatable(EventId: int, EventName: string)
@@ -100,7 +100,7 @@ let ServiceFabricEvent = datatable(EventId: int, EventName: string)
 ServiceFabricEvent
 ```
 
-Zwraca zdarzenia operacyjne zarejestrowane w ostatniej godzinie:
+Zwróć zdarzenia operacyjne zarejestrowane w ciągu ostatniej godziny:
 ```kusto
 ServiceFabricOperationalEvent
 | where TimeGenerated > ago(1h)
@@ -109,7 +109,7 @@ ServiceFabricOperationalEvent
 | sort by TimeGenerated
 ```
 
-Zwraca zdarzenia operacyjne z EventId == 18604 i EventName == 'NodeDownOperational':
+Zwróć zdarzenia operacyjne z EventId = = 18604 i EventName = = ' NodeDownOperational ':
 ```kusto
 ServiceFabricOperationalEvent
 | where EventId == 18604
@@ -117,7 +117,7 @@ ServiceFabricOperationalEvent
 | sort by TimeGenerated 
 ```
 
-Zwraca zdarzenia operacyjne z EventId == 18604 i EventName == 'NodeUpOperational':
+Zwróć zdarzenia operacyjne z EventId = = 18604 i EventName = = ' NodeUpOperational ':
 ```kusto
 ServiceFabricOperationalEvent
 | where EventId == 18603
@@ -125,7 +125,7 @@ ServiceFabricOperationalEvent
 | sort by TimeGenerated 
 ``` 
  
-Zwraca raporty kondycji ze stanem kondycji == 3 (błąd) i wyodrębnia dodatkowe właściwości z pola EventMessage:
+Zwraca raporty kondycji z atrybutem HealthState = = 3 (error) i wyodrębnienie dodatkowych właściwości z pola EventMessage:
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -150,7 +150,7 @@ ServiceFabricOperationalEvent
          StatefulReplica = extract(@"StatefulReplica=(\S+) ", 1, EventMessage, typeof(string))
 ```
 
-Zwraca wykres czasu zdarzeń z EventId != 17523:
+Zwróć wykres czasu zdarzeń z EventId! = 17523:
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -160,7 +160,7 @@ ServiceFabricOperationalEvent
 | render timechart 
 ```
 
-Pobierz zdarzenia operacyjne sieci szkieletowej usług zagregowane z określoną usługą i węzłem:
+Pobierz Service Fabric zdarzenia operacyjne zagregowane z określoną usługą i węzłem:
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -168,7 +168,7 @@ ServiceFabricOperationalEvent
 | summarize AggregatedValue = count() by ApplicationName, ServiceName, Computer 
 ```
 
-Renderowanie liczby zdarzeń sieci szkieletowej usług według identyfikatora zdarzeń / zdarzenia przy użyciu kwerendy między zasobami:
+Renderuj liczbę zdarzeń Service Fabric przez EventId/EventName przy użyciu zapytania obejmującego wiele zasobów:
 
 ```kusto
 app('PlunkoServiceFabricCluster').traces
@@ -181,21 +181,21 @@ app('PlunkoServiceFabricCluster').traces
 | render timechart
 ```
 
-### <a name="view-service-fabric-application-events"></a>Wyświetlanie zdarzeń aplikacji sieci szkieletowej usług
+### <a name="view-service-fabric-application-events"></a>Wyświetlanie Service Fabric zdarzeń aplikacji
 
-Można wyświetlić zdarzenia dla niezawodnych usług i niezawodnych aplikacji podmiotów wdrożonych w klastrze.  Na stronie Analiza sieci szkieletowej usług kliknij wykres **zdarzeń aplikacji**.
+Można wyświetlać zdarzenia dotyczące niezawodnych usług i niezawodnych aplikacji wdrożonych w klastrze.  Na stronie Service Fabric Analytics kliknij wykres dla **zdarzeń aplikacji**.
 
-Uruchom następującą kwerendę, aby wyświetlić zdarzenia z niezawodnych aplikacji usługowych:
+Uruchom następujące zapytanie, aby wyświetlić zdarzenia z aplikacji niezawodnych usług:
 ```kusto
 ServiceFabricReliableServiceEvent
 | sort by TimeGenerated desc
 ```
 
-Można zobaczyć różne zdarzenia, gdy runasync usługi jest uruchamiany i ukończony, co zwykle dzieje się na wdrożeniach i uaktualnień.
+Można zobaczyć różne zdarzenia dla momentu rozpoczęcia i ukończenia usługi RunAsync, która zwykle odbywa się w przypadku wdrożeń i uaktualnień.
 
-![Niezawodne usługi w zakresie sieci szkieletowej usług](media/service-fabric-tutorial-monitor-cluster/oms-reliable-services-events-selection.png)
+![Reliable Services Service Fabric rozwiązania](media/service-fabric-tutorial-monitor-cluster/oms-reliable-services-events-selection.png)
 
-Można również znaleźć zdarzenia dla niezawodnej usługi z ServiceName == "fabric:/Watchdog/WatchdogService":
+Możesz również wyszukać zdarzenia dla niezawodnej usługi za pomocą ServiceName = = "Fabric:/alarm/WatchdogService":
 
 ```kusto
 ServiceFabricReliableServiceEvent
@@ -204,13 +204,13 @@ ServiceFabricReliableServiceEvent
 | order by TimeGenerated desc  
 ```
  
-Wiarygodne wydarzenia aktor można oglądać w podobny sposób:
+Niezawodne zdarzenia aktora można wyświetlać w podobny sposób:
 
 ```kusto
 ServiceFabricReliableActorEvent
 | sort by TimeGenerated desc
 ```
-Aby skonfigurować bardziej szczegółowe zdarzenia dla wiarygodnych podmiotów, można zmienić `scheduledTransferKeywordFilter` w konfiguracji rozszerzenia diagnostycznego w szablonie klastra. Szczegóły dotyczące wartości dla nich znajdują się w [odwołaniu do zdarzeń wiarygodnych aktorów](service-fabric-reliable-actors-diagnostics.md#keywords).
+Aby skonfigurować bardziej szczegółowe zdarzenia dla niezawodnych aktorów, można `scheduledTransferKeywordFilter` zmienić w pliku config dla rozszerzenia diagnostyki w szablonie klastra. Szczegółowe informacje na temat tych wartości znajdują się w [odniesieniu do zdarzeń niezawodnych aktorów](service-fabric-reliable-actors-diagnostics.md#keywords).
 
 ```json
 "EtwEventSourceProviderConfiguration": [
@@ -224,25 +224,25 @@ Aby skonfigurować bardziej szczegółowe zdarzenia dla wiarygodnych podmiotów,
                 },
 ```
 
-## <a name="view-performance-counters-with-azure-monitor-logs"></a>Wyświetlanie liczników wydajności za pomocą dzienników usługi Azure Monitor
-Aby wyświetlić liczniki wydajności, przejdź do [witryny Azure portal](https://portal.azure.com) i grupy zasobów, w której utworzono rozwiązanie analizy sieci szkieletowej usług. 
+## <a name="view-performance-counters-with-azure-monitor-logs"></a>Wyświetlanie liczników wydajności za pomocą dzienników Azure Monitor
+Aby wyświetlić liczniki wydajności, przejdź do [Azure Portal](https://portal.azure.com) i grupy zasobów, w której utworzono rozwiązanie Service Fabric Analytics. 
 
-Wybierz obszar roboczy **ServiceFabric(mysfomsworkspace),** a następnie **obszar roboczy usługi Log Analytics**, a następnie ustawienia **zaawansowane**.
+Wybierz pozycję Resource **Fabric (mysfomsworkspace)**, a następnie **log Analytics obszarze roboczym**, a następnie kliknij pozycję **Ustawienia zaawansowane**.
 
-Kliknij **pozycję Dane**, a następnie kliknij pozycję **Liczniki wydajności systemu Windows**. Istnieje lista liczników domyślnych, które można włączyć i można ustawić interwał dla kolekcji zbyt. Można również dodać [dodatkowe liczniki wydajności](service-fabric-diagnostics-event-generation-perf.md) do zbierania. W tym [artykule](/windows/desktop/PerfCtrs/specifying-a-counter-path)odwołuje się odpowiedni format . Kliknij **pozycję Zapisz**, a następnie kliknij przycisk **OK**.
+Kliknij pozycję **dane**, a następnie kliknij pozycję **liczniki wydajności systemu Windows**. Istnieje lista domyślnych liczników, które można włączyć, i można ustawić interwał dla kolekcji. Możesz również dodać [Dodatkowe liczniki wydajności](service-fabric-diagnostics-event-generation-perf.md) do zbierania. W tym [artykule](/windows/desktop/PerfCtrs/specifying-a-counter-path)jest przywoływany właściwy format. Kliknij przycisk **Zapisz**, a następnie kliknij przycisk **OK**.
 
-Zamknij bloku Ustawienia zaawansowane i wybierz **podsumowanie obszaru roboczego** w nagłówku **Ogólne.** Dla każdego z włączonych rozwiązań jest kafelek graficzny, w tym jeden dla sieci szkieletowej usług. Kliknij wykres **sieci szkieletowej usług,** aby przejść do rozwiązania analizy sieci szkieletowej usług.
+Zamknij blok ustawienia zaawansowane i wybierz pozycję **Podsumowanie obszaru roboczego** pod nagłówkiem **Ogólne** . Dla każdego z włączonych rozwiązań istnieje kafelek graficzny, w tym jeden dla Service Fabric. Kliknij wykres **Service Fabric** , aby kontynuować Service Fabric Analytics rozwiązanie.
 
-Istnieją kafelki graficzne dla kanałów operacyjnych i niezawodnych zdarzeń usługowych. Graficzna reprezentacja danych płynących dla wybranych liczników pojawi się w obszarze **Metryki węzłów**. 
+Istnieją graficzne kafelki dla zdarzeń kanałów operacyjnych i niezawodnych usług. Graficzna reprezentacja danych przepływających dla wybranych liczników będzie wyświetlana w obszarze **metryki węzła**. 
 
-Wybierz wykres **metryki kontenera,** aby wyświetlić dodatkowe szczegóły. Można również kwerendy na dane licznika wydajności podobnie do zdarzeń klastra i filtrować na węzłach, nazwę licznika perf i wartości przy użyciu języka zapytania Kusto.
+Wybierz wykres **metryki kontenera** , aby wyświetlić dodatkowe szczegóły. Można również wykonywać zapytania dotyczące danych licznika wydajności podobnie jak zdarzenia klastra i filtrować w węzłach, nazwach liczników wydajności i wartościach przy użyciu języka zapytań Kusto.
 
-## <a name="query-the-eventstore-service"></a>Zapytanie o usługę EventStore
-[Usługa EventStore](service-fabric-diagnostics-eventstore.md) umożliwia zrozumienie stanu klastra lub obciążeń w danym momencie. EventStore jest usługą sieci szkieletowej usług stanowych, która przechowuje zdarzenia z klastra. Zdarzenia są udostępniane za pośrednictwem [Eksploratora sieci szkieletowej usług,](service-fabric-visualizing-your-cluster.md)REST i interfejsów API. EventStore wysyła zapytanie do klastra bezpośrednio, aby uzyskać dane diagnostyczne dla dowolnej jednostki w klastrze Aby wyświetlić pełną listę zdarzeń dostępnych w magazynie zdarzeń, zobacz [Zdarzenia sieci szkieletowej usług.](service-fabric-diagnostics-event-generation-operational.md)
+## <a name="query-the-eventstore-service"></a>Wysyłanie zapytań do usługi EventStore
+[Usługa EventStore](service-fabric-diagnostics-eventstore.md) zapewnia sposób zrozumienia stanu klastra lub obciążeń w danym punkcie w czasie. EventStore jest usługą stanową Service Fabric, która przechowuje zdarzenia z klastra. Zdarzenia są udostępniane za pomocą [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), REST i interfejsów API. EventStore wysyła zapytanie bezpośrednio do klastra w celu uzyskania danych diagnostycznych w dowolnej jednostce w klastrze, aby wyświetlić pełną listę zdarzeń dostępnych w EventStore, zobacz [Service Fabric Events](service-fabric-diagnostics-event-generation-operational.md).
 
-Interfejsy API eventstore można wyszukiwać programowo za pomocą [biblioteki klienta sieci szkieletowej usług.](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library)
+Do interfejsów API EventStore można wykonywać zapytania programowo przy użyciu [biblioteki klienta Service Fabric](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
 
-Oto przykładowe żądanie dla wszystkich zdarzeń klastra między 2018-04-03T18:00:00Z i 2018-04-04T18:00:00Z, za pośrednictwem funkcji GetClusterEventListAsync.
+Oto przykładowe żądanie dotyczące wszystkich zdarzeń klastra między 2018 r-04-03T18:00:00Z i 2018 r-04-04T18:00:00Z, za pomocą funkcji GetClusterEventListAsync.
 
 ```csharp
 var sfhttpClient = ServiceFabricClientFactory.Create(clusterUrl, settings);
@@ -255,7 +255,7 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
     .ToList();
 ```
 
-Oto kolejny przykład, że kwerendy dotyczące kondycji klastra i wszystkich zdarzeń węzła we wrześniu 2018 r. i drukuje je.
+Oto inny przykład, który wykonuje zapytania dotyczące kondycji klastra i wszystkich zdarzeń węzła we wrześniu 2018 i drukuje je na zewnątrz.
 
 ```csharp
 const int timeoutSecs = 60;
@@ -295,18 +295,18 @@ foreach (var nodeEvent in nodesEvents)
 
 
 ## <a name="monitor-cluster-health"></a>Monitorowanie kondycji klastra
-Sieć szkieletowa usług wprowadza [model kondycji](service-fabric-health-introduction.md) z jednostkami kondycji, na których składniki systemu i watchdogs mogą zgłaszać lokalne warunki, które są monitorujące. [Magazyn kondycji](service-fabric-health-introduction.md#health-store) agreguje wszystkie dane dotyczące kondycji, aby ustalić, czy jednostki są w dobrej kondycji.
+Service Fabric wprowadza [model kondycji](service-fabric-health-introduction.md) z jednostkami kondycji, na których składniki systemowe i alarmy mogą raportować lokalne warunki, które są monitorowane. [Magazyn kondycji](service-fabric-health-introduction.md#health-store) agreguje wszystkie dane dotyczące kondycji, aby określić, czy jednostki są w dobrej kondycji.
 
-Klaster jest automatycznie wypełniany raportami kondycji wysyłanymi przez składniki systemu. Dowiedz się więcej na [temat Używanie raportów kondycji systemu do rozwiązywania problemów](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
+Klaster jest automatycznie wypełniany raportami kondycji wysyłanymi przez składniki systemowe. Więcej informacji można znaleźć w tematach [dotyczących rozwiązywania problemów przy użyciu raportów kondycji systemu](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Sieci szkieletowej usług udostępnia kwerendy kondycji dla każdego z obsługiwanych [typów jednostek](service-fabric-health-introduction.md#health-entities-and-hierarchy). Można uzyskać do nich dostęp za pośrednictwem interfejsu API, przy użyciu metod na [FabricClient.HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), polecenia cmdlet programu PowerShell i REST. Te kwerendy zwracają pełne informacje o kondycji jednostki: zagregowany stan kondycji, zdarzenia kondycji jednostki, stany kondycji dziecka (w stosownych przypadkach), oceny w złej kondycji (gdy jednostka nie jest w dobrej kondycji) i statystyki zdrowia dzieci (gdy w stosownych przypadkach).
+Service Fabric udostępnia zapytania dotyczące kondycji dla każdego z obsługiwanych [typów jednostek](service-fabric-health-introduction.md#health-entities-and-hierarchy). Dostęp do nich uzyskuje się za pośrednictwem interfejsu API, przy użyciu metod w [FabricClient. HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), poleceń cmdlet programu POWERSHELL i REST. Te zapytania zwracają kompletne informacje o kondycji jednostki: zagregowany stan kondycji, zdarzenia kondycji jednostki, podrzędne Stany kondycji (gdy ma to zastosowanie), oceny w złej kondycji (gdy jednostka nie jest w dobrej kondycji) i podrzędne statystyki kondycji (jeśli ma to zastosowanie).
 
-### <a name="get-cluster-health"></a>Uzyskaj kondycję klastra
-[Polecenie cmdlet Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) zwraca kondycję jednostki klastra i zawiera stany kondycji aplikacji i węzłów (elementy podrzędne klastra).  Najpierw połącz się z klastrem za pomocą [polecenia cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps).
+### <a name="get-cluster-health"></a>Pobierz kondycję klastra
+[Polecenie cmdlet Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) zwraca kondycję jednostki klastra i zawiera Stany kondycji aplikacji i węzłów (elementy podrzędne klastra).  Najpierw Połącz się z klastrem przy użyciu [polecenia cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps).
 
-Stan klastra to 11 węzłów, aplikacja systemowa i fabric:/Voting skonfigurowane zgodnie z opisem.
+Stan klastra to 11 węzłów, aplikacja systemowa i sieć szkieletowa:/głos skonfigurowany zgodnie z opisem.
 
-Poniższy przykład pobiera kondycję klastra przy użyciu domyślnych zasad kondycji. 11 węzłów jest w dobrej kondycji, ale stan kondycji zagregowane klastra jest błąd, ponieważ fabric:/Voting aplikacji jest w błąd. Należy zauważyć, jak oceny w złej kondycji zawierają szczegółowe informacje na temat warunków, które wyzwoliły zagregowane kondycji.
+Poniższy przykład pobiera kondycję klastra przy użyciu domyślnych zasad kondycji. 11 węzłów jest w dobrej kondycji, ale zagregowany stan kondycji klastra jest błąd, ponieważ aplikacja sieci szkieletowej:/głosuje błąd. Zwróć uwagę na to, jak oceny złej kondycji zawierają szczegóły dotyczące warunków, które wyzwoliły zagregowany stan kondycji.
 
 ```powershell
 Get-ServiceFabricClusterHealth
@@ -381,7 +381,7 @@ HealthStatistics        :
                           Application           : 0 Ok, 0 Warning, 1 Error
 ```
 
-Poniższy przykład pobiera kondycję klastra przy użyciu zasad aplikacji niestandardowej. Filtruje wyniki, aby uzyskać tylko aplikacje i węzły w błąd lub ostrzeżenie. W tym przykładzie nie węzły są zwracane, ponieważ wszystkie one są w dobrej kondycji. Tylko fabric:/Aplikacja głosowania szanuje filtr aplikacji. Ponieważ zasady niestandardowe określa, aby wziąć pod uwagę ostrzeżenia jako błędy dla aplikacji fabric:/Voting, aplikacja jest oceniana jako błąd i tak jest klastra.
+Poniższy przykład pobiera kondycję klastra przy użyciu niestandardowych zasad aplikacji. Filtruje wyniki, aby uzyskać tylko aplikacje i węzły z błędem lub ostrzeżeniem. W tym przykładzie nie są zwracane żadne węzły, ponieważ są one w dobrej kondycji. Tylko aplikacja sieci szkieletowej:/głosu szanuje filtr aplikacji. Ze względu na to, że zasady niestandardowe określają, jak są wyświetlane ostrzeżenia jako błędy aplikacji sieci szkieletowej:/głosowania, aplikacja jest szacowana jako błąd i dlatego jest klastrem.
 
 ```powershell
 $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
@@ -453,8 +453,8 @@ ApplicationHealthStates :
 HealthEvents            : None
 ```
 
-### <a name="get-node-health"></a>Uzyskaj kondycję węzła
-[Polecenie cmdlet Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) zwraca kondycję jednostki węzła i zawiera zdarzenia kondycji zgłoszone w węźle. Najpierw połącz się z klastrem za pomocą [polecenia cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). Poniższy przykład pobiera kondycję określonego węzła przy użyciu domyślnych zasad kondycji:
+### <a name="get-node-health"></a>Pobierz kondycję węzła
+[Polecenie cmdlet Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) zwraca kondycję jednostki węzła i zawiera zdarzenia kondycji zgłoszone w węźle. Najpierw Połącz się z klastrem przy użyciu [polecenia cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). Poniższy przykład pobiera kondycję określonego węzła przy użyciu domyślnych zasad kondycji:
 
 ```powershell
 Get-ServiceFabricNodeHealth _nt1vm_3
@@ -465,9 +465,9 @@ Poniższy przykład pobiera kondycję wszystkich węzłów w klastrze:
 Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
 ```
 
-### <a name="get-system-service-health"></a>Uzyskaj kondycję usługi systemowej 
+### <a name="get-system-service-health"></a>Pobierz kondycję usługi systemowej 
 
-Uzyskaj zagregowane kondycje usług systemowych:
+Uzyskaj zagregowaną kondycję usług systemowych:
 
 ```powershell
 Get-ServiceFabricService -ApplicationName fabric:/System | Get-ServiceFabricServiceHealth | select ServiceName, AggregatedHealthState | ft -AutoSize
@@ -478,10 +478,10 @@ Get-ServiceFabricService -ApplicationName fabric:/System | Get-ServiceFabricServ
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Wyświetlanie zdarzeń sieci szkieletowej usług
-> * Kwerendy eventstore interfejsów API dla zdarzeń klastra
-> * Monitorowanie infrastruktury/zbieranie liczników perf
-> * Wyświetlanie raportów kondycji klastra
+> * Wyświetlanie zdarzeń Service Fabric
+> * Wykonywanie zapytań dotyczących interfejsów API EventStore dla zdarzeń klastra
+> * Monitorowanie infrastruktury/Zbieranie liczników wydajności
+> * Wyświetlanie raportów o kondycji klastra
 
 Następnie przejdź do następującego samouczka, aby dowiedzieć się, jak skalować klaster.
 > [!div class="nextstepaction"]

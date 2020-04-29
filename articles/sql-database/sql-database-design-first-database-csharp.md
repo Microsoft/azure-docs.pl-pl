@@ -1,5 +1,5 @@
 ---
-title: 'Zaprojektuj swoją pierwszą relacyjną bazę danych C #'
+title: 'Projektowanie pierwszej relacyjnej bazy danych C #'
 description: Dowiedz się, jak zaprojektować swoją pierwszą relacyjną bazę danych jako pojedynczą bazę danych w usłudze Azure SQL Database w języku C# i za pomocą platformy ADO.NET.
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
 ms.openlocfilehash: 0f1140bbefc7508666e763fcd4f1a04ba48cdfdd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75354939"
 ---
-# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Samouczek: Projektowanie relacyjnej bazy danych w pojedynczej bazie danych w&#x23; i ADO.NET bazy danych usługi Azure SQL Database C
+# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Samouczek: projektowanie relacyjnej bazy danych w pojedynczej bazie danych w Azure SQL Database C&#x23; i ADO.NET
 
 Usługa Azure SQL Database to relacyjna baza danych oferowana jako usługa (DBaaS, database-as-a service) na platformie Microsoft Cloud (Azure). Z tego samouczka dowiesz się, jak przy użyciu witryny Azure Portal i narzędzia ADO.NET w programie Visual Studio wykonać następujące czynności:
 
@@ -29,14 +29,14 @@ Usługa Azure SQL Database to relacyjna baza danych oferowana jako usługa (DBaa
 > * Wstawianie, aktualizowanie i usuwanie danych za pomocą narzędzia ADO.NET
 > * Wykonywanie zapytań względem danych za pomocą narzędzia ADO.NET
 
-*Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+* Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 > [!TIP]
-> Poniższy moduł Microsoft Learn pomaga bezpłatnie dowiedzieć się, jak [opracować i skonfigurować aplikację ASP.NET, która wysyła kwerendy do bazy danych SQL Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), w tym tworzenie prostej bazy danych.
+> Poniższy moduł Microsoft Learn umożliwia zapoznanie się z bezpłatnymi sposobami tworzenia [i konfigurowania aplikacji ASP.NET, która wysyła zapytanie do Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), w tym tworzenia prostej bazy danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Instalacja [programu Visual Studio 2019](https://www.visualstudio.com/downloads/) lub nowszej.
+Instalacja programu [Visual Studio 2019](https://www.visualstudio.com/downloads/) lub nowszego.
 
 ## <a name="create-a-blank-single-database"></a>Tworzenie pustej pojedynczej bazy danych
 
@@ -44,12 +44,12 @@ Pojedyncza baza danych usługi Azure SQL Database jest tworzona ze zdefiniowanym
 
 Wykonaj poniższe kroki, aby utworzyć pustą pojedynczą bazę danych.
 
-1. Kliknij **pozycję Utwórz zasób** w lewym górnym rogu witryny Azure portal.
+1. Kliknij pozycję **Utwórz zasób** w lewym górnym rogu Azure Portal.
 2. Na stronie **Nowy** wybierz pozycję **Bazy danych** w sekcji Azure Marketplace, a następnie kliknij pozycję **Baza danych SQL** w sekcji **Polecane**.
 
    ![tworzenie pustej bazy danych](./media/sql-database-design-first-database/create-empty-database.png)
 
-3. Wypełnij formularz **bazy danych SQL** następującymi informacjami, jak pokazano na poprzednim obrazie:
+3. Wypełnij formularz **SQL Database** przy użyciu następujących informacji, jak pokazano na poprzedniej ilustracji:
 
     | Ustawienie       | Sugerowana wartość | Opis |
     | ------------ | ------------------ | ------------------------------------------------- |
@@ -63,13 +63,13 @@ Wykonaj poniższe kroki, aby utworzyć pustą pojedynczą bazę danych.
     | Ustawienie       | Sugerowana wartość | Opis |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nazwa serwera** | Dowolna nazwa unikatowa w skali globalnej | Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa). |
-    | **Logowanie administratora serwera** | Dowolna prawidłowa nazwa | Prawidłowe nazwy identyfikatorów logowania opisano w artykule [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identyfikatory baz danych). |
+    | **Identyfikator logowania administratora serwera** | Dowolna prawidłowa nazwa | Prawidłowe nazwy identyfikatorów logowania opisano w artykule [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identyfikatory baz danych). |
     | **Hasło** | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej osiem znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
     | **Lokalizacja** | Dowolna prawidłowa lokalizacja | Aby uzyskać informacje na temat regionów, zobacz temat [Regiony systemu Azure](https://azure.microsoft.com/regions/). |
 
     ![tworzenie serwera bazy danych](./media/sql-database-design-first-database/create-database-server.png)
 
-5. Kliknij **pozycję Wybierz**.
+5. Kliknij pozycję **Wybierz**.
 6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi, liczbę jednostek DTU lub rdzeni wirtualnych i ilość miejsca do magazynowania. Możesz przejrzeć opcje liczby jednostek DTU/rdzeni wirtualnych i miejsca do magazynowania dostępne dla poszczególnych warstw usług.
 
     Po wybraniu warstwy usługi, liczby jednostek DTU lub rdzeni wirtualnych i ilości miejsca do magazynowania kliknij pozycję **Zastosuj**.
@@ -95,7 +95,7 @@ Usługa SQL Database tworzy zaporę IP na poziomie serwera. Ta zapora uniemożli
 
    ![nazwa serwera](./media/sql-database-design-first-database/server-name.png)
 
-3. Kliknij pozycję **Ustaw zaporę serwera** na pasku narzędzi. Zostanie otwarta strona **Ustawienia zapory** dla serwera bazy danych SQL.
+3. Kliknij pozycję **Ustaw zaporę serwera** na pasku narzędzi. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database.
 
    ![reguła zapory bazująca na adresach IP na poziomie serwera](./media/sql-database-design-first-database/server-firewall-rule.png)
 

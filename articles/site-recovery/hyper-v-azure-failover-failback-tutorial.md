@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie trybu failover maszyn wirtualnych funkcji Hyper-V na platformie Azure w usłudze Azure Site Recovery
-description: Dowiedz się, jak w pracy w stanie fail over Maszyny wirtualne funkcji Hyper-V na platformie Azure za pomocą usługi Azure Site Recovery.
+title: Konfigurowanie trybu failover maszyn wirtualnych funkcji Hyper-V na platformie Azure w Azure Site Recovery
+description: Dowiedz się, jak przechodzić w tryb failover maszyn wirtualnych funkcji Hyper-V na platformie Azure przy użyciu Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -9,19 +9,19 @@ ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75498161"
 ---
-# <a name="fail-over-hyper-v-vms-to-azure"></a>Maszyny wirtualne funkcji Hyper V w wersji Fail-V w obszarze Azure
+# <a name="fail-over-hyper-v-vms-to-azure"></a>Przełączanie maszyn wirtualnych funkcji Hyper-V do trybu failover na platformie Azure
 
-W tym samouczku opisano, jak awaryjnie przeczesywać maszyny wirtualne z programem Hyper V na platformie Azure za pomocą [usługi Azure Site Recovery.](site-recovery-overview.md) Po wprowadzeniu maszyny w tryb failover można przywrócić ją po awarii do lokacji lokalnej, gdy ta będzie znów dostępna. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku opisano sposób awaryjnego przełączania maszyn wirtualnych funkcji Hyper-V na platformę Azure przy użyciu [Azure Site Recovery](site-recovery-overview.md). Po wprowadzeniu maszyny w tryb failover można przywrócić ją po awarii do lokacji lokalnej, gdy ta będzie znów dostępna. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Sprawdź właściwości maszyny Wirtualnej funkcji Hyper-V, aby sprawdzić zgodność z wymaganiami platformy Azure.
-> * Przebłaśnia określonych maszyn wirtualnych w wersji Azure w wersji fail0.
+> * Sprawdź właściwości maszyny wirtualnej funkcji Hyper-V, aby sprawdzić zgodność z wymaganiami platformy Azure.
+> * Przełączenie określonych maszyn wirtualnych do trybu failover na platformie Azure.
 
 
 Jest to piąty samouczek z tej serii. Założono w nim, że zostały już wykonane zadania z poprzednich samouczków.    
@@ -29,9 +29,9 @@ Jest to piąty samouczek z tej serii. Założono w nim, że zostały już wykona
 1. [Przygotowywanie platformy Azure](tutorial-prepare-azure.md)
 2. [Przygotowywanie lokalnej funkcji Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
 3. Konfigurowanie odzyskiwania po awarii dla [maszyn wirtualnych funkcji Hyper-V](tutorial-hyper-v-to-azure.md) lub dla [maszyn wirtualnych funkcji Hyper-V zarządzanych w chmurach programu System Center VMM](tutorial-hyper-v-vmm-to-azure.md)
-4. [Uruchamianie próbnego odzyskiwania po awarii](tutorial-dr-drill-azure.md)
+4. [Uruchamianie próbnego odzyskiwania](tutorial-dr-drill-azure.md)
 
-[Dowiedz się więcej o](failover-failback-overview.md#types-of-failover) różnych typach pracy awaryjnej. Jeśli chcesz przebiec awaryjnie wiele maszyn wirtualnych w planie odzyskiwania, zapoznaj się z [tym artykułem](site-recovery-failover.md).
+[Dowiedz się więcej o](failover-failback-overview.md#types-of-failover) różnych typach trybu failover. Jeśli chcesz przejść do trybu failover wielu maszyn wirtualnych w planie odzyskiwania, zapoznaj się z [tym artykułem](site-recovery-failover.md).
 
 ## <a name="prepare-for-failover"></a>Przygotowanie do przejścia do trybu failover 
 Upewnij się, że na maszynie wirtualnej nie znajdują się żadne migawki oraz że podczas powrotu po awarii lokalna maszyna wirtualna jest wyłączona. Pomaga to zapewnić spójność danych podczas replikacji. Nie należy włączać lokalnej maszyny wirtualnej podczas powrotu po awarii. 
@@ -58,26 +58,26 @@ W obszarze **Chronione elementy** kliknij kolejno pozycje **Zreplikowane element
 
 ## <a name="fail-over-to-azure"></a>Przełączenie do trybu failover na platformie Azure
 
-1. W **obszarze Ustawienia** > **replikowane elementy**kliknij maszynę wirtualną > trybu **failover**.
+1. W obszarze **Ustawienia** > **zreplikowane elementy**kliknij maszynę wirtualną > **tryb failover**.
 2. W obszarze **Tryb failover** wybierz **Najnowszy** punkt odzyskiwania. 
-3. Wybierz pozycję **Zamknij maszynę przed rozpoczęciem pracy w trybie failover**. Usługa Site Recovery próbuje zamknąć źródłowe maszyny wirtualne przed wyzwoleniem trybu failover. Przełączanie do trybu failover będzie kontynuowane, nawet jeśli zamknięcie nie powiedzie się. Postęp pracy awaryjnej można śledzić na stronie **Zadania.**
+3. Wybierz pozycję **Zamknij maszynę przed rozpoczęciem pracy w trybie failover**. Usługa Site Recovery próbuje zamknąć źródłowe maszyny wirtualne przed wyzwoleniem trybu failover. Przełączanie do trybu failover będzie kontynuowane, nawet jeśli zamknięcie nie powiedzie się. Postęp pracy w trybie failover można wykonać na stronie **zadań** .
 4. Po weryfikacji przełączenia do trybu failover kliknij przycisk **Zatwierdź**. To działanie usuwa wszystkie dostępne punkty odzyskiwania.
 
 > [!WARNING]
 > **Nie należy anulować trybu failover po rozpoczęciu przełączania**: w takim przypadku przełączanie zostanie zatrzymane, ale maszyna wirtualna nie zostanie ponownie zreplikowana.
 
-## <a name="connect-to-failed-over-vm"></a>Łączenie się z maszyną wirtualną po awarii
+## <a name="connect-to-failed-over-vm"></a>Nawiązywanie połączenia z maszyną wirtualną w trybie failover
 
-1. Jeśli chcesz połączyć się z maszynami wirtualnymi platformy Azure po przełączeniu w stan failover przy użyciu protokołu RDP (Remote Desktop Protocol) i secure shell (SSH), [sprawdź, czy wymagania zostały spełnione.](failover-failback-overview.md#connect-to-azure-after-failover)
-2. Po przełączeniu w stan failover przejdź do maszyny Wirtualnej i sprawdź poprawność, [łącząc się z](../virtual-machines/windows/connect-logon.md) nią.
-3. Użyj **zmień punktu odzyskiwania,** jeśli chcesz użyć innego punktu odzyskiwania po pracy awaryjnej. Po zatwierdzeniu pracy awaryjnej w następnym kroku ta opcja nie będzie już dostępna.
-4. Po weryfikacji wybierz **commit,** aby sfinalizować punkt odzyskiwania maszyny Wirtualnej po przewijanie w stan failover.
-5. Po zatwierdzeniu wszystkie inne dostępne punkty odzyskiwania zostaną usunięte. Ten krok kończy pracy awaryjnej.
+1. Jeśli chcesz nawiązać połączenie z maszynami wirtualnymi platformy Azure po przejściu w tryb failover przy użyciu usług Remote Desktop Protocol (RDP) i Secure Shell (SSH), [Sprawdź, czy zostały spełnione wymagania](failover-failback-overview.md#connect-to-azure-after-failover).
+2. Po przejściu w tryb failover przejdź do maszyny wirtualnej i sprawdź poprawność, [łącząc](../virtual-machines/windows/connect-logon.md) się z nią.
+3. Jeśli po przejściu w tryb failover ma zostać użyty inny punkt odzyskiwania, użyj **Zmień punkt odzyskiwania** . Po zatwierdzeniu przejścia w tryb failover w następnym kroku ta opcja nie będzie już dostępna.
+4. Po sprawdzeniu poprawności wybierz pozycję **Zatwierdź** , aby zakończyć punkt odzyskiwania maszyny wirtualnej po przejściu do trybu failover.
+5. Po zatwierdzeniu wszystkie pozostałe dostępne punkty odzyskiwania zostaną usunięte. Ten krok powoduje zakończenie pracy w trybie failover.
 
 >[!TIP]
-> Jeśli po przejściu w stan failover wystąpią jakiekolwiek problemy z łącznością, postępuj zgodnie z [przewodnikiem rozwiązywania problemów](site-recovery-failover-to-azure-troubleshoot.md).
+> Jeśli występują problemy z łącznością po przejściu do trybu failover, postępuj zgodnie z [przewodnikiem rozwiązywania problemów](site-recovery-failover-to-azure-troubleshoot.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po przewijaniu w błąd ponownie przeceniaj maszyny wirtualne platformy Azure, aby replikować z platformy Azure do lokalnego. Następnie po maszyny wirtualne są ponownie cekrowane i replikacji do lokacji lokalnej, powrót po awarii z platformy Azure, gdy jesteś gotowy.
+Po przejściu w tryb failover ponownie Włącz ochronę maszyn wirtualnych platformy Azure, aby umożliwić ich replikację z platformy Azure do lokacji lokalnej. Następnie po ponownym włączeniu ochrony maszyn wirtualnych i przeprowadzeniu replikacji do lokacji lokalnej powrót po awarii z platformy Azure zakończy się niepowodzeniem.

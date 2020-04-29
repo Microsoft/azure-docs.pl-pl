@@ -5,39 +5,39 @@ ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
 ms.openlocfilehash: b052772bbfe9d69e430d9f722d8db56b48db7610
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72933471"
 ---
-Wybierz **pozycję Zbuduj**. W oknie dialogowym, które zostanie otwarte, wybierz folder, do który chcesz wyeksportować projekt Xcode.
+Wybierz pozycję **kompilacja**. W otwartym oknie dialogowym Wybierz folder, do którego chcesz wyeksportować projekt Xcode.
 
-Po zakończeniu eksportowania pojawi się folder zawierający eksportowany projekt Xcode.
+Po zakończeniu eksportowania zostanie wyświetlony folder zawierający wyeksportowany projekt Xcode.
 
 > [!NOTE]
-> Jeśli pojawi się okno z pytaniem, czy chcesz zastąpić lub dołączyć, zalecamy wybranie opcji **Dołącz,** ponieważ jest szybsze. Jeśli zmieniasz zasoby w scenie, musisz wybrać opcję **Zamień.** (Na przykład, jeśli dodajesz, usuwasz lub zmieniasz relacje nadrzędne i podrzędne lub dodajesz, usuwasz lub zmieniasz właściwości). Jeśli wprowadzasz tylko zmiany kodu źródłowego, **dołącz** powinno wystarczyć.
+> Jeśli zostanie wyświetlone okno z pytaniem, czy chcesz zamienić lub dołączyć, zalecamy wybranie opcji **Dołącz** , ponieważ jest ona szybsza. Należy wybrać opcję **Zamień** tylko w przypadku zmiany elementów zawartości w scenie. (Na przykład w przypadku dodawania, usuwania lub zmieniania relacji nadrzędny/podrzędny lub dodawania, usuwania lub zmieniania właściwości). Jeśli wprowadzasz tylko zmiany w kodzie źródłowym, **dołączenie** powinno być wystarczające.
 
-### <a name="convert-the-xcode-project-to-xcworkspace-containing-azure-spatial-anchors-references"></a>Konwertowanie projektu Xcode na xcworkspace zawierający odwołania do zakotwiczeń przestrzennych platformy Azure
+### <a name="convert-the-xcode-project-to-xcworkspace-containing-azure-spatial-anchors-references"></a>Konwertuj projekt Xcode na xcworkspace zawierający odwołania do zakotwiczeń przestrzennych platformy Azure
 
-W wyeksportowanym folderze projektu Xcode uruchom to polecenie w terminalu, aby zainstalować niezbędne cocoaPods dla projektu:
+W wyeksportowanym folderze projektu Xcode Uruchom to polecenie w terminalu, aby zainstalować wymagane CocoaPods dla projektu:
 
 ```bash
 pod install --repo-update
 ```
 
-Teraz możesz `Unity-iPhone.xcworkspace` otworzyć projekt w Xcode:
+Teraz możesz otworzyć `Unity-iPhone.xcworkspace` projekt w programie Xcode:
 
 ```bash
 open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> Zapoznaj się z instrukcjami rozwiązywania [problemów tutaj,](../articles/spatial-anchors/quickstarts/get-started-unity-ios.md#cocoapods-issues-on-macos-catalina-1015) jeśli masz problemy z CocoaPod po uaktualnieniu do systemu macOS Catalina (10.15).
+> Zapoznaj się z [krokami](../articles/spatial-anchors/quickstarts/get-started-unity-ios.md#cocoapods-issues-on-macos-catalina-1015) rozwiązywania problemów, jeśli masz problemy z CocoaPod po uaktualnieniu do macOS Catalina (10,15).
 
-Wybierz główny węzeł **Unity-iPhone,** aby wyświetlić ustawienia projektu, a następnie wybierz kartę **Ogólne.**
+Wybierz węzeł główny **Unity-iPhone** , aby wyświetlić ustawienia projektu, a następnie wybierz kartę **Ogólne** .
 
-W obszarze **Podpisywanie**upewnij się, że **funkcja Automatyczne zarządzanie podpisywaniem** jest włączona. Jeśli tak nie jest, włącz go, a następnie wybierz **pozycję Włącz opcję Automatyczna** w oknie dialogowym, które wydaje się resetować ustawienia kompilacji.
+W obszarze **podpisywanie**upewnij się, że opcja **automatycznie Zarządzaj podpisywaniem** jest włączona. Jeśli tak nie jest, włącz ją, a następnie wybierz opcję **Włącz automatyczne** w oknie dialogowym, które pojawia się, aby zresetować ustawienia kompilacji.
 
 W obszarze **Deployment Info (Informacje o wdrożeniu)** upewnij się, że w polu **Deployment Target (Cel wdrożenia)** ustawiono wartość `11.0`.
 
@@ -52,4 +52,4 @@ Wybierz pozycję **Build and then run the current scheme (Skompiluj i uruchom bi
 ![Wdrażanie i uruchamianie](./media/spatial-anchors-unity/deploy-run.png)
 
 > [!NOTE]
-> Jeśli widzisz `library not found for -lPods-Unity-iPhone` błąd, prawdopodobnie `.xcodeproj` otworzyłeś plik zamiast `.xcworkspace` pliku.
+> Jeśli zobaczysz `library not found for -lPods-Unity-iPhone` błąd, prawdopodobnie `.xcodeproj` plik zostanie otwarty zamiast `.xcworkspace` pliku.

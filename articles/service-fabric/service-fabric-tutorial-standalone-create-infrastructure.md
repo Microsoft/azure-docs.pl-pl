@@ -7,10 +7,10 @@ ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75613979"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Samouczek: tworzenie infrastruktury usług AWS do obsługi klastra usługi Service Fabric
@@ -33,7 +33,7 @@ Do ukończenia tego samouczka jest potrzebne konto usług AWS.  Jeśli nie masz 
 
 ## <a name="create-ec2-instances"></a>Tworzenie wystąpień EC2
 
-Zaloguj się do konsoli AWS > Wprowadź **EC2** w polu wyszukiwania > **serwerów wirtualnych EC2 w chmurze**
+Zaloguj się do konsoli usługi AWS > wprowadź **EC2** w polu wyszukiwania, > **EC2 serwery wirtualne w chmurze**
 
 ![Wyszukiwanie w konsoli usług AWS][aws-console]
 
@@ -89,7 +89,7 @@ Dwie ostatnie reguły dla usługi Service Fabric powodują otwarcie jej dla wszy
 
 Na koniec trzeba otworzyć port 8080, aby móc nawiązać połączenie z aplikacją po jej wdrożeniu. Wybierz przycisk **Dodaj regułę**, z listy rozwijanej wybierz pozycję **Niestandardowa reguła TCP** i jako zakres portów wprowadź wartość `8080`, a następnie wybierz z listy rozwijanej Źródło wartość Dowolne miejsce.
 
-Teraz wszystkie reguły są już wprowadzone. Wybierz **pozycję Zapisz**.
+Teraz wszystkie reguły są już wprowadzone. Wybierz pozycję **Zapisz**.
 
 ## <a name="connect-to-an-instance-and-validate-connectivity"></a>Nawiązywanie połączenia z wystąpieniem i weryfikowanie łączności
 

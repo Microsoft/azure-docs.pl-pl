@@ -1,28 +1,28 @@
 ---
-title: Samouczek - Wieloetapowe zadanie ACR
-description: W tym samouczku dowiesz się, jak skonfigurować zadanie rejestru kontenerów platformy Azure, aby automatycznie wyzwalać wieloetapowy przepływ pracy w celu tworzenia, uruchamiania i wypychania obrazów kontenerów w chmurze podczas zatwierdzania kodu źródłowego do repozytorium Git.
+title: Samouczek — zadanie wieloetapowej ACR
+description: W tym samouczku dowiesz się, jak skonfigurować zadanie Azure Container Registry, aby automatycznie wyzwalać wieloetapowy przepływ pracy do kompilowania, uruchamiania i wypychania obrazów kontenera w chmurze podczas zatwierdzania kodu źródłowego w repozytorium git.
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: ff32b3095638af6b2b246b99a5dc9219e0020782
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78402304"
 ---
-# <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Samouczek: Uruchamianie wieloetapowego przepływu pracy kontenera w chmurze podczas zatwierdzania kodu źródłowego
+# <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Samouczek: uruchamianie wieloetapowego przepływu pracy kontenera w chmurze podczas zatwierdzania kodu źródłowego
 
-Oprócz szybkiego [zadania,](container-registry-tutorial-quick-task.md)zadania ACR obsługują wieloetapowe, wielokontenerowe przepływy pracy, które mogą automatycznie wyzwalać podczas zatwierdzania kodu źródłowego do repozytorium Git. 
+Oprócz [szybkiego zadania](container-registry-tutorial-quick-task.md)zadania ACR obsługują wieloetapowe przepływy pracy oparte na kontenerach, które mogą być automatycznie wyzwalane podczas zatwierdzania kodu źródłowego w repozytorium git. 
 
-W tym samouczku dowiesz się, jak użyć przykładowych plików YAML do definiowania zadań wieloetapowych, które skompilowają, uruchamiają i wypychają jeden lub więcej obrazów kontenerów do rejestru podczas zatwierdzania kodu źródłowego. Aby utworzyć zadanie, które automatyzuje tylko pojedynczy obraz na podstawie zatwierdzania kodu, zobacz [Samouczek: Automatyzacja tworzenia obrazu kontenera w chmurze podczas zatwierdzania kodu źródłowego](container-registry-tutorial-build-task.md). Aby zapoznać się z omówieniem zadań ACR, zobacz [Automatyzowanie systemu operacyjnego i poprawek ramowych za pomocą zadań ACR](container-registry-tasks-overview.md),
+W ramach tego samouczka nauczysz się używać przykładowych plików YAML do definiowania wieloetapowych zadań, które kompilują, uruchamiają i wypychają jeden lub więcej obrazów kontenera do rejestru podczas zatwierdzania kodu źródłowego. Aby utworzyć zadanie, które automatyzuje tylko jednokrotne Kompilowanie obrazu przy zatwierdzaniu kodu, zobacz [Samouczek: Automatyzowanie kompilacji obrazu kontenera w chmurze podczas zatwierdzania kodu źródłowego](container-registry-tutorial-build-task.md). Aby zapoznać się z omówieniem zadań ACR, zobacz [Automatyzowanie stosowania poprawek systemu operacyjnego i platformy przy użyciu zadań ACR](container-registry-tasks-overview.md),
 
 W tym samouczku:
 
 > [!div class="checklist"]
 > * Definiowanie zadania wieloetapowego przy użyciu pliku YAML
 > * Tworzenie zadania podrzędnego
-> * Opcjonalnie dodaj poświadczenia do zadania, aby włączyć dostęp do innego rejestru
+> * Opcjonalnie dodaj poświadczenia do zadania, aby umożliwić dostęp do innego rejestru
 > * Testowanie zadania
 > * Wyświetlanie stanu zadania podrzędnego
 > * Wyzwalanie zadania po zatwierdzeniu kodu
@@ -31,17 +31,17 @@ W samouczku założono, że zostały już wykonane kroki z [poprzedniego samoucz
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli chcesz korzystać z interfejsu wiersza polecenia platformy Azure lokalnie, musisz mieć zainstalowany interfejs wiersza polecenia platformy Azure w wersji **2.0.62** lub nowszej i zalogowany przy użyciu [logowania az.][az-login] Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja interfejsu wiersza polecenia lub jego uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
+Jeśli chcesz korzystać z interfejsu wiersza polecenia platformy Azure lokalnie, musisz mieć zainstalowany interfejs wiersza polecenia platformy Azure w wersji **2.0.62** lub nowszej i zalogować się przy użyciu [AZ login][az-login]. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja interfejsu wiersza polecenia lub jego uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
 ## <a name="create-a-multi-step-task"></a>Tworzenie zadania wieloetapowego
 
-Po wykonaniu czynności wymaganych do włączenia zadań usługi ACR do odczytu stanu zatwierdzenia i tworzenia elementów webhook w repozytorium utwórz wieloetapowe zadanie, które wyzwala tworzenie, uruchamianie i wypychanie obrazu kontenera.
+Po wykonaniu kroków wymaganych do włączenia zadań ACR w celu odczytania stanu zatwierdzenia i utworzenia elementów webhook w repozytorium Utwórz zadanie wieloetapowe, które wyzwala kompilowanie, uruchamianie i wypychanie obrazu kontenera.
 
 ### <a name="yaml-file"></a>Plik YAML
 
-Kroki dla zadania wieloetapowego można zdefiniować w [pliku YAML](container-registry-tasks-reference-yaml.md). Pierwsze przykładowe zadanie wieloetapowe dla tego `taskmulti.yaml`samouczka jest zdefiniowane w pliku , który znajduje się w katalogu głównym repozytorium GitHub, które zostało sklonowane:
+Należy zdefiniować kroki dla zadania wieloetapowego w [pliku YAML](container-registry-tasks-reference-yaml.md). Pierwsze przykładowe zadanie wieloetapowe dla tego samouczka jest zdefiniowane w pliku `taskmulti.yaml`, który znajduje się w katalogu głównym repozytorium GitHub, które zostało sklonowane:
 
 ```yml
 version: v1.0.0
@@ -59,17 +59,17 @@ steps:
   - {{.Run.Registry}}/hello-world:{{.Run.ID}}
 ```
 
-To wieloetapowe zadanie wykonuje następujące czynności:
+To zadanie wieloetapowe wykonuje następujące czynności:
 
-1. Uruchamia `build` krok do tworzenia obrazu z pliku Dockerfile w katalogu roboczym. Obraz jest `Run.Registry`przeznaczony dla rejestru, w którym zadanie jest uruchamiane, i jest oznaczony unikatowym identyfikatorem uruchomienia zadań ACR. 
-1. Uruchamia `cmd` krok, aby uruchomić obraz w kontenerze tymczasowym. W tym przykładzie rozpoczyna długotrwały kontener w tle i zwraca identyfikator kontenera, a następnie zatrzymuje kontener. W scenariuszu rzeczywistym może zawierać kroki, aby przetestować uruchomiony kontener, aby upewnić się, że działa poprawnie.
-1. W `push` kroku wypycha obraz, który został zbudowany do rejestru uruchamiania.
+1. Uruchamia `build` krok w celu skompilowania obrazu z pliku dockerfile w katalogu roboczym. Obraz jest przeznaczony dla `Run.Registry`, rejestr, w którym uruchomiono zadanie i jest oznaczony UNIKATOWYm identyfikatorem uruchomienia zadań ACR. 
+1. Uruchamia krok `cmd` służący do uruchamiania obrazu w kontenerze tymczasowym. W tym przykładzie uruchomiono długotrwały kontener w tle i zwraca identyfikator kontenera, a następnie kończy kontener. W rzeczywistym scenariuszu można uwzględnić kroki testowania uruchomionego kontenera, aby upewnić się, że działa poprawnie.
+1. W `push` kroku wypchnij obraz, który został skompilowany do uruchomienia rejestru.
 
-### <a name="task-command"></a>Zadanie, polecenie
+### <a name="task-command"></a>Zadanie — polecenie
 
-Najpierw wypełnij te zmienne środowiskowe powłoki przy użyciu wartości odpowiednich dla danego środowiska. Ten krok nie jest ściśle wymagany, ale trochę ułatwia wykonywanie przedstawionych w tym samouczku wielowierszowych poleceń interfejsu wiersza polecenia platformy Azure. Jeśli te zmienne środowiskowe nie zostaną zapełniane, należy ręcznie zastąpić każdą wartość wszędzie tam, gdzie pojawia się ona w przykładowych poleceniach.
+Najpierw wypełnij te zmienne środowiskowe powłoki przy użyciu wartości odpowiednich dla danego środowiska. Ten krok nie jest ściśle wymagany, ale trochę ułatwia wykonywanie przedstawionych w tym samouczku wielowierszowych poleceń interfejsu wiersza polecenia platformy Azure. Jeśli te zmienne środowiskowe nie zostaną wypełnione, należy ręcznie zastąpić każdą wartość w dowolnym miejscu w przykładowych poleceniach.
 
-[![Uruchom osadź](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
+[![Uruchom osadzenie](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
 
 ```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -77,7 +77,7 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Teraz utwórz zadanie, wykonując następujące [polecenie tworzenia zadania az acr:][az-acr-task-create]
+Teraz Utwórz zadanie, wykonując następujące polecenie [AZ ACR Task Create][az-acr-task-create] :
 
 ```azurecli-interactive
 az acr task create \
@@ -88,7 +88,7 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
-To zadanie określa, że każdy kod *master* czasu jest zaakrążany `--context`do gałęzi głównej w repozytorium określonym przez , Zadania ACR uruchomi zadanie wieloetapowe z kodu w tej gałęzi. Plik YAML określony `--file` przez z katalogu głównego repozytorium definiuje kroki. 
+To zadanie Określa, że dowolny kod czasu jest zatwierdzany do *głównej* gałęzi w repozytorium określonym przez `--context`, ACR zadania spowodują uruchomienie zadania wieloetapowego z kodu w tej gałęzi. Plik YAML określony przez `--file` z katalogu głównego repozytorium definiuje kroki. 
 
 Dane wyjściowe z pomyślnie wykonanego polecenia [az acr task create][az-acr-task-create] przypominają następujące dane:
 
@@ -149,13 +149,13 @@ Dane wyjściowe z pomyślnie wykonanego polecenia [az acr task create][az-acr-ta
 
 ## <a name="test-the-multi-step-workflow"></a>Testowanie wieloetapowego przepływu pracy
 
-Aby przetestować zadanie wieloetapowe, uruchom je ręcznie, wykonując polecenie [az acr:][az-acr-task-run]
+Aby przetestować zadanie wieloetapowe, wyzwól je ręcznie, wykonując polecenie [AZ ACR Task Run][az-acr-task-run] :
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name example1
 ```
 
-Domyślnie polecenie `az acr task run` przesyła strumieniowo dane wyjściowe dziennika do konsoli podczas wykonywania polecenia. Dane wyjściowe pokazuje postęp uruchamiania każdego z kroków zadania. Poniższe dane wyjściowe są skondensowane, aby wyświetlić kluczowe kroki.
+Domyślnie polecenie `az acr task run` przesyła strumieniowo dane wyjściowe dziennika do konsoli podczas wykonywania polecenia. Dane wyjściowe pokazują postęp uruchamiania każdego z kroków zadań. Poniższe dane wyjściowe są skrócone w celu pokazania kluczowych kroków.
 
 ```output
 Queued a run with ID: cf19
@@ -239,7 +239,7 @@ Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
 
-Po wypchnięciu zatwierdzenia do repozytorium element webhook utworzony przez zadania usługi ACR uruchamia i uruchamia zadanie w rejestrze kontenerów platformy Azure. Wyświetl dzienniki dla aktualnie uruchomionego zadania, aby sprawdzić i monitorować postęp kompilacji:
+Po wypchnięciu zatwierdzenia do repozytorium zostanie wyzwolony element webhook utworzony przez ACR zadania i zostanie on aktywowany w Azure Container Registry. Wyświetl dzienniki dla aktualnie uruchomionego zadania, aby sprawdzić i monitorować postęp kompilacji:
 
 ```azurecli-interactive
 az acr task logs --registry $ACR_NAME
@@ -276,17 +276,17 @@ cf1a      example1   linux       Succeeded  Commit     2019-05-03T03:09:32Z  00:
 cf19      example1   linux       Succeeded  Manual     2019-05-03T03:03:30Z  00:00:21
 ```
 
-## <a name="create-a-multi-registry-multi-step-task"></a>Tworzenie wieloetapowego zadania wieloetapowego z wieloma rejestrami
+## <a name="create-a-multi-registry-multi-step-task"></a>Tworzenie wieloskładnikowego zadania wieloetapowego
 
-Zadania usługi ACR domyślnie mają uprawnienia do wypychania lub ściągania obrazów z rejestru, w którym jest uruchamiane zadanie. Można uruchomić zadanie wieloetapowe, które jest przeznaczone dla jednego lub więcej rejestrów oprócz rejestru uruchamiania. Na przykład może być konieczne tworzenie obrazów w jednym rejestrze i przechowywanie obrazów z różnymi znacznikami w drugim rejestrze, do którego dostęp uzyskuje system produkcyjny. W tym przykładzie pokazano, jak utworzyć takie zadanie i podać poświadczenia dla innego rejestru.
+Domyślnie zadania ACR mają uprawnienia do wypychania lub ściągania obrazów z rejestru, w którym jest uruchamiane zadanie podrzędne. Może być konieczne uruchomienie zadania wieloetapowego, które jest przeznaczone dla jednego lub więcej rejestrów oprócz rejestru uruchomieniowego. Na przykład może być konieczne skompilowanie obrazów w jednym rejestrze i przechowywanie obrazów z różnymi tagami w drugim rejestrze dostępnym przez system produkcyjny. Ten przykład pokazuje, jak utworzyć takie zadanie i podać poświadczenia dla innego rejestru.
 
-Jeśli nie masz jeszcze drugiego rejestru, utwórz go w tym przykładzie. Jeśli potrzebujesz rejestru, zobacz [poprzedni samouczek](container-registry-tutorial-quick-task.md) lub [Szybki start: tworzenie rejestru kontenerów za pomocą interfejsu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md).
+Jeśli nie masz jeszcze drugiego rejestru, utwórz go w ramach tego przykładu. Jeśli potrzebujesz rejestru, zobacz [poprzedni samouczek](container-registry-tutorial-quick-task.md) lub [Szybki start: tworzenie rejestru kontenerów za pomocą interfejsu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md).
 
-Aby utworzyć zadanie, potrzebna jest nazwa serwera logowania rejestru, który jest *mycontainerregistrydate.azurecr.io* formularza (wszystkie małe litery). W tym przykładzie należy użyć drugiego rejestru do przechowywania obrazów oznaczonych według daty kompilacji.
+Aby można było utworzyć zadanie, potrzebna jest nazwa serwera logowania rejestru, który ma postać *mycontainerregistrydate.azurecr.IO* (wszystkie małe litery). W tym przykładzie drugi rejestr jest używany do przechowywania obrazów otagowanych według daty kompilacji.
 
 ### <a name="yaml-file"></a>Plik YAML
 
-Drugie przykładowe zadanie wieloetapowe dla tego `taskmulti-multiregistry.yaml`samouczka jest zdefiniowane w pliku , który znajduje się w katalogu głównym repozytorium GitHub, które zostało sklonowane:
+Drugie przykładowe zadanie wieloetapowe dla tego samouczka jest zdefiniowane w pliku `taskmulti-multiregistry.yaml`, który znajduje się w katalogu głównym repozytorium GitHub, które zostało sklonowane:
 
 ```yml
 version: v1.0.0
@@ -306,17 +306,17 @@ steps:
   - {{.Values.regDate}}/hello-world:{{.Run.Date}}
 ```
 
-To wieloetapowe zadanie wykonuje następujące czynności:
+To zadanie wieloetapowe wykonuje następujące czynności:
 
-1. Uruchamia `build` dwa kroki do tworzenia obrazów z pliku Dockerfile w katalogu roboczym:
-    * Pierwszy jest `Run.Registry`przeznaczony dla rejestru, w którym zadanie jest uruchamiane, i jest oznaczony identyfikatorem uruchamiania zadań ACR. 
-    * Drugi jest przeznaczony dla rejestru identyfikowanego przez wartość `regDate`, która jest ustawiana `values.yaml` podczas `az acr task create`tworzenia zadania (lub dostarczania za pośrednictwem pliku zewnętrznego przekazanego do ). Ten obraz jest oznaczony datą uruchomienia.
-1. Uruchamia `cmd` krok, aby uruchomić jeden z kontenerów zbudowany. W tym przykładzie rozpoczyna długotrwały kontener w tle i zwraca identyfikator kontenera, a następnie zatrzymuje kontener. W scenariuszu rzeczywistym można przetestować uruchomiony kontener, aby upewnić się, że działa poprawnie.
-1. W `push` kroku wypycha obrazy, które zostały zbudowane, pierwszy do rejestru uruchamiania, `regDate`drugi do rejestru zidentyfikowanego przez .
+1. Uruchamia dwa `build` kroki, aby skompilować obrazy z pliku dockerfile w katalogu roboczym:
+    * Pierwszy element jest celem `Run.Registry`, rejestr, w którym uruchamiane jest zadanie i jest oznaczony przy użyciu identyfikatora uruchomienia zadań ACR. 
+    * Drugi element docelowy rejestru identyfikowany przez wartość `regDate`, która jest ustawiana podczas tworzenia zadania (lub przekazanie przez plik zewnętrzny `values.yaml` do `az acr task create`). Ten obraz jest otagowany z datą uruchomienia.
+1. Uruchamia `cmd` krok w celu uruchomienia jednego z skompilowanych kontenerów. W tym przykładzie uruchomiono długotrwały kontener w tle i zwraca identyfikator kontenera, a następnie kończy kontener. W rzeczywistym scenariuszu można testować uruchomiony kontener, aby upewnić się, że działa poprawnie.
+1. W `push` kroku wypchnij utworzone wcześniej obrazy, a pierwszy do rejestru uruchamiania, drugi dla rejestru identyfikowanego przez `regDate`.
 
-### <a name="task-command"></a>Zadanie, polecenie
+### <a name="task-command"></a>Zadanie — polecenie
 
-Korzystając ze zdefiniowanych wcześniej zmiennych środowiskowych powłoki, utwórz zadanie, wykonując następujące [polecenie tworzenia zadania az acr.][az-acr-task-create] Zastąp nazwę rejestru dla *mycontainerregistrydate*.
+Używając wcześniej zdefiniowanych zmiennych środowiskowych powłoki, Utwórz zadanie, wykonując następujące polecenie [AZ ACR Task Create][az-acr-task-create] . Zastąp nazwę rejestru *mycontainerregistrydate*.
 
 ```azurecli-interactive
 az acr task create \
@@ -328,13 +328,13 @@ az acr task create \
     --set regDate=mycontainerregistrydate.azurecr.io
 ```
 
-### <a name="add-task-credential"></a>Dodawanie poświadczeń zadania
+### <a name="add-task-credential"></a>Dodaj poświadczenie zadania
 
-Aby wypchnąć obrazy do rejestru `regDate`identyfikowanego przez wartość , użyj [polecenia az acr task add,][az-acr-task-credential-add] aby dodać poświadczenia logowania dla tego rejestru do zadania.
+Aby wypchnąć obrazy do rejestru identyfikowanego przez wartość `regDate`, użyj polecenia [AZ ACR Task Credential Add][az-acr-task-credential-add] , aby dodać poświadczenia logowania dla tego rejestru do zadania.
 
-W tym przykładzie zaleca się utworzenie [jednostki usługi](container-registry-auth-service-principal.md) z dostępem do rejestru o zakresie do roli *AcrPush.* Aby utworzyć jednostkę usługi, zobacz ten [skrypt interfejsu wiersza polecenia platformy Azure](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
+Na potrzeby tego przykładu zalecamy utworzenie jednostki [usługi](container-registry-auth-service-principal.md) z dostępem do rejestru zakresu roli *AcrPush* . Aby utworzyć nazwę główną usługi, zobacz ten [skrypt interfejsu wiersza polecenia platformy Azure](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
 
-Przekaż identyfikator aplikacji głównej usługi i `az acr task credential add` hasło w następującym poleceniu:
+Przekaż identyfikator aplikacji głównej usługi i hasło w następującym `az acr task credential add` poleceniu:
 
 ```azurecli-interactive
 az acr task credential add --name example2 \
@@ -344,17 +344,17 @@ az acr task credential add --name example2 \
     --password <service-principal-password>
 ```
 
-Interfejs wiersza polecenia zwraca nazwę dodanego serwera logowania rejestru.
+Interfejs wiersza polecenia zwraca nazwę dodanego serwera logowania do rejestru.
 
 ### <a name="test-the-multi-step-workflow"></a>Testowanie wieloetapowego przepływu pracy
 
-Podobnie jak w poprzednim przykładzie, aby przetestować zadanie wieloetapowe, wyzwolić je ręcznie, wykonując polecenie [az acr.][az-acr-task-run] Aby wyzwolić zadanie z zatwierdzeniem do repozytorium Git, zobacz [sekcję Wyzwalanie kompilacji z zatwierdzeniem](#trigger-a-build-with-a-commit).
+Tak jak w poprzednim przykładzie, aby przetestować zadanie wieloetapowe, wyzwól je ręcznie przez wykonanie polecenia [AZ ACR Task Run][az-acr-task-run] . Aby wyzwolić zadanie z zatwierdzaniem do repozytorium git, zapoznaj się z sekcją [Wyzwól kompilację z zatwierdzeniem](#trigger-a-build-with-a-commit).
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name example2
 ```
 
-Domyślnie polecenie `az acr task run` przesyła strumieniowo dane wyjściowe dziennika do konsoli podczas wykonywania polecenia. Jak poprzednio, dane wyjściowe pokazuje postęp uruchamiania każdego z kroków zadania. Dane wyjściowe są skondensowane, aby wyświetlić kluczowe kroki.
+Domyślnie polecenie `az acr task run` przesyła strumieniowo dane wyjściowe dziennika do konsoli podczas wykonywania polecenia. Jak poprzednio, dane wyjściowe pokazują postęp uruchamiania każdego z kroków zadań. Dane wyjściowe są skrócone w celu pokazania kluczowych kroków.
 
 Dane wyjściowe:
 
@@ -454,7 +454,7 @@ Run ID: cf1g was successful after 46s
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dowiesz się, jak tworzyć wieloetapowe zadania oparte na wielu kontenerach, które automatycznie wyzwalają się podczas zatwierdzania kodu źródłowego do repozytorium Git. Aby uzyskać zaawansowane funkcje zadań wieloetapowych, w tym równoległe i zależne wykonanie kroku, zobacz [odwołanie DO ZADAŃ ACR YAML](container-registry-tasks-reference-yaml.md). Przejdź do kolejnego samouczka, aby dowiedzieć się, jak utworzyć zadania, które wyzwalają kompilacje przy aktualizacji obrazu podstawowego obrazu kontenera.
+W tym samouczku przedstawiono sposób tworzenia wieloetapowych zadań opartych na kontenerach, które są automatycznie wyzwalane podczas zatwierdzania kodu źródłowego w repozytorium git. Aby uzyskać zaawansowane funkcje wieloetapowych zadań, w tym równoległe i zależne wykonywanie kroków, zobacz temat [ACR Tasks YAML Reference](container-registry-tasks-reference-yaml.md). Przejdź do kolejnego samouczka, aby dowiedzieć się, jak utworzyć zadania, które wyzwalają kompilacje przy aktualizacji obrazu podstawowego obrazu kontenera.
 
 > [!div class="nextstepaction"]
 > [Automatyczne kompilacje przy aktualizacji obrazu podstawowego](container-registry-tutorial-base-image-update.md)

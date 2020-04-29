@@ -13,19 +13,19 @@ ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
 ms.openlocfilehash: eb9c21bf1972304da688586da9ccabe5063fa112
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75438968"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Samouczek: Tworzenie fabryki danych za pomocą programu Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Przegląd i wymagania wstępne](data-factory-build-your-first-pipeline.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-> * [Powershell](data-factory-build-your-first-pipeline-using-powershell.md)
-> * [Szablon usługi Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [INTERFEJS API ODPOCZYNKU](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+> * [Szablon Menedżer zasobów](data-factory-build-your-first-pipeline-using-arm.md)
+> * [Interfejs API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 > [!NOTE]
@@ -65,7 +65,7 @@ Poniżej przedstawiono kroki do wykonania w ramach tego przewodnika:
 3. Na komputerze muszą być zainstalowane następujące elementy:
    * Visual Studio 2013 lub Visual Studio 2015
    * Pobierz zestaw Azure SDK dla programu Visual Studio 2013 lub Visual Studio 2015. Przejdź do [strony plików do pobrania Azure](https://azure.microsoft.com/downloads/) i kliknij pozycję **VS 2013** lub **VS 2015** w sekcji **.NET**.
-   * Pobierz najnowszą wtyczkę usługi Azure Data Factory dla programu Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) lub [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Wtyczkę można również zaktualizować, wykonując następujące czynności: W menu kliknij polecenie Rozszerzenia **narzędzi** -> **i aktualizacje** -> **w** -> **galerii** -> online Programu Visual Studio Narzędzia**fabryczne dla programu Visual Studio.** -> **Update**
+   * Pobierz najnowszą wtyczkę usługi Azure Data Factory dla programu Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) lub [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Możesz także zaktualizować wtyczkę, wykonując następujące czynności: w menu kliknij kolejno opcje **Narzędzia** -> **rozszerzenia i aktualizacje** -> **online** -> **Galeria** -> Visual Studio**Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**.
 
 Teraz utworzymy fabrykę danych Azure przy użyciu programu Visual Studio.
 
@@ -182,7 +182,7 @@ W tym kroku opisano tworzenie zestawów danych do reprezentowania danych wejści
 #### <a name="create-output-dataset"></a>Tworzenie wyjściowego zestawu danych
 Teraz utworzysz wyjściowy zestaw danych do reprezentowania danych wyjściowych przechowywanych w usłudze Azure Blob Storage.
 
-1. W **Eksploratorze rozwiązań**kliknij prawym przyciskiem myszy **tabele**, wskaż polecenie **Dodaj**i kliknij polecenie **Nowy element**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **tabele**, wskaż polecenie **Dodaj**, a następnie kliknij pozycję **nowy element**.
 2. Wybierz pozycję **Obiekt blob platformy Azure** z listy, zmień nazwę pliku na **OutputDataset.json** i kliknij przycisk **Dodaj**.
 3. Zastąp kod **JSON** w edytorze następującym kodem JSON:
     
@@ -323,7 +323,7 @@ W tym kroku opublikujesz jednostki usługi Data Factory (połączone usługi, ze
 
 Ważne rzeczy, na które należy zwrócić uwagę:
 
-- Jeśli zostanie wyświetlony błąd: **Ta subskrypcja nie jest zarejestrowana do używania obszaru nazw Microsoft.DataFactory,** wykonaj jedną z następujących czynności i spróbuj ponownie opublikować:
+- Jeśli wystąpi błąd: **Ta subskrypcja nie jest zarejestrowana w celu używania przestrzeni nazw Microsoft. DataFactory**, wykonaj jedną z następujących czynności i spróbuj opublikować ponownie:
     - W programie Azure PowerShell uruchom następujące polecenie, aby zarejestrować dostawcę usługi Fabryka danych.
         ```powershell   
         Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -556,7 +556,7 @@ W tym samouczku opisano tworzenie fabryki danych Azure do przetwarzania danych p
 4. Utworzyć **potok** za pomocą działania **programu Hive w usłudze HDInsight**.  
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule opisano tworzenie potoku za pomocą działania przekształcenia (działanie usługi HDInsight), które uruchamia skrypt programu Hive w klastrze usługi HDInsight na żądanie. Aby zobaczyć, jak używać działania kopiowania do kopiowania danych z obiektu Blob platformy Azure do usługi Azure SQL, zobacz [Samouczek: Kopiowanie danych z obiektu blob platformy Azure do usługi Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+W tym artykule opisano tworzenie potoku za pomocą działania przekształcenia (działanie usługi HDInsight), które uruchamia skrypt programu Hive w klastrze usługi HDInsight na żądanie. Aby dowiedzieć się, jak używać działania kopiowania do kopiowania danych z obiektu blob platformy Azure do usługi Azure SQL, zobacz [Samouczek: kopiowanie danych z obiektu blob platformy Azure do usługi Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Dwa działania można połączyć w łańcuch (uruchomić jedno działanie po drugim), ustawiając wyjściowy zestaw danych jednego działania jako zestaw wejściowy drugiego. Szczegółowe informacje znajdują się w artykule [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Planowanie i wykonywanie w usłudze Data Factory). 
 

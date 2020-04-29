@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
 ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67183309"
 ---
 ## <a name="c-program-example"></a>Przykład programu w języku C#
@@ -26,7 +26,7 @@ W kolejnych sekcjach tego artykułu zaprezentowano program w języku C#, który 
 
 Wcześniejsze instrukcje `CREATE TABLE` zawierają słowo kluczowe **REFERENCES** w celu utworzenia relacji między dwiema tabelami za pomocą *klucza obcego*. Jeśli używasz bazy danych *tempdb*, wykomentuj słowo kluczowe `--REFERENCES`, wpisując na początku dwa łączniki.
 
-Ten diagram relacji jednostek przedstawia relację między dwiema tabelami. Wartości w **kolumnie podrzędnej tabEmemployee.DepartmentCode** *child* są ograniczone do wartości z kolumny *nadrzędnej* **tabDepartment.DepartmentCode.**
+Ten diagram relacji jednostek przedstawia relację między dwiema tabelami. Wartości w kolumnie *podrzędnej* **tabEmployee. DepartmentCode** są ograniczone do wartości z kolumny *nadrzędnej* **tabDepartment. DepartmentCode** .
 
 ![Diagram relacji jednostek pokazujący klucz obcy](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 

@@ -3,16 +3,16 @@ title: 'Uruchamianie wielu usług zależnych: .NET Core & Visual Studio Code'
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: W tym samouczku pokazano, jak używać usługi Azure Dev Spaces i Visual Studio Code do debugowania aplikacji .NET Core z wieloma usługami w usłudze Azure Kubernetes
-keywords: Docker, Kubernetes, Azure, AKS, Usługa Azure Kubernetes, kontenery, Helm, siatka usług, routing siatki usług, kubectl, k8s
+description: W tym samouczku pokazano, jak używać Azure Dev Spaces i Visual Studio Code do debugowania aplikacji platformy .NET Core z obsługą wielousług w usłudze Azure Kubernetes Service
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
 ms.openlocfilehash: 0bbb1aefe517c45207160b83b89f7207e8909666
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75438313"
 ---
-# <a name="running-multiple-dependent-services-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Uruchamianie wielu usług zależnych: .NET Core i Visual Studio Code z usługą Azure Dev Spaces
+# <a name="running-multiple-dependent-services-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Uruchamianie wielu usług zależnych: .NET Core i Visual Studio Code z Azure Dev Spaces
 
 Z tego samouczka dowiesz się, jak programować aplikacje wielousługowe za pomocą usługi Azure Dev Spaces oraz poznasz niektóre dodatkowe korzyści zapewniane przez usługę Dev Spaces.
 
@@ -28,8 +28,8 @@ Aby nie tracić czasu, pobierzmy przykładowy kod z repozytorium GitHub. Przejd�
 ### <a name="run-mywebapi"></a>Uruchamianie aplikacji *mywebapi*
 1. Otwórz aplikację `mywebapi` w *osobnym oknie programu VS Code*.
 1. Otwórz okno **Paleta poleceń** (za pomocą menu **Widok | Paleta poleceń**) i przy użyciu autouzupełniania wpisz i wybierz to polecenie: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Nie należy mylić tego polecenia z poleceniem `azds prep`, które umożliwia skonfigurowanie projektu na potrzeby wdrożenia.
-1. Naciśnij klawisz F5 i zaczekaj na skompilowanie i wdrożenie usługi. Będziesz wiedzieć, że jest gotowy po *uruchomieniu aplikacji. Naciśnij klawisze Ctrl+C, aby ją zamknąć.* komunikat pojawi się w konsoli debugowania.
-1. Adres URL punktu końcowego będą wyglądał mniej więcej tak: `http://localhost:<portnumber>`. **Wskazówka: Pasek stanu VS Code zmieni kolor na pomarańczowy i wyświetli klikalny adres URL.** Może się wydawać, że kontener działa lokalnie, ale faktycznie jest on uruchamiany w naszym obszarze deweloperskim na platformie Azure. Adres hosta lokalnego jest tworzony, ponieważ w aplikacji `mywebapi` nie zdefiniowano żadnych publicznych punktów końcowych i dostęp do niej można uzyskać wyłącznie z poziomu wystąpienia w środowisku Kubernetes. Dla Twojej wygody i ułatwienia interakcji z usługą prywatną z komputera lokalnego usługa Azure Dev Spaces tworzy tymczasowy tunel SSH do kontenera uruchomionego na platformie Azure.
+1. Naciśnij klawisz F5 i zaczekaj na skompilowanie i wdrożenie usługi. Zobaczysz, że będzie ona gotowa podczas *uruchamiania aplikacji. Naciśnij klawisze CTRL + C, aby zamknąć.* w konsoli debugowania zostanie wyświetlony komunikat.
+1. Adres URL punktu końcowego będą wyglądał mniej więcej tak: `http://localhost:<portnumber>`. **Porada: VS Code pasek stanu spowoduje włączenie elementu pomarańczowego i wyświetlenie adresu URL, który zostanie kliknięty.** Może się wydawać, że kontener działa lokalnie, ale faktycznie jest on uruchamiany w naszym obszarze deweloperskim na platformie Azure. Adres hosta lokalnego jest tworzony, ponieważ w aplikacji `mywebapi` nie zdefiniowano żadnych publicznych punktów końcowych i dostęp do niej można uzyskać wyłącznie z poziomu wystąpienia w środowisku Kubernetes. Dla Twojej wygody i ułatwienia interakcji z usługą prywatną z komputera lokalnego usługa Azure Dev Spaces tworzy tymczasowy tunel SSH do kontenera uruchomionego na platformie Azure.
 1. Gdy aplikacja `mywebapi` jest gotowa, otwórz w przeglądarce adres hosta lokalnego. Dołącz do adresu URL część `/api/values`, aby wywołać domyślny interfejs API GET dla kontrolera `ValuesController`.
 1. Jeśli wszystkie kroki zostały wykonane pomyślnie, powinno być możliwe wyświetlenie odpowiedzi z usługi `mywebapi`.
 
@@ -65,8 +65,8 @@ W poprzednim przykładzie kodu nagłówek `azds-route-as` jest przekazywany z ż
 
 ### <a name="debug-across-multiple-services"></a>Debugowanie w wielu usługach
 1. W tym momencie aplikacja `mywebapi` powinna być nadal uruchomiona z dołączonym debugerem. Jeśli nie jest, naciśnij klawisz F5 w projekcie `mywebapi`.
-1. Ustaw punkt przerwania `Get(int id)` wewnątrz metody, która obsługuje żądania `api/values/{id}` GET. Jest to około [linii 23 w pliku *Controllers/ValuesController.cs* ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/mywebapi/Controllers/ValuesController.cs#L23).
-1. W projekcie `webfrontend` ustaw punkt przerwania tuż przed wysłaniem żądania GET do aplikacji `mywebapi/api/values`. Jest to około linii 32 w pliku [ *Controllers/HomeController.cs,* ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs) który został zmodyfikowany w poprzedniej sekcji.
+1. Ustaw punkt przerwania wewnątrz `Get(int id)` metody, która `api/values/{id}` obsługuje żądania GET. Jest to około [Wiersz 23 w pliku *controllers/ValuesController. cs* ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/mywebapi/Controllers/ValuesController.cs#L23).
+1. W projekcie `webfrontend` ustaw punkt przerwania tuż przed wysłaniem żądania GET do aplikacji `mywebapi/api/values`. Jest to około wiersz 32 w pliku [ *controllers/HomeController. cs* ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs) zmodyfikowanym w poprzedniej sekcji.
 1. W projekcie `webfrontend` naciśnij klawisz F5.
 1. Wywołaj aplikację internetową i wykonaj kod w obu usługach.
 1. W aplikacji internetowej na stronie Informacje zostanie wyświetlony połączony komunikat z dwóch usług: „Hello from webfrontend and Hello from mywebapi”.

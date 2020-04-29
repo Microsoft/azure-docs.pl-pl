@@ -1,6 +1,6 @@
 ---
-title: Samouczek — aprowizowanie urządzeń w centrach z równoważeniem obciążenia przy użyciu usługi inicjowania obsługi administracyjnej urządzeń usługi Azure IoT Hub
-description: W tym samouczku pokazano, jak usługa inicjowania obsługi administracyjnej urządzeń (DPS) umożliwia automatyczne inicjowanie obsługi administracyjnej urządzeń w centrach IoT z równoważeniem obciążenia w witrynie Azure Portal
+title: Samouczek — Udostępnianie urządzeń w centrach równoważenia obciążenia przy użyciu usługi Azure IoT Hub Device Provisioning Service
+description: W tym samouczku pokazano, jak usługa Device Provisioning (DPS) umożliwia automatyczne Inicjowanie obsługi urządzeń w centrach IoT o zrównoważonym obciążeniu w witrynie Azure Portal
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,15 +9,15 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: e1a66da52eea6d5da711fa6def58eba65d0960ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74976744"
 ---
-# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Samouczek: Aprowizacji urządzeń w centrach IoT z równoważenia obciążenia
+# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Samouczek: Udostępnianie urządzeń w centrach IoT o zrównoważonym obciążeniu
 
-W tym samouczku przedstawiono sposób aprowizacji urządzeń w wielu centrach IoT Hub z równoważeniem obciążenia przy użyciu usługi Device Provisioning Service. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku przedstawiono sposób aprowizacji urządzeń w wielu centrach IoT Hub z równoważeniem obciążenia przy użyciu usługi Device Provisioning Service. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Aprowizowanie drugiego urządzenia w drugim centrum IoT Hub za pomocą witryny Azure Portal 
@@ -25,7 +25,7 @@ W tym samouczku przedstawiono sposób aprowizacji urządzeń w wielu centrach Io
 > * Ustawianie zasad alokacji w usłudze Device Provisioning Service na **równomierną dystrybucję**
 > * Łączenie nowego centrum IoT z usługą Device Provisioning Service
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -63,7 +63,7 @@ Wykonaj następujące czynności, aby skonfigurować zasady alokacji:
 
 1. Na stronie **Wszystkie zasoby** kliknij wcześniej utworzone wystąpienie usługi Device Provisioning Service.
 2. Na stronie Usługa Device Provisioning kliknij pozycję **Połączone centra IoT Hub**.
-3. Kliknij przycisk **Dodaj**.
+3. Kliknij pozycję **Dodaj**.
 4. Na stronie **Dodawanie linku do centrum IoT Hub** użyj przycisków opcji, aby określić, czy połączone centrum IoT znajduje się w bieżącej subskrypcji, czy w innej subskrypcji. Następnie wybierz nazwę centrum IoT w polu **Centrum IoT**.
 5. Kliknij przycisk **Zapisz**.
 

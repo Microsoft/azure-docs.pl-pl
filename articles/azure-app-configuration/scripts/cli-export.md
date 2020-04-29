@@ -1,7 +1,7 @@
 ---
-title: Przykład skryptu interfejsu wiersza polecenia platformy Azure — eksportowanie ze sklepu konfiguracji aplikacji platformy Azure
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — Eksportowanie z magazynu konfiguracji aplikacji platformy Azure
 titleSuffix: Azure App Configuration
-description: Eksportowanie konfiguracji aplikacji za pomocą skryptu interfejsu wiersza polecenia platformy Azure
+description: Eksportowanie konfiguracji z konfiguracji aplikacji platformy Azure przy użyciu skryptu interfejsu wiersza polecenia platformy Azure
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
 ms.openlocfilehash: 3e014504fc1e94c3b323a49b408fa992de00d14a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77523627"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Eksportowanie z magazynu usługi Azure App Configuration
@@ -43,7 +43,7 @@ Ten skrypt używa następujących poleceń do eksportowania z magazynu konfigura
 
 | Polecenie | Uwagi |
 |---|---|
-| [az appconfig kv eksport](/cli/azure/appconfig/kv#az-appconfig-kv-export) | Eksportuje z zasobu magazynu konfiguracji aplikacji. |
+| [AZ AppConfig KV Export](/cli/azure/appconfig/kv#az-appconfig-kv-export) | Eksportuje z zasobu magazynu konfiguracji aplikacji. |
 
 ## <a name="next-steps"></a>Następne kroki
 

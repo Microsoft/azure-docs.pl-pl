@@ -1,6 +1,6 @@
 ---
-title: Samouczek kontroli aplikacji programu Access & — Usługa Azure Security Center
-description: W tym samouczku pokazano, jak skonfigurować zasady dostępu do maszyn wirtualnych just-in-time i zasady kontroli aplikacji.
+title: Samouczek dotyczący kontroli dostępu & aplikacji — Azure Security Center
+description: W tym samouczku przedstawiono sposób konfigurowania zasad dostępu just in Time do maszyny wirtualnej oraz zasad kontroli aplikacji.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
 ms.openlocfilehash: 0b28de7af16053093cd0108224188cdd615fce55
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80435517"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Samouczek: Ochrona zasobów przy użyciu usługi Azure Security Center
-Usługa Security Center ogranicza narażenia na zagrożenia poprzez zastosowanie kontroli dostępu i aplikacji w celu blokowania złośliwych działań. Dostęp do maszyny wirtualnej just-in-time (JIT) zmniejsza narażenie na ataki, umożliwiając odmowę trwałego dostępu do maszyn wirtualnych. Zamiast tego możesz zapewnić kontrolowany, monitorowany dostęp do maszyn wirtualnych tylko w razie potrzeby. Adaptacyjne kontrole aplikacji pomagają zabezpieczać maszyny wirtualne przed złośliwym oprogramowaniem poprzez kontrolowanie aplikacji, które mogą być uruchamiane na maszynach wirtualnych. Usługa Security Center analizuje procesy uruchomione na maszynie wirtualnej przy użyciu uczenia maszynowego i za pomocą tej analizy ułatwia zastosowanie listy reguł elementów dozwolonych.
+Usługa Security Center ogranicza narażenia na zagrożenia poprzez zastosowanie kontroli dostępu i aplikacji w celu blokowania złośliwych działań. Dostęp do maszyn wirtualnych just-in-Time (JIT) zmniejsza narażenie na ataki przez umożliwienie trwałego dostępu do maszyn wirtualnych. Zamiast tego możesz zapewnić kontrolowany, monitorowany dostęp do maszyn wirtualnych tylko w razie potrzeby. Adaptacyjne kontrole aplikacji pomagają zabezpieczać maszyny wirtualne przed złośliwym oprogramowaniem poprzez kontrolowanie aplikacji, które mogą być uruchamiane na maszynach wirtualnych. Usługa Security Center analizuje procesy uruchomione na maszynie wirtualnej przy użyciu uczenia maszynowego i za pomocą tej analizy ułatwia zastosowanie listy reguł elementów dozwolonych.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Konfigurowanie zasad dostępu do maszyny wirtualnej just-in-time
+> * Konfigurowanie zasad dostępu just in Time do maszyny wirtualnej
 > * Konfigurowanie zasad kontroli aplikacji
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -36,25 +36,25 @@ Aby wypróbować funkcje omówione w tym samouczku, musisz korzystać ze standar
 ## <a name="manage-vm-access"></a>Zarządzanie dostępem do maszyny wirtualnej
 Dostęp typu „ just in time” do maszyny wirtualnej może być używany do blokowania ruchu przychodzącego do maszyn wirtualnych platformy Azure w celu zmniejszenia narażenia na ataki przy zapewnieniu łatwego dostępu do maszyn wirtualnych na potrzeby łączenia się z nimi w razie potrzeby.
 
-Porty zarządzania nie muszą być otwarte przez cały czas. Muszą być otwarte tylko wtedy, gdy nawiązano połączenie z maszyną wirtualną, np. aby wykonać zadania związane z zarządzaniem lub konserwacją. Gdy opcja just-in-time jest włączona, usługa Security Center używa reguł sieciowej grupy zabezpieczeń (NSG), które ograniczają dostęp do portów zarządzania, dzięki czemu nie mogą być kierowane przez osoby atakujące.
+Porty zarządzania nie muszą być otwarte przez cały czas. Muszą być otwarte tylko wtedy, gdy nawiązano połączenie z maszyną wirtualną, np. aby wykonać zadania związane z zarządzaniem lub konserwacją. Gdy jest włączona funkcja just-in-Time, Security Center używa reguł grupy zabezpieczeń sieci (sieciowej grupy zabezpieczeń), które ograniczają dostęp do portów zarządzania, przez co nie mogą być objęte przez osoby atakujące.
 
-1. W menu głównym Centrum zabezpieczeń wybierz pozycję **Dostęp do maszyny wirtualnej just-in-time w** obszarze ADVANCED CLOUD **DEFENSE**.
+1. W menu głównym Security Center wybierz **dostęp just in Time do maszyny wirtualnej** w obszarze **Zaawansowana ochrona w chmurze**.
 
    ![Dostęp just in time do maszyny wirtualnej][1]
 
-   **Dostęp do maszyn wirtualnych just-in-time** zawiera informacje o stanie maszyn wirtualnych:
+   **Dostęp just in Time do maszyny wirtualnej** zapewnia informacje o stanie maszyn wirtualnych:
 
-   - **Skonfigurowano** — maszyny wirtualne, które zostały skonfigurowane do obsługi dostępu do maszyn wirtualnych just-in-time.
-   - **Zalecane** — maszyny wirtualne, które mogą obsługiwać dostęp do maszyn wirtualnych tylko w czasie, ale nie zostały skonfigurowane.
+   - **Skonfigurowane** — maszyny wirtualne, które zostały skonfigurowane do obsługi dostępu just in Time do maszyny wirtualnej.
+   - **Zalecane** — maszyny wirtualne, które mogą obsługiwać dostęp do maszyny wirtualnej just-in-Time, ale nie zostały skonfigurowane do programu.
    - **Brak zaleceń** — powody, dla których maszyna wirtualna może nie mieć zaleceń:
 
-     - Brak nsg - rozwiązanie just-in-time wymaga nsg być na miejscu.
-     - Klasyczna maszyna wirtualna — usługa Security Center just-in-time VM access obecnie obsługuje tylko maszyny wirtualne wdrożone za pośrednictwem usługi Azure Resource Manager.
-     - Inne — maszyna wirtualna znajduje się w tej kategorii, jeśli rozwiązanie just-in-time jest wyłączone w zasadach zabezpieczeń subskrypcji lub grupy zasobów lub że maszyna wirtualna nie ma publicznego adresu IP i nie ma sieciowej grupy zabezpieczeń.
+     - Brak sieciowej grupy zabezpieczeń — rozwiązanie just in Time wymaga, aby sieciowej grupy zabezpieczeń.
+     - Klasyczna maszyna wirtualna — Security Center dostęp do maszyny wirtualnej just in Time aktualnie obsługuje tylko maszyny wirtualne wdrożone za pośrednictwem Azure Resource Manager.
+     - Inne — maszyna wirtualna jest w tej kategorii, jeśli rozwiązanie just in time jest wyłączone w zasadach zabezpieczeń subskrypcji lub grupy zasobów lub że maszyna wirtualna nie ma publicznego adresu IP i nie ma sieciowej grupy zabezpieczeń.
 
-2. Wybierz zalecaną maszynę wirtualną i kliknij przycisk **Włącz JIT na 1 maszynie wirtualnej,** aby skonfigurować zasady just-in-time dla tej maszyny Wirtualnej:
+2. Wybierz zalecaną maszynę wirtualną, a następnie kliknij pozycję **Włącz JIT na 1 maszynie wirtualnej** , aby skonfigurować zasady just in Time dla tej maszyny wirtualnej:
 
-   Można zapisać domyślne porty zalecane przez centrum zabezpieczeń lub dodać i skonfigurować nowy port, na którym chcesz włączyć rozwiązanie just-in-time. W tym samouczku dodamy port, używając opcji **Dodaj**.
+   Można zapisać porty domyślne, które Security Center zalecane, lub dodać i skonfigurować nowy port, na którym chcesz włączyć rozwiązanie just in Time. W tym samouczku dodamy port, używając opcji **Dodaj**.
 
    ![Dodawanie konfiguracji portu][2]
 
@@ -88,36 +88,36 @@ Funkcje adaptacyjnego sterowania aplikacjami ułatwiają zdefiniowanie zestawu a
 
    - **NAZWA**: pełna ścieżka aplikacji
    - **PROCESY**: ile aplikacji znajduje się w każdej ścieżce
-   - **CZĘSTO:**"Tak" oznacza, że te procesy zostały wykonane na większości maszyn wirtualnych w tej grupie zasobów
-   - **EXPLOITABLE:** Ikona ostrzeżenia wskazuje, czy aplikacje mogą być używane przez osobę atakującą do ominięcia białej listy aplikacji. Zaleca się dokonanie przeglądu tych aplikacji przed ich zatwierdzeniem.
+   - **Typowy**: wartość "tak" wskazuje, że te procesy zostały wykonane na większości maszyn wirtualnych w tej grupie zasobów
+   - Możliwe do **wykorzystania**: ikona ostrzeżenia wskazuje, czy można użyć aplikacji przez osobę atakującą do obejścia listy dozwolonych aplikacji. Zaleca się dokonanie przeglądu tych aplikacji przed ich zatwierdzeniem.
 
 4. Po wybraniu opcji wybierz przycisk **Utwórz**.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-Inne przewodniki szybkiego startu i samouczki w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start i samouczkami, kontynuuj uruchamianie warstwy Standardowa i włącz automatyczne inicjowanie obsługi administracyjnej. Jeśli nie zamierzasz kontynuować lub chcesz wrócić do warstwy bezpłatnej:
+Inne przewodniki szybkiego startu i samouczki w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki Start i samouczkami, Kontynuuj uruchamianie warstwy Standardowa i Włącz automatyczną obsługę administracyjną. Jeśli nie zamierzasz kontynuować lub chcesz wrócić do warstwy bezpłatnej:
 
 1. Wróć do menu głównego usługi Security Center i wybierz pozycję **Zasady zabezpieczeń**.
 2. Wybierz subskrypcję lub zasady, którym chcesz przywrócić warstwę bezpłatną. Zostanie otwarte okno **Zasady zabezpieczeń**.
 3. W obszarze **SKŁADNIKI ZASAD** wybierz pozycję **Warstwa cenowa**.
 4. Wybierz pozycję **Bezpłatna**, aby zmienić subskrypcję z warstwy standardowej na warstwę bezpłatną.
-5. Wybierz **pozycję Zapisz**.
+5. Wybierz pozycję **Zapisz**.
 
 Jeśli chcesz wyłączyć automatyczną aprowizację:
 
-1. Wróć do menu głównego Centrum zabezpieczeń i wybierz pozycję **Zasady zabezpieczeń**.
+1. Wróć do menu głównego Security Center i wybierz pozycję **zasady zabezpieczeń**.
 2. Wybierz subskrypcję, dla której chcesz wyłączyć automatyczną aprowizację.
 3. W sekcji **Zasady zabezpieczeń — zbieranie danych** wybierz pozycję **Wyłącz** w obszarze **Dołączanie**, aby wyłączyć automatyczną aprowizację.
-4. Wybierz **pozycję Zapisz**.
+4. Wybierz pozycję **Zapisz**.
 
 >[!NOTE]
-> Wyłączenie automatycznego inicjowania obsługi administracyjnej nie powoduje usunięcia agenta usługi Log Analytics z maszyn wirtualnych platformy Azure, w których agent został aprowizny. Wyłączenie automatycznej aprowizacji powoduje ograniczenie monitorowania zabezpieczeń dla zasobów.
+> Wyłączenie automatycznej aprowizacji nie powoduje usunięcia agenta Log Analytics z maszyn wirtualnych platformy Azure, w przypadku których Agent został zainicjowany. Wyłączenie automatycznej aprowizacji powoduje ograniczenie monitorowania zabezpieczeń dla zasobów.
 >
 
 ## <a name="next-steps"></a>Następne kroki
 W tym samouczku omówiono sposób ograniczania narażenia na zagrożenia poprzez:
 
 > [!div class="checklist"]
-> * Konfigurowanie zasad dostępu do maszyn wirtualnych just-in-time w celu zapewnienia kontrolowanego i kontrolowanego dostępu do maszyn wirtualnych tylko wtedy, gdy jest to potrzebne
+> * Konfigurowanie zasad dostępu just in Time do maszyny wirtualnej w celu zapewnienia kontroli dostępu do maszyn wirtualnych i przeprowadzania na nich inspekcji tylko w razie potrzeby
 > * konfigurowanie zasad adaptacyjnych kontroli aplikacji w celu kontrolowania aplikacji, które mogą być uruchamiane na maszynach wirtualnych.
 
 Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat reagowania na przypadki naruszenia zabezpieczeń.

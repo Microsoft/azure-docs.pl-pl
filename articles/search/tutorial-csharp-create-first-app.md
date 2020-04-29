@@ -1,7 +1,7 @@
 ---
-title: Samouczek języka C#, aby utworzyć pierwszą aplikację
+title: Samouczek języka C# do tworzenia pierwszej aplikacji
 titleSuffix: Azure Cognitive Search
-description: Dowiedz się, jak zbudować pierwszą aplikację do wyszukiwania języka C# krok po kroku. Samouczek zawiera zarówno łącze do działającej aplikacji w usłudze GitHub, jak i pełny proces tworzenia aplikacji od podstaw. Dowiedz się więcej o podstawowych składnikach usługi Azure Cognitive Search.
+description: Dowiedz się, jak utworzyć pierwszą aplikację wyszukiwania w języku C# krok po kroku. Samouczek zawiera link do działającej aplikacji w witrynie GitHub oraz kompletny proces tworzenia aplikacji od podstaw. Poznaj najważniejsze składniki Wyszukiwanie poznawcze platformy Azure.
 manager: nitinme
 author: tchristiani
 ms.author: terrychr
@@ -9,25 +9,25 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.openlocfilehash: 2b4f67fc448d98239947fd764d4926f1d590c5e2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77121591"
 ---
-# <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>Samouczek C#: Tworzenie pierwszej aplikacji — Azure Cognitive Search
+# <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>Samouczek języka C#: Tworzenie pierwszej aplikacji — Wyszukiwanie poznawcze platformy Azure
 
-Dowiedz się, jak utworzyć interfejs sieci web do wykonywania zapytań i prezentowania wyników wyszukiwania z indeksu przy użyciu usługi Azure Cognitive Search. Ten samouczek rozpoczyna się od istniejącego, hostowanego indeksu, dzięki czemu można skupić się na tworzeniu strony wyszukiwania. Indeks zawiera fikcyjne dane hotelowe. Gdy masz podstawową stronę, można ją ulepszyć w kolejnych lekcjach, aby uwzględnić stronicowanie, aspekty i środowisko typu z wyprzedzeniem.
+Dowiedz się, jak utworzyć interfejs sieci Web, aby wykonywać zapytania i przedstawić wyniki wyszukiwania w indeksie przy użyciu usługi Azure Wyszukiwanie poznawcze. Ten samouczek rozpoczyna się od istniejącego, hostowanego indeksu, dzięki czemu możesz skupić się na tworzeniu strony wyszukiwania. Indeks zawiera fikcyjne dane hotelu. Gdy masz stronę podstawową, możesz ją ulepszyć w kolejnych lekcjach w celu uwzględnienia stronicowania, aspektów i środowiska z wyprzedzeniem.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
-> * Konfigurowanie środowiska programistycznego
+> * Konfigurowanie środowiska deweloperskiego
 > * Struktury danych modelu
-> * Tworzenie strony sieci Web
-> * Definiowanie metod
+> * Utwórz stronę sieci Web
+> * Definiuj metody
 > * Testowanie aplikacji
 
-Dowiesz się również, jak proste jest połączenie wyszukiwania. Kluczowe instrukcje w kodzie, który opracujesz, są hermetyzowane w następujących wierszach.
+Dowiesz się również, jak proste jest wywołanie wyszukiwania. Najważniejsze instrukcje w kodzie, który utworzysz, są hermetyzowane w następujących kilku wierszach.
 
 ```cs
 var parameters = new SearchParameters
@@ -41,47 +41,47 @@ DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<
 
 To jedno wywołanie inicjuje wyszukiwanie danych platformy Azure i zwraca wyniki.
 
-![Wyszukiwanie "pool"](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
+![Wyszukiwanie "Pool"](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
-[Zainstaluj program Visual Studio](https://visualstudio.microsoft.com/) do użycia jako IDE.
+[Zainstaluj program Visual Studio](https://visualstudio.microsoft.com/) , aby użyć go jako środowiska IDE.
 
 ### <a name="install-and-run-the-project-from-github"></a>Instalowanie i uruchamianie projektu z usługi GitHub
 
-1. Znajdź przykład w usłudze GitHub: [Utwórz pierwszą aplikację](https://github.com/Azure-Samples/azure-search-dotnet-samples).
-1. Wybierz **opcję Klonuj lub pobierz** i skonsuj prywatną lokalną kopię projektu.
-1. Za pomocą programu Visual Studio przejdź do i otwórz rozwiązanie dla podstawowej strony wyszukiwania i wybierz start **bez debugowania** (lub naciśnij klawisz F5).
-1. Wpisz kilka słów (na przykład "wifi", "view", "bar", "parking") i sprawdź wyniki!
+1. Znajdź przykład w witrynie GitHub: [Utwórz pierwszą aplikację](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+1. Wybierz opcję **Klonuj lub Pobierz** , aby utworzyć prywatną lokalną kopię projektu.
+1. Korzystając z programu Visual Studio, przejdź do, a następnie otwórz rozwiązanie dla strony Wyszukiwanie podstawowe, a następnie wybierz pozycję **Uruchom bez debugowania** (lub naciśnij klawisz F5).
+1. Wpisz słowa (na przykład "Wi-Fi", "widok", "słupek", "parking") i sprawdź wyniki.
 
-    ![Wyszukiwanie "wifi"](./media/tutorial-csharp-create-first-app/azure-search-wifi.png)
+    ![Wyszukiwanie "Wi-Fi"](./media/tutorial-csharp-create-first-app/azure-search-wifi.png)
 
-Mam nadzieję, że ten projekt będzie działać płynnie i masz uruchomię aplikację platformy Azure. Wiele podstawowych składników dla bardziej zaawansowanych wyszukiwań są zawarte w tej jednej aplikacji, więc jest to dobry pomysł, aby przejść przez nią i odtworzyć go krok po kroku.
+Miejmy nadzieję ten projekt będzie działać bezproblemowo i masz uruchomioną aplikację platformy Azure. Wiele najważniejszych składników dla bardziej złożonych wyszukiwań znajduje się w tej aplikacji, więc dobrym pomysłem jest przechodzenie przez nią i ponowne utworzenie jej krok po kroku.
 
-Aby utworzyć ten projekt od podstaw, a tym samym pomóc wzmocnić składniki usługi Azure Cognitive Search w umyśle, przejdź przez następujące kroki.
+Aby utworzyć ten projekt od podstaw i w związku z tym pomóc w zwiększeniu poziomu Wyszukiwanie poznawcze platformy Azure, wykonaj poniższe kroki.
 
 ## <a name="set-up-a-development-environment"></a>Konfigurowanie środowiska programistycznego
 
-1. W programie Visual Studio 2017 lub nowszym wybierz pozycję **Nowy/Projekt,** a następnie **ASP.NET podstawową aplikację sieci Web**. Nadaj projektowi nazwę taką jak "FirstAzureSearchApp".
+1. W programie Visual Studio 2017 lub nowszym wybierz pozycję **Nowy/projekt** , a następnie **ASP.NET Core aplikację sieci Web**. Nadaj projektowi nazwę, taką jak "FirstAzureSearchApp".
 
     ![Tworzenie projektu w chmurze](./media/tutorial-csharp-create-first-app/azure-search-project1.png)
 
-2. Po kliknięciu **przycisku OK** dla tego typu projektu otrzymasz drugi zestaw opcji, które mają zastosowanie do tego projektu. Wybierz **aplikację sieci Web (model-view-controller)**.
+2. Po kliknięciu przycisku **OK** dla tego typu projektu zostanie nadany drugi zestaw opcji, które mają zastosowanie do tego projektu. Wybierz pozycję **aplikacja sieci Web (Model-View-Controller)**.
 
     ![Tworzenie projektu MVC](./media/tutorial-csharp-create-first-app/azure-search-project2.png)
 
-3. Następnie w menu **Narzędzia** wybierz pozycję **Menedżer pakietów NuGet,** a następnie **zarządzaj pakietami NuGet dla rozwiązania...**. Jest jeden pakiet, który musimy zainstalować. Wybierz kartę **Przeglądaj,** a następnie wpisz "Azure Cognitive Search" w polu wyszukiwania. Zainstaluj **microsoft.Azure.Search,** gdy pojawi się na liście (wersja 9.0.1 lub nowsza). Aby ukończyć instalację, należy kliknąć kilka dodatkowych okien dialogowych.
+3. Następnie w menu **Narzędzia** wybierz pozycję **Menedżer pakietów NuGet** , a następnie **Zarządzaj pakietami NuGet dla rozwiązania.**... Istnieje jeden pakiet, który należy zainstalować. Wybierz kartę **Przeglądaj** , a następnie wpisz ciąg "Azure wyszukiwanie poznawcze" w polu wyszukiwania. Zainstaluj **program Microsoft. Azure. Search** , gdy zostanie wyświetlony na liście (w wersji 9.0.1 lub nowszej). Aby ukończyć instalację, należy kliknąć kilka dodatkowych okien dialogowych.
 
-    ![Dodawanie bibliotek platformy Azure za pomocą nuget](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+    ![Dodawanie bibliotek platformy Azure przy użyciu narzędzia NuGet](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
-### <a name="initialize-azure-cognitive-search"></a>Inicjowanie usługi Azure Cognitive Search
+### <a name="initialize-azure-cognitive-search"></a>Inicjowanie Wyszukiwanie poznawcze platformy Azure
 
-W tym przykładzie używamy publicznie dostępnych danych hotelowych. Dane te są dowolnym zbiorem 50 fikcyjnych nazw hoteli i opisów, stworzonych wyłącznie w celu dostarczenia danych demonstracyjnych. Aby uzyskać dostęp do tych danych, należy określić nazwę i klucz dla niego.
+Na potrzeby tego przykładu używamy publicznie dostępnych danych hotelowych. Te dane to arbitralna kolekcja nieprawidłowych nazw hotelów i opisów 50, utworzonych wyłącznie na potrzeby udostępniania danych demonstracyjnych. Aby uzyskać dostęp do tych danych, należy określić dla niej nazwę i klucz.
 
-1. Otwórz plik appsettings.json w nowym projekcie i zastąp domyślne linie następującą nazwą i kluczem. Pokazany tutaj klucz API nie jest przykładem klucza, jest _to dokładnie_ klucz potrzebny do uzyskania dostępu do danych hotelu. Plik appsettings.json powinien teraz wyglądać następująco.
+1. Otwórz plik appSettings. JSON w nowym projekcie i Zastąp wiersze domyślne następującymi nazwami i kluczem. Klucz interfejsu API przedstawiony w tym miejscu nie jest przykładem klucza, ale jest _dokładnie_ kluczem potrzebnym do uzyskania dostępu do danych hotelowych. Plik appSettings. JSON powinien teraz wyglądać następująco.
 
     ```cs
     {
@@ -90,17 +90,17 @@ W tym przykładzie używamy publicznie dostępnych danych hotelowych. Dane te s�
     }
     ```
 
-2. Nie skończyliśmy jeszcze z tym plikiem, wybierz właściwości tego pliku i zmień ustawienie **Kopiuj na Katalog wyjściowy** na **Kopiuj, jeśli nowsze**.
+2. Nie zrobiono jeszcze tego pliku, wybierz właściwości tego pliku i zmień ustawienie **Kopiuj do katalogu wyjściowego** na **Kopiuj, jeśli nowszy**.
 
-    ![Kopiowanie ustawień aplikacji na dane wyjściowe](./media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png)
+    ![Kopiowanie ustawień aplikacji do danych wyjściowych](./media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png)
 
 ## <a name="model-data-structures"></a>Struktury danych modelu
 
-Modele (klasy C#) są używane do przekazywania danych między klientem (widok), serwerem (kontrolerem), a także chmurą Platformy Azure przy użyciu architektury MVC (model, widok, kontroler). Zazwyczaj te modele będą odzwierciedlać strukturę danych, które są dostępne. Ponadto potrzebujemy modelu do obsługi komunikacji widoku/kontrolera.
+Modele (klasy C#) służą do przekazywania danych między klientem (widokiem), serwerem (kontrolerem), a także chmurą platformy Azure przy użyciu architektury MVC (model, widok, kontroler). Zwykle te modele odzwierciedlają strukturę danych, do których uzyskuje się dostęp. Ponadto potrzebujemy modelu do obsługi komunikacji z widokiem/kontrolerem.
 
-1. Otwórz folder **Modele** projektu, używając Eksploratora rozwiązań, a zobaczysz tam jeden domyślny model: **ErrorViewModel.cs**.
+1. Otwórz folder **modele** projektu przy użyciu Eksplorator rozwiązań i w tym miejscu zobaczysz jeden model domyślny: **ErrorViewModel.cs**.
 
-2. Kliknij prawym przyciskiem myszy folder **Modele** i wybierz polecenie **Dodaj,** a następnie **wybierz pozycję Nowy element**. Następnie w wyświetlonym oknie dialogowym wybierz **ASP.NET Core,** a następnie pierwszą opcję **Klasa**. Zmień nazwę pliku cs, aby Hotel.cs, a następnie kliknij przycisk **Dodaj**. Zastąp całą zawartość Hotel.cs następującym kodem. Zwróć uwagę **na adres** i **pokój** członków klasy, te pola są same klasy, więc będziemy potrzebować modeli dla nich też.
+2. Kliknij prawym przyciskiem myszy folder **modele** i wybierz polecenie **Dodaj** **nowy element**. Następnie w oknie dialogowym, które się pojawi, wybierz **ASP.NET Core** następnie pierwszej **klasy**opcji. Zmień nazwę pliku CS na Hotel.cs, a następnie kliknij przycisk **Dodaj**. Zastąp całą zawartość Hotel.cs następującym kodem. Zwróć uwagę na **adres** i składowe **pokoju** klasy, te pola są klasami, więc potrzebne są również modele.
 
     ```cs
     using System;
@@ -154,7 +154,7 @@ Modele (klasy C#) są używane do przekazywania danych między klientem (widok),
     }
     ```
 
-3. Wykonaj ten sam proces tworzenia modelu dla **Address** klasy, z wyjątkiem nazwy pliku Address.cs. Zastąp zawartość na poniższą.
+3. Postępuj zgodnie z tym samym procesem tworzenia modelu dla klasy **adresów** , z wyjątkiem Address.cs pliku. Zastąp zawartość poniższymi.
 
     ```cs
     using Microsoft.Azure.Search;
@@ -181,7 +181,7 @@ Modele (klasy C#) są używane do przekazywania danych między klientem (widok),
     }
     ```
 
-4. I ponownie, wykonaj ten sam proces, aby utworzyć **Room** klasy, nazywając plik Room.cs. Ponownie zastąp zawartość następującym.
+4. I ponownie wykonaj ten sam proces, aby utworzyć klasę **pokojową** , nadając jej nazwę Room.cs. Ponownie Zastąp zawartość następującym poleceniem.
 
     ```cs
     using Microsoft.Azure.Search;
@@ -224,7 +224,7 @@ Modele (klasy C#) są używane do przekazywania danych między klientem (widok),
     }
     ```
 
-5. Zestaw **zajęć Hotel**, **Address**i **Room** są znane na platformie Azure jako [_typy złożone_](search-howto-complex-data-types.md), ważną cechą usługi Azure Cognitive Search. Typy złożone mogą być wiele poziomów głębokie klas i podklas i umożliwić znacznie bardziej złożone struktury danych, które mają być reprezentowane niż przy użyciu _typów prostych_ (klasa zawierająca tylko podstawowe elementy członkowskie). Potrzebujemy jeszcze jednego modelu, więc przejdź przez proces tworzenia nowej klasy modelu ponownie, choć tym razem wywołać klasę SearchData.cs i zastąpić kod domyślny z następujących.
+5. Zestawy **hotelowe**i **adresowe**oraz klasy **pokoju** są znane na platformie Azure jako [_typy złożone_](search-howto-complex-data-types.md), ważną funkcję systemu Azure wyszukiwanie poznawcze. Typy złożone mogą mieć wiele poziomów na głębokości klas i podklas, a ponadto zapewniają znacznie bardziej złożone struktury danych, które mają być reprezentowane niż przy użyciu _typów prostych_ (Klasa zawierająca tylko pierwotne elementy członkowskie). Potrzebujemy jeszcze jednego modelu, więc przejdź przez proces tworzenia nowej klasy modelu ponownie, chociaż ten czas wywoła klasę SearchData.cs i zastąpi kod domyślny następującym.
 
     ```cs
     using Microsoft.Azure.Search.Models;
@@ -242,25 +242,25 @@ Modele (klasy C#) są używane do przekazywania danych między klientem (widok),
     }
     ```
 
-    Ta klasa zawiera dane wejściowe użytkownika **(searchText)** i dane wyjściowe wyszukiwania (**resultList**). Typ wyjścia jest krytyczny, **DocumentSearchResult&lt;&gt;Hotel**, ponieważ ten typ dokładnie pasuje do wyników wyszukiwania i musimy przekazać to odniesienie do widoku.
+    Ta klasa zawiera dane wejściowe użytkownika (**tekstprzeszukiwany**) i wyniki wyszukiwania (**resultList**). Typ danych wyjściowych jest krytyczny, **DocumentSearchResult&lt;hotelu&gt;**, ponieważ ten typ dokładnie pasuje do wyników wyszukiwania i musi przekazać to odwołanie do widoku.
 
 
 
-## <a name="create-a-web-page"></a>Tworzenie strony sieci Web
+## <a name="create-a-web-page"></a>Utwórz stronę sieci Web
 
-Utworzony projekt domyślnie utworzy liczbę widoków klienta. Dokładne widoki zależą od używanej wersji Core .NET (w tym przykładzie używamy wersji 2.1). Wszystkie znajdują się w folderze **Widoki** projektu. Wystarczy zmodyfikować plik Index.cshtml (w folderze **Widoki/Strona główna).**
+Projekt, który został utworzony, zostanie domyślnie utworzony w wielu widokach klienta. Dokładne widoki są zależne od używanej wersji platformy .NET Core (w tym przykładzie stosujemy 2,1). Znajdują się one w folderze **widoki** projektu. Wystarczy zmodyfikować plik index. cshtml (w **widokach/folderze głównym** ).
 
-Usuń zawartość index.cshtml w całości i odbuduj plik w poniższych krokach.
+Usuń zawartość pliku index. cshtml w całości i Skompiluj ponownie plik w poniższych krokach.
 
-1. Używamy dwóch małych obrazów w widoku. Można użyć własnego lub skopiować obrazy z projektu GitHub: azure-logo.png i search.png. Te dwa obrazy powinny być umieszczone w folderze **wwwroot/images.**
+1. Używamy dwóch małych obrazów w widoku. Możesz użyć własnych lub skopiować obrazy z projektu GitHub: Azure-logo. png i Search. png. Te dwa obrazy należy umieścić w folderze **wwwroot/images** .
 
-2. Pierwszy wiersz Index.cshtml powinien odwoływać się do modelu, którego będziemy używać do przekazywania danych między klientem (widok) a serwerem (kontrolerem), który jest modelem **SearchData,** który utworzyliśmy. Dodaj ten wiersz do pliku Index.cshtml.
+2. Pierwszy wiersz index. cshtml powinien odwoływać się do modelu, który będzie używany do przekazywania danych między klientem (widokiem) a serwerem (kontrolerem), który jest modelem **SearchData** , który został utworzony. Dodaj ten wiersz do pliku index. cshtml.
 
     ```cs
     @model FirstAzureSearchApp.Models.SearchData
     ```
 
-3. Standardową praktyką jest wprowadzanie tytułu widoku, więc następne wiersze powinny być:
+3. Jest to standardowe rozwiązanie służące do wprowadzania tytułu widoku, dlatego kolejne wiersze powinny być następujące:
 
     ```cs
     @{
@@ -276,7 +276,7 @@ Usuń zawartość index.cshtml w całości i odbuduj plik w poniższych krokach.
     </head>
     ```
 
-5. Teraz do mięsa widoku. Kluczową rzeczą do zapamiętania jest to, że widok musi obsługiwać dwie sytuacje. Po pierwsze, musi obsługiwać wyświetlacz, gdy aplikacja jest uruchamiana po raz pierwszy, a użytkownik nie wprowadził jeszcze żadnego tekstu wyszukiwania. Po drugie, musi obsługiwać wyświetlanie wyników, oprócz pola tekstowego wyszukiwania, do wielokrotnego użytku przez użytkownika. Aby obsłużyć te dwie sytuacje, musimy sprawdzić, czy model dostarczony do widoku jest null, czy nie. Model null wskazuje, że znajdujemy się w pierwszej z dwóch sytuacji (początkowe uruchomienie aplikacji). Dodaj następujące elementy do pliku Index.cshtml i przeczytaj komentarze.
+5. Teraz do mięsa z widoku. Należy pamiętać, że widok musi obsługiwać dwie sytuacje. Po pierwsze musi obsłużyć ekran, gdy aplikacja jest uruchamiana po raz pierwszy, a użytkownik nie wprowadził jeszcze żadnego tekstu wyszukiwania. Po drugie, musi obsługiwać wyświetlanie wyników, oprócz pola tekstowego wyszukiwanie, do wielokrotnego użycia przez użytkownika. Aby obsłużyć te dwie sytuacje, musimy sprawdzić, czy model podany w widoku ma wartość null, czy nie. Model o wartości null wskazuje, że mamy pierwszy z dwóch sytuacji (początkowy uruchomienie aplikacji). Dodaj następujący element do pliku index. cshtml i przeczytaj komentarz.
 
     ```cs
     <body>
@@ -310,7 +310,7 @@ Usuń zawartość index.cshtml w całości i odbuduj plik w poniższych krokach.
     </body>
     ```
 
-6. Na koniec dodajemy arkusz stylów. W programie Visual Studio w menu **Plik** wybierz pozycję **Nowy/Plik,** a następnie **arkusz stylów** (z wyróżnioną wyróżnioną funkcją **Ogólne).** Zastąp domyślny kod na następujący. Nie będziemy wchodzić w ten plik bardziej szczegółowo, style są standardowe HTML.
+6. Na koniec dodamy arkusz stylów. W programie Visual Studio, w menu **plik** wybierz polecenie **nowy/plik** , a następnie **arkusz stylów** (z wyróżnioną **ogólną** ). Zastąp domyślny kod następującym. Ten plik nie będzie bardziej szczegółowy, a style są standardowym kodem HTML.
 
     ```html
     textarea.box1 {
@@ -387,15 +387,15 @@ Usuń zawartość index.cshtml w całości i odbuduj plik w poniższych krokach.
     }
     ```
 
-7. Zapisz plik arkusza stylów jako hotels.css, w folderze wwwroot/css, obok domyślnego pliku site.css.
+7. Zapisz plik stylesheet jako Hotele. CSS w folderze wwwroot/CSS, obok domyślnego pliku. css.
 
-To dopełnia nasz pogląd. Robimy dobre postępy. Modele i widoki są kompletne, tylko kontroler pozostaje powiązać wszystko razem.
+To kończy nasz widok. Trwa przygotowywanie dobrego postępu. Modele i widoki są wykonywane, tylko kontroler pozostanie powiązany ze sobą.
 
-## <a name="define-methods"></a>Definiowanie metod
+## <a name="define-methods"></a>Definiuj metody
 
-Musimy zmodyfikować zawartość jednego kontrolera (**Kontroler domowy**), który jest tworzony domyślnie.
+Musimy zmodyfikować zawartość jednego kontrolera (**kontrolera głównego**), który jest tworzony domyślnie.
 
-1. Otwórz plik HomeController.cs i zastąp **instrukcje using** następującymi.
+1. Otwórz plik HomeController.cs i Zastąp instrukcje **using** poniższymi instrukcjami.
 
     ```cs
     using System;
@@ -410,9 +410,9 @@ Musimy zmodyfikować zawartość jednego kontrolera (**Kontroler domowy**), któ
 
 ### <a name="add-index-methods"></a>Dodawanie metod indeksu
 
-Potrzebujemy dwóch metod **indeksu,** jednej bez parametrów (w przypadku pierwszego otwarcia aplikacji) i jednej przy modelu jako parametru (dla gdy użytkownik wprowadził tekst wyszukiwania). Pierwsza z tych metod jest tworzona domyślnie. 
+Potrzebujemy dwóch metod **indeksu** , ale nie pobrały żadnych parametrów (w przypadku, gdy aplikacja jest otwarta po raz pierwszy) i jeden z nich przyjmuje model jako parametr (dla momentu, gdy użytkownik wprowadził tekst wyszukiwania). Pierwszy z tych metod jest tworzony domyślnie. 
 
-1. Dodaj następującą metodę po domyślnej metodzie **Index().**
+1. Dodaj następującą metodę po domyślnym **indeksie ()** .
 
     ```cs
         [HttpPost]
@@ -438,23 +438,23 @@ Potrzebujemy dwóch metod **indeksu,** jednej bez parametrów (w przypadku pierw
         }
     ```
 
-    Zwróć uwagę na deklarację **asynchroniczna** metody i **wywołania await** do **RunQueryAsync**. Te słowa kluczowe zajmują się wykonywanie naszych połączeń asynchroniczne, a więc uniknąć blokowania wątków na serwerze.
+    Zwróć uwagę na deklarację **Async** metody oraz wywołanie **await** do **RunQueryAsync**. Te słowa kluczowe zadbają o uczynienie wywołań asynchronicznych i dlatego Unikaj blokowania wątków na serwerze.
 
-    Catch **catch** bloku używa modelu błędu, który został utworzony dla nas domyślnie.
+    Blok **catch** używa modelu błędów, który został domyślnie utworzony dla nas.
 
-### <a name="note-the-error-handling-and-other-default-views-and-methods"></a>Zanotuj obsługę błędów i inne widoki i metody domyślne
+### <a name="note-the-error-handling-and-other-default-views-and-methods"></a>Zwróć uwagę na obsługę błędów oraz inne widoki i metody domyślne
 
-W zależności od używanej wersji programu .NET Core domyślnie tworzony jest nieco inny zestaw widoków domyślnych. W przypadku platformy .NET Core 2.1 domyślnymi widokami są Indeks, Informacje, Kontakt, Prywatność i Błąd. Na przykład w przypadku platformy .NET Core 2.2 domyślne widoki to Indeks, Prywatność i Błąd. W obu przypadkach można wyświetlić te strony domyślne podczas uruchamiania aplikacji i sprawdzić, jak są one obsługiwane w kontrolerze.
+W zależności od używanej wersji platformy .NET Core domyślnie tworzone są nieco różne zestawy widoków domyślnych. W przypadku platformy .NET Core 2,1 widoki domyślne to index, about, Contact, privacy i Error. W przypadku platformy .NET Core 2,2 na przykład domyślne widoki to index, privacy i Error. W obu przypadkach można wyświetlić te domyślne strony podczas uruchamiania aplikacji i sprawdzić, jak są one obsługiwane w kontrolerze.
 
-Będziemy testować widok błędu w dalszej części tego samouczka.
+W tym samouczku zostanie przetestowany widok błędów dalej.
 
-W przykładzie GitHub usunęliśmy nieużywane widoki i skojarzone z nimi akcje.
+W przykładzie usługi GitHub Usunięto nieużywane widoki i powiązane z nimi działania.
 
-### <a name="add-the-runqueryasync-method"></a>Dodaj RunQueryAsync metody
+### <a name="add-the-runqueryasync-method"></a>Dodawanie metody RunQueryAsync
 
-Wywołanie usługi Azure Cognitive Search jest hermetyzowane w naszej **metodzie RunQueryAsync.**
+Wywołanie Wyszukiwanie poznawcze platformy Azure jest hermetyzowane w naszej metodzie **RunQueryAsync** .
 
-1. Najpierw dodaj niektóre zmienne statyczne, aby skonfigurować usługę platformy Azure, i wywołanie ich zainicjowania.
+1. Najpierw Dodaj pewne zmienne statyczne, aby skonfigurować usługę platformy Azure, a następnie zadzwoń do ich zainicjowania.
 
     ```cs
         private static SearchServiceClient _serviceClient;
@@ -478,7 +478,7 @@ Wywołanie usługi Azure Cognitive Search jest hermetyzowane w naszej **metodzie
         }
     ```
 
-2. Teraz dodaj samą metodę **RunQueryAsync.**
+2. Teraz Dodaj samą metodę **RunQueryAsync** .
 
     ```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model)
@@ -500,60 +500,60 @@ Wywołanie usługi Azure Cognitive Search jest hermetyzowane w naszej **metodzie
         }
     ```
 
-    W tej metodzie najpierw upewnij się, że nasza konfiguracja platformy Azure jest inicjowana, a następnie ustawić niektóre parametry wyszukiwania. Nazwy pól w **Select** parametru dokładnie nazwy właściwości w **klasie hotelu.** Istnieje możliwość pominąć **Select** parametru, w którym to przypadku wszystkie właściwości są zwracane. Jednak ustawienie nie **Wybierz** parametry jest nieefektywne, jeśli jesteśmy zainteresowani tylko podzbiór danych. Określając właściwości, które nas interesują, zwracane są tylko te właściwości.
+    W tej metodzie najpierw upewnimy się, że konfiguracja platformy Azure została zainicjowana, a następnie ustaw kilka parametrów wyszukiwania. Nazwy pól w **zaznaczeniu** parametru pasują dokładnie do nazw właściwości w klasie **hotelu** . Możliwe jest pozostawienie parametru **SELECT** , w tym przypadku zwracane są wszystkie właściwości. Ustawienie nie **wybieraj** żadnych parametrów jest jednak niewydajne, Jeśli interesuje Cię tylko podzbiór danych. Określając właściwości, których interesuje, są zwracane tylko te właściwości.
 
-    Asynchroniczne wywołanie wyszukiwania **(model.resultList = await _indexClient.Documents.SearchAsync&lt;Hotel&gt;(model.searchText, parametry);**) jest tym, o co chodzi w tym samouczku i aplikacji. **DocumentSearchResult** Klasa jest interesująca, a dobrym pomysłem (gdy aplikacja jest uruchomiona) jest ustawienie punktu przerwania w tym miejscu i użyć debugera, aby sprawdzić zawartość **model.resultList**. Powinieneś stwierdzić, że jest intuicyjny, dostarczając danych, o które prosiłeś, i niewiele więcej.
+    Wywołanie asynchroniczne do wyszukiwania (**model. resultList = await _indexClient. Documents. SearchAsync&lt;Hotel&gt;(model. tekstprzeszukiwany, Parameters);**) to informacje o tym samouczku i aplikacji. Klasa **DocumentSearchResult** jest interesująca, a dobrym pomysłem (gdy aplikacja jest uruchomiona) polega na tym, że w tym miejscu należy ustawić punkt przerwania i użyć debugera do sprawdzenia zawartości **modelu. resultList**. Należy się przekonać, że jest intuicyjny, dostarczając dane, których dotyczy żądanie, a nie wiele innych.
 
-Teraz na chwilę prawdy.
+Teraz na chwilę zaistnienia prawdy.
 
 ### <a name="test-the-app"></a>Testowanie aplikacji
 
-Teraz sprawdźmy, czy aplikacja działa poprawnie.
+Teraz sprawdźmy, czy aplikacja działa prawidłowo.
 
-1. Wybierz **debugowanie/start bez debugowania** lub naciśnij klawisz F5. Jeśli masz kodowane rzeczy poprawnie, otrzymasz początkowy widok indeksu.
+1. Wybierz opcję **Debuguj/Rozpocznij bez debugowania** lub naciśnij klawisz F5. Jeśli poprawnie zakodowano elementy, zostanie wyświetlony początkowy widok indeksu.
 
      ![Otwieranie aplikacji](./media/tutorial-csharp-create-first-app/azure-search-index.png)
 
-2. Wprowadź tekst, taki jak "plaża" (lub dowolny tekst, który przychodzi na myśl), i kliknij ikonę wyszukiwania. Powinieneś uzyskać pewne wyniki.
+2. Wprowadź tekst, taki jak "sekwencje" (lub dowolny tekst, który ma uwadze), a następnie kliknij ikonę wyszukiwania. Należy uzyskać pewne wyniki.
 
-     ![Wyszukiwanie "plaży"](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
+     ![Wyszukiwanie "sekwencje"](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
 
-3. Spróbuj wprowadzić "pięć gwiazdek". Zwróć uwagę, jak uzyskać żadnych wyników. Bardziej wyrafinowane wyszukiwanie potraktuje "pięć gwiazdek" jako synonim "luksusu" i zwróci te wyniki. Użycie synonimów jest dostępne w usłudze Azure Cognitive Search, ale nie będziemy go omawiać w pierwszych samouczkach.
+3. Spróbuj wprowadzić ciąg "pięć gwiazdek". Zwróć uwagę, jak nie otrzymujesz żadnych wyników. Bardziej zaawansowane wyszukiwanie będzie traktować "pięć gwiazdek" jako synonim dla "możliwość zaprojektowania" i zwracać te wyniki. Użycie synonimów jest dostępne na platformie Azure Wyszukiwanie poznawcze, ale nie zajmiemy się tym w pierwszym samouczku.
  
-4. Spróbuj wprowadzić "hot" jako tekst wyszukiwania. _Nie_ zwraca wpisów ze słowem "hotel" w nich. Nasze wyszukiwanie lokalizowanie tylko całych słów, choć kilka wyników są zwracane.
+4. Spróbuj wprowadzić "gorąca" jako tekst wyszukiwania. _Nie zwracają wpisów_ ze słowem "Hotel". Nasze wyszukiwanie lokalizuje tylko całe wyrazy, ale zwracane są kilka wyników.
 
-5. Spróbuj innych słów: "basen", "słońce", "widok" i cokolwiek innego. Zobaczysz, że usługa Azure Cognitive Search działa na najprostszym, ale wciąż przekonującym poziomie.
+5. Wypróbuj inne słowa: "Pool", "słońca", "View" i dowolne. Zobaczysz, że platforma Azure Wyszukiwanie poznawcze działa na najprostszej, ale nadal będzie mieć przekonujący poziom.
 
-## <a name="test-edge-conditions-and-errors"></a>Warunki i błędy krawędzi testowej
+## <a name="test-edge-conditions-and-errors"></a>Warunki i błędy krawędzi testu
 
-Ważne jest, aby sprawdzić, czy nasze funkcje obsługi błędów działają tak, jak powinny, nawet wtedy, gdy wszystko działa idealnie. 
+Ważne jest, aby upewnić się, że nasze funkcje obsługi błędów działają w miarę potrzeby, nawet gdy działają doskonale. 
 
-1. W **index** metody, po **try {** wywołania, wprowadź wiersz **zgłosić nowy Exception()**. Ten wyjątek wymusi błąd podczas wyszukiwania tekstu.
+1. W metodzie **index** , po wykonaniu **próby {** Call, Wprowadź wiersz **throw new Exception ()**. Ten wyjątek spowoduje wymuszenie błędu podczas wyszukiwania tekstu.
 
-2. Uruchom aplikację, wprowadź "pasek" jako tekst wyszukiwania i kliknij ikonę wyszukiwania. Wyjątek powinien spowodować widok błędu.
+2. Uruchom aplikację, wprowadź "bar" jako szukany tekst, a następnie kliknij ikonę wyszukiwania. Wyjątek powinien spowodować wyświetlenie błędu.
 
-     ![Wymuszanie błędu](./media/tutorial-csharp-create-first-app/azure-search-error.png)
+     ![Wymuś błąd](./media/tutorial-csharp-create-first-app/azure-search-error.png)
 
     > [!Important]
-    > Jest uważany za zagrożenie bezpieczeństwa, aby zwrócić wewnętrzne numery błędów na stronach błędów. Jeśli aplikacja jest przeznaczona do ogólnego użytku, wykonaj pewne badania dotyczące bezpiecznych i najlepszych rozwiązań dotyczących tego, co ma zostać odesłane w przypadku wystąpienia błędu.
+    > Jest uznawany za zagrożenie bezpieczeństwa, aby zwracały wewnętrzne numery błędów na stronach błędów. Jeśli aplikacja jest przeznaczona do użytku ogólnego, należy zapoznać się z bezpiecznymi i najlepszymi rozwiązaniami dotyczącymi tego, co należy zwrócić w przypadku wystąpienia błędu.
 
-3. Usuń **zrzuć nowy Exception(),** gdy użytkownik jest spełniony, obsługa błędów działa tak, jak powinna.
+3. Usuń **nowy wyjątek throw ()** , gdy zostanie osiągnięta odpowiednia obsługa błędów.
 
 ## <a name="takeaways"></a>Wnioski
 
-Rozważmy następujące dania na wynos z tego projektu:
+Rozważmy następujący wnioski z tego projektu:
 
-* Wywołanie usługi Azure Cognitive Search jest zwięzłe i można łatwo zinterpretować wyniki.
-* Wywołania asynchroniczne dodać niewielką złożoność do kontrolera, ale są najlepszym rozwiązaniem, jeśli zamierzasz tworzyć aplikacje wysokiej jakości.
-* Ta aplikacja przeprowadziła proste wyszukiwanie tekstu, zdefiniowane przez to, co jest skonfigurowane w **searchParameters**. Jednak ta jedna klasa może być wypełniona wieloma członkami, które dodają wyrafinowania do wyszukiwania. Niewiele dodatkowej pracy jest potrzebne, aby ta aplikacja znacznie bardziej wydajne.
+* Wywołanie Wyszukiwanie poznawcze platformy Azure jest zwięzłe i jest łatwe do interpretowania wyników.
+* Wywołania asynchroniczne powodują dodanie niewielkiej złożoności do kontrolera, ale najlepszym rozwiązaniem jest, jeśli zamierzasz opracowywać aplikacje wysokiej jakości.
+* Ta aplikacja wykonała proste wyszukiwanie tekstowe zdefiniowane przez co to jest konfiguracja w **searchParameters**. Jednak tę jedną klasę można wypełnić wieloma elementami członkowskimi, które dodają złożoności do wyszukiwania. Aby ta aplikacja była znacznie bardziej wydajna, nie trzeba wykonywać wielu dodatkowych czynności.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapewnić najlepsze środowisko użytkownika przy użyciu usługi Azure Cognitive Search, musimy dodać więcej funkcji, w szczególności stronicowania (przy użyciu numerów stron lub nieskończone przewijanie) i autouzupełniania/sugestie. Powinniśmy również wziąć pod uwagę bardziej zaawansowane parametry wyszukiwania (na przykład wyszukiwania geograficzne w hotelach w określonym promieniu danego punktu i kolejność wyników wyszukiwania).
+Aby zapewnić najlepsze środowisko użytkownika przy użyciu usługi Azure Wyszukiwanie poznawcze, musimy dodać więcej funkcji, szczególnie stronicowanie (przy użyciu numerów stron lub nieskończoność przewijania) oraz Autouzupełnianie/sugestie. Należy również rozważyć bardziej zaawansowane parametry wyszukiwania (na przykład geograficzne wyszukiwanie w hotelach w określonym promieniu danego punktu i porządkowanie wyników wyszukiwania).
 
-Te następne kroki zostały omówione w serii samouczków. Zacznijmy od stronicowania.
+Te następne kroki są rozłączone w szereg samouczków. Zacznijmy od stronicowania.
 
 > [!div class="nextstepaction"]
-> [Samouczek C#: Podział wyników wyszukiwania na strony — usługa Azure Cognitive Search](tutorial-csharp-paging.md)
+> [Samouczek języka C#: wyszukiwanie wyników wyszukiwania na platformie Azure Wyszukiwanie poznawcze](tutorial-csharp-paging.md)
 
 

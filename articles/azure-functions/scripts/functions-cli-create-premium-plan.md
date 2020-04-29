@@ -1,19 +1,19 @@
 ---
-title: Tworzenie aplikacji funkcji w planie Premium — azure cli
+title: Tworzenie aplikacji funkcji w planie Premium — interfejs wiersza polecenia platformy Azure
 description: Tworzenie aplikacji funkcji w skalowalnym planie Premium na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 ms.service: azure-functions
 ms.topic: sample
 ms.date: 11/23/2019
 ms.openlocfilehash: dd31dbadce4f0a55853607504b4322277784f27f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74536267"
 ---
-# <a name="create-a-function-app-in-a-premium-plan---azure-cli"></a>Tworzenie aplikacji funkcji w planie Premium — azure cli
+# <a name="create-a-function-app-in-a-premium-plan---azure-cli"></a>Tworzenie aplikacji funkcji w planie Premium — interfejs wiersza polecenia platformy Azure
 
-Ten przykładowy skrypt usługi Azure Functions tworzy aplikację funkcji, która jest kontenerem dla funkcji. Utworzona aplikacja funkcji używa [skalowalnego planu Premium](../functions-premium-plan.md).
+Ten przykładowy skrypt usługi Azure Functions tworzy aplikację funkcji, która jest kontenerem dla funkcji. Utworzona aplikacja funkcji korzysta z [skalowalnego planu Premium](../functions-premium-plan.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,7 +37,7 @@ Każde polecenie w tabeli stanowi link do dokumentacji polecenia. W tym skrypcie
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Tworzy konto usługi Azure Storage. |
-| [az functionapp plan utworzyć](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Tworzy plan Premium. |
+| [AZ functionapp plan Create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Tworzy plan Premium. |
 | [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Tworzy aplikację funkcji w planie usługi App Service. |
 
 ## <a name="next-steps"></a>Następne kroki

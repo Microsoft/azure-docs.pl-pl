@@ -1,39 +1,39 @@
 ---
-title: Przykładowe notesy jupyter dla usługi Azure Notebooks Preview
-description: Przykłady to świetny sposób na obsługę notesów Jupyter działających w bezpłatnych usługach w chmurze notesów platformy Azure.
+title: Przykładowe notesy Jupyter na potrzeby wersji zapoznawczej usługi Azure Notebooks
+description: Przykłady to doskonały sposób na korzystanie z Jupyter notesów uruchomionych w ramach bezpłatnych Azure Notebooks usług w chmurze.
 ms.topic: sample
 ms.date: 01/11/2019
 ms.openlocfilehash: f67c37d0ffe0e90e13e05bb50ed6c523e0b3a14e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75646317"
 ---
-# <a name="discover-and-use-sample-notebooks-in-azure-notebooks-preview"></a>Odnajdowanie przykładowych notesów i używanie ich w usłudze Azure Notebooks Preview
+# <a name="discover-and-use-sample-notebooks-in-azure-notebooks-preview"></a>Odkrywanie i używanie przykładowych notesów w wersji zapoznawczej Azure Notebooks
 
-Internet ma wiele kolekcji ciekawych i przydatnych notesów Jupyter, które można łatwo wprowadzić do notesów platformy Azure. Ten artykuł zawiera listę znaczących przykładów.
+Internet zawiera wiele kolekcji interesujących i przydatnych notesów Jupyter, które można łatwo przenieść do Azure Notebooks. Ten artykuł zawiera listę istotnych przykładów.
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Po zidentyfikowaniu notesu, który chcesz zbadać, oto kilka szczegółów, które chcesz poznać:
+Po zidentyfikowaniu notesu, który chcesz poznać, Oto kilka szczegółów, które warto zrozumieć:
 
-- Jeśli notes jest już w notesach platformy Azure, użyj przycisku **Klonuj** na pulpicie nawigacyjnym projektu, aby wykonać kopię projektu na własnym koncie.
-- Niektóre notesy wymagają określonych pakietów do uruchomienia. Chociaż do `!pip install` instalowania pakietów z samego notesu można użyć (Python) lub `install.packages` (R), można również [skonfigurować projekt notesów platformy Azure w odpowiednim środowisku.](configure-manage-azure-notebooks-projects.md)
+- Jeśli Notes jest już w Azure Notebooks, użyj przycisku **Klonuj** na pulpicie nawigacyjnym projektu, aby utworzyć kopię projektu na swoim koncie.
+- Niektóre notesy wymagają uruchomienia określonych pakietów. Chociaż można używać `!pip install` języka (Python) lub `install.packages` (R) do instalowania pakietów z poziomu notesu, można również [skonfigurować projekt Azure Notebooks przy użyciu odpowiedniego środowiska](configure-manage-azure-notebooks-projects.md).
 
-## <a name="great-sample-notebooks"></a>Świetne przykładowe notesy
+## <a name="great-sample-notebooks"></a>Wspaniałe przykładowe notesy
 
-- [Zestaw startowy notesów platformy Azure](https://notebooks.azure.com/#sample-redirect) zawiera wprowadzenie do języka Python, R i F#, wraz z notesami demonstrującymi dostęp do danych, uczenie maszynowe azure i kilka ćwiczeń do nauki o danych.
-- [Wprowadzenie do notebooków Jupyter](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
-- [Wprowadzenie do nauki o danych](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks) przez Jake Vanderplas.
-- [Galeria ciekawych zeszytów](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (projekt Jupyter na GitHub)
+- [Azure Notebooks startowy zestaw](https://notebooks.azure.com/#sample-redirect) zawiera wprowadzenie do języków Python, R i F #, a także notesy pokazujące dostęp do danych, Azure Machine Learning i kilka ćwiczeń naukowych dotyczących danych.
+- [Wprowadzenie do notesów Jupyter](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (Jupyter.org)
+- [Wprowadzenie do analizy danych](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks) przez Jake Vanderplas.
+- [Galeria interesujących notesów](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (projekt Jupyter w serwisie GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
-- Instrukcja fizyki z [Wydziału Fizyki w Imperial College of London](https://notebooks.azure.com/cvanbreu/libraries)
-- [Przykłady dotyczące pracy z usługą Azure Machine Learning](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
+- Fizyka instrukcja od [Departamentu fizyki w ramach szkoły brytyjskiej Londyn](https://notebooks.azure.com/cvanbreu/libraries)
+- [Przykłady umożliwiające rozpoczęcie pracy z Azure Machine Learning](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
 ## <a name="next-steps"></a>Następne kroki  
 
-- [Jak: Konfigurowanie projektów i zarządzanie nimi](configure-manage-azure-notebooks-projects.md)
-- [Jak: Praca z plikami danych](work-with-project-data-files.md)
-- [Jak: Dostęp do zasobów danych](access-data-resources-jupyter-notebooks.md)
-- [Jak: Korzystanie z usługi Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Instrukcje: Konfigurowanie projektów i zarządzanie nimi](configure-manage-azure-notebooks-projects.md)
+- [Instrukcje: korzystanie z plików danych](work-with-project-data-files.md)
+- [Instrukcje: dostęp do zasobów danych](access-data-resources-jupyter-notebooks.md)
+- [Instrukcje: korzystanie z Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

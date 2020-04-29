@@ -8,16 +8,16 @@ ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 2ea8a5428c1fabdfda4f2298c0559792537df481
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273986"
 ---
 # <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(PRZESTARZAŁE) Skalowanie zasobników i infrastruktury rozwiązania Kubernetes
 
 > [!TIP]
-> Aby zapoznać się ze zaktualizowaną wersją tego samouczka korzystającego z usługi Azure Kubernetes, zobacz [Samouczek: Skalowanie aplikacji w usłudze Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-scale.md).
+> Aby uzyskać zaktualizowaną wersję tego samouczka korzystającego z usługi Azure Kubernetes, zobacz [Samouczek: skalowanie aplikacji w usłudze Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-scale.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -42,7 +42,7 @@ Jeśli te kroki nie zostały wykonane, a chcesz skorzystać z tej części samou
 
 Poprzednio wdrożono fronton aplikacji do głosowania platformy Azure oraz wystąpienie pamięci podręcznej Redis — każdy z tych elementów został wdrożony z jedną repliką. Aby to zweryfikować, uruchom polecenie [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
-Przejdź [https://shell.azure.com](https://shell.azure.com) do, aby otworzyć Cloud Shell w przeglądarce.
+Przejdź do [https://shell.azure.com](https://shell.azure.com) okna, aby otworzyć Cloud Shell w przeglądarce.
 
 ```console
 kubectl get pods

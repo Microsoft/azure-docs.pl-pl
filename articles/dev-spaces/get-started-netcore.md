@@ -1,18 +1,18 @@
 ---
-title: 'Tworzenie obszaru dewelopera kubernetes: Visual Studio Code & .NET Core'
+title: 'Tworzenie Kubernetesego miejsca deweloperskiego: Visual Studio Code & .NET Core'
 services: azure-dev-spaces
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: W tym samouczku pokazano, jak używać usługi Azure Dev Spaces i Visual Studio Code do debugowania i szybkiego iteracji aplikacji .NET Core w usłudze Azure Kubernetes
-keywords: Docker, Kubernetes, Azure, AKS, Usługa Azure Kubernetes, kontenery, Helm, siatka usług, routing siatki usług, kubectl, k8s
+description: W tym samouczku pokazano, jak używać Azure Dev Spaces i Visual Studio Code do debugowania i szybkiego iterowania aplikacji platformy .NET Core w usłudze Azure Kubernetes Service
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
 ms.openlocfilehash: d4078113f93159ef981a78a9917ed65bd03a304b
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80240553"
 ---
-# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Tworzenie obszaru dewelopera kubernetes: Visual Studio Code i .NET Core z usługi Azure Dev Spaces
+# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Utwórz przestrzeń Kubernetes dev: Visual Studio Code i .NET Core z Azure Dev Spaces
 
 Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czynności:
 
@@ -21,7 +21,7 @@ Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czy
 - Efektywne tworzenie i testowanie kodu w środowisku zespołu.
 
 > [!Note]
-> **Jeśli utkniesz** w dowolnym momencie, zobacz sekcję [Rozwiązywanie problemów.](troubleshooting.md)
+> Jeśli w dowolnym momencie **masz zablokowany dostęp** do programu, zobacz sekcję [Rozwiązywanie problemów](troubleshooting.md) .
 
 ## <a name="install-the-azure-cli"></a>Zainstaluj interfejs wiersza polecenia platformy Azure
 Usługa Azure Dev Spaces wymaga minimalnej konfiguracji komputera lokalnego. Większość ustawień obszaru deweloperskiego jest przechowywana w chmurze i udostępniana innym użytkownikom. Zacznij od pobrania i uruchomienia [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -43,7 +43,7 @@ Możesz wyświetlić swoje subskrypcje, uruchamiając polecenie:
 az account list --output table
 ```
 
-Znajdź subskrypcję, która ma *True* for *IsDefault*.
+Znajdź subskrypcję, która ma *wartość true dla właściwości* *IsDefault*.
 Jeśli nie jest to subskrypcja, której chcesz użyć, możesz zmienić subskrypcję domyślną:
 
 ```azurecli
@@ -52,7 +52,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Tworzenie klastra Kubernetes obsługującego usługę Azure Dev Spaces
 
-W wierszu polecenia utwórz grupę zasobów w [regionie obsługującym usługi Azure Dev Spaces][supported-regions].
+W wierszu polecenia Utwórz grupę zasobów w [regionie, który obsługuje Azure dev Spaces][supported-regions].
 
 ```azurecli
 az group create --name MyResourceGroup --location <region>
@@ -81,11 +81,11 @@ Wpisz następujące polecenie interfejsu wiersza polecenia platformy Azure, poda
 Rozbudowane funkcje, takie jak debugowanie rozwiązania Kubernetes, są dostępne dla deweloperów platformy .NET Core i środowiska Node.js korzystających z programu VS Code.
 
 1. Jeśli nie masz programu [VS Code](https://code.visualstudio.com/Download), zainstaluj go.
-1. Pobierz i zainstaluj rozszerzenia [vs Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) i [C#.](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Dla każdego rozszerzenia kliknij zainstaluj na stronie Marketplace rozszerzenia i ponownie w programie VS Code.
+1. Pobierz i zainstaluj rozszerzenia programu [VS Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) i [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) . Dla każdego rozszerzenia kliknij przycisk Zainstaluj na stronie witryny Marketplace rozszerzenia i ponownie w VS Code.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Tworzenie aplikacji internetowej uruchomionej w kontenerze
 
-W tej sekcji utworzysz ASP.NET podstawową aplikację sieci web i uruchomisz ją w kontenerze w usłudze Kubernetes.
+W tej sekcji utworzysz aplikację sieci Web ASP.NET Core i zostanie ona uruchomiona w kontenerze w Kubernetes.
 
 ### <a name="create-an-aspnet-core-web-app"></a>Tworzenie aplikacji internetowej ASP.NET Core
 Sklonuj lub pobierz [przykładową aplikację Azure Dev Spaces](https://github.com/Azure/dev-spaces). W tym artykule jest używany kod z katalogu *samples/dotnetcore/getting-started/webfrontend*.
@@ -106,7 +106,7 @@ Polecenie `azds prep` interfejsu wiersza polecenia platformy Azure generuje zaso
 * [Pakiet Helm](https://docs.helm.sh) w folderze `./charts/webfrontend` opisuje, jak wdrożyć kontener na platformie Kubernetes.
 
 > [!TIP]
-> [Wykres Dockerfile i Helm](how-dev-spaces-works-prep.md#prepare-your-code) dla projektu jest używany przez usługę Azure Dev Spaces do tworzenia i uruchamiania kodu, ale można zmodyfikować te pliki, jeśli chcesz zmienić sposób tworzenia i uruchamiania projektu.
+> [Wykres pliku dockerfile i Helm](how-dev-spaces-works-prep.md#prepare-your-code) dla projektu jest używany przez Azure dev Spaces do kompilowania i uruchamiania kodu, ale można modyfikować te pliki, jeśli chcesz zmienić sposób kompilowania i wykonywania projektu.
 
 Na razie nie trzeba rozumieć pełnej zawartości tych plików. Warto jednak wspomnieć, że **te same zasoby konfiguracji jako kodu platformy Kubernetes i Docker mogą być używane od etapu opracowywania po etap produkcyjny, co zapewnia większą spójność w różnych środowiskach.**
  
@@ -130,7 +130,7 @@ azds up
 > Te kroki będą trwać dłużej podczas pierwszego uruchomienia polecenia `up`, ale kolejne uruchomienia powinny być szybsze.
 
 ### <a name="test-the-web-app"></a>Testowanie aplikacji internetowej
-Przeskanuj dane wyjściowe konsoli dla `up` komunikatu *Uruchomionego aplikacji,* potwierdzając, że polecenie zostało ukończone:
+Zeskanuj dane wyjściowe konsoli dla *rozpoczętej* wiadomości, potwierdź, że `up` polecenie zostało ukończone:
 
 ```
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
@@ -151,20 +151,20 @@ webfrontend-5798f9dc44-99fsd: Now listening on: http://[::]:80
 webfrontend-5798f9dc44-99fsd: Application started. Press Ctrl+C to shut down.
 ```
 
-Zidentyfikuj publiczny adres URL `up` usługi w danych wyjściowych z polecenia. Kończy się `.azds.io`na . W powyższym przykładzie publiczny `http://webfrontend.1234567890abcdef1234.eus.azds.io/`adres URL to .
+Określ publiczny adres URL usługi w danych wyjściowych `up` polecenia. Zostanie ona zakończona `.azds.io`. W powyższym przykładzie publiczny adres URL to `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
 
-Aby wyświetlić aplikację internetową, otwórz publiczny adres URL w przeglądarce. Ponadto powiadomienie `stdout` `stderr` i dane wyjściowe są przesyłane strumieniowo do okna terminala *śledzenia azds* podczas interakcji z aplikacją sieci web. Zobaczysz również informacje o śledzeniu żądań HTTP, które przechodzą przez system. Ułatwia to śledzenie złożonych wywołań wielodochowych podczas opracowywania. Instrumentacja dodana przez Dev Spaces zapewnia śledzenie tego żądania.
+Aby wyświetlić swoją aplikację internetową, Otwórz publiczny adres URL w przeglądarce. Ponadto informacja `stdout` i `stderr` wyjście są przesyłane strumieniowo do okna terminalu *śledzenia azds* podczas korzystania z aplikacji sieci Web. Zobaczysz również informacje o śledzeniu żądań HTTP, które przechodzą przez system. Ułatwia to śledzenie złożonych wywołań wielousługowych podczas opracowywania. Instrumentacja dodana przez funkcję Spaces dev udostępnia śledzenie tego żądania.
 
-![okno terminala śledzenia azds](media/get-started-netcore/azds-trace.png)
+![okno terminalu śledzenia azds](media/get-started-netcore/azds-trace.png)
 
 
 > [!Note]
-> Oprócz publicznego adresu URL można użyć `http://localhost:<portnumber>` alternatywnego adresu URL wyświetlanego w danych wyjściowych konsoli. Jeśli używasz adresu URL hosta lokalnego, może się wydawać, że kontener działa lokalnie, ale faktycznie jest on uruchamiany w usłudze AKS. Usługa Azure Dev Spaces używa funkcji *przesyłania dalej portów* Kubernetes do mapowania portu hosta lokalnego do kontenera uruchomionego w usłudze AKS. Ułatwia to interakcję z usługą z komputera lokalnego.
+> Oprócz publicznego adresu URL można użyć alternatywnego `http://localhost:<portnumber>` adresu URL, który jest wyświetlany w danych wyjściowych konsoli. Jeśli używasz adresu URL hosta lokalnego, może się wydawać, że kontener działa lokalnie, ale faktycznie jest on uruchamiany w usłudze AKS. Azure Dev Spaces używa funkcji *przesyłania dalej portów* Kubernetes, aby mapować port localhost do kontenera działającego w AKS. Ułatwia to korzystanie z usługi z komputera lokalnego.
 
 ### <a name="update-a-content-file"></a>Aktualizowanie pliku zawartości
 Usługa Azure Dev Spaces umożliwia nie tylko uruchamianie kodu w środowisku Kubernetes — pozwala też szybko i wielokrotnie wyświetlać efekt zmian wprowadzonych w kodzie w środowisku Kubernetes w chmurze.
 
-1. Znajdź plik `./Views/Home/Index.cshtml` i zmień kod HTML. Na przykład zmień [wiersz 73, który brzmi `<h2>Application uses</h2>` ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) jak: 
+1. Znajdź plik `./Views/Home/Index.cshtml` i zmień kod HTML. Na przykład zmień [wiersz 73, który odczytuje `<h2>Application uses</h2>` ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) w taki sposób: 
 
     ```html
     <h2>Hello k8s in Azure!</h2>
@@ -222,7 +222,7 @@ Po naciśnięciu klawisza **F5** możesz debugować kod w środowisku Kubernetes
 Podobnie jak w przypadku polecenia `up` kod jest synchronizowany z obszarem deweloperskim, a kontener jest kompilowany i wdrażany w środowisku Kubernetes. Oczywiście tym razem debuger jest dołączany do zdalnego kontenera.
 
 > [!Tip]
-> Pasek stanu kodu programu VS zmieni kolor na pomarańczowy, co oznacza, że debuger jest dołączony. Wyświetli również klikalny adres URL, którego możesz użyć do otwarcia witryny.
+> VS Code pasek stanu zmieni kolor na pomarańczowy, co oznacza, że debuger jest dołączony. Zostanie również wyświetlony adres URL, który można kliknąć, aby otworzyć lokację.
 
 ![](media/common/vscode-status-bar-url.png)
 
@@ -241,7 +241,7 @@ public IActionResult About()
 }
 ```
 
-Zapisz plik, a następnie w **okienku Akcje debugowania**kliknij przycisk **Uruchom ponownie.** 
+Zapisz plik, a następnie w **okienku Akcje debugowania**kliknij przycisk **Uruchom ponownie** . 
 
 ![](media/common/debug-action-refresh.png)
 
