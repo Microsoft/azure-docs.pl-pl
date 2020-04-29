@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: konfiguracja platformy SDK C++ (macOS) — usługa mowy'
+title: 'Szybki Start: Konfiguracja platformy SDK C++ (macOS) — usługa mowy'
 titleSuffix: Azure Cognitive Services
-description: Ten przewodnik służy do konfigurowania platformy dla języka C++ w systemie macOS za pomocą zestawu SDK usługi mowy.
+description: Skorzystaj z tego przewodnika, aby skonfigurować platformę dla języka C++ w systemie macOS za pomocą zestawu Speech Service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: include
 ms.date: 10/14/2019
 ms.author: erhopf
 ms.openlocfilehash: d0f9bc44145f75d7c3b503fffe43042c650025f1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75469469"
 ---
-W tym przewodniku pokazano, jak zainstalować [pakiet SDK mowy](~/articles/cognitive-services/speech-service/speech-sdk.md) dla języka C++ w systemie macOS 10.13 lub nowszym.
+W tym przewodniku przedstawiono sposób instalowania [zestawu Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) dla języka C++ w systemie macOS 10,13 i nowszych.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## <a name="system-requirements"></a>Wymagania systemowe
 
-macOS 10.13 i powyżej
+macOS 10,13 i nowsze
 
 ## <a name="install-speech-sdk"></a>Instalowanie zestawu Speech SDK
 
@@ -39,7 +39,7 @@ macOS 10.13 i powyżej
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. Pobierz i `.zip` wyodrębnij archiwum zawierające strukturę SDK mowy:
+1. Pobierz i Wyodrębnij `.zip` Archiwum zawierające strukturę zestawu Speech SDK:
 
    ```sh
    wget -O SpeechSDK-macOS.zip https://aka.ms/csspeech/macosbinary
@@ -52,9 +52,9 @@ macOS 10.13 i powyżej
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   Lista katalogów powinna zawierać informacje i pliki licencji innych `MicrosoftCognitiveServicesSpeech.framework` firm, a także katalog.
+   Lista katalogów powinna zawierać pliki powiadomień i licencji innych firm, a także `MicrosoftCognitiveServicesSpeech.framework` katalog.
 
-Teraz możesz przejść do [następnych kroków](#next-steps) poniżej.
+Teraz możesz przejść do [kolejnych kroków](#next-steps) poniżej.
 
 ## <a name="next-steps"></a>Następne kroki
 

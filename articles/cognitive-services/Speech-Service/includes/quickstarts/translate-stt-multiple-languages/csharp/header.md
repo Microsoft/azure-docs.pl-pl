@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: tłumaczenie mowy na wiele języków, C# — usługa mowy'
+title: 'Szybki Start: Tłumaczenie mowy na wiele języków, usługa C#-Speech'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.openlocfilehash: a0acb96eaee73e3286f3957564ef3fa1a93e72bb
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75467097"
 ---
-Jeśli wolisz przejść w prawo, wyświetl lub pobierz wszystkie <a href="https://aka.ms/speech/github-csharp">próbki języka C# speech SDK</a> w usłudze GitHub. W przeciwnym razie zacznijmy.
+Jeśli wolisz przejść bezpośrednio do programu, Wyświetl lub Pobierz wszystkie <a href="https://aka.ms/speech/github-csharp">przykłady w języku C# zestawu Speech SDK</a> w witrynie GitHub. W przeciwnym razie Zacznijmy.
