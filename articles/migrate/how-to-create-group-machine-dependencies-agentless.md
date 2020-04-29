@@ -1,109 +1,109 @@
 ---
-title: Konfigurowanie analizy zależności bez agenta w usłudze Azure Migrate Server Assessment
-description: Konfigurowanie analizy zależności bez agenta w usłudze Azure Migrate Server Assessment.
+title: Konfigurowanie analizy zależności bez agentów w ocenie serwera Azure Migrate
+description: Skonfiguruj analizę zależności bez agenta w ocenie serwera Azure Migrate.
 ms.topic: how-to
 ms.date: 2/24/2020
 ms.openlocfilehash: af767bf73a3b9a6f2a91298987f11974499fd694
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79455710"
 ---
 # <a name="set-up-agentless-dependency-visualization"></a>Konfigurowanie wizualizacji zależności bez agenta 
 
-W tym artykule opisano sposób konfigurowania analizy zależności bez agenta w usłudze Azure Migrate:Server Assessment. [Analiza zależności](concepts-dependency-visualization.md) ułatwia identyfikowanie i rozumienie zależności między komputerami, które chcesz ocenić i przeprowadzić migrację na platformę Azure.
+W tym artykule opisano sposób konfigurowania analizy zależności bez agentów w Azure Migrate: Ocena serwera. [Analiza zależności](concepts-dependency-visualization.md) pomaga identyfikować i zrozumieć zależności między maszynami, które mają być oceniane i migrowane do platformy Azure.
 
 
 > [!IMPORTANT]
-> Wizualizacja zależności bez agenta jest obecnie w wersji zapoznawczej tylko dla maszyn wirtualnych VMware, odnalezionych za pomocą narzędzia Azure Migrate:Server Assessment.
+> Wizualizacja zależności bez agenta jest obecnie dostępna tylko w wersji zapoznawczej dla maszyn wirtualnych VMware, odnaleziona za pomocą narzędzia do oceny serwera Azure Migrate:.
 > Funkcje mogą być ograniczone lub niekompletne.
-> Ta wersja zapoznawcza jest objęta obsługą klienta i może być używana dla obciążeń produkcyjnych.
+> Ta wersja zapoznawcza jest objęta wsparciem klienta i może być używana na potrzeby obciążeń produkcyjnych.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-- [Dowiedz się więcej o](concepts-dependency-visualization.md#agentless-analysis) analizie zależności bez agenta.
-- [Przejrzyj](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) wymagania wstępne i wymagania dotyczące pomocy technicznej dotyczące konfigurowania wizualizacji zależności bez agenta dla maszyn wirtualnych VMware
-- Upewnij się, że [utworzono](how-to-add-tool-first-time.md) projekt migracji platformy Azure.
-- Jeśli projekt został już utworzony, upewnij się, że [dodano](how-to-assess.md) narzędzie oceny migracji:serwer platformy Azure.
-- Upewnij się, że skonfigurowałeś [urządzenie migracji platformy Azure](migrate-appliance.md) do odnajdywanie komputerów lokalnych. Dowiedz się, jak skonfigurować urządzenie dla maszyn wirtualnych [VMware.](how-to-set-up-appliance-vmware.md) Urządzenie odnajduje maszyny lokalne i wysyła metadane i dane wydajności do usługi Azure Migrate:Server Assessment.
+- [Dowiedz się więcej o](concepts-dependency-visualization.md#agentless-analysis) analizie zależności bez agentów.
+- [Zapoznaj](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) się z wymaganiami dotyczącymi wymagań wstępnych i pomocy technicznej w zakresie konfigurowania wizualizacji zależności bez agenta dla maszyn wirtualnych VMware
+- Upewnij się, że [utworzono](how-to-add-tool-first-time.md) projekt Azure Migrate.
+- Jeśli projekt został już utworzony, upewnij się, że [dodano](how-to-assess.md) Azure Migrate: Narzędzie do oceny serwera.
+- Upewnij się, że skonfigurowano [urządzenie Azure Migrate](migrate-appliance.md) w celu odnajdywania maszyn lokalnych. Dowiedz się, jak skonfigurować urządzenie dla maszyn wirtualnych [VMware](how-to-set-up-appliance-vmware.md) . Urządzenie odnajduje maszyny lokalne i wysyła metadane i dane wydajności do Azure Migrate: Ocena serwera.
 
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 
-- W tej chwili nie można dodać lub usunąć serwera z grupy w widoku analizy zależności.
-- Mapa zależności dla grupy serwerów nie jest obecnie niedostępna.
-- Obecnie danych zależności nie można pobrać w formacie tabelarycznym.
+- Teraz nie można dodać ani usunąć serwera z grupy w widoku Analiza zależności.
+- Mapa zależności dla grupy serwerów nie jest obecnie dostępna.
+- Obecnie nie można pobrać danych zależności w formacie tabelarycznym.
 
-## <a name="create-a-user-account-for-discovery"></a>Tworzenie konta użytkownika do odnajdowania
+## <a name="create-a-user-account-for-discovery"></a>Tworzenie konta użytkownika na potrzeby odnajdywania
 
-Skonfiguruj konto użytkownika, aby ocena serwera mogła uzyskać dostęp do maszyny Wirtualnej w celu odnajdywania. [Dowiedz się więcej](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) o wymaganiach dotyczących konta.
+Skonfiguruj konto użytkownika, aby Ocena serwera mogła uzyskać dostęp do maszyny wirtualnej w celu odnajdywania. [Dowiedz się więcej](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) o wymaganiach dotyczących konta.
 
 
-## <a name="add-the-user-account-to-the-appliance"></a>Dodawanie konta użytkownika do urządzenia
+## <a name="add-the-user-account-to-the-appliance"></a>Dodaj konto użytkownika do urządzenia
 
 Dodaj konto użytkownika do urządzenia.
 
-1. Otwórz aplikację do zarządzania urządzeniami. 
-2. Przejdź do panelu **Szczegóły funkcji Podaj vCenter.**
-3. W **discover aplikacji i zależności na maszynach wirtualnych**kliknij przycisk Dodaj **poświadczenia**
-3. Wybierz **system operacyjny**, podaj przyjazną nazwę konta i **nazwę**/użytkownika**Hasło**
+1. Otwórz aplikację zarządzanie urządzeniami. 
+2. Przejdź do panelu **Podaj szczegóły programu vCenter** .
+3. W obszarze **Znajdź aplikację i zależności na maszynach wirtualnych**kliknij pozycję **Dodaj poświadczenia** .
+3. Wybierz **system operacyjny**, podaj przyjazną nazwę konta i**hasło** w polu **Nazwa użytkownika**/
 6. Kliknij przycisk **Zapisz**.
-7. Kliknij **przycisk Zapisz i rozpocznij odnajdowanie**.
+7. Kliknij przycisk **Zapisz i Rozpocznij odnajdywanie**.
 
-    ![Dodawanie konta użytkownika maszyny Wirtualnej](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
+    ![Dodaj konto użytkownika maszyny wirtualnej](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
 
-## <a name="start-dependency-discovery"></a>Rozpoczynanie odnajdywania zależności
+## <a name="start-dependency-discovery"></a>Uruchom odnajdywanie zależności
 
 Wybierz maszyny, na których chcesz włączyć odnajdowanie zależności.
 
-1. W **obszarze Migracja platformy Azure: Ocena serwera**kliknij pozycję **Odnalezione serwery**.
-2. Kliknij ikonę **Analiza zależności.**
-3. Kliknij **pozycję Dodaj serwery**.
-3. Na stronie **Dodaj serwery** wybierz urządzenie, które odnajduje odpowiednie maszyny.
-4. Z listy maszyn wybierz maszyny.
-5. Kliknij **pozycję Dodaj serwery**.
+1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
+2. Kliknij ikonę **analiza zależności** .
+3. Kliknij pozycję **Dodaj serwery**.
+3. Na stronie **Dodawanie serwerów** wybierz urządzenie, które odnajduje odpowiednie maszyny.
+4. Z listy maszyna wybierz maszyny.
+5. Kliknij pozycję **Dodaj serwery**.
 
-    ![Rozpoczynanie odnajdywania zależności](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
+    ![Uruchom odnajdywanie zależności](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
-Można wizualizować zależności około sześciu godzin po rozpoczęciu odnajdywania zależności.
+Możesz wizualizować zależności na sześć godzin po rozpoczęciu odnajdywania zależności.
 
-## <a name="visualize-dependencies"></a>Wizualizuj zależności
+## <a name="visualize-dependencies"></a>Wizualizacja zależności
 
-1. W **obszarze Migracja platformy Azure: Ocena serwera**kliknij pozycję **Odnalezione serwery**.
+1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
 2. Wyszukaj maszynę, którą chcesz wyświetlić.
-3. W kolumnie **Zależności** kliknij pozycję **Wyświetl zależności**
-4. Zmień okres, dla którego chcesz wyświetlić mapę, korzystając z listy rozwijanej **Czas trwania.**
-5. Rozwiń **grupę Klient,** aby wyświetlić listę komputerów z zależnością od wybranego komputera.
-6. Rozwiń grupę **Port,** aby wyświetlić listę komputerów, które mają zależność od wybranego komputera.
-7. Aby przejść do widoku mapy dowolnej z zależnych maszyn, kliknij nazwę komputera > **Załaduj mapę serwera**
+3. W kolumnie **zależności** kliknij pozycję **Wyświetl zależności.**
+4. Zmień okres, dla którego ma zostać wyświetlona mapa, przy użyciu listy rozwijanej czas **trwania** .
+5. Rozwiń grupę **klientów** , aby wyświetlić listę maszyn z zależnością na wybranym komputerze.
+6. Rozwiń grupę **portów** , aby wyświetlić listę maszyn z zależnością od wybranej maszyny.
+7. Aby przejść do widoku mapy dowolnych maszyn zależnych, kliknij nazwę komputera > **Załaduj mapę serwera**
 
-    ![Rozwiń grupę portów serwera i załaduj mapę serwera](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)
+    ![Rozwiń węzeł Grupa portów serwera i Załaduj mapę serwera](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)
 
     ![Rozwiń grupę klientów ](./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png)
 
-8. Rozwiń wybrany komputer, aby wyświetlić szczegóły na poziomie procesu dla każdej zależności.
+8. Rozwiń wybraną maszynę, aby wyświetlić szczegóły poziomu procesu dla każdej zależności.
 
     ![Rozwiń serwer, aby wyświetlić procesy](./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png)
 
 > [!NOTE]
-> Informacje o procesie zależności nie zawsze są dostępne. Jeśli nie jest dostępna, zależność jest przedstawiona z procesem oznaczonym jako "Nieznany proces".
+> Informacje o procesie dla zależności nie są zawsze dostępne. Jeśli ta funkcja jest niedostępna, zależność jest przedstawiana z procesem oznaczonym jako "nieznany proces".
 
-## <a name="stop-dependency-discovery"></a>Zatrzymywanie odnajdywania zależności
+## <a name="stop-dependency-discovery"></a>Zatrzymaj odnajdywanie zależności
 
-Wybierz maszyny, na których chcesz zatrzymać odnajdowanie zależności.
+Wybierz maszyny, na których chcesz zatrzymać odnajdywanie zależności.
 
-1. W **obszarze Migracja platformy Azure: Ocena serwera**kliknij pozycję **Odnalezione serwery**.
-2. Kliknij ikonę **Analiza zależności.**
-3. Kliknij pozycję **Usuń serwery**.
-3. Na stronie **Usuń serwery** wybierz **urządzenie,** które odnajduje maszyny wirtualne, na których chcesz zatrzymać odnajdowanie zależności.
-4. Z listy maszyn wybierz maszyny.
-5. Kliknij pozycję **Usuń serwery**.
+1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
+2. Kliknij ikonę **analiza zależności** .
+3. Kliknij przycisk **Usuń serwery**.
+3. Na stronie **usuwanie serwerów** wybierz **urządzenie** , które odnajduje maszyny wirtualne, na których chcesz zatrzymać odnajdywanie zależności.
+4. Z listy maszyna wybierz maszyny.
+5. Kliknij przycisk **Usuń serwery**.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zgrupuj maszyny do](how-to-create-a-group.md) oceny.
+[Grupuj maszyny](how-to-create-a-group.md) do oceny.

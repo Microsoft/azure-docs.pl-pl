@@ -1,6 +1,6 @@
 ---
-title: Obsługiwane systemy operacyjne, aparaty kontenerów — Usługa Azure IoT Edge
-description: Dowiedz się, które systemy operacyjne mogą uruchamiać demon i środowisko wykonawcze usługi Azure IoT Edge oraz obsługiwane aparaty kontenerów dla urządzeń produkcyjnych
+title: Obsługiwane systemy operacyjne, aparaty kontenerów — Azure IoT Edge
+description: Dowiedz się, które systemy operacyjne mogą uruchamiać demona Azure IoT Edge i środowisko uruchomieniowe oraz obsługiwane aparaty kontenerów dla urządzeń produkcyjnych
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,89 +9,89 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 42c0a5d0c590f8c395c2afe366a00fcb9c83ce46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79536942"
 ---
-# <a name="azure-iot-edge-supported-systems"></a>Obsługiwane systemy usługi Azure IoT Edge
+# <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge obsługiwane systemy
 
-Ten artykuł zawiera szczegółowe informacje o tym, które systemy i składniki są obsługiwane przez usługi IoT Edge, oficjalnie lub w wersji zapoznawczej.
+Ten artykuł zawiera szczegółowe informacje o systemach i składnikach obsługiwanych przez IoT Edge, niezależnie od tego, czy są one oficjalne czy w wersji zapoznawczej.
 
-Jeśli wystąpią problemy podczas korzystania z usługi Azure IoT Edge, istnieje kilka sposobów, aby uzyskać pomoc techniczną. Wypróbuj jeden z następujących kanałów pomocy technicznej:
+Jeśli wystąpią problemy podczas korzystania z usługi Azure IoT Edge, istnieje kilka sposobów poszukiwania pomocy technicznej. Wypróbuj jeden z następujących kanałów, aby uzyskać pomoc techniczną:
 
-**Zgłaszanie błędów** — większość rozwoju, który przechodzi do produktu usługi Azure IoT Edge dzieje się w projekcie open source usługi IoT Edge. Błędy można zgłaszać na [stronie problemów](https://github.com/azure/iotedge/issues) projektu. Poprawki szybko docierają z projektu do aktualizacji produktów.
+**Raportowanie błędów** — większość programowania, która przechodzi do produktu Azure IoT Edge, odbywa się w IoT Edge projekcie typu open source. Usterki można zgłaszać na [stronie problemy](https://github.com/azure/iotedge/issues) projektu. Poprawki są szybko wprowadzane do projektu w programie do aktualizacji produktów.
 
-**Zespół obsługi klienta firmy Microsoft** — użytkownicy, którzy mają plan pomocy [technicznej,](https://azure.microsoft.com/support/plans/) mogą zaangażować zespół działu obsługi klienta firmy Microsoft, tworząc bilet pomocy technicznej bezpośrednio z [witryny Azure portal.](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac)
+**Zespół pomocy technicznej firmy Microsoft** — użytkownicy z [planem pomocy](https://azure.microsoft.com/support/plans/) technicznej mogą skontaktować się z zespołem pomocy technicznej firmy Microsoft, tworząc bilet pomocy technicznej bezpośrednio z [Azure Portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
-**Żądania funkcji** — produkt usługi Azure IoT Edge śledzi żądania funkcji za pośrednictwem [strony Głos użytkownika](https://feedback.azure.com/forums/907045-azure-iot-edge)produktu.
+**Żądania funkcji** — produkt Azure IoT Edge śledzi żądania funkcji za pośrednictwem [strony użytkownika](https://feedback.azure.com/forums/907045-azure-iot-edge).
 
-## <a name="container-engines"></a>Silniki kontenerowe
+## <a name="container-engines"></a>Aparaty kontenerów
 
-Moduły usługi Azure IoT Edge są implementowane jako kontenery, więc usługa IoT Edge potrzebuje aparatu kontenerów, aby je uruchomić. Firma Microsoft udostępnia aparat kontenerów, moby-engine, aby spełnić to wymaganie. Ten aparat kontenera jest oparty na projekcie open-source Moby. Docker CE i Docker EE to inne popularne silniki kontenerowe. Są one również oparte na projekcie open source Moby i są zgodne z usługą Azure IoT Edge. Firma Microsoft zapewnia najlepszą obsługę techniczną dla systemów korzystających z tych aparatów kontenerów; Jednak Microsoft nie może wysyłać rozwiązań problemów w nich. Z tego powodu firma Microsoft zaleca używanie aparatu moby w systemach produkcyjnych.
+Moduły Azure IoT Edge są implementowane jako kontenery, dlatego IoT Edge potrzebuje aparatu kontenera, aby je uruchomić. Firma Microsoft udostępnia aparat kontenera, aparat Moby, aby spełnić to wymaganie. Ten aparat kontenera jest oparty na projekcie Moby Open Source. Rozwiązania Docker CE i Docker EE to inne popularne aparaty kontenerów. Są one również oparte na projekcie Moby Open Source i są zgodne z Azure IoT Edge. Firma Microsoft zapewnia najlepszą pomoc techniczną dla systemów korzystających z tych aparatów kontenerów; Jednak firma Microsoft nie może wydać w nich poprawek. Z tego powodu firma Microsoft zaleca używanie aparatu Moby w systemach produkcyjnych.
 
 <br>
 <center>
 
-![Silnik Moby jako środowisko uruchomieniowe kontenera](./media/support/only-moby-for-production.png)
+![Aparat Moby jako środowisko uruchomieniowe kontenera](./media/support/only-moby-for-production.png)
 </center>
 
 ## <a name="operating-systems"></a>Systemy operacyjne
 
-Usługa Azure IoT Edge działa w większości systemów operacyjnych, które mogą uruchamiać kontenery; jednak nie wszystkie te systemy są jednakowo obsługiwane. Systemy operacyjne są pogrupowane w warstwy, które reprezentują poziom pomocy technicznej, jakiego użytkownicy mogą oczekiwać.
+Azure IoT Edge działa w większości systemów operacyjnych, które mogą uruchamiać kontenery; jednak nie wszystkie te systemy są równie obsługiwane. Systemy operacyjne są pogrupowane w warstwy, które reprezentują poziom oczekiwanych przez użytkowników pomocy technicznej.
 
-* Obsługiwane są systemy Tier 1. W przypadku systemów warstwy 1 firma Microsoft:
-  * ma ten system operacyjny w zautomatyzowanych testach
-  * zapewnia dla nich pakiety instalacyjne
-* Systemy warstwy 2 są zgodne z usługą Azure IoT Edge i mogą być używane stosunkowo łatwo. W przypadku systemów poziomu 2:
-  * Firma Microsoft przeprowadziła nieformalne testy na platformach lub wie o partnerze, który pomyślnie uruchamia usługę Azure IoT Edge na platformie
-  * Pakiety instalacyjne dla innych platform mogą działać na tych platformach
+* Obsługiwane są systemy warstwy 1. W przypadku systemów warstwy 1 Firma Microsoft:
+  * Czy ten system operacyjny jest w zautomatyzowanych testach
+  * dostarcza dla nich pakiety instalacyjne
+* Systemy warstwy 2 są zgodne z Azure IoT Edge i mogą być używane stosunkowo łatwo. W przypadku systemów warstwy 2:
+  * Firma Microsoft zakończyła nieformalne testowanie na platformach lub wie, że partner pomyślnie uruchomił Azure IoT Edge na platformie
+  * Pakiety instalacyjne dla innych platform mogą współpracować z tymi platformami
 
-Rodzina systemu operacyjnego hosta musi zawsze odpowiadać rodzinie systemu operacyjnego gościa używanego w kontenerze modułu. Innymi słowy, można używać kontenerów systemu Linux tylko w kontenerach Systemu Linux i Windows w systemie Windows. Podczas korzystania z systemu Windows obsługiwane są tylko kontenery izolowane proces, a nie kontenery izolowane funkcji Hyper-V.  
+Rodzina systemu operacyjnego hosta musi być zawsze zgodna z rodziną systemu operacyjnego gościa używanego wewnątrz kontenera modułu. Innymi słowy, można używać tylko kontenerów systemu Linux w kontenerach systemów Linux i Windows w systemie Windows. W przypadku korzystania z systemu Windows obsługiwane są tylko przetwórz izolowane kontenery, a nie kontenery izolowane funkcji Hyper-V.  
 
 <br>
 <center>
 
-![Host OS dopasowuje system operacyjny gościa](./media/support/edge-on-device.png)
+![System operacyjny hosta jest zgodny z systemem operacyjnym gościa](./media/support/edge-on-device.png)
 </center>
 
 ### <a name="tier-1"></a>Warstwa 1
 
-Systemy wymienione w poniższej tabeli są obsługiwane przez firmę Microsoft, ogólnie dostępne lub w publicznej wersji zapoznawczej i są testowane przy każdej nowej wersji. 
+Systemy wymienione w poniższej tabeli są obsługiwane przez firmę Microsoft, ogólnie dostępne lub w publicznej wersji zapoznawczej, i są testowane z każdą nową wersją. 
 
-| System operacyjny | Amd64 | ARM32v7 | ARM64 |
+| System operacyjny | Procesor | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| Raspbian Stretch |  | ![Raspbian Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
-| [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Serwer Ubuntu 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Publiczna wersja zapoznawcza  |
-| [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Serwer Ubuntu 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Publiczna wersja zapoznawcza |
-| [Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/windows-iot-core), budować 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Raspbian Stretch |  | ![Raspbian Rozciągaj i ARM32v7](./media/tutorial-c-module/green-check.png) |  |
+| [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16,04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Publiczna wersja zapoznawcza  |
+| [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18,04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Publiczna wersja zapoznawcza |
+| [Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/windows-iot-core), kompilacja 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Windows 10 IoT Enterprise](https://docs.microsoft.com/windows/iot-core/windows-iot-enterprise), kompilacja 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/rel-notes-19), kompilacja 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Windows Server IoT 2019](https://docs.microsoft.com/windows/iot-core/windows-server), kompilacja 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
-Wymienione powyżej systemy operacyjne Windows są wymaganiami dla urządzeń z kontenerami systemu Windows w systemie Windows, który jest jedyną obsługiwaną konfiguracją w wersji produkcyjnej. Pakiety instalacyjne usługi Azure IoT Edge dla systemu Windows umożliwiają korzystanie z kontenerów systemu Linux w systemie Windows; jednak ta konfiguracja jest tylko do tworzenia i testowania. Aby uzyskać więcej informacji, zobacz [Uruchamianie kontenerów systemu Linux za pomocą usługi IoT Edge w systemie Windows](how-to-install-iot-edge-windows-with-linux.md).
+Wymienione powyżej systemy operacyjne Windows są wymaganiami dotyczącymi urządzeń z kontenerami systemu Windows w systemie Windows, które są jedyną obsługiwaną konfiguracją dla środowiska produkcyjnego. Pakiety instalacyjne Azure IoT Edge dla systemu Windows umożliwiają używanie kontenerów z systemem Linux w systemie Windows; Jednak ta konfiguracja służy tylko do tworzenia i testowania. Aby uzyskać więcej informacji, zobacz [używanie IoT Edge w systemie Windows do uruchamiania kontenerów systemu Linux](how-to-install-iot-edge-windows-with-linux.md).
 
 ### <a name="tier-2"></a>Warstwa 2
 
-Systemy wymienione w poniższej tabeli są uważane za zgodne z usługą Azure IoT Edge, ale nie są aktywnie testowane ani utrzymywane przez firmę Microsoft.
+Systemy wymienione w poniższej tabeli są uważane za zgodne z Azure IoT Edge, ale nie są aktywnie przetestowane ani obsługiwane przez firmę Microsoft.
 
-| System operacyjny | Amd64 | ARM32v7 | ARM64 |
+| System operacyjny | Procesor | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | [CentOS 7.5](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7.1804) | ![CentOS + AMD64](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Debian 8](https://www.debian.org/releases/jessie/) | ![Debian 8 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Debian 9](https://www.debian.org/releases/stretch/) | ![Debian 9 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Debian 10](https://www.debian.org/releases/buster/) <sup>1</sup> | ![Debian 10 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM64](./media/tutorial-c-module/green-check.png) |
-| [Mentor Wbudowany Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Wbudowany Linux Flex OS + AMD64](./media/tutorial-c-module/green-check.png) | ![Mentor Wbudowany System Operacyjny Linux Flex + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Mentor Wbudowany Linux Flex OS + ARM64](./media/tutorial-c-module/green-check.png) |
-| [Mentor Wbudowany Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Wbudowany Linux Omni OS + AMD64](./media/tutorial-c-module/green-check.png) |  | ![Mentor Wbudowany Linux Omni OS + ARM64](./media/tutorial-c-module/green-check.png) |
-| [RHEL 7.5](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.5_release_notes/index) | ![RHEL 7.5 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7,5 + RAMIĘ64](./media/tutorial-c-module/green-check.png) |
-| [Ubuntu 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu 16.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16.04 + ARM64](./media/tutorial-c-module/green-check.png) |
-| [Ubuntu 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu 18.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM64](./media/tutorial-c-module/green-check.png) |
-| [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Rzeka Wiatrowa 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| [Opiekun — wbudowany system operacyjny Linux](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Opiekun — wbudowany system operacyjny Linux w systemie operacyjnym + AMD64](./media/tutorial-c-module/green-check.png) | ![Opiekun — wbudowany system operacyjny Linux dla systemu operacyjnego i ARM32v7](./media/tutorial-c-module/green-check.png) | ![Opiekun — wbudowany system operacyjny Linux dla systemu operacyjnego i ARM64](./media/tutorial-c-module/green-check.png) |
+| [Opiekun systemu operacyjnego w wersji Embedded Linux](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Opiekun — wbudowany system operacyjny Linux w wersji + AMD64](./media/tutorial-c-module/green-check.png) |  | ![Opiekun — osadzony system operacyjny Linux w systemie operacyjnym i ARM64](./media/tutorial-c-module/green-check.png) |
+| [RHEL 7.5](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.5_release_notes/index) | ![RHEL 7,5 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7,5 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7,5 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Ubuntu 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu 16,04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16,04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16,04 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Ubuntu 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu 18,04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18,04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18,04 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Rzeka wiatr 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
-| Pogromca Raspbian <sup>1</sup> |  | ![Pogromca raspbian + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Pogromca raspbian + ARM64](./media/tutorial-c-module/green-check.png) |
+| Raspbian Buster <sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
 
-<sup>1</sup> Systemy Debiana 10, w tym Raspian Buster, używają wersji OpenSSL, której IoT Edge nie obsługuje. Użyj następującego polecenia, aby zainstalować wcześniejszą wersję przed zainstalowaniem usługi IoT Edge:
+<sup>1</sup> Debian 10 systemów, w tym Raspian Buster, użyj wersji OpenSSL, która nie jest obsługiwana przez IoT Edge. Przed zainstalowaniem IoT Edge Użyj następującego polecenia:
 
 ```bash
 sudo apt-get install libssl1.0.2
@@ -99,11 +99,11 @@ sudo apt-get install libssl1.0.2
 
 ## <a name="releases"></a>Wydania
 
-Zasoby wydania usługi IoT Edge i informacje o wersji są dostępne na stronie [wydań azure-iotedge.](https://github.com/Azure/azure-iotedge/releases) Ta sekcja odzwierciedla informacje z tych informacji o wersji, aby ułatwić wizualizację składników każdej wersji.
+IoT Edge zasoby wydania i informacje o wersji są dostępne na stronie [wydania usługi Azure iotedge](https://github.com/Azure/azure-iotedge/releases) . Ta sekcja zawiera informacje zawarte w tych informacjach o wersji, które ułatwiają łatwą wizualizację składników poszczególnych wersji.
 
-Składniki IoT Edge można instalować lub aktualizować indywidualnie i są wstecznie kompatybilne ze składnikami ze starszych wersji. W poniższej tabeli wymieniono składniki zawarte w każdej wersji:
+Składniki IoT Edge można zainstalować lub zaktualizować osobno i są wstecznie zgodne ze składnikami ze starszych wersji. W poniższej tabeli wymieniono składniki zawarte w poszczególnych wersjach:
 
-| Release   | Demon bezpieczeństwa  | Koncentrator krawędzi<br>Agent krawędzi | Libiothsm | Moby  |
+| Release   | Demon zabezpieczeń  | Centrum brzegowe<br>Agent graniczny | Libiothsm | Moby  |
 | --------- | ---------------- | ---------------------- | --------- | ----- |
 | **1.0.9** | 1.0.9            | 1.0.9                  | 1.0.9     |       |
 | **1.0.8** | 1.0.8            | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
@@ -111,34 +111,34 @@ Składniki IoT Edge można instalować lub aktualizować indywidualnie i są wst
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6       | 1.0.6.1<br>1.0.6 |  |
 | **1.0.5** | 1.0.5            | 1.0.5                  | 1.0.5     | 3.0.2 |
 
-Usługa IoT Edge używa sdk Microsoft.Azure.Device.Client. Aby uzyskać więcej informacji, zobacz [repozytorium GitHub usługi Azure IoT C#](https://github.com/Azure/azure-iot-sdk-csharp) lub [zestaw SDK platformy Azure dla zawartości referencyjnej .NET.](https://docs.microsoft.com/dotnet/api/overview/azure/iot/client?view=azure-dotnet) Na poniższej liście przedstawiono wersję sdk klienta, dla których każda wersja jest testowana:
+IoT Edge używa zestawu SDK Microsoft. Azure. Device. Client. Aby uzyskać więcej informacji, zobacz [repozytorium usługi Azure IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) w witrynie GitHub lub [zawartość referencyjną Azure SDK dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/iot/client?view=azure-dotnet). Na poniższej liście przedstawiono wersję zestawu SDK klienta, dla którego są testowane poszczególne wersje:
 
-* **IoT Edge 1.0.9**: SDK klienta 1.21.1
-* **IoT Edge 1.0.8**: SDK klienta 1.20.3
-* **IoT Edge 1.0.7**: SDK klienta 1.20.1
-* **IoT Edge 1.0.6**: SDK klienta 1.17.1
-* **IoT Edge 1.0.5**: SDK klienta 1.17.1
+* **IoT Edge 1.0.9**: 1.21.1 zestawu SDK klienta
+* **IoT Edge 1.0.8**: 1.20.3 zestawu SDK klienta
+* **IoT Edge 1.0.7**: 1.20.1 zestawu SDK klienta
+* **IoT Edge 1.0.6**: 1.17.1 zestawu SDK klienta
+* **IoT Edge 1.0.5**: 1.17.1 zestawu SDK klienta
 
 ## <a name="virtual-machines"></a>Maszyny wirtualne
 
-Usługa Azure IoT Edge można uruchomić na maszynach wirtualnych. Używanie maszyny wirtualnej jako urządzenia usługi IoT Edge jest powszechne, gdy klienci chcą rozszerzyć istniejącą infrastrukturę za pomocą analizy brzegowej. Rodzina hosta systemu operacyjnego maszyny Wirtualnej musi być zgodna z rodziną systemu operacyjnego gościa używanego w kontenerze modułu. To wymaganie jest taka sama, jak wtedy, gdy usługa Azure IoT Edge jest uruchamiana bezpośrednio na urządzeniu. Usługa Azure IoT Edge jest niezależną od podstawowej technologii wirtualizacji i działa na maszynach wirtualnych opartych na platformach takich jak Hyper-V i vSphere.
+Azure IoT Edge można uruchamiać na maszynach wirtualnych. Użycie maszyny wirtualnej jako urządzenia IoT Edge jest powszechne, gdy klienci chcą rozszerzyć istniejącą infrastrukturę za pomocą funkcji analizy brzegowej. Rodzina systemu operacyjnego hosta maszyny wirtualnej musi być zgodna z rodziną systemu operacyjnego gościa używanego wewnątrz kontenera modułu. To wymaganie jest takie samo, jak w przypadku uruchamiania Azure IoT Edge bezpośrednio na urządzeniu. Azure IoT Edge jest niezależny od podstawowej technologii wirtualizacji i działa na maszynach wirtualnych opartych na platformach takich jak Hyper-V i vSphere.
 
 <br>
 <center>
 
-![Usługa Azure IoT Edge na maszynie wirtualnej](./media/support/edge-on-vm.png)
+![Azure IoT Edge w maszynie wirtualnej](./media/support/edge-on-vm.png)
 </center>
 
 ## <a name="minimum-system-requirements"></a>Minimalne wymagania systemowe
 
-Usługa Azure IoT Edge działa świetnie na urządzeniach tak małych, jak Raspberry Pi3 do sprzętu klasy serwerowej. Wybór odpowiedniego sprzętu dla scenariusza zależy od obciążeń, które chcesz uruchomić. Podjęcie ostatecznej decyzji o urządzeniu może być skomplikowane; Można jednak łatwo rozpocząć prototypowanie rozwiązania na tradycyjnych laptopach lub komputerach stacjonarnych.
+Azure IoT Edge działa doskonale na urządzeniach jako Raspberry PI3 na sprzęcie klasy serwerów. Wybór odpowiedniego sprzętu dla danego scenariusza zależy od obciążeń, które chcesz uruchomić. Podejmowanie ostatecznej decyzji o urządzeniu może być skomplikowane; można jednak łatwo zacząć tworzyć prototypy rozwiązania na tradycyjnych laptopach lub komputerach stacjonarnych.
 
-Doświadczenie podczas tworzenia prototypów pomoże w wyborze ostatecznego urządzenia. Pytania, które należy wziąć pod uwagę, obejmują:
+Środowisko pracy podczas tworzenia prototypów ułatwi wybór ostatecznego urządzenia. Należy wziąć pod uwagę następujące pytania:
 
-* Ile modułów jest w obciążeniu?
-* Ile warstw mają udział kontenery modułów?
-* W jakim języku są napisane moduły?
-* Ile danych będą przetwarzać moduły?
-* Czy twoje moduły potrzebują specjalistycznego sprzętu do przyspieszania obciążeń?
-* Jakie są pożądane właściwości użytkowe rozwiązania?
-* Jaki jest twój budżet sprzętowy?
+* Ile modułów znajduje się w obciążeniu?
+* Ile warstw ma udział w kontenerach modułów?
+* W jakim języku są zapisywane Twoje moduły?
+* Ile danych będzie przetwarzanych przez moduły?
+* Czy moduły wymagają dowolnego wyspecjalizowanego sprzętu w celu przyspieszenia obciążeń?
+* Jakie są odpowiednie charakterystyki wydajności rozwiązania?
+* Jaki jest Twój budżet sprzętu?

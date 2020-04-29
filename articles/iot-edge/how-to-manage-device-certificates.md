@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie certyfikatami urządzeń — usługa Azure IoT Edge | Dokumenty firmy Microsoft
-description: Utwórz certyfikaty testowe, zainstaluj je i zarządzaj nimi na urządzeniu usługi Azure IoT Edge, aby przygotować się do wdrożenia produkcyjnego.
+title: Zarządzanie certyfikatami urządzeń — Azure IoT Edge | Microsoft Docs
+description: Utwórz certyfikaty testowe, zainstaluj je i zarządzaj nimi na urządzeniu Azure IoT Edge, aby przygotować się do wdrożenia produkcyjnego.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,67 +9,67 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c18c3d560adb3c3cae54bda808ee5842c260fd6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79539210"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Zarządzanie certyfikatami na urządzeniu IoT Edge
 
-Wszystkie urządzenia usługi IoT Edge używają certyfikatów do tworzenia bezpiecznych połączeń między czasem wykonywania a dowolnymi modułami uruchomionymi na urządzeniu. Urządzenia usługi IoT Edge działające jako bramy używają tych samych certyfikatów do łączenia się z ich urządzeniami podrzędnymi.
+Wszystkie urządzenia IoT Edge używają certyfikatów do tworzenia bezpiecznych połączeń między środowiskiem uruchomieniowym i wszystkimi modułami uruchomionymi na urządzeniu. IoT Edge urządzenia działające jako bramy używają tych samych certyfikatów do łączenia się z urządzeniami podrzędnymi.
 
 ## <a name="install-production-certificates"></a>Instalowanie certyfikatów produkcyjnych
 
-Podczas pierwszej instalacji usługi IoT Edge i aprowizowania urządzenia urządzenie jest skonfigurowane z certyfikatami tymczasowymi, dzięki czemu można przetestować usługę.
-Te tymczasowe certyfikaty wygasają w ciągu 90 dni lub można je zresetować po ponownym uruchomieniu komputera.
-Gdy będziesz gotowy, aby przenieść swoje urządzenia do scenariusza produkcyjnego lub chcesz utworzyć scenariusz bramy, należy podać własne certyfikaty.
-W tym artykule przedstawiono kroki instalowania certyfikatów na urządzeniach usługi IoT Edge.
+Podczas pierwszej instalacji IoT Edge i aprowizacji urządzenia urządzenie zostanie skonfigurowane z certyfikatami tymczasowymi, aby umożliwić przetestowanie usługi.
+Te certyfikaty tymczasowe wygasną przez 90 dni lub można je zresetować przez ponowne uruchomienie komputera.
+Gdy wszystko będzie gotowe do przeniesienia urządzeń do scenariusza produkcyjnego lub chcesz utworzyć scenariusz bramy, musisz podać własne certyfikaty.
+W tym artykule przedstawiono procedurę instalowania certyfikatów na IoT Edge urządzeniach.
 
-Aby dowiedzieć się więcej o różnych typach certyfikatów i ich rolach w scenariuszu usługi IoT Edge, zobacz [Opis sposobu używania certyfikatów przez usługę Azure IoT Edge.](iot-edge-certs.md)
+Aby dowiedzieć się więcej o różnych typach certyfikatów i ich rolach w IoT Edge scenariuszu, zobacz [Opis sposobu, w jaki Azure IoT Edge używa certyfikatów](iot-edge-certs.md).
 
 >[!NOTE]
->Termin "główny urząd certyfikacji" używany w tym artykule odnosi się do najwyższego certyfikatu urzędu publicznego łańcucha certyfikatów dla rozwiązania IoT. Nie trzeba używać katalogu głównego certyfikatu syndykatu urzędu certyfikacji ani katalogu głównego urzędu certyfikacji organizacji. W wielu przypadkach jest to w rzeczywistości pośredni certyfikat publiczny urzędu certyfikacji.
+>Termin "główny urząd certyfikacji" używany w tym artykule odnosi się do certyfikatu publicznego urzędu łańcucha certyfikatów dla rozwiązania IoT. Nie trzeba używać certyfikatu głównego urzędu certyfikacji z certyfikatem lub administratorem urzędu certyfikacji w organizacji. W wielu przypadkach jest to pośredni certyfikat publiczny urzędu certyfikacji.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* Urządzenie IoT Edge z systemem [Windows](how-to-install-iot-edge-windows.md) lub [Linux](how-to-install-iot-edge-linux.md).
-* Posiada certyfikat głównego urzędu certyfikacji (CA), podpisany samodzielnie lub zakupiony od zaufanego komercyjnego urzędu certyfikacji, takiego jak Baltimore, Verisign, DigiCert lub GlobalSign.
+* Urządzenie IoT Edge uruchomione w [systemie Windows](how-to-install-iot-edge-windows.md) lub [Linux](how-to-install-iot-edge-linux.md).
+* Posiadanie certyfikatu głównego urzędu certyfikacji (CA) z podpisem własnym lub zakupionego od zaufanego komercyjnego urzędu certyfikacji, takiego jak Baltimore, VeriSign, DigiCert lub GlobalSign.
 
-Jeśli nie masz jeszcze głównego urzędu certyfikacji, ale chcesz wypróbować funkcje usługi IoT Edge, które wymagają certyfikatów produkcyjnych (takich jak scenariusze bramy), możesz [utworzyć certyfikaty demonstracyjne w celu przetestowania funkcji urządzenia Usługi IoT Edge.](how-to-create-test-certificates.md)
+Jeśli nie masz jeszcze głównego urzędu certyfikacji, ale chcesz wypróbować IoT Edge funkcje wymagające certyfikatów produkcyjnych (na przykład scenariusze bramy), możesz [utworzyć certyfikaty demonstracyjne do testowania funkcji IoT Edge urządzeń](how-to-create-test-certificates.md).
 
 ### <a name="create-production-certificates"></a>Tworzenie certyfikatów produkcyjnych
 
-Do utworzenia następujących plików należy użyć własnego urzędu certyfikacji:
+Aby utworzyć następujące pliki, należy użyć własnego urzędu certyfikacji:
 
 * Główny urząd certyfikacji
 * Certyfikat urzędu certyfikacji urządzenia
 * Klucz prywatny urzędu certyfikacji urządzenia
 
-W tym artykule to, co nazywamy głównym urzędem *certyfikacji,* nie jest najwyższym urzędem certyfikacji dla organizacji. Jest to najwyższy urząd certyfikacji dla scenariusza usługi IoT Edge, którego moduł centrum usługi IoT Edge, moduły użytkownika i wszystkie urządzenia podrzędne używają do ustanawiania zaufania między sobą.
+Ten artykuł zawiera informacje o tym, jako że *główny urząd certyfikacji* nie jest najwyższym urzędem certyfikatu dla organizacji. Jest to najwyższy urząd certyfikacji dla scenariusza IoT Edge, do którego moduł IoT Edge Hub, moduły użytkownika i wszystkie urządzenia podrzędne używają do ustanawiania relacji zaufania między sobą.
 
-Aby wyświetlić przykład tych certyfikatów, przejrzyj skrypty, które tworzą certyfikaty demonstracyjne w [temacie Zarządzanie testowymi certyfikatami urzędu certyfikacji dla przykładów i samouczków](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
+Aby zapoznać się z przykładem tych certyfikatów, przejrzyj skrypty, które tworzą certyfikaty demonstracyjne w [zarządzaniu testowymi certyfikatami urzędu certyfikacji dla przykładów i samouczków](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
 ### <a name="install-certificates-on-the-device"></a>Instalowanie certyfikatów na urządzeniu
 
-Zainstaluj łańcuch certyfikatów na urządzeniu Usługi IoT Edge i skonfiguruj środowisko uruchomieniowe usługi IoT Edge w celu odwoływania się do nowych certyfikatów.
+Zainstaluj łańcuch certyfikatów na urządzeniu IoT Edge i skonfiguruj środowisko uruchomieniowe IoT Edge, aby odwoływać się do nowych certyfikatów.
 
-Jeśli na przykład do [tworzenia certyfikatów demonstracyjnych](how-to-create-test-certificates.md)użyto przykładowych skryptów, skopiuj następujące pliki na urządzenie IoT-Edge:
+Jeśli na przykład do [tworzenia certyfikatów demonstracyjnych](how-to-create-test-certificates.md)użyto przykładowych skryptów, Skopiuj następujące pliki na urządzenie usługi IoT Edge:
 
 * Certyfikat urzędu certyfikacji urządzenia:`<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
 * Klucz prywatny urzędu certyfikacji urządzenia:`<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
 * Główny urząd certyfikacji:`<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
-1. Skopiuj trzy pliki certyfikatów i kluczy na urządzenie Usługi IoT Edge.
+1. Skopiuj trzy pliki certyfikatów i kluczy na urządzenie IoT Edge.
 
-   Aby przenieść pliki certyfikatów, można użyć usługi takiej jak [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) lub funkcji, takiej jak secure copy [protocol.](https://www.ssh.com/ssh/scp/)  Jeśli certyfikaty zostały wygenerowane na samym urządzeniu IoT Edge, można pominąć ten krok i użyć ścieżki do katalogu roboczego.
+   Do przenoszenia plików certyfikatów można użyć usługi, takiej jak [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) lub funkcja, taka jak [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) .  Jeśli certyfikaty zostały wygenerowane na urządzeniu IoT Edge, możesz pominąć ten krok i użyć ścieżki do katalogu roboczego.
 
-1. Otwórz plik konfiguracyjny demona zabezpieczeń IoT Edge.
+1. Otwórz plik konfiguracji demona Security IoT Edge.
 
-   * Windows:`C:\ProgramData\iotedge\config.yaml`
-   * Linux:`/etc/iotedge/config.yaml`
+   * Systemy`C:\ProgramData\iotedge\config.yaml`
+   * System`/etc/iotedge/config.yaml`
 
-1. Ustaw właściwości **certyfikatu** w pliku config.yaml na pełną ścieżkę do certyfikatu i plików kluczy na urządzeniu Usługi IoT Edge. Usuń `#` znak przed właściwościami certyfikatu, aby usunąć komentarz do czterech wierszy. Upewnij się, że **certyfikaty:** wiersz nie ma poprzedniego odstępu i że elementy zagnieżdżone są wcięte przez dwie spacje. Przykład:
+1. Ustaw właściwości **certyfikatu** w pliku config. YAML na pełną ścieżkę do certyfikatu i plików kluczy na urządzeniu IoT Edge. Usuń `#` znak przed właściwościami certyfikatu, aby usunąć komentarz z czterech wierszy. Upewnij się, że w wierszu **Certyfikaty:** nie ma powyższego odstępu, a elementy zagnieżdżone są wcięte o dwie spacje. Przykład:
 
    * W systemie Windows:
 
@@ -89,29 +89,29 @@ Jeśli na przykład do [tworzenia certyfikatów demonstracyjnych](how-to-create-
         trusted_ca_certs: "<path>/root-ca.root.ca.cert.pem"
       ```
 
-1. Na urządzeniach z systemem Linux upewnij się, że użytkownik **iotedge** ma uprawnienia do odczytu dla katalogu zawierającego certyfikaty.
+1. Na urządzeniach z systemem Linux upewnij się, że użytkownik **iotedge** ma uprawnienia do odczytu w katalogu zawierającym certyfikaty.
 
-1. Jeśli wcześniej na urządzeniu były używane inne certyfikaty dla ioT Edge, usuń pliki z następujących dwóch katalogów przed uruchomieniem lub ponownym uruchomieniem IoT Edge:
+1. Jeśli przed uruchomieniem lub ponownym IoT Edge uruchomieniem usługi IoT Edge na urządzeniu zostały wcześniej użyte inne certyfikaty, usuń je z następujących dwóch katalogów:
 
-   * Okna: `C:\ProgramData\iotedge\hsm\certs` i`C:\ProgramData\iotedge\hsm\cert_keys`
+   * Windows: `C:\ProgramData\iotedge\hsm\certs` i`C:\ProgramData\iotedge\hsm\cert_keys`
 
    * Linux: `/var/lib/iotedge/hsm/certs` i`/var/lib/iotedge/hsm/cert_keys`
 
-## <a name="customize-certificate-lifetime"></a>Dostosowywanie okresu istnienia certyfikatu
+## <a name="customize-certificate-lifetime"></a>Dostosuj okres istnienia certyfikatu
 
-IoT Edge automatycznie generuje certyfikaty na urządzeniu w kilku przypadkach, w tym:
+IoT Edge automatycznie generuje certyfikaty na urządzeniu w kilka przypadków, w tym:
 
-* Jeśli podczas instalowania i aprowizowania usługi IoT Edge nie podasz własnych certyfikatów produkcyjnych, menedżer zabezpieczeń usługi IoT Edge automatycznie wygeneruje **certyfikat urzędu certyfikacji urządzenia.** Ten certyfikat z podpisem własnym jest przeznaczony tylko do scenariuszy deweloperskich i testowych, a nie do produkcji. Certyfikat wygasa po 90 dniach.
-* Menedżer zabezpieczeń usług IoT Edge generuje również **certyfikat urzędu certyfikacji obciążenia** podpisany certyfikatem urzędu certyfikacji urządzenia
+* Jeśli nie podano własnych certyfikatów produkcyjnych podczas instalowania i inicjowania obsługi administracyjnej IoT Edge, program IoT Edge Security Manager automatycznie wygeneruje **certyfikat urzędu certyfikacji urządzenia**. Ten certyfikat z podpisem własnym jest przeznaczony wyłącznie do celów deweloperskich i testowych, a nie do produkcji. Ten certyfikat wygasa po 90 dniach.
+* IoT Edge Security Manager generuje również **certyfikat urzędu certyfikacji obciążenia** podpisany przez certyfikat urzędu certyfikacji urządzenia
 
-Aby uzyskać więcej informacji na temat funkcji różnych certyfikatów na urządzeniu usługi IoT Edge, zobacz [Opis sposobu używania certyfikatów usługi Azure IoT Edge.](iot-edge-certs.md)
+Aby uzyskać więcej informacji na temat funkcji różnych certyfikatów na urządzeniu IoT Edge, zobacz [Opis sposobu Azure IoT Edge korzystania z certyfikatów](iot-edge-certs.md).
 
-W przypadku tych dwóch automatycznie generowanych certyfikatów można skonfigurować liczbę dni okresu istnienia certyfikatów w **auto_generated_ca_lifetime_days.**
+Dla tych dwóch automatycznie generowanych certyfikatów istnieje możliwość ustawienia flagi **auto_generated_ca_lifetime_days** w pliku config. YAML w celu skonfigurowania liczby dni okresu istnienia certyfikatów.
 
 >[!NOTE]
->Istnieje trzeci automatycznie wygenerowany certyfikat, który tworzy menedżer zabezpieczeń usługi IoT Edge, **certyfikat serwera centrum usługi IoT Edge**. Ten certyfikat ma zawsze 90 dni, ale jest automatycznie odnawiany przed wygaśnięciem. Wartość **auto_generated_ca_lifetime_days** nie ma wpływu na ten certyfikat.
+>Istnieje trzeci certyfikat wygenerowany automatycznie, który zostanie utworzony przez program IoT Edge Security Manager, **certyfikat serwera centrum IoT Edge**. Ten certyfikat zawsze ma 90 dzień, ale jest automatycznie odnawiany przed wygaśnięciem. Wartość **auto_generated_ca_lifetime_days** nie ma wpływu na ten certyfikat.
 
-Aby skonfigurować wygaśnięcie certyfikatu na wartość inną niż domyślne 90 dni, dodaj wartość w dniach do sekcji **certyfikaty** pliku config.yaml.
+Aby skonfigurować wygaśnięcie certyfikatu do wartości innej niż domyślna 90 dni, Dodaj wartość w dniach do sekcji **Certyfikaty** w pliku config. YAML.
 
 ```yaml
 certificates:
@@ -121,15 +121,15 @@ certificates:
   auto_generated_ca_lifetime_days: <value>
 ```
 
-Jeśli podano certyfikaty urzędu certyfikacji własnego urządzenia, ta wartość nadal ma zastosowanie do certyfikatu urzędu certyfikacji obciążenia, pod warunkiem że ustawiona wartość okresu istnienia jest krótsza niż okres istnienia certyfikatu urzędu certyfikacji urządzenia.
+Jeśli podano własne certyfikaty urzędu certyfikacji, ta wartość nadal ma zastosowanie do certyfikatu urzędu certyfikacji, pod warunkiem, że ustawiona wartość okresu istnienia jest krótsza niż okres istnienia certyfikatu urzędu certyfikacji.
 
-Po określeniu flagi w pliku config.yaml należy wykonać następujące czynności:
+Po określeniu flagi w pliku config. YAML wykonaj następujące czynności:
 
-1. Usuń zawartość folderu. `hsm`
+1. Usuń zawartość `hsm` folderu.
 
-   Windows: `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys` Linux:`/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
+   System Windows `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys` : Linux:`/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
 
-1. Uruchom ponownie usługę Usługi IoT Edge.
+1. Uruchom ponownie usługę IoT Edge.
 
    W systemie Windows:
 
@@ -157,8 +157,8 @@ Po określeniu flagi w pliku config.yaml należy wykonać następujące czynnoś
    sudo iotedge check --verbose
    ```
 
-   Sprawdź dane **wyjściowe gotowości produkcyjnej: sprawdź certyfikaty,** który wyświetla liczbę dni do wygaśnięcia automatycznie wygenerowanych certyfikatów urzędu certyfikacji urządzenia.
+   Sprawdź dane wyjściowe **gotowości produkcyjnej: sprawdzanie certyfikatów** , które wyświetla liczbę dni, po upływie których automatycznie Wygenerowano certyfikaty urzędu certyfikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Instalowanie certyfikatów na urządzeniu Z brzegiem IoT jest niezbędnym krokiem przed wdrożeniem rozwiązania w procesach produkcyjnych. Dowiedz się więcej o tym, jak [przygotować się do wdrożenia rozwiązania IoT Edge w produkcji.](production-checklist.md)
+Zainstalowanie certyfikatów na urządzeniu IoT Edge jest czynnością wymaganą przed wdrożeniem rozwiązania w środowisku produkcyjnym. Dowiedz się więcej o [tym, jak przygotować się do wdrożenia rozwiązania IoT Edge w środowisku produkcyjnym](production-checklist.md).
