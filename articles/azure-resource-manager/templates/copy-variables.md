@@ -1,24 +1,24 @@
 ---
 title: Definiowanie wielu wystąpień zmiennej
-description: Użyj operacji kopiowania w szablonie usługi Azure Resource Manager, aby iterować wiele razy podczas tworzenia zmiennej.
+description: Użyj operacji copy w szablonie Azure Resource Manager, aby wykonać iterację wielokrotnie podczas tworzenia zmiennej.
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: ed0c2d87c48a18b0a065f6c76e1e69142a9df048
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80153305"
 ---
-# <a name="variable-iteration-in-arm-templates"></a>Iteracja zmiennych w szablonach ARM
+# <a name="variable-iteration-in-arm-templates"></a>Iteracja zmiennej w szablonach ARM
 
-W tym artykule pokazano, jak utworzyć więcej niż jedną wartość dla zmiennej w szablonie usługi Azure Resource Manager (ARM). Dodając element **kopiowania** do sekcji zmiennych szablonu, można dynamicznie ustawić liczbę elementów dla zmiennej podczas wdrażania. Można również unikać konieczności powtarzania składni szablonu.
+W tym artykule pokazano, jak utworzyć więcej niż jedną wartość zmiennej w szablonie Azure Resource Manager (ARM). Poprzez dodanie elementu **copy** do sekcji zmienne szablonu, można dynamicznie ustawić liczbę elementów dla zmiennej podczas wdrażania. Należy również unikać powtarzania składni szablonu.
 
-Można również użyć kopiowania z [zasobami, właściwości w zasobie](copy-properties.md)i [danych wyjściowych](copy-outputs.md). [resources](copy-resources.md)
+Można również użyć kopiowania z [zasobami](copy-resources.md), [właściwości w zasobów](copy-properties.md)i danych [wyjściowych](copy-outputs.md).
 
 ## <a name="variable-iteration"></a>Iteracja zmiennej
 
-Element kopiowania ma następujący ogólny format:
+Element Copy ma następujący format ogólny:
 
 ```json
 "copy": [
@@ -30,11 +30,11 @@ Element kopiowania ma następujący ogólny format:
 ]
 ```
 
-Właściwość **name** jest dowolną wartością, która identyfikuje pętlę. Właściwość **count** określa liczbę iteracji, które mają dla zmiennej.
+Właściwość **name** jest dowolną wartością, która identyfikuje pętlę. Właściwość **Count** określa liczbę iteracji dla zmiennej.
 
-Właściwość **input** określa właściwości, które mają zostać powtórzone. Można utworzyć tablicę elementów zbudowanych na podstawie wartości we właściwości **wejściowej.** Może to być pojedyncza właściwość (jak ciąg) lub obiekt z kilkoma właściwościami.
+Właściwość **Input** określa właściwości, które mają być powtarzane. Tworzysz tablicę elementów skonstruowanych na podstawie wartości we właściwości **wejściowej** . Może to być pojedyncza Właściwość (na przykład ciąg) lub obiekt z kilkoma właściwościami.
 
-W poniższym przykładzie pokazano, jak utworzyć tablicę wartości ciągu:
+Poniższy przykład pokazuje, jak utworzyć tablicę wartości ciągów:
 
 ```json
 {
@@ -77,7 +77,7 @@ Poprzedni szablon zwraca tablicę z następującymi wartościami:
 ]
 ```
 
-W następnym przykładzie pokazano, jak utworzyć tablicę obiektów o trzech właściwościach - nazwa, diskSizeGB i diskIndex.
+W następnym przykładzie pokazano, jak utworzyć tablicę obiektów z trzema właściwościami Name, diskSizeGB i diskIndex.
 
 ```json
 {
@@ -112,7 +112,7 @@ W następnym przykładzie pokazano, jak utworzyć tablicę obiektów o trzech w�
 }
 ```
 
-W poprzednim przykładzie zwraca tablicę z następującymi wartościami:
+Poprzedni przykład zwraca tablicę o następujących wartościach:
 
 ```json
 [
@@ -145,10 +145,10 @@ W poprzednim przykładzie zwraca tablicę z następującymi wartościami:
 ```
 
 > [!NOTE]
-> Iteracja zmiennej obsługuje argument przesunięcia. Przesunięcie musi pochodzić po nazwie iteracji, takich jak copyIndex('diskNames', 1). Jeśli nie podasz wartości przesunięcia, domyślnie jest to 0 dla pierwszego wystąpienia.
+> Zmienna Variable obsługuje argument przesunięcia. Przesunięcie musi następować po nazwie iteracji, takiej jak funkcji copyindex ("diskNames", 1). Jeśli nie podano wartości przesunięcia, domyślnie zostanie ustawiona wartość 0 dla pierwszego wystąpienia.
 >
 
-Można również użyć elementu kopiowania w zmiennej. Poniższy przykład tworzy obiekt, który ma tablicę jako jedną z jego wartości.
+Można również użyć elementu Copy w zmiennej. Poniższy przykład tworzy obiekt, który ma tablicę jako jedną z jej wartości.
 
 ```json
 {
@@ -186,7 +186,7 @@ Można również użyć elementu kopiowania w zmiennej. Poniższy przykład twor
 }
 ```
 
-W poprzednim przykładzie zwraca obiekt o następujących wartościach:
+Poprzedni przykład zwraca obiekt o następujących wartościach:
 
 ```json
 {
@@ -221,7 +221,7 @@ W poprzednim przykładzie zwraca obiekt o następujących wartościach:
 }
 ```
 
-W następnym przykładzie przedstawiono różne sposoby używania kopii ze zmiennymi.
+W następnym przykładzie pokazano różne sposoby używania kopiowania z zmiennymi.
 
 ```json
 {
@@ -297,26 +297,26 @@ W następnym przykładzie przedstawiono różne sposoby używania kopii ze zmien
 
 ## <a name="copy-limits"></a>Limity kopiowania
 
-Liczba nie może przekroczyć 800.
+Liczba nie może przekraczać 800.
 
-Liczba nie może być liczbą ujemną. Jeśli wdrożysz szablon z programem Azure PowerShell 2.6 lub nowszym, interfejsem wiersza polecenia platformy Azure 2.0.74 lub nowszym lub interfejsem API REST w wersji **2019-05-10** lub nowszej, można ustawić liczbę na zero. Starsze wersje programu PowerShell, interfejsu wiersza polecenia i interfejsu API REST nie obsługują zero dla liczby.
+Liczba nie może być liczbą ujemną. Jeśli szablon jest wdrażany z Azure PowerShell 2,6 lub nowszym, interfejs wiersza polecenia platformy Azure 2.0.74 lub nowszy albo interfejs API REST w wersji **2019-05-10** lub nowszej, można ustawić liczbę na zero. We wcześniejszych wersjach programu PowerShell, interfejsu wiersza polecenia i interfejsie API REST nie są obsługiwane wartości zerowe.
 
 ## <a name="example-templates"></a>Przykładowe szablony
 
-Poniższe przykłady pokazują typowe scenariusze tworzenia więcej niż jednej wartości dla zmiennej.
+W poniższych przykładach przedstawiono typowe scenariusze tworzenia więcej niż jednej wartości dla zmiennej.
 
 |Szablon  |Opis  |
 |---------|---------|
-|[Kopiowanie zmiennych](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Pokazuje różne sposoby iteracji zmiennych. |
-|[Wiele reguł zabezpieczeń](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Wdraża kilka reguł zabezpieczeń w sieciowej grupie zabezpieczeń. Konstruuje reguły zabezpieczeń z parametru. Dla parametru, zobacz [wiele pliku parametrów NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
+|[Kopiuj zmienne](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Ilustruje różne sposoby iteracji na zmiennych. |
+|[Wiele reguł zabezpieczeń](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Wdraża kilka reguł zabezpieczeń w sieciowej grupie zabezpieczeń. Konstruuje reguły zabezpieczeń z parametru. Dla parametru zobacz [wiele plików parametrów sieciowej grupy zabezpieczeń](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby przejść przez samouczek, zobacz [Samouczek: tworzenie wielu wystąpień zasobów przy użyciu szablonów ARM](template-tutorial-create-multiple-instances.md).
-* Aby uzyskać inne zastosowania elementu kopiowania, zobacz:
+* Aby przejść przez samouczek, zobacz [Samouczek: Tworzenie wielu wystąpień zasobów przy użyciu szablonów usługi ARM](template-tutorial-create-multiple-instances.md).
+* Aby poznać inne zastosowania elementu Copy, zobacz:
   * [Iteracja zasobów w szablonach ARM](copy-resources.md)
   * [Iteracja właściwości w szablonach ARM](copy-properties.md)
-  * [Iteracja wyjściowa w szablonach ARM](copy-outputs.md)
-* Jeśli chcesz dowiedzieć się więcej o sekcjach szablonu, zobacz [Tworzenie szablonów ARM](template-syntax.md).
-* Aby dowiedzieć się, jak wdrożyć szablon, zobacz [Wdrażanie aplikacji z szablonem ARM](deploy-powershell.md).
+  * [Iteracja danych wyjściowych w szablonach ARM](copy-outputs.md)
+* Jeśli chcesz dowiedzieć się więcej na temat sekcji szablonu, zobacz [Tworzenie szablonów ARM](template-syntax.md).
+* Aby dowiedzieć się, jak wdrożyć szablon, zobacz [wdrażanie aplikacji przy użyciu szablonu ARM](deploy-powershell.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Instalowanie agenta maszyny wirtualnej platformy Azure w trybie offline | Dokumenty firmy Microsoft
+title: Zainstaluj agenta maszyny wirtualnej platformy Azure w trybie offline | Microsoft Docs
 description: Dowiedz się, jak zainstalować agenta maszyny wirtualnej platformy Azure w trybie offline.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,103 +14,103 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 8ea85b560f35c79b3d5066d794f587345810b5d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77920862"
 ---
-# <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instalowanie agenta maszyny wirtualnej platformy Azure w trybie offline 
+# <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Zainstaluj agenta maszyny wirtualnej platformy Azure w trybie offline 
 
-Agent maszyny wirtualnej platformy Azure (Agent maszyny wirtualnej) udostępnia przydatne funkcje, takie jak resetowanie hasła administratora lokalnego i wypychanie skryptów. W tym artykule pokazano, jak zainstalować agenta maszyny wirtualnej dla maszyny wirtualnej systemu Windows w trybie offline. 
+Agent maszyny wirtualnej platformy Azure (Agent VM) oferuje przydatne funkcje, takie jak resetowanie hasła administratora lokalnego i wypychanie skryptów. W tym artykule opisano sposób instalowania agenta maszyny wirtualnej dla maszyny wirtualnej z systemem Windows w trybie offline. 
 
-## <a name="when-to-use-the-vm-agent-in-offline-mode"></a>Kiedy używać agenta maszyny Wirtualnej w trybie offline
+## <a name="when-to-use-the-vm-agent-in-offline-mode"></a>Kiedy używać agenta maszyny wirtualnej w trybie offline
 
-Zainstaluj agenta maszyny Wirtualnej w trybie offline w następujących scenariuszach:
+Zainstaluj agenta maszyny wirtualnej w trybie offline w następujących scenariuszach:
 
-- Wdrożona maszyna wirtualna platformy Azure nie ma zainstalowanego agenta maszyny Wirtualnej lub agent nie działa.
-- Nie pamiętasz hasła administratora maszyny Wirtualnej lub nie można uzyskać dostępu do maszyny Wirtualnej.
+- Wdrożona maszyna wirtualna platformy Azure nie ma zainstalowanego agenta maszyny wirtualnej lub Agent nie działa.
+- Nie pamiętasz hasła administratora maszyny wirtualnej lub nie masz dostępu do maszyny wirtualnej.
 
-## <a name="how-to-install-the-vm-agent-in-offline-mode"></a>Jak zainstalować agenta maszyny Wirtualnej w trybie offline
+## <a name="how-to-install-the-vm-agent-in-offline-mode"></a>Jak zainstalować agenta maszyny wirtualnej w trybie offline
 
-Aby zainstalować agenta maszyny Wirtualnej w trybie offline, należy wykonać następujące czynności.
+Wykonaj następujące kroki, aby zainstalować agenta maszyny wirtualnej w trybie offline.
 
-### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Krok 1: Dołączanie dysku systemu operacyjnego maszyny wirtualnej do innej maszyny wirtualnej jako dysku danych
+### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Krok 1. dołączanie dysku systemu operacyjnego maszyny wirtualnej do innej maszyny wirtualnej jako dysku z danymi
 
-1. Zrób migawkę dysku systemu operacyjnego maszyny wirtualnej, którego dotyczy problem, utwórz dysk z migawki, a następnie dołącz dysk do maszyny wirtualnej w celu rozwiązania problemu. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z maszyną wirtualną systemu Windows, dołączając dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu portalu Azure](troubleshoot-recovery-disks-portal-windows.md). W przypadku klasycznej maszyny Wirtualnej usuń maszynę wirtualną i zachowaj dysk systemu operacyjnego, a następnie dołącz dysk systemu operacyjnego do maszyny wirtualnej w rozwiązywaniu problemów.
+1. Utwórz migawkę dysku systemu operacyjnego z zaatakowaną maszyną wirtualną, Stwórz dysk na podstawie migawki, a następnie Dołącz dysk do maszyny wirtualnej rozwiązywania problemów. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z maszyną wirtualną z systemem Windows przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu Azure Portal](troubleshoot-recovery-disks-portal-windows.md). W przypadku klasycznej maszyny wirtualnej Usuń maszynę wirtualną i Zachowaj dysk systemu operacyjnego, a następnie Dołącz dysk systemu operacyjnego do maszyny wirtualnej Rozwiązywanie problemów.
 
-2.  Połącz się z maszyną wirtualną narzędzia do rozwiązywania problemów. Otwórz **zarządzanie komputerem** > **Zarządzanie dyskami**. Upewnij się, że dysk systemu operacyjnego jest w trybie online i że litery dysków są przypisane do partycji dysku.
+2.  Połącz się z maszyną wirtualną narzędzia do rozwiązywania problemów. Otwórz przystawkę Zarządzanie > **dyskami** **Zarządzanie komputerem**. Upewnij się, że dysk systemu operacyjnego jest w trybie online i że litery dysku są przypisane do partycji dysku.
 
-### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Krok 2: Modyfikowanie dysku systemu operacyjnego w celu zainstalowania agenta maszyny wirtualnej platformy Azure
+### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Krok 2. Modyfikowanie dysku systemu operacyjnego w celu zainstalowania agenta maszyny wirtualnej platformy Azure
 
-1.  Nawiązuj połączenie pulpitu zdalnego z maszyną wirtualną narzędzia do rozwiązywania problemów.
+1.  Utwórz połączenie pulpitu zdalnego z maszyną wirtualną narzędzia do rozwiązywania problemów.
 
-2.  Na maszynie wirtualnej narzędzia do rozwiązywania problemów przejdź do podłączonego dysku systemu operacyjnego, otwórz folder \windows\system32\config. Skopiuj wszystkie pliki w tym folderze jako kopię zapasową, w przypadku gdy wymagane jest wycofanie.
+2.  Na maszynie wirtualnej narzędzia do rozwiązywania problemów przejdź do dołączonego dysku systemu operacyjnego, Otwórz folder \Windows\System32\Config. Skopiuj wszystkie pliki w tym folderze jako kopię zapasową, w przypadku gdy wymagane jest wycofanie.
 
-3.  Uruchom **Edytor rejestru** (regedit.exe).
+3.  Uruchom **Edytor rejestru** (regedit. exe).
 
-4.  Wybierz **HKEY_LOCAL_MACHINE** klucz. W menu wybierz polecenie**Gałąź ładowania** **plików** > :
+4.  Wybierz klucz **HKEY_LOCAL_MACHINE** . Z menu wybierz pozycję**Załaduj** **plik** > Hive:
 
-    ![Załaduj ul](./media/install-vm-agent-offline/load-hive.png)
+    ![Ładowanie gałęzi](./media/install-vm-agent-offline/load-hive.png)
 
-5.  Przejdź do folderu \windows\system32\config\SYSTEM na dołączonym dysku systemu operacyjnego. Aby uzyskać nazwę gałęzi, wprowadź **BROKENSYSTEM**. Nowy gałąź rejestru jest wyświetlany pod kluczem **HKEY_LOCAL_MACHINE.**
+5.  Przejdź do folderu \windows\system32\config\SYSTEM na dysku systemu operacyjnego, który został podłączony. W polu Nazwa gałęzi wpisz **BROKENSYSTEM**. W kluczu **HKEY_LOCAL_MACHINE** zostanie wyświetlona nowa gałąź rejestru.
 
-6.  Przejdź do folderu \windows\system32\config\SOFTWARE na dołączonym dysku systemu operacyjnego. Aby uzyskać nazwę oprogramowania hive, wprowadź **BROKENSOFTWARE**.
+6.  Przejdź do folderu \windows\system32\config\SOFTWARE na dysku systemu operacyjnego, który został podłączony. W polu Nazwa oprogramowania Hive wprowadź **BROKENSOFTWARE**.
 
-7. Jeśli na dysku dołączonego systemu operacyjnego jest zainstalowany agent maszyny Wirtualnej, wykonaj kopię zapasową bieżącej konfiguracji. Jeśli nie ma zainstalowanego agenta maszyny Wirtualnej, przejdź do następnego kroku.
+7. Jeśli na dołączonym dysku systemu operacyjnego zainstalowano agenta maszyny wirtualnej, wykonaj kopię zapasową bieżącej konfiguracji. Jeśli nie zainstalowano agenta maszyny wirtualnej, przejdź do następnego kroku.
       
     1. Zmień nazwę folderu \windowsazure na \windowsazure.old.
 
     2. Wyeksportuj następujące rejestry:
-        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
-        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Usługi\RdAgent
+        - HKEY_LOCAL_MACHINE \BROKENSYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
+        - HKEY_LOCAL_MACHINE \BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
+        - HKEY_LOCAL_MACHINE \BROKENSYSTEM\ControlSet001\Services\RdAgent
 
-8.  Użyj istniejących plików na maszynie wirtualnej narzędzia do rozwiązywania problemów jako repozytorium instalacji agenta maszyny Wirtualnej. Wykonaj następujące czynności:
+8.  Użyj istniejących plików na maszynie wirtualnej narzędzia do rozwiązywania problemów jako repozytorium instalacji agenta maszyny wirtualnej. Wykonaj następujące czynności:
 
-    1. Z maszyny wirtualnej do rozwiązywania problemów wyeksportuj następujące podkluczy w formacie rejestru (reg): 
+    1. Na maszynie wirtualnej narzędzia do rozwiązywania problemów wyeksportuj następujące podklucze w formacie rejestru (reg): 
         - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
         - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\RdAgent
 
           ![Eksportowanie podkluczy rejestru](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. Edytuj pliki rejestru. W każdym pliku zmień wartość wejścia **SYSTEM** na **BROKENSYSTEM** (jak pokazano na poniższych obrazach) i zapisz plik. Zapamiętaj **ImagePath** bieżącego agenta maszyny Wirtualnej. Będziemy musieli skopiować odpowiedni folder na dołączony dysk systemu operacyjnego. 
+    2. Edytuj pliki rejestru. W każdym pliku Zmień **system** wartości wpisu na **BROKENSYSTEM** (jak pokazano na poniższych obrazach) i Zapisz plik. Zapamiętaj **ImagePath** bieżącego agenta maszyny wirtualnej. Będziemy musieli skopiować odpowiedni folder do dołączonego dysku systemu operacyjnego. 
 
-        ![Zmienianie wartości podkluczy rejestru](./media/install-vm-agent-offline/change-reg.png)
+        ![Zmienianie wartości podklucza rejestru](./media/install-vm-agent-offline/change-reg.png)
 
-    3. Zaimportuj pliki rejestru do repozytorium, klikając dwukrotnie każdy plik rejestru.
+    3. Zaimportuj pliki rejestru do repozytorium, dwukrotnie klikając każdy plik rejestru.
 
-    4. Upewnij się, że następujące trzy podklu skróty zostały pomyślnie zaimportowane do gałęzi **BROKENSYSTEM:**
-        - System WindowsAzureGuestagent
-        - Usługa WindowsAzureTelemetryService
-        - RdAgent (RdAgent)
+    4. Upewnij się, że następujące trzy podklucze zostały pomyślnie zaimportowane do **BROKENSYSTEM** Hive:
+        - WindowsAzureGuestAgent
+        - WindowsAzureTelemetryService
+        - RdAgent
 
-    5. Skopiuj folder instalacyjny bieżącego agenta maszyny Wirtualnej na podłączony dysk systemu operacyjnego: 
+    5. Skopiuj folder instalacyjny bieżącego agenta maszyny wirtualnej na dołączony dysk systemu operacyjnego: 
 
-        1.  Na dołączonym dysku systemu operacyjnego utwórz folder o nazwie WindowsAzure w ścieżce głównej.
+        1.  Na dołączonym dysku systemu operacyjnego Utwórz folder o nazwie WindowsAzure w ścieżce katalogu głównego.
 
-        2.  Przejdź do C:\WindowsAzure na maszynie wirtualnej do rozwiązywania problemów, poszukaj dowolnego folderu o nazwie C:\WindowsAzure\GuestAgent_X.X.XXXX.XXX. Skopiuj folder GuestAgent, który ma najnowszy numer wersji z języka C:\WindowsAzure do folderu WindowsAzure na podłączonym dysku systemu operacyjnego. Jeśli nie masz pewności, który folder ma zostać skopiowany, skopiuj wszystkie foldery GuestAgent. Na poniższej ilustracji przedstawiono przykład folderu GuestAgent, który jest kopiowany na dołączony dysk systemu operacyjnego.
+        2.  Przejdź do C:\WindowsAzure na maszynie wirtualnej narzędzia do rozwiązywania problemów, poszukaj folderu o nazwie C:\WindowsAzure\ GuestAgent_X. X. XXXX. XXX. Skopiuj folder GuestAgent o numerze najnowszej wersji z C:\WindowsAzure do folderu WindowsAzure na dołączonym dysku systemu operacyjnego. Jeśli nie masz pewności, który folder powinien być kopiowany, skopiuj wszystkie foldery GuestAgent. Na poniższej ilustracji przedstawiono przykład folderu GuestAgent, który jest kopiowany do dołączonego dysku systemu operacyjnego.
 
-             ![Kopiowanie folderu GuestAgent](./media/install-vm-agent-offline/copy-files.png)
+             ![Kopiuj folder GuestAgent](./media/install-vm-agent-offline/copy-files.png)
 
-9.  Wybierz **BROKENSYSTEM**. Z menu wybierz polecenie**Rozładuj** **plik** > gałęzi .
+9.  Wybierz pozycję **BROKENSYSTEM**. Z menu wybierz pozycję**Zwolnij** **plik** > Hive.
 
-10.  Wybierz **BROKENSOFTWARE**. Z menu wybierz polecenie**Rozładuj** **plik** > gałęzi .
+10.  Wybierz pozycję **BROKENSOFTWARE**. Z menu wybierz pozycję**Zwolnij** **plik** > Hive.
 
-11.  Odłącz dysk systemu operacyjnego, a następnie [zmień dysk systemu operacyjnego dla maszyny wirtualnej, którego dotyczy problem](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm). Dla klasycznej maszyny Wirtualnej utwórz nową maszynę wirtualną przy użyciu naprawionego dysku systemu operacyjnego.
+11.  Odłącz dysk systemu operacyjnego, a następnie [Zmień dysk systemu operacyjnego dla maszyny wirtualnej, której to dotyczy](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm). Dla klasycznej maszyny wirtualnej Utwórz nową maszynę wirtualną przy użyciu naprawionego dysku systemu operacyjnego.
 
-12.  Dostęp do maszyny Wirtualnej. Należy zauważyć, że RdAgent jest uruchomiony i dzienniki są generowane.
+12.  Uzyskaj dostęp do maszyny wirtualnej. Zwróć uwagę, że RdAgent jest uruchomiona i dzienniki są generowane.
 
-Jeśli maszyna wirtualna została utworzona przy użyciu modelu wdrażania Menedżera zasobów, gotowe.
+Jeśli maszyna wirtualna została utworzona przy użyciu modelu wdrażania Menedżer zasobów, wszystko jest gotowe.
 
-### <a name="use-the-provisionguestagent-property-for-classic-vms"></a>Użyj właściwości ProvisionGuestAgent dla klasycznych maszyn wirtualnych
+### <a name="use-the-provisionguestagent-property-for-classic-vms"></a>Używanie właściwości parametru provisionguestagent dla klasycznych maszyn wirtualnych
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
-Jeśli utworzono maszynę wirtualną przy użyciu modelu klasycznego, użyj modułu Programu Azure PowerShell, aby zaktualizować **właściwość ProvisionGuestAgent.** Właściwość informuje platformę Azure, że maszyna wirtualna ma zainstalowanego agenta maszyny Wirtualnej.
+Jeśli maszyna wirtualna została utworzona przy użyciu modelu klasycznego, należy użyć modułu Azure PowerShell, aby zaktualizować właściwość **parametru provisionguestagent** . Właściwość informuje platformę Azure, że na maszynie wirtualnej jest zainstalowany agent maszyny wirtualnej.
 
-Aby ustawić właściwość **ProvisionGuestAgent,** uruchom następujące polecenia w programie Azure PowerShell:
+Aby ustawić właściwość **parametru provisionguestagent** , uruchom następujące polecenia w Azure PowerShell:
 
    ```powershell
    $vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
@@ -118,7 +118,7 @@ Aby ustawić właściwość **ProvisionGuestAgent,** uruchom następujące polec
    Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>
    ```
 
-Następnie uruchom `Get-AzureVM` polecenie. Należy zauważyć, że **GuestAgentStatus** właściwość jest teraz wypełniona danymi:
+Następnie uruchom `Get-AzureVM` polecenie. Zauważ, że właściwość **GuestAgentStatus** jest teraz wypełniana danymi:
 
    ```powershell
    Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
@@ -127,5 +127,5 @@ Następnie uruchom `Get-AzureVM` polecenie. Należy zauważyć, że **GuestAgent
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Usługa Azure Virtual Machine Agent — omówienie](../extensions/agent-windows.md)
-- [Rozszerzenia i funkcje maszyn wirtualnych dla systemu Windows](../extensions/features-windows.md)
+- [Omówienie agenta maszyny wirtualnej platformy Azure](../extensions/agent-windows.md)
+- [Rozszerzenia i funkcje maszyny wirtualnej dla systemu Windows](../extensions/features-windows.md)

@@ -1,6 +1,6 @@
 ---
-title: Zestaw Java SDK usługi Azure Data Lake Storage Gen2 dla plików & list ACL
-description: Biblioteki usługi Azure Storage dla oprogramowania Java umożliwiają zarządzanie katalogami oraz listami kontroli dostępu do plików i katalogów (ACL) na kontach magazynu z włączoną hierarchiczną przestrzenią nazw (HNS).
+title: Azure Data Lake Storage Gen2 zestawu SDK Java dla plików & list ACL
+description: Biblioteki usługi Azure Storage dla języka Java umożliwiają zarządzanie katalogami oraz list kontroli dostępu do plików i katalogów (ACL) na kontach magazynu, które mają włączoną hierarchiczną przestrzeń nazw (SNS).
 author: normesta
 ms.service: storage
 ms.date: 03/20/2020
@@ -9,31 +9,31 @@ ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.openlocfilehash: 45870dd7d3035b6b49340fd6e8016794088e775a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80061554"
 ---
-# <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Używanie języka Java do zarządzania katalogami, plikami i listami ACl w usłudze Azure Data Lake Storage Gen2
+# <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Używanie języka Java do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
-W tym artykule pokazano, jak używać oprogramowania Java do tworzenia katalogów, plików i uprawnień oraz zarządzania nimi na kontach magazynu z włączoną hierarchiczną przestrzenią nazw (HNS). 
+W tym artykule pokazano, jak używać języka Java do tworzenia katalogów, plików i uprawnień w ramach kont magazynu, które mają włączoną hierarchiczną przestrzeń nazw (SNS) i zarządzać nimi. 
 
-[Pakiet (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [Próbki](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [API odniesienia](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html) | [Gen1 do Mapowania](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | Gen2[Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
+[Pakiet (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [przykłady](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) |  | —[Dokumentacja interfejsu API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html)[Gen1 do mapowania](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | Gen2[Przekaż opinię](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 > [!div class="checklist"]
 > * Subskrypcja platformy Azure. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Konto magazynu z włączoną hierarchiczną przestrzenią nazw (HNS). Postępuj zgodnie z [tymi](data-lake-storage-quickstart-create-account.md) instrukcjami, aby je utworzyć.
+> * Konto magazynu z włączoną hierarchiczną przestrzenią nazw (SNS). Postępuj zgodnie z [tymi](data-lake-storage-quickstart-create-account.md) instrukcjami, aby je utworzyć.
 
 ## <a name="set-up-your-project"></a>konfigurowanie projektu
 
-Aby rozpocząć, otwórz [tę stronę](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) i znajdź najnowszą wersję biblioteki Java. Następnie otwórz plik *pom.xml* w edytorze tekstu. Dodaj element zależności, który odwołuje się do tej wersji.
+Aby rozpocząć, Otwórz [Tę stronę](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) i Znajdź najnowszą wersję biblioteki języka Java. Następnie otwórz plik *pliku pom. XML* w edytorze tekstów. Dodaj element zależności, który odwołuje się do tej wersji.
 
-Jeśli zamierzasz uwierzytelnić aplikację kliencką przy użyciu usługi Azure Active Directory (AD), dodaj zależność do biblioteki klienta tajnego usługi Azure. Zobacz [Dodawanie pakietu tajnej biblioteki klienta do projektu](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
+Jeśli planujesz uwierzytelnienie aplikacji klienckiej za pomocą Azure Active Directory (AD), a następnie Dodaj zależność do biblioteki klienta usługi Azure Secret. Zobacz [Dodawanie pakietu biblioteki tajnego klienta do projektu](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
 
-Następnie dodaj te instrukcje importowania do pliku kodu.
+Następnie Dodaj te instrukcje Imports do pliku kodu.
 
 ```java
 import com.azure.core.credential.TokenCredential;
@@ -51,15 +51,15 @@ import com.azure.storage.file.datalake.models.PathPermissions;
 import com.azure.storage.file.datalake.models.RolePermissions;
 ```
 
-## <a name="connect-to-the-account"></a>Łączenie się z kontem 
+## <a name="connect-to-the-account"></a>Połącz z kontem 
 
-Aby użyć urywków w tym artykule, należy utworzyć **datalakeServiceClient wystąpienie,** które reprezentuje konto magazynu. 
+Aby użyć fragmentów kodu w tym artykule, należy utworzyć wystąpienie **DataLakeServiceClient** reprezentujące konto magazynu. 
 
-### <a name="connect-by-using-an-account-key"></a>Łączenie się przy użyciu klucza konta
+### <a name="connect-by-using-an-account-key"></a>Nawiązywanie połączenia przy użyciu klucza konta
 
-Jest to najprostszy sposób na połączenie się z kontem. 
+Jest to najprostszy sposób nawiązywania połączenia z kontem. 
 
-W tym przykładzie tworzy **DataLakeServiceClient wystąpienie** przy użyciu klucza konta.
+Ten przykład tworzy wystąpienie **DataLakeServiceClient** przy użyciu klucza konta.
 
 ```java
 
@@ -78,11 +78,11 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 }      
 ```
 
-### <a name="connect-by-using-azure-active-directory-azure-ad"></a>Połącz się przy użyciu usługi Azure Active Directory (Azure AD)
+### <a name="connect-by-using-azure-active-directory-azure-ad"></a>Nawiązywanie połączenia przy użyciu Azure Active Directory (Azure AD)
 
-Za pomocą [biblioteki klienta tożsamości platformy Azure dla języka Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) można uwierzytelnić aplikację za pomocą usługi Azure AD.
+Aby uwierzytelnić aplikację w usłudze Azure AD, możesz użyć [biblioteki klienta tożsamości platformy Azure dla języka Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) .
 
-W tym przykładzie tworzy **DataLakeServiceClient wystąpienie** przy użyciu identyfikatora klienta, klucz tajny klienta i identyfikator dzierżawy.  Aby uzyskać te wartości, zobacz [Uzyskiwanie tokenu z usługi Azure AD do autoryzowania żądań z aplikacji klienckiej.](../common/storage-auth-aad-app.md)
+Ten przykład tworzy wystąpienie **DataLakeServiceClient** przy użyciu identyfikatora klienta, klucza tajnego klienta i identyfikatora dzierżawy.  Aby uzyskać te wartości, zobacz [pozyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej](../common/storage-auth-aad-app.md).
 
 ```java
 static public DataLakeServiceClient GetDataLakeServiceClient
@@ -102,14 +102,14 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 ```
 
 > [!NOTE]
-> Aby uzyskać więcej przykładów, zobacz [bibliotekę klienta tożsamości platformy Azure dla](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) dokumentacji języka Java.
+> Aby uzyskać więcej przykładów, zobacz dokumentację [usługi Azure Identity Client Library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) .
 
 
 ## <a name="create-a-file-system"></a>Tworzenie systemu plików
 
-System plików działa jako kontener dla plików. Można go utworzyć, wywołując **metodę DataLakeServiceClient.createFileSystem.**
+System plików działa jako kontener dla plików. Można go utworzyć, wywołując metodę **DataLakeServiceClient. isfilesystem** .
 
-W tym przykładzie `my-file-system`tworzy system plików o nazwie . 
+Ten przykład tworzy system plików o nazwie `my-file-system`. 
 
 ```java
 static public DataLakeFileSystemClient CreateFileSystem
@@ -121,9 +121,9 @@ static public DataLakeFileSystemClient CreateFileSystem
 
 ## <a name="create-a-directory"></a>Tworzenie katalogu
 
-Utwórz odwołanie do katalogu, wywołując **metodę DataLakeFileSystemClient.createDirectory.**
+Utwórz odwołanie do katalogu, wywołując metodę **DataLakeFileSystemClient. setdirectory** .
 
-W tym przykładzie `my-directory` dodaje katalog o nazwie do systemu plików, `my-subdirectory`a następnie dodaje podkatasty o nazwie . 
+Ten przykład dodaje katalog o nazwie `my-directory` do systemu plików, a następnie dodaje podkatalog o nazwie `my-subdirectory`. 
 
 ```java
 static public DataLakeDirectoryClient CreateDirectory
@@ -141,9 +141,9 @@ static public DataLakeDirectoryClient CreateDirectory
 
 ## <a name="rename-or-move-a-directory"></a>Zmienianie nazwy lub przenoszenie katalogu
 
-Zmień nazwę lub przenieś katalog, wywołując **metodę DataLakeDirectoryClientClient.rename.** Przekaż ścieżkę żądanego katalogu parametrem. 
+Zmień nazwę lub Przenieś katalog, wywołując metodę **DataLakeDirectoryClient. Rename** . Przekaż ścieżkę do żądanego katalogu jako parametr. 
 
-W tym przykładzie zmienia nazwę podkata directory na nazwę `my-subdirectory-renamed`.
+Ten przykład zmienia nazwę podkatalogu na nazwę `my-subdirectory-renamed`.
 
 ```java
 static public DataLakeDirectoryClient
@@ -157,7 +157,7 @@ static public DataLakeDirectoryClient
 }
 ```
 
-W tym przykładzie `my-subdirectory-renamed` przenosi katalog o nazwie do podkatasii katalogu o nazwie `my-directory-2`. 
+Ten przykład przenosi katalog o nazwie `my-subdirectory-renamed` do podkatalogu o nazwie `my-directory-2`. 
 
 ```java
 static public DataLakeDirectoryClient MoveDirectory
@@ -173,9 +173,9 @@ static public DataLakeDirectoryClient MoveDirectory
 
 ## <a name="delete-a-directory"></a>Usuwanie katalogu
 
-Usuń katalog, wywołując **metodę DataLakeDirectoryClient.deleteWithResponse.**
+Usuń katalog, wywołując metodę **DataLakeDirectoryClient. deleteWithResponse** .
 
-W tym przykładzie usuwa `my-directory`katalog o nazwie .   
+Ten przykład usuwa katalog o nazwie `my-directory`.   
 
 ```java
 static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
@@ -187,12 +187,12 @@ static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
 }
 ```
 
-## <a name="manage-a-directory-acl"></a>Zarządzanie listy ACL katalogu
+## <a name="manage-a-directory-acl"></a>Zarządzanie listą ACL katalogów
 
-W tym przykładzie pobiera, a następnie `my-directory`ustawia ACL katalogu o nazwie . W tym przykładzie daje użytkownikowi właścicielem uprawnienia do odczytu, zapisu i wykonywania, daje grupie właściciel tylko uprawnienia do odczytu i wykonywania i daje wszystkim innym dostęp do odczytu.
+Ten przykład pobiera i ustawia listę ACL katalogu o nazwie `my-directory`. Ten przykład daje właścicielowi uprawnień Odczyt, zapis i wykonywanie, daje grupie będącej właścicielem tylko uprawnienia do odczytu i wykonywania, a ponadto daje wszystkim innym osobom dostęp do odczytu.
 
 > [!NOTE]
-> Jeśli aplikacja autoryzuje dostęp przy użyciu usługi Azure Active Directory (Azure AD), upewnij się, że podmiot zabezpieczeń używany przez aplikację do autoryzowania dostępu został przypisany [do roli Właściciel danych obiektu Blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej o sposobie stosowania uprawnień listy ACL i skutkach ich zmiany, zobacz [Kontrola dostępu w usłudze Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Jeśli aplikacja autoryzuje dostęp przy użyciu Azure Active Directory (Azure AD), upewnij się, że podmiot zabezpieczeń używany przez aplikację do autoryzacji dostępu ma przypisaną [rolę właściciela danych obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej na temat sposobu stosowania uprawnień ACL i skutków ich zmiany, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ```java
 static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient){
@@ -232,11 +232,11 @@ static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient
 
 ```
 
-## <a name="upload-a-file-to-a-directory"></a>Przekazywanie pliku do katalogu
+## <a name="upload-a-file-to-a-directory"></a>Przekaż plik do katalogu
 
-Najpierw utwórz odwołanie do pliku w katalogu docelowym, tworząc wystąpienie klasy **DataLakeFileClient.** Przekaż plik, wywołując **metodę DataLakeFileClient.append.** Upewnij się, aby zakończyć przekazywanie przez wywołanie **DataLakeFileClient.FlushAsync** metody.
+Najpierw Utwórz odwołanie do pliku w katalogu docelowym, tworząc wystąpienie klasy **DataLakeFileClient** . Przekaż plik, wywołując metodę **DataLakeFileClient. Append** . Upewnij się, że ukończono przekazywanie, wywołując metodę **DataLakeFileClient. FlushAsync** .
 
-W tym przykładzie plik tekstowy `my-directory`jest przesyłany do katalogu o nazwie .'
+Ten przykład przekazuje plik tekstowy do katalogu o nazwie `my-directory`.
 
 ```java
 static public void UploadFile(DataLakeFileSystemClient fileSystemClient) 
@@ -260,13 +260,13 @@ static public void UploadFile(DataLakeFileSystemClient fileSystemClient)
 ```
 
 > [!TIP]
-> Jeśli rozmiar pliku jest duży, kod będzie musiał wykonać wiele wywołań **do Metody DataLakeFileClient.append.** Należy rozważyć użycie **DataLakeFileClient.uploadFromFile** metody zamiast. W ten sposób można przekazać cały plik w jednym wywołaniu. 
+> Jeśli rozmiar pliku jest duży, kod będzie musiał wykonać wiele wywołań metody **DataLakeFileClient. Append** . Rozważ użycie metody **DataLakeFileClient. uploadFromFile** . Dzięki temu można przekazać cały plik w jednym wywołaniu. 
 >
-> Zobacz następną sekcję, aby uzyskać przykład.
+> Zobacz następną sekcję, aby zapoznać się z przykładem.
 
-## <a name="upload-a-large-file-to-a-directory"></a>Przekazywanie dużego pliku do katalogu
+## <a name="upload-a-large-file-to-a-directory"></a>Przekaż duży plik do katalogu
 
-Użyj **DataLakeFileClient.uploadFromFile** metody przekazywania dużych plików bez konieczności wykonywania wielu wywołań do **DataLakeFileClient.append** metody.
+Użyj metody **DataLakeFileClient. uploadFromFile** , aby przekazać duże pliki bez konieczności wykonywania wielu wywołań metody **DataLakeFileClient. Append** .
 
 ```java
 static public void UploadFileBulk(DataLakeFileSystemClient fileSystemClient) 
@@ -284,12 +284,12 @@ static public void UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
 ```
 
 
-## <a name="manage-a-file-acl"></a>Zarządzanie plikem ACL
+## <a name="manage-a-file-acl"></a>Zarządzanie listą ACL plików
 
-W tym przykładzie pobiera, a następnie `upload-file.txt`ustawia ACL pliku o nazwie . W tym przykładzie daje użytkownikowi właścicielem uprawnienia do odczytu, zapisu i wykonywania, daje grupie właściciel tylko uprawnienia do odczytu i wykonywania i daje wszystkim innym dostęp do odczytu.
+Ten przykład pobiera i ustawia listę ACL pliku o nazwie `upload-file.txt`. Ten przykład daje właścicielowi uprawnień Odczyt, zapis i wykonywanie, daje grupie będącej właścicielem tylko uprawnienia do odczytu i wykonywania, a ponadto daje wszystkim innym osobom dostęp do odczytu.
 
 > [!NOTE]
-> Jeśli aplikacja autoryzuje dostęp przy użyciu usługi Azure Active Directory (Azure AD), upewnij się, że podmiot zabezpieczeń używany przez aplikację do autoryzowania dostępu został przypisany [do roli Właściciel danych obiektu Blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej o sposobie stosowania uprawnień listy ACL i skutkach ich zmiany, zobacz [Kontrola dostępu w usłudze Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Jeśli aplikacja autoryzuje dostęp przy użyciu Azure Active Directory (Azure AD), upewnij się, że podmiot zabezpieczeń używany przez aplikację do autoryzacji dostępu ma przypisaną [rolę właściciela danych obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej na temat sposobu stosowania uprawnień ACL i skutków ich zmiany, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ```java
 static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
@@ -331,9 +331,9 @@ static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
 }
 ```
 
-## <a name="download-from-a-directory"></a>Pobieranie z katalogu
+## <a name="download-from-a-directory"></a>Pobierz z katalogu
 
-Najpierw utwórz **wystąpienie DataLakeFileClient,** które reprezentuje plik, który chcesz pobrać. Użyj **Metody DataLakeFileClient.read,** aby odczytać plik. Użyj dowolnego interfejsu API przetwarzania plików .NET, aby zapisać bajty ze strumienia do pliku. 
+Najpierw Utwórz wystąpienie **DataLakeFileClient** reprezentujące plik, który chcesz pobrać. Użyj metody **DataLakeFileClient. Read** , aby odczytać plik. Użyj dowolnego interfejsu API przetwarzania plików platformy .NET, aby zaoszczędzić bajty ze strumienia do pliku. 
 
 ```java
 static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
@@ -359,7 +359,7 @@ static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
 
 ## <a name="list-directory-contents"></a>Wyświetlanie zawartości katalogu
 
-W tym przykładzie można wydrukować nazwy każdego pliku `my-directory`znajdującego się w katalogu o nazwie .
+W tym przykładzie program drukuje nazwy poszczególnych plików znajdujących się w katalogu o nazwie `my-directory`.
 
 ```java
 static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient){
@@ -390,11 +390,11 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 }
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Dokumentacja referencyjna interfejsu API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html)
 * [Pakiet (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
-* [Próbki](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
-* [Mapowanie gen1 do gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
+* [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
+* [Mapowanie Gen1 do Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 * [Znane problemy](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Przekaż opinię](https://github.com/Azure/azure-sdk-for-java/issues)

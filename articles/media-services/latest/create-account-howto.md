@@ -1,6 +1,6 @@
 ---
 title: Tworzenie konta usługi Azure Media Services
-description: W tym samouczku przechodzi przez kroki tworzenia konta usługi Azure Media Services.
+description: Ten samouczek przeprowadzi Cię przez kroki tworzenia konta Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
 ms.openlocfilehash: 2f1694825319ed8b8682c044e7e2282ed4c43dcd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79478801"
 ---
 # <a name="create-a-media-services-account"></a>Tworzenie konta usługi Media Services
@@ -27,42 +27,42 @@ Aby rozpocząć, szyfrowanie, kodowanie, analizowanie i przesyłanie strumieniow
 > [!NOTE]
 > Konto usług Media Services i wszystkie skojarzone konta magazynu muszą być w tej samej subskrypcji platformy Azure. Zdecydowanie zaleca się używanie kont magazynu znajdujących się w tej samej lokalizacji co konto usługi Media Services, aby uniknąć dodatkowych opóźnień i kosztów danych wychodzących.
 
-W tym artykule opisano kroki tworzenia nowego konta usługi Azure Media Services. Wybierz jedną z następujących kart.
+W tym artykule opisano procedurę tworzenia nowego konta Azure Media Services. Wybierz jedną z następujących kart.
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Portal Platformy Azure umożliwia szybkie utworzenie konta usługi Azure Media Services. Korzystając z konta, możesz uzyskiwać dostęp do usługi Media Services, która umożliwia przechowywanie, szyfrowanie, kodowanie i przesyłanie strumieniowe zawartości oraz zarządzanie nią na platformie Azure.
+Azure Portal zapewnia sposób szybkiego tworzenia konta Azure Media Services. Korzystając z konta, możesz uzyskiwać dostęp do usługi Media Services, która umożliwia przechowywanie, szyfrowanie, kodowanie i przesyłanie strumieniowe zawartości oraz zarządzanie nią na platformie Azure.
 
-Obecnie można użyć [witryny Azure portal](https://portal.azure.com/) do:
+Obecnie można użyć [Azure Portal](https://portal.azure.com/) , aby:
 
-* zarządzanie wydarzeniami [na żywo](live-events-outputs-concept.md)w udziale usługi Media Services w wersji 3 , 
-* widok (nie zarządzanie) [v3 Aktywa](assets-concept.md), 
-* [uzyskać informacje o dostępie do interfejsów API](access-api-portal.md). 
+* Zarządzaj [zdarzeniami na żywo](live-events-outputs-concept.md)Media Services v3, 
+* Wyświetl [zasoby](assets-concept.md)v3 (nie Zarządzaj), 
+* [Uzyskaj informacje na temat uzyskiwania dostępu do interfejsów API](access-api-portal.md). 
 
-W przypadku wszystkich innych zadań zarządzania (na przykład [przekształceń i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości)](content-protection-overview.md)użyj [interfejsu API REST,](https://aka.ms/ams-v3-rest-ref) [interfejsu wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z [obsługiwanych pakietów SDK.](media-services-apis-overview.md#sdks)
+W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](https://aka.ms/ams-v3-rest-ref), [interfejsu wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 W tym artykule przedstawiono sposób tworzenia konta usługi Media Services przy użyciu witryny Azure Portal.
 
 ### <a name="create-a-media-services-account"></a>Tworzenie konta usługi Media Services
 
 1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com/).
-1. Kliknij **pozycję +Utwórz zasób** > **Media** > **Services**.
-1. W sekcji **Tworzenie konta usługi Media Services** wprowadź wymagane wartości.
+1. Kliknij pozycję **+ Utwórz** > **nośnik** > zasobów**Media Services**.
+1. W sekcji **Tworzenie konta Media Services** wprowadź wymagane wartości.
     
     | Nazwa | Opis |
     | ---|---|
-    |**Nazwa konta**|Wprowadź nazwę nowego konta usługi Media Services. Nazwa konta usługi Media Services składa się z małych liter i cyfr (bez spacji) i może zawierać od 3 do 24 znaków.|
+    |**Nazwa konta**|Wprowadź nazwę nowego konta Media Services. Nazwa konta usługi Media Services składa się z małych liter i cyfr (bez spacji) i może zawierać od 3 do 24 znaków.|
     |**Subskrypcja**|Jeśli masz więcej niż jedną subskrypcję, wybierz jedną z listy subskrypcji platformy Azure, do których masz dostęp.|
     |**Grupa zasobów**|Wybierz nowy lub istniejący zasób. Grupa zasobów jest kolekcją zasobów, które mają ten sam cykl życia, uprawnienia i zasady. Dowiedz się więcej [tutaj](../../azure-resource-manager/management/overview.md#resource-groups).|
-    |**Lokalizacja**|Wybierz region geograficzny, który będzie używany do przechowywania rekordów multimediów i metadanych dla konta usługi Media Services. Ten region będzie służyć do przetwarzania i przesyłania strumieniowego multimediów. Na liście rozwijanej są wyświetlane tylko regiony dostępne w usłudze Media Services. |
-    |**Konto magazynu**|Wybierz konto magazynu, aby zapewnić magazyn obiektów blob zawartości multimedialnej z konta usługi Media Services. Można wybrać istniejące konto magazynu w tym samym regionie geograficznym co konto usługi Media Services albo utworzyć nowe konto magazynu. Nowe konto magazynu jest tworzone w tym samym regionie. Reguły dotyczące nazw kont magazynów są takie same, jak w przypadku kont usługi Media Services.<br/><br/>Musisz mieć jedno **podstawowe** konto magazynu i możesz mieć dowolną liczbę **dodatkowych** kont magazynu skojarzonych z kontem usługi Media Services. Za pomocą witryny Azure Portal można dodać konta magazynu dodatkowego. Aby uzyskać więcej informacji, zobacz [Konta usługi Azure Storage z kontami usługi Azure Media Services](storage-account-concept.md).<br/><br/>Konto usług Media Services i wszystkie skojarzone konta magazynu muszą być w tej samej subskrypcji platformy Azure. Zdecydowanie zaleca się używanie kont magazynu znajdujących się w tej samej lokalizacji co konto usługi Media Services, aby uniknąć dodatkowych opóźnień i kosztów danych wychodzących.|
+    |**Lokalizacja**|Wybierz region geograficzny, który będzie używany do przechowywania multimediów i rekordów metadanych dla konta usługi Media Services. Ten region będzie służyć do przetwarzania i przesyłania strumieniowego multimediów. Na liście rozwijanej są wyświetlane tylko regiony dostępne w usłudze Media Services. |
+    |**Konto magazynu**|Wybierz konto magazynu, aby dostarczyć magazyn obiektów BLOB zawartości multimedialnej z konta usługi Media Services. Można wybrać istniejące konto magazynu w tym samym regionie geograficznym co konto usługi Media Services albo utworzyć nowe konto magazynu. Nowe konto magazynu jest tworzone w tym samym regionie. Reguły dotyczące nazw kont magazynów są takie same, jak w przypadku kont usługi Media Services.<br/><br/>Musisz mieć jedno konto magazynu **podstawowego** i można mieć dowolną liczbę kont magazynu **pomocniczego** skojarzonych z Twoim kontem Media Services. Za pomocą Azure Portal można dodać konta magazynu pomocniczego. Aby uzyskać więcej informacji, zobacz [konta usługi Azure Storage z kontami Azure Media Services](storage-account-concept.md).<br/><br/>Konto usług Media Services i wszystkie skojarzone konta magazynu muszą być w tej samej subskrypcji platformy Azure. Zdecydowanie zaleca się używanie kont magazynu znajdujących się w tej samej lokalizacji co konto usługi Media Services, aby uniknąć dodatkowych opóźnień i kosztów danych wychodzących.|
     
 1. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**, aby wyświetlić postęp wdrażania konta.
 1. Kliknij opcję **Utwórz** w dolnej części formularza.
 
-    Po utworzeniu konta usługi Media Services **domyślny** punkt końcowy przesyłania strumieniowego jest dodawany do konta w stanie **Zatrzymane.** Aby rozpocząć przesyłanie strumieniowe zawartości i korzystać z [dynamicznego pakowania](dynamic-packaging-overview.md) i [szyfrowania dynamicznego,](content-protection-overview.md)punkt końcowy przesyłania strumieniowego, z którego chcesz przesyłać strumieniowo zawartość, musi być w stanie **Uruchomione.** 
+    Po utworzeniu konta Media Services zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego w stanie **zatrzymanym** . Aby rozpocząć przesyłanie strumieniowe zawartości i korzystać z [dynamicznego tworzenia pakietów](dynamic-packaging-overview.md) i [szyfrowania dynamicznego](content-protection-overview.md), punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi być w stanie **uruchomienia** . 
 
 ## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
@@ -80,7 +80,7 @@ az account set --subscription mySubscriptionId
 
 Utwórz grupę zasobów przy użyciu poniższego polecenia. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów, takich jak konta usługi Azure Media Services i skojarzone konta usługi Storage, oraz zarządzania nimi.
 
-Możesz zastąpić `amsResourceGroup` swoją wartość.
+Możesz podstawić `amsResourceGroup` swoją wartość.
 
 ```azurecli
 az group create --name amsResourceGroup --location westus2
@@ -94,7 +94,7 @@ Musisz mieć jedno **główne** konto magazynu i możesz mieć dowolną liczbę 
 
 W tym przykładzie utworzymy konto ogólnego przeznaczenia w wersji 2 magazynu LRS w warstwie Standardowa. Jeśli chcesz poeksperymentować z kontami magazynu, użyj parametru `--sku Standard_LRS`. Jednak podczas wybierania jednostki SKU dla środowiska produkcyjnego weź pod uwagę użycie parametru `--sku Standard_RAGRS`, co zapewnia replikację geograficzną na potrzeby zapewnienia ciągłości działania. Aby uzyskać więcej informacji, zobacz temat [Konta magazynu](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
-Poniższe polecenie tworzy konto usługi Storage, które ma zostać skojarzone z kontem usługi Media Services. W poniższym skrypcie możesz zastąpić wartość `storageaccountforams` swoją wartością. `amsResourceGroup`musi odpowiadać wartości nadalnej dla grupy zasobów w poprzednim kroku. Nazwa konta magazynu musi mieć długość mniejszą niż 24.
+Poniższe polecenie tworzy konto usługi Storage, które ma zostać skojarzone z kontem usługi Media Services. W poniższym skrypcie możesz zastąpić wartość `storageaccountforams` swoją wartością. `amsResourceGroup`musi być zgodna z wartością podaną dla grupy zasobów w poprzednim kroku. Nazwa konta magazynu musi mieć długość mniejszą niż 24.
 
 ```azurecli
 az storage account create --name storageaccountforams \  
@@ -106,7 +106,7 @@ az storage account create --name storageaccountforams \
 
 ### <a name="create-a-media-services-account"></a>Tworzenie konta usługi Media Services
 
-Poniższe polecenie interfejsu wiersza polecenia platformy Azure tworzy nowe konto usługi Media Services. Można zastąpić następujące wartości: `amsaccount` `storageaccountforams` (musi odpowiadać wartości podanej `amsResourceGroup` dla konta magazynu) i (musi odpowiadać wartości podanej dla grupy zasobów).  
+Poniższe polecenie interfejsu wiersza polecenia platformy Azure tworzy nowe konto usługi Media Services. Można zastąpić następujące wartości: `amsaccount` `storageaccountforams` (musi być zgodna z wartością podaną dla konta magazynu) i `amsResourceGroup` (musi być zgodna z wartością podaną dla grupy zasobów).  
 
 ```azurecli
 az ams account create --name amsaccount \
@@ -114,10 +114,10 @@ az ams account create --name amsaccount \
    -l westus2 
 ```
 
-### <a name="see-also"></a>Zobacz też
+### <a name="see-also"></a>Zobacz także
 
 * [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
-* [Dołączanie magazynu pomocniczego do konta usługi Media Services](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
+* [Dołączanie magazynu pomocniczego do konta Media Services](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
 
 ---
 

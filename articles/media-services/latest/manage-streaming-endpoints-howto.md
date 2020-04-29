@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie punktami końcowymi przesyłania strumieniowego za pomocą usługi Azure Media Services w wersji 3
-description: W tym artykule pokazano, jak zarządzać punktami końcowymi przesyłania strumieniowego za pomocą usługi Azure Media Services w wersji 3.
+title: Zarządzanie punktami końcowymi przesyłania strumieniowego z Azure Media Services v3
+description: W tym artykule pokazano, jak zarządzać punktami końcowymi przesyłania strumieniowego z Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,28 +15,28 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
 ms.openlocfilehash: 75ba2ad87eabd7ff6b0625ad95ab24a8ae58dd0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79461048"
 ---
-# <a name="manage-streaming-endpoints-with--media-services-v3"></a>Zarządzanie punktami końcowymi przesyłania strumieniowego za pomocą usługi Media Services w wersji 3
+# <a name="manage-streaming-endpoints-with--media-services-v3"></a>Zarządzanie punktami końcowymi przesyłania strumieniowego z Media Services v3
 
-Po utworzeniu konta usługi Media Services **domyślny** [punkt końcowy przesyłania strumieniowego](streaming-endpoint-concept.md) jest dodawany do twojego konta w stanie **Zatrzymane.** Aby rozpocząć przesyłanie strumieniowe zawartości i korzystać z [dynamicznego pakowania](dynamic-packaging-overview.md) i [szyfrowania dynamicznego,](content-protection-overview.md)punkt końcowy przesyłania strumieniowego, z którego chcesz przesyłać strumieniowo zawartość, musi być w stanie **Uruchomione.**
+Po utworzeniu konta Media Services zostanie do niego dodany **domyślny** [punkt końcowy przesyłania strumieniowego](streaming-endpoint-concept.md) w stanie **zatrzymanym** . Aby rozpocząć przesyłanie strumieniowe zawartości i korzystać z [dynamicznego tworzenia pakietów](dynamic-packaging-overview.md) i [szyfrowania dynamicznego](content-protection-overview.md), punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi być w stanie **uruchomienia** .
 
-W tym artykule pokazano, jak wykonać polecenie [start](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) w punkcie końcowym przesyłania strumieniowego przy użyciu różnych technologii. 
+W tym artykule pokazano, jak wykonać polecenie [uruchamiania](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) w punkcie końcowym przesyłania strumieniowego przy użyciu różnych technologii. 
  
 > [!NOTE]
-> Naliczane są tylko wtedy, gdy punkt końcowy przesyłania strumieniowego jest w stanie uruchomionym.
+> Opłaty są naliczane tylko wtedy, gdy punkt końcowy przesyłania strumieniowego jest w stanie uruchomienia.
     
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Który napisze recenzję: 
+Ponownego 
 
-* [Pojęcia dotyczące usług multimedialnych](concepts-overview.md)
+* [Koncepcje Media Services](concepts-overview.md)
 * [Koncepcja punktu końcowego przesyłania strumieniowego](streaming-endpoint-concept.md)
-* [Dynamiczne pakowanie](dynamic-packaging-overview.md)
+* [Dynamiczne tworzenie pakietów](dynamic-packaging-overview.md)
 
 ## <a name="use-rest"></a>Używanie interfejsu REST
 
@@ -46,18 +46,18 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 Aby uzyskać więcej informacji, zobacz: 
 
-* Uruchom dokumentację odwołania [do programu StreamingEndpoint.](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
-* Uruchamianie punktu końcowego przesyłania strumieniowego jest operacją asynchroniką. 
+* Dokumentacja dotycząca [uruchamiania StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) .
+* Uruchamianie punktu końcowego przesyłania strumieniowego jest operacją asynchroniczną. 
 
-    Aby uzyskać informacje dotyczące monitorowania długotrwałych operacji, zobacz [Długotrwałe operacje](media-services-apis-overview.md).
-* Ta [kolekcja Postman](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) zawiera przykłady wielu operacji REST, w tym sposobu uruchamiania punktu końcowego przesyłania strumieniowego.
+    Aby uzyskać informacje o sposobach monitorowania długotrwałych operacji, zobacz [długotrwałe operacje](media-services-apis-overview.md).
+* Ta [Kolekcja ogłoszeń](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) zawiera przykłady wielu operacji REST, w tym informacje na temat uruchamiania punktu końcowego przesyłania strumieniowego.
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal 
  
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
-1. Przejdź do konta usługi Azure Media Services.
-1. W lewym okienku wybierz pozycję **Punkty końcowe przesyłania strumieniowego**.
-1. Wybierz punkt końcowy przesyłania strumieniowego, który chcesz uruchomić, a następnie wybierz pozycję **Start**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Przejdź do swojego konta Azure Media Services.
+1. W lewym okienku wybierz pozycję **punkty końcowe przesyłania strumieniowego**.
+1. Wybierz punkt końcowy przesyłania strumieniowego, który chcesz uruchomić, a następnie wybierz pozycję **Uruchom**.
 
 ## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
@@ -70,7 +70,7 @@ az ams streaming-endpoint start [--account-name]
                                 [--subscription]
 ```
 
-Aby uzyskać więcej informacji, zobacz [az ams streaming-endpoint start](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
+Aby uzyskać więcej informacji, zobacz [AZ AMS Streaming-Endpoint Start](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
 
 ## <a name="use-sdks"></a>Korzystanie z zestawów SDK
 
@@ -84,7 +84,7 @@ if (streamingEndpoint.resourceState() != StreamingEndpointResourceState.RUNNING)
 }
 ```
 
-Zobacz pełny [przykład kodu Java](https://github.com/Azure-Samples/media-services-v3-java/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/src/main/java/sample/StreamHLSAndDASH.java#L128).
+Zobacz kompletny [przykładowy kod Java](https://github.com/Azure-Samples/media-services-v3-java/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/src/main/java/sample/StreamHLSAndDASH.java#L128).
 
 ### <a name="net"></a>.NET
 
@@ -99,11 +99,11 @@ if (streamingEndpoint != null)
     }
 ```
 
-Zobacz kompletny [przykład kodu .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/Program.cs#L112).
+Zobacz kompletny [przykład kodu platformy .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/Program.cs#L112).
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Specyfikacja OpenAPI usługi Media Services w wersji 3 (Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
-* [Przesyłanie strumieniowe operacji punktu końcowego](https://docs.microsoft.com/rest/api/media/streamingendpoints)
+* [Media Services v3 — Specyfikacja OpenAPI (Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
+* [Operacje punktów końcowych przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingendpoints)

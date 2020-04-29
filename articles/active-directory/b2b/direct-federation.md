@@ -1,6 +1,6 @@
 ---
-title: Bezpośrednia federacja z dostawcą tożsamości dla B2B — Azure AD
-description: Bezpośrednio sfeuj z dostawcą tożsamości SAML lub WS-Fed, aby goście mogli logować się do aplikacji usługi Azure AD
+title: Bezpośrednia Federacja z dostawcą tożsamości dla B2B — Azure AD
+description: Bezpośrednio sfederować z dostawcą tożsamości typu SAML lub WS-Direct, aby Goście mogli logować się do aplikacji usługi Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -13,43 +13,43 @@ ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2b99a80a90df8fcfc5efe6dfa0c2cd7e8e5e04e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050876"
 ---
-# <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia federacja z usługami AD FS i zewnętrznymi dostawcami dla użytkowników-gości (wersja zapoznawcza)
+# <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia Federacja z dostawcami AD FS i innych firm dla użytkowników-Gości (wersja zapoznawcza)
 |     |
 | --- |
-| Bezpośrednia federacja jest publiczną funkcją podglądu usługi Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawców, zobacz [Dodatkowe warunki użytkowania w wersji Zapoznawczej platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| Federacja bezpośrednia jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.|
 |     |
 
-W tym artykule opisano sposób konfigurowania bezpośredniej federacji z inną organizacją do współpracy B2B. Można skonfigurować bezpośrednią federację z dowolną organizacją, której dostawca tożsamości (IdP) obsługuje protokół SAML 2.0 lub WS-Fed.
-Po skonfigurowaniu bezpośredniej federacji przy użyciu dostawcy tożsamości partnera nowi użytkownicy-goście z tej domeny mogą używać własnego konta organizacyjnego zarządzanego przez IdP, aby zalogować się do dzierżawy usługi Azure AD i rozpocząć współpracę z Tobą. Nie ma potrzeby, aby użytkownik-gość utworzył oddzielne konto usługi Azure AD.
+W tym artykule opisano sposób konfigurowania Federacji bezpośredniej z inną organizacją do współpracy B2B. Można skonfigurować bezpośrednią Federacji z każdą organizacją, której dostawca tożsamości (dostawcy tożsamości) obsługuje protokół SAML 2,0 lub WS-IP.
+Po skonfigurowaniu bezpośredniej Federacji z dostawcy tożsamości partnera nowi użytkownicy-Goście z tej domeny mogą używać własnego konta organizacji zarządzanego przez dostawcy tożsamości do logowania się do dzierżawy usługi Azure AD i rozpoczynania współpracy z Twoimi użytkownikami. Użytkownik-Gość nie musi tworzyć oddzielnego konta usługi Azure AD.
 > [!NOTE]
-> Bezpośredni użytkownicy-goście-goście muszą zalogować się przy użyciu `https://myapps.microsoft.com/?tenantid=<tenant id>` `https://portal.azure.com/<tenant id>`łącza zawierającego kontekst dzierżawy (na przykład lub , lub w przypadku zweryfikowanej domeny). `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com` Bezpośrednie łącza do aplikacji i zasobów również działają tak długo, jak zawierają kontekst dzierżawy. Bezpośredni użytkownicy federacyjne nie mogą obecnie zalogować się przy użyciu typowych punktów końcowych, które nie mają kontekstu dzierżawy. Na przykład `https://myapps.microsoft.com`użycie `https://portal.azure.com`, `https://teams.microsoft.com` lub spowoduje błąd.
+> Bezpośredni federacyjny użytkownicy-gość muszą się zalogować przy użyciu linku zawierającego kontekst dzierżawy (na `https://myapps.microsoft.com/?tenantid=<tenant id>` przykład `https://portal.azure.com/<tenant id>`lub w przypadku zweryfikowanej domeny `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`). Bezpośrednie linki do aplikacji i zasobów działają również tak długo, jak w przypadku kontekstu dzierżawy. Użytkownicy Federacji bezpośredniej nie mogą obecnie zalogować się przy użyciu wspólnych punktów końcowych, które nie mają kontekstu dzierżawy. Na przykład użycie `https://myapps.microsoft.com`, `https://portal.azure.com`, lub `https://teams.microsoft.com` spowoduje wystąpienie błędu.
  
-## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>Kiedy użytkownik-gość jest uwierzytelniony przy użyciu bezpośredniej federacji?
-Po skonfigurowaniu bezpośredniej federacji w organizacji, każdy nowy zaproszony użytkownik zostanie uwierzytelniony przy użyciu bezpośredniej federacji. Należy pamiętać, że konfigurowanie federacji bezpośredniej nie zmienia metody uwierzytelniania dla użytkowników-gości, którzy już zrealizowali zaproszenie od Ciebie. Oto kilka przykładów:
- - Jeśli użytkownicy-goście już zrealizowali zaproszenia od Ciebie, a następnie skonfigurujesz bezpośrednią federację w swojej organizacji, ci użytkownicy-goście będą nadal używać tej samej metody uwierzytelniania, której używali przed skonfigurowaniem bezpośredniej federacji.
- - Jeśli skonfigurujesz bezpośrednią federację z organizacją partnerską i zaprosisz użytkowników-gości, a następnie organizacja partnerska przejdzie później do usługi Azure AD, użytkownicy-goście, którzy już zrealizowali zaproszenia, będą nadal korzystać z bezpośredniej federacji, o ile zasady federacyjne w dzierżawie istnieje.
- - Jeśli usuniesz bezpośrednią federację w organizacji partnerskiej, użytkownicy-goście korzystający obecnie z federacji bezpośredniej nie będą mogli się zalogować.
+## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>Kiedy jest uwierzytelniany przez użytkownika-gościa za pomocą Federacji bezpośredniej?
+Po skonfigurowaniu bezpośredniej Federacji z organizacją Wszyscy nowi zaproszeni użytkownicy-Goście będą uwierzytelniani za pomocą Federacji bezpośredniej. Należy pamiętać, że skonfigurowanie Federacji bezpośredniej nie zmienia metody uwierzytelniania dla użytkowników-Gości, którzy już wykorzystali zaproszenie. Oto kilka przykładów:
+ - Jeśli użytkownicy-Goście już wykorzystali zaproszenia z Ciebie, a następnie skonfigurujesz bezpośrednią Federacji z organizacją, Ci użytkownicy będą nadal używać tej samej metody uwierzytelniania, która została użyta przed skonfigurowaniem Federacji bezpośredniej.
+ - Jeśli skonfigurujesz bezpośrednią Federacji z organizacją partnera i zapraszasz użytkowników-Gości, a następnie organizacja partnera później przejdzie do usługi Azure AD, użytkownicy-Goście, którzy już wykorzystali zaproszenia, będą nadal korzystać z Federacji bezpośredniej, o ile istnieją bezpośrednie zasady Federacji w dzierżawie.
+ - W przypadku usunięcia bezpośredniej Federacji z organizacją partnera wszyscy użytkownicy-Goście korzystający obecnie z Federacji bezpośredniej nie będą mogli się zalogować.
 
-W każdym z tych scenariuszy można zaktualizować metodę uwierzytelniania użytkownika gościa, usuwając konto użytkownika gościa z katalogu i ponownie je korzystając.
+W każdym z tych scenariuszy można zaktualizować metodę uwierzytelniania użytkownika-gościa, usuwając konto użytkownika-gościa z katalogu i zapraszając je.
 
-Federacja bezpośrednia jest powiązana z obszarami nazw domen, takimi jak contoso.com i fabrikam.com. Podczas ustanawiania bezpośredniej konfiguracji federacji z usługą AD FS lub z usługodawcą domeny innej firmy organizacje kojarzą co najmniej jedną przestrzeń nazw domen z tymi adresami ip. 
+Federacja bezpośrednia jest powiązana z przestrzeniami nazw domen, takimi jak contoso.com i fabrikam.com. Podczas ustanawiania bezpośredniej konfiguracji federacji z AD FS lub dostawcy tożsamości innych firm organizacje kojarzą co najmniej jedną przestrzeń nazw domeny z tymi dostawców tożsamości. 
 
 ## <a name="end-user-experience"></a>Środowisko użytkownika końcowego 
-Dzięki bezpośredniej federacji użytkownicy-goście logują się do dzierżawy usługi Azure AD przy użyciu własnego konta organizacji. Gdy uzyskują dostęp do zasobów udostępnionych i są monitowani o zalogowanie, bezpośredni użytkownicy federacji są przekierowywani do ich IdP. Po pomyślnym zalogowaniu są one zwracane do usługi Azure AD, aby uzyskać dostęp do zasobów. Tokeny odświeżania bezpośrednich użytkowników federacji są ważne przez 12 godzin, [czyli domyślną długość tokenu odświeżania przez](../develop/active-directory-configurable-token-lifetimes.md#exceptions) usługę Azure AD. Jeśli federowany protokół IdP ma włączone logowanie, użytkownik będzie miał doświadczenie logowania sytego i nie zobaczy żadnego monitu logowania po początkowym uwierzytelnieniu.
+W przypadku federacji bezpośredniej użytkownicy-Goście logują się do dzierżawy usługi Azure AD przy użyciu konta organizacyjnego. Gdy uzyskują dostęp do zasobów udostępnionych i zostanie wyświetlony monit o zalogowanie się, użytkownicy Federacji bezpośrednich są przekierowywani do ich dostawcy tożsamości. Po pomyślnym zalogowaniu są one zwracane do usługi Azure AD w celu uzyskania dostępu do zasobów. Tokeny odświeżania bezpośrednich użytkowników federacyjnych są prawidłowe przez 12 godzin, a [Domyślna długość tokenu odświeżania przekazywania](../develop/active-directory-configurable-token-lifetimes.md#exceptions) w usłudze Azure AD. Jeśli Federacja federacyjna dostawcy tożsamości ma włączone Logowanie jednokrotne, użytkownik będzie miał Logowanie jednokrotne i nie zobaczy monitu logowania po uwierzytelnieniu początkowym.
 
 ## <a name="limitations"></a>Ograniczenia
 
-### <a name="dns-verified-domains-in-azure-ad"></a>Domeny zweryfikowane przez dns w usłudze Azure AD
-Domena, z którą chcesz się skonserwować, ***nie*** może być zweryfikowana przez system DNS w usłudze Azure AD. Możesz skonfigurować bezpośrednią federację z niezarządzanymi (zweryfikowanymi pocztą e-mail lub "wirusową") dzierżawcami usługi Azure AD, ponieważ nie są one zweryfikowane przez system DNS.
+### <a name="dns-verified-domains-in-azure-ad"></a>Domeny zweryfikowane przez usługę DNS w usłudze Azure AD
+Domena, której chcesz sfederować, ***nie*** może być zweryfikowana przez system DNS w usłudze Azure AD. Istnieje możliwość skonfigurowania Federacji bezpośredniej z niezarządzanymi (zweryfikowanymi pocztą e-mail lub "wirusami") dzierżaw usługi Azure AD, ponieważ nie są one zweryfikowane przez system DNS.
 
 ### <a name="authentication-url"></a>Adres URL uwierzytelniania
-Bezpośrednia federacja jest dozwolona tylko dla zasad, w których domena adresu URL uwierzytelniania jest zgodna z domeną docelową lub gdy adres URL uwierzytelniania jest jednym z tych dozwolonych dostawców tożsamości (ta lista może ulec zmianie):
+Federacja bezpośrednia jest dozwolona tylko w przypadku zasad, w których domena adresu URL uwierzytelniania jest zgodna z domeną docelową lub jeśli adres URL uwierzytelniania jest jednym z tych dozwolonych dostawców tożsamości (Ta lista może ulec zmianie):
 -   accounts.google.com
 -   pingidentity.com
 -   login.pingone.com
@@ -58,120 +58,120 @@ Bezpośrednia federacja jest dozwolona tylko dla zasad, w których domena adresu
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Na przykład podczas konfigurowania **fabrikam.com**bezpośredniej federacji dla `https://fabrikam.com/adfs` fabrikam.com adres URL uwierzytelniania przejdzie weryfikację. Host w tej samej domenie `https://sts.fabrikam.com/adfs`również przejdzie, na przykład . Jednak adres URL `https://fabrikamconglomerate.com/adfs` `https://fabrikam.com.uk/adfs` uwierzytelniania lub dla tej samej domeny nie przejdzie.
+Na przykład podczas konfigurowania Federacji bezpośredniej dla **fabrikam.com**, adres URL `https://fabrikam.com/adfs` uwierzytelniania przekaże weryfikację. Host w tej samej domenie również zostanie przekazany na przykład `https://sts.fabrikam.com/adfs`. Jednak adres URL `https://fabrikamconglomerate.com/adfs` uwierzytelniania lub `https://fabrikam.com.uk/adfs` dla tej samej domeny nie zostanie przekazany.
 
-### <a name="signing-certificate-renewal"></a>Odnawianie certyfikatów podpisywania
-Jeśli określisz adres URL metadanych w ustawieniach dostawcy tożsamości, usługa Azure AD automatycznie odnowi certyfikat podpisywania po jego wygaśnięciu. Jeśli jednak certyfikat zostanie obrócony z jakiegokolwiek powodu przed upływem czasu lub jeśli nie podasz adresu URL metadanych, usługa Azure AD nie będzie mogła go odnowić. W takim przypadku należy ręcznie zaktualizować certyfikat podpisywania.
+### <a name="signing-certificate-renewal"></a>Odnawianie certyfikatu podpisywania
+Jeśli określisz adres URL metadanych w ustawieniach dostawcy tożsamości, usługa Azure AD automatycznie odnowi certyfikat podpisywania po jego wygaśnięciu. Jeśli jednak certyfikat jest obrócony z dowolnego powodu przed upływem czasu wygaśnięcia lub jeśli nie podano adresu URL metadanych, usługa Azure AD nie będzie mogła go odnowić. W takim przypadku należy ręcznie zaktualizować certyfikat podpisywania.
 
-### <a name="limit-on-federation-relationships"></a>Ograniczenie relacji federacyjnej
-Obecnie obsługiwanych jest maksymalnie 1000 relacji federacyjnej. Limit ten obejmuje zarówno [federacje wewnętrzne,](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) jak i federacje bezpośrednie.
+### <a name="limit-on-federation-relationships"></a>Limit relacji federacyjnych
+Obecnie obsługiwane są maksymalnie 1 000 relacje federacyjne. Ten limit obejmuje [wewnętrzne Federacji](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) i bezpośrednie Federacji.
 
-### <a name="limit-on-multiple-domains"></a>Ograniczanie w wielu domenach
-Obecnie nie obsługujemy bezpośredniej federacji z wieloma domenami z tej samej dzierżawy.
+### <a name="limit-on-multiple-domains"></a>Ogranicz dla wielu domen
+Obecnie nie obsługujemy bezpośredniej Federacji z wieloma domenami z tej samej dzierżawy.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
-### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Czy mogę skonfigurować bezpośrednią federację z domeną, dla której istnieje dzierżawa niezarządzana (zweryfikowana pocztą e-mail)? 
-Tak. Jeśli domena nie została zweryfikowana, a dzierżawca nie została poddana [przejęciu administratora,](../users-groups-roles/domains-admin-takeover.md)można skonfigurować bezpośrednią federację w tej domenie. Niezarządzane lub zweryfikowane pocztą e-mail dzierżawy są tworzone, gdy użytkownik realizuje zaproszenie B2B lub wykonuje samoobsługowe rejestracje dla usługi Azure AD przy użyciu domeny, która obecnie nie istnieje. Można skonfigurować bezpośrednią federację z tymi domenami. Jeśli spróbujesz skonfigurować bezpośrednią federację z domeną zweryfikowaną przez DNS w witrynie Azure portal lub za pośrednictwem programu PowerShell, zostanie wyświetlony błąd.
-### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Jeśli bezpośrednie uwierzytelnianie federacyjnym i e-mail jednorazowym kodem dostępu jest włączone, która metoda ma pierwszeństwo?
-Po ustanowieniu federacji bezpośredniej z organizacją partnerską ma pierwszeństwo przed jednorazowym uwierzytelnianiem kodu dostępu poczty e-mail dla nowych użytkowników-gości z tej organizacji. Jeśli użytkownik-gość zrealizował zaproszenie przy użyciu jednorazowego uwierzytelniania kodem dostępu przed skonfigurowaniem bezpośredniej federacji, będzie nadal używać jednorazowego uwierzytelniania kodem dostępu. 
-### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>Czy bezpośrednia federacja rozwiązuje problemy z logowaniem z powodu częściowo zsynchronizowanego najmu?
-Nie, funkcja [jednorazowego kodu dostępu poczty e-mail](one-time-passcode.md) powinna być używana w tym scenariuszu. "Częściowo zsynchronizowany najem" odnosi się do partnerskiej dzierżawy usługi Azure AD, w której lokalne tożsamości użytkowników nie są w pełni synchronizowane z chmurą. Gość, którego tożsamość jeszcze nie istnieje w chmurze, ale który próbuje zrealizować zaproszenie B2B, nie będzie mógł się zalogować. Funkcja jednorazowego kodu dostępu umożliwiłaby temu gościowi zalogowanie się. Funkcja bezpośredniej federacji dotyczy scenariuszy, w których gość ma własne konto organizacyjne zarządzane przez IdP, ale organizacja nie ma żadnej obecności usługi Azure AD.
+### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Czy można skonfigurować bezpośrednią Federacji z domeną, dla której istnieje niezarządzana dzierżawa (zweryfikowana za pośrednictwem poczty e-mail)? 
+Tak. Jeśli domena nie została zweryfikowana i dzierżawa nie przeszła [przejęcia przez administratora](../users-groups-roles/domains-admin-takeover.md), można skonfigurować bezpośrednią Federacji z tą domeną. Niezarządzane lub zweryfikowane pocztą e-mail dzierżawy są tworzone, gdy użytkownik zrealizuje zaproszenie B2B lub wykonuje samoobsługowe Tworzenie konta w usłudze Azure AD przy użyciu domeny, która obecnie nie istnieje. Można skonfigurować bezpośrednią Federacji z tymi domenami. W przypadku próby skonfigurowania bezpośredniej Federacji z domeną zweryfikowaną przez system DNS w Azure Portal lub za pomocą programu PowerShell zostanie wyświetlony komunikat o błędzie.
+### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Jeśli w przypadku federacji bezpośredniej i poczty e-mail jednorazowe uwierzytelnianie kodu dostępu jest włączone, która metoda ma pierwszeństwo?
+W przypadku ustanowienia bezpośredniej Federacji z organizacją partnera ma ona wyższy priorytet niż jednorazowe uwierzytelnianie kodu dostępu do poczty e-mail dla nowych użytkowników-Gości z tej organizacji. Jeśli użytkownik-Gość wykorzystał zaproszenie przy użyciu jednorazowego uwierzytelniania kodu dostępu, przed skonfigurowaniem Federacji bezpośredniej będzie nadal korzystać z uwierzytelniania jednorazowego kodu dostępu. 
+### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>Czy bezpośrednie problemy z logowaniem do adresu federacyjnego są spowodowane częściowo zsynchronizowaną dzierżawą?
+Nie. w tym scenariuszu należy użyć funkcji [jednokrotnego kodu dostępu w wiadomości e-mail](one-time-passcode.md) . "Częściowo zsynchronizowana dzierżawa" odnosi się do dzierżawy usługi Azure AD partnera, w której tożsamości użytkowników lokalnych nie są w pełni zsynchronizowane z chmurą. Gość, którego tożsamość nie istnieje jeszcze w chmurze, ale próbujących zrealizować zaproszenie B2B nie będzie mógł się zalogować. Funkcja jednorazowy kod dostępu zezwoli temu gościa na logowanie. Funkcja Federacji bezpośredniej dotyczy scenariuszy, w których Gość ma własne konto organizacyjne zarządzane przez dostawcy tożsamości, ale w ogóle nie ma obecności usługi Azure AD.
 
-## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Krok 1: Konfigurowanie dostawcy tożsamości organizacji partnerskiej
-Po pierwsze organizacja partnerska musi skonfigurować swojego dostawcę tożsamości przy pomocy wymaganych oświadczeń i relacji zaufania jednostki uzależniającej. 
-
-> [!NOTE]
-> Aby zilustrować sposób konfigurowania dostawcy tożsamości dla federacji bezpośredniej, jako przykład użyjemy usług federacyjnych Active Directory (AD FS). Zobacz artykuł [Konfigurowanie bezpośredniej federacji z usługami AD FS](direct-federation-adfs.md), w którym przedstawiono przykłady konfigurowania usług AD FS jako dostawcy tożsamości SAML 2.0 lub WS-Fed w ramach przygotowań do bezpośredniej federacji.
-
-### <a name="saml-20-configuration"></a>Konfiguracja SAML 2.0
-
-Usługi Azure AD B2B można skonfigurować do ujednolici z dostawcami tożsamości, którzy używają protokołu SAML z określonymi wymaganiami wymienionymi poniżej. Aby uzyskać więcej informacji na temat konfigurowania zaufania między dostawcą tożsamości SAML a usługą Azure AD, zobacz [Używanie dostawcy tożsamości SAML 2.0 (IdP) do logowania jednokrotnego.](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp)  
+## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Krok 1. Konfigurowanie dostawcy tożsamości organizacji partnerskiej
+Najpierw organizacja partnera musi skonfigurować swojego dostawcę tożsamości z wymaganymi oświadczeniami i relacjami zaufania jednostek uzależnionych. 
 
 > [!NOTE]
-> Domena docelowa dla bezpośredniej federacji nie może być zweryfikowana przez system DNS w usłudze Azure AD. Domena adresu URL uwierzytelniania musi być zgodna z domeną docelową lub musi być domeną dostawcy dozwolonej tożsamości. Szczegółowe informacje można znaleźć w sekcji [Ograniczenia.](#limitations) 
+> Aby zilustrować sposób konfigurowania dostawcy tożsamości dla Federacji bezpośredniej, będziemy używać Active Directory Federation Services (AD FS) jako przykładu. Zapoznaj się z artykułem [Konfigurowanie bezpośredniej Federacji z AD FS](direct-federation-adfs.md), która zawiera przykłady konfigurowania AD FS jako dostawcy tożsamości SAML 2,0 lub WS-in w przygotowaniu do Federacji bezpośredniej.
 
-#### <a name="required-saml-20-attributes-and-claims"></a>Wymagane atrybuty i oświadczenia SAML 2.0
-W poniższych tabelach przedstawiono wymagania dotyczące określonych atrybutów i oświadczeń, które muszą być skonfigurowane u dostawcy tożsamości innej firmy. Aby skonfigurować federację bezpośrednią, należy otrzymać następujące atrybuty w odpowiedzi SAML 2.0 od dostawcy tożsamości. Atrybuty te można skonfigurować, łącząc się z plikiem XML usługi tokenu zabezpieczającego online lub wprowadzając je ręcznie.
+### <a name="saml-20-configuration"></a>Konfiguracja protokołu SAML 2,0
 
-Wymagane atrybuty odpowiedzi SAML 2.0 z IdP:
+Usługę Azure AD B2B można skonfigurować tak, aby sfederować się z dostawcami tożsamości, którzy korzystają z protokołu SAML z określonymi wymaganiami wymienionymi poniżej. Aby uzyskać więcej informacji na temat konfigurowania zaufania między dostawcą tożsamości SAML i usługą Azure AD, zobacz [Używanie dostawcy tożsamości saml 2,0 (dostawcy tożsamości) na potrzeby logowania jednokrotnego](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
+
+> [!NOTE]
+> Domena docelowa dla Federacji bezpośredniej nie może być zweryfikowana przez system DNS w usłudze Azure AD. Domena adresu URL uwierzytelniania musi być zgodna z domeną docelową lub musi być domeną dozwolonego dostawcy tożsamości. Szczegółowe informacje znajdują się w sekcji [ograniczenia](#limitations) . 
+
+#### <a name="required-saml-20-attributes-and-claims"></a>Wymagane atrybuty i oświadczenia SAML 2,0
+W poniższych tabelach przedstawiono wymagania dotyczące określonych atrybutów i oświadczeń, które muszą być skonfigurowane w dostawcy tożsamości innej firmy. Aby skonfigurować bezpośrednią Federacji, należy odebrać następujące atrybuty w odpowiedzi SAML 2,0 od dostawcy tożsamości. Te atrybuty można skonfigurować, łącząc się z plikiem XML usługi tokenu zabezpieczającego w trybie online lub wprowadzając je ręcznie.
+
+Atrybuty wymagane dla odpowiedzi SAML 2,0 z dostawcy tożsamości:
 
 |Atrybut  |Wartość  |
 |---------|---------|
-|TwierdzenieConsumerService     |`https://login.microsoftonline.com/login.srf`         |
+|AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Grupy odbiorców     |`urn:federation:MicrosoftOnline`         |
-|Wystawca     |Identyfikator wystawcy identyfikatora partnera, na przykład`http://www.example.com/exk10l6w90DHM0yi...`         |
+|Wystawca     |Identyfikator URI wystawcy partnera dostawcy tożsamości, na przykład`http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
-Wymagane oświadczenia dotyczące tokenu SAML 2.0 wystawionego przez IdP:
+Wymagane oświadczenia dla tokenu SAML 2,0 wystawionego przez dostawcy tożsamości:
 
 |Atrybut  |Wartość  |
 |---------|---------|
-|NameID Format     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
+|Format NameID     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
-### <a name="ws-fed-configuration"></a>Konfiguracja WS-Fed 
-Usługi Azure AD B2B można skonfigurować do ujednolici z dostawcami tożsamości, którzy używają protokołu WS-Fed z pewnymi określonymi wymaganiami, jak podano poniżej. Obecnie dwóch dostawców WS-Fed zostały przetestowane pod kątem zgodności z usługą Azure AD obejmują usługi AD FS i Shibboleth. Aby uzyskać więcej informacji na temat ustanawiania zaufania jednostki uzależnionej między dostawcą zgodnym z usługą Azure AD, zobacz "Papier integracji STS przy użyciu protokołów WS" dostępny w [Dokumentach zgodności dostawcy tożsamości usługi Azure AD](https://www.microsoft.com/download/details.aspx?id=56843).
+### <a name="ws-fed-configuration"></a>Konfiguracja usługi WS-karmione 
+Usługę Azure AD B2B można skonfigurować tak, aby sfederować się z dostawcami tożsamości, którzy korzystają z protokołu WS-pokarmowego z określonymi wymaganiami wymienionymi poniżej. Obecnie dwaj dostawcy usługi WS-karmione zostały przetestowani pod kątem zgodności z usługą Azure AD, w tym AD FS i Shibboleth. Aby uzyskać więcej informacji na temat ustanawiania zaufania jednostki uzależnionej między zgodnym dostawcą usługi WS-in a usługą Azure AD, zobacz "papier integracji usługi STS przy użyciu protokołów WS" dostępnych w dokumentach [zgodności dostawcy tożsamości usługi Azure AD](https://www.microsoft.com/download/details.aspx?id=56843).
 
 > [!NOTE]
-> Domena docelowa dla bezpośredniej federacji nie może być zweryfikowana przez system DNS w usłudze Azure AD. Domena adresu URL uwierzytelniania musi być zgodna z domeną docelową lub domeną dostawcy dozwolonej tożsamości. Szczegółowe informacje można znaleźć w sekcji [Ograniczenia.](#limitations) 
+> Domena docelowa dla Federacji bezpośredniej nie może być zweryfikowana przez system DNS w usłudze Azure AD. Domena adresu URL uwierzytelniania musi być zgodna z domeną docelową lub domeną dozwolonego dostawcy tożsamości. Szczegółowe informacje znajdują się w sekcji [ograniczenia](#limitations) . 
 
-#### <a name="required-ws-fed-attributes-and-claims"></a>Wymagane atrybuty i roszczenia WS-Fed
+#### <a name="required-ws-fed-attributes-and-claims"></a>Wymagane atrybuty i oświadczenia dotyczące protokołu WS-in
 
-W poniższych tabelach przedstawiono wymagania dotyczące określonych atrybutów i oświadczeń, które muszą być skonfigurowane u zewnętrznego dostawcy tożsamości WS-Fed. Aby skonfigurować federację bezpośrednią, w wiadomości WS-Fed od dostawcy tożsamości należy odbierać następujące atrybuty. Atrybuty te można skonfigurować, łącząc się z plikiem XML usługi tokenu zabezpieczającego online lub wprowadzając je ręcznie.
+W poniższych tabelach przedstawiono wymagania dotyczące określonych atrybutów i oświadczeń, które muszą zostać skonfigurowane w ramach dostawcy tożsamości opartego na usłudze WS-in-the-karmione. Aby skonfigurować bezpośrednią Federacji, należy odebrać następujące atrybuty w komunikacie protokołu WS-pokarmowym od dostawcy tożsamości. Te atrybuty można skonfigurować, łącząc się z plikiem XML usługi tokenu zabezpieczającego w trybie online lub wprowadzając je ręcznie.
 
-Wymagane atrybuty w wiadomości WS-Fed z IdP:
+Wymagane atrybuty w wiadomości protokołu WS-pokarmowego z dostawcy tożsamości:
  
 |Atrybut  |Wartość  |
 |---------|---------|
-|Pasywny PunktEndor     |`https://login.microsoftonline.com/login.srf`         |
+|PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Grupy odbiorców     |`urn:federation:MicrosoftOnline`         |
-|Wystawca     |Identyfikator wystawcy identyfikatora partnera, na przykład`http://www.example.com/exk10l6w90DHM0yi...`         |
+|Wystawca     |Identyfikator URI wystawcy partnera dostawcy tożsamości, na przykład`http://www.example.com/exk10l6w90DHM0yi...`         |
 
-Wymagane roszczenia dotyczące tokenu WS-Fed wystawionego przez IdP:
+Wymagane oświadczenia dla tokenu protokołu WS-pokarmowego wydanego przez dostawcy tożsamości:
 
 |Atrybut  |Wartość  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
-## <a name="step-2-configure-direct-federation-in-azure-ad"></a>Krok 2: Konfigurowanie bezpośredniej federacji w usłudze Azure AD 
-Następnie skonfigurujesz federację z dostawcą tożsamości skonfigurowanym w kroku 1 w usłudze Azure AD. Można użyć portalu usługi Azure AD lub programu PowerShell. Może upłynąć 5-10 minut, zanim zasady bezpośredniej federacji wejdą w życie. W tym czasie nie próbuj realizować zaproszenia dla domeny bezpośredniej federacji. Wymagane są następujące atrybuty:
-- Identyfikator wystawcy IdP partnera
-- Punkt końcowy uwierzytelniania pasywnego partnera IdP (obsługiwane jest tylko https)
+## <a name="step-2-configure-direct-federation-in-azure-ad"></a>Krok 2. Konfigurowanie bezpośredniej Federacji w usłudze Azure AD 
+Następnie skonfigurujesz Federacji z dostawcą tożsamości skonfigurowanym w kroku 1 w usłudze Azure AD. Możesz użyć portalu usługi Azure AD lub programu PowerShell. Przed zastosowaniem bezpośrednich zasad Federacji może upłynąć 5-10 minut. W tym czasie nie należy próbować zrealizować zaproszenia dla domeny Federacji bezpośredniej. Wymagane są następujące atrybuty:
+- Identyfikator URI wystawcy partnera dostawcy tożsamości
+- Punkt końcowy uwierzytelniania pasywnego dostawcy tożsamości partnera (obsługiwana jest tylko obsługa protokołu HTTPS)
 - Certyfikat
 
-### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Aby skonfigurować bezpośrednią federację w portalu usługi Azure AD
+### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Aby skonfigurować bezpośrednią Federacji w portalu usługi Azure AD
 
-1. Przejdź do [witryny Azure portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
-2. Wybierz **pozycję Relacje organizacyjne**.
-3. Wybierz **pozycję Dostawcy tożsamości**, a następnie wybierz pozycję Nowy identyfikator **SAML/WS-Fed**.
+1. Przejdź do [Azure Portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
+2. Wybierz **relacje organizacyjne**.
+3. Wybierz pozycję **dostawcy tożsamości**, a następnie wybierz pozycję **Nowy protokół SAML/WS-dostawcy tożsamości**.
 
-    ![Zrzut ekranu przedstawiający przycisk dodawania nowego identyfikatora SAML lub WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
+    ![Zrzut ekranu przedstawiający przycisk dodawania nowych dostawcy tożsamości języka SAML lub protokołu WS-karmionego](media/direct-federation/new-saml-wsfed-idp.png)
 
-4. Na stronie **Nowy identyfikator SAML/WS-Fed** w obszarze **Protokół dostawcy tożsamości**wybierz pozycję **SAML** lub **WS-FED**.
+4. Na **nowej stronie dostawcy tożsamości SAML/WS-karmione** w obszarze **Protokół dostawcy tożsamości**wybierz pozycję **SAML** lub **WS-karmione**.
 
-    ![Zrzut ekranu przedstawiający przycisk analizy na stronie SAML lub WS-Fed IdP](media/direct-federation/new-saml-wsfed-idp-parse.png)
+    ![Zrzut ekranu przedstawiający przycisk analizy na stronie dostawcy tożsamości SAML lub WS-karmione](media/direct-federation/new-saml-wsfed-idp-parse.png)
 
-5. Wprowadź nazwę domeny organizacji partnerskiej, która będzie nazwą domeny docelowej dla federacji bezpośredniej
-6. Możesz przekazać plik metadanych, aby wypełnić szczegóły metadanych. Jeśli wybierzesz opcję ręcznego wprowadzania metadanych, wprowadź następujące informacje:
-   - Nazwa domeny idP partnera
-   - Identyfikator jednostki identyfikatora partnera
-   - Pasywny punkt końcowy żądania idP partnera
+5. Wprowadź nazwę domeny organizacji partnera, która będzie nazwą domeny docelowej dla Federacji bezpośredniej
+6. Aby wypełnić szczegóły metadanych, można przekazać plik metadanych. Jeśli zdecydujesz się na ręczne wprowadzanie metadanych, wprowadź następujące informacje:
+   - Nazwa domeny dostawcy tożsamości partnera
+   - Identyfikator jednostki dostawcy tożsamości partnera
+   - Punkt końcowy żądania pasywnego dostawcy tożsamości partnera
    - Certyfikat
    > [!NOTE]
-   > Adres URL metadanych jest opcjonalny, jednak zdecydowanie go zalecamy. Jeśli podasz adres URL metadanych, usługa Azure AD może automatycznie odnowić certyfikat podpisywania po jego wygaśnięciu. Jeśli certyfikat zostanie obrócony z jakiegokolwiek powodu przed upływem czasu lub jeśli nie podasz adresu URL metadanych, usługa Azure AD nie będzie mogła go odnowić. W takim przypadku należy ręcznie zaktualizować certyfikat podpisywania.
+   > Adres URL metadanych jest opcjonalny, jednak zdecydowanie zalecamy. W przypadku podania adresu URL metadanych usługa Azure AD może automatycznie odnowić certyfikat podpisywania po jego wygaśnięciu. Jeśli certyfikat jest obrócony z dowolnego powodu przed upływem czasu wygaśnięcia lub jeśli nie podasz adresu URL metadanych, usługa Azure AD nie będzie mogła go odnowić. W takim przypadku należy ręcznie zaktualizować certyfikat podpisywania.
 
-7. Wybierz **pozycję Zapisz**. 
+7. Wybierz pozycję **Zapisz**. 
 
-### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>Aby skonfigurować bezpośrednią federację w usłudze Azure AD przy użyciu programu PowerShell
+### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>Aby skonfigurować bezpośrednią Federacji w usłudze Azure AD przy użyciu programu PowerShell
 
-1. Zainstaluj najnowszą wersję modułu programu Azure AD PowerShell for Graph[(AzureADPreview).](https://www.powershellgallery.com/packages/AzureADPreview) (Jeśli potrzebujesz szczegółowych kroków, szybki start dodawania użytkownika-gościa zawiera sekcję [Instalowanie najnowszego modułu AzureADPreview.)](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module) 
+1. Zainstaluj najnowszą wersję modułu PowerShell usługi Azure AD dla programu Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). (Jeśli potrzebujesz szczegółowych kroków, Przewodnik Szybki Start dotyczący dodawania użytkownika-gościa zawiera sekcję [Instalowanie najnowszego modułu AzureADPreview](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module)). 
 2. Uruchom następujące polecenie: 
    ```powershell
    Connect-AzureAD
    ```
-1. W wierszu logowania zaloguj się za pomocą zarządzanego konta administratora globalnego. 
-2. Uruchom następujące polecenia, zastępując wartości z pliku metadanych federacji. W przypadku serwera usług AD FS Server i Okta plik federacyjny to federationmetadata.xml, na przykład: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`. 
+1. W wierszu logowania zaloguj się przy użyciu zarządzanego konta administratora globalnego. 
+2. Uruchom następujące polecenia, zastępując wartości z pliku metadanych Federacji. Dla AD FS Server i usługi okta plik federacyjny to federationmetadata. XML, na przykład: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`. 
 
    ```powershell
    $federationSettings = New-Object Microsoft.Open.AzureAD.Model.DomainFederationSettings
@@ -185,35 +185,35 @@ Następnie skonfigurujesz federację z dostawcą tożsamości skonfigurowanym w 
    New-AzureADExternalDomainFederation -ExternalDomainName $domainName  -FederationSettings $federationSettings
    ```
 
-## <a name="step-3-test-direct-federation-in-azure-ad"></a>Krok 3: Testowanie bezpośredniej federacji w usłudze Azure AD
-Teraz przetestuj bezpośrednią konfigurację federacji, zapraszając nowego użytkownika gościa B2B. Aby uzyskać szczegółowe informacje, zobacz [Dodawanie użytkowników współpracy usługi Azure AD B2B w witrynie Azure portal](add-users-administrator.md).
+## <a name="step-3-test-direct-federation-in-azure-ad"></a>Krok 3. Testowanie Federacji bezpośredniej w usłudze Azure AD
+Teraz Przetestuj konfigurację Federacji bezpośredniej, zapraszając nowego użytkownika-gościa B2B. Aby uzyskać szczegółowe informacje, zobacz [Dodawanie użytkowników współpracy B2B usługi Azure AD w Azure Portal](add-users-administrator.md).
  
-## <a name="how-do-i-edit-a-direct-federation-relationship"></a>Jak edytować bezpośrednią relację federacjową?
+## <a name="how-do-i-edit-a-direct-federation-relationship"></a>Jak mogę edytować bezpośredniej relacji Federacji?
 
-1. Przejdź do [witryny Azure portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
-2. Wybierz **pozycję Relacje organizacyjne**.
+1. Przejdź do [Azure Portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
+2. Wybierz **relacje organizacyjne**.
 3. Wybierz **dostawców tożsamości**
-4. W obszarze **DOSTAWCY tożsamości SAML/WS-Fed**wybierz dostawcę tożsamości.
+4. W obszarze **dostawcy tożsamości protokołu SAML/WS-karmionego**wybierz dostawcę.
 5. W okienku szczegółów dostawcy tożsamości zaktualizuj wartości.
-6. Wybierz **pozycję Zapisz**.
+6. Wybierz pozycję **Zapisz**.
 
 
-## <a name="how-do-i-remove-direct-federation"></a>Jak usunąć federację bezpośrednią?
-Możesz usunąć bezpośrednią konfigurację federacji. Jeśli to zrobisz, bezpośredni użytkownicy-goście-goście federacji, którzy już zrealizowali zaproszenia, nie będą mogli się zalogować. Ale można dać im dostęp do zasobów ponownie, usuwając je z katalogu i ponownie je. Aby usunąć bezpośrednią federację z dostawcą tożsamości w portalu usługi Azure AD:
+## <a name="how-do-i-remove-direct-federation"></a>Jak mogę usunąć Federacji bezpośredniej?
+Możesz usunąć konfigurację Federacji bezpośredniej. Jeśli to zrobisz, wszyscy użytkownicy-Goście Federacji, którzy już korzystali z zaproszenia, nie będą mogli się zalogować. Można jednak umożliwić im ponowne uzyskanie dostępu do zasobów, usuwając je z katalogu i ponownie zapraszając. Aby usunąć bezpośrednią Federacji z dostawcą tożsamości w portalu usługi Azure AD:
 
-1. Przejdź do [witryny Azure portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
-2. Wybierz **pozycję Relacje organizacyjne**.
-3. Wybierz **dostawców tożsamości**.
+1. Przejdź do [Azure Portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
+2. Wybierz **relacje organizacyjne**.
+3. Wybierz pozycję **dostawcy tożsamości**.
 4. Wybierz dostawcę tożsamości, a następnie wybierz pozycję **Usuń**. 
-5. Wybierz **pozycję Tak,** aby potwierdzić usunięcie. 
+5. Wybierz pozycję **tak** , aby potwierdzić usunięcie. 
 
-Aby usunąć bezpośrednią federację z dostawcą tożsamości przy użyciu programu PowerShell:
-1. Zainstaluj najnowszą wersję modułu programu Azure AD PowerShell for Graph[(AzureADPreview).](https://www.powershellgallery.com/packages/AzureADPreview)
+Aby usunąć bezpośrednią Federacji z dostawcą tożsamości przy użyciu programu PowerShell:
+1. Zainstaluj najnowszą wersję modułu PowerShell usługi Azure AD dla programu Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
 2. Uruchom następujące polecenie: 
    ```powershell
    Connect-AzureAD
    ```
-3. W wierszu logowania zaloguj się za pomocą zarządzanego konta administratora globalnego. 
+3. W wierszu logowania zaloguj się przy użyciu zarządzanego konta administratora globalnego. 
 4. Wprowadź następujące polecenie:
    ```powershell
    Remove-AzureADExternalDomainFederation -ExternalDomainName  $domainName

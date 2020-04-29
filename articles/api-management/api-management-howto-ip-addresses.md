@@ -1,6 +1,6 @@
 ---
-title: Adresy IP usługi Usługi Azure API Management | Dokumenty firmy Microsoft
-description: Dowiedz się, jak pobrać adresy IP usługi Azure API Management i kiedy się zmieniają.
+title: Adresy IP usługi API Management Azure | Microsoft Docs
+description: Dowiedz się, jak pobrać adresy IP usługi Azure API Management i zmienić je.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,27 +13,27 @@ ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
 ms.openlocfilehash: 45501fee9ae6ff47643a1ed197a07c4ba598e981
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80047746"
 ---
-# <a name="ip-addresses-of-azure-api-management"></a>Adresy IP usługi Azure API Management
+# <a name="ip-addresses-of-azure-api-management"></a>Adresy IP API Management platformy Azure
 
-W tym artykule opisano, jak pobrać adresy IP usługi Azure API Management. Adresy IP mogą być publiczne lub prywatne, jeśli usługa znajduje się w sieci wirtualnej.
+W tym artykule opisano sposób pobierania adresów IP usługi Azure API Management. Adresy IP mogą być publiczne lub prywatne, jeśli usługa znajduje się w sieci wirtualnej.
 
-Adresy IP umożliwiają tworzenie reguł zapory, filtrowanie ruchu przychodzącego do usług wewnętrznej bazy danych lub ograniczanie ruchu wychodzącego.
+Przy użyciu adresów IP można tworzyć reguły zapory, filtrować ruch przychodzący do usług zaplecza lub ograniczać ruch wychodzący.
 
 ## <a name="ip-addresses-of-api-management-service"></a>Adresy IP usługi API Management
 
-Każde wystąpienie usługi zarządzania interfejsami API w warstwie Deweloper, Basic, Standard lub Premium ma publiczne adresy IP, które są wyłączne tylko dla tego wystąpienia usługi (nie są one współużytkowane z innymi zasobami). 
+Każde wystąpienie usługi API Management w warstwie Deweloper, podstawowa, standardowa lub Premium ma publiczne adresy IP, które nie są dostępne wyłącznie dla tego wystąpienia usługi (nie są one udostępniane innym zasobom). 
 
-Adresy IP można pobrać z pulpitu nawigacyjnego przeglądu zasobu w witrynie Azure portal.
+Adresy IP można pobrać z pulpitu nawigacyjnego przeglądu zasobu w Azure Portal.
 
-![Adres IP zarządzania interfejsami API](media/api-management-howto-ip-addresses/public-ip.png)
+![API Management adres IP](media/api-management-howto-ip-addresses/public-ip.png)
 
-Można również pobrać je programowo z następujących wywołań interfejsu API:
+Można je również programowo pobrać przy użyciu następującego wywołania interfejsu API:
 
 ```
 GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<service-name>?api-version=<api-version>
@@ -55,19 +55,19 @@ Publiczne adresy IP będą częścią odpowiedzi:
 }
 ```
 
-W [przypadku wdrożeń wieloregionalnych](api-management-howto-deploy-multi-region.md)każde wdrożenie regionalne ma jeden publiczny adres IP.
+W [przypadku wdrożeń w wielu regionach](api-management-howto-deploy-multi-region.md)każde wdrożenie regionalne ma jeden publiczny adres IP.
 
 ## <a name="ip-addresses-of-api-management-service-in-vnet"></a>Adresy IP usługi API Management w sieci wirtualnej
 
-Jeśli usługa api Management znajduje się w sieci wirtualnej, będzie miała dwa typy adresów IP — publiczny i prywatny.
+Jeśli usługa API Management znajduje się w sieci wirtualnej, będzie mieć dwa typy adresów IP — Public i Private.
 
-Publiczne adresy IP są używane `3443` do komunikacji wewnętrznej na porcie — do zarządzania konfiguracją (na przykład za pośrednictwem usługi Azure Resource Manager). W konfiguracji zewnętrznej sieci wirtualnej są one również używane do ruchu interfejsu API środowiska wykonawczego. Gdy żądanie jest wysyłane z usługi API Management do publicznego zaplecza (internet-facing), publiczny adres IP będzie widoczny jako początek żądania.
+Publiczne adresy IP są używane do komunikacji wewnętrznej na porcie `3443` — do zarządzania konfiguracją (na przykład przez Azure Resource Manager). W konfiguracji zewnętrznej sieci wirtualnej są one również używane na potrzeby ruchu interfejsu API środowiska uruchomieniowego. Gdy żądanie jest wysyłane z API Management do publicznego zaplecza (dostępnego z Internetu), publiczny adres IP będzie widoczny jako źródło żądania.
 
-Prywatne wirtualne adresy IP (VIP), dostępne **tylko** w [wewnętrznym trybie sieci wirtualnej,](api-management-using-with-internal-vnet.md)są używane do łączenia się z sieci z punktami końcowymi usługi API Management — bramami, portalem dewelopera i płaszczyzną zarządzania w celu bezpośredniego dostępu do interfejsu API. Można ich używać do konfigurowania rekordów DNS w sieci.
+Prywatne wirtualne adresy IP (VIP), dostępne **tylko** w [trybie wewnętrznej sieci wirtualnej](api-management-using-with-internal-vnet.md), służą do nawiązywania połączenia z siecią w celu API Management punktów końcowych — bram, portalu deweloperów i płaszczyzny zarządzania do bezpośredniego dostępu do interfejsu API. Można ich używać do konfigurowania rekordów DNS w sieci.
 
-Zobaczysz adresy obu typów w witrynie Azure portal i w odpowiedzi wywołania interfejsu API:
+Zobaczysz adresy obu typów w Azure Portal i w odpowiedzi na wywołanie interfejsu API:
 
-![Zarządzanie interfejsami API w sieci wirtualnej adres IP](media/api-management-howto-ip-addresses/vnet-ip.png)
+![API Management w adresie IP sieci wirtualnej](media/api-management-howto-ip-addresses/vnet-ip.png)
 
 
 ```json
@@ -89,21 +89,21 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 }
 ```
 
-Usługa API Management używa publicznego adresu IP dla połączeń poza siecią wirtualną i prywatnego adresu IP dla połączeń w sieci wirtualnej.
+API Management używa publicznego adresu IP dla połączeń poza siecią wirtualną i prywatnego adresu IP dla połączeń w sieci wirtualnej.
 
-## <a name="ip-addresses-of-consumption-tier-api-management-service"></a>Adresy IP usługi Zarządzanie interfejsami API warstwy zużycie
+## <a name="ip-addresses-of-consumption-tier-api-management-service"></a>Adresy IP dla warstwy zużycia API Management usługi
 
-Jeśli usługa api Management jest usługą warstwy zużycie, nie ma dedykowanego adresu IP. Usługa warstwy zużycia jest uruchamiana w infrastrukturze udostępnionej i bez deterministycznego adresu IP. 
+Jeśli usługa API Management jest usługą warstwy zużycia, nie ma dedykowanego adresu IP. Usługa warstwa użycia jest uruchamiana w infrastrukturze udostępnionej i bez deterministycznych adresów IP. 
 
-Na potrzeby ograniczeń ruchu można użyć zakresu adresów IP centrów danych platformy Azure. Szczegółowe kroki można znaleźć [w dokumentacji usługi Azure Functions.](../azure-functions/ip-addresses.md#data-center-outbound-ip-addresses)
+W celu ograniczenia ruchu można użyć zakresu adresów IP centrów danych platformy Azure. Szczegółowe instrukcje można znaleźć w [artykule dotyczącym dokumentacji Azure Functions](../azure-functions/ip-addresses.md#data-center-outbound-ip-addresses) .
 
-## <a name="changes-to-the-ip-addresses"></a>Zmiany w adresach IP
+## <a name="changes-to-the-ip-addresses"></a>Zmiany adresów IP
 
-W warstwach Developer, Basic, Standard i Premium zarządzania interfejsami API publiczne adresy IP (VIP) są statyczne przez cały okres istnienia usługi, z następującymi wyjątkami:
+W warstwach Deweloper, podstawowa, standardowa i Premium API Management publiczne adresy IP (VIP) są statyczne przez okres istnienia usługi, z następującymi wyjątkami:
 
-* Usługa zostanie usunięta, a następnie ponownie utworzona.
-* Subskrypcja usługi zostanie [zawieszona](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) lub [ostrzeżona](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (na przykład za niepłacenie), a następnie przywrócona.
-* Usługa Azure Virtual Network jest dodawana lub usuwana z usługi.
-* Usługa api Management jest przełączana między trybem wdrażania zewnętrznej i wewnętrznej sieci wirtualnej.
+* Usługa została usunięta, a następnie ponownie utworzona.
+* Subskrypcja usługi jest [zawieszona](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) lub [ostrzegana](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (na przykład w przypadku niepłatności), a następnie przywrócona.
+* Usługa Virtual Network platformy Azure została dodana do usługi lub usunięta z niej.
+* Usługa API Management jest przełączana między zewnętrznym i wewnętrznym trybem wdrożenia sieci wirtualnej.
 
-W [przypadku wdrożeń wieloregionalnych](api-management-howto-deploy-multi-region.md)regionalny adres IP zmienia się, jeśli region jest opuszczony, a następnie przywrócony.
+W przypadku [wdrożeń z obsługą wiele regionów](api-management-howto-deploy-multi-region.md)regionalny adres IP zmienia się, jeśli region jest opuszczone, a następnie przywracany.

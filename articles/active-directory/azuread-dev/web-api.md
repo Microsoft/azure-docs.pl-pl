@@ -1,6 +1,6 @@
 ---
-title: Aplikacje interfejsu API sieci Web w usłudze Azure Active Directory
-description: W tym artykule opisano, jakie są aplikacje interfejsu API sieci web i podstawy dotyczące przepływu protokołu, rejestracji i wygaśnięcia tokenu dla tego typu aplikacji.
+title: Aplikacje internetowego interfejsu API w Azure Active Directory
+description: Zawiera opis aplikacji internetowego interfejsu API i podstawowe informacje dotyczące przepływu protokołu, rejestracji i wygaśnięcia tokenu dla tego typu aplikacji.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -15,69 +15,69 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9cf5a9c81ca1d7a42a5a8e342dee55f335656c3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154427"
 ---
 # <a name="web-api"></a>Interfejs API sieci Web
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-Aplikacje interfejsu API sieci Web to aplikacje sieci Web, które muszą uzyskać zasoby z internetowego interfejsu API. W tym scenariuszu istnieją dwa typy tożsamości, których aplikacja sieci web może używać do uwierzytelniania i wywoływania internetowego interfejsu API:
+Web API Apps to aplikacje sieci Web, które muszą pobierać zasoby z internetowego interfejsu API. W tym scenariuszu istnieją dwa typy tożsamości, których aplikacja sieci Web może używać do uwierzytelniania i wywoływania internetowego interfejsu API:
 
-- **Tożsamość aplikacji** — w tym scenariuszu użyto poświadczenia klienta OAuth 2.0 do uwierzytelniania jako aplikacji i dostępu do internetowego interfejsu API. Podczas korzystania z tożsamości aplikacji, interfejs API sieci web można tylko wykryć, że aplikacja sieci web wywołuje go, jak interfejs API sieci web nie odbiera żadnych informacji o użytkowniku. Jeśli aplikacja odbiera informacje o użytkowniku, zostanie wysłana za pośrednictwem protokołu aplikacji i nie jest podpisana przez usługę Azure AD. Internetowy interfejs API ufa, że aplikacja sieci web uwierzytelniła użytkownika. Z tego powodu ten wzorzec jest nazywany zaufanym podsystemem.
-- **Tożsamości użytkownika delegowanego** — ten scenariusz można wykonać na dwa sposoby: OpenID Connect i OAuth 2.0 kod autoryzacji udzielić z poufnego klienta. Aplikacja sieci web uzyskuje token dostępu dla użytkownika, który udowadnia w interfejsie API sieci web, że użytkownik pomyślnie uwierzytelniony do aplikacji sieci web i że aplikacja sieci web mogła uzyskać delegowaną tożsamość użytkownika, aby wywołać internetowy interfejs API. Ten token dostępu jest wysyłany w żądaniu do internetowego interfejsu API, który autoryzuje użytkownika i zwraca żądany zasób.
+- **Tożsamość aplikacji** — w tym scenariuszu są stosowane poświadczenia klienta OAuth 2,0. Przyznaj uwierzytelnianie jako aplikację i dostęp do internetowego interfejsu API. W przypadku korzystania z tożsamości aplikacji interfejs API sieci Web może wykrywać, że aplikacja sieci Web wywołuje ją, ponieważ internetowy interfejs API nie otrzymuje żadnych informacji o użytkowniku. Jeśli aplikacja otrzymuje informacje o użytkowniku, zostanie ona wysłana za pośrednictwem protokołu aplikacji i nie jest podpisana przez usługę Azure AD. Internetowy interfejs API ufa, że aplikacja sieci Web uwierzytelnił użytkownika. Z tego powodu ten wzorzec jest nazywany zaufanym podsystemem.
+- **Tożsamość delegowanego użytkownika** — ten scenariusz można wykonać na dwa sposoby: OpenID Connect Connect oraz kod autoryzacji OAuth 2,0 przyznaje klientowi poufnemu. Aplikacja sieci Web uzyskuje token dostępu dla użytkownika, który udowadnia internetowy interfejs API, który został pomyślnie uwierzytelniony przez użytkownika do aplikacji sieci Web i że aplikacja sieci Web mogła uzyskać delegowaną tożsamość użytkownika w celu wywołania interfejsu API sieci Web. Ten token dostępu jest wysyłany w żądaniu do internetowego interfejsu API, który autoryzuje użytkownika i zwraca żądany zasób.
 
-Zarówno tożsamości aplikacji i delegowanych typów tożsamości użytkownika są omówione w przepływie poniżej. Kluczową różnicą między nimi jest to, że tożsamość użytkownika delegowanego musi najpierw uzyskać kod autoryzacji, zanim użytkownik może się zalogować i uzyskać dostęp do internetowego interfejsu API.
+Zarówno tożsamość aplikacji, jak i delegowane typy tożsamości użytkownika zostały omówione w poniższym przepływie. Kluczową różnicą jest to, że delegowana tożsamość użytkownika musi najpierw nabyć kod autoryzacji, zanim użytkownik będzie mógł zalogować się i uzyskać dostęp do internetowego interfejsu API.
 
 ## <a name="diagram"></a>Diagram
 
-![Diagram interfejsu API aplikacji sieci Web do sieci Web](./media/authentication-scenarios/web-app-to-web-api.png)
+![Diagram aplikacji sieci Web z interfejsem API sieci Web](./media/authentication-scenarios/web-app-to-web-api.png)
 
 ## <a name="protocol-flow"></a>Przepływ protokołu
 
-### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Tożsamość aplikacji z dotacje poświadczeń klienta OAuth 2.0
+### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Tożsamość aplikacji z uwierzytelnianiem przy użyciu poświadczeń klienta OAuth 2,0
 
-1. Użytkownik jest zalogowany do usługi Azure AD w aplikacji sieci web (zobacz **sekcję aplikacje sieci Web,** aby uzyskać więcej informacji).
-1. Aplikacja sieci web musi uzyskać token dostępu, dzięki czemu można uwierzytelnić do internetowego interfejsu API i pobrać żądany zasób. Powoduje, że żądanie do punktu końcowego tokenu usługi Azure AD, podając poświadczenia, identyfikator aplikacji i identyfikator URI identyfikatora aplikacji interfejsu internetowego.
-1. Usługa Azure AD uwierzytelnia aplikację i zwraca token dostępu JWT, który jest używany do wywoływania internetowego interfejsu API.
-1. Za pośrednictwem protokołu HTTPS aplikacja sieci web używa zwróconego tokenu dostępu JWT do dodania ciągu JWT z oznaczeniem "Nośnik" w nagłówku autoryzacji żądania do internetowego interfejsu API. Internetowy interfejs API następnie sprawdza poprawność tokenu JWT, a jeśli sprawdzanie poprawności zakończy się pomyślnie, zwraca żądany zasób.
+1. Użytkownik jest zalogowany do usługi Azure AD w aplikacji sieci Web (zobacz sekcję **Web Apps** , aby uzyskać więcej informacji).
+1. Aplikacja sieci Web musi uzyskać token dostępu, aby można było uwierzytelnić się w interfejsie API sieci Web i pobrać żądany zasób. Wysyła żądanie do punktu końcowego tokenu usługi Azure AD, dostarczając poświadczenia, identyfikator aplikacji i identyfikator URI aplikacji interfejsu API sieci Web.
+1. Usługa Azure AD uwierzytelnia aplikację i zwraca token dostępu JWT używany do wywoływania interfejsu API sieci Web.
+1. Za pośrednictwem protokołu HTTPS aplikacja sieci Web używa zwróconego tokenu dostępu JWT, aby dodać ciąg JWT z oznaczeniem "Bearer" w nagłówku autoryzacji żądania do internetowego interfejsu API. Interfejs API sieci Web sprawdza poprawność tokenu JWT i jeśli Walidacja zakończyła się pomyślnie, zwraca żądany zasób.
 
-### <a name="delegated-user-identity-with-openid-connect"></a>Delegowana tożsamość użytkownika za pomocą OpenID Connect
+### <a name="delegated-user-identity-with-openid-connect"></a>Tożsamość delegowanego użytkownika z OpenID Connect Connect
 
-1. Użytkownik jest zalogowany do aplikacji sieci web przy użyciu usługi Azure AD (zobacz przeglądarkę sieci Web do aplikacji sieci Web powyżej). Jeśli użytkownik aplikacji sieci web nie wyraził jeszcze zgody na zezwolenie aplikacji sieci web na wywołanie internetowego interfejsu API w jej imieniu, użytkownik będzie musiał wyrazić zgodę. Aplikacja wyświetli wymagane uprawnienia, a jeśli którekolwiek z nich są uprawnieniami na poziomie administratora, zwykły użytkownik w katalogu nie będzie mógł wyrazić zgody. Ten proces zgody dotyczy tylko aplikacji wielodostępnych, a nie aplikacji pojedynczej dzierżawy, ponieważ aplikacja będzie już mieć niezbędne uprawnienia. Gdy użytkownik się zalogował, aplikacja sieci web odebrała token identyfikatora z informacjami o użytkowniku, a także kodem autoryzacji.
-1. Przy użyciu kodu autoryzacji wystawionego przez usługę Azure AD aplikacja sieci web wysyła żądanie do punktu końcowego tokenu usługi Azure AD, które zawiera kod autoryzacji, szczegóły dotyczące aplikacji klienckiej (identyfikator aplikacji i przekierowania identyfikatora URI) oraz żądany zasób (identyfikator aplikacji identyfikator URI dla internetowego interfejsu API).
-1. Kod autoryzacji i informacje o aplikacji sieci web i interfejsie API sieci Web są sprawdzane przez usługę Azure AD. Po pomyślnym sprawdowaniu poprawności usługa Azure AD zwraca dwa tokeny: token dostępu JWT i token odświeżania JWT.
-1. Za pośrednictwem protokołu HTTPS aplikacja sieci web używa zwróconego tokenu dostępu JWT do dodania ciągu JWT z oznaczeniem "Nośnik" w nagłówku autoryzacji żądania do internetowego interfejsu API. Internetowy interfejs API następnie sprawdza poprawność tokenu JWT, a jeśli sprawdzanie poprawności zakończy się pomyślnie, zwraca żądany zasób.
+1. Użytkownik jest zalogowany do aplikacji sieci Web przy użyciu usługi Azure AD (zobacz sekcję przeglądarki sieci Web w aplikacji sieci Web powyżej). Jeśli użytkownik aplikacji sieci Web nie został jeszcze przesłany, aby umożliwić aplikacji sieci Web wywoływanie internetowego interfejsu API w jego imieniu, użytkownik będzie musiał wyrazić zgodę. Aplikacja wyświetli wymagane uprawnienia i jeśli którykolwiek z nich ma uprawnienia na poziomie administratora, zwykły użytkownik w katalogu nie będzie mógł wyrazić zgody. Ten proces wyrażania zgody dotyczy tylko aplikacji wielodostępnych, a nie pojedynczych aplikacji dzierżawców, ponieważ aplikacja ma już wymagane uprawnienia. Po zalogowaniu się użytkownika aplikacja sieci Web otrzymała token identyfikatora z informacjami o użytkowniku, a także kodem autoryzacji.
+1. Przy użyciu kodu autoryzacji wydanego przez usługę Azure AD aplikacja sieci Web wysyła żądanie do punktu końcowego tokenu usługi Azure AD, który zawiera kod autoryzacji, szczegóły dotyczące aplikacji klienckiej (identyfikatora aplikacji i identyfikatora URI przekierowania) oraz żądany zasób (identyfikator URI identyfikatora aplikacji dla internetowego interfejsu API).
+1. Kod autoryzacji i informacje o aplikacji sieci Web i interfejsie API sieci Web są sprawdzane przez usługę Azure AD. Po pomyślnej weryfikacji usługa Azure AD zwraca dwa tokeny: token dostępu JWT i token odświeżenia tokenu JWT.
+1. Za pośrednictwem protokołu HTTPS aplikacja sieci Web używa zwróconego tokenu dostępu JWT, aby dodać ciąg JWT z oznaczeniem "Bearer" w nagłówku autoryzacji żądania do internetowego interfejsu API. Interfejs API sieci Web sprawdza poprawność tokenu JWT i jeśli Walidacja zakończyła się pomyślnie, zwraca żądany zasób.
 
-### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>Delegowana tożsamość użytkownika z udzieleniem kodu autoryzacji OAuth 2.0
+### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>Tożsamość delegowanego użytkownika z przyznaniem kodu autoryzacji OAuth 2,0
 
-1. Użytkownik jest już zalogowany do aplikacji sieci web, której mechanizm uwierzytelniania jest niezależny od usługi Azure AD.
-1. Aplikacja sieci web wymaga kodu autoryzacji, aby uzyskać token dostępu, więc wystawia żądanie za pośrednictwem przeglądarki do punktu końcowego autoryzacji usługi Azure AD, podając identyfikator aplikacji i przekieruj identyfikator URI dla aplikacji sieci web po pomyślnym uwierzytelnieniu. Użytkownik loguje się do usługi Azure AD.
-1. Jeśli użytkownik aplikacji sieci web nie wyraził jeszcze zgody na zezwolenie aplikacji sieci web na wywołanie internetowego interfejsu API w jej imieniu, użytkownik będzie musiał wyrazić zgodę. Aplikacja wyświetli wymagane uprawnienia, a jeśli którekolwiek z nich są uprawnieniami na poziomie administratora, zwykły użytkownik w katalogu nie będzie mógł wyrazić zgody. Ta zgoda dotyczy aplikacji jedno- i wielodostępnych. W przypadku pojedynczej dzierżawy administrator może wykonać zgodę administratora na wyrażenie zgody w imieniu swoich użytkowników. Można to zrobić `Grant Permissions` za pomocą przycisku w [witrynie Azure portal](https://portal.azure.com). 
-1. Po zezwoleniu użytkownik otrzyma kod autoryzacji, który musi uzyskać token dostępu.
-1. Przy użyciu kodu autoryzacji wystawionego przez usługę Azure AD aplikacja sieci web wysyła żądanie do punktu końcowego tokenu usługi Azure AD, które zawiera kod autoryzacji, szczegóły dotyczące aplikacji klienckiej (identyfikator aplikacji i przekierowania identyfikatora URI) oraz żądany zasób (identyfikator aplikacji identyfikator URI dla internetowego interfejsu API).
-1. Kod autoryzacji i informacje o aplikacji sieci web i interfejsie API sieci Web są sprawdzane przez usługę Azure AD. Po pomyślnym sprawdowaniu poprawności usługa Azure AD zwraca dwa tokeny: token dostępu JWT i token odświeżania JWT.
-1. Za pośrednictwem protokołu HTTPS aplikacja sieci web używa zwróconego tokenu dostępu JWT do dodania ciągu JWT z oznaczeniem "Nośnik" w nagłówku autoryzacji żądania do internetowego interfejsu API. Internetowy interfejs API następnie sprawdza poprawność tokenu JWT, a jeśli sprawdzanie poprawności zakończy się pomyślnie, zwraca żądany zasób.
+1. Użytkownik jest już zalogowany do aplikacji sieci Web, której mechanizm uwierzytelniania jest niezależny od usługi Azure AD.
+1. Aplikacja sieci Web wymaga kodu autoryzacji w celu uzyskania tokenu dostępu, więc wysyła żądanie przez przeglądarkę do punktu końcowego autoryzacji usługi Azure AD, podając identyfikator aplikacji i identyfikator URI przekierowania dla aplikacji sieci Web po pomyślnym uwierzytelnieniu. Użytkownik loguje się do usługi Azure AD.
+1. Jeśli użytkownik aplikacji sieci Web nie został jeszcze przesłany, aby umożliwić aplikacji sieci Web wywoływanie internetowego interfejsu API w jego imieniu, użytkownik będzie musiał wyrazić zgodę. Aplikacja wyświetli wymagane uprawnienia i jeśli którykolwiek z nich ma uprawnienia na poziomie administratora, zwykły użytkownik w katalogu nie będzie mógł wyrazić zgody. Ta zgoda dotyczy zarówno aplikacji o pojedynczej, jak i wielu dzierżawców. W przypadku pojedynczej dzierżawy administrator może wykonać zgodę administratora na zgodę w imieniu użytkowników. Można to zrobić za pomocą `Grant Permissions` przycisku w [Azure Portal](https://portal.azure.com). 
+1. Gdy użytkownik wyraził zgodę, aplikacja sieci Web otrzymuje kod autoryzacji potrzebny do uzyskania tokenu dostępu.
+1. Przy użyciu kodu autoryzacji wydanego przez usługę Azure AD aplikacja sieci Web wysyła żądanie do punktu końcowego tokenu usługi Azure AD, który zawiera kod autoryzacji, szczegóły dotyczące aplikacji klienckiej (identyfikatora aplikacji i identyfikatora URI przekierowania) oraz żądany zasób (identyfikator URI identyfikatora aplikacji dla internetowego interfejsu API).
+1. Kod autoryzacji i informacje o aplikacji sieci Web i interfejsie API sieci Web są sprawdzane przez usługę Azure AD. Po pomyślnej weryfikacji usługa Azure AD zwraca dwa tokeny: token dostępu JWT i token odświeżenia tokenu JWT.
+1. Za pośrednictwem protokołu HTTPS aplikacja sieci Web używa zwróconego tokenu dostępu JWT, aby dodać ciąg JWT z oznaczeniem "Bearer" w nagłówku autoryzacji żądania do internetowego interfejsu API. Interfejs API sieci Web sprawdza poprawność tokenu JWT i jeśli Walidacja zakończyła się pomyślnie, zwraca żądany zasób.
 
 ## <a name="code-samples"></a>Przykłady kodu
 
-Zobacz przykłady kodu dla aplikacji sieci Web do scenariuszy interfejsu API sieci Web. I, sprawdzaj często - nowe próbki są dodawane często. Aplikacja sieci Web [do interfejsu API sieci Web](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
+Zapoznaj się z przykładami kodu dotyczącymi scenariuszy usługi Web API dla aplikacji sieci Web. I często sprawdzaj, czy nowe przykłady są często dodawane. Aplikacja sieci Web [do interfejsu API sieci Web](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
 
 ## <a name="app-registration"></a>Rejestracja aplikacji
 
-Aby zarejestrować aplikację w punkcie końcowym usługi Azure AD w wersji 1.0, zobacz [Rejestrowanie aplikacji](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+Aby zarejestrować aplikację w punkcie końcowym usługi Azure AD v 1.0, zobacz [Rejestrowanie aplikacji](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-* Pojedyncza dzierżawa — zarówno w przypadku tożsamości aplikacji, jak i przypadków tożsamości delegowanego użytkownika aplikacja sieci web i internetowy interfejs API muszą być zarejestrowane w tym samym katalogu w usłudze Azure AD. Internetowy interfejs API można skonfigurować w taki sposób, aby udostępniał zestaw uprawnień, które są używane do ograniczania dostępu aplikacji sieci web do jej zasobów. Jeśli używany jest delegowany typ tożsamości użytkownika, aplikacja sieci web musi wybrać żądane uprawnienia z menu rozwijanego **Uprawnienia do innych aplikacji** w witrynie Azure portal. Ten krok nie jest wymagany, jeśli używany jest typ tożsamości aplikacji.
-* Wielodostępne — najpierw aplikacja sieci web jest skonfigurowana do wskazywania uprawnień, które wymaga, aby były funkcjonalne. Ta lista wymaganych uprawnień jest wyświetlana w oknie dialogowym, gdy użytkownik lub administrator w katalogu docelowym wyraża zgodę na aplikację, która udostępnia ją swojej organizacji. Niektóre aplikacje wymagają tylko uprawnień na poziomie użytkownika, na które może wyrazić zgodę każdy użytkownik w organizacji. Inne aplikacje wymagają uprawnień na poziomie administratora, na które użytkownik w organizacji nie może wyrazić zgody. Tylko administrator katalogu może wyrazić zgodę na aplikacje, które wymagają tego poziomu uprawnień. Gdy użytkownik lub administrator wyrazi na to zgodę, aplikacja sieci web i internetowy interfejs API są rejestrowane w ich katalogu.
+* Pojedynczy dzierżawca — zarówno w przypadku tożsamości aplikacji, jak i delegowanych przypadków tożsamości użytkowników aplikacja sieci Web i internetowy interfejs API muszą być zarejestrowane w tym samym katalogu w usłudze Azure AD. Internetowy interfejs API można skonfigurować tak, aby uwidaczniał zestaw uprawnień, który służy do ograniczania dostępu aplikacji sieci Web do zasobów. Jeśli jest używany typ tożsamości delegowanego użytkownika, aplikacja sieci Web musi wybrać odpowiednie uprawnienia z menu rozwijanego **uprawnienia do innych aplikacji** w Azure Portal. Ten krok nie jest wymagany, jeśli jest używany typ tożsamości aplikacji.
+* Wiele dzierżawców — aplikacja sieci Web jest skonfigurowana tak, aby wskazywała uprawnienia wymagane do działania. Ta lista wymaganych uprawnień jest wyświetlana w oknie dialogowym, gdy użytkownik lub administrator w katalogu docelowym wyrazi zgodę na aplikację, która staje się dostępna dla swojej organizacji. Niektóre aplikacje wymagają tylko uprawnień na poziomie użytkownika, do których można wyrazić zgodę. Inne aplikacje wymagają uprawnień na poziomie administratora, których użytkownik w organizacji nie może wyrazić zgody. Tylko administrator katalogu może wyrazić zgodę na aplikacje, które wymagają tego poziomu uprawnień. Gdy użytkownik lub administrator wyraził zgodę, aplikacja sieci Web i internetowy interfejs API są rejestrowane w ich katalogu.
 
 ## <a name="token-expiration"></a>Wygaśnięcie tokenu
 
-Gdy aplikacja sieci web używa swojego kodu autoryzacji, aby uzyskać token dostępu JWT, odbiera również token odświeżania JWT. Po wygaśnięciu tokenu dostępu token odświeżania może służyć do ponownego uwierzytelniania użytkownika bez konieczności ponownego logowania. Ten token odświeżania jest następnie używany do uwierzytelniania użytkownika, co powoduje nowy token dostępu i odświeżanie tokenu.
+Gdy aplikacja sieci Web używa swojego kodu autoryzacji w celu uzyskania tokenu dostępu JWT, odbiera również token odświeżenia tokenu JWT. Po wygaśnięciu tokenu dostępu można użyć tokenu odświeżania, aby ponownie uwierzytelnić użytkownika bez konieczności ponownego logowania. Ten token odświeżania jest następnie używany do uwierzytelniania użytkownika, co powoduje uzyskanie nowego tokenu dostępu i tokenu odświeżania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o innych [typach i scenariuszach aplikacji](app-types.md)
-- Dowiedz się więcej o [podstawach uwierzytelniania](v1-authentication-scenarios.md) usługi Azure AD
+- Dowiedz się więcej o innych [typach aplikacji i scenariuszach](app-types.md)
+- Poznaj podstawowe informacje na temat [uwierzytelniania](v1-authentication-scenarios.md) usługi Azure AD

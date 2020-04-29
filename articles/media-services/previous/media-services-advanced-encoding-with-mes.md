@@ -1,6 +1,6 @@
 ---
-title: Wykonywanie zaawansowanego kodowania przez dostosowywanie ustawień predefiniowanych MES | Dokumenty firmy Microsoft
-description: W tym temacie pokazano, jak wykonać zaawansowane kodowanie, dostosowując ustawienia predefiniowane standardowych zadań programu Media Encoder.
+title: Wykonaj zaawansowane kodowanie, dostosowując ustawienia wstępne ustawień RYNKOWych | Microsoft Docs
+description: W tym temacie pokazano, jak wykonać zaawansowane kodowanie przez dostosowanie Media Encoder Standard ustawień wstępnych zadań.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,47 +15,47 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 5f7611fd9df207df51fa0e51218d8a234583b1f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79529787"
 ---
-# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Wykonywanie zaawansowanego kodowania przez dostosowywanie ustawień predefiniowanych mes 
+# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Wykonaj zaawansowane kodowanie, dostosowując ustawienia wstępne ustawień RYNKOWych 
 
 ## <a name="overview"></a>Omówienie
 
-W tym temacie pokazano, jak dostosować ustawienia predefiniowane programu Media Encoder Standard. W temacie [Kodowanie za pomocą standardu kodera multimediów przy użyciu niestandardowych ustawień predefiniowanych](media-services-custom-mes-presets-with-dotnet.md) przedstawiono sposób tworzenia zadania kodowania za pomocą programu .NET i zadania wykonującego to zadanie. Po dostosowaniu ustawień predefiniowanych należy podać niestandardowe ustawienia predefiniowane do zadania kodowania. 
+W tym temacie przedstawiono sposób dostosowywania ustawień wstępnych Media Encoder Standard. W temacie [kodowanie z Media Encoder standard przy użyciu niestandardowych ustawień predefiniowanych](media-services-custom-mes-presets-with-dotnet.md) pokazano, jak używać programu .NET do tworzenia zadania kodowania i zadania, które wykonuje to zadanie. Po dostosowaniu ustawienia wstępnego Podaj niestandardowe ustawienia wstępne do zadania kodowania. 
 
-Jeśli używasz ustawienia predefiniowane XML, upewnij się, aby zachować kolejność elementów, jak pokazano w przykładzie XML poniżej (na przykład KeyFrameInterval powinien poprzedzać SceneChangeDetection).
+W przypadku użycia ustawienia wstępnego XML Pamiętaj, aby zachować kolejność elementów, jak pokazano w poniższych przykładach XML (np. KeyFrameInterval powinna poprzedzać SceneChangeDetection).
 
 > [!NOTE] 
-> Wiele zaawansowanych funkcji usługi Media Services w wersji 2 wzoru Media Encoder Standard nie jest obecnie dostępnych w wersji 3. Aby uzyskać więcej informacji, zobacz [luki w operacjach](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis).
+> Wiele funkcji zaawansowanych Media Services V2 Media Encoder Standard nie są obecnie dostępne w wersji 3. Aby uzyskać więcej informacji, zobacz [luki w funkcji](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis).
 
-## <a name="support-for-relative-sizes"></a>Obsługa względnych rozmiarów
+## <a name="support-for-relative-sizes"></a>Obsługa rozmiarów względnych
 
-Podczas generowania miniatur nie trzeba zawsze określać szerokość i wysokość wydruku w pikselach. Można je określić w procentach, w zakresie [1%, ..., 100%].
+Podczas generowania miniatur nie jest konieczne, aby zawsze określać szerokość i wysokość danych wyjściowych (w pikselach). Można określić wartości procentowe w zakresie [1%,..., 100%].
 
 ### <a name="json-preset"></a>Ustawienia wstępne JSON
     "Width": "100%",
     "Height": "100%"
 
-### <a name="xml-preset"></a>Ustawienia predefiniowane XML
+### <a name="xml-preset"></a>Ustawienia wstępne XML
     <Width>100%</Width>
     <Height>100%</Height>
 
 ## <a name="generate-thumbnails"></a><a id="thumbnails"></a>Generowanie miniatur
 
-W tej sekcji pokazano, jak dostosować ustawienia wstępne, które generuje miniatury. Predefiniowane zdefiniowane poniżej zawiera informacje o tym, jak chcesz zakodować plik, a także informacje potrzebne do generowania miniatur. Możesz wziąć dowolne ustawienia predefiniowane MES udokumentowane [w tej](media-services-mes-presets-overview.md) sekcji i dodać kod, który generuje miniatury.  
+W tej sekcji pokazano, jak dostosować ustawienie wstępne, które generuje miniatury. Zdefiniowane poniżej ustawienie wstępne zawiera informacje na temat sposobu kodowania pliku oraz informacje potrzebne do generowania miniatur. W [tej](media-services-mes-presets-overview.md) sekcji można zastosować dowolne ustawienia wstępne, a następnie dodać kod generujący miniatury.  
 
 > [!NOTE]
-> Ustawienie **SceneChangeDetection** w następującym ustawieniu predefiniowane można ustawić na true tylko wtedy, gdy kodujesz do pojedynczego wideo o szybkości transmisji bitów. Jeśli kodujesz wideo o wielu szybkościach transmisji bitów i ustawiasz **SceneChangeDetection** na true, koder zwraca błąd.  
+> Ustawienie **SceneChangeDetection** w następujących ustawieniach wstępnych można ustawić na wartość true tylko wtedy, gdy kodowanie odbywa się przy użyciu pojedynczej szybkości transmisji bitów. W przypadku kodowania do wideo o wysokiej szybkości transmisji bitów i ustawieniu **SceneChangeDetection** na true koder zwraca błąd.  
 >
 >
 
-Aby uzyskać informacje na temat schematu, zobacz [ten](media-services-mes-schema.md) temat.
+Informacje o schemacie znajdują się w [tym](media-services-mes-schema.md) temacie.
 
-Zapoznaj się z sekcją [Zagadnienia.](#considerations)
+Zapoznaj się z sekcją [zagadnienia](#considerations) .
 
 ### <a name="json-preset"></a><a id="json"></a>Ustawienia wstępne JSON
     {
@@ -157,7 +157,7 @@ Zapoznaj się z sekcją [Zagadnienia.](#considerations)
     }
 
 
-### <a name="xml-preset"></a><a id="xml"></a>Ustawienia predefiniowane XML
+### <a name="xml-preset"></a><a id="xml"></a>Ustawienia wstępne XML
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -234,23 +234,23 @@ Zapoznaj się z sekcją [Zagadnienia.](#considerations)
 
 Obowiązują następujące zastrzeżenia:
 
-* Użycie jawnych sygnatur czasowych dla start/step/range zakłada, że źródło wejściowe ma co najmniej 1 minutę.
-* Elementy Jpg/Png/BmpImage mają atrybuty ciągu Start, Step i Range — można je interpretować w następujący sposób:
+* Użycie jawnych sygnatur czasowych dla elementu Start/Step/Range zakłada, że źródło danych wejściowych jest co najmniej 1 minutę.
+* Elementy JPG/PNG/BmpImage mają atrybuty typu Start, krok i zakres — można je interpretować jako:
 
-  * Numer ramki, jeśli są to nieujemne liczby całkowite, na przykład "Start": "120",
-  * W stosunku do czasu trwania źródła, jeśli jest wyrażony jako %-sufiks, na przykład "Start": "15%", OR
-  * Sygnatura czasowa wyrażona jako HH:MM:SS... na przykład "Start" : "00:01:00"
+  * Numer ramki, jeśli są nieujemnymi liczbami całkowitymi, na przykład "Start": "120",
+  * W odniesieniu do czasu trwania źródła, jeśli jest wyrażona jako%-sufiksy, na przykład "Start": "15%" lub
+  * Sygnatura czasowa, jeśli jest wyrażona w formacie gg: MM: SS... Format, na przykład "Start": "00:01:00"
 
-    Możesz mieszać i dopasowywki do notacji, jak chcesz.
+    Można mieszać i dopasowywać notacje w miarę jak ty.
 
-    Ponadto start obsługuje również specjalne makro:{Best}, które próbuje określić pierwszą "interesującą" ramkę zawartości UWAGA: (Krok i zakres są ignorowane, gdy start jest ustawiony na {Najlepszy})
-  * Ustawienia domyślne: Start:{Best}
-* Format wyjściowy musi być jawnie podany dla każdego formatu obrazu: Jpg/Png/BmpFormat. Gdy jest obecny, MES pasuje do JpgVideo do JpgFormat i tak dalej. OutputFormat wprowadza nowe makro specyficzne dla kodeka obrazu: {Index}, które musi być obecne (raz i tylko raz) dla formatów wyjściowych obrazu.
+    Ponadto funkcja Start obsługuje również specjalne makro: {Najlepsza}, które próbuje określić pierwszy "interesujące" ramki notatki zawartości: (krok i zakres są ignorowane, gdy początek jest ustawiony na {Najlepsza})
+  * Wartości domyślne: początek: {Najlepsza}
+* Format danych wyjściowych musi być jawnie podany dla każdego formatu obrazu: JPG/PNG/BmpFormat. Gdy jest obecny, MES pasuje do JpgVideo JpgFormat i tak dalej. OutputFormat wprowadza nowy obraz — specyficzne dla kodera-dekoder makro: {index}, które musi być obecne (raz i tylko raz) dla formatów danych wyjściowych obrazu.
 
-## <a name="trim-a-video-clipping"></a><a id="trim_video"></a>Przycinanie wideo (przycinanie)
-W tej sekcji o mówi się o modyfikowaniu ustawień precoder do klipu lub przycięcia wejściowego wideo, w którym dane wejściowe są tak zwanym plikiem antresoli lub plikiem na żądanie. Koder może być również używany do przycinania lub przycinania zasobu, który jest przechwytywany lub archiwizowany ze strumienia na żywo - szczegóły tego są dostępne w [tym blogu.](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)
+## <a name="trim-a-video-clipping"></a><a id="trim_video"></a>Przytnij wideo (przycinanie)
+Ta sekcja zawiera informacje o modyfikowaniu ustawień wstępnych kodera w celu wycinania lub przycięcia wejściowego filmu wideo, w którym dane wejściowe to plik w postaci Mezzanine lub plik na żądanie. Koder może również służyć do wycinania lub przycinania elementu zawartości, który jest przechwytywany lub archiwizowany ze strumienia na żywo — szczegółowe informacje dla tej usługi są dostępne w [tym blogu](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Aby przyciąć filmy, możesz wziąć dowolne ustawienia MES udokumentowane [w tej](media-services-mes-presets-overview.md) sekcji i zmodyfikować element **Źródła** (jak pokazano poniżej). Wartość StartTime musi odpowiadać bezwzględnym sygnaturom czasowym wejściowego wideo. Na przykład jeśli pierwsza klatka wejściowego wideo ma sygnaturę czasową 12:00:10.000, następnie StartTime powinien być co najmniej 12:00:10.000 i większa. W poniższym przykładzie zakładamy, że wejściowy film wideo ma sygnaturę czasową początkową zero. **Źródła** powinny być umieszczone na początku predefiniowanych ustawień.
+Aby przyciąć wideo, możesz skorzystać z poniższych ustawień wstępnych, które zostały opisane w [tej](media-services-mes-presets-overview.md) sekcji, i zmodyfikować element **sources** (jak pokazano poniżej). Wartość StartTime musi odpowiadać bezwzględnym znacznikom czasu wejściowego wideo. Na przykład, jeśli pierwsza klatka wejściowego filmu wideo ma sygnaturę czasową 12:00:10.000, wartość StartTime powinna wynosić co najmniej 12:00:10.000 i więcej. W poniższym przykładzie przyjęto założenie, że wejściowy film wideo ma początkową sygnaturę czasową równą zero. **Źródła** powinny być umieszczane na początku ustawień wstępnych.
 
 ### <a name="json-preset"></a><a id="json"></a>Ustawienia wstępne JSON
     {
@@ -371,8 +371,8 @@ Aby przyciąć filmy, możesz wziąć dowolne ustawienia MES udokumentowane [w t
       ]
     }
 
-### <a name="xml-preset"></a>Ustawienia predefiniowane XML
-Aby przyciąć filmy, możesz wziąć dowolne z udokumentowanych [tutaj](media-services-mes-presets-overview.md) ustawień MES i zmodyfikować element **Źródła** (jak pokazano poniżej).
+### <a name="xml-preset"></a>Ustawienia wstępne XML
+Aby przyciąć wideo, możesz wykonać dowolne opisane [tutaj](media-services-mes-presets-overview.md) ustawienia wstępne i zmodyfikować element **sources** (jak pokazano poniżej).
 
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -491,11 +491,11 @@ Aby przyciąć filmy, możesz wziąć dowolne z udokumentowanych [tutaj](media-s
 
 ## <a name="create-an-overlay"></a><a id="overlay"></a>Tworzenie nakładki
 
-Standard emkweracie multimediów umożliwia nałkienie obrazu na istniejący film. Obecnie obsługiwane są następujące formaty: png, jpg, gif i bmp. Predefiniowane ustawienie zdefiniowane poniżej jest podstawowym przykładem nakładki wideo.
+Media Encoder Standard umożliwia nałożenie obrazu na istniejący film wideo. Obecnie obsługiwane są następujące formaty: PNG, jpg, GIF i BMP. Zdefiniowane poniżej ustawienie wstępne jest podstawowym przykładem nakładki wideo.
 
-Oprócz zdefiniowania wstępnie ustawionego pliku, należy również poinformować program Media Services, który plik w zasobie jest obrazem nakładki i który plik jest źródłowym plikiem wideo, na który chcesz nałożyć obraz. Plik wideo musi być plikiem **podstawowym.**
+Oprócz definiowania wstępnie zdefiniowanego pliku trzeba również pozwolić Media Services wiedzieć, który plik w elemencie zawartości jest obrazem nakładki, a który plik jest źródłowym wideo, na którym chcesz nałożyć obraz. Plik wideo musi być plikiem **podstawowym** .
 
-Jeśli używasz platformy .NET, dodaj następujące dwie funkcje do przykładu .NET zdefiniowanego w [tym](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) temacie. Funkcja **UploadMediaFilesFromFolder** przesyła pliki z folderu (na przykład BigBuckBunny.mp4 i Image001.png) i ustawia plik mp4 jako podstawowy plik w zasobie. **Funkcja EncodeWithOverlay** używa niestandardowego pliku predefiniowanego, który został do niego przekazany (na przykład preset, który następuje), aby utworzyć zadanie kodowania.
+Jeśli używasz platformy .NET, Dodaj następujące dwie funkcje do przykładu .NET zdefiniowanego w [tym](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) temacie. Funkcja **UploadMediaFilesFromFolder** przekazuje pliki z folderu (na przykład BigBuckBunny. mp4 i przekazanie image001. png) i ustawia plik MP4 jako plik podstawowy w elemencie zawartości. Funkcja **EncodeWithOverlay** używa niestandardowego pliku ustawień wstępnych, który został do niego przekazano (na przykład poniższego ustawienia wstępnego), aby utworzyć zadanie kodowania.
 
 
     static public IAsset UploadMediaFilesFromFolder(string folderPath)
@@ -551,11 +551,11 @@ Jeśli używasz platformy .NET, dodaj następujące dwie funkcje do przykładu .
 
 
 > [!NOTE]
-> Aktualne ograniczenia:
+> Bieżące ograniczenia:
 >
-> Ustawienie krycia nakładki nie jest obsługiwane.
+> Ustawienie nieprzezroczystości nakładki nie jest obsługiwane.
 >
-> Źródłowy plik wideo i plik obrazu nakładki muszą znajdować się w tym samym zasobie, a plik wideo musi być ustawiony jako plik podstawowy w tym zasobie.
+> Źródłowy plik wideo i plik obrazu nakładki muszą znajdować się w tym samym elemencie zawartości, a plik wideo musi być ustawiony jako plik podstawowy tego elementu zawartości.
 >
 >
 
@@ -635,7 +635,7 @@ Jeśli używasz platformy .NET, dodaj następujące dwie funkcje do przykładu .
     }
 
 
-### <a name="xml-preset"></a>Ustawienia predefiniowane XML
+### <a name="xml-preset"></a>Ustawienia wstępne XML
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
@@ -696,12 +696,12 @@ Jeśli używasz platformy .NET, dodaj następujące dwie funkcje do przykładu .
     </Preset>
 
 
-## <a name="insert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>Włóż cichą ścieżkę audio, gdy wejście nie ma dźwięku
-Domyślnie jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko wideo i nie audio, a następnie zasób wyjściowy zawiera pliki, które zawierają tylko dane wideo. Niektórzy gracze mogą nie być w stanie obsłużyć takich strumieni wyjściowych. To ustawienie służy do wymuszania kodera, aby dodać cichą ścieżkę audio do danych wyjściowych w tym scenariuszu.
+## <a name="insert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>Wstaw cichą ścieżkę audio, gdy dane wejściowe nie zawierają dźwięku
+Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko wideo, a nie dźwięk, wówczas wyjściowy element zawartości zawiera pliki, które zawierają tylko dane wideo. Niektóre odtwarzacze mogą nie być w stanie obsłużyć takich strumieni wyjściowych. Możesz użyć tego ustawienia, aby wymusić, aby koder mógł dodać cichą ścieżkę audio do danych wyjściowych w tym scenariuszu.
 
-Aby wymusić koder do wytworzenia zasobu, który zawiera cichą ścieżkę audio, gdy wejście nie ma dźwięku, należy określić wartość "InsertSilenceIfNoAudio".
+Aby wymusić generowanie przez koder elementu zawartości zawierającej cichą ścieżkę audio, gdy dane wejściowe nie zawierają dźwięku, określ wartość "InsertSilenceIfNoAudio".
 
-Można wykonać dowolne ustawienia mes udokumentowane w [tej](media-services-mes-presets-overview.md) sekcji i dokonać następującej modyfikacji:
+W tej sekcji można zastosować dowolne ustawienia wstępne, które opisano w [tym](media-services-mes-presets-overview.md) temacie, i wprowadzić następujące zmiany:
 
 ### <a name="json-preset"></a>Ustawienia wstępne JSON
     {
@@ -712,17 +712,17 @@ Można wykonać dowolne ustawienia mes udokumentowane w [tej](media-services-mes
       "Condition": "InsertSilenceIfNoAudio"
     }
 
-### <a name="xml-preset"></a>Ustawienia predefiniowane XML
+### <a name="xml-preset"></a>Ustawienia wstępne XML
     <AACAudio Condition="InsertSilenceIfNoAudio">
       <Channels>2</Channels>
       <SamplingRate>44100</SamplingRate>
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-## <a name="disable-auto-de-interlacing"></a><a id="deinterlacing"></a>Wyłącz automatyczne usuwanie przeplotu
-Klienci nie muszą nic robić, jeśli podoba im się zawartość przeplotu, aby automatycznie zdjęła z przeplotem. Gdy automatyczne usuwanie przeplotu jest włączone (domyślnie), mes automatycznie wykrywa klatki z przeplotem i usuwa tylko przeploty ramek oznaczonych jako przeplot.
+## <a name="disable-auto-de-interlacing"></a><a id="deinterlacing"></a>Wyłącz funkcję autoprzeplotu
+Klienci nie muszą wykonywać żadnych czynności, jeśli takie jak zawartość przeplotu zostaną automatycznie cofnięte. Gdy funkcja automatycznego usuwania przeplotu jest włączona (domyślnie), oznacza to, że jest to funkcja automatycznego wykrywania ramek z przeplotem i tylko odłożenia ramek oznaczonych jako przeplatane.
 
-Automatyczne usuwanie przeplotu można wyłączyć. Ta opcja nie jest zalecana.
+Można wyłączyć funkcję autoprzeplotu. Ta opcja nie jest zalecana.
 
 ### <a name="json-preset"></a>Ustawienia wstępne JSON
     "Sources": [
@@ -735,7 +735,7 @@ Automatyczne usuwanie przeplotu można wyłączyć. Ta opcja nie jest zalecana.
     }
     ]
 
-### <a name="xml-preset"></a>Ustawienia predefiniowane XML
+### <a name="xml-preset"></a>Ustawienia wstępne XML
     <Sources>
     <Source>
       <Filters>
@@ -747,10 +747,10 @@ Automatyczne usuwanie przeplotu można wyłączyć. Ta opcja nie jest zalecana.
     </Sources>
 
 
-## <a name="audio-only-presets"></a><a id="audio_only"></a>Predefiniowane ustawienia tylko audio
-W tej sekcji przedstawiono dwa ustawienia mes tylko audio: AAC Audio i AAC Dobrej Jakości Audio.
+## <a name="audio-only-presets"></a><a id="audio_only"></a>Ustawienia wstępne tylko audio
+W tej sekcji przedstawiono dwa ustawienia wstępne dotyczące tylko dźwięku: AAC audio i AAC dobrej jakości audio.
 
-### <a name="aac-audio"></a>AAC Audio
+### <a name="aac-audio"></a>AAC audio
     {
       "Version": 1.0,
       "Codecs": [
@@ -772,7 +772,7 @@ W tej sekcji przedstawiono dwa ustawienia mes tylko audio: AAC Audio i AAC Dobre
       ]
     }
 
-### <a name="aac-good-quality-audio"></a>AAC Dobrej jakości dźwięku
+### <a name="aac-good-quality-audio"></a>AAC dobrej jakości audio
     {
       "Version": 1.0,
       "Codecs": [
@@ -796,26 +796,26 @@ W tej sekcji przedstawiono dwa ustawienia mes tylko audio: AAC Audio i AAC Dobre
 
 ## <a name="concatenate-two-or-more-video-files"></a><a id="concatenate"></a>Łączenie dwóch lub więcej plików wideo
 
-Poniższy przykład ilustruje, jak można wygenerować predefiniowane do łączenia dwóch lub więcej plików wideo. Najczęstszym scenariuszem jest dodanie nagłówka lub zwiastuna do głównego filmu. Przeznaczenie jest wtedy, gdy edytowane pliki wideo są razem współużytkowane właściwości (rozdzielczość wideo, liczba klatek na sekundę, liczba ścieżek audio, itp.). Należy uważać, aby nie mieszać filmów z różnych klatek na sekundę lub z różną liczbą ścieżek audio.
+Poniższy przykład ilustruje, jak można wygenerować ustawienia wstępne, aby połączyć dwa lub więcej plików wideo. Typowy scenariusz polega na tym, że chcesz dodać nagłówek lub przyczepę do głównego wideo. Zamierzone użycie polega na tym, że pliki wideo są edytowane wspólnie, udostępniają właściwości (rozdzielczość wideo, szybkość klatek, liczba ścieżek audio itp.). Należy zadbać o to, aby nie mieszać filmów wideo o różnych szybkościach klatek lub o różnej liczbie ścieżek audio.
 
 >[!NOTE]
->Obecny projekt funkcji łączenia oczekuje, że wejściowe klipy wideo są spójne pod względem rozdzielczości, liczby klatek na sekundę itp. 
+>Bieżący projekt funkcji łączenia oczekuje, że wejściowe klipy wideo są spójne pod kątem rozdzielczości, szybkości klatek itd. 
 
-### <a name="requirements-and-considerations"></a>Wymagania i uwagi
+### <a name="requirements-and-considerations"></a>Wymagania i zagadnienia
 
-* Filmy wejściowe powinny mieć tylko jedną ścieżkę audio.
-* Filmy wejściowe powinny mieć taką samą liczbę klatek na sekundę.
-* Musisz przesłać swoje filmy do oddzielnych zasobów i ustawić filmy jako plik podstawowy w każdym zasobie.
-* Musisz znać czas trwania swoich filmów.
-* Wstępnie ustawione przykłady poniżej zakładają, że wszystkie wejściowe filmy wideo zaczynają się od sygnatury czasowej zero. Należy zmodyfikować wartości StartTime, jeśli filmy mają inny sygnatura czasowa uruchamiania, jak to zwykle ma miejsce w przypadku archiwów na żywo.
-* Predefiniowane ustawienie JSON zawiera jawne odwołania do wartości AssetID zasobów wejściowych.
-* Przykładowy kod zakłada, że predefiniowane json zostało zapisane w pliku lokalnym, takim jak "C:\supportFiles\preset.json". Zakłada się również, że dwa zasoby zostały utworzone przez przesłanie dwóch plików wideo i że znasz wynikowe wartości AssetID.
-* Fragment kodu i ustawienie predefiniowane JSON pokazuje przykład łączenia dwóch plików wideo. Możesz rozszerzyć go na więcej niż dwa filmy, aby:
+* Wejściowe wideo powinny mieć tylko jedną ścieżkę audio.
+* Wszystkie wejściowe wideo powinny mieć tę samą szybkość klatek.
+* Musisz przekazać wideo do oddzielnych zasobów i ustawić wideo jako plik podstawowy w każdym z zasobów.
+* Musisz znać czas trwania filmów wideo.
+* W poniższych przykładach założono, że wszystkie wejściowe wideo zaczynają się od sygnatury czasowej równej zero. Należy zmodyfikować wartości StartTime, jeśli filmy wideo mają różne początkowe sygnatury czasowe, jak zwykle jest to przypadek z archiwami na żywo.
+* Ustawienie wstępne JSON powoduje tworzenie jawnych odwołań do wartości AssetID zasobów wejściowych.
+* Przykładowy kod założono, że ustawienie wstępne JSON zostało zapisane w pliku lokalnym, na przykład "C:\supportFiles\preset.json". Przyjęto również założenie, że dwa zasoby zostały utworzone przez przekazanie dwóch plików wideo i poznanie wynikowych wartości AssetID.
+* Fragment kodu i ustawienia wstępne JSON przedstawiają przykład łączenia dwóch plików wideo. Można ją rozłożyć na więcej niż dwa filmy wideo:
 
-  1. Zadanie wywoływania. InputAssets.Add() wielokrotnie, aby dodać więcej filmów w kolejności.
-  2. Dokonywanie odpowiednich zmian do elementu "Źródła" w JSON, dodając więcej wpisów, w tej samej kolejności.
+  1. Wywoływanie zadania. InputAssets. Add () wielokrotnie, aby dodać więcej filmów wideo w pożądanej kolejności.
+  2. Wprowadzanie odpowiednich zmian do elementu "sources" w kodzie JSON przez dodanie większej liczby wpisów w tej samej kolejności.
 
-### <a name="net-code"></a>Kod .NET
+### <a name="net-code"></a>Kod platformy .NET
 
     IAsset asset1 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();
     IAsset asset2 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e").FirstOrDefault();
@@ -850,7 +850,7 @@ Poniższy przykład ilustruje, jak można wygenerować predefiniowane do łącze
 
 ### <a name="json-preset"></a>Ustawienia wstępne JSON
 
-Zaktualizuj niestandardowe ustawienia wstępne za pomocą identyfikatorów zasobów, które chcesz łączyć, oraz z odpowiednim segmentem czasu dla każdego filmu.
+Zaktualizuj niestandardowe ustawienia wstępne z identyfikatorami zasobów, które chcesz połączyć, oraz z odpowiednim segmentem czasu dla każdego wideo.
 
     {
       "Version": 1.0,
@@ -905,21 +905,21 @@ Zaktualizuj niestandardowe ustawienia wstępne za pomocą identyfikatorów zasob
     }
 
 ## <a name="crop-videos-with-media-encoder-standard"></a><a id="crop"></a>Przycinanie wideo za pomocą usługi Media Encoder Standard
-Zobacz temat [Klipy wideo z koderem multimedialnym standardem.](media-services-crop-video.md)
+Zapoznaj się z tematem [przycinanie wideo za pomocą Media Encoder Standard](media-services-crop-video.md) .
 
-## <a name="insert-a-video-track-when-input-has-no-video"></a><a id="no_video"></a>Wstawianie ścieżki wideo, gdy wejście nie ma wideo
+## <a name="insert-a-video-track-when-input-has-no-video"></a><a id="no_video"></a>Wstaw ścieżkę wideo, gdy dane wejściowe nie zawierają wideo
 
-Domyślnie jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dźwięk i nie wideo, a następnie zasób wyjściowy zawiera pliki, które zawierają tylko dane audio. Niektórzy gracze, w tym Azure Media Player (zobacz [to)](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)może nie być w stanie obsłużyć takich strumieni. To ustawienie służy do wymuszania kodera, aby dodać monochromatyczny utwór wideo do danych wyjściowych w tym scenariuszu.
+Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dźwięk, a nie wideo, wówczas wyjściowy element zawartości zawiera pliki, które zawierają tylko dane audio. Niektóre odtwarzacze, [w tym Azure Media Player (zobacz)](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios), mogą nie być w stanie obsłużyć takich strumieni. Możesz użyć tego ustawienia, aby wymusić, że koder dodaje czarną ścieżkę wideo do danych wyjściowych w tym scenariuszu.
 
 > [!NOTE]
-> Wymuszanie kodera do wstawiania wyjściowej ścieżki wideo zwiększa rozmiar wyjściowego zasobu, a tym samym koszt poniesionych na zadanie kodowania. Należy przeprowadzić testy, aby sprawdzić, czy ten wynikowy wzrost ma tylko niewielki wpływ na miesięczne opłaty.
+> Wymuszanie, aby koder wstawiał wynikowe śledzenie wideo, zwiększa rozmiar wyjściowego elementu zawartości, a tym samym kosztem ponoszonym przez zadanie kodowania. Należy uruchomić testy, aby sprawdzić, czy ten wynikowy wzrost ma tylko umiarkowany wpływ na opłaty miesięczne.
 >
 
-### <a name="inserting-video-at-only-the-lowest-bitrate"></a>Wstawianie wideo przy najniższej szybkości transmisji bitów
+### <a name="inserting-video-at-only-the-lowest-bitrate"></a>Wstawianie wideo tylko przy najmniejszej szybkości transmisji bitów
 
-Załóżmy, że używasz wielu ustawień kodowania szybkości transmisji bitów, takich jak ["H264 Multiple Bitrate 720p",](media-services-mes-preset-h264-multiple-bitrate-720p.md) aby zakodować cały katalog wejściowy do przesyłania strumieniowego, który zawiera kombinację plików wideo i plików tylko audio. W tym scenariuszu, gdy dane wejściowe nie ma wideo, można wymusić koder wstawić monochromatyczny ścieżkę wideo przy najniższej szybkości transmisji bitów, w przeciwieństwie do wstawiania wideo przy każdej szybkości transmisji bitów wyjściowej. Aby to osiągnąć, należy użyć **InsertBlackIfNoVideoBottomLayerOnly** flagi.
+Załóżmy, że używasz wielu ustawień predefiniowanych kodowania transmisji bitów, takich jak ["wielokrotna H264 wiele szybkości transmisji bitów 720"](media-services-mes-preset-h264-multiple-bitrate-720p.md) , aby zakodować cały wykaz danych wejściowych do przesyłania strumieniowego, który zawiera wiele plików wideo i plików dźwiękowych. W tym scenariuszu, gdy dane wejściowe nie zawierają wideo, możesz wymusić, aby koder wstawiał czarną ścieżkę wideo z szybkością najmniejszej szybkości transmisji bitów, zamiast wstawiać wideo przy każdej wyjściowej szybkości transmisji bitów. Aby to osiągnąć, należy użyć flagi **InsertBlackIfNoVideoBottomLayerOnly** .
 
-Można wykonać dowolne ustawienia mes udokumentowane w [tej](media-services-mes-presets-overview.md) sekcji i dokonać następującej modyfikacji:
+W tej sekcji można zastosować dowolne ustawienia wstępne, które opisano w [tym](media-services-mes-presets-overview.md) temacie, i wprowadzić następujące zmiany:
 
 #### <a name="json-preset"></a>Ustawienia wstępne JSON
     {
@@ -931,9 +931,9 @@ Można wykonać dowolne ustawienia mes udokumentowane w [tej](media-services-mes
           ]
     }
 
-#### <a name="xml-preset"></a>Ustawienia predefiniowane XML
+#### <a name="xml-preset"></a>Ustawienia wstępne XML
 
-Korzystając z języka XML, należy użyć pliku Condition="InsertBlackIfNoVideoBottomLayerOnly" jako atrybutu elementu **H264Video** i Condition="InsertSilenceIfNoAudio" jako atrybutu **AACAudio**.
+W przypadku korzystania z XML, należy użyć warunku = "InsertBlackIfNoVideoBottomLayerOnly" jako atrybutu do elementu **H264Video** i Condition = "InsertSilenceIfNoAudio" jako atrybutu do **AACAudio**.
 
 ```
 . . .
@@ -959,10 +959,10 @@ Korzystając z języka XML, należy użyć pliku Condition="InsertBlackIfNoVideo
 . . .
 ```
 
-### <a name="inserting-video-at-all-output-bitrates"></a>Wstawianie wideo przy wszystkich szybkościach transmisji bitów wyjściowych
-Załóżmy, że używasz wielu ustawień kodowania szybkości transmisji bitów, takich jak ["H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) do kodowania całego katalogu wejściowego do przesyłania strumieniowego, który zawiera kombinację plików wideo i plików tylko audio. W tym scenariuszu, gdy dane wejściowe nie ma wideo, można wymusić koder wstawić monochromatyczne ścieżki wideo na wszystkich szybkościach transmisji bitów wyjściowych. Dzięki temu zasoby wyjściowe są jednorodne pod względem liczby ścieżek wideo i ścieżek audio. Aby to osiągnąć, należy określić flagę "InsertBlackIfNoVideo".
+### <a name="inserting-video-at-all-output-bitrates"></a>Wstawianie wideo na wszystkich wyjściowych szybkości transmisji bitów
+Załóżmy, że używasz wielu ustawień predefiniowanych kodowania szybkości transmisji bitów, takich jak ["wielokrotna H264 wiele szybkości transmisji bitów](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) , aby zakodować cały wykaz danych wejściowych do przesyłania strumieniowego, który zawiera kombinację plików wideo i plików audio. W tym scenariuszu, gdy dane wejściowe nie zawierają wideo, możesz wymusić, aby koder mógł wstawić czarną ścieżkę wideo na wszystkie szybkości transmisji bitów. Pozwala to zagwarantować, że zasoby wyjściowe są bardzo jednorodne w odniesieniu do liczby ścieżek wideo i ścieżek audio. Aby to osiągnąć, należy określić flagę "InsertBlackIfNoVideo".
 
-Można wykonać dowolne ustawienia mes udokumentowane w [tej](media-services-mes-presets-overview.md) sekcji i dokonać następującej modyfikacji:
+W tej sekcji można zastosować dowolne ustawienia wstępne, które opisano w [tym](media-services-mes-presets-overview.md) temacie, i wprowadzić następujące zmiany:
 
 #### <a name="json-preset"></a>Ustawienia wstępne JSON
     {
@@ -974,9 +974,9 @@ Można wykonać dowolne ustawienia mes udokumentowane w [tej](media-services-mes
           ]
     }
 
-#### <a name="xml-preset"></a>Ustawienia predefiniowane XML
+#### <a name="xml-preset"></a>Ustawienia wstępne XML
 
-Korzystając z języka XML, należy użyć pliku Condition="InsertBlackIfNoVideo" jako atrybutu elementu **H264Video** i condition="InsertSilenceIfNoAudio" jako atrybutu **AACAudio**.
+W przypadku korzystania z XML, należy użyć warunku = "InsertBlackIfNoVideo" jako atrybutu do elementu **H264Video** i Condition = "InsertSilenceIfNoAudio" jako atrybutu do **AACAudio**.
 
 ```
 . . .
@@ -1002,8 +1002,8 @@ Korzystając z języka XML, należy użyć pliku Condition="InsertBlackIfNoVideo
 . . .  
 ```
 
-## <a name="rotate-a-video"></a><a id="rotate_video"></a>Obracanie wideo
-[Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) obsługuje obrót pod kątem 0/90/180/270. Domyślnym zachowaniem jest "Auto", gdzie próbuje wykryć metadane obrotu w przychodzącym pliku wideo i skompensować go. Dołącz następujący element **Źródła** do jednego z ustawień predefiniowanych zdefiniowanych w [tej](media-services-mes-presets-overview.md) sekcji:
+## <a name="rotate-a-video"></a><a id="rotate_video"></a>Obróć wideo
+[Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) obsługuje rotację według kątów 0/90/180/270. Domyślnym zachowaniem jest "automatycznie", gdzie próbuje wykryć metadane rotacji w pliku wideo przychodzącego i wyrównać je. Dołącz następujący element **sources** do jednego z ustawień predefiniowanych zdefiniowanych w [tej](media-services-mes-presets-overview.md) sekcji:
 
 ### <a name="json-preset"></a>Ustawienia wstępne JSON
     "Sources": [
@@ -1017,7 +1017,7 @@ Korzystając z języka XML, należy użyć pliku Condition="InsertBlackIfNoVideo
     "Codecs": [
 
     ...
-### <a name="xml-preset"></a>Ustawienia predefiniowane XML
+### <a name="xml-preset"></a>Ustawienia wstępne XML
     <Sources>
            <Source>
           <Streams />
@@ -1027,9 +1027,9 @@ Korzystając z języka XML, należy użyć pliku Condition="InsertBlackIfNoVideo
         </Source>
     </Sources>
 
-Zobacz także [ten](media-services-mes-schema.md#PreserveResolutionAfterRotation) temat, aby uzyskać więcej informacji na temat interpretacji ustawień Szerokość i Wysokość w ustawieniach predefiniowanych, gdy zostanie wyzwolona kompensacja obrotu.
+Ponadto zapoznaj się z [tym](media-services-mes-schema.md#PreserveResolutionAfterRotation) tematem, aby uzyskać więcej informacji na temat sposobu, w jaki koder interpretuje ustawienia szerokości i wysokości w ustawieniu wstępnym, gdy jest wyzwalana kompensacja obrotu.
 
-Można użyć wartości "0", aby wskazać koderowi, aby zignorować metadane obrotu, jeśli są obecne, w wejściowym filmie wideo.
+Można użyć wartości "0", aby wskazać koderowi do ignorowania metadanych rotacji, jeśli jest obecny, w wejściowym wideo.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -1038,4 +1038,4 @@ Można użyć wartości "0", aby wskazać koderowi, aby zignorować metadane obr
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz też
-[Omówienie kodowania usług multimedialnych](media-services-encode-asset.md)
+[Omówienie kodowania Media Services](media-services-encode-asset.md)

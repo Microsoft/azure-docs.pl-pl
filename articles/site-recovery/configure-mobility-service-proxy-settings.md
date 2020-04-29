@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie ustawień serwera proxy usługi mobilności dla platformy Azure w celu odzyskiwania po awarii platformy Azure | Dokumenty firmy Microsoft
-description: Zawiera szczegółowe informacje na temat konfigurowania usługi mobilności, gdy klienci korzystają z serwera proxy w środowisku źródłowym.
+title: Skonfiguruj ustawienia serwera proxy usługi mobilności na platformie Azure na potrzeby odzyskiwania po awarii platformy Azure | Microsoft Docs
+description: Zawiera szczegółowe informacje na temat sposobu konfigurowania usługi mobilności, gdy klienci używają serwera proxy w środowisku źródłowym.
 services: site-recovery
 author: sideeksh
 manager: rochakm
@@ -9,50 +9,50 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: sideeksh
 ms.openlocfilehash: 3d33b5a89a718a41e5c547551f6e7eb4f7033a63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79503129"
 ---
-# <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Konfigurowanie ustawień serwera proxy usługi mobilności dla platformy Azure w celu odzyskiwania po awarii platformy Azure
+# <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Skonfiguruj ustawienia serwera proxy usługi mobilności na platformie Azure na potrzeby odzyskiwania po awarii platformy Azure
 
-Ten artykuł zawiera wskazówki dotyczące dostosowywania konfiguracji sieci na docelowej maszynie wirtualnej platformy Azure podczas replikowania i odzyskiwania maszyn wirtualnych platformy Azure z jednego regionu do drugiego przy użyciu [usługi Azure Site Recovery.](site-recovery-overview.md)
+Ten artykuł zawiera wskazówki dotyczące dostosowywania konfiguracji sieci na docelowej maszynie wirtualnej platformy Azure w przypadku replikowania i odzyskiwania maszyn wirtualnych platformy Azure z jednego regionu do innego przy użyciu [Azure Site Recovery](site-recovery-overview.md).
 
-Celem tego dokumentu jest zapewnienie kroków w celu skonfigurowania ustawień serwera proxy dla usługi Azure Site Recovery Mobility Service w scenariuszu odzyskiwania po awarii platformy Azure na platformie Azure. 
+Celem tego dokumentu jest dostarczenie instrukcji dotyczących konfigurowania ustawień serwera proxy dla usługi mobilności Azure Site Recovery w scenariuszu odzyskiwania po awarii na platformie Azure. 
 
-Serwery proxy to bramy sieciowe, które zezwalają na/nie zezwalają na połączenia sieciowe z punktami końcowymi. Zazwyczaj serwer proxy jest komputerem poza komputerem klienckim, który próbuje uzyskać dostęp do punktów końcowych sieci. Lista pomijania umożliwia klientowi nawiązywania połączeń bezpośrednio do punktów końcowych bez przechodzenia przez serwer proxy. Nazwa użytkownika i hasło mogą być opcjonalnie ustawione dla serwera proxy przez administratorów sieci, tak aby tylko uwierzytelnini klienci mogli używać serwera proxy. 
+Serwery proxy to bramy sieci, które zezwalają na połączenia sieciowe i nie zezwalają na nie. Zazwyczaj serwer proxy jest komputerem spoza komputera klienckiego, który próbuje uzyskać dostęp do punktów końcowych sieci. Lista obejścia pozwala klientowi na nawiązywanie połączeń bezpośrednio z punktami końcowymi bez przechodzenia przez serwer proxy. Opcjonalnie można ustawić nazwę użytkownika i hasło dla serwera proxy za pomocą administratorów sieci, aby tylko uwierzytelnieni klienci mogli korzystać z serwera proxy. 
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-Dowiedz się, jak odzyskiwanie witryny zapewnia odzyskiwanie po awarii w [tym scenariuszu.](azure-to-azure-architecture.md)
-Zapoznaj się ze [wskazówkami dotyczącymi sieci](azure-to-azure-about-networking.md) podczas replikowania i odzyskiwania maszyn wirtualnych platformy Azure z jednego regionu do drugiego przy użyciu [usługi Azure Site Recovery.](site-recovery-overview.md)
-Upewnij się, że serwer proxy jest skonfigurowany odpowiednio w zależności od potrzeb organizacji.
+Dowiedz się, jak Site Recovery zapewnia odzyskiwanie po awarii w [tym scenariuszu](azure-to-azure-architecture.md).
+Zapoznaj się ze [wskazówkami dotyczącymi sieci](azure-to-azure-about-networking.md) podczas replikowania i odzyskiwania maszyn wirtualnych platformy Azure z jednego regionu do innego przy użyciu [Azure Site Recovery](site-recovery-overview.md).
+Upewnij się, że serwer proxy jest odpowiednio skonfigurowany w zależności od potrzeb organizacji.
 
 ## <a name="configure-the-mobility-service"></a>Konfigurowanie usługi mobilności
 
-Usługa mobilności obsługuje tylko nieuwierzyte serwery proxy. Zapewnia dwa sposoby wprowadzania szczegółów serwera proxy do komunikacji z punktami końcowymi odzyskiwania lokacji. 
+Usługa mobilności obsługuje tylko nieuwierzytelnione serwery proxy. Zapewnia dwa sposoby wprowadzania szczegółów serwera proxy na potrzeby komunikacji z Site Recovery punktami końcowymi. 
 
-### <a name="method-1-auto-detection"></a>Metoda 1: Automatyczne wykrywanie
+### <a name="method-1-auto-detection"></a>Metoda 1. wykrywanie automatycznego
 
-Usługa mobilności automatycznie wykrywa ustawienia serwera proxy na podstawie ustawień środowiska lub ustawień IE (tylko w systemie Windows) podczas włączania replikacji. 
+Usługa mobilności wykrywa ustawienia serwera proxy z ustawień środowiska lub ustawień programu IE (tylko system Windows) podczas włączania replikacji. 
 
-- System operacyjny Windows: Podczas włączania replikacji usługa mobilności wykrywa ustawienia serwera proxy skonfigurowane w programie Internet Explorer dla użytkownika systemu lokalnego. Aby skonfigurować serwer proxy dla konta systemu lokalnego, administrator może użyć psexec do uruchomienia wiersza polecenia, a następnie programu Internet Explorer. 
-- System operacyjny Windows: Ustawienia serwera proxy są skonfigurowane jako zmienne środowiskowe http_proxy i no_proxy. 
-- Linux OS: Ustawienia serwera proxy są skonfigurowane w /etc/profile lub /etc/environment jako zmienne środowiskowe http_proxy, no_proxy. 
-- Automatycznie wykryte ustawienia serwera proxy są zapisywane w pliku konfiguracyjnym serwera proxy usługi Mobilności ProxyInfo.conf 
-- Domyślna lokalizacja pliku ProxyInfo.conf 
-    - Windows: C:\ProgramData\Microsoft Azure Site Recovery\Config\ProxyInfo.conf 
-    - Linux: /usr/local/InMage/config/ProxyInfo.conf
+- System operacyjny Windows: podczas włączania replikacji usługa mobilności wykrywa ustawienia serwera proxy zgodnie z konfiguracją w programie Internet Explorer dla użytkownika systemu lokalnego. Aby skonfigurować serwer proxy dla lokalnego konta systemowego, administrator może używać PsExec do uruchamiania wiersza polecenia, a następnie programu Internet Explorer. 
+- System operacyjny Windows: ustawienia serwera proxy są skonfigurowane jako zmienne środowiskowe http_proxy i no_proxy. 
+- System operacyjny Linux: ustawienia serwera proxy są konfigurowane w/etc/profile lub/etc/environment jako zmienne środowiskowe http_proxy, no_proxy. 
+- Ustawienia autowykrytego serwera proxy są zapisywane w pliku konfiguracji serwera proxy usługi mobilności ProxyInfo. conf 
+- Domyślna lokalizacja ProxyInfo. conf 
+    - Windows: C:\ProgramData\Microsoft witryny Azure Recovery\Config\ProxyInfo.conf 
+    - Linux:/usr/local/InMage/config/ProxyInfo.conf
 
 
-### <a name="method-2-provide-custom-application-proxy-settings"></a>Metoda 2: Zapewnienie niestandardowych ustawień serwera proxy aplikacji
+### <a name="method-2-provide-custom-application-proxy-settings"></a>Metoda 2. Udostępnianie niestandardowych ustawień serwera proxy aplikacji
 
-W takim przypadku klient udostępnia niestandardowe ustawienia serwera proxy aplikacji w pliku konfiguracyjnym usługi Mobilności ProxyInfo.conf. Ta metoda umożliwia klientom dostarczanie serwera proxy tylko dla usługi mobilności lub innego serwera proxy usługi Azure Site Recovery Mobility Service niż serwer proxy (lub brak serwera proxy) dla pozostałych aplikacji na komputerze.
+W takim przypadku klient udostępnia niestandardowe ustawienia serwera proxy aplikacji w pliku konfiguracji usługi mobilności ProxyInfo. conf. Ta metoda umożliwia klientom udostępnianie serwera proxy tylko dla usługi mobilności lub innego serwera proxy dla Azure Site Recoveryej usługi mobilności niż serwer proxy (lub brak serwera proxy) dla pozostałych aplikacji na komputerze.
 
 ## <a name="proxy-template"></a>Szablon serwera proxy
-Plik ProxyInfo.conf zawiera następujący szablonhttp://1.2.3.4 [proxy] Adres= Port=5678 BypassList=hypervrecoverymanager.windowsazure.com,login.microsoftonline.com,blob.core.windows.net. BypassList nie obsługuje symboli wieloznacznych, takich jak "*.windows.net", ale dając windows.net jest wystarczająco dobry, aby ominąć. 
+ProxyInfo. conf zawiera następujący szablon [proxy] Address =http://1.2.3.4 port = 5678 BypassList = hypervrecoverymanager. windowsazure. com, Login. microsoftonline. com, BLOB. Core. Windows. NET. BypassList nie obsługuje symboli wieloznacznych, takich jak "*. windows.net", ale podawanie windows.net jest wystarczające do obejścia. 
 
 ## <a name="next-steps"></a>Następne kroki:
-- Przeczytaj [wskazówki dotyczące sieci do](site-recovery-azure-to-azure-networking-guidance.md) replikowania maszyn wirtualnych platformy Azure.
-- Wdrażanie odzyskiwania po awarii przez [replikowanie maszyn wirtualnych platformy Azure](site-recovery-azure-to-azure.md).
+- Odczytaj [wskazówki dotyczące sieci](site-recovery-azure-to-azure-networking-guidance.md) dotyczące replikacji maszyn wirtualnych platformy Azure.
+- Wdróż odzyskiwanie po awarii przez [replikowanie maszyn wirtualnych platformy Azure](site-recovery-azure-to-azure.md).

@@ -1,6 +1,6 @@
 ---
-title: Używanie języka JavaScript dla plików & list ACl w usłudze Azure Data Lake Storage Gen2
-description: Użyj biblioteki klienta usługi Azure Storage Data Lake dla języka JavaScript do zarządzania katalogami oraz listami kontroli dostępu do plików i katalogów (ACL) na kontach magazynu z włączoną hierarchiczną przestrzenią nazw (HNS).
+title: Użyj języka JavaScript dla plików & list ACL w Azure Data Lake Storage Gen2
+description: Biblioteka klienta usługi Azure Storage Data Lake dla języka JavaScript umożliwia zarządzanie katalogami oraz list kontroli dostępu do plików i katalogów (ACL) na kontach magazynu, które mają włączoną hierarchiczną przestrzeń nazw (SNS).
 author: normesta
 ms.service: storage
 ms.date: 03/20/2020
@@ -9,48 +9,48 @@ ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.openlocfilehash: 04d0d23bdbdaeda6a4823c900badb3133ba9eeae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80061536"
 ---
-# <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Używanie języka JavaScript do zarządzania katalogami, plikami i listami ACl w usłudze Azure Data Lake Storage Gen2
+# <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Używanie języka JavaScript do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
-W tym artykule pokazano, jak używać języka JavaScript do tworzenia katalogów, plików i uprawnień na kontach magazynu z włączoną hierarchiczną przestrzenią nazw (HNS) i zarządzanie nimi. 
+W tym artykule pokazano, jak używać języka JavaScript do tworzenia katalogów, plików i uprawnień w ramach kont magazynu, które mają włączoną hierarchiczną przestrzeń nazw (SNS) i zarządzać nimi. 
 
-[Przykłady pakietu (Menedżera pakietów](https://www.npmjs.com/package/@azure/storage-file-datalake) | [węzłów)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples) | [podają opinię](https://github.com/Azure/azure-sdk-for-java/issues)
+[Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-file-datalake) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)Przykłady | pakietu (Menedżer pakietów węzła)[zawierają opinię](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 > [!div class="checklist"]
 > * Subskrypcja platformy Azure. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Konto magazynu z włączoną hierarchiczną przestrzenią nazw (HNS). Postępuj zgodnie z [tymi](data-lake-storage-quickstart-create-account.md) instrukcjami, aby je utworzyć.
-> * Jeśli używasz tego pakietu w aplikacji Node.js, musisz Node.js 8.0.0 lub nowszej.
+> * Konto magazynu z włączoną hierarchiczną przestrzenią nazw (SNS). Postępuj zgodnie z [tymi](data-lake-storage-quickstart-create-account.md) instrukcjami, aby je utworzyć.
+> * Jeśli używasz tego pakietu w aplikacji node. js, potrzebujesz środowiska Node. js 8.0.0 lub nowszego.
 
 ## <a name="set-up-your-project"></a>konfigurowanie projektu
 
-Zainstaluj bibliotekę klienta usługi Data Lake dla języka JavaScript, otwierając okno terminala, a następnie wpisując następujące polecenie.
+Zainstaluj Data Lake bibliotekę kliencką dla języka JavaScript, otwierając okno terminalu, a następnie wpisując następujące polecenie.
 
 ```javascript
 npm install @azure/storage-file-datalake
 ```
 
-Zaimportuj pakiet, `storage-file-datalake` umieszczając tę instrukcję u góry pliku kodu. 
+Zaimportuj `storage-file-datalake` pakiet, umieszczając tę instrukcję w górnej części pliku kodu. 
 
 ```javascript
 const AzureStorageDataLake = require("@azure/storage-file-datalake");
 ```
 
-## <a name="connect-to-the-account"></a>Łączenie się z kontem 
+## <a name="connect-to-the-account"></a>Połącz z kontem 
 
-Aby użyć urywków w tym artykule, należy utworzyć **datalakeServiceClient wystąpienie,** które reprezentuje konto magazynu. 
+Aby użyć fragmentów kodu w tym artykule, należy utworzyć wystąpienie **DataLakeServiceClient** reprezentujące konto magazynu. 
 
-### <a name="connect-by-using-an-account-key"></a>Łączenie się przy użyciu klucza konta
+### <a name="connect-by-using-an-account-key"></a>Nawiązywanie połączenia przy użyciu klucza konta
 
-Jest to najprostszy sposób na połączenie się z kontem. 
+Jest to najprostszy sposób nawiązywania połączenia z kontem. 
 
-W tym przykładzie tworzy **DataLakeServiceClient wystąpienie** przy użyciu klucza konta.
+Ten przykład tworzy wystąpienie **DataLakeServiceClient** przy użyciu klucza konta.
 
 ```javascript
 
@@ -67,13 +67,13 @@ function GetDataLakeServiceClient(accountName, accountKey) {
 
 ```
 > [!NOTE]
-> Ta metoda autoryzacji działa tylko dla aplikacji Node.js. Jeśli planujesz uruchomić kod w przeglądarce, możesz autoryzować za pomocą usługi Azure Active Directory (AD). 
+> Ta metoda autoryzacji działa tylko w przypadku aplikacji node. js. Jeśli planujesz uruchamianie kodu w przeglądarce, możesz autoryzować się przy użyciu Azure Active Directory (AD). 
 
-### <a name="connect-by-using-azure-active-directory-ad"></a>Połącz się przy użyciu usługi Azure Active Directory (AD)
+### <a name="connect-by-using-azure-active-directory-ad"></a>Łączenie przy użyciu Azure Active Directory (AD)
 
-Można użyć [biblioteki klienta tożsamości platformy Azure dla JS](https://www.npmjs.com/package/@azure/identity) do uwierzytelniania aplikacji za pomocą usługi Azure AD.
+Za pomocą [biblioteki Azure Identity Client Library for js](https://www.npmjs.com/package/@azure/identity) można uwierzytelniać aplikację w usłudze Azure AD.
 
-W tym przykładzie tworzy **DataLakeServiceClient wystąpienie** przy użyciu identyfikatora klienta, klucz tajny klienta i identyfikator dzierżawy.  Aby uzyskać te wartości, zobacz [Uzyskiwanie tokenu z usługi Azure AD do autoryzowania żądań z aplikacji klienckiej.](../common/storage-auth-aad-app.md)
+Ten przykład tworzy wystąpienie **DataLakeServiceClient** przy użyciu identyfikatora klienta, klucza tajnego klienta i identyfikatora dzierżawy.  Aby uzyskać te wartości, zobacz [pozyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej](../common/storage-auth-aad-app.md).
 
 ```javascript
 function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantID) {
@@ -88,13 +88,13 @@ function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantI
 ```
 
 > [!NOTE]
-> Aby uzyskać więcej przykładów, zobacz bibliotekę klienta tożsamości platformy Azure dla dokumentacji [JS.](https://www.npmjs.com/package/@azure/identity)
+> Aby uzyskać więcej przykładów, zobacz dokumentację [biblioteki klienta usługi Azure Identity for js](https://www.npmjs.com/package/@azure/identity) .
 
 ## <a name="create-a-file-system"></a>Tworzenie systemu plików
 
-System plików działa jako kontener dla plików. Można go utworzyć, uzyskując **wystąpienie FileSystemClient,** a następnie wywołując **metodę FileSystemClient.Create.**
+System plików działa jako kontener dla plików. Można go utworzyć, pobierając wystąpienie **FileSystemClient** , a następnie wywołując metodę **FileSystemClient. Create** .
 
-W tym przykładzie `my-file-system`tworzy system plików o nazwie . 
+Ten przykład tworzy system plików o nazwie `my-file-system`. 
 
 ```javascript
 async function CreateFileSystem(datalakeServiceClient) {
@@ -110,9 +110,9 @@ async function CreateFileSystem(datalakeServiceClient) {
 
 ## <a name="create-a-directory"></a>Tworzenie katalogu
 
-Utwórz odwołanie do katalogu, uzyskując **wystąpienie DirectoryClient,** a następnie wywołując metodę **DirectoryClient.create.**
+Utwórz odwołanie do katalogu, pobierając wystąpienie **DirectoryClient** , a następnie wywołując metodę **DirectoryClient. Create** .
 
-W tym przykładzie `my-directory` dodaje katalog o nazwie do systemu plików. 
+Ten przykład dodaje katalog o nazwie `my-directory` do systemu plików. 
 
 ```javascript
 async function CreateDirectory(fileSystemClient) {
@@ -126,9 +126,9 @@ async function CreateDirectory(fileSystemClient) {
 
 ## <a name="rename-or-move-a-directory"></a>Zmienianie nazwy lub przenoszenie katalogu
 
-Zmień nazwę lub przenieś katalog, wywołując **metodę DirectoryClient.rename.** Przekaż ścieżkę żądanego katalogu parametrem. 
+Zmień nazwę lub Przenieś katalog, wywołując metodę **DirectoryClient. Rename** . Przekaż ścieżkę do żądanego katalogu jako parametr. 
 
-W tym przykładzie zmienia nazwę podkata directory na nazwę `my-directory-renamed`.
+Ten przykład zmienia nazwę podkatalogu na nazwę `my-directory-renamed`.
 
 ```javascript
 async function RenameDirectory(fileSystemClient) {
@@ -139,7 +139,7 @@ async function RenameDirectory(fileSystemClient) {
 }
 ```
 
-W tym przykładzie `my-directory-renamed` przenosi katalog o nazwie do podkatasii katalogu o nazwie `my-directory-2`. 
+Ten przykład przenosi katalog o nazwie `my-directory-renamed` do podkatalogu o nazwie `my-directory-2`. 
 
 ```javascript
 async function MoveDirectory(fileSystemClient) {
@@ -152,9 +152,9 @@ async function MoveDirectory(fileSystemClient) {
 
 ## <a name="delete-a-directory"></a>Usuwanie katalogu
 
-Usuń katalog, wywołując **metodę DirectoryClient.delete.**
+Usuń katalog, wywołując metodę **DirectoryClient. Delete** .
 
-W tym przykładzie usuwa `my-directory`katalog o nazwie .   
+Ten przykład usuwa katalog o nazwie `my-directory`.   
 
 ```javascript
 async function DeleteDirectory(fileSystemClient) {
@@ -165,12 +165,12 @@ async function DeleteDirectory(fileSystemClient) {
 }
 ```
 
-## <a name="manage-a-directory-acl"></a>Zarządzanie listy ACL katalogu
+## <a name="manage-a-directory-acl"></a>Zarządzanie listą ACL katalogów
 
-W tym przykładzie pobiera, a następnie `my-directory`ustawia ACL katalogu o nazwie . W tym przykładzie daje użytkownikowi właścicielem uprawnienia do odczytu, zapisu i wykonywania, daje grupie właściciel tylko uprawnienia do odczytu i wykonywania i daje wszystkim innym dostęp do odczytu.
+Ten przykład pobiera i ustawia listę ACL katalogu o nazwie `my-directory`. Ten przykład daje właścicielowi uprawnień Odczyt, zapis i wykonywanie, daje grupie będącej właścicielem tylko uprawnienia do odczytu i wykonywania, a ponadto daje wszystkim innym osobom dostęp do odczytu.
 
 > [!NOTE]
-> Jeśli aplikacja autoryzuje dostęp przy użyciu usługi Azure Active Directory (Azure AD), upewnij się, że podmiot zabezpieczeń używany przez aplikację do autoryzowania dostępu został przypisany [do roli Właściciel danych obiektu Blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej o sposobie stosowania uprawnień listy ACL i skutkach ich zmiany, zobacz [Kontrola dostępu w usłudze Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Jeśli aplikacja autoryzuje dostęp przy użyciu Azure Active Directory (Azure AD), upewnij się, że podmiot zabezpieczeń używany przez aplikację do autoryzacji dostępu ma przypisaną [rolę właściciela danych obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej na temat sposobu stosowania uprawnień ACL i skutków ich zmiany, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ```javascript
 async function ManageDirectoryACLs(fileSystemClient) {
@@ -219,11 +219,11 @@ async function ManageDirectoryACLs(fileSystemClient) {
 }
 ```
 
-## <a name="upload-a-file-to-a-directory"></a>Przekazywanie pliku do katalogu
+## <a name="upload-a-file-to-a-directory"></a>Przekaż plik do katalogu
 
-Najpierw przeczytaj plik. W tym przykładzie użyto `fs` node.js modułu. Następnie utwórz odwołanie do pliku w katalogu docelowym, tworząc **wystąpienie FileClient,** a następnie wywołując metodę **FileClient.create.** Przekaż plik, wywołując **Metodę FileClient.append.** Upewnij się, aby zakończyć przekazywanie przez wywołanie **FileClient.flush** metody.
+Najpierw Odczytaj plik. Ten przykład używa modułu Node. js `fs` . Następnie Utwórz odwołanie do pliku w katalogu docelowym, tworząc wystąpienie **FileClient** , a następnie wywołując metodę **FileClient. Create** . Przekaż plik, wywołując metodę **FileClient. Append** . Upewnij się, że ukończono przekazywanie, wywołując metodę **FileClient. Flush** .
 
-W tym przykładzie plik tekstowy `my-directory`jest przesyłany do katalogu o nazwie .'
+Ten przykład przekazuje plik tekstowy do katalogu o nazwie `my-directory`.
 
 ```javascript
 async function UploadFile(fileSystemClient) {
@@ -247,12 +247,12 @@ async function UploadFile(fileSystemClient) {
 }
 ```
 
-## <a name="manage-a-file-acl"></a>Zarządzanie plikem ACL
+## <a name="manage-a-file-acl"></a>Zarządzanie listą ACL plików
 
-W tym przykładzie pobiera, a następnie `upload-file.txt`ustawia ACL pliku o nazwie . W tym przykładzie daje użytkownikowi właścicielem uprawnienia do odczytu, zapisu i wykonywania, daje grupie właściciel tylko uprawnienia do odczytu i wykonywania i daje wszystkim innym dostęp do odczytu.
+Ten przykład pobiera i ustawia listę ACL pliku o nazwie `upload-file.txt`. Ten przykład daje właścicielowi uprawnień Odczyt, zapis i wykonywanie, daje grupie będącej właścicielem tylko uprawnienia do odczytu i wykonywania, a ponadto daje wszystkim innym osobom dostęp do odczytu.
 
 > [!NOTE]
-> Jeśli aplikacja autoryzuje dostęp przy użyciu usługi Azure Active Directory (Azure AD), upewnij się, że podmiot zabezpieczeń używany przez aplikację do autoryzowania dostępu został przypisany [do roli Właściciel danych obiektu Blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej o sposobie stosowania uprawnień listy ACL i skutkach ich zmiany, zobacz [Kontrola dostępu w usłudze Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Jeśli aplikacja autoryzuje dostęp przy użyciu Azure Active Directory (Azure AD), upewnij się, że podmiot zabezpieczeń używany przez aplikację do autoryzacji dostępu ma przypisaną [rolę właściciela danych obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej na temat sposobu stosowania uprawnień ACL i skutków ich zmiany, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ```javascript
 async function ManageFileACLs(fileSystemClient) {
@@ -301,12 +301,12 @@ await fileClient.setAccessControl(acl);
 }
 ```
 
-## <a name="download-from-a-directory"></a>Pobieranie z katalogu
+## <a name="download-from-a-directory"></a>Pobierz z katalogu
 
-Najpierw utwórz **wystąpienie FileSystemClient,** które reprezentuje plik, który chcesz pobrać. Użyj **metody FileSystemClient.read,** aby odczytać plik. Następnie napisz plik. W tym przykładzie użyto `fs` node.js moduł, aby to zrobić. 
+Najpierw Utwórz wystąpienie **FileSystemClient** reprezentujące plik, który chcesz pobrać. Użyj metody **FileSystemClient. Read** , aby odczytać plik. Następnie napisz plik. Ten przykład używa modułu Node. js `fs` , aby to zrobić. 
 
 > [!NOTE]
-> Ta metoda pobierania pliku działa tylko w przypadku aplikacji Node.js. Jeśli planujesz uruchomić kod w przeglądarce, zobacz bibliotekę klienta usługi Azure Storage File Data Lake dla pliku readme [JavaScript,](https://www.npmjs.com/package/@azure/storage-file-datalake) aby uzyskać przykład, jak to zrobić w przeglądarce. 
+> Ta metoda pobierania pliku działa tylko w przypadku aplikacji node. js. Jeśli planujesz uruchamianie kodu w przeglądarce, zapoznaj się z artykułem " [usługa Azure Storage file Data Lake Client Library for JavaScript](https://www.npmjs.com/package/@azure/storage-file-datalake) plik Readme, aby zapoznać się z przykładem, jak to zrobić w przeglądarce. 
 
 ```javascript
 async function DownloadFile(fileSystemClient) {
@@ -341,7 +341,7 @@ async function DownloadFile(fileSystemClient) {
 
 ## <a name="list-directory-contents"></a>Wyświetlanie zawartości katalogu
 
-W tym przykładzie można wydrukować nazwy każdego katalogu i pliku `my-directory`znajdującego się w katalogu o nazwie .
+W tym przykładzie program drukuje nazwy poszczególnych katalogów i plików znajdujących się w katalogu o nazwie `my-directory`.
 
 ```javascript
 async function ListFilesInDirectory(fileSystemClient) {
@@ -358,8 +358,8 @@ async function ListFilesInDirectory(fileSystemClient) {
 }
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* [Pakiet (Menedżer pakietów węzłów)](https://www.npmjs.com/package/@azure/storage-file-datalake)
-* [Próbki](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)
+* [Pakiet (Menedżer pakietów węzła)](https://www.npmjs.com/package/@azure/storage-file-datalake)
+* [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)
 * [Przekaż opinię](https://github.com/Azure/azure-sdk-for-java/issues)

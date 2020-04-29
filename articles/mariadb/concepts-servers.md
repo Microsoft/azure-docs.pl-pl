@@ -1,55 +1,55 @@
 ---
-title: Serwery — usługa Azure Database dla mariadb
-description: Ten temat zawiera zagadnienia i wskazówki dotyczące pracy z usługą Azure Database dla serwerów MariaDB.
+title: Serwery — Azure Database for MariaDB
+description: W tym temacie przedstawiono zagadnienia i wytyczne dotyczące pracy z serwerami Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 444d7f1574cf1517b01250bcb9d810731030182d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79527796"
 ---
-# <a name="server-concepts-in-azure-database-for-mariadb"></a>Pojęcia dotyczące serwera w bazie danych platformy Azure dla mariadb
-Ten artykuł zawiera zagadnienia i wskazówki dotyczące pracy z usługą Azure Database dla serwerów MariaDB.
+# <a name="server-concepts-in-azure-database-for-mariadb"></a>Pojęcia dotyczące serwerów w Azure Database for MariaDB
+W tym artykule przedstawiono zagadnienia i wytyczne dotyczące pracy z serwerami Azure Database for MariaDB.
 
-## <a name="what-is-an-azure-database-for-mariadb-server"></a>Co to jest serwer usługi Azure Database dla mariadb?
+## <a name="what-is-an-azure-database-for-mariadb-server"></a>Co to jest serwer Azure Database for MariaDB?
 
-Serwer usługi Azure Database for MariaDB jest centralnym punktem administracyjnym dla wielu baz danych. Jest to ta sama konstrukcja serwera MariaDB, którą możesz znać w środowisku lokalnym. W szczególności usługa Azure Database for MariaDB jest zarządzana, zapewnia gwarancje wydajności i udostępnia dostęp i funkcje na poziomie serwera.
+Serwer Azure Database for MariaDB jest centralnym punktem administracyjnym dla wielu baz danych. Jest to ta sama konstrukcja serwera MariaDB, która może być znana na świecie lokalnym. Usługa Azure Database for MariaDB jest zarządzana, zapewnia gwarancje wydajności i udostępnia dostęp i funkcje na poziomie serwera.
 
-Usługa Azure Database dla serwera MariaDB:
+Serwer Azure Database for MariaDB:
 
 - Jest tworzony w ramach subskrypcji platformy Azure.
 - Jest zasobem nadrzędnym dla baz danych.
-- Udostępnia obszar nazw dla baz danych.
-- Jest kontenerem z silną semantyką okresu istnienia — usuń serwer i usuwa zawarte bazy danych.
-- Kolokuje zasoby w regionie.
-- Zapewnia punkt końcowy połączenia dla dostępu do serwera i bazy danych.
-- Udostępnia zakres zasad zarządzania, które mają zastosowanie do jego baz danych: login, firewall, użytkownicy, role, konfiguracje itp.
-- Jest dostępny w wersji silnika MariaDB 10.2. Aby uzyskać więcej informacji, zobacz [Obsługiwane usługi Azure Database dla wersji bazy danych MariaDB](./concepts-supported-versions.md).
+- Udostępnia przestrzeń nazw dla baz danych.
+- Jest kontenerem z semantyką silnego okresu istnienia — usuwa serwer i usuwa zawarte bazy danych.
+- Kolokacja zasobów w regionie.
+- Udostępnia punkt końcowy połączenia serwera i dostępu do bazy danych.
+- Zapewnia zakres zasad zarządzania, które mają zastosowanie do swoich baz danych: logowania, zapory, użytkowników, ról, konfiguracji itp.
+- Jest dostępny w aparacie MariaDB w wersji 10,2. Aby uzyskać więcej informacji, zobacz [obsługiwane wersje bazy danych Azure Database for MariaDB](./concepts-supported-versions.md).
 
-Na serwerze usługi Azure Database for MariaDB można utworzyć jedną lub wiele baz danych. Można utworzyć jedną bazę danych na serwer, aby użyć wszystkich zasobów lub utworzyć wiele baz danych do udostępniania zasobów. Cennik jest skonstruowany na serwer, na podstawie konfiguracji warstwy cenowej, vCores i magazynu (GB). Aby uzyskać więcej informacji, zobacz [Warstwy cenowe](./concepts-pricing-tiers.md).
+Na serwerze usługi Azure Database for MariaDB można utworzyć jedną lub wiele baz danych. Możesz wybrać opcję tworzenia pojedynczej bazy danych na serwerze w celu używania wszystkich zasobów lub tworzenia wielu baz danych w celu udostępniania zasobów. Cennik ma strukturę na serwer, na podstawie konfiguracji warstwy cenowej, rdzeni wirtualnych i magazynu (GB). Aby uzyskać więcej informacji, zobacz [warstwy cenowe](./concepts-pricing-tiers.md).
 
-## <a name="how-do-i-secure-an-azure-database-for-mariadb-server"></a>Jak zabezpieczyć usługę Azure Database dla serwera MariaDB?
+## <a name="how-do-i-secure-an-azure-database-for-mariadb-server"></a>Jak mogę zabezpieczyć serwer Azure Database for MariaDB?
 
-Następujące elementy pomagają zapewnić bezpieczny dostęp do bazy danych.
+Poniższe elementy zapewniają bezpieczny dostęp do bazy danych programu.
 
 |||
 | :--| :--|
-| **Uwierzytelnianie i autoryzacja** | Serwer usługi Azure Database for MariaDB obsługuje natywne uwierzytelnianie MySQL. Można połączyć się i uwierzytelnić na serwerze za pomocą logowania administratora serwera. |
-| **Protokół** | Usługa obsługuje protokół oparty na wiadomościach używany przez MySQL. |
-| **TCP/IP** | Protokół jest obsługiwany przez protokół TCP/IP i za pomocą gniazd domen uniksowych. |
-| **Zapora** | Aby chronić dane, reguła zapory uniemożliwia dostęp do serwera bazy danych, dopóki nie określisz, które komputery mają uprawnienia. Zobacz [Usługi Azure Database dla mariadb reguł zapory serwera](./concepts-firewall-rules.md). |
-| **Protokół SSL** | Usługa obsługuje wymuszanie połączeń SSL między aplikacjami a serwerem bazy danych. Zobacz [Konfigurowanie łączności SSL w aplikacji, aby bezpiecznie połączyć się z usługą Azure Database for MariaDB.](./howto-configure-ssl.md) |
+| **Uwierzytelnianie i autoryzacja** | Serwer Azure Database for MariaDB obsługuje natywne uwierzytelnianie MySQL. Można nawiązać połączenie i uwierzytelnić się na serwerze z identyfikatorem logowania administratora serwera. |
+| **Protokol** | Usługa obsługuje protokół oparty na komunikatach używany przez MySQL. |
+| **TCP/IP** | Protokół jest obsługiwany za pośrednictwem protokołu TCP/IP i gniazd domen systemu UNIX. |
+| **Zapory** | Aby zapewnić ochronę danych, reguła zapory zapobiega wszystkim dostępowi do serwera bazy danych, dopóki nie określisz, które komputery mają uprawnienia. Zobacz [reguły zapory serwera Azure Database for MariaDB](./concepts-firewall-rules.md). |
+| **Protokół SSL** | Usługa obsługuje wymuszanie połączeń SSL między aplikacjami a serwerem bazy danych. Zobacz [Konfigurowanie łączności SSL w aplikacji, aby bezpiecznie połączyć się z Azure Database for MariaDB](./howto-configure-ssl.md). |
 
-## <a name="how-do-i-manage-a-server"></a>Jak zarządzać serwerem?
-Usługi Azure Database dla serwerów MariaDB można zarządzać przy użyciu witryny Azure portal lub interfejsu wiersza polecenia platformy Azure.
+## <a name="how-do-i-manage-a-server"></a>Jak mogę zarządzać serwerem?
+Serwerami Azure Database for MariaDB można zarządzać przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
-- Aby zapoznać się z omówieniem usługi, zobacz [Usługa Azure Database for MariaDB Overview](./overview.md)
-- Aby uzyskać informacje o określonych przydziałach zasobów i ograniczeniach opartych na **warstwie usług,** zobacz [Warstwy usług](./concepts-pricing-tiers.md)
+- Aby zapoznać się z omówieniem usługi, zobacz [Azure Database for MariaDB przegląd](./overview.md)
+- Aby uzyskać informacje na temat konkretnych przydziałów zasobów i ograniczeń na podstawie **warstwy usług**, zobacz [warstwy usług](./concepts-pricing-tiers.md)
 
 <!-- - For information about connecting to the service, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md). -->

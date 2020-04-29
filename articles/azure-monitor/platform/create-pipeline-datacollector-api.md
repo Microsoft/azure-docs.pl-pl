@@ -1,69 +1,69 @@
 ---
-title: Tworzenie potoku danych za pomocą interfejsu API modułu zbierającego dane
-description: Za pomocą interfejsu API modułu zbierającego dane HTTP monitora platformy Azure można dodać dane POST JSON do obszaru roboczego usługi Log Analytics od dowolnego klienta, który może wywołać interfejs API REST. W tym artykule opisano sposób przekazywania danych przechowywanych w plikach w sposób zautomatyzowany.
+title: Tworzenie potoku danych przy użyciu interfejsu API modułu zbierającego dane
+description: Korzystając z Azure Monitor interfejsu API modułu zbierającego dane HTTP, można dodać dane po JSON do obszaru roboczego Log Analytics z dowolnego klienta, który może wywołać interfejs API REST. W tym artykule opisano sposób przekazywania danych przechowywanych w plikach w zautomatyzowany sposób.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
 ms.openlocfilehash: 96c64f6a0167b678f14bf0199069ecd6b4c8d57a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80055108"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Tworzenie potoku danych za pomocą interfejsu API modułu zbierającego dane
 
-[Interfejs API modułu zbierającego dane usługi Azure Monitor](data-collector-api.md) umożliwia importowanie dowolnych niestandardowych danych dziennika do obszaru roboczego usługi Log Analytics w usłudze Azure Monitor. Jedynymi wymaganiami są, że dane są sformatowane json i podzielone na 30 MB lub mniej segmentów. Jest to całkowicie elastyczny mechanizm, który można podłączyć na wiele sposobów: od danych wysyłanych bezpośrednio z aplikacji po jednorazowe przesyłanie adhoc. W tym artykule opisano niektóre punkty wyjścia dla wspólnego scenariusza: konieczność przekazywania danych przechowywanych w plikach w sposób regularny, zautomatyzowany. Chociaż potok przedstawiony w tym miejscu nie będzie najbardziej wydajny lub w inny sposób zoptymalizowany, ma służyć jako punkt wyjścia do budowy własnego rurociągu produkcyjnego.
+[Interfejs API modułu zbierającego dane Azure monitor](data-collector-api.md) umożliwia importowanie wszelkich niestandardowych danych dzienników do log Analytics obszaru roboczego w Azure monitor. Jedyne wymagania polegają na tym, że dane są sformatowane w formacie JSON i dzielone na 30 MB lub mniej segmentów. Jest to całkowicie elastyczny mechanizm, który można podłączyć na wiele sposobów: dane wysyłane bezpośrednio z aplikacji do jednej z przeciążeń ad hoc. W tym artykule przedstawiono konspekt niektórych punktów początkowych dla typowego scenariusza: konieczność regularnego przekazywania danych przechowywanych w plikach. Gdy potok przedstawiony w tym miejscu nie będzie najbardziej wydajny lub w inny sposób zoptymalizowany, ma służyć jako punkt wyjścia do tworzenia potoku produkcyjnego.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Przykładowy problem
-W dalszej części tego artykułu zbadamy dane widoku strony w usłudze Application Insights. W naszym hipotetycznym scenariuszu chcemy skorelować informacje geograficzne zbierane domyślnie przez zestaw SDK usługi Application Insights z danymi niestandardowymi zawierającymi populację każdego kraju/regionu na świecie, w celu określenia, gdzie powinniśmy wydawać najwięcej dolarów marketingowych. 
+W pozostałej części tego artykułu sprawdzimy dane widoku strony w Application Insights. W naszym hipotetycznym scenariuszu chcemy skorelować informacje geograficzne zbierane domyślnie przez zestaw SDK Application Insights, aby uzyskać niestandardowe dane zawierające populację każdego kraju/regionu na świecie, z celem ustalenia, gdzie należy wystawić większość dolarów marketingowych. 
 
-W tym celu korzystamy z publicznego źródła danych, takiego jak [Światowe Perspektywy Ludności ONZ.](https://esa.un.org/unpd/wpp/) Dane będą miały następujący prosty schemat:
+W tym celu używamy publicznego źródła danych, takiego jak w przypadku w tym celu [prospektów dla Nieświatowej populacji](https://esa.un.org/unpd/wpp/) . Dane będą miały następujący prosty schemat:
 
 ![Przykładowy schemat prosty](./media/create-pipeline-datacollector-api/example-simple-schema-01.png)
 
-W naszym przykładzie zakładamy, że przekażemy nowy plik z danymi z ostatniego roku, gdy tylko stanie się dostępny.
+W naszym przykładzie przyjęto założenie, że przekażemy nowy plik z najnowszymi danymi roku, gdy tylko staną się dostępne.
 
-## <a name="general-design"></a>Ogólny projekt
-Używamy klasycznej logiki typu ETL do projektowania naszego rurociągu. Architektura będzie wyglądać w następujący sposób:
+## <a name="general-design"></a>Projekt ogólny
+Korzystamy z klasycznej logiki typu ETL do projektowania naszego potoku. Architektura będzie wyglądać następująco:
 
 ![Architektura potoku zbierania danych](./media/create-pipeline-datacollector-api/data-pipeline-dataflow-architecture.png)
 
-W tym artykule nie opisano sposobu tworzenia danych ani [przekazywania ich na konto usługi Azure Blob Storage.](../../storage/blobs/storage-upload-process-images.md) Zamiast tego możemy podnieść przepływ, jak tylko nowy plik zostanie przesłany do obiektu blob. z o.o.
+W tym artykule nie opisano sposobu tworzenia danych ani [przekazywania ich do konta usługi Azure Blob Storage](../../storage/blobs/storage-upload-process-images.md). Zamiast tego wybieramy przepływ aż do momentu przekazania nowego pliku do obiektu BLOB. Z tego miejsca:
 
-1. Proces wykryje, że nowe dane zostały przekazane.  W naszym przykładzie użyto [aplikacji Logika platformy Azure](../../logic-apps/logic-apps-overview.md), która ma dostępny wyzwalacz do wykrywania nowych danych przekazywanych do obiektu blob.
+1. Proces wykryje, że nowe dane zostały przekazane.  Nasz przykład używa [aplikacji logiki platformy Azure](../../logic-apps/logic-apps-overview.md), która ma wyzwalacz do wykrywania nowych danych przekazywanych do obiektu BLOB.
 
-2. Procesor odczytuje te nowe dane i konwertuje je na JSON, format wymagany przez usługę Azure Monitor W tym przykładzie używamy [funkcji platformy Azure](../../azure-functions/functions-overview.md) jako lekki, ekonomiczny sposób wykonywania naszego kodu przetwarzania. Funkcja jest uruchamiana przez tę samą aplikację logiki, która została użyta do wykrycia nowych danych.
+2. Procesor odczytuje te nowe dane i konwertuje je na format JSON, w tym przykładzie w formacie wymaganym przez Azure Monitor jest używana [Funkcja platformy Azure](../../azure-functions/functions-overview.md) jako lekki i ekonomiczny sposób wykonywania kodu przetwarzania. Funkcja jest uruchamiana przez tę samą aplikację logiki, która została użyta do wykrycia nowych danych.
 
-3. Na koniec, gdy obiekt JSON jest dostępny, jest wysyłany do usługi Azure Monitor. Ta sama aplikacja logiki wysyła dane do usługi Azure Monitor przy użyciu wbudowanej aktywności modułu zbierającego dane usługi Log Analytics.
+3. Na koniec, gdy obiekt JSON jest dostępny, jest wysyłany do Azure Monitor. Ta sama aplikacja logiki wysyła dane do Azure Monitor przy użyciu wbudowanego Log Analytics działania modułu zbierającego dane.
 
-Podczas gdy szczegółowa konfiguracja magazynu obiektów blob, aplikacji logiki lub funkcji platformy Azure nie jest opisana w tym artykule, szczegółowe instrukcje są dostępne na stronach określonych produktów.
+Podczas szczegółowej konfiguracji magazynu obiektów blob, aplikacji logiki lub funkcji platformy Azure nie ma w tym artykule szczegółowe instrukcje są dostępne na stronach określonych produktów.
 
-Aby monitorować ten potok, używamy usługi Application Insights do monitorowania szczegółów funkcji platformy Azure [w tym miejscu,](../../azure-functions/functions-monitoring.md)a usługa Azure Monitor do monitorowania szczegółów aplikacji logiki [w tym miejscu.](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md) 
+Aby monitorować ten potok, użyjemy Application Insights do monitorowania szczegółowych informacji o usłudze Azure Functions w [tym miejscu](../../azure-functions/functions-monitoring.md)i Azure monitor monitorowania w [tym miejscu szczegółów](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)aplikacji logiki. 
 
 ## <a name="setting-up-the-pipeline"></a>Konfigurowanie potoku
-Aby ustawić potok, najpierw upewnij się, że kontener obiektów blob został utworzony i skonfigurowany. Podobnie upewnij się, że jest tworzony obszar roboczy usługi Log Analytics, do którego chcesz wysłać dane.
+Aby ustawić potok, najpierw upewnij się, że utworzono i skonfigurowano kontener obiektów BLOB. Podobnie upewnij się, że utworzono obszar roboczy Log Analytics, do którego chcesz wysłać dane.
 
-## <a name="ingesting-json-data"></a>Połknienie danych JSON
-Pozyskiwania danych JSON jest trywialne z logic apps i ponieważ nie transformacja musi mieć miejsce, możemy otoczyć cały potok w jednej aplikacji logiki. Po skonfigurowaniu kontenera obiektów blob i obszaru roboczego usługi Log Analytics utwórz nową aplikację logiki i skonfiguruj ją w następujący sposób:
+## <a name="ingesting-json-data"></a>Pozyskiwanie danych JSON
+Pozyskiwanie danych JSON jest proste w Logic Apps i ponieważ nie ma potrzeby transformacji, możemy obejmować cały potok w pojedynczej aplikacji logiki. Po skonfigurowaniu zarówno kontenera obiektów blob, jak i obszaru roboczego Log Analytics Utwórz nową aplikację logiki i skonfiguruj ją w następujący sposób:
 
 ![Przykład przepływu pracy aplikacji logiki](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-01.png)
 
-Zapisz aplikację logiki i przystąpić do jej testowania.
+Zapisz aplikację logiki i przetestuj ją.
 
-## <a name="ingesting-xml-csv-or-other-formats-of-data"></a>Połkliwianie XML, CSV lub innych formatów danych
-Logic Apps dzisiaj nie ma wbudowanych możliwości łatwego przekształcania XML, CSV lub innych typów w formacie JSON. Dlatego musimy użyć innego środka, aby zakończyć tę transformację. W tym artykule używamy możliwości obliczeniowych bez użycia serwera usługi Azure Functions jako bardzo lekki i przyjazny dla kosztów sposób. 
+## <a name="ingesting-xml-csv-or-other-formats-of-data"></a>Pozyskiwanie plików XML, CSV lub innych formatów danych
+Logic Apps dzisiaj nie ma wbudowanych funkcji umożliwiających łatwe przekształcanie plików XML, CSV i innych typów w formacie JSON. W związku z tym musimy użyć innego środka do ukończenia tej transformacji. W tym artykule używamy możliwości obliczeniowych bezserwerowych Azure Functions jako bardzo lekki i przyjazny dla tego sposób. 
 
-W tym przykładzie analizujemy plik CSV, ale każdy inny typ pliku może być podobnie przetworzony. Po prostu zmodyfikuj deserializację części funkcji platformy Azure, aby odzwierciedlić poprawną logikę dla określonego typu danych.
+W tym przykładzie analizujemy plik CSV, ale każdy inny typ pliku może być przetworzony w podobny sposób. Wystarczy zmodyfikować deserializacji części funkcji platformy Azure w celu odzwierciedlenia odpowiedniej logiki dla określonego typu danych.
 
-1.  Utwórz nową funkcję platformy Azure, przy użyciu środowiska wykonawczego function v1 i na podstawie użycia po wyświetleniu monitu.  Wybierz szablon **wyzwalacza HTTP** przeznaczony dla języka C# jako punkt wyjścia, który konfiguruje powiązania zgodnie z wymaganiami. 
-2.  Na karcie **Widok plików** w prawym okienku utwórz nowy plik o nazwie **project.json** i wklej następujący kod z pakietów NuGet, których używamy:
+1.  Tworzenie nowej funkcji platformy Azure przy użyciu środowiska uruchomieniowego w wersji 1 i opartej na wykorzystaniu po wyświetleniu monitu.  Wybierz szablon **wyzwalacza http** przeznaczony dla języka C# jako punkt początkowy, który konfiguruje powiązania zgodnie z potrzebami. 
+2.  Na karcie **Wyświetlanie plików** w okienku po prawej stronie Utwórz nowy plik o nazwie **Project. JSON** i wklej następujący kod z pakietów NuGet, z których korzystamy:
 
-    ![Przykładowy projekt usługi Azure Functions](./media/create-pipeline-datacollector-api/functions-example-project-01.png)
+    ![Przykładowy projekt Azure Functions](./media/create-pipeline-datacollector-api/functions-example-project-01.png)
     
     ``` JSON
     {
@@ -78,10 +78,10 @@ W tym przykładzie analizujemy plik CSV, ale każdy inny typ pliku może być po
      }  
     ```
 
-3. Przełącz się do **pliku run.csx** z prawego okienka i zastąp domyślny kod następującym. 
+3. Przejdź do opcji **Run. CSX** w okienku po prawej stronie i Zastąp kod domyślny poniższym. 
 
     >[!NOTE]
-    >Dla projektu należy zastąpić model rekordu (klasa "PopulationRecord") własnym schematem danych.
+    >W przypadku projektu należy zastąpić model rekordu (klasę "PopulationRecord") własnym schematem danych.
     >
 
     ```   
@@ -121,24 +121,24 @@ W tym przykładzie analizujemy plik CSV, ale każdy inny typ pliku może być po
      }  
     ```
 
-4. Zapisz swoją funkcję.
-5. Przetestuj funkcję, aby upewnić się, że kod działa poprawnie. Przełącz się do karty **Test** w prawym okienku, konfigurując test w następujący sposób. Umieść łącze do obiektu blob z przykładowymi danymi w treści **tekstu treści Żądanie.** Po kliknięciu przycisku **Uruchom**powinien zostać wyświetlony wynik JSON w polu **Dane wyjściowe:**
+4. Zapisz funkcję.
+5. Przetestuj funkcję, aby upewnić się, że kod działa poprawnie. Przejdź do karty **test** w okienku po prawej stronie, aby skonfigurować test w następujący sposób. Umieść link do obiektu BLOB z przykładowymi danymi do pola tekstowego **treści żądania** . Po kliknięciu przycisku **Uruchom**w polu **dane wyjściowe** powinny pojawić się dane wyjściowe JSON:
 
-    ![Kod testowy aplikacji funkcyjnych](./media/create-pipeline-datacollector-api/functions-test-01.png)
+    ![Kod testu aplikacji funkcji](./media/create-pipeline-datacollector-api/functions-test-01.png)
 
-Teraz musimy wrócić i zmodyfikować aplikację logiki, którą wcześniej rozpoczęliśmy, aby uwzględnić dane ponajmowane i konwertowane na format JSON.  Korzystając z projektanta widoku, skonfiguruj w następujący sposób, a następnie zapisz aplikację logiki:
+Teraz musimy wrócić i zmodyfikować aplikację logiki rozpoczętą wcześniej, aby uwzględnić dane pozyskiwane i konwertowane na format JSON.  Za pomocą projektanta widoków skonfiguruj następujące polecenie, a następnie Zapisz swoją aplikację logiki:
 
-![Pełny przykład przepływu pracy aplikacji logiki](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
+![Przykład kończenia przepływu pracy Logic Apps](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
 
-## <a name="testing-the-pipeline"></a>Testowanie rurociągu
-Teraz możesz przekazać nowy plik do obiektu blob skonfigurowanego wcześniej i monitorować go za pomocą aplikacji logiki. Wkrótce powinno zostać wyświetlona nowa instancja aplikacji logiki, wywołanie funkcji platformy Azure, a następnie pomyślne wysłanie danych do usługi Azure Monitor. 
+## <a name="testing-the-pipeline"></a>Testowanie potoku
+Teraz można przekazać nowy plik do obiektu BLOB skonfigurowanego wcześniej i monitorować go przez aplikację logiki. Wkrótce powinno być widoczne nowe wystąpienie aplikacji logiki, wywołać funkcję platformy Azure, a następnie pomyślnie wysłać dane do Azure Monitor. 
 
 >[!NOTE]
->Może upłynąć do 30 minut, aby dane były wyświetlane w usłudze Azure Monitor przy pierwszym wysłaniu nowego typu danych.
+>Wyświetlenie danych w Azure Monitor podczas pierwszego wysyłania nowego typu danych może potrwać do 30 minut.
 
 
-## <a name="correlating-with-other-data-in-log-analytics-and-application-insights"></a>Korelowanie z innymi danymi w usłudze Log Analytics i usłudze Application Insights
-Aby osiągnąć nasz cel, jakim jest skorelowanie danych widoku strony usługi Application Insights z danymi populacji, które pozyskaliśmy z naszego niestandardowego źródła danych, uruchom następującą kwerendę z okna usługi Application Insights Analytics lub obszaru roboczego usługi Log Analytics:
+## <a name="correlating-with-other-data-in-log-analytics-and-application-insights"></a>Korelacja z innymi danymi w Log Analytics i Application Insights
+Aby dokończyć cel skorelowania Application Insights danych widoku strony z danymi populacji pozyskanymi z naszego niestandardowego źródła danych, uruchom następujące zapytanie w oknie Application Insights Analytics lub Log Analytics obszarze roboczym:
 
 ``` KQL
 app("fabrikamprod").pageViews
@@ -149,21 +149,21 @@ app("fabrikamprod").pageViews
 | project client_CountryOrRegion, numUsers, Population_d
 ```
 
-Dane wyjściowe powinny wyświetlać dwa źródła danych teraz połączone.  
+Dane wyjściowe powinny zawierać dwa źródła danych, które są teraz dołączone.  
 
-![Korelowanie danych z odłączonych w przykładzie wyników wyszukiwania](./media/create-pipeline-datacollector-api/correlating-disjoined-data-example-01.png)
+![Przykład skorelowania odłączonych danych w wynikach wyszukiwania](./media/create-pipeline-datacollector-api/correlating-disjoined-data-example-01.png)
 
-## <a name="suggested-improvements-for-a-production-pipeline"></a>Sugerowane ulepszenia dla rurociągu produkcyjnego
-W tym artykule przedstawiono działający prototyp, za którym można zastosować logikę do prawdziwego rozwiązania o jakości produkcji. W przypadku takiego rozwiązania o jakości produkcji zaleca się następujące ulepszenia:
+## <a name="suggested-improvements-for-a-production-pipeline"></a>Sugerowane ulepszenia dla potoku produkcyjnego
+W tym artykule przedstawiono roboczy prototyp, w odniesieniu do którego można zastosować do rzeczywistego rozwiązania z jakością produkcyjną. W przypadku takich rozwiązań dotyczących jakości produkcji zalecane są następujące udoskonalenia:
 
-* Dodaj logikę obsługi błędów i ponawiania prób w aplikacji logiki i funkcji.
-* Dodaj logikę, aby upewnić się, że limit wywołań interfejsu API 30 MB/pojedynczy interfejs dziennika pozyskiwania nie zostanie przekroczony. W razie potrzeby podziel dane na mniejsze segmenty.
-* Skonfiguruj zasady oczyszczania w magazynie obiektów blob. Po pomyślnym wysłaniu do obszaru roboczego usługi Log Analytics, chyba że chcesz zachować nieprzetworzone dane dostępne do celów archiwalnych, nie ma powodu, aby kontynuować ich przechowywanie. 
-* Sprawdź, czy monitorowanie jest włączone w całym potoku, dodając punkty śledzenia i alerty, stosownie do przypadku.
-* Wykorzystuj kontrolę źródła do zarządzania kodem dla funkcji i aplikacji logiki.
-* Upewnij się, że przestrzegane są odpowiednie zasady zarządzania zmianami, tak aby w przypadku zmiany schematu funkcja i aplikacje logiki są odpowiednio modyfikowane.
-* Jeśli przekazujesz wiele różnych typów danych, segreguj je do poszczególnych folderów w kontenerze obiektów blob i utwórz logikę do administratora logiki na podstawie typu danych. 
+* Dodaj obsługę błędów i logikę ponowień w aplikacji logiki i funkcji.
+* Dodaj logikę, aby upewnić się, że limit wywołań interfejsu API pozyskiwania 30MB/jednego Log Analytics nie zostanie przekroczony. W razie konieczności Podziel dane na mniejsze segmenty.
+* Skonfiguruj zasady oczyszczania w magazynie obiektów BLOB. Po pomyślnym wysłaniu do obszaru roboczego Log Analytics, chyba że chcesz zachować dostęp do danych pierwotnych w celach archiwalnych, nie ma powodów, aby kontynuować ich przechowywanie. 
+* Sprawdź, czy monitorowanie jest włączone w pełnym potoku, dodając punkty śledzenia i alerty odpowiednio do potrzeb.
+* Skorzystaj z kontroli źródła, aby zarządzać kodem funkcji i aplikacji logiki.
+* Upewnij się, że są spełnione odpowiednie zasady zarządzania zmianami, takie jak w przypadku zmiany schematu, funkcja i Logic Apps są odpowiednio modyfikowane.
+* W przypadku przekazywania wielu różnych typów danych należy podzielić je na poszczególne foldery w kontenerze obiektów blob i utworzyć logikę w celu rozróżnienia logiki na podstawie typu danych. 
 
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [interfejsie API modułu zbierającego dane](data-collector-api.md) do zapisywania danych w obszarze roboczym usługi Log Analytics z dowolnego klienta interfejsu API REST.
+Dowiedz się więcej na temat [interfejsu API modułu zbierającego dane](data-collector-api.md) , aby zapisać dane do log Analytics obszaru roboczego z dowolnego klienta interfejsu API REST.

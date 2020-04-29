@@ -1,6 +1,6 @@
 ---
-title: Rozszerzenia i funkcje maszyn wirtualnych platformy Azure dla systemu Windows
-description: Dowiedz się, jakie rozszerzenia są dostępne dla maszyn wirtualnych platformy Azure, pogrupowane według tego, co zapewniają lub ulepszają.
+title: Rozszerzenia i funkcje maszyny wirtualnej platformy Azure dla systemu Windows
+description: Dowiedz się, jakie rozszerzenia są dostępne dla usługi Azure Virtual Machines, pogrupowane według ich udostępniania lub usprawnienia.
 services: virtual-machines-windows
 documentationcenter: ''
 author: axayjo
@@ -16,67 +16,67 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cd6439bf1b1f52b8e63819e8e519fc4971d1bc2a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066851"
 ---
-# <a name="virtual-machine-extensions-and-features-for-windows"></a>Rozszerzenia i funkcje maszyn wirtualnych dla systemu Windows
+# <a name="virtual-machine-extensions-and-features-for-windows"></a>Rozszerzenia i funkcje maszyny wirtualnej dla systemu Windows
 
 Rozszerzenia maszyny wirtualnej platformy Azure to małe aplikacje, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji na maszynach wirtualnych platformy Azure. Na przykład jeśli maszyna wirtualna wymaga instalacji oprogramowania, ochrony antywirusowej lub uruchomienia skryptu w swoim środowisku, można użyć rozszerzenia maszyny wirtualnej. Rozszerzenia maszyn wirtualnych platformy Azure można uruchamiać przy użyciu interfejsu wiersza polecenia platformy Azure, programu PowerShell, szablonów usługi Azure Resource Manager i witryny Azure Portal. Rozszerzenia można połączyć w pakiecie z nowym wdrożeniem nowej maszyny wirtualnej lub uruchamiać w dowolnym istniejącym systemie.
 
-Ten artykuł zawiera omówienie rozszerzeń maszyn wirtualnych, wymagania wstępne dotyczące używania rozszerzeń maszyn wirtualnych platformy Azure oraz wskazówki dotyczące wykrywania rozszerzeń maszyn wirtualnych, zarządzania nimi i ich usuwania. Ten artykuł zawiera uogólnione informacje, ponieważ dostępnych jest wiele rozszerzeń maszyn wirtualnych, z których każdy ma potencjalnie unikatową konfigurację. Szczegóły specyficzne dla rozszerzenia można znaleźć w każdym dokumencie specyficznym dla poszczególnych rozszerzeń.
+Ten artykuł zawiera Omówienie rozszerzeń maszyn wirtualnych, wymagania wstępne dotyczące korzystania z rozszerzeń maszyn wirtualnych platformy Azure oraz wskazówki dotyczące wykrywania i usuwania rozszerzeń maszyn wirtualnych oraz zarządzania nimi. Ten artykuł zawiera uogólnione informacje, ponieważ wiele rozszerzeń maszyn wirtualnych jest dostępnych, z których każdy może mieć unikatową konfigurację. Szczegóły dotyczące rozszerzenia można znaleźć w każdym dokumencie specyficznym dla danego rozszerzenia.
 
  
 
-## <a name="use-cases-and-samples"></a>Przypadki użycia i próbki
+## <a name="use-cases-and-samples"></a>Przypadki użycia i przykłady
 
-Dostępnych jest kilka różnych rozszerzeń maszyn wirtualnych platformy Azure, z których każdy ma określony przypadek użycia. Oto niektóre przykłady:
+Dostępne są różne rozszerzenia maszyn wirtualnych platformy Azure z konkretnym przypadkiem użycia. Oto niektóre przykłady:
 
-- Zastosuj konfiguracje żądanego stanu programu PowerShell do maszyny Wirtualnej z rozszerzeniem DSC dla systemu Windows. Aby uzyskać więcej informacji, zobacz [rozszerzenie konfiguracji żądanego stanu platformy Azure](dsc-overview.md).
-- Skonfiguruj monitorowanie maszyny Wirtualnej z rozszerzeniem maszyny Wirtualnej agenta usługi Log Analytics Agent. Aby uzyskać więcej informacji, zobacz [Łączenie maszyn wirtualnych platformy Azure z dziennikami usługi Azure Monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
-- Konfigurowanie maszyny Wirtualnej platformy Azure przy użyciu programu Chef. Aby uzyskać więcej informacji, zobacz [Automatyzacja wdrażania maszyn wirtualnych platformy Azure za pomocą programu Chef](../../chef/chef-automation.md).
-- Skonfiguruj monitorowanie infrastruktury platformy Azure za pomocą rozszerzenia Datadog. Aby uzyskać więcej informacji, zobacz [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
+- Zastosuj konfiguracje żądanego stanu programu PowerShell do maszyny wirtualnej z rozszerzeniem DSC dla systemu Windows. Aby uzyskać więcej informacji, zobacz [rozszerzenie konfiguracji żądanego stanu platformy Azure](dsc-overview.md).
+- Skonfiguruj monitorowanie maszyny wirtualnej przy użyciu rozszerzenia maszyny wirtualnej agenta Log Analytics. Aby uzyskać więcej informacji, zobacz [łączenie maszyn wirtualnych platformy Azure z dziennikami Azure monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Skonfiguruj maszynę wirtualną platformy Azure przy użyciu Chef. Aby uzyskać więcej informacji, zobacz [Automatyzowanie wdrożenia maszyny wirtualnej platformy Azure za pomocą Chef](../../chef/chef-automation.md).
+- Skonfiguruj monitorowanie infrastruktury platformy Azure przy użyciu rozszerzenia usługi Datadog. Aby uzyskać więcej informacji, zobacz [blog usługi Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
-Oprócz rozszerzeń specyficznych dla procesu rozszerzenie skryptu niestandardowego jest dostępne zarówno dla maszyn wirtualnych systemu Windows, jak i systemu Linux. Rozszerzenie Skrypt niestandardowy dla systemu Windows umożliwia uruchamianie dowolnego skryptu programu PowerShell na maszynie wirtualnej. Skrypty niestandardowe są przydatne do projektowania wdrożeń platformy Azure, które wymagają konfiguracji wykraczającej poza to, co może zapewnić natywne narzędzia platformy Azure. Aby uzyskać więcej informacji, zobacz [Rozszerzenie skryptu niestandardowego maszyny Wirtualnej systemu Windows](custom-script-windows.md).
+Oprócz rozszerzeń specyficznych dla procesu, rozszerzenie niestandardowego skryptu jest dostępne zarówno dla maszyn wirtualnych z systemem Windows, jak i Linux. Rozszerzenie niestandardowego skryptu dla systemu Windows umożliwia uruchamianie dowolnego skryptu programu PowerShell na maszynie wirtualnej. Skrypty niestandardowe są przydatne do projektowania wdrożeń platformy Azure, które wymagają konfiguracji poza możliwością dostarczania natywnych narzędzi platformy Azure. Aby uzyskać więcej informacji, zobacz [rozszerzenie niestandardowego skryptu maszyny wirtualnej systemu Windows](custom-script-windows.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby obsłużyć rozszerzenie na maszynie Wirtualnej, potrzebujesz zainstalowanego agenta systemu Windows azure. Niektóre poszczególne rozszerzenia mają wymagania wstępne, takie jak dostęp do zasobów lub zależności.
+Aby obsłużyć rozszerzenie na maszynie wirtualnej, należy zainstalować agenta systemu Windows Azure. Niektóre poszczególne rozszerzenia mają wymagania wstępne, takie jak dostęp do zasobów lub zależności.
 
 ### <a name="azure-vm-agent"></a>Agent maszyny wirtualnej platformy Azure
 
-Agent maszyny wirtualnej platformy Azure zarządza interakcjami między maszyną wirtualną platformy Azure a kontrolerem sieci szkieletowej platformy Azure. Agent maszyny wirtualnej jest odpowiedzialny za wiele funkcjonalnych aspektów wdrażania maszyn wirtualnych platformy Azure i zarządzania nimi, w tym uruchamianie rozszerzeń maszyn wirtualnych. Agent maszyny wirtualnej platformy Azure jest preinstalowany w obrazach usługi Azure Marketplace i można go zainstalować ręcznie w obsługiwanych systemach operacyjnych. Agent maszyny wirtualnej platformy Azure dla systemu Windows jest znany jako agent gościa systemu Windows.
+Agent maszyny wirtualnej platformy Azure zarządza interakcjami między maszyną wirtualną platformy Azure a kontrolerem sieci szkieletowej platformy Azure. Agent maszyny wirtualnej jest odpowiedzialny za wiele funkcjonalnych aspektów wdrażania maszyn wirtualnych platformy Azure i zarządzania nimi, w tym uruchamiania rozszerzeń maszyn wirtualnych. Agent maszyny wirtualnej platformy Azure jest wstępnie instalowany w obrazach portalu Azure Marketplace i można go zainstalować ręcznie w obsługiwanych systemach operacyjnych. Agent maszyny wirtualnej platformy Azure dla systemu Windows jest znany jako agent gościa systemu Windows.
 
-Aby uzyskać informacje na temat obsługiwanych systemów operacyjnych i instrukcji instalacji, zobacz [agent maszyny wirtualnej platformy Azure](agent-windows.md).
+Aby uzyskać informacje dotyczące obsługiwanych systemów operacyjnych i instrukcji instalacji, zobacz [Azure Virtual Machine Agent](agent-windows.md).
 
 #### <a name="supported-agent-versions"></a>Obsługiwane wersje agentów
 
-Aby zapewnić najlepsze możliwe wrażenia, istnieją minimalne wersje agenta. Aby uzyskać więcej informacji, zobacz [ten artykuł](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Aby zapewnić najlepsze możliwe środowisko, istnieją minimalne wersje agenta. Aby uzyskać więcej informacji, zobacz [ten artykuł](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
-#### <a name="supported-oses"></a>Obsługiwane oses
+#### <a name="supported-oses"></a>Obsługiwane systemów operacyjnych
 
-Agent gościa systemu Windows działa na wielu systemach operacyjnych, jednak struktura rozszerzeń ma limit dla systemów operacyjnych, które rozszerzenia. Aby uzyskać więcej informacji, zobacz [ten artykuł](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
+Agent gościa systemu Windows działa na wielu systemów operacyjnych, jednak struktura rozszerzeń ma limit dla systemów operacyjnych. Aby uzyskać więcej informacji, zobacz [ten artykuł](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
 ).
 
-Niektóre rozszerzenia nie są obsługiwane we wszystkich systemach operacyjnych i mogą emitować *kod błędu 51, "Nieobsługicony system operacyjny".* Sprawdź indywidualną dokumentację rozszerzenia pod kątem możliwości obsługi.
+Niektóre rozszerzenia nie są obsługiwane przez wszystkie systemów operacyjnych i mogą emitować *Kod błędu 51, "nieobsługiwany system operacyjny"*. Zapoznaj się z dokumentacją poszczególnych rozszerzeń, aby uzyskać pomoc techniczną.
 
 #### <a name="network-access"></a>Dostęp do sieci
 
-Pakiety rozszerzeń są pobierane z repozytorium rozszerzenia usługi Azure Storage, a przekazywanie stanu rozszerzenia jest księgowane w usłudze Azure Storage. Jeśli używasz [obsługiwanej](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) wersji agentów, nie musisz zezwalać na dostęp do usługi Azure Storage w regionie maszyny Wirtualnej, ponieważ można użyć agenta, aby przekierować komunikację do kontrolera sieci szkieletowej platformy Azure w celu komunikacji agenta (funkcja HostGAPlugin za pośrednictwem uprzywilejowanego kanału w prywatnym usłudze IP [168.63.129.16).](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16) Jeśli korzystasz z nieobjętej do sieci wersji agenta, musisz zezwolić na dostęp wychodzący do magazynu platformy Azure w tym regionie z maszyny Wirtualnej.
+Pakiety rozszerzeń są pobierane z repozytorium rozszerzeń usługi Azure Storage, a operacje przekazywania stanu rozszerzenia są ogłaszane w usłudze Azure Storage. Jeśli używasz [obsługiwanej](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) wersji agentów, nie musisz zezwalać na dostęp do usługi Azure Storage w regionie maszyny wirtualnej, ponieważ może on używać agenta do przekierowywania komunikacji do kontrolera sieci szkieletowej platformy Azure na potrzeby komunikacji agenta (HostGAPlugin funkcję za pośrednictwem kanału uprzywilejowanego w prywatnym IP [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). Jeśli korzystasz z nieobsługiwanej wersji agenta, musisz zezwolić na dostęp wychodzący do usługi Azure Storage w tym regionie z maszyny wirtualnej.
 
 > [!IMPORTANT]
-> Jeśli zablokowano dostęp do *168.63.129.16* przy użyciu zapory gościa lub serwera proxy, rozszerzenia nie powiedzie się niezależnie od powyższych. Wymagane są porty 80, 443 i 32526.
+> Jeśli zablokowano dostęp do usługi *168.63.129.16* za pomocą zapory gościa lub serwera proxy, rozszerzenia nie powiodą się od powyższych. Porty 80, 443 i 32526 są wymagane.
 
-Agenci mogą być używane tylko do pobierania pakietów rozszerzeń i stanu raportowania. Jeśli na przykład instalacja rozszerzenia musi pobrać skrypt z usługi GitHub (skrypt niestandardowy) lub będzie wymagać dostępu do usługi Azure Storage (Azure Backup), należy otworzyć dodatkowe porty zapory/sieciowej grupy zabezpieczeń. Różne rozszerzenia mają różne wymagania, ponieważ są aplikacje w sobie. W przypadku rozszerzeń, które wymagają dostępu do usługi Azure Storage lub usługi Azure Active Directory, można zezwolić na dostęp przy użyciu [tagów usługi NSG platformy Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) do magazynu lub usługi AzureActiveDirectory.
+Agentów można używać tylko do pobierania pakietów rozszerzeń i stanu raportowania. Jeśli na przykład instalacja rozszerzenia wymaga pobrania skryptu z witryny GitHub (skrypt niestandardowy) lub wymaga dostępu do usługi Azure Storage (Azure Backup), wówczas konieczne będzie otwarcie dodatkowej zapory/portów sieciowych grup zabezpieczeń. Różne rozszerzenia mają różne wymagania, ponieważ są one aplikacjami w ich własnym zakresie. W przypadku rozszerzeń, które wymagają dostępu do usługi Azure Storage lub Azure Active Directory, można zezwolić na dostęp za pomocą [tagów usługi Azure sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) do magazynu lub usługi azureactivedirectory.
 
-Agent gościa systemu Windows nie obsługuje serwera proxy, aby przekierować żądania ruchu agenta za pośrednictwem, co oznacza, że Agent gościa systemu Windows będzie polegać na niestandardowym serwerze proxy (jeśli go masz), aby uzyskać dostęp do zasobów w Internecie lub na hoście za pośrednictwem adresu IP 168.63.129.16.
+Agent gościa systemu Windows nie ma obsługi serwera proxy, aby przekierowywać żądania ruchu agenta przez, co oznacza, że Agent gościa systemu Windows będzie zależeć od niestandardowego serwera proxy (jeśli istnieje), aby uzyskać dostęp do zasobów w Internecie lub na hoście za pośrednictwem protokołu IP 168.63.129.16.
 
-## <a name="discover-vm-extensions"></a>Odnajduj rozszerzenia maszyn wirtualnych
+## <a name="discover-vm-extensions"></a>Odkryj rozszerzenia maszyn wirtualnych
 
-Wielu różnych rozszerzeń maszyny wirtualnej można używać z maszynami wirtualnymi platformy Azure. Aby wyświetlić pełną listę, użyj [pliku Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage). Poniższy przykład zawiera listę wszystkich dostępnych rozszerzeń w lokalizacji *WestUS:*
+Wielu różnych rozszerzeń maszyny wirtualnej można używać z maszynami wirtualnymi platformy Azure. Aby wyświetlić pełną listę, użyj polecenie [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage). Poniższy przykład wyświetla listę wszystkich dostępnych rozszerzeń w lokalizacji *zachodniej* :
 
 ```powershell
 Get-AzVmImagePublisher -Location "WestUS" | `
@@ -86,13 +86,13 @@ Get-AzVMExtensionImage | Select Type, Version
 
 ## <a name="run-vm-extensions"></a>Uruchamianie rozszerzeń maszyn wirtualnych
 
-Rozszerzenia maszyn wirtualnych platformy Azure są uruchamiane na istniejących maszynach wirtualnych, co jest przydatne, gdy trzeba wprowadzić zmiany konfiguracji lub odzyskać łączność na już wdrożonej maszynie wirtualnej. Rozszerzenia maszyn wirtualnych można również łączyć z wdrożeniami szablonów usługi Azure Resource Manager. Za pomocą rozszerzeń z szablonami Usługi Resource Manager, maszyny wirtualne platformy Azure można wdrożyć i skonfigurować bez interwencji po wdrożeniu.
+Rozszerzenia maszyny wirtualnej platformy Azure są uruchamiane na istniejących maszynach wirtualnych, co jest przydatne, gdy trzeba wprowadzić zmiany w konfiguracji lub odzyskać łączność na już wdrożonej maszynie wirtualnej. Rozszerzenia maszyn wirtualnych można również powiązać z wdrożeniami szablonów Azure Resource Manager. Korzystając z rozszerzeń z szablonami Menedżer zasobów, maszyny wirtualne platformy Azure można wdrażać i konfigurować bez interwencji po wdrożeniu.
 
-Następujące metody mogą służyć do uruchamiania rozszerzenia względem istniejącej maszyny Wirtualnej.
+Poniższe metody mogą służyć do uruchamiania rozszerzenia dla istniejącej maszyny wirtualnej.
 
 ### <a name="powershell"></a>PowerShell
 
-Istnieje kilka poleceń programu PowerShell do uruchamiania poszczególnych rozszerzeń. Aby wyświetlić listę, użyj [polecenia Get](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) i filtruj w *rozszerzeniu:*
+Istnieje kilka poleceń programu PowerShell do uruchamiania indywidualnych rozszerzeń. Aby wyświetlić listę, użyj [poleceń Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) i Filter on *Extension*:
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -118,7 +118,7 @@ Cmdlet          Set-AzVMSqlServerExtension                    4.5.0      Az.Comp
 Cmdlet          Set-AzVmssDiskEncryptionExtension             4.5.0      Az.Compute
 ```
 
-W poniższym przykładzie użyto rozszerzenia Skrypt niestandardowy, aby pobrać skrypt z repozytorium GitHub na docelową maszynę wirtualną, a następnie uruchomić skrypt. Aby uzyskać więcej informacji na temat rozszerzenia Skrypt niestandardowy, zobacz [omówienie rozszerzenia skryptu niestandardowego](custom-script-windows.md).
+Poniższy przykład używa niestandardowego rozszerzenia skryptu w celu pobrania skryptu z repozytorium GitHub na docelową maszynę wirtualną, a następnie uruchomienia skryptu. Aby uzyskać więcej informacji na temat niestandardowego rozszerzenia skryptu, zobacz [Omówienie rozszerzenia niestandardowego skryptu](custom-script-windows.md).
 
 ```powershell
 Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
@@ -127,7 +127,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-W poniższym przykładzie rozszerzenie programu VM Access służy do resetowania hasła administracyjnego maszyny Wirtualnej systemu Windows do hasła tymczasowego. Aby uzyskać więcej informacji na temat rozszerzenia programu VM Access, zobacz [Resetowanie usługi pulpitu zdalnego w maszynie Wirtualnej systemu Windows](../windows/reset-rdp.md). Po uruchomieniu tego, należy zresetować hasło przy pierwszym logowaniu:
+W poniższym przykładzie rozszerzenie dostępu do maszyny wirtualnej służy do resetowania hasła administracyjnego maszyny wirtualnej z systemem Windows do tymczasowego hasła. Aby uzyskać więcej informacji na temat rozszerzenia dostępu do maszyny wirtualnej, zobacz [resetowanie pulpit zdalny usługi na maszynie wirtualnej z systemem Windows](../windows/reset-rdp.md). Po uruchomieniu tego ustawienia należy zresetować hasło przy pierwszym logowaniu:
 
 ```powershell
 $cred=Get-Credential
@@ -137,22 +137,22 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-Polecenia `Set-AzVMExtension` można użyć do uruchomienia dowolnego rozszerzenia maszyny Wirtualnej. Aby uzyskać więcej informacji, zobacz [odwołanie Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
+`Set-AzVMExtension` Polecenie może służyć do uruchamiania dowolnego rozszerzenia maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz temat [Set-AzVMExtension Reference](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
-### <a name="azure-portal"></a>Portal Azure
+### <a name="azure-portal"></a>Azure Portal
 
-Rozszerzenia maszyn wirtualnych można zastosować do istniejącej maszyny Wirtualnej za pośrednictwem witryny Azure portal. Wybierz maszynę wirtualną w portalu, wybierz pozycję **Rozszerzenia,** a następnie wybierz pozycję **Dodaj**. Wybierz żądane rozszerzenie z listy dostępnych rozszerzeń i postępuj zgodnie z instrukcjami kreatora.
+Rozszerzenia maszyn wirtualnych można stosować do istniejącej maszyny wirtualnej za pomocą Azure Portal. Wybierz maszynę wirtualną w portalu, wybierz pozycję **rozszerzenia**, a następnie wybierz pozycję **Dodaj**. Wybierz odpowiednie rozszerzenie z listy dostępnych rozszerzeń i postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze.
 
-W poniższym przykładzie przedstawiono instalację rozszerzenia ochrony przed złośliwym oprogramowaniem firmy Microsoft z witryny Azure portal:
+W poniższym przykładzie przedstawiono instalację rozszerzenia ochrony przed złośliwym oprogramowaniem firmy Microsoft z Azure Portal:
 
-![Instalowanie rozszerzenia ochrony przed złośliwym oprogramowaniem](./media/features-windows/installantimalwareextension.png)
+![Zainstaluj rozszerzenie chroniące przed złośliwym kodem](./media/features-windows/installantimalwareextension.png)
 
 ### <a name="azure-resource-manager-templates"></a>Szablony usługi Azure Resource Manager
 
-Rozszerzenia maszyn wirtualnych można dodać do szablonu usługi Azure Resource Manager i wykonać z wdrożeniem szablonu. Podczas wdrażania rozszerzenia z szablonem można utworzyć w pełni skonfigurowane wdrożenia platformy Azure. Na przykład następujący JSON jest pobierana z szablonu Menedżera zasobów wdraża zestaw maszyn wirtualnych z równoważeniem obciążenia i bazy danych SQL platformy Azure, a następnie instaluje aplikację .NET Core na każdej maszynie wirtualnej. Rozszerzenie maszyny Wirtualnej zajmuje się instalacją oprogramowania.
+Rozszerzenia maszyny wirtualnej można dodać do szablonu Azure Resource Manager i wykonać przy użyciu wdrożenia szablonu. Podczas wdrażania rozszerzenia przy użyciu szablonu można utworzyć w pełni skonfigurowane wdrożenia platformy Azure. Na przykład poniższy kod JSON jest pobierany z szablonu Menedżer zasobów wdraża zestaw maszyn wirtualnych o zrównoważonym obciążeniu i bazę danych SQL Azure, a następnie instaluje aplikację .NET Core na każdej maszynie wirtualnej. Rozszerzenie maszyny wirtualnej zajmuje się instalacją oprogramowania.
 
-Aby uzyskać więcej informacji, zobacz [pełny szablon Menedżera zasobów](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Aby uzyskać więcej informacji, zobacz [pełny szablon Menedżer zasobów](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ```json
 {
@@ -184,13 +184,13 @@ Aby uzyskać więcej informacji, zobacz [pełny szablon Menedżera zasobów](htt
 }
 ```
 
-Aby uzyskać więcej informacji na temat tworzenia szablonów Menedżera zasobów, zobacz [Tworzenie szablonów usługi Azure Resource Manager z rozszerzeniami maszyn wirtualnych systemu Windows](../windows/template-description.md#extensions).
+Aby uzyskać więcej informacji na temat tworzenia szablonów Menedżer zasobów, zobacz [tworzenie Azure Resource Manager szablonów z rozszerzeniami maszyny wirtualnej systemu Windows](../windows/template-description.md#extensions).
 
-## <a name="secure-vm-extension-data"></a>Bezpieczne dane rozszerzenia maszyny Wirtualnej
+## <a name="secure-vm-extension-data"></a>Bezpieczne dane rozszerzenia maszyny wirtualnej
 
-Po uruchomieniu rozszerzenia maszyny Wirtualnej może być konieczne uwzględnienie poufnych informacji, takich jak poświadczenia, nazwy kont magazynu i klucze dostępu do konta magazynu. Wiele rozszerzeń maszyn wirtualnych zawiera chroniona konfiguracja, która szyfruje dane i tylko odszyfrowuje je wewnątrz docelowej maszyny Wirtualnej. Każde rozszerzenie ma określony schemat konfiguracji chronione, a każdy jest szczegółowo opisany w dokumentacji specyficznej dla rozszerzenia.
+Po uruchomieniu rozszerzenia maszyny wirtualnej może być konieczne uwzględnienie poufnych informacji, takich jak poświadczenia, nazwy kont magazynu i klucze dostępu do konta magazynu. Wiele rozszerzeń maszyn wirtualnych zawiera chronioną konfigurację, która szyfruje dane i odszyfrowuje ją tylko wewnątrz docelowej maszyny wirtualnej. Każde rozszerzenie ma określony chroniony Schemat konfiguracji, a każdy z nich jest szczegółowo opisany w dokumentacji dotyczącej rozszerzenia.
 
-W poniższym przykładzie pokazano wystąpienie rozszerzenia skryptu niestandardowego dla systemu Windows. Polecenie do wykonania zawiera zestaw poświadczeń. W tym przykładzie polecenie do wykonania nie jest szyfrowane:
+W poniższym przykładzie pokazano wystąpienie niestandardowego rozszerzenia skryptu dla systemu Windows. Polecenie do wykonania zawiera zestaw poświadczeń. W tym przykładzie polecenie do wykonania nie jest szyfrowane:
 
 ```json
 {
@@ -220,7 +220,7 @@ W poniższym przykładzie pokazano wystąpienie rozszerzenia skryptu niestandard
 }
 ```
 
-Przeniesienie **polecenia do wykonania** właściwości do **chronionej** konfiguracji zabezpiecza ciąg wykonania, jak pokazano w poniższym przykładzie:
+Przeniesienie **polecenia do wykonania** właściwości do **chronionej** konfiguracji zabezpiecza ciąg wykonywania, jak pokazano w następującym przykładzie:
 
 ```json
 {
@@ -252,26 +252,26 @@ Przeniesienie **polecenia do wykonania** właściwości do **chronionej** konfig
 }
 ```
 
-Na maszynie wirtualnej usługi Azure IaaS korzystającej z rozszerzeń w konsoli certyfikatów mogą być widoczne certyfikaty, które mają podmiot **_Generator certyfikatów CRP_** platformy Windows Azure . Na klasycznej maszynie wirtualnej RDFE te certyfikaty mają nazwę podmiotu **_Zarządzanie usługami systemu Windows Azure dla rozszerzeń_**.
+Na maszynie wirtualnej IaaS platformy Azure, która korzysta z rozszerzeń, w konsoli Certyfikaty mogą zostać wyświetlone certyfikaty, które mają temat **_Generator certyfikatów usługi Microsoft Azure CRP_**. Na klasycznej maszynie wirtualnej frontonu reddog te certyfikaty mają nazwę podmiotu **_usługi Microsoft Azure Service Management dla rozszerzeń_**.
 
-Certyfikaty te zabezpieczają komunikację między maszyną wirtualną a jej hostem podczas przesyłania chronionych ustawień (hasło, inne poświadczenia) używanych przez rozszerzenia. Certyfikaty są tworzone przez kontroler sieci szkieletowej platformy Azure i przekazywane do agenta maszyny Wirtualnej. Jeśli zatrzymujesz i uruchamiasz maszynę wirtualną każdego dnia, kontroler sieci szkieletowej może utworzyć nowy certyfikat. Certyfikat jest przechowywany w magazynie certyfikatów osobistych komputera. Certyfikaty te można usunąć. Agent maszyny Wirtualnej ponownie tworzy certyfikaty w razie potrzeby.
+Te certyfikaty zabezpieczają komunikację między maszyną wirtualną i jej hostem podczas transferu ustawień chronionych (hasła, inne poświadczenia) używanych przez rozszerzenia. Certyfikaty są kompilowane przez kontroler sieci szkieletowej platformy Azure i przesyłane do agenta maszyny wirtualnej. Jeśli zatrzymasz i uruchomisz maszynę wirtualną codziennie, nowy certyfikat może być utworzony przez kontroler sieci szkieletowej. Certyfikat jest przechowywany w osobistym magazynie certyfikatów komputera. Te certyfikaty można usunąć. Agent maszyny wirtualnej w razie potrzeby tworzy ponowne utworzenie certyfikatów.
 
-### <a name="how-do-agents-and-extensions-get-updated"></a>W jaki sposób agenci i rozszerzenia są aktualizowane?
+### <a name="how-do-agents-and-extensions-get-updated"></a>Jak są aktualizowane agenci i rozszerzenia?
 
-Agenci i rozszerzenia współużytkuje ten sam mechanizm aktualizacji. Niektóre aktualizacje nie wymagają dodatkowych reguł zapory.
+Agenci i rozszerzenia korzystają z tego samego mechanizmu aktualizacji. Niektóre aktualizacje nie wymagają dodatkowych reguł zapory.
 
-Gdy aktualizacja jest dostępna, jest instalowana na maszynie Wirtualnej tylko wtedy, gdy nastąpi zmiana rozszerzeń i inne zmiany modelu maszyny Wirtualnej, takie jak:
+Gdy aktualizacja jest dostępna, jest zainstalowana na maszynie wirtualnej tylko w przypadku zmiany rozszerzeń, a inne zmiany modelu maszyny wirtualnej, takie jak:
 
 - Dyski z danymi
 - Rozszerzenia
 - Kontener diagnostyki rozruchu
-- Tajemnice systemu operacyjnego gościa
+- Wpisy tajne systemu operacyjnego gościa
 - Rozmiar maszyny wirtualnej
 - Profil sieciowy
 
-Wydawcy udostępniają aktualizacje regionom o różnych porach, dzięki czemu można mieć maszyny wirtualne w różnych regionach w różnych wersjach.
+Wydawcy udostępniają aktualizacje regionom w różnym czasie, więc możliwe jest posiadanie maszyn wirtualnych w różnych regionach w różnych wersjach.
 
-#### <a name="listing-extensions-deployed-to-a-vm"></a>Rozszerzeń listy wdrożonych na maszynie wirtualnej
+#### <a name="listing-extensions-deployed-to-a-vm"></a>Wyświetlanie listy rozszerzeń wdrożonych na maszynie wirtualnej
 
 ```powershell
 $vm = Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
@@ -284,17 +284,17 @@ Publisher             VirtualMachineExtensionType          TypeHandlerVersion
 Microsoft.Compute     CustomScriptExtension                1.9
 ```
 
-#### <a name="agent-updates"></a>Aktualizacje agentów
+#### <a name="agent-updates"></a>Aktualizacje agenta
 
-Agent gościa systemu Windows zawiera tylko *kod obsługi rozszerzeń,* *kod inicjowania obsługi systemu Windows* jest oddzielny. Agenta gościa systemu Windows można odinstalować. Nie można wyłączyć automatycznej aktualizacji agenta gościa okna.
+Agent gościa systemu Windows zawiera tylko *kod obsługi rozszerzenia*, *kod aprowizacji systemu Windows* jest oddzielony. Można odinstalować agenta gościa systemu Windows. Nie można wyłączyć automatycznej aktualizacji agenta gościa systemu Windows.
 
-*Kod obsługi rozszerzeń* jest odpowiedzialny za komunikowanie się z siecią szkieletową platformy Azure i obsługę operacji rozszerzeń maszyn wirtualnych, takich jak instalacje, stan raportowania, aktualizowanie poszczególnych rozszerzeń i ich usuwanie. Aktualizacje zawierają poprawki zabezpieczeń, poprawki błędów i ulepszenia *kodu obsługi rozszerzeń*.
+*Kod obsługi rozszerzenia* jest odpowiedzialny za komunikowanie się z siecią szkieletową Azure i obsługują operacje rozszerzeń maszyn wirtualnych, takie jak instalowanie, raportowanie stanu, aktualizowanie poszczególnych rozszerzeń i ich usuwanie. Aktualizacje zawierają poprawki zabezpieczeń, poprawki błędów i ulepszenia *kodu obsługi rozszerzenia*.
 
-Aby sprawdzić, jaką wersję masz, zobacz [Wykrywanie zainstalowanego programu Windows Guest Agent](agent-windows.md#detect-the-vm-agent).
+Aby sprawdzić, która wersja jest uruchomiona, zobacz [wykrywanie zainstalowanego agenta gościa systemu Windows](agent-windows.md#detect-the-vm-agent).
 
 #### <a name="extension-updates"></a>Aktualizacje rozszerzeń
 
-Gdy aktualizacja rozszerzenia jest dostępna, agent gościa systemu Windows pobiera i uaktualnia rozszerzenie. Automatyczne aktualizacje rozszerzeń są *niewielkie* lub *poprawki*. Możesz wyrazić zgodę na rozszerzenia *Drobne* aktualizacje lub zrezygnować z nich podczas udostępniania rozszerzenia. W poniższym przykładzie pokazano, jak automatycznie uaktualnić wersje pomocnicze w szablonie Menedżera zasobów za pomocą *autoUpgradeMinorVersion": true,'*:
+Po udostępnieniu aktualizacji rozszerzenia Agent gościa systemu Windows pobiera i uaktualnia rozszerzenie. Automatyczna aktualizacja rozszerzeń jest *niewielka* lub *poprawka*. Można zrezygnować z rozszerzeń lub zrezygnować z nich podczas inicjowania obsługi *administracyjnej rozszerzenia.* Poniższy przykład pokazuje, jak automatycznie uaktualniać wersje pomocnicze w szablonie Menedżer zasobów z *włączoną flagą autoupgrademinorversion ": true*":
 
 ```json
     "properties": {
@@ -309,20 +309,20 @@ Gdy aktualizacja rozszerzenia jest dostępna, agent gościa systemu Windows pobi
     },
 ```
 
-Aby uzyskać najnowsze drobne poprawki błędów w wersji, zdecydowanie zaleca się, aby zawsze wybierać automatyczną aktualizację w wdrożeniach rozszerzeń. Nie można zrezygnować z aktualizacji poprawek, które zawierają zabezpieczenia lub poprawki błędów kluczy.
+Aby uzyskać najnowsze poprawki błędów wersji, zdecydowanie zaleca się, aby zawsze wybierać aktualizacje AutoUpdate we wdrożeniach rozszerzenia. Nie można zrezygnować z aktualizacji poprawek, które mają poprawki zabezpieczeń lub klucza.
 
-### <a name="how-to-identify-extension-updates"></a>Jak zidentyfikować aktualizacje rozszerzenia
+### <a name="how-to-identify-extension-updates"></a>Jak zidentyfikować aktualizacje rozszerzeń
 
-#### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Określenie, czy rozszerzenie jest ustawione z autoUpgradeMinorVersion na maszynie Wirtualnej
+#### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Określanie, czy rozszerzenie jest ustawione na włączoną flagą autoupgrademinorversion na maszynie wirtualnej
 
-Z modelu maszyny Wirtualnej można zobaczyć, czy rozszerzenie zostało zainicjowane za pomocą funkcji "autoUpgradeMinorVersion". Aby to sprawdzić, użyj [funkcji Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) i podaj następującą nazwę grupy zasobów i maszyny wirtualnej:
+Jeśli rozszerzenie zostało udostępnione za pomocą elementu "włączoną flagą autoupgrademinorversion", można je zobaczyć z modelu maszyny wirtualnej. Aby sprawdzić, użyj polecenie [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) i podaj nazwę grupy zasobów i maszyny wirtualnej w następujący sposób:
 
 ```powerShell
  $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
  $vm.Extensions
 ```
 
-Poniższe przykładowe dane wyjściowe pokazują, że *autoUpgradeMinorVersion* jest ustawiona na *true:*
+Następujące przykładowe dane wyjściowe pokazują, że *włączoną flagą autoupgrademinorversion* jest ustawiona na *true*:
 
 ```powershell
 ForceUpdateTag              :
@@ -332,11 +332,11 @@ TypeHandlerVersion          : 1.9
 AutoUpgradeMinorVersion     : True
 ```
 
-#### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Identyfikowanie, kiedy wystąpiła funkcja autoUpgradeMinorVersion
+#### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Identyfikowanie, kiedy wystąpił włączoną flagą autoupgrademinorversion
 
-Aby zobaczyć, kiedy nastąpiła aktualizacja rozszerzenia, przejrzyj dzienniki agenta na maszynie Wirtualnej pod adresem *C:\WindowsAzure\Logs\WaAppAgent.log*
+Aby sprawdzić, kiedy wystąpiła aktualizacja rozszerzenia, Przejrzyj dzienniki agenta na maszynie wirtualnej w lokalizacji *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-W poniższym przykładzie maszyna wirtualna miała zainstalowany *system Microsoft.Compute.CustomScriptExtension 1.8.* Poprawka była dostępna w wersji *1.9:*
+W poniższym przykładzie maszyna wirtualna ma zainstalowaną *firmę Microsoft. COMPUTE. CustomScriptExtension 1,8* . Poprawka była dostępna w wersji *1,9*:
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'
@@ -345,33 +345,33 @@ W poniższym przykładzie maszyna wirtualna miała zainstalowany *system Microso
 
 ## <a name="agent-permissions"></a>Uprawnienia agenta
 
-Aby wykonać swoje zadania, agent musi działać jako *system lokalny*.
+Aby wykonać swoje zadania, Agent musi działać jako *System lokalny*.
 
-## <a name="troubleshoot-vm-extensions"></a>Rozwiązywanie problemów z rozszerzeniami maszyn wirtualnych
+## <a name="troubleshoot-vm-extensions"></a>Rozwiązywanie problemów z rozszerzeniami maszyny wirtualnej
 
-Każde rozszerzenie maszyny Wirtualnej może mieć kroki rozwiązywania problemów specyficzne dla rozszerzenia. Na przykład podczas korzystania z rozszerzenia skryptu niestandardowego szczegóły wykonywania skryptu można znaleźć lokalnie na maszynie Wirtualnej, gdzie zostało uruchomione rozszerzenie. Wszelkie kroki rozwiązywania problemów specyficzne dla rozszerzenia są szczegółowo opisane w dokumentacji specyficznej dla rozszerzenia.
+Każde rozszerzenie maszyny wirtualnej może zawierać kroki rozwiązywania problemów specyficzne dla danego rozszerzenia. Na przykład jeśli używasz niestandardowego rozszerzenia skryptu, szczegóły wykonania skryptu można znaleźć lokalnie na maszynie wirtualnej, w której uruchomiono rozszerzenie. Wszelkie kroki rozwiązywania problemów specyficzne dla rozszerzenia są szczegółowo opisane w dokumentacji dotyczącej rozszerzenia.
 
 Poniższe kroki rozwiązywania problemów dotyczą wszystkich rozszerzeń maszyn wirtualnych.
 
-1. Aby sprawdzić dziennik agenta gościa systemu Windows, przyjrzyj się aktywności, gdy rozszerzenie było aprowizowane w *języku C:\WindowsAzure\Logs\WaAppAgent.log*
+1. Aby sprawdzić dziennik agenta gościa systemu Windows, zapoznaj się z działaniem w przypadku aprowizacji rozszerzenia w *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Sprawdź rzeczywiste dzienniki rozszerzeń, aby uzyskać więcej szczegółów w *C:\WindowsAzure\Logs\Plugins\<extensionName>*
+2. Zapoznaj się z rzeczywistymi dziennikami rozszerzeń, aby uzyskać więcej szczegółów w *C:\WindowsAzure\Logs\Plugins\<ExtensionName>*
 
-3. Sprawdź sekcje rozwiązywania problemów z dokumentacją dotyczącą rozszerzenia, aby uzyskać kody błędów, znane problemy itp.
+3. Sprawdź sekcje dotyczące rozwiązywania problemów z dokumentacją dotyczącą kodów błędów, znanych problemów itp.
 
-4. Spójrz na dzienniki systemowe. Sprawdź, czy inne operacje, które mogły zakłócać rozszerzenie, takie jak długotrwała instalacja innej aplikacji, która wymagała wyłącznego dostępu menedżera pakietów.
+4. Sprawdź dzienniki systemu. Sprawdź inne operacje, które mogły mieć wpływ na rozszerzenie, takie jak długotrwała instalacja innej aplikacji wymagającej wyłącznego dostępu do Menedżera pakietów.
 
-### <a name="common-reasons-for-extension-failures"></a>Typowe przyczyny awarii rozszerzenia
+### <a name="common-reasons-for-extension-failures"></a>Typowe przyczyny błędów rozszerzeń
 
-1. Rozszerzenia mają 20 minut do uruchomienia (wyjątki to rozszerzenia CustomScript, Chef i DSC, które mają 90 minut). Jeśli wdrożenie przekracza ten czas, jest oznaczony jako limit czasu. Przyczyną tego może być ze względu na maszyny wirtualne o niskiej ilości zasobów, inne konfiguracje maszyn wirtualnych/uruchamianie zadań zużywających duże ilości zasobów, podczas gdy rozszerzenie próbuje aprowizować.
+1. Rozszerzenia mają 20 minut na uruchomienie (wyjątki to rozszerzenia CustomScript, Chef i DSC o 90 minutach). Jeśli wdrożenie przekroczy ten czas, zostanie ono oznaczone jako przekroczenie limitu czasu. Przyczyną tego problemu może być niewielka liczba maszyn wirtualnych zasobów, inne konfiguracje maszyn wirtualnych/zadania uruchamiania zużywające duże ilości zasobów, gdy rozszerzenie próbuje zainicjować obsługę administracyjną.
 
-2. Minimalne wymagania wstępne nie zostały spełnione. Niektóre rozszerzenia mają zależności od jednostek SKU maszyn wirtualnych, takich jak obrazy HPC. Rozszerzenia mogą wymagać pewnych wymagań dotyczących dostępu do sieci, takich jak komunikowanie się z usługą Azure Storage lub usług publicznych. Inne przykłady mogą to być dostęp do repozytoriów pakietów, brak miejsca na dysku lub ograniczenia zabezpieczeń.
+2. Nie spełniono minimalnych wymagań wstępnych. Niektóre rozszerzenia mają zależności od jednostek SKU maszyn wirtualnych, takich jak obrazy HPC. Rozszerzenia mogą wymagać pewnych wymagań dostępu do sieci, na przykład komunikacji z usługą Azure Storage lub usługami publicznymi. Innym przykładem może być dostęp do repozytoriów pakietów, brak miejsca na dysku lub ograniczenia zabezpieczeń.
 
-3. Ekskluzywny dostęp do menedżera pakietów. W niektórych przypadkach może wystąpić długotrwała konfiguracja maszyny Wirtualnej i instalacji rozszerzenia powodujące konflikt, gdzie oba one potrzebują wyłącznego dostępu do menedżera pakietów.
+3. Wyłączny dostęp do Menedżera pakietów. W niektórych przypadkach może wystąpić konfiguracja długotrwałej maszyny wirtualnej i rozwiązywanie konfliktów instalacji rozszerzeń, gdzie oba potrzebują wyłącznego dostępu do Menedżera pakietów.
 
 ### <a name="view-extension-status"></a>Wyświetl stan rozszerzenia
 
-Po uruchomieniu rozszerzenia maszyny Wirtualnej względem maszyny Wirtualnej należy użyć [funkcji Get-AzVM,](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) aby zwrócić stan rozszerzenia. *Podstatusy[0]* pokazuje, że inicjowanie obsługi administracyjnej rozszerzenia powiodło się, co oznacza, że pomyślnie wdrożone na maszynie wirtualnej, ale wykonanie rozszerzenia wewnątrz maszyny Wirtualnej nie powiodło się, *Podstatusy[1]*.
+Po uruchomieniu rozszerzenia maszyny wirtualnej na maszynie wirtualnej Użyj polecenie [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) , aby przywrócić stan rozszerzenia. *Stany podstanów [0]* pokazują, że inicjowanie obsługi rozszerzenia zakończyło się pomyślnie, co oznacza, że zostało pomyślnie wdrożone na maszynie wirtualnej, ale wykonanie rozszerzenia wewnątrz maszyny wirtualnej nie powiodło się, *podstanów [1]*.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
@@ -403,31 +403,31 @@ Extensions[0]           :
     Message             : Finished executing command
 ```
 
-Stan wykonania rozszerzenia można również znaleźć w witrynie Azure portal. Aby wyświetlić stan rozszerzenia, wybierz maszynę wirtualną, wybierz **pozycję Rozszerzenia**, a następnie wybierz żądane rozszerzenie.
+Stan wykonania rozszerzenia można również znaleźć w Azure Portal. Aby wyświetlić stan rozszerzenia, wybierz maszynę wirtualną, wybierz pozycję **rozszerzenia**, a następnie wybierz odpowiednie rozszerzenie.
 
-### <a name="rerun-vm-extensions"></a>Ponowne przyokazanie rozszerzeń maszyn wirtualnych
+### <a name="rerun-vm-extensions"></a>Uruchom ponownie rozszerzenia maszyn wirtualnych
 
-Mogą wystąpić przypadki, w których rozszerzenie maszyny Wirtualnej musi zostać ponownie uruchom. Rozszerzenie można ponownie uruchomić, usuwając je, a następnie ponownie uruchomić rozszerzenie przy pomocą wybranej metody wykonywania. Aby usunąć rozszerzenie, należy użyć [usuń-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension) w następujący sposób:
+Mogą wystąpić sytuacje, w których rozszerzenie maszyny wirtualnej musi zostać ponownie uruchomione. Możesz ponownie uruchomić rozszerzenie, usuwając je, a następnie uruchamiając ponownie rozszerzenie z wybraną metodą wykonywania. Aby usunąć rozszerzenie, użyj polecenie [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension) w następujący sposób:
 
 ```powershell
 Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
 ```
 
-Można również usunąć rozszerzenie w witrynie Azure portal w następujący sposób:
+Możesz również usunąć rozszerzenie w Azure Portal w następujący sposób:
 
 1. Wybierz maszynę wirtualną.
-2. Wybierz **pozycję Rozszerzenia**.
+2. Wybierz **rozszerzenia**.
 3. Wybierz żądane rozszerzenie.
-4. Wybierz **pozycję Odinstaluj**.
+4. Wybierz **Odinstaluj**.
 
-## <a name="common-vm-extensions-reference"></a>Typowe odwołanie do rozszerzeń maszyn wirtualnych
+## <a name="common-vm-extensions-reference"></a>Informacje o typowych rozszerzeniach maszyn wirtualnych
 | Nazwa rozszerzenia | Opis | Więcej informacji |
 | --- | --- | --- |
 | Rozszerzenie niestandardowego skryptu dla systemu Windows |Uruchamianie skryptów na maszynie wirtualnej platformy Azure |[Rozszerzenie niestandardowego skryptu dla systemu Windows](custom-script-windows.md) |
-| Rozszerzenie DSC dla systemu Windows |Rozszerzenie programu PowerShell DSC (konfiguracja żądanego stanu) |[Rozszerzenie DSC dla systemu Windows](dsc-overview.md) |
-| Rozszerzenie Diagnostyki Azure |Zarządzanie diagnostyką platformy Azure |[Rozszerzenie diagnostyki platformy Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Rozszerzenie programu Azure VM Access |Zarządzanie użytkownikami i poświadczeniami |[Rozszerzenie dostępu do maszyn wirtualnych dla systemu Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Rozszerzenie DSC dla systemu Windows |Rozszerzenie DSC programu PowerShell (Konfiguracja żądanego stanu) |[Rozszerzenie DSC dla systemu Windows](dsc-overview.md) |
+| Rozszerzenie Diagnostyki Azure |Zarządzaj Diagnostyka Azure |[Diagnostyka Azure rozszerzenie](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Rozszerzenie dostępu do maszyny wirtualnej platformy Azure |Zarządzanie użytkownikami i poświadczeniami |[Rozszerzenie dostępu do maszyny wirtualnej dla systemu Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat rozszerzeń maszyn wirtualnych, zobacz [omówienie rozszerzeń i funkcji maszyn wirtualnych platformy Azure.](overview.md)
+Aby uzyskać więcej informacji o rozszerzeniach maszyn wirtualnych, zobacz [Omówienie rozszerzeń i funkcji maszyny wirtualnej platformy Azure](overview.md).

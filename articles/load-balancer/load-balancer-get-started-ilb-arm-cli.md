@@ -1,5 +1,5 @@
 ---
-title: Tworzenie wewnętrznego podstawowego modułu równoważenia obciążenia — narzędzie Azure CLI
+title: Tworzenie wewnętrznego Load Balancer w warstwie Podstawowa — interfejs wiersza polecenia platformy Azure
 titleSuffix: Azure Load Balancer
 description: W tym artykule dowiesz się, jak utworzyć wewnętrzny moduł równoważenia obciążenia przy użyciu interfejsu wiersza polecenia platformy Azure
 services: load-balancer
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: allensu
 ms.openlocfilehash: 51df1936e5d8725b2243e7c0084973370139c540
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79457015"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -62,7 +62,7 @@ W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania następ
 
 ### <a name="create-the-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
 
-Utwórz wewnętrzny moduł równoważenia obciążenia z [siecią az lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) o nazwie **myLoadBalancer,** która zawiera konfigurację IP frontonu o nazwie **myFrontEnd**, pulę zaplecza o nazwie **myBackEndPool,** która jest skojarzona z prywatnym adresem IP **10.0.0.7.
+Utwórz wewnętrzną Load Balancer za pomocą [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) o nazwie **myLoadBalancer** , która zawiera konfigurację adresu IP frontonu o nazwie Moja **fronton**, pulę zaplecza o nazwie **myBackEndPool** , która jest skojarzona z prywatnym adresem IP * * 10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \

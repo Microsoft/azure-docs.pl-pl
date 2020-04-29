@@ -1,107 +1,107 @@
 ---
-title: Zarządzanie serwerem — witryna Azure portal — usługa Azure Database for MariaDB
-description: Dowiedz się, jak zarządzać usługą Azure Database dla serwera MariaDB z witryny Azure portal.
+title: Zarządzanie serwerem Azure Portal-Azure Database for MariaDB
+description: Dowiedz się, jak zarządzać serwerem Azure Database for MariaDB przy użyciu Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 43004f8c52bbec17f78ed4be024cf75224dbd179
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530244"
 ---
-# <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Zarządzanie usługą Azure Database dla serwera MariaDB przy użyciu portalu Azure
-W tym artykule pokazano, jak zarządzać usługą Azure Database dla serwerów MariaDB. Zadania zarządzania obejmują skalowanie danych obliczeniowych i magazynowania, resetowanie hasła administratora oraz wyświetlanie szczegółów serwera.
+# <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Zarządzanie serwerem Azure Database for MariaDB przy użyciu Azure Portal
+W tym artykule pokazano, jak zarządzać serwerami Azure Database for MariaDB. Zadania zarządzania obejmują skalowanie obliczeniowe i magazynowe, Resetowanie hasła administratora oraz wyświetlanie szczegółów serwera.
 
-## <a name="sign-in"></a>Logowanie
-Zaloguj się do [Portalu Azure](https://portal.azure.com).
+## <a name="sign-in"></a>Zaloguj się
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-server"></a>Tworzenie serwera
-Odwiedź [przewodnik Szybki start,](quickstart-create-mariadb-server-database-using-azure-portal.md) aby dowiedzieć się, jak utworzyć i rozpocząć korzystanie z serwera usługi Azure Database dla MariaDB.
+Przejdź do [przewodnika Szybki Start](quickstart-create-mariadb-server-database-using-azure-portal.md) , aby dowiedzieć się, jak utworzyć serwer Azure Database for MariaDB i rozpocząć pracę z nim.
 
-## <a name="scale-compute-and-storage"></a>Skalowanie obliczeń i pamięci masowej
+## <a name="scale-compute-and-storage"></a>Skalowanie zasobów obliczeniowych i magazynu
 
-Po utworzeniu serwera można skalować warstwy ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci w miarę zmiany potrzeb. Można również skalować obliczenia i pamięć, zwiększając lub zmniejszając liczbę wirtualnych. Magazyn można skalować w górę (jednak nie można skalować w dół).
+Po utworzeniu serwera można skalować warstwy Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci stosownie do potrzeb. Możesz również skalować obliczenia i pamięć, zwiększając lub zmniejszając rdzeni wirtualnych. Magazyn można skalować w górę (nie można jednak skalować w dół).
 
-### <a name="scale-between-general-purpose-and-memory-optimized-tiers"></a>Skalowanie między warstwami ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci
+### <a name="scale-between-general-purpose-and-memory-optimized-tiers"></a>Skalowanie między Ogólnego przeznaczenia i warstw zoptymalizowanych pod kątem pamięci
 
-Można skalować z ogólnego przeznaczenia do zoptymalizowane pod kątem pamięci i odwrotnie. Zmiana na i z warstwy Podstawowa po utworzeniu serwera nie jest obsługiwana. 
+Możesz skalować od Ogólnego przeznaczenia do zoptymalizowanej pod kątem pamięci i na odwrót. Zmiana na i z warstwy Podstawowa po utworzeniu serwera nie jest obsługiwana. 
 
-1. Wybierz serwer w witrynie Azure portal. Wybierz **warstwę cenową**, znajdującą się w sekcji **Ustawienia.**
+1. Wybierz serwer w Azure Portal. Wybierz pozycję **warstwa cenowa**znajdująca się w sekcji **Ustawienia** .
 
-2. Wybierz **opcję Ogólne przeznaczenie** lub **Zoptymalizowane pod kątem pamięci**, w zależności od tego, do czego się skalujesz. 
+2. Wybierz **ogólnego przeznaczenia** lub **zoptymalizowane pod kątem pamięci**, w zależności od tego, na czym polegasz skalowaniu. 
 
-    ![warstwa zmiany cen](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+    ![zmiana ceny — warstwa](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
     > [!NOTE]
     > Zmiana warstw powoduje ponowne uruchomienie serwera.
 
-4. Wybierz **przycisk OK,** aby zapisać zmiany.
+4. Wybierz **przycisk OK** , aby zapisać zmiany.
 
 
-### <a name="scale-vcores-up-or-down"></a>Skalowanie korli wirtualnych w górę lub w dół
+### <a name="scale-vcores-up-or-down"></a>Skalowanie rdzeni wirtualnych w górę lub w dół
 
-1. Wybierz serwer w witrynie Azure portal. Wybierz **warstwę cenową**, znajdującą się w sekcji **Ustawienia.**
+1. Wybierz serwer w Azure Portal. Wybierz pozycję **warstwa cenowa**znajdująca się w sekcji **Ustawienia** .
 
-2. Zmień ustawienie **vCore,** przesuwając suwak do żądanej wartości.
+2. Zmień ustawienie **rdzeń wirtualny** , przesuwając suwak do żądanej wartości.
 
-    ![obliczenia skali](./media/howto-create-manage-server-portal/scaling-compute.png)
-
-    > [!NOTE]
-    > Skalowanie korli wirtualnych powoduje ponowne uruchomienie serwera.
-
-3. Wybierz **przycisk OK,** aby zapisać zmiany.
-
-
-### <a name="scale-storage-up"></a>Skalowanie pamięci masowej w górę
-
-1. Wybierz serwer w witrynie Azure portal. Wybierz **warstwę cenową**, znajdującą się w sekcji **Ustawienia.**
-
-2. Zmień ustawienie **Magazyn,** przesuwając suwak do żądanej wartości.
-
-    ![magazyn skalny](./media/howto-create-manage-server-portal/scaling-storage.png)
+    ![Skalowanie — obliczenia](./media/howto-create-manage-server-portal/scaling-compute.png)
 
     > [!NOTE]
-    > Nie można zmniejszyć pojemności.
+    > Skalowanie rdzeni wirtualnych powoduje ponowne uruchomienie serwera.
 
-3. Wybierz **przycisk OK,** aby zapisać zmiany.
+3. Wybierz **przycisk OK** , aby zapisać zmiany.
 
 
-## <a name="update-admin-password"></a>Aktualizacja hasła administratora
-Hasło roli administratora można zmienić za pomocą witryny Azure Portal.
+### <a name="scale-storage-up"></a>Skalowanie w górę
 
-1. Wybierz serwer w witrynie Azure portal. W oknie **Przegląd** wybierz **pozycję Resetuj hasło**.
+1. Wybierz serwer w Azure Portal. Wybierz pozycję **warstwa cenowa**znajdująca się w sekcji **Ustawienia** .
+
+2. Zmień ustawienie **magazynu** , przesuwając suwak w górę do żądanej wartości.
+
+    ![Skalowanie magazynu](./media/howto-create-manage-server-portal/scaling-storage.png)
+
+    > [!NOTE]
+    > Nie można skalować magazynu.
+
+3. Wybierz **przycisk OK** , aby zapisać zmiany.
+
+
+## <a name="update-admin-password"></a>Aktualizowanie hasła administratora
+Hasło roli administratora można zmienić przy użyciu Azure Portal.
+
+1. Wybierz serwer w Azure Portal. W oknie **Przegląd** wybierz pozycję **Resetuj hasło**.
 
    ![overview](./media/howto-create-manage-server-portal/overview-reset-password.png)
 
-2. Wprowadź nowe hasło i potwierdź hasło. Pole tekstowe wyświetli monit o wymagania dotyczące złożoności hasła.
+2. Wprowadź nowe hasło i Potwierdź hasło. W polu tekstowym zostanie wyświetlony monit o podanie wymagań dotyczących złożoności haseł.
 
-   ![resetowanie hasła](./media/howto-create-manage-server-portal/reset-password.png)
+   ![Resetowanie hasła](./media/howto-create-manage-server-portal/reset-password.png)
 
-3. Wybierz **przycisk OK,** aby zapisać nowe hasło.
+3. Wybierz **przycisk OK** , aby zapisać nowe hasło.
 
 
 ## <a name="delete-a-server"></a>Usuwanie serwera
 
 Serwer można usunąć, jeśli nie jest już potrzebny. 
 
-1. Wybierz serwer w witrynie Azure portal. W oknie **Przegląd** wybierz pozycję **Usuń**.
+1. Wybierz serwer w Azure Portal. W oknie **Przegląd** wybierz pozycję **Usuń**.
 
     ![delete](./media/howto-create-manage-server-portal/overview-delete.png)
 
-2. Wpisz nazwę serwera w polu wejściowym, aby potwierdzić, że jest to serwer, który chcesz usunąć.
+2. Wpisz nazwę serwera w polu wejściowym, aby upewnić się, że jest to serwer, który chcesz usunąć.
 
-    ![potwierdzanie-usuwanie](./media/howto-create-manage-server-portal/confirm-delete.png)
+    ![potwierdzenie usunięcia](./media/howto-create-manage-server-portal/confirm-delete.png)
 
     > [!NOTE]
-    > Usunięcie serwera jest nieodwracalne.
+    > Usuwanie serwera jest nieodwracalne.
 
 3. Wybierz pozycję **Usuń**.
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [kopiach zapasowych i przywracaniu serwera](howto-restore-server-portal.md)
-- Dowiedz się więcej o [opcjach dostrajania i monitorowania w usłudze Azure Database for MariaDB](concepts-monitoring.md)
+- Informacje o [kopiach zapasowych i przywracaniu serwera](howto-restore-server-portal.md)
+- Informacje o [opcjach dostrajania i monitorowania w Azure Database for MariaDB](concepts-monitoring.md)

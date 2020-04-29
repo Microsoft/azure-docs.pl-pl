@@ -1,6 +1,6 @@
 ---
-title: Diagnozowanie środowiska w wersji Zapoznawczej i rozwiązywanie problemów z tym środowiskiem — usługa Azure Time Series Insights | Dokumenty firmy Microsoft
-description: Dowiedz się, jak diagnozować środowisko usługi Azure Time Series Preview i rozwiązywać problemy z tym środowiskiem.
+title: Diagnozowanie i rozwiązywanie problemów dotyczących środowiska w wersji zapoznawczej — Azure Time Series Insights | Microsoft Docs
+description: Dowiedz się, jak zdiagnozować i rozwiązać problemy z Azure Time Series Insightsm w wersji zapoznawczej.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -11,124 +11,124 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: 667dee6365f38ae058e91c61c24838d8912df26a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80152664"
 ---
-# <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnozowanie i rozwiązywanie problemów ze środowiskiem w wersji zapoznawczej
+# <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnozowanie i rozwiązywanie problemów dotyczących środowiska w wersji zapoznawczej
 
-W tym artykule podsumowano kilka typowych problemów, które mogą wystąpić podczas pracy ze środowiskiem usługi Azure Time Series Insights Preview. W artykule opisano również potencjalne przyczyny i rozwiązania dla każdego problemu.
+W tym artykule opisano kilka typowych problemów, które mogą wystąpić podczas pracy ze środowiskiem Azure Time Series Insights w wersji zapoznawczej. W tym artykule opisano również potencjalne przyczyny i rozwiązania każdego problemu.
 
-## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>Problem: nie mogę znaleźć środowiska w eksploratorze wersji zapoznawczej
+## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>Problem: nie można znaleźć mojego środowiska w Eksploratorze wersji zapoznawczej
 
-Ten problem może wystąpić, jeśli nie masz uprawnień dostępu do środowiska usługi Time Series Insights. Użytkownicy potrzebują roli dostępu na poziomie czytnika, aby wyświetlić ich środowisko usługi Time Series Insights. Aby zweryfikować bieżące poziomy dostępu i udzielić dodatkowego dostępu, przejdź do sekcji **Zasady dostępu** do danych w zasobie Usługi Time Series Insights w [witrynie Azure portal](https://portal.azure.com/).
+Ten problem może wystąpić, jeśli nie masz uprawnień dostępu do środowiska Time Series Insights. Aby wyświetlić środowisko Time Series Insights, użytkownicy muszą mieć rolę dostępu na poziomie czytnika. Aby sprawdzić bieżące poziomy dostępu i udzielić dodatkowego dostępu, przejdź do sekcji **zasady dostępu do danych** w zasobie Time Series Insights w [Azure Portal](https://portal.azure.com/).
 
-  [![Weryfikuj zasady dostępu do danych.](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
+  [![Sprawdź zasady dostępu do danych.](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
 
-## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problem: W Eksploratorze podglądu nie są widoczne żadne dane
+## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problem: w Eksploratorze wersji zapoznawczej nie są widoczne żadne dane
 
-Istnieje kilka typowych powodów, dla których dane mogą nie być wyświetlane w [Eksploratorze usługi Azure Time Series Insights Preview](https://insights.timeseries.azure.com/preview).
+Istnieje kilka typowych przyczyn, dla których dane mogą nie być wyświetlane w [eksploratorze Azure Time Series Insights w wersji zapoznawczej](https://insights.timeseries.azure.com/preview).
 
 - Źródło zdarzenia może nie odbierać danych.
 
-    Sprawdź, czy źródło zdarzeń, które jest centrum zdarzeń lub centrum IoT hub, odbiera dane ze znaczników lub wystąpień. Aby zweryfikować, przejdź do strony przeglądu zasobu w witrynie Azure portal.
+    Sprawdź, czy źródło zdarzeń, które jest centrum zdarzeń lub Centrum IoT, otrzymuje dane ze swoich tagów lub wystąpień. Aby sprawdzić, przejdź do strony Przegląd zasobu w Azure Portal.
 
-    [![Przejrzyj omówienie metryk pulpitu nawigacyjnego.](media/preview-troubleshoot/verify-dashboard-metrics.png)](media/preview-troubleshoot/verify-dashboard-metrics.png#lightbox)
+    [![Przegląd metryk pulpitu nawigacyjnego.](media/preview-troubleshoot/verify-dashboard-metrics.png)](media/preview-troubleshoot/verify-dashboard-metrics.png#lightbox)
 
 - Dane źródłowe zdarzenia nie są w formacie JSON.
 
-    Usługa Time Series Insights obsługuje tylko dane JSON. W przypadku próbek JSON można przeczytać [w obszarze Obsługiwane kształty JSON](./how-to-shape-query-json.md).
+    Time Series Insights obsługuje tylko dane JSON. W przypadku przykładów JSON Przeczytaj [obsługiwane kształty JSON](./how-to-shape-query-json.md).
 
 - Klucz źródła zdarzenia nie ma wymaganego uprawnienia.
 
-  * W przypadku centrum IoT hub należy podać klucz, który ma uprawnienia **do łączenia usługi.**
+  * W przypadku usługi IoT Hub należy podać klucz, który ma uprawnienia do **połączenia z usługą** .
 
-    [![Sprawdź uprawnienia centrum IoT.](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
+    [![Sprawdź uprawnienia do centrum IoT Hub.](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
 
-    * Zarówno zasady **iothubowner** i **usługi** pracy, ponieważ mają one uprawnienia **do łączenia usługi.**
+    * Zarówno zasady **iothubowner** , jak i działanie **usługi** , ponieważ mają uprawnienie do **łączenia usług** .
 
-  * W przypadku centrum zdarzeń należy podać klucz, który ma **uprawnienie Nasłuchiwać.**
+  * W przypadku centrum zdarzeń należy podać klucz, który ma uprawnienia do **nasłuchiwania** .
   
-    [![Przejrzyj uprawnienia Centrum zdarzeń.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
+    [![Przejrzyj uprawnienia centrum zdarzeń.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-    * Zasady **odczytu** i **zarządzania** działają, ponieważ mają uprawnienia **Nasłuchiwania.**
+    * Zasady **odczytu** i **zarządzania** działają, ponieważ mają uprawnienia do **nasłuchiwania** .
 
-- Twoja grupa odbiorców pod warunkiem, że nie jest wyłącznie do time series insights.
+- Podana Grupa odbiorców nie ma wyłącznej Time Series Insights.
 
-    Podczas rejestracji centrum IoT hub lub centrum zdarzeń należy określić grupę odbiorców, która jest używana do odczytywania danych. Ta grupa odbiorców musi być unikatowa dla środowiska. Jeśli grupa odbiorców jest współużytkowana, centrum zdarzeń podstawowej automatycznie rozłącza losowo jednego z czytników. Podaj unikatową grupę odbiorców dla usługi Time Series Insights do odczytu.
+    Podczas rejestracji Centrum IoT Hub lub centrum zdarzeń należy określić grupę konsumentów, która jest używana do odczytywania danych. Ta grupa odbiorców musi być unikatowa dla danego środowiska. Jeśli grupa konsumentów jest udostępniona, w podstawowym centrum zdarzeń automatycznie rozłącza jednego z czytelników. Podaj unikatową grupę odbiorców, w której ma zostać odczytana Time Series Insights.
 
-- Właściwość identyfikatora szeregów czasowych określona w czasie inicjowania obsługi administracyjnej jest niepoprawna, brakuje lub null.
+- Właściwość identyfikatora szeregów czasowych określona w chwili aprowizacji jest nieprawidłowa, nie istnieje lub ma wartość null.
 
-    Ten problem może wystąpić, jeśli właściwość identyfikator szeregów czasowych jest niepoprawnie skonfigurowany w czasie inicjowania obsługi administracyjnej środowiska. Aby uzyskać więcej informacji, przeczytaj [najważniejsze wskazówki dotyczące wybierania identyfikatora szeregów czasowych](./time-series-insights-update-how-to-id.md). W tej chwili nie można zaktualizować istniejącego środowiska usługi Time Series Insights, aby użyć innego identyfikatora szeregów czasowych.
+    Ten problem może wystąpić, jeśli właściwość identyfikatora szeregów czasowych została skonfigurowana niepoprawnie w momencie aprowizacji środowiska. Aby uzyskać więcej informacji, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi wybierania identyfikatora szeregów czasowych](./time-series-insights-update-how-to-id.md). W tej chwili nie można zaktualizować istniejącego środowiska Time Series Insights, aby użyć innego identyfikatora szeregów czasowych.
 
-## <a name="problem-some-data-shows-but-some-is-missing"></a>Problem: Niektóre dane pokazują, ale brakuje niektórych
+## <a name="problem-some-data-shows-but-some-is-missing"></a>Problem: niektóre dane są widoczne, ale brakuje niektórych
 
-Być może wysyłasz dane bez identyfikatora szeregów czasowych.
+Dane mogą być wysyłane bez identyfikatora szeregów czasowych.
 
-- Ten problem może wystąpić podczas wysyłania zdarzeń bez pola Identyfikator szeregów czasowych w ładunku. Aby uzyskać więcej informacji, zobacz [Obsługiwane kształty JSON](./how-to-shape-query-json.md).
-- Ten problem może wystąpić, ponieważ środowisko jest ograniczane.
+- Ten problem może wystąpić, gdy wysyłasz zdarzenia bez pola identyfikatora szeregów czasowych w ładunku. Aby uzyskać więcej informacji, Przeczytaj [obsługiwane kształty JSON](./how-to-shape-query-json.md).
+- Ten problem może wystąpić, ponieważ Twoje środowisko jest ograniczone.
 
     > [!NOTE]
-    > W tej chwili aplikacja Time Series Insights obsługuje maksymalną szybkość pozyskiwania 6 Mb/s.
+    > W tej chwili Time Series Insights obsługuje maksymalny współczynnik pozyskiwania wynoszący 6 MB/s.
 
-## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>Problem: Dane były wyświetlane, ale teraz połknienie zostało zatrzymane
+## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>Problem: dane były wyświetlane, ale teraz trwa ich pozyskiwanie
 
-- Być może klucz źródłowy zdarzenia został ponownie wygenerowany, a środowisko w wersji zapoznawczej wymaga nowego klucza źródłowego zdarzenia.
+- Klucz źródła zdarzeń mógł zostać wygenerowany ponownie, a środowisko wersji zapoznawczej wymaga nowego klucza źródła zdarzenia.
 
-Ten problem występuje, gdy klucz podany podczas tworzenia źródła zdarzeń nie jest już prawidłowy. Zostaną wyświetleń danych telemetrycznych w centrum, ale nie przychodzące odebrane wiadomości w aplikacji Time Series Insights. Jeśli nie masz pewności, czy klucz został ponownie wygenerowany, możesz przeszukać dziennik aktywności centrum zdarzeń pod kątem "Utwórz lub zaktualizuj reguły autoryzacji obszaru nazw" lub wyszukaj "Utwórz lub zaktualizuj zasób IotHub" dla centrum IoT Hub. 
+Ten problem występuje, gdy klucz podany podczas tworzenia źródła zdarzenia nie jest już prawidłowy. W centrum zobaczysz dane telemetryczne, ale w Time Series Insights nie odebrano komunikatów przychodzących. Jeśli nie masz pewności, czy klucz został wygenerowany ponownie, możesz wyszukać w dzienniku aktywności "Event Hubs" utworzyć lub zaktualizować reguły autoryzacji przestrzeni nazw lub wyszukać opcję "Utwórz lub zaktualizuj zasób IotHub" dla usługi IoT Hub. 
 
-Aby zaktualizować środowisko usługi Time Series Insights Preview za pomocą nowego klucza, otwórz zasób centrum w witrynie Azure portal i skopiuj nowy klucz. Przejdź do zasobu TSI i kliknij źródła zdarzeń. 
+Aby zaktualizować środowisko Time Series Insights w wersji zapoznawczej przy użyciu nowego klucza, Otwórz zasób centrum w Azure Portal i skopiuj nowy klucz. Przejdź do zasobu TSI i kliknij pozycję źródła zdarzeń. 
 
-   [![Klucz aktualizacji.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
+   [![Zaktualizuj klucz.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
-Wybierz źródło zdarzeń, z których zatrzymano pozyskiwanie, wklej nowy klucz i kliknij przycisk Zapisz.
+Wybierz źródła zdarzeń, z których zostało zatrzymane pozyskiwanie, wklej nowy klucz i kliknij przycisk Zapisz.
 
-   [![Klucz aktualizacji.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
+   [![Zaktualizuj klucz.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
 
-## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problem: Nazwa właściwości Sygnatury czasowej mojego źródła zdarzeń nie działa
+## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problem: Nazwa właściwości sygnatury czasowej źródła zdarzenia nie działa
 
 Upewnij się, że nazwa i wartość są zgodne z następującymi regułami:
 
-* W nazwie właściwości sygnatury czasowej jest rozróżniana wielkość liter.
-* Wartość właściwości sygnatury czasowej, która pochodzi ze `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`źródła zdarzenia jako ciąg JSON ma format . Przykładem takiego ciągu `“2008-04-12T12:53Z”`jest .
+* W nazwie właściwości sygnatury czasowej jest uwzględniana wielkość liter.
+* Wartość właściwości timestamp, która pochodzi ze źródła zdarzenia jako ciąg JSON, ma format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Przykładem takiego ciągu jest `“2008-04-12T12:53Z”`.
 
-Najprostszym sposobem zapewnienia, że nazwa właściwości sygnatury czasowej jest przechwytywany i działa poprawnie jest użycie Eksploratora podglądu usługi Time Series Insights. W eksploratorze Podgląd warstwy czasowej wglądu w dane czasowe użyj wykresu, aby wybrać okres po podasz nazwę właściwości sygnatury czasowej. Kliknij prawym przyciskiem myszy zaznaczenie i wybierz opcję **eksploruj wydarzenia.** Pierwszy nagłówek kolumny to nazwa właściwości sygnatury czasowej. Powinien mieć `($ts)` obok słowa `Timestamp`, a nie:
+Najprostszym sposobem, aby upewnić się, że nazwa właściwości sygnatury czasowej została przechwycona i działa prawidłowo, to użycie Eksploratora Time Series Insights w wersji zapoznawczej. W Eksploratorze Time Series Insights w wersji zapoznawczej Użyj wykresu, aby wybrać okres czasu po podaniu nazwy właściwości sygnatury czasowej. Kliknij prawym przyciskiem myszy zaznaczenie i wybierz opcję **Eksploruj zdarzenia** . Pierwszy nagłówek kolumny jest nazwą właściwości znacznika czasu. Powinien zawierać `($ts)` obok wyrazu `Timestamp`, a nie:
 
-* `(abc)`, co oznacza, że usługa Time Series Insights odczytuje wartości danych jako ciągi.
-* Ikona **kalendarza,** która wskazuje, że usługa Time Series Insights odczytuje wartość danych jako datetime.
-* `#`, co oznacza, że usługa Time Series Insights odczytuje wartości danych jako całkowitą.
+* `(abc)`, co oznacza, że Time Series Insights odczytuje wartości danych jako ciągi.
+* Ikona **kalendarza** , która wskazuje, że Time Series Insights odczytuje wartość danych jako datę i godzinę.
+* `#`, co oznacza, że Time Series Insights odczytuje wartości danych jako liczbę całkowitą.
 
-Jeśli właściwość sygnatury czasowej nie jest jawnie określona, centrum IoT lub centrum zdarzeń Enqueued Time jest używany jako domyślny sygnatura czasowa.
+Jeśli właściwość sygnatury czasowej nie zostanie określona jawnie, jako domyślny znacznik czasu zostanie użyta godzina zdarzenia w centrum IoT lub centrum zdarzeń.
 
-## <a name="problem-i-cant-view-data-from-my-warm-store-in-the-explorer"></a>Problem: Nie mogę wyświetlić danych z mojego ciepłego magazynu w eksploratorze
+## <a name="problem-i-cant-view-data-from-my-warm-store-in-the-explorer"></a>Problem: nie można wyświetlić danych ze sklepu ciepłego w Eksploratorze
 
-- Być może ostatnio zainicjowano aprowisję w ciepłym magazynie, a dane nadal płyną.
-- Być może został usunięty ciepły magazyn, w którym to przypadku utracisz dane.
+- Być może ostatnio zainicjowano aprowizacji sklepu, a dane nadal przepływają.
+- Prawdopodobnie usunięto magazyn ciepły. w takim przypadku dane zostaną utracone.
 
-## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>Problem: nie mogę wyświetlić ani edytować modelu szeregów czasowych
+## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>Problem: nie można wyświetlić lub edytować mojego modelu szeregów czasowych
 
-- Być może uzyskujesz dostęp do środowiska usługi Time Series Insights S1 lub S2.
+- Można uzyskać dostęp do środowiska Time Series Insights S1 lub S2.
 
-   Modele szeregów czasowych są obsługiwane tylko w środowiskach płatności zgodnie z rzeczywistymu po podróży. Aby uzyskać więcej informacji na temat uzyskiwania dostępu do środowiska S1 lub S2 z eksploratora Time Series Insights Preview, przeczytaj [wizualizację danych w eksploratorze.](./time-series-insights-update-explorer.md)
+   Modele szeregów czasowych są obsługiwane tylko w środowiskach z opcją płatność zgodnie z rzeczywistym użyciem. Aby uzyskać więcej informacji na temat uzyskiwania dostępu do środowiska S1 lub S2 z programu Time Series Insights Explorer w wersji zapoznawczej, przeczytaj temat [Wizualizacja danych w Eksploratorze](./time-series-insights-update-explorer.md).
 
    [![Brak zdarzeń w środowisku.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
 - Być może nie masz uprawnień do wyświetlania i edytowania modelu.
 
-   Użytkownicy potrzebują dostępu na poziomie współautora, aby edytować i wyświetlać swój model szeregów czasowych. Aby zweryfikować bieżące poziomy dostępu i udzielić dodatkowego dostępu, przejdź do sekcji **Zasady dostępu** do danych w zasobie usługi Time Series Insights w witrynie Azure portal.
+   Użytkownicy potrzebują dostępu na poziomie współautora, aby edytować i przeglądać swój model szeregów czasowych. Aby sprawdzić bieżące poziomy dostępu i udzielić dodatkowego dostępu, przejdź do sekcji **zasady dostępu do danych** w zasobie Time Series Insights w Azure Portal.
 
-## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problem: wszystkie moje wystąpienia w eksploratorze podglądu nie mają rodzica
+## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problem: wszystkie moje wystąpienia w Eksploratorze podglądu nie mają elementu nadrzędnego
 
-Ten problem może wystąpić, jeśli środowisko nie ma hierarchii modelu szeregów czasowych zdefiniowane. Aby uzyskać więcej informacji, zobacz [Praca z modelami szeregów czasowych](./time-series-insights-update-how-to-tsm.md).
+Ten problem może wystąpić, jeśli środowisko nie ma zdefiniowanej hierarchii modelu czasu szeregów czasowych. Aby uzyskać więcej informacji, przeczytaj artykuł [współpraca z modelami szeregów czasowych](./time-series-insights-update-how-to-tsm.md).
 
-  [![Nieparzyszone wystąpienia będą wyświetlać ostrzeżenie.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
+  [![W wystąpieniach nienadrzędnych zostanie wyświetlone ostrzeżenie.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj [artykuł Praca z modelami szeregów czasowych](./time-series-insights-update-how-to-tsm.md).
+- Czytaj informacje [o pracy z modelami szeregów czasowych](./time-series-insights-update-how-to-tsm.md).
 
-- Dowiedz się więcej o [obsługiwanych kształtach JSON](./how-to-shape-query-json.md).
+- Poznaj [obsługiwane kształty JSON](./how-to-shape-query-json.md).
 
-- Przejrzyj [planowanie i limity](./time-series-insights-update-plan.md) w usłudze Azure Time Series Insights Preview.
+- Zapoznaj się z tematem [Planowanie i limity](./time-series-insights-update-plan.md) w programie Azure Time Series Insights Preview.
